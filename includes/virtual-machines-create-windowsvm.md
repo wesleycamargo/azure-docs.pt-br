@@ -1,4 +1,4 @@
-1. Entre no [portal clássico](http://manage.windowsazure.com). Confira a oferta [Avaliação Gratuita](http://azure.microsoft.com/pricing/free-trial/) caso você ainda não tenha uma assinatura.
+1. Entre no [portal clássico](http://manage.windowsazure.com). Confira a oferta [Avaliação Gratuita](https://azure.microsoft.com/pricing/free-trial/) caso você ainda não tenha uma assinatura.
 
 2. Na barra de comandos na parte inferior da janela, clique em **Novo**.
 
@@ -20,16 +20,16 @@
 
 	- Para **Região/Grupo de Afinidade/Rede Virtual**, use uma região apropriada ao local. Também é possível optar por especificar uma rede virtual.
 
-	>[AZURE.NOTE]Se você desejar que uma máquina virtual use uma rede virtual, **deverá** especificar a rede virtual ao criar a máquina virtual. Você não poderá adicionar a máquina virtual a uma rede virtual depois de criar a VM. Para obter mais informações, consulte [Visão geral da Rede Virtual do Azure](virtual-networks-overview.md).
+	>[AZURE.NOTE] Se você desejar que uma máquina virtual use uma rede virtual, **deverá** especificar a rede virtual ao criar a máquina virtual. Você não poderá adicionar a máquina virtual a uma rede virtual depois de criar a VM. Para obter mais informações, consulte [Visão geral da Rede Virtual do Azure](virtual-networks-overview.md).
 	>
 	> Para obter detalhes sobre como configurar pontos de extremidade, consulte [Como instalar pontos de extremidade em uma máquina virtual](../articles/virtual-machines-set-up-endpoints.md).
 
 7. A quarta tela de configuração permite instalar o Agente de VM e configurar algumas das extensões disponíveis.
 
-	>[AZURE.NOTE]O agente de VM fornece o ambiente para instalar extensões que podem ajudar a interagir com ou gerenciar a máquina virtual. Para obter detalhes, confira [Sobre o agente da VM e extensões](virtual-machines-extensions-agent-about.md).
+	>[AZURE.NOTE] O agente de VM fornece o ambiente para instalar extensões que podem ajudar a interagir com ou gerenciar a máquina virtual. Para obter detalhes, confira [Sobre o agente da VM e extensões](virtual-machines-extensions-agent-about.md).
 
 8. Depois que a máquina virtual é criada, o portal clássico lista a nova máquina virtual em **Máquinas Virtuais**. O serviço de nuvem correspondente e a conta de armazenamento também são criados e listados nessas seções. A máquina virtual e o serviço de nuvem são iniciados automaticamente, e seu status é listado como **Em Execução**.
 
 	![Configurar Agente de VM e os pontos de extremidade da máquina virtual](./media/virtual-machines-create-WindowsVM/vmcreated.png)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

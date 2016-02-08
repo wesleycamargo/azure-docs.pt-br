@@ -24,7 +24,7 @@ Consulte o tópico [Visão geral da rede virtual](virtual-networks-overview.md) 
 
 ### Como começar?
 
-Leia [a documentação da Rede Virtual](http://azure.microsoft.com/documentation/services/virtual-network/) para saber como começar a usá-la. Essa página contém links para as etapas de configuração comum, bem como informações que ajudarão você a entender tudo o que será necessário levar em consideração ao projetar a rede virtual.
+Leia [a documentação da Rede Virtual](https://azure.microsoft.com/documentation/services/virtual-network/) para saber como começar a usá-la. Essa página contém links para as etapas de configuração comum, bem como informações que ajudarão você a entender tudo o que será necessário levar em consideração ao projetar a rede virtual.
 
 ### Quais serviços posso usar com redes virtuais?
 
@@ -143,7 +143,7 @@ Sim. Você pode alterar a lista de servidores DNS para sua rede virtual a qualqu
 
 O DNS fornecido pelo Azure é um serviço DNS multilocatário oferecido pela Microsoft. O Azure registra todas as VMs e instâncias de função nesse serviço. Esse serviço fornece resolução de nome por nome de host para VMs e instâncias de função contidas no mesmo serviço de nuvem e por FQDN para VMs e instâncias de função na mesma rede virtual.
 
-> [AZURE.NOTE]No momento, existe uma limitação para os primeiros 100 serviços de nuvem na rede virtual para resolução de nome entre locatários usando DNS fornecido pelo Azure. Se você estiver usando seu próprio servidor DNS, essa limitação não se aplicará.
+> [AZURE.NOTE] No momento, existe uma limitação para os primeiros 100 serviços de nuvem na rede virtual para resolução de nome entre locatários usando DNS fornecido pelo Azure. Se você estiver usando seu próprio servidor DNS, essa limitação não se aplicará.
 
 ### Posso substituir minhas configurações DNS por VM/serviço?
 
@@ -193,7 +193,7 @@ Não. Você não deve alterar as propriedades da interface de VMs. As alteraçõ
 
 Nada. Os endereços IP (VIP público e endereço IP interno) permanecerão com seu serviço de nuvem ou máquina virtual.
 
-> [AZURE.NOTE]Se você deseja simplesmente desligar a VM, não use o Portal de Gerenciamento para fazer isso. Atualmente, o botão de desligamento desaloca a máquina virtual.
+> [AZURE.NOTE] Se você deseja simplesmente desligar a VM, não use o Portal de Gerenciamento para fazer isso. Atualmente, o botão de desligamento desaloca a máquina virtual.
 
 ### Posso mover VMs de uma sub-rede para outra em uma rede virtual sem reimplantação?
 
@@ -224,9 +224,9 @@ Sim. Você pode implantar Aplicativos Web em uma Rede Virtual usando o ASE (Ambi
 
 - [Criando Aplicativos Web em um Ambiente do Serviço de Aplicativo](app-service-web-how-to-create-a-web-app-in-an-ase.md)
 
-- [Integração da rede virtual de Aplicativos Web](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)
+- [Integração da rede virtual de Aplicativos Web](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)
 
-- [Usando conexões híbridas e integração de rede virtual com Aplicativos Web](http://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/)
+- [Usando conexões híbridas e integração de rede virtual com Aplicativos Web](https://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/)
 
 - [Integrar um aplicativo Web a uma Rede Virtual do Azure](web-sites-integrate-with-vnet.md)
 
@@ -266,4 +266,4 @@ Sim. Você pode usar APIs REST para gerenciar redes virtuais e conectividade ent
 
 Sim. Você pode usar ferramentas de linha de comando e o PowerShell para uma variedade de plataformas. Mais informações podem ser encontradas [aqui](http://go.microsoft.com/fwlink/?LinkId=317721).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

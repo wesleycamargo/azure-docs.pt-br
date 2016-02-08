@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/11/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # Tutorial de sistema de mensagens de retransmissão do Barramento de Serviço
@@ -21,9 +21,9 @@ Este tutorial descreve como compilar um serviço e aplicativo simples de cliente
 
 Trabalhar com este tutorial fornece uma compreensão das etapas necessárias para criar um aplicativo de serviço e cliente do Barramento de Serviço. Assim como suas contrapartes WCF, um serviço é um constructo que expõe um ou mais pontos de extremidade, cada um dos quais expõe uma ou mais operações de serviço. O ponto de extremidade de serviço especifica um endereço em que o serviço pode ser encontrado, uma associação que contém as informações que um cliente deve comunicar com o serviço e um contrato que define a funcionalidade fornecida pelo serviço a seus clientes. A principal diferença entre um WCF e um serviço de Barramento de Serviço é que o ponto de extremidade é exposto na nuvem, em vez de localmente em seu computador.
 
-Depois de trabalhar passando pela sequência de tópicos neste tutorial, você terá um serviço em execução e um cliente que pode invocar as operações do serviço. O primeiro tópico descreve como configurar uma conta. As próximas etapas descrevem como definir um serviço que usa um contrato, como implementar o serviço e como configurar o serviço no código. Eles também descrevem como hospedar e executar o serviço. O serviço é criado é auto-hospedado e o cliente e o serviço são executados no mesmo computador. Você pode configurar o serviço usando código ou um arquivo de configuração. Para obter mais informações, consulte [Configurar um serviço WCF para Registrar com o Barramento do Serviço](https://msdn.microsoft.com/library/ee173579.aspx) e [Compilar um Serviço para o Barramento de Serviço](https://msdn.microsoft.com/library/ee173564.aspx).
+Depois de trabalhar passando pela sequência de tópicos neste tutorial, você terá um serviço em execução e um cliente que pode invocar as operações do serviço. O primeiro tópico descreve como configurar uma conta. As próximas etapas descrevem como definir um serviço que usa um contrato, como implementar o serviço e como configurar o serviço no código. Eles também descrevem como hospedar e executar o serviço. O serviço é criado é auto-hospedado e o cliente e o serviço são executados no mesmo computador. Você pode configurar o serviço usando código ou um arquivo de configuração.
 
-As três etapas finais descrevem como criar um aplicativo cliente, configurá-lo e usar um cliente que pode acessar a funcionalidade do host. Para obter mais informações, consulte [Compilar um Aplicativo de Cliente do Barramento de Serviço](https://msdn.microsoft.com/library/ee173543.aspx) e [Descobrir e Expor um Serviço do Barramento de Serviço](https://msdn.microsoft.com/library/dd582704.aspx).
+As três etapas finais descrevem como criar um aplicativo cliente, configurá-lo e usar um cliente que pode acessar a funcionalidade do host.
 
 Todos os tópicos desta seção supõem que você está usando o Visual Studio como o ambiente de desenvolvimento.
 
@@ -33,23 +33,23 @@ A primeira etapa é criar um namespace de serviço do Barramento de Serviço e o
 
 1. Para criar um namespace de serviço, acesse o [portal clássico do Azure][]. Clique em **Barramento de Serviço** no lado esquerdo e clique em **Criar**. Digite um nome para o namespace e clique na marca de seleção.
 
-	>[AZURE.NOTE]Você não precisa usar o mesmo namespace para aplicativos cliente e de serviço.
+	>[AZURE.NOTE] Você não precisa usar o mesmo namespace para aplicativos cliente e de serviço.
 
-1. Na janela principal do [portal clássico do Azure][], clique no nome do namespace de serviço que você criou na etapa anterior.
+1. Na janela principal do portal, clique no nome do namespace de serviço criado na etapa anterior.
 
-2. Clique em **Configurar** para exibir as políticas de acesso compartilhado padrão para seu namespace de serviço.
+2. Clique em **Configurar** para exibir as políticas de acesso compartilhado padrão para seu namespace.
 
 3. Anote a chave primária para a política **RootManageSharedAccessKey** ou copie-a na área de transferência. Você usará este valor posteriormente neste tutorial.
 
 ## Definir um contrato de serviço WCF para usar com o Barramento de Serviço
 
-O contrato de serviço especifica a quais operações (a terminologia do serviço Web para funções ou métodos) o serviço dá suporte. Os contratos são criados pela definição de uma interface C++, C# ou Visual Basic. Cada método na interface corresponde a uma operação de serviço específica. O atributo [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) deve ser aplicado a cada interface e o atributo [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) deve ser aplicado a cada operação. Se um método em uma interface que tem o atributo [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) não tiver o atributo [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx), tal método não será exposto. O código para essas tarefas é fornecido no exemplo logo após o procedimento. Para obter mais informações sobre como definir um contrato, consulte [Projetar um Contrato WCF para o Barramento de Serviço](https://msdn.microsoft.com/library/ee173585.aspx). Para uma discussão mais ampla de contratos e serviços, consulte [Projetar e Implementar Serviços](https://msdn.microsoft.com/library/ms729746.aspx) na documentação do WCF.
+O contrato de serviço especifica a quais operações (a terminologia do serviço Web para funções ou métodos) o serviço dá suporte. Os contratos são criados pela definição de uma interface C++, C# ou Visual Basic. Cada método na interface corresponde a uma operação de serviço específica. O atributo [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) deve ser aplicado a cada interface e o atributo [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) deve ser aplicado a cada operação. Se um método em uma interface que tem o atributo [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) não tiver o atributo [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx), tal método não será exposto. O código para essas tarefas é fornecido no exemplo logo após o procedimento. Para uma discussão mais ampla de contratos e serviços, consulte [Projetar e Implementar Serviços](https://msdn.microsoft.com/library/ms729746.aspx) na documentação do WCF.
 
 ### Para criar um contrato de Barramento de Serviço com uma interface
 
 1. Abra o Visual Studio como administrador clicando com o botão direito no programa no menu **Iniciar** e, em seguida, selecionando **Executar como administrador**.
 
-1. Crie um novo projeto de aplicativo de console. Clique no menu **Arquivo**, selecione **Novo** e, em seguida, clique em **Projeto**. Na caixa de diálogo **Novo Projeto**, clique em **Visual C#** (se **Visual C#** não aparecer, procure em **Outras Linguagens**). Clique no modelo **Aplicativo de Console** e nomeie-o **EchoService**. Use o **Local** padrão. Clique em **OK** para criar o projeto.
+1. Crie um novo projeto de aplicativo de console. Clique no menu **Arquivo** e selecione **Novo**, então, clique em **Projeto**. Na caixa de diálogo **Novo Projeto**, clique em **Visual C#** (se **Visual C#** não aparecer, procure em **Outras Linguagens**). Clique no modelo **Aplicativo de Console** e nomeie-o **EchoService**. Use o **Local** padrão. Clique em **OK** para criar o projeto.
 
 1. Adicione uma referência a `System.ServiceModel.dll` ao projeto: no Gerenciador de Soluções, clique com o botão direito do mouse na pasta **Referências**, na pasta do projeto e clique em **Adicionar Referência**. Selecione a guia **.NET** na caixa de diálogo **Adicionar Referência** e role para baixo até ver **System.ServiceModel**. Selecione-o e, em seguida, clique em **OK**.
 
@@ -65,7 +65,7 @@ O contrato de serviço especifica a quais operações (a terminologia do serviç
 
 1. Altere o nome do namespace, de seu nome padrão **EchoService** para **Microsoft.ServiceBus.Samples**.
 
-	>[AZURE.IMPORTANT]Este tutorial usa o namespace Micr**osoft.ServiceBus.Samples** do C#, que é o namespace do tipo gerenciado de contrato que é usado no arquivo de configuração na Etapa 6: configurar o cliente WCF. Você pode especificar qualquer namespace desejado ao compilar esta amostra; no entanto, o tutorial não funcionará a menos que você modifique os namespaces do contrato e do serviço de modo correspondente, no arquivo de configuração de aplicativo. O namespace especificado no arquivo App.config deve ser o mesmo que o namespace especificado em seus arquivos C#.
+	>[AZURE.IMPORTANT] Este tutorial usa o namespace **Microsoft.ServiceBus.Samples** do C#, que é o namespace do tipo gerenciado de contrato que é usado no arquivo de configuração na etapa [Configurar o cliente WCF](#configure-the-wcf-client). Você pode especificar qualquer namespace desejado ao compilar esta amostra; no entanto, o tutorial não funcionará a menos que você modifique os namespaces do contrato e do serviço de modo correspondente, no arquivo de configuração de aplicativo. O namespace especificado no arquivo App.config deve ser o mesmo que o namespace especificado em seus arquivos C#.
 
 1. Imediatamente após a declaração do namespace `Microsoft.ServiceBus.Samples`, mas ainda dentro do namesapace, defina uma nova interface chamada `IEchoContract` e aplique o atributo `ServiceContractAttribute` à interface com um valor de ****http://samples.microsoft.com/ServiceModel/Relay/**. O valor do namespace é diferente do namespace que você usa em todo o escopo do seu código. Em vez disso, o valor do namespace é usado como um identificador exclusivo para este contrato. Especificar o namespace de forma explícita impede a adição do valor de namespace padrão ao nome do contrato.
 
@@ -76,9 +76,9 @@ O contrato de serviço especifica a quais operações (a terminologia do serviç
 	}
 	```
 
-	>[AZURE.NOTE]Normalmente, o namespace de contrato de serviço contém um esquema de nomenclatura que inclui informações de versão. A inclusão de informações de versão no namespace de contrato de serviço permite que os serviços isolem as alterações principais, definindo um novo contrato de serviço com um novo namespace e expondo-o em um novo ponto de extremidade. Dessa maneira, os clientes podem continuar a usar o antigo contrato de serviço sem que ele precise ser atualizado. Informações de versão podem consistir de uma data ou um número da versão. Para saber mais, veja [Controle de Versão do Serviço](http://go.microsoft.com/fwlink/?LinkID=180498). Para os fins deste tutorial, o esquema de nomenclatura do namespace do contrato de serviço não contém informações de versão.
+	>[AZURE.NOTE] Normalmente, o namespace de contrato de serviço contém um esquema de nomenclatura que inclui informações de versão. A inclusão de informações de versão no namespace de contrato de serviço permite que os serviços isolem as alterações principais, definindo um novo contrato de serviço com um novo namespace e expondo-o em um novo ponto de extremidade. Dessa maneira, os clientes podem continuar a usar o antigo contrato de serviço sem que ele precise ser atualizado. Informações de versão podem consistir de uma data ou um número da versão. Para saber mais, veja [Controle de Versão do Serviço](http://go.microsoft.com/fwlink/?LinkID=180498). Para os fins deste tutorial, o esquema de nomenclatura do namespace do contrato de serviço não contém informações de versão.
 
-1. Dentro da interface IEchoContract, declare um método para a operação individual exposta pelo contrato `IEchoContract` na interface e aplique o atributo `OperationContractAttribute` ao método que você deseja expor como parte do contrato de Barramento de Serviço público.
+1. Dentro da interface `IEchoContract`, declare um método para a operação individual exposta pelo contrato `IEchoContract` na interface e aplique o atributo `OperationContractAttribute` ao método que você deseja expor como parte do contrato de Barramento de Serviço público.
 
 	```
 	[OperationContract]
@@ -100,7 +100,7 @@ O contrato de serviço especifica a quais operações (a terminologia do serviç
 
 	Um canal é o objeto WCF por meio do qual o host e o cliente trocam informações. Posteriormente, você vai escrever código contra o canal para repercutir informações entre os dois aplicativos.
 
-1. No menu **Compilar**, clique em **Compilar Solução** ou pressione F6 para confirmar a precisão de seu trabalho.
+1. No menu **Build**, clique em **Solução de Build** ou pressione F6 para confirmar a precisão de seu trabalho até o momento.
 
 ### Exemplo
 
@@ -168,7 +168,7 @@ A criação de um serviço de Barramento de Serviço no exige primeiro a criaç�
 
 ### Para definir a configuração do host de serviço
 
-1. O arquivo de configuração é muito semelhante a um arquivo de configuração do WCF. Ele inclui o nome do serviço, o ponto de extremidade (ou seja, o local que o Barramento de Serviço expõe para os clientes e hosts se comunicarem) e a associação (o tipo de protocolo usado para comunicação). A principal diferença é que esse ponto de extremidade de serviço configurado refere-se a uma associação [netTcpRelayBinding](https://msdn.microsoft.com/library/azure/microsoft.servicebus.nettcprelaybinding.aspx), que não faz parte do .NET Framework. [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) é uma das associações definidas pelo Barramento de Serviço.
+1. O arquivo de configuração é muito semelhante a um arquivo de configuração do WCF. Ele inclui o nome do serviço, o ponto de extremidade (ou seja, o local que o Barramento de Serviço expõe para os clientes e hosts se comunicarem) e a associação (o tipo de protocolo usado para comunicação). A principal diferença é que esse ponto de extremidade de serviço configurado se refere a uma associação [NetTcpRelayBinding](https://msdn.microsoft.com/library/azure/microsoft.servicebus.nettcprelaybinding.aspx), que não faz parte do .NET Framework. [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) é uma das associações definidas pelo Barramento de Serviço.
 
 1. No **Gerenciador de Soluções**, clique duas vezes no arquivo App.config, que atualmente contém os seguintes elementos XML:
 
@@ -215,7 +215,7 @@ A criação de um serviço de Barramento de Serviço no exige primeiro a criaç�
 	<endpointcontract="Microsoft.ServiceBus.Samples.IEchoContract"binding="netTcpRelayBinding"/>
 	```
 
-	O ponto de extremidade define no qual o cliente procurará o aplicativo host. Posteriormente, o tutorial usa esta etapa para criar um URI que expõe totalmente o host através do barramento de serviço. A associação declara que estamos usando TCP como protocolo para comunicação com o Barramento de Serviço.
+	O ponto de extremidade define no qual o cliente procurará o aplicativo host. Posteriormente, o tutorial usa esta etapa para criar um URI que expõe totalmente o host através do Barramento de Serviço. A associação declara que estamos usando o TCP como protocolo para comunicação com o Barramento de Serviço.
 
 
 1. Imediatamente após o elemento `<services>`, adicione a seguinte extensão de associação:
@@ -273,15 +273,7 @@ Esta etapa descreve como executar um serviço básico do Barramento de Serviço.
 
 ### Para criar as credenciais do Barramento de Serviço
 
-1. Adicione uma referência a Microsoft.ServiceBus.dll ao projeto: consulte [Usando o Pacote NuGet de Barramento de Serviço](https://msdn.microsoft.com/library/dn741354.aspx).
-
-	>[AZURE.NOTE]Ao usar um compilador de linha de comando, você deve também fornecer o caminho para os assemblies.
-
-1. No Program.cs, adicione uma declaração `using` para o namespace Microsoft.ServiceBus.
-
-	```
-	using Microsoft.ServiceBus;
-	```
+1. Instale o [pacote do NuGet do Barramento de Serviço](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
 
 1. Em `Main()`, crie duas variáveis nas quais armazenar o namespace e a chave de SAS que são lidos da janela do console.
 
@@ -292,7 +284,7 @@ Esta etapa descreve como executar um serviço básico do Barramento de Serviço.
 	string sasKey = Console.ReadLine();
 	```
 
-	A chave de SAS será usada posteriormente para acessar seu projeto de Barramento de Serviço. O namespace de serviço é passado como um parâmetro para `CreateServiceUri` para criar um URI de serviço.
+	A chave de SAS será usada posteriormente para acessar seu projeto de Barramento de Serviço. O namespace é passado como um parâmetro para o `CreateServiceUri` para criar um URI de serviço.
 
 4. Usando um objeto [TransportClientEndpointBehavior](https://msdn.microsoft.com/library/microsoft.servicebus.transportclientendpointbehavior.aspx), declare que você usará uma chave de SAS como o tipo de credencial. Adicione o código a seguir diretamente após o código adicionado na última etapa.
 
@@ -396,7 +388,6 @@ using Microsoft.ServiceBus.Description;
 namespace Microsoft.ServiceBus.Samples
 {
     [ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
-
     public interface IEchoContract
     {
         [OperationContract]
@@ -406,7 +397,6 @@ namespace Microsoft.ServiceBus.Samples
     public interface IEchoChannel : IEchoContract, IClientChannel { };
 
     [ServiceBehavior(Name = "EchoService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
-
     class EchoService : IEchoContract
     {
         public string Echo(string text)
@@ -514,7 +504,7 @@ using System.ServiceModel;
 namespace Microsoft.ServiceBus.Samples
 {
 
-[ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+	[ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
     public interface IEchoContract
     {
         [OperationContract]
@@ -624,17 +614,11 @@ O código a seguir mostra o arquivo App.config para o cliente Echo.
 Nesta etapa, você implementa um aplicativo cliente básico que acessa o serviço que você criou anteriormente neste tutorial. Semelhante ao serviço, o cliente executa muitas das mesmas operações para acessar o Barramento de Serviço:
 
 1. Define o modo de conectividade.
-
 1. Cria o URI que localiza o serviço de host.
-
 1. Define as credenciais de segurança.
-
 1. Aplica as credenciais à conexão.
-
 1. Abre a conexão.
-
 1. Executa as tarefas específicas do aplicativo.
-
 1. Encerra a conexão.
 
 No entanto, uma das principais diferenças é que o aplicativo cliente usa um canal para conectar-se ao barramento de serviço, enquanto o serviço usa uma chamada para **ServiceHost**. O código usado para essas tarefas é fornecido no exemplo logo após o procedimento.
@@ -732,15 +716,11 @@ No entanto, uma das principais diferenças é que o aplicativo cliente usa um ca
 
 	Eis aqui um exemplo de saída da janela do console. Observe que os valores fornecidos aqui são apenas para fins de exemplificação.
 
-	`Your Service Namespace: myNamespace`
-
-	`Your SAS Key: <SAS key value>`
+	`Your Service Namespace: myNamespace` `Your SAS Key: <SAS key value>`
 
 	O aplicativo de serviço é iniciado e imprime na janela do console o endereço no qual ele está escutando, como visto no exemplo a seguir.
 
-    `Service address: sb://mynamespace.servicebus.windows.net/EchoService/`
-
-    `Press [Enter] to exit`
+    `Service address: sb://mynamespace.servicebus.windows.net/EchoService/` `Press [Enter] to exit`
     
 1. Execute o aplicativo cliente. Agora você deve ter um executável para o aplicativo cliente Echo chamado EchoClient.exe, localizado no diretório do projeto do cliente em \\bin\\Debug\\EchoClient.exe (para a configuração de depuração) ou \\bin\\Release\\EchoClient.exe (para a configuração de versão). Clique duas vezes nesse arquivo para iniciar o aplicativo cliente.
 
@@ -843,4 +823,4 @@ Para saber mais sobre o Barramento de Serviço, consulte os tópicos a seguir.
 
 [portal clássico do Azure]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

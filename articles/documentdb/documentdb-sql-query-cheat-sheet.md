@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="PDF de consulta SQL do Banco de Dados de Documentos | Microsoft Azure" 
-	description="Um PDF de consulta SQL para impressão que ajuda você a usar a sintaxe SQL do Banco de Dados de Documentos para consultar documentos JSON em seu banco de dados NoSQL." 
+	description="PDF de roteiro do SQL para impressão que ajuda você a usar a sintaxe SQL do Banco de Dados de Documentos para consultar documentos JSON em seu banco de dados NoSQL — referência rápida do SQL" 
 	keywords="folha de consulta sql, pdf de folha de consulta sql, folha de consulta de consulta sql"
 	services="documentdb" 
 	documentationCenter="" 
@@ -29,7 +29,7 @@ Escreva suas consultas mais rapidamente baixando a folha de consulta SQL e usand
 
 **Baixe a folha de consulta SQL aqui: [folha de consulta SQL do Banco de Dados de Documentos do Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=623215)**
 
-![Folha de consulta de SQL do Banco de Dados de Documentos: referência rápida à gramática SQL com suporte do Banco de Dados de Documentos.][cheat-sheet]
+![Roteiro de consulta SQL do Banco de Dados de Documentos: um PDF de referência rápida à sintaxe SQL compatível com o Banco de Dados de Documentos — roteiro do SQL, PDF do roteiro do SQL, referência rápida do SQL][cheat-sheet]
 
 [cheat-sheet]: ./media/documentdb-sql-query-cheat-sheet/microsoft-documentdb-sql-query-cheat-sheet-v2.png
 
@@ -39,4 +39,4 @@ Escreva suas consultas mais rapidamente baixando a folha de consulta SQL e usand
 - Para obter um passo a passo das opções de consulta disponíveis no Banco de Dados de Documentos, veja [Consultar o Banco de Dados de Documentos](documentdb-sql-query.md).
 - Para obter a documentação de referência relacionada, veja [Linguagem de consulta SQL do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn782250.aspx).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

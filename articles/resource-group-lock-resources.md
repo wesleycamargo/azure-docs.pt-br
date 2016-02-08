@@ -13,32 +13,26 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="01/21/2016" 
 	ms.author="tomfitz"/>
 
 # Bloquear recursos com o Gerenciador de Recursos do Azure
 
-Como administrador, há situações em que você deseja colocar um bloqueio em uma assinatura, em um grupo de recursos ou em um recurso para impedir que outros usuários na sua organização confirmem ações de gravação ou acidentalmente excluam um recurso essencial.
+Como administrador, há situações nas quais você deseja colocar um bloqueio em uma assinatura, em um grupo de recursos ou em um recurso para impedir que outros usuários em sua organização excluam acidentalmente um recurso essencial.
 
-O Gerenciador de Recursos do Azure permite restringir operações nos recursos por meio de bloqueios de gerenciamento de recursos. Os bloqueios de recursos são políticas que impõem um nível de bloqueio em um escopo específico. O escopo pode ser uma assinatura, um grupo de recursos ou um recurso. O nível de bloqueio identifica o tipo de imposição da política, que atualmente tem dois valores –**CanNotDelete** e **ReadOnly**. **CanNotDelete** significa que os usuários autorizados ainda poderão ler e modificar os recursos, mas não poderão excluir qualquer um dos recursos restritos. **ReadOnly** significa que os usuários autorizados ainda poderão ler os recursos, mas não poderão modificar ou excluir qualquer um dos recursos restritos.
+O Gerenciador de Recursos do Azure permite restringir operações nos recursos por meio de bloqueios de gerenciamento de recursos. Os bloqueios de recursos são políticas que impõem um nível de bloqueio em um escopo específico. O escopo pode ser uma assinatura, um grupo de recursos ou um recurso. O nível de bloqueio identifica o tipo de imposição da política, que atualmente pode ser definido como **CanNotDelete**. **CanNotDelete** significa que os usuários autorizados ainda poderão ler e modificar os recursos, mas não poderão excluir qualquer um dos recursos restritos.
 
 Os bloqueios são diferentes do uso de controle de acesso baseado em função para atribuir permissões de usuário para executar determinadas ações. Para saber mais sobre como configurar permissões para usuários e funções, confira [Controle de Acesso Baseado em Função do Azure](./active-directory/role-based-access-control-configure.md). Ao contrário do controle de acesso baseado em função, você utiliza os bloqueios de gerenciamento para aplicar uma restrição a todos os usuários e funções, e normalmente aplica os bloqueios por apenas uma duração limitada.
+
+Quando você aplica um bloqueio a um escopo pai, todos os recursos filho herdam o mesmo bloqueio.
 
 ## Cenários comuns
 
 Um cenário comum é quando você tem um grupo de recursos com alguns recursos que são usados esporadicamente. Os recursos de VM são ligados periodicamente para processar dados por um determinado intervalo de tempo e, em seguida, desligados. Nesse cenário, convém habilitar o desligamento das VMs, mas é fundamental que uma conta de armazenamento não seja excluída. Nesse cenário, você usaria um bloqueio de recurso com um nível de bloqueio de **CanNotDelete** na conta de armazenamento.
 
-Em outro cenário, sua empresa pode ter períodos em que não deseja que as atualizações entrem em produção. O nível de bloqueio **ReadOnly** impede criação ou atualizações. Se você é uma empresa de varejo, talvez não queira permitir atualizações durante períodos de compras em feriados. Se você é uma empresa de serviços financeiros, você pode ter restrições relacionadas às implantações durante determinadas horas do mercado. Um bloqueio de recurso pode fornecer uma política para bloquear os recursos conforme apropriado. Isso pode ser aplicado a apenas determinados recursos ou a todo o grupo de recursos.
-
 ## Quem pode criar ou excluir bloqueios na sua organização
 
 Para criar ou excluir os bloqueios de gerenciamento, você deverá ter acesso às ações **Microsoft.Authorization/*** ou **Microsoft.Authorization/locks/***. Das funções internas, somente **Proprietário** e **Administrador do Acesso de Usuário** recebem essas ações. Para saber mais sobre como atribuir o controle de acesso, confira [Controle de acesso baseado em função do Azure](./active-directory/role-based-access-control-configure.md).
-
-## Bloquear herança
-
-Quando você aplica um bloqueio a um escopo pai, todos os recursos filho herdam o mesmo bloqueio.
-
-Se você aplicar mais de um bloqueio a um recurso, o bloqueio mais restritivo terá precedência. Por exemplo, se você aplicar **ReadOnly** no nível pai (como no grupo de recursos) e **CanNotDelete** em um recurso dentro desse grupo, o bloqueio mais restritivo (ReadOnly) do pai terá precedência.
 
 ## Criando um bloqueio em um modelo
 
@@ -87,7 +81,7 @@ Na solicitação, inclua um objeto JSON que especifica as propriedades do bloque
         }
     } 
 
-Para nível de bloqueio, especifique **CanNotDelete** ou **ReadOnly**.
+Para o nível de bloqueio, especifique **CanNotDelete**.
 
 Para obter exemplos, confira [API REST para bloqueios de gerenciamento](https://msdn.microsoft.com/library/azure/mt204563.aspx).
 
@@ -108,4 +102,4 @@ O Azure PowerShell fornece outros comandos para trabalhar com bloqueios, tais co
 - Para alterar o grupo de recursos em que um recurso reside, confira [Mover recursos para um novo grupo de recursos](resource-group-move-resources.md)
 - É possível aplicar restrições e convenções em sua assinatura com políticas personalizadas. Para saber mais, confira [Usar a Política para gerenciar recursos e controlar o acesso](resource-manager-policy.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

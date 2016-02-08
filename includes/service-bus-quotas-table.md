@@ -1,4 +1,4 @@
-A tabela a seguir lista as informações de cota específicas às mensagens do Barramento de Serviço. Os limites de Hubs de Eventos são incluídos nessa tabela, mas para obter informações mais específicas sobre os Hubs de Eventos, consulte [Preços de Hubs de Eventos](http://azure.microsoft.com/pricing/details/event-hubs/). Para obter informações sobre preços e outras cotas do Barramento de Serviço, consulte a visão geral [Preços do Barramento de Serviço](http://azure.microsoft.com/pricing/details/service-bus/).
+A tabela a seguir lista as informações de cota específicas às mensagens do Barramento de Serviço. Os limites de Hubs de Eventos são incluídos nessa tabela, mas para obter informações mais específicas sobre os Hubs de Eventos, consulte [Preços de Hubs de Eventos](https://azure.microsoft.com/pricing/details/event-hubs/). Para obter informações sobre preços e outras cotas do Barramento de Serviço, consulte a visão geral [Preços do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/).
 
 |Nome da Cota|Escopo|Tipo|Comportamento quando excedido|Valor|
 |---|---|---|---|---|
@@ -13,4 +13,4 @@ A tabela a seguir lista as informações de cota específicas às mensagens do B
 
 [portal clássico do Azure]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

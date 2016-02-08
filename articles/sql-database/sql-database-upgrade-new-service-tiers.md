@@ -22,7 +22,7 @@
 Os bancos de dados SQL [Web e Business do Azure estão sendo desativados](sql-database-web-business-sunset-faq.md) então, é hora de começar a atualizar os bancos de dados Web ou Business existentes para as camadas de serviço [Basic, Standard, Premium ou Elastic](sql-database-service-tiers.md).
 
 
-> [AZURE.IMPORTANT]A atualização do bancos de dados Web ou Business para uma nova camada de serviço não colocará o banco de dados offline. O banco de dados permanecerá online e disponível durante a operação de atualização.
+> [AZURE.IMPORTANT] A atualização do bancos de dados Web ou Business para uma nova camada de serviço não colocará o banco de dados offline. O banco de dados permanecerá online e disponível durante a operação de atualização.
 
 
 Para ajudá-lo com a atualização, o serviço do Banco de Dados SQL recomenda uma camada de serviço e nível de desempenho (tipo de preço) adequados para cada banco de dados. Ao analisar o uso histórico de cada banco de dados, o serviço recomenda uma camada que é mais adequada para a execução da carga de trabalho existente do banco de dados.
@@ -91,7 +91,7 @@ Os novos recursos da camada de serviço e níveis desempenho são resumidos e co
 |:--|:--|
 |[Faixas de Serviço de Banco de Dados SQL do Azure e Níveis de Desempenho](sql-database-service-tiers.md)| Visão geral, métricas e funcionalidades para cada camada de serviço (e como monitorar a utilização do banco de dados no Portal Clássico e com o uso de DMVs). |
 |[Continuidade dos negócios no Banco de dados SQL do Azure](sql-database-business-continuity.md)|Detalhes dos recursos de continuidade nos negócios e recuperação de desastres (restauração pontual, restauração geográfica, replicação geográfica) disponíveis para as camadas de serviço diferentes.|
-|[Preços do Banco de Dados SQL](http://azure.microsoft.com/pricing/details/sql-database/)|Informações detalhadas sobre preços para as diferentes camadas de serviço e níveis de desempenho.|
+|[Preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/)|Informações detalhadas sobre preços para as diferentes camadas de serviço e níveis de desempenho.|
 
 <br>
 
@@ -150,7 +150,7 @@ Para analisar os detalhes de consumo de recursos do banco de dados, você pode u
 
 Os dados de consumo dos banco de dados Web e Business são acessados por meio da exibição [sys.resource\_stats](http://msdn.microsoft.com/library/azure/dn269979.aspx) no banco de dados principal do servidor lógico onde se encontra o banco de dados atual. Ela exibe dados de consumo de recursos em porcentagens do limite do nível de desempenho. Essa exibição fornece dados para até os últimos 14 dias, em intervalos de 5 minutos.
 
-> [AZURE.NOTE]Agora você pode usar a exibição [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) no banco de dados de Web e Business para uma exibição de granularidade superior (a cada 15 segundos) dos dados de consumo de recursos. Como sys.dm\_db\_resource\_stats só retém dados históricos por uma hora, você pode consultar essa DMV a cada hora e armazenar os dados para análises adicionais.
+> [AZURE.NOTE] Agora você pode usar a exibição [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) no banco de dados de Web e Business para uma exibição de granularidade superior (a cada 15 segundos) dos dados de consumo de recursos. Como sys.dm\_db\_resource\_stats só retém dados históricos por uma hora, você pode consultar essa DMV a cada hora e armazenar os dados para análises adicionais.
 
 Execute a seguinte consulta no banco de dados mestre para recuperar o consumo médio de DTU de um banco de dados:
 
@@ -317,4 +317,4 @@ O serviço de banco de dados SQL do Azure fornece os dados e ferramentas de tele
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

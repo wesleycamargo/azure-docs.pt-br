@@ -24,7 +24,7 @@
 
 Este tópico mostra como configurar os Serviços de Aplicativos do Azure para usar o Active Directory do Azure como um provedor de autenticação.
 
-> [AZURE.NOTE]Este tópico demonstra o uso do recurso de Autenticação/Autorização do Serviço de Aplicativo. Isso substitui o gateway do Serviço de Aplicativo para a maioria dos aplicativos. Se for usar o gateway, confira o [método alternativo]. As diferenças que se aplicam ao uso do gateway são destacadas nas notas ao longo dessa seção.
+> [AZURE.NOTE] Este tópico demonstra o uso do recurso de Autenticação/Autorização do Serviço de Aplicativo. Isso substitui o gateway do Serviço de Aplicativo para a maioria dos aplicativos. Se for usar o gateway, confira o [método alternativo]. As diferenças que se aplicam ao uso do gateway são destacadas nas notas ao longo dessa seção.
 
 
 ## <a name="express"> </a>Configurar o Active Directory do Azure usando configurações expressas
@@ -71,7 +71,8 @@ Você também pode optar por fornecer as configurações manualmente. Essa é a 
     ![][3]
 	
 	
-	> [AZURE.NOTE]Se você estiver usando o Gateway de Serviço de Aplicativo em vez do recurso de Autenticação/Autorização do Serviço de Aplicativo, sua URL de Resposta usará a URL de gateway com o caminho _/signin-aad_.
+	> [AZURE.NOTE]
+	Se você estiver usando o Gateway de Serviço de Aplicativo em vez do recurso de Autenticação/Autorização do Serviço de Aplicativo, sua URL de Resposta usará a URL de gateway com o caminho _/signin-aad_.
 
 
 9. Clique em **Salvar**. Em seguida, copie a **ID do cliente** para o aplicativo. Você irá configurar seu aplicativo para usá-la posteriormente.
@@ -82,7 +83,8 @@ Você também pode optar por fornecer as configurações manualmente. Essa é a 
 
 ### <a name="secrets"> </a>Adicionar informações do Active Directory do Azure ao seu aplicativo
 
-> [AZURE.NOTE]Se for usar o Gateway do Serviço de Aplicativo, ignore esta seção e navegue até o gateway no portal. Selecione **Configurações**, **Identidade** e **Active Directory do Azure**. Cole o ClientID e adicione a ID de locatário à lista **Locatários Permitidos**. Clique em **Salvar**.
+> [AZURE.NOTE]
+Se for usar o Gateway do Serviço de Aplicativo, ignore esta seção e navegue até o gateway no portal. Selecione **Configurações**, **Identidade** e **Active Directory do Azure**. Cole o ClientID e adicione a ID de locatário à lista **Locatários Permitidos**. Clique em **Salvar**.
 
 
 13. De volta ao [portal do Azure], navegue até o seu aplicativo. Clique em **Configurações** e depois em **Autenticação/Autorização**.
@@ -119,7 +121,7 @@ O Active Directory do Azure também permite que você registre clientes nativos,
 
 7. Role a página para baixo até a seção de **Permissões para outros aplicativos** e clique em **Adicionar aplicativo**.
 
-8. Procure o aplicativo Web que você registrou anteriormente e clique no ícone de adição. Em seguida, clique em verificar para fechar a caixa de diálogo.
+8. Procure o aplicativo Web que você registrou anteriormente e clique no ícone de adição. Em seguida, clique em verificar para fechar a caixa de diálogo. Se o aplicativo Web não puder ser encontrado, navegue até seu registro e adicione uma nova URL de resposta (por exemplo, a versão HTTP da sua URL atual), clique em Salvar e repita essas etapas - o aplicativo deverá aparecer na lista.
 
 9. Na nova entrada que você acabou de adicionar, abra a lista suspensa **Permissões Delegadas** e selecione **Acessar (nome do aplicativo)**. Em seguida, clique em **Salvar**.
 
@@ -143,4 +145,4 @@ Você configurou um aplicativo de cliente nativo que pode acessar o aplicativo d
 [ios-adal]: ../app-service-mobile-xamarin-ios-aad-sso.md
 [método alternativo]: #advanced
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -131,7 +131,7 @@ Os valores e tipos permitidos são:
 
 Para especificar um parâmetro como opcional, defina seu defaultValue como uma cadeia de caracteres vazia.
 
->[AZURE.NOTE]Todas as senhas, chaves e outros segredos devem usar o tipo **secureString**. Os parâmetros do modelo com o tipo secureString não podem ser lidos após a implantação de recursos.
+>[AZURE.NOTE] Todas as senhas, chaves e outros segredos devem usar o tipo **secureString**. Os parâmetros do modelo com o tipo secureString não podem ser lidos após a implantação de recursos.
 
 O seguinte exemplo mostra como definir parâmetros:
 
@@ -168,6 +168,8 @@ O seguinte exemplo mostra como definir parâmetros:
           "minValue": 1
        }
     }
+
+Para saber como inserir os valores de parâmetro durante a implantação, confira [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md/#parameter-file).
 
 ## Variáveis
 
@@ -225,7 +227,7 @@ O próximo exemplo mostra uma variável que é um tipo JSON complexo e variávei
 
 ## Recursos
 
-Na seção de recursos, você define os recursos que são implantados ou atualizados. É aqui que o modelo pode ficar mais complicado, porque você precisa entender os tipos que está implantando para fornecer os valores corretos. Para aprender a maior parte do que precisa saber sobre provedores de recursos, consulte [Provedores, regiões, versões de API e esquemas do Gerenciador de Recursos](resource-manager-supported-services.md).
+Na seção de recursos, você define os recursos que são implantados ou atualizados. É aqui que o modelo pode ficar mais complicado, porque você precisa entender os tipos que está implantando para fornecer os valores corretos. Para aprender a maior parte do que precisa saber sobre provedores de recursos, confira [Provedores, regiões, versões de API e esquemas do Gerenciador de Recursos](resource-manager-supported-services.md).
 
 Você define recursos com a seguinte estrutura:
 
@@ -252,11 +254,11 @@ Você define recursos com a seguinte estrutura:
 | apiVersion | Sim | Versão da API REST a ser usada para criar o recurso. Para determinar os números de versão disponíveis para um tipo de recurso específico, confira [Versões da API com suporte](../resource-manager-supported-services/#supported-api-versions).
 | type | Sim | Tipo do recurso. Esse valor é uma combinação do namespace do provedor de recursos e do tipo de recurso que tem suporte do provedor de recursos.
 | name | Sim | Nome do recurso. O nome deve seguir as restrições de componente URI definidas em RFC3986.
-| location | Não | Locais geográficos com suporte do recurso fornecido. Para determinar os locais disponíveis, consulte [Regiões com suporte](../resource-manager-supported-services/#supported-regions).
+| location | Não | Locais geográficos com suporte do recurso fornecido. Para determinar os locais disponíveis, confira [Regiões com suporte](../resource-manager-supported-services/#supported-regions).
 | marcas | Não | Marcas que são associadas ao recurso.
 | comentários | Não | Suas anotações para documentar os recursos em seu modelo
 | dependsOn | Não | Recursos dos quais o recurso que está sendo definido depende. As dependências entre recursos são avaliadas e os recursos são implantados na ordem de dependência. Quando os recursos não dependem uns dos outros, é possível que tentem ser implantados paralelamente. O valor pode ser uma lista separada por vírgulas de nomes de recursos ou identificadores exclusivos de recursos.
-| propriedades | Não | Definições de configuração específicas do recurso. Os valores para as propriedades são exatamente iguais aos valores que você fornece no corpo da solicitação para a operação da API REST (método PUT) para criar o recurso. Para obter links para a documentação do esquema de recursos ou a API REST, consulte [Provedores, regiões, versões de API e esquemas do Gerenciador de Recursos](resource-manager-supported-services.md).
+| propriedades | Não | Definições de configuração específicas do recurso. Os valores para as propriedades são exatamente iguais aos valores que você fornece no corpo da solicitação para a operação da API REST (método PUT) para criar o recurso. Para obter links para a documentação do esquema de recursos ou a API REST, confira [Provedores, regiões, versões de API e esquemas do Gerenciador de Recursos](resource-manager-supported-services.md).
 | recursos | Não | Recursos filho que dependem do recurso que está sendo definido. Você pode fornecer apenas os tipos de recurso permitidos pelo esquema do recurso pai. O nome totalmente qualificado do tipo de recurso filho inclui o tipo de recurso pai, como **Microsoft.Web/sites/extensions**. A dependência no recurso pai não é implícita; você deve definir explicitamente essa dependência. 
 
 
@@ -470,4 +472,4 @@ O modelo a seguir implanta um aplicativo Web e o provisiona com o código de um 
 - Para obter um exemplo detalhado de implantação de um aplicativo, confira [Provisionar e implantar microsserviços de forma previsível no Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
 - Para ver os esquemas disponíveis, consulte [Esquemas do Gerenciador de Recursos do Azure](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

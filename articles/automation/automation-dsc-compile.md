@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Compilando configurações na DSC de Automação do Azure | Microsoft Azure" 
+   pageTitle="Compilando configurações no DSC de Automação do Azure | Microsoft Azure" 
    description="Visão geral de duas maneiras para compilar as configurações de DSC (Configuração de Estado Desejado): no portal do Azure e com o Windows PowerShell." 
    services="automation" 
    documentationCenter="na" 
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="na" 
-   ms.date="10/15/2015"
+   ms.date="01/25/2016"
    ms.author="coreyp"/>
    
-#Compilando configurações na DSC de Automação do Azure#
+#Compilando configurações no DSC de Automação do Azure#
 
 Você pode compilar as configurações DSC (Configuração de Estado Desejado) de duas maneiras com a Automação do Azure: no portal do Azure e com o Windows PowerShell. A seguinte tabela ajudará você a determinar quando usar qual método com base nas características de cada um:
 
@@ -56,9 +56,9 @@ Você pode usar [`Start-AzureRmAutomationDscCompilationJob`](https://msdn.micros
     $CompilationJob = Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "SampleConfig"
     
     while($CompilationJob.EndTime –eq $null -and $CompilationJob.Exception –eq $null)       	
-    {$CompilationJob = $CompilationJob | Get-AzureRmAutomationDscCompilationJob
+    {
+    	$CompilationJob = $CompilationJob | Get-AzureRmAutomationDscCompilationJob
     	Start-Sleep -Seconds 3
-    
     }
     
     $CompilationJob | Get-AzureRmAutomationDscCompilationJobOutput –Stream Any 
@@ -70,33 +70,34 @@ A declaração de parâmetro nas configurações DSC, incluindo tipos de parâme
 
 O exemplo a seguir usa dois parâmetros chamados **FeatureName** e **IsPresent** para determinar os valores das propriedades na configuração de nó **ParametersExample.sample**, gerada durante a compilação.
 
-    Configuration ParametersExample {
+    Configuration ParametersExample
+    {
     	param(
-    	[Parameter(Mandatory=$true)]
+    		[Parameter(Mandatory=$true)]
     
-    	[string] $FeatureName,
+    		[string] $FeatureName,
     
-    	[Parameter(Mandatory=$true)]
-    	[boolean] $IsPresent
+    		[Parameter(Mandatory=$true)]
+    		[boolean] $IsPresent
+    	)
     
-    )
+    	$EnsureString = "Present"
+    	if($IsPresent -eq $false)
+    	{
+    		$EnsureString = "Absent"
+    	}
     
-    $EnsureString = "Present"
-    if($IsPresent -eq $false) {
-    	$EnsureString = "Absent"
-    
-    }
-    
-    Node "sample" {
-    
-    	WindowsFeature ($FeatureName + "Feature") {
-    		Ensure = $EnsureString
-    		Name = $FeatureName
+    	Node "sample"
+    	{
+    		WindowsFeature ($FeatureName + "Feature")
+    		{
+    			Ensure = $EnsureString
+    			Name = $FeatureName
     		}
     	}
     }
 
-É possível compilar as Configurações DSC que usam parâmetros básicos no portal de DSC de Automação do Azure ou no Azure PowerShell:
+É possível compilar as Configurações DSC que usam parâmetros básicos no portal de DSC de Automação do Azure ou com o Azure PowerShell:
 
 ###Portal###
 
@@ -123,31 +124,28 @@ Para obter informações sobre como transmitir PSCredentials como parâmetros, v
 
 **ConfigurationData** permite que você separe a configuração estrutural de qualquer configuração específica do ambiente durante o uso da DSC do PowerShell. Veja [Separar “O que” de “Onde” na DSC do PowerShell](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx) para saber mais sobre **ConfigurationData**.
 
->[AZURE.NOTE]É possível usar **ConfigurationData** durante a compilação na DSC de Automação do Azure usando o Azure PowerShell, mas não no portal do Azure.
+>[AZURE.NOTE] É possível usar **ConfigurationData** durante a compilação no DSC de Automação do Azure usando o Azure PowerShell, mas não no portal do Azure.
 
 A configuração DSC de exemplo a seguir usa **ConfigurationData** por meio das palavras-chave **$ConfigurationData** e **$AllNodes**. Você também precisará do [módulo **xWebAdministration**](https://www.powershellgallery.com/packages/xWebAdministration/) para este exemplo:
 
-     Configuration ConfigurationDataSample {
+     Configuration ConfigurationDataSample
+     {
     	Import-DscResource -ModuleName xWebAdministration -Name MSFT_xWebsite
     
     	Write-Verbose $ConfigurationData.NonNodeData.SomeMessage 
     
     	Node $AllNodes.Where{$_.Role -eq "WebServer"}.NodeName
     	{
-    
     		xWebsite Site
     		{
-    
     			Name = $Node.SiteName
     			PhysicalPath = $Node.SiteContents
     			Ensure   = "Present"
     		}
-    
     	}
- 
     }
 
-É possível compilar a configuração DSC acima com o PowerShell, que adiciona duas configurações de nó ao Servidor de Recepção de DSC de Automação do Azure: **ConfigurationDataSample.MyVM1** e **ConfigurationDataSample.MyVM3**:
+Você pode compilar a configuração da DSC acima com o PowerShell. O PowerShell abaixo adiciona duas configurações de nó ao Servidor de Recepção de DSC de Automação do Azure: **ConfigurationDataSample.MyVM1** e **ConfigurationDataSample.MyVM3**:
 
     $ConfigData = @{
     	AllNodes = @(
@@ -195,45 +193,39 @@ Você pode informar à DSC do PowerShell que não há problema nas credenciais s
 
 O exemplo a seguir mostra uma configuração DSC que usa um ativo de credencial da Automação.
 
-    Configuration CredentialSample {
-    
+    Configuration CredentialSample
+    {
        $Cred = Get-AutomationPSCredential -Name "SomeCredentialAsset"
     
-    	Node $AllNodes.NodeName { 
-    
-    		File ExampleFile { 
+    	Node $AllNodes.NodeName
+    	{ 
+    		File ExampleFile
+    		{ 
     			SourcePath = "\\Server\share\path\file.ext" 
     			DestinationPath = "C:\destinationPath" 
     			Credential = $Cred 
-    
        		}
-    
     	}
-    
     }
 
-É possível compilar a configuração DSC acima com o PowerShell, que adiciona duas configurações de nó ao Servidor de Recepção de DSC de Automação do Azure: **CredentialSample.MyVM1** e **CredentialSample.MyVM2**.
+Você pode compilar a configuração da DSC acima com o PowerShell. O PowerShell abaixo adiciona duas configurações de nó ao Servidor de Recepção de DSC de Automação do Azure: **CredentialSample.MyVM1** e **CredentialSample.MyVM2**.
 
 
     $ConfigData = @{
     	AllNodes = @(
-    		 @{
+    		@{
     			NodeName = "*"
     			PSDscAllowPlainTextPassword = $True
     		},
-    
     		@{
     			NodeName = "MyVM1"
     		},
-    
     		@{
     			NodeName = "MyVM2"
     		}
     	)
-    } 
-    
-    
+    }
     
     Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "CredentialSample" -ConfigurationData $ConfigData
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,33 +1,35 @@
-#### To create a new service
+#### Para criar um novo serviço
 
-1.  Using your Microsoft account credentials, log on to the Azure classic portal at this URL: [https://manage.windowsazure.com/](https://manage.windowsazure.com/)
+1.  Usando suas credenciais de conta da Microsoft, faça logon no portal clássico do Azure nesta URL: [https://manage.windowsazure.com/](https://manage.windowsazure.com/)
 
-2.  In the portal, click **New > Data Services > StorSimple Manager > Quick Create**.
+2.  No portal, clique em **Novo > Serviços de Dados > StorSimple Manager > Criação rápida**.
 
-3.  In the form that is displayed, do the following:
+3.  No formulário exibido, faça o seguinte:
 
-	1.  Supply a unique **Name** for your service. This is a friendly name that can be used to identify the service. The name can have between 2 and 50 characters that can be letters, numbers, and hyphens. The name must start and end with a letter or a number.
+	1.  Fornecer um **Nome** exclusivo para o serviço. Este é um nome amigável que pode ser usado para identificar o serviço. O nome pode ter entre 2 e 50 caracteres que podem ser letras, números e hífens. O nome deve começar e terminar com uma letra ou um número.
 
-	2.  For a service to manage a StorSimple virtual device, from the drop down list for **Managed devices type**, choose **Virtual device series**.
+	2.  Para um serviço gerenciar um dispositivo virtual StorSimple, na lista suspensa de **Tipo de dispositivos gerenciados**, escolha **Série do dispositivo virtual**.
 
-	3.  Supply a **Location** for your service. Location refers to the geographical region where you want to deploy your device.
+	3.  Fornecer um **Local** para o serviço. Local refere-se à região geográfica em que você deseja implantar seu dispositivo.
 
-	 -   If you have other workloads in Azure that you intend to deploy with your StorSimple device, we recommend that you use that datacenter.
+	 -   Se você tiver outras cargas de trabalho no Azure que planeja implantar com seu dispositivo StorSimple, recomendamos o uso daquele datacenter.
 
-   	 -   The StorSimple Manager and Azure storage can be in two separate locations. In such a case, you are required to create the StorSimple Manager and Azure storage account separately. To create an Azure storage account, go to the Azure Storage service in portal and follow the steps in [Create an Azure Storage account](storage-create-storage-account.md#create-a-storage-account). After this account is created, add this account to the StorSimple Manager service by following the steps in [Configure a new storage account for the service](#optional-step-configure-a-new-storage-account-for-the-service).
+   	 -   O StorSimple Manager e o armazenamento do Azure podem estar em dois locais separados. Nesse caso, é necessário criar a conta de armazenamento do Azure e do StorSimple Manager separadamente. Para criar uma conta de armazenamento do Azure, acesse o serviço Armazenamento do Azure no portal e siga as etapas em [Criar uma conta de Armazenamento do Azure](storage-create-storage-account.md#create-a-storage-account). Após criar essa conta, adicione-a ao serviço StorSimple Manager seguindo as etapas em [Configurar uma nova conta de armazenamento para o serviço](#optional-step-configure-a-new-storage-account-for-the-service).
    	 
-   	 -   Note that in preview, you can create StorSimple Manager service only in US West and Japan East.
+   	 -   Observe que, na visualização, você pode criar o serviço StorSimple Manager somente no Oeste dos EUA e Leste do Japão.
 	
-	1.  Choose a **Subscription** from the drop-down list. The subscription is linked to your billing account. This field is not present when you have only one subscription.
+	1.  Escolha uma **Assinatura** na lista suspensa. A assinatura está vinculada à sua conta de cobrança. Este campo não estará presente quando você tem apenas uma assinatura.
 
-	1.  Select **Create a new Azure storage account** to automatically create a storage account with the service. This storage account will have a special name such as "storsimplebwv8c6dcnf". If you need your data in a different location, clear this check box.
+	1.  Selecione **Criar uma nova conta de armazenamento do Azure** para criar automaticamente uma conta de armazenamento com o serviço. Essa conta de armazenamento terá um nome especial, como "storsimplebwv8c6dcnf". Se você precisar de seus dados em um local diferente, desmarque essa caixa de seleção.
 
-	1.  Click **Create StorSimple Manager** to create the service.
+	1.  Clique em **Criar StorSimple Manager** para criar o serviço.
 
 		![](./media/storsimple-ova-create-new-service/image1-include.png)
 
-	You will be directed to the **Service** landing page. The service creation will take a few minutes. After the service is successfully created, you will be notified appropriately.
+	Você será direcionado para a página inicial **Serviço**. A criação do serviço levará alguns minutos. Depois que o serviço for criado com êxito, você será notificado adequadamente.
 
 	![](./media/storsimple-ova-create-new-service/image2-include.png)
 
-	The status of the service will change to **Active**.
+	O status do serviço será alterado para **Ativo**.
+
+<!---HONumber=AcomDC_0128_2016-->

@@ -51,7 +51,7 @@ Este tópico apresenta um exemplo de código Transact-SQL que:
 ## Pré-requisitos
 
 
-- Uma conta e uma assinatura do Azure. Você pode se inscrever em uma [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
+- Uma conta e uma assinatura do Azure. Você pode se inscrever em uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 
 - Qualquer banco de dados no qual você possa criar uma tabela.
@@ -385,4 +385,4 @@ Outros tópicos com exemplos de código para eventos estendidos estão disponív
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

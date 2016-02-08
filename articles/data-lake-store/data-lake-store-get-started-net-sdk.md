@@ -178,7 +178,7 @@ Saiba como usar o SDK do .NET do Repositório Azure Data Lake para criar uma con
 		            return new TokenCloudCredentials(subId.ToString(), ((TokenCloudCredentials)creds).Token);
 		        }
 		
-		        public static bool CreateDir(DataLakeStoreFileSystemManagementClient dataLakeStoreFileSystemClient, string path, string dlAccountName, string permission)
+		        public static bool CreateDir(DataLakeStoreFileSystemManagementClient dataLakeStoreFileSystemClient, string dlAccountName, string path, string permission)
 		        {
 		            dataLakeStoreFileSystemClient.FileSystem.Mkdirs(path, dlAccountName, permission);
 		            return true;
@@ -190,6 +190,14 @@ Saiba como usar o SDK do .NET do Repositório Azure Data Lake para criar uma con
 		            var frontend = new DataLakeStoreFrontEndAdapter(dlAccountName, dataLakeStoreFileSystemClient);
 		            var uploader = new DataLakeStoreUploader(parameters, frontend);
 		            uploader.Execute();
+		            return true;
+		        }
+		        
+		        public static bool AppendToFile(DataLakeStoreFileSystemManagementClient dataLakeStoreFileSystemClient, string dlAccountName, string path, string content)
+		        {
+		            var stream = new MemoryStream(Encoding.UTF8.GetBytes(content));
+		            
+		            dataLakeStoreFileSystemClient.FileSystem.DirectAppend(filePath, accountName, stream);
 		            return true;
 		        }
 		
@@ -227,4 +235,4 @@ Saiba como usar o SDK do .NET do Repositório Azure Data Lake para criar uma con
 - [Usar a Análise Data Lake do Azure com o Repositório Data Lake](data-lake-analytics-get-started-portal.md)
 - [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

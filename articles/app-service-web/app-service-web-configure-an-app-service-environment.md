@@ -39,7 +39,7 @@ Cada ASE é configurado com 500 Gb de armazenamento. Esse espaço é usado em to
 
 O banco de dados armazena as informações que definem o ambiente, bem como detalhes sobre os aplicativos executados nele. Isso também faz parte da assinatura mantida pelo Azure e não é algo que os clientes possam manipular diretamente.
 
-A rede virtual usada com seu ASE pode ser uma das criadas junto com o ASE ou uma já existente. Se você quiser que o ASE esteja em um grupo de recursos separado daquele usado para o ASE, precisará criar sua Rede Virtual separadamente do fluxo de criação do ASE. É uma boa ideia criar a sub-rede que você deseja usar durante a criação da sub-rede, já que criar a sub-rede durante a criação do ASE forçará o ASE a estar no mesmo grupo de recursos que a Rede Virtual. No momento, há suporte apenas para as Redes Virtuais V1 “clássicas”.
+A rede virtual usada com seu ASE pode ser uma das criadas junto com o ASE ou uma já existente. Se você quiser que a Rede Virtual esteja em um grupo de recursos separado daquele usado para o ASE, precisará criar sua Rede Virtual separadamente do fluxo de criação do ASE. É uma boa ideia criar a sub-rede que você deseja usar durante a criação da sub-rede, já que criar a sub-rede durante a criação do ASE forçará o ASE a estar no mesmo grupo de recursos que a Rede Virtual. No momento, há suporte apenas para as Redes Virtuais V1 “clássicas”.
 
 A interface do usuário para gerenciar e monitorar o Ambiente do Serviço de Aplicativo está disponível no Portal do Azure. Se você tiver um ASE, provavelmente verá o símbolo do Serviço de Aplicativo em sua barra lateral. Esse símbolo é usado para representar Ambientes do Serviço de Aplicativo no Portal do Azure.
 
@@ -200,4 +200,4 @@ Para obter mais informações sobre a plataforma do Serviço de Aplicativo do Az
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 [ExpressRoute]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-configuration-expressroute/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

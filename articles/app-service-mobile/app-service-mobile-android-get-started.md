@@ -35,7 +35,7 @@ Para concluir este tutorial, você precisará do seguinte:
 * [Ferramentas para desenvolvedores do Android](https://developer.android.com/sdk/index.html), que incluem o ambiente de desenvolvimento integrado do Android Studio e a plataforma Android mais recente.
 * O SDK para Android do Azure Mobile, que é automaticamente referenciado como parte do projeto de início rápido baixado.
 * Um PC com [Visual Studio Community 2013] ou mais recente não é necessário para um back-end Node.js.
-* Uma [conta ativa do Azure](http://azure.microsoft.com/pricing/free-trial/).
+* Uma [conta ativa do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Criar um novo back-end de aplicativo móvel do Azure
 
@@ -56,4 +56,4 @@ Para concluir este tutorial, você precisará do seguinte:
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

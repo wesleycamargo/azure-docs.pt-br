@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/20/2015"
+   ms.date="01/26/2016"
    ms.author="oanapl"/>
 
 # Como exibir relatórios de integridade do Service Fabric
@@ -57,16 +57,16 @@ Visualização do cluster com o Gerenciador do Service Fabric:
 [1]: ./media/service-fabric-view-entities-aggregated-health/servicefabric-explorer-cluster-health.png
 
 
-> [AZURE.NOTE]Leia mais sobre o [Gerenciador da Malha do Serviço](service-fabric-visualizing-your-cluster.md).
+> [AZURE.NOTE] Leia mais sobre o [Gerenciador da Malha do Serviço](service-fabric-visualizing-your-cluster.md).
 
 ## Consultas de integridade
 A Malha do Serviço expõe consultas de integridade para cada um dos [tipos de entidade](service-fabric-health-introduction.md#health-entities-and-hierarchy) com suporte. Elas podem ser acessados por API (os métodos podem ser encontrados em **FabricClient.HealthManager**), por cmdlets do PowerShell e por REST. Essas consultas retornam informações de integridade completas sobre a entidade, incluindo estado de integridade agregada, eventos de integridade relatados na entidade, estados de integridade dos filhos (quando aplicável) e avaliações não íntegras quando a entidade não está íntegra.
 
-> [AZURE.NOTE]Uma entidade de integridade retorna para o usuário quando é totalmente preenchida no repositório de integridade. A entidade deve estar ativa (não excluída) e ter um relatório do sistema. Suas entidades pai na cadeia hierárquica também devem ter relatórios do sistema. Se alguma dessas condições não for atendida, as consultas de integridade retornarão uma exceção que mostra por que a entidade não retornou.
+> [AZURE.NOTE] Uma entidade de integridade retorna para o usuário quando é totalmente preenchida no repositório de integridade. A entidade deve estar ativa (não excluída) e ter um relatório do sistema. Suas entidades pai na cadeia hierárquica também devem ter relatórios do sistema. Se alguma dessas condições não for atendida, as consultas de integridade retornarão uma exceção que mostra por que a entidade não retornou.
 
 As consultas de integridade devem passar pelo identificador da entidade, que depende do tipo de entidade. As consultas aceitam parâmetros opcionais da política de integridade. Se eles não forem especificados, as [políticas de integridade](service-fabric-health-introduction.md#health-policies) do manifesto do cluster ou do aplicativo serão usadas para a avaliação. As consultas também aceitam filtros para retornar apenas eventos ou filhos parciais; aqueles que respeitarem os filtros especificados.
 
-> [AZURE.NOTE]Os filtros de saída são aplicados no lado do servidor, de modo que o tamanho da resposta da mensagem é reduzido. Recomendamos o uso dos filtros de saída para limitar os dados retornados, em vez de aplicar filtros no lado do cliente.
+> [AZURE.NOTE] Os filtros de saída são aplicados no lado do servidor, de modo que o tamanho da resposta da mensagem é reduzido. Recomendamos o uso dos filtros de saída para limitar os dados retornados, em vez de aplicar filtros no lado do cliente.
 
 A integridade de uma entidade contém as seguintes informações:
 
@@ -700,7 +700,7 @@ HealthEvents          :
 ## Consultas gerais
 As consultas gerais retornam a lista de entidades do Service Fabric de um tipo especificado. Elas são expostas por meio da API (métodos em **FabricClient.QueryManager**), dos cmdlets do PowerShell e da REST. Essas consultas agregam subconsultas de vários componentes. Um deles é o [Repositório de Integridade](service-fabric-health-introduction.md#health-store), que preenche o estado de integridade agregada para cada resultado da consulta.
 
-> [AZURE.NOTE]As consultas gerais retornam o estado da integridade da entidade agregada e não contêm dados de integridade avançados. Se uma entidade não estiver íntegra, você poderá acompanhá-la com consultas de integridade a fim de obter todas as informações de integridade, incluindo eventos, estados da integridade dos filhos e avaliações não íntegras.
+> [AZURE.NOTE] As consultas gerais retornam o estado da integridade da entidade agregada e não contêm dados de integridade avançados. Se uma entidade não estiver íntegra, você poderá acompanhá-la com consultas de integridade a fim de obter todas as informações de integridade, incluindo eventos, estados da integridade dos filhos e avaliações não íntegras.
 
 Se as consultas gerais retornarem um estado de integridade desconhecido para uma entidade, talvez o repositório de integridade não tenha dados completos sobre a entidade. Também é possível que uma subconsulta ao repositório de integridade não tenha êxito (por exemplo, ocorreu um erro de comunicação ou repositório de integridade apresentava alguma restrição). Acompanhe uma consulta de integridade da entidade. Se a subconsulta tiver encontrado erros transitórios, como problemas de rede, essa consulta de acompanhamento poderá ser bem-sucedida. Ela também pode fornecer mais detalhes, com base no repositório de integridade, sobre o motivo de a entidade não ser exposta.
 
@@ -839,4 +839,4 @@ Sempre que houver um problema no cluster ou aplicativo, observe a integridade do
 
 [Atualização de aplicativos do Service Fabric](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

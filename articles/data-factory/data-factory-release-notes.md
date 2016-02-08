@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/09/2015" 
+	ms.date="01/26/2016" 
 	ms.author="spelluru"/>
 
 # Notas de versão do Data Factory do Azure
@@ -270,10 +270,7 @@ Você verá as listas **Fatias atualizadas recentemente** e **Fatias com falha r
 
 Clique no título das listas ou em **... (reticências)** para ver a lista maior de fatias. Clique em **Filtrar** na barra de ferramentas para filtrar as fatias.
  
-Você ainda poderá exibir fatias classificadas segundo os horários da fatia clicando no bloco **Fatias de dados (por horário da fatia)**. As fatias nessas coleções são ordenadas segundo o horário da fatia. Por exemplo, se for um agendamento por hora, as fatias serão:
-- 4/4/2015 às 17h em andamento
-- 4/4/2015 às 16h Bem-sucedida
-- 4/4/2015 15h Falhou
+Você ainda poderá exibir fatias classificadas segundo os horários da fatia clicando no bloco **Fatias de dados (por horário da fatia)**. As fatias nessas coleções são ordenadas segundo o horário da fatia. Por exemplo, se for um agendamento por hora, as fatias serão: - 4/4/2015 às 17h em andamento - 4/4/2015 às 16h Bem-sucedida - 4/4/2015 15h Falhou
 
 Porém, se uma fatia mais antiga for executada novamente, ela não aparecerá na parte superior desta lista mesmo que provavelmente seja nisso que o usuário esteja mais interessado.
 
@@ -290,12 +287,12 @@ Porém, se uma fatia mais antiga for executada novamente, ela não aparecerá na
 -  Você pode especificar a codificação para arquivos de texto em um Blob do Azure. Consulte a nova [propriedade encodingName](https://msdn.microsoft.com/library/dn894089.aspx#AzureBlob). 
 - Você pode invocar um procedimento armazenado com parâmetros adicionais ao copiar em um coletor de SQL.    
 
-Consulte a postagem de blog: [Atualização da Azure Data Factory - novos armazenamentos de dados](http://azure.microsoft.com/blog/2015/03/30/azure-data-factory-update-new-data-stores/) para obter mais informações, incluindo exemplos.
+Consulte a postagem de blog: [Atualização da Azure Data Factory - novos armazenamentos de dados](https://azure.microsoft.com/blog/2015/03/30/azure-data-factory-update-new-data-stores/) para obter mais informações, incluindo exemplos.
 
 ## Notas da versão de 27/02/2015 da Data Factory
 
 ### Novos aprimoramentos
-- **Editor da Azure Data Factory**. O Editor do Data Factory, que faz parte do Portal do Azure, permite criar, editar e implantar arquivos JSON que definem os pipelines, conjuntos de dados e serviços vinculados. O principal objetivo do editor é fornecer uma interface do usuário rápida e leve para criar artefatos do Azure Data Factory sem a necessidade de instalar o Azure PowerShell, possibilitando um uso mais ágil dos cmdlets do PowerShell. Consulte a postagem do blog [Editor da Azure Data Factory - um editor Web leve][adf-editor-blog] para uma visão geral e um vídeo sobre o Editor do Data Factory. Para uma visão geral detalhada do editor, consulte o artigo [Editor Data Factory][adf-editor].          
+- **Editor da Azure Data Factory**. O Editor do Data Factory, que faz parte do Portal do Azure, permite criar, editar e implantar arquivos JSON que definem os pipelines, conjuntos de dados e serviços vinculados. O principal objetivo do editor é fornecer uma interface do usuário rápida e leve para criar artefatos do Azure Data Factory sem a necessidade de instalar o Azure PowerShell, possibilitando um uso mais ágil dos cmdlets do PowerShell. Consulte a postagem do blog [Editor da Azure Data Factory - um editor Web leve][adf-editor-blog] para uma visão geral e um vídeo sobre o Editor do Data Factory.  
 
 ### Alterações
 
@@ -343,7 +340,6 @@ Consulte a postagem de blog: [Atualização da Azure Data Factory - novos armaze
 
 [adf-azure-ml]: data-factory-azure-ml-batch-execution-activity.md
 [adf-custom-activities]: data-factory-use-custom-activities.md
-[adf-editor]: data-factory-editor.md
 
 [adf-editor-video]: http://channel9.msdn.com/Blogs/Windows-Azure/New-Azure-Data-Factory-Editor-UI
 [adf-editor-blog]: http://azure.microsoft.com/blog/2015/03/02/azure-data-factory-editor-a-light-weight-web-editor/
@@ -357,4 +353,4 @@ Consulte a postagem de blog: [Atualização da Azure Data Factory - novos armaze
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

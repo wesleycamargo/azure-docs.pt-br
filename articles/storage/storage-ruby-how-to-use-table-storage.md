@@ -58,7 +58,7 @@ O módulo do Azure lerá as variáveis de ambiente **AZURE\_STORAGE\_ACCOUNT** e
 
 Para obter esses valores:
 
-1. Faça logon no [Portal do Azure](portal.azure.com).
+1. Faça logon no [Portal do Azure](https://portal.azure.com).
 
 2. Navegue até sua conta de armazenamento.
 
@@ -128,7 +128,7 @@ Para consultar um conjunto de entidades em uma tabela, crie um objeto de hash de
 	query = { :filter => "PartitionKey eq 'test-partition-key'" }
 	result, token = azure_table_service.query_entities("testtable", query)
 
-> [AZURE.NOTE]Se o conjunto de resultados for muito grande para ser retornado por uma única consulta, um token de continuação será retornado para que você possa usar para recuperar páginas subsequentes.
+> [AZURE.NOTE] Se o conjunto de resultados for muito grande para ser retornado por uma única consulta, um token de continuação será retornado para que você possa usar para recuperar páginas subsequentes.
 
 ## consultar um subconjunto de propriedades da entidade
 
@@ -157,4 +157,4 @@ Para saber mais sobre tarefas complexas de armazenamento, siga estes links:
 - [Blog da equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - [SDK do Azure para repositório Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) no GitHub
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

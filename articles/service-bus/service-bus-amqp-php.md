@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # Usando o Barramento de Serviço do PHP com AMQP 1.0
@@ -25,7 +25,7 @@ Proton-PHP é uma associação da linguagem PHP a Proton-C; ou seja, Proton-PHP 
 
 Você pode baixar Proton-C e as associações relacionadas (inclusive PHP) em [http://qpid.apache.org/download.html](http://qpid.apache.org/download.html). O download está na forma de código-fonte. Para compilar o código, siga as instruções contidas no pacote baixado.
 
-> [AZURE.IMPORTANT]No momento da redação deste artigo, o suporte a SSL no Proton-C só está disponível para sistemas operacionais Linux. Como o barramento de serviço do Azure requer o uso de SSL, Proton-C (e as associações de linguagem) só pode ser usada para acessar o Barramento de Serviço do Linux no momento. O trabalho para habilitar o Proton-C com SSL no Windows está em andamento, portanto, verifique com frequência para saber se há atualizações.
+> [AZURE.IMPORTANT] No momento da redação deste artigo, o suporte a SSL no Proton-C só está disponível para sistemas operacionais Linux. Como o barramento de serviço do Azure requer o uso de SSL, Proton-C (e as associações de linguagem) só pode ser usada para acessar o Barramento de Serviço do Linux no momento. O trabalho para habilitar o Proton-C com SSL no Windows está em andamento, portanto, verifique com frequência para saber se há atualizações.
 
 ## Trabalhando com filas do Barramento de serviço, tópicos e assinaturas do PHP
 
@@ -82,7 +82,7 @@ $message->properties["TestString"] = "Service Bus";
 $message->properties["TestObject"] = new UUID("1234123412341234");   
 ```
 
-Na API .NET do Barramento de Serviço, as propriedades do aplicativo de mensagens entram na coleação **Propriedades** de [BrokeredMessage][]. O código a seguir mostra como ler as propriedades do aplicativo de uma mensagem recebida de um cliente PHP.
+Nas APIs .NET do Barramento de Serviço, as propriedades do aplicativo de mensagens entram na coleação **Propriedades** de [BrokeredMessage][]. O código a seguir mostra como ler as propriedades do aplicativo de uma mensagem recebida de um cliente PHP.
 
 ```
 if (message.Properties.Keys.Count > 0)
@@ -156,7 +156,7 @@ A tabela a seguir mapeia os tipos de propriedades .NET para os tipos de propried
 
 | Tipo de propriedade .NET | Tipo de propriedade PHP | Observações |
 |--------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| byte | integer | - | | sbyte | integer | - | | char | Char | Proton-PHP class | | short | integer | - | | ushort | integer | - | | int | integer | - | | uint | Integer | - | | long | integer | - | | ulong | integer | - | | float | double | - | | double | double | - | | decimal | string | Atualmente, decimal não é compatível com Proton. | | bool | boolean | - | | Guid | UUID | Proton-PHP class | | string | string | - | | DateTime | integer | - | | DateTimeOffset | DescribedType | DateTimeOffset.UtcTicks mapeado para tipo AMQP:<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type> | | TimeSpan | DescribedType | Timespan.Ticks mapeado para tipo AMQP:<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> | | Uri | DescribedType | Uri.AbsoluteUri mapeado para tipo AMQP:<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type> |
+| byte | integer | - | | sbyte | integer | - | | char | Char | Proton-PHP class | | short | integer | - | | ushort | integer | - | | int | integer | - | | uint | Integer | - | | long | integer | - | | ulong | integer | - | | float | double | - | | double | double | - | | decimal | string | Atualmente, decimal não é compatível com Proton. | | bool | boolean | - | | Guid | UUID | Proton-PHP class | | string | string | - | | DateTime | integer | - | | DateTimeOffset | DescribedType | DateTimeOffset.UtcTicks mapeado para tipo AMQP:<type name="datetime-offset" class=restricted source="long"> <descriptor name="com.microsoft:datetime-offset" /></type> | | TimeSpan | DescribedType | Timespan.Ticks mapeado para tipo AMQP:<type name="timespan" class=restricted source="long"> <descriptor name="com.microsoft:timespan" /></type> | | Uri | DescribedType | Uri.AbsoluteUri mapeado para tipo AMQP:<type name="uri" class=restricted source="string"> <descriptor name="com.microsoft:uri" /></type> |
 
 ### Propriedades padrões
 
@@ -173,7 +173,7 @@ As tabelas a seguir mostram o mapeamento entre as propriedades de mensagem padr�
 
 | Barramento de Serviço do .NET | Proton-PHP | Observações |
 |-------------------------|--------------------------------------------------------|--------------------------------------------------------|
-| ContentType | Mensagem->content\_type | - | | CorrelationId | Message->correlation\_id | - | | EnqueuedTimeUtc | Message->annotations [x-opt-enqueued-time] | - | | Label | Message->subject | - | | MessageId | Message->id | - | | ReplyTo | Message->reply\_to | - | | ReplyToSessionId | Message->reply\_to\_group\_id | - | | ScheduledEnqueueTimeUtc | Message->annotations ["x-opt-scheduled-enqueue-time"] | - | | SessionId | Message->group\_id | - | | TimeToLive | Message->ttl | Conversão, TTL do Proton-PHP definido em milissegundos. | | To | Message->address | - |
+| ContentType | Message->content\_type | - | | CorrelationId | Message->correlation\_id | - | | EnqueuedTimeUtc | Message->annotations[x-opt-enqueued-time] | - | | Label | Message->subject | - | | MessageId | Message->id | - | | ReplyTo | Message->reply\_to | - | | ReplyToSessionId | Message->reply\_to\_group\_id | - | | ScheduledEnqueueTimeUtc | Message->annotations ["x-opt-scheduled-enqueue-time"] | - | | SessionId | Message->group\_id | - | | TimeToLive | Message->ttl | Conversão, O TTL do Proton-PHP é definido em milissegundos. | | To | Message->address | - |
 
 ## Próximas etapas
 
@@ -184,9 +184,7 @@ Está pronto(a) para saber mais? Visite os links a seguir:
 
 
 [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
-
 [AMQP no Barramento de Serviço para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
-
 [Visão geral do AMQP do Barramento de Serviço]: service-bus-amqp-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

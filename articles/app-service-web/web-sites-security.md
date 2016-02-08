@@ -89,7 +89,7 @@ Além disso, você deve se certificar de que as credenciais importadas sejam seg
 ### Definições de configuração e cadeias de conexão
 É uma prática comum armazenar cadeias de conexão, credenciais de autenticação e outras informações confidenciais em arquivos de configuração. Infelizmente, esses cookies podem ser expostos no site ou pode haver check-in deles em um repositório público, expondo essas informações. Uma pesquisa simples no [GitHub](https://github.com), por exemplo, pode descobrir incontáveis arquivos de configuração com segredos expostos nos repositórios públicos.
 
-A prática recomendada é manter essas informações fora dos arquivos de configuração do aplicativo. O Serviço de Aplicativo permite que você armazene informações de configuração como parte do ambiente de tempo de execução, como **configurações do aplicativo** e **cadeias de conexão**. Os valores são expostos ao aplicativo durante o tempo de execução por meio de *variáveis do ambiente* na maioria das linguagens de programação. Para aplicativos do .NET, esses valores são injetados na configuração do .NET durante o tempo de execução. Fora essas situações, essas definições de configuração permanecerão criptografadas, a menos que você as exiba ou as configure usando o [Portal do Azure](http://portal.azure.com) ou utilitários como o PowerShell ou a CLI do Azure.
+A prática recomendada é manter essas informações fora dos arquivos de configuração do aplicativo. O Serviço de Aplicativo permite que você armazene informações de configuração como parte do ambiente de tempo de execução, como **configurações do aplicativo** e **cadeias de conexão**. Os valores são expostos ao aplicativo durante o tempo de execução por meio de *variáveis do ambiente* na maioria das linguagens de programação. Para aplicativos do .NET, esses valores são injetados na configuração do .NET durante o tempo de execução. Fora essas situações, essas definições de configuração permanecerão criptografadas, a menos que você as exiba ou as configure usando o [Portal do Azure](https://portal.azure.com) ou utilitários como o PowerShell ou a CLI do Azure.
 
 Armazenar informações de configuração no Serviço de Aplicativo permite que o administrador do aplicativo bloqueie informações confidenciais dos aplicativos de produção. Os desenvolvedores podem usar um conjunto separado de definições de configuração para desenvolvimento de aplicativo e as definições podem ser automaticamente substituídas pelas definições configuradas no Serviço de Aplicativo. Nem mesmo os desenvolvedores precisam conhecer os segredos configurados do aplicativo de produção. Para obter mais informações sobre como configurar definições de aplicativo e cadeias de conexão no Serviço de Aplicativo, confira [Configurando aplicativos Web](web-sites-configure.md).
 
@@ -99,7 +99,7 @@ O Serviço de Aplicativo do Azure fornece acesso FTP seguro ao sistema de arquiv
 
 O link FTPS para seu aplicativo pode ser encontrado seguindo estas etapas:
 
-1. Abra o [Portal do Azure](http://portal.azure.com).
+1. Abra o [Portal do Azure](https://portal.azure.com).
 2. Selecione **Procurar Tudo**.
 3. Na folha **Procurar**, selecione **Serviços de Aplicativo**.
 4. Na folha **Serviços de Aplicativo**, selecione o aplicativo desejado.
@@ -111,16 +111,16 @@ Para obter mais informações sobre o protocolo FTPS, consulte [Protocolo FTPS](
 
 ## Próximas etapas
 
-Para obter mais informações sobre a segurança da plataforma Azure, informações sobre como relatar um **incidente de segurança ou um abuso**, ou informar à Microsoft que você realizará **testes de penetração** no site, consulte a seção de segurança da [Central de Confiabilidade do Microsoft Azure](http://azure.microsoft.com/support/trust-center/security/).
+Para obter mais informações sobre a segurança da plataforma Azure, informações sobre como relatar um **incidente de segurança ou um abuso**, ou informar à Microsoft que você realizará **testes de penetração** no site, consulte a seção de segurança da [Central de Confiabilidade do Microsoft Azure](https://azure.microsoft.com/support/trust-center/security/).
 
-Para saber mais sobre os arquivos **web.config** ou **applicationhost.config** em aplicativos do Serviço de Aplicativo, confira [Configuration options unlocked in Azure App Service web apps](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/).
+Para saber mais sobre os arquivos **web.config** ou **applicationhost.config** em aplicativos do Serviço de Aplicativo, confira [Configuration options unlocked in Azure App Service web apps](https://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/).
 
 Para saber mais sobre como registrar em log informações de aplicativos do Serviço de Aplicativo, que podem ser úteis na detecção de ataques, confira [Habilitar o registro em log de diagnóstico](web-sites-enable-diagnostic-log.md).
 
->[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE] Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## O que mudou
 
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

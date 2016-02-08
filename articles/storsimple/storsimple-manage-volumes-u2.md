@@ -50,7 +50,7 @@ Volumes em camadas são volumes escassamente provisionados no qual os dados aces
 
 Você pode designar um volume em camadas como um volume de arquivamento, marcando a caixa de seleção **Usar este volume para dados de arquivamento acessados com menos frequência**. Volumes de arquivamento usam um tamanho de parte de eliminação de duplicação de 512 KB, enquanto volumes de não arquivamento usam um tamanho de parte de 64 KB. Tamanho de parte de eliminação de duplicação maior permite que o dispositivo transfira partes maiores de dados para a nuvem.
 
->[AZURE.NOTE]Volumes de arquivamento criados com uma versão anterior à atualização 2 do StorSimple serão importados em camadas, com a caixa de seleção de arquivamento marcada.
+>[AZURE.NOTE] Volumes de arquivamento criados com uma versão anterior à atualização 2 do StorSimple serão importados em camadas, com a caixa de seleção de arquivamento marcada.
 
 ### Capacidade provisionada
 
@@ -136,13 +136,13 @@ Você [criou um volume](storsimple-deployment-walkthrough-u2.md#step-6-create-a-
 
 O seu novo volume agora está pronto para uso.
 
->[AZURE.NOTE]Se você criar um volume afixado localmente e depois criar outro volume afixado localmente imediatamente, os trabalhos de criação de volumes serão executados sequencialmente. O primeiro trabalho de criação de volume deve terminar antes de começar o próximo trabalho de criação de volume.
+>[AZURE.NOTE] Se você criar um volume afixado localmente e depois criar outro volume afixado localmente imediatamente, os trabalhos de criação de volumes serão executados sequencialmente. O primeiro trabalho de criação de volume deve terminar antes de começar o próximo trabalho de criação de volume.
 
 ## Modificar um volume
 
 Modifica um volume quando você precisa expandi-lo ou alterar os hosts que acessam o volume.
 
-> [AZURE.IMPORTANT]
+> [AZURE.IMPORTANT] 
 >
 > - Se você modificar o tamanho do volume no dispositivo, o tamanho do volume precisa ser alterado no host também. 
 > - As etapas do lado do host descritas aqui servem para o Windows Server 2012 (2012R2). Procedimentos para Linux ou para outros sistemas operacionais host serão diferentes. Consulte as instruções do sistema operacional host ao modificar o volume em um host que executa outro sistema operacional. 
@@ -163,7 +163,7 @@ Modifica um volume quando você precisa expandi-lo ou alterar os hosts que acess
 
 5. Em **Configurações Adicionais**, você pode modificar o ACR, desde que o volume esteja offline. Se o volume estiver online, você precisará colocá-lo offline primeiro. Consulte as etapas em [Colocar um volume offline](#take-a-volume-offline) antes de modificar o ACR.
 
-    > [AZURE.NOTE]Você não pode alterar a opção **Habilitar um backup padrão** para o volume.
+    > [AZURE.NOTE] Você não pode alterar a opção **Habilitar um backup padrão** para o volume.
 
 6. Salve suas alterações, clicando no ícone de verificação ![check-icon](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png). O portal clássico do Azure exibirá uma mensagem de atualização do volume. Ele exibirá uma mensagem de êxito quando o volume for atualizado com êxito.
 
@@ -174,11 +174,11 @@ Modifica um volume quando você precisa expandi-lo ou alterar os hosts que acess
    3. Na lista de discos, selecione o volume que você atualizou, clique com o botão direito do mouse e selecione **Estender Volume**. O Assistente para Estender Volume é iniciado. Clique em **Próximo**.
    4. Conclua o assistente com a aceitação dos valores padrão. Depois que o assistente for concluído, o volume deve mostrar o tamanho aumentado.
 
-    >[AZURE.NOTE]Se você expandir um volume afixado localmente e depois expandir outro volume afixado localmente imediatamente, os trabalhos de expansão de volumes serão executados sequencialmente. O primeiro trabalho de expansão de volume deve terminar antes de começar o próximo trabalho de expansão de volume.
+    >[AZURE.NOTE] Se você expandir um volume afixado localmente e depois expandir outro volume afixado localmente imediatamente, os trabalhos de expansão de volumes serão executados sequencialmente. O primeiro trabalho de expansão de volume deve terminar antes de começar o próximo trabalho de expansão de volume.
 
 ![Vídeo disponível](./media/storsimple-manage-volumes-u2/Video_icon.png) **Vídeo disponível**
 
-Para assistir a um vídeo que demonstra como expandir um volume, clique [aqui](http://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume).
+Para assistir a um vídeo que demonstra como expandir um volume, clique [aqui](https://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume/).
 
 ## Alterar o tipo de volume
 
@@ -189,11 +189,11 @@ Se necessário, você pode alterar o tipo de volume de em camadas para afixado l
 
 Um volume afixado localmente é totalmente provisionado quando é criado. Se você estiver convertendo um volume em camadas para um volume afixado localmente, o StorSimple verifica se você tem espaço suficiente no dispositivo antes de iniciar a conversão. Se não houver espaço suficiente, você receberá um erro e a operação será cancelada.
 
-> [AZURE.NOTE]Antes de começar uma conversão de em camadas para afixado localmente, verifique se você considera os requisitos de espaço de outras cargas de trabalho.
+> [AZURE.NOTE] Antes de começar uma conversão de em camadas para afixado localmente, verifique se você considera os requisitos de espaço de outras cargas de trabalho.
 
 Altere um volume afixado localmente para um volume em camadas se precisar de espaço adicional para provisionar outros volumes. Ao converter o volume afixado localmente em camadas, a capacidade disponível no dispositivo aumenta de acordo com a capacidade liberada. Se problemas de conectividade impedirem a conversão de um volume de tipo local para tipo em camadas, o volume local exibirá propriedades de um volume em camadas até que a conversão seja concluída. Isso ocorre porque alguns dados podem ter sido despejados na nuvem. Esses dados despejados continuarão a ocupar espaço local no dispositivo que não pode ser liberado até que a operação seja iniciada e concluída.
 
->[AZURE.NOTE]Converter um volume pode levar algum tempo e não é possível cancelar uma conversão depois de iniciada. O volume permanece online durante a conversão e você pode fazer backups, mas não pode expandir nem restaurar o volume durante a conversão.
+>[AZURE.NOTE] Converter um volume pode levar algum tempo e não é possível cancelar uma conversão depois de iniciada. O volume permanece online durante a conversão e você pode fazer backups, mas não pode expandir nem restaurar o volume durante a conversão.
 
 #### Para alterar o tipo de volume
 
@@ -237,11 +237,11 @@ Talvez seja necessário colocar um volume offline quando você estiver planejand
 
     Depois que um volume está offline, a opção **Colocar Online** ficará disponível.
 
-> [AZURE.NOTE]O comando **Colocar Offline** envia uma solicitação para o dispositivo para colocar o volume offline. Se os hosts ainda estiverem usando o volume, ocorrerão conexões interrompidas, mas não ocorrerá nenhuma falha ao colocar o volume offline.
+> [AZURE.NOTE] O comando **Colocar Offline** envia uma solicitação para o dispositivo para colocar o volume offline. Se os hosts ainda estiverem usando o volume, ocorrerão conexões interrompidas, mas não ocorrerá nenhuma falha ao colocar o volume offline.
 
 ## Excluir um volume
 
-> [AZURE.IMPORTANT]Você pode excluir um volume apenas se ele estiver offline.
+> [AZURE.IMPORTANT] Você pode excluir um volume apenas se ele estiver offline.
 
 Conclua as seguintes etapas para excluir um volume.
 
@@ -257,7 +257,7 @@ Conclua as seguintes etapas para excluir um volume.
 
 5. Quando solicitado a confirmar, clique em **Sim**. O volume será excluído e a página **Volumes** mostrará a lista atualizada de volumes dentro do contêiner.
 
-    >[AZURE.NOTE]Se você excluir um volume afixado localmente e depois excluir outro volume afixado localmente imediatamente, os trabalhos de exclusão de volumes serão executados sequencialmente. O primeiro trabalho de exclusão de volume deve terminar antes de começar o próximo trabalho de exclusão de volume.
+    >[AZURE.NOTE] Se você excluir um volume afixado localmente e depois excluir outro volume afixado localmente imediatamente, os trabalhos de exclusão de volumes serão executados sequencialmente. O primeiro trabalho de exclusão de volume deve terminar antes de começar o próximo trabalho de exclusão de volume.
  
 ## Monitorar um volume
 
@@ -285,4 +285,4 @@ Execute as seguintes etapas para habilitar ou desabilitar o monitoramento para u
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="01/26/2016" 
 	ms.author="sethm"/>
 
 # Como usar filas do Barramento de Serviço
@@ -26,7 +26,7 @@ Este artigo descreve como usar as filas do Barramento de Serviço. As amostras s
 
 ## Criar um aplicativo do Node.js
 
-Criar um aplicativo Node.js em branco. Para obter instruções sobre como criar um aplicativo Node.js, consulte [Criar e implantar um aplicativo Node.js em um site do Azure][] ou [Serviço de Nuvem do Node.js ][](usando o Windows PowerShell).
+Criar um aplicativo Node.js em branco. Para obter instruções sobre como criar um aplicativo Node.js, veja a seção [Criar e implantar um aplicativo Node.js em um site do Azure][] ou [Serviço de Nuvem do Node.js ][](usando o Windows PowerShell).
 
 ## Configurar seu aplicativo para usar o Barramento de serviço
 
@@ -36,7 +36,7 @@ Para usar o Barramento de Serviço do Azure, baixe e use o pacote do Azure Node.
 
 1. Use a janela de comando **Windows PowerShell para Node.js** para navegar até a pasta **c:\\node\\sbqueues\\WebRole1** na qual você criou o aplicativo de exemplo.
 
-2. Digite **npm install azure** na janela de comando, que deve resultar em uma saída semelhante à seguinte:
+2. Digite **npm install azure** na janela Comando, o que deve resultar em uma saída semelhante à seguinte:
 
 	```
 	azure@0.7.5 node_modules\azure
@@ -145,7 +145,7 @@ serviceBusService.sendQueueMessage('myqueue', message, function(error){
 });
 ```
 
-As filas do Barramento de Serviço dão suporte a um tamanho máximo de mensagem de 256 KB (o cabeçalho, que inclui as propriedades padrão e personalizadas do aplicativo podem ter um tamanho máximo de 64 KB). Não há nenhum limite no número de mensagens mantidas em uma fila mas há uma capacidade do tamanho total das mensagens mantidas por uma fila. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB. Para saber mais sobre cotas, consulte [Filas do Azure e filas do Barramento de Serviço][].
+As filas do Barramento de Serviço dão suporte a um tamanho máximo de mensagem de 256 KB (o cabeçalho, que inclui as propriedades padrão e personalizadas do aplicativo podem ter um tamanho máximo de 64 KB). Não há nenhum limite no número de mensagens mantidas em uma fila mas há uma capacidade do tamanho total das mensagens mantidas por uma fila. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB. Para saber mais sobre cotas, veja [Filas do Azure e Filas do Barramento de Serviço][].
 
 ## Receber mensagens de uma fila
 
@@ -181,7 +181,7 @@ O Barramento de Serviço proporciona funcionalidade para ajudá-lo a se recupera
 
 Também há um tempo limite associado a uma mensagem bloqueada na fila e, se o aplicativo não conseguir processar a mensagem antes da expiração do tempo limite do bloqueio (por exemplo, em caso de falha do aplicativo), o Service Bus desbloqueará a mensagem automaticamente e a disponibilizará para ser recebida novamente.
 
-Caso o aplicativo falhe após o processamento da mensagem, mas antes que o método **deleteMessage** seja chamado, a mensagem será fornecida novamente ao aplicativo quando reiniciar. Isso é frequentemente chamado de **Processamento de pelo menos uma vez**, ou seja, cada mensagem será processada pelo menos uma vez mas, em algumas situações, a mesma mensagem poderá ser entregue novamente. Se o cenário não tolerar o processamento duplicado, os desenvolvedores de aplicativos deverão adicionar lógica extra ao aplicativo para tratar a entrega de mensagem duplicada. Isso geralmente é obtido com a propriedade **MessageId** da mensagem, que permanecerá constante nas tentativas da entrega.
+Caso o aplicativo falhe após o processamento da mensagem, mas antes que o método **deleteMessage** seja chamado, a mensagem será fornecida novamente ao aplicativo quando reiniciar. Isso é frequentemente chamado de **Processamento de pelo menos uma vez**, ou seja, cada mensagem será processada pelo menos uma vez mas, em algumas situações, a mesma mensagem poderá ser entregue novamente. Se o cenário não tolerar o processamento duplicado, os desenvolvedores de aplicativos deverão adicionar lógica extra ao aplicativo para tratar a entrega de mensagem duplicada. Isso geralmente é obtido com a propriedade **MessageId** da mensagem, que permanecerá constante nas tentativas de entrega.
 
 ## Próximas etapas
 
@@ -199,7 +199,7 @@ Para saber mais, veja os seguintes recursos.
   [Criar e implantar um aplicativo Node.js em um site do Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
   [Serviço de Nuvem do Node.js com Armazenamento]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
   [Aplicativo Web do Node.js com armazenamento]: ../storage/storage-nodejs-how-to-use-table-storage.md
-  [Filas do Azure e filas do Barramento de Serviço]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
+  [Filas do Azure e Filas do Barramento de Serviço]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

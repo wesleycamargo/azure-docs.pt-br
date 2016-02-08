@@ -31,7 +31,6 @@ Este artigo apresenta uma visão geral de como vincular redes virtuais a circuit
 
 - Você precisará da versão mais recente dos módulos do Azure PowerShell, versão 1.0 ou posterior. 
 - Assegure-se de que você leu a página de [pré-requisitos](expressroute-prerequisites.md), a página de [requisitos de roteamento](expressroute-routing.md) e a página de [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
-- Você deve ter um circuito da Rota Expressa ativo. Antes de continuar, siga as instruções para [criar um circuito da Rota Expressa](expressroute-howto-circuit-classic.md) e para que o circuito seja habilitado pelo provedor de conectividade. O circuito da Rota Expressa deve estar em um estado provisionado e habilitado e para que você possa executar os cmdlets descritos abaixo.
 - Você deve ter um circuito da Rota Expressa ativo. 
 	- Siga as instruções para [criar um circuito da Rota Expressa](expressroute-howto-circuit-arm.md) e para que o circuito seja habilitado pelo provedor de conectividade. 
 	- Verifique se o emparelhamento privado do Azure está configurado para seu circuito. Veja o artigo [Configurar roteamento](expressroute-howto-routing-arm.md) para obter instruções sobre roteamento. 
@@ -52,7 +51,7 @@ Você pode vincular um gateway de rede virtual a um circuito da Rota Expressa us
 
 Um circuito da Rota Expressa pode ser compartilhado entre várias assinaturas. A figura abaixo mostra um esquema simples de como funciona o compartilhamento de circuitos da Rota Expressa entre várias assinaturas. Cada uma das nuvens menores dentro da nuvem grande é usada para representar assinaturas pertencentes a diferentes departamentos dentro de uma organização. Cada um dos departamentos dentro da organização pode usar sua própria assinatura para implantar seus serviços, mas pode compartilhar um único circuito da Rota Expressa para se conectar de volta à respectiva rede local. Um único departamento (neste exemplo: TI) pode ter o circuito da Rota Expressa. Outras assinaturas dentro da organização podem usar o circuito de Rota Expressa.
 
->[AZURE.NOTE]As cobranças por conectividade e largura de banda do circuito dedicado serão aplicadas ao proprietário do circuito da Rota Expressa. Todas as redes virtuais compartilham a mesma largura de banda.
+>[AZURE.NOTE] As cobranças por conectividade e largura de banda do circuito dedicado serão aplicadas ao proprietário do circuito da Rota Expressa. Todas as redes virtuais compartilham a mesma largura de banda.
 
 ![Conectividade entre assinaturas](./media/expressroute-howto-linkvnet-classic/cross-subscription.png)
 
@@ -137,4 +136,4 @@ O usuário de circuito pode executar o cmdlet a seguir para resgatar uma autoriz
 
 Para obter mais informações sobre a Rota Expressa, consulte [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

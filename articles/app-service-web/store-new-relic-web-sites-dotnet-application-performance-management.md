@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/30/2015" 
+	ms.date="01/21/2016" 
 	ms.author="stepsic"/>
 
 
@@ -34,7 +34,7 @@ O New Relic Standard é gratuito para usuários do Azure. O New Relic Pro é ofe
 
 Para obter informações sobre preços, consulte a [Página New Relic no Azure Marketplace](/marketplace/partners/newrelic/newrelic).
 
-> [AZURE.NOTE]Preços somente é listada para até 10 instâncias de computação. Para um número maior que 10, entre em contato com o New Relic (sales@newrelic.com) para obter o preço por volume.
+> [AZURE.NOTE] Preços somente é listada para até 10 instâncias de computação. Para um número maior que 10, entre em contato com o New Relic (sales@newrelic.com) para obter o preço por volume.
 
 Azure clientes recebem uma assinatura de avaliação de 2 semanas do nova Relíquia Pro ao implantar o agente Relíquia de novo.
 
@@ -46,7 +46,7 @@ Para se inscrever para o New Relic diretamente do Azure Marketplace, siga estas 
 
 ## Etapa 1. Criar uma conta do New Relic
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com) e clique em **Novo** no canto.
+1. Faça logon no [Portal do Azure](https://portal.azure.com/) e clique em **Novo** no canto.
 3. Clique em **Serviços de desenvolvedor** > **APM do New Relic**.
 4. Configurar sua conta do New Relic especificando o seguinte e clique em **Criar**.
 	- **Nome**
@@ -62,7 +62,7 @@ Para se inscrever para o New Relic diretamente do Azure Marketplace, siga estas 
 
 ## Etapa 2: Configurar a integração do New Relic ao seu aplicativo Web
 
-1. Abra a folha de seu aplicativo Web no [Portal do Azure](https://portal.azure.com).
+1. Abra a folha de seu aplicativo Web no [Portal do Azure](https://portal.azure.com/).
 2. No menu "..." na parte superior da folha e selecione **Adicionar blocos**.
 3. Na guia **Monitoramento**, selecione **Resumo do aplicativo** e arraste-o para onde você deseja que o bloco apareça na folha do aplicativo Web.
 4. Clique em Concluir para terminar a adição de blocos.
@@ -73,7 +73,7 @@ Para se inscrever para o New Relic diretamente do Azure Marketplace, siga estas 
 
 	Assim que o salvamento da operação for concluído, clique em **Todas as configurações** na folha do aplicativo Web e, em seguida, clique em **Configurações do aplicativo**. Você deve ver a configuração **NEWRELIC\_LICENSEKEY** adicionada à seção **Configurações do aplicativo** da folha para dar suporte ao New Relic:
 
-	>[AZURE.NOTE]Pode levar até 30 segundos para que as novas configurações do aplicativo entrem em vigor. Para fazer com que as configurações entrem em vigor imediatamente, reinicie o aplicativo Web.
+	>[AZURE.NOTE] Pode levar até 30 segundos para que as novas configurações do aplicativo entrem em vigor. Para fazer com que as configurações entrem em vigor imediatamente, reinicie o aplicativo Web.
 
 ## Etapa 3: Publicar o aplicativo Web ASP.NET
 
@@ -83,7 +83,7 @@ Usando o Visual Studio, publique seu aplicativo Web. Se você já publicou anter
 
 Para exibir o painel novo Relíquia:
 
-2. Abra a folha de seu aplicativo Web no [Portal do Azure](https://portal.azure.com).
+2. Abra a folha de seu aplicativo Web no [Portal do Azure](https://portal.azure.com/).
 3. Clique em **Monitoramento de aplicativos** > **nome do aplicativo** > **Exibição no New Relic**.
 
 	![](./media/store-new-relic-web-sites-dotnet-application-performance-management/view-new-relic-data.png)
@@ -153,14 +153,14 @@ Abaixo está um exemplo do painel de visão geral de aplicativos quando você se
 
 Confira estes recursos adicionais para obter mais informações:
 
- * [Instalando o agente do .NET para sites do Azure](https://docs.newrelic.com/docs/agents/net-agent/azure-installation/azure-websites#manual): os procedimentos de instalação do agente de .NET do New Relic 
+ * [Instalando o agente .NET em Aplicativos Web do Azure](https://docs.newrelic.com/docs/agents/net-agent/azure-installation/azure-preview-portal#install-new-relic-azure-webapps): os procedimentos de instalação do agente .NET New Relic 
  * [Interface do usuário do New Relic](https://newrelic.com/docs/site/the-new-relic-ui): Visão geral da IU do New Relic, definindo direitos de usuário e perfis usando as funções padrão e os detalhes de busca detalhada do painel
  * [Visão geral sobre aplicativos](https://newrelic.com/docs/site/applications-overview): Recursos e funções ao usar o painel de visão geral de aplicativos do New Relic
  * [Apdex](https://newrelic.com/docs/site/apdex): Visão geral de como o Apdex mede a satisfação dos usuários finais com seu aplicativo
  * [Monitoramento real de usuários](https://newrelic.com/docs/features/real-user-monitoring): Visão geral de como o RUM detalha o tempo que leva para os navegadores de seus usuários carregarem as suas páginas da Web, de onde eles vêm e quais navegadores usam
  * [Encontrar Ajuda](https://newrelic.com/docs/site/finding-help): recursos disponíveis por meio do Centro de ajuda online do New Relic
 
->[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE] Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -177,4 +177,4 @@ Confira estes recursos adicionais para obter mais informações:
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

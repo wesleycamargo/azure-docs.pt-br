@@ -23,8 +23,8 @@ O Banco de Dados de Documentos é um banco de dados de documentos NoSQL para sol
 
 Uma maneira rápida para conhecer esse banco de dados JSON e vê-lo em ação é seguir estas três etapas:
 
-1. Assista ao vídeo [O que é o Banco de Dados de Documentos?](http://azure.microsoft.com/documentation/videos/what-is-azure-documentdb/) de dois minutos de duração, que apresenta os benefícios do uso do Banco de Dados de Documentos.
-2. Assista ao vídeo [Criar o Banco de Dados de Documentos no Azure](http://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) de três minutos de duração, que destaca como começar a usar o Banco de Dados de Documentos por meio do Portal do Azure.
+1. Assista ao vídeo [O que é o Banco de Dados de Documentos?](https://azure.microsoft.com/documentation/videos/what-is-azure-documentdb/) de dois minutos de duração, que apresenta os benefícios do uso do Banco de Dados de Documentos.
+2. Assista ao vídeo [Criar o Banco de Dados de Documentos no Azure](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) de três minutos de duração, que destaca como começar a usar o Banco de Dados de Documentos por meio do Portal do Azure.
 3. Visite o [Query Playground](http://www.documentdb.com/sql/demo), onde você pode percorrer atividades diferentes para saber mais sobre a poderosa funcionalidade de consultas disponível no Banco de Dados de Documentos. Em seguida, vá até a guia Área Restrita e execute suas próprias consultas SQL personalizadas e experimente o Banco de Dados de Documentos.
 
 Em seguida, volte para este artigo, onde mostraremos mais detalhes e você conhecerá as respostas para as seguintes perguntas:
@@ -103,12 +103,12 @@ Se você já tiver uma conta do Azure, poderá começar a usar o Banco de Dados 
 Se você não tiver uma conta do Azure, poderá:
 
 - Inscrever-se em uma [avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/), que oferece a você 30 dias e US$ 200 para experimentar todos os serviços do Azure. 
-- Se você tiver uma assinatura do MSDN, estará qualificado para receber [US$ 150 em créditos gratuitos do Azure por mês](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) a serem usados em qualquer serviço do Azure. 
+- Se você tiver uma assinatura do MSDN, estará qualificado para receber [US$ 150 em créditos gratuitos do Azure por mês](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) a serem usados em qualquer serviço do Azure. 
 
-Em seguida, quando você estiver pronto para saber mais, visite nosso [roteiro de aprendizagem](http://azure.microsoft.com/documentation/learning-paths/documentdb/) para navegar por todos os recursos de aprendizado disponíveis para você.
+Em seguida, quando você estiver pronto para saber mais, visite nosso [roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/documentdb/) para navegar por todos os recursos de aprendizado disponíveis para você.
 
 
 [1]: ./media/documentdb-introduction/json-database-resources1.png
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

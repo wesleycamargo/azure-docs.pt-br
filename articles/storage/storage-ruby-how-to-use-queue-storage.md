@@ -58,7 +58,7 @@ O módulo do Azure lerá as variáveis de ambiente **AZURE\_STORAGE\_ACCOUNT** e
 
 Para obter esses valores:
 
-1. Faça logon no [Portal do Azure](portal.azure.com).
+1. Faça logon no [Portal do Azure](https://portal.azure.com).
 2. Navegue até a conta de armazenamento que você deseja usar
 3. Clique em **GERENCIAR CHAVES** na parte inferior do painel de navegação.
 4. Na caixa de diálogo pop-up, você verá o nome da conta de armazenamento, a chave de acesso primária e a chave de acesso secundária. Para obter a chave de acesso, você pode selecionar tanto a chave primária quanto a chave secundária.
@@ -152,4 +152,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga es
 Para fazer uma comparação entre o serviço Fila do Azure discutido neste artigo e as filas de Service Bus do Azure discutidas no artigo [Como usar as filas de Service Bus](/develop/ruby/how-to-guides/service-bus-queues/), consulte [Filas do Azure e filas de Service Bus do Azure - semelhanças e diferenças](http://msdn.microsoft.com/library/azure/hh767287.aspx)
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

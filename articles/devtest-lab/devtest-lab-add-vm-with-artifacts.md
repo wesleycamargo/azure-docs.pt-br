@@ -30,7 +30,7 @@ Este artigo mostra como criar uma VM em seu laboratório usando artefatos.
 
 ## Adicionar uma VM com artefatos
 
-1. Entre no [Portal de visualização do Azure](http://portal.azure.com).
+1. Entre no [Portal de visualização do Azure](https://portal.azure.com).
 
 1. Toque em **Procurar** e em **Laboratórios de Desenvolvimento/Testes** na lista.
 
@@ -66,7 +66,7 @@ Durante a criação de uma VM, você pode adicionar artefatos tocando em **Artef
 
 **Adicionando um artefato a uma VM**
 
-Execute estas etapas para cada artefato que você deseja adicionar à VM:
+Siga estas etapas para cada artefato que você deseja adicionar à VM:
 
 1. Toque no artefato desejado na folha **Adicionar Artefatos** para exibir uma folha que permite a especificação dos parâmetros do artefato.  
 
@@ -98,4 +98,4 @@ Execute estas etapas para exibir ou modificar os parâmetros de seus artefatos s
 
 Saiba como [criar artefatos personalizados para sua VM](devtest-lab-artifact-author.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

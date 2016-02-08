@@ -40,7 +40,7 @@ Uma rede virtual entre locais é conectada a uma rede local com uma conexão VPN
 
 ![](./media/virtual-machines-workload-high-availability-LOB-application/CreateLOBAppHybridCloud_3.png)
  
-Você pode criar este ambiente de teste/desenvolvimento gratuitamente com sua [assinatura do MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/) ou com uma [Assinatura de Avaliação do Azure](http://azure.microsoft.com/pricing/free-trial/).
+Você pode criar este ambiente de teste/desenvolvimento gratuitamente com sua [assinatura do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) ou com uma [Assinatura de Avaliação do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 Sua próxima etapa é criar um aplicativo de linha de negócios de alta disponibilidade no Azure.
 
@@ -86,4 +86,4 @@ Uma vez configurado, você pode expandir facilmente esse aplicativo de linha de 
 
 - Obtenha uma [visão geral](virtual-machines-workload-high-availability-lob-application-overview.md) da carga de trabalho de produção antes começar a configuração.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

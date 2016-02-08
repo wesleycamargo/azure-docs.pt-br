@@ -40,7 +40,7 @@ A engenharia e a seleção são a etapa de **aperfeiçoamento de dados** do apre
 * **engenharia de recursos**: esse processo tenta criar outros recursos relevantes por meio dos recursos brutos existentes nos dados e aumentar a capacidade de previsão do algoritmo de aprendizado.
 * **seleção de recursos**: este processo seleciona o subconjunto principal de recursos de dados originais para tentar reduzir a dimensionalidade do problema de treinamento.
 
-Este tópico abrange os aspectos de engenharia de recursos e seleção de recursos do processo de aperfeiçoamento de dados. Para saber mais sobre a etapa de pré-processamento de dados, consulte o vídeo [Pré-processamento de Dados no Estúdio AM do Azure](http://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/).
+Este tópico abrange os aspectos de engenharia de recursos e seleção de recursos do processo de aperfeiçoamento de dados. Para saber mais sobre a etapa de pré-processamento de dados, consulte o vídeo [Pré-processamento de Dados no Estúdio AM do Azure](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/).
 
 
 ## Criando recursos por meio de seus dados - Engenharia de recursos
@@ -135,4 +135,4 @@ Observe que nem sempre é necessário realizar a engenharia ou a seleção de re
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

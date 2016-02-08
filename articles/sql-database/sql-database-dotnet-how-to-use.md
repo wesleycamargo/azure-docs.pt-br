@@ -32,7 +32,7 @@ O Banco de Dados SQL fornece um sistema de gerenciamento de banco de dados relac
 
 O Banco de Dados SQL fornece serviços de armazenamento, acesso e gerenciamento de dados relacionais no Azure. Para usá-lo, você precisará de uma assinatura do Azure.
 
-1. Abra um navegador da web e navegue até http:[ http://azure.microsoft.com.](http://azure.microsoft.com) Para começar com uma conta gratuita, clique em avaliação gratuita no canto superior direito e siga as etapas.
+1. Abra um navegador da web e navegue até http:[ http://azure.microsoft.com.](https://azure.microsoft.com/) Para começar com uma conta gratuita, clique em avaliação gratuita no canto superior direito e siga as etapas.
 
 2. Sua conta agora está criada. Você está pronto para começar.
 
@@ -211,4 +211,4 @@ Para obter mais informações, consulte [EntityClient Provider para o Entity Fra
 Agora que você aprendeu as noções básicas de conexão ao banco de dados SQL, consulte [Desenvolvimento: tópicos de instruções (banco de dados SQL)](http://msdn.microsoft.com/library/windowsazure/ee621787.aspx)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

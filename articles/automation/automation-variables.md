@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/23/2015"
+   ms.date="01/27/2016"
    ms.author="bwren" />
 
 # Ativos variáveis na Automação do Azure
@@ -55,7 +55,7 @@ As atividades de fluxo de trabalho na tabela a seguir são usadas para acessar v
 |Get-AutomationVariable|Recupera o valor de uma variável existente.|
 |Set-AutomationVariable|Define o valor de uma variável existente.|
 
->[AZURE.NOTE]Evite usar variáveis no parâmetro –Name de **Get-AutomationVariable** em um runbook ou na configuração DSC, pois isso pode complicar a descoberta de dependências entre runbooks ou configurações DSC e variáveis da Automação no momento do design.
+>[AZURE.NOTE] Evite usar variáveis no parâmetro –Name de **Get-AutomationVariable** em um runbook ou na configuração DSC, pois isso pode complicar a descoberta de dependências entre runbooks ou configurações DSC e variáveis da Automação no momento do design.
 
 ## Criando uma nova variável de automação
 
@@ -188,4 +188,4 @@ A imagem a seguir mostra como filtrar os objetos que são armazenados em uma var
 - [Links na criação gráfica](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

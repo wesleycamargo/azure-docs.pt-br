@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="01/22/2016"
 	ms.author="SilviaDoomra" />
 
 # Introdução às consultas elásticas para fragmentação (particionamento horizontal)
@@ -44,7 +44,7 @@ Aqui você vai criar um gerenciador de mapa de fragmentos juntamente com vários
 ## Criar um banco de dados de consulta elástico
 
 1. Abra o [Portal do Azure](https://portal.azure.com) e faça logon.
-2. Crie um novo Banco de Dados SQL do Azure no mesmo servidor que a instalação do fragmento. Nomeie o banco de dados como "ElasticDBQuery". 
+2. Crie um novo Banco de Dados SQL do Azure no mesmo servidor que a instalação do fragmento. Nomeie o banco de dados como "ElasticDBQuery".
 
 	![Portal do Azure e camada de preços][3]
 
@@ -129,7 +129,7 @@ Agora você pode usar funções avançadas de visualização de dados do Excel. 
 ### Custo
 Não há nenhum custo adicional para usar o recurso de consulta de Banco de Dados Elástico.
 
-Para obter informações sobre os preços, consulte [Detalhes de preços do Banco de Dados SQL](http://azure.microsoft.com/pricing/details/sql-database/).
+Para obter informações sobre os preços, consulte [Detalhes de preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
@@ -142,4 +142,4 @@ Para obter informações sobre os preços, consulte [Detalhes de preços do Banc
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

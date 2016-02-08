@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="01/06/2016"
 	ms.author="cephalin"/>
 
 
@@ -40,7 +40,7 @@ Neste tutorial, você utilizará as ferramentas a seguir. Como não se trata de 
 
 ### Modelos do Gerenciador de Recursos do Azure (JSON) ###
  
-Sempre que você cria um aplicativo Web no Serviço de Aplicativo do Azure, por exemplo, o Gerenciador de Recursos do Azure usa um modelo JSON para criar todo o grupo de recursos com os recursos do componente. Um modelo complexo do [Azure Marketplace](/marketplace) como o aplicativo [WordPress Escalonável](/marketplace/partners/wordpress/scalablewordpress/) pode incluir o banco de dados MySQL, contas de armazenamento, o plano do Serviço de Aplicativo, o próprio aplicativo Web, regras de alerta, configurações do aplicativo, configurações de dimensionamento automático e muito mais, e todos esses modelos estão disponíveis para você por meio do PowerShell. Para obter informações sobre como baixar e usar esses modelos, consulte [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md).
+Sempre que você cria um aplicativo Web no Serviço de Aplicativo do Azure, por exemplo, o Gerenciador de Recursos do Azure usa um modelo JSON para criar todo o grupo de recursos com os recursos do componente. Um modelo complexo do [Azure Marketplace](/marketplace) como o aplicativo [WordPress Escalonável](/marketplace/partners/wordpress/scalablewordpress/) pode incluir o banco de dados MySQL, contas de armazenamento, o plano do Serviço de Aplicativo, o próprio aplicativo Web, regras de alerta, configurações do aplicativo, configurações de dimensionamento automático e muito mais, e todos esses modelos estão disponíveis para você por meio do PowerShell. Para obter informações sobre como baixar e usar esses modelos, confira [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md).
 
 Para obter mais informações sobre os modelos do Gerenciador de Recursos do Azure, consulte [Criação de Modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md)
 
@@ -58,7 +58,7 @@ Para obter mais informações, consulte [Usando o PowerShell do Azure com o Gere
 
 ### Gerenciador de Recursos do Azure ###
 
-Essa [ferramenta de visualização](https://resources.azure.com) permite que você explore as definições JSON de todos os grupos de recursos em sua assinatura e os recursos individuais. Na ferramenta, você pode editar as definições de JSON de um recurso, excluir uma hierarquia inteira de recursos e criar novos recursos. As informações prontamente disponíveis nessa ferramenta serão muito úteis para criação de modelos, porque mostram quais propriedades você precisa definir para um determinado tipo de recurso, os valores corretos, etc. Você pode até mesmo criar seu grupo de recursos no [Portal do Azure](https://portal.azure.com) e, em seguida, inspecionar suas definições JSON no Gerenciador para ajudá-lo a classificar o grupo de recursos segundo os modelos.
+Essa [ferramenta de visualização](https://resources.azure.com) permite que você explore as definições JSON de todos os grupos de recursos em sua assinatura e os recursos individuais. Na ferramenta, você pode editar as definições de JSON de um recurso, excluir uma hierarquia inteira de recursos e criar novos recursos. As informações prontamente disponíveis nessa ferramenta serão muito úteis para criação de modelos, porque mostram quais propriedades você precisa definir para um determinado tipo de recurso, os valores corretos, etc. Você pode até mesmo criar seu grupo de recursos no [Portal do Azure](https://portal.azure.com/) e, em seguida, inspecionar suas definições JSON no Gerenciador para ajudá-lo a classificar o grupo de recursos segundo os modelos.
 
 ### Botão Implantar no Azure ###
 
@@ -68,7 +68,7 @@ Se você usa GitHub para controle do código-fonte, você pode colocar um [botã
 
 Agora vamos direto ao ponto.
 
-1. 	Navegue até o exemplo do Serviço de Aplicativo [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp).
+1. 	Navegue até o exemplo de Serviço de Aplicativo [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp).
 
 2.	 Em readme.md, clique em **Implantar no Azure**.
  
@@ -123,13 +123,13 @@ No nó recursos, você pode ver que 4 recursos do nível mais alto estão defini
 
 #### Plano do Serviço de Aplicativo ####
 
-Vamos começar com um recurso simples de nível raiz em JSON. Na Estrutura de Tópicos JSON, clique no plano do Serviço de Aplicativo chamado **[hostingPlanName]** para realçar o código do JSON correspondente.
+Vamos começar com um recurso simples de nível raiz em JSON. Na Estrutura de Tópicos JSON, clique no plano de Serviço de Aplicativo chamado **[hostingPlanName]** para realçar o código do JSON correspondente.
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-3-appserviceplan.png)
 
 Observe que o elemento `type` especifica a cadeia de caracteres em um plano do Serviço de Aplicativo (isso era chamado de farm de servidores, há muito tempo atrás) enquanto outros elementos e propriedades são preenchidos com os parâmetros definidos no arquivo JSON, sendo que este recurso não tem nenhum recurso aninhado.
 
->[AZURE.NOTE]Observe também que o valor de `apiVersion` informa ao Azure com qual versão da API REST usar a definição de recurso JSON, e ele pode afetar como o recurso deve ser formatado dentro do `{}`.
+>[AZURE.NOTE] Observe também que o valor de `apiVersion` informa ao Azure com qual versão da API REST usar a definição de recurso JSON, e ele pode afetar como o recurso deve ser formatado dentro do `{}`.
 
 #### SQL Server ####
 
@@ -143,7 +143,7 @@ Observe o seguinte sobre o código JSON realçado:
 -	O recurso SQLServer tem dois recursos aninhados, cada um com um valor diferente para `type`.
 -	Os recursos aninhados dentro de `“resources”: […]`, em que o banco de dados e as regras de firewall são definidas, têm um elemento `dependsOn` que especifica a ID de recurso do recurso SQLServer no nível de raiz. Isso informa ao Gerenciador de Recursos do Azure que, "antes de você criar esse recurso, o outro recurso já deve existir; e se o outro recurso estiver definido no modelo, crie-o primeiro".
 
-	>[AZURE.NOTE]Para obter informações detalhadas sobre como usar a função `resourceId()`, consulte [Funções de Modelo do Gerenciador de Recursos do Azure](../resource-group-template-functions.md).
+	>[AZURE.NOTE] Para obter informações detalhadas sobre como usar a função `resourceId()`, consulte [Funções de Modelo do Gerenciador de Recursos do Azure](../resource-group-template-functions.md).
 
 -	O efeito do elemento `dependsOn` é que o Gerenciador de Recursos do Azure pode saber quais recursos podem ser criados em paralelo e quais recursos devem ser criados sequencialmente.
 
@@ -176,7 +176,7 @@ As cadeias de conexão também serão definidas como um recurso aninhado.
 
 No elemento `properties` para `config/connectionstrings`, cada cadeia de conexão também é definida como um par nome:valor, com o formato específico de `“<name>” : {“value”: “…”, “type”: “…”}`. Para o elemento `type`, os valores possíveis são `MySql`, `SQLServer`, `SQLAzure` e `Custom`.
 
->[AZURE.TIP]Para obter uma lista definitiva de tipos de cadeia de conexão, execute o seguinte comando no Azure PowerShell: [Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType")
+>[AZURE.TIP] Para obter uma lista definitiva de tipos de cadeia de conexão, execute o seguinte comando no Azure PowerShell: [Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType")
     
 ##### Controle do código-fonte #####
 
@@ -186,13 +186,13 @@ As configurações do controle do código-fonte também serão definidas como um
 
 `RepoUrl` e `branch` devem ser bastante intuitivos e devem apontar para o repositório Git e o nome da ramificação por meio da qual publicar. Mais uma vez, estes são definidos pelos parâmetros de entrada.
 
-Observe no elemento `dependsOn` que, além do recurso de aplicativo Web, `sourcecontrols/web` também depende de `config/appsettings` e `config/connectionstrings`. Isso ocorre porque quando `sourcecontrols/web` é configurado, o processo de implantação do Azure tentará automaticamente implantar, compilar e iniciar o código do aplicativo. Portanto, inserir essa dependência ajuda você a garantir que o aplicativo tenha acesso às configurações e cadeias de conexão necessárias do aplicativo antes de o código desse aplicativo ser executado. [TAREFA PENDENTE: é necessário verificar se isso é verdadeiro.]
+Observe no elemento `dependsOn` que, além do recurso de aplicativo Web, `sourcecontrols/web` também depende de `config/appsettings` e `config/connectionstrings`. Isso ocorre porque quando `sourcecontrols/web` é configurado, o processo de implantação do Azure tentará automaticamente implantar, compilar e iniciar o código do aplicativo. Portanto, inserir essa dependência ajuda você a garantir que o aplicativo tenha acesso às configurações e cadeias de conexão necessárias do aplicativo antes de o código desse aplicativo ser executado.
 
->[AZURE.NOTE]Observe também que `IsManualIntegration` é definido como `true`. Esta propriedade é necessária neste tutorial porque você na verdade não possui o repositório GitHub e, portanto, não pode efetivamente conceder permissão ao Azure para configurar a publicação contínua por meio de [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) (ou seja, enviar por push atualizações automáticas de repositório ao Azure). Você pode usar o valor padrão `false` para o repositório especificado somente se configurou as credenciais do proprietário GitHub no [Portal de Visualização do Azure](https://portal.azure.com) previamente. Em outras palavras, se você configurou o controle do código-fonte para GitHub ou BitBucket para qualquer aplicativo no [Portal do Azure](https://portal.azure.com) previamente, usando suas credenciais de usuário, então o Azure lembrará dessas credenciais e as utilizará sempre que você implantar qualquer aplicativo do GitHub ou BitBucket no futuro. No entanto, se você ainda não tiver feito isso, a implantação do modelo JSON falhará quando o Gerenciador de Recursos do Azure tentar definir configurações de controle do código-fonte do aplicativo Web, porque ele não poderá fazer logon no GitHub ou BitBucket com as credenciais do proprietário do repositório.
+>[AZURE.NOTE] Observe também que `IsManualIntegration` é definido como `true`. Esta propriedade é necessária neste tutorial porque você na verdade não possui o repositório GitHub e, portanto, não pode efetivamente conceder permissão ao Azure para configurar a publicação contínua por meio de [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) (ou seja, enviar por push atualizações automáticas de repositório ao Azure). Você pode usar o valor padrão `false` para o repositório especificado somente se tiver configurado as credenciais do proprietário para o GitHub no [Portal do Azure](https://portal.azure.com/) previamente. Em outras palavras, se você configurou o controle do código-fonte para GitHub ou BitBucket para qualquer aplicativo no [Portal do Azure](https://portal.azure.com/) previamente, usando suas credenciais de usuário, então o Azure lembrará dessas credenciais e as utilizará sempre que você implantar qualquer aplicativo do GitHub ou BitBucket no futuro. No entanto, se você ainda não tiver feito isso, a implantação do modelo JSON falhará quando o Gerenciador de Recursos do Azure tentar definir configurações de controle do código-fonte do aplicativo Web, porque ele não poderá fazer logon no GitHub ou BitBucket com as credenciais do proprietário do repositório.
 
 ## Comparar o modelo JSON com grupo de recursos implantado ##
 
-Aqui, você pode percorrer todas as folhas do aplicativo Web no [Portal do Azure](https://portal.azure.com), mas há outra ferramenta que é tão útil quanto esta, ou mais. Vá para a ferramenta de visualização [Gerenciador de Recursos do Azure](https://resources.azure.com), que oferece uma representação JSON de todos os grupos de recursos em suas assinaturas, como eles existem realmente no back-end do Azure. Você também pode ver como a hierarquia JSON do grupo de recursos no Azure corresponde à hierarquia no arquivo de modelo que é usado para criá-la.
+Aqui, você pode percorrer todas as folhas do aplicativo Web no [Portal do Azure](https://portal.azure.com/), mas há outra ferramenta que é tão útil quanto esta, ou mais. Vá para a ferramenta de visualização [Gerenciador de Recursos do Azure](https://resources.azure.com), que oferece uma representação JSON de todos os grupos de recursos em suas assinaturas, como eles existem realmente no back-end do Azure. Você também pode ver como a hierarquia JSON do grupo de recursos no Azure corresponde à hierarquia no arquivo de modelo que é usado para criá-la.
 
 Por exemplo, quando vou para a ferramenta [Gerenciador de Recursos do Azure](https://resources.azure.com) e expando os nós no gerenciador, posso ver o grupo de recursos e os recursos de nível raiz que são coletados em seus respectivos tipos de recurso.
 
@@ -264,11 +264,11 @@ O botão **Implantar no Azure** é ótimo, mas só permite que você implante o 
  
 	![](./media/app-service-deploy-complex-application-predictably/deploy-11-parametereditorfilled.png)
 
-	>[AZURE.NOTE]Dimensionamento automático é um recurso oferecido no patamar **Standard** ou mais alto, enquanto alertas de nível de plano são recursos oferecidos no patamar **Basic** ou superior; você precisará definir o parâmetro **sku** como **Standard** ou **Premium** para ver todos os seus novos recursos do App Insights se iluminarem.
+	>[AZURE.NOTE] Dimensionamento automático é um recurso oferecido no patamar **Standard** ou mais alto, enquanto alertas de nível de plano são recursos oferecidos no patamar **Basic** ou superior; você precisará definir o parâmetro **sku** como **Standard** ou **Premium** para ver todos os seus novos recursos do App Insights se iluminarem.
 	
 16.	Clique em **Implantar**. Se você selecionou **Salvar senhas**, a senha será salva no arquivo de parâmetros **em texto sem formatação**. Caso contrário, será solicitado que você insira a senha do banco de dados durante o processo de implantação.
 
-É isso! Agora, basta ir para o [Portal do Azure](https://portal.azure.com) e até a ferramenta [Gerenciador de Recursos do Azure](https://resources.azure.com) para ver os novos alertas e configurações de dimensionamento automático adicionados ao seu aplicativo JSON implantado.
+É isso! Agora, basta ir para o [Portal do Azure](https://portal.azure.com/) e até a ferramenta [Gerenciador de Recursos do Azure](https://resources.azure.com) para ver os novos alertas e configurações de dimensionamento automático adicionados ao seu aplicativo JSON implantado.
 
 As etapas cumpridas nesta seção realizaram principalmente o seguinte:
 
@@ -305,4 +305,4 @@ Descubra como [aplicar metodologias ágeis e publicar continuamente o aplicativo
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

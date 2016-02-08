@@ -27,7 +27,7 @@
 
 Este artigo descreve como criar e gerenciar recursos do Azure e usando a Interface da Linha de Comando do Azure (CLI) para Mac, Linux e Windows no modo Gerenciador de Recursos do Azure.
 
->[AZURE.NOTE]Para criar e gerenciar recursos do Azure na linha de comando, você precisará de uma conta do Azure ([avaliação gratuita aqui](http://azure.microsoft.com/pricing/free-trial/)). Você também precisará [instalar a CLI do Azure](xplat-cli-install.md), e [fazer logon para usar recursos do Azure associados à sua conta](xplat-cli-connect.md). Se você tiver feito isso, você está pronto para continuar.
+>[AZURE.NOTE] Para criar e gerenciar recursos do Azure na linha de comando, você precisará de uma conta do Azure ([avaliação gratuita aqui](https://azure.microsoft.com/pricing/free-trial/)). Você também precisará [instalar a CLI do Azure](xplat-cli-install.md), e [fazer logon para usar recursos do Azure associados à sua conta](xplat-cli-connect.md). Se você tiver feito isso, você está pronto para continuar.
 
 ## Recursos do Azure
 
@@ -45,7 +45,7 @@ Trabalhar com o Gerenciador de Recursos do Azure por meio da CLI do Azure exige 
 
 Para saber mais sobre a autenticação para o Microsoft Azure, consulte [Conectar-se a uma assinatura do Azure a partir da CLI do Azure](xplat-cli-connect.md).
 
->[AZURE.NOTE]Quando você usa uma conta corporativa ou de estudante, que é gerenciada pelo Active Directory do Azure, você também pode usar o controle de acesso baseado em função (RBAC) do Azure para gerenciar o acesso e o uso de recursos do Azure. Para obter detalhes, confira [Controle de acesso baseado em função do Azure](./active-directory/role-based-access-control-configure.md).
+>[AZURE.NOTE] Quando você usa uma conta corporativa ou de estudante, que é gerenciada pelo Active Directory do Azure, você também pode usar o controle de acesso baseado em função (RBAC) do Azure para gerenciar o acesso e o uso de recursos do Azure. Para obter detalhes, confira [Controle de acesso baseado em função do Azure](./active-directory/role-based-access-control-configure.md).
 
 ## Definir o modo Gerenciador de Recursos do Azure
 
@@ -53,7 +53,7 @@ Como o modo Gerenciador de Recursos do Azure não está habilitado por padrão, 
 
 	azure config mode arm
 
->[AZURE.NOTE]O modo do Gerenciador de Recursos do Azure e o modo do Gerenciamento de Serviços do Azure são mutuamente exclusivos. Ou seja, recursos criados em um modo não podem ser gerenciados no outro modo.
+>[AZURE.NOTE] O modo do Gerenciador de Recursos do Azure e o modo do Gerenciamento de Serviços do Azure são mutuamente exclusivos. Ou seja, recursos criados em um modo não podem ser gerenciados no outro modo.
 
 ## Encontrar os locais
 
@@ -84,7 +84,7 @@ A criação de um novo modelo está além do escopo deste artigo e, portanto, pa
 * Uma senha = `adminPassword`
 * Um nome de domínio para a VM = `dnsLabelPrefix`
 
->[AZURE.TIP]Estas etapas mostram apenas uma maneira de usar um modelo de VM com a CLI do Azure. Para obter outros exemplos, consulte [Implantar e gerenciar máquinas virtuais usando modelos do Gerenciador de Recursos do Azure e a CLI do Azure](virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md)
+>[AZURE.TIP] Estas etapas mostram apenas uma maneira de usar um modelo de VM com a CLI do Azure. Para obter outros exemplos, consulte [Implantar e gerenciar máquinas virtuais usando modelos do Gerenciador de Recursos do Azure e a CLI do Azure](virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md)
 
 1. Siga o link "Saiba mais com o GitHub" para baixar os arquivos azuredeploy.json e azuredeploy.parameters.json do GitHub para uma pasta de trabalho no computador local. (Selecione o formato _não processado_ de cada arquivo no GitHub).
 
@@ -149,7 +149,7 @@ A criação de um novo modelo está além do escopo deste artigo e, portanto, pa
 		data:    ubuntuOSVersion        String        14.04.2-LTS
 		info:    group deployment show command OK
 
-	>[AZURE.NOTE]Se você perceber que sua configuração não está correta e precisar parar uma implantação em execução há muito tempo, use o comando a seguir.
+	>[AZURE.NOTE] Se você perceber que sua configuração não está correta e precisar parar uma implantação em execução há muito tempo, use o comando a seguir.
 	>
 	> `azure group deployment stop "testRG" "testDeploy"`
 	>
@@ -168,13 +168,13 @@ Você também pode usar um modelo diretamente do [GitHub](https://github.com/Azu
 	azure group deployment create "testDeploy" testResourceGroup --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json
 Você precisará inserir os parâmetros de modelo necessários.
 
-> [AZURE.NOTE]É importante abrir o modelo JSON no modo _bruto_. A URL que aparece na barra de endereços do navegador é diferente daquela que aparece no modo normal. Para abrir o arquivo no modo _raw_ ao exibir o arquivo no GitHub, no canto superior direito, clique em **Raw**.
+> [AZURE.NOTE] É importante abrir o modelo JSON no modo _bruto_. A URL que aparece na barra de endereços do navegador é diferente daquela que aparece no modo normal. Para abrir o arquivo no modo _raw_ ao exibir o arquivo no GitHub, no canto superior direito, clique em **Raw**.
 
 ## Trabalhando com recursos
 
 Embora modelos permitam declarar alterações feitas na configuração que afetam todo o grupo, às vezes você precisa trabalhar com apenas um recurso específico. Você pode fazer isso usando os comandos `azure resource`.
 
-> [AZURE.NOTE]Ao usar os comandos `azure resource` em vez do comando `list` , você deve especificar a versão da API do recurso com o qual estiver trabalhando usando o parâmetro `-o`. Se você não tiver certeza sobre a versão da API a ser usada, consulte o arquivo de modelo e localize o campo **apiVersion** do recurso.
+> [AZURE.NOTE] Ao usar os comandos `azure resource` em vez do comando `list` , você deve especificar a versão da API do recurso com o qual estiver trabalhando usando o parâmetro `-o`. Se você não tiver certeza sobre a versão da API a ser usada, consulte o arquivo de modelo e localize o campo **apiVersion** do recurso.
 
 1. Para listar todos os recursos em um grupo, use o comando a seguir.
 
@@ -192,7 +192,7 @@ Embora modelos permitam declarar alterações feitas na configuração que afeta
 
 		azure resource show "testRG" "MyUbuntuVM" Microsoft.Compute/virtualMachines -o "2015-06-15" --json
 
-	>[AZURE.NOTE]Você pode salvar os dados JSON em arquivo usando o caractere para enviar a saída ao arquivo. Por exemplo:
+	>[AZURE.NOTE] Você pode salvar os dados JSON em arquivo usando o caractere para enviar a saída ao arquivo. Por exemplo:
 	>
 	> `azure resource show "testRG" "MyUbuntuVM" Microsoft.Compute/virtualMachines -o "2015-06-15" --json > myfile.json`
 
@@ -215,4 +215,4 @@ Para exibir informações registradas em log sobre operações realizadas em um 
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

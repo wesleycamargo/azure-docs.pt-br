@@ -18,7 +18,7 @@
 
 # Gerenciamento de log de segurança e de auditoria do Microsoft Azure
 
-O Azure permite que os clientes gerem e coletem eventos de segurança das funções IaaS (Infraestrutura como Serviço) e PaaS (Plataforma como Serviço) do Azure para armazenamento central nas assinaturas deles. Então, os clientes poderão usar o [HDInsight](http://azure.microsoft.com/documentation/services/hdinsight/) para agregar e analisar os eventos coletados. Além disso, esses eventos coletados podem ser exportados para sistemas SIEM (gerenciamento de informações e eventos de segurança) locais com o objetivo de realizar um monitoramento contínuo.
+O Azure permite que os clientes gerem e coletem eventos de segurança das funções IaaS (Infraestrutura como Serviço) e PaaS (Plataforma como Serviço) do Azure para armazenamento central nas assinaturas deles. Então, os clientes poderão usar o [HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/) para agregar e analisar os eventos coletados. Além disso, esses eventos coletados podem ser exportados para sistemas SIEM (gerenciamento de informações e eventos de segurança) locais com o objetivo de realizar um monitoramento contínuo.
 
 O ciclo de vida de registro em log, de análise e de monitoramento de segurança do Azure inclui:
 
@@ -32,9 +32,9 @@ Este artigo destaca as fases de coleta e de geração do ciclo de vida.
 ## Geração de log
 Os eventos de segurança são gerados no Log de Eventos do Windows para os canais **Sistema**, **Segurança** e **Aplicativo** em máquinas virtuais. Para garantir que os eventos sejam registrados sem potencial perda de dados, será importante configurar corretamente o tamanho do log de eventos. Baseie o tamanho do log de eventos no número de eventos gerados pelas configurações de política de auditoria e pelas políticas de coleta de eventos definidas. Para saber mais, consulte [Planejamento de monitoramento e gerenciamento de auditoria de segurança](http://technet.microsoft.com/library/ee513968.aspx#BKMK_4).
 
->[AZURE.NOTE]Ao usar o Encaminhamento de Eventos do Windows (WEF) ou o Diagnóstico do Azure (explicado na seção [Coleta de log](#log-collection)) para extrair os logs dos Serviços de Nuvem ou das máquinas virtuais, considere o potencial impacto de interrupções no sistema. Por exemplo, se o ambiente do WEF ficar inativo por algum tempo, verifique se o log é grande o suficiente para acomodar um período mais longo, ou prepare-se para possíveis perdas de dados.
+>[AZURE.NOTE] Ao usar o Encaminhamento de Eventos do Windows (WEF) ou o Diagnóstico do Azure (explicado na seção [Coleta de log](#log-collection)) para extrair os logs dos Serviços de Nuvem ou das máquinas virtuais, considere o potencial impacto de interrupções no sistema. Por exemplo, se o ambiente do WEF ficar inativo por algum tempo, verifique se o log é grande o suficiente para acomodar um período mais longo, ou prepare-se para possíveis perdas de dados.
 
-Há um conjunto de eventos de segurança do sistema operacional habilitado por padrão para os aplicativos de Serviços de Nuvem implantados no Azure, e para máquinas virtuais criadas a partir do [Marketplace de Máquinas Virtuais do Azure](http://azure.microsoft.com/marketplace/virtual-machines/#microsoft). Os clientes podem adicionar, remover ou modificar os eventos para auditoria por meio da personalização da política de auditoria do sistema operacional. Para saber mais, consulte [Referência sobre as configurações da política de segurança](http://technet.microsoft.com/library/jj852210.aspx).
+Há um conjunto de eventos de segurança do sistema operacional habilitado por padrão para os aplicativos de Serviços de Nuvem implantados no Azure, e para máquinas virtuais criadas a partir do [Marketplace de Máquinas Virtuais do Azure](https://azure.microsoft.com/marketplace/virtual-machines/#microsoft). Os clientes podem adicionar, remover ou modificar os eventos para auditoria por meio da personalização da política de auditoria do sistema operacional. Para saber mais, consulte [Referência sobre as configurações da política de segurança](http://technet.microsoft.com/library/jj852210.aspx).
 
 Use os métodos a seguir para gerar logs adicionais do sistema operacional (por exemplo, mudanças na política de auditoria) e de componentes do Windows (por exemplo, o IIS):
 
@@ -93,7 +93,7 @@ Veja na tabela abaixo algumas das principais diferenças entre essas duas tecnol
 ##	Coleta de dados de eventos de segurança com o Encaminhamento de Eventos do Windows
 No caso das Máquinas Virtuais do Azure ingressadas em um domínio, você pode configurar o WEF usando as mesmas configurações de Política de Grupo usadas para computadores que ingressaram em um domínio local. Para saber mais, consulte [Nuvem híbrida](http://www.microsoft.com/server-cloud/solutions/hybrid-cloud.aspx).
 
-Com essa abordagem, uma organização pode adquirir uma assinatura do IaaS, conectá-la à rede corporativa usando a [Rota Expressa](http://azure.microsoft.com/services/expressroute/) ou a VPN site a site e, em seguida, ingressar as máquinas virtuais que você tem no Azure no domínio corporativo. Posteriormente, você poderá configurar o WEF nas máquinas ingressadas no domínio.
+Com essa abordagem, uma organização pode adquirir uma assinatura do IaaS, conectá-la à rede corporativa usando a [Rota Expressa](https://azure.microsoft.com/services/expressroute/) ou a VPN site a site e, em seguida, ingressar as máquinas virtuais que você tem no Azure no domínio corporativo. Posteriormente, você poderá configurar o WEF nas máquinas ingressadas no domínio.
 
 O encaminhamento de eventos é dividido em duas partes: a origem e o coletor. A origem é o computador no qual os logs de segurança são gerados. O coletor é o servidor centralizado que coleta e consolida os logs de eventos. Os administradores de TI podem assinar eventos para que possam receber e armazenar eventos encaminhados de computadores remotos (a origem do evento). Para saber mais, consulte [Configurar computadores para encaminhar e coletar eventos](http://technet.microsoft.com/library/cc748890.aspx).
 
@@ -218,7 +218,7 @@ Juntas, **PartitionKey** e **RowKey** identificam exclusivamente cada entidade d
 
 - Timestamp é um valor de data/hora mantido no servidor para controlar quando uma entidade foi modificada pela última vez.
 
->[AZURE.NOTE]O tamanho máximo de linha em uma tabela do Armazenamento do Azure é limitado a 1 MB. Uma conta de armazenamento pode conter até 200 TB de dados de blobs, filas e tabelas se a conta tiver sido criada depois de junho de 2012. Portanto, o tamanho da tabela pode aumentar até 200 TB se os blobs e as filas não ocuparem qualquer espaço de armazenamento. As contas criadas antes de junho de 2012 têm um limite de 100 TB.
+>[AZURE.NOTE] O tamanho máximo de linha em uma tabela do Armazenamento do Azure é limitado a 1 MB. Uma conta de armazenamento pode conter até 200 TB de dados de blobs, filas e tabelas se a conta tiver sido criada depois de junho de 2012. Portanto, o tamanho da tabela pode aumentar até 200 TB se os blobs e as filas não ocuparem qualquer espaço de armazenamento. As contas criadas antes de junho de 2012 têm um limite de 100 TB.
 
 O Gerenciador de Armazenamento também oferece a opção para editar dados de tabela. Clique duas vezes em uma linha específica no modo de exibição de Tabela para abrir a janela Editar Entidade, como mostrado aqui:
 
@@ -230,7 +230,7 @@ Nesta seção, atualizamos um pipeline de coleta de logs de segurança existente
 ##### Etapa 1: Atualizar o arquivo de configuração para incluir eventos de seu interesse
 O arquivo do Diagnóstico do Azure criado no exemplo anterior precisa ser atualizado para incluir os tipos de erro do log de eventos de aplicativo do Windows.
 
->[AZURE.NOTE]Quaisquer definições de configuração existentes do Diagnóstico do Azure precisam ser mescladas ao novo arquivo de configuração. As configurações definidas no novo arquivo substituirão as configurações existentes.
+>[AZURE.NOTE] Quaisquer definições de configuração existentes do Diagnóstico do Azure precisam ser mescladas ao novo arquivo de configuração. As configurações definidas no novo arquivo substituirão as configurações existentes.
 
 Para recuperar a definição de configuração existente, use o cmdlet **Get-AzureVMDiagnosticsExtension**. A seguir, um exemplo de script do Azure PowerShell para recuperar a configuração existente:
 
@@ -396,7 +396,7 @@ Nesta seção, atualizamos um pipeline de coleta de logs de segurança existente
 Para detectar mudanças no firewall, atualizaremos a configuração existente para incluir eventos de mudança no firewall.
 
 #### Etapa 1: Obter a configuração existente
->[AZURE.NOTE]As novas definições de configuração substituirão a configuração existente. Portanto, é importante que as definições de configuração existentes do Diagnóstico do Azure sejam mescladas ao novo arquivo de configuração.
+>[AZURE.NOTE] As novas definições de configuração substituirão a configuração existente. Portanto, é importante que as definições de configuração existentes do Diagnóstico do Azure sejam mescladas ao novo arquivo de configuração.
 
 Para recuperar a definição de configuração existente, você pode usar o cmdlet **Get-AzureServiceDiagnosticsExtension**:
 
@@ -527,7 +527,7 @@ Durante a coleta de logs de segurança, recomendamos que você:
 - Mescle as definições de configuração existentes do Diagnóstico do Azure com as alterações feitas. O novo arquivo de configuração substitui a configuração existente.
 - Escolha o intervalo **Período de Transferência Agendado** com sabedoria. Períodos de transferência mais curtos aumentarão a relevância dos dados, mas isso pode aumentar a sobrecarga de processamento e os custos de armazenamento.
 
->[AZURE.NOTE]A outra variável que afetará consideravelmente a quantidade de dados coletados é o nível de registro em log. Este é um exemplo de como filtrar logs por nível de registro em log:
+>[AZURE.NOTE] A outra variável que afetará consideravelmente a quantidade de dados coletados é o nível de registro em log. Este é um exemplo de como filtrar logs por nível de registro em log:
 
     System!*[System[(Level =2)]]
 
@@ -535,7 +535,7 @@ O nível de registro log é cumulativo. Se o filtro for definido como **Aviso**,
 
 - Limpe periodicamente os dados de diagnóstico do Armazenamento do Azure se eles não forem mais necessários.
 
->[AZURE.NOTE]Para saber mais sobre os dados de diagnóstico, consulte [Armazenar e exibir dados de diagnóstico no Armazenamento do Azure](https://msdn.microsoft.com/library/azure/hh411534.aspx). Os contêineres e tabelas que armazenam dados de diagnóstico são como outros contêineres e tabelas, é possível excluir blobs e entidades da mesma maneira que você faria com outros dados. É possível excluir os dados de diagnóstico programaticamente por meio de uma das bibliotecas de cliente de armazenamento, ou visualmente por meio de um [cliente do gerenciador de armazenamento](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx).
+>[AZURE.NOTE] Para saber mais sobre os dados de diagnóstico, consulte [Armazenar e exibir dados de diagnóstico no Armazenamento do Azure](https://msdn.microsoft.com/library/azure/hh411534.aspx). Os contêineres e tabelas que armazenam dados de diagnóstico são como outros contêineres e tabelas, é possível excluir blobs e entidades da mesma maneira que você faria com outros dados. É possível excluir os dados de diagnóstico programaticamente por meio de uma das bibliotecas de cliente de armazenamento, ou visualmente por meio de um [cliente do gerenciador de armazenamento](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx).
 
 - É uma prática recomendada armazenar dados de serviço e dados de log de segurança em contas de armazenamento separadas. Esse isolamento garante que a gravação dos dados do log de segurança não afetará o desempenho de armazenamento de dados de serviço de produção.
 - Escolha a duração de retenção de log com base na política de conformidade e nos requisitos de análise e monitoramento de dados de sua organização.
@@ -572,7 +572,7 @@ Para exibir os **Logs de Operação**, no [Portal de Gerenciamento do Azure](htt
 ## Recursos adicionais
 Os recursos a seguir fornecem informações gerais sobre o Microsoft Azure e serviços da Microsoft relacionados:
 
-- [Central de confiabilidade do Microsoft Azure](http://azure.microsoft.com/support/trust-center/)
+- [Central de confiabilidade do Microsoft Azure](https://azure.microsoft.com/support/trust-center/)
 
     Informações sobre como a segurança e a privacidade são incorporadas ao desenvolvimento do Azure e como o Azure atende a um amplo conjunto de padrões de conformidade internacionais e específicos do setor
 
@@ -614,4 +614,4 @@ Os recursos a seguir fornecem informações gerais sobre o Microsoft Azure e ser
 [19]: ./media/azure-security-audit-log-management/sec-view-blob-container.png
 [20]: ./media/azure-security-audit-log-management/sec-hdinsight-analysis.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

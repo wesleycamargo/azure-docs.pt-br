@@ -24,7 +24,7 @@
 
 Para se inscrever em uma assinatura de Avaliação Gratuita do Azure, você deve fornecer um número de telefone, um cartão de crédito e uma Conta da Microsoft. Sua conta da Microsoft é o endereço de email usado, juntamente com sua senha, para entrar em qualquer programa ou serviço do Windows Live, como Outlook, Hotmail ou OneDrive. Você pode configurar uma conta da Microsoft usando qualquer endereço de e-mail que pertence a você, incluindo o e-mail da sua empresa. Confira [Perguntas frequentes sobre a conta da Microsoft](https://www.microsoft.com/pt-BR/account/faq.aspx) para obter mais detalhes.
 
->[AZURE.NOTE]Seu número de telefone e os detalhes do seu cartão de crédito são usados apenas para verificar sua identidade. Embora seu cartão de crédito não será cobrado, a Microsoft colocará uma espera de autorização em uma quantidade mínima para verificar se o cartão de crédito é válido. A suspensão será liberada dentro de 3 a 5 dias úteis, dependendo das políticas da sua instituição financeira.
+>[AZURE.NOTE] Seu número de telefone e os detalhes do seu cartão de crédito são usados apenas para verificar sua identidade. Embora seu cartão de crédito não será cobrado, a Microsoft colocará uma espera de autorização em uma quantidade mínima para verificar se o cartão de crédito é válido. A suspensão será liberada dentro de 3 a 5 dias úteis, dependendo das políticas da sua instituição financeira.
 
 1. Abra a [página de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/) e selecione **Experimentar agora**.
 2. Entre com sua conta da Microsoft ou com sua conta corporativa ou de estudante.
@@ -50,7 +50,7 @@ Para se inscrever em uma assinatura de Avaliação Gratuita do Azure, você deve
 
 ## Atualizar sua assinatura de Avaliação Gratuita do Azure para uma assinatura pré-paga
 
-1. Faça logon no [Portal da Conta do Azure](https://account.windowsazure.com/subscriptions) usando a conta da Microsoft ou a conta Corporativa/de Estudante que você usou para se inscrever a fim de obter a avaliação gratuita.
+1. Faça logon no [Portal da Conta do Azure](https://account.windowsazure.com/subscriptions) usando a conta da Microsoft ou sua conta corporativa ou de estudante que você usou para se inscrever para a avaliação gratuita.
 2. Escolha a assinatura e selecione **Atualizar**.</br>![billpage](./media/billing-buy-sign-up-azure-subscription/billpage.png)
 3. Selecione **Sim** e **Atualizar agora**. </br>![atualizar](./media/billing-buy-sign-up-azure-subscription/Upgrade.png)
 
@@ -62,7 +62,7 @@ Se tiver comprado créditos do Azure via Open de um revendedor, siga estas etapa
 
 1. Vá para a [página de resumo da assinatura](https://account.windowsazure.com/subscriptions) em azure.com.
 
-2. Escolha **Azure via Open**. Na página [Chave de licença do Azure via Open](http://azure.microsoft.com/offers/ms-azr-0111p/), escolha **Ativar uma nova assinatura ou uma assinatura existente**.
+2. Escolha **Azure via Open**. Na página [Chave de licença do Azure via Open](https://azure.microsoft.com/offers/ms-azr-0111p/), escolha **Ativar uma nova assinatura ou uma assinatura existente**.
 
 3. Insira a chave do produto (Product Key) e marque a opção de contrato.
 
@@ -92,4 +92,4 @@ Verifique no canal do programa de benefícios se você está qualificado para o 
 
 - [Portal do Microsoft BizSpark Plus](http://www.microsoft.com/bizspark/plus/default.aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

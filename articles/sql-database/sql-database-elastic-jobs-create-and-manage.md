@@ -27,7 +27,7 @@ A opção **Trabalhos de Banco de Dados Elástico** permite o gerenciamento fác
 
 ## Pré-requisitos
 
-* Uma assinatura do Azure. Para obter uma avaliação gratuita, confira [Um mês de avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
+* Uma assinatura do Azure. Para obter uma avaliação gratuita, confira [Um mês de avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Um pool de bancos de dados elásticos. Consulte [Sobre os pools de bancos de dados elásticos](sql-database-elastic-pool.md)
 * Instalação dos componentes de serviço do trabalho de banco de dados elástico. Consulte [Instalando o serviço do trabalho de banco de dados elástico](sql-database-elastic-jobs-service-installation.md).
 
@@ -115,4 +115,4 @@ Se um trabalho falhar, será possível encontrar um log de sua execução. Cliqu
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/16/2015" 
+	ms.date="01/26/2015" 
 	ms.author="ryancraw"/>
 
 # Protegendo o acesso a dados no Banco de Dados de Documentos #
@@ -115,7 +115,7 @@ Um recurso de usuário do Banco de Dados de Documentos é associado a um banco d
 
     docUser = await client.CreateUserAsync(database.SelfLink, docUser);
 
-> [AZURE.NOTE]Cada usuário do Banco de Dados de Documentos tem uma propriedade PermissionsLink que pode ser usada para recuperar a lista de permissões associadas ao usuário.
+> [AZURE.NOTE] Cada usuário do Banco de Dados de Documentos tem uma propriedade PermissionsLink que pode ser usada para recuperar a lista de permissões associadas ao usuário.
 
 Um recurso de permissão do Banco de Dados de Documentos é associado a um usuário do Banco de Dados de Documentos. Cada usuário pode conter nenhuma ou mais permissões do Banco de Dados de Documentos. Um recurso de permissão fornece acesso a um token de segurança de que o usuário precisa ao tentar acessar um recurso de aplicativo específico. Há dois níveis de acesso disponíveis que podem ser fornecidos por um recurso de permissão:
 
@@ -123,7 +123,7 @@ Um recurso de permissão do Banco de Dados de Documentos é associado a um usuá
 - Leitura: O usuário pode apenas ler o conteúdo do recurso, mas não pode executar operações de gravação, atualização ou exclusão no recurso.
 
 
-> [AZURE.NOTE]Para executar procedimentos armazenados no Banco de Dados de Documentos, o usuário precisa ter a permissão Tudo na coleção na qual o procedimento armazenado será executado.
+> [AZURE.NOTE] Para executar procedimentos armazenados no Banco de Dados de Documentos, o usuário precisa ter a permissão Tudo na coleção na qual o procedimento armazenado será executado.
 
 
 O trecho de código a seguir mostra como criar um recurso de permissão, ler o token de recurso (token) do recurso de permissão e associar as permissões ao usuário criado anteriormente.
@@ -154,7 +154,7 @@ Para obter facilmente todos os recursos de permissão associados a um determinad
             
     DocumentClient userClient = new DocumentClient(new Uri(endpointUrl),permList);
 
-> [AZURE.TIP]Tokens de recurso têm um intervalo de tempo válido padrão de uma hora. O tempo de vida do token, no entanto, pode ser especificado explicitamente, até um máximo de cinco horas.
+> [AZURE.TIP] Tokens de recurso têm um intervalo de tempo válido padrão de uma hora. O tempo de vida do token, no entanto, pode ser especificado explicitamente, até um máximo de cinco horas.
 
 ##<a name="NextSteps"></a>Próximas etapas
 
@@ -163,4 +163,4 @@ Para obter facilmente todos os recursos de permissão associados a um determinad
 - Para saber como criar tokens de autorização do Banco de Dados de Documentos, clique [aqui](https://msdn.microsoft.com/library/azure/dn783368.aspx)
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

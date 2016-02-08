@@ -96,7 +96,7 @@ Crie um espaço de trabalho de Aprendizado de Máquina do Azure em sua assinatur
 
 Abra um console de comando do Windows PowerShell. Execute os seguintes comandos do PowerShell para baixar os arquivos de exemplo de script SQL que compartilhamos com você no Github para um diretório local especificado com o parâmetro *-DestDir*. Você pode alterar o valor do parâmetro *-DestDir* para qualquer diretório local. Se *-DestDir* não existir, ele será criado pelo script do PowerShell.
 
->[AZURE.NOTE]Talvez você precise **Executar como Administrador** ao executar o seguinte script do PowerShell se o *-DestDir* precisar de privilégio de Administrador para criação ou gravação.
+>[AZURE.NOTE] Talvez você precise **Executar como Administrador** ao executar o seguinte script do PowerShell se o *-DestDir* precisar de privilégio de Administrador para criação ou gravação.
 
 	$source = "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/Download_Scripts_SQLDW_Walkthrough.ps1"
 	$ps1_dest = "$pwd\Download_Scripts_SQLDW_Walkthrough.ps1"
@@ -124,9 +124,9 @@ Esse arquivo de script do PowerShell conclui as seguintes tarefas:
 
 Quando o script do PowerShell for executado pela primeira vez, você receberá uma solicitação para inserir as informações de seu Azure SQL DW e de sua conta de armazenamento de blobs do Azure. Ao concluir a primeira execução deste script do PowerShell, as credenciais inseridas serão gravadas em um arquivo de configuração SQLDW.conf no diretório de trabalho atual. A futura execução desse arquivo de script do PowerShell terá a opção de ler todos os parâmetros necessários desse arquivo de configuração. Se você precisar alterar alguns parâmetros, escolha inserir os parâmetros na tela ao receber uma solicitação por meio da exclusão desse arquivo de configuração e inserção dos valores de parâmetros conforme solicitado ou alterar os valores de parâmetro editando o arquivo de configuração.
 
->[AZURE.NOTE]Para evitar conflitos de nome de esquema com aqueles já existentes em seu Azure SQL DW, ao ler os parâmetros diretamente do arquivo .conf, um número aleatório de 3 dígitos é adicionado ao nome do esquema a partir do arquivo .conf como o nome do esquema padrão para cada execução.
+>[AZURE.NOTE] Para evitar conflitos de nome de esquema com aqueles já existentes em seu Azure SQL DW, ao ler os parâmetros diretamente do arquivo .conf, um número aleatório de 3 dígitos é adicionado ao nome do esquema a partir do arquivo .conf como o nome do esquema padrão para cada execução.
 
->[AZURE.NOTE]Dependendo da localização geográfica de sua conta de armazenamento de blobs particular, o processo de cópia dos dados de um blob público para sua conta de armazenamento particular pode demorar cerca de 15 minutos, ou até mais, e o processo de carregamento de dados de sua conta de armazenamento para seu Azure SQL DW pode demorar 20 minutos ou mais.
+>[AZURE.NOTE] Dependendo da localização geográfica de sua conta de armazenamento de blobs particular, o processo de cópia dos dados de um blob público para sua conta de armazenamento particular pode demorar cerca de 15 minutos, ou até mais, e o processo de carregamento de dados de sua conta de armazenamento para seu Azure SQL DW pode demorar 20 minutos ou mais.
 
 >[Observação do Azure] Se os arquivos a serem copiados do armazenamento de blobs públicos para sua conta de armazenamento de blobs particular já existirem em sua conta de armazenamento de blob particular, o AzCopy perguntará se você deseja substituí-los. Se você não quiser substituí-los, digite **n** quando for solicitado. Se você quiser substituir **todos** eles, digite **a** quando for solicitado. Você também pode inserir **y** para substituí-los individualmente.
 
@@ -632,7 +632,7 @@ Para iniciar o exercício de modelagem, faça logon em seu espaço de trabalho d
 
 2. Faça logon no [Estúdio de Aprendizado de Máquina do Azure](https://studio.azureml.net).
 
-3. A página inicial do Estúdio fornece uma grande quantidade de informações, vídeos, tutoriais e links para a Referência de Módulos e outros recursos. Para obter mais informações sobre o Aprendizado de Máquina do Azure, confira o [Centro de Documentação do Aprendizado de Máquina do Azure](http://azure.microsoft.com/documentation/services/machine-learning/).
+3. A página inicial do Estúdio fornece uma grande quantidade de informações, vídeos, tutoriais e links para a Referência de Módulos e outros recursos. Para saber mais sobre o Aprendizado de Máquina do Azure, confira o [Centro de Documentação do Aprendizado de Máquina do Azure](https://azure.microsoft.com/documentation/services/machine-learning/).
 
 Um teste de treinamento típico é formado pelas seguintes etapas:
 
@@ -669,7 +669,7 @@ Veja na figura abaixo um exemplo de experimento de classificação binária que 
 
 ![Treino do AM do Azure][10]
 
-> [AZURE.IMPORTANT]Nos exemplos de modelagem de extração de dados e consulta de amostragem fornecidos nas seções anteriores, **todos os rótulos para os três exercícios de modelagem são incluídos na consulta**. Uma etapa importante (obrigatória) em cada um dos exercícios modelagem é **excluir** os rótulos desnecessários para os dois problemas e qualquer outro **vazamento de destino**. Por exemplo, ao usar a classificação binária, use o rótulo **tipped** e exclua os campos **tip\_class**, **tip\_amount** e **total\_amount**. Esses últimos são vazamentos de destino, já que eles indicam a gorjeta paga.
+> [AZURE.IMPORTANT] Nos exemplos de modelagem de extração de dados e consulta de amostragem fornecidos nas seções anteriores, **todos os rótulos para os três exercícios de modelagem são incluídos na consulta**. Uma etapa importante (obrigatória) em cada um dos exercícios modelagem é **excluir** os rótulos desnecessários para os dois problemas e qualquer outro **vazamento de destino**. Por exemplo, ao usar a classificação binária, use o rótulo **tipped** e exclua os campos **tip\_class**, **tip\_amount** e **total\_amount**. Esses últimos são vazamentos de destino, já que eles indicam a gorjeta paga.
 >
 > Para excluir quaisquer colunas desnecessárias ou vazamentos de destino, você pode usar o módulo [Colunas do Projeto][project-columns] ou o [Editor de Metadados][metadata-editor]. Para saber mais, consulte as páginas de referência [Colunas do Projeto][project-columns] e [Editor de Metadados][metadata-editor].
 
@@ -744,4 +744,4 @@ Este passo a passo do exemplo, os scripts que o acompanham e os IPython Notebook
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

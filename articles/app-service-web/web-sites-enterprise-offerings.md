@@ -49,7 +49,7 @@ Uma abordagem alternativa é fazer uso de seu investimento existente no local. N
 
 - [Ambientes do Serviço de Aplicativo](../app-service-app-service-environment-intro.md) - O ASE (Ambientes do Serviço de Aplicativo) é um novo recurso Premium que foi recém-adicionado à oferta do Serviço de Aplicativo do Microsoft Azure. Os ASEs fornecem um ambiente totalmente isolado e dedicado para executar aplicativos do Serviço de Aplicativo do Azure com segurança em alta escala, oferecendo também isolamento e acesso seguro à rede   
 - [Conexões híbridas](../integration-hybrid-connection-overview.md) – As conexões híbridas são um recurso dos Serviços BizTalk do Microsoft Azure e permitem que os Aplicativos Web se conectem a recursos locais com segurança, por exemplo, SQL Server, MySQL, APIs da Web e serviços Web personalizados. 
-- [Integração de Rede Virtual](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) – A integração do Aplicativos Web com a Rede Virtual do Azure permite que você conecte seu aplicativo Web a uma Rede Virtual do Azure que, por sua vez, pode ser conectado a sua infraestrutura local através de uma VPN site a site. 
+- [Integração de Rede Virtual](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) – A integração do Aplicativos Web com a Rede Virtual do Azure permite que você conecte seu aplicativo Web a uma Rede Virtual do Azure que, por sua vez, pode ser conectado a sua infraestrutura local através de uma VPN site a site. 
 
 O diagrama a seguir mostra um exemplo de solução de alto nível com as opções de conectividade para os recursos locais. O primeiro exemplo mostra como isso pode ser feito usando os recursos padrão do Serviço de Aplicativo do Azure e o segundo mostra como isso pode ser obtido com a oferta premium, Ambientes do Serviço de Aplicativo.
 
@@ -159,4 +159,4 @@ Para saber mais sobre o serviço Aplicativos Web do Serviço de Aplicativo do Az
  
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

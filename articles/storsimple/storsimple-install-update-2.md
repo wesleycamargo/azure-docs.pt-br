@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/12/2016"
+   ms.date="01/27/2016"
    ms.author="alkohli" />
 
 # Instalar a Atualização 2 no dispositivo StorSimple
@@ -81,16 +81,16 @@ As versões de software que podem ser atualizadas usando o método de hotfix sã
 
 Os hotfixes aplicados por meio desse método são como na tabela abaixo:
 
-| Classificar | KB | Nome | Descrição do pacote | Tipo de atualização |
-|--------|-----------|-------------------------|-----------------------------|-------------|
-| 1 | KB3121901 | Atualização de software | HcsMdsSfotwareUpdate.exe <br></br> CisMdsAgentUpdateBundle.exe | Regular |
-| 2 | KB3121900 | Driver LSI | HcsLsiUpdate.exe | Regular |
-| 3 | KB3080728 | Correção do Storport | Storport-KB3080728-x64.msu | Regular |
-| 4 | KB3090322 | Correção do Spaceport | Spaceport-KB3090322-x64.msu | Regular |
-| 5 | KB3121899 | Firmware de disco | DiskFirmwarePackage.exe | Manutenção |
+| Classificar | KB | Nome | Tipo de atualização |
+|--------|-----------|-------------------------|------------- |
+| 1 | KB3121901 | Atualização de software | Regular |
+| 2 | KB3121900 | Driver LSI | Regular |
+| 3 | KB3080728 | Correção do Storport | Regular |
+| 4 | KB3090322 | Correção do Spaceport | Regular |
+| 5 | KB3121899 | Firmware de disco | Manutenção |
 
 
-> [AZURE.IMPORTANT]
+> [AZURE.IMPORTANT] 
 > 
 > - Se o dispositivo estiver executando a versão de lançamento (GA), contate o [ Suporte da Microsoft](storsimple-contact-microsoft-support.md) para ajudar na instalação dessa atualização.
 > - Esse procedimento deve ser executado apenas uma vez para aplicar a Atualização 2. É possível usar o portal clássico do Azure para aplicar atualizações subsequentes.
@@ -125,6 +125,6 @@ Se você verificou que há conectividade e o problema continuar, contate o Supor
 
 ## Próximas etapas
 
-Saiba mais sobre a [versão da Atualização 2](storsimple-update2-release-notes.md).
+Saiba mais sobre a [versão de Atualização 2](storsimple-update2-release-notes.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

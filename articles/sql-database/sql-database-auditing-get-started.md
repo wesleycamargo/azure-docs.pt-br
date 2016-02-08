@@ -21,7 +21,7 @@ A Auditoria do Banco de Dados SQL do Azure rastreia eventos do banco de dados e 
 
 A auditoria pode ajudar você a manter uma conformidade regulatória, a entender a atividade do banco de dados e a obter informações sobre discrepâncias e anomalias que poderiam indicar preocupações de negócios ou suspeitas de violações de segurança.
 
-As ferramentas de auditoria permitem e facilitam a adoção de padrões de conformidade, mas não garantem a conformidade. Para obter mais informações sobre os programas Azure que oferecem suporte à conformidade com os padrões, consulte o [Azure Trust Center](http://azure.microsoft.com/support/trust-center/compliance).
+As ferramentas de auditoria permitem e facilitam a adoção de padrões de conformidade, mas não garantem a conformidade. Para obter mais informações sobre os programas Azure que oferecem suporte à conformidade com os padrões, consulte o [Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/).
 
 + [Fundamentos da Auditoria do Banco de Dados SQL do Azure]
 + [Configurar a auditoria do banco de dados]
@@ -37,7 +37,7 @@ A auditoria de Banco de Dados SQL permite:
 - **Relate** sobre a atividade do banco de dados. Utilizar relatórios pré-configurados e um painel para iniciar rapidamente um relatório de atividades e eventos.
 - **Analise** relatórios. Encontrar eventos suspeitos, atividades incomuns e tendências.
 
-> [AZURE.NOTE]Agora você pode receber alertas proativos em atividades anômalas de banco de dados que podem indicar possíveis ameaças de segurança usando o novo recurso **Detecção de Ameaças**, agora em modo de visualização. A Detecção de Ameaças pode ser ativada e configurada a partir a folha de configuração de auditoria. Para obter mais detalhes, consulte [Introdução à Detecção de Ameaças](sql-database-threat-detection-get-started.md).
+> [AZURE.NOTE] Agora você pode receber alertas proativos em atividades anômalas de banco de dados que podem indicar possíveis ameaças de segurança usando o novo recurso **Detecção de Ameaças**, agora em modo de visualização. A Detecção de Ameaças pode ser ativada e configurada a partir a folha de configuração de auditoria. Para obter mais detalhes, consulte [Introdução à Detecção de Ameaças](sql-database-threat-detection-get-started.md).
 
 Você pode configurar a auditoria para as categorias de eventos a seguir:
 
@@ -178,4 +178,4 @@ Há vários cmdlets do PowerShell que você pode usar para configurar a auditori
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

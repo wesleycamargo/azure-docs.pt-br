@@ -85,9 +85,9 @@ Você deve usar a família mais recente do sistema operacional convidado para cr
 
 **E se meu aplicativo Web exigir uma integração mais profunda com o sistema operacional?**
 
-Se a arquitetura do aplicativo Web exigir uma dependência mais profunda do sistema operacional subjacente, use os recursos de suporte de plataforma como [tarefas de inicialização](cloud-services-startup-tasks.md) ou outros mecanismos de extensibilidade que possam existir no futuro. Como alternativa, você também pode usar [Máquinas Virtuais do Azure](http://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS - Infraestrutura como serviço), em que você é responsável por manter o sistema operacional subjacente.
+Se a arquitetura do aplicativo Web exigir uma dependência mais profunda do sistema operacional subjacente, use os recursos de suporte de plataforma como [tarefas de inicialização](cloud-services-startup-tasks.md) ou outros mecanismos de extensibilidade que possam existir no futuro. Como alternativa, você também pode usar [Máquinas Virtuais do Azure](https://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS - Infraestrutura como serviço), em que você é responsável por manter o sistema operacional subjacente.
  
 ## Próximas etapas
 Examine as últimas [versões do SO convidado](cloud-services-guestos-update-matrix.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

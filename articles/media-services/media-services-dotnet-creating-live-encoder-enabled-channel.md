@@ -22,12 +22,10 @@
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 - [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-- [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)  
+- [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
-<!---Separate-->
-
-> [AZURE.NOTE]
-> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](/pricing/free-trial/?WT.mc_id=A261C142F). 
+>[AZURE.NOTE]
+Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
 
 ##Visão geral
 
@@ -106,7 +104,7 @@ Os itens a seguir são necessários para concluir o tutorial.
 
 ##Baixar exemplo
 
-Obtenha e execute um exemplo [aqui](http://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
+Obtenha e execute um exemplo [aqui](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
 
 
 ##Configurar para o desenvolvimento com o SDK dos Serviços de Mídia para .NET
@@ -117,18 +115,12 @@ Obtenha e execute um exemplo [aqui](http://azure.microsoft.com/documentation/sam
 ##Conectar-se aos Serviços de Mídia
 Como prática recomendada, você deve usar um arquivo app.config para armazenar o nome e a chave de conta dos Serviços de Mídia.
 
->[AZURE.NOTE] Para localizar os valores de Nome e Chave, vá para o Portal Clássico do Azure, selecione sua conta de Serviço de Mídia e clique no ícone “GERENCIAR CHAVES” na parte inferior da janela do portal. Clicando no ícone ao lado de cada caixa de texto, o valor é copiado para a área de transferência do sistema.
+>[AZURE.NOTE]Para localizar os valores de Nome e Chave, vá para o Portal Clássico do Azure, selecione sua conta de Serviço de Mídia e clique no ícone “GERENCIAR CHAVES” na parte inferior da janela do portal. Clicando no ícone ao lado de cada caixa de texto, o valor é copiado para a área de transferência do sistema.
 
 Adicione a seção appSettings ao arquivo app.config e defina os valores do nome e da chave de sua conta dos Serviços de Mídia.
 
 
-<?xml version="1.0"?>
-	<configuration>
-	  <appSettings>
-	      <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" />
-	      <add key="MediaServicesAccountKey" value="YouMediaServicesAccountKey" />
-	  </appSettings>
-	</configuration>
+<?xml version="1.0"?> <configuration> <appSettings> <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" /> <add key="MediaServicesAccountKey" value="YouMediaServicesAccountKey" /> </appSettings> </configuration>
 	 
 	
 ##Exemplo de código
@@ -532,4 +524,4 @@ Adicione a seção appSettings ao arquivo app.config e defina os valores do nome
 
 Se este tópico não contiver o que você esperava, se estiver faltando alguma informação ou se não tiver atendido de alguma outra forma às suas necessidades, envie seus comentários usando o thread Disqus abaixo.
 
-<!-----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

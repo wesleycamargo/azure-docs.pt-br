@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/13/2015"
+   ms.date="01/13/2016"
    ms.author="larryfr"/>
 
 
@@ -21,12 +21,12 @@
 
 A Rede Virtual do Azure permite que você estenda suas soluções Hadoop para incorporar recursos locais, como SQL Server, ou para criar redes privadas seguras entre recursos na nuvem.
 
-> [AZURE.NOTE]O HDInsight não é compatível com redes virtuais do Azure baseadas em afinidade. Ao usar o HDInsight, você deve usar redes virtuais baseadas em local.
+> [AZURE.NOTE] O HDInsight não é compatível com redes virtuais do Azure baseadas em afinidade. Ao usar o HDInsight, você deve usar redes virtuais baseadas em local.
 
 
 ##<a id="whatis"></a>O que é a Rede Virtual do Azure?
 
-A [Rede Virtual do Azure](http://azure.microsoft.com/documentation/services/virtual-network/) permite que você crie uma rede segura e persistente contendo os recursos necessários para sua solução. Uma rede virtual permite que você:
+A [Rede Virtual do Azure](https://azure.microsoft.com/documentation/services/virtual-network/) permite que você crie uma rede segura e persistente contendo os recursos necessários para sua solução. Uma rede virtual permite que você:
 
 * Conecte recursos da nuvem juntos em uma rede privada (somente nuvem).
 
@@ -58,11 +58,11 @@ A [Rede Virtual do Azure](http://azure.microsoft.com/documentation/services/virt
 
 Para obter mais informações sobre os recursos, benefícios e capacidades das redes virtuais, consulte a [Visão geral da rede virtual do Azure](../virtual-network/virtual-networks-overview.md).
 
-> [AZURE.NOTE]Você deve criar a Rede Virtual do Azure antes de provisionar um cluster HDInsight. Para obter mais informações, consulte [Tarefas de configuração de rede virtual](http://azure.microsoft.com/documentation/services/virtual-network/).
+> [AZURE.NOTE] Você deve criar a Rede Virtual do Azure antes de provisionar um cluster HDInsight. Para obter mais informações, consulte [Tarefas de configuração de rede virtual](https://azure.microsoft.com/documentation/services/virtual-network/).
 
 ## Requisitos de Rede Virtual
 
-> [AZURE.IMPORTANT]Criar um cluster HDInsight em uma Rede Virtual exige configurações de Rede Virtual específicas, que são descritas nesta seção.
+> [AZURE.IMPORTANT] Criar um cluster HDInsight em uma Rede Virtual exige configurações de Rede Virtual específicas, que são descritas nesta seção.
 
 * O Azure HDInsight dá suporte apenas a redes virtuais baseadas em local e atualmente não funciona com redes virtuais baseadas em grupo de afinidade. 
 
@@ -87,7 +87,7 @@ Para obter mais informações sobre os recursos, benefícios e capacidades das r
     
     2. Crie o cluster HDInsight. Ao definir as configurações da Rede Virtual para o cluster, selecione a sub-rede criada na etapa 1.
 
-    > [AZURE.NOTE]As etapas acima supõem que você não restringiu as comunicações aos endereços IP _do intervalo de endereços IP da Rede Virtual_. Caso tenha feito isso, talvez seja necessário modificar essas restrições para permitir a comunicação com a nova sub-rede.
+    > [AZURE.NOTE] As etapas acima supõem que você não restringiu as comunicações aos endereços IP _do intervalo de endereços IP da Rede Virtual_. Caso tenha feito isso, talvez seja necessário modificar essas restrições para permitir a comunicação com a nova sub-rede.
 
     Para saber mais sobre os Grupos de Segurança de Rede, veja [Visão geral de Grupos de Segurança de Rede](../virtual-network/virtual-networks-nsg.md). Para saber mais sobre como controlar o roteamento em uma Rede Virtual do Azure, veja [Rotas e encaminhamento de IP definidos pelo usuário](../virtual-network/virtual-networks-udr-overview.md).
 
@@ -103,11 +103,11 @@ Um FQDN (nome de domínio totalmente qualificado) será atribuído ao cluster HD
 
 	https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/<servicename>/components/<componentname>
 
-> [AZURE.NOTE]Para obter mais informações sobre como usar o Ambari com o HDInsight, consulte [Monitorar clusters Hadoop no HDInsight usando a API do Ambari](hdinsight-monitor-use-ambari-api.md).
+> [AZURE.NOTE] Para obter mais informações sobre como usar o Ambari com o HDInsight, consulte [Monitorar clusters Hadoop no HDInsight usando a API do Ambari](hdinsight-monitor-use-ambari-api.md).
 
 Você deve especificar o nome do cluster e um serviço e componente em execução no cluster, como o gerenciador de recursos YARN.
 
-> [AZURE.NOTE]Os dados retornados são um documento JSON (JavaScript Object Notation) que contém muitas informações sobre o componente. Para extrair apenas o FQDN, você deve usar um analisador JSON para recuperar o valor `host_components[0].HostRoles.host_name`.
+> [AZURE.NOTE] Os dados retornados são um documento JSON (JavaScript Object Notation) que contém muitas informações sobre o componente. Para extrair apenas o FQDN, você deve usar um analisador JSON para recuperar o valor `host_components[0].HostRoles.host_name`.
 
 Por exemplo, para retornar o FQDN de um cluster Hadoop no HDInsight, você pode usar um dos métodos a seguir para recuperar os dados para o gerenciador de recursos YARN:
 
@@ -158,7 +158,7 @@ Para obter o endereço de quorum ZooKeeper, use um dos seguintes métodos para c
 
 		curl -G -u <username>:<password> "https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/configurations?type=hbase-site&tag=default&fields=items/properties/hbase.zookeeper.quorum" | jq .items[0].properties[]
 
-> [AZURE.NOTE]Para obter mais informações sobre como usar o Ambari com o HDInsight, consulte [Monitorar clusters Hadoop no HDInsight usando a API do Ambari](hdinsight-monitor-use-ambari-api.md).
+> [AZURE.NOTE] Para obter mais informações sobre como usar o Ambari com o HDInsight, consulte [Monitorar clusters Hadoop no HDInsight usando a API do Ambari](hdinsight-monitor-use-ambari-api.md).
 
 Uma vez que as informações estejam reunidas, use-as em seu aplicativo cliente.
 
@@ -199,4 +199,4 @@ Os exemplos a seguir demonstram como usar o HDInsight com a Rede Virtual do Azur
 
 Para saber mais sobre redes virtuais do Azure, consulte [Visão geral da Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

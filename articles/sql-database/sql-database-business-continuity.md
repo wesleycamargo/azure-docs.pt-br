@@ -1,10 +1,11 @@
-<properties 
-   pageTitle="Visão geral da continuidade dos negócios no Banco de dados SQL do Azure"
-   description="Conheça os recursos internos e as opções disponíveis do Banco de Dados SQL Azures que ajudam a manter seus aplicativos de nuvem críticos em execução e o ajudam na recuperação de interrupções e erros."
+<properties
+   pageTitle="Continuidade dos negócios em nuvem - recuperação de banco de dados | Microsoft Azure"
+   description="Saiba como o Banco de Dados SQL do Azure dá suporte para a continuidade dos negócios em nuvem e para a recuperação de banco de dados, além de ajudar a manter os aplicativos em nuvem críticos em execução."
+   keywords="continuidade dos negócios, continuidade dos negócios em nuvem, recuperação de desastre do banco de dados, recuperação de banco de dados"
    services="sql-database"
-   documentationCenter="" 
-   authors="elfisher" 
-   manager="jeffreyg" 
+   documentationCenter=""
+   authors="elfisher"
+   manager="jeffreyg"
    editor="monicar"/>
 
 <tags
@@ -12,30 +13,30 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management" 
+   ms.workload="data-management"
    ms.date="11/16/2015"
    ms.author="elfish"/>
 
-# Visão geral da continuidade dos negócios
+# Visão geral: continuidade de negócios em nuvem e recuperação de desastre do banco de dados com o banco de dados SQL
 
-A continuidade dos negócios é sobre como criar, implantar e executar seu aplicativo de forma que ele seja resistente a eventos com interrupção que resultem em perda permanente ou temporária da capacidade dos aplicativos de realizar sua função de negócios. Os eventos não planejados variam de erros humanos devido a interrupções permanentes ou temporárias até desastres regionais que podem causar perdas da instalação em larga escala em uma região do Azure específica. Os eventos planejados incluem a reimplantação de aplicativos em uma região diferente, atualizações de aplicativos, etc. O objetivo de continuidade de negócios é que seu aplicativo continue a funcionar durante esses eventos com um impacto mínimo sobre a função de negócios.
+A continuidade dos negócios é sobre como criar, implantar e executar aplicativos de forma que eles sejam resistentes a eventos com interrupção planejados ou não, que resultem em perda permanente ou temporária da capacidade dos aplicativos de realizar sua função de negócios. O intervalo de eventos não planejados varia de erros humanos a interrupções permanentes ou temporárias até desastres regionais, que podem causar perdas na instalação em larga escala em uma região do Azure específica. Os eventos planejados incluem a reimplantação de aplicativos em uma região diferente e atualizações de aplicativos. O objetivo de continuidade de negócios é que seu aplicativo continue a funcionar durante esses eventos com um impacto mínimo sobre a função de negócios.
 
-Para discutir as soluções de continuidade nos negócios, existem vários conceitos com os quais você precisa estar familiarizado.
+Para discutir as soluções de continuidade nos negócios em nuvem, existem vários conceitos com os quais você precisa estar familiarizado:
 
-**Recuperação de desastres (DR):** um processo de restauração a função normal de negócios do aplicativo
+* **Recuperação de desastres (DR):** um processo de restauração a função normal de negócios do aplicativo
 
-**Tempo de recuperação estimado (ERT):** a duração estimada para que o banco de dados esteja totalmente disponível depois de uma solicitação de restauração ou failover.
+* **Tempo de recuperação estimado (ERT):** a duração estimada para que o banco de dados esteja totalmente disponível depois de uma solicitação de restauração ou failover.
 
-**Objetivo de tempo de recuperação (RTO)** – tempo máximo aceitável antes que o aplicativo se recupere totalmente após um evento de interrupção. RTO mede a perda máxima de disponibilidade durante as falhas.
+* **Objetivo de tempo de recuperação (RTO)**: tempo máximo aceitável antes que o aplicativo se recupere totalmente após um evento de interrupção. RTO mede a perda máxima de disponibilidade durante as falhas.
 
-**Objetivo de ponto de recuperação (RPO)** – a quantidade máxima de últimas atualizações (intervalo de tempo) que o aplicativo pode perder no momento em que ele se recupera totalmente após o evento de interrupção. RPO mede a perda máxima de dados durante as falhas.
+* **Objetivo de ponto de recuperação (RPO)**: a quantidade máxima de últimas atualizações (intervalo de tempo) que o aplicativo pode perder no momento em que ele se recupera totalmente após o evento de interrupção. RPO mede a perda máxima de dados durante as falhas.
 
 
-## Cenários de continuidade dos negócios
+## Cenários de continuidade dos negócios em nuvem
 
-A continuidade dos negócios aborda os seguintes cenários principais.
+A seguir estão os principais cenários a serem considerados ao planejar a continuidade dos negócios e a recuperação do banco de dados.
 
-###Projeto para continuidade dos negócios
+###Aplicativos de design para continuidade dos negócios
 
 O aplicativo que estou criando é essencial para a minha empresa. Quero criá-lo e configurá-lo para ser capaz de sobreviver a um desastre regional de uma falha catastrófica do serviço. Conheço os requisitos de RPO e RTO para meu aplicativo e escolherei a configuração que atenda a esses requisitos.
 
@@ -57,9 +58,9 @@ Eu estou liberando uma atualização importante do meu aplicativo. Ela envolve a
 
 ##Recursos da continuidade dos negócios
 
-A tabela a seguir mostra as diferenças dos recursos de continuidade dos negócios em todos os níveis de serviço:
+A tabela a seguir mostra as diferenças dos recursos de continuidade dos negócios em nuvem em todos os níveis de serviço:
 
-| Recurso | Camada básica | Camada padrão |Camada premium 
+| Recurso | Camada básica | Camada padrão |Camada premium
 | --- |--- | --- | ---
 | Ponto de restauração pontual | Qualquer ponto de restauração dentro de 7 dias | Qualquer ponto de restauração dentro de 14 dias | Qualquer ponto de restauração dentro de 35 dias
 | Restauração geográfica | ERT < 12h, RPO < 1h | ERT < 12h, RPO < 1h | ERT < 12h, RPO < 1h
@@ -68,7 +69,7 @@ A tabela a seguir mostra as diferenças dos recursos de continuidade dos negóci
 
 Esses recursos são fornecidos para tratar dos cenários listados anteriormente. Consulte a seção [Projeto para continuidade dos negócios](sql-database-business-continuity-design.md) para obter orientação sobre como selecionar o recurso específico.
 
-> [AZURE.NOTE]\: Os valores ERT e RPO são metas de engenharia e fornecem apenas diretrizes. Eles não são parte do [SLA para o Banco de Dados SQL](https://azure.microsoft.com/support/legal/sla/sql-database/v1_0/)
+> [AZURE.NOTE] \: Os valores ERT e RPO são metas de engenharia e fornecem apenas diretrizes. Eles não são parte do [SLA para o Banco de Dados SQL](https://azure.microsoft.com/support/legal/sla/sql-database/v1_0/)
 
 
 ###Restauração Pontual
@@ -87,8 +88,4 @@ A replicação geográfica padrão está disponível para bancos de dados Standa
 
 A replicação geográfica ativa está disponível para bancos de dados Premium. Destina-se a aplicativos com uso intensivo de gravação com os requisitos de recuperação mais agressivos. Com a replicação geográfica ativa, você pode criar até quatro secundários legíveis nos servidores em regiões diferentes. É possível iniciar o failover para qualquer um dos secundários da mesma maneira como para a replicação geográfica padrão. Além disso, a replicação geográfica ativa pode ser usada para suportar a atualização do aplicativo ou os cenários de realocação, bem como o balanceamento de carga para cargas de trabalho somente leitura. Consulte [Projeto para continuidade de negócios](sql-database-business-continuity-design.md) para obter detalhes sobre como configurar a replicação geográfica e [Recuperação de uma interrupção](sql-database-disaster-recovery.md) para obter detalhes sobre como fazer failover para o banco de dados secundário. Consulte [Atualização de aplicativo sem tempo de inatividade](sql-database-business-continuity-application-upgrade.md) para obter detalhes sobre como implementar a atualização de aplicativo sem tempo de inatividade.
 
-
-
- 
-
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

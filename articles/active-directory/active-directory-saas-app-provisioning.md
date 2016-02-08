@@ -69,7 +69,7 @@ Para a maioria dos aplicativos SaaS, o provisionamento é apenas de saída, o qu
 
 **Como posso enviar comentários à equipe de engenharia?**
 
-Entre em contato conosco através do [Fórum de comentários do Active Directory do Azure](http://feedback.azure.com/forums/169401-azure-active-directory).
+Entre em contato conosco através do [Fórum de comentários do Active Directory do Azure](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ##Como funciona o trabalho de provisionamento automatizado?
 
@@ -82,7 +82,7 @@ O Azure AD provisiona usuários para aplicativos SaaS conectando-se a pontos de 
  - Se novos usuários tiverem sido atribuídos ao aplicativo (diretamente ou por meio de associação de grupo), eles serão provisionados com uma nova conta no aplicativo SaaS.
  - Se um acesso de usuário tiver sido removido, suas contas no aplicativo SaaS serão marcadas como desabilitadas (os usuários nunca são totalmente excluídos, o que protege contra perda de dados no caso de uma configuração incorreta).
  - Se um usuário tiver sido recentemente atribuído ao aplicativo e já tiver uma conta no aplicativo SaaS, essa conta será marcada como habilitada e determinadas propriedades de usuário poderão ser atualizadas se estiverem desatualizadas em relação ao diretório.
- - Se as informações de um usuário (como número de telefone, local do escritório, etc.) forem alteradas no diretório, essas informações também serão atualizadas no aplicativo SaaS.
+ - Se as informações de um usuário (como número de telefone, localização do escritório etc.) forem alteradas no diretório, essas informações também serão atualizadas no aplicativo SaaS.
 
 Para saber mais sobre como os atributos são mapeados entre o Azure AD e seu aplicativo SaaS, confira o artigo [Personalização de mapeamentos de atributos](active-directory-saas-customizing-attribute-mappings.md).
 
@@ -104,8 +104,8 @@ Clique em um aplicativo para ver um tutorial sobre como configurar o provisionam
 
 Para que um aplicativo dê suporte a provisionamento automatizado de usuários, primeiro ele deve fornecer os pontos de extremidade necessários que permitam que programas externos automatizem a criação, a manutenção e a remoção de usuários. Portanto, nem todos os aplicativos SaaS são compatíveis com esse recurso. Para aplicativos que dão suporte a isso, a equipe de engenharia do Azure AD será capaz de criar um conector de provisionamento para eles e esse trabalho é priorizado de acordo com as necessidades de clientes atuais e potenciais.
 
-Para entrar em contato com a equipe de engenharia do Azure AD e solicitar o suporte de provisionamento para mais aplicativos, envie uma mensagem no [Fórum de comentários do Active Directory do Azure](http://feedback.azure.com/forums/169401-azure-active-directory).
+Para entrar em contato com a equipe de engenharia do Azure AD e solicitar o suporte de provisionamento para mais aplicativos, envie uma mensagem no [Fórum de comentários do Active Directory do Azure](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -28,6 +28,8 @@ Embora você possa instalar o gateway no mesmo computador local ou a VM do Azure
 
 Além do Gateway de Gerenciamento de Dados, você também precisa instalar o driver ODBC para o armazenamento de dados no computador do gateway.
 
+> [AZURE.NOTE] Confira [Solução de problemas de gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) para ver dicas sobre como solucionar problemas de conexão/gateway.
+
 ## Exemplo: Copiar dados do armazenamento de dados ODBC para o Blob do Azure
 
 O exemplo a seguir mostra:
@@ -42,7 +44,7 @@ O exemplo copia dados de um resultado de consulta em um armazenamento de dados O
 
 Como uma primeira etapa, configure o gateway de gerenciamento de dados de acordo com as instruções no artigo [movendo dados entre pontos locais e na nuvem](data-factory-move-data-between-onprem-and-cloud.md).
 
-**Serviço vinculado a ODBC** Esse exemplo usa a autenticação do Windows. Veja a seção [Serviço vinculado a ODBC](#odbc-linked-service-properties) para diferentes tipos de autenticação que você pode usar.
+**Serviço vinculado a ODBC** Esse exemplo usa a autenticação Básica. Veja a seção [Serviço vinculado a ODBC](#odbc-linked-service-properties) para ver os diferentes tipos de autenticação que você pode usar.
 
 	{
 	    "name": "OnPremOdbcLinkedService",
@@ -51,10 +53,10 @@ Como uma primeira etapa, configure o gateway de gerenciamento de dados de acordo
 	        "type": "OnPremisesOdbc",
 	        "typeProperties":
 	        {
-	            "authenticationType": "Windows",
-	            "connectionString": "Driver={SQL Server};Server=servername; Database=<database>;",
-	            "userName": "<domain>\<user>",
-	            "password": "<password>",
+	            "authenticationType": "Basic",
+	            "connectionString": "Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;",
+	            "userName": "username",
+	            "password": "password",
 	            "gatewayName": "mygateway"
 	        }
 	    }
@@ -221,13 +223,13 @@ A tabela a seguir fornece a descrição para elementos JSON específicos do serv
 | type | A propriedade type deve ser definida como: **OnPremisesOdbc** | Sim |
 | connectionString | A parte da credencial que não está relacionada ao acesso da cadeia de conexão, bem como uma credencial criptografada opcional. Veja os exemplos abaixo. | Sim
 | credencial | A parte da credencial de acesso da cadeia de conexão especificada no formato propriedade-valor específico do driver, por exemplo. “Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;”. | Não
-| authenticationType | Tipo de autenticação usado para se conectar ao armazenamento de dados ODBC. Os valores possíveis são: Anonymous, Basic e Windows. | Sim | 
-| Nome de Usuário | Especifique o nome de usuário se você estiver usando a autenticação Basic ou Windows. | Não | 
+| authenticationType | Tipo de autenticação usado para se conectar ao armazenamento de dados ODBC. Os valores possíveis são: Anonymous e Basic. | Sim | 
+| Nome de Usuário | Especifique o nome de usuário se você estiver usando a autenticação Básica. | Não | 
 | Senha | Especifique a senha da conta de usuário que você especificou para o nome de usuário. | Não | 
 | gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar ao armazenamento de dados ODBC. | Sim |
 
 
-Veja [Definir credenciais e segurança](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) para obter detalhes sobre como definir credenciais para um armazenamento de dados ODBC local.
+Confira [Configurando credenciais e segurança](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) para obter detalhes sobre como definir credenciais para um armazenamento de dados ODBC local.
 
 ### Usando a autenticação Básica
 
@@ -264,24 +266,6 @@ Você pode criptografar as credenciais usando o cmdlet [New-AzureRMDataFactoryEn
 	    }
 	}
 
-### Usando a autenticação do Windows
-
-	{
-	    "name": "odbc",
-	    "properties":
-	    {
-	        "type": "OnPremisesOdbc",
-	        "typeProperties":
-	        {
-	            "authenticationType": "Windows",
-	            "connectionString": "Driver={SQL Server};Server=servername; Database=TestDatabase;",
-	            "userName": "<domain>\<user>",
-	            "password": "<password>",
-	            "gatewayName": "mygateway"
-	        }
-	    }
-	} 
-
 
 ### Usando a autenticação anônima
 
@@ -306,7 +290,7 @@ Você pode criptografar as credenciais usando o cmdlet [New-AzureRMDataFactoryEn
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). Seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).
 
-A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção typeProperties de um conjunto de dados do tipo **RelationalTable** (que inclui o conjunto de dados do ODBC) tem as propriedades a seguir
+A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção typeProperties do conjunto de dados do tipo **RelationalTable** (que inclui o conjunto de dados do ODBC) tem as propriedades a seguir
 
 | Propriedade | Descrição | Obrigatório |
 | -------- | ----------- | -------- |
@@ -333,11 +317,11 @@ Conforme mencionado no artigo [Atividades de movimentação de dados](data-facto
 1. Converter de tipos de fonte nativos para o tipo .NET
 2. Converter do tipo .NET para o tipo de coletor nativo
 
-Ao mover dados de armazenamentos de dados ODBC, os tipos de dados ODBC são mapeados para tipos .NET como mencionado no tópico [Mapeamentos de tipo de dados ODBC](https://msdn.microsoft.com/library/cc668763.aspx).
+Ao mover dados de repositórios de dados ODBC, os tipos de dados ODBC são mapeados para tipos .NET, como mencionado no tópico [Mapeamentos de tipo de dados ODBC](https://msdn.microsoft.com/library/cc668763.aspx).
 
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

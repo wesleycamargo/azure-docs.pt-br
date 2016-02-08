@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="11/16/2015"
+   ms.date="01/22/2016"
    ms.author="v-sharos"/>
 
 # Proteção de dados e segurança de StorSimple
@@ -38,9 +38,9 @@ As seções a seguir descrevem os recursos de segurança do StorSimple que ajuda
 
 O Serviço do gerenciador do StorSimple é um serviço de gerenciamento hospedado no Microsoft Azure usado para gerenciar todos os dispositivos StorSimple que sua organização adquiriu. Você pode acessar o serviço do Gerenciador do StorSimple usando suas credenciais organizacionais para fazer logon no Portal clássico do Azure por meio de um navegador da Web.
 
-O acesso ao serviço do Gerenciador do StorSimple requer que a organização tenha uma assinatura do Azure que inclua o StorSimple. Sua assinatura determina os recursos que você pode acessar no portal clássico do Azure. Se sua organização não tiver uma assinatura do Azure e você quiser saber mais sobre ela, consulte [Inscrever-se no Azure como uma organização](../sign-up-organization.md).
+O acesso ao serviço do Gerenciador do StorSimple requer que a organização tenha uma assinatura do Azure que inclua o StorSimple. Sua assinatura determina os recursos que você pode acessar no portal clássico do Azure. Se sua organização não tiver uma assinatura do Azure e você quiser saber mais sobre ela, consulte [Inscrever-se no Azure como uma organização](../active-directory/sign-up-organization.md).
 
-Como o serviço do Gerenciador do StorSimple está hospedado no Azure, ele é protegido pelos recursos de segurança do Azure. Para obter mais informações sobre os recursos de segurança fornecidos pelo Microsoft Azure, acesse a [Central de Confiabilidade do Microsoft Azure](http://azure.microsoft.com/support/trust-center/security/).
+Como o serviço do Gerenciador do StorSimple está hospedado no Azure, ele é protegido pelos recursos de segurança do Azure. Para obter mais informações sobre os recursos de segurança fornecidos pelo Microsoft Azure, acesse a [Central de Confiabilidade do Microsoft Azure](https://azure.microsoft.com/support/trust-center/security/).
 
 ## Proteção de dispositivos StorSimple
 
@@ -56,7 +56,7 @@ A chave de registro de serviço é uma chave longa que contém 100 caracteres. �
 
 Depois que um dispositivo é registrado, ele usa tokens para se comunicar com o Microsoft Azure. A chave de registro de serviço não é usada depois do registro do dispositivo.
 
-> [AZURE.NOTE]Recomendamos a nova geração da chave de registro do serviço após cada utilização.
+> [AZURE.NOTE] Recomendamos a nova geração da chave de registro do serviço após cada utilização.
 
 ## Proteja sua solução StorSimple por meio de senhas
 
@@ -114,7 +114,7 @@ Para obter mais informações sobre o Gerenciador de Instantâneos do StorSimple
 É recomendável usar as seguintes diretrizes para ajudar a garantir que as senhas do StorSimple sejam fortes e bem protegidas:
 
 - Altere suas senhas a cada três meses. A alteração das senhas é imposta anualmente.
-- Use uma senha forte. Para obter mais informações, á para [Criar senhas mais fortes e protegê-las](http://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
+- Use uma senha forte. Para obter mais informações, acesse [Create stronger passwords and protect them (Criar senhas fortes e protegê-las)](http://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
 - Sempre use senhas diferentes para diferentes mecanismos de acesso; cada uma das senhas especificadas deve ser exclusiva.
 - Não compartilhe senhas com ninguém que não esteja autorizado a acessar o dispositivo StorSimple.
 - Não fale sobre uma senha na frente de outras pessoas nem dê dicas do formato de uma senha.
@@ -127,7 +127,7 @@ Esta seção descreve os recursos de segurança do StorSimple que protegem os da
 
 Conforme descrito em outras seções, as senhas são usadas para autorizar e autenticar os usuários antes que eles possam obter acesso à sua solução do StorSimple. Outra consideração de segurança é proteger os dados contra usuários não autorizados durante a transferência entre sistemas de armazenamento e enquanto estão sendo armazenados. As seções a seguir descrevem os recursos de proteção dos dados fornecidos com o StorSimple.
 
-> [AZURE.NOTE]Eliminação de duplicação fornece proteção adicional para dados armazenados no dispositivo StorSimple e no Armazenamento do Microsoft Azure. Quando ocorre a eliminação de duplicação dos dados, os objetos de dados são armazenados separadamente dos metadados usados para mapeá-los e acessá-los: não há nenhum contexto no nível de armazenamento disponível para reconstruir os dados com base na estrutura de volume, sistema de arquivos ou nome de arquivo.
+> [AZURE.NOTE] Eliminação de duplicação fornece proteção adicional para dados armazenados no dispositivo StorSimple e no Armazenamento do Microsoft Azure. Quando ocorre a eliminação de duplicação dos dados, os objetos de dados são armazenados separadamente dos metadados usados para mapeá-los e acessá-los: não há nenhum contexto no nível de armazenamento disponível para reconstruir os dados com base na estrutura de volume, sistema de arquivos ou nome de arquivo.
 
 ## Proteger dados que fluem através do serviço
 
@@ -144,7 +144,7 @@ O sistema de chaves assimétricas ajuda a proteger os dados que fluem através d
 
 A chave da criptografia de dados do serviço é gerada apenas no primeiro dispositivo registrado com o serviço. Todos os dispositivos subsequentes registrados com o serviço devem usar a mesma chave de criptografia de dados de serviço.
 
-> [AZURE.IMPORTANT]
+> [AZURE.IMPORTANT] 
 > 
 > É muito importante fazer uma cópia dessa chave de criptografia e salvá-la em um local seguro. Uma cópia da chave de criptografia de dados de serviço deve ser armazenada de forma que possa ser acessada por uma pessoa autorizada e facilmente comunicada ao administrador do dispositivo.
 >
@@ -225,9 +225,9 @@ A seguir estão algumas perguntas e respostas sobre segurança e o Microsoft Azu
 
 **P:** Autorizei um dispositivo para uma alteração de chave de criptografia de dados de serviço, mas ele não iniciou o processo de alteração da chave. O que devo fazer?
 
-**R:** Se o tempo limite tiver expirado, você precisará autorizar novamente o dispositivo para a alteração da chave de criptografia de dados do serviço e reiniciar o processo.
+**R:** Se o tempo limite tiver expirado, você terá de autorizar novamente o dispositivo para alteração da chave de criptografia de dados do serviço e reiniciar o processo.
 
-**P:** Alterei a chave de criptografia de dados de serviço, mas não consegui atualizar outros dispositivos em quatro horas. É necessário iniciar novamente?
+**P:** Alterei a chave de criptografia de dados do serviço, mas não consegui atualizar outros dispositivos em quatro horas. É necessário iniciar novamente?
 
 **R:** O período de quatro horas é apenas para iniciar a alteração. Depois de iniciar o processo de atualização no dispositivo StorSimple autorizado, a autorização será válida até que todos os dispositivos sejam atualizados.
 
@@ -241,7 +241,7 @@ A seguir estão algumas perguntas e respostas sobre segurança e o Microsoft Azu
 
 **P:** Desejo fornecer a senha do StorSimple Snapshot Manager para um host que está se conectando ao dispositivo StorSimple, mas a senha não está disponível. O que posso fazer?
 
-**R:** Se você tiver esquecido a senha, deve criar uma nova. Em seguida, informe todos os usuários existentes de que a senha foi alterada e eles devem atualizar seus clientes para usar a nova senha. Para obter instruções, vá para:
+**R:** Se você tiver esquecido a senha, deverá criar uma nova. Em seguida, informe todos os usuários existentes de que a senha foi alterada e eles devem atualizar seus clientes para usar a nova senha. Para obter instruções, vá para:
 
 - [Alterar a senha do StorSimple Snapshot Manager](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password)
 - [Autenticar um dispositivo](storsimple-snapshot-manager-manage-devices.md#authenticate-a-device)
@@ -258,7 +258,7 @@ A seguir estão algumas perguntas e respostas sobre segurança e o Microsoft Azu
 
 **P:** Se alguém obtiver acesso ao certificado de criptografia de dados, meus dados serão comprometidos?
 
-**R:** O Microsoft Azure armazena a chave de criptografia de dados do cliente (arquivo .pfx) em um formato criptografado. Como o arquivo .pfx é criptografada e o serviço StorSimple não tem a chave de criptografia de dados de serviço para descriptografar o arquivo .pfx, o simples acesso ao arquivo .pfx não vai expor nenhum segredo.
+**R:** O Microsoft Azure armazena a chave de criptografia de dados do cliente (arquivo. pfx) em um formato criptografado. Como o arquivo .pfx é criptografada e o serviço StorSimple não tem a chave de criptografia de dados de serviço para descriptografar o arquivo .pfx, o simples acesso ao arquivo .pfx não vai expor nenhum segredo.
 
 **P:** O que acontece se uma entidade governamental solicitar meus dados à Microsoft?
 
@@ -269,4 +269,4 @@ A seguir estão algumas perguntas e respostas sobre segurança e o Microsoft Azu
 [Implantar o dispositivo StorSimple](storsimple-deployment-walkthrough.md).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -20,17 +20,17 @@
 
 Sites sociais são uma das forças principais para a adoção de big data. APIs públicas fornecidas por sites, como o Twitter, são uma fonte útil de dados para analisar e compreender as tendências populares. Neste tutorial, você obterá tweets usando o API de streaming do Twitter e, em seguida, usará o Apache Hive no HDInsight do Azure para obter uma lista de usuários do Twitter que enviaram mais tweets contendo uma determinada palavra.
 
-> [AZURE.NOTE]As etapas deste documento exigem um cluster HDInsight baseado em Windows. Para obter as etapas específicas para um cluster baseado em Linux, confira [Analisar dados do Twitter usando o Hive no HDInsight (Linux)](hdinsight-analyze-twitter-data-linux.md).
+> [AZURE.NOTE] As etapas deste documento exigem um cluster HDInsight baseado em Windows. Para obter as etapas específicas para um cluster baseado em Linux, confira [Analisar dados do Twitter usando o Hive no HDInsight (Linux)](hdinsight-analyze-twitter-data-linux.md).
 
 
 
-> [AZURE.TIP]Um exemplo similar está na Galeria de Exemplos do HDInsight. Assista ao vídeo do Canal 9: <a href="http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Analyze-Twitter-trend-using-Apache-Hive-in-HDInsight" target="_blank">Analisar tendências do Twitter usando Apache Hive no HDInsight</a>.
+> [AZURE.TIP] Um exemplo similar está na Galeria de Exemplos do HDInsight. Assista ao vídeo do Canal 9: <a href="http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Analyze-Twitter-trend-using-Apache-Hive-in-HDInsight" target="_blank">Analisar tendências do Twitter usando Apache Hive no HDInsight</a>.
 
 ###Pré-requisitos
 
 Antes de começar este tutorial, você deve ter o seguinte:
 
-- **Uma estação de trabalho** com o PowerShell do Azure instalado e configurado. Consulte [Instalar e usar o PowerShell do Azure](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Para executar scripts do Windows PowerShell, você deve executar o PowerShell do Azure como administrador e configurar a política de execução como *RemoteSigned*. Consulte [Executar scripts do Windows PowerShell][powershell-script].
+- **Uma estação de trabalho** com o PowerShell do Azure instalado e configurado. Consulte [Instalar e usar o PowerShell do Azure](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Para executar scripts do Windows PowerShell, você deve executar o PowerShell do Azure como administrador e configurar a política de execução como *RemoteSigned*. Consulte [Executar scripts do Windows PowerShell][powershell-script].
 
 	Antes de executar scripts do Windows PowerShell, verifique se você está conectado à sua assinatura do Azure usando o seguinte cmdlet:
 
@@ -57,7 +57,7 @@ tutorials/twitter/twitter.hql|O arquivo de script HiveQL.
 
 Neste tutorial, você usará as [APIs de streaming do Twitter][twitter-streaming-api]. O API de streaming específico do Twitter que você usará é [statuses/filter][twitter-statuses-filter].
 
->[AZURE.NOTE]Um arquivo contendo 10.000 tweets e o arquivo de script do Hive (abordado na próxima seção) foram carregados em um contêiner de Blob público. Você pode ignorar esta seção se quiser usar os arquivos carregados.
+>[AZURE.NOTE] Um arquivo contendo 10.000 tweets e o arquivo de script do Hive (abordado na próxima seção) foram carregados em um contêiner de Blob público. Você pode ignorar esta seção se quiser usar os arquivos carregados.
 
 [Dados de tweets](https://dev.twitter.com/docs/platform-objects/tweets) são armazenados no formato JSON (JavaScript Object Notation) que contém uma estrutura aninhada complexa. Em vez de escrever várias linhas de código usando uma linguagem de programação convencional, você pode transformar essa estrutura aninhada em uma tabela do Hive para que possa ser consultada por uma linguagem semelhante à SQL chamada HiveQL.
 
@@ -86,7 +86,7 @@ Site|http://www.myhdinsightapp.com
 
 Neste tutorial, você usará o Windows PowerShell para fazer a chamada de serviço Web. Para um exemplo de C# .NET, consulte [Analisar sentimento no Twitter em tempo real com HBase no HDInsight][hdinsight-hbase-twitter-sentiment]. A outra ferramenta popular para fazer chamadas de serviço da Web é [*Curl*][curl]. O Curl pode ser baixado [aqui][curl-download].
 
->[AZURE.NOTE]Quando usar o comando curl no Windows, use aspas duplas, em vez de aspas simples, para os valores de opção.
+>[AZURE.NOTE] Quando usar o comando curl no Windows, use aspas duplas, em vez de aspas simples, para os valores de opção.
 
 **Para obter tweets**
 
@@ -243,7 +243,7 @@ Como um procedimento de validação, você pode verificar o arquivo de saída, *
 
 Usando o PowerShell do Azure, você pode executar várias instruções HiveQL uma por vez ou empacotar a instrução HiveQL em um arquivo de script. Neste tutorial, você irá criar um script HiveQL. O arquivo de script deve ser carregado para o armazenamento de Blob do Azure. Na próxima seção, você executará o arquivo de script usando o PowerShell do Azure.
 
->[AZURE.NOTE]O arquivo de script do Hive e um arquivo contendo 10.000 tweets foram carregados em um contêiner de Blob público. Você pode ignorar esta seção se quiser usar os arquivos carregados.
+>[AZURE.NOTE] O arquivo de script do Hive e um arquivo contendo 10.000 tweets foram carregados em um contêiner de Blob público. Você pode ignorar esta seção se quiser usar os arquivos carregados.
 
 O script HiveQL executará o seguinte:
 
@@ -454,7 +454,7 @@ Você concluiu todo o trabalho de preparação. Agora, você pode chamar o scrip
 
 Use o seguinte script do Windows PowerShell para executar o script do Hive. Você precisará definir a primeira variável.
 
->[AZURE.NOTE]Para usar os tweets e o script HiveQL carregado nas duas últimas seções, defina $hqlScriptFile para "/tutorials/twitter/twitter.hql". Para usar os que foram carregados em um blob público para você, defina $hqlScriptFile para "wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql".
+>[AZURE.NOTE] Para usar os tweets e o script HiveQL carregado nas duas últimas seções, defina $hqlScriptFile para "/tutorials/twitter/twitter.hql". Para usar os que foram carregados em um blob público para você, defina $hqlScriptFile para "wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql".
 
 	#region variables and constants
 	$clusterName = "<Existing Azure HDInsight Cluster Name>"
@@ -527,7 +527,7 @@ Use o seguinte script do Windows PowerShell para verificar a saída de trabalho 
 	Write-Host "==================================" -ForegroundColor Green
 	#end region
 
-> [AZURE.NOTE]A tabela Hive usa \\001 como o delimitador de campo. O delimitador não é visível na saída.
+> [AZURE.NOTE] A tabela Hive usa \\001 como o delimitador de campo. O delimitador não é visível na saída.
 
 Depois que os resultados da análise tiverem sido colocados no armazenamento de BLOBs do Azure, é possível exportar os dados para um banco de dados SQL/SQL Server do Azure, exportar os dados para o Excel usando Power Query ou conectar seu aplicativo aos dados usando o Driver ODBC do Hive. Para obter mais informações, consulte [Usar Sqoop com HDInsight][hdinsight-use-sqoop], [Analisar os dados de atraso de voo usando o HDInsight][hdinsight-analyze-flight-delay-data], [Conectar o Excel ao HDInsight com o Power Query][hdinsight-power-query] e [Conectar o Excel ao HDInsight com o driver ODBC do Microsoft Hive][hdinsight-hive-odbc].
 
@@ -565,4 +565,4 @@ Neste tutorial vimos como transformar o conjunto de dados não estruturado JSON 
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
 [hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

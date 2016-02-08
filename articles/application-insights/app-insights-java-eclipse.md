@@ -27,7 +27,7 @@ Atualmente, o plug-in funciona para projetos Maven e projetos dinâmicos da Web 
 Você precisará de:
 
 * Oracle JRE 1.6 ou posterior
-* Uma assinatura do [Microsoft Azure](http://azure.microsoft.com/). (Você pode começar com a [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).)
+* Uma assinatura do [Microsoft Azure](https://azure.microsoft.com/). (Você pode começar com a [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).)
 * [Um IDE do Eclipse para desenvolvedores do Java EE](http://www.eclipse.org/downloads/), Indigo ou posterior.
 * Windows 7 ou posterior, ou Windows Server 2008 ou posterior
 
@@ -260,4 +260,4 @@ Você pode inserir o código tanto no JavaScript da página da Web quanto no Jav
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

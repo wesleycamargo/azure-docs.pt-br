@@ -19,7 +19,7 @@
 
 # Controlando o tráfego de aplicativos Web do Azure com o Gerenciador de Tráfego do Azure
 
-> [AZURE.NOTE]Este artigo fornece informações resumidas sobre o Gerenciador de Tráfego do Microsoft Azure, já que está relacionado a aplicativos Web do Serviço de Aplicativo do Azure. Mais informações sobre o próprio Gerenciador de Tráfego do Azure podem ser encontradas visitando-se os links ao final deste artigo.
+> [AZURE.NOTE] Este artigo fornece informações resumidas sobre o Gerenciador de Tráfego do Microsoft Azure, já que está relacionado a aplicativos Web do Serviço de Aplicativo do Azure. Mais informações sobre o próprio Gerenciador de Tráfego do Azure podem ser encontradas visitando-se os links ao final deste artigo.
 
 ## Introdução
 Você pode usar o Gerenciador de Tráfego do Azure para controlar como as solicitações de clientes Web são distribuídas aos aplicativos Web no Serviço de Aplicativo do Azure. Quando os pontos de extremidade do aplicativo Web são adicionados a um perfil do Gerenciador de Tráfego do Azure, este acompanha o status de seus aplicativos Web (em execução, parado ou excluído) de modo que pode decidir quais desses pontos de extremidade devem receber tráfego.
@@ -60,7 +60,7 @@ Para obter uma visão geral conceitual e técnica do Gerenciador de Tráfego do 
 
 Para obter informações detalhadas sobre o balanceamento de carga no Gerenciador de Tráfego do Azure, consulte [Sobre métodos de balanceamento de carga do Gerenciador de Tráfego](../traffic-manager/traffic-manager-load-balancing-methods.md).
 
-Para obter mais informações sobre como usar o Gerenciador de Tráfego com aplicativos Web, consulte as postagens de blog [Usando o Gerenciador de Tráfego do Azure com sites do Azure](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) e [O Gerenciador de Tráfego do Azure agora pode se integrar a sites do Azure](http://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).
+Para obter mais informações sobre como usar o Gerenciador de Tráfego com aplicativos Web, consulte as postagens de blog [Usando o Gerenciador de Tráfego do Azure com sites do Azure](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) e [O Gerenciador de Tráfego do Azure agora pode se integrar a sites do Azure](https://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

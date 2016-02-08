@@ -34,7 +34,7 @@ Consulte esta página para localização de serviço e disponibilidade: [Locais 
 Você pode selecionar uma operadora regional e conexões Ethernet terrestres para um dos locais com suporte do provedor Exchange. Em seguida, você pode emparelhar com a Microsoft no local do provedor. Verifique a última seção de [Locais e Parceiros da Rota Expressa](expressroute-locations.md) para ver se o seu provedor de serviço está presente em qualquer um dos locais do Exchange. Em seguida, você pode solicitar um circuito de Rota Expressa por meio do provedor de serviço para se conectar ao Azure.
 
 ### Quanto custa a Rota Expressa?
-Consulte [detalhes de preços](http://azure.microsoft.com/pricing/details/expressroute/) para obter informações a respeito.
+Consulte [detalhes de preços](https://azure.microsoft.com/pricing/details/expressroute/) para obter informações a respeito.
 
 ### Se eu pago por um circuito de Rota Expressa de uma determinada largura de banda, a conexão VPN que adquiro do meu provedor de serviços de rede precisa ser a mesma velocidade?
 Não. Você pode comprar uma conexão VPN de qualquer velocidade de seu provedor de serviços. No entanto, sua conexão com o Azure será limitada à largura de banda do circuito de Rota Expressa que você comprar.
@@ -46,7 +46,7 @@ Sim. Circuitos de Rota Expressa são configurados para dar suporte a casos em qu
 Sim. Um circuito de Rota Expressa, uma vez instalado, permitirá que você acesse os serviços em uma Rede Virtual e outros serviços do Azure simultaneamente. Você se conectará às redes virtuais pelo caminho privado de emparelhamento e a outros serviços pelo caminho público de emparelhamento.
 
 ### A Rota Expressa oferece um SLA (contrato de nível de serviço)?
-Consulte a [página SLA de Rota Expressa](http://azure.microsoft.com/support/legal/sla/) para obter mais informações.
+Consulte a [página SLA de Rota Expressa](https://azure.microsoft.com/support/legal/sla/) para obter mais informações.
 
 ## Serviços com suporte
 A maioria dos serviços do Azure tem suporte na Rota Expressa.
@@ -65,7 +65,7 @@ A maioria dos serviços do Azure tem suporte na Rota Expressa.
 ## Dados e conexões
 
 ### Há limites para a quantidade de dados que posso transferir usando Rota Expressa?
-Não podemos definir um limite para a quantidade de transferência de dados. Consulte os [detalhes de preços](http://azure.microsoft.com/pricing/details/expressroute/) para obter informações sobre as taxas de largura de banda.
+Não podemos definir um limite para a quantidade de transferência de dados. Consulte os [detalhes de preços](https://azure.microsoft.com/pricing/details/expressroute/) para obter informações sobre as taxas de largura de banda.
 
 ### Quais velocidades de conexão têm suporte pela Rota Expressa?
 Ofertas de largura de banda com suporte:
@@ -208,7 +208,7 @@ Você pode desabilitar a Rota Expressa premium chamando o cmdlet do PowerShell/A
 Não. Você não poderá selecionar os recursos de que precisa. Habilitamos todos os recursos quando você ativa a Rota Expressa premium.
 
 ### Quanto custa a Rota Expressa premium?
-Consulte [detalhes de preços](http://azure.microsoft.com/pricing/details/expressroute/) para informações sobre custo.
+Consulte [detalhes de preços](https://azure.microsoft.com/pricing/details/expressroute/) para informações sobre custo.
 
 ### Eu pago algo pela Rota Expressa premium além dos encargos padrão da Rota Expressa?
 Sim. Os encargos da Rota Expressa premium somam-se aos encargos de circuito de Rota Expressa e aos encargos demandados pelo provedor de conectividade.
@@ -249,7 +249,7 @@ Sim. Seus circuitos da Rota Expressa existentes podem ser configurados para dar 
 Você pode se conectar a esses serviços pela Internet.
 
 ### Quanto custa a Rota Expressa para Office 365?
-Não há nenhum custo adicional para conectar-se ao Office 365 por meio da Rota Expressa. A [página de detalhes de preços](http://azure.microsoft.com/pricing/details/expressroute/) fornece detalhes de custos para a Rota Expressa.
+Não há nenhum custo adicional para conectar-se ao Office 365 por meio da Rota Expressa. A [página de detalhes de preços](https://azure.microsoft.com/pricing/details/expressroute/) fornece detalhes de custos para a Rota Expressa.
 
 ### Em que regiões há suporte para Rota Expressa para Office 365?
 Consulte [Locais e parceiros da Rota Expressa](expressroute-locations.md) para obter mais informações sobre a lista de parceiros e os locais onde há suporte para a Rota Expressa.
@@ -258,4 +258,4 @@ Consulte [Locais e parceiros da Rota Expressa](expressroute-locations.md) para o
 Sim. Pontos de extremidade do serviço do Office 365 estão acessíveis pela Internet, embora a Rota Expressa tenha sido configurada para sua rede. Se você estiver em um local configurado para se conectar a serviços do Office 365 por meio de Rota Expressa, você se conectará por meio de Rota Expressa.
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

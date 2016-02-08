@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="12/08/2015"
+   	ms.date="01/28/2016"
    	ms.author="nitinme"/>
 
 
@@ -154,9 +154,11 @@ Por padrão, esse contêiner tem o mesmo nome do cluster. Para saber mais sobre 
 
 Você pode selecionar o tamanho dos recursos de computação usados pelo cluster. Por exemplo, se você souber que executará operações que precisam de muita memória, convém selecionar um recurso de computação com mais memória.
 
+>[AZURE.NOTE] Os nós usados pelo cluster não contam como Máquinas Virtuais, pois as imagens das Máquinas Virtuais usadas para os nós são um detalhe de implementação do serviço HDInsight. No entanto, os núcleos de computação usados pelos nós contam para o número total de núcleos de computação disponíveis para sua assinatura. Você pode ver o número de núcleos que será usado pelo cluster, bem como o número de núcleos disponíveis, na seção Resumo da folha Tipos de Preço, ao criar um cluster HDInsight.
+
 Diferentes tipos de cluster têm diferentes tipos de nó, números de nós e tamanhos de nós. Por exemplo, um tipo de cluster Hadoop tem dois _nós principais_ e um padrão de quatro _nós de dados_, enquanto um tipo de cluster Storm tem dois _nós nimbus_, três _nós zookeeper_ e um padrão de quatro _nós supervisores_.
 
-> [AZURE.IMPORTANT] Se você planeja ter mais de 32 nós de trabalho, seja na criação do cluster ou em seu dimensionamento após a criação, deverá selecionar um tamanho de nó de cabeçalho com pelo menos 8 núcleos e 14 GB de RAM.
+> [AZURE.IMPORTANT] Se você planeja ter mais de 32 nós de trabalho, seja na criação do cluster ou em seu dimensionamento após a criação, será preciso escolher um tamanho de nó de cabeçalho com pelo menos 8 núcleos e 14 GB de RAM.
 
 Ao usar o portal de visualização do Azure para configurar o cluster, o tamanho do nó é exposto por meio da folha __Camada de preços do nó__ e também exibirá o custo associado aos diferentes tamanhos de nó.
 
@@ -172,7 +174,7 @@ Use para determinar a versão do HDInsight a ser usada com esse cluster. Para ob
 
 ### Usar redes virtuais do Azure
 
-Uma [Rede virtual do Azure](http://azure.microsoft.com/documentation/services/virtual-network/) permite criar uma rede segura e persistente contendo os recursos necessários para sua solução. Uma rede virtual permite que você:
+Uma [Rede virtual do Azure](https://azure.microsoft.com/documentation/services/virtual-network/) permite criar uma rede segura e persistente contendo os recursos necessários para sua solução. Uma rede virtual permite que você:
 
 * Conecte recursos da nuvem juntos em uma rede privada (somente nuvem).
 
@@ -184,7 +186,7 @@ Uma [Rede virtual do Azure](http://azure.microsoft.com/documentation/services/vi
     | -------------------------- | --------------------------- |
     | A configuração site a site permite conectar vários recursos de seu datacenter à rede virtual do Azure usando uma VPN de hardware ou o Serviço de roteamento e acesso remoto.<br />![diagrama da configuração site a site](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-site-to-site.png) | A configuração ponto a site permite que você conecte um recurso específico à rede virtual do Azure usando uma VPN do software.<br />![diagrama da configuração ponto a site](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-point-to-site.png) |
 
-Para obter mais informações sobre como usar HDInsight com uma Rede Virtual, incluindo requisitos de configuração específicos para a Rede Virtual, consulte [Estender recursos do HDInsight usando uma Rede Virtual do Azure](hdinsight-extend-hadoop-virtual-network.md).
+Para obter mais informações sobre como usar o HDInsight com uma Rede Virtual, incluindo requisitos de configuração específicos para a Rede Virtual, confira [Estender os recursos do HDInsight usando a Rede Virtual do Azure](hdinsight-extend-hadoop-virtual-network.md).
 
 ### Metastore
 
@@ -215,9 +217,8 @@ Neste artigo, você aprendeu as informações básicas sobre como criar um clust
 | [Portal de visualização do Azure](hdinsight-hadoop-create-linux-clusters-portal.md) | ✔ | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ |
 | [CLI do Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 | [PowerShell do Azure](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | &nbsp; | ✔ |
-| [Curl](hdinsight-hadoop-create-linux-clusters-curl.md) | &nbsp; | ✔ | ✔ | &nbsp; | ✔ | ✔ |
-| [SDK .NET](hdinsight-hadoop-create-linux-clusters-dotnet.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
-
+| [Curl](hdinsight-hadoop-create-linux-clusters-curl-rest.md) | &nbsp; | ✔ | ✔ | &nbsp; | ✔ | ✔ |
+| [SDK .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 
 
 [hdinsight-use-mapreduce]: ../hdinsight-use-mapreduce/
@@ -267,4 +268,4 @@ Neste artigo, você aprendeu as informações básicas sobre como criar um clust
 
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Use o Sqoop com o HDInsight"
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

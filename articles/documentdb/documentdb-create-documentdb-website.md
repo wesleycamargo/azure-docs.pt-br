@@ -18,7 +18,7 @@
 
 # Implantar Aplicativos Web do Serviço de Aplicativo do Azure e do Banco de Dados de Documentos usando um Modelo do Gerenciador de Recursos do Azure #
 
-Este tutorial mostra como usar um modelo do Gerenciador de Recursos do Azure para implantar e integrar o [Banco de Dados de Documentos do Microsoft Azure](http://azure.microsoft.com/services/documentdb/), um aplicativo Web do [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) e um aplicativo Web de exemplo.
+Este tutorial mostra como usar um modelo do Gerenciador de Recursos do Azure para implantar e integrar o [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/), um aplicativo Web do [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) e um aplicativo Web de exemplo.
 
 Depois de concluir este tutorial, você poderá responder às seguintes perguntas:
 
@@ -27,11 +27,11 @@ Depois de concluir este tutorial, você poderá responder às seguintes pergunta
 
 <a id="Prerequisites"></a>
 ## Pré-requisitos ##
-> [AZURE.TIP]Embora este tutorial não suponha uma experiência anterior com modelos do Gerenciador de Recursos do Azure, JSON ou Azure PowerShell, caso você queira modificar os modelos referenciados ou as opções de implantação, será necessário ter conhecimento em cada uma dessas áreas.
+> [AZURE.TIP] Embora este tutorial não suponha uma experiência anterior com modelos do Gerenciador de Recursos do Azure, JSON ou Azure PowerShell, caso você queira modificar os modelos referenciados ou as opções de implantação, será necessário ter conhecimento em cada uma dessas áreas.
 
 Antes de seguir as instruções neste tutorial, certifique-se de ter o seguinte:
 
-- Uma assinatura do Azure. O Azure é uma plataforma baseada em assinatura. Para obter mais informações sobre como adquirir uma assinatura, consulte [Opções de compra](http://azure.microsoft.com/pricing/purchase-options/), [Ofertas para membros](http://azure.microsoft.com/pricing/member-offers/) ou [Avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
+- Uma assinatura do Azure. O Azure é uma plataforma baseada em assinatura. Para obter mais informações sobre como adquirir uma assinatura, consulte [Opções de compra](https://azure.microsoft.com/pricing/purchase-options/), [Ofertas para membros](https://azure.microsoft.com/pricing/member-offers/) ou [Avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 - Uma Conta de Armazenamento do Azure. Para obter instruções, consulte [Sobre Contas de Armazenamento do Azure](../storage/storage-create-storage-account.md).
 - Uma estação de trabalho com o Azure PowerShell 0.9.8. Para obter instruções, consulte [Instalar e configurar o PowerShell do Azure](../powershell-install-configure.md). Este tutorial ainda não foi atualizado para o Azure PowerShell 1.0 Preview. 
 
@@ -42,7 +42,7 @@ Vamos começar baixando os arquivos de exemplo que usaremos neste tutorial.
 
 2. Baixe [Criar um exemplo de Aplicativo Web e conta do Banco de Dados de Documentos](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebSite.zip) em uma pasta local (por exemplo, C:\\DocumentDBTemplates) e extraia os arquivos. Este exemplo implantará uma conta do Banco de Dados de Documentos, um aplicativo Web do Serviço de Aplicativo e modificará a configuração do site para demonstrar facilmente informações de conexão do Banco de Dados de Documentos, mas não inclui um aplicativo Web.
 
-> [AZURE.TIP]Observe que, dependendo das configurações de segurança do seu computador, talvez seja necessário desbloquear os arquivos extraídos clicando com o botão direito em **Propriedades** e em **Desbloquear**.
+> [AZURE.TIP] Observe que, dependendo das configurações de segurança do seu computador, talvez seja necessário desbloquear os arquivos extraídos clicando com o botão direito em **Propriedades** e em **Desbloquear**.
 
 ![Captura de tela da janela Propriedades com o botão Desbloquear realçado](./media/documentdb-create-documentdb-website/image1.png)
 
@@ -51,7 +51,7 @@ Vamos começar baixando os arquivos de exemplo que usaremos neste tutorial.
 
 Agora, vamos implantar nosso primeiro modelo.
 
-> [AZURE.TIP]O modelo não valida se o nome do aplicativo Web e o nome da conta do Banco de Dados de Documentos inseridos abaixo são a)válidos e b)disponíveis. É altamente recomendável que você verifique a disponibilidade dos nomes que planeja fornecer antes de executar o script de implantação do PowerShell.
+> [AZURE.TIP] O modelo não valida se o nome do aplicativo Web e o nome da conta do Banco de Dados de Documentos inseridos abaixo são a)válidos e b)disponíveis. É altamente recomendável que você verifique a disponibilidade dos nomes que planeja fornecer antes de executar o script de implantação do PowerShell.
 
 1. Abra o Microsoft Azure PowerShell e navegue até a pasta na qual você baixou e extraiu o [Criar uma conta do Banco de Dados de Documentos, aplicativo Web do Serviço de Aplicativo e implantar um exemplo de aplicativo de demonstração](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebsiteTodo.zip) (por exemplo, C:\\DocumentDBTemplates\\CreateDocDBWebsiteTodo).
 
@@ -70,7 +70,7 @@ Agora, vamos implantar nosso primeiro modelo.
 
     	PS C:\DocumentDBTemplates\CreateDocDBWebAppTodo> .\CreateDocDBWebsiteTodo.ps1 -WebSiteName "mydemodocdbwebapp" -ResourceGroupName "myDemoResourceGroup" -docDBAccountName "mydemodocdbaccount" -location "West US"
 
-	> [AZURE.TIP]Observe que será solicitado inserir seu nome de usuário da conta do Azure e a senha como parte da execução do script. A implantação completa levará entre 10 e 15 minutos para ser concluída.
+	> [AZURE.TIP] Observe que será solicitado inserir seu nome de usuário da conta do Azure e a senha como parte da execução do script. A implantação completa levará entre 10 e 15 minutos para ser concluída.
 
 4. E aqui está um exemplo da saída resultante:
 
@@ -151,7 +151,7 @@ Agora, vamos implantar nosso primeiro modelo.
 
 Agora, vamos implantar nosso segundo modelo.
 
-> [AZURE.TIP]O modelo não valida se o nome do aplicativo Web e o nome da conta do Banco de Dados de Documentos inseridos abaixo são a)válidos e b)disponíveis. É altamente recomendável que você verifique a disponibilidade dos nomes que planeja fornecer antes de executar o script de implantação do PowerShell.
+> [AZURE.TIP] O modelo não valida se o nome do aplicativo Web e o nome da conta do Banco de Dados de Documentos inseridos abaixo são a)válidos e b)disponíveis. É altamente recomendável que você verifique a disponibilidade dos nomes que planeja fornecer antes de executar o script de implantação do PowerShell.
 
 1. Abra o Microsoft Azure PowerShell e navegue até a pasta na qual você baixou e extraiu [Criar uma conta do Banco de Dados de Documentos e exemplo de aplicativo Web](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebSite.zip) (por exemplo, C:\\DocumentDBTemplates\\CreateDocDBWebsite).
 
@@ -169,7 +169,7 @@ Agora, vamos implantar nosso segundo modelo.
 
     	PS C:\DocumentDBTemplates\CreateDocDBWebSite> .\CreateDocDBWebSite.ps1 -WebSiteName "myotherdocumentdbwebapp" -ResourceGroupName "myOtherDemoResourceGroup" -docDBAccountName "myotherdocumentdbdemoaccount" -location "East US"
 
-	> [AZURE.TIP]Observe que será solicitado inserir seu nome de usuário da conta do Azure e a senha como parte da execução do script. A implantação completa levará entre 10 e 15 minutos para ser concluída.
+	> [AZURE.TIP] Observe que será solicitado inserir seu nome de usuário da conta do Azure e a senha como parte da execução do script. A implantação completa levará entre 10 e 15 minutos para ser concluída.
 
 4. A saída da implantação será muito semelhante ao primeiro exemplo de modelo.
 5. Antes de abrirmos o Portal do Azure, vamos entender o que essa implantação de modelo realizou:
@@ -207,7 +207,7 @@ Parabéns! Você implantou um Banco de Dados de Documentos, aplicativo Web do Se
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, veja: [Referência para navegar no Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
 
->[AZURE.NOTE]Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE] Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

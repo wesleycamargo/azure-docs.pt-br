@@ -49,7 +49,7 @@ OK, como posso criar uma?
 - Fornece acesso completo à rede local + VNET do Azure.
 - Inclui o acesso ao ingresso no domínio para aplicativos e dados. Os aplicativos remotos podem fazer a autenticação em seu Active Directory local – em seguida, eles poderão acessar os recursos em seu domínio.
 - Habilitar o monitoramento e gerenciamento avançados com soluções existentes do System Center e Políticas de Grupo do Windows (por meio de uma imagem personalizada criada no Windows Server 2012 R2)
-- Suporte à [Rota Expressa](http://azure.microsoft.com/services/expressroute/) para conectar sua VNET do Azure à sua VNET local.
+- Suporte à [Rota Expressa](https://azure.microsoft.com/services/expressroute/) para conectar sua VNET do Azure à sua VNET local.
 
 Crie usando a opção **Criar com VNET** e ESCOLHA ingressar em um domínio.
 
@@ -91,4 +91,4 @@ OK, acho que desvendamos tudo agora. Há apenas uma coisa que resta fazer: criar
 
 [Criar uma coleção na nuvem](remoteapp-create-cloud-deployment.md) ou [criar uma coleção híbrida](remoteapp-create-hybrid-deployment.md) – basta começar a criar.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

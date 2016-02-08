@@ -46,7 +46,7 @@ Para fazer backup de uma máquina virtual, primeiro é necessário um instantân
 
 Depois que o instantâneo é criado, os dados são transferidos pelo serviço do Backup do Azure para o cofre de backup. O serviço se encarrega de identificar e transferir somente os blocos que foram alterados desde o último backup, tornando o armazenamento e a rede de backups eficientes. Quando a transferência de dados é concluída, o instantâneo é removido e um ponto de recuperação é criado. Esse ponto de recuperação pode ser visto no portal de gerenciamento do Azure.
 
->[AZURE.NOTE]Para máquinas virtuais do Linux, é possível apenas o backup consistente com arquivos.
+>[AZURE.NOTE] Para máquinas virtuais do Linux, é possível apenas o backup consistente com arquivos.
 
 ## Pré-requisitos
 Prepare o Backup do Azure para fazer backup dos dados do DPM da seguinte maneira:
@@ -90,6 +90,6 @@ E os seguintes não têm suporte:
 - Fluxo compactado
 - Fluxo esparso
 
->[AZURE.NOTE]No System Center 2012 DPM com SP1 em diante, é possível fazer backup de cargas de trabalho protegidas por DPM para o Azure usando o Backup do Microsoft Azure.
+>[AZURE.NOTE] No System Center 2012 DPM com SP1 em diante, é possível fazer backup de cargas de trabalho protegidas por DPM para o Azure usando o Backup do Microsoft Azure.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

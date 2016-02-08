@@ -54,8 +54,8 @@ Esta versão contém as atualizações a seguir.
 Title | Descrição
 ---|---
 Visualização Pública do Azure IoT Suite | O Stream Analytics está incluído na Visualização Pública do Azure IoT Suite.
-Integração no Portal de Visualização do Azure | Além da presença contínua no portal de Gerenciamento do Azure, o Stream Analytics agora está integrado no [Portal de Visualização do Azure](http://azure.microsoft.com/overview/preview-portal/). Lembre-se de que a funcionalidade do Stream Analytics no portal de Visualização é atualmente um subconjunto da funcionalidade oferecida no portal de Gerenciamento do Azure, sem suporte para o teste de consulta no navegador, configuração de saída do Power BI e navegação ou criação de novos recursos de entrada e saída nas assinaturas às quais você tem acesso.
-Suporte para a saída do Banco de Dados de Documentos | Os trabalhos do Stream Analytics agora podem ser importados para o [Banco de Dados de Documentos](http://azure.microsoft.com/services/documentdb/).
+Integração no Portal de Visualização do Azure | Além da presença contínua no portal de Gerenciamento do Azure, o Stream Analytics agora está integrado no [Portal de Visualização do Azure](https://azure.microsoft.com/overview/preview-portal/). Lembre-se de que a funcionalidade do Stream Analytics no portal de Visualização é atualmente um subconjunto da funcionalidade oferecida no portal de Gerenciamento do Azure, sem suporte para o teste de consulta no navegador, configuração de saída do Power BI e navegação ou criação de novos recursos de entrada e saída nas assinaturas às quais você tem acesso.
+Suporte para a saída do Banco de Dados de Documentos | Os trabalhos do Stream Analytics agora podem ser importados para o [Banco de Dados de Documentos](https://azure.microsoft.com/services/documentdb/).
 Suporte para a entrada do Hub IoT | Os trabalhos do Stream Analytics agora podem ingerir dados dos Hubs IoT.
 TIMESTAMP BY para eventos heterogêneos | Quando uma transmissão de dados única contém vários tipos de evento com carimbos de data/hora em diferentes campos, agora você pode usar o [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) com expressões para especificar diferentes campos de carimbo de data/hora para cada caso.
 
@@ -133,4 +133,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

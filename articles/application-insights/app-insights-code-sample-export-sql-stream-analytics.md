@@ -17,7 +17,7 @@
  
 # Passo a passo: exportar para SQL do Application Insights usando o Stream Analytics
 
-Este artigo mostra como mover os dados de telemetria do [Visual Studio Application Insights][start] em um banco de dados SQL do Azure usando [Exportação Contínua][export] e [Azure Stream Analytics](http://azure.microsoft.com/services/stream-analytics/).
+Este artigo mostra como mover os dados de telemetria do [Visual Studio Application Insights][start] em um banco de dados SQL do Azure usando [Exportação Contínua][export] e [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/).
 
 A exportação contínua move os dados de telemetria no Armazenamento do Azure no formato JSON. Vamos analisar objetos JSON usando o Azure Stream Analytics e criando linhas em uma tabela de banco de dados.
 
@@ -35,7 +35,7 @@ Para monitorar seu aplicativo, [Adicione um SDK do Application Insights][start] 
 
 Introdução:
 
-1. Obtenha uma [conta no Microsoft Azure](http://azure.microsoft.com/pricing/).
+1. Obtenha uma [conta no Microsoft Azure](https://azure.microsoft.com/pricing/).
 2. No [Portal do Azure][portal], adicione um novo recurso do Application Insights ao seu aplicativo:
 
     ![Escolha Novo, Serviços de Desenvolvedor, Application Insights e escolha o tipo de aplicativo](./media/app-insights-code-sample-export-sql-stream-analytics/010-new-asp.png)
@@ -219,7 +219,7 @@ Confirme o formato de serialização:
 
 Feche o assistente e aguarde até que a instalação seja concluída.
 
->[AZURE.TIP]Use a função Amostra para verificar se configurou corretamente o caminho de entrada. Se ele falhar: verifique se há dados no armazenamento para o intervalo de tempo de amostra que você escolheu. Edite a definição de entrada e verifique se definiu corretamente a conta de armazenamento, o prefixo de caminho e o formato de data.
+>[AZURE.TIP] Use a função Amostra para verificar se configurou corretamente o caminho de entrada. Se ele falhar: verifique se há dados no armazenamento para o intervalo de tempo de amostra que você escolheu. Edite a definição de entrada e verifique se definiu corretamente a conta de armazenamento, o prefixo de caminho e o formato de data.
 
 ## Definir a consulta
 
@@ -265,7 +265,7 @@ Substitua a consulta padrão por:
 
 ```
 
-Observe que as primeiras propriedades são específicas aos dados de exibição da página. Exportações de outros tipos de telemetria terão propriedades diferentes. Veja a [referência de modelo de dados detalhados para os tipos de propriedades e valores.](app-insights-export-data-model.md)
+Observe que as primeiras propriedades são específicas aos dados de exibição da página. Exportações de outros tipos de telemetria terão propriedades diferentes. [Referência de modelo de dados detalhados para os tipos de propriedades e valores.](app-insights-export-data-model.md)
 
 ## Configurar a saída para o banco de dados
 
@@ -315,4 +315,4 @@ Depois de alguns minutos, volte para as Ferramentas de Gerenciamento do SQL Serv
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

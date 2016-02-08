@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/14/2015"
+	ms.date="01/13/2016"
 	ms.author="byvinyal"/>
 
 #<a name="howtomonitor"></a>Monitorar aplicativos Web no Serviço de Aplicativo do Azure
@@ -24,7 +24,7 @@
 
 ##Política de Retenção de Métricas
 
->[AZURE.NOTE]A política de retenção para a métrica do aplicativo varia de acordo com a granularidade.
+>[AZURE.NOTE] A política de retenção para a métrica do aplicativo varia de acordo com a granularidade.
 
 - Métricas de granularidade de **minuto** são mantidas por **24 horas**
 - Métricas de granularidade de **Hora** são mantidas por **7 dias**
@@ -54,7 +54,7 @@ No modo de aplicativo Web **Padrão**, você pode receber alertas com base nas m
 
 Os aplicativos Web podem ser configurados para execução no modo **Compartilhado** ou **Padrão** na página de gerenciamento **Escala** do aplicativo Web no [portal clássico](https://manage.windowsazure.com). Cada assinatura do Azure tem acesso a um pool de recursos fornecidos com a finalidade de execução de até 100 aplicativos Web por região em modo **Compartilhado**. O pool de recursos disponíveis para cada assinatura de aplicativo Web para essa finalidade é compartilhado por outros aplicativos Web na mesma localização geográfica configurados para serem executados em modo **Compartilhado**. Como esses recursos são compartilhados para uso por outros aplicativos Web, todas as assinaturas são limitadas em termos de uso desses recursos. Limites aplicados ao uso da assinatura desses recursos são expressos como cotas de uso listadas na seção de visão geral sobre o uso da página de gerenciamento **Painel** de cada aplicativo Web.
 
->[AZURE.NOTE]Quando um aplicativo Web está configurado para executar no modo **Padrão**, são alocados recursos dedicados equivalentes aos tamanhos das máquinas virtuais **Pequeno** (padrão), **Médio** ou **Grande** na tabela em [Tamanhos de máquinas virtuais e do Serviço de Nuvem do Azure][vmsizes]. Não há limites para os recursos usados por uma assinatura para a execução de aplicativos Web no modo **Padrão**. No entanto, o número de aplicativos Web no modo **Padrão** que podem ser criados por região é 500.
+>[AZURE.NOTE] Quando um aplicativo Web está configurado para executar no modo **Padrão**, são alocados recursos dedicados equivalentes aos tamanhos das máquinas virtuais **Pequeno** (padrão), **Médio** ou **Grande** na tabela em [Tamanhos de máquinas virtuais e do Serviço de Nuvem do Azure][vmsizes]. Não há limites para os recursos usados por uma assinatura para a execução de aplicativos Web no modo **Padrão**. No entanto, o número de aplicativos Web no modo **Padrão** que podem ser criados por região é 500.
 
 ### Como: exibir cotas de uso para aplicativos Web configurados para modo Compartilhado ###
 Para determinar a extensão do impacto de um aplicativo Web sobre cotas de uso de recursos, siga estas etapas:
@@ -100,7 +100,7 @@ Você pode ativar ou desativar os seguintes diagnósticos de aplicativo:
 
 Para obter mais informações sobre Contas de Armazenamento do Azure, consulte [Como gerenciar contas de armazenamento (a página pode estar em inglês)](/manage/services/storage/how-to-manage-a-storage-account/).
 
-> [AZURE.NOTE]Log de aplicativo para o armazenamento de tabela ou blob só é suportado para aplicativos .NET.
+> [AZURE.NOTE] Log de aplicativo para o armazenamento de tabela ou blob só é suportado para aplicativos .NET.
 
 Como o log do aplicativo no armazenamento requer o uso de um cliente de armazenamento para exibir os dados do log, ele será mais útil quando você planejar usar um serviço ou aplicativo que saiba como ler e processar os dados diretamente no Armazenamento de Tabela ou de Blob do Azure. O log do sistema de arquivos produz arquivos que podem ser baixados no computador local usando FTP ou outros utilitários conforme descrito mais adiante nesta seção.
 
@@ -108,7 +108,7 @@ Como o log do aplicativo no armazenamento requer o uso de um cliente de armazena
 
 O diagnóstico também pode ser habilitado a partir do PowerShell do Azure usando o cmdlet **Set-AzureWebsite**. Se você não instalou o PowerShell do Azure ou não o configurou para usar sua Assinatura do Azure, consulte [Como usar o PowerShell do Azure](/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
-> [AZURE.NOTE]O log de aplicativo se baseia em informações de log geradas pelo seu aplicativo. O método usado para gerar informações de log, bem como o formato das informações, é específico para o idioma em que seu aplicativo é gravado. Para obter informações específicas de idioma sobre o uso do log de aplicativo, consulte os seguintes artigos:
+> [AZURE.NOTE] O log de aplicativo se baseia em informações de log geradas pelo seu aplicativo. O método usado para gerar informações de log, bem como o formato das informações, é específico para o idioma em que seu aplicativo é gravado. Para obter informações específicas de idioma sobre o uso do log de aplicativo, consulte os seguintes artigos:
 >
 > - **.NET** - [Solucionar problemas de um aplicativo Web no Serviço de Aplicativo do Azure usando o Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
 > - **Node.js** - [Como depurar um aplicativo Node.js nos Sites do Azure](web-sites-nodejs-debug.md).
@@ -134,7 +134,7 @@ A seção **Diagnóstico de Site** da página de gerenciamento **Configurar** co
 
 Depois de habilitar o diagnóstico para um aplicativo Web, clique no ícone **Salvar** na parte inferior da página de gerenciamento **Configurar** aplicar as opções que você definiu.
 
-> [AZURE.IMPORTANT]Mensagens de erro detalhadas e rastreamento de solicitação falha colocam exigências significativas em um aplicativo Web. É recomendável desativar o registro e o rastreamento depois de reproduzir o(s) problema(s) que você está solucionando.
+> [AZURE.IMPORTANT] Mensagens de erro detalhadas e rastreamento de solicitação falha colocam exigências significativas em um aplicativo Web. É recomendável desativar o registro e o rastreamento depois de reproduzir o(s) problema(s) que você está solucionando.
 
 ### Configuração avançada ###
 
@@ -173,7 +173,7 @@ Os arquivos de log podem ser baixados usando FTP, PowerShell do Azure ou a CLI d
 
 1. Na **Tela Inicial** ou no **Menu Iniciar**, pesquise por **PowerShell do Azure**. Clique com o botão direito do mouse no **PowerShell do Azure** e selecione **Executar como Administrador**.
 
-	> [AZURE.NOTE]Se o **PowerShell do Azure** não estiver instalado, consulte [Introdução aos cmdlets do PowerShell do Azure](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) para obter informações sobre a instalação e a configuração.
+	> [AZURE.NOTE] Se o **PowerShell do Azure** não estiver instalado, consulte [Introdução aos cmdlets do PowerShell do Azure](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) para obter informações sobre a instalação e a configuração.
 
 2. No prompt do PowerShell do Azure, use o seguinte comando para baixar os arquivos de log:
 
@@ -201,7 +201,7 @@ Você também pode exibir um fluxo ao vivo de eventos de log usando o seguinte c
 
 Isso exibirá as informações de log para o prompt de comando do PowerShell, bash ou sessão de terminal de onde o comando é executado.
 
-> [AZURE.NOTE]Se o comando **azure** não estiver instalado, consulte [Como usar as ferramentas de linha de comando do Azure](../virtual-machines-command-line-tools.md) para obter informações de instalação e configuração.
+> [AZURE.NOTE] Se o comando **azure** não estiver instalado, consulte [Como usar as ferramentas de linha de comando do Azure](../virtual-machines-command-line-tools.md) para obter informações de instalação e configuração.
 
 ### Leitura de arquivos de log ###
 
@@ -263,7 +263,7 @@ Depois de configurar o monitoramento de ponto de extremidade, você pode analisa
 7.	Opcionalmente, repita as etapas anteriores para criar um segundo ponto de extremidade.
 8.	Clique em **Salvar**. Pode levar alguns minutos até que os dados de monitoramento do ponto de extremidade esteja disponível nas guias **Painel** e **Monitoramento**.
 
-	Para criar uma regra de email, faça o seguinte:
+Para criar uma regra de email, faça o seguinte:
 
 9.	Na barra de serviço bem à esquerda, clique em **Serviços de gerenciamento**.
 10.	Clique em **Adicionar regra** na parte inferior.
@@ -279,14 +279,14 @@ Para obter mais informações sobre o monitoramento de pontos de extremidade do 
 
 - [Mantendo os sites do Azure ativos e monitorando pontos de extremidade - com Stefan Schackow](/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
 
->[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE] Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia para a alteração do portal do Azure para o portal de visualização do Azure, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia para a alteração do portal do Azure para o portal de visualização do Azure, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [fzilla]: http://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

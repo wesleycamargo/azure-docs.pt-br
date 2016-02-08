@@ -20,7 +20,8 @@
 
 Se você estiver familiarizado com o serviço do AD do Azure disponível ao público geral ou integrou aplicativos com o AD do Azure no passado, poderá haver algumas diferenças inesperadas no modelo de aplicativo v2.0. Este documento chama a atenção para essas diferenças para sua compreensão.
 
-> [AZURE.NOTE]Essas informações se aplicam à visualização pública do modelo de aplicativo v2.0. Para obter instruções sobre como integrar-se ao serviço do AD do Azure disponível ao público geral, consulte o [Guia do Desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md).
+> [AZURE.NOTE]
+	Essas informações se aplicam à visualização pública do modelo de aplicativo v2.0. Para obter instruções sobre como integrar-se ao serviço do AD do Azure disponível ao público geral, consulte o [Guia do Desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md).
 
 
 ## Contas da Microsoft e contas do AD do Azure
@@ -105,12 +106,25 @@ O item acima solicita permissão para o aplicativo ler dados do diretório de um
 
 Permitir que um aplicativo solicite permissões dinamicamente por meio do parâmetro `scope` dá controle total a você sobre a experiência do usuário. Se desejar, você pode optar por antecipar a experiência de consentimento e pedir todas as permissões em uma solicitação de autorização inicial. Ou, se seu aplicativo precisar de um grande número de permissões, você pode optar por reunir essas permissões do usuário de forma incremental, à medida que ele tentar usar determinados recursos do seu aplicativo ao longo do tempo.
 
-## Acesso offline
+## Escopos conhecidos
+
+#### Acesso offline
 O modelo de aplicativo v2.0 apresenta uma nova permissão bastante conhecida para aplicativos; o escopo `offline_access`. Todos os aplicativos terão que solicitar essa permissão se precisarem acessar recursos em nome de um usuário por um longo período de tempo, mesmo quando o usuário pode não estiver usando o aplicativo de maneira ativa. O escopo `offline_access` será exibido para o usuário em caixas de diálogo de consentimento como "Acesso a seus dados offline", com as quais o usuário deverá concordar. Solicitar a permissão `offline_access` permitirá que seu aplicativo Web receba refresh\_tokens do OAuth 2.0 a partir do ponto de extremidade v2.0. Refresh\_tokens são duradouros e podem ser trocados por novos access\_tokens do OAuth 2.0 por longos períodos de acesso.
 
-Se seu aplicativo não solicitar o escopo `offline_access`, ele não receberá refresh\_tokens. Isso significa que, quando você resgatar um authorization\_code no [fluxo de código de autorização do OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow), você só receberá de volta um access\_token do ponto de extremidade `/oauth2/token`. Esse access\_token permanecerá válido por um curto período de tempo (normalmente uma hora), mas acabará expirando. Nesse momento, seu aplicativo terá que redirecionar o usuário de volta ao ponto de extremidade `/oauth2/authorize` para recuperar um novo authorization\_code. Durante esse redirecionamento, o usuário pode ou não precisar digitar suas credenciais novamente ou consentir de novo as permissões, dependendo do tipo do aplicativo.
+Se seu aplicativo não solicitar o escopo `offline_access`, ele não receberá refresh\_tokens. Isso significa que, quando você resgatar um authorization\_code no [fluxo de código de autorização do OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow), você só receberá de volta um access\_token do ponto de extremidade `/token`. Esse access\_token permanecerá válido por um curto período de tempo (normalmente uma hora), mas acabará expirando. Nesse momento, seu aplicativo terá que redirecionar o usuário de volta ao ponto de extremidade `/authorize` para recuperar um novo authorization\_code. Durante esse redirecionamento, o usuário pode ou não precisar digitar suas credenciais novamente ou consentir de novo as permissões, dependendo do tipo do aplicativo.
 
 Para saber mais sobre OAuth 2.0, refresh\_tokens e access\_tokens, consulte a [referência de protocolo do modelo de aplicativo de v2.0](active-directory-v2-protocols.md).
+
+#### OpenID, perfil e email
+
+No serviço Active Directory do Azure original, o fluxo de conexão mais básico do OpenID Connect forneceria uma grande quantidade de informações sobre o usuário do id\_token resultante. As declarações em um id\_token podem incluir o nome do usuário, nome de usuário preferido, endereço de email, ID do objeto e muito mais.
+
+Agora, estamos restringindo as informações que o escopo de `openid` permite que seu aplicativo acesse. O escopo de `openid` apenas permitirá que seu aplicativo conecte o usuário e receba um identificador específico do aplicativo para o usuário. Se você quiser obter informações de identificação pessoal (PII) sobre o usuário em seu aplicativo, seu aplicativo precisará solicitar permissões adicionais do usuário. Estamos introduzindo dois novos escopos, os escopos de `email` e `profile`, que permitem que você faça isso.
+
+O escopo de `email` é muito simples. Permite que seu aplicativo acesse o endereço de email principal do usuário por meio da declaração `email` no id\_token. O escopo de `profile` permite que seu aplicativo acesse todas as outras informações básicas sobre o usuário: nome, nome de usuário preferido, ID do objeto, etc.
+
+Isso permite que você codifique seu aplicativo com uma divulgação mínima. Você só pode solicitar ao usuário o conjunto de informações que seu aplicativo precisa para fazer seu trabalho. Para obter mais informações sobre os escopos, consulte [a referência do escopo v 2.0](active-directory-v2-scopes.md).
+
 
 ## Declarações de token
 As declarações em tokens emitidos pelo ponto de extremidade v2.0 não serão idênticas aos tokens emitidos pelos pontos de extremidade do AD do Azure disponíveis ao público geral; os aplicativos que migrarem para o novo serviço não deverão presumir que uma declaração específica existirá em id\_tokens ou access\_tokens. Os tokens emitidos pelo ponto de extremidade v2.0 são compatíveis com as especificações OAuth 2.0 e OpenID Connect, mas podem seguir semânticas diferentes do serviço do AD do Azure disponível ao público geral.
@@ -121,4 +135,4 @@ Para saber mais sobre as declarações específicas emitidas em tokens de modelo
 ## Limitações de visualização
 Há várias restrições às quais é preciso estar atento ao criar um aplicativo com o modelo de aplicativo v2.0 durante a visualização pública. Consulte o[documento de limitações do modelo de aplicativo v2.0](active-directory-v2-limitations.md) para ver se alguma dessas restrições se aplica ao seu cenário específico.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

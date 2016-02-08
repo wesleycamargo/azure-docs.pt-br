@@ -22,13 +22,13 @@
 
 O armazenamento de arquivos do Azure oferece compartilhamentos de arquivos na nuvem usando o protocolo SMB padrão. Com os Arquivos do Azure, você pode migrar para o Azure os aplicativos empresariais que dependam de servidores de arquivos. Os aplicativos em execução no Azure podem facilmente montar compartilhamentos de arquivos a partir das máquinas virtuais do Azure executando o Linux. E com a versão mais recente do Armazenamento de arquivos, também é possível montar um compartilhamento de arquivos por meio de um aplicativo local que dá suporte ao SMB 3.0.
 
-Você pode criar compartilhamentos de arquivos do Azure usando o [Portal do Azure](portal.azure.com), os cmdlets do PowerShell do Armazenamento do Azure, as bibliotecas de cliente do Armazenamento do Azure ou a API REST do Armazenamento do Azure. Além disso, como os compartilhamentos de arquivos são compartilhamentos do SMB, você pode acessá-los por meio de APIs padrão do sistema de arquivos.
+Você pode criar compartilhamentos de arquivos do Azure usando o [Portal do Azure](https://portal.azure.com), os cmdlets do PowerShell do Armazenamento do Azure, as bibliotecas de cliente do Armazenamento do Azure ou a API REST do Armazenamento do Azure. Além disso, como os compartilhamentos de arquivos são compartilhamentos do SMB, você pode acessá-los por meio de APIs padrão do sistema de arquivos.
 
 O armazenamento de arquivos baseia-se na mesma tecnologia de armazenamento de Blobs, Tabelas e Filas e, portanto, o Armazenamento de arquivos oferece a disponibilidade, a durabilidade, a escalabilidade e a redundância geográfica existentes e incorporadas à plataforma de armazenamento do Azure. Para obter detalhes os destinos e os limites do desempenho do Armazenamento de arquivos, veja [Escalabilidade e metas de desempenho do Armazenamento do Azure](storage-scalability-targets.md).
 
 O armazenamento de arquivo agora está disponível e dá suporte a SMB 2.1 e a SMB 3.0. Para obter detalhes adicionais sobre o Armazenamento de arquivos, veja a [API REST do serviço de arquivo](https://msdn.microsoft.com/library/azure/dn167006.aspx).
 
->[AZURE.NOTE]O cliente SMB do Linux ainda não dá suporte à criptografia, portanto, montar um compartilhamento de arquivos do Linux ainda requer que o cliente esteja na mesma região do Azure que o compartilhamento de arquivos. No entanto, o suporte à criptografia para Linux está no roteiro dos desenvolvedores do Linux responsáveis pela funcionalidade SMB. As distribuições do Linux que dão suporte à criptografia no futuro também poderão montar um Compartilhamento de arquivos do Azure em qualquer lugar.
+>[AZURE.NOTE] O cliente SMB do Linux ainda não dá suporte à criptografia, portanto, montar um compartilhamento de arquivos do Linux ainda requer que o cliente esteja na mesma região do Azure que o compartilhamento de arquivos. No entanto, o suporte à criptografia para Linux está no roteiro dos desenvolvedores do Linux responsáveis pela funcionalidade SMB. As distribuições do Linux que dão suporte à criptografia no futuro também poderão montar um Compartilhamento de arquivos do Azure em qualquer lugar.
 
 ## Vídeo: Usando o armazenamento de arquivos do Azure com o Linux
 
@@ -93,7 +93,7 @@ Se você usar o Open SUSE 13.2, você pode montar o arquivo como mostrado abaixo
 
 ## Gerenciar o compartilhamento de arquivos ##
 
-O [portal do Azure](portal.azure.com) fornece uma interface do usuário para gerenciar o Armazenamento de Arquivos do Azure. Você pode executar as seguintes ações em seu navegador da Web:
+O [portal do Azure](https://portal.azure.com) fornece uma interface do usuário para gerenciar o Armazenamento de Arquivos do Azure. Você pode executar as seguintes ações em seu navegador da Web:
 
 - Carregar e baixar arquivos de e para o compartilhamento de arquivos.
 - Monitorar o uso real de cada compartilhamento de arquivos.
@@ -140,4 +140,4 @@ Consulte estes links para obter mais informações sobre o armazenamento de arqu
 - [Apresentando o serviço de arquivo do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persistindo conexões para arquivos do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

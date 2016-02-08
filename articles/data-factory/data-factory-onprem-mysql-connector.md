@@ -29,6 +29,8 @@ Atualmente, a data factory dá suporte apenas para a movimentação de dados do 
 ## Instalação 
 Para o Gateway de Gerenciamento de Dados para se conectar ao banco de dados MySQL, você precisa instalar o [Conector do MySQL/Net 6.6.5 para Microsoft Windows](http://go.microsoft.com/fwlink/?LinkId=278885) no mesmo sistema que o Gateway de Gerenciamento de Dados.
 
+> [AZURE.NOTE] Confira [Solução de problemas de gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) para ver dicas sobre como solucionar problemas de conexão/gateway.
+
 ## Exemplo: copiar dados do MySQL para o Blob do Azure
 
 O exemplo a seguir mostra:
@@ -246,7 +248,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 As propriedades disponíveis na seção typeProperties da atividade, por outro lado, variam de acordo com cada tipo de atividade e, no caso de Atividade de cópia, variam dependendo dos tipos de fontes e coletores.
 
-No caso da Atividade de Cópia, quando a fonte é do tipo **RelationalSource** (que inclui o MySQL), as seguintes propriedades estão disponíveis na seção typeProperties:
+No caso da atividade de cópia, quando a fonte é do tipo **RelationalSource** (que inclui o MySQL), as seguintes propriedades estão disponíveis na seção typeProperties:
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | -------- | ----------- | -------------- | -------- |
@@ -256,7 +258,7 @@ No caso da Atividade de Cópia, quando a fonte é do tipo **RelationalSource** (
 
 ### Mapeamento de tipo para MySQL
 
-Como mencionado no artigo sobre [atividades de movimentação de dados](data-factory-data-movement-activities.md), a atividade de Cópia executa conversões automáticas de tipos de fonte para tipos de coletor, com a seguinte abordagem de duas etapas:
+Conforme mencionado no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), a Atividade de cópia executa conversões automáticas de tipo de fonte para tipos de coletor, com a abordagem em duas etapas descritas a seguir:
 
 1. Converter de tipos de fonte nativos para o tipo .NET
 2. Converter do tipo .NET para o tipo de coletor nativo
@@ -310,4 +312,4 @@ Ao mover dados para o MySQL os seguintes mapeamentos serão usados dos tipos do 
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -109,7 +109,7 @@ VNet2: Espaço de Endereço = 10.2.0.0/16; Região=Leste do Japão
 
 2. No canto inferior esquerdo da tela, clique em **Nova**. No painel de navegação, clique em **Serviços de Rede** e, em seguida, clique em **Rede Virtual**. Clique em **Criação Personalizada** para iniciar o assistente de configuração.
 
-Na página **Detalhes da Rede Virtual**, insira as informações a seguir.
+**Na página Detalhes da Rede Virtual**, insira as informações a seguir.
 
   ![Detalhes de rede virtual](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736055.png)
 
@@ -131,7 +131,7 @@ Na página **Espaços de Endereço de Rede Virtual**, especifique o intervalo de
 
   ![Página Espaços de endereço de rede virtual](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736057.jpg)
 
-  **Insira as informações a seguir** e clique na marca de seleção no canto inferior direito para configurar sua rede.
+  **Insira as informações a seguir** e clique na marca de seleção no canto inferior direito para configurar a rede.
 
   - **Espaço de endereço** – incluindo o IP Inicial e a Contagem de Endereços. Verifique se que os espaços de endereço que você especificar não se sobrepõem a nenhum espaço de endereço que você tem em sua rede local. Para este exemplo, vamos usar 10.1.0.0/16 para VNet1.
   - **Adicionar sub-rede** – incluindo o IP Inicial e a Contagem de Endereços. Sub-redes adicionais não são necessárias, mas convém criar uma sub-rede separada para VMs que terão DIPS estáticos. Ou então, você pode colocar suas VMs em uma sub-rede separada das outras instâncias de função.
@@ -152,7 +152,7 @@ Ao criar uma configuração de rede virtual com rede virtual, você precisa conf
 
 1. No canto inferior esquerdo da tela, clique em **Nova**. No painel de navegação, clique em **Serviços de Rede** e, em seguida, clique em **Rede Virtual**. Clique em **Adicionar Rede Local**
 
-2. Na página **Especificar detalhes de rede local**, em **Nome**, digite o nome de uma rede virtual que deseja usar na configuração VNet a VNet. Para este exemplo, vamos usar VNet 1, pois apontaremos VNet2 para essa rede virtual para nossa configuração.
+2. Na página **Especificar os detalhes de sua rede local**, para **Nome**, digite o nome de uma rede virtual que deseja usar em sua configuração de rede virtual com rede virtual. Para este exemplo, vamos usar VNet 1, pois apontaremos VNet2 para essa rede virtual para nossa configuração.
 
   Para Endereço de IP de Dispositivo VPN, use qualquer endereço IP. Normalmente, você usaria o endereço IP externo real para um dispositivo VPN. Para configurações de rede virtual com rede virtual, você usará o endereço IP do Gateway. Porém, caso você ainda não tenha criado o gateway, usamos o endereço IP que você especificar aqui como um espaço reservado. Em seguida, você voltará para essas configurações e as definirá com os endereços IP de gateway correspondentes quando o Azure os gerar.
 
@@ -198,7 +198,7 @@ Agora que configurou cada VNet, você vai configurar seus gateways de VNet.
 
 ## Etapa 7: Conectar os gateways de VPN
 
-Quando todas as etapas anteriores forem concluídas, você definirá as chaves pré-compartilhadas IPsec/IKE para serem iguais. Você pode fazer isso usando uma API REST ou um cmdlet do PowerShell. Se usar o PowerShell, verifique se você tem a [versão mais recente](http://azure.microsoft.com/downloads/) dos cmdlets do Microsoft Azure PowerShell. Os exemplos abaixo usam cmdlets do PowerShell para definir o valor da chave como A1b2C3D4. Observe que ambos usam o mesmo valor de chave. Edite os exemplos abaixo para refletir seus próprios valores.
+Quando todas as etapas anteriores forem concluídas, você definirá as chaves pré-compartilhadas IPsec/IKE para serem iguais. Você pode fazer isso usando uma API REST ou um cmdlet do PowerShell. Se usar o PowerShell, verifique se você tem a [versão mais recente](https://azure.microsoft.com/downloads/) dos cmdlets do Microsoft Azure PowerShell. Os exemplos abaixo usam cmdlets do PowerShell para definir o valor da chave como A1b2C3D4. Observe que ambos usam o mesmo valor de chave. Edite os exemplos abaixo para refletir seus próprios valores.
 
 Para VNet1
 
@@ -223,4 +223,4 @@ Quando sua conexão for concluída, você poderá adicionar máquinas virtuais �
 [2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

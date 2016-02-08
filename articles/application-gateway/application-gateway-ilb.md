@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/29/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma"/>
 
 # Criar um Application Gateway com um ILB (Balanceador de Carga Interno)
@@ -22,11 +22,11 @@
 - [Resource Manager Powershell steps](application-gateway-ilb-arm.md)
 
 
-O Application Gateway pode ser configurado com um VIP voltado para a Internet ou com um ponto de extremidade interno não exposto à Internet, também conhecido como ponto de extremidade ILB (Balanceador de Carga Interno). Configurar o gateway como um ILB é útil para aplicativos de linha de negócios internos não expostos à Internet. Isso também é útil para serviços/camadas em um aplicativo multicamada que reside em um limite de segurança não exposto à Internet, mas que ainda exige distribuição de carga round robin, adesão da sessão ou terminação SSL. Este artigo orientará você pelas etapas para configurar um gateway de aplicativo com um ILB.
+O Application Gateway pode ser configurado com um IP virtual voltado para a Internet ou com um ponto de extremidade interno não exposto à Internet, também conhecido como ponto de extremidade ILB (Balanceador de Carga Interno). Configurar o gateway como um ILB é útil para aplicativos de linha de negócios internos não expostos à Internet. Isso também é útil para serviços/camadas em um aplicativo multicamada que reside em um limite de segurança não exposto à Internet, mas que ainda exige distribuição de carga round robin, adesão da sessão ou terminação SSL. Este artigo orientará você pelas etapas para configurar um gateway de aplicativo com um ILB.
 
 ## Antes de começar
 
-1. Instale a versão mais recente dos cmdlets do Azure PowerShell usando o Web Platform Installer. Você pode baixar e instalar a versão mais recente na seção **Windows PowerShell** da [página de download](http://azure.microsoft.com/downloads/).
+1. Instale a versão mais recente dos cmdlets do Azure PowerShell usando o Web Platform Installer. Você pode baixar e instalar a versão mais recente na seção **Windows PowerShell** da [página de download](https://azure.microsoft.com/downloads/).
 2. Verifique se você tem uma rede virtual em funcionamento com uma sub-rede válida.
 3. Verifique se você tem servidores back-end na rede virtual ou com um IP/VIP público atribuído.
 
@@ -81,7 +81,7 @@ Os valores são:
 
 - **Pool de servidores de back-end:** a lista de endereços IP dos servidores back-end. Os endereços IP listados ou devem pertencer à sub-rede da VNet, ou devem ser um IP/VIP público. 
 - **Configurações do pool de servidores back-end:** cada pool tem configurações como porta, protocolo e afinidade baseada em cookie. Essas configurações são vinculadas a um pool e aplicadas a todos os servidores no pool.
-- **Porta front-end:** essa porta é a porta pública aberta no application gateway. O tráfego atinge essa porta e é redirecionado para um dos servidores back-end.
+- **Porta front-end:** essa porta é a porta pública aberta no gateway de aplicativo. O tráfego atinge essa porta e é redirecionado para um dos servidores back-end.
 - **Ouvinte:** o ouvinte tem uma porta front-end, um protocolo (Http ou Https, que diferencia maiúsculas de minúsculas) e o nome do certificado SSL (se estiver configurando o descarregamento SSL). 
 - **Regra:** a regra vincula o ouvinte e o pool de servidores back-end e define à qual pool de servidores back-end o tráfego deve ser direcionado quando atinge um ouvinte específico. Atualmente, há suporte apenas para a regra *basic*. A regra *basic* é a distribuição de carga round robin.
 
@@ -212,4 +212,4 @@ Se deseja obter mais informações sobre as opções de balanceamento de carga n
 - [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

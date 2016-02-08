@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/15/2015"
+	ms.date="01/14/2016"
 	ms.author="ricksal"/>
 
 # Registrar seus aplicativos para usar um logon de conta do Active Directory do Azure
@@ -31,13 +31,13 @@ Este tópico mostra como registrar seus aplicativos para poderem usar o Active D
 
 ##Registrando seu aplicativo
 
->[AZURE.NOTE]As etapas descritas neste tópico devem ser usadas com o tutorial [Adicionar autenticação ao aplicativo de Serviços Móveis](../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md) quando você desejar usar [operações de logon voltadas a serviços](http://msdn.microsoft.com/library/azure/dn283952.aspx) com o aplicativo. Como alternativa, se seu aplicativo exigir [operações de logon voltadas a cliente](http://msdn.microsoft.com/library/azure/jj710106.aspx) para o Active Directory do Azure e um serviço móvel de back-end do .NET, você deve começar com o tutorial [Autenticar o seu aplicativo com Logon Único da biblioteca de autenticação do Active Directory](mobile-services-windows-store-dotnet-adal-sso-authentication.md).
+>[AZURE.NOTE] As etapas descritas neste tópico devem ser usadas com o tutorial [Adicionar autenticação ao aplicativo de Serviços Móveis](../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md) quando você desejar usar [operações de logon voltadas a serviços](http://msdn.microsoft.com/library/azure/dn283952.aspx) com o aplicativo. Como alternativa, se seu aplicativo exigir [operações de logon voltadas a cliente](http://msdn.microsoft.com/library/azure/jj710106.aspx) para o Active Directory do Azure e um serviço móvel de back-end do .NET, você deve começar com o tutorial [Autenticar o seu aplicativo com Logon Único da biblioteca de autenticação do Active Directory](mobile-services-windows-store-dotnet-adal-sso-authentication.md).
 
 1. Faça logon no [portal clássico do Azure], navegue até o seu serviço móvel, clique na guia **Identidade**, role para baixo até a seção do provedor de identidade do **Active Directory do Azure** e copie a **URL do Aplicativo** mostrada ali.
 
     ![URL do aplicativo de serviço móvel para AAD](./media/mobile-services-how-to-register-active-directory-authentication/mobile-services-copy-app-url-waad-auth.png)
 
-2. Navegue até **Active Directory** no [portal clássico do Azure], clique no seu diretório, clique em **Domínios** e anote o domínio padrão do diretório.
+2. Navegue até **Active Directory** no [portal clássico], clique no seu diretório, clique em **Domínios** e anote o domínio padrão do diretório.
 
 3. Clique em **Aplicativos** > **Adicionar** > **Adicionar um aplicativo que minha organização está desenvolvendo**.
 
@@ -68,5 +68,6 @@ Agora você está pronto para usar um Active Directory do Azure para autenticaç
 
 <!-- URLs. -->
 [portal clássico do Azure]: https://manage.windowsazure.com/
+[portal clássico]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

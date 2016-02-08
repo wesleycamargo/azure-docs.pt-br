@@ -27,7 +27,7 @@ A análise de tráfego de pesquisa é um recurso de pesquisa do Azure que permit
 ## Como habilitar a análise de tráfego de pesquisa
 
 ### 1\. Usando o portal
-Abra o serviço de Pesquisa do Azure no [Portal do Azure](http://portal.azure.com). Em Configurações, você encontrará a opção Análise de tráfego de pesquisa.
+Abra o serviço de Pesquisa do Azure no [Portal do Azure](https://portal.azure.com). Em Configurações, você encontrará a opção Análise de tráfego de pesquisa.
 
 ![][1]
 
@@ -36,7 +36,7 @@ Selecione esta opção e uma nova folha será aberta. Altere o status para **Ati
 ![][2]
 
 
-> [AZURE.IMPORTANT]A conta de armazenamento precisa estar na mesma região e na mesma assinatura do serviço de pesquisa.
+> [AZURE.IMPORTANT] A conta de armazenamento precisa estar na mesma região e na mesma assinatura do serviço de pesquisa.
 > 
 > Os encargos padrão se aplicam para essa conta de armazenamento
 
@@ -221,4 +221,4 @@ Saiba mais sobre como criar relatórios incríveis. Confira [Introdução ao Pow
 [4]: ./media/search-traffic-analytics/BlobStorage.png
 [5]: ./media/search-traffic-analytics/QueryEditor.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

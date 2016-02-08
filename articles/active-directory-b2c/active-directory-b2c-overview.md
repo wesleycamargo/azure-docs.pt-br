@@ -22,7 +22,7 @@ O **Active Directory B2C do Azure** é uma solução de gerenciamento de identid
 
 No passado, os desenvolvedores de aplicativos que desejavam inscrever e conectar consumidores a seus aplicativos teriam escrito o seu próprio código. E eles teriam usado sistemas ou bancos de dados locais para armazenar nomes de usuário e senhas. O Active Directory B2C do Azure oferece aos desenvolvedores uma maneira melhor de integrar o gerenciamento de identidades do consumidor em seus aplicativos com a ajuda de uma plataforma segura baseada em padrões e um conjunto avançado de políticas extensíveis. O uso do Active Directory B2C do Azure permite aos consumidores se inscrever nos seus aplicativos usando suas contas sociais existentes (Facebook, Google, Amazon, LinkedIn) ou criando novas credenciais (endereço de email e senha ou nome de usuário e senha); chamamos estas de "contas locais".
 
-O Active Directory B2C do Azure está no modo visualização. Durante esse período, estamos ansiosos para saber sua opinião e experiência enquanto experimenta o produto. Com base nesses comentários, podemos fazer mudanças inovadoras com o intuito de aprimorar o serviço. Você não deve lançar um aplicativo de produção usando a visualização durante esse período. Envie-nos suas ideias usando a [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory).
+O Active Directory B2C do Azure está no modo visualização. Durante esse período, estamos ansiosos para saber sua opinião e experiência enquanto experimenta o produto. Com base nesses comentários, podemos fazer mudanças inovadoras com o intuito de aprimorar o serviço. Você não deve lançar um aplicativo de produção usando a visualização durante esse período. Envie-nos suas ideias usando a [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ## Introdução
 
@@ -54,13 +54,13 @@ Aprenda a usar os recursos específicos da visualização do Active Directory B2
 
 Estes links serão úteis na exploração em profundidade do serviço:
 
-- Veja as [informações sobre preços do Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c).
+- Veja as [informações sobre preços do Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 - Obtenha ajuda sobre o Estouro de Pilha usando as marcas [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) ou [adal](http://stackoverflow.com/questions/tagged/adal).
-- Envie-nos sua opinião sobre a visualização usando a [Voz do usuário](http://feedback.azure.com/forums/169401-azure-active-directory); nós queremos ouvi-la! Use a frase "AzureADB2C:" no título da sua publicação para que possamos encontrá-la.
+- Envie-nos sua opinião sobre a visualização usando a [Voz do usuário](https://feedback.azure.com/forums/169401-azure-active-directory/); nós queremos ouvi-la! Use a frase "AzureADB2C:" no título da sua publicação para que possamos encontrá-la.
 - O Active Directory B2C do Azure dá suporte a protocolos padrão da indústria, OpenID Connect e OAuth 2.0, usando um modelo de registro de aplicativo que chamamos de "Modelo de aplicativo v 2.0".
   - [Referência ao protocolo do modelo aplicativo v 2.0](active-directory-b2c-reference-protocols.md)
   - [Referência ao token do modelo de aplicativo v2.0](active-directory-b2c-reference-tokens.md)
 - [Perguntas frequentes do Active Directory B2C do Azure](active-directory-b2c-faqs.md)
 - [Solicitações de suporte de arquivo em relação ao Active Directory B2C do Azure](active-directory-b2c-support.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -302,7 +302,7 @@ O método tem alguns componentes principais que você precisa entender.
 	![Arquivos de saída binários](./media/data-factory-use-custom-activities/Binaries.png)
 13. Carregue **MyDotNetActivity.zip** como um blob para o contêiner de blobs: **customactvitycontainer** no armazenamento de blobs do Azure que o serviço vinculado **StorageLinkedService** em **ADFTutorialDataFactory** utiliza. Crie o contêiner de blob **customactivitycontainer** se ele ainda não existir.
 
-> [AZURE.NOTE]Se você adicionar esse projeto de atividade do .NET para uma solução no Visual Studio que contenha um projeto de Data Factory, não será necessário executar as duas últimas etapas de criação do arquivo zip e carregá-lo manualmente para o armazenamento de blobs do Azure. Quando você publica entidades de Data Factory usando o Visual Studio, essas etapas são executadas automaticamente pelo processo de publicação. Consulte os artigos [Compilar seu primeiro pipeline usando o Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) e [Copiar dados de blob do Azure no SQL do Azure](data-factory-get-started-using-vs.md) para saber mais sobre como criar e publicar entidades de Data Factory usando o Visual Studio.
+> [AZURE.NOTE] Se você adicionar esse projeto de atividade do .NET para uma solução no Visual Studio que contenha um projeto de Data Factory, não será necessário executar as duas últimas etapas de criação do arquivo zip e carregá-lo manualmente para o armazenamento de blobs do Azure. Quando você publica entidades de Data Factory usando o Visual Studio, essas etapas são executadas automaticamente pelo processo de publicação. Consulte os artigos [Compilar seu primeiro pipeline usando o Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) e [Copiar dados de blob do Azure no SQL do Azure](data-factory-get-started-using-vs.md) para saber mais sobre como criar e publicar entidades de Data Factory usando o Visual Studio.
 
 ### Método Execute
 
@@ -422,7 +422,7 @@ Serviços vinculados vinculam armazenamentos de dados ou serviços de computaç�
 #### Criar o serviço vinculado do Azure HDInsight 
 O serviço Data Factory do Azure dá suporte à criação de um cluster sob demanda e o usa para processar entrada a fim de gerar dados de saída. Você também pode usar seu próprio cluster para fazer isso. Quando você usa o cluster HDInsight sob demanda, um cluster é criado para cada fatia. Ao passo que, se você usar seu próprio cluster HDInsight, o cluster estará pronto para processar a fatia imediatamente. Portanto, quando você usar cluster sob demanda, não verá os dados de saída mais rapidamente que quando usa seu próprio cluster.
 
-> [AZURE.NOTE]Em tempo de execução, uma instância de uma atividade do .NET é executada em somente um nó de trabalho no cluster HDInsight. Ela não pode ser dimensionada para ser executada em vários nós. Múltiplas instâncias de atividade do .NET podem ser executadas em paralelo em diferentes nós do cluster do HDInsight.
+> [AZURE.NOTE] Em tempo de execução, uma instância de uma atividade do .NET é executada em somente um nó de trabalho no cluster HDInsight. Ela não pode ser dimensionada para ser executada em vários nós. Múltiplas instâncias de atividade do .NET podem ser executadas em paralelo em diferentes nós do cluster do HDInsight.
 
 Se você tiver estendido o tutorial [Introdução ao Azure Data Factory][adfgetstarted] com o passo a passo de [Usar o Pig e Hive com o Azure Data Factory][hivewalkthrough], poderá pular a criação desse serviço vinculado e usar o serviço vinculado que você já tem em ADFTutorialDataFactory.
 
@@ -701,7 +701,7 @@ Para acessar essas propriedades estendidas no método **Execute**, use código s
 
 
 ## <a name="AzureBatch"></a> Usar o serviço vinculado do Lote do Azure
-> [AZURE.NOTE]Consulte [Fundamentos do Lote do Azure][batch-technical-overview] para uma visão geral do serviço do Lote do Azure e consulte [Introdução à biblioteca do Lote do Azure para .NET][batch-get-started] para iniciar rapidamente o serviço Lote do Azure.
+> [AZURE.NOTE] Consulte [Fundamentos do Lote do Azure][batch-technical-overview] para uma visão geral do serviço do Lote do Azure e consulte [Introdução à biblioteca do Lote do Azure para .NET][batch-get-started] para iniciar rapidamente o serviço Lote do Azure.
 
 Você pode executar suas atividades personalizadas do .NET usando o Azure Batch como um recurso de computação. Você precisará criar seus próprios pools do Azure Batch e especificar o número de VMs junto com outras configurações. Pools do Azure Batch fornecem os seguintes recursos para os clientes:
 
@@ -750,7 +750,7 @@ Aqui estão os passos de alto nível para usar o serviço vinculado Azure Batch 
 		  }
 		}
 
-	> [AZURE.IMPORTANT]A **URL** da **folha de conta do Lote do Azure** está no seguinte formato: accountname.region.batch.azure.com. Para a propriedade **batchUri** no JSON, você precisará **remover "accountname."** da URL e usar o **accountname** para a propriedade JSON de **accountName**.
+	> [AZURE.IMPORTANT] A **URL** da **folha de conta do Lote do Azure** está no seguinte formato: accountname.region.batch.azure.com. Para a propriedade **batchUri** no JSON, você precisará **remover "accountname."** da URL e usar o **accountname** para a propriedade JSON de **accountName**.
 
 	Para a propriedade **poolName**, você também pode especificar a ID do pool em vez do nome do pool.
 
@@ -762,11 +762,11 @@ Aqui estão os passos de alto nível para usar o serviço vinculado Azure Batch 
 
 	![tarefas do Azure Batch][image-data-factory-azure-batch-tasks]
 
-> [AZURE.NOTE]O serviço de Data Factory não suporta uma opção sob demanda para o Azure Batch como o faz para o HDInsight. Você só pode usar seu próprio pool do Azure Batch em um Azure Data Factory.
+> [AZURE.NOTE] O serviço de Data Factory não suporta uma opção sob demanda para o Azure Batch como o faz para o HDInsight. Você só pode usar seu próprio pool do Azure Batch em um Azure Data Factory.
 
 ## Consulte também
 
-[Atualizações do Azure Data Factory: Execute atividades ADF personalizadas do .NET usando o Azure Batch](http://azure.microsoft.com/blog/2015/05/01/azure-data-factory-updates-execute-adf-custom-net-activities-using-azure-batch/).
+[Atualizações do Azure Data Factory: Execute atividades ADF personalizadas do .NET usando o Azure Batch](https://azure.microsoft.com/blog/2015/05/01/azure-data-factory-updates-execute-adf-custom-net-activities-using-azure-batch/).
 
 [batch-net-library]: ../batch/batch-dotnet-get-started.md
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
@@ -803,4 +803,4 @@ Aqui estão os passos de alto nível para usar o serviço vinculado Azure Batch 
 
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -30,6 +30,8 @@ A data factory dá suporte apenas para a movimentação de dados de PostgreSQL p
 
 Para o Gateway de Gerenciamento de Dados para se conectar ao banco de dados PostgreSQL, você precisa instalar o [provedor de dados Ngpsql para PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) no mesmo sistema que o Gateway de Gerenciamento de Dados.
 
+> [AZURE.NOTE] Confira [Solução de problemas de gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) para ver dicas sobre como solucionar problemas de conexão/gateway.
+
 ## Exemplo: copiar dados do PostgreSQL para o Blob do Azure
 
 O exemplo a seguir mostra:
@@ -237,7 +239,7 @@ tableName | Nome da tabela na instância do banco de dados PostgreSQL à qual o 
 
 ## Propriedades de tipo da atividade de cópia do PostgreSQL
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, veja o artigo [Criando pipelines](data-factory-create-pipelines.md). Propriedades como nome, descrição, tabelas de entrada e saída, diversas políticas, etc. estão disponíveis para todos os tipos de atividades.
+Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, consulte o artigo [Criando pipelines](data-factory-create-pipelines.md). Propriedades como nome, descrição, tabelas de entrada e saída, diversas políticas, etc. estão disponíveis para todos os tipos de atividades.
 
 As propriedades disponíveis na seção typeProperties da atividade, por outro lado, variam de acordo com cada tipo de atividade e, no caso de Atividade de cópia, variam dependendo dos tipos de fontes e coletores.
 
@@ -265,7 +267,7 @@ bigint | int8 | Int64
 bigserial | serial8 | Int64
 bit [ (n) ] | | Byte, String
 bit varying [ (n) ] | varbit | Byte, String
-Booleano | bool | Booliano
+Booliano | bool | Booliano
 box | | Byte, String
 bytea | | Byte, String
 character [ (n) ] | char [ (n) ] | Cadeia de caracteres
@@ -306,4 +308,4 @@ texto | | Cadeia de caracteres
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

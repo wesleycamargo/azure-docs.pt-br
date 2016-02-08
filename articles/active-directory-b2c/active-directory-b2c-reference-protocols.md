@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/21/2016"
 	ms.author="dastrock"/>
 
 # Visualização do Azure AD B2C: protocolos de autenticação
@@ -23,9 +23,9 @@ O Azure AD B2C fornece identidade como um serviço para seus aplicativos oferece
 <!-- TODO: Need link to libraries above -->
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
-	
+
 ## Noções básicas
-Todos os aplicativos que usam Azure AD B2C precisam ser registrados no seu diretório B2C no [Portal do Azure](https://portal.azure.com). O processo de registro de aplicativo vai coletar e atribuir alguns valores para seu aplicativo:
+Todos os aplicativos que usam Azure AD B2C precisam ser registrados no seu diretório B2C no [Portal do Azure](https://portal.azure.com/). O processo de registro de aplicativo vai coletar e atribuir alguns valores para seu aplicativo:
 
 - Uma **ID de aplicativo** que identifica exclusivamente o aplicativo
 - Um **URI de Redirecionamento** ou **Identificador de Pacote** que pode ser usado para direcionar as respostas de volta ao aplicativo
@@ -45,11 +45,11 @@ Em quase todos os fluxos do OAuth e OpenID Connect, há quatro partes envolvidas
 - O **Servidor de Autorização** é o ponto de extremidade v2.0 do Azure AD. Ele é responsável por garantir a identidade do usuário, conceder e revogar o acesso a recursos e emitir tokens. Ele também é conhecido como o provedor de identidade; ele trata com segurança tudo que estiver relacionado às informações do usuário, seu acesso e as relações de confiança entre as partes de um fluxo.
 - O **Proprietário do Recurso** normalmente é o usuário final. Ele é a parte que possui os dados e tem o poder de permitir que terceiros acessem esses dados, ou recurso.
 - O **Cliente OAuth** é o seu aplicativo, identificado pela respectiva ID de Aplicativo. Geralmente é a parte com a qual usuário final interage e solicita tokens do servidor de autorização. O cliente deve receber permissão do proprietário do recurso para acessar o recurso.
-- O **Servidor de Recurso** é onde o recurso ou os dados residem. Ele confia no Servidor de Autorização para autenticar e autorizar o Cliente OAuth com segurança, além de usar access\_tokens de portador para garantir que o acesso a um recurso possa ser concedido.
+- O **Servidor de Recurso** é o local no qual o recurso ou os dados residem. Ele confia no Servidor de Autorização para autenticar e autorizar o Cliente OAuth com segurança, além de usar access\_tokens de portador para garantir que o acesso a um recurso possa ser concedido.
 
 ## Políticas
 
-Sem dúvida, as **políticas** do Azure AD B2C são o recurso mais importante do serviço. O Azure AD B2C estende os protocolos padrão OAuth 2.0 e OpenID Connect introduzindo políticas que permitem que o Azure AD B2C realize muito mais do que simples ações de autenticação e autorização. As políticas descrevem totalmente as experiências de identidade do consumidor, como inscrição, entrada ou edição de perfil. Eles podem ser definidos em uma interface do usuário administrativa e executados usando um parâmetro de consulta especial nas solicitações de autenticação HTTP. As políticas não são um recurso padrão do OAuth 2.0 e do OpenID Connect; portanto, você deve reservar um tempo para entendê-las. Para saber mais, leia o [guia de referência de política do AD B2C do Azure](active-directory-b2c-reference-policies.md).
+Sem dúvida, as **políticas** do Azure AD B2C são o recurso mais importante do serviço. O Azure AD B2C estende os protocolos padrão OAuth 2.0 e OpenID Connect introduzindo políticas que permitem que o Azure AD B2C realize muito mais do que simples ações de autenticação e autorização. As políticas descrevem totalmente as experiências de identidade do consumidor, como inscrição, entrada ou edição de perfil. Eles podem ser definidos em uma interface do usuário administrativa e executados usando um parâmetro de consulta especial nas solicitações de autenticação HTTP. As políticas não são um recurso padrão do OAuth 2.0 e do OpenID Connect; portanto, você deve reservar um tempo para entendê-las. Para saber mais, leia o [guia de referência de política do Azure AD B2C](active-directory-b2c-reference-policies.md).
 
 
 ## Tokens
@@ -70,4 +70,4 @@ Se você estiver pronto para ver alguns exemplos de solicitação, inicie com um
 
 <!-- [Call the Azure AD Graph API using the OAuth 2.0 Client Credentials Flow](active-directory-reference-graph.md) -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

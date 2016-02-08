@@ -46,9 +46,9 @@ Há cinco fases principais para configurar esse ambiente de teste de nuvem híbr
 4.	Criar a conexão VPN site a site.
 5.	Configurar o DC2. 
 
-Se ainda não tiver uma assinatura do Azure, você poderá se inscrever para uma avaliação gratuita em [Teste o Azure](http://azure.microsoft.com/pricing/free-trial/). Se tiver uma assinatura do MSDN, consulte [Benefício do Azure para assinantes do MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Se ainda não tiver uma assinatura do Azure, você poderá se inscrever para uma avaliação gratuita em [Teste o Azure](https://azure.microsoft.com/pricing/free-trial/). Se tiver uma assinatura do MSDN, consulte [Benefício do Azure para assinantes do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
->[AZURE.NOTE]Máquinas virtuais e gateways de redes virtuais no Azure geram custos monetários contínuos quando estão em execução. Esse custo é cobrado em sua avaliação gratuita, assinatura do MSDN ou assinatura paga. Para reduzir os custos de executar esse ambiente de teste quando ele não estiver em uso, confira [Minimizando os custos contínuos desse ambiente](#costs) neste tópico para saber mais.
+>[AZURE.NOTE] Máquinas virtuais e gateways de redes virtuais no Azure geram custos monetários contínuos quando estão em execução. Esse custo é cobrado em sua avaliação gratuita, assinatura do MSDN ou assinatura paga. Para reduzir os custos de executar esse ambiente de teste quando ele não estiver em uso, confira [Minimizando os custos contínuos desse ambiente](#costs) neste tópico para saber mais.
 
 Essa configuração requer uma sub-rede de teste de até quatro computadores conectada diretamente à Internet usando um endereço IP público. Se você não tiver esses recursos, poderá também [Configurar um ambiente de nuvem híbrida simulado para testes](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md). O ambiente de nuvem híbrida simulado para teste requer apenas uma assinatura do Azure.
 
@@ -309,7 +309,7 @@ Seu ambiente de nuvem híbrida agora está pronto para testes.
 
 Para minimizar os custos de executar máquinas virtuais nesse ambiente, realize seus testes e demonstração necessários o mais rápido possível e, então, exclua ou desligue as máquinas virtuais quando você não as estiver usando. Por exemplo, você poderia usar um runbook e automação do Azure para desligar automaticamente as máquinas virtuais na rede virtual Test\_VNET ao final de cada dia útil. Para saber mais, confira [Introdução à automação do Azure](../automation-create-runbook-from-samples.md).
 
-O gateway de VPN do Azure é implementado como um conjunto de duas máquinas virtuais do Azure, o que gera um custo monetário contínuo. Para obter detalhes, confira [Preços - Rede Virtual](http://azure.microsoft.com/pricing/details/virtual-network/). Para minimizar os custos do gateway de VPN, crie o ambiente de teste e realize seus testes e demonstração necessários o mais rápido possível ou exclua o gateway com estas etapas.
+O gateway de VPN do Azure é implementado como um conjunto de duas máquinas virtuais do Azure, o que gera um custo monetário contínuo. Para obter detalhes, confira [Preços - Rede Virtual](https://azure.microsoft.com/pricing/details/virtual-network/). Para minimizar os custos do gateway de VPN, crie o ambiente de teste e realize seus testes e demonstração necessários o mais rápido possível ou exclua o gateway com estas etapas.
 
 1.	No Portal de Gerenciamento do Azure em seu computador local, clique em **Redes** no painel esquerdo, clique em **TestVNET** e, em seguida, clique em **Painel**.
 2.	Na barra de tarefas, clique em **Excluir Gateway**. Clique em **Sim** quando solicitado. Aguarde até que o gateway seja excluído e seu status seja alterado para **O Gateway Não Foi Criado**.
@@ -329,4 +329,4 @@ Em seguida, faça logon no RRAS1 como administrador local e execute estes comand
 Em seguida, vá para o Portal de Gerenciamento do Azure em seu computador local e aguarde até que a rede virtual TestVNET mostre um status de Conectado.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

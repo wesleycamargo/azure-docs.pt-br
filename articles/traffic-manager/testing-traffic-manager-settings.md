@@ -57,4 +57,4 @@ Há serviços gratuitos de dig e pesquisa de DNS baseados na Web disponíveis. A
 [Sobre os métodos de roteamento de tráfego do Gerenciador de Tráfego](../about-traffic-manager-balancing-methods.md) [Gerenciador de Tráfego](../traffic-manager.md)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

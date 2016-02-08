@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/16/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma" />
 
 
@@ -70,11 +70,10 @@ Exemplos de modelos:
 - [APIs REST do balanceador de carga](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
 
-## Consulte também
+## Próximas etapas
 
-[Configurar um modo de distribuição do balanceador de carga](load-balancer-distribution-mode.md)
+Você também pode [começar a criar um balanceador de carga voltado para a Internet](load-balancer-get-started-internet-arm-ps.md) e configurar o tipo de [modo de distribuição](load-balancer-distribution-mode.md) para um comportamento específico de tráfego de rede do balanceador de carga.
 
-[Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
- 
+Se seu aplicativo precisar manter conexões ativas para servidores por trás de um balanceador de carga, você poderá entender mais sobre [configurações de tempo limite de ociosidade do TCP para um balanceador de carga](load-balancer-tcp-idle-timeout.md). Assim, você saberá mais sobre o comportamento da conexão ociosa quando estiver usando um Balanceador de Carga do Azure.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

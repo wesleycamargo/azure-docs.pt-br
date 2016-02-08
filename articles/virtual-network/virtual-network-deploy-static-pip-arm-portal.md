@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/08/2015"
+   ms.date="01/08/2016"
    ms.author="telmos" />
 
 # Implantar uma VM com um IP público estático usando o Portal do Azure
@@ -31,7 +31,7 @@
 
 Para criar uma VM com um endereço IP público estático no Portal do Azure, siga as etapas abaixo.
 
-1. Em um navegador, vá até o [Portal do Azure](http://portal.azure.com) e, se necessário, entre com sua conta do Azure.
+1. Em um navegador, acesse o [Portal do Azure](https://portal.azure.com) e, se necessário, entre com sua conta do Azure.
 2. No canto superior esquerdo do portal, clique em **Novo**>>**Computação**>**Windows Server 2012 R2 Datacenter**.
 3. Na lista **Selecionar um modelo de implantação**, selecione **Gerenciador de Recursos** e clique em **Criar**.
 4. Na folha **Noções Básicas**, insira as informações da VM conforme mostrado abaixo e, em seguida, clique em **OK**.
@@ -59,4 +59,4 @@ Para criar uma VM com um endereço IP público estático no Portal do Azure, sig
 
 	![Portal do Azure - Criar endereço IP público](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

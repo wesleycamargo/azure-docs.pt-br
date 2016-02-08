@@ -8,7 +8,14 @@
    editor=""
    keywords="solução de backup; serviço de backup"/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2015" ms.author="trinadhk";"giridham"; "arunak"; "jimpark"; "aashishr"/>
+<tags
+   ms.service="backup"
+   ms.workload="storage-backup-recovery"
+	 ms.tgt_pltfrm="na"
+	 ms.devlang="na"
+	 ms.topic="article"
+	 ms.date="01/26/2016"
+	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 # Serviço de Backup do Azure - Perguntas frequentes
 Veja a seguir uma lista de perguntas frequentes sobre o Backup do Azure. Se você tiver outras perguntas sobre a solução do Backup do Azure, vá para o [fórum de discussão](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) e poste suas perguntas. Alguém da sua comunidade o ajudará a obter respostas. Se uma pergunta for frequente, ela será adicionada a este artigo para que possa ser encontrada com rapidez e facilidade.
@@ -41,7 +48,7 @@ Veja a seguir uma lista de perguntas frequentes sobre o Backup do Azure. Se voc�
 
 **P6. Devo considerar o cofre como uma entidade de cobrança?** <br/> R6. Embora seja possível obter uma fatura detalhada de cada cofre, é altamente recomendável que você considere uma assinatura do Azure como uma entidade de cobrança. Ela é consistente entre todos os serviços e é mais fácil de gerenciar.
 
-**P7. Há um limite para o número de servidores/computadores que podem ser registrados em cada cofre?** <br/> R7. Sim, você pode registrar até 50 computadores por cofre. Para máquinas virtuais IaaS do Azure, o limite é 100 VMs por cofre. Se você precisar registrar mais computadores, crie um novo cofre.
+**P7. Há um limite para o número de servidores/computadores que podem ser registrados em cada cofre?** <br/> R7. Sim, você pode registrar até 50 computadores por cofre. Para máquinas virtuais IaaS do Azure, o limite é 200 VMs por cofre. Se você precisar registrar mais computadores, crie um novo cofre.
 
 **P8. Há um limite em relação à quantidade de dados que pode ser incluída no backup de um servidor/cliente Windows ou em um servidor SCDPM?** <br/> R8. Nº
 
@@ -176,4 +183,4 @@ O tamanho da fonte de dados é medido como mencionado abaixo
 
 Assim que os backups começarem a ser executados com êxito com o novo local de cache, você poderá remover a pasta de cache original.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

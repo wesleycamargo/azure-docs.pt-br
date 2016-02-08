@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="01/25/2016"
 	ms.author="dkshir"/>
 
 # Solucionar problemas de conexões de Área de Trabalho Remota para uma máquina virtual do Azure executando o Windows
@@ -26,7 +26,7 @@ A conexão de RDP (Área de Trabalho Remota) para sua máquina virtual do Azure 
 
 Este artigo aplica-se a máquinas virtuais do Azure executando o Windows. Para Máquinas Virtuais que executam o Linux, conulte [Solução de problemas de conexão SSH a uma VM do Azure](virtual-machines-troubleshoot-ssh-connections.md).
 
-Se você precisar de mais ajuda a qualquer momento neste artigo, poderá contatar os especialistas do Azure nos [fóruns do Azure MSDN e Stack Overflow](http://azure.microsoft.com/support/forums/). Como alternativa, você também pode registrar um incidente de suporte do Azure. Acesse o [site de Suporte do Azure](http://azure.microsoft.com/support/options/) e clique em **Obter Suporte**.
+Se você precisar de mais ajuda a qualquer momento neste artigo, poderá contatar os especialistas do Azure nos [fóruns do Azure MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, você também pode registrar um incidente de suporte do Azure. Acesse o [site de Suporte do Azure](https://azure.microsoft.com/support/options/) e clique em **Obter Suporte**.
 
 
 <a id="quickfixrdp"></a>
@@ -38,38 +38,38 @@ Esta seção lista as etapas de correção rápida para problemas comuns de cone
 
 Essas etapas podem resolver a maioria das falhas de conexão de Área de Trabalho Remota em máquinas virtuais criadas com o modelo de implantação clássico. Após cada etapa, tente se reconectar à VM.
 
-- Redefina o serviço da Área de Trabalho Remota no [portal do Azure](https://portal.azure.com) para corrigir problemas de inicialização com o servidor RDP.<br> Clique em Procurar > Máquinas virtuais (clássicas) > sua máquina virtual do Windows > **Redefinir Acesso...**.
+- Redefina o serviço da Área de Trabalho Remota no [portal do Azure](https://portal.azure.com) para corrigir problemas de inicialização com o servidor RDP.<br> Clique em **Procurar** > **Máquinas virtuais (clássicas)** > sua máquina virtual do Windows > **Redefinir Acesso...**.
 
-- Reinicie a Máquina Virtual para resolver outros problemas de inicialização.<br> Clique em Procurar > Máquinas virtuais (clássicas) > sua máquina virtual do Windows > **Reiniciar**.
+- Reinicie a Máquina Virtual para resolver outros problemas de inicialização.<br> Clique em **Procurar** > **Máquinas virtuais (clássicas)** > sua máquina virtual do Windows > **Reiniciar**.
 
-- Redimensione a VM para corrigir quaisquer problemas de host.<br> Clique em Procurar > Máquinas virtuais (clássicas) > sua máquina virtual do Windows > Configurações > **Tamanho**. Para obter as etapas detalhadas, consulte [Redimensionar a máquina virtual](https://msdn.microsoft.com/library/dn168976.aspx).
+- Redimensione a VM para corrigir quaisquer problemas de host.<br> Clique em **Procurar** > **Máquinas virtuais (clássicas)** > sua máquina virtual do Windows > **Configurações** > **Tamanho**. Para obter as etapas detalhadas, consulte [Redimensionar a máquina virtual](https://msdn.microsoft.com/library/dn168976.aspx).
 
-- Examine o log do console ou a captura de tela da VM para corrigir problemas de inicialização.<br> Clique em Procurar > Máquinas virtuais (clássicas) > sua máquina virtual do Windows > Configurações > **Diagnóstico de inicialização**
+- Examine o log do console ou a captura de tela da VM para corrigir problemas de inicialização.<br> Clique em **Procurar** > **Máquinas virtuais (clássicas**) > sua máquina virtual do Windows > **Configurações** > **Diagnóstico de inicialização**.
 
-- Verifique se há problemas de plataforma na Integridade do Recurso da VM.<br> Clique em Procurar > Máquinas virtuais (clássicas) > sua máquina virtual do Windows > Configurações > **Verificar Integridade**
+- Verifique se há problemas de plataforma na Integridade do Recurso da VM.<br> Clique em **Procurar** > **Máquinas virtuais (clássicas)** > sua máquina virtual do Windows > **Configurações** > **Verificar Integridade**.
 
 ### Máquinas virtuais criadas usando o modelo de implantação do Gerenciador de Recursos
 
 Essas etapas podem resolver a maioria das falhas de conexão de Área de Trabalho Remota em máquinas virtuais criadas com o modelo de implantação do Gerenciador de Recursos. Após cada etapa, tente se reconectar à VM.
 
-- Redefinir o Acesso Remoto usando o Powershell<br> a. Se você ainda não fez isso, [instale o Azure PowerShell e conecte-se à sua assinatura do Azure](../powershell-install-configure.md) usando o método do AD do Azure. Observe que você não precisa alternar para o modo do Gerenciador de Recursos em novas versões do Azure PowerShell 1.0. x.
+- _Redefina o Acesso Remoto_ usando o Powershell<br> a. Se você ainda não fez isso, [instale o Azure PowerShell e conecte-se à sua assinatura do Azure](../powershell-install-configure.md) usando o método do AD do Azure. Observe que você não precisa alternar para o modo do Gerenciador de Recursos em novas versões do Azure PowerShell 1.0. x.
 
-	b. Redefina sua conexão RDP usando qualquer um dos comandos do Azure PowerShell a seguir. Substitua `myRG`, `myVM`, `myVMAccessExtension` e local com valores relevantes à sua instalação.
+	b. Redefina sua conexão RDP usando qualquer um dos comandos do Azure PowerShell a seguir. Substitua `myRG`, `myVM`, `myVMAccessExtension` e o local por valores relevantes à sua instalação.
 
 	```
 	Set-AzureRmVMExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAccessExtension" -ExtensionType "VMAccessAgent" -Publisher "Microsoft.Compute" -typeHandlerVersion "2.0" -Location Westus
 	```
-	OU
+	OR<br>
 
   ```
   Set-AzureRmVMAccessExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAccess" -Location Westus
   ```
 
-- Reinicie a Máquina Virtual para resolver outros problemas de inicialização.<br> Clique em Procurar > Máquinas virtuais > sua máquina virtual do Windows > **Reiniciar**.
+- Reinicie a Máquina Virtual para resolver outros problemas de inicialização.<br> Clique em **Procurar** > **Máquinas virtuais** > sua máquina virtual do Windows > **Reiniciar**.
 
-- Redimensione a VM para corrigir quaisquer problemas de host.<br> Clique em Procurar > Máquinas virtuais > sua máquina virtual do Windows > Configurações > **Tamanho**.
+- Redimensione a VM para corrigir quaisquer problemas de host.<br> Clique em **Procurar** > **Máquinas virtuais** > sua máquina virtual do Windows > **Configurações** > **Tamanho**.
 
-- Examine o log do console ou a captura de tela da VM para corrigir problemas de inicialização.<br> Clique em Procurar > Máquinas virtuais > sua máquina virtual do Windows > Configurações > **Diagnóstico de inicialização**
+- Examine o log do console ou a captura de tela da VM para corrigir problemas de inicialização.<br> Clique em **Procurar** > **Máquinas virtuais** > sua máquina virtual do Windows > **Configurações** > **Diagnóstico de inicialização**.
 
 
 Vá para a próxima seção se as etapas acima não resolveram as falhas de conexão de Área de Trabalho Remota.
@@ -121,7 +121,7 @@ A parte do endereço neste arquivo RDP tem o nome de domínio totalmente qualifi
 
 Causa: a VM de destino não pôde localizar a autoridade de segurança na parte do nome de usuário das suas credenciais.
 
-Quando seu nome de usuário estiver no formato *SecurityAuthority\UserName* (exemplo: CORP\\User1), o trecho *SecurityAuthority* será o nome do computador da máquina virtual (para a autoridade de segurança local) ou um nome de domínio do Active Directory.
+Quando seu nome de usuário estiver no formato *SecurityAuthority*\*UserName* (exemplo: CORP\\User1), o trecho *SecurityAuthority* será o nome do computador da máquina virtual (para a autoridade de segurança local) ou um nome de domínio do Active Directory.
 
 Soluções possíveis:
 
@@ -136,8 +136,8 @@ Causa: o VM de destino não pôde validar seu nome de conta e senha.
 
 Um computador baseado em Windows pode validar as credenciais de uma conta local ou de uma conta de domínio.
 
-- Para contas locais, use a sintaxe *NomeComputador\NomeUsuário* (exemplo: SQL1\\Admin4798).
-- Para contas de domínio, use a sintaxe *DomainName\UserName* (exemplo: CONTOSO\\johndoe).
+- Para contas locais, use a sintaxe *NomeComputador*\*NomeUsuário* (exemplo: SQL1\\Admin4798).
+- Para contas de domínio, use a sintaxe *DomainName*\*UserName* (exemplo: CONTOSO\\johndoe).
 
 Se você promoveu sua VM a um controlador de domínio em uma nova floresta do Active Directory, a conta de administrador local à qual você está conectado também é convertida em uma conta equivalente com a mesma senha na nova floresta e domínio. A conta local é então excluída. Por exemplo, se você estiver conectado à conta local DC1\\DCAdmin e tiver promovido a máquina virtual como um controlador de domínio em uma nova floresta para o domínio corp.contoso.com, a conta local DC1\\DCAdmin será excluída, e uma nova conta de domínio (CORP\\DCAdmin) será criada com a mesma senha.
 
@@ -156,7 +156,7 @@ Certifique-se que a conta que você está usando para conectar-se tem direitos d
 
 ## Solução de problemas de erros genéricos de Área de Trabalho Remota
 
-Se nenhum desses erros ocorreu e ainda não foi possível para você conectar-se à VM por meio da Área de Trabalho Remota, leia [o guia de solução de problemas detalhada para Área de Trabalho Remota](virtual-machines-rdp-detailed-troubleshoot.md).
+Se nenhum desses erros ocorreu e ainda não foi possível para você conectar-se à VM por meio da Área de Trabalho Remota, leia [o guia de solução de problemas detalhado para Área de Trabalho Remota](virtual-machines-rdp-detailed-troubleshoot.md).
 
 
 ## Recursos adicionais
@@ -171,4 +171,4 @@ Se nenhum desses erros ocorreu e ainda não foi possível para você conectar-se
 
 [Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

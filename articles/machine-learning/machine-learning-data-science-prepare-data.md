@@ -26,7 +26,7 @@ As tarefas de pré-processamento e de limpeza, assim como a tarefa de exploraç�
 
 Este artigo apresenta vários conceitos e tarefas de processamento de dados que podem ser executados antes ou depois da ingestão de dados no Aprendizado de Máquina do Azure.
 
-Para obter um exemplo de exploração de dados e pré-processamento concluídos no Estúdio de Aprendizado de Máquina do Azure, consulte o vídeo [Pré-processando dados no Azure ML Studio](http://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/).
+Para obter um exemplo de exploração de dados e pré-processamento concluídos no Estúdio de Aprendizado de Máquina do Azure, consulte o vídeo [Pré-processando dados no Azure ML Studio](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/).
 
 
 ## Por que pré-processar e limpar os dados?
@@ -111,4 +111,4 @@ A **exploração de dados** oferece uma exibição antecipada dos dados. Alguns 
 >*Data Mining: Concepts and Techniques*, Third Edition, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber e Jian Pei
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -27,13 +27,13 @@ Este artigo mostra como criar e carregar um disco rígido virtual (VHD) que cont
 ##Pré-requisitos##
 Este artigo pressupõe que você tenha os seguintes itens:
 
-- **Uma assinatura do Azure** - se você não tiver uma, poderá criar uma conta em apenas alguns minutos. Se tiver uma assinatura do MSDN, consulte [Benefício do Azure para assinantes do MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Caso contrário, consulte [criar uma conta de avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).  
+- **Uma assinatura do Azure** - se você não tiver uma, poderá criar uma conta em apenas alguns minutos. Se tiver uma assinatura do MSDN, consulte [Benefício do Azure para assinantes do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Caso contrário, consulte [criar uma conta de avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).  
 
-- **Ferramentas Azure PowerShell** - Você tem o módulo do Microsoft Azure PowerShell instalado e configurado para usar sua assinatura. Para baixar o módulo, consulte [Downloads do Azure](http://azure.microsoft.com/downloads/) (a página pode estar em inglês). Um tutorial para instalar e configurar o módulo está disponível aqui. Você usará o cmdlet [Downloads do Azure](http://azure.microsoft.com/downloads/) para carregar o VHD.
+- **Ferramentas Azure PowerShell** - Você tem o módulo do Microsoft Azure PowerShell instalado e configurado para usar sua assinatura. Para baixar o módulo, consulte [Downloads do Azure](https://azure.microsoft.com/downloads/) (a página pode estar em inglês). Um tutorial para instalar e configurar o módulo está disponível aqui. Você usará o cmdlet [Downloads do Azure](https://azure.microsoft.com/downloads/) para carregar o VHD.
 
 - **Sistema operacional FreeBSD instalado em um arquivo .vhd** - Você instalou um sistema de operacional FreeBSD com suporte em um disco rígido virtual. Existem várias ferramentas para criar arquivos .vhd — por exemplo, você pode usar uma solução de virtualização como o Hyper-V para criar o arquivo .vhd e instalar o sistema operacional. Para obter instruções, consulte [Instalar a função Hyper-V e configurar uma máquina Virtual](http://technet.microsoft.com/library/hh846766.aspx).
 
-> [AZURE.NOTE]Não há suporte para o formato VHDX mais recente no Azure. Você pode converter o disco em formato VHD usando o Gerenciador do Hyper-V ou o cmdlet [convert-vhd](https://technet.microsoft.com/library/hh848454.aspx).
+> [AZURE.NOTE] Não há suporte para o formato VHDX mais recente no Azure. Você pode converter o disco em formato VHD usando o Gerenciador do Hyper-V ou o cmdlet [convert-vhd](https://technet.microsoft.com/library/hh848454.aspx).
 
 Esta tarefa inclui as cinco etapas a seguir.
 
@@ -141,7 +141,7 @@ Você precisa de uma conta de armazenamento no Azure para carregar um arquivo .v
 
 	![Nome do contêiner](./media/virtual-machines-freebsd-create-upload-vhd/storageaccount_containervalues.png)
 
-    > [AZURE.NOTE]Por padrão, o contêiner é privado e pode ser acessado apenas pelo proprietário da conta. Para permitir acesso de leitura público dos blobs no contêiner, mas não das propriedades ou metadados do contêiner, use a opção "Public Blob". Para permitir o acesso de leitura público completo dos dados do contêiner e de blobs, use a opção "Public Container".
+    > [AZURE.NOTE] Por padrão, o contêiner é privado e pode ser acessado apenas pelo proprietário da conta. Para permitir acesso de leitura público dos blobs no contêiner, mas não das propriedades ou metadados do contêiner, use a opção "Public Blob". Para permitir o acesso de leitura público completo dos dados do contêiner e de blobs, use a opção "Public Container".
 
 ## Etapa 3: preparar a conexão com o Microsoft Azure ##
 
@@ -209,4 +209,4 @@ Depois de carregar o VHD, você pode adicioná-lo como uma imagem à lista de im
 
 	![imagem freebsd no azure](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

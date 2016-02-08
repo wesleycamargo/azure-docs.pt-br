@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Sincronização do Azure AD Connect: Conector LDAP genérico"
+   pageTitle="Sincronização do Azure AD Connect: conector LDAP genérico | Microsoft Azure"
    description="Este artigo descreve como configurar o Conector LDAP genérico da Microsoft."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/14/2015"
+   ms.date="01/21/2016"
    ms.author="andkjell"/>
 
 # Referência técnica do Conector LDAP genérico
@@ -279,4 +279,4 @@ Para diretórios com um log de alteração delta com base na data/hora, é altam
 
 -	Para saber mais sobre como habilitar o registro em log para solucionar problemas do conector, confira [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

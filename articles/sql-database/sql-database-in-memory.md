@@ -13,8 +13,8 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="12/11/2015"
+	ms.topic="article"
+	ms.date="01/27/2016"
 	ms.author="jodebrui"/>
 
 
@@ -82,7 +82,7 @@ Visualização:
 As considerações sobre os recursos Na Memória em versão de visualização serão descritas [mais adiante neste tópico](#preview_considerations_for_in_memory).
 
 
-> [AZURE.NOTE]Esses recursos em Visualização estão disponíveis apenas para bancos de dados SQL do Azure [*Premium*](sql-database-service-tiers.md) e não para bancos de dados na camada de serviço Standard ou Básico.
+> [AZURE.NOTE] Esses recursos em Visualização estão disponíveis apenas para bancos de dados SQL do Azure [*Premium*](sql-database-service-tiers.md) e não para bancos de dados na camada de serviço Standard ou Basic.
 
 
 
@@ -92,7 +92,7 @@ As considerações sobre os recursos Na Memória em versão de visualização se
 
 ## R. Instalar o exemplo de OLTP Na Memória.
 
-Você pode criar o banco de dados de exemplo AdventureWorksLT [V12] com alguns cliques no [Portal do Azure](http://portal.azure.com/). Em seguida, as etapas desta seção explicam como é possível enriquecer seu banco de dados AdventureWorksLT com:
+Você pode criar o banco de dados de exemplo AdventureWorksLT [V12] com alguns cliques no [Portal do Azure](https://portal.azure.com/). Em seguida, as etapas desta seção explicam como é possível enriquecer seu banco de dados AdventureWorksLT com:
 
 - Tabelas Na Memória.
 - Um procedimento armazenado compilado nativamente.
@@ -100,7 +100,7 @@ Você pode criar o banco de dados de exemplo AdventureWorksLT [V12] com alguns c
 
 #### Etapas de instalação
 
-1. No [Portal do Azure](http://portal.azure.com/), crie um banco de dados Premium em um servidor V12. Defina a **Origem** como o banco de dados de exemplo AdventureWorksLT [V12].
+1. No [Portal do Azure](https://portal.azure.com/), crie um banco de dados Premium em um servidor V12. Defina a **Origem** como o banco de dados de exemplo AdventureWorksLT [V12].
  - Para obter instruções detalhadas, consulte [Criar seu primeiro banco de dados SQL do Azure](sql-database-get-started.md).
 
 2. Conecte-se ao banco de dados com o SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
@@ -226,6 +226,7 @@ WHILE (@i < 20)
 begin;
 	EXECUTE SalesLT.usp_InsertSalesOrder_inmem @SalesOrderID OUTPUT,
 		@DueDate, @CustomerID, @BillToAddressID, @ShipToAddressID, @od;
+	SET @i = @i + 1;
 end
 ```
 
@@ -236,7 +237,7 @@ Para criar a versão \_ondisk do T-SQL anterior para ostress.exe, simplesmente s
 ### Instalar utilitários RML e o ostress
 
 
-O ideal é você planejar executar o ostress.exe em uma VM do Azure. Você criaria uma [Máquina Virtual do Azure](http://azure.microsoft.com/documentation/services/virtual-machines/) na mesma região geográfica do Azure onde seu banco de dados AdventureWorksLT reside. Mas você pode executar o ostress.exe em seu laptop.
+O ideal é você planejar executar o ostress.exe em uma VM do Azure. Você criaria uma [Máquina Virtual do Azure](https://azure.microsoft.com/documentation/services/virtual-machines/) na mesma região geográfica do Azure onde seu banco de dados AdventureWorksLT reside. Mas você pode executar o ostress.exe em seu laptop.
 
 
 Na VM ou em qualquer host que você escolher, instale os utilitários RML (Replay Markup Language), que incluem o ostress.exe.
@@ -314,10 +315,7 @@ EXECUTE Demo.usp_DemoReset;
 
 #### Resultados esperados para a comparação
 
-Os testes de Na Memória mostraram uma melhoria de desempenho de **nove vezes** para essa carga de trabalho simplista, com o ostress sendo executado em uma VM na mesma região do Azure que o banco de dados.
-
-
-A melhoria de desempenho pode ser maior quando a conversão em procedimentos armazenados compilados nativamente é adicionada.
+Os testes de Na Memória mostraram uma melhoria de desempenho de **nove vezes** para essa carga de trabalho simplista, com o ostress sendo executado em uma VM do Azure na mesma região do Azure que o banco de dados.
 
 
 ## B. Instalar o exemplo de Análise Na Memória
@@ -449,7 +447,7 @@ GO
 ## Considerações de visualização sobre OLTP Na Memória
 
 
-Os recursos do OLTP Na Memória no Banco de Dados SQL do Azure se tornaram [ativos para visualização em 28 de outubro de 2015](http://azure.microsoft.com/updates/public-preview-in-memory-oltp-and-real-time-operational-analytics-for-azure-sql-database/).
+Os recursos do OLTP Na Memória no Banco de Dados SQL do Azure se tornaram [ativos para visualização em 28 de outubro de 2015](https://azure.microsoft.com/updates/public-preview-in-memory-oltp-and-real-time-operational-analytics-for-azure-sql-database/).
 
 
 Durante a fase de Visualização antes da Disponibilidade Geral (GA), o OLTP Na Memória só tem suporte para:
@@ -525,4 +523,4 @@ Se um banco de dados contiver qualquer um dos seguintes tipos de objetos ou de t
 
 - [Monitorar o Armazenamento Na Memória](sql-database-in-memory-oltp-monitoring.md) para o OLTP Na Memória.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

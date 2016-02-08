@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Edições do Active Directory do Azure | Microsoft Azure"
-	description="Um tópico que explica as opções para as edições pagas e para a edição gratuita do Active Directory do Azure."
+	description="Um tópico que explica as opções das edições gratuita e paga do Active Directory. O Active Directory Basic do Azure é a edição gratuita e o Active Directory Premium do Azure é a edição paga."
 	services="active-directory"
 	documentationCenter=""
 	authors="MarkusVi"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="01/25/2016"
 	ms.author="markvi"/>
 
 # Edições do Active Directory do Azure
@@ -28,7 +28,7 @@ Para aprimorar seu Active Directory do Azure, é possível adicionar recursos pa
 As assinaturas do Office 365 incluem recursos adicionais do Active Directory do Azure descritos na tabela de comparação abaixo.
 
 
-> [AZURE.NOTE]Para obter as opções de preço dessas edições, confira [Preço do Active Directory do Azure](https://azure.microsoft.com/pricing/details/active-directory/). <br>Atualmente, não há suporte para o Azure Active Directory Premium e o Azure Active Directory Basic na China. Entre em contato conosco no Fórum do Active Directory do Azure para obter mais informações
+> [AZURE.NOTE] Para obter as opções de preço dessas edições, confira [Preço do Active Directory do Azure](https://azure.microsoft.com/pricing/details/active-directory/). <br>Atualmente, não há suporte para o Azure Active Directory Premium e o Azure Active Directory Basic na China. Entre em contato conosco no Fórum do Active Directory do Azure para obter mais informações
 
 
 - **Azure Active Directory Basic** - Projetada para profissionais de tarefas com necessidades que priorizam a nuvem, esta edição fornece soluções de gerenciamento de identidades por autoatendimento e de acesso a aplicativos centrados na nuvem. Com a Basic edition do Active Directory do Azure, você obtém recursos que aumentam sua produtividade e reduzem os custos, como o gerenciamento de acesso baseado em grupo, redefinição de senha por autoatendimento para aplicativos em nuvem e o Proxy de Aplicativo do Active Directory do Azure (para publicar aplicativos web locais usando o Active Directory do Azure), tudo com o apoio de um SLA de nível empresarial de 99,9% de tempo de atividade.
@@ -38,7 +38,8 @@ As assinaturas do Office 365 incluem recursos adicionais do Active Directory do 
 Para inscrever-se e começar a usar o Active Directory Premium hoje, consulte [Introdução ao Active Directory Premium do Azure](active-directory-get-started-premium.md).
 
 
-> [AZURE.NOTE]Uma série de recursos do Active Directory do Azure está disponível por meio de edições “pré-pagas”:
+> [AZURE.NOTE] 
+Uma série de recursos do Active Directory do Azure está disponível por meio de edições “pré-pagas”:
 >
 >- O Active Directory B2C é a solução de gerenciamento de identidades e acesso para seus aplicativos voltados para o consumidor. Para obter mais detalhes, veja [Active Directory B2C do Azure](https://azure.microsoft.com/documentation/services/active-directory-b2c/)
  
@@ -95,4 +96,4 @@ Para inscrever-se e começar a usar o Active Directory Premium hoje, consulte [I
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

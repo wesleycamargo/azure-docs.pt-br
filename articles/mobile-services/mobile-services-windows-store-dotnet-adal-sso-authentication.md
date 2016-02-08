@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="01/14/2016"
 	ms.author="wesmc"/>
 
 # Autenticar o seu aplicativo com Logon Único da biblioteca de autenticação do diretório ativo
@@ -29,10 +29,10 @@
 
 Neste tutorial, você pode adicionar autenticação ao projeto de início rápido usando a biblioteca de autenticação do Active Directory para dar suporte a [operações de logon direcionadas pelo cliente](http://msdn.microsoft.com/library/azure/jj710106.aspx) com o Active Directory do Azure. Para dar suporte a [operações de logon direcionadas pelo serviço](http://msdn.microsoft.com/library/azure/dn283952.aspx) com o Active Directory do Azure, comece pelo tutorial [Adicionar autenticação ao aplicativo de Serviços Móveis](../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md).
 
-Para poder autenticar os usuários, deve-se registrar o seu aplicativo com o Azure Active Directory (AAD). Isso é feito em duas etapas. Primeiro, deve-se registrar o seu serviço móvel e expor nele as permissões. Segundo, deve-se registrar o seu aplicativo Windows Store e liberar o acesso a essas permissões.
+Para poder autenticar os usuários, deve-se registrar o seu aplicativo com o Active Directory do Azure (AAD). Isso é feito em duas etapas. Primeiro, deve-se registrar o seu serviço móvel e expor nele as permissões. Segundo, deve-se registrar o seu aplicativo Windows Store e liberar o acesso a essas permissões.
 
 
->[AZURE.NOTE]Este tutorial destina-se a ajudá-lo a compreender melhor como os serviços móveis permitem um logon único de autenticação no Active Directory do Azure para aplicativos da Windows Store usando uma [operação de logon direcionada pelo cliente](http://msdn.microsoft.com/library/azure/jj710106.aspx). Se esta for sua primeira experiência com os Serviços Móveis, conclua o tutorial [Introdução aos serviços móveis].
+>[AZURE.NOTE] Este tutorial destina-se a ajudá-lo a compreender melhor como os serviços móveis permitem um logon único de autenticação no Active Directory do Azure para aplicativos da Windows Store usando uma [operação de logon direcionada pelo cliente](http://msdn.microsoft.com/library/azure/jj710106.aspx). Se esta for sua primeira experiência com os Serviços Móveis, conclua o tutorial [Introdução aos serviços móveis].
 
 
 ##Pré-requisitos
@@ -46,9 +46,9 @@ Este tutorial exige o seguinte:
 
 [AZURE.INCLUDE [mobile-services-dotnet-adal-register-service](../../includes/mobile-services-dotnet-adal-register-service.md)]
 
-##Registrar o seu aplicativo com o Azure Active Directory
+##Registrar o seu aplicativo com o Active Directory do Azure
 
-Para registrar o aplicativo com o Azure Active Directory, deve-se associá-lo ao Windows Store e possuir um identificador de segurança de pacote (SID) para o aplicativo. O pacote SID é registrado com as configurações do aplicativo nativo no Azure Active Directory.
+Para registrar o aplicativo com o Active Directory do Azure, deve-se associá-lo ao Windows Store e possuir um identificador de segurança de pacote (SID) para o aplicativo. O pacote SID é registrado com as configurações do aplicativo nativo no Active Directory do Azure.
 
 
 ###Associar o aplicativo ao novo nome do app store
@@ -76,21 +76,14 @@ Agora é necessário recuperar o seu pacote SID que será configurado com as con
 
     ![][3]
 
-2. Clique em **Serviços**
+2. Em seguida, clique em **Gerenciamento de aplicativos** > **Identidade do aplicativo** e Copiar SID do pacote da página.
 
     ![][4]
 
-3. Em seguida, clique em **Site de serviços dinâmicos**.
-
-    ![][5]
-
-4. Copie o seu pacote SID na parte superior da pagina.
-
-    ![][6]
 
 ###Crie o registro do aplicativo nativo
 
-1. Navegue até **Active Directory** no [Portal clássico do Azure] e clique no seu diretório.
+1. Navegue até **Active Directory** no [portal clássico] e clique no seu diretório.
 
     ![][7]
 
@@ -130,7 +123,7 @@ O seu serviço móvel agora está configurado no AAD para receber logons únicos
 
 [AZURE.INCLUDE [mobile-services-dotnet-adal-install-nuget](../../includes/mobile-services-dotnet-adal-install-nuget.md)]
 
-4. Na janela Gerenciador de Soluções do Visual Studio, abra o arquivo MainPage.xaml.cs e adicione o seguinte usando as instruções.
+4. Na janela Gerenciador de Soluções do Visual Studio, abra o arquivo MainPage.cs e adicione o seguinte usando as instruções.
 
         using Windows.UI.Popups;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -167,9 +160,9 @@ O seu serviço móvel agora está configurado no AAD para receber logons únicos
             }
         }
 
-6. No código para o método `AuthenticateAsync` acima, substitua **INSERIR-AUTORIDADE-AQUI** pelo nome do locatário em que você provisionou seu aplicativo, o formato deve ser https://login.windows.net/tenant-name.onmicrosoft.com. Este valor pode ser copiado da guia Domínio do Active Directory do Azure no [Portal clássico do Azure].
+6. No código para o método `AuthenticateAsync` acima, substitua **INSERIR-AUTORIDADE-AQUI** pelo nome do locatário em que você provisionou seu aplicativo, o formato deve ser https://login.windows.net/tenant-name.onmicrosoft.com. Este valor pode ser copiado da guia Domínio no Active Directory do Azure no [Portal clássico do Azure].
 
-7. No código para o método `AuthenticateAsync` acima, substitua **INSIRA-RECURSO-URI-AQUI** com o **URI do ID do aplicativo** para o seu serviço móvel. Se seguiu o tópico [Como se registrar com o Active Directory do Azure], sua URI da ID do aplicativo deverá ser semelhante a https://todolist.azure-mobile.net/login/aad.
+7. No código para o método `AuthenticateAsync` acima, substitua **INSIRA-RECURSO-URI-AQUI** com o **URI do ID do aplicativo** para o seu serviço móvel. Se o tópico de [como se registrar no Active Directory do Azure] foi seguido, seu URI da ID do aplicativo deverá ser semelhante a https://todolist.azure-mobile.net/login/aad.
 
 8. No código para o método `AuthenticateAsync` acima, substitua **INSERIR-ID-DO-CLIENTE-AQUI** pela ID do cliente copiada do aplicativo cliente nativo.
 
@@ -215,9 +208,10 @@ O seu serviço móvel agora está configurado no AAD para receber logons únicos
 [15]: ./media/mobile-services-windows-store-dotnet-adal-sso-authentication/mobile-services-app-run.png
 
 <!-- URLs. -->
-[Como se registrar com o Active Directory do Azure]: mobile-services-how-to-register-active-directory-authentication.md
+[como se registrar no Active Directory do Azure]: mobile-services-how-to-register-active-directory-authentication.md
 [Portal clássico do Azure]: https://manage.windowsazure.com/
+[portal clássico]: https://manage.windowsazure.com/
 [Introdução aos serviços móveis]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Painel do Dev Center do Windows]: http://go.microsoft.com/fwlink/p/?LinkID=266734
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

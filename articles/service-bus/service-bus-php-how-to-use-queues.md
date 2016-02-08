@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="10/14/2015" 
+	ms.date="01/26/2016" 
 	ms.author="sethm"/>
 
 # Como usar filas do Barramento de Serviço
@@ -28,7 +28,7 @@ Este guia mostra como usar as filas do Barramento de Serviço. As amostras são 
 
 O único requisito para a criação de um aplicativo PHP que acessa o serviço de Blob do Azure é a referência de classes no [SDK do Azure para PHP](../php-download-sdk.md) em seu código. Você pode usar quaisquer ferramentas de desenvolvimento para criar seu aplicativo, ou o Bloco de Notas.
 
-> [AZURE.NOTE]A instalação do PHP também deve ter a [extensão OpenSSL](http://php.net/openssl) instalada e habilitada.
+> [AZURE.NOTE] A instalação do PHP também deve ter a [extensão OpenSSL](http://php.net/openssl) instalada e habilitada.
 
 Neste guia, você usará os recursos de serviço que podem ser chamados de dentro de um aplicativo PHP localmente ou no código em execução dentro de uma função web do Azure, função de trabalho ou no site.
 
@@ -38,21 +38,21 @@ Neste guia, você usará os recursos de serviço que podem ser chamados de dentr
 
 ## Configurar seu aplicativo para usar o Barramento de serviço
 
-Para usar as APIs da fila do Barramento de Serviço do Azure, faça o seguinte:
+Para usar as APIs da fila do Barramento de Serviço, faça o seguinte:
 
 1. Faça referência ao arquivo do carregador automático usando a instrução [require\_once][require_once].
 2. Fazer referência a qualquer classe que você possa usar.
 
 O exemplo a seguir mostra como incluir o arquivo de carregador automático e fazer referência à classe **ServicesBuilder**.
 
-> [AZURE.NOTE]Este exemplo (e outros exemplos neste artigo) pressupõe que você instalou as Bibliotecas de Cliente PHP para Azure por meio do Compositor. Se você instalou as bibliotecas manualmente ou como um pacote PEAR, será necessário fazer referência ao arquivo de carregador automático **WindowsAzure.php**.
+> [AZURE.NOTE] Este exemplo (e outros exemplos neste artigo) pressupõe que você instalou as Bibliotecas de Cliente PHP para Azure por meio do Compositor. Se você instalou as bibliotecas manualmente ou como um pacote PEAR, será necessário fazer referência ao arquivo de carregador automático **WindowsAzure.php**.
 
 	require_once 'vendor\autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
 
 Nos exemplos abaixo, a instrução `require_once` será mostrada sempre, mas somente as classes necessárias para executar o exemplo serão referenciadas.
 
-## Configurar uma conexão do barramento de serviço do Azure
+## Configurar uma conexão do Barramento de Serviço
 
 Para criar uma instância do cliente do Barramento de Serviço, você deve ter primeiro uma cadeia de conexão válida neste formato:
 
@@ -108,7 +108,7 @@ O exemplo a seguir mostra como criar uma instância de um **ServiceBusRestProxy*
 		echo $code.": ".$error_message."<br />";
 	}
 
-> [AZURE.NOTE]Você pode usar o método `listQueues` em objetos `ServiceBusRestProxy` para verificar se já existe uma fila com um nome especificado dentro de um namespace de serviço.
+> [AZURE.NOTE] Você pode usar o método `listQueues` em objetos `ServiceBusRestProxy` para verificar se já existe uma fila com um nome especificado dentro de um namespace de serviço.
 
 ## Tutoria: Enviar mensagens a uma fila
 
@@ -209,4 +209,4 @@ Para saber mais, consulte também o [Centro de Desenvolvedores em PHP](/develop/
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

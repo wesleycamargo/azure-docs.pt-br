@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Como gerenciar um serviço de nuvem | Microsoft Azure" 
+	pageTitle="Tarefas comuns de gerenciamento de serviço de nuvem | Microsoft Azure" 
 	description="Saiba como gerenciar serviços de nuvem no portal do Azure. Esses exemplos usam o portal do Azure." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015"
+	ms.date="01/20/2016"
 	ms.author="adegeo"/>
 
 
@@ -44,7 +44,7 @@ Se você precisar atualizar o código do aplicativo para o seu serviço de nuvem
 
 5. Se a atualização alterar o número de funções ou o tamanho de qualquer função, marque a caixa de seleção **Permitir a atualização se os tamanhos ou o número de funções for alterado** para permitir que a atualização continue.
 
-	>[AZURE.WARNING]Lembre-se que, se você alterar o tamanho de uma função (u seja, o tamanho de uma máquina virtual que hospede uma instância de função) ou o número de funções, cada instância de função (máquina virtual) deverá ter outra imagem criada e todos os dados locais serão perdidos.
+	>[AZURE.WARNING] Lembre-se que, se você alterar o tamanho de uma função (u seja, o tamanho de uma máquina virtual que hospede uma instância de função) ou o número de funções, cada instância de função (máquina virtual) deverá ter outra imagem criada e todos os dados locais serão perdidos.
 
 6. Se alguma das funções de serviço tiver uma instância de função, marque a caixa de seleção **Atualizar mesmo se uma ou mais funções contiverem uma única instância** para permitir que a atualização continue.
 
@@ -102,7 +102,8 @@ Use o procedimento a seguir para excluir uma implantação ou seu serviço de nu
 
 5. Para excluir o Serviço de Nuvem, clique em **Excluir o Serviço de Nuvem**. Em seguida, clique em **Sim** no prompt de confirmação.
 
-> [AZURE.NOTE]Se o monitoramento detalhado estiver configurado para seu serviço de nuvem, o Azure não exclui os dados de monitoramento de sua conta de armazenamento quando você exclui o serviço de nuvem. Você precisará excluir manualmente os dados. Para obter informações sobre onde encontrar as tabelas de métricas, consulte [este](cloud-services-how-to-monitor.md) artigo.
+> [AZURE.NOTE]
+Se o monitoramento detalhado estiver configurado para seu serviço de nuvem, o Azure não exclui os dados de monitoramento de sua conta de armazenamento quando você exclui o serviço de nuvem. Você precisará excluir manualmente os dados. Para obter informações sobre onde encontrar as tabelas de métricas, consulte [este](cloud-services-how-to-monitor.md) artigo.
 
 [portal do Azure]: https://portal.azure.com
 
@@ -113,4 +114,4 @@ Use o procedimento a seguir para excluir uma implantação ou seu serviço de nu
 * Configurar um [nome de domínio personalizado](cloud-services-custom-domain-name-portal.md).
 * Configurar [certificados SSL](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

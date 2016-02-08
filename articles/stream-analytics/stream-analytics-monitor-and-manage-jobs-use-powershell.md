@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/04/2015" 
+	ms.date="01/25/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -30,14 +30,10 @@ Saiba como monitorar e gerenciar os recursos do Stream Analytics com os cmdlets 
  		# Log in to your Azure account
 		Add-AzureAccount
 
-		# Select the Azure subscription you want to use to create the resource group
+		# Select the Azure subscription you want to use to create the resource group if you have more than one subscription on your account.
 		Select-AzureSubscription -SubscriptionName <subscription name>
  
-		# Set the appropriate Azure mode to access Stream Analytics cmdlets
-		Switch-AzureMode AzureResourceManager
-
-		# Optional - Create an Azure resource group	
-			# If Stream Analytics has not been registered to the subscription, remove remark symbol below (#) to run the Register-AzureRMProvider cmdlet to register the provider namespace
+		# If Stream Analytics has not been registered to the subscription, remove remark symbol below (#) to run the Register-AzureProvider cmdlet to register the provider namespace.
 		#Register-AzureProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
 
 		# Create an Azure resource group
@@ -45,7 +41,7 @@ Saiba como monitorar e gerenciar os recursos do Stream Analytics com os cmdlets 
 		
 
 
-> [AZURE.NOTE]Os trabalhos do Stream Analytics criados programaticamente não têm monitoramento habilitado por padrão. Você pode habilitar manualmente o monitoramento no Portal do Azure, navegando até a página de monitoramento do trabalho e clicando no botão Ativar ou você pode fazer isso programaticamente, seguindo as etapas em [Stream Analytics do Azure - Monitorar programaticamente os trabalhos de Stream Analytics](stream-analytics-monitor-jobs.md)
+> [AZURE.NOTE] Os trabalhos do Stream Analytics criados programaticamente não têm monitoramento habilitado por padrão. Você pode habilitar manualmente o monitoramento no Portal do Azure, navegando até a página de monitoramento do trabalho e clicando no botão Ativar ou você pode fazer isso programaticamente, seguindo as etapas em [Stream Analytics do Azure - Monitorar programaticamente os trabalhos de Stream Analytics](stream-analytics-monitor-jobs.md)
 
 ## Cmdlets do PowerShell do Azure para Stream Analytics
 Os seguintes cmdlets do PowerShell do Azure podem ser usados para monitorar e gerenciar trabalhos de Stream Analytics do Azure.
@@ -289,4 +285,4 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -3,8 +3,8 @@
 	description="Encontre respostas para perguntas frequentes sobre o Azure AD Connect Health. Estas perguntas frequentes abordam dúvidas sobre como usar o serviço, incluindo o modelo de cobrança, recursos, limitações e suporte."
 	services="active-directory"
 	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	authors="karavar"
+	manager="samueld"
 	editor="curtand"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
-	ms.author="billmath"/>
+	ms.date="01/22/2016"
+	ms.author="vakarand"/>
 
 
 # Perguntas frequentes (FAQ) do Azure AD Connect Health
@@ -60,7 +60,7 @@ Por exemplo, no Windows Server 2008 R2, a instalação do .net Framework 4.5 req
 
 **P: Os Serviços do Azure AD Connect Health funcionam por meio de um proxy http de passagem?**
 
-Sim. Para operações em andamento, você pode configurar o Agente de integridade para encaminhar solicitações http de saída usando um HTTP Proxy. Consulte [Configurar agentes do Azure AD Connect Health para usar HTTP Proxy](active-directory-aadconnect-health-agent-install-adfs.md#configure-azure-ad-connect-health-agent-to-use-http-proxy) para saber mais.
+Sim. Para operações em andamento, você pode configurar o Agente de integridade para encaminhar solicitações http de saída usando um HTTP Proxy. Consulte [Configurar agentes do Azure AD Connect Health para usar HTTP Proxy](active-directory-aadconnect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy) para saber mais.
 
 Se precisar configurar um proxy durante o registro do Agente, você precisa modificar as configurações de Proxy do Internet Explorer. <br> Abra o Internet Explorer -> Configurações -> Opções de Internet -> Conexões -> Configurações da LAN.<br> Selecione Usar um Servidor Proxy para LAN.<br> Selecione Avançado SE você tiver portas de proxy diferente de HTTP e HTTPS/Secure.<br>
 
@@ -100,4 +100,4 @@ Você precisará ter as portas TCP/UDP 80, 443 e 5671 abertas para o agente do A
 * [Usando o Azure AD Connect Health com o AD FS](active-directory-aadconnect-health-adfs.md)
 * [Usando o Azure AD Connect Health para sincronização](active-directory-aadconnect-health-sync.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

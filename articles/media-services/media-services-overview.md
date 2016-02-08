@@ -40,13 +40,13 @@ Para compilar soluções de serviços de mídia, você pode usar:
 
 Você pode exibir os roteiros de aprendizagem do AMS aqui:
 
-- [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+- [Fluxo de trabalho do streaming ao vivo do AMS](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Fluxo de trabalho do streaming sob demanda do AMS](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##Cartaz
 
 
-[Aqui](http://azure.microsoft.com/documentation/infographics/media-services/) é possível exibir o cartaz dos Serviços de Mídia do Azure que representa os fluxos de trabalho do AMS, desde a criação de mídia até o consumo.
+[Aqui](https://azure.microsoft.com/documentation/infographics/media-services/) é possível exibir o cartaz dos Serviços de Mídia do Azure que representa os fluxos de trabalho do AMS, desde a criação de mídia até o consumo.
 
 ##Pré-requisitos
 
@@ -206,7 +206,7 @@ Você também pode dimensionar sua conta dos Serviços de Mídia adicionando con
 
 ##Suporte
 
-O [Suporte do Azure](http://azure.microsoft.com/support/options/) fornece opções de suporte do Azure, incluindo os Serviços de Mídia.
+O [Suporte do Azure](https://azure.microsoft.com/support/options/) fornece opções de suporte do Azure, incluindo os Serviços de Mídia.
 
 ##Padrões e práticas de orientação
 
@@ -225,7 +225,7 @@ O [Suporte do Azure](http://azure.microsoft.com/support/options/) fornece opçõ
 - Para proteção de conteúdo, garantimos que atenderemos com êxito a solicitações de chave em, no mínimo, 99,9% do tempo.
 - Para o indexador, podemos atenderemos com êxito às solicitações de tarefa do indexador processadas com uma unidade reservada para codificação em 99,9% do tempo.
 
-	Para obter mais informações, veja [SLA do Microsoft Azure](http://azure.microsoft.com/support/legal/sla/).
+	Para obter mais informações, veja [SLA do Microsoft Azure](https://azure.microsoft.com/support/legal/sla/).
 
 <!-- Images -->
 [overview]: ./media/media-services-overview/media-services-overview.png
@@ -234,4 +234,4 @@ O [Suporte do Azure](http://azure.microsoft.com/support/options/) fornece opçõ
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

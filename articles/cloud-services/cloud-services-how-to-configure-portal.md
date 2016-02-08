@@ -29,11 +29,11 @@ Você pode definir as configurações usadas mais frequentemente para um Serviç
 
 Você também pode habilitar uma conexão de área de trabalho remota para uma ou todas as funções em execução no Serviço de Nuvem. A área de trabalho remota permite que você acesse área de trabalho do seu aplicativo durante a execução e solucione e diagnostique problemas. Você pode habilitar uma conexão de área de trabalho remota para sua função mesmo sem ter configurado um arquivo de definição de serviço (.csdef) para a área de trabalho remota durante o desenvolvimento do aplicativo. Não é necessário reimplantar seu aplicativo para habilitar uma conexão de área de trabalho remota.
 
-O Azure pode garantir apenas 99,95 por cento de disponibilidade do serviço durante as atualizações de configuração se você tiver, pelo menos, duas instâncias de função para cada função. Isso permite que uma máquina virtual processe as solicitações do cliente enquanto a outra é atualizada. Para obter mais informações, consulte [Contratos de Nível de Serviço](http://azure.microsoft.com/support/legal/sla/).
+O Azure pode garantir apenas 99,95 por cento de disponibilidade do serviço durante as atualizações de configuração se você tiver, pelo menos, duas instâncias de função para cada função. Isso permite que uma máquina virtual processe as solicitações do cliente enquanto a outra é atualizada. Para obter mais informações, consulte [Contratos de Nível de Serviço](https://azure.microsoft.com/support/legal/sla/).
 
 ## Alterar um serviço de nuvem
 
-1. No [Portal do Azure](http://portal.azure.com/), navegue até seu serviço de nuvem.
+1. No [Portal do Azure](https://portal.azure.com/), navegue até seu serviço de nuvem.
 
 2. Clique no ícone **Configurações** ou no link **Essentials/Todas as configurações** para abrir a folha **Configurações**.
 
@@ -53,13 +53,14 @@ O Azure pode garantir apenas 99,95 por cento de disponibilidade do serviço dura
     
     ![Botões de instância de serviço de nuvem](./media/cloud-services-how-to-configure-portal/cs-instance-buttons.png)
 
->[AZURE.NOTE]O sistema operacional usado para o serviço de nuvem não pode ser alterado usando o **portal do Azure**, só é possível alterar essa configuração por meio do [portal clássico do Azure](http://manage.windowsazure.com/). Isso é detalhado [aqui](cloud-services-how-to-configure.md#update-a-cloud-service-configuration-file).
+>[AZURE.NOTE]
+O sistema operacional usado para o serviço de nuvem não pode ser alterado usando o **portal do Azure**, só é possível alterar essa configuração por meio do [portal clássico do Azure](http://manage.windowsazure.com/). Isso é detalhado [aqui](cloud-services-how-to-configure.md#update-a-cloud-service-configuration-file).
 
 ## Atualizar um arquivo de configuração de serviço de nuvem
 
 1. Primeiramente, baixe o arquivo de configuração de serviço de nuvem de existente (.cscfg).
 
-    1. No [Portal do Azure](http://portal.azure.com/), navegue até seu serviço de nuvem.
+    1. No [Portal do Azure](https://portal.azure.com/), navegue até seu serviço de nuvem.
 
     2. Clique no ícone **Configurações** ou no link **Essentials/Todas as configurações** para abrir a folha **Configurações**.
 
@@ -94,4 +95,4 @@ O acesso remoto não pode ser configurado usando o **Portal do Azure**, você s�
 * [Gerenciar seu serviço de nuvem](cloud-services-how-to-manage-portal.md).
 * Configurar [certificados SSL](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

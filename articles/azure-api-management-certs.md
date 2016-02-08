@@ -21,11 +21,11 @@
 
 Certificados de gerenciamento permitem que você realize autenticação com a API de gerenciamento de serviço fornecida pelo Azure. Muitos programas e ferramentas (como o Visual Studio ou o SDK do Azure) usarão esses certificados para automatizar a configuração e a implantação de diversos serviços do Azure. Eles serviços não estão, na verdade, relacionados a serviços de nuvem.
 
->[AZURE.WARNING]Portanto, tenha cuidado! Esses tipos de certificados permitem que qualquer pessoa que os utilize para autenticação gerencie a assinatura à qual eles estão associados.
+>[AZURE.WARNING] Portanto, tenha cuidado! Esses tipos de certificados permitem que qualquer pessoa que os utilize para autenticação gerencie a assinatura à qual eles estão associados.
 
 Há mais informações sobre certificados do Azure (incluindo a criação de um certificado autoassinado) [disponíveis](cloud-services/cloud-services-certs-create.md#what-are-management-certificates) para você, caso necessário.
 
-Você também pode usar o [Active Directory do Azure](http://azure.microsoft.com/documentation/services/active-directory/) para autenticar o código cliente, para fins de automação.
+Você também pode usar o [Active Directory do Azure](https://azure.microsoft.com/documentation/services/active-directory/) para autenticar o código cliente, para fins de automação.
 
 ## Carregar um certificado de gerenciamento
 
@@ -52,4 +52,4 @@ Após criar um certificado de gerenciamento (arquivo .cer somente com a chave p�
 
 Agora que você tem um certificado de gerenciamento associado a uma assinatura, você pode (depois de ter instalado localmente o certificado correspondente) conectar-se programaticamente à [API REST do Gerenciamento de Serviços](https://msdn.microsoft.com/library/azure/mt420159.aspx) e automatizar os diversos recursos do Azure que também estão associados à assinatura.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

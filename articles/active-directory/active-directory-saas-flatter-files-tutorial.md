@@ -3,7 +3,7 @@
 	description="Saiba como configurar o logon único entre o Active Directory do Azure e o Flatter Files."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/30/2015"
-	ms.author="markusvi"/>
+	ms.date="01/26/2016"
+	ms.author="jeedes"/>
 
 
 # Tutorial: Integração do Active Directory do Azure ao Flatter Files
@@ -23,7 +23,7 @@ O objetivo deste tutorial é mostrar a você como integrar o Flatter Files ao Ac
 
 - No AD do Azure, você pode controlar quem tem acesso ao Flatter Files 
 - Você pode permitir que seus usuários façam logon automaticamente no Flatter Files (logon único) com suas contas do AD do Azure
-- Você pode gerenciar suas contas em um local central – o Portal do Active Directory do Azure
+- Você pode gerenciar suas contas em um local central, o portal clássico do Active Directory do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
@@ -35,7 +35,7 @@ Para configurar a integração do AD do Azure ao Flatter Files, você precisará
 - Uma assinatura do Flatter Files com logon único habilitado
 
 
-> [AZURE.NOTE]Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+> [AZURE.NOTE] Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 
 
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
@@ -56,7 +56,7 @@ Para configurar a integração do Flatter Files ao AD do Azure, você precisará
 
 **Para adicionar o Flatter Files da galeria, execute as seguintes etapas:**
 
-1. No **Portal de Gerenciamento do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. <br><br> ![Active Directory][1]<br>
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. <br><br> ![Active Directory][1]<br>
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
@@ -64,7 +64,7 @@ Para configurar a integração do Flatter Files ao AD do Azure, você precisará
 4. Clique em **Adicionar** na parte inferior da página.<br><br> ![Aplicativos][3]<br>
 5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.<br><br> ![Aplicativos][4]<br>
 6. Na caixa de pesquisa, digite **Flatter Files**.<br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-flatter-files-tutorial/tutorial_flatter_files_01.png)<br>
-7. No painel de resultados, selecione **Flatter Files** e clique em **Concluir** para adicionar o aplicativo.<br><br> ![Criação de um usuário de teste do Azure AD](./media/active-directory-saas-flatter-files-tutorial/tutorial_flatter_files_500.png)<br>
+7. No painel de resultados, selecione **Flatter Files** e clique em **Concluir** para adicionar o aplicativo.<br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-flatter-files-tutorial/tutorial_flatter_files_500.png)<br>
 
 ##  Configurar e testar o logon único do AD do Azure
 O objetivo desta seção é mostrar como configurar e testar logon único do AD do Azure com o Flatter Files, com base em um usuário de teste chamado "Brenda Fernandes".
@@ -81,7 +81,7 @@ Para configurar e testar o logon único do AD do Azure com o Flatter Files, voc�
 
 ### Configuração do logon único do AD do Azure
 
-O objetivo desta seção é habilitar o logon único do AD do Azure no portal do AD do Azure e configurar o logon único em seu aplicativo Flatter Files. Como parte deste procedimento, é necessário criar um arquivo de certificado codificado em base 64. Se você não estiver familiarizado com este procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+O objetivo desta seção é habilitar o logon único do AD do Azure no portal clássico do AD do Azure e configurar o logon único em seu aplicativo Flatter Files. Como parte deste procedimento, será necessário criar um arquivo de certificado codificado em base 64. Se você não estiver familiarizado com este procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 Para configurar o logon único para o Flatter Files, você precisará de um domínio registrado. Se não tiver um domínio registrado, entre em contato com a equipe de suporte do Flatter Files pelo email [support@flatterfiles.com](mailto:support@flatterfiles.com).
 
@@ -89,13 +89,13 @@ Para configurar o logon único para o Flatter Files, você precisará de um dom�
 
 **Para configurar o logon único do AD do Azure com o Flatter Files, execute as seguintes etapas:**
 
-1. No portal do AD do Azure, na página de integração do aplicativo **Flatter Files**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**. <br><br> ![Configurar o logon único][6] <br>
+1. No portal clássico do AD do Azure, na página de integração do aplicativo **Flatter Files**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**. <br><br> ![Configurar o logon único][6] <br>
 
 2. Na página **Como você deseja que os usuários façam logon no Flatter Files**, selecione **Logon único do AD do Azure** e clique em **Avançar**. <br><br> ![Configurar o logon único](./media/active-directory-saas-flatter-files-tutorial/tutorial_flatter_files_02.png) <br>
 
 3. Na página da caixa de diálogo **Definir Configurações de Aplicativo**, clique em **Avançar**. <br><br>![Configurar o logon único](./media/active-directory-saas-flatter-files-tutorial/tutorial_flatter_files_03.png) <br>
 
-    > [AZURE.NOTE]O Flatter Files usa a mesma URL de SSO para todos os clientes: [https://www.flatterfiles.com/site/login/sso/](https://www.flatterfiles.com/site/login/sso/).
+    > [AZURE.NOTE] O Flatter Files usa a mesma URL de SSO para todos os clientes: [https://www.flatterfiles.com/site/login/sso/](https://www.flatterfiles.com/site/login/sso/).
  
  
 4. Na página **Configurar logon único no Flatter Files**, realize as seguintes etapas: <br><br>![Configurar o logon único](./media/active-directory-saas-flatter-files-tutorial/tutorial_flatter_files_04.png) <br>
@@ -123,19 +123,19 @@ Para configurar o logon único para o Flatter Files, você precisará de um dom�
 
     a. Na caixa de texto Domínio, digite seu domínio registrado.
 
-    > [AZURE.NOTE]Se não tiver um domínio registrado, entre em contato com a equipe de suporte do Flatter Files pelo email [support@flatterfiles.com](mailto:support@flatterfiles.com).
+    > [AZURE.NOTE] Se não tiver um domínio registrado, entre em contato com a equipe de suporte do Flatter Files pelo email [support@flatterfiles.com](mailto:support@flatterfiles.com).
     
-    b. No portal do Azure, na caixa de diálogo Configurar logon único no Flatter Files, copie a URL do Serviço de Logon Único e cole-a na caixa de texto URL do Provedor de Identidade.
+    b. No portal clássico do Azure, na caixa de diálogo Configurar logon único no Flatter Files, copie a URL do Serviço de Logon Único e cole-a na caixa de texto URL do Provedor de Identidade.
 
     c. Crie um arquivo **codificado em base 64** usando o certificado baixado.
 
-    >[AZURE.TIP]Para obter mais detalhes, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
+    >[AZURE.TIP] Para obter mais detalhes, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
     d. Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado do Provedor de Identidade do Flatter Files**.
 
     e. Clique em **Atualizar**.
 
-6. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Avançar**. <br><br>![Logon único do AD do Azure][10]<br>
+6. No portal clássico do AD do Azure, selecione a confirmação de configuração de logon único e clique em **Avançar**. <br><br>![Logon único do AD do Azure][10]<br>
 
 7. Na página **Confirmação de logon único**, clique em **Concluir**. <br><br>![Logon único do AD do Azure][11]
 
@@ -143,23 +143,23 @@ Para configurar o logon único para o Flatter Files, você precisará de um dom�
 
 
 ### Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar no portal do Azure um usuário de teste chamado Brenda Fernandes.<br> Na lista Usuários, selecione **Brenda Fernandes**.<br><br>![Criar um usuário do AD do Azure][20]<br>
+O objetivo desta seção é criar um usuário de teste no Portal clássico do Azure chamado Brenda Fernandes.<br> Na lista Usuários, escolha **Brenda Fernandes**.<br><br>![Criar um usuário do AD do Azure][20]<br>
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **Portal de Gerenciamento do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-flatter-files-tutorial/create_aaduser_09.png) <br> 
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-flatter-files-tutorial/create_aaduser_09.png) <br> 
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
 3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**. <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-flatter-files-tutorial/create_aaduser_03.png) <br>
  
-4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**. <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-flatter-files-tutorial/create_aaduser_04.png) <br>
+4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**. <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-flatter-files-tutorial/create_aaduser_04.png) <br>
 
-5. Na página da caixa de diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas: <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-flatter-files-tutorial/create_aaduser_05.png) <br>
+5. Na página do diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas: <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-flatter-files-tutorial/create_aaduser_05.png) <br>
 
     a. Em Tipo de Usuário, selecione Novo usuário na organização.
 
-    b. Na caixa de texto **Nome de Usuário**, digite **BrendaFernandes**.
+    b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
 
     c. Clique em **Próximo**.
 
@@ -169,7 +169,7 @@ O objetivo desta seção é criar no portal do Azure um usuário de teste chamad
 
     b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
 
-    c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
+    c. Na caixa de texto **Nome de exibição**, digite **Brenda Fernandes**.
 
     d. Na lista **Função**, selecione **Usuário**. e. Clique em **Próximo**.
 
@@ -201,7 +201,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Flatte
 
     b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
 
-    c. Na caixa de texto **Endereço de Email**, digite o endereço de email de Brenda Fernandes no Portal do Azure.
+    c. Na caixa de texto **Endereço de Email**, digite o endereço de email de Brenda no portal clássico do Azure.
 
     c. Clique em **Enviar**.
 
@@ -212,7 +212,7 @@ O objetivo desta seção é habilitar Brenda Fernandes a usar o logon único do 
 
 **Para atribuir Brenda Fernandes ao Flatter Files, execute as seguintes etapas:**
 
-1. No portal do Azure, para abrir a exibição dos aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior. <br><br>![Atribuir usuário][201] <br>
+1. No portal clássico do Azure, para abrir o modo de exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior. <br><br>![Atribuir usuário][201] <br>
 2. Na lista de aplicativos, selecione **Flatter Files**. <br><br>![Atribuir usuário](./media/active-directory-saas-flatter-files-tutorial/tutorial_flatter_files_11.png) <br>
 1. No menu na parte superior, clique em **Usuários**. <br><br>![Atribuir usuário][203] <br>
 1. Na lista Usuários, selecione **Brenda Fernandes**.
@@ -250,4 +250,4 @@ O objetivo desta seção é testar sua configuração de logon único do AD do A
 [204]: ./media/active-directory-saas-flatter-files-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-flatter-files-tutorial/tutorial_general_205.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

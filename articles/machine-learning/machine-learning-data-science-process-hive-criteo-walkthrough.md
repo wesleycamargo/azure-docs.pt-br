@@ -18,7 +18,7 @@
 
 # O Processo de Análises do Cortana em ação - Usando clusters Hadoop do Azure HDInsight em um conjunto de dados de 1 TB
 
-Neste passo a passo, nós demonstramos totalmente o uso do Processo de Análise do Cortana em um [cluster Hadoop do Azure HDInsight](http://azure.microsoft.com/services/hdinsight/) para armazenar, explorar, criar recursos e reduzir a resolução de dados de exemplo de um dos conjuntos de dados da [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) disponíveis publicamente. Usamos o Aprendizado de Máquina do Azure para criar um modelo de classificação binária nesses dados. Nós também mostramos como publicar um desses modelos como um serviço Web.
+Neste passo a passo, nós demonstramos totalmente o uso do Processo de Análise do Cortana em um [cluster Hadoop do Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) para armazenar, explorar, criar recursos e reduzir a resolução de dados de exemplo de um dos conjuntos de dados da [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) disponíveis publicamente. Usamos o Aprendizado de Máquina do Azure para criar um modelo de classificação binária nesses dados. Nós também mostramos como publicar um desses modelos como um serviço Web.
 
 Também é possível usar um bloco de anotações do IPython para executar as tarefas apresentadas nesse passo a passo. Usuários que gostariam de testar essa abordagem devem consultar o tópico [Passo a passo da Criteo usando uma conexão ODBC do Hive](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb).
 
@@ -663,4 +663,4 @@ Podemos ver que para os dois exemplos de teste sobre os quais perguntamos (na es
 
 Isso conclui nosso passo a passo total mostrando como lidar com o conjunto de dados de grande dimensão usando o Aprendizado de Máquina do Azure. Começamos com um terabyte de dados, construímos um modelo de previsão e o implantamos como um serviço Web na nuvem.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

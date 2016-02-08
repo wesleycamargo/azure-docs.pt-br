@@ -4,7 +4,7 @@
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
-	manager="udayh"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="01/26/2016"
 	ms.author="maheshu"/>
 
 # Serviços de Domínio do AD do Azure *(Visualização)* - Introdução
@@ -42,19 +42,17 @@ Depois que os usuários tiverem alterado suas senhas, a nova senha poderá ser u
 
 
 ### Locatários sincronizados - habilita a sincronização dos hashes das credenciais NTLM e Kerberos para o AD do Azure
-Se o locatário do AD do Azure para sua organização está configurado para sincronizar com seu diretório local usando o AD do Azure Connect, você precisará configurar o AD do Azure Connect para sincronizar os hashes de credencial necessários para a autenticação NTLM e Kerberos. Esses hashes não são sincronizados com o AD do Azure por padrão, e as etapas a seguir o ajudarão a habilitar a sincronização de hashes para seu locatário do AD do Azure.
+Se o locatário do AD do Azure para sua organização está configurado para sincronizar com seu diretório local usando o AD do Azure Connect, você precisa configurar o AD do Azure Connect para sincronizar os hashes de credencial necessários para a autenticação NTLM e Kerberos. Esses hashes não são sincronizados com o AD do Azure por padrão, e as etapas a seguir o ajudarão a habilitar a sincronização de hashes para seu locatário do AD do Azure.
 
 #### Instalar ou atualizar o Azure AD Connect
 
-Você precisará instalar a versão mais recente do Azure AD Connect recomendada em um computador de domínio associado. Se você tiver uma instância existente da instalação do AD do Azure Connect, você precisará atualizá-la para usar a compilação GA do AD do Azure Connect. Certifique-se de usar a versão atual do Azure AD Connect, para evitar problemas/erros conhecidos.
+Você precisará instalar a versão mais recente do Azure AD Connect recomendada em um computador de domínio associado. Se você tiver uma instância existente da instalação do AD do Azure Connect, você precisará atualizá-la para usar a compilação GA do AD do Azure Connect. Use a versão mais recente do Azure AD Connect para evitar problemas/erros conhecidos.
 
-**[Conecte-se de download do AD do Azure](http://www.microsoft.com/download/details.aspx?id=47594)**
+**[Baixar o Azure AD Connect](http://www.microsoft.com/download/details.aspx?id=47594)**
 
-Versão mínima recomendada: **1.0.9125** - publicada em 3 de novembro de 2015.
+Versão mínima recomendada: **1.0.9131** - publicada em 3 de novembro de 2015.
 
-  >[AZURE.WARNING]Você DEVE instalar a versão GA do AD do Azure Connect para habilitar as credenciais de senha herdadas (necessárias para a autenticação NTLM e Kerberos) para sincronizar seu locatário do AD do Azure. Essa funcionalidade não está disponível em versões anteriores do Azure Connect AD ou com a ferramenta DirSync herdada.
-
-Observação: você não precisa criar a chave do Registro 'EnableWindowsLegacyCredentialsSync' com a versão mais recente do Azure Connect AD (ou seja, 1.0.9125 e acima).
+  >[AZURE.WARNING] Você DEVE instalar a versão GA do Azure AD Connect para habilitar as credenciais de senha herdadas (necessárias para a autenticação NTLM e Kerberos) para sincronizar seu locatário do AD do Azure. Essa funcionalidade não está disponível em versões anteriores do Azure Connect AD ou com a ferramenta DirSync herdada.
 
 Instruções de instalação para o AD do Azure Connect estão disponíveis no seguinte artigo - [Introdução ao AD do Azure Connect](../active-directory/active-directory-aadconnect.md)
 
@@ -79,4 +77,4 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 
 Dependendo do tamanho do seu diretório (número de usuários, grupos etc.), a sincronização de credenciais ao AD do Azure pode ser demorada. As senhas poderão ser usadas no domínio dos serviços de domínio do AD do Azure gerenciado logo após os hashes de credencial ter sincronizado ao AD do Azure.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -32,7 +32,7 @@
 
 #### O que obtenho se pagar?
 
-* Uma maior [cota mensal de dados](http://azure.microsoft.com/pricing/details/application-insights/).
+* Uma maior [cota mensal de dados](https://azure.microsoft.com/pricing/details/application-insights/).
 * Opção de pagamento excedente para continuar coletando dados acima da cota mensal. Se os seus dados ficarem acima da cota, você será cobrado por Mb.
 * [Exportação contínua](app-insights-export-telemetry.md).
 
@@ -155,7 +155,7 @@ Consulte as [notas de versão](app-insights-release-notes.md) para o SDK adequad
 #### Eu costumava ver os dados, mas eles foram interrompidos
 
 * Verifique o [blog de status](http://blogs.msdn.com/b/applicationinsights-status/).
-* Você atingiu sua cota mensal de pontos de dados? Abra configurações/Cota e Preços para descobrir. Nesse caso, você pode atualizar seu plano ou então pagar por capacidade adicional. Consulte o [esquema de preços](http://azure.microsoft.com/pricing/details/application-insights/).
+* Você atingiu sua cota mensal de pontos de dados? Abra configurações/Cota e Preços para descobrir. Nesse caso, você pode atualizar seu plano ou então pagar por capacidade adicional. Consulte o [esquema de preços](https://azure.microsoft.com/pricing/details/application-insights/).
 
 
 #### Não vejo todos os dados que eu esperava
@@ -252,4 +252,4 @@ Você pode [gravar um Script do PowerShell](app-insights-powershell-script-creat
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

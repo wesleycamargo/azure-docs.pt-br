@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="01/25/2016"
    ms.author="mcoskun"/>
 
 # Fazer backup e restaurar Reliable Services
@@ -87,7 +87,7 @@ Nesse caso, o tempo de execução detectaria automaticamente a perda de dados e 
 
 O autor do serviço precisa executar o seguinte para fazer a recuperação:
 
-- Substituir **IReliableStateManager** para retornar um novo **ReliableStateManager** e fornecer uma função de retorno de chamada a ser chamada em caso de evento de perda de dados.
+- Substituir **CreateReliableStateManager** para retornar um novo **ReliableStateManager** e fornecer uma função de retorno de chamada a ser chamada em caso de evento de perda de dados.
 
 - Localize o último backup no local externo que contém backups do serviço.
 
@@ -118,7 +118,7 @@ protected override async Task<bool> OnDataLossAsync(CancellationToken cancellati
 }
 ```
 
->[AZURE.NOTE]O RestorePolicy é definido como Seguro por padrão. Isso significa que a API **RestoreAsync** falhará com ArgumentException se detectar que a pasta de backups contém um estado mais antigo ou igual ao estado contido nesta réplica. **RestorePolicy.Force** pode ser usado para ignorar a verificação de segurança.
+>[AZURE.NOTE] O RestorePolicy é definido como Seguro por padrão. Isso significa que a API **RestoreAsync** falhará com ArgumentException se detectar que a pasta de backups contém um estado mais antigo ou igual ao estado contido nesta réplica. **RestorePolicy.Force** pode ser usado para ignorar a verificação de segurança.
 
 ## Serviço perdido ou excluído
 
@@ -158,4 +158,4 @@ O Gerenciador do Reliable State permite a restauração de um backup usando a AP
 
 Primeiro, **RestoreAsync** descarta todos os estados existentes na réplica primária na qual foi chamado. Depois, o Gerenciador de Reliable State cria todos os objetos Reliable que existem na pasta de backup. Em seguida, os objetos Reliable são instruídos a restaurar a partir dos pontos de verificação na pasta de backup. Finalmente, o Gerenciador de Reliable State recupera seu próprio estado a partir dos registros de log na pasta de backup e executa a recuperação. Como parte do processo de recuperação, as operações que começaram do "ponto de partida" e confirmaram os registros de log na pasta de backup são reproduzidas aos objetos Reliable. Essa etapa garante que o estado recuperado seja consistente.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

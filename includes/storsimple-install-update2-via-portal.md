@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 01/11/16-->
+<!--author=alkohli last changed: 01/26/16-->
 
 #### Para instalar a Atualização 2 por meio do Portal do Azure
 
@@ -8,7 +8,7 @@
 
 3. Na seção de **Atualizações de software** na mesma página, você verá que existem novas atualizações de software disponíveis. É recomendável examinar as notas de versão antes de aplicar a Atualização 2 no seu dispositivo.
 
-    ![Instalar as atualizações do software](./media/storsimple-install-update2-via-portal/InstallUpdate12_11M.png)
+    ![Instalar as atualizações do software](./media/storsimple-install-update2-via-portal/scanupdate1.png)
 
 4. Na parte inferior da página, clique em **Instalar atualizações**.
 
@@ -39,7 +39,7 @@
    	 ![Falha na pré-verificação](./media/storsimple-install-update2-via-portal/HCS_PreUpgradeChecksFailed-include.png)
 
 	
-	> [AZURE.NOTE]Se você está atualizando de um software pré-Atualização 1, depois de você ter aplicado a Atualização 2 no seu dispositivo StorSimple, as verificações DATA 2 e DATA 3 e a verificação de gateway não serão mais necessárias para as atualizações futuras. As outras pré-verificações ainda serão obrigatórias. Se você atualizou da Atualização 1 ou posterior, as pré-verificações de gateway DATA 2, DATA 3 e de gateway não são executadas.
+	> [AZURE.NOTE] Se você está atualizando de um software pré-Atualização 1, depois de você ter aplicado a Atualização 2 no seu dispositivo StorSimple, as verificações DATA 2 e DATA 3 e a verificação de gateway não serão mais necessárias para as atualizações futuras. As outras pré-verificações ainda serão obrigatórias. Se você atualizou da Atualização 1 ou posterior, as pré-verificações de gateway DATA 2, DATA 3 e de gateway não são executadas.
 
 
 8. Depois que as verificações de pré-atualização tiverem sido concluídas com êxito, será criado um trabalho de atualização. Você será notificado quando o trabalho de atualização for criado com êxito.
@@ -57,8 +57,10 @@
 12. Verifique se o dispositivo está executando a **Atualização 2 do StorSimple Série 8000 (6.3.9600.17673)**. A **Data da última atualização** também deve ser modificada.
 
 
-13. Agora, você verá que as atualizações do modo de manutenção estão disponíveis. Essas atualizações são atualizações interrompidas que resultam no tempo de inatividade do dispositivo e podem ser aplicadas apenas por meio da interface do Windows PowerShell do seu dispositivo. Siga as etapas listadas em [instalar e verificar o hotfix do modo de manutenção](#to-install-and-verify-maintenance-mode-hotfix) para instalar essas atualizações do modo de manutenção.
+13. Agora, você verá que as atualizações do modo de manutenção estão disponíveis. Em alguns casos, quando você está executando a Atualização 1.2, o firmware de disco pode já estar atualizado. Nessas circunstâncias, o portal determinará isso automaticamente e não solicitará as atualizações do modo de manutenção.
 
-> [AZURE.NOTE]Em determinadas instâncias, a mensagem que indica que as atualizações do modo de manutenção estão disponíveis pode ser exibida até 24 horas depois que as atualizações do modo de manutenção forem aplicadas com êxito no dispositivo.
+	As atualizações do modo de manutenção são atualizações interrompidas que resultam no tempo de inatividade do dispositivo e podem ser aplicadas apenas por meio da interface do Windows PowerShell do seu dispositivo. Siga as etapas relacionadas em [instalar e verificar o hotfix do modo de manutenção](#to-install-and-verify-maintenance-mode-hotfix) para instalar essas atualizações do modo de Manutenção.
 
-<!---HONumber=AcomDC_0114_2016-->
+> [AZURE.NOTE] Em determinadas instâncias, a mensagem que indica que as atualizações do modo de manutenção estão disponíveis pode ser exibida até 24 horas depois que as atualizações do modo de manutenção forem aplicadas com êxito no dispositivo.
+
+<!---HONumber=AcomDC_0128_2016-->

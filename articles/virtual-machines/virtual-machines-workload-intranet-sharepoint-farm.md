@@ -35,7 +35,7 @@ Hospedar um farm do SharePoint na Intranet nos serviços de infraestrutura do Az
 
 A próxima etapa é configurar um farm do SharePoint na Intranet para desenvolvimento/teste hospedado no Azure.
 
-> [AZURE.NOTE]A Microsoft lançou o SharePoint Server 2016 IT Preview. Para facilitar a instalação e teste desta visualização, você pode usar uma imagem da galeria de máquinas virtuais do Azure com o SharePoint Server 2016 IT Preview e seus pré-requisitos pré-instalados. Para obter mais informações, veja [Testar o SharePoint Server 2016 IT Preview no Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
+> [AZURE.NOTE] A Microsoft lançou o SharePoint Server 2016 IT Preview. Para facilitar a instalação e teste desta visualização, você pode usar uma imagem da galeria de máquinas virtuais do Azure com o SharePoint Server 2016 IT Preview e seus pré-requisitos pré-instalados. Para obter mais informações, veja [Testar o SharePoint Server 2016 IT Preview no Azure](https://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
 
 ## Criar um farm do SharePoint na Intranet para desenvolvimento/teste hospedado no Azure
 
@@ -44,7 +44,7 @@ Você tem duas opções para a criação de um ambiente de desenvolvimento/teste
 - Rede virtual somente na nuvem
 - Rede virtual entre locais
 
-Você pode criar gratuitamente esses ambientes de desenvolvimento/teste com sua [assinatura do Visual Studio](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/) ou com uma [Assinatura de avaliação do Azure](http://azure.microsoft.com/pricing/free-trial/).
+Você pode criar gratuitamente esses ambientes de desenvolvimento/teste com sua [assinatura do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) ou com uma [Assinatura de avaliação do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ### Rede virtual somente na nuvem
 
@@ -102,4 +102,4 @@ Depois de configurado, você poderá expandir esse farm do SharePoint com as dir
 
 - Obtenha uma [visão geral](virtual-machines-workload-intranet-sharepoint-overview.md) da carga de trabalho de produção antes começar a configuração.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

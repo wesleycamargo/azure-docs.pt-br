@@ -34,9 +34,9 @@ Com a integração da rede virtual, os clusters do HBase podem ser implantados n
 ##Pré-requisitos
 Antes de começar este tutorial, você deve ter o seguinte:
 
-- **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **Uma estação de trabalho com o PowerShell do Azure**. Consulte [Instalar e usar o PowerShell do Azure](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Para obter instruções, consulte [Instalar e configurar o PowerShell do Azure](../install-configure-powershell.md). Para executar scripts do PowerShell do Azure, você deve executar o PowerShell do Azure como administrador e configurar a política de execução como *RemoteSigned*. Consulte [Usando o cmdlet Set-ExecutionPolicy][2].
+- **Uma estação de trabalho com o PowerShell do Azure**. Consulte [Instalar e usar o PowerShell do Azure](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Para obter instruções, consulte [Instalar e configurar o PowerShell do Azure](../install-configure-powershell.md). Para executar scripts do PowerShell do Azure, você deve executar o PowerShell do Azure como administrador e configurar a política de execução como *RemoteSigned*. Consulte [Usando o cmdlet Set-ExecutionPolicy][2].
 
 	Antes de executar scripts do PowerShell do Azure, verifique se você está conectado à sua assinatura do Azure usando o seguinte cmdlet:
 
@@ -112,7 +112,7 @@ Um servidor DNS é opcional, mas necessário em alguns casos. O procedimento foi
 
 **Para provisionar um cluster HBase usando o Portal do Azure**
 
-> [AZURE.NOTE]Para obter informações sobre como provisionar um novo cluster do HBase usando o PowerShell do Azure, consulte [Provisionar um cluster HBase usando o PowerShell do Azure](#powershell).
+> [AZURE.NOTE] Para obter informações sobre como provisionar um novo cluster do HBase usando o PowerShell do Azure, consulte [Provisionar um cluster HBase usando o PowerShell do Azure](#powershell).
 
 
 **Para criar um cluster HDInsight**
@@ -156,7 +156,7 @@ Para começar a trabalhar com o novo cluster do HBase, você pode usar os proced
 
 			curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
 
-		Nos dados JSON (notação de objeto JavaScript) retornados, localize a entrada "host_name". Ela conterá o FQDN (nome de domínio totalmente qualificado) para os nós no cluster. Por exemplo:
+		Nos dados JSON (notação de objeto JavaScript) retornados, localize a entrada "host\_name". Ela conterá o FQDN (nome de domínio totalmente qualificado) para os nós no cluster. Por exemplo:
 
 			...
 			"host_name": "wordkernode0.<clustername>.b1.cloudapp.net
@@ -182,7 +182,7 @@ Para começar a trabalhar com o novo cluster do HBase, você pode usar os proced
 				)
 			{
 			<#
-			    .SYNOPSIS 
+			    .SYNOPSIS
 			     Displays information to facilitate an HDInsight cluster-to-cluster scenario within the same virtual network.
 				.Description
 				 This command shows the following 4 properties of an HDInsight cluster:
@@ -207,13 +207,13 @@ Para começar a trabalhar com o novo cluster do HBase, você pode usar os proced
 			     Get-ClusterDetail -ClusterDnsName {clusterDnsName} -Username {username} -Password {password} -PropertyName FQDNSuffix
 			     This command shows the FQDN suffix of hosts in the cluster.
 			#>
-			
+
 				$DnsSuffix = ".azurehdinsight.net"
-				
+
 				$ClusterFQDN = $ClusterDnsName + $DnsSuffix
 				$webclient = new-object System.Net.WebClient
 				$webclient.Credentials = new-object System.Net.NetworkCredential($Username, $Password)
-			
+
 				if($PropertyName -eq "ZookeeperQuorum")
 				{
 					$Url = "https://" + $ClusterFQDN + "/ambari/api/v1/clusters/" + $ClusterFQDN + "/configurations?type=hbase-site&tag=default&fields=items/properties/hbase.zookeeper.quorum"
@@ -234,7 +234,7 @@ Para começar a trabalhar com o novo cluster do HBase, você pode usar os proced
 					$Response1 = $webclient.DownloadString($Url1)
 					$JsonObject1 = $Response1 | ConvertFrom-Json
 					$PortNumber = $JsonObject1.items[0].properties.'hbase.rest.port'
-					
+
 					$Url2 = "https://" + $ClusterFQDN + "/ambari/api/v1/clusters/" + $ClusterFQDN + "/services/hbase/components/hbrest"
 					$Response2 = $webclient.DownloadString($Url2)
 					$JsonObject2 = $Response2 | ConvertFrom-Json
@@ -262,23 +262,23 @@ Para começar a trabalhar com o novo cluster do HBase, você pode usar os proced
 
 		Isso retornará o sufixo DNS. Por exemplo, **yourclustername.b4.internal.cloudapp.net**.
 
-	> [AZURE.NOTE]Você também pode usar a área de trabalho remota para conectar o cluster do HBase (você estará conectado ao nó principal) e executar **ipconfig** por meio de um prompt de comando para obter o sufixo DNS. Para obter instruções de como habilitar o RDP (protocolo RDP) e conectar-se ao cluster usando RDP, consulte [Gerenciar clusters do Hadoop no HDInsight usando o Portal do Azure][hdinsight-admin-portal].
+	> [AZURE.NOTE] Você também pode usar a área de trabalho remota para conectar o cluster do HBase (você estará conectado ao nó principal) e executar **ipconfig** por meio de um prompt de comando para obter o sufixo DNS. Para obter instruções de como habilitar o RDP (protocolo RDP) e conectar-se ao cluster usando RDP, consulte [Gerenciar clusters do Hadoop no HDInsight usando o Portal do Azure][hdinsight-admin-portal].
 	>
 	> ![hdinsight.hbase.dns.surffix][img-dns-surffix]
 
 
-<!-- 
-3.	Change the primary DNS suffix configuration of the virtual machine. This enables the virtual machine to automatically resolve the host name of the HBase cluster without explicit specification of the suffix. For example, the *workernode0* host name will be correctly resolved to workernode0 of the HBase cluster. 
+<!--
+3.	Change the primary DNS suffix configuration of the virtual machine. This enables the virtual machine to automatically resolve the host name of the HBase cluster without explicit specification of the suffix. For example, the *workernode0* host name will be correctly resolved to workernode0 of the HBase cluster.
 
 	To make the configuration change:
 
-	1. RDP into the virtual machine. 
+	1. RDP into the virtual machine.
 	2. Open **Local Group Policy Editor**. The executable is gpedit.msc.
-	3. Expand **Computer Configuration**, expand **Administrative Templates**, expand **Network**, and then click **DNS Client**. 
-	- Set **Primary DNS Suffix** to the value obtained in step 2: 
+	3. Expand **Computer Configuration**, expand **Administrative Templates**, expand **Network**, and then click **DNS Client**.
+	- Set **Primary DNS Suffix** to the value obtained in step 2:
 
 		![hdinsight.hbase.primary.dns.suffix][img-primary-dns-suffix]
-	4. Click **OK**. 
+	4. Click **OK**.
 	5. Reboot the virtual machine.
 -->
 
@@ -391,4 +391,4 @@ Neste tutorial, você aprendeu como provisionar um cluster do HBase. Para obter 
 
 [azure-preview-portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

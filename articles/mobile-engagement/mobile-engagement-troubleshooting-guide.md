@@ -110,7 +110,7 @@ Isso costuma acontecer durante o teste e se você estiver usando emuladores ou a
 Se você não puder resolver o problema por conta própria, você pode:
 
 1. Pesquise pelo seu problema nos threads existentes no fórum StackOverflow e no [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/windows/pt-BR/home?forum=azuremobileengagement) e, se não entrá-lo, faça uma pergunta nesses fóruns. 
-2. Se você encontrar um recurso ausente, então adicione a solicitação/vote para ela no nosso [Fórum UserVoice](http://feedback.azure.com/forums/285737-mobile-engagement)
+2. Se você encontrar um recurso ausente, então adicione/vote para a solicitação no nosso [Fórum UserVoice](https://feedback.azure.com/forums/285737-mobile-engagement/)
 3. Se você tiver o Suporte da Microsoft abra um incidente de suporte fornecendo os seguintes detalhes: 
 	- ID de assinatura do Azure
 	- Plataforma (por exemplo, iOS, Android, etc.)
@@ -120,4 +120,4 @@ Se você não puder resolver o problema por conta própria, você pode:
 	- Versão do SDK do Mobile Engagement (por exemplo, Android SDK v2.1.0)
 	- Detalhes do erro com a mensagem de erro e cenário exatos
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

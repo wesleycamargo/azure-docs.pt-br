@@ -13,22 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/20/2015"
+   ms.date="01/26/2016"
    ms.author="oanapl"/>
 
 # Usar relatórios de integridade do sistema para solução de problemas
 
 Os componentes do Service Fabric apresentam relatórios de integridade prontos para uso sobre todas as entidades. O [repositório de integridade](service-fabric-health-introduction.md#health-store) cria e exclui entidades baseado nos relatórios do sistema. Ele também os organiza em uma hierarquia que captura interações de entidade.
 
-> [AZURE.NOTE]Leia mais sobre o [Modelo de Integridade do Service Fabric](service-fabric-health-introduction.md) para entender os conceitos relacionados à integridade.
+> [AZURE.NOTE] Leia mais sobre o [Modelo de Integridade do Service Fabric](service-fabric-health-introduction.md) para entender os conceitos relacionados à integridade.
 
 Os relatórios de integridade do sistema fornecem visibilidade da funcionalidade do cluster e de aplicativos e sinalizam problemas por meio da integridade. Para aplicativos e serviços, os relatórios de integridade do sistema verificam se as entidades são implementadas e estão se comportando corretamente da perspectiva do Service Fabric. Os relatórios não fornecem monitoramento de integridade da lógica de negócios do serviço nem detecção de processos travados. Os serviços de usuário podem enriquecer os dados de integridade com informações específicas à respectiva lógica.
 
-> [AZURE.NOTE]Os relatórios de integridade dos watchdogs ficam visíveis somente *depois* que os componentes do sistema criam uma entidade. Quando uma entidade é excluída, o repositório de integridade exclui automaticamente todos os relatórios de integridade associados a ela. O mesmo acontece quando uma nova instância da entidade é criada (por exemplo, uma nova instância de réplica do serviço é criada). Todos os relatórios associados à instância antiga são excluídos e removidos do repositório.
+> [AZURE.NOTE] Os relatórios de integridade dos watchdogs ficam visíveis somente *depois* que os componentes do sistema criam uma entidade. Quando uma entidade é excluída, o repositório de integridade exclui automaticamente todos os relatórios de integridade associados a ela. O mesmo acontece quando uma nova instância da entidade é criada (por exemplo, uma nova instância de réplica do serviço é criada). Todos os relatórios associados à instância antiga são excluídos e removidos do repositório.
 
 Os relatórios de componentes do sistema são identificados por origem, que começa com o prefixo **"System"**. Os watchdogs não podem usar o mesmo prefixo para suas origens, pois os relatórios com parâmetros inválidos serão rejeitados. Vamos examinar alguns relatórios do sistema para entender o que os dispara e como corrigir possíveis problemas que eles representam.
 
-> [AZURE.NOTE]O Service Fabric continua adicionando relatórios sobre condições de interesse que melhoram a visibilidade do que está acontecendo no cluster e no aplicativo.
+> [AZURE.NOTE] O Service Fabric continua adicionando relatórios sobre condições de interesse que melhoram a visibilidade do que está acontecendo no cluster e no aplicativo.
 
 ## Relatórios de integridade do sistema de cluster
 A entidade de integridade do cluster é criada automaticamente no repositório de integridade, de modo que se tudo estiver funcionando corretamente, ela não terá um relatório do sistema.
@@ -537,4 +537,4 @@ HealthEvents          :
 
 [Atualização de aplicativos do Service Fabric](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

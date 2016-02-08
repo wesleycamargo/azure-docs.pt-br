@@ -4,8 +4,8 @@
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
-	manager="udayh"
-	editor="inhenk"/>
+	manager="stevenpo"
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory-ds"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="01/26/2016"
 	ms.author="maheshu"/>
 
 # Visualização dos Serviços de Domínio do Active Directory do Azure: perguntas frequentes
@@ -38,17 +38,23 @@ A implantação do PowerShell/automatizada dos Serviços de Domínio do AD do Az
 #### Os Serviços de Domínio do AD do Azure estão disponíveis no novo portal do Azure?
 Não. Os Serviços de Domínio do AD do Azure podem ser configurados somente no antigo portal de gerenciamento do Azure (ou seja, https://manage.windowsazure.com). Esperamos estender o suporte para o novo portal de gerenciamento do Microsoft Azure (ou seja, https://portal.azure.com) no futuro.
 
+#### Posso adicionar controladores de domínio a um domínio gerenciado dos Serviços de Domínio do AD do Azure?
+Não. O domínio fornecido pelos Serviços de Domínio do AD do Azure é um domínio gerenciado. Você não precisa provisionar, configurar ou gerenciar de outra forma os controladores de domínio para este domínio. Essas atividades de gerenciamento são fornecidas como um serviço pela Microsoft. Portanto, você não poderá adicionar outros controladores de domínio (leitura-gravação nem somente leitura) para o domínio gerenciado.
+
 
 ### Administração e operações
 
 #### Habilitei os Serviços de Domínio do AD do Azure. Qual conta de usuário eu posso usar para ingressar computadores no domínio para este domínio?
-As contas de usuário que você adicionou ao grupo administrativo (ou seja, "Administradores do controlador de domínio do AAD") poderiam ingressar computadores no domínio. Além disso, os usuários desse grupo recebem acesso de área de trabalho remoto para computadores que ingressaram no domínio.
+Qualquer uma das contas de usuário que você adicionou ao grupo administrativo (ou seja, "Administradores do controlador de domínio do AAD") poderiam ingressar computadores no domínio. Além disso, os usuários desse grupo recebem acesso de área de trabalho remoto para computadores que ingressaram no domínio.
 
 #### Posso exercer privilégios de administrador de domínio para o domínio fornecido pelos Serviços de Domínio do AD do Azure?
 Não. Como esse é um serviço gerenciado, você não receberá privilégios administrativos do domínio. Isso significa que os privilégios de "administrador do domínio" e de "administrador corporativo" não estarão disponíveis dentro do domínio. O administrador de domínio existente ou os grupos de administradores corporativos no seu diretório do AD do Azure também não receberá privilégios de administrador de domínio/corporativo no domínio.
 
 #### Posso modificar associações de grupo usando o LDAP ou outras ferramentas administrativas do AD em domínios fornecidos pelos Serviços de Domínio do AD do Azure?
 Não. Associações de grupo não podem ser modificadas em domínios atendidos pelos Serviços de Domínio do AD do Azure. O mesmo se aplica a atributos de usuário. No entanto, é possível alterar associações de grupo ou atributos de usuário no AD do Azure ou em seu domínio local. Essas alterações serão sincronizadas automaticamente nos Serviços de Domínio do AD do Azure.
+
+#### Posso estender o esquema do domínio fornecido pelos Serviços de Domínio do AD do Azure?
+Não. O esquema é administrado pela Microsoft para o domínio gerenciado. As extensões de esquema não têm suporte dos Serviços de Domínio do AD do Azure.
 
 
 ### Disponibilidade e cobrança
@@ -68,4 +74,4 @@ Consulte nossa [página de regiões](active-directory-ds-regions.md) para ver um
 #### Quando os Serviços de Domínio do AD do Azure estão disponíveis completamente?
 Atualmente, não é possível compartilhar cronogramas para quando o serviço estará disponível.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

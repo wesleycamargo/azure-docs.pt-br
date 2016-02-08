@@ -28,7 +28,7 @@ O Active Directory do Azure (AD do Azure) cria um cenário de identidade que é 
 
 Você pode pensar em uma conta no AD do Azure como sua carteira de motorista para a nuvem: é sua ID exclusiva para acessar os serviços online. Nesse sentido, o AD do Azure funciona como seu registrador particular na nuvem para essas carteiras de motorista. Ele permite que identidades sejam usadas em qualquer lugar na nuvem, além de melhorar a mobilidade para os usuários que acessam recursos locais.
 
-> [AZURE.NOTE]Para usar o Active Directory do Azure, você precisa de uma conta do Azure. Se você ainda não tem uma conta, você pode [inscrever-se para uma conta gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE] Para usar o Active Directory do Azure, você precisa de uma conta do Azure. Se você ainda não tem uma conta, você pode [inscrever-se para uma conta gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Como o AD do Azure dá suporte ao Office 365, Microsoft Intune e outros serviços do Azure?
 O Portal do Azure, o Centro de Administração do Office 365, o portal de conta do Microsoft Intune e os cmdlets módulo PowerShell do AD do Azure, todos eles realizam leituras e gravações de uma única instância compartilhada do AD do Azure que está associada ao seu diretório. Os portais (ou cmdlets) agem como uma interface de front-end que recebe e/ou modifica suas informações de diretório. [Saiba mais sobre o suporte para outros serviços](active-directory-administer.md#what-is-an-azure-ad-tenant)
@@ -48,4 +48,4 @@ Quer saber mais sobre como gerenciar o AD do Azure? Como obter um diretório? Co
 * [Inscrever-se no Azure como uma organização](sign-up-organization.md)
 * [Identidade do Azure](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

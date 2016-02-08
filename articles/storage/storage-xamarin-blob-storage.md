@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="01/22/2016"
 	ms.author="micurd"/>
 
 # Como usar o Armazenamento de Blob no Xamarin (visualização)
@@ -173,10 +173,6 @@ Neste tutorial, você aprendeu a usar o armazenamento de Blob do Azure e SAS com
 
 Saiba mais sobre blobs, tabelas e filas consultando os links a seguir:
 
-[Introdução ao Armazenamento do Microsoft Azure](storage-introduction.md)
-[Como usar o Armazenamento de Blobs no .NET](storage-dotnet-how-to-use-blobs.md)
-[Como usar o Armazenamento de Tabelas no .NET](storage-dotnet-how-to-use-tables.md)
-[Como usar o Armazenamento de Filas no .NET](storage-dotnet-how-to-use-queues.md)
-[Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy.md)
+[Introdução ao Armazenamento do Microsoft Azure](storage-introduction.md) [Como usar o Armazenamento de Blobs no .NET](storage-dotnet-how-to-use-blobs.md) [Como usar o Armazenamento de Tabelas no .NET](storage-dotnet-how-to-use-tables.md) [Como usar o Armazenamento de Filas no .NET](storage-dotnet-how-to-use-queues.md) [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

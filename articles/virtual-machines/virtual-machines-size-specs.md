@@ -29,7 +29,7 @@ Para ver os limites gerais em VMs do Azure, consulte [Limites de assinatura e se
 
 Os tamanhos padrão consistem em várias séries: A, D, DS, G, e GS. Entre as considerações sobre algumas dessas dimensões estão:
 
-*   As VMs da série D são projetadas para executar aplicativos que exigem maior capacidade de computação e de desempenho de disco temporário. As VMs da série D fornecem processadores mais rápidos, uma maior taxa de memória por núcleo e uma unidade de estado sólido (SSD) para o disco temporário. Para obter detalhes, confira o anúncio no blog do Azure, [Novos tamanhos de máquina virtual da série D](http://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
+*   As VMs da série D são projetadas para executar aplicativos que exigem maior capacidade de computação e de desempenho de disco temporário. As VMs da série D fornecem processadores mais rápidos, uma maior taxa de memória por núcleo e uma unidade de estado sólido (SSD) para o disco temporário. Para obter detalhes, confira o anúncio no blog do Azure, [Novos tamanhos de máquina virtual da série D](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
 
 *   A série Dv2, uma continuação da série D original, apresenta uma CPU mais potente. A CPU da série Dv2 é aproximadamente 35% mais rápida do que a CPU da série D. Ela se baseia na última geração do processador Intel Xeon® E5-2673 v3 (Haswell) de 2,4 GHz e, com a Intel Turbo Boost Technology 2.0, pode chegar a até 3,2 GHz. A série Dv2 tem as mesmas configurações de memória e disco que a série D.
 
@@ -37,7 +37,7 @@ Os tamanhos padrão consistem em várias séries: A, D, DS, G, e GS. Entre as co
 
 *   As VMs das séries DS e GS podem usar o Armazenamento Premium, que fornece armazenamento de alto desempenho e baixa latência para cargas de trabalho com uso intenso de E/S. Essas VMs usam SSDs (unidades de estado sólido) para hospedar os discos da máquina virtual e também oferecem um cache de disco SSD local. O Armazenamento Premium está disponível em determinadas regiões. Para obter detalhes, confira [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho das máquinas virtuais do Azure](../storage-premium-storage-preview-portal.md).
 
-O tamanho da máquina virtual afeta os preços. O tamanho também afeta a capacidade de processamento, memória e armazenamento da máquina virtual. Os custos de armazenamento são calculados separadamente com base nas páginas usadas na conta de armazenamento. Para obter detalhes, confira [Detalhes de preços de máquinas virtuais](http://azure.microsoft.com/pricing/details/virtual-machines/) e [Preços de armazenamento do Azure](http://azure.microsoft.com/pricing/details/storage/). Para obter mais detalhes sobre armazenamento em VMs, veja [Sobre discos e VHDs para máquinas virtuais](virtual-machines-disks-vhds.md).
+O tamanho da máquina virtual afeta os preços. O tamanho também afeta a capacidade de processamento, memória e armazenamento da máquina virtual. Os custos de armazenamento são calculados separadamente com base nas páginas usadas na conta de armazenamento. Para obter detalhes, confira [Detalhes de preços de máquinas virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/) e [Preços de armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/). Para obter mais detalhes sobre armazenamento em VMs, veja [Sobre discos e VHDs para máquinas virtuais](virtual-machines-disks-vhds.md).
 
 As considerações a seguir podem ajudá-lo a escolher um tamanho:
 
@@ -54,7 +54,7 @@ As considerações a seguir podem ajudá-lo a escolher um tamanho:
 
 Criamos o conceito da ACU (unidade de computação do Azure) para fornecer uma maneira de comparar o desempenho de computação (CPU) em SKUs do Azure. Isso ajudará você a identificar facilmente qual SKU é tem maior probabilidade de satisfazer suas necessidades de desempenho. A ACU atualmente é padronizada como uma VM pequena (Standard\_A1) sendo 100 e todas as SKUs representam, aproximadamente, o quanto a SKU pode executar um parâmetro de comparação padrão mais rapidamente.
 
->[AZURE.IMPORTANT]A ACU é apenas uma diretriz. Os resultados para sua carga de trabalho podem variar.
+>[AZURE.IMPORTANT] A ACU é apenas uma diretriz. Os resultados para sua carga de trabalho podem variar.
 
 <br>
 
@@ -63,12 +63,7 @@ Criamos o conceito da ACU (unidade de computação do Azure) para fornecer uma m
 |[Standard\_A0 (Extrapequeno)](#standard-tier-a-series) |50 |
 |[Standard\_A1-4 (Pequeno – grande)](#standard-tier-a-series) |100 |
 |[Standard\_A5-7](#standard-tier-a-series) |100 |
-|[A8-A11](#standard-tier-a-series) |225 *|
-|[D1-14](#standard-tier-d-series) |160 |
-|[D1-14v2](#standard-tier-dv2-series) |210 - 250 *|
-|[DS1-14](#standard-tier-ds-series) |160 |
-|[G1-5](#standard-tier-g-series) |180 - 240 *|
-|[GS1-5](#standard-tier-gs-series) |180 - 240 *|
+|[A8-A11](#standard-tier-a-series) |225 *| |[D1-14](#standard-tier-d-series) |160 | |[D1-14v2](#standard-tier-dv2-series) |210 - 250 *| |[DS1-14](#standard-tier-ds-series) |160 | |[G1-5](#standard-tier-g-series) |180 - 240 *| |[GS1-5](#standard-tier-gs-series) |180 - 240 *|
 
 
 ACUs marcados com um * usam tecnologia Intel® Turbo para aumentar a frequência da CPU e fornecer um aumento de desempenho. A quantidade do aumento pode variar com base no tamanho da VM, na carga de trabalho e em outras cargas de trabalho em execução no mesmo host.
@@ -79,7 +74,7 @@ ACUs marcados com um * usam tecnologia Intel® Turbo para aumentar a frequência
 
 As tabelas a seguir mostram os tamanhos e as capacidades oferecidas.
 
->[AZURE.NOTE]A capacidade de armazenamento é representada usando-se 1024^3 bytes como a unidade de medida para GB. Isso às vezes é chamado de gibibyte ou definição de base 2. Ao comparar tamanhos que usam diferentes sistemas de base, lembre-se de que os tamanhos de base 2 podem parecer menores do que os de base 10, mas para qualquer tamanho específico (por exemplo, 1 GB), um sistema de base 2 fornece mais capacidade do que um sistema de base 10, porque 1024^3 é maior que 1000^3.
+>[AZURE.NOTE] A capacidade de armazenamento é representada usando-se 1024^3 bytes como a unidade de medida para GB. Isso às vezes é chamado de gibibyte ou definição de base 2. Ao comparar tamanhos que usam diferentes sistemas de base, lembre-se de que os tamanhos de base 2 podem parecer menores do que os de base 10, mas para qualquer tamanho específico (por exemplo, 1 GB), um sistema de base 2 fornece mais capacidade do que um sistema de base 10, porque 1024^3 é maior que 1000^3.
 
 <br>
 
@@ -189,4 +184,4 @@ Observação: para obter informações e ver considerações sobre o uso desses 
 
 [Sobre as instâncias A8, A9, A10 e A11 com uso intensivo de computação](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

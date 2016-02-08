@@ -3,7 +3,7 @@
 	description="Este tópico descreve as funções internas para o controle de acesso baseado em função (RBAC)."
 	services="active-directory"
 	documentationCenter=""
-	authors="IHenkel"
+	authors="kgremban"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,16 +13,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/04/2016"
-	ms.author="inhenk"/>
+	ms.date="01/21/2016"
+	ms.author="kgremban"/>
 
 #RBAC: funções internas
 
 ## Funções internas
 
-O controle de acesso baseado em função do Azure é fornecido com as seguintes funções internas que podem ser atribuídas a usuários, grupos e serviços. Você não pode modificar a definição das funções integradas. Em uma versão futura do RBAC do Azure, você poderá definir funções personalizadas pela composição de um conjunto de ações de uma lista de ações disponíveis que podem ser executadas nos recursos do Azure.
+O RBAC (Controle de Acesso baseado em função do Azure) é fornecido com as seguintes funções internas que podem ser atribuídas a usuários, grupos e serviços. Você não pode modificar a definição das funções integradas. Em uma versão futura do RBAC do Azure, você poderá definir funções personalizadas pela composição de um conjunto de ações de uma lista de ações disponíveis que podem ser executadas nos recursos do Azure.
 
-Clique no link correspondente para ver as **ações** e **não** as propriedades das ações de uma definição de função. A propriedade das **ações** especifica as ações permitidas em recursos do Azure. As cadeias de caracteres da ação podem usar caracteres curingas. A propriedade **não-ações** da definição de função especifica as ações que devem ser excluídas das ações permitidas.
+Clique nos links abaixo para ver as propriedades de **ações** e **não ação** de uma definição de função. A propriedade das **ações** especifica as ações permitidas em recursos do Azure. As cadeias de caracteres da ação podem usar caracteres curingas. A propriedade **não-ações** da definição de função especifica as ações que devem ser excluídas das ações permitidas.
 
 
 | Nome da função | Descrição |
@@ -34,13 +34,13 @@ Clique no link correspondente para ver as **ações** e **não** as propriedades
 | [Colaborador do DB MySQL ClearDB](#cleardb-mysql-db-contributor) | Pode gerenciar bancos de dados MySQL ClearDB |
 | [Colaborador](#contributor) | Pode gerenciar tudo, exceto o acesso. |
 | [Colaborador da fábrica de dados](#data-factory-contributor) | Pode gerenciar fábricas de dados |
-| [Usuário do laboratório DevTest](#devtest-lab-user) | Pode ver tudo e se conectar a máquinas virtuais, iniciá-las, reiniciá-las e desligá-las. |
+| [Usuário do laboratório DevTest](#devtest-lab-user) | Pode exibir tudo e se conectar a máquinas virtuais, iniciá-las, reiniciá-las e desligá-las. |
 | [Colaborador de conta do banco de dados de documento](#document-db-account-contributor) | Pode gerenciar contas do Banco de Dados de Documentos |
 | [Colaborador de conta do sistemas inteligentes](#intelligent-systems-account-contributor) | Pode gerenciar contas do Intelligent Systems |
 | [Colaborador de rede](#network-contributor) | Pode gerenciar todos os recursos de rede |
 | [Colaborador de conta do APM NewRelic](#newrelic-apm-account-contributor) | Pode gerenciar contas e aplicativos de gerenciamento de desempenho do aplicativo NewRelic |
-| [Proprietário](#owner) | Os proprietários podem gerenciar tudo, incluindo o acesso. |
-| [Leitor](#reader) | Os leitores podem ver tudo, mas não podem fazer alterações. |
+| [Proprietário](#owner) | Pode gerenciar tudo, incluindo o acesso |
+| [Leitor](#reader) | Pode ver tudo, mas não pode fazer alterações |
 | [Colaborador do Cache Redis](#redis-cache-contributor]) | Pode gerenciar caches Redis |
 | [Colaborador de Coleções de Trabalho do Agendador](#scheduler-job-collections-contributor) | Pode gerenciar coleções de trabalhos do agendador |
 | [Colaborador do Serviço de Pesquisa](#search-service-contributor) | Pode gerenciar serviços de pesquisa |
@@ -85,7 +85,7 @@ Pode gerenciar os componentes do Application Insights
 | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 
 ### Operador de automação
-Os operadores de automação podem iniciar, parar, suspender e retomar trabalhos
+Capaz de iniciar, parar, suspender e reiniciar trabalhos
 
 | **Ações** ||
 | ------- | ------ |
@@ -128,12 +128,14 @@ Pode gerenciar bancos de dados MySQL ClearDB
 | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 
 ### Colaborador
-Os colaboradores podem gerenciar tudo, exceto o acesso
+Pode gerenciar tudo, exceto o acesso.
 
 | **Ações** ||
 | ------- | ------ |
 | * | Criar e gerenciar recursos de todos os tipos |
-| ****Not Actions |  |
+
+| **Não-ações** | |
+| ------- | ------ |
 | Microsoft.Authorization/*/Write | Não é possível criar funções e atribuições de função |
 | Microsoft.Authorization/*/Delete | Não é possível excluir funções e atribuições de função |
 
@@ -301,7 +303,9 @@ Pode gerenciar bancos de dados SQL, mas não a segurança das políticas relacio
 | Microsoft.Resources/subscriptions/resourceGroups/deployments/* | Criar e gerenciar implantações do grupo de recursos |
 | Microsoft.Insights/alertRules/* | Criar e gerenciar regras de alerta |
 | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
+
 | **Não-ações** | |
+| ------- | ------ |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | Não é possível editar políticas de auditoria |
 | Microsoft.Sql/servers/databases/connectionPolicies/* | Não é possível editar políticas de conexão |
 | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Não é possível editar políticas de mascaramento dos dados |
@@ -341,7 +345,9 @@ Pode gerenciar servidores e bancos de dados SQL, mas não as políticas relacion
 | Microsoft.Resources/subscriptions/resourceGroups/deployments/* | Criar e gerenciar implantações do grupo de recursos de assinaturas |
 | Microsoft.Insights/alertRules/* | Criar e gerenciar regras de alerta do Insights |
 | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
+
 | **Não-ações** | |
+| ------- | ------ |
 | Microsoft.Sql/servers/auditingPolicies/* | Não é possível editar políticas de auditoria do servidor SQL |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | Não é possível editar políticas de auditoria de banco de dados do servidor SQL |
 | Microsoft.Sql/servers/databases/connectionPolicies/* | Não é possível editar políticas de conexão de banco de dados do servidor SQL |
@@ -381,8 +387,7 @@ Pode gerenciar o acesso do usuário aos recursos do Azure
 
 | **Ações** ||
 | ------- | ------ |
-| */read | Ler recursos de todos os tipos, exceto segredos. |
-| Microsoft.Authorization/* | Ler autorização |
+| */read | Ler recursos de todos os tipos, exceto segredos. | | Microsoft.Authorization/* | Ler autorização |
 | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 
 ### Colaborador de Máquina Virtual Clássica
@@ -483,4 +488,4 @@ Pode gerenciar sites, mas não os planos da Web ao quais eles estão conectados
 ## Tópicos sobre RBAC
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

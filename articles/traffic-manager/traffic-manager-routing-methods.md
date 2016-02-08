@@ -31,7 +31,7 @@ Os três métodos de roteamento de tráfego do Gerenciador de Tráfego são:
 
 Observe que os sites do Azure já fornecem método de roteamento de tráfego de round robin e failover para sites em um datacenter, independentemente do modo do site. O Gerenciador de Tráfego permite que você especifique o roteamento de tráfego de round robin e failover para sites em datacenters diferentes.
 
->[AZURE.NOTE]O TTL (vida útil) informa aos clientes DNS e resolvedores nos servidores DNS por quanto tempo é preciso armazenar em cache os nomes resolvidos. Os clientes continuarão a usar determinado ponto de extremidade ao resolver seu nome de domínio até que a entrada do cache DNS local para o nome expire.
+>[AZURE.NOTE] O TTL (vida útil) informa aos clientes DNS e resolvedores nos servidores DNS por quanto tempo é preciso armazenar em cache os nomes resolvidos. Os clientes continuarão a usar determinado ponto de extremidade ao resolver seu nome de domínio até que a entrada do cache DNS local para o nome expire.
 
 ## Método de roteamento de tráfego de failover
 
@@ -85,7 +85,7 @@ No momento, não é possível usar o portal clássico do Azure para configurar o
 
 Para obter informações sobre como usar as APIs REST, consulte [Operações no Gerenciador de Tráfego (referência de API REST)](http://go.microsoft.com/fwlink/p/?LinkId=313584).
 
-Para obter informações sobre como usar os cmdlets do PowerShell do Azure, consulte [Cmdlets do Gerenciador de Tráfego do Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769). Para um exemplo de configuração, consulte [Pontos de extremidade externos do Gerenciador de Tráfego do Azure e Round Robin ponderado via PowerShell](http://azure.microsoft.com/blog/2014/06/26/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/) no blog do Azure.
+Para obter informações sobre como usar os cmdlets do PowerShell do Azure, consulte [Cmdlets do Gerenciador de Tráfego do Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769). Para um exemplo de configuração, consulte [Pontos de extremidade externos do Gerenciador de Tráfego do Azure e Round Robin ponderado via PowerShell](https://azure.microsoft.com/blog/2014/06/26/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/) no blog do Azure.
 
 Para testar o perfil de um único cliente e observar o comportamento de round robin igual ou ponderado, verifique se o nome DNS é resolvido para os endereços IP diferentes dos pontos de extremidade de acordo com os valores iguais ou ponderados no perfil. Durante o teste, você deve desabilitar o cache de cliente DNS no lado do cliente ou limpar o cache DNS entre cada tentativa para garantir que uma nova consulta de nome DNS seja enviada.
 
@@ -130,4 +130,4 @@ Se você quiser obter as figuras deste tópico como slides do PowerPoint para su
 [Adicionar um ponto de extremidade](traffic-manager-endpoints.md)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

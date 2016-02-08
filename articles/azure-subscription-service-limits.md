@@ -22,7 +22,7 @@
 
 Este documento especifica alguns dos limites mais comuns do Microsoft Azure. Observe que isso não cobre atualmente todos os serviços do Azure. Com o tempo, esses limites serão ampliados e atualizados para uma maior cobertura da plataforma.
 
-> [AZURE.NOTE]Se você deseja aumentar o limite acima do **Limite Padrão**, você pode [abrir uma solicitação no suporte ao cliente online sem custo](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). Os limites não podem ser aumentados acima do valor de **Limite máximo** nas tabelas abaixo. Se não houver nenhuma coluna **Limite máximo**, o recurso especificado não tem limites ajustáveis.
+> [AZURE.NOTE] Se você deseja aumentar o limite acima do **Limite Padrão**, você pode [abrir uma solicitação no suporte ao cliente online sem custo](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). Os limites não podem ser aumentados acima do valor de **Limite máximo** nas tabelas abaixo. Se não houver nenhuma coluna **Limite máximo**, o recurso especificado não tem limites ajustáveis.
 
 ## Limites e o Gerenciador de Recursos do Azure
 
@@ -30,9 +30,7 @@ Agora é possível combinar vários recursos do Azure em um único Grupo de Recu
 
 Nos limites abaixo, uma nova tabela foi adicionada para refletir quaisquer diferenças nos limites ao usar o Gerenciador de Recursos do Azure. Por exemplo, há uma tabela de **Limites de Assinatura** e uma tabela de **Limites de Assinatura – Gerenciador de Recursos do Azure**. Quando um limite se aplica a ambos os cenários, ele é mostrado apenas na primeira tabela. A menos que indicado de outro modo, os limites são globais em todas as regiões.
 
-> [AZURE.NOTE]É importante enfatizar que as cotas para recursos nos Grupos de Recursos do Azure são acessíveis de acordo com a região pela assinatura e não de acordo com a assinatura, assim como acontece com as cotas de gerenciamento de serviço. Vamos usar cotas de núcleos como exemplo. Se você precisar solicitar um aumento de cota com suporte para núcleos, você precisa decidir quantos núcleos deseja usar em quais regiões e, em seguida, fazer uma solicitação específica de cotas de núcleos do Grupo de Recursos do Azure para as quantidades e regiões desejadas. Portanto, se precisar usar 30 núcleos na Europa Ocidental para executar seu aplicativo lá, você deve solicitar especificamente 30 núcleos na Europa Ocidental. Mas você não terá um aumento na cota de núcleos em nenhuma outra região – somente a Europa Ocidental terá a cota de 30 núcleos.
-<!-- -->
-Como resultado, pode ser útil pensar em decidir quais devem ser as cotas do Grupo de Recursos do Azure para a carga de trabalho em uma determinada região e solicitar essa quantidade em cada região na qual esteja considerando a possibilidade de implantação. Consulte [Solucionando problemas de implantação](resource-group-deploy-debug.md##authentication-subscription-role-and-quota-issues) para obter mais ajuda ao descobrir suas cotas atuais para regiões específicas.
+> [AZURE.NOTE] É importante enfatizar que as cotas para recursos nos Grupos de Recursos do Azure são acessíveis de acordo com a região pela assinatura e não de acordo com a assinatura, assim como acontece com as cotas de gerenciamento de serviço. Vamos usar cotas de núcleos como exemplo. Se você precisar solicitar um aumento de cota com suporte para núcleos, você precisa decidir quantos núcleos deseja usar em quais regiões e, em seguida, fazer uma solicitação específica de cotas de núcleos do Grupo de Recursos do Azure para as quantidades e regiões desejadas. Portanto, se precisar usar 30 núcleos na Europa Ocidental para executar seu aplicativo lá, você deve solicitar especificamente 30 núcleos na Europa Ocidental. Mas você não terá um aumento na cota de núcleos em nenhuma outra região – somente a Europa Ocidental terá a cota de 30 núcleos. <!-- --> Como resultado, pode ser útil pensar em decidir quais devem ser as cotas do Grupo de Recursos do Azure para a carga de trabalho em uma determinada região e solicitar essa quantidade em cada região na qual esteja considerando a possibilidade de implantação. Consulte [Solucionando problemas de implantação](resource-group-deploy-debug.md##authentication-subscription-role-and-quota-issues) para obter mais ajuda ao descobrir suas cotas atuais para regiões específicas.
 
 
 ## Limites específicos de serviço
@@ -277,8 +275,8 @@ Para obter os limites do Banco de Dados SQL, veja [Limites de recurso de Banco d
 
 ## Consulte também
 
-[Entendendo os limites e aumentos do Azure](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
+[Entendendo os limites e aumentos do Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
 [Tamanhos de máquinas virtuais e serviços de nuvem do Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

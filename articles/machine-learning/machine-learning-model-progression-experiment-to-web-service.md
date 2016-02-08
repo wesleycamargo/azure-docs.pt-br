@@ -25,7 +25,7 @@ Quando estiver satisfeito com seu experimento, você poderá implantá-lo como u
 
 Neste artigo, ofereceremos uma visão geral sobre a mecânica de como seu modelo de Aprendizado de Máquina evolui de um experimento de desenvolvimento para um serviço Web operacional.
 
->[AZURE.NOTE]Há outras maneiras de desenvolver e implantar modelos de aprendizado de máquina, mas este artigo se concentra em como usar o Estúdio de Aprendizado de Máquina. Para uma discussão sobre como criar um serviço Web de previsão com R, consulte a postagem do blog [Criar e implantar aplicativos Web de previsão usando o RStudio e o Aprendizado de Máquina do Azure](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx).
+>[AZURE.NOTE] Há outras maneiras de desenvolver e implantar modelos de aprendizado de máquina, mas este artigo se concentra em como usar o Estúdio de Aprendizado de Máquina. Para uma discussão sobre como criar um serviço Web de previsão com R, consulte a postagem do blog [Criar e implantar aplicativos Web de previsão usando o RStudio e o Aprendizado de Máquina do Azure](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx).
 
 Embora o Estúdio de Aprendizado de Máquina do Azure seja projetado principalmente para ajudar você a desenvolver e implantar um *modelo de análise preditiva*, é possível usar o Estúdio para desenvolver um experimento que não inclua um modelo de análise preditiva. Por exemplo, um experimento pode simplesmente inserir dados, manipulá-los e gerar os resultados. Assim como um experimento de análise preditiva, você pode implantar esse teste não preditivo como um serviço Web, mas esse é um processo mais simples porque o teste não está treinando ou pontuando um modelo de aprendizado de máquina. Embora não seja o uso normal do Estúdio, o incluiremos na discussão abaixo para que possamos dar uma explicação completa de como funciona o Estúdio.
 
@@ -57,7 +57,7 @@ Pode haver mais alterações que você queira fazer para ter seu experimento pre
 
 O teste de treinamento não é descartado neste processo de conversão. Quando o processo for concluído, você terá duas guias no Estúdio: uma para o teste de treinamento e outra para o teste preditivo. Dessa forma, antes de implantar o serviço Web, você poderá alterar o teste de treinamento e recriar o teste preditivo. Ou você pode salvar uma cópia do teste de treinamento para iniciar outra linha de teste.
 
->[AZURE.NOTE]Quando você clica em **Configurar Serviço Web**, um processo automático é iniciado para converter seu teste de treinamento em um teste preditivo, e isso funciona bem na maioria dos casos. Mas se o seu teste de treinamento for complexo (por exemplo, se você tiver vários caminhos para treinamento reunidos), convém fazer essa conversão manualmente. Para obter mais detalhes sobre como esse processo de conversão funciona, veja [Converter um teste de treinamento do Aprendizado de Máquina em um teste preditivo](machine-learning-convert-training-experiment-to-scoring-experiment.md).
+>[AZURE.NOTE] Quando você clica em **Configurar Serviço Web**, um processo automático é iniciado para converter seu teste de treinamento em um teste preditivo, e isso funciona bem na maioria dos casos. Mas se o seu teste de treinamento for complexo (por exemplo, se você tiver vários caminhos para treinamento reunidos), convém fazer essa conversão manualmente. Para obter mais detalhes sobre como esse processo de conversão funciona, veja [Converter um teste de treinamento do Aprendizado de Máquina em um teste preditivo](machine-learning-convert-training-experiment-to-scoring-experiment.md).
 
 ### O serviço Web
 
@@ -160,4 +160,4 @@ Para obter exemplos do processo inteiro, consulte:
 
 -   [Passo a passo: Desenvolver uma solução de análise preditiva para avaliação de risco de crédito no Aprendizado de Máquina do Azure](machine-learning-walkthrough-develop-predictive-solution.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

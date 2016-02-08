@@ -40,7 +40,7 @@ Este tutorial explica o processo de criação de uma coleção híbrida. Há oit
 
 Você precisa fazer o seguinte antes de criar a coleção:
 
-- [Inscreva-se](http://azure.microsoft.com/services/remoteapp/) no Azure RemoteApp. 
+- [Inscreva-se](https://azure.microsoft.com/services/remoteapp/) no Azure RemoteApp. 
 - Crie uma conta de usuário no Active Directory para usar como conta de serviço do Azure RemoteApp. Restrinja as permissões para esta conta para que ela possa conectar-se somente às máquinas no domínio.
 - Colete informações sobre a sua rede local: informações sobre endereço IP e detalhes do dispositivo VPN.
 - Instale o módulo [PowerShell do Azure](../install-configure-powershell.md).
@@ -149,4 +149,4 @@ Agora que você criou sua coleção, precisa adicionar os usuários que você qu
 ### Ajude-nos a ajudar você 
 Você sabia que, além de classificar este artigo e fazer comentários, você pode alterar o próprio artigo? Falta alguma coisa? Há algo errado? Escrevi algo que não ficou muito claro? Role para cima e clique em **Editar no GitHub** para fazer alterações – elas serão enviadas para que as examinemos e depois de aprovadas, você verá as alterações e os aprimoramentos.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

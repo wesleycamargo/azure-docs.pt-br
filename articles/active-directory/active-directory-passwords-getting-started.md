@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="Guia de Introdução: Gerenciamento de Senhas do Azure AD | Microsoft Azure" 
-	description="Permita que os usuários redefinam suas próprias senhas, descubra os pré-requisitos para redefinição de senha e habilite o Write-back de Senha para gerenciar senhas locais no Active Directory." 
-	services="active-directory" 
+	description="Gerenciamento de senha que permite que os usuários redefinam suas próprias senhas, descubram os pré-requisitos para a redefinição da senha e habilitem o Write-back de Senha para o gerenciamento de senhas locais no Active Directory." 
+	services="active-directory"
+	keywords="Gerenciamento de senha do Active Directory, gerenciamento de senhas, redefinir senha do AD do Azure" 
 	documentationCenter="" 
 	authors="asteen" 
 	manager="kbrint" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="01/25/2016" 
 	ms.author="asteen"/>
 
 # Introdução ao Gerenciamento de Senhas
@@ -47,9 +48,9 @@ Antes de habilitar e usar a redefinição de senha por autoatendimento, você de
 - Criar um locatário do AAD. Para saber mais, consulte o [Introdução ao Azure AD](https://azure.microsoft.com/trial/get-started-active-directory/).
 - Obtenha uma assinatura do Azure. Para saber mais, consulte [O que é um locatário do Azure AD?](active-directory-administer.md#what-is-an-azure-ad-tenant).
 - Associe o seu locatário do AAD com a sua assinatura do Azure. Para saber mais sobre as assinaturas do Azure, consulte [Como as assinaturas do Azure são associadas ao Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx).
-- Atualize para o Azure AD Premium ou Basic. Para saber mais, consulte [Edições do Active Directory do Azure](http://azure.microsoft.com/pricing/details/active-directory/).
+- Atualize para o Azure AD Premium ou Basic. Para saber mais, consulte [Edições do Active Directory do Azure](https://azure.microsoft.com/pricing/details/active-directory/).
 
-  >[AZURE.NOTE]Para habilitar a redefinição de senha por autoatendimento, você deve atualizar para o Azure AD Premium ou Azure AD Basic. Para saber mais, consulte Edições do Active Directory do Azure. Estas informações incluem instruções detalhadas sobre como se inscrever para o Azure AD Premium ou Basic, como ativar o seu plano de licença e ativar o acesso ao Azure AD e como atribuir acesso a contas de administrador e usuário.
+  >[AZURE.NOTE] Para habilitar a redefinição de senha por autoatendimento, você deve atualizar para o Azure AD Premium ou Azure AD Basic. Para saber mais, consulte Edições do Active Directory do Azure. Estas informações incluem instruções detalhadas sobre como se inscrever para o Azure AD Premium ou Basic, como ativar o seu plano de licença e ativar o acesso ao Azure AD e como atribuir acesso a contas de administrador e usuário.
   
 - Crie pelo menos uma conta de administrador e uma conta de usuário no diretório do AAD.
 - Atribua uma licença do AAD Premium ou Basic para a conta de administrador e usuário que você criou.
@@ -60,7 +61,7 @@ Para configurar a política de redefinição de senha de usuário, conclua as se
 1.	Abra um navegador de sua escolha e acesse o [Portal de Gerenciamento do Azure](https://manage.windowsazure.com).
 2.	No [Portal de Gerenciamento do Azure](https://manage.windowsazure.com), localize o **extensão do Active Directory** na barra de navegação à esquerda.
 
-    ![][001]
+    ![Gerenciamento de Senhas no AD do Azure][001]
 
 3. Na guia **Diretório**, clique no diretório no qual você deseja configurar a política de redefinição de senha de usuário, por exemplo, Wingtip Toys.
 
@@ -72,7 +73,7 @@ Para configurar a política de redefinição de senha de usuário, conclua as se
 
 5.	Na guia **Configurar**, role para baixo até a seção **política de redefinição de senha de usuário**. Aqui é onde você configura todos os aspectos da política de redefinição de senha de usuário para um determinado diretório.
 
-    >[AZURE.NOTE]Esta **política se aplica somente a usuários finais na sua organização, e não aos administradores**. Por motivos de segurança, a Microsoft controla a política de redefinição de senha para administradores. Se você não vir essa seção, verifique se você se inscreveu para o Azure Active Directory Premium ou Basic e **atribuiu uma licença** à conta de administrador que está configurando este recurso.
+    >[AZURE.NOTE] Esta **política se aplica somente a usuários finais na sua organização, e não aos administradores**. Por motivos de segurança, a Microsoft controla a política de redefinição de senha para administradores. Se você não vir essa seção, verifique se você se inscreveu para o Azure Active Directory Premium ou Basic e **atribuiu uma licença** à conta de administrador que está configurando este recurso.
 
     ![][004]
 
@@ -82,7 +83,7 @@ Para configurar a política de redefinição de senha de usuário, conclua as se
 
 7.	Depois de configurar a sua política de redefinição de senha de usuário conforme desejado para o seu locatário, clique no botão **Salvar** na parte inferior da tela.
 
-  >[AZURE.NOTE]É recomendada uma política de redefinição de senha de usuário de dois desafios, para que você possa ver como a funcionalidade opera no caso mais complexo.
+  >[AZURE.NOTE] É recomendada uma política de redefinição de senha de usuário de dois desafios, para que você possa ver como a funcionalidade opera no caso mais complexo.
 
   ![][006]
 
@@ -178,19 +179,19 @@ Antes de poder habilitar e usar o Write-back de Senha, você deve concluir os se
 - Configurar e habilitar a redefinição de senha no seu locatário. Para saber mais, consulte [Permitir que os usuários redefinam suas senhas do Azure AD](#enable-users-to-reset-their-azure-ad-passwords)
 - Ter pelo menos uma conta de administrador e uma conta de usuário de teste com uma licença do Azure AD Premium que você pode usar para testar esse recurso. Para saber mais, consulte [Edições do Active Directory do Azure](active-directory-editions.md).
 
-  >[AZURE.NOTE]Certifique-se de que a conta de administrador usada para habilitar o Write-back de Senha é uma conta de administrador de nuvem (criado no Azure AD), e não uma conta federada (criado no AD local e sincronizada com o Azure AD).
+  >[AZURE.NOTE] Certifique-se de que a conta de administrador usada para habilitar o Write-back de Senha é uma conta de administrador de nuvem (criado no Azure AD), e não uma conta federada (criado no AD local e sincronizada com o Azure AD).
   
 - Ter uma implantação local única ou de várias florestas do AD executando o Windows Server 2008, Windows Server 2008 R2, Windows Server 2012 ou Windows Server 2012 R2 com service packs mais recentes instalados.
 
-  >[AZURE.NOTE]Se você estiver executando uma versão anterior do Windows Server 2008 ou 2008 R2, você pode usar este recurso, mas será necessário [Baixar e instalar a atualização KB 2386717](https://support.microsoft.com/kb/2386717) antes de poder aplicar a política de senha local do AD na nuvem.
+  >[AZURE.NOTE] Se você estiver executando uma versão anterior do Windows Server 2008 ou 2008 R2, você pode usar este recurso, mas será necessário [Baixar e instalar a atualização KB 2386717](https://support.microsoft.com/kb/2386717) antes de poder aplicar a política de senha local do AD na nuvem.
   
 - Ter a ferramenta Azure AD Connect instalada e preparar o ambiente do AD para sincronização para a nuvem. Para saber mais, consulte [Usar a sua infraestrutura de identidade local na nuvem](active-directory-aadconnect.md).
 
-  >[AZURE.NOTE]Antes de testar o write-back de senha, certifique-se de primeiro concluir uma importação e sincronização completas no AD e no AD do Azure no AD do Azure
+  >[AZURE.NOTE] Antes de testar o write-back de senha, certifique-se de primeiro concluir uma importação e sincronização completas no AD e no AD do Azure no AD do Azure
 
 - Se estiver usando o Azure AD Sync ou o Azure AD Connect, a **TCP 443** de saída (e, em alguns casos, as **TCP 9350 a 9354**) precisam estar abertas. Veja [Etapa 3: configurar seu firewall](#step-3-configure-your-firewall) para obter mais informações. Não há mais suporte para o uso do DirSync para esse cenário. Se ainda estiver usando o DirSync, atualize para a versão mais recente do Azure Connect AD antes de implantar o write-back de senha.
 
-  >[AZURE.NOTE]É altamente recomendável que qualquer pessoa que use as ferramentas Azure AD Sync ou DirSync atualizem para a versão mais recente do Azure AD Connect para garantir a melhor experiência possível e obter novos recursos conforme são lançados.
+  >[AZURE.NOTE] É altamente recomendável que qualquer pessoa que use as ferramentas Azure AD Sync ou DirSync atualizem para a versão mais recente do Azure AD Connect para garantir a melhor experiência possível e obter novos recursos conforme são lançados.
   
 
 ### Etapa 1: baixar a versão mais recente do Azure AD Connect
@@ -207,7 +208,7 @@ O Write-back de Senha está disponível nas versões do Azure AD Connect ou na f
 
 Se este número de versão for maior que ou igual a **1.0.0419.0911** ou se você estiver instalando o Azure AD Connect, poderá passar para a [Etapa 2: habilitar o Write-back de Senha no Azure AD Connect através da interface de usuário ou do PowerShell e verificar](#step-2-enable-password-writeback-in-azure-ad-connect).
 
- >[AZURE.NOTE]Se esta for a primeira vez que você instala a ferramenta Azure AD Connect, é recomendável que você siga algumas práticas úteis para preparar o ambiente para a sincronização de diretórios. Antes de instalar a ferramenta de Azure AD Connect, você deve ativar a sincronização de diretórios no [Portal de Administração do Office 365](https://portal.microsoftonline.com) ou no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com). Para saber mais, consulte [Gerenciar o Azure AD Connect](active-directory-aadconnect-whats-next.md).
+ >[AZURE.NOTE] Se esta for a primeira vez que você instala a ferramenta Azure AD Connect, é recomendável que você siga algumas práticas úteis para preparar o ambiente para a sincronização de diretórios. Antes de instalar a ferramenta de Azure AD Connect, você deve ativar a sincronização de diretórios no [Portal de Administração do Office 365](https://portal.microsoftonline.com) ou no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com). Para saber mais, consulte [Gerenciar o Azure AD Connect](active-directory-aadconnect-whats-next.md).
 
 
 ### Etapa 2: habilitar o Write-back de Senha no Azure AD Connect
@@ -222,7 +223,7 @@ Agora que você já baixou a ferramenta Azure AD Connect, você está pronto par
 
 4.	Conclua o assistente, a página final resumirá as alterações e incluirá a alteração de configuração de Write-back de Senha.
 
-> [AZURE.NOTE]Você pode desabilitar o Write-back de Senha a qualquer momento reexecutando o assistente e desmarcando o recurso, ou definindo a configuração **Gravar senhas novamente para no Diretório Local** definida como **Não** na seção**Política de Redefinição de Senha de Usuário** da guia **Configurar** do seu diretório no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com). Para saber mais sobre como personalizar a sua experiência de redefinição de senha, confira [Personalizar: Gerenciamento de Senhas do Azure AD](active-directory-passwords-customize.md)
+> [AZURE.NOTE] Você pode desabilitar o Write-back de Senha a qualquer momento reexecutando o assistente e desmarcando o recurso, ou definindo a configuração **Gravar senhas novamente para no Diretório Local** definida como **Não** na seção**Política de Redefinição de Senha de Usuário** da guia **Configurar** do seu diretório no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com). Para saber mais sobre como personalizar a sua experiência de redefinição de senha, confira [Personalizar: Gerenciamento de Senhas do Azure AD](active-directory-passwords-customize.md)
 
 #### Para habilitar o Write-back de Senha usando o Windows PowerShell
 1.	No seu **Computador do Directory Sync**, abra uma nova **janela do Windows PowerShell com privilégios elevados**.
@@ -231,7 +232,7 @@ Agora que você já baixou a ferramenta Azure AD Connect, você está pronto par
 4.	Para obter o status atual do write-back do conector atual, execute o seguinte cmdlet: `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName`
 5.	Habilite o Write-back de Senha executando o cmdlet: `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName –Enable $true`
 
-> [AZURE.NOTE]Se for solicitada uma credencial, certifique-se de que a conta de administrador que você especificar como AzureADCredential é uma **conta de administrador na nuvem (criada no Azure AD)**, e não uma conta federada (criado no AD local e sincronizada com o Azure AD.[AZURE.NOTE]Você pode desabilitar o Write-back de Senha por meio do PowerShell repetindo as mesmas instruções acima, mas passando `$false` em vez disso, ou definindo a configuração **Gravar senhas novamente no Diretório Local** definir como **Não** na **seção Política de Redefinição de Senha do Usuário** da guia **Configurar** do seu diretório no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com).
+> [AZURE.NOTE] Se for solicitada uma credencial, certifique-se de que a conta de administrador que você especificar como AzureADCredential é uma **conta de administrador na nuvem (criada no Azure AD)**, e não uma conta federada (criado no AD local e sincronizada com o Azure AD.[AZURE.NOTE] Você pode desabilitar o Write-back de Senha por meio do PowerShell repetindo as mesmas instruções acima, mas passando `$false` em vez disso, ou definindo a configuração **Gravar senhas novamente no Diretório Local** definir como **Não** na **seção Política de Redefinição de Senha do Usuário** da guia **Configurar** do seu diretório no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com).
 
 #### Verificar se a configuração foi bem-sucedida
 Se a configuração for bem-sucedida, você verá a mensagem “Write-back de redefinição de senha habilitado” na janela do Windows PowerShell, ou uma mensagem de êxito na interface de usuário de configuração.
@@ -259,7 +260,7 @@ Se não tiver certeza sobre qual conta a descrição acima se refere, abra a int
 
   Definir essas permissões permite que a conta de serviço MA de cada floresta gerencie senhas em nome de contas de usuário na floresta. Se você não atribuir essas permissões, em seguida, mesmo que o write-back pareça estar configurado corretamente, os usuários encontrarão erros ao tentar gerenciar suas senhas locais na nuvem. Aqui estão as etapas detalhadas sobre como você pode fazer isso usando o snap-in de gerenciamento **Usuários e Computadores do Active Directory**:
 
->[AZURE.NOTE]Pode levar até uma hora para que essas permissões sejam replicadas em todos os objetos no diretório.
+>[AZURE.NOTE] Pode levar até uma hora para que essas permissões sejam replicadas em todos os objetos no diretório.
 
 #### Para configurar as permissões corretas para que o write-back ocorra
 
@@ -350,4 +351,4 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
 [032]: ./media/active-directory-passwords-getting-started/032.jpg "Image_032.jpg"
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

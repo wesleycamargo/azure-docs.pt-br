@@ -35,7 +35,7 @@ Atualmente, o Azure não dá suporte ao Oracle Real Application Clusters (RAC) d
 
 ### Nenhum IP interno estático
 
-O Azure atribui um endereço IP interno a cada máquina virtual. A menos que a máquina virtual faça parte de uma rede virtual, o endereço IP da máquina virtual será dinâmico e poderá ser alterado depois de reiniciar a máquina virtual. Isso pode causar problemas porque o Oracle Database espera que o endereço IP seja estático. Para evitar esse problema, considere adicionar a máquina virtual a uma Rede Virtual do Azure. Veja [Rede Virtual](http://azure.microsoft.com/documentation/services/virtual-network/) e [Criar uma rede virtual no Azure](create-virtual-network.md) para obter mais informações.
+O Azure atribui um endereço IP interno a cada máquina virtual. A menos que a máquina virtual faça parte de uma rede virtual, o endereço IP da máquina virtual será dinâmico e poderá ser alterado depois de reiniciar a máquina virtual. Isso pode causar problemas porque o Oracle Database espera que o endereço IP seja estático. Para evitar esse problema, considere adicionar a máquina virtual a uma Rede Virtual do Azure. Veja [Rede Virtual](https://azure.microsoft.com/documentation/services/virtual-network/) e [Criar uma rede virtual no Azure](create-virtual-network.md) para obter mais informações.
 
 ### Opções de configuração de disco anexado
 
@@ -53,13 +53,13 @@ Considere duas abordagens diferentes para anexar vários discos com base em se v
 
 	![](media/virtual-machines-miscellaneous-considerations-oracle-virtual-machine-images/image3.png)
 
->[AZURE.IMPORTANT]Avalie o equilíbrio entre o desempenho de gravação e leitura caso a caso. Os resultados reais podem variar ao usar essas abordagens.
+>[AZURE.IMPORTANT] Avalie o equilíbrio entre o desempenho de gravação e leitura caso a caso. Os resultados reais podem variar ao usar essas abordagens.
 
 ### Considerações sobre alta disponibilidade e recuperação de desastres
 
 Ao usar o Banco de Dados Oracle em máquinas virtuais do Azure, você será responsável por implementar uma solução de recuperação de desastres e alta disponibilidade para evitar que haja tempo de inatividade. Você também é responsável pelo backup de seus dados e aplicativos.
 
-É possível obter alta disponibilidade e recuperação de desastres para o Oracle Database Enterprise Edition (sem RAC) no Azure usando o [Data Guard, Active Data Guard](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html) ou o [Oracle Golden Gate](http://www.oracle.com/technetwork/middleware/goldengate), com dois bancos de dados em duas máquinas virtuais separadas. As duas máquinas virtuais devem estar no mesmo [serviço de nuvem](cloud-services-connect-virtual-machine.md) e na mesma [rede virtual](http://azure.microsoft.com/documentation/services/virtual-network/) para garantir que possam se acessar mutuamente por um endereço IP privado persistente. Além disso, é recomendável colocar as máquinas virtuais no mesmo [conjunto de disponibilidade](manage-availability-virtual-machines.md) para permitir que o Azure as coloque em domínios de falha e domínios de atualização separados. Observe que apenas máquinas virtuais no mesmo serviço de nuvem podem participar do mesmo conjunto de disponibilidade. Cada máquina virtual deve ter pelo menos 2 GB de memória e 5 GB de espaço em disco.
+É possível obter alta disponibilidade e recuperação de desastres para o Oracle Database Enterprise Edition (sem RAC) no Azure usando o [Data Guard, Active Data Guard](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html) ou o [Oracle Golden Gate](http://www.oracle.com/technetwork/middleware/goldengate), com dois bancos de dados em duas máquinas virtuais separadas. As duas máquinas virtuais devem estar no mesmo [serviço de nuvem](cloud-services-connect-virtual-machine.md) e na mesma [rede virtual](https://azure.microsoft.com/documentation/services/virtual-network/) para garantir que possam se acessar mutuamente por um endereço IP privado persistente. Além disso, é recomendável colocar as máquinas virtuais no mesmo [conjunto de disponibilidade](manage-availability-virtual-machines.md) para permitir que o Azure as coloque em domínios de falha e domínios de atualização separados. Observe que apenas máquinas virtuais no mesmo serviço de nuvem podem participar do mesmo conjunto de disponibilidade. Cada máquina virtual deve ter pelo menos 2 GB de memória e 5 GB de espaço em disco.
 
 Com o Oracle Data Guard, a alta disponibilidade pode ser obtida com um banco de dados primário em uma máquina virtual, um banco de dados secundário (em espera) em outra máquina virtual e replicação unidirecional entre eles. O resultado é o acesso de leitura à cópia do banco de dados. Com o Oracle GoldenGate, você pode configurar a replicação bidirecional entre dois bancos de dados. Para saber como configurar uma solução de alta disponibilidade para seus bancos de dados usando essas ferramentas, veja a documentação do [Active Data Guard](http://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) e do [GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/index.html) no site da Oracle. Se precisar de acesso de leitura-gravação à cópia do banco de dados, você poderá usar o [Oracle Active Data Guard](http://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html).
 
@@ -108,4 +108,4 @@ Para obter informações relacionadas, veja o artigo **860340.1** da Base de Con
 ##Recursos adicionais
 [Imagens de máquina virtual Oracle para Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

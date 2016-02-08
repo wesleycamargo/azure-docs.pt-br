@@ -20,7 +20,7 @@
 O RemoteApp do Azure usa uma imagem do modelo do Windows Server 2012 R2 para hospedar todos os programas que deseja compartilhar com os seus usuários. Para criar uma imagem do modelo do RemoteApp personalizada, é possível iniciar com uma imagem existente ou criar uma nova.
 
 
-> [AZURE.TIP]Você sabia que pode criar uma imagem de uma VM do Azure? É verdade, e isso reduz o tempo necessário para importar a imagem. Confira as etapas [aqui](remoteapp-image-on-azurevm.md).
+> [AZURE.TIP] Você sabia que pode criar uma imagem de uma VM do Azure? É verdade, e isso reduz o tempo necessário para importar a imagem. Confira as etapas [aqui](remoteapp-image-on-azurevm.md).
 
 Os requisitos para a imagem passiva de upload para o uso com o RemoteApp do Azure são:
 
@@ -43,7 +43,7 @@ Os requisitos para a imagem passiva de upload para o uso com o RemoteApp do Azur
 
 É necessário fazer o seguinte antes de criar o serviço:
 
-- [Inscrever-se](http://azure.microsoft.com/services/remoteapp/) no RemoteApp.
+- [Inscrever-se](https://azure.microsoft.com/services/remoteapp/) no RemoteApp.
 - Crie uma conta de usuário no Active Directory para usar como a conta de serviço do RemoteApp. Restrinja as permissões para esta conta para que ela possa conectar-se somente às máquinas no domínio. Consulte [Configurar o Active Directory do Azure para o RemoteApp](remoteapp-ad.md) para obter mais informações.
 - Colete informações sobre a sua rede local: informações sobre endereço IP e detalhes do dispositivo VPN.
 - Instale o módulo [PowerShell do Azure](../install-configure-powershell.md).
@@ -142,4 +142,4 @@ Agora que você tem a sua imagem de modelo personalizada, você precisará atual
 - [Como criar uma coleção na nuvem do RemoteApp](remoteapp-create-cloud-deployment.md)
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -24,7 +24,7 @@
 
 O Data Factory é um serviço de integração de dados baseado em nuvem que automatiza a movimentação e a transformação dos dados. Assim como uma fábrica que usa equipamentos para pegar matérias-primas e transformá-las em produtos, o Data Factory orquestra serviços existentes que coletam dados brutos e os transformam em informações para uso imediato.
 
-O Data Factory funciona com fontes de dados e SaaS locais e na nuvem para ingerir, preparar, transformar, analisar e publicar seus dados. Use o Data Factory para transformar serviços em pipelines de fluxo de dados gerenciados e para transformar seus dados, usando serviços como [Azure HDInsight (Hadoop)](http://azure.microsoft.com/documentation/services/hdinsight/) e [Lote do Azure](http://azure.microsoft.com/documentation/services/batch/) para suas necessidades de computação de big data, e com o [Aprendizado de Máquina do Azure](http://azure.microsoft.com/documentation/services/machine-learning/) para operacionalizar suas soluções de análise. Vá além de uma simples exibição de monitoramento tabular e use as visualizações de dados avançadas do Data Factory para exibir rapidamente a linhagem e as dependências entre os pipelines de dados. Monitore todos os seus pipelines de fluxo de dados, de uma única exibição unificada para identificar facilmente os problemas e configurar alertas de monitoramento.
+O Data Factory funciona com fontes de dados e SaaS locais e na nuvem para ingerir, preparar, transformar, analisar e publicar seus dados. Use o Data Factory para transformar serviços em pipelines de fluxo de dados gerenciados e para transformar seus dados, usando serviços como [Azure HDInsight (Hadoop)](http://azure.microsoft.com/documentation/services/hdinsight/) e [Lote do Azure](https://azure.microsoft.com/documentation/services/batch/) para suas necessidades de computação de big data, e com o [Aprendizado de Máquina do Azure](https://azure.microsoft.com/documentation/services/machine-learning/) para operacionalizar suas soluções de análise. Vá além de uma simples exibição de monitoramento tabular e use as visualizações de dados avançadas do Data Factory para exibir rapidamente a linhagem e as dependências entre os pipelines de dados. Monitore todos os seus pipelines de fluxo de dados, de uma única exibição unificada para identificar facilmente os problemas e configurar alertas de monitoramento.
 
 Consulte [Visão geral e principais conceitos](data-factory-introduction.md) para obter mais detalhes.
  
@@ -72,7 +72,7 @@ Consulte a seção **Limites do Azure Data Factory** do artigo [Limites, cotas e
 
 Você pode criar fábricas de dados usando um dos seguintes itens:
 
-- **Portal do Azure**. As folhas da Fábrica de Dados no Portal do Azure fornecem uma avançada interface do usuário para que você crie fábricas de dados e serviços vinculados. O **Editor Data Factory**, que também faz parte do portal, permite que você crie facilmente serviços vinculados, tabelas, conjuntos de dados e pipelines especificando definições de JSON para esses artefatos. Confira [Editor Data Factory][data-factory-editor] para obter uma visão geral do editor e [Introdução ao Data Factory][datafactory-getstarted] para obter um exemplo de uso do portal/editor para criar e implantar uma fábrica de dados.   
+- **Portal do Azure**. As folhas da Fábrica de Dados no Portal do Azure fornecem uma avançada interface do usuário para que você crie fábricas de dados e serviços vinculados. O **Editor Data Factory**, que também faz parte do portal, permite que você crie facilmente serviços vinculados, tabelas, conjuntos de dados e pipelines especificando definições de JSON para esses artefatos. Confira [Introdução ao Data Factory][datafactory-getstarted] para obter um exemplo de como usar o portal/editor para criar e implantar um data factory.   
 - **PowerShell do Azure**. Se for um usuário do PowerShell e preferir usar o PowerShell em vez da interface do usuário do Portal, você poderá usar os cmdlets de Fábrica de Dados do Azure que são fornecidos como parte do PowerShell do Azure para criar e implantar fábricas de dados. Confira [Criar e monitorar o Azure Data Factory usando o PowerShell do Azure][create-data-factory-using-powershell] para obter um exemplo simples e [Tutorial: mover e processar os arquivos de log usando o Data Factory][adf-tutorial] para obter um exemplo avançado de uso de cmdlets do PowerShell para criar e implantar uma fábrica de dados. Confira o conteúdo de [Referência de cmdlets de Data Factory][adf-powershell-reference] na Biblioteca do MSDN para obter uma documentação abrangente de cmdlets de Data Factory.  
 - **Visual Studio**. Você também pode usar o Visual Studio para criar, monitorar e gerenciar os data factories programaticamente. Consulte [Criar, monitorar e gerenciar data factories do Azure usando o SDK do .NET do Data Factory](data-factory-create-data-factories-programmatically.md) para obter detalhes.  
 - **Biblioteca de classes do .NET**. Você pode criar fábricas de dados programaticamente usando o SDK do .NET de Fábrica de Dados. Confira [Criar, monitorar e gerenciar fábricas de dados usando o SDK do .NET][create-factory-using-dotnet-sdk] para obter uma explicação sobre a criação de uma fábrica de dados usando o SDK do .NET. Confira a [Referência da Biblioteca de Classes de Data Factory][msdn-class-library-reference] para obter uma documentação abrangente sobre o SDK do .NET de Data Factory.  
@@ -156,7 +156,6 @@ Se você realmente desejar parar todas as execuções imediatamente, a única ma
 [adfgetstarted]: data-factory-get-started.md
 [adf-introduction]: data-factory-introduction.md
 [adf-troubleshoot]: data-factory-troubleshoot.md
-[data-factory-editor]: data-factory-editor.md
 [datafactory-getstarted]: data-factory-get-started.md
 [create-data-factory-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [adf-tutorial]: data-factory-tutorial.md
@@ -175,4 +174,4 @@ Se você realmente desejar parar todas as execuções imediatamente, a única ma
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

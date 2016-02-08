@@ -77,7 +77,7 @@ Execute as seguintes etapas para restaurar seu dispositivo para um dispositivo f
 
 	1. Na lista de contêineres de volume, selecione os contêineres de volume para failover.
 
-		>[AZURE.NOTE]**São exibidos apenas os contêineres de volume com instantâneos de nuvem e volumes offline associados.**
+		>[AZURE.NOTE] **São exibidos apenas os contêineres de volume com instantâneos de nuvem e volumes offline associados.**
 
 	1. Em **Escolher um dispositivo de destino** para os volumes nos contêineres selecionados, selecione um dispositivo de destino na lista suspensa de dispositivos disponíveis. Apenas os dispositivos que têm a capacidade disponível são exibidos na lista suspensa.
 
@@ -103,7 +103,7 @@ Se você só tiver um único dispositivo e precisa executar um failover, execute
 
 1. Para o novo dispositivo, conclua a configuração mínima do dispositivo pela primeira vez.
 												
-	>[AZURE.IMPORTANT]**Se a configuração mínima não for concluída primeiro, a recuperação de desastres falhará devido a um bug na implementação atual. Esse problema será corrigido em uma versão posterior.**
+	>[AZURE.IMPORTANT] **Se a configuração mínima não for concluída primeiro, a recuperação de desastres falhará devido a um bug na implementação atual. Esse problema será corrigido em uma versão posterior.**
 
 1. Selecione o dispositivo antigo (status offline) e clique em **Failover**. No assistente que é apresentado, faça o failover desse dispositivo e especificar o dispositivo de destino como o dispositivo registrado recentemente. Para obter instruções detalhadas, consulte [Failover para outro dispositivo físico](#fail-over-to-another-physical-device).
 
@@ -131,7 +131,7 @@ Execute as seguintes etapas para restaurar o dispositivo para um dispositivo vir
 													
 	a. Na lista de contêineres de volume, selecione os contêineres de volume para failover.
 
-	>[AZURE.NOTE]**São exibidos apenas os contêineres de volume com instantâneos de nuvem e volumes offline associados.**
+	>[AZURE.NOTE] **São exibidos apenas os contêineres de volume com instantâneos de nuvem e volumes offline associados.**
 
 	b. Em **Escolher um dispositivo de destino para os volumes nos contêineres selecionados**, selecione o dispositivo virtual StorSimple na lista suspensa de dispositivos disponíveis. Somente os dispositivos que possuem capacidade suficiente são exibidos na lista suspensa.
 	
@@ -146,7 +146,7 @@ Execute as seguintes etapas para restaurar o dispositivo para um dispositivo vir
 
 ![Vídeo disponível](./media/storsimple-device-failover-disaster-recovery/Video_icon.png) **Vídeo disponível**
 
-Para assistir a um vídeo que demonstra como é possível restaurar um dispositivo físico que passou por failover em um dispositivo virtual na nuvem, clique [aqui](http://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
+Para assistir a um vídeo que demonstra como é possível restaurar um dispositivo físico que passou por failover em um dispositivo virtual na nuvem, clique [aqui](https://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
 
 ## BCDR (recuperação de desastre de continuidade de negócios)
 
@@ -162,4 +162,4 @@ Se houver dispositivos StorSimple que foram registrados antes da ocorrência de 
 - Para obter informações sobre como usar o serviço StorSimple Manager, acesse [Usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

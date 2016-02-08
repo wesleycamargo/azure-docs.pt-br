@@ -40,7 +40,7 @@ Verifique se estes pré-requisitos estão em vigor:
 
 **Pré-requisitos** | **Detalhes** 
 --- | ---
-**As tabelas**| Você precisará de uma conta do [Microsoft Azure](http://azure.microsoft.com/). Você pode começar com uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/). [Saiba mais](https://azure.microsoft.com/pricing/details/site-recovery/) sobre os preços da Recuperação de Site. 
+**As tabelas**| Você precisará de uma conta do [Microsoft Azure](https://azure.microsoft.com/). Você pode começar com uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/). [Saiba mais](https://azure.microsoft.com/pricing/details/site-recovery/) sobre os preços da Recuperação de Site. 
 **VMM** | Será necessário pelo menos um servidor do VMM.<br/><br/>O servidor deve executar pelo menos o System Center 2012 SP1 com as últimas atualizações cumulativas.<br/><br/>Se quiser configurar a proteção com um único servidor do VMM, precisará de pelo menos duas nuvens configuradas no servidor.<br/><br/>Se quiser implantar a proteção com dois servidores VMM, cada servidor precisa ter no mínimo uma nuvem configurada no servidor do VMM primário que deseja proteger e uma nuvem configurada no servidor do VMM secundário que deseja usar para proteção e recuperação<br/><br/>Todas as nuvens do VMM precisam ter o conjunto de perfis de Capacidade do Hyper-V.<br/><br/>A nuvem de origem que você quer proteger deve conter um ou mais grupos de hosts do VMM.<br/><br/>Saiba mais sobre a configuração de nuvens do VMM em [Configurando a malha de nuvem do VMM](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric) e [Passo a passo: Criando nuvens privadas com o System Center 2012 SP1 VMM](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx).
 **Hyper-V** | Você precisará de um ou mais servidores de host do Hyper-V nos grupos de hosts do VMM primários e secundários e de uma ou mais máquinas virtuais em cada servidor de host do Hyper-V.<br/><br/>Os servidores do Hyper-V de host e de destino devem executar pelo menos o Windows Server 2012 com a função Hyper-V e ter as atualizações mais recentes instaladas.<br/><br/>Qualquer servidor do Hyper-V com VMs que você deseja proteger deve estar localizado em uma nuvem do VMM.<br/><br/>Se você estiver executando o Hyper-V em um cluster, observe que o agente de cluster não será criado automaticamente caso tenha um cluster baseado em endereços IP estáticos. Você precisará configurar o agente de cluster manualmente. [Leia mais](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx).
 **Mapeamento de rede** | Você pode definir o mapeamento de rede para assegurar que as máquinas virtuais de réplica sejam colocadas da melhor forma possível em servidores host Hyper-V secundários após o failover e que possam se conectar às redes VM apropriadas. Se você não configurar a réplica de mapeamento de rede, as VMs não serão conectadas a nenhuma rede após o failover.<br/><br/>Para configurar o mapeamento de rede durante a implantação, certifique-se de que as máquinas virtuais no servidor host Hyper-V de origem estejam conectadas a uma rede VM do VMM. Essa rede deve estar vinculada a uma rede lógica associada com a nuvem.<br/<br/>A nuvem de destino no servidor do VMM secundário que você usar para recuperação deverá ter uma rede VM correspondente configurada, que, por sua vez, deverá estar vinculada a uma rede lógica correspondente associada à nuvem de destino.<br/><br/>[Saiba mais](site-recovery-network-mapping.md) sobre o mapeamento de rede.
@@ -106,12 +106,12 @@ Gere uma chave de registro no cofre. Após baixar o Provedor do Azure Site Recov
 	- Se quiser usar um proxy personalizado, você deverá configurá-lo antes de instalar o provedor. Quando você definir as configurações personalizadas de proxy, será executado um teste para verificar a conexão proxy.
 	- Se usar um proxy personalizado ou se seu proxy padrão exigir autenticação, você precisará inserir os detalhes do proxy, incluindo a porta e o endereço do proxy.
 	- As URLs a seguir devem estar acessíveis no servidor do VMM e nos hosts Hyper-V
-		- *.hypervrecoverymanager.windowsazure.com
-		- *.accesscontrol.windows.net
-		- *.backup.windowsazure.com
-		- *.blob.core.windows.net
-		- *.store.core.windows.net
-	- Permita os endereços IP descritos em [Intervalos de IP do armazenamento de dados do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e o protocolo HTTPS (443). Você teria que fazer uma lista de intervalos IP válidos da região do Azure que você planeja usar e do oeste dos EUA.
+		- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+- Permita os endereços IP descritos em [Intervalos de IP do armazenamento de dados do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e o protocolo HTTPS (443). Você teria que fazer uma lista de intervalos IP válidos da região do Azure que você planeja usar e do oeste dos EUA.
 	- Se você usar um proxy personalizado, uma conta RunAs VMM (DRAProxyAccount) será criada automaticamente usando as credenciais de proxy especificadas. Configure o servidor proxy para que essa conta possa ser autenticada com êxito. As configurações da conta RunAs VMM podem ser modificadas no console do VMM. Para fazer isso, abra o espaço de trabalho **Configurações**, expanda **Segurança**, clique em **Executar como Contas**e modifique a senha de DRAProxyAccount. Você precisará reiniciar o serviço VMM para que essa configuração entre em vigor.
 
 8. Em **Chave de registro**, selecione que você baixou a partir de Recuperação de Site do Azure e copiou para o servidor VMM.
@@ -375,4 +375,4 @@ O Provedor no servidor VMM é notificado do evento pelo Serviço e executa uma a
 
 - **Escolha**: essa é uma parte essencial do serviço e não pode ser desativada. Se não quiser que essas informações sejam enviadas ao Serviço, não use esse Serviço.
 
-<!-----HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

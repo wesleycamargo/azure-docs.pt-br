@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/14/2016"
+   ms.date="01/27/2016"
    ms.author="alkohli"/>
 
 # Restaurar de um backup de sua StorSimple Virtual Array (Visualização)
@@ -77,8 +77,6 @@ Para restaurar de um backup, execute as etapas a seguir no portal clássico do A
 
 3.  Navegue de volta para a guia **Catálogo de Backup** e selecione um conjunto de backup.
 
-4.  Na parte inferior da página, clique em **Restaurar como novo**.
-
 5.  Na parte inferior da página, clique em **Restaurar como novo**. O assistente **Restaurar como novo volume** será iniciado.
 
 1.  Na página **Especificar nome e local**:
@@ -98,13 +96,13 @@ Para restaurar de um backup, execute as etapas a seguir no portal clássico do A
 
 1.  Clique no ícone de verificação ![](./media/storsimple-ova-restore/image1.png). Isso iniciará um trabalho de restauração e você verá a notificação a seguir, de que o trabalho está em andamento.
 
-2.  Depois que o trabalho de restauração for concluído, a restauração será iniciada e você verá outra notificação. Para monitorar o andamento da restauração, clique em **Exibir trabalho**. Isso levará você até a página **Trabalhos**.
+2.  Depois que o trabalho de restauração for concluído, a restauração será iniciada e você verá outra notificação. Para monitorar o progresso da restauração, clique em **Exibir trabalho**. Isso levará você até a página **Trabalhos**.
 
 3.  Você pode acompanhar o andamento do trabalho de restauração. Quando a restauração for 100% concluída, navegue até a página **Volumes** em seu dispositivo.
 
 4.  Agora você pode exibir o novo volume restaurado na lista de volume em seu dispositivo.
 
-	> [AZURE.NOTE]Observe que a restauração é feita para o mesmo tipo do volume. Um volume em camadas é restaurado como em camadas, e um volume fixado localmente é restaurado como um volume fixado localmente.
+	> [AZURE.NOTE] Observe que a restauração é feita para o mesmo tipo do volume. Um volume em camadas é restaurado como em camadas, e um volume fixado localmente é restaurado como um volume fixado localmente.
 
 ## ILR (recuperação em nível de item)
 
@@ -118,7 +116,7 @@ Cada compartilhamento tem uma pasta *.backups* que contém os backups mais recen
 	Os últimos 5 backups são exibidos dessa maneira. Isso inclui tanto os backups agendados padrão quanto os manuais.
 
 	
-	-   **Backups agendados** nomeados como &lt;Nome do dispositivo&gt;DailySchedule-YYYYMMDD-HHMMSS-UTC.
+	-   **Backups agendados** nomeados como &lt;Device name&gt;DailySchedule-YYYYMMDD-HHMMSS-UTC.
 
 	-   **Backups manuais** nomeados como Ad-hoc-YYYYMMDD-HHMMSS-UTC.
 	
@@ -130,9 +128,14 @@ Cada compartilhamento tem uma pasta *.backups* que contém os backups mais recen
 
 3.  Copie o arquivo ou pasta no compartilhamento apropriado no servidor de arquivos StorSimple.
 
+![video\_icon](./media/storsimple-ova-restore/video_icon.png) **Vídeo disponível**
+
+Assista ao vídeo para ver como você pode criar compartilhamentos, fazer backup de compartilhamentos e restaurar dados em uma StorSimple Virtual Array.
+
+> [AZURE.VIDEO use-the-storsimple-virtual-array]
 
 ## Próximas etapas
 
-Saiba mais sobre como [administrar sua StorSimple Virtual Array usando a interface do usuário da Web local](storsimple-ova-web-ui-admin.md).
+Saiba mais sobre como [administrar o StorSimple Virtual Array usando a interface do usuário da Web local](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

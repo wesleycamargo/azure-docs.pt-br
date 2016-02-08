@@ -36,7 +36,7 @@ Para solucionar problemas de aplicativos cliente que usam o armazenamento do Mic
 
 	- **O log de armazenamento** registra cada solicitação dos serviços de Armazenamento do Azure em um log do servidor. O log registra dados detalhados para cada solicitação, incluindo a operação executada, o status da operação e informações de latência. Consulte o [Formato do Log de Análise de Armazenamento](http://msdn.microsoft.com/library/azure/hh343259.aspx) para obter mais informações sobre os dados de solicitação e resposta gravados nos logs pela Análise de Armazenamento.
 
-- **Portal Clássico do Azure**. Você pode configurar log e métricas para sua conta de armazenamento no [Portal Clássico do Azure](manage.windowsazure.com). Você também pode exibir gráficos que mostram o desempenho do seu aplicativo ao longo do tempo e configurar alertas para notificá-lo se seu aplicativo for executado de forma diferente do esperado para uma métrica especificada.
+- **Portal Clássico do Azure**. Você pode configurar log e métricas para sua conta de armazenamento no [Portal Clássico do Azure](https://manage.windowsazure.com). Você também pode exibir gráficos que mostram o desempenho do seu aplicativo ao longo do tempo e configurar alertas para notificá-lo se seu aplicativo for executado de forma diferente do esperado para uma métrica especificada.
 	
 	Consulte [Como monitorar uma conta de armazenamento](storage-monitor-storage-account.md) para obter informações sobre como configurar o monitoramento no Portal Clássico do Azure.
 
@@ -88,13 +88,13 @@ Neste tutorial, usaremos o Analisador de Mensagem para trabalhar com três tipos
 
 ### Configurar o log de servidor e métricas
 
-Primeiro, precisaremos configurar o log de armazenamento do Azure e suas métricas, para que tenhamos dados do aplicativo cliente para analisar. Você pode configurar o registro em log e métricas de diversas maneiras, por meio do [Portal Clássico do Azure](manage.windowsazure.com), usando o PowerShell ou com programação. Consulte [Habilitando as Métricas de Armazenamento e Exibindo os Dados da Métrica](http://msdn.microsoft.com/library/azure/dn782843.aspx) e [Habilitando o Log de Armazenamento e Acessando os Dados de Log](http://msdn.microsoft.com/library/azure/dn782840.aspx) no MSDN para obter detalhes sobre como configurar o registro em log e as métricas.
+Primeiro, precisaremos configurar o log de armazenamento do Azure e suas métricas, para que tenhamos dados do aplicativo cliente para analisar. Você pode configurar o registro em log e métricas de diversas maneiras, por meio do [Portal Clássico do Azure](https://manage.windowsazure.com), usando o PowerShell ou com programação. Consulte [Habilitando as Métricas de Armazenamento e Exibindo os Dados da Métrica](http://msdn.microsoft.com/library/azure/dn782843.aspx) e [Habilitando o Log de Armazenamento e Acessando os Dados de Log](http://msdn.microsoft.com/library/azure/dn782840.aspx) no MSDN para obter detalhes sobre como configurar o registro em log e as métricas.
 
 **Através do Portal Clássico do Azure**
 
 Para configurar o registro em log e as métricas para sua conta de armazenamento usando o portal, siga as instruções em [Como monitorar uma conta de armazenamento](storage-monitor-storage-account.md).
 
-> [AZURE.NOTE]Não é possível definir a métrica de minutos usando o Portal Clássico do Azure. No entanto, é recomendável que você a defina para os fins deste tutorial e para investigar problemas de desempenho com seu aplicativo. Você pode definir a métrica de minutos usando o PowerShell como mostrado abaixo, com programação ou por meio do Portal Clássico do Azure.
+> [AZURE.NOTE] Não é possível definir a métrica de minutos usando o Portal Clássico do Azure. No entanto, é recomendável que você a defina para os fins deste tutorial e para investigar problemas de desempenho com seu aplicativo. Você pode definir a métrica de minutos usando o PowerShell como mostrado abaixo, com programação ou por meio do Portal Clássico do Azure.
 >
 > Observe que o Portal Clássico do Azure não consegue exibir métricas por minuto, apenas as métricas por hora.
 
@@ -164,7 +164,7 @@ Para o tutorial, colete e salve um rastreamento de rede pela primeira vez no Ana
 
 7. Saia da caixa de diálogo e clique em **Reiniciar** para começar a coleta do rastreamento com o filtro do nome de host no local, para que somente o tráfego da rede de armazenamento do Azure seja incluído no rastreamento.
 
->[AZURE.NOTE]Após coletar o rastreamento de rede, é altamente recomendável que você reverta as configurações que possa ter alterado no Fiddler para descriptografar o tráfego HTTPS. Na caixa de diálogo Opções do Fiddler, desmarque as caixas de seleção **Capturar CONEXÕES HTTPS** e **Descriptografar Tráfego HTTPS**.
+>[AZURE.NOTE] Após coletar o rastreamento de rede, é altamente recomendável que você reverta as configurações que possa ter alterado no Fiddler para descriptografar o tráfego HTTPS. Na caixa de diálogo Opções do Fiddler, desmarque as caixas de seleção **Capturar CONEXÕES HTTPS** e **Descriptografar Tráfego HTTPS**.
 
 Consulte [Usando os Recursos de Rastreamento de Rede](http://technet.microsoft.com/library/jj674819.aspx) no Technet para obter mais detalhes.
 
@@ -172,7 +172,7 @@ Consulte [Usando os Recursos de Rastreamento de Rede](http://technet.microsoft.c
 
 Quando seu aplicativo já estiver sendo executado por algum tempo, você pode revisar os gráficos de métricas que aparecem no Portal Clássico do Azure para observar o desempenho do seu serviço. Primeiro, iremos adicionar a métrica **Porcentagem de Êxitos** à página de Monitoramento:
 
-1. Navegue até o painel da sua conta de armazenamento no [Portal Clássico do Azure](manage.windowsazure.com) e selecione o **Monitor** para exibir a página de monitoramento.
+1. Navegue até o painel da sua conta de armazenamento no [Portal Clássico do Azure](https://manage.windowsazure.com) e selecione o **Monitor** para exibir a página de monitoramento.
 2. Clique em **Adicionar Métricas** para exibir a caixa de diálogo **Escolher Métricas**.
 3. Role para baixo até encontrar o grupo **Porcentagem de Êxitos**, expanda-o e selecione **Agregar**, conforme mostrado na figura abaixo. Essa métrica agrega dados de percentual de êxito de todas as operações de Blob.
 
@@ -184,7 +184,7 @@ No Portal Clássico do Azure, você verá agora a **Porcentagem de Êxitos** no 
 
 Para obter mais detalhes sobre como adicionar métricas à página de Monitoramento, consulte [Como: adicionar métricas à tabela de métricas](storage-monitor-storage-account.md#addmonitoringmetrics).
 
-> [AZURE.NOTE]Pode levar algum tempo para que seus dados de métricas apareçam no Portal Clássico do Azure depois que você habilitar a métrica de armazenamento. Isso ocorre porque as métricas por hora da hora anterior não são exibidas no Portal Clássico do Azure até que a hora atual tenha decorrido. Além disso, métricas de minuto não são exibidas no Portal Clássico do Azure. Dessa forma, dependendo de quando você habilitar a métrica, pode levar até duas horas para ver os dados dela.
+> [AZURE.NOTE] Pode levar algum tempo para que seus dados de métricas apareçam no Portal Clássico do Azure depois que você habilitar a métrica de armazenamento. Isso ocorre porque as métricas por hora da hora anterior não são exibidas no Portal Clássico do Azure até que a hora atual tenha decorrido. Além disso, métricas de minuto não são exibidas no Portal Clássico do Azure. Dessa forma, dependendo de quando você habilitar a métrica, pode levar até duas horas para ver os dados dela.
 
 ## Use AzCopy para copiar logs do servidor para um diretório local
 
@@ -194,7 +194,7 @@ Você pode usar a ferramenta de linha de comando AzCopy para baixar esses arquiv
 
 	AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest:C:\Temp\Logs\Server /Pattern:"blob/2015/01/02" /SourceKey:<storageaccountkey> /S /V
 
-O AzCopy está disponível para download na página [Downloads do Azure](http://azure.microsoft.com/downloads/). Para obter detalhes sobre como usar o AzCopy, consulte [Como usar o AzCopy com o Armazenamento do Microsoft Azure](storage-use-azcopy.md).
+O AzCopy está disponível para download na página [Downloads do Azure](https://azure.microsoft.com/downloads/). Para obter detalhes sobre como usar o AzCopy, consulte [Como usar o AzCopy com o Armazenamento do Microsoft Azure](storage-use-azcopy.md).
 
 Para obter informações adicionais sobre como baixar os logs do servidor, consulte [Habilitando o Log de Armazenamento e Acessando os Dados de Log](http://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata).
 
@@ -219,7 +219,7 @@ O Analisador de Mensagem inclui ativos para o Armazenamento do Azure que ajudam 
 
 ![Página Inicial do Analisador de Mensagem](./media/storage-e2e-troubleshooting-classic-portal/mma-start-page-1.png)
 
-> [AZURE.NOTE]Instale todos os ativos de Armazenamento do Azure mostrados para os fins deste tutorial.
+> [AZURE.NOTE] Instale todos os ativos de Armazenamento do Azure mostrados para os fins deste tutorial.
 
 ### Importar os arquivos de log para o Analisador de Mensagem
 
@@ -263,7 +263,7 @@ A figura abaixo mostra esse modo de exibição de layout aplicado a dados de log
 
 ![Layout de Exibição do Armazenamento do Azure](./media/storage-e2e-troubleshooting-classic-portal/view-layout-client-request-id-module.png)
 
->[AZURE.NOTE]Arquivos de log diferentes têm colunas diferentes, portanto, quando dados de vários arquivos de log são exibidos na grade de análise, algumas colunas podem não conter nenhum dado para uma determinada linha. Por exemplo, na figura acima, as linhas de log do cliente não mostram dados para as colunas **Carimbo de data/hora**, **Tempo Decorrido**, **Origem** e **Destino** porque essas colunas não existem no log do cliente, mas existem no rastreamento de rede. Da mesma forma, a coluna **Carimbo de data/hora** exibe os dados do carimbo de data/hora do log do servidor, mas ão há dados exibidos para as colunas **Tempo Decorrido**, **Origem** e **Destino**, que não fazem parte do log do servidor.
+>[AZURE.NOTE] Arquivos de log diferentes têm colunas diferentes, portanto, quando dados de vários arquivos de log são exibidos na grade de análise, algumas colunas podem não conter nenhum dado para uma determinada linha. Por exemplo, na figura acima, as linhas de log do cliente não mostram dados para as colunas **Carimbo de data/hora**, **Tempo Decorrido**, **Origem** e **Destino** porque essas colunas não existem no log do cliente, mas existem no rastreamento de rede. Da mesma forma, a coluna **Carimbo de data/hora** exibe os dados do carimbo de data/hora do log do servidor, mas ão há dados exibidos para as colunas **Tempo Decorrido**, **Origem** e **Destino**, que não fazem parte do log do servidor.
 
 Além de usar os layouts do modo de Armazenamento do Azure, você também pode definir e salvar seus próprios layouts de exibição. Você também pode selecionar outros campos desejados para o agrupamento de dados e salvar o agrupamento como parte do seu layout personalizado.
 
@@ -294,7 +294,7 @@ A figura a seguir mostra os resultados desse agrupamento e filtro. Expandir o ca
 
 Depois de aplicar esse filtro, você verá que são excluídas linhas do log do cliente, pois o log do cliente não inclui uma coluna **StatusCode**. Para começar, vamos examinar o servidor e os logs de rastreamento de rede para localizar os erros 404 e vamos voltar para o log de cliente para examinar as operações de cliente que levou a eles.
 
->[AZURE.NOTE]Você poderá filtrar na coluna **StatusCode** e ainda exibir os dados de todos os três logs, incluindo o log do cliente, se adicionar uma expressão ao filtro que inclui entradas de log nas quais o código de status é nulo. Para criar esta expressão de filtro, use:
+>[AZURE.NOTE] Você poderá filtrar na coluna **StatusCode** e ainda exibir os dados de todos os três logs, incluindo o log do cliente, se adicionar uma expressão ao filtro que inclui entradas de log nas quais o código de status é nulo. Para criar esta expressão de filtro, use:
 >
 > <code>&#42;StatusCode >= 400 ou !&#42;StatusCode</code>
 >
@@ -347,20 +347,9 @@ Agora que você está familiarizado com o uso do Analisador de Mensagem para ana
 | Para Investigar... | Use a Expressão do Filtro... | A expressão se Aplica ao Log (Cliente, Servidor, Rede, Todos) |
 |------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
 | Atrasos inesperados na entrega de mensagens em uma fila | AzureStorageClientDotNetV4.Description contém "Repetindo a operação que falhou". | Cliente |
-| Aumento de HTTP no PercentThrottlingError | HTTP.Response.StatusCode == 500 &#124;&#124; HTTP.Response.StatusCode == 503 | Rede |
+| Aumento de HTTP no PercentThrottlingError | HTTP.Response.StatusCode == 500 || HTTP.Response.StatusCode == 503 | Rede |
 | Aumento em PercentTimeoutError | HTTP.Response.StatusCode == 500 | Rede |
-| Aumento em PercentTimeoutError (todos) |    *StatusCode == 500 |Todos |
-| Aumentar PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Cliente |
-| Mensagens HTTP 403 (Proibido) | HTTP.Response.StatusCode == 403 | Rede |
-| Mensagens HTTP 404 (Não encontrado) | HTTP.Response.StatusCode == 404 | Rede |
-| 404 (todos) | *StatusCode == 404 | Todos |
-| Problema de autorização da SAS (Assinatura de Acesso Compartilhado) | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Rede | 
-| Mensagens HTTP 409 (Conflito) | HTTP.Response.StatusCode == 409 |Rede |
-| 409 (todos) | *StatusCode == 409 | Todos |
-|O PercentSuccess Baixo ou as entradas do log de análise têm operações com o status de transação ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Servidor |
-| Aviso Nagle | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) e (AzureStorageLog.RequestPacketSize <1460) e (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Servidor |
-| Intervalo de tempo nos logs de Servidor e Rede | #Timestamp >= 2014-10-20T16:36:38 e #Timestamp <= 2014-10-20T16:36:39 | Servidor, Rede |
-| Intervalo de tempo nos logs de Servidor | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 e AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Servidor |
+| Aumento em PercentTimeoutError (todos) |    **StatusCode == 500 |Todos | | Aumentar PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Cliente | | Mensagens HTTP 403 (Proibido) | HTTP.Response.StatusCode == 403 | Rede | | Mensagens HTTP 404 (Não encontrado) | HTTP.Response.StatusCode == 404 | Rede | | 404 (todos) | *StatusCode == 404 | Todos | | Problema de autorização da SAS (Assinatura de Acesso Compartilhado) | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Rede | | Mensagens HTTP 409 (Conflito) | HTTP.Response.StatusCode == 409 |Rede | | 409 (todos) | *StatusCode == 409 | Todos | |O PercentSuccess Baixo ou as entradas do log de análise têm operações com o status de transação ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Servidor | | Aviso Nagle | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) e (AzureStorageLog.RequestPacketSize <1460) e (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Servidor | | Intervalo de tempo nos logs de Servidor e Rede | #Timestamp >= 2014-10-20T16:36:38 e #Timestamp <= 2014-10-20T16:36:39 | Servidor, Rede | | Intervalo de tempo nos logs de Servidor | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 e AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Servidor |
 
 
 ## Próximas etapas
@@ -375,4 +364,4 @@ Para obter mais informações sobre cenários de ponta a ponta para solução de
  
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

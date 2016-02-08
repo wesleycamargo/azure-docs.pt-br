@@ -29,7 +29,7 @@ O Azure Data Factory é um serviço de integração de dados baseado em nuvem qu
 
 Com o ADF, serviços de processamento de dados existentes podem ser compostos em pipelines de dados que são altamente disponíveis e gerenciados na nuvem. Esses pipelines de dados podem ser agendados para ingerir, preparar, transformar, analisar e publicar os dados e o ADF irá gerenciar e orquestrar todos os dados complexos e dependências de processamento. As soluções podem ser criadas e implantadas rapidamente na nuvem, conectando um número crescente de fontes de dados em nuvem e locais.
 
-Considere usar o ADF quando dados precisam ser migrados continuamente em um cenário híbrido que acessa os recursos locais e de nuvem e quando os dados são transacionados ou precisam ser modificados ou tiver lógica de negócios adicionada a eles durante a migração. O ADF permite o planejamento e monitoramento de trabalhos usando scripts simples de JSON que gerenciam a movimentação de dados em intervalos periódicos. O ADF também possui outros recursos, como suporte para operações complexas. Para obter mais informações sobre o ADF, consulte a documentação em [Azure Data Factory (ADF)](http://azure.microsoft.com/services/data-factory/).
+Considere usar o ADF quando dados precisam ser migrados continuamente em um cenário híbrido que acessa os recursos locais e de nuvem e quando os dados são transacionados ou precisam ser modificados ou tiver lógica de negócios adicionada a eles durante a migração. O ADF permite o planejamento e monitoramento de trabalhos usando scripts simples de JSON que gerenciam a movimentação de dados em intervalos periódicos. O ADF também possui outros recursos, como suporte para operações complexas. Para obter mais informações sobre o ADF, consulte a documentação em [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory/).
 
 ## <a name="scenario"></a>O cenário
 
@@ -46,10 +46,10 @@ Este tutorial presume que você tenha:
 
 * Uma **assinatura do Azure**. Se você não tiver uma assinatura, você pode se inscrever em uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Uma **conta de armazenamento do Azure**. Você usará uma conta de armazenamento do Azure para armazenar os dados neste tutorial. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [Criar uma conta de armazenamento](storage-create-storage-account.md#create-a-storage-account). Depois de criar a conta de armazenamento, você precisará obter a chave de conta usada para acessar o armazenamento. Consulte [Exibir, copiar e regenerar chaves de acesso de armazenamento](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
-* Acesso a um **Banco de dados do SQL Azure**. Se você deve configurar um banco de dados do SQL Azure, a [Guia de Introdução ao banco de dados SQL do Microsoft Azure](sql-database-get-started.md) fornece informações sobre como provisionar uma nova instância de um banco de dados do SQL Azure.
+* Acesso a um **Banco de dados do SQL Azure**. Se você deve configurar um Banco de Dados SQL do Azure, a [Guia de Introdução ao Banco de Dados SQL do Microsoft Azure](sql-database-get-started.md) fornece informações sobre como provisionar uma nova instância de um Banco de Dados SQL do Azure.
 * **Azure PowerShell** instalado e configurado localmente. Para saber mais, confira [Como instalar e configurar o PowerShell do Azure](powershell-install-configure.md).
 
-> [AZURE.NOTE]Este procedimento usa o [Portal do Azure](https://ms.portal.azure.com/).
+> [AZURE.NOTE] Este procedimento usa o [Portal do Azure](https://ms.portal.azure.com/).
 
 ##<a name="upload-data"></a> Carregar os dados para o SQL Server local
 
@@ -94,7 +94,7 @@ Para criar o serviço vinculado para o Banco de Dados SQL do Azure, clique no **
 
 Crie tabelas que especificam a estrutura, o local e a disponibilidade dos conjuntos de dados com os procedimentos a seguir baseados em script. Os arquivos JSON são usados para definir as tabelas. Para obter mais informações sobre a estrutura desses arquivos, consulte [Conjuntos de dados](data-factory-create-datasets.md).
 
-> [AZURE.NOTE]Você deve executar o cmdlet `Add-AzureAccount` antes de executar o cmdlet [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) para confirmar que a assinatura correta do Azure esteja selecionada para a execução do comando. Para obter a documentação desse cmdlet, consulte [Add-AzureAccount](https://msdn.microsoft.com/library/azure/dn790372.aspx).
+> [AZURE.NOTE]  Você deve executar o cmdlet `Add-AzureAccount` antes de executar o cmdlet [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) para confirmar que a assinatura correta do Azure esteja selecionada para a execução do comando. Para obter a documentação desse cmdlet, consulte [Add-AzureAccount](https://msdn.microsoft.com/library/azure/dn790372.aspx).
 
 As definições baseadas em JSON nas tabelas usam os seguintes nomes:
 
@@ -107,7 +107,7 @@ Três definições de tabela são necessárias para este pipeline do ADF:
 2. [Tabela de blob](#adf-table-blob-store)
 3. [Tabela do SQL Azure](#adf-table-azure-sql)
 
-> [AZURE.NOTE]Os procedimentos a seguir usam o Azure PowerShell para definir e criar as atividades do ADF. Mas essas tarefas também podem ser realizadas pelo Portal do Azure. Para obter detalhes, consulte [Criar conjuntos de dados de entrada e saída](data-factory-use-onpremises-datasources.md#step-3-create-input-and-output-datasets).
+> [AZURE.NOTE]  Os procedimentos a seguir usam o Azure PowerShell para definir e criar as atividades do ADF. Mas essas tarefas também podem ser realizadas pelo Portal do Azure. Para obter detalhes, consulte [Criar conjuntos de dados de entrada e saída](data-factory-use-onpremises-datasources.md#step-3-create-input-and-output-datasets).
 
 ###<a name="adf-table-onprem-sql"></a>Tabela do SQL local
 
@@ -211,7 +211,7 @@ Especifique as atividades que pertencem ao pipeline e crie o pipeline com os pro
 * O script assume que o **nome do pipeline** é *AMLDSProcessPipeline*.
 * Observe também que definimos a periodicidade do pipeline para ser executado diariamente e usar o tempo de execução padrão para o trabalho (12:00 UTC).
 
-> [AZURE.NOTE]Os procedimentos a seguir usam o Azure PowerShell para definir e criar o pipeline do ADF. Mas essa tarefa também pode ser realizada pelo Portal do Azure. Para obter detalhes, consulte [Criar e executar um pipeline](data-factory-use-onpremises-datasources.md#step-4-create-and-run-a-pipeline).
+> [AZURE.NOTE]  Os procedimentos a seguir usam o Azure PowerShell para definir e criar o pipeline do ADF. Mas essa tarefa também pode ser realizada pelo Portal do Azure. Para obter detalhes, consulte [Criar e executar um pipeline](data-factory-use-onpremises-datasources.md#step-4-create-and-run-a-pipeline).
 
 Usando as definições de tabela fornecidas anteriormente, a definição de pipeline para o ADF é especificada da seguinte maneira:
 
@@ -299,6 +299,6 @@ Os valores de parâmetro *startdate* e *enddate* precisam ser substituídos pela
 
 Depois que o pipeline é executado, você poderá ver os dados aparecerem no contêiner selecionado para o blob, um arquivo por dia.
 
-Observe que não utilizamos a funcionalidade fornecida pelo ADF para dados de pipe incrementalmente. Para obter mais detalhes sobre como fazer isso e outros recursos fornecidos pelo ADF, consulte a [documentação do ADF](http://azure.microsoft.com/services/data-factory/).
+Observe que não utilizamos a funcionalidade fornecida pelo ADF para dados de pipe incrementalmente. Para obter mais detalhes sobre como fazer isso e outros recursos fornecidos pelo ADF, consulte a [documentação do ADF](https://azure.microsoft.com/services/data-factory/).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="11/17/2015"
+   	ms.date="01/22/2016"
    	ms.author="larryfr"/>
 
 #Criar clusters baseados em Linux no HDInsight usando o Azure CLI
@@ -27,13 +27,13 @@ Os modelos de gerenciamento de recursos do Azure são documentos JSON que descre
 
 As etapas neste documento fornecem orientação durante o processo de criação de um novo cluster HDInsight usando a CLI do Azure e um modelo.
 
-> [AZURE.IMPORTANT]As etapas neste documento usam o número padrão de nós de trabalho (4) para um cluster HDInsight. Se você planeja ter mais de 32 nós de trabalho, seja na criação do cluster ou em seu dimensionamento após a criação, deverá selecionar um tamanho de nó de cabeçalho com pelo menos 8 núcleos e 14 GB de RAM.
+> [AZURE.IMPORTANT] As etapas neste documento usam o número padrão de nós de trabalho (4) para um cluster HDInsight. Se você planeja ter mais de 32 nós de trabalho, seja na criação do cluster ou em seu dimensionamento após a criação, deverá selecionar um tamanho de nó de cabeçalho com pelo menos 8 núcleos e 14 GB de RAM.
 >
 > Para saber mais sobre tamanhos de nós e custos associados, consulte [Preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ##Pré-requisitos
 
-- **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 - __CLI do Azure__. Para obter informações sobre como instalar a CLI, consulte [Instalar a CLI do Azure](../xplat-cli-install.md).
 
@@ -66,8 +66,8 @@ As etapas a seguir devem ser executadas de um prompt de comando, shell ou a sess
 
 5. Abra o arquivo __azuredeploy.parameters.json__ em um editor e forneça valores para os itens na seção `parameters`:
 
-    * __local__: o data center no qual os recursos serão criados. Você pode exibir a `location` seção no arquivo __azuredeploy.json__ para obter uma lista dos locais permitidos.
-    * __clusterName__: o nome do cluster HDInsight. Esse nome deve ser exclusivo ou a implantação falhará.
+    * __local__: o data center no qual os recursos serão criados. Você pode exibir a seção `location` no arquivo __azuredeploy.json__ para obter uma lista dos locais permitidos.
+    * __Nome do cluster__: o nome do cluster HDInsight. Esse nome deve ser exclusivo ou a implantação falhará.
     * __clusterStorageAccountName__: o nome da Conta de armazenamento do Azure que será criada para o cluster HDInsight. Esse nome deve ser exclusivo ou a implantação falhará.
     * __clusterLoginPassword__: a senha para o usuário administrador do cluster. Ela deve ser uma senha segura, pois é usada para acessar sites e serviços REST no cluster.
     * __sshUserName__: o nome do primeiro usuário SSH a ser criado para este cluster. SSH será usado para acessar remotamente o cluster usando essa conta.
@@ -84,7 +84,7 @@ As etapas a seguir devem ser executadas de um prompt de comando, shell ou a sess
 
         azure group create RESOURCEGROUPNAME LOCATION
     
-    > [AZURE.NOTE]Se o nome do local contiver espaços, coloque-o entre aspas duplas. Por exemplo, "Centro-Sul dos EUA".
+    > [AZURE.NOTE] Se o nome do local contiver espaços, coloque-o entre aspas duplas. Por exemplo, "Centro-Sul dos EUA".
 
 6. Use o comando a seguir para criar a implantação inicial para esse grupo de recursos. Substitua __PATHTOTEMPLATE__ pelo caminho para o arquivo de modelo __azuredeploy.json__. Substitua __PATHTOPARAMETERSFILE__ pelo caminho para o arquivo __azuredeploy.parameters.json__. Substitua __RESOURCEGROUPNAME__ pelo nome do grupo criado na etapa anterior:
 
@@ -121,4 +121,4 @@ Agora que você criou com êxito um cluster HDInsight, use o seguinte para apren
 * [Usar componentes de Python no Storm no HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Implantar e monitorar topologias com o Storm no HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

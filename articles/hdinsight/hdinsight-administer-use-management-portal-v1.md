@@ -35,7 +35,7 @@ Também há outras ferramentas disponíveis para administrar o HDInsight além d
 
 Antes de começar este artigo, você deve ter o seguinte:
 
-- **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **Conta de armazenamento do Azure** - um cluster do HDInsight usa um contêiner de Armazenamento de Blob do Azure como o sistema de arquivos padrão. Para obter mais informações sobre como o Armazenamento de Blob do Azure fornece uma experiência perfeita com os clusters HDInsight, consulte [Usar o Armazenamento de Blob do Azure com o HDInsight](../hdinsight-use-blob-storage.md). Para obter detalhes sobre como criar uma conta do Armazenamento do Azure, consulte [Como criar uma conta de armazenamento](../storage-create-storage-account.md).
 
 
@@ -58,7 +58,7 @@ O HDInsight trabalha com uma ampla variedade de componentes do Hadoop. Para obte
 - Alguns componentes nativos do Java, como Mahout e Cascading, podem ser executados no cluster como arquivos JAR. Esses arquivos JAR podem ser distribuídos para o armazenamento de Blob do Azure e enviados aos clusters HDInsight por meio de mecanismos de envio de trabalho do Hadoop. Para obter mais informações, consulte [Enviar trabalhos do Hadoop de forma programática](hdinsight-submit-hadoop-jobs-programmatically.md).
 
 
-	>[AZURE.NOTE]Se você tiver problemas para implantar arquivos JAR nos clusters do HDInsight ou ao chamar arquivos JAR nesses clusters, entre em contato com o [Suporte da Microsoft](http://azure.microsoft.com/support/options/).
+	>[AZURE.NOTE] Se você tiver problemas para implantar arquivos JAR nos clusters do HDInsight ou ao chamar arquivos JAR nesses clusters, entre em contato com o [Suporte da Microsoft](https://azure.microsoft.com/support/options/).
 
 	> O Cascading não tem suporte do HDInsight e não é qualificado para o Suporte da Microsoft. Para obter as listas dos componentes suportados, consulte [O que há de novo nas versões de cluster fornecidas pelo HDInsight?](hdinsight-component-versioning.md)
 
@@ -97,11 +97,11 @@ As credenciais do cluster que você forneceu em sua criação concedem acesso ao
 	![HDI.CreateRDPUser][image-hdi-create-rpd-user]
 
 
-> [AZURE.NOTE]Você também pode usar o SDK do .NET HDInsight para habilitar a área de trabalho remota em um cluster. Use o **EnableRdp** método no objeto de cliente HDInsight da seguinte maneira: **client.EnableRdp(clustername, location, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**. Da mesma forma, para desabilitar a área de trabalho remota no cluster, você pode usar **client.DisableRdp(clustername, location)**. Para obter mais informações sobre esses métodos, consulte [Referência do SDK do .NET HDInsight](http://go.microsoft.com/fwlink/?LinkId=529017). Isso é aplicável apenas a clusters do HDInsight em execução no Windows.
+> [AZURE.NOTE] Você também pode usar o SDK do .NET HDInsight para habilitar a área de trabalho remota em um cluster. Use o **EnableRdp** método no objeto de cliente HDInsight da seguinte maneira: **client.EnableRdp(clustername, location, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**. Da mesma forma, para desabilitar a área de trabalho remota no cluster, você pode usar **client.DisableRdp(clustername, location)**. Para obter mais informações sobre esses métodos, consulte [Referência do SDK do .NET HDInsight](http://go.microsoft.com/fwlink/?LinkId=529017). Isso é aplicável apenas a clusters do HDInsight em execução no Windows.
 
 
 
-> [AZURE.NOTE]Depois que o RDP for habilitado para um cluster, você deverá atualizar a página antes de conectar-se ao cluster.
+> [AZURE.NOTE] Depois que o RDP for habilitado para um cluster, você deverá atualizar a página antes de conectar-se ao cluster.
 
 **Para conectar-se ao cluster usando o RDP**
 
@@ -138,7 +138,7 @@ Os clusters HDInsight têm os seguintes serviços Web HTTP (todos esses serviço
 
 Por padrão, esses serviços são concedidos para acesso. Você pode revogar ou conceder o acesso no Portal Clássico do Azure.
 
->[AZURE.NOTE]Ao conceder/revogar o acesso, você redefinirá o nome de usuário de cluster e a senha.
+>[AZURE.NOTE] Ao conceder/revogar o acesso, você redefinirá o nome de usuário de cluster e a senha.
 
 **Para conceder/revogar acesso aos serviços Web HTTP**
 
@@ -198,4 +198,4 @@ Neste artigo, você aprendeu como criar um cluster HDInsight usando o Portal Cl�
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal-v1/hdinsight-hadoop-command-line.png "Linha de comando do Hadoop"
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal-v1/hdi.clustercreate.uploadcert.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

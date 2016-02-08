@@ -20,7 +20,7 @@
 
 # Como alterar o cartão de crédito usado para pagar uma assinatura do Azure
 
-Você pode pagar usando cartões de crédito ou débito ou ser aprovado para pagar por fatura. Para obter mais informações sobre como pagar por fatura, veja [Faturamento do Azure](http://azure.microsoft.com/pricing/invoicing/).
+Você pode pagar usando cartões de crédito ou débito ou ser aprovado para pagar por fatura. Para obter mais informações sobre como pagar por fatura, veja [Faturamento do Azure](https://azure.microsoft.com/pt-BR/pricing/invoicing/).
 
 ## Editar informações de pagamento para um cartão de crédito existente
 1. Faça logon no [Centro de Contas do Azure](https://account.windowsazure.com/Subscriptions) como o Administrador da Conta.
@@ -44,4 +44,4 @@ Você pode pagar usando cartões de crédito ou débito ou ser aprovado para pag
 3. No lado direito da página, clique em **Alterar forma de pagamento**.
 4. Na página **Escolher forma de pagamento**, clique na seta suspensa ao lado do cartão de crédito, selecione o cartão de crédito que deseja usar e em seguida, selecione ![checkbutton](./media/billing-how-to-change-credit-card/checkbutton.png) para fechar a janela.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

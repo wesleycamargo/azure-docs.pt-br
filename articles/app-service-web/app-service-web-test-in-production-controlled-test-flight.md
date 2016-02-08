@@ -48,19 +48,19 @@ Neste tutorial, você aprenderá a reunir os seguintes cenários para testar seu
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
-> [AZURE.NOTE]Você precisa de uma conta do Azure para concluir este tutorial: + Você pode [abrir uma conta do Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F) – Você recebe créditos que podem ser usados para experimentar os serviços pagos do Azure e, mesmo depois que tiverem se esgotado, você pode manter a conta e usar serviços gratuitos do Azure, como Aplicativos Web. + Você pode [ativar os benefícios de assinante do Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) – A cada mês, a sua assinatura do Visual Studio fornece créditos que podem ser usados para serviços pagos do Azure.
+> [AZURE.NOTE] Você precisa de uma conta do Azure para concluir este tutorial: + Você pode [abrir uma conta do Azure gratuitamente](/pricing/free-trial/) – Você recebe créditos que podem ser usados para experimentar os serviços pagos do Azure e, mesmo depois que tiverem se esgotado, você pode manter a conta e usar serviços gratuitos do Azure, como Aplicativos Web. + Você pode [ativar os benefícios de assinante do Visual Studio](/pricing/member-offers/msdn-benefits-details/) – A cada mês, a sua assinatura do Visual Studio fornece créditos que podem ser usados para serviços pagos do Azure.
 >
 > Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## Configurar seu aplicativo Web de produção
 
->[AZURE.NOTE]O script usado neste tutorial configurará automaticamente a publicação contínua de seu repositório GitHub. Isso requer que as credenciais do GitHub já estejam armazenadas no Azure; caso contrário, a implantação de scripts falhará ao tentar definir configurações de controle de origem para aplicativos Web.
+>[AZURE.NOTE] O script usado neste tutorial configurará automaticamente a publicação contínua de seu repositório GitHub. Isso requer que as credenciais do GitHub já estejam armazenadas no Azure; caso contrário, a implantação de scripts falhará ao tentar definir configurações de controle de origem para aplicativos Web.
 >
->Para armazenar suas credenciais do GitHub no Azure, crie um aplicativo Web no [Portal do Azure](https://portal.azure.com) e [configure a implantação do GitHub](web-sites-publish-source-control.md#Step7). Você só precisa fazer isso uma vez.
+>Para armazenar suas credenciais do GitHub no Azure, crie um aplicativo Web no [Portal do Azure](https://portal.azure.com/) e [configure a implantação do GitHub](web-sites-publish-source-control.md#Step7). Você só precisa fazer isso uma vez.
 
 Em um cenário típico de DevOps, você tem um aplicativo que está em execução em tempo real no Azure e deseja fazer alterações nele por meio de publicação contínua. Neste cenário, você implantará na produção um modelo que você desenvolveu e testou.
 
-1.	Crie sua própria bifurcação do repositório do [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp). Para obter informações sobre como criar a bifurcação, veja [Bifurcar um repositório](https://help.github.com/articles/fork-a-repo/). Depois que a bifurcação é criada, você pode vê-la no navegador.
+1.	Crie sua própria bifurcação do repositório do [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp). Para obter informações sobre como criar a bifurcação, consulte [Bifurcar um repositório](https://help.github.com/articles/fork-a-repo/). Depois que a bifurcação é criada, você pode vê-la no navegador.
 
 	![](./media/app-service-agile-software-development/production-1-private-repo.png)
 
@@ -84,7 +84,7 @@ Em um cenário típico de DevOps, você tem um aplicativo que está em execuçã
 	![](./media/app-service-web-test-in-production-controlled-test-flight/00.2-swap-to-production.png)
 
 7.	Quando o script for concluído, volte para navegar até endereço do front-end (http://ToDoApp*&lt;your_suffix>*.azurewebsites.net/) para ver o aplicativo em execução na produção.
-5.	Faça logon no [Portal do Azure](https://portal.azure.com) e veja o que foi criado.
+5.	Faça logon no [Portal do Azure](https://portal.azure.com/) e veja o que foi criado.
 
 	Você deverá ver dois aplicativos Web no mesmo grupo de recursos, um com o sufixo `Api` no nome. Se examinar o modo de exibição do grupo de recursos, você também verá o banco de dados SQL e o servidor, o plano do Serviço de Aplicativo e os slots de preparo dos aplicativos Web. Navegue pelos diferentes recursos e compare-os com *&lt;raiz\_repositório>*\\ARMTemplates\\ProdAndStage.json para ver como eles são configurados no modelo.
 
@@ -215,7 +215,7 @@ Já que você está reunindo dados sobre o comportamento do cliente, você poder
 
 5. Clique no botão **Favoritos** para salvar as configurações atuais do Metrics Explorer como algo como **Eventos personalizados: produção**. Você pode alternar facilmente entre esta exibição e uma exibição de slot de implantação posteriormente.
 
-    > [AZURE.TIP]Para uma análise ainda mais eficiente, considere [integrar seu recurso do Application Insights com o Power BI](app-insights-export-power-bi.md).
+    > [AZURE.TIP] Para uma análise ainda mais eficiente, considere [integrar seu recurso do Application Insights com o Power BI](app-insights-export-power-bi.md).
 
 ### Adicionar marcas específicas do slot às suas métricas de aplicativo de servidor
 Novamente, para fins de exatidão, você configurará o aplicativo do lado do servidor. Ao contrário do aplicativo cliente que é instrumentado em JavaScript, as marcas específicas do slot para o aplicativo de servidor são instrumentadas com o código do .NET.
@@ -279,7 +279,7 @@ Novamente, para fins de exatidão, você configurará o aplicativo do lado do se
 
     Depois que o script for concluído, todos os seus recursos no grupo de recursos original serão mantidos, mas um novo slot chamado “beta” será criado nele com a mesma configuração que o slot de “Preparação” que foi criado no início.
 
-    >[AZURE.NOTE]Esse método de criação de diferentes ambientes de implantação é diferente do método no [Desenvolvimento de software Agile com o Serviço de Aplicativo do Azure](app-service-agile-software-development.md). Aqui, você cria ambientes de implantação com slots de implantação, enquanto que lá você cria ambientes de implantação com grupos de recursos. O gerenciamento de ambientes de implantação com grupos de recursos permite que você mantenha o ambiente de produção fora dos limites para os desenvolvedores; porém, não é fácil realizar testes em produção, o que pode ser feito facilmente com slots.
+    >[AZURE.NOTE] Esse método de criação de diferentes ambientes de implantação é diferente do método no [Desenvolvimento de software Agile com o Serviço de Aplicativo do Azure](app-service-agile-software-development.md). Aqui, você cria ambientes de implantação com slots de implantação, enquanto que lá você cria ambientes de implantação com grupos de recursos. O gerenciamento de ambientes de implantação com grupos de recursos permite que você mantenha o ambiente de produção fora dos limites para os desenvolvedores; porém, não é fácil realizar testes em produção, o que pode ser feito facilmente com slots.
 
 Se desejar, você também pode criar um aplicativo alfa executando
 
@@ -328,7 +328,7 @@ Nesta seção, você encaminhará o tráfego para o aplicativo beta. Para fins d
 
 3. Em seu recurso do Application Insights, filtre as métricas pelo ambiente = “beta”.
 
-    > [AZURE.NOTE]Se você salvar esta exibição filtrada como outro favorito, você poderá inverter facilmente as exibições do Metric Explorer entre as exibições de produção e beta.
+    > [AZURE.NOTE] Se você salvar esta exibição filtrada como outro favorito, você poderá inverter facilmente as exibições do Metric Explorer entre as exibições de produção e beta.
 
 Suponha que no Application Insights você veja algo semelhante ao seguinte:
 
@@ -375,4 +375,4 @@ O Serviço de Aplicativo do Azure facilita para as empresas de pequeno a médio 
 -	[PowerShell do Azure](powershell-install-configure.md)
 -	[Projeto Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

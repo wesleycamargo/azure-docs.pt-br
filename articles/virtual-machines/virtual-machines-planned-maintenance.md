@@ -50,7 +50,7 @@ Para saber mais sobre como configurar as máquinas virtuais para alta disponibil
 
 Por outro lado, uma configuração de instância única é usada para máquinas virtuais autônomas que não são colocadas em um conjunto de disponibilidade. Essas máquinas virtuais não se qualificam para o contrato de nível de serviço (SLA), que exige duas ou mais máquinas virtuais sejam implantadas no mesmo conjunto de disponibilidade.
 
-Para saber mais sobre SLAs, consulte a seção "Serviços de Nuvem, máquinas virtuais e rede virtual" dos [Contratos de Nível de Serviço](http://azure.microsoft.com/support/legal/sla/).
+Para saber mais sobre SLAs, consulte a seção "Serviços de Nuvem, máquinas virtuais e rede virtual" dos [Contratos de Nível de Serviço](https://azure.microsoft.com/support/legal/sla/).
 
 
 ## Atualizações de configuração de várias instâncias
@@ -126,4 +126,4 @@ Por exemplo, durante uma manutenção planejada, o Azure não distribuirá uma a
 [Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
 [Understand planned versus unplanned maintenance]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

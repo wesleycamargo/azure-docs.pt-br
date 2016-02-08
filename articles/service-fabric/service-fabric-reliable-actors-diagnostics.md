@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/15/2015"
+   ms.date="01/26/2016"
    ms.author="abhisram"/>
 
 # Diagnóstico e monitoramento de desempenho para Reliable Actors
@@ -103,7 +103,7 @@ O tempo de execução dos Reliable Actors publica os contadores de desempenho re
 |Método de ator da Malha do Serviço|Exceções lançadas/s|Número de vezes que o método de serviço do ator lançou uma exceção por segundo|
 
 ### Contadores de desempenho e eventos simultâneos
-O tempo de execução dos Reliable Actors emite os eventos relacionados à [simultaneidade](service-fabric-reliable-actors-introduction.md#concurrency) a seguir.
+O tempo de execução dos Atores Confiáveis emite os eventos relacionados à [simultaneidade](service-fabric-reliable-actors-introduction.md#concurrency) a seguir.
 
 |Nome do evento|ID do evento|Nível|Palavra-chave|Descrição|
 |---|---|---|---|---|
@@ -153,4 +153,4 @@ O tempo de execução de Reliable Actors emite os eventos a seguir relacionados 
 |ActorActivated|5|Informativo|0x1|Um ator foi ativado.|
 |ActorDeactivated|6|Informativo|0x1|Um ator foi desativado.|
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="01/26/2016" 
 	ms.author="spelluru"/>
 
 # Mover dados para e da Tabela do Azure | Azure Data Factory
@@ -42,6 +42,8 @@ O exemplo copia dados pertencentes à partição padrão em uma tabela do Azure 
 	    }
 	  }
 	}
+
+O Azure Data Factory dá suporte a dois tipos de serviços vinculados do Armazenamento do Azure: **AzureStorage** e **AzureStorageSas**. Para o primeiro, você especifica a cadeia de conexão que inclui a chave de conta, e para o mais recente, você especifica o URI de SAS (Assinatura de Acesso Compartilhado). Confira a seção [Serviços vinculados](#linked-services) para obter detalhes.
 
 **Conjunto de dados de entrada da Tabela do Azure:**
 
@@ -203,6 +205,8 @@ O exemplo copia os dados pertencentes a uma série temporal de um blob do Azure 
 	  }
 	}
 
+O Azure Data Factory dá suporte a dois tipos de serviços vinculados do Armazenamento do Azure: **AzureStorage** e **AzureStorageSas**. Para o primeiro, você especifica a cadeia de conexão que inclui a chave de conta, e para o mais recente, você especifica o URI de SAS (Assinatura de Acesso Compartilhado). Confira a seção [Serviços vinculados](#linked-services) para obter detalhes.
+
 **Conjunto de dados de entrada de Blob do Azure:**
 
 Os dados são coletados de um novo blob a cada hora (frequência: hora, intervalo: 1). O caminho de pasta e nome de arquivo para o blob são avaliados dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa parte da hora de início do dia, mês e ano e nome de arquivo usa a parte de hora da hora de início. A configuração "external": "true" informa o serviço Data Factory que essa é uma tabela externa à data factory e não é produzida por uma atividade na data factory.
@@ -340,14 +344,10 @@ O pipeline contém uma Atividade de Cópia que está configurada para usar os co
 	   }
 	}
 
-## Propriedades do serviço vinculado de armazenamento do Azure
+## Serviços vinculados
+Existem dois tipos de serviço vinculado que você pode usar para vincular um armazenamento de blobs do Azure a um data factory do Azure. São eles: o serviço vinculado **AzureStorage** e o serviço vinculado **AzureStorageSas**. O serviço vinculado do Armazenamento do Azure fornece o data factory com acesso global ao Armazenamento do Azure. Já o serviço vinculado SAS (Assinatura de Acesso Compartilhado) do Armazenamento do Azure fornece o data factory com acesso restrito/associado ao tempo ao Armazenamento do Azure. Não há outras diferenças entre esses dois serviços vinculados. Escolha o serviço vinculado que atenda às suas necessidades. As seções a seguir fornecem mais detalhes sobre esses dois serviços vinculados.
 
-Você pode vincular uma conta de armazenamento do Azure a uma Azure Data Factory usando um serviço de armazenamento vinculado do Azure. A tabela a seguir fornece a descrição para elementos JSON específica para o serviço de armazenamento vinculado do Azure.
-
-| Propriedade | Descrição | Obrigatório |
-| -------- | ----------- | -------- |
-| type | A propriedade type deve ser definida como: AzureStorage | Sim |
-| connectionString | Especifique as informações necessárias para se conectar ao armazenamento do Azure para a propriedade connectionString. Você pode obter a connectionString para o armazenamento do Azure no Portal Clássico do Azure. | Sim |
+[AZURE.INCLUDE [data-factory-azure-storage-linked-services](../../includes/data-factory-azure-storage-linked-services.md)]
 
 ## Propriedades de tipo do Conjunto de Dados da Tabela do Azure
 
@@ -369,7 +369,7 @@ As propriedades disponíveis na seção typeProperties da atividade, por outro l
 
 Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | -------- 
-azureTableSourceQuery | Utiliza a consulta personalizada para ler os dados. | <p>Cadeia de caracteres de consulta de tabela do Azure. Veja os exemplos abaixo. | Não
+azureTableSourceQuery | Utiliza a consulta personalizada para ler os dados. | <p>Cadeia de caracteres de consulta da tabela do Azure. Veja os exemplos abaixo. | Não
 azureTableSourceIgnoreTableNotFound | Indique se assimilar a exceção da tabela não existe. | TRUE<br/>FALSE | Não |
 
 ### Exemplos do azureTableSourceQuery
@@ -515,4 +515,4 @@ Nesse caso, a fábrica dados fará automaticamente as conversões de tipo, inclu
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

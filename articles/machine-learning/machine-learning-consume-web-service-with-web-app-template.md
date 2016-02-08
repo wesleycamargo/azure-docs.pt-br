@@ -56,7 +56,7 @@ Depois de implantar o serviço Web, você pode seguir as etapas abaixo para usar
 
 	![URI da solicitação][image4]
 
-3. Vá para [Aplicativo Web do Serviço de Solicitação-Resposta do Aprendizado de Máquina do Azure](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/) e clique em **Criar Aplicativo Web**. O modelo leva você até o Portal Clássico do Microsoft Azure, em que o novo aplicativo Web é criado.
+3. Vá para o [Portal do Azure](https://portal.azure.com), **Logon**, clique em **Novo**, Pesquisar e selecione **Aplicativo Web ML Request-Response Service do Azure** e clique em **Criar**.
 
 	- Dê um nome exclusivo ao seu aplicativo Web. A URL do aplicativo Web será esse nome seguido de `.azurewebsites.net.` Por exemplo, `http://carprediction.azurewebsites.net.`
 
@@ -78,7 +78,7 @@ Depois de implantar o serviço Web, você pode seguir as etapas abaixo para usar
 
 6. O aplicativo Web exibe sua página **Configuração de Aplicativo Web** com as configurações atuais do serviço Web. Aqui você pode alterar as configurações usadas pelo aplicativo Web.
 
-	> [AZURE.NOTE]Alterar as configurações aqui apenas as altera para este aplicativo Web. Ele não altera as configurações padrão do serviço Web. Por exemplo, se você alterar a **Descrição** aqui, isso não alterará a descrição mostrada no painel de serviço Web no Estúdio de Aprendizado de Máquina.
+	> [AZURE.NOTE] Alterar as configurações aqui apenas as altera para este aplicativo Web. Ele não altera as configurações padrão do serviço Web. Por exemplo, se você alterar a **Descrição** aqui, isso não alterará a descrição mostrada no painel de serviço Web no Estúdio de Aprendizado de Máquina.
 
 	Quando terminar, clique em **Salvar alterações** e clique em **Ir para a Página Inicial**.
 
@@ -125,4 +125,4 @@ Para saber mais sobre...
 [image6]: media\machine-learning-consume-web-service-with-web-app-template\web-service-info.png
 [image7]: media\machine-learning-consume-web-service-with-web-app-template\storage.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/23/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma" />
 
 # Introdução à criação de um balanceador de carga para a Internet (clássico) no PowerShell
@@ -60,10 +60,8 @@ Você pode usar Remove-AzureEndpoint para remover um ponto de extremidade de má
 
 ## Próximas etapas
 
-[Introdução à configuração de um balanceador de carga interno](load-balancer-internal-getstarted.md)
+Você também pode [começar a criar um balanceador de carga interno](load-balancer-get-started-ilb-classic-ps.md) e configurar o tipo de [modo de distribuição](load-balancer-distribution-mode.md) para um comportamento específico de tráfego de rede do balanceador de carga.
 
-[Configurar um modo de distribuição do balanceador de carga](load-balancer-distribution-mode.md)
+Se seu aplicativo precisar manter conexões ativas para servidores por trás de um balanceador de carga, você poderá entender mais sobre [configurações de tempo limite de ociosidade do TCP para um balanceador de carga](load-balancer-tcp-idle-timeout.md). Assim, você saberá mais sobre o comportamento da conexão ociosa quando estiver usando um Balanceador de Carga do Azure.
 
-[Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

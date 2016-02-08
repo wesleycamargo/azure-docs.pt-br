@@ -3,7 +3,7 @@
 	description="Modelo de Solução com o Microsoft Cortana Analytics para a manutenção preditiva no setor aeroespacial, utilitários e transporte."
 	services="cortana-analytics"
 	documentationCenter=""
-	authors="garyericson"
+	authors="fboylu"
 	manager="paulettm"
 	editor="cgronlun"/>
 
@@ -19,9 +19,10 @@
 # Guia Estratégico do Modelo de Solução do Cortana Analytics para a manutenção preditiva no setor aeroespacial e outras indústrias.
 
 ## Resumo executivo  
-A manutenção preditiva é um dos usos mais exigidos de análise preditiva, com vantagens indiscutíveis, além de uma grande economia de custos. Este manual tem como objetivo fornecer uma referência para soluções de manutenção preditiva com ênfase em casos de uso importantes. Ele está preparado para fornecer ao leitor um entendimento dos cenários mais comuns de manutenção preditiva, dos desafios de qualificar os problemas de negócios para essas soluções, dos dados necessários para resolver esses problemas de negócios, das técnicas de modelagem preditiva para criar soluções que usam esses dados e práticas recomendadas com arquiteturas de solução de exemplo. Ele também descreve as especificidades dos modelos preditivos desenvolvidos, como engenharia de recursos, desenvolvimento de modelo e avaliação de desempenho. Basicamente, esse manual reúne as diretrizes de negócios e analíticas necessárias para o desenvolvimento e a implantação bem-sucedidos de soluções de manutenção preditiva. Essas diretrizes são preparadas para ajudar o público a criar uma solução inicial usando o Cortana Analytics e especificamente o Aprendizado de Máquina do Azure como um ponto de partida em sua estratégia de manutenção preditiva de longo prazo. A documentação sobre o Cortana Analytics Suite e o Aprendizado de Máquina do Azure pode ser encontrada nas páginas [Cortana Analytics](http://www.microsoft.com/server-cloud/cortana-analytics-suite/overview.aspx) e [Aprendizado de Máquina do Azure](http://azure.microsoft.com/services/machine-learning/).
+A manutenção preditiva é um dos usos mais exigidos de análise preditiva, com vantagens indiscutíveis, além de uma grande economia de custos. Este manual tem como objetivo fornecer uma referência para soluções de manutenção preditiva com ênfase em casos de uso importantes. Ele está preparado para fornecer ao leitor um entendimento dos cenários mais comuns de manutenção preditiva, dos desafios de qualificar os problemas de negócios para essas soluções, dos dados necessários para resolver esses problemas de negócios, das técnicas de modelagem preditiva para criar soluções que usam esses dados e práticas recomendadas com arquiteturas de solução de exemplo. Ele também descreve as especificidades dos modelos preditivos desenvolvidos, como engenharia de recursos, desenvolvimento de modelo e avaliação de desempenho. Basicamente, esse manual reúne as diretrizes de negócios e analíticas necessárias para o desenvolvimento e a implantação bem-sucedidos de soluções de manutenção preditiva. Essas diretrizes são preparadas para ajudar o público a criar uma solução inicial usando o Cortana Analytics e especificamente o Aprendizado de Máquina do Azure como um ponto de partida em sua estratégia de manutenção preditiva de longo prazo. A documentação sobre o Cortana Analytics Suite e o Aprendizado de Máquina do Azure pode ser encontrada nas páginas [Cortana Analytics](http://www.microsoft.com/server-cloud/cortana-analytics-suite/overview.aspx) e [Aprendizado de Máquina do Azure](https://azure.microsoft.com/services/machine-learning/).
 
->[AZURE.TIP]Para obter um guia técnico para implementar esse Modelo de Solução, consulte o [Guia técnico para o Modelo de Solução do Cortana Analytics para manutenção preditiva](cortana-analytics-technical-guide-predictive-maintenance.md). Para baixar um diagrama que fornece uma visão geral da arquitetura desse modelo, consulte a [Arquitetura do Modelo de Solução do Cortana Analytics para manutenção preditiva](cortana-analytics-architecture-predictive-maintenance.md).
+>[AZURE.TIP]
+Para obter um guia técnico para implementar esse Modelo de Solução, consulte o [Guia técnico para o Modelo de Solução do Cortana Analytics para manutenção preditiva](cortana-analytics-technical-guide-predictive-maintenance.md). Para baixar um diagrama que fornece uma visão geral da arquitetura desse modelo, consulte a [Arquitetura do Modelo de Solução do Cortana Analytics para manutenção preditiva](cortana-analytics-architecture-predictive-maintenance.md).
 
 ## Visão geral do guia estratégico e público-alvo  
 Este manual é organizado para auxiliar tanto o público-alvo técnico quanto o não técnico, com diferentes graus de experiência e interesse em manutenção preditiva. O manual aborda os aspectos de alto níveis de diferentes tipos de soluções de manutenção preditiva e detalhes sobre como implementá-las. O conteúdo é balanceado para atender tanto ao público que só está interessado em entender a solução e o tipo de aplicativo quanto aqueles que estão buscando implementar essas soluções e interessados nos detalhes técnicos.
@@ -332,4 +333,4 @@ Figura 8. Arquitetura de solução de exemplo para manutenção preditiva
 
 Para saber mais sobre cada um dos componentes da arquitetura, consulte a documentação do [Azure](https://azure.microsoft.com/).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -193,7 +193,7 @@ No comando a seguir, substitua *nome do grupo de recursos* pelo nome do grupo de
 
 	Remove-AzureRmVM -ResourceGroupName "resource group name" –Name "VM name"
 
-> [AZURE.NOTE]Use o parâmetro **-Force** para ignorar o prompt de confirmação.
+> [AZURE.NOTE] Use o parâmetro **-Force** para ignorar o prompt de confirmação.
 
 É solicitado que você confirme se você usou ou não o parâmetro -Force:
 
@@ -216,4 +216,4 @@ Se você gostaria de ver um vídeo desta tarefa sendo realizada, dê uma olhada 
 
 [AZURE.VIDEO start-stop-restart-and-delete-vms-in-microsoft-azure-with-powershell]
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

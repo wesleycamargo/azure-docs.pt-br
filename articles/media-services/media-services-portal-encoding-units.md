@@ -28,11 +28,11 @@
 
 ## Visão geral
 
-Uma conta dos Serviços de Mídia é associada a um Tipo de Unidade Reservada que determina a velocidade com que as suas tarefas de processamento de mídia são processadas. Você pode escolher entre os seguintes tipos de unidade reservada: **Basic**, **Standard** ou **Premium**. Por exemplo, o mesmo trabalho de codificação é executado mais rápido quando se usa o tipo de unidade reservada **Standard** em comparação com aquela do tipo **Basic**. Para saber mais, consulte [Tipos de unidade reservada para codificação](http://azure.microsoft.com/blog/author/milanga).
+Uma conta dos Serviços de Mídia é associada a um Tipo de Unidade Reservada que determina a velocidade com que as suas tarefas de processamento de mídia são processadas. Você pode escolher entre os seguintes tipos de unidade reservada: **Basic**, **Standard** ou **Premium**. Por exemplo, o mesmo trabalho de codificação é executado mais rápido quando se usa o tipo de unidade reservada **Standard** em comparação com aquela do tipo **Basic**. Para saber mais, consulte [Tipos de unidade reservada para codificação](https://azure.microsoft.com/blog/author/milanga/).
 
 Além de especificar o tipo de unidade reservada, você pode especificar para provisionar sua conta com unidades reservadas para codificação. O número de unidades reservadas para codificação provisionada determina o número de tarefas de mídia que podem ser processadas simultaneamente em uma determinada conta. Por exemplo, se sua conta tiver cinco unidades reservadas, as cinco tarefas de mídia serão executadas simultaneamente enquanto houver tarefas para serem processadas. As tarefas restantes irão aguardar na fila e serão selecionadas para processamento sequencialmente assim que uma tarefa em execução seja concluída. Se uma conta não tiver nenhuma unidade reservada provisionada, as tarefas serão selecionadas sequencialmente. Nesse caso, o tempo de espera entre a conclusão de uma tarefa e o início da próxima dependerá da disponibilidade dos recursos do sistema.
 
->[AZURE.IMPORTANT]As Unidades Reservadas trabalham para paralelizar todo o processamento de mídia, incluindo trabalhos de indexação usando o Indexador de Mídia do Azure. No entanto, ao contrário da codificação, a indexação de trabalhos não processará mais rapidamente com unidades reservadas mais rápidas.
+>[AZURE.IMPORTANT] As Unidades Reservadas trabalham para paralelizar todo o processamento de mídia, incluindo trabalhos de indexação usando o Indexador de Mídia do Azure. No entanto, ao contrário da codificação, a indexação de trabalhos não processará mais rapidamente com unidades reservadas mais rápidas.
 
 Para alterar o tipo de unidade reservada e o número de unidades reservadas para codificação, faça o seguinte:
 
@@ -48,13 +48,13 @@ Para alterar o tipo de unidade reservada e o número de unidades reservadas para
 	![Página Processadores](./media/media-services-portal-encoding-units/media-services-encoding-scale.png)
 
 
-	>[AZURE.NOTE]Os datacenters a seguir não oferecem o tipo de unidade reservada Premium: Singapura, Hong Kong, Osaka, Pequim, Xangai.
+	>[AZURE.NOTE] Os datacenters a seguir não oferecem o tipo de unidade reservada Premium: Singapura, Hong Kong, Osaka, Pequim, Xangai.
 
 3. Pressione o botão SALVAR para salvar as alterações.
 
 	As novas unidades reservadas para codificação são alocadas assim que você pressiona SALVAR.
 
-	>[AZURE.NOTE]O número mais alto de unidades especificadas para o período de 24 horas é usado para calcular o custo.
+	>[AZURE.NOTE] O número mais alto de unidades especificadas para o período de 24 horas é usado para calcular o custo.
 
 ##Cotas e limitações
 
@@ -70,4 +70,4 @@ Para saber mais sobre as cotas e limitações e sobre como abrir um tíquete de 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

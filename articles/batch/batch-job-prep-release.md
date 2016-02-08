@@ -5,49 +5,56 @@
 	documentationCenter=".net"
 	authors="mmacy"
 	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
-
+	editor="" />
+	
 <tags
 	ms.service="batch"
 	ms.devlang="multiple"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="10/15/2015"
-	ms.author="v-marsma"/>
-
+	ms.date="01/22/2016"
+	ms.author="marsma" />
+	
 # Executar tarefas de preparação e conclusão do trabalho em nós de computação em lotes do Azure
 
 Os trabalhos do Lote do Azure geralmente exigem algum tipo de instalação antes da execução e, da mesma forma, algum tipo de manutenção pós-trabalho após a conclusão das tarefas do trabalho. O lote fornece mecanismos para essa preparação e manutenção na forma de tarefas opcionais de *preparação do trabalho* e *liberação de trabalho*.
 
-Antes da execução das tarefas de um trabalho, a tarefa de preparação do trabalho é executada em todos os nós de computação agendados para executar tarefas. Quando o trabalho é concluído, a tarefa de liberação do trabalho é executada em cada nó no pool que executou pelo menos uma tarefa. Para as tarefas de preparação e liberação de trabalho, você pode especificar uma linha de comando a ser executada quando a tarefa é invocada. As tarefas oferecem recursos como download de arquivo, execução elevada, variáveis de ambiente personalizadas, duração máxima da execução, contagem de repetição e tempo de retenção de arquivo.
+Antes da execução das tarefas de um trabalho, a tarefa de preparação do trabalho é executada em todos os nós de computação agendados para executar tarefas. Quando o trabalho é concluído, a tarefa de liberação do trabalho é executada em cada nó no pool que executou pelo menos uma tarefa. Para as tarefas de preparação e liberação de trabalho, você pode especificar uma linha de comando para invocar quando a tarefa for executada. Essas tarefas especiais oferecem recursos conhecidos como download de arquivo, execução elevada, variáveis de ambiente personalizadas, duração máxima da execução, contagem de repetição e tempo de retenção de arquivo.
 
 Nas seções a seguir, você descobrirá como usar esses dois tipos especiais de tarefa usando as classes [JobPreparationTask][net_job_prep] e [JobReleaseTask][net_job_release] na API [.NET do Lote][api_net].
 
-> [AZURE.TIP]Tarefas de preparação e liberação são especialmente úteis em ambientes de "pool compartilhado" – esses ambientes em que um pool de nós de computação persiste entre as execuções de trabalho e é compartilhado entre vários trabalhos diferentes.
+> [AZURE.TIP] As tarefas de preparação e de liberação são especialmente úteis em ambientes de "pool compartilhado" – esses ambientes em que um pool de nós de computação persiste entre as execuções de trabalho e é compartilhado entre vários trabalhos diferentes.
 
 ## Quando usar tarefas de preparação e liberação do trabalho
 
 Uma série de situações se beneficiam de tarefas de preparação e liberação do trabalho. Veja abaixo algumas delas:
 
-- **Transferência de dados de tarefa comuns** -- os trabalhos do Lote geralmente exigem um conjunto comum de dados como entrada para as tarefas do trabalho. Por exemplo, em cálculos diários de análise de riscos, os dados de mercado são específico do trabalho, porém, comuns a todas as tarefas no trabalho. Esses dados de mercado, geralmente de vários gigabytes, devem ser baixados para cada nó de computação apenas uma vez para que cada tarefa que seja executada em um nó possa usá-los. Use uma *tarefa de preparação de trabalho* para baixar os dados para cada nó antes da execução de outras tarefas.
-- **Exclusão de dados de trabalho** -- em um ambiente de pool compartilhado no qual os nós de computação de um pool não são encerrados entre os trabalhos, pode ser necessário excluir os dados do trabalho entre as execuções a fim de conservar espaço em disco nos nós ou atender às políticas de segurança de uma organização. Use uma *tarefa de liberação de trabalho* para excluir dados baixados por uma tarefa de preparação de trabalho ou gerados durante a execução da tarefa.
-- **Retenção de log** -- convém manter uma cópia dos arquivos de log gerados pelas tarefas ou talvez arquivos de despejo de memória que podem ser gerados pelos aplicativos que falharam. Use uma *tarefa de liberação de trabalho* nesses casos para compactar e carregar esses dados para uma conta de [Armazenamento do Azure][azure_storage].
+**Transferência de dados de tarefas comuns**
+
+Os trabalhos do Lote geralmente exigem um conjunto comum de dados como entrada para as tarefas do trabalho. Por exemplo, em cálculos diários de análise de riscos, os dados de mercado são específico do trabalho, porém, comuns a todas as tarefas no trabalho. Esses dados de mercado, geralmente com vários gigabytes, devem ser baixados para cada nó de computação apenas uma vez, para que qualquer tarefa que seja executada em um nó possa usá-los. Use uma *tarefa de preparação de trabalho* para baixar os dados para cada nó antes da execução de outras tarefas do trabalho.
+
+**Exclusão de dados do trabalho**
+
+Em um ambiente de pool compartilhado no qual os nós de computação de um pool não são encerrados entre os trabalhos, pode ser necessário excluir os dados do trabalho entre as execuções a fim de conservar espaço em disco nos nós ou atender às políticas de segurança de uma organização. Use uma *tarefa de liberação de trabalho* para excluir dados baixados por uma tarefa de preparação de trabalho ou gerados durante a execução da tarefa.
+
+**Retenção de log**
+
+Convém manter uma cópia dos arquivos de log gerados pelas tarefas ou talvez arquivos de despejo de memória que podem ser gerados pelos aplicativos que falharam. Use uma *tarefa de liberação de trabalho* nesses casos para compactar e carregar esses dados para uma conta de [Armazenamento do Azure][azure_storage].
 
 ## Tarefa de preparação de trabalho
 
-Antes da execução de tarefas de um trabalho, a tarefa de preparação de trabalho é executada em cada nó de computação agendado para executar uma tarefa. Por padrão, o serviço Lote aguardará a conclusão da tarefa de preparação de trabalho antes de executar as tarefas agendadas no nó. No entanto, você pode configurar o serviço para não aguardar. A tarefa de preparação do trabalho será executada novamente em um nó de computação se o nó for reiniciado, mas você também pode desativar esse comportamento.
+Antes da execução de tarefas de um trabalho, a tarefa de preparação de trabalho é executada em cada nó de computação agendado para executar uma tarefa. Por padrão, o serviço Lote aguardará a conclusão da tarefa de preparação do trabalho antes de executar as tarefas agendadas para execução no nó. No entanto, você pode configurar o serviço para não aguardar. A tarefa de preparação do trabalho será executada novamente em um nó de computação se o nó for reiniciado, mas você também pode desativar esse comportamento.
 
-A tarefa de preparação de trabalho é executada apenas em nós programados para executar uma tarefa. Isso impede a execução desnecessária de uma tarefa de preparação em um nó que não recebeu uma tarefa. Isso evita os encargos de transferência de dados, por exemplo. Essa situação se aplica quando o número de tarefas para um trabalho é menor do que o número de nós em um pool. Também se aplica quando a [execução de tarefas simultâneas](batch-parallel-node-tasks.md) é habilitada, o que deixará alguns nós ociosos se a contagem de tarefas for inferior ao total de possíveis tarefas simultâneas.
+A tarefa de preparação de trabalho é executada apenas em nós programados para executar uma tarefa. Isso impede a execução desnecessária de uma tarefa de preparação em um nó que não recebeu uma tarefa. Isso pode ocorrer quando o número de tarefas de um trabalho é menor do que o número de nós em um pool. Também se aplica quando a [execução de tarefas simultâneas](batch-parallel-node-tasks.md) é habilitada, o que deixará alguns nós ociosos se a contagem de tarefas for inferior ao total de possíveis tarefas simultâneas. A não execução da tarefa de preparação do trabalho em nós ociosos economiza encargos de transferência de dados.
 
 > [AZURE.NOTE] [JobPreparationTask][net\_job\_prep\_cloudjob] é diferente de [CloudPool.StartTask][pool_starttask], visto que JobPreparationTask é executado no início de cada trabalho, enquanto StartTask é executado apenas quando um nó de computação ingressa em um pool pela primeira vez ou é reiniciado.
 
 ## Tarefa de liberação do trabalho
 
-Quando um trabalho é concluído, a tarefa de liberação do trabalho é executada em cada nó no pool que executou pelo menos uma tarefa. Marcar uma tarefa como concluída emitindo uma solicitação de encerramento. Em seguida, o serviço de lote define o estado do trabalho como *encerrando*, encerra quaisquer tarefas em execução ou ativas associadas ao trabalho e executa a tarefa de liberação do trabalho. Em seguida, o trabalho é movido para o estado *concluído*.
+Quando um trabalho é marcado como concluído, a tarefa de liberação do trabalho é executada em cada nó no pool que executou pelo menos uma tarefa. Marcar uma tarefa como concluída emitindo uma solicitação de encerramento. Em seguida, o serviço do Lote define o estado do trabalho como *encerrando*, encerra quaisquer tarefas em execução ou ativas associadas ao trabalho e executa a tarefa de liberação do trabalho. Em seguida, o trabalho é movido para o estado *concluído*.
 
-> [AZURE.NOTE]A exclusão do trabalho também executa a tarefa de liberação do trabalho. No entanto, se um trabalho foi encerrado anteriormente, a tarefa de liberação não é executada uma segunda vez quando o trabalho é excluído posteriormente.
+> [AZURE.NOTE] A exclusão do trabalho também executa a tarefa de liberação do trabalho. No entanto, se um trabalho já tiver sido encerrado, a tarefa de liberação não será executada uma segunda vez quando o trabalho for excluído posteriormente.
 
 ## Tarefas de preparação e liberação de trabalho na API .NET do Lote
 
@@ -140,7 +147,7 @@ Sample complete, hit ENTER to exit...
 
 ### Inspecionar as tarefas de preparação e liberação do trabalho com o Gerenciador do Lote
 
-O [Gerenciador do Lote][batch_explorer_article], que também é encontrado no [repositório de códigos de exemplo][batch_explorer_project] do Lote no GitHub, é uma excelente ferramenta a ser usada no desenvolvimento de soluções com o Lote do Azure. Por exemplo, quando estiver executando o aplicativo de exemplo acima, você pode usar o Gerenciador do Lote para exibir as propriedades do trabalho e suas tarefas, ou até mesmo baixar o arquivo de texto compartilhado que é modificado pelas tarefas do trabalho.
+O [Gerenciador do Lote do Azure][batch_explorer_article], que também é encontrado no [repositório de códigos de exemplo][batch_explorer_project] do Lote no GitHub, é uma excelente ferramenta a ser usada no desenvolvimento de soluções com o Lote do Azure. Por exemplo, quando estiver executando o aplicativo de exemplo acima, você pode usar o Gerenciador do Lote para exibir as propriedades do trabalho e suas tarefas, ou até mesmo baixar o arquivo de texto compartilhado que é modificado pelas tarefas do trabalho.
 
 A captura de tela abaixo destaca as propriedades das tarefas de preparação e liberação de trabalho que aparecem no painel **Detalhes do Trabalho** quando você seleciona o trabalho *JobPrepReleaseSampleJob* na guia **Trabalhos**.
 
@@ -180,4 +187,4 @@ A captura de tela abaixo destaca as propriedades das tarefas de preparação e l
 [1]: ./media/batch-job-prep-release/batchexplorer-01.png
 [2]: ./media/batch-job-prep-release/batchexplorer-02.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

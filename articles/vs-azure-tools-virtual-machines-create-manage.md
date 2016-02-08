@@ -49,11 +49,11 @@ Embora você possa criar uma máquina virtual no [Portal de Gerenciamento do Azu
 
     - **Imagens privadas** lista imagens especializadas e generalizadas da máquina virtual que você criou.
 
-    Para saber mais sobre máquinas virtuais especializadas e generalizadas, consulte [Imagem da VM](http://azure.microsoft.com/blog/2014/04/14/vm-image-blog-post/). Consulte [Como capturar uma máquina Virtual do Windows para usar como modelo](http://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/) para obter informações sobre como transformar uma máquina virtual em um modelo que você pode usar para criar rapidamente novas máquinas virtuais pré-configuradas.
+    Para saber mais sobre máquinas virtuais especializadas e generalizadas, consulte [Imagem da VM](https://azure.microsoft.com/blog/2014/04/14/vm-image-blog-post/). Consulte [Como capturar uma máquina Virtual do Windows para usar como modelo](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/) para obter informações sobre como transformar uma máquina virtual em um modelo que você pode usar para criar rapidamente novas máquinas virtuais pré-configuradas.
 
     Para obter informações sobre a imagem, você pode clicar no nome de imagem de máquina virtual no lado direito da página.
 
-    >[AZURE.NOTE]Não é possível adicionar imagens de máquinas virtuais às listas **Imagens públicas** ou **Imagens MSDN** porque elas são somente leitura. Todas as máquinas virtuais que você cria são adicionadas na lista **Imagens privadas**.
+    >[AZURE.NOTE] Não é possível adicionar imagens de máquinas virtuais às listas **Imagens públicas** ou **Imagens MSDN** porque elas são somente leitura. Todas as máquinas virtuais que você cria são adicionadas na lista **Imagens privadas**.
 
     >Se você for assinante do MSDN com uma assinatura do nível do Visual Studio, pode criar uma máquina virtual do Azure pré-criada que contém o Visual Studio, além de várias outras imagens. Para obter mais informações, consulte [Criar uma máquina virtual no Visual Studio usando imagens da Galeria de imagens do Visual Studio 2013 para assinantes do MSDN](http://visualstudio2013msdngalleryimage.azurewebsites.net) e [Assinaturas do MSDN](https://www.visualstudio.com/products/msdn-subscriptions-vs). |
 
@@ -61,17 +61,17 @@ Embora você possa criar uma máquina virtual no [Portal de Gerenciamento do Azu
 
     Você usará o novo nome e senha para fazer logon no computador usando a área de trabalho remota. É uma boa ideia escrevê-los caso você esqueça. Depois de criar uma máquina virtual do Azure no Visual Studio, você pode alterar seu tamanho e outras configurações no [Portal de Gerenciamento do Azure](http://go.microsoft.com/fwlink/?LinkID=253103).
 
-        >[AZURE.NOTE] If you choose larger sizes for the virtual machine, extra charges may apply. See [Virtual Machines Pricing Details](http://azure.microsoft.com/pricing/details/virtual-machines/) for more information.
+        >[AZURE.NOTE] If you choose larger sizes for the virtual machine, extra charges may apply. See [Virtual Machines Pricing Details](https://azure.microsoft.com/pricing/details/virtual-machines/) for more information.
 
 1. Máquinas virtuais criadas no Visual Studio exigem um serviço de nuvem. Na página **Configurações de serviço de nuvem**, selecione um serviço de nuvem para a máquina virtual ou clique em **<Criar novo... >** na lista suspensa, se você ainda não tiver uma nuvem de serviço ou deseja usar um novo. Também é necessária uma conta de armazenamento, então escolha uma conta de armazenamento (ou crie uma nova conta de armazenamento) na caixa de listagem suspensa **Conta de armazenamento**. Para saber mais, consulte: [Introdução ao Armazenamento do Microsoft Azure](./storage/storage-introduction/).
 
 1. Se você quiser especificar uma rede virtual (que é opcional), selecione-a nas caixas de listagem suspensa da Sub-rede e Rede Virtual.
 
-    Máquinas virtuais que são membros de um conjunto de disponibilidade são implantadas em domínios de falha diferentes. Consulte [Rede Virtual do Azure](http://www.windowsazure.com/services/virtual-network/) para obter mais informações.
+    Máquinas virtuais que são membros de um conjunto de disponibilidade são implantadas em domínios de falha diferentes. Consulte [Rede Virtual do Azure](https://azure.microsoft.com/services/virtual-network/) para obter mais informações.
 
 1. Se quiser que sua máquina virtual pertença a um conjunto de disponibilidade (também opcional), selecione a caixa de seleção **Especificar um conjunto de disponibilidade** e, em seguida, escolha um conjunto de disponibilidade na caixa de listagem suspensa. Quando terminar, escolha o botão **Próximo**.
 
-    Adicionar suas máquinas virtuais em um conjunto de disponibilidade ajuda seus aplicativos a permanecer disponíveis durante falhas de rede, falhas de hardware de disco local e tempo de inatividade planejado. Você precisa usar o [Portal de Gerenciamento](http://go.microsoft.com/fwlink/?LinkID=253103) para criar redes virtuais, sub-redes e definir disponibilidade. Consulte [Gerenciar a disponibilidade das máquinas virtuais](http://www.windowsazure.com/documentation/articles/manage-availability-virtual-machines/) para obter mais informações.
+    Adicionar suas máquinas virtuais em um conjunto de disponibilidade ajuda seus aplicativos a permanecer disponíveis durante falhas de rede, falhas de hardware de disco local e tempo de inatividade planejado. Você precisa usar o [Portal de Gerenciamento](http://go.microsoft.com/fwlink/?LinkID=253103) para criar redes virtuais, sub-redes e definir disponibilidade. Consulte [Gerenciar a disponibilidade das máquinas virtuais](https://azure.microsoft.com/documentation/articles/manage-availability-virtual-machines/) para obter mais informações.
 
 1. Na página **Pontos de extremidade**, especifique os pontos de extremidade públicos que você deseja disponibilizar para os usuários de sua máquina virtual. Por exemplo, você pode optar por habilitar o HTTP (porta 80) além dos pontos de extremidade da Área de trabalho remota e do PowerShell, que são habilitados por padrão. Para adicionar um ponto de extremidade, escolha um na caixa de listagem suspensa **nome da porta** e, em seguida, escolha o botão **Adicionar**. Para remover um ponto de extremidade, escolha o **X** vermelho ao lado do nome na lista de pontos de extremidade.
 
@@ -79,7 +79,7 @@ Embora você possa criar uma máquina virtual no [Portal de Gerenciamento do Azu
 
     Os pontos de extremidade que estão disponíveis dependem do serviço de nuvem que você selecionou para sua máquina virtual. Consulte [Pontos de extremidade de serviço do Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/) para obter mais informações.
 
-    >[AZURE.NOTE]Habilitar pontos de extremidade públicos disponibiliza os serviços de sua máquina virtual para a Internet. Certifique-se de instalar e configurar corretamente os pontos de extremidade e serviços em sua máquina virtual, como configurar listas de controle de acesso (ACLs) para os pontos de extremidade. Consulte [como configurar pontos de extremidade em uma Máquina Virtual](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/) para obter mais informações.
+    >[AZURE.NOTE] Habilitar pontos de extremidade públicos disponibiliza os serviços de sua máquina virtual para a Internet. Certifique-se de instalar e configurar corretamente os pontos de extremidade e serviços em sua máquina virtual, como configurar listas de controle de acesso (ACLs) para os pontos de extremidade. Consulte [como configurar pontos de extremidade em uma Máquina Virtual](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/) para obter mais informações.
 
 1. Após terminar de configurar as definições da máquina virtual, escolha o botão **criar** para criar a máquina virtual.
 
@@ -141,7 +141,7 @@ Como você configura sua máquina virtual e instala o software, é uma boa ideia
 
 1. Se você já tiver executado Sysprep nessa máquina virtual, selecione a caixa **executei o Sysprep na máquina virtual**.
 
-    O Sysprep é uma ferramenta que, entre outras coisas, remove dados específicos de sistemas da versão da máquina virtual do Windows, facilitando o modelo que outras pessoas podem usar. Consulte [como capturar uma Máquina Virtual do Windows para usar como modelo](http://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/) para obter mais informações.
+    O Sysprep é uma ferramenta que, entre outras coisas, remove dados específicos de sistemas da versão da máquina virtual do Windows, facilitando o modelo que outras pessoas podem usar. Consulte [como capturar uma Máquina Virtual do Windows para usar como modelo](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/) para obter mais informações.
 
 1. Depois de terminar de definir as configurações de captura, escolha o botão **capturar** para criar o ponto de verificação.
 
@@ -177,4 +177,4 @@ Como você configura sua máquina virtual e instala o software, é uma boa ideia
 
 Para saber mais sobre a criação de máquinas virtuais, consulte [criar uma máquina Virtual executando Linux](virtual-machines-linux-tutorial.md) e [criar uma máquina virtual executando o Windows no portal de visualização do Azure](virtual-machines-windows-tutorial.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

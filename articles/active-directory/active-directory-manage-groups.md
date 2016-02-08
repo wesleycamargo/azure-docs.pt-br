@@ -23,7 +23,7 @@
 O AD do Azure (Active Directory do Azure) é uma solução abrangente de gerenciamento de acesso e identidades que oferece um conjunto robusto de recursos para gerenciar o acesso aos recursos e aplicativos na nuvem e locais, incluindo serviços online da Microsoft como o Office 365 e uma infinidade de aplicativos SaaS que não são da Microsoft.
 
 
-> [AZURE.NOTE]Para usar o Active Directory do Azure, você precisa de uma conta do Azure. Se você ainda não tem uma conta, você pode [inscrever-se para uma conta gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE] Para usar o Active Directory do Azure, você precisa de uma conta do Azure. Se você ainda não tem uma conta, você pode [inscrever-se para uma conta gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 
 No Active Directory do Azure, um dos principais recursos é a capacidade de gerenciar o acesso aos recursos. Esses recursos podem ser parte do diretório, como no caso de permissões para gerenciar objetos por meio de funções no diretório, ou recursos que são externos ao diretório, como aplicativos SaaS, serviços do Azure e sites do SharePoint ou recursos locais. Há quatro maneiras de um usuário receber direitos de acesso a um recurso:
@@ -98,4 +98,4 @@ Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 
 * [Referência de Graph API para grupos](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#GroupFunctions)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

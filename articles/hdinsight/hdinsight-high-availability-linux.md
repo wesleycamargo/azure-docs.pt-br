@@ -21,7 +21,7 @@
 
 Um segundo nó principal é usado pelos clusters Hadoop baseados em Linux implantados pelo HDInsight do Azure. Isso aumenta a disponibilidade e confiabilidade de serviços do Hadoop e trabalhos em execução no Azure.
 
-> [AZURE.NOTE]As etapas deste documento são específicas de clusters HDInsight baseados em Linux. Se você estiver usando um cluster baseado no Windows, consulte [Disponibilidade e confiabilidade dos clusters Hadoop baseado em Windows no HDInsight](hdinsight-high-availability.md) para obter informações específicas do Windows.
+> [AZURE.NOTE] As etapas deste documento são específicas de clusters HDInsight baseados em Linux. Se você estiver usando um cluster baseado no Windows, consulte [Disponibilidade e confiabilidade dos clusters Hadoop baseado em Windows no HDInsight](hdinsight-high-availability.md) para obter informações específicas do Windows.
 
 ##Noções básicas sobre os nós de cabeçalho
 
@@ -29,7 +29,7 @@ Algumas implementações de Hadoop têm um único nó de cabeçalho que hospeda 
 
 Os clusters HDInsight fornecem um nó de cabeçalho secundário, que permite que os serviços e componentes principais continuem a executar nó secundário no caso de uma falha do principal.
 
-> [AZURE.IMPORTANT]Ambos os nós de cabeçalho estão ativos e em execução no cluster simultaneamente. Alguns serviços, como HDFS ou YARN, são apenas “active” em um nó de cabeçalho a qualquer momento (e fica de “standby” no outro nó de cabeçalho). Outros serviços, como HiveServer2 ou MetaStore Hive estão ativos em ambos os nós de cabeçalho ao mesmo tempo.
+> [AZURE.IMPORTANT] Ambos os nós de cabeçalho estão ativos e em execução no cluster simultaneamente. Alguns serviços, como HDFS ou YARN, são apenas “active” em um nó de cabeçalho a qualquer momento (e fica de “standby” no outro nó de cabeçalho). Outros serviços, como HiveServer2 ou MetaStore Hive estão ativos em ambos os nós de cabeçalho ao mesmo tempo.
 
 Os nós [ZooKeeper](http://zookeeper.apache.org/) (ZKs) são usados para eleição de líder de serviços principais em nós de cabeçalho e para garantir que os serviços, nós de dados (trabalho) e gateways saibam em qual nó de cabeçalho um serviço principal está ativo.
 
@@ -128,7 +128,7 @@ Cada nó de cabeçalho pode ter entradas de log exclusivo, portanto você deve v
 
 ###Ambari
 
-> [AZURE.NOTE]Acessar arquivos de log por meio de Ambari requer um túnel SSH, já que os sites da Web para os serviços individuais não são expostos publicamente na Internet. Para obter mais informações sobre o uso de um túnel SSH, consulte [Usar túnel SSH para acessar a IU da Ambari Web, ResourceManager, JobHistory, NameNode, Oozie e outras IUs da Web](hdinsight-linux-ambari-ssh-tunnel.md).
+> [AZURE.NOTE] Acessar arquivos de log por meio de Ambari requer um túnel SSH, já que os sites da Web para os serviços individuais não são expostos publicamente na Internet. Para obter mais informações sobre o uso de um túnel SSH, consulte [Usar túnel SSH para acessar a IU da Ambari Web, ResourceManager, JobHistory, NameNode, Oozie e outras IUs da Web](hdinsight-linux-ambari-ssh-tunnel.md).
 
 Na IU da Ambari Web, selecione o serviço que você deseja para ver os logs (por exemplo, YARN,) e, em seguida, use **Links Rápidos** para selecionar qual nó principal para ver os logs.
 
@@ -136,7 +136,7 @@ Na IU da Ambari Web, selecione o serviço que você deseja para ver os logs (por
 
 ## Como configurar o tamanho do nó principal ##
 
-O tamanho do nó principal só pode ser selecionado durante a criação do cluster. Você pode encontrar uma lista de diferentes tamanhos de VM disponíveis para o HDInsight, incluindo o núcleo, memória e armazenamento local para cada um, na [página de preços do HDInsight](http://azure.microsoft.com/pricing/details/hdinsight/).
+O tamanho do nó principal só pode ser selecionado durante a criação do cluster. Você pode encontrar uma lista de diferentes tamanhos de VM disponíveis para o HDInsight, incluindo o núcleo, memória e armazenamento local para cada um, na [página de preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 Ao criar um novo cluster, você pode especificar o tamanho dos nós. A seguir, apresentamos informações sobre como especificar o tamanho usando o [Portal do Azure][preview-portal], o [Azure PowerShell][azure-powershell] e a [CLI do Azure][azure-cli]\:
 
@@ -166,4 +166,4 @@ Neste documento, você aprendeu como o Azure HDInsight fornece alta disponibilid
 [azure-powershell]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Visão geral do modelo de autenticação e de segurança dos Hubs de Eventos | Microsoft Azure"
-   description="Perguntas frequentes dos Hubs de Eventos"
+   description="Visão geral do modelo de autenticação e segurança dos Hubs de Eventos"
    services="event-hubs"
    documentationCenter="na"
    authors="sethmanheim"
@@ -11,8 +11,8 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="10/07/2015"
+   ms.workload="na"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # Visão geral do modelo de autenticação e segurança dos Hubs de Eventos
@@ -31,13 +31,13 @@ Normalmente, um Hub de Eventos emprega um editor por dispositivo. Todas as mensa
 
 Cada dispositivo recebe um token exclusivo, que é carregado no dispositivo. Os tokens são produzidos de modo que cada token exclusivo concede acesso a um editor exclusivo diferente. Um dispositivo que possui um token só pode enviar para um editor específico e nenhum outro editor. Se vários dispositivos compartilharem o mesmo token, cada um desses dispositivos compartilhará um editor.
 
-Embora não seja recomendado, é possível equipar os dispositivos com tokens que concedem acesso direto a um Hub de Eventos. Qualquer dispositivo que contém esse token pode enviar mensagens diretamente para esse Hub de Eventos. Esse dispositivo não estará sujeito à limitação. Além disso, o dispositivo não pode ser incluído na lista de bloqueados para ser impedido de enviar para esse Hub de Eventos.
+Embora não seja recomendado, é possível equipar os dispositivos com tokens que concedem acesso direto a um Hub de Eventos. Qualquer dispositivo que contenha esse token pode enviar mensagens diretamente para esse Hub de Eventos. Esse dispositivo não estará sujeito à limitação. Além disso, o dispositivo não pode ser incluído na lista não autorizada para ser impedido de enviar para esse Hub de Eventos.
 
 Todos os tokens são assinados com uma chave SAS. Normalmente, todos os tokens são assinados com a mesma chave. Os dispositivos não estão cientes da chave; isso impede que dispositivos criem tokens.
 
 ### Criar a chave SAS
 
-Ao criar um namespace, o Barramento de Serviço gera uma chave SAS de 256 bits chamada **RootManageSharedAccessKey**. Essa chave concede direitos de envio, escuta e gerenciamento ao namespace. Você pode criar chaves adicionais. É recomendável que você crie uma chave que conceda permissões de envio para o Hub de Eventos específico. No restante deste tópico, pressupõe-se que você nomeou esta chave `EventHubSendKey`.
+Ao criar um namespace, o Barramento de Serviço gera uma chave SAS de 256 bits chamada **RootManageSharedAccessKey**. Essa chave concede direitos de envio, escuta e gerenciamento ao namespace. Você pode criar chaves adicionais. É recomendável criar uma chave que conceda permissões de envio para o Hub de Eventos específico. No restante deste tópico, pressupõe-se que você nomeou esta chave `EventHubSendKey`.
 
 O exemplo a seguir cria uma chave somente de envio ao criar o Hub de Eventos:
 
@@ -50,7 +50,7 @@ Uri uri = ServiceBusEnvironment.CreateServiceUri("sb", serviceNamespace, string.
 TokenProvider td = TokenProvider.CreateSharedAccessSignatureTokenProvider(namespaceManageKeyName, namespaceManageKey);
 NamespaceManager nm = new NamespaceManager(namespaceUri, namespaceManageTokenProvider);
 
-// Create Event Hub with a SAS rule that allows sending to that Event Hub.
+// Create Event hub with a SAS rule that allows sending to that Event hub
 EventHubDescription ed = new EventHubDescription("MY_EVENT_HUB") { PartitionCount = 32 };
 string eventHubSendKeyName = "EventHubSendKey";
 string eventHubSendKey = SharedAccessAuthorizationRule.GenerateRandomKey();
@@ -89,13 +89,13 @@ Depois que os tokens são criados, cada dispositivo é configurado com seu próp
 
 Quando envia dados a um Hub de Eventos, o dispositivo marca seu token com a solicitação de envio. Para evitar que um invasor intercepte e roube o token, a comunicação entre o dispositivo e o Hub de Eventos deve ocorrer em um canal criptografado.
 
-### Colocando dispositivos em lista de bloqueados
+### Colocando dispositivos em lista negra
 
-Se um token for roubado por um invasor, o invasor pode representar o dispositivo cujo token foi roubado. Colocar um dispositivo na lista de bloqueados inutiliza o dispositivo até que ele receba um novo token que usa um outro editor.
+Se um token for roubado por um invasor, o invasor pode representar o dispositivo cujo token foi roubado. Colocar um dispositivo na lista negra inutiliza o dispositivo até que ele receba um novo token que usa um outro editor.
 
 ## Autenticação de aplicativos back-end
 
-Para autenticar aplicativos back-end que consomem os dados gerados por dispositivos, os Hubs de Eventos empregam um modelo de segurança que é semelhante ao modelo usado para os tópicos do Barramento de Serviço. Um grupo de consumidores de Hubs de Eventos é equivalente a uma assinatura de um tópico do Barramento de Serviço. Um cliente pode criar um grupo de consumidores se a solicitação para criar o grupo for acompanhada por um token que concede privilégios de gerenciamento para o Hub de Eventos ou para o namespace ao qual o Hub de Eventos pertence. Um cliente pode consumir dados de um grupo de consumidores, se a solicitação de recebimento é acompanhada por um token que concede direitos de recebimento no grupo consumidor, o Hub de eventos ou o namespace ao qual pertence o Hub de eventos.
+Para autenticar aplicativos back-end que consomem os dados gerados por dispositivos, os Hubs de Eventos empregam um modelo de segurança que é semelhante ao modelo usado para os tópicos do Barramento de Serviço. Um grupo de consumidores de Hubs de Eventos é equivalente a uma assinatura de um tópico do Barramento de Serviço. Um cliente poderá criar um grupo de consumidores se a solicitação para criar o grupo for acompanhada por um token que concede privilégios de gerenciamento para o Hub de Eventos ou para o namespace ao qual o Hub de Eventos pertence. Um cliente poderá consumir dados de um grupo de consumidores se a solicitação de recebimento for acompanhada por um token que concede direitos de recebimento no grupo de consumidores, o Hub de Eventos, ou o namespace ao qual pertence o Hub de Eventos.
 
 A versão atual do Barramento de Serviço não dá suporte a regras SAS para assinaturas individuais. O mesmo se aplica a grupos de consumidores de Hubs de Eventos. O suporte a SAS será adicionado para os dois recursos no futuro.
 
@@ -154,4 +154,4 @@ Para saber mais sobre os Hubs de Eventos, consulte os tópicos a seguir:
 [solução de mensagens na fila]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

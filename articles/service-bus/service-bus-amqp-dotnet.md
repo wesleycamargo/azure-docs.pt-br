@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/15/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # Usando o Barramento de Serviço do .NET com AMQP 1.0
@@ -21,7 +21,7 @@
 
 ## Baixar o SDK do Barramento de Serviço
 
-O suporte para o AMQP 1.0 está disponível na versão 2.1 ou posterior do SDK do Barramento de Serviço. Você pode baixar o SDK mais no [NuGet][].
+O suporte para o AMQP 1.0 está disponível na versão 2.1 ou posterior do SDK do Barramento de Serviço. Você pode baixar os bits mais recentes do Barramento de Serviço do [NuGet][].
 
 ## Configurando aplicativos .NET para usar o AMQP 1.0
 
@@ -59,7 +59,7 @@ Para facilitar a interoperabilidade com clientes não .NET, use somente tipos .N
 
 | Tipo de objeto de corpo .NET | Tipo do AMQP mapeado | Tipo de seção de corpo do AMQP |
 |--------------------------------|-------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| bool | Booleano | Valor do AMQP |
+| bool | Booliano | Valor do AMQP |
 | byte | ubyte | Valor do AMQP |
 | ushort | ushort | Valor do AMQP |
 | uint | uint | Valor do AMQP |
@@ -198,10 +198,9 @@ Está pronto(a) para saber mais? Visite os links a seguir:
   [Microsoft.ServiceBus.Messaging.BrokeredMessage.RenewLock]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx
   [OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
-
 [portal clássico do Azure]: http://manage.windowsazure.com
 [Visão geral do AMQP do Barramento de Serviço]: service-bus-amqp-overview.md
 [Suporte a AMQP 1.0 para filas e tópicos particionados do Barramento de Serviço]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP no Barramento de Serviço para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

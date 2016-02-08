@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 01/12/15-->
+<!--author=alkohli last changed: 01/26/16-->
 
 #### Para baixar os hotfixes
 
@@ -20,7 +20,7 @@ Execute as etapas a seguir para baixar a atualização do software do Catálogo 
  
 6. Clique em **Download**. Especifique ou **navegue** até o local onde deseja que o download apareça. A atualização será baixada em uma pasta (mesmo nome que a atualização) para o local escolhido. A pasta também pode ser copiada para um compartilhamento de rede que seja acessível do dispositivo.
        
-	> [AZURE.NOTE]
+	> [AZURE.NOTE] 
 	> 
 	> - Você também precisará baixar a **Atualização do driver LSI** (Atualização do controlador SAS 2.0 para StorSimple Série 8000 - KB3121900), **Atualização Storport** (Hotfix do Windows Server 2012 R2 x64 Edition - KB3080728), **Atualização Spaceport** (Hotfix do Windows Server 2012 R2 x64 Edition - KB3090322) e **Atualização de firmware de disco** (Atualização Cumulativa de Firmware de Disco 2.0 para StorSimple Série 8000 - KB3121899) e copiar para a mesma pasta compartilhada.
 	> - O hotfix deve estar acessível nos dois controladores para detectar possíveis mensagens de erro dos controladores pares.
@@ -85,7 +85,7 @@ Execute as etapas a seguir para instalar e verificar os hotfixes regulares.
         ````
 		
 
-	> [AZURE.NOTE]Ocasionalmente, o cmdlet relatará `False` quando a atualização ainda estiver em andamento. Para garantir que o hotfix seja concluído, aguarde alguns minutos, execute esse comando novamente e verifique se `RunInProgress` é `False`. Em caso positivo, o hotfix foi concluído.
+	> [AZURE.NOTE] Ocasionalmente, o cmdlet relatará `False` quando a atualização ainda estiver em andamento. Para garantir que o hotfix seja concluído, aguarde alguns minutos, execute esse comando novamente e verifique se `RunInProgress` é `False`. Em caso positivo, o hotfix foi concluído.
 	
 8. Após a conclusão da atualização de software, repita as etapas 3 a 5 para instalar e monitorar o agente SaaS e o agente do MDS usando o `CisMdsAgentUpdateBundle.exe`. Certifique-se de que `HcsMdsSoftwareUpdate.exe` seja instalado antes de `CisMdsAgentUpdateBundle.exe`.
 
@@ -109,7 +109,11 @@ Execute as etapas a seguir para instalar e verificar os hotfixes regulares.
 
 #### Para instalar e verificar o hotfix do modo de manutenção
 
-Use o pacote `DiskFirmwarePackage.exe` (KB3121899) para instalar atualizações de firmware de disco. Estas são atualizações com interrupção e levam cerca de 30 minutos para ser concluídas. Você pode optar por instalá-las em uma janela de manutenção planejada conectando-se ao console serial do dispositivo. Para instalar atualizações de firmware de disco, siga as instruções abaixo.
+Use o pacote `DiskFirmwarePackage.exe` (KB3121899) para instalar atualizações de firmware de disco. Estas são atualizações com interrupção e levam cerca de 30 minutos para ser concluídas. Você pode optar por instalá-las em uma janela de manutenção planejada conectando-se ao console serial do dispositivo.
+
+Observe que, se o firmware de disco já estiver atualizado, você não precisará instalar essas atualizações. Execute o cmdlet `Get-HcsUpdateAvailability` do console serial do dispositivo. Você será notificado se houver atualizações disponíveis e se as atualizações forem interruptivas (atualizações do modo de manutenção) ou não interruptivas (regulares).
+ 
+Para instalar as atualizações de firmware de disco, siga as instruções abaixo.
 
 1. Coloque o dispositivo no Modo de manutenção. Observe que você não deve usar a comunicação remota do Windows PowerShell ao se conectar a um dispositivo no Modo de manutenção. Você precisará executar esse cmdlet no controlador de dispositivo quando conectado por meio do console serial do dispositivo. Tipo:
 		
@@ -235,4 +239,4 @@ Use o pacote `DiskFirmwarePackage.exe` (KB3121899) para instalar atualizações 
  
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

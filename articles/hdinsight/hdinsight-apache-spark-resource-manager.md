@@ -26,8 +26,8 @@ O Spark no Azure HDInsight (Linux) fornece a interface do usuário do Ambari Web
 
 Você deve ter o seguinte:
 
-- Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- Um cluster Apache Spark no HDInsight Linux. Para obter instruções, confira [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+- Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- Um cluster do Apache Spark no HDInsight no Linux. Para obter instruções, confira [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## Como inicio a interface do usuário do Ambari Web?
 
@@ -103,7 +103,7 @@ Eis aqui alguns cenários comuns que você pode executar com o cluster Spark e a
 
 * [Spark com BI: executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](hdinsight-apache-spark-use-bi-tools.md)
 
-* [Spark com Aprendizado de Máquina: usar o Spark no HDInsight para analisar a temperatura de prédios usando dados HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark com Aprendizado de Máquina: usar o Spark no HDInsight para analisar a temperatura de prédios usando dados do sistema HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
 * [Spark com Aprendizado de Máquina: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
@@ -115,7 +115,7 @@ Eis aqui alguns cenários comuns que você pode executar com o cluster Spark e a
 
 * [Criar um aplicativo autônomo usando Scala](hdinsight-apache-spark-create-standalone-application.md)
 
-* [Executar trabalhos remotamente em um cluster Spark usando Livy](hdinsight-apache-spark-livy-rest-interface.md)
+* [Executar trabalhos remotamente em um cluster do Spark usando Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### Extensões
 
@@ -136,4 +136,4 @@ Eis aqui alguns cenários comuns que você pode executar com o cluster Spark e a
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

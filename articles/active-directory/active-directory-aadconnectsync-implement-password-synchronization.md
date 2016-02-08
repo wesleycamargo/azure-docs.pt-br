@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="01/21/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -27,7 +27,7 @@ O objetivo deste tópico é fornecer a você as informações que você precisa 
 
 A sincronização de senha é um recurso dos Azure Active Directory Connect Synchronization Services (Azure AD Connect Sync) que sincroniza as senhas de usuário do seu Active Directory local com as do Active Directory do Azure (AD do Azure). Esse recurso permite que os usuários façam logon em seus serviços do Active Directory do Azure (como Office 365, Microsoft Intune e CRM Online) usando a mesma senha que eles usam para fazer logon em sua rede local.
 
-> [AZURE.NOTE]Para obter mais detalhes sobre os Serviços de Domínio do Active Directory, que são configurados para sincronização de senha e FIPS, consulte[Sincronização de senha e FIPS](#password-synchronization-and-fips).
+> [AZURE.NOTE] Para obter mais detalhes sobre os Serviços de Domínio do Active Directory, que são configurados para sincronização de senha e FIPS, consulte[Sincronização de senha e FIPS](#password-synchronization-and-fips).
 
 ### Disponibilidade de sincronização de senha
 
@@ -45,7 +45,7 @@ Quando você habilita o recurso de sincronização de senha pela primeira vez, e
 
 A sincronização de senha não tem impacto sobre usuários conectados atualmente. Se um usuário que está conectado a um serviço de nuvem também altera a senha local, a sessão de serviço de nuvem continuará sem interrupção. No entanto, assim que o serviço de nuvem exigir nova autenticação do usuário, a nova senha deverá ser fornecida. Nesse ponto, o usuário deve fornecer a nova senha - a senha do Active Directory local que foi sincronizada recentemente com a nuvem.
 
-> [AZURE.NOTE]Somente há suporte para a sincronização de senha para o usuário do tipo de objeto no Active Directory. Não há suporte para o tipo de objeto iNetOrgPerson.
+> [AZURE.NOTE] Somente há suporte para a sincronização de senha para o usuário do tipo de objeto no Active Directory. Não há suporte para o tipo de objeto iNetOrgPerson.
 
 ### Como a sincronização de senha funciona com os Serviços de Domínio do AD do Azure
 
@@ -68,11 +68,11 @@ Há dois tipos de políticas de senha que são afetadas ao habilitar a sincroniz
 
 Quando você habilita a sincronização de senha, as políticas de complexidade de senha configuradas no Active Directory local substituem qualquer política de complexidade que possa estar definida na nuvem para usuários sincronizados. Isso significa que qualquer senha válida no ambiente de Active Directory local do cliente pode ser usada para acessar os serviços do AD do Azure.
 
-> [AZURE.NOTE]Senhas de usuários criadas diretamente na nuvem ainda estão sujeitas a políticas de senha, conforme definido na nuvem.
+> [AZURE.NOTE] Senhas de usuários criadas diretamente na nuvem ainda estão sujeitas a políticas de senha, conforme definido na nuvem.
 
 **Política de expiração de senha**
 
-Se um usuário estiver no escopo de sincronização de senha, a senha da conta de nuvem é definida como "*Never Expire*". Isso significa que é possível que a senha do usuário expire no ambiente local, mas ele podem continuar a fazer logon nos serviços de nuvem usando essa senha expirada.
+Se um usuário estiver no escopo de sincronização de senha, a senha da conta de nuvem é definida como “*Never Expire*”. Isso significa que é possível que a senha do usuário expire no ambiente local, mas ele podem continuar a fazer logon nos serviços de nuvem usando essa senha expirada.
 
 A senha de nuvem será atualizada na próxima vez que o usuário alterar a senha no ambiente local.
 
@@ -160,4 +160,4 @@ Não deve ser necessário forçar uma sincronização completa de todas as senha
 * [Azure AD Connect Sync: personalizando opções de sincronização](active-directory-aadconnectsync-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

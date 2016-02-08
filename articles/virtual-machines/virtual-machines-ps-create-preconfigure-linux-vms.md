@@ -268,7 +268,7 @@ Aqui está o conjunto de comandos do PowerShell do Azure correspondente para cri
 
 ## Recursos adicionais
 
-[Documentação de máquinas virtuais](http://azure.microsoft.com/documentation/services/virtual-machines/)
+[Documentação de máquinas virtuais](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
 [Perguntas frequentes sobre máquinas virtuais do Azure](http://msdn.microsoft.com/library/azure/dn683781.aspx)
 
@@ -280,4 +280,4 @@ Aqui está o conjunto de comandos do PowerShell do Azure correspondente para cri
 
 [Usar o Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

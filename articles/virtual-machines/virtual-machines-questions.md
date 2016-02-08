@@ -32,7 +32,7 @@ Todos os assinantes podem executar software para servidores em uma máquina virt
 
 • Para VMs do Linux – [Linux em distribuições endossadas pelo Azure](http://go.microsoft.com/fwlink/p/?LinkId=393551)
 
-Para imagens do Windows Client, determinadas versões do Windows 7 e Windows 8.1 estão disponíveis para assinantes de benefícios do Azure na MSDN e assinantes do modelo "pré-pago" do Desenvolvimento e Teste da MSDN, para tarefas de teste e desenvolvimento. Para obter detalhes, incluindo instruções e limitações, veja [Imagens do Windows Client para assinantes do MSDN](http://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/).
+Para imagens do Windows Client, determinadas versões do Windows 7 e Windows 8.1 estão disponíveis para assinantes de benefícios do Azure na MSDN e assinantes do modelo "pré-pago" do Desenvolvimento e Teste da MSDN, para tarefas de teste e desenvolvimento. Para obter detalhes, incluindo instruções e limitações, veja [Imagens do Windows Client para assinantes do MSDN](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/).
 
 ## Quanto armazenamento eu posso usar com uma máquina virtual?
 
@@ -118,7 +118,7 @@ O Azure oferece diversas opções para soluções antivírus, mas cabe a você g
 
 - [Como instalar e configurar o Symantec Endpoint Protection em uma VM do Azure](http://go.microsoft.com/fwlink/p/?LinkId=404207)
 - [Como instalar e configurar o Trend Micro Deep Security as a Service em uma VM do Azure](http://go.microsoft.com/fwlink/p/?LinkId=404206)
-- [Implantando soluções antimalware em máquinas virtuais do Azure](http://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
+- [Implantando soluções antimalware em máquinas virtuais do Azure](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
 
 ## Quais são minhas opções de backup e recuperação?
 
@@ -136,7 +136,7 @@ Você será cobrado quando o status da VM for Em execução ou Parada, mas não 
 - Use o cmdlet Stop-AzureVM, disponível no módulo do Azure PowerShell.
 - Use a operação de Função de Desligamento na API REST do Gerenciamento de Serviços e especifique StoppedDeallocated para o elemento PostShutdownAction.
 
-Para obter mais detalhes, veja [Preços das máquinas virtuais](http://azure.microsoft.com/pricing/details/virtual-machines/).
+Para obter mais detalhes, veja [Preços das máquinas virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
 ## O Azure reinicializará minha VM para manutenção?
 
@@ -146,7 +146,7 @@ Eventos de manutenção não planejados podem ocorrer quando o Azure detectar um
 
 Para qualquer VM autônoma (ou seja, uma VM que não faz parte de um conjunto de disponibilidade), o Azure notifica o Administrador de Serviços de assinatura por email pelo menos uma semana antes da manutenção planejada, porque as máquinas virtuais podem ser reiniciadas durante a atualização. Aplicativos em execução nas VMs podem experimentar tempo de inatividade.
 
-Você também pode usar o portal clássico do Azure ou Azure PowerShell para exibir os logs de reinicialização quando a reinicialização ocorrer devido a uma manutenção planejada. Para obter detalhes, veja [Exibindo logs de reinicialização de VM](http://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
+Você também pode usar o portal clássico do Azure ou Azure PowerShell para exibir os logs de reinicialização quando a reinicialização ocorrer devido a uma manutenção planejada. Para obter detalhes, veja [Exibindo logs de reinicialização de VM](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
 
 Para fornecer redundância, coloque duas ou mais VMs configuradas de forma semelhante no mesmo conjunto de disponibilidade. Isso ajuda a garantir que pelo menos uma VM esteja disponível durante a manutenção planejada ou não planejada. O Azure garante determinados níveis de disponibilidade de VM para essa configuração. Para obter detalhes, veja [Gerenciar a disponibilidade de máquinas virtuais](virtual-machines-manage-availability.md).
 
@@ -158,4 +158,4 @@ Para fornecer redundância, coloque duas ou mais VMs configuradas de forma semel
 
 [Diferentes maneiras de criar uma máquina virtual Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -3,7 +3,7 @@
    description="Adicionar Serviços Móveis usando a caixa de diálogo Adicionar Serviços Conectados do Visual Studio"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="TomArcher"
+   authors="mlhoop"
    manager="douge"
    editor="" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="mobile"
    ms.date="12/16/2015"
-   ms.author="tarcher" />
+   ms.author="mlearned" />
 
 # Adicionando Serviços Móveis usando os serviços conectados do Visual Studio
 
@@ -21,7 +21,7 @@ Com o Visual Studio 2015, você pode se conectar a Serviços Móveis do Azure us
 
 ## Tipos de projeto com suporte
 
->[AZURE.NOTE]No Visual Studio 2015, não há suporte para adição de Serviços Móveis do Azure a projetos Windows Universal (Windows 10) usando a caixa de diálogo Adicionar Serviços Conectados. É possível adicionar Serviços Móveis do Azure instalando os pacotes adequados usando o Gerenciador de Pacotes NuGet para seu projeto.
+>[AZURE.NOTE] No Visual Studio 2015, não há suporte para adição de Serviços Móveis do Azure a projetos Windows Universal (Windows 10) usando a caixa de diálogo Adicionar Serviços Conectados. É possível adicionar Serviços Móveis do Azure instalando os pacotes adequados usando o Gerenciador de Pacotes NuGet para seu projeto.
 
 Você pode usar a caixa de diálogo Serviços Conectados para se conectar a Serviços Móveis do Azure nos tipos de projeto a seguir.
 
@@ -49,9 +49,7 @@ Você pode usar a caixa de diálogo Serviços Conectados para se conectar a Serv
 
 1. Na caixa de diálogo **Serviços Móveis do Azure**, escolha um serviço móvel existente, se houver. Se você precisar criar um novo serviço móvel do Azure, siga o procedimento abaixo para fazer isso. Caso contrário, avance para a próxima etapa.
 
-    Para criar uma nova conta de serviço móvel:
-    1. Escolha o link **Criar Serviço** na parte inferior da caixa de diálogo.
-        ![Adicionar novo serviço conectado móvel](./media/vs-azure-tools-connected-services-add-mobile-services/IC797637.png)
+    Para criar uma nova conta de serviço móvel: 1. Escolha o link **Criar Serviço** na parte inferior da caixa de diálogo. ![Adicionar novo serviço conectado móvel](./media/vs-azure-tools-connected-services-add-mobile-services/IC797637.png)
 
 
 
@@ -85,10 +83,10 @@ Faça perguntas e obtenha ajuda:
 
  - [Fórum do MSDN: Serviços Móveis do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)
 
- - [Serviços Móveis do Azure no Blog da equipe do Microsoft Azure](http://azure.microsoft.com/blog/topics/mobile/)
+ - [Serviços Móveis do Azure no Blog da equipe do Microsoft Azure](https://azure.microsoft.com/blog/topics/mobile/)
 
- - [Serviços Móveis do Azure em azure.microsoft.com](http://azure.microsoft.com/services/mobile-services/)
+ - [Serviços Móveis do Azure em azure.microsoft.com](https://azure.microsoft.com/services/mobile-services/)
 
- - [Documentação dos Serviços Móveis do Azure em azure.microsoft.com](http://azure.microsoft.com/documentation/services/mobile-services/)
+ - [Documentação dos Serviços Móveis do Azure em azure.microsoft.com](https://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

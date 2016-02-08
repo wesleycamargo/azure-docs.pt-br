@@ -19,7 +19,7 @@
 
 Deseja fazer algumas análises personalizadas em sua telemetria? Ou talvez você gostaria de receber um alerta por email sobre eventos com propriedades específicas? Exportação contínua é ideal para isso. Os eventos que você vê no portal do Application Insights podem ser exportados para armazenamento no Microsoft Azure no formato JSON. Ali, você pode baixar os dados e gravar qualquer código de que você precisa para processá-los.
 
-A Exportação Contínua está disponível no período de avaliação gratuita nos [planos de preços Standard e Premium](http://azure.microsoft.com/pricing/details/application-insights/).
+A Exportação Contínua está disponível no período de avaliação gratuita nos [planos de preços Standard e Premium](https://azure.microsoft.com/pricing/details/application-insights/).
 
 (Se você quiser apenas fazer uma [exportação única](app-insights-metrics-explorer.md#export-to-excel) do que você vê em uma folha de métrica ou de pesquisa, clique em Exportar na parte superior da folha. E se você quiser ver os dados no Power BI, use [o adaptador](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx), que *não* usa a Exportação Contínua).
 
@@ -75,13 +75,13 @@ Outras métricas calculadas não são incluídas. Por exemplo, nós não exporta
 
 Os dados também incluem os resultados de todos os [testes da Web de disponibilidade](app-insights-monitor-web-app-availability.md) que você configurou.
 
-> [AZURE.NOTE]**Amostragem.** Se o aplicativo enviar muitos dados e se você estiver usando o SDK do Application Insights para o ASP.NET versão 2.0.0-beta3 ou posterior, o recurso de amostragem adaptável poderá operar e enviar apenas uma porcentagem de sua telemetria. [Saiba mais sobre amostragem.](app-insights-sampling.md)
+> [AZURE.NOTE] **Amostragem.** Se o aplicativo enviar muitos dados e se você estiver usando o SDK do Application Insights para o ASP.NET versão 2.0.0-beta3 ou posterior, o recurso de amostragem adaptável poderá operar e enviar apenas uma porcentagem de sua telemetria. [Saiba mais sobre amostragem.](app-insights-sampling.md)
 
 ## <a name="get"></a> Inspecionar os dados
 
 Você pode inspecionar o armazenamento diretamente no portal. Clique em **Procurar**, selecione sua conta de armazenamento e abra **Contêineres**.
 
-Para inspecionar o armazenamento do Azure no Visual Studio, abra **Exibir** e **Cloud Explorer**. (Se você não tiver esse comando de menu, você precisará instalar o SDK do Azure: abra o diálogo **Novo Projeto**, expanda Visual C#/Nuvem e escolha **Obter o SDK do Microsoft Azure para .NET**).
+Para inspecionar o armazenamento do Azure no Visual Studio, abra **Exibir** e **Cloud Explorer**. (Se você não tiver esse comando de menu, precisará instalar o SDK do Azure: abra o diálogo **Novo Projeto**, expanda Visual C#/Nuvem e escolha **Obter o SDK do Microsoft Azure para .NET**.)
 
 Quando você abrir o armazenamento de blob, verá um contêiner com um conjunto de arquivos de blob. O URI de cada arquivo deriva o nome do recurso Application Insights, da chave de instrumentação e do tipo/data/hora de telemetria. (O nome do recurso está todo em letras minúsculas e a chave de instrumentação omite traços.)
 
@@ -152,7 +152,7 @@ A exportação contínua será reiniciada.
  * Lembre-se de que esse não é o modo padrão de usar o Power BI. Há [um adaptador](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx) que não exige a Exportação Contínua.
 
 
-Em escalas maiores, considere usar o [HDInsight](http://azure.microsoft.com/services/hdinsight/) - clusters de Hadoop na nuvem. O HDInsight fornece uma variedade de tecnologias para gerenciar e analisar grandes volumes de dados.
+Em escalas maiores, considere usar o [HDInsight](https://azure.microsoft.com/services/hdinsight/) - clusters de Hadoop na nuvem. O HDInsight fornece uma variedade de tecnologias para gerenciar e analisar grandes volumes de dados.
 
 
 
@@ -210,4 +210,4 @@ Em escalas maiores, considere usar o [HDInsight](http://azure.microsoft.com/serv
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

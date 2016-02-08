@@ -36,7 +36,7 @@ Verifique se estes pré-requisitos estão em vigor:
 
 ### Pré-requisitos do Azure
 
-- Você precisará de uma conta do [Microsoft Azure](http://azure.microsoft.com/). Você pode começar com uma [avaliação gratuita](pricing/free-trial/).
+- Você precisará de uma conta do [Microsoft Azure](https://azure.microsoft.com/). Você pode começar com uma [avaliação gratuita](pricing/free-trial/).
 - Você precisará de uma conta de armazenamento do Azure para armazenar os dados replicados no Azure. A conta precisa estar com a replicação geográfica habilitada. Ela deve estar localizada na mesma região que o cofre do Azure Site Recovery e ser associada à mesma assinatura. [Saiba mais sobre o Armazenamento do Azure](../storage/storage-introduction.md).
 - Você precisará verificar se as máquinas virtuais que deseja proteger atendem aos [requisitos de máquina virtual do Azure](site-recovery-best-practices.md#virtual-machines).
 
@@ -67,7 +67,7 @@ Se desejar implantar o mapeamento de rede, você precisará do seguinte:
 - [Saiba mais](site-recovery-network-mapping.md) sobre o mapeamento de rede:
 
 ###Pré-requisitos do PowerShell
-Verifique se você tem o PowerShell do Azure pronto para uso. Se você já estiver usando o PowerShell, precisará atualizar para a versão 0.8.10 ou posterior. Para saber mais sobre como configurar o PowerShell, confira [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md). Depois de instalar e configurar o PowerShell, você poderá exibir todos os cmdlets disponíveis para o serviço [aqui](https://msdn.microsoft.com/library/dn850420.aspx).
+Verifique se você tem o PowerShell do Azure pronto para uso. Se você já estiver usando o PowerShell, precisará atualizar para a versão 0.8.10 ou posterior. Para saber mais sobre como configurar o PowerShell, confira [Como instalar e configurar o PowerShell do Azure](powershell-install-configure.md). Depois de instalar e configurar o PowerShell, você poderá exibir todos os cmdlets disponíveis para o serviço [aqui](https://msdn.microsoft.com/library/dn850420.aspx).
 
 Para obter dicas que podem ajudar você a usar os cmdlets, por exemplo, como os valores de parâmetro, as entradas e saídas são tratadas normalmente no Azure PowerShell, confira [Introdução aos cmdlets do Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx).
 
@@ -449,4 +449,4 @@ if($isJobLeftForProcessing)
 
 [Leia mais](https://msdn.microsoft.com/library/dn850420.aspx) sobre os cmdlets do PowerShell do Azure Site Recovery. </a>.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

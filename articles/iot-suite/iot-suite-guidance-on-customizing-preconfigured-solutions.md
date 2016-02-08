@@ -2,13 +2,14 @@
 	pageTitle="Personalizando soluções pré-configuradas | Microsoft Azure"
 	description="Fornece orientação sobre como personalizar as soluções pré-configuradas do Pacote IoT do Azure."
 	services=""
+    suite="iot-suite"
 	documentationCenter=".net"
 	authors="stevehob"
 	manager="timlt"
 	editor=""/>
 
 <tags
-     ms.service="na"
+     ms.service="iot-suite"
      ms.devlang="dotnet"
      ms.topic="article"
      ms.tgt_pltfrm="na"
@@ -30,7 +31,7 @@ Essa fonte é fornecida para demonstrar um padrão para implementar a funcionali
 
 ## Alterando as regras predefinidas
 
-A solução de monitoramento remota inclui dois trabalhos de [Stream Analytics do Azure](http://azure.microsoft.com/services/stream-analytics) para implementar a lógica de telemetria e alarme exibida no painel.
+A solução de monitoramento remota inclui dois trabalhos de [Stream Analytics do Azure](https://azure.microsoft.com/services/stream-analytics/) para implementar a lógica de telemetria e alarme exibida no painel.
 
 O primeiro trabalho seleciona todos os dados do fluxo de entrada de telemetria e cria duas saídas diferentes. O trabalho será denominado **[solution name]-Telemetry**.
 
@@ -41,7 +42,7 @@ Usando a interface do usuário de Stream Analytics, será possível editar esses
 
 O segundo trabalho opera nos valores de Dispositivo para limite criados na página de **Regras** da solução. Esse trabalho consome Dados de Referência, o valor de limite definido para cada dispositivo. Compara o valor de limite para ver se é maior do que (`>`) o valor real. Esse trabalho pode ser modificado, por exemplo, para alterar o operador de comparação.
 
-> [AZURE.NOTE]O painel de monitoramento remoto depende de dados específicos, por isso, alterar os trabalhos pode fazer com que o painel falhe.
+> [AZURE.NOTE] O painel de monitoramento remoto depende de dados específicos, por isso, alterar os trabalhos pode fazer com que o painel falhe.
 
 ## Adicionando suas próprias regras
 
@@ -65,8 +66,8 @@ Os [SDKs do Azure IoT](https://github.com/Azure/azure-iot-sdks) fornecem bibliot
 
 ## Próximas etapas
 
-Para obter mais informações sobre dispositivos IoT, consulte o [Site de desenvolvedores do Azure IoT](http://azure.microsoft.com/develop/iot) para encontrar links e documentação.
+Para obter mais informações sobre dispositivos IoT, consulte o [Site de desenvolvedores do Azure IoT](https://azure.microsoft.com/develop/iot/) para encontrar links e documentação.
 
 [SDK do Dispositivo IoT]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

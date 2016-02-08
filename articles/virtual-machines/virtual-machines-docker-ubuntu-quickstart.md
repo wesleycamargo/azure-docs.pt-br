@@ -29,7 +29,7 @@ Você pode conectar-se à VM imediatamente com SSH e começar a trabalhar com o 
 
 ## Faça logon no Portal
 
-Essa parte é fácil, a menos que você não tenha uma conta do Azure. [Obtenha uma gratuita facilmente](http://azure.microsoft.com/pricing/free-trial/)!
+Essa parte é fácil, a menos que você não tenha uma conta do Azure. [Obtenha uma gratuita facilmente](https://azure.microsoft.com/pricing/free-trial/)!
 
 ## Crie uma máquina virtual com a imagem de Docker de Canonical e MSOpenTech
 
@@ -78,4 +78,4 @@ Você vai querer começar a usar o [Docker]!
 [MSOpenTech]: http://msopentech.com/
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

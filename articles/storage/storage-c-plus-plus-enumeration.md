@@ -19,7 +19,7 @@
 
 As operações de listagem são fundamentais para muitos cenários de desenvolvimento com o Armazenamento do Azure. Este artigo descreve como enumerar os objetos no Armazenamento do Azure usando a listagem APIs fornecidas na Biblioteca de Cliente do Armazenamento do Microsoft Azure para C++ com mais eficiência.
 
->[AZURE.NOTE]Este guia destina-se a Biblioteca de Cliente do Armazenamento do Azure para C++ versão 1.x, que está disponível via [NuGet](http://www.nuget.org/packages/wastorage) ou [GitHub](https://github.com/Azure/azure-storage-cpp).
+>[AZURE.NOTE] Este guia destina-se a Biblioteca de Cliente do Armazenamento do Azure para C++ versão 1.x, que está disponível via [NuGet](http://www.nuget.org/packages/wastorage) ou [GitHub](https://github.com/Azure/azure-storage-cpp).
 
 A Biblioteca de Cliente do Armazenamento fornece uma variedade de métodos de consulta ou lista de objetos no Armazenamento do Azure. Este artigo aborda os seguintes cenários:
 
@@ -182,6 +182,6 @@ Para obter mais informações sobre o Armazenamento do Azure e a Biblioteca de C
 -	[Como usar o Armazenamento de Filas do C++](storage-c-plus-plus-how-to-use-queues.md)
 -	[Documentação Biblioteca de Cliente de Armazenamento do Azure para API do C++.](http://azure.github.io/azure-storage-cpp/)
 -	[Blog da equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
--	[Documentação do Armazenamento do Azure](http://azure.microsoft.com/documentation/services/storage/)
+-	[Documentação do Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

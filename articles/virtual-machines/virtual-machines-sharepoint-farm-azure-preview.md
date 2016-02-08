@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="01/21/2016"
 	ms.author="josephd"/>
 
 # Criar farm do SharePoint Server
@@ -23,7 +23,7 @@
 
 Com o Marketplace do portal do Microsoft Azure, você pode criar rapidamente farms pré-configurados do SharePoint Server 2013. Isso pode economizar muito tempo quando necessitar de um farm SharePoint básico ou de alta disponibilidade para um ambiente de desenvolvimento e teste, ou se estiver avaliando o SharePoint Server 2013 como uma solução de colaboração para a sua organização.
 
-> [AZURE.NOTE]O item **Farm do SharePoint Server** no Azure Marketplace do portal do Azure foi removido.
+> [AZURE.NOTE] O item **Farm do SharePoint Server** no Azure Marketplace do portal do Azure foi removido.
 
 O farm do SharePoint básico consiste em três máquinas virtuais nesta configuração.
 
@@ -51,7 +51,7 @@ Para criar o farm de alta disponibilidade (nove servidores) do SharePoint:
 3. No painel **Farm de HA do SharePoint 2013**, clique em **Criar**.
 4. Especifique as configurações nas sete etapas do painel **Criar Farm de HA do SharePoint 2013** e clique em **Criar**.
 
-> [AZURE.NOTE]A Microsoft lançou o SharePoint Server 2016 IT Preview. Para facilitar a instalação e teste desta visualização, você pode usar uma imagem da galeria de máquinas virtuais do Azure com o SharePoint Server 2016 IT Preview e seus pré-requisitos pré-instalados. Para saber mais, veja [Testar o SharePoint Server 2016 IT Preview no Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
+> [AZURE.NOTE] A Microsoft lançou o SharePoint Server 2016 IT Preview. Para facilitar a instalação e teste desta visualização, você pode usar uma imagem da galeria de máquinas virtuais do Azure com o SharePoint Server 2016 IT Preview e seus pré-requisitos pré-instalados. Para saber mais, veja [Testar o SharePoint Server 2016 IT Preview no Azure](https://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
 
 ## Gerenciando os farms do SharePoint
 
@@ -59,14 +59,10 @@ Para criar o farm de alta disponibilidade (nove servidores) do SharePoint:
 
 No site Administração central do SharePoint, é possível configurar o My sites, os aplicativos SharePoint e outra funcionalidade. Para obter mais informações, consulte [Configurar o SharePoint 2013](http://technet.microsoft.com/library/ee836142.aspx).
 
-> [AZURE.NOTE]O portal do Azure cria ambos os farms em uma rede virtual somente em nuvem com a presença da web voltada para a Internet. Não há nenhuma conexão de VPN site a site ou de Rota Expressa para a rede da sua organização.
+> [AZURE.NOTE] O portal do Azure cria ambos os farms em uma rede virtual somente em nuvem com a presença da web voltada para a Internet. Não há nenhuma conexão de VPN site a site ou de Rota Expressa para a rede da sua organização.
 
-## Recursos adicionais
+## Próxima etapa
 
-[Farms do SharePoint hospedados nos serviços de infraestrutura do Azure](virtual-machines-sharepoint-infrastructure-services.md)
+- Descubra configurações adicionais do [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) nos serviços de infraestrutura do Azure.
 
-[Configurar um farm de intranet do SharePoint em uma nuvem híbrida para teste](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
-
-[Arquiteturas do Microsoft Azure para SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

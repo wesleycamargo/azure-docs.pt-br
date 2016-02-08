@@ -31,9 +31,9 @@ Sua oferta permanecerá em teste até que você notifique a Microsoft de que est
 
   ![desenho][img-pubportal-publish-pushproduction]
 
-> [AZURE.IMPORTANT]Você sempre pode excluir a oferta enquanto estiver no status **Rascunho** (ou seja, nunca **Enviar por push para preparo** ou **Enviar por push para produção**). Na guia **Histórico** clique no botão **Descartar rascunho** na parte inferior da página para excluir um rascunho.
+> [AZURE.IMPORTANT] Você sempre pode excluir a oferta enquanto estiver no status **Rascunho** (ou seja, nunca **Enviar por push para preparo** ou **Enviar por push para produção**). Na guia **Histórico** clique no botão **Descartar rascunho** na parte inferior da página para excluir um rascunho.
 
-> Para imagens de máquina virtual, a replicação entre os data centers leva de 24 a 48 horas. Quando a replicação for concluída, sua oferta estará listada no [Azure Marketplace](http://azure.microsoft.com/marketplace).
+> Para imagens de máquina virtual, a replicação entre os data centers leva de 24 a 48 horas. Quando a replicação for concluída, sua oferta estará listada no [Azure Marketplace](https://azure.microsoft.com/marketplace/).
 
 ## Próximas etapas
 Depois que a oferta ficar ativa, teste os cenários de cliente para validar todos os contratos e a funcionalidade funciona corretamente no ambiente de produção conforme testado e validado no ambiente de preparo.
@@ -45,4 +45,4 @@ Depois que a oferta ficar ativa, teste os cenários de cliente para validar todo
 [img-pubportal-menu-publish]: media/marketplace-publishing-push-to-production/pubportal-menu-publish.png
 [img-pubportal-publish-pushproduction]: media/marketplace-publishing-push-to-production/pubportal-publish-pushproduction.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

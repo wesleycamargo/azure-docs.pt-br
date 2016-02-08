@@ -27,7 +27,7 @@ Aprenda a criar clusters HDInsight usando modelos de ARM (Gerenciador de Recurso
 
 Antes de começar a seguir as instruções neste artigo, você deve ter o seguinte:
 
-- [Assinatura do Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- [Assinatura do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - [Azure PowerShell](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater) e/ou [CLI do Azure](xplat-cli-install.md). 
 
 ## Modelos de ARM
@@ -444,4 +444,4 @@ O modelo a seguir do Gerenciador de Recursos do Azure cria um cluster Hadoop bas
 	  }
 	}
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="01/21/2016"
 	ms.author="brandwe"/>
 
 # Integrar o Azure AD em um aplicativo iOS
@@ -47,7 +47,7 @@ O formato do iOS para um URI de redirecionamento é:
 
 - 	**aap-scheme** - isso é registrado em seu projeto XCode. É como os outros aplicativos podem chamar você. Você pode encontrar isso em Info.plist -> tipos de URL -> identificador de URL. Você deve criar um se você ainda não tiver um ou mais configurados.
 - 	**bundle-id** - esse é o identificador de pacote localizado em "identidade" nas configurações do seu projeto no XCode.
-	
+
 Um exemplo para este código do Guia de início rápido seria: ******msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 
 ## *2. Registrar o aplicativo DirectorySearcher*
@@ -108,12 +108,12 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
         completionBlock(data.userItem.accessToken, nil);
         return;
     }
-    
+
     ADAuthenticationError *error;
     authContext = [ADAuthenticationContext authenticationContextWithAuthority:data.authority error:&error];
     authContext.parentController = parent;
     NSURL *redirectUri = [[NSURL alloc]initWithString:data.redirectUriString];
-    
+
     [ADAuthenticationSettings sharedInstance].enableFullScreen = YES;
     [authContext acquireTokenWithResource:data.resourceId
                                  clientId:data.clientId
@@ -122,7 +122,7 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
                                    userId:data.userItem.userInformation.userId
                      extraQueryParameters: @"nux=1" // if this strikes you as strange it was legacy to display the correct mobile UX. You most likely won't need it in your code.
                           completionBlock:^(ADAuthenticationResult *result) {
-                              
+
                               if (result.status != AD_SUCCEEDED)
                               {
                                   completionBlock(nil, result.error);
@@ -148,68 +148,68 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
     {
         [self readApplicationSettings];
     }
-    
+
     AppData* data = [AppData getInstance];
-    
+
     NSString *graphURL = [NSString stringWithFormat:@"%@%@/users?api-version=%@&$filter=startswith(userPrincipalName, '%@')", data.taskWebApiUrlString, data.tenant, data.apiversion, searchString];
 
-    
+
     [self craftRequest:[self.class trimString:graphURL]
                 parent:parent
      completionHandler:^(NSMutableURLRequest *request, NSError *error) {
-         
+
          if (error != nil)
          {
              completionBlock(nil, error);
          }
          else
          {
-             
+
              NSOperationQueue *queue = [[NSOperationQueue alloc]init];
-             
+
              [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-                 
+
                  if (error == nil && data != nil){
-                     
+
                      NSDictionary *dataReturned = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-                     
+
                      // We can grab the top most JSON node to get our graph data.
                      NSArray *graphDataArray = [dataReturned objectForKey:@"value"];
-                     
+
                      // Don't be thrown off by the key name being "value". It really is the name of the
                      // first node. :-)
-                     
+
                      //each object is a key value pair
                      NSDictionary *keyValuePairs;
                      NSMutableArray* Users = [[NSMutableArray alloc]init];
-                     
+
                      for(int i =0; i < graphDataArray.count; i++)
                      {
                          keyValuePairs = [graphDataArray objectAtIndex:i];
-                         
+
                          User *s = [[User alloc]init];
                          s.upn = [keyValuePairs valueForKey:@"userPrincipalName"];
                          s.name =[keyValuePairs valueForKey:@"givenName"];
-                         
+
                          [Users addObject:s];
                      }
-                     
+
                      completionBlock(Users, nil);
                  }
                  else
                  {
                      completionBlock(nil, error);
                  }
-                 
+
              }];
          }
      }];
-    
+
 }
 
 ```
 - Quando o aplicativo solicita um token chamando `getToken(...)`, a ADAL tentará retornar um token sem pedir as credenciais ao usuário. Se a ADAL determina que o usuário precisa entrar para obter um token, exibirá uma caixa de diálogo de logon, coletar as credenciais do usuário e retornar um token após uma autenticação bem-sucedida. Se a ADAL não puder retornar um token por qualquer motivo, o status exibirá `AdalException`.
-- Observe que o objeto `AuthenticationResult` contém um objeto `tokenCacheStoreItem` que pode ser usado para coletar informações que seu aplicativo pode precisar. No Guia de início rápido, `tokenCacheStoreItem` é usado para determinar se a autenticação já ocorreu. 
+- Observe que o objeto `AuthenticationResult` contém um objeto `tokenCacheStoreItem` que pode ser usado para coletar informações que seu aplicativo pode precisar. No Guia de início rápido, `tokenCacheStoreItem` é usado para determinar se a autenticação já ocorreu.
 
 
 ## Etapa 5: Compile e execute o aplicativo
@@ -226,4 +226,4 @@ Para referência, o exemplo concluído (sem seus valores de configuração) é f
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

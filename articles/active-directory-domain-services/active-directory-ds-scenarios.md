@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="01/26/2016"
 	ms.author="maheshu"/>
 
 
@@ -56,4 +56,10 @@ Alguns pontos importantes a se observar ao considerar este cenário:
 
 - Verifique se o aplicativo usa o nome de usuário e senha para autenticação. A autenticação com certificado/cartão inteligente não tem suporte dos Serviços de Domínio do AD do Azure.
 
-<!---HONumber=AcomDC_1217_2015-->
+
+## RemoteApp do Azure
+O RemoteApp do Azure permite que o administrador do Contoso crie uma coleção associada a um domínio. Isso permite que aplicativos remotos atendidos pelo RemoteApp do Azure sejam executados em computadores associados ao domínio e acessem outros recursos usando a autenticação integrada do Windows. O Contoso pode usar os Serviços de Domínio do AD do Azure para fornecer um domínio gerenciado usado pelas coleções associadas ao domínio do RemoteApp do Azure.
+
+Para saber mais sobre esse cenário de implantação, consulte o artigo de Blog de Serviços de Área de Trabalho Remota intitulado [Lift-and-shift your workloads with Azure RemoteApp and AD do Azure Domain Services](http://blogs.msdn.com/b/rds/archive/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services.aspx).
+
+<!---HONumber=AcomDC_0128_2016-->

@@ -30,7 +30,7 @@ O Cloud Explorer é instalado como parte das Ferramentas do Visual Studio para o
 - Visual Studio 2015 RTM.
 
 - Ferramentas do Visual Studio para o SDK do Azure.
-- Você também deve ter uma conta do Azure e estar conectado a ela para exibir recursos do Azure no Cloud Explorer. Se você não tiver uma, poderá criar uma conta em apenas alguns minutos. Se tiver uma assinatura do MSDN, consulte [Benefício do Azure para assinantes do MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Caso contrário, consulte [criar uma conta de avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
+- Você também deve ter uma conta do Azure e estar conectado a ela para exibir recursos do Azure no Cloud Explorer. Se você não tiver uma, poderá criar uma conta em apenas alguns minutos. Se tiver uma assinatura do MSDN, consulte [Benefício do Azure para assinantes do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Caso contrário, consulte [criar uma conta de avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 - Se o Cloud Explorer não estiver visível, você poderá exibi-lo escolhendo **Exibir**, **Outras Janelas** e **Cloud Explorer** na barra de menus.
 
@@ -95,4 +95,4 @@ Para localizar recursos com um nome específico em assinaturas de sua conta do A
 
 Conforme você insere caracteres na caixa de Pesquisa, apenas os recursos que correspondem a esses caracteres são exibidos na árvore de recursos.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

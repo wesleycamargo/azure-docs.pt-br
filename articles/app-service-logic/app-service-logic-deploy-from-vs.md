@@ -18,12 +18,12 @@
 	
 # Implantar com o Visual Studio
 
-Embora o [Portal do Azure](https://portal.azure.com) lhe ofereça uma ótima maneira de criar e gerenciar seus aplicativos lógicos, você também pode desejar, em vez disso, implantar seu aplicativo lógico por meio Visual Studio. Há dois recursos-chave que essa ação habilita:
+Embora o [Portal do Azure](https://portal.azure.com/) lhe ofereça uma ótima maneira de criar e gerenciar seus aplicativos lógicos, você também pode desejar, em vez disso, implantar seu aplicativo lógico por meio Visual Studio. Há dois recursos-chave que essa ação habilita:
 
 - Armazenar seu aplicativo lógico junto com os outros ativos em sua solução, de modo que ele possa conter todos os aspectos do seu aplicativo
 - Manter sua definição de aplicativo lógico marcada no controle do código-fonte para que você possa usar o TFS ou Git para controlar revisões feitas a ele 
 
-Você deve ter o Azure SDK 2.7 ou posterior instalado para que você siga as etapas abaixo. Encontre [o SDK mais recente para VS](http://azure.microsoft.com/downloads/) aqui.
+Você deve ter o Azure SDK 2.7 ou posterior instalado para que você siga as etapas abaixo. Encontre [o SDK mais recente para VS](https://azure.microsoft.com/downloads/) aqui.
 
 ## Criar um projeto
 
@@ -65,4 +65,4 @@ No futuro, você pode revisar seu aplicativo lógico no controle do código-font
 
 Se você não quiser usar o Visual Studio, mas ainda quiser usar ferramentas para implantar seu aplicativo lógico por meio do controle do código-fonte, use diretamente a [API](https://msdn.microsoft.com/library/azure/dn948510.aspx) ou o [Powershell](../powershell-azure-resource-manager.md) para automatizar suas implantações.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

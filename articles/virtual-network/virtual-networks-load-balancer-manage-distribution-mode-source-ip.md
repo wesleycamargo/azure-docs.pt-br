@@ -88,7 +88,7 @@ Se o elemento LoadBalancerDistribution não estiver presente, o balanceador de c
 
     Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 –LoadBalancerDistribution "sourceIP"
 
-    Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 â€“LoadBalancerDistribution "sourceIP"
+    Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 LoadBalancerDistribution "sourceIP"
 
 Se os pontos de extremidade são parte de um conjunto de ponto de extremidade com balanceamento de carga, o modo de distribuição deve ser definido no conjunto de pontos de extremidade com balanceamento de carga.
 
@@ -160,4 +160,4 @@ O valor de LoadBalancerDistribution pode ser sourceIP para afinidade de 2 tuplas
     x-ms-request-id: 9c7bda3e67c621a6b57096323069f7af
     Date: Thu, 16 Oct 2014 22:49:21 GMT
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="01/12/2016" 
 	ms.author="tomfitz"/>
 
 
@@ -38,7 +38,7 @@ Seguindo este tutorial, você compilará um aplicativo Web de registro simples e
 
 ![Site PHP do Azure][running-app]
 
->[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE] Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 
 ##Criar um aplicativo Web e configurar a publicação por FTP
@@ -46,31 +46,27 @@ Seguindo este tutorial, você compilará um aplicativo Web de registro simples e
 Siga estas etapas para criar um aplicativo Web e um Banco de Dados MySQL:
 
 1. Faça logon no [Portal do Azure][management-portal].
-2. Clique no ícone **+ Novo**, na parte inferior esquerda do Portal do Azure.
+2. Clique no ícone **+ NOVO** no canto superior esquerdo do Portal do Azure.
 
 	![Criar um novo site do Azure][new-website]
 
-3. Clique em **Web + Móvel** e, em seguida, em **Aplicativo Web + MySQL**.
+3. Na pesquisa, digite **Aplicativo Web + MySQL** e clique em **Aplicativo Web + MySQL**.
 
 	![Criação personalizada de um novo site][custom-create]
 
-4. Insira um nome válido para o grupo de recursos.
+4. Clique em **Criar**. Insira um nome de serviço de aplicativo exclusivo, um nome válido para o grupo de recursos e um novo plano de serviço.
 
     ![Definir nome do grupo de recursos][resource-group]
 
-5. Insira valores para seu novo aplicativo Web.
-
-     ![Criar um aplicativo Web][new-web-app]
 
 6. Insira valores para seu novo banco de dados, incluindo concordar com os termos legais.
 
 	![Criar novo banco de dados MySQL][new-mysql-db]
 	
-7. Quando o aplicativo Web tiver sido criado, você verá o novo grupo de recursos. Clique no nome do aplicativo Web para definir suas configurações.
+7. Quando o aplicativo Web tiver sido criado, você verá a nova folha do serviço de aplicativo.
 
-	![Abrir um aplicativo Web][go-to-webapp]
 
-6. Role para baixo até encontrar **Definir credenciais de implantação**.
+6. Clique em **Configurações** > **Credenciais de implantação**.
 
 	![Definir credenciais de implantação][set-deployment-credentials]
 
@@ -118,7 +114,8 @@ Para compilar e executar o aplicativo localmente, siga as etapas abaixo. Observe
 		echo "<h3>Table created.</h3>";
 		?>
 
-	> [AZURE.NOTE]Será necessário que você atualize os valores de <code>$user</code> e <code>$pwd</code> com seu nome de usuário e senha do MySQL local.
+	> [AZURE.NOTE] 
+	Será necessário que você atualize os valores de <code>$user</code> e <code>$pwd</code> com seu nome de usuário e senha do MySQL local.
 
 4. Abra um navegador da web e navegue para [http://localhost/registration/createtable.php][localhost-createtable]. Isso criará a tabela `registration_tbl` no banco de dados.
 
@@ -171,7 +168,8 @@ Para compilar e executar o aplicativo localmente, siga as etapas abaixo. Observe
 			die(var_dump($e));
 		}
 
-	> [AZURE.NOTE]Novamente, você precisará atualizar os valores de <code>$user</code> e <code>$pwd</code> com o nome de usuário e a senha do MySQL local.
+	> [AZURE.NOTE]
+	Novamente, você precisará atualizar os valores de <code>$user</code> e <code>$pwd</code> com o nome de usuário e a senha do MySQL local.
 
 7. Após o código de conexão do banco de dados, adicione código para inserir informações de registro no banco de dados.
 
@@ -222,11 +220,15 @@ Agora você pode navegar para [http://localhost/registration/index.php][localhos
 
 Para conectar-se ao Banco de Dados MySQL que está em execução nos Aplicativos Web, você precisará das informações da conexão. Para obter informações sobre a conexão MySQL, siga estas etapas:
 
+1. Na folha do aplicativo Web do serviço de aplicativo clique no link do grupo de recursos:
+
+	![Escolher Grupo de Recursos][select-resourcegroup]
+
 1. No seu grupo de recursos, verifique o banco de dados:
 
 	![Selecionar um banco de dados][select-database]
 
-2. No resumo do banco de dados, selecione **Propriedades**.
+2. No resumo de banco de dados, escolha **Configurações** > **Propriedades**.
 
     ![Selecionar propriedades][select-properties]
 	
@@ -292,6 +294,7 @@ Para obter mais informações, consulte o [Centro de desenvolvedores do PHP](/de
 [resource-group]: ./media/web-sites-php-mysql-deploy-use-ftp/set_group.png
 [new-web-app]: ./media/web-sites-php-mysql-deploy-use-ftp/create_wa.png
 [select-database]: ./media/web-sites-php-mysql-deploy-use-ftp/select_database.png
+[select-resourcegroup]: ./media/web-sites-php-mysql-deploy-use-ftp/select_resourcegroup.png
 [select-properties]: ./media/web-sites-php-mysql-deploy-use-ftp/select_properties.png
 [note-properties]: ./media/web-sites-php-mysql-deploy-use-ftp/note-properties.png
 
@@ -300,4 +303,4 @@ Para obter mais informações, consulte o [Centro de desenvolvedores do PHP](/de
 [download-publish-profile]: ./media/web-sites-php-mysql-deploy-use-ftp/download_publish_profile_3.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

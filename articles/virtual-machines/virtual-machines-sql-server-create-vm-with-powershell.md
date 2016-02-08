@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="01/06/2015"
+	ms.date="01/22/2016"
 	ms.author="jroth" />
 
 # Criar uma máquina virtual do SQL Server no Azure (PowerShell)
@@ -28,10 +28,10 @@
 
 Este artigo fornece as etapas para a criação de uma máquina virtual do SQL Server no Azure usando os cmdlets do PowerShell.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de recursos.
 
 
-## Instalar e configurar o Azure PowerShell
+## Instalar e configurar o PowerShell
 
 1. Se você não tiver uma conta do Azure, visite [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -67,7 +67,7 @@ A máquina virtual do SQL Server será hospedada em um serviço de nuvem que res
 
 		(Get-AzureStorageAccount | where { $_.GeoPrimaryLocation -eq $dcLocation }).StorageAccountName
 
-	>[AZURE.NOTE]Se precisar de uma nova conta de armazenamento, primeiro crie um nome de conta de armazenamento com todas as letras minúsculas usando o comando New-AzureStorageAccount, como mostra o seguinte exemplo: **New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation**
+	>[AZURE.NOTE] Se precisar de uma nova conta de armazenamento, primeiro crie um nome de conta de armazenamento com todas as letras minúsculas usando o comando New-AzureStorageAccount, como mostra o seguinte exemplo: **New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation**
 
 1. Atribua o nome da conta de armazenamento de destino para **$staccount**. Em seguida, use **Set-AzureSubscription** para definir a assinatura e a conta de armazenamento atual.
 
@@ -112,7 +112,7 @@ Por fim, crie a máquina virtual com o PowerShell:
 
 		New-AzureVM –ServiceName $svcname -VMs $vm1
 
->[AZURE.NOTE]Para obter explicações adicionais e outras opções de configuração, consulte a seção **Criar o conjunto de comandos** em [Usar o Azure PowerShell para criar e pré-configurar as Máquinas Virtuais baseadas no Windows](virtual-machines-ps-create-preconfigure-windows-vms.md).
+>[AZURE.NOTE] Para obter explicações adicionais e outras opções de configuração, consulte a seção **Criar o conjunto de comandos** em [Usar o Azure PowerShell para criar e pré-configurar as Máquinas Virtuais baseadas no Windows](virtual-machines-ps-create-preconfigure-windows-vms.md).
 
 ## Exemplo de script do PowerShell
 
@@ -175,4 +175,4 @@ Se você também está interessado em ver como executar essas etapas no portal c
 
 Além desses recursos, recomendamos ver [outros tópicos relacionados à execução do SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

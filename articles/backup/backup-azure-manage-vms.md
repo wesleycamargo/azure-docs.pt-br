@@ -8,7 +8,14 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/29/2015" ms.author="aashishr"; "jimpark"; "trinadhk"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/25/2016"
+	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Gerenciar e monitorar backups de máquinas virtuais do Azure
 
@@ -51,7 +58,7 @@ Para fazer backup sob demanda de uma máquina virtual:
 
     ![Criando um trabalho de backup](./media/backup-azure-manage-vms/creating-job.png)
 
-    >[AZURE.NOTE]Para exibir a política associada a uma máquina virtual, faça uma busca detalhada na máquina virtual na página **Itens protegidos** e vá para a guia da política de backup.
+    >[AZURE.NOTE] Para exibir a política associada a uma máquina virtual, faça uma busca detalhada na máquina virtual na página **Itens protegidos** e vá para a guia da política de backup.
 
 3. Depois que o trabalho é criado, você pode clicar no botão **Exibir trabalho** na barra de notificação do sistema para ver o trabalho correspondente na página de trabalhos.
 
@@ -65,7 +72,7 @@ Você pode optar por parar os futuros backups de uma máquina virtual com as seg
 - Reter dados de backup associados à máquina virtual no cofre de Backup do Azure
 - Excluir dados de backup associados à máquina virtual
 
-Se você tiver optado por reter dados de backup associados à máquina virtual, você pode usar os dados de backup para restaurá-la. Para obter detalhes de preço dessas máquinas virtuais, clique [aqui](http://azure.microsoft.com/pricing/details/backup/).
+Se você tiver optado por reter dados de backup associados à máquina virtual, você pode usar os dados de backup para restaurá-la. Para obter detalhes de preço dessas máquinas virtuais, clique [aqui](https://azure.microsoft.com/pricing/details/backup/).
 
 Para interromper a proteção para uma máquina virtual:
 
@@ -104,7 +111,7 @@ Após proteger novamente, o status de proteção da máquina virtual será alter
 
   ![Máquina virtual protegida novamente](./media/backup-azure-manage-vms/reprotected-status.png)
 
->[AZURE.NOTE]Ao proteger novamente a máquina virtual, você pode escolher uma política diferente da política com a qual a máquina virtual foi inicialmente protegida.
+>[AZURE.NOTE] Ao proteger novamente a máquina virtual, você pode escolher uma política diferente da política com a qual a máquina virtual foi inicialmente protegida.
 
 ## Cancelar o registro das máquinas virtuais
 
@@ -149,11 +156,11 @@ Para excluir dados de backup em uma máquina virtual, que está no estado *Prote
     Depois que o trabalho for concluído, a entrada correspondente à máquina virtual será removida da página **Itens protegidos**.
 
 ## Painel
-Na página **Painel**, você pode examinar informações sobre máquinas virtuais do Azure, seu armazenamento e trabalhos associados a elas nas últimas 24 horas. Você pode exibir o status de backup e quaisquer erros de backup associados.
+Na página **Painel**, você pode examinar informações sobre máquinas virtuais do Azure, o armazenamento delas e os trabalhos associados a elas nas últimas 24 horas. Você pode exibir o status de backup e quaisquer erros de backup associados.
 
 ![Painel](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
 
->[AZURE.NOTE]Os valores no painel são atualizados a cada 24 horas.
+>[AZURE.NOTE] Os valores no painel são atualizados a cada 24 horas.
 
 ## Operações de auditoria
 O backup do Azure oferece análise dos “logs de operação” das operações de backup disparadas pelo cliente que facilita ver exatamente quais operações de gerenciamento foram realizadas no cofre de backup. Os logs de operações permitem um ótimo suporte a auditoria e análise posterior das operações de backup.
@@ -249,4 +256,4 @@ Os alertas baseados em eventos em estão sujeitos às seguintes limitações:
 
 - [Restaurar máquinas virtuais do Azure](backup-azure-restore-vms.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

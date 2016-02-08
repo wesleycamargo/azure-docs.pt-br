@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/31/2015"
+   ms.date="01/26/2016"
    ms.author="alkohli" />
 
 # Substituição de componentes de hardware do StorSimple
 
 ## Visão geral
 
-Os tutoriais de substituição de componentes de hardware descrevem os componentes de hardware do seu dispositivo Microsoft Azure StorSimple e as etapas necessárias para removê-los e substituí-los. Este artigo descreve os ícones de segurança, fornece ponteiros para os tutoriais detalhados e lista os componentes que podem ser substituíveis.
+Os tutoriais de substituição de componentes de hardware descrevem os componentes de hardware do seu dispositivo da série 8000 do Microsoft Azure StorSimple e as etapas necessárias para removê-los e substituí-los. Este artigo descreve os ícones de segurança, fornece ponteiros para os tutoriais detalhados e lista os componentes que podem ser substituíveis.
 
->[AZURE.IMPORTANT]Antes de tentar remover ou substituir qualquer componente do StorSimple, lembre-se de consultar as [convenções de ícones de segurança](#safety-icon-conventions) e outras [precauções de segurança](storsimple-safety.md).
+>[AZURE.IMPORTANT] Antes de tentar remover ou substituir qualquer componente do StorSimple, lembre-se de consultar as [convenções de ícones de segurança](#safety-icon-conventions) e outras [precauções de segurança](storsimple-safety.md).
  
 ### Convenções de ícones de segurança
 
@@ -57,7 +57,7 @@ Ao substituir um módulo, **NUNCA deixe um compartimento vazio na parte traseira
 
 ## Procedimentos de substituição de componentes de hardware
 
-Seu dispositivo Microsoft Azure StorSimple consiste em vários módulos plug-in nos compartimentos primário e/ou EBOD. O 8100 tem um único compartimento primário, enquanto o 8600 é um dispositivo de compartimento duplo com um compartimento primário e um compartimento EBOD.
+Seu dispositivo StorSimple da série 8000 consiste de vários módulos de plug-in nos compartimentos primário e/ou EBOD. O 8100 tem um único compartimento primário, enquanto o 8600 é um dispositivo de compartimento duplo com um compartimento primário e um compartimento EBOD.
 
 Os principais componentes de hardware do dispositivo são resumidos nas tabelas a seguir. Clique no link na coluna **Procedimento de substituição** para ir para o tutorial relacionado.
 
@@ -122,9 +122,9 @@ As seguintes unidades renováveis (FRUs) estão disponíveis para seu dispositiv
 
 - Chassis (incluindo o painel de operações integrado)
 
-- Módulo de energia e resfriamento de 764 W CA
+- PCM de CA de 764 W
 
-- Módulo de energia e resfriamento de 580 W CA
+- PCM de CA de 580 W
 
 - Unidade de disco rígido com módulo de suporte de unidade
 
@@ -142,4 +142,4 @@ As seguintes unidades renováveis (FRUs) estão disponíveis para seu dispositiv
 
 Examine todas as [informações de segurança](storsimple-safety.md) antes de tentar substituir um componente de hardware do StorSimple.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

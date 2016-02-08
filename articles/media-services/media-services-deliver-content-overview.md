@@ -54,7 +54,7 @@ Uma **política de acesso** é usada para definir as permissões (como leitura, 
 
 Os localizadores têm uma data de validade. Quando você usa o portal para publicar seus ativos, são criados localizadores com uma data de validade de 100 anos.
 
->[AZURE.NOTE]Se você usou o portal para criar localizadores antes de março de 2015, foram criados localizadores com uma data de validade de dois anos.
+>[AZURE.NOTE] Se você usou o portal para criar localizadores antes de março de 2015, foram criados localizadores com uma data de validade de dois anos.
 
 Para atualizar a data de validade em um localizador, use as APIs [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) ou [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Observe que, quando você atualiza a data de validade de um localizador SAS, a URL é alterada.
  
@@ -104,7 +104,7 @@ Por padrão, faixas somente áudio são incluídas no manifesto do HLS. Isso é 
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,audio-only=false)
 
-Para saber mais, confira [este blog](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support).
+Para saber mais, confira [este blog](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
 
 **Formato Smooth Streaming**
@@ -190,4 +190,4 @@ Um **Ponto de Extremidade de Transmissão** representa um serviço de transmiss�
 [Atualizar localizadores dos Serviços de Mídia depois de implantar chaves de armazenamento](media-services-roll-storage-access-keys.md)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

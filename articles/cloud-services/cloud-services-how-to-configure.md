@@ -29,7 +29,7 @@ Você pode definir as configurações usadas mais frequentemente para um Serviç
 
 O portal clássico do Azure também permite que você [habilite a Conexão de Área de Trabalho Remota para uma função nos Serviços de Nuvem do Azure](cloud-services-role-enable-remote-desktop.md)
 
-O Azure pode garantir apenas 99,95 por cento de disponibilidade do serviço durante as atualizações de configuração se você tiver, pelo menos, duas instâncias de função para cada função. Isso permite que uma máquina virtual processe as solicitações do cliente enquanto a outra é atualizada. Para obter mais informações, consulte [Contratos de Nível de Serviço](http://azure.microsoft.com/support/legal/sla/).
+O Azure pode garantir apenas 99,95 por cento de disponibilidade do serviço durante as atualizações de configuração se você tiver, pelo menos, duas instâncias de função para cada função. Isso permite que uma máquina virtual processe as solicitações do cliente enquanto a outra é atualizada. Para obter mais informações, consulte [Contratos de Nível de Serviço](https://azure.microsoft.com/support/legal/sla/).
 
 ## Alterar um serviço de nuvem
 
@@ -73,7 +73,7 @@ O Azure pode garantir apenas 99,95 por cento de disponibilidade do serviço dura
     
     3. Se seu Serviço de Nuvem contiver alguma função com apenas uma instância, marque a caixa de seleção **Aplicar configuração mesmo se uma ou mais funções contiverem uma única instância** para habilitar as atualizações de configuração para que funções continuem.
     
-        A menos que você defina no mínimo duas instâncias de cada função, o Azure não poderá garantir ao menos 99,95 por cento de disponibilidade do seu Serviço de Nuvem durante as atualizações da configuração do serviço. Para obter mais informações, consulte [Contratos de Nível de Serviço](http://azure.microsoft.com/support/legal/sla/).
+        A menos que você defina no mínimo duas instâncias de cada função, o Azure não poderá garantir ao menos 99,95 por cento de disponibilidade do seu Serviço de Nuvem durante as atualizações da configuração do serviço. Para obter mais informações, consulte [Contratos de Nível de Serviço](https://azure.microsoft.com/support/legal/sla/).
     
     4. Clique em **OK** (marca de seleção).
 
@@ -86,4 +86,4 @@ O Azure pode garantir apenas 99,95 por cento de disponibilidade do serviço dura
 * [Habilitar a conexão de Área de Trabalho Remota para uma função nos Serviços de Nuvem do Azure](cloud-services-role-enable-remote-desktop.md)
 * Configurar [certificados SSL](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

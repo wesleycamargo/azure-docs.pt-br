@@ -20,7 +20,7 @@
 
 Saiba mais sobre a Central de Segurança do Azure, seus principais recursos e como ela funciona.
 
-> [AZURE.NOTE]As informações neste documento se aplicam à versão de visualização da Central de Segurança do Azure. Esta é uma introdução ao serviço usando um exemplo de implantação.
+> [AZURE.NOTE] As informações neste documento se aplicam à versão de visualização da Central de Segurança do Azure. Esta é uma introdução ao serviço usando um exemplo de implantação.
 
 ## O que é a Central de Segurança do Azure?
 A Central de Segurança do Azure ajuda você a impedir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança dos recursos do Azure Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas do Azure, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
@@ -42,7 +42,7 @@ A Central de segurança do Azure oferece uma prevenção contra ameaças eficien
 | | Sugere maneiras para interromper o ataque atual e ajudar a evitar ataques futuros |
 
 ## Passo a passo introdutório
-A Central de Segurança do Azure é acessada pelo [Portal do Azure](http://azure.microsoft.com/features/azure-portal/). Para acessar, [entre no portal](https://portal.azure.com), selecione **Navegar** e role até a opção **Central de Segurança** ou escolha o bloco **Central de Segurança** fixado anteriormente ao painel do Portal.
+A Central de Segurança do Azure é acessada pelo [Portal do Azure](https://azure.microsoft.com/features/azure-portal/). Para acessar, [entre no portal](https://portal.azure.com), selecione **Navegar** e role até a opção **Central de Segurança** ou escolha o bloco **Central de Segurança** fixado anteriormente ao painel do Portal.
 
 ![][1]
 
@@ -52,7 +52,7 @@ Na Central de segurança do Azure, defina as políticas de segurança, monitore 
 
 Você pode definir as políticas para as assinaturas do Azure de acordo com os requisitos de segurança de sua empresa e personalizadas conforme os tipos de aplicativos ou a confidencialidade dos dados de cada assinatura. Por exemplo, os recursos usados para desenvolvimento ou teste podem ter requisitos de segurança diferentes daqueles usados para aplicativos de produção. Da mesma forma, os aplicativos com dados regulamentados, como PII, podem exigir um nível mais alto de segurança.
 
-> [AZURE.NOTE]Para editar uma política de segurança, você deve ser um proprietário ou colaborador da assinatura.
+> [AZURE.NOTE] Para editar uma política de segurança, você deve ser um proprietário ou colaborador da assinatura.
 
 Clique no bloco **Política de segurança** para obter uma lista das suas assinaturas e escolher uma assinatura para exibir os detalhes da política.
 
@@ -102,9 +102,9 @@ Selecionar um alerta mostra mais informações sobre o ataque e sugestões sobre
 ![][6]
 
 ## Introdução
-Para começar com a Central de segurança do Azure, você deve ter uma assinatura do Microsoft Azure. A Central de segurança do Azure é habilitada com sua assinatura do Azure. Se você não tiver uma assinatura, você pode se inscrever em uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial).
+Para começar com a Central de segurança do Azure, você deve ter uma assinatura do Microsoft Azure. A Central de segurança do Azure é habilitada com sua assinatura do Azure. Se você não tiver uma assinatura, você pode se inscrever em uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-A Central de Segurança do Azure é acessada pelo [Portal do Azure](http://azure.microsoft.com/features/azure-portal/). Confira a [documentação do portal](https://azure.microsoft.com/documentation/services/azure-portal/) para saber mais.
+A Central de Segurança do Azure é acessada pelo [Portal do Azure](https://azure.microsoft.com/features/azure-portal/). Confira a [documentação do portal](https://azure.microsoft.com/documentation/services/azure-portal/) para saber mais.
 
 O [Introdução à Central de segurança do Azure](security-center-get-started.md) orienta você rapidamente através do monitoramento de segurança e dos componentes de gerenciamento da política da Central de Segurança do Azure.
 
@@ -126,4 +126,4 @@ Neste documento, você foi apresentado à Central de segurança do Azure, seus p
 [5]: ./media/security-center-intro/security-alert.png
 [6]: ./media/security-center-intro/security-alert-detail.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

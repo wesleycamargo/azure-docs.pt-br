@@ -28,7 +28,7 @@ Preparo significa implantar a SKU em uma "área restrita" privada, em que você 
 
 2. Se o Portal de publicação notificar qualquer erro, corrija-o.
 3.	Na caixa de diálogo **Quem pode acessar sua oferta preparada?** insira a lista de assinaturas do Azure que você usará para visualizar sua oferta no [portal de visualização do Azure](https://portal.azure.com).
-4. Entre no [Portal de Visualização do Azure](http://portal.azure.com) usando uma das assinaturas do Azure acima indicadas na etapa anterior.
+4. Entre no [Portal de Visualização do Azure](https://portal.azure.com) usando uma das assinaturas do Azure acima indicadas na etapa anterior.
 5. Encontre sua oferta e valide seus pontos de imagem VM:
   1. Certifique-se de que o conteúdo de marketing aparece corretamente no Marketplace.
 
@@ -36,9 +36,9 @@ Preparo significa implantar a SKU em uma "área restrita" privada, em que você 
 
   2. Implantação de ponta a ponta da imagem VM.
 
-> [AZURE.IMPORTANT]Sua oferta permanecerá no preparo até você notificar a Microsoft por meio do Portal de publicação [**Publicar** > **"Solicitar aprovação para envio à produção"**] que você está pronto para enviar por push para produção. Este é um momento ideal para que todos os membros da sua equipe verifiquem tudo no preparo para a sua oferta entrar em funcionamento.
+> [AZURE.IMPORTANT] Sua oferta permanecerá no preparo até você notificar a Microsoft por meio do Portal de publicação [**Publicar** > **"Solicitar aprovação para envio à produção"**] que você está pronto para enviar por push para produção. Este é um momento ideal para que todos os membros da sua equipe verifiquem tudo no preparo para a sua oferta entrar em funcionamento.
 
-> A replicação entre os data centers leva até 48 horas. Quando a replicação estiver concluída, sua oferta estará listada no [Azure Marketplace](http://azure.microsoft.com/marketplace).
+> A replicação entre os data centers leva até 48 horas. Quando a replicação estiver concluída, sua oferta estará listada no [Azure Marketplace](https://azure.microsoft.com/marketplace/).
 
 ## Próximas etapas
 Agora que a sua oferta está "preparada" e você testou a sua funcionalidade e conteúdo de marketing, prossiga para a oferta final e/ou a fase de publicação SKU, **Etapa 4**: [Implantar sua oferta no Marketplace](marketplace-publishing-push-to-production.md).
@@ -46,4 +46,4 @@ Agora que a sua oferta está "preparada" e você testou a sua funcionalidade e c
 ## Consulte também
 - [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

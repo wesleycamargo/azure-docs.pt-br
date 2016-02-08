@@ -42,7 +42,7 @@ A Microsoft fornece várias ferramentas para criar e implantar aplicativos em nu
 
 Ao criar e implantar aplicativos para os serviços do Azure Government, em vez de serviços globais, os desenvolvedores precisam saber as principais diferenças entre os dois serviços. Especificamente sobre instalar e configurar o ambiente de programação, configurar pontos de extremidade, gravar aplicativos e implantá-lo como serviços do Azure Government.
 
-As informações contidas neste documento resumem essas diferenças e complementam as informações disponíveis sobre o site do [Azure Government](http://www.azure.com/gov "Azure Government") e a [biblioteca técnica do Microsoft Azure](http://msdn.microsoft.com/cloud-app-development-msdn "MSDN") no MSDN. Informações oficiais podem também estar disponíveis em muitos outros locais, como o [Microsoft Azure Trust Center](http://azure.microsoft.com/support/trust-center/ "Central de confiabilidade do Microsoft Azure"), [Centro de documentação do Azure](http://azure.microsoft.com/documentation/) e em [Azure Blogs](http://azure.microsoft.com/blog/ "Blogs do Azure").
+As informações contidas neste documento resumem essas diferenças e complementam as informações disponíveis sobre o site do [Azure Government](http://www.azure.com/gov "Azure Government") e a [biblioteca técnica do Microsoft Azure](http://msdn.microsoft.com/cloud-app-development-msdn "MSDN") no MSDN. As informações oficiais também podem estar disponíveis em muitos outros locais, como a [Central de Confiabilidade do Microsoft Azure](https://azure.microsoft.com/support/trust-center/ “Central de Confiabilidade do Microsoft Azure”/), [Centro de documentação do Azure](https://azure.microsoft.com/documentation/) e no [Azure Blogs] (https://azure.microsoft.com/blog/ “Azure Blogs”/).
 
 Este conteúdo destina-se a parceiros e desenvolvedores que estão implantando o Microsoft Azure Government.
 
@@ -77,7 +77,7 @@ O Azure Government atualmente tem os seguintes serviços disponíveis nas regiõ
 - Rota Expressa
 - etc.
 
-Outros serviços estão disponíveis e mais serviços serão adicionados continuamente. Para obter a lista mais atual dos serviços, consulte a [página regiões](http://azure.microsoft.com/regions/#services) que destacará todas as regiões disponíveis e seus serviços.
+Outros serviços estão disponíveis e mais serviços serão adicionados continuamente. Para obter a lista mais atual dos serviços, consulte a [página regiões](https://azure.microsoft.com/regions/#services) que destacará todas as regiões disponíveis e seus serviços.
 
 Atualmente, o Governo de Iowa e da Virgínia nos E.U.A. são os centros de dados de suporte para o Azure Government. Consulte acima a página de regiões de centros de dados existentes e serviços disponíveis.
 
@@ -112,7 +112,7 @@ Se você estiver interessado em aprender mais sobre o Governo do Azure aproveite
 
 - **[Blog do Azure Governamental](http://blogs.msdn.com/b/azuregov/)**
 
-- **[Conformidade do Azure](http://azure.microsoft.com/support/trust-center/compliance/)**
+- **[Conformidade do Azure](https://azure.microsoft.com/support/trust-center/compliance/)**
 
 <!--Anchors-->
 
@@ -128,4 +128,4 @@ Se você estiver interessado em aprender mais sobre o Governo do Azure aproveite
 [Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

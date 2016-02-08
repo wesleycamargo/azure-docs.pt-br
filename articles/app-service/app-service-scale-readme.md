@@ -19,7 +19,7 @@
 	
 # Serviço de Aplicativo do Azure: dimensionamento de aplicativos do Serviço de Aplicativo
 
-Os aplicativos hospedados no Serviço de Aplicativo do Azure podem [atingir grandes escalas](https://azure.microsoft.com/blog/canadian-broadcasting-corporation-radio-canada-leverage-azure-for-smooth-election-coverage); entretanto, o dimensionamento de um aplicativo é um problema complexo que não tem uma solução de "tamanho único". Para dimensionar corretamente o aplicativo, há três áreas principais que contribuirão para o sucesso do seu aplicativo:
+Os aplicativos hospedados no Serviço de Aplicativo do Azure podem [atingir grandes escalas](https://azure.microsoft.com/blog/canadian-broadcasting-corporation-radio-canada-leverage-azure-for-smooth-election-coverage/); entretanto, o dimensionamento de um aplicativo é um problema complexo que não tem uma solução de "tamanho único". Para dimensionar corretamente o aplicativo, há três áreas principais que contribuirão para o sucesso do seu aplicativo:
 
 1. Entender a arquitetura do aplicativo e seus pontos fracos.
 	* Seu aplicativo é com estado? Sem estado?
@@ -38,4 +38,4 @@ Esta seção o ajudará a entender todos os fatores e ajudá-lo a conceber uma e
 
 [AZURE.INCLUDE [app-service-blueprint-scaling-app-service-applications](../../includes/app-service-blueprint-scaling-app-service-applications.md)]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

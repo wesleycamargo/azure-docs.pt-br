@@ -28,7 +28,7 @@ Esta seção destaca alguns dos principais recursos do serviço Tabela que são 
 
 O que é o serviço Tabela? Como você pode esperar do nome, o serviço Tabela usa um formato tabular para armazenar dados. Na terminologia padrão, cada linha da tabela representa uma entidade e as colunas armazenam várias propriedades da entidade. Cada entidade tem um par de chaves para identificá-la exclusivamente, e uma coluna de carimbo de data/hora que o serviço Tabela usa para controlar quando a entidade foi atualizada (isso ocorre automaticamente e não é possível substituir manualmente o carimbo de data/hora por um valor arbitrário). O serviço Tabela usa este carimbo de data/hora (LMT) da última modificação para gerenciar a simultaneidade otimista.
 
->[AZURE.NOTE]As operações de API REST do serviço Tabela também retornam um valor **ETag** obtido com o LMT. Neste documento, usaremos os termos ETag e LMT indistintamente porque eles se referem aos mesmos dados subjacentes.
+>[AZURE.NOTE] As operações de API REST do serviço Tabela também retornam um valor **ETag** obtido com o LMT. Neste documento, usaremos os termos ETag e LMT indistintamente porque eles se referem aos mesmos dados subjacentes.
 
 O exemplo a seguir mostra uma estrutura de tabela simples para armazenar entidades de funcionário e departamento. Muitos dos exemplos mostrados posteriormente neste guia baseiam-se neste design simples.
 
@@ -154,7 +154,7 @@ A tabela a seguir inclui alguns dos valores de chave, portanto, fique atento ao 
 Para obter mais informações, consulte [Noções básicas sobre o modelo de dados do serviço Tabela](http://msdn.microsoft.com/library/azure/dd179338.aspx) no MSDN.
 
 ### Considerações de custo  
-Armazenamento de tabela é relativamente barato, mas você deve incluir estimativas de custo para a utilização da capacidade e a quantidade de transações como parte de sua avaliação de qualquer solução que usa o serviço Tabela. No entanto, em muitos cenários, o armazenamento de dados duplicados ou desnormalizados para melhorar o desempenho ou a escalabilidade de sua solução é uma abordagem válida. Para obter mais informações sobre preços, consulte [Detalhes de preços de armazenamento](http://azure.microsoft.com/pricing/details/storage/).
+Armazenamento de tabela é relativamente barato, mas você deve incluir estimativas de custo para a utilização da capacidade e a quantidade de transações como parte de sua avaliação de qualquer solução que usa o serviço Tabela. No entanto, em muitos cenários, o armazenamento de dados duplicados ou desnormalizados para melhorar o desempenho ou a escalabilidade de sua solução é uma abordagem válida. Para obter mais informações sobre preços, consulte [Detalhes de preços de armazenamento](https://azure.microsoft.com/pricing/details/storage/).
 
 ### Comparando tabelas do Azure com o SQL Azure  
 Para obter uma comparação entre o Banco de Dados SQL do Azure (um serviço de banco de dados relacional) e o serviço Tabela, consulte [Armazenamento de tabela do Microsoft Azure e Banco de Dados SQL do Microsoft Azure - semelhanças e diferenças](http://msdn.microsoft.com/library/azure/jj553018.aspx) no MSDN.
@@ -185,7 +185,7 @@ Soluções de serviço Tabela podem ser de leitura intensiva, gravação intensi
 
 Um bom ponto de partida para criar a solução serviço Tabela para que você possa ler os dados com eficiência é perguntar "Quais consultas meu aplicativo precisará executar para recuperar os dados necessários do serviço Tabela?"
 
->[AZURE.NOTE]Com o serviço Tabela, é importante obter o design correto com antecedência porque é difícil e caro alterá-lo depois. Por exemplo, em um banco de dados relacional é frequentemente possível solucionar problemas de desempenho simplesmente adicionando índices a um banco de dados: isso não é uma opção com o serviço Tabela.
+>[AZURE.NOTE] Com o serviço Tabela, é importante obter o design correto com antecedência porque é difícil e caro alterá-lo depois. Por exemplo, em um banco de dados relacional é frequentemente possível solucionar problemas de desempenho simplesmente adicionando índices a um banco de dados: isso não é uma opção com o serviço Tabela.
 
 Esta seção se concentra nos principais problemas que você deve abordar ao projetar suas tabelas para consulta. Os tópicos abordados nesta seção incluem:
 
@@ -209,18 +209,13 @@ Os exemplos a seguir pressupõem que o serviço Tabela é armazenar entidades de
 
 A seção anterior, [Visão geral do serviço Tabela do Azure](#azure-table-service-overview), descreve alguns dos principais recursos do serviço Tabela do Azure, que têm uma influência direta no design para consulta. Isso resulta nas seguintes diretrizes gerais para a criação de consultas do serviço Tabela. Observe que a sintaxe de filtro usada nos exemplos a seguir é proveniente da API REST do serviço Tabela. Para obter mais informações, consulte [Entidades de consulta](http://msdn.microsoft.com/library/azure/dd179421.aspx) no MSDN.
 
--	Uma ***Consulta de ponto*** é a pesquisa mais eficiente a usar e é recomendada para pesquisas de alto volume ou pesquisas que exigem a latência mais baixa. Tal consulta pode usar os índices para localizar uma entidade individual de modo muito eficiente, especificando os valores **PartitionKey** e **RowKey**. Por exemplo:
-$filter=(PartitionKey eq 'Sales') and (RowKey eq '2')  
--	A segunda melhor opção é uma ***Consulta de intervalo***, que usa **PartitionKey** e filtros em um intervalo de valores de **RowKey** para retornar mais de uma entidade. O valor **PartitionKey** identifica uma partição específica e os valores **RowKey** identificam um subconjunto das entidades na partição. Por exemplo:
-$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'  
--	A terceira melhor opção é uma ***Verificação de partição***, que usa **PartitionKey** e filtros em outra propriedade não chave e que pode retornar mais de uma entidade. O valor **PartitionKey** identifica uma partição específica e os valores de propriedades selecionados para um subconjunto das entidades nessa partição. Por exemplo:
-$filter=PartitionKey eq 'Sales' and LastName eq 'Smith'  
--	Uma ***Verificação de tabela*** não inclui **PartitionKey** e é muito ineficiente, pois pesquisa todas as partições que, por sua vez, compõem sua tabela para qualquer entidade correspondente. A verificação da tabela será realizada, independentemente de o filtro usar ou não a **RowKey**. Por exemplo:
-$filter=LastName eq 'Jones'  
+-	Uma ***Consulta de ponto*** é a pesquisa mais eficiente a usar e é recomendada para pesquisas de alto volume ou pesquisas que exigem a latência mais baixa. Tal consulta pode usar os índices para localizar uma entidade individual de modo muito eficiente, especificando os valores **PartitionKey** e **RowKey**. Por exemplo: $filter=(PartitionKey eq 'Sales') and (RowKey eq '2')  
+-	A segunda melhor opção é uma ***Consulta de intervalo***, que usa **PartitionKey** e filtros em um intervalo de valores de **RowKey** para retornar mais de uma entidade. O valor **PartitionKey** identifica uma partição específica e os valores **RowKey** identificam um subconjunto das entidades na partição. Por exemplo: $filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'  
+-	A terceira melhor opção é uma ***Verificação de partição***, que usa **PartitionKey** e filtros em outra propriedade não chave e que pode retornar mais de uma entidade. O valor **PartitionKey** identifica uma partição específica e os valores de propriedades selecionados para um subconjunto das entidades nessa partição. Por exemplo: $filter=PartitionKey eq 'Sales' and LastName eq 'Smith'  
+-	Uma ***Verificação de tabela*** não inclui **PartitionKey** e é muito ineficiente, pois pesquisa todas as partições que, por sua vez, compõem sua tabela para qualquer entidade correspondente. A verificação da tabela será realizada, independentemente de o filtro usar ou não a **RowKey**. Por exemplo: $filter=LastName eq 'Dias'  
 -	As consultas que retornam várias entidades as retornam classificadas na ordem **PartitionKey** e **RowKey**. Para evitar reclassificar as entidades no cliente escolha uma **RowKey**, que define a ordem de classificação mais comum.  
 
-Observe que o uso de um operador "**or**" para especificar um filtro com base em valores de **RowKey** resulta em uma verificação de partição, e não é tratado como uma consulta de intervalo. Portanto, você deve evitar consultas que usam filtros, como:
-$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')  
+Observe que o uso de um operador "**or**" para especificar um filtro com base em valores de **RowKey** resulta em uma verificação de partição, e não é tratado como uma consulta de intervalo. Portanto, você deve evitar consultas que usam filtros, como: $filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')
 
 Para obter exemplos de código de cliente que usam a Biblioteca de Cliente de Armazenamento para executar consultas eficientes, consulte:
 
@@ -240,7 +235,7 @@ Por um lado, você pode armazenar todas as suas entidades em uma única partiç�
 
 Uma **PartitionKey** ideal é aquela que permite que você use consultas eficientes e que tenha partições suficientes para garantir que sua solução seja escalonável. Normalmente, você descobrirá que as entidades terão uma propriedade adequada que distribui suas entidades em partições suficientes.
 
->[AZURE.NOTE]Por exemplo, em um sistema que armazena informações sobre usuários ou funcionários, UserID pode ser uma boa PartitionKey. Você pode ter várias entidades que usam uma determinada UserID como a chave da partição. Cada entidade que armazena dados sobre um usuário é agrupada em uma única partição, e pode ser acessada por meio de transações do grupo de entidades, continuando altamente escalonável.
+>[AZURE.NOTE] Por exemplo, em um sistema que armazena informações sobre usuários ou funcionários, UserID pode ser uma boa PartitionKey. Você pode ter várias entidades que usam uma determinada UserID como a chave da partição. Cada entidade que armazena dados sobre um usuário é agrupada em uma única partição, e pode ser acessada por meio de transações do grupo de entidades, continuando altamente escalonável.
 
 Há considerações adicionais na sua escolha de **PartitionKey** relacionadas a como você vai inserir, atualizar e excluir entidades: consulte a seção [Design para modificação de dados](#design-for-data-modification) abaixo.
 
@@ -306,7 +301,7 @@ Os padrões a seguir, na seção [Padrões de design de tabela](#table-design-pa
      
 A Biblioteca de Cliente do Armazenamento do Azure para .NET dá suporte à criptografia de propriedades de entidade para as operações de inserção e substituição. As cadeias de caracteres criptografadas são armazenadas no serviço como propriedades binárias, e são convertidas novamente em cadeias de caracteres após a descriptografia.
 
-Para tabelas, além da política de criptografia, os usuários devem especificar as propriedades que devem ser criptografadas. Isso pode ser feito especificando o atributo [EncryptProperty] \(para entidades POCO que derivam de TableEntity) ou um resolvedor de criptografia nas opções de solicitação. Um resolvedor de criptografia é um delegado que usa uma chave de partição, a chave de linha e o nome da propriedade e retorna um valor booliano que indica se essa propriedade deve ser criptografada. Durante a criptografia, a biblioteca de cliente usará essas informações para decidir se uma propriedade deve ser criptografada durante a gravação para a transmissão. O representante também oferece a possibilidade de lógica em torno de como as propriedades são criptografadas. (Por exemplo, se X, então criptografar a propriedade A; caso contrário, criptografar as propriedades A e B.) Observe que não é necessário fornecer essas informações durante a leitura ou ap consultar entidades.
+Para tabelas, além da política de criptografia, os usuários devem especificar as propriedades que devem ser criptografadas. Isso pode ser feito especificando o atributo [EncryptProperty] (para entidades POCO que derivam de TableEntity) ou um resolvedor de criptografia nas opções de solicitação. Um resolvedor de criptografia é um delegado que usa uma chave de partição, a chave de linha e o nome da propriedade e retorna um valor booliano que indica se essa propriedade deve ser criptografada. Durante a criptografia, a biblioteca de cliente usará essas informações para decidir se uma propriedade deve ser criptografada durante a gravação para a transmissão. O representante também oferece a possibilidade de lógica em torno de como as propriedades são criptografadas. (Por exemplo, se X, então criptografar a propriedade A; caso contrário, criptografar as propriedades A e B.) Observe que não é necessário fornecer essas informações durante a leitura ou ap consultar entidades.
 
 Saiba que atualmente não há suporte para a mesclagem. Como um subconjunto de propriedades pode ter sido criptografado anteriormente usando uma chave diferente, simplesmente mesclar as novas propriedades e atualizar os metadados resultará em perda de dados. Mesclar requer fazer chamadas de serviço extra para ler a entidade já existente no serviço ou usar uma nova chave por propriedade, os quais não são ambos adequados por motivos de desempenho.
 
@@ -576,11 +571,9 @@ Considere os seguintes pontos ao decidir como implementar esse padrão:
 Use esse padrão quando quiser garantir a consistência eventual entre entidades que existem nas tabelas ou partições diferentes. Você pode estender esse padrão para garantir a consistência eventual de operações entre o serviço Tabela e o serviço Blob e outras fontes de dados de armazenamento não Azure, como banco de dados ou sistema de arquivos.
 
 #### Diretrizes e padrões relacionados  
-Os padrões e diretrizes a seguir também podem ser relevantes ao implementar esse padrão:  
--	[Transações do grupo de entidades](#entity-group-transactions)  
--	[Mesclar ou substituir](#merge-or-replace)  
+Os padrões e diretrizes a seguir também podem ser relevantes ao implementar esse padrão: - [Transações do Grupo de Entidades](#entity-group-transactions) - [Mesclar ou substituir](#merge-or-replace)
 
->[AZURE.NOTE]Se o isolamento da transação for importante para sua solução, você deve considerar a recriação das tabelas para poder usar as EGTs.
+>[AZURE.NOTE] Se o isolamento da transação for importante para sua solução, você deve considerar a recriação das tabelas para poder usar as EGTs.
 
 ### Padrão de entidades de índice
 Mantenha entidades de índice para habilitar pesquisas eficientes que retornam listas de entidades.
@@ -613,10 +606,7 @@ Para a segunda opção, use as entidades de índice que armazenam os dados a seg
 
 A propriedade **EmployeeIDs** contém uma lista de IDs de funcionário para os funcionários com o sobrenome armazenado em **RowKey**.
 
-As etapas a seguir descrevem o processo que você deve seguir ao adicionar um novo funcionário, se você estiver usando a segunda opção. Neste exemplo, estamos adicionando um funcionário com ID 000152 e um sobrenome Dias no departamento de Vendas: 
-1.	Recupere a entidade de índice com um valor de **PartitionKey** igual a "Vendas" e valor de **RowKey** igual a "Dias". Salve o ETag dessa entidade para usar na etapa 2.
-2.	Crie uma transação de grupo de entidades (ou seja, uma operação em lote) que insere a nova entidade de funcionário (valor de **PartitionKey** igual a "Vendas" e valor de **RowKey** igual a "000152") e atualiza a entidade de índice (valor de **PartitionKey** igual a "Vendas" e valor de **RowKey** igual a "Dias"), adicionando a ID do novo funcionário à lista no campo EmployeeIDs. Para saber mais sobre transações de grupo de entidades, confira a seção [Transações de grupo de entidades](#entity-group-transactions). 
-3.	Se a transação de grupo de entidades falhar devido a um erro de simultaneidade otimista (alguém modificou a entidade de índice), será necessário recomeçar na etapa 1.
+As etapas a seguir descrevem o processo que você deve seguir ao adicionar um novo funcionário, se você estiver usando a segunda opção. Neste exemplo, estamos adicionando um funcionário com ID 000152 e um sobrenome Dias no departamento de Vendas: 1. Recupere a entidade de índice com um valor de **PartitionKey** igual a "Vendas" e valor de **RowKey** igual a "Dias". Salve o ETag dessa entidade para usar na etapa 2.2. Crie uma transação de grupo de entidades (ou seja, uma operação em lote) que insere a nova entidade de funcionário (valor de **PartitionKey** igual a "Vendas" e valor de **RowKey** igual a "000152") e atualiza a entidade de índice (valor de **PartitionKey** igual a "Vendas" e valor de **RowKey** igual a "Dias"), adicionando a ID do novo funcionário à lista no campo EmployeeIDs. Para saber mais sobre transações de grupo de entidades, confira a seção [Transações de grupo de entidades](#entity-group-transactions). 3. Se a transação de grupo de entidades falhar devido a um erro de simultaneidade otimista (alguém modificou a entidade de índice), será necessário recomeçar na etapa 1.
 
 Você pode usar uma abordagem semelhante à exclusão de um funcionário se usar a segunda opção. Alterar o sobrenome do funcionário é um pouco mais complexo, pois você precisará executar uma transação de grupo de entidades que atualiza as três entidades: a entidade funcionário, a entidade de índice para o sobrenome antigo e a entidade de índice para o novo sobrenome. Você deve recuperar cada entidade antes de fazer alterações para recuperar os valores de ETag que depois pode usar para executar as atualizações usando a simultaneidade otimista.
 
@@ -638,23 +628,15 @@ Com a terceira opção, você não pode usar EGTs para manter a consistência po
 
 #### Problemas e considerações  
 
-Considere os seguintes pontos ao decidir como implementar esse padrão:  
--	Essa solução requer pelo menos duas consultas para recuperar entidades correspondentes: uma para consultar as entidades de índice, para obter a lista de valores de **RowKey** e, em seguida, consultas para recuperar cada entidade na lista.  
--	Considerando que uma entidade individual tem um tamanho máximo de 1 MB, as opções n°. 2 e 3 na solução supõem que a lista de ids de funcionário para qualquer determinado sobrenome nunca é maior que 1 MB. Se a lista de ids de funcionário é provavelmente maior que 1 MB em tamanho, use a opção n°. 1 e armazene os dados de índice no armazenamento de blobs. 
--	Se você usar a opção n°. 2 (usando EGTs para controlar a adição e exclusão de funcionários e alterar o sobrenome do funcionário), você deve avaliar se o volume de transações abordará os limites de escalabilidade em uma determinada partição. Se esse for o caso, você deve considerar uma solução eventualmente consistente (opção n°. 1 ou 3) que usa filas para manipular solicitações de atualização e permite que você armazene suas entidades de índice em uma partição separada das entidades de funcionário.  
-- 	A Opção n°. 2 nesta solução pressupõe que você deseja pesquisar por sobrenome dentro de um departamento: por exemplo, você deseja recuperar uma lista de funcionários com um sobrenome Dias no departamento de Vendas. Para pesquisar todos os funcionários com um sobrenome Dias em toda a organização, use a opção 1 ou 3. 
- -	Você pode implementar uma solução baseada em fila que proporciona consistência eventual (confira [Padrão de transações eventualmente consistentes](#eventually-consistent-transactions-pattern) para saber mais detalhes).
+Considere os seguintes pontos ao decidir como implementar esse padrão: - Essa solução requer pelo menos duas consultas para recuperar entidades correspondentes: uma para consultar as entidades de índice, para obter a lista de valores de **RowKey** e, em seguida, consultas para recuperar cada entidade na lista. - Considerando que uma entidade individual tem um tamanho máximo de 1 MB, as opções n°. 2 e 3 na solução supõem que a lista de ids de funcionário para qualquer determinado sobrenome nunca é maior que 1 MB. Se a lista de ids de funcionário é provavelmente maior que 1 MB em tamanho, use a opção n°. 1 e armazene os dados de índice no armazenamento de blobs. Se você usar a opção n°. 2 (usando EGTs para controlar a adição e exclusão de funcionários e alterar o sobrenome do funcionário), você deve avaliar se o volume de transações abordará os limites de escalabilidade em uma determinada partição. Se esse for o caso, você deve considerar uma solução eventualmente consistente (opção n°. 1 ou 3) que usa filas para manipular solicitações de atualização e permite que você armazene suas entidades de índice em uma partição separada das entidades de funcionário. - A Opção n°. 2 nesta solução pressupõe que você deseja pesquisar por sobrenome dentro de um departamento: por exemplo, você deseja recuperar uma lista de funcionários com um sobrenome Dias no departamento de Vendas. Para pesquisar todos os funcionários com um sobrenome Dias em toda a organização, use a opção 1 ou 3. -Você pode implementar uma solução baseada em fila que proporciona consistência eventual (confira [Padrão de transações eventualmente consistentes](#eventually-consistent-transactions-pattern) para saber mais detalhes).
+
 #### Quando usar esse padrão  
 
 Use esse padrão quando quiser pesquisar um conjunto de entidades que compartilham um valor da propriedade comum, como todos os funcionários com o sobrenome Dias.
 
 #### Diretrizes e padrões relacionados  
 
-Os padrões e diretrizes a seguir também podem ser relevantes ao implementar esse padrão:  
--	[Padrão de chave composta](#compound-key-pattern)  
--	[Padrão de transações eventualmente consistentes](#eventually-consistent-transactions-pattern)  
--	[Transações de grupo de entidades](#entity-group-transactions)  
--	[Trabalhando com tipos de entidade heterogênea](#working-with-heterogeneous-entity-types)  
+Os padrões e diretrizes a seguir também podem ser relevantes ao implementar esse padrão: - [Padrão de chave composta](#compound-key-pattern) - [Padrão de transações eventualmente consistentes](#eventually-consistent-transactions-pattern) - [Transações de Grupo de Entidades](#entity-group-transactions) - [Trabalhando com tipos de entidade heterogênea](#working-with-heterogeneous-entity-types)
 
 ### Padrão de desnormalização  
 
@@ -685,10 +667,7 @@ Considere os seguintes pontos ao decidir como implementar esse padrão:
 Use esse padrão quando precisar pesquisar informações relacionadas com frequência. Esse padrão reduz o número de consultas que o cliente deve fazer para recuperar os dados necessários.
 
 #### Diretrizes e padrões relacionados
-Os padrões e diretrizes a seguir também podem ser relevantes ao implementar esse padrão:  
--	[Padrão de chave composta](#compound-key-pattern)  
--	[Transações de grupo de entidades](#entity-group-transactions)  
--	[Trabalhando com tipos de entidade heterogênea](#working-with-heterogeneous-entity-types)
+Os padrões e diretrizes a seguir também podem ser relevantes ao implementar esse padrão: - [Padrão de chave composta](#compound-key-pattern) - [Transações de Grupo de Entidades](#entity-group-transactions) - [Trabalhando com tipos de entidade heterogênea](#working-with-heterogeneous-entity-types)
 
 ### Padrão de chave composta  
 
@@ -840,9 +819,7 @@ Com esse design, você pode usar uma operação de mesclagem para atualizar a co
 
 #### Problemas e considerações  
 
-Considere os seguintes pontos ao decidir como implementar esse padrão:  
--	Se a sua série de dados completa não couber em uma única entidade (uma entidade pode ter até 252 propriedades), use um repositório de dados alternativo, como um blob.  
--	Se você tiver vários clientes atualizando uma entidade simultaneamente, terá de usar o **ETag** para implementar a simultaneidade otimista. Se você tiver muitos clientes, poderá enfrentar alta contenção.  
+Considere os seguintes pontos ao decidir como implementar esse padrão: - Se a sua série de dados completa não couber em uma única entidade (uma entidade pode ter até 252 propriedades), use um repositório de dados alternativo, como um blob. -Se você tiver vários clientes atualizando uma entidade simultaneamente, terá de usar o **ETag** para implementar a simultaneidade otimista. Se você tiver muitos clientes, poderá enfrentar alta contenção.
 
 #### Quando usar esse padrão  
 
@@ -1023,7 +1000,7 @@ Observe como esse exemplo espera que a entidade recuperada seja do tipo **Employ
 
 #### Recuperando várias entidades usando LINQ  
 
-Você pode recuperar várias entidades usando LINQ com a Biblioteca de Cliente de Armazenamento e especificando uma consulta com uma cláusula **where**. Para evitar uma verificação de tabela, você sempre deve incluir o valor **PartitionKey** na cláusula where e, se possível, o valor **RowKey** para evitar verificações de tabela e de partição. O serviço Tabela dá suporte a um conjunto limitado de operadores de comparação (maior que, maior que ou igual a, menor que, menor que ou igual a, igual a, e diferente de) para usar na cláusula where. O seguinte trecho de código em c# localiza todos os funcionários cujo sobrenome começa com "B" (supondo que **RowKey** armazena o sobrenome) no departamento de vendas (supondo que **PartitionKey** armazena o nome do departamento):
+Você pode recuperar várias entidades usando LINQ com a Biblioteca de cliente de armazenamento e especificando uma consulta com uma cláusula **where**. Para evitar uma verificação de tabela, você sempre deve incluir o valor **PartitionKey** na cláusula where e, se possível, o valor **RowKey** para evitar verificações de tabela e de partição. O serviço Tabela dá suporte a um conjunto limitado de operadores de comparação (maior que, maior que ou igual a, menor que, menor que ou igual a, igual a, e diferente de) para usar na cláusula where. O seguinte trecho de código em c# localiza todos os funcionários cujo sobrenome começa com "B" (supondo que **RowKey** armazena o sobrenome) no departamento de vendas (supondo que **PartitionKey** armazena o nome do departamento):
 
 	TableQuery<EmployeeEntity> employeeQuery =
   			employeeTable.CreateQuery<EmployeeEntity>();
@@ -1054,7 +1031,7 @@ O exemplo de código a seguir mostra a funcionalidade equivalente usando a API f
 	var employees = employeeTable.ExecuteQuery(employeeQuery);  
 
 
->[AZURE.NOTE]O exemplo aninha vários métodos **CombineFilters** para incluir as três condições de filtro.
+>[AZURE.NOTE] O exemplo aninha vários métodos **CombineFilters** para incluir as três condições de filtro.
 
 #### Recuperando grande número de entidades de uma consulta  
 
@@ -1103,7 +1080,7 @@ Usando tokens de continuação explicitamente, você pode controlar quando o apl
 -	Ela permite que você execute E/s assíncrona no .NET.  
 -	Ela permite que você serialize o token de acompanhamento para o armazenamento persistente para que você possa continuar caso um aplicativo falhe.  
 
->[AZURE.NOTE]Um token de continuação normalmente retorna um segmento que contém 1.000 entidades, embora possa ser menos. Este também será o caso se você limitar o número de entradas que uma consulta retorna, usando **Take** para retornar as primeiras n entidades que correspondem aos seus critérios de pesquisa: o serviço Tabela pode retornar um segmento contendo menos de n entidades, junto com um token de continuação para permitir que você recupere as entidades restantes.
+>[AZURE.NOTE] Um token de continuação normalmente retorna um segmento que contém 1.000 entidades, embora possa ser menos. Este também será o caso se você limitar o número de entradas que uma consulta retorna, usando **Take** para retornar as primeiras n entidades que correspondem aos seus critérios de pesquisa: o serviço Tabela pode retornar um segmento contendo menos de n entidades, junto com um token de continuação para permitir que você recupere as entidades restantes.
 
 O código c# a seguir mostra como modificar o número de entidades retornadas dentro de um segmento:
 
@@ -1145,7 +1122,7 @@ O método **Substituir** da classe **TableOperation** sempre substitui a entidad
 
 Você pode usar o método **Mesclar** da classe **TableOperation** para reduzir a quantidade de dados enviados para o serviço Tabela quando quiser atualizar uma entidade. O método **Mesclar** substitui todas as propriedades na entidade armazenada por valores de propriedade da entidade incluída na solicitação, mas deixa intactas quaisquer eventuais propriedades na entidade armazenada que não estejam incluídas na solicitação. Isso é útil se você tiver grandes entidades e só precisar atualizar um pequeno número de propriedades em uma solicitação.
 
->[AZURE.NOTE]Os métodos **Substituir** e **Mesclar** falharão se a entidade não existir. Como alternativa, você pode usar os métodos **InsertOrReplace** e **InsertOrMerge**, que criam uma nova entidade se ela não existir.
+>[AZURE.NOTE] Os métodos **Substituir** e **Mesclar** falharão se a entidade não existir. Como alternativa, você pode usar os métodos **InsertOrReplace** e **InsertOrMerge**, que criam uma nova entidade se ela não existir.
 
 ### Trabalhando com tipos de entidade heterogênea  
 
@@ -1342,7 +1319,7 @@ A primeira opção, prefixar o tipo de entidade a **RowKey**, é útil quando h�
 
 As técnicas discutidas nesta seção são importantes principalmente para a discussão sobre [Relações de herança](#inheritance-relationships), anteriormente neste guia, na seção [Relações de modelagem](#modelling-relationships).
 
->[AZURE.NOTE]Você deve considerar a inclusão do número de versão no valor do tipo de entidade para habilitar aplicativos clientes a desenvolverem objetos POCO e trabalhem com diferentes versões.
+>[AZURE.NOTE] Você deve considerar a inclusão do número de versão no valor do tipo de entidade para habilitar aplicativos clientes a desenvolverem objetos POCO e trabalhem com diferentes versões.
 
 O restante desta seção descreve alguns dos recursos na Biblioteca de Cliente de Armazenamento que facilitam o trabalho com vários tipos de entidade na mesma tabela.
 
@@ -1583,4 +1560,4 @@ Também gostaríamos de agradecer aos seguintes MVPs da Microsoft por seus valio
 [29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

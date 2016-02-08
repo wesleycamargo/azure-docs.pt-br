@@ -66,7 +66,7 @@ Usando o Bloco de Notas ou outro editor de texto, adicione o seguinte à parte s
 
 O módulo do azure lerá as variáveis de ambiente AZURE\_STORAGE\_ACCOUNT e AZURE\_STORAGE\_ACCESS\_KEY, ou AZURE\_STORAGE\_CONNECTION\_STRING para obter as informações necessárias para se conectar à sua conta de armazenamento do Azure. Se essas variáveis de ambiente não estiverem definidas, você deverá especificar as informações da conta ao chamar **createQueueService**.
 
-Para ver um exemplo de como definir variáveis de ambiente no [portal do Azure](portal.azure.com) para um Site do Azure, veja [Aplicativo Web do Node.js com armazenamento]
+Para ver um exemplo de como definir variáveis de ambiente no [portal do Azure](https://portal.azure.com) para um Site do Azure, veja [Aplicativo Web do Node.js com armazenamento]
 
 ## Como criar uma fila
 
@@ -123,7 +123,7 @@ Você pode inspecionar a mensagem na frente de uma fila sem removê-la da fila c
 
 O `result` contém a mensagem.
 
-> [AZURE.NOTE]Usar **peekMessages** quando não existirem mensagens na fila não retornará um erro; no entanto, nenhuma mensagem será retornada.
+> [AZURE.NOTE] Usar **peekMessages** quando não existirem mensagens na fila não retornará um erro; no entanto, nenhuma mensagem será retornada.
 
 ## Como: remover a próxima mensagem da fila
 
@@ -147,9 +147,10 @@ Para remover uma mensagem da fila, use **getMessages**. Isso torna as mensagens 
 	  }
 	});
 
-> [AZURE.NOTE]Por padrão, uma mensagem só é oculta por 30 segundos; depois disso, fica visível para os outros clientes. Você pode especificar um valor diferente usando `options.visibilityTimeout` com **getMessages**.
+> [AZURE.NOTE] Por padrão, uma mensagem só é oculta por 30 segundos; depois disso, fica visível para os outros clientes. Você pode especificar um valor diferente usando `options.visibilityTimeout` com **getMessages**.
 
-> [AZURE.NOTE]Usar **getMessages** quando não existirem mensagens na fila não retornará um erro; no entanto, nenhuma mensagem será retornada.
+> [AZURE.NOTE]
+Usar **getMessages** quando não existirem mensagens na fila não retornará um erro; no entanto, nenhuma mensagem será retornada.
 
 ## Como: alterar o conteúdo de uma mensagem em fila
 
@@ -330,4 +331,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga es
   [Blog da equipe do Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [Site com o WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

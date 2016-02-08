@@ -53,7 +53,7 @@ A solução conta o número de ocorrências de um termo de pesquisa ("Microsoft"
 
 ### Pré-requisitos
 
-1.  **Assinatura do Azure**. Se você não tiver uma assinatura do Azure, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Veja [Avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
+1.  **Assinatura do Azure**. Se você não tiver uma assinatura do Azure, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Veja [Avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 2.  **Conta de Armazenamento do Azure**. Você usará uma conta de armazenamento do Azure para armazenar os dados neste tutorial. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account). A solução de exemplo usa o armazenamento de blobs.
 
@@ -500,7 +500,7 @@ A apresentação passo a passo a seguir dá os detalhes adicionais.
 
 ### Etapa 1: Criar o data factory
 
-1.  Depois de fazer logon no [Portal do Azure](http://portal.azure.com/), faça o seguinte:
+1.  Depois de fazer logon no [Portal do Azure](https://portal.azure.com/), faça o seguinte:
 
     1.  Clique em **NOVO** no menu à esquerda.
 
@@ -707,7 +707,7 @@ Nesta etapa, você criará outro conjunto de dados do tipo AzureBlob para repres
 
 Nesta etapa, você criará um pipeline com uma atividade, a atividade personalizada criada anteriormente.
 
-> [AZURE.IMPORTANT]Se você ainda não tiver carregado **file. txt** para as pastas de entrada no contêiner de blob, faça isso antes de criar o pipeline. A propriedade **isPaused** é definida como false no pipeline de JSON, de modo que o pipeline será executado imediatamente, já que a data **inicial** está no passado.
+> [AZURE.IMPORTANT] Se você ainda não tiver carregado **file. txt** para as pastas de entrada no contêiner de blob, faça isso antes de criar o pipeline. A propriedade **isPaused** é definida como false no pipeline de JSON, de modo que o pipeline será executado imediatamente, já que a data **inicial** está no passado.
 
 1.  No Editor Data Factory, clique em **Novo pipeline** na barra de comandos. Se você não vir o comando, clique em **... (Reticências)** para vê-lo.
 
@@ -761,11 +761,11 @@ Nesta etapa, você criará um pipeline com uma atividade, a atividade personaliz
 
 	-   **AssemblyName** é definido para o nome da DLL: **MyDotNetActivity.dll**.
 
-	-   **EntryPoint** é definido como **MyDotNetActivityNS.MyDotNetActivity**. Ele é basicamente \<namespace\>.\<classname\> em seu código.
+	-   **EntryPoint** é definido como **MyDotNetActivityNS.MyDotNetActivity**. Ele é basicamente <namespace>.<classname> em seu código.
 
 	-   **PackageLinkedService** é definido como **StorageLinkedService**, que aponta para o armazenamento de blobs que contém o arquivo zip da atividade personalizada. Se você estiver usando diferentes contas de armazenamento do Azure para arquivos de entrada/saída e o arquivo zip da atividade personalizada, terá de criar outro serviço vinculado do armazenamento do Azure. Este artigo pressupõe que você está usando a mesma conta de armazenamento do Azure.
 
-	-   **PackageFile** é definido como **customactivitycontainer/MyDotNetActivity.zip**. Ele está no formato: \<contêinerdozip\>/\<nomedozip.zip\>.
+	-   **PackageFile** é definido como **customactivitycontainer/MyDotNetActivity.zip**. Ele está no formato: <contêinerdozip>/<nomedozip.zip>.
 
 	-   A atividade personalizada usa **InputDataset** como entrada e **OutputDataset** como saída.
 
@@ -929,4 +929,4 @@ Depois de processar dados, é possível consumi-lo com ferramentas online como o
 
     -   [Introdução ao .NET da Biblioteca de Lote do Azure](../batch/batch-dotnet-get-started.md)
 
-<!----HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

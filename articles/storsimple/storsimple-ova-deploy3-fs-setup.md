@@ -32,7 +32,7 @@ O processo de preparação e configuração pode levar aproximadamente 10 minuto
 
 ## Pré-requisitos de configuração
 
-Antes de preparar e configurar o dispositivo virtual StorSimple, certifique-se de que:
+Antes de configurar e configurar o dispositivo virtual StorSimple, certifique-se de que:
 
 -   Você tenha provisionado um dispositivo virtual e conectado-se a ele, conforme detalhado em descrito em [Provisionar uma StorSimple Virtual Array em Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) ou [Provisionar uma StorSimple Virtual Array em VMware](storsimple-ova-deploy2-provision-vmware.md).
 
@@ -57,7 +57,7 @@ Use as instruções passo a passo a seguir para preparar e configurar seu dispos
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image2.png)
 
-1.  Entre na interface do usuário da Web do seu dispositivo virtual como **StorSimpleAdmin**. Digite a senha do administrador do dispositivo que você alterou na Etapa 3: iniciar o dispositivo virtual em [Provisionar uma StorSimple Virtual Array em Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) ou em [Provisionar uma StorSimple Virtual Array em VMware](storsimple-ova-deploy2-provision-vmware.md).
+1.  Entre na interface do usuário da Web do seu dispositivo virtual como **StorSimpleAdmin**. Digite a senha do administrador do dispositivo que você alterou na Etapa 3: Iniciar o dispositivo virtual em [Provisionar um StorSimple Virtual Array em Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) ou em [Provisionar um StorSimple Virtual Array em VMware](storsimple-ova-deploy2-provision-vmware.md).
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image3.png)
 
@@ -169,7 +169,7 @@ As configurações agora serão atualizadas. Depois que as configurações forem
  ![](./media/storsimple-ova-deploy3-fs-setup/image17.png)
 
 
-> [AZURE.NOTE]
+> [AZURE.NOTE]                                                              
 >
 > Você pode modificar todas as outras configurações do dispositivo a qualquer momento acessando a página **Configurar**.
 
@@ -231,4 +231,4 @@ Assista ao vídeo para ver como você pode configurar e registrar uma StorSimple
 
 Aprenda como usar a interface do usuário da Web local para [administrar sua StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

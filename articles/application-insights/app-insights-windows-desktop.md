@@ -183,7 +183,7 @@ Por outro lado, o canal de persistência armazena a telemetria em buffer em um a
 
 ### Para usar o canal de persistência
 
-1. Importe o pacote NuGet [Microsoft.ApplicationInsights.PersistenceChannel](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PersistenceChannel).
+1. Importe o pacote NuGet [Microsoft.ApplicationInsights.PersistenceChannel](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PersistenceChannel/1.2.3).
 2. Inclua esse código em seu aplicativo, em um local de inicialização adequado:
  
     ```C# 
@@ -274,7 +274,7 @@ namespace ConsoleApplication1
 ```
 
 
-O código do canal de persistência está no [GitHub](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/master/src/TelemetryChannels/PersistenceChannel).
+O código do canal de persistência está no [GitHub](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/v1.2.3/src/TelemetryChannels/PersistenceChannel).
 
 
 ## <a name="usage"></a>Próximas etapas
@@ -299,4 +299,4 @@ O código do canal de persistência está no [GitHub](https://github.com/Microso
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

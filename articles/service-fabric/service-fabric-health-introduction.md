@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/20/2015"
+   ms.date="01/26/2016"
    ms.author="oanapl"/>
 
 # Introdução ao monitoramento da integridade do Service Fabric
@@ -21,7 +21,7 @@ O Service Fabric do Azure introduz um modelo de integridade que fornece avaliaç
 
 Os componentes da Malha do Serviço usam esse modelo de integridade para reportar o respectivo estado atual. É possível usar o mesmo mecanismo para reportar a integridade de seus aplicativos. A qualidade e o detalhamento do relatório de integridade específicos às suas condições personalizadas determinam com que facilidade você poderá detectar e corrigir problemas dos aplicativos em execução.
 
-> [AZURE.NOTE]Iniciamos o subsistema de integridade para atender à necessidade de atualizações monitoradas. O Service Fabric fornece atualizações monitoradas que sabem como atualizar um cluster ou um aplicativo sem tempo de inatividade, com mínima e nenhuma intervenção do usuário e com disponibilidade total do cluster e do aplicativo. Para isso, a atualização verifica a integridade com base em políticas de atualização configuradas e só prossegue quando a integridade respeita os limites desejados. Caso contrário, a atualização é automaticamente revertida ou pausada para dar aos administradores a oportunidade de corrigir os problemas. Para saber mais sobre atualizações de aplicativo, consulte [este artigo](service-fabric-application-upgrade.md).
+> [AZURE.NOTE] Iniciamos o subsistema de integridade para atender à necessidade de atualizações monitoradas. O Service Fabric fornece atualizações monitoradas que sabem como atualizar um cluster ou um aplicativo sem tempo de inatividade, com mínima e nenhuma intervenção do usuário e com disponibilidade total do cluster e do aplicativo. Para isso, a atualização verifica a integridade com base em políticas de atualização configuradas e só prossegue quando a integridade respeita os limites desejados. Caso contrário, a atualização é automaticamente revertida ou pausada para dar aos administradores a oportunidade de corrigir os problemas. Para saber mais sobre atualizações de aplicativo, consulte [este artigo](service-fabric-application-upgrade.md).
 
 ## Repositório de Integridade
 O Repositório de Integridade mantém informações relacionadas à integridade sobre entidades no cluster para facilidade de recuperação e avaliação. Ele é implementado como um serviço com estado persistente da Malha do Serviço, garantindo alta disponibilidade e escalabilidade. O Repositório de Integridade faz parte do aplicativo **fabric:/System** e é disponibilizado assim que o cluster é ativado e está em execução.
@@ -79,7 +79,7 @@ Os estados de integridade possíveis são:
 ## Políticas de integridade
 O Repositório de Integridade aplica políticas de integridade para determinar se uma entidade está íntegra com base em seus relatórios e filhos.
 
-> [AZURE.NOTE]As políticas de integridade podem ser especificadas no manifesto do cluster (para avaliação de integridade do cluster e do nó) ou no manifesto do aplicativo (para avaliação de aplicativo e qualquer um de seus filhos). As solicitações de avaliação de integridade também podem passar pelas políticas de avaliação de integridade personalizadas, que serão usadas apenas para avaliação.
+> [AZURE.NOTE] As políticas de integridade podem ser especificadas no manifesto do cluster (para avaliação de integridade do cluster e do nó) ou no manifesto do aplicativo (para avaliação de aplicativo e qualquer um de seus filhos). As solicitações de avaliação de integridade também podem passar pelas políticas de avaliação de integridade personalizadas, que serão usadas apenas para avaliação.
 
 Por padrão, o Service Fabric aplica regras rígidas (tudo deve estar íntegro) para a relação hierárquica pai-filho. Se mesmo um dos filhos tem um evento não íntegro, o pai será considerado não íntegro.
 
@@ -334,4 +334,4 @@ O modelo de integridade é muito usado para monitoramento e diagnóstico, para a
 
 [Atualização de aplicativos do Service Fabric](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

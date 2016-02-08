@@ -30,7 +30,7 @@ Para começar, primeiramente, você precisa criar uma tabela em sua conta de arm
 
 - Confira [Como usar o armazenamento de tabelas do .NET](storage-dotnet-how-to-use-tables.md) para obter mais informações sobre como manipular tabelas programaticamente.
 - Consulte a [Documentação de armazenamento](https://azure.microsoft.com/documentation/services/storage/) para obter informações gerais sobre o armazenamento do Azure.
-- Consulte a [Documentação de serviços de nuvem](http://azure.microsoft.com/documentation/services/cloud-services/) para obter informações gerais sobre os serviços de nuvem do Azure.
+- Consulte a [documentação de serviços de nuvem](https://azure.microsoft.com/documentation/services/cloud-services/) para obter informações gerais sobre os serviços de nuvem do Azure.
 - Consulte [ASP.NET](http://www.asp.net) para obter mais informações sobre como programar aplicativos ASP.NET.
 
 ## Acessar tabelas em código
@@ -50,7 +50,7 @@ Para acessar tabelas em projetos de serviço de nuvem, você precisa incluir os 
 		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage account name>
          _AzureStorageConnectionString"));
-> [AZURE.NOTE]Use todo o código acima antes do código dos exemplos a seguir.
+> [AZURE.NOTE]  Use todo o código acima antes do código dos exemplos a seguir.
 
 3. Obtenha um objeto **CloudTableClient** para fazer referência aos objetos de tabela em sua conta de armazenamento.
 
@@ -269,4 +269,4 @@ Você poderá excluir uma entidade facilmente depois de encontrá-la. O código 
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

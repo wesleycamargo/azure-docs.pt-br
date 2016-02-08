@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/05/2015"
+   ms.date="01/19/2016"
    ms.author="bwren" />
 
 # Criação gráfica na Automação do Azure
@@ -40,6 +40,10 @@ As seções a seguir descrevem os controles no editor gráfico.
 
 ### Tela
 A Tela é onde você projeta seu runbook. Você adiciona atividades dos nós no controle de Biblioteca ao runbook e os conecta a links para definir a lógica do runbook.
+
+Você pode usar os controles na parte inferior da tela para ampliar e reduzir.
+
+![Espaço de trabalho gráfico](media/automation-graphical-authoring-intro/canvas-zoom.png)
 
 ### Controle de Biblioteca
 
@@ -131,7 +135,7 @@ Ao especificar um valor para um parâmetro, você seleciona uma fonte de dados p
 |Ativo de credencial de automação|Selecione uma Credencial de Automação como entrada.|  
 |Ativo de certificado de automação|Selecione um Certificado de Automação como entrada.|  
 |Ativo de conexão de automação|Selecione uma Conexão de Automação como entrada.| 
-|Expressão do PowerShell|Especifique a expressão simples do [PowerShell](#powershell-expressions). A expressão será avaliada antes da atividade, e o resultado será usado para o valor do parâmetro. Você pode usar variáveis para referir-se à saída de uma atividade ou um parâmetro de entrada de runbook.|
+|Expressão do PowerShell|Especifique a [expressão simples do PowerShell](#powershell-expressions). A expressão será avaliada antes da atividade, e o resultado será usado para o valor do parâmetro. Você pode usar variáveis para referir-se à saída de uma atividade ou um parâmetro de entrada de runbook.|
 |Cadeia de Caracteres Vazia|Um valor de cadeia de caracteres vazia.|
 |Nulo|Um valor Nulo.|
 |Cancelar Seleção|Limpa qualquer valor que foi configurado anteriormente.|
@@ -140,6 +144,38 @@ Ao especificar um valor para um parâmetro, você seleciona uma fonte de dados p
 #### Parâmetros adicionais opcionais
 
 Todos os cmdlets terão a opção de fornecer parâmetros adicionais. Estes são os parâmetros comuns do PowerShell ou outros parâmetros personalizados. Será exibida uma caixa de texto em que você pode fornecer parâmetros usando a sintaxe do PowerShell. Por exemplo, para usar o parâmetro comum **Verbose**, você especificaria **"-Verbose:$True"**.
+
+### Atividade de repetição
+
+O **Comportamento de Repetição** permite que uma atividade seja executada várias vezes até que uma determinada condição seja atendida. Você pode usar esse recurso para atividades que devem ser executadas várias vezes ou que estão sujeitas a erros e podem precisar de mais de uma tentativa para ter sucesso.
+
+Quando você habilita a repetição de uma atividade, é possível definir um atraso e uma condição. O atraso é o tempo (medido em segundos ou minutos) que o runbook aguardará antes de executar novamente a atividade. Se nenhum atraso for especificado, a atividade será executada novamente imediatamente após a conclusão.
+
+![Atraso de repetição de atividade](media/automation-graphical-authoring-intro/retry-delay.png)
+
+A condição de repetição é uma expressão do PowerShell avaliada sempre após a execução da atividade. Se a expressão for resolvida como True, a atividade será executada novamente. Se a expressão for resolvida como False, a atividade não será executada novamente e o runbook passará para a próxima atividade.
+
+![Atraso de repetição de atividade](media/automation-graphical-authoring-intro/retry-condition.png)
+
+A condição de repetição pode usar uma variável chamada $RetryData que fornece acesso às informações sobre as repetições de atividade. Essa variável tem as propriedades na tabela a seguir.
+
+| Propriedade | Descrição |
+|:--|:--|
+| NumberOfAttempts | Número de vezes que a atividade foi executada. |
+| Saída | Saída da última execução da atividade. |
+| TotalDuration | Tempo decorrido desde que a atividade foi iniciada pela primeira vez. |
+| StartedAt | Hora no formato UTC em que a atividade foi iniciada pela primeira vez. |
+
+Veja a seguir exemplos de condições de repetição da atividade.
+
+	# Run the activity exactly 10 times.
+	$RetryData.NumberOfAttempts -ge 10 
+
+	# Run the activity repeatedly until it produces any output.
+	$RetryData.Output.Count -ge 1 
+
+	# Run the activity repeatedly until 2 minutes has elapsed. 
+	$RetryData.TotalDuration.TotalMinutes -ge 2
 
 ### Controle de Script de Fluxo de Trabalho
 
@@ -239,7 +275,11 @@ Você também pode recuperar a saída de uma atividade em uma fonte de dados de 
 
 ### Pontos de verificação
 
-A mesma diretriz para definir [pontos de verificação](automation-powershell-workflow/#checkpoints) em seu runbook se aplica a runbooks gráficos. Você pode adicionar uma atividade ao cmdlet Checkpoint-Workflow onde você precisa definir um ponto de verificação. Você deve então incluir um Add-AzureAccount após essa atividade, caso o runbook se inicie desse ponto de verificação em um trabalhador diferente.
+Você pode definir [pontos de verificação](automation-powershell-workflow/#checkpoints) em um runbook gráfico selecionando *Runbook de ponto de verificação* em qualquer atividade. Isso causa a definição de um ponto de verificação após a execução da atividade.
+
+![Ponto de verificação](media/automation-graphical-authoring-intro/set-checkpoint.png)
+
+A mesma diretriz para definir pontos de verificação em seu runbook se aplica a runbooks gráficos. Se o runbook usa cmdlets do Azure, use AzureRMAccount após qualquer atividade com ponto de verificação, caso o runbook seja suspenso e reinicie nesse ponto de verificação em um trabalho diferente.
 
 
 ## Autenticação para recursos do Azure
@@ -379,4 +419,4 @@ O exemplo a seguir usam a saída de uma atividade chamada *Obter conexão do Twi
 - [Operadores](https://technet.microsoft.com/library/hh847732.aspx)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

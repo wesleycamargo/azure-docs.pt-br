@@ -27,7 +27,7 @@ O InMage Scout no Azure Site Recovery fornece replicação em tempo real entre o
 
 ## Pré-requisitos
 
-- **Conta do Azure**: você precisará de uma conta do [Microsoft Azure](http://azure.microsoft.com/). Você pode começar com uma [avaliação gratuita](pricing/free-trial/).
+- **Conta do Azure**: você precisará de uma conta do [Microsoft Azure](https://azure.microsoft.com/). Você pode começar com uma [avaliação gratuita](pricing/free-trial/).
 
 
 ## Etapa 1: criar um cofre
@@ -68,9 +68,9 @@ Instale da seguinte maneira:
 	-  UA\_RHEL6-64\_8.0.1.0\_GA\_Update\_1\_3259401\_23Jun15.tar.gz
 	-  vCon\_Windows\_8.0.1.0\_GA\_Update\_1\_3259523\_23Jun15.exe
 2. Extraia o arquivo zip.
-2. **Servidor RX**: copie **RX\_8.0.1.0\_GA\_Update\_1\_3279231\_23Jun15.tar.gz** para o servidor RX e extraia-o. Na pasta extraída, execute **/Install**.
+2. **Servidor RX**: copie **RX\_8.0.1.0\_GA\_Update\_1\_3279231\_23Jun15.tar.gz**para o servidor RX e extraia. Na pasta extraída, execute **/Install**.
 2. **Servidor de configuração/servidor de processo**: copie **CX\_Windows\_8.0.2.0\_GA\_Update\_2\_4306954\_21Aug15.exe** para o servidor de configuração e servidor de processo. Clique duas vezes para executá-lo.
-3. **Servidor de destino mestre Windows**: para atualizar a cópia de agente unificado, copie **UA\_Windows\_8.0.1.0\_GA\_Update\_1\_3259401\_23Jun15.exe** para o servidor de destino mestre. Clique duas vezes nele para executá-lo. Observe que o agente unificado para Windows não é aplicável no servidor de origem. Ele deve ser instalado somente no servidor de destino mestre do Windows.
+3. **Servidor de destino mestre Windows**: para atualizar a cópia de agente unificado, copie **UA\_Windows\_8.0.1.0\_GA\_Update\_1\_3259401\_23Jun15.exe** para o servidor mestre de destino. Clique duas vezes nele para executá-lo. Observe que o agente unificado para Windows não é aplicável no servidor de origem. Ele deve ser instalado somente no servidor de destino mestre do Windows.
 4. **Servidor de destino mestre Linux**: para atualizar o agente unificado, copie **UA\_RHEL6-64\_8.0.1.0\_GA\_Update\_1\_3259401\_23Jun15.tar.gz** para o servidor de destino mestre e extraia-o. Na pasta extraída, execute **/Install**.
 5. **vContinuum server**: copie **vCon\_Windows\_8.0.1.0\_GA\_Update\_1\_3259523\_23Jun15.exe** para o servidor vContinuum. Verifique se que você fechou o assistente vContinuum. Clique duas vezes no arquivo para executá-lo.
 
@@ -130,4 +130,4 @@ Essa última atualização inclui correções de bugs e novos recursos:
 
 Publique qualquer pergunta no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

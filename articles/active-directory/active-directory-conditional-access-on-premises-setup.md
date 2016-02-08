@@ -21,7 +21,8 @@
 
 Dispositivos de propriedade dos seus usuários podem ser marcados como conhecidos pela sua organização se for exigido aos usuários que adicionem seus dispositivos ao serviço do registro de dispositivo do Active Directory do Azure no ambiente de trabalho. Abaixo está um passo a passo para habilitar o acesso condicional para aplicativos locais usando o AD FS (Serviço de Federação do Active Directory) no Windows Server 2012 R2.
 
-> [AZURE.NOTE]A licença do Office 365 ou a do Azure AD Premium é necessária quando usar dispositivos registrados nas políticas de acesso condicional do serviço de registro de dispositivo do Active Directory do Azure. Isso inclui as políticas impostas pelo AD FS (Serviços de Federação do Active Directory) para recursos locais.
+> [AZURE.NOTE]
+A licença do Office 365 ou a do Azure AD Premium é necessária quando usar dispositivos registrados nas políticas de acesso condicional do serviço de registro de dispositivo do Active Directory do Azure. Isso inclui as políticas impostas pelo AD FS (Serviços de Federação do Active Directory) para recursos locais.
 
 Para saber mais sobre os cenários de acesso condicional local, confira [Ingressar no local de trabalho de qualquer dispositivo para SSO e segundo fator de autenticação entre aplicativos da empresa](https://technet.microsoft.com/library/dn280945.aspx).
 
@@ -118,13 +119,14 @@ Isso ajudará você a integrar o seu locatário do AD do Azure com o Active Dire
 5.	Na seção **implantar e gerenciar**, siga as etapas 1 a 3 para integrar o Active Directory do Azure ao seu diretório local.
   1.	Adicionar domínios.
   2.	Instalar e executar o Azure AD Connect: instale o Azure AD Connect usando as instruções a seguir, [Instalação personalizada do Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
-  3. Verificar e gerenciar a sincronização de diretórios. Instruções de logon único estão disponíveis nessa etapa. >[AZURE.NOTE]Configure a Federação com o AD FS conforme descrito no documento vinculado acima. >[AZURE.NOTE]Você não precisa configurar nenhum dos recursos de visualização.
+  3. Verificar e gerenciar a sincronização de diretórios. Instruções de logon único estão disponíveis nessa etapa. >[AZURE.NOTE] Configure a Federação com o AD FS conforme descrito no documento vinculado acima. >[AZURE.NOTE] Você não precisa configurar nenhum dos recursos de visualização.
   
    
 
 
 ## Atualizar o esquema dos Serviços de Domínio do Active Directory
-> [AZURE.NOTE]A atualização do esquema do Active Directory não pode ser desfeita. É recomendável executar isso primeiro em um ambiente de teste.
+> [AZURE.NOTE]
+A atualização do esquema do Active Directory não pode ser desfeita. É recomendável executar isso primeiro em um ambiente de teste.
 
 1. Faça logon no controlador de domínio com uma conta que tenha direitos de administrador corporativo e de administrador de esquema.
 2. Copie o diretório **[media]\\support\\adprep** e seus subdiretórios em um dos controladores de domínio do Active Directory. 
@@ -132,12 +134,13 @@ Isso ajudará você a integrar o seu locatário do AD do Azure com o Active Dire
 4. Em um prompt de comando, navegue até o diretório adprep e execute: **adprep.exe /forestprep**. Siga as instruções na tela para concluir a atualização do esquema.
 
 ## Preparar seu Active Directory para dar suporte a dispositivos
->[AZURE.NOTE]Isso é uma operação única que você deve executar para preparar a floresta do Active Directory para dar suporte a dispositivos. Você deve fazer logon com permissões de administrador corporativo e sua floresta do Active Directory deve ter o esquema do Windows Server 2012 R2 para concluir esse procedimento.
+>[AZURE.NOTE] Isso é uma operação única que você deve executar para preparar a floresta do Active Directory para dar suporte a dispositivos. Você deve fazer logon com permissões de administrador corporativo e sua floresta do Active Directory deve ter o esquema do Windows Server 2012 R2 para concluir esse procedimento.
 
 
 ##Preparar sua floresta do Active Directory para dar suporte a dispositivos
 
-> [AZURE.NOTE]Isso é uma operação única que você deve executar para preparar a floresta do Active Directory para dar suporte a dispositivos. Você deve fazer logon com permissões de administrador corporativo e sua floresta do Active Directory deve ter o esquema do Windows Server 2012 R2 para concluir esse procedimento.
+> [AZURE.NOTE]
+Isso é uma operação única que você deve executar para preparar a floresta do Active Directory para dar suporte a dispositivos. Você deve fazer logon com permissões de administrador corporativo e sua floresta do Active Directory deve ter o esquema do Windows Server 2012 R2 para concluir esse procedimento.
 
 ### Prepare sua floresta do Active Directory
 
@@ -170,7 +173,7 @@ O registro de dispositivo do Active Directory do Azure usa o processo de registr
 
     https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/"yourdomainname"
 
-Em que `yourdomainname` é o nome de domínio que você configurou com o Active Directory do Azure. Por exemplo, se seu nome de domínio for contoso.com, a URL seria:
+Onde `yourdomainname` é o nome de domínio que você configurou com o Active Directory do Azure. Por exemplo, se seu nome de domínio for contoso.com, a URL seria:
 
     https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/contoso.com
 
@@ -182,6 +185,9 @@ Há muitas maneiras diferentes de comunicar essa URL para seus usuários. Uma ma
 2. Digite seu nome de usuário no formato UPN. Por exemplo: dan@contoso.com..
 3. Selecione **Ingressar**.
 4. Quando solicitado, entre com suas credenciais. O dispositivo agora está associado.
+
+###Adicionar um dispositivo Windows 7 usando o registro de dispositivo do Active Directory do Azure
+Para registrar dispositivos Windows 7 adicionados ao domínio, é necessário implantar o pacote de software de registro de dispositivo. O pacote de software chama-se Workplace Join for Windows 7 e está disponível para download no [site Microsoft Connect](https://connect.microsoft.com/site1164). Há instruções sobre como usar o pacote disponíveis em [Configurar o registro automático de dispositivos para dispositivos Windows 7 ingressados no domínio](active-directory-conditional-access-automatic-device-registration-windows7.md).
 
 ### Adicionar um dispositivo Android usando o registro de dispositivo do Active Directory do Azure
 
@@ -198,7 +204,8 @@ Por padrão, os objetos de dispositivo que são gravados no Active Directory do 
 Considere o seguinte cenário: você cria uma relação de confiança de aplicativo com a terceira parte confiável no AD FS e configura uma regra de autorização de emissão que permite apenas dispositivos registrados. Agora somente os dispositivos que estão registrados têm permissão para acessar o aplicativo. Para tornar mais fácil o acesso ao aplicativo para os usuários, você deve configurar uma mensagem de acesso negado personalizada que inclui instruções sobre como adicionar seu dispositivo. Agora os usuários têm uma maneira perfeita de registrar seus dispositivos para acessar um aplicativo.
 
 As etapas a seguir mostram como implementar esse cenário.
->[AZURE.NOTE]Esta seção pressupõe que você já tenha configurado uma relação de confiança de terceira parte confiável para o seu aplicativo no AD FS.
+>[AZURE.NOTE]
+Esta seção pressupõe que você já tenha configurado uma relação de confiança de terceira parte confiável para o seu aplicativo no AD FS.
 
 1. Abra a ferramenta AD FS MMC e vá até AD FS > Relações de Confiança > Confiança de Terceira Parte Confiável
 2. Localize o aplicativo ao qual a nova regra de acesso se aplica. Clique com o botão direito do mouse no aplicativo e selecione Editar Regras de Declaração...
@@ -237,4 +244,4 @@ Agora, quando os usuários acessam seu aplicativo e um dispositivo que não est�
 
 ![Captura de tela de um erro quando os usuários não tiverem registrado seu dispositivo com o AD do Azure](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

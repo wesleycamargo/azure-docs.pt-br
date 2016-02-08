@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/02/2015"
+   ms.date="01/21/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: histórico de lançamento de versão
@@ -50,7 +50,7 @@ Lançado: novembro de 2015
 **Novos recursos de visualização:**
 
 - [Azure AD Connect Health para sincronização](active-directory-aadconnect-health-sync.md).
-- Suporte para sincronização de senha dos [Serviços de Domínio do AD do Azure](active-directory-ds-getting-started.md).
+- Suporte para sincronização de senha dos [Serviços de Domínio do AD do Azure](active-directory-get-started.md).
 
 **Novo cenário com suporte:**
 
@@ -155,7 +155,7 @@ Lançamento: fevereiro de 2015
 
 **Problemas corrigidos:**
 
-- A sincronização de senha honra o atributo cloudFiltered usado pela filtragem de atributo. Objetos filtrados não estarão no escopo de sincronização de senha.
+- A Sincronização de Senha honra o atributo cloudFiltered usado pela filtragem de atributo. Objetos filtrados não estarão no escopo de sincronização de senha.
 - Em raras situações em que a topologia tem muitos controladores de domínio, a sincronização de senha não funciona.
 - "Servidor-parado" ao importar do Conector do AD do Azure depois que o gerenciamento de dispositivo tiver sido habilitado no AD do Azure/Intune.
 - Ingressar FSPs (Entidades de Segurança Externa) de vários domínios na mesma floresta causa um erro de ingresso ambíguo.
@@ -207,6 +207,6 @@ Lançamento: setembro de 2014
 **Versão inicial do Azure AD Sync.**
 
 ## Próximas etapas
-Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
+Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

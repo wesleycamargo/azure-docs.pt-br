@@ -61,7 +61,7 @@ Para criar um novo Plano do Serviço de Aplicativo, clique em **+ Criar Novo**, 
  
 ## Mover um aplicativo para um plano de Serviço de Aplicativo diferente
 
-Você pode mover um aplicativo para um plano de Serviço de Aplicativo diferente no [Portal do Azure](http://portal.azure.com). Os aplicativos podem ser movidos entre planos na mesma região geográfica.
+Você pode mover um aplicativo para um plano de Serviço de Aplicativo diferente no [Portal do Azure](https://portal.azure.com). Os aplicativos podem ser movidos entre planos na mesma região geográfica.
 
 Para mover um aplicativo para outro plano, navegue até o aplicativo que você deseja mover e clique em **Alterar Plano de Serviço de Aplicativo**.
  
@@ -90,14 +90,11 @@ Os planos de Serviço de Aplicativo representam um conjunto de recursos e capaci
 ## O que mudou
 
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
- 
- 
- 
- <!-- Images. -->
+   
 [pricingtier]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/appserviceplan-pricingtier.png
 [assign]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/assing-appserviceplan.png
 [change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
 [createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

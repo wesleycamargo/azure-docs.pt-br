@@ -20,16 +20,16 @@
 
 Este documento ajuda você a se familiarizar rapidamente com a Central de Segurança do Azure ao orientá-lo através de componentes de gerenciamento de monitoramento e pela política de segurança e vinculação às próximas etapas.
 
-> [AZURE.NOTE]As informações neste documento se aplicam à versão de visualização da Central de Segurança do Azure. Esta é uma introdução ao serviço usando um exemplo de implantação. Ela não é um guia passo a passo.
+> [AZURE.NOTE] As informações neste documento se aplicam à versão de visualização da Central de Segurança do Azure. Esta é uma introdução ao serviço usando um exemplo de implantação. Ela não é um guia passo a passo.
 
 ## O que é a Central de Segurança do Azure?
 A Central de Segurança do Azure ajuda você a impedir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança dos recursos do Azure Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
 
 ## Pré-requisitos
 
-Para começar a usar a Central de Segurança do Azure, você deve ter uma assinatura do Microsoft Azure. A Central de Segurança do Azure é habilitada com sua assinatura. Se você não tiver uma assinatura, você pode se inscrever em uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial).
+Para começar a usar a Central de Segurança do Azure, você deve ter uma assinatura do Microsoft Azure. A Central de Segurança do Azure é habilitada com sua assinatura. Se você não tiver uma assinatura, você pode se inscrever em uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-A Central de Segurança do Azure é acessada pelo [Portal do Azure](http://azure.microsoft.com/features/azure-portal/). Confira a [documentação do portal](https://azure.microsoft.com/documentation/services/azure-portal/) para saber mais.
+A Central de Segurança do Azure é acessada pelo [Portal do Azure](https://azure.microsoft.com/features/azure-portal/). Confira a [documentação do portal](https://azure.microsoft.com/documentation/services/azure-portal/) para saber mais.
 
 
 ## Como acessar a Central de segurança do Azure
@@ -103,4 +103,4 @@ Neste documento, você foi apresentado para o monitoramento de segurança e para
 [6]: ./media/security-center-get-started/security-alert.png
 [7]: ./media/security-center-get-started/security-alert-detail.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

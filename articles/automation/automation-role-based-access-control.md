@@ -37,13 +37,13 @@ Neste artigo, vamos orientar você pela configuração do RBAC na Automação do
 
 ## Configurar o RBAC para sua Conta de Automação usando o Portal do Azure
 
-1.	Entre no [Portal do Azure](http://portal.azure.com/) e abra sua Conta de Automação na folha Contas de Automação.  
+1.	Faça logon no [Portal do Azure](https://portal.azure.com/) e abra sua conta de Automação na folha Contas de Automação.  
 
 2.	Clique no controle **Acesso** no canto superior direito. Isso abre a folha **Usuários** onde você pode adicionar novos usuários, grupos e aplicativos para gerenciar sua Conta de Automação e exibir as funções existentes que podem ser configuradas para ela.
 
     ![Botão de acesso](media/automation-role-based-access-control/automation-01-access-button.png)
 
->[AZURE.NOTE]**Os administradores de assinatura** já existem como usuários padrão. O grupo de administradores de assinatura do Active Directory inclui os administradores de serviço e os coadministradores de sua assinatura do Azure. O administrador de serviços é o proprietário da assinatura do Azure e de seus recursos e também herdará a função de proprietário das Contas de Automação. Isso significa que o acesso é **Herdado** para **administradores e coadministradores de serviço** de uma assinatura e ele é **Atribuído** a todos os outros usuários. Clique em **Administradores de assinatura** para ver mais detalhes sobre suas permissões.
+>[AZURE.NOTE]  **Os administradores de assinatura** já existem como usuários padrão. O grupo de administradores de assinatura do Active Directory inclui os administradores de serviço e os coadministradores de sua assinatura do Azure. O administrador de serviços é o proprietário da assinatura do Azure e de seus recursos e também herdará a função de proprietário das Contas de Automação. Isso significa que o acesso é **Herdado** para **administradores e coadministradores de serviço** de uma assinatura e ele é **Atribuído** a todos os outros usuários. Clique em **Administradores de assinatura** para ver mais detalhes sobre suas permissões.
 
 ### Adicionar um novo usuário e atribuir uma função
 
@@ -67,7 +67,7 @@ Você também pode atribuir uma função para o usuário na folha **Funções**.
 
 ![Atribuir função na folha de usuários](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)
    
->[AZURE.NOTE]O controle de acesso baseado em função só pode ser definido no nível da Conta de Automação e não em qualquer recurso abaixo dela.
+>[AZURE.NOTE] O controle de acesso baseado em função só pode ser definido no nível da Conta de Automação e não em qualquer recurso abaixo dela.
 
 Você pode atribuir mais de uma função a um usuário, grupo ou aplicativo. Por exemplo, se adicionarmos a função **Operador de Automação** com a **função Leitor** ao usuário, essas funções poderão exibir todos os recursos de automação e executar os trabalhos de runbook. Você pode expandir a lista suspensa para exibir uma lista de funções atribuídas ao usuário.
 
@@ -139,4 +139,4 @@ Nos cmdlets acima, substitua o nome de login, ID de assinatura, nome do grupo de
 - Para obter detalhes sobre diferentes maneiras de iniciar um runbook, confira [Iniciando um runbook](automation-starting-a-runbook.md)
 - Para obter informações sobre os diferentes tipos, consulte [Tipos de runbook da Automação do Azure](automation-runbook-types.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

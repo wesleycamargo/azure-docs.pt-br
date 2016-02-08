@@ -65,6 +65,7 @@ Os serviços que atualmente não dão suporte à transferência de um recurso s�
 
 - Máquinas Virtuais
 - Armazenamento
+- Rota Expressa
 
 Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de Aplicativo. Para mover os aplicativos Web, as opções são:
 
@@ -116,4 +117,4 @@ No corpo da solicitação, especifique o grupo de recursos de destino e os recur
 - [Usando o Portal do Azure para gerenciar recursos](azure-portal/resource-group-portal.md)
 - [Usando marcas para organizar os recursos](./resource-group-using-tags.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

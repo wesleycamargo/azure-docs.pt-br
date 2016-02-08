@@ -9,11 +9,11 @@ Um novo back-end da API Web ASP.NET será criado nas seções a seguir e terá t
 As etapas a seguir mostram como criar o novo back-end da API Web ASP.NET:
 
 
-> [AZURE.NOTE]**Importante**: antes de iniciar este tutorial, certifique-se de ter instalado a versão mais recente do Gerenciador de Pacotes NuGet. Para verificar, inicie o Visual Studio. No menu **Ferramentas**, clique em **Extensões e atualizações**. Pesquise **Gerenciador de Pacotes NuGet para Visual Studio 2013**, certificando-se de ter instalada a versão 2.8.50313.46 ou posterior. Se não tiver, desinstale o Gerenciador de Pacotes NuGet e instale-o novamente.
+> [AZURE.NOTE] **Importante**: antes de iniciar este tutorial, certifique-se de ter instalado a versão mais recente do Gerenciador de Pacotes NuGet. Para verificar, inicie o Visual Studio. No menu **Ferramentas**, clique em **Extensões e atualizações**. Pesquise **Gerenciador de Pacotes NuGet para Visual Studio 2013**, certificando-se de ter instalada a versão 2.8.50313.46 ou posterior. Se não tiver, desinstale o Gerenciador de Pacotes NuGet e instale-o novamente.
 > 
 > ![][B4]
 
-> [AZURE.NOTE]Verifique se você instalou o [SDK do Azure](http://azure.microsoft.com/downloads/) do Visual Studio para implantação de site.
+> [AZURE.NOTE] Verifique se você instalou o [SDK do Azure](https://azure.microsoft.com/downloads/) do Visual Studio para implantação de site.
 
 1. Inicie o Visual Studio ou o Visual Studio Express. Clique em **Gerenciador de Servidores** e entre na sua conta do Azure. Será preciso que você se conecte para que o Visual Studio crie os recursos do site na sua conta.
 2. No Visual Studio, clique em **Arquivo**, então clique em **Novo**, em **Projeto**, expanda **Modelos**, **Visual C#**, então clique em **Web** e **Aplicativo Web ASP.NET**, digite o nome **AppBackend** e clique em **OK**. 
@@ -101,7 +101,7 @@ Nesta seção, você criará uma nova classe de manipulador de mensagens denomin
 	        }
 	    }
 
-	> [AZURE.NOTE]**Nota de Segurança**: a classe `AuthenticationTestHandler` não oferece autenticação verdadeira. Ela é usada somente para imitar a autenticação básica e não é segura. Você deve implementar um mecanismo de autenticação seguro em seus aplicativos e serviços de produção.
+	> [AZURE.NOTE] **Nota de Segurança**: a classe `AuthenticationTestHandler` não oferece autenticação verdadeira. Ela é usada somente para imitar a autenticação básica e não é segura. Você deve implementar um mecanismo de autenticação seguro em seus aplicativos e serviços de produção.
 
 4. Adicione o seguinte código no fim do método `Register` na classe **App\_Start/WebApiConfig.cs** para registrar o manipulador de mensagens:
 
@@ -364,4 +364,4 @@ Nesta seção, você adiciona um novo controlador que expõe uma maneira para di
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

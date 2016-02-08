@@ -20,7 +20,7 @@
 
 O serviço da Pesquisa do Azure é um serviço de pesquisa de nuvem hospedado que facilita o fornecimento de uma excelente experiência de pesquisa. Antes de pesquisar, você precisa popular um índice da Pesquisa do Azure com seus dados. Se os dados estiverem em um Banco de Dados SQL do Azure, o novo **indexador da Pesquisa do Azure para o Banco de Dados SQL do Azure** (ou **indexador do SQL Azure** para resumir) na Pesquisa do Azure poderá automatizar o processo de indexação. Isso significa menos código para escrever e menos infraestrutura para se preocupar.
 
-Atualmente, os indexadores funcionam apenas com o Banco de Dados SQL do Azure, SQL Server em VMs do Azure e [Banco de Dados de Documentos do Azure](../documentdb/documentdb-search-indexer.md). Neste artigo, vamos nos concentrar nos indexadores que funcionam com o Banco de Dados SQL do Azure. Se você quiser suporte para outras fontes de dados, forneça seus comentários no [Fórum de comentários da Pesquisa do Azure](http://feedback.azure.com/forums/263029-azure-search).
+Atualmente, os indexadores funcionam apenas com o Banco de Dados SQL do Azure, SQL Server em VMs do Azure e [Banco de Dados de Documentos do Azure](../documentdb/documentdb-search-indexer.md). Neste artigo, vamos nos concentrar nos indexadores que funcionam com o Banco de Dados SQL do Azure. Se você quiser suporte para outras fontes de dados, forneça seus comentários no [Fórum de comentários da Pesquisa do Azure](https://feedback.azure.com/forums/263029-azure-search/).
 
 Este artigo abordará a mecânica do uso de indexadores, mas também exploraremos recursos e comportamentos disponíveis apenas com os bancos de dados SQL (por exemplo, controle integrado de alterações).
 
@@ -279,4 +279,4 @@ R: Sim. O indexador é executado em um dos nós em seu serviço de pesquisa, e o
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

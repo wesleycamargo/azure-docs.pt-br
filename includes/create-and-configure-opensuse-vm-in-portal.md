@@ -1,6 +1,6 @@
 <properties writer="kathydav" editor="tysonn" manager="timlt" />
 
-1. Entre no [Portal do Azure](http://manage.windowsazure.com). Confira a oferta [Avaliação Gratuita](http://azure.microsoft.com/pricing/free-trial/) caso você ainda não tenha uma assinatura.
+1. Entre no [portal clássico do Azure](http://manage.windowsazure.com). Confira a oferta [Avaliação Gratuita](https://azure.microsoft.com/pricing/free-trial/) caso você ainda não tenha uma assinatura.
 
 2. Na barra de comandos na parte inferior da janela, clique em **Novo**.
 
@@ -12,7 +12,8 @@
 
 5. Na primeira página **Configuração da máquina virtual**:
 
-	- Digite um **Nome da máquina virtual**, como "testlinuxvm".
+	- Digite um **Nome da máquina virtual**, como "testlinuxvm". O nome deve conter entre 3 e 15 caracteres, pode conter apenas letras, números e hifens e precisa começar com uma letra e terminar com uma letra ou número.
+
 	- Verifique a **Camada** e escolha um **Tamanho**. A camada determina os tamanhos que você pode escolher. O tamanho afeta o custo de utilização e as opções de configuração, por exemplo, quantos discos de dados é possível anexar. Para obter detalhes, consulte [Tamanhos das máquinas virtuais](../articles/virtual-machines-size-specs.md).
 	- Digite um **Novo Nome de Usuário** ou aceite o padrão, **azureuser**. Esse nome é adicionado ao arquivo da lista Sudoers.
 	- Decide que tipo de **Autenticação** usar. Para obter diretrizes gerais de senha, consulte [Senhas fortes](http://msdn.microsoft.com/library/ms161962.aspx).
@@ -20,11 +21,11 @@
 6. Na próxima página **Configuração da máquina virtual**:
 
 	- Use o padrão **Criar um novo serviço de nuvem**.
-	- Na caixa **Nome de DNS**, digite um nome de DNS válido para usar como parte do endereço, como "testlinuxvm".
+	- Na caixa **Nome de DNS**, digite um nome DNS exclusivo para usar como parte do endereço, como "testlinuxvm".
 	- Na caixa **Região/Grupo de Afinidade/Rede Virtual**, selecione uma região onde essa imagem virtual será hospedada.
 	- Em **Pontos de extremidade**, mantenha o ponto de extremidade do SSH. Agora, você pode adicionar outros, ou adicionar, alterar ou excluí-los após a criação da máquina virtual.
 
-	>[AZURE.NOTE]Se você desejar que uma máquina virtual use uma rede virtual, **deverá** especificar a rede virtual ao criar a máquina virtual. Você não pode adicionar uma máquina virtual a uma rede virtual após a criação da máquina virtual. Para saber mais, confira [Visão geral da rede virtual](virtual-networks-overview.md).
+	>[AZURE.NOTE] Se você desejar que uma máquina virtual use uma rede virtual, **deverá** especificar a rede virtual ao criar a máquina virtual. Você não pode adicionar uma máquina virtual a uma rede virtual após a criação da máquina virtual. Para saber mais, confira [Visão geral da rede virtual](virtual-networks-overview.md).
 
 7.	Na última página de **Configuração da máquina virtual**, mantenha as configurações padrão e, em seguida, clique na marca de seleção para concluir.
 
@@ -64,4 +65,4 @@ Você usará SSH ou PuTTY para se conectar à máquina virtual, dependendo do si
 
 [Image6]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

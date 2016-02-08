@@ -26,9 +26,9 @@ Com o Laboratório de Desenvolvimento/Testes, você pode especificar as principa
 
 Para exibir (e alterar) as políticas de um laboratório, siga estas etapas:
 
-1. Entre no [Portal de visualização do Azure](http://portal.azure.com).
+1. Entre no [Portal de visualização do Azure](https://portal.azure.com).
 
-1. Toque em **Procurar** e em **Laboratórios de Desenvolvimento/Testes** na lista.
+1. Toque em **Procurar** e toque em **Laboratórios de Desenvolvimento/Teste** na lista.
 
 1. Na lista de laboratórios, toque no laboratório desejado.
 
@@ -100,4 +100,4 @@ A política de desligamento automático ajuda a minimizar o desperdício de labo
 
 1. Toque em **Salvar**.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

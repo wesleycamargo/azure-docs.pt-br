@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="01/22/2016"
    ms.author="tomfitz"/>
 
 # Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica
@@ -22,19 +22,17 @@ O modelo de implantação do Gerenciador de Recursos fornece uma nova maneira de
 
 Você também pode conhecer o modelo de implantação clássica como o modelo do Gerenciamento de Serviços.
 
-Este tópico descreve as diferenças entre os dois modelos e alguns dos problemas que você pode encontrar ao fazer a transição do modelo clássico para o Gerenciador de Recursos. Ele fornece uma visão geral dos modelos, mas não aborda em detalhes as diferenças nos serviços individuais. Para obter mais detalhes sobre como fazer a transição dos recursos Computação, Armazenamento e Rede, consulte [Provedores de Computação, de Rede e de Armazenamento do Azure no Gerenciador de Recursos do Azure](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
+Este tópico descreve as diferenças entre os dois modelos e alguns dos problemas que você pode encontrar ao fazer a transição do modelo clássico para o Gerenciador de Recursos. Ele fornece uma visão geral dos modelos, mas não aborda em detalhes as diferenças nos serviços individuais.
 
 Muitos recursos funcionam sem problemas no modelo clássico e no Gerenciador de Recursos. Esses recursos oferecem suporte completo ao Gerenciador de Recursos mesmo se criados no modelo clássico. Você pode fazer a transição para o Gerenciador de Recursos sem precisar de esforço extra e sem se preocupar.
 
 No entanto, alguns provedores de recursos oferecem duas versões do recurso (uma para o clássico e outra para o Gerenciador de Recursos) devido às diferenças de arquitetura entre os modelos. Os provedores de recursos que fazem distinção entre os dois modelos são:
 
-- Computação
-- Armazenamento
-- Rede
+- **Computação** - Dá suporte a instâncias de máquinas virtuais e conjuntos de disponibilidade opcionais.
+- **Armazenamento** - Dá suporte às contas de armazenamento necessárias que armazenam os VHDs para máquinas virtuais, incluindo o sistema operacional e discos de dados adicionais.
+- **Rede** - Dá suporte às NICs necessárias, endereços IP de máquinas virtuais e sub-redes em redes virtuais e balanceadores de carga opcionais, endereços IP de balanceador de carga e grupos de segurança de rede.
 
-Para esses tipos de recurso, você deve saber qual versão está usando, pois as operações com suporte variam.
-
-Para entender as diferenças de arquitetura entre os dois modelos, consulte [Arquitetura do Gerenciador de Recursos do Azure](virtual-machines/virtual-machines-azure-resource-manager-architecture.md).
+Para esses tipos de recurso, você deve saber qual versão está usando, pois as operações com suporte variam. Para obter mais detalhes sobre como fazer a transição dos recursos Computação, Armazenamento e Rede, consulte [Provedores de Computação, de Rede e de Armazenamento do Azure no Gerenciador de Recursos do Azure](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
 
 ## Características do Gerenciador de Recursos
 
@@ -46,7 +44,7 @@ Os recursos criados com o Gerenciador de Recursos compartilham as seguintes cara
 
         ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-        Para os recursos Computação, Armazenamento e Rede, você tem a opção de usar a implantação Gerenciador de Recursos ou Clássica. Selecione **Gerenciador de Recursos**.
+        For Compute, Storage, and Networking resources, you have the option of using either Resource Manager or Classic deployment. Select **Resource Manager**.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
@@ -67,7 +65,25 @@ Os recursos criados com o Gerenciador de Recursos compartilham as seguintes cara
 
     ![aplicativo web](./media/resource-manager-deployment-model/resource-manager-type.png)
 
+O aplicativo exibido no diagrama a seguir mostra como os recursos implantados por meio do Gerenciador de Recursos estão contidos em um único grupo de recursos.
+
+  ![](./media/virtual-machines-azure-resource-manager-architecture/arm_arch3.png)
+
+Além disso, há relações entre os recursos dentro de provedores de recursos:
+
+- Uma máquina virtual depende de uma conta de armazenamento específica definida no SRP para armazenar seus discos no armazenamento de blob (obrigatório).
+- Uma máquina virtual faz referência a uma NIC específica definida no NRP (obrigatório) e um conjunto de disponibilidade definido no CRP (opcional).
+- Uma NIC faz referência ao endereço IP atribuído à máquina virtual (obrigatório), à sub-rede da rede virtual para a máquina virtual (obrigatório) e a um grupo de segurança de rede (opcional).
+- Uma sub-rede em uma rede virtual faz referência a um grupo de segurança de rede (opcional).
+- Uma instância do balanceador de carga faz referência ao pool de back-end dos endereços IP que incluem a NIC de uma máquina virtual (opcional) e faz referência a um endereço IP público ou privado de um balanceador de carga (opcional).
+
 ## Características da implantação clássica
+
+No Gerenciamento de Serviços do Azure, os recursos de computação, armazenamento ou rede para hospedar máquinas virtuais são fornecidos por:
+
+- Um serviço de nuvem necessário que atua como contêiner para hospedar máquinas virtuais (computação). Máquinas virtuais são fornecidas automaticamente com uma placa de interface de rede (NIC) e um endereço IP atribuído pelo Azure. Além disso, o serviço de nuvem contém uma instância do balanceador externo de carga, um endereço IP público e pontos de extremidade padrão para permitir o tráfego do PowerShell remoto e de área de trabalho remota para máquinas virtuais baseadas em Windows e tráfego Secure Shell (SSH) para máquinas virtuais baseadas em Linux.
+- Uma conta de armazenamento necessária que armazena os VHDs em uma máquina virtual, incluindo sistema operacional e discos de dados temporários e adicionais (armazenamento).
+- Uma rede virtual opcional que atua como um contêiner adicional no qual você pode criar uma estrutura de sub-redes e designar a sub-rede na qual a máquina virtual está localizada (rede).
 
 Os recursos criados no modelo de implantação clássica compartilham as seguintes características:
 
@@ -77,7 +93,7 @@ Os recursos criados no modelo de implantação clássica compartilham as seguint
 
         ![Classic portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        Ou pelo portal de visualização, e depois você deve especificar a implantação **Clássica** (para Computação, Armazenamento e Rede).
+        Or, the portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
@@ -97,13 +113,17 @@ Os recursos criados no modelo de implantação clássica compartilham as seguint
 
 Você ainda pode usar o portal para gerenciar recursos que foram criados por meio da implantação clássica.
 
+Aqui estão os componentes e suas relações para o Gerenciamento de Serviços do Azure.
+
+  ![](./media/virtual-machines-azure-resource-manager-architecture/arm_arch1.png)
+
 ## Benefícios de usar o Gerenciador de Recursos e os grupos de recursos
 
 O Gerenciador de Recursos adicionou o conceito do grupo de recursos. Cada recurso criado por meio do Gerenciador de Recursos existe dentro de um grupo de recursos. O modelo de implantação do Gerenciador de Recursos fornece vários benefícios:
 
 - Você pode implantar, gerenciar e monitorar todos os serviços da sua solução como um grupo, em vez de tratá-los individualmente.
 - Você pode implantar o aplicativo repetidamente em todo seu ciclo de vida e com a confiança de que seus recursos serão implantados em um estado consistente.
-- Você pode usar modelos declarativos para definir sua implantação. 
+- Você pode usar modelos declarativos para definir sua implantação.
 - Você pode definir as dependências entre os recursos para que eles sejam implantados na ordem correta.
 - Você pode aplicar o controle de acesso a todos os serviços no grupo de recursos, pois o RBAC (Controle de Acesso Baseado em Função) é integrado nativamente à plataforma de gerenciamento.
 - Você pode aplicar marcas aos recursos para organizar de modo lógico todos os recursos em sua assinatura.
@@ -159,7 +179,7 @@ Se você puder se dar ao luxo de ter um tempo de inatividade para as suas Máqui
 
 Para obter uma lista de comandos equivalentes da CLI do Azure durante a transição da implantação clássica para o Gerenciador de Recursos, veja a seção [Comandos equivalentes do Gerenciador de Recursos e do Gerenciamento de Serviços para operações de VM](./virtual-machines/xplat-cli-azure-manage-vm-asm-arm.md).
 
-Para obter mais detalhes sobre como fazer a transição dos recursos de Computação, Armazenamento e Rede, veja [Provedores de Computação, Rede e Armazenamento do Azure no Gerenciador de Recursos do Azure](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
+Para obter mais detalhes sobre como fazer a transição dos recursos Computação, Armazenamento e Rede, consulte [Provedores de Computação, de Rede e de Armazenamento do Azure no Gerenciador de Recursos do Azure](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
 
 Para saber como conectar redes virtuais de diferentes modelos de implantação, veja [Conectando Redes Virtuais clássicas a Redes Virtuais novas](./virtual-network/virtual-networks-arm-asm-s2s.md).
 
@@ -168,4 +188,4 @@ Para saber como conectar redes virtuais de diferentes modelos de implantação, 
 - Para saber como criar modelos de implantação declarativa, veja [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
 - Para ver os comandos para implantar um modelo, veja [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

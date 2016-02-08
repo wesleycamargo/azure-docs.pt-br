@@ -41,9 +41,7 @@ Este tutorial tem os seguintes pré-requisitos:
 -	Uma [conta do Microsoft Azure](/account/) ativa
 -	Visual Studio 2015 com o [SDK do Azure para .NET](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) Se você usar o Visual Studio, as etapas poderão variar.
 
-> [AZURE.NOTE]Você precisa de uma conta do Azure para concluir este tutorial:
-> + Você pode [abrir uma conta do Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F) – Você recebe créditos que podem ser usados para experimentar os serviços pagos do Azure e, mesmo depois que tiverem se esgotado, você pode manter a conta e usar serviços gratuitos do Azure, como Aplicativos Web.
-> + Você pode [ativar os benefícios de assinante do Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) – A cada mês, a sua assinatura do Visual Studio fornece créditos que podem ser usados para serviços pagos do Azure.
+> [AZURE.NOTE] Você precisa de uma conta do Azure para concluir este tutorial: + Você pode [abrir uma conta do Azure gratuitamente](/pricing/free-trial/) – Você recebe créditos que podem ser usados para experimentar os serviços pagos do Azure e, mesmo depois que tiverem se esgotado, você pode manter a conta e usar serviços gratuitos do Azure, como Aplicativos Web. + Você pode [ativar os benefícios de assinante do Visual Studio](/pricing/member-offers/msdn-benefits-details/) – A cada mês, a sua assinatura do Visual Studio fornece créditos que podem ser usados para serviços pagos do Azure.
 >
 > Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
@@ -82,7 +80,7 @@ Nesta seção, você implantará o modelo de aplicativo ASP.NET MVC padrão no V
 
 	![](media/cdn-websites-with-cdn/7-create-cdn.png)
 
-	> [AZURE.NOTE]Após a criação do ponto de extremidade da CDN, o portal clássico mostrará sua URL e o domínio de origem ao qual ele está integrado. No entanto, pode levar algum tempo para que a configuração do novo ponto de extremidade da CDN seja totalmente propagada a todos os locais de nó da CDN.
+	> [AZURE.NOTE] Após a criação do ponto de extremidade da CDN, o portal clássico mostrará sua URL e o domínio de origem ao qual ele está integrado. No entanto, pode levar algum tempo para que a configuração do novo ponto de extremidade da CDN seja totalmente propagada a todos os locais de nó da CDN.
 
 3. No portal clássico, na guia **CDN**, clique no nome do ponto de extremidade da CDN que você acabou de criar.
 
@@ -92,7 +90,7 @@ Nesta seção, você implantará o modelo de aplicativo ASP.NET MVC padrão no V
 
 	![](media/cdn-websites-with-cdn/9-enable-query-string.png)
 
-	>[AZURE.NOTE]Embora habilitar a cadeia de consulta não seja necessário para esta seção do tutorial, é aconselhável fazer isso o quanto antes para maior conveniência, uma vez que qualquer alteração aqui levará tempo para ser propagada para todos os nós de CDN, e você não quer um acúmulo de conteúdo não habilitado para cadeia de consulta no cache da CDN (a atualização do conteúdo da CDN será abordada mais adiante).
+	>[AZURE.NOTE] Embora habilitar a cadeia de consulta não seja necessário para esta seção do tutorial, é aconselhável fazer isso o quanto antes para maior conveniência, uma vez que qualquer alteração aqui levará tempo para ser propagada para todos os nós de CDN, e você não quer um acúmulo de conteúdo não habilitado para cadeia de consulta no cache da CDN (a atualização do conteúdo da CDN será abordada mais adiante).
 
 2. Agora, clique no endereço do ponto de extremidade da CDN. Se o ponto de extremidade estiver pronto, você verá seu aplicativo Web exibido. Se você receber um erro **HTTP 404**, isso significa que o ponto de extremidade da CDN não está pronto. Talvez seja necessário aguardar até uma hora para a configuração de CDN ser propagada para todos os nós próximos aos limites.
 
@@ -506,27 +504,8 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 4. Republique seu aplicativo Web do Azure e acesse a página inicial.
 5. Exiba o código HTML da página. Você deve encontrar scripts injetados semelhantes ao seguinte:    
 	
-	```
-	...
-	<link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
-<script>(function() {
-                var loadFallback,
-                    len = document.styleSheets.length;
-                for (var i = 0; i < len; i++) {
-                    var sheet = document.styleSheets[i];
-                    if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) {
-                        var meta = document.createElement('meta');
-                        meta.className = 'sr-only';
-                        document.head.appendChild(meta);
-                        var value = window.getComputedStyle(meta).getPropertyValue('width');
-                        document.head.removeChild(meta);
-                        if (value !== '1px') {
-                            document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />');
-                        }
-                    }
-                }
-                return true;
-            }())||document.write('<script src="/Content/css"><\\/script>');</script>
+	``` ... <link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
+<script>(function() { var loadFallback, len = document.styleSheets.length; for (var i = 0; i < len; i++) { var sheet = document.styleSheets[i]; if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) { var meta = document.createElement('meta'); meta.className = 'sr-only'; document.head.appendChild(meta); var value = window.getComputedStyle(meta).getPropertyValue('width'); document.head.removeChild(meta); if (value !== '1px') { document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />'); } } } return true; }())||document.write('<script src="/Content/css"><\\/script>');</script>
 
 	<script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474"></script>
  	<script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
@@ -539,11 +518,11 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 	...
 	```
 
-	Observe que o script injetado para o grupo CSS ainda contém o excedente errante da propriedade “CdnFallbackExpression” na linha:
+	Note that injected script for the CSS bundle still contains the errant remnant from the `CdnFallbackExpression` property in the line:
 
 		}())||document.write('<script src="/Content/css"><\/script>');</script>
 
-	Mas como a primeira parte da expressão || sempre retornará o valor verdadeiro (na linha diretamente acima), a função document.write() nunca será executada.
+	But since the first part of the || expression will always return true (in the line directly above that), the document.write() function will never run.
 
 6. Para testar se o script de fallback está funcionando, vá até o painel de controle do ponto de extremidade da CDN e clique em **Desabilitar Ponto de Extremidade**.
 
@@ -560,7 +539,7 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

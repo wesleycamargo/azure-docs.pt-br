@@ -20,13 +20,13 @@
 
 O diretório temporário padrão de uma função de serviço de nuvem Web ou trabalho tem um tamanho máximo de 100 MB, o que pode ficar completo em algum momento. Este artigo descreve como evitar a falta de espaço para o diretório temporário.
 
->[AZURE.NOTE]Isso se aplica apenas ao Azure SDK 1.0 até SDK 1.4 usando as funções Web e de Trabalho.
+>[AZURE.NOTE] Isso se aplica apenas ao Azure SDK 1.0 até SDK 1.4 usando as funções Web e de Trabalho.
 
 ## Contate o Suporte ao Cliente do Azure
 
-Se você precisar de mais ajuda em qualquer momento neste artigo, você pode contatar os especialistas do Azure nos [fóruns do Azure MSDN e Excedente de Pilha](http://azure.microsoft.com/support/forums/).
+Se você precisar de mais ajuda em qualquer momento neste artigo, você pode contatar os especialistas do Azure nos [fóruns do Azure MSDN e Excedente de Pilha](https://azure.microsoft.com/support/forums/).
 
-Como alternativa, você também pode registrar um incidente de suporte do Azure. Acesse o [site de Suporte do Azure](http://azure.microsoft.com/support/options/) e clique em **Obter Suporte**. Para obter informações sobre como usar o Suporte do Azure, leia as [Perguntas Frequentes de Suporte do Microsoft Azure](http://azure.microsoft.com/support/faq/).
+Como alternativa, você também pode registrar um incidente de suporte do Azure. Acesse o [site de Suporte do Azure](https://azure.microsoft.com/support/options/) e clique em **Obter Suporte**. Para obter informações sobre como usar o Suporte do Azure, leia as [Perguntas Frequentes de Suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
 
 ## Por que eu fiquei sem espaço?
@@ -82,4 +82,4 @@ Confira mais [artigos sobre solução de problemas](..\?tag=top-support-issue&se
 
 Para saber como solucionar problemas das funções do Serviço de Nuvem usando os dados de diagnóstico do computador Azure PaaS, veja a [série de blogs de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

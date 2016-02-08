@@ -20,13 +20,13 @@
 
 Este tópico mostra como copiar blobs de uma conta de armazenamento para um novo ativo dos Serviços de Mídia do Microsoft Azure.
 
-Seus blobs podem existir em uma conta de armazenamento associada à conta dos Serviços de Mídia ou em uma conta de armazenamento que não está associada à conta dos Serviços de Mídia. Este tópico mostra como copiar blobs de uma conta de armazenamento para um ativo dos Serviços de Mídia. Observe que você também pode fazer cópias entre os data centers. No entanto, essa ação pode incorrer em encargos. Para obter mais informações sobre preços, consulte o [Transferências de Dados](http://azure.microsoft.com/pricing/#header-11).
+Seus blobs podem existir em uma conta de armazenamento associada à conta dos Serviços de Mídia ou em uma conta de armazenamento que não está associada à conta dos Serviços de Mídia. Este tópico mostra como copiar blobs de uma conta de armazenamento para um ativo dos Serviços de Mídia. Observe que você também pode fazer cópias entre os data centers. No entanto, essa ação pode incorrer em encargos. Para obter mais informações sobre preços, consulte o [Transferências de Dados](https://azure.microsoft.com/pricing/#header-11).
 
->[AZURE.NOTE]Você não deve tentar alterar o conteúdo de contêineres de blob que foram gerados pelos serviços de mídia sem o uso de APIs de serviços de mídia.
+>[AZURE.NOTE] Você não deve tentar alterar o conteúdo de contêineres de blob que foram gerados pelos serviços de mídia sem o uso de APIs de serviços de mídia.
 
 ##Baixar exemplo
 
-Obtenha e execute um exemplo [aqui](http://azure.microsoft.com/documentation/samples/media-services-dotnet-copy-blob-into-asset/).
+Obtenha e execute um exemplo [aqui](https://azure.microsoft.com/documentation/samples/media-services-dotnet-copy-blob-into-asset/).
 
 ##Pré-requisitos
 
@@ -316,4 +316,4 @@ O exemplo de código a seguir executa as seguintes tarefas:
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

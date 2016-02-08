@@ -1,4 +1,4 @@
-A tabela a seguir lista os limites associados às diferentes camadas de serviço (S1, S2, F1). Para obter informações sobre o custo de cada *unidade* em cada camada, confira [Preços do Hub IoT](http://azure.microsoft.com/pricing/details/iot-hub/).
+A tabela a seguir lista os limites associados às diferentes camadas de serviço (S1, S2, F1). Para obter informações sobre o custo de cada *unidade* em cada camada, confira [Preços do Hub IoT](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 | Recurso | S1 Standard | S2 Standard | F1 Gratuito |
 | -------- | ----------- | ----------- | ------- |
@@ -6,7 +6,7 @@ A tabela a seguir lista os limites associados às diferentes camadas de serviço
 | Máximo de unidades | 200 | 200 | 1 |
 | Atualizações de dispositivo (criar, atualizar, <br/> excluir) por unidade/dia | 1100 | 1100 | 1100 |
 
-> [AZURE.NOTE]Se você antecipar o uso de mais de 200 unidades com um hub da camada S1 ou S2, entre em contato com o suporte da Microsoft.
+> [AZURE.NOTE] Se você antecipar o uso de mais de 200 unidades com um hub da camada S1 ou S2, entre em contato com o suporte da Microsoft.
 
 A seguinte tabela lista os limites que se aplicam aos recursos do Hub IoT:
 
@@ -33,4 +33,4 @@ O serviço do Hub IoT restringe as solicitações quando as seguintes cotas são
 | Envios do dispositivo para a nuvem | 120/s/unidade (para S2), 12/s/unidade (para S1) <br/> Mínimo de 100/s |
 | Operações da nuvem para o dispositivo <br/> (envios, recebimentos e comentários) | 100/min/unidade |
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -418,7 +418,7 @@ Para interromper a execução do trabalho recorrente por meio de um gatilho de t
 
 1. Inicie o Excel 2013.
 2. 	Navegue até a faixa de opções **Dados**.
-3. 	Clique em **De Outras Fontes** e depois em **Do SQL Server**.
+3. 	Clique em **De Outras Fontes** e em **Do SQL Server**.
 
 	![Importação de outras fontes para o Excel][5]
 4. 	No **Assistente para conexão de dados**, digite as credenciais de logon e nome do servidor. Em seguida, clique em **Próximo**.
@@ -434,7 +434,7 @@ Agora você pode usar funções de dados avançados do Excel. Você pode usar a 
 ### Custo
 Não há nenhum custo adicional para usar o recurso de consulta de Banco de Dados Elástico. No entanto, neste momento esse recurso está disponível apenas em bancos de dados Premium como um ponto de extremidade, mas os fragmentos podem ser de qualquer camada de serviço.
 
-Para obter informações sobre os preços, consulte [Detalhes de preços do Banco de Dados SQL](http://azure.microsoft.com/pricing/details/sql-database/).
+Para obter informações sobre os preços, consulte [Detalhes de preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
@@ -447,4 +447,4 @@ Para obter informações sobre os preços, consulte [Detalhes de preços do Banc
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -22,7 +22,7 @@
 
 Este tutorial descreve como o Azure Site Recovery é integrado à Automação do Azure para fornecer extensibilidade aos planos de recuperação. Os planos de recuperação podem coordenar a recuperação de máquinas virtuais protegidas usando o Azure Site Recovery para cenários de replicação na nuvem secundária e replicação no Azure. Eles também ajudam a tornar a recuperação **precisa de forma consistente**, **reproduzível** e **automatizada**. Se você estiver realizando o failover de suas máquinas virtuais para o Azure, a integração com a Automação do Azure estende os planos de recuperação e oferece a capacidade de executar runbooks, possibilitando tarefas avançadas de automação.
 
-Se você ainda não souber o que é a Automação do Azure, inscreva-se [aqui](http://azure.microsoft.com/services/automation/) e baixar os exemplos de script [aqui](http://azure.microsoft.com/documentation/scripts/). Leia mais sobre o [Azure Site Recovery](http://azure.microsoft.com/services/site-recovery/) e como coordenar a recuperação no Azure usando o planos de recuperação [aqui](http://azure.microsoft.com/blog/?p=166264).
+Se você ainda não souber o que é a Automação do Azure, inscreva-se [aqui](https://azure.microsoft.com/services/automation/) e baixar os exemplos de script [aqui](https://azure.microsoft.com/documentation/scripts/). Leia mais sobre o [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) e como coordenar a recuperação no Azure usando o planos de recuperação [aqui](https://azure.microsoft.com/blog/?p=166264).
 
 Neste tutorial, veremos como você pode integrar os runbooks de automação do Azure aos planos de recuperação. Automatizaremos tarefas simples que exigiam uma intervenção manual e veremos como converter uma recuperação com várias etapa em uma ação de recuperação de clique único. Também veremos como você pode solucionar problemas de um script simples, caso ocorra algum erro.
 
@@ -310,4 +310,4 @@ Embora tenhamos mostrado neste tutorial como automatizar uma tarefa usada normal
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

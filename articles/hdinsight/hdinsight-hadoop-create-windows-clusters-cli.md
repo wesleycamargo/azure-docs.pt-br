@@ -27,7 +27,7 @@ Saiba como criar clusters do HDInsight usando a CLI do Azure. Para outros recurs
 
 Antes de começar a seguir as instruções neste artigo, você deve ter o seguinte:
 
-- **Assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **CLI do azure** - consulte [Instalar e configurar a CLI do Azure](../xplat-cli-install.md) para obter informações de instalação e configuração.
 
 ##Conecte-se ao Azure
@@ -70,7 +70,7 @@ Você deve ter um ARM (Gerenciamento de Recursos do Azure) e uma conta de armaze
 	
 		azure storage account create "<Azure Storage Account Name>" -g "<Resource Group Name>" -l "<Azure Location>" --type LRS
 
-	> [AZURE.NOTE]A conta de armazenamento deve ser colocada com o HDInsight no data center. O tipo de conta de armazenamento não pode ser ZRS, porque o ZRS não dá suporte à tabela.
+	> [AZURE.NOTE] A conta de armazenamento deve ser colocada com o HDInsight no data center. O tipo de conta de armazenamento não pode ser ZRS, porque o ZRS não dá suporte à tabela.
 
 	Para obter informações sobre como criar uma conta de Armazenamento do Azure usando o Portal do Azure, consulte [Criar, gerenciar ou excluir uma conta de Armazenamento][azure-create-storageaccount].
 	
@@ -134,4 +134,4 @@ Você pode usar a CLI para criar clusters chamando modelos de ARM. Consulte [Imp
 - [Gerenciar clusters Hadoop no HDInsight usando a CLI do Azure](hdinsight-administer-use-command-line.md)
 - [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Serviços do Azure](virtual-machines-command-line-tools.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="10/14/2015" 
+ms.date="01/19/2016" 
 ms.author="saurabh"/>
 
 # Habilitar a conexão de Área de Trabalho Remota para uma função nos Serviços de Nuvem do Azure
@@ -20,7 +20,7 @@ ms.author="saurabh"/>
 >[AZURE.SELECTOR]
 - [Azure classic portal](cloud-services-role-enable-remote-desktop.md)
 - [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
-- [Visual Studio](https://msdn.microsoft.com/library/gg443832.aspx)
+- [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
 
 
 A área de trabalho remota permite que você acesse a área de trabalho de uma função em execução no Azure. Você pode usar a conexão da área de trabalho remota para solucionar e diagnosticar problemas com seu aplicativo durante a execução.
@@ -28,8 +28,8 @@ A área de trabalho remota permite que você acesse a área de trabalho de uma f
 Você pode habilitar uma conexão de Área de Trabalho Remota em sua função durante o desenvolvimento, incluindo os módulos de Área de Trabalho Remota em sua definição de serviço, ou você pode optar por habilitar a Área de Trabalho Remota por meio da Extensão de Área de Trabalho Remota. A abordagem preferida é usar a extensão de Área de Trabalho Remota, pois você poderá habilitar a Área de Trabalho Remota mesmo depois que o aplicativo for implantado, sem precisar reimplantar o aplicativo.
 
 
-## Configurar a Área de Trabalho Remota do portal
-O portal usa a abordagem de Extensão da Área de Trabalho Remota para que você possa habilitar a Área de Trabalho Remota, mesmo depois que o aplicativo for implantado. A página **Configurar** do seu Serviço de Nuvem permite habilitar a Área de Trabalho Remota, alterar a conta do administrador local usada para conexão às máquinas virtuais, o certificado usado na autenticação e definir a data de validade.
+## Configurar a Área de Trabalho Remota do portal clássico do Azure
+O portal clássico do Azure usa a abordagem da Extensão da Área de Trabalho Remota para que você possa habilitar a Área de Trabalho Remota, mesmo depois da implantação do aplicativo. A página **Configurar** do seu Serviço de Nuvem permite habilitar a Área de Trabalho Remota, alterar a conta do administrador local usada para conexão às máquinas virtuais, o certificado usado na autenticação e definir a data de validade.
 
 
 1. Clique em **Serviços de Nuvem**, no nome do serviço de nuvem e depois em **Configurar**.
@@ -38,7 +38,7 @@ O portal usa a abordagem de Extensão da Área de Trabalho Remota para que você
     
     ![Serviços de nuvem remotos](./media/cloud-services-role-enable-remote-desktop/CloudServices_Remote.png)
     
-    > [AZURE.WARNING]Todas as instâncias de função serão reiniciadas quando você ativa área de trabalho remota pela primeira vez e clica em OK (marca de seleção). Para evitar a reinicialização, o certificado usado para criptografar a senha deve estar instalado na função. Para evitar uma reinicialização, [carregue um certificado para o serviço de nuvem](cloud-services-how-to-create-deploy/#how-to-upload-a-certificate-for-a-cloud-service) e retorne a esta caixa de diálogo.
+    > [AZURE.WARNING] Todas as instâncias de função serão reiniciadas quando você ativa área de trabalho remota pela primeira vez e clica em OK (marca de seleção). Para evitar a reinicialização, o certificado usado para criptografar a senha deve estar instalado na função. Para evitar uma reinicialização, [carregue um certificado para o serviço de nuvem](cloud-services-how-to-create-deploy/#how-to-upload-a-certificate-for-a-cloud-service) e retorne a esta caixa de diálogo.
     
 
 3. Em **Funções**, selecione a função que você deseja atualizar ou selecione **Tudo** para todas as funções.
@@ -61,7 +61,7 @@ O portal usa a abordagem de Extensão da Área de Trabalho Remota para que você
 ## Remoto em instâncias de função
 Depois que a Área de Trabalho Remota estiver habilitada nas funções, você poderá conectar-se remotamente a uma instância de função por meio de várias ferramentas.
 
-Para conectar-se a uma instância de função pelo portal:
+Para conectar-se a uma instância de função do portal clássico do Azure:
     
   1.   Clique em **Instâncias** para abrir a página **Instâncias**.
   2.   Selecione uma instância de função com a área de trabalho remota configurada.
@@ -147,4 +147,4 @@ O arquivo [ServiceConfiguration.cscfg](cloud-services-model-and-package.md#cscfg
 
 [Como configurar serviços de nuvem](cloud-services-how-to-configure.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

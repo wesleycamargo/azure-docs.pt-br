@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Sincronização do Azure AD Connect: conector SQL genérico"
+   pageTitle="Sincronização do Azure AD Connect: conector SQL genérico | Microsoft Azure"
    description="Este artigo descreve como configurar o conector SQL genérico da Microsoft."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/11/2015"
+   ms.date="01/21/2016"
    ms.author="andkjell"/>
 
 # Referência técnica do conector SQL genérico
@@ -41,7 +41,7 @@ De uma perspectiva de alto nível, os seguintes recursos tem suporte pela versã
 
 ### Pré-requisitos
 
-Antes de usar o conector, verifique se que você tem o seguinte no servidor de sincronização, além de qualquer hotfix mencionado acima:
+Para usar o conector, verifique se você tem os seguintes itens no servidor de sincronização, além de qualquer hotfix mencionado acima:
 
 - Microsoft .NET 4.5.2 Framework ou posterior
 - Drivers de cliente ODBC de 64 bits
@@ -293,6 +293,6 @@ Se os usuários escolherem a opção de consulta SQL, a exportação exigirá 3 
 
 ## Solucionar problemas
 
--	Para obter informações sobre como habilitar o log para solucionar o conector, consulte [Como habilitar rastreamento ETW para conectores](http://go.microsoft.com/fwlink/?LinkId=335731).
+-	Para saber mais sobre como habilitar o registro em log para solucionar problemas do conector, confira [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

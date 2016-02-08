@@ -79,7 +79,7 @@ Ou então, há a abordagem manual. A estrutura de pastas de um Módulo de Integr
 
 -   Instale o módulo necessário na estação de trabalho, da seguinte maneira:
     -   Instale o [Windows Management Framework, v5](http://aka.ms/wmf5latest) 
-    -   `Install-Module  –ModuleName MODULENAME` <— captura o módulo da galeria do PowerShell 
+    -   `Install-Module  –ModuleName MODULENAME` < — captura o módulo da galeria do PowerShell 
 -   Copie a pasta de módulo de `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` em uma pasta temporária 
 -   Exclua os exemplos e a documentação da pasta principal 
 -   Compacte a pasta principal, nomeando o arquivo zip exatamente como a pasta 
@@ -187,4 +187,4 @@ O código-fonte completo deste exemplo de uso está [neste projeto do Visual Stu
 - [cmdlets da DSC de Automação do Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Máquinas de integração para o gerenciamento pelo DSC de Automação do Azure](automation-dsc-onboarding.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -28,7 +28,7 @@ Este artigo descreve as diferentes maneiras de marcar uma máquina virtual no Az
 
 Primeiramente, vamos observar uma marcação por meio de modelos. [Este modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm) coloca marcas nos seguintes recursos: Computação (Máquina Virtual), Armazenamento (Conta de Armazenamento) e Rede (Endereço IP Público, Rede Virtual e Interface de Rede).
 
-Clique no botão **Implantar no Azure** no [link do modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm). Você será direcionado para o [Portal do Azure](http://portal.azure.com/), onde poderá implantar esse modelo.
+Clique no botão **Implantar no Azure** no [link do modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm). Você será direcionado para o [Portal do Azure](https://portal.azure.com/), onde poderá implantar esse modelo.
 
 ![Implantação simples com marcas](./media/virtual-machines-tagging-arm/deploy-to-azure-tags.png)
 
@@ -190,4 +190,4 @@ Ao analisar essas marcas juntamente com o uso, as organizações poderão adquir
 [Noções básicas de sua fatura do Azure]: ../billing-understand-your-bill.md
 [Obtenha informações sobre o consumo de recursos do Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

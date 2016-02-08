@@ -114,7 +114,7 @@ Para ver o Tomcat em execução em máquinas externas, você precisará criar um
 9. Na tela **Perfil**, verifique se **Domínio**, **Privado** e **Público** estão marcados e clique em **Próximo**.![Novo perfil de regra de entrada][NewRuleProfile]
 10. Na tela **Nome**, especifique um nome para a regra, como **HttpIn** (no entanto, o nome da regra não precisa corresponder ao nome do ponto de extremidade) e clique em **Concluir**.![Nome da nova regra de entrada][NewRuleName]
 
-Neste ponto, o site do Tomcat deverá ser visto de um navegador externo usando uma URL no formato **http://*your\_DNS\_name*.cloudapp.net**, em que ***your\_DNS\_name*** é o nome DNS que você especificou ao criar a máquina virtual.
+Neste ponto, o site do Tomcat deverá ser visto de um navegador externo usando uma URL no formato ****http://*your\_DNS\_name*.cloudapp.net**, em que ***your\_DNS\_name*** é o nome DNS que você especificou ao criar a máquina virtual.
 
 ## Considerações sobre o ciclo de vida do aplicativo
 * Você pode criar o próprio arquivo web do aplicativo (WAR) e adicioná-lo à pasta **webapps**. Por exemplo, crie um projeto Web dinâmico JSP (página de serviço Java) básico e o exporte como um arquivo WAR, copie o WAR para a pasta **webapps** do Apache Tomcat na máquina virtual e o execute em um navegador.
@@ -125,7 +125,7 @@ Neste ponto, o site do Tomcat deverá ser visto de um navegador externo usando u
     O benefício de fazer o Tomcat ser iniciado automaticamente é que ele será iniciado se a máquina virtual for reinicializada (por exemplo, depois que atualizações de software que exijam uma reinicialização forem instaladas).
 
 ## Próximas etapas
-Saiba mais sobre outros serviços (como o Armazenamento do Azure, o barramento de serviço, o Banco de Dados SQL) que você pode desejar incluir com seus aplicativos do Java, conferindo as informações disponíveis no [Centro de Desenvolvedores do Java](http://azure.microsoft.com/develop/java/).
+Saiba mais sobre outros serviços (como o Armazenamento do Azure, o barramento de serviço, o Banco de Dados SQL) que você pode desejar incluir com seus aplicativos do Java, conferindo as informações disponíveis no [Centro de Desenvolvedores do Java](https://azure.microsoft.com/develop/java/).
 
 [virtual_machine_tomcat]: ./media/virtual-machines-java-run-tomcat-application-server/WA_VirtualMachineRunningApacheTomcat.png
 
@@ -146,4 +146,4 @@ Saiba mais sobre outros serviços (como o Armazenamento do Azure, o barramento d
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -129,17 +129,17 @@ Depois de salvar as alterações no **server.js**, use as seguintes etapas para 
 
         PS C:\node\chatapp\WorkerRole1> Publish-AzureServiceProject -ServiceName mychatapp -Location "East US" -Launch
 
-	> [AZURE.IMPORTANT]Use um nome exclusivo, caso contrário, haverá falha no processo de publicação. Depois que a implantação for concluída, o navegador será aberto e navegará para o serviço implantado.
+	> [AZURE.IMPORTANT] Use um nome exclusivo, caso contrário, haverá falha no processo de publicação. Depois que a implantação for concluída, o navegador será aberto e navegará para o serviço implantado.
 	> 
-	> Se você receber um erro informando que o nome da assinatura fornecido não existe no perfil de publicação importado, baixe e importe o perfil de publicação para sua assinatura antes de implantar no Azure. Consulte a seção **Implantando o aplicativo no Azure** seção de [Criar e implantar um aplicativo do Node.js em um Serviço de Nuvem do Azure (a página pode estar em inglês)](https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/)
+	> Se você receber um erro informando que o nome da assinatura fornecido não existe no perfil de publicação importado, baixe e importe o perfil de publicação para sua assinatura antes de implantar no Azure. Consulte a seção **Implantando o aplicativo no Azure** seção de [Criar e implantar um aplicativo do Node.js em um Serviço de Nuvem do Azure (a página pode estar em inglês)](https://azure.microsoft.com/develop/nodejs/tutorials/getting-started/)
 
     ![Uma janela do navegador exibindo o serviço hospedado no Azure][completed-app]
 
-	> [AZURE.NOTE]Se você receber um erro informando que o nome da assinatura fornecido não existe no perfil de publicação importado, baixe e importe o perfil de publicação para sua assinatura antes de implantar no Azure. Consulte a seção **Implantando o aplicativo no Azure** seção de [Criar e implantar um aplicativo do Node.js em um Serviço de Nuvem do Azure (a página pode estar em inglês)](https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/)
+	> [AZURE.NOTE] Se você receber um erro informando que o nome da assinatura fornecido não existe no perfil de publicação importado, baixe e importe o perfil de publicação para sua assinatura antes de implantar no Azure. Consulte a seção **Implantando o aplicativo no Azure** seção de [Criar e implantar um aplicativo do Node.js em um Serviço de Nuvem do Azure (a página pode estar em inglês)](https://azure.microsoft.com/develop/nodejs/tutorials/getting-started/)
 
 Seu aplicativo agora está sendo executado no Azure e pode retransmitir mensagens de chat entre diferentes clientes usando o Socket.IO.
 
-> [AZURE.NOTE]Para simplificar, este exemplo é limitado a chat entre usuários conectados à mesma instância. Isso significa que se o serviço de nuvem criar duas instâncias de função de trabalho, os usuários só poderão conversar com outros usuários conectados à mesma instância de função de trabalho. Para dimensionar o aplicativo para trabalhar com várias instâncias de função, você pode usar uma tecnologia, como o Service Bus para compartilhar o estado do armazenamento do Socket.IO entre instâncias. Para obter exemplos, consulte os exemplos de uso de Tópicos e filas do Service Bus em [SDK do Azure para o repositório Node.js GitHub](https://github.com/WindowsAzure/azure-sdk-for-node).
+> [AZURE.NOTE] Para simplificar, este exemplo é limitado a chat entre usuários conectados à mesma instância. Isso significa que se o serviço de nuvem criar duas instâncias de função de trabalho, os usuários só poderão conversar com outros usuários conectados à mesma instância de função de trabalho. Para dimensionar o aplicativo para trabalhar com várias instâncias de função, você pode usar uma tecnologia, como o Service Bus para compartilhar o estado do armazenamento do Socket.IO entre instâncias. Para obter exemplos, consulte os exemplos de uso de Tópicos e filas do Service Bus em [SDK do Azure para o repositório Node.js GitHub](https://github.com/WindowsAzure/azure-sdk-for-node).
 
 ##Próximas etapas
 
@@ -170,4 +170,4 @@ Para obter mais informações, consulte também o [Centro de desenvolvedores do 
   
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

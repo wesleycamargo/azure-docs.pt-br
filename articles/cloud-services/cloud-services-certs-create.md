@@ -33,7 +33,7 @@ Certificados de serviço podem ser gerenciados separadamente de seus serviços e
 ## O que são certificados de gerenciamento?
 Os certificados de gerenciamento permitem que você autentique com a API de Gerenciamento de Serviço fornecida pelo Azure clássico. Muitos programas e ferramentas (como o Visual Studio ou o SDK do Azure) usarão esses certificados para automatizar a configuração e a implantação de diversos serviços do Azure. Eles serviços não estão, na verdade, relacionados a serviços de nuvem.
 
->[AZURE.WARNING]Portanto, tenha cuidado! Esses tipos de certificados permitem que qualquer pessoa que os utilize para autenticação gerencie a assinatura à qual eles estão associados.
+>[AZURE.WARNING] Portanto, tenha cuidado! Esses tipos de certificados permitem que qualquer pessoa que os utilize para autenticação gerencie a assinatura à qual eles estão associados.
 
 ### Limitações
 Há um limite de 100 certificados de gerenciamento por assinatura. Também há um limite de 100 certificados de gerenciamento para todas as assinaturas com a ID de usuário de um administrador de serviços específico. Se a ID de usuário do administrador da conta já foi usada para adicionar 100 certificados de gerenciamento e houver necessidade de mais certificados, você pode adicionar um coadministrador para adicionar esses certificados.
@@ -74,10 +74,10 @@ Você pode usar o Java para [criar um certificado](../app-service-web/java-creat
 
 ## Próximas etapas
 
-[Carregue seu certificado de serviço no portal clássico do Azure](cloud-services-configure-ssl-certificate.md) (ou no [portal do Azure](cloud-services-configure-ssl-certificate-portal.md)) e [configure-o](cloud-services-xml-certs.md) para o serviço de nuvem.
+[Carregue seu certificado de serviço no portal clássico do Azure](cloud-services-configure-ssl-certificate.md) (ou no [portal do Azure](cloud-services-configure-ssl-certificate-portal.md)).
 
 Carregue um [certificado de API de gerenciamento](../azure-api-management-certs.md) no portal clássico do Azure.
 
->[AZURE.NOTE]O portal do Azure não usa certificados de gerenciamento para acessar a API, ele usa contas de usuário.
+>[AZURE.NOTE] O portal do Azure não usa certificados de gerenciamento para acessar a API, ele usa contas de usuário.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

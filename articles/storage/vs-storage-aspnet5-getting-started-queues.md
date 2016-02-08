@@ -29,8 +29,8 @@ Para começar, primeiramente, você precisa criar uma fila do Azure em sua conta
 **OBSERVAÇÃO:** algumas APIs que executam chamadas para o armazenamento do Azure no ASP.NET 5 são assíncronas. Confira [Programação assíncrona com Async e Await](http://msdn.microsoft.com/library/hh191443.aspx) para obter mais informações. O código a seguir pressupõe que os métodos de programação assíncrona estão sendo usados.
 
 - Confira [Como usar o armazenamento de filas do .NET](storage-dotnet-how-to-use-queues.md) para obter mais informações sobre como manipular filas programaticamente.
-- Consulte a [Documentação de armazenamento](https://azure.microsoft.com/documentation/services/storage/) para obter informações gerais sobre o armazenamento do Azure.
-- Consulte a [Documentação de serviços de nuvem](http://azure.microsoft.com/documentation/services/cloud-services/) para obter informações gerais sobre os serviços de nuvem do Azure.
+- Consulte a [documentação de armazenamento](https://azure.microsoft.com/documentation/services/storage/) para obter informações gerais sobre o armazenamento do Azure.
+- Consulte a [documentação de serviços de nuvem](https://azure.microsoft.com/documentation/services/cloud-services/) para obter informações gerais sobre os serviços de nuvem do Azure.
 - Consulte [ASP.NET](http://www.asp.net) para obter mais informações sobre como programar aplicativos ASP.NET.
 
 
@@ -65,7 +65,7 @@ Para acessar filas em projetos do ASP.NET 5, você precisa incluir os itens a se
 	    CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
 
 
-**OBSERVAÇÃO:** use todos os códigos acima diante do código nos exemplos a seguir.
+**OBSERVAÇÃO:** use todo esse código antes do código nos exemplos a seguir.
 
 ###Criar uma fila em código
 
@@ -176,4 +176,4 @@ Para excluir uma fila e todas as mensagens que ela contém, chame o método **De
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

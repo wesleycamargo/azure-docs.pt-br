@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/12/2015"
+   ms.date="01/12/2016"
    ms.author="telmos" />
 
 # Endereços IP (clássico) no Azure
@@ -26,7 +26,7 @@ Endereços IP privados são usados para comunicação em uma VNet (rede virtual)
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-network-ip-addresses-overview-arm.md).
 
 ## Endereços IP públicos
-Endereços IP públicos permitem que os recursos do Azure comuniquem-se com os serviços públicos do Azure, como [Cache Redis do Azure](https://azure.microsoft.com/services/cache), [Hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs), [bancos de dados SQL](sql-database-technical-overview.md) e [armazenamento do Azure](storage-introduction.md).
+Endereços IP públicos permitem que os recursos do Azure comuniquem-se com os serviços públicos do Azure, como [Cache Redis do Azure](https://azure.microsoft.com/services/cache/), [Hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/), [bancos de dados SQL](sql-database-technical-overview.md) e [armazenamento do Azure](storage-introduction.md).
 
 Um endereço IP público é associado aos seguintes tipos de recursos:
 
@@ -39,7 +39,7 @@ Um endereço IP público é associado aos seguintes tipos de recursos:
 ### Método de alocação
 Quando precisa de um endereço IP público precisa ser atribuído a um recurso do Azure, ele é *dinamicamente* alocado de um pool de endereço IP público disponível no local em que o recurso é criado. Esse endereço IP é liberado quando o recurso é interrompido. No caso de um serviço de nuvem, isso acontece quando todas as instâncias de função são interrompidas, o que pode ser evitado usando um endereço IP *estático* (reservado) (consulte [Serviços de Nuvem](#Cloud-services)).
 
->[AZURE.NOTE]A lista de intervalos IP do qual os endereços IP públicos são alocados a recursos do Azure é publicada em [intervalos de IP do Datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+>[AZURE.NOTE] A lista de intervalos IP do qual os endereços IP públicos são alocados a recursos do Azure é publicada em [intervalos de IP do Datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### Resolução de nome de host DNS
 Quando você cria um serviço de nuvem ou em uma VM de IaaS, precisa fornecer um nome DNS do serviço de nuvem que seja exclusivo entre todos os recursos no Azure. Isso cria um mapeamento nos servidores DNS gerenciados do Azure para *dnsname*. cloudapp.net para o endereço IP público do recurso. Por exemplo, ao criar um serviço de nuvem com um nome DNS do serviço de nuvem de **contoso**, o FQDN (nome de domínio totalmente qualificado) **contoso.cloudapp.net** será resolvido para um endereço VIP (IP público) do serviço de nuvem. Você pode usar o FQDN para criar um registro CNAME do domínio personalizado apontando para o endereço IP público no Azure.
@@ -132,7 +132,7 @@ A tabela a seguir mostra cada tipo de recurso com os métodos de alocação poss
 
 A tabela abaixo mostra os limites impostos ao endereçamento IP no Azure por assinatura. Você pode [entrar em contato com o suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para aumentar os limites padrão até os limites máximos com base nas necessidades de sua empresa.
 
-||Limite padrão|Limite máximo|
+|Limite padrão|Limite máximo|
 |---|---|---|
 |Endereços IP públicos (dinâmicos)|5|entre em contato com o suporte|
 |Endereços IP públicos reservados|20|entre em contato com o suporte|
@@ -148,18 +148,18 @@ Na maioria dos casos, endereços IP públicos são gratuitos. Há um custo nomin
 ## Diferenças entre as implantações do Gerenciador de recursos e clássica
 A seguir está uma comparação dos recursos de endereçamento IP no Gerenciador de Recursos com o modelo de implantação clássico.
 
-||Recurso|Clássico|Gerenciador de Recursos|
+|Recurso|Clássico|Gerenciador de Recursos|
 |---|---|---|---|
-|**Endereço IP Público**|VM|Chamado de ILPIP (apenas dinâmico)|Chamado de IP público (dinâmico ou estático)|
-|||Atribuído a uma VM IaaS ou a uma instância de função PaaS|Associado à NIC da VM|
-||Balanceador de carga voltado para a Internet|Chamado de VIP (dinâmico) ou IP reservado (estático)|Chamado de IP público (dinâmico ou estático)|
-|||Atribuído a um serviço de nuvem|Associado à configuração de front-end do balanceador de carga|
-||||
-|**Endereço IP Privado**|VM|Chamado de DIP|Chamado de endereço IP Privado|
-|||Atribuído a uma VM IaaS ou a uma instância de função PaaS|Atribuído à NIC da VM|
-||Balanceador de carga interno (ILB)|Atribuído ao ILB (dinâmico ou estático)|Atribuído à configuração de front-end do ILB (dinâmica ou estática)|
+|**Endereço IP público**|VM|Conhecido como um ILPIP (somente dinâmico)|Conhecido como um IP público (dinâmico ou estático)|
+|Atribuído a uma VM IaaS ou a uma instância de função de PaaS|Associado à NIC da VM|
+|Balanceador de Carga para a Internet|Conhecido como VIP (dinâmico) ou IP Reservado (estático)|Conhecido como um IP público (dinâmico ou estático)|
+|Atribuído a um serviço de nuvem|Associado à configuração de front-end do Balanceador de Carga|
+|
+|**Endereço IP privado**|VM|Conhecido como um DIP|Conhecido como um endereço IP privado|
+|Atribuído a uma VM IaaS ou a uma instância de função de PaaS|Atribuído à NIC da VM|
+|Balanceador de Carga Interno (ILB)|Atribuído ao ILB (dinâmico ou estático)|Atribuído à configuração de front-end do ILB (dinâmico ou estático)|
 
 ## Próximas etapas
-- [Implante uma VM com um endereço IP privado estático](virtual-networks-static-private-ip-classic-pportal.md) usando o portal clássico.
+- [Implantar uma VM com um endereço IP privado estático](virtual-networks-static-private-ip-classic-pportal.md) usando o portal clássico.
 
-<!-----HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

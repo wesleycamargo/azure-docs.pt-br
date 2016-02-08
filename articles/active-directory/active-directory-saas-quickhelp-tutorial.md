@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="prasannas"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2015"
+	ms.date="01/26/2016"
 	ms.author="jeedes"/>
 
 
@@ -35,7 +35,7 @@ Para configurar a integração do AD do Azure ao QuickHelp, você precisa dos se
 - Uma assinatura do QuickHelp com logon único habilitado
 
 
-> [AZURE.NOTE]Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+> [AZURE.NOTE] Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 
 
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
@@ -93,7 +93,7 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal do
  
      a. Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no site do QuickHelp (por exemplo: *https://quickhelp.com/bsiazure/*).
 
-     >[AZURE.NOTE]Entre em contato com sua equipe de suporte do QuickHelp se você não souber o valor da URL do logon.
+     >[AZURE.NOTE] Entre em contato com sua equipe de suporte do QuickHelp se você não souber o valor da URL do logon.
 
      b. Clique em **Próximo**.
 
@@ -255,4 +255,4 @@ O objetivo desta seção é testar sua configuração de logon único do AD do A
 [401]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_401.png
 [402]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_402.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -114,6 +114,6 @@ Não há suporte para isso no momento. Você não pode conectar as Redes Virtuai
 
 **Onde posso encontrar exemplos de modelos do Gerenciador de Recursos do Azure?**
 
-Um conjunto abrangente de modelos iniciais pode ser encontrado em [modelos de início rápido do Gerenciador de Recursos do Azure](http://azure.microsoft.com/documentation/templates/).
+Um conjunto abrangente de modelos iniciais pode ser encontrado em [modelos de início rápido do Gerenciador de Recursos do Azure](https://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

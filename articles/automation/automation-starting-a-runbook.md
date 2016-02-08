@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Como iniciar um Runbook na Automação do Azure"
+   pageTitle="Como iniciar um runbook na Automação do Azure | Microsoft Azure"
    description="Resume os métodos diferentes que podem ser usados para iniciar um runbook na Automação do Azure e fornece detalhes sobre como usar o portal do Azure e o Windows PowerShell."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/13/2015"
+   ms.date="01/19/2016"
    ms.author="bwren;sngun"/>
 
 # Como iniciar um Runbook na Automação do Azure
@@ -106,6 +106,9 @@ A tabela a seguir o ajuda a determinar o método de inicialização de runbook n
 <br>
 
 
+A imagem a seguir ilustra o processo passo a passo detalhado no ciclo de vida de um runbook. Ela inclui várias maneiras de inicialização de um runbook na Automação do Azure, os componentes necessários para uma máquina local executar runbooks de Automação do Azure e as interações entre diferentes componentes. Para saber mais sobre a execução de runbooks de Automação em seu datacenter, confira [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)
+
+![Arquitetura do runbook](media/automation-starting-runbook/runbooks-architecture.png)
 
 ## Iniciando um runbook com o portal do Azure
 
@@ -143,7 +146,7 @@ Start-AzureAutomationRunbook retorna um objeto de trabalho que você pode usar p
 	
 	Get-AzureAutomationJobOutput –AutomationAccountName "MyAutomationAccount" -Id $job.Id –Stream Output
 
-Se o runbook exigir parâmetros, você deve fornecê-los como uma [hashtable](http://technet.microsoft.com/library/hh847780.aspx), em que a chave da hashtable corresponde ao nome do parâmetro e o valor é o valor do parâmetro. O exemplo a seguir mostra como iniciar um runbook com dois parâmetros de cadeia de caracteres chamados FirstName e LastName, um número inteiro denominado RepeatCount e um parâmetro booleano denominado Show. Para saber mais sobre parâmetros, confira [Parâmetros de runbook](#Runbook-parameters) abaixo.
+Se o runbook exigir parâmetros, você deve fornecê-los como uma [hashtable](http://technet.microsoft.com/library/hh847780.aspx), em que a chave da hashtable corresponde ao nome do parâmetro e o valor é o valor do parâmetro. O exemplo a seguir mostra como iniciar um runbook com dois parâmetros de cadeia de caracteres chamados FirstName e LastName, um número inteiro denominado RepeatCount e um parâmetro booliano denominado Show. Para saber mais sobre parâmetros, confira [Parâmetros de runbook](#Runbook-parameters) abaixo.
 
 	$params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
 	Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" –Parameters $params
@@ -236,8 +239,8 @@ Supondo que o nome de usuário nas credenciais foi *vmonte*, isso resulta na sa�
 
 	jsmith
 
-## Artigos relacionados
+## Próximas etapas
 
-- [Runbooks filhos na Automação do Azure](automation-child-runbooks.md) 
+- A arquitetura do runbook no artigo atual fornece uma descrição detalhada sobre os runbooks híbridos. Para saber mais detalhes, confira [Runbooks filhos na Automação do Azure](automation-child-runbooks.md) 
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

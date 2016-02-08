@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="01/21/2016"
 	ms.author="billmath"/>
 
 #Suporte para vários domínios
@@ -50,8 +50,8 @@ Portanto, no Powershell, se eu adicionar fabrikam.com usando o parâmetro Suppor
 Obterei a seguinte configuração no Azure AD:
 
 - NomeDomínio: fabrikam.com
-- IssuerURI: http://fabrikam.com/adfs/services/trust 
-- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/ 
+- IssuerURI: http://fabrikam.com/adfs/services/trust
+- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/
 
 Observe que, enquanto o IssuerURI foi definido como um valor com base no meu domínio e, portanto, exclusivo, os valores da URL do ponto de extremidade ainda estão configurados para apontar para o serviço de federação em fs.contoso100.com, exatamente como estão configurados para o domínio original contoso.com. Portanto, todos os domínios continuarão apontando para o mesmo sistema do AD FS.
 
@@ -74,11 +74,11 @@ Veja abaixo para obter todas as etapas detalhadas para fazer a transição de um
 Feito isso, teremos então a configuração para dois domínios no Azure AD:
 
 - NomeDomínio: contoso.com
-- IssuerURI: http://contoso.com/adfs/services/trust 
-- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/ 
+- IssuerURI: http://contoso.com/adfs/services/trust
+- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/
 - NomeDomínio: fabrikam.com
-- IssuerURI: http://fabrikam.com/adfs/services/trust 
-- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/ 
+- IssuerURI: http://fabrikam.com/adfs/services/trust
+- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/
 
 O logon federado para os usuários dos domínios contoso.com e fabrikam.com agora funcionará. Resta apenas um problema: o logon para os usuários em subdomínios.
 
@@ -91,4 +91,4 @@ Você precisa configurar a regra de declaração personalizada para que ela igno
 
 Portanto, em resumo, você pode ter vários domínios com nomes diferentes, bem como subdomínios, todos federados ao servidor do AD FS; bastam algumas etapas adicionais para garantir que os valores de Issuer estejam definidos corretamente para todos os usuários.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

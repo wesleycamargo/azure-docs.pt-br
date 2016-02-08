@@ -26,7 +26,7 @@
  
 Todos os controladores em seu projeto foram marcados com o atributo **Autorizar**. Este atributo exigirá que o usuário seja autenticado antes de acessar as APIs definidas por esses controladores. Para permitir que o controlador seja acessado anonimamente, remova este atributo do controlador. Se desejar definir as permissões em um nível mais granular, aplique o atributo a cada método que necessita de autorização em vez de aplicá-lo à classe do controlador.
 
-[Saiba mais sobre o Active Directory do Azure](http://azure.microsoft.com/services/active-directory/)
+[Saiba mais sobre o Active Directory do Azure](https://azure.microsoft.com/services/active-directory/)
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -124,7 +124,7 @@ Os parâmetros usados são:
 - **-Hostname e -path**: caminho completo da URL invocado pelo gateway de aplicativo para determinar a integridade da instância. Por exemplo, se você tiver um site http://contoso.com/, a investigação personalizada poderá ser configurada para "http://contoso.com/path/custompath.htm" para verificações de investigação com uma resposta HTTP bem-sucedida.
 - **UnhealthyThreshold**: o número de respostas HTTP com falha necessárias para sinalizar a instância de back-end como *não íntegra*
 
-
+<BR>
 
 	$probe = New-AzureRmApplicationGatewayProbeConfig -Name probe01 -Protocol Http -HostName "contoso.com" -Path "/path/path.htm" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
 
@@ -168,7 +168,7 @@ Configure o tamanho da instância do gateway de aplicativo.
 	$sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 
 
->[AZURE.NOTE]O valor padrão para *InstanceCount* é 2, com um valor máximo de 10. O valor padrão para *GatewaySize* é Médio. Você pode escolher entre Standard\_Small, Standard\_Medium e Standard\_Large.
+>[AZURE.NOTE]  O valor padrão para *InstanceCount* é 2, com um valor máximo de 10. O valor padrão para *GatewaySize* é Medium. Você pode escolher entre Standard\_Small, Standard\_Medium e Standard\_Large.
 
 ## Criar um gateway de aplicativo usando New-AzureRmApplicationGateway
 
@@ -238,4 +238,4 @@ Salve a configuração no gateway de aplicativo usando **Set-AzureRmApplicationG
 
 	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

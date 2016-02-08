@@ -26,6 +26,7 @@ Para o serviço de fábrica de dados do Azure poder se conectar ao banco de dado
 - Gateway de Gerenciamento de Dados na mesma máquina que hospeda o banco de dados ou em uma máquina separada para evitar competência por recursos com o banco de dados. O Gateway de Gerenciamento de Dados é um software que conecta fontes de dados locais a serviços de nuvem de maneira segura e gerenciada. Consulte o artigo [Mover dados entre local e nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter detalhes sobre o Gateway de Gerenciamento de Dados. 
 - [ODAC (componentes de acesso a dados da Oracle) para o Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html). Ele deve ser instalado na máquina host em que o gateway está instalado.
 
+> [AZURE.NOTE] Confira [Solução de problemas de gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) para ver dicas sobre como solucionar problemas de conexão/gateway.
 
 ## Exemplo: copiar dados do Oracle para o Blob do Azure
 
@@ -157,7 +158,7 @@ Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo
 
 **Pipeline com Atividade de cópia:**
 
-O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída acima e agendada para ser executada a cada hora. Na definição JSON do pipeline, o tipo **source** está definido como **RelationalSource** e o tipo **sink** está definido como **BlobSink**. A consulta SQL especificada com a propriedade **oracleReaderQuery** seleciona os dados na última hora para copiar.
+O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída acima e agendada para ser executada a cada hora. No definição JSON do pipeline, o tipo de **source** está definido como **RelationalSource** e o tipo de **sink** está definido como **BlobSink**. A consulta SQL especificada com a propriedade **oracleReaderQuery** seleciona os dados na última hora para copiar.
 
 	
 	{  
@@ -245,7 +246,7 @@ Por exemplo: select * from MyTable <p>Se não for especificada, a instrução SQ
 
 ### Mapeamento de tipo para Oracle
 
-Como mencionado no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md), a atividade de Cópia executa conversões automáticas de tipos de fonte para tipos de coletor, com a seguinte abordagem de duas etapas:
+Conforme mencionado no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md), a Atividade de cópia executa conversões automáticas de tipo de tipos de fonte para tipos de coletor, com a abordagem em duas etapas descrita a seguir:
 
 1. Converter de tipos de fonte nativos para o tipo .NET
 2. Converter do tipo .NET para o tipo de coletor nativo
@@ -300,4 +301,4 @@ XML | Cadeia de caracteres
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

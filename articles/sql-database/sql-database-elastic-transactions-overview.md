@@ -140,9 +140,9 @@ As seguintes limitações se aplicam atualmente para as transações de banco de
 
 ## Saiba mais
 
-Você ainda não está usando os recursos de banco de dados elástico nos seus aplicativos do Azure? Confira o nosso [Mapa da Documentação](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/). Em caso de dúvidas, entre em contato conosco pelo fórum [Banco de Dados SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) e, para solicitações de recursos, adicione-as ao [Fórum de comentários do SQL Database](http://feedback.azure.com/forums/217321-sql-database).
+Você ainda não está usando os recursos de banco de dados elástico nos seus aplicativos do Azure? Confira o nosso [Mapa da Documentação](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/). Em caso de dúvidas, entre em contato conosco pelo fórum [Banco de Dados SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) e, para solicitações de recursos, adicione-as ao [Fórum de comentários do SQL Database](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

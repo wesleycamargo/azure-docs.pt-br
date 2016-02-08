@@ -32,9 +32,9 @@ Em um alto nível, o diagrama a seguir mostra o cluster de HPC Pack que você cr
 
 * **Computador cliente** - você precisará de um computador cliente baseado no Windows para executar o script de implantação de cluster do Azure PowerShell (se você escolher esse método de implantação) e enviar trabalhos de exemplo do Excel e SOA ao cluster.
 
-* **Assinatura do Azure** - se não tiver uma conta, você poderá criar uma de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/).
+* **Assinatura do Azure** - se não tiver uma conta, você poderá criar uma de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Cota de núcleos** - talvez seja necessário aumentar a cota de núcleos, especialmente se você optar por implantar vários nós de cluster com tamanhos de VM de vários núcleos. Se você estiver usando um modelo de início rápido do Azure, lembre-se de que a cota de núcleos no Gerenciador de Recursos é por região do Azure, e talvez seja necessário aumentar a cota de uma região específica. Consulte [Limites de assinatura do Azure, cotas e restrições](../azure-subscription-service-limits.md). Para aumentar a cota, [abra uma solicitação de atendimento ao cliente online](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitamente.
+* **Cota de núcleos** - talvez seja necessário aumentar a cota de núcleos, especialmente se você optar por implantar vários nós de cluster com tamanhos de VM de vários núcleos. Se você estiver usando um modelo de início rápido do Azure, lembre-se de que a cota de núcleos no Gerenciador de Recursos é por região do Azure, e talvez seja necessário aumentar a cota de uma região específica. Consulte [Limites de assinatura do Azure, cotas e restrições](../azure-subscription-service-limits.md). Para aumentar a cota, [abra uma solicitação de atendimento ao cliente online](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitamente.
 
 
 ## Etapa 1. Configurar um cluster de HPC Pack no Azure
@@ -61,7 +61,7 @@ Use um modelo de início rápido do Azure para implantar de maneira rápida e f�
 
     ![Inserir parâmetros][parameters]
 
-    >[AZURE.NOTE]A VM do nó principal será criada automaticamente a partir da [imagem mais recente do Marketplace](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) do HPC Pack 2012 R2 no Windows Server 2012 R2. Atualmente, a imagem se baseia no HPC Pack 2012 R2 Update 3.
+    >[AZURE.NOTE]A VM do nó principal será criada automaticamente a partir da [imagem mais recente do Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) do HPC Pack 2012 R2 no Windows Server 2012 R2. Atualmente, a imagem se baseia no HPC Pack 2012 R2 Update 3.
     >
     >Serão criadas VMs do nó de computação a partir da imagem mais recente da família do nó de computação selecionado. Selecione a opção **ComputeNode** para a mais recente imagem de computação do HPC Pack 2012 R2 Update 3 para fins gerais. Selecione a opção **ComputeNodeWithExcel**para a imagem do nó de computação HPC Pack que inclui uma versão de avaliação do Microsoft Excel Professional Plus 2013. Se quiser implantar um cluster para sessões SOA gerais ou para o descarregamento de Excel UDF, escolha a opção **ComputeNode** (sem o Excel instalado).
     >
@@ -264,7 +264,7 @@ Siga estas etapas para descarregar uma planilha do Excel para executar no cluste
 
 Para executar UDFs do Excel, siga as etapas de 1 a 3 acima para configurar o computador cliente. Para UDFs do Excel, você não precisa ter o aplicativo do Excel instalado em nós de computação, assim você pode escolher a imagem de um nó de computação normal na Etapa 1 em vez de a imagem do nó de computação com o Excel.
 
->[AZURE.NOTE]Há um limite de 34 caracteres no Excel 2010 e a caixa de diálogo do conector de cluster 2013. Se o nome completo do cluster for maior, por exemplo, hpcexcelhn01.southeastasia.cloudapp.azure.com, ele não caberá na caixa de diálogo. A solução alternativa é definir uma variável no nível da máquina como *CCP\_IAASHN* com o valor do nome do cluster longo e inserir *CCP\_IAASHN%* na caixa de diálogo, como o nome de nó principal do cluster. Observação para clusters da Atualização 2: requer o QFE KB3085833 da Atualização 2 (baixar [aqui](http://www.microsoft.com/pt-BR/download/details.aspx?id=48725)) para a API de sessão SOA no computador cliente para oferecer suporte a essa solução alternativa.
+>[AZURE.NOTE] Há um limite de 34 caracteres no Excel 2010 e a caixa de diálogo do conector de cluster 2013. Se o nome completo do cluster for maior, por exemplo, hpcexcelhn01.southeastasia.cloudapp.azure.com, ele não caberá na caixa de diálogo. A solução alternativa é definir uma variável no nível da máquina como *CCP\_IAASHN* com o valor do nome do cluster longo e inserir *CCP\_IAASHN%* na caixa de diálogo, como o nome de nó principal do cluster. Observação para clusters da Atualização 2: requer o QFE KB3085833 da Atualização 2 (baixar [aqui](http://www.microsoft.com/pt-BR/download/details.aspx?id=48725)) para a API de sessão SOA no computador cliente para oferecer suporte a essa solução alternativa.
 
 Depois que o cluster for implantado com êxito, continue com as etapas a seguir para executar um exemplo interno do UDF do Excel. Para UDFs personalizados do Excel, consulte estes [recursos](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) para compilar os XLLs e implantá-los no cluster IaaS.
 
@@ -381,4 +381,4 @@ O aplicativo cliente SOA não requer alterações, exceto do nome principal para
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

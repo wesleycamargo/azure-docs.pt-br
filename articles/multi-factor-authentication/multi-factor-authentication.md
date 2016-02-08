@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Azure Multi-Factor Authentication - o que é isso? | Microsoft Azure" 
-	description="O Azure Multi-Factor Authentication é um método de verificar quem você é e que requer o uso de mais do que apenas um nome de usuário e uma senha. Ela fornece uma camada adicional de segurança para logons de usuário e transações." 
-	keywords="Introdução à MFA, visão geral de mfa"
+	description="Este tópico explica o que é o mfa (Multifactor Authentication), por que alguém usaria o MFA, mais informações sobre o cliente do Multifactor Authentication e os diferentes métodos e versões disponíveis. O Azure Multi-Factor Authentication é um método de verificar quem você é e que requer o uso de mais do que apenas um nome de usuário e uma senha. Ela fornece uma camada adicional de segurança para logons de usuário e transações." 
+	keywords="introdução ao MFA, visão do geral do mfa, o que é mfa"
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/11/2016" 
+	ms.date="01/25/2016" 
 	ms.author="billmath"/>
 
 # O que é o Azure Multi-Factor Authentication?
@@ -136,7 +136,7 @@ Ao usar um Provedor do Azure Multi-Factor Authentication, há dois modelos de us
 - **Por usuário**. Geralmente para empresas que desejam habilitar a autenticação multifator para um número fixo de funcionários que precisam regularmente de autenticação.
 - **Por autenticação**. Em geral, para empresas que querem habilitar a autenticação multifator para um grupo grande de usuários externos que raramente precisam de autenticação.
 
-Para obter detalhes sobre preços, consulte [Preços do Azure MFA.](http://azure.microsoft.com/pricing/details/multi-factor-authentication/)
+Para obter detalhes sobre preços, consulte [Preços do Azure MFA.](https://azure.microsoft.com/pricing/details/multi-factor-authentication/)
 
 Escolha o modelo baseado em consumo que funciona melhor para sua organização. Depois, para iniciar, veja a [Introdução.](multi-factor-authentication-get-started.md)
 
@@ -173,7 +173,7 @@ Em seguida, dependendo de onde os usuários estão localizados, podemos determin
 
 Local do usuário| Solução
 ------------- | :------------- | 
-Azure Active Directory| Autenticação multifator na nuvem|
+Active Directory do Azure| Autenticação multifator na nuvem|
 Azure AD e AD local usando federação com AD FS| O MFA na nuvem e o Servidor MFA são opções disponíveis 
 Azure AD e AD local usando o DirSync, o Azure AD Sync, o Azure AD Connect - sem sincronização de senha|O MFA na nuvem e o Servidor MFA são opções disponíveis 
 Azure AD e AD local usando o DirSync, o Azure AD Sync, o Azure AD Connect - com sincronização de senha|Autenticação multifator na nuvem
@@ -206,4 +206,4 @@ Agora que determinamos se usar a autenticação multifator na nuvem ou o Servido
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

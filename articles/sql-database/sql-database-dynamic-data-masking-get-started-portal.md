@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="ronitr"
    manager="jeffreyg"
-   editor="v-romcal"/>
+   editor="jeffreyg"/>
 
 <tags
    ms.service="sql-database"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/20/2015"
+   ms.date="12/01/2015"
    ms.author="ronitr; ronmat; v-romcal; sstein"/>
 
 # Introdução à Máscara de Dados Dinâmicos do Banco de Dados SQL (Portal clássico do Azure)
@@ -34,7 +34,7 @@ Por exemplo, um representante de serviço em um centro de chamada pode identific
 É possível configurar a política de máscara de dados dinâmicos no portal clássico do Azure na guia Auditoria e Segurança do seu banco de dados.
 
 
-> [AZURE.NOTE]Para configurar a máscara de dados dinâmicos no Portal do Azure, confira [Introdução à Máscara de Dados Dinâmicos do Banco de Dados SQL (portal do Azure)](sql-database-dynamic-data-masking-get-started.md).
+> [AZURE.NOTE] Para configurar a máscara de dados dinâmicos no Portal do Azure, confira [Introdução à Máscara de Dados Dinâmicos do Banco de Dados SQL (portal do Azure)](sql-database-dynamic-data-masking-get-started.md).
 
 
 ### Permissões de mascaramento de dados dinâmico
@@ -51,9 +51,9 @@ A Máscara de dados dinâmica pode ser configurada através de funções do admi
 
 | Função de mascaramento | Lógica de mascaramento |
 |----------|---------------|
-| **Padrão** |**Mascaramento completo de acordo com os tipos de dados dos campos designados**<br/><br/>• Use XXXX ou menos Xs se o tamanho do campo tiver menos de 4 caracteres para tipos de dados de cadeia de caracteres (nchar, ntext, nvarchar).<br/>• Use um valor de zero para tipos de dados numéricos (bigint, bit, decimal, int, money, numeric, smallint, smallmoney, tinyint, float, real).<br/>• Use 01-01-1900 para tipos de dados de data/hora (date, datetime2, datetime, datetimeoffset, smalldatetime, time).<br/>• Para variante do SQL, é usado o valor padrão do tipo atual.<br/>• Para XML, o documento <masked/> é usado.<br/>• Use um valor vazio para tipos de dados especiais (timestamp table, hierarchyid, GUID, binary, image, varbinary spatial types).
+| **Padrão** |**Mascaramento completo de acordo com os tipos de dados dos campos designados**<br/><br/>• Use XXXX ou menos Xs se o tamanho do campo tiver menos de 4 caracteres para tipos de dados de cadeia de caracteres (nchar , ntext, nvarchar).<br/>• Use um valor de zero para tipos de dados numéricos (bigint, bit, decimal, int, money, numeric, smallint, smallmoney, tinyint, float, real).<br/>• Use 01-01-1900 para tipos de dados de data/hora (date, datetime2, datetime, datetimeoffset, smalldatetime, time).<br/>• Para variante do SQL, é usado o valor padrão do tipo atual.<br/>• Para XML, o documento <masked/> é usado.<br/>• Use um valor vazio para tipos de dados especiais (timestamp table, hierarchyid, GUID, binary, image, varbinary spatial types).
 | **Cartão de crédito** |**Método de mascaramento que expõe os últimos quatro dígitos dos campos designados** e adiciona uma cadeia de caracteres constante como um prefixo no formulário de um cartão de crédito.<br/><br/>XXXX-XXXX-XXXX-1234|
-| **CPF** |**Método de mascaramento que expõe os dois últimos dígitos dos campos designados** e adiciona uma cadeia de caracteres constante como um prefixo no formulário de um número do seguro social americano.<br/><br/>XXX-XX-1234 |
+| **CPF** |**Método de mascaramento que expõe os dois últimos dígitos dos campos designados** e adiciona uma cadeia de caracteres constante como um prefixo no formulário de um número do seguro social.<br/><br/>XXX-XX-1234 |
 | **Email** | **Método de mascaramento que expõe a primeira letra e substitui o domínio com XXX.com** usando um prefixo de cadeia de caracteres constante na forma de um endereço de email.<br/><br/>aXX@XXXX.com |
 | **Número aleatório** | **Método de mascaramento que gera um número aleatório** de acordo com os limites selecionados e os tipos de dados reais. Se os limites designados forem iguais, a função de mascaramento será um número constante.<br/><br/>![Painel de navegação](./media/sql-database-dynamic-data-masking-get-started-portal/1_DDM_Random_number.png) |
 | **Texto personalizado** | **Método de mascaramento que expõe os primeiros e os últimos caracteres** e adiciona uma cadeia de caracteres de preenchimento personalizado no meio. Se a cadeia de caracteres original for menor do que o prefixo e o sufixo expostos, somente a cadeia de caracteres de preenchimento será usada.<br/>sufixo de prefixo [preenchimento]<br/><br/>![Painel de navegação](./media/sql-database-dynamic-data-masking-get-started-portal/2_DDM_Custom_text.png) |
@@ -71,7 +71,7 @@ A Máscara de dados dinâmica pode ser configurada através de funções do admi
 
 4. Digite os usuários do SQL ou as identidades AAD que devem ser excluídos da máscara e têm acesso aos dados confidenciais sem máscara. Deve ser uma lista de usuários separada por vírgulas. Observe que os usuários com privilégios de administrador sempre terão acesso aos dados sem máscara originais.
 
-	>[AZURE.TIP]Para fazer isso de forma que a camada de aplicativo possa exibir dados confidenciais para usuários com privilégios de aplicativo, adicione o usuário do SQL ou a identidade do AAD usados pelo aplicativo para consultar o banco de dados. É altamente recomendável que essa lista contenha um número mínimo de usuários privilegiados para minimizar a exposição de dados confidenciais.
+	>[AZURE.TIP] Para fazer isso de forma que a camada de aplicativo possa exibir dados confidenciais para usuários com privilégios de aplicativo, adicione o usuário do SQL ou a identidade do AAD usados pelo aplicativo para consultar o banco de dados. É altamente recomendável que essa lista contenha um número mínimo de usuários privilegiados para minimizar a exposição de dados confidenciais.
 
 	![Painel de navegação](./media/sql-database-dynamic-data-masking-get-started-portal/4_ddm_policy_classic_portal.png)
 
@@ -96,4 +96,4 @@ Confira [Cmdlets do Banco de Dados SQL do Azure](https://msdn.microsoft.com/libr
 
 Confira [Operações para Bancos de Dados SQL do Azure](https://msdn.microsoft.com/library/dn505719.aspx).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

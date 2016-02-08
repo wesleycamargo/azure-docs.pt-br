@@ -45,11 +45,11 @@ Neste tutorial, você irá:
 
 - [Próximas etapas](#Next)
 
-Este tutorial presume que você já tenha uma conta do Azure. Se você não tiver uma conta do Azure, visite [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/).
+Este tutorial presume que você já tenha uma conta do Azure. Se você não tiver uma conta do Azure, visite [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a id="Provision">Provisionar uma imagem de VM do SQL da galeria com o modelo de implantação do Gerenciador de Recursos
 
-1. Faça logon no [portal do Azure](http://portal.azure.com) usando sua conta.
+1. Faça logon no [portal do Azure](https://portal.azure.com) usando sua conta.
 1. No Portal do Azure, clique em **+Novo**. O portal abrirá a folha **Novo**. Os modelos de VM do SQL Server estão no grupo **Computação** do Marketplace.
 
 1. Na folha **Novo**, clique em **Computação**.
@@ -87,7 +87,7 @@ Na folha **Criar Máquina Virtual**, em **Configurações**, configure o armazen
 
 - Em **Armazenamento**, especifique um tipo de disco. Armazenamento Premium é recomendado para cargas de trabalho de produção.
 
->[AZURE.NOTE]O Armazenamento Premium está habilitado por padrão. Isso redimensiona automaticamente seu computador para um tamanho que dá suporte ao Armazenamento Premium. Se você desabilitar o Armazenamento Premium, sua seleção de tamanho de máquina anterior será usada.
+>[AZURE.NOTE] O Armazenamento Premium está habilitado por padrão. Isso redimensiona automaticamente seu computador para um tamanho que dá suporte ao Armazenamento Premium. Se você desabilitar o Armazenamento Premium, sua seleção de tamanho de máquina anterior será usada.
 
 - Em **Conta de armazenamento**, você pode aceitar o nome da conta de armazenamento provisionado automaticamente ou pode clicar em **Conta de armazenamento** para escolher uma conta existente e configurar o tipo de conta de armazenamento. Por padrão, o Azure cria uma nova conta de armazenamento com o armazenamento com redundância local.
 
@@ -129,7 +129,7 @@ Se você precisar de Autenticação do SQL Server, clique em **Habilitar** em **
 
 Se você habilitar a Autenticação do SQL Server, especifique um **Nome de logon** e **Senha**. Esse nome de usuário será um logon de Autenticação do SQL Server e membro da função de servidor fixa sysadmin. Para saber mais, confira [Escolher um modo de autenticação](http://msdn.microsoft.com/library/ms144284.aspx) para outras informações sobre os Modos de Autenticação. Por padrão, o SQL Server não permite a Autenticação do SQL Server. Nesse cenário, os administradores locais na máquina virtual podem se conectar à instância do SQL Server.
 
->[AZURE.NOTE]Se você pretende acessar o SQL Server pela Internet (ou seja, a opção de conectividade Pública), habilite a autenticação do SQL aqui. O acesso público ao SQL Server exige o uso da Autenticação do SQL.
+>[AZURE.NOTE] Se você pretende acessar o SQL Server pela Internet (ou seja, a opção de conectividade Pública), habilite a autenticação do SQL aqui. O acesso público ao SQL Server exige o uso da Autenticação do SQL.
 
 ### Otimização de armazenamento
 Clique em **Configuração de armazenamento** para especificar os requisitos de armazenamento. Você pode especificar os requisitos como operações IOPs (entrada/saída por segundo), taxa de transferência em MB/s e tamanho total de armazenamento. Configure-os usando as escalas deslizantes. O portal calcula automaticamente o número de discos com base nesses requisitos.
@@ -142,7 +142,7 @@ Por padrão, o Azure otimiza o armazenamento para 5000 IOPs, 200 MB e 1 TB de es
 
 A imagem a seguir mostra a folha Configuração de armazenamento. <br/>![Armazenamento do SQL ARM](./media/virtual-machines-sql-server-provision-resource-manager/azure-sql-arm-storage.png) <br/>
 
->[AZURE.NOTE]Os limites de configuração do armazenamento dependem do tamanho da máquina virtual. Para saber mais, confira [Tamanhos de Máquinas Virtuais](virtual-machines-size-specs.md).
+>[AZURE.NOTE] Os limites de configuração do armazenamento dependem do tamanho da máquina virtual. Para saber mais, confira [Tamanhos de Máquinas Virtuais](virtual-machines-size-specs.md).
 
 ### Aplicação de patch
 A **Aplicação de patch automatizada do SQL** está habilitada por padrão. A aplicação de patch automatizada permite que o Azure aplique patches automaticamente no SQL Server e no sistema operacional. Especifique um dia da semana, hora e duração de um período de manutenção. O Azure executará a aplicação do patch no período de manutenção. O agendamento do período de manutenção usa a localidade da VM para a hora. Se você não quiser que o Azure aplique automaticamente o patch permite no SQL Server e no sistema operacional, clique em **Desabilitar**.
@@ -197,7 +197,7 @@ Se você quiser se conectar ao seu mecanismo de banco de dados do SQL Server a p
 
 Se você utiliza o portal para provisionar uma imagem de máquina virtual do SQL Server com o gerenciador de recursos, essas etapas foram realizadas quando você selecionou **Pública** como a opção de conectividade do SQL e habilitou a autenticação do SQL Server. No entanto, é necessário concluir algumas etapas restantes para acessar a instância do SQL Server pela Internet.
 
->[AZURE.NOTE]Se você não selecionou Pública durante o provisionamento, será necessário executar etapas adicionais para acessar a instância do SQL Server pela Internet. Para saber mais, confira [Conectar-se a uma Máquina Virtual do SQL Server (Gerenciador de Recursos) | Microsoft Azure](virtual-machines-sql-server-connectivity-resource-manager.md).
+>[AZURE.NOTE] Se você não selecionou Pública durante o provisionamento, será necessário executar etapas adicionais para acessar a instância do SQL Server pela Internet. Para saber mais, confira [Conectar-se a uma Máquina Virtual do SQL Server (Gerenciador de Recursos) | Microsoft Azure](virtual-machines-sql-server-connectivity-resource-manager.md).
 
 As etapas a seguir não serão necessárias se você só precisar acessar a Máquina Virtual localmente ou de dentro da mesma Rede Virtual.
 
@@ -206,4 +206,4 @@ As etapas a seguir não serão necessárias se você só precisar acessar a Máq
 ##<a id="Next">Próximas etapas
 Para obter outras informações sobre como usar o SQL Server no Azure, veja [SQL Server em Máquinas Virtuais do Azure](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

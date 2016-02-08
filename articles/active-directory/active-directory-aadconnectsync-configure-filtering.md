@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="01/21/2016"
 	ms.author="andkjell;markusvi"/>
 
 
@@ -246,4 +246,4 @@ Saiba mais sobre a configuração de [sincronização do Azure AD Connect](activ
 
 Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

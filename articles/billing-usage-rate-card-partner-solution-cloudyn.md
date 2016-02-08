@@ -31,7 +31,7 @@ Consumir essas APIs fornece informações importantes sobre o uso de clientes e 
 ## Integração do Cloudyn com as APIs de Uso e RateCard
 A API RateCard requer vários parâmetros de entrada, como informações de região, moeda e localidade – mas o mais importante é OfferDurableID, que especifica o tipo de oferta do Azure que o cliente está usando (pré-pago, planos de compromisso herdado de 6 e 12 meses, ofertas de MSDN, ofertas de MPN, ofertas promocionais e outros). O OfferDurableID pode ser encontrado no [portal de Cobrança e Uso do Azure](https://account.windowsazure.com/Subscriptions), sob a "ID da oferta" para uma assinatura específica.
 
-Após o registro nos serviços do [Cloudyn para o Azure](https://www.cloudyn.com/microsoft-azure/), os clientes podem adicionar seu código OfferDurableID, que permite ao Cloudyn receber suas informações de preços relevantes por meio da API RateCard. Informações sobre os diferentes tipos de ofertas podem ser encontradas na página de [detalhes da oferta do Microsoft Azure](http://azure.microsoft.com/en-gb/support/legal/offer-details/).
+Após o registro nos serviços do [Cloudyn para o Azure](https://www.cloudyn.com/microsoft-azure/), os clientes podem adicionar seu código OfferDurableID, que permite ao Cloudyn receber suas informações de preços relevantes por meio da API RateCard. Informações sobre os diferentes tipos de ofertas podem ser encontradas na página de [detalhes da oferta do Microsoft Azure](https://azure.microsoft.com/en-gb/support/legal/offer-details/).
 
 ![Visão geral do mecanismo de IFTM do Cloudyn][2]
 
@@ -77,7 +77,7 @@ Aqui está um breve vídeo que mostra como um cliente do Azure pode o usar Cloud
 + Se você gostaria de se aprofundar no exemplo de código, confira nossos exemplos de código da API de Cobrança do Microsoft Azure em [Exemplos de código do Azure](https://azure.microsoft.com/documentation/samples/?term=billing).
 
 ## Saiba mais
-+ Para saber mais sobre as ofertas do Microsoft Azure Enterprise Agreement (EA), visite [licenciamento do Azure para a empresa](http://azure.microsoft.com/pricing/enterprise-agreement/)
++ Para saber mais sobre as ofertas do Microsoft Azure Enterprise Agreement (EA), visite [licenciamento do Azure para a empresa](https://azure.microsoft.com/pricing/enterprise-agreement/)
 + Consulte o artigo [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md) para saber mais sobre o Gerenciador de Recursos do Azure.
 + Para obter informações adicionais sobre o pacote de ferramentas necessário para ajudá-lo a compreender o gasto de nuvens, consulte o artigo da Gartner [Guia de mercado para as ferramentas de gestão financeira gerenciamento de TI (ITFM)](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb).
 
@@ -90,4 +90,4 @@ Aqui está um breve vídeo que mostra como um cliente do Azure pode o usar Cloud
 [6]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Performance-Reports.png
 [7]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Category-Manager.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

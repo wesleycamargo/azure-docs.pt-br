@@ -55,9 +55,9 @@ Sugestões: se você não tiver uma chave OSA, entre em contato com um dos Parce
 ## Você já usou uma assinatura do Azure anteriormente e agora está tentando ativar uma avaliação gratuita do Azure?
 O Contrato de Termos de Uso do Azure tem um limite de apenas uma ativação de avaliação gratuita disponível para qualquer usuário que nunca usou o Azure antes. Se você já teve qualquer outro tipo de assinatura do Azure, não poderá ativar uma avaliação gratuita.
 
-Sugestões: se você já ativou uma assinatura do Azure anteriormente, e a ativação de avaliação gratuita falhar, considere a compra de uma assinatura pré-paga. Você também pode estar qualificado para uma oferta de benefício. Saiba mais na [página de detalhes de oferta do Microsoft Azure](http://azure.microsoft.com/support/legal/offer-details/) em vez do plano de avaliação gratuita do Azure. Observe que os planos de benefícios exigem pré-requisitos específicos.
+Sugestões: se você já ativou uma assinatura do Azure anteriormente, e a ativação de avaliação gratuita falhar, considere a compra de uma assinatura pré-paga. Você também pode estar qualificado para uma oferta de benefício. Saiba mais na [página de detalhes de oferta do Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) em vez do plano de avaliação gratuita do Azure. Observe que os planos de benefícios exigem pré-requisitos específicos.
 
 ## Ainda não consegue se inscrever?
 [Entre em contato com o Suporte do Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) para receber ajuda se ainda tiver problemas de inscrição, ou se o problema não for abordado neste artigo.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

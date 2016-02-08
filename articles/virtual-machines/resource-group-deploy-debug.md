@@ -293,25 +293,7 @@ Se você tentar implantar um modelo que crie mais de 4 núcleos para a região O
 
 Nesses casos, você deve ir para o portal e abrir um problema de suporte para aumentar a cota para a região na qual você deseja implantar.
 
-> [AZURE.NOTE]Lembre-se de que, para grupos de recursos, a cota é para cada região individual, não para a assinatura inteira. Se você precisar implantar 30 núcleos no Oeste dos EUA, será necessário pedir 30 núcleos do Gerenciador de Recursos no Oeste dos EUA. Se precisar implantar 30 núcleos em qualquer uma das regiões às quais tenha acesso, você deverá solicitar 30 núcleos do Gerenciador de recursos em todas as regiões.
-<!-- -->
-Para ser específico sobre núcleos, por exemplo, você pode verificar as regiões para as quais deve solicitar o valor da cota apropriado usando o comando a seguir, que resulta em **jq** para análise json.
-<!-- -->
-        azure provider show Microsoft.Compute --json | jq '.resourceTypes[] | select(.name == "virtualMachines") | { name,apiVersions, locations}'
-        {
-          "name": "virtualMachines",
-          "apiVersions": [
-            "2015-05-01-preview",
-            "2014-12-01-preview"
-          ],
-          "locations": [
-            "East US",
-            "West US",
-            "West Europe",
-            "East Asia",
-            "Southeast Asia"
-          ]
-        }
+> [AZURE.NOTE] Lembre-se de que, para grupos de recursos, a cota é para cada região individual, não para a assinatura inteira. Se você precisar implantar 30 núcleos no Oeste dos EUA, será necessário pedir 30 núcleos do Gerenciador de Recursos no Oeste dos EUA. Se precisar implantar 30 núcleos em qualquer uma das regiões às quais tenha acesso, você deverá solicitar 30 núcleos do Gerenciador de recursos em todas as regiões. <!-- --> Para ser específico sobre núcleos, por exemplo, você pode verificar as regiões para as quais deve solicitar o valor da cota apropriado usando o comando a seguir, que resulta em **jq** para análise json. <!-- --> azure provider show Microsoft.Compute --json | jq '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}' { "name": "virtualMachines", "apiVersions": [ "2015-05-01-preview", "2014-12-01-preview" ], "locations": [ "East US", "West US", "West Europe", "East Asia", "Southeast Asia" ] }
 
 
 ## Verificando o registro do provedor de recursos
@@ -409,7 +391,7 @@ Se você estiver usando modelos que criou, é importante entender que o sistema 
 
 No entanto, observe que isso não significa necessariamente que seu grupo de recursos está "ativo e pronto para seus usuários". Por exemplo, a maioria das implantações solicita que implantação para baixar atualizações, aguarde por outros recursos que não são de modelo ou instale scripts complexos, ou realize alguma outra atividade executável sobre a qual o Azure não sabe, sobre porque ela não é uma atividade que um provedor está rastreando. Nesses casos, pode levar algum tempo antes que os recursos estejam prontos para uso no mundo real. Como resultado, você deve esperar que o status da implantação seja bem-sucedida algum tempo antes que sua implantação possa ser usada.
 
-Você pode impedir o Azure de relatar êxito da implantação, no entanto, ao criar um script personalizado para seu modelo personalizado - usando o [CustomScriptExtension](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/), por exemplo - que sabe como monitorar toda a implantação para preparação de todo o sistema e retorna com êxito somente quando os usuários podem interagir com toda a implantação. Se você quiser garantir que sua extensão seja a última a ser executada, use a propriedade **dependsOn** em seu modelo. Um exemplo pode ser visto ao [criar implantações de modelo](https://msdn.microsoft.com/library/azure/dn790564.aspx).
+Você pode impedir o Azure de relatar êxito da implantação, no entanto, ao criar um script personalizado para seu modelo personalizado - usando o [CustomScriptExtension](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/), por exemplo - que sabe como monitorar toda a implantação para preparação de todo o sistema e retorna com êxito somente quando os usuários podem interagir com toda a implantação. Se você quiser garantir que sua extensão seja a última a ser executada, use a propriedade **dependsOn** em seu modelo. Um exemplo pode ser visto ao [criar implantações de modelo](https://msdn.microsoft.com/library/azure/dn790564.aspx).
 
 ## Ferramentas úteis para interagir com o Azure
 Ao trabalhar com recursos do Azure na linha de comando, você coletará ferramentas que lhe ajudam a fazer seu trabalho. Os modelos de grupo de recursos do Azure são documentos JSON, e a API do Gerenciador de Recursos do Azure aceita e retorna JSON. Sendo assim, ferramentas de análise de JSON são algumas das primeiras coisas que ajudarão você a navegar pelas informações sobre seus recursos, bem como a criar ou interagir com modelos e arquivos de parâmetro de modelo.
@@ -435,4 +417,4 @@ Para dominar a criação de modelos, leia [Criando modelos do Gerenciador de Rec
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

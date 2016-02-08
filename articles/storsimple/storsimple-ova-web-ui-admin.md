@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/13/2016"
+   ms.date="01/22/2016"
    ms.author="alkohli" />
 
 # Use a interface do usuário da Web para administrar sua StorSimple Virtual Array (visualização)
@@ -23,7 +23,7 @@
 
 Os tutoriais neste artigo se aplicam à Matriz Virtual Microsoft Azure StorSimple (também conhecida como o dispositivo virtual local StorSimple) executando a v.1.1.1.0 (visualização). Este artigo descreve alguns dos fluxos de trabalho complexos e tarefas de gerenciamento que podem ser executadas na StorSimple Virtual Array. Existem duas IUs que podem ser usadas para gerenciar a StorSimple Virtual Array: a interface do usuário do serviço StorSimple Manager (conhecida como a interface do usuário do portal) e a interface de usuário da Web local para o dispositivo. Este artigo se concentra nas tarefas que você pode executar usando a interface do usuário da Web.
 
->[AZURE.IMPORTANT]
+>[AZURE.IMPORTANT] 
 >
 >- A StorSimple Virtual Array está em visualização e é destinada para fins de planejamento de implantação e avaliação. Não há suporte para a instalação dessa visualização em um ambiente de produção. 
 >- Se você tiver quaisquer problemas com a StorSimple Virtual Array, publique-os no [fórum do MSDN do StorSimple](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple).
@@ -132,14 +132,8 @@ Você pode desligar ou reiniciar seu dispositivo virtual usando a interface do u
 
     Enquanto a reinicialização estiver em andamento, você perderá a conexão à interface do usuário. Você pode monitorar a reinicialização atualizando a interface do usuário periodicamente. Como alternativa, você pode monitorar o status de reinicialização do dispositivo por meio do Gerenciador do Hyper-V.
 
-![video\_icon](./media/storsimple-ova-web-ui-admin/video_icon.png) **Vídeo disponível**
-
-Assista ao vídeo para ver como você pode criar compartilhamentos, fazer backup de compartilhamentos e restaurar dados em uma StorSimple Virtual Array.
-
-> [AZURE.VIDEO use-the-storsimple-virtual-array]
-
 ## Próximas etapas
 
-Saiba como [usar o serviço StorSimple Manager para gerenciar seu dispositivo virtual](storsimple-manager-service-administration.md).
+Saiba como [usar o serviço StorSimple Manager para gerenciar seu dispositivo](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

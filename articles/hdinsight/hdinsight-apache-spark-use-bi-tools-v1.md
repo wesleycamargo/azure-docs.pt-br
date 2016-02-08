@@ -20,7 +20,7 @@
 
 # Usar as ferramentas de BI com o Apache Spark no Azure HDInsight (Windows)
 
-> [AZURE.NOTE]O HDInsight agora fornece clusters Spark no Linux. Para obter informações sobre como usar as ferramentas de BI com cluster Spark no HDInsight Linux, confira [Usar as ferramentas de BI com o Apache Spark no Azure HDInsight (Linux)](hdinsight-apache-spark-use-bi-tools.md).
+> [AZURE.NOTE] O HDInsight agora fornece clusters Spark no Linux. Para obter informações sobre como usar as ferramentas de BI com cluster Spark no HDInsight Linux, confira [Usar as ferramentas de BI com o Apache Spark no Azure HDInsight (Linux)](hdinsight-apache-spark-use-bi-tools.md).
 
 Saiba como usar o Apache Spark no Azure HDInsight para fazer o seguinte:
 
@@ -31,7 +31,7 @@ Saiba como usar o Apache Spark no Azure HDInsight para fazer o seguinte:
 
 Você deve ter o seguinte:
 
-- Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - Um cluster do Apache Spark. Para obter instruções, confira [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-provision-clusters.md).
 - Um computador com o driver ODBC do Microsoft Spark instalado (necessário para que o Spark no HDInsight funcione com o Tableau). Você pode instalar o driver clicando [aqui](http://go.microsoft.com/fwlink/?LinkId=616229).
 - Ferramentas de BI como [Power BI](http://www.powerbi.com/) ou [Tableau Desktop](http://www.tableau.com/products/desktop). Você pode obter uma assinatura gratuita de visualização do Power BI em [http://www.powerbi.com/](http://www.powerbi.com/).
@@ -46,7 +46,7 @@ Depois que os dados são salvos como uma tabela Hive, na próxima seção, vamos
 
 2. Na folha do cluster Spark, clique em **Links Rápidos** e, na folha **Painel do Cluster**, clique em **Notebook do Jupyter**. Se você receber uma solicitação, insira as credenciais de administrador para o cluster.
 
-	> [AZURE.NOTE]Você também pode acessar o Bloco de Anotações Jupyter de seu cluster abrindo a seguinte URL no navegador. Substitua __CLUSTERNAME__ pelo nome do cluster:
+	> [AZURE.NOTE] Você também pode acessar o Bloco de Notas Jupyter de seu cluster abrindo a seguinte URL no navegador. Substitua __CLUSTERNAME__ pelo nome do cluster:
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
@@ -89,7 +89,7 @@ Depois que os dados são salvos como uma tabela Hive, na próxima seção, vamos
 		hvacTable.registerAsTable("hvactemptable")
 		hvacTable.saveAsTable("hvac")
 
-6. Verifique se a tabela foi criada com êxito. Em uma célula vazia no bloco de anotações, copie o seguinte trecho e pressione **SHIFT + ENTER**.
+6. Verifique se a tabela foi criada com êxito. Em uma célula vazia no bloco de anotações, copie o seguinte trecho e pressione **SHIFT+ENTER**.
 
 		hiveCtx.sql("SHOW TABLES").show()
 
@@ -102,11 +102,11 @@ Depois que os dados são salvos como uma tabela Hive, na próxima seção, vamos
 
 	Somente as tabelas que têm falso sob a coluna **isTemporary** são tabelas hive que serão armazenadas no metastore e podem ser acessadas por meio das ferramentas de BI. Neste tutorial, vamos nos conectar à tabela **hvac** recém-criada.
 
-7. Verifique se a tabela contém os dados pretendidos. Em uma célula vazia no bloco de anotações, copie o seguinte trecho e pressione **SHIFT+ENTER**.
+7. Verifique se a tabela contém os dados pretendidos. Em uma célula vazia no bloco de anotações, copie o seguinte trecho e pressione **SHIFT + ENTER**.
 
 		hiveCtx.sql("SELECT * FROM hvac LIMIT 10").show()
 	
-8. Agora você pode sair do bloco de anotações reiniciando o kernel. Na barra de menus superior, clique em **Kernel**, clique em **Reiniciar** e em **Reiniciar** novamente quando solicitado.
+8. Agora você pode sair do bloco de anotações reiniciando o kernel. Na barra de menus superior, clique em **Kernel**, clique em **Reiniciar** e, em seguida, clique em **Reiniciar** novamente no prompt.
 
 	![Reiniciar o kernel do Jupyter](./media/hdinsight-apache-spark-use-bi-tools-v1/hdispark.jupyter.restart.kernel.png "Reiniciar o kernel do Jupyter")
 
@@ -116,13 +116,13 @@ Depois de salvar os dados como uma tabela Hive, você pode usar o Power BI para 
 
 1. Entre no [Power BI](http://www.powerbi.com/).
 
-2. Na tela de boas-vindas, clique em **Bancos de Dados e Mais**.
+2. Na tela de boas-vindas, clique em **Bancos de dados e mais**.
 
 	![Colocar dados no Power BI](./media/hdinsight-apache-spark-use-bi-tools-v1/hdispark.powerbi.get.data.png "Colocar dados no Power BI")
 
-3. Na próxima tela, clique em **Spark** e em **Conectar**.
+3. Na próxima tela, clique em **Spark** e, em seguida, clique em **Conectar**.
 
-4. Na página Spark no Azure HDInsight, forneça os valores para se conectar ao cluster Spark e clique em **Conectar**.
+4. Na página Spark no Azure HDInsight, forneça os valores para se conectar ao cluster do Spark e, em seguida, clique em **Conectar**.
 
 	![Conectar-se a um cluster Spark no HDInsight](./media/hdinsight-apache-spark-use-bi-tools-v1/hdispark.powerbi.connect.spark.png "Conectar-se a um cluster Spark no HDInsight")
 
@@ -140,9 +140,9 @@ Depois de salvar os dados como uma tabela Hive, você pode usar o Power BI para 
 
 	![Criar visualizações](./media/hdinsight-apache-spark-use-bi-tools-v1/hdispark.powerbi.visual1.png "Criar visualizações")
 
-	Além disso, escolha **Mapa da Área** (mostrado em vermelho) para visualizar os dados.
+	Além disso, selecione **Mapa da área** (mostrado em vermelho) para visualizar seus dados.
 
-8. Por padrão, a visualização mostra a soma de **ActualTemp** e **TargetTemp**. Em ambos os campos, na lista suspensa, escolha **Média** para obter uma média das temperaturas almejada e real para ambos os prédios.
+8. Por padrão, a visualização mostra a soma para **ActualTemp** e **TargetTemp**. Para os campos, na lista suspensa, selecione **Média** para obter uma média das temperaturas almejada e real para ambos os prédios.
 
 	![Criar visualizações](./media/hdinsight-apache-spark-use-bi-tools-v1/hdispark.powerbi.visual2.png "Criar visualizações")
 
@@ -214,4 +214,4 @@ Depois de salvar os dados como uma tabela Hive, você pode usar o Power BI para 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

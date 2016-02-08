@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Portas do Azure AD Connect"
+	pageTitle="Azure AD Connect: portas | Microsoft Azure"
 	description="Essa página é uma página de referência técnica para as portas que precisam estar abertas para o Azure AD Connect"
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="01/21/2016"
 	ms.author="billmath"/>
 
 # Portas e Protocolos Requeridos para Identidade Híbrida
@@ -79,4 +79,4 @@ Esta tabela descreve as portas e protocolos que são necessários para a comunic
 ### 6b - pontos de extremidade de agente do Azure AD Connect Health para (AD FS/Sync) e Azure AD
 Para obter uma lista de pontos de extremidade, consulte [a seção de Requisitos para o agente do Azure AD Connect Health](active-directory-aadconnect-health.md#requirements)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

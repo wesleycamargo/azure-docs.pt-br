@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/20/2016"
+   ms.date="01/21/2016"
    ms.author="nitinme"/>
 
 # Criar um cluster HDInsight com o Repositório Data Lake usando o Azure PowerShell
@@ -97,6 +97,8 @@ Execute estas etapas para criar um Repositório Data Lake.
 
 		# Register for Data Lake Store
 		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
+
+	>[AZURE.NOTE] Se você receber um erro semelhante a `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` ao registrar o provedor de recursos do Repositório Data Late, é possível que sua assinatura não esteja na lista de permissões do Repositório Azure Data Lake. Verifique se você habilitou sua assinatura do Azure para o preview público do Repositório Data Lake seguindo estas [instruções](data-lake-store-get-started-portal.md#signup).
 
 3. Uma conta do Repositório Azure Data Lake está associada a um Grupo de Recursos do Azure. Comece criando um Grupo de Recursos do Azure.
 
@@ -259,7 +261,7 @@ Para saber mais sobre a utilização do PuTTY, confira [Usar SSH com o Hadoop ba
 
     	hive
 
-2. Usando a CLI, insira as instruções a seguir para criar uma nova tabela chamada **vehicles** usando os dados de exemplo no Data Lake Store:
+2. Usando a CLI, insira as instruções a seguir para criar uma nova tabela chamada **vehicles** usando os dados de exemplo no Repositório Data Lake:
 
 		DROP TABLE vehicles;
 		CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://<mydatalakestore>.azuredatalakestore.net:443/';
@@ -376,4 +378,4 @@ Você também pode usar o comando `hdfs dfs -put` para carregar alguns arquivos 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

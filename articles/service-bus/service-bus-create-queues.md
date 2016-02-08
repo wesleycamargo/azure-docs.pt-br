@@ -55,7 +55,7 @@ A seção a seguir mostra como usar o Barramento de Serviço para criar esse apl
 
 ### Inscrever-se em uma conta e em uma assinatura do Barramento de Serviço
 
-Você precisará de uma conta do Azure para começar a trabalhar com o Barramento de Serviço. Se você ainda não tiver uma assinatura, poderá se inscrever em uma avaliação gratuita [aqui](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
+Você precisará de uma conta do Azure para começar a trabalhar com o Barramento de Serviço. Se você ainda não tiver uma assinatura, poderá se inscrever em uma avaliação gratuita [aqui](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
 
 ### Criar um namespace de serviço
 
@@ -63,7 +63,7 @@ Quando você tiver uma assinatura, poderá criar um novo namespace. Será necess
 
 ### Instalar o pacote NuGet
 
-Para usar o namespace de serviço do Barramento de Serviço, um aplicativo deverá referenciar o assembly do Barramento de Serviço, especificamente o Microsoft.ServiceBus.dll. Esse assembly pode ser encontrado como parte do SDK do Microsoft Azure e o download está disponível na [página de download do SDK do Azure](http://azure.microsoft.com/downloads/). Entretanto, o pacote NuGet do Barramento de Serviço é a maneira mais fácil de obter a API do Barramento de Serviço e de configurar seu aplicativo com todas as dependências do Barramento de Serviço. Para obter detalhes sobre como usar o NuGet e o pacote do Barramento de Serviço, confira [Usando o pacote NuGet do Barramento de Serviço](https://msdn.microsoft.com/library/dn741354.aspx).
+Para usar o namespace de serviço do Barramento de Serviço, um aplicativo deverá referenciar o assembly do Barramento de Serviço, especificamente o Microsoft.ServiceBus.dll. Esse assembly pode ser encontrado como parte do SDK do Microsoft Azure e o download está disponível na [página de download do SDK do Azure](https://azure.microsoft.com/downloads/). Entretanto, o pacote NuGet do Barramento de Serviço é a maneira mais fácil de obter a API do Barramento de Serviço e de configurar seu aplicativo com todas as dependências do Barramento de Serviço. Para obter detalhes sobre como usar o NuGet e o pacote do Barramento de Serviço, confira [Usando o pacote NuGet do Barramento de Serviço](https://msdn.microsoft.com/library/dn741354.aspx).
 
 ### Criar a fila
 
@@ -160,4 +160,4 @@ catch (Exception e)
 
 Agora que você aprendeu os conceitos básicos sobre filas, confira [Criar aplicativos que usam assinaturas e tópicos do Barramento de Serviço](service-bus-create-topics-subscriptions.md) para continuar essa discussão usando os recursos de publicação/assinatura do sistema de mensagens agenciado do Barramento de Serviço.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

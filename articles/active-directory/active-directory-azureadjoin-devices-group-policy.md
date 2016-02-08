@@ -68,14 +68,17 @@ Os dispositivos ingressados no domínio usarão esse objeto para descobrir as in
 
     Initialize-ADSyncDomainJoinedComputerSync –AdConnectorAccount [connector account name] -AzureADCredentials $aadAdminCred;
 
->[AZURE.NOTE]Substitua [*nome da conta do conector*] pela conta de domínio usada como a conta do AD Connector.
+>[AZURE.NOTE]
+ Substitua [*nome da conta do conector*] pela conta de domínio usada como a conta do AD Connector.
 
->[AZURE.NOTE]O nome de usuário da credencial inserida quando o pop-up Get-Credential aparece precisa estar no formato *user@example.com*
+>[AZURE.NOTE]
+O nome de usuário da credencial inserida quando o pop-up Get-Credential aparece precisa estar no formato **user@example.com*
 
 ### Configurar regras de declaração do AD FS
 Isso permite o registro instantâneo de um computador com o Azure DRS, permitindo que os computadores se autentiquem usando Kerberos/NTLM por meio do AD FS. Sem essa etapa, os computadores chegarão ao AD do Azure com atraso (sujeito aos tempos de sincronização do Azure AD Connect).
 
->[AZURE.NOTE]Se você não tiver o AD FS como o servidor de federação local, siga as instruções do fornecedor para criar as regras de declaração.
+>[AZURE.NOTE]
+Se você não tiver o AD FS como o servidor de federação local, siga as instruções do fornecedor para criar as regras de declaração.
 
 No servidor AD FS, execute os comandos do PowerShell a seguir (ou em uma sessão conectada ao servidor AD FS):
 
@@ -109,7 +112,8 @@ No servidor AD FS, execute os comandos do PowerShell a seguir (ou em uma sessão
  
     Set-AdfsRelyingPartyTrust -TargetIdentifier urn:federation:MicrosoftOnline -IssuanceTransformRules $crSet.ClaimRulesString 
 
->[AZURE.NOTE]Os computadores com Windows 10 farão a autenticação usando a autenticação integrada do Windows para um ponto de extremidade WS-Trust ativo hospedado pelo AD FS. Esse ponto de extremidade tem que estar habilitado. Se você estiver usando o proxy Web de autenticação, também deve fazer com que esse ponto de extremidade seja publicado por meio do proxy. Você pode fazer isso verificando se adfs/services/trust/13/windowstransport aparece como ativado no console de gerenciamento do AD FS em Serviço > Pontos de Extremidade.
+>[AZURE.NOTE]
+Os computadores com Windows 10 farão a autenticação usando a autenticação integrada do Windows para um ponto de extremidade WS-Trust ativo hospedado pelo AD FS. Esse ponto de extremidade tem que estar habilitado. Se você estiver usando o proxy Web de autenticação, também deve fazer com que esse ponto de extremidade seja publicado por meio do proxy. Você pode fazer isso verificando se adfs/services/trust/13/windowstransport aparece como ativado no console de gerenciamento do AD FS em Serviço > Pontos de Extremidade.
 
 
 ## Etapa 2: configurar o registro automático de dispositivo usando Política de Grupo no Active Directory
@@ -127,7 +131,8 @@ Você pode usar uma Política de Grupo do Active Directory e configurar os dispo
  - Uma UO (unidade organizacional) específica no AD onde os computadores ingressados em domínio do Windows 10 estejam localizados.
  - Um grupo de segurança específico com computadores ingressados no domínio do Windows 10 que serão registrados automaticamente no Azure AD.
  
->[AZURE.NOTE]Esse modelo de Política de Grupo foi renomeado no Windows 10. Se você estiver executando a ferramenta Política de Grupo em um computador com Windows 10, a política será exibida como <br> **Registrar computadores ingressados no domínio como dispositivos** e pode ser encontrada no seguinte local:<br> ***Computer Configuration/Policies/Administrative Templates/Windows Components/Device Registration***
+>[AZURE.NOTE]
+Esse modelo de Política de Grupo foi renomeado no Windows 10. Se você estiver executando a ferramenta Política de Grupo em um computador com Windows 10, a política será exibida como <br> **Registrar computadores ingressados no domínio como dispositivos** e pode ser encontrada no seguinte local:<br> ***Computer Configuration/Policies/Administrative Templates/Windows Components/Device Registration***
 
  
 ## Informações adicionais
@@ -137,4 +142,4 @@ Você pode usar uma Política de Grupo do Active Directory e configurar os dispo
 * [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com o Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

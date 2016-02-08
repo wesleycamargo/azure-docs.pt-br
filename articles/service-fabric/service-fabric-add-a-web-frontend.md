@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/21/2015"
+   ms.date="01/19/2016"
    ms.author="seanmck"/>
 
 
@@ -42,7 +42,7 @@ O ASP.NET 5 é uma estrutura de desenvolvimento Web leve entre plataformas que p
 
     Depois de criar seu projeto de API Web, você terá dois serviços em seu aplicativo. Durante a compilação de seu aplicativo, você adicionará mais serviços exatamente da mesma forma. Cada um pode seu próprio controle de versão e ser atualizado de forma independente.
 
->[AZURE.NOTE]Desde a versão de visualização pública de novembro do Service Fabric, há problemas conhecidos com caminhos longos ao lidar com projetos do ASP.NET. Ao criar esses tipos de projetos é melhor escolher nomes curtos para aplicativos, tipos de serviço e nomes de pacote de código e configuração, para evitar qualquer problema.
+>[AZURE.NOTE] Desde a versão de visualização pública de novembro do Service Fabric, há problemas conhecidos com caminhos longos ao lidar com projetos do ASP.NET. Ao criar esses tipos de projetos é melhor escolher nomes curtos para aplicativos, tipos de serviço e nomes de pacote de código e configuração, para evitar qualquer problema.
 
 ## Executar o aplicativo
 
@@ -139,7 +139,7 @@ Agora que definimos a interface, precisamos implementá-la no serviço com estad
 
 Com a interface `ICounter` implementada, a etapa final para habilitar o chamamento do serviço com estado por outros serviços é abrir um canal de comunicação. Para serviços com estado, o Service Fabric fornece um método substituível chamado `CreateServiceReplicaListeners`. Com esse método, você pode especificar um ou mais ouvintes de comunicação, com base no tipo de comunicação que você deseja habilitar para o serviço.
 
->[AZURE.NOTE]O método equivalente para abrir um canal de comunicação para serviços sem estado é chamado `CreateServiceInstanceListeners`.
+>[AZURE.NOTE] O método equivalente para abrir um canal de comunicação para serviços sem estado é chamado `CreateServiceInstanceListeners`.
 
 Nesse caso, substituiremos o método `CreateServiceReplicaListeners` existente e forneceremos uma instância do `ServiceRemotingListener`, que cria um ponto de extremidade RPC que pode ser chamado por clientes usando o `ServiceProxy`.
 
@@ -189,7 +189,7 @@ Agora, nosso serviço com estado está pronto para receber o tráfego de outros 
 
     A primeira linha de código é a principal. Para criar o proxy ICounter para o serviço com estado, você precisa fornecer duas informações: uma ID de partição e o nome do serviço.
 
-    Você pode usar o particionamento para dimensionar serviços com estado dividindo seu estado em diferentes recipientes com base em uma chave definida por você, como ID de cliente ou CEP. Em nosso aplicativo comum, o serviço com estado tem somente uma partição, portanto, a chave não importa. Qualquer chave que você fornecer levará até a mesma partição. Confira [Como particionar Reliable Services do Service Fabric](service-fabric-concepts-partitioning) para saber mais sobre como particionar seu serviço.
+    Você pode usar o particionamento para dimensionar serviços com estado dividindo seu estado em diferentes recipientes com base em uma chave definida por você, como ID de cliente ou CEP. Em nosso aplicativo comum, o serviço com estado tem somente uma partição, portanto, a chave não importa. Qualquer chave que você fornecer levará até a mesma partição. Confira [Como particionar Reliable Services do Service Fabric](service-fabric-concepts-partitioning.md) para saber mais sobre como particionar seu serviço.
 
     O nome do serviço é um URI da malha de formulário:/&lt;application\_name&gt;/&lt;service\_name&gt;.
 
@@ -237,4 +237,4 @@ Para saber como configurar valores diferentes para um ambiente diferente, confir
 [vs-services-nuget-package]: ./media/service-fabric-add-a-web-frontend/vs-services-nuget-package.png
 [browser-aspnet-counter-value]: ./media/service-fabric-add-a-web-frontend/browser-aspnet-counter-value.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

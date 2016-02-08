@@ -24,7 +24,7 @@ Como um núcleo de serviços da plataforma Azure, o Agendador do Azure é altame
 
 ### Implantação de serviço com redundância geográfica
 
-O Agendador do Azure está disponível por meio da interface do usuário em quase todos as regiões geográficas que estão atualmente no Azure. A lista de regiões na qual o Agendador do Azure está disponível está [listada aqui](http://azure.microsoft.com/regions/#services). Se um data center em uma região hospedada é renderizado indisponível, os recursos de failover do Agendador do Azure fazem com que o serviço esteja disponível a partir de outro data center.
+O Agendador do Azure está disponível por meio da interface do usuário em quase todos as regiões geográficas que estão atualmente no Azure. A lista de regiões na qual o Agendador do Azure está disponível está [listada aqui](https://azure.microsoft.com/regions/#services). Se um data center em uma região hospedada é renderizado indisponível, os recursos de failover do Agendador do Azure fazem com que o serviço esteja disponível a partir de outro data center.
 
 ### Replicação geográfica regional de trabalho
 
@@ -72,10 +72,9 @@ Para saber como configurar um ponto de extremidade alternativo, confira [errorAc
 
  [Como criar agendas complexas e recorrência avançada com o Agendador do Azure](scheduler-advanced-complexity.md)
 
- [Referência da API REST do Agendador do Azure](https://msdn.microsoft.com/library/dn528946)
+ [Referência da API REST do Agendador do Azure](https://msdn.microsoft.com/library/mt629143)
 
  [Referência de cmdlets do PowerShell do Agendador do Azure](scheduler-powershell-reference.md)
-
 
  [Limites, padrões e códigos de erro do Agendador do Azure](scheduler-limits-defaults-errors.md)
 
@@ -88,4 +87,4 @@ Para saber como configurar um ponto de extremidade alternativo, confira [errorAc
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

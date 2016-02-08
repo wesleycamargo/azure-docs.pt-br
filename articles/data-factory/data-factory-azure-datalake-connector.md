@@ -19,7 +19,8 @@
 # Mover dados para e do Repositório Data Lake do Azure usando o Azure Data Factory
 Este artigo descreve como você pode usar a Atividade de Cópia em um Azure Data Factory para mover os dados para o Repositório Azure Data Lake a partir de outro repositório de dados e mover os dados do Repositório Azure Data Lake para outro repositório de dados. Este artigo se baseia no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral de movimentação de dados com a atividade de cópia e combinações de armazenamento de dados para as quais há suporte.
 
-> [AZURE.NOTE]Você deve criar uma conta do Repositório Data Lake do Azure antes de criar um pipeline com uma Atividade de Cópia para mover dados de ou para um repositório do Azure Data Lake. Para saber mais sobre o Repositório Data Lake do Azure, consulte [Introdução ao Repositório Data Lake do Azure](../data-lake-store/data-lake-store-get-started-portal.md).
+> [AZURE.NOTE]
+Você deve criar uma conta do Repositório Data Lake do Azure antes de criar um pipeline com uma Atividade de Cópia para mover dados de ou para um repositório do Azure Data Lake. Para saber mais sobre o Repositório Data Lake do Azure, consulte [Introdução ao Repositório Data Lake do Azure](../data-lake-store/data-lake-store-get-started-portal.md).
 >  
 > Consulte o tutorial [Criar seu primeiro pipeline](data-factory-build-your-first-pipeline.md) para obter etapas detalhadas para criar uma fábrica de dados, serviços vinculados, conjuntos de dados e um pipeline. Use os trechos de código JSON com o Editor do Data Factory, Visual Studio ou Azure PowerShell para criar as entidades do Data Factory.
 
@@ -74,7 +75,7 @@ O procedimento a seguir lista as etapas para criar um serviço vinculado do Repo
 5. (opcional) Especifique valores para parâmetros opcionais, como **accountName**, **subscriptionID** e **resourceGroupName** no JSON (ou) exclua essas propriedades do JSON.
 6. Clique em **Implantar** na barra de comandos para implantar o serviço vinculado.
 
-> [AZURE.IMPORTANT]O código de autorização gerado usando o botão **Autorizar** expira após algum tempo. Você precisará **autorizar novamente** usando o botão **Autorizar** quando o **token expirar** e reimplantar o serviço vinculado. Confira a seção [Serviço vinculado do repositório Azure Data Lake](#azure-data-lake-store-linked-service-properties) para obter detalhes.
+> [AZURE.IMPORTANT] O código de autorização gerado usando o botão **Autorizar** expira após algum tempo. Você precisará **autorizar novamente** usando o botão **Autorizar** quando o **token expirar** e reimplantar o serviço vinculado. Confira a seção [Serviço vinculado do repositório Azure Data Lake](#azure-data-lake-store-linked-service-properties) para obter detalhes.
 
 
 
@@ -238,7 +239,7 @@ O exemplo copia os dados pertencentes a uma série temporal de um repositório d
 	    }
 	}
 
-> [AZURE.NOTE]Veja as etapas no exemplo anterior para obter a URL de autorização.
+> [AZURE.NOTE] Veja as etapas no exemplo anterior para obter a URL de autorização.
 
 **Serviço vinculado de armazenamento do Azure:**
 
@@ -414,8 +415,8 @@ O código de autorização gerado usando o botão **Autorizar** expira após alg
 | Tipo de usuário | Expira após |
 | :-------- | :----------- | 
 | Usuário não AAD (@hotmail.com, @live.com, etc.) | 12 horas |
-| O usuário do AAD e a fonte baseada no OAuth estão em um [locatário](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) diferente, como o locatário do Data Factory do usuário. | 12 horas |
-| O usuário do AAD e a fonte baseada no OAuth estão no mesmo locatário, como o locatário do Data Factory do usuário. | <p> O máximo é de 90 dias se o usuário executar fatias com base na origem do serviço vinculado baseado no OAuth pelo menos uma vez a cada 14 dias. </p><p>Durante os 90 dias esperados, se o usuário não executar nenhuma fatia com base nessa fonte por 14 dias, as credenciais expirarão imediatamente em 14 dias após sua última fatia.</p> |
+| O usuário do AAD e a fonte baseada no OAuth estão em um [locatário](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) diferente do locatário do data factory. | 12 horas |
+| O usuário do AAD e a fonte baseada no OAuth estão no mesmo locatário que o locatário do data factory. | 14 dias |
 
 Para evitar/resolver o erro, você precisará autorizar novamente usando o botão **Autorizar** quando o **token expirar** e reimplantar o serviço vinculado. Você também pode gerar valores para as propriedades **sessionId** e **authorization** programaticamente usando o código na seção a seguir.
 
@@ -604,4 +605,4 @@ Propriedades disponíveis na seção typeProperties da atividade, por outro lado
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

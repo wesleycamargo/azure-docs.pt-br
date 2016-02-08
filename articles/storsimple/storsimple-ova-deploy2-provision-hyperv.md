@@ -22,7 +22,7 @@
 
 ## Visão geral 
 
-Este tutorial de provisionamento se aplica ao Microsoft Azure StorSimple Virtual Array (também conhecido como dispositivos virtuais locais StorSimple ou dispositivos virtuais StorSimple) executando somente a v.1.1.1.0 (visualização pública). Este tutorial descreve como provisionar um StorSimple Virtual Array em um sistema de host que executa Hyper-V 2008 R2, Hyper-V 2012 ou Hyper-V 2012 R2.
+Este tutorial de provisionamento se aplica ao Microsoft Azure StorSimple Virtual Array (também conhecido como dispositivos virtuais locais StorSimple ou dispositivos virtuais StorSimple) executando somente a v.1.1.1.0 (visualização pública). Este tutorial descreve como provisionar um StorSimple Virtual Array em um sistema de host que executa o Hyper-V 2008 R2, o Hyper-V 2012 ou o Hyper-V 2012 R2.
 
 Você precisará de privilégios de administrador para provisionar e configurar um dispositivo virtual. O provisionamento e a configuração inicial podem levar cerca de 10 minutos para ser concluídos.
 
@@ -32,7 +32,7 @@ Você precisará de privilégios de administrador para provisionar e configurar 
 
 ## Pré-requisitos de provisionamento
 
-Aqui você encontrará os pré-requisitos para provisionar um dispositivo virtual em um sistema de host que executa o Hyper-V 2008 R2, Hyper-V 2012 e 2012 R2.
+Aqui você encontrará os pré-requisitos para provisionar um dispositivo virtual em um sistema de host que executa o Hyper-V 2008 R2, o Hyper-V 2012 ou o Hyper-V 2012 R2.
 
 ### Para o serviço StorSimple Manager
 
@@ -274,4 +274,4 @@ Assista ao vídeo para ver como você pode provisionar um StorSimple Virtual Arr
 
 -   [Configurar sua StorSimple Virtual Array como um servidor iSCSI](storsimple-ova-deploy3-iscsi-setup.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

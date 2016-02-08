@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="10/27/2015"
+   ms.date="01/22/2016"
    ms.author="viviali"/>
 
 # Visualização da colaboração AD B2B do Azure (Active Directory do Azure): integração simples e segura com parceiros de nuvem
@@ -28,6 +28,8 @@
 
 Confira [a postagem no blog anunciando a visualização pública](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx) e [este vídeo detalhado](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-B2B-collaboration-demo) que explica a colaboração do AD B2B do Azure.
 
+Para obter uma comparação entre os diferentes casos de uso da colaboração B2B do AD do Azure, de B2C do AD do Azure e do Aplicativo Multilocatário do AD do Azure, confira [Comparando recursos para o gerenciamento de identidades externas usando o Active Directory do Azure](active-directory-b2b-compare-external-identities.md).
+
 ## Artigos relacionados
 Confira nossos outros artigos sobre a colaboração B2B do Azure:
 
@@ -38,4 +40,4 @@ Confira nossos outros artigos sobre a colaboração B2B do Azure:
 - [Alterações de atributo do objeto de usuário externo](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [Limitações atuais da visualização](active-directory-b2b-current-preview-limitations.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

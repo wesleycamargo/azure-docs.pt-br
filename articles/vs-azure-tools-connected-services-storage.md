@@ -90,8 +90,8 @@ Quando você acaba de fazer suas escolhas na caixa de diálogo, o Visual Studio 
 
      - [Blog da equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 
-     - [Armazenamento em azure.microsoft.com](http://azure.microsoft.com/services/storage)
+     - [Armazenamento em azure.microsoft.com](https://azure.microsoft.com/services/storage/)
 
-     - [Documentação do Armazenamento em azure.microsoft.com](http://azure.microsoft.com/documentation/services/storage/)
+     - [Documentação do Armazenamento em azure.microsoft.com](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,4 +1,3 @@
-<a id="what-are-service-bus-queues"></a>
 ## O que são as filas do Barramento de Serviço?
 
 Filas do Barramento de Serviço dão suporte a um modelo de comunicação de **sistema de mensagens agenciado**. Ao usar filas, os componentes de um aplicativo distribuído não se comunicam diretamente uns com os outros, mas trocam mensagens por meio de uma fila, que atua como um intermediário (agente). Um produtor de mensagem (remetente) transmite uma mensagem para a fila e, em seguida, continua o processamento. De forma assíncrona, um consumidor de mensagem (receptor) recebe a mensagem da fila e a processa. O produtor não precisa esperar por uma resposta do consumidor a fim de continuar a processar e enviar mais mensagens. As filas oferecem entrega de mensagem do tipo **FIFO (primeiro a entrar, primeiro a sair)** para um ou mais consumidores concorrentes. Ou seja, as mensagens são normalmente recebidas e processadas pelos receptores na ordem em que foram adicionadas à fila, sendo que cada mensagem é recebida e processada por apenas um consumidor de mensagem.
@@ -41,8 +40,6 @@ O namespace que você criou demora algum tempo para ser ativado, e então aparec
 
 A fim de executar operações de gerenciamento, como criar uma fila no novo namespace, obtenha as credenciais de gerenciamento para o namespace. Você pode obter essas credenciais no portal.
 
-###Para obter as credenciais de gerenciamento do portal
-
 1.  No painel de navegação esquerdo, clique no nó **Barramento de Serviço** para exibir a lista de namespaces disponíveis: ![](./media/service-bus-java-how-to-create-queue/sb-queues-13.png)
 
 2.  Na lista mostrada, clique no namespace que acabou de criar.
@@ -55,4 +52,4 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
 
   [34]: ./media/service-bus-java-how-to-create-queue/VSProperties.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

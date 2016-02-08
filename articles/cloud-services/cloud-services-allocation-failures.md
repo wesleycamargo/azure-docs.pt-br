@@ -24,7 +24,7 @@
 ## Resumo
 Quando você implanta instâncias em um Serviço de Nuvem ou adiciona nova instâncias de função da Web ou de trabalho, o Microsoft Azure aloca recursos de computação. Eventualmente, você pode receber mensagens de erro durante a execução dessas operações antes de alcançar os limites da assinatura do Microsoft Azure. Este artigo explica as causas das falhas de alocação mais comuns e sugere possíveis correções. As informações também poderão ser úteis caso você pretenda implantar serviços.
 
-Se precisar de mais ajuda em qualquer momento neste artigo, você pode entrar em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](http://azure.microsoft.com/support/forums/). Como alternativa, você também pode registrar um incidente de suporte do Azure. Acesse o [site de suporte do Microsoft Azure](http://azure.microsoft.com/support/options/) e clique em **Obter Suporte**.
+Se precisar de mais ajuda em qualquer momento neste artigo, você pode contatar os especialistas do Azure nos [fóruns do Azure MSDN e Excedente de Pilha](https://azure.microsoft.com/support/forums/). Como alternativa, você também pode registrar um incidente de suporte do Azure. Acesse o [site de suporte do Microsoft Azure](https://azure.microsoft.com/support/options/) e clique em **Obter Suporte**.
 
 ### Histórico – Como funciona a alocação
 Os servidores são particionados em clusters nos datacenters do Microsoft Azure. Ocorre uma nova tentativa de solicitação de alocação de serviço de nuvem em vários clusters. Quando a primeira instância é implantada em um serviço de nuvem (em preparo ou produção), esse serviço de nuvem é fixado a um cluster. Quaisquer implantações adicionais do serviço de nuvem ocorrerão no mesmo cluster. Neste artigo, chamaremos isso de "fixada a um cluster". O diagrama 1 a seguir exemplifica o caso de uma tentativa de alocação normal feita em vários clusters; o diagrama 2 demonstra o caso de uma alocação que foi fixada ao Cluster 2 por se tratar do local de hospedagem do Serviço de Nuvem CS\_1.
@@ -86,6 +86,6 @@ Estes são os cenários comuns de alocação que causam a fixação de uma solic
 ## Recursos adicionais
 ### Contate o Suporte ao Cliente do Azure
 
-Caso este artigo não o ajude a resolver seu problema com o Azure, navegue pelos fóruns do Azure em [MSDN e Excedente de Pilha](http://azure.microsoft.com/support/forums/). Você pode também registrar uma ocorrência de suporte do Microsoft Azure sobre o problema. Acesse o site [Suporte do Azure](http://azure.microsoft.com/support/options/) e clique em Obter Suporte. Para saber mais sobre como usar o Suporte do Azure, leia as [ Perguntas frequentes de suporte do Microsoft Azure](http://azure.microsoft.com/support/faq/).
+Caso este artigo não ajude a resolver o problema do Microsoft Azure, navegue pelos fóruns do Azure em [MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Você pode também registrar uma ocorrência de suporte do Microsoft Azure sobre o problema. Acesse o site [Suporte do Microsoft Azure](https://azure.microsoft.com/support/options/) e clique em Obter suporte. Para saber mais sobre como usar o Suporte do Azure, leia as [ Perguntas frequentes de suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

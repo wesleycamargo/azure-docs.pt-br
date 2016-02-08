@@ -39,10 +39,10 @@ Este artigo apresenta dois cenários para implantar instâncias A8 e A9 clusteri
 * **Examine as [informações básicas e considerações](virtual-machines-a8-a9-a10-a11-specs.md)** sobre as instâncias de computação intensiva
 
 
-* **Assinatura do Azure**: se não tiver uma conta, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/).
+* **Assinatura do Azure**: se não tiver uma conta, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 
-* **Cota de núcleos**: talvez seja necessário aumentar a cota de núcleos para implantar um cluster de VMs A8 ou A9. Por exemplo, você precisará de pelo menos 128 núcleos se quiser implantar instâncias A8 e A9 com o HPC Pack. Para aumentar uma cota, [abra uma solicitação de atendimento ao cliente online](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitamente.
+* **Cota de núcleos**: talvez seja necessário aumentar a cota de núcleos para implantar um cluster de VMs A8 ou A9. Por exemplo, você precisará de pelo menos 128 núcleos se quiser implantar instâncias A8 e A9 com o HPC Pack. Para aumentar uma cota, [abra uma solicitação de atendimento ao cliente online](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitamente.
 
 ## Cenário 1. Implantar instâncias de função de trabalho de computação intensiva (PaaS)
 
@@ -51,7 +51,7 @@ Em um cluster existente do HPC Pack, adicione recursos de computação extras na
 
 Veja a seguir as considerações e etapas para disparar as instâncias A8 ou A9 do Azure de um cluster existente (geralmente locais). Use procedimentos semelhantes para adicionar instâncias de função de trabalho a um nó de cabeçalho do HPC Pack que é implantado em uma VM do Azure.
 
->[AZURE.NOTE]Para ver um tutorial de como disparar no Azure com o HPC Pack, consulte [Configurar um cluster híbrido com o HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Observe que as considerações nas etapas abaixo se aplicam especificamente aos nós de tamanho A8 e A9 do Azure.
+>[AZURE.NOTE] Para ver um tutorial de como disparar no Azure com o HPC Pack, consulte [Configurar um cluster híbrido com o HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Observe que as considerações nas etapas abaixo se aplicam especificamente aos nós de tamanho A8 e A9 do Azure.
 
 ![Disparo no Azure][burst]
 
@@ -226,7 +226,7 @@ Veja a seguir as considerações para execução de aplicativos MPI nas instânc
 
 * Para executar aplicativos MPI em instâncias do Azure, registre cada aplicativo MPI no Firewall do Windows nas instâncias executando o comando **hpcfwutil**. Isso permite que as comunicações MPI ocorram em uma porta atribuída dinamicamente pelo firewall.
 
-    >[AZURE.NOTE]Para implantações de disparo no Azure, você também pode configurar um comando de exceção de firewall para ser executado automaticamente em todos os nós novos do Azure que são adicionados ao cluster. Depois de executar o comando **hpcfwutil** e verificar se seu aplicativo funciona, adicione o comando ao script de inicialização dos seus nós do Azure. Para obter mais informações, consulte [Usar um script de inicialização para nós do Azure](https://technet.microsoft.com/library/jj899632.aspx).
+    >[AZURE.NOTE] Para implantações de disparo no Azure, você também pode configurar um comando de exceção de firewall para ser executado automaticamente em todos os nós novos do Azure que são adicionados ao cluster. Depois de executar o comando **hpcfwutil** e verificar se seu aplicativo funciona, adicione o comando ao script de inicialização dos seus nós do Azure. Para obter mais informações, consulte [Usar um script de inicialização para nós do Azure](https://technet.microsoft.com/library/jj899632.aspx).
 
 
 
@@ -249,4 +249,4 @@ Veja a seguir as considerações para execução de aplicativos MPI nas instânc
 [pingpong1]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong1.png
 [pingpong2]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong2.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

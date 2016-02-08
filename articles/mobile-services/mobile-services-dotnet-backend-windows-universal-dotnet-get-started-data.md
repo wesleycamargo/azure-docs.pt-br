@@ -39,7 +39,7 @@ O serviço móvel que você criará neste tutorial é um serviço móvel de back
 
 Para concluir este tutorial, você precisará do seguinte:
 
-* Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-universal-dotnet-get-started-data%2F).
+* Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-universal-dotnet-get-started-data%2F).
 * <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio 2013</a> (Atualização 3 ou versão posterior).
 
 ##Baixar o projeto GetStartedWithData
@@ -98,14 +98,11 @@ Isso conclui o tutorial.
 
 Este tutorial demonstrou os conceitos básicos de como habilitar um projeto do aplicativo Windows universal para trabalhar com dados nos Serviços Móveis. Em seguida, considere a leitura de um destes outros tópicos:
 
-* [Introdução à autenticação]
-  <br/>Saiba como autenticar usuários de seu aplicativo.
+* [Introdução à autenticação] <br/>Saiba como autenticar usuários de seu aplicativo.
 
-* [Introdução às notificações por push]
-  <br/>Saiba como enviar uma notificação por push bastante básica a seu aplicativo.
+* [Introdução às notificações por push] <br/>Saiba como enviar uma notificação por push bastante básica a seu aplicativo.
 
-* [Referência conceitual de tutorial de C# dos Serviços Móveis](mobile-services-windows-dotnet-how-to-use-client-library.md)
-  <br/>Saiba mais sobre como usar os Serviços Móveis com o .NET.
+* [Referência conceitual de tutorial de C# dos Serviços Móveis](mobile-services-windows-dotnet-how-to-use-client-library.md) <br/>Saiba mais sobre como usar os Serviços Móveis com o .NET.
 
 
 <!-- Images. -->
@@ -119,12 +116,11 @@ Este tutorial demonstrou os conceitos básicos de como habilitar um projeto do a
 [Introdução à autenticação]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
 [Introdução às notificações por push]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
 
-[Começar a usar a sincronização de dados offline]: mobile-services-windows-store-dotnet-get-started-offline-data.md
+[Get started with offline data sync]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
-[site de exemplos de código do desenvolvedor]: http://go.microsoft.com/fwlink/p/?LinkID=510826
+[Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkID=510826
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
-<!---HONumber=AcomDC_1203_2015-->
-
+<!---HONumber=AcomDC_0128_2016-->

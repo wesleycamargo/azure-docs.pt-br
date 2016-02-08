@@ -28,7 +28,7 @@ Assim como arquivos residem em pastas, blobs de armazenamento residem em contêi
 
 - Para saber mais sobre como manipular blobs de modo programático, consulte [Como usar o armazenamento de blobs do .NET](storage-dotnet-how-to-use-blobs.md).
 - Para obter informações gerais sobre o Armazenamento do Azure, consulte a [documentação do Armazenamento](https://azure.microsoft.com/documentation/services/storage/).
-- Para obter informações gerais sobre os Serviços de Nuvem do Azure, consulte a [documentação dos Serviços de Nuvem](http://azure.microsoft.com/documentation/services/cloud-services/).
+- Para obter informações gerais sobre os Serviços de Nuvem do Azure, consulte a [documentação dos Serviços de Nuvem](https://azure.microsoft.com/documentation/services/cloud-services/).
 - Para saber mais sobre como programar aplicativos ASP.NET, consulte [ASP.NET](http://www.asp.net).
 
 ## Acessar contêineres de blob em código
@@ -58,11 +58,11 @@ Para acessar de modo programático blobs em projetos de serviço de nuvem, você
         // Get a reference to a container named “mycontainer.”
         CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-> [AZURE.NOTE]Use todo o código mostrado no procedimento anterior na frente do código mostrado nas seções a seguir.
+> [AZURE.NOTE] Use todo o código mostrado no procedimento anterior na frente do código mostrado nas seções a seguir.
 
 ## Criar um contêiner no código
 
-> [AZURE.NOTE]Algumas APIs que executam chamadas para o Armazenamento do Azure no ASP.NET são assíncronas. Confira [Programação assíncrona com Async e Await](http://msdn.microsoft.com/library/hh191443.aspx) para obter mais informações. O código no exemplo a seguir pressupõe que você esteja usando os métodos de programação assíncrona.
+> [AZURE.NOTE] Algumas APIs que executam chamadas para o Armazenamento do Azure no ASP.NET são assíncronas. Confira [Programação assíncrona com Async e Await](http://msdn.microsoft.com/library/hh191443.aspx) para obter mais informações. O código no exemplo a seguir pressupõe que você esteja usando os métodos de programação assíncrona.
 
 Para criar um contêiner na sua conta de armazenamento, basta adicionar uma chamada para **CreateIfNotExistsAsync**, como no seguinte código:
 
@@ -257,4 +257,4 @@ Como o exemplo de método chama um método assíncrono, ele deve ser precedido p
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

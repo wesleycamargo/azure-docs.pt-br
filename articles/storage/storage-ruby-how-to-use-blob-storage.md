@@ -59,7 +59,7 @@ O módulo do Azure lerá as variáveis de ambiente **AZURE\_STORAGE\_ACCOUNT** e
 
 Para obter esses valores:
 
-1. Faça logon no [Portal do Azure](portal.azure.com).
+1. Faça logon no [Portal do Azure](https://portal.azure.com).
 2. Navegue até a conta de armazenamento que você deseja usar.
 3. Clique em **GERENCIAR CHAVES** na parte inferior do painel de navegação.
 4. Na caixa de diálogo pop-up, você verá o nome da conta de armazenamento, a chave de acesso primária e a chave de acesso secundária. Para a chave de acesso, você pode usar tanto a primária quanto a secundária.
@@ -146,4 +146,4 @@ Para saber mais sobre tarefas complexas de armazenamento, siga estes links:
 - [SDK do Azure para repositório Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) no GitHub
 - [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

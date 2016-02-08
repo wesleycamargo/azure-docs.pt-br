@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/14/2015"
+   ms.date="01/22/2016"
    ms.author="alkohli" />
 
 # Implantar e gerenciar um dispositivo virtual do StorSimple no Azure (Atualização 2)
 
 > [AZURE.SELECTOR]
-- [Atualização 2](../articles/storsimple/storsimple-virtual-device-u2.md)
-- [Atualização 1](../articles/storsimple/storsimple-virtual-device-u1.md)
+- [Update 2](../articles/storsimple/storsimple-virtual-device-u2.md)
+- [Update 1](../articles/storsimple/storsimple-virtual-device-u1.md)
 - [GA Release](../articles/storsimple/storsimple-virtual-device.md)
 
 ##Visão geral
@@ -125,8 +125,7 @@ Execute as seguintes etapas para criar o dispositivo virtual StorSimple.
 
 Antes de iniciar este procedimento, verifique se você tem uma cópia da chave de criptografia de dados de serviço. A chave de criptografia de dados do serviço foi criada quando você configurou o primeiro dispositivo StorSimple e foi orientado a salvá-la em um local seguro. Se você não tiver uma cópia da chave de criptografia dos dados de serviço, deverá contatar o Suporte da Microsoft para obter assistência.
 
-Execute as seguintes etapas para configurar e registrar o dispositivo virtual StorSimple
-[AZURE.INCLUDE [Configurar e registrar um dispositivo virtual](../../includes/storsimple-configure-register-virtual-device.md)]
+Execute as seguintes etapas para configurar e registrar o dispositivo virtual StorSimple[AZURE.INCLUDE [Configurar e registrar um dispositivo virtual](../../includes/storsimple-configure-register-virtual-device.md)]
 
 ### Etapa 3: (opcional) Modificar as definições de configuração do dispositivo
 
@@ -235,7 +234,7 @@ Se você decidir que deseja apenas recriar seu dispositivo virtual, simplesmente
 
 A recuperação de desastres (RD) é um dos principais cenários para os quais o dispositivo virtual StorSimple foi projetado. Nesse cenário, o dispositivo físico StorSimple ou o datacenter inteiro podem não estar disponível. Felizmente, você pode usar um dispositivo virtual para restaurar operações em um local alternativo. Durante a RD, os contêineres de volume do dispositivo de origem alteram a propriedade e são transferidos para o dispositivo de destino. Os pré-requisitos para a RD são que o dispositivo virtual tenha sido criado e configurado, todos os volumes no contêiner de volume tenham sido colocados offline e o contêiner de volume tenha um de instantâneo de nuvem associado.
 
->[AZURE.NOTE]
+>[AZURE.NOTE] 
 >
 > - Ao usar um dispositivo virtual como o dispositivo secundário para recuperação de desastre, tenha em mente que o 8010 tem 30 TB de Armazenamento Standard e o 8020 tem 64 TB de Armazenamento Premium. O dispositivo virtual 8020 com uma maior capacidade pode ser mais adequado para um cenário de recuperação de desastre.
 > - Não é possível executar failover ou clonar um dispositivo que executa a Atualização 2 para um dispositivo que executa um software anterior à Atualização 1. No entanto, é possível executar failover de um dispositivo com a Atualização 2 para um dispositivo com a Atualização 1 (1.1 ou 1.2)
@@ -259,4 +258,4 @@ Se você excluir ou desligar o dispositivo virtual, ele será exibido como **Off
  
 - Entenda como [Restaurar um volume do StorSimple de um conjunto de backups](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

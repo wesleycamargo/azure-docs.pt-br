@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/30/2015"
+	ms.date="12/29/2015"
 	ms.author="danlep"/>
 
 # Conectar-se a uma assinatura do Azure a partir da interface de linha de comando do Azure (CLI do Azure)
@@ -35,7 +35,7 @@ Para obter mais informações sobre a autenticação e o gerenciamento da assina
 
 Se não tiver uma conta do Azure, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure][free-trial].
 
->[AZURE.NOTE]Se estiver usando uma versão da CLI do Azure anterior à versão 0.9.10, é possível usar o comando `azure login` apenas com identidades de conta corporativa ou de estudante; as identidades de conta da Microsoft não funcionam. Entretanto, você pode usar qualquer identidade para fazer logon em sua conta com o comando `azure login` interativo com as versões 0.9.10 e superior da CLI do Azure.
+>[AZURE.NOTE] Se estiver usando uma versão da CLI do Azure anterior à versão 0.9.10, é possível usar o comando `azure login` apenas com identidades de conta corporativa ou de estudante; as identidades de conta da Microsoft não funcionam. Entretanto, você pode usar qualquer identidade para fazer logon em sua conta com o comando `azure login` interativo com as versões 0.9.10 e superior da CLI do Azure.
 >
 As versões 0.9.9 e superior da CLI dão suporte à autenticação multifator.
 
@@ -48,7 +48,7 @@ Use o comando `azure login` – sem nenhum argumento – para autenticar de modo
 - uma identidade de conta corporativa ou de estudante que exija a autenticação multifator, ou
 - uma identidade de conta da Microsoft quando desejar acessar a funcionalidade de modo de implantação do Gerenciador de Recursos
 
-> [AZURE.NOTE]Em ambos os casos, a autenticação e a autorização são executadas com o Active Directory do Azure. Se você usar uma identidade de conta da Microsoft, o processo de logon acessará seu domínio padrão do Active Directory do Azure. (Se você se inscreveu para obter uma avaliação gratuita, você pode não estar ciente de que o Active Directory do Azure criou um domínio padrão para a sua conta).
+> [AZURE.NOTE]  Em ambos os casos, a autenticação e a autorização são executadas com o Active Directory do Azure. Se você usar uma identidade de conta da Microsoft, o processo de logon acessará seu domínio padrão do Active Directory do Azure. (Se você se inscreveu para obter uma avaliação gratuita, você pode não estar ciente de que o Active Directory do Azure criou um domínio padrão para a sua conta).
 
 Fazer logon no modo interativo é fácil: digite `azure login` e siga os prompts, como mostrado abaixo:
 
@@ -96,9 +96,9 @@ Se você precisa apenas usar os comandos clássicos (Gerenciamento de Serviços)
 
 Isso abre o navegador padrão e solicita que você entre no [portal clássico do Azure][portal]. Depois de entrar, um arquivo `.publishsettings` é baixado. Anote onde esse arquivo está salvo.
 
-	> [AZURE.NOTE] If your account is associated with multiple Azure Active Directory tenants, you may be prompted to select which Active Directory you wish to download a publish settings file for.
-	>
-	> Once selected using the download page, or by visiting the Azure classic portal, the selected Active Directory becomes the default used by the classic portal and download page. Once a default has been established, you will see the text '__click here to return to the selection page__' at the top of the download page. Use the provided link to return to the selection page.
+> [AZURE.NOTE] Se a conta estiver associada a vários locatários do Active Directory do Azure, você deverá selecionar para qual Active Directory você deseja baixar um arquivo de configurações de publicação.
+>
+> Depois de selecionado por meio da página de download ou acessando o Portal Clássico do Azure, o Active Directory escolhido se torna o padrão usado pelo portal clássico e pela página de download. Depois que um padrão tiver sido estabelecido, você verá o texto `__clique aqui para retornar à página de seleção__` na parte superior da página de download. Use o link fornecido para retornar à página de seleção.
 
 * **Para importar o arquivo de configurações de publicação**, execute o seguinte comando:
 
@@ -123,7 +123,7 @@ Na lista acima, a coluna **Atual** indica a assinatura padrão atual como Azure-
 
 Isso muda a assinatura padrão para o Azure sub-2.
 
-> [AZURE.NOTE]A alteração da assinatura padrão entra em vigor imediatamente, e é uma alteração global. Novos comandos da CLI do Azure, quer sejam executados na mesma instância de linha de comando ou em outra instância, usam a nova assinatura padrão.
+> [AZURE.NOTE] A alteração da assinatura padrão entra em vigor imediatamente, e é uma alteração global. Novos comandos da CLI do Azure, quer sejam executados na mesma instância de linha de comando ou em outra instância, usam a nova assinatura padrão.
 
 Se quiser usar uma assinatura não padrão com a CLI do Azure, mas não quiser alterar o padrão atual, você poderá usar a opção `--subscription` do comando e fornecer o nome da assinatura que deseja usar na operação.
 
@@ -158,4 +158,4 @@ Se você fizer logon com uma conta corporativa ou de estudante ou importar as co
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: xplat-cli-azure-resource-manager.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

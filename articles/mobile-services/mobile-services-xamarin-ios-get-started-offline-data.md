@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/02/2015"
+	ms.date="01/21/2016"
 	ms.author="donnam"/>
 
 # Usando sincronização de dados offline em Serviços Móveis
@@ -34,7 +34,7 @@ A sincronização offline possui diversos usos possíveis:
 * Permite que usuários finais criem e modifiquem dados mesmo quando não há acesso à rede, com suporte para cenários com pouca ou nenhuma conectividade
 * Sincroniza dados entre vários dispositivos e detecta conflitos quando o mesmo registro é modificado por dois dispositivos
 
->[AZURE.NOTE]Para concluir este tutorial, será necessária uma conta do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação. Para obter detalhes, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Avaliação Gratuita do Azure</a>.
+>[AZURE.NOTE] Para concluir este tutorial, será necessária uma conta do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação. Para obter detalhes, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Avaliação Gratuita do Azure</a>.
 >
 > Se esta for sua primeira experiência com os Serviços Móveis, você deverá concluir a [Introdução aos Serviços Móveis].
 
@@ -99,7 +99,7 @@ A Sincronização offline dos Serviços móveis do Azure permite aos usuários f
 
     Neste exemplo, recuperamos todos os registros na tabela remota `TodoItem`, mas também é possível filtrar os registros passando uma consulta. O primeiro parâmetro para `PullAsync()` é uma ID de consulta que é usada para sincronização incremental, que usa o carimbo de data/hora `UpdatedAt` para obter apenas os registros modificados desde a última sincronização. A ID da consulta deve ser uma cadeia de caracteres descritiva que é exclusiva para cada consulta lógica em seu aplicativo. Se desejar sair da sincronização incremental, passe `null` como a ID da consulta. Isso recuperará todos os registros de cada operação de pull, o que é potencialmente ineficiente.
 
-    >[AZURE.NOTE]Para remover registros de armazenamento local do dispositivo quando eles tiverem sido excluídos do banco de dados do serviço móvel, você deve habilitar a [Exclusão Reversível]. Caso contrário, seu aplicativo deverá chamar `IMobileServiceSyncTable.PurgeAsync()` periodicamente para limpar o armazenamento local.
+    >[AZURE.NOTE] Para remover registros de armazenamento local do dispositivo quando eles tiverem sido excluídos do banco de dados do serviço móvel, você deve habilitar a [Exclusão Reversível]. Caso contrário, seu aplicativo deverá chamar `IMobileServiceSyncTable.PurgeAsync()` periodicamente para limpar o armazenamento local.
 
     Observe que a `MobileServicePushFailedException` pode ocorrer tanto por uma operação de push quanto de pull. O próximo tutorial, [Tratando conflitos com suporte offline para Serviços Móveis], mostra como tratar essas exceções relacionadas à sincronização.
 
@@ -115,7 +115,7 @@ Nesta seção, você modificará o aplicativo para ele não sincronizar na sua i
 
     - `InsertTodoItemAsync`
     - `CompleteItemAsync`
-    - `RefreshAsync`
+    - `RefreshDataAsync`
 
     Agora, `RefreshAsync()` só carregará dados do repositório local, mas não se conectará ao back-end do aplicativo.
 
@@ -152,7 +152,7 @@ Nesta seção você reconectará o aplicativo ao serviço móvel. Isso simula o 
 
 3. Faça logon no [Portal clássico do Azure] e examine o banco de dados para o seu serviço móvel. Se o serviço usar o back-end do JavaScript, você poderá procurar os dados na guia **Dados** do serviço móvel.
 
-    Se você estiver usando o back-end do .NET para o serviço móvel, no Visual Studio, acesse **Gerenciador de servidores** > **Azure** > **Bancos de dados SQL**. Clique com o botão direito do mouse em seu Banco de Dados e selecione **Abrir no Gerenciador de Objetos do SQL Server**.
+    Se você estiver usando o back-end do .NET para o serviço móvel, no Visual Studio, acesse **Gerenciador de Servidores** > **Azure** > **Bancos de dados SQL**. Clique com o botão direito do mouse em seu Banco de Dados e selecione **Abrir no Gerenciador de Objetos do SQL Server**.
 
     Observe que os dados *não* foram sincronizados entre o banco de dados e o repositório local.
 
@@ -166,8 +166,6 @@ Nesta seção você reconectará o aplicativo ao serviço móvel. Isso simula o 
 
 ## Próximas etapas
 
-* [Tratando conflitos com o suporte offline para Serviços Móveis]
-
 * [Como usar a biblioteca de cliente Componente Xamarin para os Serviços Móveis do Azure]
 
 <!-- Anchors. -->
@@ -178,9 +176,8 @@ Nesta seção você reconectará o aplicativo ao serviço móvel. Isso simula o 
 <!-- Images -->
 
 <!-- URLs. -->
-[Tratando conflitos com o suporte offline para Serviços Móveis]: ../mobile-services-xamarin-ios-handling-conflicts-offline-data.md
-[Tratando conflitos com o suporte offline para os Serviços Móveis]: ../mobile-services-xamarin-ios-handling-conflicts-offline-data.md
-[Tratando conflitos com suporte offline para Serviços Móveis]: ../mobile-services-xamarin-ios-handling-conflicts-offline-data.md
+[Tratando conflitos com o suporte offline para os Serviços Móveis]: mobile-services-xamarin-ios-handling-conflicts-offline-data.md
+[Tratando conflitos com suporte offline para Serviços Móveis]: mobile-services-xamarin-ios-handling-conflicts-offline-data.md
 [Introdução aos Serviços Móveis]: mobile-services-ios-get-started.md
 [Como usar a biblioteca de cliente Componente Xamarin para os Serviços Móveis do Azure]: partner-xamarin-mobile-services-how-to-use-client-library.md
 [Exclusão Reversível]: mobile-services-using-soft-delete.md
@@ -189,4 +186,4 @@ Nesta seção você reconectará o aplicativo ao serviço móvel. Isso simula o 
 [extensão Xamarin]: http://xamarin.com/visual-studio
 [Portal clássico do Azure]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

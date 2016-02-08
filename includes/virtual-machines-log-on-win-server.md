@@ -8,7 +8,7 @@
 
 6. Na janela Segurança do Windows, digite as credenciais de uma conta na máquina virtual e clique em **OK**.
 
- 	Na maioria dos casos, o nome de usuário e a senha da conta local especificados por você no momento da criação da máquina virtual. Nesse caso, o domínio é o nome da máquina virtual e é inserido como *nomedavm*&#92;*nome de usuário*.
+ 	Na maioria dos casos, as credenciais são o nome de usuário e a senha da conta local especificados por você no momento da criação da máquina virtual. Nesse caso, o domínio é o nome da máquina virtual e é inserido como *nomedavm*&#92;*nome de usuário*.
 	
 	Se a máquina virtual pertencer a um domínio em sua organização, verifique se o nome de usuário inclui o nome desse domínio no formato *Domínio*&#92;*Nome de usuário*. A conta também precisará estar no grupo Administradores ou deve ter privilégios de acesso remoto à VM.
 	
@@ -18,4 +18,4 @@
 
 	![Verificar a identidade do computador](./media/virtual-machines-log-on-win-server/connectverify.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

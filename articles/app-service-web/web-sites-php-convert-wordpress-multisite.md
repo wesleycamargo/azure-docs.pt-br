@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="01/12/2016" 
 	ms.author="tomfitz"/>
 
 
@@ -79,7 +79,7 @@ O [mapeamento de domínio do WordPress MU][wordpress-plugin-wordpress-mu-domain-
 O modo **Gratuito** do plano de [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714) não dá suporte a adição de domínios personalizados para aplicativos Web. Você precisará alternar para o modo **Compartilhado** ou **Padrão**. Para fazer isso:
 
 * Faça logon no Portal do Azure e localize seu aplicativo Web. 
-* Clique no **escala** guia na área de conteúdo principal
+* Clique na guia **Escalar verticalmente** em **Configurações**.
 * Em **geral**, selecione *compartilhado* ou *padrão*
 * Clique em **Salvar**
 
@@ -134,7 +134,7 @@ Por padrão, o novo domínio será regravado no domínio do site gerado automati
 
 Aplicativos Web do Azure permitem que você adicione um número ilimitado de domínios a um aplicativo Web. Para adicionar outro domínio, você precisará executar o **Verifique se seu domínio** e **o domínio de um registro de instalação** seções para cada domínio.
 
->[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE] Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -153,4 +153,4 @@ Aplicativos Web do Azure permitem que você adicione um número ilimitado de dom
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

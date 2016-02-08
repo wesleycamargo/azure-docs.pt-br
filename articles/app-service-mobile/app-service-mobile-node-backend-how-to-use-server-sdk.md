@@ -18,13 +18,11 @@
 
 # Como usar o SDK do Node.js para Aplicativos Móveis do Azure
 
-[AZURE.INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]&nbsp;
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
 
 Este artigo fornece informações detalhadas e exemplos de como trabalhar com um back-end de Node.js nos Aplicativos Móveis do Serviço de Aplicativo do Azure.
 
-> [AZURE.NOTE]Este SDK está em versão de Visualização. Como resultado, não recomendamos que você use esse SDK em produção. Os exemplos neste documento usam v2.0.0-beta2 do [azure-mobile-apps].
+> [AZURE.NOTE] Este SDK está em versão de Visualização. Como resultado, não recomendamos que você use esse SDK em produção. Os exemplos neste documento usam v2.0.0-rc2 do [azure-mobile-apps].
 
 ## <a name="Introduction"></a>Introdução
 
@@ -163,6 +161,14 @@ O Serviço de Aplicativo do Azure tem recomendações específicas para aplicati
 - Como [especificar a versão do Node]
 - Como [usar módulos do Node]
 
+### <a name="howto-enable-homepage"></a>Como habilitar uma Home Page para o seu aplicativo
+
+Muitos aplicativos são uma combinação de aplicativos Web e móveis, e a estrutura do ExpressJS permite a combinação das duas facetas. Às vezes, no entanto, talvez você queira implementar apenas uma interface móvel. É útil fornecer uma página de aterrissagem para garantir que o serviço de aplicativo esteja em execução. Você pode fornecer sua própria home page ou habilitar uma home page temporária. Para habilitar uma home page temporária, ajuste o construtor do Aplicativo Móvel para o seguinte:
+
+    var mobile = azureMobileApps({ homePage: true });
+
+Você pode adicionar essa configuração ao seu arquivo `azureMobile.js` se quiser essa opção disponível apenas ao desenvolver localmente.
+
 ## <a name="TableOperations"></a>Operações de tabela
 
 O SDK do servidor de Node.js do azure-mobile-apps fornece mecanismos para expor tabelas de dados armazenadas no Banco de Dados SQL do Azure como uma API Web. Cinco operações são fornecidas.
@@ -246,7 +252,7 @@ O SDK do Node dos Aplicativos Móveis do Azure fornece três opções para forne
 
 O SDK do Node.js dos Aplicativos Móveis do Azure usa o [pacote de Node.js mssql] para estabelecer e usar uma conexão com o SQL Express e com o Banco de Dados SQL do Azure. Este pacote requer que você habilite conexões TCP na instância do SQL Express.
 
-> [AZURE.TIP]O driver de memória não fornece um conjunto completo de recursos para teste. Se você quiser testar localmente seu back-end, recomendamos o uso de um repositório de dados SQL Express e o driver do mssql.
+> [AZURE.TIP] O driver de memória não fornece um conjunto completo de recursos para teste. Se você quiser testar localmente seu back-end, recomendamos o uso de um repositório de dados SQL Express e o driver do mssql.
 
 1. Baixe e instale o [Microsoft SQL Server 2014 Express]. Instale o SQL Server 2014 Express com a edição Ferramentas. A menos que você precise explicitamente do suporte de 64 bits, a versão de 32 bits consumirá menos memória durante a execução.
 
@@ -368,7 +374,7 @@ O uso do Banco de Dados SQL do Azure como armazenamento de dados é idêntico em
 
 Depois que o back-end do Aplicativo Móvel for criado, você poderá conectar um banco de dados existente do SQL ao back-end do Aplicativo Móvel ou criar um novo Banco de Dados SQL do Azure. Nesta seção, criaremos um novo Banco de Dados SQL.
 
-> [AZURE.NOTE]Se já houver um banco de dados no mesmo local do novo back-end do aplicativo móvel, você poderá escolher **Usar um banco de dados existente** e selecionar esse banco de dados. O uso de um banco de dados em um local diferente não é recomendado devido a latências maiores e aos custos adicionais de largura de banda.
+> [AZURE.NOTE] Se já houver um banco de dados no mesmo local do novo back-end do aplicativo móvel, você poderá escolher **Usar um banco de dados existente** e selecionar esse banco de dados. O uso de um banco de dados em um local diferente não é recomendado devido a latências maiores e aos custos adicionais de largura de banda.
 
 6. No novo back-end do Aplicativo Móvel, clique em **Configurações** > **Aplicativo Móvel** > **Dados** > **+ Adicionar**.
 
@@ -543,6 +549,24 @@ Ao criar um novo aplicativo, você pode querer propagar uma tabela com dados. Is
 
 É recomendável que você chame explicitamente o método Initialize () para criar a tabela quando o serviço começar a ser executado.
 
+### <a name="Swagger"></a>Habilitar o suporte do Swagger
+
+Os Aplicativos Móveis do Serviço de Aplicativo do Azure vêm com suporte interno para [Swagger]. Para habilitar o suporte do Swagger, primeiro instale a swagger-ui como uma dependência:
+
+    npm install --save swagger-ui
+
+Uma vez instalada, você poderá habilitar o suporte do Swagger no construtor dos Aplicativos Móveis do Azure:
+
+    var mobile = azureMobileApps({ swagger: true });
+
+Provavelmente você quer apenas habilitar o suporte do Swagger em edições de desenvolvimento. Faça isso utilizando a configuração do aplicativo `NODE_ENV`:
+
+    var mobile = azureMobileApps({ swagger: process.env.NODE_ENV !== 'production' });
+
+O ponto de extremidade do swagger estará localizado em http://\_seusite\_.azurewebsites.net/swagger. Você pode acessar a interface do usuário do Swagger por meio do ponto de extremidade do `/swagger/ui`. Observe que o Swagger produz um erro para o ponto de extremidade /, se você exigir a autenticação em todo o seu aplicativo. Para obter melhores resultados, opte por permitir solicitações não autenticadas nas configurações de Autenticação/Autorização do Serviço de Aplicativo do Azure e, em seguida, controle a autenticação usando a propriedade `table.access`.
+
+Você também pode adicionar a opção do Swagger ao seu arquivo `azureMobile.js`, se quiser o suporte do Swagger apenas ao desenvolver localmente.
+
 ## <a name="CustomAPI"></a>APIs personalizadas
 
 Além da API de acesso a dados por meio do ponto de extremidade/tabelas, os Aplicativos Móveis do Azure podem fornecer cobertura de API personalizada. As APIs personalizadas são definidas de forma semelhante às definições de tabela e pode acessar todos os mesmos recursos, incluindo autenticação.
@@ -707,6 +731,7 @@ Também é possível executar, do editor, o código no site
 [Create a new Azure App Service]: ../app-service-web/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
 [Express]: http://expressjs.com/
+[Swagger]: http://swagger.io/
 
 [Portal do Azure]: https://portal.azure.com/
 [OData]: http://www.odata.org
@@ -722,4 +747,4 @@ Também é possível executar, do editor, o código no site
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

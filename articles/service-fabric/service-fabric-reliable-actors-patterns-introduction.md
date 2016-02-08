@@ -18,15 +18,13 @@
 
 # Introdução aos padrões de design de Reliable Actors
 
-O modelo de programação dos Atores Confiáveis no Service Fabric do Azure é uma plataforma criada com base no modelo de ator para resolver problemas reais em escala de nuvem. O Service Fabric é uma plataforma para a criação de aplicativos altamente confiáveis e escalonáveis que são fáceis de desenvolver e gerenciar, tanto na nuvem quanto no local.
+O modelo de programação dos Reliable Actors no Service Fabric do Azure é uma plataforma criada com base no modelo de ator para resolver problemas reais em escala de nuvem. O Service Fabric é uma plataforma para a criação de aplicativos altamente confiáveis e escalonáveis que são fáceis de desenvolver e gerenciar, tanto na nuvem quanto no local.
 
 O objetivo deste artigo é ser uma discussão prática sobre problemas práticos. Após a leitura dos vários padrões, você deverá entender como é possível usar o modelo dos Reliable Actors para criar soluções de nuvem e corporativas.
 
 ## Padrões
 
-Nesta seção, listaremos um conjunto de padrões e cenários associados que estabelecemos em interações com clientes.
-Esses padrões representam classes de problemas que são aplicáveis a uma ampla gama de soluções que nossos clientes estão criando o Microsoft Azure.
-Embora os cenários sejam baseados em casos reais, eliminamos a maioria das preocupações específicas de domínio para tornar os padrões mais claros. Você pode achar que grande parte do código de exemplo é simples ou óbvio. Incluímos o código para esgotarmos todas as possibilidades e não porque é particularmente inteligente ou impressionante.
+Nesta seção, listaremos um conjunto de padrões e cenários associados que estabelecemos em interações com clientes. Esses padrões representam classes de problemas que são aplicáveis a uma ampla gama de soluções que nossos clientes estão criando o Microsoft Azure. Embora os cenários sejam baseados em casos reais, eliminamos a maioria das preocupações específicas de domínio para tornar os padrões mais claros. Você pode achar que grande parte do código de exemplo é simples ou óbvio. Incluímos o código para esgotarmos todas as possibilidades e não porque é particularmente inteligente ou impressionante.
 
 Os padrões apresentados aqui não pretendem ser abrangentes nem canônicos. Alguns desenvolvedores talvez resolvam os mesmos problemas ou padrões de forma diferente das que apresentamos.
 
@@ -56,8 +54,7 @@ O modelo de ator oferece suporte a objetos individuais refinados — atores — 
 
 O modelo de programação dos Reliable Actors é uma implementação do modelo de ator que usa algumas ideias da Erlang e de sistemas de objetos distribuídos. Ele adiciona uma camada de indireção e expõe os atores em um modelo de programação integrado que aproveita a plataforma do Service Fabric.
 
-Os principais benefícios dos Reliable Actors são **produtividade do desenvolvedor**, mesmo para os programadores não especialistas e **escalabilidade transparente por padrão** sem nenhum esforço especial dos programadores. 
-O modelo de programação dos Reliable Actors usa uma biblioteca .NET que é executada com base no Service Fabric. Ele fornece ferramentas que facilitam muito o desenvolvimento de aplicativos distribuídos complexos. Essas ferramentas também tornam os aplicativos resultantes estruturalmente escalonáveis. Expandimos cada um desses benefícios abaixo. O modelo de programação aumenta a produtividade dos programadores especialistas e dos não especialistas, fornecendo os principais serviços de sistema, garantias e abstrações a seguir:
+Os principais benefícios dos Reliable Actors são **produtividade do desenvolvedor**, mesmo para os programadores não especialistas e **escalabilidade transparente por padrão** sem nenhum esforço especial dos programadores. O modelo de programação dos Reliable Actors usa uma biblioteca .NET que é executada com base no Service Fabric. Ele fornece ferramentas que facilitam muito o desenvolvimento de aplicativos distribuídos complexos. Essas ferramentas também tornam os aplicativos resultantes estruturalmente escalonáveis. Expandimos cada um desses benefícios abaixo. O modelo de programação aumenta a produtividade dos programadores especialistas e dos não especialistas, fornecendo os principais serviços de sistema, garantias e abstrações a seguir:
 
 * *Um paradigma da OOP (programação orientada a objeto) familiar*. Atores são classes .NET que implementam interfaces de ator do .NET com propriedades e métodos assíncronos. Portanto, os atores aparecem aos programadores como objetos remotos cujos métodos e propriedades podem ser diretamente invocados. Isso fornece aos programadores o paradigma da OOP familiar, ativando chamadas do método em mensagens, roteando-as para os pontos de extremidade certos, invocando os métodos do ator de destino e lidando com falhas e situações extremas de uma forma completamente transparente.
 
@@ -69,8 +66,7 @@ O modelo de programação dos Reliable Actors usa uma biblioteca .NET que é exe
 
 * *Integração transparente com armazenamento persistente*. O modelo de programação dos Reliable Actors permite mapeamento declarativo do estado na memória de um ator para um repositório persistente. Eles sincronizam atualizações, garantindo, de forma transparente, que os chamadores recebam resultados somente depois que o estado persistente tenha sido atualizado com êxito.
 
-* *Alta disponibilidade, suporte a failover e gerenciamento de ciclo de vida do aplicativo*. O estado de um ator é gerenciado pela plataforma e replicado de forma que ele possa ser restaurado se um nó do cluster falhar, por exemplo. O Service Fabric também gerencia o ciclo de vida do aplicativo e permite que o aplicativo seja atualizado sem tempo de inatividade.
-O modelo de programação dos Reliable Actors foi criado para orientar os programadores a serem bem-sucedidos ao escalar seus aplicativos e serviços por meio de várias ordens de grandeza. Isso é conseguido pela incorporação de padrões e práticas recomendadas comprovados e pelo fornecimento de uma implementação eficiente de funcionalidade de sistema de nível inferior. Veja alguns fatores importantes que permitem escalabilidade e desempenho de aplicativos do Service Fabric:
+* *Alta disponibilidade, suporte a failover e gerenciamento de ciclo de vida do aplicativo*. O estado de um ator é gerenciado pela plataforma e replicado de forma que ele possa ser restaurado se um nó do cluster falhar, por exemplo. O Service Fabric também gerencia o ciclo de vida do aplicativo e permite que o aplicativo seja atualizado sem tempo de inatividade. O modelo de programação dos Reliable Actors foi criado para orientar os programadores a serem bem-sucedidos ao escalar seus aplicativos e serviços por meio de várias ordens de grandeza. Isso é conseguido pela incorporação de padrões e práticas recomendadas comprovados e pelo fornecimento de uma implementação eficiente de funcionalidade de sistema de nível inferior. Veja alguns fatores importantes que permitem escalabilidade e desempenho de aplicativos do Service Fabric:
 
   * *Particionamento refinado implícito do estado do aplicativo*. Ao usar os atores como entidades diretamente endereçáveis, os programadores implicitamente desmembram o estado geral de seus aplicativos. Embora o modelo de programação dos Reliable Actors não determine o quão grande ou pequeno um ator deve ser, na maioria dos casos faz sentido ter um grande número relativo de atores – milhões ou mais. Cada um desses milhões de atores representa uma entidade natural do aplicativo, como uma conta de usuário ou ordem de compra. Considerando que os atores são individualmente endereçáveis e que seus respectivos locais físicos são abstraídos pelo tempo de execução, há uma grande flexibilidade no balanceamento de carga e ao lidar com pontos de acesso. Isso é feito de modo transparente e genérico sem qualquer preocupação dos desenvolvedores de aplicativo.
 
@@ -82,4 +78,4 @@ O modelo de programação dos Reliable Actors foi criado para orientar os progra
 
   * *Assincronismo explícito*. O modelo de programação dos Reliable Actors torna explícita a natureza assíncrona de um aplicativo distribuído e orienta os programadores a escreverem códigos assíncronos sem bloqueio. Isso permite um alto grau de paralelismo distribuído e produtividade geral sem o uso explícito de multithreading.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

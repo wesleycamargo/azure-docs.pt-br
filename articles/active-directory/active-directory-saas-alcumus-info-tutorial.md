@@ -31,17 +31,17 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do
 
 Para configurar a integração do Azure AD com o Alcumus Info Exchange, você precisa dos seguintes itens:
 
-- Uma assinatura do [Azure AD](http://azure.microsoft.com/)
+- Uma assinatura do [Azure AD](https://azure.microsoft.com/)
 - Uma assinatura habilitada de logon único do [Alcumus Info Exchange](http://www.alcumusgroup.com/)
 
 
-> [AZURE.NOTE]Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+> [AZURE.NOTE] Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 
 
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/). 
+- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/). 
 
  
 ## Descrição do cenário
@@ -83,7 +83,7 @@ Para configurar e testar o logon único do Azure AD com o Alcumus Info Exchange,
 2. **[Criar um usuário de teste do Azure AD](#creating-an-azure-ad-test-user)**: para testar o logon único do Azure AD com Brenda Fernandes.
 4. **[Criando um usuário de teste do Alcumus Info Exchange](#creating-a-alcumus-info-exchange-test-user)**: para ter um equivalente da Brenda Fernandes no Alcumus Info Exchange que está vinculado à representação dela no Azure AD.
 5. **[Atribuição do usuário de teste do Azure AD](#assigning-the-azure-ad-test-user)**: habilitar Brenda Fernandes a usar o logon único do Azure AD.
-5. **[Testes do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
+5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
 
 ### Configuração do logon único do AD do Azure
 
@@ -99,7 +99,7 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal do Az
  
      3\.1 Na caixa de texto **URL de resposta**, digite a URL do consumidor que foi configurada para você pela equipe de suporte do Alcumus Info Exchange.
 
-     >[AZURE.NOTE]Se você não souber qual é o valor correto, entre em contato com a equipe de suporte do Alcumus Info Exchange via [helpdesk@alcumusgroup.com](mailto:helpdesk@alcumusgroup.com).
+     >[AZURE.NOTE] Se você não souber qual é o valor correto, entre em contato com a equipe de suporte do Alcumus Info Exchange via [helpdesk@alcumusgroup.com](mailto:helpdesk@alcumusgroup.com).
 
      3\.2. Clique em **Próximo**.
  
@@ -116,17 +116,17 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal do Az
 
 
 ### Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no portal do Azure chamado Brenda Fernandes.<br> Na lista de usuários, selecione **Brenda Fernandes**.<br><br>![Criar um usuário do AD do Azure][20]<br>
+O objetivo desta seção é criar um usuário de teste no portal do Azure chamado Brenda Fernandes.<br> Na lista Usuários, selecione **Brenda Fernandes**.<br><br>![Criar um usuário do AD do Azure][20]<br>
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **Portal de Gerenciamento do Azure**, no painel navegação esquerdo, clique em **Active Directory**.<br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_02.png) 
+1. No **Portal de Gerenciamento do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.<br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_02.png) 
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
 3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**.<br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_03.png)
  
-4. Para abrir a caixa de diálogo **Adicionar usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar usuário**. <br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_04.png)
+4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.<br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_04.png)
 
 5. Na página de diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas: <br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_05.png)
   1. Em Tipo de Usuário, selecione Novo usuário na organização.
@@ -136,11 +136,11 @@ O objetivo desta seção é criar um usuário de teste no portal do Azure chamad
 6.  Na caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas: <br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_06.png)
   1. Na caixa de texto **Nome**, digite **Brenda**.  
   2. Na caixa de texto **Sobrenome**, digite **Fernandes**.
-  3. Na caixa de texto **Nome de exibição**, digite **Brenda Fernandes**.
+  3. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
   4. Na lista **Função**, selecione **Usuário**.
   5. Clique em **Próximo**.
 
-7. Na página de diálogo **Obter senha temporária**, clique em **criar**. <br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_07.png)
+7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**.<br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_07.png)
  
 8. Na página de diálogo **Obter senha temporária**, execute as seguintes etapas: <br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_08.png)
   1. Anote o valor da **Nova senha**.
@@ -166,7 +166,7 @@ O objetivo desta seção é habilitar que Brenda Fernandes use o logon único do
 1. No portal do Azure, para abrir o modo de exibição de aplicativos, no modo de exibição de diretório, clique em **Aplicativos** no menu superior. <br> <br><br>![Atribuir usuário][201]
 2. Na lista de aplicativos, selecione **Alcumus Info Exchange**. <br><br>![Atribuir usuário][202]
 1. No menu na parte superior, clique em **Usuários**. <br><br><br>![Atribuir usuário][203]
-1. Na lista de usuários, selecione **Brenda Fernandes**.
+1. Na lista Usuários, selecione **Brenda Fernandes**.
 
 2. Na barra de ferramentas na parte inferior, clique em **Atribuir**. <br><br>![Atribuir usuário][205]
 
@@ -204,4 +204,4 @@ O objetivo desta seção é testar a sua configuração de logon único do Azure
 [205]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_general_205.png
 [400]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_alcumus_402.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -151,7 +151,7 @@ O comando executa o seguinte fluxo de trabalho:
 Essa sequência garante que não ocorrerá nenhuma perda de dados. Há um breve período durante o qual os bancos de dados não estão disponíveis (na ordem de 0 a 25 segundos) enquanto as funções são alternadas. A operação inteira deve levar menos de um minuto para ser concluída em circunstâncias normais. Para obter mais informações, consulte [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393.aspx).
 
 
-> [AZURE.NOTE]Se o banco de dados primário não estiver disponível quando o comando for emitido, ele falhará com uma mensagem de erro indicando que o servidor primário não está disponível. Em situações raras, é possível que a operação não seja concluída e pareça paralisada. Nesse caso, o usuário poderá executar o comando de failover à força e aceitar a perda de dados.
+> [AZURE.NOTE] Se o banco de dados primário não estiver disponível quando o comando for emitido, ele falhará com uma mensagem de erro indicando que o servidor primário não está disponível. Em situações raras, é possível que a operação não seja concluída e pareça paralisada. Nesse caso, o usuário poderá executar o comando de failover à força e aceitar a perda de dados.
 
 
 
@@ -173,7 +173,7 @@ Essa funcionalidade foi designada para a recuperação de desastres quando a res
 
 Mas como a Restauração Pontual não tem suporte em bancos de dados secundários, se você quiser confirmar os dados de recuperação no banco de dados primário antigo que não tenham sido replicados para o novo banco de dados primário, deverá contar com o CSS para restaurar um banco de dados para o backup de log conhecido.
 
-> [AZURE.NOTE]Se o comando for emitido quando o primário e o secundário estiverem on-line, o antigo primário se tornará o novo secundário, mas não haverá uma tentativa de sincronização dos dados e, portanto, poderá ocorrer a perda de alguns dados.
+> [AZURE.NOTE] Se o comando for emitido quando o primário e o secundário estiverem on-line, o antigo primário se tornará o novo secundário, mas não haverá uma tentativa de sincronização dos dados e, portanto, poderá ocorrer a perda de alguns dados.
 
 
 Se o banco de dados primário tiver vários secundários, o comando será parcialmente bem-sucedido. O secundário no qual o comando foi executado se tornará o primário. O primário antigo, entretanto, permanecerá como primário, isto é, os dois primários terminarão em um estado inconsistente e conectados por um link de replicação suspensa. O usuário terá de reparar manualmente essa configuração usando uma API para "remover secundário" em qualquer um desses bancos de dados primários.
@@ -210,9 +210,9 @@ O comando a seguir recupera o status do link de replicação entre o banco de da
 
 ## Recursos adicionais
 
-- [Destacar os novos recursos de replicação geográfica](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication)
+- [Destacar os novos recursos de replicação geográfica](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 - [Projetando aplicativos de nuvem para a continuidade de negócios usando a replicação geográfica](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
 - [Documentação do Banco de Dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

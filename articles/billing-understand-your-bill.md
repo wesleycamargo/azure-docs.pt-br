@@ -24,7 +24,7 @@ Os encargos das assinaturas do Microsoft Azure variam de acordo com o plano de t
 
 Observe que até 24 horas de uso latente de seu período de cobrança anterior pode ser relatado no seu período de cobrança atual.
 
-Para obter mais informações sobre os planos de taxa e consumo, confira a [página Opções de Compra do Microsoft Azure](http://azure.microsoft.com/pricing/purchase-options/).
+Para obter mais informações sobre os planos de taxa e consumo, confira a [página Opções de Compra do Microsoft Azure](https://azure.microsoft.com/pricing/purchase-options/).
 
 Os links abaixo abrangem uma lista completa de todos os serviços do Microsoft Azure.
 
@@ -89,8 +89,7 @@ Oferta de compromisso | Gastar com dedução do seu compromisso pré-pago | [Arq
 
 ## Cabeçalho - Informações do cliente
 
-A seção de informações do cliente identifica informações pertinentes no que diz respeito ao seu uso e perfil.
-    ![cabeçalho](./media/billing-understand-your-bill/Header.png)
+A seção de informações do cliente identifica informações pertinentes no que diz respeito ao seu uso e perfil. ![cabeçalho](./media/billing-understand-your-bill/Header.png)
 
 ### Nº da Fatura
 Um identificador de fatura único para fins de acompanhamento
@@ -190,7 +189,7 @@ Tarifa | Tarifa | Tarifa exibe a tarifa com a qual você é cobrado por unidade 
 Valor | Valor | Exibe o resultado da multiplicação da coluna Faturável pela coluna Tarifa. Se a quantidade consumida não exceder a quantidade incluída, não haverá cobrança nessa coluna.
 
 ## Analisar os dados de uso diário
-Dependendo de seu uso, pode haver milhares de linhas de dados de uso diário. Se você quiser analisar esses dados, clique em **Baixar uso** e escolher uma versão de arquivo de variáveis separado por vírgulas (. csv) para ver seus dados de uso diário do período de faturamento apropriado. Para referência, você pode baixar um arquivo. csv de exemplo para cada versão abaixo.
+Dependendo de seu uso, pode haver milhares de linhas de dados de uso diário. Se você quiser analisar esses dados, clique em **Baixar uso** e escolha uma versão de arquivo de variáveis separado por vírgulas (. csv) para ver seus dados de uso diário do período de faturamento apropriado. Para referência, você pode baixar um arquivo. csv de exemplo para cada versão abaixo.
 
  NOME | BAIXAR |
  :----------:| :-------: |
@@ -238,7 +237,7 @@ Além de alguns novos campos e as alterações de nome do arquivo csv versão 2,
 
 ![additionalinfo\_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
 
-- **Marcas**: Esta coluna contém as marcas de recurso especificadas pelo usuário. As marcas podem ser usadas para agrupar registros de cobrança. Por exemplo, você pode usar marcas para distribuir os custos por departamento usando o serviço. Saiba mais sobre [Usando marcas para organizar os recursos do Azure](./resource-group-using-tags.md). Serviços que oferecem suporte a marcas de emissão são:  
+- **Marcas**: Esta coluna contém as marcas de recurso especificadas pelo usuário. As marcas podem ser usadas para agrupar registros de cobrança. Por exemplo, você pode usar marcas para distribuir os custos por departamento usando o serviço. Saiba mais sobre [Usando marcas para organizar os recursos do Azure](./resource-group-using-tags.md) Serviços que oferecem suporte a marcas de emissão são:  
     - Máquinas Virtuais
     - Armazenamento e
     - Serviços de rede fornecidos com o [API do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn790567.aspx)
@@ -263,4 +262,4 @@ Navegue até a seção **Gerenciar contas, assinaturas e funções administrativ
 
 <!--Image references-->
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

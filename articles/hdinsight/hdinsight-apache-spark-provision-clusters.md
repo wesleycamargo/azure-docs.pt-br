@@ -28,7 +28,7 @@ Para esses e outros cenários, este artigo fornece instruções sobre como usar 
 
 **Pré-requisitos:**
 
-Antes de começar a seguir as instruções neste artigo, você deve ter uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+Antes de começar a seguir as instruções neste artigo, você deve ter uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ##<a id="configuration"></a>Quais são as opções de configuração diferentes?
 
@@ -53,7 +53,7 @@ Você pode instalar componentes adicionais ou personalizar a configuração de c
 
 ### Rede Virtual
 
-A [Rede Virtual do Azure](http://azure.microsoft.com/documentation/services/virtual-network/) permite que você crie uma rede segura e persistente contendo os recursos necessários para sua solução. Uma rede virtual permite que você:
+A [Rede Virtual do Azure](https://azure.microsoft.com/documentation/services/virtual-network/) permite que você crie uma rede segura e persistente contendo os recursos necessários para sua solução. Uma rede virtual permite que você:
 
 * Conecte recursos da nuvem juntos em uma rede privada (somente nuvem).
 
@@ -90,7 +90,7 @@ Os clusters do Spark no HDInsight usam um contêiner de armazenamento de blobs d
 
 5. Clique em **Grupo de recursos** para ver uma lista de grupos de recursos existente e, em seguida, selecione um em que será criado o cluster. Ou, você pode clicar em **Criar novo** e, em seguida, digitar o nome do novo grupo de recursos. Uma marca de seleção verde será exibida para indicar se o novo nome de grupo estiver disponível.
 
-	> [AZURE.NOTE]A entrada padrão será um dos seus grupos de recursos existentes, se houver algum disponível.
+	> [AZURE.NOTE] A entrada padrão será um dos seus grupos de recursos existentes, se houver algum disponível.
 
 6. Clique em **Credenciais** e insira um **Nome de Usuário de Logon do Cluster** e **Senha de Logon do Cluster**. Se você deseja habilitar a área de trabalho remota no nó do cluster, para **Habilitar a Área de Trabalho Remota**, clique em **Sim**. Selecione uma data de vencimento de acesso de área de trabalho remoto para o cluster e forneça o nome de usuário e senha do usuário de área de trabalho remota. Clique em **Selecionar** na parte inferior para salvar a configuração de credenciais.
 
@@ -110,7 +110,7 @@ Os clusters do Spark no HDInsight usam um contêiner de armazenamento de blobs d
 
 	- **Local**: a região geográfica na qual a conta de armazenamento está ou será criada.
 
-		> [AZURE.IMPORTANT]Selecionar o local para a fonte de dados padrão também definirá o local do cluster do HDInsight. A fonte de dados padrão e o cluster devem estar localizados na mesma região.
+		> [AZURE.IMPORTANT] Selecionar o local para a fonte de dados padrão também definirá o local do cluster do HDInsight. A fonte de dados padrão e o cluster devem estar localizados na mesma região.
 
 	Clique em **Selecionar** para salvar a configuração de fonte de dados.
 
@@ -134,7 +134,7 @@ Os clusters do Spark no HDInsight usam um contêiner de armazenamento de blobs d
 
 		Para **Usar um banco de dados SQL existente para metadados do Hive**, clique em **Sim**, selecione um banco de dados SQL e forneça o nome de usuário e a senha para o banco de dados. Repita essas etapas se você quiser **Usar um banco de dados SQL existente para metadados de Oozie**. Clique em **Selecionar** até voltar para a folha **Configuração Opcional**.
 
-		>[AZURE.NOTE]O banco de dados SQL do Azure usado para o metastore deve permitir a conectividade com outros serviços do Azure, incluindo o Azure HDInsight. No painel do banco de dados SQL do Azure, no lado direito, clique no nome do servidor. Esse é o servidor no qual a instância do banco de dados SQL está sendo executada. Quando você estiver na exibição do servidor, clique em **Configurar** e depois em **Serviços do Azure**; clique em **Sim** e depois em **Salvar**.
+		>[AZURE.NOTE] O banco de dados SQL do Azure usado para o metastore deve permitir a conectividade com outros serviços do Azure, incluindo o Azure HDInsight. No painel do banco de dados SQL do Azure, no lado direito, clique no nome do servidor. Esse é o servidor no qual a instância do banco de dados SQL está sendo executada. Quando você estiver na exibição do servidor, clique em **Configurar** e depois em **Serviços do Azure**; clique em **Sim** e depois em **Salvar**.
 
 	* Clique em **Ações de Script** se quiser usar um script personalizado para personalizar um cluster enquanto ele estiver sendo criado. Para obter mais informações sobre ações de script, veja [Personalizar clusters HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster.md). Na folha Ações de Script forneça os detalhes como mostrado na captura de tela.
 
@@ -242,4 +242,4 @@ Especifique o tipo de cluster Spark:
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Use o Sqoop com o HDInsight"
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

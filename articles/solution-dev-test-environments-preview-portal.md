@@ -43,7 +43,7 @@ Um modelo do Gerenciador de Recursos do Azure define todos os recursos do Azure 
 
 Na lista, você verá uma pasta "[201-web-app-sql-database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database)". Como muitos aplicativos personalizados incluem um aplicativo Web e o banco de dados SQL, esse modelo é usado como um exemplo no restante deste artigo para ajudá-lo a entender como usar modelos. Está fora do escopo deste artigo explicar tudo o que esse modelo cria e configura, mas se você planeja usá-lo para criar ambientes reais em sua organização, convém entendê-lo plenamente lendo o artigo [Provisionar um aplicativo Web com um banco de dados SQL](app-service-web/app-service-web-arm-with-sql-database-provision.md).
 
-> [AZURE.NOTE]Você pode implantar o modelo no Azure diretamente clicando no botão "Implantar no Azure" no artigo [Provisionar um aplicativo Web com um banco de dados SQL](http://azure.microsoft.com/documentation/templates/201-web-app-sql-database/). Esse procedimento poderá ser útil para saber mais sobre modelos, mas isso não permite editar, controlar a versão e salvar os valores de parâmetro e modelo com o código do aplicativo. As etapas neste artigo explicam como você pode salvar e controlar a versão para seus valores de parâmetro e modelo com o código do aplicativo.
+> [AZURE.NOTE] Você pode implantar o modelo no Azure diretamente clicando no botão "Implantar no Azure" no artigo [Provisionar um aplicativo Web com um banco de dados SQL](https://azure.microsoft.com/documentation/templates/201-web-app-sql-database/). Esse procedimento poderá ser útil para saber mais sobre modelos, mas isso não permite editar, controlar a versão e salvar os valores de parâmetro e modelo com o código do aplicativo. As etapas neste artigo explicam como você pode salvar e controlar a versão para seus valores de parâmetro e modelo com o código do aplicativo.
 
   **Etapa 1:** exiba o conteúdo do arquivo [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json) na pasta 201-web-app-sql-database. Esse é o arquivo de modelo do Gerenciador de Recursos do Azure. No modo de exibição, clique no botão "[Bruto](https://github.com/Azure/azure-quickstart-templates/raw/master/201-web-app-sql-database/azuredeploy.json)". Com o mouse, selecione todo o conteúdo desse arquivo e salve-o no computador como um arquivo chamado "TestApp1-Template.json".
 
@@ -134,7 +134,7 @@ Na etapa 6, esses arquivos de parâmetros serão usados para criar configuraçõ
 
 No arquivo de parâmetros de pré-produção acima, os parâmetros **sku** e **requestedServiceObjectiveName** foram *adicionados*, enquanto não foram adicionados nos arquivos de parâmetros de desenvolvimento e testes. Isso ocorre porque há valores padrão especificados para esses parâmetros no modelo e, em ambientes de desenvolvimento e testes, os valores padrão são usados, mas no ambiente de pré-produção, são usados valores não padrão para esses parâmetros.
 
-O motivo pelo qual valores não padrão são usados para esses parâmetros no ambiente de pré-produção é testar valores para esses parâmetros que talvez você prefira para seu ambiente de produção. Esses parâmetros se relacionam aos [planos de hospedagem de aplicativos Web](http://azure.microsoft.com/pricing/details/app-service/) do Azure, à **sku** e ao [banco de dados SQL](http://azure.microsoft.com/pricing/details/sql-database/) do Azure ou ao **requestedServiceObjectiveName** que são usados pelo aplicativo. Skus e nomes de objetivo de serviço diferentes têm custos e recursos diferentes e dão suporte a métricas de nível de serviço diferentes.
+O motivo pelo qual valores não padrão são usados para esses parâmetros no ambiente de pré-produção é testar valores para esses parâmetros que talvez você prefira para seu ambiente de produção. Esses parâmetros se relacionam aos [planos de hospedagem de aplicativos Web](https://azure.microsoft.com/pricing/details/app-service/) do Azure, à **sku** e ao [banco de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/) do Azure ou ao **requestedServiceObjectiveName** que são usados pelo aplicativo. Skus e nomes de objetivo de serviço diferentes têm custos e recursos diferentes e dão suporte a métricas de nível de serviço diferentes.
 
 A tabela a seguir lista os valores padrão para os parâmetros especificados no modelo e os valores que são usados em vez dos valores padrão no arquivo de parâmetros de pré-produção.
 
@@ -144,7 +144,7 @@ A tabela a seguir lista os valores padrão para os parâmetros especificados no 
 | **requestedServiceObjectiveName** | S0 | S1 |
 
 ## Criar ambientes
-Todos os recursos do Azure devem ser criados em um [grupo de recursos do Azure](azure-portal/resource-group-portal.md). Grupos de recursos o habilitam a agrupar recursos do Azure para que eles possam ser gerenciados coletivamente. [Permissões](./active-directory/role-based-access-control-configure.md) podem ser atribuídas a grupos de recursos, para que pessoas específicas em sua organização possam criar, modificar, excluir ou exibi-los, juntamente com os recursos neles. Alertas e informações de cobrança de recursos no grupo de recursos podem ser exibidos no [Portal de Visualização do Azure](https://portal.azure.com). Grupos de recursos são criados em um [local](http://azure.microsoft.com/regions/) do Azure. Neste artigo, todos os recursos são criados no local Centro dos Estados Unidos. Ao começar a criar ambientes reais, você poderá escolher o local que melhor atende às suas necessidades.
+Todos os recursos do Azure devem ser criados em um [grupo de recursos do Azure](azure-portal/resource-group-portal.md). Grupos de recursos o habilitam a agrupar recursos do Azure para que eles possam ser gerenciados coletivamente. [Permissões](./active-directory/role-based-access-control-configure.md) podem ser atribuídas a grupos de recursos, para que pessoas específicas em sua organização possam criar, modificar, excluir ou exibi-los, juntamente com os recursos neles. Alertas e informações de cobrança de recursos no grupo de recursos podem ser exibidos no [Portal de Visualização do Azure](https://portal.azure.com). Grupos de recursos são criados em um [local](https://azure.microsoft.com/regions/) do Azure. Neste artigo, todos os recursos são criados no local Centro dos Estados Unidos. Ao começar a criar ambientes reais, você poderá escolher o local que melhor atende às suas necessidades.
 
   **Etapa 5:** crie grupos de recursos para os ambientes de desenvolvimento e testes usando um dos métodos a seguir. Ambos os métodos obterão exatamente o mesmo resultado.
 
@@ -313,7 +313,7 @@ Durante o desenvolvimento, a configuração dos recursos do Azure em diferentes 
 
   Clique em "Sim" quando o portal exibir uma mensagem perguntando se você tem certeza de que deseja excluir o recurso. O conteúdo do grupo de recursos agora é diferente do que deveria ser. Além disso, você pode experimentar excluir vários recursos de vários grupos de recursos ou até mesmo alterar definições de configuração para alguns dos recursos.
 
-> [AZURE.NOTE]Em vez de usar o Portal de Visualização do Azure para excluir um recurso de um grupo de recursos, você pode usar o comando [Remove-AzureResource](https://msdn.microsoft.com/library/azure/dn757676.aspx) do PowerShell ou o comando “azure resource delete” da CLI para realizar a mesma tarefa.
+> [AZURE.NOTE] Em vez de usar o Portal de Visualização do Azure para excluir um recurso de um grupo de recursos, você pode usar o comando [Remove-AzureResource](https://msdn.microsoft.com/library/azure/dn757676.aspx) do PowerShell ou o comando “azure resource delete” da CLI para realizar a mesma tarefa.
 
   **Etapa 8:** implante novamente os ambientes nos grupos de recursos usando os mesmos comandos que você usou na Etapa 6, mas substitua “Deployment1” por “Deployment2”. Conforme mostrado na seção Resumo da imagem abaixo, você verá que todos os recursos do modelo existem no grupo de recursos TestApp1-Development novamente. Uma das vantagens da implantação de seus ambientes com modelos do Gerenciador de Recursos do Azure é que você pode facilmente reimplantar os ambientes de volta para um estado conhecido a qualquer momento.
 
@@ -372,16 +372,16 @@ Agora que viu como é fácil criar, manter e excluir os ambientes de desenvolvim
 
 ## Próximas etapas
 
-- [Delegue controle administrativo](role-based-access-control-configure.md) para diferentes recursos em cada ambiente, atribuindo grupos ou usuários do AD do Microsoft Azure a funções específicas que têm a capacidade de executar um subconjunto de operações nos recursos do Azure.
+- [Delegar controle administrativo](role-based-access-control-configure.md) para recursos diferentes em cada ambiente atribuindo usuários ou grupos do AD do Microsoft Azure a funções específicas que têm a capacidade de executar um subconjunto de operações nos recursos do Azure.
 - [Atribua marcas](resource-group-using-tags.md) aos grupos de recursos de cada ambiente e/ou aos recursos individuais. Você pode adicionar uma marca de "Ambiente" aos grupos de recursos e definir seu valor para corresponder aos nomes de seu ambiente. As marcas podem ser particularmente úteis quando você precisar organizar os recursos de gerenciamento ou de cobrança.
 - Monitore alertas e cobrança de recursos do grupo de recursos no [Portal de Visualização do Azure](https://portal.azure.com).
 
 ## Recursos adicionais
 
-- [Crie e implante modelos do Gerenciador de Recursos do Azure no Visual Studio](http://msdn.microsoft.com/library/azure/Dn872471.aspx) com o SDK 2.6 do Azure instalado.
+- [Criar e implantar modelos do Gerenciador de Recursos do Azure no Visual Studio](http://msdn.microsoft.com/library/azure/Dn872471.aspx) com o SDK 2.6 do Azure instalado.
 - Crie seu aplicativo usando o [Visual Studio Enterprise](https://www.visualstudio.com/products/visual-studio-enterprise-vs), o [Código do Visual Studio](http://www.visualstudio.com/products/code-vs) ou a [Matriz da Web](http://www.microsoft.com/web/webmatrix/).
-- [Implante um aplicativo Web](app-service-web/web-sites-deploy.md) nos ambientes que você criou.
+- [Implantar um aplicativo Web](app-service-web/web-sites-deploy.md) para os ambientes que você criou.
 - Use o [Release Management para Visual Studio](http://msdn.microsoft.com/Library/vs/alm/Release/overview) para criar pipelines de implantação gerenciados e contínuos, a fim de liberar com rapidez, facilidade e frequência.
-- Solicite um convite para a visualização do [Laboratório de Desenvolvimento/Teste do Azure](http://azure.microsoft.com/campaigns/devtest-lab/). Ele o habilita a gerenciar ambientes de laboratório de desenvolvimento e teste usando modelos e configurar cotas e políticas para uso em sua organização.
+- Solicite um convite para a visualização do [Laboratório de Desenvolvimento/Teste do Azure](https://azure.microsoft.com/campaigns/devtest-lab/). Ele o habilita a gerenciar ambientes de laboratório de desenvolvimento e teste usando modelos e configurar cotas e políticas para uso em sua organização.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

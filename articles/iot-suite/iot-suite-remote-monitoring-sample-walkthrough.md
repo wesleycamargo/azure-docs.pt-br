@@ -2,13 +2,14 @@
  pageTitle="Passo a passo da solução pré-configurada de monitoramento remoto | Microsoft Azure"
  description="Uma descrição do monitoramento remoto pré-configurado da solução de IoT do Azure e sua arquitetura."
  services=""
+ suite="iot-suite"
  documentationCenter=""
  authors="stevehob"
  manager="timlt"
  editor=""/>
 
 <tags
- ms.service="na"
+ ms.service="iot-suite"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
@@ -144,4 +145,4 @@ Você pode desabilitar um dispositivo e depois que ele for desabilitado, poderá
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_08.png)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->
