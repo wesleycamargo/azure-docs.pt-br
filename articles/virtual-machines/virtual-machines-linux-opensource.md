@@ -36,7 +36,7 @@ As seções são divididas à direita desta página. (Os links podem ocorrer em 
 - [Eventos e demonstrações: Microsoft Openness CEE](http://www.opennessatcee.com/)
 - \[Implantação clássica] [Como: carregar a sua própria imagem de distribuição](virtual-machines-linux-create-upload-vhd.md) (além de instruções usando uma [Distribuição endossada pelo Azure](virtual-machines-linux-endorsed-distributions.md))
 - [Observações: requisitos gerais de Linux para execução no Azure](virtual-machines-linux-create-upload-vhd-generic.md)
-- \[Implantação clássica][Anotações: introdução geral ao Linux no Azure](virtual-machines-linux-introduction.md)
+- \[Implantação clássica] [Anotações: introdução geral ao Linux no Azure](virtual-machines-linux-introduction.md)
 
 <!--
 - [Distros](#distros) &mdash; Topics to do with a specific distro.
@@ -302,4 +302,4 @@ Esta seção começa com uma entrada de blog que contém uma série de vídeos e
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
 
-<!----HONumber=AcomDC_0128_2016-->
+<!-----HONumber=AcomDC_0128_2016-->
