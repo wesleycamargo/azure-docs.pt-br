@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/01/2015"
+	ms.date="01/30/2016"
 	ms.author="tarcher"/>
 
 # Criar um Laboratório de Desenvolvimento/Teste do Azure
@@ -23,7 +23,7 @@
 Para criar um Laboratório de Desenvolvimento/Teste, será necessário:
 
 - Uma assinatura do Azure. Para saber mais sobre as opções de compra do Azure, consulte [Como comprar o Azure](https://azure.microsoft.com/pricing/purchase-options/) ou [Avaliação gratuita de um mês](https://azure.microsoft.com/pricing/free-trial/). Você deve ser o proprietário da assinatura para criar o laboratório.
-- Um Grupo de Recursos do Azure para o laboratório. Consulte [Visão Geral do Gerenciador de Recursos do Azure](resource-group-overview.md) e [Controle de Acesso Baseado em Função do Azure](../active-directory/role-based-access-control-configure.md).
+- Um Grupo de Recursos do Azure para o laboratório. Consulte [Visão Geral do Gerenciador de Recursos do Azure](/resource-group-overview.md) e [Controle de Acesso Baseado em Função do Azure](/active-directory/role-based-access-control-configure.md).
 
 
 ## Criar um laboratório
@@ -61,4 +61,4 @@ Depois de criar seu laboratório, aqui estão algumas das próximas etapas a ser
 
 - [Adicionar uma VM com artefatos a um Laboratório de Desenvolvimento/Teste do Azure](devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

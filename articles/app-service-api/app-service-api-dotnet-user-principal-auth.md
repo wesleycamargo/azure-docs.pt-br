@@ -18,7 +18,7 @@
 
 # Autenticação de usuário para Aplicativos de API no Serviço de Aplicativo do Azure
 
-[AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
+[AZURE.INCLUDE [seletor](../../includes/app-service-api-auth-selector.md)]
 
 ## Visão geral
 
@@ -391,4 +391,4 @@ Se você executar com êxito o aplicativo sem autenticação e, depois, ele não
 
 Neste tutorial, você aprendeu como usar a autenticação do Serviço de Aplicativo para um aplicativo de API e como chamar o aplicativo de API usando a biblioteca ADAL JS. No próximo tutorial, você aprenderá a [proteger o acesso ao aplicativo de API para cenários entre serviços](app-service-api-dotnet-service-principal-auth.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

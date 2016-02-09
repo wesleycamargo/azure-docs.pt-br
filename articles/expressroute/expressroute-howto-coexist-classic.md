@@ -18,7 +18,7 @@
 
 # Configurar conexões de Rota Expressa e de VPN site a site para que coexistam em uma Rede Virtual
 
-Poder configurar a VPN site a site e a Rota Expressa tem várias vantagens. Você pode configurar a VPN site a site como um caminho de failover seguro para a Rota Expressa, ou usar VPNs site a site para se conectar a sites que não fazem parte de sua rede, mas que são conectados por meio da Rota Expressa. Neste artigo, analisaremos as etapas para configurar as duas situações. Este artigo se aplica a conexões criadas usando o modo de implantação clássico.
+Poder configurar a VPN site a site e a Rota Expressa tem várias vantagens. Você pode configurar a VPN site a site como um caminho de failover seguro para a Rota Expressa, ou usar VPNs site a site para se conectar a sites que não fazem parte de sua rede, mas que são conectados por meio da Rota Expressa. Neste artigo, analisaremos as etapas para configurar as duas situações. No momento, você só pode criar essa configuração usando o modelo de implantação clássico. Quando tivermos uma documentação que se aplique ao modelo de implantação do Gerenciador de Recursos, criaremos um link para ela aqui.
 
 >[AZURE.IMPORTANT] É importante saber que atualmente o Azure funciona com dois modelos de implantação: Gerenciador de Recursos e clássico. Antes de começar a configuração, entenda as ferramentas e os modelos de implantação. Para saber mais sobre os modelos de implantação, consulte [Modelos de implantação do Azure](../azure-classic-rm.md)
 
@@ -211,4 +211,4 @@ Se você tiver uma rede virtual existente conectada via conexão VPN de Rota Exp
 
 Para saber mais sobre a Rota Expressa, confira [Perguntas frequentes sobre Rota Expressa](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

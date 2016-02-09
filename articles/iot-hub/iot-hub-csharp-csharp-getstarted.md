@@ -125,4 +125,4 @@ Neste tutorial, você configurou um novo hub IoT no portal e depois criou uma id
 [lnk-resource-groups]: resource-group-portal.md
 [lnk-portal]: https://portal.azure.com/
 
-<!-----HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->
