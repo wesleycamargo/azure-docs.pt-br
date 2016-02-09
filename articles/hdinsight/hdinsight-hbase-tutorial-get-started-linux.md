@@ -185,13 +185,13 @@ Você pode consultar os dados nas tabelas HBase usando o Hive. Esta seção cria
 
 3. Use o seguinte comando para criar uma nova tabela HBase com duas famílias de coluna:
 
-		curl -u <UserName>:<Password> -v -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" -H "Accept: application/json" -H "Content-Type: application/json" -d "{"@name":"test","ColumnSchema":[{"name":"Personal"},{"name":"Office"}]}"
+		curl -u <UserName>:<Password> -v -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" -H "Accept: application/json" -H "Content-Type: application/json" -d "{\"@name\":\"test\",\"ColumnSchema\":[{\"name\":\"Personal\"},{\"name\":\"Office\"}]}"
 
 	O esquema é fornecido no formato JSon.
 
 4. Use o comando a seguir para inserir alguns dados:
 
-		curl -u <UserName>:<Password> -v -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" -H "Accept: application/json" -H "Content-Type: application/json" -d "{"Row":{"key":"1000","Cell":{"column":"Personal:Name", "$":"John Dole"}}}"
+		curl -u <UserName>:<Password> -v -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" -H "Accept: application/json" -H "Content-Type: application/json" -d "{\"Row\":{\"key\":\"1000\",\"Cell\":{\"column\":\"Personal:Name\", \"$\":\"John Dole\"}}}"
 
 5. Use o comando a seguir para obter uma linha:
 
@@ -257,7 +257,8 @@ Neste tutorial do HBase para o HDInsight, você aprendeu a criar um cluster HBas
 
 Para obter mais informações, consulte:
 
-- [Visão geral do HBase do HDInsight][hdinsight-hbase-overview]\: o HBase é um banco de dados NoSQL de software livre Apache baseado no Hadoop que fornece acesso aleatório e uma sólida consistência para grandes quantidades de dados não estruturados e semiestruturados.
+- [Visão geral do HBase do HDInsight][hdinsight-hbase-overview]:
+o HBase é um banco de dados NoSQL de software livre Apache baseado no Hadoop que fornece acesso aleatório e uma sólida consistência para grandes quantidades de dados não estruturados e semiestruturados.
 
 
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md

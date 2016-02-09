@@ -351,7 +351,8 @@ A configuração `<Instances>` especifica o número de máquinas virtuais onde o
 
 ## Criar o aplicativo do zero
 
-Se ainda não fez o download do [aplicativo completo](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4), faça-o agora. Você copiará os arquivos do projeto baixado para o novo projeto.
+Se ainda não fez o download do 
+[aplicativo completo](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4), faça-o agora. Você copiará os arquivos do projeto baixado para o novo projeto.
 
 A criação do Contoso Ads envolve as seguintes etapas:
 
@@ -471,10 +472,10 @@ Para adicionar arquivos a um projeto ou pasta, clique com o botão direito do mo
 
 3. No projeto ContosoAdsWeb, adicione os seguintes arquivos do projeto baixado.
 	- *Global.asax.cs*  
-	- Na pasta *Views\\Shared*: <em>\_Layout.cshtml</em>.
-	- Na pasta *Views\\Home*: *Index.cshtml*.
+	- Na pasta *Views\Shared*: <em>\_Layout.cshtml</em>.
+	- Na pasta *Views\Home*: *Index.cshtml*.
 	- Na pasta *Controllers*: *AdController.cs*.
-	- Na pasta *Views\\Ad* (crie a pasta primeiro): cinco arquivos *.cshtml*.
+	- Na pasta *Views\Ad* (crie a pasta primeiro): cinco arquivos *.cshtml*.
 
 3. No projeto ContosoAdsWorker, adicione *WorkerRole.cs* do projeto baixado.
 

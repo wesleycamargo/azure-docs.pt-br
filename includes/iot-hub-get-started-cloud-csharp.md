@@ -24,7 +24,7 @@ Nesta seção, você cria um aplicativo do console do Windows que cria uma nova 
 		static RegistryManager registryManager;
         static string connectionString = "{iothub connection string}";
 
-6. Adicione o seguinte método à classe **Programa**:
+6. Adicione o seguinte método à classe **Program**:
 
 		private async static Task AddDeviceAsync()
         {
@@ -79,7 +79,7 @@ Nesta seção, você cria um aplicativo do console do Windows que lê mensagens 
         static string iotHubD2cEndpoint = "messages/events";
         static EventHubClient eventHubClient;
 
-6. Adicione o seguinte método à classe **Programa**:
+6. Adicione o seguinte método à classe **Program**:
 
         private async static Task ReceiveMessagesFromDeviceAsync(string partition)
         {

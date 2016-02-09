@@ -156,6 +156,6 @@ Nesta seção, você criará um aplicativo do console do Java que simula um disp
 > [AZURE.NOTE] Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, implemente políticas de repetição (como uma retirada exponencial), como sugerido no artigo [Tratamento de falhas transitórias][lnk-transient-faults] do MSDN.
 
 <!-- Links -->
-[lnk-transient-faults]: https://msdn.microsoft.com/pt-BR/library/hh680901(v=pandp.50).aspx
+[lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 <!---HONumber=AcomDC_0204_2016-->

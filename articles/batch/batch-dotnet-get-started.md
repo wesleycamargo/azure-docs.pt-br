@@ -84,7 +84,8 @@ private const string StorageAccountKey  = "";
 
 Você pode encontrar suas credenciais de conta do Lote e do Armazenamento na folha da conta de cada serviço no [portal do Azure][azure_portal]\:
 
-![Credenciais do Lote no portal][9] ![Credenciais do Armazenamento no portal][10]<br/>
+![Credenciais do Lote no portal][9] 
+![Credenciais do Armazenamento no portal][10]<br/>
 
 Agora que você atualizou o projeto com suas credenciais, clique com botão direito do mouse na solução no Gerenciador de Soluções e clique em **Compilar Solução**. Confirme a restauração de qualquer pacote NuGet, se solicitado.
 
@@ -96,7 +97,8 @@ Navegue até a parte superior do método `MainAsync` no arquivo `Program.cs` do 
 
 ## Etapa 1: Criar contêineres do Armazenamento
 
-![Criar contêineres no Armazenamento do Azure][1] <br/>
+![Criar contêineres no Armazenamento do Azure][1] 
+<br/>
 
 O Lote inclui suporte interno para a interação com o Armazenamento do Azure. Os contêineres em sua conta de Armazenamento fornecerão tarefas que serão executadas em sua conta do Lote com os arquivos de que necessitam para serem executadas. Os contêineres também fornecem um local para armazenar os dados de saída produzidos pelas tarefas. A primeira coisa que o aplicativo cliente *DotNetTutorial* faz é criar três contêineres no [Armazenamento de Blobs do Azure](./../storage/storage-introduction.md):
 
@@ -152,7 +154,8 @@ Depois que os contêineres tiverem sido criados, o aplicativo poderá carregar o
 
 ## Etapa 2: carregar aplicativos e de tarefa e arquivos de dados
 
-![Carregar arquivos de aplicativo e de entrada (dados) da tarefa nos contêineres][2] <br/>
+![Carregar arquivos de aplicativo e de entrada (dados) da tarefa nos contêineres][2] 
+<br/>
 
 Na operação de carregamento do arquivo, *DotNetTutorial* primeiro define as coleções de caminhos de arquivo **application** e **input** como eles existem no computador local. Em seguida, ele carrega esses arquivos nos contêineres que você criou na etapa anterior.
 
@@ -238,7 +241,8 @@ As assinaturas de acesso compartilhado são cadeias de caracteres que, quando in
 
 ## Etapa 3: Criar um pool do Lote
 
-![Criar um pool do Lote][3] <br/>
+![Criar um pool do Lote][3] 
+<br/>
 
 Depois de carregar os arquivos de aplicativo e de dados na conta do Armazenamento, o *DotNetTutorial* inicia sua interação com o serviço Lote usando a biblioteca .NET do Lote. Para fazer isso, um [BatchClient][net_batchclient] é criado primeiro:
 
@@ -323,7 +327,8 @@ Agora que um trabalho foi criado, as tarefas serão adicionadas para a execuçã
 
 ## Etapa 5: Adicionar tarefas ao trabalho
 
-![Adicionar tarefas ao trabalho][5]<br/> *(1) As tarefas são adicionadas ao trabalho, (2) as tarefas são agendadas para execução em nós e (3) as tarefas baixam os arquivos de dados para processamento*
+![Adicionar tarefas ao trabalho][5]<br/> 
+*(1) As tarefas são adicionadas ao trabalho, (2) as tarefas são agendadas para execução em nós e (3) as tarefas baixam os arquivos de dados para processamento*
 
 Para realmente executar o trabalho, as tarefas devem ser adicionadas a um trabalho. Cada [CloudTask][net_task] é configurada usando uma propriedade de linha de comando e [ResourceFiles][net_task_resourcefiles] (assim como acontece com a StartTask do pool) que a tarefa baixa para o nó antes de a linha de comando ser executada automaticamente. No projeto de exemplo *DotNetTutorial*, cada tarefa processa apenas um arquivo. Portanto, sua coleção ResourceFiles contém um único elemento.
 
@@ -402,7 +407,8 @@ private static void UploadFileToContainer(string filePath, string containerSas)
 
 ## Etapa 6: Monitorar tarefas
 
-![Monitorar tarefas][6]<br/> *O aplicativo cliente (1) monitora as tarefas para a conclusão e o status de êxito e (2) os dados resultantes do carregamento de tarefas para o Armazenamento do Azure*
+![Monitorar tarefas][6]<br/> 
+*O aplicativo cliente (1) monitora as tarefas para a conclusão e o status de êxito e (2) os dados resultantes do carregamento de tarefas para o Armazenamento do Azure*
 
 Quando as tarefas são adicionadas a um trabalho, são automaticamente enfileiradas e agendadas para execução em nós de computação no pool associado ao trabalho. Com base nas configurações especificadas, o Lote manipula o enfileiramento, o agendamento, a repetição de todas as tarefas e outras obrigações de administração de tarefas para você. Há muitas abordagens para o monitoramento da execução da tarefa. O DotNetTutorial mostra um exemplo simples que relata apenas a conclusão e a falha de tarefas ou os estados de êxito.
 

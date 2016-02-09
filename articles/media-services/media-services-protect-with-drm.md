@@ -114,7 +114,7 @@ Para obter informações detalhadas, consulte [Configurar política de entrega d
 
 Você precisará fornecer ao seu usuário a URL para Smooth Streaming, DASH ou HLS.
 
->[AZURE.NOTE]Se você adicionar ou atualizar a política de fornecimento do ativo, você deve excluir um localizador existente (se houver) e criar um novo localizador.
+>[AZURE.NOTE] Se você adicionar ou atualizar a política de fornecimento do ativo, você deve excluir um localizador existente (se houver) e criar um novo localizador.
 
 Para obter instruções sobre como publicar um ativo e criar uma URL de streaming, consulte [Criar uma URL de streaming](media-services-deliver-streaming-content.md).
 

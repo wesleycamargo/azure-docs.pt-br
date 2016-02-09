@@ -18,7 +18,7 @@
 
 # Autenticação de entidade de serviço para Aplicativos de API no Serviço de Aplicativo do Azure
 
-[AZURE.INCLUDE [seletor](../../includes/app-service-api-auth-selector.md)]
+[AZURE.INCLUDE [selector](../../includes/app-service-api-auth-selector.md)]
 
 ## Visão geral
 

@@ -24,9 +24,12 @@ Quando você deseja criar um experimento, procure exemplos nos experimentos de e
 ## Navegar na Galeria de Análise do Cortana
 1. Vá para a [Galeria](http://gallery.azureml.net/)
 2. Procure também acessando **Experimentos Mais Populares** ou **Exemplos da Microsoft**.
-3. Use a pesquisa e os filtros para restringir os resultados: ![](./media/machine-learning-sample-experiments/image1.png) 
-4. Clique em um experimento para saber mais sobre ele. Para executar e/ou modificam o experimento, clique em **Abrir no Studio**. ![](./media/machine-learning-sample-experiments/image2.png) 
-5.  Entrar com suas credenciais de conta da Microsoft. Se você ainda não tiver um espaço de trabalho de Aprendizado de Máquina, é criado um espaço de trabalho de avaliação gratuito. [Saiba o que está incluído na avaliação gratuita de Aprendizado de Máquina](https://azure.microsoft.com/pricing/details/machine-learning/) ![](./media/machine-learning-sample-experiments/image3.png) 
+3. Use a pesquisa e os filtros para restringir os resultados: 
+![](./media/machine-learning-sample-experiments/image1.png) 
+4. Clique em um experimento para saber mais sobre ele. Para executar e/ou modificam o experimento, clique em **Abrir no Studio**. 
+![](./media/machine-learning-sample-experiments/image2.png) 
+5.  Entrar com suas credenciais de conta da Microsoft. Se você ainda não tiver um espaço de trabalho de Aprendizado de Máquina, é criado um espaço de trabalho de avaliação gratuito. [Saiba o que está incluído na avaliação gratuita de Aprendizado de Máquina](https://azure.microsoft.com/pricing/details/machine-learning/) 
+![](./media/machine-learning-sample-experiments/image3.png) 
 
 ## Usar como modelo no Studio
 1. Entre com suas credenciais de conta da Microsoft para o [Studio](https://studio.azureml.net), e, em seguida, clique em **Novo*** para criar um novo experimento

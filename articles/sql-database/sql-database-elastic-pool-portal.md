@@ -173,7 +173,8 @@ Depois de criar um pool, você pode:
 
 Ao selecionar um pool existente, você pode ver a utilização de recursos do pool. Clique no gráfico **Utilização de Recursos** para abrir a folha **Métrica** na qual é possível personalizar o gráfico e configurar alertas.
 
-![Monitorar um pool elástico][4] ![utilização de recursos][6]
+![Monitorar um pool elástico][4] 
+![utilização de recursos][6]
 
 Clique em **Editar gráfico** para adicionar parâmetros de modo que você possa exibir facilmente os dados de telemetria do pool.
 
