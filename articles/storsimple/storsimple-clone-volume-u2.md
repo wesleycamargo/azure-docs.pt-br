@@ -27,7 +27,7 @@ A página **Catálogo de Backup** do serviço StorSimple Manager exibe todos os 
 
 Este tutorial descreve como você pode usar um conjunto de backups para clonar um volume individual. Ele também explica a diferença entre os clones *transitório* e *permanente*.
 
->[AZURE.NOTE]
+>[AZURE.NOTE] 
 >
 >Um volume fixo local será clonado como um volume em camadas. Se você precisar que o volume clonado seja fixado localmente, você pode converter o clone para um volume fixo local depois que a operação de clonagem for concluída com êxito. Para obter informações sobre como converter um volume em camadas para um volume fixado localmente, vá para [Alterar o tipo de volume](storsimple-manage-volumes-u2.md#change-the-volume-type).
 >
@@ -82,7 +82,7 @@ Você pode criar um clone no mesmo dispositivo, em outro dispositivo ou mesmo em
   1. Vá para a página **Dispositivos** e selecione a guia **Contêineres do Volume**.
   2. Selecione o contêiner do volume associado ao volume de origem clonado. Na lista de volumes, você deve ver o clone que acabou de criar.
 
->[AZURE.NOTE]O monitoramento e o backup padrão são desabilitados automaticamente em um volume clonado.
+>[AZURE.NOTE] O monitoramento e o backup padrão são desabilitados automaticamente em um volume clonado.
 
 Um clone criado dessa maneira é um clone transitório. Para obter mais informações sobre os tipos de clone, consulte [Clones transitórios versus permanentes](#transient-vs.-permanent-clones).
 
@@ -104,7 +104,7 @@ Você precisa recuperar um arquivo de apresentação do Microsoft PowerPoint com
  
 ![Vídeo disponível](./media/storsimple-clone-volume-u2/Video_icon.png) **Vídeo disponível**
 
-Para assistir a um vídeo que demonstra como você pode usar os recursos de clonagem e restauração no StorSimple para recuperar arquivos excluídos, clique [aqui](http://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
+Para assistir a um vídeo que demonstra como você pode usar os recursos de clonagem e restauração no StorSimple para recuperar arquivos excluídos, clique [aqui](https://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
 
 ### Testando no ambiente de produção com um clone permanente
 
@@ -117,4 +117,4 @@ Você precisa verificar um bug de teste no ambiente de produção. Você cria um
 
  
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

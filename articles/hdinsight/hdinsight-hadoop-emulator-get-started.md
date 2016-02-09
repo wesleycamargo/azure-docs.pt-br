@@ -24,12 +24,12 @@ Este tutorial apresenta o uso de clusters Hadoop no Emulador do Microsoft HDInsi
 
 Depois de instalar o emulador, siga um tutorial do MapReduce para obter a contagem de palavras e, em seguida, execute os exemplos.
 
-> [AZURE.NOTE]O Emulador do HDInsight inclui apenas um cluster Hadoop. Ele não inclui HBase ou Storm.
+> [AZURE.NOTE] O Emulador do HDInsight inclui apenas um cluster Hadoop. Ele não inclui HBase ou Storm.
 
 
 O Emulador do HDInsight fornece um ambiente de desenvolvimento local muito parecido com a área restrita do Hadoop. Se estiver familiarizado com o Hadoop, você pode começar a usar o Emulador do HDInsight utilizando o HDFS (Sistema de Arquivos Distribuído do Hadoop). No HDInsight, o sistema de arquivos padrão é o armazenamento de Blob do Azure. Por isso, talvez você queira, afinal, desenvolver seus trabalhos usando o armazenamento de Blob do Azure. Para usar o armazenamento de Blob do Azure com o Emulador do HDInsight, você deve fazer alterações na configuração do emulador.
 
-> [AZURE.NOTE]O Emulador do HDInsight pode usar somente uma implantação de nó único.
+> [AZURE.NOTE] O Emulador do HDInsight pode usar somente uma implantação de nó único.
 
 
 ## Pré-requisitos
@@ -41,14 +41,14 @@ Antes de começar este tutorial, você deve ter o seguinte:
 	- Windows 8
 	- Windows Server 2012
 
-- **PowerShell do Azure**. Consulte [Instalar e usar o PowerShell do Azure](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+- **PowerShell do Azure**. Consulte [Instalar e usar o PowerShell do Azure](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 
 ##<a name="install"></a>Instalar o Emulador do HDInsight
 
 O Emulador do Microsoft HDInsight é instalável através do Microsoft Web Platform Installer.
 
-> [AZURE.NOTE]O Emulador do HDInsight atualmente dá suporte apenas a sistemas operacionais em inglês. Se você tiver uma versão anterior do emulador instalado, desinstale os seguintes componentes em Painel de Controle/Programas e Recursos antes de instalar a versão mais recente do emulador: <ul> <li>Emulador do Microsoft HDInsight para o Azure ou HDInsight Developer Preview, o que estiver instalado</li> <li>Hortonworks Data Platform</li> </ul>
+> [AZURE.NOTE] O Emulador do HDInsight atualmente dá suporte apenas a sistemas operacionais em inglês. Se você tiver uma versão anterior do emulador instalado, desinstale os seguintes componentes em Painel de Controle/Programas e Recursos antes de instalar a versão mais recente do emulador: <ul> <li>Emulador do Microsoft HDInsight para o Azure ou HDInsight Developer Preview, o que estiver instalado</li> <li>Hortonworks Data Platform</li> </ul>
 
 
 **Para instalar o Emulador do HDInsight**
@@ -110,7 +110,7 @@ Após a conexão ser estabelecida com êxito, você pode usar as ferramentas do 
 
 1. Ao estabelecer conexão com o Emulador do HDInsight, embora a caixa de diálogo mostre a mensagem “HiveServer2 conectado com êxito”, você deve definir manualmente a **propriedade hive.security.authorization.enabled** como **false** no arquivo de configuração do Hive em C:\\hdp\\hive-*versão*\\conf\\hive-site.xml e reiniciar o Emulador local. As Ferramentas do HDInsight para Visual Studio se conecta ao HiveServer2 somente quando você está visualizando as 100 primeiras linhas da tabela. Se não pretende usar esse tipo de consulta, você pode deixar a configuração de Hive como está.
 
-2. Se estiver usando a alocação de IP dinâmico (DHCP) no computador que executa o Emulador do HDInsight, talvez seja necessário atualizar C:\\hdp\\hadoop-*versão*\\etc\\hadoop\\core-site.xml e alterar o valor da propriedade **hadoop.proxyuser.hadoop.hosts** para (*). Isso permite que o usuário do Hadoop se conecte de todos os hosts para representar o usuário que você inseriu no Visual Studio.
+2. Se você estiver usando alocação de IP dinâmico (DHCP) no computador que executa o Emulador do HDInsight, talvez seja necessário atualizar C:\\hdp\\hadoop-*versão*\\etc\\hadoop\\core-site.xml e alterar o valor da propriedade **hadoop.proxyuser.hadoop.hosts** para (*). Isso permite que o usuário do Hadoop se conecte de todos os hosts para representar o usuário que você inseriu no Visual Studio.
 
 		<property>
 			<name>hadoop.proxyuser.hadoop.hosts</name>
@@ -128,7 +128,7 @@ O programa MapReduce de contagem de palavras foi empacotado em *hadoop-mapreduce
 O trabalho do MapReduce para contar palavras usa dois argumentos:
 
 - Uma pasta de entrada. Você usará **hdfs://localhost/user/HDIUser* como a pasta de entrada.
-- Uma pasta de saída. Você usará **hdfs://localhost/user/HDIUser/WordCount_Output* como a pasta de saída. A pasta de saída não pode ser uma pasta existente, ou o trabalho do MapReduce falhará. Se você quiser executar o trabalho do MapReduce pela segunda vez, especifique uma pasta de saída diferente ou exclua a pasta de saída existente.
+- Uma pasta de saída. Você usará **hdfs://localhost/user/HDIUser/WordCount_Output* como pasta de saída. A pasta de saída não pode ser uma pasta existente, ou o trabalho do MapReduce falhará. Se você quiser executar o trabalho do MapReduce pela segunda vez, especifique uma pasta de saída diferente ou exclua a pasta de saída existente.
 
 **Para executar o trabalho do MapReduce de contagem de palavras**
 
@@ -294,7 +294,7 @@ O mecanismo de consulta do Hive pode parecer familiar aos analistas com fortes h
 
 5. Execute o comando a seguir para processar o arquivo de script **w3ccreate.hql**. O script cria uma tabela do Hive e carrega dados para ela:
 
-	> [AZURE.NOTE]Neste estágio, você também pode usar as Ferramentas do HDInsight para Visual Studio para executar a consulta do Hive. Abra o Visual Studio, crie um novo Projeto e, no modelo do HDInsight, selecione **Aplicativo Hive**. Aguarde o projeto se abrir e adicione a consulta como um novo item. A consulta está disponível em **C:/hdp/GettingStarted/Hive/w3c**. Após adicionar a consulta ao projeto, substitua **${hiveconf:input}** por **/w3c/hive/input** e pressione **Enviar**.
+	> [AZURE.NOTE] Neste estágio, você também pode usar as Ferramentas do HDInsight para Visual Studio para executar a consulta do Hive. Abra o Visual Studio, crie um novo Projeto e, no modelo do HDInsight, selecione **Aplicativo Hive**. Aguarde o projeto se abrir e adicione a consulta como um novo item. A consulta está disponível em **C:/hdp/GettingStarted/Hive/w3c**. Após adicionar a consulta ao projeto, substitua **${hiveconf:input}** por **/w3c/hive/input** e pressione **Enviar**.
 
 		C:\hdp\hive-0.13.0.2.1.3.0-1981\bin\hive.cmd -f ./Hive/w3c/w3ccreate.hql -hiveconf "input=/w3c/hive/input/data_w3c_small.txt"
 
@@ -313,7 +313,7 @@ O mecanismo de consulta do Hive pode parecer familiar aos analistas com fortes h
 
 6. Execute o seguinte comando para executar o arquivo de script de HiveQL **w3ctotalhitsbypage.hql**:
 
-	> [AZURE.NOTE]Como explicamos, você também pode executar esta consulta usando as Ferramentas do HDInsight para Visual Studio.
+	> [AZURE.NOTE] Como explicamos, você também pode executar esta consulta usando as Ferramentas do HDInsight para Visual Studio.
 
         C:\hdp\hive-0.13.0.2.1.3.0-1981\bin\hive.cmd -f ./Hive/w3c/w3ctotalhitsbypage.hql
 
@@ -390,7 +390,7 @@ The samples currently contain all the required binaries, so building is not requ
 ##<a name="blobstorage"></a>Conectar ao armazenamento de Blob do Azure
 O Emulador do HDInsight usa o HDFS como o sistema de arquivos padrão. No entanto, o Azure HDInsight usa o armazenamento de Blob do Azure como o sistema de arquivos padrão. É possível configurar o Emulador do HDInsight para usar o armazenamento de Blob do Azure, em vez do armazenamento local. Siga as instruções abaixo para criar um contêiner de armazenamento no Azure e conectá-lo ao Emulador do HDInsight.
 
->[AZURE.NOTE]Para obter mais informações sobre como o HDInsight usa o armazenamento de Blob do Azure, consulte [Armazenamento de Blob do Azure Use com o HDInsight](../hdinsight-use-blob-storage.md).
+>[AZURE.NOTE] Para obter mais informações sobre como o HDInsight usa o armazenamento de Blob do Azure, consulte [Armazenamento de Blob do Azure Use com o HDInsight](../hdinsight-use-blob-storage.md).
 
 Antes de começar pelas instruções abaixo, você deve ter criado uma conta de armazenamento. Para obter instruções, consulte [Como criar uma conta de armazenamento](../storage-create-storage-account.md).
 
@@ -497,4 +497,4 @@ Neste tutorial do MapReduce, você instalou o Emulador do HDInsight (uma área r
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -20,7 +20,7 @@
 
 Estas perguntas frequentes estão relacionadas à Central de Segurança do Azure, um serviço que ajuda você a impedir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança dos recursos do Microsoft Azure.
 
-> [AZURE.NOTE]As informações neste documento se aplicam à versão de visualização da Central de Segurança do Azure.
+> [AZURE.NOTE] As informações neste documento se aplicam à versão de visualização da Central de Segurança do Azure.
 
 ## Perguntas gerais
 
@@ -28,7 +28,7 @@ Estas perguntas frequentes estão relacionadas à Central de Segurança do Azure
 A Central de Segurança do Azure ajuda você a impedir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança dos recursos do Azure Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
 
 ### Como posso obter a Central de Segurança do Azure?
-A Central de Segurança do Azure vem habilitada com sua assinatura do Microsoft Azure e pode ser acessada no [portal do Azure](http://azure.microsoft.com/features/azure-portal/). ([Entre no portal](https://portal.azure.com), selecione **Procurar** e role até a **Central de Segurança**). Talvez você veja algumas recomendações de segurança no painel instantaneamente. Isso ocorre porque o serviço pode avaliar o estado de segurança de alguns controles com base em sua configuração no Azure. Para ativar o conjunto completo de monitoramento, recomendações e recursos de alerta de segurança, você precisará [habilitar a coleta de dados](#data-collection).
+A Central de Segurança do Azure vem habilitada com sua assinatura do Microsoft Azure e pode ser acessada no [portal do Azure](https://azure.microsoft.com/features/azure-portal/). ([Entre no portal](https://portal.azure.com), selecione **Procurar** e role até a **Central de Segurança**). Talvez você veja algumas recomendações de segurança no painel instantaneamente. Isso ocorre porque o serviço pode avaliar o estado de segurança de alguns controles com base em sua configuração no Azure. Para ativar o conjunto completo de monitoramento, recomendações e recursos de alerta de segurança, você precisará [habilitar a coleta de dados](#data-collection).
 
 ## Cobrança
 
@@ -103,4 +103,4 @@ As recomendações da lista de controle de acesso no momento se aplicam às máq
 ### Há suporte para as máquinas virtuais do Linux?
 A linha de base Central de Segurança do Azure oferece monitoramento para as máquinas virtuais do Linux (somente o Ubuntu versões 12.04, 14.04, 14.10 e 15.04). No futuro, o monitoramento de integridade de segurança adicional e a coleta/análise de dados estarão disponíveis, bem como o suporte adicional para distribuições do Linux.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

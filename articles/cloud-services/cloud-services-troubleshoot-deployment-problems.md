@@ -25,13 +25,13 @@ Você pode encontrar o painel **Propriedades** da seguinte maneira:
 * No portal do Azure: clique na implantação do seu serviço de nuvem, clique em **Todas as configurações**, e, em seguida, clique em **propriedades**.
 * No portal clássico do Azure: clique na implantação do seu serviço de nuvem, clique em **PAINEL**, localize no canto inferior direito da página (em **vis~ao rápida**). Lembre-se de que não há nenhum texto de "Propriedades" para esse painel.
 
-> [AZURE.NOTE]É possível copiar o conteúdo do painel Propriedades na área de transferência clicando no ícone no canto superior direito do painel.
+> [AZURE.NOTE] É possível copiar o conteúdo do painel Propriedades na área de transferência clicando no ícone no canto superior direito do painel.
 
 ## Contate o Suporte ao Cliente do Azure
 
-Se você precisar de mais ajuda em qualquer momento neste artigo, você pode contatar os especialistas do Azure nos [fóruns do Azure MSDN e Excedente de Pilha](http://azure.microsoft.com/support/forums/).
+Se você precisar de mais ajuda em qualquer momento neste artigo, você pode contatar os especialistas do Azure nos [fóruns do Azure MSDN e Excedente de Pilha](https://azure.microsoft.com/support/forums/).
 
-Como alternativa, você também pode registrar um incidente de suporte do Azure. Acesse o [site de Suporte do Azure](http://azure.microsoft.com/support/options/) e clique em **Obter Suporte**. Para obter informações sobre como usar o Suporte do Azure, leia as [Perguntas Frequentes de Suporte do Microsoft Azure](http://azure.microsoft.com/support/faq/).
+Como alternativa, você também pode registrar um incidente de suporte do Azure. Acesse o [site de Suporte do Azure](https://azure.microsoft.com/support/options/) e clique em **Obter Suporte**. Para obter informações sobre como usar o Suporte do Azure, leia as [Perguntas Frequentes de Suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
 
 
@@ -80,7 +80,7 @@ Para obter mais informações sobre como solucionar esse problema, veja a postag
    * Se a instância de função estiver Ocupada, verifique o código do aplicativo para ver se o evento [StatusCheck](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.statuscheck) foi manipulado. Talvez seja necessário adicionar ou corrigir algum código que manipula esse evento.
    * Examine os dados de diagnóstico e os cenários de solução de problemas na postagem do blog [Dados de Diagnóstico de Computação do Azure PaaS].
 
->[AZURE.WARNING]Se você reiniciar o serviço de nuvem, redefina as propriedades da implantação apagando de maneira efetiva as informações do problema original.
+>[AZURE.WARNING] Se você reiniciar o serviço de nuvem, redefina as propriedades da implantação apagando de maneira efetiva as informações do problema original.
 
 ## Próximas etapas
 
@@ -88,4 +88,4 @@ Confira mais [artigos sobre solução de problemas](..\?tag=top-support-issue&se
 
 Para saber como solucionar problemas das funções do Serviço de Nuvem usando os dados de diagnóstico do computador Azure PaaS, veja a [série de blogs de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

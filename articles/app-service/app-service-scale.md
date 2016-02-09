@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015" 
+	ms.date="01/09/2016" 
 	ms.author="stepsic"/>
 
 # Dimensionar a camada de preços no Serviço de Aplicativo do Azure
@@ -22,13 +22,13 @@ Para aumentar o desempenho e a produtividade de seus aplicativos no Microsoft Az
 
 O nível de serviço que seu plano de Serviço de Aplicativo tem se baseia na [*Camada de preços* para o plano](/pricing/details/app-service/). Níveis de preço mais altos, como **Padrão** e **Premium**, oferecem maior eficiência e flexibilidade para determinar como os recursos do Azure são usados. Alterar a camada de preços afeta o número de núcleos e a quantidade de memória que seu serviço tem, e isso é conhecido como o *escala vertical* (ou *redução vertical*).
 
-Além de realizar a escala vertical da camada de preços, você pode aumentar o número de instâncias que o seu serviço tem. Isso é conhecido como *escala horizontal* ou *redução vertical*. Consulte o artigo sobre [Ajustar escala da contagem de instância manual ou automaticamente](../insights-how-to-scale.md) para saber mais sobre *Escala horizontal* e *Redução horizontal*.
+Além de realizar a escala vertical do tipo de preço, você pode aumentar o número de instâncias que o seu serviço tem. Isso é conhecido como *escala horizontal* ou *redução vertical*. Consulte o artigo sobre [Ajustar escala da contagem de instância manual ou automaticamente](../insights-how-to-scale.md) para saber mais sobre *Escala horizontal* e *Redução horizontal*.
 
 Para obter informações sobre planos de serviço de aplicativo, consulte [O que é um plano de Serviço de Aplicativo?](../web-sites-web-hosting-plan-overview.md) e [Visão geral aprofundada de planos de Serviço Aplicativo do Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md). Para obter informações sobre os preços e recursos de planos individuais de Serviço de Aplicativo, consulte [Detalhes de Preços de Serviços de Aplicativo](/pricing/details/app-service/).
 
 Por fim, a colocação em escala funciona de maneira diferente se você quiser usar um [Ambiente de Serviço de Aplicativo](app-service-app-service-environment-intro.md) dedicado. Consulte [Colocando em escala aplicativos Web em um Ambiente de Serviço de Aplicativo](app-service-web-scale-a-web-app-in-an-app-service-environment.md) para obter mais detalhes.
 
-> [AZURE.NOTE]Antes de alternar de um modo **Gratuito** para o modo **Básico**, **Standard** ou **Premium**, você deve primeiro remover os limites de gastos em vigor para a sua assinatura do Serviço de Aplicativo do Azure. Para exibir ou alterar as opções para a sua assinatura do Serviço de Aplicativo do Microsoft Azure, consulte [Assinaturas do Microsoft Azure][azuresubscriptions].
+> [AZURE.NOTE] Antes de alternar de um modo **Gratuito** para o modo **Básico**, **Standard** ou **Premium**, você deve primeiro remover os limites de gastos em vigor para a sua assinatura do Serviço de Aplicativo do Azure. Para exibir ou alterar as opções para a sua assinatura do Serviço de Aplicativo do Microsoft Azure, consulte [Assinaturas do Microsoft Azure][azuresubscriptions].
 
 <a name="scalingsharedorbasic"></a> <a name="scalingstandard"></a>
 
@@ -77,7 +77,7 @@ Dependendo da camada de preços, os seguintes recursos para desenvolvedores esta
 
 ### Suporte ao depurador ###
 
-- Suporte ao depurador está disponível para os modos **Gratuito**, **Compartilhado** e **Básico** em uma conexão simultânea por plano de Serviço de Aplicativo.
+- Suporte ao depurador está disponível para os modos **Gratuito**, **Compartilhado** e **Básico** em uma conexão simultânea por plano do Serviço de Aplicativo.
 - O suporte ao depurador está disponível para os modos **Padrão** e **Premium** em cinco conexões simultâneas por plano de Serviço de Aplicativo.
 
 <a name="OtherFeatures"></a>
@@ -85,7 +85,7 @@ Dependendo da camada de preços, os seguintes recursos para desenvolvedores esta
 
 - Para obter informações detalhadas sobre todos os recursos restantes nos planos do Serviço de Aplicativo, incluindo preços e recursos de interesse para todos os usuários (incluindo desenvolvedores), consulte [Detalhes de preços do Serviço de Aplicativo](/pricing/details/web-sites/).
 
->[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE] Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 <a name="Next Steps"></a>
 ## Próximas etapas
@@ -130,4 +130,4 @@ Dependendo da camada de preços, os seguintes recursos para desenvolvedores esta
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

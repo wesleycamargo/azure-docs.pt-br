@@ -3,7 +3,7 @@
    description="Aprenda a gerenciar identidades com privilégios com a extensão Privileged Identity Management do Azure."
    services="active-directory"
    documentationCenter=""
-   authors="IHenkel"
+   authors="kgremban"
    manager="stevenpo"
    editor=""/>
 
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
+   ms.date="01/21/2016"
    ms.author="inhenk"/>
 
-# Privileged Identity Management do Azure: Como Ativar ou Desativar uma Função
+# Privileged Identity Management do Azure: como ativar ou desativar uma função
 
-## Ativar ou Desativar uma Função
+## Ativando ou desativando uma função
 
-1. Faça logon no [Portal do Azure](http://portal.azure.com).
+1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 2. Siga as etapas em [Introdução ao Privileged Identity Management do Azure](active-directory-privileged-identity-management-getting-started.md) para colocar o PIM do Azure no painel do portal do Azure.
 3. Depois de concluir as etapas no Assistente de Segurança, você verá o menu principal do PIM do Azure.
 4. Clique em **Ativar minha função**.
@@ -31,11 +31,13 @@
 9. Clique em **OK**. A função agora será ativada.
 10. Depois que uma função tiver sido ativada, também é possível desativar uma função clicando **Desativar**. Além disso, a função pode ser removida do usuário usando as etapas em [Adicionar ou Remover uma Função](active-directory-privileged-identity-management-how-to-add-role-to-user.md).
 
-- Para obter mais informações sobre as configurações de ativação de função, consulte [Como Configurar a Ativação de Função](active-directory-privileged-identity-management-how-to-configure-role-activation.md)
-- Para obter mais informações sobre alertas de segurança específicos para as configurações de ativação de função, consulte [Como Configurar Alertas de Segurança](active-directory-privileged-identity-management-how-to-configure-security-alerts).
+
+Para saber mais sobre as configurações de ativação de função, consulte [Como configurar a ativação de função](active-directory-privileged-identity-management-how-to-configure-role-activation.md).
+
+Para obter mais informações sobre alertas de segurança específicos para as configurações de ativação de função, consulte [Como Configurar Alertas de Segurança](active-directory-privileged-identity-management-how-to-configure-security-alerts).
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Próximas etapas
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -16,7 +16,7 @@
  
 # Notas de versão do SDK do Application Insights para .NET
 
-O [SDK do Application Insights para .NET](app-insights-asp-net.md) envia telemetria sobre seu aplicativo ao vivo para o [Application Insights](http://azure.microsoft.com/services/application-insights/), no qual você pode analisar seu uso e o desempenho.
+O [SDK do Application Insights para .NET](app-insights-asp-net.md) envia telemetria sobre seu aplicativo ao vivo para o [Application Insights](https://azure.microsoft.com/services/application-insights/), no qual você pode analisar seu uso e o desempenho.
 
 
 #### Como instalar o SDK em seu aplicativo
@@ -136,4 +136,4 @@ Não há notas de versão disponíveis para versões anteriores.
 
  
 
-<!----HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016--->

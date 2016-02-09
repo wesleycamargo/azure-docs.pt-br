@@ -223,7 +223,7 @@ As seguintes variáveis de ambiente podem ser definidas quando você instala o J
 
 3. Assim que o comando for concluído, o diretório __wordcountjava/target__ conterá um arquivo chamado __wordcountjava-1.0-SNAPSHOT.jar__.
 
-	> [AZURE.NOTE]O arquivo __wordcountjava-1.0-SNAPSHOT.jar__ é um uberjar, que contém não apenas o trabalho WordCount, mas também as dependências necessárias ao trabalho em tempo de execução.
+	> [AZURE.NOTE] O arquivo __wordcountjava-1.0-SNAPSHOT.jar__ é um uberjar, que contém não apenas o trabalho WordCount, mas também as dependências necessárias ao trabalho em tempo de execução.
 
 
 ##<a id="upload"></a>Carregar o jar
@@ -236,7 +236,7 @@ Use o comando a seguir para carregar o arquivo jar para o nó do HDInsight:
 
 Isso copiará os arquivos do sistema local para o nó principal.
 
-> [AZURE.NOTE]Se você usou uma senha para proteger sua conta SSH, você será solicitado pela senha. Se você usou uma chave SSH, talvez precise usar o parâmetro `-i` e o caminho para a chave privada. Por exemplo: `scp -i /path/to/private/key wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
+> [AZURE.NOTE] Se você usou uma senha para proteger sua conta SSH, você será solicitado pela senha. Se você usou uma chave SSH, talvez precise usar o parâmetro `-i` e o caminho para a chave privada. Por exemplo: `scp -i /path/to/private/key wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
 
 ##<a name="run"></a>Executar o trabalho MapReduce
 
@@ -270,7 +270,7 @@ Neste documento, você aprendeu a desenvolver um trabalho MapReduce em Java. Con
 - [Usar o Pig com o HDInsight][hdinsight-use-pig]
 - [Usar o MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
-Para obter mais informações, consulte também o [Centro de desenvolvedores do Java](http://azure.microsoft.com/develop/java/).
+Para obter mais informações, consulte também o [Centro de desenvolvedores do Java](https://azure.microsoft.com/develop/java/).
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -292,4 +292,4 @@ Para obter mais informações, consulte também o [Centro de desenvolvedores do 
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

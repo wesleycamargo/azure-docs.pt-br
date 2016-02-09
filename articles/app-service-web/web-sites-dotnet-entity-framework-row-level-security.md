@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/30/2015"
+	ms.date="01/25/2016"
 	ms.author="thmullan"/>
 
 # Tutorial: Aplicativo Web com um banco de dados multilocatário usando o Entity Framework e a Segurança em Nível de Linha
@@ -28,9 +28,9 @@ Com apenas algumas pequenas alterações, adicionaremos o suporte para multiloca
 
 ## Etapa 1: Adicionar uma classe Interceptor no aplicativo para definir o SESSION\_CONTEXT
 
-Há uma mudança de aplicativo necessária. Como todos os usuários do aplicativo se conectam ao banco de dados usando a mesma cadeia de conexão (ou seja, mesmo logon SQL), não há atualmente um modo para uma política de RLS saber para qual usuários deve filtrar. Essa abordagem é muito comum em aplicativos Web, pois permite que um pool eficiente de conexões, mas isso significa que precisamos de outra maneira de identificar o usuário atual do aplicativo no banco de dados. A solução é fazer com que o aplicativo defina um par de chave-valor para a UserId atual no [SESSION\_CONTEXT](https://msdn.microsoft.com/library/mt590806) antes de executar uma consulta. SESSION\_CONTEXT é um repositório de chave-valor no escopo da sessão, e nossa política de RLS usará o UserId armazenado para identificar o usuário atual. *Observação: atualmente, SESSION\_CONTEXT é um recurso de visualização no Banco de Dados SQL do Azure.*
+Há uma mudança de aplicativo necessária. Como todos os usuários do aplicativo se conectam ao banco de dados usando a mesma cadeia de conexão (ou seja, mesmo logon SQL), não há atualmente um modo para uma política de RLS saber para qual usuários deve filtrar. Essa abordagem é muito comum em aplicativos Web, pois permite que um pool eficiente de conexões, mas isso significa que precisamos de outra maneira de identificar o usuário atual do aplicativo no banco de dados. A solução é fazer com que o aplicativo defina um par de chave-valor para a UserId atual no [SESSION\_CONTEXT](https://msdn.microsoft.com/library/mt590806) imediatamente após abrir uma conexão, antes de executar qualquer consulta. SESSION\_CONTEXT é um repositório de chave-valor no escopo da sessão, e nossa política de RLS usará o UserId armazenado para identificar o usuário atual.
 
-Adicionaremos um [interceptador](https://msdn.microsoft.com/data/dn469464.aspx), um novo recurso no Entity Framework (EF) 6, para definir automaticamente a UserId atual no SESSION\_CONTEXT acrescentando uma instrução T-SQL antes de o EF executar cada consulta.
+Adicionaremos um [interceptador](https://msdn.microsoft.com/data/dn469464.aspx) (especificamente, um [DbConnectionInterceptor](https://msdn.microsoft.com/library/system.data.entity.infrastructure.interception.idbconnectioninterceptor)), um novo recurso no Entity Framework (EF) 6, para definir automaticamente a UserId atual no SESSION\_CONTEXT executando uma instrução T-SQL sempre que o EF abrir uma conexão.
 
 1.	Abra o projeto ContactManager no Visual Studio.
 2.	Clique com o botão direito do mouse na pasta Modelos no Gerenciador de Soluções e escolha Adicionar > Classe.
@@ -43,27 +43,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Common;
-using System.Data.SqlClient;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure.Interception;
 using Microsoft.AspNet.Identity;
 
 namespace ContactManager.Models
 {
-    public class SessionContextInterceptor : IDbCommandInterceptor
+    public class SessionContextInterceptor : IDbConnectionInterceptor
     {
-        private void SetSessionContext(DbCommand command)
+        public void Opened(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
         {
+        	// Set SESSION_CONTEXT to current UserId whenever EF opens a connection
             try
             {
                 var userId = System.Web.HttpContext.Current.User.Identity.GetUserId();
                 if (userId != null)
                 {
-                    // Set SESSION_CONTEXT to current UserId before executing queries
-                    var sql = "EXEC sp_set_session_context @key=N'UserId', @value=@UserId;";
-
-                    command.CommandText = sql + command.CommandText;
-                    command.Parameters.Insert(0, new SqlParameter("@UserId", userId));
+                    DbCommand cmd = connection.CreateCommand();
+                    cmd.CommandText = "EXEC sp_set_session_context @key=N'UserId', @value=@UserId";
+                    DbParameter param = cmd.CreateParameter();
+                    param.ParameterName = "@UserId";
+                    param.Value = userId;
+                    cmd.Parameters.Add(param);
+                    cmd.ExecuteNonQuery();
                 }
             }
             catch (System.NullReferenceException)
@@ -71,29 +73,97 @@ namespace ContactManager.Models
                 // If no user is logged in, leave SESSION_CONTEXT null (all rows will be filtered)
             }
         }
-        public void NonQueryExecuting(DbCommand command, DbCommandInterceptionContext<int> interceptionContext)
+        
+        public void Opening(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
         {
-            this.SetSessionContext(command);
         }
-        public void NonQueryExecuted(DbCommand command, DbCommandInterceptionContext<int> interceptionContext)
-        {
 
-        }
-        public void ReaderExecuting(DbCommand command, DbCommandInterceptionContext<DbDataReader> interceptionContext)
+        public void BeganTransaction(DbConnection connection, BeginTransactionInterceptionContext interceptionContext)
         {
-            this.SetSessionContext(command);
         }
-        public void ReaderExecuted(DbCommand command, DbCommandInterceptionContext<DbDataReader> interceptionContext)
-        {
 
-        }
-        public void ScalarExecuting(DbCommand command, DbCommandInterceptionContext<object> interceptionContext)
+        public void BeginningTransaction(DbConnection connection, BeginTransactionInterceptionContext interceptionContext)
         {
-            this.SetSessionContext(command);
         }
-        public void ScalarExecuted(DbCommand command, DbCommandInterceptionContext<object> interceptionContext)
-        {
 
+        public void Closed(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void Closing(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void ConnectionStringGetting(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void ConnectionStringGot(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void ConnectionStringSet(DbConnection connection, DbConnectionPropertyInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void ConnectionStringSetting(DbConnection connection, DbConnectionPropertyInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void ConnectionTimeoutGetting(DbConnection connection, DbConnectionInterceptionContext<int> interceptionContext)
+        {
+        }
+
+        public void ConnectionTimeoutGot(DbConnection connection, DbConnectionInterceptionContext<int> interceptionContext)
+        {
+        }
+
+        public void DataSourceGetting(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void DataSourceGot(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void DatabaseGetting(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void DatabaseGot(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void Disposed(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void Disposing(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void EnlistedTransaction(DbConnection connection, EnlistTransactionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void EnlistingTransaction(DbConnection connection, EnlistTransactionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void ServerVersionGetting(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void ServerVersionGot(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void StateGetting(DbConnection connection, DbConnectionInterceptionContext<System.Data.ConnectionState> interceptionContext)
+        {
+        }
+
+        public void StateGot(DbConnection connection, DbConnectionInterceptionContext<System.Data.ConnectionState> interceptionContext)
+        {
         }
     }
 
@@ -164,7 +234,7 @@ go
 
 ```
 
-Esse código realiza três coisas. Primeiro, ele cria um novo esquema como uma prática recomendada para centralizar e limitar o acesso aos objetos de RLS. Em seguida, ele cria uma função de predicado que retornará “1” quando a UserId de uma linha corresponder à UserId em SESSION\_CONTEXT. Por fim, ele cria uma política de segurança que adiciona essa função como um filtro e predicado de bloco na tabela Contatos. O predicado do filtro faz com que as consultas retornem somente as linhas que pertencem ao usuário atual, e o predicado de bloco atua como uma medida de segurança para impedir que o aplicativo insira nunca acidentalmente uma linha para o usuário errado. *Observação: atualmente, os predicados de bloco são um recurso de visualização no Banco de Dados SQL do Azure.*
+Esse código realiza três coisas. Primeiro, ele cria um novo esquema como uma prática recomendada para centralizar e limitar o acesso aos objetos de RLS. Em seguida, ele cria uma função de predicado que retornará “1” quando a UserId de uma linha corresponder à UserId em SESSION\_CONTEXT. Por fim, ele cria uma política de segurança que adiciona essa função como um filtro e predicado de bloco na tabela Contatos. O predicado do filtro faz com que as consultas retornem somente as linhas que pertencem ao usuário atual, e o predicado de bloco atua como uma medida de segurança para impedir que o aplicativo insira nunca acidentalmente uma linha para o usuário errado.
 
 Agora execute o aplicativo e entre como user1@contoso.com. Esse usuário agora vê somente os Contatos que atribuímos anteriormente a essa UserId:
 
@@ -180,4 +250,4 @@ Este tutorial forneceu apenas uma pequena amostra do que é possível fazer com 
 
 Além dessas possibilidades, também estamos trabalhando para melhorar ainda mais o RLS. Se você tiver alguma dúvida, ideias ou coisas que gostaria de ver, envie nos comentários. Agradecemos por seus comentários!
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

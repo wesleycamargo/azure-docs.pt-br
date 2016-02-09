@@ -1,12 +1,13 @@
 
 <properties
 	pageTitle="Restaurar uma máquina virtual do backup | Microsoft Azure"
-	description="Aprenda a restaurar uma máquina virtual do Azure"
+	description="Aprenda a restaurar uma máquina virtual do Azure a partir de um ponto de recuperação"
 	services="backup"
 	documentationCenter=""
 	authors="trinadhk"
 	manager="shreeshd"
-	editor=""/>
+	editor=""
+	keywords="restaurar o backup; como restaurar; ponto de recuperação;"/>
 
 <tags
 	ms.service="backup"
@@ -14,13 +15,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
-	ms.author="trinadhk"; "jimpark"/>
+	ms.date="01/22/2016"
+	ms.author="trinadhk; jimpark;"/>
+
 
 # Restaurar máquinas virtuais no Azure
-Você pode restaurar uma máquina virtual em uma nova VM por meio de backups armazenados no cofre de backup do Azure usando a ação de restauração.
+
+Com as etapas a seguir, restaure uma máquina virtual em uma nova VM a partir de backups armazenados no cofre de backup do Azure.
 
 ## Restaurar o fluxo de trabalho
+
 ### 1\. Escolha um item para restaurar
 
 1. Navegue até a guia **Itens Protegidos** e selecione a máquina virtual que você deseja restaurar em uma nova VM.
@@ -104,7 +108,7 @@ Quando você tiver um ambiente com vários DCs, os controladores de domínio ter
 
 O desafio surge porque o modo DSRM não está presente no Azure. Então, para restaurar essa VM, você não poderá usar o portal do Azure. O único mecanismo de restauração com suporte é a restauração baseada em disco usando o PowerShell.
 
->[AZURE.WARNING]Para VMs do controlador de domínio em um ambiente com vários DCs, não use o portal do Azure para a restauração! Somente a restauração baseada no PowerShell tem suporte
+>[AZURE.WARNING] Para VMs do controlador de domínio em um ambiente com vários DCs, não use o portal do Azure para a restauração! Somente a restauração baseada no PowerShell tem suporte
 
 Leia mais sobre o [problema de reversão de USN](https://technet.microsoft.com/library/dd363553) e as estratégias sugeridas para corrigi-lo.
 
@@ -117,7 +121,7 @@ O Backup do Azure oferece suporte ao backup das seguintes configurações de red
 
 Essas configurações determinam as considerações a seguir ao restaurá-las.
 
->[AZURE.TIP]Use o fluxo de restauração baseado no PowerShell para recriar a configuração de rede especial das VMs após a restauração.
+>[AZURE.TIP] Use o fluxo de restauração baseado no PowerShell para recriar a configuração de rede especial das VMs após a restauração.
 
 ### Restauração a partir da interface do usuário:
 Ao restaurar da interface do usuário, **sempre escolha um novo serviço de nuvem**. Observe que como o portal usa apenas os parâmetros obrigatórios durante o fluxo de restauração, as VMs restauradas usando a interface do usuário perderão a configuração de rede especial que possuem. Em outras palavras, as VMs restauradas serão VMs normais sem a configuração do balanceador de carga ou de múltiplos NICs ou vários IP reservados.
@@ -131,13 +135,13 @@ Para recriar completamente a máquina virtual após restaurar os discos, execute
 
 2. Crie a configuração da VM necessária para o balanceador de carga/múltiplos NICs, múltiplos IPs reservados usando os cmdlets do PowerShell e use-a para criar a VM com a configuração desejada.
 	- Criar a VM no serviço de nuvem com o [balanceador de carga interno ](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)
-	- Criar a máquina virtual para se conectar ao [balanceador de carga voltado para a Internet](https://azure.microsoft.com/pt-BR/documentation/articles/load-balancer-internet-getstarted)
-	- Criar uma VM [com várias NICs](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics)
+	- Criar a máquina virtual para se conectar ao [balanceador de carga voltado para a Internet](https://azure.microsoft.com/pt-BR/documentation/articles/load-balancer-internet-getstarted/)
+	- Criar uma VM [com várias NICs](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/)
 	- Criar VMs com [vários IPs reservados](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/)
-  
+
 
 ## Próximas etapas
 - [Solucionar erros](backup-azure-vms-troubleshoot.md#restore)
 - [Gerenciar máquinas virtuais](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -23,7 +23,7 @@
 - [PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 - [CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
-Este artigo mostra como usar modelos do Gerenciador de Recursos do Azure e a CLI do Azure para automatizar as tarefas comuns de implantação e gerenciamento de máquinas virtuais do Azure a seguir. Para obter mais modelos que você pode usar, confira [Modelos de início rápido do Azure](http://azure.microsoft.com/documentation/templates/) e [Estruturas de aplicativos usando modelos](virtual-machines-app-frameworks.md).
+Este artigo mostra como usar modelos do Gerenciador de Recursos do Azure e a CLI do Azure para automatizar as tarefas comuns de implantação e gerenciamento de máquinas virtuais do Azure a seguir. Para obter mais modelos que você pode usar, confira [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) e [Estruturas de aplicativos usando modelos](virtual-machines-app-frameworks.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico. Não é possível usar modelos no modelo de implantação clássico.
 
@@ -58,11 +58,11 @@ Você também pode executar a CLI do Azure como um contêiner do Docker usando a
 
 ### Definir sua conta e assinatura do Azure
 
-Se ainda não tiver uma assinatura do Azure, mas tiver uma assinatura do MSDN, você poderá ativar seus [benefícios de assinante do MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Ou então, você poderá se inscrever para uma [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
+Se ainda não tiver uma assinatura do Azure, mas tiver uma assinatura do MSDN, você poderá ativar seus [benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Ou então, você poderá se inscrever para uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 Agora, [faça logon com a conta do Azure de modo interativo](../xplat-cli-connect.md#use-the-log-in-method) digitando `azure login` e seguindo os prompts para ter uma experiência de logon interativa para sua conta do Azure.
 
-> [AZURE.NOTE]Se você tiver uma ID corporativa ou de estudante e souber que não tem a autenticação de dois fatores habilitada, poderá **também** usar `azure login -u` juntamente com a ID corporativa ou de estudante para fazer logon *sem* uma sessão interativa. Se você não tiver uma ID corporativa ou de estudante, poderá [criar uma ID corporativa ou de estudante de sua conta pessoal da Microsoft](resource-group-create-work-id-from-personal.md) para fazer logon da mesma maneira.
+> [AZURE.NOTE] Se você tiver uma ID corporativa ou de estudante e souber que não tem a autenticação de dois fatores habilitada, poderá **também** usar `azure login -u` juntamente com a ID corporativa ou de estudante para fazer logon *sem* uma sessão interativa. Se você não tiver uma ID corporativa ou de estudante, poderá [criar uma ID corporativa ou de estudante de sua conta pessoal da Microsoft](resource-group-create-work-id-from-personal.md) para fazer logon da mesma maneira.
 
 Sua conta pode ter mais de uma assinatura. Você pode listar suas assinaturas digitando `azure account list`, que pode ser semelhante a:
 
@@ -124,7 +124,7 @@ Em primeiro lugar, crie o grupo de recursos.
 
 Em segundo lugar, você precisará de uma imagem. Para encontrar uma imagem com a CLI do Azure, confira [Navegando e selecionando imagens de máquinas virtuais do Azure com o PowerShell e a CLI do Azure](resource-groups-vm-searching.md). Porém, para este artigo, aqui está uma pequena lista de imagens populares. Vamos usar a imagem estável do CoreOS para esta criação rápida.
 
-> [AZURE.NOTE]Para ComputeImageVersion, você pode também pode simplesmente fornecer 'latest' como o parâmetro tanto na linguagem do modelo quanto na CLI do Azure. Isso permitirá que você use sempre a versão mais recente e corrigida da imagem sem ter que modificar seus scripts ou modelos. Isso é mostrado abaixo.
+> [AZURE.NOTE] Para ComputeImageVersion, você pode também pode simplesmente fornecer 'latest' como o parâmetro tanto na linguagem do modelo quanto na CLI do Azure. Isso permitirá que você use sempre a versão mais recente e corrigida da imagem sem ter que modificar seus scripts ou modelos. Isso é mostrado abaixo.
 
 | PublisherName | Oferta | Sku | Versão |
 |:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
@@ -1171,7 +1171,7 @@ Agora, use o comando `azure group deployment create` e a opção `--template-uri
     data:    vmSize                 String        Standard_A1
     info:    group deployment create command OK
 
-Observe que esse modelo implanta uma imagem do Windows Server. No entanto, ela poderia ser facilmente substituída por qualquer imagem do Linux. Deseja criar um cluster Docker com vários gerenciadores por nuvem? [Você consegue](http://azure.microsoft.com/documentation/templates/docker-swarm-cluster/).
+Observe que esse modelo implanta uma imagem do Windows Server. No entanto, ela poderia ser facilmente substituída por qualquer imagem do Linux. Deseja criar um cluster Docker com vários gerenciadores por nuvem? [Você consegue](https://azure.microsoft.com/documentation/templates/docker-swarm-cluster/).
 
 ## <a id="remove-a-resource-group"></a>Tarefa: Remover um grupo de recursos
 
@@ -1264,7 +1264,7 @@ E, em seguida, procurar por myVM1:
     info:    vm show command OK
 
 
-> [AZURE.NOTE]Se desejar armazenar e manipular de forma programática a saída dos seus comandos de console, convém usar uma ferramenta de análise JSON, como **[jq](https://github.com/stedolan/jq)** ou **[jsawk](https://github.com/micha/jsawk)**, ou bibliotecas de idiomas que sejam adequadas à tarefa.
+> [AZURE.NOTE] Se desejar armazenar e manipular de forma programática a saída dos seus comandos de console, convém usar uma ferramenta de análise JSON, como **[jq](https://github.com/stedolan/jq)** ou **[jsawk](https://github.com/micha/jsawk)**, ou bibliotecas de idiomas que sejam adequadas à tarefa.
 
 ## <a id="log-on-to-a-linux-based-virtual-machine"></a>Tarefa: Fazer logon em uma máquina virtual baseada no Linux
 
@@ -1276,7 +1276,7 @@ Execute este comando:
 
     azure vm stop <group name> <virtual machine name>
 
->[AZURE.IMPORTANT]Use esse parâmetro para manter o VIP (IP virtual) da rede virtual, caso essa seja a última VM nessa rede virtual. <br><br> Se você usar o parâmetro `StayProvisioned`, ainda será cobrado pela VM.
+>[AZURE.IMPORTANT] Use esse parâmetro para manter o VIP (IP virtual) da rede virtual, caso essa seja a última VM nessa rede virtual. <br><br> Se você usar o parâmetro `StayProvisioned`, ainda será cobrado pela VM.
 
 ## <a id="start-a-virtual-machine"></a>Tarefa: iniciar uma VM
 
@@ -1303,6 +1303,6 @@ Em seguida, você precisará montar o disco, como faria normalmente no Linux (ou
 
 Para obter mais exemplos de uso da CLI do Azure com o modo **arm**, confira [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciador de Recursos do Azure](xplat-cli-azure-resource-manager.md). Para saber mais sobre os recursos do Azure e seus conceitos, confira [Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md).
 
-Para obter mais modelos que você pode usar, confira [Modelos de início rápido do Azure](http://azure.microsoft.com/documentation/templates/) e [Estruturas de aplicativos usando modelos](virtual-machines-app-frameworks.md).
+Para obter mais modelos que você pode usar, confira [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) e [Estruturas de aplicativos usando modelos](virtual-machines-app-frameworks.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

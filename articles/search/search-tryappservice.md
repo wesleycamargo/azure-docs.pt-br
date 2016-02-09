@@ -13,40 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search" 
-   ms.date="07/13/2015"
+   ms.date="01/13/2016"
    ms.author="heidist"/>
 
 # Experimente a Pesquisa do Azure gratuitamente com o Serviço de Aplicativo do Azure
 
-O [Serviço de Aplicativo do Azure](https://tryappservice.azure.com/) é uma maneira nova e totalmente gratuita de testar alguns serviços do Azure, como a Pesquisa do Azure, por até uma hora sem precisar assinar o Azure.
+[Testar Serviço de Aplicativo do Azure](https://tryappservice.azure.com/) é uma sessão gratuita de uma hora baseada em navegador para testar os Serviços do Azure, incluindo a **Pesquisa do Azure**, sem necessidade de assinatura. O site fornece diversos modelos para sua escolha. Ao selecionar o modelo do ASP.NET que inclui a Pesquisa do Azure, você obtém acesso a um site da Web totalmente funcional, com o apoio de serviços que você selecionou.
 
-O site fornece diversos modelos para sua escolha. Quando você seleciona o modelo do ASP.NET que inclui a Pesquisa do Azure, você obtém uma hora de acesso a um site da Web totalmente funcional, com o apoio de serviços que você selecionou. Você não poderá atualizar ou excluir os dados gerenciados pela Pesquisa do Azure – mas você pode executar consultas e fazer quaisquer alterações de código que redimensionem a experiência do usuário. Se a sessão expirar antes de você ter terminado de explorar, você pode sempre começar outra sessão ou passar para uma assinatura completa ou de avaliação se sua meta é criar ou carregar um índice diretamente.
+Como parte da oferta [Testar Serviço de Aplicativo do Azure](https://tryappservice.azure.com/), o serviço de Pesquisa do Azure já foi criado e está pronto para receber consultas de pesquisa. Você não pode carregar nem usar seus próprios dados ou índice, mas pode executar consultas e fazer várias alterações de código que reformulam a experiência do usuário.
 
-No site do [Serviço de Aplicativo do Azure](https://tryappservice.azure.com/), a Pesquisa do Azure é parte do modelo de aplicativo Web, fornecendo uma experiência de pesquisa avançada e de texto completo juntamente com uma enorme quantidade de recursos centrados em pesquisa disponíveis apenas nesse serviço na plataforma do Azure.
-
-Embora outros serviços do Azure, como a pesquisa de texto completo da oferta de banco de dados SQL, um serviço como a Pesquisa do Azure fornece a você controle, paginação e contagens de ajuste, realce de ocorrências, sugestões de consulta de preenchimento automático, suporte de linguagem natural, navegação mistas, filtragem e muito mais. Como vários dos nossos [exemplos](https://github.com/Azure-Samples?utf8=%E2%9C%93&query=search) demonstram, é possível desenvolver um aplicativo completo baseado em pesquisa usando apenas a Pesquisa do Azure e o ASP.NET.
-
-Como parte da oferta do [Serviço de Aplicativo do Azure](https://tryappservice.azure.com/), o serviço Pesquisa do Azure que você usará já foi criado e está pronto para receber consultas de pesquisa. Você não pode carregar ou usar seu próprio índice ou dados. Os dados com os quais você trabalhará são provenientes da [United States Geological Survey (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), e consistem em cerca de 3 milhões de linhas de pontos de referência, locais históricos, edifícios e outros pontos de referência nos EUA.
-
-Para ajudá-lo a tirar o máximo proveito de sua sessão de uma hora, as instruções a seguir guiarão você através de consultas e código.
-
-Antes de continuar, talvez você queira reservar alguns minutos para examinar alguns pontos fundamentais sobre o código, serviço e dados pesquisáveis. Ter um pouco de conhecimento poderá ser útil se você ainda não estiver familiarizado com a Pesquisa do Azure.
-
-## Fatos sobre o código e a Pesquisa do Azure
-
-A Pesquisa do Azure é um serviço de Plataforma como Serviço [PaaS](https://en.wikipedia.org/wiki/Platform_as_a_service) totalmente gerenciada que facilita para os desenvolvedores a integração entre excelentes experiências de pesquisa na Web e aplicativos móveis. Os dados usados em operações de pesquisa são armazenados com o serviço de pesquisa no Azure, e a proximidade dos dados com as operações garante baixa latência e comportamentos de pesquisa consistente. Detalhando isso um pouco mais:
-
-- Os dados pesquisáveis são armazenados em um índice gerenciado pela Pesquisa do Azure
-- O esquema que define o índice é definido pelo usuário e especificará os campos de pesquisa, os campos não pesquisáveis que pode ser úteis em uma expressão de filtro e construções, como perfis de pontuação para resultados de ajuste.
-- Um índice de pesquisa contém um ou mais documentos (que são semelhantes a uma linha em uma tabela) que são pesquisáveis e recuperáveis
-- A maioria dos índices são carregados de um único conjunto de dados preparado antecipadamente por você para incluir apenas os campos que são úteis no contexto de operações de pesquisa. 
-- Os dados podem ser carregados automaticamente por um indexador (com suporte somente para o Banco de Dados SQL ou o Banco de Dados de Documentos do Azure) ou enviados para um índice de pesquisa por meio de APIs da Pesquisa do Azure. Quando você usa a API, você pode enviar dados de qualquer fonte de dados, contanto que ela esteja no formato JSON.
-
-Na opção [Serviço de Aplicativo do Azure](https://tryappservice.azure.com/), o modelo "ASP.NET + Site da Pesquisa do Azure" fornece o código-fonte para o aplicativo Web, modificável no Visual Studio Team Services (disponível como parte da sessão de uma hora). Nenhuma ferramenta de desenvolvimento separada é necessária para exibir ou alterar o código.
-
-O código é escrito em C#, usando a [Biblioteca de cliente .NET da Pesquisa do Azure](https://msdn.microsoft.com/library/dn951165.aspx) para executar consultas no índice, fornecer faceted navigation e exibir contagens e resultados da pesquisa em uma página da Web.
-
-Outro código, não incluso no modelo, foi usado para criar e carregar o índice de pesquisa USGS. Como o serviço é somente leitura, todas as operações que exigem acesso de gravação precisaram ser concluídas com antecedência. Você pode ver uma [cópia do esquema](#schema) usado para criar o esquema ao final deste artigo.
+Os dados de pesquisa da [USGS (United States Geological Survey)](http://geonames.usgs.gov/domestic/download_data.htm) consistem em cerca de 3 milhões de linhas de pontos de referência, locais históricos, construções e outros pontos de referência nos EUA.
 
 ## Introdução
 
@@ -87,7 +63,7 @@ Como o índice de pesquisa é totalmente operacional, uma boa primeira etapa é 
 
 - Comece com uma pesquisa curinga adicionando um asterisco (`*`). Isso informa quantos documentos são encontrados no índice: 2,262,578.
 - Em seguida, digite "Yellowstone" e adicione "+centro", "+edifício" e "-ND" para restringir progressivamente os resultados da pesquisa apenas para os centros de visitantes de Yellowstone, exceto aqueles na Dakota do Norte: `Yellowstone +center +building -ND`.  
-- Experimente uma frase de pesquisa que combine operadores de precedência e correspondência de cadeia de caracteres: `statue+(park+MT)`. Você verá resultados semelhantes à captura de tela abaixo. Observe que as categorias de faceta aparecem na classe de recurso, oferecendo filtragem autodirigida por meio de navegação mista, um recurso comumente encontrado na maioria dos aplicativos de pesquisa.
+- Tente uma frase que combina os operadores de precedência e a correspondência de cadeia de caracteres: `statue+(park+MT)`. Você verá resultados semelhantes à captura de tela abaixo. Observe que as categorias de faceta aparecem na classe de recurso, oferecendo filtragem autodirigida por meio de navegação mista, um recurso comumente encontrado na maioria dos aplicativos de pesquisa.
 
     ![][7]
 
@@ -100,7 +76,7 @@ A Pesquisa do Azure tem uma propriedade **searchMode** configurável que você p
 - **searchMode.Any** estipula que qualquer correspondência em um termo de pesquisa é suficiente para incluir um item nos resultados da pesquisa. Se a frase de pesquisa for `Yellowstone visitor center`, então qualquer documento que contenha esses termos será incluído nos resultados da pesquisa. Esse modo é mais adequado para *recall*.
 - **searchModel.All**, usado neste exemplo, requer que todos os termos especificados estejam presentes no documento. Esse modo é mais restritivo que o **searchMode.Any**, mas se você preferir *precisão* a recall, provavelmente é a escolha certa para o seu aplicativo. 
 
-> [AZURE.NOTE]**searchMode.Any** funciona melhor quando a construção de consulta consiste principalmente de frases, com uso mínimo de operadores. Uma regra geral é que as pessoas procurando aplicativos de consumidor, como sites de comércio eletrônico, tendem a usar apenas termos, enquanto as pessoas que pesquisam conteúdo ou dados têm mais probabilidade de incluir operadores na frase de pesquisa. Se você acredita que as pesquisas provavelmente incluem operadores, principalmente o operador `NOT (-)`, comece com **searchModel.All**. Por outro lado, sua outra escolha, **searchMode.Any**, aplicará `OR` ao operador `NOT` com outros termos de pesquisa, o que pode expandir consideravelmente os resultados, em vez de reduzi-los. O exemplo a seguir pode ajudá-lo a entender a diferença.
+> [AZURE.NOTE] **searchMode.Any** funciona melhor quando a construção de consulta consiste principalmente de frases, com uso mínimo de operadores. Uma regra geral é que as pessoas procurando aplicativos de consumidor, como sites de comércio eletrônico, tendem a usar apenas termos, enquanto as pessoas que pesquisam conteúdo ou dados têm mais probabilidade de incluir operadores na frase de pesquisa. Se você acredita que as pesquisas provavelmente incluem operadores, principalmente o operador `NOT (-)`, comece com **searchModel.All**. Por outro lado, sua outra escolha, **searchMode.Any**, aplicará `OR` ao operador `NOT` com outros termos de pesquisa, o que pode expandir consideravelmente os resultados, em vez de reduzi-los. O exemplo a seguir pode ajudá-lo a entender a diferença.
 
 Nesta tarefa, você alterará o **searchMode** e comparará os resultados de pesquisa com base no modo.
 
@@ -173,7 +149,7 @@ Quando você executa este exemplo de código, pesquise entradas de termo que tê
 
 Você pode salvar uma cópia do arquivo **Search.cshtml** original para ver como as duas versões se comparam.
 
-> [AZURE.NOTE]Comentários serão reduzidos para o tamanho do arquivo.
+> [AZURE.NOTE] Comentários serão reduzidos para o tamanho do arquivo.
  
     @using System.Collections.Specialized
     @using System.Configuration
@@ -307,6 +283,9 @@ Você pode salvar uma cópia do arquivo **Search.cshtml** original para ver como
     }
     }
 
+## Por que escolher a Pesquisa do Azure?
+
+Embora outros serviços do Azure, como a pesquisa de texto completo da oferta de banco de dados SQL, um serviço como a Pesquisa do Azure fornece a você controle, paginação e contagens de ajuste, realce de ocorrências, sugestões de consulta de preenchimento automático, suporte de linguagem natural, navegação mistas, filtragem e muito mais. Como vários dos nossos [exemplos](https://github.com/Azure-Samples?utf8=%E2%9C%93&query=search) demonstram, é possível desenvolver um aplicativo completo baseado em pesquisa usando apenas a Pesquisa do Azure e o ASP.NET.
 
 ## Próximas etapas
 
@@ -318,7 +297,23 @@ Usando o serviço de somente leitura fornecido no site [Experimentar o Serviço 
 
 Para executar todas essas tarefas, você terá uma assinatura do Azure para que possa criar e preencher índices em um serviço. Para saber mais sobre como se inscrever para uma avaliação gratuita, visite [https://azure.microsoft.com/pt-br/pricing/free-trial/](https://azure.microsoft.com/pricing/free-trial/).
 
-Para saber mais sobre a Pesquisa do Azure, acesse a nossa [página de documentação](http://azure.microsoft.com/documentation/services/search/) em [http://azure.microsoft.com](http://azure.microsoft.com) ou confira os diversos [exemplos e vídeos](search-video-demo-tutorial-list.md) que exploram a gama completa de funcionalidades da Pesquisa do Azure.
+Para saber mais sobre a Pesquisa do Azure, visite nossa [página de documentação](https://azure.microsoft.com/documentation/services/search/) em [http://azure.microsoft.com](https://azure.microsoft.com/) ou confira a os [exemplos e vídeos](search-video-demo-tutorial-list.md) que exploram a funcionalidade de intervalo completo de Pesquisa de Azure.
+
+## Fatos sobre o código e a Pesquisa do Azure
+
+A Pesquisa do Azure é um serviço de Plataforma como Serviço [PaaS](https://en.wikipedia.org/wiki/Platform_as_a_service) totalmente gerenciada que facilita para os desenvolvedores a integração entre excelentes experiências de pesquisa na Web e aplicativos móveis. Os dados usados em operações de pesquisa são armazenados com o serviço de pesquisa no Azure, e a proximidade dos dados com as operações garante baixa latência e comportamentos de pesquisa consistente. Detalhando isso um pouco mais:
+
+- Os dados pesquisáveis são armazenados em um índice gerenciado pela Pesquisa do Azure.
+- O esquema que define o índice é definido pelo usuário e especificará os campos de pesquisa, os campos não pesquisáveis que pode ser úteis em uma expressão de filtro e construções, como perfis de pontuação para resultados de ajuste.
+- Um índice de pesquisa contém um ou mais documentos (que são semelhantes a uma linha em uma tabela) que são pesquisáveis e recuperáveis.
+- A maioria dos índices são carregados de um único conjunto de dados preparado antecipadamente por você para incluir apenas os campos que são úteis no contexto de operações de pesquisa. 
+- Os dados podem ser carregados automaticamente por um indexador (com suporte somente para o Banco de Dados SQL ou o Banco de Dados de Documentos do Azure) ou enviados para um índice de pesquisa por meio de APIs da Pesquisa do Azure. Quando você usa a API, você pode enviar dados de qualquer fonte de dados, contanto que ela esteja no formato JSON.
+
+Na opção [Serviço de Aplicativo do Azure](https://tryappservice.azure.com/), o modelo "ASP.NET + Site da Pesquisa do Azure" fornece o código-fonte para o aplicativo Web, modificável no Visual Studio Team Services (disponível como parte da sessão de uma hora). Nenhuma ferramenta de desenvolvimento separada é necessária para exibir ou alterar o código.
+
+O código é escrito em C#, usando a [Biblioteca de cliente .NET da Pesquisa do Azure](https://msdn.microsoft.com/library/dn951165.aspx) para executar consultas no índice, fornecer faceted navigation e exibir contagens e resultados da pesquisa em uma página da Web.
+
+Outro código, não incluso no modelo, foi usado para criar e carregar o índice de pesquisa USGS. Como o serviço é somente leitura, todas as operações que exigem acesso de gravação precisaram ser concluídas com antecedência. Você pode ver uma [cópia do esquema](#schema) usado para criar o esquema ao final deste artigo.
 
 <a name="Schema"></a>
 ## Sobre o esquema
@@ -528,4 +523,4 @@ A captura de tela a seguir mostra o esquema usado para criar o índice usado nes
 [13]: ./media/search-tryappservice/AzSearch-TryAppService-Schema.png
 [14]: ./media/search-tryappservice/AzSearch-TryAppService-HitHighlight.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

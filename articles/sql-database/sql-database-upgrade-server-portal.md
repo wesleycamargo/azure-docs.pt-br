@@ -54,7 +54,7 @@ Após a atualização para V12, as [recomendações de nível de serviço](sql-d
 
 ## Inicie a atualização
 
-1. No [Portal do Azure](http://portal.azure.com/), navegue até o servidor que deseja atualizar selecionando **PROCURAR TUDO** > **SQL Servers** e selecionando o servidor desejado.
+1. No [Portal do Azure](https://portal.azure.com/), navegue até o servidor que deseja atualizar selecionando **PROCURAR TUDO** > **SQL Servers** e selecionando o servidor desejado.
 2. Selecione **Atualização mais recente do banco de dados SQL** e, em seguida, selecione **Atualizar este servidor**.
 
       ![atualizar servidor][1]
@@ -111,7 +111,7 @@ Siga as instruções no artigo [Criar um pool de banco de dados elástico](sql-d
 
 ## Monitorar bancos de dados após a atualização para V12 do banco de dados SQL
 
->[AZURE.IMPORTANT]Atualize para a versão mais recente do SSMS (SQL Server Management Studio) para tirar proveito dos novos recursos v12. [Baixe o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+>[AZURE.IMPORTANT] Atualize para a versão mais recente do SSMS (SQL Server Management Studio) para tirar proveito dos novos recursos v12. [Baixe o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 	
 Após a atualização, é recomendável monitorar o banco de dados ativamente para garantir que aplicativos estão sendo executados no desempenho esperado e uso ideal conforme necessário.
 
@@ -169,4 +169,4 @@ Por exemplo, você pode configurar um alerta por email sobre “Porcentagem DTU�
 [6]: ./media/sql-database-upgrade-server-portal/recommendations.png
 [7]: ./media/sql-database-upgrade-server-portal/new-elastic-pool.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

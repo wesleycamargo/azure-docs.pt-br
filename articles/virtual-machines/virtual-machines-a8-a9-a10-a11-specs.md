@@ -63,9 +63,9 @@ As instâncias A10 e A11 têm um único adaptador de rede Ethernet de 10 Gbps qu
 
 ## Considerações sobre a assinatura
 
-* **Conta do Azure** – Se desejar implantar mais do que um pequeno número de instâncias de computação intensiva, considere uma assinatura pré-paga ou outras opções de compra. Você também pode usar sua assinatura do MSDN. Consulte [Benefícios do Azure para assinantes do MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Se estiver usando uma [avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/), é possível usar apenas um número limitado de núcleos de computação do Azure.
+* **Conta do Azure** – Se desejar implantar mais do que um pequeno número de instâncias de computação intensiva, considere uma assinatura pré-paga ou outras opções de compra. Você também pode usar sua assinatura do MSDN. Consulte [Benefícios do Azure para assinantes do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Se estiver usando uma [avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/), é possível usar apenas um número limitado de núcleos de computação do Azure.
 
-* **Cota de núcleos** – Talvez seja necessário aumentar a cota de núcleos em sua assinatura do Azure do padrão de 20 núcleos por assinatura (para implantações do Gerenciamento de Serviços do Azure) ou de 20 núcleos por região (para implantações do Gerenciador de Recursos do Azure), o que não é suficiente para muitos cenários com instâncias de 8 ou 16 núcleos. Para os testes iniciais, você pode solicitar um aumento de cota para 100 núcleos. Para isso, abra um tíquete de suporte gratuito, como mostrado em [Noções básicas sobre limites e aumentos do Azure](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
+* **Cota de núcleos** – Talvez seja necessário aumentar a cota de núcleos em sua assinatura do Azure do padrão de 20 núcleos por assinatura (para implantações do Gerenciamento de Serviços do Azure) ou de 20 núcleos por região (para implantações do Gerenciador de Recursos do Azure), o que não é suficiente para muitos cenários com instâncias de 8 ou 16 núcleos. Para os testes iniciais, você pode solicitar um aumento de cota para 100 núcleos. Para isso, abra um tíquete de suporte gratuito, como mostrado em [Noções básicas sobre limites e aumentos do Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
 
     >[AZURE.NOTE]Cotas do Azure são limites de crédito, não garantias de capacidade. Você é cobrado apenas pelo núcleos que usa.
 
@@ -77,7 +77,7 @@ As instâncias A10 e A11 têm um único adaptador de rede Ethernet de 10 Gbps qu
 
 ### Considerações para HPC Pack e Linux
 
-[HPC Pack](https://technet.microsoft.com/library/jj899572.aspx) é o cluster HPC gratuito da Microsoft e a solução de gerenciamento de trabalho para o Windows. A partir do HPC Pack 2012 R2 Update 2, o HPC Pack dá suporte a várias distribuições Linux para executar em nós de computação implantados em VMs do Azure, gerenciadas por um nó principal do Windows Server. Com a versão mais recente do HPC Pack, você pode implantar um cluster baseado em Linux que pode executar aplicativos MPI que acessam a rede RDMA no Azure. Para saber mais, veja [Introdução aos nós de computação do Linux em um cluster HPC Pack no Azure](virtual-machines-linux-cluster-hpcpack.md).
+[HPC Pack](https://technet.microsoft.com/library/jj899572.aspx) é o cluster HPC gratuito da Microsoft e a solução de gerenciamento de trabalho para o Windows. A partir do HPC Pack 2012 R2 Update 2, o HPC Pack dá suporte a várias distribuições Linux para executar em nós de computação implantados em VMs do Azure, gerenciadas por um nó principal do Windows Server. Com a versão mais recente do HPC Pack, você pode implantar um cluster baseado em Linux que pode executar aplicativos MPI que acessam a rede RDMA no Azure. Para obter mais informações, veja [Introdução aos nós de computação do Linux em um cluster do HPC Pack no Azure](virtual-machines-linux-cluster-hpcpack.md).
 
 ### Considerações para HPC Pack e Windows
 
@@ -91,7 +91,7 @@ Para obter mais informações e listas de verificação para usar as instâncias
 
 Dentro de um único serviço de nuvem ou conjunto de disponibilidade, as instâncias A8 e A9 podem acessar a rede RDMA no Azure ao executar aplicativos MPI que utilizem os drivers de RDMA Linux para comunicação entre instâncias. No momento, há suporte apenas ao RDMA do Linux do Azure da [Intel MPI Library 5](https://software.intel.com/pt-BR/intel-mpi-library/).
 
->[AZURE.NOTE]Atualmente drivers RDMA Linux do Azure não estão disponíveis para instalação por meio de extensões do driver. Eles só estão disponíveis usando imagens compatíveis com RDMA SLES 12 do Azure Marketplace.
+>[AZURE.NOTE] Atualmente drivers RDMA Linux do Azure não estão disponíveis para instalação por meio de extensões do driver. Eles só estão disponíveis usando imagens compatíveis com RDMA SLES 12 do Azure Marketplace.
 
 Consulte a tabela a seguir para obter os pré-requisitos para aplicativos MPI Linux acessarem a rede RDMA em clusters de nós de computação (IaaS). Veja [Configurar um cluster de RDMA do Linux para executar aplicativos MPI](virtual-machines-linux-cluster-rdma.md) para obter as opções de implantação e as etapas de configuração.
 
@@ -126,8 +126,8 @@ MPI | MS-MPI 2012 R2 ou posterior, autônomo ou instalado por meio do HPC Pack 2
 
 ## Próximas etapas
 
-* Para obter detalhes sobre a disponibilidade e preços das instâncias A8, A9, A10 e A11, confira [Preços das Máquinas Virtuais](http://azure.microsoft.com/pricing/details/virtual-machines/) e [Preços dos Serviços de Nuvem](http://azure.microsoft.com/pricing/details/cloud-services/).
+* Para obter detalhes sobre a disponibilidade e preços das instâncias A8, A9, A10 e A11, confira [Preços das Máquinas Virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/) e [Preços dos Serviços de Nuvem](https://azure.microsoft.com/pricing/details/cloud-services/).
 * Para implantar e configurar um cluster baseado em Linux com instâncias A8 e A9 para acessar a rede RDMA do Azure, veja [Configurar um cluster de RDMA do Linux para executar aplicativos MPI](virtual-machines-linux-cluster-rdma.md).
 * Para começar a implantar e usar instâncias A8 e A9 com o HPC Pack no Windows, veja [Configurar um cluster de RDMA do Windows com o HPC Pack para executar aplicativos MPI](virtual-machines-windows-hpcpack-cluster-rdma.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -20,7 +20,7 @@
 
 Este tópico explica como usar modelos do Gerenciador de recursos do Azure para implantar seu aplicativo no Azure. Ele mostra como implantar seu aplicativo usando o Azure PowerShell, a CLI do Azure, a API REST ou o portal do Azure.
 
-Para obter uma introdução ao Gerenciador de Recursos, confira [Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md). Para saber mais sobre como criar modelos, veja [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
+Para obter uma introdução ao Gerenciador de Recursos, confira [Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md). Para saber mais sobre a criação de modelos, veja [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
 
 Ao implantar um aplicativo com um modelo, você pode fornecer valores de parâmetro para personalizar como os recursos são criados. Você especifica valores para esses parâmetros embutidos ou em um arquivo de parâmetros.
 
@@ -257,11 +257,21 @@ Se você usar um arquivo de parâmetro para passar os valores de parâmetro para
             },
             "webSiteLocation": {
                 "value": "West US"
+            },
+            "adminPassword": {
+                "reference": {
+                   "keyVault": {
+                      "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
+                   }, 
+                   "secretName": "sqlAdminPassword" 
+                }   
             }
        }
     }
 
 O tamanho do arquivo de parâmetro não pode ser superior a 64 KB.
+
+Para saber como definir parâmetros no modelo, confira [Criação de modelos](resource-group-authoring-templates.md/#parameters). Para obter detalhes sobre a referência a KeyVault e passar valores seguros, confira [Passar valores seguros durante a implantação ](resource-manager-keyvault-parameter.md)
 
 ## Próximas etapas
 - Para obter um exemplo de como implantar recursos por meio da biblioteca de cliente do .NET, confira [Implantar recursos usando bibliotecas .NET e um modelo](arm-template-deployment.md)
@@ -272,4 +282,4 @@ O tamanho do arquivo de parâmetro não pode ser superior a 64 KB.
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

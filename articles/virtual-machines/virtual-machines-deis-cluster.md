@@ -30,7 +30,7 @@ O diagrama a seguir mostra a arquitetura do sistema implantado. Um administrador
 
 Para executar as etapas a seguir, você precisará de:
 
- * Uma assinatura ativa do Azure. Se você não tiver uma, é possível obter uma avaliação gratuita em [azure.com](https://azure.microsoft.com).
+ * Uma assinatura ativa do Azure. Se você não tiver uma, é possível obter uma avaliação gratuita em [azure.com](https://azure.microsoft.com/).
  * Uma ID de trabalho ou escolar para usar os grupos de recursos do Azure. Se você tiver uma conta pessoal e fizer logon com uma ID da Microsoft, você precisará [criar uma ID corporativa por meio da ID pessoal](resource-group-create-work-id-from-personal.md).
  * O [Azure PowerShell](powershell-install-configure.md) ou a [CLI do Azure para Mac, Linux e Windows](xplat-cli-install.md), dependendo do sistema operacional cliente.
  * [OpenSSL](https://www.openssl.org/). O OpenSSL é usado para gerar os certificados necessários.
@@ -74,7 +74,7 @@ Nesta seção, você usará um modelo do [Gerenciador de Recursos do Azure](../r
             discovery: https://discovery.etcd.io/3973057f670770a7628f917d58c2208a
         ...
 
-7. Modifique o arquivo **azuredeploy-parameters.json**: abra o certificado criado na etapa 4 em um editor de texto. Copie todo o texto entre `----BEGIN CERTIFICATE-----` e `-----END CERTIFICATE-----` no parâmetro **sshKeyData** (você precisará remover todos os caracteres de nova linha).
+7. Modifique o arquivo **azuredeploy-parameters.json**: abra o certificado criado na etapa 4 em um editor de texto. Copie todo o texto entre `----BEGIN CERTIFICATE-----` e `-----END CERTIFICATE-----` para o parâmetro **sshKeyData** (você precisará remover todos os caracteres de nova linha).
 
 8. Modifique o parâmetro **newStorageAccountName**. Trata-se da conta de armazenamento para os discos do sistema operacional da VM. Este nome de conta precisa ser único globalmente.
 
@@ -117,7 +117,7 @@ O modelo define regras NAT de entrada que mapeiam 2223 à instância 1, 2224 à 
 
 ![Regras NAT no balanceador de carga](media/virtual-machines-deis-cluster/nat-rules.png)
 
-> [AZURE.NOTE]Atualmente, o modelo dá suporte apenas a clusters de três nós. Isso se deve a uma limitação na definição da regra NAT do modelo do Gerenciador de Recursos do Azure, que não dá suporte à sintaxe de loop.
+> [AZURE.NOTE] Atualmente, o modelo dá suporte apenas a clusters de três nós. Isso se deve a uma limitação na definição da regra NAT do modelo do Gerenciador de Recursos do Azure, que não dá suporte à sintaxe de loop.
 
 ## Instale e inicie a plataforma Deis
 
@@ -128,7 +128,7 @@ Agora você pode usar o deisctl para instalar e iniciar a plataforma Deis:
     deisctl install platform
     deisctl start platform
 
-> [AZURE.NOTE]Iniciar a plataforma leva algum tempo (até 10 minutos). Especialmente, iniciar o serviço de construtor pode levar muito tempo. Às vezes, são necessárias algumas tentativas para ter sucesso: se parecer que a operação parou, tente digitar `ctrl+c` para interromper a execução do comando e tentar novamente.
+> [AZURE.NOTE] Iniciar a plataforma leva algum tempo (até 10 minutos). Especialmente, iniciar o serviço de construtor pode levar muito tempo. Às vezes, são necessárias algumas tentativas para ter sucesso: se parecer que a operação parou, tente digitar `ctrl+c` para interromper a execução do comando e tentar novamente.
 
 É possível usar `deisctl list` para verificar se todos os serviços estão em execução:
 
@@ -201,7 +201,7 @@ As etapas a seguir mostram como implantar um aplicativo Go do tipo "Hello World"
         deis create
         git push deis master
 <p />
-8. O git push disparará a construção e implantação de imagens do Docker, que o levará alguns minutos. Segundo a minha experiência, ocasionalmente, a Etapa 10 (fazer o push da imagem para o repositório privado) pode travar. Quando isso acontecer, é possível interromper o processo, remover o aplicativo usando `deis apps:destroy –a <application name>` e tentar novamente. É possível pode usar `deis apps:list` para descobrir o nome do seu aplicativo. Se tudo funcionar, você verá algo semelhante ao seguinte no final das saídas de comando:
+8. O git push disparará a construção e implantação de imagens do Docker, que o levará alguns minutos. Segundo a minha experiência, ocasionalmente, a Etapa 10 (fazer o push da imagem para o repositório privado) pode travar. Quando isso acontecer, você pode interromper o processo, remover o aplicativo usando `deis apps:destroy –a <application name>` e tentar novamente. É possível pode usar `deis apps:list` para descobrir o nome do seu aplicativo. Se tudo funcionar, você verá algo semelhante ao seguinte no final das saídas de comando:
 
         -----> Launching...
                done, lambda-underdog:v2 deployed to Deis
@@ -258,4 +258,4 @@ Este artigo percorreu todas as etapas para provisionar um novo cluster Deis no A
 [resource-group-overview]: ../resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -25,7 +25,7 @@ Este artigo mostra como adicionar os nós de “disparo contínuo” do Azure (i
 
 ![Nós de disparo contínuo][burst]
 
->[AZURE.TIP]Se você usar o [script de implantação de IaaS do HPC Pack](virtual-machines-hpcpack-cluster-powershell-script.md) para criar o cluster no Azure, é possível incluir os nós de disparo contínuo do Azure em sua implantação automatizada. Consulte os exemplos nesse artigo.
+>[AZURE.TIP] Se você usar o [script de implantação de IaaS do HPC Pack](virtual-machines-hpcpack-cluster-powershell-script.md) para criar o cluster no Azure, é possível incluir os nós de disparo contínuo do Azure em sua implantação automatizada. Consulte os exemplos nesse artigo.
 
 As etapas neste artigo ajudarão você a adicionar nós do Azure rapidamente a uma VM de nó de cabeçalho do HPC Pack baseado em nuvem para uma implantação de teste ou de prova de conceito. O procedimento é basicamente o mesmo que o usado para o “disparo contínuo para o Azure” para adicionar a capacidade de computação em nuvem a um cluster HPC Pack local. Para obter um tutorial, veja [Configurar um cluster de cálculo híbrido com o Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Para obter diretrizes e considerações detalhadas sobre implantações de produção, veja [Disparo contínuo para o Azure com o Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
 
@@ -37,7 +37,7 @@ Se desejar usar o tamanho de instância A8 ou A9 de uso intensivo de computaçã
 
 * **Assinatura do Azure** - Para adicionar nós do Azure, você pode escolher a mesma assinatura usada para implantar a VM de nó de cabeçalho ou uma assinatura (ou assinaturas) diferente.
 
-* **Cota de núcleos** - Talvez seja necessário aumentar a cota de núcleos, especialmente se você optar por implantar vários nós do Azure com tamanhos de vários núcleos. Para aumentar a cota, [abra uma solicitação de atendimento ao cliente online](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitamente.
+* **Cota de núcleos** - Talvez seja necessário aumentar a cota de núcleos, especialmente se você optar por implantar vários nós do Azure com tamanhos de vários núcleos. Para aumentar a cota, [abra uma solicitação de atendimento ao cliente online](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitamente.
 
 ## Etapa 1: criar um serviço de nuvem e uma conta de armazenamento para adicionar nós do Azure
 
@@ -46,7 +46,7 @@ Use o portal clássico do Azure ou ferramentas equivalentes para configurar o se
 * Um novo serviço de nuvem do Azure
 * Uma nova conta de armazenamento do Azure
 
->[AZURE.NOTE]Não reutilize um serviço de nuvem existente em sua assinatura. Também não implante um pacote de serviço de nuvem separado e personalizado neste serviço de nuvem. O HPC Pack implanta automaticamente um pacote de serviço de nuvem quando você inicia (provisiona) os nós do Azure.
+>[AZURE.NOTE] Não reutilize um serviço de nuvem existente em sua assinatura. Também não implante um pacote de serviço de nuvem separado e personalizado neste serviço de nuvem. O HPC Pack implanta automaticamente um pacote de serviço de nuvem quando você inicia (provisiona) os nós do Azure.
 
 **Considerações**
 
@@ -88,4 +88,4 @@ Se você encontrar problemas ao implantar nós do Azure, veja [Solucionar proble
 <!--Image references-->
 [burst]: ./media/virtual-machines-hpcpack-cluster-node-burst/burst.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

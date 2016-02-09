@@ -28,7 +28,7 @@ Este tutorial o orienta durante a limpeza de ativos de todos os nós de borda de
 
 ## Passo a passo
 
-1. No [Portal do Azure](http://portal.azure.com), navegue até o perfil CDN que contém o ponto de extremidade que você deseja limpar.
+1. No [Portal do Azure](https://portal.azure.com), navegue até o perfil CDN que contém o ponto de extremidade que você deseja limpar.
 
 2. Na folha do perfil da CDN, clique no botão Limpar.
 	
@@ -42,11 +42,11 @@ Este tutorial o orienta durante a limpeza de ativos de todos os nós de borda de
 
 	![Formulário de limpeza](./media/cdn-purge-endpoint/cdn-purge-form.png)
 	
-	> [AZURE.NOTE]Você também pode acessar a folha Limpeza clicando no botão **Limpar** na folha de ponto de extremidade da CDN. Nesse caso, o campo **URL** será pré-populado com o endereço do serviço do ponto de extremidade específico.
+	> [AZURE.NOTE] Você também pode acessar a folha Limpeza clicando no botão **Limpar** na folha de ponto de extremidade da CDN. Nesse caso, o campo **URL** será pré-populado com o endereço do serviço do ponto de extremidade específico.
 	
 4. Selecione os ativos que você deseja limpar dos nós de borda. Para limpar todos os ativos, clique na caixa de seleção **Limpar todos**. Caso contrário, digite o caminho completo de cada ativo que você deseja limpar (por exemplo, */imagens/gatinho.png*) na caixa de texto **Caminho**.
 
-	> [AZURE.TIP]Outras caixas de texto **Caminho** serão mostradas depois que você digitar um texto, para permitir que crie uma lista com vários ativos. Para excluir ativos da lista, clique no botão de reticências (...).
+	> [AZURE.TIP] Outras caixas de texto **Caminho** serão mostradas depois que você digitar um texto, para permitir que crie uma lista com vários ativos. Para excluir ativos da lista, clique no botão de reticências (...).
 	>
 	> Os caminhos devem ser uma URL relativa. O asterisco (*) pode ser usado como curinga.
 	
@@ -59,4 +59,4 @@ Este tutorial o orienta durante a limpeza de ativos de todos os nós de borda de
 - [Pré-carregar ativos em um ponto de extremidade da CDN do Azure](cdn-preload-endpoint.md)
 - [Referência da API REST da CDN do Azure – limpar ou pré-carregar um ponto de extremidade](https://msdn.microsoft.com/library/mt634451.aspx)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

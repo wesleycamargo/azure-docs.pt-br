@@ -25,7 +25,7 @@ Este artigo descreve como monitorar, gerenciar e depurar seus pipelines. Ele tam
 Com o Portal do Azure, você pode exibir seu data factory como um diagrama, exibir atividades em um pipeline, exibir conjuntos de dados de entrada e saída e muito mais. Esta seção também explica como uma fatia faz a transição de um estado para outro estado.
 
 ### Navegue até sua data factory
-1.	Entre no [Portal do Azure](http://portal.azure.com).
+1.	Entre no [Portal do Azure](https://portal.azure.com).
 2.	Clique em **Procurar tudo** e selecione **Data factories**.
 	
 	![Procurar tudo -> fata Factories](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
@@ -541,7 +541,7 @@ Você pode implantar alertas para métricas da mesma maneira como faz para event
 Substitua subscriptionId, resourceGroupName e dataFactoryName no exemplo acima pelos valores adequados.
 
 *metricName*, a partir de agora, dá suporte a 2 valores: 
-- FailedRuns 
+- FailedRuns
 - SuccessfulRuns
 
 **Implantando o alerta:**
@@ -569,4 +569,4 @@ Você verá a seguinte mensagem após a implantação bem-sucedida:
 
 Você também usar o cmdlet **Add-AlertRule** para implantar uma regra de alerta. Consulte o tópico sobre [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) para obter detalhes e exemplos.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

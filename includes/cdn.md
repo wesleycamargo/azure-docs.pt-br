@@ -22,7 +22,7 @@ Use o procedimento a seguir para criar uma nova conta de armazenamento para uma 
 
 Para criar uma conta de armazenamento, você deve ser o administrador de serviços ou um coadministrador da assinatura associada.
 
-> [AZURE.NOTE]Para obter informações sobre como executar esta operação usando a API de Gerenciamento de Serviços do Azure, consulte o tópico de referência [Criar conta de armazenamento](http://msdn.microsoft.com/library/windowsazure/hh264518.aspx).
+> [AZURE.NOTE] Para obter informações sobre como executar esta operação usando a API de Gerenciamento de Serviços do Azure, consulte o tópico de referência [Criar conta de armazenamento](http://msdn.microsoft.com/library/windowsazure/hh264518.aspx).
 
 **Para criar uma conta de armazenamento para uma assinatura do Azure**
 
@@ -43,7 +43,7 @@ Para criar uma conta de armazenamento, você deve ser o administrador de serviç
 
 	Esse valor também é usado como o nome dessa conta de armazenamento no portal ou ao acessar essa conta programaticamente.
 
-5.  Na lista suspensa **Região/Grupo de Afinidade**, selecione uma localização ou um grupo de afinidade para a conta de armazenamento. Selecione um grupo de afinidade em vez de uma região se desejar ter os serviços de armazenamento no mesmo data center com outros serviços do Azure que você está usando. Isso pode melhorar o desempenho e nenhum encargo será incorrido para a saída.
+5.  Na lista suspensa **Região/Grupo de Afinidade**, selecione uma localização ou um grupo de afinidade para a conta de armazenamento. Selecione um grupo de afinidades em vez de uma região se desejar ter os serviços de armazenamento no mesmo data center com outros serviços do Microsoft Azure que você está usando. Isso pode melhorar o desempenho e nenhum encargo será incorrido para a saída.
 
     **Observação:** para criar um grupo de afinidade, abra a área **Configurações** do Portal de Gerenciamento, clique em **Grupos de Afinidade** e, em seguida, clique em **Adicionar um Grupo de Afinidade** ou então em **Adicionar**. Você também pode criar e gerenciar os grupos de afinidade usando a API de Gerenciamento de Serviços do Microsoft Azure. Para saber mais, consulte [Operações em grupos de afinidades].
 
@@ -70,7 +70,7 @@ Depois que você habilitar o acesso à CDN para uma conta de armazenamento ou se
 	O domínio de origem é o local de onde a CDN armazena em cache o conteúdo. O domínio de origem pode ser uma conta de armazenamento ou um serviço de nuvem. Uma conta de armazenamento é usada para fins deste exemplo. O conteúdo do armazenamento é armazenado em cache em servidores de borda, de acordo com uma configuração de controle de cache que você especificar ou com a heurística padrão da rede de armazenamento em cache.
 
 
-    > [AZURE.NOTE]A configuração criada para o ponto de extremidade não estará imediatamente disponível. Pode levar até 60 minutos para o registro se propagar pela rede CDN. Os usuários que tentarem usar imediatamente o nome de domínio CDN poderão receber o código de status 400 (Solicitação Incorreta) até que o conteúdo esteja disponível por meio da CDN.
+    > [AZURE.NOTE] A configuração criada para o ponto de extremidade não estará imediatamente disponível. Pode levar até 60 minutos para o registro se propagar pela rede CDN. Os usuários que tentarem usar imediatamente o nome de domínio CDN poderão receber o código de status 400 (Solicitação Incorreta) até que o conteúdo esteja disponível por meio da CDN.
 
 <a id="Step3"> </a> <h2>Etapa 3: Acessar conteúdo CDN</h2>
 
@@ -83,13 +83,13 @@ http://<*CDNNamespace*>.vo.msecnd.net/<*myPublicContainer*>/<*BlobName*>
 Se não desejar mais armazenar em cache um objeto na CDN (Rede de Distribuição de Conteúdo) do Azure, você poderá executar uma das seguintes etapas:
 
 -   Para um blob do Azure, você pode excluir o blob do contêiner público.
--   Você pode tornar o contêiner particular em vez de público. Consulte [Restringir o acesso aos contêineres e Blobs (a página pode estar em inglês)](http://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/#restrict-access-to-containers-and-blobs) para obter mais informações.
+-   Você pode tornar o contêiner particular em vez de público. Consulte [Restringir o acesso aos contêineres e Blobs (a página pode estar em inglês)](https://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/#restrict-access-to-containers-and-blobs) para obter mais informações.
 -   Você pode desabilitar ou excluir o ponto de extremidade CDN usando o Portal de Gerenciamento.
 -   Você pode modificar seu serviço hospedado para não responder a solicitações do objeto.
 
 Um objeto que já está armazenado na CDN permanecerá em cache até que o período de tempo de vida do objeto expire. Quando o período de vida expira, a CDN verifica se o ponto de extremidade CDN ainda é válido, e se o objeto ainda pode ser acessado anonimamente. Se não for, o objeto não estará mais armazenado em cache.
 
-A capacidade de limpar imediatamente o conteúdo não tem suporte atualmente no Portal de Gerenciamento do Azure. Se for necessário limpar o conteúdo imediatamente, entre em contato com o [Suporte do Azure](http://azure.microsoft.com/support/options/).
+A capacidade de limpar imediatamente o conteúdo não tem suporte atualmente no Portal de Gerenciamento do Azure. Se for necessário limpar o conteúdo imediatamente, entre em contato com o [Suporte do Azure](https://azure.microsoft.com/support/options/).
 
 ## Recursos adicionais
 
@@ -111,4 +111,4 @@ A capacidade de limpar imediatamente o conteúdo não tem suporte atualmente no 
 [create-new-storage-account]: ./media/cdn/CDN_CreateNewStorageAcct.png
 [Previous Management Portal]: ../../Shared/Media/previous-portal.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

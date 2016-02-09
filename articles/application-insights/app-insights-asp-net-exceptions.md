@@ -25,11 +25,31 @@ Monitorando seu aplicativo com o [Visual Studio Application Insights][start], vo
 
 Para monitorar um aplicativo ASP.NET, você precisa [Adicionar Application Insights SDK][greenbrown] ao seu aplicativo, ou [instalar o Monitor de Status no servidor IIS][redfield], ou, se seu aplicativo for um aplicativo da Web do Azure, adicione o [Application Insights Extension][azure].
 
-## Falhas no diagnóstico 
+## Diagnosticar exceções usando o Visual Studio
 
-Da folha de visão geral, o bloco de Falhas mostra gráficos de exceções e solicitações HTTP, juntamente com uma lista da solicitação com falha URLs que causam as falhas mais frequentes.
+Abra a solução do aplicativo no Visual Studio para ajudar com a depuração.
 
-![Selecione as Falhas](./media/app-insights-asp-net-exceptions/012-start.png)
+Execute o aplicativo, em seu servidor ou na máquina de desenvolvimento, usando F5.
+
+Abra a janela Pesquisa do Application Insights no Visual Studio e configure-a para exibir eventos de seu aplicativo. Durante a depuração, você pode fazer isso clicando no botão Application Insights.
+
+![Clique com o botão direito no projeto e escolha Application Insights, Abrir.](./media/app-insights-asp-net-exceptions/34.png)
+
+Observe que você pode filtrar o relatório para mostrar apenas as exceções.
+
+*Nenhuma exceção mostrando? Consulte [Capturar exceções](#exceptions).*
+
+Clique em um relatório de exceções para mostrar o rastreamento de pilha.
+
+![Clique em uma exceção.](./media/app-insights-asp-net-exceptions/35.png)
+
+Clique em uma referência de linha no rastreamento de pilha para abrir o arquivo relevante.
+
+## Como diagnosticar falhas usando o Portal do Azure
+
+Na visão geral do Application Insights de seu aplicativo, o bloco Falhas mostra gráficos de exceções e solicitações HTTP, juntamente com uma lista da solicitação com falha URLs que causam as falhas mais frequentes.
+
+![Escolha Configurações, Falhas.](./media/app-insights-asp-net-exceptions/012-start.png)
 
 Clique em um dos tipos de solicitação com falha na lista para obter a ocorrências individuais da falha. A partir daí, clique para as exceções ou para os dados de rastreamento associados:
 
@@ -50,6 +70,8 @@ A partir daí, você pode examinar o rastreamento de pilha e as propriedades det
 
 [Saber mais sobre a Pesquisa de Diagnóstico][diagnostic].
 
+
+
 ## Falhas de dependência
 
 Uma *dependência* é um serviço que o aplicativo chama, normalmente por meio de uma conexão de banco de dados ou pela API REST. [O Application Insights Status Monitor][redfield] monitora automaticamente uma variedade de tipos de chamada de dependência, medindo a duração da chamada e o êxito ou a falha.
@@ -69,9 +91,9 @@ Para obter dados de diagnóstico específicos do aplicativo, você pode inserir 
 Você tem várias opções:
 
 * [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event) normalmente é usado para monitorar padrões de uso, mas os dados que ele envia também aparecem em Eventos Personalizados na pesquisa de diagnóstico. Os eventos são nomeados e podem conter propriedades de cadeia de caracteres e métricas numéricas nas quais é possível [filtrar pesquisas de diagnóstico][diagnostic].
-* [TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace) permite que você envie dados mais longos, como informações de POST.
+* [TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace) permite que você envie dados mais longos, como informações POST.
 * [TrackException()](#exceptions) envia rastreamentos de pilha. [Mais sobre exceções](#exceptions).
-* Se você já usa uma estrutura de registros, como Log4Net ou NLog você poderá [capturar esses logs][netlogs] e vê-los na pesquisa de diagnóstico junto com os dados de solicitação e exceção.
+* Se você já usa uma estrutura de registros, como Log4Net ou NLog poderá [capturar esses logs][netlogs] e vê-los na pesquisa de diagnóstico junto com os dados de solicitação e exceção.
 
 Para ver esses eventos, abra [Pesquisar][diagnostic], abra Filtrar e escolha Evento Personalizado, Rastreamento ou Exceção.
 
@@ -79,7 +101,7 @@ Para ver esses eventos, abra [Pesquisar][diagnostic], abra Filtrar e escolha Eve
 ![Drill-through](./media/app-insights-asp-net-exceptions/viewCustomEvents.png)
 
 
-> [AZURE.NOTE]Se o seu aplicativo gerar muita telemetria, o módulo de amostragem adaptável reduzirá automaticamente o volume enviado ao portal, enviando apenas uma fração representativa de eventos. Os eventos que fazem parte da mesma operação serão selecionados ou desmarcados como um grupo, para que você possa navegar entre os eventos relacionados. [Saiba mais sobre amostragem.](app-insights-sampling.md)
+> [AZURE.NOTE] Se o seu aplicativo gerar muita telemetria, o módulo de amostragem adaptável reduzirá automaticamente o volume enviado ao portal, enviando apenas uma fração representativa de eventos. Os eventos que fazem parte da mesma operação serão selecionados ou desmarcados como um grupo, para que você possa navegar entre os eventos relacionados. [Saiba mais sobre amostragem.](app-insights-sampling.md)
 
 ### Como consultar dados POST de solicitação
 
@@ -455,4 +477,4 @@ Observe que ela será diferente da contagem 'Exceções' calculada pelo portal d
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -19,7 +19,7 @@ Para criar máquinas virtuais baseadas em imagens Oracle, entre no [portal do Az
 ![](media/virtual-machines-oracle-list-oracle-virtual-machine-images/image1.png)
 
 ##Imagens de máquina virtual baseadas no Windows
-Veja a seguir uma lista das imagens de máquina virtual Oracle disponíveis que são executadas no Windows Server no Azure. Essas imagens são pré-pagas, o que significa que taxas de licença do Oracle estão incluídas em seu uso. Você também pode usar sua própria licença para executar software Oracle no Windows ou Linux. Veja aqui os detalhes completos sobre [preços e licenciamento para máquinas virtuais e imagens da galeria de máquinas virtuais do Azure](http://azure.microsoft.com/pricing/details/virtual-machines/#oracle-software). Clique na guia **Oracle** para obter detalhes sobre o preço específico da Oracle.
+Veja a seguir uma lista das imagens de máquina virtual Oracle disponíveis que são executadas no Windows Server no Azure. Essas imagens são pré-pagas, o que significa que taxas de licença do Oracle estão incluídas em seu uso. Você também pode usar sua própria licença para executar software Oracle no Windows ou Linux. Veja aqui os detalhes completos sobre [preços e licenciamento para máquinas virtuais e imagens da galeria de máquinas virtuais do Azure](https://azure.microsoft.com/pricing/details/virtual-machines/#oracle-software). Clique na guia **Oracle** para obter detalhes sobre o preço específico da Oracle.
 
 ###Imagens de máquina virtual no Oracle Database
 - Oracle Database 12c Enterprise Edition no Windows Server 2012
@@ -63,4 +63,4 @@ Veja a seguir uma lista das imagens pré-configuradas de máquina virtual Oracle
 
 [Imagens de máquinas virtuais Oracle — diversas considerações](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

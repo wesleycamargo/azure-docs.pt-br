@@ -34,7 +34,7 @@ O [simulador de iOS não dá suporte a notificações de push](https://developer
 
 Para concluir este tutorial, você precisará do seguinte:
 
-* Uma conta ativa do Azure. Se você ainda não tiver uma conta, inscreva-se para uma avaliação do Azure e obtenha até 10 aplicativos móveis grátis. Você pode continuar usando-os até mesmo após o término de sua avaliação. Consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/).
+* Uma conta ativa do Azure. Se você ainda não tiver uma conta, inscreva-se para uma avaliação do Azure e obtenha até 10 aplicativos móveis grátis. Você pode continuar usando-os até mesmo após o término de sua avaliação. Consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * Um Mac com o [Xamarin Studio] e o [Xcode] v4.4 ou posterior instalado. Se quiser, você poderá executar o aplicativo Xamarin.Forms usando o Visual Studio em um computador com Windows, mas isso é um pouco mais complicado, pois você precisa se conectar a um Mac em rede executando o Xamarin.iOS Build Host. Se você estiver interessado em fazer isso, confira [Instalando o Xamarin.iOS no Windows].
 
@@ -73,7 +73,7 @@ Esta seção trata da execução do projeto droid Xamarin para Android. Você po
 
 ####Configurar o hub de notificação para o GCM
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com/). Clique em **Procurar** > **Aplicativos Móveis** > seu aplicativo móvel > **Configurações** > **Push** > **Google (GCM)**. Cole a chave de API do servidor criada anteriormente e clique em **Salvar**. Agora, seu serviço móvel está configurado para funcionar com notificações por push no Android.
+1. Faça logon no [portal do Azure](https://portal.azure.com/). Clique em **Procurar** > **Aplicativos Móveis** > seu aplicativo móvel > **Configurações** > **Push** > **Google (GCM)**. Cole a chave de API do servidor criada anteriormente e clique em **Salvar**. Agora, seu serviço móvel está configurado para funcionar com notificações por push no Android.
 
 	![](./media/app-service-mobile-xamarin-forms-get-started-push/mobile-app-save-gcm-api-key.png)
 
@@ -190,7 +190,7 @@ Esta seção trata da execução do projeto droid Xamarin para Android. Você po
 
 12. Adicione o código a seguir à classe GcmService que substitui o manipulador de eventos OnRegistered e implementa um método `Register`.
 
-	Esse código registrará um corpo de modelo para receber notificações de modelo usando o parâmetro `messageParam`. Notificações de modelo permitem que você envie notificações entre plataformas. Para saber mais, veja [Modelos](https://msdn.microsoft.com/library/azure/dn530748.aspx).
+	Esse código registrará um corpo de modelo para receber notificações de modelo usando o parâmetro `messageParam`. Notificações de modelo permitem que você envie notificações entre plataformas. Para saber mais, confira [Modelos](https://msdn.microsoft.com/library/azure/dn530748.aspx).
 		
 		protected override void OnRegistered(Context context, string registrationId)
 		{
@@ -307,7 +307,7 @@ Esta seção trata da execução do projeto droid Xamarin para Android. Você po
  
 2. Pressione o botão **Executar** para compilar o projeto e iniciar o aplicativo em um dispositivo compatível com iOS; em seguida, clique em **OK** para aceitar as notificações por push.
 	
-	> [AZURE.NOTE]Você deve aceitar explicitamente as notificações por push do seu aplicativo. Essa solicitação ocorrerá apenas na primeira vez que o aplicativo for executado.
+	> [AZURE.NOTE] Você deve aceitar explicitamente as notificações por push do seu aplicativo. Essa solicitação ocorrerá apenas na primeira vez que o aplicativo for executado.
 
 2. No aplicativo, digite uma tarefa e clique no ícone do sinal de adição (**+**).
 
@@ -415,7 +415,7 @@ Seu aplicativo foi atualizado para oferecer suporte a notificações de push.
 
 2. Pressione o botão **Executar** ou **F5** no Visual Studio para compilar o projeto e iniciar o aplicativo em um dispositivo compatível com iOS; em seguida, clique em **OK** para aceitar as notificações por push.
 	
-	> [AZURE.NOTE]Você deve aceitar explicitamente as notificações por push do seu aplicativo. Essa solicitação ocorrerá apenas na primeira vez que o aplicativo for executado.
+	> [AZURE.NOTE] Você deve aceitar explicitamente as notificações por push do seu aplicativo. Essa solicitação ocorrerá apenas na primeira vez que o aplicativo for executado.
 
 3. No aplicativo, digite uma tarefa e clique no ícone do sinal de adição (**+**).
 
@@ -520,7 +520,7 @@ Esta seção trata da execução do projeto WinApp Xamarin para dispositivos Win
 
 2. Pressione o botão **Executar** para compilar o projeto e iniciar o aplicativo em um dispositivo compatível com iOS; em seguida, clique em **OK** para aceitar as notificações por push.
 	
-	> [AZURE.NOTE]Você deve aceitar explicitamente as notificações por push do seu aplicativo. Essa solicitação ocorrerá apenas na primeira vez que o aplicativo for executado.
+	> [AZURE.NOTE] Você deve aceitar explicitamente as notificações por push do seu aplicativo. Essa solicitação ocorrerá apenas na primeira vez que o aplicativo for executado.
 
 3. No aplicativo, digite uma tarefa e clique no ícone do sinal de adição (**+**).
 
@@ -537,4 +537,4 @@ Esta seção trata da execução do projeto WinApp Xamarin para dispositivos Win
 [Instalando o Xamarin.iOS no Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

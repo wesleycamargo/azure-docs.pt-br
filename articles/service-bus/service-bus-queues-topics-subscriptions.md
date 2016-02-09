@@ -158,7 +158,7 @@ Para saber mais sobre possíveis valores de filtro, consulte a documentação da
 
 ## Hubs de Evento
 
-[Hubs de Eventos](http://azure.microsoft.com/services/event-hubs/) é um serviço de processamento de eventos usado para fornecer entrada a telemetria e eventos para o Azure em grande escala, com baixa latência e alta confiabilidade. Esse serviço, quando usado com outros serviços downstream, é especialmente útil em cenários de instrumentação de aplicativos, processamento de fluxo de trabalho ou experiência do usuário e Internet das Coisas (IoT).
+[Hubs de Eventos](https://azure.microsoft.com/services/event-hubs/) é um serviço de processamento de eventos usado para fornecer entrada a telemetria e eventos para o Azure em grande escala, com baixa latência e alta confiabilidade. Esse serviço, quando usado com outros serviços downstream, é especialmente útil em cenários de instrumentação de aplicativos, processamento de fluxo de trabalho ou experiência do usuário e Internet das Coisas (IoT).
 
 Os Hubs de Eventos são uma construção de streaming de mensagens e, embora pareçam semelhantes a filas e tópicos, têm características bem diferentes. Por exemplo, os Hubs de Eventos não oferecem mensagens TTL, mensagens mortas, transações ou confirmações, já que esses são recursos do sistema de mensagens agenciado tradicional e não recursos de streaming. Os Hubs de Eventos fornecem outros recursos relacionados ao fluxo, como particionamento, preservação da ordem e reprodução de fluxo.
 
@@ -172,4 +172,4 @@ Consulte os seguintes tópicos avançados para saber mais e obter exemplos do us
 - [Guia do desenvolvedor de Hubs de Evento](../event-hubs/event-hubs-programming-guide.md)
 - [Sistema de Mensagens Agenciado: filtros avançados](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

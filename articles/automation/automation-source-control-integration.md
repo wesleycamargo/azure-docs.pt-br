@@ -22,7 +22,7 @@ A integração de controle de origem permite que você associe runbooks em sua c
 O controle do código-fonte permite que você envie código por push da Automação do Azure para o controle do código-fonte ou efetue o pull de seus runbooks do controle do código-fonte para a Automação do Azure. Este artigo descreve como configurar o controle de origem no seu ambiente da Automação do Azure. Vamos começar configurando a Automação do Azure para acessar seu repositório do GitHub e analisar operações diferentes que podem ser feitas usando a integração de controle de origem.
 
 
->[AZURE.NOTE]O controle de origem dá suporte a efetuar pull e a enviar por push de [Runbooks de fluxo de trabalho do PowerShell](automation-runbook-types.md#powershell-workflow-runbooks), bem como de [Runbooks do PowerShell](automation-runbook-types.md#powershell-runbooks), mas os [runbooks do Gráfico](automation-runbook-types.md#graphical-runbooks) ainda não têm suporte.<br><br>
+>[AZURE.NOTE] O controle de origem dá suporte a efetuar pull e a enviar por push de [Runbooks de fluxo de trabalho do PowerShell](automation-runbook-types.md#powershell-workflow-runbooks), bem como de [Runbooks do PowerShell](automation-runbook-types.md#powershell-runbooks), mas os [runbooks do Gráfico](automation-runbook-types.md#graphical-runbooks) ainda não têm suporte.<br><br>
 
 
 Há duas etapas simples necessárias para configurar o controle de origem para sua Conta de Automação, e somente uma se você já tiver uma conta do GitHub. Eles são:
@@ -104,7 +104,7 @@ O check-in de runbook permite que você envie por push as alterações feitas em
     ![Botão Check-in](media/automation-source-control-integration/automation_06_CheckinButton.png)
 
 
-     >[AZURE.NOTE]O check-in da Automação do Azure substituirá o código que existe atualmente no controle de origem. A instrução de linha de comando equivalente do Git para fazer check-in é **git add + git commit + git push**
+     >[AZURE.NOTE] O check-in da Automação do Azure substituirá o código que existe atualmente no controle de origem. A instrução de linha de comando equivalente do Git para fazer check-in é **git add + git commit + git push**
 
 3. Quando você clicar em **check-in**, uma mensagem de confirmação será exibida, clique em sim para continuar.
 
@@ -114,7 +114,7 @@ O check-in de runbook permite que você envie por push as alterações feitas em
 
     ![Fazer Check-in de Runbook](media/automation-source-control-integration/automation_08_CheckinRunbook.png)
 
-    >[AZURE.NOTE]Runbooks de controle de origem são runbooks especiais de Automação que você não pode exibir ou editar. Embora eles não apareçam em sua lista de runbooks, você verá os trabalhos de sincronização em sua lista de trabalhos.
+    >[AZURE.NOTE] Runbooks de controle de origem são runbooks especiais de Automação que você não pode exibir ou editar. Embora eles não apareçam em sua lista de runbooks, você verá os trabalhos de sincronização em sua lista de trabalhos.
  
 5. O nome do runbook modificado é enviado como um parâmetro de entrada para o runbook de check-in. Você pode [exibir os detalhes do trabalho](automation-runbook-execution.md#viewing-job-status-using-the-azure-management-portal) expandindo o runbook na folha **Sincronização de Repositórios**.
 
@@ -137,7 +137,7 @@ O botão de sincronização na folha Sincronização do repositório permite efe
     ![Sincronizar Runbook](media/automation-source-control-integration/automation_11_SyncRunbook.png)
 
  
-    >[AZURE.NOTE]Uma sincronização do controle de origem substitui a versão de rascunho dos runbooks que existem atualmente em sua conta da Automação para **TODOS** os runbooks atualmente no controle de origem. A instrução de linha de comando equivalente do Git para sincronizar é **git pull**
+    >[AZURE.NOTE] Uma sincronização do controle de origem substitui a versão de rascunho dos runbooks que existem atualmente em sua conta da Automação para **TODOS** os runbooks atualmente no controle de origem. A instrução de linha de comando equivalente do Git para sincronizar é **git pull**
 
 
 ## Solucionando problemas do controle de origem
@@ -158,4 +158,4 @@ Para se desconectar de sua conta do GitHub, abra a folha Sincronização de Repo
 
 Para saber mais sobre a integração de controle de origem, confira os seguintes recursos:- [Automação do Azure: integração de controle de origem na Automação do Azure](https://azure.microsoft.com/blog/azure-automation-source-control-13/) - [Vote em seu sistema de controle de origem favorito](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d) - [Automação do Azure: integrando o controle do código-fonte de runbook usando o Visual Studio Team Services](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

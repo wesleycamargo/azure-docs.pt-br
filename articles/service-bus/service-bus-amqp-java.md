@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
-# Usando o Barramento de Serviço do Java com AMQP 1.0
+# Usar o barramento de serviço do Java com AMQP 1.0
 
 [AZURE.INCLUDE [service-bus-selector-amqp](../../includes/service-bus-selector-amqp.md)]
 
-O Java Message Service (JMS) é uma API padrão para trabalhar com middleware orientado a mensagens na plataforma Java. O Barramento de Serviço do Azure foi testado com o AMQP 1.0 com base em biblioteca de cliente do JMS desenvolvida pelo projeto Apache Qpid. Esta biblioteca oferece suporte à API JMS 1.1 completa e pode ser usada com qualquer serviço de mensagens compatível com AMQP 1.0. Este cenário também é suportado no Barramento de Serviço para o Windows Server (Barramento de Serviço local). Para obter mais informações, consulte [AMQP no Barramento de Serviço para Windows Server][].
+O Java Message Service (JMS) é uma API padrão para trabalhar com middleware orientado a mensagens na plataforma Java. O Barramento de Serviço do Microsoft Azure foi testado com o AMQP 1.0 com base na biblioteca de cliente do JMS desenvolvida pelo projeto Apache Qpid. Esta biblioteca oferece suporte à API JMS 1.1 completa e pode ser usada com qualquer serviço de mensagens compatível com AMQP 1.0. Este cenário também tem suporte no [Barramento de Serviço para o Windows Server](https://msdn.microsoft.com/library/dn282144.aspx) (Barramento de Serviço local). Para obter mais informações, consulte [AMQP no Barramento de Serviço para Windows Server][].
 
-## Baixando a biblioteca de cliente do JMS do AMQP 1.0
+## Baixar a biblioteca de cliente do Apache Qpid JMS do AMQP 1.0
 
 Para obter informações sobre onde baixar a versão mais recente da biblioteca do cliente Apache Qpid JMS do AMQP 1.0, acesse [http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html)
 
@@ -35,7 +35,7 @@ Você deve adicionar os seguintes quatro arquivos JAR do arquivamento de distrib
 
 -   qpid-amqp-1-0-common-[version].jar
 
-## Trabalhando Barramento de serviço, filas, tópicos e assinaturas do JMS
+## Trabalhar com Barramento de Serviço, filas, tópicos e assinaturas do JMS
 
 ### Java Naming and Directory Interface (JNDI)
 
@@ -57,7 +57,7 @@ topic.TOPIC = topic1
 queue.QUEUE = queue1
 ```
 
-#### Configurando o alocador de conexão
+#### Configurar o alocador de conexão
 
 A entrada usada para definir um **ConnectionFactory** no Provedor JNDI de arquivo de propriedades do Qpid tem o seguinte formato:
 
@@ -86,7 +86,7 @@ Onde os parâmetros `[namespace]`, `[username]` e `[password]` têm os seguintes
 | `[username]` | O namespace do Barramento de Serviço é obtido no [portal clássico do Azure.][]. | | | | |
 | `[password]` | A forma codificada da URL da chave do emissor do Barramento de Serviço é obtida no [portal clássico do Azure][]. | | | | |
 
-> [AZURE.NOTE]você deve executar uma codificação de URL da senha manualmente. Um utilitário útil de codificação de URL está disponível em [http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
+> [AZURE.NOTE] você deve executar uma codificação de URL da senha manualmente. Um utilitário útil de codificação de URL está disponível em [http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
 
 Por exemplo, se as informações obtidas no portal forem as seguintes:
 
@@ -101,7 +101,7 @@ Então, para definir um objeto **ConnectionFactory** chamado `SBCONNECTIONFACTOR
 connectionfactory.SBCONNECTIONFACTORY = amqps://owner:abcdefg@test.servicebus.windows.net
 ```
 
-#### Configurando destinos
+#### Configurar destinos
 
 A entrada que define um destino no Provedor JNDI do arquivo de propriedades do Qpid tem o seguinte formato:
 
@@ -130,7 +130,7 @@ Para definir um destino JMS lógico chamado "TOPIC" que é mapeado para um tópi
 topic.TOPIC = topic1
 ```
 
-### Enviando mensagens com JMS
+### Enviar mensagens usando o JMS
 
 O código a seguir mostra como enviar uma mensagem para um tópico do Barramento de Serviço. Supõe-se que `SBCONNECTIONFACTORY` e `TOPIC` são definidos em um arquivo de configuração **servicebus.properties**, conforme descrito na seção anterior.
 
@@ -151,7 +151,7 @@ TextMessage message = session.createTextMessage("This is a text string");
 producer.send(message);
 ```
 
-### Recebendo mensagens com JMS
+### Receber mensagens usando o JMS
 
 O código a seguir mostra `how` para receber uma mensagem de uma assinatura de tópico do Barramento de Serviço. Supõe-se que `SBCONNECTIONFACTORY` e TOPIC são definidos em um arquivo de configuração **servicebus.properties**, conforme descrito na seção anterior. Presume-se também que o nome da assinatura seja `subscription1`.
 
@@ -362,7 +362,7 @@ A tabela a seguir mostra como os tipos de propriedades JMS são mapeados para os
 
 | Tipo de propriedade .NET | Tipo de propriedade JMS | Observações |
 |--------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| byte | UnsignedByte | - |
+| byte | UnsignedByte | - | 
 | sbyte | Byte | - |
 | char | Character | - |
 | short | Short | - |
@@ -447,4 +447,4 @@ Está pronto(a) para saber mais? Visite os links a seguir:
 [portal clássico do Azure]: http://manage.windowsazure.com
 [portal clássico do Azure.]: http://manage.windowsazure.com
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

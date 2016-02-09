@@ -22,9 +22,7 @@
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 - [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-- [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)  
-
-<!---Separate-->
+- [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 > [AZURE.NOTE]
 > Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](/pricing/free-trial/?WT.mc_id=A261C142F). 
@@ -106,7 +104,7 @@ Os itens a seguir são necessários para concluir o tutorial.
 
 ##Baixar exemplo
 
-Obtenha e execute um exemplo [aqui](http://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
+Obtenha e execute um exemplo [aqui](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
 
 
 ##Configurar para o desenvolvimento com o SDK dos Serviços de Mídia para .NET
@@ -532,4 +530,4 @@ Adicione a seção appSettings ao arquivo app.config e defina os valores do nome
 
 Se este tópico não contiver o que você esperava, se estiver faltando alguma informação ou se não tiver atendido de alguma outra forma às suas necessidades, envie seus comentários usando o thread Disqus abaixo.
 
-<!-----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

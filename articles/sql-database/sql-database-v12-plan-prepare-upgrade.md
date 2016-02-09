@@ -24,7 +24,7 @@
 Este tópico descreve o planejamento e a preparação necessária para atualizar seus bancos de dados SQL do Azure da versão V11 para a V12.
 
 
-Um novo [portal do Azure](http://portal.azure.com/) está disponível para oferecer suporte à atualização para V12.
+Um novo [portal do Azure](https://portal.azure.com/) está disponível para oferecer suporte à atualização para V12.
 
 
 A tabela a seguir lista outros tópicos de Ajuda da V12.
@@ -91,7 +91,7 @@ A faixa de preços do serviço Web e Business não é suportada no V12.
 Se o seu banco de dados SQL do Azure V11 for um banco de dados Web ou Business, o processo de atualização oferece alternar o banco de dados para uma camada compatível. A atualização recomenda uma camada que se ajuste ao histórico de carga de trabalho do banco de dados. No entanto, você pode escolher qualquer camada compatível desejada.
 
 
-Você pode reduzir as etapas necessárias durante a atualização, alternando o banco de dados V11 da camada Web e Business antes de iniciar a atualização. Você pode fazer isso usando o novo [Portal do Azure](http://portal.azure.com/).
+Você pode reduzir as etapas necessárias durante a atualização, alternando o banco de dados V11 da camada Web e Business antes de iniciar a atualização. Você pode fazer isso usando o novo [Portal do Azure](https://portal.azure.com/).
 
 
 Se não tiver certeza de para qual camada de serviço alterar, o nível S2 da camada Standard pode ser uma opção inicial adequada. Qualquer camada inferior terá menos recursos do que tinha a camada Web e Business.
@@ -127,7 +127,7 @@ Clique [aqui](sql-database-develop-direct-route-ports-adonet-v12.md) para obter 
 Há três portais do Azure, e cada um deles tem diferentes capacidades relacionadas ao Banco de Dados SQL V12.
 
 
-- [http://portal.azure.com/](http://portal.azure.com/)<br/>Esse portal do Azure é novo e ainda está no status de visualização. Esse portal ainda não está totalmente liberado para disponibilidade geral. Esse portal:
+- [http://portal.azure.com/](https://portal.azure.com/)<br/>Esse portal do Azure é novo e ainda está no status de visualização. Esse portal ainda não está totalmente liberado para disponibilidade geral. Esse portal:
  - Pode gerenciar seu servidor e banco de dados da V12.
  - Pode atualizar seu banco de dados da V11 para V12.
 
@@ -155,7 +155,7 @@ Você pode se conectar ao [Visual Studio Community 2013](https://www.visualstudi
 No antigo portal clássico do Azure, na página de banco de dados, você pode clicar em **Abrir no Visual Studio** para iniciar o VS2013 no seu computador para conexão com o Banco de Dados SQL do Azure.
 
 
-Como outra alternativa, você pode usar o SQL Server Management Studio (SSMS) 2014 com [CU6](http://support.microsoft.com/kb/3031047/) para se conectar ao Banco de Dados SQL do Azure. Há mais detalhes nesta postagem de blog:<br/>[Atualizações das ferramentas do cliente para Banco de Dados SQL do Azure](http://azure.microsoft.com/blog/2014/12/22/client-tooling-updates-for-azure-sql-database/).
+Como outra alternativa, você pode usar o SQL Server Management Studio (SSMS) 2014 com [CU6](http://support.microsoft.com/kb/3031047/) para se conectar ao Banco de Dados SQL do Azure. Há mais detalhes nesta postagem de blog:<br/>[Atualizações das ferramentas do cliente para Banco de Dados SQL do Azure](https://azure.microsoft.com/blog/2014/12/22/client-tooling-updates-for-azure-sql-database/).
 
 
 ### Limitação *durante* a atualização para V12
@@ -184,7 +184,7 @@ O banco de dados anterior à V11 continua disponível para acesso aos dados dura
 ### Exportar e importar *após* a atualização para V12
 
 
-Você pode exportar ou importar um banco de dados V12 usando o [portal do Azure](http://portal.azure.com/). Ou você pode exportar ou importar usando qualquer uma das seguintes ferramentas:
+Você pode exportar ou importar um banco de dados V12 usando o [portal do Azure](https://portal.azure.com/). Ou você pode exportar ou importar usando qualquer uma das seguintes ferramentas:
 
 
 - SQL Server Management Studio (SSMS)
@@ -200,7 +200,7 @@ No entanto, para usar as ferramentas, primeiro instale as atualizações mais re
 - [DacFx (Microsoft SQL Server Data-Tier Application Framework) de fevereiro de 2015 para Banco de Dados SQL V12 do Azure](http://www.microsoft.com/download/details.aspx?id=45886)
 
 
-> [AZURE.NOTE]Os links a ferramenta anteriores foram atualizados em ou após 2 de março de 2015. É recomendável que você use essas atualizações mais recentes dessas ferramentas.
+> [AZURE.NOTE] Os links a ferramenta anteriores foram atualizados em ou após 2 de março de 2015. É recomendável que você use essas atualizações mais recentes dessas ferramentas.
 
 
 #### Exportação Automatizada
@@ -247,11 +247,11 @@ Se a atualização falhar por algum motivo estranho, seu banco de dados V11 perm
 ## Links relacionados
 
 
-- [Recursos de visualização](http://azure.microsoft.com/services/preview/) do Microsoft Azure.
+- [Recursos de visualização](https://azure.microsoft.com/services/preview/) do Microsoft Azure.
 
 
 <!--Anchors-->
 [Subheading 1]: #subheading-1
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

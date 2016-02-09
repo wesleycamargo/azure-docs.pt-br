@@ -33,4 +33,4 @@ Se o aplicativo não puder se conectar de jeito nenhum, geralmente o problema é
 4.	Verifique a integridade do serviço no painel. Se você achar que há uma interrupção regional, confira [Recuperar-se de uma paralisação](sql-database-disaster-recovery.md) para obter as etapas de recuperação de uma nova região.
 5.	Se o problema de conectividade continuar, contate o suporte e abra um caso de suporte.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -22,7 +22,10 @@ Este artigo descreve como você pode usar a atividade de cópia da data factory 
 
 A data factory dá suporte à conexão com e do sistema de arquivos local por meio do Gateway de Gerenciamento de Dados. Consulte o artigo sobre [movimentação de dados entre pontos locais e na nuvem](data-factory-move-data-between-onprem-and-cloud.md) para saber mais sobre o Gateway de Gerenciamento de Dados e obter instruções passo a passo de como configurar o gateway.
 
-**Observação:** exceto o Gateway de Gerenciamento de Dados, não é necessário instalar nenhum outro binário para se comunicar com e do sistema de arquivos local.
+> [AZURE.NOTE] 
+Com exceção do Gateway de Gerenciamento de Dados, não é necessário instalar nenhum outro binário para se comunicar de e para o Sistema de Arquivos local.
+> 
+> Confira [Solução de problemas de gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) para ver dicas sobre como solucionar problemas de conexão/gateway.
 
 ## Compartilhamento de arquivos do Linux 
 
@@ -437,7 +440,7 @@ Senha | Especifique a senha para o usuário (userid) | Não (se você escolher e
 encryptedCredential | Especifique as credenciais criptografadas que você pode obter executando o cmdlet New-AzureRmDataFactoryEncryptValue<p>**Observação:** você deve usar o Azure PowerShell de versão 0.8.14 ou superior para usar cmdlets como New-AzureRmDataFactoryEncryptValue com parâmetro type definido como OnPremisesFileSystemLinkedService</p> | Não (se você optar por especificar userid e password em texto sem formatação)
 gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar ao servidor de arquivos local | Sim
 
-Consulte [Definir credenciais e segurança](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) para obter detalhes sobre como definir credenciais para uma fonte de dados do sistema de arquivos local.
+Consulte [Definir credenciais e segurança](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) para obter detalhes sobre como definir credenciais para uma fonte de dados do Sistema de Arquivos local.
 
 **Exemplo: usando username e password em texto sem formatação**
 	
@@ -483,7 +486,7 @@ Formatar | Há suporte para dois tipos de formatos: **TextFormat**, **AvroFormat
 fileFilter | Especifique um filtro a ser usado para selecionar um subconjunto de arquivos no folderPath em vez de todos os arquivos. <p>Os valores permitidos são: * (vários caracteres) e ? (um único caractere).</p><p>Exemplo 1: "fileFilter": "*.log"</p>Exemplo 2: "fileFilter": 2014-1-?.txt"</p><p>**Observação: fileFilter é aplicável a um conjunto de dados FileShare de entrada</p> | Não
 | compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos com suporte são: GZip, Deflate e BZip2. Os níveis com suporte são: Melhor e Mais rápido. Consulte a seção [Suporte à compactação](#compression-support) para obter mais detalhes. | Não |
 
-> [AZURE.NOTE]filename e fileFilter não podem ser usados simultaneamente.
+> [AZURE.NOTE] filename e fileFilter não podem ser usados simultaneamente.
 
 ### Utilizando a propriedade partionedBy
 
@@ -517,7 +520,7 @@ No exemplo acima, ano, mês, dia e hora do SliceStart são extraídos em variáv
 
 ### Especificando TextFormat
 
-Se o formato for definido como **TextFormat**, você pode especificar as seguintes propriedades **opcionais** na seção **Format** dentro da seção **typeProperties**.
+Se o formato for definido como **TextFormat**, você poderá especificar as seguintes propriedades **optional** na seção **Format** dentro da seção **typeProperties**.
 
 Propriedade | Descrição | Obrigatório
 -------- | ----------- | --------
@@ -603,4 +606,4 @@ false | mergeFiles | <p>Para uma pasta de origem Pasta 1 com a seguinte estrutur
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

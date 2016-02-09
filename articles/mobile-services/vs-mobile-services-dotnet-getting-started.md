@@ -3,7 +3,7 @@
 	description="Como começar a trabalhar com os Serviços Móveis do Azure em um projeto .NET do Visual Studio"
 	services="mobile-services"
 	documentationCenter=""
-	authors="TomArcher"
+	authors="mlhoop"
 	manager="douge"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="01/05/2016"
-	ms.author="tarcher"/>
+	ms.author="mlearned"/>
 
 # Introdução aos serviços móveis (Projetos .NET)
 
@@ -81,6 +81,6 @@ Excluir uma linha no banco de dados. O item do parâmetro é o objeto TodoItem a
 	await todoTable.DeleteAsync(item);
 
 
-[Saiba mais sobre serviços móveis](http://azure.microsoft.com/documentation/services/mobile-services/)
+[Saiba mais sobre serviços móveis](https://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

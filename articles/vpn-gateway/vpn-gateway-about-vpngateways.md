@@ -33,7 +33,7 @@ Há 3 SKUs de gateway de VPN:
 - Standard
 - Alto Desempenho
 
-A tabela a seguir mostra os tipos de gateway e a taxa de transferência agregada estimada. Os preços diferem entre os SKUs de gateway. Para obter informações sobre preços, veja [Preços de gateway de VPN](http://azure.microsoft.com/pricing/details/vpn-gateway/).
+A tabela a seguir mostra os tipos de gateway e a taxa de transferência agregada estimada. Os preços diferem entre os SKUs de gateway. Para obter informações sobre preços, veja [Preços de gateway de VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/).
 
 | SKU | Coexistência de Gateway de VPN e a Rota Expressa | Taxa de transferência de Gateway de Rota Expressa | Taxa de transferência de Gateway de VPN | Túneis IPsec máximo de Gateway de VPN |
 |-------------|-----------------------------------|---------------------------------|------------------------|-------------------------------|
@@ -63,7 +63,7 @@ Por exemplo, para usar uma conexão site a site simultaneamente com uma conexão
 A tabela a seguir lista os requisitos para os gateways de VPN estáticos e dinâmicos.
 
 
-| **Propriedade** | **Gateway de VPN baseado em política** | **Gateway de VPN baseado em rota** | **Gateway de VPN padrão** | **Gateway VPN de alto desempenho** |
+| **Propriedade** | **Gateway de VPN baseado em política** | **Gateway de VPN baseado em rota** | **Gateway de VPN padrão** | **Gateway de VPN de alto desempenho** |
 |-----------------------------------------|--------------------------------|-----------------------------------------------------------------------|-----------------------------------|----------------------------------|
 | Conectividade site a site (S2S) | Configuração de VPN baseada em política | Configuração de VPN baseada em rota | Configuração de VPN baseada em rota | Configuração de VPN baseada em rota |
 | Conectividade ponto a site (P2S) | Sem suporte | Com suporte (pode coexistir com S2S) | Com suporte (pode coexistir com S2S) | Com suporte (pode coexistir com S2S) |
@@ -83,4 +83,4 @@ Selecione o dispositivo VPN para sua configuração. Veja [Sobre dispositivos VP
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

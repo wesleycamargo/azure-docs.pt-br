@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2015" 
+    ms.date="01/26/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o Mindflash
@@ -86,7 +86,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 5.  Envie o metadatafile para a equipe de suporte do Mindflash.
 
-    >[AZURE.NOTE]A configuração de logon único deve ser executada pela equipe de suporte do Mindflash. Assim que a configuração for concluída, você receberá uma notificação.
+    >[AZURE.NOTE] A configuração de logon único deve ser executada pela equipe de suporte do Mindflash. Assim que a configuração for concluída, você receberá uma notificação.
 
 6.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
@@ -132,4 +132,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

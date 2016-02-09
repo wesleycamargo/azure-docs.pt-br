@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Encontrando aplicativos em nuvem não autorizados com o Cloud App Discovery | Microsoft Azure"
+	pageTitle="Encontrando aplicativos em nuvem não gerenciados com o Cloud App Discovery | Microsoft Azure"
 	description="Fornece informações sobre a localização e o gerenciamento de aplicativos com o Cloud App Discovery, quais são seus benefícios e como ele funciona."
 	services="active-directory"
 	keywords="cloud app discovery, gerenciamento de aplicativos"
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/20/2015"
-	ms.author="markusvi"/>
+	ms.date="01/26/2016"
+	ms.author="markvi"/>
 
-# Localizando aplicativos em nuvem não autorizados com o Cloud App Discovery
+# Encontrando aplicativos em nuvem não gerenciados com o Cloud App Discovery
 
 ## Visão geral
 Nas empresas modernas, os departamentos de TI geralmente não estão cientes de todos os aplicativos em nuvem que os membros de sua organização usam para realizar seu trabalho. É fácil ver por que os administradores teriam preocupações sobre o acesso não autorizado aos dados corporativos, perda de dados e outros riscos de segurança. Essa falta de reconhecimento pode fazer com que a criação de um plano para lidar com esses riscos de segurança pareça assustadora.
@@ -48,4 +48,4 @@ Para iniciar com o Cloud App Discovery, confira [Introdução ao Cloud App Disco
 - [Cloud App Discovery - Log de Alteração de Agente ](http://social.technet.microsoft.com/wiki/contents/articles/24616.cloud-app-discovery-agent-changelog.aspx)
 - [Cloud App Discovery - Perguntas Frequentes](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

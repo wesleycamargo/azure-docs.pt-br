@@ -23,7 +23,7 @@ O AD B2C do Azure dá suporte à autenticação para uma variedade de arquitetur
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 ## Noções básicas
-Todos os aplicativos que usam o AD B2C do Azure precisarão ser registrados no seu [diretório B2C](active-directory-b2c-get-started.md) por meio de [Portal do Azure](https://portal.azure.com). O processo de registro de aplicativo vai coletar e atribuir alguns valores para seu aplicativo:
+Todos os aplicativos que usam o Azure AD B2C precisarão ser registrados no seu [diretório B2C](active-directory-b2c-get-started.md) por meio do [Portal do Azure](https://portal.azure.com/). O processo de registro de aplicativo vai coletar e atribuir alguns valores para seu aplicativo:
 
 - Uma **Id de Aplicativo** que identifica exclusivamente o aplicativo
 - Um **URI de Redirecionamento** que pode ser usado para direcionar as respostas de volta ao aplicativo
@@ -93,7 +93,8 @@ Accept: application/json
 
 A API Web pode usar o token para verificar a identidade do chamador da API e extrair informações sobre o chamador por meio de declarações codificadas no token. É possível aprender sobre todos os tipos de tokens e declarações disponíveis para um aplicativo na [referência de token do AD B2C do Azure](active-directory-b2c-reference-tokens.md).
 
-> [AZURE.NOTE]A visualização do AD B2C do Azure atualmente dá suporte apenas a APIs Web acessadas por seus próprios clientes conhecidos. Por exemplo, seu aplicativo completo pode incluir um aplicativo iOS e aplicativo do Android e um API Web de back-end. Essa arquitetura tem total suporte. O que não tem suporte atualmente permite que um cliente terceirizado, como outro aplicativo iOS, acesse também a mesma API Web. Na verdade, cada componente do aplicativo completo deve compartilhar uma única ID do aplicativo.
+> [AZURE.NOTE]
+	A visualização do AD B2C do Azure atualmente dá suporte apenas a APIs Web acessadas por seus próprios clientes conhecidos. Por exemplo, seu aplicativo completo pode incluir um aplicativo iOS e aplicativo do Android e um API Web de back-end. Essa arquitetura tem total suporte. O que não tem suporte atualmente permite que um cliente terceirizado, como outro aplicativo iOS, acesse também a mesma API Web. Na verdade, cada componente do aplicativo completo deve compartilhar uma única ID do aplicativo.
 
 Uma API Web pode receber tokens de todos os tipos de aplicativos, incluindo aplicativos Web, aplicativos móveis e da área de trabalho, aplicativos de página única, daemons do lado do servidor e até outras APIs Web. Por exemplo, vejamos o fluxo completo de um aplicativo Web que chama uma API Web.
 
@@ -108,7 +109,8 @@ Os aplicativos instalados em um dispositivo, como aplicativos móveis e da área
 
 Nesse fluxo, o aplicativo executa [políticas](active-directory-b2c-reference-policies.md) e recebe um authorization\_code do AD do Azure depois que o usuário conclui a política. O authorization\_code representa a permissão do aplicativo para chamar serviços de back-end em nome do usuário conectado no momento. O aplicativo pode trocar o authoriztion\_code em segundo plano por um refresh\_token e um access\_token. O aplicativo pode usar o id\_token para se autenticar em uma API Web de back-end em solicitações HTTP, e pode usar o refresh\_token para obter novos id\_tokens quando os antigos expirarem.
 
-> [AZURE.NOTE]A visualização do AD B2C do Azure só dá suporte atualmente à obtenção de id\_tokens usados para acessar um serviço Web de back-end do próprio aplicativo. Por exemplo, seu aplicativo completo pode incluir um aplicativo iOS e aplicativo do Android e um API Web de back-end. Essa arquitetura tem total suporte. O que não tem suporte atualmente é permitir que o aplicativo iOS acesse uma API Web de terceiros usando access\_tokens do OAuth 2.0. Na verdade, cada componente do aplicativo completo deve compartilhar uma única ID do aplicativo.
+> [AZURE.NOTE]
+	A visualização do AD B2C do Azure só dá suporte atualmente à obtenção de id\_tokens usados para acessar um serviço Web de back-end do próprio aplicativo. Por exemplo, seu aplicativo completo pode incluir um aplicativo iOS e aplicativo do Android e um API Web de back-end. Essa arquitetura tem total suporte. O que não tem suporte atualmente é permitir que o aplicativo iOS acesse uma API Web de terceiros usando access\_tokens do OAuth 2.0. Na verdade, cada componente do aplicativo completo deve compartilhar uma única ID do aplicativo.
 
 ![Imagem de raias do aplicativo Nativo](./media/active-directory-b2c-apps/native.png)
 
@@ -128,4 +130,4 @@ Muitas arquiteturas incluem uma API da Web que precisa chamar outra API da Web d
 
 Este cenário de API Web encadeada pode ter suporte usando a concessão Credencial de Portador Jwt do OAuth 2.0, também conhecido como fluxo Em nome de. No entanto, o fluxo Em nome de não está implementado atualmente na visualização do AD B2C do Azure.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

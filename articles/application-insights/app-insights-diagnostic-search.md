@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="01/26/2016" 
 	ms.author="awills"/>
  
 # Uso de Pesquisa de diagnóstico no Application Insights
@@ -20,6 +20,9 @@
 Pesquisa de diagnóstico é a folha no [Application Insights][start] que você usa para localizar e explorar os itens individuais de telemetria, como visualizações de página, exceções ou solicitações da Web. Você também pode exibir rastreamentos de log e eventos que você tenha codificado.
 
 ## Quando você vê a Pesquisa de diagnóstico?
+
+
+### No portal do Azure
 
 Você pode abrir a Pesquisa de diagnóstico explicitamente:
 
@@ -38,7 +41,21 @@ O corpo principal da Pesquisa de diagnóstico é uma lista de itens de telemetri
 Normalmente, os eventos aparecem na pesquisa de diagnóstico antes de aparecerem no gerenciador de métricas. Embora a folha seja atualizada em intervalos, você pode clicar em Atualizar se estiver esperando um evento específico.
 
 
-> [AZURE.NOTE]Se o seu aplicativo gerar muita telemetria (e você estiver usando o SDK do ASP.NET versão 2.0.0-beta3 ou posterior), o módulo de amostragem adaptável reduzirá automaticamente o volume enviado ao portal, enviando apenas uma fração representativa de eventos. No entanto, os eventos relacionados à mesma solicitação serão selecionadas ou desmarcadas como um grupo, para que você possa navegar entre os eventos relacionados. [Saiba mais sobre amostragem](app-insights-sampling.md).
+### No Visual Studio
+
+Abra a janela Pesquisar no Visual Studio:
+
+![](./media/app-insights-diagnostic-search/32.png)
+
+A janela Pesquisar tem os mesmos recursos que o portal da Web:
+
+![](./media/app-insights-diagnostic-search/34.png)
+
+
+### Amostragem
+
+Se o seu aplicativo gerar muita telemetria (e você estiver usando o SDK do ASP.NET versão 2.0.0-beta3 ou posterior), o módulo de amostragem adaptável reduzirá automaticamente o volume enviado ao portal, enviando apenas uma fração representativa de eventos. No entanto, os eventos relacionados à mesma solicitação serão selecionadas ou desmarcadas como um grupo, para que você possa navegar entre os eventos relacionados.
+> [Saiba mais sobre amostragem](app-insights-sampling.md).
 
 
 ## Inspecionar itens individuais
@@ -140,7 +157,7 @@ Estas são algumas expressões de pesquisa que você pode usar:
 Exemplo de consulta | Efeito 
 ---|---
 lento|Encontra todos os eventos no intervalo de tempo cujos campos incluem o termo "lento"
-banco de dados??|As correspondências banco de dados01, banco de dadosAB, ...<br/>? não são permitidas no início de um termo de pesquisa.
+banco de dados??|As correspondências bancodedados01, bancodedadosAB, ...<br/>? não são permitidas no início de um termo de pesquisa.
 banco de dados*|As correspondências banco de dados, banco de dados01, banco de dadosNNNN<br/>* não são permitidas no início de um termo de pesquisa
 maçã AND banana|Encontra eventos que contêm os dois termos. Use "AND” em letras maiúsculas, e não "and".
 maçã OR banana<br/>maçã|Encontra eventos que contêm um dos dois termos. Use "OR" não "or".</br/>Forma abreviada.
@@ -203,4 +220,4 @@ Nós não registramos os dados de POSTAGEM automaticamente, mas você pode usar 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -41,7 +41,7 @@ Antes de começar as etapas neste tutorial, [instale a CLI do Azure](../xplat-cl
 
 1. **Entrar no Microsoft Azure** - na sua interface de linha de comando (Bash, Terminal, Prompt de comando), verifique se você está no modo do Gerenciador de Recursos digitando `azure config mode arm` e, em seguida, [entre com sua ID de trabalho ou escolar](../xplat-cli-connect.md#use-the-log-in-method) digitando `azure login` e siga as instruções para obter uma experiência de logon interativo para sua conta do Azure.
 
-	> [AZURE.NOTE]Se você tiver uma ID de trabalho ou escolar e se souber que não tem a autenticação de dois fatores habilitada, poderá usar `azure login -u` juntamente com a ID de trabalho ou escolar para efetuar logon sem uma sessão interativa. Se você não tiver uma ID de trabalho ou escolar, poderá [criar uma ID de trabalho ou escolar de sua conta da Microsoft pessoal](resource-group-create-work-id-from-personal.md).
+	> [AZURE.NOTE] Se você tiver uma ID de trabalho ou escolar e se souber que não tem a autenticação de dois fatores habilitada, poderá usar `azure login -u` juntamente com a ID de trabalho ou escolar para efetuar logon sem uma sessão interativa. Se você não tiver uma ID de trabalho ou escolar, poderá [criar uma ID de trabalho ou escolar de sua conta da Microsoft pessoal](resource-group-create-work-id-from-personal.md).
 
 2. **Criar um grupo de recursos** – Todos os recursos devem ser implantados em um grupo de recursos. Para este tutorial, nomeie o grupo de recursos **vmsstest1**:
 
@@ -604,4 +604,4 @@ Como você é cobrado pelos recursos usados no Azure, sempre é uma boa prática
 
 Confira o modelo [Dimensionar automaticamente um conjunto de escalas de VM executando um aplicativo Ubuntu/Apache/PHP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) que define uma pilha LAMP para praticar a funcionalidade de dimensionamento automático de Conjuntos de Escalas de Máquina Virtual.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

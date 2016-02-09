@@ -3,11 +3,18 @@
    description="Saiba como restaurar de um Windows Server ou Windows Client."
    services="backup"
    documentationCenter=""
-   authors="aashishr"
+   authors="Jim-Parker"
    manager="jwhit"
    editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/21/2015" ms.author="jimpark"; "aashishr"/>
+<tags
+   ms.service="backup"
+   ms.workload="storage-backup-recovery"
+	 ms.tgt_pltfrm="na"
+	 ms.devlang="na"
+	 ms.topic="article"
+	 ms.date="01/25/2016"
+	 ms.author="trinadhk; jimpark; markgal;"/>
 
 # Restauração de arquivos para um computador cliente Windows ou para um servidor Windows
 Este artigo aborda as etapas necessárias para executar dois tipos de operações de restauração:
@@ -64,7 +71,7 @@ A terminologia usada nessas etapas inclui:
 - *Computador de destino* – O computador para o qual os dados estão sendo recuperados.
 - *Cofre de exemplo* – Cofre de backup em que o *Computador de origem* e o *Computador de destino* são registrados. <br/>
 
-> [AZURE.NOTE]Os backups de um computador não podem ser restaurados em um computador que esteja executando uma versão anterior do sistema operacional. Por exemplo, se um backup for de um computador com Windows 7, ele poderá ser restaurado em um computador com Windows 8 ou superior. No entanto, o contrário não pode ocorrer.
+> [AZURE.NOTE] Os backups de um computador não podem ser restaurados em um computador que esteja executando uma versão anterior do sistema operacional. Por exemplo, se um backup for de um computador com Windows 7, ele poderá ser restaurado em um computador com Windows 8 ou superior. No entanto, o contrário não pode ocorrer.
 
 1. Abra o snap-in do **Backup do Microsoft Azure** no *Computador de destino*.
 2. Verifique se o *Computador de destino* e o *Computador de origem* serão restaurados no mesmo cofre de backup.
@@ -109,4 +116,4 @@ A terminologia usada nessas etapas inclui:
 - [Fazer backup de máquinas virtuais do Azure](backup-azure-vms-introduction.md)
 - [Fazer backup de cargas de trabalho Microsoft](backup-azure-dpm-introduction.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

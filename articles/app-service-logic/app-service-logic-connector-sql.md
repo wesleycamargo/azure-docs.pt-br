@@ -54,7 +54,7 @@ Nome de usuário | Sim | Insira um nome de usuário que possa fazer logon no SQL
 Senha | Sim | Digite a senha do nome de usuário.
 Nome do Banco de Dados | Sim | Informe o banco de dados ao qual está se conectando. Por exemplo, você pode inserir *Clientes* ou *dbo/pedidos*.
 Local | Sim | O padrão é False. Insira False se estiver se conectando a um banco de dados SQL do Azure. Insira True caso esteja se conectando a um SQL Server local.
-Cadeia de conexão do Barramento de Serviço | Não | Se você estiver estabelecendo conexão local, insira a cadeia de conexão de retransmissão do Barramento de Serviço.<br/><br/>[Usando o Gerenciador de Conexão Híbrida](app-service-logic-hybrid-connection-manager.md)<br/>[Preços do Barramento de Serviço](http://azure.microsoft.com/pricing/details/service-bus/)
+Cadeia de conexão do Barramento de Serviço | Não | Se você estiver estabelecendo conexão local, insira a cadeia de conexão de retransmissão do Barramento de Serviço.<br/><br/>[Usando o Gerenciador de Conexão Híbrida](app-service-logic-hybrid-connection-manager.md)<br/>[Preços do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/)
 Nome do Servidor Parceiro | Não | Se o servidor primário não estiver disponível, você poderá informar um servidor parceiro como servidor alternativo ou de backup.
 Tabelas | Não | Lista as tabelas de banco de dados que podem ser atualizadas pelo conector. Por exemplo, digite *OrdersTable* ou *EmployeeTable*. Se nenhuma tabela for especificada, todas as tabelas poderão ser usadas. Tabelas válidas e/ou procedimentos armazenados são necessários para usar esse conector como uma ação.
 Procedimentos Armazenados | Não | Informe um procedimento armazenado existente que pode ser chamado pelo conector. Por exemplo, digite *sp\_IsEmployeeEligible* ou *sp\_CalculateOrderDiscount*. Tabelas válidas e/ou procedimentos armazenados são necessários para usar esse conector como uma ação.
@@ -74,7 +74,7 @@ Para usar o conector do SQL como um gatilho, informe os valores de **Consulta de
 
 **Sondar Consulta de Dados** só é executado quando a consulta de dados disponíveis indica que há dados disponíveis. Essa instrução é executada em uma transação e só é confirmada quando os dados extraídos são armazenados permanentemente no fluxo de trabalho. É importante evitar extrair novamente os mesmos dados por tempo indefinido. A natureza transacional dessa execução pode ser usada para excluir ou atualizar os dados a fim de garantir que eles não sejam coletados na próxima consulta.
 
-> [AZURE.NOTE]O esquema retornado por essa instrução identifica as propriedades disponíveis em seu conector. Todas as colunas devem ser nomeadas.
+> [AZURE.NOTE] O esquema retornado por essa instrução identifica as propriedades disponíveis em seu conector. Todas as colunas devem ser nomeadas.
 
 #### Exemplo de Consulta de Dados Disponíveis
 
@@ -133,11 +133,11 @@ Campos (na consulta Select) | <ul><li>Nomes de colunas válidos separados por v�
 
 ## Configuração Híbrida (opcional)
 
-> [AZURE.NOTE]Essa etapa será necessária apenas se você estiver usando o SQL Server local por trás do firewall.
+> [AZURE.NOTE] Essa etapa será necessária apenas se você estiver usando o SQL Server local por trás do firewall.
 
 O Serviço de Aplicativo usa o Gerenciador de Configuração Híbrida para se conectar com segurança ao sistema local. Se seu conector usar um SQL Server local, o Gerenciador de Conexão Híbrida será necessário.
 
-> [AZURE.NOTE]Se você deseja começar com os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógicos](https://tryappservice.azure.com/?appservice=logic), em que você pode criar imediatamente um aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
+> [AZURE.NOTE] Se você deseja começar com os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógicos](https://tryappservice.azure.com/?appservice=logic), em que você pode criar imediatamente um aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
 
 Consulte [Usando o Gerenciador de Conexão Híbrida](app-service-logic-hybrid-connection-manager.md).
 
@@ -145,7 +145,7 @@ Consulte [Usando o Gerenciador de Conexão Híbrida](app-service-logic-hybrid-co
 ## Faça mais com seu Conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
 
-Exibir a referência da API REST do Swagger em [Conectores e referência dos Aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar Aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
 
@@ -161,4 +161,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

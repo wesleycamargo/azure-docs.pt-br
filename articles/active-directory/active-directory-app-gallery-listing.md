@@ -19,7 +19,7 @@
 
 # Listando seu aplicativo na galeria de aplicativos do Azure Active Directory
 
-Para listar um aplicativo que dê suporte a logon único com o Active Directory do Azure na [galeria do Azure AD](http://azure.microsoft.com/marketplace/active-directory/all/), o aplicativo primeiro precisa implementar um dos seguintes modos de integração:
+Para listar um aplicativo que dê suporte a logon único com o Active Directory do Azure na [galeria do Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/), o aplicativo primeiro precisa implementar um dos seguintes modos de integração:
 
 * **OpenID Connect**: integração direta com o Azure AD usando o OpenID Connect para autenticação e a API de consentimento do AD do Azure para configuração. Se você estiver apenas começando uma integração e seu aplicativo não der suporte a SAML, esse é o modo recomendado.
 
@@ -33,7 +33,7 @@ Para integrar seu aplicativo ao Azure AD, siga as [instruções de desenvolvedor
 
 * Fornece credenciais para uma conta ou locatário de teste com o aplicativo que pode ser usado pela equipe do Azure AD para testar a integração.  
 
-* Forneça instruções sobre como a equipe do AD do Azure pode entrar e conectar uma instância do AD do Azure em seu aplicativo usando a [estrutura de consentimento do AD do Azure](https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/#overview-of-the-consent-framework).
+* Forneça instruções sobre como a equipe do AD do Azure pode entrar e conectar uma instância do AD do Azure em seu aplicativo usando a [estrutura de consentimento do AD do Azure]( https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/#overview-of-the-consent-framework/).
 
 * Forneça instruções adicionais necessárias à equipe do AD do Azure para testar o logon único no seu aplicativo.
 
@@ -97,4 +97,4 @@ Qualquer aplicativo que dê suporte ao SAML 2.0 pode ser integrado diretamente a
 > 
 > Anexe o logotipo do aplicativo (arquivo PNG, 150px por 122px, cor de plano de fundo transparente):
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016--->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="01/26/2016" 
 	ms.author="spelluru"/>
 
 # Criar, monitorar e gerenciar data factories do Azure usando o SDK do .NET da Data Factory
@@ -86,7 +86,7 @@ Você pode criar, monitorar e gerenciar as Data Factory do Azure programaticamen
 
         DataFactoryManagementClient client = new DataFactoryManagementClient(aadTokenCredentials, resourceManagerUri);
 
-	> [AZURE.NOTE]Substitua **resourcegroupname** pelo nome do seu grupo de recursos do Azure. Você pode criar um grupo de recursos usando o cmdlet [New-AzureResourceGroup](https://msdn.microsoft.com/library/Dn654594.aspx).
+	> [AZURE.NOTE] Substitua **resourcegroupname** pelo nome do seu grupo de recursos do Azure. Você pode criar um grupo de recursos usando o cmdlet [New-AzureResourceGroup](https://msdn.microsoft.com/library/Dn654594.aspx).
 
 7. Adicione o seguinte código que cria uma **data factory** no método **Principal**.
 
@@ -106,7 +106,7 @@ Você pode criar, monitorar e gerenciar as Data Factory do Azure programaticamen
 
 8. Adicione o seguinte código que cria um **serviço vinculado** no método **Principal**.
 
-	> [AZURE.NOTE]Use o **nome da conta** e a **chave de conta** da sua conta de armazenamento do Azure para **ConnectionString**.
+	> [AZURE.NOTE] Use o **nome da conta** e a **chave de conta** da sua conta de armazenamento do Azure para **ConnectionString**.
 
         // create a linked service
         Console.WriteLine("Creating a linked service");
@@ -379,7 +379,7 @@ Você pode criar, monitorar e gerenciar as Data Factory do Azure programaticamen
 
 
 
-> [AZURE.NOTE]O código acima inicia uma caixa de diálogo para inserção das credenciais do Azure. Se você precisar entrar programaticamente sem usar uma caixa de diálogo, consulte [Autenticar uma entidade de serviço com o Gerenciador de Recursos do Azure](resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell).
+> [AZURE.NOTE] O código acima inicia uma caixa de diálogo para inserção das credenciais do Azure. Se você precisar entrar programaticamente sem usar uma caixa de diálogo, consulte [Autenticar uma entidade de serviço com o Gerenciador de Recursos do Azure](resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell).
 
 
 [data-factory-introduction]: data-factory-introduction.md
@@ -392,4 +392,4 @@ Você pode criar, monitorar e gerenciar as Data Factory do Azure programaticamen
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

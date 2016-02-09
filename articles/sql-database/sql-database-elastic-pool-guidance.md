@@ -26,7 +26,7 @@ Este documento fornece diretrizes para ajudar a avaliar a economia de usar um po
 - Para obter informações detalhadas sobre os pools de banco de dados elástico, consulte [Referência do pool de banco de dados elástico do Banco de Dados SQL](sql-database-elastic-pool-reference.md).
 
 
-> [AZURE.NOTE]No momento, os pools de banco de dados elástico estão em visualização e disponíveis apenas com servidores V12 do Banco de Dados SQL.
+> [AZURE.NOTE] No momento, os pools de banco de dados elástico estão em visualização e disponíveis apenas com servidores V12 do Banco de Dados SQL.
 
 ## Pools de banco de dados elástico
 
@@ -119,7 +119,7 @@ A heurística a seguir pode ajudar a estimar se um pool de banco de dados elást
 
     preço do pool = *eDTUs do pool* * *preço unitário de eDTU do pool*
 
-    Veja [Preços do Banco de Dados SQL](http://azure.microsoft.com/pricing/details/sql-database/) para obter informações sobre preços.
+    Veja [Preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/) para obter informações sobre preços.
 
 
 4. Compare o preço do pool da etapa 3 com o preço de usar os níveis de desempenho adequados para bancos de dados individuais.
@@ -162,7 +162,7 @@ O Azure avalia o histórico de utilização dos bancos de dados e recomenda um p
 
 O STA está disponível no portal ao adicionar um pool de banco de dados elástico a um servidor existente. Se as recomendações para um pool de banco de dados elástico estiverem disponíveis para o servidor, elas serão exibidas na página de criação “Pool de Banco de Dados Elástico”. Os clientes sempre podem alterar as configurações recomendadas para criar seu próprio agrupamento de pool de banco de dados elástico.
 
-Para obter detalhes, veja [Recomendações para camada de preços de pool de banco de dados elástico](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations)
+Para obter detalhes, consulte [Recomendações para camada de preços de pool de banco de dados elástico](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations)
 
 ### Estimar o tamanho do pool elástico usando DMVs (Exibições de Gerenciamento Dinâmico) 
 
@@ -176,7 +176,7 @@ Um exemplo de script do PowerShell é fornecido aqui para estimar os valores agr
 
 O script só coleta dados quando está em execução. Para uma carga de trabalho de produção típica, você deve executar o script por pelo menos um dia, embora uma semana ou até mesmo mais provavelmente forneça uma estimativa mais precisa. Execute o script pelo período que representar sua carga de trabalho típica dos bancos de dados.
 
-> [AZURE.IMPORTANT]Você deve manter a janela do PowerShell aberta durante a execução do script. Não feche a janela do PowerShell até executar o script por um período de tempo suficiente e capturar dados suficientes para representar sua carga de trabalho típica abrangendo ambos os períodos de uso normal e de pico.
+> [AZURE.IMPORTANT] Você deve manter a janela do PowerShell aberta durante a execução do script. Não feche a janela do PowerShell até executar o script por um período de tempo suficiente e capturar dados suficientes para representar sua carga de trabalho típica abrangendo ambos os períodos de uso normal e de pico.
 
 ### Pré-requisitos de script 
 
@@ -189,7 +189,7 @@ Instale o seguinte antes de executar o script:
 ### Detalhes do script
 
 
-Você pode executar o script do seu computador local ou uma VM na nuvem. Ao executá-lo em seu computador local, você pode incorrer em encargos de saída de dados, pois o script precisa baixar dados de seus bancos de dados de destino. Veja abaixo a estimativa de volume de dados com base no número de bancos de dados de destino e a duração da execução do script. Para ver os custos de transferência de dados do Azure, consulte [Detalhes de preços de transferência de dados](http://azure.microsoft.com/pricing/details/data-transfers/).
+Você pode executar o script do seu computador local ou uma VM na nuvem. Ao executá-lo em seu computador local, você pode incorrer em encargos de saída de dados, pois o script precisa baixar dados de seus bancos de dados de destino. Veja abaixo a estimativa de volume de dados com base no número de bancos de dados de destino e a duração da execução do script. Para ver os custos de transferência de dados do Azure, consulte [Detalhes de preços de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/).
        
  -     Um banco de dados por hora = 38 KB
  -     Um banco de dados por dia = 900 KB
@@ -216,7 +216,7 @@ Se você encontrar os avisos a seguir ao executar o script, poderá ignorá-los:
 
 Quando o script for concluído, ele produzirá o número estimado de eDTUs necessário para um pool elástico para conter todos os bancos de dados candidatos no servidor de destino. Este eDTU estimado pode ser usado para criar e configurar um pool de banco de dados elástico para conter esses bancos de dados. Depois que o pool for criado e os bancos de dados forem movido para o pool, ele deve ser monitorado atentamente alguns dias e ajustes na configuração do pool de eDTU devem ser feitos conforme necessário.
 
-> [AZURE.IMPORTANT]Este script contém comandos para versões do Azure PowerShell, *exceto* as versões 1.0 e posteriores. Você pode verificar sua versão do Azure PowerShell com o comando **Get-Module azure | format-table version**. Para obter informações detalhadas, veja [Substituição de Switch-AzureMode no Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
+> [AZURE.IMPORTANT] Este script contém comandos para versões do Azure PowerShell, *exceto* as versões 1.0 e posteriores. Você pode verificar sua versão do Azure PowerShell com o comando **Get-Module azure | format-table version**. Para obter informações detalhadas, veja [Substituição de Switch-AzureMode no Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
 
     
@@ -435,4 +435,4 @@ Nem todos os bancos de dados individuais são candidatos ideais para pools de ba
 [2]: ./media/sql-database-elastic-pool-guidance/four-databases.png
 [3]: ./media/sql-database-elastic-pool-guidance/twenty-databases.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

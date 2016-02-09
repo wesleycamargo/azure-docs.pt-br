@@ -1,27 +1,26 @@
-<properties 
-	pageTitle="Referência do pool elástico do banco de dados SQL do Azure" 
-	description="Esta referência fornece links e detalhes para artigos sobre pools de bancos de dados elásticos e informações de programação." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jeffreyg" 
+<properties
+	pageTitle="Referência de Pool de Banco de Dados Elástico do Banco de Dados SQL | Microsoft Azure" 
+	description="Esta referência fornece links e detalhes para artigos sobre pools de bancos de dados elásticos e informações de programação."
+	keywords="eDTU"
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
 	editor=""/>
 
-<tags 
+<tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="12/01/2015" 
-	ms.author="sstein" 
-	ms.workload="data-management" 
-	ms.topic="article" 
+	ms.date="12/01/2015"
+	ms.author="sstein"
+	ms.workload="data-management"
+	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
 # Referência de pool de banco de dados elástico do Banco de Dados SQL
 
-Para desenvolvedores de SaaS com dezenas, centenas ou até milhares de bancos de dados, um pool de bancos de dados elásticos simplificará o processo de criação, manutenção e gerenciamento de desempenho e custos entre todo o grupo de bancos de dados.
-
-Esta referência fornece links e detalhes para artigos sobre pools de bancos de dados elásticos e informações de programação.
+Esta referência fornece links e detalhes para artigos sobre pools de bancos de dados elásticos e informações de programação. Para desenvolvedores de SaaS com dezenas, centenas ou até milhares de bancos de dados, um pool de bancos de dados elásticos simplificará o processo de criação, manutenção e gerenciamento de desempenho e custos entre todo o grupo de bancos de dados.
 
 ## Visão geral
 
@@ -45,7 +44,7 @@ Um pool de banco de dados elástico é um conjunto de unidades de taxa de transf
 
     | Camada de serviço | Número máximo de bancos de dados por pool* | Número máximo de eDTUs por pool* |
     | :-- | :-- | :-- |
-    | Basic | 200 | 1\.200 | 
+    | Basic | 200 | 1\.200 |
     | Padrão | 200 | 1\.200 |
     | Premium | 50 | 1500 |
 
@@ -140,15 +139,14 @@ Os servidores V12 de Banco de Dados SQL do Azure estão localizados em grupos de
 
 ## Latência de operações do pool elástico
 
-- Geralmente, a alteração das eDTUs garantidas por banco de dados (databaseDtuMin) ou do máximo de eDTUs por banco de dados (databaseDtuMax) é um processo concluído em 5 minutos ou menos. 
-- A alteração do limite de eDTUs/armazenamento (storageMB) do pool depende da quantidade total de espaço usado por todos os bancos de dados no pool. As alterações levam, em média, 90 minutos ou menos a cada 100 GB. Por exemplo, se o espaço total usado por todos os bancos de dados no pool for de 200 GB, a latência prevista para alterar o limite de eDTUs/armazenamento do pool é de 3 horas ou menos. 
+- Geralmente, a alteração das eDTUs garantidas por banco de dados (databaseDtuMin) ou do máximo de eDTUs por banco de dados (databaseDtuMax) é um processo concluído em 5 minutos ou menos.
+- A alteração do limite de eDTUs/armazenamento (storageMB) do pool depende da quantidade total de espaço usado por todos os bancos de dados no pool. As alterações levam, em média, 90 minutos ou menos a cada 100 GB. Por exemplo, se o espaço total usado por todos os bancos de dados no pool for de 200 GB, a latência prevista para alterar o limite de eDTUs/armazenamento do pool é de 3 horas ou menos.
 
 
 
 ## Biblioteca de cliente .NET, API REST e PowerShell
 
-Vários comandos da API REST e os cmdlets do PowerShell estão disponíveis para criar e gerenciar pools elásticos. Para obter detalhes e exemplos de código, consulte [Criar e gerenciar um pool de banco de dados elástico do banco de dados SQL usando o PowerShell](sql-database-elastic-pool-powershell.md), e [Criar e gerenciar o banco de dados SQL com o C#](sql-database-client-library.md).
-
+Vários comandos da API REST e os cmdlets do PowerShell estão disponíveis para criar e gerenciar pools elásticos. Para obter detalhes e exemplos de código, consulte [Criar e gerenciar um pool de banco de dados elástico do Banco de Dados SQL usando o PowerShell](sql-database-elastic-pool-powershell.md), e [Criar e gerenciar o Banco de Dados SQL com o C#](sql-database-client-library.md).
 
 
 | [Cmdlets do PowerShell](https://msdn.microsoft.com/library/mt163521.aspx) | [Comandos da API REST](https://msdn.microsoft.com/library/mt163571.aspx) |
@@ -176,15 +174,15 @@ Vários comandos da API REST e os cmdlets do PowerShell estão disponíveis para
 
 Pools de bancos de dados elásticos são cobrados de acordo com as seguintes características:
 
-- Um pool elástico é cobrado após sua criação, mesmo quando ele não contém bancos de dados. 
-- Um pool elástico é cobrado por hora. Essa frequência de medição é a mesma dos níveis de desempenho de bancos de dados individuais. 
-- Se um pool elástico for redimensionado para um novo valor de eDTUs, ele não será cobrado de acordo com esse novo valor até que a operação de redimensionamento seja concluída. Isso segue o mesmo padrão que a alteração do nível de desempenho de bancos de dados autônomos. 
+- Um pool elástico é cobrado após sua criação, mesmo quando ele não contém bancos de dados.
+- Um pool elástico é cobrado por hora. Essa frequência de medição é a mesma dos níveis de desempenho de bancos de dados individuais.
+- Se um pool elástico for redimensionado para um novo valor de eDTUs, ele não será cobrado de acordo com esse novo valor até que a operação de redimensionamento seja concluída. Isso segue o mesmo padrão que a alteração do nível de desempenho de bancos de dados autônomos.
 
 
 - O preço de um pool elástico baseia-se no número de eDTUs do pool. O preço de um pool elástico é independente da utilização dos bancos de dados elásticos dentro dele.
 - O preço é calculado por (número de eDTUs do pool) x (preço unitário por eDTU).
 
-O preço unitário por eDTU de um pool elástico é maior que o preço unitário por DTU de um banco de dados autônomo na mesma camada de serviço. Para obter detalhes, confira [Preços de Banco de Dados SQL](http://azure.microsoft.com/pricing/details/sql-database/).
+O preço unitário por eDTU de um pool elástico é maior que o preço unitário por DTU de um banco de dados autônomo na mesma camada de serviço. Para obter detalhes, confira [Preços de Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ## Erros do pool de bancos de dados elásticos
 
@@ -211,4 +209,4 @@ O preço unitário por eDTU de um pool elástico é maior que o preço unitário
 | 40891 | EX_USER | O DTU mínimo por banco de dados (%d) não pode exceder o DTU máximo por banco de dados (%d). | DTU mínimo por banco de dados; DTU máximo por banco de dados. | Tentativa de definir o DTU mínimo por banco de dados superior ao DTU máximo por banco de dados. | Certifique-se de que o DTU mínimo por banco de dados não exceda o DTU máximo por banco de dados. |
 | TBD | EX_USER | O tamanho do armazenamento para um banco de dados individual em um pool elástico não pode exceder o tamanho máximo permitido pelo pool elástico da camada de serviço '%.*ls'. | camada de serviço do pool elástico | O tamanho máximo do banco de dados excede o tamanho máximo permitido pela camada de serviço do pool elástico. | Defina o tamanho máximo do banco de dados dentro dos limites do tamanho máximo permitido pela camada de serviço do pool elástico. |
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

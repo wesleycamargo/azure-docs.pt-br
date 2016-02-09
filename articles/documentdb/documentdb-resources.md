@@ -32,7 +32,7 @@ Após ler este artigo, você poderá responder as perguntas a seguir:
 ## Modelo de recursos hierárquico
 Como o diagrama a seguir ilustra, o **modelo de recursos** hierárquico do Banco de Dados de Documentos é formado por conjuntos de recursos em uma conta de banco de dados, cada um podendo ser acessado por meio de um URI lógico e estável. Neste artigo, um conjunto de recursos será chamado de **feed**.
 
->[AZURE.NOTE]Ele oferece um protocolo TCP altamente eficiente que também possui o modelo de comunicação RESTful, disponível por meio do [SDK do cliente .NET](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+>[AZURE.NOTE] Ele oferece um protocolo TCP altamente eficiente que também possui o modelo de comunicação RESTful, disponível por meio do [SDK do cliente .NET.](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
 ![Modelo de recursos hierárquico do Banco de Dados de Documentos][1]  
 **Modelo de recursos hierárquico**   
@@ -56,22 +56,22 @@ Para começar a trabalhar com os recursos, você deve [criar uma conta de banco 
 ## Recursos definidos pelo sistema versus usuário
 Recursos como contas do banco de dados, bancos de dados, coleções, usuários, permissões, procedimentos armazenados, gatilhos e UDFs, todos têm um esquema fixo e são chamados de recursos do sistema. Em contraste, recursos como documentos e anexos não possuem restrições sobre o esquema e são exemplos de recursos definidos pelo usuário. No Banco de Dados de Documentos, ambos os recursos definidos pelo sistema e pelo usuário são representados e gerenciados como JSON em conformidade com o padrão. Todos os recursos, definidos pelo usuário ou pelo sistema, possuem as seguintes propriedades em comum.
 
->[AZURE.NOTE]Observe que todas as propriedades geradas pelo sistema em um recurso têm como prefixo um sublinhado (\_) na sua representação JSON.
+>[AZURE.NOTE] Observe que todas as propriedades geradas pelo sistema em um recurso têm como prefixo um sublinhado (\_) na sua representação JSON.
 
 
 Propriedade |Configurável pelo usuário ou gerada pelo sistema?|Finalidade
 ---|---|---
-\_rid|Gerado pelo sistema|Gerado pelo sistema, identificador exclusivo e hierárquico do recurso.
-\_etag|Gerado pelo sistema|etag do recurso necessário para o controle de simultaneidade otimista.
-\_ts|Gerado pelo sistema|Carimbo de data/hora da última atualização do recurso.
-\_self|Gerado pelo sistema|URI endereçável exclusivo do recurso.
+_rid|Gerado pelo sistema|Gerado pelo sistema, identificador exclusivo e hierárquico do recurso.
+_etag|Gerado pelo sistema|etag do recurso necessário para o controle de simultaneidade otimista.
+_ts|Gerado pelo sistema|Carimbo de data/hora da última atualização do recurso.
+_self|Gerado pelo sistema|URI endereçável exclusivo do recurso.
 id|Configurável pelo usuário|Nome exclusivo do recurso definido pelo usuário. Se o usuário não especificar uma id, uma id será gerada pelo sistema
 
 ### Representação da conexão dos recursos
 O Banco de Dados de Documentos não obriga nenhuma extensão proprietária para o padrão JSON nem codificações especiais; ele trabalha com documentos JSON compatíveis padrão.
  
 ### Endereçamento de um recurso
-Todos os recursos são endereçáveis pelo URI. O valor da propriedade **\_self** de um recurso representa o URI relativo do recurso. O formato do URI consiste nos segmentos do caminho /\<feed\>/{_rid}:
+Todos os recursos são endereçáveis pelo URI. O valor da propriedade **\_self** de um recurso representa o URI relativo do recurso. O formato do URI consiste nos segmentos do caminho /<feed>/{\_rid}:
 
 |Valor de \_self |Descrição
 |-------------------|-----------
@@ -95,7 +95,7 @@ Os valores das propriedades \_self e \_rid são representações alternativas e 
 ## Contas de banco de dados
 Você pode provisionar uma ou mais contas do Banco de Dados de Documentos usando sua assinatura do Azure. Cada conta de banco de dados da camada Padrão terá a capacidade mínima de uma coleção S1.
 
-Você pode [criar e gerenciar contas de banco de dados do Banco de Dados de Documentos](documentdb-create-account.md) por meio do Portal Clássico do Azure em [http://portal.azure.com/](http://portal.azure.com/). Criar e gerenciar uma conta do banco de dados requer acesso administrativo e pode ser feito somente com sua assinatura do Azure.
+Você pode [criar e gerenciar contas de banco de dados do Banco de Dados de Documentos](documentdb-create-account.md) por meio do Portal Clássico do Azure em [http://portal.azure.com/](https://portal.azure.com/). Criar e gerenciar uma conta do banco de dados requer acesso administrativo e pode ser feito somente com sua assinatura do Azure.
 
 ### Propriedades de contas de banco de dados
 Como parte do provisionamento e gerenciamento de uma conta do banco de dados, você pode configurar e ler as seguintes propriedades:
@@ -155,7 +155,7 @@ Os documentos dentro de uma coleção podem ter esquemas arbitrários e os docum
 
 O modelo de consulta do Banco de Dados de Documentos tenta criar um equilíbrio entre funcionalidade, eficiência e simplicidade. O mecanismo de banco de dados do Banco de Dados de Documentos compila nativamente e executa as instruções de consulta SQL. Você pode consultar uma ação usando as [APIs REST do Banco de Dados de Documentos do Azure](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou qualquer uma das [SDKs clientes](https://msdn.microsoft.com/library/azure/dn781482.aspx). O SDK do .NET é fornecido com o provedor LINQ.
 
-> [AZURE.TIP]Você pode experimentar o Banco de Dados de Documentos e executar consultas SQL em relação a nosso conjunto de dados no [Espaço de Consulta](https://www.documentdb.com/sql/demo).
+> [AZURE.TIP] Você pode experimentar o Banco de Dados de Documentos e executar consultas SQL em relação a nosso conjunto de dados no [Espaço de Consulta](https://www.documentdb.com/sql/demo).
 
 ### Transações entre vários documentos
 As transações do banco de dados oferecem um modelo de programação seguro e previsível para lidar com alterações simultâneas aos dados. No RDBMS, a maneira tradicional de gravar a lógica de negócios é gravar **procedimentos armazenados** e/ou **gatilhos** e enviá-los ao servidor do banco de dados para execução transacional. No RDBMS, o programador do aplicativo precisa lidar com duas linguagens de programação diferentes:
@@ -366,7 +366,7 @@ Sendo um verdadeiro serviço de banco de dados aberto, o Banco de Dados de Docum
 Como ocorre com todos os outros recursos, documentos podem ser criados, substituídos, excluídos, lidos, enumerados e consultados facilmente usando APIs REST ou qualquer [SDK cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx). Excluir um documento libera imediatamente a cota correspondente a todos os anexos aninhados. O nível de consistência de leitura dos documentos segue a política de consistência da conta do banco de dados. Essa política pode ser substituída com base em cada solicitação, dependendo dos requisitos de consistência de dados de seu aplicativo. Ao consultar documentos, a consistência de leitura segue o conjunto do modo de indexação na coleção. Para fins de “consistência”, a política de consistência da conta é seguida.
 
 ## Anexos e mídia
->[AZURE.NOTE]Anexos e recursos de mídia são recursos de visualização.
+>[AZURE.NOTE] Anexos e recursos de mídia são recursos de visualização.
  
 O Banco de Dados de Documentos permite armazenar blobs/mídias binários no Banco de Dados de Documentos ou em seu próprio repositório de mídia. Ele também permite representar os metadados de uma mídia de acordo com um documento especial chamado anexo. Um anexo no Banco de Dados de Documentos é um documento especial (JSON) que faz referência à mídia/ao blob armazenada/o em outro lugar. Um anexo é simplesmente um documento especial que captura os metadados (p. ex., localização, autor etc.) de uma mídia em um armazenamento remoto de mídia.
 
@@ -381,7 +381,6 @@ Observe que os exemplos utilizam IDs amigáveis para transmitir a hierarquia de 
 Para a mídia gerenciada pelo Banco de Dados de Documentos, a propriedade \_media do anexo fará referência à mídia por meio de seu URI. O Banco de Dados de Documentos irá garantir que a mídia será jogada na lixeira quando todas as referências pendentes forem ignoradas. O Banco de Dados de Documentos gera automaticamente o anexo ao fazer o upload da nova mídia e preencher \_media para indicar a mídia recém-adicionada. Se escolher armazenar a mídia em um armazenamento de blob remoto por conta própria (p. ex., OneDrive, Azure Storage, DropBox, etc.), você ainda poderá usar os anexos para fazer referência à mídia. Nesse caso, você criará o anexo por conta própria e preencherá a propriedade its \_media.
 
 Assim como todos os outros recursos, os anexos podem ser criados, substituídos, excluídos, lidos ou enumerados facilmente usando as APIs REST ou qualquer SDK do cliente. Assim como com os documentos, o nível de consistência de leitura dos anexos segue a política de consistência na conta do banco de dados. Essa política pode ser substituída com base em cada solicitação, dependendo dos requisitos de consistência de dados de seu aplicativo. Ao consultar anexos, a consistência de leitura segue o conjunto do modo de indexação na coleção. Para fins de “consistência”, a política de consistência da conta é seguida.
-
 ## Usuários
 Um usuário do Banco de Dados de Documentos representa um namespace lógico para agrupar permissões. Um usuário do Banco de Dados de Documentos pode corresponder a um usuário em um sistema de gerenciamento de identidades ou uma função de aplicativo predefinida. Para o Banco de Dados de Documentos, um usuário simplesmente representa uma abstração para agrupar um conjunto de permissões em um banco de dados.
 
@@ -416,4 +415,4 @@ Saiba mais sobre como trabalhar com recursos usando comandos HTTP em [interaçõ
 [2]: media/documentdb-resources/resources2.png
 [3]: media/documentdb-resources/resources3.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

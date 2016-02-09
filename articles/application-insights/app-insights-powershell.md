@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="01/22/2016" 
 	ms.author="awills"/>
  
 # Criar recursos do Application Insights usando o PowerShell
@@ -117,6 +117,27 @@ find | substitua por
 `"myappname"` (minúscula) | `"[toLower(parameters('appName'))]"`
 `"<WebTest Name="myWebTest" ...`<br/>` Url="http://fabrikam.com/home" ...>"`|`[concat('<WebTest Name="',` <br/> `parameters('webTestName'),` <br/> `'" ... Url="', parameters('Url'),` <br/> `'"...>')]" `
 
+## Se seu aplicativo for um Aplicativo Web do Azure
+
+Adicione esse recurso, ou se já houver um recurso `siteextensions`, parametrize-o desta maneira:
+
+```json
+    {
+      "apiVersion": "2014-04-01",
+      "name": "Microsoft.ApplicationInsights.AzureWebSites",
+      "type": "siteextensions",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]",
+        "[resourceId('Microsoft.Web/Sites/config', parameters('siteName'), 'web')]",
+        "[resourceId('Microsoft.Web/sites/sourcecontrols', parameters('siteName'), 'web')]"
+      ],
+      "properties": { }
+    }
+
+```
+
+Esse recurso implanta o SDK do Application Insights em seu aplicativo Web do Azure.
+
 ## Definir dependências entre os recursos
 
 O Azure deve configurar os recursos na ordem explícita. Para certificar-se de que a instalação é concluída antes do início da próxima, adicione linhas de dependência:
@@ -145,6 +166,7 @@ O Azure deve configurar os recursos na ordem explícita. Para certificar-se de q
                -webTestName aWebTest `
                -Url http://myapp.com `
                -text "Welcome!"
+               -siteName "MyAzureSite"
 
     ``` 
 
@@ -154,6 +176,7 @@ O Azure deve configurar os recursos na ordem explícita. Para certificar-se de q
     * -webTestName O nome do teste da web a ser criado.
     * -Url A url do seu aplicativo web.
     * -text Uma cadeia de caracteres que aparece na página da web.
+    * -siteName - usado se for um site do Azure
 
 
 ## Definir alertas de métrica
@@ -288,4 +311,4 @@ Aqui está o total do componente, o teste da web e o alerta de teste da web que 
 
 ```
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

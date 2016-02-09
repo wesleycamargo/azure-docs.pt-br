@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="11/01/2015" 
+	ms.date="01/19/2015" 
 	ms.author="yuaxu"/>
 
 # Registrar o usuário atual para notificações por push usando um serviço móvel
@@ -57,7 +57,7 @@ Este tópico mostra como solicitar o registro de notificações por push com os 
 
 	Isso atualiza a propriedade **deviceToken**.
 
-	> [AZURE.NOTE]Neste ponto, não deve haver nenhum outro código nesse método. Se já houver uma chamada para o método **registerNativeWithDeviceToken** adicionado quando você concluiu o tutorial [Introdução aos Hubs de Notificação](/manage/services/notification-hubs/get-started-notification-hubs-ios/"%20target="_blank"), será necessário comentar ou remover essa chamada.
+	> [AZURE.NOTE] Neste ponto, não deve haver nenhum outro código nesse método. Se já houver uma chamada para o método **registerNativeWithDeviceToken** adicionado quando você concluiu o tutorial [Introdução aos Hubs de Notificação](/manage/services/notification-hubs/get-started-notification-hubs-ios/"%20target="_blank"), será necessário comentar ou remover essa chamada.
 
 5.  (Opcional) No arquivo QSAppDelegate.m, adicione o seguinte método de manipulador:
 
@@ -105,7 +105,7 @@ Este tópico mostra como solicitar o registro de notificações por push com os 
 			    }];
 			}
 
-	> [AZURE.NOTE]Isso garante que o registro seja solicitado sempre que a página for carregada. Em seu aplicativo, convém fazer esse registro periodicamente apenas para garantir que o registro seja atual.
+	> [AZURE.NOTE] Isso garante que o registro seja solicitado sempre que a página for carregada. Em seu aplicativo, convém fazer esse registro periodicamente apenas para garantir que o registro seja atual.
 	
 Agora que o aplicativo cliente foi atualizado, retorne para [Notificar os usuários com Hubs de Notificação] e atualize o serviço móvel para enviar notificações por meio de Hubs de Notificação.
 
@@ -123,4 +123,4 @@ Agora que o aplicativo cliente foi atualizado, retorne para [Notificar os usuár
 [Get Started with Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

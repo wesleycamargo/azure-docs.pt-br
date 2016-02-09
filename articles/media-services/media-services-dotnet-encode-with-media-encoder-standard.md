@@ -46,7 +46,7 @@ Os metadados de saída dos codificadores estão descritos [aqui](http://msdn.mic
 
 ##Baixar exemplo
 
-Obtenha e execute um exemplo [aqui](http://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
+Obtenha e execute um exemplo [aqui](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
 ##Exemplo
 
@@ -147,4 +147,4 @@ O exemplo de código a seguir usa o SDK .NET dos Serviços de Mídia para execut
 
 [Como gerar miniatura usando o codificador de mídia padrão com o .NET](media-services-dotnet-generate-thumbnail-with-mes.md) [Visão geral de codificação dos Serviços de Mídia](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

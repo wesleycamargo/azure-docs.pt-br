@@ -3,7 +3,7 @@
 	description="Como começar a trabalhar com os Serviços Móveis em um projeto JavaScript no Visual Studio" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="TomArcher" 
+	authors="mlhoop" 
 	manager="douge" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
 	ms.date="01/05/2016" 
-	ms.author="tarcher"/>
+	ms.author="mlearned"/>
 
 # Introdução com um aplicativo móvel Javascript após a adição de Serviços Móveis do Azure usando os Serviços Conectados do Visual Studio
 
@@ -86,6 +86,6 @@ Excluir uma linha em uma tabela de dados. Chame o método [done]() em um objeto 
 
 
 
-[Saiba mais sobre serviços móveis](http://azure.microsoft.com/documentation/services/mobile-services/)
+[Saiba mais sobre serviços móveis](https://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -19,6 +19,10 @@
 
 #Notas de versão
 
+##4\.1.4 (26/01/2016)
+
+- Aprimoramentos de estabilidade.
+
 ##4\.1.3 (09/12/2015)
 
 - Aprimoramentos de estabilidade.
@@ -57,4 +61,4 @@
 -   Aprimoramentos de segurança.
 -   Acompanhamento do Google Play e SmartAd removido.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

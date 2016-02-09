@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/22/2015"
+	ms.date="01/28/2016"
 	ms.author="anhoh"/>
 
 # Limites da conta do Banco de Dados de Documentos aumentados por solicitação
@@ -38,8 +38,8 @@ A tabela a seguir descreve as cotas do Banco de Dados de Documentos que podem se
 |Número máximo de UDFs por consulta |2
 |Número máximo de JOINs por consulta |5
 |Número máximo de cláusulas AND por consulta |20
-|Número máximo de cláusulas OR por consulta |10
-|Número máximo de valores por expressão IN |100
+|Número máximo de cláusulas OR por consulta |20
+|Número máximo de valores por expressão IN |200
 |Número máximo de pontos em um argumento de polígono em uma consulta ST\_WITHIN |16
 |Número máximo de coleções criadas por minuto |5
 |Número máximo de operações de escala por minuto |5
@@ -75,4 +75,4 @@ Depois que o chamado de suporte tiver sido criado, você deve receber o número 
 ##<a name="NextSteps"></a> Próximas etapas
 - Para saber mais sobre o Banco de Dados de Documentos, clique [aqui](http://azure.com/docdb).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

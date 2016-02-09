@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
+	ms.date="01/25/2016" 
 	ms.author="ryancraw"/>
 
 # SDK do Banco de Dados de Documentos
@@ -37,9 +37,13 @@
 
 ##Notas de versão
 
+###<a name="1.5.2"/>1.5.2</a>
+
+- Corrige o problema [nº 95](https://github.com/Azure/azure-documentdb-node/issues/95) — aviso de perda do ouvinte EventEmitter
+
 ###<a name="1.5.1"/>1.5.1</a>
 
-- Corrige o problema [Nº 92](https://github.com/Azure/azure-documentdb-node/issues/90) -renomeie a pasta Hash para hash nos sistemas que diferenciam maiúsculas de minúsculas
+- Corrige o problema [Nº 92](https://github.com/Azure/azure-documentdb-node/issues/90) — renomeie a pasta Hash para hash nos sistemas que diferenciam maiúsculas de minúsculas
 
 ### <a name="1.5.0"/>1.5.0</a>
 
@@ -105,6 +109,7 @@ Todas as versões do SDK do Banco de Dados de Documentos do Azure para Node.js a
 
 | Versão | Data do lançamento | Data de desativação 
 | ---	  | ---	         | ---
+| [1\.5.2](#1.5.2) | 22 de janeiro de 2016 |--- 
 | [1\.5.1](#1.5.1) | 4 de janeiro de 2016 |--- 
 | [1\.5.0](#1.5.0) | 31 de dezembro de 2015 |--- 
 | [1\.4.0](#1.4.0) | 6 de outubro de 2015 |--- 
@@ -115,8 +120,8 @@ Todas as versões do SDK do Banco de Dados de Documentos do Azure para Node.js a
 | [1\.1.0](#1.1.0) | 9 de julho de 2015 |--- 
 | [1\.0.3](#1.0.3) | 4 de junho de 2015 |--- 
 | [1\.0.2](#1.0.2) | 23 de maio de 2015 |--- 
-| [1\.0.1](#1.0.1) | 15 de maio de 2015 |--- 
-| [1\.0.0](#1.0.0) | 9 de abril de 2015 |--- 
+| [1\.0.1](#1.0.1) | 15 de maior de 2015 |--- 
+| [1\.0.0](#1.0.0) | 8 de abril de 2015 |--- 
 | 0.9.4-prelease | 6 de abril de 2015 | 29 de fevereiro de 2016 
 | 0.9.3-prelease | 14 de janeiro de 2015 | 29 de fevereiro de 2016 
 | 0.9.2-prelease | 18 de dezembro de 2014 | 29 de fevereiro de 2016 
@@ -131,4 +136,4 @@ Todas as versões do SDK do Banco de Dados de Documentos do Azure para Node.js a
 
 Para saber mais sobre o Banco de Dados de Documentos, confira a página de serviço do [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

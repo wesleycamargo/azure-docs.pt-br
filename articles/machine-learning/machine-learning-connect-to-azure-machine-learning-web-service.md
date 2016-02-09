@@ -25,9 +25,9 @@ A experiência do desenvolvedor de Aprendizado de Máquina do Azure é uma API d
 Para saber como criar e implantar um serviço Web do Aprendizado de Máquina do Azure usando o Estúdio:
 
 - [Implantar um serviço Web do Aprendizado de Máquina](machine-learning-publish-a-machine-learning-web-service.md)
-- [Introdução ao Estúdio AM](http://azure.microsoft.com/documentation/videos/getting-started-with-ml-studio/)
+- [Introdução ao Estúdio AM](https://azure.microsoft.com/documentation/videos/getting-started-with-ml-studio/)
 - [Visualização de Aprendizado de Máquina do Azure](https://studio.azureml.net/)
-- [Centro de Documentação do Aprendizado de Máquina](http://azure.microsoft.com/documentation/services/machine-learning/)
+- [Centro de Documentação do Aprendizado de Máquina](https://azure.microsoft.com/documentation/services/machine-learning/)
 
 ## Serviço Web de Aprendizado de Máquina do Azure ##
 
@@ -103,4 +103,4 @@ Para se conectar a um serviço Web do AM do Azure, use a biblioteca **urllib2** 
 2. Atribua apiKey com a chave de um serviço Web. Veja como obter uma chave de autorização AM do Azure.
 3. Atribua serviceUri com o URI de solicitação. Veja como obter um URI de solicitação.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

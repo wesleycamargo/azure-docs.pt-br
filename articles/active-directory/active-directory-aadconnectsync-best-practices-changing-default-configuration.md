@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/28/2015"
+	ms.date="01/21/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -43,7 +43,7 @@ O assistente de instalação fornece uma configuração que deve funcionar nos c
 - Para [alterar uma regra integrada](#change-an-out-of-box-rule), você deverá fazer uma cópia da regra original e desabilitar a regra integrada. O Editor de Regra de Sincronização fará uma solicitação e o ajudará com isso.
 - Exporte suas regras de sincronização personalizadas usando o Editor de regras de sincronização. Isso fornece um script do PowerShell que você pode usar para recriá-las facilmente no caso de um cenário de recuperação de desastres.
 
->[AZURE.WARNING]As regras de sincronização integrada têm uma impressão digital. Se fizer uma alteração nessas regras, a impressão digital não corresponderá mais e você pode ter problemas no futuro quando tentar aplicar uma nova versão do Azure AD Connect. Faça alterações somente como é descrito neste artigo.
+>[AZURE.WARNING] As regras de sincronização integrada têm uma impressão digital. Se fizer uma alteração nessas regras, a impressão digital não corresponderá mais e você pode ter problemas no futuro quando tentar aplicar uma nova versão do Azure AD Connect. Faça alterações somente como é descrito neste artigo.
 
 ### Alterar fluxos de atributos
 Em alguns casos, os fluxos de atributos padrão não funcionam para uma organização.
@@ -113,4 +113,4 @@ Saiba mais sobre a configuração de [sincronização do Azure AD Connect](activ
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -22,7 +22,7 @@
 
 # Adicionar entradas de dados de transmissão aos trabalhos do Stream Analytics
 
-Os trabalhos do Stream Analytics do Azure podem ser conectados a uma ou mais entradas de dados, o que define uma conexão com uma fonte de dados existente. Como os dados são enviados a essa fonte de dados, eles são consumidos pelo trabalho do Stream Analytics e processados em tempo real como dados de streaming. O Stream Analytics tem integração de primeira classe com [Hubs de eventos do Azure](http://azure.microsoft.com/services/event-hubs/) e [armazenamento de Blobs do Azure](./storage/storage-dotnet-how-to-use-blobs.md) dentro e fora de assinatura do trabalho. Há dois tipos de entradas diferentes no Stream Analytics: fluxos de dados e dados de referência.
+Os trabalhos do Stream Analytics do Azure podem ser conectados a uma ou mais entradas de dados, o que define uma conexão com uma fonte de dados existente. Como os dados são enviados a essa fonte de dados, eles são consumidos pelo trabalho do Stream Analytics e processados em tempo real como dados de streaming. O Stream Analytics tem integração de primeira classe com [Hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/) e [armazenamento de Blobs do Azure](./storage/storage-dotnet-how-to-use-blobs.md) dentro e fora de assinatura do trabalho. Há dois tipos de entradas diferentes no Stream Analytics: fluxos de dados e dados de referência.
 
 - **Fluxos de dados**: os trabalhos do Stream Analytics devem incluir pelo menos uma entrada de fluxo de dados para ser consumida e transformada pelo trabalho. O Armazenamento de Blob do Azure e os Hubs de Eventos do Azure têm suporte como fontes de entrada de fluxo de dados. Os Hubs de Eventos do Azure são usados para coletar fluxos de eventos de dispositivos conectados, serviços e aplicativos. O armazenamento Blob do Azure pode ser usado como uma fonte de entrada para ingerir dados em massa como um fluxo.  
 - **Dados de referência**: o Stream Analytics oferece suporte a um segundo tipo de entrada auxiliar chamado de dados de referência. Ao contrário dos dados em movimento, esses dados são estáticos ou se modificam lentamente. Geralmente, são usados para executar pesquisas e correlações com fluxos de dados a fim de criar um conjunto de dados mais rico. O Armazenamento de Blob do Azure é a única fonte de entrada com suporte para dados de referência.  
@@ -80,4 +80,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

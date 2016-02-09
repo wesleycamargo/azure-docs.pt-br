@@ -17,7 +17,7 @@ ms.author="heidist" />
 
 #Operações de indexador (API REST do serviço Azure Search: 2015-02-28-Preview)#
 
-> [AZURE.NOTE]Este artigo descreve os indexadores na versão [2015-02-28-Preview](./search-api-2015-02-28-preview). Atualmente não há nenhuma diferença entre a versão `2015-02-28` documentada no [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173) e a versão `2015-02-28-Preview` descrita aqui. Fornecemos este artigo para que você tenha a documentação completa definida para `2015-02-28-Preview`, embora essa API esteja inalterada.
+> [AZURE.NOTE] Este artigo descreve os indexadores na versão [2015-02-28-Preview](./search-api-2015-02-28-preview). Atualmente não há nenhuma diferença entre a versão `2015-02-28` documentada no [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173) e a versão `2015-02-28-Preview` descrita aqui. Fornecemos este artigo para que você tenha a documentação completa definida para `2015-02-28-Preview`, embora essa API esteja inalterada.
 
 ## Visão geral ##
 
@@ -38,7 +38,7 @@ Atualmente, há suporte às seguintes fontes de dados:
 - Banco de Dados SQL do Azure e SQL Server em VMs do Azure.
 - Banco de Dados de Documentos do Azure 
 
-Estamos considerando a adição de suporte a fontes de dados adicionais no futuro. Para nos ajudar a priorizar essas decisões, forneça seus comentários no [Fórum de comentários do Azure Search](http://feedback.azure.com/forums/263029-azure-search).
+Estamos considerando a adição de suporte a fontes de dados adicionais no futuro. Para nos ajudar a priorizar essas decisões, forneça seus comentários no [Fórum de comentários do Azure Search](https://feedback.azure.com/forums/263029-azure-search/).
 
 Veja [Limites de Serviço](search-limits-quotas-capacity.md) para obter os limites máximos relacionados aos recursos do indexador e da fonte de dados.
 
@@ -776,4 +776,4 @@ Código de status: 204 sem Conteúdo para uma resposta bem-sucedida.
 </tr>
 </table>
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

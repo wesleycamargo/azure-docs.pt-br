@@ -23,7 +23,7 @@
 Este artigo mostra como implantar um Conjunto de Escala de Máquina Virtual do Azure usando uma Implantação de Grupo de Recursos do Visual Studio.
 
 
-[Conjuntos de Escala de Máquina Virtual do Azure](azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/) são um recurso de computação do Azure para implantar e gerenciar uma coleção de máquinas virtuais semelhantes com opções facilmente integradas para escala automática e balanceamento de carga. É possível provisionar e implantar os Conjuntos de Escala de VM usando os [Modelos do ARM (Gerenciador de Recursos do Azure)](https://github.com/Azure/azure-quickstart-templates). Os Modelos do ARM podem ser implantados usando a CLI do Azure, o PowerShell, o REST e também diretamente no Visual Studio. O Visual Studio fornece um conjunto de Modelos de exemplo que podem ser implantados como parte de um projeto de Implantação do Grupo de Recursos do Azure.
+[Conjuntos de Escala de Máquina Virtual do Azure](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/) são um recurso de computação do Azure para implantar e gerenciar uma coleção de máquinas virtuais semelhantes com opções facilmente integradas para escala automática e balanceamento de carga. É possível provisionar e implantar os Conjuntos de Escala de VM usando os [Modelos do ARM (Gerenciador de Recursos do Azure)](https://github.com/Azure/azure-quickstart-templates). Os Modelos do ARM podem ser implantados usando a CLI do Azure, o PowerShell, o REST e também diretamente no Visual Studio. O Visual Studio fornece um conjunto de Modelos de exemplo que podem ser implantados como parte de um projeto de Implantação do Grupo de Recursos do Azure.
 
 Implantações de Grupo de Recursos do Azure são uma maneira de agrupar e publicar um conjunto de recursos relacionados do Azure em uma única operação de implantação. Saiba mais sobre eles aqui: [Criando e implantando grupos de recursos do Azure por meio do Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy/).
 
@@ -108,4 +108,4 @@ Depois de implantar com êxito os Conjuntos de Escala de VM por meio do Visual S
 [output_window]: ./media/virtual-machines-vmss-vstemplates/9-Output.png
 [cloud_explorer]: ./media/virtual-machines-vmss-vstemplates/12-CloudExplorer.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

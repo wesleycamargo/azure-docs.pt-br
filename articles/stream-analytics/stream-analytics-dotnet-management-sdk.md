@@ -31,7 +31,7 @@ O Azure Stream Analytics é um serviço completamente gerenciado que oferece bai
 Antes de começar este artigo, você deve ter o seguinte:
 
 - Instale o Visual Studio 2012 ou 2013.
-- Baixe e instale o [Azure .NET SDK](http://azure.microsoft.com/downloads/).
+- Baixe e instale o [Azure .NET SDK](https://azure.microsoft.com/downloads/).
 - Crie um grupo de recursos do Azure em sua assinatura. O seguinte é um exemplo de script do PowerShell do Azure. Para obter mais informações sobre o PowerShell do Azure, consulte [Instalar e configurar o PowerShell do Azure](../install-configure-powershell.md).  
 
 
@@ -366,4 +366,4 @@ Você tem de aprender as Noções básicas do uso de um SDK do .NET para criar e
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

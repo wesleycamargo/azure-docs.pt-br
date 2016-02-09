@@ -41,7 +41,7 @@ Observe que essa extensão funciona com os modelos de implantação clássico e 
 ## Como habilitar a extensão
 A extensão pode ser habilitada por meio do [portal do Azure](https://ms.portal.azure.com/#), Azure PowerShell ou de scripts da CLI do Azure.
 
-Para exibir e configurar os dados de desempenho e do sistema diretamente do portal do Azure, siga estas [etapas](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "URL para o blog do Windows").
+Para exibir e configurar os dados do sistema e de desempenho diretamente do Portal do Azure, siga estas [etapas](https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "URL para o blog do Windows"/).
 
 
 Este artigo se concentra na habilitação e configuração de extensão por meio de comandos da CLI do Azure. Isso permite ler e exibir os dados diretamente da tabela de armazenamento.
@@ -143,4 +143,4 @@ Se tiver habilitado fileCfg ou perfCfg especificado nos Cenários 2 e 3, você p
 ## Problemas conhecidos
 - Para a versão 2.0, as informações do Rsyslog e o arquivo de log especificado pelo cliente só podem ser acessados por meio de scripts.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

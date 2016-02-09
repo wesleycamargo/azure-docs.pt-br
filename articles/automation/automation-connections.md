@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/23/2015"
+   ms.date="01/27/2016"
    ms.author="bwren" />
 
 # Ativos de conexão na Automação do Azure
@@ -21,7 +21,7 @@ Um ativo de conexão da Automação contém as informações necessárias para s
 
 Ao criar uma conexão, você deve especificar um *tipo de conexão*. O tipo de conexão é um modelo que define um conjunto de propriedades. A conexão define valores para cada propriedade definida em seu tipo de conexão. Os tipos de conexão são adicionados à Automação do Azure nos módulos de integração ou criados com a [API da Automação do Azure](http://msdn.microsoft.com/library/azure/mt163818.aspx). Os únicos tipos de conexão que estão disponíveis quando você cria uma conexão são aqueles instalados em sua conta de automação.
 
->[AZURE.NOTE]Os ativos protegidos na Automação do Azure incluem credenciais, certificados, conexões e variáveis criptografadas. Esses ativos são criptografados e armazenados na Automação do Azure usando uma chave exclusiva que é gerada para cada conta de automação. Essa chave é criptografada por um certificado mestre e armazenada na Automação do Azure. Antes de armazenar um ativo seguro, a chave para a conta de automação é descriptografada usando o certificado mestre e usada para criptografar o ativo.
+>[AZURE.NOTE] Os ativos protegidos na Automação do Azure incluem credenciais, certificados, conexões e variáveis criptografadas. Esses ativos são criptografados e armazenados na Automação do Azure usando uma chave exclusiva que é gerada para cada conta de automação. Essa chave é criptografada por um certificado mestre e armazenada na Automação do Azure. Antes de armazenar um ativo seguro, a chave para a conta de automação é descriptografada usando o certificado mestre e usada para criptografar o ativo.
 
 ## Cmdlets do Windows PowerShell
 
@@ -42,7 +42,7 @@ As atividades na tabela a seguir são usadas para acessar conexões em um runboo
 |---|---|
 |Get-AutomationConnection|Obtém uma conexão a ser usada. Retorna uma tabela de hash com as propriedades da conexão.|
 
->[AZURE.NOTE]Evite usar variáveis no parâmetro –Name de **Get-AutomationConnection**, pois isso pode complicar a descoberta de dependências entre runbooks ou configurações DSC e ativos de conexão no momento do design.
+>[AZURE.NOTE] Evite usar variáveis no parâmetro –Name de **Get-AutomationConnection**, pois isso pode complicar a descoberta de dependências entre runbooks ou configurações DSC e ativos de conexão no momento do design.
 
 ## Criando uma nova conexão
 
@@ -120,4 +120,4 @@ A imagem abaixo mostra o mesmo exemplo mostrado acima, mas usa o conjunto de par
 - [Links na criação gráfica](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

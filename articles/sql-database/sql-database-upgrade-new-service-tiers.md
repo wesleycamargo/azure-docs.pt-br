@@ -22,7 +22,7 @@
 Os bancos de dados SQL [Web e Business do Azure estão sendo desativados](sql-database-web-business-sunset-faq.md) então, é hora de começar a atualizar os bancos de dados Web ou Business existentes para as camadas de serviço [Basic, Standard, Premium ou Elastic](sql-database-service-tiers.md).
 
 
-> [AZURE.IMPORTANT]A atualização do bancos de dados Web ou Business para uma nova camada de serviço não colocará o banco de dados offline. O banco de dados permanecerá online e disponível durante a operação de atualização.
+> [AZURE.IMPORTANT] A atualização do bancos de dados Web ou Business para uma nova camada de serviço não colocará o banco de dados offline. O banco de dados permanecerá online e disponível durante a operação de atualização.
 
 
 Para ajudá-lo com a atualização, o serviço do Banco de Dados SQL recomenda uma camada de serviço e nível de desempenho (tipo de preço) adequados para cada banco de dados. Ao analisar o uso histórico de cada banco de dados, o serviço recomenda uma camada que é mais adequada para a execução da carga de trabalho existente do banco de dados.
@@ -73,7 +73,7 @@ A atualização de um banco de dados Web ou Business para uma nova camada de ser
 
 
 
-## 1\. Determinar a camada de serviço com base na capacidade de recurso
+## 1. Determinar a camada de serviço com base na capacidade de recurso
 
 As camadas de serviço Basic, Standard e Premium oferecem diferentes conjuntos de recursos, portanto a primeira etapa na seleção de uma camada apropriada é determinar a camada de serviço que fornece o nível mínimo de recursos necessários para seu aplicativo e negócios.
 
@@ -91,7 +91,7 @@ Os novos recursos da camada de serviço e níveis desempenho são resumidos e co
 |:--|:--|
 |[Faixas de Serviço de Banco de Dados SQL do Azure e Níveis de Desempenho](sql-database-service-tiers.md)| Visão geral, métricas e funcionalidades para cada camada de serviço (e como monitorar a utilização do banco de dados no Portal Clássico e com o uso de DMVs). |
 |[Continuidade dos negócios no Banco de dados SQL do Azure](sql-database-business-continuity.md)|Detalhes dos recursos de continuidade nos negócios e recuperação de desastres (restauração pontual, restauração geográfica, replicação geográfica) disponíveis para as camadas de serviço diferentes.|
-|[Preços do Banco de Dados SQL](http://azure.microsoft.com/pricing/details/sql-database/)|Informações detalhadas sobre preços para as diferentes camadas de serviço e níveis de desempenho.|
+|[Preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/)|Informações detalhadas sobre preços para as diferentes camadas de serviço e níveis de desempenho.|
 
 <br>
 
@@ -99,7 +99,7 @@ Depois de selecionar uma camada de serviço apropriada que atende aos requisitos
 
 
 
-## 2\. Determinar um nível aceitável de desempenho com base no histórico de uso de recursos
+## 2. Determinar um nível aceitável de desempenho com base no histórico de uso de recursos
 
 O serviço de banco de dados SQL expõe as informações no Portal Clássico e nas exibições do sistema, para fornecer para você a comparação sugerida do novo serviço da camada e nível de desempenho para o seu banco de dados Web ou Business existente.
 
@@ -140,7 +140,8 @@ Também vale a pena observar é que esses dados são a média das amostras que s
 
 ![Dados da porcentagem DTU][2]
 
-Observe que os dados no exemplo acima mostram um uso médio de aproximadamente 10 DTUs (19,23% de 50) e uma porcentagem DTU máxima de DTUs ~ 28 (% 55,83 x 50). Supondo que esses dados representavam minha carga de trabalho típica eu provavelmente selecionaria a Standard (S1) para minha atualização inicial. A Standard (S0) fornece 10 DTUs que é meu uso médio, mas isso significaria que meu banco de dados em média seria executado 100% da capacidade, o que nunca é um bom plano. Embora a S1 provavelmente seria uma boa escolha para meu uso médio, e quanto aos horários em que eu estou atingindo o máximo? Talvez eu saiba que os picos de algum processo de manutenção noturno e uso do cliente real não é afetado, posso ficar satisfeito com o desempenho reduzido durante esse período de tempo. Mas talvez não saiba quando o máximo será atingido para que o consumo de porcentagem DTU possa exigir análise mais detalhada.
+Observe que os dados no exemplo acima mostram um uso médio de aproximadamente 10 DTUs (19,23% de 50) e uma porcentagem DTU máxima de DTUs ~ 28 (% 55,83 x 50). 
+Supondo que esses dados representavam minha carga de trabalho típica eu provavelmente selecionaria a Standard (S1) para minha atualização inicial. A Standard (S0) fornece 10 DTUs que é meu uso médio, mas isso significaria que meu banco de dados em média seria executado 100% da capacidade, o que nunca é um bom plano. Embora a S1 provavelmente seria uma boa escolha para meu uso médio, e quanto aos horários em que eu estou atingindo o máximo? Talvez eu saiba que os picos de algum processo de manutenção noturno e uso do cliente real não é afetado, posso ficar satisfeito com o desempenho reduzido durante esse período de tempo. Mas talvez não saiba quando o máximo será atingido para que o consumo de porcentagem DTU possa exigir análise mais detalhada.
 
 Para analisar os detalhes de consumo de recursos do banco de dados, você pode usar as exibições do sistema fornecida.
 
@@ -150,7 +151,7 @@ Para analisar os detalhes de consumo de recursos do banco de dados, você pode u
 
 Os dados de consumo dos banco de dados Web e Business são acessados por meio da exibição [sys.resource\_stats](http://msdn.microsoft.com/library/azure/dn269979.aspx) no banco de dados principal do servidor lógico onde se encontra o banco de dados atual. Ela exibe dados de consumo de recursos em porcentagens do limite do nível de desempenho. Essa exibição fornece dados para até os últimos 14 dias, em intervalos de 5 minutos.
 
-> [AZURE.NOTE]Agora você pode usar a exibição [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) no banco de dados de Web e Business para uma exibição de granularidade superior (a cada 15 segundos) dos dados de consumo de recursos. Como sys.dm\_db\_resource\_stats só retém dados históricos por uma hora, você pode consultar essa DMV a cada hora e armazenar os dados para análises adicionais.
+> [AZURE.NOTE] Agora você pode usar a exibição [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) no banco de dados de Web e Business para uma exibição de granularidade superior (a cada 15 segundos) dos dados de consumo de recursos. Como sys.dm\_db\_resource\_stats só retém dados históricos por uma hora, você pode consultar essa DMV a cada hora e armazenar os dados para análises adicionais.
 
 Execute a seguinte consulta no banco de dados mestre para recuperar o consumo médio de DTU de um banco de dados:
 
@@ -174,7 +175,8 @@ Com base no percentual de uso DTU e a edição maior do que era necessário de a
 
 ![Consumo de recursos][4]
 
-> **Observação:** números DTU relativos entre vários níveis de desempenho são baseados no Padrão de referência de cargas de trabalho de [banco de dados SQL do Azure](http://msdn.microsoft.com/library/azure/dn741327.aspx). Como a carga de trabalho do seu banco de dados provavelmente será diferente do padrão de referência, você deve usar os cálculos acima como orientação para um ajuste inicial do banco de dados Web/Business nas novas camadas. Depois de mover o banco de dados para a nova camada, use o processo descrito na seção anterior para validar e ajustar a camada de serviço correta que atenda as suas necessidades de carga de trabalho.
+> **Observação:** 
+> números DTU relativos entre vários níveis de desempenho são baseados no Padrão de referência de cargas de trabalho de [banco de dados SQL do Azure](http://msdn.microsoft.com/library/azure/dn741327.aspx). Como a carga de trabalho do seu banco de dados provavelmente será diferente do padrão de referência, você deve usar os cálculos acima como orientação para um ajuste inicial do banco de dados Web/Business nas novas camadas. Depois de mover o banco de dados para a nova camada, use o processo descrito na seção anterior para validar e ajustar a camada de serviço correta que atenda as suas necessidades de carga de trabalho.
 > 
 > Embora o nível de desempenho/camada da nova edição sugerida leva em consideração a atividade de banco de dados ao longo dos últimos 14 dias, esses dados baseiam-se em amostras de consumo de recursos com a média superior a 5 minutos. Como tal, ele poderá perder intermitências de curto prazo de atividade menores do que 5 minutos de duração. Assim, este guia deve ser usado como um ponto de partida para atualizar seu banco de dados. Depois de atualizar o banco de dados para a camada sugerida, mais monitoramento, testes e validações serão necessários e o banco de dados pode ser movido para cima/para baixo até uma camada e nível de desempenho diferentes conforme necessário.
 
@@ -216,7 +218,7 @@ No gráfico, você pode ver a tendência de consumo do percentual médio de DTU 
 
 
 
-## 3\. Por que o desempenho existente para meu banco de dados Web ou Business aponta para os níveis Premium mais altos?
+## 3. Por que o desempenho existente para meu banco de dados Web ou Business aponta para os níveis Premium mais altos?
 
 Os bancos de dados Web e Business não tem nenhum valor específico de capacidade de recursos reservado para qualquer banco de dados individual. Além disso, não há nenhum mecanismo no local para os clientes dimensionarem o desempenho para cima ou para baixo para um banco de dados Web ou Business. Isso resulta na variação de um banco de dados Web e Business em qualquer lugar desde agonizantemente lento até níveis Premium. Esse intervalo variado de desempenho é *indevido* dependente do nível geral de consumo de recursos em qualquer ponto no tempo por outros bancos de dados dentro do ambiente de vários locatários que compartilham recursos.
 
@@ -229,7 +231,7 @@ Para compreender mais claramente as diferenças entre Web/Business e as camadas 
 Se o percentual DTU geral é extremamente alto, você deve começar analisando as métricas detalhadas da qual os DTUs consistem. Especificamente, detalhando pormenorizadamente o Log de E/S e uso de memória do banco de dados. Ele pode descobrir possíveis áreas onde você pode otimizar e reduzir o consumo de DTU.
 
 
-## 4\. Ajuste sua carga de trabalho de banco de dados de acordo com um nível de desempenho inferior
+## 4. Ajuste sua carga de trabalho de banco de dados de acordo com um nível de desempenho inferior
 Se a análise do histórico do uso de recursos do seu banco de dados indica que você deve atualizar para um nível de desempenho que é mais caro do que o desejado, você pode procurar em áreas em que o ajuste de desempenho adicional pode ajudar.
 
 Considerando seu conhecimento sobre os detalhes do seu aplicativo, se o uso do recurso parece muito alto em comparação com o que você espera que a carga de trabalho típica deve ser, então talvez você tenha algumas oportunidades em que o ajuste de desempenho pode trazer benefícios para seu aplicativo.
@@ -248,7 +250,7 @@ Além da manutenção de ajuste típica, como análise de índices, planos de ex
 
 
 
-## 5\. Atualizar para uma nova camada de serviço/nível de desempenho
+## 5. Atualizar para uma nova camada de serviço/nível de desempenho
 Depois de determinar a camada de serviço e nível de desempenho apropriados para seu banco de dados Web ou Business, há várias maneiras de atualizar o banco de dados para a nova camada:
 
 | Ferramenta de gerenciamento | Para alterar o nível de desempenho e da camada de serviço de um banco de dados|
@@ -261,8 +263,8 @@ Depois de determinar a camada de serviço e nível de desempenho apropriados par
 Para obter detalhes, consulte [Alterando camadas de serviço e níveis de desempenho de banco de dados](sql-database-scale-up.md)
 
 
-## 6\. Monitoramento da atualização da nova camada de serviço e nível de desempenho
-O Banco de Dados SQL do Azure fornece informações de andamento em operações de gerenciamento (como CREATE, ALTER e DROP) executadas em um banco de dados na exibição de gerenciamento dinâmico sys.dm\_operation\_status no banco de dados mestre do servidor lógico em que seu banco de dados atual está localizado [confira a documentação do sys.dm\_operation\_status].(http://msdn.microsoft.com/library/azure/dn270022.aspx)Use a DMV do status da operação para determinar o andamento da operação de atualização de um banco de dados. Este exemplo de consulta mostra todas as operações de gerenciamento executadas em um banco de dados:
+## 6. Monitoramento da atualização da nova camada de serviço e nível de desempenho
+O Banco de Dados SQL do Azure fornece informações de andamento em operações de gerenciamento (como CREATE, ALTER e DROP) executadas em um banco de dados na exibição de gerenciamento dinâmico sys.dm\_operation\_status no banco de dados mestre do servidor lógico em que seu banco de dados atual está localizado [confira a documentação do sys.dm_operation_status](http://msdn.microsoft.com/library/azure/dn270022.aspx).Use a DMV do status da operação para determinar o andamento da operação de atualização de um banco de dados. Este exemplo de consulta mostra todas as operações de gerenciamento executadas em um banco de dados:
 
     SELECT o.operation, o.state_desc, o.percent_complete
     , o.error_code, o.error_desc, o.error_severity, o.error_state
@@ -274,7 +276,7 @@ O Banco de Dados SQL do Azure fornece informações de andamento em operações 
 
 Se você usou o Portal Clássico para a atualização, uma notificação também estará disponível do portal para a operação.
 
-## 7\. Monitoramento do banco de dados após a atualização
+## 7. Monitoramento do banco de dados após a atualização
 Após a atualização do banco de dados Web/Business para a nova camada, é recomendável monitorar o banco de dados ativamente para garantir que aplicativos estão sendo executados no desempenho esperado e uso ideal conforme necessário. As seguintes etapas adicionais são recomendáveis para monitorar o banco de dados.
 
 
@@ -317,4 +319,4 @@ O serviço de banco de dados SQL do Azure fornece os dados e ferramentas de tele
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

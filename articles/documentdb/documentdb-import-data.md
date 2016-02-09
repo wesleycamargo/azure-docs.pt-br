@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Importar dados no Banco de Dados de Documentos | Microsoft Azure" 
-	description="Saiba como usar a ferramenta de migração de dados de software livre do Banco de Dados de Documentos para importar dados no Banco de Dados de Documentos de várias fontes, incluindo arquivos JSON, arquivos CSV, SQL, MongoDB, armazenamento de tabelas do Azure e coleções de Bancos de Dados de Documentos." 
+	pageTitle="Ferramentas de migração de banco de dados — converter CSV em JSON | Microsoft Azure" 
+	description="Saiba como usar as ferramentas de migração de dados do Banco de Dados de Documentos de software livre para importar dados para o Banco de Dados de Documentos. MongoDB, SQL, Armazenamento de tabela, DynamoDB, e CSV em JSON." 
+	keywords="csv em json, ferramentas de migração de banco de dados, converter csv em json"
 	services="documentdb" 
 	authors="andrewhoh" 
 	manager="jhubbard" 
@@ -16,9 +17,9 @@
 	ms.date="10/16/2015" 
 	ms.author="anhoh"/>
 
-# Importar dados no Banco de Dados de Documentos #
+# Importar dados para o Banco de Dados de Documentos — ferramenta de migração de banco de dados
 
-Este artigo mostra como usar a ferramenta de migração de dados do Banco de Dados de Documentos de software livre para importar dados no [Banco de Dados de Documentos do Microsoft Azure](http://azure.microsoft.com/services/documentdb/) de várias fontes, incluindo arquivos JSON, arquivos CSV, coleções de SQL, MongoDB, Armazenamento da Tabela do Azure e coleções de Banco de Dados de Documentos.
+Este artigo mostra como usar a ferramenta de migração de dados do Banco de Dados de Documentos de software livre para importar dados no [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/) de várias fontes, incluindo arquivos JSON, arquivos CSV, coleções de SQL, MongoDB, Armazenamento da Tabela do Azure e coleções de Banco de Dados de Documentos.
 
 Após ler este artigo, você poderá responder as perguntas a seguir:
 
@@ -57,14 +58,14 @@ Embora a ferramenta de importação inclua uma interface gráfica do usuário (d
 
 O código-fonte da ferramenta de migração está disponível no GitHub [nesse repositório](https://github.com/azure/azure-documentdb-datamigrationtool) e há uma versão compilada no [Centro de Download da Microsoft](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d). Você pode compilar a solução ou simplesmente baixar e extrair a versão compilada em um diretório de sua escolha. Em seguida, execute um:
 
-- Dtui.exe: Versão da interface gráfica da ferramenta
-- Dt.exe: Versão de linha de comando da ferramenta
+- **Dtui.exe**: Versão da interface gráfica da ferramenta
+- **Dt.exe**: Versão de linha de comando da ferramenta
 
 ##<a id="JSON"></a>Importar arquivos JSON ##
 
 A opção de importador de origem de arquivo JSON permite importar um ou mais arquivos JSON de documento único ou arquivos JSON que contêm uma matriz de documentos JSON. Ao adicionar pastas que contêm arquivos JSON para importar, você tem a opção de pesquisar recursivamente arquivos em subpastas.
 
-![Captura de tela das opções de origem do arquivo JSON](./media/documentdb-import-data/jsonsource.png)
+![Captura de tela das opções de origem do arquivo JSON — ferramentas de migração de banco de dados](./media/documentdb-import-data/jsonsource.png)
 
 Aqui estão alguns exemplos de linha de comando para importar os arquivos JSON:
 
@@ -87,13 +88,13 @@ Aqui estão alguns exemplos de linha de comando para importar os arquivos JSON:
 
 A opção de importador de origem do MongoDB permite importar de uma coleção do MongoDB individual e opcionalmente filtrar documentos usando uma consulta e/ou modificar a estrutura do documento usando uma projeção.
 
-![Captura de tela das opções de origem do MongoDB](./media/documentdb-import-data/mongodbsource.png)
+![Captura de tela das opções de origem do MongoDB — banco de dados de documentos vs. mongodb](./media/documentdb-import-data/mongodbsource.png)
 
 A cadeia de conexão está no formato padrão do MongoDB:
 
 	mongodb://<dbuser>:<dbpassword>@<host>:<port>/<database>
 
-> [AZURE.NOTE]Use o comando Verify para garantir que a instância do MongoDB especificada no campo de cadeia de conexão pode ser acessada.
+> [AZURE.NOTE] Use o comando Verify para garantir que a instância do MongoDB especificada no campo de cadeia de conexão pode ser acessada.
 
 Digite o nome da coleção por meio da qual os dados serão importados. Você pode opcionalmente especificar ou fornecer um arquivo para uma consulta (por exemplo, {pop: {$gt: 5000}}) e/ou uma projeção (por exemplo, {loc:0}) para filtrar e moldar os dados a serem importados.
 
@@ -109,7 +110,7 @@ Aqui estão alguns exemplos de linha de comando para importar por meio do MongoD
 
 A opção do importador de origem de arquivo JSON de exportação do MongoDB permite que você importe um ou mais arquivos JSON produzidos por meio do utilitário mongoexport.
 
-![Captura de tela das opções de origem de exportação do MongoDB](./media/documentdb-import-data/mongodbexportsource.png)
+![Captura de tela das opções de origem de exportação do MongoDB — banco de dados de documentos vs. mongodb](./media/documentdb-import-data/mongodbexportsource.png)
 
 Ao adicionar pastas que contêm arquivos JSON de exportação do MongoDB, você tem a opção de pesquisar recursivamente arquivos em subpastas.
 
@@ -121,11 +122,11 @@ Aqui está um exemplo de linha de comando para importar de arquivos de JSON de e
 
 A opção do importador de origem do SQL permite importar de um banco de dados do SQL Server individual e, opcionalmente, filtrar os registros a serem importados usando uma consulta. Além disso, você pode modificar a estrutura do documento, especificando um separador de aninhamento (falaremos mais sobre isso em instantes).
 
-![Captura de tela das opções de origem do SQL](./media/documentdb-import-data/sqlexportsource.png)
+![Captura de tela das opções de origem do SQL — ferramentas de migração de banco de dados](./media/documentdb-import-data/sqlexportsource.png)
 
 O formato da cadeia de conexão é o formato da cadeia de conexão SQL padrão.
 
-> [AZURE.NOTE]Use o comando Verify para garantir que a instância do SQL Server especificada no campo Cadeia de conexão pode ser acessada.
+> [AZURE.NOTE] Use o comando Verify para garantir que a instância do SQL Server especificada no campo Cadeia de conexão pode ser acessada.
 
 A propriedade de separador de aninhamento é usada para criar relacionamentos hierárquicos (sub-documentos) durante a importação. Considere a seguinte consulta SQL:
 
@@ -137,7 +138,7 @@ Que retorna os seguintes resultados (parciais):
 
 Observe os aliases como Address.AddressType e Address.Location.StateProvinceName. Especificando um separador de aninhamento de “.”, a ferramenta de importação cria os sub-documentos Address e Address.Location durante a importação. Aqui está um exemplo de um documento resultante no Banco de Dados de Documentos:
 
-*{ "id": "956", "Name": "Finer Sales and Service", "Address": { "AddressType": "Main Office", "AddressLine1": "\#500-75 O'Connor Street", "Location": { "City": "Ottawa", "StateProvinceName": "Ontario" }, "PostalCode": "K4B 1S2", "CountryRegionName": "Canada" } }*
+*{ "id": "956", "Name": "Finer Sales and Service", "Address": { "AddressType": "Main Office", "AddressLine1": "#500-75 O'Connor Street", "Location": { "City": "Ottawa", "StateProvinceName": "Ontario" }, "PostalCode": "K4B 1S2", "CountryRegionName": "Canada" } }*
  
 Aqui estão alguns exemplos de linha de comando para importar do SQL Server:
 
@@ -147,15 +148,15 @@ Aqui estão alguns exemplos de linha de comando para importar do SQL Server:
 	#Import records from sql which match a query and create hierarchical relationships
 	dt.exe /s:SQL /s.ConnectionString:"Data Source=<server>;Initial Catalog=AdventureWorks;User Id=advworks;Password=<password>;" /s.Query:"select CAST(BusinessEntityID AS varchar) as Id, Name, AddressType as [Address.AddressType], AddressLine1 as [Address.AddressLine1], City as [Address.Location.City], StateProvinceName as [Address.Location.StateProvinceName], PostalCode as [Address.PostalCode], CountryRegionName as [Address.CountryRegionName] from Sales.vStoreWithAddresses WHERE AddressType='Main Office'" /s.NestingSeparator:. /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:StoresSub /t.IdField:Id /t.CollectionTier:S3
 
-##<a id="CSV"></a>Importar arquivos CSV ##
+##<a id="CSV"></a>Importar arquivos CSV — converter CSV em JSON ##
 
 A opção de importador de origem de arquivo CSV permite que você importe um ou mais arquivos CSV. Ao adicionar pastas que contêm arquivos CSV para importar, você tem a opção de pesquisar recursivamente arquivos em subpastas.
 
-![Captura de tela das opções de origem do CSV](media/documentdb-import-data/csvsource.png)
+![Captura de tela das opções de origem do CSV — CVS em JSON](media/documentdb-import-data/csvsource.png)
 
 De forma semelhante à origem de SQL, a propriedade de separador de aninhamento pode ser usada para criar relacionamentos hierárquicos (sub-documentos) durante a importação. Considere a seguinte linha de cabeçalho CSV e linhas de dados:
 
-![Captura de tela dos registros de exemplo do CSV](./media/documentdb-import-data/csvsample.png)
+![Captura de tela dos registros de exemplo do CSV — CVS em JSON](./media/documentdb-import-data/csvsample.png)
 
 Observe os aliases como DomainInfo.Domain\_Name e RedirectInfo.Redirecting. Especificando um separador de aninhamento de “.”, a ferramenta de importação cria os sub-documentos DomainInfo e RedirectInfo durante a importação. Aqui está um exemplo de um documento resultante no Banco de Dados de Documentos:
 
@@ -184,7 +185,7 @@ O formato da cadeia de conexão de armazenamento de tabela do Azure é:
 
 	DefaultEndpointsProtocol=<protocol>;AccountName=<Account Name>;AccountKey=<Account Key>;
 
-> [AZURE.NOTE]Use o comando Verify para garantir que a instância de armazenamento da tabela do Azure especificada no campo de cadeia de conexão pode ser acessada.
+> [AZURE.NOTE] Use o comando Verify para garantir que a instância de armazenamento da tabela do Azure especificada no campo de cadeia de conexão pode ser acessada.
 
 Digite o nome da tabela do Azure por meio da qual os dados serão importados. Opcionalmente, você pode especificar um [filtro](https://msdn.microsoft.com/library/azure/ff683669.aspx).
 
@@ -205,15 +206,15 @@ Aqui está um exemplo de linha de comando para importar por meio do armazenament
 
 A opção de importação de fonte do Amazon DynamoDB permite importar de uma tabela individual do Amazon DynamoDB e, opcionalmente, filtrar as entidades a serem importadas. Vários modelos são fornecidos para que a configuração de uma importação seja tão fácil quanto possível.
 
-![Captura de tela das opções de origem do Amazon DynamoDB](./media/documentdb-import-data/dynamodbsource1.png)
+![Captura de tela das opções de origem do Amazon DynamoDB — ferramentas de migração de banco de dados](./media/documentdb-import-data/dynamodbsource1.png)
 
-![Captura de tela das opções de origem do Amazon DynamoDB](./media/documentdb-import-data/dynamodbsource2.png)
+![Captura de tela das opções de origem do Amazon DynamoDB — ferramentas de migração de banco de dados](./media/documentdb-import-data/dynamodbsource2.png)
 
 O formato da cadeia de conexão do Amazon DynamoDB é:
 
 	ServiceURL=<Service Address>;AccessKey=<Access Key>;SecretKey=<Secret Key>;
 
-> [AZURE.NOTE]Use o comando Verify para garantir que a instância do Amazon DynamoDB especificada no campo de cadeia de conexão possa ser acessada.
+> [AZURE.NOTE] Use o comando Verify para garantir que a instância do Amazon DynamoDB especificada no campo de cadeia de conexão possa ser acessada.
 
 Aqui está um exemplo de linha de comando para importar do Amazon DynamoDB:
 
@@ -239,11 +240,11 @@ O formato da cadeia de conexão do Banco de Dados de Documentos é:
 
 	AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;
 
-> [AZURE.NOTE]Use o comando Verify para garantir que a instância do Banco de Dados de Documentos especificada no campo de cadeia de conexão pode ser acessada.
+> [AZURE.NOTE] Use o comando Verify para garantir que a instância do Banco de Dados de Documentos especificada no campo de cadeia de conexão pode ser acessada.
 
 Para importar de uma única coleção de Banco de Dados de Documentos, digite o nome da coleção na qual os dados serão importados. Para importar de várias coleções de Banco de Dados de Documentos, forneça uma expressão regular para corresponder um ou mais nomes de coleção (por exemplo, collection01 | collection02 | collection03). Você pode opcionalmente especificar ou fornecer um arquivo para uma consulta para filtrar e moldar os dados a serem importados.
 
-> [AZURE.NOTE]Uma vez que o campo de coleção aceita expressões regulares, se você estiver importando de uma única coleção cujo nome contém caracteres de expressão regular, esses caracteres devem ser substituídos adequadamente.
+> [AZURE.NOTE] Uma vez que o campo de coleção aceita expressões regulares, se você estiver importando de uma única coleção cujo nome contém caracteres de expressão regular, esses caracteres devem ser substituídos adequadamente.
 
 A opção de importador de origem do Banco de Dados de Documentos tem as seguintes opções avançadas:
 
@@ -254,7 +255,7 @@ A opção de importador de origem do Banco de Dados de Documentos tem as seguint
 
 ![Captura de tela das opções avançadas de origem do Banco de Dados de Documentos](./media/documentdb-import-data/documentdbsourceoptions.png)
 
-> [AZURE.TIP]A ferramenta de importação usa como padrão o modo de conexão DirectTcp. Se você enfrentar problemas de firewall, alterne para o modo de conexão Gateway, uma vez que ele só requer a porta 443.
+> [AZURE.TIP] A ferramenta de importação usa como padrão o modo de conexão DirectTcp. Se você enfrentar problemas de firewall, alterne para o modo de conexão Gateway, uma vez que ele só requer a porta 443.
 
 
 Aqui estão alguns exemplos de linha de comando para importar por meio do Banco de Dados de Documentos:
@@ -280,7 +281,7 @@ O formato da cadeia de conexão HBase Stargate é:
 
 	ServiceURL=<server-address>;Username=<username>;Password=<password>
 
-> [AZURE.NOTE]Use o comando Verify para garantir que a instância do HBase especificada no campo de cadeia de conexão possa ser acessada.
+> [AZURE.NOTE] Use o comando Verify para garantir que a instância do HBase especificada no campo de cadeia de conexão possa ser acessada.
 
 Aqui está um exemplo de linha de comando para importar do HBase:
 
@@ -296,7 +297,7 @@ O formato da cadeia de conexão do Banco de Dados de Documentos é:
 
 	AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;
 
-> [AZURE.NOTE]Use o comando Verify para garantir que a instância do Banco de Dados de Documentos especificada no campo de cadeia de conexão pode ser acessada.
+> [AZURE.NOTE] Use o comando Verify para garantir que a instância do Banco de Dados de Documentos especificada no campo de cadeia de conexão pode ser acessada.
 
 Para importar para uma única coleção, digite o nome da coleção à qual os dados serão importados e clique no botão Adicionar. Para importar para várias coleções, insira o nome de cada coleção individualmente ou use a seguinte sintaxe para especificar várias coleções: *collection\_prefix*[start index - end index]. Ao especificar várias coleções por meio da sintaxe mencionada anteriormente, lembre-se do seguinte:
 
@@ -306,7 +307,7 @@ Para importar para uma única coleção, digite o nome da coleção à qual os d
 
 Depois de especificar o(s) nome(s) da coleção, escolha a camada de preços desejada da(s) coleção(ões) (S1, S2 ou S3). Para melhor desempenho de importação, escolha S3. Leia mais sobre os níveis de desempenho do Banco de Dados de Documentos [aqui](documentdb-performance-levels.md).
 
-> [AZURE.NOTE]A configuração de camada de desempenho só se aplica à criação da coleção. Se a coleção especificada já existir, sua camada de preço não será modificada.
+> [AZURE.NOTE] A configuração de camada de desempenho só se aplica à criação da coleção. Se a coleção especificada já existir, sua camada de preço não será modificada.
 
 Ao importar para várias coleções, a ferramenta de importação dá suporte a hash baseado em fragmentação. Neste cenário, especifique a propriedade do documento que deseja usar como a Chave de partição (se a Chave de partição for deixada em branco, os documentos serão fragmentados aleatoriamente em coleções de destino).
 
@@ -336,7 +337,7 @@ O importador em massa do Banco de Dados de Documentos tem as seguintes opções 
 
 ![Captura de tela das opções avançadas de importação em massa do Banco de Dados de Documentos](./media/documentdb-import-data/docdbbulkoptions.png)
 
-> [AZURE.TIP]A ferramenta de importação usa como padrão o modo de conexão DirectTcp. Se você enfrentar problemas de firewall, alterne para o modo de conexão Gateway, uma vez que ele só requer a porta 443.
+> [AZURE.TIP] A ferramenta de importação usa como padrão o modo de conexão DirectTcp. Se você enfrentar problemas de firewall, alterne para o modo de conexão Gateway, uma vez que ele só requer a porta 443.
 
 ##<a id="DocumentDBSeqTarget"></a>Importar para o Banco de Dados de Documentos (importação de registros sequenciais) ##
 
@@ -348,7 +349,7 @@ O formato da cadeia de conexão do Banco de Dados de Documentos é:
 
 	AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;
 
-> [AZURE.NOTE]Use o comando Verify para garantir que a instância do Banco de Dados de Documentos especificada no campo de cadeia de conexão pode ser acessada.
+> [AZURE.NOTE] Use o comando Verify para garantir que a instância do Banco de Dados de Documentos especificada no campo de cadeia de conexão pode ser acessada.
 
 Para importar para uma única coleção, digite o nome da coleção à qual os dados serão importados e clique no botão Adicionar. Para importar para várias coleções, insira o nome de cada coleção individualmente ou use a seguinte sintaxe para especificar várias coleções: *collection\_prefix*[start index - end index]. Ao especificar várias coleções por meio da sintaxe mencionada anteriormente, lembre-se do seguinte:
 
@@ -358,7 +359,7 @@ Para importar para uma única coleção, digite o nome da coleção à qual os d
 
 Depois de especificar o(s) nome(s) da coleção, escolha a camada de preços desejada da(s) coleção(ões) (S1, S2 ou S3). Para melhor desempenho de importação, escolha S3. Leia mais sobre os níveis de desempenho do Banco de Dados de Documentos [aqui](documentdb-performance-levels.md).
 
-> [AZURE.NOTE]A configuração de camada de desempenho só se aplica à criação da coleção. Se a coleção especificada já existir, sua camada de preço não será modificada.
+> [AZURE.NOTE] A configuração de camada de desempenho só se aplica à criação da coleção. Se a coleção especificada já existir, sua camada de preço não será modificada.
 
 Ao importar para várias coleções, a ferramenta de importação dá suporte a hash baseado em fragmentação. Neste cenário, especifique a propriedade do documento que deseja usar como a Chave de partição (se a Chave de partição for deixada em branco, os documentos serão fragmentados aleatoriamente em coleções de destino).
 
@@ -382,7 +383,7 @@ O importador de registros sequenciais do Banco de Dados de Documentos tem as seg
 
 ![Captura de tela das opções avançadas de importação de registro sequencial do Banco de Dados de Documentos](./media/documentdb-import-data/documentdbsequentialoptions.png)
 
-> [AZURE.TIP]A ferramenta de importação usa como padrão o modo de conexão DirectTcp. Se você enfrentar problemas de firewall, alterne para o modo de conexão Gateway, uma vez que ele só requer a porta 443.
+> [AZURE.TIP] A ferramenta de importação usa como padrão o modo de conexão DirectTcp. Se você enfrentar problemas de firewall, alterne para o modo de conexão Gateway, uma vez que ele só requer a porta 443.
 
 ##<a id="IndexingPolicy"></a>Especifique uma política de indexação ao criar coleções de Banco de Dados de Documentos ##
 
@@ -401,7 +402,7 @@ Os modelos de política que a ferramenta fornece são:
 
 ![Captura de tela das opções avançadas de Política de indexação do Banco de Dados de Documentos](./media/documentdb-import-data/indexingpolicy2.png)
 
-> [AZURE.NOTE]Se você não especificar uma política de indexação, a política padrão será aplicada. Saiba mais sobre políticas de indexação de Banco de Dados de Documentos [aqui](documentdb-indexing-policies.md).
+> [AZURE.NOTE] Se você não especificar uma política de indexação, a política padrão será aplicada. Saiba mais sobre políticas de indexação de Banco de Dados de Documentos [aqui](documentdb-indexing-policies.md).
 
 
 ## Exportar para arquivo JSON
@@ -477,4 +478,4 @@ Na tela de Configuração avançada, especifique a localização do arquivo de l
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

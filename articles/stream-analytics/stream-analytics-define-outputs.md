@@ -26,7 +26,7 @@ Para poder habilitar vários padrões de aplicativo, o Stream Analytics do Azure
 
 ## Banco de dados SQL ##
 
-Um [banco de dados SQL do Azure](http://azure.microsoft.com/services/sql-database/) pode ser usado como saída para os dados que sejam relacionais por natureza ou para aplicativos que dependam de o conteúdo ser hospedado em um banco de dados relacional. Os trabalhos do Stream Analytics gravarão em uma tabela existente em um banco de dados SQL do Azure. Observe que o esquema da tabela deve corresponder exatamente aos campos e seus tipos sendo a saída do seu trabalho. A tabela a seguir lista os nomes de propriedade e sua descrição para a criação de uma saída de banco de dados SQL.
+Um [banco de dados SQL do Azure](https://azure.microsoft.com/services/sql-database/) pode ser usado como saída para os dados que sejam relacionais por natureza ou para aplicativos que dependam de o conteúdo ser hospedado em um banco de dados relacional. Os trabalhos do Stream Analytics gravarão em uma tabela existente em um banco de dados SQL do Azure. Observe que o esquema da tabela deve corresponder exatamente aos campos e seus tipos sendo a saída do seu trabalho. A tabela a seguir lista os nomes de propriedade e sua descrição para a criação de uma saída de banco de dados SQL.
 
 | Nome da Propriedade | Descrição |
 |---------------|-------------|
@@ -39,7 +39,7 @@ Um [banco de dados SQL do Azure](http://azure.microsoft.com/services/sql-databas
 
 ## Armazenamento de blob ##
 
-O armazenamento de Blob oferece uma solução econômica e escalonável para armazenar grandes quantidades de dados não estruturados na nuvem. Para obter uma introdução sobre o Armazenamento de blob do Azure e seu uso, consulte a documentação em [Como usar blobs](./articles/storage-dotnet-how-to-use-blobs.md).
+O armazenamento de Blob oferece uma solução econômica e escalonável para armazenar grandes quantidades de dados não estruturados na nuvem. Para obter uma introdução sobre o Armazenamento de blob do Azure e seu uso, confira a documentação em [Como usar blobs](./articles/storage-dotnet-how-to-use-blobs.md).
 
 A tabela a seguir lista os nomes de propriedade e sua descrição para a criação de uma saída de banco de blob.
 
@@ -118,7 +118,7 @@ Há alguns parâmetros que são necessários para configurar fluxos de dados de 
 
 O [Power BI](https://powerbi.microsoft.com/) pode ser usado como saída de um trabalho do Stream Analytics para fornecer uma experiência rica de visualização dos resultados da análise. Essa funcionalidade pode ser usada para painéis operacionais, geração de relatórios e relatórios orientados por métricas.
 
-> [AZURE.NOTE]No momento, não há suporte para a criação e configuração das saídas do Power BI no Portal de Visualização do Azure.
+> [AZURE.NOTE] No momento, não há suporte para a criação e configuração das saídas do Power BI no Portal de Visualização do Azure.
 
 ### Autorizar uma conta do Power BI
 
@@ -145,7 +145,7 @@ Uma vez que a conta do Power BI foi autenticada, você pode configurar as propri
 
 Para um guia passo a passo de configuração de uma saída do Power BI e do painel, consulte o artigo [Power BI e Stream Analytics do Azure](stream-analytics-power-bi-dashboard.md).
 
-> [AZURE.NOTE]Não crie explicitamente o conjunto de dados e a tabela no painel do Power BI. O conjunto de dados e a tabela serão preenchidos automaticamente quando o trabalho é iniciado e o trabalho começa a produzir a saída no Power BI. Observe que se a consulta de trabalho não gerar resultados, o conjunto de dados e a tabela não serão criados. Tenha em mente também que se o Power BI já tiver um conjunto de dados e uma tabela com o mesmo nome fornecido no trabalho do Stream Analytics, os dados existentes serão substituídos.
+> [AZURE.NOTE] Não crie explicitamente o conjunto de dados e a tabela no painel do Power BI. O conjunto de dados e a tabela serão preenchidos automaticamente quando o trabalho é iniciado e o trabalho começa a produzir a saída no Power BI. Observe que se a consulta de trabalho não gerar resultados, o conjunto de dados e a tabela não serão criados. Tenha em mente também que se o Power BI já tiver um conjunto de dados e uma tabela com o mesmo nome fornecido no trabalho do Stream Analytics, os dados existentes serão substituídos.
 
 ### Renovar a autorização do Power BI
 
@@ -171,7 +171,7 @@ A tabela a seguir lista os nomes de propriedade e sua descrição para a criaç�
 | Nome da tabela | O nome da tabela. A tabela será criada se ainda não existir. |
 | Chave de partição | O nome da coluna de saída que contém a chave da partição. A chave de partição é um identificador exclusivo para a partição em uma determinada tabela que forma a primeira parte da chave primária da entidade. É um valor de cadeia de caracteres que pode ter até 1 KB em tamanho. |
 | Chave de linha | O nome da coluna de saída que contém a chave de linha. A chave de linha é um identificador exclusivo para uma entidade em uma determinada partição. Ela forma a segunda parte da chave primária da entidade. A chave de linha é um valor de cadeia de caracteres que pode ter até 1 KB em tamanho. |
-| Tamanho do lote | É o número de registros para uma operação em lote. Normalmente, o padrão é suficiente para a maioria dos trabalhos, consulte a [especificação da operação de lote de tabela](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) para obter mais detalhes sobre como modificar essa configuração. |
+| Tamanho do lote | É o número de registros para uma operação em lote. Normalmente, o padrão é suficiente para a maioria dos trabalhos; consulte a [especificação da Operação em Lote de Tabela](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) para obter mais detalhes sobre como modificar essa configuração. |
 
 ## Filas de barramento de serviço
 
@@ -193,7 +193,7 @@ A tabela a seguir lista os nomes de propriedade e sua descrição para a criaç�
 
 ## Tópicos do Service Bus
 
-Enquanto as filas do Barramento de Serviço fornecem um método de comunicação de um-para-um do remetente ao destinatário, os [Tópicos do Barramento de Serviço](https://msdn.microsoft.com/library/azure/hh367516.aspx) fornecem uma forma de comunicação de um-para-muitos.
+Enquanto as Filas do Barramento de Serviço fornecem um método de comunicação de um-para-um do remetente para o receptor, os [Tópicos sobre o Barramento de Serviço](https://msdn.microsoft.com/library/azure/hh367516.aspx) fornecem uma forma de comunicação de um-para-muitos.
 
 A tabela a seguir lista os nomes de propriedade e sua descrição para a criação de uma saída da tabela.
 
@@ -210,7 +210,7 @@ A tabela a seguir lista os nomes de propriedade e sua descrição para a criaç�
 
 ## Banco de Dados de Documentos
 
-[Banco de Dados de Documentos do Azure](http://azure.microsoft.com/services/documentdb/) é um serviço de Banco de Dados de Documentos NoSQL totalmente gerenciado, que oferece transações e consulta de dados sem esquema, desempenho previsível e confiável e rápido desenvolvimento.
+[Banco de Dados de Documentos do Azure](https://azure.microsoft.com/services/documentdb/) é um serviço de Banco de Dados de Documentos NoSQL totalmente gerenciado, que oferece transações e consulta de dados sem esquema, desempenho previsível e confiável e rápido desenvolvimento.
 
 A tabela abaixo lista os nomes de propriedade e sua descrição para a criação de uma saída do Banco de Dados de Documentos.
 
@@ -267,4 +267,4 @@ Você foi apresentado ao Stream Analytics, um serviço gerenciado para análise 
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

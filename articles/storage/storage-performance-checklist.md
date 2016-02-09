@@ -33,51 +33,51 @@ Este artigo organiza as práticas comprovadas nos grupos a seguir. As práticas 
 
 |Concluído|	Área|	Categoria|	Pergunta
 |----|------|-----------|-----------
-||Todos os serviços de|	Metas de escalabilidade|[Seu aplicativo é projetado para evitar se aproximar das metas de escalabilidade?](#subheading1)
-||Todos os serviços|	Rede|	[Dispositivos do lado cliente têm largura de banda suficientemente alta e baixa latência para alcançar o desempenho necessário?](#subheading2)
-||Todos os serviços|	Rede|	[Os dispositivos do lado cliente têm um link de qualidade alta o suficiente?](#subheading3)
-||Todos os serviços|	Rede|	[O aplicativo cliente está localizado perto da conta de armazenamento?](#subheading4)
-||Todos os serviços|	Distribuição|	[conteúdo Você está usando uma CDN para distribuição de conteúdo?](#subheading5)
-||Todos os serviços de|	Acesso|	[Direta do cliente Você está usando SAS e CORS para permitir acesso direto ao armazenamento, em vez de proxy?](#subheading6)
-||Todos os serviços|	Cache|	[Seu aplicativo em cache dados que são usados repetidamente e alterações raramente?](#subheading7)
-||Todos os serviços|	Cache|	[O aplicativo de envio em lote atualizações (eles em cache do lado do cliente e, em seguida, carregar conjuntos maiores)?](#subheading8)
-||Configuração de .NET todos os serviços|	.NET Configuração|	[Você configurou o cliente para usar um número suficiente de conexões simultâneas?](#subheading9)
-||Configuração de todos os serviços .NET|	.NET Configuração|	[Você configurou .NET para usar um número suficiente de threads?](#subheading10)
-||Configuração de todos os serviços .NET|	.NET Configuração|	[Estiver usando o .NET 4.5 ou posterior, que melhorou a coleta de lixo?](#subheading11)
-||Todos os serviços de|	Paralelismo|	[Você garante que o paralelismo é limitado adequadamente para que você não sobrecarregar os recursos de cliente ou as metas de escalabilidade?](#subheading12)
-||Todos os serviços de|	Ferramentas|	[Estão usando a versão mais recente do Microsoft fornecidas ferramentas e bibliotecas de cliente?](#subheading13)
-||Todos os serviços de|	Novas tentativas|	[Estão usando uma retirada exponencial política para erros e tempos limite de limitação de novas tentativas?](#subheading14)
-||Todos os serviços de|	Novas tentativas|	[Seu aplicativo evitar repetições de erros sem nova tentativa?](#subheading15)
-||BLOBs|	Metas de escalabilidade|	[Seu aplicativo continuam dentro a meta de escalabilidade de largura de banda ou de operações para um único blob?](#subheading16)
-||BLOBs|	Copiando Blobs|	[Você copiar blobs de maneira eficiente?](#subheading17)
-||BLOBs|	Copiando Blobs|	[Estiver usando AzCopy para cópias em massa de blobs?](#subheading18)
-||BLOBs|	Copiando Blobs|	[Estiver usando importação/exportação do Azure para transferir grandes volumes de dados?](#subheading19)
-||BLOBs|	Usar metadados|	[Você está armazenando metadados usados com frequência sobre os blobs nos respectivos metadados?](#subheading20)
-||BLOBs|	Carregando rapidamente|	[Ao tentar carregar um blob rapidamente, você está carregando blocos em paralelo?](#subheading21)
-||BLOBs|	Carregando rapidamente|	[Ao tentar carregar vários blobs rapidamente, você está carregando blobs em paralelo?](#subheading22)
-||BLOBs|	Tipo|	[Você está usando blobs de página ou bloquear blobs quando apropriado?](#subheading23)
-||Tabelas|	Metas de escalabilidade|	[Você está abordando as metas de escalabilidade para entidades por segundo?](#subheading24)
-||Tabelas|	Configuração|	[Estiver usando JSON para suas solicitações de tabela?](#subheading25)
-||Tabelas|	Configuração|	[Você desativou o Nagle para melhorar o desempenho das solicitações pequenas?](#subheading26)
-||Tabelas|	Tabelas e partições|	[Você particionar seus dados adequadamente?](#subheading27)
-||Tabelas|	Partições dinâmicas |	[Você está evitando padrões somente de acréscimo e somente preceda?](#subheading28)
-||Tabelas|	Partições dinâmicas |	[As inserções/atualizações se espalham por várias partições?](#subheading29)  
-||Tabelas|	Escopo de consulta|	[Você criou seu esquema para permitir consultas de ponto a ser usado na maioria dos casos e consultas de tabela a ser usado com moderação?](#subheading30)
-||Tabelas|	Densidade da consulta|	[Fazer sua verificação normalmente apenas consultas e retornar linhas que seu aplicativo usará?](#subheading31)
-||Tabelas|	 Limitando retornadas fonte de|	[Você está usando a filtragem para evitar retornando entidades que não são necessários?](#subheading32)
-||Tabelas|	 Limitando retornadas fonte de|	[Você está usando projeção para evitar o retorno de propriedades que não são necessários?](#subheading33)
-||Tabelas|	Denormalization|	[Têm você desnormalizado de dados que você evitar consultas ineficientes ou várias solicitações de leitura durante a tentativa de obter dados?](#subheading34)
-||Tabelas|	Inserir/atualizar/excluir|	[Você envio em lote solicitações que precisam ser transacional ou pode ser feito ao mesmo tempo para reduzir viagens?](#subheading35)
-||Tabelas|	Inserir/atualizar/excluir|	[Você estiver evitando recuperar uma entidade apenas para determinar se irá chamar insert ou update?](#subheading36)
-||Tabelas|	Inserir/atualizar/excluir|	[Você considerou armazenando séries de dados frequentemente serão recuperados juntos em uma única entidade como propriedades em vez de várias entidades?](#subheading37)
-||Tabelas|	Inserir/atualizar/excluir|	[Para entidades que sempre serão recuperadas juntos e podem ser escritas em lotes (por exemplo, dados de série temporal), você considerou usando blobs em vez de tabelas?](#subheading38)
-||Filas|	Metas de escalabilidade|	[Você está abordando as metas de escalabilidade para mensagens por segundo?](#subheading39)
-||Filas|	Configuração|	[Você desativou o Nagle para melhorar o desempenho das solicitações pequenas?](#subheading40)
-||Filas|	Tamanho da mensagem|	[Suas mensagens são compactas para melhorar o desempenho da fila?](#subheading41)
-||Filas|	Recuperar em massa|	[Você estiver recuperando várias mensagens em uma única operação "Get"?](#subheading41)
-||Filas|	Frequência de sondagem|	[Tem sondagem com frequência suficiente para reduzir a latência percebida do seu aplicativo?](#subheading42)
-||Filas|	Mensagem para atualizar|	[Estiver usando UpdateMessage para armazenar o progresso no processamento de mensagens, evitando reprocessar a mensagem inteira se ocorrer um erro?](#subheading43)
-||Filas|	Arquitetura|	[Você está usando filas para tornar seu aplicativo mais escalonável, mantendo as cargas de trabalho de longa duração do caminho crítico e, em seguida, dimensionada de forma independente?](#subheading44)
+|Todos os serviços|	Metas de escalabilidade|[Seu aplicativo foi criado para evitar a abordagem de metas de escalabilidade?](#subheading1)
+|Todos os serviços|	Rede|	[Os dispositivos cliente têm largura de banda suficiente e baixa latência para alcançar o desempenho necessário?](#subheading2)
+|Todos os serviços|	Rede|	[Os dispositivos cliente têm um link de alta qualidade?](#subheading3)
+|Todos os serviços|	Rede|	[O aplicativo cliente está "próximo" à conta de armazenamento?](#subheading4)
+|Todos os serviços|	Distribuição de conteúdo|	[Você usa um CDN para distribuir conteúdo?](#subheading5)
+|Todos os serviços|	Acesso direto do cliente|	[Você usa SAS e CORS para permitir o acesso direto ao armazenamento, em vez de usar um proxy?](#subheading6)
+|Todos os serviços|	Cache|	[Seu aplicativo armazena em cache os dados que são usados com frequência e que raramente mudam?](#subheading7)
+|Todos os serviços|	Cache|	[Seu aplicativo compila atualizações, armazenando-as em cache no cliente e carregando-as em grandes conjuntos?](#subheading8)
+|Todos os serviços|	Configuração .NET|	[Você configurou seu cliente para usar uma quantidade suficiente de conexões simultâneas?](#subheading9)
+|Todos os serviços|	Configuração .NET|	[Você configurou o .NET para usar uma quantidade suficiente de threads?](#subheading10)
+|Todos os serviços|	Configuração .NET|	[Você usa o .NET 4.5 ou posterior, versões com recurso aprimorado de coleta de lixo?](#subheading11)
+|Todos os serviços|	Paralelismo|	[Você garantiu a associação adequada do paralelismo para não carregar as funcionalidades do cliente nem as metas de escalabilidade?](#subheading12)
+|Todos os serviços|	Ferramentas|	[Você está usando a última versão das bibliotecas e ferramentas fornecidas pela Microsoft?](#subheading13)
+|Todos os serviços|	Novas tentativas|	[Você usa uma política de nova tentativa de retirada exponencial para diminuir os erros e a ocorrência de tempos limite?](#subheading14)
+|Todos os serviços|	Novas tentativas|	[Seu aplicativo evita novas tentativas para erros que não admitem novas tentativas?](#subheading15)
+|Blobs|	Metas de escalabilidade|	[Seu aplicativo segue a meta de largura de banda ou escalabilidade operacional para um único blob?](#subheading16)
+|Blobs|	Cópia de blobs|	[Seu método de cópia de blobs é eficiente?](#subheading17)
+|Blobs|	Cópia de blobs|	[Você usa o AzCopy para copiar blobs em massa?](#subheading18)
+|Blobs|	Cópia de blobs|	[Você usa a função de importação/exportação do Azure para transferir grandes volumes de dados?](#subheading19)
+|Blobs|	Uso de metadados|	[Você armazena os metadados sobre blobs usados com frequência?](#subheading20)
+|Blobs|	Carregamento rápido|	[Ao tentar carregar um blob rapidamente, você carrega blocos paralelamente?](#subheading21)
+|Blobs|	Carregamento rápido|	[Ao tentar carregar muitos blobs rapidamente, você carrega blocos paralelamente?](#subheading22)
+|Blobs|	Tipo de blob correto|	[Você usa blobs de página ou de bloco quando necessário?](#subheading23)
+|Tabelas|	Metas de escalabilidade|	[Você leva as metas de escalabilidade em consideração para entidades por segundo?](#subheading24)
+|Tabelas|	Configuração|	[Você usa JSON para suas solicitações de tabela?](#subheading25)
+|Tabelas|	Configuração|	[Você desativou o Nagle para melhorar o desempenho de pequenas solicitações?](#subheading26)
+|Tabelas|	Tabelas e partições|	[Você particionou seus dados corretamente?](#subheading27)
+|Tabelas|	Partições mais acessadas|	[Você evita padrões do tipo "somente anexar" e "somente incluir"?](#subheading28)
+|Tabelas|	Partições mais acessadas|	[Suas inserções/atualizações valem para diversas partições?](#subheading29)  
+|Tabelas|	Escopo da consulta|	[Você criou seu esquema para permitir o uso de consultas pontuais na maioria dos casos e de consultas de tabelas raramente?](#subheading30)
+|Tabelas|	Densidade da consulta|	[As suas consultas geralmente verificam e indicam quais linhas o aplicativo usará?](#subheading31)
+|Tabelas|	Limitação dos dados retornados|	[Você usa a filtragem para evitar o retorno de entidades que não são necessárias?](#subheading32)
+|Tabelas|	Limitação dos dados retornados|	[Você usa a projeção para evitar o retorno de propriedades que não são necessárias?](#subheading33)
+|Tabelas|	Desnormalização|	[Você desnormalizou seus dados a fim de evitar consultas ineficientes sou diversas solicitações de leitura ao tentar obter dados?](#subheading34)
+|Tabelas|	Inserção/atualização/exclusão|	[Você compila as solicitações que devem ser transacionais ou que podem ser executadas ao mesmo tempo para diminuir a quantidade de viagens de ida e volta?](#subheading35)
+|Tabelas|	Inserção/atualização/exclusão|	[Você evita novas tentativas nas entidades apenas para determinar se a chamada deve ser inserida ou atualizada?](#subheading36)
+|Tabelas|	Inserção/atualização/exclusão|	[Você já pensou em armazenar séries de dados que serão recuperados em conjunto frequentemente, em uma única entidade e como propriedades, em vez de serem recuperados como diversas entidades?](#subheading37)
+|Tabelas|	Inserção/atualização/exclusão|	[Você já pensou em usar blobs no lugar das tabelas para as entidades que serão recuperadas em conjunto e que podem ser escritas em lotes (por exemplo, dados de séries temporais)?](#subheading38)
+|Filas|	Metas de escalabilidade|	[Você leva as metas de escalabilidade em consideração para mensagens por segundo?](#subheading39)
+|Filas|	Configuração|	[Você desativou o Nagle para melhorar o desempenho de pequenas solicitações?](#subheading40)
+|Filas|	Tamanho da mensagem|	[Suas mensagens são compactas para melhorar o desempenho da fila?](#subheading41)
+|Filas|	Recuperação em massa|	[Você recupera diversas mensagens com uma única operação "Obter"?](#subheading41)
+|Filas|	Frequência de votação|	[As votações ocorrem com frequência suficiente para reduzir a latência notável do aplicativo?](#subheading42)
+|Filas|	Atualização de mensagem|	[Você usa a função de atualização de mensagem para armazenar o progresso do processamento de mensagens, evitando a necessidade de reprocessar toda a mensagem em caso de erro?](#subheading43)
+|Filas|	Arquitetura|	[Você usa filas para melhorar a escalabilidade de todo o aplicativo ao manter cargas de trabalho demoradas fora do caminho crítico e escalá-las independentemente?](#subheading44)
 
 
 ##<a name="allservices"></a>Todos os serviços
@@ -105,7 +105,7 @@ Se seu aplicativo estiver lidando com metas de escalabilidade de uma única cont
 Os links a seguir fornecem detalhes adicionais sobre metas de escalabilidade:
 - consulte [Metas de desempenho e escalabilidade do Armazenamento do Azure](storage-scalability-targets.md) para obter informações sobre metas de escalabilidade.
 - Consulte [Replicação de Armazenamento do Azure](storage-redundancy.md) e a postagem no blog [Opções de redundância de Armazenamento do Azure e armazenamento com redundância geográfica com acesso de leitura](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) para obter informações sobre opções de redundância de armazenamento.
-- Para obter informações atuais sobre o preço de serviços do Azure, consulte [Preços do Azure](http://azure.microsoft.com/pricing/overview/).
+- Para obter informações atuais sobre o preço de serviços do Azure, consulte [Preços do Azure](https://azure.microsoft.com/pricing/overview/).
 
 ###Rede
 Embora as chamadas de API sejam importantes, muitas vezes as limitações físicas da rede do aplicativo têm impacto considerável no desempenho. A seção a seguir descreve algumas das limitações que os usuários podem enfrentar.
@@ -128,7 +128,7 @@ Se os aplicativos do seu cliente não estiverem hospedados no Azure (como no cas
 ###<a name="subheading5"></a>Distribuição de conteúdo
 É possível que um aplicativo precise apresentar o mesmo conteúdo a muitos usuários (por exemplo, um vídeo para demonstrar um produto, apresentado na página inicial de um site) espalhados na mesma região ou em diversas regiões. Nesse cenário, você deve usar uma CDN (rede de distribuição de conteúdo), como o Azure CDN. Por sua vez, o CDN deve usar o armazenamento do Azure como fonte dos dados. Diferente das contas de armazenamento do Azure que existem em uma única região e não podem fornecer conteúdos com baixa latência a outras regiões, a CDN do Azure usa servidores em diversos data centers pelo mundo. Além disso, a CDN geralmente tem limites de entrada muito maiores do que as contas de armazenamento individuais.
 
-Para obter mais informações, confira [CDN do Azure](http://azure.microsoft.com/services/cdn/).
+Para obter mais informações, confira [CDN do Azure](https://azure.microsoft.com/services/cdn/).
 
 ###<a name="subheading6"></a>Usando SAS e CORS
 Quando você precisar autorizar o código como JavaScript no navegador da Web de um usuário ou um aplicativo de telefone celular para acessar dados no armazenamento do Azure, uma abordagem é usar um aplicativo em função da web como um proxy: autentica o dispositivo do usuário com a função web, que por sua vez é autenticado com o serviço de armazenamento. Dessa forma, você pode evitar a exposição das chaves de conta de armazenamento em dispositivos que não são seguros. No entanto, isso gera uma grande sobrecarga na função web porque todos os dados transferidos entre os dispositivos do usuário e o serviço de armazenamento devem ser transmitidos por meio de uma função web. Você pode evitar o uso da função web como um proxy para o serviço de armazenamento. Para isso, use SAS (assinaturas de acesso compartilhado), que podem ser combinadas a cabeçalhos de CORS (compartilhamento de recursos entre origens). Por meio das SAS, você pode permitir que o dispositivo do usuário faça solicitações diretamente a um serviço de armazenamento por meio de um token de acesso limitado. Por exemplo, se o usuário quiser carregar uma foto no seu aplicativo, sua função web pode gerar e enviar um token SAS que conceda permissão de edição a um blob ou contêiner específico pela próxima meia hora ao dispositivo do usuário. Após esse período, o token expira.
@@ -368,7 +368,7 @@ Você pode recuperar até 32 mensagens de uma fila em uma única operação. Iss
 ###<a name=subheading43"></a>Intervalo de sondagem de fila
 A maioria dos aplicativos de sondagem para mensagens de uma fila, pode ser uma das principais fontes de transações para o aplicativo. Selecione o intervalo de sondagem com sabedoria: a sondagem muito frequente pode fazer com que seu aplicativo se aproxime das metas de escalabilidade para a fila. No entanto, em 200.000 transações para US $0,01 (no momento da gravação), um único processador sondando uma vez por segundo em um mês custaria menos de 15 centavos, assim o custo de sondagem não é normalmente um fator que afeta sua opção de intervalo de sondagem.
 
-Para obter informações de custo atualizadas, consulte [Detalhes de preços de armazenamento](http://azure.microsoft.com/pricing/details/storage/).
+Para obter informações de custo atualizadas, consulte [Detalhes de preços de armazenamento](https://azure.microsoft.com/pricing/details/storage/).
 
 ###<a name=subheading44"></a>UpdateMessage
 Você pode usar **UpdateMessage** para aumentar o tempo limite da invisibilidade ou atualizar as informações de estado de uma mensagem. Embora isso seja útil, lembre-se de que a operação **UpdateMessage** é computada na meta de escalabilidade. No entanto, essa abordagem pode ser muito mais eficiente do que ter um fluxo de trabalho que transmite uma tarefa de uma fila para a outra, pois cada etapa da tarefa é concluída. O uso da operação **UpdateMessage** permite que o aplicativo salve o estado da tarefa na mensagem e continue trabalhando, em vez de colocar a mensagem na fila novamente para a próxima etapa a cada etapa concluída.
@@ -385,4 +385,4 @@ Você deve usar filas para que a arquitetura do aplicativo seja escalonável. A 
 Este artigo falou sobre algumas das práticas comprovadas mais comuns para otimizar o desempenho com o uso do armazenamento do Azure. Nós recomendamos que cada desenvolvedor avalie seu aplicativo com base nas práticas descritas acima e considere seguir as recomendações para obter desempenho excelente para seus aplicativos que usam o Armazenamento do Azure.
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

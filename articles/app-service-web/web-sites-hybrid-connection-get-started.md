@@ -20,10 +20,10 @@
 
 Você pode conectar um aplicativo Web no Serviço de Aplicativo do Azure a qualquer recurso local que utilize uma porta TCP estática, como SQL Server, MySQL, APIs Web HTTP, Serviços Móveis e os serviços Web mais personalizados. Este artigo mostra como criar uma conexão híbrida entre um aplicativo Web no Serviço de Aplicativo e um banco de dados do SQL Server local.
 
-> [AZURE.NOTE]A parte de aplicativos Web do recurso de conexões híbridas está disponível apenas no [Portal do Azure](https://portal.azure.com). Para criar uma conexão nos Serviços BizTalk, consulte [Conexões Híbridas](http://go.microsoft.com/fwlink/p/?LinkID=397274).
+> [AZURE.NOTE] A parte de aplicativos Web do recurso de conexões híbridas está disponível apenas no [Portal do Azure](https://portal.azure.com). Para criar uma conexão nos Serviços BizTalk, consulte [Conexões Híbridas](http://go.microsoft.com/fwlink/p/?LinkID=397274).
 
 ## Pré-requisitos
-- Uma assinatura do Azure. Para uma assinatura gratuita, consulte [Avaliação Gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/). 
+- Uma assinatura do Azure. Para uma assinatura gratuita, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
 
 - Para usar um banco de dados local SQL Server ou SQL Server Express com uma conexão híbrida, o TCP/IP precisa ser habilitado em uma porta estática. É recomendado usar uma instância padrão no SQL Server porque ele usa a porta estática 1433. Para informações sobre a instalação e a configuração do SQL Server Express para uso com conexões híbridas, consulte [Conectar-se a um SQL Server local por meio de um Site do Azure usando Conexões Híbridas](http://go.microsoft.com/fwlink/?LinkID=397979).
 
@@ -32,12 +32,12 @@ Você pode conectar um aplicativo Web no Serviço de Aplicativo do Azure a qualq
 	- Precisa ser capaz de conectar-se ao Azure pela porta 5671
 	- Precisa ser capaz de atingir o *hostname*:*portnumber* do seu recurso local. 
 
-> [AZURE.NOTE]As etapas neste artigo pressupõem que você está utilizando o navegador a partir do computador que hospedará o agente local de conexão híbrida.
+> [AZURE.NOTE] As etapas neste artigo pressupõem que você está utilizando o navegador a partir do computador que hospedará o agente local de conexão híbrida.
 
 
 ## Criar um aplicativo Web no Portal do Azure ##
 
-> [AZURE.NOTE]Se já criou no Portal do Azure um aplicativo Web que deseja utilizar para este tutorial, você pode pular para [Criar uma Conexão Híbrida e um Serviço do BizTalk](#CreateHC) e começar de lá.
+> [AZURE.NOTE] Se já criou no Portal do Azure um aplicativo Web que deseja utilizar para este tutorial, você pode pular para [Criar uma Conexão Híbrida e um Serviço do BizTalk](#CreateHC) e começar de lá.
 
 1. No canto superior esquerdo do [Portal do Azure](https://portal.azure.com), clique em **Novo** > **Web + Móvel** > **Aplicativo Web**.
 	
@@ -156,7 +156,7 @@ Nesse ponto, você concluiu uma parte importante da infraestrutura de conexão h
 
 Agora que a infraestrutura de conexão híbrida está concluída, você criará um aplicativo híbrido que a utilize.
 
->[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE] Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 <a name="NextSteps"></a>
 ## Próximas etapas ##
@@ -169,9 +169,9 @@ Agora que a infraestrutura de conexão híbrida está concluída, você criará 
 
 [Visão geral de Conexões Híbridas](http://go.microsoft.com/fwlink/p/?LinkID=397274)
 
-[Josh Twist apresenta conexões híbridas (vídeo no Channel 9)](http://channel9.msdn.com/Shows/Azure-Friday/Josh-Twist-introduces-hybrid-connections)
+[Josh Twist apresenta conexões híbridas (vídeo do Channel 9)](http://channel9.msdn.com/Shows/Azure-Friday/Josh-Twist-introduces-hybrid-connections)
 
-[Site de Conexões Híbridas](http://azure.microsoft.com/services/biztalk-services/)
+[Site de Conexões Híbridas](https://azure.microsoft.com/services/biztalk-services/)
 
 [Serviços BizTalk: guias Painel, Monitor, Escala, Configurar e Conexão Híbrida](../biztalk-dashboard-monitor-scale-tabs/)
 
@@ -180,7 +180,7 @@ Agora que a infraestrutura de conexão híbrida está concluída, você criará 
 [Conectar-se a um SQL Server local a partir de serviços móveis do Azure utilizando Conexões Híbridas (vídeo no Channel 9)](http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Connect-to-an-on-premises-SQL-Server-from-Azure-Mobile-Services-using-Hybrid-Connections)
 
 ## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!-- IMAGES -->
 [New]: ./media/web-sites-hybrid-connection-get-started/B01New.png
@@ -208,4 +208,4 @@ Agora que a infraestrutura de conexão híbrida está concluída, você criará 
 [HCStatusConnected]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

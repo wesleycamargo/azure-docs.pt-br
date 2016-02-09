@@ -22,9 +22,9 @@ Veja alguns problemas comuns e soluções relacionadas às funções do Serviço
 
 ## Contate o Suporte ao Cliente do Azure
 
-Se você precisar de mais ajuda em qualquer momento neste artigo, você pode contatar os especialistas do Azure nos [fóruns do Azure MSDN e Excedente de Pilha](http://azure.microsoft.com/support/forums/).
+Se você precisar de mais ajuda em qualquer momento neste artigo, você pode contatar os especialistas do Azure nos [fóruns do Azure MSDN e Excedente de Pilha](https://azure.microsoft.com/support/forums/).
 
-Como alternativa, você também pode registrar um incidente de suporte do Azure. Acesse o [site de Suporte do Azure](http://azure.microsoft.com/support/options/) e clique em **Obter Suporte**. Para obter informações sobre como usar o Suporte do Azure, leia as [Perguntas Frequentes de Suporte do Microsoft Azure](http://azure.microsoft.com/support/faq/).
+Como alternativa, você também pode registrar um incidente de suporte do Azure. Acesse o [site de Suporte do Azure](https://azure.microsoft.com/support/options/) e clique em **Obter Suporte**. Para obter informações sobre como usar o Suporte do Azure, leia as [Perguntas Frequentes de Suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
 
 ## DLLs ou dependências ausentes
@@ -107,7 +107,7 @@ Você pode usar o emulador de computação do Microsoft Azure para diagnosticar 
 
 Para obter melhores resultados ao usar esse método de diagnóstico, você deve usar um computador ou uma máquina virtual com uma instalação limpa do Windows. Para simular melhor o ambiente do Azure, você deve usar o Windows Server 2008 R2 x64.
 
-1. Instalar a versão autônoma do [SDK do Azure](https://azure.microsoft.com/downloads)
+1. Instalar a versão autônoma do [SDK do Azure](https://azure.microsoft.com/downloads/)
 
 2. No computador de desenvolvimento, compile o projeto do serviço de nuvem.
 
@@ -167,4 +167,4 @@ Confira mais [artigos sobre solução de problemas](..\?tag=top-support-issue&se
 
 Para saber como solucionar problemas das funções do Serviço de Nuvem usando os dados de diagnóstico do computador Azure PaaS, veja a [série de blogs de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

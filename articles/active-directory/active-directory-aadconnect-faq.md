@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="01/21/2016"
 	ms.author="billmath"/>
 
 # Perguntas frequentes do Azure AD Connect
@@ -90,4 +90,4 @@ Não. Essa opção não irá recuperar todos os parâmetros de configuração e 
 
 - Use este link para obter suporte por meio do Portal do Azure.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

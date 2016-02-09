@@ -75,8 +75,8 @@ Faça perguntas e obtenha ajuda.
 
  - [Fórum do MSDN: AD do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD)
 
- - [Documentação do AD do Azure](http://azure.microsoft.com/documentation/services/active-directory/)
+ - [Documentação do AD do Azure](https://azure.microsoft.com/documentation/services/active-directory/)
 
  - [Postagem do blog: Introdução ao AD do Azure](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

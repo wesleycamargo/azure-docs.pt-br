@@ -25,14 +25,14 @@ Saiba mais sobre as opções do Big Compute no Azure e escolha a abordagem certa
 
 * [Soluções de HPC e Lote](batch-hpc-solutions.md)
 
-* [Vídeo: Big Compute na nuvem com o Azure e HPC](http://azure.microsoft.com/documentation/videos/teched-europe-2014-big-compute-in-the-cloud-with-high-performance-computing-on-azure/)
+* [Vídeo: Big Compute na nuvem com o Azure e HPC](https://azure.microsoft.com/documentation/videos/teched-europe-2014-big-compute-in-the-cloud-with-high-performance-computing-on-azure/)
 
 
 ## Lote do Azure
 
-O [Lote](http://azure.microsoft.com/services/batch/) é um serviço de plataforma que facilita a habilitação de seus aplicativos para a nuvem e a execução de trabalhos sem configurar e gerenciar um cluster e um agendador de trabalhos. Use o SDK para integrar aplicativos clientes ao Lote do Azure por meio de uma variedade de linguagens, preparar dados no Azure e criar pipelines de execução de trabalho.
+O [Lote](https://azure.microsoft.com/services/batch/) é um serviço de plataforma que facilita a habilitação de seus aplicativos para a nuvem e a execução de trabalhos sem configurar e gerenciar um cluster e um agendador de trabalhos. Use o SDK para integrar aplicativos clientes ao Lote do Azure por meio de uma variedade de linguagens, preparar dados no Azure e criar pipelines de execução de trabalho.
 
-* [Documentação](http://azure.microsoft.com/documentation/services/batch/)
+* [Documentação](https://azure.microsoft.com/documentation/services/batch/)
 
 * [Referência de API](https://msdn.microsoft.com/library/azure/dn820177.aspx)
 
@@ -68,9 +68,9 @@ O HPC Pack é a solução de HPC gratuita da Microsoft fundamentada nas tecnolog
 
 Use esses modelos de início rápido do Azure para implantar clusters HPC Linux com ferramentas de software livre.
 
-* [Crie um cluster SLURM](http://azure.microsoft.com/documentation/templates/slurm/) e uma [postagem de blog](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx)
+* [Crie um cluster SLURM](https://azure.microsoft.com/documentation/templates/slurm/) e uma [postagem de blog](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx)
 
-* [Crie um cluster de Torque](http://azure.microsoft.com/documentation/templates/torque-cluster/)
+* [Crie um cluster de Torque](https://azure.microsoft.com/documentation/templates/torque-cluster/)
 
 ## Microsoft MPI
 
@@ -102,23 +102,23 @@ O Azure oferece uma [variedade de tamanhos](../virtual-machines/virtual-machines
 
 ## Serviços do Azure relacionados
 
-* [Fábrica de dados](http://azure.microsoft.com/documentation/services/data-factory/)
+* [Fábrica de dados](https://azure.microsoft.com/documentation/services/data-factory/)
 
-* [Aprendizado de máquina](http://azure.microsoft.com/documentation/services/machine-learning/)
+* [Aprendizado de máquina](https://azure.microsoft.com/documentation/services/machine-learning/)
 
-* [HDInsight](http://azure.microsoft.com/documentation/services/hdinsight/)
+* [HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/)
 
-* [Máquinas virtuais](http://azure.microsoft.com/documentation/services/virtual-machines/)
+* [Máquinas virtuais](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
-* [Serviços de Nuvem](http://azure.microsoft.com/documentation/services/cloud-services/)
+* [Serviços de Nuvem](https://azure.microsoft.com/documentation/services/cloud-services/)
 
-* [Serviços de Mídia](http://azure.microsoft.com/documentation/services/media-services/)
+* [Serviços de Mídia](https://azure.microsoft.com/documentation/services/media-services/)
 
 
 
 ## Próximas etapas
 
-* Para os anúncios mais recentes, consulte o [blog da equipe do Microsoft HPC e Lote](http://blogs.technet.com/b/windowshpc/) e o [blog do Azure](http://azure.microsoft.com/blog/tag/hpc/).
-* Consulte também [o que há de novo no Lote](http://azure.microsoft.com/updates/?service=batch) ou assine o [RSS feed](http://azure.microsoft.com/updates/feed/?service=batch).
+* Para os anúncios mais recentes, consulte o [blog da equipe do Microsoft HPC e Lote](http://blogs.technet.com/b/windowshpc/) e o [blog do Azure](https://azure.microsoft.com/blog/tag/hpc/).
+* Consulte também [o que há de novo no Lote](https://azure.microsoft.com/updates/?service=batch) ou assine o [RSS feed](https://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

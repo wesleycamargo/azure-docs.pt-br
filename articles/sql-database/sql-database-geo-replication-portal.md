@@ -49,7 +49,7 @@ Para adicionar um secundário, você deverá ser o proprietário ou o co-proprie
 
 O banco de dados secundário terá o mesmo nome do banco de dados primário e, por padrão, terá o mesmo nível de serviço. O banco de dados secundário pode ser legível (somente a camada Premium) ou não legível, e pode ser um banco de dados individual ou um banco de dados elástico. Para saber mais, confira [Camadas de Serviço](sql-database-service-tiers.md). Depois do banco de dados secundário ser criado e propagado, os dados começarão a ser replicados desde o banco de dados primário até o novo banco de dados secundário.
 
-> [AZURE.NOTE]O comando falhará se o banco de dados parceiro já existir (como, por exemplo, como resultado do encerramento de um relacionamento de replicação geográfica anterior).
+> [AZURE.NOTE] O comando falhará se o banco de dados parceiro já existir (como, por exemplo, como resultado do encerramento de um relacionamento de replicação geográfica anterior).
 
 
 
@@ -133,7 +133,7 @@ Para o failover planejado, esta sequência garante que não ocorrerá nenhuma pe
 
 ## Recursos adicionais
 
-- [Destacar os novos recursos de replicação geográfica](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication)
+- [Destacar os novos recursos de replicação geográfica](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 - [Projetando aplicativos de nuvem para a continuidade de negócios usando a replicação geográfica](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
 - [Documentação do banco de dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
@@ -151,4 +151,4 @@ Para o failover planejado, esta sequência garante que não ocorrerá nenhuma pe
 [9]: ./media/sql-database-geo-replication-portal/seeding-complete.png
 [10]: ./media/sql-database-geo-replication-portal/failover.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

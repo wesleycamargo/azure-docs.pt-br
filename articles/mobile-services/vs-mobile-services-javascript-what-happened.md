@@ -3,7 +3,7 @@
 	description="Descreve o que aconteceu com seu projeto dos Serviços Móveis do Azure no Visual Studio" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="TomArcher" 
+	authors="mlhoop" 
 	manager="douge" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
 	ms.date="01/05/2016" 
-	ms.author="tarcher"/>
+	ms.author="mlearned"/>
 
 # O que acontece com o meu projeto do Javascript quando adiciono os Serviços Móveis do Azure usando os Serviços Conectados do Visual Studio?
 
@@ -38,4 +38,4 @@ Na pasta de serviços, arquivos de configuração de Serviços Conectados foram 
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

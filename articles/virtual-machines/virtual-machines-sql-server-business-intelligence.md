@@ -27,11 +27,11 @@ A galeria de Máquinas Virtuais do Microsoft Azure inclui imagens com instalaç�
 
 Há duas maneiras de licenciar o SQL Server em Máquinas Virtuais do Microsoft Azure:
 
-1. Benefícios de mobilidade da licença que fazem parte do Software Assurance. Para saber mais, consulte [Mobilidade de licenças por meio do Software Assurance no Azure](http://azure.microsoft.com/pricing/license-mobility/).
+1. Benefícios de mobilidade da licença que fazem parte do Software Assurance. Para saber mais, consulte [Mobilidade de licenças por meio do Software Assurance no Azure](https://azure.microsoft.com/pricing/license-mobility/).
 
-1. Taxa de pagamento por hora de Máquinas Virtuais do Azure com o SQL Server instalado. Consulte a seção "SQL Server" em [Preços de máquinas virtuais](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
+1. Taxa de pagamento por hora de Máquinas Virtuais do Azure com o SQL Server instalado. Consulte a seção "SQL Server" em [Preços de máquinas virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
 
-Para saber mais sobre licenciamento e taxas atuais, consulte [Perguntas frequentes sobre licenciamento de máquinas virtuais](http://azure.microsoft.com/pricing/licensing-faq/%20).
+Para saber mais sobre licenciamento e taxas atuais, consulte [Perguntas frequentes sobre licenciamento de máquinas virtuais](https://azure.microsoft.com/pricing/licensing-faq/%20/).
 
 ## Imagens do SQL Server disponíveis na galeria de Máquinas Virtuais do Azure
 
@@ -108,7 +108,7 @@ A tabela a seguir resume os recursos de Business Intelligence instalados nas ima
 
 	![Serviços do SQL Server](./media/virtual-machines-sql-server-business-intelligence/IC650107.gif)
 
-	>[AZURE.NOTE]O mecanismo de banco de dados SQL Server é exigido nos cenários de BI com suporte. Em uma topologia de VM de servidor único, o mecanismo de banco de dados deve estar em execução na mesma VM.
+	>[AZURE.NOTE] O mecanismo de banco de dados SQL Server é exigido nos cenários de BI com suporte. Em uma topologia de VM de servidor único, o mecanismo de banco de dados deve estar em execução na mesma VM.
 
 	Para saber mais, consulte o seguinte: [Desinstalar o Reporting Services](https://msdn.microsoft.com/library/hh479745.aspx) e [Desinstalar uma instância do Analysis Services](https://msdn.microsoft.com/library/ms143687.aspx).
 
@@ -152,7 +152,7 @@ Analysis Services, Reporting Services, Mecanismo de Banco de Dados SQL Server e 
 
 A imagem da galeria de máquinas virtuais do SQL Server inclui a instalação do modo Nativo do Reporting Services. No entanto, o servidor de relatório não está configurado. As etapas desta seção configuram o servidor de relatório do Reporting Services. Para obter informações mais detalhadas sobre como configurar o modo Nativo do Reporting Services, consulte [Instalar o servidor de relatório no modo nativo do Reporting Services (SSRS)](https://msdn.microsoft.com/library/ms143711.aspx).
 
->[AZURE.NOTE]Para obter conteúdo semelhante que usa scripts do Windows PowerShell para configurar o servidor de relatório, consulte [Usar o PowerShell para criar uma VM do Azure com um servidor de relatório no modo nativo](virtual-machines-sql-server-create-native-mode-report-server-powershell.md).
+>[AZURE.NOTE] Para obter conteúdo semelhante que usa scripts do Windows PowerShell para configurar o servidor de relatório, consulte [Usar o PowerShell para criar uma VM do Azure com um servidor de relatório no modo nativo](virtual-machines-sql-server-create-native-mode-report-server-powershell.md).
 
 ### Conectar-se à máquina virtual e iniciar o Gerenciador de Configuração do Reporting Services
 
@@ -170,7 +170,7 @@ Há dois fluxos de trabalho comuns para se conectar a uma máquina virtual do Az
 		
 		Myservice.cloudapp.net:63133
 		
-		Para obter mais informações, consulte [O que é um serviço de nuvem?](http://www.windowsazure.com/manage/services/cloud-services/what-is-a-cloud-service/).
+		Para obter mais informações, consulte [O que é um serviço de nuvem?](https://azure.microsoft.com/manage/services/cloud-services/what-is-a-cloud-service/).
 
 **Inicie o Gerenciador de Configuração do Reporting Services.**
 
@@ -206,13 +206,13 @@ Ou
 
 1. Verifique se o **Nome do Servidor** é o nome do servidor local e clique em **Conectar**.
 
-1. Observe o espaço em branco em **Nome do Banco de Dados do Servidor de Relatório**. O banco de dados será criado quando a configuração for concluída.
+1. Observe o espaço em branco em **Nome do Banco de Dados do Servidor de Relatórios**. O banco de dados será criado quando a configuração for concluída.
 
 1. Verifique se o **Status do Servidor de Relatórios** é **Iniciado**. Se você quiser verificar o serviço no Windows Server Manager, o serviço será o Serviço do Windows **SQL Server Reporting Services**.
 
 1. Clique em **Conta de Serviço** e altere a conta como necessário. Se a máquina virtual for usada em um ambiente não ingressado no domínio, a conta interna do **ReportServer** será suficiente. Para saber mais sobre a conta de serviço, consulte [Conta de Serviço](https://msdn.microsoft.com/library/ms189964.aspx).
 
-1. Clique em **URL do Serviço Web** no painel esquerdo.
+1. Clique em **URL do Serviço Web** no painel Esquerdo.
 
 1. Clique em **Aplicar** para configurar os valores padrão.
 
@@ -314,7 +314,7 @@ Para instalar serviços adicionais do SQL Server, como o Analysis Services no mo
 
 Ou execute C:\\SQLServer\_12.0\_full\\setup.exe ou C:\\SQLServer\_11.0\_full\\setup.exe
 
->[AZURE.NOTE]Quando você executar pela primeira vez a instalação do SQL Server, é possível que outros arquivos de instalação sejam baixados e exijam a reinicialização da máquina virtual e da instalação do SQL Server.
+>[AZURE.NOTE] Quando você executar pela primeira vez a instalação do SQL Server, é possível que outros arquivos de instalação sejam baixados e exijam a reinicialização da máquina virtual e da instalação do SQL Server.
 >
 >Se você precisar personalizar repetidamente a imagem selecionada da Máquina Virtual do Microsoft Azure, considere a criação de sua própria imagem do SQL Server. A funcionalidade SysPrep do Analysis Services foi habilitada com o SQL Server 2012 SP1 CU2. Para saber mais, consulte [Considerações sobre a instalação do SQL Server usando SysPrep](https://msdn.microsoft.com/library/ee210754.aspx).
 
@@ -388,8 +388,8 @@ Esta seção resume os pontos de extremidade de máquina virtual do Microsoft Az
 
 	|Port|Tipo|Descrição|
 |---|---|---|
-|**80**|TCP|Acesso remoto ao servidor de relatório (*).|
-|**1433**|TCP|SQL Server Management Studio (*).|
+|**80**|TCP|Acesso remoto ao servidor de relatório (*).| 
+|**1433**|TCP|SQL Server Management Studio (*).| 
 |**1434**|UDP|SQL Server Browser. Necessário quando a VM ingressa em um domínio.|
 |**2382**|TCP|SQL Server Browser.|
 |**2383**|TCP|Instância padrão do SQL Server Analysis Services e instâncias nomeadas em cluster.|
@@ -411,7 +411,7 @@ O diagrama a seguir ilustra as portas a serem abertas no firewall da VM a fim de
 
 - [Visão geral do SQL Server em máquinas virtuais do Azure](virtual-machines-sql-server-infrastructure-services.md)
 
-- [Máquinas virtuais](http://azure.microsoft.com/documentation/services/virtual-machines/)
+- [Máquinas virtuais](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
 - [Provisionando uma máquina virtual do SQL Server no Azure](virtual-machines-provision-sql-server.md)
 
@@ -423,7 +423,7 @@ O diagrama a seguir ilustra as portas a serem abertas no firewall da VM a fim de
 
 - [Modelagem multidimensional (tutorial da Adventure Works)](https://technet.microsoft.com/library/ms170208.aspx)
 
-- [Centro de Documentação do Azure](http://azure.microsoft.com/documentation/)
+- [Centro de Documentação do Azure](https://azure.microsoft.com/documentation/)
 
 - [Usando o Power BI em um ambiente híbrido](https://msdn.microsoft.com/library/dn798994.aspx)
 
@@ -433,4 +433,4 @@ O diagrama a seguir ilustra as portas a serem abertas no firewall da VM a fim de
 
 - [Gerenciamento de banco de dados SQL do Azure com o PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!-----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -22,7 +22,7 @@
 
 A análise de armazenamento do Azure executa registro em log e fornece dados de métrica para uma conta de armazenamento. Você pode usar esses dados para rastrear solicitações, analisar tendências de uso e diagnosticar problemas com sua conta de armazenamento.
 
-Para usar a análise de armazenamento, você deve habilitá-la separadamente para cada serviço que você deseja monitorar. Você pode habilitá-la no [portal do Azure](portal.azure.com). Para obter detalhes, consulte [Como monitorar uma conta de armazenamento](http://www.azure.com/manage/services/storage/how-to-monitor-a-storage-account/). Você também pode habilitar a análise de armazenamento programaticamente por meio da API REST ou da biblioteca de cliente. Use as operações [Obter propriedades do serviço Blob](https://msdn.microsoft.com/library/hh452239.aspx), [Obter propriedades do serviço de fila](https://msdn.microsoft.com/library/hh452243.aspx) e [Obter propriedades do serviço de tabela](https://msdn.microsoft.com/library/hh452238.aspx) para habilitar a análise de armazenamento para cada serviço.
+Para usar a análise de armazenamento, você deve habilitá-la separadamente para cada serviço que você deseja monitorar. Você pode habilitá-la no [portal do Azure](https://portal.azure.com). Para obter detalhes, consulte [Como monitorar uma conta de armazenamento](http://www.azure.com/manage/services/storage/how-to-monitor-a-storage-account/). Você também pode habilitar a análise de armazenamento programaticamente por meio da API REST ou da biblioteca de cliente. Use as operações [Obter propriedades do serviço Blob](https://msdn.microsoft.com/library/hh452239.aspx), [Obter propriedades do serviço de fila](https://msdn.microsoft.com/library/hh452243.aspx) e [Obter propriedades do serviço de tabela](https://msdn.microsoft.com/library/hh452238.aspx) para habilitar a análise de armazenamento para cada serviço.
 
 Os dados agregados são armazenados em um blob conhecido (para registro em log) e em tabelas conhecidas (para métricas), que podem ser acessados usando os serviços de Blob e APIs do serviço de tabela
 
@@ -67,7 +67,7 @@ Todas as outras solicitações anônimas com falha não estão conectadas. Uma l
 ### Como os logs são armazenados
 Todos os logs são armazenados em blobs de bloco em um contêiner denominado $logs, que é criado automaticamente quando a análise de armazenamento é habilitada para uma conta de armazenamento. O contêiner $logs está localizado no namespace de blob da conta de armazenamento, por exemplo: `http://<accountname>.blob.core.windows.net/$logs`. Este contêiner não pode ser excluído quando a análise de armazenamento tiver sido habilitada, embora seu conteúdo possa ser excluído.
 
->[Azure.NOTE]O contêiner de $logs não é exibido quando uma operação de listagem do contêiner é executada, como o método [ListContainers](https://msdn.microsoft.com/library/ee758348.aspx). Ele deve ser acessado diretamente. Por exemplo, você pode usar o método [ListBlobs](https://msdn.microsoft.com/library/ee772878.aspx) para acessar os blobs no contêiner `$logs`. Como as solicitações são registradas, a análise de armazenamento carrega resultados intermediários como blocos. Periodicamente, a análise de armazenamento confirmará esses blocos e os disponibilizará como um blob.
+>[Azure.NOTE] O contêiner de $logs não é exibido quando uma operação de listagem do contêiner é executada, como o método [ListContainers](https://msdn.microsoft.com/library/ee758348.aspx). Ele deve ser acessado diretamente. Por exemplo, você pode usar o método [ListBlobs](https://msdn.microsoft.com/library/ee772878.aspx) para acessar os blobs no contêiner `$logs`. Como as solicitações são registradas, a análise de armazenamento carrega resultados intermediários como blocos. Periodicamente, a análise de armazenamento confirmará esses blocos e os disponibilizará como um blob.
 
 Podem existir registros duplicados para os logs criados na mesma hora. Você pode determinar se um registro é uma duplicata verificando o **RequestId** e o número da **Operação**.
 
@@ -126,7 +126,7 @@ Todos os dados no contêiner `$logs` podem ser acessados usando as APIs do servi
 
 A análise de armazenamento pode armazenar métricas que incluem estatísticas de transação agregadas e os dados de capacidade sobre solicitações para um serviço de armazenamento. As transações são relatadas no nível de operação da API, bem como no nível de serviço de armazenamento, e a capacidade é relatada no nível de serviço de armazenamento. Os dados de métricas podem ser usados para analisar o uso do serviço de armazenamento, diagnosticar problemas com solicitações feitas no serviço de armazenamento e melhorar o desempenho de aplicativos que usam um serviço.
 
-Para usar a análise de armazenamento, você deve habilitá-la separadamente para cada serviço que você deseja monitorar. Você pode habilitá-la no [portal do Azure](portal.azure.com). Para obter detalhes, consulte [Como monitorar uma conta de armazenamento](../how-to-monitor-a-storage-account.md). Você também pode habilitar a análise de armazenamento programaticamente por meio da API REST ou da biblioteca de cliente. [Use as operações Obter propriedades do serviço Blob, Obter propriedades do serviço Fila](https://msdn.microsoft.com/library/hh452239.aspx) e [Obter propriedades do serviço Tabela](https://msdn.microsoft.com/library/hh452238.aspx) para habilitar a Análise de Armazenamento para cada serviço.
+Para usar a análise de armazenamento, você deve habilitá-la separadamente para cada serviço que você deseja monitorar. Você pode habilitá-la no [portal do Azure](https://portal.azure.com). Para obter detalhes, consulte [Como monitorar uma conta de armazenamento](../how-to-monitor-a-storage-account.md). Você também pode habilitar a análise de armazenamento programaticamente por meio da API REST ou da biblioteca de cliente. [Use as operações Obter propriedades do serviço Blob, Obter propriedades do serviço Fila](https://msdn.microsoft.com/library/hh452239.aspx) e [Obter propriedades do serviço Tabela](https://msdn.microsoft.com/library/hh452238.aspx) para habilitar a Análise de Armazenamento para cada serviço.
 
 ### Métricas de transação
 
@@ -140,7 +140,7 @@ As métricas de transações são registradas para solicitações de usuários e
 
 ### Métricas de capacidade
 
->[AZURE.NOTE]Atualmente, as métricas de capacidade somente estão disponíveis para o serviço Blob. As métricas de capacidade para os serviços de tabela e fila estarão disponíveis em versões futuras da análise de armazenamento.
+>[AZURE.NOTE] Atualmente, as métricas de capacidade somente estão disponíveis para o serviço Blob. As métricas de capacidade para os serviços de tabela e fila estarão disponíveis em versões futuras da análise de armazenamento.
 
 Os dados de capacidade são gravados diariamente para serviço de Blob de uma conta de armazenamento e duas entidades de tabela são gravadas. Uma entidade fornece estatísticas para dados de usuário e a outra fornece estatísticas sobre o contêiner de blob `$logs` usado pela análise de armazenamento. A tabela `$MetricsCapacityBlob` inclui as seguintes estatísticas:
 
@@ -206,4 +206,4 @@ Ao analisar os dados de análise de armazenamento, você pode usar as tabelas no
 - [Esquema da tabela de métricas da análise de armazenamento](https://msdn.microsoft.com/library/hh343264.aspx)
 - [Mensagens de operações e status registradas de análise de armazenamento](https://msdn.microsoft.com/library/hh343260.aspx)  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="01/21/2016"
 	ms.author="ricksal"/>
 
 # Carregar imagens no Armazenamento do Azure por meio de um dispositivo Android
@@ -35,7 +35,7 @@ Antes de iniciar este tutorial, primeiro você deve concluir o início rápido d
 
 Este tutorial também exige os seguintes itens:
 
-+ Uma [conta do Armazenamento do Azure](../storage-create-storage-account.md)
++ Uma [conta do Armazenamento do Azure](../storage/storage-create-storage-account.md)
 + Um dispositivo Android com uma câmera
 
 ## Como o aplicativo funciona
@@ -49,7 +49,7 @@ Carregar a imagem da foto é um processo que leva várias etapas:
 
 O que é uma SAS?
 
-Não é seguro armazenar as credenciais necessárias para carregar dados no serviço do Armazenamento do Azure no seu aplicativo cliente. Em vez disso, armazene essas credenciais em seu serviço móvel e use-as para gerar uma Assinatura de Acesso Compartilhado (SAS) que concede permissão para carregar uma nova imagem. A SAS, uma credencial com expiração de 5 minutos, será retornada com segurança pelos Serviços Móveis para o aplicativo cliente. O aplicativo usará, então, essa credencial temporária para carregar a imagem. Para obter mais informações, veja [Assinaturas de Acesso Compartilhado, parte 1: entendendo o modelo SAS](storage-dotnet-shared-access-signature-part-1.md)
+Não é seguro armazenar as credenciais necessárias para carregar dados no serviço do Armazenamento do Azure no seu aplicativo cliente. Em vez disso, armazene essas credenciais em seu serviço móvel e use-as para gerar uma Assinatura de Acesso Compartilhado (SAS) que concede permissão para carregar uma nova imagem. A SAS, uma credencial com expiração de 5 minutos, será retornada com segurança pelos Serviços Móveis para o aplicativo cliente. O aplicativo usará, então, essa credencial temporária para carregar a imagem. Para obter mais informações, veja [Assinaturas de Acesso Compartilhado, parte 1: entendendo o modelo SAS](../storage/storage-dotnet-shared-access-signature-part-1.md)
 
 ## Exemplo de código
 [Aqui](https://github.com/Azure/mobile-services-samples/tree/master/UploadImages) está a parte concluída do código-fonte do cliente desse aplicativo. Para executá-lo, você deve concluir as partes de back-end dos Serviços Móveis deste tutorial.
@@ -367,7 +367,7 @@ Esse código envia uma solicitação ao serviço móvel para inserir um novo Tod
 
 1. No Android Studio, pressione **Executar**. Na caixa de diálogo, escolha o dispositivo que será usado.
 
-2. Quando a interface do usuário do aplicativo for exibida, digite o texto na caixa de texto rotulada **Adicionar um item de Tarefas Pendentes**.
+2. Quando a interface do usuário do aplicativo for exibida, digite o texto na caixa de texto rotulada **Adicionar um item ToDo**.
 
 3. Pressione **Tirar Foto**. Quando o aplicativo da câmera for iniciado, tire uma foto. Pressione a marca de seleção para aceitar a foto.
 
@@ -426,4 +426,4 @@ Agora que você conseguiu carregar as imagens com segurança, integrando seu ser
 [Referência conceitual do tutorial do .NET de Serviços Móveis]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

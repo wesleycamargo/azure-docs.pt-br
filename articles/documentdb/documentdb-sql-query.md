@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Consulta SQL em um Banco de Dados de Documentos, um banco de dados NoSQL | Microsoft Azure" 
-	description="Aprenda a usar as instruções de consulta SQL para consultar o Banco de Dados de Documentos, um banco de dados NoSQL. Como uma linguagem de consulta JSON, as consultas SQL podem ser usadas para a análise de Big Data." 
-	keywords="consulta sql, consultas sql, sintaxe sql, linguagem de consulta json, conceitos de banco de dados e consultas sql"
+	pageTitle="Sintaxe e consulta SQL para Banco de Dados de Documentos | Microsoft Azure" 
+	description="Saiba mais sobre a sintaxe SQL, os conceitos de banco de dados e as consultas SQL para o Banco de Dados de Documentos, um banco de dados NoSQL. O SQL pode ser usado como uma linguagem de consulta JSON no Banco de Dados de Documentos." 
+	keywords="sintaxe sql, consulta sql, consultas sql, linguagem de consulta json, conceitos de banco de dados e consultas sql"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="arramac" 
@@ -17,12 +17,12 @@
 	ms.date="12/14/2015" 
 	ms.author="arramac"/>
 
-# Consulta SQL no Banco de Dados de Documentos
+# Consulta e sintaxe SQL no Banco de Dados de Documentos
 O Banco de Dados de Documentos do Microsoft Azure tem suporte para a realização de consultas de documentos usando uma SQL (Structured Query Language) como uma linguagem de consulta JSON. O Banco de Dados de Documentos é verdadeiramente livre de esquemas. Em virtude de seu comprometimento com o modelo de dados JSON diretamente dentro do mecanismo do banco de dados, ele fornece a indexação automática de documentos JSON sem a necessidade de esquemas explícitos ou da criação de índices secundários.
 
 Ao criar a linguagem de consulta para o Banco de Dados de Documentos, tínhamos dois objetivos em mente:
 
--	Em vez de inventar uma nova linguagem de consulta, gostaríamos de dar suporte à SQL. A SQL é uma das linguagens de consulta mais conhecidas e populares. A SQL de Banco de Dados de Documentos fornece um modelo de programação formal para consultas avançadas em documentos JSON.
+-	Em vez de inventar uma nova linguagem de consulta JSON, queremos oferecer suporte ao SQL. A SQL é uma das linguagens de consulta mais conhecidas e populares. A SQL de Banco de Dados de Documentos fornece um modelo de programação formal para consultas avançadas em documentos JSON.
 -	Como um banco de dados de documentos JSON capaz de executar o JavaScript diretamente no mecanismo do banco de dados, queríamos usar o modelo de programação do JavaScript como os alicerces da nossa linguagem de consulta. A SQL de Banco de Dados de Documentos é baseada no sistema de tipos, avaliação de expressão e invocação de função do JavaScript. Isso, por sua vez, oferece um modelo de programação natural para projeções relacionais, navegação hierárquica em documentos JSON, autojunções, consultas espaciais e invocação de UDFs (funções definidas pelo usuário) gravadas inteiramente em JavaScript, entre outros recursos. 
 
 Nós acreditamos que esses recursos sejam fundamentais para reduzir o atrito entre o aplicativo e o banco de dados e cruciais para a produtividade do desenvolvedor.
@@ -341,7 +341,7 @@ Para que os tempos de execução das consultas sejam menores, lembre-se de criar
 A principal diferença entre usar BETWEEN no Banco de Dados de Documentos e na ANSI SQL é que você pode expressar consultas de intervalo de tipos mistos. Por exemplo, você pode designar "série" como um número (5) em alguns documentos e como cadeias de caracteres em outros ("grade4"). Nesses casos, como no JavaScript, uma comparação entre dois tipos diferentes traz um resultado "indefinido" e o documento é ignorado.
 
 ### Operadores lógicos (AND, OR e NOT)
-Operadores lógicos funcionam em valores booleanos. As tabelas de verdade lógica desses operadores são mostradas nas tabelas a seguir.
+Operadores lógicos funcionam em valores boolianos. As tabelas de verdade lógica desses operadores são mostradas nas tabelas a seguir.
 
 OU|Verdadeiro|Falso|Indefinido
 ---|---|---|---
@@ -374,7 +374,7 @@ Este exemplo retorna todos os documentos cujo estado é qualquer um dos valores 
     FROM Families 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 
-IN é equivalente ao encadeamento de várias cláusulas OR; no entanto, já que ela pode ser atendida pelo uso de um único índice, o Banco de Dados de Documentos dá suporte a um [limite](documentdb-limits.md) maior para o número de argumentos especificados dentro de uma cláusula IN.
+IN é equivalente ao encadeamento de várias cláusulas OR; no entanto, já que ela pode ser atendida pelo uso de um único índice, o Banco de Dados de Documentos permite um [limite](documentdb-limits.md) maior para o número de argumentos especificados dentro de uma cláusula IN.
 
 ### Operadores Ternário (?) e de União (??)
 Os operadores Ternário e de União podem ser usados para compilar expressões condicionais, de modo semelhante a linguagens de programação populares como C# e JavaScript.
@@ -997,7 +997,7 @@ O exemplo anterior cria um UDF cujo nome é `REGEX_MATCH`. Ele aceita dois valor
 
 Agora, podemos usar esta UDF em uma consulta em uma projeção. UDFs devem ser qualificadas com o prefixo que diferencia maiúsculas de minúsculas "udf." quando chamadas por meio de consultas.
 
->[AZURE.NOTE]Antes de 17/03/2015, o Banco de Dados de Documentos dava suporte a chamadas a UDF sem o prefixo "udf.", como SELECT REGEX\_MATCH(). Esse padrão de chamada foi preterido.
+>[AZURE.NOTE] Antes de 17/03/2015, o Banco de Dados de Documentos dava suporte a chamadas a UDF sem o prefixo "udf.", como SELECT REGEX\_MATCH(). Esse padrão de chamada foi preterido.
 
 **Consulta**
 
@@ -1429,7 +1429,7 @@ Aqui está outro exemplo que usa ARRAY\_LENGTH para obter o número de filhos po
 
 ### Funções espaciais
 
-O Banco de Dados de Documentos dá suporte às seguintes funções internas do Open Geospatial Consortium (OGC) para consultas geoespaciais. Para obter mais detalhes sobre o suporte geoespacial no Banco de Dados de Documentos, veja [Trabalhando com dados geoespaciais no Banco de Dados de Documentos do Azure](documentdb-geospatial.md).
+O Banco de Dados de Documentos dá suporte às seguintes funções internas do Open Geospatial Consortium (OGC) para consultas geoespaciais. Para obter mais detalhes sobre o suporte geoespacial no Banco de Dados de Documentos, consulte [Trabalhando com dados geoespaciais no Banco de Dados de Documentos do Azure](documentdb-geospatial.md).
 
 <table>
 <tr>
@@ -1468,11 +1468,11 @@ As funções espaciais podem ser usadas para executar consultas espaciais em con
       "id": "WakefieldFamily"
     }]
 
-Se você incluir a indexação espacial em sua política de indexação, as "consultas de distância" serão servidas com eficiência por meio do índice. Para obter mais detalhes sobre a indexação espacial, consulte a seção abaixo. Se você não tiver um índice espacial para os caminhos especificados, ainda poderá executar consultas espaciais especificando o cabeçalho da solicitação `x-ms-documentdb-query-enable-scan` com o valor definido como “true”. No .NET, isso pode ser feito transmitindo o argumento **FeedOptions** opcional para consultas com [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) definido como true.
+Se você incluir a indexação espacial em sua política de indexação, as "consultas de distância" serão servidas com eficiência por meio do índice. Para obter mais detalhes sobre a indexação espacial, consulte a seção abaixo. Se você não tiver um índice espacial para os caminhos especificados, ainda poderá executar consultas espaciais especificando o cabeçalho da solicitação `x-ms-documentdb-query-enable-scan` com o valor definido como "true". No .NET, isso pode ser feito passando o argumento **FeedOptions** opcional para consultas com [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) definido como true.
 
 ST\_WITHIN pode ser usado para verificar se um ponto está dentro de um polígono. Normalmente, os polígonos são usados para representar limites como códigos postais, fronteiras de estado ou formações naturais. Novamente, se você incluir a indexação espacial em sua política de indexação, as consultas "internas" serão servidas com eficiência por meio do índice.
 
-Os argumentos do polígono no ST\_WITHIN podem conter apenas um único toque, ou seja, os polígonos não devem conter orifícios neles. Verifique os [limites do Banco de Dados de Documentos](documentdb-limits.md) para obter o número máximo de pontos permitido em um polígono para uma consulta ST\_WITHIN.
+Os argumentos do polígono no ST\_WITHIN podem conter apenas um único toque, ou seja, os polígonos não devem conter orifícios neles. Verifique os [limites do Banco de Dados de Documentos](documentdb-limits.md) para o número máximo de pontos permitido em um polígono para uma consulta ST\_WITHIN.
 
 **Consulta**
 
@@ -1489,7 +1489,7 @@ Os argumentos do polígono no ST\_WITHIN podem conter apenas um único toque, ou
       "id": "WakefieldFamily",
     }]
     
->[AZURE.NOTE]Da mesma forma como os tipos incompatíveis funcionam na consulta do Banco de Dados de Documentos, se o valor de local especificado em um dos argumentos for malformado ou inválido, ele será avaliado como **indefinido** e o documento avaliado será ignorado nos resultados da consulta. Se sua consulta não retornar resultados, execute ST\_ISVALIDDETAILED para depurar o motivo pelo qual o tipo spatail é inválido.
+>[AZURE.NOTE] Da mesma forma como os tipos incompatíveis funcionam na consulta do Banco de Dados de Documentos, se o valor de local especificado em um dos argumentos for malformado ou inválido, então ele será avaliado como **indefinido** e o documento avaliado será ignorado nos resultados da consulta. Se sua consulta não retornar resultados, execute ST\_ISVALIDDETAILED para depurar o motivo pelo qual o tipo spatail é inválido.
 
 ST\_ISVALID e ST\_ISVALIDDETAILED podem ser usados para verificar se um objeto espacial é válido. Por exemplo, a consulta a seguir verifica a validade de um ponto com um valor de latitude fora do intervalo (-132,8). ST\_ISVALID retorna um valor Booliano e ST\_ISVALIDDETAILED retorna o Booliano e uma cadeia de caracteres com o motivo pelo qual ele é considerado inválido.
 
@@ -1527,7 +1527,7 @@ O LINQ é um modelo de programação .NET que expressa a computação como consu
 
 A imagem abaixo mostra a arquitetura do suporte a consultas do LINQ usando o Banco de Dados de Documentos. Usando o cliente do Banco de Dados de Documentos, os desenvolvedores podem criar um objeto **IQueryable** que consulta diretamente o provedor de consulta do Banco de Dados de Documentos que, por sua vez, traduz a consulta do LINQ para uma consulta de Banco de Dados de Documentos. A consulta é, então, passada ao servidor do Banco de Dados de Documentos para recuperar um conjunto de resultados no formato JSON. Os resultados retornados são desserializados em um fluxo de objetos .NET no lado do cliente.
 
-![Arquitetura do suporte a consultas do LINQ usando o Banco de Dados de Documentos.][1]
+![Arquitetura de suporte a consultas LINQ usando o Banco de Dados de Documentos — sintaxe SQL, linguagem de consulta JSON, conceitos de banco de dados e consultas SQL][1]
  
 
 
@@ -2144,4 +2144,4 @@ O exemplo a seguir mostra como usar o queryDocuments na API do servidor do JavaS
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

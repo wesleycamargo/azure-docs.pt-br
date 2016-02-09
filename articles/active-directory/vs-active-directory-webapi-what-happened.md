@@ -59,8 +59,7 @@ Se você já tiver uma classe de Inicialização em seu projeto, o método **Con
 
 ###Seu arquivo app.config ou web.config possui novos valores de configuração.
 
-As entradas de configuração a seguir foram adicionadas. 
-```
+As entradas de configuração a seguir foram adicionadas. ```
 	`<appSettings>
     		<add key="ida:ClientId" value="ClientId from the new Azure AD App" />
     		<add key="ida:Tenant" value="Your selected Azure AD Tenant" />
@@ -72,7 +71,7 @@ As entradas de configuração a seguir foram adicionadas.
 
 Um Aplicativo Azure AD foi criado no diretório selecionado no assistente.
 
-[Saiba mais sobre o Active Directory do Azure](http://azure.microsoft.com/services/active-directory/)
+[Saiba mais sobre o Active Directory do Azure](https://azure.microsoft.com/services/active-directory/)
 
 ##Se eu tiver marcado *desabilitar a autenticação de Contas de Usuários Individuais*, quais alterações adicionais foram feitas ao meu projeto?
 Referências ao pacote NuGet foram removidas e arquivos foram removidos e copiados. Dependendo do estado do seu projeto, você terá de remover manualmente referências ou arquivos adicionais ou modificar o código conforme apropriado.
@@ -115,6 +114,6 @@ As outras entradas de configuração a seguir foram adicionadas.
 ###Seu aplicativo Active Directory do Azure foi atualizado
 Seu aplicativo Active Directory do Azure foi atualizado para incluir a permissão *Ler dados do diretório* e uma chave adicional foi criada e, em seguida, utilizada como *ida:Password* no arquivo `web.config`.
 
-[Saiba mais sobre o Active Directory do Azure](http://azure.microsoft.com/services/active-directory/)
+[Saiba mais sobre o Active Directory do Azure](https://azure.microsoft.com/services/active-directory/)
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

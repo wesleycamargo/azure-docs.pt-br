@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/21/2015"
+   ms.date="01/21/2016"
    ms.author="andkjell"/>
 
 # Sincronização do Azure AD Connect: noções básicas sobre a configuração padrão
@@ -143,7 +143,7 @@ Uma regra de sincronização é um objeto de configuração com um conjunto de a
 
 Por exemplo, examinaremos a Regra de Sincronização **Entrada do AD – usuário AccountEnabled**. Vamos marcar essa linha no SRE e selecionar **Editar**.
 
-Como se trata de uma regra integrada, receberemos um aviso quando abrimos a regra. Você não deve fazer qualquer [alteração em regras integradas](active-directory-aadconnectsync-best-practices-changing-default-configuration.md), então você está sendo questionado sobre suas intenções. Nesse caso, você deseja somente exibir a regra; portanto, selecione **Não**.
+Como se trata de uma regra integrada, receberemos um aviso quando abrimos a regra. Você não deve fazer qualquer [alteração em regras integradas](active-directory-aadconnectsync-best-practices-changing-default-configuration.md) então a pergunta é sobre as suas intenções. Nesse caso, você deseja somente exibir a regra; portanto, selecione **Não**.
 
 ![Regras de Sincronização Entrada](./media/active-directory-aadconnectsync-understanding-default-configuration/warningeditrule.png)
 
@@ -241,4 +241,4 @@ Agora sabemos o suficiente sobre Regras de Sincronização para poder entender c
 * [Azure AD Connect Sync: personalizando opções de sincronização](active-directory-aadconnectsync-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

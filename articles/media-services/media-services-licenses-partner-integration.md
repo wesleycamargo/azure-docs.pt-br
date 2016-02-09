@@ -47,4 +47,4 @@ Você pode usar [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/) para for
 
 [Blog do Mingfei](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

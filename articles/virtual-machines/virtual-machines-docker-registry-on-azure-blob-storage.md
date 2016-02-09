@@ -28,7 +28,7 @@ Este documento descreve o que é um Registro do Docker privado e mostra como voc
 Este documento supõe que:
 
 1. você sabe como usar o Docker e tem imagens Docker para armazenar. (Não concorda? [Saiba mais sobre o Docker](https://www.docker.com).
-2. Você tem um servidor com o mecanismo Docker instalado. (Não concorda? [Faça isso rapidamente no Azure.](http://azure.microsoft.com/documentation/templates/docker-simple-on-ubuntu/))
+2. Você tem um servidor com o mecanismo Docker instalado. (Não concorda? [Faça isso rapidamente no Azure.](https://azure.microsoft.com/documentation/templates/docker-simple-on-ubuntu/))
 
 
 ## O que é um Registro do Docker privado?
@@ -82,7 +82,7 @@ CONTAINER ID        IMAGE               COMMAND                CREATED          
 3698ddfebc6f        registry:2          "registry cmd/regist   2 seconds ago       Up 1 seconds        0.0.0.0:5000->5000/tcp   registry
 ```
 
-> [AZURE.IMPORTANT]A configuração da segurança do Registro do Docker não é abordada neste documento, e seu registro poderá ser acessado por qualquer pessoa sem autenticação se você abrir a porta para a porta do registro no ponto de extremidade da Máquina virtual ou balanceador de carga, caso você use o comando de implantação acima.
+> [AZURE.IMPORTANT] A configuração da segurança do Registro do Docker não é abordada neste documento, e seu registro poderá ser acessado por qualquer pessoa sem autenticação se você abrir a porta para a porta do registro no ponto de extremidade da Máquina virtual ou balanceador de carga, caso você use o comando de implantação acima.
 >
 > Leia a documentação [Configuração do Registro do Docker][registry-config] para saber como proteger a instância do Registro e suas imagens.
 
@@ -96,4 +96,4 @@ Depois de configurar o Registro, você o usará novamente. Comece com o [registr
 [registry-config]: http://docs.docker.com/registry/configuration/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

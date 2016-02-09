@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="01/13/2016"
 	ms.author="cephalin"/>
 
 # Introdução ao teste em produção para Aplicativos Web
@@ -39,9 +39,9 @@ Com o recurso de Roteamento de Tráfego no [Serviço de Aplicativo do Azure](htt
 
 No nível básico em cada cenário do TiP, encaminhe um percentual predefinido do seu tráfego em tempo real em um slot de implantação que não seja de produção. Para fazer isso, siga as etapas abaixo:
 
->[AZURE.NOTE]Nessas etapas, pressupomos que você já tenha um [slot de implantação de não produção](web-sites-staged-publishing.md) e que o conteúdo do aplicativo Web desejado já esteja [implantado](web-sites-publish-source-control.md) nele.
+>[AZURE.NOTE] Nessas etapas, pressupomos que você já tenha um [slot de implantação de não produção](web-sites-staged-publishing.md) e que o conteúdo do aplicativo Web desejado já esteja [implantado](web-sites-publish-source-control.md) nele.
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com).
+1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 2. Na folha de seu aplicativo Web, clique em **Configurações** > **Roteamento de Tráfego**. ![](./media/app-service-web-test-in-production/01-traffic-routing.png)
 3. Selecione o slot para o qual você deseja encaminhar o tráfego e o percentual do tráfego total desejado e clique em **Salvar**.
 
@@ -86,4 +86,4 @@ Para permitir que os usuários aceitem seu aplicativo beta, defina o mesmo parâ
 -   [Desenvolvimento de software Agile com o Serviço de Aplicativo do Azure](app-service-agile-software-development.md)
 -	[Usar ambientes de Operações de Desenvolvimento com eficiência em seus aplicativos Web](app-service-web-staged-publishing-realworld-scenarios.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

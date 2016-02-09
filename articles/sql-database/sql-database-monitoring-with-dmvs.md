@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/15/2015"
+   ms.date="01/22/2016"
    ms.author="rickbyh"/>
 
 # Monitoramento de Banco de Dados SQL usando exibições de gerenciamento dinâmico
@@ -44,9 +44,10 @@ Em uma instância do SQL Server local, as exibições de gerenciamento dinâmico
 A seguinte consulta retorna o tamanho do seu banco de dados (em megabytes):
 
 ```
-– Calcula o tamanho do banco de dados. 
-SELECT SUM(reserved\_page\_count)*8.0/1024
-FROM sys.dm\_db\_partition\_stats; GO 
+-- Calculates the size of the database.
+SELECT SUM(reserved_page_count)*8.0/1024
+FROM sys.dm_db_partition_stats;
+GO
 ```
 
 A consulta a seguir retorna o tamanho do dos objetos individuais (em megabytes) no seu banco de dados:
@@ -77,7 +78,7 @@ JOIN sys.dm_exec_sessions AS s
 WHERE c.session_id = @@SPID;
 ```
 
-> [AZURE.NOTE]Ao executar as exibições **sys.dm\_exec\_requests** e **sys.dm\_exec\_sessions**, se o usuário tiver permissão **VIEW DATABASE STATE** no banco de dados, o usuário verá todas as sessões em execução no banco de dados; caso contrário, o usuário verá apenas a sessão atual.
+> [AZURE.NOTE] Ao executar as exibições **sys.dm\_exec\_requests** e **sys.dm\_exec\_sessions**, se o usuário tiver permissão **VIEW DATABASE STATE** no banco de dados, o usuário verá todas as sessões em execução no banco de dados; caso contrário, o usuário verá apenas a sessão atual.
 
 ## Monitoramento de desempenho da consulta
 
@@ -88,15 +89,15 @@ Consultas de execução lenta ou longa podem consumir recursos significativos do
 O exemplo a seguir retorna informações sobre as cinco principais consultas classificadas pelo tempo médio de CPU. Este exemplo agrega as consultas de acordo com sua hash de consulta, para que as consultas logicamente equivalentes sejam agrupadas em função de seu consumo de recursos cumulativos.
 
 ```
-SELECT TOP 5 query_stats.query_hash AS "Query Hash", 
+SELECT TOP 5 query_stats.query_hash AS "Query Hash",
     SUM(query_stats.total_worker_time) / SUM(query_stats.execution_count) AS "Avg CPU Time",
     MIN(query_stats.statement_text) AS "Statement Text"
-FROM 
-    (SELECT QS.*, 
+FROM
+    (SELECT QS.*,
     SUBSTRING(ST.text, (QS.statement_start_offset/2) + 1,
-    ((CASE statement_end_offset 
+    ((CASE statement_end_offset
         WHEN -1 THEN DATALENGTH(ST.text)
-        ELSE QS.statement_end_offset END 
+        ELSE QS.statement_end_offset END
             - QS.statement_start_offset)/2) + 1) AS statement_text
      FROM sys.dm_exec_query_stats AS QS
      CROSS APPLY sys.dm_exec_sql_text(QS.sql_handle) as ST) as query_stats
@@ -113,19 +114,19 @@ Consultas lentas ou demoradas podem contribuir para consumo excessivo de recurso
 Um plano de consulta ineficiente também pode aumentar o consumo de CPU. O exemplo a seguir usa a exibição [sys.dm\_exec\_query\_stats](https://msdn.microsoft.com/library/ms189741.aspx) para determinar qual consulta usa a CPU mais cumulativa.
 
 ```
-SELECT 
-    highest_cpu_queries.plan_handle, 
+SELECT
+    highest_cpu_queries.plan_handle,
     highest_cpu_queries.total_worker_time,
     q.dbid,
     q.objectid,
     q.number,
     q.encrypted,
     q.[text]
-FROM 
-    (SELECT TOP 50 
-        qs.plan_handle, 
+FROM
+    (SELECT TOP 50
+        qs.plan_handle,
         qs.total_worker_time
-    FROM 
+    FROM
         sys.dm_exec_query_stats qs
     ORDER BY qs.total_worker_time desc) AS highest_cpu_queries
     CROSS APPLY sys.dm_exec_sql_text(plan_handle) AS q
@@ -136,4 +137,4 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 
 [Introdução ao Banco de Dados SQL](sql-database-technical-overview.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

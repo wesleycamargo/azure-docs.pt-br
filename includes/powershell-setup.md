@@ -48,7 +48,7 @@ Para obter instruções e um link para a versão mais recente, consulte [Como in
 
 ### Definir sua conta e assinatura do Azure
 
-Se ainda não tiver uma assinatura do Azure, você poderá ativar os [benefícios de assinante do MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para uma [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
+Se ainda não tiver uma assinatura do Azure, você poderá ativar os [benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 Abra um prompt de comando do Azure PowerShell e faça logon no Azure com este comando.
 
@@ -78,4 +78,4 @@ Você pode definir a assinatura do Azure atual ao executar estes comandos no pro
 
 Para obter mais informações sobre contas e assinaturas do Azure, consulte [How to: Connect to your subscription (Como: conectar-se à sua assinatura)](powershell-install-configure.md#Connect).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

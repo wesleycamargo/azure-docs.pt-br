@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="12/04/2015"
+	ms.date="01/25/2016"
 	ms.author="jeffstok"/>
 
 
@@ -22,7 +22,7 @@
 
 ## Introdução ##
 
-As consultas no Stream Analytics do Azure são expressas em uma linguagem de consulta do tipo SQL, que está documentada [aqui](https://msdn.microsoft.com/library/azure/dn834998.aspx). Este documento descreve soluções para vários padrões comuns de consulta com base em cenários do mundo real. É um trabalho em andamento e continuará sendo atualizado com novos padrões de forma contínua.
+As consultas no Stream Analytics do Azure são expressadas em uma linguagem de consulta do tipo SQL, que está documentada na [Referência de Linguagem de Consulta do Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx). Este artigo descreve soluções para vários padrões comuns de consulta com base em cenários do mundo real. É um trabalho em andamento e continuará sendo atualizado com novos padrões de forma contínua.
 
 ## Exemplo de consulta: conversões de tipo de dados ##
 **Descrição**: defina os tipos das propriedades no fluxo de entrada. Por exemplo, o peso do carro está vindo no fluxo de entrada como cadeias de caracteres e precisa ser convertido em INT para executar a SOMA.
@@ -384,6 +384,35 @@ Agora vamos alterar o problema e localizar o primeiro carro de determinada Marca
 
 **Explicação**: use LAG para inspecionar um fluxo de entrada do evento anterior e obter o valor Marca. Em seguida, compare-o à Marca no evento atual e retire o evento se eles forem iguais e use LAG para obter dados sobre o carro anterior.
 
+## Exemplo de consulta: detectar a duração entre os eventos
+**Descrição**: localizar a duração de um evento específico. Por exemplo, após receber os dados de sequência de cliques da web, determinar o tempo gasto em um recurso.
+
+**Entrada**:
+  
+| Usuário | Recurso | Evento | Hora |
+| --- | --- | --- | --- |
+| user@location.com | RightMenu | Iniciar | 2015-01-01T00:00:01.0000000Z |
+| user@location.com | RightMenu | End | 2015-01-01T00:00:08.0000000Z |
+  
+**Saída**:
+  
+| Usuário | Recurso | Duração |
+| --- | --- | --- |
+| user@location.com | RightMenu | 7 |
+  
+
+**Solução**
+
+````
+    SELECT
+    	[user], feature, DATEDIFF(second, LAST(Time) OVER (PARTITION BY [user], feature LIMIT DURATION(hour, 1) WHEN Event = 'start'), Time) as duration
+    FROM input TIMESTAMP BY Time
+    WHERE
+    	Event = 'end'
+````
+
+**Explicação**: usar a função LAST para recuperar o último valor temporal, quando o tipo de evento era ‘Start’. Observe que a função LAST usa PARTITION BY [usuário] para indicar que o resultado deverá ser calculado por usuário exclusivo. A consulta tem um limite máximo de uma hora de diferença de tempo entre os eventos ‘Start’ e ‘Stop’, mas é configurável como necessária (LIMIT DURATION(hour, 1).
+
 ## Exemplo de consulta: detectar a duração de uma condição ##
 **Descrição**: descubra há quanto tempo uma condição ocorreu. Por exemplo, suponha que um bug que resultou no peso incorreto de todos os carros (acima de 9 mil quilos). Queremos calcular a duração do bug.
 
@@ -413,32 +442,17 @@ Agora vamos alterar o problema e localizar o primeiro carro de determinada Marca
 
 **Solução**:
 
-	SELECT
-	    PrevGood.Time AS StartFault,
-	    ThisGood.Time AS Endfault,
-	    DATEDIFF(second, PrevGood.Time, ThisGood.Time) AS FaultDuraitonSeconds
-	FROM
-	    Input AS ThisGood TIMESTAMP BY Time
-	    INNER JOIN Input AS PrevGood TIMESTAMP BY Time
-	    ON DATEDIFF(second, PrevGood, ThisGood) BETWEEN 1 AND 3600
-	    AND PrevGood.Weight < 20000
-	    INNER JOIN Input AS Bad TIMESTAMP BY Time
-	    ON DATEDIFF(second, PrevGood, Bad) BETWEEN 1 AND 3600
-	    AND DATEDIFF(second, Bad, ThisGood) BETWEEN 1 AND 3600
-	    AND Bad.Weight >= 20000
-	    LEFT JOIN Input AS MidGood TIMESTAMP BY Time
-	    ON DATEDIFF(second, PrevGood, MidGood) BETWEEN 1 AND 3600
-	    AND DATEDIFF(second, MidGood, ThisGood) BETWEEN 1 AND 3600
-	    AND MidGood.Weight < 20000
-	WHERE
-	    ThisGood.Weight < 20000
-	    AND MidGood.Weight IS NULL
+````
+SELECT 
+    LAG(time) OVER (LIMIT DURATION(hour, 24) WHEN weight < 20000 ) [StartFault],
+    [time] [EndFault]
+FROM input
+WHERE
+    [weight] < 20000
+    AND LAG(weight) OVER (LIMIT DURATION(hour, 24)) > 20000
+````
 
-**Explicação**: estamos procurando dois eventos corretos com um evento incorreto no meio e sem um evento correto no meio, o que significa que os dois eventos são os primeiros eventos antes e depois de pelo menos um evento incorreto. Obter dois eventos corretos com um evento incorreto no meio é simples ao usar duas associações e validar que obtemos correto -> incorreto -> correto verificando o peso e comparando os carimbos de data e hora.
-
-Ao usar o que aprendemos em "Associação exterior ESQUERDA para incluir valores NULOS ou realizar ausência de eventos", sabemos como verificar se nenhum evento correto ocorreu entre os 2 eventos corretos que nós selecionamos.
-
-Componha esses juntos e podemos obter correto -> incorreto -> correto com nenhum outro evento correto entre os dois. Agora, podemos calcular a duração entre os eventos corretos inicial e final que nos dá a duração do bug.
+**Explicação**: usar LAG para exibir o fluxo de entrada de 24 horas e procurar por instâncias, nas quais StartFault e StopFault são incluídas por peso < 20000.
 
 ## Obter ajuda
 Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=AzureStreamAnalytics)
@@ -452,4 +466,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

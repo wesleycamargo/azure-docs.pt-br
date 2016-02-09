@@ -13,14 +13,14 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="10/28/2015"
 	ms.author="jodebrui"/>
 
 
 # Monitorar o armazenamento na memória XTP
 
-Quando você usar [Na Memória](sql-database-in-memory.md), os dados em tabelas com otimização de memória e as variáveis de tabela residirão no armazenamento na memória XTP. Cada camada de serviço Premium tem um tamanho máximo de armazenamento na memória, que está documentado no [artigo Camadas de serviço do banco de Dados SQL](sql-database-service-tiers.md#service-tiers-for-single-databases). Quando esse limite for excedido, as operações insert e update poderão começar a falhar (com o erro 41805). Nesse ponto, você precisará excluir dados para obter memória ou atualizar a camada de desempenho do seu banco de dados.
+Ao usar [Na Memória](sql-database-in-memory.md), os dados em tabelas com otimização de memória e as variáveis de tabela residem no armazenamento na memória XTP. Cada camada de serviço Premium tem um tamanho máximo de armazenamento na memória, que está documentado no [artigo Camadas de serviço do banco de Dados SQL](sql-database-service-tiers.md#service-tiers-for-single-databases). Quando esse limite for excedido, as operações insert e update poderão começar a falhar (com o erro 41805). Nesse ponto, você precisará excluir dados para obter memória ou atualizar a camada de desempenho do seu banco de dados.
 
 ## Determinar se os dados se ajustarão ao limite de armazenamento na memória
 
@@ -32,7 +32,7 @@ Observe que a tabela e as linhas de variável de tabela, bem como índices, cont
 
 ## Monitoramento e alertas
 
-Você pode monitorar o uso de armazenamento na memória como uma porcentagem do [limite de armazenamento para sua camada de desempenho](sql-database-service-tiers.md#service-tiers-for-single-databases) no [portal](http://portal.azure.com/) do Azure:
+Você pode monitorar o uso de armazenamento na memória como uma porcentagem do [limite de armazenamento para sua camada de desempenho](sql-database-service-tiers.md#service-tiers-for-single-databases) no [portal](https://portal.azure.com/) do Azure:
 
 - Na folha Banco de Dados, localize a caixa de utilização Recurso e clique em Editar.
 - Em seguida, selecione a porcentagem de Armazenamento na Memória XTP métrico.
@@ -56,6 +56,6 @@ Para resolver esse erro:
 - Atualize a camada de serviço para uma com armazenamento na memória suficiente para os dados que você precisa manter em tabelas com otimização de memória.
 
 ## Próximas etapas
-Saiba mais sobre [Monitorando o Banco de Dados SQL do Azure usando exibições de gerenciamento dinâmico](sql-database-monitoring-with-dmvs.md)
+Saiba mais sobre [Monitoramento de Banco de Dados SQL usando exibições de gerenciamento dinâmico](sql-database-monitoring-with-dmvs.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

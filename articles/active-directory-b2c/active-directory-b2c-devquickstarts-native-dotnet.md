@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/21/2016"
 	ms.author="dastrock"/>
 
 # Visualização de AD B2C do Azure: compilar um aplicativo da área de trabalho do Windows
@@ -42,10 +42,10 @@ Agora você precisa criar um aplicativo no diretório B2C, que dá ao AD do Azur
 
 No AD B2C do Azure, cada experiência do usuário é definida por uma [**política**](active-directory-b2c-reference-policies.md). Este exemplo de código contém três experiências de identidade - perfil de inscrição, entrada e edição. Você precisará criar uma política de cada tipo, conforme descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Ao criar suas três políticas, não se esqueça de:
 
-- Escolha **Inscrição de ID de usuário** ou **Inscrição de email** na folha de provedores de identidade.
+- Escolher **Inscrição de ID de usuário** ou **Inscrição de email** na folha de provedores de identidade.
 - Escolha o **Nome de exibição** e alguns outros atributos de inscrição em sua política de inscrição.
 - Escolha o **nome de exibição** e as declarações **ID de objeto** como um aplicativo de declaração em cada política. Você pode escolher outras declarações também.
-- Copie o **nome** de cada política após criá-lo. Ele deve ter o prefixo `b2c_1_`. Em breve, você precisará esses nomes de política.
+- Copie o **Nome** de cada política após criá-la. Ele deve ter o prefixo `b2c_1_`. Em breve, você precisará esses nomes de política.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
@@ -61,7 +61,7 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClie
 
 O aplicativo completo também está [disponível como. zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip) ou na `complete` ramificação do mesmo repositório.
 
-Depois de baixar o código de exemplo, abra o arquivo Visual Studio `.sln` para começar. Você observará que existem dois projetos na solução: um `TaskClient` projeto e um `TaskService` projeto. O `TaskClient` é o aplicativo de área de trabalho do WPF com o qual usuário interage. O `TaskService` é a API que armazena a lista de tarefas pendentes de cada usuário da web do back-end do aplicativo. Tanto o `TaskClient` quanto o `TaskService` serão representados por uma única **ID do aplicativo** nesse caso, já que ambos compreendem um aplicativo lógico.
+Depois de baixar o código de exemplo, abra o arquivo `.sln` do Visual Studio para começar. Você observará que existem dois projetos na solução: um `TaskClient` projeto e um `TaskService` projeto. O `TaskClient` é o aplicativo de área de trabalho do WPF com o qual usuário interage. O `TaskService` é a API que armazena a lista de tarefas pendentes de cada usuário da web do back-end do aplicativo. Ambos, o `TaskClient` e o `TaskService` serão representados por uma única **ID do Aplicativo** nesse caso, uma vez que incluem um aplicativo lógico.
 
 ## 5\. Configurar o serviço de tarefa
 
@@ -79,12 +79,12 @@ Quando o `TaskService` recebe solicitações de `TaskClient`, ele verifica se h�
     <add key="ida:PolicyId" value="{Enter the name of one of the policies you created, like `b2c_1_my_sign_in_policy`}" />
   </appSettings>
 ```
-  
+
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 Se você quiser saber como uma API web autentica com segurança solicitações usando o AD B2C do Azure, confira nosso [artigo Introdução à API Web](active-directory-b2c-devquickstarts-api-dotnet.md).
 
-## 6\. Executar políticas
+## 6. Executar políticas
 Agora que o `TaskService` está pronto para autenticar solicitações, podemos implementar a `TaskClient`. Seu aplicativo se comunica com o AD B2C do Azure enviando solicitações de autenticação HTTP, especificando a política que deseja executar como parte da solicitação. Para aplicativos de área de trabalho do .NET, você pode usar a **biblioteca de autenticação do Active Directory (ADAL)** para enviar mensagens de autenticação OAuth 2.0, executar políticas e obter tokens para chamar APIs web.
 
 #### Instale o ADAL
@@ -95,7 +95,7 @@ PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory
 ```
 
 #### Insira seus detalhes B2C
-Abra o arquivo `Globals.cs` e substitua os valores de propriedade pelos seus próprios. Essa classe é usada em todo o `TaskClient` para valores de referência usados.
+Abra o arquivo `Globals.cs` e substitua cada um dos valores de propriedade pelos seus próprios. Essa classe é usada em todo o `TaskClient` para valores de referência usados.
 
 ```C#
 public static class Globals
@@ -111,7 +111,7 @@ public static class Globals
 	public static string redirectUri = "urn:ietf:wg:oauth:2.0:oob";
 
 }
-``` 
+```
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
@@ -130,7 +130,7 @@ public partial class MainWindow : Window
 		base.OnInitialized(e);
 
 		// The authority parameter can be constructed by appending the name of your tenant to 'https://login.microsoftonline.com/'.
-		// ADAL implements an in-memory cache by default.  Since we want tokens to persist when the user closes the app, 
+		// ADAL implements an in-memory cache by default.  Since we want tokens to persist when the user closes the app,
 		// we've extended the ADAL TokenCache and created a simple FileCache in this app.
 		authContext = new AuthenticationContext("https://login.microsoftonline.com/contoso.onmicrosoft.com", new FileCache());
 		...
@@ -158,14 +158,14 @@ private async void SignUp(object sender, RoutedEventArgs e)
 		SignUpButton.Visibility = Visibility.Collapsed;
 		EditProfileButton.Visibility = Visibility.Visible;
 		SignOutButton.Visibility = Visibility.Visible;
-		
+
 		// When the request completes successfully, you can get user information form the AuthenticationResult
 		UsernameLabel.Content = result.UserInfo.Name;
 
 		// After the sign up successfully completes, display the user's To-Do List
 		GetTodoList();
 	}
-	
+
 	// Handle any exeptions that occurred during execution of the policy.
 	catch (AdalException ex)
 	{
@@ -219,10 +219,10 @@ private async void EditProfile(object sender, RoutedEventArgs e)
                     new PlatformParameters(PromptBehavior.Always, null), Globals.editProfilePolicy);
 ```
 
-Em todos esses casos, ADAL retornará um token no seu `AuthenticationResult` ou gera uma exceção. Cada vez que você obtiver um token do ADAL, você pode usar o `AuthenticationResult.UserInfo` objeto para atualizar os dados do usuário no aplicativo, como a interface do usuário. A ADAL também armazenará em cache o token, para uso em outras partes do aplicativo.
+Em todos esses casos, a ADAL retornará um token no seu `AuthenticationResult` ou gerará uma exceção. Cada vez que você obtiver um token do ADAL, você pode usar o `AuthenticationResult.UserInfo` objeto para atualizar os dados do usuário no aplicativo, como a interface do usuário. A ADAL também armazenará em cache o token, para uso em outras partes do aplicativo.
 
 ## 7\. Chamar APIs
-Já usamos a ADAL para executar políticas e obter tokens. No entanto, em muitos casos, convém verificar se há um token existente, armazenado em cache sem executar qualquer política. Um desses casos é quando o aplicativo tenta buscar a lista de tarefas pendentes do usuário da `TaskService`. Você pode usar o mesmo `authContext.AcquireTokenAsync(...)` método para fazer isso, novamente usando o `clientId` como o parâmetro de escopo, mas desta vez usando `PromptBehavior.Never`:
+Já usamos a ADAL para executar políticas e obter tokens. No entanto, em muitos casos, convém verificar se há um token existente, armazenado em cache sem executar qualquer política. Um desses casos é quando o aplicativo tenta buscar a lista de tarefas pendentes do usuário da `TaskService`. Você pode usar o mesmo método `authContext.AcquireTokenAsync(...)` para fazer isso, novamente usando o `clientId` como o parâmetro de escopo, mas desta vez usando `PromptBehavior.Never`:
 
 ```C#
 private async void GetTodoList()
@@ -234,12 +234,12 @@ private async void GetTodoList()
 		TokenCacheItem tci = authContext.TokenCache.ReadItems().Where(i => i.Scope.Contains(Globals.clientId) && !string.IsNullOrEmpty(i.Policy)).FirstOrDefault();
 		string existingPolicy = tci == null ? null : tci.Policy;
 
-		// We use the PromptBehavior.Never flag to indicate that ADAL should throw an exception if a token 
-		// could not be acquired from the cache, rather than automatically prompting the user to sign in. 
+		// We use the PromptBehavior.Never flag to indicate that ADAL should throw an exception if a token
+		// could not be acquired from the cache, rather than automatically prompting the user to sign in.
 		result = await authContext.AcquireTokenAsync(new string[] { Globals.clientId },
 			null, Globals.clientId, new Uri(Globals.redirectUri),
 			new PlatformParameters(PromptBehavior.Never, null), existingPolicy);
-	
+
 	}
 
 	// If a token could not be acquired silently, we'll catch the exception and show the user a message.
@@ -272,7 +272,7 @@ private async void GetTodoList()
 	...
 ```
 
-Quando a chamada para `AcquireTokenAsync(...)` for bem-sucedida e um token for encontrado no cache, você pode adicionar o token ao `Authorization` cabeçalho da solicitação HTTP para que o `TaskService` possa autenticar a solicitação para ler a lista de tarefas pendentes do usuário:
+Quando a chamada para `AcquireTokenAsync(...)` é bem-sucedida e um token é encontrado no cache, você pode adicionar o token ao cabeçalho `Authorization` da solicitação HTTP para que `TaskService` possa autenticar a solicitação e ler a lista de tarefas pendentes do usuário:
 
 ```C#
 	...
@@ -282,9 +282,9 @@ Quando a chamada para `AcquireTokenAsync(...)` for bem-sucedida e um token for e
 	// Call the To Do list service.
 	HttpResponseMessage response = await httpClient.GetAsync(taskServiceUrl + "/api/tasks");
 	...
-``` 
+```
 
-Você pode usar esse mesmo padrão sempre que quiser verificar o cache de token para tokens sem avisar o usuário para entrar. Por exemplo - quando o aplicativo é iniciado, queremos verificar a `FileCache` para todos os tokens existentes, para que a sessão de entrada do usuário seja mantida sempre que o aplicativo for executado. Você pode ver o mesmo código no `MainWindow`do `OnInitialized` evento, que lida com esse caso de primeira execução.
+Você pode usar esse mesmo padrão sempre que quiser verificar o cache de token para tokens sem avisar o usuário para entrar. Por exemplo - quando o aplicativo é iniciado, queremos verificar a `FileCache` para todos os tokens existentes, para que a sessão de entrada do usuário seja mantida sempre que o aplicativo for executado. Você pode ver o mesmo código no evento `OnInitialized` do `MainWindow`, que lida com esse caso de primeira execução.
 
 ## 8\. Desconectar o usuário
 Finalmente, você pode usar a ADAL para encerrar a sessão do usuário com o aplicativo, quando o usuário clicar no botão "Sair". Com ADAL, é tão simples quanto limpar todos os tokens do cache de token:
@@ -310,7 +310,7 @@ private void SignOut(object sender, RoutedEventArgs e)
 
 ## 9\. Executar o aplicativo de exemplo
 
-Finalmente, compile e execute o `TaskClient` e o `TaskService`. Inscreva-se para o aplicativo com um endereço de email ou nome de usuário. Saia e entre novamente como o mesmo usuário. Edite perfil do usuário. Saia e entre novamente como outro usuário.
+Finalmente, compile e execute ambos o `TaskClient` e o `TaskService`. Inscreva-se para o aplicativo com um endereço de email ou nome de usuário. Saia e entre novamente como o mesmo usuário. Edite perfil do usuário. Saia e entre novamente como outro usuário.
 
 ## 10\. Adicionar IDPs sociais
 
@@ -321,7 +321,7 @@ Para adicionar IDPs sociais ao seu aplicativo, comece seguindo as instruções d
 - [Configurar o Facebook como um IDP](active-directory-b2c-setup-fb-app.md)
 - [Configurar o Google como um IDP](active-directory-b2c-setup-goog-app.md)
 - [Configurar o Amazon como um IDP](active-directory-b2c-setup-amzn-app.md)
-- [Configurar o LinkedIn como um IDP](active-directory-b2c-setup-li-app.md) 
+- [Configurar o LinkedIn como um IDP](active-directory-b2c-setup-li-app.md)
 
 Quando você tiver adicionado os provedores de identidade ao seu diretório B2C, você precisará voltar e editar cada um das suas três políticas para incluir os novos IDPs, conforme descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md). Depois de salvar as políticas, execute o aplicativo novamente. Você deve ver os novos IDPs adicionados como uma entrada e opção de inscrição em cada experiência de identidade.
 
@@ -345,4 +345,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

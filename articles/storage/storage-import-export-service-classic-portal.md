@@ -43,7 +43,7 @@ Ao criar um trabalho, você notifica o serviço de Importação/Exportação de 
 
 Para preparar seu disco rígido para envio a um trabalho de importação, execute a **Ferramenta de Importação/Exportação do Microsoft Azure**, que facilita a cópia dos seus dados para a unidade, criptografando os dados na unidade com BitLocker e gerando os arquivos de diário de unidade, que serão discutidos a seguir.
 
-> [AZURE.NOTE]Os dados na unidade devem ser criptografados com a Criptografia de Unidade de Disco BitLocker. Isso protegerá os dados enquanto eles estiverem em trânsito. Em um trabalho de exportação, o serviço Importar/Exportar criptografa seus dados antes de enviar a unidade de volta para você.
+> [AZURE.NOTE] Os dados na unidade devem ser criptografados com a Criptografia de Unidade de Disco BitLocker. Isso protegerá os dados enquanto eles estiverem em trânsito. Em um trabalho de exportação, o serviço Importar/Exportar criptografa seus dados antes de enviar a unidade de volta para você.
 
 Ao criar um trabalho de importação ou de exportação, você também precisará da *ID da unidade*, que é o número de série atribuído pelo fabricante da unidade a um disco rígido específico. A ID de unidade é exibida na parte externa da unidade.
 
@@ -56,7 +56,7 @@ Ao criar um trabalho de importação ou de exportação, você também precisar�
 5.	**Número de trabalhos:** um cliente pode ter até 20 trabalhos ativos por conta de armazenamento.
 6.	**Tamanho máximo de um trabalho:** o tamanho de um trabalho é determinado pela capacidade dos discos rígidos usados e a quantidade máxima de dados que podem ser armazenados em uma conta de armazenamento. Cada trabalho pode conter, no máximo, 10 discos rígidos.
 
-  >[AZURE.IMPORTANT]Não há suporte para unidades de disco rígido externas que vêm com um adaptador USB integrado neste serviço. Não prepare um HDD externo. O disco dentro da estrutura externa também não pode ser usado para importar dados. Use uma unidades de disco rígido **interna** SATA II/III de 3,5 polegadas. Se você não conseguir conectar o disco SATA diretamente ao seu computador, use um SATA externo para o adaptador USB. Consulte a lista de adaptadores recomendados na seção de perguntas frequentes.
+  >[AZURE.IMPORTANT] Não há suporte para unidades de disco rígido externas que vêm com um adaptador USB integrado neste serviço. Não prepare um HDD externo. O disco dentro da estrutura externa também não pode ser usado para importar dados. Use uma unidades de disco rígido **interna** SATA II/III de 3,5 polegadas. Se você não conseguir conectar o disco SATA diretamente ao seu computador, use um SATA externo para o adaptador USB. Consulte a lista de adaptadores recomendados na seção de perguntas frequentes.
 
 ## Criar um trabalho de importação no Portal Clássico##
 
@@ -146,7 +146,7 @@ Crie um trabalho de exportação para notificar o serviço Importar/Exportar que
 
 	Você também pode atualizar o número da conta da transportadora na Etapa 2 do assistente, caso o trabalho esteja nas fases Criando, Enviando ou Transferindo. Você não poderá atualizar o número da conta da transportadora para o trabalho em questão quando ele estiver na fase de Empacotamento.
 
-> [AZURE.NOTE]Se o blob a ser exportado estiver em uso no momento da cópia do disco rígido, o serviço de Importação/Exportação do Azure tira um instantâneo do blob e copia o instantâneo.
+> [AZURE.NOTE] Se o blob a ser exportado estiver em uso no momento da cópia do disco rígido, o serviço de Importação/Exportação do Azure tira um instantâneo do blob e copia o instantâneo.
 
 ## Acompanhar o status do trabalho no Portal Clássico##
 
@@ -188,7 +188,7 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 	- Anker 68UPSHHDS-BU
 	- Startech SATADOCK22UE
 
-> [AZURE.NOTE]Se tiver um conversor que não está relacionado acima, você pode tentar executar a Ferramenta de Importação/Exportação do Microsoft Azure usando seu conversor para preparar a unidade e ver se funciona, antes de adquirir um conversor com suporte.
+> [AZURE.NOTE] Se tiver um conversor que não está relacionado acima, você pode tentar executar a Ferramenta de Importação/Exportação do Microsoft Azure usando seu conversor para preparar a unidade e ver se funciona, antes de adquirir um conversor com suporte.
 
 - Não há suporte para HDD externo com um adaptador USB integrado.
 
@@ -232,7 +232,7 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 
 - As regiões na Ásia só dão suporte ao serviço [DHL](http://www.dhl-welcome.com/Tutorial/). Todos os pacotes serão retornados via DHL Express Worldwide.
 
-	> [AZURE.IMPORTANT]Você deve fornecer seu número de controle ao serviço de Importação/Exportação do Azure; caso contrário, seu trabalho não poderá ser processado.
+	> [AZURE.IMPORTANT] Você deve fornecer seu número de controle ao serviço de Importação/Exportação do Azure; caso contrário, seu trabalho não poderá ser processado.
 
 **Existe algum custo associado à remessa de retorno?**
 
@@ -254,9 +254,9 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 
 - Você receberá um endereço de remessa na região onde sua conta de armazenamento está localizada. Por exemplo, se morar nos EUA e sua conta de armazenamento estiver no data center da Europa Ocidental, você receberá um endereço de remessa na Europa para envio das unidades.
 
-	> [AZURE.IMPORTANT]Observe que a mídia física que está enviando talvez precise cruzar fronteiras internacionais. Você é responsável por garantir que seus dados e mídia física sejam importados e/ou exportados de acordo com as leis aplicáveis. Antes de enviar a mídia física, verifique com seus consultores se a mídia e os dados podem ser enviados legalmente ao data center identificado. Isso ajudará a garantir que eles cheguem à Microsoft pontualmente.
+	> [AZURE.IMPORTANT] Observe que a mídia física que está enviando talvez precise cruzar fronteiras internacionais. Você é responsável por garantir que seus dados e mídia física sejam importados e/ou exportados de acordo com as leis aplicáveis. Antes de enviar a mídia física, verifique com seus consultores se a mídia e os dados podem ser enviados legalmente ao data center identificado. Isso ajudará a garantir que eles cheguem à Microsoft pontualmente.
 
-- Ao enviar seus pacotes, você deve seguir os [Termos de Serviço do Microsoft Azure](http://azure.microsoft.com/support/legal/services-terms/).
+- Ao enviar seus pacotes, você deve seguir os [Termos de Serviço do Microsoft Azure](https://azure.microsoft.com/support/legal/services-terms/).
 
 **Pode adquirir unidades para os trabalhos de importação/exportação da Microsoft?**
 
@@ -275,4 +275,4 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 [export-job-03]: ./media/storage-import-export-service-classic-portal/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

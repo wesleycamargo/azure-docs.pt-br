@@ -51,7 +51,7 @@ Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Mar
 Fonte de dados | Sim | Um nome de fonte de dados (serviço de rede) que é especificado no arquivo tnsnames.ora no computador em que o cliente Oracle está instalado. Para obter informações sobre nomes de fonte de dados e tnsnames.ora, consulte [Configurando o Cliente Oracle](http://msdn.microsoft.com/library/dd787872.aspx).
 Nome de usuário | Sim | Insira um nome de usuário para se conectar ao servidor Oracle.
 Senha | Sim | Digite a senha do nome de usuário.
-Cadeia de conexão do Barramento de Serviço | Sim | Se você estiver estabelecendo conexão local, insira a cadeia de conexão de retransmissão do Barramento de Serviço.<br/><br/>[Usando o Gerenciador de Conexão Híbrida](app-service-logic-hybrid-connection-manager.md)<br/>[Preços do Barramento de Serviço](http://azure.microsoft.com/pricing/details/service-bus/)
+Cadeia de conexão do Barramento de Serviço | Sim | Se você estiver estabelecendo conexão local, insira a cadeia de conexão de retransmissão do Barramento de Serviço.<br/><br/>[Usando o Gerenciador de Conexão Híbrida](app-service-logic-hybrid-connection-manager.md)<br/>[Preços do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/)
 Tabelas | Não | Insira as tabelas no banco de dados que podem ser modificadas pelo conector. Por exemplo, digite *OrdersTable, EmployeeTable*.
 Procedimentos Armazenados | Não | Insira os procedimentos armazenados no banco de dados que podem ser chamados pelo conector. Por exemplo, insira *IsEmployeeEligible, CalculateOrderDiscount*.
 Funções | Não | Insira as funções no banco de dados que podem ser chamadas pelo conector. Por exemplo, insira *IsEmployeeEligible, CalculateOrderDiscount*.
@@ -91,7 +91,7 @@ Você pode testar o aplicativo lógico adicionando um novo registro na tabela qu
 
 ## Configuração Híbrida
 
-> [AZURE.NOTE]Essa etapa será necessária apenas se você estiver usando o Oracle local por trás do firewall.
+> [AZURE.NOTE] Essa etapa será necessária apenas se você estiver usando o Oracle local por trás do firewall.
 
 O Serviço de Aplicativo usa o Gerenciador de Configuração Híbrida para se conectar com segurança ao sistema local. Se seu conector usar um Oracle local, o Gerenciador de Conexão Híbrida será necessário.
 
@@ -100,9 +100,9 @@ Consulte [Usando o Gerenciador de Conexão Híbrida](app-service-logic-hybrid-co
 ## Faça mais com seu Conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
 
->[AZURE.NOTE]Se você deseja começar com os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógicos](https://tryappservice.azure.com/?appservice=logic), em que você pode criar imediatamente um aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
+>[AZURE.NOTE] Se você deseja começar com os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógicos](https://tryappservice.azure.com/?appservice=logic), em que você pode criar imediatamente um aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
 
-Exibir a referência da API REST do Swagger em [Conectores e referência dos Aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar Aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
 
@@ -118,4 +118,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

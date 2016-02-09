@@ -23,11 +23,11 @@
 
 Este artigo fornece etapas detalhadas de solução de problemas a fim de diagnosticar e corrigir erros complexos de Área de Trabalho Remota para máquinas virtuais do Azure baseadas no Windows.
 
-> [AZURE.IMPORTANT]Para eliminar os erros mais comuns da Área de Trabalho Remota, leia o artigo de [solução de problemas básicos da Área de Trabalho Remota](virtual-machines-troubleshoot-remote-desktop-connections.md) antes de continuar.
+> [AZURE.IMPORTANT] Para eliminar os erros mais comuns da Área de Trabalho Remota, leia o artigo de [solução de problemas básicos da Área de Trabalho Remota](virtual-machines-troubleshoot-remote-desktop-connections.md) antes de continuar.
 
 Se você receber uma mensagem de erro de Área de Trabalha Remota que não se assemelha a qualquer uma das mensagens de erro específicas abordadas em [Guia básico de solução de problemas da Área de Trabalho Remota](virtual-machines-troubleshoot-remote-desktop-connections.md), execute estas etapas e tente descobrir por que o cliente da Área de Trabalho Remota (ou [RDP](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol)) não é capaz de se conectar ao serviço RDP na VM do Azure.
 
-Se você precisar de mais ajuda em qualquer momento neste artigo, você pode contatar os especialistas do Azure nos [fóruns do Azure MSDN e Excedente de Pilha](http://azure.microsoft.com/support/forums/). Como alternativa, você também pode registrar um incidente de suporte do Azure. Para enviar um incidente, vá para o [site de Suporte do Azure](http://azure.microsoft.com/support/options/) e clique em **Obter Suporte**. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes do Suporte do Microsoft Azure](http://azure.microsoft.com/support/faq/).
+Se você precisar de mais ajuda em qualquer momento neste artigo, você pode contatar os especialistas do Azure nos [fóruns do Azure MSDN e Excedente de Pilha](https://azure.microsoft.com/support/forums/). Como alternativa, você também pode registrar um incidente de suporte do Azure. Para enviar um incidente, vá para o [site de Suporte do Azure](https://azure.microsoft.com/support/options/) e clique em **Obter Suporte**. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes do Suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
 
 ## Componentes de uma conexão da Área de Trabalho Remota
@@ -100,7 +100,7 @@ Para máquinas virtuais criadas usando o modelo de implantação clássico, veri
 
 ![](./media/virtual-machines-rdp-detailed-troubleshoot/tshootrdp_3.png)
 
-> [AZURE.NOTE]Para máquinas virtuais criadas no Gerenciador de Recursos, vá para [Fonte 4: Grupos de segurança de rede](#nsgs).
+> [AZURE.NOTE] Para máquinas virtuais criadas no Gerenciador de Recursos, vá para [Fonte 4: Grupos de segurança de rede](#nsgs).
 
 Se não houver outra máquina virtual no mesmo serviço de nuvem ou rede virtual, você poderá criar uma nova usando as etapas em [Criar uma máquina virtual executando o Windows no Azure](virtual-machines-windows-tutorial.md). Exclua a máquina virtual extra após a conclusão do teste.
 
@@ -195,4 +195,4 @@ Verifique se o ponto de extremidade da Área de Trabalho Remota para a VM do Azu
 
 [Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

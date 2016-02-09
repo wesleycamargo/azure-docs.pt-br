@@ -91,7 +91,7 @@ Os aplicativos que você adiciona por conta própria incluem:
 ## Como os aplicativos são adicionados à minha instância do AD do Azure?
 Há muitas maneiras pelas quais um aplicativo pode ser adicionado ao AD do Azure:
 
-* Adicionar um aplicativo a partir de [Galeria de aplicativos do Active Directory do Azure](http://azure.microsoft.com/updates/azure-active-directory-over-1000-apps/)
+* Adicionar um aplicativo a partir de [Galeria de aplicativos do Active Directory do Azure](https://azure.microsoft.com/updates/azure-active-directory-over-1000-apps/)
 * Inscrever-se/entrar em um aplicativo de terceiros integrado ao Active Directory do Azure (por exemplo: [Smartsheet](https://app.smartsheet.com/b/home) ou [DocuSign](https://www.docusign.net/member/MemberLogin.aspx))
     * Durante a inscrição/entrada será solicitado aos usuários que concedam permissão ao aplicativo para acessar seus perfis, além de outras permissões. A primeira pessoa a dar consentimento faz com que uma entidade de serviço que representa o aplicativo seja adicionada ao diretório.
 * Inscrever-se/entrar nos serviços online da Microsoft, como o [Office 365](http://products.office.com/)
@@ -146,4 +146,4 @@ Saiba mais sobre como adicionar aplicativos ao AD do Azure e como configurar ser
 [apps_service_principals_directory]: media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
 [app_settings]: media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015"
+	ms.date="01/25/2016"
 	ms.author="paulettm"/>
 
 # Perguntas frequentes (FAQ) sobre o Aprendizado de Máquina do Azure: cobrança, suporte, recursos e limitações
@@ -47,7 +47,7 @@ Consulte [Conectar a um serviço Web do Aprendizado de Máquina](machine-learnin
 
 **Como a cobrança do Aprendizado de Máquina funciona?**
 
-Para obter informações sobre preços e cobrança, consulte [Preços do Aprendizado de Máquina](http://azure.microsoft.com/pricing/details/machine-learning/).
+Para obter informações sobre preços e cobrança, consulte [Preços do Aprendizado de Máquina](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 **O Aprendizado de Máquina tem uma avaliação gratuita?**
 
@@ -93,7 +93,8 @@ Para conjuntos com mais de 2 GB, faça upload dos dados para o armazenamento do 
 
 **Eu posso ler dados da Amazon S3?**
 
-Se tiver uma pequena quantidade de dados e quiser expô-los por meio de uma URL http, você pode usar o módulo [Leitor][reader]. Para qualquer quantidade maior de dados, transfira-os para o armazenamento do Azure primeiro e, em seguida, use o modulo [Leitor][reader] para colocá-los em seu experimento. <!--
+Se tiver uma pequena quantidade de dados e quiser expô-los por meio de uma URL http, você pode usar o módulo [Leitor][reader]. Para qualquer quantidade maior de dados, transfira-os para o armazenamento do Azure primeiro e, em seguida, use o modulo [Leitor][reader] para colocá-los em seu experimento.
+<!--
 <SEE CLOUD DS PROCESS>
 -->
 
@@ -163,7 +164,7 @@ Atualmente, novos módulos personalizados podem ser criados apenas em R.
 
 **Quais pacotes de R estão disponíveis no Estúdio de Aprendizado de Máquina?**
 
-Atualmente, o Estúdio de Aprendizado de Máquina dá suporte a mais de 400 pacotes de R e essa lista continua crescendo. Consulte [Ampliar seu experimento com R](machine-learning-extend-your-experiment-with-r.md) para saber como obter uma lista dos pacotes de R com suporte. Se o pacote que desejar não estiver nesta lista, forneça o nome do pacote no [fórum de feedback do usuário](http://go.microsoft.com/fwlink/?LinkId=404231).
+Atualmente, o Estúdio de Aprendizado de Máquina oferece suporte a mais de 400 pacotes de CRAN R, e essa lista continua crescendo. Consulte [Ampliar seu experimento com R](machine-learning-extend-your-experiment-with-r.md) para saber como obter uma lista dos pacotes de R com suporte. Se o pacote que desejar não estiver nesta lista, forneça o nome do pacote no [fórum de feedback do usuário](http://go.microsoft.com/fwlink/?LinkId=404231).
 
 **É possível criar um módulo personalizado em R?**
 
@@ -218,7 +219,10 @@ Depois que um modelo de previsão for colocado em produção, você pode monitor
 
 Para RRS, a resposta do serviço Web é normalmente onde você vê o resultado. Você também pode gravá-la em um blob. Para BES, a saída é gravada em um blob, por padrão. Você também pode gravar a saída em um banco de dados ou tabela usando o módulo Gravador.
 
- **** Posso criar serviços Web apenas de modelos criados no Estúdio? Não. Você também pode criar serviços Web diretamente no bloco de notas Jupyter e no RStudio.
+** Posso criar serviços Web apenas de modelos criados no Estúdio? 
+Não. Você também pode criar serviços Web diretamente no bloco de notas Jupyter e no RStudio.
+ 
+ ****Onde posso encontrar informações sobre códigos de erro? Os códigos de erro estão descritos [aqui.](https://msdn.microsoft.com/library/azure/dn905910.aspx)
 
 ## Escalabilidade
 
@@ -310,4 +314,4 @@ O Aprendizado de Máquina do Azure também possui um fórum de comunidade no MSD
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

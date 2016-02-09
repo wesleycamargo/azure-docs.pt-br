@@ -46,7 +46,7 @@ A tabela a seguir descreve a página de referência de cada um dos principais cm
 
  [Planos e Cobrança no Agendador do Azure](scheduler-plans-billing.md)
 
- [Referência da API REST do Agendador do Azure](https://msdn.microsoft.com/library/dn528946)
+ [Referência da API REST do Agendador do Azure](https://msdn.microsoft.com/library/mt629143)
 
  [Alta disponibilidade e confiabilidade do Agendador do Azure](scheduler-high-availability-reliability.md)
 
@@ -59,4 +59,4 @@ A tabela a seguir descreve a página de referência de cada um dos principais cm
 
   
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

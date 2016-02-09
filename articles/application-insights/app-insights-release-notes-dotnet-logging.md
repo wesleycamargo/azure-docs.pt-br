@@ -16,7 +16,7 @@
  
 # Notas de versão para os adaptadores de log do .NET
 
-Se você já usa uma estrutura de registros, como log4net, NLog ou System.Diagnostics.Trace, você pode capturar esses logs e enviá-los ao [Application Insights](http://azure.microsoft.com/services/application-insights/), em que você poderá correlacionar os rastreamentos de log com ações do usuário, exceções e outros eventos.
+Se você já usa uma estrutura de registros, como log4net, NLog ou System.Diagnostics.Trace, você pode capturar esses logs e enviá-los para o [Application Insights](https://azure.microsoft.com/services/application-insights/), onde poderá correlacionar os rastreamentos de log com ações do usuário, exceções e outros eventos.
 
 
 #### Introdução
@@ -32,4 +32,4 @@ Consulte [Logs, exceções e diagnóstico personalizado para o ASP.NET no Applic
 ## Versão 1.2.5
 - Primeiro abra a versão de software livre: API References Application Insights versão 1.2.3 ou superior.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

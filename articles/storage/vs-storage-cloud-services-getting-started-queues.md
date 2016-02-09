@@ -28,7 +28,7 @@ A operação **Adicionar Serviços Conectados** instala os pacotes NuGet apropri
 
  - Confira [Como usar o armazenamento de filas do .NET](storage-dotnet-how-to-use-queues.md) para obter mais informações sobre como manipular filas em código.
  - Consulte a [Documentação de armazenamento](https://azure.microsoft.com/documentation/services/storage/) para obter informações gerais sobre o armazenamento do Azure.
- - Consulte a [Documentação de serviços de nuvem](http://azure.microsoft.com/documentation/services/cloud-services/) para obter informações gerais sobre os serviços de nuvem do Azure.
+ - Consulte a [documentação de serviços de nuvem](https://azure.microsoft.com/documentation/services/cloud-services/) para obter informações gerais sobre os serviços de nuvem do Azure.
  - Consulte [ASP.NET](http://www.asp.net) para obter mais informações sobre como programar aplicativos ASP.NET.
 
 
@@ -50,12 +50,12 @@ Para acessar filas nos projetos de serviços de nuvem do Visual Studio, você pr
 		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
-3. Obtenha um objeto **CloudQueueClient** para fazer referência aos objetos de fila em sua conta de armazenamento.
+3. Obtenha um objeto **CloudQueueClient** para referenciar objetos de fila em sua conta de armazenamento.
 
 	    // Create the queue client.
     	CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-4. Obtenha um objeto **CloudQueue** para fazer referência a uma fila específica.
+4. Obtenha um objeto **CloudQueue** para referenciar uma fila específica.
 
     	// Get a reference to a queue named "messageQueue"
 	    CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
@@ -192,4 +192,4 @@ Para excluir uma fila e todas as mensagens que ela contém, chame o método **De
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

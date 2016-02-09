@@ -169,6 +169,6 @@ As seções de configuração e a cadeia de conexão a seguir foram adicionadas.
 ###Seu aplicativo Active Directory do Azure foi atualizado
 Seu Aplicativo do Active Directory do Azure foi atualizado para incluir a permissão *Ler dados do diretório* e uma chave adicional foi criada, que foi então usada como o *ida:ClientSecret* no arquivo **web.config**.
 
-[Saiba mais sobre o Active Directory do Azure](http://azure.microsoft.com/services/active-directory/)
+[Saiba mais sobre o Active Directory do Azure](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

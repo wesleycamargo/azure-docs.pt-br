@@ -60,7 +60,7 @@ Primeiro, execute as [etapas neste artigo para configurar a conectividade](#step
 
 Embora isso habilite a conectividade para clientes pela Internet, não significa que qualquer pessoa possa se conectar ao seu SQL Server. Clientes externos precisam ter o nome de usuário e a senha corretos. Para aumentar a segurança, não use a conhecida porta 1433 para o ponto de extremidade de máquina virtual público. Se possível, considere a ideia de adicionar uma ACL ao ponto de extremidade para restringir o tráfego apenas aos clientes permitidos. Para obter instruções sobre como usar ACLs com pontos de extremidade, consulte [Gerenciar a ACL em um ponto de extremidade](virtual-machines-set-up-endpoints.md#manage-the-acl-on-an-endpoint).
 
->[AZURE.NOTE]É importante observar que, quando você usa essa técnica para se comunicar com o SQL Server, todos os dados retornados são considerados tráfego de saída do datacenter. Eles estão sujeitos aos [preços normais por transferências de dados de saída](http://azure.microsoft.com/pricing/details/data-transfers). Isso vale mesmo se você usar essa técnica de outra máquina ou serviço de nuvem no mesmo datacenter do Azure, porque o tráfego ainda passa pelo balanceador de carga público do Azure.
+>[AZURE.NOTE] É importante observar que, quando você usa essa técnica para se comunicar com o SQL Server, todos os dados retornados são considerados tráfego de saída do datacenter. Eles estão sujeitos aos [preços normais por transferências de dados de saída](https://azure.microsoft.com/pricing/details/data-transfers/). Isso vale mesmo se você usar essa técnica de outra máquina ou serviço de nuvem no mesmo datacenter do Azure, porque o tráfego ainda passa pelo balanceador de carga público do Azure.
 
 ### Conectar-se ao SQL Server na mesma rede virtual
 
@@ -110,4 +110,4 @@ Se pretende usar os Grupos de Disponibilidade AlwaysOn para alta disponibilidade
 
 Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, consulte [SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

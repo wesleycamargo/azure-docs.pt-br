@@ -88,7 +88,7 @@ As máquinas virtuais que você deseja replicar no Azure devem estar em conformi
 
 ### Posso replicar máquinas virtuais Hyper-V de segunda geração no Azure?
 
-Sim. O Site Recovery converte da segunda geração para a primeira geração durante o failover. No failback, a máquina é convertida novamente em segunda geração. [Leia mais](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
+Sim. O Site Recovery converte da segunda geração para a primeira geração durante o failover. No failback, a máquina é convertida novamente em segunda geração. [Leia mais](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
 
 ### Se eu replicar no Azure, como faço para pagar as VMs do Azure? 
 
@@ -129,28 +129,28 @@ Quando a replicação de máquinas virtuais e servidores físicos é feita entre
 
 Você precisará de uma conta de armazenamento com [armazenamento com redundância geográfica padrão](../storage/storage-redundancy.md/#geo-redundant-storage). Uma [conta de armazenamento premium](../storage/storage-premium-storage-preview-portal/) tem suporte se você estiver replicando máquinas virtuais VMware ou servidores físicos Windows/Linux no Azure.
 
-O suporte para armazenamento com redundância local padrão está na lista de pendências; envie comentários sobre esse recurso no [Fórum de comentários](http://feedback.azure.com/forums/256299-site-recovery/suggestions/7204469-local-redundant-type-azure-storage-support).
+O suporte para armazenamento com redundância local padrão está na lista de pendências; envie comentários sobre esse recurso no [Fórum de comentários](https://feedback.azure.com/forums/256299-site-recovery/suggestions/7204469-local-redundant-type-azure-storage-support/).
 
 ### Com que frequência posso replicar dados?
 - **Hyper-v:** as VMs Hyper-V podem ser replicadas a cada 30 segundos, 5 minutos ou 15 minutos. Se você tiver definido a replicação SAN, ela será simultânea.
 - **VMware e servidores físicos:** não é relevante estabelecer uma frequência de replicação para eles. A replicação será contínua. 
 
 ### Posso estender a replicação do site de recuperação existente para um site terciário?
-Esse tipo de replicação estendida ou encadeada não tem suporte. Envie comentários sobre esse recurso no [fórum de comentários](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication).
+Esse tipo de replicação estendida ou encadeada não tem suporte. Envie comentários sobre esse recurso no [fórum de comentários](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication/).
 
 
 ### Posso fazer uma replicação offline na primeira vez em que replicar no Azure? 
 
-Não há suporte para isso. Envie-nos comentários sobre esse recurso no [fórum de comentários](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+Não há suporte para isso. Envie-nos comentários sobre esse recurso no [fórum de comentários](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from/).
 
 
 ### Posso excluir discos específicos da replicação?
 
-Não há suporte para isso. Envie-nos comentários sobre esse recurso no [fórum de comentários](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6418801-exclude-disks-from-replication).
+Não há suporte para isso. Envie-nos comentários sobre esse recurso no [fórum de comentários](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6418801-exclude-disks-from-replication/).
 
 ### Posso replicar máquinas virtuais com discos dinâmicos?
 
-Os discos dinâmicos têm suporte na replicação de máquinas virtuais Hyper-V. Eles não têm suporte na replicação de máquinas virtuais VMware ou de servidores físicos. Envie-nos comentários sobre esse recurso no [fórum de comentários](http://feedback.azure.com/forums/256299-site-recovery).
+Os discos dinâmicos têm suporte na replicação de máquinas virtuais Hyper-V. Eles não têm suporte na replicação de máquinas virtuais VMware ou de servidores físicos. Envie-nos comentários sobre esse recurso no [fórum de comentários](https://feedback.azure.com/forums/256299-site-recovery/).
 
 ### Se estou fazendo failover no Azure, como posso acessar as máquinas virtuais do Azure após o failover? 
 
@@ -223,4 +223,4 @@ Sim, você pode replicar máquinas virtuais Hyper-V e o Azure, ou entre os sites
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

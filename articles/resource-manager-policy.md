@@ -50,7 +50,7 @@ A definição de política é criada usando JSON. Consiste em uma ou mais condi�
 
 Basicamente, uma política contém o seguinte:
 
-**Condição/operadores lógicos:** contém um conjunto de condições que podem ser manipuladas por meio de um conjunto de operadores lógicos.
+**Condição/Operadores lógicos:** contém um conjunto de condições que podem ser manipuladas por meio de um conjunto de operadores lógicos.
 
 **Efeito:** descreve qual será o efeito quando a condição for satisfeita – negar ou auditar. Um efeito de auditoria emitirá um log de aviso de serviço de evento. Por exemplo, um administrador pode criar uma política que ocasiona uma auditoria se alguém criar uma VM grande e examinar os logs mais tarde.
 
@@ -327,4 +327,4 @@ Para exibir todos os eventos relacionados ao efeito de auditoria, você pode usa
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -70,7 +70,7 @@ Autenticar com o serviço de back-end | Depois de registrar seu serviço de back
 2. Selecione **Todas as configurações**.
 3. Em **Configurações**, selecione **Política**: ![][14]
 
-Essa política é a mesma política com suporte do [Gerenciamento de API do Azure](https://azure.microsoft.com/services/api-management). A política atual está no editor de XML inserido. Você pode editar em linha ou carregar um novo arquivo XML. Depois de **Salvar** suas alterações, todos os erros serão mostrados nessa folha, incluindo todos os problemas com a política de API.
+Essa política é a mesma política com suporte do [Gerenciamento de API do Azure](https://azure.microsoft.com/services/api-management/). A política atual está no editor de XML inserido. Você pode editar em linha ou carregar um novo arquivo XML. Depois de **Salvar** suas alterações, todos os erros serão mostrados nessa folha, incluindo todos os problemas com a política de API.
 
 As [Políticas no gerenciamento de API](../api-management-howto-policies.md) são um bom recurso para saber mais sobre como configurar e entender as políticas.
 
@@ -88,4 +88,4 @@ Estes são alguns tópicos e recursos relacionados para saber mais sobre o Power
 [13]: ./media/powerapps-configure-apis/api-settings-api-definition.png
 [14]: ./media/powerapps-configure-apis/api-settings-policy.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

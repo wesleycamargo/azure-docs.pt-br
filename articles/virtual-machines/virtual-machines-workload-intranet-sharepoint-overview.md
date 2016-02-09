@@ -69,7 +69,7 @@ Para calcular os custos estimados para essa configuração, confira a [Calculado
 	- **Standard** para o tipo de preço
 	- O tamanho padrão da tabela anterior ou o tamanho desejado para o **Tamanho da instância**
 
-> [AZURE.NOTE]A Calculadora de preços do Azure não inclui os custos adicionais para a licença do SQL Server para as duas máquinas virtuais executando o SQL Server 2014 Enterprise. Consulte [Preços das máquinas virtuais - SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql) para obter mais informações.
+> [AZURE.NOTE] A Calculadora de preços do Azure não inclui os custos adicionais para a licença do SQL Server para as duas máquinas virtuais executando o SQL Server 2014 Enterprise. Consulte [Preços das máquinas virtuais - SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql) para obter mais informações.
 
 ## Fases da implantação
 
@@ -95,10 +95,10 @@ Para criar um ambiente de desenvolvimento/teste ou uma verificação de conceito
 
 Para saber mais sobre o SharePoint com Grupos de Disponibilidade AlwaysOn do SQL Server, consulte [Configurar Grupos de Disponibilidade AlwaysOn do SQL Server 2012 para o SharePoint 2013](https://technet.microsoft.com/library/jj715261.aspx).
 
-> [AZURE.NOTE]A Microsoft lançou o SharePoint Server 2016 IT Preview. Para facilitar a instalação e teste desta visualização, você pode usar uma imagem da galeria de máquinas virtuais do Azure com o SharePoint Server 2016 IT Preview e seus pré-requisitos pré-instalados. Para saber mais, consulte [Testar o SharePoint Server 2016 IT Preview no Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
+> [AZURE.NOTE] A Microsoft lançou o SharePoint Server 2016 IT Preview. Para facilitar a instalação e teste desta visualização, você pode usar uma imagem da galeria de máquinas virtuais do Azure com o SharePoint Server 2016 IT Preview e seus pré-requisitos pré-instalados. Para saber mais, consulte [Testar o SharePoint Server 2016 IT Preview no Azure](https://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
 
 ## Próxima etapa
 
 - Inicie a configuração desta carga de trabalho com [Fase 1](virtual-machines-workload-intranet-sharepoint-phase1.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

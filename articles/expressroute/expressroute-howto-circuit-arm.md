@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/12/2016"
+   ms.date="01/26/2016"
    ms.author="cherylmc"/>
 
 # Criar e modificar um circuito da Rota Expressa usando o Gerenciador de recursos do Azure e PowerShell
@@ -183,7 +183,7 @@ Este artigo fornece uma orientação pelas etapas de criação de um circuito da
 
 
 
-5. **Verifique periodicamente o status e o estado da chave do circuito.**
+6. **Verifique periodicamente o status e o estado da chave do circuito.**
 
 	Isso permite que você saiba quando seu provedor habilitou seu circuito. Após a configuração do circuito, o *ServiceProviderProvisioningState* será exibido como *Provisionado*, conforme mostra o exemplo abaixo.
 
@@ -213,16 +213,12 @@ Este artigo fornece uma orientação pelas etapas de criação de um circuito da
 		ServiceKey                       : **************************************
 		Peerings                         : []
 
-6. **Crie sua configuração de roteamento.**
-	
-	Consulte [Criar e modificar o roteamento para um circuito de Rota Expressa](expressroute-howto-routing-arm.md) para obter instruções passo a passo.
+7. **Configure o roteamento e vincule uma rede virtual**
 
->[AZURE.IMPORTANT]Estas instruções se aplicam apenas a circuitos criados com provedores de serviço que oferecem serviços de conectividade de Camada 2. Se você estiver usando um provedor de serviços que oferece serviços gerenciados de Camada 3 (normalmente um IPVPN, como MPLS), seu provedor de conectividade configurará e gerenciará o roteamento para você. Nesses casos, não será possível criar ou gerenciar emparelhamentos.
+	a. **Crie sua configuração de roteamento.** Veja [Criar e modificar o roteamento a configuração de roteamento da Rota Expressa](expressroute-howto-routing-arm.md) para obter instruções passo a passo.
 
-
-7. **Vincule uma Rede Virtual a um circuito da Rota Expressa.** 
-
-	Em seguia, vincule uma Rede Virtual ao seu circuito da Rota Expressa. Consulte [Vinculando redes virtuais a circuitos de Rota Expressa](expressroute-howto-linkvnet-arm.md) para obter instruções passo a passo.
+		>[AZURE.NOTE] The instructions for routing only apply for circuits created with service providers offering Layer 2 connectivity services. If you are using a service provider offering managed Layer 3 services (typically an IPVPN, like MPLS), your connectivity provider will configure and manage routing for you. You will not be able to create or manage peerings in such cases. 
+	b. **Vincule a rede virtual a um circuito da Rota Expressa.** Depois de verificar se o roteamento foi configurado, você precisará vincular sua rede virtual ao circuito da Rota Expressa. Veja [Vinculando redes virtuais a circuitos da Rota Expressa](expressroute-howto-linkvnet-arm.md) para obter instruções passo a passo.
 
 ##  Obter o status de um circuito da Rota Expressa
 
@@ -289,14 +285,14 @@ Você pode obter descrições detalhadas de todos os parâmetros executando o se
 
 ## Modificar um circuito da Rota Expressa
 
-Você pode modificar certas propriedades de um circuito da Rota Expressa sem afetar a conectividade.
+Você pode modificar certas propriedades de um circuito da Rota Expressa sem afetar a conectividade. Consulte a página [Perguntas frequentes sobre a Rota Expressa](expressroute-faqs.md) para obter mais informações sobre limites e limitações.
 
-Você pode fazer o seguinte:
+Você pode modificar as seguintes configurações sem incorrer em tempo de inatividade:
 
-- Habilitar/desabilitar o complemento premium da Rota Expressa para seu circuito da Rota Expressa sem qualquer período de inatividade.
+- Habilite ou desabilite o complemento premium da Rota Expressa para seu circuito da Rota Expressa sem qualquer período de inatividade.
 - Aumente a largura de banda de seu circuito da Rota Expressa sem qualquer período de inatividade.
 
-Consulte a página [Perguntas frequentes sobre a Rota Expressa](expressroute-faqs.md) para obter mais informações sobre limites e limitações.
+
 
 ### Como habilitar o complemento premium da Rota Expressa
 
@@ -304,7 +300,7 @@ Você pode habilitar o complemento premium da Rota Expressa para o circuito exis
 
 		$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-		$ckt.Sku.Name = "Premium"
+		$ckt.Sku.Tier = "Premium"
 		$ckt.sku.Name = "Premium_MeteredData"
 
 		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
@@ -314,7 +310,13 @@ O seu circuito agora tem os recursos do complemento premium da Rota Expressa hab
 
 ### Como desabilitar o complemento premium da Rota Expressa
 
-Você pode desabilitar o complemento premium da Rota Expressa para o circuito existente usando o seguinte cmdlet do PowerShell:
+Você pode desabilitar o complemento premium da Rota Expressa para seu circuito existente. Ao desabilitar o complemento premium da Rota Expressa, observe as seguintes considerações:
+
+- Verifique se o número de redes virtuais vinculadas ao circuito é menor do que 10 antes de fazer o downgrade de Premium para padrão. Caso contrário, sua solicitação de atualização falhará e você receberá uma cobrança com as taxas premium.
+- Você precisa desvincular todas as redes virtuais em outras regiões geopolíticas. Caso contrário, sua solicitação de atualização falhará e você receberá uma cobrança com as taxas premium.
+- Sua tabela de roteamento deve ter menos do que 4000 rotas para o emparelhamento privado. Se o tamanho da tabela de roteamento for maior do que 4000 rotas, a sessão BGP será descartada e não poderá ser reabilitada até que o número de prefixos anunciados fique abaixo de 4000.
+
+Para desabilitar o complemento premium, use o exemplo de cmdlet do PowerShell abaixo. Esta operação poderá falhar se você estiver usando recursos que ultrapassam o que é permitido para o circuito padrão.
 	
 		$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 		
@@ -323,19 +325,13 @@ Você pode desabilitar o complemento premium da Rota Expressa para o circuito ex
 		
 		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-
-O complemento Premium agora está desabilitado para o seu circuito.
-
-Observe que esta operação poderá falhar se você estiver usando recursos que ultrapassam o que é permitido para o circuito padrão.
-
-- Verifique se o número de redes virtuais vinculadas ao circuito é menor do que 10 antes de fazer o downgrade de Premium para padrão. Caso contrário, sua solicitação de atualização falhará e você receberá uma cobrança com as taxas premium.
-- Você precisa desvincular todas as redes virtuais em outras regiões geopolíticas. Caso contrário, sua solicitação de atualização falhará e você receberá uma cobrança com as taxas premium.
-- Sua tabela de roteamento deve ter menos do que 4000 rotas para o emparelhamento privado. Se o tamanho da tabela de roteamento for maior do que 4000 rotas, a sessão BGP será descartada e não poderá ser reabilitada até que o número de prefixos anunciados fique abaixo de 4000.
-
-
 ### Como atualizar a largura de banda do circuito da Rota Expressa
 
-Verifique a página [Perguntas frequentes sobre a Rota Expressa](expressroute-faqs.md) para ver as opções de largura de banda com suporte para o seu provedor. Você pode escolher qualquer tamanho maior do que o tamanho do circuito existente. Depois de decidir o tamanho necessário, você poderá usar o seguinte comando para redimensionar o circuito.
+Verifique a página [Perguntas frequentes sobre a Rota Expressa](expressroute-faqs.md) para ver as opções de largura de banda com suporte para o seu provedor. Você pode escolher qualquer tamanho **maior** do que o tamanho do circuito existente sem incorrer em tempo de inatividade.
+
+>[AZURE.IMPORTANT] Não é possível reduzir a largura de banda de um circuito da Rota Expressa sem interrupções. O downgrade da largura de banda exige o desprovisionamento do circuito da Rota Expressa e um novo provisionamento de um novo circuito da Rota Expressa.
+
+Depois de decidir de qual tamanho precisa, você pode usar o exemplo a seguir para redimensionar o circuito. Depois de executar os cmdlets, o circuito terá sido redimensionado no lado da Microsoft. Entre em contato com seu provedor de conectividade para que ele atualize as configurações a fim de corresponder a essa alteração. Observe que passaremos a lhe cobrar pela opção de largura de banda atualizada a partir desse momento.
 
 		$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
@@ -343,24 +339,25 @@ Verifique a página [Perguntas frequentes sobre a Rota Expressa](expressroute-fa
 
 		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-O circuito será sido dimensionado no lado da Microsoft. Entre em contato com seu provedor de conectividade para que ele atualize as configurações a fim de corresponder a essa alteração. Observe que passaremos a lhe cobrar pela opção de largura de banda atualizada a partir desse momento.
-
->[AZURE.IMPORTANT]Não é possível reduzir a largura de banda de um circuito da Rota Expressa sem interrupções. O downgrade da largura de banda exige o desprovisionamento do circuito da Rota Expressa e um novo provisionamento de um novo circuito da Rota Expressa.
-
 ## Excluir e desprovisionar um circuito da Rota Expressa
 
-Você pode excluir o circuito da Rota Expressa executando o comando a seguir:
+É possível excluir o circuito da Rota Expressa. Ao excluir um circuito da Rota Expressa, observe as seguintes considerações:
+
+- Você deve desvincular todas as redes virtuais da Rota Expressa para que essa operação seja bem-sucedida. Se essa operação falhar, verifique se há redes virtuais vinculadas ao circuito.
+
+- Se o estado de provisionamento do provedor de serviços do circuito da Rota Expressa for habilitado, o status passará de habilitado para *desabilitando*. Trabalhe com seu provedor de serviços para desprovisionar o circuito no lado dele. Continuaremos a reservar recursos e a cobrar de você até que o provedor de serviços complete o desprovisionamento do circuito e nos envie uma notificação.
+
+- Se o provedor de serviços tiver desprovisionado o circuito (o estado de provisionamento do provedor de serviços estiver definido como *não provisionado*) antes da execução do cmdlet, desprovisionaremos o circuito e interromperemos a cobrança.
+
+Para excluir o circuito da Rota Expressa, use o exemplo de cmdlet do PowerShell abaixo.
 
 		Remove-AzureRmExpressRouteCircuit -ResourceGroupName "ExpressRouteResourceGroup" -Name "ExpressRouteARMCircuit"
 
-Observe que você precisa desvincular todas as redes virtuais da Rota Expressa para que essa operação tenha sucesso. Se essa operação falhar, verifique se há redes virtuais vinculadas ao circuito.
-
-Se o estado de provisionamento do provedor de serviços do circuito da Rota Expressa estiver habilitado, o status passará de habilitado para *desabilitando*. Trabalhe com seu provedor de serviços para desprovisionar o circuito no lado dele. Continuaremos a reservar recursos e a cobrar de você até que o provedor de serviços complete o desprovisionamento do circuito e nos envie uma notificação.
-
-Se o provedor de serviços tiver desprovisionado o circuito (o estado de provisionamento do provedor de serviços estiver definido como *não provisionado*) antes da execução do cmdlet acima, desprovisionaremos o circuito e interromperemos a cobrança.
-
 ## Próximas etapas
 
-- [Configurar o roteamento](expressroute-howto-routing-arm.md)
+Depois de criar seu circuito, verifique se você executou as seguintes tarefas:
 
-<!---HONumber=AcomDC_0114_2016-->
+1.  [Criar e modificar o roteamento do circuito da Rota Expressa](expressroute-howto-routing-arm.md)
+2.  [Vincular a rede virtual ao circuito da Rota Expressa](expressroute-howto-linkvnet-arm.md)
+
+<!---HONumber=AcomDC_0128_2016-->

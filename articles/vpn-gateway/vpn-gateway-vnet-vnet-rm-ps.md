@@ -84,7 +84,7 @@ Neste artigo, vamos mostrar como conectar duas redes virtuais, VNet1 e VNet2. Vo
 ### Antes de começar
 
 
-- Verifique se você tem uma assinatura do Azure. Se ainda não tiver uma assinatura do Azure, você poderá ativar os [benefícios de assinante do MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para uma [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
+- Verifique se você tem uma assinatura do Azure. Se ainda não tiver uma assinatura do Azure, você poderá ativar os [benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 - Instale os módulos do PowerShell Você precisará da versão mais recente dos cmdlets do PowerShell do gerenciador de recursos do Azure para configurar sua conexão.[AZURE.INCLUDE [vpn-gateway-ps-rm-howto](../../includes/vpn-gateway-ps-rm-howto-include.md)]
 
@@ -262,4 +262,4 @@ Depois de verificar se as sub-redes do gateway estão configuradas corretamente,
 
 Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Confira [Criar uma Máquina Virtual](../virtual-machines/virtual-machines-windows-tutorial.md) para obter as etapas.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

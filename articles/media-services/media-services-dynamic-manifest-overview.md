@@ -192,7 +192,7 @@ Para combinar os filtros, você precisa definir os nomes dos filtros para a URL 
 
 Você pode combinar até três filtros.
 
-Para saber mais, confira [este blog](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support).
+Para saber mais, confira [este blog](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
 
 ##Conheça os problemas e limitações
@@ -212,7 +212,7 @@ Para saber mais, confira [este blog](http://azure.microsoft.com/blog/azure-media
 
 
 
-##Veja também
+##Consulte também
 
 [Visão geral do fornecimento de conteúdo a clientes](media-services-deliver-content-overview.md)
 
@@ -236,4 +236,4 @@ Para saber mais, confira [este blog](http://azure.microsoft.com/blog/azure-media
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/13/2016"
+   ms.date="01/22/2016"
    ms.author="alkohli" />
 
 # Fazer backup de seu StorSimple Virtual Array (visualização)
@@ -23,7 +23,7 @@ Os tutoriais se aplicam ao Microsoft Azure StorSimple Virtual Array (também con
 
 O StorSimple Virtual Array é um dispositivo virtual local de armazenamento em nuvem híbrida que pode ser configurado como servidor de arquivos ou um servidor iSCSI. Ele pode criar backups, restaurar de backups e executar failover de dispositivo, se houver necessidade de recuperação de desastre. Quando configurado como um servidor de arquivos, ele também permite a recuperação em nível de item. Este tutorial descreve como usar o portal clássico do Azure ou a interface do usuário da Web do StorSimple para criar backups agendados e manuais do seu StorSimple Virtual Array.
 
->[AZURE.IMPORTANT]
+>[AZURE.IMPORTANT] 
 >
 >- A StorSimple Virtual Array está em visualização e é destinada para fins de planejamento de implantação e avaliação. Não há suporte para a instalação dessa visualização em um ambiente de produção. 
 >- Se você tiver quaisquer problemas com a StorSimple Virtual Array, publique-os no [fórum do MSDN do StorSimple](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple).
@@ -32,7 +32,7 @@ O StorSimple Virtual Array é um dispositivo virtual local de armazenamento em n
 
 Backups oferecem proteção pontual, melhoram a capacidade de recuperação e minimizam os tempos de compartilhamentos e volumes. Você pode fazer backup de um compartilhamento ou volume no seu dispositivo StorSimple de duas maneiras: **Agendada** ou **Manual**. Cada um desses métodos é discutido nas seções a seguir.
 
-> [AZURE.NOTE]Nesta versão, os backups agendados são criados por uma política padrão que é executada diariamente em um período especificado e faz backup de todos os volumes ou compartilhamentos no dispositivo. Não é possível criar políticas personalizadas para backups agendados no momento.
+> [AZURE.NOTE] Nesta versão, os backups agendados são criados por uma política padrão que é executada diariamente em um período especificado e faz backup de todos os volumes ou compartilhamentos no dispositivo. Não é possível criar políticas personalizadas para backups agendados no momento.
 
 ## Alterar o agendamento de backup
 
@@ -98,8 +98,14 @@ Execute as etapas a seguir no portal clássico do Azure para exibir os backups e
 
     Os backups associados ao compartilhamento ou volume selecionado devem aparecer na lista de conjuntos de backup.
 
+![video\_icon](./media/storsimple-ova-backup/video_icon.png) **Vídeo disponível**
+
+Assista ao vídeo para ver como você pode criar compartilhamentos, fazer backup de compartilhamentos e restaurar dados em uma StorSimple Virtual Array.
+
+> [AZURE.VIDEO use-the-storsimple-virtual-array]
+
 ## Próximas etapas
 
-Saiba mais sobre a [administração de sua StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+Saiba mais sobre a [administração do StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

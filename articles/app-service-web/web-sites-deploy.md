@@ -35,7 +35,7 @@ Como você não precisa se preocupar com a estrutura do servidor Web ou do aplic
 
 Populares ferramentas de desenvolvimento da Web oferecem suporte a um ou mais desses processos de implantação. Embora sua ferramenta escolhida determine os processos de implantação que podem ser aproveitados, a funcionalidade real do DevOps à sua disposição depende da combinação do processo de implantação e de ferramentas específicas escolhidas por você. Por exemplo, se você executar a Implantação da Web do [Visual Studio com o SDK do Azure](#vspros), apesar de não contar com a automação do Kudu, você obtém a restauração do pacote e a automação do MSBuild no Visual Studio. O SDK do Azure também fornece um assistente simples para ajudar você a criar os recursos necessários do Azure diretamente da interface do Visual Studio.
 
->[AZURE.NOTE]Na verdade, esses processos de implantação não [provisionam os recursos do Azure](resource-group-portal) que seu aplicativo pode precisar, como o plano do Serviço de Aplicativo, o aplicativo do Serviço de Aplicativo e o Banco de Dados SQL. No entanto, a maioria dos artigos de instruções vinculados mostra como provisionar o aplicativo E implantar seu código no aplicativo, de ponta a ponta. Você também pode encontrar outras opções para o provisionamento de recursos do Azure na seção [Automatizar a implantação usando as ferramentas de linha de comando](#automate).
+>[AZURE.NOTE] Na verdade, esses processos de implantação não [provisionam os recursos do Azure](resource-group-portal) que seu aplicativo pode precisar, como o plano do Serviço de Aplicativo, o aplicativo do Serviço de Aplicativo e o Banco de Dados SQL. No entanto, a maioria dos artigos de instruções vinculados mostra como provisionar o aplicativo E implantar seu código no aplicativo, de ponta a ponta. Você também pode encontrar outras opções para o provisionamento de recursos do Azure na seção [Automatizar a implantação usando as ferramentas de linha de comando](#automate).
 
 ## <a name="ftp"></a>Implantar copiando arquivos manualmente para o Azure
 Se estiver acostumado a copiar manualmente o conteúdo da Web para hosters da Web, um fluxo de trabalho comum para desenvolvedores em PHP, você poderá usar um utilitário [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) para copiar arquivos, como o Windows Explorer ou o [FileZilla](https://filezilla-project.org/).
@@ -201,8 +201,8 @@ Os outros prós da implantação usando o Visual Studio Team Services são:
 ###<a name="cloudgitmercurial"></a>Como implantar de um repositório Git ou Mercurial baseado em nuvem
 
 - [Publicando por meio do Controle do Código-fonte em Aplicativos Web com Git](web-sites-publish-source-control.md). Como habilitar a implantação contínua de repositórios a partir do GitHub, do CodePlex ou do BitBucket. Embora este tutorial mostre como publicar um repositório Git, o processo para repositórios Mercurial hospedados no CodePlex ou nonBitBucket é semelhante.
-- [Implantar em Aplicativos Web com o GitHub usando o Kudu](http://azure.microsoft.com/documentation/videos/deploying-to-azure-from-github/). Vídeo de Scott Hanselman e David Ebbo que mostra como implantar um aplicativo Web diretamente do GitHub no Serviço de Aplicativo.
-- [Implantar em um botão do Azure para Aplicativos Web](http://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/). Blog sobre um método para acionar a implantação por meio de um repositório Git.
+- [Implantar em Aplicativos Web com o GitHub usando o Kudu](https://azure.microsoft.com/documentation/videos/deploying-to-azure-from-github/). Vídeo de Scott Hanselman e David Ebbo que mostra como implantar um aplicativo Web diretamente do GitHub no Serviço de Aplicativo.
+- [Implantar em um botão do Azure para Aplicativos Web](https://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/). Blog sobre um método para acionar a implantação por meio de um repositório Git.
 - [Fórum do Azure para Git, Mercurial e Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit).
 
 Para obter mais informações, consulte os recursos a seguir:
@@ -264,7 +264,7 @@ A [Implantação da Web](http://www.iis.net/downloads/microsoft/web-deploy) é o
 
 Para obter mais informações, consulte o recurso a seguir:
 
-* [Aplicativos Web simples: implantação](http://azure.microsoft.com/blog/2014/07/28/simple-azure-websites-deployment/). Blog de David Ebbo sobre uma ferramenta que ele escreveu para facilitar o uso da Implantação da Web.
+* [Aplicativos Web simples: implantação](https://azure.microsoft.com/blog/2014/07/28/simple-azure-websites-deployment/). Blog de David Ebbo sobre uma ferramenta que ele escreveu para facilitar o uso da Implantação da Web.
 * [Ferramenta de Implantação de Web](http://technet.microsoft.com/library/dd568996). Documentação oficial no site do Microsoft TechNet. Desatualizada, mas ainda um bom ponto de partida.
 * [Usando a Implantação da Web](http://www.iis.net/learn/publish/using-web-deploy). Documentação oficial no site do Microsoft IIS.NET. Também desatualizada, mas ainda um bom ponto de partida.
 * [StackOverflow](http://www.stackoverflow.com). O melhor lugar para obter informações mais atuais sobre como usar a Implantação da Web da linha de comando.
@@ -276,7 +276,7 @@ Em algumas situações, você provavelmente desejará ser capaz de alternar faci
 
 Uma parte importante de qualquer fluxo de trabalho de implantação é ter um plano de backup e restauração. Para obter informações sobre o recurso de backup e restauração dos Aplicativos Web, consulte [Backups de Aplicativos Web](web-sites-backup.md).
 
-Para obter informações sobre como usar o Controle de Acesso Baseado em Função do Azure para gerenciar o acesso à implantação de Aplicativos Web, consulte [RBAC e a publicação de Aplicativos Web](http://azure.microsoft.com/blog/2015/01/05/rbac-and-azure-websites-publishing).
+Para obter informações sobre como usar o Controle de Acesso Baseado em Função do Azure para gerenciar o acesso à implantação de Aplicativos Web, consulte [RBAC e a publicação de Aplicativos Web](https://azure.microsoft.com/blog/2015/01/05/rbac-and-azure-websites-publishing/).
 
 Para obter mais informações sobre outros tópicos de implantação, consulte a seção Implantar na [Documentação de Aplicativos Web](/documentation/services/web-sites/).
 
@@ -284,4 +284,4 @@ Para obter mais informações sobre outros tópicos de implantação, consulte a
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

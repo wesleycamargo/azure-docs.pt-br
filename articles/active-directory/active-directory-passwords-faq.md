@@ -166,7 +166,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
 ## Write-back de senha
  - **P: como funciona os bastidores do Write-back de senha?**
  
- > **R:** confira Como funciona o write-back de senha para obter uma explicação detalhada do que acontece quando você habilitar o write-back de senha e como os dados fluem através do sistema de volta ao seu ambiente local. Confira "Modelo de segurança de write-back de senha" em Como funciona o write-back de senha para saber como podemos garantir que o write-back de senha é um serviço altamente seguro.
+ > **R:** Veja [Como funciona o write-back de senha](active-directory-passwords-learn-more.md#how-password-writeback-works) para obter uma explicação detalhada do que acontece quando você habilita o write-back de senha e como os dados fluem pelo sistema de volta ao seu ambiente local. Veja [Modelo de segurança de write-back de senha](active-directory-passwords-learn-more.md#password-writeback-security-model) em Como funciona o write-back de senha para saber como podemos garantir que o Write-back de Senha é um serviço altamente seguro.
 
  - **P: quanto tempo demora para o write-back de senha funcionar? Há um atraso de sincronização como com a sincronização com hash de senha?**
  
@@ -182,7 +182,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
 
  - **P: o Write-back de senha é seguro? Como posso ter certeza de que não serei invadido por um hacker?**
  
- > **R:** Sim, o Write-back de senha é muito seguro. Para ler mais sobre as 4 camadas de segurança implementadas pelo serviço de Write-back de senha, confira o "modelo de segurança de write-back de senha" em Como funciona o Write-back de senha
+ > **R:** Sim, o Write-back de senha é muito seguro. Para ler mais sobre as quatro camadas de segurança implementadas pelo serviço de Write-back de Senha, confira o [modelo de segurança de Write-back de Senha](active-directory-passwords-learn-more.md#password-writeback-security-model) em Como funciona o Write-back de Senha.
 
 
 <br/> <br/> <br/>
@@ -203,4 +203,4 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 [001]: ./media/active-directory-passwords-faq/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-faq/002.jpg "Image_002.jpg"
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -23,9 +23,9 @@ Este artigo analisa as diferenças e semelhanças entre os dois tipos de fila of
 
 O Microsoft Azure oferece suporte a dois tipos de mecanismo de fila: **Filas do Azure** e **Filas do Barramento de Serviço**.
 
-As **Filas do Azure**, que fazem parte da infraestrutura do [armazenamento do Azure](http://azure.microsoft.com/services/storage/), apresentam uma interface Get/Put/Peek baseada em REST, fornecendo sistema de mensagens confiável e persistente dentro e entre serviços.
+As **Filas do Azure**, que fazem parte da infraestrutura do [armazenamento do Azure](https://azure.microsoft.com/services/storage/), apresentam uma interface Get/Put/Peek baseada em REST, fornecendo sistema de mensagens confiável e persistente dentro e entre serviços.
 
-**As filas do Barramento de Serviço** fazem parte de uma infraestrutura mais ampla de [mensagens do Azure](http://azure.microsoft.com/services/service-bus/), que oferece suporte ao enfileiramento, bem como à publicação/assinatura, comunicação remota do serviço Web e padrões de integração. Para obter mais informações sobre filas, tópicos/assinaturas e retransmissões do Barramento de Serviço, veja a [Visão geral de mensagens de Barramento de Serviço](service-bus-messaging-overview.md).
+**As filas do Barramento de Serviço** fazem parte de uma infraestrutura mais ampla de [mensagens do Azure](https://azure.microsoft.com/services/service-bus/), que oferece suporte ao enfileiramento, bem como à publicação/assinatura, comunicação remota do serviço Web e padrões de integração. Para obter mais informações sobre filas, tópicos/assinaturas e retransmissões do Barramento de Serviço, veja a [Visão geral de mensagens de Barramento de Serviço](service-bus-messaging-overview.md).
 
 Embora ambas as tecnologias de enfileiramento coexistam, as Filas do Azure foram introduzidas primeiro, como um mecanismo de armazenamento de fila dedicado criado com base nos serviços de armazenamento do Azure. As filas do Barramento de Serviço são criadas com base na infraestrutura mais ampla do “sistema de mensagens agenciado”, desenvolvida para integrar aplicativos ou componentes de aplicativo que podem incluir vários protocolos de comunicação, contratos de dados, domínios confiáveis e/ou ambientes de rede.
 
@@ -289,7 +289,7 @@ Esta seção compara as Filas do Azure e as filas do Barramento de Serviço de u
 
 - Dado o suporte à sondagem longa, usar as filas do Barramento de Serviço pode ser econômico em situações em que a entrega de baixa latência é necessária.
 
->[AZURE.NOTE]Todos os custos estão sujeitos a alterações. Esta tabela reflete os preços atuais no momento da elaboração deste artigo e não inclui nenhuma oferta promocional que possa estar disponível no momento. Para obter informações atualizadas sobre os preços do Azure, consulte a página de [preços do Azure](http://azure.microsoft.com/pricing/). Para obter mais informações sobre o preço do Barramento de Serviço, veja [Preço do Barramento de Serviço](http://azure.microsoft.com/pricing/details/service-bus/).
+>[AZURE.NOTE] Todos os custos estão sujeitos a alterações. Esta tabela reflete os preços atuais no momento da elaboração deste artigo e não inclui nenhuma oferta promocional que possa estar disponível no momento. Para obter informações atualizadas sobre os preços do Azure, consulte a página de [preços do Azure](https://azure.microsoft.com/pricing/). Para obter mais informações sobre o preço do Barramento de Serviço, veja [Preço do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ## Conclusão
 
@@ -315,4 +315,4 @@ Os artigos a seguir fornecem mais orientação e informações sobre como usar a
 [portal clássico do Azure]: http://manage.windowsazure.com
  
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

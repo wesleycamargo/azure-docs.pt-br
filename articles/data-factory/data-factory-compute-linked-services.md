@@ -24,11 +24,10 @@ Este artigo explica diferentes ambientes de computação que você pode usar par
 
 Nesse tipo de configuração, o ambiente de computação é totalmente gerenciado pelo serviço do Azure Data Factory. Ele é automaticamente criado pelo serviço Data Factory antes de um trabalho ser enviado a fim de processar os dados e é removido após a conclusão do trabalho. Você pode criar um serviço vinculado para o ambiente de computação sob demanda, configurá-lo e controlar as configurações granulares da execução do trabalho, gerenciamento de cluster e ações de inicialização.
 
-> [AZURE.NOTE]A configuração sob demanda tem suporte somente para clusters do Azure HDInsight.
+> [AZURE.NOTE] A configuração sob demanda tem suporte somente para clusters do Azure HDInsight.
 
 ## Serviço vinculado do Azure HDInsight sob demanda
-
-O cluster HDInsight sob demanda é automaticamente criado pelo serviço do Azure Data Factory para processar dados. O cluster é criado na região que é a mesma que a conta de armazenamento (propriedade linkedServiceName em JSON) associada ao cluster.
+O serviço Azure Data Factory pode criar automaticamente um cluster HDInsight sob demanda baseado em Windows/Linux para processar dados. O cluster é criado na região que é a mesma que a conta de armazenamento (propriedade linkedServiceName em JSON) associada ao cluster.
 
 Observe os seguintes pontos **importantes** sobre o serviço vinculado HDInsight sob demanda:
 
@@ -36,28 +35,49 @@ Observe os seguintes pontos **importantes** sobre o serviço vinculado HDInsight
 - Os logs para trabalhos que são executados em um cluster HDInsight sob demanda são copiados para a conta de armazenamento associada ao cluster HDInsight. Você pode acessar esses logs do Portal Clássico do Azure na folha **Detalhes de execução da atividade**. Consulte o artigo [Monitorar e gerenciar pipelines](data-factory-monitor-manage-pipelines.md) para obter detalhes.
 - Você será cobrado somente pelo tempo em que o cluster HDInsight estiver ativo e executando trabalhos.
 
-> [AZURE.IMPORTANT]Ele normalmente demora mais do que **15 minutos** para provisionar um cluster Azure HDInsight sob demanda.
+> [AZURE.IMPORTANT] Ele normalmente demora mais do que **15 minutos** para provisionar um cluster Azure HDInsight sob demanda.
 
 ### Exemplo
+O JSON a seguir define um serviço vinculado HDInsight sob demanda. O Data Factory cria automaticamente um cluster HDInsight **baseado em Windows** ao processar uma fatia de dados. Observe que **osType** não é especificado nesse JSON de exempo e o valor padrão para essa propriedade é **Windows**.
 
 	{
 	  "name": "HDInsightOnDemandLinkedService",
 	  "properties": {
 	    "type": "HDInsightOnDemand",
 	    "typeProperties": {
-	      "clusterSize": 4,
-	      "timeToLive": "00:05:00",
 	      "version": "3.2",
-		  "osType": "linux",
-	      "linkedServiceName": "MyBlobStore",
-		  "hcatalogLinkedServiceName": "AzureSqlLinkedService",
-	      "additionalLinkedServiceNames": [
-	        "otherLinkedServiceName1",
-	        "otherLinkedServiceName2"
-	      ]
+	      "clusterSize": 1,
+	      "timeToLive": "00:30:00",
+	      "linkedServiceName": "StorageLinkedService"
 	    }
 	  }
 	}
+
+
+O JSON a seguir define um serviço vinculado HDInsight sob demanda baseado em Linux. O serviço Data Factory cria automaticamente um cluster HDInsight **baseado em Linux** ao processar uma fatia de dados. Você deve especificar valores para **sshUserName** e **sshPassword**.
+
+
+	{
+	    "name": "HDInsightOnDemandLinkedService",
+	    "properties": {
+	        "hubName": "getstarteddf0121_hub",
+	        "type": "HDInsightOnDemand",
+	        "typeProperties": {
+	            "version": "3.2",
+	            "clusterSize": 4,
+	            "timeToLive": "00:05:00",
+	            "osType": "linux",
+	            "sshPassword": "MyPassword!",
+	            "sshUserName": "myuser",
+	            "linkedServiceName": "StorageLinkedService",
+	        }
+	    }
+	}
+
+> [AZURE.IMPORTANT] 
+O cluster HDInsight cria um **contêiner padrão** no armazenamento de blobs especificado em JSON (**linkedServiceName**). O HDInsight não exclui esse contêiner quando o cluster é excluído. Esse comportamento é intencional. Com o serviço vinculado HDInsight sob demanda, um cluster HDInsight é criado sempre que uma fatia precisa ser processada, a menos que haja um cluster ativo existente (**timeToLive**) e seja excluído quando o processamento é realizado.
+> 
+> À medida que mais e mais fatias forem processadas, você verá muitos contêineres no armazenamento de blobs do Azure. Se você não precisa deles para solução de problemas dos trabalhos, convém excluí-los para reduzir o custo de armazenamento. O nome desses contêineres segue um padrão: "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp". Use ferramentas como i [Gerenciador de Armazenamento da Microsoft](http://storageexplorer.com/) para excluir contêineres do armazenamento de blobs do Azure.
 
 ### Propriedades
 
@@ -71,7 +91,17 @@ linkedServiceName | O armazenamento de blob a ser usado pelo cluster sob demanda
 additionalLinkedServiceNames | Especifica as contas de armazenamento adicionais para o serviço vinculado do HDInsight para que o serviço do Data Factory possa registrá-los em seu nome. | Não
 osType | Tipo do sistema operacional. Valores permitidos são: Windows (padrão) e Linux | Não
 hcatalogLinkedServiceName | O nome do serviço vinculado do SQL Azure que aponta para o banco de dados HCatalog. O cluster HDInsight sob demanda será criado usando o banco de dados SQL do Azure como o metastore. | Não
+sshUser | Usuário do SSH para o cluster HDInsight baseado em Linux | Sim (somente para Linux)
+sshPassword | Senha do SSH para o cluster HDInsight baseado em Linux | Sim (somente para Linux)
 
+
+#### Exemplo de JSON additionalLinkedServiceNames
+
+    "additionalLinkedServiceNames": [
+        "otherLinkedServiceName1",
+		"otherLinkedServiceName2"
+  	]
+ 
 ### Propriedades avançadas
 
 Você também pode especificar as seguintes propriedades para a configuração granular do cluster HDInsight sob demanda.
@@ -290,19 +320,19 @@ subscriptionId | ID de assinatura do Azure | Não (se não for especificado, a a
 resourceGroupName | Nome do grupo de recursos do Azure | Não (se não for especificado, o grupo de recursos do Data Factory é usado).
 sessionId | ID da sessão de autorização OAuth. Cada ID da sessão é exclusiva e pode ser usado somente uma vez. Isso é gerado automaticamente no Editor Data Factory. | Sim
 
-O código de autorização gerado usando o botão **Autorizar** expira após algum tempo. Confira a tabela a seguir para ver os tempos de expiração para os diferentes tipos de contas de usuário. Talvez você veja a mensagem de erro a seguir quando o **token de autenticação expirar**: erro na operação da credencial: invalid\_grant - AADSTS70002: erro ao validar as credenciais. AADSTS70008: a concessão de acesso fornecida expirou ou foi revogada. ID do Rastreamento: d18629e8-af88-43c5-88e3-d8419eb1fca1 ID da Correlação: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Carimbo de data/hora: 2015-12-15 21:09:31Z
+O código de autorização gerado usando o botão **Autorizar** expira após algum tempo. Confira a tabela a seguir para ver os tempos de expiração para os diferentes tipos de contas de usuário. Você pode ver a seguinte mensagem de erro quando o **token de autenticação expira**: Erro na operação da credencial: invalid\_grant - AADSTS70002: erro ao validar as credenciais. AADSTS70008: a concessão de acesso fornecida expirou ou foi revogada. ID do Rastreamento: d18629e8-af88-43c5-88e3-d8419eb1fca1 ID da Correlação: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Carimbo de data/hora: 2015-12-15 21:09:31Z
 
  
 | Tipo de usuário | Expira após |
 | :-------- | :----------- | 
 | Usuário não AAD (@hotmail.com, @live.com, etc.) | 12 horas |
-| O usuário do AAD e a fonte baseada no OAuth estão em um [locatário](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) diferente, como o locatário do Data Factory do usuário. | 12 horas |
-| O usuário do AAD e a fonte baseada no OAuth estão no mesmo locatário, como o locatário do Data Factory do usuário. | <p> O máximo é de 90 dias se o usuário executar fatias com base na origem do serviço vinculado baseado no OAuth pelo menos uma vez a cada 14 dias. </p><p>Durante os 90 dias esperados, se o usuário não executar nenhuma fatia com base nessa fonte por 14 dias, as credenciais expirarão imediatamente em 14 dias após sua última fatia.</p> | 
+| O usuário do AAD e a fonte baseada no OAuth estão em um [locatário](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) diferente do locatário do data factory. | 12 horas |
+| O usuário do AAD e a fonte baseada no OAuth estão no mesmo locatário que o locatário do data factory. | 14 dias |
 
 Para evitar/resolver o erro, você precisará autorizar novamente usando o botão **Autorizar** quando o **token expirar** e reimplantar o serviço vinculado. Você também pode gerar valores para as propriedades sessionId e authorization programaticamente usando o código na seção a seguir.
 
 ### Para gerar valores sessionId e authorization programaticamente 
-O código a seguir gera os valores **sessionId** e **authorization** programaticamente.
+O código a seguir gera os valores **sessionId** e **authorization**.
 
     if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
         linkedService.Properties.TypeProperties is AzureDataLakeAnalyticsLinkedService)
@@ -334,4 +364,4 @@ Confira os tópicos [Classe AzureDataLakeStoreLinkedService](https://msdn.micros
 
 Você pode criar um serviço vinculado SQL do Azure e usá-lo com a [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md) para invocar um procedimento armazenado de um pipeline do Data Factory. Confira o artigo [Conector SQL do Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) para saber mais sobre esse serviço vinculado.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

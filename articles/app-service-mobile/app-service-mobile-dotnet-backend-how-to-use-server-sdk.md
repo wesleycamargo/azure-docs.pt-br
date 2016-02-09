@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/09/2016"
+	ms.date="01/24/2016"
 	ms.author="glenga"/>
 
 # Trabalhar com o servidor .NET back-end do SDK para Aplicativos Móveis do Azure
@@ -25,7 +25,7 @@
 
 Este tópico mostra como usar o SDK do servidor de back-end do .NET nos principais cenários dos Aplicativos Móveis do Serviço de Aplicativo do Azure. Os Aplicativos Móveis SDK do Azure ajuda você a trabalhar com clientes móveis de seu aplicativo ASP.NET.
 
->[AZURE.TIP]O [SDK do .NET Server para Aplicativos Móveis do Azure](https://github.com/Azure/azure-mobile-apps-net-server) tem código aberto no GitHub. O repositório contém o conjunto de testes de unidade SDK de todo o servidor, bem como alguns projetos de exemplo.
+>[AZURE.TIP] O [SDK do .NET Server para Aplicativos Móveis do Azure](https://github.com/Azure/azure-mobile-apps-net-server) tem código aberto no GitHub. O repositório contém o conjunto de testes de unidade SDK de todo o servidor, bem como alguns projetos de exemplo.
 
 ## Documentação de referência
 
@@ -184,7 +184,7 @@ Para obter um exemplo de um controlador de tabela que usa o Entity Framework par
 
 ## Como definir um controlador da API personalizada
 
-O controlador da API personalizada fornece as funções mais básicas de back-end do Aplicativo Móvel, expondo um ponto de extremidade. Você pode registrar um controlador da API específico do dispositivo móvel usando o atributo `MobileAppControllerAttribute`. Esse atributo registra a rota e também configura o serializador JSON dos Aplicativos Móveis.
+O controlador da API personalizada fornece as funções mais básicas de back-end do Aplicativo Móvel, expondo um ponto de extremidade. Você pode registrar um controlador da API específico do dispositivo móvel usando o atributo [MobileAppController]. Esse atributo registra a rota e também configura o serializador JSON dos Aplicativos Móveis.
 
 1. No Visual Studio, clique com o botão direito do mouse na pasta Controladores, clique em **Adicionar** > **Controlador**, selecione **Controlador da API Web 2 &mdash; Vazio** e clique em **Adicionar**.
 
@@ -194,7 +194,7 @@ O controlador da API personalizada fornece as funções mais básicas de back-en
 
 		using Microsoft.Azure.Mobile.Server.Config;
 
-4. Aplique o **MobileAppControllerAttribute** à definição de classe de controlador de API, como no seguinte exemplo:
+4. Aplique o **[MobileAppController]** à definição de classe do controlador de API, como no exemplo a seguir:
 
 		[MobileAppController] 
 		public class CustomController : ApiController
@@ -286,13 +286,13 @@ Você também pode simplificar o código do cliente para usar o método `loginAs
 		
 Substitua a cadeia de caracteres "CustomAuth" acima pelo nome do controlador que hospeda sua ação de logon.
 
->[AZURE.TIP]Usar a abordagem loginAsync() garante que o token de autenticação está conectado a todas as chamadas subsequentes ao serviço.
+>[AZURE.TIP] Usar a abordagem loginAsync() garante que o token de autenticação está conectado a todas as chamadas subsequentes ao serviço.
 
 ###<a name="user-info"></a>Como recuperar informações do usuário autenticado
 
 Quando um usuário é autenticado pelo serviço de aplicativo, você pode acessar a ID de usuário atribuída e outras informações no seu código de back-end do .NET. Isso é útil para tomar decisões de autorização para um determinado usuário no back-end, por exemplo, se um usuário específico pode acessar uma linha da tabela ou outro recurso. O código a seguir mostra como obter a ID de usuário para um usuário conectado:
 
-    // Get the current user SID and create a tag for the current user.
+    // Get the SID of the current user.
     var claimsPrincipal = this.User as ClaimsPrincipal;
     string sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
 
@@ -446,4 +446,4 @@ Agora, seu servidor em execução local está equipado para validar tokens que o
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

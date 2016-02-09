@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="Problemas com a Multi-Factor Authentication do Azure | Microsoft Azure" 
 	description="Este documento fornecerá informações aos usuários sobre o que fazer em caso de um problema com a Multi-Factor Authentication do Azure." 
-	services="multi-factor-authentication" 
+	services="multi-factor-authentication"
+	keywords = "cliente do multifactor authentication, problema de autenticação, ID de correlação"
 	documentationCenter="" 
 	authors="billmath" 
 	manager="stevenpo" 
@@ -13,11 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="01/25/2016" 
 	ms.author="billmath"/>
 
 # Problemas com a Multi-Factor Authentication do Azure
->[AZURE.IMPORTANT]Ajude-nos a melhorar esta página. Se você não encontrar uma resposta para o seu problema nesta página, forneça comentários detalhados para que possamos providenciar uma solução.
+>[AZURE.IMPORTANT]
+Ajude-nos a melhorar esta página. Se você não encontrar uma resposta para o seu problema nesta página, forneça comentários detalhados para que possamos providenciar uma solução.
 
 As informações a seguir servem para ajudar você com alguns problemas mais comuns que podem ocorrer.
 
@@ -63,7 +65,8 @@ Em seguida, selecione o outro número de telefone. Nesse caso, você escolheria 
 
 ![Telefone alternativo](./media/multi-factor-authentication-end-user-manage/altphone2.png)
 
->[AZURE.IMPORTANT]É importante configurar um número de telefone de autenticação secundário. Como seu número de telefone principal e seu aplicativo móvel provavelmente estão no mesmo telefone, o número de telefone secundário é a única maneira de poder retornar à sua conta caso seu telefone seja roubado ou você o perca.
+>[AZURE.IMPORTANT]
+É importante configurar um número de telefone de autenticação secundário. Como seu número de telefone principal e seu aplicativo móvel provavelmente estão no mesmo telefone, o número de telefone secundário é a única maneira de poder retornar à sua conta caso seu telefone seja roubado ou você o perca.
 
 Se você não tiver configurado um número de telefone de autenticação secundário, será necessário entrar em contato com o administrador e pedir que ele apague suas configurações. Assim, na próxima vez em que você entrar, receberá uma solicitação para [configurar a autenticação multifator](multi-factor-authentication-manage-users-and-devices.md#require-selected-users-to-provide-contact-methods-again) novamente.
 
@@ -89,7 +92,7 @@ Se você usar a autenticação multifator com o Office 365, será conveniente ge
 2. No canto superior direito, selecione o widget e escolha Configurações do Office 365.
 3. Clique em Verificação de Segurança Adicional.
 4. À direita, clique no link **Atualizar meus números de telefone usados para segurança da conta.** ![O365](./media/multi-factor-authentication-end-user-manage/o365a.png)
-5. Isso levará você à página que permitirá a alteração das configurações. ![O365](./media/multi-factor-authentication-end-user-manage/o365b.png)
+5. Isso levará você à página que permitirá alterar as configurações. ![O365](./media/multi-factor-authentication-end-user-manage/o365b.png)
 
 
 ### Alterar suas configurações com o portal do Myapps
@@ -101,7 +104,7 @@ Se você não tiver certeza de como usar a multi-factor authentication, você se
 1. Entre em [https://myapps.microsoft.com](https://myapps.microsoft.com)	
 2. Na parte superior, selecione perfil.
 3. Escolha Verificação de Segurança Adicional. ![Myapps](./media/multi-factor-authentication-end-user-manage/myapps1.png)
-4. Isso levará você à página que permitirá que altere as configurações.
+4. Isso levará você à página que permitirá alterar as configurações.
 
 ![Prova](./media/multi-factor-authentication-end-user-manage-myapps/proofup.png)
 
@@ -115,7 +118,7 @@ Se você usar uma multi-factor authentication com o Azure, talvez seja convenien
 1. Faça logon no Portal do Azure.
 2. Na parte superior do portal do Azure, clique no seu nome de usuário. Isso abrirá uma caixa suspensa.
 3. Na caixa suspensa, selecione Verificação de segurança adicional. ![As tabelas](./media/multi-factor-authentication-end-user-manage/azure1.png)
-4. Isso levará você à página que permitirá a alteração das configurações. ![Prova](./media/multi-factor-authentication-end-user-manage-azure/proofup.png)
+4. Isso levará você à página que permitirá alterar as configurações. ![Prova](./media/multi-factor-authentication-end-user-manage-azure/proofup.png)
 
 ##Tenho um novo telefone e preciso alterar o meu número
 
@@ -129,7 +132,8 @@ Em seguida, selecione o outro número de telefone. Nesse caso, você escolheria 
 
 ![Telefone alternativo](./media/multi-factor-authentication-end-user-manage/altphone2.png)
 
->[AZURE.IMPORTANT]É importante configurar um número de telefone de autenticação secundário. Como seu número de telefone principal e seu aplicativo móvel provavelmente estão no mesmo telefone, o número de telefone secundário é a única maneira de poder retornar à sua conta caso seu telefone seja roubado ou você o perca.
+>[AZURE.IMPORTANT]
+É importante configurar um número de telefone de autenticação secundário. Como seu número de telefone principal e seu aplicativo móvel provavelmente estão no mesmo telefone, o número de telefone secundário é a única maneira de poder retornar à sua conta caso seu telefone seja roubado ou você o perca.
 
 A segunda é entrar em contato com seu administrador ou com a pessoa que configurou o mfa para você. Você só precisará fazer isso se não tiver configurado um número de telefone de autenticação secundário. Caso contrário, será necessário entrar em contato com o administrador, ou com a pessoa que configurou o mfa, e pedir que ele apague suas configurações. Assim, na próxima vez que entrar, você receberá uma solicitação para [configurar a autenticação multifator](multi-factor-authentication-manage-users-and-devices.md#require-selected-users-to-provide-contact-methods-again) novamente.
 
@@ -168,4 +172,4 @@ Você também pode contatar o administrador ou a pessoa que configurou a autenti
 
 Por fim, deixe alguns comentários detalhados nesta página para que possamos atualizá-la e aprimorá-la sempre com mais informações.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

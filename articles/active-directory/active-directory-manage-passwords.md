@@ -28,7 +28,8 @@ O restante deste tópico aborda o conjunto completo de recursos de gerenciamento
 - **Relatórios de atividade de gerenciamento de senha** fornecem aos administradores percepções sobre as atividades de registro e de redefinição de senha que ocorrem em suas organizações.
 - O **Write-back de senha** permite o gerenciamento de senhas locais na nuvem, de modo que todos os cenários acima podem ser executados por, ou em nome de, usuários federados ou sincronizados por senha. O write-back de senha requer o AD Premium do Azure. Para obter mais informações, consulte [Introdução ao Azure Active Directory Premium](active-directory-get-started-premium.md).
 
-> [AZURE.NOTE]O AD Premium do Azure está disponível para clientes chineses usando a instância do AD do Azure que abrange todo o mundo. O Azure AD Premium não tem suporte atualmente no serviço Microsoft Azure operado pela 21Vianet na China. Para obter mais informações, entre em contato conosco no [Fórum do Active Directory do Azure](http://feedback.azure.com/forums/169401-azure-active-directory).
+> [AZURE.NOTE]
+O AD Premium do Azure está disponível para clientes chineses usando a instância do AD do Azure que abrange todo o mundo. O Azure AD Premium não tem suporte atualmente no serviço Microsoft Azure operado pela 21Vianet na China. Para obter mais informações, entre em contato conosco no [Fórum do Active Directory do Azure](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 Use os links a seguir para ir para a documentação na qual você está mais interessado:
 
@@ -48,4 +49,4 @@ Use os links a seguir para ir para a documentação na qual você está mais int
 - [Criar ou editar usuários no AD do Azure](active-directory-create-users.md)
 - [Gerenciar grupos no AD do Azure](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

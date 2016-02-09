@@ -103,7 +103,7 @@ A próxima etapa será criar um projeto do Visual Studio e escrever duas funçõ
 	```
 	namespace Microsoft.ServiceBus.Samples
 	{
-	    publicclass Program
+	    public class Program
 	    {
 	
 	        private static DataTable issues;
@@ -202,14 +202,16 @@ A próxima etapa será criar um projeto do Visual Studio e escrever duas funçõ
 	```
 	namespace Microsoft.ServiceBus.Samples
 	{
-	    publicclass Program
+	    public class Program
 	    {
 	
-	        privatestatic DataTable issues;
-	        privatestatic List<BrokeredMessage> MessageList; 
-	        // Add these variablesprivatestaticstring ServiceNamespace;
-	        privatestaticstring sasKeyName = "RootManageSharedAccessKey";
-	        privatestaticstring sasKeyValue;
+	        private static DataTable issues;
+	        private static List<BrokeredMessage> MessageList; 
+
+	        // Add these variables
+			private static string ServiceNamespace;
+	        private static string sasKeyName = "RootManageSharedAccessKey";
+	        private static string sasKeyValue;
 	        …
 	```
 
@@ -219,11 +221,11 @@ A próxima etapa será criar um projeto do Visual Studio e escrever duas funçõ
 	static void CollectUserInput()
 	{
 	    // User service namespace
-	    Console.Write("Please enter the service namespace to use: ");
+	    Console.Write("Please enter the namespace to use: ");
 	    ServiceNamespace = Console.ReadLine();
 	
 	    // Issuer key
-	    Console.Write("Please enter the SAS key to use: ");
+	    Console.Write("Enter the SAS key to use: ");
 	    sasKeyValue = Console.ReadLine();
 	}
 	```
@@ -247,10 +249,6 @@ A próxima etapa será criar um projeto do Visual Studio e escrever duas funçõ
 
 No menu **Compilar** do Visual Studio, você pode clicar em **Compilar Solução** ou pressione F6 para confirmar a precisão de seu trabalho até esse momento.
 
-Criar Credenciais de Gerenciamento
-
-Esta é a segunda etapa do tutorial de recursos do sistema de mensagens do Barramento de Serviço. Nesta etapa, você define as operações de gerenciamento que usará para criar credenciais da assinatura de acesso compartilhado (SAS) com as quais o seu aplicativo será autorizado.
-
 ## Criar credenciais de gerenciamento
 
 Nesta etapa, você define as operações de gerenciamento que usará para criar credenciais da assinatura de acesso compartilhado (SAS) com as quais o seu aplicativo será autorizado.
@@ -262,7 +260,7 @@ Nesta etapa, você define as operações de gerenciamento que usará para criar 
 	{
 	…
 	}
-	staticvoid Queue()
+	static void Queue()
 	{
 	}
 	```
@@ -270,7 +268,7 @@ Nesta etapa, você define as operações de gerenciamento que usará para criar 
 1. A próxima etapa é criar uma credencial SAS usando um objeto [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx). O método de criação obtém o nome da chave SAS e o valor obtido no método `CollectUserInput()`. Adicione o seguinte código ao método `Queue()`:
 
 	```
-	staticvoid Queue()
+	static void Queue()
 	{
 	    // Create management credentials
 	    TokenProvider credentials = TokenProvider.CreateSharedAccessSignatureTokenProvider(sasKeyName,sasKeyValue);
@@ -278,7 +276,7 @@ Nesta etapa, você define as operações de gerenciamento que usará para criar 
 	```
 ### Criar o gerenciador de namespaces
 
-1. Crie um novo objeto de gerenciamento de namespaces com um URI que contenha o nome do namespace e as credenciais de gerenciamento obtidas na última etapa como argumentos. Adicione este código diretamente abaixo do código adicionado na etapa anterior:
+1. Crie um novo objeto de gerenciamento de namespaces com um URI que contenha o nome do namespace e as credenciais de gerenciamento obtidas na etapa anterior como argumentos. Adicione este código diretamente abaixo do código adicionado na etapa anterior:
 	
 	```
 	NamespaceManager namespaceClient = new NamespaceManager(ServiceBusEnvironment.CreateServiceUri("sb", <namespaceName>, string.Empty), credentials);
@@ -455,7 +453,7 @@ No método `Queue()`, itere pela fila e receba as mensagens usando o método [Mi
 
 ### Encerrar o método `Queue()` e limpar os recursos
 
-Diretamente abaixo do código anterior, adicione o seguinte código para limpar os recursos de fábrica de mensagens e de fila:
+Diretamente após o código anterior, adicione o seguinte código para limpar os recursos de fábrica de mensagens e de fila:
 
 	```
 	factory.Close();
@@ -652,4 +650,4 @@ Para saber mais sobre o [Barramento de Serviço](https://azure.microsoft.com/ser
 
 [portal clássico do Azure]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/08/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # Exemplos do Barramento de Serviço
 
-Os exemplos do Barramento de Serviço demonstram os principais recursos do Barramento de Serviço (serviço de nuvem) e o Barramento de Serviço para o Windows Server. Este tópico categoriza e descreve os exemplos disponíveis, com links para cada um.
+Os exemplos do Barramento de Serviço demonstram os principais recursos do [Barramento de Serviço](https://azure.microsoft.com/services/service-bus/) (serviço de nuvem) e do [Barramento de Serviço para o Windows Server](https://msdn.microsoft.com/library/dn282144.aspx). Este tópico categoriza e descreve os exemplos disponíveis, com links para cada um.
 
->[AZURE.NOTE]Os exemplos do Barramento de Serviço não são instalados com o SDK. Para obter os exemplos, visite a [página de exemplos do SDK do Azure](https://code.msdn.microsoft.com).
+>[AZURE.NOTE] Os exemplos do Barramento de Serviço não são instalados com o SDK. Para obter os exemplos, visite a [página de exemplos do SDK do Azure](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5).
 
 ## Sistema de mensagens agenciado do Barramento de Serviço
 
@@ -126,10 +126,10 @@ Os exemplos a seguir demonstram vários outros recursos do serviço.
 
 ## Próximas etapas
 
-Consulte os tópicos a seguir para obter mais visões gerais do Barramento de Serviço.
+Confira os tópicos a seguir para obter visões gerais conceituais do Barramento de Serviço.
 
 - [Visão geral de mensagens do Barramento de Serviço](service-bus-messaging-overview.md)
 - [Arquitetura do Barramento de Serviço](service-bus-architecture.md)
 - [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

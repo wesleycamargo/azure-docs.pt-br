@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="01/26/2016" 
 	ms.author="sethm"/>
 
 # Habilite a nuvem e locais de aplicativos híbridos em expansão
@@ -35,16 +35,16 @@ Aplicativos híbridos na nuvem/locais são uma realidade dos ambientes de TI mod
  
 ## Popular
 
-- [Informações sobre preços do Barramento de Serviço](http://azure.microsoft.com/pricing/details/service-bus/)
+- [Informações sobre preços do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/)
 - [Perguntas Frequentes sobre Preços do Barramento de Serviço](service-bus-pricing-faq.md)
 - [Referência da API REST do Barramento de Serviço](http://msdn.microsoft.com/library/azure/hh780717.aspx)
-- [Inscreva-se para obter uma avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)
+- [Inscreva-se para obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)
  
 ## Serviços relacionados
 
-- [Serviços do BizTalk](http://azure.microsoft.com/services/biztalk-services/)
-- [Serviços Móveis](http://azure.microsoft.com/services/mobile-services/)
-- [Serviços de Nuvem](http://azure.microsoft.com/services/cloud-services/) 
+- [Serviços do BizTalk](https://azure.microsoft.com/services/biztalk-services/)
+- [Serviços Móveis](https://azure.microsoft.com/services/mobile-services/)
+- [Serviços de Nuvem](https://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

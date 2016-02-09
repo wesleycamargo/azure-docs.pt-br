@@ -55,7 +55,7 @@ Na semana de 20 de novembro de 2015, os seguintes recursos foram adicionados ao 
 - Suporte para inclusão de perfis de dados ao registrar tabelas e exibições do Teradata.
 - Suporte para "Abrir no Power BI Desktop" para fontes do SQL Server (incluindo o Azure SQL DB e o Azure SQL Data Warehouse) SQL Server Analysis Services, Azure Storage e HDFS.  
 
-> [AZURE.NOTE]A opção "Abrir no Power BI Desktop" requer a instalação de uma versão atual do aplicativo Power BI Desktop. Se encontrar problemas ou erros ao usar esse recurso, verifique se você tem a versão mais recente do Power BI Desktop em [PowerBI.com](https://powerbi.com).
+> [AZURE.NOTE] A opção "Abrir no Power BI Desktop" requer a instalação de uma versão atual do aplicativo Power BI Desktop. Se encontrar problemas ou erros ao usar esse recurso, verifique se você tem a versão mais recente do Power BI Desktop em [PowerBI.com](https://powerbi.com).
 
 ## Novidades da versão da semana de 13 de novembro de 2015
 
@@ -94,7 +94,7 @@ A partir da semana de 23 de outubro de 2015, os seguintes recursos foram adicion
 
 - Suporte para fontes de dados Teradata. Agora os usuários podem registrar e descobrir tabelas e exibições do Teradata.
 
-> [AZURE.NOTE]Para a versão atual, há suporte para apenas a autenticação Teradata TD2. Mecanismos de autenticação adicionais terão suporte em versões futuras.
+> [AZURE.NOTE] Para a versão atual, há suporte para apenas a autenticação Teradata TD2. Mecanismos de autenticação adicionais terão suporte em versões futuras.
 
 ## Novidades da versão da semana de 16 de outubro de 2015
 
@@ -118,7 +118,7 @@ Na semana de 2 de outubro de 2015, os seguintes recursos foram adicionados ao **
 - Suporte para a autorização de grupos de segurança do Active Directory do Azure. Os administradores de catálogo podem habilitar o acesso ao catálogo para grupos de segurança e para contas de usuário, facilitando o gerenciamento do acesso ao **Catálogo de Dados do Azure**.
 - Suporte para abrir fontes de dados do Hive no Excel por meio do portal do **Catálogo de Dados do Azure**.
 
-> [AZURE.NOTE]Para usar o recurso "Abrir no Excel" para fontes de dados de Hive, os usuários devem ter o driver ODBC para Hive instalado.
+> [AZURE.NOTE] Para usar o recurso "Abrir no Excel" para fontes de dados de Hive, os usuários devem ter o driver ODBC para Hive instalado.
 
 ## Novidades da versão da semana de 25 de setembro de 2015
 
@@ -132,10 +132,10 @@ Na semana de 25 de setembro de 2015, os seguintes recursos foram adicionados ao 
 A partir da semana de 18 de setembro de 2015, os seguintes recursos foram adicionados ao **Catálogo de Dados do Azure**:
 
 - Uma nova experiência de descoberta da fonte de dados de "introdução" no portal do **Catálogo de Dados do Azure**. Quando os usuários entram na página "descobrir" do portal do **Catálogo de Dados do Azure** sem digitar um termo de pesquisa, será apresentada a eles uma visão geral do conteúdo do catálogo, incluindo marcas usadas com mais frequência, além de especialistas, tipos de fontes de dados e tipos de objeto.
-- Suporte para registro e descoberta de bancos de dados e objetos do SQL Data Warehouse do Azure. Para saber mais sobre o SQL Data Warehouse do Azure, confira [SQL Data Warehouse](http://azure.microsoft.com/services/sql-data-warehouse/).
+- Suporte para registro e descoberta de bancos de dados e objetos do SQL Data Warehouse do Azure. Para saber mais sobre o SQL Data Warehouse do Azure, confira [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
 - Suporte para registro e descoberta de modelos do SQL Server Analysis Services e servidores do SQL Server Reporting Services como contêineres. Ao registrar objetos SSAS e SSRS, o **Catálogo de Dados do Azure** criará uma entrada para o modelo SSAS e o servidor SSRS, bem como para os relatórios e outros objetos. Os contêineres podem ser descobertos e anotados usando o portal do **Catálogo de Dados do Azure**. Os usuários também podem pesquisar e filtrar o conteúdo de um modelo ou servidor, além de pesquisar e filtrar o conteúdo do catálogo.
 
-> [AZURE.NOTE]Os objetos SSAS e SSRS que foram registrados antes da versão de 18 de setembro devem ser registrados novamente usando a ferramenta de registro de fonte de dados antes que a entrada do modelo ou servidor seja adicionada ao catálogo. Registrar novamente uma fonte de dados não afetará nenhuma anotação que foi adicionada pelos usuários no portal do **Catálogo de Dados do Azure**.
+> [AZURE.NOTE] Os objetos SSAS e SSRS que foram registrados antes da versão de 18 de setembro devem ser registrados novamente usando a ferramenta de registro de fonte de dados antes que a entrada do modelo ou servidor seja adicionada ao catálogo. Registrar novamente uma fonte de dados não afetará nenhuma anotação que foi adicionada pelos usuários no portal do **Catálogo de Dados do Azure**.
 
 ## Novidades da versão da semana de 11 de setembro de 2015
 
@@ -146,7 +146,7 @@ Na semana de 11 de setembro de 2015, os seguintes recursos foram adicionados ao 
 - Suporte ao registro e à descoberta de bancos de dados Oracle e clusters HDFS como contêineres. Ao registrar tabelas e exibições do Oracle ou HDFS, o **Catálogo de Dados do Azure** criará uma entrada para o banco de dados, bem como para as tabelas e exibições. O banco de dados pode ser descoberto e anotado usando o portal do **Catálogo de Dados do Azure**. Os usuários também podem pesquisar e filtrar o conteúdo de um banco de dados ou cluster, além de pesquisar e filtrar o conteúdo do catálogo.
 
 
-> [AZURE.NOTE]As tabelas e exibições Oracle, bem como os arquivos e diretórios HDFS que foram registrados antes da versão de 11 de setembro devem ser registrados novamente usando a ferramenta de registro de fonte de dados antes que a entrada do banco de dados ou cluster seja adicionada ao catálogo. Registrar novamente uma fonte de dados não afetará nenhuma anotação que tenha sido adicionada pelos usuários no portal do **Catálogo de Dados do Azure**.
+> [AZURE.NOTE] As tabelas e exibições Oracle, bem como os arquivos e diretórios HDFS que foram registrados antes da versão de 11 de setembro devem ser registrados novamente usando a ferramenta de registro de fonte de dados antes que a entrada do banco de dados ou cluster seja adicionada ao catálogo. Registrar novamente uma fonte de dados não afetará nenhuma anotação que tenha sido adicionada pelos usuários no portal do **Catálogo de Dados do Azure**.
 
 ## Novidades da versão da semana de 4 de setembro de 2015
 
@@ -155,7 +155,7 @@ A partir da semana de 4 de setembro de 2015, os seguintes recursos foram adicion
 - Suporte ao registro manual de tipos desconhecidos de fonte de dados. Os usuários podem inserir manualmente informações de fonte de dados usando o portal do **Catálogo de Dados do Azure**, de modo que as fontes de dados para as quais não há suporte explícito pela ferramenta de registro de fonte de dados possam ser anotadas e descobertas.
 - Suporte ao registro e à descoberta de bancos de dados do SQL Server como contêineres. Ao registrar tabelas e exibições do SQL Server, o **Catálogo de Dados do Azure** cria uma entrada para o banco de dados, bem como para as tabelas e exibições. O banco de dados pode ser descoberto e anotado por meio do portal do **Catálogo de Dados do Azure**. Os usuários também podem pesquisar e filtrar o conteúdo de um banco de dados, além de pesquisar e filtrar o conteúdo do catálogo.
 
-> [AZURE.NOTE]As tabelas e exibições do SQL Server que foram registradas antes da versão de 4 de setembro devem ser registradas novamente usando a ferramenta de registro de fonte de dados antes que a entrada do banco de dados seja adicionada ao catálogo. Registrar novamente uma fonte de dados não afetará nenhuma anotação que tenha sido adicionada pelos usuários no portal do **Catálogo de Dados do Azure**.
+> [AZURE.NOTE] As tabelas e exibições do SQL Server que foram registradas antes da versão de 4 de setembro devem ser registradas novamente usando a ferramenta de registro de fonte de dados antes que a entrada do banco de dados seja adicionada ao catálogo. Registrar novamente uma fonte de dados não afetará nenhuma anotação que tenha sido adicionada pelos usuários no portal do **Catálogo de Dados do Azure**.
 
 ## Novidades da versão da semana de 28 de agosto de 2015
 
@@ -174,4 +174,4 @@ Na semana de 21 de agosto de 2015, os seguintes recursos foram adicionados ao **
 - Somente para Standard Edition: ao adicionar proprietários aos ativos de dados, o **Catálogo de Dados do Azure** agora dá suporte a contas de usuário e grupos de segurança como proprietários. Para adicionar um grupo de segurança como um proprietário de ativos de dados selecionados, você pode inserir o nome para exibição do grupo ou o endereço de email do UPN do grupo, se houver.
 - Suporte para fontes de dados do Armazenamento do Blobs do Azure. Agora, os usuários podem registrar e descobrir os blobs e diretórios de armazenamento do Azure.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

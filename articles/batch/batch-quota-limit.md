@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/26/2015"
+	ms.date="01/26/2016"
 	ms.author="danlep"/>
 
 
@@ -24,7 +24,7 @@ Este artigo lista o padrão e os limites máximos de determinados recursos que v
 
 Se você planeja executar cargas de trabalho em Lote de produção, talvez seja necessário aumentar uma ou mais cotas para acima do valor padrão. Se desejar aumentar a cota, abra uma solicitação de suporte online ao cliente de forma gratuita.
 
->[AZURE.NOTE]Uma cota é um limite de crédito, não uma garantia de capacidade. Se você precisar de capacidade em larga escala, entre em contato com o suporte do Azure.
+>[AZURE.NOTE] Uma cota é um limite de crédito, não uma garantia de capacidade. Se você precisar de capacidade em larga escala, entre em contato com o suporte do Azure.
 
 ## Cotas de assinatura
 Recurso|Limite padrão|Limite máximo
@@ -53,11 +53,11 @@ Exibir suas cotas de conta do Lote no [portal do Azure](https://portal.azure.com
 
 ## Aumentar uma cota
 
-Siga as etapas a seguir para solicitar um aumento de cota no portal do Azure (você também pode solicitar um aumento no [portal clássico do Azure](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)).
+Siga as etapas a seguir para solicitar um aumento de cota no portal do Azure (você também pode solicitar um aumento no [portal clássico do Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)).
 
-1. No painel do portal de visualização, clique em **Ajuda + suporte**.
+1. No painel do portal, clique em **Ajuda + suporte**.
 
-2. Clique em **Criar solicitação de suporte > Básico**.
+2. Clique em **Nova solicitação de suporte > Básico**.
 
 3. Na folha **Básico**, faça o seguinte:
 
@@ -65,7 +65,7 @@ Siga as etapas a seguir para solicitar um aumento de cota no portal do Azure (vo
 
 	b. Selecione sua assinatura.
 
-	c. Em **Serviço**, selecione **Serviço do Lote**.
+	c. Em **Tipo de Cota**, selecione **Lote**.
 
 	d. Em **Plano de suporte**, selecione **Plano de suporte do Azure - Desenvolvedor**.
 
@@ -73,7 +73,7 @@ Siga as etapas a seguir para solicitar um aumento de cota no portal do Azure (vo
 
 4. Na folha **Problema**, faça o seguinte:
 
-	a. Em **Tipo de problema**, selecione **Lote**.
+	a. Selecione uma **Gravidade** de acordo com o impacto em seus negócios.
 
 	b. Em **Detalhes**, liste a cota ou cotas que você deseja alterar em uma conta específica e os novos limites que quiser.
 
@@ -95,4 +95,4 @@ O suporte do Azure entrará em contato com você. A conclusão do pedido pode le
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

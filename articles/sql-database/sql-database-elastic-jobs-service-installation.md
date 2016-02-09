@@ -23,7 +23,7 @@ Os [**trabalhos de Banco de Dados Elástico**](sql-database-elastic-jobs-overvie
 Se você já tiver instalado **trabalhos de Banco de Dados Elástico** por meio do Portal de um **pool de Banco de Dados Elástico** existente, a visualização mais recente do Powershell incluirá scripts para atualizar sua instalação existente. É altamente recomendável atualizar sua instalação para a versão mais recente dos componentes dos **trabalhos de Banco de Dados Elástico** para aproveitar a nova funcionalidade exposta por meio das APIs do PowerShell.
 
 ## Pré-requisitos
-* Uma assinatura do Azure. Para obter uma avaliação gratuita, veja [Avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
+* Uma assinatura do Azure. Para obter uma avaliação gratuita, veja [Avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Azure PowerShell, versão 0.8.16 ou posterior. Instale a versão mais recente (0.9.5) por meio do [Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376). Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](powershell-install-configure.md).
 * O [Utilitário de Linha de Comando do NuGet](https://nuget.org/nuget.exe) é usado para instalar o pacote de trabalhos de Banco de Dados Elástico. Para obter mais informações, consulte http://docs.nuget.org/docs/start-here/installing-nuget.
 
@@ -188,4 +188,4 @@ Certifique-se de que uma credencial com os direitos apropriados para a execuçã
 [4]: ./media/sql-database-elastic-jobs-service-installation/not-done.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -57,7 +57,7 @@ Consulte também as seguintes seções sobre [Implantação de Trabalhos Web](#d
 
 * [Como implantar Trabalhos Web do Azure usando o Visual Studio.](websites-dotnet-deploy-webjobs.md)
 * [Como implantar Trabalhos Web usando o Portal do Azure](web-sites-create-web-jobs.md)
-* [Habilitando entrega de linha de comando ou contínua dos Trabalhos Web do Azure](http://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
+* [Habilitando entrega de linha de comando ou contínua dos Trabalhos Web do Azure](https://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
 * [Implantando por Git um aplicativo de console .NET no Azure usando Trabalhos Web](http://blog.amitapple.com/post/73574681678/git-deploy-console-app/)
 * [Implantando um WebJob F# para o Azure](http://blogs.msdn.com/b/dave_crooks_dev_blog/archive/2015/02/18/deploying-f-web-job-to-azure.aspx)
 * [Implantando serviços personalizados como Azure WebJobs](http://withouttheloop.com/articles/2015-06-23-deploying-custom-services-as-azure-webjobs/)
@@ -98,7 +98,7 @@ Consulte também as seguintes seções sobre [Implantação de Trabalhos Web](#d
 * [Postagem no blog WebJobs GA do Azure de Magnus Mårtensson](http://magnusmartensson.com/azure-webjobs-ga)
 * [Executando Trabalhos Web do Powershell no Serviço de Aplicativo do Azure](http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx)
 * [Seja notificado quando os Trabalhos Web disparados pelo Azure forem concluídos](http://blog.amitapple.com/post/2014/03/webjobs-notification/)
-* [Política de retenção de backup de site simples com Trabalhos Web](http://azure.microsoft.com/blog/2014/04/28/simple-web-site-backup-retention-policy-with-webjobs/)
+* [Política de retenção de backup de site simples com Trabalhos Web](https://azure.microsoft.com/blog/2014/04/28/simple-web-site-backup-retention-policy-with-webjobs/)
 * [Sites do Azure e Serviços de Nuvem lentos na primeira solicitação](http://wp.sjkp.dk/windows-azure-websites-and-cloud-services-slow-on-first-request/). Mostra como usar Trabalhos Web para simular o recurso AlwaysOn que só está disponível para a camada de preços Padrão.
 * [Desligamento normal dos Trabalhos Web](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.U72Il_5OWUl). Para o desligamento normal do SDK de Trabalhos Web, consulte [Desligamento normal](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful).)
 * [Automatizando backups com Trabalhos Web do Azure e AzCopy](http://markjbrown.com/azure-webjobs-azcopy/)
@@ -135,8 +135,8 @@ Consulte também as seguintes seções sobre [Implantação de Trabalhos Web](#d
 * [StackOverflow para o SDK de Trabalhos Web](http://stackoverflow.com/questions/tagged/azure-webjobssdk)
 * [Fórum do Azure e ASP.NET](http://forums.asp.net/1247.aspx)
 * [Fórum de aplicativos Web do Serviço de Aplicativo do Azure](http://social.msdn.microsoft.com/Forums/azure/home?forum=windowsazurewebsitespreview)
-* [Site de voz do usuário de Aplicativos Web do Azure](http://feedback.azure.com/forums/169385-websites)
+* [Site de voz do usuário de Aplicativos Web do Azure](https://feedback.azure.com/forums/169385-websites/)
 * [Twitter](http://twitter.com/). Use a hashtag #AzureWebJobs.
 * [Relatar um problema ou bug do WebJobs](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

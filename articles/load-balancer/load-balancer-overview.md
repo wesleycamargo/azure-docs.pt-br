@@ -108,7 +108,7 @@ Todo o tráfego de saída para a Internet proveniente de seu serviço passa pela
 A configuração do Balanceador de Carga do Azure oferece suporte ao Cone NAT completo para UDP. Cone NAT completo é um tipo de NAT em que a porta permite conexões de entrada de qualquer host externo (em resposta a uma solicitação de saída).
 
 
->[AZURE.NOTE]Para cada nova conexão de saída que inicia uma VM, uma porta de saída também é alocada pelo Balanceador de Carga do Azure. O host externo verá o tráfego chegando como uma porta alocada do IP virtual (VIP). Se os cenários exigirem um grande número de conexões de saída, recomendamos que as VMs usem endereços IP públicos em nível de instância para que tenham um endereço IP de saída dedicado para a SNAT. Isso reduzirá o risco de esgotamento de porta.
+>[AZURE.NOTE] Para cada nova conexão de saída que inicia uma VM, uma porta de saída também é alocada pelo Balanceador de Carga do Azure. O host externo verá o tráfego chegando como uma porta alocada do IP virtual (VIP). Se os cenários exigirem um grande número de conexões de saída, recomendamos que as VMs usem endereços IP públicos em nível de instância para que tenham um endereço IP de saída dedicado para a SNAT. Isso reduzirá o risco de esgotamento de porta.
 >
 >O número máximo de portas que podem ser usadas por VIP ou IP público em nível de instância (PIP) é 64.000. Essa é uma limitação de padrão de TCP.
 
@@ -119,7 +119,7 @@ Você pode ter mais de um endereço IP público com balanceamento de carga atrib
 
 **Implantações baseadas em modelo por meio do Gerenciador de Recursos do Azure**
 
-O Gerenciador de Recursos do Azure é a nova estrutura de gerenciamento dos serviços no Azure. Agora, o Balanceador de Carga do Azure pode ser gerenciado usando ferramentas e APIs baseadas no Gerenciador de Recursos. Para saber mais sobre o Gerenciador de Recursos, consulte [A IaaS ficou mais fácil com o Gerenciador de Recursos do Azure](http://azure.microsoft.com/blog/2015/04/29/iaas-just-got-easier-again/).
+O Gerenciador de Recursos do Azure é a nova estrutura de gerenciamento dos serviços no Azure. Agora, o Balanceador de Carga do Azure pode ser gerenciado usando ferramentas e APIs baseadas no Gerenciador de Recursos. Para saber mais sobre o Gerenciador de Recursos, confira [O IaaS ficou mais fácil com o Gerenciador de Recursos do Azure](https://azure.microsoft.com/blog/2015/04/29/iaas-just-got-easier-again/).
 
 
 ## Próximas etapas
@@ -130,4 +130,4 @@ O Gerenciador de Recursos do Azure é a nova estrutura de gerenciamento dos serv
 
 [Introdução à criação de um balanceador de carga para a Internet](load-balancer-internet-getstarted.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

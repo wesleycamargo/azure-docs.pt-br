@@ -31,7 +31,7 @@ Para monitorar seu aplicativo, [Adicione um SDK do Application Insights][start] 
 
 Introdução:
 
-1. Obtenha uma [conta no Microsoft Azure](http://azure.microsoft.com/pricing/).
+1. Obtenha uma [conta no Microsoft Azure](https://azure.microsoft.com/pricing/).
 2. No [Portal do Azure][portal], adicione um novo recurso do Application Insights ao seu aplicativo:
 
     ![Escolha Novo, Serviços de Desenvolvedor, Application Insights e escolha o tipo de aplicativo](./media/app-insights-code-sample-export-telemetry-sql-database/010-new-asp.png)
@@ -467,7 +467,7 @@ Adicionar a cadeia de conexão do banco de dados com o nome `TelemetryContext` e
 
 Este é o esquema para a tabela que será gerada para a PageView.
 
-> [AZURE.NOTE]Você não precisa executar este script. Os atributos em JSON determinam as colunas na tabela.
+> [AZURE.NOTE] Você não precisa executar este script. Os atributos em JSON determinam as colunas na tabela.
 
     CREATE TABLE [dbo].[PageViewPerformances](
 	[Id] [uniqueidentifier] NOT NULL,
@@ -543,4 +543,4 @@ Para ver esse exemplo em ação, [baixe](https://sesitai.codeplex.com/) o códig
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

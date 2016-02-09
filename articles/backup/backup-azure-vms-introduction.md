@@ -31,7 +31,7 @@ Quando a transferência de dados é concluída, o instantâneo é removido e um 
 ### Consistência de dados
 Fazer backup e restaurar dados corporativos críticos é complicado pelo fato de que é necessário ser feito o backup enquanto os aplicativos que produzem os dados estão em execução. Para resolver isso, o Backup do Azure fornece backup consistente com o aplicativo para cargas de trabalho da Microsoft usando o VSS para garantir que os dados sejam gravados corretamente para armazenamento.
 
->[AZURE.NOTE]Em máquinas virtuais Linux, apenas os backups consistentes de arquivos são possíveis, já que o Linux não tem uma plataforma equivalente ao VSS.
+>[AZURE.NOTE] Em máquinas virtuais Linux, apenas os backups consistentes de arquivos são possíveis, já que o Linux não tem uma plataforma equivalente ao VSS.
 
 O Backup do Azure realiza backups completos de VSS em VMs do Windows (leia mais sobre [backup completo de VSS](http://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx)). Para permitir backups de cópia de VSS, a chave de registro abaixo deve ser inserida na VM.
 
@@ -91,7 +91,7 @@ O Backup do Azure não criptografa os dados como parte do processo de backup. No
 
 
 ## Como as instâncias protegidas são calculadas?
-As máquinas virtuais do Azure submetidas a backup por meio do Backup do Azure estão sujeitas aos [preços do Backup do Azure](http://azure.microsoft.com/pricing/details/backup/). O cálculo de instâncias protegidas se baseia no tamanho *real* da máquina virtual, que é a soma de todos os dados na máquina virtual, exceto o "disco de recursos".
+As máquinas virtuais do Azure submetidas a backup por meio do Backup do Azure estão sujeitas aos [preços do Backup do Azure](https://azure.microsoft.com/pricing/details/backup/). O cálculo de instâncias protegidas se baseia no tamanho *real* da máquina virtual, que é a soma de todos os dados na máquina virtual, exceto o "disco de recursos".
 
 Você *não* é cobrado com base no tamanho máximo com suporte para cada disco de dados anexado à máquina virtual, mas sim nos dados reais armazenados no disco de dados. Da mesma forma, a cobrança do armazenamento de backup é baseada na quantidade de dados armazenados com o Backup do Azure, que é a soma dos dados reais em cada ponto de recuperação.
 
@@ -120,4 +120,4 @@ Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos s
 - [Restaurar máquinas virtuais](backup-azure-restore-vms.md)
 - [Solucionar problemas de backup da VM](backup-azure-vms-troubleshoot.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

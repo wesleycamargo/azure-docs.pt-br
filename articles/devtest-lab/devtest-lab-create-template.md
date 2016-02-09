@@ -24,9 +24,9 @@ Depois que você tiver [criado um laboratório](devtest-lab-create-lab.md), é p
 
 ## Criar um modelo de VM
 
-1. Entre no [Portal de visualização do Azure](http://portal.azure.com).
+1. Entre no [Portal de visualização do Azure](https://portal.azure.com).
 
-1. Toque em **Procurar** e em **Laboratórios de Desenvolvimento/Testes** na lista.
+1. Toque em **Procurar** e toque em **Laboratórios de Desenvolvimento/Teste** na lista.
 
 1. Na lista de laboratórios, toque no laboratório desejado.
 
@@ -86,4 +86,4 @@ Para adicionar uma nova imagem de modelo, você precisará ter acesso a um arqui
 
 Depois de adicionar um modelo de VM para uso durante a criação de uma VM, a próxima etapa é [adicionar uma VM ao seu Laboratório de Desenvolvimento/Teste](devtest-lab-add-vm-with-artifacts).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

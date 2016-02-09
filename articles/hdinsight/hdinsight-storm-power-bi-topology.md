@@ -25,7 +25,7 @@ Neste documento, você aprenderá como usar o Power BI para criar um relatório 
 
 ## Pré-requisitos
 
-- Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 * Um usuário do Active Directory do Azure com acesso ao [Power BI](https://powerbi.com)
 
@@ -49,7 +49,7 @@ Os seguintes arquivos neste projeto implementam a funcionalidade específica do 
 
 * **Data.cs**: descreve a objeto/linha de dados que será enviado para o Power BI
 
-> [AZURE.WARNING]O Power BI parece permitir a criação de vários conjuntos de dados com o mesmo nome. Isso pode ocorrer se o conjunto de dados não existir e sua topologia criar várias instâncias de bolt do Power BI. Para evitar isso, defina a dica de paralelismo do bolt como 1 (como neste exemplo) ou crie o conjunto de dados antes de implantar a topologia.
+> [AZURE.WARNING] O Power BI parece permitir a criação de vários conjuntos de dados com o mesmo nome. Isso pode ocorrer se o conjunto de dados não existir e sua topologia criar várias instâncias de bolt do Power BI. Para evitar isso, defina a dica de paralelismo do bolt como 1 (como neste exemplo) ou crie o conjunto de dados antes de implantar a topologia.
 >
 > O aplicativo console **CreateDataset** incluído nesta solução é fornecido como um exemplo de como criar o conjunto de dados fora da topologia.
 
@@ -59,7 +59,7 @@ Os seguintes arquivos neste projeto implementam a funcionalidade específica do 
 
 2. Siga as etapas em [Registrar um aplicativo](https://msdn.microsoft.com/library/dn877542.aspx) para criar um registro de aplicativo. Isso será usado ao acessar a API REST do Power BI.
 
-    > [AZURE.IMPORTANT]Salve a **ID do cliente** para o registro do aplicativo.
+    > [AZURE.IMPORTANT] Salve a **ID do cliente** para o registro do aplicativo.
 
 ## Baixar o exemplo
 
@@ -83,7 +83,7 @@ Baixe o [exemplo do Power BI do Storm em C# do HDInsight](https://github.com/Bla
 
 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto **WordCount** e selecione **Enviar para o Storm no HDInsight**. Selecione o cluster HDInsight no menu suspenso **Cluster Storm**.
 
-    > [AZURE.NOTE]Pode levar alguns segundos para a lista suspensa **Cluster Storm** ser populada com os nomes de servidor.
+    > [AZURE.NOTE] Pode levar alguns segundos para a lista suspensa **Cluster Storm** ser populada com os nomes de servidor.
     >
     > Se solicitado, insira as credenciais de logon para sua assinatura do Azure. Se você tiver mais de uma assinatura, faça o logon naquela que contém seu Storm no cluster HDInsight.
 
@@ -91,7 +91,7 @@ Baixe o [exemplo do Power BI do Storm em C# do HDInsight](https://github.com/Bla
 
     ![As topologias, com a topologia WordCount selecionada](./media/hdinsight-storm-power-bi-topology/topologysummary.png)
 
-    > [AZURE.NOTE]Você também pode exibir as Topologias Storm no Gerenciador de Servidores: expanda o Azure, HDInsight e clique com o botão direito em um Storm no cluster HDInsight e selecione Exibir Topologias Storm.
+    > [AZURE.NOTE] Você também pode exibir as Topologias Storm no Gerenciador de Servidores: expanda o Azure, HDInsight e clique com o botão direito em um Storm no cluster HDInsight e selecione Exibir Topologias Storm.
 
 3. Ao exibir o **Resumo da Topologia**, role até ver a seção **Bolts**. Nesta seção, observe a coluna **Executado** para o bolt **PowerBI**. Use o botão Atualizar na parte superior da página para atualizar até que o valor seja alterado para algo diferente de zero. Quando esse número começa a aumentar, isso indica que os itens estão sendo gravados no Power BI.
 
@@ -139,4 +139,4 @@ Neste documento, você aprendeu como enviar dados de uma topologia Storm no Powe
 
 * [Topologias de exemplo para Storm no HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

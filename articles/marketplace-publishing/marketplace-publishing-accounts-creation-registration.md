@@ -20,11 +20,11 @@
 Este artigo fornece uma orientação sobre o processo necessário de criação e registro de uma conta para se tornar um Desenvolvedor da Microsoft aprovado para o Azure Marketplace.
 
 ## 1\. Criar uma conta da Microsoft
-> [AZURE.WARNING]Para iniciar o processo de publicação, será necessário criar uma conta da Microsoft. Esta conta será usada para se registrar e entrar no **Centro de Desenvolvimento da Microsoft** e no **Painel de Publicação do Azure**. Você deve ter apenas uma conta da Microsoft para suas ofertas do Azure Marketplace. Ela não deve ser específica a serviços ou ofertas.
+> [AZURE.WARNING] Para iniciar o processo de publicação, será necessário criar uma conta da Microsoft. Esta conta será usada para se registrar e entrar no **Centro de Desenvolvimento da Microsoft** e no **Painel de Publicação do Azure**. Você deve ter apenas uma conta da Microsoft para suas ofertas do Azure Marketplace. Ela não deve ser específica a serviços ou ofertas.
 
 O endereço que forma o nome de usuário deve estar no seu domínio e ser controlado por sua equipe de TI (como publishing@example.com). Informações sobre pagamento e impostos, bem como relatórios serão encaminhados através desta conta.
 
-  >[AZURE.WARNING]Palavras como "Azure" e "Microsoft" não são aceitas para o registro da conta da Microsoft. Evite usar essas palavras para concluir a criação da conta e o processo de registro.
+  >[AZURE.WARNING] Palavras como "Azure" e "Microsoft" não são aceitas para o registro da conta da Microsoft. Evite usar essas palavras para concluir a criação da conta e o processo de registro.
 
 ### Instruções
 
@@ -42,12 +42,12 @@ O endereço que forma o nome de usuário deve estar no seu domínio e ser contro
 5. Verifique o endereço de email enviado à DL.
 6. Agora, você está pronto para usar uma nova conta da Microsoft no Centro de Desenvolvimento da Microsoft.
 
-> [AZURE.TIP]O uso da DL permite que várias pessoas recebam notificações por email importantes para a comunicação de informações de pagamento. Ela também garante que a propriedade da conta da Microsoft possa ser transferida e não esteja vinculada a uma única pessoa.
+> [AZURE.TIP] O uso da DL permite que várias pessoas recebam notificações por email importantes para a comunicação de informações de pagamento. Ela também garante que a propriedade da conta da Microsoft possa ser transferida e não esteja vinculada a uma única pessoa.
 
 ## 2\. Criar sua conta no Centro de Desenvolvimento da Microsoft
 O Centro de Desenvolvimento da Microsoft é usada para registrar as informações da empresa uma vez. O inscrito deve ser um representante válido da empresa e fornecer suas informações pessoais como uma maneira de validar sua identidade. A pessoa que fizer o registro deverá usar uma conta da Microsoft que seja compartilhada com a empresa **e a mesma conta deve ser usada no Portal de Publicação do Azure**. Você deve verificar se sua empresa ainda não tem uma conta do Centro de Desenvolvimento da Microsoft antes de tentar criar uma. Durante o processo, coletaremos informações sobre o endereço da empresa, a conta bancária e as informações fiscais. Esses dados são geralmente obtidos por meio de contatos de finanças ou negócios.
 
-> [AZURE.IMPORTANT]Você deve completar os seguintes componentes de perfil do Desenvolvedor para prosseguir pelas diversas fases da criação e implantação da oferta.
+> [AZURE.IMPORTANT] Você deve completar os seguintes componentes de perfil do Desenvolvedor para prosseguir pelas diversas fases da criação e implantação da oferta.
 
 
 | Perfil do desenvolvedor | Para iniciar o rascunho | Staging | Publicar modelo gratuito e de solução | Publicar comercial |
@@ -57,7 +57,7 @@ O Centro de Desenvolvimento da Microsoft é usada para registrar as informaçõe
 |Conta bancária | Opcional | Opcional | Opcional | Imprescindível |
 
 
-> [AZURE.NOTE]Há suporte para BYOL (Traga sua Própria Licença) apenas para máquinas virtuais, e é considerado uma oferta **gratuita**.
+> [AZURE.NOTE] Há suporte para BYOL (Traga sua Própria Licença) apenas para máquinas virtuais, e é considerado uma oferta **gratuita**.
 
 
 ### Registrar sua conta da empresa
@@ -75,7 +75,7 @@ O Centro de Desenvolvimento da Microsoft é usada para registrar as informaçõe
 
 5. Na seção "Informações de Registro de Conta", selecione o **País/região da conta** no menu suspenso.
 
-    > [AZURE.WARNING]**Países para “Origem de venda”:** para vender seus serviços no Azure Marketplace, sua entidade registrada precisa ser de um dos países aprovados para "origem de venda". Essa restrição é por razões de pagamento e tributação. Estamos considerando a expansão dessa lista de países em um futuro próximo, portanto, fique atento. Para saber mais, confira as [políticas de participação no Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
+    > [AZURE.WARNING] **Países para “Origem de venda”:** para vender seus serviços no Azure Marketplace, sua entidade registrada precisa ser de um dos países aprovados para "origem de venda". Essa restrição é por razões de pagamento e tributação. Estamos considerando a expansão dessa lista de países em um futuro próximo, portanto, fique atento. Para saber mais, confira as [políticas de participação no Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
 
 6. Selecione o "Tipo de conta", **Individual** ou **Empresa**.
 
@@ -83,11 +83,11 @@ O Centro de Desenvolvimento da Microsoft é usada para registrar as informaçõe
 
 7. Insira o **Nome de exibição do publicador**, normalmente o nome de sua empresa.
 
-    > [AZURE.TIP]Atualmente, o Portal de Publicação do Azure não usa o Nome de exibição do publicador. Mas isso deve ser preenchido para concluir o processo de registro.
+    > [AZURE.TIP] Atualmente, o Portal de Publicação do Azure não usa o Nome de exibição do publicador. Mas isso deve ser preenchido para concluir o processo de registro.
 
 8. Insira as informações de contato da conta.
 
-    > [AZURE.IMPORTANT]Você deve fornecer informações de contato precisas, pois elas serão usadas em nosso processo de verificação para que sua empresa seja aprovada no Centro de Desenvolvimento.
+    > [AZURE.IMPORTANT] Você deve fornecer informações de contato precisas, pois elas serão usadas em nosso processo de verificação para que sua empresa seja aprovada no Centro de Desenvolvimento.
 
 9. Para uma conta corporativa, também será necessário fornecer informações de contato do **Aprovador da Empresa**, a pessoa que pode verificar que você tem autorização para criar a conta em nome de sua organização. Quando tiver terminado, clique em **Próximo** para chegar à **"seção Pagamento"**.
 
@@ -101,7 +101,7 @@ O Centro de Desenvolvimento da Microsoft é usada para registrar as informaçõe
 
 14. Se você estiver planejando publicar ofertas comerciais, clique em **Atualizar as informações de sua conta** e preencha as informações bancárias e fiscais em sua conta do Centro de Desenvolvimento.
 
-> [AZURE.IMPORTANT]Você não poderá testar corretamente suas ofertas em preparo e não poderá enviar suas ofertas para produção sem preencher as informações sobre impostos e dados da conta bancária.
+> [AZURE.IMPORTANT] Você não poderá testar corretamente suas ofertas em preparo e não poderá enviar suas ofertas para produção sem preencher as informações sobre impostos e dados da conta bancária.
 
 Se você preferir atualizar posteriormente suas informações fiscais e bancárias, vá para a seção 3, [Registrar sua conta no portal de publicação](#3-register-your-account-in-the-publishing-portal) e volte mais tarde usando os links no Portal de Publicação do Azure.
 
@@ -114,11 +114,11 @@ Se você preferir atualizar posteriormente suas informações fiscais e bancári
 
 2. Clique em **Conta de pagamento** no menu à esquerda, em **Escolher método de pagamento** clique em **Conta bancária** ou em **PayPal**.
 
-    > [AZURE.IMPORTANT]Se você tiver ofertas comerciais que os clientes compram no Marketplace, essa será a conta em que você receberá o pagamento para essas compras.
+    > [AZURE.IMPORTANT] Se você tiver ofertas comerciais que os clientes compram no Marketplace, essa será a conta em que você receberá o pagamento para essas compras.
 
 3. Insira as informações de pagamento e clique em **Salvar** quando estiver satisfeito.
 
-    > [AZURE.IMPORTANT]Se você precisar atualizar ou alterar sua conta de pagamento, execute as mesmas etapas acima, substituindo as informações atuais por novas informações. A alteração da conta de pagamento pode atrasar os pagamentos em até um ciclo de pagamento. Esse atraso ocorre porque precisamos confirmar a alteração da conta, como fizemos na primeira configuração da conta de pagamento. Você ainda receberá o valor total após a verificação de sua conta; os pagamentos atrasados do ciclo de pagamento atual serão adicionados ao próximo.
+    > [AZURE.IMPORTANT] Se você precisar atualizar ou alterar sua conta de pagamento, execute as mesmas etapas acima, substituindo as informações atuais por novas informações. A alteração da conta de pagamento pode atrasar os pagamentos em até um ciclo de pagamento. Esse atraso ocorre porque precisamos confirmar a alteração da conta, como fizemos na primeira configuração da conta de pagamento. Você ainda receberá o valor total após a verificação de sua conta; os pagamentos atrasados do ciclo de pagamento atual serão adicionados ao próximo.
 
 4. Clique em **Próximo**.
 
@@ -132,12 +132,12 @@ Se você preferir atualizar posteriormente suas informações fiscais e bancári
 
 4. Insira seus detalhes fiscais e, em seguida, clique em **Próximo**.
 
-> [AZURE.WARNING]Você não poderá enviar suas ofertas comerciais por push para produção sem preencher as informações sobre impostos e os dados de conta bancária em sua conta do Centro de Desenvolvimento da Microsoft.
+> [AZURE.WARNING] Você não poderá enviar suas ofertas comerciais por push para produção sem preencher as informações sobre impostos e os dados de conta bancária em sua conta do Centro de Desenvolvimento da Microsoft.
 
 ## 3\. Registrar sua conta no portal de publicação
 O portal de publicação do Azure é usado para publicar e gerenciar suas ofertas. Você encontrará algumas informações úteis no portal de publicação que guiarão você pelo processo de criação da oferta.
 
-> [AZURE.WARNING]A mesma conta corporativa da Microsoft usada no registro do Centro de Desenvolvimento da Microsoft deve ser usada aqui. Usuários adicionais podem ser adicionados para ajudar após a criação de conta do editor mestre.
+> [AZURE.WARNING] A mesma conta corporativa da Microsoft usada no registro do Centro de Desenvolvimento da Microsoft deve ser usada aqui. Usuários adicionais podem ser adicionados para ajudar após a criação de conta do editor mestre.
 
 1.	Abra uma nova sessão de Janela anônima do Chrome ou navegação InPrivate do Internet Explorer para garantir que você não esteja conectado a uma conta pessoal.
 
@@ -145,7 +145,7 @@ O portal de publicação do Azure é usado para publicar e gerenciar suas oferta
 
 3.	Entre com a conta da Microsoft de registro de sua empresa (ou seja, marketplace@example.com)) e adicione coadministradores conforme necessário.
 
-  >[AZURE.TIP]As políticas de participação são descritas no [site do Azure](http://azure.microsoft.com/support/legal/marketplace/participation-policies/).
+  >[AZURE.TIP] As políticas de participação são descritas no [site do Azure](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
   > Se você tiver problemas com o registro no Centro de Desenvolvimento, registre um tíquete de suporte, conforme explicado abaixo: 
   1. Contate o [Suporte](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=pt-BR&pesid=15635&ccsid=635847950577064286). 
@@ -161,12 +161,12 @@ O portal de publicação do Azure é usado para publicar e gerenciar suas oferta
 ## Próximas etapas
 Agora que sua conta foi criada e registrada, clique no tipo de artefato (máquina virtual, serviço do desenvolvedor, serviço de dados, modelo de solução) que você deseja publicar no Azure Marketplace. Visite um dos seguintes artigos para saber como publicar sua respectiva oferta:
 
-|| Imagem de máquina virtual | Serviço do desenvolvedor | Serviço de dados | Modelo de solução |
+| Imagem de máquina virtual | Serviço do desenvolvedor | Serviço de dados | Modelo de solução |
 |----|-----|-----|-----|-----|
 |**Etapa 2: Criar sua oferta** |[Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)| [Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)| [Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)| [Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)|
-|| [Pré-requisitos técnicos de imagem de VM][link-single-vm-prereq] | Pré-requisitos técnicos de serviço de desenvolvedor | [Pré-requisitos técnicos de serviço de dados](marketplace-publishing-data-service-creation-prerequisites.md) | [Pré-requisitos técnicos de modelo de solução](marketplace-publishing-solution-template-creation-prerequisites.md) |
-|| [Guia de publicação de imagem de VM][link-single-vm] | Guia de publicação do serviço do desenvolvedor | [Guia de publicação do serviço de dados](marketplace-publishing-data-service-creation.md) | [Guia de publicação de modelo de solução](marketplace-publishing-solution-template-creation.md) |
-|| [Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging] | [Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging] | [Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging] | [Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging] |
+| [Pré-requisitos técnicos de imagem de VM][link-single-vm-prereq] | Pré-requisitos técnicos de serviço de desenvolvedor | [Pré-requisitos técnicos de serviço de dados](marketplace-publishing-data-service-creation-prerequisites.md) | [Pré-requisitos técnicos de modelo de solução](marketplace-publishing-solution-template-creation-prerequisites.md) |
+| [Guia de publicação de imagem de VM][link-single-vm] | Guia de publicação do serviço do desenvolvedor | [Guia de publicação do serviço de dados](marketplace-publishing-data-service-creation.md) | [Guia de publicação de modelo de solução](marketplace-publishing-solution-template-creation.md) |
+| [Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging] | [Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging] | [Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging] | [Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging] |
 
 ## Consulte também
 - [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -198,4 +198,4 @@ Agora que sua conta foi criada e registrada, clique no tipo de artefato (máquin
 [link-devsvc-prereq]: marketplace-publishing-dev-service-creation-prerequisites.md
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

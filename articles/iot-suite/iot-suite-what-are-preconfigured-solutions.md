@@ -2,13 +2,14 @@
  pageTitle="Soluções pré-configuradas do Azure IoT | Microsoft Azure"
  description="Uma descrição das soluções pré-configuradas IoT Azure e sua arquitetura com links para recursos adicionais."
  services=""
+ suite="iot-suite"
  documentationCenter=""
  authors="dominicbetts"
  manager="timlt"
  editor=""/>
 
 <tags
- ms.service="na"
+ ms.service="iot-suite"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
@@ -92,7 +93,7 @@ O portal da solução é uma interface de usuário baseada na Web implantado na 
 - Envie comandos para dispositivos específicos.
 - Gerencie regras e ações.
 
-> [AZURE.NOTE]O portal da solução também mantém o [registro de identidade de dispositivo][lnk-identity-registry] do Hub IoT sincronizado com o armazenamento de informações mais detalhadas de estado do dispositivo no banco de dados do Banco de Dados de Documentos da solução.
+> [AZURE.NOTE] O portal da solução também mantém o [registro de identidade de dispositivo][lnk-identity-registry] do Hub IoT sincronizado com o armazenamento de informações mais detalhadas de estado do dispositivo no banco de dados do Banco de Dados de Documentos da solução.
 
 Nesta solução pré-configurada, o portal da solução faz parte do *back-end de solução de IoT* e parte da *Conectividade de processamento e de negócios* em uma [arquitetura de solução de IoT][lnk-what-is-azure-iot] típica.
 
@@ -115,4 +116,4 @@ Explore estes recursos para saber mais sobre as soluções pré-configuradas de 
 [lnk-preconf-get-started]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

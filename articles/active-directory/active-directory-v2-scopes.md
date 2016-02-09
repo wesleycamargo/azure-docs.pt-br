@@ -20,7 +20,8 @@
 
 Os aplicativos que se integram ao AD do Azure seguem um modelo de autorização específico que permite aos usuários controlar como um aplicativo pode acessar os respectivos dados. No modelo de aplicativo v2.0, a implementação desse modelo de autorização foi atualizada, mudando como um aplicativo deve interagir com o AD do Azure. Este tópico aborda os conceitos básicos deste modelo de autorização, incluindo escopos, permissões e consentimento.
 
-> [AZURE.NOTE]Essas informações se aplicam à visualização pública do modelo de aplicativo v2.0. Para obter instruções sobre como integrar-se ao serviço AD do Azure disponível ao público geral, consulte o [Guia do desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md).
+> [AZURE.NOTE]
+	Essas informações se aplicam à visualização pública do modelo de aplicativo v2.0. Para obter instruções sobre como integrar-se ao serviço AD do Azure disponível ao público geral, consulte o [Guia do desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md).
 
 ## Escopos e permissões
 
@@ -100,20 +101,29 @@ O token de acesso resultante pode ser usado em solicitações HTTP para o recurs
 
 Para obter mais detalhes sobre o protocolo OAuth 2.0 e como adquirir tokens de acesso, consulte a [referência ao protocolo do modelo de aplicativo v2.0](active-directory-v2-protocols.md).
 
-## OpenId e Offline\_Access
 
-O modelo de aplicativo v2.0 tem dois escopos bem definidos que não se aplicam a um recurso específico —`openid` e `offline_access`.
+## Escopos do OpenId Connect
+
+A implementação da v2.0 do OpenID Connect possui alguns escopos bem definidos que não se aplicam a nenhum recurso específico - `openid`, `email`, `profile` e `offline_access`.
 
 #### OpenId
 
-Se um aplicativo fizer conexão usando o [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow), ele deverá solicitar o escopo `openid`. O escopo `openid` aparecerá na tela de consentimento da conta corporativa como a permissão "Conectar você" e na tela de consentimento da conta pessoal da Microsoft como a permissão "Exibir seu perfil e se conectar a aplicativos e serviços usando sua conta da Microsoft". Essa permissão permite a um aplicativo acessar o ponto de extremidade das informações do usuário do OpenID Connect e, portanto, exige aprovação do usuário. O escopo `openid` também pode ser usado no ponto de extremidade v2.0 para adquirir id\_tokens, que podem ser usados para proteger chamadas HTTP entre diferentes componentes de um aplicativo.
+Se um aplicativo fizer conexão usando o [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow), ele deverá solicitar o escopo `openid`. O escopo `openid` aparecerá na tela de consentimento da conta corporativa como a permissão "Conectar você" e na tela de consentimento da conta pessoal da Microsoft como a permissão "Exibir seu perfil e se conectar a aplicativos e serviços usando sua conta da Microsoft". Essa permissão permite que um aplicativo receba um identificador exclusivo para o usuário na forma da declaração `sub`. Ela também permite ao aplicativo acesso ao ponto de extremidade de informações do usuário. O escopo `openid` também pode ser usado no ponto de extremidade v2.0 para adquirir id\_tokens, que podem ser usados para proteger chamadas HTTP entre diferentes componentes de um aplicativo.
 
-#### Offline\_Access
+#### Email
 
-O escopo `offline_access` permite ao aplicativo acessar recursos em nome do usuário por um período estendido. Na tela de consentimento de conta corporativa, esse escopo aparecerá como a permissão "Acessar dados a qualquer momento". Na tela de consentimento de conta pessoal da Microsoft, ele aparecerá como a permissão "Acessar dados a qualquer momento". Quando um usuário aprovar o escopo `offline_access`, o aplicativo será habilitado para receber tokens de atualização do ponto de extremidade do token v2.0. Os tokens de atualização têm longa duração e permitem ao aplicativo adquirir novos tokens de acesso à medida que os antigos expiram.
+O escopo de `email` pode ser incluído junto com o escopo de `openid` e quaisquer outros. Ele permite ao aplicativo acesso ao endereço de email principal do usuário na forma da declaração `email`. A declaração `email` só será incluída nos tokens se um endereço de email estiver associado à conta de usuário, o que nem sempre é o caso. Se estiver usando o escopo de `email`, seu aplicativo deverá estar preparado para lidar com o caso no qual a declaração `email` não existe no token.
 
-Se o aplicativo não solicitar o escopo `offline_access`, ele não receberá refresh\_tokens. Isso significa que, quando você resgatar um authorization\_code no [fluxo do código de autorização do OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow), você só receberá de volta um access\_token do ponto de extremidade `/token`. Esse access\_token permanecerá válido por um curto período de tempo (normalmente uma hora), mas acabará expirando. Nesse momento, seu aplicativo terá que redirecionar o usuário de volta ao ponto de extremidade `/authorize` para recuperar um novo authorization\_code. Durante esse redirecionamento, o usuário pode ou não precisar digitar suas credenciais novamente ou consentir de novo as permissões, dependendo do tipo do aplicativo.
+#### Perfil
 
-Para obter mais informações sobre como obter e usar tokens de atualização, consulte a [referência ao protocolo do modelo de aplicativo v2.0](active-directory-v2-protocols.md).
+O escopo de `profile` pode ser incluído junto com o escopo de `openid` e quaisquer outros. Ele permite que o aplicativo acesse uma grande quantidade de informações sobre o usuário. Isso inclui, mas sem limitação, o nome, sobrenome, nome de usuário preferido, ID de objeto e outras informações do usuário. Para obter uma lista completa das declarações de perfil disponíveis em id\_tokens para um determinado usuário, confira a [referência do token v2.0](active-directory-v2-tokens.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+#### Offline\_access
+
+O [`offline_access` escopo](http://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) permite ao aplicativo acessar recursos em nome do usuário por um período estendido. Na tela de consentimento de conta corporativa, esse escopo aparecerá como a permissão "Acessar dados a qualquer momento". Na tela de consentimento de conta pessoal da Microsoft, ele aparecerá como a permissão "Acessar dados a qualquer momento". Quando um usuário aprovar o escopo `offline_access`, o aplicativo será habilitado para receber tokens de atualização do ponto de extremidade do token v2.0. Os tokens de atualização têm longa duração e permitem ao aplicativo adquirir novos tokens de acesso à medida que os antigos expiram.
+
+Se o aplicativo não solicitar o escopo `offline_access`, ele não receberá refresh\_tokens. Isso significa que, quando você resgatar um authorization\_code no [fluxo de código de autorização do OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow), você só receberá de volta um access\_token do ponto de extremidade `/token`. Esse access\_token permanecerá válido por um curto período de tempo (normalmente uma hora), mas acabará expirando. Nesse momento, seu aplicativo terá que redirecionar o usuário de volta ao ponto de extremidade `/authorize` para recuperar um novo authorization\_code. Durante esse redirecionamento, o usuário pode ou não precisar digitar suas credenciais novamente ou consentir de novo as permissões, dependendo do tipo do aplicativo.
+
+Para saber mais sobre como obter e usar tokens de atualização, confira a [referência ao protocolo v2.0](active-directory-v2-protocols.md).
+
+<!---HONumber=AcomDC_0128_2016-->

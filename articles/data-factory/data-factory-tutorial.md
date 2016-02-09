@@ -27,7 +27,7 @@ Neste tutorial, você criará pipelines de Data Factory para avaliar a eficiênc
 
 ## Preparando-se para o tutorial
 1.	Leia a [Introdução ao Azure Data Factory][adfintroduction] para obter uma visão geral do Azure Data Factory e entender os conceitos de nível superior.
-2.	Você deve ter uma assinatura do Azure para ver este tutorial. Para obter informações sobre como adquirir uma assinatura, consulte [Opções de compra](http://azure.microsoft.com/pricing/purchase-options/), [Ofertas para membros](http://azure.microsoft.com/pricing/member-offers/) ou [Avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
+2.	Você deve ter uma assinatura do Azure para ver este tutorial. Para obter informações sobre como adquirir uma assinatura, consulte [Opções de compra](https://azure.microsoft.com/pricing/purchase-options/), [Ofertas para membros](https://azure.microsoft.com/pricing/member-offers/) ou [Avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 3.	Você deve baixar e instalar o [PowerShell do Azure][download-azure-powershell] no seu computador. Você vai executar cmdlets da Data Factory para carregar dados de exemplo e scripts de pig/hive para seu armazenamento de blob. 
 2.	**(recomendado)** Examine e pratique o tutorial no artigo [Introdução ao Azure Data Factory][adfgetstarted] para ver um tutorial simples e familiarizar-se com o portal e os cmdlets.
 3.	**(recomendado)** Examine e pratique o passo a passo no artigo [Usar o Pig e Hive com o Azure Data Factory][usepigandhive] para ver um passo a passo sobre como criar um pipeline para mover dados da fonte de dados local para um armazenamento de blob do Azure.
@@ -192,7 +192,7 @@ Nesta etapa, você criará uma data factory do Azure chamada **LogProcessingFact
  
 ## <a name="MainStep3"></a> Etapa 3: Criar serviços vinculados
 
-> [AZURE.NOTE]Este artigo usa o Portal Clássico do Azure, especificamente o Editor do Data Factory, para criar pipelines, tabelas e serviços vinculados. Consulte [Tutorial usando o PowerShell do Azure][adftutorial-using-powershell] para executar este tutorial usando o PowerShell do Azure.
+> [AZURE.NOTE] Este artigo usa o Portal Clássico do Azure, especificamente o Editor do Data Factory, para criar pipelines, tabelas e serviços vinculados. Consulte [Tutorial usando o PowerShell do Azure][adftutorial-using-powershell] para executar este tutorial usando o PowerShell do Azure.
 
 Nesta etapa, você criará os seguintes serviços vinculados:
 
@@ -206,8 +206,6 @@ Nesta etapa, você criará os seguintes serviços vinculados:
 1.	Na folha **DATA FACTORY**, clique no bloco **Criar e implantar** para iniciar o **Editor** da data factory.
 
 	![Bloco Criar e implantar][image-author-deploy-tile]
-
-	Consulte o tópico [Editor Data Factory][data-factory-editor] para obter a visão geral detalhada do Editor Data Factory.
 
 2.  No **Editor**, clique no botão **Novo armazenamento de dados** na barra de ferramentas e selecione **Armazenamento do Azure** no menu suspenso. Você deve ver o modelo JSON para criar um serviço de armazenamento vinculado do Azure no painel à direita.
 	
@@ -421,7 +419,6 @@ Pratique o [Guia passo a passo: usando a fonte de dados local][tutorial-onpremis
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
-[data-factory-editor]: data-factory-editor.md
 
 [adfsamples]: data-factory-samples.md
 [adfgetstarted]: data-factory-get-started.md
@@ -486,4 +483,4 @@ Pratique o [Guia passo a passo: usando a fonte de dados local][tutorial-onpremis
 
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial/NewDataFactoryMenu.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

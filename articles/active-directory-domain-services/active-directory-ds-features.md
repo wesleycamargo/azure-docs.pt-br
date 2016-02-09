@@ -4,8 +4,8 @@
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
-	manager="udayh"
-	editor="inhenk"/>
+	manager="stevenpo"
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory-ds"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="01/26/2016"
 	ms.author="maheshu"/>
 
 # Serviços de Domínio do AD do Azure* (Visualização)*
@@ -29,7 +29,7 @@ Os seguintes recursos estão disponíveis na versão de visualização dos Servi
 
 - **Criar domínios com nomes personalizados:** você pode criar domínios com nomes personalizados (p. ex., contoso.local) usando os Serviços de Domínio do AD do Azure. Isso inclui nomes verificados e nomes de domínio não verificados. Opcionalmente, você também pode criar um domínio com o sufixo de domínio interno (isto é, *.onmicrosoft.com) que é oferecido pelo seu diretório do AD do Azure.
 
-- **Integrado ao AD do Azure:** não é necessário configurar ou gerenciar a replicação para os Serviços de Domínio do AD do Azure. Contas de usuário, associações de grupo e credenciais de usuário (senhas) do seu diretório do AD do Azure estão automaticamente disponíveis nos Serviços de domínio do AD do Azure. Novos usuários, grupos ou alterações a atributos que ocorrem em seu locatário do AD do Azure ou em seu diretório local são automaticamente sincronizados com os Serviços de Domínio do AD do Azure.
+- **Integrado ao AD do Azure:** não é necessário configurar nem gerenciar a replicação para os Serviços de Domínio do AD do Azure. Contas de usuário, associações de grupo e credenciais de usuário (senhas) do seu diretório do AD do Azure estão automaticamente disponíveis nos Serviços de domínio do AD do Azure. Novos usuários, grupos ou alterações a atributos que ocorrem em seu locatário do AD do Azure ou em seu diretório local são automaticamente sincronizados com os Serviços de Domínio do AD do Azure.
 
 - **Autenticação NTLM e Kerberos:** com suporte para autenticação NTLM e Kerberos, você pode implantar aplicativos que dependem da autenticação Integrada do Windows.
 
@@ -39,10 +39,10 @@ Os seguintes recursos estão disponíveis na versão de visualização dos Servi
 
 - **Política de grupo:** você pode aproveitar um único objeto de política de grupo (GPO) para cada um dos usuários e contêineres de computadores, a fim de impor a conformidade com políticas de segurança necessárias para contas de usuário, bem como computadores ingressados no domínio.
 
-- **Disponível em várias regiões do Azure:** consulte a página [regiões do Azure com suporte](active-directory-ds-regions.md) para obter uma lista de regiões do Azure onde os Serviços de Domínio do AD do Azure estão disponíveis.
+- **Disponível em várias regiões do Azure:** consulte a página [Serviços do Azure por região](https://azure.microsoft.com/regions/#services/) para conhecer as regiões do Azure nas quais os Serviços de Domínio do AD do Azure estão disponíveis.
 
 - **Alta disponibilidade:** os Serviços de Domínio do AD do Azure oferecem alta disponibilidade para seu domínio. Garante maior tempo de atividade de serviço e resiliência a falhas. O monitoramento da integridade interna oferece a correção automatizada de falhas gerando novas instâncias para substituir instâncias com falha e fornecer um serviço contínuo para seu domínio.
 
 - **Usar ferramentas de gerenciamento conhecidas:** você pode usar ferramentas de gerenciamento conhecidas do Active Directory do Windows Server, como o Centro Administrativo do Active Directory ou o Active Directory PowerShell, para administrar domínios fornecidos pelos Serviços de Domínio do AD do Azure.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

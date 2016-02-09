@@ -4,7 +4,7 @@
    services="dns" 
    documentationCenter="na" 
    authors="joaoma" 
-   manager="Adinah" 
+   manager="carmon" 
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="11/24/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma"/>
 
 # Como gerenciar registros DNS usando o PowerShell
@@ -32,9 +32,9 @@ Este guia mostrará como gerenciar conjuntos de registro e registros de zona DNS
 
 Os conjuntos de registros são criados usando o cmdlet New-AzureRmDnsRecordSet. Você precisa especificar o nome do conjunto de registros, a zona, o TTL (Time-to-Live, tempo de vida) e o tipo de registro.
 
->[AZURE.NOTE]O nome do conjunto de registros deve ser um nome relativo, exceto o nome da zona. Por exemplo, o nome de conjunto de registros "www" na zona "contoso.com" criará um conjunto de registros com o nome totalmente qualificado "www.contoso.com".
+O nome do conjunto de registros deve ser um nome relativo, exceto o nome da zona. Por exemplo, o nome de conjunto de registros "www" na zona "contoso.com" criará um conjunto de registros com o nome totalmente qualificado "www.contoso.com".
 
->Para um registro definido no vértices da zona, use "@" como o nome do conjunto de registro, incluindo as aspas. O nome totalmente qualificado do conjunto de registros é igual ao nome da zona, nesse caso, "contoso.com".
+Para um registro definido no vértices da zona, use "@" como o nome do conjunto de registro, incluindo as aspas. O nome totalmente qualificado do conjunto de registros é igual ao nome da zona, nesse caso, "contoso.com".
 
 O DNS do Azure dá suporte aos seguintes tipos de registros: A, AAAA, CNAME, MX, NS, SOA, SRV, TXT. Conjuntos de registros do tipo SOA são criados automaticamente com cada zona, eles não podem ser criados separadamente.
 
@@ -48,15 +48,15 @@ No exemplo acima, a zona é especificada usando um objeto de zona, como retornad
 
 New-AzureRmDnsRecordSet retorna um objeto local que representa o conjunto de registros criado no DNS do Azure.
 
->[AZURE.NOTE]Conjuntos de registros CNAME não podem coexistir com outros conjuntos de registros com o mesmo nome. Por exemplo, você não pode criar um CNAME com o nome relativo "www" e um registro A com o nome relativo "www" ao mesmo tempo. Uma vez que o apex de zona (nome = "@") sempre contém os conjuntos de registro NS e SOA criados quando a zona é criada, isso significa que você não pode criar um conjunto de registros CNAME no apex da zona. Essas restrições são provenientes dos padrões DNS, elas não são limitações do DNS do Azure.
+>[AZURE.IMPORTANT] Conjuntos de registros CNAME não podem coexistir com outros conjuntos de registros com o mesmo nome. Por exemplo, você não pode criar um CNAME com o nome relativo "www" e um registro A com o nome relativo "www" ao mesmo tempo. Uma vez que o apex de zona (nome = "@") sempre contém os conjuntos de registro NS e SOA criados quando a zona é criada, isso significa que você não pode criar um conjunto de registros CNAME no apex da zona. Essas restrições são provenientes dos padrões DNS, elas não são limitações do DNS do Azure.
 
 ### Registros curinga
 
 O DNS do Azure dá suporte a [registros curinga](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Eles são retornados para qualquer consulta com um nome correspondente (a menos que haja uma correspondência mais próxima de um conjunto de registros não curinga).
 
->[AZURE.NOTE]Para criar um conjunto de registros curinga, use o nome do conjunto de registros "*", ou um nome cujo primeiro rótulo seja "*", por exemplo, "*.foo".
+Para criar um conjunto de registros curinga, use o nome do conjunto de registros "*", ou um nome cujo primeiro rótulo seja "*", por exemplo, "*.foo".
 
->Conjuntos de registros curinga têm suporte para todos os tipos de registro, exceto NS e SOA.
+Conjuntos de registros curinga têm suporte para todos os tipos de registro, exceto NS e SOA.
 
 ## Obter um conjunto de registros
 
@@ -169,7 +169,7 @@ O cmdlet Set-AzureRmDnsRecordSet usa verificações de "etag" para garantir que 
 
 ### Modificar o registro SOA
 
->[AZURE.NOTE]Você não pode adicionar ou remover registros do conjunto de registros SOA criado automaticamente no apex da zona (nome = "@"), mas você pode modificar os parâmetros no registro SOA e o TTL do conjunto de registros.
+>[AZURE.NOTE] Você não pode adicionar ou remover registros do conjunto de registros SOA criado automaticamente no apex da zona (nome = "@"), mas você pode modificar os parâmetros no registro SOA e o TTL do conjunto de registros.
 
 O exemplo a seguir mostra como alterar a propriedade "Email" do registro SOA:
 
@@ -179,7 +179,7 @@ O exemplo a seguir mostra como alterar a propriedade "Email" do registro SOA:
 
 ### Modificar registros NS no apex da zona
 
->[AZURE.NOTE]Não é possível adicionar, remover ou modificar os registros no conjunto de registros NS criados automaticamente no apex da zona (nome = "@"). A única alteração permitida é modificar o TTL do conjunto de registros.
+>[AZURE.NOTE] Não é possível adicionar, remover ou modificar os registros no conjunto de registros NS criados automaticamente no apex da zona (nome = "@"). A única alteração permitida é modificar o TTL do conjunto de registros.
 
 O exemplo a seguir mostra como alterar a propriedade TTL do conjunto de registros NS:
 
@@ -252,7 +252,7 @@ Como um conjunto de registros CNAME pode conter no máximo um registro, remover 
 ## Excluir um conjunto de registros
 Os conjuntos de registro podem ser excluídos usando o cmdlet Remove-AzureRmDnsRecordSet.
 
->[AZURE.NOTE]Você não pode excluir os conjuntos de registro SOA e NS no apex da zona (nome = "@") que são criados automaticamente quando a zona é criada. Eles serão excluídos automaticamente ao excluir a zona.
+>[AZURE.NOTE] Você não pode excluir os conjuntos de registro SOA e NS no apex da zona (nome = "@") que são criados automaticamente quando a zona é criada. Eles serão excluídos automaticamente ao excluir a zona.
 
 Use um dos três métodos a seguir para remover um conjunto de registros:
 
@@ -287,4 +287,4 @@ O objeto do conjunto de registros também pode ser redirecionado em vez de ser p
 [Introdução à criação de conjuntos de registros e de registros](dns-getstarted-create-recordset.md)<BR> [Gerenciar zonas DNS](dns-operations-dnszones.md)<BR> [Automatizar operações usando o SDK do .NET](dns-sdk.md)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

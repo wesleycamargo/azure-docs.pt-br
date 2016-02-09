@@ -25,7 +25,7 @@ Este tópico explica como configurar um aplicativo Web usando o [Portal do Azure
 
 ## Configurações do aplicativo
 
-1. No [Portal do Azure](https://portal.azure.com), abra a folha do aplicativo Web.
+1. No [Portal do Azure](https://portal.azure.com/), abra a folha do aplicativo Web.
 2. Clique em **Todas as Configurações**.
 3. Clique em **Configurações do Aplicativo**.
 
@@ -164,7 +164,7 @@ No modo Básico ou Padrão, você pode testar a disponibilidade dos pontos de ex
 
 Para saber mais, consulte [Como monitorar o status de pontos de extremidade da Web](http://go.microsoft.com/fwLink/?LinkID=279906&clcid=0x409).
 
->[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE] Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## Próximas etapas
 
@@ -177,4 +177,4 @@ Para saber mais, consulte [Como monitorar o status de pontos de extremidade da W
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

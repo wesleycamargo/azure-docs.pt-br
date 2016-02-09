@@ -46,7 +46,7 @@ Use o mesmo assistente **Publicar Web** para implantar o código do novo aplicat
 
 Como você habilitou a interface do usuário Swagger no tutorial anterior, pode usá-la para verificar se o aplicativo de API está em execução no Azure.
 
-1. No [Portal de Visualização do Azure](https://portal.azure.com), vá para a folha **Aplicativo de API** do aplicativo de API implantado.
+1. No [Portal de Visualização do Azure](https://portal.azure.com/), vá para a folha **Aplicativo de API** do aplicativo de API implantado.
 
 2. Clique na URL do aplicativo de API.
 
@@ -62,7 +62,7 @@ Como você habilitou a interface do usuário Swagger no tutorial anterior, pode 
 
 ## Exibir a definição de API no portal
 
-1. No [Portal de Visualização do Azure](https://portal.azure.com), volte para a folha **Aplicativo de API** do aplicativo de API implantado.
+1. No [Portal de Visualização do Azure](https://portal.azure.com/), volte para a folha **Aplicativo de API** do aplicativo de API implantado.
 
 4. Clique em **Definição de API**.
  
@@ -129,4 +129,4 @@ Aplicativos de API são aplicativos Web com recursos adicionais para hospedar AP
 
 Para obter informações sobre recursos de aplicativos de API, consulte [O que são aplicativos de API?](app-service-api-apps-why-best-platform.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

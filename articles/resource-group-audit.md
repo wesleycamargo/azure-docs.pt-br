@@ -67,7 +67,7 @@ No próximo exemplo, vamos procurar ações com falha somente após a hora de in
 
     PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-15) -Status Failed –DetailedOutput
     
-Se esse comando retornar um número excessivo de entradas e propriedades, você poderá concentrar seus esforços de auditoria recuperando a propriedade **properties**.
+Se esse comando retorna um número excessivo de entradas e propriedades, você pode concentrar seus esforços de auditoria recuperando a propriedade **properties**.
 
     PS C:\> (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties
 
@@ -162,4 +162,4 @@ Você pode selecionar qualquer operação para obter mais detalhes sobre ela.
 - Para saber mais sobre como conceder acesso a uma entidade de serviço, veja [Autenticando uma entidade de serviço com o Gerenciador de Recursos do Azure](resource-group-authenticate-service-principal.md).
 - Para saber como realizar ações em um recurso para todos os usuários, veja [Bloquear recursos com o Gerenciador de Recursos do Azure](resource-group-lock-resources.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

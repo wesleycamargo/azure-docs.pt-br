@@ -235,6 +235,6 @@ Para continuar aprendendo sobre a visualização do modelo de aplicativo v2.0, c
 
 - [Exemplos do Azure no GitHub >>](https://github.com/Azure-Samples)
 - [AD do Azure no Excedente de Pilha >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
-- Documentação do Azure AD no [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+- Documentação do Azure AD no [Azure.com >>](https://azure.microsoft.com/documentation/services/active-directory/)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

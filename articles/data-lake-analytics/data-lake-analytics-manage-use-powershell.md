@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/15/2016"
+   ms.date="01/26/2016"
    ms.author="jgao"/>
 
 # Gerenciar a Análise Azure Data Lake usando o Azure PowerShell
@@ -26,7 +26,7 @@ Saiba como gerenciar contas, fontes de dados, usuários e trabalhos da Análise 
 
 Antes de começar este tutorial, você deve ter o seguinte:
 
-- **Uma assinatura do Azure**. Veja [Obter avaliação gratuita do Azure]https://azure.microsoft.com/pt-BR/pricing/free-trial/).
+- **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 
 <!-- ################################ -->
@@ -35,7 +35,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 ##Instalar o Azure PowerShell 1.0 ou superior
 
-Consulte a seção de pré-requisitos em [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](powershell-azure-resource-manager.md#prerequisites).
+Confira a seção de pré-requisitos em [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](powershell-azure-resource-manager.md#prerequisites).
 	
 ## Gerenciar contas
 
@@ -242,7 +242,7 @@ Você deve ter uma conta da Análise Data Lake antes de criar um trabalho. Para 
 		-Name $jobName `
 		-Script $scriptContents
 
-> [AZURE.NOTE]A prioridade padrão de um trabalho é de 1.000 e o nível padrão de paralelismo de um trabalho é 1.
+> [AZURE.NOTE] A prioridade padrão de um trabalho é de 1.000 e o nível padrão de paralelismo de um trabalho é 1.
 
 
 ### Cancelar trabalhos
@@ -392,4 +392,4 @@ O modelo ARM a seguir pode ser usado para implantar uma conta da Análise Data L
 	  }
 	}
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

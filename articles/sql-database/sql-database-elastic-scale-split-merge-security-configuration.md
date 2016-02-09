@@ -453,7 +453,7 @@ No Assistente para importação de certificados:
 
 ## Carregar um certificado
 
-No [portal clássico do Azure](http://portal.azure.com/)
+No [portal clássico do Azure](https://portal.azure.com/)
 
 1. Selecione os **Serviços de nuvem**.
 2. Selecione o serviço de nuvem.
@@ -473,4 +473,4 @@ As credenciais armazenadas neste banco de dados são criptografadas. No entanto,
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

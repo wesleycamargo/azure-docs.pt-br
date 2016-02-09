@@ -35,14 +35,14 @@ Siga as etapas neste artigo e saiba como configurar o Always Encripted para um b
 - Criar uma tabela de banco de dados e criptografar algumas colunas.
 - Crie um aplicativo que insira, selecione e exiba os dados das colunas criptografadas.
 
-> [AZURE.NOTE]O Always Encrypted para o Banco de Dados SQL está atualmente em visualização.
+> [AZURE.NOTE] O Always Encrypted para o Banco de Dados SQL está atualmente em visualização.
 
 
 ## Pré-requisitos
 
 Para este tutorial, será necessário:
 
-- Uma conta do Azure e uma assinatura antes de começar. Se não tiver uma, inscreva-se em uma [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
+- Uma conta do Azure e uma assinatura antes de começar. Se não tiver uma, inscreva-se em uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx) versão 13.0.700.242 ou posterior.
 - [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) ou posterior (no computador cliente).
 - [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
@@ -50,7 +50,7 @@ Para este tutorial, será necessário:
 
 
 ## Criar um banco de dados SQL em branco
-1. Entre no [Portal do Azure](http://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. Clique em **Novo** > **Dados + Armazenamento** > **Banco de Dados SQL**.
 3. Criar um banco de dados **Em branco** denominado **Clínica** em um servidor novo ou existente. Para obter instruções detalhadas sobre como criar um banco de dados no portal do Azure, consulte [Criar um banco de dados SQL em minutos](sql-database-getting-started.md).
 
@@ -156,7 +156,7 @@ Você pode verificar a criação das chaves no SSMS expandindo **Clínica** > **
 
 Agora que o Always Encrypted está configurado, vamos compilar um aplicativo que faça algumas INSERÇÕES e SELEÇÕES nas colunas criptografadas. Para executar com sucesso o aplicativo de exemplo, você deve executá-lo no mesmo computador em que executou o assistente do Always Encrypted. Para executar em outro computador, é preciso implantar os certificados do Always Encrypted no computador que executa o aplicativo cliente.
 
-> [AZURE.IMPORTANT]Seu aplicativo deve usar objetos [SqlParameter](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx) ao passar dados de texto sem formatação para o servidor com colunas do Always Encrypted. A passagem de valores literais sem usar objetos SqlParameter resultará em uma exceção.
+> [AZURE.IMPORTANT] Seu aplicativo deve usar objetos [SqlParameter](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx) ao passar dados de texto sem formatação para o servidor com colunas do Always Encrypted. A passagem de valores literais sem usar objetos SqlParameter resultará em uma exceção.
 
 
 1. Abra o Visual Studio e crie um novo aplicativo de console em C#. Verifique se seu projeto está definido como **.NET Framework 4.6** ou posterior.
@@ -176,7 +176,7 @@ Para habilitar o Always Encrypted, você precisa adicionar a palavra-chave **Con
 
 Isso pode ser definido diretamente na cadeia de conexão ou usando um [SqlConnectionStringBuilder](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.aspx). O aplicativo de exemplo na próxima seção mostra como usar o **SqlConnectionStringBuilder**.
 
-> [AZURE.NOTE]Essa é a única alteração necessária em um aplicativo cliente específico para o Always Encrypted. Se você tiver um aplicativo existente que armazene sua cadeia de conexão externamente (ou seja, em um arquivo de configuração), é possível habilitar o Always Encrypted sem alterar nenhum código.
+> [AZURE.NOTE] Essa é a única alteração necessária em um aplicativo cliente específico para o Always Encrypted. Se você tiver um aplicativo existente que armazene sua cadeia de conexão externamente (ou seja, em um arquivo de configuração), é possível habilitar o Always Encrypted sem alterar nenhum código.
 
 
 ### Habilitar o Always Encrypted na cadeia de conexão
@@ -524,7 +524,7 @@ Para usar o SSMS para acessar os dados de texto sem formatação, podemos adicio
 
 
 
-> [AZURE.NOTE]Se você se conectar com o SSMS (ou qualquer cliente) em um computador diferente, ele não terá acesso às chaves de criptografia e não será capaz de descriptografar os dados.
+> [AZURE.NOTE] Se você se conectar com o SSMS (ou qualquer cliente) em um computador diferente, ele não terá acesso às chaves de criptografia e não será capaz de descriptografar os dados.
 
 
 
@@ -545,4 +545,4 @@ Depois de criar um banco de dados que usa o Always Encrypted, convém fazer o se
 - [Assistente do Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx)
 - [Blog do Always Encrypted](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always%20encrypted/)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

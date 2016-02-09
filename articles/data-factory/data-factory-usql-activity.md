@@ -19,7 +19,8 @@
 # Execute o script U-SQL na Análise Azure Data Lake do Azure Data Factory 
 Um pipeline em uma fábrica de dados do Azure processa dados nos serviços de armazenamento vinculados utilizando serviços de computação vinculados. Ela contém uma sequência de atividades em que cada atividade executa uma operação de processamento específica. Este artigo descreve a **Atividade do U-SQL da Análise Data Lake** que executa um script **U-SQL** em um serviço vinculado de computação da **Análise Azure Data Lake**.
 
-> [AZURE.NOTE]Você deve criar uma conta da Análise Azure Data Lake antes de criar um pipeline com uma atividade do U-SQL da Análise Data Lake. Para saber mais sobre a Análise Azure Data Lake, veja [Introdução à Análise Azure Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
+> [AZURE.NOTE] 
+Você deve criar uma conta da Análise Azure Data Lake antes de criar um pipeline com uma atividade do U-SQL da Análise Data Lake. Para saber mais sobre a Análise Azure Data Lake, veja [Introdução à Análise Azure Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 >  
 > Consulte o tutorial [Criar seu primeiro pipeline](data-factory-build-your-first-pipeline.md) para obter etapas detalhadas para criar uma fábrica de dados, serviços vinculados, conjuntos de dados e um pipeline. Use os trechos de código JSON com o Editor do Data Factory, Visual Studio ou Azure PowerShell para criar as entidades do Data Factory.
 
@@ -62,8 +63,8 @@ O código de autorização gerado usando o botão **Autorizar** expira após alg
 | Tipo de usuário | Expira após |
 | :-------- | :----------- | 
 | Usuário não AAD (@hotmail.com, @live.com, etc.) | 12 horas |
-| O usuário do AAD e a fonte baseada no OAuth estão em um [locatário](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) diferente, como o locatário do Data Factory do usuário. | 12 horas |
-| O usuário do AAD e a fonte baseada no OAuth estão no mesmo locatário, como o locatário do Data Factory do usuário. | <p> O máximo é de 90 dias se o usuário executar fatias com base na origem do serviço vinculado baseado no OAuth pelo menos uma vez a cada 14 dias. </p><p>Durante os 90 dias esperados, se o usuário não executar nenhuma fatia com base nessa fonte por 14 dias, as credenciais expirarão imediatamente em 14 dias após sua última fatia.</p> | 
+| O usuário do AAD e a fonte baseada no OAuth estão em um [locatário](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) diferente do locatário do data factory. | 12 horas |
+| O usuário do AAD e a fonte baseada no OAuth estão no mesmo locatário que o locatário do data factory. | 14 dias |
 
 Para evitar/resolver o erro, você precisará autorizar novamente usando o botão **Autorizar** quando o **token expirar** e reimplantar o serviço vinculado. Você também pode gerar valores para as propriedades **sessionId** e **authorization** programaticamente usando o código na seção a seguir.
 
@@ -163,7 +164,7 @@ degreeOfParallelism | O número máximo de nós que serão usados simultaneament
 prioridade | Determina quais trabalhos de todos os que estão na fila devem ser selecionados para serem executados primeiro. Quanto menor o número, maior a prioridade. | Não 
 parameters | Parâmetros do script U-SQL | Não 
 
-Veja [Definição do script SearchLogProcessing.txt](#script-definition) para a definição do script.
+Confira [Definição do script SearchLogProcessing.txt](#script-definition) para ver a definição do script.
 
 ### Conjuntos de dados de entrada e saída de exemplo
 
@@ -253,8 +254,8 @@ Veja [Mover dados para e do Repositório Azure Data Lake](data-factory-azure-dat
 	    TO @out
 	      USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 
-Os valores dos parâmetros **@in** e **@out** no script U-SQL acima são passados dinamicamente pelo ADF usando a seção ‘parameters’. Veja a seção "parâmetros" acima na definição do pipeline.
+Os valores dos parâmetros **@in** e **@out** no script U-SQL acima são passados dinamicamente pelo ADF usando a seção 'parameters'. Veja a seção "parâmetros" acima na definição do pipeline.
 
 Você pode especificar outras propriedades viz. degreeOfParallelism, prioridade, etc., bem como em sua definição de pipeline para os trabalhos executados no serviço de Análise Azure Data Lake.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

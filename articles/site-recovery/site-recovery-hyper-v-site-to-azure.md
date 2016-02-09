@@ -34,7 +34,7 @@ Certifique-se de que ter tudo em colocar antes de começar.
 
 ### Pré-requisitos do Azure
 
-- Você precisará de uma conta do [Microsoft Azure](http://azure.microsoft.com/). Você pode começar com uma [avaliação gratuita](pricing/free-trial/).
+- Você precisará de uma conta do [Microsoft Azure](https://azure.microsoft.com/). Você pode começar com uma [avaliação gratuita](pricing/free-trial/).
 - Você precisará de uma conta de armazenamento do Azure para armazenar os dados replicados no Azure. A conta precisa estar com a replicação geográfica habilitada. Ela deve estar localizada na mesma região que o cofre do Azure Site Recovery e ser associada à mesma assinatura. [Saiba mais sobre o Armazenamento do Azure](../storage/storage-introduction.md).
 - Você precisará de uma rede virtual do Azure para que as máquinas virtuais do Azure estejam conectadas a uma rede quando o failover de seu site primário for executado.
 
@@ -208,7 +208,7 @@ Grupos de proteção são agrupamentos lógicos de máquinas virtuais que você 
 
 Adicione máquinas virtuais aos grupos de proteção para protegê-las.
 
->[AZURE.NOTE]Proteger VMs que executam o Linux com um endereço IP estático sem suporte.
+>[AZURE.NOTE] Proteger VMs que executam o Linux com um endereço IP estático sem suporte.
 
 1. Na guia **Máquinas** do grupo de proteção, clique em **Adicionar máquinas virtuais aos grupos de proteção para habilitar a proteção**.
 2. Na página **Habilitar Proteção da Máquina Virtual** selecione as máquinas virtuais que você deseja proteger.
@@ -292,4 +292,4 @@ Execute o failover de teste da seguinte maneira:
 
 Depois que a implantação é configurada e está em funcionamento, [saiba mais](site-recovery-failover.md) sobre o failover.
 
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

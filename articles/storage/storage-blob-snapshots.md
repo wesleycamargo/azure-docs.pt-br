@@ -97,7 +97,7 @@ A lista a seguir inclui os principais pontos a considerar ao criar um instantân
 
 - O serviço Blob do Azure não tem um meio para determinar se dois blocos contêm dados idênticos. Cada bloco que é carregado e confirmado é tratado como exclusivo, mesmo se tiver os mesmos dados e a mesma ID de bloco. Como cobranças se acumulam para blocos exclusivos, é importante considerar que a atualização de um blob que tenha um instantâneo resulta em blocos exclusivos adicionais e cobranças adicionais.
 
-> [AZURE.NOTE]As práticas recomendadas ditam que você gerencie instantâneos com cuidado para evitar cobranças extras. É recomendável gerenciar instantâneos da seguinte maneira:
+> [AZURE.NOTE] As práticas recomendadas ditam que você gerencie instantâneos com cuidado para evitar cobranças extras. É recomendável gerenciar instantâneos da seguinte maneira:
 
 > - Exclua e recrie instantâneos associados a um blob sempre que você atualiza o blob, mesmo se você estiver atualizando com dados idênticos, a menos que o design do seu aplicativo requer que você mantenha os instantâneos. Ao excluir e recriar os instantâneos do blob, você pode garantir que o blob e os instantâneos não divirjam.
 
@@ -125,4 +125,4 @@ No cenário 4, o blob de base foi totalmente atualizado e não contém nenhum do
 
 ![Recursos de Armazenamento do Azure](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

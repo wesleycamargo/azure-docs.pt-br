@@ -68,7 +68,7 @@ O Agente Linux do Azure inclui uma funcionalidade para detectar automaticamente 
 As imagens do **Ubuntu** e **CoreOS** utilizam inicialização de nuvem pn Azure, que fornece recursos adicionais para inicializar uma máquina virtual.
 
  - [Como injetar dados personalizados](virtual-machines-how-to-inject-custom-data.md)
- - [Dados personalizados e inicialização de nuvem no Microsoft Azure](http://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/)
+ - [Dados personalizados e inicialização de nuvem no Microsoft Azure](https://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/)
  - [Criar partições de troca do Azure usando a nuvem Init](https://wiki.ubuntu.com/AzureSwapPartitions)
  - [Como usar o CoreOS no Azure](virtual-machines-linux-coreos-how-to.md)
 
@@ -93,10 +93,10 @@ Cada máquina virtual tem um *disco de recursos* anexado. Como os dados em um di
 No Linux, o disco de recurso é normalmente gerenciado pelo agente do Linux do Azure e montado automaticamente em **/mnt/resource** (ou **/mnt** nas imagens do Ubuntu).
 
 
->[AZURE.NOTE]Observe que o disco de recurso é um disco **temporário** e pode ser excluído e reformatado quando a VM é reinicializada.
+>[AZURE.NOTE] Observe que o disco de recurso é um disco **temporário** e pode ser excluído e reformatado quando a VM é reinicializada.
 
 No Linux, o disco de dados pode ser nomeado pelo kernel como `/dev/sdc`, e os usuários precisarão particionar, formatar e montar esse recurso. Isso é abordado passo a passo no tutorial: [Como anexar um disco de dados a uma máquina virtual](virtual-machines-linux-how-to-attach-disk.md).
 
  - **Consulte também:** [configurar RAID de software no Linux](virtual-machines-linux-configure-raid.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

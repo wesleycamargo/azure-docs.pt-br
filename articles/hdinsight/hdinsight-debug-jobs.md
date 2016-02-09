@@ -14,18 +14,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/28/2016"
 	ms.author="jgao"/>
 
 # Depurar Hadoop no HDInsight: exibir logs e interpretar mensagens de erro
 
 As mensagens de erro detalhadas neste tópico são fornecidas para ajudar os usuários do Hadoop no Azure HDInsight a entenderem possíveis condições de erro que podem encontrar ao administrar o serviço usando o PowerShell do Azure e para avisá-los sobre as etapas que podem ser executadas para se recuperar do erro.
 
-Algumas dessas mensagens de erro também podem ser vistas no Portal do Azure quando ele for usado para gerenciar clusters HDInsight. Mas outras mensagens de erro que você pode encontrar são menos granulares devido às restrições nas ações corretivas possíveis neste contexto. Outras mensagens de erro são fornecidas nos contextos onde a atenuação é óbvia. Por exemplo, se as restrições nos parâmetros forem violadas, a mensagem aparecerá no lado direito da caixa onde o valor foi inserido. Este é um caso onde vários nós de dados foram solicitados. A solução é reduzir o número para um valor permitido que seja 33 ou inferior.
+Algumas dessas mensagens de erro também podem ser vistas no Portal do Azure quando ele for usado para gerenciar clusters HDInsight. Mas outras mensagens de erro que você pode encontrar são menos granulares devido às restrições nas ações corretivas possíveis neste contexto. Outras mensagens de erro são fornecidas nos contextos onde a atenuação é óbvia.
 
-![Mensagem de erro do Portal do HDInsight][image-hdi-debugging-error-messages-portal]
-
-Em situações nas quais o erro é específico para o Azure HDInsight, é uma boa ideia para entender de que se trata esse erro. Consulte [Códigos de erro do HDInsight](#hdi-error-codes) para entender os diferentes códigos de erro e como corrigi-los. Em algumas situações, você talvez queira acessar os logs do Hadoop em si. Você pode fazer isso diretamente no Portal do Azure.
+Em situações nas quais o erro é específico para o Azure HDInsight, é uma boa ideia para entender de que se trata esse erro. Consulte [Códigos de erro do HDInsight](#hdinsight-error-codes) para entender os diferentes códigos de erro e como corrigi-los. Em algumas situações, você talvez queira acessar os logs do Hadoop em si. Você pode fazer isso diretamente no Portal do Azure.
 
 ## Exibir logs de trabalho e integridade do cluster
 
@@ -51,65 +49,9 @@ Em situações nas quais o erro é específico para o Azure HDInsight, é uma bo
 
 * **Acesse a interface do usuário do HBase**. No Portal do Azure, clique em um nome de cluster HBase do HDInsight para abrir a folha do cluster. Na folha do cluster, clique em **Painel**. Quando solicitado, insira as credenciais de administrador do cluster. No Console de Consulta que se abre, clique em **IU do HBase**.
 
-## <a id="hdi-error-codes"></a>Códigos de erro do HDInsight
+## Códigos de erro do HDInsight
 
-Os erros que um usuário pode encontrar no Azure PowerShell ou no Portal são listados abaixo, por nome e em ordem alfabética. Os erros são vinculados a uma entrada na seção [Descrição e Atenuação de Erros](#discription-mitigation-errors), que fornece as seguintes informações sobre o erro:
-
-- **Descrição**: a mensagem de erro que os usuários veem
-- **Atenuação**: quais etapas podem ser tomadas para recuperação do erro.
-
-
-
-- [AtleastOneSqlMetastoreMustBeProvided](#AtleastOneSqlMetastoreMustBeProvided)
-- [AzureRegionNotSupported](#AzureRegionNotSupported)
-- [ClusterContainerRecordNotFound](#ClusterContainerRecordNotFound)
-- [ClusterDnsNameInvalidReservedWord](#ClusterDnsNameInvalidReservedWord)
-- [ClusterNameUnavailable](#ClusterNameUnavailable)
-- [ClusterUserNameInvalid](#ClusterUserNameInvalid)
-- [ClusterUserNameInvalidReservedWord](#ClusterUserNameInvalidReservedWord)
-- [ContainerNameMisMatchWithDnsName](#ContainerNameMisMatchWithDnsName)
-- [DataNodeDefinitionNotFound](#DataNodeDefinitionNotFound)
-- [DeploymentDeletionFailure](#DeploymentDeletionFailure)
-- [DnsMappingNotFound](#DnsMappingNotFound)
-- [DuplicateClusterContainerRequest](#DuplicateClusterContainerRequest)
-- [DuplicateClusterInHostedService](#DuplicateClusterInHostedService)
-- [FailureToUpdateDeploymentStatus](#FailureToUpdateDeploymentStatus)
-- [HdiRestoreClusterAltered](#HdiRestoreClusterAltered)
-- [HeadNodeConfigNotFound](#HeadNodeConfigNotFound)
-- [HeadNodeConfigNotFound](#HeadNodeConfigNotFound)
-- [HostedServiceCreationFailure](#HostedServiceCreationFailure)
-- [HostedServiceHasProductionDeployment](#HostedServiceHasProductionDeployment)
-- [HostedServiceNotFound](#HostedServiceNotFound)
-- [HostedServiceWithNoDeployment](#HostedServiceWithNoDeployment)
-- [InsufficientResourcesCores](#InsufficientResourcesCores)
-- [InsufficientResourcesHostedServices](#InsufficientResourcesHostedServices)
-- [InternalErrorRetryRequest](#InternalErrorRetryRequest)
-- [InvalidAzureStorageLocation](#InvalidAzureStorageLocation)
-- [InvalidNodeSizeForDataNode](#InvalidNodeSizeForDataNode)
-- [InvalidNodeSizeForHeadNode](#InvalidNodeSizeForHeadNode)
-- [InvalidRightsForDeploymentDeletion](#InvalidRightsForDeploymentDeletion)
-- [InvalidStorageAccountBlobContainerName](#InvalidStorageAccountBlobContainerName)
-- [InvalidStorageAccountConfigurationSecretKey](#InvalidStorageAccountConfigurationSecretKey)
-- [InvalidVersionHeaderFormat](#InvalidVersionHeaderFormat)
-- [MoreThanOneHeadNode](#MoreThanOneHeadNode)
-- [OperationTimedOutRetryRequest](#OperationTimedOutRetryRequest)
-- [ParameterNullOrEmpty](#ParameterNullOrEmpty)
-- [PreClusterCreationValidationFailure](#PreClusterCreationValidationFailure)
-- [RegionCapabilityNotAvailable](#RegionCapabilityNotAvailable)
-- [StorageAccountNotColocated](#StorageAccountNotColocated)
-- [SubscriptionIdNotActive](#SubscriptionIdNotActive)
-- [SubscriptionIdNotFound](#SubscriptionIdNotFound)
-- [UnableToResolveDNS](#UnableToResolveDNS)
-- [UnableToVerifyLocationOfResource](#UnableToVerifyLocationOfResource)
-- [VersionCapabilityNotAvailable](#VersionCapabilityNotAvailable)
-- [VersionNotSupported](#VersionNotSupported)
-- [VersionNotSupportedInRegion](#VersionNotSupportedInRegion)
-- [WasbAccountConfigNotFound](#WasbAccountConfigNotFound)
-
-
-
-## <a id="discription-mitigation-errors"></a>Diagnóstico e redução de erros
-
+Os erros que um usuário pode encontrar no Azure PowerShell ou no Portal são listados abaixo, por nome e em ordem alfabética:
 
 ### <a id="AtleastOneSqlMetastoreMustBeProvided"></a>AtleastOneSqlMetastoreMustBeProvided
 - **Descrição**: forneça os detalhes do Banco de Dados SQL do Azure para pelo menos um componente para usar as configurações personalizadas para as metastores do Hive e do Oozie.
@@ -296,8 +238,8 @@ Os erros que um usuário pode encontrar no Azure PowerShell ou no Portal são li
 
 * [Documentação do SDK do Azure HDInsight][hdinsight-sdk-documentation]
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
+[hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn469975.aspx
 
 [image-hdi-debugging-error-messages-portal]: ./media/hdinsight-debug-jobs/hdi-debug-errormessages-portal.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="10/02/2015"
+ ms.date="01/20/2016"
  ms.author="elioda"/>
 
 # Dimensionamento do Hub IoT
@@ -32,21 +32,14 @@ Além dessas informações sobre produtividade, confira as [Cotas e limites do H
 
 ## Taxa de transferência de mensagens do dispositivo para a nuvem e da nuvem para o dispositivo
 
-A melhor maneira de dimensionar uma solução do Hub IoT é avaliar o tráfego de acordo com o dispositivo.
+A melhor maneira de dimensionar uma solução do Hub IoT é avaliar o tráfego de acordo com a unidade.
 
 As mensagens do dispositivo para a nuvem seguem estas diretrizes de taxa de transferência sustentada.
 
 | Camada | Taxa de transferência sustentada | Taxa de envio sustentada |
 | ---- | -------------------- | ------------------- |
-| S1 | Até 8 KB/h por dispositivo | Média de quatro mensagens por hora por dispositivo |
-| S2 | Até 4 KB/minuto por dispositivo | Média de duas mensagens por minuto por dispositivo |
-
-Ao receber mensagens do dispositivo para a nuvem, o back-end de aplicativo pode esperar taxa de transferência máxima a seguir (entre todos os leitores).
-
-| Camada | Taxa de transferência sustentada |
-| ---- | -------------------- |
-| S1 | Até 120 KB/minuto por unidade com 2 MB/s, no mínimo |
-| S2 | Até 4 MB/minuto por unidade com 2 MB/s, no mínimo |
+| S1 | Até 1111 KB/minuto por unidade<br/>(1,5 GB/dia/unidade) | Média de 278 mensagens/minuto por unidade<br/>(400.000 mensagens/dia por unidade) |
+| S2 | Até 16 MB/minuto por unidade<br/>(22,8 GB/dia/unidade) | Média de 4.167 mensagens/minuto por unidade<br/>(6 milhões de mensagens/dia por unidade) |
 
 O desempenho de mensagens da nuvem para o dispositivo é dimensionado por dispositivo, e cada dispositivo recebe até cinco mensagens por minuto.
 
@@ -73,4 +66,4 @@ Para saber mais sobre o Hub IoT do Azure, siga estes links:
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [O que é o Hub IoT do Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

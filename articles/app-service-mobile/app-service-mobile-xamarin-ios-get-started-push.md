@@ -30,7 +30,7 @@ Este tutorial tem base no [tutorial de início rápido do Xamarin.iOS](app-servi
 
 Para concluir este tutorial, você precisará do seguinte:
 
-* Uma conta ativa do Azure. Se você ainda não tiver uma conta, inscreva-se em uma avaliação do Azure e obtenha até dez back-ends gratuitos de Aplicativos Móveis. Você pode continuar usando-os até mesmo após o término de sua avaliação. Consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/).
+* Uma conta ativa do Azure. Se você ainda não tiver uma conta, inscreva-se em uma avaliação do Azure e obtenha até dez back-ends gratuitos de Aplicativos Móveis. Você pode continuar usando-os até mesmo após o término de sua avaliação. Consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * Um Mac com o [Xamarin Studio] e o [Xcode] v4.4 ou posterior instalado. Você pode executar o aplicativo Xamarin.iOS usando o Visual Studio no computador com o Windows se quiser, mas é um pouco mais complicado porque você precisa se conectar a um Mac em rede executando o Xamarin.iOS Build Host. Se você estiver interessado em fazer isso, confira [Instalando o Xamarin.iOS no Windows].
 
@@ -153,7 +153,7 @@ Seu aplicativo foi atualizado para oferecer suporte a notificações de push.
 
 1. Pressione o botão **Executar** para compilar o projeto e iniciar o aplicativo em um dispositivo compatível com iOS; em seguida, clique em **OK** para aceitar as notificações por push.
 	
-	> [AZURE.NOTE]Você deve aceitar explicitamente as notificações por push do seu aplicativo. Essa solicitação ocorrerá apenas na primeira vez que o aplicativo for executado.
+	> [AZURE.NOTE] Você deve aceitar explicitamente as notificações por push do seu aplicativo. Essa solicitação ocorrerá apenas na primeira vez que o aplicativo for executado.
 
 2. No aplicativo, digite uma tarefa e clique no ícone do sinal de adição (**+**).
 
@@ -174,4 +174,4 @@ Este tutorial foi concluído com êxito.
 
  
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

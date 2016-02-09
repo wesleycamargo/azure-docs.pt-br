@@ -49,7 +49,7 @@ Para adicionar um repositório de artefatos do GitHub ao seu laboratório, você
 
 ###Conectar o seu laboratório ao repositório do GitHub
 
-1. Entre no [portal de visualização do Azure](http://portal.azure.com).
+1. Entre no [portal de visualização do Azure](https://portal.azure.com).
 
 1. Toque em **Procurar** e toque em **Laboratórios de Desenvolvimento/Teste** na lista.
 
@@ -115,4 +115,4 @@ Para adicionar um repositório de artefatos Git do Visual Studio no seu laborat�
     3. Insira o **Token de Acesso Pessoal** salvo no repositório de artefatos.
     4. Toque em **Salvar**.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/24/2015"
+   ms.date="01/27/2016"
    ms.author="bwren" />
 
 # Saída e mensagens do runbook na Automação do Azure
@@ -168,4 +168,4 @@ O exemplo a seguir inicia um runbook de exemplo e aguarda a sua conclusão. Depo
 - [Controlar um trabalho de runbook](automation-runbook-execution.md)
 - [Runbooks filhos](http://msdn.microsoft.com/library/azure/dn857355.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

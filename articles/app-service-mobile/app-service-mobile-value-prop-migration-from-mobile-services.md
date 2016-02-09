@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.date="01/12/2016"
 	ms.author="kirillg"/>
 
 # <a name="getting-started"> </a>Eu uso os serviços móveis, como o serviço de aplicativo ajuda?
@@ -53,7 +53,7 @@ Com os serviços móveis, hoje, você já pode usar conexões híbridas para ace
 O *Serviço de Aplicativo do Azure* oferece suporte mais amplo e mais avançado para plataformas de desenvolvimento incluindo Java, PHP e Python, além de .NET e Node.js, com suporte nos Serviços Móveis.
 
 ##Configurar o dimensionamento automático
-Com os serviços móveis, todas as instâncias do seu código de back-end estavam sendo executados em VMs pequenas. O *Serviço de Aplicativo do Azure* permite que você selecione o tamanho das VMs de um conjunto muito mais rico de opções. Você também pode dimensionar rapidamente para mais ou menos para lidar com qualquer carga de cliente de entrada, com base em várias métricas de desempenho.
+Com os serviços móveis, todas as instâncias do seu código de back-end estavam sendo executados em VMs pequenas. O *Serviço de Aplicativo do Azure* permite que você selecione o tamanho das VMs de um conjunto muito mais rico de opções. Você também pode escalar vertical ou horizontalmente de forma rápida para lidar com qualquer carga de cliente de entrada, com base em várias métricas de desempenho.
 
 ##Estar no "saber"
 Reaja aos problemas em tempo real com monitoramento e alertas para notificar automaticamente você e sua equipe. Integre a análise avançada de aplicativos e monitoramento de funcionalidades a partir do New Relic e AppInsights para obter uma compreensão ainda melhor do desempenho do seu aplicativo móvel. Com o *Serviço de Aplicativo do Azure*, você pode agora configurar alertas programaticamente e por meio do portal com base em várias métricas de desempenho
@@ -64,9 +64,7 @@ Faça backup automático de seu back-end e banco de dados. O seu código e dados
 ##Preparar, apontar, fogo!
 Com o *Serviço de Aplicativo do Azure*, agora você pode criar vários ambientes particulares de teste e preparo para seus aplicativos móveis. Use-os para executar testes antes de implantar. Alterne para a produção sem tempo de inatividade. Aplicativos Web são pré-carregados, garantindo a melhor experiência do cliente.
 
-
-
-Até que o recurso *Aplicativo Móvel do Serviço de Aplicativo do Azure* fique disponível, forneceremos uma experiência de migração perfeita para seus serviços móveis existentes para o serviço de aplicativo, se você optar por migrar. Enquanto isso, você pode começar a explorar o *Serviço de Aplicativo* e tirar proveito do *Serviço de Aplicativo* para seu serviço móvel existente seguindo este [tutorial](app-service-mobile-migrating-from-mobile-services.md).
+Você pode começar aproveitando o *Serviço de Aplicativo* de seu Serviço Móvel existente seguindo este [tutorial](app-service-mobile-migrating-from-mobile-services.md).
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

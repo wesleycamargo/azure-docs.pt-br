@@ -125,7 +125,7 @@ Neste ponto, o site do Tomcat deverá ser visto de um navegador externo usando u
     O benefício de fazer o Tomcat ser iniciado automaticamente é que ele será iniciado se a máquina virtual for reinicializada (por exemplo, depois que atualizações de software que exijam uma reinicialização forem instaladas).
 
 ## Próximas etapas
-Saiba mais sobre outros serviços (como o Armazenamento do Azure, o barramento de serviço, o Banco de Dados SQL) que você pode desejar incluir com seus aplicativos do Java, conferindo as informações disponíveis no [Centro de Desenvolvedores do Java](http://azure.microsoft.com/develop/java/).
+Saiba mais sobre outros serviços (como o Armazenamento do Azure, o barramento de serviço, o Banco de Dados SQL) que você pode desejar incluir com seus aplicativos do Java, conferindo as informações disponíveis no [Centro de Desenvolvedores do Java](https://azure.microsoft.com/develop/java/).
 
 [virtual_machine_tomcat]: ./media/virtual-machines-java-run-tomcat-application-server/WA_VirtualMachineRunningApacheTomcat.png
 
@@ -146,4 +146,4 @@ Saiba mais sobre outros serviços (como o Armazenamento do Azure, o barramento d
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

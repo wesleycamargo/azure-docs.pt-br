@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Criação de um projeto do Azure com o Visual Studio | Microsoft Azure"
    description="Criando um projeto do Azure com o Visual Studio"
    services="visual-studio-online"
@@ -6,13 +6,13 @@
    authors="TomArcher"
    manager="douge"
    editor="" />
-<tags 
+<tags
    ms.service="multiple"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/18/2015"
+   ms.date="01/22/2016"
    ms.author="tarcher" />
 
 # Criando um projeto do Azure com o Visual Studio
@@ -21,12 +21,12 @@ As Ferramentas do Azure para Visual Studio fornecem um modelo que permite criar 
 
 Uma solução de serviço de nuvem do Azure contém os seguintes tipos de projetos:
 
-- **Projeto do Azure** 
-    
-    O projeto do Azure tem associações aos projetos de função na solução. Ele também inclui arquivos de configuração de serviço e de definição do serviço. O arquivo de definição de serviço define as configurações de tempo de execução de seu aplicativo, incluindo as funções que são necessárias, pontos de extremidade e tamanho da máquina virtual. O arquivo de configuração de serviço define quantas instâncias de uma função são executadas e os valores das configurações definidas para uma função. Consulte [Como configurar as funções para um Serviço de Nuvem do Azure com o Visual Studio](https://msdn.microsoft.com/library/azure/hh369931.aspx) para obter mais informações sobre essas configurações.
+- **Projeto do Azure**
+
+    O projeto do Azure tem associações aos projetos de função na solução. Ele também inclui arquivos de configuração de serviço e de definição do serviço. O arquivo de definição de serviço define as configurações de tempo de execução de seu aplicativo, incluindo as funções que são necessárias, pontos de extremidade e tamanho da máquina virtual. O arquivo de configuração de serviço define quantas instâncias de uma função são executadas e os valores das configurações definidas para uma função. Consulte [Como configurar as funções para um Serviço de Nuvem do Azure com o Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md) para obter mais informações sobre essas configurações.
 
 - **Projeto de função web**
- 
+
     Uma função de trabalho executa o processamento em segundo plano. Uma função de trabalho pode se comunicar com os serviços de armazenamento e com outros serviços baseados na Internet. Uma função de trabalho pode ter qualquer número de pontos de extremidade HTTP, HTTPS ou TCP.
 
     - **Função web ASP.NET**, para criar um aplicativo ASP.NET com um front-end da web
@@ -62,4 +62,4 @@ Uma solução de serviço de nuvem do Azure contém os seguintes tipos de projet
 
 1. Para renomear uma função que você adicionou ao seu projeto, passe o mouse sobre a função na caixa de diálogo **Novo projeto do Azure** e escolha o ícone **Renomear** à direita da função. Você também pode renomear uma função em sua solução após ela ter sido adicionada.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

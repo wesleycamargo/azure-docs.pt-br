@@ -136,7 +136,7 @@ Na função Main, adicione o código a seguir.
 	KeyVaultKeyResolver cloudResolver = new KeyVaultKeyResolver(GetToken);
 
 
-> [AZURE.NOTE]Modelos de Objetos de Chave de Cofre
+> [AZURE.NOTE] Modelos de Objetos de Chave de Cofre
 >
 >É importante entender que há realmente dois Chave de Cofre modelos de objeto estar atento: uma baseada na API REST (namespace KeyVault) e a outra é uma extensão para criptografia do lado do cliente.
 
@@ -167,11 +167,11 @@ Adicione o seguinte código para criptografar um blob e carregá-lo à sua conta
 		blob.UploadFromStream(stream, stream.Length, null, options, null);
 
 
-A seguir está uma captura de tela do [portal clássico do Azure](manage.windowsazure.com) para um blob que foi criptografado usando a criptografia de cliente com uma chave armazenada no Cofre da Chave. A propriedade **KeyId** é o URI para a chave no Cofre da Chave que atua como a KEK. A propriedade **EncryptedKey** contém a versão criptografada da CEK.
+A seguir está uma captura de tela do [portal clássico do Azure](https://manage.windowsazure.com) para um blob que foi criptografado usando a criptografia de cliente com uma chave armazenada no Cofre da Chave. A propriedade **KeyId** é o URI para a chave no Cofre da Chave que atua como a KEK. A propriedade **EncryptedKey** contém a versão criptografada da CEK.
 
 ![Captura de tela mostrando os metadados de Blob que inclui metadados de criptografia][1]
 
-> [AZURE.NOTE]Se você examinar o construtor BlobEncryptionPolicy, você verá que ele pode aceitar uma chave e/ou um resolvedor. Lembre-se de que agora, você não pode usar um resolvedor para criptografia porque atualmente não dá suporte a uma chave padrão.
+> [AZURE.NOTE] Se você examinar o construtor BlobEncryptionPolicy, você verá que ele pode aceitar uma chave e/ou um resolvedor. Lembre-se de que agora, você não pode usar um resolvedor para criptografia porque atualmente não dá suporte a uma chave padrão.
 
 
 
@@ -191,7 +191,7 @@ Adicione o seguinte para descriptografar o blob que você acabou de carregar.
 	    blob.DownloadToStream(np, null, options, null);
 
 
-> [AZURE.NOTE]Existem alguns outros tipos de resolvedores para facilitar o gerenciamento de chaves, incluindo: AggregateKeyResolver e CachingKeyResolver.
+> [AZURE.NOTE] Existem alguns outros tipos de resolvedores para facilitar o gerenciamento de chaves, incluindo: AggregateKeyResolver e CachingKeyResolver.
 
 
 ## Usar os segredos do Cofre da Chave
@@ -235,4 +235,4 @@ Para obter as informações mais recentes sobre o Armazenamento do Microsoft Azu
 <!--Image references-->
 [1]: ./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

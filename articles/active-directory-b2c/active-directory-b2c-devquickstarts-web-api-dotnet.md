@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/21/2016"
 	ms.author="dastrock"/>
 
 # Visualização do AD B2C do Azure: chamando uma API Web de um aplicativo Web do .NET
@@ -24,7 +24,7 @@ Com o AD B2C do Azure, você pode adicionar recursos poderosos de gerenciamento 
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-Este artigo não aborda como implementar conexão, registro e gerenciamento de perfil com o Azure AD B2C. Ele se concentra na chamada a APIs Web depois que o usuário já está autenticado. Se ainda não o fez, você deve começar com o [Tutorial de introdução ao aplicativo Web do .NET](active-directory-b2c-devquickstarts-web-dotnet.md) para saber mais sobre os conceitos básicos do AD B2C do Azure.
+Este artigo não aborda como implementar conexão, registro e gerenciamento de perfil com o Azure AD B2C. Ele se concentra na chamada a APIs Web depois que o usuário já está autenticado. Se não estiver, você deve começar com o [tutorial de introdução ao aplicativo Web do .NET](active-directory-b2c-devquickstarts-web-dotnet.md) para saber mais sobre os conceitos básicos do Azure AD B2C.
 
 ## 1\. Obter um diretório AD B2C do Azure
 
@@ -34,7 +34,7 @@ Antes de usar AD B2C do Azure, você deve criar um diretório ou locatário. Um 
 
 Agora você precisa criar um aplicativo no diretório B2C, que dá ao AD do Azure algumas informações que ele precisa para se comunicar de forma segura com seu aplicativo. O aplicativo Web e a API Web serão representado por uma única **ID do aplicativo** nesse caso, uma vez que incluem um aplicativo lógico. Para criar um aplicativo, [siga estas instruções](active-directory-b2c-app-registration.md). Certifique-se de
 
-- Incluir um **aplicativo/api Web** no aplicativo
+- Incluir um **aplicativo Web/api Web** no aplicativo
 - Digitar `https://localhost:44316/` como uma **URL de Resposta** - é a URL padrão para este exemplo de código.
 - Criar um **Segredo do Aplicativo** para seu aplicativo e copiá-lo. Você precisará dele em breve.
 - Copiar a **ID do Aplicativo** atribuída ao aplicativo. Você também precisará dela em breve.
@@ -45,9 +45,9 @@ Agora você precisa criar um aplicativo no diretório B2C, que dá ao AD do Azur
 
 No AD B2C do Azure, cada experiência do usuário é definida por uma [**política**](active-directory-b2c-reference-policies.md). Este aplicativo Web contém três experiências de identidade - perfil de inscrição, entrada e edição. Você precisará criar uma política de cada tipo, conforme descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Ao criar suas três políticas, não se esqueça de:
 
-- Escolha o **Nome de exibição** e alguns outros atributos de inscrição em sua política de inscrição.
+- Escolha o **Nome de Exibição** e alguns outros atributos de inscrição em sua política de inscrição.
 - Escolha as declarações de aplicativo **Nome de exibição** e **ID de objeto** em cada política. Você pode escolher outras declarações também.
-- Copie o **nome** de cada política após criá-lo. Ele deve ter o prefixo `b2c_1_`. Em breve, você precisará esses nomes de política.
+- Copie o **Nome** de cada política após criá-la. Ele deve ter o prefixo `b2c_1_`. Em breve, você precisará esses nomes de política.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
@@ -65,7 +65,7 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-Web
 
 O aplicativo completo também está [disponível como. zip](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/complete.zip) ou na `complete` ramificação do mesmo repositório.
 
-Depois de baixar o código de exemplo, abra o arquivo Visual Studio `.sln` para começar. Você observará que existem dois projetos na solução: um `TaskWebApp` projeto e um `TaskService` projeto. O `TaskWebApp` é o front-end do aplicativo Web WPF com o qual o usuário interage. O `TaskService` é a API que armazena a lista de tarefas pendentes de cada usuário da web do back-end do aplicativo.
+Depois de baixar o código de exemplo, abra o arquivo `.sln` do Visual Studio para começar. Você observará que existem dois projetos na solução: um `TaskWebApp` projeto e um `TaskService` projeto. O `TaskWebApp` é o front-end do aplicativo Web WPF com o qual o usuário interage. O `TaskService` é a API que armazena a lista de tarefas pendentes de cada usuário da web do back-end do aplicativo.
 
 ## 5\. Configurar o serviço de tarefa
 
@@ -83,15 +83,15 @@ Quando o `TaskService` recebe solicitações de `TaskWebApp`, ele verifica se h�
     <add key="ida:PolicyId" value="{Enter the name of one of the policies you created, like `b2c_1_my_sign_in_policy`}" />
 </appSettings>
 ```
-  
+
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 
 Este artigo não abordará os detalhes de proteção do `TaskService`. Se você quiser saber como uma API web autentica com segurança solicitações usando o AD B2C do Azure, confira nosso [artigo Introdução à API Web](active-directory-b2c-devquickstarts-api-dotnet.md).
 
-## 6\. Configurar o aplicativo Web da tarefa
+## 6. Configurar o aplicativo Web da tarefa
 
-Para que o `TaskWebApp` se comunique com o AD B2C do Azure, há alguns parâmetros comuns que você precisará fornecer. Em `TaskWebApp` projeto, abra o `web.config` arquivos na raiz do projeto e substitua os valores na `<appSettings>` seção. Esses valores serão usados em todo o aplicativo web.
+Para que o `TaskWebApp` se comunique com o AD B2C do Azure, há alguns parâmetros comuns que você precisará fornecer. No projeto `TaskWebApp`, abra o arquivo `web.config` na raiz do projeto e substitua os valores na seção `<appSettings>`. Esses valores serão usados em todo o aplicativo web.
 
 ```
 <appSettings>
@@ -246,11 +246,11 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 	// The token will be stored in the ADAL token cache, for use in our controllers
 	AuthenticationResult result = await authContext.AcquireTokenByAuthorizationCodeAsync(notification.Code, new Uri(redirectUri), credential, new string[] { clientId }, mostRecentPolicy);
 }
-``` 
+```
 
 #### Obter um token de acesso nos controladores
 
-Agora que adquirimos um token de acesso para o `TaskService` back-end e o armazenamos no cache de token do ADAL, precisamos realmente usá-lo. O `TasksController` é responsável pela comunicação com a `TaskService` API e envia solicitações HTTP para a API para ler, criar e excluir tarefas. Antes de enviar uma solicitação HTTP, obtenha um token de acesso da ADAL:
+Agora que adquirimos um token de acesso para o back-end `TaskService` e o armazenamos no cache de token da ADAL, precisamos realmente usá-lo. O `TasksController` é responsável pela comunicação com a `TaskService` API e envia solicitações HTTP para a API para ler, criar e excluir tarefas. Antes de enviar uma solicitação HTTP, obtenha um token de acesso da ADAL:
 
 ```C#
 // Controllers\TasksController.cs
@@ -266,7 +266,7 @@ public async Task<ActionResult> Index()
 
 		// We don't care which policy is used to access the TaskService, so let's use the most recent policy
 		string mostRecentPolicy = ClaimsPrincipal.Current.FindFirst(Startup.AcrClaimType).Value;
-		
+
 		// Here you ask for a token using the web app's clientId as the scope, since the web app and service share the same clientId.
 		// AcquireTokenSilentAsync will return a token from the token cache, and throw an exception if it cannot do so.
 		AuthenticationContext authContext = new AuthenticationContext(authority, new NaiveSessionCache(userObjectID));
@@ -281,7 +281,7 @@ public async Task<ActionResult> Index()
 	}
 	...
 }
-``` 
+```
 
 A ADAL se encarregará de armazenar os tokens em cache, atualizá-las quando eles expirarem e informar a você quando o usuário deve entrar novamente, lançando exceções. Tudo o que você precisa fazer é chamar `AuthenticationContext.AcquireTokenSilentAsync(...)` sempre que precisar de um token em seu aplicativo.
 
@@ -294,9 +294,9 @@ Agora que você tem um token, poderá anexá-lo à solicitação de HTTP GET no 
 
 public async Task<ActionResult> Index()
 {
-	... 
-	
-	try 
+	...
+
+	try
 	{
 		HttpClient client = new HttpClient();
 		HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, serviceUrl + "/api/tasks");
@@ -314,7 +314,7 @@ public async Task<ActionResult> Index()
 		}
 		else
 		{
-			// If the call failed with access denied, then drop the current access token from the cache, 
+			// If the call failed with access denied, then drop the current access token from the cache,
 			// and show the user an error indicating they might need to sign-in again.
 			if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
 			{
@@ -338,7 +338,7 @@ public async Task<ActionResult> Index()
 
 #### Criar e excluir tarefas na API Web
 
-Você pode seguir o mesmo padrão exato no envio de solicitações POST e DELETE para o `TaskService`. Basta chamar `AuthenticationContext.AcquireTokenSilentAsync(...)`, e anexar o token resultante à solicitação no `Authorization` cabeçalho. Implementamos a `Create` ação para você. Tente concluir a `Delete` ação no `TasksController.cs` por conta própria.
+Você pode seguir o mesmo padrão exato no envio de solicitações POST e DELETE para o `TaskService`. Basta chamar `AuthenticationContext.AcquireTokenSilentAsync(...)`, e anexar o token resultante à solicitação no `Authorization` cabeçalho. Implementamos a ação `Create` para você. Tente concluir a `Delete` ação no `TasksController.cs` por conta própria.
 
 ## 8\. Desconectar o usuário
 
@@ -359,8 +359,8 @@ public void SignOut()
 
 		HttpContext.GetOwinContext().Authentication.SignOut(
 		new AuthenticationProperties(
-			new Dictionary<string, string> 
-			{ 
+			new Dictionary<string, string>
+			{
 				{Startup.PolicyKey, ClaimsPrincipal.Current.FindFirst(Startup.AcrClaimType).Value}
 			}), OpenIdConnectAuthenticationDefaults.AuthenticationType, CookieAuthenticationDefaults.AuthenticationType);
 	}
@@ -387,4 +387,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

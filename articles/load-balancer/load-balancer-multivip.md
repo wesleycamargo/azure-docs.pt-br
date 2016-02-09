@@ -24,11 +24,11 @@ No entanto, há situações em que você terá mais de um VIP como ponto de entr
 
 No cenário anterior, todos os VIPs usam a mesma porta pública (443) e o tráfego é redirecionado para um ou VMs de balanceamento de carga em uma porta privada exclusiva para o endereço IP interno do serviço de nuvem que hospeda todos os sites.
 
->[AZURE.NOTE]Outro cenário para o uso de vários VIPs hospeda vários ouvintes do Grupo de Disponibilidade do AlwaysOn do SQL no mesmo conjunto de máquinas virtuais.
+>[AZURE.NOTE] Outro cenário para o uso de vários VIPs hospeda vários ouvintes do Grupo de Disponibilidade do AlwaysOn do SQL no mesmo conjunto de máquinas virtuais.
 
 VIPs são dinâmicos por padrão, o que significa que o endereço IP real atribuído ao serviço de nuvem pode mudar ao longo do tempo. Para evitar isso, você pode reservar um VIP para o serviço. Para saber mais sobre VIPs reservados, consulte [IP público reservado](../virtual-networks-reserved-public-ip).
 
->[AZURE.NOTE]Consulte [Preços de endereço IP](http://azure.microsoft.com/pricing/details/ip-addresses/) para obter informações sobre preços em VIPs e IPs reservados.
+>[AZURE.NOTE] Consulte [Preços de endereço IP](https://azure.microsoft.com/pricing/details/ip-addresses/) para obter informações sobre preços em VIPs e IPs reservados.
 
 Você pode usar o PowerShell para verificar os VIPs usados por seus serviços de nuvem, bem como adicionar e remover VIPs, associar um VIP para um ponto de extremidade e configurar o balanceamento de carga em um VIP específico.
 
@@ -39,7 +39,7 @@ Neste momento, a funcionalidade de VIP multi está limitada aos seguintes cenár
 - **IaaS apenas**. Só é possível habilitar o VIP multi para serviços de nuvem que contêm máquinas virtuais. Você não pode usar o VIP multi em cenários de PaaS, com instâncias de função.
 - **PowerShell apenas**. Você só pode gerenciar o VIP multi usando o PowerShell.
 
->[AZURE.IMPORTANT]Essas limitações são temporárias e podem ser alteradas a qualquer momento. Certifique-se de visitar novamente esta página para verificar as alterações futuras.
+>[AZURE.IMPORTANT] Essas limitações são temporárias e podem ser alteradas a qualquer momento. Certifique-se de visitar novamente esta página para verificar as alterações futuras.
 
 
 ## Como adicionar um VIP a um serviço de nuvem
@@ -58,7 +58,7 @@ Para remover o VIP adicionado ao serviço no exemplo acima, execute o seguinte c
 
     Remove-AzureVirtualIP -VirtualIPName Vip3 -ServiceName myService
 
->[AZURE.IMPORTANT]Você só pode remover um VIP, se ele não tiver pontos de extremidade associados a ele.
+>[AZURE.IMPORTANT] Você só pode remover um VIP, se ele não tiver pontos de extremidade associados a ele.
 
 ## Como recuperar informações de VIP de um serviço de nuvem
 Para recuperar VIPs associados a um serviço de nuvem, execute o seguinte script do PowerShell:
@@ -91,7 +91,7 @@ Neste exemplo, o serviço de nuvem tem 3 VIPs:
 - **Vip1** é o VIP padrão e você sabe disso porque o valor IsDnsProgrammedName está definido como verdadeiro.
 - **Vip2** e **Vip3** não são usados porque não têm endereços IP. Eles só serão usados se você associar um ponto de extremidade ao VIP.
 
->[AZURE.NOTE]Sua assinatura só será cobrada por VIPs extras quando eles estiverem associados a um ponto de extremidade. Para obter mais informações sobre preços, consulte [Preços de endereço IP](http://azure.microsoft.com/pricing/details/ip-addresses/).
+>[AZURE.NOTE] Sua assinatura só será cobrada por VIPs extras quando eles estiverem associados a um ponto de extremidade. Para obter mais informações sobre preços, consulte [Preços de endereço IP](https://azure.microsoft.com/pricing/details/ip-addresses/).
 
 ## Como associar um VIP a um ponto de extremidade
 Para associar um VIP em um serviço de nuvem a um ponto de extremidade, execute o seguinte comando do PowerShell:
@@ -155,4 +155,4 @@ Você também pode atualizar o balanceador de carga para usar um VIP diferente. 
 [APIs REST com IP Reservado](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

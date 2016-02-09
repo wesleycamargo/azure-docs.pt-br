@@ -39,7 +39,7 @@ Para habilitar uma interface REST para enviar trabalhos ao cluster por HTTPS, in
 
 Para obter procedimentos detalhados, consulte [Instalar os componentes Web do Microsoft Pacote HPC](http://technet.microsoft.com/library/hh314627.aspx).
 
->[AZURE.TIP]Alguns modelos de início rápido do Azure instalam e configuram os componentes Web automaticamente. Se você usar o [script de implantação do Pacote HPC IaaS](virtual-machines-hpcpack-cluster-powershell-script.md) para criar o cluster, pode, opcionalmente, instalar e configurar os componentes Web como parte da implantação.
+>[AZURE.TIP] Alguns modelos de início rápido do Azure instalam e configuram os componentes Web automaticamente. Se você usar o [script de implantação do Pacote HPC IaaS](virtual-machines-hpcpack-cluster-powershell-script.md) para criar o cluster, pode, opcionalmente, instalar e configurar os componentes Web como parte da implantação.
 
 **Para instalar os componentes Web**
 
@@ -66,7 +66,7 @@ Para obter procedimentos detalhados, consulte [Instalar os componentes Web do Mi
 
 4. Quando for solicitado que você selecione um certificado, escolha o certificado que corresponde ao nome DNS público do nó principal. Por exemplo, se você usar o script de implantação de IaaS do Pacote HPC para criar o cluster, o nome do certificado é do formulário CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net. Se você usar um modelo de início rápido do Azure, o nome do certificado é da forma CN=&lt;*HeadNodeDnsName*&gt;.&lt;*region*&gt;.cloudapp.azure.
 
-    >[AZURE.NOTE]Você precisa selecionar esse certificado para enviar trabalhos posteriormente para o nó principal de um computador local. Não selecione nem configure um certificado que corresponda ao nome do computador do nó principal no domínio do Active Directory (por exemplo, CN=*MyHPCHeadNode.HpcAzure.local*).
+    >[AZURE.NOTE] Você precisa selecionar esse certificado para enviar trabalhos posteriormente para o nó principal de um computador local. Não selecione nem configure um certificado que corresponda ao nome do computador do nó principal no domínio do Active Directory (por exemplo, CN=*MyHPCHeadNode.HpcAzure.local*).
 
 5. Para configurar o portal da Web para envio de trabalho, digite o seguinte comando:
 
@@ -114,7 +114,7 @@ Para usar as ferramentas clientes Pacote HPC para enviar trabalhos para a VM do 
 
 
 
->[AZURE.SECURITY]Você pode ver um aviso de segurança, já que a autoridade de certificação no nó principal não será reconhecida pelo computador cliente. Para fins de teste, você pode ignorar esse aviso e concluir a importação de certificados.
+>[AZURE.SECURITY] Você pode ver um aviso de segurança, já que a autoridade de certificação no nó principal não será reconhecida pelo computador cliente. Para fins de teste, você pode ignorar esse aviso e concluir a importação de certificados.
 
 ## Etapa 3: executar trabalhos de teste no cluster
 
@@ -134,7 +134,7 @@ Para verificar a configuração, tente executar trabalhos no cluster no Azure us
     job list /scheduler:https://<HeadNodeDnsName>.<region>.cloudapp.azure.com /all
     ```
 
-    >[AZURE.TIP]Use o nome DNS completo do nó principal, não o endereço IP, na URL do Agendador. Se você especificar o endereço IP, verá um erro semelhante a "O certificado do servidor precisa ter uma cadeia de confiança válida ou ser colocado no repositório raiz confiável".
+    >[AZURE.TIP] Use o nome DNS completo do nó principal, não o endereço IP, na URL do Agendador. Se você especificar o endereço IP, verá um erro semelhante a "O certificado do servidor precisa ter uma cadeia de confiança válida ou ser colocado no repositório raiz confiável".
 
 3. Quando solicitado, digite o nome de usuário (com a forma &lt;NomedeDomínio&gt;&lt;NomedeUsuário&gt;) e a senha do administrador do cluster HPC ou de outro usuário do cluster configurado. Você pode optar por armazenar as credenciais localmente para mais operações de trabalho.
 
@@ -188,4 +188,4 @@ Para verificar a configuração, tente executar trabalhos no cluster no Azure us
 <!--Image references-->
 [jobsubmit]: ./media/virtual-machines-hpcpack-cluster-submit-jobs/jobsubmit.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

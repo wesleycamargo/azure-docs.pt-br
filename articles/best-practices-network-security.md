@@ -28,7 +28,7 @@ O gráfico lógico direcioná-lo a um exemplo específico das várias técnicas 
 ## Proteção de infraestrutura e conformidade da Microsoft
 A Microsoft tomou uma posição de liderança dando suporte às iniciativas de conformidade exigidas pelos clientes corporativos. Seguem algumas das certificações de conformidade do Azure: ![Selos de conformidade do Azure][1]
 
-Mais detalhes podem ser encontrados em: [http://azure.microsoft.com/support/trust-center/compliance/](http://azure.microsoft.com/support/trust-center/compliance/)
+Mais detalhes podem ser encontrados em: [http://azure.microsoft.com/support/trust-center/compliance/](https://azure.microsoft.com/support/trust-center/compliance/)
 
 A Microsoft tem uma abordagem abrangente para proteger a infraestrutura de nuvem necessária para executar os serviços globais em larga escala. A infraestrutura de nuvem da Microsoft inclui hardware, software, redes, administrativas e equipe de operações, bem como data centers físicos.
 
@@ -118,7 +118,7 @@ Para habilitar essas características, a lista a seguir fornece orientação sob
     - Dispositivo VPN: atua como o local entre gateways de VPN para conectividade VPN entre locais entre redes locais do cliente e redes virtuais do Azure
     - Servidor VPN: atua como servidores VPN para aceitar clientes VPN que se conectam a redes virtuais do Azure
 
->[AZURE.TIP]Mantém as pessoas autorizadas a acessar as peças de segurança da DMZ completamente separadas das pessoas autorizadas como administradores de operações/implantação/desenvolvimento de aplicativos. Manter esses grupos separados permite uma diferenciação de deveres e impede que uma única pessoa ignore controles de segurança de aplicativos e de rede.
+>[AZURE.TIP] Mantém as pessoas autorizadas a acessar as peças de segurança da DMZ completamente separadas das pessoas autorizadas como administradores de operações/implantação/desenvolvimento de aplicativos. Manter esses grupos separados permite uma diferenciação de deveres e impede que uma única pessoa ignore controles de segurança de aplicativos e de rede.
 
 ### Perguntas a serem feitas durante a criação de limites de rede
 Ao se tratar de "Redes do Azure" nesta seção, a menos que especificamente mencionadas, todas as redes (redes, redes virtuais ou sub-redes) fazem referência a redes virtuais privadas do Azure criadas por um administrador de assinatura e não envolvem as redes físicas subjacentes no Azure.
@@ -137,7 +137,7 @@ O primeiro ponto de decisão é decidir quantos limites de segurança são neces
 
 O número e tipo dos limites necessários irão variar dependendo da tolerância a riscos da empresa e o cenário específico que está sendo implementado. Geralmente, essa é uma decisão conjunta feita por vários grupos dentro de uma organização, geralmente uma equipe de risco e conformidade, uma equipe de rede/plataforma e uma equipe de desenvolvimento de aplicativos. As pessoas com conhecimento de segurança, os dados envolvidos e as tecnologias usadas devem pesar na decisão para garantir a postura de segurança apropriada em cada implementação.
 
->[AZURE.TIP]Use a menor quantidade de limites que satisfaçam os requisitos de segurança em uma determinada situação. Com mais limites, mais difíceis ficam as operações e a solução de problemas, bem como a sobrecarga do gerenciamento envolvido com a gestão de várias políticas de limites ao longo do tempo. No entanto, os limites insuficientes aumentam o risco. Encontrar o equilíbrio é fundamental.
+>[AZURE.TIP] Use a menor quantidade de limites que satisfaçam os requisitos de segurança em uma determinada situação. Com mais limites, mais difíceis ficam as operações e a solução de problemas, bem como a sobrecarga do gerenciamento envolvido com a gestão de várias políticas de limites ao longo do tempo. No entanto, os limites insuficientes aumentam o risco. Encontrar o equilíbrio é fundamental.
 
 ![Rede híbrida com três limites de segurança][6]
 
@@ -184,7 +184,7 @@ Há mais detalhes para criar este exemplo (ele fornece scripts e um modelo ARM) 
 #### Descrição do grupo de segurança de rede (NSG)
 Neste exemplo, um grupo NSG é criado e carregado com seis regras.
 
->[AZURE.TIP]Em geral, você deve criar suas regras específicas "Permitir" primeiro e então as regras “Negar” mais genéricas por último. A prioridade dada determina quais regras são avaliadas primeiro. Quando o tráfego se aplicar a uma regra específica, nenhuma regra adicional será avaliada. As regras NSG podem se aplicar na direção de entrada ou de saída (na perspectiva da sub-rede).
+>[AZURE.TIP] Em geral, você deve criar suas regras específicas "Permitir" primeiro e então as regras “Negar” mais genéricas por último. A prioridade dada determina quais regras são avaliadas primeiro. Quando o tráfego se aplicar a uma regra específica, nenhuma regra adicional será avaliada. As regras NSG podem se aplicar na direção de entrada ou de saída (na perspectiva da sub-rede).
 
 Declarativamente, as regras a seguir estão sendo criadas para tráfego de entrada:
 
@@ -230,7 +230,7 @@ Há mais detalhes para criar este exemplo (ele fornece scripts e um modelo ARM) 
 #### Descrição do grupo de segurança de rede (NSG)
 Neste exemplo, um grupo NSG é criado e carregado com seis regras.
 
->[AZURE.TIP]Em geral, você deve criar suas regras específicas "Permitir" primeiro e então as regras “Negar” mais genéricas por último. A prioridade dada determina quais regras são avaliadas primeiro. Quando o tráfego se aplicar a uma regra específica, nenhuma regra adicional será avaliada. As regras NSG podem se aplicar na direção de entrada ou de saída (na perspectiva da sub-rede).
+>[AZURE.TIP] Em geral, você deve criar suas regras específicas "Permitir" primeiro e então as regras “Negar” mais genéricas por último. A prioridade dada determina quais regras são avaliadas primeiro. Quando o tráfego se aplicar a uma regra específica, nenhuma regra adicional será avaliada. As regras NSG podem se aplicar na direção de entrada ou de saída (na perspectiva da sub-rede).
 
 Declarativamente, as seguintes regras estão sendo criadas para o tráfego de entrada:
 
@@ -307,7 +307,7 @@ Depois que as tabelas de roteamento forem criadas, serão associadas às sub-red
 		 {10.0.0.0/16}     VirtualAppliance 10.0.0.4            Active    
          {0.0.0.0/0}       VirtualAppliance 10.0.0.4            Active
 
->[AZURE.NOTE]Há algumas restrições ao usar o UDR (Roteamento Definido pelo Usuário) e a Rota Expressa devido à complexidade do roteamento dinâmico usado no Gateway Virtual do Azure. Elas estão listadas abaixo:
+>[AZURE.NOTE] Há algumas restrições ao usar o UDR (Roteamento Definido pelo Usuário) e a Rota Expressa devido à complexidade do roteamento dinâmico usado no Gateway Virtual do Azure. Elas estão listadas abaixo:
 >
 > 1. O UDR não deve ser aplicado à sub-rede de gateway à qual o Gateway Virtual do Azure vinculado à Rota Expressa está conectado.
 > 2. O Gateway Virtual do Azure vinculado à Rota Expressa não pode ser o dispositivo NextHop para outras sub-redes associadas ao UDR.
@@ -334,7 +334,7 @@ No firewall, será necessário criar regras de encaminhamento. Uma vez que o fir
  
 ![Exibição lógica das regras de firewall][10]
 
->[AZURE.NOTE]Com base no Dispositivo Virtual de Rede usado, as portas de gerenciamento variam. Neste exemplo, um Firewall NG Barracuda é mencionado e usa as portas 22, 801 e 807. Consulte a documentação do fornecedor do dispositivo para localizar as portas exatas usadas para o gerenciamento do dispositivo usado.
+>[AZURE.NOTE] Com base no Dispositivo Virtual de Rede usado, as portas de gerenciamento variam. Neste exemplo, um Firewall NG Barracuda é mencionado e usa as portas 22, 801 e 807. Consulte a documentação do fornecedor do dispositivo para localizar as portas exatas usadas para o gerenciamento do dispositivo usado.
 
 #### Descrição das regras de firewall
 No diagrama lógico acima, a sub-rede de segurança não é mostrada, já que o firewall é o único recurso nessa sub-rede, e esse diagrama mostra as regras de firewall e como elas permitem ou negam logicamente fluxos de tráfego e não o caminho roteado real. Além disso, as portas externas selecionadas para o tráfego RDP são portas com um intervalo maior (8014 – 8026) e foram selecionadas para alinhar um pouco com os dois últimos octetos do endereço IP local para facilitar a leitura (por exemplo, o endereço do servidor local 10.0.1.4 está associado à porta externa 8014); no entanto, todas as portas não conflitantes acima disso poderiam ser usadas.
@@ -354,7 +354,7 @@ Neste exemplo, precisamos de sete tipos de regras, descritos abaixo:
 - Regra à prova de falhas (para o tráfego que não atenda a qualquer um dos itens acima):
   7.	Regra Negar Todo o Tráfego: essa sempre deverá ser a última regra (em termos de prioridade) e, como tal, se os fluxos de tráfego falharem na correspondência a todas as regras anteriores, serão descartados por essa regra. Essa é uma regra padrão e normalmente é ativada; geralmente, não é necessário fazer qualquer modificação.
 
->[AZURE.TIP]Na segunda regra de tráfego de aplicativo, qualquer porta é permitida para facilitar este exemplo, em um cenário real, a porta mais específica e os intervalos de endereços devem ser usados para reduzir a superfície de ataque dessa regra.
+>[AZURE.TIP] Na segunda regra de tráfego de aplicativo, qualquer porta é permitida para facilitar este exemplo, em um cenário real, a porta mais específica e os intervalos de endereços devem ser usados para reduzir a superfície de ataque dessa regra.
 
 Depois que todas as regras acima forem criadas, será importante examinar a prioridade de cada regra para garantir que o tráfego seja permitido ou negado como desejado. Neste exemplo, as regras estão em ordem de prioridade.
 
@@ -378,7 +378,7 @@ Uma rede híbrida usando um NVA (dispositivo virtual de rede) pode ser adicionad
 
 Conforme mostrado na figura acima, uma conexão VPN pela Internet (site a site) é usada para conectar uma rede local a uma rede virtual do Azure através de um dispositivo de rede virtual.
 
->[AZURE.NOTE]Se você usar a Rota Expressa com a opção de emparelhamento público do Azure habilitada, uma rota estática precisará ser criada para a rota até o endereço IP de VPN NVA para fora da borda da Internet corporativa, e não por meio da borda WAN da Rota Expressa. Isso ocorre porque a NAT necessária na opção de emparelhamento público da Rota Expressa do Azure que provavelmente interromperá a sessão VPN (IPSec geralmente não funciona bem com NATs).
+>[AZURE.NOTE] Se você usar a Rota Expressa com a opção de emparelhamento público do Azure habilitada, uma rota estática precisará ser criada para a rota até o endereço IP de VPN NVA para fora da borda da Internet corporativa, e não por meio da borda WAN da Rota Expressa. Isso ocorre porque a NAT necessária na opção de emparelhamento público da Rota Expressa do Azure que provavelmente interromperá a sessão VPN (IPSec geralmente não funciona bem com NATs).
 
 Depois que a VPN estiver no local, o NVA torna-se "hub" central para todas as redes e sub-redes. As regras de encaminhamento de firewall determinam quais fluxos de tráfego são permitidos, convertidos (NAT), redirecionados ou descartados (mesmo para fluxos de tráfego entre a rede local e o Azure se os fluxos forem projetados dessa forma).
 
@@ -413,7 +413,7 @@ Uma rede híbrida usando um Gateway de VPN do Azure pode ser adicionada a qualqu
 
 Conforme mostrado na figura acima, uma conexão VPN pela Internet (site a site) é usada para conectar uma rede local a uma rede virtual do Azure através de um Gateway de VPN do Azure.
 
->[AZURE.NOTE]Se você usar a Rota Expressa com a opção de emparelhamento público do Azure habilitada, uma rota estática precisará ser criada para a rota até o endereço IP de do Gateway de VPN do Azure para fora da borda da Internet corporativa, e não por meio da borda WAN da Rota Expressa. Isso ocorre porque a NAT necessária na opção de emparelhamento público da Rota Expressa do Azure que provavelmente interromperá a sessão VPN (IPSec geralmente não funciona bem com NATs).
+>[AZURE.NOTE] Se você usar a Rota Expressa com a opção de emparelhamento público do Azure habilitada, uma rota estática precisará ser criada para a rota até o endereço IP de do Gateway de VPN do Azure para fora da borda da Internet corporativa, e não por meio da borda WAN da Rota Expressa. Isso ocorre porque a NAT necessária na opção de emparelhamento público da Rota Expressa do Azure que provavelmente interromperá a sessão VPN (IPSec geralmente não funciona bem com NATs).
 
 Conforme mostrado abaixo, com essa opção, o ambiente agora tem duas bordas de rede. Na primeira borda, o NVA e os NSGs controlam fluxos de tráfego para redes internas do Azure e entre o Azure e a Internet, enquanto a segunda borda é o Gateway de VPN do Azure, que é uma borda de rede completamente separada e isolada entre locais e o Azure.
 
@@ -442,7 +442,7 @@ Uma rede híbrida usando uma conexão de emparelhamento privado de Rota Expressa
 
 Conforme mostrado na figura acima, o emparelhamento privado de Rota Expressa fornece uma conexão direta entre sua rede local e de rede virtual do Azure. O tráfego transmite apenas a rede do provedor de serviços e a rede do Azure/Microsoft, nunca em contato com a Internet.
 
->[AZURE.NOTE]Há algumas restrições ao usar o UDR (Roteamento Definido pelo Usuário) e a Rota Expressa devido à complexidade do roteamento dinâmico usado no Gateway Virtual do Azure. Elas estão listadas abaixo:
+>[AZURE.NOTE] Há algumas restrições ao usar o UDR (Roteamento Definido pelo Usuário) e a Rota Expressa devido à complexidade do roteamento dinâmico usado no Gateway Virtual do Azure. Elas estão listadas abaixo:
 >
 > 1. O UDR não deve ser aplicado à sub-rede de gateway à qual o Gateway Virtual do Azure vinculado à Rota Expressa está conectado.
 > 2. O Gateway Virtual do Azure vinculado à Rota Expressa não pode ser o dispositivo NextHop para outras sub-redes associadas ao UDR.
@@ -451,7 +451,7 @@ Conforme mostrado na figura acima, o emparelhamento privado de Rota Expressa for
 
 <br />
 
->[AZURE.TIP]O uso da Rota Expressa mantém o tráfego de rede corporativa fora da Internet para melhorar a segurança, aumentando significativamente o desempenho e permitindo SLAs do seu provedor da Rota Expressa. Como ele está relacionado ao desempenho da Rota Expressa, o Gateway do Azure pode passar até 2 Gbps com a Rota Expressa, enquanto com VPNs site a site, a taxa de transferência máxima do Gateway do Azure é de 200 Mbps.
+>[AZURE.TIP] O uso da Rota Expressa mantém o tráfego de rede corporativa fora da Internet para melhorar a segurança, aumentando significativamente o desempenho e permitindo SLAs do seu provedor da Rota Expressa. Como ele está relacionado ao desempenho da Rota Expressa, o Gateway do Azure pode passar até 2 Gbps com a Rota Expressa, enquanto com VPNs site a site, a taxa de transferência máxima do Gateway do Azure é de 200 Mbps.
 
 Como visto no diagrama abaixo, com essa opção, o ambiente agora tem duas bordas de rede. O NVA e o NSG controlam fluxos de tráfego para redes internas do Azure e entre o Azure e a internet, enquanto o gateway é uma borda de rede completamente separada e isolada entre o local e o Azure.
 
@@ -511,4 +511,4 @@ estarão disponíveis em breve e vinculados a essa página.
 [Example7]: ./virtual-network/virtual-networks-vnet2vnet-direct-asm.md
 [Example8]: ./virtual-network/virtual-networks-vnet2vnet-transit-asm.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

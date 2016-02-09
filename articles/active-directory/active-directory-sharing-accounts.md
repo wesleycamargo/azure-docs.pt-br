@@ -55,7 +55,7 @@ Recursos do AD do Azure que permitem o compartilhamento de contas incluem:
 - [Painel/relatórios de uso de aplicativo](active-directory-passwords-get-insights.md)
 - Portais de acesso do usuário final
 - [Proxy do aplicativo](active-directory-application-proxy-get-started.md)
-- [Active Directory Marketplace](http://azure.microsoft.com/marketplace/active-directory/all/)
+- [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/all/)
 
 ## Compartilhamento de uma conta
 Para usar o AD do Azure para compartilhar uma conta, você precisará:
@@ -72,4 +72,4 @@ Você também pode tornar sua conta compartilhada mais segura com o Multi-Factor
 - [Proteger aplicativos com acesso condicional](active-directory-conditional-access.md)
 - [Gerenciamento de grupo de autoatendimento/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

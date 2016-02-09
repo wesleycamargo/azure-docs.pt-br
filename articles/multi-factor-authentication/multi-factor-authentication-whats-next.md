@@ -53,7 +53,8 @@ O alerta de fraude pode ser instalado e configurado para que os usuários possam
 6.	Na caixa de texto **Código para relatar fraude durante a saudação inicial**, digite um código numérico que possa ser usado durante a verificação de chamada. Se um usuário digitar esse código mais #, em vez de apenas o sinal #, um alerta de fraude será relatado. 
 7.	Na parte inferior, clique em Salvar.
 
->[AZURE.NOTE]As saudações de voz padrão da Microsoft instruem os usuários a pressionar 0# para enviar um alerta de fraude. Se você usar um código diferente de 0, será necessário gravar e carregar suas próprias saudações de voz personalizadas com instruções apropriadas.
+>[AZURE.NOTE]
+As saudações de voz padrão da Microsoft instruem os usuários a pressionar 0# para enviar um alerta de fraude. Se você usar um código diferente de 0, será necessário gravar e carregar suas próprias saudações de voz personalizadas com instruções apropriadas.
 
 
 <center>![Cloud](./media/multi-factor-authentication-whats-next/fraud.png)</center>
@@ -80,7 +81,7 @@ O alerta de fraude pode ser informado de duas maneiras. Seja por meio do aplicat
 
 ### Para exibir o relatório de fraude
 
-1. Faça logon em [http://azure.microsoft.com](http://azure.microsoft.com)
+1. Faça logon em [http://azure.microsoft.com](https://azure.microsoft.com/)
 2. Selecione Active Directory à esquerda.
 3. Na parte superior, selecione os Provedores de autenticação multifator. Isso trará uma lista de seus provedores de autenticação multifator.
 4. Se você tiver mais de um Provedor de autenticação multifator, selecione aquele em que você deseja ver o relatório de alertas de fraude e clique em Gerenciar na parte inferior da página. Se você tiver apenas um, clique em Gerenciar. Isso abrirá o Portal de Gerenciamento do Azure Multi-Factor Authentication.
@@ -106,7 +107,7 @@ Um desvio único permite que um usuário se autentique uma única vez ao "desvia
 
 ### Para exibir o relatório de desvio único
 
-1. Faça logon em [http://azure.microsoft.com](http://azure.microsoft.com)
+1. Faça logon em [http://azure.microsoft.com](https://azure.microsoft.com/)
 2. Selecione Active Directory à esquerda.
 3. Na parte superior, selecione os Provedores de autenticação multifator. Isso trará uma lista de seus provedores de autenticação multifator.
 4. Se você tiver mais de um Provedor de autenticação multifator, selecione aquele em que você deseja ver o relatório de alertas de fraude e clique em Gerenciar na parte inferior da página. Se você tiver apenas um, clique em Gerenciar. Isso abrirá o Portal de Gerenciamento do Azure Multi-Factor Authentication.
@@ -210,7 +211,7 @@ Fora da rede corporativa|Para fluxos de navegador, a autenticação multifator �
 
 Em alguns aplicativos, como o Office 2010 ou mais antigo e o Apple Mail, você não pode usar autenticação multifator. Para usar esses aplicativos, você precisará usar as "senhas de aplicativo" no lugar de sua senha tradicional. A senha de aplicativo permite que um aplicativo se desvie da autenticação multifator e continue funcionando.
 
->[AZURE.NOTE]Autenticação moderna para os clientes do Office 2013
+>[AZURE.NOTE] Autenticação moderna para os clientes do Office 2013
 >
 > Os clientes do Office 2013 (incluindo o Outlook) agora têm suporte a novos protocolos de autenticação e podem ser habilitados para oferecer suporte ao Multi-Factor Authentication. Isso significa que, uma vez habilitadas, as senhas de aplicativo não são necessárias para usar com os clientes do Office 2013. Para saber mais, confira [Anúncio da visualização pública da autenticação moderna do Office 2013](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
@@ -230,7 +231,7 @@ Experiência de autenticação|Para aplicativos baseados em navegador|Para aplic
 - Atualmente, há um limite de 40 senhas por usuário. Você será solicitado a excluir uma de suas senhas de aplicativo existente para criar uma nova.
 - Assim que a multi-factor authentication é habilitada na conta de um usuário, as senhas do aplicativo podem ser usadas com a maioria dos clientes sem navegador, como Outlook e Lync, mas as ações administrativas não podem ser executadas usando senhas do aplicativo por meio de aplicativos sem navegador, como o Windows PowerShell, mesmo se o usuário tiver uma conta administrativa. Certifique-se de criar uma conta de serviço com uma senha segura para executar scripts do PowerShell e não habilite essa conta para multi-factor authentication.
 
->[AZURE.WARNING]As senhas de aplicativo não funcionam em ambientes híbridos onde os clientes se comunicam com pontos de extremidade de descoberta automática local e na nuvem.
+>[AZURE.WARNING]  As senhas de aplicativo não funcionam em ambientes híbridos onde os clientes se comunicam com pontos de extremidade de descoberta automática local e na nuvem.
 >
 >Esteja ciente de que as senhas de aplicativos não funcionarão em ambientes híbridos onde os clientes se comunicam com pontos de extremidade de descoberta automática locais e na nuvem, já que as senhas de domínio são necessárias para autenticação local e as senhas de aplicativo são necessárias para autenticação na nuvem.
 
@@ -338,7 +339,7 @@ Para garantir que as contas de usuário sejam protegidas, você deve restaurar a
 - Se sua conta corporativa estiver comprometida
 - Se um dispositivo lembrado for perdido ou roubado
 
-> [AZURE.NOTE]Esse recurso é implementado como um cache de cookie do navegador. Ele não funcionará se os cookies do navegador não estiverem habilitados.
+> [AZURE.NOTE] Esse recurso é implementado como um cache de cookie do navegador. Ele não funcionará se os cookies do navegador não estiverem habilitados.
 
 ### Como habilitar/desabilitar Suspender MFA para dispositivos lembrados e definir
 
@@ -351,4 +352,4 @@ Para garantir que as contas de usuário sejam protegidas, você deve restaurar a
 <li>Na página Configurações de serviço, em Gerenciar configurações de usuário do dispositivo, marque/desmarque elar seleção de **Permite aos usuários suspender o Multi-Factor Authentication, fazendo com que um dispositivo seja lembrado**.</li>
 ![Suspender dispositivos](./media/multi-factor-authentication-manage-users-and-devices/suspend.png) <li>Defina o número de dias que você deseja permitir a suspensão. O padrão é 14 dias.</li> <li>Clique em Salvar.</li> <li>Clique em Fechar.</li>
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

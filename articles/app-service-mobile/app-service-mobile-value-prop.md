@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.date="01/12/2016"
 	ms.author="kirillg"/>
 
 # <a name="getting-started"> </a>O que são os Aplicativos Móveis?
@@ -36,7 +36,7 @@ Os *Aplicativos Móveis* no *Serviço de Aplicativo do Azure* oferecem uma plata
 ## Conceitos de aplicativo móvel
 - **Logon Único** - selecione a partir de uma lista crescente de provedores de identidade, incluindo o Active Directory do Azure, Facebook, Google, Twitter e Microsoft Account e utilize Aplicativos Móveis para adicionar autenticação ao seu aplicativo em minutos.
 - **Sincronização offline** - Aplicativos Móveis torna mais fácil para você criar aplicativos robustos e responsivos, que permitem que os funcionários trabalhem offline quando não há conectividade e sincronizam-se a seus sistemas de back-end corporativos quando os dispositivos voltam a ficar online. O recurso de sincronização offline tem suporte em todas as plataformas de cliente e funciona com qualquer fonte de dados, inclusive SQL, armazenamento de tabela, Mongo ou banco de dados de documento, e com qualquer API SaaS, incluindo Office 365, Salesforce, Dynamics ou bancos de dados locais.
-- **Notificações por push** - Aplicativos Móveis oferece um mecanismo de notificação por push móvel altamente dimensionável, Hubs de Notificação, capazes de enviar milhões de notificações por push personalizadas para segmentos dinâmicos de público usando dispositivos iOS, Android, Windows ou Kindle dentro de segundos. Você de conectar facilmente os Hubs de Notificação a qualquer back-end de aplicativo existente, se esse back-end é hospedado localmente ou na nuvem.
+- **Notificações por push** - o Aplicativos Móveis oferece um mecanismo de notificação por push móvel altamente dimensionável, Hubs de Notificação capazes de enviar milhões de notificações por push personalizadas para segmentos dinâmicos de público usando dispositivos iOS, Android, Windows ou Kindle em segundos. Você de conectar facilmente os Hubs de Notificação a qualquer back-end de aplicativo existente, se esse back-end é hospedado localmente ou na nuvem.
 - **Dimensionamento automático** - o Serviço de Aplicativo permite que você redimensione rapidamente aumentando ou reduzindo para lidar com qualquer carga de cliente em entrada. Selecionar o número e o tamanho das VMs manualmente ou configurar o dimensionamento automático para dimensionar seu back-end de aplicativo móvel com base na carga ou a agenda.
 
 ## Introdução ##
@@ -44,7 +44,7 @@ Para começar com aplicativos móveis, siga o tutorial [Introdução].
 
 Para obter mais informações a respeito da plataforma de Serviço de Aplicativo do Azure, consulte [Serviço de Aplicativo do Azure].
 
->[AZURE.NOTE]Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](https://tryappservice.azure.com/?appServiceName=mobile), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE] Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](https://tryappservice.azure.com/?appServiceName=mobile), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 <!-- URLs. -->
 [Migrate your Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
@@ -54,4 +54,4 @@ Para obter mais informações a respeito da plataforma de Serviço de Aplicativo
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

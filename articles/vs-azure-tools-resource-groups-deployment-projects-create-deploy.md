@@ -1,9 +1,9 @@
 <properties
    pageTitle="Criação e implantação de projetos do Visual Studio no Grupo de Recursos do Azure | Microsoft Azure"
    description="Use o Visual Studio para criar um projeto do grupo de recursos do Azure e implantar os recursos no Azure."
-   services="visual-studio-online"
+   services="azure-resource-manager"
    documentationCenter="na"
-   authors="TomArcher"
+   authors="tfitzmac"
    manager="douge"
    editor="" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="11/13/2015"
-   ms.author="tarcher" />
+   ms.author="tomfitz" />
 
 # Criação e implantação de grupos de recurso do Azure por meio do Visual Studio
 
@@ -39,7 +39,7 @@ Neste procedimento, você aprenderá a criar um projeto de Grupo de Recursos do 
 
     Você também pode adicionar mais recursos ao Grupo de Recursos mais tarde.
 
-    >[AZURE.NOTE]A lista de modelos disponíveis é recuperada online e pode sofrer alterações.
+    >[AZURE.NOTE] A lista de modelos disponíveis é recuperada online e pode sofrer alterações.
 
     O Visual Studio cria um projeto de implantação do Grupo de Recursos do Azure para um aplicativo Web.
 
@@ -92,7 +92,7 @@ Quando você implanta um projeto do Grupo de Recursos do Azure, você o implanta
 
     ![Caixa de diálogo Criar Grupo de Recursos](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796674.png)
 
-    >[AZURE.NOTE]Normalmente, quando você inicia um novo projeto de implantação, você deseja criar um novo grupo de recursos no qual implantar.
+    >[AZURE.NOTE] Normalmente, quando você inicia um novo projeto de implantação, você deseja criar um novo grupo de recursos no qual implantar.
 
 1. Insira um nome e local para o grupo de recursos e, em seguida, escolha o botão **Criar**.
 
@@ -108,15 +108,15 @@ Quando você implanta um projeto do Grupo de Recursos do Azure, você o implanta
 
     - O parâmetro *siteName* é a primeira parte da URL da página da Web. Por exemplo, para a URL nomedomeusite.azurewebsites.net, o nome do site é **nomedomeusite**.
 
-    - O parâmetro *hostingPlanName* especifica seu plano de hospedagem. Para este exemplo, você pode usar o valor "Free" (gratuito). Para saber mais sobre os planos de hospedagem, consulte [Visão geral dos planos de Serviço de Aplicativo do Azure](http://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/)
+    - O parâmetro *hostingPlanName* especifica seu plano de hospedagem. Para este exemplo, você pode usar o valor "Free" (gratuito). Para saber mais sobre os planos de hospedagem, consulte [Visão geral dos planos de Serviço de Aplicativo do Azure](https://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/)
 
-    - O parâmetro *siteLocation* refere-se à região do Azure, onde o site está hospedado, como "West US" (Oeste dos Estados Unidos). Para obter uma lista de regiões disponíveis, consulte [Regiões do Azure](http://azure.microsoft.com/regions/).
+    - O parâmetro *siteLocation* refere-se à região do Azure, onde o site está hospedado, como "West US" (Oeste dos Estados Unidos). Para obter uma lista de regiões disponíveis, consulte [Regiões do Azure](https://azure.microsoft.com/regions/).
 
 1. Escolha o botão **Implantar** para implantar o projeto no Azure.
 
     Você pode ver o andamento da implantação na janela **Saída**. A implantação pode levar vários minutos para ser concluída, dependendo da configuração.
 
-    >[AZURE.NOTE]Você pode ser solicitado a instalar os cmdlets do Microsoft Azure PowerShell. Já que esses cmdlets são necessários para implantar grupos de recursos do Azure, você precisa instalá-los.
+    >[AZURE.NOTE] Você pode ser solicitado a instalar os cmdlets do Microsoft Azure PowerShell. Já que esses cmdlets são necessários para implantar grupos de recursos do Azure, você precisa instalá-los.
 
 1. Em um navegador, abra o [Portal de Visualização do Azure](https://portal.azure.com/). Como essa é uma nova alteração, deve haver uma nova mensagem de notificação disponível na guia **Notificações**. Escolha essa guia para exibir detalhes sobre o novo Grupo de Recursos do Azure. Para ver uma lista de todos os grupos de recursos disponíveis, você pode escolher a guia **Procurar** e, em seguida, escolher **Grupos de Recursos**.
 
@@ -196,4 +196,4 @@ Também foram feitos ajustes em alguns nomes de variáveis e tarefas de compila�
 
 Para saber como adicionar recursos ao seu Grupo de Recursos do Azure no Visual Studio, confira [Edição de modelos do Gerenciador de Recursos com o Visual Studio](vs-azure-tools-resource-group-adding-resources.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

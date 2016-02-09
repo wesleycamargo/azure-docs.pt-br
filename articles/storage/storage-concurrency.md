@@ -278,9 +278,9 @@ Para encontrar o aplicativo de exemplo completo citado nesse blog:
 
 Para obter mais informações sobre Armazenamento do Azure, consulte:
 
-- [Página inicial do Armazenamento do Microsoft Azure](http://azure.microsoft.com/services/storage/)
+- [Página inicial do Armazenamento do Microsoft Azure](https://azure.microsoft.com/services/storage/)
 - [Introdução ao armazenamento do Azure](storage-introduction.md)
 - Introdução ao Armazenamento para [Blob](storage-dotnet-how-to-use-blobs.md), [Tabela](storage-dotnet-how-to-use-tables.md) e [Filas](storage-dotnet-how-to-use-queues.md)
 - Arquitetura de Armazenamento – [Armazenamento do Microsoft Azure: um serviço de armazenamento em nuvem altamente disponível com coerência forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!----HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

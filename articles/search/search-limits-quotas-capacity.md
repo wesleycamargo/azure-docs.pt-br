@@ -45,7 +45,7 @@ A capacidade na Pesquisa do Azure pode ser adquirida em incrementos chamados de 
 
 As **Partições** oferecem armazenamento e E/S. Um único serviço de pesquisa pode ter um máximo de 12 partições. Cada partição é fornecida com um limite rígido de 15 milhões de documentos ou 25 GB de armazenamento, o que ocorrer primeiro. Se você adicionar partições, o serviço de pesquisa poderá carregar mais documentos. Por exemplo, um serviço com uma única partição que armazene inicialmente até 25 GB de dados pode armazenar 50 GB quando você adicionar uma segunda partição ao serviço.
 
-As **Réplicas** são cópias do mecanismo de pesquisa. Um único serviço de pesquisa pode ter um máximo de seis réplicas. São necessárias pelo menos duas réplicas para disponibilidade de leitura (consulta) e pelo menos três réplicas para disponibilidade de leitura/gravação (consulta, indexação).
+**Réplicas** são cópias do mecanismo de pesquisa. Um único serviço de pesquisa pode ter um máximo de seis réplicas. São necessárias pelo menos duas réplicas para disponibilidade de leitura (consulta) e pelo menos três réplicas para disponibilidade de leitura/gravação (consulta, indexação).
 
 Uma cópia de cada índice é executada em cada réplica. Conforme você adiciona réplicas, cópias adicionais do índice são colocadas online para oferecer maior suporte a cargas de trabalho de consulta e balancear a carga das solicitações em várias réplicas. Se você tiver vários índices, digamos seis, e três réplicas, cada réplica terá uma cópia de todos os seis índices.
 
@@ -71,9 +71,9 @@ A tabela a seguir é um gráfico que lista as réplicas no eixo vertical e as pa
 <tr><td>N/D</td><td><b>1 partição</b></td><td><b>2 partições</b></td><td><b>3 partições</b></td><td><b>4 partições</b></td><td><b>6 partições</b></td><td><b>12 partições</b></td></tr>
 </table>
 
-Unidades de pesquisa, preço e capacidade são explicados em detalhes no site da Web do Azure. Veja [Detalhes de Preço](http://azure.microsoft.com/pricing/details/search/) para obter mais informações.
+Unidades de pesquisa, preço e capacidade são explicados em detalhes no site da Web do Azure. Veja [Detalhes de Preço](https://azure.microsoft.com/pricing/details/search/) para obter mais informações.
 
-> [AZURE.NOTE]O número de réplicas e partições que você escolher deve poder ser dividido de maneira uniforme em 12 (especificamente, 1, 2, 3, 4, 6 e 12). Isso ocorre porque a pesquisa do Azure previamente divide cada índice em 12 fragmentos para que possam ser distribuídos entre as partições. Por exemplo, se o serviço tiver três partições e você criar um novo índice, cada partição conterá 4 fragmentos do índice. Como a Pesquisa do Azure fragmenta um índice é um detalhe de implementação, sujeito a alterações em futuras versões. Embora o número seja 12 hoje, você não deve esperar que ele seja sempre 12 no futuro.
+> [AZURE.NOTE] O número de réplicas e partições que você escolher deve poder ser dividido de maneira uniforme em 12 (especificamente, 1, 2, 3, 4, 6 e 12). Isso ocorre porque a pesquisa do Azure previamente divide cada índice em 12 fragmentos para que possam ser distribuídos entre as partições. Por exemplo, se o serviço tiver três partições e você criar um novo índice, cada partição conterá 4 fragmentos do índice. Como a Pesquisa do Azure fragmenta um índice é um detalhe de implementação, sujeito a alterações em futuras versões. Embora o número seja 12 hoje, você não deve esperar que ele seja sempre 12 no futuro.
 
 ## Escolher uma combinação de partições e réplicas para alta disponibilidade
 
@@ -88,7 +88,7 @@ Recomendações gerais para alta disponibilidade são:
 
 Atualmente, não há mecanismo integrado para recuperação de desastres. Adicionar partições ou réplicas seria a estratégia incorreta para atingir os objetivos de recuperação de desastres. Em vez disso, você pode adicionar redundância no nível de serviço. Para obter uma discussão mais aprofundada da soluções alternativas, veja [esta postagem no fórum](https://social.msdn.microsoft.com/Forums/ee108a26-00c5-49f6-b1ff-64c66c8b828a/dr-and-high-availability-for-azure-search?forum=azuresearch).
 
-> [AZURE.NOTE]Lembre-se de que a escalabilidade e os contratos de nível de serviço são recursos do serviço padrão. O serviço gratuito é oferecido em um nível de recurso fixo, com partições e réplicas compartilhadas por vários assinantes. Se você tiver iniciado com o serviço gratuito e agora desejar atualizar, precisará criar um novo serviço de Pesquisa do Azure no nível padrão e, em seguida, recarregar índices e dados para o novo serviço. Veja [Criar um serviço da Pesquisa do Azure no portal](search-create-service-portal.md) para obter instruções sobre o provisionamento do serviço.
+> [AZURE.NOTE] Lembre-se de que a escalabilidade e os contratos de nível de serviço são recursos do serviço padrão. O serviço gratuito é oferecido em um nível de recurso fixo, com partições e réplicas compartilhadas por vários assinantes. Se você tiver iniciado com o serviço gratuito e agora desejar atualizar, precisará criar um novo serviço de Pesquisa do Azure no nível padrão e, em seguida, recarregar índices e dados para o novo serviço. Veja [Criar um serviço da Pesquisa do Azure no portal](search-create-service-portal.md) para obter instruções sobre o provisionamento do serviço.
 
 ## Limites de chave de API
 
@@ -112,4 +112,4 @@ As chaves de API são usadas para autenticação de serviço. Há dois tipos. Ch
 
 <sup>1</sup> na Pesquisa do Azure, o corpo de uma solicitação está sujeito a um limite superior de 16 MB, impondo um limite prático no conteúdo de campos individuais ou Coleções que, caso contrário, não são limitadas por limites teóricos (consulte [Tipos de dados com suporte](https://msdn.microsoft.com/library/azure/dn798938.aspx) para obter mais informações sobre restrições e composição de campos).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

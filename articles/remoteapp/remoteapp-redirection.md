@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/05/2015"
+    ms.date="01/21/2016"
     ms.author="elizapo" />
 
 # Usando o redirecionamento no RemoteApp do Azure
@@ -67,13 +67,13 @@ Use este cmdlet para desabilitar o compartilhamento da área de transferência:
 
 	Set-AzureRemoteAppCollection -CollectionName <collection name>  -CustomRdpProperty "redirectclipboard:i:0”
 
-> [AZURE.IMPORTANT]Não se esqueça de fazer logoff completo de todos os usuários na coleção (e não apenas desconectá-los) antes de testar a alteração. Para garantir que os usuários estejam totalmente desconectados, vá para a guia **Sessões** na coleção no portal do Azure e faça logoff de todos os usuários desconectados ou conectados. Às vezes, pode levar vários segundos para que as unidades locais sejam mostradas no Explorer na sessão.
+> [AZURE.IMPORTANT] Não se esqueça de fazer logoff completo de todos os usuários na coleção (e não apenas desconectá-los) antes de testar a alteração. Para garantir que os usuários estejam totalmente desconectados, vá para a guia **Sessões** na coleção no portal do Azure e faça logoff de todos os usuários desconectados ou conectados. Às vezes, pode levar vários segundos para que as unidades locais sejam mostradas no Explorer na sessão.
 
 ## Alterar as configurações de redirecionamento de USB no cliente do Windows
 
 Se você quiser usar o redirecionamento de USB em um computador que se conecta ao RemoteApp, há duas ações que devem ser realizadas. 1 - O administrador precisa habilitar o redirecionamento de USB no nível da coleção usando o PowerShell do Azure. 2 - Em cada dispositivo em que você deseja usar o redirecionamento de USB, será necessário habilitar uma política de grupo que permita isso. Esta etapa precisará ser concluída para cada usuário que queira usar o redirecionamento de USB.
 
-> [AZURE.NOTE]O redirecionamento de USB com o RemoteApp do Azure só tem suporte para computadores com Windows.
+> [AZURE.NOTE] O redirecionamento de USB com o RemoteApp do Azure só tem suporte para computadores com Windows.
 
 ### Habilitar o redirecionamento de USB para a coleção do RemoteApp
 Use o cmdlet a seguir para habilitar o redirecionamento de USB no nível da coleção:
@@ -104,4 +104,4 @@ Você também pode usar a ferramenta Gerenciamento de Política de Grupo para cr
 7. Selecione **Habilitado** e, em seguida, selecione **Administradores e Usuários nos Direitos de Acesso de Redirecionamento de USB RemoteFX**.
 8. Clique em **OK**.  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

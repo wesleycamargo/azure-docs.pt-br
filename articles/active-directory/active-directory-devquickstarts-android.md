@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="01/21/2016"
 	ms.author="brandwe"/>
 
 # Integrando o AD do Azure em um aplicativo Android
@@ -452,6 +452,5 @@ Seu aplicativo deve substituí-las se desejar cadeias de caracteres localizadas.
 A ADAL versão 1.1.0 dá suporte à caixa de diálogo NTLM que é processada por meio do evento onReceivedHttpAuthRequest do WebViewClient. O layout da caixa de diálogo e as sequências de caracteres podem ser personalizadas.### Etapa 5: Baixe o código de exemplo do cliente nativo do iOS
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

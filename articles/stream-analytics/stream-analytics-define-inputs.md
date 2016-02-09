@@ -112,7 +112,7 @@ Quando seus dados forem provenientes de uma fonte do Hub IoT, é possível acess
 
 ## Criar uma entrada de fluxo de dados do Armazenamento de Blobs
 
-Para cenários com grandes quantidades de dados não estruturados para armazenamento na nuvem, o Armazenamento de Blob oferece uma solução econômica e escalonável. Os dados no [Armazenamento de blob](http://azure.microsoft.com/services/storage/blobs/) são geralmente considerados dados “em repouso”, mas podem ser processados como uma transmissão de dados pelo Stream Analytics. Um cenário comum para entradas do armazenamento de Blob com o Stream Analytics é o processamento de log, no qual a telemetria é capturada de um sistema e precisa ser analisada e processada para extrair dados significativos.
+Para cenários com grandes quantidades de dados não estruturados para armazenamento na nuvem, o Armazenamento de Blob oferece uma solução econômica e escalonável. Os dados no [Armazenamento de blob](https://azure.microsoft.com/services/storage/blobs/) são geralmente considerados dados “em repouso”, mas podem ser processados como uma transmissão de dados pelo Stream Analytics. Um cenário comum para entradas do armazenamento de Blob com o Stream Analytics é o processamento de log, no qual a telemetria é capturada de um sistema e precisa ser analisada e processada para extrair dados significativos.
 
 É importante observar que o carimbo de data/hora padrão de eventos de armazenamento de Blob no Stream Analytics é o carimbo de data/hora em que o blob foi modificado pela última vez, que é *isBlobLastModifiedUtcTime*. Para processar os dados como uma transmissão usando um carimbo de data/hora na carga do evento, use a palavra-chave [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx).
 
@@ -207,4 +207,4 @@ Você aprendeu sobre as opções de conexão de dados no Azure para seus trabalh
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

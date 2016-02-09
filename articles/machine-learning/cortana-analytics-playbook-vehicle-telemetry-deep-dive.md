@@ -109,7 +109,7 @@ XUF99EW9OIQOMV7Q7 | Automóvel de três volumes
 
 [Solução Vehicle Telematics Simulator do Visual Studio](http://go.microsoft.com/fwlink/?LinkId=717075)
 
-[Hub de Eventos do Azure](http://azure.microsoft.com/services/event-hubs/)
+[Hub de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/)
 
 [Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
 
@@ -163,7 +163,7 @@ Depois que o pipeline for executado com êxito e o conjunto de dados 'RawCarEven
 
 
 ## Preparar
->[AZURE.ALERT]Esta etapa na solução é aplicável somente ao processamento em lote.
+>[AZURE.ALERT] Esta etapa na solução é aplicável somente ao processamento em lote.
 
 Os sinais brutos e semi-estruturados do veículo e o conjunto de dados de diagnóstico são particionados na etapa de preparação dos dados em um formato de ANO/MÊS para uma consulta eficiente e o armazenamento escalonável a longo prazo (ou seja, permite falhas de uma conta de blob para a próxima, segundo a ordem de preenchimento). Os dados de saída (rotulados como *PartitionedCarEventsTable*) devem ser mantidos por um longo período como a forma básica/"mais bruta" de dados no "Data Lake" do cliente. Os dados de entrada desse pipeline normalmente seriam descartados pois os dados de saída têm total fidelidade com a entrada - são armazenados (particionados) melhor para um uso posterior.
 
@@ -396,7 +396,7 @@ Clique em [Baixar RealtimeDashboardApp](http://go.microsoft.com/fwlink/?LinkId=7
 
 *Figura 19 – RealtimeDashboardApp: Entrar no PowerBI*
 
->[AZURE.NOTE]Observação: se você deseja liberar o conjunto de dados do PowerBI, execute o RealtimeDashboardApp com o parâmetro 'flushdata':
+>[AZURE.NOTE] Observação: se você deseja liberar o conjunto de dados do PowerBI, execute o RealtimeDashboardApp com o parâmetro 'flushdata':
 
 	RealtimeDashboardApp.exe -flushdata
 
@@ -706,4 +706,4 @@ Clique aqui para obter instruções detalhadas sobre como configurar os relatór
 
 Este documento contém um detalhamento da Solução de Análise da Telemetria do Veículo. Isto apresenta um padrão de arquitetura lambda para a análise em tempo real e em lote com previsões e ações. Esse padrão se aplica a uma ampla variedade de casos de uso que exigem as análises de afunilamento (em tempo real) e de ampliação (em lote).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="01/21/2016"
 	ms.author="dastrock"/>
 
 
@@ -49,8 +49,8 @@ Para habilitar seu aplicativo para autenticar usuários e obter tokens, primeiro
 -	Clique na guia **Aplicativos** e clique em **Adicionar** na lista de botões.
 -	Siga os prompts e crie um novo **Aplicativo Web e/ou WebAPI**.  
 
-    -	 **Nome** do aplicativo descreverá seu aplicativo para os usuários finais.
-    -	 **URI de redirecionamento** é o local no qual o AAD retornará tokens. O local padrão para esse exemplo é `https://localhost:44326/`
+    -	O **Nome** do aplicativo descreverá seu aplicativo para os usuários finais.
+    -	O **URI de redirecionamento** é o local no qual o AAD retornará tokens. O local padrão para esse exemplo é `https://localhost:44326/`
 -	Depois de concluir o registro, o AAD atribuirá a seu aplicativo um **identificador de cliente**. Você precisará desse valor nas próximas seções, então copie-o da guia **Configurar**.
 - A adal.js usa o fluxo de OAuth implícito para se comunicar com o AD do Azure. Você deve habilitar o fluxo implícito para seu aplicativo:
     - Baixe o manifesto do aplicativo, clicando em **Gerenciar manifesto**.
@@ -73,8 +73,8 @@ Agora que você tem um aplicativo no AD do Azure, você pode instalar a adal.js 
 ```
 
 -	Para que a API de lista de tarefas do back-end do SPA aceite tokens do navegador, o back-end precisa de informações de configuração sobre o registro do aplicativo. No projeto TodoSPA, abra `web.config`. Substitua os valores dos elementos na seção `<appSettings>` para refletir os valores inseridos por você no Portal do Azure. Seu código fará referência a esses valores sempre que ele usar a ADAL.
-    -	 `ida:Tenant` é o domínio do seu locatário do AD do Azure, por exemplo, contoso.onmicrosoft.com.
-    -	 `ida:Audience` deve ser a **ID do cliente** do seu aplicativo que você copiou do portal.
+    -	O `ida:Tenant` é o domínio do seu locatário do AD do Azure, por exemplo, contoso.onmicrosoft.com.
+    -	O `ida:Audience` deve ser a **ID do cliente** do seu aplicativo que você copiou do portal.
 
 ## *3. Usar a ADAL para proteger as páginas no SPA*
 A adal.js foi projetada para se integrar com provedores de rota e http AngularJS, que habilita proteger exibições individuais em seu SPA.
@@ -126,7 +126,7 @@ $scope.logout = function () {
 };
 ...
 ```
-- Você também poderá querer apresentar informações do usuário na interface do usuário do aplicativo. O serviço da ADAL já foi adicionado ao controlador `userDataCtrl`, por isso, você pode acessar o objeto `userInfo` na exibição associada, `App/Views/UserData.html`:
+- Você também poderá querer apresentar informações do usuário na interface do usuário do aplicativo. O serviço adal já foi adicionado ao controlador `userDataCtrl` e, portanto, você pode acessar o objeto `userInfo` na exibição associada, `App/Views/UserData.html`:
 
 ```js
 <p>{{userInfo.userName}}</p>
@@ -152,4 +152,4 @@ Para referência, o exemplo concluído (sem seus valores de configuração) é f
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -66,7 +66,7 @@ Ao usar os SDKs (ou integrações de produtos) que não reconhecem o Hub IoT, se
 
     ![][img-eventhubcompatible]
 
-> [AZURE.NOTE]Às vezes, o SDK requer um valor de **Nome do Host** ou de **Namespace**. Nesse caso, remova o esquema do **ponto de extremidade compatível com o Hub de Eventos**. Por exemplo, se o ponto de extremidade compatível com o Hub de Eventos for ****sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, o **Nome do Host** será **iothub-ns-myiothub-1234.servicebus.windows.net** e o **Namespace** será **iothub-ns-myiothub-1234**.
+> [AZURE.NOTE] Às vezes, o SDK requer um valor de **Nome do Host** ou de **Namespace**. Nesse caso, remova o esquema do **ponto de extremidade compatível com o Hub de Eventos**. Por exemplo, se o ponto de extremidade compatível com o Hub de Eventos for ****sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, o **Nome do Host** será **iothub-ns-myiothub-1234.servicebus.windows.net** e o **Namespace** será **iothub-ns-myiothub-1234**.
 
 Dessa forma, você poderá usar qualquer política de segurança de acesso compartilhado com permissões **ServiceConnect** para conectar-se ao Hub de Eventos especificado.
 
@@ -88,7 +88,7 @@ Cada Hub IoT tem um registro de identidade de dispositivo que você pode usar pa
 
 Em um alto nível, o registro de identidade do dispositivo é uma coleção compatível com REST de recursos de identidade do dispositivo. As seções a seguir detalham as propriedades do recurso de identidade do dispositivo e as operações que o registro habilita em identidades.
 
-> [AZURE.NOTE]Consulte [SDKs e APIs do Hub IoT][lnk-apis-sdks] para obter mais detalhes sobre o protocolo HTTP e os SDKs que você pode usar para interagir com o registro de identidade do dispositivo.
+> [AZURE.NOTE] Consulte [SDKs e APIs do Hub IoT][lnk-apis-sdks] para obter mais detalhes sobre o protocolo HTTP e os SDKs que você pode usar para interagir com o registro de identidade do dispositivo.
 
 ### Propriedades de identidade de dispositivo <a id="deviceproperties"></a>
 
@@ -108,7 +108,7 @@ As identidades de dispositivo são representadas como documentos JSON com as seg
 | connectionStateUpdatedTime | somente leitura | Data e hora da última atualização do estado da conexão. |
 | lastActivityTime | somente leitura | Data e hora da última vez em que o dispositivo se conectou, recebeu ou enviou uma mensagem. |
 
-> [AZURE.NOTE]O estado da conexão pode representar apenas a visão do Hub IoT do status da conexão. As atualizações para esse estado podem ser atrasadas, dependendo das configurações e das condições da rede.
+> [AZURE.NOTE] O estado da conexão pode representar apenas a visão do Hub IoT do status da conexão. As atualizações para esse estado podem ser atrasadas, dependendo das configurações e das condições da rede.
 
 ### Operações de identidade do dispositivo
 
@@ -122,7 +122,7 @@ O registro de identidade de dispositivo do Hub IoT expõe as seguintes operaçõ
 
 Todas essas operações permitem o uso da simultaneidade otimista como especificado na [RFC7232][lnk-rfc7232].
 
-> [AZURE.IMPORTANT]A única maneira de recuperar todas as identidades em um registro de identidade do hub é usar a funcionalidade [Exportar](#importexport).
+> [AZURE.IMPORTANT] A única maneira de recuperar todas as identidades em um registro de identidade do hub é usar a funcionalidade [Exportar](#importexport).
 
 Um registro de identidade de dispositivo do Hub IoT: - Não contém metadados de aplicativo. - Pode ser acessado como um dicionário usando o **deviceId** como a chave. - Não dá suporte a consultas expressivas.
 
@@ -147,7 +147,7 @@ As operações a seguir podem ser executadas em trabalhos de exportação:
 * Recuperar o status de um trabalho em execução
 * Cancelar um trabalho em execução
 
-> [AZURE.NOTE]Não importa o momento, cada hub pode ter apenas um único trabalho em execução.
+> [AZURE.NOTE] Não importa o momento, cada hub pode ter apenas um único trabalho em execução.
 
 Para obter informações detalhadas sobre as APIs de importação e exportação, consulte [Hub IoT do Azure - APIs do provedor de recursos][lnk-resource-provider-apis].
 
@@ -217,7 +217,7 @@ O Hub IoT do Azure concede acesso aos pontos de extremidade, verificando um toke
 
 As credenciais de segurança, como as chaves simétricas, nunca são enviadas pela conexão.
 
-> [AZURE.NOTE]O provedor de recursos do Hub IoT do Azure é protegido por meio de sua assinatura do Azure, assim como todos os provedores no [Gerenciador de Recursos do Azure][lnk-azure-resource-manager].
+> [AZURE.NOTE] O provedor de recursos do Hub IoT do Azure é protegido por meio de sua assinatura do Azure, assim como todos os provedores no [Gerenciador de Recursos do Azure][lnk-azure-resource-manager].
 
 #### Formato do token de segurança <a id="tokenformat"></a>
 
@@ -229,10 +229,10 @@ Estes são os valores esperados:
 
 | Valor | Descrição |
 | ----- | ----------- |
-| {signature} | Uma cadeia de caracteres de assinatura HMAC-SHA256 no formato: `{URL-encoded-resourceURI} + "\n" + expiry` |
+| {signature} | Uma cadeia de caracteres de assinatura HMAC-SHA256 no formato: `{URL-encoded-resourceURI} + "\n" + expiry` **Importante**: a chave é decodificada da base64 e usada como chave para executar o cálculo de HMAC-SHA256. |
 | {resourceURI} | O prefixo URI (por segmento) dos pontos de extremidade que podem ser acessados com esse token. Por exemplo, `/events` |
 | {expiry} | As cadeias de caracteres UTF8 para o número de segundos desde a época 00:00:00 UTC em 1º de janeiro de 1970. |
-| {URL-encoded-resourceURI} | URI do recurso codificada em URL (minúscula) |
+| {URL-encoded-resourceURI} | Codificação de URL em letras minúsculas do URI de recurso em letras minúsculas |
 | {policyName} | O nome da política de acesso compartilhado a qual se refere esse token. Estará ausente em tokens que fazem referência às credenciais de registro do dispositivo. |
 
 **Observação sobre o prefixo**: o prefixo URI é computado por segmento e não por caractere. Por exemplo, `/a/b` é um prefixo para `/a/b/c`, mas não para `/a/bc`.
@@ -254,7 +254,7 @@ Para SASL PLAIN, o **nome de usuário** pode ser:
 
 Em ambos os casos, o campo de senha contém o token conforme descrito na seção [Formato do token](#tokenformat).
 
-> [AZURE.NOTE]Os [SDKs do Hub IoT do Azure ][lnk-apis-sdks] geram tokens automaticamente durante a conexão com o serviço. Em alguns casos, os SDKs não dão suporte a todos os protocolos ou a todos os métodos de autenticação.
+> [AZURE.NOTE] Os [SDKs do Hub IoT do Azure ][lnk-apis-sdks] geram tokens automaticamente durante a conexão com o serviço. Em alguns casos, os SDKs não dão suporte a todos os protocolos ou a todos os métodos de autenticação.
 
 #### SASL PLAIN comparado ao CBS
 
@@ -271,7 +271,7 @@ Esse mecanismo é parecido com a [política de editor de Hubs de Eventos][lnk-ev
 
 ## Mensagens
 
-O Hub IoT fornecer primitivas de mensagens para se comunicar: - [Da nuvem para o dispositivo](#c2d): de um back-end de aplicativo (*serviço* ou *nuvem*). - [Do dispositivo para nuvem](#d2c): de um dispositivo para um back-end de aplicativo.
+O Hub IoT fornece primitivas de mensagens para se comunicar: - [Da nuvem para o dispositivo](#c2d): de um back-end de aplicativo (*serviço* ou *nuvem*). - [Do dispositivo para a nuvem](#d2c): de um dispositivo para um back-end de aplicativo.
 
 As propriedades básicas da funcionalidade de mensagens do Hub IoT são a confiabilidade e a durabilidade das mensagens. Isso permite a adaptação à conectividade intermitente no lado do dispositivo e a picos de carga no processamento de eventos no lado da nuvem. O Hub IoT implementa *pelo menos uma vez* as garantias de entrega de mensagens do dispositivo para a nuvem e da nuvem para o dispositivo.
 
@@ -293,7 +293,7 @@ Esse é o conjunto de propriedades do sistema em mensagens do Hub IoT.
 | -------- | ----------- |
 | MessageId | Um identificador configurável pelo usuário para a mensagem, normalmente usado para padrões de solicitação-resposta. Formato: uma cadeia de caracteres que diferencia maiúsculas de minúsculas (com até 128 caracteres) de caracteres alfanuméricos ASCII 7 bits + `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
 | Número de sequência | Um número (exclusivo por fila de dispositivos) atribuído pelo Hub IoT a cada mensagem da nuvem para o dispositivo. |
-| Para | Usado em mensagens [Da Nuvem para o Dispositivo](#c2d) para especificar o campo de destino.|
+| Para | Usado em mensagens [da nuvem para o dispositivo](#c2d) para especificar o campo de destino.|
 | ExpiryTimeUtc | Data e hora de expiração da mensagem. |
 | EnqueuedTime | Hora do recebimento da mensagem pelo Hub IoT. |
 | CorrelationId | A propriedade de cadeia de caracteres que geralmente contém a ID da mensagem da solicitação em padrões de solicitação-resposta. |
@@ -301,7 +301,7 @@ Esse é o conjunto de propriedades do sistema em mensagens do Hub IoT.
 | Ack | Usado em mensagens da nuvem para o dispositivo para solicitar ao Hub IoT a geração de mensagens de comentários como resultado do consumo da mensagem pelo dispositivo. Valores possíveis: **nenhum** (padrão): nenhuma mensagem de comentários é gerada, **positivo**: ocorre o recebimento de uma mensagem de comentários, se a mensagem estiver completa, **negativo**: ocorre o recebimento de uma mensagem de comentários, se a mensagem expirar (ou se a contagem máxima de entrega tiver sido atingida) sem ser concluída pelo dispositivo, **total**: positivos e negativos. Para saber mais, consulte [Comentários sobre a mensagem](#feedback). |
 | ConnectionDeviceId | Definida pelo Hub IoT em mensagens do dispositivo para nuvem . Contém a **deviceId** do dispositivo que enviou a mensagem. |
 | ConnectionDeviceGenerationId | Definida pelo Hub IoT em mensagens do dispositivo para nuvem . Contém a **generationId** (de acordo com as [Propriedades de identidade de dispositivo](#deviceproperties)) do dispositivo que enviou a mensagem. |
-| ConnectionAuthMethod | Definida pelo Hub IoT em mensagens do dispositivo para nuvem . Informações sobre o método de autenticação usado para autenticar o dispositivo que envia a mensagem. Para saber mais, veja [Anti-falsificação do dispositivo para a nuvem](#antispoofing).|
+| ConnectionAuthMethod | Definida pelo Hub IoT em mensagens do dispositivo para nuvem . Informações sobre o método de autenticação usado para autenticar o dispositivo que envia a mensagem. Para saber mais, confira [Antifalsificação do dispositivo para a nuvem](#antispoofing).|
 
 ### Escolhendo seu protocolo de comunicação <a id="amqpvshttp"></a>
 
@@ -319,14 +319,14 @@ Como uma consideração final, é importante consultar o [Gateway de protocolo d
 
 ### Dispositivo para a nuvem <a id="d2c"></a>
 
-Como detalhado na seção [Pontos de extremidade](#endpoints), as mensagens do dispositivo para a nuvem são enviadas por meio de um ponto de extremidade voltado para o dispositivo (**/devices/{deviceId}/messages/events**) e recebidas por meio de um ponto de extremidade voltado para o serviço (**/messages/events**), compatível com os [Hubs de Eventos][lnk-event-hubs]. Portanto, você pode usar a integração de Hubs de Eventos Standard e os SDKs para receber mensagens do dispositivo para a nuvem.
+Conforme detalhado na seção [Pontos de extremidade](#endpoints), as mensagens do dispositivo para a nuvem são enviadas por meio de um ponto de extremidade voltado para o dispositivo (**/devices/{deviceId}/messages/events**) e recebidas por meio de um ponto de extremidade voltado para o serviço (**/messages/events**), o que é compatível com os [Hubs de Eventos][lnk-event-hubs]. Portanto, você pode usar a integração de Hubs de Eventos Standard e os SDKs para receber mensagens do dispositivo para a nuvem.
 
 O Hub IoT implementa o envio de mensagens do dispositivo para a nuvem de uma maneira semelhante aos [Hubs de Eventos][lnk-event-hubs], com as mensagens do dispositivo para a nuvem do Hub IoT sendo mais parecidas com os *eventos* dos Hubs de Eventos do que com as *mensagens* do [Barramento de Serviço][lnk-servicebus].
 
 Esta implementação tem as seguintes implicações:
 
 * Assim como nos *eventos* dos Hubs de Eventos, as mensagens do dispositivo para a nuvem são duráveis e mantidas em um hub IoT por sete dias (consulte [Opções de configuração de dispositivo para a nuvem](#d2cconfiguration)).
-* As mensagens do dispositivo para a nuvem são particionadas em um conjunto fixo de partições definido no momento da criação (consulte [Opções de configuração do dispositivo para a nuvem](#d2cconfiguration)).
+* As mensagens do dispositivo para a nuvem são particionadas em um conjunto fixo de partições definido no momento da criação (confira [Opções de configuração do dispositivo para a nuvem](#d2cconfiguration)).
 * Assim como nos Hubs de Eventos, os clientes que leem mensagens do dispositivo para a nuvem devem lidar com partições e pontos de verificação. Consulte [Hubs de Eventos - consumindo eventos][lnk-event-hubs-consuming-events].
 * Assim como os eventos dos Hubs de Eventos, as mensagens do dispositivo para a nuvem podem ter no máximo 256 Kb e podem ser agrupadas em lotes para otimizar os envios. Os lotes podem ter no máximo 256 Kb e no máximo 500 mensagens.
 
@@ -341,11 +341,13 @@ Observe que isso não significa que você pode substituir o Hub IoT para os Hubs
 
 Para obter detalhes sobre como usar as mensagens do dispositivo para a nuvem, consulte [SDKs e APIs do Hub IoT][lnk-apis-sdks].
 
+> [AZURE.NOTE] Ao usar HTTP para enviar mensagens do dispositivo para a nuvem, as cadeias de caracteres a seguir podem conter apenas caracteres ASCII: valores da propriedade do sistema, e nomes e valores da propriedade do aplicativo.
+
 #### Tráfego sem telemetria
 
 Em muitos casos, além dos pontos de dados de telemetria, os dispositivos também enviam mensagens e solicitações *interativas* que exigem a execução e a manipulação da camada de lógica de negócios do aplicativo. Por exemplo, os alertas críticos que devem disparar uma ação específica no back-end ou as respostas de dispositivo a comandos enviados do back-end.
 
-Veja [Processamento do dispositivo para a nuvem][lnk-guidance-d2c-processing] para saber mais sobre a melhor maneira de processar esses tipos de mensagens.
+Confira [Processamento do dispositivo para a nuvem][lnk-guidance-d2c-processing] para saber mais sobre a melhor maneira de processar esses tipos de mensagem.
 
 #### Opções de configuração do dispositivo para a nuvem <a id="d2cconfiguration"></a>
 
@@ -380,11 +382,13 @@ A propriedade **ConnectionAuthMethod** contém um objeto JSON serializado com as
 
 ### Nuvem para o dispositivo <a id="c2d"></a>
 
-Como detalhado na seção [Pontos de extremidade](#endpoints), você pode enviar mensagens da nuvem para o dispositivo por meio de um ponto de extremidade voltado para o serviço (**/messages/devicebound**) e um dispositivo pode recebê-las por meio de um ponto de extremidade específico do dispositivo (**/devices/{deviceId}/messages/devicebound**).
+Conforme detalhado na seção [Pontos de extremidade](#endpoints), você pode enviar mensagens da nuvem para o dispositivo por meio de um ponto de extremidade voltado para o serviço (**/messages/devicebound**) e um dispositivo pode recebê-las por meio de um ponto de extremidade específico do dispositivo (**/devices/{deviceId}/messages/devicebound**).
 
 Cada mensagem da nuvem para o dispositivo é direcionada a um único dispositivo, definindo a propriedade **para** como **/devices/{deviceId}/messages/devicebound**.
 
 **Importante**: cada fila de dispositivo pode conter no máximo 50 mensagens da nuvem para o dispositivo. Tentar enviar mais mensagens ao mesmo dispositivo resultará em um erro.
+
+> [AZURE.NOTE] Ao enviar mensagens da nuvem para o dispositivo, as cadeias de caracteres a seguir podem conter apenas caracteres ASCII: valores da propriedade do sistema, e nomes e valores da propriedade do aplicativo.
 
 #### Ciclo de vida da mensagem <a id="message lifecycle"></a>
 
@@ -394,15 +398,15 @@ O diagrama a seguir mostra o gráfico de estado do ciclo de vida de uma mensagem
 
 ![Ciclo de vida de mensagens da nuvem para o dispositivo][img-lifecycle]
 
-Quando o serviço envia uma mensagem, ela é considerada como *Em fila*. Quando um dispositivo deseja *receber* uma mensagem, o Hub IoT *bloqueia* a mensagem (define o estado como **Invisível**), a fim de permitir que outros threads no mesmo dispositivo comecem a receber outras mensagens. Quando um thread de dispositivo conclui o processamento de um dispositivo, ele notifica o Hub IoT ao *concluir* a mensagem.
+Quando o serviço envia uma mensagem, ela é considerada como *Enfileirada*. Quando um dispositivo deseja *receber* uma mensagem, o Hub IoT *bloqueia* a mensagem (define o estado como **Invisível**), a fim de permitir que outros threads no mesmo dispositivo comecem a receber outras mensagens. Quando um thread de dispositivo conclui o processamento de um dispositivo, ele notifica o Hub IoT ao *concluir* a mensagem.
 
-Um dispositivo também pode:- *Rejeitar* a mensagem, o que faz com que o Hub IoT o defina como o estado **Morta**. - *Abandonar* a mensagem que faz com que o Hub IoT coloque a mensagem de volta na fila com o estado definido como **Em fila**.
+Um dispositivo também pode:- *Rejeitar* a mensagem, o que faz com que o Hub IoT o defina para o estado **Morta**. - *Abandonar* a mensagem, que faz com que o Hub IoT coloque a mensagem de volta na fila com o estado definido como **Enfileirada**.
 
-Um thread pode falhar ao processar uma mensagem sem notificar o Hub IoT. Nesse caso, as mensagens transitam automaticamente do estado **Invisível** de volta para o estado **em fila** após um *tempo limite de visibilidade (ou de bloqueio)* com um valor padrão de um minuto. Uma mensagem pode transitar entre os estados **Em fila** e **Invisível** pelo número máximo de vezes especificado na propriedade *contagem máxima de entrega* no Hub IoT. Após esse número de transições, o Hub IoT definirá o estado da mensagem como **Morta**. Da mesma forma, uma mensagem será automaticamente considerada como **Morta** após seu tempo de expiração (veja [Tempo de vida](#ttl)).
+Um thread pode falhar ao processar uma mensagem sem notificar o Hub IoT. Nesse caso, as mensagens passam automaticamente do estado **Invisível** de volta para o estado **Enfileirada** após um *tempo limite de visibilidade (ou de bloqueio)* com um valor padrão de um minuto. Uma mensagem pode transitar entre os estados **Enfileirada** e **Invisível** pelo número máximo de vezes especificado na propriedade *contagem máxima de entrega* no Hub IoT. Após esse número de transições, o Hub IoT definirá o estado da mensagem como **Morta**. Da mesma forma, o Hub IoT define o estado de uma mensagem como **Morta** após seu tempo de expiração (veja [Vida útil](#ttl)).
 
 Para obter um tutorial sobre mensagens da nuvem para o dispositivo, consulte [Introdução às mensagens da nuvem para o dispositivo do Hub IoT do Azure][lnk-getstarted-c2d-tutorial]. Para obter tópicos de referência sobre como as APIs e os SDKs diferentes expõem a funcionalidade de nuvem para o dispositivo, consulte [APIs e SDKs do Hub IoT][lnk-apis-sdks].
 
-> [AZURE.NOTE]Normalmente, as mensagens da nuvem para o dispositivo serão concluídas sempre que a perda da mensagem não afetar a lógica do aplicativo. Isso pode ocorrer em vários cenários diferentes. Por exemplo, o conteúdo da mensagem foi mantido com êxito no armazenamento local, ou uma operação foi executada com êxito, ou a mensagem está carregando informações temporárias cuja perda não afeta a funcionalidade do aplicativo. Às vezes, para tarefas longas, você pode concluir a mensagem da nuvem para o dispositivo depois de persistir a descrição da tarefa no armazenamento local e notificar o back-end de aplicativo com uma ou mais mensagens do dispositivo para a nuvem em vários estágios do andamento da tarefa.
+> [AZURE.NOTE] Normalmente, as mensagens da nuvem para o dispositivo serão concluídas sempre que a perda da mensagem não afetar a lógica do aplicativo. Isso pode ocorrer em vários cenários diferentes. Por exemplo, o conteúdo da mensagem foi mantido com êxito no armazenamento local, ou uma operação foi executada com êxito, ou a mensagem está carregando informações temporárias cuja perda não afeta a funcionalidade do aplicativo. Às vezes, para tarefas longas, você pode concluir a mensagem da nuvem para o dispositivo depois de persistir a descrição da tarefa no armazenamento local e notificar o back-end de aplicativo com uma ou mais mensagens do dispositivo para a nuvem em vários estágios do andamento da tarefa.
 
 #### Vida útil <a id="ttl"></a>
 
@@ -412,9 +416,9 @@ Todas as mensagens da nuvem para o dispositivo têm um tempo de expiração. Iss
 
 Quando você envia uma mensagem da nuvem para o dispositivo, o serviço pode solicitar a entrega de um comentário por mensagem sobre o estado final dessa mensagem.
 
-- Se você definir a propriedade **Ack** como **positivo**, o Hub IoT gerará uma mensagem de comentários se, e somente se, a mensagem da nuvem para o dispositivo atingir o estado **Concluído**.
-- Se você definir a propriedade **Ack** como **negativa**, o Hub IoT gerará uma mensagem de comentários se, e somente se, a mensagem da nuvem para o dispositivo atingir o estado **Morta**.
-- Se você definir a propriedade **Ack** como **total**, o Hub IoT gerará uma mensagem de comentário em ambos os casos.
+- Se você definir a propriedade **Ack** como **positiva**, o Hub IoT vai gerar uma mensagem de comentários se, e somente se, a mensagem da nuvem para o dispositivo atingir o estado **Concluída**.
+- Se você definir a propriedade **Ack** como **negativa**, o Hub IoT vai gerar uma mensagem de comentários se, e somente se, a mensagem da nuvem para o dispositivo atingir o estado **Morta**.
+- Se você definir a propriedade **Ack** como **total**, o Hub IoT vai gerar uma mensagem de comentário em ambos os casos.
 
 Como explicado em [Pontos de extremidade](#endpoints), o Hub IoT oferece comentários por meio de um ponto de extremidade voltado para o serviço (**/messages/servicebound/feedback**) como mensagens. A semântica de recebimento dos comentários é a mesma das mensagens da nuvem para o dispositivo, com o mesmo [ciclo de vida da mensagem](nº do ciclo de vida da mensagem). Sempre que possível, os comentários de mensagem são feitos em lotes em uma única mensagem, com o seguinte formato.
 
@@ -542,4 +546,4 @@ Você viu uma visão geral do desenvolvimento para Hub IoT. Siga estes links par
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

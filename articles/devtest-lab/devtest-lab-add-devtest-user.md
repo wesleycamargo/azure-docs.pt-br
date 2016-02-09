@@ -26,7 +26,7 @@ Você concede acesso ao seu Laboratório de Desenvolvimento/Teste por meio de du
 
  - **Proprietário**: os usuários atribuídos à função **proprietário** no nível de assinatura do Azure têm acesso completo ao laboratório, incluindo às funções de gerenciamento e monitoramento.
 
-     >[AZURE.NOTE]As funções de **Proprietário** atribuídas em níveis RBAC diferente do nível de assinatura não têm suporte no Laboratório de Desenvolvimento/Teste. Não há suporte para a atribuição de um usuário à função **Proprietário** no Laboratório de Desenvolvimento/Teste.
+     >[AZURE.NOTE] As funções de **Proprietário** atribuídas em níveis RBAC diferente do nível de assinatura não têm suporte no Laboratório de Desenvolvimento/Teste. Não há suporte para a atribuição de um usuário à função **Proprietário** no Laboratório de Desenvolvimento/Teste.
 
  -  **Usuário do Laboratório de Desenvolvimento/Teste**: usuários atribuídos à função **Usuário do Laboratório de Desenvolvimento/Teste** pode criar, atualizar e excluir VMs no laboratório especificado. Os usuários podem ser *internos* (um membro do Active Directory do Azure para a assinatura) ou *externos* (um usuário que não é membro do AD do Azure, como um membro de uma organização parceira).
 	-  Uma função **Usuário do Laboratório de Desenvolvimento/Teste** deve ser atribuída por meio dos blocos **Adicionar Usuários** do laboratório.
@@ -39,7 +39,7 @@ O Laboratório de Desenvolvimento/Teste considera os proprietários de uma assin
 
 Para adicionar um proprietário a uma assinatura do Azure na qual você já tem laboratórios criados, ou na qual criará novos laboratórios, siga estas etapas:
 
-1. Entre no [Portal de visualização do Azure](http://portal.azure.com).
+1. Entre no [Portal de visualização do Azure](https://portal.azure.com).
 
 1. No painel de navegação esquerdo, toque em **Assinaturas**.
 
@@ -71,7 +71,7 @@ Para adicionar um proprietário a uma assinatura do Azure na qual você já tem 
 
 Para adicionar um usuário do Laboratório de Desenvolvimento/Teste ao seu laboratório, execute estas etapas:
 
-1. Entre no [Portal de visualização do Azure](http://portal.azure.com).
+1. Entre no [Portal de visualização do Azure](https://portal.azure.com).
 
 1. Toque em **Procurar**.
 
@@ -101,4 +101,4 @@ Para adicionar um usuário do Laboratório de Desenvolvimento/Teste ao seu labor
 
 	1. A folha **Usuários** exibe as funções e usuários adicionados.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

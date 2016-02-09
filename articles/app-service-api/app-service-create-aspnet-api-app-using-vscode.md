@@ -24,7 +24,7 @@
 
 Este tutorial mostra como criar um aplicativo de API ASP.NET 5 usando o [Visual Studio Code](http://code.visualstudio.com//Docs/whyvscode). O ASP.NET 5 é uma reestruturação significativa do ASP.NET. ASP.NET 5 é uma nova estrutura de código-fonte aberto entre plataformas para criar modernos aplicativos baseados em nuvem da Web usando o .NET. Para obter mais informações, consulte [Introdução ao ASP.NET 5](http://docs.asp.net/en/latest/conceptual-overview/aspnet.html). Para obter informações sobre aplicativos de API, consulte [O que são aplicativos de API?](app-service-api-apps-why-best-platform.md)
 
-> [AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [inscrever-se para uma avaliação gratuita](/pricing/free-trial/) ou [ativar seus benefícios de assinante MSDN](/pricing/member-offers/msdn-benefits-details/). Você também pode experimentar gratuitamente os [Exemplos de Aplicativo do Serviço de Aplicativo](http://tryappservice.azure.com).
+> [AZURE.NOTE] Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [inscrever-se para uma avaliação gratuita](/pricing/free-trial/) ou [ativar seus benefícios de assinante MSDN](/pricing/member-offers/msdn-benefits-details/). Você também pode experimentar gratuitamente os [Exemplos de Aplicativo do Serviço de Aplicativo](http://tryappservice.azure.com).
 
 ## Pré-requisitos  
 
@@ -34,7 +34,7 @@ Este tutorial mostra como criar um aplicativo de API ASP.NET 5 usando o [Visual 
 ## Instalar o ASP.NET 5 e DNX
 O ASP.NET 5/DNX é uma pilha enxuta do .NET para criar aplicativos da Web e de nuvem modernos e executados em OS X, Linux e Windows. Ele foi criado do zero para fornecer uma estrutura de desenvolvimento otimizada para aplicativos que são implantados na nuvem ou então executados localmente. Ele consiste em componentes modulares com sobrecarga mínima, para que você mantenha a flexibilidade durante a construção de suas soluções.
 
-> [AZURE.NOTE]O ASP.NET 5 e o DNX (o ambiente de execução do .NET) em OS X e Linux estão em um estado inicial Beta/de Visualização.
+> [AZURE.NOTE] O ASP.NET 5 e o DNX (o ambiente de execução do .NET) em OS X e Linux estão em um estado inicial Beta/de Visualização.
 
 Este tutorial é projetado para começar a criar aplicativos com as versões de desenvolvimento ASP.NET 5 e DNX mais recentes. Se você quiser uma experiência mais estável e liberada, vá para [http://www.asp.net/vnext](http://www.asp.net/vnext). As instruções a seguir são específicas do Windows. Para obter instruções de instalação mais detalhadas para OS X, Linux e Windows, consulte [Instalação do ASP.NET 5 e DNX](https://code.visualstudio.com/Docs/ASPnet5#_installing-aspnet-5-and-dnx).
 
@@ -310,9 +310,9 @@ Mais adiante neste tutorial, você substituirá a cadeia de caracteres de espaç
 
 ## Criar um aplicativo de API no Portal de Visualização do Azure
 
-> [AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [inscrever-se para uma avaliação gratuita](/pricing/free-trial/) ou [ativar seus benefícios de assinante MSDN](/pricing/member-offers/msdn-benefits-details/). Você também pode experimentar gratuitamente os [Exemplos de Aplicativo do Serviço de Aplicativo](http://tryappservice.azure.com).
+> [AZURE.NOTE] Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [inscrever-se para uma avaliação gratuita](/pricing/free-trial/) ou [ativar seus benefícios de assinante MSDN](/pricing/member-offers/msdn-benefits-details/). Você também pode experimentar gratuitamente os [Exemplos de Aplicativo do Serviço de Aplicativo](http://tryappservice.azure.com).
 
-1. Faça logon no [Portal de Visualização do Azure](https://portal.azure.com).
+1. Faça logon no [Portal de Visualização do Azure](https://portal.azure.com/).
 
 2. Clique em **NOVO** na parte superior esquerda do portal.
 
@@ -426,7 +426,7 @@ Para https://user@testsite.scm.azurewebsites.net/testsite.git
 [new branch]      master -> master
 </pre>
 
-> [AZURE.NOTE]Se você fizer alterações ao seu aplicativo, você poderá republicar marcando a caixa de seleção **Confirmar Todos** no VSCode e, em seguida, inserindo o comando **git push azure master** no **GitBash**.
+> [AZURE.NOTE] Se você fizer alterações ao seu aplicativo, você poderá republicar marcando a caixa de seleção **Confirmar Todos** no VSCode e, em seguida, inserindo o comando **git push azure master** no **GitBash**.
 
 ## Exibir a definição de API no portal de visualização do Azure
 Agora que você implantou uma API para seu aplicativo de API, você pode ver a definição de API no portal de visualização do Azure. Você começará reiniciando o gateway, que permite que o Azure reconheça que a definição de API de um aplicativo de API foi alterada. O gateway é um aplicativo Web que trata da administração da API e da autorização para os Aplicativos de API em um grupo de recursos.
@@ -444,4 +444,4 @@ No Portal de Visualização do Azure, vá até a folha **HOST DE APLICATIVO DE A
 Neste tutorial, você aprendeu como criar um aplicativo de API no Visual Studio Code. Para obter mais informações sobre o Visual Studio Code, consulte [Visual Studio Code](https://code.visualstudio.com/Docs/). Para obter informações sobre aplicativos de API, consulte [O que são aplicativos de API?](app-service-api-apps-why-best-platform.md)
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

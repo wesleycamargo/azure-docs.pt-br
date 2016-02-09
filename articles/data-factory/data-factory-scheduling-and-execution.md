@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/27/2016" 
 	ms.author="spelluru"/>
 
 # Agendamento e execução com o Data Factory
@@ -22,7 +22,7 @@ Este artigo explica os aspectos de agendamento e execução do modelo de aplicat
 
 ## Agendando atividades
 
-Na seção **Agendador** na atividade JSON, você pode especificar um agendamento recorrente para a atividade. Por exemplo, você pode agendar execuções de atividade a cada hora, da seguinte maneira:
+Na seção **Agendador** na atividade JSON, você pode especificar um agendamento recorrente para a atividade. Por exemplo, você pode agendar uma atividade a cada hora, da seguinte maneira:
 
 	"scheduler": {
 		"frequency": "Hour",
@@ -31,11 +31,11 @@ Na seção **Agendador** na atividade JSON, você pode especificar um agendament
     
 ![Exemplo do Agendador](./media/data-factory-scheduling-and-execution/scheduler-example.png)
 
-Conforme mostrado acima, especificar um agendamento por hora cria execuções de atividade correspondendo a uma série de janelas em cascata. Janelas em cascata são uma série de intervalos de tempo de tamanho fixo, não se sobrepostos e contínuos.
+Conforme mostrado acima, especificar uma agenda para a atividade cria uma série de janelas em cascata. Janelas em cascata são uma série de intervalos de tempo de tamanho fixo, não se sobrepostos e contínuos. Essas janelas lógicas em cascata para a atividade são chamadas de **janelas de atividade**.
  
-Para que a atividade em execução atualmente seja executada, o intervalo de tempo da janela pode ser acessado com as variáveis de sistema **WindowStart** e **WindowEnd** na atividade JSON. Você pode usar essas variáveis para finalidades diferentes no JSON de sua atividade e scripts associados a essa atividade, inclusive selecionar dados conjuntos de dados de entrada e saída que representam dados de série temporal.
+Para a janela de atividade atualmente em execução, o intervalo de tempo associado à janela de atividade pode ser acessado com as variáveis de sistema **WindowStart** e **WindowEnd** na atividade JSON. Você pode usar essas variáveis para finalidades diferentes no JSON de sua atividade e scripts associados a essa atividade, inclusive selecionar dados conjuntos de dados de entrada e saída que representam dados de série temporal.
 
-Para obter mais informações sobre propriedades diferentes disponíveis para o agendador, inclusive agendamento em uma diferença de tempo específica, definição do modo de alinhamento e processamento no início ou no final do intervalo para a janela, consulte o artigo [Criar pipelines](data-factory-create-pipelines.md).
+Para obter mais informações sobre propriedades diferentes disponíveis para o agendador, incluindo agendamento em uma diferença de tempo específica, definição do modo de alinhamento de processamento no início ou no final do intervalo para a janela de atividade, veja o artigo sobre [criação de pipelines](data-factory-create-pipelines.md).
 
 ## Conjuntos de dados de série temporal e fatias de dados
 
@@ -523,7 +523,7 @@ WindowEnd | Fim do intervalo de tempo para a janela da execução de atividade a
 SliceStart | Início do intervalo de tempo para a fatia de dados sendo gerada | atividade<br/>conjunto de dados | <ol><li>Especifique caminhos de pasta dinâmicos e nomes de arquivos trabalhando simultaneamente com o [Blob do Azure](data-factory-azure-blob-connector.md) e os [Conjuntos de dados do Sistema de Arquivos](data-factory-onprem-file-system-connector.md).</li><li>Especifique as dependências de entrada com funções da fábrica de dados na coleção de entradas de atividade.</li></ol>
 SliceEnd | Fim do intervalo de tempo para a fatia de dados atual que está sendo gerada | atividade<br/>conjunto de dados | O mesmo que o descrito acima. 
 
-> [AZURE.NOTE]Atualmente, o data factory exige que a agenda especificada na atividade corresponda exatamente à agenda especificada na disponibilidade do conjunto de dados de saída. Isso significa que WindowStart, WindowEnd e SliceStart e SliceEnd sempre são mapeados para o mesmo período de tempo e uma única fatia de saída.
+> [AZURE.NOTE] Atualmente, o data factory exige que a agenda especificada na atividade corresponda exatamente à agenda especificada na disponibilidade do conjunto de dados de saída. Isso significa que WindowStart, WindowEnd e SliceStart e SliceEnd sempre são mapeados para o mesmo período de tempo e uma única fatia de saída.
  
 ## Referência de funções do Data Factory
 
@@ -577,7 +577,7 @@ Texto | Format(X) | X: variável de cadeia de caracteres | Formata o texto.
 	    "Hour" : "$$Text.Format('{0:hh}',WindowStart)"
 	}
 
-> [AZURE.NOTE]Ao usar uma função dentro de outra função, você não precisa usar o prefixo **$$** para a função interna. Por exemplo: $$Text.Format('PartitionKey eq \\'my\_pkey\_filter\_value\\' e RowKey ge \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). Neste exemplo, observe que o prefixo **$$** não é usado para a função **Time.AddHours**.
+> [AZURE.NOTE] Ao usar uma função dentro de outra função, você não precisa usar o prefixo **$$** para a função interna. Por exemplo: $$Text.Format('PartitionKey eq \\'my\_pkey\_filter\_value\\' e RowKey ge \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). Neste exemplo, observe que o prefixo **$$** não é usado para a função **Time.AddHours**.
   
 
 ## Grande aprofundamento em dependência de dados
@@ -678,4 +678,4 @@ Semelhante a conjuntos de dados que são produzidos pelo Data Factory, as fatias
 
   
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

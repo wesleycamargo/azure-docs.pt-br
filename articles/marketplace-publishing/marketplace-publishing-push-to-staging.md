@@ -40,7 +40,7 @@ Na guia de **Links** à esquerda da barra, insira quaisquer links com informaç�
 ![desenho](media/marketplace-publishing-push-to-staging/pubportal-02.png)
 
 ### Imagens de exemplo (opcionais)
-> [AZURE.NOTE]Incluir uma imagem de exemplo é uma etapa opcional. É possível preencher o conteúdo de marketing para atender aos requisitos de envio por push para o preparo.
+> [AZURE.NOTE] Incluir uma imagem de exemplo é uma etapa opcional. É possível preencher o conteúdo de marketing para atender aos requisitos de envio por push para o preparo.
 
 Na guia **Imagens de Exemplo** no menu à esquerda, carregue uma nova imagem clicando em **Carregar uma nova imagem**. Se você tiver uma imagem existente e deseja substituí-la, clique em **Substituir imagem**.
 
@@ -52,7 +52,7 @@ Na guia **Imagens de Exemplo** no menu à esquerda, carregue uma nova imagem cli
 ### Legal
 Na guia **Legal**, forneça um link para as políticas/termos de uso. Insira ou cole os termos na caixa grande **Termos de Uso**.
 
-> [AZURE.IMPORTANT]Todos os campos devem ter entradas, incluindo as imagens, a fim de poder mover para o preparo.
+> [AZURE.IMPORTANT] Todos os campos devem ter entradas, incluindo as imagens, a fim de poder mover para o preparo.
 
 
 ## Etapa 2: Definir seus preços
@@ -67,7 +67,7 @@ Na guia **Legal**, forneça um link para as políticas/termos de uso. Insira ou 
 
 **Modelos de preços disponíveis por tipo de oferta**
 
-> [AZURE.IMPORTANT]A disponibilidade de alguns modelos de preços varia por tipo de oferta. Consulte a tabela abaixo.
+> [AZURE.IMPORTANT] A disponibilidade de alguns modelos de preços varia por tipo de oferta. Consulte a tabela abaixo.
 
 | | Apenas base | Apenas consumo | Base + Consumo |
 |---|---|---|---|
@@ -76,19 +76,19 @@ Na guia **Legal**, forneça um link para as políticas/termos de uso. Insira ou 
 | Serviço de dados | Sim | Não | Não |
 
 ### 2\.1. Definir seus preços da VM
-> [AZURE.NOTE]Traga sua própria licença (BYOL) só tem suporte para máquinas virtuais.
+> [AZURE.NOTE] Traga sua própria licença (BYOL) só tem suporte para máquinas virtuais.
 
 1.	Na guia **Preços**, você verá todos os mercados com suporte. Escolha o mais adequado para abrir os campos de preços.
 2.	O link fornecido no portal de publicação mostrará informações sobre preços para ajudá-lo na determinação dos preços de suas SKUs.
 3.	Se a SKU é BYOL, marque a caixa de seleção para a disponibilidade SKU licenciada externamente (BYOL).
 4.	Se a SKU for por hora, insira o preço do seu software. As SKUs sem preços não estarão disponíveis para compra ou uso.
 
-  >[AZURE.NOTE]Se você tiver BYOL e SKUs por hora, então certifique-se de que os seguintes requisitos sejam atendidos: caixa de seleção marcada como BYOL e valores de preços selecionados como por hora.
+  >[AZURE.NOTE] Se você tiver BYOL e SKUs por hora, então certifique-se de que os seguintes requisitos sejam atendidos: caixa de seleção marcada como BYOL e valores de preços selecionados como por hora.
 
 5.	Será aberto um assistente de preço. Continue para preencher os preços, incluindo preços de outros países, se você optar por permitir compras de fora do seu mercado específico.
 6.	Alguns países são países de remessa de ISV. Para vender em um país de remessa de ISV, você deve ser capaz de cobrar e recolher imposto sobre suas SKUs, e calcular e pagar imposto ao governo do país. A Microsoft não está em posição de prestar orientação jurídica ou fiscal. Consulte a seção "Países de destino de venda da oferta" na introdução deste documento para obter mais informações sobre os países de destino de venda.
 
-### 2\.2. Definir seus preços de serviço do desenvolvedor
+### 2\.2. Definir seus Preços de serviço do desenvolvedor
 Os planos podem ser qualquer combinação de base + consumo, em que a base é o preço mensal e o excedente é o preço de pagamento por uso. (Consulte a seguir para obter mais detalhes.)
 
 **Exemplo:** oferta de serviço do desenvolvedor da Contoso
@@ -115,7 +115,7 @@ Algumas dessas informações já estarão preenchidas durante a etapa de certifi
 A guia **Categorias** fornece uma matriz de seleções. Sua oferta pode estar entre elas e você pode selecionar até cinco categorias.
 
 ## Como seu marketing aparecerá
-Abaixo está uma visão detalhada de como a oferta de informações de marketing é usada no [site do Azure Marketplace](http://azure.microsoft.com/marketplace) e no [portal de visualização do Azure](https://ms.portal.azure.com).
+Abaixo está uma visão detalhada de como a oferta de informações de marketing é usada no [site do Azure Marketplace](https://azure.microsoft.com/marketplace/) e no [portal de visualização do Azure](https://ms.portal.azure.com).
 
 ### Site do Azure Marketplace
 ![desenho](media/marketplace-publishing-push-to-staging/acom-catalog-01.png)
@@ -144,7 +144,7 @@ Abaixo está uma visão detalhada de como a oferta de informações de marketing
 ## Próximas etapas
 Agora que o conteúdo do Marketplace está carregado, seguiremos para a testar sua oferta no preparo. No entanto, você deve selecionar o tipo de oferta apropriado na lista abaixo já que as etapas variam por tipo de oferta.
 
-||Imagem de máquina virtual |Serviço do desenvolvedor | Serviço de dados | Modelo de solução |
+|Imagem de máquina virtual |Serviço do desenvolvedor | Serviço de dados | Modelo de solução |
 |----|----|----|----|----|
 | **Etapa 3. Enviar por push sua oferta para preparo** | [Testar sua oferta de VM em preparo](marketplace-publishing-vm-image-test-in-staging.md) | Testar sua oferta de serviço de desenvolvedor em preparo | [Testar sua oferta de serviço de dados em preparo](marketplace-publishing-data-service-test-in-staging.md) | [Testar o modelo de solução em preparo](marketplace-publishing-solution-template-test-in-staging.md) |
 
@@ -160,4 +160,4 @@ Agora que o conteúdo do Marketplace está carregado, seguiremos para a testar s
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

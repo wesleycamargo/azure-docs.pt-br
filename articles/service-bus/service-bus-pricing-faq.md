@@ -17,9 +17,9 @@
 
 # Perguntas frequentes sobre preços do Barramento de Serviço
 
-Esta seção responde a perguntas frequentes sobre a estrutura de preços do Barramento de Serviço. Você também pode visitar as [Perguntas frequentes de suporte do Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para informações gerais sobre preços do Microsoft Azure. Para saber mais sobre o preço do Barramento de Serviço, consulte [Detalhes de preço do Barramento de Serviço](http://azure.microsoft.com/pricing/details/service-bus/).
+Esta seção responde a perguntas frequentes sobre a estrutura de preços do Barramento de Serviço. Você também pode visitar as [Perguntas frequentes de suporte do Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para informações gerais sobre preços do Microsoft Azure. Para saber mais sobre o preço do Barramento de Serviço, consulte [Detalhes de preço do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/).
 
->[AZURE.NOTE]A estrutura de preços de Hubs de Eventos está descrita em [Perguntas frequentes sobre disponibilidade e suporte dos Hubs de Eventos](event-hubs-availability-and-support-faq.md), com mais informações no tópico [Preços de Hubs de Eventos](http://azure.microsoft.com/pricing/details/event-hubs/).
+>[AZURE.NOTE] A estrutura de preços de Hubs de Eventos está descrita em [Perguntas frequentes sobre disponibilidade e suporte dos Hubs de Eventos](event-hubs-availability-and-support-faq.md), com mais informações no tópico [Preços de Hubs de Eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 - [Como é cobrado o Barramento de Serviço?](#how-do-you-charge-for-service-bus)
 - [Quais usos do Barramento de Serviço estão sujeitos à transferência de dados? O que não está?](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not)
@@ -32,7 +32,7 @@ Esta seção responde a perguntas frequentes sobre a estrutura de preços do Bar
 
 ## Como é cobrado o Barramento de Serviço?
 
-Para obter informações completas sobre os preços de Barramento de Serviço, consulte [Preços de Barramento de Serviço e cobrança](https://msdn.microsoft.com/library/dn831889.aspx) e [Detalhes de preço de Barramento de Serviço](http://azure.microsoft.com/pricing/details/service-bus/). Além dos preços mencionados, você é cobrado por transferências de dados associadas para saída fora do data center em que seu aplicativo está provisionado. Encontre mais detalhes em [Quais usos do Barramento de Serviço estão sujeitos à transferência de dados? na seção O que não está?](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not) abaixo.
+Para obter informações completas sobre os preços de Barramento de Serviço, consulte [Preços de Barramento de Serviço e cobrança](https://msdn.microsoft.com/library/dn831889.aspx) e [Detalhes de preço de Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/). Além dos preços mencionados, você é cobrado por transferências de dados associadas para saída fora do data center em que seu aplicativo está provisionado. Encontre mais detalhes em [Quais usos do Barramento de Serviço estão sujeitos à transferência de dados? na seção O que não está?](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not) abaixo.
 
 ## Quais usos do barramento de serviço estão sujeitos à transferência de dados? O que é não está?
 
@@ -116,4 +116,4 @@ Para saber mais sobre as mensagens do Barramento de Serviço, confira os tópico
 
 [portal clássico do Azure]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

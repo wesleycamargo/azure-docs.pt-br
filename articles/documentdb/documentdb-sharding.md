@@ -131,7 +131,7 @@ Dê uma olhada no [Projeto Github de exemplos de particionamento do Banco de Dad
 
 Os exemplos são de software livre e nós o encorajamos a enviar solicitações pull com contribuições que poderiam beneficiar outros desenvolvedores do Banco de Dados de Documentos. Consulte as [Diretrizes de contribuição](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) para obter instruções sobre como contribuir.
 
->[AZURE.NOTE]As criações da coleção têm sua taxa limitada pelo Banco de Dados de Documentos, por isso, alguns dos métodos de exemplo mostrados aqui podem levar alguns minutos para serem concluídos.
+>[AZURE.NOTE] As criações da coleção têm sua taxa limitada pelo Banco de Dados de Documentos, por isso, alguns dos métodos de exemplo mostrados aqui podem levar alguns minutos para serem concluídos.
 
 ##Perguntas frequentes
 **Por que o Banco de Dados de Documentos dá suporte ao particionamento do lado do cliente versus particionamento do lado do servidor?**
@@ -164,7 +164,7 @@ Você pode serializar o estado do particionador como JSON e armazená-lo em arqu
 * [Documentação do SDK .NET do Banco de Dados de Documentos no MSDN](https://msdn.microsoft.com/library/azure/dn948556.aspx)
 * [Amostras do .NET do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-net)
 * [Limites do Banco de Dados de Documentos](documentdb-limits.md)
-* [Blog do Banco de Dados de Documentos sobre dicas de desempenho](http://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
+* [Blog do Banco de Dados de Documentos sobre dicas de desempenho](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

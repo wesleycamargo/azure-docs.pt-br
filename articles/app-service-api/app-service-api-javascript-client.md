@@ -314,7 +314,7 @@ Nesta seção, você vai criar um novo aplicativo Web vazio, instalar e usar o A
 
 1, No código que você acabou de adicionar a index.html, substitua o número da porta na URL base (`http://localhost:1578`) pelo número de porta real para o projeto de API.
 
->[AZURE.NOTE]**Observação:** não use o número da porta do projeto do cliente HTML. É possível clicar com o botão direito do mouse no projeto de API e clicar em **Depurar > Iniciar Nova Instância** para ver uma janela de navegador que mostre o número da porta.
+>[AZURE.NOTE] **Observação:** não use o número da porta do projeto do cliente HTML. É possível clicar com o botão direito do mouse no projeto de API e clicar em **Depurar > Iniciar Nova Instância** para ver uma janela de navegador que mostre o número da porta.
 
 1. Assegure que, quando você executar o cliente HTML, o projeto de aplicativo de API também esteja em execução; caso contrário, o HTML JavaScript não funcionará corretamente. Clique com o botão direito na solução e selecione **Propriedades**. Em seguida, defina ambos os projetos da Web como **Iniciar sem depuração**, e especifique que o projeto de API seja executado primeiro. 
 
@@ -373,4 +373,4 @@ Este exemplo demonstrou como você pode usar AngularJS como sua plataforma de Ja
 
 Este exemplo mostra o acesso não autenticado a um aplicativo de API. Para saber mais sobre a autenticação no Serviço de Aplicativo, veja [Autenticação para aplicativos de API e aplicativos móveis](../app-service/app-service-authentication-overview.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

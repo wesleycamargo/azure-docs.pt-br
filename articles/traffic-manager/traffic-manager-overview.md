@@ -61,7 +61,7 @@ A *Figura 2* mostra as etapas, em ordem, que são necessárias para implementar 
    - **Crie seu perfil do Gerenciador de Tráfego**: para criar um perfil usando a Criação Rápida no Portal Clássico do Azure, confira [Gerenciar Perfis do Gerenciador de Tráfego](traffic-manager-manage-profiles.md).
    - **Configurar as definições do método de roteamento de tráfego** – Na Criação Rápida, você deve selecionar o método de roteamento de tráfego para o seu perfil. Essa configuração pode ser alterada a qualquer momento após a conclusão das etapas de Criação Rápida. Para etapas de configuração, consulte o tópico que corresponde ao seu método de roteamento de tráfego: [Configurar o método de roteamento de tráfego de Desempenho](traffic-manager-configure-performance-load-balancing.md), [Configurar o método de roteamento de tráfego de Failover](traffic-manager-configure-failover-load-balancing.md) e [Configurar o método de roteamento de tráfego de Round Robin](traffic-manager-configure-round-robin-load-balancing.md).
    
-   >[AZURE.NOTE]O método Round Robin de roteamento de tráfego agora dá suporte à distribuição ponderada de tráfego de rede. No entanto, neste momento você deve usar APIs REST ou o Windows PowerShell para configurar o peso. Para obter mais informações e um exemplo de configuração, consulte [Pontos de extremidade externos do Gerenciador de Tráfego do Azure e Round Robin ponderado por meio do PowerShell](http://azure.microsoft.com/blog/2014/06/26/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/) no blog do Azure.
+   >[AZURE.NOTE] O método Round Robin de roteamento de tráfego agora dá suporte à distribuição ponderada de tráfego de rede. No entanto, neste momento você deve usar APIs REST ou o Windows PowerShell para configurar o peso. Para obter mais informações e um exemplo de configuração, consulte [Pontos de extremidade externos do Gerenciador de Tráfego do Azure e Round Robin ponderado por meio do PowerShell](https://azure.microsoft.com/blog/2014/06/26/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/) no blog do Azure.
 
    - **Configure os pontos de extremidade** – os pontos de extremidade não são configurados durante a Criação Rápida. Depois de criar seu perfil e especificar seu método de roteamento de tráfego, você deve informar os pontos de extremidade ao Gerenciador de Tráfego. Para obter as etapas de como configurar pontos de extremidade, consulte [Gerenciar pontos de extremidade no Gerenciador de Tráfego](traffic-manager-endpoints.md)
 
@@ -79,7 +79,7 @@ Embora cada elemento da API REST não esteja visível no Portal Clássico do Azu
 
 Para obter mais informações sobre os cmdlets do Windows PowerShell para o Gerenciador de Tráfego, consulte [Cmdlets do Gerenciador de Tráfego do Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769).
 
->[AZURE.NOTE]Atualmente, não há suporte para a configuração de pontos de extremidade externos (tipo = 'Qualquer'), ponderações para o método de roteamento de tráfego Round Robin e perfis aninhados com o Portal Clássico do Azure. Você deve usar o REST (consulte [Criar definição](http://go.microsoft.com/fwlink/p/?LinkId=400772)) ou o Windows PowerShell (consulte [Add-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/azure/dn690257.aspx)).
+>[AZURE.NOTE] Atualmente, não há suporte para a configuração de pontos de extremidade externos (tipo = 'Qualquer'), ponderações para o método de roteamento de tráfego Round Robin e perfis aninhados com o Portal Clássico do Azure. Você deve usar o REST (consulte [Criar definição](http://go.microsoft.com/fwlink/p/?LinkId=400772)) ou o Windows PowerShell (consulte [Add-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/azure/dn690257.aspx)).
 
 ### Definição das configurações no Portal Clássico do Azure
 
@@ -172,4 +172,4 @@ Se você quiser obter as figuras deste tópico como slides do PowerPoint para su
 
 [Cmdlets do Gerenciador de Tráfego do Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->
