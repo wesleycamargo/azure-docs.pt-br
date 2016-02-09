@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Tutorial do HBase: Introdução ao HBase no Hadoop | Microsoft Azure"
+	pageTitle="Tutorial do HBase: Introdução aos clusters HBase baseados em Linux no Hadoop | Microsoft Azure"
 	description="Siga este tutorial do HBase para começar a usar o Apache HBase com o Hadoop no HDInsight. Criar tabelas a partir do shell do HBase e consultá-las usando o Hive."
 	keywords="apache hbase, hbase, shell do hbase,tutorial do hbase"
 	services="hdinsight"
@@ -14,64 +14,53 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/02/2015"
+	ms.date="02/01/2016"
 	ms.author="jgao"/>
 
 
 
-# Tutorial do HBase: Introdução ao uso do Apache HBase com o Hadoop no HDInsight (Linux)
+# Tutorial do HBase: Introdução ao uso do Apache HBase com o Hadoop baseado em Linux no HDInsight 
 
 [AZURE.INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
 
-
 Saiba como criar um cluster HBase no HDInsight, criar tabelas HBase e consultar as tabelas usando o Hive. Para obter informações gerais do HBase, consulte [Visão geral do HBase do HDInsight][hdinsight-hbase-overview].
 
-> [AZURE.NOTE] As informações neste documento são específicas de clusters HDInsight baseados em Linux. Para saber mais sobre clusters baseados no Windows, confira [Introdução do uso do Apache HBase com Hadoop no HDInsight (Windows)](hdinsight-hbase-tutorial-get-started.md).
+As informações neste documento são específicas de clusters HDInsight baseados em Linux. Para saber mais sobre clusters baseados no Windows, use o seletor de guias na parte superior da página para alternar.
 
 ###Pré-requisitos
 
 Antes de começar este tutorial do HBase, você deve ter o seguinte:
 
 - **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- PuTTY e PuTTYGen para clientes baseados em Windows. Esses utilitários estão disponíveis em [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+- [Secure Shell(SSU)](hdinsight-hadoop-linux-use-ssh-unixl.md). 
 - [curl](http://curl.haxx.se/download.html).
 
-## Criar um cluster HBase
+## Nome do cluster HBase
 
-[AZURE.INCLUDE [provisioningnote](../../includes/hdinsight-provisioning.md)]
+O procedimento a seguir usa um modelo ARM do Azure para criar um cluster HBase. Para compreender os parâmetros usados no procedimento e em outros métodos de criação de cluster, confira [Criar clusters Hadoop baseados em Linux no HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
-**Para criar um cluster HBase usando o portal de visualização do Azure**
+1. Clique na imagem a seguir para abrir um modelo ARM no Portal do Azure. O modelo ARM está localizado em um contêiner de blob público. 
 
+    [![Implantar no Azure](./media/hdinsight-hbase-tutorial-get-started-linux/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2FHbase.json)
 
-1. Entre no [Portal de Visualização do Azure][azure-portal].
-2. Clique em **Novo** no canto superior esquerdo e clique em **Dados + Análise**, **HDInsight**.
-3. Insira os valores a seguir:
+2. Na folha **Parâmetros**, insira o seguinte:
 
+    - **ClusterName**: insira um nome para o cluster HBase que você criará.
+    - **ClusterStorageAccountName**: cada cluster tem uma dependência de conta de armazenamento de Blobs do Azure. Depois que você excluir um cluster, os dados serão mantidos na conta de armazenamento.
+    - **Nome e senha de logon do cluster**: o nome de logon padrão é **admin**.
+    - **Nome de usuário e senha SSH**: o nome de usuário padrão é **sshuser**. Você pode renomeá-lo. Outros parâmetros são opcionais.  
+3. Clique em **OK** para salvar os parâmetros.
+4. Na folha **Implantação personalizada**, clique na caixa suspensa **Grupo de recursos** e então clique em **Novo** para criar um novo grupo de recursos. O grupo de recursos é um contêiner que agrupa o cluster, a conta de armazenamento dependente e outros recursos vinculados.
+5. Clique em **Termos legais** e clique em **Criar**.
+6. Clique em **Criar**. A criação de um cluster demora cerca de 20 minutos.
 
-	- **Nome do Cluster** - insira um nome para identificar este cluster.
-	- **Tipo de Cluster**: selecione **HBase**
-	- **Sistema Operacional do Cluster**: selecione **Linux**. Para criar clusters Hbase baseados no Windows, confira [Tutorial do HBase: Introdução ao uso do Apache HBase com Hadoop no HDInsight (Windows)](hdinsight-hbase-tutorial-get-started.md).
-	- **Versão** - selecione uma versão do HBase.
-	- **Assinatura** - selecione a sua assinatura do Azure usada para criar este cluster.
-	- **Grupo de Recursos** - crie um novo grupo de recursos do Azure ou selecione um existente. Para saber mais, confira [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md).
-	- **Credenciais**. Digite uma senha para o usuário do serviço Web HTTP. O nome de usuário padrão é **admin**. Você também deve inserir um **Nome de Usuário de SSH** e uma **SENHA** ou uma **CHAVE PÚBLICA**, que será usada para autenticar o usuário SSH. Usar uma chave pública é a abordagem recomendada. Para obter mais informações sobre como usar SSH com o HDInsight, consulte um dos seguintes artigos:
-
-		- [Usar SSH com Hadoop baseado em Linux no HDInsight no Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-		- [Usar SSH com Hadoop baseado em Linux no HDInsight do Windows](hdinsight-hadoop-linux-use-ssh-windows.md) Clique em **Selecionar** para salvar as mudanças.
-	- **Fonte de Dados** - crie uma nova conta de armazenamento do Azure ou selecione uma conta de armazenamento existente do Azure a ser usada como o sistema de arquivos padrão para o cluster. O local da conta de armazenamento padrão determina o local do cluster. A conta de armazenamento padrão e o cluster devem estar localizados no mesmo data center.
-	- **Observar Tipos de Preço** - selecione o número de servidores de região para o cluster HBase
-
-		> [AZURE.WARNING] Para alta disponibilidade dos serviços HBase, você deverá criar um cluster que contenha pelo menos **três** nós. Isso garante que, se um nó falhar, as regiões de dados do HBase estão disponíveis em outros nós.
-
-		> Se você estiver aprendendo a usar o HBase, sempre escolha 1 para o tamanho do cluster e exclua o cluster após cada uso para reduzir o custo.
-
-	- **Configuração Opcional**: configure a rede virtual do Azure, configure as ações de Script e adicione mais contas de armazenamento.
-
-4. Clique em **Criar**.
 
 >[AZURE.NOTE] Depois que um cluster HBase for excluído, você pode criar outro cluster HBase usando o mesmo contêiner de blob padrão. O novo cluster selecionará as tabelas HBase criadas por você no cluster original.
 
-## Usar o shell HBase
+## Criar tabelas e inserir dados
+
+Você pode usar o SSH para se conectar aos clusters HBase e usar o Shell do HBase para criar tabelas HBase, inserir dados e consultar dados. Para saber mais sobre como usar o SSH no Linux, no Unix, no OS X e no Windows, veja [Usar SSH com Hadoop baseado em Linux no HDInsight do Linux, do Unix ou do OS X](hdinsight-hadoop-linux-use-ssh-unix.md) e [Usar SSH com Hadoop baseado em Linux no HDInsight do Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+ 
 
 Para a maioria das pessoas, os dados aparecem no formato de tabela:
 
@@ -86,18 +75,7 @@ Depois de concluir o procedimento a seguir, ele fará mais sentido.
 
 **Para usar o shell HBase**
 
->[AZURE.NOTE] As etapas fornecidas aqui são de um computador com Windows. Para obter as instruções para conectar-se a um cluster HDInsight baseado em Linux no Linux, no Unix ou no OS X, confira [Usar SSH com Hadoop baseado em Linux no HDInsight do Linux, do Unix ou do OS X (visualização)](hdinsight-hadoop-linux-use-ssh-unix.md) 1. Abra o **PuTTY**. Consulte os pré-requisitos listados no início do artigo. 2. Se você tiver fornecido uma chave SSH quando criou sua conta de usuário durante o processo de criação, execute a etapa a seguir para selecionar a chave privada a ser usada para autenticar para o cluster:
-
-	In **Category**, expand **Connection**, expand **SSH**, and select **Auth**. Finally, click **Browse** and select the .ppk file that contains your private key.
-
-3. Em **Categoria**, clique em **Sessão**.
-4. Opções básicas para a tela de sessão PuTTY, digite os seguintes valores:
-
-	- Nome do host: o endereço SSH do seu campo de servidor em nome de Host (ou endereço IP) do HDInsight. O endereço SSH é o nome do cluster, seguido de **-ssh.azurehdinsight.net**. Por exemplo, *mycluster-ssh.azurehdinsight.net*.
-	- Porta: 22. A porta ssh no nó de cabeçalho 0 é 22. Confira [Informações sobre o uso do HDInsight em Linux (visualização)](hdinsight-hadoop-linux-information.md#remote-access-to-services).
-4. Clique em **Abrir** para se conectar ao cluster.
-5. Quando solicitado, insira o usuário que você inseriu ao criar o cluster. Se você tiver fornecido um senha para o usuário, você deverá inseri-la também.
-6. Execute o comando a seguir:
+1. Do SSH, execute este comando:
 
 		hbase shell
 
@@ -123,7 +101,6 @@ Depois de concluir o procedimento a seguir, ele fará mais sentido.
 
 	Para saber mais sobre o esquema da tabela HBase, confira [Introdução ao design de esquema HBase][hbase-schema]. Para obter mais comandos HBase, consulte [Guia de referência do Apache HBase][hbase-quick-start].
 
-
 6. Sair do shell
 
 		exit
@@ -133,7 +110,7 @@ Depois de concluir o procedimento a seguir, ele fará mais sentido.
 O HBase inclui vários métodos de carregamento de dados em tabelas. Para obter mais informações, consulte [Carregamento em massa](http://hbase.apache.org/book.html#arch.bulk.load).
 
 
-Um arquivo de exemplo de dados foi carregado para um contêiner público de blobs, wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt. O conteúdo do arquivo de dados é:
+Um arquivo de dados de exemplo foi carregado em um contêiner público de blobs, **wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*. O conteúdo do arquivo de dados é:
 
 	8396	Calvin Raji		230-555-0191	230-555-0191	5415 San Gabriel Dr.
 	16600	Karen Wu		646-555-0113	230-555-0192	9265 La Paz
@@ -150,8 +127,7 @@ Você pode criar um arquivo de texto e carregá-lo à sua própria conta de arma
 
 > [AZURE.NOTE] Este procedimento usa a tabela de contatos HBase que você criou no último procedimento.
 
-1. Abra o **PuTTY** e conecte-se ao cluster. Consulte as instruções no procedimento anterior.
-3. Execute o seguinte comando para transformar o arquivo de dados para o StoreFiles e armazene em um caminho relativo especificado por Dimporttsv.bulk.output:
+1. Do SSH, execute o seguinte comando para transformar o arquivo de dados para o StoreFiles e armazene em um caminho relativo especificado por Dimporttsv.bulk.output:. Se você estiver no Shell do HBase, use o comando exit para sair.
 
 		hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name, Personal:Phone, Office:Phone, Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
 
@@ -163,10 +139,9 @@ Você pode criar um arquivo de texto e carregá-lo à sua própria conta de arma
 
 
 
-## Usar o Hive para consultar tabelas HBase
+## Usar o Hive para consultar o HBase
 
 Você pode consultar os dados nas tabelas HBase usando o Hive. Esta seção cria uma tabela Hive que faz o mapeamento para a tabela do HBase e usa-a para consultar os dados em sua tabela do HBase.
-
 
 1. Abra o **PuTTY** e conecte-se ao cluster. Consulte as instruções no procedimento anterior.
 2. Abra o shell de Hive.
@@ -277,7 +252,7 @@ Em um cluster de alta disponibilidade, você encontrará um link para o nó mest
 
 
 
-## O que vem a seguir?
+## Próximas etapas?
 Neste tutorial do HBase para o HDInsight, você aprendeu a criar um cluster HBase, criar tabelas e exibir os dados nessas tabelas por meio do shell HBase. Você também aprendeu a usar a consulta do Hive dos dados em tabelas HBase e como usar as APIs REST C# do HBase para criar uma tabela HBase e recuperar dados da tabela.
 
 Para obter mais informações, consulte:
@@ -312,4 +287,4 @@ Para obter mais informações, consulte:
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

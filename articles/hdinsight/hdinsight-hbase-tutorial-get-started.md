@@ -14,21 +14,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/02/2015"
+	ms.date="01/29/2016"
 	ms.author="jgao"/>
 
 
 
-# Tutorial do HBase: Introdução ao uso do Apache HBase com o Hadoop no HDInsight (Windows)
+# Tutorial do HBase: Introdução ao uso do Apache HBase com o Hadoop baseado no Windows no HDInsight
 
 [AZURE.INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
 
-
 Saiba como criar um cluster HBase no HDInsight, criar tabelas HBase e consultar as tabelas usando o Apache Hive. Para obter informações gerais do HBase, consulte [Visão geral do HBase do HDInsight][hdinsight-hbase-overview].
 
-> [AZURE.NOTE] As informações neste documento são específicas de clusters HDInsight baseados em Windows. Para saber mais sobre o uso de clusters baseados no Linux, consulte [Tutorial do HBase: Introdução ao uso do Apache HBase com Hadoop no HDInsight (Linux)](hdinsight-hbase-tutorial-get-started-linux.md).
->
-> O HBase (versão 0.98.0) no HDInsight baseado em Windows está disponível somente para uso com os clusters do HDInsight 3.1 (baseado no Apache Hadoop e YARN 2.4.0). Para obter informações sobre a versão, consulte [O que há de novo nas versões de cluster do Hadoop fornecidas pelo HDInsight?][hdinsight-versions]
+As informações neste documento são específicas de clusters HDInsight baseados em Windows. Para saber mais sobre clusters baseados no Windows, use o seletor de guias na parte superior da página para alternar.
+
+> [AZURE.NOTE] O HBase (versão 0.98.0) no HDInsight baseado em Windows está disponível somente para uso com os clusters do HDInsight 3.1 (baseado no Apache Hadoop e YARN 2.4.0). Para obter informações sobre a versão, consulte [O que há de novo nas versões de cluster do Hadoop fornecidas pelo HDInsight?][hdinsight-versions]
 
 ###Pré-requisitos
 
@@ -67,7 +66,8 @@ Antes de começar este tutorial do HBase, você deve ter o seguinte:
 
 >[AZURE.NOTE] Depois que um cluster HBase for excluído, você pode criar outro cluster HBase usando a mesma conta de armazenamento padrão e o mesmo contêiner de blob padrão. O novo cluster selecionará as tabelas HBase criadas por você no cluster original.
 
-## Usar o shell HBase
+## Criar tabelas e inserir dados
+
 Atualmente, há duas maneiras de acessar o HBase. Esta seção aborda o uso do shell do HBase. A próxima seção aborda o uso do SDK do .NET.
 
 Para a maioria das pessoas, os dados aparecem no formato de tabela:
@@ -331,4 +331,4 @@ Para obter mais informações, consulte:
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

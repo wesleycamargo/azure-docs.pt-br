@@ -6,7 +6,7 @@
 	documentationCenter="java" 
 	authors="aliuy" 
 	manager="jhubbard" 
-	editor="monicar"/>
+	editor="mimig"/>
 
 <tags 
 	ms.service="documentdb" 
@@ -14,7 +14,7 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="NA" 
 	ms.workload="data-services" 
-	ms.date="10/20/2015" 
+	ms.date="01/29/2015" 
 	ms.author="andrl"/>
 
 # Criar um aplicativo Web Java usando o Banco de Dados de Documentos
@@ -34,7 +34,7 @@ Este tutorial de aplicativo Java mostra como criar um aplicativo de gerenciament
 
 ![Aplicativo Java Minha lista de tarefas pendentes](./media/documentdb-java-application/image1.png)
 
-> [AZURE.TIP]Este tutorial de desenvolvimento de aplicativo presume que você tenha experiência anterior com o Java. Se você não estiver familiarizado com Java ou com as [ferramentas de pré-requisito](#Prerequisites), recomendamos o download completo do projeto [tarefas](https://github.com/Azure-Samples/documentdb-java-todo-app) do GitHub e compilação dele usando [as instruções no final deste artigo](#GetProject). Depois de compilá-lo, você poderá consultar o artigo para obter informações sobre o código no contexto do projeto.
+> [AZURE.TIP] Este tutorial de desenvolvimento de aplicativo presume que você tenha experiência anterior com o Java. Se você não estiver familiarizado com Java ou com as [ferramentas de pré-requisito](#Prerequisites), recomendamos o download completo do projeto [tarefas](https://github.com/Azure-Samples/documentdb-java-todo-app) do GitHub e compilação dele usando [as instruções no final deste artigo](#GetProject). Depois de compilá-lo, você poderá consultar o artigo para obter informações sobre o código no contexto do projeto.
 
 ##<a id="Prerequisites"></a>Pré-requisitos para este tutorial de aplicativo Web Java
 Antes de começar este tutorial de desenvolvimento de aplicativo, você deve ter:
@@ -95,7 +95,7 @@ Para fazer isso, você precisará converter o projeto para um projeto Maven conc
 4. Na janela **Selecionar dependência**, faça o seguinte:
  - Na caixa **GroupId**, insira com.microsoft.azure.
  - Na caixa **Id de artefato**, insira azure-documentdb.
- - Na caixa **Versão**, insira 1.4.0.
+ - Na caixa **Versão**, insira 1.5.1.
 
 	![Instalar o SDK do aplicativo Java para Banco de Dados de Documentos](./media/documentdb-java-application/image13.png)
 
@@ -104,7 +104,7 @@ Para fazer isso, você precisará converter o projeto para um projeto Maven conc
 	    <dependency>
 		    <groupId>com.microsoft.azure</groupId>
 		    <artifactId>azure-documentdb</artifactId>
-		    <version>1.4.0</version>
+		    <version>1.5.1</version>
 	    </dependency>
 
 5. Clique em **Ok** e o Maven instalará o SDK do Java do Banco de Dados de Documentos.
@@ -770,7 +770,7 @@ Todos os exemplos neste tutorial foram incluídos no projeto [tarefas](https://g
 8. Na tela **Destino Local**, clique em **Procurar** para selecionar uma pasta onde o repositório possa ser copiado e, em seguida, clique em **Próximo**.
 9. Na tela **Selecionar um assistente a ser usado para importar projetos**, verifique se **Importar projetos existentes** está selecionado e, em seguida, clique em **Próximo**.
 10. Na tela **Importar projetos**, desmarque o projeto **Banco de Dados de Documentos** e, em seguida, clique em **Concluir**. O projeto Banco de Dados de Documentos contém o SDK Java do Banco de Dados de Documentos, que adicionaremos como uma dependência em seu lugar.
-11. No **Explorador de Projeto**, navegue até azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java e substitua os valores HOST e MASTER_KEY pela URI e a CHAVE PRIMÁRIA para a sua conta do Banco de Dados de Documentos e, em seguida, salve o arquivo. Para obter mais informações, consulte a [Etapa 1. Criar uma conta de banco de dados do Banco de Dados de Documentos](#CreateDB).
+11. No **Explorador de Projeto**, navegue até azure-documentdb-java-sample\\src\\com.microsoft.azure.documentdb.sample.dao\\DocumentClientFactory.java e substitua os valores HOST e MASTER\_KEY pela URI e a CHAVE PRIMÁRIA para a sua conta do Banco de Dados de Documentos e, em seguida, salve o arquivo. Para obter mais informações, consulte a [Etapa 1. Criar uma conta de banco de dados do Banco de Dados de Documentos](#CreateDB).
 12. Em **Explorador de Projeto**, clique com o botão direito do mouse em **azure-documentdb-java-sample**, clique em **Caminho de compilação** e, em seguida, clique em **Configurar caminho de compilação**.
 13. Na tela **Caminho de compilação Java**, no painel direito, selecione a guia **Bibliotecas** e, em seguida, clique em **Adicionar JARs Externos**. Navegue até o local do arquivo lombok.jar e clique em **Abrir** e, em seguida, clique em **OK**.
 14. Use a Etapa 12 para abrir a janela **Propriedades** novamente e, no painel esquerdo, clique em **Tempos de Execução Direcionados**.
@@ -786,4 +786,4 @@ Todos os exemplos neste tutorial foram incluídos no projeto [tarefas](https://g
 [1]: media/documentdb-java-application/keys.png
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

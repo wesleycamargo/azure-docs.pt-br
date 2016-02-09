@@ -43,7 +43,7 @@ A tabela a seguir fornece informações sobre regiões e limites geopolíticos p
 
 |**Região Geopolítica**|**Regiões do Azure**|**Locais de Rota Expressa**|
 |---|---|---|---|
-|**Nuvem do Governo dos EUA**|Gov Iowa-EUA, Gov Virginia-EUA|Iowa, Virgínia|Chicago, Washington D.C.|
+|**Nuvem do Governo dos EUA**|Gov Iowa-EUA, Gov Virginia-EUA|Chicago, Washington D.C.|
 |**Nuvem na China**|Norte da China, Leste da China|Pequim, Xangai|
 
 
@@ -94,8 +94,8 @@ Não há suporte para conectividade entre regiões geopolíticas no SKU de Rota 
 | **Provedor de serviços** |**Microsoft Azure** | **Office 365** | **Locais** |
 |-----------------------|--------------------|----------------|---------------|
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Com suporte | Sem suporte | Chicago, Washington D.C. |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Suportado | Sem suporte | Chicago+, Washington D.C. |
-| **[Comunicações de nível 3 - IPVPN](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Suportado | Sem suporte | Chicago+, Washington D.C. |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Suportado | Sem suporte | Chicago, Washington D.C. |
+| **[Comunicações de nível 3 - IPVPN](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Suportado | Sem suporte | Chicago, Washington D.C. |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Suportado | Sem suporte | Chicago, Washington D.C. |
 
 #### Nuvem na China
@@ -133,7 +133,7 @@ Habilitar a conectividade privada para atender às suas necessidades pode ser de
 |---|---|
 |**[Nimbo](http://www.nimbo.com/)**|EUA||
 |**[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)**|EMEA|
-|**[Liderança de Projeto](http://www.projectleadership.net/azure)** | EUA |
+|**[Project Leadership](http://www.projectleadership.net/azure)** | EUA |
 |**[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | EUA |
 
 ## Próximas etapas
@@ -141,4 +141,4 @@ Habilitar a conectividade privada para atender às suas necessidades pode ser de
 - Para obter mais informações sobre a Rota Expressa, consulte [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md).
 - Certifique-se que todos os pré-requisitos foram atendidos. Confira [Pré-requisitos da Rota Expressa](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

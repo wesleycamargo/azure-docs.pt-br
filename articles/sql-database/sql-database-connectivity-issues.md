@@ -5,7 +5,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="dalechen"
-	manager="msmets"
+	manager="felixwu"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/06/2016"
+	ms.date="02/02/2016"
 	ms.author="daleche"/>
 
 
@@ -32,7 +32,11 @@ Se seu programa cliente estiver usando o ADO.NET, o programa será informado sob
 
 ### Conexão versus comando
 
-Você tentará novamente a conexão SQL ou a estabelecerá novamente, dependendo do seguinte: * **Ocorre um erro transitório durante uma tentativa de conexão**: a conexão deve ser repetida após ser atrasada por vários segundos. * **Ocorre um erro transitório durante um comando de consulta SQL**: o comando não deve ser repetido imediatamente. Em vez disso, após um atraso, uma nova conexão deverá ser estabelecida. Em seguida, o comando poderá ser repetido.
+Você tentará fazer a conexão SQL outra vez ou estabelecê-la novamente, dependendo do seguinte:
+
+* **Um erro transitório ocorre durante uma tentativa de conexão**: a conexão deverá ser repetida após um atraso de alguns segundos.
+
+* **Um erro transitório ocorre durante um comando de consulta SQL**: o comando não deverá ser repetido imediatamente. Em vez disso, após um atraso, uma nova conexão deverá ser estabelecida. Em seguida, o comando poderá ser repetido.
 
 
 <a id="j-retry-logic-transient-faults" name="j-retry-logic-transient-faults"></a>
@@ -403,7 +407,7 @@ Estes são links para as informações sobre o EntLib60:
 
 - [Download gratuito do livro: Guia do desenvolvedor para o Microsoft Enterprise Library, 2ª edição](http://www.microsoft.com/download/details.aspx?id=41145)
 
-- Práticas recomendadas: [Diretrizes gerais para tentativas de repetição](best-practices-retry-general.md) tem uma excelente discussão detalhada sobre lógica de repetição.
+- Práticas recomendadas: [Diretrizes gerais para tentativas de repetição](../best-practices-retry-general.md) tem uma excelente discussão detalhada sobre lógica de repetição.
 
 - Download NuGet de [Enterprise Library - bloqueio de aplicativos de manipulação de falhas transitórias 6.0](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/)
 
@@ -506,4 +510,4 @@ public bool IsTransient(Exception ex)
 
 - [*Retrying* é uma biblioteca de tentativas de repetições de finalidade geral licenciada do Apache 2.0, escrita em **Python**, para simplificar a tarefa de adicionar comportamento de tentativa de repetição para quase tudo.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

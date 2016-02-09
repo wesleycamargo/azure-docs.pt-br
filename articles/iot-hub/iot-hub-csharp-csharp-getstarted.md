@@ -102,9 +102,9 @@ Agora você está pronto para executar os aplicativos.
 
 Neste tutorial, você configurou um novo hub IoT no portal e depois criou uma identidade de dispositivo no registro de identidade do hub. Você usou essa identidade de dispositivo em um dispositivo simulado que envia mensagens de dispositivo para a nuvem para o hub e criou outro aplicativo que exibe as mensagens recebidas pelo hub. Você pode continuar a explorar os recursos do hub IoT e outros cenários de IoT nestes tutoriais:
 
-- [Enviar mensagens da Nuvem para o Dispositivo com o Hub IoT](lnk-c2d-tutorial) mostra como enviar mensagens para dispositivos e como processar os comentários de entrega produzidos pelo Hub IoT.
-- [Processar mensagens do Dispositivo para a Nuvem](lnk-process-d2c-tutorial) mostra como processar de forma confiável a telemetria e as mensagens interativas vindas dos dispositivos.
-- [Carregando arquivos de dispositivos](lnk-upload-tutorial) descreve um padrão que usa mensagens da nuvem para o dispositivo para facilitar o carregamento de arquivo dos dispositivos.
+- [Enviar mensagens da Nuvem para o Dispositivo com o Hub IoT][lnk-c2d-tutorial] mostra como enviar mensagens para dispositivos e como processar os comentários de entrega produzidos pelo Hub IoT.
+- [Processar mensagens do Dispositivo para a Nuvem][lnk-process-d2c-tutorial] mostra como processar de forma confiável a telemetria e as mensagens interativas vindas dos dispositivos.
+- [Carregando arquivos de dispositivos][lnk-upload-tutorial] descreve um padrão que usa mensagens da nuvem para o dispositivo para facilitar o carregamento de arquivo dos dispositivos.
 
 <!-- Images. -->
 [1]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub1.png
@@ -125,4 +125,4 @@ Neste tutorial, você configurou um novo hub IoT no portal e depois criou uma id
 [lnk-resource-groups]: resource-group-portal.md
 [lnk-portal]: https://portal.azure.com/
 
-<!-----HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

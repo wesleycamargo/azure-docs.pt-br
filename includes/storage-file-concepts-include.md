@@ -19,7 +19,7 @@ O armazenamento de arquivos contém os seguintes componentes:
 
 ![files-concepts][files-concepts]
 
--   **Conta de Armazenamento:** todo o acesso ao Armazenamento do Azure é feito através de uma conta de armazenamento. Consulte [Escalabilidade e Metas de Desempenho do Armazenamento do Azure](http://msdn.microsoft.com/library/azure/dn249410.aspx) para obter detalhes sobre a capacidade da conta de armazenamento.
+-   **Conta de Armazenamento:** todo o acesso ao Armazenamento do Azure é feito através de uma conta de armazenamento. Consulte [Escalabilidade e Metas de Desempenho do Armazenamento do Azure](../articles/storage/storage-scalability-targets.md) para obter detalhes sobre a capacidade da conta de armazenamento.
 
 -   **Compartilhamento**: um compartilhamento do armazenamento de arquivos é um compartilhamento de arquivos SMB no Azure. Todos os arquivos e diretórios devem ser criados em um compartilhamento pai. Uma conta de armazenamento pode conter um número ilimitado de compartilhamentos e um compartilhamento pode armazenar um número ilimitado de arquivos, até a capacidade total de 5 TB do armazenamento de arquivos.
 
@@ -36,4 +36,4 @@ Para obter detalhes sobre como nomear compartilhamentos, diretórios e arquivos,
 
 [files-concepts]: ./media/storage-file-concepts-include/files-concepts.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

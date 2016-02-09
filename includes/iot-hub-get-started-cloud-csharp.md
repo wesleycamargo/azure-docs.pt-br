@@ -8,7 +8,7 @@ Nesta seção, você cria um aplicativo do console do Windows que cria uma nova 
 
 2. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **CreateDeviceIdentity** e clique em **Gerenciar Pacotes NuGet**.
 
-3. Na janela **Gerenciador de Pacotes NuGet**, verifique se a opção **Incluir pré-lançamento** está marcada. Em seguida, procure **Dispositivos do Microsoft Azure**, clique em **Instalar** para instalar o pacote **Microsoft.Azure.Devices** e aceite os termos de uso.
+3. Na janela **Gerenciador de Pacotes NuGet**, procure **Dispositivos do Microsoft Azure**, clique em **Instalar** para instalar o pacote **Microsoft.Azure.Devices** e aceite os termos de uso.
 
 	![][11]
 
@@ -53,11 +53,11 @@ Nesta seção, você cria um aplicativo do console do Windows que cria uma nova 
 
     ![][12]
 
-> [AZURE.NOTE]O registro de identidade do Hub IoT armazena apenas as identidades de dispositivo para habilitar o acesso seguro ao hub. Ele armazena as IDs e as chaves de dispositivo para usar como credenciais de segurança e um sinalizador habilitado/desabilitado que permite que você desabilite o acesso para um dispositivo individual. Se seu aplicativo precisar armazenar outros metadados específicos do dispositivo, ele deverá usar um repositório específico do aplicativo. Veja o [Guia do Desenvolvedor do Hub IoT][lnk-devguide-identity] para saber mais.
+> [AZURE.NOTE] O registro de identidade do Hub IoT armazena apenas as identidades de dispositivo para habilitar o acesso seguro ao hub. Ele armazena as IDs e as chaves de dispositivo para usar como credenciais de segurança e um sinalizador habilitado/desabilitado que permite que você desabilite o acesso para um dispositivo individual. Se seu aplicativo precisar armazenar outros metadados específicos do dispositivo, ele deverá usar um repositório específico do aplicativo. Veja o [Guia do Desenvolvedor do Hub IoT][lnk-devguide-identity] para saber mais.
 
 ## Receber mensagens do dispositivo para a nuvem
 
-Nesta seção, você cria um aplicativo do console do Windows que lê mensagens do dispositivo para a nuvem do Hub IoT. Um hub IoT expõe um ponto de extremidade compatível com os [Hubs de Eventos][lnk-event-hubs-overview] para permitir que você leia mensagens do dispositivo para a nuvem. Para simplificar, este tutorial cria um leitor básico que não é adequado para uma implantação de alta taxa de transferência. O tutorial [Processar mensagens do dispositivo para a nuvem][lnk-processd2c-tutorial] mostra como processar mensagens do dispositivo para a nuvem em escala. O tutorial [Introdução aos Hubs de Eventos][lnk-eventhubs-tutorial] oferece informações adicionais sobre como processar mensagens de Hubs de Eventos e se aplica aos pontos de extremidade compatíveis com o Hub de Eventos Hub IoT.
+Nesta seção, você cria um aplicativo do console do Windows que lê mensagens do dispositivo para a nuvem do Hub IoT. Um hub IoT expõe um ponto de extremidade compatível com os [Hubs de Eventos][lnk-event-hubs-overview] para permitir que você leia mensagens do dispositivo para a nuvem. Para simplificar, este tutorial cria um leitor básico que não é adequado para uma implantação de alta taxa de transferência. O tutorial [Processar mensagens do dispositivo para a nuvem][lnk-processd2c-tutorial] mostra como processar mensagens do dispositivo para a nuvem em escala. O tutorial [Introdução aos Hubs de Eventos][lnk-eventhubs-tutorial] oferece informações adicionais sobre como processar mensagens de Hubs de Eventos e se aplica aos pontos de extremidade compatíveis com o Hub de Eventos do Hub IoT.
 
 1. No Visual Studio, adicione um novo projeto de Área de Trabalho Clássica do Windows no Visual C# para a solução atual usando o modelo de projeto do **Aplicativo do Console**. Nomeie o projeto **ReadDeviceToCloudMessages**.
 
@@ -65,7 +65,7 @@ Nesta seção, você cria um aplicativo do console do Windows que lê mensagens 
 
 2. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **ReadDeviceToCloudMessages** e clique em **Gerenciar Pacotes NuGet**.
 
-3. Na janela **Gerenciador de Pacotes NuGet**, verifique se a opção **Incluir pré-lançamento** está marcada. Em seguida, procure **WindowsAzure.ServiceBus**, clique em **Instalar** e aceite os termos de uso.
+3. Na janela **Gerenciador de Pacotes NuGet**, procure **WindowsAzure.ServiceBus**, clique em **Instalar** e aceite os termos de uso.
 
     Isso baixa, instala e adiciona uma referência ao [Barramento de Serviço do Azure][lnk-servicebus-nuget] com todas as dependências.
 
@@ -94,7 +94,7 @@ Nesta seção, você cria um aplicativo do console do Windows que lê mensagens 
             }
         }
 
-    Esse método usa uma instância de **EventHubReceiver** para receber de todas as partições de recebimento do dispositivo para a nuvem do hub IoT. Observe como você passa um parâmetro `DateTime.Now` quando cria o objeto **EventHubReceiver** para que ele receba apenas as mensagens enviadas após ele ser iniciado. Isso será útil em um ambiente de teste para que você possa ver o conjunto de mensagens atual, mas, em um ambiente de produção, seu código deverá garantir o processamento de todas as mensagens - confira o tutorial [Como processar mensagens do dispositivo para a nuvem do Hub IoT][lnk-processd2c-tutorial] para saber mais.
+    Esse método usa uma instância de **EventHubReceiver** para receber de todas as partições de recebimento do dispositivo para a nuvem do hub IoT. Observe como você passa um parâmetro `DateTime.Now` quando cria o objeto **EventHubReceiver** para que ele receba apenas as mensagens enviadas após ele ser iniciado. Isso será útil em um ambiente de teste para que você possa ver o conjunto de mensagens atual, mas em um ambiente de produção, seu código deverá garantir o processamento de todas as mensagens - veja o tutorial [Como processar mensagens do dispositivo para a nuvem do Hub IoT][lnk-processd2c-tutorial] para saber mais.
 
 7. Por fim, adicione as seguintes linhas ao método **Principal**:
 
@@ -125,4 +125,4 @@ Nesta seção, você cria um aplicativo do console do Windows que lê mensagens 
 [11]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp2.png
 [12]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp3.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

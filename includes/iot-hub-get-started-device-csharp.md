@@ -8,7 +8,7 @@ Nesta seção, você criará um aplicativo do console do Windows que simula um d
 
 2. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **SimulatedDevice** e clique em **Gerenciar Pacotes NuGet**.
 
-3. Na janela **Gerenciador de Pacotes NuGet**, verifique se a opção **Incluir pré-lançamento** está marcada. Procure **Cliente de Dispositivos do Microsoft Azure**, clique em **Instalar** e aceite os termos de uso.
+3. Na janela **Gerenciador de Pacotes NuGet**, procure **Cliente de Dispositivos do Microsoft Azure**, clique em **Instalar** e aceite os termos de uso.
 
 	Isso baixa, instala e adiciona uma referência ao [pacote NuGet do SDK do Dispositivo - IoT do Azure][lnk-device-nuget].
 
@@ -22,7 +22,7 @@ Nesta seção, você criará um aplicativo do console do Windows que simula um d
 
 		static DeviceClient deviceClient;
         static string iotHubUri = "{iot hub hostname}";
-        static string deviceKey = "{deviceKey}";
+        static string deviceKey = "{device key}";
 
 6. Adicione o seguinte método à classe **Programa**:
 
@@ -63,7 +63,7 @@ Nesta seção, você criará um aplicativo do console do Windows que simula um d
   Por padrão, o método **Create** cria um **DeviceClient** que usa o protocolo AMQP para se comunicar com o Hub IoT. Para usar o protocolo HTTPS, use a substituição do método **Create** que permite especificar o protocolo. Se você optar por usar o protocolo HTTPS, você também deve adicionar o pacote NuGet **Microsoft.AspNet.WebApi.Client** ao seu projeto para incluir o namespace **System.Net.Http.Formatting**.
 
 
-> [AZURE.NOTE]Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, implemente políticas de repetição (como uma retirada exponencial), como sugerido no artigo [Tratamento de falhas transitórias][lnk-transient-faults] do MSDN.
+> [AZURE.NOTE] Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, implemente políticas de repetição (como uma retirada exponencial), como sugerido no artigo [Tratamento de falhas transitórias][lnk-transient-faults] do MSDN.
 
 <!-- Links -->
 
@@ -73,4 +73,4 @@ Nesta seção, você criará um aplicativo do console do Windows que simula um d
 <!-- Images -->
 [30]: ./media/iot-hub-getstarted-device-csharp/create-identity-csharp1.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

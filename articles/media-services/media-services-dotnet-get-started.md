@@ -13,11 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="01/18/2016"
+	ms.date="01/28/2016"
 	ms.author="juliako"/>
 
 
 # Introdução ao fornecimento de conteúdo sob demanda usando o SDK do .NET
+
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
@@ -130,7 +131,12 @@ A alocação de quaisquer novas unidades de streaming leva cerca de 20 minutos p
 
 4. Abra o arquivo App.config (adicione o arquivo ao seu projeto se ele não foi adicionado por padrão) e adicione uma seção *appSettings* ao arquivo. Defina os valores para o nome e chave de conta de seus Serviços de Mídia do Azure, conforme mostrado no exemplo a seguir. Para obter as informações de nome da conta e de chave, abra o Portal Clássico do Azure, selecione sua conta de serviços de mídia e clique no botão **GERENCIAR CHAVES**.
 
-<configuration> ... <appSettings> <add key="MediaServicesAccountName" value="Media-Services-Account-Name" /> <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /> </appSettings>
+		<configuration>
+		...
+		  <appSettings>
+		    <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
+		    <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
+		  </appSettings>
 		  
 		</configuration>
 
@@ -145,7 +151,7 @@ A alocação de quaisquer novas unidades de streaming leva cerca de 20 minutos p
 		using System.Threading;
 		using System.IO;
 		using Microsoft.WindowsAzure.MediaServices.Client;
-		using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
+		
 
 6. Crie uma nova pasta sob o diretório projects e copie um arquivo .mp4 ou .wmv que você deseja codificar e enviar por streaming, ou baixar progressivamente. Este exemplo usa o caminho "C:\\VideoFiles".
 
@@ -250,7 +256,7 @@ Para aproveitar os benefícios do empacotamento dinâmico, você precisa fazer o
 - Codificar ou transcodificar seu arquivo mezanino (fonte) em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável.  
 - Obter pelo menos uma unidade de streaming para o ponto de extremidade de streaming do qual você planeja fornecer seu conteúdo.
 
-O código a seguir mostra como enviar um trabalho de codificação. O trabalho contém uma tarefa que determina a transcodificação do arquivo de mezanino em um conjunto de MP4s de taxa de bits adaptável usando **Codificador de Mídia do Azure**. O código envia o trabalho e aguarda até que ele seja concluído.
+O código a seguir mostra como enviar um trabalho de codificação. O trabalho contém uma tarefa que determina a transcodificação do arquivo de mezanino em um conjunto de MP4s de taxa de bits adaptável usando o **Codificador de Mídia Standard**. O código envia o trabalho e aguarda até que ele seja concluído.
 
 Depois que o trabalho for concluído, você poderá transmitir seu ativo ou baixar progressivamente arquivos MP4 criados como resultado de transcodificação. Observe que você não precisa ter mais de 0 unidade de streaming para baixar progressivamente arquivos MP4.
 
@@ -447,4 +453,4 @@ Se este tópico não contiver o que você esperava, se estiver faltando alguma i
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

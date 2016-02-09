@@ -207,6 +207,20 @@ Plug-ins de teste na Web fornecem uma maneira de fazer isso.
 
 Agora, carregue seu teste no portal. Ele usará os valores dinâmicos em todas as execuções do teste.
 
+## Entrada com OAuth
+
+Se os usuários entrarem em seu aplicativo usando a senha OAuth (por exemplo, Microsoft, Google ou Facebook), você poderá simular a entrada no seu teste da Web de várias etapas usando o plug-in SAML.
+
+![Teste da Web de exemplo para o OAuth](./media/app-insights-monitor-web-app-availability/81.png)
+
+O teste de exemplo executa estas etapas:
+
+1. Solicite ao aplicativo Web em teste o endereço do ponto de extremidade OAuth.
+2. Entre usando o plug-in SAML.
+3. Execute o restante do teste no estado conectado.
+
+O plug-in SAML define uma variável `Assert`, que é usada na etapa 2.
+
 ## <a name="edit"></a> Editar ou desabilitar um teste
 
 Abra um teste individual para editá-lo ou desabilitá-lo.
@@ -249,4 +263,4 @@ Talvez você deseje desabilitar testes na Web quando estiver fazendo a manutenç
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

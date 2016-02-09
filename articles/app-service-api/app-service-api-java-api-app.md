@@ -150,7 +150,7 @@ Esta demonstração começa com um corpo JSON do Swagger que será colado no edi
 ## Editar o código para adicionar a implementação da API
 Nesta seção, você substituirá a implementação do lado servidor do código gerado pelo seu código personalizado. O novo código retornará uma ArrayList de entidades de Contact para o cliente da chamada.
 
-1. Abra o arquivo de modelo *Contact.java* localizado na pasta *src/gen/java/swagger/model* usando o [Visual Studio Code](https://code.visualstudio.com) ou em seu editor de texto favorito. 
+1. Abra o arquivo de modelo *Contact.java* localizado na pasta *src/gen/java/io/swagger/model* usando o [Visual Studio Code](https://code.visualstudio.com) ou em seu editor de texto favorito. 
 
     ![Abrir Arquivo de Modelo de Contato](media/app-service-api-java-api-app/open-contact-model-file.png)
 
@@ -163,7 +163,7 @@ Nesta seção, você substituirá a implementação do lado servidor do código 
 			this.emailAddress = email;
 		}
 
-1. Abra o arquivo de implementação do serviço *ContactsApiServiceImpl.java* localizado na pasta *src/main/java/swagger/api/impl* usando o [Visual Studio Code](https://code.visualstudio.com) ou em seu editor de texto favorito.
+1. Abra o arquivo de implementação do serviço *ContactsApiServiceImpl.java* localizado na pasta *src/main/java/io/swagger/api/impl* usando o [Visual Studio Code](https://code.visualstudio.com) ou em seu editor de texto favorito.
 
     ![Abrir Arquivo de Código de Serviço de Contato](media/app-service-api-java-api-app/open-contact-service-code-file.png)
 
@@ -295,4 +295,4 @@ Para expandir esse exemplo, você pode aprender mais sobre o [SDK de Armazenamen
 
 Para obter mais informações sobre como usar o Java no Azure, consulte o [Centro de desenvolvedores do Java](/develop/java/).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

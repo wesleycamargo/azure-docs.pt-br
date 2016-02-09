@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/15/2016"
+   ms.date="02/02/2016"
    ms.author="tomfitz"/>
 
 # Visão geral do Gerenciador de Recursos do Azure
@@ -87,7 +87,7 @@ Para saber mais sobre como usar um modelo de implantação, consulte [Implantar 
 
 Para obter orientações sobre como estruturar os modelos, confira [Práticas recomendadas para a criação de modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-design-templates.md).
 
-Para obter orientação sobre como implantar a solução em ambientes diferentes, confira [Ambientes de desenvolvimento e de teste no Microsoft Azure](solution-dev-test-environments-preview-portal.md).
+Para obter orientação sobre como implantar a solução em ambientes diferentes, confira [Ambientes de desenvolvimento e de teste no Microsoft Azure](solution-dev-test-environments.md).
 
 ## Marcas
 
@@ -119,7 +119,7 @@ O Gerenciador de Recursos fornece operações completamente compatíveis por mei
 
 Para obter informações sobre o PowerShell, consulte [Usando o PowerShell do Azure com o Gerenciador de Recursos](./powershell-azure-resource-manager.md) e [Cmdlets do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn757692.aspx).
 
-Para obter informações sobre a CLI do Azure, consulte [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](./virtual-machines/xplat-cli-azure-resource-manager.md).
+Para obter informações sobre a CLI do Azure, consulte [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](./xplat-cli-azure-resource-manager.md).
 
 Para obter informações sobre a API REST, consulte [Referência da API REST do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx).
 
@@ -138,4 +138,4 @@ Veja uma demonstração em vídeo desta visão geral:
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

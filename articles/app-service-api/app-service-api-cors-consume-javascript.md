@@ -18,8 +18,6 @@
 
 # Consumir um aplicativo de API do JavaScript usando CORS
 
-[AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
-
 ## Visão geral
 
 Este artigo contém duas seções:
@@ -40,7 +38,7 @@ O Serviço de Aplicativo oferece uma maneira fácil de configurar os domínios q
 
 ### Configurar CORS no portal do Azure
 
-8. Em um navegador, vá para o [portal do Azure](https://portal.azure.com/).
+8. Em um navegador, acesse o [portal do Azure](https://portal.azure.com/).
 
 9. Clique em **Procurar > Aplicativos de API**.
 
@@ -78,7 +76,7 @@ Nessas ferramentas, defina a propriedade `cors` no tipo de recurso Microsoft.Web
 		    ]
 		}
 
-## <a id="tutorialstart"></a> Continuação do tutorial de introdução do .NET
+## <a id="tutorialstart"></a> Continuando o tutorial de introdução do .NET
 
 Se você estiver seguindo a série de introdução do Node.js ou do Java para aplicativos de API, vá para o próximo artigo, [autenticação para aplicativos de API do Serviço de Aplicativo](app-service-api-authentication.md).
 
@@ -157,7 +155,7 @@ O procedimento para criar um novo aplicativo Web e implantar nele um projeto é 
 
 2. Nas Ferramentas de Desenvolvedor do navegador, abra a janela Console.
 
-3. Na janela do navegador que exibe a interface do usuário do AngularJS, clique no link **Lista de tarefas pendentes**.
+3. Na janela do navegador que exibe a interface do usuário do AngularJS, clique no link **Lista de Tarefas Pendentes**.
 
 	O código JavaScript tenta chamar o aplicativo de API de camada intermediária, mas a chamada falhará porque o front-end está em execução em um domínio diferente (a URL do aplicativo Web) daquele do back-end (a URL do aplicativo de API). A janela Console de Ferramentas de Desenvolvedor do navegador mostra uma mensagem de erro entre origens.
 
@@ -167,7 +165,7 @@ O procedimento para criar um novo aplicativo Web e implantar nele um projeto é 
 
 Nesta seção, você configurará o aplicativo de API de camada intermediária para permitir chamadas de JavaScript do aplicativo Web que você criou para o projeto ToDoListAngular.
  
-8. Em um navegador, vá para o [portal do Azure](https://portal.azure.com/).
+8. Em um navegador, acesse o [portal do Azure](https://portal.azure.com/).
 
 9. Navegue até o aplicativo de API ToDoListAPI (camada intermediária).
 
@@ -202,7 +200,7 @@ O suporte a CORS da API Web é mais flexível do que o suporte a CORS do Serviç
 
 ### Como habilitar o CORS no código da API Web
 
-As etapas a seguir resumem o processo para habilitar o suporte ao CORS da API Web. Para saber mais, confira [Como habilitar solicitações entre origens na API Web ASP.NET 2](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api).
+As etapas a seguir resumem o processo para habilitar o suporte ao CORS da API Web. Para saber mais, veja [Habilitando solicitações entre origens na API Web ASP.NET 2](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api).
 
 1. Em um projeto de API Web, inclua uma linha de código `config.EnableCors()` no método **Register** da classe **WebApiConfig**, como no exemplo a seguir. 
 
@@ -240,4 +238,4 @@ As etapas a seguir resumem o processo para habilitar o suporte ao CORS da API We
 
 Neste tutorial, você viu como habilitar o suporte a CORS do Serviço de Aplicativo para que o código JavaScript de cliente possa chamar uma API em um domínio diferente. No próximo artigo da série de introdução a Aplicativos de API, você saberá mais sobre [Autenticação para aplicativos de API do Serviço de Aplicativo](app-service-api-authentication.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->
