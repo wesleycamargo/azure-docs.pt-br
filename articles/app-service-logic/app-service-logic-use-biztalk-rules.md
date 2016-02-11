@@ -113,7 +113,9 @@ Após criar um Aplicativo de API de Regras do BizTalk, a próxima etapa seria cr
 
    ![Alt text][4]
 
-2.Selecione “Definições de vocabulário”. Isso mostraria a Tela de Criação de Vocabulário 3. Selecione “Adicionar” para começar a adicionar novas definições de vocabulário. Dois tipos de definições de vocabulário têm suporte – Literal e XML.
+2.Selecione “Definições de vocabulário”. Isso mostraria a Tela de Criação de Vocabulário.<br/>
+3.Selecione “Adicionar” para começar a adicionar novas definições de vocabulário.
+Dois tipos de definições de vocabulário têm suporte – Literal e XML.
 
 ##Definição literal
 1.	Após você clicar em "Adicionar", uma nova lâmina "Adicionar Definição" abrirá. Insira os valores a seguir
