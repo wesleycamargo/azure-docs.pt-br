@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="01/28/2016" 
 	ms.author="josephd"/>
 
 # Configurar um ambiente de nuvem híbrida para teste
@@ -291,20 +291,6 @@ Esta é a configuração atual.
  
 Seu ambiente de nuvem híbrida agora está pronto para testes.
 
-## Recursos adicionais
-
-[Configurar um farm de intranet do SharePoint em uma nuvem híbrida para teste](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
-
-[Configurar um aplicativo LOB baseado na Web em uma nuvem híbrida para teste](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Configurar a Sincronização de Diretórios (DirSync) do Office 365 em uma nuvem híbrida para teste](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
-
-[Configurar um ambiente de nuvem híbrida simulado para testes](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
-
-[Ambientes de teste de nuvem híbrida do Azure](../virtual-machines/virtual-machines-hybrid-cloud-test-environments.md)
-
-[Diretrizes de implementação dos Serviços de Infraestrutura do Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
-
 ## Minimizando os custos contínuos desse ambiente
 
 Para minimizar os custos de executar máquinas virtuais nesse ambiente, realize seus testes e demonstração necessários o mais rápido possível e, então, exclua ou desligue as máquinas virtuais quando você não as estiver usando. Por exemplo, você poderia usar um runbook e automação do Azure para desligar automaticamente as máquinas virtuais na rede virtual Test\_VNET ao final de cada dia útil. Para saber mais, confira [Introdução à automação do Azure](../automation-create-runbook-from-samples.md).
@@ -328,5 +314,8 @@ Em seguida, faça logon no RRAS1 como administrador local e execute estes comand
 
 Em seguida, vá para o Portal de Gerenciamento do Azure em seu computador local e aguarde até que a rede virtual TestVNET mostre um status de Conectado.
  
+## Próximas etapas
 
-<!---HONumber=AcomDC_0128_2016-->
+- Configure um [farm de intranet do SharePoint](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md), um [aplicativo LOB baseado na Web](virtual-networks-setup-lobapp-hybrid-cloud-testing.md) ou um [servidor DirSync (Sincronização de Diretório) do Office 365](virtual-networks-setup-dirsync-hybrid-cloud-testing.md) neste ambiente.
+
+<!---HONumber=AcomDC_0204_2016-->

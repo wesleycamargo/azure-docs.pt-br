@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="01/29/2016"
 	ms.author="trinadhk;jimpark"/>
 
 # O que é o Backup do Azure?
@@ -78,6 +78,8 @@ Estas cinco tabelas resumem como a funcionalidade do Backup é tratada em cada c
 | Backup incremental | ![Sim][green] | ![Sim][green] | ![Sim][green] | ![Sim][green] |
 | Eliminação de duplicação de disco | | ![Parcialmente][yellow] | ![Parcialmente][yellow]| | |
 
+**Chave** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Sim][green]= Com suporte &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![Parcialmente][yellow]= Com suporte parcial &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = Sem suporte
+
 O cofre de Backup é o destino de armazenamento preferencial em todos os componentes. O System Center DPM e o Servidor de Backup também oferecem a opção de ter uma cópia no disco local, mas apenas o System Center DPM fornece a opção de gravar dados em um dispositivo de armazenamento em fita.
 
 #### Backup incremental
@@ -96,6 +98,8 @@ Há suporte para a eliminação de duplicação para o System Center DPM e o Ser
 | ------- | --- | --- | --- | ---- |
 | Segurança de rede (para o Azure) | ![Sim][green] |![Sim][green] | ![Sim][green] | ![Parcialmente][yellow]|
 | Segurança de rede (no Azure) | ![Sim][green] |![Sim][green] | ![Sim][green] | ![Parcialmente][yellow]|
+
+**Chave** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Sim][green]= Com suporte &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![Parcialmente][yellow]= Com suporte parcial &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = Sem suporte
 
 Todo tráfego de backup de seus servidores para o cofre do Backup é criptografado usando a criptografia AES (Advanced Encryption Standard) 256. Os dados são enviados por um link HTTPS seguro. Os dados de backup também são armazenados no cofre de backup na forma criptografada. Somente o cliente possui a senha para desbloquear esses dados. A Microsoft não pode descriptografar os dados de backup em momento algum.
 
@@ -117,6 +121,8 @@ Para o backup de VMs do Azure, você deve configurar explicitamente a criptograf
 | Máquina virtual do Azure (Windows) | | | | ![Sim][green] |
 | Máquina virtual do Azure (Linux) | | | | ![Sim][green] |
 
+**Chave** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Sim][green]= Com suporte &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = Sem suporte
+
 ### Rede
 
 | Recurso | Agente de Backup do Azure | System Center DPM | Servidor de Backup do Azure | Backup do Azure (extensão VM) |
@@ -125,6 +131,8 @@ Para o backup de VMs do Azure, você deve configurar explicitamente a criptograf
 | Compactação de rede (para o cofre de backup) | ![Sim][green] | ![Sim][green] | ![Sim][green] | |
 | Protocolo de rede (para o servidor de backup) | | TCP | TCP | |
 | Protocolo de rede (para o cofre de backup) | HTTPS | HTTPS | HTTPS | HTTPS |
+
+**Chave** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Sim][green]= Com suporte &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = Sem suporte
 
 Como a extensão da VM lê os dados diretamente da conta de armazenamento do Azure por meio da rede de armazenamento, não é necessário otimizar esse tráfego. O tráfego passa pela rede de armazenamento local no datacenter do Azure, portanto, há pouca necessidade de compactação devido a considerações de largura de banda.
 
@@ -145,7 +153,7 @@ Para clientes que protegem seus dados em um servidor de backup (System Center DP
 ## Qual a diferença entre o Backup e o Azure Site Recovery?
 Muitos clientes confundem recuperação de backup e recuperação de desastre. Ambos capturam dados e fornecem semântica de restauração, mas a proposta principal é diferente para cada um deles.
 
-O Backup do Azure faz backup de dados no local e na nuvem. O Azure Site Recovery coordena a replicação, o failover e o failback de servidores físicos e máquinas virtuais. Você precisa dos dois para ter uma solução de recuperação de desastres completa. Sua estratégia de recuperação de desastres precisa manter seus dados seguros e recuperáveis (Backup) *e* manter suas cargas de trabalho disponíveis e acessíveis (Recuperação de Site) no momento da interrupção.
+O Backup do Azure faz backup de dados no local e na nuvem. O Azure Site Recovery coordena a replicação, o failover e o failback de servidores físicos e máquinas virtuais. Você precisa dos dois para ter uma solução de recuperação de desastres completa. A estratégia de recuperação de desastres precisa manter os dados seguros e recuperáveis (Backup) *e* manter suas cargas de trabalho disponíveis e acessíveis (Recuperação de Site) no momento da interrupção.
 
 Para tomar decisões sobre backup e recuperação de desastre, é necessário entender os seguintes conceitos importantes:
 
@@ -167,4 +175,4 @@ Para tomar decisões sobre backup e recuperação de desastre, é necessário en
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

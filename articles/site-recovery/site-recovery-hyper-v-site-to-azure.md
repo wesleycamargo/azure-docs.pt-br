@@ -62,7 +62,7 @@ Como parte da implantação do Azure Site Recovery, você instalará o Provedor 
 	- *.blob.core.windows.net
 	- *.store.core.windows.net
 	
-- Além disso, permita os endereços IP descritos em [Intervalos de IP do armazenamento de dados do Azure](https://www.microsoft.com/pt-BR/download/details.aspx?id=41653) e o protocolo HTTPS (443). Você teria que fazer uma lista de intervalos IP válidos da região do Azure que você planeja usar e do oeste dos EUA.
+- Além disso, permita os endereços IP descritos em [Intervalos de IP do armazenamento de dados do Azure](https://www.microsoft.com/download/details.aspx?id=41653) e o protocolo HTTPS (443). Você teria que fazer uma lista de intervalos IP válidos da região do Azure que você planeja usar e do oeste dos EUA.
 
 
 O gráfico abaixo mostra os diferentes canais de comunicação e portas usados pela Recuperação de Site para coordenação e a replicação
@@ -124,7 +124,7 @@ Se você estiver instalando em um cluster do Hyper-V, execute as etapas 5 a 11 e
 
 	![Atualizações da Microsoft](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_Provider1.png)
 
-7. Em **Instalação** especifique onde você deseja instalar o Provedor e o Agente no servidor Hyper-V.
+7. Em **Instalação ** especifique onde você deseja instalar o Provedor e o Agente no servidor Hyper-V.
 
 	![Local de instalação](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_Provider2.png)
 
@@ -292,4 +292,4 @@ Execute o failover de teste da seguinte maneira:
 
 Depois que a implantação é configurada e está em funcionamento, [saiba mais](site-recovery-failover.md) sobre o failover.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

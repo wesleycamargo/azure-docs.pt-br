@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015" 
+	ms.date="01/28/2016" 
 	ms.author="juliako"/>
 
 #Introdução ao fornecimento de conteúdo sob demanda usando API REST
@@ -22,7 +22,8 @@
 
 
 >[AZURE.NOTE]
-> Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Avaliação Gratuita do Azure</a>.
+Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
+
 
 Este início rápido orienta você pelas etapas de implementação de um aplicativo de entrega de conteúdo de vídeo sob demanda (VoD) com as APIs REST dos Serviços de Mídia do Azure (AMS).
 
@@ -85,14 +86,15 @@ As etapas a seguir descrevem o fluxo de trabalho mais comum ao usar a API REST d
 	>[AZURE.NOTE]
 	Depois de se conectar com êxito a https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos Serviços de Mídia. Você deve fazer chamadas subsequentes para o novo URI.
 	> 
-	> Você também poderá receber uma resposta HTTP/1.1 200 que contém a descrição de metadados API ODATA.3. Postando suas chamadas de API subsequentes para a nova URL. 
+	> Você também poderá receber uma resposta HTTP/1.1 200 que contém a descrição de metadados API ODATA.
+3. Postando suas chamadas de API subsequentes para a nova URL. 
 	
-		Por exemplo, se depois de tentar se conectar, você tem o seguinte:
+	Por exemplo, se depois de tentar se conectar, você tem o seguinte:
 		
-			HTTP/1.1 301 Moved Permanently
-			Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
+		HTTP/1.1 301 Moved Permanently
+		Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
 
-		Você deve postar suas chamadas à API subsequentes para https://wamsbayclus001rest-hs.cloudapp.net/api/.
+	Você deve postar suas chamadas à API subsequentes para https://wamsbayclus001rest-hs.cloudapp.net/api/.
 
 ###Obtendo um token de acesso
 
@@ -498,7 +500,7 @@ Agora que você carregou o arquivo, atualize as informações de tamanho do File
 
 **Resposta HTTP**
 
-Se for bem-sucedido, será retornado o seguinte
+Se for bem-sucedido, será retornado o seguinte: 
 	HTTP/1.1 204 No Content
 
 ## Excluir o AccessPolicy e localizador 
@@ -672,17 +674,17 @@ Para aproveitar os benefícios do empacotamento dinâmico, você precisa fazer o
 - codificar seu arquivo mezanino (fonte) em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável,  
 - obter pelo menos uma unidade de streaming para o ponto de extremidade de streaming do qual você planeja fornecer seu conteúdo. 
 
-A seção a seguir mostra como criar um trabalho que contém uma tarefa de codificação. A tarefa especifica a transcodificação do arquivo de mezanino em um conjunto de MP4s de taxa de bits adaptável usando o **Codificador de Mídia do Azure**. A seção também mostra como monitorar o progresso de processamento de trabalho. Quando o trabalho for concluído você será capaz de criar localizadores são necessários para acessar seus ativos.
+A seção a seguir mostra como criar um trabalho que contém uma tarefa de codificação. A tarefa especifica a transcodificação do arquivo de mezanino em um conjunto de MP4s de taxa de bits adaptável usando o **Codificador de Mídia Padrão**. A seção também mostra como monitorar o progresso de processamento de trabalho. Quando o trabalho for concluído você será capaz de criar localizadores são necessários para acessar seus ativos.
 
 ### Obter um processador de mídia
 
-Nos Serviços de Mídia, um processador de mídia é um componente que manipula uma tarefa de processamento específica, como codificação, conversão de formato, criptografia ou descriptografia de conteúdo de mídia. Para a tarefa de codificação mostrada neste tutorial vamos usar o Azure Media Encoder.
+Nos Serviços de Mídia, um processador de mídia é um componente que manipula uma tarefa de processamento específica, como codificação, conversão de formato, criptografia ou descriptografia de conteúdo de mídia. Para a tarefa de codificação mostrada neste tutorial, usaremos o Codificador de Mídia Padrão.
 
 O código a seguir solicita a ID do codificador.
 
 **Solicitação HTTP**
 
-	GET https://wamsbayclus001rest-hs.cloudapp.net/api/MediaProcessors()?$filter=Name%20eq%20'Azure%20Media%20Encoder' HTTP/1.1
+	GET https://wamsbayclus001rest-hs.cloudapp.net/api/MediaProcessors()?$filter=Name%20eq%20'Media%20Encoder%20Standard' HTTP/1.1
 	DataServiceVersion: 1.0;NetFx
 	MaxDataServiceVersion: 3.0;NetFx
 	Accept: application/json
@@ -711,12 +713,12 @@ O código a seguir solicita a ID do codificador.
 	   "odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#MediaProcessors",
 	   "value":[  
 	      {  
-	         "Id":"nb:mpid:UUID:1b1da727-93ae-4e46-a8a1-268828765609",
-	         "Description":"Azure Media Encoder",
-	         "Name":"Azure Media Encoder",
+	         "Id":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
+	         "Description":"Media Encoder Standard",
+	         "Name":"Media Encoder Standard",
 	         "Sku":"",
 	         "Vendor":"Microsoft",
-	         "Version":"4.4"
+	         "Version":"1.1"
 	      }
 	   ]
 	}
@@ -725,7 +727,7 @@ O código a seguir solicita a ID do codificador.
 
 Cada trabalho pode ter uma ou mais tarefas dependendo do tipo de processamento que você deseja realizar. Por meio da API REST, você pode criar Trabalhos e as Tarefas relacionadas de uma destas duas maneiras: as Tarefas podem ser definidas embutidas por meio da propriedade de navegação Tarefas nas entidades de Trabalho ou por meio do processamento de lote OData. O SDK dos Serviços de Mídia usa processamento em lotes. No entanto, para fins de legibilidade dos exemplos de código neste tópico, as tarefas são definidas embutidas. Para obter informações sobre o processamento em lotes, consulte [Processamento em lote do protocolo OData (Open Data)](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
-O exemplo a seguir mostra como criar e publicar um trabalho com uma tarefa definida para codificar um vídeo em uma determinada resolução e qualidade. A seção de documentação a seguir contém a lista de todas as [predefinições de tarefa](http://msdn.microsoft.com/library/azure/dn619392.aspx) com suporte do Processador de Mídia do Azure.
+O exemplo a seguir mostra como criar e publicar um trabalho com uma tarefa definida para codificar um vídeo em uma determinada resolução e qualidade. A seção de documentação a seguir contém a lista de todas as [predefinições de tarefa](https://msdn.microsoft.com/pt-BR/library/mt269960) com suporte do Processador do Codificador de Mídia Padrão.
 
 **Solicitação HTTP**
 	
@@ -752,7 +754,7 @@ O exemplo a seguir mostra como criar e publicar um trabalho com uma tarefa defin
 	   "Tasks":[  
 	      {  
 	         "Configuration":"H264 Adaptive Bitrate MP4 Set 720p",
-	         "MediaProcessorId":"nb:mpid:UUID:1b1da727-93ae-4e46-a8a1-268828765609",
+	         "MediaProcessorId":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
 	         "TaskBody":"<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset>
 				<outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"
 	      }
@@ -1209,4 +1211,4 @@ Se este tópico não contiver o que você esperava, se estiver faltando alguma i
 <!-- URLs. -->
   [Portal Clássico do Azure]: http://manage.windowsazure.com/
 
-<!-----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

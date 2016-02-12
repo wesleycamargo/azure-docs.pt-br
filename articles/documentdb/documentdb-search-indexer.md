@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="NA" 
     ms.workload="data-services" 
-    ms.date="10/28/2015" 
+    ms.date="02/01/2016" 
     ms.author="anhoh"/>
 
 #Conectando o Banco de Dados de Documentos à Pesquisa do Azure usando indexadores
@@ -88,7 +88,7 @@ Quando linhas são excluídas da tabela de origem, você deve excluí-las també
         "softDeleteMarkerValue" : "the value that identifies a document as deleted" 
     }
 
-> [AZURE.NOTE]Você precisará incluir a propriedade em sua cláusula SELECT se estiver usando uma projeção personalizada.
+> [AZURE.NOTE] Você precisará incluir a propriedade em sua cláusula SELECT se estiver usando uma projeção personalizada.
 
 ###<a id="CreateDataSourceExample"></a>Exemplo de corpo de solicitação
 
@@ -121,7 +121,7 @@ Se a fonte de dados for criada com êxito, você receberá uma resposta de HTTP 
 
 ##<a id="CreateIndex"></a>Etapa 2: Criar um índice
 
-Se ainda não tiver um, crie um índice de destino da Pesquisa do Azure. Você pode fazer isso na [Interface do usuário do Portal Clássico do Azure](../search/search-get-started.md#test-service-operations) ou usando a [API de Criação de Índices](https://msdn.microsoft.com/library/azure/dn798941.aspx).
+Se ainda não tiver um, crie um índice de destino da Pesquisa do Azure. Você pode fazer isso na [Interface do Portal do Azure](../search/search-get-started.md#test-service-operations) ou usando a [API de Criação de Índices](https://msdn.microsoft.com/library/azure/dn798941.aspx).
 
 	POST https://[Search service name].search.windows.net/indexes?api-version=[api-version]
 	Content-Type: application/json
@@ -267,7 +267,7 @@ Parabéns! Você acaba de aprender como integrar o Banco de Dados do Azure à Pe
 
  - Para saber mais sobre oBanco de Dados de Documentos do Azure, confira a [página de serviço do Banco de Dados de Documentos](https://azure.microsoft.com/services/documentdb/).
 
- - Para saber mais sobre a Pesquisa do Azure, confira a [página de serviço da Pesquisa](https://azure.microsoft.com/services/search/).
+ - Para saber mais sobre a Pesquisa do Azure, confira a [página do serviço de Pesquisa](https://azure.microsoft.com/services/search/).
  
 
-<!---HONumber=AcomDC_0107_2016--->
+<!---HONumber=AcomDC_0204_2016-->

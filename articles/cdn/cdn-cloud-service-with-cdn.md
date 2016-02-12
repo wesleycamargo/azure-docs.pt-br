@@ -48,7 +48,7 @@ Este tutorial tem os seguintes pré-requisitos:
 -	Uma [conta do Microsoft Azure](/account/) ativa
 -	Visual Studio 2015 com [SDK do Azure](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409)
 
-> [AZURE.NOTE]Você precisa de uma conta do Azure para concluir este tutorial: +, você pode [Abrir uma conta do Azure gratuitamente](/pricing/free-trial/) - Você recebe créditos que podem ser usados para experimentar os serviços do Azure pagos e, mesmo depois que tiverem se esgotado, você pode manter a conta e usar serviços do Azure gratuitos, como sites. + Você pode [ativar os benefícios de assinante MSDN](/pricing/member-offers/msdn-benefits-details/) - Sua assinatura do MSDN fornece você créditos a cada mês que podem ser usados para serviços do Azure pagos.
+> [AZURE.NOTE] Você precisa de uma conta do Azure para concluir este tutorial: +, você pode [Abrir uma conta do Azure gratuitamente](/pricing/free-trial/) - Você recebe créditos que podem ser usados para experimentar os serviços do Azure pagos e, mesmo depois que tiverem se esgotado, você pode manter a conta e usar serviços do Azure gratuitos, como sites. + Você pode [ativar os benefícios de assinante MSDN](/pricing/member-offers/msdn-benefits-details/) - Sua assinatura do MSDN fornece você créditos a cada mês que podem ser usados para serviços do Azure pagos.
 
 <a name="deploy"></a>
 ## Implantar um serviço de nuvem ##
@@ -88,17 +88,17 @@ Nesta seção, você vai implantar o modelo de aplicativo MVC ASP.NET padrão no
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-8-publish-finalize.png)
 
-	>[AZURE.NOTE]O processo de publicação para serviços de nuvem leva muito tempo. A opção Habilitar Implantação da Web para todas as funções pode acelerar muito a depuração do serviço de nuvem fornecendo atualizações rápidas (mas temporárias) para suas funções Web. Para saber mais sobre esta opção, consulte [Publicando um Serviço de Nuvem usando as Ferramentas do Azure](http://msdn.microsoft.com/library/ff683672.aspx).
+	>[AZURE.NOTE] O processo de publicação para serviços de nuvem leva muito tempo. A opção Habilitar Implantação da Web para todas as funções pode acelerar muito a depuração do serviço de nuvem fornecendo atualizações rápidas (mas temporárias) para suas funções Web. Para saber mais sobre esta opção, consulte [Publicando um Serviço de Nuvem usando as Ferramentas do Azure](http://msdn.microsoft.com/library/ff683672.aspx).
 
 	Quando o **Log de atividades do Microsoft Azure** mostrar que o status da publicação é **Concluído**, crie um ponto de extremidade CDN que esteja integrado a esse serviço de nuvem.
 	
-	>[AZURE.WARNING]Se após a publicação o serviço de nuvem implantado exibir uma tela de erro, provavelmente é porque o serviço de nuvem que você implantou está usando um [SO convidado que não inclui o .NET 4.5.2](../cloud-services/cloud-services-guestos-update-matrix.md#news-updates). Você pode contornar esse problema [Implantando o .NET 4.5.2 como uma tarefa de inicialização](../cloud-services/cloud-services-dotnet-install-dotnet.md).
+	>[AZURE.WARNING] Se após a publicação o serviço de nuvem implantado exibir uma tela de erro, provavelmente é porque o serviço de nuvem que você implantou está usando um [SO convidado que não inclui o .NET 4.5.2](../cloud-services/cloud-services-guestos-update-matrix.md#news-updates). Você pode contornar esse problema [Implantando o .NET 4.5.2 como uma tarefa de inicialização](../cloud-services/cloud-services-dotnet-install-dotnet.md).
 
 ## Criar um novo perfil CDN
 
 Um perfil CDN é um conjunto de pontos de extremidade CDN. Cada perfil contém um ou mais pontos de extremidade CDN. Você pode usar vários perfis para organizar seus pontos de extremidade CDN por domínio de Internet, aplicativo Web ou algum outro critério.
 
-> [AZURE.TIP]Se já tiver um perfil CDN que deseja usar para este tutorial, vá para [Criar um novo ponto de extremidade CDN](#create-a-new-cdn-endpoint).
+> [AZURE.TIP] Se já tiver um perfil CDN que deseja usar para este tutorial, vá para [Criar um novo ponto de extremidade CDN](#create-a-new-cdn-endpoint).
 
 **Para criar um perfil CDN**
 
@@ -112,9 +112,9 @@ Um perfil CDN é um conjunto de pontos de extremidade CDN. Cada perfil contém u
 
 3. Selecione um **Tipo de preço** ou use o padrão.
 
-4. Selecione ou crie um **Grupo de Recursos**. Não é necessário que esse seja o mesmo Grupo de Recursos da sua conta de armazenamento.
+4. Selecione ou crie um **Grupo de Recursos**. Não é necessário que esse seja o mesmo Grupo de Recursos que a sua conta de armazenamento.
 
-5. Selecione a **Assinatura** para este perfil CDN. Essa precisará ser a mesma assinatura que a da conta de armazenamento para os fins deste tutorial.
+5. Selecione a **Assinatura** para este perfil CDN. Isso precisará ser a mesma assinatura que a da conta de armazenamento para os fins deste tutorial.
 
 6. Selecione um **Local**. Esse é o local do Azure onde suas informações de perfil CDN serão armazenadas. Ele não tem impacto sobre os locais de ponto de extremidade CDN. Não precisa ser o mesmo local da conta de armazenamento.
 
@@ -124,7 +124,7 @@ Um perfil CDN é um conjunto de pontos de extremidade CDN. Cada perfil contém u
 
 **Para criar um novo ponto de extremidade CDN para sua conta de armazenamento**
 
-1. No [Portal de Gerenciamento do Azure](https://portal.azure.com), navegue até o seu perfil CDN. Você pode ter fixado ao painel na etapa anterior. Se não, poderá encontrá-lo clicando em **Procurar**, em **perfis CDN** e clicando no perfil ao qual pretende adicionar o ponto de extremidade.
+1. No [Portal de Gerenciamento do Azure](https://portal.azure.com), navegue até o seu perfil CDN. Você pode ter fixado ao painel na etapa anterior. Se não, você poderá encontrá-lo clicando em **Procurar**, em **perfis CDN** e clicando no perfil ao qual você pretende adicionar o ponto de extremidade.
 
     A folha do perfil CDN é exibida.
     
@@ -152,7 +152,7 @@ Um perfil CDN é um conjunto de pontos de extremidade CDN. Cada perfil contém u
 
     ![Ponto de extremidade CDN][cdn-endpoint-success]
 
-    > [AZURE.NOTE]O ponto de extremidade não estará imediatamente disponível para uso. Pode levar até 90 minutos para que o registro seja propagado pela rede CDN. Os usuários que tentarem usar imediatamente o nome de domínio CDN poderão receber o código de status 404 até que o conteúdo esteja disponível pela CDN.
+    > [AZURE.NOTE] O ponto de extremidade não estará imediatamente disponível para uso. Pode levar até 90 minutos para que o registro seja propagado pela rede CDN. Os usuários que tentarem usar imediatamente o nome de domínio CDN poderão receber o código de status 404 até que o conteúdo esteja disponível pela CDN.
 	
 ## Testar o ponto de extremidade CDN
 
@@ -210,7 +210,7 @@ Após você ter feito isso, todos os arquivos estáticos do serviço de nuvem ob
 	  </system.webServer>
 	</configuration>
 
-Esta configuração faz com que todos os arquivos estáticos da pasta *\\Content* sejam armazenados em cache por 15 dias.
+Esta configuração faz com que todos os arquivos estáticos da pasta *\Content* sejam armazenados em cache por 15 dias.
 
 Para obter mais informações sobre como configurar o elemento `<clientCache>`, consulte [Cache do Cliente <clientCache>](http://www.iis.net/configreference/system.webserver/staticcontent/clientcache).
 
@@ -624,10 +624,9 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 
 ## Mais informações ##
 - [Visão geral da Rede de Distribuição de Conteúdo (CDN) do Azure](http://msdn.microsoft.com/library/azure/ff919703.aspx)
-- [Fornecer conteúdo da CDN do Azure em seu aplicativo Web](cdn-serve-content-from-cdn-in-your-web-application.md)
-- [Integrar um site do Azure à CDN do Azure](cdn-websites-with-cdn.md)
+- [Usando a CDN para Azure](cdn-how-to-use-cdn.md)
 - [Agrupamento e minificação ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [Usando a CDN para Azure](cdn-how-to-use.md)
+
 
 
 [new-cdn-profile]: ./media/cdn-cloud-service-with-cdn/cdn-new-profile.png
@@ -636,4 +635,4 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 [cdn-add-endpoint]: ./media/cdn-cloud-service-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-cloud-service-with-cdn/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

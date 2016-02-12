@@ -31,7 +31,7 @@ No modelo de implantação clássico, você pode escolher uma destas opções pa
 - [Opção 1: crie uma máquina virtual e um conjunto de disponibilidade ao mesmo tempo.][]. Em seguida, adicione novas máquinas virtuais ao conjunto ao criá-las.
 - [Opção 2: adicione uma máquina virtual já existente a um conjunto de disponibilidade][].
 
->[AZURE.NOTE]No modelo clássico, as máquinas virtuais que você pretende inserir em um mesmo conjunto de disponibilidade devem pertencer ao mesmo serviço de nuvem.
+>[AZURE.NOTE] No modelo clássico, as máquinas virtuais que você pretende inserir em um mesmo conjunto de disponibilidade devem pertencer ao mesmo serviço de nuvem.
 
 ## <a id="createset"> </a>Opção 1: crie uma máquina virtual e um conjunto de disponibilidade ao mesmo tempo##
 
@@ -96,7 +96,7 @@ Para usar os comandos do PowerShell do Azure, abra uma sessão do PowerShell do 
 
 	Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Set-AzureAvailabilitySet -AvailabilitySetName "<AvSetName>" | Update-AzureVM
 
->[AZURE.NOTE]A máquina virtual pode precisar ser reiniciada para concluir a adição ao conjunto de disponibilidade.
+>[AZURE.NOTE] A máquina virtual pode precisar ser reiniciada para concluir a adição ao conjunto de disponibilidade.
 
 ## Recursos adicionais
 
@@ -110,6 +110,6 @@ Para usar os comandos do PowerShell do Azure, abra uma sessão do PowerShell do 
 [Gerenciar a disponibilidade das máquinas virtuais]: virtual-machines-manage-availability.md
 [Criar uma máquina virtual que execute o Windows]: virtual-machines-windows-tutorial.md
 [Visão geral da rede virtual]: virtual-networks-overview.md
-[Artigos para máquinas virtuais no Gerenciamento de Serviços]: virtual-machines-service-management-articles.md
+[Artigos para máquinas virtuais no Gerenciamento de Serviços]: https://azure.microsoft.com/documentation/articles/?tag=azure-service-management&service=virtual-machines
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

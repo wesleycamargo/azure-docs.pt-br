@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="01/30/2016"
 	ms.author="tarcher"/>
 
 # Introdução ao Armazenamento do Azure (Projetos WebJob do Azure)
 
 ## Visão geral
 
-Este guia fornece exemplos de código em C# que mostram como usar o SDK do Azure WebJobs versão 1.x com o serviço de armazenamento de tabela do Azure. Os exemplos de código usam o [SDK WebJobs](websites-dotnet-webjobs-sdk.md) versão 1.x.
+Este guia fornece exemplos de código em C# que mostram como usar o SDK do Azure WebJobs versão 1.x com o serviço de armazenamento de tabela do Azure. Os exemplos de código usam o [SDK WebJobs](/app-service-web/websites-dotnet-webjobs-sdk.md) versão 1.x.
 
 O serviço de armazenamento de Tabela do Azure armazena grandes quantidades de dados estruturados. O serviço é um repositório de dados NoSQL que aceita chamadas autenticadas de dentro e de fora da nuvem do Azure. As tabelas do Azure são ideais para armazenar dados estruturados não relacionais. Confira [Como usar o Armazenamento de Tabelas do .NET](storage-dotnet-how-to-use-tables.md/#create-a-table "Como usar o Armazenamento de Tabela no .NET") para saber mais.
 
@@ -142,7 +142,7 @@ O exemplo de código a seguir usa um objeto **CloudTable** para adicionar uma ú
 		    tableBinding.Execute(insertOperation);
 		}
 
-Para saber mais sobre como usar o objeto **CloudTable**, consulte [Como usar o Armazenamento de Tabelas do .NET](../storage-dotnet-how-to-use-tables.md).
+Para saber mais sobre como usar o objeto **CloudTable**, consulte [Como usar o Armazenamento de Tabelas do .NET](./storage-dotnet-how-to-use-tables.md).
 
 ## Tópicos relacionados abordados no artigo de instruções sobre filas
 
@@ -154,4 +154,4 @@ Para obter informações sobre como lidar com o processamento de tabelas acionad
 
 Este artigo forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com tabelas do Azure. Para obter mais informações sobre como usar os Trabalhos Web do Azure e o SDK de Trabalhos Web, consulte [Trabalhos Web do Azure – Recursos recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

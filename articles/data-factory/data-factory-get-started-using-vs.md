@@ -12,8 +12,8 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="11/02/2015" 
+	ms.topic="article" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Tutorial: Criar e monitorar uma data factory usando o Visual Studio
@@ -35,8 +35,8 @@ Neste tutorial, você fará o seguinte usando o Visual Studio 2013:
 ## Criar e implantar as entidades de data factory usando o Visual Studio 
 
 ### Pré-requisitos
-Você deve ter os seguintes itens instalados no computador:
-- Visual Studio 2013
+Você deve ter os seguintes itens instalados no computador: 
+- Visual Studio 2013 
 - Baixe o SDK do Azure para Visual Studio 2013. Navegue até a [Página de Download do Azure](https://azure.microsoft.com/downloads/) e clique em **Instalação do VS 2013** na seção **.NET**.
 
 ### Passo a passo
@@ -212,7 +212,7 @@ Você criou tabelas e serviços vinculados de entrada/saída até o momento. Ago
 	2. Digite **VSTutorialFactory** para **Nome**.  
 	
 		> [AZURE.NOTE]  
-		> O nome da data factory do Azure deve ser globalmente exclusivo. Se você receber um erro sobre o nome da data factory durante a publicação, altere o nome (por exemplo, seunomeVSTutorialFactory) e tente publicar novamente. Consulte o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos de Data Factory.
+		O nome da data factory do Azure deve ser globalmente exclusivo. Se você receber um erro sobre o nome da data factory durante a publicação, altere o nome (por exemplo, seunomeVSTutorialFactory) e tente publicar novamente. Consulte o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos de Data Factory.
 		> 
 		> O nome do data factory pode ser registrado futuramente como um nome DNS e tornar-se publicamente visível.
 	3. Selecione a assinatura certa para o campo **Assinatura**. 
@@ -241,4 +241,4 @@ Para atualizar as ferramentas da Azure Data Factory para o Visual Studio, faça 
 
 Confira [Monitorar os conjuntos de dados e o pipeline](data-factory-get-started-using-editor.md#MonitorDataSetsAndPipeline) para obter instruções sobre como usar o Portal do Azure para monitorar o pipeline e os conjuntos de dados que você criou neste tutorial.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

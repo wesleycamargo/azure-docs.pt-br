@@ -22,8 +22,6 @@
 A CLI do Azure é um conjunto de comandos entre plataformas, de software livre, para trabalhar com a plataforma Azure. Este artigo descreve como conectar-se à sua assinatura do Azure na CLI do Azure para usar todos os comandos da CLI. Se você ainda não tiver instalado a CLI, consulte [Instalar a CLI do Azure](xplat-cli-install.md).
 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-both-include.md)]
-
 
 Há duas formas de se conectar à sua assinatura da CLI do Azure:
 
@@ -158,4 +156,4 @@ Se você fizer logon com uma conta corporativa ou de estudante ou importar as co
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: xplat-cli-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

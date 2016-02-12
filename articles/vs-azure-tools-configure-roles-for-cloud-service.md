@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="12/19/2015"
+   ms.date="01/30/2016"
    ms.author="tarcher" />
 
 # Configurar as funções para um Serviço de Nuvem do Azure com o Visual Studio
@@ -51,7 +51,7 @@ Você pode configurar um serviço de nuvem do Azure por meio do Gerenciador de S
 
     Se quiser fazer alterações em todas as configurações de serviço para essa função, você poderá escolher **Todas as Configurações**.
 
-    >[AZURE.IMPORTANT]Se você escolher uma configuração de serviço específica, algumas propriedades ficarão desabilitadas porque elas só podem ser definidas para todas as configurações. Para editar essas propriedades, você precisa escolher Todas as Configurações.
+    >[AZURE.IMPORTANT] Se você escolher uma configuração de serviço específica, algumas propriedades ficarão desabilitadas porque elas só podem ser definidas para todas as configurações. Para editar essas propriedades, você precisa escolher Todas as Configurações.
 
     Dessa forma, você pode escolher uma guia para atualizar qualquer propriedade habilitada nessa exibição.
 
@@ -65,11 +65,11 @@ Para melhorar o desempenho do serviço de nuvem, você pode alterar o número de
 
 1. Na lista **Configuração do Serviço**, selecione a configuração do serviço que você deseja atualizar.
 
-    >[AZURE.NOTE]Você pode definir a contagem de instâncias para uma configuração de serviço específica ou para todas as configurações de serviço.
+    >[AZURE.NOTE] Você pode definir a contagem de instâncias para uma configuração de serviço específica ou para todas as configurações de serviço.
 
 1. Na caixa de texto **Contagem de instâncias**, digite o número de instâncias que você deseja iniciar para essa função.
 
-    >[AZURE.NOTE]Cada instância é executada em uma máquina virtual separada quando você publica seu serviço de nuvem no Azure.
+    >[AZURE.NOTE] Cada instância é executada em uma máquina virtual separada quando você publica seu serviço de nuvem no Azure.
 
 1. Escolha o botão **Salvar** na barra de ferramentas para salvar essas alterações para o arquivo de configuração de serviço.
 
@@ -77,7 +77,7 @@ Para melhorar o desempenho do serviço de nuvem, você pode alterar o número de
 
 Você pode adicionar, remover ou modificar cadeias de conexão para suas configurações de serviço. Talvez você queira cadeias de conexão diferentes para configurações de serviço diferentes. Por exemplo, você pode querer uma cadeia de conexão local para uma configuração de serviço local que tem um valor de `UseDevelopmentStorage=true`. Você também pode querer definir uma configuração de serviço de nuvem que use uma conta de armazenamento no Azure.
 
->[AZURE.CAUTION]Quando você insere as informações de chave da conta de armazenamento do Azure para uma cadeia de conexão de conta de armazenamento, essas informações são armazenadas localmente no arquivo de configuração de serviço. No entanto, atualmente essas informações não são armazenadas como texto criptografado.
+>[AZURE.CAUTION] Quando você insere as informações de chave da conta de armazenamento do Azure para uma cadeia de conexão de conta de armazenamento, essas informações são armazenadas localmente no arquivo de configuração de serviço. No entanto, atualmente essas informações não são armazenadas como texto criptografado.
 
 Ao usar um valor diferente para cada configuração de serviço, você não precisa usar cadeias de conexão diferentes em seu serviço de nuvem ou modificar seu código quando publicar o serviço de nuvem no Azure. Você pode usar o mesmo nome para a cadeia de conexão no seu código e o valor será diferente, com base na configuração de serviço que você selecionar quando criar seu serviço de nuvem ou quando publicá-lo.
 
@@ -87,7 +87,7 @@ Ao usar um valor diferente para cada configuração de serviço, você não prec
 
 1. Na lista **Configuração do Serviço**, selecione a configuração do serviço que você deseja atualizar.
 
-    >[AZURE.NOTE]Você pode atualizar cadeias de conexão para uma configuração de serviço específica, mas se precisar adicionar ou excluir uma cadeia de conexão, você precisa selecionar Todas as Configurações.
+    >[AZURE.NOTE] Você pode atualizar cadeias de conexão para uma configuração de serviço específica, mas se precisar adicionar ou excluir uma cadeia de conexão, você precisa selecionar Todas as Configurações.
 
 1. Para adicionar uma cadeia de conexão, selecione o botão **Adicionar configuração**. Uma nova entrada é adicionada à lista.
 
@@ -135,7 +135,7 @@ Ao usar um valor diferente para cada configuração de serviço, você não prec
 
 ## Adicionar configurações personalizadas para serem usadas em seu serviço de nuvem do Azure
 
-Configurações personalizadas no arquivo de configuração de serviço permitem que você adicione um nome e valor para uma cadeia de caracteres para uma configuração de serviço específica. Você pode optar por usar essa configuração para configurar um recurso no seu serviço de nuvem lendo o valor da configuração e usando esse valor para controlar a lógica em seu código. Você pode alterar esses valores de configuração de serviço sem precisar recompilar o pacote de serviço ou quando o serviço de nuvem estiver em execução. Seu código pode verificar se há notificações de quando uma configuração é alterada. Consulte [RoleEnvironment. Changing Event](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx).
+Configurações personalizadas no arquivo de configuração de serviço permitem que você adicione um nome e valor para uma cadeia de caracteres para uma configuração de serviço específica. Você pode optar por usar essa configuração para configurar um recurso no seu serviço de nuvem lendo o valor da configuração e usando esse valor para controlar a lógica em seu código. Você pode alterar esses valores de configuração de serviço sem precisar recompilar o pacote de serviço ou quando o serviço de nuvem estiver em execução. Seu código pode verificar se há notificações de quando uma configuração é alterada. Consulte [Evento RoleEnvironment.Changing](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx).
 
 Você pode adicionar, remover ou modificar configurações personalizadas para suas configurações de serviço. Talvez você queira valores diferentes para essas cadeias de caracteres para configurações de serviço diferentes.
 
@@ -147,7 +147,7 @@ Ao usar um valor diferente para cada configuração de serviço, você não prec
 
 1. Na lista **Configuração do Serviço**, selecione a configuração do serviço que você deseja atualizar.
 
-    >[AZURE.NOTE]Você pode atualizar cadeias de caracteres para uma configuração de serviço específica, entretanto, se precisar adicionar ou excluir uma cadeia de caracteres, você deve selecionar **Todas as Configurações**.
+    >[AZURE.NOTE] Você pode atualizar cadeias de caracteres para uma configuração de serviço específica, entretanto, se precisar adicionar ou excluir uma cadeia de caracteres, você deve selecionar **Todas as Configurações**.
 
 1. Para adicionar uma cadeia de caracteres, escolha o botão **Adicionar configuração**. Uma nova entrada é adicionada à lista.
 
@@ -183,7 +183,7 @@ Ao usar um valor diferente para cada configuração de serviço, você não prec
 
 ## Gerenciar o armazenamento local para cada instância de função
 
-Você pode adicionar o armazenamento do sistema de arquivos local para cada instância de uma função. Você pode armazenar aqui dados locais que não precisam ser acessados por outras funções. Quaisquer dados que você não precisar salvar em tabela, blob ou armazenamento do Banco de Dados SQL podem ser armazenados aqui. Por exemplo, você poderia usar esse armazenamento local para armazenar em cache dados que podem precisar ser usados novamente. Esses dados armazenados não podem ser acessados por outras instâncias de uma função. Para obter mais informações sobre recursos de armazenamento local, consulte [Configurar Recursos de Armazenamento Local](cloud-services-configure-local-storage-resources.md).
+Você pode adicionar o armazenamento do sistema de arquivos local para cada instância de uma função. Você pode armazenar aqui dados locais que não precisam ser acessados por outras funções. Quaisquer dados que você não precisar salvar em tabela, blob ou armazenamento do Banco de Dados SQL podem ser armazenados aqui. Por exemplo, você poderia usar esse armazenamento local para armazenar em cache dados que podem precisar ser usados novamente. Esses dados armazenados não podem ser acessados por outras instâncias de uma função. Para obter mais informações sobre recursos de armazenamento local, consulte [Configurar Recursos de Armazenamento Local](/cloud-services/cloud-services-configure-local-storage-resources.md).
 
 Configurações de armazenamento locais se aplicam a todas as configurações de serviço. Você só pode adicionar, remover ou modificar o armazenamento local para todas as configurações de serviço.
 
@@ -253,7 +253,7 @@ Configurações de armazenamento locais se aplicam a todas as configurações de
 
 Você pode coletar dados de diagnóstico do seu serviço de nuvem do Azure. Esses dados são adicionados a uma conta de armazenamento. Talvez você queira cadeias de conexão diferentes para configurações de serviço diferentes. Por exemplo, você pode querer uma conta de armazenamento local para uma configuração de serviço local com um valor de UseDevelopmentStorage=true. Você também pode querer definir uma configuração de serviço de nuvem que use uma conta de armazenamento no Azure. Para obter mais informações sobre diagnósticos do Azure, consulte Coletar dados do log usando o Diagnóstico do Azure.
 
->[AZURE.NOTE]A configuração do serviço local já está definida para usar recursos locais. Se você usar a configuração do serviço de nuvem para publicar seu serviço de nuvem do Azure, a cadeia de conexão que você especificar quando publicar também será usada para a cadeia de conexão de diagnóstico, a menos que você tenha especificado uma cadeia de conexão. Se você empacotar seu serviço de nuvem usando o Visual Studio, a cadeia de conexão da configuração do serviço não será alterada.
+>[AZURE.NOTE] A configuração do serviço local já está definida para usar recursos locais. Se você usar a configuração do serviço de nuvem para publicar seu serviço de nuvem do Azure, a cadeia de conexão que você especificar quando publicar também será usada para a cadeia de conexão de diagnóstico, a menos que você tenha especificado uma cadeia de conexão. Se você empacotar seu serviço de nuvem usando o Visual Studio, a cadeia de conexão da configuração do serviço não será alterada.
 
 ### Para coletar dados de diagnóstico do serviço de nuvem
 
@@ -261,7 +261,7 @@ Você pode coletar dados de diagnóstico do seu serviço de nuvem do Azure. Esse
 
 1. Na lista **Configuração do Serviço** escolha a configuração do serviço que você deseja atualizar ou escolha **Todas as Configurações**.
 
-    >[AZURE.NOTE]Você pode atualizar a conta de armazenamento para uma configuração de serviço específica, mas se quiser habilitar ou desabilitar o diagnóstico, escolha Todas as Configurações.
+    >[AZURE.NOTE] Você pode atualizar a conta de armazenamento para uma configuração de serviço específica, mas se quiser habilitar ou desabilitar o diagnóstico, escolha Todas as Configurações.
 
 1. Para habilitar o diagnóstico, selecione a caixa de seleção **Habilitar diagnóstico**.
 
@@ -293,7 +293,7 @@ Você pode coletar dados de diagnóstico do seu serviço de nuvem do Azure. Esse
 
 ## Alterar o tamanho da máquina virtual usada para cada função
 
-Você pode definir o tamanho da máquina virtual para cada função. Só é possível definir o tamanho para todas as configurações de serviço. Se você selecionar um tamanho de máquina menor, menos núcleos de CPU, memória e armazenamento em disco local serão alocados. A largura de banda alocada também será menor. Para obter mais informações sobre esses tamanhos e os recursos alocados, consulte [Tamanhos para Serviços de Nuvem](cloud-services-sizes-specs.md).
+Você pode definir o tamanho da máquina virtual para cada função. Só é possível definir o tamanho para todas as configurações de serviço. Se você selecionar um tamanho de máquina menor, menos núcleos de CPU, memória e armazenamento em disco local serão alocados. A largura de banda alocada também será menor. Para obter mais informações sobre esses tamanhos e os recursos alocados, consulte [Tamanhos para Serviços de Nuvem](/cloud-services/cloud-services-sizes-specs.md).
 
 Os recursos necessários para cada máquina virtual no Azure afetam o custo da execução do seu serviço de nuvem no Azure. Para obter mais informações sobre cobrança do Azure, consulte [Entenda sua fatura do Microsoft Azure](billing-understand-your-bill.md).
 
@@ -315,11 +315,11 @@ Para melhorar a segurança do seu serviço de nuvem do Azure, você pode criar p
 
 Você também pode adicionar pontos de extremidade que podem ser usados interna ou externamente. Pontos de extremidade externos são chamados de pontos de extremidade de entrada. Um ponto de extremidade de entrada permite que os usuários tenham outro ponto de acesso ao seu serviço de nuvem. Se tiver um serviço WCF, talvez você queira expor um ponto de extremidade interno para que uma função web o utilize para acessar esse serviço.
 
->[AZURE.IMPORTANT]Só é possível atualizar os pontos de extremidade para todas as configurações de serviço.
+>[AZURE.IMPORTANT] Só é possível atualizar os pontos de extremidade para todas as configurações de serviço.
 
 Se adicionar pontos de extremidade HTTPS, você precisa usar um certificado SSL. Para fazer isso, você pode associar certificados com sua função para todas as configurações de serviço e usá-los para seus pontos de extremidade.
 
->[AZURE.IMPORTANT]Esses certificados não são empacotados com seu serviço. Você deve carregá-los separadamente no Azure por meio do Portal de Gerenciamento de plataforma do Azure
+>[AZURE.IMPORTANT] Esses certificados não são empacotados com seu serviço. Você deve carregá-los separadamente no Azure por meio do Portal de Gerenciamento de plataforma do Azure
 
 Qualquer certificado de gerenciamento que você associar às suas configurações de serviço só se aplicará quando o serviço de nuvem estiver em execução no Azure. Quando seu serviço de nuvem é executado no ambiente de desenvolvimento local, um certificado padrão que é gerenciado pelo emulador de computação do Azure é usado.
 
@@ -329,7 +329,7 @@ Qualquer certificado de gerenciamento que você associar às suas configuraçõe
 
 1. Na lista **Configuração do Serviço**, escolha **Todas as Configurações**.
 
-    >[AZURE.NOTE]Para adicionar ou remover certificados, você deve selecionar Todas as Configurações. Se for necessário, você pode atualizar o nome e a impressão digital de uma configuração de serviço específica.
+    >[AZURE.NOTE] Para adicionar ou remover certificados, você deve selecionar Todas as Configurações. Se for necessário, você pode atualizar o nome e a impressão digital de uma configuração de serviço específica.
 
 1. Para adicionar um certificado para essa função, escolha o botão **Adicionar Certificado**. Uma nova entrada é adicionada à lista.
 
@@ -343,7 +343,7 @@ Qualquer certificado de gerenciamento que você associar às suas configuraçõe
 
 1. Escolha o certificado que você deseja usar na lista e, em seguida, escolha o botão **OK**.
 
-    >[AZURE.NOTE]Quando você adiciona um certificado do repositório de certificados, todos os certificados intermediários são adicionados automaticamente às definições de configuração para você. Esses certificados intermediários também devem ser carregados no Azure para configurar corretamente o serviço para SSL.
+    >[AZURE.NOTE] Quando você adiciona um certificado do repositório de certificados, todos os certificados intermediários são adicionados automaticamente às definições de configuração para você. Esses certificados intermediários também devem ser carregados no Azure para configurar corretamente o serviço para SSL.
 
 1. Para excluir um certificado, escolha o certificado e o botão **Remover Certificado**.
 
@@ -369,11 +369,11 @@ Qualquer certificado de gerenciamento que você associar às suas configuraçõe
 
 1. Se o ponto de extremidade requer o protocolo https, na lista **nome do certificado SSL** escolha um certificado para uso.
 
-    >[AZURE.NOTE]Esta lista mostra os certificados que você adicionou para essa função na guia **Certificados**.
+    >[AZURE.NOTE] Esta lista mostra os certificados que você adicionou para essa função na guia **Certificados**.
 
 1. Escolha o botão **Salvar** na barra de ferramentas para salvar essas alterações nos arquivos de configuração de serviço.
 
 ## Próximas etapas
 Saiba mais sobre projetos do Azure no Visual Studio, lendo [Configurando um projeto do Azure](vs-azure-tools-configuring-an-azure-project.md). Saiba mais sobre o esquema do serviço de nuvem lendo [Referência de Esquema](https://msdn.microsoft.com/library/azure/dd179398).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

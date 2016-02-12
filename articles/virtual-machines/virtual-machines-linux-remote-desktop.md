@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/14/2015"
+	ms.date="02/01/2016"
 	ms.author="mingzhan"/>
 
 
@@ -32,7 +32,7 @@ Essa orientação fornecerá a resposta! Ela ajudará você com a instalação e
 Xrdp é um servidor RDP do código aberto que permite a conexão do servidor Linux com a Área de Trabalho Remota de uma máquina com Windows. Ele é executado com muito mais qualidade do que a VNC (Computação de Rede Virtual). A VNC possui uma qualidade "JPEG" e comportamento lento, enquanto o RDP é rápido e claro.
 
 
-> [AZURE.NOTE]Você já deve ter uma VM do Microsoft Azure executando o Linux. Para criar e configurar uma VM do Linux, veja o [tutorial de VM do Linux do Azure](virtual-machines-linux-tutorial.md).
+> [AZURE.NOTE] Você já deve ter uma VM do Microsoft Azure executando o Linux. Para criar e configurar uma VM do Linux, veja o [tutorial de VM do Linux do Azure](virtual-machines-linux-tutorial.md).
 
 
 ##Criar ponto de extremidade para a Área de Trabalho Remota
@@ -67,7 +67,7 @@ Para o Ubuntu, use:
 
 Para OpenSUSE, use:
 
-> [AZURE.NOTE]Atualize a versão do OpenSUSE com a versão que você está usando com o comando abaixo. Veja abaixo um exemplo de comando para o `OpenSUSE 13.2`.
+> [AZURE.NOTE] Atualize a versão do OpenSUSE com a versão que você está usando com o comando abaixo. Veja abaixo um exemplo de comando para o `OpenSUSE 13.2`.
 
 	#sudo zypper in http://download.opensuse.org/repositories/X11:/RemoteDesktop/openSUSE_13.2/x86_64/xrdp-0.9.0git.1401423964-2.1.x86_64.rpm
     #sudo zypper install tigervnc xorg-x11-Xvnc xterm remmina-plugin-vnc
@@ -116,4 +116,4 @@ Faça logon com o `user` e a `password` de sua VM do Linux e aproveite agora mes
 ##Avançar
 Para obter mais informações sobre como usar o xrdp, acesse [aqui](http://www.xrdp.org/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

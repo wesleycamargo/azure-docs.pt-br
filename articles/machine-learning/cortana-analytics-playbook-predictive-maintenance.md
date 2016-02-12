@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/15/2016"
-	ms.author="garye" />
+	ms.author="fboylu" />
 
 # Guia Estratégico do Modelo de Solução do Cortana Analytics para a manutenção preditiva no setor aeroespacial e outras indústrias.
 
@@ -333,4 +333,4 @@ Figura 8. Arquitetura de solução de exemplo para manutenção preditiva
 
 Para saber mais sobre cada um dos componentes da arquitetura, consulte a documentação do [Azure](https://azure.microsoft.com/).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

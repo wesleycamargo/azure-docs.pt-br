@@ -1,13 +1,10 @@
-
-<properties 
-   pageTitle="Configurar o túnel forçado para Gateways de VPN usando o Gerenciador de Recursos | Microsoft Azure"
-   description="Caso tenha uma Rede Virtual com um Gateway de VPN entre locais, você pode redirecionar ou "forçar" todo o tráfego direcionado à Internet para um local determinado. Este artigo se aplica ao modelo de implantação do Gerenciador de Recursos."
-   services="vpn-gateway"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="carolz"
-   editor=""
-   tags="azure-resource-manager"/>
+<properties pageTitle="Configurar o túnel forçado para Gateways de VPN usando o Gerenciador de Recursos | Microsoft Azure"
+description="Caso tenha uma Rede Virtual com um Gateway de VPN entre locais, você pode redirecionar ou "forçar" todo o tráfego direcionado à Internet para um local determinado. Este artigo se aplica ao modelo de implantação do Gerenciador de Recursos. "
+services="vpn-gateway" 
+documentationCenter="na" 
+authors="cherylmc" 
+manager="carolz" 
+editor="" tags="azure-resource-manager"/>
 <tags  
    ms.service="vpn-gateway"
    ms.devlang="na"
@@ -70,9 +67,7 @@ Antes de começar a configurar, verifique se você tem os itens a seguir.
 
 - Uma assinatura do Azure. Se ainda não tiver uma assinatura do Azure, você poderá ativar os [benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-- Cmdlets do Azure PowerShell (1.0 ou posterior) Você pode baixar e instalar essa versão na seção Windows PowerShell da [página Download](https://azure.microsoft.com/downloads/). Esta documentação foi desenvolvida para o PowerShell 1.0 ou posterior. Os cmdlets necessários para esta configuração não estão incluídos nas versões anteriores.
-
-- Caso seja iniciante no Gerenciador de Recursos do Azure e no PowerShell, confira [este artigo](../articles/powershell-azure-resource-manager.md) para saber mais.
+- Cmdlets do Azure PowerShell (1.0 ou posterior) Os cmdlets necessários para esta configuração não estão presentes nas versões anteriores a 1.0. Você pode baixar e instalar essa versão na seção Windows PowerShell da [página Download](https://azure.microsoft.com/downloads/). Se você não estiver familiarizado com a instalação e a configuração do PowerShell, confira [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais.
 
 ### Etapas da configuração
 
@@ -145,4 +140,4 @@ Antes de começar a configurar, verifique se você tem os itens a seguir.
 		Get-AzureRmVirtualNetworkGatewayConnection -Name "Connection1" -ResourceGroupName "ForcedTunneling"
 		
 
-<!---HONumber=AcomDC_0128_2016--->
+<!---HONumber=AcomDC_0204_2016-->

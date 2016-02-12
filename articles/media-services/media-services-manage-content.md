@@ -96,24 +96,16 @@ Com o empacotamento dinâmico, você só precisa armazenar e pagar pelos arquivo
 
 Observe que, além de poder usar os recursos de empacotamento dinâmico, unidades reservadas de streaming sob demanda oferecem capacidade de saída dedicada que pode ser comprada em incrementos de 200 Mbps. Por padrão, o streaming por demanda é configurado em um modelo de instância compartilhada para a qual os recursos do servidor (por exemplo, computação, capacidade de egresso etc.) são compartilhados com todos os outros usuários. Para melhorar a taxa de transferência de um streaming por demanda, é recomendável adquirir unidades reservadas para Streaming por Demanda.
 
-Esta seção descreve as etapas que você pode seguir para codificar o conteúdo com o Codificador de Mídia do Azure usando o Portal Clássico do Azure.
+Esta seção descreve as etapas que você pode seguir para codificar o conteúdo com o Codificador de Mídia Padrão usando o Portal Clássico do Azure.
 
-1.  Selecione o arquivo que você deseja codificar. Se houver suporte para codificação para esse tipo de arquivo, o botão PROCESSO será habilitado na parte inferior da página CONTEÚDO.
-4. Na caixa de diálogo **Processo**, selecione o processador do **Codificador de Mídia do Azure**.
-5. Escolha uma das **configurações de codificação**.
+1.  Selecione o arquivo que você deseja codificar.
+
+  Se houver suporte para codificação para esse tipo de arquivo, o botão PROCESSO será habilitado na parte inferior da página CONTEÚDO. 4. Na caixa de diálogo **Processo**, selecione o processador do **Codificador de Mídia Padrão**. 5. Escolha uma das **configurações de codificação**.
 
 ![Process2][process2]
 
 
-O tópico [Cadeias de caracteres de predefinição de tarefa do Codificador de Mídia do Azure](https://msdn.microsoft.com/library/azure/dn619392.aspx) explica o que significa cada predefinição nas categorias **Predefinições para streaming adaptável (empacotamento dinâmico)**, **Predefinições para download progressivo** e **Predefinições herdadas para streaming adaptável**.
-
-
-As **Outras** configurações são descritas abaixo:
-
-+ **Codificar com proteção de conteúdo PlayReady**. Essa predefinição produz um ativo codificado com proteção de conteúdo PlayReady.
-
-
-Por padrão, o serviço de licença PlayReady dos Serviços de Mídia é usado. Para especificar algum outro serviço do qual os clientes possam obter uma licença para reproduzir o conteúdo criptografado do PlayReady, use as APIs REST ou do SDK .NET dos Serviços de Mídia. Para saber mais, consulte [Usando criptografia estática para proteger seu conteúdo]() e defina a propriedade **licenseAcquisitionUrl** na predefinição do Criptografador de Mídia. Como alternativa, é possível usar a criptografia dinâmica e definir a propriedade **PlayReadyLicenseAcquisitionUrl**, como descrito em [Usando a criptografia dinâmica e o serviço de entrega de licença do PlayReady](http://go.microsoft.com/fwlink/?LinkId=507720). + **Reproduzir no PC/Mac (via Flash/Silverlight)**. Essa predefinição produz um ativo de Smooth Streaming com as seguintes características: CBR de áudio estéreo de exemplo/44,1 kHz 16 bits codificado em 96 kbps usando AAC e CBR de vídeo de 720p codificado em 6 taxas de bits, que variam entre 3.400 kbps a 400 kbps usando o Perfil Principal H.264 e GOPs de dois segundos. + **Reprodução via HTML5 (IE/Chrome/Safari)**. Essa predefinição produz um único arquivo MP4 com as seguintes características: CBR de áudio estéreo de exemplo/44,1 kHz 16 bits codificado em 128 kbps usando AAC e CBR de vídeo de 720p codificado em 4.500 kbps usando o Perfil Principal H.264. + **Reprodução em dispositivos iOS e PC/Mac**. Essa predefinição produz um ativo com as mesmas características que o ativo de Smooth Streaming (descrito acima), mas em um formato que pode ser usado para fornecer fluxos HLS da Apple para dispositivos iOS.
+O tópico [Cadeias de caracteres predefinidas de tarefa para o Codificador de Mídia Padrão](https://msdn.microsoft.com/pt-BR/library/mt269960) explica o significado de cada predefinição.
 
 5. Em seguida, digite o nome de conteúdo de saída amigável desejado ou aceite o padrão. Em seguida, clique no botão de seleção para iniciar a operação de codificação e você poderá acompanhar o andamento na parte inferior do portal.
 6. Pressione OK.
@@ -177,7 +169,7 @@ Para criar uma URL de streaming de MPEG DASH, anexe (format=mpd-time-csf) à URL
 
 Os localizadores têm uma data de validade. Quando você usa o portal para publicar seus ativos, são criados localizadores com uma data de validade de 100 anos.
 
->[AZURE.NOTE]Se você usou o portal para criar localizadores antes de março de 2015, foram criados localizadores com uma data de validade de dois anos.
+>[AZURE.NOTE] Se você usou o portal para criar localizadores antes de março de 2015, foram criados localizadores com uma data de validade de dois anos.
 
 Para atualizar a data de validade em um localizador, use as APIs [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) ou [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Observe que, quando você atualiza a data de validade de um localizador SAS, a URL é alterada.
 
@@ -228,4 +220,4 @@ Algumas considerações se aplicam:
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

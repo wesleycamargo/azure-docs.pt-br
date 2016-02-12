@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="02/01/2016"
 	ms.author="garye"/>
 
 # Implantar um serviço Web de Aprendizado de Máquina do Azure
@@ -50,7 +50,7 @@ O processo de criar e gerenciar testes de treinamento é abordado mais detalhada
 
 - [Criar um experimento simples no Estúdio de Aprendizado de Máquina do Azure](machine-learning-create-experiment.md)
 - [Desenvolver uma solução preditiva com o Aprendizado de Máquina do Azure](machine-learning-walkthrough-develop-predictive-solution.md)
-- [Importar seus dados de treinamento para o Estúdio de Aprendizado de Máquina do Azure](machine-learning-import-data.md)
+- [Importar seus dados de treinamento para o Estúdio de Aprendizado de Máquina do Azure](machine-learning-data-science-import-data.md)
 - [Gerenciar iterações de teste no Estúdio de Aprendizado de Máquina do Microsoft Azure](machine-learning-manage-experiment-iterations.md)
 
 ## Converter o teste de treinamento em um teste preditivo
@@ -96,7 +96,8 @@ Para obter mais informações sobre como acessar um serviço Web do Aprendizado 
 
 No Portal Clássico do Azure, você pode gerenciar seus serviços Web clicando no serviço **Aprendizado de Máquina**, abrindo o espaço de trabalho do Aprendizado de Máquina e abrindo o serviço Web na guia **SERVIÇOS WEB**. Nesta página, você pode monitorar o serviço Web, atualizá-lo e excluí-lo. Você também pode adicionar um segundo ponto de extremidade ao serviço Web, além do ponto de extremidade padrão que é criado durante sua implantação.
 
-Para obter mais informações, consulte [Gerenciar um espaço de trabalho de Aprendizado de Máquina do Azure](machine-learning-manage-workspace.md). <!-- When this article gets published, fix the link and uncomment
+Para obter mais informações, consulte [Gerenciar um espaço de trabalho de Aprendizado de Máquina do Azure](machine-learning-manage-workspace.md). 
+<!-- When this article gets published, fix the link and uncomment
 For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**.
 -->
 
@@ -107,8 +108,8 @@ Você pode fazer alterações ao serviço Web, como atualizar o modelo com dados
 
 Para atualizar o serviço Web, abra o teste preditivo original que você usou para implantar o serviço Web original e faça uma cópia editável clicando em **SALVAR COMO**. Faça as alterações e clique em **Implantar Serviço Web**. Como você já implantou esse teste antes, o Estúdio de Aprendizado de Máquina pergunta se você deseja substituir o serviço existente. Se você clicar em **SIM**, o serviço Web existente será interrompido e o novo teste preditivo será implantado em seu lugar.
 
-> [AZURE.NOTE]Se você fez alterações na configuração do serviço Web original, por exemplo, inserindo um novo nome de exibição ou uma descrição, você precisará inserir esses valores novamente.
+> [AZURE.NOTE] Se você fez alterações na configuração do serviço Web original, por exemplo, inserindo um novo nome de exibição ou uma descrição, você precisará inserir esses valores novamente.
 
 Uma opção para atualizar seu serviço Web é treinar novamente o modelo de forma programática. Para obter mais informações, consulte [Treinar novamente os modelos de Aprendizado de Máquina de forma programática](machine-learning-retrain-models-programmatically.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

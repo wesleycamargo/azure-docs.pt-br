@@ -43,9 +43,9 @@ Atualmente, há algumas limitações no suporte do ARM para o Gerenciador de Tr�
 
 - Os perfis do Gerenciador de Tráfego criados usando a API de Gerenciamento de Serviço do azure (ASM) (não ARM), as ferramentas e o portal ‘clássico’ não estão disponíveis por meio do ARM e vice-versa. A migração de perfis do ASM para APIs do ARM não tem suporte no momento, somente a exclusão e a recriação do perfil.
 
-
 - Os pontos de extremidade ‘aninhados’ do Gerenciador de Tráfego têm suporte por meio da API do ARM, do PowerShell do ARM e da CLI do Azure em modo ARM. Atualmente, eles não têm suporte no Portal do Azure (que também usa a API do ARM).
 
+- Os pontos de extremidade do Gerenciador de Tráfego do tipo 'AzureEndpoints', ao fazer referência a um Aplicativo Web, pode apenas fazer referência ao [slot do Aplicativo Web](../app-service-web/web-sites-staged-publishing.md) padrão (produção). Os slots personalizados ainda não são permitidos. Como alternativa, os slots personalizados podem ser configurados usando o tipo 'ExternalEndpoints'.
 
 ## Configurando o PowerShell do Azure
 
@@ -192,7 +192,7 @@ O Gerenciador de Tráfego permite que você configure um perfil do Gerenciador d
 
 O aninhamento do Gerenciador de Tráfego permite que você crie roteamento de tráfego e esquemas de failover mais flexíveis e poderosos para dar suporte às necessidades de implantações maiores e mais complexas. [Esta postagem de blog](https://azure.microsoft.com/blog/new-azure-traffic-manager-nested-profiles/) fornece vários exemplos.
 
-Os pontos de extremidade aninhados são configurados no perfil pai, usando um tipo de ponto de extremidade específico, o ‘NestedEndpoints’. Ao especificar pontos de extremidade aninhados: - o ponto de extremidade (ou seja, o perfil filho) deve ser especificado usando o parâmetro 'targetResourceId' - O 'EndpointLocation' será necessário se o método de roteamento de tráfego 'Performance' for usado. Caso contrário, será opcional. O valor deve ser um [nome de uma região do Azure válida](http://azure.microsoft.com/regions/). - ‘Weight’ e ‘Priority’ são opcionais, assim como para os pontos de extremidade do Azure. - O parâmetro ‘MinChildEndpoints’ é opcional, o padrão é ‘1’. Se o número de pontos de extremidade disponíveis no perfil filho cair abaixo desse limite, o perfil pai considerará o perfil filho como ‘degradado’ e desviará o tráfego para os outros pontos de extremidade do perfil pai.
+Os pontos de extremidade aninhados são configurados no perfil pai, usando um tipo de ponto de extremidade específico, o ‘NestedEndpoints’. Ao especificar pontos de extremidade aninhados: - o ponto de extremidade (ou seja, o perfil filho) deve ser especificado usando o parâmetro 'targetResourceId' - O 'EndpointLocation' será necessário se o método de roteamento de tráfego 'Performance' for usado. Caso contrário, será opcional. O valor deve ser um [nome de uma região do Azure válida](http://azure.microsoft.com/regions/). - 'Weight' e 'Priority' são opcionais, assim como para os pontos de extremidade do Azure. - O parâmetro ‘MinChildEndpoints’ é opcional, o padrão é '1'. Se o número de pontos de extremidade disponíveis no perfil filho cair abaixo desse limite, o perfil pai considerará o perfil filho como ‘degradado’ e desviará o tráfego para os outros pontos de extremidade do perfil pai.
 
 
 #### Exemplo 1: Adicionando pontos de extremidade aninhados usando Add-AzureRmTrafficManagerEndpointConfig e Set-AzureRmTrafficManagerProfile
@@ -285,4 +285,4 @@ Essa sequência também pode ser transferida:
 [Considerações sobre desempenho do Gerenciador de Tráfego](traffic-manager-performance-considerations.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

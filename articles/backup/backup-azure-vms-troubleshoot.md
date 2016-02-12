@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/09/2016"
-	ms.author="trinadhk;jimpark;aashishr"/>
+	ms.date="01/28/2016"
+	ms.author="trinadhk;jimpark;"/>
 
 
 # Solucionar problemas de backup de máquinas virtuais do Azure
@@ -105,7 +105,7 @@ Para VMs do Windows:
 
 Para VMs do Linux:
 
-- Siga as instruções em [Atualizando o agente de VM do Linux](../virtual-machines-linux-update-agent.md).
+- Siga as instruções em [Atualizando o agente de VM do Linux](../virtual-machines/virtual-machines-linux-update-agent.md).
 
 
 ### Validando a instalação do Agente de VM
@@ -149,6 +149,6 @@ Após a resolução de nomes ser feita corretamente, o acesso às IPs Azure tamb
     - Se você tiver alguma restrição de rede no local (um Grupo de Segurança de Rede, por exemplo), implante um servidor proxy HTTP para encaminhar o tráfego. As etapas para implantar um servidor proxy HTTP podem ser encontradas [aqui](backup-azure-vms-prepare.md#2-network-connectivity).
     - Adicione regras ao NSG (se você tiver uma em vigor) para permitir o acesso à INTERNET do Proxy HTTP.
 
->[AZURE.NOTE]O DHCP deve estar habilitado no convidado para que o Backup da VM IaaS funcione. Se você precisar de um endereço IP privado estático, deverá configurá-lo usando a plataforma. A opção DHCP na VM deve ser ativada. Você pode saber mais sobre como configurar um IP interno estático privado [aqui](virtual-networks-reserved-private-ip.md).
+>[AZURE.NOTE] O DHCP deve estar habilitado no convidado para que o Backup da VM IaaS funcione. Se você precisar de um endereço IP privado estático, deverá configurá-lo usando a plataforma. A opção DHCP na VM deve ser ativada. Você pode saber mais sobre como configurar um IP interno estático privado [aqui](virtual-networks-reserved-private-ip.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -26,7 +26,7 @@ Esse tutorial se baseia no código mostrado no tutorial [Introdução ao Hub IoT
 
 - O armazenamento confiável de mensagens do dispositivo para a nuvem no [Armazenamento de blob do Azure]. Este é um cenário muito comum quando você implementa análise de *caminho frio*, em que você armazena dados em blobs para usar como entrada em processos de análise acionados por ferramentas como o [Azure Data Factory] ou a pilha do [HDInsight (Hadoop)].
 
-- O processamento confiável de mensagens *interativas* do dispositivo para nuvem. As mensagens do dispositivo para a nuvem são interativas quando dispararem imediatamente um conjunto de ações no back-end do aplicativo, diferente das mensagens *ponto de dados*, que são alimentadas em um mecanismo de análise. Por exemplo, um alarme proveniente de um dispositivo que deve disparar a inserção de um tíquete em um sistema de CRM é uma mensagem de dispositivo para nuvem interativa, diferente da telemetria, como exemplos de temperatura, que é uma mensagem de dispositivo de ponto de dados para a nuvem.
+- O processamento confiável de mensagens *interativas* do dispositivo para nuvem. As mensagens do dispositivo para a nuvem são interativas quando disparadas imediatamente para um conjunto de ações no back-end do aplicativo, diferente das mensagens de *ponto de dados*, que são alimentadas em um mecanismo de análise. Por exemplo, um alarme proveniente de um dispositivo que deve disparar a inserção de um tíquete em um sistema de CRM é uma mensagem de dispositivo para nuvem interativa, diferente da telemetria, como exemplos de temperatura, que é uma mensagem de dispositivo de ponto de dados para a nuvem.
 
 Como o Hub IoT expõe um ponto de extremidade compatível com os Hubs de Eventos para receber mensagens de dispositivo para nuvem, este tutorial usa uma instância [EventProcessorHost], que:
 
@@ -69,7 +69,7 @@ Agora você está pronto para executar os aplicativos.
 
   ![][50]
 
-> [AZURE.NOTE] Para ver as atualizações em seu arquivo de blob, talvez seja necessário reduzir a constante **MAX_BLOCK_SIZE** na classe **StoreEventProcessor** para como um valor menor, como **1024**. Isso ocorre porque leva algum tempo para alcançar o limite de tamanho de bloco com os dados enviados pelo dispositivo simulado. Com um tamanho de bloco menor, você não precisa esperar muito tempo para ver o blob ser criado e atualizado. No entanto, usar um tamanho maior de bloco torna o aplicativo mais dimensionável.
+> [AZURE.NOTE] Para ver as atualizações em seu arquivo de blob, talvez seja necessário reduzir a constante **MAX\_BLOCK\_SIZE** na classe **StoreEventProcessor** para como um valor menor, como **1024**. Isso ocorre porque leva algum tempo para alcançar o limite de tamanho de bloco com os dados enviados pelo dispositivo simulado. Com um tamanho de bloco menor, você não precisa esperar muito tempo para ver o blob ser criado e atualizado. No entanto, usar um tamanho maior de bloco torna o aplicativo mais dimensionável.
 
 ## Próximas etapas
 
@@ -98,6 +98,7 @@ Informações adicionais sobre o Hub IoT:
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
 
+[Tratamento de falhas transitórias]: https://msdn.microsoft.com/pt-BR/library/hh680901(v=pandp.50).aspx
 
 [Guia do desenvolvedor do Hub IoT do Azure - Dispositivo para nuvem]: https://azure.microsoft.com/pt-BR/documentation/articles/iot-hub-devguide/#d2c
 
@@ -107,6 +108,7 @@ Informações adicionais sobre o Hub IoT:
 
 
 [Enviar mensagens de nuvem para o dispositivo com o Hub IoT]: iot-hub-csharp-csharp-c2d.md
+[Processar mensagens do dispositivo para a nuvem]: iot-hub-csharp-csharp-process-d2c.md
 [Carregando arquivos de dispositivos]: iot-hub-csharp-csharp-file-upload.md
 
 [Visão geral do Hub IoT]: iot-hub-what-is-iot-hub.md
@@ -117,4 +119,4 @@ Informações adicionais sobre o Hub IoT:
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Centro de Desenvolvedores do IoT do Azure]: https://azure.microsoft.com/develop/iot
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

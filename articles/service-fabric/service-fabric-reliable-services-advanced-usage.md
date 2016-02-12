@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/17/2015"
+   ms.date="01/28/2016"
    ms.author="jesseb"/>
 
 # Uso avançado do modelo de programação de Serviços Confiáveis
 O Service Fabric do Azure simplifica o desenvolvimento e o gerenciamento de serviços confiáveis com e sem estado. Este guia tratará dos usos avançados do modelo de programação de Serviços Confiáveis para obter mais controle e flexibilidade sobre seus serviços. Antes de ler este guia, familiarize-se com [o do modelo de programação de Serviços Confiáveis](service-fabric-reliable-services-introduction.md).
 
 ## Classes base para serviços sem estado
-A classe base StatelessService fornece o RunAsync() e o CreateServiceInstanceListeners(), que são suficientes para a maioria dos serviços sem estado. A classe StatelessServiceBase fica subjacente ao StatelessService e expõe eventos adicionais de ciclo de vida do serviço. Você pode derivar de StatelessServiceBase se precisar de controle adicional ou flexibilidade. Consulte a documentação de referência do desenvolvedor em [StatelessService](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.services.statelessservice.aspx) e [StatelessServiceBase](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.services.statelessservicebase.aspx) para obter mais informações.
+A classe base StatelessService fornece o RunAsync() e o CreateServiceInstanceListeners(), que são suficientes para a maioria dos serviços sem estado. A classe StatelessServiceBase fica subjacente ao StatelessService e expõe eventos adicionais de ciclo de vida do serviço. Você pode derivar de StatelessServiceBase se precisar de controle adicional ou flexibilidade. Consulte a documentação de referência do desenvolvedor em [StatelessService](https://msdn.microsoft.com/library/microsoft.servicefabric.services.runtime.statelessservice.aspx) e [StatelessServiceBase](https://msdn.microsoft.com/library/microsoft.servicefabric.services.runtime.statelessservicebase.aspx) para obter mais informações.
 
 - `void OnInitialize(StatelessServiceInitializiationParameters)` OnInitialize é o primeiro método chamado pela Malha de Serviço. São fornecidas informações de inicialização do serviço como o nome, ID de partição, ID de instância e informações do pacote de códigos. Nenhum processamento complexo deve ser feito aqui. Inicialização longa deve ser feita em OnOpenAsync.
 
@@ -31,7 +31,7 @@ A classe base StatelessService fornece o RunAsync() e o CreateServiceInstanceLis
 - `void OnAbort()` OnAbort é chamado quando a instância do serviço sem estado está sendo desligado de modo forçado. Ele geralmente é chamado quando é detectada uma falha permanente no nó ou quando a malha de serviço não pode gerenciar confiavelmente o ciclo de vida da instância do serviço devido a falhas internas.
 
 ## Classes base para serviços com estado
-A classe base StatefulService deve ser suficiente para a maioria dos serviços com monitoração de estado. De maneira semelhante aos serviços sem monitoração de estado, a classe StatelessServiceBase fica subjacente ao StatefulService e expõe eventos adicionais de ciclo de vida do serviço. Além disso, você pode usá-la para fornecer um provedor de estado confiável personalizado e, opcionalmente, o suporte a ouvintes de comunicação em secundários. Você pode derivar de StatefulServiceBase se precisar de controle adicional ou flexibilidade. Consulte a documentação de referência do desenvolvedor em [StatefulService](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.services.statefulservice.aspx) e [StatefulServiceBase](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.services.statefulservicebase.aspx) para obter mais informações.
+A classe base StatefulService deve ser suficiente para a maioria dos serviços com monitoração de estado. De maneira semelhante aos serviços sem monitoração de estado, a classe StatelessServiceBase fica subjacente ao StatefulService e expõe eventos adicionais de ciclo de vida do serviço. Além disso, você pode usá-la para fornecer um provedor de estado confiável personalizado e, opcionalmente, o suporte a ouvintes de comunicação em secundários. Você pode derivar de StatefulServiceBase se precisar de controle adicional ou flexibilidade. Consulte a documentação de referência do desenvolvedor em [StatefulService](https://msdn.microsoft.com/library/microsoft.servicefabric.services.runtime.statefulservice.aspx) e [StatefulServiceBase](https://msdn.microsoft.com/library/microsoft.servicefabric.services.runtime.statefulservicebase.aspx) para obter mais informações.
 
 - `Task OnChangeRoleAsync(ReplicaRole, CancellationToken)` OnChangeRoleAsync é chamado quando o serviço com estado está alterando funções, por exemplo para primário ou secundário. Réplicas primárias recebem status de gravação (têm permissão para criar as coleções confiáveis e gravar nelas). Réplicas secundárias recebem status de leitura (podem somente ler das coleções confiáveis existentes). É possível iniciar ou atualizar as tarefas em segundo plano em resposta às alterações de função, como realizar validação somente leitura, geração de relatórios ou mineração de dados em um banco de dados secundário.
 
@@ -55,4 +55,4 @@ Para tópicos mais avançados relacionados ao Service Fabric, consulte os artigo
 
 - [Visão geral de restrições de posicionamento](service-fabric-placement-constraint.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

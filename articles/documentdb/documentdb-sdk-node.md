@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="01/25/2016" 
+	ms.date="02/02/2016" 
 	ms.author="ryancraw"/>
 
 # SDK do Banco de Dados de Documentos
@@ -36,6 +36,17 @@
 </table></br>
 
 ##Notas de versão
+###<a name="1.5.5"/>1.5.5</a>
+
+- hashPartitionResolver resolveForRead() corrigido: quando nenhuma chave de partição fornecida estava emitindo exceção, em vez de retornar uma lista de todos os links registrados.
+
+###<a name="1.5.4"/>1.5.4</a>
+
+- Corrige o problema [nº 100](https://github.com/Azure/azure-documentdb-node/issues/100) — agente HTTPS dedicado: evite modificar o agente global para fins do Banco de Dados de Documentos. Use um agente dedicado para todas as solicitações da biblioteca.
+
+###<a name="1.5.3"/>1.5.3</a>
+
+- Corrige o problema [nº 81](https://github.com/Azure/azure-documentdb-node/issues/81) — trate corretamente os traços em ids de mídia.
 
 ###<a name="1.5.2"/>1.5.2</a>
 
@@ -43,7 +54,7 @@
 
 ###<a name="1.5.1"/>1.5.1</a>
 
-- Corrige o problema [Nº 92](https://github.com/Azure/azure-documentdb-node/issues/90) — renomeie a pasta Hash para hash nos sistemas que diferenciam maiúsculas de minúsculas
+- Corrige o problema [nº 92](https://github.com/Azure/azure-documentdb-node/issues/90) — renomeie a pasta Hash para hash nos sistemas que diferenciam maiúsculas de minúsculas
 
 ### <a name="1.5.0"/>1.5.0</a>
 
@@ -109,9 +120,12 @@ Todas as versões do SDK do Banco de Dados de Documentos do Azure para Node.js a
 
 | Versão | Data do lançamento | Data de desativação 
 | ---	  | ---	         | ---
+| [1\.5.5](#1.5.5) | 02 de fevereiro de 2016 |--- 
+| [1\.5.4](#1.5.4) | 1º de fevereiro de 2016 |--- 
+| [1\.5.2](#1.5.2) | 26 de janeiro de 2016 |--- 
 | [1\.5.2](#1.5.2) | 22 de janeiro de 2016 |--- 
 | [1\.5.1](#1.5.1) | 4 de janeiro de 2016 |--- 
-| [1\.5.0](#1.5.0) | 31 de dezembro de 2015 |--- 
+| [1\.5.0](#1.5.0) | 31 de setembro de 2015 |--- 
 | [1\.4.0](#1.4.0) | 6 de outubro de 2015 |--- 
 | [1\.3.0](#1.3.0) | 6 de outubro de 2015 |--- 
 | [1\.2.2](#1.2.2) | 10 de setembro de 2015 |--- 
@@ -120,7 +134,7 @@ Todas as versões do SDK do Banco de Dados de Documentos do Azure para Node.js a
 | [1\.1.0](#1.1.0) | 9 de julho de 2015 |--- 
 | [1\.0.3](#1.0.3) | 4 de junho de 2015 |--- 
 | [1\.0.2](#1.0.2) | 23 de maio de 2015 |--- 
-| [1\.0.1](#1.0.1) | 15 de maior de 2015 |--- 
+| [1\.0.1](#1.0.1) | 15 de maio de 2015 |--- 
 | [1\.0.0](#1.0.0) | 8 de abril de 2015 |--- 
 | 0.9.4-prelease | 6 de abril de 2015 | 29 de fevereiro de 2016 
 | 0.9.3-prelease | 14 de janeiro de 2015 | 29 de fevereiro de 2016 
@@ -136,4 +150,4 @@ Todas as versões do SDK do Banco de Dados de Documentos do Azure para Node.js a
 
 Para saber mais sobre o Banco de Dados de Documentos, confira a página de serviço do [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

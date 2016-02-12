@@ -22,8 +22,6 @@
 
 Este artigo fornece informações detalhadas e exemplos de como trabalhar com um back-end de Node.js nos Aplicativos Móveis do Serviço de Aplicativo do Azure.
 
-> [AZURE.NOTE] Este SDK está em versão de Visualização. Como resultado, não recomendamos que você use esse SDK em produção. Os exemplos neste documento usam v2.0.0-rc2 do [azure-mobile-apps].
-
 ## <a name="Introduction"></a>Introdução
 
 Os Aplicativos Móveis do Serviço de Aplicativo do Azure fornece a capacidade de adicionar uma API Web de acesso a dados otimizada para mobilidade a um aplicativo web. O SDK de Aplicativos Móveis do Serviço de Aplicativo do Azure é fornecido para aplicativos Web ASP.NET e Node.js. O SDK oferece as seguintes operações:
@@ -161,13 +159,13 @@ O Serviço de Aplicativo do Azure tem recomendações específicas para aplicati
 - Como [especificar a versão do Node]
 - Como [usar módulos do Node]
 
-### <a name="howto-enable-homepage"></a>Como habilitar uma Home Page para o seu aplicativo
+### <a name="howto-enable-homepage"></a>Como habilitar uma home page para o seu aplicativo
 
 Muitos aplicativos são uma combinação de aplicativos Web e móveis, e a estrutura do ExpressJS permite a combinação das duas facetas. Às vezes, no entanto, talvez você queira implementar apenas uma interface móvel. É útil fornecer uma página de aterrissagem para garantir que o serviço de aplicativo esteja em execução. Você pode fornecer sua própria home page ou habilitar uma home page temporária. Para habilitar uma home page temporária, ajuste o construtor do Aplicativo Móvel para o seguinte:
 
     var mobile = azureMobileApps({ homePage: true });
 
-Você pode adicionar essa configuração ao seu arquivo `azureMobile.js` se quiser essa opção disponível apenas ao desenvolver localmente.
+Você pode adicionar essa configuração ao seu arquivo `azureMobile.js` se quiser que essa opção fique disponível apenas quando você desenvolver localmente.
 
 ## <a name="TableOperations"></a>Operações de tabela
 
@@ -551,7 +549,7 @@ Ao criar um novo aplicativo, você pode querer propagar uma tabela com dados. Is
 
 ### <a name="Swagger"></a>Habilitar o suporte do Swagger
 
-Os Aplicativos Móveis do Serviço de Aplicativo do Azure vêm com suporte interno para [Swagger]. Para habilitar o suporte do Swagger, primeiro instale a swagger-ui como uma dependência:
+Os Aplicativos Móveis do Serviço de Aplicativo do Azure vêm com suporte interno para o [Swagger]. Para habilitar o suporte do Swagger, primeiro instale a swagger-ui como uma dependência:
 
     npm install --save swagger-ui
 
@@ -563,9 +561,9 @@ Provavelmente você quer apenas habilitar o suporte do Swagger em edições de d
 
     var mobile = azureMobileApps({ swagger: process.env.NODE_ENV !== 'production' });
 
-O ponto de extremidade do swagger estará localizado em http://\_seusite\_.azurewebsites.net/swagger. Você pode acessar a interface do usuário do Swagger por meio do ponto de extremidade do `/swagger/ui`. Observe que o Swagger produz um erro para o ponto de extremidade /, se você exigir a autenticação em todo o seu aplicativo. Para obter melhores resultados, opte por permitir solicitações não autenticadas nas configurações de Autenticação/Autorização do Serviço de Aplicativo do Azure e, em seguida, controle a autenticação usando a propriedade `table.access`.
+O ponto de extremidade do swagger estará localizado em http://\_seusite\_.azurewebsites.net/swagger. Você pode acessar a interface do usuário do Swagger por meio do ponto de extremidade do `/swagger/ui`. Observe que o Swagger produz um erro para o ponto de extremidade /, se você exigir a autenticação em todo o seu aplicativo. Para obter melhores resultados, opte por permitir solicitações não autenticadas nas configurações de Autenticação/Autorização do Serviço de Aplicativo do Azure e controle a autenticação usando a propriedade `table.access`.
 
-Você também pode adicionar a opção do Swagger ao seu arquivo `azureMobile.js`, se quiser o suporte do Swagger apenas ao desenvolver localmente.
+Você também pode adicionar a opção do Swagger ao seu arquivo `azureMobile.js` se quiser o suporte do Swagger apenas ao desenvolver localmente.
 
 ## <a name="CustomAPI"></a>APIs personalizadas
 
@@ -747,4 +745,4 @@ Também é possível executar, do editor, o código no site
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

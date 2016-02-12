@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="01/27/2016" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"
 />
 
@@ -417,10 +417,10 @@ Queremos localizar o tempo médio necessário para o carro passar pelo pedágio 
 
 Para isso, precisamos associar a transmissão contendo EntryTime com a transmissão contendo ExitTime. Uniremos os fluxos nas colunas TollId e LicencePlate. O operador JOIN exige a especificação de um espaço de manobra temporal descrevendo a diferença de tempo aceitável entre os eventos associados. Usaremos a função DATEDIFF para especificar que os eventos não devem ter um intervalo maior de 15 minutos entre si. Também aplicaremos a função DATEDIFF nas horas de Entrada e Saída para computar o tempo real que um carro gasta em um pedágio. Observe a diferença do uso da DATEDIFF quando usada em uma instrução SELECT em comparação com uma condição JOIN.
 
-    SELECT EntryStream.TollId, EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute , EntryStream.EntryTime, ExitStream .ExitTime) AS Duration InMinutes
+    SELECT EntryStream.TollId, EntryStream.EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute , EntryStream.EntryTime, ExitStream.ExitTime) AS DurationInMinutes
     FROM EntryStream TIMESTAMP BY EntryTime
-    JOIN ExitStream TIMESTAMP BY ExitTim e
-    ON (Entry Stream.TollId= ExitStream.TollId AND EntryStream.LicensePlate = ExitStream.LicensePlate)
+    JOIN ExitStream TIMESTAMP BY ExitTime
+    ON (EntryStream.TollId= ExitStream.TollId AND EntryStream.LicensePlate = ExitStream.LicensePlate)
     AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 
 Para testar essa consulta, atualize a consulta na guia de consulta do trabalho:
@@ -445,7 +445,7 @@ Se um veículo comercial é registrado com a Empresa de Pedágio, ele pode passa
     FROM EntryStream TIMESTAMP BY EntryTime
     JOIN Registration
     ON EntryStream.LicensePlate = Registration.LicensePlate
-    WHERE Registration.Expired = ‘1’
+    WHERE Registration.Expired = '1'
 
 Observe que testar uma consulta com Dados de Referência requer que uma fonte de entrada para os Dados de Referência seja definida, o que fizemos na etapa 5.
 
@@ -534,4 +534,4 @@ Observe que os recursos são identificados pelo nome. Certifique-se de examinar 
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image57.png)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

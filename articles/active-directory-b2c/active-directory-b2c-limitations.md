@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="01/28/2016"
 	ms.author="swkrish"/>
 
 # Visualização do Active Directory B2C do Azure: limitações e restrições
@@ -28,7 +28,7 @@ Se você tiver problemas durante a [criação de um locatário do AD B2C do Azur
 
 ## Problemas de identidade visual no email de verificação
 
-O email de verificação padrão contém a marca "Microsoft". Nós a removeremos no futuro. Por enquanto, você pode removê-la usando o [recurso de identidade visual da empresa](./active-directory/active-directory-add-company-branding.md).
+O email de verificação padrão contém a marca "Microsoft". Nós a removeremos no futuro. Por enquanto, você poderá removê-lo usando o [recurso de identidade visual da empresa](../active-directory/active-directory-add-company-branding.md).
 
 ## Suporte para aplicativos de produção
 
@@ -68,7 +68,7 @@ A visualização AD B2C do Azure dá suporte a OAuth 2.0 e OpenID Connect. No en
 
 ## Restrição de tokens
 
-Muitos dos tokens emitidos pela visualização AD B2C do Azure são implementados como Tokens da Web JSON ou JWTs. No entanto, nem todas as informações contidas no JWTs (conhecidas como "declarações") são exatamente como deveriam ser ou não existem. Alguns exemplos incluem "sub" e as declarações de "preferred\_username". Você deve esperar que as coisas mudem um pouco durante a visualização. Para entender melhor os tokens emitidos atualmente pelo serviço do AD B2C do Azure, leia nossa [referência de token](active-directory-b2c-tokens.md).
+Muitos dos tokens emitidos pela visualização AD B2C do Azure são implementados como Tokens da Web JSON ou JWTs. No entanto, nem todas as informações contidas no JWTs (conhecidas como "declarações") são exatamente como deveriam ser ou não existem. Alguns exemplos incluem "sub" e as declarações de "preferred\_username". Você deve esperar que as coisas mudem um pouco durante a visualização. Para entender melhor os tokens emitidos atualmente pelo serviço do AD B2C do Azure, leia nossa [referência de token](active-directory-b2c-reference-tokens.md).
 
 ## Problemas de gerenciamento de usuário no Portal Clássico do Azure
 
@@ -96,4 +96,4 @@ Atualmente, você não pode verificar um domínio com êxito no [Portal Clássic
 
 Quando acessar a folha de configurações de B2C no Portal do Azure, você verá uma mensagem de aviso nas Notificações (no canto superior direito); Ela dirá: "Você não tem nenhuma assinatura no diretório <B2CTenantName>. Você tem outros diretórios para os quais pode mudar. ", em que <B2CTenantName> é o nome do seu locatário do B2C. Você pode ignorar essa mensagem e continuar para acessar os recursos do B2C. Estamos trabalhando com a equipe do Portal do Azure em uma correção para esse problema.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

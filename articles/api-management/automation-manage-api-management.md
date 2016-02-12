@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/16/2015"
+	ms.date="02/01/2016"
 	ms.author="csand"/>
 
 
@@ -44,4 +44,4 @@ Agora que você aprendeu os fundamentos de Automação do Azure e como ela pode 
 * Leia a postagem de blog da comunidade [Módulo do PowerShell para as APIs REST de Gerenciamento de API do #Azure](https://alexandrebrisebois.wordpress.com/2014/08/17/powershell-module-for-the-azure-api-management-rest-apis/).
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

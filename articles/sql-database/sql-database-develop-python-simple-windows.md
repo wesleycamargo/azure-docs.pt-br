@@ -43,14 +43,13 @@ Certifique-se de que escolheu o arquivo whl correto.
 Por exemplo: se você estiver usando o Python 2.7 em um computador de 64 bits, escolha: pymssql‑2.1.1‑cp27‑none‑win_amd64.whl. Depois de baixar o arquivo .whl, coloque-o na pasta C:/Python27.
 
 Agora, instale o driver pymssql usando pip na linha de comando. cd em C:/Python27 e execute o seguinte
-	
+
 	pip install pymssql‑2.1.1‑cp27‑none‑win_amd64.whl
 
 É possível encontrar instruções para habilitar o uso de pip [aqui](http://stackoverflow.com/questions/4750806/how-to-install-pip-on-windows)
 
 
 ### Um Banco de Dados SQL
-
 
 Consulte a [página de introdução](sql-database-get-started.md) para aprender a criar um banco de dados de exemplo. É importante que você siga o guia para criar um **modelo de banco de dados AdventureWorks**. Os exemplos mostrados abaixo funcionam apenas com o **esquema AdventureWorks**.
 
@@ -104,11 +103,11 @@ Nesse exemplo, você verá como executar uma instrução [INSERT](https://msdn.m
 Este exemplo de código demonstra o uso de transações nas quais você:
 
 
--Inicia uma transação
+- Inicia uma transação
 
--Insere uma linha de dados
+- Insere uma linha de dados
 
--Reverte a transação para desfazer a inserção
+- Reverte a transação para desfazer a inserção
 
 
 	import pymssql
@@ -116,10 +115,10 @@ Este exemplo de código demonstra o uso de transações nas quais você:
 	cursor = conn.cursor()
 	cursor.execute("BEGIN TRANSACTION")
 	cursor.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New', 'SQLEXPRESS New', 0, 0, CURRENT_TIMESTAMP)")
-	cnxn.rollback()
+	conn.rollback()
 
 ## Próximas etapas
 
 Para saber mais, consulte o [Centro de Desenvolvedores do Python](/develop/python/).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

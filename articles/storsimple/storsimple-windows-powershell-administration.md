@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/28/2015"
+   ms.date="01/29/2016"
    ms.author="alkohli@microsoft.com" />
 
 # Usar o Windows PowerShell para StorSimple para administrar o seu dispositivo
@@ -31,7 +31,7 @@ Neste artigo, você aprenderá a:
 
 - Obtenha ajuda no Windows PowerShell para StorSimple.
 
->[AZURE.NOTE]
+>[AZURE.NOTE] 	
 
 >- Os cmdlets do Windows PowerShell para StorSimple permitem gerenciar seu dispositivo StorSimple por um console serial ou remotamente por meio de comunicação remota do Windows PowerShell. Para obter mais informações sobre cada um dos cmdlets individuais que podem ser usados nessa interface, vá para [referência de cmdlets do Windows PowerShell para StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
 
@@ -47,49 +47,15 @@ Neste artigo, você aprenderá a:
 
 Você pode [baixar o PuTTY](http://www.putty.org/) ou um software de emulação de terminal similar para se conectar ao Windows PowerShell para StorSimple. Você precisa configurar o PuTTY especificamente para acessar o dispositivo Microsoft Azure StorSimple. Os tópicos a seguir contêm as etapas detalhadas sobre como configurar o PuTTy e conectar-se ao dispositivo. Diversas opções de menu do console serial também são explicadas.
 
-### Sobre o console serial
-
-Ao acessar a interface do Windows PowerShell do dispositivo StorSimple por meio do console serial, uma mensagem de cabeçalho é apresentada, seguida das opções de menu.
-
-A mensagem de cabeçalho contém informações de dispositivo StorSimple básicas, como modelo, nome, versão do software instalado e status do controlador que você está acessando. A imagem a seguir mostra um exemplo de uma mensagem de cabeçalho.
-
-![Mensagem da faixa serial](./media/storsimple-windows-powershell-administration/IC741098.png)
-
-
-
->[AZURE.IMPORTANT]Você pode usar a mensagem de cabeçalho para determinar se o controlador ao qual você está conectado está Ativo ou Passivo.
-
-
-A imagem a seguir mostra as várias opções de espaço de execução disponíveis no menu console serial.
-
-![Registrar seu dispositivo 2](./media/storsimple-windows-powershell-administration/IC740906.png)
-
-É possível escolher um das seguintes configurações:
-
-1. **Efetuar login com acesso total** Essa opção permite que você se conecte (com as credenciais apropriadas) ao estaço de execução **SSAdminConsole** no controlador local. (O controlador local é o controlador sendo acessado por meio do console serial do dispositivo StorSimple.) Essa opção também pode ser usada para permitir que o Suporte da Microsoft acesse o espaço de execução irrestrito (uma sessão de suporte) para solucionar qualquer problema do dispositivo. Depois que você usar a opção 1 para fazer logon, pode permitir que o engenheiro do Suporte da Microsoft acesse o espaço de execução irrestrito ao executar um cmdlet específico. Para obter detalhes, consulte [Iniciar uma sessão de suporte](storsimple-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple).
-
-1. **Efetuar login no controlador de par com acesso completo** Essa opção equivale à opção 1, exceto pelo fato de você poder se conectar (com as credenciais apropriadas) ao espaço de execução **SSAdminConsole** no controlador de par. Como o dispositivo StorSimple é um dispositivo de alta disponibilidade com dois controladores em uma configuração ativo-passivo, par refere-se ao outro controlador no dispositivo que você está acessando por meio do console serial). Semelhante à opção 1, essa opção também pode ser usada para permitir que o Suporte da Microsoft acesse o espaço de execução irrestrito em um controlador de par.
-
-1. **Conectar com acesso limitado** Essa opção é usada para acessar a interface do Windows PowerShell no modo limitado. As credenciais de acesso não são solicitadas. Essa opção se conecta a um espaço de execução mais restrito em comparação com as opções 1 e 2. Algumas das tarefas disponíveis por meio da opção 1 que não podem ser realizadas nesse espaço de execução são:
-
-	- Redefinir para as configurações de fábrica
-	- Alterar a senha
-	- Habilitar ou desabilitar o acesso de suporte
-	- Aplicar atualizações
-	- Instale hotfixes 
-												
-
-	>[AZURE.NOTE]**Essa é a opção preferencial se você tiver esquecido a senha de administrador do dispositivo e não puder se conectar por meio das opções 1 ou 2.**
-
-1. **Alterar idioma** Essa opção permite que você altere o idioma de exibição na interface do Windows PowerShell. Os idiomas com suporte são inglês, japonês, russo, francês, sul coreano, espanhol, italiano, alemão, chinês e português brasileiro.
+### Configurações do PuTTY
 
 Certifique-se de usar as seguintes configurações de PuTTY para conectar-se à interface do Windows PowerShell no console serial.
 
 #### Para configurar o PuTTY
 
-1. Na caixa de diálogo de reconfiguração do PuTTY, no painel **Categoria**, selecione **Teclado**.
+1. Na caixa de diálogo **Reconfiguração** do PuTTY, no painel **Categoria**, selecione **Teclado**.
 
-1. Certifique-se de que as seguintes opções estejam selecionadas (são as configurações padrão ao iniciar uma nova sessão).
+2. Certifique-se de que as seguintes opções estejam selecionadas (são as configurações padrão ao iniciar uma nova sessão).
 
  	|Item de teclado|Selecionar|
  	|---|---|
@@ -102,31 +68,65 @@ Certifique-se de usar as seguintes configurações de PuTTY para conectar-se à 
 
 	![Configurações do Putty permitidas](./media/storsimple-windows-powershell-administration/IC740877.png)
 
-1. Clique em **Aplicar**.
+3. Clique em **Aplicar**.
 
-1. No painel **Categoria**, selecione **Tradução**.
+4. No painel **Categoria**, selecione **Tradução**.
 
-1. Na caixa de listagem **Conjunto de caracteres remotos**, selecione **UTF-8**.
+5. Na caixa de listagem **Conjunto de caracteres remotos**, selecione **UTF-8**.
 
-1. Em **Manipulação de caracteres de desenho de linha**, selecione **Use pontos de código de desenho de linha Unicode**. A ilustração a seguir mostra as seleções corretas do PuTTY.
+6. Em **Manipulação de caracteres de desenho de linha**, selecione **Use pontos de código de desenho de linha Unicode**. A ilustração a seguir mostra as seleções corretas do PuTTY.
 
 	![Configurações do PuTTY UTF](./media/storsimple-windows-powershell-administration/IC740878.png)
 
-1. Clique em **Aplicar**.
+7. Clique em **Aplicar**.
 
 
-Agora você pode usar o PuTTY para se conectar ao console serial do dispositivo seguindo as etapas a seguir:
+Agora você pode usar o PuTTY para se conectar ao console serial do dispositivo seguindo as etapas abaixo.
 
 [AZURE.INCLUDE [storsimple-usar-putty](../../includes/storsimple-use-putty.md)]
 
 
+### Sobre o console serial
+
+Ao acessar a interface do Windows PowerShell do dispositivo StorSimple por meio do console serial, uma mensagem de cabeçalho é apresentada, seguida das opções de menu.
+
+A mensagem de cabeçalho contém informações de dispositivo StorSimple básicas, como modelo, nome, versão do software instalado e status do controlador que você está acessando. A imagem a seguir mostra um exemplo de uma mensagem de cabeçalho.
+
+![Mensagem da faixa serial](./media/storsimple-windows-powershell-administration/IC741098.png)
+
+>[AZURE.IMPORTANT] Você pode usar a mensagem de cabeçalho para determinar se o controlador ao qual você está conectado está Ativo ou Passivo.
+
+A imagem a seguir mostra as várias opções de espaço de execução disponíveis no menu console serial.
+
+![Registrar seu dispositivo 2](./media/storsimple-windows-powershell-administration/IC740906.png)
+
+É possível escolher um das seguintes configurações:
+
+1. **Efetuar login com acesso total** Essa opção permite que você se conecte (com as credenciais apropriadas) ao estaço de execução **SSAdminConsole** no controlador local. (O controlador local é o controlador sendo acessado por meio do console serial do dispositivo StorSimple.) Essa opção também pode ser usada para permitir que o Suporte da Microsoft acesse o espaço de execução irrestrito (uma sessão de suporte) para solucionar qualquer problema do dispositivo. Depois que você usar a opção 1 para fazer logon, pode permitir que o engenheiro do Suporte da Microsoft acesse o espaço de execução irrestrito ao executar um cmdlet específico. Para obter detalhes, consulte [Iniciar uma sessão de suporte](storsimple-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple).
+
+2. **Efetuar login no controlador de par com acesso completo** Essa opção equivale à opção 1, exceto pelo fato de você poder se conectar (com as credenciais apropriadas) ao espaço de execução **SSAdminConsole** no controlador de par. Como o dispositivo StorSimple é um dispositivo de alta disponibilidade com dois controladores em uma configuração ativo-passivo, par refere-se ao outro controlador no dispositivo que você está acessando por meio do console serial). Semelhante à opção 1, essa opção também pode ser usada para permitir que o Suporte da Microsoft acesse o espaço de execução irrestrito em um controlador de par.
+
+3. **Conectar com acesso limitado** Essa opção é usada para acessar a interface do Windows PowerShell no modo limitado. As credenciais de acesso não são solicitadas. Essa opção se conecta a um espaço de execução mais restrito em comparação com as opções 1 e 2. Algumas das tarefas disponíveis por meio da opção 1 que não podem ser realizadas nesse espaço de execução são:
+
+	- Redefinir para as configurações de fábrica
+	- Alterar a senha
+	- Habilitar ou desabilitar o acesso de suporte
+	- Aplicar atualizações
+	- Instale hotfixes 
+												
+
+	>[AZURE.NOTE] **Essa é a opção preferencial se você tiver esquecido a senha de administrador do dispositivo e não puder se conectar por meio das opções 1 ou 2.**
+
+4. **Alterar idioma** Essa opção permite que você altere o idioma de exibição na interface do Windows PowerShell. Os idiomas com suporte são inglês, japonês, russo, francês, sul coreano, espanhol, italiano, alemão, chinês e português brasileiro.
+
+
 ## Conectar-se remotamente ao StorSimple usando o Windows PowerShell para StorSimple
-Você pode usar o Windows PowerShell remotamente para se conectar ao seu dispositivo StorSimple. Ao se conectar dessa maneira, você não verá um menu. (Você verá um menu apenas se usar o console serial no dispositivo para se conectar.) Com a comunicação remota do Windows PowerShell, você se conectar a um espaço de execução específico. Também é possível especificar o idioma de exibição.
+
+Você pode usar o Windows PowerShell remotamente para se conectar ao seu dispositivo StorSimple. Ao se conectar dessa maneira, você não verá um menu. (Você verá um menu apenas se usar o console serial no dispositivo para se conectar. Conectar-se remotamente leva você diretamente para o equivalente à "opção 1 – acesso total" no console serial.) Com a comunicação remota do Windows PowerShell, você se conectar a um espaço de execução específico. Também é possível especificar o idioma de exibição.
 
 O idioma de exibição é independente do idioma definido usando a opção **Alterar Idioma** no menu do console serial. O PowerShell remoto selecionará automaticamente a localidade do dispositivo do qual você está se conectando se nenhum for especificado.
 
->[AZURE.NOTE]Se você estiver trabalhando com hosts virtuais do Microsoft Azure e dispositivos virtuais StorSimple, poderá usar o Windows PowerShell remotamente e o host virtual para se conectar ao dispositivo virtual. Se você tiver configurado um local de compartilhamento no host no qual são salvas as informações de sessão do Windows PowerShell, deverá estar ciente de que a entidade Todos inclui somente os usuários autenticados. Portanto, se você configurou o compartilhamento para permitir o acesso por Todos e se conectar sem especificar credenciais, a entidade Anônima não autenticada será usada e um erro aparecerá. Para corrigir esse problema, no host de compartilhamento, você precisa ativar a conta de convidado e dar à conta de convidado acesso total ao compartilhamento ou especificar credenciais válidas, juntamente com o cmdlet do Windows PowerShell.
-
+>[AZURE.NOTE] Se você estiver trabalhando com hosts virtuais do Microsoft Azure e dispositivos virtuais StorSimple, poderá usar o Windows PowerShell remotamente e o host virtual para se conectar ao dispositivo virtual. Se tiver configurado um local de compartilhamento no host no qual são salvar as informações de sessão do Windows PowerShell, você deverá estar ciente de que a entidade Todos inclui somente os usuários autenticados. Portanto, se você configurou o compartilhamento para permitir o acesso por Todos e se conectar sem especificar credenciais, a entidade Anônima não autenticada será usada e um erro será exibido. Para corrigir esse problema, no host de compartilhamento, você precisa ativar a conta de convidado e dar à conta de convidado acesso total ao compartilhamento ou especificar credenciais válidas, juntamente com o cmdlet do Windows PowerShell.
 
 Você pode usar HTTP ou HTTPS para se conectar por meio de comunicação remota do Windows PowerShell. Use as instruções nos seguintes tutoriais:
 
@@ -137,15 +137,15 @@ Você pode usar HTTP ou HTTPS para se conectar por meio de comunicação remota 
 
 Quando estiver decidindo a forma de conexão ao Windows PowerShell para StorSimple, considere o seguinte:
 
-- Conectar-se diretamente ao console serial do dispositivo é seguro, mas se conectar ao console serial em comutadores de rede não. Tenha cuidado com os riscos de segurança ao se conectar ao serial do dispositivo em comutadores de rede.
+- Conectar-se diretamente ao console serial do dispositivo é seguro, mas se conectar ao console serial em comutadores de rede não é seguro. Tenha cuidado com os riscos de segurança ao se conectar ao serial do dispositivo em comutadores de rede.
 
 - A conexão através de uma sessão HTTP pode oferecer mais segurança do que a conexão por meio do console serial através da rede. Embora não seja o método mais seguro, é aceitável em redes confiáveis.
 
-- A conexão através de uma sessão HTTPS com um certificado autoassinado é a mais segura, sendo a opção recomendada.
+- A conexão por meio de uma sessão HTTPS é a opção mais segura e recomendada.
 
 
 ## Administrar o seu dispositivo StorSimple usando o Windows PowerShell para StorSimple
-A tabela a seguir mostra um resumo de todas as tarefas comuns de gerenciamento e fluxos de trabalho complexos que podem ser executados na interface do Windows PowerShell de seu dispositivo StorSimple. Para obter mais informações sobre cada fluxo de trabalho, clique na entrada apropriada na tabela.
+A tabela a seguir mostra um resumo de todas as tarefas comuns de gerenciamento e fluxos de trabalho complexos que podem ser executados na interface do Windows PowerShell do dispositivo StorSimple. Para obter mais informações sobre cada fluxo de trabalho, clique na entrada apropriada na tabela.
 
 #### Fluxos de trabalho do Windows PowerShell para StorSimple
 
@@ -189,12 +189,12 @@ Você pode atualizar facilmente a Ajuda na interface do Windows PowerShell. Exec
 
 1. Os arquivos de Ajuda atualizados serão instalados.
 
-1. Após a instalação dos arquivos de ajuda, digite: `Get-Help Get-Command`. Isso exibirá uma lista dos cmdlets para os quais a Ajuda está disponível.
+1. Depois que os arquivos de ajuda forem instalados, digite: `Get-Help Get-Command`. Isso exibirá uma lista dos cmdlets para os quais a Ajuda está disponível.
 
 
->[AZURE.NOTE]Para obter uma lista de todos os cmdlets disponíveis em qualquer runspace, faça logon na opção de menu correspondente e execute o cmdlet `Get-Command`.
+>[AZURE.NOTE] Para obter uma lista de todos os cmdlets disponíveis em qualquer runspace, faça logon na opção de menu correspondente e execute o cmdlet `Get-Command`.
 
 ## Próximas etapas
 Se você tiver problemas com seu dispositivo StorSimple ao executar um dos fluxos de trabalho acima, consulte [Ferramentas para solucionar problemas em implantações de StorSimple](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

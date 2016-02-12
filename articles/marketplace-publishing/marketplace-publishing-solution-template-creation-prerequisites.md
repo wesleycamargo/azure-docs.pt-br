@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/28/2015"
+   ms.date="01/28/2016"
    ms.author="hascipio; v-divte" />
 
 # Pré-requisitos técnicos para criar um modelo de solução para o Azure Marketplace
@@ -29,9 +29,9 @@ Você deve decidir sobre os blocos de construção de sua solução antes de pro
   - [https://github.com/azure/azure-quickstart-templates](https://github.com/azure/azure-quickstart-templates)
 
 ## Próximas etapas
-Agora que examinou os pré-requisitos e concluiu as tarefas necessárias, você pode prosseguir com a criação de sua oferta de modelo de solução, conforme detalhado no [Guia para criar um modelo de solução](marketplace-publishing-solution-template-creation.md). Para ver as práticas recomendadas, consulte [Práticas recomendadas para criar um modelo de solução](marketplace-publishing-solution-template-best-practices.md). Para retornar à página principal de tarefas do publicador, consulte [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md).
+Agora que examinou os pré-requisitos e concluiu as tarefas necessárias, você pode prosseguir com a criação de sua oferta de modelo de solução, conforme detalhado no [Guia para criar um modelo de solução](marketplace-publishing-solution-template-creation.md). Para retornar à página principal de tarefas do publicador, consulte [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md).
 
 
 [link-acct]: marketplace-publishing-accounts-creation-registration.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

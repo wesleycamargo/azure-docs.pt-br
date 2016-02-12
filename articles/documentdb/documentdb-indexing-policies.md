@@ -14,19 +14,18 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="10/05/2015" 
+    ms.date="02/03/2016" 
     ms.author="arramac"/>
 
 
 # Políticas de indexação do Banco de Dados de Documentos
 
-Embora muitos clientes fiquem satisfeitos em deixar que o Banco de Dados de Documentos manipule automaticamente [todos os aspectos da indexação](documentdb-indexing.md), o Banco de Dados de Documentos também dá suporte à especificação de uma **política de indexação** personalizada para coleções durante a criação. As políticas de indexação do Banco de Dados de Documentos são mais flexíveis e poderosas do que os índices secundários oferecidos em outras plataformas de banco de dados de indexação, já que permitem o design e a personalização da forma do índice sem sacrificar a flexibilidade de esquema. Para saber como a indexação funciona no Banco de Dados de Documentos, é preciso entender que ao gerenciar a política de indexação, você poderá criar compensações refinadas entre a sobrecarga de armazenamento de índice, a taxa de transferência de gravação e de consulta e a consistência de consulta.
+Embora muitos clientes fiquem satisfeitos em deixar que o Banco de Dados de Documentos manipule automaticamente [todos os aspectos da indexação](documentdb-indexing.md), o Banco de Dados de Documentos também dá suporte à especificação de uma **política de indexação** personalizada para coleções durante a criação. As políticas de indexação do Banco de Dados de Documentos são mais flexíveis e poderosas do que os índices secundários oferecidos em outras plataformas de banco de dados, pois elas permitem o design e a personalização da forma do índice sem sacrificar a flexibilidade de esquema. Para saber como a indexação funciona no Banco de Dados de Documentos, é preciso entender que ao gerenciar a política de indexação, você poderá criar compensações refinadas entre a sobrecarga de armazenamento de índice, a taxa de transferência de gravação e de consulta e a consistência de consulta.
 
 Neste artigo, examinaremos em mais detalhes as políticas de indexação do Banco de Dados de Documentos, como podemos personalizar a política de indexação e as compensações associadas.
 
 Após ler este artigo, você poderá responder as perguntas a seguir:
 
-- Como o Banco de Dados de Documentos dá suporte à indexação automática por padrão?
 - Como substituir as propriedades a serem incluídas ou excluídas da indexação?
 - Como configurar o índice para eventuais atualizações?
 - Como configurar a indexação para executar consultas Order By ou de intervalo?
@@ -59,7 +58,7 @@ O seguinte trecho de código .NET mostra como definir uma política de indexaç�
     await client.CreateDocumentCollectionAsync(database.SelfLink, collection);   
 
 
->[AZURE.NOTE]O esquema JSON para política de indexação foi alterado com o lançamento da versão 2015-06-03 da API REST para dar suporte a índices de intervalo nas cadeias de caracteres. .NET SDK 1.2.0 e Java, Python e SDKs do Node. js 1.1.0 oferecem suporte para o novo esquema de política. SDKs mais antigos usam a API REST versão 2015-04-08 e dão suporte ao esquema mais antigo da política de indexação.
+>[AZURE.NOTE] O esquema JSON para política de indexação foi alterado com o lançamento da versão 2015-06-03 da API REST para dar suporte a índices de intervalo nas cadeias de caracteres. .NET SDK 1.2.0 e Java, Python e SDKs do Node. js 1.1.0 oferecem suporte para o novo esquema de política. SDKs mais antigos usam a API REST versão 2015-04-08 e dão suporte ao esquema mais antigo da política de indexação.
 >
 >Por padrão, Banco de Dados de Documentos indexa todas as propriedades da cadeia de caracteres dentro de documentos de forma consistente com um índice de Hash e propriedades numéricas com um índice de intervalo.
 
@@ -71,9 +70,9 @@ O Banco de Dados de Documentos dá suporte a três modos de indexação, que pod
 
 **Lento**: para permitir que a taxa de transferência máxima de ingestão de documentos, uma coleção do Banco de Dados de Documentos pode ser configurada com consistência lenta, o que significa que as consultas serão eventualmente consistentes. O índice é atualizado de forma assíncrona quando uma coleção do Banco de Dados de Documentos está inativa, isto é, quando a capacidade de taxa de transferência da coleção não é totalmente utilizada para servir solicitações do usuário. Para cargas de trabalho "ingerir agora, consultar depois" que exijam a ingestão ilimitada de documentos, o modo de indexação “lento” será mais adequado.
 
-**Nenhum**: uma coleção marcada com o modo de índice "Nenhum" não tem nenhum índice associado a ela. A configuração da política de indexação com "Nenhum" tem o efeito colateral de remover qualquer índice existente.
+**Nenhum**: uma coleção marcada com o modo de índice "Nenhum" não tem nenhum índice associado a ela. Esse modo será mais usado se o Banco de Dados de Documentos for utilizado como um armazenamento de chave/valor e os documentos forem acessados apenas pela respectiva propriedade de ID.
 
->[AZURE.NOTE]A configuração da política de indexação com “Nenhum” tem o efeito colateral de remover qualquer índice existente. Use essa opção se os padrões de acesso forem somente exigir a “id” e/ou o “self-link”.
+>[AZURE.NOTE] A configuração da política de indexação com “Nenhum” tem o efeito colateral de remover qualquer índice existente. Use essa opção se os padrões de acesso forem somente exigir a “id” e/ou o “self-link”.
 
 O exemplo a seguir mostra como criar uma coleção do Banco de Dados de Documentos usando o SDK do .NET com indexação automática consistente em todas as inserções de documentos.
 
@@ -168,7 +167,7 @@ A tabela a seguir mostra a consistência para as consultas baseadas no modo de i
     </tbody>
 </table>
 
-Por padrão, um erro será retornado para todas as consultas caso a coleção esteja configurada com o modo de indexação Nenhum para sinalizar que uma varredura pode ser necessária para servir a consulta. Essas consultas podem ser executadas sem um índice de intervalo usando o cabeçalho `x-ms-documentdb-enable-scans` na API REST ou na opção de solicitação `EnableScanInQuery` usando o SDK do .NET. Algumas consultas, por exemplo, que usam ORDER BY não serão permitidas com Nenhum, mesmo com `EnableScanInQuery`.
+O Banco de Dados de Documentos retorna um erro para consultas feitas em coleções com o modo de indexação Nenhum. As consultas podem ainda ser executadas como verificações por meio do cabeçalho explícito `x-ms-documentdb-enable-scans` na API REST ou da opção de solicitação `EnableScanInQuery` usando o SDK do .NET. Alguns recursos de consulta como ORDER BY não têm suporte como verificações com `EnableScanInQuery`.
 
 A tabela a seguir mostra a consistência de consultas baseadas no modo de indexação (Consistente, Lento e Nenhum) quando EnableScanInQuery é especificado.
 
@@ -440,7 +439,7 @@ Estes são os padrões comuns para especificar caminhos de índice:
     </tbody>
 </table>
 
->[AZURE.NOTE]Ao definir caminhos de índice personalizados, é necessário especificar a regra de indexação padrão para a árvore de todo o documento indicada pelo caminho especial "/*".
+>[AZURE.NOTE] Ao definir caminhos de índice personalizados, é necessário especificar a regra de indexação padrão para a árvore de todo o documento indicada pelo caminho especial "/*".
 
 O exemplo a seguir configura um caminho específico com a indexação de intervalo e um valor personalizado de precisão de 20 bytes:
 
@@ -547,7 +546,7 @@ As mesmas regras se aplicam a consultas espaciais. Por padrão, um erro retornar
 
 A precisão de índice permite definir um equilíbrio entre a sobrecarga de armazenamento de índice e o desempenho da consulta. Para números, recomendamos usar a configuração de precisão padrão -1 (“máximo”). Como os números são 8 bytes em JSON, isso é equivalente a uma configuração de 8 bytes. Escolher um valor mais baixo para precisão, como 1 a 7, significa que os valores dentro de alguns intervalos podem ser mapeados para a mesma entrada de índice. Portanto, você reduzirá o espaço de armazenamento do índice, mas a execução da consulta talvez precise processar mais documentos e, como consequência, consumirá mais taxa de transferência, ou seja, unidades de solicitação.
 
-A configuração de precisão do índice é mais útil com intervalos de cadeia de caracteres. Como cadeias de caracteres podem ter qualquer comprimento arbitrário, a escolha de precisão do índice pode afetar o desempenho de consultas de intervalo de cadeia de caracteres e a quantidade de espaço de armazenamento de índice necessária. Os índices de intervalo de cadeia de caracteres podem ser configurados com 1-100 ou -1 (“máximo”). Se você quiser executar consultas Ordenar por em propriedades de cadeia de caracteres, então deverá especificar uma precisão de -1 para os caminhos correspondentes.
+A configuração de precisão do índice tem mais aplicação prática com intervalos de cadeia de caracteres. Como cadeias de caracteres podem ter qualquer comprimento arbitrário, a escolha de precisão do índice pode afetar o desempenho de consultas de intervalo de cadeia de caracteres e a quantidade de espaço de armazenamento de índice necessária. Os índices de intervalo de cadeia de caracteres podem ser configurados com 1-100 ou -1 (“máximo”). Se você quiser executar consultas Ordenar por em propriedades de cadeia de caracteres, então deverá especificar uma precisão de -1 para os caminhos correspondentes.
 
 Os índices espaciais sempre usam a precisão de índice padrão para pontos e não podem ser substituídos.
 
@@ -569,7 +568,7 @@ O exemplo a seguir mostra como aumentar a precisão de índices de intervalo em 
     await client.CreateDocumentCollectionAsync(database.SelfLink, rangeDefault);   
 
 
-> [AZURE.NOTE]O Banco de Dados de Documentos retorna um erro quando uma consulta usa um Ordenar por, mas não tem um índice de intervalo do caminho consultado com a precisão máxima.
+> [AZURE.NOTE] O Banco de Dados de Documentos retorna um erro quando uma consulta usa um Ordenar por, mas não tem um índice de intervalo do caminho consultado com a precisão máxima.
 
 Da mesma forma, caminhos podem ser excluídos completamente da indexação. O exemplo a seguir mostra como excluir uma seção inteira de documentos (também conhecida como uma subárvore) de indexação usando o curinga "*".
 
@@ -663,7 +662,7 @@ Quando você faria alterações na política de indexação para suas coleções
 - Selecionar manualmente as propriedades a serem indexadas e alterá-las ao longo do tempo
 - Ajustar a precisão da indexação para melhorar o desempenho da consulta ou reduzir o armazenamento consumido
 
->[AZURE.NOTE]Para modificar a política de indexação usando ReplaceDocumentCollectionAsync, você precisará de uma versão superior à 1.3.0 do SDK do .NET
+>[AZURE.NOTE] Para modificar a política de indexação usando ReplaceDocumentCollectionAsync, você precisará de uma versão superior à 1.3.0 do SDK do .NET
 >
 > Para que a transformação do índice seja concluída com êxito, você deve assegurar que exista espaço livre suficiente disponível na coleção. Se a coleção atingir sua cota de armazenamento, a transformação do índice será pausada. A transformação do índice será retomada automaticamente quando houver espaço em armazenamento disponível, por exemplo, se você excluir alguns documentos.
 
@@ -769,4 +768,4 @@ Siga os links abaixo para ver exemplos de gerenciamento de políticas de índice
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

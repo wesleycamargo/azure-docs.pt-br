@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
-	ms.author="ddove; sidneyh" />
+	ms.date="02/01/2016" 
+	ms.author="ddove;sidneyh" />
 
 # Visão geral de trabalhos de bancos de dados elásticos
 
@@ -91,7 +91,7 @@ Os seguintes componentes trabalham juntos para criar um Serviço de Nuvem do Azu
 * **Serviço de Nuvem do Azure**: os trabalhos de banco de dados elástico (visualização) são fornecidos como um Serviço de Nuvem do Azure hospedado pelo cliente para a execução das tarefas solicitadas. No portal, o serviço é implantado e hospedado em sua assinatura do Microsoft Azure. O serviço implantado por padrão é executado com o mínimo de duas funções de trabalho a fim de manter a alta disponibilidade. O tamanho padrão de cada função de trabalho (ElasticDatabaseJobWorker) é executado em uma instância de A0. Para obter os preços, confira [preços dos serviços de Nuvem](https://azure.microsoft.com/pricing/details/cloud-services/). 
 * **Banco de dados SQL do Azure**: O serviço usa um Banco de Dados SQL do Azure conhecido como o **banco de dados de controle** para armazenar todos os metadados de trabalho. A camada de serviço padrão é S0. Para obter os preços, confira [Preços de Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 * **Barramento de Serviço do Azure**: um Barramento de Serviço do Azure serve para coordenação do trabalho no Serviço de Nuvem do Azure. Consulte [Preços de Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/).
-* **Armazenamento do Azure**: uma conta de Armazenamento do Azure é usada para armazenar o log de saída do diagnóstico caso um problema exija uma depuração extra (uma prática comum para [Diagnóstico do Azure](cloud-services-dotnet-diagnostics.md)). Para obter os preços, confira [Preços de Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
+* **Armazenamento do Azure**: uma conta do Armazenamento do Azure é usada para armazenar o log de saída de diagnóstico no caso em que um problema exige mais depuração (confira [Habilitando o diagnóstico nos Serviços de Nuvem do Azure e em máquinas virtuais](../service-fabric/cloud-services-dotnet-diagnostics.md)). Para obter os preços, confira [Preços de Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
 
 ## Como os trabalhos de banco de dados elástico funcionam
 1.	Um banco de dados de controle, que armazena todos os dados de estado e metadados, é atribuído a um banco de dados SQL do Azure.
@@ -124,4 +124,4 @@ Há vários tipos de tarefas de trabalho que realizarão a execução de trabalh
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

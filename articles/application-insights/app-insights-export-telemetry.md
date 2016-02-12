@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Exportação contínua de telemetria por meio do Application Insights" 
+	pageTitle="Exportação contínua de telemetria do Application Insights" 
 	description="Exportar dados de uso e diagnóstico para armazenamento no Microsoft Azure e baixá-los de lá." 
 	services="application-insights" 
     documentationCenter=""
@@ -210,4 +210,4 @@ Em escalas maiores, considere usar o [HDInsight](https://azure.microsoft.com/ser
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -12,19 +12,20 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="11/04/2015" 
+    ms.date="02/04/2016" 
     ms.author="torsteng;sidneyh" />
+
 
 # Configuração de segurança da divisão e mesclagem  
 
-Para usar o serviço de divisão/mesclagem, você deve configurar corretamente a segurança. O serviço é parte do recurso de Dimensionamento Elástico do Banco de Dados SQL do Microsoft Azure. Para obter mais informações, consulte o [Tutorial de serviço de divisão/mesclagem de Escala Elástica](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
+Para usar o serviço de divisão/mesclagem, você deve configurar corretamente a segurança. O serviço é parte do recurso de Dimensionamento Elástico do Banco de Dados SQL do Microsoft Azure. Para saber mais, confira o [Tutorial do serviço de divisão e mesclagem da escala elástica](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
 
 ## Configurando certificados
 
 Os certificados são configurados de duas maneiras.
 
-1. [Para configurar o certificado SSL](To#Configure#the#SSL#Certificate)
-2. [Para configurar certificados de cliente](To#Configure#Client#Certificates) 
+1. [Para configurar o certificado SSL](#To-Configure-the-SSL#Certificate)
+2. [Para configurar certificados de cliente](#To-Configure-Client-Certificates) 
 
 ## Para obter certificados
 
@@ -52,45 +53,45 @@ Se essas opções não estiverem disponíveis, você pode gerar **certificados a
 
 ### Criar um Novo certificado autoassinado
 
-1.    [Criar um certificado autoassinado](Create#a#Self-Signed#Certificate)
-2.    [Criar o arquivo PFX para o certificado SSL autoassinado](Create#PFX#file#for#Self-Signed#SSL#Certificate)
-3.    [Carregar certificado SSL para o serviço de nuvem](Upload#SSL#Certificate#to#Cloud#Service)
-4.    [Atualizar o certificado SSL no arquivo de configuração de serviço](Update#SSL#Certificate#in#Service#Configuration#File)
-5.    [Importar a autoridade de certificação SSL](Import#SSL#Certification#Authority)
+1.    [Criar um certificado autoassinado](#Create-a-Self-Signed-Certificate)
+2.    [Criar o arquivo PFX para o certificado SSL autoassinado](#Create-PFX-file-for-Self-Signed-SSL-Certificate)
+3.    [Carregar certificado SSL para o serviço de nuvem](#Upload-SSL-Certificate-to-Cloud-Service)
+4.    [Atualizar o certificado SSL no arquivo de configuração de serviço](#Update-SSL-Certificate-in-Service-Configuration-File)
+5.    [Importar a autoridade de certificação SSL](#Import-SSL-Certification-Authority)
 
 ### Para usar um certificado existente do repositório de certificados
-1. [Exportar o certificado SSL do repositório de certificados](Export#SSL#Certificate#From#Certificate#Store)
-2. [Carregar certificado SSL para o serviço de nuvem](Upload#SSL#Certificate#to#Cloud#Service)
-3. [Atualizar o certificado SSL no arquivo de configuração de serviço](Update#SSL#Certificate#in#Service#Configuration#File)
+1. [Exportar o certificado SSL do repositório de certificados](#Export-SSL-Certificate-From-Certificate-Store)
+2. [Carregar certificado SSL para o serviço de nuvem](#Upload-SSL-Certificate-to-Cloud-Service)
+3. [Atualizar o certificado SSL no arquivo de configuração de serviço](#Update-SSL-Certificate-in-Service-Configuration-File)
 
 ### Para usar um certificado existente em um arquivo PFX
 
-1. [Carregar certificado SSL para o serviço de nuvem](Upload#SSL#Certificate#to#Cloud#Service)
-2. [Atualizar o certificado SSL no arquivo de configuração de serviço](Update#SSL#Certificate#in#Service#Configuration#File)
+1. [Carregar certificado SSL para o serviço de nuvem](#Upload-SSL-Certificate-to-Cloud-Service)
+2. [Atualizar o certificado SSL no arquivo de configuração de serviço](#Update-SSL-Certificate-in-Service-Configuration-File)
 
 ## Para configurar certificados de cliente
 Certificados de cliente são necessários para autenticar solicitações ao serviço. Escolha um dos três cenários abaixo mais aplicável e execute todas as suas etapas:
 
 ### Desabilitar certificados de cliente
-1.    [Desabilitar a autenticação baseada em certificado do cliente](Turn#Off#Client#Certificate-Based#Authentication)
+1.    [Desabilitar a autenticação baseada em certificado do cliente](#Turn-Off-Client-Certificate-Based-Authentication)
 
 ### Emitir novos certificados de cliente autoassinados
-1.    [Criar uma Autoridade de certificado autoassinado](Create#a#Self-Signed#Certification#Authority)
-2.    [Carregar o Certificado de Autoridade de Certificação no serviço de nuvem](Upload#CA#Certificate#to#Cloud#Service)
-3.    [Atualizar o Certificado de Autoridade de Certificação no arquivo de configuração de serviço](Update#CA#Certificate#in#Service#Configuration#File)
-4.    [Emitir certificados de cliente](Issue#Client#Certificates)
-5.    [Criar arquivos PFX para certificados de cliente](Create#PFX#files#for#Client#Certificates)
-6.    [Importar o certificado de cliente](Import#Client#Certificate)
-7.    [Copie as impressões digitais de certificados de cliente](Copy#Client#Certificate#Thumbprints)
-8.    [Configurar clientes permitidos no arquivo de configuração de serviço](Configure#Allowed#Clients#in#the#Service#Configuration#File)
+1.    [Criar uma Autoridade de certificado autoassinado](#Create-a-Self-Signed-Certification-Authority)
+2.    [Carregar o Certificado de Autoridade de Certificação no serviço de nuvem](#Upload-CA-Certificate-to-Cloud-Service)
+3.    [Atualizar o Certificado de Autoridade de Certificação no arquivo de configuração de serviço](#Update-CA-Certificate-in-Service-Configuration-File)
+4.    [Emitir certificados de cliente](#Issue-Client-Certificates)
+5.    [Criar arquivos PFX para certificados de cliente](#Create-PFX-files-for-Client-Certificates)
+6.    [Importar o certificado de cliente](#Import-Client-Certificate)
+7.    [Copie as impressões digitais de certificados de cliente](#Copy-Client-Certificate-Thumbprints)
+8.    [Configurar clientes permitidos no arquivo de configuração de serviço](#Configure-Allowed-Clients-in-the-Service-Configuration-File)
 
 ### Usar certificados de cliente existente
-1.    [Localizar a chave pública de AC] (Localizar a #chave pública de #AC)
-2.    [Carregar o Certificado de Autoridade de Certificação no serviço de nuvem](Upload#CA#certificate#to#cloud#service)
-3.    [Atualizar o Certificado de Autoridade de Certificação no arquivo de configuração de serviço](Update#CA#Certificate#in#Service#Configuration#File)
-4.    [Copie as impressões digitais de certificados de cliente](Copy#Client#Certificate#Thumbprints)
-5.    [Configurar clientes permitidos no Arquivo de Configuração de Serviço] (Configurar #clientes #permitidos #no #Arquivo de #Configuração de Serviço)
-6.    [Configurar a verificação de revogação de certificado do cliente](Configure#Client#Certificate#Revocation#Check)
+1.    [Localizar a chave pública de AC](#Find-CA-Public Key)
+2.    [Carregar o Certificado de Autoridade de Certificação no serviço de nuvem](#Upload-CA-certificate-to-cloud-service)
+3.    [Atualizar o Certificado de Autoridade de Certificação no arquivo de configuração de serviço](#Update-CA-Certificate-in-Service-Configuration-File)
+4.    [Copie as impressões digitais de certificados de cliente](#Copy-Client-Certificate-Thumbprints)
+5.    [Configurar os clientes permitidos no Arquivo de Configuração de Serviço](#Configure-Allowed-Clients-in-the-Service-Configuration File)
+6.    [Configurar a verificação de revogação de certificado do cliente](#Configure-Client-Certificate-Revocation-Check)
 
 ## Endereços IP permitidos
 
@@ -102,21 +103,21 @@ Acesso aos pontos de extremidade de serviço pode ser restrito a intervalos espe
 
 ### Usar um novo certificado autoassinado
 
-1.     [Criar um certificado autoassinado](Create#a#Self-Signed#Certificate)
-2.     [Criar arquivo PFX de certificado de criptografia autoassinado](Create#PFX#file#for#Self-Signed#Encryption#Certificate)
-3.     [Carregar o certificado de criptografia para o serviço de nuvem](Upload#Encryption#Certificate#to#Cloud#Service)
-4.     [Atualizar o certificado de criptografia no arquivo de configuração de serviço](Update#Encryption#Certificate#in#Service#Configuration#File)
+1.     [Criar um certificado autoassinado](#Create-a-Self-Signed-Certificate)
+2.     [Criar arquivo PFX de certificado de criptografia autoassinado](#Create-PFX-file-for-Self-Signed-Encryption-Certificate)
+3.     [Carregar o certificado de criptografia para o serviço de nuvem](#Upload-Encryption-Certificate-to-Cloud-Service)
+4.     [Atualizar o certificado de criptografia no arquivo de configuração de serviço](#Update-Encryption-Certificate-in-Service-Configuration-File)
 
 ### Usar um certificado existente no repositório de certificados
 
-1.     [Exportar o certificado de criptografia do repositório de certificados](Export#Encryption#Certificate#From#Certificate#Store)
-2.     [Carregar o certificado de criptografia para o serviço de nuvem](Upload#Encryption#Certificate#to#Cloud#Service)
-3.     [Atualizar o certificado de criptografia no arquivo de configuração de serviço](Update#Encryption#Certificate#in#Service#Configuration#File)
+1.     [Exportar o certificado de criptografia do repositório de certificados](#Export-Encryption-Certificate-From-Certificate-Store)
+2.     [Carregar o certificado de criptografia para o serviço de nuvem](#Upload-Encryption-Certificate-to-Cloud-Service)
+3.     [Atualizar o certificado de criptografia no arquivo de configuração de serviço](#Update-Encryption-Certificate-in-Service-Configuration-File)
 
 ### Usar um certificado existente em um arquivo PFX
 
-1.     [Carregar o certificado de criptografia para o serviço de nuvem](Upload#Encryption#Certificate#to#Cloud#Service)
-2.     [Atualizar o certificado de criptografia no arquivo de configuração de serviço](Update#Encryption#Certificate#in#Service#Configuration#File)
+1.     [Carregar o certificado de criptografia para o serviço de nuvem](#Upload-Encryption-Certificate-to-Cloud-Service)
+2.     [Atualizar o certificado de criptografia no arquivo de configuração de serviço](#Update-Encryption-Certificate-in-Service-Configuration-File)
 
 ## A configuração padrão
 
@@ -448,12 +449,12 @@ No Assistente para importação de certificados:
 7.     Selecione o repositório desejado.
 8.     Clique em **Concluir**.
        
-	* Se o repositório da autoridade de certificação raiz confiável foi escolhido, clique em **Sim**.
+    * Se o repositório da autoridade de certificação raiz confiável foi escolhido, clique em **Sim**.
 9.     Clique em **OK** em todas as janelas de diálogo.
 
 ## Carregar um certificado
 
-No [portal clássico do Azure](https://portal.azure.com/)
+No [portal do Azure](https://portal.azure.com/)
 
 1. Selecione os **Serviços de nuvem**.
 2. Selecione o serviço de nuvem.
@@ -473,4 +474,4 @@ As credenciais armazenadas neste banco de dados são criptografadas. No entanto,
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

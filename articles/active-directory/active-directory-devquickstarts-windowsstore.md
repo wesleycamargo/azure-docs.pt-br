@@ -63,7 +63,7 @@ PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 -	No projeto DirectorySearcher, abra `MainPage.xaml.cs`. Substitua os valores na região `Config Values` para refletir os valores inseridos por você no Portal do Azure. Seu código fará referência a esses valores sempre que ele usar a ADAL.
     -	O `tenant` é o domínio do seu locatário do AD do Azure, por exemplo, contoso.onmicrosoft.com.
     -	O `clientId` é a clientId do seu aplicativo que você copiou do portal.
--	Agora você precisa descobrir o URI de retorno de chamada para seu aplicativo do Windows Phone. Defina um ponto de interrupção nessa linha no método `MainPage`:
+-	Agora você precisa descobrir o URI de retorno de chamada para seu aplicativo da Windows Store. Defina um ponto de interrupção nessa linha no método `MainPage`:
 
 ```
 redirectURI = Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri();
@@ -91,7 +91,7 @@ public MainPage()
 }
 ```
 
-- Agora localize o método `Search(...)`, que será chamado quando os usuário clicar no botão "Pesquisar" na interface do usuário do aplicativo. Esse método faz uma solicitação GET para que a Graph API do AD do Azure procure por usuários cujo UPN começa com o termo de pesquisa fornecido. Mas para consultar a Graph API, você precisa incluir um access\_token no cabeçalho `Authorization` da solicitação - é aí que entra a ADAL.
+- Agora localize o método `Search(...)`, que será chamado quando o usuário clicar no botão "Pesquisar" na interface do usuário do aplicativo. Esse método faz uma solicitação GET para que a Graph API do AD do Azure procure por usuários cujo UPN começa com o termo de pesquisa fornecido. Mas para consultar a Graph API, você precisa incluir um access\_token no cabeçalho `Authorization` da solicitação - é aí que entra a ADAL.
 
 ```C#
 private async void Search(object sender, RoutedEventArgs e)
@@ -147,4 +147,4 @@ Para referência, o exemplo concluído (sem seus valores de configuração) é f
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

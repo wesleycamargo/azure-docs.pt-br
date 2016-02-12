@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/04/2016"
+   ms.date="02/01/2016"
    ms.author="v-sharos" />
 
 # Notas de versão da Atualização 2 da série 8000 do StorSimple  
@@ -21,7 +21,7 @@
 
 As notas de versão a seguir descrevem os novos recursos e identificam os problemas críticos em aberto da Atualização 2 da série 8000 do StorSimple. Elas também contêm uma lista das atualizações de software, driver e firmware de disco do StorSimple incluídas nesta versão.
 
-A Atualização 2 pode ser aplicada a qualquer dispositivo do StorSimple que executa a Versão (GA) ou a Atualização 0.1 à 1.2.
+A Atualização 2 pode ser aplicada a qualquer dispositivo do StorSimple que executa a Versão (GA) ou a Atualização 0.1 à 1.2. A versão do dispositivo associada à Atualização 2 é 6.3.9600.17673.
 
 Examine as informações contidas nas notas de versão antes de implantar a atualização em sua solução do StorSimple.
 
@@ -76,7 +76,7 @@ A tabela a seguir fornece um resumo dos problemas que foram corrigidos nas Atual
 
 A tabela a seguir fornece um resumo dos problemas conhecidos nesta versão.
 
-| Nº | Recurso | Problema | Comentários/soluções alternativas | Aplica-se ao dispositivo físico | Aplica-se ao dispositivo virtual |
+| Nº | Recurso | Problema | Comentários/solução alternativa | Aplica-se ao dispositivo físico | Aplica-se ao dispositivo virtual |
 |-----|---------|-------|----------------------------|----------------------------|---------------------------|
 | 1 | Quorum de disco | Em casos raros, se a maioria dos discos no invólucro de EBOD de um dispositivo 8600 for desconectada, fazendo com que não haja quórum de disco, o pool de armazenamento ficará offline. Permanecerá offline, mesmo que os discos sejam reconectados. | Você precisará reiniciar o dispositivo. Se o problema persistir, entre em contato com o Suporte da Microsoft para as próximas etapas. | Sim | Não |
 | 2 | ID de controlador incorreta | Quando a substituição do controlador é executada, o controlador 0 pode aparecer como controlador 1. Durante a substituição do controlador, quando a imagem é carregada a partir do nó par, a ID do controlador pode ser exibida inicialmente como a ID do controlador de pares. Em casos raros, esse comportamento pode ser percebido após uma reinicialização do sistema. | Nenhuma ação do usuário é necessária. Esta situação se resolverá depois que a substituição do controlador for concluída. | Sim | Não |
@@ -113,4 +113,8 @@ Essa versão atualiza o driver e o firmware de disco no dispositivo.
 
 Esta atualização não pode ser aplicada ao dispositivo virtual. Novos dispositivos virtuais precisarão ser criados.
 
-<!---HONumber=AcomDC_0121_2016-->
+## Próxima etapa
+
+Saiba como [instalar a Atualização 2](storsimple-install-update-2.md) no seu dispositivo StorSimple.
+
+<!---HONumber=AcomDC_0204_2016-->

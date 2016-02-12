@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/20/2016"
+   ms.date="02/01/2016"
    ms.author="jonor"/>
 
 # Aplicativo de Exemplo para Uso com Ambientes de Limite de Segurança
@@ -148,7 +148,7 @@ Esse script configura o back-end para esse aplicativo simples. Esse script fará
 4.	Definirá permissões no diretório e no arquivo como Anônimo para permitir o acesso
 5.	Desativará a Segurança Aprimorada do IE para permitir a navegação mais fácil por meio deste servidor 
 
->[AZURE.IMPORTANT]**Práticas recomendadas**: nunca desative a Segurança Aprimorada do IE em um servidor de produção, além disso, costuma não ser boa ideia surfar na web por meio de um servidor de produção. Além disso, abrir compartilhamentos de arquivos para acesso anônimo é uma ideia ruim, mas que foi executado aqui para simplificar.
+>[AZURE.IMPORTANT] **Práticas recomendadas**: nunca desative a Segurança Aprimorada do IE em um servidor de produção, além disso, costuma não ser boa ideia surfar na web por meio de um servidor de produção. Além disso, abrir compartilhamentos de arquivos para acesso anônimo é uma ideia ruim, mas que foi executado aqui para simplificar.
 
 Esse script do PowerShell deve ser executado localmente com RDP em AppVM01. O PowerShell deve ser executado como Administrador para garantir a execução bem-sucedida.
 	
@@ -188,4 +188,4 @@ Não há nenhum script incluído neste aplicativo de exemplo para configurar o s
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

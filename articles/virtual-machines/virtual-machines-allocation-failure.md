@@ -14,18 +14,18 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
-	ms.author="kenazk"/>
+	ms.date="02/02/2016"
+	ms.author="cjiang"/>
 
 
 
 # Solução de problemas de falha de alocação quando você cria, reinicia ou redimensiona VMs no Azure
 
-Quando você cria uma VM, reinicia VMs paradas (desalocadas) ou redimensiona uma VM, o Microsoft Azure aloca recursos de computação para sua assinatura. Eventualmente, você pode receber mensagens de erro durante a execução dessas operações antes de alcançar os limites da assinatura do Microsoft Azure. Este artigo explica as causas das falhas de alocação mais comuns e sugere possíveis correções. As informações também poderão ser úteis caso você pretenda implantar serviços.
+Quando você cria uma VM, reinicia VMs paradas (desalocadas) ou redimensiona uma VM, o Microsoft Azure aloca recursos de computação para sua assinatura. Eventualmente, você pode receber mensagens de erro durante a execução dessas operações, antes de alcançar os limites da assinatura do Azure. Este artigo explica as causas das falhas de alocação mais comuns e sugere possíveis correções. As informações também poderão ser úteis caso você pretenda implantar serviços.
 
-Se o problema do Azure não for resolvido neste artigo, visite os [Fóruns do Azure no MSDN e Excedente de Pilha](https://azure.microsoft.com/support/forums/). Você pode postar seu problema nesses fóruns ou no @AzureSupport no Twitter. Além disso, você pode emitir uma solicitação de suporte do Azure, selecionando **Obter suporte** no site de [suporte do Azure](https://azure.microsoft.com/support/options/).
+A seção "Etapas gerais de solução de problemas" lista as etapas para solucionar problemas comuns. A seção "Etapas detalhadas da solução de problemas" fornece as etapas de resolução por mensagem de erro específica. Antes de iniciar, aqui estão algumas informações básicas para entender como funciona a alocação e por que a falha de alocação acontece.
 
-Neste artigo, as seções "Solução de problemas de falhas de alocação comuns" listam as etapas para solucionar problemas comuns. As seções "Solução de problemas de cenários de falha de alocação específica" fornece etapas de resolução para mensagens de erro específicas. Antes de iniciar, aqui estão algumas informações básicas para entender como funciona a alocação e por que acontecem falhas de alocação.
+Se o problema do Azure não for resolvido neste artigo, visite os [Fóruns do Azure no MSDN e Excedente de Pilha](https://azure.microsoft.com/support/forums/). Você pode postar seu problema nesses fóruns ou no @AzureSupport no Twitter. Além disso, você pode registrar uma solicitação de suporte do Azure, escolhendo **Obter suporte** no site de [suporte do Azure](https://azure.microsoft.com/support/options/).
 
 ## Informações básicas
 ### Como funciona a alocação
@@ -72,7 +72,7 @@ Dois cenários de falhas comuns estão relacionados aos grupos de afinidades. An
 
 O diagrama 5 a seguir apresenta a taxonomia dos cenários de alocação (afixados). ![Taxonomia de alocação fixada](./media/virtual-machines-allocation-failure/Allocation3.png)
 
-> [AZURE.NOTE] Descrevemos o erro de forma reduzida em cada cenário de alocação. Consulte o [Apêndice](#appendix) para obter as cadeias de caracteres de erro detalhadas.
+> [AZURE.NOTE] Descrevemos o erro de forma reduzida em cada cenário de alocação. Veja [Pesquisa de cadeia de caracteres de erro](#Error string lookup) para obter cadeias de caracteres de erro detalhadas.
 
 #### Cenário de alocação: redimensionar uma VM ou adicionar VMs ou instâncias de função a um serviço de nuvem existente
 **Erro**
@@ -119,7 +119,7 @@ Se for aceitável usar um VIP diferente, exclua as VMs originais paradas (desalo
 #### Cenário de alocação: implantações de preparo/produção (apenas plataforma como serviço)
 **Erro**
 
-New\_General ou New\_VMSizeNotSupported
+New\_General* ou New\_VMSizeNotSupported*
 
 **Causa de fixação de cluster**
 
@@ -132,7 +132,7 @@ Exclua a primeira implantação e o serviço de nuvem original e reimplante o se
 #### Cenário de alocação: grupo de afinidades (proximidade de serviço/VM)
 **Erro**
 
-New\_General ou New\_VMSizeNotSupported
+New\_General* ou New\_VMSizeNotSupported*
 
 **Causa de fixação de cluster**
 
@@ -145,9 +145,9 @@ Se um grupo de afinidades não for necessário, não use o grupo de afinidades o
 #### Cenário de alocação: rede virtual com base em grupo de afinidades
 **Erro**
 
-New\_General ou New\_VMSizeNotSupported
+New\_General* ou New\_VMSizeNotSupported*
 
-**Causa de fixação de cluster**
+<**Causa da fixação de cluster**
 
 Antes de as redes virtuais regionais serem introduzidas, era necessário associar uma rede virtual ao grupo de afinidades. Como resultado, os recursos de computação colocados em um grupo de afinidades são vinculados pelas mesmas restrições descritas na seção anterior, "Cenário de alocação: grupo de afinidades (proximidade de serviço/VM)". Os recursos de computação são vinculados a um cluster.
 
@@ -171,7 +171,7 @@ Em geral, se o erro não indicar "não há suporte para o tamanho de VM solicita
 #### Cenário de alocação: redimensionar uma VM ou adicionar VMs a um conjunto de disponibilidade existente
 **Erro**
 
-Upgrade\_VMSizeNotSupported ou GeneralError
+Upgrade\_VMSizeNotSupported* ou GeneralError*
 
 **Causa de fixação de cluster**
 
@@ -209,8 +209,7 @@ A desalocação total significa que você parou (desalocou) todas as VMs em um c
 
 Selecione um novo tamanho de VM para alocar. Se isso não funcionar, tente novamente mais tarde.
 
-## Apêndice
-### Pesquisa de cadeia de caracteres de erro
+## Pesquisa de cadeia de caracteres de erro
 **New\_VMSizeNotSupported***
 
 "O tamanho de VM (ou combinação de tamanhos de VM) necessário para essa implantação não pode ser provisionado devido a restrições de solicitação de implantação. Se possível, tente relaxar as restrições, como associações de rede virtual, implantação em um serviço hospedado sem nenhuma outra implantação nele e em um grupo de afinidades diferente ou sem nenhum grupo de afinidades ou tente implantar em uma região diferente."
@@ -227,4 +226,4 @@ Selecione um novo tamanho de VM para alocar. Se isso não funcionar, tente novam
 
 "O servidor encontrou um erro interno. Repita a solicitação." Ou "Falha na produção de uma alocação para o serviço."
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -14,7 +14,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="vm-linux"
   ms.workload="infrastructure-services"
-  ms.date="06/17/2015" 
+  ms.date="02/01/2016" 
   ms.author="ahmetb" />
 
 # Implantando seu próprio Registro do Docker privado no Azure
@@ -96,4 +96,4 @@ Depois de configurar o Registro, você o usará novamente. Comece com o [registr
 [registry-config]: http://docs.docker.com/registry/configuration/
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

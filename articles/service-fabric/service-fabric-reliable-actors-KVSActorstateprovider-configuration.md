@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/28/2015"
+   ms.date="01/26/2016"
    ms.author="sumukhs"/>
 
 # Configurando Reliable Actors--KVSActorStateProvider
@@ -21,7 +21,7 @@ A configuração padrão do KVSActorStateProvider pode ser alterada modificando-
 
 O tempo de execução do Service Fabric do Azure procura nomes de seção predefinidos no arquivo settings.xml e consome os valores de configuração ao criar os componentes de tempo de execução subjacentes.
 
->[AZURE.NOTE]**Não** exclua/modifique os nomes de seção das configurações a seguir no arquivo settings.xml que é gerado na solução do Visual Studio.
+>[AZURE.NOTE] **Não** exclua/modifique os nomes de seção das configurações a seguir no arquivo settings.xml que é gerado na solução do Visual Studio.
 
 ## Configuração de segurança do replicador
 As configurações de segurança do replicador servem para proteger o canal de comunicação que é usado durante a replicação. Isso significa que os serviços não podem ver o tráfego de replicação uns dos outros, garantindo que os dados que têm alta disponibilidade também estejam seguros. Por padrão, uma seção de configuração de segurança vazia evita a segurança de replicação.
@@ -86,4 +86,4 @@ As configurações de armazenamento servem para configurar o armazenamento local
 
 O parâmetro BatchAcknowledgementInterval controla a latência de replicação. Um valor '0' resulta na menor latência possível, ao custo de taxa de transferência (como mais mensagens de confirmação devem ser enviadas e processadas, cada uma contendo menos confirmações). Quanto maior o valor para BatchAcknowledgementInterval, maior será a produtividade geral da replicação, ao custo da maior latência de operação. Isso se converte diretamente para a latência de confirmações de transações.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

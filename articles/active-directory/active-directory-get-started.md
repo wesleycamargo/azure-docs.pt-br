@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="02/01/2016"
 	ms.author="curtand"/>
 
 # Introdução ao uso do AD do Azure
@@ -28,7 +28,7 @@ Pronto para começar? Você deve experimentar algumas coisas legais que já lan�
 > [AZURE.NOTE] O AD do Azure está disponível para todos gratuitamente. Inscreva-se agora para uma assinatura de avaliação do Azure e seu diretório estará esperando por você. O diretório é seu, quer você compre algo ou não. [Experimente o AD do Azure agora](https://azure.microsoft.com/trial/get-started-active-directory/)
 
 ##Proteja o acesso da sua organização
-Proteja os dados de identidade da sua organização na nuvem usando o Multi-Factor Authentication para garantir o acesso local e remoto seguro. [Saiba mais sobre o Multi-Factor Authentication](../multi-factor-authentication.md)
+Proteja os dados de identidade da sua organização na nuvem usando o Multi-Factor Authentication para garantir o acesso local e remoto seguro. [Saiba mais sobre o Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
 ##Alterar e redefinir senhas
 Reduza os custos e as chamadas de assistência técnica, capacitando os usuários para alterar ou redefinir suas senhas do Active Directory ou do Active Directory do Azure de qualquer dispositivo, em qualquer local. Um administrador pode gerenciar políticas de senha e notificação, e pode ver a atividade de auditoria detalhada dessas operações de redefinição de senha no momento em que elas ocorrem. [Saiba mais sobre como gerenciar senhas no Active Directory do Azure](active-directory-manage-passwords.md)
@@ -44,4 +44,4 @@ O AD do Azure fornece vários relatórios para administradores. Mais relatórios
 * [Inscrever-se no Azure como uma organização](sign-up-organization.md)
 * [Identidade do Azure](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

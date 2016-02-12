@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2015" 
+	ms.date="02/01/2016" 
 	ms.author="garye"/>
 
 
@@ -73,10 +73,10 @@ Depois que os dados tiverem sido convertidos no formato CSV, precisaremos carreg
 
 Isso carrega os dados em um módulo de conjunto de dados que podemos usar em um experimento.
 
-Para obter mais informações sobre como importar vários tipos de dados para um experimento, confira [Importar seus dados de treinamento para o Estúdio de Aprendizado de Máquina do Azure](machine-learning-import-data.md).
+Para obter mais informações sobre como importar vários tipos de dados para um experimento, confira [Importar seus dados de treinamento para o Estúdio de Aprendizado de Máquina do Azure](machine-learning-data-science-import-data.md).
 
 **A seguir: [criar um novo teste](machine-learning-walkthrough-3-create-new-experiment.md)**
 
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

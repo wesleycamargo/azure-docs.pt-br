@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="01/29/2016"
    ms.author="larryfr"/>
 
 #Desenvolver topologias baseadas em Java para um aplicativo básico de contagem de palavras com Apache Storm e Maven no HDInsight
@@ -22,6 +22,8 @@
 Aprenda a um processo básico para criar uma topologia baseada em Java para o Apache Storm no HDInsight usando o Maven. Você percorrerá o processo de criação de um aplicativo de contagem de palavras básico usando Maven e Java. Embora sejam fornecidas instruções para usar o Eclipse, você também poderá usar o editor de texto à sua escolha.
 
 Depois de concluir as etapas neste documento, você terá uma topologia básica que pode implantar para o Apache Storm no HDInsight.
+
+> [AZURE.NOTE]\: uma versão completa dessa topologia está disponível em [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
 
 ##Pré-requisitos
 
@@ -31,7 +33,7 @@ Depois de concluir as etapas neste documento, você terá uma topologia básica 
 
 * Um editor de texto, como o Bloco de Notas, o <a href="http://www.gnu.org/software/emacs/" target="_blank">Emacs<a>, o <a href="http://www.sublimetext.com/" target="_blank">Sublime Text</a>, o <a href="https://atom.io/" target="_blank">Atom.io</a>, o <a href="http://brackets.io/" target="_blank">Brackets.io</a>. Ou você pode usar um ambiente de desenvolvimento integrado (IDE) como o <a href="https://eclipse.org/" target="_blank">Eclipse</a> (versão Luna ou posterior).
 
-	> [AZURE.NOTE]Seu editor ou IDE pode ter uma funcionalidade específica para trabalhar com o Maven que não é abordada neste documento. Para obter informações sobre os recursos do seu ambiente de edição, consulte a documentação do produto que você está usando.
+	> [AZURE.NOTE] Seu editor ou IDE pode ter uma funcionalidade específica para trabalhar com o Maven que não é abordada neste documento. Para obter informações sobre os recursos do seu ambiente de edição, consulte a documentação do produto que você está usando.
 
 ##Configurar variáveis de ambiente
 
@@ -85,7 +87,7 @@ Como essa é uma topologia Storm, você deverá adicionar uma dependência a com
 
 Em tempo de compilação, o Maven usa essas informações para pesquisar **storm-core** no repositório Maven. Ele primeiro procura no repositório em seu computador local. Se os arquivos não estiverem lá, ele irá baixá-los do repositório Maven público e armazená-los no repositório local.
 
-> [AZURE.NOTE]Observe a linha `<scope>provided</scope>` na seção que adicionamos. Isso informa ao Maven para excluir o **storm-core** de qualquer arquivo JAR criado, pois ele será fornecido pelo sistema. Isso permite que os pacotes criados sejam um pouco menores e garante que eles usarão os bits do **storm-core** incluídos no Storm no cluster HDInsight.
+> [AZURE.NOTE] Observe a linha `<scope>provided</scope>` na seção que adicionamos. Isso informa ao Maven para excluir o **storm-core** de qualquer arquivo JAR criado, pois ele será fornecido pelo sistema. Isso permite que os pacotes criados sejam um pouco menores e garante que eles usarão os bits do **storm-core** incluídos no Storm no cluster HDInsight.
 
 ##Configuração de compilação
 
@@ -148,7 +150,7 @@ Uma topologia Storm baseada em Java consiste em três componentes que você deve
 
 Para reduzir os requisitos para configurar fontes de dados externas, o seguinte spout simplesmente emite sentenças aleatórias. É uma versão modificada de um spout fornecido com os (<a href="https://github.com/apache/storm/blob/master/examples/storm-starter/" target="_blank">exemplos Storm-Starter</a>).
 
-> [AZURE.NOTE]Para obter um exemplo de um spout que lê de uma fonte de dados externa, consulte um dos exemplos a seguir:
+> [AZURE.NOTE] Para obter um exemplo de um spout que lê de uma fonte de dados externa, consulte um dos exemplos a seguir:
 >
 > * <a href="https://github.com/apache/storm/blob/master/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java" target="_blank">TwitterSampleSpout</a>: um spout de exemplo que lê do Twitter
 >
@@ -240,7 +242,7 @@ Para o spout, crie um novo arquivo chamado **RandomSentenceSpout.java** no diret
 
 Dedique uns momentos para ler os comentários do código para entender como esse spout funciona.
 
-> [AZURE.NOTE]Embora essa topologia use apenas um spout, outras pessoas poderão ter vários que alimentam dados de origens diferentes na topologia.
+> [AZURE.NOTE] Embora essa topologia use apenas um spout, outras pessoas poderão ter vários que alimentam dados de origens diferentes na topologia.
 
 ###Criar os bolts
 
@@ -250,7 +252,7 @@ Bolts manipulam o processamento de dados. Para esta topologia, temos dois bolts:
 
 * **WordCount**: conta quantas vezes cada palavra ocorreu.
 
-> [AZURE.NOTE]Os bolts podem fazer literalmente qualquer coisa, por exemplo, computação, persistência ou conversar com componentes externos.
+> [AZURE.NOTE] Os bolts podem fazer literalmente qualquer coisa, por exemplo, computação, persistência ou conversar com componentes externos.
 
 Crie dois novos arquivos, **SplitSentence.java** e **WordCount.Java** no diretório **src\\main\\java\\com\\microsoft\\example**. Use o seguinte como o conteúdo dos arquivos:
 
@@ -467,4 +469,4 @@ Você aprendeu a criar uma topologia do Storm usando Java. Agora saiba como:
 
 Para obter mais topologias Storm, consulte [Topologias de exemplo para o Storm no HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

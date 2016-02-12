@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Atividade de Hive
@@ -108,7 +108,7 @@ Para executar esse script de Hive em um pipeline de Data Factory, você precisa 
 3. Criar [conjuntos de dados](data-factory-create-datasets.md) apontando para os dados de entrada e de saída. Vamos chamar o conjunto de dados de entrada de "HiveSampleIn" e o conjunto de dados de saída de "HiveSampleOut"
 4. Copie a consulta de Hive como um arquivo configurado pelo Armazenamento de Blob do Azure configurado na etapa 2 acima. Se o serviço vinculado para hospedagem dos dados for diferente daquele que hospeda o arquivo de consulta, crie um serviço vinculado do Armazenamento do Azure separado e consulte-o na configuração da atividade. Use **scriptPath** para especificar o caminho até o arquivo de consulta de Hive e **scriptLinkedService** para especificar o armazenamento do Azure que contém o arquivo de script.
 
-	> [AZURE.NOTE]Você também pode fornecer o script de Hive embutido na definição da atividade usando a propriedade **script**, mas isso não é recomendado, pois todos os caracteres especiais no script dentro do documento JSON precisam ser escapados e podem causar problemas de depuração. A prática recomendada é seguir a etapa 4.
+	> [AZURE.NOTE] Você também pode fornecer o script de Hive embutido na definição da atividade usando a propriedade **script**, mas isso não é recomendado, pois todos os caracteres especiais no script dentro do documento JSON precisam ser escapados e podem causar problemas de depuração. A prática recomendada é seguir a etapa 4.
 5.	Criar o pipeline abaixo com a atividade HDInsightHive para processar os dados.
 
 		{
@@ -214,4 +214,4 @@ Para usar os scripts de Hive parametrizados, faça o seguinte
 			SUM(Duration)
 		FROM HiveSampleIn Group by ProfileID
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/07/2016"
+   ms.date="01/25/2016"
    ms.author="hascipio"/>
 
 # Criar uma conta de Desenvolvedor da Microsoft
@@ -24,7 +24,7 @@ Este artigo fornece uma orientação sobre o processo necessário de criação e
 
 O endereço que forma o nome de usuário deve estar no seu domínio e ser controlado por sua equipe de TI (como publishing@example.com). Informações sobre pagamento e impostos, bem como relatórios serão encaminhados através desta conta.
 
-  >[AZURE.WARNING] Palavras como "Azure" e "Microsoft" não são aceitas para o registro da conta da Microsoft. Evite usar essas palavras para concluir a criação da conta e o processo de registro.
+  > [AZURE.WARNING] Palavras como "Azure" e "Microsoft" não são aceitas para o registro da conta da Microsoft. Evite usar essas palavras para concluir a criação da conta e o processo de registro.
 
 ### Instruções
 
@@ -63,9 +63,9 @@ O Centro de Desenvolvimento da Microsoft é usada para registrar as informaçõe
 ### Registrar sua conta da empresa
 1. Abra uma nova sessão de Janela anônima do Chrome ou InPrivate do Internet Explorer para garantir que você não esteja conectado a uma conta pessoal.
 
-2. Acesse [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure).
+2. Acesse [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure)
 
-3. Entre com a conta da Microsoft de registro de sua empresa (por exemplo, marketplace@example.com)).
+3. Entre com a conta da Microsoft de registro de sua empresa (por exemplo, marketplace@example.com).
 
     ![desenho][img-signin]
 
@@ -93,7 +93,7 @@ O Centro de Desenvolvimento da Microsoft é usada para registrar as informaçõe
 
 10. Insira suas informações de pagamento para pagar por sua conta. Se você tiver um código promocional que cubra o custo do registro, insira-o aqui. Caso contrário, forneça as informações de seu cartão de crédito (ou do PayPal nos mercados com suporte). Quando tiver terminado, clique em **Próximo** para chegar à **"tela Revisão"**.
 
-11. Revise as informações de sua conta e confirme que tudo está correto. Em seguida, leia e aceite os termos e condições do **Contrato de Publicador do Microsoft Azure Marketplace**. Marque a caixa para indicar que você leu e aceitou os termos.
+11. Revise as informações de sua conta e confirme que tudo está correto. Em seguida, leia e aceite os termos e condições do [Contrato de Publicador do Microsoft Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=699560). Marque a caixa para indicar que você leu e aceitou os termos.
 
 12. Clique em **Concluir** para confirmar seu registro. Enviaremos uma mensagem de confirmação ao seu endereço de email de desenvolvedor.
 
@@ -143,15 +143,15 @@ O portal de publicação do Azure é usado para publicar e gerenciar suas oferta
 
 2.	Acesse [http://publish.windowsazure.com](http://publish.windowsazure.com).
 
-3.	Entre com a conta da Microsoft de registro de sua empresa (ou seja, marketplace@example.com)) e adicione coadministradores conforme necessário.
+3.	Entre com a conta da Microsoft de registro de sua empresa (ou seja, marketplace@example.com) e adicione coadministradores conforme necessário.
 
-  >[AZURE.TIP] As políticas de participação são descritas no [site do Azure](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
+  > [AZURE.TIP] As políticas de participação são descritas no [site do Azure](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
-  > Se você tiver problemas com o registro no Centro de Desenvolvimento, registre um tíquete de suporte, conforme explicado abaixo: 
-  1. Contate o [Suporte](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=pt-BR&pesid=15635&ccsid=635847950577064286). 
-  2. Escolha **Centro de Desenvolvedores**. 
-  3. Escolha **Perfil**. 
-  4. Escolha um método de contato.
+  > Se você tiver problemas com o registro no Centro de Desenvolvedores, registre um tíquete de suporte, como explicado abaixo:
+ 1. [Entre em contato com o Suporte](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=pt-BR&pesid=15635&ccsid=635847950577064286) 
+ 2. Escolha **Centro de Desenvolvedores**. 
+ 3. Escolha **Perfil**. 
+ 4. Escolha um método de contato.
 
 
 
@@ -198,4 +198,4 @@ Agora que sua conta foi criada e registrada, clique no tipo de artefato (máquin
 [link-devsvc-prereq]: marketplace-publishing-dev-service-creation-prerequisites.md
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

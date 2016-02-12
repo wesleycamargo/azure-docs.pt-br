@@ -215,9 +215,8 @@ Este artigo fornece uma orientação pelas etapas de criação de um circuito da
 
 7. **Configure o roteamento e vincule uma rede virtual**
 
-	a. **Crie sua configuração de roteamento.** Veja [Criar e modificar o roteamento a configuração de roteamento da Rota Expressa](expressroute-howto-routing-arm.md) para obter instruções passo a passo.
-
-		>[AZURE.NOTE] The instructions for routing only apply for circuits created with service providers offering Layer 2 connectivity services. If you are using a service provider offering managed Layer 3 services (typically an IPVPN, like MPLS), your connectivity provider will configure and manage routing for you. You will not be able to create or manage peerings in such cases. 
+	a. **Crie sua configuração de roteamento.** Veja [Criar e modificar o roteamento a configuração de roteamento da Rota Expressa](expressroute-howto-routing-arm.md) para obter instruções passo a passo. Observe que as instruções para roteamento se aplicam apenas a circuitos criados com provedores de serviço que oferecem serviços de conectividade de Camada 2. Se você estiver usando um provedor de serviços que oferece serviços gerenciados de Camada 3 (normalmente um IPVPN, como MPLS), seu provedor de conectividade configurará e gerenciará o roteamento para você. Nesses casos, não será possível criar ou gerenciar emparelhamentos.
+	
 	b. **Vincule a rede virtual a um circuito da Rota Expressa.** Depois de verificar se o roteamento foi configurado, você precisará vincular sua rede virtual ao circuito da Rota Expressa. Veja [Vinculando redes virtuais a circuitos da Rota Expressa](expressroute-howto-linkvnet-arm.md) para obter instruções passo a passo.
 
 ##  Obter o status de um circuito da Rota Expressa
@@ -360,4 +359,4 @@ Depois de criar seu circuito, verifique se você executou as seguintes tarefas:
 1.  [Criar e modificar o roteamento do circuito da Rota Expressa](expressroute-howto-routing-arm.md)
 2.  [Vincular a rede virtual ao circuito da Rota Expressa](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

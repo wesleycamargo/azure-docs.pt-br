@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Resolução de problemas da extensão do painel de acesso do Internet Explorer | Microsoft Azure"
-   description="Como usar a política de grupo para implantar o complemento do Internet Explorer para o portal de meus aplicativos."
-   services="active-directory"
-   documentationCenter=""
-   authors="liviodlc"
-   manager="stevenpo"
-   editor=""/>
+    pageTitle="Resolução de problemas da extensão do painel de acesso do Internet Explorer | Microsoft Azure"
+    description="Como usar a política de grupo para implantar o complemento do Internet Explorer para o portal de meus aplicativos."
+    services="active-directory"
+    documentationCenter=""
+    authors="liviodlc"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="09/28/2015"
-   ms.author="liviodlc"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="02/02/2016"
+    ms.author="liviodlc"/>
 
 #Resolução de problemas da extensão do painel de acesso do Internet Explorer
 
@@ -105,4 +105,4 @@ Se você encontrar problemas ao desinstalar a extensão, também pode removê-lo
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

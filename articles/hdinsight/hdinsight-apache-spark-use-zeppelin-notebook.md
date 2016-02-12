@@ -212,7 +212,7 @@ Depois de configurar o túnel SSH, você poderá acessar o bloco de anotações 
 		http://hn0-myspar:9995
 
 	* **hn0**: denota headnode0
-	* **myspar**: são as cinco primeiras letras do cluster Spark.
+	* **myspar**: são as seis primeiras letras do nome do cluster Spark.
 	* **9995**: é a porta onde o bloco de anotações do Zeppelin pode ser acessado.
 
 2. Crie um novo bloco de anotações. No painel de cabeçalho, clique em **Notebook** e em **Criar Nova Anotação**.
@@ -330,4 +330,4 @@ Depois de configurar o túnel SSH, você poderá acessar o bloco de anotações 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

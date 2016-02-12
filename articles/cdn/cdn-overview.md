@@ -31,7 +31,7 @@ Os benefícios do uso da CDN para armazenar em cache dados do Azure incluem:
 - Grande escala distribuída para lidar melhor com alta carga instantânea, como no início de um evento de lançamento de produto. 
 
 
->[AZURE.IMPORTANT]Quando você cria ou habilita um ponto de extremidade da CDN, pode levar até 90 minutos para que a propagação seja feita no mundo inteiro.
+>[AZURE.IMPORTANT] Quando você cria ou habilita um ponto de extremidade da CDN, pode levar até 90 minutos para que a propagação seja feita no mundo inteiro.
  
 Quando uma solicitação de um objeto é feita pela primeira vez à CDN, o objeto é recuperado diretamente do local de origem do objeto. Essa origem pode ser uma conta de armazenamento do Azure, um aplicativo Web, um serviço de nuvem ou qualquer origem personalizada que aceite solicitações da Web públicas. Quando uma solicitação é feita usando a sintaxe da CDN, a solicitação é redirecionada para o ponto de extremidade da CDN mais próximo do local em que a solicitação foi feita para fornecer acesso ao objeto. Se o objeto não for encontrado nesse ponto de extremidade, ele será recuperado do serviço e armazenado em cache no ponto de extremidade, em que uma configuração de TTL (vida útil) será mantida para o objeto armazenado em cache.
 
@@ -44,7 +44,7 @@ A camada CDN Standard inclui os seguintes recursos:
 - [Suporte a nome de domínio personalizado](cdn-map-content-to-custom-domain.md)
 - [Filtragem de país](cdn-restrict-access-by-country.md)
 - [Análise principal](cdn-analyze-usage-patterns.md)
-- [Origens de conteúdo personalizado](cdn-map-content-to-custom-domain.md)
+- [Origens de conteúdo personalizado](cdn-how-to-use-cdn.md#caching-content-from-custom-origins)
 - [Suporte para HTTPS](cdn-how-to-use-cdn.md#accessing-cached-content-over-https)
 - Balanceamento de carga
 - Proteção DDOS
@@ -61,4 +61,4 @@ A camada CDN Premium inclui todos os recursos da camada Standard, além desses r
 - [Relatórios avançados de HTTP](cdn-advanced-http-reports.md)
 - [Estatísticas em tempo real](cdn-real-time-stats.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

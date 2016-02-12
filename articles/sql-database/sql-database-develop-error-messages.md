@@ -29,19 +29,19 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 -->
 
 
-Este artigo lista os códigos de erro de SQL para o aplicativo cliente do Banco de Dados SQL, incluindo erros de conexão de banco de dados, falhas transitórias, erros de governança de recursos, problemas de cópia de banco de dados e outros erros. A maioria das categorias específicas do Banco de Dados SQL do Azure e não se aplicam ao Microsoft SQL Server.
+Este artigo lista os códigos de erro do SQL para o aplicativo cliente do Banco de Dados SQL, incluindo erros de conexão de banco de dados, erros transitórios (também chamadas de falhas transitórias), erros de governança de recursos, problemas de cópia de banco de dados e outros erros. A maioria das categorias específicas do Banco de Dados SQL do Azure e não se aplicam ao Microsoft SQL Server.
 
 Em seu aplicativo cliente para qualquer um dos erros, é possível pode fornecer ao usuário uma mensagem que você personalizar.
 
 <a id="bkmk_connection_errors" name="bkmk_connection_errors">&nbsp;</a>
 
 
-## Erros de conexão de banco de dados, falhas transitórias e outros erros temporários
+## Erros de conexão de banco de dados, erros transitórios e outros erros temporários
 
 A tabela a seguir aborda os códigos de erro de SQL para erros de perda de conexão e outros erros transitórios que podem ocorrer quando o aplicativo tenta acessar o Banco de Dados SQL.
 
 
-### Falhas transitórias e erros de conexão de banco de dados mais comuns
+### Erros de conexão de banco de dados mais comuns e erros de falhas transitórias mais comuns
 
 
 Erros de falhas transitórias normalmente se manifestam como uma das seguintes mensagens de erro de seus programas de cliente:
@@ -59,7 +59,7 @@ Erros de falha transitória devem solicitar que o programa cliente execute a *l�
 
 - [Desenvolvimento do cliente e exemplos de código de início rápido para o Banco de Dados SQL](sql-database-develop-quick-start-client-code-samples.md)
 
-- [Ações para corrigir erros e falhas transitórias no Banco de Dados SQL](sql-database-connectivity-issues.md)
+- [Ações para corrigir erros de conexão e erros transitórios no Banco de Dados SQL](sql-database-connectivity-issues.md)
 
 
 ### Códigos de erros de falha transitória
@@ -221,4 +221,4 @@ A tabela a seguir lista todos os erros gerais que não se enquadram em nenhuma c
 - [Diretrizes e limitações gerais do Banco de Dados SQL do Azure](sql-database-general-limitations.md)
 - [Limites de recursos do Banco de Dados SQL do Azure](sql-database-resource-limits.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

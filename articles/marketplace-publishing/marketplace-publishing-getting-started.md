@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/07/2016"
+   ms.date="01/25/2016"
    ms.author="hascipio" />
 
 # Como publicar uma oferta no Azure Marketplace
@@ -28,24 +28,24 @@ Tipos de soluções:
 - Serviço de dados
 - Modelo de solução
 
-Algumas etapas são compartilhadas entre os diferentes tipos de soluções. Este argigo fornece uma breve visão geral das etapas que você precisará concluir para qualquer tipo de solução.
+Algumas etapas são compartilhadas entre os diferentes tipos de soluções. Este artigo fornece uma breve visão geral das etapas que você precisará concluir para qualquer tipo de solução.
 
-> [AZURE.NOTE]Antes de começar qualquer trabalho no Azure Marketplace, você deve ser pré-aprovado. Isso não é aplicável a editores de serviço de dados.
+> [AZURE.NOTE] Antes de começar qualquer trabalho no Azure Marketplace, você deve ser pré-aprovado. Isso não é aplicável a editores de serviço de dados.
 
-||Imagem de máquina virtual |Serviço do desenvolvedor | Serviço de dados | Modelo de solução |
+|Imagem de máquina virtual |Serviço do desenvolvedor | Serviço de dados | Modelo de solução |
 |----|----|----|----|----|
 | **Obter a aprovação prévia** | [Microsoft Azure Certified][link-certification] | [Microsoft Azure Certified][link-certification] | n/d | [Microsoft Azure Certified][link-certification] |
-| **Etapa 1: Registrar sua conta do develo9per** | [Conta do Microsoft Developer: criação e registro][link-accts] | [Conta do Microsoft Developer: criação e registro][link-accts] | [Conta do Microsoft Developer: criação e registro][link-accts] | [Conta do Microsoft Developer: criação e registro][link-accts] |
-|**Etapa 2: Criar sua oferta**| [Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)| [Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)| [Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)| [Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)|
-|| [Pré-requisitos técnicos de VM][link-single-vm-prereq] | Pré-requisitos técnicos de serviço de desenvolvedor | [Pré-requisitos técnicos de serviço de dados](marketplace-publishing-data-service-creation-prerequisites.md) | [Pré-requisitos técnicos de modelo de solução](marketplace-publishing-solution-template-creation-prerequisites.md) |
-||[Guia de publicação de imagem de VM][link-single-vm] | Guia de publicação do serviço do desenvolvedor | [Guia de publicação do serviço de dados](marketplace-publishing-data-service-creation.md) | [Guia de publicação de modelo de solução](marketplace-publishing-solution-template-creation.md) |
-|| [Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging] | [Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging] | [Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging] | [Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging] |
-| **Etapa 3: Enviar por push sua oferta para preparo** | [Testar sua oferta de VM em preparo](marketplace-publishing-vm-image-test-in-staging.md) | Testar sua oferta de serviço de desenvolvedor em preparo | [Testar sua oferta de serviço de dados em preparo](marketplace-publishing-data-service-test-in-staging.md) | [Testar o modelo de solução em preparo](marketplace-publishing-solution-template-test-in-staging.md) |
-| **Etapa 4: implantar a oferta no Marketplace** | [Implantar a oferta no Marketplace][link-pushprod] | [Implantar a oferta no Marketplace][link-pushprod] | [Implantar a oferta no Marketplace][link-pushprod] | [Implantar a oferta no Marketplace][link-pushprod] |
+| **Etapa 1: registrar sua conta de desenvolvedor** | [Conta do Microsoft Developer: criação e registro][link-accts] | [Conta do Microsoft Developer: criação e registro][link-accts] | [Conta do Microsoft Developer: criação e registro][link-accts] | [Conta do Microsoft Developer: criação e registro][link-accts] |
+|**Etapa 2: criar sua oferta**| [Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)| [Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)| [Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)| [Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)|
+|[Pré-requisitos técnicos de VM][link-single-vm-prereq] | Pré-requisitos técnicos de serviço de desenvolvedor | [Pré-requisitos técnicos de serviço de dados](marketplace-publishing-data-service-creation-prerequisites.md) | [Pré-requisitos técnicos de modelo de solução](marketplace-publishing-solution-template-creation-prerequisites.md) |
+|[Guia de publicação de imagem de VM][link-single-vm] | Guia de publicação do serviço do desenvolvedor | [Guia de publicação do serviço de dados](marketplace-publishing-data-service-creation.md) | [Guia de publicação de modelo de solução](marketplace-publishing-solution-template-creation.md) |
+|[Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging] | [Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging] | [Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging] | [Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging] |
+|**Etapa 3: enviar por push sua oferta para preparo** | [Testar sua oferta de VM em preparo](marketplace-publishing-vm-image-test-in-staging.md) | Testar sua oferta de serviço de desenvolvedor em preparo | [Testar sua oferta de serviço de dados em preparo](marketplace-publishing-data-service-test-in-staging.md) | [Testar o modelo de solução em preparo](marketplace-publishing-solution-template-test-in-staging.md) |
+|**Etapa 4: implantar a oferta no Marketplace** | [Implantar a oferta no Marketplace][link-pushprod] | [Implantar a oferta no Marketplace][link-pushprod] | [Implantar a oferta no Marketplace][link-pushprod] | [Implantar a oferta no Marketplace][link-pushprod] |
 
 ## Suporte
-- [Obtenha suporte como um Editor][suppt-general]
-- [Entendendo o relatório de Percepções do Vendedor][suppt-rpt-insights]
+- [Obtenha suporte como um editor][suppt-general]
+- [Entendendo o relatório de percepções do vendedor][suppt-rpt-insights]
 - [Entendendo os relatórios de pagamento][suppt-rpt-payouts]
 - [Solução de problemas comuns de publicação no Marketplace][suppt-common]
 
@@ -81,4 +81,4 @@ Algumas etapas são compartilhadas entre os diferentes tipos de soluções. Este
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 [link-pushprod]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

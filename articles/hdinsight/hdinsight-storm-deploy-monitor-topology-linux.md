@@ -13,18 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/12/2016"
+   ms.date="01/28/2016"
    ms.author="larryfr"/>
 
 # Implantar e gerenciar topologias Apache Storm no HDInsight baseado nem Linux
 
 Neste documento, conheça as noções básicas de gerenciamento e topologias Storm de monitoramento funcionando no Storm baseado em Linux e clusters HDInsight.
 
-> [AZURE.IMPORTANT]As etapas deste artigo exigem um Storm baseado em Linux no cluster HDInsight. Para obter informações sobre as topologias de implantação e monitoramento em HDInsight baseado em Windows, consulte [Implantar e gerenciar topologias do Apache Storm no HDInsight baseado em Windows](hdinsight-storm-deploy-monitor-topology.md)
+> [AZURE.IMPORTANT] As etapas deste artigo exigem um Storm baseado em Linux no cluster HDInsight. Para obter informações sobre as topologias de implantação e monitoramento em HDInsight baseado em Windows, consulte [Implantar e gerenciar topologias do Apache Storm no HDInsight baseado em Windows](hdinsight-storm-deploy-monitor-topology.md)
 
 ## Pré-requisitos
 
-- **Storm baseado em Linux no cluster HDInsight**: consulte [Introdução com o Apache Storm no HDInsight](hdinsight-storm-get-started-linux.md) para etapas para criar um cluster
+- **Storm baseado em Linux no cluster HDInsight**: consulte [Introdução com o Apache Storm no HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md) para etapas para criar um cluster
 
 - **Familiaridade com SSH e SCP**: para obter mais informações sobre como usar SSH e SCP com o HDInsight, consulte o seguinte:
     - **Clientes Linux, Unix ou OS X**: consultem [Usar SSH com Hadoop baseado em Linux no HDInsight no Linux, OS X ou Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
@@ -50,7 +50,7 @@ Neste documento, conheça as noções básicas de gerenciamento e topologias Sto
 
     Isso iniciará a topologia de WordCount de exemplo no cluster. Ele gerar sentenças e conta a ocorrência de cada palavra nas sentenças aleatoriamente.
 
-    > [AZURE.NOTE]Ao enviar a topologia para o cluster, primeiro você deverá copiar o arquivo jar com o cluster antes de usar o comando `storm`. Isso pode ser feito usando o comando `scp` do cliente em que o arquivo existe. Por exemplo, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
+    > [AZURE.NOTE] Ao enviar a topologia para o cluster, primeiro você deverá copiar o arquivo jar com o cluster antes de usar o comando `storm`. Isso pode ser feito usando o comando `scp` do cliente em que o arquivo existe. Por exemplo, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
     >
     > O exemplo de WordCount e outros exemplos de storm starter, já estão incluídos no cluster em `/usr/hdp/current/storm-client/contrib/storm-starter/`.
 
@@ -88,7 +88,7 @@ Topologias Storm, uma vez iniciadas, continuará em execução até serem interr
 
 Rebalancear uma topologia permite que o sistema revise o paralelismo da topologia. Por exemplo, se você redimensionou o cluster para adicionar mais anotações, o rebalanceamento permitirá que uma topologia em execução faça uso de novos nós.
 
-> [AZURE.WARNING]Rebalancear uma topologia primeiro desativa a topologia, em seguida, redistribui os trabalhos uniformemente no cluster e finalmente retorna a topologia para o estado que estava antes do rebalanceamento. Portanto, se a topologia estava ativa, ela se tornará ativa novamente. Se estiver desativada, permanecerá desativada.
+> [AZURE.WARNING] Rebalancear uma topologia primeiro desativa a topologia, em seguida, redistribui os trabalhos uniformemente no cluster e finalmente retorna a topologia para o estado que estava antes do rebalanceamento. Portanto, se a topologia estava ativa, ela se tornará ativa novamente. Se estiver desativada, permanecerá desativada.
 
     storm rebalance TOPOLOGYNAME
 
@@ -96,7 +96,7 @@ Rebalancear uma topologia permite que o sistema revise o paralelismo da topologi
 
 A IU do Storm fornece uma interface Web para trabalhar com as topologias em funcionamento, e é incluída no seu cluster HDInsight. Para exibir a interface do usuário do Storm, use um navegador da Web para abrir \_\___https://CLUSTERNAME.azurehdinsight.net/stormui__, em que __CLUSTERNAME__ é o nome do seu cluster.
 
-> [AZURE.NOTE]Se solicitado a forneça um nome de usuário e senha, insira o administrador de cluster (admin) e a senha que você usou ao criar o cluster.
+> [AZURE.NOTE] Se solicitado a forneça um nome de usuário e senha, insira o administrador de cluster (admin) e a senha que você usou ao criar o cluster.
 
 
 ### Página principal
@@ -126,7 +126,7 @@ A interface do usuário do Storm é criada sobre a API REST e, portanto, você p
 
 Para obter mais informações, veja [API REST da interface do usuário do Storm](https://github.com/apache/storm/blob/master/docs/documentation/ui-rest-api.md). As informações a seguir são específicas para o uso da API REST com Apache Storm no HDInsight.
 
-> [AZURE.IMPORTANT]A API do REST Storm não está disponível publicamente pela Internet, e deve ser acessada usando um túnel SSH para o nó principal do cluster HDInsight. Para obter informações sobre como criar e usar um túnel SSH, consulte [Usar um túnel SSH para acessar a interface do usuário da Web Ambari, ResourceManager, JobHistory, NameNode, Oozie e outras interfaces do usuário da Web](hdinsight-linux-ambari-ssh-tunnel.md).
+> [AZURE.IMPORTANT] A API do REST Storm não está disponível publicamente pela Internet, e deve ser acessada usando um túnel SSH para o nó principal do cluster HDInsight. Para obter informações sobre como criar e usar um túnel SSH, consulte [Usar um túnel SSH para acessar a interface do usuário da Web Ambari, ResourceManager, JobHistory, NameNode, Oozie e outras interfaces do usuário da Web](hdinsight-linux-ambari-ssh-tunnel.md).
 
 ### URI de base
 
@@ -143,7 +143,7 @@ Você pode encontrar o FQDN (Nome de Domínio Totalmente Qualificado) para o nó
 
 As solicitações para a API REST devem usar a **autenticação básica** e, portanto, você usará o nome do administrador e a senha do cluster HDInsight.
 
-> [AZURE.NOTE]Como a autenticação básica é enviada usando texto não criptografado, você **sempre** deverá usar HTTPS para proteger as comunicações com o cluster.
+> [AZURE.NOTE] Como a autenticação básica é enviada usando texto não criptografado, você **sempre** deverá usar HTTPS para proteger as comunicações com o cluster.
 
 ### Valores de retorno
 
@@ -155,4 +155,4 @@ Agora que você aprendeu a implantar e monitorar topologias usando o Painel do S
 
 Para obter mais topologias de exemplo, consulte [Topologias de exemplo para Storm no HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

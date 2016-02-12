@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/14/2016"
+	ms.date="02/02/2016"
 	ms.author="juliako"/>
 
 #Visão geral e cenários comuns do Serviços de Mídia do Azure
@@ -31,10 +31,12 @@ Para compilar soluções de serviços de mídia, você pode usar:
 - [API REST dos Serviços de Mídia](https://msdn.microsoft.com/library/azure/hh973617.aspx)
 - Um dos SDKs de cliente disponíveis: 
 	- [SDK dos Serviços de Mídia do Azure para .NET](https://github.com/Azure/azure-sdk-for-media-services), 
-	- [SDK do Azure para Java](https://github.com/Azure/azure-sdk-for-java), [SDK do PHP do Azure](https://github.com/Azure/azure-sdk-for-php), 
+	- [SDK do Azure para Java](https://github.com/Azure/azure-sdk-for-java), 
+	- [SDK do PHP do Azure](https://github.com/Azure/azure-sdk-for-php), 
 	- [Serviços de Mídia do Azure para Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (esta é uma versão de um SDK do Node.js que não foi criada pela Microsoft. Ele é mantido por uma comunidade e atualmente não tem cobertura de 100% das APIs do AMS). 
-- Ferramentas existentes: [Portal Clássico do Azure](http://manage.windowsazure.com/) ou [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer).
-
+- Ferramentas existentes: 
+	- [Portal Clássico do Azure](http://manage.windowsazure.com/) 
+	- [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) ([AMSE] Gerenciador de Serviços de Mídia do Azure é um aplicativo Winforms/C# para Windows)
 
 ##Roteiros de aprendizagem dos Serviços de Mídia
 
@@ -44,7 +46,6 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 - [Fluxo de trabalho do streaming sob demanda do AMS](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##Cartaz
-
 
 [Aqui](https://azure.microsoft.com/documentation/infographics/media-services/) é possível exibir o cartaz dos Serviços de Mídia do Azure que representa os fluxos de trabalho do AMS, desde a criação de mídia até o consumo.
 
@@ -59,10 +60,11 @@ Para começar a usar o Azure Media Services, você deve possuir o seguinte:
 	Além disso, saiba como conectar de forma programática [Conectar](media-services-dotnet-connect_programmatically.md).
 4. (Recomendado) Aloque uma ou mais unidades de escala. É recomendável alocar uma ou mais unidades de escala para aplicativos no ambiente de produção. Para obter mais informações, veja [Gerenciando pontos de extremidade de transmissão](media-services-manage-origins.md).
 
-##Conceitos
+##Visão geral e conceitos
 
-Para obter mais informações, veja [Conceitos](media-services-concepts.md).
+Para conferir os conceitos dos Serviços de Mídia do Azure, confira [Conceitos](media-services-concepts.md).
 
+Para uma série de instruções que apresenta a todos os componentes principais dos Serviços de Mídia do Azure, confira [Tutoriais passo a passo dos Serviços de Mídia do Azure](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). Este série apresenta uma ótima visão geral dos conceitos e usa a ferramenta AMSE para demonstrar as tarefas de AME. Observe que a ferramenta AMSE é uma ferramenta do Windows. Essa ferramenta oferece suporte à maioria das tarefas que você pode obter programaticamente com o [SDK do AMS para .NET](https://github.com/Azure/azure-sdk-for-media-services), [SDK do Azure para Java](https://github.com/Azure/azure-sdk-for-java) ou [SDK do PHP do Azure ](https://github.com/Azure/azure-sdk-for-php).
 
 ##<a id="vod_scenarios"></a>Fornecendo Mídia sob Demanda com os Serviços de Mídia do Azure: cenários e tarefas comuns
 
@@ -234,4 +236,4 @@ O [Suporte do Azure](https://azure.microsoft.com/support/options/) fornece opç�
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

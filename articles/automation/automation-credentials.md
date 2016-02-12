@@ -45,7 +45,7 @@ As atividades na tabela a seguir são usadas para acessar credenciais em um runb
 ## Criando uma nova credencial
 
 
-### Para criar uma nova variável com o portal do Azure
+### Para criar uma nova variável com o portal clássico do Azure
 
 1. Em sua conta de automação, clique em **Ativos** na parte superior da janela.
 1. Clique em **Adicionar Configuração** na parte inferior da janela.
@@ -54,7 +54,7 @@ As atividades na tabela a seguir são usadas para acessar credenciais em um runb
 1. Conclua o assistente e clique na caixa de seleção para salvar a nova credencial.
 
 
-### Para criar uma nova credencial com o portal de visualização do Azure
+### Para criar uma nova credencial com o portal do Azure
 
 1. Em sua conta de automação, clique na parte **Ativos** para abrir a folha **Ativos**.
 1. Clique na parte **Credenciais** para abrir a folha **Credenciais**.
@@ -92,12 +92,12 @@ Você adiciona uma atividade **Get-AutomationPSCredential** a um runbook gráfic
 
 ![Adicionar a credencial à tela](media/automation-credentials/credential-add-canvas.png)
 
-A imagem a seguir mostra um exemplo do uso de uma credencial em um runbook gráfico. Nesse caso, ela está sendo usada para fornecer autenticação para um runbook para os recursos do Azure, conforme descrito em [Configurando a autenticação para recursos do Azure](#automation-configuring.md). A primeira atividade recupera a credencial que tem acesso à assinatura do Azure. A atividade **Add-AzureAccount** usa essa credencial para fornecer autenticação para qualquer atividade que vier depois dela. Um [link de pipeline](automation-graphical-authoring-intro.md#links-and-workflow) está disponível, já que **Get-AutomationPSCredential** está esperando um único objeto.
+A imagem a seguir mostra um exemplo do uso de uma credencial em um runbook gráfico. Nesse caso, ela está sendo usada para fornecer autenticação para um runbook para os recursos do Azure, conforme descrito em [Configurando a autenticação para recursos do Azure](automation-configuring.md). A primeira atividade recupera a credencial que tem acesso à assinatura do Azure. A atividade **Add-AzureAccount** usa essa credencial para fornecer autenticação para qualquer atividade que vier depois dela. Um [link de pipeline](automation-graphical-authoring-intro.md#links-and-workflow) está disponível, já que **Get-AutomationPSCredential** está esperando um único objeto.
 
 ![Adicionar a credencial à tela](media/automation-credentials/get-credential.png)
 
 ## Usando uma credencial do PowerShell na DSC
-Embora as Configurações DSC na Automação do Azure possam fazer referência aos ativos de credenciais usando **Get-AutomationPSCredential**, os ativos de credenciais também podem ser transmitidos por meio de parâmetros, se desejado. Para obter mais informações, veja [Compilando configurações na DSC de Automação do Azure](automation-dsc-compile.md#credential-assets).
+Embora as Configurações DSC na Automação do Azure possam fazer referência aos ativos de credencial usando **Get-AutomationPSCredential**, os ativos de credencial também podem ser transmitidos por meio de parâmetros, se desejado. Para obter mais informações, veja [Compilando configurações na DSC de Automação do Azure](automation-dsc-compile.md#credential-assets).
 
 ## Artigos relacionados
 
@@ -105,4 +105,4 @@ Embora as Configurações DSC na Automação do Azure possam fazer referência a
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

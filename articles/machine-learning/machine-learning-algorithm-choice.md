@@ -7,7 +7,7 @@
 	manager="paulettm"
 	editor="cgronlun"
     tags=""/>
-
+    
 <tags
 	ms.service="machine-learning"
     ms.devlang="na"
@@ -25,7 +25,7 @@ A resposta à pergunta "Qual algoritmo de aprendizado de máquina devo usar?" se
 
 A **Página de dicas úteis do algoritmo para Aprendizado de Máquina** ajuda a escolher o melhor algoritmo de Aprendizado de Máquina para suas soluções de análise preditiva na biblioteca de algoritmos do Aprendizado de Máquina do Microsoft Azure. Este artigo orienta você a usá-lo.
 
-> [AZURE.NOTE]Para baixar a página de dicas úteis e acompanhar este artigo, vá para [Página de dicas úteis de algoritmo de aprendizado de máquina para o Estúdio de Aprendizado de Máquina do Microsoft Azure ](machine-learning-algorithm-cheat-sheet.md).
+> [AZURE.NOTE] Para baixar a página de dicas úteis e acompanhar este artigo, vá para [Página de dicas úteis de algoritmo de aprendizado de máquina para o Estúdio de Aprendizado de Máquina do Microsoft Azure ](machine-learning-algorithm-cheat-sheet.md).
 
 Essa página de dicas úteis tem uma audiência bem específica em mente: um cientista de dados iniciante com aprendizado de máquina de nível de graduação, tentando escolher um algoritmo para começar a usar o Estúdio de Aprendizado de Máquina do Azure. Isso significa que ela faz algumas generalizações e simplificações excessivas, mas apontará uma direção segura para você. Isso também significa que há muitos algoritmos não listados aqui. À medida que o Aprendizado de Máquina crescer para englobar um conjunto mais completo de métodos disponíveis, nós os adicionaremos.
 
@@ -37,7 +37,7 @@ Leia os rótulos do caminho e do algoritmo no gráfico, como "Para *&lt;rótulod
 
 Veja um exemplo da [Galeria de Análise do Cortana](http://gallery.azureml.net/) de um experimento que experimenta vários algoritmos nos mesmos dados e compara os resultados: [Comparar classificadores multiclasse: reconhecimento de letra](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92).
 
->[AZURE.TIP]Para baixar e imprimir um diagrama que fornece uma visão geral dos recursos do Estúdio de Aprendizado de Máquina, consulte [Diagrama de visão geral dos recursos do Estúdio de Aprendizado de Máquina do Azure](machine-learning-studio-overview-diagram.md).
+>[AZURE.TIP] Para baixar e imprimir um diagrama que fornece uma visão geral dos recursos do Estúdio de Aprendizado de Máquina, consulte [Diagrama de visão geral dos recursos do Estúdio de Aprendizado de Máquina do Azure](machine-learning-studio-overview-diagram.md).
 
 ## Tipos de aprendizado de máquina
 
@@ -156,7 +156,7 @@ Embora inclua erroneamente ‘regressão’ no nome, a regressão logística é,
 
 ![Regressão logística para dados de duas classes com apenas um recurso][4]
 
-***Uma regressão logística para dados de duas classes com apenas um recurso*** *- o limite de classe é o ponto no qual a curva logística é mais próxima de ambas as classes*
+***Uma regressão logística para dados de duas classes com apenas um recurso**** - o limite de classe é o ponto no qual a curva logística é mais próxima de ambas as classes*
 
 ### Árvores, florestas e selvas
 
@@ -170,7 +170,7 @@ Como um espaço de recurso pode ser subdividido em pequenas regiões de forma ar
 
 As árvores de decisão aumentadas evitam o superajuste ao limitarem o número de vezes que podem se subdividir e como poucos pontos de dados são permitidos em cada região. O algoritmo constrói uma sequência de árvores, e cada uma delas aprende a compensar o erro deixado pela árvore anterior. O resultado é um aprendiz muito preciso que tende a usar muita memória. Para obter a descrição técnica completa, confira o [documento original de Friedman](http://www-stat.stanford.edu/~jhf/ftp/trebst.pdf).
 
-[Regressão rápida de quantil de floresta](https://msdn.microsoft.com/library/azure/dn913093.aspx) é uma variação de árvores de decisão para casos especiais em que você deseja conhecer não apenas o valor típico (médio) dos dados em uma região, mas também sua distribuição na forma de quantis.
+[Regressão rápida de quantil de floresta](https://msdn.microsoft.com/library/azure/dn913093.aspx) é uma variação de árvores de decisão para casos especiais onde você deseja conhecer não apenas o valor típico (médio) dos dados em uma região, mas também sua distribuição na forma de quantis.
 
 ### Redes neurais e perceptrons
 
@@ -209,7 +209,7 @@ Se você tiver um objetivo muito específico, este talvez seja o seu dia de sort
 
 ![Detecção de anomalias baseada em PCA][8]
 
-***Detecção de anomalias baseada em PCA*** *- a grande maioria dos dados se encaixa em uma distribuição estereotipada; os pontos que desviarem drasticamente dessa distribuição são suspeitos*
+***Detecção de anomalias baseada em PCA**** - a grande maioria dos dados se encaixa em uma distribuição estereotipada; os pontos que desviarem drasticamente dessa distribuição são suspeitos*
 
 ![Conjunto de dados agrupados usando K-means][9]
 
@@ -237,4 +237,4 @@ O Aprendizado de Máquina do Azure também inclui acesso a uma poderosa estrutur
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

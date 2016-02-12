@@ -8,13 +8,13 @@ Para gravar mensagens de forma confiável no armazenamento do Azure, o exemplo o
 
 O processador de evento usa o deslocamento de mensagem dos Hubs de Eventos como ids de bloco. Isso permite executar uma verificação de eliminação de duplicação antes de confirmar o novo bloco de armazenamento, tomando cuidado com uma possível falha entre a confirmação de um bloco e o ponto de verificação.
 
-> [AZURE.NOTE]Este tutorial usa uma única conta de armazenamento para gravar todas as mensagens recuperadas do Hub IoT. Consulte as [Diretrizes de escalabilidade do Armazenamento do Azure] para decidir se precisa usar várias contas do Armazenamento do Azure em sua solução.
+> [AZURE.NOTE] Este tutorial usa uma única conta de armazenamento para gravar todas as mensagens recuperadas do Hub IoT. Consulte as [Diretrizes de escalabilidade do Armazenamento do Azure] para decidir se precisa usar várias contas do Armazenamento do Azure em sua solução.
 
 O aplicativo utiliza o Barramento de Serviço do recurso de eliminação de duplicação para evitar duplicatas quando processa mensagens interativas. O dispositivo simulado carimba cada mensagem interativa com uma única **MessageId**, assim o Barramento de Serviço poderá garantir que, na janela de tempo de eliminação de duplicação especificada, duas mensagens com a mesma **MessageId** não sejam entregues aos destinatários. Essa eliminação de duplicação, junto com a semântica de conclusão por mensagem fornecida pelas filas do Barramento de Serviço, facilita o processamento confiável de mensagens interativas.
 
 Para garantir que nenhuma mensagem seja reenviada fora da janela de eliminação de duplicação, podemos sincronizar o mecanismo de ponto de verificação **EventProcessorHost** com a janela de eliminação de duplicação de fila do Barramento de Serviço. Isso é realizado pela imposição de um ponto de verificação pelo menos uma vez sempre que o tempo da janela de eliminação de duplicação decorrer (neste tutorial, 1 hora).
 
-> [AZURE.NOTE]Este tutorial usa uma única fila de Barramento de Serviço particionada para processar todas as mensagens interativas recuperadas do Hub IoT. Consulte a [documentação do Barramento de Serviço] para saber mais sobre como usar Filas do Barramento de Serviço para atender aos requisitos de escalabilidade da sua solução.
+> [AZURE.NOTE] Este tutorial usa uma única fila de Barramento de Serviço particionada para processar todas as mensagens interativas recuperadas do Hub IoT. Consulte a [documentação do Barramento de Serviço] para saber mais sobre como usar Filas do Barramento de Serviço para atender aos requisitos de escalabilidade da sua solução.
 
 ### Provisionar uma conta de Armazenamento do Azure e uma fila do Barramento de Serviço
 Para usar a classe [EventProcessorHost], você deve ter uma conta de Armazenamento do Azure para habilitar o **EventProcessorHost** para registro do ponto de verificação. Você pode usar uma conta de armazenamento já existente ou seguir as instruções em [Sobre o Armazenamento do Azure] para criar uma nova. Anote a cadeia de conexão da conta de armazenamento.
@@ -200,7 +200,7 @@ Você também precisará de uma fila do Barramento de Serviço para habilitar o 
 
     O método **AppendAndCheckPoint** primeiro gera uma blockId para o bloco a ser anexado. O Armazenamento do Azure requer que todas as ids de bloco tenham o mesmo comprimento, então o método preenche o deslocamento com zeros à esquerda - `currentBlockInitOffset.ToString("0000000000000000000000000")`. Em seguida, se um bloco com essa id já estiver no blob, o método o substituirá pelo atual conteúdo do buffer..
 
-    > [AZURE.NOTE]Para simplificar o código, este tutorial usa um arquivo único de blob por partição para armazenar as mensagens. Uma solução real implementaria o arquivo sem interrupção, criando arquivos adicionais quando um determinado tamanho for atingido (observe que o blob de blocos do Azure pode ter, no máximo, 195 Gb), ou após um determinado período.
+    > [AZURE.NOTE] Para simplificar o código, este tutorial usa um arquivo único de blob por partição para armazenar as mensagens. Uma solução real implementaria o arquivo sem interrupção, criando arquivos adicionais quando um determinado tamanho for atingido (observe que o blob de blocos do Azure pode ter, no máximo, 195 Gb), ou após um determinado período.
 
 8. Na classe **Programa**, adicione as seguintes instruções **using** na parte superior:
 
@@ -229,7 +229,7 @@ Você também precisará de uma fila do Barramento de Serviço para habilitar o 
     }
     ```
     
-    > [AZURE.NOTE]Para simplificar, este tutorial usa uma única instância da classe [EventProcessorHost]. Consulte o [Guia de programação de Hubs de Eventos] para obter mais informações.
+    > [AZURE.NOTE] Para simplificar, este tutorial usa uma única instância da classe [EventProcessorHost]. Consulte o [Guia de programação de Hubs de Eventos] para obter mais informações.
 
 ## Receber mensagens interativas
 Nesta seção, você escreverá um aplicativo de console do Windows que recebe mensagens interativas da fila do Barramento de Serviço. Consulte [Criar aplicativos multicamadas com o Barramento de Serviço][] para saber mais sobre como projetar uma solução usando o Barramento de Serviço.
@@ -293,7 +293,6 @@ Nesta seção, você escreverá um aplicativo de console do Windows que recebe m
 [Scaled out event processing]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 [Guia de programação de Hubs de Eventos]: ../event-hubs/event-hubs-programming-guide.md
-[Azure preview portal]: https://portal.azure.com/
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [portal do Azure]: https://manage.windowsazure.com/
 [Service Bus Queue]: ../service-bus/service-bus-dotnet-how-to-use-queues.md
@@ -313,4 +312,4 @@ Nesta seção, você escreverá um aplicativo de console do Windows que recebe m
 [31]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue3.png
 [32]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue4.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

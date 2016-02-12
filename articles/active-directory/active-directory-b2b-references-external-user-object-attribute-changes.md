@@ -13,10 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="10/27/2015"
+   ms.date="02/03/2016"
    ms.author="viviali"/>
 
-# Alterações de atributo do objeto de usuário externo para a visualização da colaboração B2B do AD do Azure (Active Directory do Azure)
+# Visualização da colaboração B2B do AD do Azure: alterações de atributo de objeto de usuário
+
 Cada usuário em um diretório do AD do Azure é representado por um objeto de usuário. O objeto de usuário no AD do Azure passa por alterações de atributo em vários estágios do fluxo de convite-resgate da colaboração B2B. O objeto de usuário que representa o usuário do parceiro no diretório tem atributos que são alterados no momento do resgate, quando o usuário do parceiro clica no link no email de convite. Especificamente:
 
 - Os atributos **SignInName** e **AltSecId** são populados
@@ -34,4 +35,4 @@ Confira nossos outros artigos sobre a colaboração B2B do Azure:
 - [Formato do token de usuário externo](active-directory-b2b-references-external-user-token-format.md)
 - [Limitações atuais da visualização](active-directory-b2b-current-preview-limitations.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0204_2016-->

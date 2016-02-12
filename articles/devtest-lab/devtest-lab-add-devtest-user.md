@@ -1,6 +1,6 @@
-    <properties
-	pageTitle="Add owners and users to a DevTest Lab | Microsoft Azure"
-	description="Securely add a user who is not in your subscription to your Azure DevTest Lab."
+<properties
+	pageTitle="Adicionar proprietários e usuários a um Laboratório de Desenvolvimento/Teste | Microsoft Azure"
+	description="Com segurança, adicione um usuário que não está em sua assinatura para o Laboratório de Desenvolvimento/Teste do Azure."
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/01/2015"
+	ms.date="02/03/2016"
 	ms.author="tarcher"/>
 
 # Adicionar proprietários e usuários a um Laboratório de Desenvolvimento/Teste
@@ -26,7 +26,7 @@ Você concede acesso ao seu Laboratório de Desenvolvimento/Teste por meio de du
 
  - **Proprietário**: os usuários atribuídos à função **proprietário** no nível de assinatura do Azure têm acesso completo ao laboratório, incluindo às funções de gerenciamento e monitoramento.
 
-     >[AZURE.NOTE] As funções de **Proprietário** atribuídas em níveis RBAC diferente do nível de assinatura não têm suporte no Laboratório de Desenvolvimento/Teste. Não há suporte para a atribuição de um usuário à função **Proprietário** no Laboratório de Desenvolvimento/Teste.
+     > [AZURE.NOTE] As funções de **Proprietário** atribuídas em níveis RBAC diferente do nível de assinatura não têm suporte no Laboratório de Desenvolvimento/Teste. Não há suporte para a atribuição de um usuário à função **Proprietário** no Laboratório de Desenvolvimento/Teste.
 
  -  **Usuário do Laboratório de Desenvolvimento/Teste**: usuários atribuídos à função **Usuário do Laboratório de Desenvolvimento/Teste** pode criar, atualizar e excluir VMs no laboratório especificado. Os usuários podem ser *internos* (um membro do Active Directory do Azure para a assinatura) ou *externos* (um usuário que não é membro do AD do Azure, como um membro de uma organização parceira).
 	-  Uma função **Usuário do Laboratório de Desenvolvimento/Teste** deve ser atribuída por meio dos blocos **Adicionar Usuários** do laboratório.
@@ -101,4 +101,4 @@ Para adicionar um usuário do Laboratório de Desenvolvimento/Teste ao seu labor
 
 	1. A folha **Usuários** exibe as funções e usuários adicionados.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

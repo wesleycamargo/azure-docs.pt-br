@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/13/2015"
+   ms.date="01/26/2016"
    ms.author="rsinha"/>
 
 # Visão geral da Possibilidade de Teste
@@ -115,4 +115,4 @@ Para realmente criar serviços em escala de nuvem, é essencial garantir, antes 
   - [Simular falhas durante cargas de trabalho de serviço](service-fabric-testability-workload-tests.md)
   - [Falhas de comunicação entre serviços](service-fabric-testability-scenarios-service-communication.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

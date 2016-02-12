@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Mover dados para e do sistema de arquivos local usando o Azure Data Factory
@@ -36,7 +36,9 @@ Execute as duas etapas a seguir para usar um compartilhamento de arquivos do Lin
  
 ## Exemplo: copiar dados de um sistema de arquivos local para um Blob do Azure
 
-O exemplo a seguir mostra:
+Este exemplo mostra como copiar dados de um sistema de arquivos local para um Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** para qualquer uma das fontes declaradas [aqui](data-factory-data-movement-activities.md#supported-data-stores) usando a atividade de cópia no Azure Data Factory.
+ 
+O exemplo tem as seguintes entidades de data factory:
 
 1.	Um serviço vinculado do tipo [OnPremisesFileServer](data-factory-onprem-file-system-connector.md#onpremisesfileserver-linked-service-properties).
 2.	Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
@@ -606,4 +608,4 @@ false | mergeFiles | <p>Para uma pasta de origem Pasta 1 com a seguinte estrutur
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

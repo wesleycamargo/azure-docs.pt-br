@@ -30,19 +30,19 @@ Da mesma forma, as APIs REST para o **Banco de Dados do SQL Azure** também pode
 2. Para executar o módulo, na janela de início, digite **Microsoft Azure PowerShell**.
 3. Se ainda não tiver adicionado sua conta ao computador, execute o cmdlet a seguir. (Para saber mais, consulte [Como instalar e configurar o Azure PowerShell]():
 
-```
-Add-AzureAccount
-```
+	```
+	Login-AzureRmAccount
+	```
 
 3. Selecione sua assinatura para o banco de dados que você deseja suspender ou retomar. Isso seleciona a assinatura denominada "MySubscription".
 
-```
-Select-AzureRmSubscription -SubscriptionName "MySubscription"
-```
+	```
+	Select-AzureRmSubscription -SubscriptionName "MySubscription"
+	```
 
 ## Suspend-AzureRmSqlDatabase
 
-Para referência sobre o comando, veja [Suspend-AzureRmSQLDatabase](https://msdn.microsoft.com/library/mt619337.aspx).
+Para obter a referência do comando, veja [Suspend-AzureRmSQLDatabase](https://msdn.microsoft.com/library/mt619337.aspx).
 
 ### Exemplo 1: Pausar um banco de dados por nome em um servidor
 
@@ -54,7 +54,7 @@ Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName 
 
 ### Exemplo 2: Pausar um objeto de banco de dados
 
-Este exemplo recupera um banco de dados denominado “Database02” de um servidor chamado “Server01” contido em um grupo de recursos denominado “ResourceGroup1”. Ele canaliza o objeto recuperado para **Suspend-AzureRmSqlDatabase**. Como resultado, o banco de dados é pausado. O comando final mostra os resultados.
+Este exemplo recupera um banco de dados denominado “Database02” de um servidor chamado “Server01” contido em um grupo de recursos denominado “ResourceGroup1”. Ele redireciona o objeto recuperado para **Suspend-AzureRmSqlDatabase**. Como resultado, o banco de dados é pausado. O comando final mostra os resultados.
 
 ```
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
@@ -64,7 +64,7 @@ $resultDatabase
 
 ## Resume-AzureSqlDatabase
 
-Para referência sobre o comando, veja [Resume-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt619347.aspx)
+Para obter a referência do comando, veja [Resume-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt619347.aspx)
 
 ### Exemplo 1: Retomar um banco de dados por nome em um servidor
 
@@ -76,7 +76,7 @@ Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "
 
 ### Exemplo 2: Retomando um objeto de banco de dados
 
-Este exemplo recupera um banco de dados denominado “Database02” de um servidor chamado “Server01” que está contido em um grupo de recursos denominado “ResourceGroup1”. O objeto é canalizado para **Resume-AzureRmSqlDatabase**.
+Este exemplo recupera um banco de dados denominado “Database02” de um servidor chamado “Server01” que está contido em um grupo de recursos denominado “ResourceGroup1”. O objeto é redirecionado para **Resume-AzureRmSqlDatabase**.
 
 ```
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
@@ -104,7 +104,7 @@ $restorePoints
 
 ### Exemplo 2: Retomando um objeto de banco de dados
 
-Este exemplo recupera um banco de dados denominado “Database02” de um servidor chamado “Server01”, contido em um grupo de recursos denominado “ResourceGroup1”. O objeto de banco de dados é canalizado para **Get-AzureRmSqlDatabase** e o resultado são os pontos de restauração do banco de dados. O comando final imprime os resultados.
+Este exemplo recupera um banco de dados denominado “Database02” de um servidor chamado “Server01”, contido em um grupo de recursos denominado “ResourceGroup1”. O objeto de banco de dados é redirecionado para **Get-AzureRmSqlDatabase** e o resultado é composto pelos pontos de restauração do banco de dados. O comando final imprime os resultados.
 
 ```
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
@@ -113,7 +113,7 @@ $retorePoints
 ```
 
 
-> [AZURE.NOTE]Observe que se o servidor for foo.database.windows.net, use "foo" como o nome do servidor nos cmdlets do powershell.
+> [AZURE.NOTE] Observe que se o servidor for foo.database.windows.net, use "foo" como o nome do servidor nos cmdlets do powershell.
 
 
 ## Próximas etapas
@@ -133,4 +133,4 @@ Para obter mais informações de referência, consulte [Visão geral de referên
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

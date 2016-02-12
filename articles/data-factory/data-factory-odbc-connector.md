@@ -21,6 +21,7 @@ Este artigo descreve como você pode usar a atividade de cópia em uma data fact
 
 Atualmente, a data factory dá suporte apenas para a movimentação de dados de um armazenamento de dados ODBC local para outros armazenamentos de dados, mas não para a movimentação de dados de outros armazenamentos de dados para um armazenamento de dados ODBC local.
 
+
 ## Habilitando a conectividade
 O serviço Data Factory dá suporte à conexão com fontes ODBC locais usando o Gateway de Gerenciamento de Dados. Consulte o artigo [movendo dados entre pontos locais e na nuvem](data-factory-move-data-between-onprem-and-cloud.md) para saber mais sobre o Gateway de gerenciamento de dados e obter instruções passo a passo de como configurar o gateway. É necessário utilizar o gateway para se conectar a um armazenamento de dados ODBC, mesmo se ele estiver hospedado em uma VM IaaS do Azure.
 
@@ -32,7 +33,9 @@ Além do Gateway de Gerenciamento de Dados, você também precisa instalar o dri
 
 ## Exemplo: Copiar dados do armazenamento de dados ODBC para o Blob do Azure
 
-O exemplo a seguir mostra:
+Este exemplo mostra como copiar dados de um repositório de dados ODBC para o Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** para qualquer uma das fontes declaradas [aqui](data-factory-data-movement-activities.md#supported-data-stores) usando a atividade de cópia no Azure Data Factory.
+ 
+O exemplo tem as seguintes entidades de data factory:
 
 1.	Um serviço vinculado do tipo [OnPremisesOdbc](#odbc-linked-service-properties).
 2.	Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
@@ -324,4 +327,4 @@ Ao mover dados de repositórios de dados ODBC, os tipos de dados ODBC são mapea
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

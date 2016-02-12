@@ -7,25 +7,29 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
+<tags 
+	ms.service="backup" 
+	ms.workload="storage-backup-recovery" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
 	ms.topic="article"
- 	ms.date="01/22/2016" 
- 	ms.author="markgal"; "aashishr"; "jimpark"/>
+	ms.date="01/22/2016" 
+	ms.author="markgal"; "aashishr"; "jimpark"/>
 
 
 # Implantar e gerenciar o backup no Azure para o Windows Server/Windows Client usando o PowerShell
+
 Este artigo mostra como usar o PowerShell para configurar o Backup do Azure no Windows Server ou no cliente Windows, e como gerenciar backups e recuperações.
 
 ## Instale o Azure PowerShell
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+
 Em outubro de 2015, o Azure PowerShell 1.0 foi lançado. Essa versão veio logo após a 0.9.8 e trouxe algumas alterações importantes, especialmente no padrão de nomenclatura dos cmdlets. Os cmdlets da versão 1.0 seguem o padrão de nomenclatura {verbo}-AzureRm{substantivo}; por outro lado, os nomes da versão 0.9.8 não incluem **Rm** (por exemplo, New-AzureRmResourceGroup em vez de New-AzureResourceGroup). Ao usar o Azure PowerShell 0.9.8, você deve primeiro habilitar o modo do Gerenciador de Recursos executando o comando **Switch-AzureMode AzureResourceManager**. Este comando não é necessário na 1.0 ou posterior.
 
 Se você quiser usar seus scripts escritos para o ambiente da versão 0.9.8 no ambiente da versão 1.0 ou posterior, teste cuidadosamente os scripts em um ambiente de pré-produção antes de usá-los em produção, a fim de evitar o impacto inesperado.
 
-[Baixe a versão do PowerShell mais recente](https://github.com/Azure/azure-powershell/releases) (a versão mínima exigida é: 1.0.0)
+[Baixe a última versão do PowerShell](https://github.com/Azure/azure-powershell/releases) (a versão mínima necessária é: 1.0.0)
 
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
@@ -72,15 +76,15 @@ As opções disponíveis incluem:
 
 | Opção | Detalhes | Padrão |
 | ---- | ----- | ----- |
-| /q | Instalação silenciosa | - | 
-| /p:"local" | Caminho para a pasta de instalação do agente de Backup do Azure. | C:\Program Files\Microsoft Azure Recovery Services Agent | 
-| /s:"local" | Caminho para a pasta de cache do agente de Backup do Azure. | C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch | 
-| /m | Inscreva no Microsoft Update | - | 
-| /nu | Não verificar se há atualizações após a conclusão da instalação | - | 
-| /d | Desinstala o agente de Serviços de Recuperação do Microsoft Azure | - | 
-| /Ph | Endereço de Host do Proxy | - | 
-| /po | Número da porta do Host do Proxy | - | 
-| /pu | Nome de usuário do Host do Host | - | 
+| /q | Instalação silenciosa | - |
+| /p:"local" | Caminho para a pasta de instalação do agente de Backup do Azure. | C:\Program Files\Microsoft Azure Recovery Services Agent |
+| /s:"local" | Caminho para a pasta de cache do agente de Backup do Azure. | C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
+| /m | Inscreva no Microsoft Update | - |
+| /nu | Não verificar se há atualizações após a conclusão da instalação | - |
+| /d | Desinstala o agente de Serviços de Recuperação do Microsoft Azure | - |
+| /ph | Endereço de Host do Proxy | - |
+| /po | Número da porta do Host do Proxy | - |
+| /pu | Nome de usuário do Host do Host | - |
 | /pw | Senha do Proxy | - |
 
 
@@ -90,7 +94,7 @@ Antes de poder se registrar no serviço de Backup do Azure, você precisa garant
 - Ter uma assinatura válida do Azure
 - Ter um cofre de backup
 
-Para baixar as credenciais do cofre, execute o cmdlet **Get-AzureRMBackupVaultCredentials** em um console do Azure PowerShell e as armazene em um local conveniente como *C:\\Downloads*.
+Para baixar as credenciais do cofre, execute o cmdlet **Get-AzureRMBackupVaultCredentials** em um console do Azure PowerShell e armazene-as em um local conveniente, como *C:\\Downloads*.
 
 ```
 PS C:\> $credspath = "C:"
@@ -591,4 +595,4 @@ Para obter mais informações sobre o Backup do Azure para Windows Server/Client
 - [Introdução ao Backup do Azure](backup-configure-vault.md)
 - [Fazer backup de servidores Windows](backup-azure-backup-windows-server.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

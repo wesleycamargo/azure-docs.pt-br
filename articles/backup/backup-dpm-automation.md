@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015" 
-	ms.author="jimpark"; "aashishr"; "sammehta"; "anuragm"/>
+	ms.date="01/28/2016"
+	ms.author="jimpark; aashishr; anuragm"/>
 
 
 # Implantar e gerenciar o backup do Azure para servidores do Data Protection Manager (DPM) usando o PowerShell
+
 Este artigo mostra como usar o Azure PowerShell para configurar o Backup do Azure em um servidor DPM e para gerenciar backups e recuperações.
 
 ## Configurando o ambiente do PowerShell
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+
 Antes de usar o PowerShell para gerenciar backups do Data Protection Manager para o Azure, você precisará ter o ambiente certo no PowerShell. No início da sessão do PowerShell, certifique-se de executar o comando a seguir para importar os módulos corretos e permitir que você faça referência corretamente aos cmdlets do DPM:
 
 ```
@@ -56,7 +60,7 @@ As seguintes tarefas de configuração e de registro podem ser automatizadas com
 
 ### Criar um cofre de backup
 
-> [AZURE.WARNING]Para clientes usando o Backup do Azure pela primeira vez, você precisa registrar o provedor de Backup do Azure para ser usado com sua assinatura. Isso pode ser feito executando o seguinte comando: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
+> [AZURE.WARNING] Para clientes usando o Backup do Azure pela primeira vez, você precisa registrar o provedor de Backup do Azure para ser usado com sua assinatura. Isso pode ser feito executando o seguinte comando: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
 
 Você pode criar um novo cofre de backup usando o commandlet **New-AzureRMBackupVault**. O cofre de backup é um recurso do ARM e, portanto, você precisará colocá-lo em um Grupo de Recursos. Em um console do Azure PowerShell com privilégios elevados, execute os seguintes comandos:
 
@@ -77,7 +81,7 @@ Para instalar o agente, execute o seguinte comando em um console do PowerShell c
 PS C:\> MARSAgentInstaller.exe /q
 ```
 
-Isso instala o agente com todas as opções padrão. A instalação demora alguns minutos, em segundo plano. Se você não especificar a opção */nu*, a janela do **Windows Update** será aberta no final da instalação para verificar se há atualizações.
+Isso instala o agente com todas as opções padrão. A instalação demora alguns minutos, em segundo plano. Se você não especificar a opção */nu*, a janela do **Windows Update** será aberta ao fim da instalação para verificar se há atualizações.
 
 O agente será exibido na lista de programas instalados. Para ver a lista de programas instalados, vá para **Painel de controle** > **Programas** > **Programas e recursos**.
 
@@ -94,15 +98,15 @@ As opções disponíveis incluem:
 
 | Opção | Detalhes | Padrão |
 | ---- | ----- | ----- |
-| /q | Instalação silenciosa | - |
+| /q | Instalação silenciosa | - | 
 | /p:"local" | Caminho para a pasta de instalação do agente de Backup do Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent |
-| /s:"local" | Caminho para a pasta de cache do agente de Backup do Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch |
-| /m | Inscreva no Microsoft Update | - |
-| /nu | Não verificar se há atualizações após a conclusão da instalação | - |
+| /s:"local" | Caminho para a pasta de cache do agente de Backup do Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch | 
+| /m | Inscreva no Microsoft Update | - | 
+| /nu | Não verificar se há atualizações após a conclusão da instalação | - | 
 | /d | Desinstala o agente de Serviços de Recuperação do Microsoft Azure | - |
-| /Ph | Endereço de Host do Proxy | - |
-| /po | Número da porta do Host do Proxy | - |
-| /pu | Nome de usuário do Host do Host | - |
+| /Ph | Endereço de Host do Proxy | - | 
+| /po | Número da porta do Host do Proxy | - | 
+| /pu | Nome de usuário do Host do Host | - | 
 | /pw | Senha do Proxy | - |
 
 ### Registrando-se no serviço de Backup do Azure
@@ -129,10 +133,10 @@ PS C:\> Start-DPMCloudRegistration -DPMServerName "TestingServer" -VaultCredenti
 
 Isso registrará o servidor DPM denominado “TestingServer” no Cofre do Microsoft Azure usando as credenciais do cofre especificadas.
 
-> [AZURE.IMPORTANT]Não use caminhos relativos para especificar o arquivo de credenciais do cofre. Você deve fornecer um caminho absoluto como entrada para o cmdlet.
+> [AZURE.IMPORTANT] Não use caminhos relativos para especificar o arquivo de credenciais do cofre. Você deve fornecer um caminho absoluto como entrada para o cmdlet.
 
 ### Definições de configuração iniciais
-Depois que o servidor de DPM estiver registrado com o cofre de Backup do Azure, ele será iniciado com as configurações de assinatura padrão. Essas configurações de assinatura incluem Rede, Criptografia e Área de preparo. Para começar a alterar as configurações de assinatura, primeiro você precisa obter um identificador nas configurações existentes (padrão) usando o cmdlet [Get-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612793):
+Depois que o Servidor de DPM estiver registrado com o cofre de Backup do Azure, ele será iniciado com as configurações de assinatura padrão. Essas configurações de assinatura incluem Rede, Criptografia e Área de preparo. Para começar a alterar as configurações de assinatura, primeiro você precisa obter um identificador nas configurações existentes (padrão) usando o cmdlet [Get-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612793):
 
 ```
 $setting = Get-DPMCloudSubscriptionSetting -DPMServerName "TestingServer"
@@ -178,7 +182,7 @@ PS C:\> $Passphrase = ConvertTo-SecureString -string "passphrase123456789" -AsPl
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -EncryptionPassphrase $Passphrase
 ```
 
-> [AZURE.IMPORTANT]Mantenha as informações de senha seguras e protegidas depois de defini-las. Você não poderá restaurar os dados do Azure sem essa senha.
+> [AZURE.IMPORTANT] Mantenha as informações de senha seguras e protegidas depois de defini-las. Você não poderá restaurar os dados do Azure sem essa senha.
 
 Neste ponto, você deve fez todas as alterações necessárias ao objeto ```$setting```. Lembre-se de confirmar as alterações.
 
@@ -329,4 +333,4 @@ Os comandos podem ser facilmente estendidos para qualquer tipo de fonte de dados
 
 - Para saber mais sobre o Backup do Azure para DPM, confira [Introdução ao Backup de DPM](backup-azure-dpm-introduction.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

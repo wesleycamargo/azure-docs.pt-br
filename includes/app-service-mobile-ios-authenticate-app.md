@@ -25,18 +25,18 @@
 
 1. Em seu Mac, abra _ToDoTableViewController.swift_ em Xcode e adicione o método a seguir. Altere _google_ para _microsoftaccount_, _twitter_, _facebook_ ou _windowsazureactivedirectory_ se não estiver usando o Google como seu provedor de identidade. Se usar o Facebook, [você precisará colocar os domínios do Facebook na lista branca em seu aplicativo](https://developers.facebook.com/docs/ios/ios9#whitelist).
         
-            func loginAndGetData()
-            {
-                let client = self.table!.client
-                if client.currentUser != nil {
+            func loginAndGetData() {
+                
+                guard let client = self.table?.client where client.currentUser != nil else {
                     return
                 }
-                    
-                client.loginWithProvider("google", controller: self, animated: true, completion: { (user, error) -> Void in
+                
+                client.loginWithProvider("google", controller: self, animated: true) { (user, error) in
                     self.refreshControl?.beginRefreshing()
                     self.onRefresh(self.refreshControl)
-                })
+                }
             }
+
 
 2. Remova as linhas `self.refreshControl?.beginRefreshing()` e `self.onRefresh(self.refreshControl)` ao final de `viewDidLoad()` em _ToDoTableViewController.swift_. Adicione uma chamada para `loginAndGetData()` em seu lugar:
 
@@ -44,4 +44,4 @@
 
 3. Pressione _Executar_ para iniciar o aplicativo e, em seguida, faça logon. Após ter feito o logon você poderá exibir a lista de Tarefas pendentes e fazer atualizações.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

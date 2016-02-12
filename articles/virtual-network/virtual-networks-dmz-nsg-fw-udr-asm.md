@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/20/2016"
+   ms.date="02/01/2016"
    ms.author="jonor;sivae"/>
 
 # Exemplo 3 - Criar uma DMZ para proteger as redes com um Firewall, um UDR e um NSG
@@ -80,7 +80,7 @@ Se houver dois prefixos idênticos na tabela de rotas, a ordem a seguir será a 
 2.	"VPNGateway" = uma rota dinâmica (BGP quando usada com redes híbridas) adicionadas por um protocolo de rede dinâmico, essas rotas podem ser alteradas ao longo do tempo conforme o protocolo dinâmico reflete automaticamente as alterações na rede emparelhada
 3.	"Padrão" = as Rotas do Sistema, a Rede Virtual local e as entradas estáticas, como mostrado na tabela de rotas acima.
 
->[AZURE.NOTE]Há uma limitação usando o Roteamento Definido pelo Usuário (UDR) e a Rota Expresso devido à complexidade do roteamento dinâmico usado no Gateway Virtual do Azure. As sub-redes que estejam se comunicando com o Gateway do Azure e fornecendo a conexão da Rota Expressa não devem ter o UDR aplicado. Além disso, o Gateway do Azure não pode ser o dispositivo NextHop para outras sub-redes associadas ao UDR. A capacidade de integrar totalmente o UDR e a Rota Expressa será habilitada em uma versão futura do Azure.
+>[AZURE.NOTE] Há uma limitação usando o Roteamento Definido pelo Usuário (UDR) e a Rota Expresso devido à complexidade do roteamento dinâmico usado no Gateway Virtual do Azure. As sub-redes que estejam se comunicando com o Gateway do Azure e fornecendo a conexão da Rota Expressa não devem ter o UDR aplicado. Além disso, o Gateway do Azure não pode ser o dispositivo NextHop para outras sub-redes associadas ao UDR. A capacidade de integrar totalmente o UDR e a Rota Expressa será habilitada em uma versão futura do Azure.
 
 #### Criando as rotas locais
 
@@ -139,7 +139,7 @@ Um recurso complementar para UDR é o Encaminhamento IP. Essa é uma configuraç
 
 Por exemplo, se o tráfego de AppVM01 fizer uma solicitação para o servidor DNS01, o UDR rotearia isso para o firewall. Com o Encaminhamento de IP habilitado, o tráfego para o destino DNS01 (10.0.2.4) será aceito pelo dispositivo (10.0.0.4) e encaminhado para seu destino final (10.0.2.4). Sem o Encaminhamento de IP habilitado no Firewall, tráfego não seria aceito pelo dispositivo, embora a tabela de rota tenha o firewall como o próximo nó.
 
->[AZURE.IMPORTANT]É essencial lembrar-se de habilitar o Encaminhamento IP em conjunto com o Roteamento Definido pelo Usuário.
+>[AZURE.IMPORTANT] É essencial lembrar-se de habilitar o Encaminhamento IP em conjunto com o Roteamento Definido pelo Usuário.
 
 A configuração do Encaminhamento IP é um único comando e pode ser feito no momento da criação da VM. Para o fluxo deste exemplo, o trecho de código será mostrado até o fim do script e agrupado com os comandos UDR:
 
@@ -179,7 +179,7 @@ No firewall, será necessário criar regras de encaminhamento. Uma vez que o fir
  
 ![Exibição lógica das regras de firewall][2]
 
->[AZURE.NOTE]Com base no Dispositivo Virtual de Rede usado, as portas de gerenciamento variam. Neste exemplo, um Firewall NG Barracuda é mencionado e usa as portas 22, 801 e 807. Consulte a documentação do fornecedor do dispositivo para localizar as portas exatas usadas para o gerenciamento do dispositivo usado.
+>[AZURE.NOTE] Com base no Dispositivo Virtual de Rede usado, as portas de gerenciamento variam. Neste exemplo, um Firewall NextGen Barracuda é mencionado e usa as portas 22, 801 e 807. Consulte a documentação do fornecedor do dispositivo para localizar as portas exatas usadas para o gerenciamento do dispositivo usado.
 
 ### Descrição da regra lógica
 No diagrama lógico acima, a sub-rede de segurança não é mostrada, já que o firewall é o único recurso nessa sub-rede, e esse diagrama mostra as regras de firewall e como elas permitem ou negam logicamente fluxos de tráfego e não o caminho roteado real. Além disso, as portas externas selecionadas para o tráfego RDP são portas com um intervalo maior (8014 – 8026) e foram selecionadas para alinhar um pouco com os dois últimos octetos do endereço IP local para facilitar a leitura (por exemplo, o endereço do servidor local 10.0.1.4 está associado à porta externa 8014); no entanto, todas as portas não conflitantes acima disso poderiam ser usadas.
@@ -199,16 +199,16 @@ Neste exemplo, precisamos de sete tipos de regras, descritos abaixo:
 - Regra à prova de falhas (para o tráfego que não atenda a qualquer um dos itens acima):
   7.	Regra Negar Todo o Tráfego: essa sempre deverá ser a última regra (em termos de prioridade) e, como tal, se os fluxos de tráfego falharem na correspondência a todas as regras anteriores, serão descartados por essa regra. Essa é uma regra padrão e normalmente é ativada; geralmente, não é necessário fazer qualquer modificação.
 
->[AZURE.TIP]Na segunda regra de tráfego de aplicativo, qualquer porta é permitida para facilitar este exemplo, em um cenário real, a porta mais específica e os intervalos de endereços devem ser usados para reduzir a superfície de ataque dessa regra.
+>[AZURE.TIP] Na segunda regra de tráfego de aplicativo, qualquer porta é permitida para facilitar este exemplo, em um cenário real, a porta mais específica e os intervalos de endereços devem ser usados para reduzir a superfície de ataque dessa regra.
 
 <br />
 
->[AZURE.IMPORTANT]Depois que todas as regras acima forem criadas, será importante examinar a prioridade de cada regra para garantir que o tráfego seja permitido ou negado como desejado. Neste exemplo, as regras estão em ordem de prioridade. É fácil ser bloqueado pelo firewall devido a regras incorretamente ordenadas. No mínimo, certifique-se de que o gerenciamento do próprio firewall sempre esteja na regra de mais alta prioridade absoluta.
+>[AZURE.IMPORTANT] Depois que todas as regras acima forem criadas, será importante examinar a prioridade de cada regra para garantir que o tráfego seja permitido ou negado como desejado. Neste exemplo, as regras estão em ordem de prioridade. É fácil ser bloqueado pelo firewall devido a regras incorretamente ordenadas. No mínimo, certifique-se de que o gerenciamento do próprio firewall sempre esteja na regra de mais alta prioridade absoluta.
 
 ### Pré-requisitos de regra
 Um pré-requisito para a Máquina Virtual que esteja executando o firewall são os pontos de extremidade públicos. Para que o firewall processe o tráfego, os pontos de extremidade públicos adequados deverão estar abertos. Existem três tipos de tráfego neste exemplo; 1) tráfego de gerenciamento para controlar o firewall e as regras de firewall, 2) tráfego RDP para controlar os Windows Servers e 3) Tráfego de Aplicativo. Essas são as três colunas de tipos de tráfego na metade superior da exibição lógica das regras de firewall acima.
 
->[AZURE.IMPORTANT]Uma dica importante aqui é lembrar-se de que **todo** o tráfego passará pelo firewall. Dessa forma, para acessar o servidor IIS01 por área de trabalho remota, mesmo que ele seja um Serviço de Nuvem de Front-end e esteja na sub-rede Frontend, para acessar esse servidor, será necessário o RDP para o firewall na porta 8014 e então permitir que o firewall roteie a solicitação RDP internamente para a Porta RDP do IIS01. O botão de "Conectar" do portal do Azure não funcionará porque não há um caminho RDP direto para o IIS01 (até onde o portal pode ver). Isso significa que todas as conexões da Internet serão feitas para o Serviço de Segurança e uma Porta, por exemplo, secscv001.cloudapp.net:xxxx (consulte o diagrama acima para obter o mapeamento de Porta Externa e IP e Porta Internos).
+>[AZURE.IMPORTANT] Uma dica importante aqui é lembrar-se de que **todo** o tráfego passará pelo firewall. Dessa forma, para acessar o servidor IIS01 por área de trabalho remota, mesmo que ele seja um Serviço de Nuvem de Front-end e esteja na sub-rede Frontend, para acessar esse servidor, será necessário o RDP para o firewall na porta 8014 e então permitir que o firewall roteie a solicitação RDP internamente para a Porta RDP do IIS01. O botão de "Conectar" do portal do Azure não funcionará porque não há um caminho RDP direto para o IIS01 (até onde o portal pode ver). Isso significa que todas as conexões da Internet serão feitas para o Serviço de Segurança e uma Porta, por exemplo, secscv001.cloudapp.net:xxxx (consulte o diagrama acima para obter o mapeamento de Porta Externa e IP e Porta Internos).
 
 Um ponto de extremidade pode ser aberto no momento da criação da VM ou após a compilação; isso é feito no script de exemplo e mostrado abaixo neste trecho de código (observação; todos os itens que começam com um cifrão (por exemplo: $VMName[$i]) são uma variável definida pelo usuário do script na seção de referência deste documento. O “$i” entre colchetes, [$i], representa o número da matriz de uma VM específica em uma matriz de VMs):
 
@@ -246,7 +246,7 @@ Os valores podem ser editados para representar o serviço RDP para um servidor e
  
 Esse processo deve ser repetido para criar Serviços RDP para os demais servidores; AppVM02, DNS01 e IIS01. A criação desses Serviços simplificará a criação da Regra e a tornará mais óbvia na próxima seção.
 
->[AZURE.NOTE]Um serviço RDP para o Firewall não é necessário por dois motivos. 1) primeiro, a VM do firewall é uma imagem baseada em Linux e, portanto, o SSH seria usado na porta 22 para o gerenciamento de VM em vez de RDP e 2) a porta 22 e outras duas portas de gerenciamento são permitidas na primeira regra de gerenciamento descrita abaixo para permitir a conectividade de gerenciamento.
+>[AZURE.NOTE] Um serviço RDP para o Firewall não é necessário por dois motivos. 1) primeiro, a VM do firewall é uma imagem baseada em Linux e, portanto, o SSH seria usado na porta 22 para o gerenciamento de VM em vez de RDP e 2) a porta 22 e outras duas portas de gerenciamento são permitidas na primeira regra de gerenciamento descrita abaixo para permitir a conectividade de gerenciamento.
 
 ### Criação de regras de firewall
 Há três tipos de regras de firewall usadas neste exemplo, todas elas têm ícones distintos:
@@ -265,11 +265,11 @@ Depois que as regras forem criadas e;ou modificadas, elas deverão ser enviadas 
 
 As especificidades de cada regra exigida para a conclusão deste exemplo são descritas desta maneira:
 
-- **Regra de Gerenciamento de Firewall**: essa regra Redirecionamento de Aplicativo permite que o tráfego passe para as portas de gerenciamento do dispositivo virtual de rede, neste exemplo, um firewall NG Barracuda. As portas de gerenciamento são 801 807 e, opcionalmente, 22. As portas internas e externas são iguais (isto é, não há tradução de porta). Essa regra, SETUP-MGMT-ACCESS, é uma regra padrão e é habilitada pelo padrão (no Firewall NG Barracuda versão 6.1).
+- **Regra de Gerenciamento de Firewall**: essa regra Redirecionamento de Aplicativo permite que o tráfego passe para as portas de gerenciamento do dispositivo virtual de rede, neste exemplo, um Firewall NextGen Barracuda. As portas de gerenciamento são 801 807 e, opcionalmente, 22. As portas internas e externas são iguais (isto é, não há tradução de porta). Essa regra, SETUP-MGMT-ACCESS, é uma regra padrão e é habilitada por padrão (no Firewall NextGen Barracuda versão 6.1).
 
 	![Regra de gerenciamento do firewall][10]
 
->[AZURE.TIP]O espaço de endereço de origem nesta regra é Qualquer, se os intervalos de endereços IP de gerenciamento forem conhecidos, a redução desse escopo também reduziria a superfície de ataque às portas de gerenciamento.
+>[AZURE.TIP] O espaço de endereço de origem nesta regra é Qualquer, se os intervalos de endereços IP de gerenciamento forem conhecidos, a redução desse escopo também reduziria a superfície de ataque às portas de gerenciamento.
 
 - **Regras RDP**: essas regras de NAT de destino permitirão o gerenciamento dos servidores individuais via RDP. Há quatro campos essenciais necessários para a criação dessa regra:
   1.	Origem – para permitir o RDP de qualquer lugar, a referência "Qualquer" é usada no campo Origem.
@@ -288,7 +288,7 @@ As especificidades de cada regra exigida para a conclusão deste exemplo são de
     | RDP-para-AppVM01 | AppVM01 | RDP de AppVM01 | 10\.0.2.5:3389 |
     | RDP-para-AppVM02 | AppVM02 | RDP de AppVm02 | 10\.0.2.6:3389 |
   
->[AZURE.TIP]Limitar o escopo dos campos Origem e Serviço reduzirá a superfície de ataque. O escopo mais limitado que permita a funcionalidade deverá ser usado.
+>[AZURE.TIP] Limitar o escopo dos campos Origem e Serviço reduzirá a superfície de ataque. O escopo mais limitado que permita a funcionalidade deverá ser usado.
 
 - **Regras de Tráfego do Aplicativo**: há duas Regras de Tráfego de Aplicativo, a primeira para o tráfego da Web de front-end e a segunda para o tráfego de back-end (por exemplo, o servidor Web para a camada de dados). Essas regras dependerão de arquitetura de rede (onde os servidores são colocados) e dos fluxos de tráfego (a direção na qual o tráfego flui e quais portas são usadas).
 
@@ -312,13 +312,13 @@ As especificidades de cada regra exigida para a conclusão deste exemplo são de
 
 	**Observação**: a rede Origem nesta regra será qualquer recurso da sub-rede FrontEnd, caso haja somente um, ou um número específico de servidores Web conhecido, um recurso de Objeto de Rede poderia ser criado para ser mais específico daqueles endereços IP exatos em vez de toda a sub-rede Frontend.
 
->[AZURE.TIP]Esta regra usa o serviço de "Qualquer" para facilitar o aplicativo de exemplo para instalação e uso; também permitirá o ICMPv4 (ping) em uma única regra. No entanto, essa não é uma prática recomendada. As portas e protocolos ("Serviços") devem ser limitados ao mínimo possível que permita que a operação do aplicativo reduza a superfície de ataque nesse limite.
+>[AZURE.TIP] Esta regra usa o serviço de "Qualquer" para facilitar o aplicativo de exemplo para instalação e uso; também permitirá o ICMPv4 (ping) em uma única regra. No entanto, essa não é uma prática recomendada. As portas e protocolos ("Serviços") devem ser limitados ao mínimo possível que permita que a operação do aplicativo reduza a superfície de ataque nesse limite.
 
 <br />
 
->[AZURE.TIP]Embora essa regra mostre uma referência explicit-dest em uso, uma abordagem consistente deverá ser usado na configuração do firewall. É recomendável que o Objeto de Rede nomeado seja usado para facilitar a capacidade de leitura e de suporte. explicit-dest será usado aqui somente para mostrar um método de referência alternativo e geralmente não é recomendado (especialmente para configurações complexas).
+>[AZURE.TIP] Embora essa regra mostre uma referência explicit-dest em uso, uma abordagem consistente deverá ser usado na configuração do firewall. É recomendável que o Objeto de Rede nomeado seja usado para facilitar a capacidade de leitura e de suporte. explicit-dest será usado aqui somente para mostrar um método de referência alternativo e geralmente não é recomendado (especialmente para configurações complexas).
 
-- **Regra de Saída para Internet**: essa regra aprovar permitirá que o tráfego de qualquer rede Origem passe para as redes Destino selecionadas. Normalmente, essa regra é uma regra padrão que já existe no firewall NG Barracuda, mas em um estado desabilitado. Clicar com o botão direito do mouse nessa regra poderá acessar o comando Ativar Regra. A regra mostrada aqui foi modificada para adicionar as duas sub-redes locais criadas como referências na seção de pré-requisito deste documento para o atributo Origem dessa regra.
+- **Regra de Saída para Internet**: essa regra aprovar permitirá que o tráfego de qualquer rede Origem passe para as redes Destino selecionadas. Normalmente, essa regra é uma regra padrão que já existe no firewall NextGen Barracuda, mas em um estado desabilitado. Clicar com o botão direito do mouse nessa regra poderá acessar o comando Ativar Regra. A regra mostrada aqui foi modificada para adicionar as duas sub-redes locais criadas como referências na seção de pré-requisito deste documento para o atributo Origem dessa regra.
 
 	![Regra de saída do firewall][14]
 
@@ -338,7 +338,7 @@ As especificidades de cada regra exigida para a conclusão deste exemplo são de
 
 	![Regra Negar do firewall][17]
 
->[AZURE.IMPORTANT]Depois que todas as regras acima forem criadas, será importante examinar a prioridade de cada regra para garantir que o tráfego seja permitido ou negado como desejado. Neste exemplo, as regras estão na ordem em que devem aparecer na Grade Principal das regras de encaminhamento no Cliente de Gerenciamento do Barracuda.
+>[AZURE.IMPORTANT] Depois que todas as regras acima forem criadas, será importante examinar a prioridade de cada regra para garantir que o tráfego seja permitido ou negado como desejado. Neste exemplo, as regras estão na ordem em que devem aparecer na Grade Principal das regras de encaminhamento no Cliente de Gerenciamento do Barracuda.
 
 ## Ativação da regra
 Com o conjunto de regras modificado para a especificação do diagrama lógico, o conjunto de regras deve ser carregado no firewall e ativado.
@@ -350,7 +350,7 @@ No canto superior direito do cliente de gerenciamento, há um cluster de botões
 Com a ativação do conjunto de regras de firewall, a criação do ambiente de exemplo foi concluída.
 
 ## Cenários de tráfego
->[AZURE.IMPORTANT]Uma dica importante aqui é lembrar-se de que **todo** o tráfego virá do firewall. Dessa forma, para acessar o servidor IIS01 por área de trabalho remota, mesmo que ele seja um Serviço de Nuvem de Front-end e esteja na sub-rede Frontend, para acessar esse servidor, será necessário o RDP para o firewall na porta 8014 e então permitir que o firewall roteie a solicitação RDP internamente para a Porta RDP do IIS01. O botão de "Conectar" do portal do Azure não funcionará porque não há um caminho RDP direto para o IIS01 (até onde o portal pode ver). Isso significa que todas as conexões vindas da Internet serão para o Serviço de Segurança e uma Porta, por exemplo, secscv001.cloudapp.net:xxxx.
+>[AZURE.IMPORTANT] Uma dica importante aqui é lembrar-se de que **todo** o tráfego virá do firewall. Dessa forma, para acessar o servidor IIS01 por área de trabalho remota, mesmo que ele seja um Serviço de Nuvem de Front-end e esteja na sub-rede Frontend, para acessar esse servidor, será necessário o RDP para o firewall na porta 8014 e então permitir que o firewall roteie a solicitação RDP internamente para a Porta RDP do IIS01. O botão de "Conectar" do portal do Azure não funcionará porque não há um caminho RDP direto para o IIS01 (até onde o portal pode ver). Isso significa que todas as conexões vindas da Internet serão para o Serviço de Segurança e uma Porta, por exemplo, secscv001.cloudapp.net:xxxx.
 
 Nestes cenários, as seguintes regras de firewall devem estar funcionando:
 
@@ -546,7 +546,7 @@ Esse script se baseará nas variáveis definidas pelo usuário;
 
 Este script do PowerShell deve ser executado localmente em um computador ou servidor conectado à Internet.
 
->[AZURE.IMPORTANT]Quando esse script for executado, poderá haver avisos ou outras mensagens informativas que aparecerão no PowerShell. Somente as mensagens de erro em vermelho são motivo de preocupação.
+>[AZURE.IMPORTANT] Quando esse script for executado, poderá haver avisos ou outras mensagens informativas que aparecerão no PowerShell. Somente as mensagens de erro em vermelho são motivo de preocupação.
 
 	<# 
 	 .SYNOPSIS
@@ -557,7 +557,7 @@ Este script do PowerShell deve ser executado localmente em um computador ou serv
 	   - A default storage account for VM disks
 	   - Three new cloud services
 	   - Three Subnets (SecNet, FrontEnd, and BackEnd subnets)
-	   - A Network Virtual Appliance (NVA), in this case a Barracuda NG Firewall
+	   - A Network Virtual Appliance (NVA), in this case a Barracuda NextGen Firewall
 	   - One server on the FrontEnd Subnet
 	   - Three Servers on the BackEnd Subnet
 	   - IP Forwading from the FireWall out to the internet
@@ -627,7 +627,7 @@ Este script do PowerShell deve ser executado localmente em um computador ou serv
 	
 	  # VM Base Disk Image Details
 	    $SrvImg = Get-AzureVMImage | Where {$_.ImageFamily -match 'Windows Server 2012 R2 Datacenter'} | sort PublishedDate -Descending | Select ImageName -First 1 | ForEach {$_.ImageName}
-	    $FWImg = Get-AzureVMImage | Where {$_.ImageFamily -match 'Barracuda NG Firewall'} | sort PublishedDate -Descending | Select ImageName -First 1 | ForEach {$_.ImageName}
+	    $FWImg = Get-AzureVMImage | Where {$_.ImageFamily -match 'Barracuda NextGen Firewall'} | sort PublishedDate -Descending | Select ImageName -First 1 | ForEach {$_.ImageName}
 	
 	  # UDR Details
 	    $FERouteTableName = "FrontEndSubnetRouteTable"
@@ -941,4 +941,4 @@ Se você desejar instalar um aplicativo de exemplo para esse e outros exemplos d
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

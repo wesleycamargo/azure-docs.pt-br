@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2015"
+   ms.date="01/26/2016"
    ms.author="sumukhs"/>
 
 # Especificar recursos em um manifesto do serviço
@@ -92,7 +92,7 @@ A ACL é automaticamente aplicada aos pontos de extremidade HTTP pelo Service Fa
 
 O protocolo HTTPS fornece autenticação de servidor e também é usado para criptografar a comunicação cliente-servidor. Para habilitar isso no seu serviço do Service Fabric, no momento de definir o serviço, especifique o protocolo na seção *Recursos -> Pontos de extremidade -> Ponto de extremidade* do manifesto do serviço, conforme mostrado anteriormente para o ponto de extremidade *ServiceEndpoint3*.
 
->[AZURE.NOTE]O protocolo de um serviço não pode ser alterado durante a atualização do aplicativo, já que isso seria uma alteração significativa.
+>[AZURE.NOTE] O protocolo de um serviço não pode ser alterado durante a atualização do aplicativo, já que isso seria uma alteração significativa.
 
 
 Este está um exemplo de ApplicationManifest que precisa ser definido para HTTPS. (Você precisará fornecer a impressão digital do certificado.) O EndpointRef é uma referência a EndpointResource no ServiceManifest, para o qual você definiu o protocolo HTTPS. Você pode adicionar mais de um Endpointcertificate.
@@ -137,4 +137,4 @@ Este está um exemplo de ApplicationManifest que precisa ser definido para HTTPS
 </ApplicationManifest>
 ```
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

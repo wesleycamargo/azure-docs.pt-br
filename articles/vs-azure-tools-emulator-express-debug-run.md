@@ -12,13 +12,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="12/17/2015"
+   ms.date="01/30/2016"
    ms.author="tarcher" />
 
 
 # Usando o Emulator Express para executar e depurar um serviço de nuvem em um computador local
 
-Ao usar o Emulator Express, você poderá testar e depurar um serviço de nuvem sem executar o Visual Studio como um administrador. É possível definir as configurações do projeto para usar o Emulator Express ou o emulador completo, dependendo dos requisitos do seu serviço de nuvem. Para saber mais sobre o emulador completo, consulte [Executar um aplicativo Azure no emulador de computação](../storage/storage-use-emulator.md). O Emulator Express foi incluído primeiro no Azure SDK 2.1 e, a partir do Azure SDK 2.3, é o emulador padrão.
+Ao usar o Emulator Express, você poderá testar e depurar um serviço de nuvem sem executar o Visual Studio como um administrador. É possível definir as configurações do projeto para usar o Emulator Express ou o emulador completo, dependendo dos requisitos do seu serviço de nuvem. Para saber mais sobre o emulador completo, consulte [Executar um aplicativo Azure no emulador de computação](/storage/storage-use-emulator.md). O Emulator Express foi incluído primeiro no Azure SDK 2.1 e, a partir do Azure SDK 2.3, é o emulador padrão.
 
 ## Usando o Emulator Express no Visual Studio IDE
 
@@ -54,4 +54,4 @@ Antes de usar o Emulator Express, você deve estar ciente de algumas limitaçõe
 
 [Depurando serviços de nuvem](https://msdn.microsoft.com/library/azure/ee405479.aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

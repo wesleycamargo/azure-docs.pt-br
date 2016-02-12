@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="12/01/2015"
+	ms.date="02/02/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -22,8 +22,6 @@
 
 Esta referência fornece links e detalhes para artigos sobre pools de bancos de dados elásticos e informações de programação. Para desenvolvedores de SaaS com dezenas, centenas ou até milhares de bancos de dados, um pool de bancos de dados elásticos simplificará o processo de criação, manutenção e gerenciamento de desempenho e custos entre todo o grupo de bancos de dados.
 
-## Visão geral
-
 Um pool de banco de dados elástico é um conjunto de unidades de taxa de transferência de banco de dados elástico (eDTUs) e armazenamento (GBs) que são compartilhadas por vários bancos de dados. Bancos de dados elásticos podem ser adicionados e removidos do pool a qualquer momento. Os bancos de dados elásticos no pool utilizam apenas os recursos necessários do pool, liberando os recursos disponíveis para apenas os bancos de dados ativos que precisam deles. Para obter assistência na determinação de se seus bancos de dados se beneficiariam em um pool de banco de dados elástico, consulte [Considerações de preço e desempenho para um pool de banco de dados elástico](sql-database-elastic-pool-guidance.md).
 
 
@@ -32,25 +30,8 @@ Um pool de banco de dados elástico é um conjunto de unidades de taxa de transf
 
 
 - Os pools de banco de dados elástico só estão disponíveis em servidores V12 do Banco de Dados SQL do Azure. Para atualizar para V12 e migrar seus bancos de dados diretamente para um pool, consulte [Atualizar para o Banco de Dados SQL do Azure V12](sql-database-upgrade-server-powershell.md).
-- Há suporte para a criação e gerenciamento de pools de banco de dados elástico usando o [Portal do Azure](https://portal.azure.com), o PowerShell e uma biblioteca de cliente .NET (wrapper para APIs REST) somente para o Gerenciador de Recursos do Azure; não há suporte, portanto, para o [portal clássico](https://manage.windowsazure.com/) e para os comandos de gerenciamento de serviço.
-- Além disso, a criação de novos bancos de dados flexíveis, e a movimentação de bancos de dados existentes dentro e fora de pools de banco de dados elásticos é suportado usando o Transact-SQL.
-
-
-
-## Considerações sobre a visualização atual
-
-
-- Cada pool tem um número máximo de bancos de dados e eDTUs de pool:
-
-    | Camada de serviço | Número máximo de bancos de dados por pool* | Número máximo de eDTUs por pool* |
-    | :-- | :-- | :-- |
-    | Basic | 200 | 1\.200 |
-    | Padrão | 200 | 1\.200 |
-    | Premium | 50 | 1500 |
-
-    ****Espera-se que os limites atuais para o número de bancos de dados por pool e o número de eDTUs do pool aumentem.***
-
-
+- Há suporte para criação e gerenciamento de pools de banco de dados elástico usando o [portal do Azure](https://portal.azure.com), o [PowerShell](sql-database-elastic-pool-powershell.md) e uma biblioteca de cliente .NET (somente Gerenciador de Recursos do Azure); não há suporte para o [portal clássico](https://manage.windowsazure.com/) e para os comandos de gerenciamento de serviço.
+- Além disso, a criação de novos bancos de dados elásticos e a movimentação de bancos de dados existentes dentro e fora de pools de banco de dados elásticos são permitidas usando o [Transact-SQL](#transact-sql).
 
 
 ## Lista de artigos
@@ -92,41 +73,14 @@ Um pool de banco de dados elástico é um recurso do Gerenciador de Recursos do 
 | elasticPoolName | Nome do pool. O nome é exclusivo em relação ao servidor pai. |
 | location | Local do data center em que o pool foi criado. |
 | state | O estado é "Desabilitado" se o pagamento da fatura para assinatura estiver inadimplente ou, caso contrário, "Pronto". |
-| storageMB | Limite de armazenamento do pool em MB. Qualquer banco de dados individual no pool pode usar até o limite de armazenamento da Standard Edition (250 GB), mas o total de armazenamento usado por todos os bancos de dados no pool não pode exceder esse limite. |
+| storageMB | Limite de armazenamento do pool em MB. O total de armazenamento usado por todos os bancos de dados no pool não pode exceder o limite do pool. |
 
 
 ## Limites de eDTU e armazenamento para pools elásticos e bancos de dados elásticos
 
-O limite de armazenamento do pool é determinado pela quantidade de eDTUs do pool.
 
-| propriedade | Basic | Standard | Premium |
-| :-- | :-- | :-- | :-- |
-| dtu | **100**, 200, 400, 800, 1200 | **100**, 200, 400, 800, 1200 | **125**, 250, 500, 1000, 1500 |
-| databaseDtuMax | **5** | 10, 20, 50, **100** | **125**, 250, 500, 1000 |
-| databaseDtuMin | **0**, 5 | **0**, 10, 20, 50, 100 | **0**, 125, 250, 500, 1000 |
-| storageMB* | **10.000 MB**, 20.000 MB, 40.000 MB, 80.000 MB, 120.000 MB | **100 GB**, 200 GB, 400 GB, 800 GB, 1.200 GB | **62,5 GB**, 125 GB, 250 GB, 500 GB, 750 GB |
-| armazenamento por DTU | 100 MB | 1 GB | 0,5 GB |
-| número máximo de bancos de dados por pool | 200 | 200 | 50 |
+[AZURE.INCLUDE [Tabela de níveis de serviço de BD SQL para bancos de dados elásticos](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
-Os valores padrão estão em **negrito**.
-
-**as unidades na API estão em MB e não em GB.
-
-
-
-
-
-## Limites de sessão e de trabalho
-
-O número máximo de trabalhados simultâneos e sessões simultâneas permitido para todos os bancos de dados em um pool elástico depende da configuração de eDTUs do pool:
-
-| eDTUs | Máximo de trabalhos simultâneos | Máximo de sessões simultâneas |
-| :-- | :-- | :-- |
-| 100 (Basic/Standard), 125 (Premium) | 200 | 2\.400 |
-| 200 (Basic/Standard), 250 (Premium) | 400 | 4\.800 |
-| 400 (Basic/Standard), 500 (Premium) | 800 | 9\.600 |
-| 800 (Basic/Standard), 1.000 (Premium) | 1\.600 | 19\.200 |
-| 1\.200 (Basic/Standard), 1.500 (Premium) | 2\.400 | 28\.800 |
 
 
 ## Limitações do Gerenciador de Recursos do Azure
@@ -149,7 +103,7 @@ Os servidores V12 de Banco de Dados SQL do Azure estão localizados em grupos de
 Vários comandos da API REST e os cmdlets do PowerShell estão disponíveis para criar e gerenciar pools elásticos. Para obter detalhes e exemplos de código, consulte [Criar e gerenciar um pool de banco de dados elástico do Banco de Dados SQL usando o PowerShell](sql-database-elastic-pool-powershell.md), e [Criar e gerenciar o Banco de Dados SQL com o C#](sql-database-client-library.md).
 
 
-| [Cmdlets do PowerShell](https://msdn.microsoft.com/library/mt163521.aspx) | [Comandos da API REST](https://msdn.microsoft.com/library/mt163571.aspx) |
+| [Cmdlets do PowerShell](https://msdn.microsoft.com/library/azure/mt574084.aspx) | [Comandos da API REST](https://msdn.microsoft.com/library/mt163571.aspx) |
 | :-- | :-- |
 | [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) | [Criar um pool de banco de dados elástico](https://msdn.microsoft.com/library/mt163596.aspx) |
 | [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511.aspx) | [Definir as configurações de desempenho de um pool de banco de dados elástico](https://msdn.microsoft.com/library/mt163641.aspx) |
@@ -195,18 +149,18 @@ O preço unitário por eDTU de um pool elástico é maior que o preço unitário
 | 40858 | EX\_USER | O pool elástico '%ls' já existe no servidor: '%ls' | nome do pool elástico, nome do servidor | O pool elástico especificado já existe no servidor lógico especificado. | Forneça um novo nome de pool elástico. |
 | 40859 | EX\_USER | O pool elástico não dá suporte à camada de serviço '%ls'. | camada de serviço do pool elástico | A camada de serviço especificada não dá suporte ao provisionamento de pool elástico. | Forneça a edição correta ou deixe a camada de serviço em branco para o padrão. |
 | 40860 | EX\_USER | A combinação de pool elástico '%ls' e objetivo de serviço '%ls' é inválida. | nome do pool elástico; nome de objetivo de nível de serviço | O pool elástico e o objetivo de serviço podem ser especificados juntos somente se o objetivo de serviço for especificado como “ElasticPool”. | Especifique a combinação correta de pool elástico e objetivo de serviço. |
-| 40861 | EX_USER | A edição do banco de dados '%.*ls' não pode ser diferente da camada de serviço do pool elástico, que é '%.*ls'. | edição do banco de dados, camada de serviço do pool elástico | A edição do banco de dados é diferente da camada de serviço do pool elástico. | Não especifique uma edição de banco de dados diferente da camada de serviço do pool elástico. Observe que a edição do banco de dados não precisa ser especificada. |
-| 40862 | EX_USER | O nome do pool elástico deve ser especificado se o objetivo do serviço de pool elástico for especificado. | Nenhum | O objetivo do serviço de pool elástico não identifica exclusivamente um pool elástico. | Especifique o nome do pool elástico se estiver usando o objetivo do serviço de pool elástico. |
-| 40864 | EX_USER | As DTUs para o pool elástico devem ser de pelo menos (%d) DTUs para a camada de serviço ' %. * ls'. | DTUs para pool elástico; camada de serviço do pool elástico. | Tentativa de definir os DTUs para o pool elástico abaixo do limite mínimo. | Tente novamente a configuração de DTUs para o pool elástico pelo menos com o limite mínimo. |
+| 40861 | EX_USER | A edição do banco de dados '%.*ls' não pode ser diferente da camada de serviço do pool elástico, que é '%.*ls'. | edição do banco de dados, camada de serviço do pool elástico | A edição do banco de dados é diferente da camada de serviço do pool elástico. | Não especifique uma edição de banco de dados diferente da camada de serviço do pool elástico. Observe que a edição do banco de dados não precisa ser especificada. | 
+| 40862 | EX_USER | O nome do pool elástico deve ser especificado se o objetivo do serviço de pool elástico for especificado. | Nenhum | O objetivo do serviço de pool elástico não identifica exclusivamente um pool elástico. | Especifique o nome do pool elástico se estiver usando o objetivo do serviço de pool elástico. | 
+| 40864 | EX_USER | As DTUs para o pool elástico devem ser de pelo menos (%d) DTUs para a camada de serviço ' %. * ls'. | DTUs para pool elástico; camada de serviço do pool elástico. | Tentativa de definir os DTUs para o pool elástico abaixo do limite mínimo. | Tente novamente a configuração de DTUs para o pool elástico pelo menos com o limite mínimo. | 
 | 40865 | EX_USER | Os DTUs para o pool elástico não podem exceder (%d) DTUs para a camada de serviço ' %. *ls'. | DTUs para o pool elástico; camada de serviço do pool elástico. | Tentativa de definir DTUs para o pool elástico acima do limite máximo. | Tente definir DTUs para o pool elástico acima do limite máximo. |
-| 40867 | EX\_USER | O DTU máximo por banco de dados deve ser no mínimo (%d) para a camada de serviço ' %.*ls'. | DTU máximo por banco de dados; camada de serviço do pool elástico | Tentativa de definir o máximo DTU por banco de dados abaixo do limite com suporte. | Considere o uso da camada de serviço do pool elástico que ofereça suporte à configuração desejada. |
-| 40868 | EX\_USER | A DTU máxima por banco de dados não pode exceder (%d) para a camada de serviço ' %.*ls'. | DTU máximo por banco de dados; camada de serviço do pool elástico. | Tentativa de definir o DTU máximo por banco de dados acima do limite com suporte. | Considere o uso da camada de serviço do pool elástico que ofereça suporte à configuração desejada. |
-| 40870 | EX\_USER | O DTU mínimo por banco de dados não pode exceder (%d) para a camada de serviço ' %.*ls'. | DTU mínimo por banco de dados; camada de serviço do pool elástico. | Tentativa de definir o DTU mínimo por banco de dados além do limite com suporte. | Considere usar a camada de serviço do pool elástico que ofereça suporte à configuração desejada. |
-| 40873 | EX_USER | O número de bancos de dados (%d) e DTU mínimo por banco de dados (%d) não pode exceder os DTUs do pool elástico (%d). | Número de bancos de dados no pool elástico; DTU mínimo por banco de dados; DTUs do pool elástico. | Tentativa de especificar um DTU mínimo para bancos de dados no pool elástico que excede os DTUs do pool elástico. | Considere o aumento dos DTUs do pool elástico, ou a diminuição do DTU mínimo por banco de dados, ou diminuir o número de bancos de dados no pool elástico. |
+| 40867 | EX\_USER | O DTU máximo por banco de dados deve ser no mínimo (%d) para a camada de serviço ' %.*ls'. | DTU máximo por banco de dados; camada de serviço do pool elástico | Tentativa de definir o máximo DTU por banco de dados abaixo do limite com suporte. | Considere o uso da camada de serviço do pool elástico que ofereça suporte à configuração desejada. | 
+| 40868 | EX\_USER | A DTU máxima por banco de dados não pode exceder (%d) para a camada de serviço ' %.*ls'. | DTU máximo por banco de dados; camada de serviço do pool elástico. | Tentativa de definir o DTU máximo por banco de dados acima do limite com suporte. | Considere o uso da camada de serviço do pool elástico que ofereça suporte à configuração desejada. | 
+| 40870 | EX\_USER | O DTU mínimo por banco de dados não pode exceder (%d) para a camada de serviço ' %.*ls'. | DTU mínimo por banco de dados; camada de serviço do pool elástico. | Tentativa de definir o DTU mínimo por banco de dados além do limite com suporte. | Considere usar a camada de serviço do pool elástico que ofereça suporte à configuração desejada. | 
+| 40873 | EX_USER | O número de bancos de dados (%d) e DTU mínimo por banco de dados (%d) não pode exceder os DTUs do pool elástico (%d). | Número de bancos de dados no pool elástico; DTU mínimo por banco de dados; DTUs do pool elástico. | Tentativa de especificar um DTU mínimo para bancos de dados no pool elástico que excede os DTUs do pool elástico. | Considere o aumento dos DTUs do pool elástico, ou a diminuição do DTU mínimo por banco de dados, ou diminuir o número de bancos de dados no pool elástico. | 
 | 40877 | EX_USER | Não é possível excluir um pool elástico, a menos que ele não contenha banco de dados. | Nenhum | O pool elástico contém um ou mais bancos de dados e, portanto, não pode ser excluído. | Remova os bancos de dados do pool elástico para excluí-lo. |
-| 40881 | EX_USER | O pool elástico '%.*ls' atingiu seu limite de contagem de banco de dados. O limite de contagem do banco de dados para o pool elástico não pode exceder (%d) para um pool elástico com (%d) DTUs. | Nome do pool elástico; limite de contagem de banco de dados do pool elástico; eDTUs para o pool de recursos. | Tentativa de criar ou adicionar um banco de dados ao pool elástico quando o limite de contagem de banco de dados do pool elástico foi atingido. | Considere aumentar as DTUs do pool elástico, se possível, para aumentar o limite de bancos de dados ou remover bancos de dados do pool elástico. |
-| 40889 | EX_USER | O limite de DTUs ou de armazenamento para o pool elástico '%.*ls' não pode ser reduzido, pois não haveria espaço de armazenamento suficiente para seus bancos de dados. | Nome do pool elástico. | Tentativa de diminuir o limite de armazenamento do pool elástico abaixo de seu uso de armazenamento. | Considere reduzir o uso do armazenamento de bancos de dados individuais no pool elástico ou remover bancos de dados do pool para reduzir seu limite de DTUs ou de armazenamento. |
-| 40891 | EX_USER | O DTU mínimo por banco de dados (%d) não pode exceder o DTU máximo por banco de dados (%d). | DTU mínimo por banco de dados; DTU máximo por banco de dados. | Tentativa de definir o DTU mínimo por banco de dados superior ao DTU máximo por banco de dados. | Certifique-se de que o DTU mínimo por banco de dados não exceda o DTU máximo por banco de dados. |
+| 40881 | EX_USER | O pool elástico '%.*ls' atingiu seu limite de contagem de banco de dados. O limite de contagem do banco de dados para o pool elástico não pode exceder (%d) para um pool elástico com (%d) DTUs. | Nome do pool elástico; limite de contagem de banco de dados do pool elástico; eDTUs para o pool de recursos. | Tentativa de criar ou adicionar um banco de dados ao pool elástico quando o limite de contagem de banco de dados do pool elástico foi atingido. | Considere aumentar as DTUs do pool elástico, se possível, para aumentar o limite de bancos de dados ou remover bancos de dados do pool elástico. | 
+| 40889 | EX_USER | O limite de DTUs ou de armazenamento para o pool elástico '%.*ls' não pode ser reduzido, pois não haveria espaço de armazenamento suficiente para seus bancos de dados. | Nome do pool elástico. | Tentativa de diminuir o limite de armazenamento do pool elástico abaixo de seu uso de armazenamento. | Considere reduzir o uso do armazenamento de bancos de dados individuais no pool elástico ou remover bancos de dados do pool para reduzir seu limite de DTUs ou de armazenamento. | 
+| 40891 | EX_USER | O DTU mínimo por banco de dados (%d) não pode exceder o DTU máximo por banco de dados (%d). | DTU mínimo por banco de dados; DTU máximo por banco de dados. | Tentativa de definir o DTU mínimo por banco de dados superior ao DTU máximo por banco de dados. | Certifique-se de que o DTU mínimo por banco de dados não exceda o DTU máximo por banco de dados. | 
 | TBD | EX_USER | O tamanho do armazenamento para um banco de dados individual em um pool elástico não pode exceder o tamanho máximo permitido pelo pool elástico da camada de serviço '%.*ls'. | camada de serviço do pool elástico | O tamanho máximo do banco de dados excede o tamanho máximo permitido pela camada de serviço do pool elástico. | Defina o tamanho máximo do banco de dados dentro dos limites do tamanho máximo permitido pela camada de serviço do pool elástico. |
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

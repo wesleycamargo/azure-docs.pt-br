@@ -21,6 +21,7 @@ Esse artigo descreve como você pode usar a atividade de cópia em um Azure Data
 
 Atualmente, a data factory dá suporte apenas para a movimentação de dados de um HDFS local para outros armazenamentos de dados, mas não para a movimentação de dados de outros armazenamentos de dados para um HDFS local.
 
+
 ## Habilitando a conectividade
 O serviço Data Factory dá suporte à conexão com HDFS local usando o Gateway de Gerenciamento de Dados. Consulte o artigo [movendo dados entre pontos locais e na nuvem](data-factory-move-data-between-onprem-and-cloud.md) para saber mais sobre o Gateway de gerenciamento de dados e obter instruções passo a passo de como configurar o gateway. É necessário utilizar o gateway para se conectar ao HDFS, mesmo se ele estiver hospedado em uma VM IaaS do Azure.
 
@@ -28,7 +29,9 @@ Embora você possa instalar o gateway no mesmo computador local ou a VM do Azure
 
 ## Exemplo: copiar dados de um HDFS local para um Blob do Azure
 
-O exemplo a seguir mostra:
+Este exemplo mostra como copiar dados de um HDFS local para o Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** para qualquer uma das fontes declaradas [aqui](data-factory-data-movement-activities.md#supported-data-stores) usando a atividade de cópia no Azure Data Factory.
+ 
+O exemplo tem as seguintes entidades de data factory:
 
 1.	Um serviço vinculado do tipo [OnPremisesHdfs](#hdfs-linked-service-properties).
 2.	Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
@@ -265,7 +268,7 @@ fileFilter | Especifique um filtro a ser usado para selecionar um subconjunto de
 | formato | Há suporte para dois tipos de formatos: **TextFormat**, **AvroFormat**. Você precisa definir a propriedade de tipo em formato para qualquer um desses valores. Quando o formato for TextFormat, você pode especificar as propriedades opcionais adicionais para o formato. Consulte a seção [Especificando TextFormat](#specifying-textformat) abaixo para obter mais detalhes. | Não
 
 
-> [AZURE.NOTE]filename e fileFilter não podem ser usados simultaneamente.
+> [AZURE.NOTE] filename e fileFilter não podem ser usados simultaneamente.
 
 
 ### Utilizando a propriedade partionedBy
@@ -362,4 +365,4 @@ No caso da Atividade de Cópia quando a fonte for do tipo **FileSystemSource**, 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

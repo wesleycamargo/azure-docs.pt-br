@@ -47,10 +47,10 @@ Uma configuração SSH básica para o Azure inclui um par de chaves **ssh-rsa** 
 
 Estes são os cenários de implantação e os tipos de arquivo que você usa em cada um deles:
 
-1. As chaves **ssh-rsa** são exigidas para qualquer implantação que use o [portal de visualização](https://portal.azure.com), independentemente do modelo de implantação.
+1. As chaves **ssh-rsa** são exigidas para qualquer implantação que use o [portal do Azure](https://portal.azure.com), independentemente do modelo de implantação.
 2. O arquivo .pem é necessário para criar VMs usando o [portal clássico](https://manage.windowsazure.com). Arquivos .pem também recebem suporte em implantações clássicas que usam a [CLI do Azure](../xplat-cli-install.md).
 
-> [AZURE.NOTE]Se você planeja gerenciar o serviço implantado com o modelo de implantação clássico, convém criar também um arquivo no formato **.cer** para carregar no portal, embora isso não envolva **ssh** ou a conexão com VMS do Linux, que é o assunto deste artigo. Para criar esses arquivos no Linux ou Mac, digite
+> [AZURE.NOTE] Se você planeja gerenciar o serviço implantado com o modelo de implantação clássico, convém criar também um arquivo no formato **.cer** para carregar no portal, embora isso não envolva **ssh** ou a conexão com VMS do Linux, que é o assunto deste artigo. Para criar esses arquivos no Linux ou Mac, digite
 
 ## Obter ssh-keygen e openssl no Windows ##
 
@@ -68,7 +68,7 @@ Estes são os cenários de implantação e os tipos de arquivo que você usa em 
 1.	Baixe e instale o GitHub para Windows do seguinte local: [http://windows.github.com/](http://windows.github.com/)
 2.	Execute o Git Shell pelo Menu Iniciar > Todos os Programas > GitHub, Inc
 
-> [AZURE.NOTE]É possível encontrar o seguinte erro ao executar os comandos `openssl` acima:
+> [AZURE.NOTE] É possível encontrar o seguinte erro ao executar os comandos `openssl` acima:
 
         Unable to load config info from /usr/local/ssl/openssl.cnf
 
@@ -155,4 +155,4 @@ A maneira mais fácil de resolver esse problema é definir a variável de ambien
 5.	Clique em **Abrir** para se conectar a sua máquina virtual
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

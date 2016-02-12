@@ -14,10 +14,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"/>
 
-# Noções básicas sobre monitoramento de trabalho do Stream Analytics e como monitorar consultas
+# Noções básicas sobre o monitoramento de trabalhos do Stream Analytics e como monitorar consultas
 
 ## Introdução: Página do monitor
 
@@ -35,7 +35,8 @@ Na primeira vez que um trabalho do Stream Analytics é criado em uma região, vo
 
   ![Configurar diagnóstico de consulta no Portal de Visualização do Azure](./media/stream-analytics-monitoring/07-stream-analytics-monitoring.png)
 
-## Métricas disponíveis para o Stream Analytics  
+## Métricas disponíveis para o Stream Analytics
+
 
 | Métrica | Definição |
 |--------|-------------|
@@ -45,7 +46,9 @@ Na primeira vez que um trabalho do Stream Analytics é criado em uma região, vo
 | Eventos de saída | Quantidade de dados enviados pelo trabalho do Stream Analytics para o destino de saída, em termos de contagem de evento. |
 | Eventos fora de ordem | Número de eventos recebidos fora de ordem que foram descartados ou que receberam um carimbo de data/hora ajustado, com base na Política de ordenação de evento. Isso pode ser afetado pela configuração da definição da Janela de tolerância fora de ordem. |
 | Erros de conversão de dados | Número de erros de conversão de dados gerado por um trabalho do Stream Analytics. |
+| Erros de tempo de execução | O número de erros que ocorrem durante a execução de um trabalho do Stream Analytics. |
 | Eventos de entrada atrasados | Número de eventos que chegam atrasados da fonte que podem ter sido descartados ou ter tido o carimbo de data/hora ajustado, com base na configuração de Política de ordenação de eventos da configuração da definição da Janela de tolerância de chegada atrasada. |
+
 ## Personalizando o monitoramento no portal de Gerenciamento do Azure ##
 
 Até seis métricas podem ser exibidas em um gráfico.
@@ -104,4 +107,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

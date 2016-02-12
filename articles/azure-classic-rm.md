@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter=""
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager,azure-service-management"/>
 
@@ -68,4 +68,4 @@ Você pode criar e configurar recursos do Azure de computadores com Windows, OS 
 - Entenda como [criar modelos](/best-practices-resource-manager-design-templates.md).
 - Use as [práticas recomendadas](/best-practices-resource-manager-examples.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

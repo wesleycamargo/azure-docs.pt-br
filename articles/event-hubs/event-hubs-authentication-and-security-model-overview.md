@@ -25,7 +25,7 @@ O modelo de segurança dos Hubs de Eventos atende aos seguintes requisitos:
 
 ## Autenticação de dispositivo
 
-O modelo de segurança dos Hubs de Eventos se baseia em uma combinação de [tokens SAS (assinatura de acesso compartilhado)](service-bus-shared-access-signature-authentication.md) e editores de eventos. Um editor de eventos define um ponto de extremidade virtual para um Hub de Eventos. O editor só pode ser usado para enviar mensagens a um Hub de Eventos. Não é possível receber mensagens de um editor.
+O modelo de segurança dos Hubs de Eventos se baseia em uma combinação de [tokens SAS (assinatura de acesso compartilhado)](../service-bus/service-bus-shared-access-signature-authentication.md) e editores de eventos. Um editor de eventos define um ponto de extremidade virtual para um Hub de Eventos. O editor só pode ser usado para enviar mensagens a um Hub de Eventos. Não é possível receber mensagens de um editor.
 
 Normalmente, um Hub de Eventos emprega um editor por dispositivo. Todas as mensagens enviadas a qualquer um dos editores de um Hub de Eventos são enfileiradas nesse Hub de Eventos. Os editores permitem controle de acesso detalhado e limitação.
 
@@ -154,4 +154,4 @@ Para saber mais sobre os Hubs de Eventos, consulte os tópicos a seguir:
 [solução de mensagens na fila]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

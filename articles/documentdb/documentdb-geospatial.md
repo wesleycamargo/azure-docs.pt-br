@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="10/27/2015" 
+    ms.date="02/03/2016" 
     ms.author="arramac"/>
     
 # Trabalhando com dados geoespaciais no Banco de Dados de Documentos do Azure
@@ -83,7 +83,7 @@ Além dos pontos, o GeoJSON também dá suporte a LineStrings e a polígonos. **
 
 Além de Ponto, LineString e Polígono, o GeoJSON também especifica a representação de como agrupar vários locais geoespaciais, além de como associar propriedades arbitrárias a geolocalização como um **Recurso**. Como esses objetos são JSON válido, todos eles podem ser armazenados e processados no Banco de Dados de Documentos. No entanto, o Banco de Dados de Documentos dá suporte apenas à indexação automática de pontos.
 
-### Sistemas de Coordenadas de Referência
+### Sistemas de referência de coordenadas
 
 Como a forma da Terra é irregular, as coordenadas de dados geoespaciais são representadas em muitos sistemas de coordenadas de referência (CRS), cada um com seus próprios quadros de referência e unidades de medida. Por exemplo, o "National Grid of Britain" é um sistema de referência muito preciso para o Reino Unido, mas não para fora dele.
 
@@ -350,9 +350,9 @@ E veja como você pode modificar uma coleção existente para aproveitar a index
 ## Próximas etapas
 Agora que você já aprendeu como começar a usar o suporte geoespacial no Banco de Dados de Documentos, poderá:
 
-- Começar a codificar com os [exemplos de código geoespacial .NET no Github](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs)
+- Começar a codificar com os [exemplos de código geoespacial .NET no Github](https://github.com/Azure/azure-documentdb-dotnet/blob/e880a71bc03c9af249352cfa12997b51853f47e5/samples/code-samples/Geospatial/Program.cs)
 - Pratique com as consultas geoespaciais no [Query Playground do Banco de Dados de Documentos](http://www.documentdb.com/sql/demo#geospatial)
 - Saiba mais sobre [consultas do Banco de Dados de Documentos](documentdb-sql-query.md)
 - Saiba mais sobre [Políticas de indexação do Banco de Dados de Documentos](documentdb-indexing-policies.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

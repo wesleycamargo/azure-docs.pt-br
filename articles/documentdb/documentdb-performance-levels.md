@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/16/2015" 
+	ms.date="01/29/2016" 
 	ms.author="johnmac"/>
 
 #Níveis de desempenho no Banco de Dados de Documentos
@@ -31,7 +31,7 @@ Após ler este artigo, você poderá responder as perguntas a seguir:
 
 Cada coleção do Banco de Dados de Documentos criada em uma conta padrão é provisionada com um nível de desempenho. Os níveis de desempenho são designados como S1, S2 ou S3, indo do mais baixo ao mais alto em termos de desempenho. O nível de desempenho da coleção determina a quantidade de recursos de processamento de solicitação reservados para o seu aplicativo. Cada coleção em um banco de dados pode ter um nível de desempenho diferente, permitindo designar uma produtividade maior para coleções acessadas com frequência e menos produtividade para coleções acessadas com pouca frequência. O nível mínimo de desempenho para qualquer coleção é S1.
 
-Cada nível de desempenho tem um limite de RU (unidade de solicitação) associado. Trata-se do limite que será reservado para uma coleção com base em seu nível de desempenho, e fica disponível para ser usado apenas por essa coleção. As coleções podem ser criadas por meio do [Portal Clássico do Azure](https://portal.azure.com) ou de qualquer um dos [SDKs do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn781482.aspx). As APIs do Banco de Dados de Documentos permitem especificar o nível de desempenho de uma coleção.
+Cada nível de desempenho tem um limite de RU (unidade de solicitação) associado. Trata-se do limite que será reservado para uma coleção com base em seu nível de desempenho, e fica disponível para ser usado apenas por essa coleção. As coleções podem ser criadas por meio do [portal do Microsoft Azure](https://portal.azure.com) ou por qualquer um dos [SDKs do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn781482.aspx). As APIs do Banco de Dados de Documentos permitem especificar o nível de desempenho de uma coleção.
 
 Nível de desempenho da coleção|Produtividade reservada
 ---|---
@@ -41,7 +41,7 @@ S3|2500 RU/s
 
 O Banco de Dados de Documentos possibilita um amplo conjunto de operações de banco de dados, incluindo consultas, consultas com UDFs (funções definidas pelo usuário), gatilhos e procedimentos armazenados. O custo de processamento associado a cada uma dessas operações varia com base na CPU, E/S e memória necessárias para realizar a operação. Em vez de gerenciar e pensar em recursos de hardware, você pode pensar em uma unidade de solicitação como uma unidade que mede os recursos necessários para realizar várias operações de bancos de dados e para atender a uma solicitação do aplicativo.
 
-> [AZURE.NOTE] Os níveis de desempenho são medidos em unidades de solicitação. Cada nível de desempenho tem uma taxa máxima de unidades de solicitação por segundo. O nível de desempenho de uma coleção pode ser ajustado por meio das APIs ou do [Portal Clássico do Azure](https://portal.azure.com/).
+> [AZURE.NOTE] Os níveis de desempenho são medidos em unidades de solicitação. Cada nível de desempenho tem uma taxa máxima de unidades de solicitação por segundo. O nível de desempenho de uma coleção pode ser ajustado por meio das APIs ou do [portal do Microsoft Azure](https://portal.azure.com/). As alterações no nível de desempenho devem ser concluídas em 3 minutos.
 
 ##Definindo níveis de desempenho para coleções
 Quando uma coleção é criada, a alocação total de RUs baseada no nível de desempenho designado é reservada para a coleção. Por exemplo, se uma coleção for definida como S3 – a coleção é capaz de processar 2.500 RUs/s. Cada coleção de reserva sua taxa de transferência designada e 10GB de armazenamento de banco de dados. O preço de uma coleção varia com base no nível de desempenho escolhido (S1, S2, S3). Observe que o Banco de Dados de Documentos opera com base na reserva de capacidade. Ao criar uma coleção, um aplicativo reserva e é cobrado segundo o armazenamento em banco de dados e a produtividade reservada, independentemente de quanto do armazenamento e da produtividade são de fato usados.
@@ -71,7 +71,7 @@ Coleções do Banco de Dados de Documentos permitem particionar seus dados com b
 
 O Portal do Azure é uma opção disponível para você ao gerenciar os níveis de desempenho de suas coleções. Siga estas etapas para alterar o nível de desempenho da coleção no Portal Clássico do Azure.
 
-1. Navegue até o [**Portal do Azure**](https://portal.azure.com) em seu navegador.
+1. Navegue até o [**portal do Microsoft Azure**](https://portal.azure.com) em seu navegador.
 2. Clique em **Procurar** na barra de salto no lado esquerdo.
 3. No hub **Procurar**, clique em **Contas do Banco de Dados de Documentos** no rótulo **Filtrar por**.
 4. Na lâmina **Contas do Banco de Dados de Documentos**, clique na conta do Banco de Dados de Documentos que contém a coleção desejada.
@@ -122,4 +122,4 @@ Para saber mais sobre o Banco de Dados de Documentos, veja a [documentação](ht
 
 [1]: ./media/documentdb-performance-levels/img1.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

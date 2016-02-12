@@ -35,7 +35,7 @@ Conforme mostrado acima, especificar uma agenda para a atividade cria uma série
  
 Para a janela de atividade atualmente em execução, o intervalo de tempo associado à janela de atividade pode ser acessado com as variáveis de sistema **WindowStart** e **WindowEnd** na atividade JSON. Você pode usar essas variáveis para finalidades diferentes no JSON de sua atividade e scripts associados a essa atividade, inclusive selecionar dados conjuntos de dados de entrada e saída que representam dados de série temporal.
 
-Para obter mais informações sobre propriedades diferentes disponíveis para o agendador, incluindo agendamento em uma diferença de tempo específica, definição do modo de alinhamento de processamento no início ou no final do intervalo para a janela de atividade, veja o artigo sobre [criação de pipelines](data-factory-create-pipelines.md).
+A propriedade **agendador** dá suporte às mesmas subpropriedades como a propriedade **disponibilidade** em um conjunto de dados. Para obter mais informações sobre propriedades diferentes disponíveis para o agendador, incluindo agendamento em uma diferença de tempo específica, definição do modo de alinhamento de processamento no início do intervalo para a janela de atividade, veja o artigo sobre [Disponibilidade do conjunto de dados](data-factory-create-datasets.md#Availability).
 
 ## Conjuntos de dados de série temporal e fatias de dados
 
@@ -577,6 +577,8 @@ Texto | Format(X) | X: variável de cadeia de caracteres | Formata o texto.
 	    "Hour" : "$$Text.Format('{0:hh}',WindowStart)"
 	}
 
+Confira o tópico [Data personalizada e cadeias de caracteres de formato de hora](https://msdn.microsoft.com/library/8kb3ddd4.aspx) que descreve as diferentes opções de formatação que você pode usar (por exemplo: AA versus AAAA).
+
 > [AZURE.NOTE] Ao usar uma função dentro de outra função, você não precisa usar o prefixo **$$** para a função interna. Por exemplo: $$Text.Format('PartitionKey eq \\'my\_pkey\_filter\_value\\' e RowKey ge \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). Neste exemplo, observe que o prefixo **$$** não é usado para a função **Time.AddHours**.
   
 
@@ -678,4 +680,4 @@ Semelhante a conjuntos de dados que são produzidos pelo Data Factory, as fatias
 
   
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,12 +13,24 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="01/20/2016"
+ ms.date="02/03/2016"
  ms.author="elioda"/>
 
 # Alta disponibilidade e recuperação de desastres do Hub IoT
 
 Por ser um serviço do Azure, o Hub IoT fornece alta disponibilidade (HA) com redundâncias no nível de região do Azure, sem a necessidade de qualquer trabalho adicional da solução. Além disso, o Azure oferece vários recursos que ajudam a criar soluções com recursos de recuperação de desastres ou disponibilidade entre regiões, se isso for necessário. Você deve projetar e preparar suas soluções para aproveitar a vantagem desses recursos de recuperação de desastre se quiser fornecer alta disponibilidade global entre regiões para dispositivos ou usuários. O artigo [Orientação técnica de continuidade de negócios do Azure][] descreve os recursos internos do Azure para recuperação de desastre e continuidade de negócios. O documento [Recuperação de desastres e alta disponibilidade para aplicativos do Azure][] fornece uma orientação de arquitetura sobre estratégias para que os aplicativos do Azure obtenham HA e DR.
+
+## DR do Hub IoT do Azure
+Além de HA entre regiões, o Hub IoT implementa mecanismos de failover para recuperação de desastres que não exigem intervenção do usuário. A DR do Hub IoT é iniciada automaticamente e tem um RTO (objetivo de tempo de recuperação) de 2 a 26 horas e os RPOs (objetivos de ponto de recuperação) a seguir.
+
+| Funcionalidade | RPO |
+| ------------- | --- |
+| Disponibilidade de serviço para operações de registro e comunicação | Possível perda de CName |
+| Dados de identidade no registro de identidade de dispositivo | Perda de dados de 0 a 5 minutos |
+| Mensagens do dispositivo para a nuvem | Todas as mensagens não lidas são perdidas |
+| Mensagens de monitoramento de operações | Todas as mensagens não lidas são perdidas |
+| Mensagens da nuvem para o dispositivo | Perda de dados de 0 a 5 minutos |
+| Fila de comentários da nuvem para o dispositivo | Todas as mensagens não lidas são perdidas |
 
 ## Failover regional com o Hub IoT
 
@@ -48,4 +60,4 @@ Para saber mais sobre o Hub IoT do Azure, siga estes links:
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [O que é o Hub IoT do Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

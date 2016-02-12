@@ -40,7 +40,7 @@ Faça uma cópia da chave de instrumentação que identifica o recurso.
 Em seu computador com o servidor Unix:
 
 1. Instale [collectd](http://collectd.org/) versão 5.4.0 ou posterior.
-2. Baixe o [plug-in do gravador collectd do Application Insights](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html). Observe o número de versão.
+2. Baixe o [plug-in do gravador collectd do Application Insights](https://azuredownloads.blob.core.windows.net/applicationinsights/applicationinsights-collectd-1.0.1.jar). Observe o número de versão.
 3. Copie o plug-in JAR em `/usr/share/collectd/java`.
 3. Edite `/etc/collectd/collectd.conf`:
  * Verifique se [o plug-in do Java](https://collectd.org/wiki/index.php/Plugin:Java) está habilitado.
@@ -143,4 +143,4 @@ Diretivas separadas por uma nova linha.
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

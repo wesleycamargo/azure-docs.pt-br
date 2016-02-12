@@ -22,14 +22,14 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
-**Importante**: o SLA (contrato de nível de serviço) da plataforma do Azure aplica-se a máquinas virtuais com o sistema operacional Linux somente quando uma das [distribuições endossadas é usada](virtual-machines-../linux-endorsed-distributions.md). Todas as distribuições do Linux fornecidas na galeria de imagens do Azure são distribuições endossadas com a configuração necessária.
+**Importante**: o SLA (contrato de nível de serviço) da plataforma do Azure aplica-se a máquinas virtuais com o sistema operacional Linux somente quando uma das [distribuições endossadas é usada](virtual-machines-linux-endorsed-distributions.md). Todas as distribuições do Linux fornecidas na galeria de imagens do Azure são distribuições endossadas com a configuração necessária.
 
-- [Linux no Azure - Distribuições endossadas](virtual-machines-../linux-endorsed-distributions.md)
+- [Linux no Azure - Distribuições endossadas](virtual-machines-linux-endorsed-distributions.md)
 - [Suporte para imagens Linux no Microsoft Azure](http://support2.microsoft.com/kb/2941892)
 
 Todas as distribuições em execução no Azure precisam atender a diversos pré-requisitos para ter a chance de serem executadas corretamente na plataforma. Este artigo não é conclusivo, já que cada distribuição é diferente. Dessa forma, mesmo que você atenda a todos os critérios abaixo, talvez seja necessário ajustar significativamente o seu sistema Linux para garantir que ele seja executado corretamente na plataforma.
 
-Por isso, recomendamos que você inicie com uma das nossas [distribuições endossadas do Linux no Azure](../linux-endorsed-distributions.md) sempre que possível. Os artigos a seguir guiam você pela preparação das diversas distribuições endossadas do Linux que têm suporte no Azure:
+Por isso, recomendamos que você inicie com uma das nossas [distribuições endossadas do Linux no Azure](virtual-machines-linux-endorsed-distributions.md) sempre que possível. Os artigos a seguir guiam você pela preparação das diversas distribuições endossadas do Linux que têm suporte no Azure:
 
 - **[Distribuições com base em CentOS](virtual-machines-linux-create-upload-vhd-centos.md)**
 - **[Debian Linux](virtual-machines-linux-create-upload-vhd-debian.md)**
@@ -109,7 +109,7 @@ Para corrigir isso, você pode redimensionar a VM usando o console do Gerenciado
 
 ## Requisitos do kernel do Linux ##
 
-Os drivers LIS (Serviços de Integração do Linux) para Hyper-V e Azure são obtidos diretamente no kernel upstream do Linux. Muitas distribuições que contam com uma versão recente do kernel do Linux (por exemplo, versões 3.x) já terão esses drivers ou fornecerão versões revertidas desses drivers com seus kernels. Os drivers são atualizados constantemente no kernel upstream com reparos e recursos. Por isso, recomendamos que você execute, sempre que possível, uma [distribuição endossada](../linux-endorsed-distributions.md) que inclua esses reparos e essas atualizações.
+Os drivers LIS (Serviços de Integração do Linux) para Hyper-V e Azure são obtidos diretamente no kernel upstream do Linux. Muitas distribuições que contam com uma versão recente do kernel do Linux (por exemplo, versões 3.x) já terão esses drivers ou fornecerão versões revertidas desses drivers com seus kernels. Os drivers são atualizados constantemente no kernel upstream com reparos e recursos. Por isso, recomendamos que você execute, sempre que possível, uma [distribuição endossada](virtual-machines-linux-endorsed-distributions.md) que inclua esses reparos e essas atualizações.
 
 Se você estiver executando uma variante das versões de **6.0 a 6.3** do Red Hat Enterprise Linux, será necessário instalar os drivers LIS mais recentes para o Hyper-V Os drivers podem ser encontrados [neste local](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). Os drivers LIS com o kernel já estão incluídos nas versões **6.4 e posteriores** do RHEL (e derivados). Por isso, não é necessário ter outros pacotes de instalação para executar esses sistemas no Azure.
 
@@ -195,4 +195,4 @@ O [agente Linux do Azure](virtual-machines-linux-agent-user-guide.md) (waagent) 
 
 - Em seguida, você deverá desligar a máquina virtual e carregar o VHD no Azure.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

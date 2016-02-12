@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Indexação Automática no Banco de Dados de Documentos | Microsoft Azure" 
+	pageTitle="Indexação automática no Banco de Dados de Documentos | Microsoft Azure" 
 	description="Saiba mais sobre o funcionamento da indexação no Banco de Dados de Documentos do Azure." 
 	services="documentdb" 
 	authors="arramac" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="02/03/2016" 
 	ms.author="arramac"/>
 	
 # Indexação automática no Banco de Dados de Documentos do Azure
@@ -67,4 +67,4 @@ A indexação do Banco de Dados de Documentos foi projetada para eficiência de 
 - Saiba mais sobre como personalizar o índice do Banco de Dados de Documentos [aqui](documentdb-indexing-policies.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

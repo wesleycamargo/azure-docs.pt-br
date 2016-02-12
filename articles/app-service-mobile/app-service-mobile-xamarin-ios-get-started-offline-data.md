@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="01/28/2015"
     ms.author="wesmc"/>
 
 # Habilitar sincronização offline para seu aplicativo móvel Xamarin.iOS
@@ -36,11 +36,11 @@ Este tutorial exige o seguinte:
 
 * Visual Studio 2013
 * [Extensão Xamarin] do Visual Studio **ou** [Xamarin Studio em OS X]
-* Conclusão do tutorial [Criar um aplicativo do Xamarin iOS]. Este tutorial usa o aplicativo concluído abordado nesse tutorial.
+* Conclusão do tutorial [Criar um aplicativo Xamarin iOS]. Este tutorial usa o aplicativo concluído abordado nesse tutorial.
 
 ## Examine o código de sincronização do cliente
 
-O projeto de cliente do Xamarin que você baixou ao concluir o tutorial [Criar um aplicativo do Xamarin iOS] já contém um código que dá suporte à sincronização offline usando um banco de dados SQLite local. Aqui há um resumo breve do que já está incluído no código do tutorial. Para obter uma visão geral conceitual do recurso, confira [Sincronização de dados offline nos Aplicativos Móveis do Azure].
+O projeto de cliente Xamarin que você baixou ao concluir o tutorial [Criar um aplicativo Xamarin iOS] já contém a sincronização offline do código de suporte usando um banco de dados SQLite local. Aqui há um resumo breve do que já está incluído no código do tutorial. Para obter uma visão geral conceitual do recurso, confira [Sincronização de dados Offline em aplicativos móveis do Azure].
 
 * Antes de qualquer operação de tabela poder ser executada, o armazenamento local deve ser inicializado. O banco de dados do armazenamento local é inicializado quando o `QSTodoListViewController.ViewDidLoad()` executa o `QSTodoService.InitializeStoreAsync()`. Isso cria um novo banco de dados SQLite local usando a classe `MobileServiceSQLiteStore` fornecida pelo SDK do cliente de Aplicativos Móveis do Azure. 
 
@@ -123,9 +123,8 @@ Nesta seção, você modificará o projeto do cliente para simular um cenário o
 
 5. (Opcional) Use o Visual Studio para exibir a tabela de Banco de Dados SQL do Azure para ver se os dados no banco de dados do back-end não foram alterados.
 
-	No Visual Studio, abra **Gerenciador de Servidores**. Navegue até o banco de dados em **Azure**->**Bancos de dados SQL**. Clique com o botão direito do mouse em seu banco de dados e selecione **Abrir no Pesquisador de Objetos do SQL Server**. Agora você pode navegar até sua tabela de banco de dados SQL e seu conteúdo.
+	No Visual Studio, abra **Gerenciador de Servidores**. Navegue até o banco de dados em **Azure**->**Bancos de dados SQL**. Clique com o botão direito do mouse em seu banco de dados e selecione **Abrir no Gerenciador de Objetos do SQL Server**. Agora você pode navegar até sua tabela de banco de dados SQL e seu conteúdo.
 
-6. (Opcional) Use uma ferramenta REST, como o Fiddler ou Postman, para consultar seu back-end móvel, usando uma consulta GET no formulário `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem`.
 
 ## Atualize o aplicativo cliente para reconectar seu back-end móvel
 
@@ -143,7 +142,7 @@ Nesta seção, você vai reconectar o aplicativo ao back-end móvel, que simula 
 
 * [Sincronização de dados offline em Aplicativos Móveis do Azure]
 
-* [Cobertura em nuvem: sincronização Offline nos serviços móveis do Azure] (Observação: o vídeo está nos Serviços Móveis, mas a sincronização offline funciona de maneira semelhante nos Aplicativos Móveis do Azure)
+* [Cobertura em nuvem: sincronização offline nos serviços móveis do Azure] (observação: o vídeo está nos Serviços Móveis, mas a sincronização offline funciona de maneira semelhante nos Aplicativos Móveis do Azure)
 
 <!-- ##Summary
 
@@ -159,8 +158,9 @@ Nesta seção, você vai reconectar o aplicativo ao back-end móvel, que simula 
 <!-- Images -->
 
 <!-- URLs. -->
+[Criar um aplicativo Xamarin iOS]: ../app-service-mobile-xamarin-ios-get-started.md
 [Criar um aplicativo do Xamarin iOS]: ../app-service-mobile-xamarin-ios-get-started.md
-[Sincronização de dados offline em Aplicativos Móveis do Azure]: ../app-service-mobile-offline-data-sync.md
+[Sincronização de dados Offline em aplicativos móveis do Azure]: ../app-service-mobile-offline-data-sync.md
 [Sincronização de dados offline nos Aplicativos Móveis do Azure]: ../app-service-mobile-offline-data-sync.md
 
 [How to use the Xamarin Component client for Azure Mobile Services]: ../partner-xamarin-mobile-services-how-to-use-client-library.md
@@ -168,6 +168,6 @@ Nesta seção, você vai reconectar o aplicativo ao back-end móvel, que simula 
 [Xamarin Studio em OS X]: http://xamarin.com/download
 [Extensão Xamarin]: http://xamarin.com/visual-studio
  
-[Cobertura em nuvem: sincronização Offline nos serviços móveis do Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Cobertura em nuvem: sincronização offline nos serviços móveis do Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0204_2016--->

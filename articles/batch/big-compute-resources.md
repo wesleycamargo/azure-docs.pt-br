@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Big Compute: recursos técnicos para Lote e HPC (Computação de Alto Desempenho) | Microsoft Azure"
-   description="Lista os recursos técnicos que podem ajudá-lo a executar suas cargas de trabalho paralelas de grande escala, de lote e de HPC no Azure."
+   pageTitle="Recursos para lote e cargas de trabalho de HPC na nuvem | Microsoft Azure"
+   description="Lista os recursos técnicos que podem ajudá-lo a executar suas cargas de trabalho paralelas de grande escala, de lote e de HPC (computação de alto desempenho) no Azure."
    services="batch, cloud-services, virtual-machines"
    documentationCenter=""
    authors="dlepow"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="09/29/2015"
+   ms.date="01/26/2016"
    ms.author="danlep"/>
 
 # Big Compute no Azure: recursos técnicos para lote e HPC (Computação de Alto Desempenho)
@@ -34,7 +34,7 @@ O [Lote](https://azure.microsoft.com/services/batch/) é um serviço de platafor
 
 * [Documentação](https://azure.microsoft.com/documentation/services/batch/)
 
-* [Referência de API](https://msdn.microsoft.com/library/azure/dn820177.aspx)
+* Referência da API [.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx) e [REST](https://msdn.microsoft.com/library/azure/dn820158.aspx)
 
 * [Tutorial: Introdução à biblioteca de lote do Azure para .NET](batch-dotnet-get-started.md)
 
@@ -50,7 +50,7 @@ Implante ou amplie seu cluster HPC existente do Windows ou Linux para executar c
 
 O HPC Pack é a solução de HPC gratuita da Microsoft fundamentada nas tecnologias Microsoft Azure e Windows Server, capaz de executar cargas de trabalho do HPC no Windows e Linux.
 
-* [Baixe a atualização 3 do HPC Pack 2012 R2](https://www.microsoft.com/pt-BR/download/details.aspx?id=49922)
+* [Baixe a atualização 3 do HPC Pack 2012 R2](https://www.microsoft.com/download/details.aspx?id=49922)
 
 * [Documentação](https://technet.microsoft.com/library/jj899572.aspx)
 
@@ -86,7 +86,7 @@ Use esses modelos de início rápido do Azure para implantar clusters HPC Linux 
 
 ## Instâncias de computação intensiva
 
-O Azure oferece uma [variedade de tamanhos](../virtual-machines/virtual-machines-size-specs.md), incluindo [instâncias A8, A9, A10 e A11](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) com uso intensivo de computação para executar cargas de trabalho de HPC para Linux e Windows.
+O Azure oferece [diversos tamanhos](../virtual-machines/virtual-machines-size-specs.md), inclusive instâncias [A8 e A9](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) com uso intensivo de computação capazes de se conectar a uma rede RDMA de back-end, para executar cargas de trabalho de HPC para Linux e Windows.
 
 * [Configurar um cluster de RDMA do Linux para executar aplicativos MPI](../virtual-machines/virtual-machines-linux-cluster-rdma.md)
 
@@ -94,7 +94,7 @@ O Azure oferece uma [variedade de tamanhos](../virtual-machines/virtual-machines
 
 ## Plano gráfico da arquitetura
 
-* O Lote do Microsoft Azure e Azure Data Factory: Arquitetura para processamento de dados em grande escala ([PDF](http://go.microsoft.com/fwlink/?linkid=717686) e [artigo](../data-factory/data-factory-data-processing-using-batch.md)) ilustra como o Data Factory orquestra processamento e movimentação de dados e como o Lote do Azure processa os dados de modo paralelo.
+* [HPC e orquestração de dados usando o Lote do Azure e o Azure Data Factory](http://go.microsoft.com/fwlink/?linkid=717686) (PDF) e [artigo](../data-factory/data-factory-data-processing-using-batch.md)
 
 ## Exemplos e scripts
 
@@ -121,4 +121,4 @@ O Azure oferece uma [variedade de tamanhos](../virtual-machines/virtual-machines
 * Para os anúncios mais recentes, consulte o [blog da equipe do Microsoft HPC e Lote](http://blogs.technet.com/b/windowshpc/) e o [blog do Azure](https://azure.microsoft.com/blog/tag/hpc/).
 * Consulte também [o que há de novo no Lote](https://azure.microsoft.com/updates/?service=batch) ou assine o [RSS feed](https://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

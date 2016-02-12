@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/06/2016"
+   ms.date="02/01/2016"
    ms.author="jonor;sivae"/>
 
 # Segurança de rede e Serviços de Nuvem da Microsoft
@@ -334,7 +334,7 @@ No firewall, será necessário criar regras de encaminhamento. Uma vez que o fir
  
 ![Exibição lógica das regras de firewall][10]
 
->[AZURE.NOTE] Com base no Dispositivo Virtual de Rede usado, as portas de gerenciamento variam. Neste exemplo, um Firewall NG Barracuda é mencionado e usa as portas 22, 801 e 807. Consulte a documentação do fornecedor do dispositivo para localizar as portas exatas usadas para o gerenciamento do dispositivo usado.
+>[AZURE.NOTE] Com base no Dispositivo Virtual de Rede usado, as portas de gerenciamento variam. Neste exemplo, um Firewall NextGen Barracuda é mencionado e usa as portas 22, 801 e 807. Consulte a documentação do fornecedor do dispositivo para localizar as portas exatas usadas para o gerenciamento do dispositivo usado.
 
 #### Descrição das regras de firewall
 No diagrama lógico acima, a sub-rede de segurança não é mostrada, já que o firewall é o único recurso nessa sub-rede, e esse diagrama mostra as regras de firewall e como elas permitem ou negam logicamente fluxos de tráfego e não o caminho roteado real. Além disso, as portas externas selecionadas para o tráfego RDP são portas com um intervalo maior (8014 – 8026) e foram selecionadas para alinhar um pouco com os dois últimos octetos do endereço IP local para facilitar a leitura (por exemplo, o endereço do servidor local 10.0.1.4 está associado à porta externa 8014); no entanto, todas as portas não conflitantes acima disso poderiam ser usadas.
@@ -511,4 +511,4 @@ estarão disponíveis em breve e vinculados a essa página.
 [Example7]: ./virtual-network/virtual-networks-vnet2vnet-direct-asm.md
 [Example8]: ./virtual-network/virtual-networks-vnet2vnet-transit-asm.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

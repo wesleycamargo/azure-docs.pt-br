@@ -39,7 +39,7 @@ Estes são os componentes envolvidos em uma conexão de RDP:
 Antes de continuar, talvez seja útil revisar mentalmente o que mudou desde a última conexão bem-sucedida da Área de Trabalho Remota com a VM. Por exemplo:
 
 - Se o endereço IP público da VM ou do serviço de nuvem que contém a VM (também chamado do endereço IP virtual [VIP](https://en.wikipedia.org/wiki/Virtual_IP_address)) tiver sido alterado, talvez a RDP tenha falhado porque cache do cliente DNS ainda tem o *endereço IP antigo* registrado para o nome DNS. Libere o cache do cliente DNS e tente conectar-se novamente à VM. Ou tente conectar-se diretamente com o novo VIP.
-- Se você estiver usando um aplicativo de terceiro para gerenciar suas conexões de Área de Trabalho Remota em vez de usar qualquer um dos portais do Azure, verifique se a configuração do aplicativo inclui a porta TCP atual para o tráfego da Área de Trabalho Remota. Você pode verificar essa porta para uma máquina virtual clássica no [Portal do Azure](portal.azure.com), clicando nas Configurações > Pontos de Extremidade da VM.
+- Se você estiver usando um aplicativo de terceiro para gerenciar suas conexões de Área de Trabalho Remota em vez de usar qualquer um dos portais do Azure, verifique se a configuração do aplicativo inclui a porta TCP atual para o tráfego da Área de Trabalho Remota. Você pode verificar essa porta para uma máquina virtual clássica no [portal do Azure](https://portal.azure.com), clicando em Configurações > Pontos de Extremidade da VM.
 
 
 ## Etapas preliminares
@@ -135,7 +135,7 @@ Tente estabelecer a conexão de seu computador novamente. Se você ainda não co
 
 Para VMs criadas usando o modelo de implantação clássico, você pode usar uma sessão remota do Azure PowerShell para a máquina virtual do Azure. Primeiro, você precisa instalar um certificado para o serviço de nuvem de hospedagem da máquina virtual. Acesse [Configure Secure Remote PowerShell Access to Azure Virtual Machines](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) e baixe o arquivo de script **InstallWinRMCertAzureVM.ps1** no computador local.
 
-Em seguida, instale o Azure PowerShell, se ainda não tiver feito isso. Consulte [Como instalar e configurar o Azure PowerShell](../install-configure-powershell.md).
+Em seguida, instale o Azure PowerShell, se ainda não tiver feito isso. Consulte [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
 
 Em seguida, abra um prompt de comando do Azure PowerShell e altere a pasta atual para o local do arquivo de script **InstallWinRMCertAzureVM.ps1**. Para executar um script do Azure PowerShell, é preciso definir a política de execução correta. Execute o comando **Get-ExecutionPolicy** para determinar o nível de política atual. Para obter informações sobre como definir o nível apropriado, consulte [Set-ExecutionPolicy](https://technet.microsoft.com/library/hh849812.aspx).
 
@@ -195,4 +195,4 @@ Verifique se o ponto de extremidade da Área de Trabalho Remota para a VM do Azu
 
 [Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

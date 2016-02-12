@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/04/2016" 
+	ms.date="01/28/2016" 
 	ms.author="tomfitz"/>
 
 # Mover recursos para um novo grupo de recursos ou uma nova assinatura
@@ -113,8 +113,8 @@ No corpo da solicitação, especifique o grupo de recursos de destino e os recur
 
 ## Próximas etapas
 - [Usando o PowerShell do Azure com o Gerenciador de Recursos](./powershell-azure-resource-manager.md)
-- [Usando a CLI do Azure com o Gerenciador de Recursos](./virtual-machines/xplat-cli-azure-resource-manager.md)
+- [Usando a CLI do Azure com o Gerenciador de Recursos](./xplat-cli-azure-resource-manager.md)
 - [Usando o Portal do Azure para gerenciar recursos](azure-portal/resource-group-portal.md)
 - [Usando marcas para organizar os recursos](./resource-group-using-tags.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

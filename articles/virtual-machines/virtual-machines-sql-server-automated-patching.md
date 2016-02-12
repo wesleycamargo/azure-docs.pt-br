@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="11/12/2015"
+	ms.date="02/03/2016"
 	ms.author="jroth" />
 
 # Aplicação de patch automatizada para o SQL Server em Máquinas Virtuais do Azure
@@ -61,7 +61,7 @@ Pode demorar vários minutos para instalar e configurar o Agente IaaS do SQL Ser
 
 Para desabilitar a Aplicação de Patch Automatizada, execute o mesmo script sem o parâmetro -Enable para New-AzureVMSqlServerAutoPatchingConfig. Assim como acontece com a instalação, pode demorar vários minutos para desabilitar a Aplicação de Patch Automatizada.
 
-## Como desabilitar e desinstalar o Agente IaaS do SQL Server
+## Desabilitando e desinstalando o Agente IaaS do SQL Server
 
 Se você quiser desabilitar o Agente IaaS do SQL Server para Backup e Aplicação de Patch Automatizados, use o seguinte comando:
 
@@ -93,4 +93,4 @@ Um recurso relacionado para VMs do SQL Server no Azure é o [Backup Automatizado
 
 Examine outros [recursos para executar o SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/22/2016"
+   ms.date="01/29/2016"
    ms.author="yurid"/>
 
 #Monitoramento de integridade de segurança na Central de segurança do Azure
@@ -41,7 +41,7 @@ As políticas de segurança que são habilitadas terão impacto sobre os tipos d
 ###Máquina virtual
 Quando você clica em **Máquinas virtuais** no bloco **Integridade de recursos**, a folha **Máquinas virtuais** será aberta com mais detalhes sobre as etapas de prevenção e integração, bem como uma lista de todas as VMs monitoradas pela Central de segurança do Azure, conforme mostrado abaixo:
 
-![Atualização de sistema ausente por VM](./media/security-center-monitoring/security-center-monitoring-fig2-new.png)
+![Atualização de sistema ausente por VM](./media/security-center-monitoring/security-center-monitoring-fig2-2-new.png)
 
 Depois de abrir essa folha, você verá três seções:
 
@@ -60,7 +60,7 @@ Esta seção mostra a quantidade total de VMs que foram inicializadas para colet
 ####Recomendações de máquina virtual
 Esta seção tem um conjunto de recomendações para cada VM monitorada pela Central de Segurança do Azure. A primeira coluna tem a descrição da recomendação, a segunda coluna a quantidade total de VMs que são afetadas pelas recomendações e, na terceira coluna, você tem a gravidade, conforme mostrado abaixo.
 
-![Recomendações de VM](./media/security-center-monitoring/security-center-monitoring-fig4-new.png)
+![Recomendações de VM](./media/security-center-monitoring/security-center-monitoring-fig4-2-new.png)
 
 Cada recomendação tem um conjunto de ações que podem ser executadas assim que você clica nela. Por exemplo, se você clicar em **Atualizações de sistema ausentes**, a folha **Atualizações de sistema ausentes** será aberta com a lista de VMs que estão com patches ausentes e o nível de gravidade de cada uma, conforme mostrado abaixo:
 
@@ -173,4 +173,4 @@ Neste documento, você aprendeu como usar os recursos de monitoramento na Centra
 - [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre perguntas frequentes sobre como usar o serviço
 - [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

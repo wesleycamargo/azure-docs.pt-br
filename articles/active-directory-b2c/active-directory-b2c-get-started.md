@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="01/28/2016"
 	ms.author="swkrish"/>
 
 # Visualização do Active Directory B2C do Azure: como criar um locatário AD B2C do Azure
@@ -24,7 +24,7 @@ Para começar a usar o Active Directory (AD) B2C do Azure, siga as 3 etapas desc
 
 ## Etapa 1: fazer uma assinatura do Azure
 
-Se você já tiver uma assinatura do Azure, passe para a próxima etapa. Se não tiver, inscreva-se para obter [uma assinatura do Azure](sign-up-organization.md) e tenha acesso ao Azure AD B2C.
+Se você já tiver uma assinatura do Azure, passe para a próxima etapa. Se não tiver, inscreva-se para obter [uma assinatura do Azure](../active-directory/sign-up-organization.md) e tenha acesso ao Azure AD B2C.
 
 > [AZURE.NOTE]
 A visualização do B2C do AD do Azure é atualmente livre para uso, mas limitada (até 50.000 usuários por Locatário). Uma assinatura do Azure é necessária para acessar o [Portal Clássico do Azure](http://manage.windowsazure.com/).
@@ -74,4 +74,4 @@ Use as seguintes etapas para criar um novo locatário B2C do AD do Azure. Os rec
 
 Mover para [registrar um aplicativo com AD B2C do Azure e criar um aplicativo de início rápido](active-directory-b2c-app-registration.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

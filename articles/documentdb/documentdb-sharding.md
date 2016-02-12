@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/05/2015" 
+	ms.date="02/03/2016" 
 	ms.author="arramac"/>
 
 # Como particionar os dados no Banco de Dados de Documentos com o SDK do .NET
 
-O Banco de Dados de Documentos do Azure é um serviço de banco de dados de documento que permite que você dimensione perfeitamente sua conta por meio do provisionamento de coleções usando os [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx) e as [APIs REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) (também chamado de **fragmentação**). Para tornar mais fácil desenvolver aplicativos particionados e reduzir a quantidade de código clichê necessário para tarefas de particionamento, adicionamos funcionalidades no SDK do .NET que facilitam a criação de aplicativos que serão dimensionados por várias partições.
+O Banco de Dados de Documentos do Azure é um serviço de banco de dados de documento que permite que você dimensione perfeitamente sua conta por meio do provisionamento de coleções usando os [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx) e as [APIs REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) (também chamado de **fragmentação**). Para facilitar o desenvolvimento de aplicativos particionados e reduzir a quantidade de código clichê necessário para tarefas de particionamento, adicionamos funcionalidades nos SDKs do .NET, Node.js e Java que facilitam a criação de aplicativos que são escalados horizontalmente por várias partições.
 
 Neste artigo, vamos dar uma olhada nas classes e interfaces no SDK do .NET e como usá-los para desenvolver aplicativos particionados.
 
@@ -141,10 +141,6 @@ O Banco de Dados de Documentos dá suporte ao particionamento do lado do cliente
 - É muito difícil abstrair o conceito de uma coleção de desenvolvedores sem comprometer um dos três fatores a seguir: indexação/consulta consistente, alta disponibilidade e garantias de transações ACID. 
 - Bancos de dados de documento geralmente exigem flexibilidade em termos de definir estratégias de particionamento, o que uma abordagem do lado do servidor pode não acomodar. 
 
-**Por que o particionamento não tem suporte em outras plataformas (Node. js, Java ou Python)?**
-
-Iremos estender gradualmente o suporte de particionamento a outras plataformas com base nos comentários de clientes do SDK .NET.
-
 **Como adicionar ou remover uma coleção ao meu esquema de particionamento?**
 
 Observe a implementação do DocumentClientHashPartitioningManager no projeto de exemplos para obter um exemplo de como você pode implementar o reparticionamento.
@@ -167,4 +163,4 @@ Você pode serializar o estado do particionador como JSON e armazená-lo em arqu
 * [Blog do Banco de Dados de Documentos sobre dicas de desempenho](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

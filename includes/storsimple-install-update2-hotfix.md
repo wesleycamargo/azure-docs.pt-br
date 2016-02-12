@@ -87,7 +87,7 @@ Execute as etapas a seguir para instalar e verificar os hotfixes regulares.
 
 	> [AZURE.NOTE] Ocasionalmente, o cmdlet relatará `False` quando a atualização ainda estiver em andamento. Para garantir que o hotfix seja concluído, aguarde alguns minutos, execute esse comando novamente e verifique se `RunInProgress` é `False`. Em caso positivo, o hotfix foi concluído.
 	
-8. Após a conclusão da atualização de software, repita as etapas 3 a 5 para instalar e monitorar o agente SaaS e o agente do MDS usando o `CisMdsAgentUpdateBundle.exe`. Certifique-se de que `HcsMdsSoftwareUpdate.exe` seja instalado antes de `CisMdsAgentUpdateBundle.exe`.
+8. Após a conclusão da atualização de software, repita as etapas de 3 a 5 para instalar e monitorar o agente SaaS e o agente do MDS. Certifique-se de que `all-hcsmdssoftwareupdate_0b438ddf0d5b686aada2378b754fac8c7f2160e9.exe` seja instalado antes de `all-cismdsagentupdatebundle_f98e62f4d56c79e2a6644d027af7a2393a93827a.exe`.
 
 9. Verifique as versões de software do sistema. Tipo:
 
@@ -103,15 +103,15 @@ Execute as etapas a seguir para instalar e verificar os hotfixes regulares.
     
 9. Repita as etapas 3 a 5 para instalar e monitorar os hotfixes regulares restantes.
 
-	- O driver LSI usando o pacote `HcsLsiUpdate.exe` (KB3121900).
-	- A correção do Storport usando o pacote `Storport-KB3080728-x64.msu` (KB3080728).
-	- A correção do Spaceport usando o pacote `spaceport-KB3090322-x64.msu` (KB3090322).
+	- O driver LSI usando o KB3121900.
+	- A correção do Storport usando o KB3080728.
+	- A correção do Spaceport usando o KB3090322.
 
 #### Para instalar e verificar o hotfix do modo de manutenção
 
-Use o pacote `DiskFirmwarePackage.exe` (KB3121899) para instalar atualizações de firmware de disco. Estas são atualizações com interrupção e levam cerca de 30 minutos para ser concluídas. Você pode optar por instalá-las em uma janela de manutenção planejada conectando-se ao console serial do dispositivo.
+Use o KB3121899 para instalar atualizações de firmware de disco. Estas são atualizações com interrupção e levam cerca de 30 minutos para ser concluídas. Você pode optar por instalá-las em uma janela de manutenção planejada conectando-se ao console serial do dispositivo.
 
-Observe que, se o firmware de disco já estiver atualizado, você não precisará instalar essas atualizações. Execute o cmdlet `Get-HcsUpdateAvailability` do console serial do dispositivo. Você será notificado se houver atualizações disponíveis e se as atualizações forem interruptivas (atualizações do modo de manutenção) ou não interruptivas (regulares).
+Observe que, se o firmware de disco já estiver atualizado, você não precisará instalar essas atualizações. Execute o cmdlet `Get-HcsUpdateAvailability` no console serial do dispositivo. Você será notificado se houver atualizações disponíveis e se as atualizações forem interruptivas (atualizações do modo de manutenção) ou não interruptivas (regulares).
  
 Para instalar as atualizações de firmware de disco, siga as instruções abaixo.
 
@@ -159,7 +159,7 @@ Para instalar as atualizações de firmware de disco, siga as instruções abaix
 		WARNING: Installation is currently in progress. This operation can take several minutes to complete.
 	
 
-1.  Monitorar o progresso de instalação usando o comando `Get-HcsUpdateStatus`. A atualização é concluída quando o `RunInProgress` muda para `False`.
+1.  Monitore o andamento de instalação usando o comando `Get-HcsUpdateStatus`. A atualização é concluída quando o `RunInProgress` muda para `False`.
  
 2.  Depois que a instalação for concluída, o controlador no qual o hotfix do modo de manutenção foi instalado será reinicializado. Faça logon como opção 1 com acesso completo e verifique a versão de firmware de disco. Tipo:
 	
@@ -239,4 +239,4 @@ Para instalar as atualizações de firmware de disco, siga as instruções abaix
  
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="02/03/2016"
 	ms.author="garye"/>
 
 # Gerenciar iterações de teste no Estúdio de Aprendizado de Máquina do Microsoft Azure
@@ -24,7 +24,7 @@ Desenvolver um modelo de análise de previsão é um processo iterativo - como m
 
 Você pode examinar as execuções anteriores dos seus testes a qualquer momento para desafiar, revisitar e, por fim, confirmar ou refinar suposições anteriores. Quando você executa um teste, o Estúdio de Aprendizado de Máquina mantém um histórico de execução, incluindo o conjunto de dados, o módulo e as conexões de porta e parâmetros. Esse histórico também captura resultados, informações de tempo de execução, como tempos de início e parada, mensagens de log e status de execução. Você pode observar qualquer uma dessas execuções a qualquer momento para examinar o cronograma de seu teste e os resultados intermediários. Você pode até usar uma execução anterior de seu teste para fazer a inicialização em uma nova fase de consulta e descoberta em seu caminho para criar soluções simples, complexas ou até mesmo de modelagem conjunta.
 
-> [AZURE.NOTE]Quando você exibe uma execução anterior de um teste, essa versão do teste está bloqueada e não pode ser editada. No entanto, você pode salvar uma cópia dele clicando em **SALVAR COMO** e fornecendo um novo nome para a cópia. O Estúdio de Aprendizado de Máquina abre a nova cópia, que você pode editar e executar. Esta cópia do seu teste está disponível na lista **TESTES** junto com todos os seus testes.
+> [AZURE.NOTE] Quando você exibe uma execução anterior de um teste, essa versão do teste está bloqueada e não pode ser editada. No entanto, você pode salvar uma cópia dele clicando em **SALVAR COMO** e fornecendo um novo nome para a cópia. O Estúdio de Aprendizado de Máquina abre a nova cópia, que você pode editar e executar. Esta cópia do seu teste está disponível na lista **TESTES** junto com todos os seus testes.
 
 ## Exibindo a execução anterior
 
@@ -51,7 +51,7 @@ Se clicar em **EXIBIR O HISTÓRICO DE EXECUÇÃO**, você verá uma lista de tod
 
 Clique em qualquer uma dessas execuções para exibir um instantâneo do teste no momento em que você o executou. A configuração, os valores de parâmetro, comentários e resultados são preservados para que você tenha um registro completo da execução do seu teste.
 
-> [AZURE.TIP]Para documentar suas iterações do teste, você pode modificar o título cada vez que executá-lo, pode atualizar o **Resumo** do teste no painel de propriedades e pode adicionar ou atualizar os comentários em módulos individuais para registrar as alterações. Os comentários do título, do resumo e do módulo são salvos com cada execução do teste.
+> [AZURE.TIP] Para documentar suas iterações do teste, você pode modificar o título cada vez que executá-lo, pode atualizar o **Resumo** do teste no painel de propriedades e pode adicionar ou atualizar os comentários em módulos individuais para registrar as alterações. Os comentários do título, do resumo e do módulo são salvos com cada execução do teste.
 
 A lista de testes na guia **TESTES** no Estúdio de Aprendizado de Máquina sempre exibe a versão mais recente de um teste. Se abrir uma execução anterior do teste (usando **Execução anterior** ou **EXIBIR O HISTÓRICO DE EXECUÇÃO**), você pode retornar para a versão de rascunho, clicando em **EXIBIR O HISTÓRICO DE EXECUÇÃO** e selecionando a iteração que tem um **ESTADO** **Editável**.
 
@@ -84,4 +84,4 @@ Agora você pode continuar a modificar e executar esta versão do seu teste, cri
 <!-- Module References -->
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

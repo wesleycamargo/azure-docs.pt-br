@@ -4,9 +4,9 @@
 	tags="azure-portal"
 	services="app-service\web"
 	documentationCenter="nodejs"
-	authors="TomArcher"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="mollybos"/>
+	editor=""/>
 
 <tags
 	ms.service="app-service-web"
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="11/18/2015"
-	ms.author="tarcher"/>
+	ms.date="02/03/2016"
+	ms.author="robmcm"/>
 
 # Como depurar um aplicativo Web Node.js no Serviço de Aplicativo do Azure
 
@@ -40,11 +40,11 @@ O **IISNode.yml** arquivo também pode ser usado para controlar se erros amigáv
 
 Quando essa opção estiver habilitada, IISNode retornará a última 64K de informações enviadas para stderr em vez de um erro amigáveis, como "Ocorreu um erro interno do servidor".
 
-> [AZURE.NOTE]Enquanto devErrorsEnabled é útil para diagnosticar problemas durante o desenvolvimento, ativá-lo em um ambiente de produção pode resultar em erros de desenvolvimento sendo enviados para usuários finais.
+> [AZURE.NOTE] Enquanto devErrorsEnabled é útil para diagnosticar problemas durante o desenvolvimento, ativá-lo em um ambiente de produção pode resultar em erros de desenvolvimento sendo enviados para usuários finais.
 
 Se o arquivo **iisnode. yml** ainda não existir dentro de seu aplicativo, você deverá reiniciar o aplicativo Web depois de publicar o aplicativo atualizado. Se você estiver simplesmente alterando as configurações em um arquivo **IISNode.yml** arquivo que tenha sido publicado anteriormente, não é necessário reiniciar.
 
-> [AZURE.NOTE]Se seu aplicativo Web foi criado usando os Cmdlets do PowerShell do Azure ou as ferramentas de linha de comando do Azure, um arquivo **IISNode.yml** padrão é criado automaticamente.
+> [AZURE.NOTE] Se seu aplicativo Web foi criado usando os Cmdlets do PowerShell do Azure ou as ferramentas de linha de comando do Azure, um arquivo **IISNode.yml** padrão é criado automaticamente.
 
 Para reiniciar o aplicativo Web, selecione-o no [Portal do Azure](https://portal.azure.com) e clique no botão **REINICIAR**:
 
@@ -54,7 +54,7 @@ Se as ferramentas de linha de comando do Azure estiverem instaladas em seu ambie
 
 	azure site restart [sitename]
 
-> [AZURE.NOTE]Enquanto loggingEnabled e devErrorsEnabled são os mais usados IISNode.yml opções de configuração para a captura de informações de diagnóstico, IISNode.yml pode ser usado para configurar uma variedade de opções para seu ambiente de hospedagem. Para obter uma lista completa das opções de configuração, consulte o arquivo [iisnode\_schema.xml](https://github.com/tjanczuk/iisnode/blob/master/src/config/iisnode_schema.xml).
+> [AZURE.NOTE] Enquanto loggingEnabled e devErrorsEnabled são os mais usados IISNode.yml opções de configuração para a captura de informações de diagnóstico, IISNode.yml pode ser usado para configurar uma variedade de opções para seu ambiente de hospedagem. Para obter uma lista completa das opções de configuração, consulte o arquivo [iisnode\_schema.xml](https://github.com/tjanczuk/iisnode/blob/master/src/config/iisnode_schema.xml).
 
 <a id="viewlogs"></a>
 ## Acessando os logs
@@ -69,7 +69,7 @@ Uma vez instalado, as ferramentas podem ser acessadas usando o comando 'azure'. 
 
 Para acessar as informações de diagnóstico por FTP, visite o [Portal do Azure](https://portal.azure.com), selecione o seu aplicativo Web e selecione **PAINEL**. No **links rápidos** seção, o **FTP LOGS de diagnóstico** e **LOGS de diagnóstico FTPS** links fornecem acesso aos logs usando o protocolo FTP.
 
-> [AZURE.NOTE]Se já não tiver configurado o nome de usuário e senha de FTP ou de implantação, você pode fazer isso a **QuickStart** página de gerenciamento selecionando **Configurar credenciais de implantação**.
+> [AZURE.NOTE] Se já não tiver configurado o nome de usuário e senha de FTP ou de implantação, você pode fazer isso a **QuickStart** página de gerenciamento selecionando **Configurar credenciais de implantação**.
 
 É a URL FTP retornado no painel de controle para o **arquivos de log** diretório, que irá conter as seguintes subpastas:
 
@@ -115,7 +115,7 @@ Para obter mais informações, consulte também o [Centro de desenvolvedores do 
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
->[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE] Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 [IISNode]: https://github.com/tjanczuk/iisnode
 [IISNode Readme]: https://github.com/tjanczuk/iisnode#readme
@@ -126,4 +126,4 @@ Para obter mais informações, consulte também o [Centro de desenvolvedores do 
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

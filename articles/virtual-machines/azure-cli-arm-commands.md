@@ -19,7 +19,7 @@
 
 # Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciador de Recursos do Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-command-line-tools.md)
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines/virtual-machines-command-line-tools.md).
 
 Este artigo descreve como usar a interface de linha de comando do Azure (CLI do Azure) no modo do Gerenciador de Recursos do Azure para criar, gerenciar e excluir serviços na linha de comando de computadores Mac, Linux e Windows. É possível realizar muitas das mesmas tarefas usando as várias bibliotecas de SDKs do Azure, com o Azure PowerShell, e usando o portal do Azure.
 
@@ -1879,4 +1879,4 @@ Opções de parâmetro:
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

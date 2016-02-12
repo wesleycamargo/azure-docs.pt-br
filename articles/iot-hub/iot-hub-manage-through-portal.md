@@ -52,7 +52,7 @@ Você pode escolher entre três camadas: **Gratuita**, **Standard 1** e **Standa
 
 ![][4]
 
-> [AZURE.NOTE]O Hub IoT só permite um hub gratuito por assinatura.
+> [AZURE.NOTE] O Hub IoT só permite um hub gratuito por assinatura.
 
 ### Unidades do Hub IoT
 
@@ -72,13 +72,13 @@ O Hub IoT do Azure mostra automaticamente a lista de assinaturas à qual a conta
 
 ### Escolher o local
 
-A opção de local oferece uma lista das regiões em que o Hub IoT é oferecido. Para essa versão de visualização, o Hub IoT é oferecido em apenas três locais: Leste dos EUA, Norte da Europa e Ásia Oriental.
+A opção de local oferece uma lista das regiões em que o Hub IoT é oferecido. O Hub IoT está disponível para implantação nos seguintes locais: Leste dos EUA, Oeste dos EUA, Norte da Europa, Oeste da Europa, Ásia Oriental e Sudeste da Ásia.
 
 ### Criar o Hub IoT
 
-Quando todas as etapas anteriores forem concluídas, o Hub IoT estará pronto para ser criado. Clique em **Criar** para iniciar o processo de back-end de criação desse hub IoT com as opções específicas e para implantá-lo no local especificado.
+Quando todas as etapas anteriores forem concluídas, o Hub IoT estará pronto para ser criado. Clique em **Criar** para iniciar o processo de back-end de criação desse Hub IoT com as opções específicas e o implantar no local especificado.
 
-Observe que pode levar alguns minutos para que o Hub IoT seja criado, já que a implantação de back-end demora para ocorrer nos servidores de local apropriados.
+Observe que pode levar alguns minutos para que o Hub IoT seja criado, já que a implantação de back-end é demorada nos servidores do local apropriado.
 
 ## Alterar as configurações do Hub IoT
 
@@ -116,7 +116,7 @@ Clique nas políticas do **Sistema de Mensagens** para exibir uma lista de propr
 
 **Grupos de Consumidores**: os Grupos de Consumidores são uma configuração semelhante a outros sistemas de mensagens que podem ser usados para extrair dados de maneiras específicas para a conexão de outros aplicativos ou serviços ao Hub IoT. Todos os Hub IoT são criados com um grupo de consumidores padrão. No entanto, você pode adicionar ou excluir grupos de consumidores em seus Hubs IoT.
 
-> [AZURE.NOTE]O grupo de consumidores padrão não pode ser editado ou excluído.
+> [AZURE.NOTE] O grupo de consumidores padrão não pode ser editado ou excluído.
 
 ![][11]
 
@@ -153,4 +153,4 @@ Para saber mais sobre o Hub IoT do Azure, siga estes links:
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [O que é o Hub IoT do Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

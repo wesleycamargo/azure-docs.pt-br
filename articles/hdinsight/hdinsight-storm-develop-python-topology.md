@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/01/2016"
    ms.author="larryfr"/>
 
 #Desenvolver topologias do Apache Storm usando o Python no HDInsight
@@ -25,6 +25,8 @@ O Apache Storm dá suporte a várias linguagens, permitindo até a combinação 
 * Python 2.7 ou posterior
 
 * Java JDK 1.7 ou posterior
+
+* [Leiningen](http://leiningen.org/)
 
 ##Suporte a várias linguagens no Storm
 
@@ -54,7 +56,7 @@ Ambos os métodos são descritos neste documento, juntamente com projetos de exe
 
 ##Componentes do Python com uma topologia do Java
 
-> [AZURE.NOTE]Este exemplo está disponível em https://github.com/Blackmist/hdinsight-python-storm-wordcount no diretório __JavaTopology__. Esse é um projeto com base em Maven. Se você não estiver familiarizado com o Maven, consulte [Desenvolver topologias baseadas em Java com o Apache Storm no HDInsight](hdinsight-storm-develop-java-topology.md) para obter mais informações sobre como criar um projeto do Maven para uma topologia do Storm.
+> [AZURE.NOTE] Este exemplo está disponível em [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount), no diretório __JavaTopology__. Esse é um projeto com base em Maven. Se você não estiver familiarizado com o Maven, consulte [Desenvolver topologias baseadas em Java com o Apache Storm no HDInsight](hdinsight-storm-develop-java-topology.md) para obter mais informações sobre como criar um projeto do Maven para uma topologia do Storm.
 
 Uma topologia baseada em Java que usa o Python (ou outros componentes de linguagem da JVM) inicialmente parece usar componentes do Java. Porém, se examinar cada um dos spouts/bolts do Java, você verá código semelhante ao seguinte:
 
@@ -70,7 +72,7 @@ Os arquivos reais do Python são armazenados no diretório `/multilang/resources
 
 Isso inclui todos os arquivos na pasta `/multilang` no jar que serão criados com base nesse projeto.
 
-> [AZURE.IMPORTANT]Observe que isso só especifica o diretório `/multilang`, e não `/multilang/resources`. O Storm espera recursos não JVM em um diretório `resources`. Portanto, isso já é feito internamente. Colocar componentes nessa pasta permite referenciar apenas por nome no código Java. Por exemplo: `super("python", "countbolt.py");`. Outra maneira de entender isso é que o Storm vê o diretório `resources` como a raiz (/) ao acessar recursos de várias linguagens.
+> [AZURE.IMPORTANT] Observe que isso só especifica o diretório `/multilang`, e não `/multilang/resources`. O Storm espera recursos não JVM em um diretório `resources`. Portanto, isso já é feito internamente. Colocar componentes nessa pasta permite referenciar apenas por nome no código Java. Por exemplo: `super("python", "countbolt.py");`. Outra maneira de entender isso é que o Storm vê o diretório `resources` como a raiz (/) ao acessar recursos de várias linguagens.
 >
 > Para este projeto de exemplo, o módulo `storm.py` está incluído no diretório `/multilang/resources`.
 
@@ -106,11 +108,11 @@ Para implantar o projeto em um cluster do HDInsight executando o Apache Storm, u
 
         Por fim, selecione __Enviar__ para iniciar a topologia.
 
-> [AZURE.NOTE]Após ser iniciada, uma topologia do Storm é executada até ser interrompida (eliminada). Para interromper a topologia, use o comando `storm kill TOPOLOGYNAME` na linha de comando (sessão do SSH para um cluster do Linux, por exemplo) ou, usando a interface do usuário do Storm, selecione a topologia e, em seguida, selecione o botão __Interromper__.
+> [AZURE.NOTE] Após ser iniciada, uma topologia do Storm é executada até ser interrompida (eliminada). Para interromper a topologia, use o comando `storm kill TOPOLOGYNAME` na linha de comando (sessão do SSH para um cluster do Linux, por exemplo) ou, usando a interface do usuário do Storm, selecione a topologia e, em seguida, selecione o botão __Interromper__.
 
 ##Componentes do Python com uma topologia do Clojure
 
-> [AZURE.NOTE]Este exemplo está disponível em https://github.com/Blackmist/hdinsight-python-storm-wordcount no diretório __ClojureTopology__.
+> [AZURE.NOTE] Este exemplo está disponível em [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount), no diretório __ClojureTopology__.
 
 Essa topologia foi criada usando [Leiningen](http://leiningen.org) para [criar um novo projeto do Clojure](https://github.com/technomancy/leiningen/blob/stable/doc/TUTORIAL.md#creating-a-project). Depois disso, foram feitas as seguintes modificações no projeto gerado automaticamente:
 
@@ -165,7 +167,7 @@ __Para compilar um uberjar e implantá-lo no HDInsight__, use as seguintes etapa
 
             Por fim, selecione __Enviar__ para iniciar a topologia.
 
-> [AZURE.NOTE]Após ser iniciada, uma topologia do Storm é executada até ser interrompida (eliminada). Para interromper a topologia, use o comando `storm kill TOPOLOGYNAME` na linha de comando (sessão do SSH para um cluster do Linux) ou, usando a interface do usuário do Storm, selecione a topologia e, em seguida, selecione o botão __Interromper__.
+> [AZURE.NOTE] Após ser iniciada, uma topologia do Storm é executada até ser interrompida (eliminada). Para interromper a topologia, use o comando `storm kill TOPOLOGYNAME` na linha de comando (sessão do SSH para um cluster do Linux) ou, usando a interface do usuário do Storm, selecione a topologia e, em seguida, selecione o botão __Interromper__.
 
 ##Estrutura Pyleus
 
@@ -175,7 +177,7 @@ __Para compilar um uberjar e implantá-lo no HDInsight__, use as seguintes etapa
 * __Serializador com base em MessagePack__: o MessagePack é usado como a serialização padrão, em vez de JSON. Isso pode resultar em mensagens mais rápidas entre os componentes
 * __Gerenciamento de dependência__: Virtualenv é usado para garantir que as dependências do Python sejam implantadas em todos os nós de trabalhador. Isso requer que o Virtualenv seja instalado em nós de trabalhador
 
-> [AZURE.IMPORTANT]O Pyleus requer o Storm em seu ambiente de desenvolvimento. O uso da distribuição base do Apache Storm 0.9.3 parece resultar em jars são incompatíveis com a versão do Storm fornecida com o HDInsight. Portanto, as etapas a seguir usam o cluster do HDInsight como o ambiente de desenvolvimento.
+> [AZURE.IMPORTANT] O Pyleus requer o Storm em seu ambiente de desenvolvimento. O uso da distribuição base do Apache Storm 0.9.3 parece resultar em jars são incompatíveis com a versão do Storm fornecida com o HDInsight. Portanto, as etapas a seguir usam o cluster do HDInsight como o ambiente de desenvolvimento.
 
 Você pode compilar com êxito as topologias do Pyleus de exemplo, usando o nó principal do HDInsight como o ambiente de compilação:
 
@@ -184,7 +186,7 @@ Você pode compilar com êxito as topologias do Pyleus de exemplo, usando o nó 
     * __Nome__: basta fornecer um nome amigável aqui
     * \_ URI de Script \_\_: use `https://hditutorialdata.blob.core.windows.net/customizecluster/pythonvirtualenv.sh` como o valor. Esse script instalará o Virtualenv do Python nos nós.
     
-        > [AZURE.NOTE]Ele também criará alguns diretórios que são usados pela estrutura Streamparse mais adiante neste documento.
+        > [AZURE.NOTE] Ele também criará alguns diretórios que são usados pela estrutura Streamparse mais adiante neste documento.
         
     * __Nimbus__: verifique essa entrada para que o script seja aplicado aos nós Nimbus (principais).
     * __Supervisor__: verifique essa entrada para que o script seja aplicado aos nós de supervisor (trabalhador)
@@ -230,7 +232,7 @@ Você pode compilar com êxito as topologias do Pyleus de exemplo, usando o nó 
 * __Gerenciamento de dependência__: Virtualenv é usado para garantir que as dependências do Python sejam implantadas em todos os nós de trabalhador. Isso requer que o Virtualenv seja instalado em nós de trabalhador
 * __Implantação remota__: Streamparse pode usar a automação do SSH para implantar componentes para nós de trabalhador e pode criará um túnel do SSH para se comunicar com o Nimbus. Portanto, você pode implantar facilmente de seu ambiente de desenvolvimento para um cluster baseado em Linux, como o HDInsight
 
-> [AZURE.IMPORTANT]O Streamparse depende de componentes que esperam [sinais do Unix](https://en.wikipedia.org/wiki/Unix_signal), que não estão disponíveis no Windows. Seu ambiente de desenvolvimento deve ser Linux, Unix ou OS X, e o cluster do HDInsight deve ser baseado em Linux.
+> [AZURE.IMPORTANT] O Streamparse depende de componentes que esperam [sinais do Unix](https://en.wikipedia.org/wiki/Unix_signal), que não estão disponíveis no Windows. Seu ambiente de desenvolvimento deve ser Linux, Unix ou OS X, e o cluster do HDInsight deve ser baseado em Linux.
 
 1. Ao provisionar um novo cluster do Storm no HDInsight, você deve garantir que o Virtualenv do Python esteja presente nos nós de cluster. Ao criar um novo cluster do HDInsight baseado em Linux, use as seguintes configurações de Ação de Script com [personalização de Cluster](hdinsight-hadoop-customize-cluster.md):
 
@@ -241,7 +243,7 @@ Você pode compilar com êxito as topologias do Pyleus de exemplo, usando o nó 
     
     Deixe as outras entradas em branco.
     
-    > [AZURE.WARNING]Você também deve usar uma __chave pública__ para proteger o usuário do SSH para o cluster do HDInsight, de modo a implantar remotamente usando o Streamparse.
+    > [AZURE.WARNING] Você também deve usar uma __chave pública__ para proteger o usuário do SSH para o cluster do HDInsight, de modo a implantar remotamente usando o Streamparse.
     >
     > Para obter mais informações sobre como usar chaves com o SSH no HDInsight, consulte um dos seguintes documentos:
     >
@@ -304,7 +306,7 @@ Quando o cluster do HDInsight baseado em Linux for criado, use as seguintes etap
     
         /tmp/ssh-rfSUL1ldCldQ/agent.1792
     
-    > [AZURE.NOTE]O caminho completo pode ser diferente, dependendo do sistema operacional. Por exemplo, no OS X, o caminho pode ser semelhante a `/private/tmp/com.apple.launchd.vq2rfuxaso/Listeners`. Porém, ele deverá retornar um caminho se o agente estiver em execução.
+    > [AZURE.NOTE] O caminho completo pode ser diferente, dependendo do sistema operacional. Por exemplo, no OS X, o caminho pode ser semelhante a `/private/tmp/com.apple.launchd.vq2rfuxaso/Listeners`. Porém, ele deverá retornar um caminho se o agente estiver em execução.
     
     Se nada for retornado, use o comando `ssh-agent` para iniciar o agente.
     
@@ -345,4 +347,4 @@ Neste documento, você aprendeu a usar componentes do Python de uma topologia do
 * [Como usar o Python para trabalhos de MapReduce de streaming](hdinsight-hadoop-streaming-python.md)
 * [Como usar UDF (Funções Definidas pelo Usuário) do Python no Pig e Hive](hdinsight-python.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

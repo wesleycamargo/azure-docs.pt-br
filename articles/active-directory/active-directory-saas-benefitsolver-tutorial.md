@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="02/02/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure ao Benefitsolver
@@ -82,10 +82,8 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Definir configurações de aplicativo](./media/active-directory-saas-benefitsolver-tutorial/IC804826.png "Definir configurações de aplicativo")
 
-    1.  Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no aplicativo Benefitsolver (por exemplo: “*http://azure-dev.benefitsolver.com*).
-    2.  Na caixa de texto **URL de Resposta**, digite a URL de AssertionConsumerService do Benefitsolver (por exemplo: “*https://dev.benefitsolver.com/benefits/BenefitSolverView?page\_name=single\_signon\_saml*”)).  
-
-        >[AZURE.NOTE]Você pode obter o valor real do seu ambiente com a equipe de suporte do Benefitsolver.
+    1.  Na caixa de texto **URL de Entrada**, digite ****http://azure.benefitsolver.com**.
+2.  Na caixa de texto **URL de Resposta**, digite ****https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**.
 
     3.  Clique em **Próximo**.
 
@@ -95,7 +93,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 5.  Envie o arquivo de metadados baixado para a equipe de suporte do Benefitsolver.
 
-    >[AZURE.NOTE]A equipe de suporte do Benefitsolver precisa fazer a configuração real do SSO. Você receberá uma notificação quando o SSO tiver sido habilitado para sua assinatura.
+    >[AZURE.NOTE] A equipe de suporte do Benefitsolver precisa fazer a configuração real do SSO. Você receberá uma notificação quando o SSO tiver sido habilitado para sua assinatura.
 
 6.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
 
@@ -122,11 +120,12 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     4.  Clique em **Concluído**.
 
 9.  Clique em **Aplicar alterações**.
+
 ##Configurando o provisionamento de usuários
 
-Para permitir que os usuários do AD do Azure façam logon no Benefitsolver, eles deverão ser provisionados no Benefitsolver. No caso do Benefitsolver, os usuários precisam ser criados manualmente pela equipe de suporte do Benefitsolver.
+Para permitir que os usuários do AD do Azure façam logon no Benefitsolver, eles deverão ser provisionados no Benefitsolver. No caso do Benefitsolver, os dados de funcionários são preenchidos em seu aplicativo por meio de um arquivo de censo do sistema HRIS (geralmente à noite).
 
->[AZURE.NOTE]É possível usar qualquer outra ferramenta de criação da conta de usuário do Benefitsolver ou as APIs fornecidas pelo Benefitsolver para provisionar as contas de usuário do AAD.
+>[AZURE.NOTE] É possível usar qualquer outra ferramenta de criação da conta de usuário do Benefitsolver ou as APIs fornecidas pelo Benefitsolver para provisionar as contas de usuário do AAD.
 
 ##Atribuindo usuários
 
@@ -146,4 +145,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

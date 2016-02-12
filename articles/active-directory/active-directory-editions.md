@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/25/2016"
+	ms.date="02/02/2016"
 	ms.author="markvi"/>
 
 # Edições do Active Directory do Azure
@@ -46,31 +46,29 @@ Uma série de recursos do Active Directory do Azure está disponível por meio d
 >-	O Azure Multi-Factor Authentication pode ser usado por usuário ou por provedores de autenticação. Para obter mais detalhes, veja [O que é o Azure Multi-Factor Authentication?](multi-factor-authentication.md)
 
 
+##Comparando os recursos disponíveis das edições Gratuita, Básico e Premium
+
 <br>
 
 | Tipo de recurso| Recursos| Edição Gratuita| Edição Básica| Premium Edition| Somente aplicativos do Office 365 |
 | --- | --- | --- | --- | --- | --- |
 | **Recursos comuns**| Objetos do diretório [1]| Até 500 mil objetos| Não há limite de objeto| Não há limite de objeto| Nenhum limite de objeto para contas de usuário do Office 365|
 | | [Gerenciamento de usuários e grupos (adicionar/atualizar/excluir), provisionamento baseado em usuário](active-directory-administer.md), [registro de dispositivos](active-directory-conditional-access-device-registration-overview.md)| ![Verificação][12]| ![Verificação][12]| ![Verificação][12]| ![Verificação][12]|
-| | [SSO para aplicativos SAAS/Aplicativos personalizados/aplicativos de Proxy de Aplicativo](active-directory-enable-sso-scenario.md)| 10 aplicativos por usuário [2]| 10 aplicativos por usuário [2]| sem limite| 10 aplicativos por usuário [2]|
+| | [SSO (Logon único)](active-directory-enable-sso-scenario.md)| 10 aplicativos por usuário [2] <br>(aplicativos SaaS pré-integrados e integrados pelo desenvolvedor)| 10 aplicativos por usuário [2] <br>(camada gratuita + aplicativos de proxy de aplicativo) | Sem limite [4] <br> (gratuito, camadas Básicas + modelos da Integração de Aplicativos de Autoatendimento)| 10 aplicativos por usuário [2] <br> (aplicativos SaaS pré-integrados e integrados pelo desenvolvedor)|
 | | [Alteração de senhas por autoatendimento para usuários de nuvem](active-directory-passwords-update-your-own-password.md)| ![Verificação][12]| ![Verificação][12]| ![Verificação][12]| ![Verificação][12]|
 | | [Connect – para sincronizar entre diretórios locais e o Active Directory do Azure](active-directory-aadconnect.md)| ![Verificação][12]| ![Verificação][12]| ![Verificação][12]| ![Verificação][12]|
-| | **Visualização**:[ colaboração B2B](active-directory-b2b-collaboration-overview.md)| ![Verificação][12]| ![Verificação][12]| ![Verificação][12]| ![Verificação][12]|
-| | [Segurança/relatórios de uso](active-directory-view-access-usage-reports.md)| Relatórios básicos| Relatórios básicos| Relatórios avançados| Relatórios básicos|
+| | [Segurança/relatórios de uso](active-directory-view-access-usage-reports.md)| Três relatórios básicos| Três relatórios básicos| Relatórios avançados| Três relatórios básicos|
 | **Recursos básicos e Premium**| [Provisionamento e gerenciamento de acesso a aplicativos com base em grupo](active-directory-accessmanagement-group-saasapps.md)| | ![Verificação][12]| ![Verificação][12]| |
 | | [Redefinição de senha por autoatendimento para usuários de nuvem](active-directory-passwords.md)| | ![Verificação][12]| ![Verificação][12]| ![Verificação][12]|
 | | [Identidade visual da empresa (Páginas de logon e personalização do Painel de Acesso)](active-directory-add-company-branding.md)| | ![Verificação][12]| ![Verificação][12]| ![Verificação][12]|
 | | [Proxy de Aplicativo](active-directory-application-proxy-get-started.md)| | ![Verificação][12]| ![Verificação][12]| |
 | | [Tempo de atividade de SLA de alta disponibilidade (99,9%)](https://azure.microsoft.com/support/legal/sla/)| | ![Verificação][12]| ![Verificação][12]| ![Verificação][12]|
-| **Recursos somente Premium**| Gerenciamento de grupo de autoatendimento/adições de aplicativo de autoatendimento/associação a grupos dinâmicos| | | ![Verificação][12]| |
-| | [Redefinição/alteração/desbloqueio de senha de autoatendimento com write-back local](active-directory-passwords-getting-started.md/#enable-users-to-reset-or-change-their-ad-passwords)| | | ![Verificação][12]| |
-| | [Multi-Factor Authentication (nuvem e local)](multi-factor-authentication.md)| | | ![Verificação][12]| Limitado à nuvem somente para aplicativos do Office 365|
+| **Recursos somente Premium**| [Gerenciamento de grupo de autoatendimento](active-directory-accessmanagement-self-service-group-management.md)/adição de aplicativo de autoatendimento/[associação a grupo dinâmico](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-AD--Introduction-to-Dynamic-Memberships-for-Groups)| | | ![Verificação][12]| |
+| | [Multi-Factor Authentication (nuvem e local)](multi-factor-authentication.md)| | | ![Verificação][12]| Nuvem limitada somente para aplicativos do Office 365|
 | | [Licenças de usuário do MIM (Microsoft Identity Manager) e servidor MIM [3]](http://www.microsoft.com/server-cloud/products/microsoft-identity-manager/default.aspx)| | | ![Verificação][12]| |
 | | [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)| | | ![Verificação][12]| |
 | | [Azure Active Directory Connect Health](active-directory-aadconnect-health.md)| | | ![Verificação][12]| |
 | | Substituição automática de senha para contas de grupo| | | ![Verificação][12]| |
-| | **Visualização**: acesso condicional| | | ![Verificação][12]| |
-| | **Visualização**: Privileged Identity Management| | | ![Verificação][12]| |
 | **Recursos relacionados ao Windows 10 e ao Ingresso no AD do Azure**| Adicione um dispositivo com Windows 10 à AD do Azure, ao Desktop SSO, ao Microsoft Passport para AD do Azure e à recuperação do Administrator Bitlocker| ![Verificação][12]| ![Verificação][12]| ![Verificação][12]| ![Verificação][12]|
 | | Registro automático do MDM, recuperação de autoatendimento do Bitlocker, administração local extra para dispositivos do Windows 10 via Ingresso no AD do Azure| | | ![Verificação][12]| |
 
@@ -84,6 +82,24 @@ Uma série de recursos do Active Directory do Azure está disponível por meio d
 
 [3] Direitos de software de servidor Microsoft Identity Manager são concedidos com licenças do Windows Server (qualquer edição). Como o Microsoft Identity Manager é executado no Sistema Operacional do Windows Server, desde que o servidor esteja executando uma cópia válida e licenciada do Windows Server, o Microsoft Identity Manager pode ser instalado e utilizado nesse servidor. Nenhuma outra licença separada é necessária para o servidor do Microsoft Identity Manager.
 
+[4] Integração de autoatendimento de qualquer aplicativo que dê suporte a autenticação baseada em formulários, a SCIM ou a SAML usando modelos fornecidos no menu da galeria de aplicativos. Para obter mais detalhes, leia este artigo. [https://azure.microsoft.com/pt-BR/documentation/articles/active-directory-saas-custom-apps
+
+
+##Recursos de visualização do AD do Azure
+
+Além dos recursos disponíveis das edições Gratuita, Básico e Premium, o AD do Azure também fornece um conjunto de recursos de visualização. Você pode usar os recursos de visualização para obter uma impressão das novidades que serão lançadas no futuro próximo e para determinar se esses recursos podem ajudar a melhorar seu ambiente.
+
+
+**Recursos de visualização disponíveis:**
+
+- [Colaboração B2B](active-directory-b2b-collaboration-overview.md)
+- Acesso Condicional
+- [Unidades Administrativas](active-directory-administrative-units-management.md)
+- Privileged Identity Management
+- [Integração de aplicativo de RH](active-directory-saas-workday-inbound-tutorial.md)
+
+
+
 
 
 ## O que vem a seguir
@@ -96,4 +112,4 @@ Uma série de recursos do Active Directory do Azure está disponível por meio d
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -1,20 +1,20 @@
 <properties
-pageTitle="Definir políticas de laboratório | Microsoft Azure"
-description="Aprenda a definir as políticas do laboratório, como os tamanhos das VMs, o número máximo de VMs por usuário e o desligamento automático."
-services="devtest-lab,virtual-machines"
-documentationCenter="na"
-authors="tomarcher"
-manager="douge"
-editor=""/>
+	pageTitle="Definir políticas de laboratório | Microsoft Azure"
+	description="Aprenda a definir as políticas do laboratório, como os tamanhos das VMs, o número máximo de VMs por usuário e o desligamento automático."
+	services="devtest-lab,virtual-machines"
+	documentationCenter="na"
+	authors="tomarcher"
+	manager="douge"
+	editor=""/>
 
 <tags
-ms.service="devtest-lab"
-ms.workload="na"
-ms.tgt_pltfrm="na"
-ms.devlang="na"
-ms.topic="article"
-ms.date="11/01/2015"
-ms.author="tarcher"/>
+	ms.service="devtest-lab"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/03/2016"
+	ms.author="tarcher"/>
 
 # Definir políticas de laboratório
 
@@ -100,4 +100,4 @@ A política de desligamento automático ajuda a minimizar o desperdício de labo
 
 1. Toque em **Salvar**.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

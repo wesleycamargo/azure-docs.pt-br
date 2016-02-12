@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/01/2016"
 	ms.author="curtand"/>
 
 
@@ -23,7 +23,7 @@ Este tópico mostra como instalar controladores de domínio adicionais (também 
 
 Você também pode estar interessado nestes tópicos relacionados:
 
--  Opcionalmente, você pode instalar uma nova floresta do Active Directory em uma rede virtual do Azure. Para essas etapas, consulte [Instalar uma nova floresta do Active Directory em uma rede virtual do Azure](../active-directory-new-forest-virtual-machine.md).
+-  Opcionalmente, você pode instalar uma nova floresta do Active Directory em uma rede virtual do Azure. Para essas etapas, consulte [Instalar uma nova floresta do Active Directory em uma rede virtual do Azure](../active-directory/active-directory-new-forest-virtual-machine.md).
 -  Para obter diretrizes conceituais sobre como instalar os Serviços de Domínio Active Directory (AD DS) em uma rede virtual do Azure, consulte [Diretrizes para implantar o Active Directory do Windows Server em máquinas virtuais do Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
 
@@ -31,7 +31,7 @@ Você também pode estar interessado nestes tópicos relacionados:
 
 Nesse cenário, os usuários externos precisam acessar os aplicativos que são executados ingressados no domínio. As VMs que executam os servidores de aplicativos e os controladores de domínio de réplica são instaladas em uma rede virtual do Azure. A rede virtual pode ser conectada à rede local por uma conexão [VPN site a site](../vpn-gateway/vpn-gateway-site-to-site-create.md), conforme mostrado no diagrama a seguir, ou você pode usar a [Rota Expressa](../../services/expressroute/) para uma conexão mais rápida.
 
-Os servidores de aplicativos e os controladores de domínio são implantados em [serviços de nuvem](../cloud-services-what-is.md) separados para distribuir o processamento de computação e em [conjuntos de disponibilidade](../virtual-machines/virtual-machines-manage-availability.md) para melhorar a tolerância a falhas. Os DCs se replicam entre si e com os DCs locais por meio da replicação do Active Directory. Nenhuma ferramenta de sincronização é necessária.
+Os servidores de aplicativos e os controladores de domínio são implantados em serviços de nuvem separados para distribuir o processamento de computação e em [conjuntos de disponibilidade](../virtual-machines/virtual-machines-manage-availability.md) para melhorar a tolerância a falhas. Os DCs se replicam entre si e com os DCs locais por meio da replicação do Active Directory. Nenhuma ferramenta de sincronização é necessária.
 
 ![][1]
 
@@ -121,4 +121,4 @@ Para obter mais informações sobre como usar o Windows PowerShell, consulte [In
 <!--Image references-->
 [1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

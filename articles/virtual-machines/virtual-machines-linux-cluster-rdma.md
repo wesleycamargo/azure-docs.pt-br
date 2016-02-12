@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="infrastructure-services"
- ms.date="01/21/2015"
+ ms.date="01/21/2016"
  ms.author="danlep"/>
 
 # Configurar um cluster de RDMA do Linux para executar aplicativos MPI
@@ -32,7 +32,7 @@ Este artigo mostra como configurar um cluster de RDMA do Linux no Azure com [má
 
 Estes são métodos que é possível usar para criar um cluster de RDMA do Linux com ou sem um agendador de trabalhos.
 
-* **HPC Pack** - criar um cluster do Microsoft HPC Pack no Azure e adicionar nós de computação que executam distribuições Linux com suporte. Determinados nós do Linux podem ser configurados para acessar a rede RDMA. Consulte [Introdução a nós de computação Linux em um cluster de HPC Pack no Azure](virtual-machines-linux-cluster.md).
+* **HPC Pack** - criar um cluster do Microsoft HPC Pack no Azure e adicionar nós de computação que executam distribuições Linux com suporte. Determinados nós do Linux podem ser configurados para acessar a rede RDMA. Consulte [Introdução a nós de computação Linux em um cluster de HPC Pack no Azure](virtual-machines-linux-cluster-hpcpack.md).
 
 * **Scripts da CLI do Azure**: como mostrado nas etapas no restante deste artigo, use a [CLI (Interface de Linha de Comando) do Azure](../xplat-cli-install.md) para Mac, Linux e Windows para criar scripts de implantação de uma rede virtual e os outros componentes necessários para criar um cluster do Linux. A CLI no modo de implantação clássica (Gerenciamento de Serviços) cria os nós do cluster em série, de modo que se você estiver implantando muitos nós de computação, a implantação poderá demorar alguns minutos para ser concluída.
 
@@ -426,4 +426,4 @@ Você verá uma saída semelhante à seguinte em um cluster ativo com dois nós.
 
 * Consulte a [Documentação do Intel MPI Library](https://software.intel.com/pt-BR/articles/intel-mpi-library-documentation/) para obter orientação sobre o Intel MPI.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -1,7 +1,7 @@
 <a name="tellmecs"></a>
 ## Fale-me sobre os serviços de nuvem
 
-Os Serviços de Nuvem é um exemplo de PaaS (Plataforma como Serviço). Como os [Serviços de Aplicativos](app-service-web-overview.md), essa tecnologia foi desenvolvida para oferecer suporte a aplicativos escalonáveis, confiáveis e baratos de operar. Assim como os [Serviços de Aplicativos](app-service-web-overview.md) são hospedados em VMs, também o são os Serviços de Nuvem. No entanto, você tem mais controle sobre as VMs. Você pode instalar seu próprio software nas VMs do Serviço de Nuvem e controlá-los remotamente.
+Os Serviços de Nuvem é um exemplo de PaaS (Plataforma como Serviço). Como o [Serviço de Aplicativo](../articles/app-service-web/app-service-web-overview.md), essa tecnologia foi desenvolvida para oferecer suporte a aplicativos escalonáveis, confiáveis e baratos. Assim como o Serviço de Aplicativo é hospedado em VMs, os Serviços de Nuvem também são. No entanto, você tem mais controle sobre as VMs. Você pode instalar seu próprio software nas VMs do Serviço de Nuvem e controlá-los remotamente.
 
 ![cs\_diagram](./media/cloud-services-choose-me-content/diagram.png)
 
@@ -14,7 +14,7 @@ Qualquer combinação dessas duas opções de hospedagem de VM ligeiramente dife
 * **Função Web** Executa o Windows Server com o seu aplicativo Web automaticamente implantado no IIS.
 * **Função de trabalho** Executa o Windows Server sem o IIS.
 
-Por exemplo, um aplicativo simples pode usar apenas uma função Web, enquanto um aplicativo mais complexo pode usar uma função Web para lidar com solicitações de entrada de usuários, em seguida, passar o trabalho que essas solicitações criam a uma função de trabalho para processamento. (Essa comunicação pode usar o [Barramento de Serviço](../articles/service-bus/fundamentals-service-bus-hybrid-solutions.md) ou as [Filas do Azure](../articles/storage/storage-introduction.md).)
+Por exemplo, um aplicativo simples pode usar apenas uma função Web, enquanto um aplicativo mais complexo pode usar uma função Web para lidar com solicitações de entrada de usuários, em seguida, passar o trabalho que essas solicitações criam a uma função de trabalho para processamento. (Essa comunicação pode usar o [Barramento de Serviço](../articles/service-bus/service-bus-fundamentals-hybrid-solutions.md) ou as [Filas do Azure](../articles/storage/storage-introduction.md).)
 
 Como a figura acima sugere, todas as VMs em um único aplicativo são executados no mesmo serviço de nuvem. Em razão disso, os usuários acessam o aplicativo por meio de um único endereço IP público, com a carga de solicitações balanceada automaticamente entre as VMs do aplicativo. A plataforma vai [escalar e implantar](../articles/cloud-services/cloud-services-how-to-scale.md) as VMs em um aplicativo de Serviços de Nuvem de uma maneira que evita um único ponto de falha de hardware.
 
@@ -30,4 +30,4 @@ Os Serviços de Nuvem também fornecem monitoramento. Assim como as Máquinas Vi
 
 A natureza da PaaS dos Serviços de Nuvem tem outras implicações também. Uma das mais importantes é que os aplicativos com base nessa tecnologia devem ser escritos para serem executados corretamente quando houver falha de alguma instância da função de trabalho ou da Web. Para isso, um aplicativo dos Serviços de Nuvem não deve manter o estado de suas próprias VMs no sistema de arquivos. Diferentemente das VMs criadas com as Máquinas Virtuais do Azure, as gravações feitas nas VMs dos Serviços de Nuvem não são persistentes; não há nada parecido com um disco de dados das Máquinas Virtuais. Um aplicativo dos Serviços de Nuvem deve gravar explicitamente todo o estado no Banco de Dados SQL, em blobs, tabelas ou em algum outro armazenamento externo. Criar aplicativos dessa forma facilita o dimensionamento deles e os torna mais resistente a falhas, que são metas importantes dos Serviços de Nuvem.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

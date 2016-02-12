@@ -25,8 +25,8 @@ Há duas maneiras de mapear seu domínio personalizado para um ponto de extremid
 	Um Registro CNAME é um recurso do DNS que mapeia um domínio de origem a um domínio de destino. Nesse caso, o domínio de origem corresponde a seu domínio e subdomínio personalizados (o subdomínio é sempre necessário). O domínio de destino é o ponto de extremidade da CDN.
 
 	O processo de mapeamento de seu domínio personalizado para o ponto de extremidade da CDN pode, no entanto, resultar em um breve período de inatividade para o domínio, enquanto você está registrando o domínio no Portal do Azure.
-     
-2. [Adicionar uma etapa intermediária de registro com **cdnverify**]((#register-a-custom-domain-for-an-azure-cdn-endpoint-using-the-intermediary-cdnverify-subdomain)
+	 
+2. [Adicionar uma etapa de registro intermediária com **cdnverify**](#register-a-custom-domain-for-an-azure-cdn-endpoint-using-the-intermediary-cdnverify-subdomain)
 
 	Se atualmente o seu domínio personalizado oferecer suporte a um aplicativo com um contrato de nível de serviço (SLA) que não permita um tempo de inatividade, então você pode usar o subdomínio **cdnverify** do Azure para fornecer uma etapa intermediária de registro para que os usuários possam acessar seu domínio durante o mapeamento do DNS.
 
@@ -83,4 +83,4 @@ Depois de registrar seu domínio personalizado usando um dos procedimentos acima
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

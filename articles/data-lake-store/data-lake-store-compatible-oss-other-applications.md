@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="02/03/2016"
    ms.author="nitinme"/>
 
 # Aplicativos de Big Data de software livre que funcionam com o Repositório Azure Data Lake
@@ -41,4 +41,4 @@ Este artigo lista os aplicativos de Big Data de software livre que funcionam com
 - [Visão geral do Repositório Azure Data Lake](data-lake-store-overview.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0204_2016-->

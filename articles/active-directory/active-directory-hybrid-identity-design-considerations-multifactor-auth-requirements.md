@@ -20,7 +20,8 @@
 
 Em um mundo de mobilidade, com os usuários que acessam dados e aplicativos na nuvem e de qualquer dispositivo, proteger essas informações tornou imprescindível. Todos os dias há um novo título sobre violação de segurança. No entanto, não há nenhuma garantia contra falhas desse tipo, a autenticação multifator, fornece uma camada adicional de segurança para ajudar a evitar essas violações. Comece pela avaliação das necessidades de organizações para autenticação multifator. Ou seja, o que a organização está tentando proteger. Essa avaliação é importante para definir os requisitos técnicos para configurar e habilitar os usuários de organizações para autenticação multifator.
 
->[AZURE.NOTE]Se você não estiver familiarizado com o MFA e o que ele faz, é altamente recomendável que você leia o artigo [O que é o Azure Multi-Factor Authentication?](multi-factor-authentication.md) antes de continuar a ler esta seção.
+>[AZURE.NOTE]
+Se você não estiver familiarizado com o MFA e o que ele faz, é altamente recomendável que você leia o artigo [O que é o Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md) antes de continuar a ler esta seção.
 
 Certifique-se de responder ao seguinte:
 
@@ -57,4 +58,4 @@ Depois de responder às perguntas anteriores, você poderá determinar se há au
 ## Consulte também
 [Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

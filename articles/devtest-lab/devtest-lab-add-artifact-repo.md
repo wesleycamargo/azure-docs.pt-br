@@ -1,6 +1,6 @@
-    <properties
-	pageTitle="Add a Git artifact repository to your DevTest Lab | Microsoft Azure"
-	description="Add a GitHub or Visual Studio Team Services Git repository for your custom artifacts to your lab"
+<properties
+	pageTitle="Adicionar um reposit처rio de artefatos do Git ao seu Laborat처rio Desenvolvimento/Teste | Microsoft Azure"
+	description="Adicione um reposit처rio Git do GitHub ou do Visual Studio Team Services para seus artefatos personalizados para o laborat처rio"
 	services="devtest-lab,virtual-machines,visual-studio-online"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/01/2015"
+	ms.date="02/03/2016"
 	ms.author="tarcher"/>
 
 # Adicionar um reposit처rio de artefatos do Git ao seu Laborat처rio de Desenvolvimento/Teste
@@ -115,4 +115,4 @@ Para adicionar um reposit처rio de artefatos Git do Visual Studio no seu laborat�
     3. Insira o **Token de Acesso Pessoal** salvo no reposit처rio de artefatos.
     4. Toque em **Salvar**.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="01/28/2016"
    ms.author="larryfr"/>
 
 # Analisar dados de sensor com o Apache Storm e com o HBase no HDInsight (Hadoop)
@@ -24,9 +24,9 @@ Saiba como usar o Apache Storm no HDInsight para processar dados de sensor a par
 
 ## Pré-requisitos
 
-* Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* Um [Apache Storm no cluster HDInsight](../hdinsight-storm-getting-started.md)
+* Um [Apache Storm no cluster HDInsight](hdinsight-apache-storm-tutorial-get-started.md)
 
 * [Node.js](http://nodejs.org/): usado para o painel da Web e para enviar dados de sensor ao Hub de Eventos.
 
@@ -256,7 +256,7 @@ No seu ambiente de desenvolvimento, use as etapas a seguir para executar a topol
 
 ### Publique o painel do site.
 
-1. Para implantá-lo em um site do Azure, siga as etapas em [Criar e implantar um site do Node.js no Azure](../web-sites-nodejs-develop-deploy-mac.md). Anote a URL do site, que será semelhante a **mywebsite.azurewebsites.net**.
+1. Para implantá-lo em um site do Azure, siga as etapas em [Criar e implantar um site do Node.js no Azure](../app-service-web/web-sites-nodejs-develop-deploy-mac.md). Anote a URL do site, que será semelhante a **mywebsite.azurewebsites.net**.
 
 2. Quando o site for criado, vá para o site no Portal Clássico do Azure e selecione a guia **Configurar**. Habilite o **Web Sockets** e clique em **Salvar** na parte inferior da página.
 
@@ -422,4 +422,4 @@ Você agora aprendeu a usar o Storm para ler dados do Hub de Eventos, armazenar 
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

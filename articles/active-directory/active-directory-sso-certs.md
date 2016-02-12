@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="liviodlc"
-	manager="terrylan"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/29/2015"
+	ms.date="02/02/2016"
 	ms.author="liviodlc"/>
 
 #Gerenciamento de certificados para logon único federado no Active Directory do Azure
@@ -72,10 +72,10 @@ As etapas de renovação mostradas abaixo idealmente não devem resultar em nenh
 
 	- No AD do Azure, marque a caixa de seleção de confirmação na parte inferior da caixa de diálogo para habilitar o novo certificado e, em seguida, clique em **Avançar** para enviar.
 
-	> [AZURE.IMPORTANT]O logon único para o aplicativo será desabilitado no momento em que uma dessas duas etapas for concluída, mas será habilitado novamente depois que a segunda etapa for concluída. Portanto, para minimizar o tempo de inatividade, prepare-se para realizar as duas etapas em um curto período de tempo entre si.
+	> [AZURE.IMPORTANT] O logon único para o aplicativo será desabilitado no momento em que uma dessas duas etapas for concluída, mas será habilitado novamente depois que a segunda etapa for concluída. Portanto, para minimizar o tempo de inatividade, prepare-se para realizar as duas etapas em um curto período de tempo entre si.
 
 	![Baixe e depois carregue o certificado](./media/active-directory-sso-certs/renew-config-app.PNG)
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

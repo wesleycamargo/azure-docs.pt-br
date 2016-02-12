@@ -1,12 +1,12 @@
 <properties
 	pageTitle="Como adicionar ou alterar funções de administrador do Azure | Microsoft Azure"
 	description="Descreve como adicionar ou alterar o Coadministrador, Administrador de Serviços e Administrador da Conta do Azure "
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="msmbaldwin"
 	editor="meerak"
-	/>
+	tags="billing"/>
 
 <tags
 	ms.service="billing"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="01/27/2016"
 	ms.author="genli"/>
 
 # Como adicionar ou alterar funções de administrador do Azure
@@ -66,4 +66,4 @@ Somente o Administrador da Conta pode alterar o Administrador de Serviços de um
 
 Para transferir a propriedade da conta do Azure para outra conta, confira [Transferindo uma assinatura do Azure](billing-subscription-transfer.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->
