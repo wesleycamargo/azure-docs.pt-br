@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/01/2015"
+   ms.date="02/03/2016"
    ms.author="bwren" />
 
 # Aprendendo sobre o fluxo de trabalho do Windows PowerShell
@@ -249,4 +249,4 @@ Para saber mais sobre pontos de verificação, confira [Adicionando pontos de ve
 
 - [Introduzindo o Fluxo de Trabalho do Windows PowerShell](http://technet.microsoft.com/library/jj134242.aspx) 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

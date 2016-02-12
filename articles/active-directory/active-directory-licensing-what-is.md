@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="01/05/2016"
+    ms.date="02/01/2016"
     ms.author="curtand"/>
 
 # O que é o licenciamento do Active Directory do Microsoft Azure?
@@ -43,7 +43,7 @@ Em geral, as informações de assinatura do AD do Azure são gerenciadas por mei
 
 > [AZURE.IMPORTANT] O AD Premium e Basic do Azure, bem como assinaturas do Enterprise Mobility Suite, restringem-se a seu diretório/locatário provisionado. As assinaturas não podem ser divididas entre diretórios nem usadas para dar direitos a usuários em outros diretórios. É possível mover uma assinatura entre diretórios, mas requer o envio de um tíquete de suporte ou cancelamento e nova compra, no caso de compras diretas.
 
-> [AZURE.IMPORTANT] Ao comprar o AD do Azure ou o Enterprise Mobility Suite por meio do Licenciamento por Volume, a ativação da assinatura ocorrerá automaticamente quando o contrato incluir outros serviços Online da Microsoft, por exemplo, o Office 365.
+> Ao comprar o AD do Azure ou o Enterprise Mobility Suite por meio do Licenciamento por Volume, a ativação da assinatura ocorrerá automaticamente quando o contrato incluir outros serviços Online da Microsoft, por exemplo, o Office 365.
 
 Recursos pagos do AD do Azure estendem a amplitude do diretório. Os exemplos incluem:- Atribuição baseada em grupo a aplicativos, que é habilitada no aplicativo específico que você está gerenciando. - Recursos avançados e de autoatendimento de gerenciamento de grupo estão disponíveis na configuração do diretório ou dentro do grupo específico. -Relatórios de segurança premium estão na guia Relatórios - Descoberta de aplicativos de nuvem aparece no portal do Azure, em Identidade.
 
@@ -129,7 +129,7 @@ Agora você pode estar pronto para configurar e usar alguns recursos do AD Premi
 - [Gerenciamento de grupo de autoatendimento](active-directory-accessmanagement-self-service-group-management.md)
 - [Azure AD Connect Health](active-directory-aadconnect-health.md)
 - [Atribuição de grupo a aplicativos](active-directory-manage-groups.md)
-- [Autenticação Multifator do Azure](multi-factor-authentication.md)
+- [Autenticação Multifator do Azure](../multi-factor-authentication/multi-factor-authentication.md)
 - [Compra direta de licenças do AD Premium do Azure](http://aka.ms/buyaadp)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

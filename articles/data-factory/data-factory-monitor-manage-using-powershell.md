@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Tutorial: Criar e monitorar uma data factory usando o PowerShell do Azure
@@ -26,7 +26,8 @@
 
 O tutorial [Introdução à Azure Data Factory][adf-get-started] mostra como criar e monitorar uma Azure Data Factory usando o [Portal do Azure][azure-portal]. Neste tutorial, você vai criar e monitorar uma Azure Data Factory usando cmdlets do PowerShell do Azure. O pipeline na data factory que você cria neste tutorial copia dados de um blob do Azure em um banco de dados SQL do Azure.
 
-> [AZURE.IMPORTANT]Leia o artigo [Visão geral do tutorial](data-factory-get-started.md) e conclua as etapas de pré-requisito antes de executá-lo.
+> [AZURE.IMPORTANT] 
+Leia o artigo [Visão geral do tutorial](data-factory-get-started.md) e conclua as etapas de pré-requisito antes de executá-lo.
 >   
 > Este artigo não cobre todos os cmdlets de Data Factory. Consulte [Referência de cmdlet de Data Factory](https://msdn.microsoft.com/library/dn820234.aspx) para obter uma documentação abrangente sobre os cmdlets de Data Factory.
   
@@ -45,7 +46,7 @@ Se você estiver usando o Azure PowerShell com a **versão < 1.0**, precisará u
 4. Alterne para o modo AzureResourceManager, pois os cmdlets da Azure Data Factory estão disponíveis nesse modo: **Switch-AzureMode AzureResourceManager**.
   
 
-##Nesse tutorial
+##Neste tutorial
 A tabela a seguir lista as etapas que você vai executar como parte do tutorial e as suas descrições.
 
 Etapa | Descrição
@@ -56,7 +57,7 @@ Etapa | Descrição
 [Etapa 4: Criar e executar um pipeline](#CreateAndRunAPipeline) | Nesta etapa, você criará um pipeline chamado **ADFTutorialPipeline** na data factory: **ADFTutorialDataFactoryPSH**. O pipeline terá uma **Atividade de Cópia** que copia dados de um blob do Azure em uma tabela de banco de dados de saída do Azure.
 [Etapa 5: monitorar conjuntos de dados e pipeline](#MonitorDataSetsAndPipeline) | Nesta etapa, você vai monitorar os conjuntos de dados e o pipeline usando o PowerShell do Azure.
 
-## <a name="CreateDataFactory"></a>Etapa 1: Criar uma Azure Data Factory
+## <a name="CreateDataFactory"></a> Etapa 1: criar uma data factory do Azure
 Nesta etapa, é possível utilizar o PowerShell do Azure para criar uma Azure Data Factory denominada **ADFTutorialDataFactoryPSH**.
 
 1. Inicie o Azure PowerShell e execute o comando a seguir. Mantenha o Azure PowerShell aberto até o fim deste tutorial. Se você fechá-la e reabri-la, precisará executar esses comandos novamente.
@@ -74,7 +75,7 @@ Nesta etapa, é possível utilizar o PowerShell do Azure para criar uma Azure Da
 
 	O nome da data factory do Azure deve ser globalmente exclusivo. Se você receber o erro: **O nome da data factory "ADFTutorialDataFactoryPSH" não está disponível**, altere o nome (por exemplo, yournameADFTutorialDataFactoryPSH). Use esse nome em vez de ADFTutorialFactoryPSH ao executar as etapas neste tutorial. Consulte o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos de Data Factory.
 
-	> [AZURE.NOTE]O nome do data factory pode ser registrado futuramente como um nome DNS e tornar-se publicamente visível.
+	> [AZURE.NOTE] O nome do data factory pode ser registrado futuramente como um nome DNS e tornar-se publicamente visível.
 
 ## <a name="CreateLinkedServices"></a>Etapa 2: Criar serviços vinculados
 Serviços vinculados vinculam armazenamentos de dados ou serviços de computação para uma data factory do Azure. Um repositório de dados pode ser um armazenamento do Azure, Banco de Dados SQL do Azure ou um banco de dados SQL Server local que contém os dados de entrada ou armazena dados de saída para um pipeline de Data Factory. Um serviço de computação é o serviço que processa os dados de entrada e gera dados de saída.
@@ -442,4 +443,4 @@ Consulte [Referência de cmdlet de Data Factory][cmdlet-reference] para obter um
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

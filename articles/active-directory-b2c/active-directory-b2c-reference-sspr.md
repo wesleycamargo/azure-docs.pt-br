@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/22/2015"
+	ms.date="01/28/2016"
 	ms.author="swkrish"/>
 
 # Visualização do Active Directory B2C do Azure: configurar a redefinição de senha por autoatendimento para os consumidores
@@ -34,6 +34,7 @@ Esse recurso permite aos consumidores (que tenham se registrado em contas locais
 
 Para testar, use o recurso "Executar agora" em qualquer política de entrada (que tenha contas locais como um provedor de identidade). Na página de entrada da conta local (em que você insere o endereço de email e a senha ou o nome de usuário e a senha), clique em **Não consegue acessar sua conta?** para verificar a experiência do consumidor.
 
-> [AZURE.NOTE]As páginas de redefinição de senha por autoatendimento podem ser personalizadas usando o [recurso de identidade visual da empresa](active-directory-add-company-branding.md).
+> [AZURE.NOTE]
+As páginas de redefinição de senha por autoatendimento podem ser personalizadas usando o [recurso de identidade visual da empresa](../active-directory/active-directory-add-company-branding.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

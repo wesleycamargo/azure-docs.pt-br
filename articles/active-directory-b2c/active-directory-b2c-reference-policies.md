@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="01/28/2016"
 	ms.author="swkrish"/>
 
 # Visualização do Active Directory B2C do Azure: estrutura extensível de política
@@ -73,10 +73,6 @@ Para habilitar a inscrição de seu aplicativo, você precisará criar uma polí
 3. Clique em **+Adicionar**, na parte superior da folha.
 4. O **Nome** determina o nome da política de inscrição usado pelo seu aplicativo. Por exemplo, insira "SiUp".
 5. Clique em **Provedores de identidade** e selecione "Endereço de email". Opcionalmente, você também pode selecionar provedores de identidade social, se já configurado. Clique em **OK**.
-
-> [AZURE.NOTE]
->Para contas locais, políticas de inscrição do AD B2C do Azure usam senhas "Fortes" (elas são definidas como "nunca expirar"). Consulte [Política de senha do AD do Azure](https://msdn.microsoft.com/library/azure/jj943764.aspx) para ver outras configurações (atualmente não utilizadas AD B2C do Azure).
-
 6. Clique em **Atributos de inscrição**. Aqui você escolhe os atributos que você deseja coletar do consumidor durante a inscrição. Por exemplo, selecione "Cidade/região", "Nome de exibição" e "CEP". Clique em **OK**.
 7. Clique em **Declarações do aplicativo**. Aqui você escolhe as declarações que deseja que sejam retornadas dos tokens enviados ao aplicativo após uma experiência de inscrição bem-sucedida. Por exemplo, selecione "Nome de exibição", "Provedor de identidade", "CEP", "Novo usuário" e "ID de objeto do usuário".
 8. Clique em **Criar**. Observe que a política recém-criada aparece como "**B2C\_1\_SiUp**" (o fragmento **B2C\_1\_** torna-se automaticamente pré-pendente) na folha **Políticas de inscrição**.
@@ -121,4 +117,4 @@ Para habilitar a edição de perfil no aplicativo, você precisará criar uma po
     > [AZURE.NOTE]
     É necessário um minuto para que a criação de políticas e as atualizações entrem em vigor.
 
-<!-----HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

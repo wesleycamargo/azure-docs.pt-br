@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="11/04/2015"
+    ms.date="02/01/2016"
     ms.author="ddove;sidneyh"/>
 
 # Visão geral da biblioteca de cliente do Banco de Dados Elástico
@@ -55,4 +55,4 @@ Para obter instruções sobre como usar a ferramenta de mesclagem/divisão, conf
 <!--Image references-->
 [1]: ./media/sql-database-elastic-database-client-library/glossary.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

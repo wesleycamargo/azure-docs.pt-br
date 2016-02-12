@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/18/2015"
+	ms.date="02/03/2016"
 	ms.author="tarcher"/>
 
 # Fornecimento contínuo de serviços de nuvem no Azure
@@ -77,7 +77,7 @@ Esta seção descreve como criar um comando do MSBuild que compila um pacote do 
 
 ## Etapa 3: compilar um pacote usando o TFS Team Build
 
-Se você tiver o TFS (Team Foundation Server) configurado como um controlador de compilação e o servidor de compilação estiver configurado como um computador de compilação TFS, você poderá configurar uma compilação automatizada para o pacote do Azure. Para obter informações sobre como configurar e usar o Team Foundation Server como um sistema de compilação, veja [Escalar horizontalmente seu sistema de compilação][]. Em particular, no procedimento a seguir, pressupomos que você tenha configurado seu servidor de compilação, conforme descrito em [Implantar e configurar um servidor de compilação][], e que tenha criado um projeto de equipe e criado um projeto de serviço de nuvem no projeto da equipe.
+Se você tiver o TFS (Team Foundation Server) configurado como um controlador de compilação e o servidor de compilação estiver configurado como um computador de compilação TFS, você poderá configurar uma compilação automatizada para o pacote do Azure. Para obter informações sobre como configurar e usar o Team Foundation Server como um sistema de compilação, veja [Escalar horizontalmente seu sistema de compilação][]. Em particular, o procedimento a seguir presume que você tenha configurado seu servidor de compilação, conforme descrito em [Implantar e configurar um servidor de compilação][], e que você tenha criado um projeto de equipe e criado um projeto de serviço de nuvem no projeto de equipe.
 
 Para configurar o TFS para compilar pacotes do Azure, execute as seguintes etapas:
 
@@ -139,7 +139,7 @@ Esta seção descreve como criar um script do Windows PowerShell que publicará 
 
 7.  Chame o script diretamente do PowerShell do Azure, ou conecte esse script à automação de compilação do host para ocorrer após a compilação do pacote.
 
-    >[AZURE.IMPORTANT]O script sempre vai excluir ou substituir as implantações existentes por padrão, se eles forem detectados. Isso é necessário para habilitar o fornecimento contínuo de automação onde não é possível nenhum aviso ao usuário.
+    >[AZURE.IMPORTANT] O script sempre vai excluir ou substituir as implantações existentes por padrão, se eles forem detectados. Isso é necessário para habilitar o fornecimento contínuo de automação onde não é possível nenhum aviso ao usuário.
 
     **Cenário de exemplo 1:** implantação contínua ao ambiente de preparo de um serviço:
 
@@ -177,7 +177,7 @@ Esta seção descreve como criar um script do Windows PowerShell que publicará 
 
     A Implantação de Atualização pode ser desabilitada no script ($enableDeploymentUpgrade = 0) ou transmitindo *-enableDeploymentUpgrade 0* como um parâmetro, o que altera o comportamento do script para excluir primeiro qualquer implantação existente e, em seguida, criar uma nova implantação.
 
-    >[AZURE.IMPORTANT]O script sempre vai excluir ou substituir as implantações existentes por padrão, se eles forem detectados. Isso é necessário para habilitar o fornecimento contínuo de automação onde é possível sem nenhum aviso ao usuário/operador.
+    >[AZURE.IMPORTANT] O script sempre vai excluir ou substituir as implantações existentes por padrão, se eles forem detectados. Isso é necessário para habilitar o fornecimento contínuo de automação onde é possível sem nenhum aviso ao usuário/operador.
 
 ## Etapa 5: publicar um pacote usando o TFS Team Build
 
@@ -573,4 +573,4 @@ Para habilitar a depuração remota ao usar a entrega contínua, consulte [Habil
   [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
   [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

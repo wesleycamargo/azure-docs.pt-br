@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Tutorial: Integração do Salesforce ao Active Directory do Azure | Microsoft Azure"
-   description="Saiba como usar o Salesforce com o Active Directory do Azure para habilitar logon único, provisionamento automatizado e muito mais!"
-   services="active-directory"
-   documentationCenter=""
-   authors="liviodlc"
-   manager="TerryLanfear"
-   editor=""/>
+    pageTitle="Tutorial: Integração do Active Directory do Azure com o Salesforce | Microsoft Azure"
+    description="Saiba como usar o Salesforce com o Active Directory do Azure para habilitar logon único, provisionamento automatizado e muito mais!"
+    services="active-directory"
+    documentationCenter=""
+    authors="liviodlc"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="10/20/2015"
-   ms.author="liviodlc"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="02/02/2016"
+    ms.author="liviodlc"/>
 
 #Tutorial: Como integrar o Salesforce ao Active Directory do Azure
 
@@ -26,7 +26,7 @@ Este tutorial mostrará como conectar o ambiente Salesforce ao Active Directory 
 
 2. Você deve ter um locatário válido em [Salesforce.com](https://www.salesforce.com/).
 
-> [AZURE.IMPORTANT]Se você estiver usando uma conta Salesforce.com de **avaliação **, não será possível configurar o provisionamento automatizado de usuários. Contas de avaliação não têm o acesso à API necessária habilitado até que sejam compradas.
+> [AZURE.IMPORTANT] Se você estiver usando uma conta Salesforce.com de **avaliação **, não será possível configurar o provisionamento automatizado de usuários. Contas de avaliação não têm o acesso à API necessária habilitado até que sejam compradas.
 > 
 > Você pode contornar essa limitação usando uma [conta de desenvolvedor gratuita](https://developer.salesforce.com/signup) para concluir este tutorial.
 
@@ -60,7 +60,7 @@ Você pode acompanhar este tutorial usando os vídeos abaixo.
 
 	![Clique em Adicionar para adicionar um novo aplicativo.][2]
 
-5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo a partir da galeria**.
+5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 
 	![Clique em Adicionar um aplicativo da galeria.][3]
 
@@ -84,7 +84,7 @@ Você pode acompanhar este tutorial usando os vídeos abaixo.
 
 	![Selecione Logon Único do AD do Azure][7]
 
-	> [AZURE.NOTE]Para saber mais sobre as diferentes opções de logon único, [clique aqui](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)
+	> [AZURE.NOTE] Para saber mais sobre as diferentes opções de logon único, [clique aqui](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)
 
 4. Na página **Definir Configurações de Aplicativo**, preencha a **URL de Logon** digitando a URL do domínio do Salesforce usando o seguinte formato:
  - Conta empresarial: `https://<domain>.my.salesforce.com`
@@ -106,7 +106,7 @@ Você pode acompanhar este tutorial usando os vídeos abaixo.
 
 	![Clique no botão Editar][11]
 
-	> [AZURE.NOTE]Se não for possível habilitar as configurações de logon único para a conta do Salesforce, talvez seja necessário entrar em contato com o suporte do Salesforce para que o recurso seja habilitado.
+	> [AZURE.NOTE] Se não for possível habilitar as configurações de logon único para a conta do Salesforce, talvez seja necessário entrar em contato com o suporte do Salesforce para que o recurso seja habilitado.
 
 9. Selecione **SAML Habilitado** e, em seguida, clique em **Salvar**.
 
@@ -152,7 +152,7 @@ Você pode acompanhar este tutorial usando os vídeos abaixo.
 
 	![Selecione a configuração de SSO][17]
 
-	> [AZURE.NOTE]Se mais de um serviço de autenticação estiver selecionado, quando os usuários tentarem iniciar o logon único em seu ambiente do Salesforce, serão solicitados a selecionar o serviço de autenticação com o qual desejam entrar. Se você não quiser que isso aconteça, deverá **deixar todos os outros serviços de autenticação desmarcados**.
+	> [AZURE.NOTE] Se mais de um serviço de autenticação estiver selecionado, quando os usuários tentarem iniciar o logon único em seu ambiente do Salesforce, serão solicitados a selecionar o serviço de autenticação com o qual desejam entrar. Se você não quiser que isso aconteça, deverá **deixar todos os outros serviços de autenticação desmarcados**.
 
 15. No AD do Azure, marque a caixa de seleção de confirmação de configuração de logon único para habilitar o certificado que você carregou para o Salesforce. Em seguida, clique em **Próximo**.
 
@@ -174,7 +174,7 @@ Você pode acompanhar este tutorial usando os vídeos abaixo.
 
 	![Digite o nome de usuário ou a senha de administrador][21]
 
-	> [AZURE.NOTE]Se você estiver configurando um ambiente de produção, a prática recomendada é criar uma nova conta de administrador no Salesforce especificamente para esta etapa. Essa conta deve ter o perfil do **Administrador de Sistema** atribuído a ela no Salesforce.
+	> [AZURE.NOTE] Se você estiver configurando um ambiente de produção, a prática recomendada é criar uma nova conta de administrador no Salesforce especificamente para esta etapa. Essa conta deve ter o perfil do **Administrador de Sistema** atribuído a ela no Salesforce.
 
 3. Para obter o token de segurança do Salesforce, abra uma nova guia e entre na mesma conta de administrador do Salesforce. No canto superior direito da página, clique em seu nome e, em seguida, clique em **Minhas Configurações**.
 
@@ -216,7 +216,7 @@ Você pode acompanhar este tutorial usando os vídeos abaixo.
 
 		![Confirm the assignment.][29]
 
-		> [AZURE.IMPORTANT]  Se você estiver provisionando para um ambiente de **desenvolvedor** do Salesforce, terá um número bem limitado de licenças disponíveis para cada perfil. Portanto, é melhor provisionar usuários para o perfil **Usuário Chatter Free**, que tem 4.999 licenças disponíveis.
+		> [AZURE.IMPORTANT] If you are provisioning to a Salesforce **developer** environment, you will have a very limited number of licenses available for each profile. Therefore, it's best to provision users to the **Chatter Free User** profile, which has 4,999 licenses available.
 
 4. Para testar suas configurações de logon único, abra o Painel de Acesso em [https://myapps.microsoft.com](https://myapps.microsoft.com/), depois entre na conta de teste e clique em **Salesforce**.
 
@@ -253,4 +253,4 @@ Você pode acompanhar este tutorial usando os vídeos abaixo.
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

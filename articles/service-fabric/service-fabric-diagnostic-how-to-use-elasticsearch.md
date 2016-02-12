@@ -16,7 +16,7 @@
    ms.date="01/20/2016"
    ms.author="karolz@microsoft.com"/>
 
-# Usar o ElasticSearch como um repositório de rastreamento do aplicativo do Service Fabric
+# Usar o Elasticsearch como um repositório de rastreamento do aplicativo Service Fabric
 ## Introdução
 Este artigo descreve como os aplicativos do [Service Fabric do Azure](https://azure.microsoft.com/documentation/services/service-fabric/) podem usar o **Elasticsearch** e o **Kibana** para armazenamento de rastreamento do aplicativo, indexação e pesquisa. O [Elasticsearch](https://www.elastic.co/guide/index.html) é um mecanismo de análise e pesquisa em tempo real escalonável, distribuído de software livre adequado para essa tarefa. Ele pode ser instalado em máquinas virtuais Windows ou Linux em execução no Microsoft Azure. O Elasticsearch pode processar de maneira muito eficiente rastreamentos *estruturados* produzidos usando tecnologias como **ETW (Rastreamento de Eventos para Windows)**.
 
@@ -24,11 +24,9 @@ O ETW é usado pelo tempo de execução do Service Fabric para originar informa�
 
 Para os rastreamentos que aparecerão em Elasticsearch, eles precisam ser capturados nos nós de cluster do Service Fabric em tempo real (enquanto o aplicativo estiver em execução) e enviados ao ponto de extremidade Elasticsearch. Há duas opções principais para a captura de rastreamento:
 
-+ **Captura de rastreamento dentro do processo** 
-o aplicativo, ou mais precisamente, o processo de serviço, é responsável por enviar os dados de diagnóstico para o repositório de rastreamento (Elasticsearch).
++ **Captura de rastreamento dentro do processo** o aplicativo, ou mais precisamente, o processo de serviço, é responsável por enviar os dados de diagnóstico para o repositório de rastreamento (Elasticsearch).
 
-+ **Captura de rastreamento fora do processo**
-um agente separado captura rastreamentos dos processos de serviço e os envia para o repositório de rastreamento.
++ **Captura de rastreamento fora do processo** um agente separado captura rastreamentos dos processos de serviço e os envia para o repositório de rastreamento.
 
 A seguir, descreveremos como configurar o Elasticsearch no Azure, discutiremos os prós e contras de ambas as opções de captura e explicaremos como configurar um serviço do Service Fabric para enviar dados para o Elasticsearch.
 
@@ -39,7 +37,7 @@ A maneira mais simples de configurar o serviço Elasticsearch no Azure é por me
 Aqui, usaremos outro modelo chamado **ES-MultiNode** da [ramificação de ELK de padrões e práticas da Microsoft](https://github.com/mspnp/semantic-logging/tree/elk/). Esse modelo é um pouco mais fácil de usar e cria um cluster do Elasticsearch protegido pela autenticação HTTP básica por padrão. Antes de continuar, baixe o [Repositório de ELK de padrões e práticas da Microsoft](https://github.com/mspnp/semantic-logging/tree/elk/) do GitHub em seu computador (clonando o repositório ou baixando um arquivo zip). O modelo ES-MultiNode está localizado na pasta com o mesmo nome.
 >[AZURE.NOTE] O modelo ES-MultiNode e os scripts associados no momento dão suporte à versão 1.7 do Elasticsearch. O suporte para Elasticsearch 2.0 será incluído em uma data posterior.
 
-### Preparar um computador para executar scripts de instalação ElasticSearch
+### Preparar um computador para executar scripts de instalação do ElasticSearch
 A maneira mais fácil de usar o modelo ES-MultiNode é por meio de um script do Azure PowerShell fornecido chamado `CreateElasticSearchCluster`. Para usar esse script, você precisa instalar os módulos do PowerShell e uma ferramenta chamada **openssl**. Essa ferramenta é necessária para criar uma chave SSH que pode ser usada para administrar o cluster do Elasticsearch remotamente.
 
 Observe que o script `CreateElasticSearchCluster` foi desenvolvido para facilitar o uso com o modelo ES-MultiNode em um computador Windows. É possível usar o modelo em um computador diferente do Windows, mas esse cenário está além do escopo deste artigo.
@@ -248,4 +246,4 @@ Os valores de `serviceUri`, `userName` e `password` correspondem ao endereço do
 [1]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/listener-lib-references.png
 [2]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/kibana.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

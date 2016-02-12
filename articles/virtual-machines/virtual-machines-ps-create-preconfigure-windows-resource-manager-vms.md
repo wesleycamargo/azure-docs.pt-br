@@ -271,7 +271,7 @@ Para determinar os possíveis valores da cadeia de caracteres da VM para a opç�
 	$avName="<availability set name>"
 	Get-AzureRmVMSize -ResourceGroupName $rgName -AvailabilitySetName $avName | Select Name
 
-> [AZURE.NOTE]Atualmente, com o Gerenciador de Recursos, é possível apenas adicionar uma máquina virtual a um conjunto de disponibilidade durante sua criação.
+> [AZURE.NOTE] Atualmente, com o Gerenciador de Recursos, é possível apenas adicionar uma máquina virtual a um conjunto de disponibilidade durante sua criação.
 
 Para adicionar outro disco de dados à VM, copie estas linhas em seu conjunto de comandos e especifique as configurações de disco.
 
@@ -391,8 +391,8 @@ Veja o conjunto de comandos do Azure PowerShell para criar essa máquina virtual
 
 [Implantar e gerenciar máquinas virtuais do Azure usando modelos de Gerenciador de Recursos e o PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 
-[Criar uma máquina virtual do Windows com um modelo do Gerenciador de Recursos e o PowerShell](virtual-machines-create-windows-powershell-resource-manager-template-simple)
+[Criar uma máquina virtual do Windows com um modelo do Gerenciador de Recursos e o PowerShell](virtual-machines-create-windows-powershell-resource-manager-template.md)
 
-[Como instalar e configurar o PowerShell do Azure](../install-configure-powershell.md)
+[Como instalar e configurar o PowerShell do Azure](powershell-install-configure.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

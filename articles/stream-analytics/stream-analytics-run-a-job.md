@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"/>
 
 # Como executar um trabalho de streaming no Stream Analytics do Azure
@@ -31,7 +31,7 @@ Para iniciar o trabalho:
 
     ![Botão Iniciar trabalho do Portal de Visualização do Azure](./media/stream-analytics-run-a-job/4-stream-analytics-run-a-job.png)
 
-2.	Especifique um valor de **Iniciar Saída** para determinar quando esse trabalho começará a produzir uma saída. A configuração padrão para trabalhos que não foram iniciados anteriormente é **Hora de Início do Trabalho**, o que significa que o trabalho começará imediatamente a processar os dados. Você também pode especificar uma hora **Personalizada** no passado (para o consumo de dados históricos) ou no futuro (para atrasar o processamento até um momento futuro). Para os casos em que um trabalho foi anteriormente iniciado e interrompido, a opção **Hora da Última Interrupção** está disponível para retomar o trabalho da última hora de saída e evitar a perda de dados.
+2.	Especifique um valor de **Iniciar Saída** para determinar quando esse trabalho começará a produzir uma saída. A configuração padrão para trabalhos que não foram iniciados anteriormente é **Hora de Início do Trabalho**, o que significa que o trabalho começará imediatamente a processar os dados. Você também pode especificar um tempo **Personalizado** no passado (para o consumo de dados históricos) ou no futuro (para atrasar o processamento até um momento futuro). Para os casos em que um trabalho foi anteriormente iniciado e interrompido, a opção **Hora da Última Interrupção** está disponível para retomar o trabalho da última hora de saída e evitar a perda de dados.
 
     ![Hora de início do trabalho de streaming](./media/stream-analytics-run-a-job/2-stream-analytics-run-a-job.png)
 
@@ -54,4 +54,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Chamar Programas MapReduce da Data Factory
@@ -103,7 +103,7 @@ O pipeline neste exemplo executa o programa de contagem de palavras de mapa/redu
 ### Serviços vinculados
 Primeiro, crie um serviço vinculado para vincular o armazenamento do Azure que é usado pelo cluster do Azure HDInsight à fábrica de dados do Azure. Se você copiar/colar o código a seguir, não se esqueça de substituir o **nome da conta** e a **chave de conta** pelo nome e chave do armazenamento do Azure.
 
-#### Serviço vinculado a armazenamento
+#### Serviço vinculado de armazenamento do Azure
 
 	{
 	    "name": "StorageLinkedService",
@@ -220,4 +220,4 @@ linkedServiceName | refere-se ao serviço vinculado do HDInsight criado anterior
 [Azure Classic Portal]: http://portal.azure.com
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

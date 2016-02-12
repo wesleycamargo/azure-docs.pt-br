@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="01/15/2016"
+ms.date="02/01/2016"
 ms.author="larryfr"/>
 
 #Usar Assinaturas de Acesso Compartilhado do Armazenamento do Azure para restringir o acesso a dados com o HDInsight
@@ -34,7 +34,7 @@ As Assinaturas de Acesso Compartilhado (SAS) são recursos das contas de armazen
 
 * Um cluster HDInsight baseado em Linux OU o [Azure PowerShell][powershell]- se você tiver um cluster baseado em Linux existente, poderá usar o Ambari para adicionar uma Assinatura de Acesso Compartilhado ao cluster. Caso contrário, você poderá usar o Azure PowerShell para criar um novo cluster e adicionar uma Assinatura de Acesso Compartilhado durante a criação do cluster.
 
-* Os arquivos de exemplo de [https://github.com/Blackmist/hdinsight-azure-storage-sas](https://github.com/Blackmist/hdinsight-azure-storage-sas). Esse repositório possui o seguinte:
+* Os arquivos de exemplo de [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature). Esse repositório possui o seguinte:
 
     * Um projeto do Visual Studio que pode criar um contêiner de armazenamento, a política armazenada e a SAS a ser usada com o HDInsight
     
@@ -60,7 +60,7 @@ A diferença entre as duas formas é importante para um cenário fundamental: re
 
 4. A chave de conta usada para criar as SAS é regenerada. Observe que isso causará uma falha de autenticação de todos os componentes do aplicativo que usam essa chave de conta até que eles sejam atualizados para usar a outra chave de conta válida ou a chave de conta recém-regenerada.
 
-> [AZURE.IMPORTANT]Um URI de assinatura de acesso compartilhado é associado com a chave de conta usada para criar a assinatura e a política de acesso armazenado associada (se houver). Se nenhuma política de acesso armazenado for especificada, a única maneira de revogar uma assinatura de acesso compartilhado é alterar a chave da conta.
+> [AZURE.IMPORTANT] Um URI de assinatura de acesso compartilhado é associado com a chave de conta usada para criar a assinatura e a política de acesso armazenado associada (se houver). Se nenhuma política de acesso armazenado for especificada, a única maneira de revogar uma assinatura de acesso compartilhado é alterar a chave da conta.
 
 É recomendável que você sempre use as políticas de acesso armazenadas para que você possa revogar assinaturas ou estender a data de vencimento conforme necessário. As etapas deste documento usam políticas de acesso armazenado para gerar a SAS.
 
@@ -68,7 +68,7 @@ Para saber mais sobre as Assinaturas de Acesso Compartilhado, consulte [Noções
 
 ##Criar uma política armazenada e gerar uma SAS
 
-No momento, você deve criar uma política armazenada programaticamente. Você pode encontrar o exemplo C# e Python sobre como criar uma política armazenada e SAS em [https://github.com/Blackmist/hdinsight-azure-storage-sas](https://github.com/Blackmist/hdinsight-azure-storage-sas).
+No momento, você deve criar uma política armazenada programaticamente. Você pode encontrar o exemplo em C# e em Python de criação de uma política armazenada e de SAS em [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature).
 
 ###Criar uma política armazenada e uma SAS usando C#
 
@@ -169,7 +169,7 @@ Um exemplo de criação de um cluster HDInsight que use a SAS foi incluído no d
     
     Se você estiver criando um cluster baseado em Linux, também será solicitado um nome de conta de usuário SSH e uma senha. Isso é usado para fazer logon remoto no cluster.
     
-    > [AZURE.IMPORTANT]Quando o nome de usuário ou a senha HTTP/s ou SSH forem solicitados, você deverá fornecer uma senha que atenda a estes critérios:
+    > [AZURE.IMPORTANT] Quando o nome de usuário ou a senha HTTP/s ou SSH forem solicitados, você deverá fornecer uma senha que atenda a estes critérios:
     >
     > - Deve ter pelo menos 10 caracteres de comprimento
     > - Deve conter pelo menos um dígito
@@ -201,7 +201,7 @@ Se você tiver um cluster baseado em Linux existente, poderá adicionar a SAS à
 
     Clique em __OK__ quando as alterações forem concluídas.
 
-    > [AZURE.IMPORTANT]Isso salva as alterações de configuração, mas você deverá reiniciar vários serviços antes que a alteração entre em vigor.
+    > [AZURE.IMPORTANT] Isso salva as alterações de configuração, mas você deverá reiniciar vários serviços antes que a alteração entre em vigor.
 
 6. Na IU da Web do Ambari, escolha __HDFS__ na lista à esquerda e selecione __Reiniciar Todos__ na lista suspensa __Ações de Serviço__ à direita. Quando solicitado, selecione __Ativar o modo de manutenção__ e selecione \_\_Conforme Reiniciar Todos".
 
@@ -290,4 +290,4 @@ Agora que você aprendeu a adicionar armazenamento de acesso limitado ao seu clu
 
 [powershell]: ../powershell-install-configure.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

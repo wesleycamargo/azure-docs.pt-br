@@ -86,7 +86,7 @@ Se não conseguir acessar o aplicativo, verifique o seguinte:
 - Para máquinas virtuais criadas usando a API de Gerenciamento de Serviços, cuja configuração do ponto de extremidade da máquina virtual está permitindo tráfego de entrada, especialmente o protocolo (TCP ou UDP) e os números de porta pública e privada. Para obter mais informações, confira [Como configurar pontos de extremidade para uma Máquina Virtual](virtual-machines-set-up-endpoints.md)
 - Para máquinas virtuais criadas usando a API de Gerenciamento de Serviços, as ACLs (Listas de Controle de Acesso) no ponto de extremidade não estão impedindo o tráfego de entrada da Internet. Para obter mais informações, confira [Como configurar pontos de extremidade para uma Máquina Virtual](virtual-machines-set-up-endpoints.md)
 - Para máquinas virtuais criadas no Gerenciador de Recursos, que a configuração da regra NAT de entrada da máquina virtual está permitindo o tráfego de entrada, especialmente o protocolo (TCP ou UDP) e os números de porta pública e privada.
-- Se os Grupos de segurança de rede permitem o tráfego de saída de respostar e de entrada de solicitações. Para obter mais informações, consulte [O que é um NSG (Grupo de Segurança de Rede)?](virtual-networks-nsg.md).
+- Se os Grupos de segurança de rede permitem o tráfego de saída de respostar e de entrada de solicitações. Para obter mais informações, consulte [O que é um NSG (Grupo de Segurança de Rede)?](../virtual-network/virtual-networks-nsg.md).
 
 Se a máquina virtual ou ponto de extremidade for um membro de um conjunto com balanceamento de carga:
 
@@ -125,4 +125,4 @@ Se tiver executado as etapas acima neste artigo e precisar de mais ajuda para co
 
 [Solucionar problemas de conexões SSH (Secure Shell) para uma máquina virtual do Azure baseada em Linux](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

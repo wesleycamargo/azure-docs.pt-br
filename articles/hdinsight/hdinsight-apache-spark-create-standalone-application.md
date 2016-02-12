@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="02/01/2016" 
 	ms.author="nitinme"/>
 
 
@@ -84,13 +84,13 @@ Se a instalação do IntelliJ IDEA não solicitar para habilitar o plug-in Scala
 	4. Clique em **Aplicar** e, em seguida, clique em **OK**. 
 
 
-8. Atualize o arquivo de origem Scala para incluir o código do aplicativo. Abra e substitua o código de exemplo existente pelo código a seguir e salve as alterações.
+8. Atualize o arquivo de origem Scala para incluir o código do aplicativo. Abra e substitua o código de exemplo existente pelo código a seguir e salve as alterações. Esse código lê os dados no HVAC.csv (disponível em todos os clusters Spark HDInsight), recupera as linhas com apenas um dígito na sexta coluna e grava a saída em **/HVACOut** no contêiner padrão de armazenamento do cluster.
 
 		package com.microsoft.spark.example
 
 		import org.apache.spark.SparkConf
 		import org.apache.spark.SparkContext
-				
+		
 		/**
 		  * Test IO to wasb
 		  */
@@ -101,11 +101,13 @@ Se a instalação do IntelliJ IDEA não solicitar para habilitar o plug-in Scala
 		
 		    val rdd = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 		
-		    val rdd1 = rdd.map(s => s.split(",")).filter(s => s(0) != "ID")
+		    //find the rows which have only one digit in the 7th column in the CSV
+		    val rdd1 = rdd.filter(s => s.split(",")(6).length() == 1)
 		
 		    rdd1.saveAsTextFile("wasb:///HVACout")
 		  }
 		}
+
 
 9. Atualize o pom.xml.
 
@@ -192,4 +194,4 @@ Para executar o aplicativo no cluster, faça o seguinte:
 
 * [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

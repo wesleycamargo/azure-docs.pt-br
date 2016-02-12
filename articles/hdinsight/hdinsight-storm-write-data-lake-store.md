@@ -13,14 +13,14 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="01/14/2016"
+ms.date="01/28/2016"
 ms.author="larryfr"/>
 
 #Usar o Armazenamento do Azure Data Lake com o Apache Storm com HDInsight
 
 O Armazenamento do Azure Data Lake é um serviço de armazenamento de nuvem compatível com HDFS que fornece confiabilidade, disponibilidade, durabilidade e alta taxa de transferência de dados. Neste documento, você aprenderá como usar uma topologia Storm baseada Java para gravar dados no Armazenamento do Azure Data Lake usando o componente [HdfsBolt](http://storm.apache.org/javadoc/apidocs/org/apache/storm/hdfs/bolt/HdfsBolt.html), que é fornecido como parte do Apache Storm.
 
-> [AZURE.IMPORTANT]A topologia de exemplo usada neste documento depende dos componentes incluídos no Storm em clusters HDInsight e pode exigir modificações para funcionar com o Armazenamento do Azure Data Lake quando usado com outros clusters do Apache Storm.
+> [AZURE.IMPORTANT] A topologia de exemplo usada neste documento depende dos componentes incluídos no Storm em clusters HDInsight e pode exigir modificações para funcionar com o Armazenamento do Azure Data Lake quando usado com outros clusters do Apache Storm.
 
 ##Pré-requisitos
 
@@ -63,7 +63,7 @@ O ADLStoreBolt é o nome usado para a instância de HdfsBolt na topologia que gr
 
 Especificamente, quando você cria um cluster HDInsight, pode associá-lo a um Armazenamento do Azure Data Lake. Isso grava as entradas no site principal para o Armazenamento do Data Lake selecionado, que são usadas por componentes, como, cliente do hadoop e hdfs do hadoop para permitir a comunicação com o Armazenamento do Data Lake.
 
-> [AZURE.NOTE]A Microsoft contribuiu com o código para os projetos de Storm e Apache Hadoop que permite a comunicação com o Armazenamento de Blobs do Azure e do Azure Data Lake, mas essa funcionalidade não pode ser incluída por padrão nas outras distribuições de Hadoop e Storm.
+> [AZURE.NOTE] A Microsoft contribuiu com o código para os projetos de Storm e Apache Hadoop que permite a comunicação com o Armazenamento de Blobs do Azure e do Azure Data Lake, mas essa funcionalidade não pode ser incluída por padrão nas outras distribuições de Hadoop e Storm.
 
 A configuração para HdfsBolt na topologia é a seguinte:
 
@@ -96,9 +96,9 @@ Como a gravação no Armazenamento do Data Lake usa o HdfsBolt e é apenas uma a
 
 ##Criar um cluster HDInsight e um Armazenamento do Data Lake
 
-Crie um novo Storm no cluster HDInsight usando as etapas no documento [Usar o HDInsight com o Armazenamento do Data Lake utilizando o Azure](data-lake-store-hdinsight-hadoop-use-portal.md). As etapas neste documento irão orientá-lo na criação de um novo cluster HDInsight e Armazenamento do Azure Data Lake.
+Crie um novo Storm no cluster HDInsight usando as etapas no documento [Usar o HDInsight com o Repositório Data Lake usando o Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). As etapas neste documento irão orientá-lo na criação de um novo cluster HDInsight e Armazenamento do Azure Data Lake.
 
-> [AZURE.IMPORTANT]Ao criar o cluster HDInsight, você deve escolher __Storm__ como o tipo de cluster. O SO pode ser Windows ou Linux.
+> [AZURE.IMPORTANT] Ao criar o cluster HDInsight, você deve escolher __Storm__ como o tipo de cluster. O SO pode ser Windows ou Linux.
 
 ##Compilar e criar o pacote da topologia
 
@@ -123,7 +123,7 @@ Se você criou um Storm baseado em Linux no cluster HDInsight, use as etapas a s
     
     Quando solicitado, digite a senha usada ao criar o usuário SSH para o cluster. Se você usou uma chave pública em vez de uma senha, talvez precise usar o parâmetro `-i` para especificar o caminho para a chave privada correspondente.
     
-    > [AZURE.NOTE]Se você estiver usando um cliente do Windows para o desenvolvimento, poderá não ter um comando `scp`. Se estiver, poderá usar `pscp`, que está disponível em [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+    > [AZURE.NOTE] Se você estiver usando um cliente do Windows para o desenvolvimento, poderá não ter um comando `scp`. Se estiver, poderá usar `pscp`, que está disponível em [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 2. Quando o carregamento for concluído, use o seguinte para se conectar ao cluster HDInsight usando o SSH. Substitua __USER__ pelo nome de usuário SSH que você usou ao criar o cluster. Substitua __CLUSTERNAME__ pelo nome do cluster.
 
@@ -131,7 +131,7 @@ Se você criou um Storm baseado em Linux no cluster HDInsight, use as etapas a s
 
     Quando solicitado, digite a senha usada ao criar o usuário SSH para o cluster. Se você usou uma chave pública em vez de uma senha, talvez precise usar o parâmetro `-i` para especificar o caminho para a chave privada correspondente.
     
-    > [AZURE.NOTE]Se você estiver usando um cliente Windows para o desenvolvimento, siga as informações em [Conectar ao HDInsight baseado em Linux com o SSH no Windows](hdinsight-hadoop-linux-use-ssh-windows.md) para obter informações sobre como usar o cliente PuTTY para conectar o cluster.
+    > [AZURE.NOTE] Se você estiver usando um cliente Windows para o desenvolvimento, siga as informações em [Conectar ao HDInsight baseado em Linux com o SSH no Windows](hdinsight-hadoop-linux-use-ssh-windows.md) para obter informações sobre como usar o cliente PuTTY para conectar o cluster.
     
 3. Uma vez conectado, use o seguinte para iniciar a topologia:
 
@@ -162,11 +162,11 @@ Se você criou um Storm baseado em Linux no cluster HDInsight, use as etapas a s
 
 Há várias maneiras de exibir os dados. Nesta seção, podemos usar o Portal do Azure e o comando `hdfs` para exibir os dados.
 
-> [AZURE.NOTE]Você deve permitir que as topologias sejam executadas por vários minutos antes de verificar os dados de saída para que os dados sejam sincronizados em vários arquivos no Armazenamento do Azure Data Lake.
+> [AZURE.NOTE] Você deve permitir que as topologias sejam executadas por vários minutos antes de verificar os dados de saída para que os dados sejam sincronizados em vários arquivos no Armazenamento do Azure Data Lake.
 
 * __No [Portal do Azure](https://portal.azure.com)__: no portal, escolha o Armazenamento do Azure Data Lake usado com o HDInsight.
 
-    > [AZURE.NOTE]Se você não fixou o Armazenamento do Data Lake no painel do portal do Azure, pode localizá-lo selecionando __Procurar__ na parte inferior da lista à esquerda, em seguida, __Armazenamento do Data Lake__ e, finalmente, selecionando o armazenamento.
+    > [AZURE.NOTE] Se você não fixou o Armazenamento do Data Lake no painel do portal do Azure, pode localizá-lo selecionando __Procurar__ na parte inferior da lista à esquerda, em seguida, __Armazenamento do Data Lake__ e, finalmente, selecionando o armazenamento.
     
     Nos ícones na parte superior do Armazenamento do Data Lake, escolha __Gerenciador de Dados__.
     
@@ -221,4 +221,4 @@ __Para o HDInsight baseado em Windows__:
 
 Agora que você aprendeu a usar o Storm para gravar no Armazenamento do Azure Data Lake, descubra outros [exemplos do Storm para HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

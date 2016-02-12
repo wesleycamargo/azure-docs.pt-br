@@ -98,7 +98,7 @@ Veja mais sobre os serviços de computação, dados, rede e outros serviços rel
 
 ### Serviços de computação
 
-Os serviços de computação do Azure são a base de uma solução de Big Compute, e os serviços de computação diferentes oferecem vantagens para diferentes cenários. Em um nível básico, esses serviços oferecem modos diferentes para que os aplicativos sejam executados em instâncias de computação baseadas em máquina virtual que o Azure fornece usando a tecnologia Hyper-V do Windows Server. Essas instâncias podem executar vários sistemas operacionais e ferramentas padrão e personalizadas para Linux e Windows. O Azure fornece várias opções de [tamanhos de instância](../virtual-machines/virtual-machines-sizes-specs.md) com diferentes configurações de núcleos de CPU, memória, capacidade do disco e outras características. Dependendo de suas necessidades, você pode dimensionar as instâncias para milhares de núcleos e, em seguida, reduzir verticalmente, quando você precisa de menos recursos.
+Os serviços de computação do Azure são a base de uma solução de Big Compute, e os serviços de computação diferentes oferecem vantagens para diferentes cenários. Em um nível básico, esses serviços oferecem modos diferentes para que os aplicativos sejam executados em instâncias de computação baseadas em máquina virtual que o Azure fornece usando a tecnologia Hyper-V do Windows Server. Essas instâncias podem executar vários sistemas operacionais e ferramentas padrão e personalizadas para Linux e Windows. O Azure fornece várias opções de [tamanhos de instância](../virtual-machines/virtual-machines-size-specs.md) com diferentes configurações de núcleos de CPU, memória, capacidade do disco e outras características. Dependendo de suas necessidades, você pode dimensionar as instâncias para milhares de núcleos e, em seguida, reduzir verticalmente, quando você precisa de menos recursos.
 
 >[AZURE.NOTE] Aproveite as instâncias A8-A11 para melhorar o desempenho de algumas cargas de trabalho de HPC, incluindo aplicativos MPI paralelos que exigem uma rede de aplicativos de alta taxa de transferência e baixa latência. Consulte [Sobre as instâncias A8, A9, A10 e A11 com uso intensivo de computação](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md).
 
@@ -155,4 +155,4 @@ Talvez sua solução de Big Compute precise de outros serviços do Azure para se
 [burst_cluster]: ./media/batch-hpc-solutions/burst_cluster.png
 [batch_proc]: ./media/batch-hpc-solutions/batch_proc.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

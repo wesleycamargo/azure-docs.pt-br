@@ -35,7 +35,7 @@ Se soubermos o nome do grupo de recursos que contém o aplicativo Web de origem,
 
 Para criar um novo plano de Serviço de Aplicativo, podemos usar comando New-AzureRmAppServicePlan como no exemplo a seguir
 
-	New-AzureRmAppServicePlan -Location "South Central US" -ResourceGroupName DestinationAzureResourceGroup -Name NewAppServicePlan
+	New-AzureRmAppServicePlan -Location "South Central US" -ResourceGroupName DestinationAzureResourceGroup -Name NewAppServicePlan -Tier Premium
 
 Usando o comando New-AzureRmWebApp, podemos criar o novo aplicativo Web na região Centro-Norte dos EUA e vinculá-lo a uma plano de Serviço de Aplicativo de camada Premium existente. Além disso, podemos usar o mesmo grupo de recursos do aplicativo Web de origem ou definir um novo grupo de recursos, como demonstrado abaixo:
 
@@ -77,7 +77,7 @@ O exemplo a seguir demonstra como criar um clone do aplicativo Web de origem com
 
 ## Configuração do Gerenciador de Tráfego durante a clonagem de um aplicativo ##
 
-Configuração do Gerenciador de Tráfego Ao criar um novo aplicativo Web durante a clonagem de uma existente, você tem a opção de conectar os dois aplicativos Web a um perfil do gerenciador de tráfego novo ou existente; observe que somente a versão ARM do Gerenciador de tráfego tem suporte.
+A criação de aplicativos Web de várias regiões e a configuração do Gerenciador de Tráfego do Azure para rotear tráfego para todos esses aplicativos Web é um cenário importante para garantir que os aplicativos clientes estejam altamente disponíveis; durante a clonagem de um aplicativo Web existente, você tem a opção de conectar os dois aplicativos Web a um novo perfil do gerenciador de tráfego ou a um existente - observe que apenas a versão ARM do Gerenciador de Tráfego tem suporte.
 
 ### Criando um novo perfil do Gerenciador de Tráfego durante a clonagem de um aplicativo ###
 
@@ -114,4 +114,4 @@ Esse recurso está atualmente em visualização. Estamos trabalhando para adicio
 - [Introdução ao ambiente de Serviço de Aplicativo](app-service-app-service-environment-intro.md)
 - [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

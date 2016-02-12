@@ -26,7 +26,7 @@ Este artigo mostra como usar a [imagem de máquina virtual do Pacote HPC da Micr
 
 ![Nó principal do Pacote HPC][headnode]
 
->[AZURE.NOTE]Atualmente, a imagem da VM do Pacote HPC baseia-se no Windows Server 2012 R2 Datacenter com Pacote HPC 2012 R2 Update 2 pré-instalado. O Microsoft SQL Server 2014 Express também vem instalado.
+>[AZURE.NOTE] Atualmente, a imagem da VM do Pacote HPC baseia-se no Windows Server 2012 R2 Datacenter com Pacote HPC 2012 R2 Update 2 pré-instalado. O Microsoft SQL Server 2014 Express também vem instalado.
 
 
 Para uma implantação de produção de um cluster de Pacote HPC no Azure, é recomendável um método de implantação automatizada, como o [script de implantação de IaaS do Pacote HPC](virtual-machines-hpcpack-cluster-powershell-script.md) ou um [modelo de início rápido](https://azure.microsoft.com/documentation/templates/) do Gerenciador de recursos do Azure
@@ -42,7 +42,7 @@ Para uma implantação de produção de um cluster de Pacote HPC no Azure, é re
 A seguir estão as etapas de nível superior para criar uma VM do Azure para o nó principal do Pacote HPC. Você pode usar uma variedade de ferramentas do Azure para realizar essas etapas no modelo de implantação clássico (Gerenciamento de Serviço) do Azure.
 
 
-1. Se você planeja criar uma rede virtual para a VM do nó principal, consulte [Criar uma rede virtual (clássica) usando o portal do Azure](../virtual-networks/virtual-networks-create-vnet-classic-pportal.md).
+1. Se você planeja criar uma rede virtual para a VM do nó principal, consulte [Criar uma rede virtual (clássica) usando o portal do Azure](../virtual-networks/virtual-networks-create-vnet-classic-portal.md).
 
     **Considerações**
 
@@ -102,4 +102,4 @@ A seguir estão as etapas de nível superior para criar uma VM do Azure para o n
 <!--Image references-->
 [headnode]: ./media/virtual-machines-hpcpack-cluster-headnode/headnode.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

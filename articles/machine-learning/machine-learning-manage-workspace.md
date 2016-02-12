@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="02/03/2016"
 	ms.author="garye"/>
 
 
@@ -29,12 +29,12 @@ Com o Portal Clássico do Azure, você pode gerenciar seus espaços de trabalho 
 
 Além disso, a guia do painel fornece uma visão geral do uso do espaço de trabalho e uma breve explicação das informações do espaço de trabalho.
 
-> [AZURE.TIP]No Estúdio de Aprendizado de Máquina do Azure, na guia **SERVIÇOS WEB**, você pode adicionar, atualizar ou excluir um serviço Web do Aprendizado de Máquina.
+> [AZURE.TIP] No Estúdio de Aprendizado de Máquina do Azure, na guia **SERVIÇOS WEB**, você pode adicionar, atualizar ou excluir um serviço Web do Aprendizado de Máquina.
 
 Para gerenciar um espaço de trabalho:
 
-1.	Entre em sua conta do Microsoft Azure. Use a conta que está associada à assinatura do Azure.
-2.	No [Portal Clássico do Azure](https://manage.windowsazure.com/), no painel de serviços do Microsoft Azure, clique em **APRENDIZADO DE MÁQUINA**.
+1.	Entre no [Portal Clássico do Azure](https://manage.windowsazure.com/) usando sua conta do Microsoft Azure. Use a conta que está associada à assinatura do Azure.
+2.	No painel de serviços do Microsoft Azure, clique em **APRENDIZADO DE MÁQUINA**.
 3.	Clique no espaço de trabalho que você deseja gerenciar.
 
 A página do espaço de trabalho tem três guias:
@@ -54,7 +54,7 @@ No painel, você pode exibir o uso geral do espaço de trabalho e ter uma visão
 - **Visão geral de uso** exibe o armazenamento do Azure que está sendo usado pelo espaço de trabalho.
 - **Visão rápida** fornece um resumo das informações do espaço de trabalho e links úteis.
 
-> [AZURE.NOTE]O link **Entrar no Estúdio AM** abre o Estúdio de Aprendizado de Máquina usando a conta da Microsoft com a qual você está conectado no momento. A Conta da Microsoft que você usou para entrar no Portal Clássico do Azure para criar um espaço de trabalho não tem automaticamente permissão para abrir esse espaço de trabalho. Para abrir um espaço de trabalho, você deve estar conectado à Conta da Microsoft que foi definido como proprietária do espaço de trabalho ou você precisa receber um convite do proprietário para ingressar no espaço de trabalho.
+> [AZURE.NOTE] O link **Entrar no Estúdio AM** abre o Estúdio de Aprendizado de Máquina usando a conta da Microsoft com a qual você está conectado no momento. A Conta da Microsoft que você usou para entrar no Portal Clássico do Azure para criar um espaço de trabalho não tem automaticamente permissão para abrir esse espaço de trabalho. Para abrir um espaço de trabalho, você deve estar conectado à Conta da Microsoft que foi definido como proprietária do espaço de trabalho ou você precisa receber um convite do proprietário para ingressar no espaço de trabalho.
 
 
 ## Para conceder ou suspender acesso para usuários ##
@@ -81,7 +81,7 @@ Um serviço Web pode ter um ou mais pontos de extremidade definidos.
 
 - Para excluir um ponto de extremidade (você não pode excluir o ponto de extremidade "Padrão"), clique em qualquer lugar na linha de ponto de extremidade, exceto no nome, e clique em **EXCLUIR PONTO DE EXTREMIDADE** na parte inferior da página. Isso remove o ponto de extremidade do serviço Web.
 
-    > [AZURE.NOTE]Se um aplicativo estiver usando o ponto de extremidade do serviço Web quando o ponto de extremidade for excluído, o aplicativo receberá um erro na próxima vez que tentar acessar o serviço.
+    > [AZURE.NOTE] Se um aplicativo estiver usando o ponto de extremidade do serviço Web quando o ponto de extremidade for excluído, o aplicativo receberá um erro na próxima vez que tentar acessar o serviço.
 
 Clique no nome de um ponto de extremidade de serviço Web para abri-lo. O gráfico de uso mostra os recursos de computação e de previsão que estão sendo usados pelo ponto de extremidade de serviço Web. Você pode alterar o modo de exibição para exibir valores relativos ou absolutos e pode alterar o período de tempo exibido no gráfico.
 
@@ -94,4 +94,4 @@ Clique na guia **CONFIGURAR** para editar a descrição, controlar o número de 
 [consume]: machine-learning-consume-web-services.md
 [marketplace]: machine-learning-publish-web-service-to-azure-marketplace.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

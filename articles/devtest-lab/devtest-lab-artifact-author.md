@@ -1,6 +1,6 @@
-    <properties 
-	pageTitle="Create custom artifacts for your DevTest Lab VM | Microsoft Azure"
-	description="Learn how to author your own artifacts for use with DevTest Labs"
+<properties 
+	pageTitle="Criar artefatos personalizados para sua VM do Laboratório de Desenvolvimento/Teste | Microsoft Azure"
+	description="Aprenda a criar seus próprios artefatos para uso com Laboratórios de Desenvolvimento/Teste"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/01/2015"
+	ms.date="02/03/2016"
 	ms.author="tarcher"/>
 
 #Criar artefatos personalizados para suas VM do Laboratório de Desenvolvimento/Teste.
@@ -121,4 +121,4 @@ Crie seu artefato personalizado executando as etapas abaixo:
 
 Saiba como [Adicionar um repositório de artefatos Git ao seu Laboratório de Desenvolvimento/Teste](devtest-lab-add-artifact-repo.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

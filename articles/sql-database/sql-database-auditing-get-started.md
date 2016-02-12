@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/12/2015"
+	ms.date="02/03/2016"
 	ms.author="jeffreyg; ronitr"/>
  
 # Introdução à auditoria do banco de dados SQL
@@ -29,7 +29,7 @@ As ferramentas de auditoria permitem e facilitam a adoção de padrões de confo
 
 ##<a id="subheading-1"></a>Fundamentos da Auditoria do Banco de Dados SQL do Azure
 
-A seção a seguir descreve a configuração de auditoria usando o Portal do Azure. Você também pode [Configurar a auditoria do banco de dados usando o Portal Clássico do Azure].
+A seção a seguir descreve a configuração de auditoria usando o Portal do Azure. Você também pode [configurar a auditoria do banco de dados usando o Portal Clássico do Azure].
 
 A auditoria de Banco de Dados SQL permite:
 
@@ -159,7 +159,7 @@ Há vários cmdlets do PowerShell que você pode usar para configurar a auditori
 [Fundamentos da Auditoria do Banco de Dados SQL do Azure]: #subheading-1
 [Configurar a auditoria do banco de dados]: #subheading-2
 [Analisar os logs e relatórios de auditoria]: #subheading-3
-[Configurar a auditoria do banco de dados usando o Portal Clássico do Azure]: #subheading-4
+[configurar a auditoria do banco de dados usando o Portal Clássico do Azure]: #subheading-4
 [Practices for usage in production]: #subheading-5
 [Storage Key Regeneration]: #subheading-6
 [Automation]: #subheading-7
@@ -178,4 +178,4 @@ Há vários cmdlets do PowerShell que você pode usar para configurar a auditori
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="11/10/2015"
+ ms.date="02/03/2016"
  ms.author="dobett"/>
 
 # Projetar sua solução
@@ -52,7 +52,7 @@ Um gateway de campo é diferente de um dispositivo de roteamento de tráfego sim
 - Transforme dados de telemetria para facilitar o processamento em sua solução back-end.
 - Execute a conversão de protocolo para permitir que os dispositivos se comuniquem com o Hub IoT, mesmo quando não usam os protocolos de transporte que têm suporte do Hub IoT.
 
-> [AZURE.NOTE]Embora você normalmente implante um gateway de campo local para seus dispositivos, em alguns cenários, é possível implantar um [gateway de protocolo][lnk-gateway] na nuvem.
+> [AZURE.NOTE] Embora você normalmente implante um gateway de campo local para seus dispositivos, em alguns cenários, é possível implantar um [gateway de protocolo][lnk-gateway] na nuvem.
 
 ### Tipos de gateways de campo
 
@@ -63,6 +63,8 @@ Um gateway de campo pode ser *transparente* ou *opaco*:
 | Identidades armazenadas no registro de identidades do Hub IoT | Identidades de todos os dispositivos conectados | Apenas a identidade do gateway de campo |
 | O Hub IoT pode fornecer [antifalsificação de identidade de dispositivo][lnk-devguide-antispoofing] | Sim | Não |
 | [Cotas e limitações][lnk-throttles-quotas] | Aplicar a cada dispositivo | Aplicar ao gateway de campo |
+
+> [AZURE.IMPORTANT]  Ao usar um padrão de gateway opaco, todos os dispositivos que se conectam por meio desse gateway compartilham a mesma fila de nuvem para o dispositivo, que pode conter no máximo 50 mensagens. Consequentemente, o padrão de gateway opaco deve ser usado apenas quando muito poucos dispositivos estiverem se conectando por meio de cada gateway de campo e o respectivo tráfego da nuvem para o dispositivo for baixo.
 
 ### Outras considerações
 
@@ -83,7 +85,7 @@ Estas são as principais etapas do padrão de serviço do token:
 3. O serviço de token retorna um token. O token é criado de acordo com a [seção de segurança do guia do desenvolvedor do Hub IoT][lnk-devguide-security] usando `/devices/{deviceId}` como `resourceURI`, com `deviceId` como o dispositivo que está sendo autenticado. O serviço de token usa a política de acesso compartilhado para construir o token.
 4. O dispositivo usa o token diretamente com o Hub IoT.
 
-> [AZURE.NOTE]Você pode usar a classe do .NET [SharedAccessSignatureBuilder][lnk-dotnet-sas] ou a classe Java [IotHubServiceSasToken][lnk-java-sas] para criar um token no serviço de token.
+> [AZURE.NOTE] Você pode usar a classe do .NET [SharedAccessSignatureBuilder][lnk-dotnet-sas] ou a classe Java [IotHubServiceSasToken][lnk-java-sas] para criar um token no serviço de token.
 
 O serviço de token pode definir a expiração do token como desejado. Quando o token expira, o Hub IoT rompe a conexão do dispositivo. Em seguida, o dispositivo deve solicitar um novo token ao serviço de token. Se você usar um tempo de expiração curto, aumentará a carga no dispositivo e no serviço de token.
 
@@ -92,6 +94,14 @@ Para que um dispositivo se conecte ao seu hub, você ainda deve adicioná-lo ao 
 ### Comparação com um gateway personalizado
 
 O padrão de serviço do token é a maneira recomendada de implementar um esquema personalizado de registro/autenticação de identidade com o Hub IoT. É recomendável porque o Hub IoT continua tratando a maior parte do tráfego da solução. No entanto, há casos nos quais o esquema de autenticação personalizado está tão entremeado com o protocolo que é necessário ter um serviço que processe todo o tráfego (*gateway personalizado*). Um exemplo disso é o [TLS (Transport Layer Security) e as PSKs (chaves pré-compartilhadas)][lnk-tls-psk]. Para saber mais, confira o tópico [Gateway de protocolo][lnk-gateway].
+
+## Pulsação do dispositivo <a id="heartbeat"></a>
+
+O [registro de identidade do Hub IoT][lnk-devguide-identityregistry] contém um campo chamado **connectionState**. Você deve usar o campo **connectionState** somente durante o desenvolvimento e a depuração. As soluções IoT não devem consultar o campo no tempo de execução (por exemplo, para verificar se um dispositivo está conectado, a fim de decidir se envia uma mensagem da nuvem para o dispositivo ou um SMS). Se sua solução IoT precisar saber se um dispositivo está conectado (seja no tempo de execução, ou com mais precisão do que a fornecida pela propriedade **connectionState**), a solução deverá implementar o *padrão de pulsação*.
+
+No padrão de pulsação, o dispositivo envia mensagens do dispositivo para a nuvem pelo menos uma vez a cada período de tempo fixo (por exemplo, pelo menos uma vez a cada hora). Isso significa que mesmo quando um dispositivo não tiver dados para enviar, ele enviará uma mensagem vazia do dispositivo para a nuvem (geralmente com uma propriedade que a identifique como uma pulsação). No lado do serviço, a solução mantém um mapa com a última pulsação recebida para cada dispositivo e supõe que haja um problema com um dispositivo se ela não receber uma mensagem de pulsação dentro do tempo esperado.
+
+Uma implementação mais complexa pode incluir as informações do [monitoramento de operações][lnk-devguide-opmon] para identificar dispositivos que estão tentando se conectar ou se comunicar, mas falha. Ao implementar o padrão de pulsação, verifique as [cotas e restrições do Hub IoT][].
 
 ## Próximas etapas
 
@@ -104,6 +114,7 @@ Para saber mais sobre o Hub IoT do Azure, siga estes links:
 
 [lnk-devguide-identityregistry]: iot-hub-devguide.md#identityregistry
 [lnk-device-management]: iot-hub-device-management.md
+[lnk-devguide-opmon]: iot-hub-operations-monitoring.md
 
 [lnk-device-sdks]: iot-hub-sdks-summary.md
 [lnk-devguide-security]: iot-hub-devguide.md#security
@@ -118,5 +129,6 @@ Para saber mais sobre o Hub IoT do Azure, siga estes links:
 [lnk-devguide-protocol]: iot-hub-devguide.md#amqpvshttp
 [lnk-dotnet-sas]: https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx
 [lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
+[cotas e restrições do Hub IoT]: iot-hub-devguide.md#throttling
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,10 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="10/27/2015"
+   ms.date="02/03/2016"
    ms.author="viviali"/>
 
-# Formato do token de usuário externo para a visualização da colaboração B2B do AD do Azure (Active Directory do Azure)
+# Visualização da colaboração B2B do AD do Azure: formato de token de usuário externo
+
 As declarações de um token padrão do AD do Azure são descritas no artigo [Tipos de declaração e token com suporte](active-directory-token-and-claims.md) em azure.microsoft.com.
 
 As declarações que são diferentes para um usuário externo da colaboração B2B autenticado são as seguintes:<br/> - **OID:** a ID de objeto do locatário de recursos<br/> - **TID**: a ID de locatário do locatário de recursos<br/> - **Emissor**: este é o locatário de recursos<br/> - **IDP**: este é o locatário inicial do usuário<br/> - **AltSecId**: esta é a ID de segurança alternativa, que é opaca para você<br/>
@@ -31,4 +32,4 @@ Confira nossos outros artigos sobre a colaboração B2B do Azure:
 - [Alterações de atributo do objeto de usuário externo](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [Limitações atuais da visualização](active-directory-b2b-current-preview-limitations.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="02/02/2016"
 	ms.author="jeedes"/>
 
 
@@ -64,19 +64,20 @@ Para configurar a integração do Birst Agile Business Analytics ao AD do Azure,
 4. Clique em **Adicionar** na parte inferior da página.<br><br> ![Aplicativos][3]<br>
 5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.<br><br> ![Aplicativos][4]<br>
 6. Na caixa de pesquisa, digite **Birst Agile Business Analytics**.<br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-birst-tutorial/tutorial_birst_01.png)<br>
-7. No painel de resultados, selecione **Birst Agile Business Analytics** e clique em **Concluir** para adicionar o aplicativo. <br><br>
+7. No painel de resultados, selecione **Birst Agile Business Analytics** e clique em **Concluir** para adicionar o aplicativo. <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-birst-tutorial/tutorial_birst_02.png)<br>
+
 
 ##  Configurar e testar o logon único do AD do Azure
 O objetivo desta seção é mostrar como configurar e testar logon único do AD do Azure com o Birst Agile Business Analytics com base em um usuário de teste chamado "Brenda Fernandes".
 
-Para que o logon único funcione, o AD do Azure precisa saber qual usuário do Birst Agile Business Analytics é equivalente a um usuário do AD do Azure. Em outras palavras, é necessário estabelecer uma relação de vinculação entre um usuário do AD do Azure e o usuário relacionado do Birst Agile Business Analytics.<br> Essa relação de vinculação é estabelecida atribuindo o valor de **nome de usuário** no AD do Azure ao valor de **Nome de usuário** no Birst Agile Business Analytics.
+Para que o logon único funcione, o AD do Azure precisa saber qual usuário do Birst Agile Business Analytics é equivalente a um usuário do AD do Azure. Em outras palavras, é necessário estabelecer uma relação de vinculação entre um usuário do AD do Azure e o usuário relacionado do Birst Agile Business Analytics.<br> Essa relação de vinculação é estabelecida por meio da atribuição do valor de **nome de usuário** no AD do Azure ao valor de **Nome de usuário** no Birst Agile Business Analytics.
 
 Para configurar e testar o logon único do AD do Azure com o Birst Agile Business Analytics, você precisará concluir os seguintes blocos de construção:
 
-1. **[Configurar o logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)** - para permitir que seus usuários usem esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
-4. **[Criando um usuário de teste do Birst Agile Business Analytics] (#creating-a-Birst Agile Business Analytics-test-user)** - para ter um equivalente de Britta Simon no Birst Agile Business Analytics vinculado à representação no AD do Azure.
-5. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para permitir que Brenda Fernandes use o logon único do AD do Azure.
+1. **[Configurar o Logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)**: para habilitar seus usuários a usar esse recurso.
+2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**: para testar o logon único do AD do Azure com Brenda Fernandes.
+4. **[Criando um usuário de teste do Birst Agile Business Analytics](#creating-a-birst-agile-business-analytics-test-user)** - para ter um equivalente de Brenda Fernandes no Birst Agile Business Analytics vinculado à representação no AD do Azure.
+5. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)**: para permitir que Brenda Fernandes use o logon único do AD do Azure.
 5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
 
 ### Configuração do logon único do AD do Azure
@@ -87,14 +88,14 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal do
 
 **Para configurar o logon único do AD do Azure com o Birst Agile Business Analytics, execute as seguintes etapas:**
 
-1. No portal do AD do Azure, na página de integração de aplicativos do **Birst Agile Business Analytics**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**. <br><br> ![Configurar o logon único][6] <br>
+1. No portal do AD do Azure, na página de integração do aplicativo **Birst Agile Business Analytics**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**. <br><br> ![Configurar o logon único][6] <br>
 
 2. Na página **Como você deseja que os usuários façam logon no Birst Agile Business Analytics**, selecione **Logon Único do AD do Azure** e clique em **Avançar**. <br><br> ![Configurar o logon único](./media/active-directory-saas-birst-tutorial/tutorial_birst_03.png) <br>
 
 3. Na página da caixa de diálogo **Definir Configurações de Aplicativo**, execute as seguintes etapas: <br><br>![Configurar o logon único](./media/active-directory-saas-birst-tutorial/tutorial_birst_04.png) <br>
 
 
-    a. Na caixa de texto URL de Logon Único, digite a URL usada pelos usuários para fazer logon em seu aplicativo Birst Agile Business Analytics usando o seguinte padrão: **“https://login.bws.birst.com/SAMLSSO/Service.aspx?birst.idpid=TENANTIDPID”**.
+    a. Na caixa de texto URL de Entrada, digite a URL usada pelos usuários para fazer logon em seu aplicativo Birst Agile Business Analytics usando o seguinte padrão: **“https://login.bws.birst.com/SAMLSSO/Service.aspx?birst.idpid=IDIDPLOCATARIO”**.
 
 
 4. Na página **Configurar o logon único do AD do Azure no Birst Agile Business Analytics**, execute as seguintes etapas: <br><br>![Configurar o logon único](./media/active-directory-saas-birst-tutorial/tutorial_birst_05.png) <br>
@@ -104,10 +105,10 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal do
     b. Clique em **Próximo**.
 
 
-5. Para obter o SSO configurado para o seu aplicativo, entre em contato com sua equipe de suporte do Birst Agile Business Analytics por meio do email [info@birst.com](emailTo:info@birst.com) e anexe o arquivo de certificado baixado ao email. Também forneça a URL de SSO de SAML, a URL de Saída e a URL do Emissor para que possam ser configuradas para integração com o SSO.
+5. Para configurar o SSO para o seu aplicativo, entre em contato com a equipe de suporte do Birst Agile Business Analytics por meio do email [info@birst.com](emailTo:info@birst.com) e anexe o arquivo de certificado baixado ao email. Também forneça a URL de SSO de SAML, a URL de Saída e a URL do Emissor para que possam ser configuradas para integração com o SSO.
 
 
-> [AZURE.NOTE] Mencione para a equipe do Birst que essa integração precisa do Algoritmo SHA256 (o SHA1 não terá suporte) para que eles possam definir o SSO no servidor apropriado, como **app2101**, etc.
+> [AZURE.NOTE] Mencione para a equipe do Birst que essa integração precisa do Algoritmo SHA256 (o SHA1 não terá suporte) para que eles possam definir o SSO no servidor apropriado, como **app2101** etc.
 
 
 
@@ -170,7 +171,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Birst 
 
 ### Atribuição do usuário de teste do AD do Azure
 
-O objetivo desta seção é permitir que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao Birst Agile Business Analytics.<br><br>![Atribuir usuário][200] <br>
+O objetivo desta seção é permitir que Brenda Fernandes use o logon único do Azure concedendo a ela acesso ao Birst Agile Business Analytics.<br><br>![Atribuir usuário][200] <br>
 
 **Para atribuir Brenda Fernandes ao Birst Agile Business Analytics, execute as seguintes etapas:**
 
@@ -215,4 +216,4 @@ O objetivo desta seção é testar sua configuração de logon único do Azure A
 [204]: ./media/active-directory-saas-birst-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-birst-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

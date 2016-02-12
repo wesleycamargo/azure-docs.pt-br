@@ -3,7 +3,7 @@
 	description="Saiba como configurar o logon único entre o Active Directory do Azure e o Mixpanel."
 	services="active-directory"
 	documentationCenter=""
-	authors="ashimaabrol"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/14/2015"
-	ms.author="v-aabrol"/>
+	ms.date="02/02/2016"
+	ms.author="jeedes"/>
 
 
 # Tutorial: Integração do Active Directory do Azure com o Mixpanel
@@ -36,7 +36,7 @@ Para configurar a integração do Azure AD ao Mixpanel, você precisará dos seg
 - Uma assinatura habilitada para logon único do Mixpanel
 
 
-> [AZURE.NOTE]Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+> [AZURE.NOTE] Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 
 
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
@@ -61,7 +61,7 @@ Para configurar a integração do Mixpanel ao Azure AD, você precisará adicion
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
-3. Para abrir o modo de exibição de aplicativos, no modo de exibição de diretório, clique em **Aplicativos** no menu principal.<br><br> ![Aplicativos][2]<br>
+3. Para abrir a exibição dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu superior.<br><br> ![Aplicativos][2]<br>
 4. Clique em **Adicionar** na parte inferior da página.<br><br> ![Aplicativos][3]<br>
 5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.<br><br> ![Aplicativos][4]<br>
 6. Na caixa de pesquisa, digite **Mixpanel**.<br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_01.png)<br>
@@ -78,7 +78,7 @@ Para configurar e testar o logon único do Azure AD com o Mixpanel, você precis
 2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
 4. **[Criação de um usuário de teste do Mixpanel](#creating-a-mixpanel-test-user)** - para ter um equivalente de Brenda Fernandes no Mixpanel que esteja vinculado à representação dela no Azure AD.
 5. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** - para verificar se a configuração funciona.
+5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
 
 ### Configuração do logon único do AD do Azure
 
@@ -97,7 +97,7 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
 
     a. Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para fazer logon em seu aplicativo do Mixpanel usando o seguinte padrão: **“https://mixpanel.com/login/”**.
 
-    > [AZURE.NOTE]Registre-se em [https://mixpanel.com/register/](https://mixpanel.com/register/) para configurar suas credenciais de logon e entre em contato com a [equipe de suporte do Mixpanel](mailto:support@Mixpanel.com) para habilitar as configurações de SSO para seu locatário. <br>Você também pode obter o valor da URL de Entrada, se for necessário, da equipe de suporte do Mixpanel.
+    > [AZURE.NOTE] Registre-se em [https://mixpanel.com/register/](https://mixpanel.com/register/) para configurar suas credenciais de logon e entre em contato com a [equipe de suporte do Mixpanel](mailto:support@Mixpanel.com) para habilitar as configurações de SSO para seu locatário. <br>Você também pode obter o valor da URL de Entrada, se for necessário, da equipe de suporte do Mixpanel.
 
     b. Clique em **Próximo**.
 
@@ -131,7 +131,7 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
 
 
 ### Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no portal clássico do Azure chamado Brenda Fernandes.<br> Na lista Usuários, escolha **Brenda Fernandes**.<br><br>![Criar um usuário do AD do Azure][20]<br>
+O objetivo desta seção é criar um usuário de teste no Portal clássico do Azure chamado Brenda Fernandes.<br> Na lista Usuários, escolha **Brenda Fernandes**.<br><br>![Criar um usuário do AD do Azure][20]<br>
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
@@ -141,31 +141,31 @@ O objetivo desta seção é criar um usuário de teste no portal clássico do Az
 
 3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**. <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_03.png) <br>
 
-4. Para abrir o diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**. <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_04.png) <br>
+4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**. <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_04.png) <br>
 
-5. Na página de diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas: <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_05.png) <br>
+5. Na página do diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas: <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_05.png) <br>
 
     a. Em Tipo de Usuário, selecione Novo usuário na organização.
 
-    b. Na **caixa de texto** Nome de Usuário, digite **BrendaFernandes**.
+    b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
 
     c. Clique em **Próximo**.
 
-6.  Na página de diálogo **Perfil do Usuário**, execute as seguintes etapas: <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_06.png) <br>
+6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas: <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_06.png) <br>
 
     a. Na caixa de texto **Nome**, digite **Brenda**.
 
     b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
 
-    c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
+    c. Na caixa de texto **Nome de exibição**, digite **Brenda Fernandes**.
 
     d. Na lista **Função**, selecione **Usuário**.
 
     e. Clique em **Próximo**.
 
-7. Na página de diálogo **Obter senha temporária**, clique em **criar**. <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_07.png) <br>
+7. Na página da caixa de diálogo **Obter senha temporária**, clique em **criar**. <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_07.png) <br>
 
-8. Na página de diálogo **Obter senha temporária**, execute as seguintes etapas: <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_08.png) <br>
+8. Na página da caixa de diálogo **Obter senha temporária**, execute as seguintes etapas: <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_08.png) <br>
 
     a. Anote o valor da **Nova Senha**.
 
@@ -202,7 +202,7 @@ O objetivo desta seção é permitir que Brenda Fernandes use o logon único do 
 
 1. No menu na parte superior, clique em **Usuários**. <br><br>![Atribuir usuário][203] <br>
 
-1. Na lista Usuários, escolha **Brenda Fernandes**.
+1. Na lista Usuários, selecione **Brenda Fernandes**.
 
 2. Na barra de ferramentas na parte inferior, clique em **Atribuir**. <br><br>![Atribuir usuário][205]
 
@@ -237,4 +237,4 @@ O objetivo desta seção é testar sua configuração de logon único do Azure A
 [204]: ./media/active-directory-saas-mixpanel-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-mixpanel-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

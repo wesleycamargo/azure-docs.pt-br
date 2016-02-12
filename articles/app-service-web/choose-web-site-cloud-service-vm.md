@@ -50,7 +50,7 @@ Abaixo estão alguns cenários de aplicação comuns com recomendações sobre q
 
 ### <a id="onprem"></a> Preciso de um front-end da Web com processamento em segundo plano e back-end de banco de dados para executar aplicativos de negócios integrados a ativos no local.
 
-Os Serviço de Aplicativo do Azure é uma ótima solução para aplicativos de negócios complexos. Eles permitem desenvolver aplicativos que são escalados automaticamente em uma plataforma com carga equilibrada, são protegidos pelo Active Directory e se conectam aos seus recursos no local. Eles facilitam o gerenciamento desses aplicativos por meio de um portal e APIs de nível mundial, e permitem que você obtenha informações sobre como os clientes estão os utilizando com ferramentas de informações sobre os aplicativos. O novo recurso [Webjobs][] permite executar processos e tarefas em segundo plano como parte de sua camada da Web, ao passo que a conectividade híbrida e os [recursos de VNET](../fundamentals-introduction-to-azure.md#networking/) facilitam a conexão de volta aos recursos locais. O Serviço de Aplicativo do Azure fornece SLA três noves para aplicativos Web e permite que você:
+Os Serviço de Aplicativo do Azure é uma ótima solução para aplicativos de negócios complexos. Eles permitem desenvolver aplicativos que são escalados automaticamente em uma plataforma com carga equilibrada, são protegidos pelo Active Directory e se conectam aos seus recursos no local. Eles facilitam o gerenciamento desses aplicativos por meio de um portal e APIs de nível mundial, e permitem que você obtenha informações sobre como os clientes estão os utilizando com ferramentas de informações sobre os aplicativos. O novo recurso [Webjobs][] permite executar processos e tarefas em segundo plano como parte de sua camada da Web, ao passo que a conectividade híbrida e os recursos de VNET facilitam a conexão de volta aos recursos locais. O Serviço de Aplicativo do Azure fornece SLA três noves para aplicativos Web e permite que você:
 
 * Execute seus aplicativos de maneira confiável em uma plataforma de nuvem de autorrecuperação e autocorreção.
 * Escale automaticamente em uma rede global de datacenters.
@@ -176,10 +176,7 @@ Se você quiser começar a usar o Serviço de Aplicativo do Azure antes de se in
 
 ## <a id="nextsteps"></a> Próximas etapas
 
-Para obter mais informações sobre as três opções de hospedagem na Web, consulte os recursos a seguir:
-
-* [Apresentando o Azure](../fundamentals-introduction-to-azure.md)
-* [Computar opções de hospedagem fornecidas pelo Azure](../fundamentals-application-models.md)
+Para obter mais informações sobre as três opções de hospedagem da Web, confira [Apresentação do Azure](../fundamentals-introduction-to-azure.md).
 
 Para começar a usar as opções escolhidas para seu aplicativo, consulte os seguintes recursos:
 
@@ -205,4 +202,4 @@ Para começar a usar as opções escolhidas para seu aplicativo, consulte os seg
   [armazenamento]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

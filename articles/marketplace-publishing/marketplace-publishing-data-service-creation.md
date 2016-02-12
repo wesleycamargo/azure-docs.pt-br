@@ -13,11 +13,11 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="01/04/2016"
+      ms.date="01/28/2016"
       ms.author="hascipio; avikova" />
 
 # Guia de publicação do Serviço de Dados para o Azure Marketplace
-Após concluir a etapa 1, [Criação e registro de conta][link-acct-creation], orientamos você pelos [Requisitos gerais não técnicos](marketplace-publishing-prerequisites.md) e [técnicos](marketplace-publishing-data-service-creation-prerequisites.md) de uma oferta de Serviço de Dados no Azure Marketplace. Agora, orientaremos você pelas etapas de criação de uma oferta de Serviço de Dados no [Portal de Publicação][link-pubportal] do Azure Marketplace.
+Após concluir a etapa 1, [Criação e registro de conta][link-acct-creation], orientamos você pelos [Requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md) e [técnicos](marketplace-publishing-data-service-creation-prerequisites.md) de uma oferta de Serviço de Dados no Azure Marketplace. Agora, orientaremos você pelas etapas de criação de uma oferta de Serviço de Dados no [Portal de Publicação][link-pubportal] do Azure Marketplace.
 
 ## 1\. Faça logon no Portal de Publicação.
 
@@ -41,7 +41,7 @@ Preencha o título da nova Oferta de Serviço de Dados e clique em "+" à direit
 
 Clique na guia **Passo a passo** e examine todas as etapas necessárias para publicar corretamente o Serviço de Dados no Azure Marketplace.
 
-> [AZURE.TIP]Você sempre pode clicar nos links na página "Passo a passo" ou usar guias no submenu da oferta de Serviço de Dados no lado esquerdo.
+> [AZURE.TIP] Você sempre pode clicar nos links na página "Passo a passo" ou usar guias no submenu da oferta de Serviço de Dados no lado esquerdo.
 
 ## 5\. Crie um novo Plano.
 
@@ -55,7 +55,7 @@ Cada transação é normalmente definida como o número de registros que o Servi
 
 É responsabilidade da camada de serviço do Azure Marketplace monitorar (medir) o número de transações consumidas por cada consulta.
 
-> [AZURE.IMPORTANT]Os usuários finais que atingirem o limite de transação durante o mês serão impedidos de continuar a usar o serviço até o final do ciclo de assinatura mensal.
+> [AZURE.IMPORTANT] Os usuários finais que atingirem o limite de transação durante o mês serão impedidos de continuar a usar o serviço até o final do ciclo de assinatura mensal.
 
 > O plano ou um dos planos pode (mas não é obrigatório) incluir um número ilimitado de transações.
 
@@ -68,7 +68,7 @@ Cada transação é normalmente definida como o número de registros que o Servi
 
     O Portal de Publicação também sugere um "Identificador de Plano", que é usado para se comunicar com os usuários finais, é usado como nome do plano na interface do usuário e também é usado pelo Serviço Marketplace para identificar o Plano. Se desejar, você pode alterar o "Identificador de Plano".
 
-    > [AZURE.NOTE]O "Identificador de Plano" deve ser exclusivo dentro do escopo de cada oferta. Como muitos outros identificadores usados no Portal de Publicação, ele será bloqueado após a primeira publicação para produção e você não poderá alterá-lo.
+    > [AZURE.NOTE] O "Identificador de Plano" deve ser exclusivo dentro do escopo de cada oferta. Como muitos outros identificadores usados no Portal de Publicação, ele será bloqueado após a primeira publicação para produção e você não poderá alterá-lo.
 
 3. Clique para aceitar sua escolha.
 
@@ -81,13 +81,13 @@ Cada transação é normalmente definida como o número de registros que o Servi
 |----|----|
 |**Este Plano é gratuito e está disponível em todo o mundo?**|Você pode criar um plano totalmente gratuito. Se é o único plano para essa oferta, significa que você está publicando uma "Oferta Gratuita" no Marketplace. Se é apenas para um plano (ou alguns), ele dá a opção de permitir que os usuários finais saibam mais sobre seu serviço com um número relativamente pequeno de transações por mês. Se a resposta for "Sim", nenhuma outra pergunta será feita.|
 
-> [AZURE.NOTE]Os usuários finais sempre poderão atualizar para os planos pagos.
+> [AZURE.NOTE] Os usuários finais sempre poderão atualizar para os planos pagos.
 
 |Pergunta|Significado|
 |----|----|
 |**Existe uma avaliação gratuita disponível?**|Você pode escolher entre "Sem avaliação" ou uma opção para usar seu plano por "Um mês". Os editores gostam de usar essa opção para permitir aos usuários finais compreender os benefícios da oferta gratuitamente por um mês.|
 
-> [AZURE.IMPORTANT]Os usuários finais só poderão adquirir uma avaliação gratuita se inserirem um instrumento de pagamento, por exemplo, cartão de crédito, contrato empresarial.
+> [AZURE.IMPORTANT] Os usuários finais só poderão adquirir uma avaliação gratuita se inserirem um instrumento de pagamento, por exemplo, cartão de crédito, contrato empresarial.
 
 > Depois de um mês de avaliação gratuita, o Azure Marketplace começará a cobrar o preço dos clientes a partir da data da assinatura, a menos que o cliente tenha iniciado seu cancelamento. Nenhuma notificação especial será feita para os usuários finais.
 
@@ -131,7 +131,7 @@ Se for serviço Web
 
   ![desenho](media/marketplace-publishing-data-service-creation/step-7.7.png)
 
-> [AZURE.IMPORTANT]Leia [Mapeando um serviço Web existente para OData por meio de CSDL](marketplace-publishing-data-service-creation-odata-mapping.md) para obter instruções detalhadas e exemplos de como criar um serviço Web CSDL.
+> [AZURE.IMPORTANT] Leia [Mapeando um serviço Web existente para OData por meio de CSDL](marketplace-publishing-data-service-creation-odata-mapping.md) para obter instruções detalhadas e exemplos de como criar um serviço Web CSDL.
 
 ## Próximas etapas
 Agora que você criou sua oferta de Serviço de Dados, não deixe de concluir as instruções no [Guia de conteúdo de marketing do Marketplace](marketplace-publishing-push-to-staging.md) antes de avançar para [Testando seu Serviço de Dados em preparação](marketplace-publishing-data-service-test-in-staging.md).
@@ -146,4 +146,4 @@ Agora que você criou sua oferta de Serviço de Dados, não deixe de concluir as
 [link-acct-creation]: marketplace-publishing-microsoft-accounts-creation-registration.md
 [link-pubportal]: https://publish.windowsazure.com
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

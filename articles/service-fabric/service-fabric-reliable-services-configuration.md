@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/28/2015"
+   ms.date="01/26/2016"
    ms.author="sumukhs"/>
 
 # Configurando Reliable Services com estado
@@ -24,7 +24,7 @@ A Configuração padrão dos Reliable Services com estado pode ser modificada po
 
 Por padrão, o tempo de execução do Service Fabric do Azure procura nomes de seção predefinidos no arquivo "Settings.xml" e consome os valores de configuração ao criar os componentes de tempo de execução subjacentes.
 
->[AZURE.NOTE]**Não** exclua os nomes de seção das configurações a seguir no arquivo Settings.xml que é gerado na solução do Visual Studio, a menos que você pretenda configurar o serviço via código. Renomear os nomes de pacote ou a seção de configuração exigirá uma alteração de código ao configurar o ReliableStateManager.
+>[AZURE.NOTE] **Não** exclua os nomes de seção das configurações a seguir no arquivo Settings.xml que é gerado na solução do Visual Studio, a menos que você pretenda configurar o serviço via código. Renomear os nomes de pacote ou a seção de configuração exigirá uma alteração de código ao configurar o ReliableStateManager.
 
 
 ## Configuração de segurança do replicador
@@ -33,7 +33,7 @@ As configurações de segurança do replicador servem para proteger o canal de c
 ### Nome padrão da seção
 ReplicatorSecurityConfig
 
->[AZURE.NOTE]Para alterar o nome da seção, substitua o parâmetro replicatorSecuritySectionName pelo construtor ReliableStateManagerConfiguration ao criar ReliableStateManager para este serviço.
+>[AZURE.NOTE] Para alterar o nome da seção, substitua o parâmetro replicatorSecuritySectionName pelo construtor ReliableStateManagerConfiguration ao criar ReliableStateManager para este serviço.
 
 
 ## Configuração do replicador
@@ -42,7 +42,7 @@ As configurações do replicador configuram o replicador que é responsável por
 ### Nome padrão da seção
 ReplicatorConfig
 
->[AZURE.NOTE]Para alterar o nome da seção, substitua o parâmetro replicatorSettingsSectionName pelo construtor ReliableStateManagerConfiguration ao criar ReliableStateManager para este serviço.
+>[AZURE.NOTE] Para alterar o nome da seção, substitua o parâmetro replicatorSettingsSectionName pelo construtor ReliableStateManagerConfiguration ao criar ReliableStateManager para este serviço.
 
 
 ### Nomes da configuração
@@ -107,4 +107,4 @@ A configuração MaxRecordSizeInKB define o tamanho máximo de um registro que p
 
 As configurações de SharedLogId e SharedLogPath são sempre usadas juntas para fazer um serviço usar um log compartilhado separado do log compartilhado padrão para o nó. Para obter maior eficiência, devem ser especificados o máximo de serviços possível para o mesmo log compartilhado. Arquivos de log compartilhados devem ser colocados em discos que são usados exclusivamente para que o arquivo de log compartilhado, para reduzir a contenção de movimentação do cabeçote. A expectativa é de que esse valor precise ser alterado somente em casos raros.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

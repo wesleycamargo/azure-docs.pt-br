@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/10/2015"
+   ms.date="02/03/2013"
    ms.author="maroche"/>
 
 
@@ -41,15 +41,15 @@ Embora a pesquisa de texto livre padrão seja simples e intuitiva, os usuários 
 | Pesquisa básica | Pesquisa básica usando um ou mais termos de pesquisa. Os resultados são quaisquer ativos que correspondam a qualquer propriedade com um ou mais dos termos especificados. | dados de vendas |
 | Escopo de propriedade | Retornar apenas as fontes de dados em que o termo de pesquisa corresponda à propriedade especificada | nome:finanças |
 | Operadores boolianos | Ampliar ou restringir uma pesquisa usando operações boolianas | finanças NOT corporativo |
-| Agrupando com parênteses | Usar parênteses para agrupar partes da consulta para obter o isolamento lógico, principalmente em conjunto com operadores boolianos | nome:finanças AND (marcas:Q1 ou marcas:Q2)Operadores de Comparação |
-| Operadores de comparação | Usar comparações que não sejam de igualdade para propriedades que tenham tipos de dados numéricos e de data | creationTime>"05/11/2014" |
+| Agrupando com parênteses | Usar parênteses para agrupar partes da consulta para obter o isolamento lógico, principalmente em conjunto com operadores boolianos | name:finance AND (tags:Q1 OR tags:Q2) |
+| Operadores de comparação | Usar comparações que não sejam de igualdade para propriedades que tenham tipos de dados numéricos e de data | modifiedTime > "11/05/2014" |
 
 Para obter mais informações sobre a pesquisa do **Catálogo de Dados do Azure**, consulte [https://msdn.microsoft.com/library/azure/mt267594.aspx](https://msdn.microsoft.com/library/azure/mt267594.aspx).
 
 ## Realce de ocorrência
 Ao serem exibidos resultados de pesquisa, todas as propriedades exibidas que corresponderem aos termos de pesquisa especificados (como o nome do ativo de dados, a descrição e as marcas) serão realçadas para facilitar a identificação do motivo pelo qual determinado ativo de dados foi retornado por determinada pesquisa.
 
-> [AZURE.NOTE]Os usuários podem desativar o realce de ocorrências, se desejado, usando a opção "Realce" no portal do **Catálogo de Dados do Azure**.
+> [AZURE.NOTE] Os usuários podem desativar o realce de ocorrências, se desejado, usando a opção "Realce" no portal do **Catálogo de Dados do Azure**.
 
 Ao serem exibidos resultados de pesquisa, talvez não seja sempre óbvio o motivo pelo qual um ativo de dados é incluído, mesmo com o realce de ocorrências habilitado. Como todas as propriedades são pesquisadas por padrão, um ativo de dados pode ser retornado devido a uma correspondência em uma propriedade de nível de coluna. E como vários usuários podem anotar ativos de dados registrados com suas próprias marcas e descrições, talvez nem todos os metadados sejam exibidos na lista de resultados de pesquisa.
 
@@ -60,4 +60,4 @@ No modo de exibição em bloco padrão, cada bloco exibido nos resultados de pes
 ## Resumo
 O registro de uma fonte de dados no **Catálogo de Dados do Azure** facilita a descoberta e a compreensão da fonte de dados, copiando metadados estruturais e descritivos da fonte de dados para o serviço de Catálogo. Depois que uma fonte de dados é registrada, os usuários podem descobri-la usando a filtragem e a pesquisa no portal do **Catálogo de Dados do Azure**.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

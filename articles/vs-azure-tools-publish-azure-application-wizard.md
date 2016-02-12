@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/18/2015"
+   ms.date="01/30/2016"
    ms.author="tarcher" />
 
 # Assistente Publicar aplicativo do Azure
@@ -21,7 +21,7 @@
 
 Depois de desenvolver um aplicativo Web no Visual Studio, você pode publicá-lo mais facilmente em um serviço de nuvem do Azure usando o assistente **Publicar aplicativo do Azure**. A primeira seção explica as etapas que você deve concluir antes de usar o assistente, e as demais seções explicam os recursos do assistente.
 
->[AZURE.NOTE]Este tópico é sobre a implantação de serviços de nuvem, não em sites. Para obter informações sobre a implantação de sites, consulte [Como implantar um site da Web do Azure](https://social.msdn.microsoft.com/Search/windowsazure?query=How%20to%20Deploy%20an%20Azure%20Web%20Site&Refinement=138&ac=4#refinementChanges=117&pageNumber=1&showMore=false).
+>[AZURE.NOTE] Este tópico é sobre a implantação de serviços de nuvem, não em sites. Para obter informações sobre a implantação de sites, consulte [Como implantar um site da Web do Azure](https://social.msdn.microsoft.com/Search/windowsazure?query=How%20to%20Deploy%20an%20Azure%20Web%20Site&Refinement=138&ac=4#refinementChanges=117&pageNumber=1&showMore=false).
 
 ## Pré-requisitos
 
@@ -29,13 +29,13 @@ Antes de publicar seu aplicativo Web no Azure, você precisa ter uma conta da Mi
 
 1. Obtenha uma conta da Microsoft e uma assinatura do Azure. Você pode tentar uma assinatura gratuita de um mês do Azure [aqui](https://azure.microsoft.com/pricing/free-trial/)
 
-1. Crie um serviço de nuvem e uma conta de armazenamento no Azure. Você pode fazer isso no Gerenciador de Servidores no Visual Studio ou usando o [Portal de Gerenciamento do Azure](http://go.microsoft.com/fwlink/?LinkID=213885). Para obter mais informações sobre como configurar seu ambiente do Azure, consulte [Configurando os serviços necessários para publicar um serviço de nuvem do Visual Studio](vs-azure-tools-publish-azure-application-wizard).
+1. Crie um serviço de nuvem e uma conta de armazenamento no Azure. Você pode fazer isso no Gerenciador de Servidores no Visual Studio ou usando o [Portal de Gerenciamento do Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 1. Habilite seu aplicativo Web para o Azure. Para habilitar seu aplicativo Web para ser publicado no Azure por meio do Visual Studio, você precisará associá-lo a um projeto de serviço de nuvem do Azure no Visual Studio. Para criar o projeto de serviço de nuvem associado, abra o menu de atalho para o projeto do aplicativo Web e, em seguida, escolha Converter, **Converter em Projeto de Serviço de Nuvem do Azure**.
 
 1. Depois que o projeto de serviço de nuvem é adicionado à sua solução, abra o mesmo menu de atalho novamente e escolha **Publicar**. Para obter mais informações sobre como habilitar aplicativos para o Azure, consulte [Como migrar e publicar um aplicativo Web em um serviço de nuvem do Azure do Visual Studio](https://msdn.microsoft.com/library/azure/hh420322.aspx).
 
->[AZURE.NOTE]Certifique-se de iniciar o Visual Studio com credenciais de administrador (Executar Como Administrador).
+>[AZURE.NOTE] Certifique-se de iniciar o Visual Studio com credenciais de administrador (Executar Como Administrador).
 
 1. Quando estiver pronto para publicar seu aplicativo, abra o menu de atalho para o projeto de serviço de nuvem do Azure e escolha **Publicar**. As etapas a seguir mostram o assistente Publicar aplicativo do Azure.
 
@@ -65,7 +65,7 @@ Antes de publicar seu aplicativo Web no Azure, você precisa ter uma conta da Mi
 
 1. Modifique as configurações desejadas para essa implantação e, em seguida, publique-as escolhendo o botão **Publicar** (a próxima seção fornece mais detalhes sobre as várias configurações). Para rever as configurações antes de publicar, escolha o botão **Avançar**.
 
-    >[AZURE.NOTE]Se você escolher Publicar nesta etapa, poderá monitorar o status dessa implantação no Visual Studio.
+    >[AZURE.NOTE] Se você escolher Publicar nesta etapa, poderá monitorar o status dessa implantação no Visual Studio.
 
 Você pode modificar as configurações avançadas e comuns para uma implantação usando o assistente **Publicar aplicativo do Azure**. Por exemplo, você pode escolher uma configuração para implantar seu aplicativo em um ambiente de teste antes de liberá-lo. A ilustração a seguir mostra a guia **Configurações Comuns** para uma implantação do Azure.
 
@@ -97,7 +97,7 @@ Você pode modificar as configurações avançadas e comuns para uma implantaç�
 
 1. Na lista **Conta de armazenamento** escolha a conta de armazenamento a ser usada para essa implantação. Compare os locais dos data centers para seu serviço de nuvem e sua conta de armazenamento. Idealmente, esses locais devem ser o mesmo.
 
-    >[AZURE.NOTE]A conta de armazenamento do Azure armazena o pacote para a implantação do aplicativo. Depois que o aplicativo é implantado, o pacote é removido da conta de armazenamento.
+    >[AZURE.NOTE] A conta de armazenamento do Azure armazena o pacote para a implantação do aplicativo. Depois que o aplicativo é implantado, o pacote é removido da conta de armazenamento.
 
 1. Marque a caixa de seleção **Atualização da implantação** se quiser implantar apenas os componentes atualizados. Esse tipo de implantação pode ser mais rápido do que uma implantação completa. Escolha o link **Configurações** para abrir a caixa de diálogo **Configurações de atualização da implantação** mostrada na ilustração a seguir.
 
@@ -113,7 +113,7 @@ Você pode modificar as configurações avançadas e comuns para uma implantaç�
 2. Para criar um perfil de aplicativo, marque a caixa de seleção **Habilitar criação de perfil** e escolha o link **Configurações** para exibir as opções de criação de perfil.
 
 
-    >[AZURE.NOTE]Você deve usar o Visual Studio Ultimate para habilitar o IntelliTrace ou o TIP (Criação de Perfil de Interação de Camada) e não pode habilitar ambos ao mesmo tempo.
+    >[AZURE.NOTE] Você deve usar o Visual Studio Ultimate para habilitar o IntelliTrace ou o TIP (Criação de Perfil de Interação de Camada) e não pode habilitar ambos ao mesmo tempo.
 
     Para saber mais, consulte [Depurando um serviço de nuvem publicado com o IntelliTrace e o Visual Studio](https://msdn.microsoft.com/library/azure/ff683671.aspx) e [Testando o desempenho de um serviço de nuvem](https://msdn.microsoft.com/library/azure/hh369930.aspx).
 
@@ -125,13 +125,11 @@ Você pode modificar as configurações avançadas e comuns para uma implantaç�
 
     ![Tela de resumo do assistente de publicação](./media/vs-azure-tools-publish-azure-application-wizard/IC749015.png)
 
-    >[AZURE.NOTE]O perfil de publicação aparece no Gerenciador de Soluções no Visual Studio, e as configurações do perfil são gravadas em um arquivo com a extensão .azurePubxml. As configurações são salvas como atributos de marcas XML.
+    >[AZURE.NOTE] O perfil de publicação aparece no Gerenciador de Soluções no Visual Studio, e as configurações do perfil são gravadas em um arquivo com a extensão .azurePubxml. As configurações são salvas como atributos de marcas XML.
 
 1. Escolha **Publicar** para publicar seu aplicativo. Você pode monitorar o status do processo de **Saída** no Visual Studio.
 
 ## Consulte também
-
-[Configurando os serviços necessários para publicar um serviço de nuvem no Visual Studio](https://msdn.microsoft.com/library/azure/ff683668.aspx)
 
 [Como migrar e publicar um aplicativo Web em um serviço de nuvem do Azure por meio do Visual Studio](https://msdn.microsoft.com/library/azure/hh420322.aspx)
 
@@ -141,4 +139,4 @@ Você pode modificar as configurações avançadas e comuns para uma implantaç�
 
 [Teste de desempenho de um serviço de nuvem](https://msdn.microsoft.com/library/azure/hh369930.aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

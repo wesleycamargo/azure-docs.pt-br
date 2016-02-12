@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="tbd" 
-	ms.date="12/11/2015" 
+	ms.date="02/03/2015" 
 	ms.author="bradsev;ankarloff" />
 
 
@@ -114,7 +114,8 @@ Dentro do elemento **Módulo**, você pode especificar um elemento **Proprietár
 * O conteúdo do elemento **Descrição** não deve exceder 128 caracteres de comprimento.
 * O conteúdo do elemento **Proprietário** não deve exceder 32 caracteres de comprimento.
 
-** Indicando se os resultados do módulo são deterministas ou não deterministas
+
+**Indicando se os resultados do módulo são determinísticos ou não determinísticos**
 
 Por padrão, todos os módulos são considerados deterministas. Ou seja, dado um conjunto inalterável de parâmetros, o módulo deve retornar os mesmos resultados sempre que for executado. Devido a esse comportamento, o Studio de Aprendizado de Máquina do Azure não executa novamente os módulos marcados como deterministas, a menos que um parâmetro ou os dados de entrada tenham mudado. Resultados em cache são retornados, resultando na execução mais rápida do teste.
 
@@ -170,8 +171,6 @@ Para módulos personalizados de R, a ID de uma porta Zip não precisa correspond
 	</Output>
 
 Para saídas em módulos R personalizados, o valor do atributo **id** não precisa corresponder a nada no script R, mas deve ser exclusivo. Para uma única saída de módulo, o valor retornado da função R deve ser um *data.frame*. Para mais de um objeto de um tipo de dados com suporte de saída, as portas de saída apropriada precisam ser especificadas no arquivo de definição XML e os objetos precisam ser retornados como uma lista. Os objetos de saída serão atribuídos a portas da esquerda para a direita, refletindo a ordem na qual os objetos são colocados na lista retornada de saída.
- 
-Por exemplo, se você quiser resultados de dataset, Dataset1 e Dataset2 como saída, dataset, dataset1 e dataset2 da esquerda para a direita, respectivamente, então defina as portas de saída no arquivo “CustomAddRows.xml” da seguinte maneira:
 
 Por exemplo, se você deseja modificar o módulo **Adicionar linhas personalizado** para produzir os dois conjuntos de dados originais, *dataset1* e *dataset2*, além do conjunto de dados *dataset* recém-incorporado (em ordem, da esquerda para a direita, como: *dataset*, *dataset1*, *dataset2*), então defina as portas de saída no arquivo CustomAddRows.xml da seguinte maneira:
 
@@ -363,4 +362,4 @@ O ambiente de execução para o script R usa a mesma versão do R que o módulo 
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

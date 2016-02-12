@@ -47,7 +47,7 @@ Essa opção **Da Galeria** abre um assistente que ajuda você a configurar a m�
 
 Para isso, você precisará do seguinte:
 
-- O módulo do Azure PowerShell versão 0.8.2 ou mais recente instalado no computador local. Você pode verificar a versão do Azure PowerShell que tem instalada usando o comando **Get-Module azure | format-table version**. Para obter instruções e um link para a versão mais recente, consulte [Como instalar e configurar o Azure PowerShell](../install-configure-powershell.md).
+- O módulo do Azure PowerShell versão 0.8.2 ou mais recente instalado no computador local. Você pode verificar a versão do Azure PowerShell que tem instalada usando o comando **Get-Module azure | format-table version**. Para obter instruções e um link para a versão mais recente, consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md).
 
 - O agente de VM instalado na máquina virtual de destino.
 
@@ -87,4 +87,4 @@ Leva alguns minutos para o agente abrir quando ele está instalado. Depois disso
 [Como fazer logon em uma máquina virtual executando o Windows Server]: virtual-machines-log-on-windows-server.md
 [Recursos e extensões de VM do Azure]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -58,7 +58,7 @@ Esta seção descreve como criar um serviço de nuvem do Azure com três máquin
 
 Usar as instruções presentes em [Como usar SSH com Linux no Azure](virtual-machines-linux-use-ssh-key.md) a fim de criar chaves pública e privada para SSH. As etapas básicas estão descritas nas instruções abaixo. Você vai usar essas chaves para conectar-se às máquinas virtuais no cluster e verificar se elas estão funcionando e podem comunicar-se umas com as outras.
 
-> [AZURE.NOTE]Este tópico parte do pressuposto de que você não tem essas chaves e precisa criar arquivos `myPrivateKey.pem` e `myCert.pem` para garantir a clareza. Se você já tiver salvado as chaves pública e privada no `~/.ssh/id_rsa`, bastará digitar `openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem` para obter o arquivo .pem que você precisa carregar no Azure.
+> [AZURE.NOTE] Este tópico parte do pressuposto de que você não tem essas chaves e precisa criar arquivos `myPrivateKey.pem` e `myCert.pem` para garantir a clareza. Se você já tiver salvado as chaves pública e privada no `~/.ssh/id_rsa`, bastará digitar `openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem` para obter o arquivo .pem que você precisa carregar no Azure.
 
 1. Em um diretório de trabalho, digite `openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem` para criar a chave privada e o certificado X.509 associado a ela.
 
@@ -79,7 +79,7 @@ curl https://discovery.etcd.io/new | grep ^http.* > etcdid
 
 No mesmo diretório de trabalho, use o editor de texto de sua preferência para criar um arquivo com o texto exibido a seguir e salve-o como `cloud-config.yaml`. Você pode atribuir o nome que desejar a ele, mas precisará fazer referência ao nome desse arquivo na opção **--custom-data** do comando **azure vm create** ao criar suas VMs na próxima etapa.
 
-> [AZURE.NOTE]Lembre-se de digitar `cat etcdid` para recuperar a ID de descoberta do etcd do arquivo `etcdid` criado anteriormente e substituir `<token>` no arquivo `cloud-config.yaml` a seguir pelo número gerado por meio de seu arquivo `etcdid`. Se não puder validar o cluster ao final, é possível que tenha pulado uma das etapas.
+> [AZURE.NOTE] Lembre-se de digitar `cat etcdid` para recuperar a ID de descoberta do etcd do arquivo `etcdid` criado anteriormente e substituir `<token>` no arquivo `cloud-config.yaml` a seguir pelo número gerado por meio de seu arquivo `etcdid`. Se não puder validar o cluster ao final, é possível que tenha pulado uma das etapas.
 
 ```
 #cloud-config
@@ -110,7 +110,7 @@ Para obter informações mais detalhadas sobre o arquivo de configuração de nu
 
 3. Digite `azure service create <cloud-service-name>` a fim de criar um serviço de nuvem para seu cluster básico, em que <*cloud-service-name*> é o nome de seu serviço de nuvem CoreOS. O nome desta amostra é **`coreos-cluster`**. Você precisará reutilizar o nome escolhido na criação das suas instâncias de VM CoreOS no serviço de nuvem.
 
-	Uma observação: se examinar o que já fez no [portal de visualização](https://portal.azure.com), você encontrará um nome de serviço de nuvem que é um grupo de recursos e um domínio, como mostra a imagem abaixo:
+	Uma observação: se você observar o que já fez no novo [portal do Azure](https://portal.azure.com), encontrará um nome de serviço de nuvem que é um grupo e um domínio de recursos, como mostra a imagem abaixo:
 
 	![][CloudServiceInNewPortal]
 
@@ -166,7 +166,7 @@ Verifique se **fleet** tem acesso a `myPrivateKey.key` no diretório de trabalho
 
 `ssh-add ./myPrivateKey.key`
 
-> [AZURE.NOTE]Se você já estiver usando a chave `~/.ssh/id_rsa`, adicione-a com `ssh-add ~/.ssh/id_rsa`.
+> [AZURE.NOTE] Se você já estiver usando a chave `~/.ssh/id_rsa`, adicione-a com `ssh-add ~/.ssh/id_rsa`.
 
 Agora você já pode fazer o teste remoto, usando o mesmo comando **fleetctl** usado em **node-1**, mas transmitindo alguns argumentos remotos:
 
@@ -209,4 +209,4 @@ Agora você deve ter um cluster CoreOS com três nós no Azure. Aqui, você pode
 [YAML]: http://yaml.org/
 [Introdução ao Fleet no CoreOS no Azure]: virtual-machines-linux-coreos-fleet-get-started.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

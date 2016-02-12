@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="01/11/2016" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"/>
 	
 #  Stream Analytics e Power BI: Um painel de análise em tempo real para dados de streaming
@@ -25,7 +25,7 @@ Use o [Microsoft Power BI](https://powerbi.com/) para criar um painel dinâmico 
 
 Neste artigo, saiba como criar suas próprias ferramentas de inteligência de negócios personalizadas usando o Power BI como uma saída de seus trabalhos da Stream Analytics do Azure e utilize um painel em tempo real.
 
-> [AZURE.NOTE]A Saída de da Power BI é um recurso de visualização da Stream Analytics do Azure. No momento, não há suporte para a criação e configuração das saídas do Power BI no Portal de Visualização do Azure.
+> [AZURE.NOTE] A Saída de da Power BI é um recurso de visualização da Stream Analytics do Azure. No momento, não há suporte para a criação e configuração das saídas do Power BI no Portal de Visualização do Azure.
 
 ## Pré-requisitos
 
@@ -47,7 +47,7 @@ Clique em **Stream Analytics** no painel esquerdo para listar os trabalhos do St
 
 ![elementográfico1][graphic1]
 
-> [AZURE.TIP]O novo trabalho será listado com um status **Não Iniciado**. Observe que o botão **Iniciar** na parte inferior da página está desabilitado. Esse é o comportamento esperado, já que você deve configurar a entrada do trabalho, a saída, a consulta e assim por diante antes de poder iniciar o trabalho.
+> [AZURE.TIP] O novo trabalho será listado com um status **Não Iniciado**. Observe que o botão **Iniciar** na parte inferior da página está desabilitado. Esse é o comportamento esperado, já que você deve configurar a entrada do trabalho, a saída, a consulta e assim por diante antes de poder iniciar o trabalho.
 
 ## Especificar entrada de trabalho
 
@@ -62,7 +62,7 @@ Para este tutorial, estamos supondo que você esteja usando o Hub de Eventos com
   * **Hub de Eventos** - Se o Hub de Eventos que você criou estiver na mesma assinatura que o trabalho do Stream Analytics, selecione o namespace que contém o hub de eventos.
 *	Se o hub de eventos estiver em uma assinatura diferente, selecione **Usar Hub de Eventos de Outra Assinatura** e insira manualmente informações para **Namespace do Service Bus**, **Nome do Hub de Eventos**, **Nome da Política do Hub de Eventos**, **Chave de Política do Hub de Eventos** e **Contagem de Partições do Hub de Eventos**.
 
-> [AZURE.NOTE]Este exemplo usa o número de partições padrão, que é 16.
+> [AZURE.NOTE]	Este exemplo usa o número de partições padrão, que é 16.
 
 * **Nome do Hub de Eventos** - Selecione o nome do Hub de Eventos do Azure que você tem.
 * **Nome de Política do Hub de Eventos** -Selecione a política de Hub de Eventos para o Hub de Eventos que você está usando. Verifique se essa política tem permissões de gerenciamento.
@@ -99,11 +99,11 @@ Forneça valores como a seguir:
 * **Nome do Conjunto de Dados** -Forneça um nome de conjunto de dados que você deseja que a saída do Power BI tenha. Por exemplo, usaremos “pbidemo”.
 *	**Nome da Tabela** - Forneça um nome de tabela sob o conjunto de dados da sua saída do Power BI. Digamos que nós a chamaremos de “pbidemo”. Atualmente, a saída do Power BI de trabalhos do Stream Analytics só podem ter uma tabela em um conjunto de dados.
 
->	[AZURE.NOTE] Não crie explicitamente este conjunto de dados e esta tabela na conta do Power BI. Eles serão criados automaticamente quando você iniciar o trabalho do Stream Analytics e este começar a colocar a saída no Power BI. Se sua consulta de trabalhar não retornar nenhum resultado, o conjunto de dados e a tabela não serão criados.
+>	[AZURE.NOTE] You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table will not be created.
 
 *	Clique em **OK**, **Testar Conexão** e agora sua configuração de saída está concluída.
 
->	[AZURE.WARNING] Tenha em mente também que se o Power BI já tiver um conjunto de dados e uma tabela com o mesmo nome fornecido no trabalho do Stream Analytics, os dados existentes serão substituídos.
+>	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
 
 
 ## Gravar consulta
@@ -232,4 +232,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

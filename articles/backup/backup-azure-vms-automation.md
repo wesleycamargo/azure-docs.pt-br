@@ -7,13 +7,16 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/06/2016" ms.author="aashishr";"trinadhk" />
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/28/2016" ms.author="aashishr";"trinadhk" />
 
 
 # Implantar e gerenciar o backup de VMs do Azure usando o PowerShell
 Este artigo mostra como usar o Azure PowerShell para backup e recuperação de VMs IaaS do Azure.
 
 ## Conceitos
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+
 [Comece com o backup de VM IaaS do Azure](backup-azure-vms-introduction.md) na documentação de backup do Azure.
 
 > [AZURE.WARNING] Antes de começar, é importante ter noções básicas sobre os [pré-requisitos](backup-azure-vms-prepare.md) necessários para trabalhar com o Backup do Azure e as [limitações](backup-azure-vms-prepare.md#limitations) da atual solução de backup de VM.
@@ -70,7 +73,7 @@ As seguintes tarefas de configuração e de registro podem ser automatizadas com
 
 ### Criar um cofre de backup
 
-> [AZURE.WARNING] Para clientes usando o Backup do Azure pela primeira vez, você precisa registrar o provedor de Backup do Azure para ser usado com sua assinatura. Isso pode ser feito executando o seguinte comando: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
+> [AZURE.WARNING] Para clientes usando o Backup do Azure pela primeira vez, você precisa registrar o provedor de Backup do Azure para ser usado com sua assinatura. Isso pode ser feito com a execução do seguinte comando: Register-AzureRMResourceProvider -ProviderNamespace "Microsoft.Backup"
 
 Você pode criar um novo cofre de backup usando o commandlet **New-AzureRMBackupVault**. O cofre de backup é um recurso do ARM e, portanto, você precisará colocá-lo em um Grupo de Recursos. Em um console do Azure PowerShell com privilégios elevados, execute os seguintes comandos:
 
@@ -327,4 +330,4 @@ $DAILYBACKUPSTATS | Out-GridView
 
 Se você deseja adicionar recursos de gráficos à saída do relatório, saiba mais no blog do TechNet em [Gráficos com o PowerShell](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

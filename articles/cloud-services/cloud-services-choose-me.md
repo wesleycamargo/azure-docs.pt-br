@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Os Serviço de Nuvem no Azure são a opção de computação que desejo?" 
+	pageTitle="Os Serviços de Nuvem são a opção de computação do Azure certa para mim? | Microsoft Azure" 
 	description="Saiba mais sobre opções de hospedagem de computação do Azure e como elas funcionam: Serviço de Aplicativo, Serviços de Nuvem e Máquinas Virtuais" 
 	services="cloud-services"
     documentationCenter=""
@@ -32,8 +32,8 @@ A Azure fornece diferentes modelos de hospedagem para executar aplicativos. Cada
 ## Próximas etapas
 [Criar um aplicativo de serviço de nuvem no .NET](cloud-services-dotnet-get-started.md)<br/> [Criar um aplicativo de serviço de nuvem no Node.js](cloud-services-nodejs-develop-deploy-app.md)<br/> [Criar um aplicativo de serviço de nuvem no PHP](../cloud-services-php-create-web-role.md)<br/> [Criar um aplicativo de serviço de nuvem em Python](../cloud-services-python-ptvs.md)<br/>
 
-[Serviço de Aplicativo]: app-service-choose-me.md
-[Máquinas virtuais]: ../virtual-machines-about.md
+[Serviço de Aplicativo]: ../app-service-web/app-service-web-overview.md
+[Máquinas virtuais]: ../virtual-machines/virtual-machines-about.md
 [Serviços de Nuvem]: #tellmecs
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

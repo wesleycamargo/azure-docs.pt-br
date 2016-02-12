@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="12/02/2015"
+   ms.date="02/03/2015"
    ms.author="sstein"/>
 
 # Visão do desempenho de consulta de Banco de Dados SQL do Azure
@@ -45,36 +45,54 @@ As seguintes permissões de [controle de acesso baseado em função](role-based-
 A Visão do Desempenho de Consulta é fácil de usar:
 
 - Examine a lista das consultas que consomem mais recursos. 
-- Selecione uma consulta individual para exibir seus detalhes.
+- Escolha uma consulta individual para exibir seus detalhes.
 - Clique em **Configurações** para personalizar a exibição dos dados ou mostrar um período diferente.
+- Abra [Index Advisor](sql-database-index-advisor.md) e verifique se há alguma recomendação disponível.
 
 
 
-> [AZURE.NOTE]São necessárias duas horas de dados a serem capturados por Armazenamento de Consulta fornecer a visão de desempenho de consulta no banco de dados SQL. Se o banco de dados não tem atividades ou o Armazenamento de Consulta não estava ativo durante um determinado período de tempo, os gráficos estarão vazios ao exibir o período de tempo. Você pode habilitar o Armazenamento de Consulta a qualquer momento se ele não estiver em execução.
+> [AZURE.NOTE] São necessárias duas horas de dados a serem capturados por Armazenamento de Consulta fornecer a visão de desempenho de consulta no banco de dados SQL. Se o banco de dados não tem atividades ou o Armazenamento de Consulta não estava ativo durante um determinado período de tempo, os gráficos estarão vazios ao exibir o período de tempo. Você pode habilitar o Armazenamento de Consulta a qualquer momento se ele não estiver em execução.
 
 
 
 ## Examinar as consultas que mais consomem CPU
 
-No [portal](https://portal.azure.com), faça o descrito a seguir:
+No [portal](http://portal.azure.com), faça o descrito a seguir:
 
 1. Navegue para um banco de dados SQL e clique em **Visão do Desempenho de Consulta**. 
 
     ![Visão de Desempenho de Consulta][1]
 
-    A exibição das principais consultas abre e a lista das consultas que consomem mais CPU são listadas.
+    A exibição das principais consultas é aberta e as consultas que consomem mais CPU são listadas.
 
-1. Clique em torno do gráfico para obter detalhes.<br>A linha superior mostra a %DTU geral do banco de dados, enquanto as barras mostram a %CPU consumida pelas consultas selecionadas. Marque ou desmarque as consultas individuais para incluir ou exclui-las do gráfico.
+1. Clique em torno do gráfico para obter detalhes.<br>A linha superior mostra a %DTU geral do banco de dados, enquanto as barras mostram a %CPU consumida pelas consultas selecionadas durante o intervalo escolhido (por exemplo, se **Semana passada** for escolhida, cada barra representará um dia).
 
     ![principais consultas][2]
 
-1. Opcionalmente, clique em **Editar gráfico** para personalizar a exibição de dados de consumo de CPU ou mostrar um período de tempo diferente.
+    A grade inferior representa informações agregadas das consultas visíveis.
+
+    -	Média de CPU por consulta durante o intervalo observável. 
+    -	Duração total por consulta.
+    -	Número total de execuções para uma consulta específica.
+
+
+	Marque ou desmarque as consultas individuais para incluir ou exclui-las do gráfico.
+
+
+1. Se os dados se tornarem obsoletos, clique no botão **Atualizar**.
+1. Opcionalmente, clique em **Configurações** para personalizar a exibição dos dados de consumo de CPU ou mostrar um período de tempo diferente.
+
+    ![configurações](./media/sql-database-query-performance/settings.png)
 
 ## Exibindo detalhes de uma consulta individual
 
 Para exibir detalhes da consulta:
 
-1. Clique em qualquer consulta na lista das principais consultas.<br>A exibição de detalhes abre e o consumo de CPU de consultas é dividido ao longo do tempo.
+1. Clique em qualquer consulta na lista de consultas principais.
+
+    ![detalhes](./media/sql-database-query-performance/details.png)
+
+4. A exibição de detalhes é aberta e o consumo de CPU de consultas é dividido ao longo do tempo.
 3. Clique em torno do gráfico para obter detalhes.<br>A linha superior mostra a %DTU geral e as barras mostram a %CPU consumida pela consulta selecionada.
 4. Examine os dados para ver as métricas detalhadas, incluindo a duração e o número de execuções e a porcentagem de utilização de recursos para cada intervalo de execução da consulta.
     
@@ -83,11 +101,57 @@ Para exibir detalhes da consulta:
 1. Opcionalmente, clique em **Configurações** para personalizar a exibição dos dados de consumo de CPU ou mostrar um período de tempo diferente.
 
 
+## 	Otimizando a configuração do Repositório de Consultas para Análise de Desempenho de Consultas
+
+Durante o uso da Análise de Desempenho de Consultas, você poderá encontrar as seguintes mensagens do Repositório de Consultas:
+
+- "O repositório de consultas atingiu sua capacidade e não está coletando novos dados."
+- "O Repositório de Consultas para este banco de dados está no modo somente leitura e não está coletando dados de análise de desempenho."
+- "Os parâmetros do Repositório de Consultas não estão definidos de modo ideal para a Análise de Desempenho de Consultas."
+
+Normalmente, essas mensagens aparecem quando o Repositório de Consultas não está apto a coletar novos dados. Para corrigir esse problema, você tem algumas opções:
+
+-	Mudar a política de Retenção e Captura do Repositório de Consultas
+-	Aumentar o tamanho do Repositório de Consultas 
+-	Limpar o Repositório de Consultas
+
+### Política recomendada de retenção e captura
+
+Há dois tipos de política de retenção:
+
+- Baseada em tamanho — se definida para AUTOMÁTICA, ela limpará os dados automaticamente quando o tamanho máximo estiver perto de se atingido.
+- Baseada no tempo — por padrão, nós a definiremos para 30 dias, o que significa que, se o Repositório de Consultas ficar sem espaço, ele excluirá informações de consulta com mais de 30 dias. 
+
+A política de captura pode ser definida para:
+
+- **Todas** – captura todas as consultas. Essa é a opção padrão.
+- **Automática** – consultas não frequentes e consultas com duração de execução e compilação insignificantes serão ignoradas. Os limites da duração de contagem de execução, compilação e tempo de execução são determinados internamente.
+- **Nenhum** – o Repositório de Consultas interrompe a captura de novas consultas.
+	
+É recomendável definir todas as políticas para AUTOMÁTICA e a limpeza de políticas para 30 dias:
+
+    ALTER DATABASE [YourDB] 
+    SET QUERY_STORE (SIZE_BASED_CLEANUP_MODE = AUTO);
+    	
+    ALTER DATABASE [YourDB] 
+    SET QUERY_STORE (CLEANUP_POLICY = (STALE_QUERY_THRESHOLD_DAYS = 30));
+    
+    ALTER DATABASE [YourDB] 
+    SET QUERY_STORE (QUERY_CAPTURE_MODE = AUTO);
+
+Aumente o tamanho do Repositório de Consultas. Essa ação pode ser realizada conectando-se a um banco de dados e emitindo a seguinte consulta:
+
+    ALTER DATABASE [YourDB]
+    SET QUERY_STORE (MAX_STORAGE_SIZE_MB = 1024);
+
+Limpe o Repositório de Consultas. Esteja ciente de que essa ação excluirá todas as informações atuais no Repositório de Consultas:
+
+    ALTER DATABASE [YourDB] SET QUERY_STORE CLEAR;
 
 
 ## Resumo
 
-A Visão do Desempenho de Consulta ajuda a entender o impacto de sua carga de trabalho de consulta e como ela se relaciona com o consumo de recursos do banco de dados. Com esse recurso, você saberá mais sobre as consultas que consomem mais recursos e identificará facilmente as que devem ser corrigidas antes que as mesmas se tornem um problema. Clique no bloco **Visão do Desempenho de Consulta** em uma folha de banco de dados para ver as consultas que mais consomem recursos (CPU).
+A Visão do Desempenho de Consulta ajuda a entender o impacto de sua carga de trabalho de consulta e como ela se relaciona com o consumo de recursos do banco de dados. Com esse recurso, você saberá mais sobre as consultas que consomem mais recursos e identificará facilmente as que devem ser corrigidas antes que as mesmas se tornem um problema. Clique em **Análise de Desempenho de Consultas** em um banco de dados para ver as consultas que mais consomem recursos (CPU).
 
 
 
@@ -96,11 +160,14 @@ A Visão do Desempenho de Consulta ajuda a entender o impacto de sua carga de tr
 
 Cargas de trabalho de banco de dados são dinâmicas e mudam continuamente. Monitore suas consultas e continue a ajustá-las para aprimorar o desempenho.
 
-Confira o [Consultor de Índice](sql-database-index-advisor.md) para recomendações adicionais sobre como melhorar o desempenho do banco de dados SQL.
+Para obter recomendações adicionais para melhorar o desempenho do seu banco de dados SQL, clique em [Index Advisor](sql-database-index-advisor.md) na folha **Análise de Desempenho de Consultas**.
+
+![Supervisor de Índices](./media/sql-database-query-performance/ia.png)
+
 
 <!--Image references-->
 [1]: ./media/sql-database-query-performance/tile.png
 [2]: ./media/sql-database-query-performance/top-queries.png
 [3]: ./media/sql-database-query-performance/query-details.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

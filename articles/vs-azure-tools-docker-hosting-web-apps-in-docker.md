@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="12/18/2015"
+   ms.date="01/30/2016"
    ms.author="tarcher" />
 
 # Hospedando aplicativos Web no Docker
@@ -31,7 +31,7 @@ Nestes procedimentos, você vai criar um novo projeto de aplicativo Web ASP.NET 
 
 1. Crie um novo projeto de aplicativo Web ASP.NET. No menu principal, escolha **Arquivo**, **Novo Projeto**. Em **C#**, **Web**, escolha **Aplicativo Web ASP.NET**.
 
-1. Na lista de **Modelos de Visualização do ASP.NET 5**, escolha **Site**.
+1. Na lista de **Modelos de visualização do ASP.NET 5**, escolha **Site**.
 
 1. Já que o aplicativo Web será hospedado/executado no Docker, desmarque a caixa de seleção **Host na nuvem**, se estiver marcada, e escolha o botão **OK**.
 
@@ -63,7 +63,7 @@ Nestes procedimentos, você vai criar um novo projeto de aplicativo Web ASP.NET 
 
     Observe que você também tem a opção de usar um host do Docker existente. Para isso, escolha-o na lista suspensa **Máquinas Virtuais Existentes do Docker no Azure**, em vez de escolher o botão **Novo**. Essa lista não mostra somente hosts de contêiner, mas relaciona todas as VMs no seu locatário do Azure.
 
-    Como alternativa, você pode optar por publicar em um host do Docker personalizado. Consulte **Fornecer um host do Docker personalizado**, mais adiante neste tópico para mais informações.
+    Como alternativa, você pode optar por publicar em um host do Docker personalizado. Consulte **Fornecer um host do Docker personalizado**, mais adiante neste tópico, para obter mais informações.
 
 1. Insira as informações a seguir na caixa de diálogo **Criar uma máquina virtual no Microsoft Azure**. Ao terminar, escolha o botão **OK**. Isso cria uma máquina virtual Linux com uma extensão do Docker configurada.
 
@@ -112,7 +112,7 @@ No procedimento anterior, você teve que criar uma máquina virtual do Docker ho
 
 ### Como fornecer um host do Docker personalizado
 
-1. Na caixa de diálogo **Selecionar Máquina Virtual do Docker**, marque a caixa de seleção **Personalizar Host do Docker**.
+1. Na caixa de diálogo **Selecionar Máquina Virtual do Docker**, marque a caixa de seleção **Host do Docker Personalizado**.
 
     ![][5]
 
@@ -138,7 +138,7 @@ O procedimento a seguir é para comunicação com um host do Docker implantado n
 
 1. Abra um prompt de comando do Windows.
 
-1. Atribua o host do Docker e verifique as variáveis de ambiente. Para isso, insira os comandos a seguir no prompt de comando. (Substitua o nome do host do Docker por *NameofAzureVM*.)
+1. Atribua o host do Docker e verifique as variáveis de ambiente. Para isso, insira os comandos a seguir no prompt de comando. (Substitua *NameofAzureVM* pelo nome do seu host do Docker).
 
     ```
     Set DOCKER_HOST=tcp://<NameofAzureVM>.cloudapp.net:2376
@@ -163,7 +163,7 @@ O procedimento a seguir é para comunicação com um host do Docker implantado n
 
 Agora que você tem um host do Docker, é possível emitir comandos do Docker a ele. Para saber mais sobre o Docker, consulte a [Documentação do Docker](https://docs.docker.com/) e o [Tutorial online do Docker](https://www.docker.com/tryit/).
 
-Para obter informações sobre como usar a extensão de VM do Docker para o Linux no Azure, consulte [A extensão de máquina virtual do Docker para Linux no Azure](virtual-machines-docker-vm-extension.md).
+Para obter informações sobre como usar a extensão de VM do Docker para o Linux no Azure, consulte [A extensão de máquina virtual do Docker para Linux no Azure](/virtual-machines/virtual-machines-docker-vm-extension.md).
 
 Em caso de problemas ao usar o Docker no Visual Studio, consulte [Solucionando erros do cliente Docker no Windows usando o Visual Studio](vs-azure-tools-docker-troubleshooting-docker-errors.md).
 
@@ -177,4 +177,4 @@ Em caso de problemas ao usar o Docker no Visual Studio, consulte [Solucionando e
 [7]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796685.png
 [8]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796686.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

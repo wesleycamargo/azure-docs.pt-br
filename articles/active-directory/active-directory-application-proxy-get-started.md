@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="01/28/2016"
 	ms.author="kgremban"/>
 
 # Como fornecer acesso remoto seguro a aplicativos locais
 
-> [AZURE.NOTE]O Proxy de Aplicativo é um recurso que está disponível somente se você tiver atualizado para a edição Premium ou Básica do Active Directory do Azure. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md).
+> [AZURE.NOTE] O Proxy de Aplicativo é um recurso que está disponível somente se você tiver atualizado para a edição Premium ou Básica do Active Directory do Azure. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md).
 
 Você deseja fornecer acesso para usuários remotos que têm todos os tipos de dispositivos – gerenciados, não gerenciados; tablets, smartphones e laptops. No entanto, fornecer acesso seguro a uma infinidade de recursos pode ser complexo. Nos últimos anos, proxies reversos eram uma maneira popular de fornecer acesso remoto seguro, mas precisavam estar atrás de firewalls que eram difíceis de proteger e de deixar altamente disponíveis.
 
@@ -59,7 +59,7 @@ Você pode fazer muito mais com o Proxy de Aplicativo:
 - [Assista aos nossos vídeos no Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 ## Recursos adicionais
-* [Inscrever-se no Azure como uma organização](../sign-up-organization.md)
-* [Identidade do Azure](../fundamentals-identity.md)
+* [Inscrever-se no Azure como uma organização](sign-up-organization.md)
+* [Identidade do Azure](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

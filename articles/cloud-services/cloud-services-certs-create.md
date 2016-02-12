@@ -70,7 +70,7 @@ Há muitas páginas na Internet que tratam de como fazer isso com o IIS. [Este](
 Você pode usar o Java para [criar um certificado](../app-service-web/java-create-azure-website-using-java-sdk.md#create-a-certificate).
 
 ### Linux
-[Este](..\virtual-machines\virtual-machines-linux-use-ssh-key.md) artigo descreve como criar certificados com SSH.
+[Este](../virtual-machines/virtual-machines-linux-use-ssh-key.md) artigo descreve como criar certificados com SSH.
 
 ## Próximas etapas
 
@@ -80,4 +80,4 @@ Carregue um [certificado de API de gerenciamento](../azure-api-management-certs.
 
 >[AZURE.NOTE] O portal do Azure não usa certificados de gerenciamento para acessar a API, ele usa contas de usuário.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

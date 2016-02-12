@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Mover dados do DB2 usando o Azure Data Factory
@@ -36,7 +36,9 @@ Há problemas conhecidos relatados pela IBM sobre a instalação do Driver do se
 
 ## Exemplo: copiar dados do DB2 para o Blob do Azure
 
-O exemplo a seguir mostra:
+Este exemplo mostra como copiar dados de um banco de dados DB2 local para um Armazenamento de Blob do Azure. No entanto, os dados podem ser copiados **diretamente** para qualquer uma das fontes declaradas [aqui](data-factory-data-movement-activities.md#supported-data-stores) usando a atividade de cópia no Azure Data Factory.
+ 
+O exemplo tem as seguintes entidades de data factory:
 
 1.	Um serviço vinculado do tipo [OnPremisesDb2](data-factory-onprem-db2-connector.md#db2-linked-service-properties).
 2.	Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties). 
@@ -312,4 +314,4 @@ Char | Cadeia de caracteres
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

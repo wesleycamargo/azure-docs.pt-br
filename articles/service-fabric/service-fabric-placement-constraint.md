@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/03/2015"
-   ms.author="abhic"/>
+   ms.date="02/03/2016"
+   ms.author="masnider"/>
 
 # Visão geral das restrições de posicionamento
 
@@ -26,7 +26,7 @@ Ao usar as restrições de posicionamento, você pode:
 
 - Restringir diferentes tipos de serviço em diferentes tipos de nó por meio da definição de NodeProperties nos nós.
 
-- Aplicar determinadas restrições para réplicas primárias, mas não para réplicas secundárias
+- Direcione as restrições a fim de aplicar às réplicas primárias e secundários de um serviço, ou direcione as restrições a fim de aplicar somente nas réplicas primárias.
 
 
 ## Principais conceitos
@@ -38,4 +38,4 @@ NodeProperty — um mapa definido pelo usuário ou pelo sistema de uma cadeia de
 
 Para saber mais: [Cenários de aplicativo](../service-fabric-application-scenarios).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

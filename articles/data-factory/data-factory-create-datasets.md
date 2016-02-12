@@ -131,7 +131,7 @@ Divisões diárias que iniciam às 6h, em vez da meia-noite do padrão.
 
 	"availability":
 	{
-		"frequency": "Daily",
+		"frequency": "Day",
 		"interval": "1",
 		"offset": "06:00:00"
 	}
@@ -208,4 +208,4 @@ Se precisar executar um pipeline mensalmente em uma data e hora específicas (di
 	  }
 	}
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

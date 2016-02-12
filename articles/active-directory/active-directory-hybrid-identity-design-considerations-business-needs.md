@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="12/07/2015"
+	ms.date="02/02/2016"
 	ms.author="billmath"/>
 
 # Determinar requisitos de identidade para sua solução de identidade híbrida
@@ -47,7 +47,8 @@ Agora que você tem uma ideia sobre os requisitos de negócios da empresa, preci
 Você também precisa estar ciente dos serviços de nuvem que sua empresa pode ter. É muito importante executar uma avaliação para entender a integração atual com os modelos SaaS, IaaS ou PaaS em seu ambiente. Não deixe de responder às seguintes perguntas durante essa avaliação: - Sua empresa tem alguma integração com um provedor de serviço de nuvem? - Em caso afirmativo, quais serviços estão sendo usados? - A integração está atualmente em produção ou é um piloto?
 
 
->[AZURE.NOTE]Se você não tiver um mapeamento preciso de todos os seus aplicativos e serviços de nuvem, pode usar a ferramenta Cloud App Discovery. Essa ferramenta pode fornecer a seu departamento de TI visibilidade de todos os negócios da organização e aplicativos de nuvem do consumidor. Isso facilita ainda mais a descoberta de TI de sombra em sua organização, incluindo detalhes sobre padrões de uso e todos os usuários que acessam seus aplicativos na nuvem. Para acessar essa ferramenta, visite [https://appdiscovery.azure.com](https://appdiscovery.azure.com/)
+>[AZURE.NOTE]
+Se você não tiver um mapeamento preciso de todos os seus aplicativos e serviços de nuvem, pode usar a ferramenta Cloud App Discovery. Essa ferramenta pode fornecer a seu departamento de TI visibilidade de todos os negócios da organização e aplicativos de nuvem do consumidor. Isso facilita ainda mais a descoberta de TI de sombra em sua organização, incluindo detalhes sobre padrões de uso e todos os usuários que acessam seus aplicativos na nuvem. Para acessar essa ferramenta, visite [https://appdiscovery.azure.com](https://appdiscovery.azure.com/)
 
 ## Avaliar os requisitos de integração de identidade
 Em seguida, você precisa avaliar os requisitos de integração de identidade. Essa avaliação é importante para definir os requisitos técnicos de como os usuários serão autenticados, qual será a aparência da presença da organização na nuvem, como a organização permitirá a autorização e como será a experiência do usuário. Certifique-se de responder às seguintes perguntas:
@@ -94,6 +95,6 @@ Você também precisa avaliar os requisitos do usuário. Essa avaliação é imp
 [Determinar os requisitos de sincronização de diretório](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
 
 ## Consulte também
-[Visão geral de considerações sobre design] ((active-directory-hybrid-identity-design-considerations-overview.md)
+[Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

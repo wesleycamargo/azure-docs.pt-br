@@ -6,7 +6,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="01/29/2016" 
 	ms.author="adhurwit"/>
 
 # Usar cofre da chave do Azure em um aplicativo Web #
@@ -27,7 +27,7 @@ Para concluir este tutorial, você precisará do seguinte:
 - Uma ID do Cliente e um Segredo do Cliente para um aplicativo Web registrado no Active Directory do Azure que tenha acesso ao seu Cofre da Chave
 - Um aplicativo Web. Mostraremos as etapas para um aplicativo ASP.NET MVC implantado no Azure como um aplicativo Web. 
 
-> [AZURE.NOTE]É essencial que você conclua as etapas listadas em [Introdução ao cofre da chave do Azure](key-vault-get-started.md) para este tutorial, para que você tenha o URI de um segredo e a ID do cliente e o segredo do cliente para um aplicativo Web.
+> [AZURE.NOTE]  É essencial que você conclua as etapas listadas em [Introdução ao cofre da chave do Azure](key-vault-get-started.md) para este tutorial, para que você tenha o URI de um segredo e a ID do cliente e o segredo do cliente para um aplicativo Web.
 
 O aplicativo Web que acessará o cofre da chave é aquele que está registrado no Active Directory do Azure e tem acesso ao seu cofre da chave. Se esse não for o caso, volte a Registrar um Aplicativo do tutorial de introdução e repita as etapas listadas.
 
@@ -90,7 +90,7 @@ A seguir, o código para obter um token de acesso do Active Directory do Azure. 
 	    return result.AccessToken;
     }
 
-> [AZURE.NOTE]Usar um Segredo de Cliente, uma ID do Cliente e um Segredo do Cliente é a maneira mais fácil de autenticar um aplicativo do AD do Azure. E usá-lo em seu aplicativo Web permite uma separação de funções e mais controle sobre o gerenciamento de chaves. Mas ele se baseia na colocação do Segredo do Cliente nas definições das suas configurações, o que pode ser tão arriscado quanto colocar o segredo que você deseja proteger nas definições da sua configuração A seguir, uma discussão sobre como usar uma ID do Cliente e um Certificado em vez da ID do Cliente e o Segredo do Cliente para autenticar o aplicativo do AD do Azure.
+> [AZURE.NOTE] Usar um Segredo de Cliente, uma ID do Cliente e um Segredo do Cliente é a maneira mais fácil de autenticar um aplicativo do AD do Azure. E usá-lo em seu aplicativo Web permite uma separação de funções e mais controle sobre o gerenciamento de chaves. Mas ele se baseia na colocação do Segredo do Cliente nas definições das suas configurações, o que pode ser tão arriscado quanto colocar o segredo que você deseja proteger nas definições da sua configuração A seguir, uma discussão sobre como usar uma ID do Cliente e um Certificado em vez da ID do Cliente e o Segredo do Cliente para autenticar o aplicativo do AD do Azure.
 
 
 
@@ -243,4 +243,4 @@ Para referências de programação, consulte [Referência de API do cliente C# d
 [2]: ./media/key-vault-use-from-web-application/PortalAddCertificate.png
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

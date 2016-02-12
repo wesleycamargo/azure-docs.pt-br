@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/04/2016"
+   ms.date="02/02/2016"
    ms.author="jgao"/>
 
 # Criar clusters Hadoop baseados no Windows no HDInsight usando modelos ARM
@@ -128,7 +128,7 @@ Neste artigo, você aprendeu várias maneiras de criar um cluster HDInsight. Par
 
 - Para obter um exemplo de como implantar recursos por meio da biblioteca de cliente do .NET, confira [Implantar recursos usando bibliotecas .NET e um modelo](arm-template-deployment.md).
 - Para obter um exemplo detalhado de implantação de um aplicativo, confira [Provisionar e implantar microsserviços de forma previsível no Azure](app-service-deploy-complex-application-predictably.md).
-- Para obter orientação sobre como implantar a solução em ambientes diferentes, confira [Ambientes de desenvolvimento e de teste no Microsoft Azure](solution-dev-test-environments-preview-portal.md).
+- Para obter orientação sobre como implantar a solução em ambientes diferentes, confira [Ambientes de desenvolvimento e de teste no Microsoft Azure](solution-dev-test-environments.md).
 - Para saber mais sobre as seções do modelo do Gerenciador de Recursos do Azure, confira [Criação de modelos](resource-group-authoring-templates.md).
 - Para obter uma lista das funções que você pode usar em um modelo do Gerenciador de Recursos do Azure, confira [Funções do modelo](resource-group-template-functions.md).
 
@@ -444,4 +444,4 @@ O modelo a seguir do Gerenciador de Recursos do Azure cria um cluster Hadoop bas
 	  }
 	}
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

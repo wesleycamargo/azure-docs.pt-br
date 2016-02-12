@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/01/2016"
 	ms.author="billmath"/>
 
 # Portas e Protocolos Requeridos para Identidade Híbrida
@@ -46,7 +46,13 @@ Esta tabela descreve as portas e protocolos que são necessários para a comunic
 Para obter uma lista de portas e endereços IP do Office 365, veja [intervalos de endereços IP e URLs do Office 365.](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)
 
 ## Tabela 3 - Azure AD Connect e Servidores de Federação/WAP
-Esta tabela descreve as portas e protocolos que são necessários para a comunicação entre o servidor do Azure AD Connect e servidores de Federação/WAP. Em breve!
+Esta tabela descreve as portas e protocolos que são necessários para a comunicação entre o servidor do Azure AD Connect e servidores de Federação/WAP.
+
+| Protocolo |Portas |Descrição
+| --------- | --------- |--------- |
+| HTTP|80 (TCP/UDP)|Usada para baixar as CRLs (Listas de Certificados Revogados) para verificar os certificados SSL.
+|HTTPS|443(TCP/UDP)|Usado para sincronizar com o Azure AD.
+|WinRM|5985| Ouvinte do WinRM
 
 ## Tabela 4 - Servidores de Federação e WAP
 Esta tabela descreve as portas e protocolos que são necessários para a comunicação entre os servidores de Federação e servidores WAP.
@@ -77,6 +83,6 @@ Esta tabela descreve as portas e protocolos que são necessários para a comunic
 |Barramento de Serviço do Azure|5671 (TCP/UDP)|
 
 ### 6b - pontos de extremidade de agente do Azure AD Connect Health para (AD FS/Sync) e Azure AD
-Para obter uma lista de pontos de extremidade, consulte [a seção de Requisitos para o agente do Azure AD Connect Health](active-directory-aadconnect-health.md#requirements)
+Para obter uma lista de pontos de extremidade, veja [a seção Requisitos para o agente do Azure AD Connect Health](active-directory-aadconnect-health.md#requirements)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

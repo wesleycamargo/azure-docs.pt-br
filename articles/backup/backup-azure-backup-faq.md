@@ -1,10 +1,10 @@
 <properties
    pageTitle="Perguntas frequentes do Backup do Azure | Microsoft Azure"
-   description="Perguntas frequentes sobre a solução de Backup do Azure – agente de backup, backup e retenção, recuperação, segurança e outras perguntas comuns sobre o serviço do Backup do Azure."
+   description="Respostas para perguntas frequentes sobre agente de backup, backup e retenção, recuperação, segurança e outras perguntas comuns sobre a solução de Backup do Azure."
    services="backup"
    documentationCenter=""
    authors="Jim-Parker"
-   manager="shreeshd"
+   manager="jwhit"
    editor=""
    keywords="solução de backup; serviço de backup"/>
 
@@ -14,7 +14,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="01/26/2016"
+	 ms.date="01/28/2016"
 	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 # Serviço de Backup do Azure - Perguntas frequentes
@@ -183,4 +183,4 @@ O tamanho da fonte de dados é medido como mencionado abaixo
 
 Assim que os backups começarem a ser executados com êxito com o novo local de cache, você poderá remover a pasta de cache original.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

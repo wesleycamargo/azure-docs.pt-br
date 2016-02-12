@@ -23,7 +23,7 @@ Este artigo descreve a guia **ALCANCE** do portal do **Mobile Engagement**. Voc�
 
 A seção Reach da interface do usuário é a ferramenta de gerenciamento de campanha Push onde você pode criar/editar/ativar/finalizar/monitorar e obter estatísticas sobre campanhas de notificação de envio e os recursos que também podem ser acessados via a API do Reach (e alguns elementos do nível baixo API de envio). Lembre-se de que, se você estiver usando as APIs ou a interface do usuário, você precisará integrar o Mobile Engagement do Azure e o Reach em seu aplicativo em cada plataforma com o SDK antes que você possa usar as campanhas Reach.
 
->[AZURE.NOTE]Muitas seções da interface do usuário do portal do **Mobile Engagement** contêm o botão **MOSTRAR AJUDA**. Pressione este botão para obter mais informações contextuais sobre uma seção.
+>[AZURE.NOTE] Muitas seções da interface do usuário do portal do **Mobile Engagement** contêm o botão **MOSTRAR AJUDA**. Pressione este botão para obter mais informações contextuais sobre uma seção.
 
 ## Quatro tipos de notificações por Push
 1.    Anúncios - permitem que sejam enviadas mensagens de anúncio para usuários que redirecioná-las para outro local dentro de seu aplicativo ou para enviá-las para uma página da Web ou armazenamento fora de seu aplicativo. 
@@ -49,10 +49,11 @@ Clique em **Estatísticas** para ver os detalhes de uma Campanha de alcance. O m
 	1. Se o usuário tiver desinstalado o aplicativo a partir do dispositivo, mas o PNS não souber sobre isso no momento do envio por push para o PNS, a mensagem será descartada.
 	2. Se o dispositivo tiver o aplicativo, mas os próprios dispositivos ficarem offline por longos períodos, o PNS não conseguirá entregar a mensagem para o dispositivo. 
 	3. Se a mensagem for entregue ao dispositivo, mas o SDK do Mobile Engagement no aplicativo não reconhecer o conteúdo da mensagem, ele descartará essa mensagem. Isso pode ocorrer se a personalização da notificação no aplicativo gerar uma exceção que possamos capturar no SDK e descartar a mensagem. Isso também pode ocorrer se o aplicativo no dispositivo estiver usando uma versão do SDK do Mobile Engagement que não é capaz de entender a versão mais recente da mensagem de envio por push enviada da plataforma. Porém, isso ocorre apenas quando o aplicativo tiver sido atualizado após o envio da notificação a partir da plataforma do serviço. A guia **Avançado** informará quantas mensagens foram descartadas. 
+	4. Em dispositivos iOS, às vezes as mensagens não serão entregues se o dispositivo estiver com bateria fraca ou se o aplicativo estiver consumindo uma quantidade significativa de energia durante o processamento de notificações remotas. Essa é uma limitação dos dispositivos iOS.   
 
-3.	**Exibidas** - Especifica o número de mensagens mostradas com êxito para o usuário do aplicativo no dispositivo, e ocorre na forma de um sistema de notificação de push/fora do aplicativo no Centro de notificação ou de uma notificação no aplicativo dentro do aplicativo móvel. A guia **Avançado** informará quantas foram notificações do sistema e quantas foram notificações no aplicativo.
+3.	**Exibidas** - especifica o número de mensagens mostradas com êxito para o usuário do aplicativo no dispositivo na forma de um sistema de notificação de push/fora do aplicativo no centro de notificação ou de uma notificação no aplicativo dentro do aplicativo móvel. A guia **Avançado** informará quantas foram notificações do sistema e quantas foram notificações no aplicativo.
 
-4.	**Interações do usuário** - Especifica o número de mensagens com as quais o usuário do aplicativo interagiu e incluirá as mensagens que foram acionadas ou encerradas.
+4.	**Interações do usuário** - especifica o número de mensagens com as quais o usuário do aplicativo interagiu e incluirá as mensagens que foram acionadas ou encerradas.
 
 	- *O usuário do aplicativo pode tomar uma ação com relação a uma notificação de uma das seguintes maneiras:*
 			
@@ -66,9 +67,9 @@ Clique em **Estatísticas** para ver os detalhes de uma Campanha de alcance. O m
 		2. Deslizando para fechar ou excluindo a notificação. 
 		3. Geralmente, as notificações no aplicativo com o conteúdo de texto/Web e pesquisas são exibidas para o usuário do aplicativo em um processo de duas etapas. Primeiro eles recebem uma notificação e, quando clicam nela, veem o conteúdo de texto/Web/pesquisa subsequente. O usuário do aplicativo pode sair de uma notificação usando qualquer uma dessas etapas e os detalhes no modo de exibição Avançado captura isso. 
 
-5.	**Acionadas** - Especifica o número de mensagens que foram acionadas explicitamente pelo usuário do aplicativo. Esse é o número mais interessante, pos informa quantos usuários do aplicativo ficaram interessados pela mensagem que você enviou com a notificação.
+5.	**Acionadas** - especifica o número de mensagens que foram acionadas explicitamente pelo usuário do aplicativo. Esse é o número mais interessante, pos informa quantos usuários do aplicativo ficaram interessados pela mensagem que você enviou com a notificação.
  
-> [AZURE.NOTE]Nas plataformas iOS e Windows, se o usuário estiver com o aplicativo aberto ,e a campanha for do tipo "Qualquer hora", é possível que as notificações fora do aplicativo e no aplicativo sejam exibidas ao mesmo tempo. Isso pode causar uma contagem de Exibidas maior do que de Entregues. Se o usuário interagir ou executar ações na notificação, até mesmo a contagem de Interações do usuário/Acionadas pode ser maior do que de Entregues.
+> [AZURE.NOTE] Nas plataformas iOS e Windows, se o usuário estiver com o aplicativo aberto ,e a campanha for do tipo "Qualquer hora", é possível que as notificações fora do aplicativo e no aplicativo sejam exibidas ao mesmo tempo. Isso pode causar uma contagem de Exibidas maior do que de Entregues. Se o usuário interagir ou executar ações na notificação, até mesmo a contagem de Interações do usuário/Acionadas pode ser maior do que de Entregues.
 
 
 ![Reach2][19]
@@ -170,4 +171,4 @@ Clique em **Estatísticas** para ver os detalhes de uma Campanha de alcance. O m
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

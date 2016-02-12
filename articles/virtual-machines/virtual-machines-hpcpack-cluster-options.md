@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="10/08/2015"
+ ms.date="01/26/2016"
  ms.author="danlep"/>
 
 # Opções para criar e gerenciar um cluster HPC (computação de alto desempenho) no Azure com o Microsoft HPC Pack
@@ -69,7 +69,6 @@ Aproveite os serviços de computação e de infraestrutura do Microsoft HPC Pack
 
 * [Gerenciar nós de computação em um cluster HPC Pack no Azure](virtual-machines-hpcpack-cluster-node-manage.md)
 
-* [Adicionar nós de “disparo contínuo” do Azure a um nó de cabeçalho do HPC Pack no Azure](virtual-machines-hpcpack-cluster-node-burst.md)
 
 * [Aumentar ou reduzir os recursos de computação do Azure em um cluster HPC Pack](virtual-machines-hpcpack-cluster-node-autogrowshrink.md)
 
@@ -97,6 +96,6 @@ Aproveite os serviços de computação e de infraestrutura do Microsoft HPC Pack
 
 * [Tutorial: Executar OpenFOAM com o Microsoft HPC Pack em um cluster de RDMA do Linux no Azure](virtual-machines-linux-cluster-hpcpack-openfoam.md)
 
-<!-- * [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-hpcpack-cluster-rdma.md) -->
+* [Configurar um cluster de RDMA do Linux para executar aplicativos MPI](virtual-machines-linux-cluster-rdma.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

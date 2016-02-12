@@ -43,7 +43,7 @@ Este artigo fornece uma orientação pelas etapas de criação de um circuito da
 
 2. **Obtenha a lista de provedores, locais e larguras de banda com suporte.**
 
-	Antes de criar um circuito da Rota Expressa você precisará de uma lista de provedores de conectividade, dos locais com suporte e de opções de largura de banda. O cmdlet do PowerShell *Get-AzureDedicatedCircuitServiceProvider* retorna essas informações, que serão usadas em etapas posteriores.
+	Antes de criar um circuito da Rota Expressa você precisará de uma lista de provedores de conectividade, dos locais com suporte e de opções de largura de banda. O cmdlet do PowerShell *Get-AzureDedicatedCircuitServiceProvider* retorna essas informações, que serão usadas em etapas posteriores. Quando você executar o cmdlet, o resultado se parecerá com o exemplo abaixo.
 
 		PS C:\> Get-AzureDedicatedCircuitServiceProvider
 
@@ -197,7 +197,7 @@ Este artigo fornece uma orientação pelas etapas de criação de um circuito da
 
 7. **Vincule uma Rede Virtual a um circuito da Rota Expressa.**
 
-	Em seguia, vincule uma Rede Virtual ao seu circuito da Rota Expressa. Veja [Vinculando circuitos da Rota Expressa a redes virtuais](expressroute-howto-linkvnet-classic.md) para obter instruções passo a passo. Se você precisar criar uma rede virtual para a Rota Expressa, consulte [Criando uma rede virtual para a Rota Expressa](expressroute-howto-createvnet-classic.md) para obter instruções.
+	Em seguia, vincule uma Rede Virtual ao seu circuito da Rota Expressa. Veja [Vinculando circuitos da Rota Expressa a redes virtuais](expressroute-howto-linkvnet-classic.md) para obter instruções passo a passo. Se precisar criar uma rede virtual usando o modelo de implantação clássica da Rota Expressa, confira [Configurar uma rede virtual para Rota Expressa](expressroute-howto-vnet-portal-classic.md) para obter instruções.
 
 ##  Obter o status de um circuito da Rota Expressa
 
@@ -328,4 +328,4 @@ Se o provedor de serviços tiver desprovisionado o circuito (o estado de provisi
 
 - [Configurar o roteamento](expressroute-howto-routing-classic.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

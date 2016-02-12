@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="12/04/2015"
+ ms.date="02/01/2016"
  ms.author="larryfr"/>
 
 #Conectar-se ao Hive no Azure HDInsight usando o driver JDBC do Hive
@@ -61,7 +61,7 @@ Quando a conexão for estabelecida, você poderá executar consultas no Hive. Po
 
 ##Exemplo de projeto de Java
 
-Um exemplo de como usar um cliente Java para consultar Hive no HDInsight está disponível em [https://github.com/Blackmist/hdinsight-hive-jdbc](https://github.com/Blackmist/hdinsight-hive-jdbc). Siga as instruções no repositório para compilar e executar o exemplo.
+Um exemplo de como usar um cliente Java para consultar o Hive no HDInsight está disponível em [https://github.com/Azure-Samples/hdinsight-java-hive-jdbc](https://github.com/Azure-Samples/hdinsight-java-hive-jdbc). Siga as instruções no repositório para compilar e executar o exemplo.
 
 ##Próximas etapas
 
@@ -72,4 +72,4 @@ Agora que você aprendeu a usar o JDBC para trabalhar com Hive, use os links aba
 * [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
 * [Usar trabalhos do MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

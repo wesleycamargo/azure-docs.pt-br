@@ -1,19 +1,19 @@
 <properties
-   pageTitle="Como implantar a Extensão do Painel de Acesso no Internet Explorer usando a Política de Grupo | Microsoft Azure"
-   description="Como usar a política de grupo para implantar o complemento do Internet Explorer para o portal Meus Aplicativos."
-   services="active-directory"
-   documentationCenter=""
-   authors="liviodlc"
-   manager="stevenpo"
-   editor=""/>
+    pageTitle="Como implantar a Extensão do Painel de Acesso no Internet Explorer usando a Política de Grupo | Microsoft Azure"
+    description="Como usar a política de grupo para implantar o complemento do Internet Explorer para o portal Meus Aplicativos."
+    services="active-directory"
+    documentationCenter=""
+    authors="liviodlc"
+    manager="stevenpo"
+    editor=""/>
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="11/18/2015"
-   ms.author="liviodlc"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="02/02/2016"
+    ms.author="liviodlc"/>
 
 #Como implantar a Extensão do Painel de Acesso no Internet Explorer usando a Política de Grupo
 
@@ -62,7 +62,7 @@ Primeiro, você deve colocar o pacote do instalador em um local de rede que poss
 
 3. No painel esquerdo da janela **Gerenciamento de Política de Grupo**, exiba sua hierarquia de UO (unidade organizacional) e determine em qual escopo você gostaria de aplicar a política de grupo. Por exemplo, você poderá optar por escolher uma UO pequena a ser implantada para alguns usuários para teste ou poderá escolher uma UO de nível superior a ser implantada em toda a sua organização.
 
-	> [AZURE.NOTE]Se você quiser criar ou editar suas Unidades Organizacionais (UOs), volte para o Gerenciador do Servidor e vá para **Ferramentas** > **Usuários e Computadores do Active Directory**.
+	> [AZURE.NOTE] Se você quiser criar ou editar suas Unidades Organizacionais (UOs), volte para o Gerenciador do Servidor e vá para **Ferramentas** > **Usuários e Computadores do Active Directory**.
 
 4. Depois de selecionar uma UO, clique com o botão direito do mouse nela e selecione **Criar um GPO neste domínio e vinculá-lo aqui...**
 
@@ -90,7 +90,7 @@ Primeiro, você deve colocar o pacote do instalador em um local de rede que poss
 
 4. Vá para a pasta compartilhada que contém o pacote do instalador da [Etapa 1: Criar o ponto de distribuição](#step-1-create-the-distribution-point), selecione o arquivo .msi e clique em **Abrir**.
 
-	> [AZURE.IMPORTANT]Se o compartilhamento estiver localizado no mesmo servidor, verifique se você está acessando o .msi por meio do caminho do arquivo de rede, em vez do caminho do arquivo local.
+	> [AZURE.IMPORTANT] Se o compartilhamento estiver localizado no mesmo servidor, verifique se você está acessando o .msi por meio do caminho do arquivo de rede, em vez do caminho do arquivo local.
 
 	![Selecione o pacote de instalação na pasta compartilhada.](./media/active-directory-saas-ie-group-policy/select-package.png)
 
@@ -141,7 +141,7 @@ Se você quiser impedir que os usuários vejam esse prompt, siga as etapas abaix
 
 2. Localize a configuração denominada **Ativar o recurso de preenchimento automático para nomes de usuário e senhas em formulários**.
 
-	> [AZURE.NOTE]Versões anteriores do Active Directory podem listar essa configuração com o nome **Não permitir o preenchimento automático para salvar senhas**. Essa configuração é diferente da configuração descrita neste tutorial.
+	> [AZURE.NOTE] Versões anteriores do Active Directory podem listar essa configuração com o nome **Não permitir o preenchimento automático para salvar senhas**. Essa configuração é diferente da configuração descrita neste tutorial.
 
 	![Lembre-se de examinar isso em Configurações do usuário.](./media/active-directory-saas-ie-group-policy/disable-auto-complete.png)
 
@@ -155,7 +155,7 @@ Se você quiser impedir que os usuários vejam esse prompt, siga as etapas abaix
 
 Os usuários não poderão mais armazenar suas credenciais ou usar o preenchimento automático para acessar as credenciais armazenadas anteriormente. No entanto, essa política permite que os usuários continuem a usar o preenchimento automático para outros tipos de campos de formulário, como campos de pesquisa.
 
-> [AZURE.WARNING]Se essa política for ativada depois que os usuários tiverem escolhido armazenar algumas credenciais, essa política *não* limpará as credenciais que já foram armazenadas.
+> [AZURE.WARNING] Se essa política for ativada depois que os usuários tiverem escolhido armazenar algumas credenciais, essa política *não* limpará as credenciais que já foram armazenadas.
 
 ##Etapa 6: Testar a implantação
 
@@ -171,10 +171,10 @@ Siga as etapas abaixo para verificar se a implantação da extensão obteve êxi
 
 	![Vá para Ferramentas > Gerenciar Complementos](./media/active-directory-saas-ie-group-policy/manage-add-ons.png)
 
-5. Na janela do **Gerenciar de complementos**, verifique se a **Extensão do painel de acesso** foi instalada e se seu **Status** foi definido como **Habilitado**.
+5. Na janela **Gerenciar Complementos**, verifique se a **Extensão do Painel de Acesso** foi instalada e se seu **Status** foi definido como **Habilitado**.
 
 	![Verifique se a Extensão do Painel de Acesso está instalada e habilitada.](./media/active-directory-saas-ie-group-policy/verify-install.png)
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

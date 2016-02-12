@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/25/2016"
+	ms.date="02/02/2016"
 	ms.author="jeedes"/>
 
 
@@ -64,19 +64,19 @@ Para configurar a integração do Tidemark com o AD do Azure, você precisa adic
 4. Clique em **Adicionar** na parte inferior da página.<br><br> ![Aplicativos][3]<br>
 5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.<br><br> ![Aplicativos][4]<br>
 6. Na caixa de pesquisa, digite **Tidemark**.<br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_01.png)<br>
-7. No painel de resultados, selecione **Tidemark** e clique em **Concluir** para adicionar o aplicativo. <br><br>
+7. No painel de resultados, selecione **Tidemark** e clique em **Concluir** para adicionar o aplicativo. <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_02.png)<br>
 
 ##  Configurar e testar o logon único do AD do Azure
 O objetivo desta seção é mostrar como configurar e testar o logon único do AD do Azure com o Tidemark, com base em um usuário de teste chamado “Brenda Fernandes”.
 
-Para que o logon único funcione, o AD do Azure precisa saber qual usuário do Tidemark é equivalente a um usuário do AD do Azure. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do AD do Azure e o usuário relacionado do Tidemark.<br> Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuário** no AD do Azure como sendo o valor do **Nome de usuário** no Tidemark.
+Para que o logon único funcione, o AD do Azure precisa saber qual usuário do Tidemark é equivalente a um usuário do AD do Azure. Em outras palavras, é necessário estabelecer uma relação de vinculação entre um usuário do AD do Azure e o usuário relacionado do Tidemark.<br> Essa relação de vinculação é estabelecida por meio da atribuição do valor do **nome de usuário** no AD do Azure como o valor do **Nome de usuário** no Tidemark.
 
 Para configurar e testar o logon único do AD do Azure com o Tidemark, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configurar o logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)** - para permitir que seus usuários usem esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
-4. **[Criar um usuário de teste do Tidemark](#creating-a-Tidemark-test-user)** - para ter um equivalente de Brenda Fernandes no Tidemark que esteja vinculado à representação dela no Azure AD.
-5. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para permitir que Brenda Fernandes use o logon único do AD do Azure.
+1. **[Configurar o Logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)**: para habilitar seus usuários a usar esse recurso.
+2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**: para testar o logon único do AD do Azure com Brenda Fernandes.
+4. **[Criar um usuário de teste do Tidemark](#creating-a-tidemark-test-user)** - para ter um equivalente de Brenda Fernandes no Tidemark que esteja vinculado à representação dela no AD do Azure.
+5. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)**: para permitir que Brenda Fernandes use o logon único do AD do Azure.
 5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
 
 ### Configuração do logon único do AD do Azure
@@ -87,17 +87,17 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal do
 
 **Para configurar o logon único do AD do Azure com o Tidemark, realize as seguintes etapas:**
 
-1. No portal do AD do Azure, na página de integração de aplicativos **Tidemark**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**. <br><br> ![Configurar o logon único][6] <br>
+1. No portal do AD do Azure, na página de integração do aplicativo **Tidemark**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**. <br><br> ![Configurar o logon único][6] <br>
 
 2. Na página **Como você deseja que os usuários façam logon no Tidemark**, selecione **Logon Único do AD do Azure** e clique em **Avançar**. <br><br> ![Configurar o logon único](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_03.png) <br>
 
 3. Na página da caixa de diálogo **Definir Configurações de Aplicativo**, execute as seguintes etapas: <br><br>![Configurar o logon único](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_04.png) <br>
 
 
-    a. Na caixa de texto URL de Logon, digite a URL usada pelos usuários para fazer logon em seu aplicativo Tidemark usando o seguinte padrão: **“https://contoso.tidemark.com/login”** ou **"https://contoso.tidemark.net/login"**.
+    a. Na caixa de texto URL de Entrada, digite a URL usada pelos usuários para fazer logon em seu aplicativo Tidemark usando o seguinte padrão: **“https://contoso.tidemark.com/login”** ou **"https://contoso.tidemark.net/login"**.
 
 
-4. Na página **Configurar logon único no Tidemark**, realize as seguintes etapas: <br><br>![Configurar o logon único](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_05.png) <br>
+4. Na página **Configurar logon único no Tidemark**, execute as seguintes etapas: <br><br>![Configurar o logon único](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_05.png) <br>
 
     a. Clique em **Baixar certificado** e salve o arquivo em seu computador.
 
@@ -168,7 +168,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Tidema
 
 ### Atribuição do usuário de teste do AD do Azure
 
-O objetivo desta seção é permitir que Brenda Fernandes use o logon único do Azure, concedendo-lhe acesso ao Tidemark. <br><br>![Atribuir usuário][200] <br>
+O objetivo desta seção é permitir que Brenda Fernandes use o logon único do Azure, concedendo a ela acesso ao Tidemark. <br><br>![Atribuir usuário][200] <br>
 
 **Para atribuir Brenda Fernandes ao Tidemark, realize as seguintes etapas:**
 
@@ -213,4 +213,4 @@ O objetivo desta seção é testar sua configuração de logon único do Azure A
 [204]: ./media/active-directory-saas-tidemark-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-tidemark-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

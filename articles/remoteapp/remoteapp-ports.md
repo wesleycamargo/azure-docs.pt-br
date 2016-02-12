@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/22/2016"
+    ms.date="01/29/2016"
     ms.author="elizapo" />
 
 
@@ -37,13 +37,12 @@ O listado a seguir aplica uma coleção de nuvem ou híbrida ao Azure RemoteApp 
 Por clientes, quero dizer desktops, dispositivos etc. que as pessoas usam para se conectar aos aplicativos implantados na coleção de RemoteApp do Azure.
 
 -  https://telemetry.remoteapp.windowsazure.com  
--  https://**.remoteapp.windowsazure.com (as portas UDP opcionais são para esse endereço) 
+-  https://*.remoteapp.windowsazure.com (as portas UDP opcionais são para este endereço) 
 -  https://login.windows.net  
 -  https://login.microsoftonline.com  
 -  https://www.remoteapp.windowsazure.com 
--  https://**.remoteapp.windowsazure.com  
 -  https://*.core.windows.net  
 -  Saída: TCP: 443  
 -  Opcional - UDP: 3391 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

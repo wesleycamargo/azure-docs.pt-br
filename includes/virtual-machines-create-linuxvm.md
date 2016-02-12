@@ -1,4 +1,4 @@
-1. Conecte-se à sua assinatura do Azure usando as etapas listadas em [Conectar ao Azure pela CLI do Azure](../articles/xplat-cli-connect.md).
+1. Conecte-se à sua assinatura do Azure usando as etapas listadas em [Conectar ao Azure pela CLI do Azure](../xplat-cli-connect.md).
 
 2. Verifique se você está no modo Gerenciamento de Serviços usando:
 
@@ -25,9 +25,9 @@
         + Creating VM
         info:    vm create command OK
 
-    >[AZURE.NOTE]Para uma máquina virtual Linux, você deve fornecer a opção `-e` em `vm create`; não é possível habilitar o SSH depois que a máquina virtual tiver sido criada. Para obter mais detalhes sobre SSH, leia [Como usar SSH com Linux no Azure](../articles/virtual-machines/virtual-machines-linux-use-ssh-key.md).
+    >[AZURE.NOTE] Para uma máquina virtual Linux, você deve fornecer a opção `-e` em `vm create`; não é possível habilitar o SSH depois que a máquina virtual tiver sido criada. Para obter mais detalhes sobre SSH, leia [Como usar SSH com Linux no Azure](virtual-machines-linux-use-ssh-key.md).
 
-    Observe que a imagem *b4590d9e3ed742e4a1d46e5424aa335e\_\_suse-opensuse-13.1-20141216-x86-64* é a que escolhemos na lista de imagens na etapa acima. *MyTestVM* é o nome da nossa nova máquina virtual e *adminUser* é o nome de usuário que usaremos para SSH na máquina virtual. Você pode substituir essas variáveis de acordo com suas necessidades. Para obter mais detalhes sobre esse comando, visite [Usando a CLI do Azure com o Gerenciamento de Serviços do Azure](../articles/virtual-machines/virtual-machines-command-line-tools.md).
+    Observe que a imagem *b4590d9e3ed742e4a1d46e5424aa335e\_\_suse-opensuse-13.1-20141216-x86-64* é a que escolhemos na lista de imagens na etapa acima. *MyTestVM* é o nome da nossa nova máquina virtual e *adminUser* é o nome de usuário que usaremos para SSH na máquina virtual. Você pode substituir essas variáveis de acordo com suas necessidades. Para obter mais detalhes sobre esse comando, visite [Usando a CLI do Azure com o Gerenciamento de Serviços do Azure](virtual-machines-command-line-tools.md).
 
 5. A máquina virtual Linux recém-criada aparecerá na lista fornecida por:
 
@@ -39,6 +39,6 @@
 
 7. A máquina virtual recém-criada está pronta para começar com o comando `azure vm start`.
 
-Para obter detalhes sobre todos esses comandos de máquina virtual da CLI do Azure, leia [Usando a CLI do Azure com a API de Gerenciamento de Serviços](../articles/virtual-machines/virtual-machines-command-line-tools.md).
+Para obter detalhes sobre todos esses comandos de máquina virtual da CLI do Azure, leia [Usando a CLI do Azure com a API de Gerenciamento de Serviços](virtual-machines-command-line-tools.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

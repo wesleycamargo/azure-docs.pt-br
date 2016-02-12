@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/13/2016" 
-	ms.author="jgao"/>
+	ms.date="02/01/2016" 
+	ms.author="nitinme"/>
 
 # Problemas conhecidos do Apache Spark no Azure HDInsight (Linux)
 
@@ -54,6 +54,23 @@ O servidor de histórico Spark não é iniciado automaticamente depois de um clu
 
 Inicie manualmente o servidor de histórico do Ambari.
 
+##Erro ao carregar um bloco de anotações com mais de 2 MB.
+
+**Sintoma:**
+
+Você pode visualizar um erro **`Error loading notebook`** ao carregar blocos de anotações com mais de 2 MB.
+
+**Atenuação:**
+
+Se você visualizar esse erro, não significa que seus dados estão corrompidos ou foram perdidos. Os blocos de anotações ainda estão no disco, em `/var/lib/jupyter`, e você pode usar o SSH no cluster para acessá-los. É possível copiar os blocos de anotações do cluster para o computador local (usando SCP ou WinSCP) como um backup para impedir a perda de qualquer dado importante no bloco de anotações. Você pode aplicar SSH no túnel no nó de cabeçalho na porta 8001 para acessar o Jupyter sem passar pelo gateway. A partir daí, você pode limpar a saída do bloco de anotações e salvá-lo novamente para minimizar o tamanho dele.
+
+Para evitar que esse erro aconteça no futuro, você deve seguir algumas práticas recomendadas:
+
+* É importante manter um tamanho pequeno de bloco de anotações. Qualquer saída de trabalho no Spark que é enviada de volta ao Jupyter é mantida no bloco de anotações. De modo geral, uma prática recomendada com o Jupyter é evitar a execução de `.collect()` em RDDs ou em quadros de dados grandes; em vez disso, se você quiser inspecionar o conteúdo de um RDD, considere a execução de `.take()` ou `.sample()` para que sua saída não fique muito grande.
+* Além disso, quando você salvar um bloco de anotações, limpe todas as células de saída para reduzir o tamanho.
+
+
+
 ##A inicialização inicial do notebook demora mais do que o esperado 
 
 **Sintoma:**
@@ -63,16 +80,6 @@ A primeira instrução no notebook Jupyter usando o Magic Spark pode demorar mai
 **Atenuação:**
  
 Não há solução alternativa. Leva um minuto às vezes.
-
-##Não é possível personalizar as configurações de memória/núcleo
-
-**Sintoma:**
- 
-Você não pode especificar configurações de memória/núcleo diferentes do padrão de kernels Spark/Pyspark.
-
-**Atenuação:**
- 
-Este recurso estará disponível no futuro.
 
 ##Tempo limite do notebook do Jupyter atingido na criação da sessão
 
@@ -121,6 +128,16 @@ Esse problema será corrigido em uma versão futura.
 
     A primeira célula falha em registrar o método sc.stop() a ser chamado quando o notebook é encerrado. Em determinadas circunstâncias, isso pode causar perda de recursos do Spark. Você pode evitar isso certificando-se executar a importação atexit; atexit.register(lambda:sc.stop()) nesses notebooks antes de interrompê-los. Se você tiver acidentalmente vazado recursos, siga as instruções acima para eliminar aplicativos YARN com vazamento.
      
+##Não é possível personalizar as configurações de memória/núcleo
+
+**Sintoma:**
+ 
+Você não pode especificar configurações de memória/núcleo diferentes do padrão de kernels Spark/Pyspark.
+
+**Atenuação:**
+ 
+Este recurso estará disponível no futuro.
+
 ## Problema de permissão no diretório de log do Spark 
 
 **Sintoma:**
@@ -139,4 +156,4 @@ Quando hdiuser envia um trabalho com spark-submit, há um erro java.io.FileNotFo
 - [Visão geral: Apache Spark no Azure HDInsight (Linux)](hdinsight-apache-spark-overview.md)
 - [Introdução: provisionar o Apache Spark no Azure HDInsight (Linux) e executar consultas interativas usando o Spark SQL](hdinsight-apache-spark-jupyter-spark-sql.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

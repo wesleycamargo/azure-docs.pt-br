@@ -33,7 +33,7 @@ Cada circuito tem uma largura de banda fixa (50 Mbps, 100 Mbps, 200 Mbps, 500 Mb
 
 ### Cotas, limites e limitações
 
-Cotas e limites padrão aplicam-se a todos os circuitos da Rota Expressa. Consulte a página [Limites, cotas e restrições de serviço e assinatura do Azure](../../includes/expressroute-limits.md) para obter informações atualizadas sobre cotas.
+Cotas e limites padrão aplicam-se a todos os circuitos da Rota Expressa. Consulte a página [Limites, cotas e restrições de serviço e assinatura do Azure](../azure-subscription-service-limits.md) para obter informações atualizadas sobre cotas.
 
 ## Domínios de roteamento da Rota Expressa
 
@@ -47,7 +47,7 @@ Um circuito da Rota Expressa tem vários domínios de roteamento associados a el
 
 Os serviços de computação do Azure, isto é, máquinas virtuais (IaaS) e serviços de nuvem (PaaS), implantados em uma rede virtual podem ser conectados por meio do domínio de emparelhamento privado. O domínio de emparelhamento privado é considerado uma extensão confiável de sua rede principal para o Microsoft Azure. Você pode configurar a conectividade bidirecional entre sua rede principal e as redes virtuais (VNets) do Azure. Isso permitirá a você se conectar a máquinas virtuais e serviços de nuvem diretamente em seus endereços IP privados.
 
-Você pode conectar mais de uma rede virtual ao domínio de emparelhamento privado. Examine a [Página de perguntas Frequentes](expressroute-faqs.md) para obter informações sobre limites e limitações. Você pode visitar a página [Limites, cotas e restrições de serviço e assinatura do Azure](../../includes/expressroute-limits.md) para obter informações atualizadas sobre limites. Consulte a página [Roteamento](expressroute-routing.md) para obter informações detalhadas sobre a configuração de roteamento.
+Você pode conectar mais de uma rede virtual ao domínio de emparelhamento privado. Examine a [Página de perguntas Frequentes](expressroute-faqs.md) para obter informações sobre limites e limitações. Você pode visitar a página [Limites, cotas e restrições de serviço e assinatura do Azure](../azure-subscription-service-limits.md) para obter informações atualizadas sobre limites. Consulte a página [Roteamento](expressroute-routing.md) para obter informações detalhadas sobre a configuração de roteamento.
 
 ### Emparelhamento público
 
@@ -69,7 +69,7 @@ Consulte a [página de perguntas frequentes](expressroute-faqs.md) para obter ma
 
 A tabela abaixo compara os três domínios de roteamento.
 
-||**Emparelhamento privado**|**Emparelhamento público**|**Emparelhamento da Microsoft**|
+|**Emparelhamento privado**|**Emparelhamento público**|**Emparelhamento da Microsoft**|
 |---|---|---|---|
 |**Número máximo de prefixos com suporte por emparelhamento**|4000 por padrão, 10.000 com a Rota Expressa Premium|200|200|
 |**Intervalos de endereços IP com suporte**|Todos os endereços IPv4 válidos em sua WAN.|Os endereços IPv4 públicos pertencentes a você ou ao seu provedor de conectividade.|Os endereços IPv4 públicos pertencentes a você ou ao seu provedor de conectividade.|
@@ -90,4 +90,4 @@ Se você optar por ter todas as três sessões de emparelhamento, você deve ter
 	- [Configurar roteamento (emparelhamentos de circuito)](expressroute-howto-routing-classic.md)
 	- [Vincular uma rede virtual a um circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

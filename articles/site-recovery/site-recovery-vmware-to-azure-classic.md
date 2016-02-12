@@ -191,9 +191,9 @@ As tabelas resumem os pré-requisitos para implantar esse cenário.
 
 **Pré-requisito** | **Detalhes**
 --- | ---
-**Servidor de gerenciamento** | Você precisa de um servidor Windows 2012 R2 local em execução em uma máquina virtual ou em um servidor físico. Todos os componentes locais da Recuperação de Site estão instalados nesse servidor de gerenciamento<br/><br/> Recomendamos que você implante o servidor como uma máquina virtual VMware altamente disponível. O failback para o site local do Azure é sempre para máquinas virtuais VMware, independentemente de o failover ter sido em VMs ou em servidores físicos. Se não configurar o servidor de gerenciamento como uma VM VMware, você precisará configurar um servidor de destino mestre separado como uma VM VMware para receber o tráfego de failback.<br/><br/>O servidor deve ter um endereço IP estático.<br/><br/>O nome do host do servidor deve ter 15 caracteres ou menos.<br/><br/>A localidade do sistema operacional deve estar somente em inglês.<br/><br/>O servidor de gerenciamento requer acesso à Internet.<br/><br/>Você precisa ter o acesso de saída do servidor da seguinte maneira: acesso temporário em HTTP 80 durante a instalação dos componentes de Recuperação de Site (para baixar o MySQL); acesso de saída em andamento em HTTPS 443 para o gerenciamento de replicação; acesso de saída em andamento em HTTPS 9443 para o tráfego de replicação (essa porta pode ser modificada)<br/><br/> Certifique-se de que essas URLs são acessíveis do servidor de gerenciamento:<br/>- *.hypervrecoverymanager.windowsazure.com<br/>- *.accesscontrol.windows.net<br/>- *.backup.windowsazure.com<br/>- *.blob.core.windows.net<br/>- *.store.core.windows.net<br/>-http://www.msftncsi.com/ncsi.txt<br/>- http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi<br/><br/>Se você tiver regras de firewall baseadas em endereço IP no servidor, verifique se as regras permitem a comunicação com o Azure. Será necessário permitir os [Intervalos de IP do Datacenter do Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) e o protocolo HTTPS (433). Você também precisará colocar intervalos de endereços IP para a região de sua assinatura do Azure e para o Oeste dos EUA na lista branca. A URL http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi é para fazer o download do MySQL. 
-**vCenter VMware/host ESXi**: | Você precisa de um ou mais hipervisores vMware vSphere ESX/ESXi que gerenciem suas máquinas virtuais VMware, executando ESX/ESXi versão 6.0, 5.5 ou 5.1 com as atualizações mais recentes.<br/><br/> Recomendamos que você implante um servidor VMware vCenter para gerenciar os hosts ESXi. Ele deve executar o vCenter versão 6.0 ou 5.5 com as atualizações mais recentes.<br/><br/>Observe que a Recuperação de Site não dá suporte para a novos recursos do vCenter e vSphere 6.0, como vCenter vMotion cruzado, volumes virtuais e DRS de armazenamento. O suporte à Recuperação de Site está limitado a recursos que também estavam disponíveis na versão 5.5.
-**Computadores protegidos**: | **AZURE**<br/><br/>Os computadores que você deseja proteger devem estar em conformidade com os [pré-requisitos do Azure](site-recovery-best-practices.md) para criar VMs do Azure.<br><br/>Se deseja se conectar às VMs do Azure após o failover, você precisa habilitar conexões de Área de Trabalho Remota no firewall local.<br/><br/>A capacidade de disco individual em computadores protegidos não deve ser maior que 1023 GB. Uma VM pode ter até 64 discos (portanto, até 64 TB). Se você tiver discos de mais de 1 TB, considere o uso de replicação de banco de dados, como SQL Server Always On ou Oracle Data Guard<br/><br/>Não há suporte para clusters convidados de disco compartilhado. Se você tiver uma implantação de cluster, considere o uso da replicação de banco de dados, como SQL Server Always On ou Oracle Data Guard.<br/><br/>Não há suporte para UEFI (Unified Extensible Firmware Interface)/inicialização EFI (Extensible Firmware).<br/><br/>Os nomes dos computadores devem conter entre um e 63 caracteres (letras, números e hifens). O nome deve começar com uma letra ou número e terminar com uma letra ou número. Após o computador estar protegido, você pode modificar o nome do Azure.<br/><br/>**VMs VMware**<br/><br>Você precisará instalar o PowerCLI VMware vSphere 6.0. no servidor de gerenciamento (servidor de configuração).<br/><br/>As VMs VMware que deseja proteger devem ter as ferramentas VMware instaladas e em execução.<br/><br/>Se a VM de origem tiver um Agrupamento NIC, ela será convertida em uma única NIC após o failover no Azure.<br/><br/>Se as VMs protegidas tiverem um disco iSCSI, a Recuperação de Site converterá o disco iSCSI VM protegido em um arquivo VHD quando a máquina virtual fizer failover no Azure. Se o destino iSCSI puder ser alcançado pela VM do Azure, ela se conectará ao destino iSCSI e verá basicamente dois discos: o disco VHD na VM do Azure e o disco iSCSI de origem. Nesse caso, será necessário desconectar o destino iSCSI que aparece na VM do Azure com failover.<br/><br/>[Saiba mais](#vmware-permissions-for-vcenter-access) sobre as permissões de usuário do VMware que são exigidas para a Recuperação de Site.<br/><br/> **MAQUINAS DO WINDOWS SERVER (na VM VMware ou servidor físico)**<br/><br/>O servidor deve executar um sistema operacional de 64 bits com suporte: Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2 com, no mínimo, SP1.<br/><br/>O nome do host, os pontos de montagem, os nomes de dispositivo, o caminho do sistema Windows (por exemplo: C:\\Windows) devem estar somente em inglês.<br/><br/>O sistema operacional deve estar instalado na unidade C:\\ e o disco do sistema operacional deve ser um disco básico do Windows (o SO não deve ser instalado em um disco dinâmico do Windows)<br/><br/>Você precisará fornecer uma conta de administrador (deve ser um administrador local no computador com Windows) para a instalação por push do Serviço de mobilidade em servidores Windows. Se a conta fornecida não for uma conta de domínio, você precisará desabilitar o controle Acesso de Usuário Remoto no computador local. [Saiba mais](#install-the-mobility-service-with-the-process-server).<br/><br/>A Recuperação de Site dá suporte para máquinas virtuais com disco RDM. Durante o failback, a Recuperação de Site reutilizará o disco RDM se o disco RDM e a VM de origem estiverem disponíveis. Se eles não estiverem disponíveis, durante o failback, a Recuperação de Site criará um novo arquivo VMDK para cada disco.<br/><br/>**COMPUTADORES COM LINUX**<br/><br/>Você precisará de um sistema operacional de 64 bits com suporte: Red Hat Enterprise Linux 6.7; CentOS 6.5, 6.6, 6.7; Oracle Enterprise Linux 6.4, 6.5 executando o kernel compatível do Red Hat ou o Unbreakable Enterprise Kernel Release 3 (UEK3), SUSE Linux Enterprise Server 11 SP3.<br/><br/>Os arquivos /etc/hosts em computadores protegidos devem conter entradas que mapeiam o nome do host local para endereços IP associados a todos os adaptadores de rede. <br/><br/>Se você quiser se conectar a uma máquina virtual do Azure executando o Linux após o failover com um cliente Secure Shell (ssh), verifique se o serviço Secure Shell no computador protegido está definido para iniciar automaticamente na inicialização do sistema e se as regras de firewall permitem uma conexão ssh com ela.<br/><br/>O nome do host, os pontos de montagem, os nomes de dispositivos, nomes de caminhos do sistema Linux e nomes de arquivo (por exemplo, /etc/; /usr) devem estar somente em inglês.<br/><br/>A proteção só pode ser habilitada para computadores com Linux com o seguinte armazenamento: Sistema de arquivos (EXT3, ETX4, ReiserFS, XFS); Mapeador de Dispositivo-software multicaminhos (multipath); gerenciador de volumes: (LVM2). Não há suporte a servidores físicos com o armazenamento de controlador HP CCISS. O sistema de arquivos ReiserFS só tem suporte no SUSE Linux Enterprise Server 11 SP3.<br/><br/>A Recuperação de Site dá suporte a máquinas virtuais com disco RDM. Durante o failback para Linux, a Recuperação de Site não reutiliza o disco RDM. Em vez disso, ele cria um novo arquivo VMDK para cada disco RDM correspondente. 
+**Servidor de gerenciamento** | Você precisa de um servidor Windows 2012 R2 local em execução em uma máquina virtual ou em um servidor físico. Todos os componentes locais da Recuperação de Site estão instalados nesse servidor de gerenciamento<br/><br/> Recomendamos que você implante o servidor como uma máquina virtual VMware altamente disponível. O failback para o site local do Azure é sempre para máquinas virtuais VMware, independentemente de o failover ter sido em VMs ou em servidores físicos. Se não configurar o servidor de gerenciamento como uma VM VMware, você precisará configurar um servidor de destino mestre separado como uma VM VMware para receber o tráfego de failback.<br/><br/>O servidor deve ter um endereço IP estático.<br/><br/>O nome do host do servidor deve ter 15 caracteres ou menos.<br/><br/>A localidade do sistema operacional deve estar somente em inglês.<br/><br/>O servidor de gerenciamento requer acesso à Internet.<br/><br/>Você precisa ter o acesso de saída do servidor da seguinte maneira: acesso temporário em HTTP 80 durante a instalação dos componentes de Recuperação de Site (para baixar o MySQL); acesso de saída em andamento em HTTPS 443 para o gerenciamento de replicação; acesso de saída em andamento em HTTPS 9443 para o tráfego de replicação (essa porta pode ser modificada)<br/><br/> Certifique-se de que essas URLs sejam acessíveis do servidor de gerenciamento:<br/>- *.hypervrecoverymanager.windowsazure.com<br/>- *.accesscontrol.windows.net<br/>- *.backup.windowsazure.com<br/>- *.blob.core.windows.net<br/>- *.store.core.windows.net<br/>-http://www.msftncsi.com/ncsi.txt<br/>- [http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi](http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi "http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi")<br/><br/>Se você tiver regras de firewall baseadas em endereço IP no servidor, verifique se as regras permitem a comunicação com o Azure. Será necessário permitir os [Intervalos de IP do Datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653) e o protocolo HTTPS (433). Você também precisará colocar intervalos de endereços IP para a região de sua assinatura do Azure e para o Oeste dos EUA na lista branca. A URL [http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi](http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi "http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi") é para baixar o MySQL. 
+**VMware vCenter/host ESXi**: | Você precisa de um ou mais hipervisores vMware vSphere ESX/ESXi que gerenciem suas máquinas virtuais VMware, executando ESX/ESXi versão 6.0, 5.5 ou 5.1 com as atualizações mais recentes.<br/><br/> Recomendamos que você implante um servidor VMware vCenter para gerenciar os hosts ESXi. Ele deve executar o vCenter versão 6.0 ou 5.5 com as atualizações mais recentes.<br/><br/>Observe que o Site Recovery não é compatível com novos recursos do vCenter e vSphere 6.0, como vCenter vMotion cruzado, volumes virtuais e DRS de armazenamento. O suporte à Recuperação de Site está limitado a recursos que também estavam disponíveis na versão 5.5.
+**Computadores protegidos**: | **AZURE**<br/><br/>Os computadores que você deseja proteger devem estar em conformidade com os [pré-requisitos do Azure](site-recovery-best-practices.md) para criar VMs do Azure.<br><br/>Se deseja se conectar às VMs do Azure após o failover, você precisa habilitar conexões de Área de Trabalho Remota no firewall local.<br/><br/>A capacidade de disco individual em computadores protegidos não deve ser maior que 1023 GB. Uma VM pode ter até 64 discos (portanto, até 64 TB). Se você tiver discos de mais de 1 TB, considere o uso de replicação de banco de dados, como SQL Server Always On ou Oracle Data Guard<br/><br/>Não há suporte para clusters convidados de disco compartilhado. Se você tiver uma implantação de cluster, considere o uso da replicação de banco de dados, como SQL Server Always On ou Oracle Data Guard.<br/><br/>Não há suporte para UEFI (Unified Extensible Firmware Interface)/inicialização EFI (Extensible Firmware Interface).<br/><br/>Os nomes dos computadores devem conter entre 1 e 63 caracteres (letras, números e hifens). O nome deve começar com uma letra ou número e terminar com uma letra ou número. Após o computador estar protegido, você pode modificar o nome do Azure.<br/><br/>**VMs VMware**<br/><br>Você precisará instalar o VMware vSphere PowerCLI 6.0. no servidor de gerenciamento (servidor de configuração).<br/><br/>As VMs VMware que deseja proteger devem ter as ferramentas VMware instaladas e em execução.<br/><br/>Se a VM de origem tiver um agrupamento NIC, ela será convertida em uma única NIC após o failover no Azure.<br/><br/>Se as VMs protegidas tiverem um disco iSCSI, a Recuperação de Site converterá o disco iSCSI da VM protegida em um arquivo VHD quando a VM fizer failover no Azure. Se o destino iSCSI puder ser alcançado pela VM do Azure, ela se conectará ao destino iSCSI e verá basicamente dois discos: o disco VHD na VM do Azure e o disco iSCSI de origem. Nesse caso, será necessário desconectar o destino iSCSI que aparece na VM do Azure com failover.<br/><br/>[Saiba mais](#vmware-permissions-for-vcenter-access) sobre as permissões de usuário do VMware que são exigidas pelo Site Recovery.<br/><br/> **MAQUINAS DO WINDOWS SERVER (na VM VMware ou no servidor físico)**<br/><br/>O servidor deve executar um sistema operacional de 64 bits com suporte: Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2 com, no mínimo, SP1.<br/><br/>O nome do host, os pontos de montagem, os nomes de dispositivo, o caminho do sistema Windows (por exemplo: C:\\Windows) devem estar somente em inglês.<br/><br/>O sistema operacional deve estar instalado na unidade C:\\ e o disco do sistema operacional deve ser um disco básico do Windows (o SO não deve ser instalado em um disco dinâmico do Windows)<br/><br/>Você precisará fornecer uma conta de administrador (deve ser um administrador local no computador com Windows) para a instalação por push do Serviço de Mobilidade em servidores Windows. Se a conta fornecida não for uma conta de domínio, você precisará desabilitar o controle Acesso de Usuário Remoto no computador local. [Saiba mais](#install-the-mobility-service-with-the-process-server).<br/><br/>O Site Recovery permite VMs com disco RDM. Durante o failback, a Recuperação de Site reutilizará o disco RDM se o disco RDM e a VM de origem estiverem disponíveis. Se eles não estiverem disponíveis, durante o failback, o Site Recovery criará um novo arquivo VMDK para cada disco.<br/><br/>**COMPUTADORES COM LINUX**<br/><br/>Você precisará de um sistema operacional de 64 bits com suporte: Red Hat Enterprise Linux 6.7; CentOS 6.5, 6.6, 6.7; Oracle Enterprise Linux 6.4, 6.5 executando o kernel compatível do Red Hat ou o Unbreakable Enterprise Kernel Release 3 (UEK3), SUSE Linux Enterprise Server 11 SP3.<br/><br/>Os arquivos /etc/hosts em computadores protegidos devem conter entradas que mapeiam o nome do host local para endereços IP associados a todos os adaptadores de rede. <br/><br/>Se você quiser se conectar a uma máquina virtual do Azure executando o Linux após o failover com um cliente Secure Shell (ssh), verifique se o serviço Secure Shell no computador protegido está definido para iniciar automaticamente na inicialização do sistema e se as regras de firewall permitem uma conexão ssh com ele.<br/><br/>O nome do host, os pontos de montagem, os nomes de dispositivos, nomes de caminhos do sistema Linux e nomes de arquivo (por exemplo, /etc/; /usr) devem estar somente em inglês.<br/><br/>A proteção só pode ser habilitada para computadores com Linux com o seguinte armazenamento: Sistema de arquivos (EXT3, ETX4, ReiserFS, XFS); Mapeador de Dispositivo por software multicaminhos (multipath); gerenciador de volumes: (LVM2). Não há suporte a servidores físicos com o armazenamento de controlador HP CCISS. O sistema de arquivos ReiserFS só é compatível com SUSE Linux Enterprise Server 11 SP3.<br/><br/>O Site Recovery permite máquinas virtuais com disco RDM. Durante o failback para Linux, a Recuperação de Site não reutiliza o disco RDM. Em vez disso, ele cria um novo arquivo VMDK para cada disco RDM correspondente. 
 
 
 ## Etapa 1: criar um cofre
@@ -211,22 +211,22 @@ Verifique a barra de status para confirmar que o cofre foi criado com sucesso. O
 
 Configure uma rede do Azure para que as VMs do Azure sejam conectadas a uma rede após o failover e para que o failback para o site local possa funcionar conforme o esperado.
 
-1. No Portal do Azure > **Criar rede virtual**, especifique o nome da rede. Intervalo e nome da sub-rede do endereço IP.
+1. No portal do Azure > **Criar rede virtual**, especifique o nome da rede. Intervalo e nome da sub-rede do endereço IP.
 2. Você precisaria adicionar VPN/Rota Expressa à rede se precisar fazer failback. A VPN/Rota Expressa pode ser adicionada à rede até mesmo após o failover. 
 
-[Saiba mais](../virtual-network/virtual-networks-overview.md) sobre as redes do Azure.
+[Leia mais](../virtual-network/virtual-networks-overview.md) sobre as redes do Azure.
 
 ## Etapa 3: instalar os componentes do VMware
 
 Se você quiser replicar máquinas virtuais VMware, instale os seguintes componentes de VMware no servidor de gerenciamento:
 
-1. [Baixe](https://developercenter.vmware.com/tool/vsphere_powercli/6.0) e instale o PowerCLI VMware vSphere 6.0.
+1. [Baixe](https://developercenter.vmware.com/tool/vsphere_powercli/6.0) e instale o VMware vSphere PowerCLI 6.0.
 2. Reinicie o servidor.
 
 
 ## Etapa 4: baixar uma chave de registro do cofre
 
-1. No servidor de gerenciamento, abra o console de Recuperação de Site no Azure. Na página **Serviços de Recuperação**, clique no cofre para abrir na página de Início Rápido. O Início Rápido pode também ser aberto a qualquer tempo usando o ícone.
+1. No servidor de gerenciamento, abra o console de Recuperação de Site no Azure. Na página **Serviços de Recuperação**, clique no cofre para abrir a página Início Rápido. O Início Rápido pode também ser aberto a qualquer tempo usando o ícone.
 
 	![Ícone de Inicialização Rápida](./media/site-recovery-vmware-to-azure-classic/quick-start-icon.png)
 
@@ -249,7 +249,7 @@ Se você quiser replicar máquinas virtuais VMware, instale os seguintes compone
 
 [AZURE.VIDEO enhanced-vmware-to-azure-setup-registration]
 
-1. Na página **Início Rápido**, baixe o arquivo de instalação unificada para o servidor.
+1. Na página **Início Rápido**, baixe o arquivo de instalação unificada no servidor.
 2. Execute o arquivo de instalação para iniciar a instalação no Assistente de Instalação Unificada de Recuperação de Site.
 3. Em **Antes de começar**, selecione **Instalar o servidor de configuração e o servidor de processo**. Dependendo do tamanho de sua implantação, talvez seja necessário adicionar mais servidores de processo posteriormente, mas não ao configurar essa implantação pela primeira vez.
 
@@ -259,11 +259,11 @@ Se você quiser replicar máquinas virtuais VMware, instale os seguintes compone
 
 	![Software de terceiros](./media/site-recovery-vmware-to-azure-classic/combined-wiz2.png)
 
-5. Em **Configurações de Internet**, especifique como o Provedor que será instalado no servidor se conectará ao Azure Site Recovery pela Internet.
+5. Em **Configurações de Internet**, especifique como o provedor que será instalado no servidor se conectará ao Azure Site Recovery pela Internet.
 
 	- Se você deseja que o provedor se conecte diretamente, escolha **Conectar diretamente sem um proxy**.
 	- Se você deseja se conectar com o proxy que está configurado atualmente no servidor, escolha **Conectar com as configurações de proxy existentes**.
-	- Se o proxy existente exigir autenticação ou se você quiser usar um proxy personalizado para a conexão do Provedor, escolha **Conectar com configurações personalizadas de proxy**.
+	- Se o proxy existente exigir autenticação ou se você quiser usar um proxy personalizado para a conexão do provedor, escolha **Conectar com configurações personalizadas de proxy**.
 	- Se você usar um proxy personalizado, precisará especificar o endereço, a porta e as credenciais
 	- Se você estiver usando um proxy, as seguintes URLs deverão estar acessíveis por meio dele:
 
@@ -339,11 +339,11 @@ Faça isso da seguinte forma:
 	>[AZURE.NOTE] Uma conta de usuário do vCenter que tenha a função somente leitura pode executar failover sem desligar os computadores de origem protegida. Se você quiser desligar as máquinas, você precisará da função Azure\_Site\_Recovery. Observe que se você estiver migrando apenas as máquinas virtuais do VMware para o Azure e não precisar fazer failback, a função somente leitura será suficiente.
 
 3. Para adicionar a conta, abra **cspsconfigtool**. Ela está disponível como um atalho na área de trabalho e está localizada na pasta [LOCAL DE INSTALAÇÃO]\\home\\svsystems\\bin.
-2. Na guia **Gerenciar contas**, clique em **Adicionar conta**.
+2. Na guia **Gerenciar Contas**, clique em **Adicionar Conta**.
 
 	![Adicionar conta](./media/site-recovery-vmware-to-azure-classic/credentials1.png)
 
-3. Em **Detalhes da conta**, adicione credenciais que possam ser usadas para acessar o servidor vCenter. Observe que pode levar mais de 15 minutos para que o nome da conta apareça no portal. Para atualizar imediatamente, clique em Atualizar na guia **Servidores de configuração**.
+3. Em **Detalhes da Conta**, adicione credenciais que possam ser usadas para acessar o servidor vCenter. Observe que pode levar mais de 15 minutos para que o nome da conta apareça no portal. Para atualizar imediatamente, clique em Atualizar na guia **Servidores de Configuração**.
 
 	![Detalhes](./media/site-recovery-vmware-to-azure-classic/credentials2.png)
 
@@ -351,7 +351,7 @@ Faça isso da seguinte forma:
 
 Se você estiver replicando máquinas virtuais VMware, precisará adicionar um servidor vCenter (ou host ESXi).
 
-1. Na guia **Servidores** > **Servidores de configuração**, escolha o servidor de configuração > **Adicionar um servidor vCenter**.
+1. Na guia **Servidores** > **Servidores de Configuração**, escolha o servidor de configuração > **Adicionar um servidor vCenter**.
 
 	![vCenter](./media/site-recovery-vmware-to-azure-classic/add-vcenter1.png)
 
@@ -361,7 +361,7 @@ Se você estiver replicando máquinas virtuais VMware, precisará adicionar um s
 
 	![vCenter](./media/site-recovery-vmware-to-azure-classic/add-vcenter2.png)
 
-3. Após a conclusão da descoberta, o servidor vCenter será relacionado na guia **Servidores de configuração**.
+3. Após a conclusão da descoberta, o servidor vCenter será relacionado na guia **Servidores de Configuração**.
 
 	![vCenter](./media/site-recovery-vmware-to-azure-classic/add-vcenter3.png)
 		
@@ -377,7 +377,7 @@ Um grupo de proteção contém máquinas virtuais ou servidores físicos que com
 
 	![Criar grupo de proteção](./media/site-recovery-vmware-to-azure-classic/protection-groups1.png)
 
-2. Na página **Especificar configurações do grupo de proteção**, especifique um nome para o grupo e, em **De**, selecione o servidor de configuração no qual deseja criar o grupo. O **Destino** é Azure.
+2. Na página **Especificar Configurações do Grupo de Proteção**, especifique um nome para o grupo e, em **De**, escolha o servidor de configuração no qual deseja criar o grupo. O **Destino** é Azure.
 
 	![Configurações do grupo de proteção](./media/site-recovery-vmware-to-azure-classic/protection-groups2.png)
 
@@ -390,7 +390,7 @@ Um grupo de proteção contém máquinas virtuais ou servidores físicos que com
 	- **Retenção do ponto de recuperação**: especifica a janela de retenção. Computadores protegidos podem ser recuperados para qualquer ponto nessa janela.
 	- **Frequência do instantâneo consistente com aplicativo**: especifica com que frequência são criados os pontos de recuperação que incluam instantâneos consistentes com aplicativos.
 
-Quando você clicar na marca de seleção, um grupo de proteção será criado com o nome especificado. Além disso, um segundo grupo de proteção será criado com o nome < protection-group-name-Failback). Esse grupo de proteção será usado se você fizer failback no site local após o failover no Azure. Você pode monitorar os grupos de proteção à medida que eles são criados na página **Itens protegidos**.
+Quando você clicar na marca de seleção, um grupo de proteção será criado com o nome especificado. Além disso, um segundo grupo de proteção será criado com o nome < protection-group-name-Failback). Esse grupo de proteção será usado se você fizer failback no site local após o failover no Azure. Você pode monitorar os grupos de proteção à medida que eles são criados na página **Itens Protegidos**.
 
 ## Etapa 9: instalar o Serviço de mobilidade manualmente
 
@@ -412,22 +412,22 @@ Veja como preparar os computadores com Windows para que o Serviço de mobilidade
 
 1.  Crie uma conta que pode ser usada pelo servidor de processo para acessar o computador. A conta deve ter privilégios de administrador (local ou domínio). Observe que essas credenciais são usadas somente para a instalação por push do Serviço de mobilidade.
 
-	>[AZURE.NOTE] Se você não estiver usando uma conta de domínio, precisará desabilitar o controle Acesso de Usuário Remoto no computador local. Para fazer isso, no registro, em HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System, adicione a entrada DWORD LocalAccountTokenFilterPolicy com um valor de 1. Para adicionar uma entrada de Registro de uma CLI, abra o comando ou, usando o PowerShell, insira **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**.
+	>[AZURE.NOTE] Se você não estiver usando uma conta de domínio, precisará desabilitar o controle Acesso de Usuário Remoto no computador local. Para fazer isso, no registro, em HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System, adicione a entrada DWORD LocalAccountTokenFilterPolicy com um valor de 1. Para adicionar uma entrada de Registro de um comando de abertura da CLI ou usando o PowerShell, insira **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**.
 
-2.  No Firewall do Windows do computador que deseja proteger, escolha **Permitir um aplicativo ou recurso pelo Firewall** e habilite o **Compartilhamento de arquivo e impressora** e a **Instrumentação de Gerenciamento do Windows**. Para computadores que pertencem a um domínio, você pode configurar a política de firewall com um GPO.
+2.  No Firewall do Windows do computador que deseja proteger, escolha **Permitir um aplicativo ou recurso pelo Firewall** e habilite o **Compartilhamento de Arquivo e Impressora** e a **Instrumentação de Gerenciamento do Windows**. Para computadores que pertencem a um domínio, você pode configurar a política de firewall com um GPO.
 
 	![Configurações de firewall](./media/site-recovery-vmware-to-azure-classic/mobility1.png)
 
 2. Adicione a conta que você criou:
 
 	- Abra **cspsconfigtool**. Ela está disponível como um atalho na área de trabalho e está localizada na pasta [LOCAL DE INSTALAÇÃO]\\home\\svsystems\\bin.
-	- Na guia **Gerenciar contas**, clique em **Adicionar conta**.
+	- Na guia **Gerenciar Contas**, clique em **Adicionar Conta**.
 	- Adicione a conta que você criou. Depois de adicionar a conta, será preciso fornecer as credenciais quando adicionar um computador a um grupo de proteção.
 
 
 #### Preparar para o envio por push automático em servidores Linux
 
-1.	Verifique se o computador com Linux que você deseja proteger tem suporte conforme descrito em [Pré-requisitos locais](#on-premises-prerequisites). Verifique se há conectividade de rede entre o computador que você deseja proteger e o servidor de gerenciamento que executa o servidor de processo. 
+1.	Verifique se o computador com Linux que você deseja proteger tem suporte, conforme descrito em [Pré-requisitos locais](#on-premises-prerequisites). Verifique se há conectividade de rede entre o computador que você deseja proteger e o servidor de gerenciamento que executa o servidor de processo. 
 
 2.	Crie uma conta que pode ser usada pelo servidor de processo para acessar o computador. A conta deve ser de um usuário raiz no servidor Linux de origem. Observe que essas credenciais são usadas somente para a instalação por push do Serviço de mobilidade.
 
@@ -442,8 +442,8 @@ Veja como preparar os computadores com Windows para que o Serviço de mobilidade
 
 	- Faça logon como raiz.
 	- No arquivo /etc/ssh/sshd\_config, localize a linha que começa com PasswordAuthentication.
-	- Remova a marca de comentário da linha e altere o valor de **não** para **sim**.
-	- Localize a linha que começa com **Subsistema** e remova a marca de comentário da linha.
+	- Remova a marca de comentário da linha e altere o valor de **no** para **yes**.
+	- Localize a linha que começa com **Subsystem** e remova a marca de comentário da linha.
  
 		![Linux](./media/site-recovery-vmware-to-azure-classic/mobility2.png)
 
@@ -455,8 +455,7 @@ Os instaladores estão disponíveis em C:\\Program Files (x86) \\Microsoft Azure
 Sistema operacional de origem | Arquivo de instalação do Serviço de mobilidade
 --- | ---
 Windows Server (somente 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_Windows\_* release.exe
-CentOS 6.4, 6.5, 6.6 (somente 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz 
-SUSE Linux Enterprise Server 11 SP3 (somente 64 bits) | Microsoft ASR\_UA\_9.*. 0.0\_SLES11-SP3-64\_*release.tar.gz
+CentOS 6.4, 6.5, 6.6 (somente 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz SUSE Linux Enterprise Server 11 SP3 (somente 64 bits) | Microsoft ASR\_UA\_9.*. 0.0\_SLES11-SP3-64\_*release.tar.gz
 Oracle Enterprise Linux 6.4, 6.5 (somente 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
 
 
@@ -468,12 +467,12 @@ Oracle Enterprise Linux 6.4, 6.5 (somente 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\
 
 	![Serviço de mobilidade](./media/site-recovery-vmware-to-azure-classic/mobility3.png)
 
-3. Em **Detalhes do servidor de configuração**, especifique o endereço IP do servidor de gerenciamento e a senha que foi gerada quando você instalou os componentes do servidor de gerenciamento. Você pode recuperar a senha executando: **<SiteRecoveryInstallationFolder>\\home\\sysystems\\bin\\genpassphrase.exe –n** no servidor de gerenciamento.
+3. Em **Detalhes do Servidor de Configuração**, especifique o endereço IP do servidor de gerenciamento e a senha que foi gerada quando você instalou os componentes do servidor de gerenciamento. Você pode recuperar a senha executando: **<SiteRecoveryInstallationFolder>\\home\\sysystems\\bin\\genpassphrase.exe –n** no servidor de gerenciamento.
 
 	![Serviço de mobilidade](./media/site-recovery-vmware-to-azure-classic/mobility6.png)
 
-4. Em **Local de instalação**, deixe o local padrão e clique em **Avançar** para iniciar a instalação.
-5. Em **Progresso da instalação**, monitore a instalação e, se for solicitado, reinicie o computador.
+4. Em **Local de Instalação**, deixe o local padrão e clique em **Avançar** para iniciar a instalação.
+5. Em **Progresso da Instalação**, monitore a instalação e, se for solicitado, reinicie o computador.
 
 Você também pode instalar a partir da linha de comando:
 
@@ -505,7 +504,7 @@ Após executar o assistente, você pode modificar o endereço IP do servidor de 
 4. Para instalar o Serviço de Mobilidade, insira *`sudo ./install -t both -a host -R Agent -d /usr/local/ASR -i <IP address> -p <port> -s y -c https -P passphrase.txt`*.
 5. Especifique o endereço IP interno do servidor de gerenciamento e verifique se a porta 443 está selecionada.
 
-**Você também pode instalar da linha de comando**:
+**Você também pode instalar a partir da linha de comando**:
 
 1. Copie a senha em C:\\Program Files (x86)\\InMage Systems\\private\\connection no servidor de gerenciamento e salve-a como "passphrase.txt" no servidor de gerenciamento. Em seguida, execute estes comandos. Em nosso exemplo, o endereço IP do servidor de gerenciamento é 104.40.75.37 e a porta HTTPS deve ser 443:
 
@@ -525,7 +524,7 @@ Para habilitar a proteção, adicione máquinas virtuais e servidores físicos a
 
 - As máquinas virtuais VMware são descobertas a cada 15 minutos e podem levar mais de 15 minutos para aparecer no portal de Recuperação de Site após a descoberta.
 - As alterações de ambiente na máquina virtual (como instalação de ferramentas VMware) também podem levar mais de 15 minutos para serem atualizadas na Recuperação de Site.
-- Você pode verificar a hora da última descoberta de VMs VMware no campo **Último contato em** do servidor vCenter/host ESXi, na guia **Servidores de configuração**.
+- Você pode verificar a hora da última descoberta de VMs VMware no campo **Último contato em** do servidor vCenter/host ESXi, na guia **Servidores de Configuração**.
 - Se tiver um grupo de proteção já criado e adicionar um Servidor vCenter ou host ESXi depois disso, poderá demorar mais de 15 minutos para que o portal do Azure Site Recovery seja atualizado e para que as máquinas virtuais sejam listadas na caixa de diálogo **Adicionar computadores a um grupo de proteção**.
 - Se quiser continuar imediatamente com a adição de computadores ao grupo de proteção sem precisar esperar pela descoberta agendada, destaque o servidor de configuração (não clique nele) e clique no botão **Atualizar**.
 
@@ -537,7 +536,7 @@ Além disso, observe que:
 
 Adicionar computadores a um grupo de proteção:
 
-1. Clique em **Itens protegidos** > **Grupo de proteção** > **Computadores** > Adicionar computadores. \\Como melhor prática 
+1. Clique em **Itens protegidos** > **Grupo de proteção** > **Computadores** > Adicionar computadores. \\Como prática recomendada 
 2. Em **Selecionar Máquinas Virtuais**, se estiver protegendo máquinas virtuais VMware, selecione um Servidor vCenter que esteja gerenciando suas máquinas virtuais, ou o host ESXi no qual elas estão em execução, e selecione os computadores.
 
 	![Habilitar proteção](./media/site-recovery-vmware-to-azure-classic/enable-protection2.png)
@@ -546,11 +545,11 @@ Adicionar computadores a um grupo de proteção:
 
 	![Habilitar proteção](./media/site-recovery-vmware-to-azure-classic/enable-protection1.png)
 		
-4. Em **Especificar recursos de destino**, selecione a conta de armazenamento na qual você está usando a replicação e escolha se as configurações devem ser usadas para todas as cargas de trabalho. Observe que as contas de armazenamento Premium não têm suporte no momento.
+4. Em **Especificar Recursos de Destino**, escolha a conta de armazenamento na qual você está usando a replicação e escolha se as configurações devem ser usadas para todas as cargas de trabalho. Observe que as contas de armazenamento Premium não têm suporte no momento.
 
 	![Habilitar proteção](./media/site-recovery-vmware-to-azure-classic/enable-protection3.png)
 
-5. Em **Especificar contas**, escolha a conta que você [configurou](#install-the-mobility-service-with-the-process-server) para usar na instalação automática do serviço de Mobilidade.
+5. Em **Especificar Contas**, escolha a conta que você [configurou](#install-the-mobility-service-with-the-process-server) para usar na instalação automática do Serviço de Mobilidade.
 
 	![Habilitar proteção](./media/site-recovery-vmware-to-azure-classic/enable-protection4.png)
 
@@ -562,7 +561,7 @@ Você pode monitorar o status na página **Trabalhos**.
 
 ![Habilitar proteção](./media/site-recovery-vmware-to-azure-classic/enable-protection5.png)
 
-Além disso, o status da proteção pode ser monitorado em **Itens protegidos** > <protection group name> > **Máquinas virtuais**. Depois que a replicação inicial é concluída e os dados são sincronizados, o status da máquina é alterado para **Protegidos**.
+Além disso, o status da proteção pode ser monitorado em **Itens Protegidos** > <protection group name> > **Máquinas Virtuais**. Depois que a replicação inicial é concluída e os dados são sincronizados, o status da máquina é alterado para **Protegidos**.
 
 ![Habilitar proteção](./media/site-recovery-vmware-to-azure-classic/enable-protection6.png)
 
@@ -578,7 +577,7 @@ Além disso, o status da proteção pode ser monitorado em **Itens protegidos** 
 
 	-  **Nome da VM do Azure**: esse é o nome que será dado ao computador no Azure após o failover. O nome deve atender aos requisitos do Azure.
 	-  **Tamanho da VM do Azure**: o número de adaptadores de rede é determinado pelo tamanho especificado para a máquina virtual de destino. [Leia mais](virtual-machines-size-specs.md/#size-tables) sobre tamanhos e adaptadores. Observe que:
-		- Quando você altera a dimensão de uma máquina virtual e salva as configurações, o número do adaptador de rede será alterado na próxima vez em que você abrir a guia **Configurar**. O número de adaptadores de rede de máquinas virtuais de destino é o mínimo do número de adaptadores de rede na máquina virtual de origem e o número máximo de adaptadores de rede compatíveis com o tamanho da máquina virtual selecionada. 
+		- Quando você modifica o tamanho de uma máquina virtual e salva as configurações, o número do adaptador de rede será alterado na próxima vez em que você abrir a guia **Configurar**. O número de adaptadores de rede de máquinas virtuais de destino é o mínimo do número de adaptadores de rede na máquina virtual de origem e o número máximo de adaptadores de rede compatíveis com o tamanho da máquina virtual selecionada. 
 			- Se o número de adaptadores de rede na máquina de origem for menor ou igual ao número de adaptadores permitido para o tamanho da máquina de destino, o destino terá o mesmo número de adaptadores que a origem.
 			- Se o número de adaptadores para máquina virtual de origem exceder o número permitido para o tamanho de destino e o tamanho máximo de destino será usado.
 			- Por exemplo, se uma máquina de origem tiver dois adaptadores de rede e o tamanho da máquina de destino oferecer suporte a quatro, a máquina de destino terá dois adaptadores. Se a máquina de origem tiver dois adaptadores, mas o tamanho de destino com suporte oferecer suporte apenas a uma máquina de destino, ela terá apenas um adaptador.
@@ -595,7 +594,7 @@ Você pode fazer failover de um único computador ou fazer failover de várias m
 
 ### Criar um plano de recuperação
 
-1. Na página **Planos de recuperação**, clique em **Adicionar plano de recuperação** e adicione um plano de recuperação. Especifique os detalhes do plano e selecione **Azure** como destino.
+1. Na página **Planos de Recuperação**, clique em **Adicionar Plano de Recuperação** e adicione um plano de recuperação. Especifique os detalhes do plano e selecione **Azure** como destino.
 
 	![Configurar plano de recuperação](./media/site-recovery-vmware-to-azure-classic/recovery-plan1.png)
 
@@ -627,11 +626,11 @@ Execute um failover de teste para simular os processos de failover e de recupera
 - **Especificar uma rede do Azure**: esse tipo de failover verifica se o ambiente de replicação inteiro é mostrado conforme o esperado e se as máquinas virtuais do Azure estão conectadas à rede especificada. 
 
 
-1. Na página **Planos de recuperação**, escolha o plano e clique em **Failover de teste**.
+1. Na página **Planos de Recuperação**, escolha o plano e clique em **Failover de Teste**.
 
 	![Adicionar máquinas virtuais](./media/site-recovery-vmware-to-azure-classic/test-failover1.png)
 
-2. Em **Confirmar failover de teste**, selecione **Nenhum** para indicar que você não deseja usar uma rede do Azure para o failover de teste ou selecione a rede à qual as VMs de teste serão conectadas após o failover. Clique na marca de seleção para iniciar o failover.
+2. Em **Confirmar Failover de Teste**, escolha **Nenhum** para indicar que você não deseja usar uma rede do Azure para o failover de teste ou escolha a rede à qual as VMs de teste serão conectadas após o failover. Clique na marca de seleção para iniciar o failover.
 
 	![Adicionar máquinas virtuais](./media/site-recovery-vmware-to-azure-classic/test-failover2.png)
 
@@ -639,7 +638,7 @@ Execute um failover de teste para simular os processos de failover e de recupera
 
 	![Adicionar máquinas virtuais](./media/site-recovery-vmware-to-azure-classic/test-failover3.png)
 
-4. Após a conclusão do failover, você também deve ser capaz de ver a réplica do computador do Azure aparecendo no Portal do Azure > **Máquinas virtuais**. Se você quiser iniciar uma conexão de RDP com a VM do Azure, precisará abrir a porta 3389 no ponto de extremidade da VM.
+4. Após a conclusão do failover, você também deve ser capaz de ver a réplica do computador do Azure aparecendo no portal do Azure > **Máquinas Virtuais**. Se você quiser iniciar uma conexão de RDP com a VM do Azure, precisará abrir a porta 3389 no ponto de extremidade da VM.
 
 5. Assim que terminar, quando o failover atingir a fase Concluir teste, clique em Concluir Teste para finalizar. Em Observações, registre e salve todas as observações associadas ao failover de teste.
 
@@ -654,17 +653,17 @@ Execute um failover de teste para simular os processos de failover e de recupera
 O failover não planejado é iniciado do Azure e pode ser executado mesmo se o site primário não estiver disponível.
 
 
-1. Na página **Planos de recuperação**, escolha o plano e clique em **Failover** > **Failover Não Planejado**.
+1. Na página **Planos de Recuperação**, escolha o plano e clique em **Failover** > **Failover Não Planejado**.
 
 	![Adicionar máquinas virtuais](./media/site-recovery-vmware-to-azure-classic/unplanned-failover1.png)
 
-2. Se você estiver replicando máquinas virtuais VMware, poderá tentar desligar as VMs locais. Essa é a melhor maneira possível e o failover continuará se o esforço for ou não bem-sucedido. Se não for bem-sucedido, os detalhes de erro aparecerão na guia **Trabalhos** > **Trabalhos de failover não planejados**.
+2. Se você estiver replicando máquinas virtuais VMware, poderá tentar desligar as VMs locais. Essa é a melhor maneira possível e o failover continuará se o esforço for ou não bem-sucedido. Se não for bem-sucedido, os detalhes de erro aparecerão na guia **Trabalhos** > **Trabalhos de Failover Não Planejados**.
 
 	![Adicionar máquinas virtuais](./media/site-recovery-vmware-to-azure-classic/unplanned-failover2.png)
 
 	>[AZURE.NOTE] Essa opção não estará disponível se você estiver replicando servidores físicos. Você precisará tentar desligá-los manualmente, se possível.
 	
-3. Em **Confirmar failover**, verifique a direção do failover (para o Azure) e escolha o ponto de recuperação que você deseja usar para o failover. Se você tiver habilitado Várias VMs durante a configuração das propriedades de replicação, poderá recuperar o ponto de recuperação mais recente consistente com o aplicativo ou com o controle de falhas. Você também pode selecionar **Ponto de recuperação personalizada** para recuperar até um ponto anterior no tempo. Clique na marca de seleção para iniciar o failover.
+3. Em **Confirmar Failover**, verifique a direção do failover (para o Azure) e escolha o ponto de recuperação que você deseja usar para o failover. Se você tiver habilitado Várias VMs durante a configuração das propriedades de replicação, poderá recuperar o ponto de recuperação mais recente consistente com o aplicativo ou com o controle de falhas. Você também pode selecionar **Ponto de recuperação personalizado** para recuperar até um ponto anterior no tempo. Clique na marca de seleção para iniciar o failover.
 
 	![Adicionar máquinas virtuais](./media/site-recovery-vmware-to-azure-classic/unplanned-failover3.png)
 
@@ -699,14 +698,14 @@ Você pode configurar um servidor de processo adicional da seguinte maneira:
 
 	![Adicionar servidor de processo](./media/site-recovery-vmware-to-azure-classic/add-ps1.png)
 
-3. Conclua o assistente da mesma forma que fez ao [configurar](#step-5:-install-the-management-server) o servidor de gerenciamento.
-4. Em **Detalhes da configuração do servidor**, especifique o endereço IP do servidor de gerenciamento original em que você instalou o servidor de configuração e a senha. No servidor de gerenciamento original, execute **<SiteRecoveryInstallationFolder>\\home\\sysystems\\bin\\genpassphrase.exe – n** para obter a senha.
+3. Conclua o assistente da mesma forma que fez ao [configurar](#step-5:-install-the-management-server) o primeiro servidor de gerenciamento.
+4. Em **Detalhes do Servidor de Configuração**, especifique o endereço IP do servidor de gerenciamento original em que você instalou o servidor de configuração e a senha. No servidor de gerenciamento original, execute **<SiteRecoveryInstallationFolder>\\home\\sysystems\\bin\\genpassphrase.exe – n** para obter a senha.
 
 	![Adicionar servidor de processo](./media/site-recovery-vmware-to-azure-classic/add-ps2.png)
 
 ### Migrar computadores para usar o novo servidor de processo
 
-1. Abra **Servidores de configuração** > **Servidor** > nome do servidor de gerenciamento original > **Detalhes do servidor**.
+1. Abra **Servidores de Configuração** > **Servidor** > nome do servidor de gerenciamento original > **Detalhes do Servidor**.
 
 	![Atualizar servidor de processo](./media/site-recovery-vmware-to-azure-classic/update-process-server1.png)
 
@@ -714,7 +713,7 @@ Você pode configurar um servidor de processo adicional da seguinte maneira:
 
 	![Atualizar servidor de processo](./media/site-recovery-vmware-to-azure-classic/update-process-server2.png)
 
-3. Em **Alterar servidor de processo** > **Servidor de processo de destino**, selecione o novo servidor de gerenciamento e as máquinas virtuais que serão tratadas pelo novo servidor de processo. Clique no ícone de informações para obter informações sobre o servidor. O espaço médio necessário para replicar cada máquina virtual selecionada no novo servidor de processo será exibido para lhe ajudar a tomar decisões sobre a carga. Clique na marca de seleção para começar a replicar no novo servidor de processo.
+3. Em **Alterar Servidor de Processo** > **Servidor de Processo de Destino**, escolha o novo servidor de gerenciamento e as máquinas virtuais que serão tratadas pelo novo servidor de processo. Clique no ícone de informações para obter informações sobre o servidor. O espaço médio necessário para replicar cada máquina virtual selecionada no novo servidor de processo será exibido para lhe ajudar a tomar decisões sobre a carga. Clique na marca de seleção para começar a replicar no novo servidor de processo.
 
 	![Atualizar servidor de processo](./media/site-recovery-vmware-to-azure-classic/update-process-server3.png)
 
@@ -723,13 +722,13 @@ Você pode configurar um servidor de processo adicional da seguinte maneira:
 
 ## Permissões de VMware para acesso do vCenter
 
-O servidor de processo pode descobrir as VMs em um servidor vCenter automaticamente. Para executar a descoberta automática, você precisará definir uma função (Azure\_Site\_Recovery) no nível do vCenter para permitir que a Recuperação de Site acesse o servidor vCenter. Observe que se você só precisa migrar máquinas virtuais VMware para o Azure e não precisa do failback do Azure, pode definir uma função somente leitura que seja suficiente. Configure as permissões conforme descrito em [Etapa 6: configurar as credenciais para o servidor vCenter](#step-6:-set-up-credentials-for-the-vcenter-server). As permissões de função são resumidas na tabela a seguir.
+O servidor de processo pode descobrir as VMs em um servidor vCenter automaticamente. Para executar a descoberta automática, você precisará definir uma função (Azure\_Site\_Recovery) no nível do vCenter para permitir que a Recuperação de Site acesse o servidor vCenter. Observe que se você só precisa migrar máquinas virtuais VMware para o Azure e não precisa do failback do Azure, pode definir uma função somente leitura que seja suficiente. Configure as permissões conforme descrito em [Etapa 6: Configurar as credenciais para o servidor vCenter](#step-6:-set-up-credentials-for-the-vcenter-server). As permissões de função são resumidas na tabela a seguir.
 
 **Função** | **Detalhes** | **Permissões**
 --- | --- | ---
-Função Azure\_Site\_Recovery | Descoberta de máquina virtual VMware |Atribua estes privilégios ao servidor vCenter:<br/><br/>Armazenamento de Dados->Alocar espaço, Procurar armazenamento de dados, Operações de arquivo de nível baixo, Remover arquivos, Atualizar arquivos da máquina virtual<br/><br/>Rede->Atribuir rede<br/><br/>Recurso -> Atribuir máquina virtual ao pool de recursos, Migrar máquina virtual desligada, Migrar máquina virtual ligada<br/><br/>Tarefas -> Criar tarefa, Atualizar tarefa<br/><br/>Máquina virtual -> Configuração<br/><br/>Máquina virtual -> Interagir -> Responder pergunta, Conexão de dispositivos, Configurar mídia de CD, Configurar mídia de disquete, Desligar, Ligar, instalação de ferramentas do VMware<br/><br/>Máquina virtual -> Estoque -> Criar, Registrar, Desfazer registro<br/><br/>Máquina virtual -> Provisionamento -> Permitir download da máquina virtual, Permitir carregamento de arquivos da máquina virtual<br/><br/>Máquina virtual -> Instantâneos -> Remover instantâneos
-Função de usuário do vCenter | Descoberta de máquina virtual VMware/Failover sem o desligamento da VM de origem | Atribua estes privilégios ao servidor vCenter:<br/><br/>Objeto do datacenter -> Propagar para o objeto filho, função = Somente leitura <br/><br/>O usuário é atribuído ao nível do datacenter e, portanto, tem acesso a todos os objetos no datacenter. Se você quiser restringir o acesso, atribua a função **Nenhum acesso** com o objeto **Propagar para filho** para os objetos filho (hosts ESX, armazenamento de dados, VMs e redes). 
-Função de usuário do vCenter | Failover e failback | Atribua estes privilégios ao servidor vCenter:<br/><br/>Objeto do datacenter – propagar para objeto filho, função = Azure\_Site\_Recovery<br/><br/>O usuário é atribuído ao nível de datacenter e, portanto, tem acesso a todos os objetos no datacenter. Se você quer restringir o acesso, atribua a função **Nenhum acesso** com o objeto **Propagar para filho** para o objeto filho (hosts ESX, armazenamento de dados, VMs e redes). 
+Função Azure\_Site\_Recovery | Descoberta de máquina virtual VMware |Atribua estes privilégios ao servidor vCenter:<br/><br/>Repositório de Dados->Alocar espaço, Procurar repositório de dados, Operações de arquivo de nível baixo, Remover arquivos, Atualizar arquivos da máquina virtual<br/><br/>Rede->Atribuir rede<br/><br/>Recurso -> Atribuir máquina virtual ao pool de recursos, Migrar máquina virtual desligada, Migrar máquina virtual ligada<br/><br/>Tarefas -> Criar tarefa, Atualizar tarefa<br/><br/>Máquina virtual -> Configuração<br/><br/>Máquina virtual -> Interagir -> Responder pergunta, Conexão de dispositivos, Configurar mídia de CD, Configurar mídia de disquete, Desligar, Ligar, instalação de ferramentas VMware<br/><br/>Máquina virtual -> Estoque -> Criar, Registrar, Desfazer registro<br/><br/>Máquina virtual -> Provisionamento -> Permitir download da máquina virtual, Permitir carregamento de arquivos da máquina virtual<br/><br/>Máquina virtual -> Instantâneos -> Remover instantâneos
+Função de usuário do vCenter | Descoberta de máquina virtual VMware/Failover sem o desligamento da VM de origem | Atribua estes privilégios ao servidor vCenter:<br/><br/>Objeto do datacenter -> Propagar para o objeto filho, função = Somente leitura <br/><br/>O usuário é atribuído no nível do datacenter e, portanto, tem acesso a todos os objetos no datacenter. Se você quiser restringir o acesso, atribua a função **Nenhum acesso** com o objeto **Propagar para filho** para os objetos filho (hosts ESX, repositórios de dados, VMs e redes). 
+Função de usuário do vCenter | Failover e failback | Atribua estes privilégios ao servidor vCenter:<br/><br/>Objeto do datacenter – propagar para objeto filho, função = Azure\_Site\_Recovery<br/><br/>O usuário é atribuído no nível de datacenter e, portanto, tem acesso a todos os objetos no datacenter. Se quiser restringir o acesso, atribua a função **Nenhum acesso** com o objeto **Propagar para objeto filho** para o objeto filho (hosts ESX, repositórios de dados, VMs e redes). 
 
 
 
@@ -749,4 +748,4 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 [Saiba mais sobre failback](site-recovery-failback-azure-to-vmware-classic.md) para recolocar seus computadores com failover em execução no Azure no ambiente local.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -31,7 +31,7 @@ Este ambiente criado automaticamente consiste em três servidores em uma rede vi
 
 Veja o item [Farm de não HA do SharePoint 2013](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) no Azure Marketplace do portal do Azure. Isso cria um farm de desenvolvimento/teste básico para um site do SharePoint voltado para a Internet. Veja [Criar farms de servidores do SharePoint](virtual-machines-sharepoint-farm-azure-preview.md) para obter mais detalhes.
 
-Você também pode usar um modelo do Gerenciador de Recursos do Azure. Veja [Implantar um farm de três servidores do SharePoint](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm).
+Você também pode usar um modelo do Gerenciador de Recursos do Azure. Confira [SharePoint](virtual-machines-app-frameworks.md).
 
 > [AZURE.NOTE] O item **Farm do SharePoint Server** no Azure Marketplace do portal do Azure foi removido.
 
@@ -61,4 +61,4 @@ Esta configuração usa o modelo de implantação clássica.
 
 - Descubra configurações adicionais do [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) nos serviços de infraestrutura do Azure.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

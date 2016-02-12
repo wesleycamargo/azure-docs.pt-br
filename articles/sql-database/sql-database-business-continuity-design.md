@@ -33,7 +33,7 @@ Você deve usar a proteção interna caso seu aplicativo atenda aos seguintes cr
 2. A taxa de alteração de dados é baixa (por exemplo, transações por hora). O RPO de 1 hora não resultará em uma grande perda de dados.
 3. O aplicativo é de baixo custo e não é possível justificar o custo adicional de replicação geográfica 
 
-> [AZURE.NOTE]A restauração geográfica não aloca previamente a capacidade de computação em nenhuma região específica para restaurar bancos de dados ativos do backup durante a interrupção. O serviço irá gerenciar a carga de trabalho associada às solicitações de restauração geográfica de maneira a minimizar o impacto sobre os bancos de dados existentes nessa região e suas demandas de capacidade terão prioridade. Portanto, o tempo de recuperação do banco de dados dependerá de quantos outros bancos de dados serão recuperados na mesma região ao mesmo tempo.
+> [AZURE.NOTE] A restauração geográfica não aloca previamente a capacidade de computação em nenhuma região específica para restaurar bancos de dados ativos do backup durante a interrupção. O serviço irá gerenciar a carga de trabalho associada às solicitações de restauração geográfica de maneira a minimizar o impacto sobre os bancos de dados existentes nessa região e suas demandas de capacidade terão prioridade. Portanto, o tempo de recuperação do banco de dados dependerá de quantos outros bancos de dados serão recuperados na mesma região ao mesmo tempo.
 
 ##Quando usar a replicação geográfica
 
@@ -45,31 +45,31 @@ Você deve usar a replicação geográfica caso seu aplicativo atenda aos seguin
 2. A taxa de alteração de dados é alta (por exemplo, transações por minuto ou segundos). O RPO de 1 h associado à proteção padrão provavelmente resultará em perda de dados inaceitável.
 3. O custo associado ao uso da replicação geográfica é significativamente menor do que a responsabilidade financeira potencial e as perdas associadas do negócio.
 
-> [AZURE.NOTE]Se seu aplicativo usa bancos de dados de camada básica, não há suporte para replicação geográfica
+> [AZURE.NOTE] Se seu aplicativo usa bancos de dados de camada básica, não há suporte para replicação geográfica
 
 ##Quando escolher replicação geográfica Padrão versus Ativa
 
 Os bancos de dados de camada padrão não têm a opção de usar a replicação geográfica ativa, de forma que, se seu aplicativo usa bancos de dados padrão e atende aos critérios acima, ele deve habilitar a replicação geográfica padrão. Por outro lado, os bancos de dados Premium podem escolher qualquer uma das opções. A replicação geográfica padrão foi projetada como uma solução de recuperação de desastres mais simples e econômica, especialmente adequada a aplicativos que a utilizam somente para se protegerem contra eventos não planejados, como interrupções. Com a replicação geográfica padrão, é possível usar somente a região pareada de DR para a recuperação e pode criar apenas um secundário para cada primário. Um secundário adicional pode ser necessário para o cenário de atualização de aplicativo. Portanto, se esse cenário for essencial para seu aplicativo você deve habilitar a replicação geográfica ativa em vez disso. Consulte [Atualização de aplicativo sem tempo de inatividade](sql-database-business-continuity-application-upgrade.md) para obter detalhes adicionais.
 
-> [AZURE.NOTE]A replicação geográfica também oferece suporte a acesso somente leitura ao banco de dados secundário, proporcionando capacidade adicional para as cargas de trabalho somente leitura.
+> [AZURE.NOTE] A replicação geográfica também oferece suporte a acesso somente leitura ao banco de dados secundário, proporcionando capacidade adicional para as cargas de trabalho somente leitura.
 
 ##Como habilitar a replicação geográfica
 
 Você pode habilitar replicação geográfica usando o Portal clássico do Azure ou chamando a API REST ou comando do PowerShell.
 
-###Portal Clássico do Azure
+###Portal do Azure
 
 [AZURE.VIDEO sql-database-enable-geo-replication-in-azure-portal]
 
-1. Faça logon no [Portal Clássico do Azure](https://portal.Azure.com)
-2. No lado esquerdo da tela, selecione **PROCURAR** e, em seguida, selecione **Bancos de Dados SQL**
+1. Faça logon no [portal do Azure](https://portal.Azure.com)
+2. No lado esquerdo da tela, selecione **PROCURAR** e selecione **Bancos de Dados SQL**
 3. Navegue até a folha de banco de dados, selecione o **Mapa de replicação geográfica** e clique em **Configurar a replicação geográfica**.
 4. Navegue até a folha de replicação geográfica. Selecione a região de destino. 
 5. Navegue até a folha Criar Secundário. Selecione um servidor existente na região de destino ou crie um novo.
 6. Selecione o tipo de secundário (*Legível* ou *Não legível*)
 7. Clique em **Criar** para concluir a configuração
 
-> [AZURE.NOTE]A região pareada de DR na folha de replicação geográfica será marcada como *recomendada*. Se você usar um banco de dados de camada Premium, pode escolher uma região diferente. Se você estiver usando um banco de dados padrão, não pode alterá-lo. O banco de dados Premium terá uma opção do tipo secundário (*Legível* ou *Não legível*). O banco de dados padrão só pode selecionar um secundário *não legível*.
+> [AZURE.NOTE] A região pareada de DR na folha de replicação geográfica será marcada como *recomendada*. Se você usar um banco de dados de camada Premium, pode escolher uma região diferente. Se você estiver usando um banco de dados padrão, não pode alterá-lo. O banco de dados Premium terá uma opção do tipo secundário (*Legível* ou *Não legível*). O banco de dados padrão só pode selecionar um secundário *não legível*.
 
 
 ###PowerShell
@@ -98,4 +98,4 @@ Esse API é assíncrono. Depois de retornar, use o API [Obter replicação do li
 
 Ao projetar seu aplicativo para continuidade dos negócios, você deve considerar várias opções de configuração. A escolha dependerá da topologia de implantação do aplicativo e quais partes de seus aplicativos são mais vulneráveis a uma interrupção. Para diretrizes, consulte [Criando soluções de nuvem para recuperação de desastres usando replicação geográfica](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

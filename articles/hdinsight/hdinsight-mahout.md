@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="01/28/2016"
 	ms.author="larryfr"/>
 
 #Gerar recomendações de vídeo usando o Apache Mahout com o Hadoop no HDInsight
@@ -23,7 +23,7 @@
 
 Saiba como usar a biblioteca de aprendizado de máquina do [Apache Mahout](http://mahout.apache.org) com o Azure HDInsight para gerar recomendações de vídeos.
 
-> [AZURE.NOTE]As etapas deste documento exigem um cliente do Windows e um cluster HDInsight baseado em Windows. Para obter informações sobre como usar o Mahout em um Linux, OS X ou cliente Unix, com um cluster do HDInsight baseado em Linux, consulte [Gerar recomendações de filmes usando o Apache Mahout com Hadoop baseado em Linux no HDInsight](hdinsight-hadoop-mahout-linux-mac.md)
+> [AZURE.NOTE] As etapas deste documento exigem um cliente do Windows e um cluster HDInsight baseado em Windows. Para obter informações sobre como usar o Mahout em um Linux, OS X ou cliente Unix, com um cluster do HDInsight baseado em Linux, consulte [Gerar recomendações de filmes usando o Apache Mahout com Hadoop baseado em Linux no HDInsight](hdinsight-hadoop-mahout-linux-mac.md)
 
 
 ##<a name="learn"></a>O que você aprenderá
@@ -36,7 +36,7 @@ O Mahout é uma biblioteca de [aprendizado de máquina][ml] para o Apache Hadoop
 
 * Como instalar o Mahout em clusters do HDInsight 3.0 e 2.0
 
-	> [AZURE.NOTE]O Mahout é fornecido com a versão HDInsight 3.1 dos clusters. Se você estiver usando uma versão anterior do HDInsight, consulte [Instalar o Mahout](#install) antes de continuar.
+	> [AZURE.NOTE] O Mahout é fornecido com a versão HDInsight 3.1 dos clusters. Se você estiver usando uma versão anterior do HDInsight, consulte [Instalar o Mahout](#install) antes de continuar.
 
 ##pré-requisitos
 
@@ -46,7 +46,7 @@ O Mahout é uma biblioteca de [aprendizado de máquina][ml] para o Apache Hadoop
 
 ##<a name="recommendations"></a>Gerar recomendações usando o Windows PowerShell
 
-> [AZURE.NOTE]Enquanto o trabalho usado nesta seção funciona pelo uso do Windows PowerShell, muitas das classes fornecidas com o Mahout não funcionam atualmente com o Windows PowerShell e precisam ser executadas usando a linha de comando do Hadoop. Para obter uma lista de classes que não funcionam com o Windows PowerShell, consulte a seção [Solucionar problemas](#troubleshooting).
+> [AZURE.NOTE] Enquanto o trabalho usado nesta seção funciona pelo uso do Windows PowerShell, muitas das classes fornecidas com o Mahout não funcionam atualmente com o Windows PowerShell e precisam ser executadas usando a linha de comando do Hadoop. Para obter uma lista de classes que não funcionam com o Windows PowerShell, consulte a seção [Solucionar problemas](#troubleshooting).
 >
 > Para obter um exemplo de uso da linha de comando do Hadoop para executar trabalhos no Mahout, consulte [Classificar dados usando a linha de comando do Hadoop](#classify).
 
@@ -186,7 +186,7 @@ Use o script do Windows PowerShell a seguir para executar um trabalho usando o m
             -HttpCredential $creds `
             -DisplayOutputType StandardError
 
-> [AZURE.NOTE]Os trabalhos do Mahout não removem dados temporários criados durante o processamento do trabalho. O parâmetro `--tempDir` é especificado no trabalho de exemplo para isolar os arquivos temporários em um caminho específico.
+> [AZURE.NOTE] Os trabalhos do Mahout não removem dados temporários criados durante o processamento do trabalho. O parâmetro `--tempDir` é especificado no trabalho de exemplo para isolar os arquivos temporários em um caminho específico.
 
 O trabalho do Mahout não retorna a saída para STDOUT. Em vez disso, ele armazena no diretório de saída especificado como __part-r-00000__. O script baixa esse arquivo em __output.txt__ no diretório atual em sua estação de trabalho.
 
@@ -412,7 +412,7 @@ Um dos métodos de classificação disponíveis com o Mahout é criar uma [flore
 
   Esse trabalho também produz um arquivo localizado em \_\___wasb:///example/data/predictions/KDDTest+.arff.out__. Todavia, esse arquivo não pode ser lido por pessoas.
 
-> [AZURE.NOTE]Trabalhos do Mahout não sobrescrevem arquivos. Se você deseja executar esses trabalhos novamente, é preciso excluir os arquivos criados pelos trabalhos anteriores.
+> [AZURE.NOTE] Trabalhos do Mahout não sobrescrevem arquivos. Se você deseja executar esses trabalhos novamente, é preciso excluir os arquivos criados pelos trabalhos anteriores.
 
 ##<a name="troubleshooting"></a>Solucionar problemas
 
@@ -428,9 +428,9 @@ O Mahout é instalado nos clusters do HDInsight 3.1 e pode ser instalado manualm
 
 			mvn -Dhadoop2.version=2.2.0 -DskipTests clean package
 
-    	Após a conclusão da compilação, você encontrará o arquivo JAR em __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__. 
+    	After the build completes, you can find the JAR file at __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__.
 
-    	> [AZURE.NOTE] No lançamento do Mahout 1.0, você poderá usar os pacotes de pré-compilação com o HDInsight 3.0.
+    	> [AZURE.NOTE] When Mahout 1.0 is released, you should be able to use the prebuilt packages with HDInsight 3.0.
 
 2. Carregue o arquivo jar no __exemplo/jars__, no armazenamento padrão para seu cluster. Substitua CLUSTERNAME no script a seguir pelo nome do cluster HDInsight e substitua FILENAME pelo caminho até o arquivo __mahout-coure-0.9-job.jar__.
 
@@ -511,9 +511,9 @@ Para executar trabalhos que usam essas classes, conecte-se ao cluster do HDInsig
 
 Agora que você aprendeu como usar o Mahout, descubra outras maneiras de trabalhar com dados no HDInsight:
 
-* [Hive com o HDInsight](../hadoop-use-hive.md)
-* [Pig com o HDInsight](../hadoop-use-pig.md)
-* [MapReduce com o HDInsight](../hadoop-use-mapreduce.md)
+* [Hive com o HDInsight](hdinsight-use-hive.md)
+* [Pig com o HDInsight](hdinsight-use-pig.md)
+* [MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
 [build]: http://mahout.apache.org/developers/buildingmahout.html
 [aps]: ../powershell-install-configure.md
@@ -530,4 +530,4 @@ Agora que você aprendeu como usar o Mahout, descubra outras maneiras de trabalh
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

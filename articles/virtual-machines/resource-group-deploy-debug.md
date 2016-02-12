@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="01/06/2016"
+   ms.date="01/28/2016"
    ms.author="tomfitz;rasquill"/>
 
 # Solucionando problemas de implantações de grupos de recursos no Azure
@@ -23,7 +23,7 @@ Quando você encontra um problema durante a implantação, é preciso descobrir 
 
 Este tópico se concentra principalmente em como usar os comandos de implantação para solucionar problemas com implantações. Para obter informações sobre como usar os logs de auditoria para acompanhar todas as operações de seus recursos, consulte [Auditar operações com o Gerenciador de Recursos](../resource-group-audit.md).
 
-Este tópico mostra como recuperar informações para solução de problemas por meio do Azure PowerShell, da CLI do Azure e da API REST. Para obter informações sobre como usar o portal de visualização para solucionar problemas de implantações, consulte a seção [Como usar o Portal do Azure para gerenciar os recursos do Azure](../azure-portal/resource-group-portal.md).
+Este tópico mostra como recuperar informações para solução de problemas por meio do Azure PowerShell, da CLI do Azure e da API REST. Para saber mais sobre como usar o portal para solucionar problemas de implantações, consulte a seção [Como usar o portal do Azure para gerenciar os recursos do Azure](../azure-portal/resource-group-portal.md).
 
 Também são descritas neste tópico as soluções para erros comuns que os usuários encontram.
 
@@ -160,7 +160,7 @@ A API REST do Gerenciador de Recurso fornece URIs para recuperar informações s
 
 A implantação falhará se suas credenciais do Azure tiverem expirado ou se você não tiver entrado em sua conta do Azure. Suas credenciais poderão expirar se a sessão ficar aberta por muito tempo. Você pode atualizar as credenciais com as seguintes opções:
 
-- Para o PowerShell, use o cmdlet **AzureRmAccount Login** (ou **Add-AzureAccount** para versões do PowerShell antes da visualização 1.0). As credenciais em um arquivo de configurações de publicação não são suficientes para os cmdlets no módulo AzureResourceManager.
+- No PowerShell, use o cmdlet **Login-AzureRmAccount**. As credenciais em um arquivo de configurações de publicação não são suficientes para os cmdlets no módulo AzureResourceManager.
 - Com a CLI do Azure, use **azure login**. Para obter ajuda com erros de autenticação, certifique-se de que você tenha [configurado a CLI do Azure corretamente](../xplat-cli-connect.md).
 
 ## Verificando o formato dos modelos e parâmetros
@@ -169,7 +169,7 @@ Se o arquivo de modelo ou parâmetro não estiver no formato correto, a implanta
 
 ### PowerShell
 
-Para o PowerShell, use **Test-AzureRmResourceGroupDeployment** (ou **Test-AzureResourceGroupTemplate** para versões do PowerShell antes da visualização 1.0).
+No PowerShell, use **Test-AzureRmResourceGroupDeployment**.
 
     PS C:\> Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile c:\Azure\Templates\azuredeploy.json -TemplateParameterFile c:\Azure\Templates\azuredeploy.parameters.json
     VERBOSE: 12:55:32 PM - Template is valid.
@@ -201,7 +201,7 @@ Ao especificar um local para um recurso, você deve usar um dos locais que dá s
 
 ### PowerShell
 
-Para versões do PowerShell antes da visualização 1.0, você pode ver a lista completa de recursos e locais usando o comando **Get-AzureLocation**.
+Para versões do PowerShell antes da 1.0, você pode ver a lista completa de recursos e locais usando o comando **Get-AzureLocation**.
 
     PS C:\> Get-AzureLocation
 
@@ -222,7 +222,7 @@ Para versões do PowerShell antes da visualização 1.0, você pode ver a lista 
                                                                 North Europe, West Europe, East Asia, Southeast Asia,
                                                                 Japan East, Japan West
 
-Para visualização do PowerShell 1.0, use **Get-AzureRmResourceProvider** para obter os locais com suporte.
+No PowerShell 1.0, use **Get-AzureRmResourceProvider** para obter os locais com suporte.
 
     PS C:\> Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web
 
@@ -275,7 +275,7 @@ Mas o Active Directory do Azure permite que você ou seu administrador controlem
 
 Você também pode ter problemas quando uma implantação atinge uma cota padrão, que pode ser por grupo de recursos, assinaturas, contas e outros escopos. Para sua satisfação, certifique-se de que você tenha os recursos disponíveis para a implantação correta. Para obter informações completas sobre cotas, consulte [Limites, cotas e restrições de serviço e assinatura do Azure](../azure-subscription-service-limits.md).
 
-Para examinar suas próprias cotas de assinatura de núcleos, você deve usar o comando `azure vm list-usage` na CLI do Azure e o cmdlet **Get-AzureVMUsage** no PowerShell. A seguir, é mostrado o comando na CLI do Azure e ilustrado que a cota de núcleo de uma conta de avaliação gratuita é 4:
+Para examinar suas próprias cotas de assinatura de núcleos, você deverá usar o comando `azure vm list-usage` na CLI do Azure e o cmdlet **Get-AzureRmVMUsage** no PowerShell. A seguir, é mostrado o comando na CLI do Azure e ilustrado que a cota de núcleo de uma conta de avaliação gratuita é 4:
 
     azure vm list-usage
     info:    Executing command vm list-usage
@@ -293,25 +293,7 @@ Se você tentar implantar um modelo que crie mais de 4 núcleos para a região O
 
 Nesses casos, você deve ir para o portal e abrir um problema de suporte para aumentar a cota para a região na qual você deseja implantar.
 
-> [AZURE.NOTE]Lembre-se de que, para grupos de recursos, a cota é para cada região individual, não para a assinatura inteira. Se você precisar implantar 30 núcleos no Oeste dos EUA, será necessário pedir 30 núcleos do Gerenciador de Recursos no Oeste dos EUA. Se precisar implantar 30 núcleos em qualquer uma das regiões às quais tenha acesso, você deverá solicitar 30 núcleos do Gerenciador de recursos em todas as regiões.
-<!-- -->
-Para ser específico sobre núcleos, por exemplo, você pode verificar as regiões para as quais deve solicitar o valor da cota apropriado usando o comando a seguir, que resulta em **jq** para análise json.
-<!-- -->
-        azure provider show Microsoft.Compute --json | jq '.resourceTypes[] | select(.name == "virtualMachines") | { name,apiVersions, locations}'
-        {
-          "name": "virtualMachines",
-          "apiVersions": [
-            "2015-05-01-preview",
-            "2014-12-01-preview"
-          ],
-          "locations": [
-            "East US",
-            "West US",
-            "West Europe",
-            "East Asia",
-            "Southeast Asia"
-          ]
-        }
+> [AZURE.NOTE] Lembre-se de que, para grupos de recursos, a cota é para cada região individual, não para a assinatura inteira. Se você precisar implantar 30 núcleos no Oeste dos EUA, será necessário pedir 30 núcleos do Gerenciador de Recursos no Oeste dos EUA. Se precisar implantar 30 núcleos em qualquer uma das regiões às quais tenha acesso, você deverá solicitar 30 núcleos do Gerenciador de recursos em todas as regiões. <!-- --> Para ser específico sobre núcleos, por exemplo, você pode verificar as regiões para as quais deve solicitar o valor da cota apropriado usando o comando a seguir, que resulta em **jq** para análise json. <!-- --> azure provider show Microsoft.Compute --json | jq '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}' { "name": "virtualMachines", "apiVersions": [ "2015-05-01-preview", "2014-12-01-preview" ], "locations": [ "East US", "West US", "West Europe", "East Asia", "Southeast Asia" ] }
 
 
 ## Verificando o registro do provedor de recursos
@@ -320,7 +302,7 @@ Os recursos são gerenciados por provedores de recursos, e uma conta ou assinatu
 
 ### PowerShell
 
-Para obter uma lista de provedores de recursos e o status do registro, use **Get-AzureProvider** para versões do PowerShell antes da visualização 1.0.
+Para obter uma lista de provedores de recursos e o status do registro, use **Get-AzureProvider** para versões do PowerShell antes da 1.0.
 
     PS C:\> Get-AzureProvider
 
@@ -333,7 +315,7 @@ Para obter uma lista de provedores de recursos e o status do registro, use **Get
 
 Para registrar um provedor, use **Register-AzureProvider**.
 
-Para visualização do PowerShell 1.0, use **Get-AzureRmResourceProvider**.
+No Powershell 1.0, use **Get-AzureRmResourceProvider**.
 
     PS C:\> Get-AzureRmResourceProvider -ListAvailable
 
@@ -435,4 +417,4 @@ Para dominar a criação de modelos, leia [Criando modelos do Gerenciador de Rec
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

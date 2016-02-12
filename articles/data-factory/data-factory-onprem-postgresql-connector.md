@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Mover dados do PostgreSQL usando o Azure Data Factory
@@ -34,7 +34,9 @@ Para o Gateway de Gerenciamento de Dados para se conectar ao banco de dados Post
 
 ## Exemplo: copiar dados do PostgreSQL para o Blob do Azure
 
-O exemplo a seguir mostra:
+Este exemplo mostra como copiar dados de um banco de dados PostgreSQL para um Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** para qualquer uma das fontes declaradas [aqui](data-factory-data-movement-activities.md#supported-data-stores) usando a atividade de cópia no Azure Data Factory.
+ 
+O exemplo tem as seguintes entidades de data factory:
 
 1.	Um serviço vinculado do tipo [OnPremisesPostgreSql](data-factory-onprem-postgresql-connector.md#postgresql-linked-service-properties).
 2.	Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
@@ -308,4 +310,4 @@ texto | | Cadeia de caracteres
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="01/30/2016"
 	ms.author="tarcher"/>
 
 # Introdução ao armazenamento de blob e aos serviços conectados do Visual Studio (ASP.NET)
@@ -50,7 +50,7 @@ Para acessar programaticamente blobs em projetos do ASP.NET, você precisa adici
 		CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
-    > [AZURE.NOTE]Use todo o código anterior antes do código nas seções a seguir.
+    > [AZURE.NOTE] Use todo o código anterior antes do código nas seções a seguir.
 
 3. Obtenha um objeto **CloudBlobClient** para fazer referência a um contêiner existente em sua conta de armazenamento.
 
@@ -60,7 +60,7 @@ Para acessar programaticamente blobs em projetos do ASP.NET, você precisa adici
         // Get a reference to a container named “mycontainer.”
         CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-> [AZURE.NOTE]Algumas APIs que executam chamadas para o armazenamento do Azure no ASP.NET 5 são assíncronas. Confira [Programação assíncrona com Async e Await](http://msdn.microsoft.com/library/hh191443.aspx) para saber mais.
+> [AZURE.NOTE] Algumas APIs que executam chamadas para o armazenamento do Azure no ASP.NET 5 são assíncronas. Confira [Programação assíncrona com Async e Await](http://msdn.microsoft.com/library/hh191443.aspx) para saber mais.
 
 
 ## Criar um contêiner de blob no código
@@ -237,4 +237,4 @@ Como o exemplo de método chama um método assíncrono, ele deve ser precedido p
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

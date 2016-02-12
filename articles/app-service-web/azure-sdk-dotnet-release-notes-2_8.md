@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="01/19/2016"
+   ms.date="01/31/2016"
    ms.author="juliako"/>
 
 # SDK do Azure para .NET 2.8, 2.8.1 e 2.8.2
@@ -91,6 +91,8 @@ Após a instalação das ferramentas 2.8.2, os clientes podem enfrentar o proble
 - Se você estiver usando o Windows 10 e não tiver instalado o Internet Explorer, poderá receber um erro de "Internet Explorer não encontrado". Para resolver o problema, instale o Internet Explorer usando a caixa de diálogo Adicionar/Remover Componentes do Windows.
 
 Se você observar esse problema, use o recurso Enviar um Smiley para relatá-lo.
+
+Para obter mais informações, confira [esta](https://azure.microsoft.com/blog/announcing-azure-sdk-2-8-2-for-net/) postagem.
 ##Outras atualizações
 
 Para obter outras atualizações, confira a [postagem de comunicado do SDK do Azure 2.8](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/).
@@ -101,4 +103,4 @@ Para obter outras atualizações, confira a [postagem de comunicado do SDK do Az
 
 [Informações de suporte e de desativação do SDK do Azure para .NET e APIs](https://msdn.microsoft.com/library/azure/dn479282.aspx)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

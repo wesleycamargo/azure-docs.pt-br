@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="02/02/2016" 
 	ms.author="thmullan;torsteng;sidneyh" />
 
 # Aplicativos multilocatários com ferramentas de banco de dados elástico e segurança em nível de linha 
@@ -21,7 +21,7 @@
 
 * **Ferramentas de banco de dados elástico** permitem que os desenvolvedores expandir a camada de dados de um aplicativo por meio de práticas de fragmentação padrão do setor usando um conjunto de bibliotecas .NET e modelos de serviço do Azure. Gerenciar fragmentos usando a Biblioteca Cliente do Banco de Dados Elástico ajuda a automatizar e simplificar muitas das tarefas infraestruturais normalmente associadas à fragmentação. 
 
-* A **segurança em nível de linha** permite aos desenvolvedores armazenar dados para vários locatários no mesmo banco de dados usando políticas de segurança para filtrar linhas que não pertencem ao locatário que está executando uma consulta. Centralizar a lógica de acesso com RLS no banco de dados, em vez de no aplicativo, simplifica a manutenção e reduz o risco de erros conforme a base de código de um aplicativo é expandida. A RLS requer a última [atualização do Banco de Dados SQL (V12) do Azure](sql-database-preview-whats-new.md).
+* A **segurança em nível de linha** permite aos desenvolvedores armazenar dados para vários locatários no mesmo banco de dados usando políticas de segurança para filtrar linhas que não pertencem ao locatário que está executando uma consulta. Centralizar a lógica de acesso com RLS no banco de dados, em vez de no aplicativo, simplifica a manutenção e reduz o risco de erros conforme a base de código de um aplicativo é expandida. A RLS requer a última [atualização do Banco de Dados SQL (V12) do Azure](../sql-database-v12-whats-new.md).
 
 Ao usar esses recursos em conjunto, um aplicativo pode desfrutar de ganhos de eficiência e economia de custo armazenando dados para vários locatários no mesmo banco de dados de fragmentos. Ao mesmo tempo, um aplicativo ainda terá a flexibilidade para oferecer fragmentos isolados de um locatário para locatários "premium" que exigem garantias de desempenho mais rígidas, já que os fragmentos multilocatários não garantem a distribuição uniforme dos recursos entre os locatários.
 
@@ -215,7 +215,7 @@ CREATE SECURITY POLICY rls.tenantAccessPolicy
 GO 
 ```
 
-> [AZURE.TIP]Para os projetos mais complexos que precisam adicionar o predicado a centenas de tabelas, você poderá usar um procedimento auxiliar armazenado que gera uma política de segurança automaticamente adicionando um predicado a todas as tabelas em um esquema. Consulte [Aplicar Segurança em Nível de Linha a todas as tabelas – script auxiliar (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script).
+> [AZURE.TIP] Para os projetos mais complexos que precisam adicionar o predicado a centenas de tabelas, você poderá usar um procedimento auxiliar armazenado que gera uma política de segurança automaticamente adicionando um predicado a todas as tabelas em um esquema. Consulte [Aplicar Segurança em Nível de Linha a todas as tabelas – script auxiliar (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script).
 
 Agora, se você executar novamente o aplicativo de exemplo, os locatários poderão ver apenas as linhas que pertencem a eles. Além disso, o aplicativo não poderá inserir as linhas que pertencem aos locatários diferentes dos atualmente conectados ao banco de dados de fragmentos e não poderá atualizar as linhas visíveis com uma TenantId diferente. Se o aplicativo tentar qualquer uma dessas operações, será gerado um DbUpdateException.
 
@@ -259,7 +259,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 }); 
 ```
 
-> [AZURE.NOTE]Se você usar restrições padrão para um projeto do Entity Framework, é recomendável não incluir a coluna TenantId em seu modelo de dados do EF. Isso ocorre porque as consultas do Entity Framework fornecem automaticamente os valores padrão que substituirão as restrições padrão criadas no T-SQL que usa o SESSION\_CONTEXT. Para usar restrições padrão no projeto de exemplo, por exemplo, você deve remover TenantId de DataClasses.cs (e executar Add-Migration no Console do Gerenciador de Pacotes) e usar o T-SQL para garantir que o campo só exista nas tabelas do banco de dados. Dessa forma, o EF não fornecerá valores padrão incorretos automaticamente ao inserir dados.
+> [AZURE.NOTE] Se você usar restrições padrão para um projeto do Entity Framework, é recomendável não incluir a coluna TenantId em seu modelo de dados do EF. Isso ocorre porque as consultas do Entity Framework fornecem automaticamente os valores padrão que substituirão as restrições padrão criadas no T-SQL que usa o SESSION\_CONTEXT. Para usar restrições padrão no projeto de exemplo, por exemplo, você deve remover TenantId de DataClasses.cs (e executar Add-Migration no Console do Gerenciador de Pacotes) e usar o T-SQL para garantir que o campo só exista nas tabelas do banco de dados. Dessa forma, o EF não fornecerá valores padrão incorretos automaticamente ao inserir dados.
 
 ### (Opcional) Habilitar um "superusuário" acessar todas as linhas
 Alguns aplicativos talvez queiram criar um "superusuário" que pode acessar todas as linhas, por exemplo, para permitir a emissão de relatórios em todos os locatários em todos os fragmentos ou para executar operações de divisão/mesclagem em fragmentos que envolvem a movimentação de linhas de locatário entre bancos de dados. Para habilitar isso, você deve criar um novo usuário do SQL ("superusuário" neste exemplo) em cada banco de dados do fragmento. Em seguida, altere a política de segurança com uma nova função de predicado que permite que esse usuário acesse todas as linhas:
@@ -301,8 +301,7 @@ GO
 
 ## Resumo 
 
-Ferramentas de banco de dados elástico e segurança em nível de linha podem ser usadas em conjunto para expandir a camada de dados de um aplicativo com suporte para fragmentos multilocatários e de um locatário. Fragmentos multilocatários podem ser usados para armazenar dados com mais eficiência (principalmente em casos em que uma grande quantidade de locatários têm apenas algumas linhas de dados), enquanto fragmentos de um locatário podem ser usados para dar suporte a locatários premium com requisitos de desempenho e isolamento mais rígidos. Para saber mais, confira o [Mapa da documentação das ferramentas de banco de dados elástico](sql-database-elastic-scale-documentation-map.md) ou a [referência da Segurança em Nível de Linha](https://msdn.microsoft.com/library/dn765131) no MSDN.
-
+Ferramentas de banco de dados elástico e segurança em nível de linha podem ser usadas em conjunto para expandir a camada de dados de um aplicativo com suporte para fragmentos multilocatários e de um locatário. Fragmentos multilocatários podem ser usados para armazenar dados com mais eficiência (principalmente em casos em que uma grande quantidade de locatários têm apenas algumas linhas de dados), enquanto fragmentos de um locatário podem ser usados para dar suporte a locatários premium com requisitos de desempenho e isolamento mais rígidos. Para saber mais, confira [a referência à Segurança em Nível de Linha](https://msdn.microsoft.com/library/dn765131).
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -310,4 +309,4 @@ Ferramentas de banco de dados elástico e segurança em nível de linha podem se
 [1]: ./media/sql-database-elastic-tools-multi-tenant-row-level-security/blogging-app.png
 <!--anchors-->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0204_2016-->

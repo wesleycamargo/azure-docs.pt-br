@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="02/01/2016" 
 	ms.author="juliako"/>
 
 #Política de armazenamento em cache de CDN na extensão dos Serviços de Mídia
@@ -43,4 +43,4 @@ Você pode usar o Portal de Gerenciamento do Azure ou as APIs de Serviços de M�
 3. Por padrão, os cabeçalhos de cache de 2 segundos são aplicados ao manifesto (lista de reprodução) do streaming dinâmico, independentemente da configuração de Mídia do Azure ou do Armazenamento do Azure, e não é possível substituir esse valor.
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,16 +13,39 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="01/08/2016"
+   ms.date="01/29/2016"
    ms.author="maroche"/>
 
 # O que há de novo no Catálogo de Dados do Azure
 
 As atualizações para o **Catálogo de Dados do Azure** são lançadas periodicamente. Nem todas as versões incluem novos recursos voltados para o usuário, já que algumas versões se concentram em recursos de serviço de back-end. Esta página destacará os novos recursos voltados para o usuário adicionados ao serviço do **Catálogo de Dados do Azure**.
 
+## Novidades da versão da semana de 29 de janeiro de 2016
+
+A partir da semana de 29 de janeiro de 2016, os seguintes recursos foram adicionados ao **Catálogo de Dados do Azure**:
+
+- Suporte para registrar manualmente fontes de dados adicionais. Agora os usuários podem usar o recurso "Criar Entrada Manual" no portal do **Catálogo de Dados do Azure** ou usar a API REST do **Catálogo de Dados do Azure** para registrar as seguintes fontes de dados:
+   + OData - Função, Conjunto de Entidades e Contêiner de Entidade
+   + HTTP - Arquivo, Ponto de Extremidade, Relatório e Site
+   + Sistema de Arquivos - Arquivo
+   + SharePoint - Lista
+   + FTP - Arquivo e Diretório
+   + SalesForce.com - Objeto
+   + DB2 - Tabela, Exibição e Banco de Dados
+   + PostgreSQL - Tabela, Exibição e Banco de Dados
+- Suporte para "Abrir nas Ferramentas de Dados do SQL Server" para fontes de dados do SQL Server (incluindo o Azure SQL DB e o Azure SQL Data Warehouse).  
+
+> [AZURE.NOTE] "Abrir nas Ferramentas de Dados do SQL Server" requer a instalação do Visual Studio 2013 com a Atualização 4 e das Ferramentas do SQL Server. Para instalar a última versão das Ferramentas de Dados do SQL Server, acesse [Baixar Ferramentas de Dados do SQL Server (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx).
+
+## Novidades da versão da semana de 22 de janeiro de 2016
+
+A partir da semana de 22 de janeiro de 2016, os seguintes recursos foram adicionados ao **Catálogo de Dados do Azure**:
+
+- Suporte ao registro e à descoberta de modos de exibição e pacotes do HANA SAP. Os usuários podem registrar fontes de dados do SAP HANA usando a ferramenta de registro de fonte de dados **Catálogo de Dados do Azure**, assim como podem anotar e descobrir fontes de dados do SAP HANA registrados usando o portal do **Catálogo de Dados do Azure**.
+
 ## Novidades da versão da semana de 8 de janeiro de 2016
 
-A partir da semana de 8 de janeiro de 2016, os seguintes recursos foram adicionados ao Catálogo de Dados do Azure:
+A partir da semana de 8 de janeiro de 2016, os seguintes recursos foram adicionados ao **Catálogo de Dados do Azure**:
 
 - A capacidade de fixar e Desafixar ativos de dados no portal do **Catálogo de Dados do Azure**. Os usuários podem escolher fixar os ativos de dados para facilitar a redescoberta e reutilização.
 - Uma home page recriada recentemente no portal do **Catálogo de Dados do Azure**. A nova home page inclui informações sobre a atividade atual de usuários - incluindo ativos publicados recentemente, ativos fixos e pesquisas salvas - bem como informações sobre a atividade no Catálogo como um todo.
@@ -31,20 +54,18 @@ A partir da semana de 8 de janeiro de 2016, os seguintes recursos foram adiciona
 
 ## Novidades da versão da semana de 18 de dezembro de 2015
 
-Na semana de 18 de setembro de 2015, os seguintes recursos foram adicionados ao Catálogo de Dados do Azure:
+Na semana de 18 de setembro de 2015, os seguintes recursos foram adicionados ao **Catálogo de Dados do Azure**:
 
 - Suporte aos perfis de dados para fontes de dados de SQL Data Warehouse do Azure. Ao registrar as tabelas e exibições do SQL Data Warehouse do Azure, os usuários podem optar por incluir métricas de perfil de dados com os metadados extraídos da fonte de dados.
 - Suporte ao registro e à descoberta de bancos de dados e objetos do MySQL. Os usuários podem registrar fontes de dados MySQL usando a ferramenta de registro de fonte de dados **Catálogo de Dados do Azure**, assim como podem anotar e descobrir fontes de dados MySQL registrados usando o portal do **Catálogo de Dados do Azure**.
 
 ## Novidades da versão da semana de 4 de dezembro de 2015
 
-Na semana de 4 de setembro de 2015, os seguintes recursos foram adicionados ao Catálogo de Dados do Azure:
+Na semana de 4 de setembro de 2015, os seguintes recursos foram adicionados ao **Catálogo de Dados do Azure**:
 
 - Suporte à autenticação SPNEGO e Windows para fontes de dados Teradata. Ao registrar tabelas e exibições do Teradata, os usuários podem optar por se conectar ao Teradata usando SPNEGO e Windows, bem como a autenticação LDAP e TD2.
 - Suporte às fontes de dados do repositório Azure Data Lake. Agora os usuários podem registrar e descobrir fontes de dados do repositório Azure Data Lake usando o Catálogo de Dados do Azure.
 - Suporte para especificar manualmente configurações de proxy de rede na ferramenta de registro de fonte de dados Catálogo de Dados do Azure. Os usuários podem escolher "Modificar configurações de proxy" na página inicial da ferramenta e especificar o endereço do proxy e a porta a serem usados pela ferramenta.
-
-> [AZURE.NOTE] A opção "Abrir no Power BI Desktop" requer a instalação de uma versão atual do aplicativo Power BI Desktop. Se encontrar problemas ou erros ao usar esse recurso, verifique se você tem a versão mais recente do Power BI Desktop em [PowerBI.com](https://powerbi.com/).
 
 
 ## Novidades da versão da semana de 20 de novembro de 2015
@@ -174,4 +195,4 @@ Na semana de 21 de agosto de 2015, os seguintes recursos foram adicionados ao **
 - Somente para Standard Edition: ao adicionar proprietários aos ativos de dados, o **Catálogo de Dados do Azure** agora dá suporte a contas de usuário e grupos de segurança como proprietários. Para adicionar um grupo de segurança como um proprietário de ativos de dados selecionados, você pode inserir o nome para exibição do grupo ou o endereço de email do UPN do grupo, se houver.
 - Suporte para fontes de dados do Armazenamento do Blobs do Azure. Agora, os usuários podem registrar e descobrir os blobs e diretórios de armazenamento do Azure.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

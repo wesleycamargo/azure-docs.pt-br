@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="01/05/2016"
+   ms.date="01/30/2016"
    ms.author="tarcher" />
 
 # Como migrar e publicar um aplicativo Web em um serviço de nuvem do Azure por meio do Visual Studio
 
 Para tirar proveito dos serviços de hospedagem e a escalabilidade do Azure, você pode migrar e publicar seu aplicativo Web em um serviço de nuvem do Azure. Você pode executar um aplicativo Web no Azure fazendo alterações mínimas nele.
 
->[AZURE.NOTE]Este tópico é sobre a implantação de serviços de nuvem, não em sites. Para obter informações sobre a implantação de sites da web, consulte [implantar um aplicativo web no serviço de aplicativo do Azure](web-sites-deploy.md).
+>[AZURE.NOTE] Este tópico é sobre a implantação de serviços de nuvem, não em sites. Para obter informações sobre a implantação de sites da web, consulte [implantar um aplicativo web no serviço de aplicativo do Azure](/app-service-web/web-sites-deploy.md).
 
 Para obter uma lista de modelos específicos com suporte para Visual c# e Visual Basic, consulte a seção **Modelos de Projetos com Suporte** mais adiante neste tópico.
 
@@ -27,7 +27,7 @@ Primeiro, você precisa habilitar o aplicativo Web para o Azure por meio do Visu
 
 ![Publicar um aplicativo Web no Microsoft Azure](./media/vs-azure-tools-migrate-publish-web-app-to-cloud-service/IC748917.png)
 
->[AZURE.NOTE]O comando **Converter**, **Converter para o Projeto de Serviço de Nuvem do Azure** é exibido somente para o projeto Web em sua solução. Por exemplo, o comando não ficaria disponível para um projeto do Silverlight na solução. Quando você cria um pacote de serviço ou publica seu aplicativo no Azure, avisos ou erros podem ocorrer. Esses avisos e erros podem ajudá-lo a corrigir problemas antes da implantação no Azure. Por exemplo, você pode receber um aviso sobre um assembly ausente. Para obter mais informações sobre como tratar avisos como erros, consulte [Configurar um projeto de serviço de nuvem do Azure com o Visual Studio](vs-azure-tools-configuring-an-azure-project.md). Se você cria seu aplicativo, executá-o localmente usando o emulador de computação ou publicá-lo no Azure, você pode ver o seguinte erro na janela **Lista de Erros**: **O caminho especificado, o nome do arquivo ou ambos são muito longos**. Esse erro ocorre quando o nome totalmente qualificado do projeto do Azure é muito longo. O nome do projeto, incluindo o caminho completo, não pode ter mais de 146 caracteres. Por exemplo, este é o nome completo do projeto inclui o caminho de um projeto do Azure que é criado para um aplicativo do Silverlight: `c:\users<user name>\documents\visual studio 2015\Projects\SilverlightApplication4\SilverlightApplication4.Web.Azure.ccproj`. Talvez você precise mover sua solução para um diretório diferente com um caminho mais curto para reduzir o tamanho do nome totalmente qualificado do projeto.
+>[AZURE.NOTE] O comando **Converter**, **Converter para o Projeto de Serviço de Nuvem do Azure** é exibido somente para o projeto Web em sua solução. Por exemplo, o comando não ficaria disponível para um projeto do Silverlight na solução. Quando você cria um pacote de serviço ou publica seu aplicativo no Azure, avisos ou erros podem ocorrer. Esses avisos e erros podem ajudá-lo a corrigir problemas antes da implantação no Azure. Por exemplo, você pode receber um aviso sobre um assembly ausente. Para obter mais informações sobre como tratar avisos como erros, consulte [Configurar um projeto de serviço de nuvem do Azure com o Visual Studio](vs-azure-tools-configuring-an-azure-project.md). Se você cria seu aplicativo, executá-o localmente usando o emulador de computação ou publicá-lo no Azure, você pode ver o seguinte erro na janela **Lista de Erros**: **O caminho especificado, o nome do arquivo ou ambos são muito longos**. Esse erro ocorre quando o nome totalmente qualificado do projeto do Azure é muito longo. O nome do projeto, incluindo o caminho completo, não pode ter mais de 146 caracteres. Por exemplo, este é o nome completo do projeto inclui o caminho de um projeto do Azure que é criado para um aplicativo do Silverlight: `c:\users<user name>\documents\visual studio 2015\Projects\SilverlightApplication4\SilverlightApplication4.Web.Azure.ccproj`. Talvez você precise mover sua solução para um diretório diferente com um caminho mais curto para reduzir o tamanho do nome totalmente qualificado do projeto.
 
 Para migrar e publicar um aplicativo Web no Azure do Visual Studio, siga estas etapas.
 
@@ -45,10 +45,9 @@ Para migrar e publicar um aplicativo Web no Azure do Visual Studio, siga estas e
 
     - A propriedade **Copiar Local** é definida como verdadeira para todos os assemblies que são necessários para MVC 2, MVC 3, MVC 4 e aplicativos de negócios do Silverlight. Isso adicionará esses assemblies ao pacote de serviço usado para a implantação.
 
->[AZURE.IMPORTANT]Se tiver outros assemblies ou arquivos necessários para o aplicativo Web, você precisa definir manualmente as propriedades para esses arquivos. Para obter informações sobre como definir essas propriedades, consulte a seção **Incluir Arquivos no Pacote de Serviço** posteriormente neste artigo.
+  >[AZURE.IMPORTANT] Se tiver outros assemblies ou arquivos necessários para o aplicativo Web, você precisa definir manualmente as propriedades para esses arquivos. Para obter informações sobre como definir essas propriedades, consulte a seção **Incluir Arquivos no Pacote de Serviço** posteriormente neste artigo.
 
-<br>
-  >[AZURE.NOTE]Se já existir uma função web para um projeto Web específicos em um projeto do Azure na solução, **Converter**, **Converter em projeto de serviço de nuvem do Azure** não é exibido no menu de atalho para este projeto Web.
+  >[AZURE.NOTE] Se já existir uma função web para um projeto Web específicos em um projeto do Azure na solução, **Converter**, **Converter em projeto de serviço de nuvem do Azure** não é exibido no menu de atalho para este projeto Web.
 
   Se tiver vários projetos Web em seu aplicativo Web e desejar criar funções web para cada projeto Web, você deve seguir as etapas neste procedimento para cada um dos projetos Web. Isso cria projetos do Azure separados para cada função web. Cada projeto Web pode ser publicado separadamente. Como alternativa, você pode adicionar manualmente outra função web a um projeto do Azure existente em seu aplicativo Web. Para fazê-lo, abra o menu de atalho para a pasta **funções** em seu projeto do Azure, escolha **Adicionar**, em seguida, **Projeto de Função Web na solução**, escolha o projeto para adicionar como uma função web e, em seguida, escolha o botão **OK**.
 
@@ -56,13 +55,13 @@ Para migrar e publicar um aplicativo Web no Azure do Visual Studio, siga estas e
 
 Se você tiver uma cadeia de conexão para o aplicativo Web que usa um banco de dados do SQL Server no local, é necessário alterar essa cadeia de conexão para usar uma instância do Banco de Dados SQL que o Azure hospeda.
 
->[AZURE.IMPORTANT]Sua assinatura deve habilitá-lo usar o Banco de Dados SQL. Se acessar sua assinatura no Portal de Gerenciamento do Azure, você pode determinar quais serviços são fornecidos pela assinatura. As instruções a seguir se aplicam ao Portal de Gerenciamento lançado. Se estiver usando o Portal de Gerenciamento na versão de visualização, vá para o próximo procedimento. |
+>[AZURE.IMPORTANT] Sua assinatura deve habilitá-lo usar o Banco de Dados SQL. Se acessar sua assinatura no Portal de Gerenciamento do Azure, você pode determinar quais serviços são fornecidos pela assinatura. As instruções a seguir se aplicam ao Portal de Gerenciamento lançado. Se estiver usando o Portal de Gerenciamento na versão de visualização, vá para o próximo procedimento. |
 
 ### Para usar uma instância do Banco de Dados SQL em sua função web para a cadeia de conexão
 
 1. Para criar uma instância do banco de dados SQL no Portal de Gerenciamento do Azure, siga as etapas no seguinte artigo: [Criar um Servidor de Banco de Dados SQL](http://go.microsoft.com/fwlink/?LinkId=225109).
 
-    >[AZURE.NOTE]Quando configura as regras de firewall para sua instância do banco de dados SQL, você deve selecionar a caixa de seleção **Permitir que outros serviços do Azure acessem este servidor**.
+    >[AZURE.NOTE] Quando configura as regras de firewall para sua instância do banco de dados SQL, você deve selecionar a caixa de seleção **Permitir que outros serviços do Azure acessem este servidor**.
 
 1. Para criar uma instância do banco de dados SQL a ser usado para a cadeia de conexão, siga as etapas na próxima seção no seguinte artigo: [Criar um banco de dados SQL](http://go.microsoft.com/fwlink/?LinkId=225110).
 
@@ -74,7 +73,7 @@ Se você tiver uma cadeia de conexão para o aplicativo Web que usa um banco de 
 
   1. Escolha o banco de dados para exibir suas propriedades. A exibição **Propriedades** aparece.
 
-      >[AZURE.NOTE]Se a exibição **Propriedades** não aparecer, talvez seja necessário abri-la usando o divisor.
+      >[AZURE.NOTE] Se a exibição **Propriedades** não aparecer, talvez seja necessário abri-la usando o divisor.
 
   1. Para exibir as cadeias de conexão, escolha o botão de reticências (...) ao lado de Exibir.
 
@@ -128,7 +127,7 @@ Se você tiver uma cadeia de conexão para o aplicativo Web que usa um banco de 
 
     A caixa de diálogo **Publicar aplicativo do Azure** é aberta e o Visual Studio inicia o processo de implantação. Para obter mais informações sobre como publicar o aplicativo, consulte a seção **Publicar um aplicativo do Azure do Visual Studio** em [Publicando um serviço de nuvem usando as ferramentas do Azure](vs-azure-tools-publishing-a-cloud-service.md).
 
-    >[AZURE.NOTE]Você também pode publicar o aplicativo Web por meio do projeto do Azure. Para fazê-lo, abra o menu de atalho do projeto do Azure e escolha **Publicar**.
+    >[AZURE.NOTE] Você também pode publicar o aplicativo Web por meio do projeto do Azure. Para fazê-lo, abra o menu de atalho do projeto do Azure e escolha **Publicar**.
 
 1. Para ver o progresso da implantação, você pode exibir a janela **Log de atividades do Azure**. Esse log é exibido automaticamente quando o processo de implantação é iniciado. Você pode expandir o item de linha no log de atividades para exibir informações detalhadas, como mostrado na ilustração a seguir:
 
@@ -136,7 +135,7 @@ Se você tiver uma cadeia de conexão para o aplicativo Web que usa um banco de 
 
 1. (Opcional) Para cancelar o processo de implantação, abra o menu de atalho do item de linha no log de atividades e escolha **Cancelar e remover**. Isso interrompe o processo de implantação e exclui o ambiente de implantação do Azure.
 
-    >[AZURE.NOTE]Para remover este ambiente de implantação após ele ter sido implantado, você deve usar o Portal de Gerenciamento do Azure.
+    >[AZURE.NOTE] Para remover este ambiente de implantação após ele ter sido implantado, você deve usar o Portal de Gerenciamento do Azure.
 
 1. (Opcional) Após as instâncias de função terem sido iniciadas, o Visual Studio mostra automaticamente o ambiente de implantação no nó **Computação do Azure** no **Gerenciador de Nuvem** ou **Gerenciador de Servidores**. Aqui você pode exibir o status das instâncias de função individuais.
 
@@ -209,4 +208,4 @@ Para publicar um aplicativo Web no Azure, o aplicativo deve usar um dos modelos 
 ## Próximas etapas
 Para obter mais informações sobre a publicação, consulte [preparar, publicar ou implantar um aplicativo do Azure do Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md). Confira também [Configuração de credenciais de autenticação nomeadas](vs-azure-tools-setting-up-named-authentication-credentials.md).
 
-<!----HONumber=AcomDC_0107_2016--->
+<!---HONumber=AcomDC_0204_2016-->

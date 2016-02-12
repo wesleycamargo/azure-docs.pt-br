@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/28/2015"
+	ms.date="01/28/2016"
 	ms.author="swkrish"/>
 
 # Visualização Active Directory B2C do Azure: perguntas frequentes
@@ -59,7 +59,7 @@ Cada locatário AD B2C do Azure tem sua própria folha de recursos B2C no Portal
 
 ### Como personalizar os emails de verificação (o campo de remetente e o conteúdo, ou seja, o campo “De:") enviados pelo AD B2C do Azure?
 
-Use o [recurso de marca da empresa](./active-directory/active-directory-add-company-branding.md) para personalizar o conteúdo dos emails de verificação. O campo de remetente pode ser alterado por meio do Suporte.
+Use o [recurso de identidade visual da empresa](../active-directory/active-directory-add-company-branding.md) para personalizar o conteúdo dos emails de verificação. O campo de remetente pode ser alterado por meio do Suporte.
 
 ### Como migrar meus de nomes de usuário, senhas e perfis do meu banco de dados para o AD B2C do Azure?
 
@@ -80,6 +80,10 @@ Não atualmente. A integração desses sistemas está em nosso roteiro.
 ### O AD B2C do Azure funciona com o SharePoint local 2016 ou anterior?
 
 Não atualmente. O B2C do AD do Azure não tem suporte para tokens SAML 1.1 que os aplicativos de portais / comércio eletrônico desenvolvem de acordo com as necessidades do SP locais. Observe que o AD B2C do Azure não é destinado ao cenário de compartilhamento de parceiro externo do Sharepoint; consulte [AD B2C do Azure](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx).
+
+### Devo usar o B2C ou o B2B do AD do Azure para gerenciar identidades externas?
+
+Leia [este artigo](../active-directory/active-directory-b2b-compare-external-identities.md) para saber mais sobre como aplicar os recursos adequados a seus cenários de identidade externa.
 
 ### Quais recursos de relatórios e auditoria o AD B2C do Azure oferece? É o mesmo que o Azure AD Premium?
 
@@ -109,4 +113,4 @@ Não podemos fornecer informações sobre a data de disponibilidade geral no mom
 
 Também convém analisar as [restrições de visualização, restrições e limitações](active-directory-b2c-limitations.md) atuais.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -29,19 +29,19 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 -->
 
 
-Este artigo lista os códigos de erro de SQL para o aplicativo cliente do Banco de Dados SQL, incluindo erros de conexão de banco de dados, falhas transitórias, erros de governança de recursos, problemas de cópia de banco de dados e outros erros. A maioria das categorias específicas do Banco de Dados SQL do Azure e não se aplicam ao Microsoft SQL Server.
+Este artigo lista os códigos de erro do SQL para o aplicativo cliente do Banco de Dados SQL, incluindo erros de conexão de banco de dados, erros transitórios (também chamadas de falhas transitórias), erros de governança de recursos, problemas de cópia de banco de dados e outros erros. A maioria das categorias específicas do Banco de Dados SQL do Azure e não se aplicam ao Microsoft SQL Server.
 
 Em seu aplicativo cliente para qualquer um dos erros, é possível pode fornecer ao usuário uma mensagem que você personalizar.
 
 <a id="bkmk_connection_errors" name="bkmk_connection_errors">&nbsp;</a>
 
 
-## Erros de conexão de banco de dados, falhas transitórias e outros erros temporários
+## Erros de conexão de banco de dados, erros transitórios e outros erros temporários
 
 A tabela a seguir aborda os códigos de erro de SQL para erros de perda de conexão e outros erros transitórios que podem ocorrer quando o aplicativo tenta acessar o Banco de Dados SQL.
 
 
-### Falhas transitórias e erros de conexão de banco de dados mais comuns
+### Erros de conexão de banco de dados mais comuns e erros de falhas transitórias mais comuns
 
 
 Erros de falhas transitórias normalmente se manifestam como uma das seguintes mensagens de erro de seus programas de cliente:
@@ -59,7 +59,7 @@ Erros de falha transitória devem solicitar que o programa cliente execute a *l�
 
 - [Desenvolvimento do cliente e exemplos de código de início rápido para o Banco de Dados SQL](sql-database-develop-quick-start-client-code-samples.md)
 
-- [Ações para corrigir erros e falhas transitórias no Banco de Dados SQL](sql-database-connectivity-issues.md)
+- [Ações para corrigir erros de conexão e erros transitórios no Banco de Dados SQL](sql-database-connectivity-issues.md)
 
 
 ### Códigos de erros de falha transitória
@@ -211,9 +211,7 @@ A tabela a seguir lista todos os erros gerais que não se enquadram em nenhuma c
 |40651|16|Falha ao criar o servidor porque a assinatura <subscription-id> está desabilitada.|
 |40652|16|Não é possível mover ou criar o servidor. A assinatura <subscription-id> ultrapassará a cota do servidor.|
 |40671|17|Falha de comunicação entre o gateway e o serviço de gerenciamento. Tente novamente mais tarde.|
-|40852|16|Não é possível abrir o banco de dados '%.*ls' no servidor '%.*ls' solicitado pelo logon. O acesso ao banco de dados é permitido apenas usando uma cadeia de conexão habilitada para segurança. Para acessar esse banco de dados, modifique as cadeias de conexão para conter “secure” no FQDN do servidor. 'server name'.database.windows.net deve ser modificado para 'server name'.database.`secure`.windows.net.| 
-|45168|16| O sistema do SQL Azure está sob carga e está estabelecendo um limite superior em operações CRUD simultâneas de BD para um único servidor (por exemplo, criar banco de dados). O servidor especificado na mensagem de erro ultrapassou o número máximo de conexões simultâneas. Tente novamente mais tarde.| 
-|45169|16|O sistema SQL Azure está sob carga e está estabelecendo um limite superior para o número de operações CRUD de servidor simultâneas para uma única assinatura (por exemplo, criar servidor). A assinatura especificada na mensagem de erro ultrapassou o número máximo de conexões simultâneas e a solicitação foi negada. Tente novamente mais tarde.|
+|40852|16|Não é possível abrir o banco de dados '%.*ls' no servidor '%.*ls' solicitado pelo logon. O acesso ao banco de dados é permitido apenas usando uma cadeia de conexão habilitada para segurança. Para acessar esse banco de dados, modifique as cadeias de conexão para conter “secure” no FQDN do servidor. 'server name'.database.windows.net deve ser modificado para 'server name'.database.`secure`.windows.net.| |45168|16| O sistema do SQL Azure está sob carga e está estabelecendo um limite superior em operações CRUD simultâneas de BD para um único servidor (por exemplo, criar banco de dados). O servidor especificado na mensagem de erro ultrapassou o número máximo de conexões simultâneas. Tente novamente mais tarde.| |45169|16|O sistema SQL Azure está sob carga e está estabelecendo um limite superior para o número de operações CRUD de servidor simultâneas para uma única assinatura (por exemplo, criar servidor). A assinatura especificada na mensagem de erro ultrapassou o número máximo de conexões simultâneas e a solicitação foi negada. Tente novamente mais tarde.|
 
 
 ## Links relacionados
@@ -221,4 +219,4 @@ A tabela a seguir lista todos os erros gerais que não se enquadram em nenhuma c
 - [Diretrizes e limitações gerais do Banco de Dados SQL do Azure](sql-database-general-limitations.md)
 - [Limites de recursos do Banco de Dados SQL do Azure](sql-database-resource-limits.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

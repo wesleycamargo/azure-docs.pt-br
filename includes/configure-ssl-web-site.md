@@ -393,12 +393,20 @@ A habilitação do HTTPS para um domínio personalizado só está disponível pa
 > [AZURE.NOTE] Antes de mudar um aplicativo da camada **Free** para a camada **Standard**, você deve remover os limites de gastos em vigot para sua assinatura. Caso contrário, seu aplicativo poderá ficar indisponível se você atingir os limites antes do término do período de cobrança. Para obter mais informações sobre as camadas compartilhada e **Standard**, consulte os [Detalhes de preços][pricing].
 
 1.	Em seu navegador, abra o [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
+	
 2.	Clique na opção **Procurar** no lado esquerdo da página.
+
 3.	Clique na lâmina **Aplicativos Web**.
+
 4.	Clique no nome do seu aplicativo.
+
 5.	Na página **Informações Gerais**, clique em **Configurações**.
-6.	Clique em **Escala**. ![Na guia Escala][scale]
-7.	Na seção **Escala**, defina o modo de plano Serviço de Aplicativo clicando em **Selecionar**. ![A camada de preços][sslreserved]
+
+6.	Clique em **Escala**
+	
+	![Na guia Escala][scale]
+
+7.	Na seção **Escala**, defina o modo do plano de Serviço de Aplicativo clicando em **Selecionar**.
 
 	> [AZURE.NOTE] Se você receber um erro "Configurando a escala para o aplicativo Web '&lt;nome do aplicativo&gt;' com falha", você pode usar o botão Detalhes para saber mais. Você pode receber um erro "Não servidores de instância padrão disponíveis para atender a esta solicitação". Se você receber esse erro, contate o [suporte do Azure](/support/options/).
 
@@ -408,13 +416,25 @@ A habilitação do HTTPS para um domínio personalizado só está disponível pa
 Antes de executar as etapas nesta seção, você precisa ter associado um nome de domínio personalizado ao seu aplicativo. Para obter mais informações, consulte [Configurando um nome de domínio personalizado para um aplicativo Web][customdomain].
 
 1.	No seu navegador, abra o [Portal de Gerenciamento do Azure](https://portal.azure.com).
+
 2.	Clique na opção **Procurar** no lado esquerdo da página.
+
 3.	Clique na lâmina **Aplicativos Web**.
+
 4.	Clique no nome do seu aplicativo.
+
 5.	Na página **Informações Gerais**, clique em **Configurações**.
-6.	Clique em **Domínios e SSL personalizados**. ! [A guia config][sslconfig]
+
+6.	Clique em **Domínios personalizados e SSL**.
+
+	![A guia configuração][configure]
+
 7.	Na seção **Certificados**, clique em **Carregar**.
-8.	Usando a caixa de diálogo **Carregar um certificado**, selecione o arquivo de certificado .pfx criado anteriormente usando o Gerenciador do IIS ou OpenSSL. Digite a senha que foi usada para proteger o arquivo .pfx, se houver. Por fim, clique em **Salvar** para carregar o certificado. ![carregamento de ssl][ssluploadcert]
+
+8.	Usando a caixa de diálogo **Carregar um certificado**, selecione o arquivo de certificado .pfx criado anteriormente usando o Gerenciador do IIS ou OpenSSL. Digite a senha que foi usada para proteger o arquivo .pfx, se houver. Por fim, clique em **Salvar** para carregar o certificado.
+
+	![carregamento de SSL][uploadcert]
+
 9. Na seção **Associações SSL** da guia **Configurações de SLL**, use os menus suspensos para selecionar o nome de domínio a ser protegido com o SSL e o certificado a usar. Você também pode selecionar se deseja usar [Indicação de nome do servidor][sni] (SNI) ou SSL baseado em IP.
 
 	![associações SSL][sslbindings]
@@ -545,4 +565,4 @@ Para obter mais informações sobre o Módulo de Reescrita de URL do IIS, consul
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

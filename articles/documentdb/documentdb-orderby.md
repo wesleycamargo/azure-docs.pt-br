@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="02/03/2016" 
 	ms.author="arramac"/>
 
 # Classificando dados do Banco de Dados de Documentos usando Order By
@@ -79,7 +79,7 @@ O Banco de Dados de Documentos dá suporte à ordenação com uma propriedade nu
 
 Lembre-se de que o Banco de Dados de Documentos dá suporte a dois tipos de índices (Hash e Intervalo), que podem ser definidos para caminhos/propriedades específicos, tipos de dados (cadeias de caracteres/números) e valores de precisão diferente (precisão máxima ou um valor de precisão fixa). Como o Banco de Dados de Documentos usa como padrão a indexação Hash, você deve criar uma nova coleção com uma política de indexação personalizada com Intervalo em números, cadeias de caracteres ou ambos, para usar Order By.
 
->[AZURE.NOTE]Índices de intervalo de cadeia de caracteres foram introduzidos em 7 de julho de 2015 com a API REST versão 2015-06-03. Para criar políticas de Order By em cadeias de caracteres, você deve usar a versão SDK 1.2.0 do .NET ou a versão 1.1.0 do Python, Node. js ou Java.
+>[AZURE.NOTE] Índices de intervalo de cadeia de caracteres foram introduzidos em 7 de julho de 2015 com a API REST versão 2015-06-03. Para criar políticas de Order By em cadeias de caracteres, você deve usar a versão SDK 1.2.0 do .NET ou a versão 1.1.0 do Python, Node. js ou Java.
 >
 >Antes da versão 2015-06-03 da API REST, a política de indexação de coleção padrão era Hash para cadeias de caracteres e números. Isso foi alterado para Hash para cadeias de caracteres e Intervalo para números.
 
@@ -100,7 +100,7 @@ Aqui está como você pode criar uma coleção com indexação "Todos os Interva
     await client.CreateDocumentCollectionAsync(databaseLink, 
         booksCollection);  
 
->[AZURE.NOTE]Observe que Order By só retornará resultados dos tipos de dados (cadeia de caracteres e número) indexados com um RangeIndex. Por exemplo, se você tiver a política de indexação padrão que só tem RangeIndex em números, um Order By em um caminho com valores de cadeia de caracteres não retornará nenhum documento.
+>[AZURE.NOTE] Observe que Order By só retornará resultados dos tipos de dados (cadeia de caracteres e número) indexados com um RangeIndex. Por exemplo, se você tiver a política de indexação padrão que só tem RangeIndex em números, um Order By em um caminho com valores de cadeia de caracteres não retornará nenhum documento.
 
 ### Indexação de Order By para uma única propriedade.
 É possível criar uma coleção com indexação Order By em relação a qualquer propriedade de Título, que seja uma cadeia de caracteres. Há dois caminhos, um para a propriedade de Título ("/Title/?") com indexação por Intervalo e outro para todas as outra propriedade com o esquema de indexação padrão, que é Hash para cadeias de caracteres e Intervalo para números.
@@ -126,13 +126,6 @@ Aqui está como você pode criar uma coleção com indexação "Todos os Interva
 
 ## Exemplos
 Vejamos este [projeto de amostras do Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries) que demonstra como usar Order By, incluindo a criação de políticas de indexação e paginação usando Order By. Os exemplos são de software livre e nós o encorajamos a enviar solicitações pull com contribuições que poderiam beneficiar outros desenvolvedores do Banco de Dados de Documentos. Consulte as [Diretrizes de contribuição](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) para obter instruções sobre como contribuir.
-
-## Qual é o próximo passo?
-
-Atualizações futuras de serviços se aprofundarão no suporte de Order By apresentado aqui. Estamos trabalhando nas seguintes adições e priorizaremos o lançamento desses aprimoramentos com base nos seus comentários:
-
-- Políticas de Indexação Dinâmica: suporte para modificar a política de indexação após a criação de coleção e no Portal Clássico do Azure
-- Suporte para Índices Compostos para Order By e Order By em várias propriedades mais eficiente.
 
 ## Perguntas frequentes
 
@@ -177,4 +170,4 @@ Ramifique o [projeto de amostras do Github](https://github.com/Azure/azure-docum
 * [Amostras de Order By do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

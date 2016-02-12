@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="01/30/2016"
 	ms.author="tarcher"/>
 
 # Introdução ao Armazenamento de Fila do Azure e aos Serviços Conectados do Visual Studio (Projetos WebJob)
@@ -259,7 +259,7 @@ A interface **IBinder** também pode ser usada com os atributos **Table** e **Bl
 
 ## Como ler e gravar blobs e tabelas ao processar uma mensagem da fila
 
-Os atributos **Blob** e **Table** permitem que você leia e grave os blobs e as tabelas. Os exemplos nesta seção se aplicam a blobs. Para obter exemplos de código que mostram como acionar processos quando blobs são criados ou atualizados, consulte [Como usar o armazenamento de blob do Azure com o SDK de Trabalhos Web](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), e para obter exemplos de código que lê e grava as tabelas, consulte [Como usar o armazenamento de tabela do Azure com o SDK de Trabalhos Web](websites-dotnet-webjobs-sdk-storage-tables-how-to.md).
+Os atributos **Blob** e **Table** permitem que você leia e grave os blobs e as tabelas. Os exemplos nesta seção se aplicam a blobs. Para obter exemplos de código que mostram como acionar processos quando blobs são criados ou atualizados, consulte [Como usar o armazenamento de blob do Azure com o SDK de Trabalhos Web](/app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), e para obter exemplos de código que lê e grava as tabelas, consulte [Como usar o armazenamento de tabela do Azure com o SDK de Trabalhos Web](/app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md).
 
 ### Mensagens da fila de cadeia de caracteres que disparam operações de blob
 
@@ -543,4 +543,4 @@ E, em uma tabela do Azure os logs **Console.Out** e **Console.Error** têm essa 
 
 Este guia forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com filas do Azure. Para obter mais informações sobre como usar os Trabalhos Web do Azure e o SDK de Trabalhos Web, consulte [Trabalhos Web do Azure – Recursos recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

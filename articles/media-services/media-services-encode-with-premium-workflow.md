@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="01/28/2016"  
 	ms.author="juliako"/>
 
 #Codificação avançada com fluxo de trabalho do Media Encoder Premium
@@ -28,7 +28,7 @@ Os tópicos a seguir descrevem os detalhes relacionados ao **Fluxo de trabalho d
 
 - [Formatos suportados pelo Fluxo de trabalho do Media Encoder Premium](media-services-premium-workflow-encoder-formats.md) – Discute os formatos de arquivo e codecs com suporte do **Fluxo de trabalho do Media Encoder Premium**.
 
-- A seção [comparar codificadores](media-services-encode-asset.md#compare_encoders) compara os recursos de codificação do **Fluxo de trabalho do Media Encoder Premium** e do **Azure Media Encoder**.
+- A seção [comparar codificadores](media-services-encode-asset.md#compare_encoders) compara os recursos de codificação do **Fluxo de Trabalho do Media Encoder Premium** e do **Codificador de Mídia Padrão** e o **Codificador de Mídia do Azure**.
 
 Este tópico demonstra como codificar com **Fluxo de trabalho do Media Encoder Premium** usando o .NET.
 
@@ -277,4 +277,4 @@ Se o vídeo de entrada não contiver a legendagem oculta, o ativo de saída aind
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

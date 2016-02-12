@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="11/12/2015"
+	ms.date="02/03/2016"
 	ms.author="jroth" />
 
 # Backup automatizado para SQL Server em Máquinas Virtuais do Azure
@@ -22,7 +22,7 @@ O backup automatizado configura automaticamente o [Backup Gerenciado do Microsof
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
 
-## Configurações de Backup Automatizadas
+## Configurações do Backup Automatizado
 
 A tabela a seguir descreve as opções que podem ser configuradas para Backup Automatizado. As etapas de configuração reais variam dependendo de se você usar os comandos do Portal do Azure ou do Azure Windows PowerShell.
 
@@ -76,7 +76,7 @@ Para habilitar a criptografia, modifique o script anterior para passar o parâme
 
 Para desabilitar o backup automático, execute o mesmo script sem o parâmetro **-Enable** para **New-AzureVMSqlServerAutoBackupConfig**. Assim como acontece com a instalação, pode demorar vários minutos para desabilitar o Backup Automatizado.
 
-## Como desabilitar e desinstalar o Agente IaaS do SQL Server
+## Desabilitando e desinstalando o Agente IaaS do SQL Server
 
 Se você quiser desabilitar o Agente IaaS do SQL Server para Backup e Aplicação de Patch Automatizados, use o seguinte comando:
 
@@ -114,4 +114,4 @@ Um recurso relacionado às VMs do SQL Server no Azure é a [Aplicação de patch
 
 Examine outros [recursos para executar o SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

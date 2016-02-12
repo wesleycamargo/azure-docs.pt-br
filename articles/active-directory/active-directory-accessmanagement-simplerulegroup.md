@@ -26,6 +26,8 @@ Para habilitar a associação dinâmica de um determinado grupo, execute as segu
 2. Agora você pode configurar uma única regra simples para o grupo que controlará a associação dinâmica como para esse grupo de funções. Verifique se a opção **Adicionar usuários em que** está marcada e selecione uma propriedade de usuário na lista (por exemplo, departamento, jobTitle, etc.)
 
 3. Em seguida, selecione uma condição (Not Equals, Equals, Not Starts With, Starts With, Not Contains, Contains, Not Match, Match) e finalmente especificar um valor para a propriedade do usuário selecionado. Por exemplo, se um grupo for atribuído a um aplicativo SaaS e você habilitar associações dinâmicas a este grupo definindo uma regra na qual **Adicionar usuários em que** é definido como o jobTitle that Equals(-eq)Sales Rep, todos os usuários no diretório do AD do Azure cujos cargos forem definidos como Representante de Vendas terão acesso a esse aplicativo SaaS.
+4. 
+Observe que você pode configurar uma regra de associação dinâmica em grupos de segurança ou em grupos do Office
 
 Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 
@@ -33,4 +35,4 @@ Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 * [O que é o Active Directory do Azure?](active-directory-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

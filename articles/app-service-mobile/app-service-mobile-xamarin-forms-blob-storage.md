@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="01/21/2015"
+	ms.date="02/03/2015"
     ms.author="donnam"/>
 
 #Conectar ao Armazenamento do Azure em seu aplicativo Xamarin Forms
@@ -678,7 +678,7 @@ Adicione o código específico da plataforma ao projeto do iOS.
 
 Este artigo descreveu como usar o novo suporte de arquivo no SDK do servidor e cliente móvel do Azure para trabalhar com o Armazenamento do Azure.
 
-- Crie uma conta de armazenamento e adicione uma cadeia de conexão ao back-end do aplicativo móvel. Somente o back-end tem a chave para o Armazenamento do Azure: o cliente móvel solicita um token SAS (Assinatura de Acesso Compartilhado) sempre que precisar acessar o Armazenamento do Azure. Para saber mais sobre tokens SAS no Armazenamento do Azure, confira [Noções básicas sobre Assinaturas de Acesso Compartilhado].
+- Crie uma conta de armazenamento e adicione uma cadeia de conexão ao back-end do aplicativo móvel. Somente o back-end tem a chave para o Armazenamento do Azure: o cliente móvel solicita um token SAS (Assinatura de Acesso Compartilhado) sempre que precisar acessar o Armazenamento do Azure. Para saber mais sobre tokens SAS no Armazenamento do Azure, confira [Noções básicas das Assinaturas de Acesso Compartilhado].
 
 - Crie um controlador que pode efetuar subclasses de `StorageController` a fim de manipular as solicitações de token SAS e obter os arquivos que estão associados a um registro. Por padrão, os arquivos são associados a um registro usando a ID do registro como parte do nome do contêiner; o comportamento pode ser personalizado especificando uma implementação de `IContainerNameResolver`. A política de token SAS também pode ser personalizada.
 
@@ -718,8 +718,8 @@ Este artigo descreveu como usar o novo suporte de arquivo no SDK do servidor e c
 [Microsoft.Azure.Mobile.Client.Files]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.Files/
 [Microsoft.Azure.Mobile.Client.SQLiteStore]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.SQLiteStore/
 [Microsoft.Azure.Mobile.Server.Files]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Files/
-[Noções básicas da Assinatura de Acesso Compartilhado]: https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/
-[Noções básicas sobre Assinaturas de Acesso Compartilhado]: https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/
-[Criar uma conta de armazenamento do Azure]: https://azure.microsoft.com/pt-BR/documentation/articles/storage-create-storage-account/#create-a-storage-account
+[Noções básicas da Assinatura de Acesso Compartilhado]: ../storage/storage-dotnet-shared-access-signature-part-1.md
+[Noções básicas das Assinaturas de Acesso Compartilhado]: ../storage/storage-dotnet-shared-access-signature-part-1.md
+[Criar uma conta de armazenamento do Azure]: ../storage/storage-create-storage-account.md#create-a-storage-account
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/04/2015"
+	ms.date="02/02/2016"
 	ms.author="asmalser"/>
 
 
@@ -51,7 +51,7 @@ Para configurar a integração do Facebook at Work ao Azure AD, você precisa ad
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
-3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.<br><br> ![Aplicativos][2]<br>
+3. Para abrir o modo de exibição de aplicativos, no modo de exibição de diretório, clique em **Aplicativos** no menu superior. <br><br>![Aplicativos][2]<br>
 
 4. Clique em **Adicionar** na parte inferior da página. <br><br>![Aplicativos][3]<br>
 
@@ -114,4 +114,4 @@ Para que os usuários do AAD provisionados possam ver o Facebook at Work em seu 
 [3]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_04.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="02/01/2016"
 	ms.author="cabailey"/>
 #Como gerar e transferir chaves de HSM protegido para o Cofre da Chave do Azure
 
@@ -25,7 +25,7 @@ Use as informações neste tópico para ajudá-lo a planejar, gerar e transferir
 
 Essa funcionalidade não está disponível para o Azure China.
 
->[AZURE.NOTE]Para obter mais informações sobre o Cofre da Chave do Azure, consulte [O que é o Cofre da Chave do Azure?](key-vault-whatis.md)
+>[AZURE.NOTE] Para obter mais informações sobre o Cofre da Chave do Azure, consulte [O que é o Cofre da Chave do Azure?](key-vault-whatis.md)
 >
 >Para obter um tutorial de Introdução, que inclui a criação de um Cofre da Chave para chaves de HSM protegido, consulte [Introdução ao Cofre da Chave do Azure](key-vault-get-started.md).
 
@@ -217,6 +217,8 @@ Execute o seguinte comando para gerar a chave:
 
 Quando você executar esse comando, use estas instruções:
 
+- O parâmetro *protect* deve ser definido com o valor **module**, como mostrado. Isso cria uma chave protegida pelo módulo. O conjunto de ferramentas BYOK não oferece suporte a chaves protegidas por OCS.
+
 - Substitua o valor de *contosokey* para a **ident** e **plainname** por qualquer valor de cadeia de caracteres. Para minimizar os custos administrativos e reduzir o risco de erros, recomendamos que você use o mesmo valor para ambos. O valor de **ident** deve conter somente números, traços, letras minúsculas.
 
 - O pubexp é deixado em branco (padrão) neste exemplo, mas você pode especificar valores específicos. Para obter mais informações, consulte a Documentação da Thales.
@@ -225,7 +227,7 @@ Este comando cria um arquivo de Chave com Token na sua pasta %NFAST\_KMDATA%\\lo
 
 Faça backup deste arquivo de Chave com Token em um local seguro.
 
->[AZURE.IMPORTANT]Posteriormente, quando transferir a sua chave para o Cofre da Chave do Azure, a Microsoft não poderá exportar esta chave novamente para você, por isso é extremamente importante fazer backup da sua chave e da segurança do Universo de segurança. Entre em contato com a Thales para obter orientação e as práticas recomendadas para fazer backup da sua chave.
+>[AZURE.IMPORTANT] Posteriormente, quando transferir a sua chave para o Cofre da Chave do Azure, a Microsoft não poderá exportar esta chave novamente para você, por isso é extremamente importante fazer backup da sua chave e da segurança do Universo de segurança. Entre em contato com a Thales para obter orientação e as práticas recomendadas para fazer backup da sua chave.
 
 Agora você está pronto para transferir a sua chave para o Cofre da Chave do Azure.
 
@@ -330,4 +332,4 @@ Se o upload for bem-sucedido, você verá exibidas as propriedades da chave que 
 
 Agora você pode usar essa chave de HSM protegido no Cofre da Chave. Para saber mais, consulte a seção **Se você deseja usar um módulo de segurança de hardware (HSM)** no tutorial [Introdução ao cofre da chave do Azure](key-vault-get-started.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

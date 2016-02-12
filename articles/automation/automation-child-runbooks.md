@@ -32,7 +32,7 @@ Os parâmetros de um runbook filho com chamada embutida podem ser de qualquer ti
 
 ### Tipos de runbook
 
-Não é possível usar um [Runbook de Fluxo de Trabalho do PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) ou um [Runbook gráfico](automation-runbook-types.md#graphical-runbooks) como um filho em um [Runbook do PowerShell](automation-runbook-types.md#powershell-runbooks) usando execução embutida. Do mesmo modo, você não pode usar um Runbook do PowerShell como um filho com execução embutida em um Runbook de Fluxo de Trabalho do PowerShell ou um Runbook gráfico. Runbooks do PowerShell só podem usar outro PowerShell como um filho. Runbooks Gráficos e de Fluxo de Trabalho do PowerShell podem usar um ao outro como runbooks filho.
+Não é possível usar um [Runbook de Fluxo de Trabalho do PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) ou um [Runbook gráfico](automation-runbook-types.md#graphical-runbooks) como um filho em um [Runbook do PowerShell](automation-runbook-types.md#powershell-runbooks) usando execução embutida. Do mesmo modo, você não pode usar um Runbook do PowerShell como um filho com execução embutida em um runbook de Fluxo de Trabalho do PowerShell ou um runbook Gráfico. Runbooks do PowerShell só podem usar outro PowerShell como um filho. Runbooks Gráficos e de Fluxo de Trabalho do PowerShell podem usar um ao outro como runbooks filho.
 
 Quando você chama um runbook filho Gráfico ou de Fluxo de Trabalho do PowerShell usando execução embutida, você usa apenas o nome do runbook. Quando você chamar um runbook filho do PowerShell, você deve precedido seu nome com *.\* para especificar que o script está localizado no diretório local.
 
@@ -53,7 +53,7 @@ A seguir, temos o mesmo exemplo usando um runbook do PowerShell como o filho.
 
 Você pode usar o cmdlet [Start-AzureAutomationRunbook](http://msdn.microsoft.com/library/dn690259.aspx) para iniciar um runbook, conforme descrito em [Para iniciar um runbook com o Windows PowerShell](../automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell). Quando você inicia um runbook filho de um cmdlet, o runbook pai será movido para a próxima linha assim que o trabalho for criado para o runbook filho. Se você precisar recuperar todas as saídas do runbook, deverá acessar o trabalho usando [Get-AzureAutomationJobOutput](http://msdn.microsoft.com/library/dn690268.aspx).
 
-O trabalho de um runbook filho iniciado com um cmdlet executará um trabalho separado do runbook pai. Isso resulta em mais trabalhos do que invocar o script embutido e torna o acompanhamento mais difícil de rastrear. O pai pode iniciar vários runbooks filhos sem ter que esperar a conclusão de cada um. Para a mesma variante de execução paralela que chama runbooks filho embutidos, o runbook pai precisaria usar a [palavra-chave paralela](automation-powershell-workflow.md#parallel-processing).
+O trabalho de um runbook filho iniciado com um cmdlet executará um trabalho separado do runbook pai. Isso resulta em mais trabalhos do que invocar o runbook embutido e torna o acompanhamento mais difícil de rastrear. O pai pode iniciar vários runbooks filhos sem ter que esperar a conclusão de cada um. Para a mesma variante de execução paralela que chama runbooks filho embutidos, o runbook pai precisaria usar a [palavra-chave paralela](automation-powershell-workflow.md#parallel-processing).
 
 Parâmetros de um runbook filho iniciados com um cmdlet são fornecidos como uma tabela de hash, conforme descrito em [Parâmetros de Runbook](automation-starting-a-runbook.md#runbook-parameters). Somente tipos de dados simples podem ser usados. Se o runbook tiver um parâmetro com um tipo de dados complexos, ele deve ser chamado embutido.
 
@@ -62,7 +62,7 @@ Parâmetros de um runbook filho iniciados com um cmdlet são fornecidos como uma
 O exemplo a seguir inicia um runbook filho com parâmetros e aguarda a sua conclusão. Depois de concluído, a saída é coletada do trabalho pelo runbook pai.
 
 	$params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true} 
-	$job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test- ChildRunbook" –Parameters $params
+	$job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-ChildRunbook" –Parameters $params
 	
 	$doLoop = $true
 	While ($doLoop) {
@@ -94,4 +94,4 @@ A tabela a seguir resume as diferenças entre os dois métodos para chamar um ru
 - [Como iniciar um Runbook na Automação do Azure](automation-starting-a-runbook.md)
 - [Saída de runbook e mensagens na Automação do Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

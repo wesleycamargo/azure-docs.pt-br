@@ -242,7 +242,7 @@ Para o tráfego entre diferentes redes virtuais do Azure, o Azure cobra somente 
 
 ### Posso conectar uma rede virtual com VPNs IPsec a meu circuito Rota Expressa?
 
-Sim, isso é suportado. Para obter mais informações, consulte [Configurar conexões de VPN Site a Site e de Rota Expressa que coexistam](../expressroute/expressroute-coexist.md).
+Sim, isso é suportado. Para obter mais informações, consulte [Configurar conexões de VPN Site a Site e de Rota Expressa que coexistam](../expressroute/expressroute-howto-coexist-classic.md).
 
 ## Conectividade entre locais e VMs
 
@@ -267,4 +267,4 @@ Você pode exibir mais informações sobre Gateways de VPN na [página de docume
 
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Atividade Pig
@@ -100,7 +100,7 @@ Para executar esse script de Pig em um pipeline de Data Factory, você precisa f
 3.	Criar [conjuntos de dados](data-factory-create-datasets.md) apontando para os dados de entrada e de saída. Vamos chamar o conjunto de dados de entrada de "PigSampleIn" e o conjunto de dados de saída de "PigSampleOut".
 4.	Copie a consulta de Pig em um arquivo configurado pelo Armazenamento de Blob do Azure configurado na etapa 2 acima. Se o serviço vinculado para hospedagem dos dados for diferente daquele que hospeda o arquivo de consulta, crie um serviço vinculado separado do Armazenamento do Azure e consulte-o na configuração da atividade. Use **scriptPath** para especificar o caminho até o arquivo de script de pig e **scriptLinkedService** para especificar o Armazenamento do Azure que contém o arquivo de script.
 	
-	> [AZURE.NOTE]Você também pode fornecer o script de Pig embutido na definição da atividade usando a propriedade **script**, mas isso não é recomendado, pois todos os caracteres especiais no script dentro do documento JSON precisam ser escapados e talvez causem problemas de depuração. A prática recomendada é seguir a etapa 4.
+	> [AZURE.NOTE] Você também pode fornecer o script de Pig embutido na definição da atividade usando a propriedade **script**, mas isso não é recomendado, pois todos os caracteres especiais no script dentro do documento JSON precisam ser escapados e talvez causem problemas de depuração. A prática recomendada é seguir a etapa 4.
 5. Crie o pipeline abaixo com a atividade HDInsightPig para processar os dados.
 
 		{
@@ -186,4 +186,4 @@ Para usar os scripts Pig, faça o seguinte:
 		PigSampleOut = Foreach GroupProfile Generate PigSampleIn.ProfileID, SUM(PigSampleIn.Duration);		
 		Store PigSampleOut into '$Output' USING PigStorage (','); 
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

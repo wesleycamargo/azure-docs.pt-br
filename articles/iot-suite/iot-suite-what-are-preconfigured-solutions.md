@@ -37,8 +37,7 @@ A tabela a seguir mostra como essas soluções pré-configuradas são mapeadas p
 
 | Solução | Ingestão de dados | Identidade do dispositivo | Comando e controle | Regras e ações | Análise preditiva |
 |------------------------|-----|-----|-----|-----|-----|
-| Monitoramento remoto | Sim | Sim | Sim | Sim | - |
-| Manutenção preditiva | Sim | Sim | Sim | Sim | Sim |
+| Monitoramento remoto | Sim | Sim | Sim | Sim | - | | Manutenção preditiva | Sim | Sim | Sim | Sim | Sim |
 
 ## Visão geral da solução pré-configurada de Monitoramento Remoto
 
@@ -116,4 +115,4 @@ Explore estes recursos para saber mais sobre as soluções pré-configuradas de 
 [lnk-preconf-get-started]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

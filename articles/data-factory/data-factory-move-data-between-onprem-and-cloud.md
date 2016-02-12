@@ -39,14 +39,16 @@ O gateway de dados fornece as seguintes funcionalidades:
 6.	Você deve **usar o gateway, mesmo quando usar a Rota Expressa**. 
 7.	Você deve tratar a fonte de dados como uma fonte de dados local (que está atrás de um firewall) mesmo quando usar a **Rota Expressa** e **usar o gateway** para estabelecer a conectividade entre o serviço e a fonte de dados. 
 
-## Instalação do gateway - pré-requisitos
+## Instalar o Gateway de Gerenciamento de Dados
+
+### Instalação do gateway - pré-requisitos
 1.	As versões de **Sistema Operacional** com suporte são Windows 7, Windows 8/8.1, Windows Server 2008 R2, Windows Server 2012 e Windows Server 2012 R2.
 2.	A **configuração** recomendada para o computador do gateway é no mínimo 2 GHz, 4 núcleos, 8 GB de RAM e 80 GB de disco.
 3.	Se o computador host hibernar, o gateway não poderá responder a solicitações de dados. Portanto, configure um **plano de energia** adequado no computador antes de instalar o gateway. A instalação do gateway exibe uma mensagem se o computador estiver configurado para hibernar.
 
 Devido ao fato de as execuções da atividade de cópia ocorrerem em uma frequência específica, o uso de recursos (CPU, memória) no computador também segue o mesmo padrão com tempos ociosos e de pico. A utilização de recursos também depende muito da quantidade de dados sendo movida. Quando vários trabalhos de cópia estiverem em andamento, você observará o uso do recurso aumentar durante horários de pico. Embora o indicado acima seja a configuração mínima, é sempre melhor ter uma configuração com mais recursos do que as configurações mínimas descritas acima dependendo da sua carga específica para movimentação de dados.
 
-## Instalação
+### Instalação
 O Gateway de Gerenciamento de Dados pode ser instalado baixando um pacote de instalação MSI do [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=39717). O MSI também pode ser usado para atualizar o Gateway de Gerenciamento de Dados existente para a versão mais recente, com todas as configurações preservadas. Você pode encontrar o link para o pacote MSI do Portal do Azure seguindo a explicação passo a passo abaixo.
 
 
@@ -54,24 +56,66 @@ O Gateway de Gerenciamento de Dados pode ser instalado baixando um pacote de ins
 1.	Configure o plano de energia no computador host para o gateway para que o computador não hiberne. Se o computador host hibernar, o gateway não poderá responder a solicitações de dados.
 2.	Você deve fazer backup do certificado associado ao gateway.
 
+## Atualizar o Gateway de Gerenciamento de Dados
+Por padrão, o Gateway de Gerenciamento de Dados é atualizado automaticamente quando uma versão mais recente do gateway está disponível. O gateway não é atualizado até que todas as tarefas agendadas sejam concluídas. Nenhuma tarefa adicional é processada pelo gateway até que a operação de atualização seja concluída. Se a atualização falhar, o gateway será revertido para a versão antiga.
+
+Você verá o horário de atualização agendado no portal na folha de propriedades do gateway, na home page do Gerenciador de Configurações do Gateway de Gerenciamento de Dados, e na mensagem de notificação da bandeja do sistema. Você tem a opção de instalar a atualização imediatamente ou aguardar até que o gateway seja atualizado automaticamente no horário agendado. Por exemplo, a captura de tela a seguir mostra a mensagem de notificação do Gerenciador de Configurações do Gateway de Gerenciamento de Dados, juntamente com o botão Atualizar no qual você clica para instalá-lo imediatamente.
+
+![Atualizar no Gerenciador de Configurações DMG](./media/data-factory-move-data-between-onprem-and-cloud/gateway-auto-update-config-manager.png)
+
+A mensagem de notificação na bandeja do sistema seria semelhante ao seguinte:
+
+![Mensagem da bandeja do sistema](./media/data-factory-move-data-between-onprem-and-cloud/gateway-auto-update-tray-message.png)
+
+Você verá o status da operação de atualização (manual ou automática) na bandeja do sistema. Ao abrir o Gerenciador de Configurações do Gateway de Gerenciamento de Dados posteriormente, você verá uma mensagem na barra de notificação indicando que o gateway foi atualizado, junto com um link para o [tópico de novidades](data-factory-gateway-release-notes.md).
+
+A guia Atualizar do Gerenciador de Configurações do Gateway de Gerenciamento de Dados exibe a agenda de atualização, bem como a última vez em que o gateway foi instalado/atualizado. Se a atualização automática estiver desabilitada, será mostrada uma mensagem sobre isso, mas você não poderá habilitar o recurso na guia. Você terá que usar o cmdlet para habilitar o recurso.
+  
+
+## Ícones/notificações da bandeja do sistema
+A imagem a seguir mostra alguns dos ícones da bandeja que você verá.
+
+![ícones da bandeja do sistema](./media/data-factory-move-data-between-onprem-and-cloud/gateway-tray-icons.png)
+
+Se mover o cursor sobre o ícone de bandeja do sistema/mensagem de notificação, você verá detalhes sobre o estado do gateway/da operação de atualização em uma janela pop-up.
+
+## Para habilitar/desabilitar o recurso de atualização automática
+Você pode habilitar/desabilitar o recurso de atualização automática fazendo o seguinte:
+
+1. Inicie o Windows PowerShell no computador do gateway. 
+2. Alterne para a pasta C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\PowerShellScript.
+3. Execute o seguinte comando para DESATIVAR (desabilitar) o recurso de atualização automática.   
+
+		.\GatewayAutoUpdateToggle.ps1  -off
+
+4. Para ativá-la novamente:
+	
+		.\GatewayAutoUpdateToggle.ps1  -on  
+
 ## Considerações sobre a porta e segurança
+Há dois firewalls que você precisa levar em consideração: o **firewall corporativo** em execução no roteador central da organização e o **Firewall do Windows** configurado como um daemon no computador local em que o gateway está instalado.
 
-### Considerações gerais
-Há dois firewalls que você precisa levar em consideração: o **firewall corporativo** em execução no roteador central da organização e o **Firewall do Windows** configurado como um daemon no computador local em que o gateway está instalado. Se você estiver usando um firewall terceiros em vez do Firewall do Windows, use as seguintes recomendações como referência e configure as portas adequadamente. Se um servidor proxy estiver sendo utilizado em sua organização, consulte também as [considerações sobre servidor proxy](#proxy-server-considerations). Estas são algumas considerações gerais:
+![firewalls](./media/data-factory-move-data-between-onprem-and-cloud/firewalls.png)
 
-**Antes de configurar o gateway:**
+### Gateway de conexão com serviços de nuvem
+Para manter a conectividade do gateway com o Azure Data Factory e outros serviços de nuvem, você precisa verificar se a regra de saída para as portas **TCP** **80** e **443** está configurada. E, opcionalmente, habilite as portas **9350** a **9354**, que são usadas pelo Barramento de Serviço do Microsoft Azure para estabelecer a conexão entre o Azure Data Factory e o Gateway de Gerenciamento de Dados e podem melhorar o desempenho da comunicação entre eles.
 
-- Para o **firewall corporativo e o Firewall do Windows**, você precisa se certificar de que a regra de saída para portas **TCP** **80** e **443** esteja habilitada e, opcionalmente, para as portas **9350** a **9354**. Elas são usadas pelo Barramento de Serviço do Microsoft Azure para estabelecer a conexão entre o Azure Data Factory e o Gateway de Gerenciamento de Dados. Abrir as portas 9350 a 9354 não é obrigatório, mas pode melhorar o desempenho da comunicação entre o Azure Data Factory e o Gateway de Gerenciamento de Dados.
+No nível do firewall corporativo, você precisa configurar os seguintes domínios e portas de saída:
 
-**Durante a configuração do gateway:**
+| Nomes de domínio | Portas | Descrição |
+| ------ | --------- | ------------ |
+| **.servicebus.windows.net | 443, 80 | Ouvintes de Retransmissão do Barramento de Serviço sobre TCP (requer 443 para aquisição de token de Controle de Acesso) | | *.servicebus.windows.net | 9350-9354 | Retransmissão do Barramento de Serviço opcional sobre TCP | | *.core.windows.net | 443 | HTTPS | | *.clouddatahub.net | 443 | HTTPS | | graph.windows.net | 443 | HTTPS | | login.windows.net | 443 | HTTPS | 
 
-- Por padrão, a instalação do Gateway de Gerenciamento de Dados abre a porta de entrada **8050** no **Firewall do Windows local** no computador do gateway. A porta será usada pelo aplicativo **Configurando Credenciais** para retransmitir as credenciais para o gateway quando você configurar um serviço vinculado local no Portal do Azure (detalhes mais adiante neste artigo) vinculado. Ela não será acessível na Internet, por isso você não precisa abri-la no firewall corporativo.
-- Se não quiser que a instalação do gateway abra a porta 8050 no Firewall do Windows para o computador do gateway, você pode usar o comando a seguir para instalar o gateway sem configurar o firewall.
+No nível do firewall do windows, essas portas de saída normalmente são habilitadas. Se não forem, você poderá configurar as portas e os domínios adequadamente no computador do gateway.
 
-		msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
+### Definir credenciais
+A porta de entrada **8050** será usada pelo aplicativo **Configurando Credenciais** para retransmitir as credenciais para o gateway quando você configurar um serviço vinculado local no Portal do Azure (detalhes mais adiante neste artigo). Durante a instalação do gateway, por padrão, a instalação do Gateway de Gerenciamento de Dados o abre no computador do gateway.
+ 
+Caso seja usado um firewall de terceiros, você poderá abrir manualmente a porta 8050. Se tiver problemas de firewall durante a instalação do gateway, você poderá tentar usar o comando a seguir para instalar o gateway sem configurar o firewall.
 
-Se a porta de entrada 8050 não estiver aberta no computador do gateway, para configurar um serviço vinculado local você precisará usar mecanismos diferentes do aplicativo **Configurando Credenciais** para configurar as credenciais do armazenamento de dados. Por exemplo, você pode usar o cmdlet do PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx). Consulte a seção [Configurando Credenciais e Segurança](#setting-credentials-and-security) sobre como as credenciais de armazenamento de dados pode ser configuradas.
+	msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
+Se optar por não abrir a porta 8050 no computador do gateway, para configurar um serviço vinculado local, você precisará usar mecanismos diferentes do aplicativo **Configurando Credenciais** para configurar as credenciais do armazenamento de dados. Por exemplo, você pode usar o cmdlet do PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx). Consulte a seção [Configuração de Credenciais e Segurança](#setting-credentials-and-security) sobre como as credenciais de armazenamento de dados pode ser configuradas.
 
 **Para copiar dados de um armazenamento de dados de origem para um armazenamento de dados coletor:**
 
@@ -116,11 +160,11 @@ Se você encontrar erros como os descritos a seguir, eles provavelmente se devem
 
 - Você pode encontrar informações detalhadas nos logs de gateway nos logs de eventos do Windows. Você pode encontrá-los usando o **Visualizador de Eventos** do Windows em **Logs de Aplicativos e Serviços** > **Gateway de Gerenciamento de Dados**. Enquanto soluciona problemas relacionados ao gateway, procure por eventos de nível de erro no Visualizador de Eventos.
 - Se o gateway para de funcionar depois que você **altera o certificado**, reinicie (pare e inicie) o **Serviço de Gateway de Gerenciamento de Dados** usando a ferramenta Gerenciador de Configurações do Gateway de Gerenciamento de Dados Microsoft ou o miniaplicativo do painel de controle Serviços. Se você vir um erro, você precisará conceder permissões explícitas para o usuário do serviço de Gateway de Gerenciamento de Dados acessar o certificado no Gerenciador de Certificados (certmgr.msc). A conta de usuário padrão para o serviço é: **NT Service\\DIAHostService**. 
-- Se você visualizar erros relacionados ao driver ou à conexão com o repositório de dados, inicie o **Gerenciador de Configurações do Gateway de Gerenciamento de Dados** no computador do gateway, alterne para a guia **Diagnóstico**, escolha/insira valores adequados para os campos no grupo **Testar a conectividade com a fonte de dados local usando este gateway** e clique em **Testar conectividade** para ver se é possível se conectar à fonte de dados local do computador do gateway usando as informações e credenciais de conexão. Se a conexão de teste continuar falhando depois que você instalar um driver, reinicie o gateway para que ele assimile a alteração mais recente.  
+- Se você encontrar erros relacionados ao driver ou à conexão com o repositório de dados, inicie o **Gerenciador de Configurações do Gateway de Gerenciamento de Dados** no computador do gateway, alterne para a guia **Diagnóstico**, escolha/insira valores adequados para os campos no grupo **Testar a conectividade com a fonte de dados local usando este gateway** e clique em **Testar conectividade** para ver se é possível se conectar à fonte de dados local do computador do gateway usando as informações e credenciais de conexão. Se a conexão de teste continuar falhando depois que você instalar um driver, reinicie o gateway para que ele assimile a alteração mais recente.  
 
 	![Testar conectividade](./media/data-factory-move-data-between-onprem-and-cloud/TestConnection.png)
 		
-## Usando o Gateway de dados: tutorial passo a passo
+## Passo a passo: uso do Gateway de Gerenciamento de Dados 
 Neste passo a passo, você pode criar um data factory com um pipeline que move dados de um banco de dados SQL Server local para um blob do Azure.
 
 ### Etapa 1: criar uma data factory do Azure
@@ -152,7 +196,7 @@ Nesta etapa, você usa o Portal do Azure para criar uma instância do Azure Data
 
 	![Página inicial do Data Factory](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDataFactoryHomePage.png)
 
-### Etapa 2: Criar um gateway de gerenciamento de dados
+### Etapa 2: criar um gateway de gerenciamento de dados
 5. Na folha **DATA FACTORY**, clique no bloco **Criar e implantar** para iniciar o **Editor** da data factory.
 
 	![Bloco Criar e implantar](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png) 
@@ -503,7 +547,7 @@ Nesta etapa, você utilizará o Portal do Azure para monitorar o que está acont
 
 	![Gerenciador de Armazenamento do Azure](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
 
-## Movimentando o gateway de um computador para outro
+## Mover o gateway de um computador para outro
 Esta seção fornece etapas para movimentação do cliente do gateway de um computador para outro.
 
 2. No portal, navegue até a **home page do Data Factory** e clique no bloco **Serviços Vinculados**. 
@@ -536,7 +580,7 @@ Esta seção fornece etapas para movimentação do cliente do gateway de um comp
 	Você pode exportar um certificado do gateway antigo da seguinte maneira: inicie o Gerenciador de Configuração de Gateway do Gerenciamento de Dados na máquina antiga, alterne para a guia **Certificado**, clique em **Exportar** e siga as instruções. 
 10. Após a conclusão do registro do gateway, você deverá ver o **Registro** definido como **Registrado**, e o **Status** definido como **Iniciado** na Home page do Gerenciador de Configuração de Gateway. 
 
-## Configurando credenciais e segurança
+## Configurar credenciais e segurança
 
 Você também pode criar um serviço do SQL Server vinculado usando a folha de serviços vinculados em vez de usar o Editor do Data Factory.
  
@@ -561,8 +605,7 @@ Você também pode criar um serviço do SQL Server vinculado usando a folha de s
 	![Caixa de diálogo de Configurando Credenciais](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png) 1. Selecione a **autenticação** que você deseja que o serviço de Data Factory use para se conectar ao banco de dados. 2. Insira o nome do usuário que tem acesso ao banco de dados para a configuração **NOME DE USUÁRIO**. 3. Insira a senha do usuário para a configuração **SENHA**. 4. Clique em **OK** para fechar a caixa de diálogo. 
 4. Clique em **OK** para fechar a folha **Credenciais**. 
 5. Clique em **OK** na folha **Novo armazenamento de dados**. 	
-6. Confirme se o status de **SqlServerLinkedService** está definido como Online na folha Serviços Vinculados.
-![Status do serviço vinculado do SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
+6. Confirme se o status de **SqlServerLinkedService** está definido como Online na folha Serviços Vinculados.![Status do serviço vinculado do SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
 
 Se você acessar o portal de um computador diferente do computador do gateway, você deve garantir que o aplicativo Gerenciador de credenciais possa se conectar ao computador do gateway. Se o aplicativo não puder acessar o computador do gateway, ele não permitirá que você defina credenciais da fonte de dados teste a conexão à fonte de dados.
 
@@ -577,7 +620,7 @@ Se você estiver procurando uma abordagem baseada em API para criptografar as cr
 Há mais uma abordagem para definir as credenciais usando o Editor Data Factory. Se você criar um serviço vinculado SQL Server usando o editor e inserir credenciais em texto sem formatação, as credenciais são criptografadas usando um certificado que é de propriedade do serviço Data Factory, NÃO o certificado que o gateway está configurado para usar. Embora essa abordagem possa ser um pouco mais rápida em alguns casos, ela é menos segura. Portanto, é recomendável que você siga essa abordagem somente para fins de desenvolvimento/teste.
 
 
-## Criando e registrando um gateway usando o PowerShell do Azure 
+## Criar e registrar o Gateway de Gerenciamento de Dados usando o Azure PowerShell 
 Esta seção descreve como criar e registrar um gateway usando cmdlets do PowerShell do Azure.
 
 1. Inicie o **PowerShell do Azure** no modo de administrador. 
@@ -634,8 +677,7 @@ Você pode remover um gateway usando o cmdlet **Remove-AzureRmDataFactoryGateway
 ## Fluxo de dados de cópia usando o Gateway de Gerenciamento de Dados
 Quando você usa uma atividade de cópia em um pipeline de dados para incluir dados locais na nuvem para processamento adicional, ou exportar dados de resultado na nuvem de volta para um armazenamento de dados local, a atividade de cópia usa internamente um gateway para transferir os dados da fonte de dados local para a nuvem e vice-versa.
 
-Aqui está o fluxo de dados de alto nível para e o resumo das etapas para a cópia com o gateway de dados: 
-![Fluxo de dados usando o gateway](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
+Aqui está o fluxo de dados de alto nível para e o resumo das etapas para a cópia com o gateway de dados: ![Fluxo de dados usando o gateway](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
 
 1.	O desenvolvedor de dados cria um novo gateway para uma Azure Data Factory usando o [Portal do Azure](https://portal.azure.com) ou [Cmdlet do PowerShell](https://msdn.microsoft.com/library/dn820234.aspx). 
 2.	O desenvolvedor de dados usa o painel "Serviços vinculados" para definir um novo serviço vinculado para um armazenamento de dados local com o gateway. Como parte da configuração de dados do serviço vinculado, o desenvolvedor usa o aplicativo Configurando Credenciais como mostrado no tutorial passo a passo para especificar as credenciais e tipos de autenticação. A caixa de diálogo do aplicativo Configurando Credenciais se comunicará com o armazenamento de dados para testar a conexão e o gateway para salvar as credenciais.
@@ -644,4 +686,4 @@ Aqui está o fluxo de dados de alto nível para e o resumo das etapas para a có
 5.	O gateway descriptografa as credenciais com o mesmo certificado e se conecta ao armazenamento de dados local com o tipo de autenticação adequado.
 6.	O gateway copia dados do armazenamento local para um armazenamento em nuvem ou de um armazenamento em nuvem para um armazenamento de dados local dependendo de como a atividade de cópia é configurada no pipeline de dados. Observação: para esta etapa, o gateway se comunica diretamente com o serviço de armazenamento baseado em nuvem (por exemplo, Blob do Azure, SQL do Azure etc.) por um canal seguro (HTTPS).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

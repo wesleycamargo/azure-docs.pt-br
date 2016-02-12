@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="02/01/2016" 
 	ms.author="sdanie"/>
 
 # Gerenciar o Cache Redis do Azure com o PowerShell do Azure
@@ -60,6 +60,46 @@ Por exemplo, para obter ajuda para o cmdlet `New-AzureRmRedisCache`, digite:
 
 	Get-Help New-AzureRmRedisCache -Detailed
 
+## Como se conectar à Nuvem do Azure Government ou à Nuvem do Azure na China
+
+Por padrão, o ambiente do Azure é `AzureCloud`, que representa a instância de nuvem global do Azure. Para se conectar a uma instância diferente, use o comando `Add-AzureRmAccount` com a opção de linha de comando `-Environment` ou -`EnvironmentName` com o ambiente desejado ou o nome do ambiente.
+
+Para ver a lista de ambientes disponíveis, execute o cmdlet `Get-AzureRmEnvironment`.
+
+### Para se conectar à Nuvem do Azure Government
+
+Para se conectar à Nuvem do Azure Government, use um dos comandos a seguir.
+
+	Add-AzureRMAccount -EnvironmentName AzureUSGovernment
+
+ou o
+
+	Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureUSGovernment)
+
+Para criar um cache na Nuvem do Azure Government, use um dos locais a seguir.
+
+-	Gov. dos EUA – Virgínia
+-	Gov. dos EUA – Iowa
+
+Para saber mais sobre a Nuvem do Azure Government, confira [Microsoft Azure Government](https://azure.microsoft.com/features/gov/) e [Guia do Desenvolvedor do Microsoft Azure Government](azure-government-developer-guide.md).
+
+### Para se conectar à Nuvem do Azure na China
+
+Para se conectar à Nuvem do Azure na China, use um dos comandos a seguir.
+
+	Add-AzureRMAccount -EnvironmentName AzureChinaCloud
+
+ou o
+
+	Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureChinaCloud)
+
+Para criar um cache na Nuvem do Azure na China, use um dos locais a seguir.
+
+-	Leste da China
+-	Norte da China
+
+Para obter mais informações sobre a Nuvem do Azure na China, confira [AzureChinaCloud para Azure operado pelo 21Vianet na China](http://www.windowsazure.cn/).
+
 ## Propriedades usadas para o PowerShell do Cache Redis do Azure
 
 A tabela a seguir contém as propriedades e as descrições dos parâmetros usados ao criar e gerenciar suas instâncias do Cache Redis do Azure usando o Azure PowerShell.
@@ -85,7 +125,7 @@ A tabela a seguir contém as propriedades e as descrições dos parâmetros usad
 
 As novas instâncias Cache Redis do Azure são criadas usando o cmdlet [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx).
 
->[AZURE.IMPORTANT]Na primeira vez em que você cria um cache Redis em uma assinatura usando o portal do Azure, o portal registra o namespace `Microsoft.Cache` para a assinatura. Se você tentar criar o cache Redis primeiro em uma assinatura usando o PowerShell, deverá primeiro registrar esse namespace usando o comando a seguir; caso contrário, cmdlets como `New-AzureRmRedisCache` e `Get-AzureRmRedisCache` irão falhar.
+>[AZURE.IMPORTANT] Na primeira vez em que você cria um cache Redis em uma assinatura usando o portal do Azure, o portal registra o namespace `Microsoft.Cache` para a assinatura. Se você tentar criar o cache Redis primeiro em uma assinatura usando o PowerShell, deverá primeiro registrar esse namespace usando o comando a seguir; caso contrário, cmdlets como `New-AzureRmRedisCache` e `Get-AzureRmRedisCache` irão falhar.
 >
 >`Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Cache"`
 
@@ -249,9 +289,9 @@ O comando a seguir atualiza a maxmemory-policy do Cache Redis chamada myCache.
 
 >[AZURE.NOTE]Dimensionar um cache usando o PowerShell está sujeito aos mesmos limites e diretrizes de dimensionar um cache no Portal do Azure. Você pode dimensionar para uma camada de preços diferente com as restrições a seguir.
 >
->-	Você não pode escalonar para ou de um cache **Premium**.
->-	Você não pode escalonar de um cache **Standard** para um cache **Básico**.
->-	Você pode escalonar de um cache **Básico** para um cache **Standard**, mas não pode alterar o tamanho ao mesmo tempo. Se precisar de um tamanho diferente, você pode fazer uma operação de dimensionamento subsequente para o tamanho desejado.
+>-	Não é possível dimensionar para ou a partir de um cache **Premium**.
+>-	Não é possível dimensionar de um cache **Standard** para um cache **Básico**.
+>-	Você pode dimensionar de um cache **Básico** para um cache **Padrão**, mas não pode alterar o tamanho ao mesmo tempo. Se precisar de um tamanho diferente, você pode fazer uma operação de dimensionamento subsequente para o tamanho desejado.
 >-	Você não pode escalonar de um tamanho maior para o tamanho **C0 (250 MB)**.
 >
 >Para saber mais, confira [Como dimensionar o Cache Redis do Azure](cache-how-to-scale.md).
@@ -569,4 +609,4 @@ Para saber mais sobre como usar o Windows PowerShell com o Azure, consulte os se
 - [Blog do Windows PowerShell](http://blogs.msdn.com/powershell): obtenha informações sobre os novos recursos do Windows PowerShell.
 - [Blog "Hey, Scripting Guy!" Blog](http://blogs.technet.com/b/heyscriptingguy/): obtenha dicas reais e truques da comunidade.do Windows PowerShell.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

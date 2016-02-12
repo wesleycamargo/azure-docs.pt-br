@@ -17,6 +17,7 @@
 	ms.date="11/16/2015"
 	ms.author="cynthn"/>
 
+	
 # Perguntas frequentes sobre as Máquinas Virtuais do Azure criadas com o modelo de implantação clássico
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
@@ -158,4 +159,4 @@ Para fornecer redundância, coloque duas ou mais VMs configuradas de forma semel
 
 [Diferentes maneiras de criar uma máquina virtual Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

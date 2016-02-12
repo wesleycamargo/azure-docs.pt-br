@@ -1,6 +1,6 @@
 <properties
    pageTitle="Depurar seu aplicativo no Visual Studio | Microsoft Azure"
-   description="Melhore a confiabilidade e o desempenho dos seus serviços desenvolvendo e depurando-os no Visual Studio e em um cluster de desenvolvimento local."
+   description="Melhore a confiabilidade e o desempenho dos seus serviços desenvolvendo e depurando-os no Visual Studio em um cluster de desenvolvimento local."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/15/2015"
+   ms.date="01/28/2016"
    ms.author="jesseb"/>
 
 # Depurar seu aplicativo do Service Fabric usando o Visual Studio
@@ -28,7 +28,7 @@ Você pode economizar tempo e dinheiro implantando e depurando seu aplicativo do
 
 3. Defina os pontos de interrupção em seu código e explore o aplicativo clicando nos comandos do menu **Depurar**.
 
-    > [AZURE.NOTE]O Visual Studio se conecta a todas as instâncias do seu aplicativo. Ao percorrer o código, os pontos de interrupção podem ser atingidos por vários processos, resultando em sessões simultâneas. Tente desabilitar os pontos de interrupção depois que eles forem atingidos, tornando o ponto de interrupção condicional na ID do thread, ou usando eventos de diagnóstico.
+    > [AZURE.NOTE] O Visual Studio se conecta a todas as instâncias do seu aplicativo. Ao percorrer o código, os pontos de interrupção podem ser atingidos por vários processos, resultando em sessões simultâneas. Tente desabilitar os pontos de interrupção depois que eles forem atingidos, tornando o ponto de interrupção condicional na ID do thread, ou usando eventos de diagnóstico.
 
 4. A janela **Eventos de Diagnóstico** abrirá automaticamente para exibir eventos de diagnóstico em tempo real.
 
@@ -65,4 +65,4 @@ Você pode economizar tempo e dinheiro implantando e depurando seu aplicativo do
 [diagnosticeventsactions]: ./media/service-fabric-debugging-your-application/diagnosticeventsactions.png
 [breakpoint]: ./media/service-fabric-debugging-your-application/breakpoint.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

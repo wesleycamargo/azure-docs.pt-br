@@ -3,7 +3,6 @@
    description="A B2B do e diretório ativo do Active Directory do Azure suporta as relações entre empresas, permitindo que os parceiros de negócios acessem seletivamente seus aplicativos corporativos"
    services="active-directory"
    authors="viv-liu"
-   documentationCenter="na"
    manager="cliffdi"
    editor=""
    tags=""/>
@@ -14,10 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="10/27/2015"
+   ms.date="02/03/2016"
    ms.author="viviali"/>
 
-# Passo a passo detalhado usando a visualização de colaboração B2B do Active Directory do Azure (AD do Azure)
+# Visualização da colaboração B2B do AD do Azure: passo a passo detalhado
+
 Este passo a passo descreve como usar a colaboração B2B do AD do Azure. Como administradores de TI da Contoso, queremos compartilhar aplicativos com funcionários de três empresas parceiras. Nenhuma das empresas parceiras precisa ter o AD do Azure.
 
 - Alice da Simple Partners Org
@@ -80,4 +80,4 @@ Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 - [Alterações de atributo do objeto de usuário externo](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [Limitações de visualização atuais](active-directory-b2b-current-preview-limitations.md)
 
-<!-----HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

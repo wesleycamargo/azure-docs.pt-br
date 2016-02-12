@@ -20,6 +20,9 @@
 
 Este artigo descreve como você pode usar a Atividade de Cópia em um Azure Data Factory para mover dados de outro armazenamento de dados para a Tabela do Azure e mover dados da Tabela do Azure para outro armazenamento de dados. Este artigo se baseia no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral de movimentação de dados com a atividade de cópia e combinações de armazenamento de dados com suporte.
 
+O(s) exemplo(s) a seguir mostra(m) como copiar dados de e para o Armazenamento de Tabelas do Azure e o Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** de qualquer uma das fontes a qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores) usando a atividade de cópia no Azure Data Factory.
+
+
 ## Exemplo: Copiar dados da Tabela do Azure para o Blob do Azure
 
 O exemplo a seguir mostra:
@@ -515,4 +518,4 @@ Nesse caso, a fábrica dados fará automaticamente as conversões de tipo, inclu
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

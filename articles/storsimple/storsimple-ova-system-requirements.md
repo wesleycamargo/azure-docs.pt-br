@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/07/2015"
+   ms.date="01/07/2016"
    ms.author="alkohli"/>
 
 # Requisitos do sistema da StorSimple Virtual Array(Visualização)
@@ -102,4 +102,4 @@ A tabela a seguir lista as portas que devem ser abertas no firewall para permiti
 
 -   [Preparar o portal para implantar sua StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -31,7 +31,7 @@ Você pode restaurar um volume de um backup local ou na nuvem. Em ambos os casos
 
 Antes de iniciar uma operação de restauração, você deve estar ciente do seguinte:
 
-- **É necessário colocar o volume offline** – Coloque o volume offline no host e no dispositivo antes de iniciar a operação de restauração. Embora a operação de restauração coloque automaticamente o volume online no dispositivo, você deve colocar o dispositivo online manualmente no host. Você pode colocar o volume online no host, assim que o volume estiver online no dispositivo. (Não é necessário aguardar até que a operação de restauração seja concluída.) Para obter os procedimentos, vá para [Colocar um volume offline](storsimple-manage-volumes.md#take-a-volume-offline)
+- **É necessário colocar o volume offline** – Coloque o volume offline no host e no dispositivo antes de iniciar a operação de restauração. Embora a operação de restauração coloque automaticamente o volume online no dispositivo, você deve colocar o dispositivo online manualmente no host. Você pode colocar o volume online no host, assim que o volume estiver online no dispositivo. (Não é necessário aguardar até que a operação de restauração seja concluída.) Para obter os procedimentos, acesse [Colocar um volume offline](storsimple-manage-volumes-u2.md#take-a-volume-offline)
 
 - **Tipo de volume após a restauração** – Os volumes excluídos são restaurados com base no tipo do instantâneo; ou seja, volumes que foram fixados localmente são restaurados como volumes fixados localmente e volumes que estavam organizados em camadas são restaurados como volumes em camadas.
 
@@ -45,7 +45,7 @@ Antes de iniciar uma operação de restauração, você deve estar ciente do seg
 
 - **Você pode executar um backup enquanto estiver restaurando um volume local** – Para obter os procedimentos, vá para [Usar o serviço do StorSimple Manager para gerenciar políticas de backup](storsimple-manage-backup-policies.md).
 
-- **Você pode cancelar uma operação de restauração** – Se você cancelar o trabalho de restauração, o volume será revertido para seu estado anterior à operação de restauração. Para obter os procedimentos, vá para [Cancelar um trabalho](storsimple-manage-jobs.md#cancel-a-job).
+- **Você pode cancelar uma operação de restauração** – Se você cancelar o trabalho de restauração, o volume será revertido para seu estado anterior à operação de restauração. Para obter os procedimentos, vá para [Cancelar um trabalho](storsimple-manage-jobs-u2.md#cancel-a-job).
 
 ## Como usar o catálogo de backup
 
@@ -113,6 +113,6 @@ Para concluir a operação de restauração, coloque o volume offline no host e 
 
 - Saiba como [Gerenciar volumes do StorSimple](storsimple-manage-volumes-u2.md).
 
-- Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration-u2.md).
+- Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

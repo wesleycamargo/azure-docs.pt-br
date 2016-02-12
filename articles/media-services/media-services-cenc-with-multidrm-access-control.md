@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/27/2016"  
+	ms.date="02/02/2016"  
 	ms.author="willzhan;kilroyh;yanmf;juliako"/>
 
 #CENC com vários DRM e Controle de Acesso: design e implementação de referência no Azure e nos Serviços de Mídia do Azure
@@ -40,13 +40,13 @@ Os tópicos a seguir são abordados neste artigo:
 	- [E quanto à Transmissão ao Vivo?](media-services-cenc-with-multidrm-access-control.md#what-about-live-streaming)
 	- [E os servidores de licença fora dos Serviços de Mídia do Azure?](media-services-cenc-with-multidrm-access-control.md#what-about-license-servers-outside-of-azure-media-services)
 	- [E se eu quiser usar um STS personalizado?](media-services-cenc-with-multidrm-access-control.md#what-if-i-want-to-use-a-custom-sts)
-	- [Nota técnica](media-services-cenc-with-multidrm-access-control.md#tech-note)
 - [Sistema concluído e teste](media-services-cenc-with-multidrm-access-control.md#the-completed-system-and-test)
 	- [Logon de usuário](media-services-cenc-with-multidrm-access-control.md#user-login)
 	- [Usando Extensões de Mídia Criptografada para PlayReady](media-services-cenc-with-multidrm-access-control.md#using-encrypted-media-extensipons-for-playready)
 	- [Usando EME para Widevine](media-services-cenc-with-multidrm-access-control.md#using-eme-for-widevine)
 	- [Usuários não qualificados](media-services-cenc-with-multidrm-access-control.md#not-entitled-users)
 	- [Executando Serviço de Token Seguro personalizado](media-services-cenc-with-multidrm-access-control.md#running-custom-secure-token-service)
+- [Resumo](media-services-cenc-with-multidrm-access-control.md#summary)
 
 ##Introdução
 
@@ -62,7 +62,7 @@ Os benefícios da CENC com vários DRM são os seguintes:
 1. Reduz o custo de gerenciamento de ativos criptografados, pois é necessária apenas uma única cópia dos ativos criptografados;
 1. Elimina o custo de licenciamento do cliente DRM, já que o cliente DRM nativo normalmente é gratuito na plataforma nativa.
 
-A Microsoft sempre promoveu ativamente DASH e CENC juntamente com alguns principais vetores da indústria. Os Serviços de Mídia do Microsoft Azure dão suporte a DASH e a CENC. Para obter comunicados recentes, confira os blogs da Mingfei: [Announcing Google Widevine license delivery services public preview in Azure Media Services](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/) e [Azure Media Services adds Google Widevine packaging for delivering multi-DRM stream](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
+A Microsoft sempre promoveu ativamente DASH e CENC juntamente com alguns principais vetores da indústria. Os Serviços de Mídia do Microsoft Azure dão suporte a DASH e a CENC. Para obter comunicados recentes, confira os blogs da Mingfei: [Announcing Google Widevine license delivery services in Azure Media Services](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/) e [Azure Media Services adds Google Widevine packaging for delivering multi-DRM stream](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
 
 ### Visão geral deste artigo
 
@@ -406,7 +406,7 @@ Há dois tipos de chaves de segurança:
 1.	Chave simétrica: a mesma chave é usada para gerar e verificar um token JWT;
 2.	Chave assimétrica: um par de chaves pública-privada em um certificado X509 é usado com uma chave privada para criptografar/gerar um token JWT, e a chave pública, para verificar o token.
 
-###Nota técnica
+####Nota técnica
 
 Se você usar o .NET Framework /C# como sua plataforma de desenvolvimento, o certificado X509 usado para a chave assimétrica de segurança deve ter o comprimento da chave de pelo menos 2048. Este é um requisito da classe System.IdentityModel.Tokens.X509AsymmetricSecurityKey no .NET Framework. Caso contrário, a seguinte exceção será lançada:
 
@@ -520,6 +520,6 @@ Neste documento, vimos CENC com vários DRM nativos e controle de acesso por mei
 
 ###Agradecimentos 
 
-William Zhang, Mingfei Yan, Kilroy Hughes, Roland Le Franc, Julia Kornich
+William Zhang, Mingfei Yan, Roland Le Franc, Kilroy Hughes, Julia Kornich
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

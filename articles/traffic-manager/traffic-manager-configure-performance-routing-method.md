@@ -17,7 +17,7 @@
 
 # Configurar o método de roteamento de tráfego de Desempenho
 
-Para usar rotear tráfego para serviços de nuvem e sites (pontos de extremidade) que estão localizados em diferentes datacenters em todo o mundo (também conhecidos como regiões), você pode direcionar o tráfego de entrada para o ponto de extremidade com a menor latência por meio do cliente solicitante. Normalmente, o data center com a menor latência corresponde ao mais próximo em termos de distância geográfica. O método de roteamento de tráfego de Desempenho permite que você faça a distribuição com base na menor latência, mas não consegue levar em consideração as alterações em tempo real feitas na carga ou na configuração da rede. Para obter mais informações sobre os diferentes métodos de roteamento de tráfego fornecidos pelo Gerenciador de Tráfego do Azure, consulte [Sobre Métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-load-balancing-methods.md).
+Para usar rotear tráfego para serviços de nuvem e sites (pontos de extremidade) que estão localizados em diferentes datacenters em todo o mundo (também conhecidos como regiões), você pode direcionar o tráfego de entrada para o ponto de extremidade com a menor latência por meio do cliente solicitante. Normalmente, o data center com a menor latência corresponde ao mais próximo em termos de distância geográfica. O método de roteamento de tráfego de Desempenho permite que você faça a distribuição com base na menor latência, mas não consegue levar em consideração as alterações em tempo real feitas na carga ou na configuração da rede. Para saber mais sobre os diferentes métodos de roteamento de tráfego fornecidos pelo Gerenciador de Tráfego do Azure, confira [Métodos de roteamento do Gerenciador de Tráfego](traffic-manager-load-balancing-methods.md).
 
 ## Rotear o tráfego com base na menor latência em um conjunto de pontos de extremidade:
 
@@ -49,4 +49,4 @@ Para usar rotear tráfego para serviços de nuvem e sites (pontos de extremidade
 [Gerenciador de Tráfego - Desabilitar ou habilitar um ponto de extremidade](disable-or-enable-an-endpoint.md)
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -22,7 +22,7 @@
 
 ## Explorar
 
-- [Hubs de Evento](event-hubs-overview.md)
+- [Hubs de Evento](../event-hubs/event-hubs-overview.md)
 - [Padrão de Fragmentação](http://msdn.microsoft.com/library/dn589797.aspx)
 - [Barramento de Serviço e AMQP 1.0](service-bus-amqp-overview.md)
 - [Introdução ao Barramento de Serviço](https://azure.microsoft.com/services/service-bus/)
@@ -45,4 +45,4 @@
 - [Serviços de Nuvem](https://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

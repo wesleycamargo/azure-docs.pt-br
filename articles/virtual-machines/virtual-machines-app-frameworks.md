@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Estruturas de aplicativos | Microsoft Azure"
-   description="Descreve como criar estruturas de aplicativo populares usando modelos com o Gerenciador de Recursos do Azure. Exemplos incluem o LAMP Stack, SharePoint e SQL Server."
+   pageTitle="Implantar estruturas de aplicativo conhecidas usando modelos | Microsoft Azure"
+   description="Crie estruturas de aplicativo conhecidas usando os modelos do Gerenciador de Recursos do Azure para instalar o Active Directory, o Docker e muito mais."
    services="virtual-machines"
    documentationCenter="virtual-machines"
    authors="squillace"
@@ -14,36 +14,82 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="infrastructure"
-   ms.date="10/21/2015"
+   ms.date="02/03/2016"
    ms.author="rasquill"/>
 
-# Criar estruturas de aplicativo usando modelos
-
-Use esse conteúdo para criar ótimos itens, rapidamente. Além desses modelos, você pode pesquisar por meio dos [modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/).
+# Implantar estruturas populares de aplicativo usando os modelos do Gerenciador de Recursos do Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
 
+Geralmente, as cargas de trabalho exigem muitos recursos para funcionarem de acordo com o desejado. Os modelos do Gerenciador de Recursos do Azure permitem que você não só defina como os aplicativos são configurados, mas também como os recursos são implantados para permitir aplicativos configurados. Este artigo apresenta os modelos mais populares da galeria e fornece informações sobre como usar o portal do Azure, o Azure PowerShell ou a CLI do Azure para implantá-los.
 
-| Modelo | Descrição | Exibição do modelo | Implantá-lo agora mesmo |
-|:---|:---|:---:|:---:|
-| Domínio e floresta do Active Directory | Esse modelo implanta duas novas VMs (junto com uma nova rede virtual, balanceador de carga e a conta de armazenamento) e cria uma nova floresta e um domínio do Active Directory. Cada máquina virtual é criada como um controlador de domínio para o novo domínio e colocada em um conjunto de disponibilidade. Cada VM também terá um ponto de extremidade RDP adicionado com um endereço IP público com balanceamento de carga. | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/active-directory-new-domain-ha-2-dc) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
-| Servidor Web Apache | Esse modelo usa a extensão do Azure Linux CustomScript para implantar um servidor Web Apache. O modelo cria uma VM Ubuntu, instala o Apache2 e cria um arquivo HTML simples.| [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/apache2-on-ubuntu-vm) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapache2-on-ubuntu-vm%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
-| Cluster Couchbase | Este modelo implanta um cluster Couchbase em máquinas virtuais Ubuntu. | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/couchbase-on-ubuntu) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fcouchbase-on-ubuntu%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
-| Cluster DataStax | Este modelo instala um cluster DataStax em VMs Ubuntu usando a extensão do Azure Linux CustomScript.| [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/datastax-on-ubuntu) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdatastax-on-ubuntu%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
-| Cluster DataStax Enterprise | Este modelo instala um cluster DataStax Enterprise em VMs Ubuntu usando a extensão do Azure Linux CustomScript. | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/datastax-enterprise) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdatastax-enterprise%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
-| Aplicativo Django | Este modelo implanta um aplicativo Django em uma VM Ubuntu usando a extensão do Azure Linux CustomScript. Ele faz uma instalação silenciosa do Apache e Python. | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/django-app) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdjango-app%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
-| Contêineres de Docker | Este modelo permite implantar uma VM Ubuntu com Docker (usando a extensão de Docker) e três contêineres Docker retirados diretamente do Docker Hub e implantados usando o Docker Redigir. | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdocker-simple-on-ubuntu%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
-| Cluster Elasticsearch | Este modelo implanta um cluster Elasticsearch nas VMs Ubuntu e usa o modelo de vinculação para criar unidades de dimensionamento de nó de dados. | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Felasticsearch%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
-| Nós mestre e subordinados Jenkins | Este modelo implanta um nó mestre Jenkins em uma VM Ubuntu e vários nós Jenkins subordinados nas duas VMs adicionais. | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/jenkins-on-ubuntu) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fjenkins-on-ubuntu%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
-| Cluster Kafka | Este modelo implanta um cluster Kafka em VMs Ubuntu usando a extensão do Azure Linux CustomScript. O modelo também cria uma VM publicamente acessível que atua como uma "jumpbox", que permite realizar SSH nos nós Kafka para fins de solução de problemas ou diagnóstico.| [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/kafka-on-ubuntu) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%kafka-on-ubuntu%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
-| LAMP Stack no Ubuntu | Este modelo usa a extensão do Azure Linux CustomScript para implantar um aplicativo LAMP criando uma VM Ubuntu, fazendo uma instalação silenciosa do MySQL, Apache e PHP e, em seguida, criando um script PHP simples. | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/lamp-app) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Flamp-app%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
-| MongoDB | Este modelo implanta um MongoDB em uma máquina virtual Ubuntu usando a extensão Linux CustomScript.| [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-on-ubuntu) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fmongodb-on-ubuntu%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
-| Cluster Redis | Este modelo implanta um cluster Redis em máquinas virtuais Ubuntu. O modelo também cria uma VM publicamente acessível que atua como uma "jumpbox", que permite realizar SSH nos nós Redis para fins de solução de problemas ou diagnóstico. [Passo a passo detalhado.](virtual-machines-redis-template.md)| [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/redis-high-availability) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fredis-high-availability%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
-| Farm do SharePoint | Este modelo cria três novas máquinas virtuais do Azure, cada uma com um endereço IP público, um balanceador de carga e uma rede virtual. Ele configura uma VM para ser um Controlador de Domínio Active Directory para uma nova floresta e domínio, uma com o domínio do SQL Server associado e a terceira com um farm do SharePoint e o site. Todas as VMs têm RDP voltada ao público. [Passo a passo detalhado.](virtual-machines-rmtemplate-sharepoint-walkthrough.md) | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/sharepoint-three-vm) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-three-vm%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
-| Cluster Spark | Este modelo implanta um cluster Spark em máquinas virtuais Ubuntu. O modelo também cria uma VM publicamente acessível que atua como uma "jumpbox", que permite realizar SSH nos nós Spark para fins de solução de problemas ou diagnóstico. [Passo a passo detalhado.](virtual-machines-spark-template.md)| [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/spark-ubuntu-multidisks) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fspark-ubuntu-multidisks%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
-| Instalação do Tomcat e OpenJDK | Este modelo instala o OpenJDK e o Tomcat em uma VM Ubuntu. | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/openjdk-tomcat-ubuntu-vm) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fopenjdk-tomcat-ubuntu-vm%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
-| WordPress | Este modelo implanta uma LAMP stack completa em uma única VM Ubuntu e, em seguida, instala e inicializa o WordPress. | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/wordpress-single-vm-ubuntu) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fwordpress-single-vm-ubuntu%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
-| Cluster ZooKeeper | Este modelo cria um cluster de três nós ZooKeeper nas VMs Ubuntu. | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/zookeeper-cluster-ubuntu-vm) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fzookeeper-cluster-ubuntu-vm%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
+## Aplicativos
+
+Nesta tabela, você pode encontrar mais informações sobre os parâmetros que são usados no modelo. É possível inspecionar o modelo antes de implantá-lo ou implantar o modelo diretamente do portal do Azure.
+
+| Aplicativo | Saiba mais | Exibição do modelo | Implantá-lo agora |
+|:---|:---:|:---:|:---:|
+| Active Directory | [Galeria](https://azure.microsoft.com/documentation/templates/active-directory-new-domain-ha-2-dc/) | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/active-directory-new-domain-ha-2-dc) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
+| Apache | [Galeria](https://azure.microsoft.com/documentation/templates/apache2-on-ubuntu-vm/) | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/apache2-on-ubuntu-vm) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapache2-on-ubuntu-vm%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+| Couchbase | [Galeria](https://azure.microsoft.com/documentation/templates/couchbase-on-ubuntu/) | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/couchbase-on-ubuntu) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fcouchbase-on-ubuntu%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
+| DataStax | [Galeria](https://azure.microsoft.com/documentation/templates/datastax-on-ubuntu/) | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/datastax-on-ubuntu) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdatastax-on-ubuntu%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
+| Django | [Galeria](https://azure.microsoft.com/documentation/templates/django-app/) | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/django-app) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdjango-app%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
+| Docker | [Galeria](https://azure.microsoft.com/documentation/templates/docker-simple-on-ubuntu/) | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdocker-simple-on-ubuntu%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
+| Elasticsearch | [Galeria](https://azure.microsoft.com/documentation/templates/elasticsearch/) | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Felasticsearch%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
+| Jenkins | [Galeria](https://azure.microsoft.com/documentation/templates/jenkins-on-ubuntu/) | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/jenkins-on-ubuntu) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fjenkins-on-ubuntu%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
+| Kafka | [Galeria](https://azure.microsoft.com/documentation/templates/kafka-ubuntu-multidisks/) | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/kafka-on-ubuntu) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%kafka-on-ubuntu%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
+| LAMP | [Galeria](https://azure.microsoft.com/pt-BR/documentation/templates/lamp-app/) | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/lamp-app) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Flamp-app%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
+| MongoDB | [Galeria](https://azure.microsoft.com/documentation/templates/mongodb-on-ubuntu/) | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-on-ubuntu) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fmongodb-on-ubuntu%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
+| Redis | [Galeria](https://azure.microsoft.com/documentation/templates/redis-high-availability/) | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/redis-high-availability) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fredis-high-availability%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
+| SharePoint | [Galeria](https://azure.microsoft.com/documentation/templates/sharepoint-three-vm/) | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/sharepoint-three-vm) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-three-vm%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
+| Spark | [Galeria](https://azure.microsoft.com/documentation/templates/spark-ubuntu-multidisks/) | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/spark-ubuntu-multidisks) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fspark-ubuntu-multidisks%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
+| Tomcat | [Galeria](https://azure.microsoft.com/documentation/templates/openjdk-tomcat-ubuntu-vm/) | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/openjdk-tomcat-ubuntu-vm) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fopenjdk-tomcat-ubuntu-vm%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
+| WordPress | [Galeria](https://azure.microsoft.com/documentation/templates/wordpress-single-vm-ubuntu/) | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/wordpress-single-vm-ubuntu) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fwordpress-single-vm-ubuntu%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
+| ZooKeeper | [Galeria](https://azure.microsoft.com/documentation/templates/zookeeper-cluster-ubuntu-vm/) | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/zookeeper-cluster-ubuntu-vm) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fzookeeper-cluster-ubuntu-vm%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
+
+Além desses modelos, você pode procurar nos [modelos da galeria](https://azure.microsoft.com/documentation/templates/).
+
+## Portal do Azure
+
+Implantar um modelo usando o portal do Azure é fácil, bastando apenas enviar uma URL para ele. Você precisa do nome do arquivo de modelo para implantá-lo. É possível localizar o nome examinando as páginas na galeria de modelos ou no repositório do Github. Altere {nome do modelo} nessa URL para o nome do modelo que você deseja implantar e insira-o no navegador:
+
+    https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F{template name}%2Fazuredeploy.json
+
+Você deverá ver a folha de implantação personalizada:
+
+![](./media/virtual-machines-workload-template-ad-domain/azure-portal-template.png)
+
+1.	Para o painel **Modelo**, clique em **Salvar**.
+2.	Clique em **Parâmetros**. No painel **Parâmetros**, insira novos valores, selecione os valores permitidos ou aceite os valores padrão e, em seguida, clique em **OK**.
+3.	Se necessário, clique em **Assinatura** e selecione a assinatura correta do Azure.
+4.	Clique em **Grupo de recursos** e selecione um grupo de recursos existente. Como alternativa, clique em **Ou criar novo** para criar um novo para essa implantação.
+5.	Se necessário, clique em **Local** e selecione o local correto do Azure.
+6.	Se for necessário, clique em **Termos legais** para rever os termos e o contrato de utilização do modelo.
+7.	Clique em **Criar**.
+
+Dependendo do modelo, pode levar algum tempo para que o Azure implante os recursos.
+
+## Azure PowerShell
+
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
+
+Execute esses comandos para criar o grupo de recursos e a implantação depois de substituir o texto entre colchetes pelo nome do grupo de recursos, pelo local, pelo nome da implantação e pelo nome do modelo:
+
+	New-AzureRmResourceGroup -Name {resource-group-name} -Location {location}
+	New-AzureRmResourceGroupDeployment -Name {deployment-name} -ResourceGroupName {resource-group-name} -TemplateUri "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/{template-name}/azuredeploy.json"
+
+Ao executar o comando **New-AzureRmResourceGroupDeployment**, será solicitado que você forneça os valores para os parâmetros no modelo. Dependendo do modelo, pode levar algum tempo para que o Azure implante os recursos.
+
+## CLI do Azure
+
+[Instale a CLI do Azure](../xplat-cli-install.md), faça logon e verifique se você tiver habilitado os comandos do Gerenciador de Recursos. Para saber mais sobre como fazer isso, confira [Usar a CLI do Azure para Mac, para Linux e para Windows com o Gerenciador de Recursos do Azure](../xplat-cli-azure-resource-manager.md).
+
+Execute esses comandos para criar o grupo de recursos e a implantação depois de substituir o texto entre colchetes pelo nome do grupo de recursos, pelo local, pelo nome da implantação e pelo nome do modelo:
+
+	azure group create {resource-group-name} {location}
+	azure group deployment create --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/{template-name}/azuredeploy.json {resource-group-name} {deployment-name}
+
+Ao executar o comando **azure group deployment create**, será solicitado que você forneça os valores para os parâmetros no modelo. Dependendo do modelo, pode levar algum tempo para que o Azure implante os recursos.
 
 ## Próximas etapas
 
@@ -51,4 +97,4 @@ Descubra todos os modelos à sua disposição no [GitHub](https://github.com/Azu
 
 Saiba mais sobre o [Gerenciador de Recursos do Azure](../resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

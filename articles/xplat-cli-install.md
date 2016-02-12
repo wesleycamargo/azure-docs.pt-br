@@ -21,7 +21,6 @@
 
 Instale rapidamente a CLI (Interface de linha de comando) do Azure para usar um conjunto de comandos de software livre baseados em shell para criar e gerenciar os recursos do Microsoft Azure. Use um dos pacotes de instalação fornecidos para instalar a CLI do Azure no seu sistema operacional, instale a CLI usando Node.js e **npm** ou instale a CLI do Azure como um contêiner em um host Docker. Para obter mais opções e um histórico, consulte o repositório do projeto no [GitHub](https://github.com/azure/azure-xplat-cli).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-both-include.md)]
 
 Quando a CLI do Azure estiver instalada, você poderá [conectá-la à sua assinatura do Azure](xplat-cli-connect.md) e executar os comandos **azure** na sua interface de linha de comando (Bash, Terminal, Prompt de comando e assim por diante) para trabalhar com seus recursos do Azure.
 
@@ -45,9 +44,9 @@ Se o Node.js já estiver instalado em seu sistema, use o seguinte comando para i
 
 	npm install azure-cli -g
 
-> [AZURE.NOTE]Nas distribuições Linus, talvez você precise usar `sudo` para executar o comando __npm__ com êxito.
+> [AZURE.NOTE] Nas distribuições Linus, talvez você precise usar `sudo` para executar o comando __npm__ com êxito.
 
-### Instalar o node.js e o npm em distribuições Linux que usam o gerenciamento de pacotes [dpkg](http://en.wikipedia.org/wiki/Dpkg)
+### Instalar o Node.js e o npm em distribuições Linux que usam o gerenciamento de pacotes [dpkg](http://en.wikipedia.org/wiki/Dpkg)
 
 Em geral, essas distribuições usam a [ferramenta de empacotamento avançada (apt)](http://en.wikipedia.org/wiki/Advanced_Packaging_Tool) ou outras ferramentas com base no `.deb`formato do pacote. Alguns exemplos são Ubuntu e Debian.
 
@@ -59,14 +58,14 @@ A maioria das distribuições mais recentes exige a instalação de **nodejs-leg
 
 Algumas das distribuições mais antigas, como o Ubuntu 12.04 exigem instalando a distribuição binária atual do node.js. O código a seguir mostra como fazer isso instalando e usando **curl**.
 
->[AZURE.NOTE]Os comandos são tirados das instruções de instalação encontradas [aqui](https://github.com/joyent/node/wiki/installing-node.js-via-package-manager). No entanto, ao usar o **sudo** como um destino de pipe, você sempre deve verificar os scripts que está instalando e validar se eles fazem exatamente o que você espera antes de executá-los pelo **sudo**. Quanto mais poder, mais responsabilidade.
+>[AZURE.NOTE] Os comandos são tirados das instruções de instalação encontradas [aqui](https://github.com/joyent/node/wiki/installing-node.js-via-package-manager). No entanto, ao usar o **sudo** como um destino de pipe, você sempre deve verificar os scripts que está instalando e validar se eles fazem exatamente o que você espera antes de executá-los pelo **sudo**. Quanto mais poder, mais responsabilidade.
 
 	sudo apt-get install curl
 	curl -sL https://deb.nodesource.com/setup | sudo bash -
 	sudo apt-get install -y nodejs
 	sudo npm install -g azure-cli
 
-### Instalar o node.js e o npm em distribuições Linux que usam o gerenciamento de pacotes [rpm](http://en.wikipedia.org/wiki/RPM_Package_Manager)
+### Instalar o Node.js e o npm em distribuições Linux que usam o gerenciamento de pacotes [rpm](http://en.wikipedia.org/wiki/RPM_Package_Manager)
 
 Instalar o node.js em distribuições baseadas em RPM requer a habilitação do repositório EPEL. O código a seguir mostra as práticas recomendadas para instalação no CentOS 7. (Observe que, na primeira linha abaixo, o '-' (hífen) é importante!)
 
@@ -80,7 +79,7 @@ Instalar o node.js em distribuições baseadas em RPM requer a habilitação do 
 
 ### Instalar o node.js e npm no Windows e Mac OS X
 
-Você pode instalar o node. js e o npm no Windows e no OS X com os instaladores de [Nodejs.org](https://nodejs.org/en/download/). Talvez seja necessário reiniciar o computador para concluir a instalação. Verifique se o node e o npm foram instalados corretamente abrindo uma janela de Comando ou Terminal e digitando
+Você pode instalar o Node. js e o npm no Windows e no OS X com os instaladores de [Nodejs.org](https://nodejs.org/en/download/). Talvez seja necessário reiniciar o computador para concluir a instalação. Verifique se o node e o npm foram instalados corretamente abrindo uma janela de Comando ou Terminal e digitando
 
 	npm -v
 
@@ -108,7 +107,7 @@ No final da instalação, você verá algo semelhante ao seguinte:
 	|-- kuduscript@0.1.2 (commander@1.1.1, streamline@0.4.11)
 	|-- azure@0.7.13 (dateformat@1.0.2-1.2.3, envconf@0.0.4, mpns@2.0.1, mime@1.2.10, validator@1.4.0, xml2js@0.2.8, wns@0.5.3, request@2.25.0)
 
->[AZURE.NOTE]Para os sistemas Linux, você também pode instalar a CLI do Azure com a compilação do [código-fonte](http://go.microsoft.com/fwlink/?linkid=253472). Para saber mais sobre como compilar a partir do código-fonte, confira o arquivo INSTALL incluído no arquivo morto.
+>[AZURE.NOTE] Para os sistemas Linux, você também pode instalar a CLI do Azure com a compilação do [código-fonte](http://go.microsoft.com/fwlink/?linkid=253472). Para saber mais sobre como compilar a partir do código-fonte, confira o arquivo INSTALL incluído no arquivo morto.
 
 ## Usar um contêiner do Docker
 
@@ -159,4 +158,4 @@ npm upgrade -g azure-cli
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->
