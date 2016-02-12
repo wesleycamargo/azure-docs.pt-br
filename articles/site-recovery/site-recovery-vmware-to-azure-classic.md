@@ -442,8 +442,8 @@ Veja como preparar os computadores com Windows para que o Serviço de mobilidade
 
 	- Faça logon como raiz.
 	- No arquivo /etc/ssh/sshd\_config, localize a linha que começa com PasswordAuthentication.
-	- Remova a marca de comentário da linha e altere o valor de **no** para **yes**.
-	- Localize a linha que começa com **Subsystem** e remova a marca de comentário da linha.
+	- Remova a marca de comentário da linha e altere o valor de **não** para **sim**.
+	- Localize a linha que começa com **Subsistema** e remova a marca de comentário da linha.
  
 		![Linux](./media/site-recovery-vmware-to-azure-classic/mobility2.png)
 
@@ -455,7 +455,8 @@ Os instaladores estão disponíveis em C:\\Program Files (x86) \\Microsoft Azure
 Sistema operacional de origem | Arquivo de instalação do Serviço de mobilidade
 --- | ---
 Windows Server (somente 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_Windows\_* release.exe
-CentOS 6.4, 6.5, 6.6 (somente 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz SUSE Linux Enterprise Server 11 SP3 (somente 64 bits) | Microsoft ASR\_UA\_9.*. 0.0\_SLES11-SP3-64\_*release.tar.gz
+CentOS 6.4, 6.5, 6.6 (somente 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz 
+SUSE Linux Enterprise Server 11 SP3 (somente 64 bits) | Microsoft ASR\_UA\_9.*. 0.0\_SLES11-SP3-64\_*release.tar.gz
 Oracle Enterprise Linux 6.4, 6.5 (somente 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
 
 

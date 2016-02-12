@@ -411,7 +411,7 @@ No caso da Atividade de cópia, quando a fonte é do tipo **DocumentDbCollection
 
 	**Resposta:** se os registros têm um campo "ID" e a operação de cópia tenta inserir um registro com a mesma ID, a operação de cópia gerará um erro.
  
-3. **Pergunta:** o suporte do Data Factory faz [intervalo ou o particionamento de dados baseado em hash](https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)?
+3. **Pergunta:** o suporte do Data Factory faz [intervalo ou o particionamento de dados baseado em hash]( https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)?
 
 	**Resposta:** Não. 
 4. **Pergunta:** posso especificar mais de uma coleção de Banco de Dados de Documentos para uma tabela?
@@ -419,4 +419,4 @@ No caso da Atividade de cópia, quando a fonte é do tipo **DocumentDbCollection
 	**Resposta:** Não. Somente uma coleção pode ser especificada no momento.
      
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0204_2016--->

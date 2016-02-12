@@ -65,7 +65,7 @@ O Centro de Desenvolvimento da Microsoft é usada para registrar as informaçõe
 
 2. Acesse [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure)
 
-3. Entre com a conta da Microsoft de registro de sua empresa (por exemplo, marketplace@example.com)).
+3. Entre com a conta da Microsoft de registro de sua empresa (por exemplo, marketplace@example.com).
 
     ![desenho][img-signin]
 
@@ -143,11 +143,15 @@ O portal de publicação do Azure é usado para publicar e gerenciar suas oferta
 
 2.	Acesse [http://publish.windowsazure.com](http://publish.windowsazure.com).
 
-3.	Entre com a conta da Microsoft de registro de sua empresa (ou seja, marketplace@example.com)) e adicione coadministradores conforme necessário.
+3.	Entre com a conta da Microsoft de registro de sua empresa (ou seja, marketplace@example.com) e adicione coadministradores conforme necessário.
 
   > [AZURE.TIP] As políticas de participação são descritas no [site do Azure](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
-  > Se você tiver problemas com o registro no Centro de Desenvolvedores, registre um tíquete de suporte, como explicado abaixo: 1. [Entre em contato com o Suporte](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=pt-BR&pesid=15635&ccsid=635847950577064286) 2. Escolha **Centro de Desenvolvedores**. 3. Escolha **Perfil**. 4. Escolha um método de contato.
+  > Se você tiver problemas com o registro no Centro de Desenvolvedores, registre um tíquete de suporte, como explicado abaixo:
+ 1. [Entre em contato com o Suporte](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=pt-BR&pesid=15635&ccsid=635847950577064286) 
+ 2. Escolha **Centro de Desenvolvedores**. 
+ 3. Escolha **Perfil**. 
+ 4. Escolha um método de contato.
 
 
 

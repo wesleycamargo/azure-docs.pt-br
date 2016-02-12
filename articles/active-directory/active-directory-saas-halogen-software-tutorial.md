@@ -155,7 +155,8 @@ O objetivo desta seção é criar um usuário de teste no portal do Azure chamad
 7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**. <br><br>![O que é o Azure AD Connect][105]  
 8. Na página de caixa de diálogo **Obter senha temporária** execute as seguintes etapas:<br><br>![O que é o Azure AD Connect][106]   
 
-    a. Anote o valor da **Nova Senha**. b. Clique em **Concluído**.
+    a. Anote o valor da **Nova Senha**.
+    b. Clique em **Concluído**.
   
  
 ### Criação de um usuário de teste do Halogen Software
@@ -166,7 +167,12 @@ O objetivo desta seção é criar um usuário chamado Britta Simon no Halogen So
 
 1. Faça logon no aplicativo **Halogen Software** como administrador.
 2. Clique na guia **Central do Usuário** e clique em **Criar Usuário**. <br><br>![O que é o Azure AD Connect][300]  
-3. Na página do diálogo **Novo Usuário**, execute as seguintes etapas: <br><br>![O que é o Azure AD Connect][301] a. Na caixa de texto **Nome**, digite **Brenda**. b. Na caixa de texto **Sobrenome**, digite **Fernandes**. c. Na caixa de texto **Nome de Usuário**, digite o **Nome de usuário de Brenda Fernandes no portal do AD do Azure**. d. Na caixa de texto **Senha**, digite uma senha para Brenda. e. Clique em **Salvar**.
+3. Na página do diálogo **Novo Usuário**, execute as seguintes etapas: <br><br>![O que é o Azure AD Connect][301] 
+  a. Na caixa de texto **Nome**, digite **Brenda**. 
+  b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
+  c. Na caixa de texto **Nome de Usuário**, digite o **Nome de usuário de Brenda Fernandes no portal do AD do Azure**. 
+  d. Na caixa de texto **Senha**, digite uma senha para Brenda. 
+  e. Clique em **Salvar**.
 
 
 ### Atribuição do usuário de teste do AD do Azure

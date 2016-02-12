@@ -98,6 +98,7 @@ Informações adicionais sobre o Hub IoT:
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
 
+[Tratamento de falhas transitórias]: https://msdn.microsoft.com/pt-BR/library/hh680901(v=pandp.50).aspx
 
 [Guia do desenvolvedor do Hub IoT do Azure - Dispositivo para nuvem]: https://azure.microsoft.com/pt-BR/documentation/articles/iot-hub-devguide/#d2c
 
@@ -107,6 +108,7 @@ Informações adicionais sobre o Hub IoT:
 
 
 [Enviar mensagens de nuvem para o dispositivo com o Hub IoT]: iot-hub-csharp-csharp-c2d.md
+[Processar mensagens do dispositivo para a nuvem]: iot-hub-csharp-csharp-process-d2c.md
 [Carregando arquivos de dispositivos]: iot-hub-csharp-csharp-file-upload.md
 
 [Visão geral do Hub IoT]: iot-hub-what-is-iot-hub.md

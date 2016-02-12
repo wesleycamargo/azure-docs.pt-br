@@ -38,7 +38,7 @@ O [Lote](https://azure.microsoft.com/services/batch/) é um serviço de platafor
 
 * [Tutorial: Introdução à biblioteca de lote do Azure para .NET](batch-dotnet-get-started.md)
 
-* [Fórum do lote](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=azurebatch)
+* [Fórum do lote](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
 
 * [Vídeos de lote](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 
@@ -62,7 +62,7 @@ O HPC Pack é a solução de HPC gratuita da Microsoft fundamentada nas tecnolog
 * [Aumento para o lote do Azure com o HPC Pack](https://technet.microsoft.com/library/mt612877.aspx)
 
 
-* [Fóruns do Windows HPC](https://social.microsoft.com/Forums/pt-BR/home?category=windowshpc)
+* [Fóruns do Windows HPC](https://social.microsoft.com/Forums/home?category=windowshpc)
 
 ### Soluções de cluster do Linux e OSS
 
@@ -81,7 +81,7 @@ Use esses modelos de início rápido do Azure para implantar clusters HPC Linux 
 
 * [Referência do MS-MPI](https://msdn.microsoft.com/library/dn473458.aspx)
 
-* [Fórum do MPI](https://social.microsoft.com/Forums/pt-BR/home?forum=windowshpcmpi)
+* [Fórum do MPI](https://social.microsoft.com/Forums/home?forum=windowshpcmpi)
 
 
 ## Instâncias de computação intensiva

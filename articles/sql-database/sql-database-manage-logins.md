@@ -28,7 +28,7 @@ No Banco de dados SQL do Microsoft Azure, quando você se inscreve para o servi�
 
 A conta da entidade no nível de servidor do Banco de Dados SQL do Azure sempre tem permissão para gerenciar toda a segurança no nível de servidor e nível de banco de dados. Este tópico descreve como você pode usar a entidade no nível de servidor e outras contas para gerenciar logons e bancos de dados no Banco de dados SQL.
 
-Os usuários do Azure que estiverem acessando o Banco de Dados SQL por meio do Controle de Acesso Baseado em Função do Azure e a API REST do Gerenciador de Recursos do Azure recebem permissões de suas Funções no Azure. As ações dos membros de função do Azure são executadas para eles pelo Mecanismo de Banco de Dados. Elas não são afetadas pelo modelo de permissões do Mecanismo de Banco de Dados e não são abordadas neste tópico. Para obter mais informações, confira [RBAC: funções internas](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/#sql-db-contributor).
+Os usuários do Azure que estiverem acessando o Banco de Dados SQL por meio do Controle de Acesso Baseado em Função do Azure e a API REST do Gerenciador de Recursos do Azure recebem permissões de suas Funções no Azure. As ações dos membros de função do Azure são executadas para eles pelo Mecanismo de Banco de Dados. Elas não são afetadas pelo modelo de permissões do Mecanismo de Banco de Dados e não são abordadas neste tópico. Para obter mais informações, confira [RBAC: funções internas]( https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/#sql-db-contributor).
 
 > [AZURE.IMPORTANT] O Banco de dados SQL V12 permite que os usuários se autentifiquem no banco de dados usando usuários do banco de dados independente. Os usuários do banco de dados independente não exigem logons. Isso torna os bancos de dados mais portáteis, mas reduz a capacidade de controlar o acesso ao banco de dados da entidade no nível de servidor. A habilitação de usuários do banco de dados independente tem impactos de segurança importantes. Para obter mais informações, consulte [Usuários do banco de dados independente - Tornando o banco de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx), [Bancos de dados independentes](https://technet.microsoft.com/library/ff929071.aspx), [CREATE USER (Transact-SQL)](https://technet.microsoft.com/library/ms173463.aspx) e [Conectar-se ao Banco de Dados SQL usando a autenticação do Active Directory do Azure](sql-database-aad-authentication.md).
 
@@ -176,4 +176,4 @@ SELECT * FROM sys.databases;
 
 [Limitações e diretrizes de segurança do Banco de Dados SQL do Azure](sql-database-security-guidelines.md) [Conectando-se ao Banco de Dados SQL usando a autenticação do Active Directory do Azure](sql-database-aad-authentication.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0204_2016--->

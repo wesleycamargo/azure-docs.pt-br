@@ -104,7 +104,7 @@ Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo
 	    "type": "AzureBlob",
 	    "linkedServiceName": "StorageLinkedService",
 	    "typeProperties": {
-	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}/",
+	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
 	      "partitionedBy": [
 	        {
 	          "name": "Year",
@@ -264,7 +264,7 @@ Os dados são coletados de um novo blob a cada hora (frequência: hora, interval
 	    "type": "AzureBlob",
 	    "linkedServiceName": "StorageLinkedService",
 	    "typeProperties": {
-	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/",
+	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
 	      "fileName": "{Hour}.csv",
 	      "partitionedBy": [
 	        {

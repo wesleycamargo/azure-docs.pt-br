@@ -210,7 +210,7 @@ Após você ter feito isso, todos os arquivos estáticos do serviço de nuvem ob
 	  </system.webServer>
 	</configuration>
 
-Esta configuração faz com que todos os arquivos estáticos da pasta *\\Content* sejam armazenados em cache por 15 dias.
+Esta configuração faz com que todos os arquivos estáticos da pasta *\Content* sejam armazenados em cache por 15 dias.
 
 Para obter mais informações sobre como configurar o elemento `<clientCache>`, consulte [Cache do Cliente <clientCache>](http://www.iis.net/configreference/system.webserver/staticcontent/clientcache).
 

@@ -27,8 +27,10 @@ Após fazer logon no [Portal de Contas do Azure](https://account.windowsazure.co
 Para exibir ou baixar sua fatura:
 
 1. Entre no Portal de Contas do Azure usando sua ID Organizacional.
-2. Clique em **Marketplace**. É exibida uma lista completa de todos os pedidos no Marketplace que foram feitos por sua conta do Azure. Você observará que os pedidos são agrupados por ID e nome de assinatura do Azure pai. ![Pedidos no Marketplace](./media/billing-understand-your-azure-marketplace-charges/marketplace-orders.png)
-3. Se clicar em qualquer um dos pedidos exibidos, você será levado para a visão geral de resumo do pedido para o ciclo de cobrança atual. Uma explicação sobre os diferentes modelos de preços pode ser encontrada nas [Perguntas frequentes sobre o Marketplace](https://azure.microsoft.com/marketplace/faq/). ![Resumo do pedido](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
+2. Clique em **Marketplace**. É exibida uma lista completa de todos os pedidos no Marketplace que foram feitos por sua conta do Azure. Você observará que os pedidos são agrupados por ID e nome de assinatura do Azure pai.
+![Pedidos no Marketplace](./media/billing-understand-your-azure-marketplace-charges/marketplace-orders.png)
+3. Se clicar em qualquer um dos pedidos exibidos, você será levado para a visão geral de resumo do pedido para o ciclo de cobrança atual. Uma explicação sobre os diferentes modelos de preços pode ser encontrada nas [Perguntas frequentes sobre o Marketplace]( https://azure.microsoft.com/marketplace/faq/).
+![Resumo do pedido](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
 
 A exibição de resumo contém as seguintes informações para cada pedido: - Preço - Ciclo de Cobrança - Data de Compra - Assinatura Pai Associada - Moeda de Cobrança
 
@@ -65,4 +67,4 @@ Para exibir os encargos reais, siga estas etapas:
 1. Clique em **Exibir Encargos** na página **HISTÓRICO DE COBRANÇA**. Será aberta uma nova guia, mostrando o [histórico de pedidos](https://account.microsoft.com/billing/orders#/). Observe que, se estiver tentando acessar seu uso bruto no Portal de Gerenciamento de Cobrança e Contas, você precisará chamar o suporte clicando no link de suporte na parte inferior da página.) ![Histórico de pedidos](./media/billing-understand-your-azure-marketplace-charges/order-history.jpg)
 2. Identifique o pedido que deseja examinar e clique em **Detalhes** para exibir uma divisão dos encargos, que incluirá o subtotal, o imposto e os encargos totais. ![Detalhes do pedido](./media/billing-understand-your-azure-marketplace-charges/order-details.jpg)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0204_2016--->
