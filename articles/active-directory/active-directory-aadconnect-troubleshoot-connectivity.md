@@ -26,7 +26,7 @@ Neste artigo, mostraremos como a Fabrikam se conecta ao AD do Azure por meio de 
 
 Primeiro, precisamos garantir que [**machine.config**](active-directory-aadconnect-prerequisites.md#connectivity) esteja configurado corretamente. ![machineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/machineconfig.png)
 
-> [AZURE.NOTE] Em alguns blogs, está documentado que as alterações devem ser feitas em miiserver.exe.config. No entanto, esse arquivo será substituído em cada atualização, portanto, mesmo que ele funcione durante a instalação inicial, o sistema irá parar de funcionar na primeira atualização. Por esse motivo, a recomendação é atualizar o machine.config.
+> [AZURE.NOTE]Em alguns blogs, está documentado que as alterações devem ser feitas em miiserver.exe.config. No entanto, esse arquivo será substituído em cada atualização, portanto, mesmo que ele funcione durante a instalação inicial, o sistema irá parar de funcionar na primeira atualização. Por esse motivo, a recomendação é atualizar o machine.config.
 
 Em segundo lugar, precisamos garantir que winhttp esteja configurado. Isso pode ser feito com o [**netsh**](active-directory-aadconnect-prerequisites.md#connectivity). ![netsh](./media/active-directory-aadconnect-troubleshoot-connectivity/netsh.png)
 
@@ -39,7 +39,7 @@ Desses intervalos, a tabela a seguir é o mínimo absoluto para oferecer a capac
 | mscrl.microsoft.com | HTTP/80 | Usada para baixar as listas CRL. |
 | *. verisign.com | HTTP/80 | Usada para baixar as listas CRL. |
 | *. windows.net | HTTPS/443 | Usada para fazer logon no AD do Azure. |
-| *. microsoftonline.com | HTTPS/443 | Usada para configurar o diretório do AD do Azure e importar/exportar dados. |
+| *.microsoftonline.com | HTTPS/443 | Usada para configurar o diretório do AD do Azure e importar/exportar dados. |
 
 ## Erros no assistente
 O assistente de instalação está usando dois contextos de segurança diferentes. Na página **Conectar-se ao AD do Azure** utiliza o usuário conectado no momento. Na página **Configurar** o assistente muda para a [conta que executa o serviço no mecanismo de sincronização](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts). As configurações de proxy que realizamos são globais para o computador de forma que, se houver um problema, ele provavelmente já aparecerá na página **Conectar-se ao AD do Azure** no assistente.
@@ -126,4 +126,4 @@ Hora | URL
 11/01/2016 08:49 | connect://*bba900-anchor*.microsoftonline.com:443
 11/01/2016 08:49 | connect://*bba800-anchor*.microsoftonline.com:443
 
-<!----HONumber=AcomDC_0128_2016-->
+<!-----HONumber=AcomDC_0128_2016-->
