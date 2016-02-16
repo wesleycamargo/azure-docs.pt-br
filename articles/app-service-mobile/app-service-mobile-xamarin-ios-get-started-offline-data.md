@@ -142,7 +142,7 @@ Nesta seção, você vai reconectar o aplicativo ao back-end móvel, que simula 
 
 * [Sincronização de dados offline em Aplicativos Móveis do Azure]
 
-* [Cobertura em nuvem: sincronização offline nos serviços móveis do Azure] (observação: o vídeo está nos Serviços Móveis, mas a sincronização offline funciona de maneira semelhante nos Aplicativos Móveis do Azure)
+* [Cobertura em nuvem: sincronização offline nos serviços móveis do Azure] \(observação: o vídeo está nos Serviços Móveis, mas a sincronização offline funciona de maneira semelhante nos Aplicativos Móveis do Azure)
 
 <!-- ##Summary
 
@@ -170,4 +170,4 @@ Nesta seção, você vai reconectar o aplicativo ao back-end móvel, que simula 
  
 [Cobertura em nuvem: sincronização offline nos serviços móveis do Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!---HONumber=AcomDC_0204_2016--->
+<!----HONumber=AcomDC_0204_2016--->

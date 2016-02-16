@@ -9,4 +9,4 @@ Um balanceador de carga interno é configurado em uma rede virtual
 - pontos de extremidade <BR>
 - balanceador de carga interno<BR>
 
-<!------HONumber=AcomDC_1223_2015-->
+<!-------HONumber=AcomDC_1223_2015-->
