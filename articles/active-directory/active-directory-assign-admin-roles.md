@@ -86,4 +86,4 @@ O administrador global tem acesso a todos os recursos administrativos. Por padr√
 - [Gerenciar senhas](active-directory-manage-passwords.md)
 - [Gerenciar grupos](active-directory-manage-groups.md)
 
-<!----HONumber=AcomDC_0204_2016-->
+<!-----HONumber=AcomDC_0204_2016--->
