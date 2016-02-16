@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/01/2016"
+	ms.date="02/04/2016"
 	ms.author="jgao"/>
 
 
@@ -41,7 +41,7 @@ O procedimento a seguir usa um modelo ARM do Azure para criar um cluster HBase. 
 
 1. Clique na imagem a seguir para abrir um modelo ARM no Portal do Azure. O modelo ARM está localizado em um contêiner de blob público. 
 
-    [![Implantar no Azure](./media/hdinsight-hbase-tutorial-get-started-linux/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2FHbase.json)
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2FHbase.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/pt-BR/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. Na folha **Parâmetros**, insira o seguinte:
 
@@ -50,8 +50,8 @@ O procedimento a seguir usa um modelo ARM do Azure para criar um cluster HBase. 
     - **Nome e senha de logon do cluster**: o nome de logon padrão é **admin**.
     - **Nome de usuário e senha SSH**: o nome de usuário padrão é **sshuser**. Você pode renomeá-lo. Outros parâmetros são opcionais.  
 3. Clique em **OK** para salvar os parâmetros.
-4. Na folha **Implantação personalizada**, clique na caixa suspensa **Grupo de recursos** e então clique em **Novo** para criar um novo grupo de recursos. O grupo de recursos é um contêiner que agrupa o cluster, a conta de armazenamento dependente e outros recursos vinculados.
-5. Clique em **Termos legais** e clique em **Criar**.
+4. Na folha **Implantação personalizada**, clique na caixa suspensa **Grupo de recursos** e clique em **Novo** para criar um novo grupo de recursos. O grupo de recursos é um contêiner que agrupa o cluster, a conta de armazenamento dependente e outros recursos vinculados.
+5. Clique em **Termos legais** e em **Criar**.
 6. Clique em **Criar**. A criação de um cluster demora cerca de 20 minutos.
 
 
@@ -110,7 +110,7 @@ Depois de concluir o procedimento a seguir, ele fará mais sentido.
 O HBase inclui vários métodos de carregamento de dados em tabelas. Para obter mais informações, consulte [Carregamento em massa](http://hbase.apache.org/book.html#arch.bulk.load).
 
 
-Um arquivo de dados de exemplo foi carregado em um contêiner público de blobs, **wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*. O conteúdo do arquivo de dados é:
+Um arquivo de exemplo de dados foi carregado para um contêiner público de blobs, **wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*. O conteúdo do arquivo de dados é:
 
 	8396	Calvin Raji		230-555-0191	230-555-0191	5415 San Gabriel Dr.
 	16600	Karen Wu		646-555-0113	230-555-0192	9265 La Paz
@@ -185,13 +185,13 @@ Você pode consultar os dados nas tabelas HBase usando o Hive. Esta seção cria
 
 3. Use o seguinte comando para criar uma nova tabela HBase com duas famílias de coluna:
 
-		curl -u <UserName>:<Password> -v -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" -H "Accept: application/json" -H "Content-Type: application/json" -d "{\"@name\":\"test\",\"ColumnSchema\":[{\"name\":\"Personal\"},{\"name\":\"Office\"}]}"
+		curl -u <UserName>:<Password> -v -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" -H "Accept: application/json" -H "Content-Type: application/json" -d "{"@name":"test","ColumnSchema":[{"name":"Personal"},{"name":"Office"}]}"
 
 	O esquema é fornecido no formato JSon.
 
 4. Use o comando a seguir para inserir alguns dados:
 
-		curl -u <UserName>:<Password> -v -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" -H "Accept: application/json" -H "Content-Type: application/json" -d "{\"Row\":{\"key\":\"1000\",\"Cell\":{\"column\":\"Personal:Name\", \"$\":\"John Dole\"}}}"
+		curl -u <UserName>:<Password> -v -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" -H "Accept: application/json" -H "Content-Type: application/json" -d "{"Row":{"key":"1000","Cell":{"column":"Personal:Name", "$":"John Dole"}}}"
 
 5. Use o comando a seguir para obter uma linha:
 
@@ -257,8 +257,7 @@ Neste tutorial do HBase para o HDInsight, você aprendeu a criar um cluster HBas
 
 Para obter mais informações, consulte:
 
-- [Visão geral do HBase do HDInsight][hdinsight-hbase-overview]:
-o HBase é um banco de dados NoSQL de software livre Apache baseado no Hadoop que fornece acesso aleatório e uma sólida consistência para grandes quantidades de dados não estruturados e semiestruturados.
+- [Visão geral do HBase do HDInsight][hdinsight-hbase-overview]\: o HBase é um banco de dados NoSQL de software livre Apache baseado no Hadoop que fornece acesso aleatório e uma sólida consistência para grandes quantidades de dados não estruturados e semiestruturados.
 
 
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
@@ -288,4 +287,4 @@ o HBase é um banco de dados NoSQL de software livre Apache baseado no Hadoop qu
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

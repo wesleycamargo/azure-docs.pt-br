@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-phonegap"
 	ms.devlang="multiple"
 	ms.topic="get-started-article" 
-	ms.date="11/06/2015"
+	ms.date="02/10/2016"
 	ms.author="ggailey777"/>
 
 # Introdução aos Serviços Móveis
@@ -109,7 +109,7 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
 	Isso envia uma solicitação de POST para o novo serviço móvel hospedado no Azure. Os dados da solicitação são inseridos na tabela **TodoItem**. Os itens armazenados na tabela são retornados pelo serviço móvel, e os dados são exibidos na lista.
 
-	> [AZURE.IMPORTANT]As alterações neste projeto de plataforma serão substituídas se o projeto principal for recriado com as ferramentas do PhoneGap. Em vez disso, faça alterações no diretório www raiz do projeto, conforme descrito na seção a seguir.
+	> [AZURE.IMPORTANT] As alterações neste projeto de plataforma serão substituídas se o projeto principal for recriado com as ferramentas do PhoneGap. Em vez disso, faça alterações no diretório www raiz do projeto, conforme descrito na seção a seguir.
 
 4. Novamente no [portal clássico do Azure], clique na guia **Dados** e clique na tabela **TodoItem**.
 
@@ -176,4 +176,4 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

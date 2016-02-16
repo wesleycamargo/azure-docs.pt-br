@@ -12,7 +12,7 @@
 	ms.workload="multiple" 
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="01/08/2016" 
 	ms.author="tomfitz"/>
 
@@ -89,7 +89,7 @@ O cmdlet solicita as credenciais de logon para sua conta do Azure. Depois de ent
 
 As configurações de conta expiram, portanto, você precisa atualizá-las ocasionalmente. Para atualizar as configurações de conta, execute **Login-AzureRmAccount** novamente.
 
->[AZURE.NOTE]Os módulos do Gerenciador de Recursos requer o Login-AzureRmAccount. Um arquivo de configurações de publicação não é suficiente.
+>[AZURE.NOTE] Os módulos do Gerenciador de Recursos requer o Login-AzureRmAccount. Um arquivo de configurações de publicação não é suficiente.
 
 ## Obter locais para tipos de recursos
 
@@ -461,4 +461,4 @@ Você pode mover os recursos existentes para um novo grupo de recursos. Para obt
 - Para ver um exemplo detalhado da implantação de um projeto, confira [Implantar microsserviços de maneira previsível no Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Para saber mais sobre como solucionar problemas de uma implantação com falha, confira [Solucionando problemas de implantações de grupos de recursos no Azure](./virtual-machines/resource-group-deploy-debug.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

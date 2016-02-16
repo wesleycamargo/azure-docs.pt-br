@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/08/2015"  
+	ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -25,7 +25,7 @@
 - [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
 
 
-> [AZURE.NOTE]Para poder criar uma conta de Serviços de Mídia do Azure, você deve ter uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Avaliação Gratuita do Azure</a>.
+> [AZURE.NOTE] Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
  
 O Portal Clássico do Azure fornece uma maneira de criar rapidamente uma conta de Serviços de Mídia do Azure. Você pode usar sua conta para acessar os Serviços de Mídia que permitem que você armazene, criptografe, codifique, gerencie e transmita conteúdo de mídia no Azure. Quando você cria uma conta de Serviços de Mídia, você também cria uma conta de armazenamento associada (ou usa uma existente) na mesma região geográfica que a conta de Serviços de Mídia.
 
@@ -73,9 +73,9 @@ Na parte inferior da página, o botão **GERENCIAR CHAVES** é exibido. Quando v
 
 ![Página Serviços de Mídia](./media/media-services-create-account/wams-mediaservices-page.png)
 
-Quando você clica duas vezes no nome da conta, a página **Início Rápido** é exibida por padrão. Esta página permite que você execute algumas tarefas de gerenciamento que também estão disponíveis em outras páginas do portal. Por exemplo, você pode carregar um arquivo de vídeo nesta página ou na página **CONTEÚDO**.
+Quando você clica duas vezes no nome da conta, a página **Início Rápido** é exibida por padrão. Esta página permite que você execute algumas tarefas de gerenciamento que também estão disponíveis em outras páginas do portal. Por exemplo, você pode carregar um arquivo de vídeo por meio desta página ou da página **CONTEÚDO**.
 
-Além disso, você pode exibir o código que usa o SDK dos Serviços de Mídia do Azure para realizar as seguintes tarefas: carregar, codificar e publicar vídeos. Você pode clicar em um dos links na seção **ESCREVER UM CÓDIGO**, copiar o código e usá-lo no aplicativo.
+Além disso, você pode exibir o código que usa o SDK dos Serviços de Mídia do Azure para realizar as seguintes tarefas: carregar, codificar e publicar vídeos. Você pode clicar em um dos links na seção **ESCREVER UM CÓDIGO**, copiar o código e usá-lo em seu aplicativo.
 
 
 
@@ -106,4 +106,4 @@ Além disso, você pode exibir o código que usa o SDK dos Serviços de Mídia d
 
   [Portal Clássico do Azure]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

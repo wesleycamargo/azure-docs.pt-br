@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="11/05/2015"
+	ms.date="02/05/2016"
 	ms.author="ricksal"/>
 
 # Introdução aos Serviços Móveis para Android (back-end do JavaScript)
@@ -97,4 +97,4 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [Introdução às notificações por push]: mobile-services-javascript-backend-android-get-started-push.md
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

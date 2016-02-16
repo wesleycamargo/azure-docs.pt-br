@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="11/05/2015"
+   ms.date="02/02/2016"
    ms.author="elizapo"/>
 
 # Execute qualquer aplicativo do Windows em qualquer dispositivo com o Azure RemoteApp
@@ -75,7 +75,7 @@ A primeira parte você, no papel de administrador, faz. Em seguida, temos alguma
 
 1. Comece publicando a interface de linha de comando (cmd.exe). Na guia **Publicação**, selecione **cmd** e, em seguida, clique em **Publicar > Publicar programa usando o caminho**.
 2. Digite o nome do aplicativo e o caminho. Para nosso objetivo, use "Gerenciador de Arquivos" como o nome e "% SYSTEMDRIVE%\\windows\\explorer.exe" como o caminho. ![Publique o arquivo cmd.exe.](./media/remoteapp-anyapp/ra-publishcmd.png)
-3. Agora, você precisa criar uma [conta de armazenamento](../storage-create-storage-account.md) do Azure. Nomeamos o nosso "accessstorage", então escolha um nome que seja significativo para você. (Para citar Highlander incorretamente, pode haver apenas um "accessstorage".) ![Nossa conta de armazenamento do Azure](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
+3. Agora, você precisa criar uma [conta de armazenamento](../storage/storage-create-storage-account.md) do Azure. Nomeamos o nosso "accessstorage", então escolha um nome que seja significativo para você. (Para citar Highlander incorretamente, pode haver apenas um "accessstorage".) ![Nossa conta de armazenamento do Azure](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
 4. Agora volte ao seu painel para que você possa obter o caminho para o armazenamento (local de ponto de extremidade). Você usará isso daqui a pouco, portanto certifique-se de copiá-lo em algum lugar. ![A chave da conta de armazenamento](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
 5. Em seguida, quando a conta de armazenamento tiver sido criada, você precisa da chave de acesso primário. Clique em **Gerenciar chaves de acesso** e, em seguida, copie a chave de acesso primário.
 6. Agora, defina o contexto da conta de armazenamento e crie um novo compartilhamento de arquivo para o Access. Execute os seguintes cmdlets em uma janela elevada do Windows PowerShell:
@@ -109,4 +109,4 @@ Agora que você já dominou a criação de uma coleção, tente criar uma [cole�
 
 <!--Image references-->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

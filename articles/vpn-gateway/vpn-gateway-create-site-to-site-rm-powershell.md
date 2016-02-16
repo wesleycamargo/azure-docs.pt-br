@@ -4,7 +4,7 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
 
@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/14/2015"
+   ms.date="02/04/2016"
    ms.author="cherylmc"/>
 
 # Criar uma rede virtual com uma conexão VPN site a site usando o PowerShell
@@ -23,9 +23,9 @@
 - [Azure Classic Portal](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
-Este artigo mostrará a você como criar uma rede virtual e uma conexão VPN site a site para sua rede local usando o modelo de implantação do Gerenciador de Recursos do Azure. Se você estiver procurando por um modelo de implantação diferente para esta configuração, use as guias acima para selecionar o artigo desejado. Se você quiser conectar Redes Virtuais, mas não estiver criando uma conexão com uma instalação local, confira [Configurar uma conexão de Rede Virtual para Rede Virtual](vpn-gateway-vnet-vnet-rm-ps.md).
+Este artigo lhe mostrará como criar uma rede virtual e uma conexão VPN site a site para sua rede local usando o modelo de implantação do **Gerenciador de Recursos do Azure**. As conexões site a site podem ser usadas para configurações entre instalações e híbridas. Para criar uma conexão site a site para o modelo de implantação **clássico**, consulte [Configurar uma conexão site a site usando o modelo de implantação clássico](vpn-gateway-site-to-site-create.md). Se quiser conectar VNets, mas não estiver criando uma conexão com uma instalação local, consulte [Configurar uma conexão de VNet a VNet para o modelo de implantação clássico](virtual-networks-configure-vnet-to-vnet-connection.md) ou [Configurar uma conexão de VNet para VNet para o modelo de implantação do Gerenciador de Recursos](vpn-gateway-vnet-vnet-rm-ps.md).
 
-**Sobre os modelos de implantação do Azure**
+**Sobre modelos de implantação do Azure**
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
@@ -246,4 +246,4 @@ Você pode usar o exemplo a seguir como uma diretriz.
 
 Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Veja [Criar uma máquina virtual](../virtual-machines/virtual-machines-windows-tutorial.md) para obter as etapas.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

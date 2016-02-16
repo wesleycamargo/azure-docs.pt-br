@@ -13,11 +13,11 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/17/2015"
+   ms.date="02/09/2016"
    ms.author="seanmck"/>
 
 # Preparar seu ambiente de desenvolvimento
- Para compilar e executar os [aplicativos do Azure Service Fabric][1] em seu computador de desenvolvimento, você precisará instalar o tempo de execução, o SDK e as ferramentas. Você também precisará configurar um cluster local.
+ Para compilar e executar os [aplicativos do Azure Service Fabric][1] em seu computador de desenvolvimento, você precisará instalar o tempo de execução, o SDK e as ferramentas. Você também precisa habilitar a execução dos scripts do Windows PowerShell incluídos no SDK.
 
 ## Pré-requisitos
 ### Versões de sistema operacional com suporte
@@ -31,7 +31,7 @@ Há suporte para as seguintes versões de sistema operacional:
 
 As ferramentas do Service Fabric dependem do Visual Studio 2015, que pode ser encontrado no [site do Visual Studio][2].
 
-> [AZURE.NOTE]Se não estiver executando uma das versões de sistema operacional com suporte ou prefere não instalar o Visual Studio 2015 no seu computador, você poderá configurar uma máquina virtual do Azure com o Windows Server 2012 R2 e o Visual Studio 2015 pré-instalados. Você pode fazer isso usando uma imagem da galeria de máquinas virtuais do Azure.
+> [AZURE.NOTE] Se não estiver executando uma das versões de sistema operacional com suporte ou prefere não instalar o Visual Studio 2015 no seu computador, você poderá configurar uma máquina virtual do Azure com o Windows Server 2012 R2 e o Visual Studio 2015 pré-instalados. Você pode fazer isso usando uma imagem da galeria de máquinas virtuais do Azure.
 
 ## Instalar o tempo de execução, o SDK e as ferramentas
 
@@ -58,12 +58,13 @@ Agora que seu ambiente de desenvolvimento está configurado, você pode começar
 
 - [Criar seu primeiro aplicativo do Service Fabric no Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 - [Saiba como implantar e gerenciar aplicativos no seu cluster local](service-fabric-get-started-with-a-local-cluster.md)
-- [Saiba mais sobre os modelos de programação: Reliable Actors e Reliable Services](service-fabric-choose-framework.md)
+- [Saiba mais sobre os modelos de programação: Reliable Services e Reliable Actors](service-fabric-choose-framework.md)
 - [Confira os exemplos de código do Service Fabric no GitHub](https://aka.ms/servicefabricsamples)
 - [Visualizar o cluster usando o Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
+- [Siga o roteiro de aprendizagem do Service Fabric para obter uma introdução abrangente à plataforma](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 
 [1]: http://azure.microsoft.com/campaigns/service-fabric/ "Página de campanha da Malha do Serviço"
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Link do WebPI"
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/26/2016"
+	ms.date="02/05/2016"
 	ms.author="tdykstra"/>
 
 # Consumir um aplicativo de API do JavaScript usando CORS
@@ -76,6 +76,8 @@ Nessas ferramentas, defina a propriedade `cors` no tipo de recurso Microsoft.Web
 		    ]
 		}
 
+Para ver um exemplo de um modelo de Gerenciador de Recursos do Azure que inclui o JSON para a configuração de CORS, abra o [arquivo azuredeploy.json no repositório do aplicativos de exemplo](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json).
+
 ## <a id="tutorialstart"></a> Continuando o tutorial de introdução do .NET
 
 Se você estiver seguindo a série de introdução do Node.js ou do Java para aplicativos de API, vá para o próximo artigo, [autenticação para aplicativos de API do Serviço de Aplicativo](app-service-api-authentication.md).
@@ -108,19 +110,6 @@ No [aplicativo de exemplo ToDoList](https://github.com/Azure-Samples/app-service
 		    };
 		}]);
 
-### Configurar o projeto ToDoListAngular para chamar o aplicativo de API ToDoListAPI 
-
-Antes de implantar o front-end do Azure, você precisa alterar o ponto de extremidade de API no projeto do AngularJS para que o código chame o aplicativo de API do Azure ToDoListAPI que você criou no tutorial anterior.
-
-1. No projeto ToDoListAngular, abra o arquivo *app/scripts/todoListSvc.js*.
-
-2. Marque como comentário a linha que define `apiEndpoint` como URL localhost, remova a marca de comentário da linha que define `apiEndPoint` como uma URL de azurewebsites.net e substitua o espaço reservado pelo nome real do aplicativo de API criado anteriormente. Se você tiver nomeado o aplicativo de API ToDoListAPI0125, o código agora será semelhante ao exemplo a seguir.
-
-		var apiEndPoint = 'https://todolistapi0125.azurewebsites.net';
-		//var apiEndPoint = 'http://localhost:45914';
-
-3. Salve suas alterações.
-
 ### Criar um novo aplicativo Web para o projeto ToDoListAngular
 
 O procedimento para criar um novo aplicativo Web e implantar nele um projeto é o mesmo que você viu no primeiro tutorial desta série, exceto que você não altera o tipo de **Aplicativo Web** para **Aplicativo de API**.
@@ -145,11 +134,59 @@ O procedimento para criar um novo aplicativo Web e implantar nele um projeto é 
 
 	O Visual Studio cria o aplicativo Web, cria um perfil de publicação para ele e exibe a etapa **Conexão** do assistente **Publicar Web**.
 
+	Antes de clicar em **Publicar** no assistente para **Publicar na Web**, você configurará o novo aplicativo Web para chamar o aplicativo de API de camada intermediária que está em execução no Serviço de Aplicativo.
+
+### Definir a URL de camada intermediária nas configurações do aplicativo Web
+
+1. Vá para o [portal do Azure](https://portal.azure.com/) e navegue até a folha **Aplicativo Web** do aplicativo Web que você criou para hospedar o projeto TodoListAngular (front-end).
+
+2. Clique em **Configurações > Configurações do aplicativo**.
+
+3. Na seção **Configurações do aplicativo**, adicione a seguinte chave e valor:
+
+	|Chave|Valor|Exemplo
+	|---|---|---|
+	|toDoListAPIURL|nome de aplicativo de API de tipo médio https://{your}.azurewebsites.net|https://todolistapi0121.azurewebsites.net|
+
+4. Clique em **Salvar**.
+
+	Quando o código for executado no Azure, esse valor substituirá a URL de localhost no arquivo Web.config.
+
+	O código que obtém o valor de configuração está em *index.cshtml*:
+
+		<script type="text/javascript">
+		    var apiEndpoint = "@System.Configuration.ConfigurationManager.AppSettings["toDoListAPIURL"]";
+		</script>
+		<script src="app/scripts/todoListSvc.js"></script>
+
+	O código em *todoListSvc.js* usa a configuração:
+
+		return {
+		    getItems : function(){
+		        return $http.get(apiEndpoint + '/api/TodoList');
+		    },
+		    getItem : function(id){
+		        return $http.get(apiEndpoint + '/api/TodoList/' + id);
+		    },
+		    postItem : function(item){
+		        return $http.post(apiEndpoint + '/api/TodoList', item);
+		    },
+		    putItem : function(item){
+		        return $http.put(apiEndpoint + '/api/TodoList/', item);
+		    },
+		    deleteItem : function(id){
+		        return $http({
+		            method: 'DELETE',
+		            url: apiEndpoint + '/api/TodoList/' + id
+		        });
+		    }
+		};
+
 ### Implantar o projeto da Web ToDoListAngular no novo aplicativo Web
 
-*  Na etapa **Conexão** do assistente **Publicar Web**, clique em **Publicar**.
+*  No Visual Studio, na etapa **Conexão** do assistente **Publicar Web**, clique em **Publicar**.
 
-	O Visual Studio implanta o projeto ToDoListAngular no aplicativo Web e abre um navegador para a URL do aplicativo Web.
+	O Visual Studio implanta o projeto ToDoListAngular no novo aplicativo Web e abre um navegador para a URL do aplicativo Web.
 
 ### Testar o aplicativo sem CORS habilitado 
 
@@ -200,7 +237,7 @@ O suporte a CORS da API Web é mais flexível do que o suporte a CORS do Serviç
 
 ### Como habilitar o CORS no código da API Web
 
-As etapas a seguir resumem o processo para habilitar o suporte ao CORS da API Web. Para saber mais, veja [Habilitando solicitações entre origens na API Web ASP.NET 2](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api).
+As etapas a seguir resumem o processo para habilitar o suporte ao CORS da API Web. Para saber mais, confira [Permitindo solicitações entre origens na API Web ASP.NET 2](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api).
 
 1. Em um projeto de API Web, inclua uma linha de código `config.EnableCors()` no método **Register** da classe **WebApiConfig**, como no exemplo a seguir. 
 
@@ -238,4 +275,4 @@ As etapas a seguir resumem o processo para habilitar o suporte ao CORS da API We
 
 Neste tutorial, você viu como habilitar o suporte a CORS do Serviço de Aplicativo para que o código JavaScript de cliente possa chamar uma API em um domínio diferente. No próximo artigo da série de introdução a Aplicativos de API, você saberá mais sobre [Autenticação para aplicativos de API do Serviço de Aplicativo](app-service-api-authentication.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

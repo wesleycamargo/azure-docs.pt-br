@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="11/18/2015" 
+	ms.date="02/09/2016" 
 	ms.author="spelluru"/>
 
 # Introdução ao serviço de Fábrica de Dados do Azure
@@ -57,4 +57,4 @@ Serviços vinculados definem as informações necessárias para o Data Factory s
 
 Com os quatro conceitos simples de conjuntos de dados, atividades, pipelines e serviços vinculados, você está pronto para começar! Você pode [criar seu primeiro pipeline](data-factory-build-your-first-pipeline.md) desde o início ou implantar uma amostra pronta seguindo as instruções em nosso artigo [Exemplos de Data Factory](data-factory-samples.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

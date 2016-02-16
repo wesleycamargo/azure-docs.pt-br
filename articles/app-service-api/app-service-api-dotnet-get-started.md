@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="01/26/2016"
+	ms.date="02/05/2016"
 	ms.author="tdykstra"/>
 
 # Introdução aos aplicativos de API e ao ASP.NET no Serviço de Aplicativo do Azure
@@ -340,6 +340,8 @@ Para fazer isso, defina a propriedade `apiDefinition` no tipo de recurso `Micros
 		  "url": "https://todolistdataapi.azurewebsites.net/swagger/docs/v1"
 		}
 
+Para ver um exemplo de um modelo do Gerenciador de Recursos do Azure que inclui o JSON para definir a propriedade de definição de API, abra o [arquivo azuredeploy.json no repositório de aplicativos de exemplo](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json).
+
 ## <a id="codegen"></a> Consumir de um cliente .NET usando código de cliente gerado
 
 Uma das vantagens da integração do Swagger a aplicativos de API do Azure é a geração automática de código. As classes de cliente geradas tornam mais fácil escrever código para chamar um aplicativo de API.
@@ -392,25 +394,23 @@ O projeto ToDoListAPI já tem o código cliente gerado, mas você o excluirá e 
 
 	O trecho a seguir mostra como o código instancia o objeto de cliente e chama o método Get.
 
-		private ToDoListDataAPI db = new ToDoListDataAPI(new Uri("http://localhost:45914"));
+		private ToDoListDataAPI db = new ToDoListDataAPI(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
 		
 		public ActionResult Index()
 		{
 		    return View(db.Contacts.Get());
 		}
 
-	Esse código passa a URL do IIS Express local do projeto da API para o construtor de classe de cliente de modo que você possa executar o aplicativo localmente. Se você omitir o parâmetro do construtor, o ponto de extremidade padrão será a URL da qual você gerou o código.
+	O parâmetro de construtor obtém a URL de ponto de extremidade da configuração do aplicativo `toDoListDataAPIURL`. No arquivo Web.config, esse valor é definido como a URL do IIS Express local do projeto de API da configuração `toDoListDataAPIURL` para que você possa executar o aplicativo localmente. Se você omitir o parâmetro do construtor, o ponto de extremidade padrão será a URL da qual você gerou o código.
 
-6. A classe de cliente será gerada com um nome diferente baseado no nome de seu aplicativo de API. Altere o código para que o nome do tipo corresponda ao que foi gerado em seu projeto e remova a URL. Por exemplo, se você desse ao Aplicativo de API o nome ToDoListDataAPI0121, o código seria semelhante ao seguinte exemplo:
+6. A classe de cliente será gerada com um nome diferente baseado no nome de seu aplicativo de API. Altere o código para que o nome do tipo corresponda ao que foi gerado em seu projeto. Por exemplo, se você desse ao Aplicativo de API o nome ToDoListDataAPI0121, o código seria semelhante ao seguinte exemplo:
 
-		private ToDoListDataAPI0121 db = new ToDoListDataAPI0121();
+		private ToDoListDataAPI0121 db = new ToDoListDataAPI0121(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
 		
 		public ActionResult Index()
 		{
 		    return View(db.Contacts.Get());
 		}
-
-	A URL de destino padrão é o seu aplicativo de API ToDoListDataAPI porque o código é gerado com base nele. Se você tiver usado um método diferente para gerar o código, talvez tenha de especificar a URL do aplicativo de API do Azure da mesma maneira que especificou a URL local.
 
 #### Criar um aplicativo de API para hospedar a camada intermediária
 
@@ -434,6 +434,22 @@ O projeto ToDoListAPI já tem o código cliente gerado, mas você o excluirá e 
 
 	O Visual Studio cria o aplicativo de API, cria um perfil de publicação para ele e exibe a etapa **Conexão** do assistente **Publicar Web**.
 
+### Definir a URL da camada de dados nas configurações do aplicativo de camada intermediária
+
+1. Vá para o [portal do Azure](https://portal.azure.com/) e navegue até a folha **Aplicativo de API** do aplicativo de API que você criou para hospedar o projeto TodoListAPI (camada intermediária).
+
+2. Clique em **Configurações > Configurações do aplicativo**.
+
+3. Na seção **Configurações do aplicativo**, adicione a seguinte chave e valor:
+
+	|Chave|Valor|Exemplo
+	|---|---|---|
+	|toDoListDataAPIURL|nome de aplicativo de API de tipo de preço https://{your}.azurewebsites.net|https://todolistdataapi0121.azurewebsites.net|
+
+4. Clique em **Salvar**.
+
+	Quando o código for executado no Azure, esse valor substituirá a URL de localhost no arquivo Web.config.
+
 ### Implantar o projeto ToDoListAPI para o novo aplicativo de API
 
 3.  Na etapa **Conexão** do assistente **Publicar Web**, clique em **Publicar**.
@@ -454,4 +470,4 @@ O projeto ToDoListAPI já tem o código cliente gerado, mas você o excluirá e 
 
 Neste tutorial, você viu como criar aplicativos de API, implantar código neles, gerar código cliente para eles e consumi-los usando clientes .NET. O próximo tutorial na série de introdução aos Aplicativos de API mostra como [consumir aplicativos de API de clientes JavaScript usando CORS](app-service-api-cors-consume-javascript.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

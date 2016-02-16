@@ -14,7 +14,7 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="NA" 
 	ms.workload="data-services" 
-	ms.date="01/29/2015" 
+	ms.date="01/29/2016" 
 	ms.author="andrl"/>
 
 # Criar um aplicativo Web Java usando o Banco de Dados de Documentos
@@ -786,4 +786,4 @@ Todos os exemplos neste tutorial foram incluídos no projeto [tarefas](https://g
 [1]: media/documentdb-java-application/keys.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -10,10 +10,10 @@
 <tags
    ms.service="security-center"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/10/2015"
+   ms.date="02/09/2016"
    ms.author="terrylan"/>
 
 # Perguntas frequentes sobre a Central de Segurança do Azure
@@ -103,4 +103,4 @@ As recomendações da lista de controle de acesso no momento se aplicam às máq
 ### Há suporte para as máquinas virtuais do Linux?
 A linha de base Central de Segurança do Azure oferece monitoramento para as máquinas virtuais do Linux (somente o Ubuntu versões 12.04, 14.04, 14.10 e 15.04). No futuro, o monitoramento de integridade de segurança adicional e a coleta/análise de dados estarão disponíveis, bem como o suporte adicional para distribuições do Linux.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

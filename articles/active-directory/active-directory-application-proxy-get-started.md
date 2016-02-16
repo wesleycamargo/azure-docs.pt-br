@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.topic="get-started-article"
+	ms.date="02/10/2016"
 	ms.author="kgremban"/>
 
 # Como fornecer acesso remoto seguro a aplicativos locais
@@ -59,7 +59,8 @@ Você pode fazer muito mais com o Proxy de Aplicativo:
 - [Assista aos nossos vídeos no Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 ## Recursos adicionais
-* [Inscrever-se no Azure como uma organização](sign-up-organization.md)
-* [Identidade do Azure](fundamentals-identity.md)
+- [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
+- [Inscrever-se no Azure como uma organização](sign-up-organization.md)
+- [Identidade do Azure](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

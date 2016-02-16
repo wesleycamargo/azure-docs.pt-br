@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="12/17/2015" 
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Utilizando criptografia dinâmica AES-128 e serviço de entrega de chaves
@@ -73,7 +73,7 @@ Para obter informações detalhadas, consulte [Carregar arquivos em uma conta do
 
 Com a criptografia dinâmica, tudo o que você precisa fazer é criar um ativo que contenha um conjunto de arquivos MP4 com múltiplas taxas de bits ou arquivos de origem de Smooth Streaming com múltiplas taxas de bits. Em seguida, com base no formato especificado na solicitação de fragmento ou manifesto, o servidor de Streaming OnDemand garantirá que você receba o fluxo no protocolo escolhido por você. Como resultado você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento, e os Serviços de Mídia vão criar e fornecer a resposta apropriada com base nas solicitações de um cliente. Para saber mais, consulte o tópico [Visão geral sobre o Empacotamento dinâmico](media-services-dynamic-packaging-overview.md).
 
-Para instruções sobre como codificar, consulte [Como codificar um ativo usando o Codificador de mídia padrão](media-services-dotnet-encode-with-media-encoder-standard.md).
+Para obter instruções sobre como codificar, consulte [Como codificar um ativo usando o Codificador de mídia padrão](media-services-dotnet-encode-with-media-encoder-standard.md).
 
 ##<a id="create_contentkey"></a>Criar uma chave de conteúdo e associá-la ao ativo codificado
 
@@ -621,4 +621,4 @@ O código a seguir mostra como enviar uma solicitação ao serviço de distribui
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

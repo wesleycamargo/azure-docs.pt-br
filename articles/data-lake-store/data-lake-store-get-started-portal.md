@@ -10,7 +10,7 @@
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="01/04/2016"
@@ -134,4 +134,4 @@ Para excluir uma conta do Repositório Azure Data Lake da folha de seu Repositó
 - [Usar a Análise Data Lake do Azure com o Repositório Data Lake](data-lake-analytics-get-started-portal.md)
 - [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0211_2016-->

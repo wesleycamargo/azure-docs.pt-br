@@ -12,18 +12,23 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="na"
     ms.topic="get-started-article"
-	ms.date="11/21/2015"
+	ms.date="02/04/2016"
     ms.author="awills"/>
 
 # Análise de aplicativos Android
 
-A Microsoft oferece duas soluções para devOps de dispositivo: o [HockeyApp](http://hockeyapp.net/), para análise de fluxo de trabalho e de falhas de devOps e o [Application Insights](app-insights-overview.md), para análise de uso e de falhas.
+A Microsoft fornece duas soluções para devOps de dispositivo: [HockeyApp](http://hockeyapp.net/) para análise do cliente e [Application Insights](app-insights-overview.md) para o servidor.
 
-O [HockeyApp](http://hockeyapp.net/) é a nossa solução de DevOps Móvel para aplicativos de dispositivos iOS, OS X, Android ou Windows, bem como aplicativos de plataforma cruzada baseados no Xamarin, no Cordova e no Unity. Com ele, você pode distribuir compilações para testadores beta, coletar dados de falha e obter comentários dos usuários. Ele é integrado ao Visual Studio Team Services, permitindo a compilação fácil de implantações e a integração de itens de trabalho. Saiba mais na [Base de Dados de Conhecimento do HockeyApp](http://support.hockeyapp.net/kb) e mantenha-se atualizado consultando o [Blog do HockeyApp](http://hockeyapp.net/blog/).
+O [HockeyApp](http://hockeyapp.net/) é a nossa solução de DevOps Móvel para aplicativos de dispositivos iOS, OS X, Android ou Windows, bem como aplicativos de plataforma cruzada baseados no Xamarin, no Cordova e no Unity. Com ele, você pode distribuir compilações para testadores beta, coletar dados de falha e obter comentários dos usuários. Ele é integrado ao Visual Studio Team Services, permitindo a compilação fácil de implantações e a integração de itens de trabalho.
 
-Use o [SDK do Application Insights para Android](https://github.com/Microsoft/ApplicationInsights-Android) para análise de uso. Se seu aplicativo tiver um lado de servidor, você poderá enviar os dados de cliente e de servidor para o mesmo recurso do Application Insights.
+Acesse:
 
-* Consulte [Introdução ao Application Insights para Android](https://github.com/Microsoft/ApplicationInsights-Android).
+* [HockeyApp](http://support.hockeyapp.net/kb)
 * [Introdução ao HockeyApp para Android](http://support.hockeyapp.net/kb/client-integration-android/hockeyapp-for-android-sdk).
+* [Blog do HockeyApp](http://hockeyapp.net/blog/)
+* Ingresse em [Hockeyapp Preseason](http://hockeyapp.net/preseason/) para obter versões anteriores.
 
-<!---HONumber=AcomDC_1203_2015-->
+Se seu aplicativo tiver um lado servidor, use o [Application Insights](app-insights-overview.md) para monitorar o lado do servidor Web de seu aplicativo em [ASP.NET](app-insights-asp-net.md) ou em [J2EE](app-insights-java-get-started.md).
+ 
+
+<!---HONumber=AcomDC_0211_2016-->

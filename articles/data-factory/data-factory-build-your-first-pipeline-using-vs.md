@@ -103,7 +103,7 @@ Nesta etapa, você vinculará um cluster do HDInsight sob demanda ao seu data fa
 	
 	- O Data Factory cria um cluster HDInsight **baseado no Windows** para você com o JSON acima. Você também pode fazer com que ele crie um cluster HDInsight **baseado em Linux**. Consulte [Serviço vinculado do HDInsight sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes. 
 	- Você pode usar **seu próprio cluster do HDInsight** em vez de usar um cluster do HDInsight sob demanda. Consulte [Serviço vinculado do HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) para obter detalhes.
-	- O cluster HDInsight cria um **contêiner padrão** no armazenamento de blobs especificado em JSON (**linkedServiceName**). O HDInsight não exclui esse contêiner quando o cluster é excluído. Isso ocorre por design. Com o serviço vinculado do HDInsight sob demanda, um cluster HDInsight é criado sempre que uma fatia precisa ser processada, a menos que haja um cluster ativo existente (**timeToLive**) e ele seja excluído quando o processamento for concluído.
+	- O cluster HDInsight cria um **contêiner padrão** no armazenamento de blobs especificado em JSON (**linkedServiceName**). O HDInsight não exclui esse contêiner quando o cluster é excluído. Esse comportamento é intencional. Com o serviço vinculado do HDInsight sob demanda, um cluster HDInsight é criado sempre que uma fatia precisa ser processada, a menos que haja um cluster ativo existente (**timeToLive**) e ele seja excluído quando o processamento for concluído.
 	
 		À medida que mais e mais fatias forem processadas, você verá muitos contêineres no armazenamento de blobs do Azure. Se você não precisa deles para solução de problemas dos trabalhos, convém excluí-los para reduzir o custo de armazenamento. O nome desses contêineres segue um padrão: "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp". Use ferramentas como [Gerenciador de Armazenamento da Microsoft](http://storageexplorer.com/) para excluir contêineres do armazenamento de blobs do Azure.
 
@@ -291,8 +291,8 @@ Quando você publicar a solução na próxima etapa, o arquivo **partitionweblog
 ## Etapa 4: Monitorar o pipeline
 
 6. Faça logon no [Portal do Azure](https://portal.azure.com/), faça o seguinte:
-	1. Clique em **Procurar** e selecione **Data factories**.
- 		![Procurar data factories](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
+	1. Clique em **Procurar** e selecione **Data factories**. 
+		![Procurar data factories](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
 	2. Escolha **FirstDataFactoryUsingVS** na lista de data factories. 
 7. Na home page do seu data factory, clique em **Diagrama**.
   
@@ -324,6 +324,8 @@ Quando você publicar a solução na próxima etapa, o arquivo **partitionweblog
  
 	![dados de saída](./media/data-factory-build-your-first-pipeline-using-vs/three-ouptut-files.png)
 
+Confira [Monitorar os conjuntos de dados e o pipeline](data-factory-monitor-manage-pipelines.md) para obter instruções sobre como usar o Portal do Azure para monitorar o pipeline e os conjuntos de dados que você criou neste tutorial.
+
 ## Use o Gerenciador de Servidores para examinar as entidades de data factory
 
 1. No **Visual Studio**, clique em **Exibir** no menu e em **Gerenciador de Servidores**.
@@ -342,11 +344,101 @@ Para atualizar as ferramentas da Azure Data Factory para o Visual Studio, faça 
 2. Selecione **Atualizações** no painel esquerdo e selecione **Galeria do Visual Studio**.
 3. Selecione **Ferramentas do Azure Data Factory para Visual Studio** e clique em **Atualizar**. Se você não vir essa entrada, você já tem a versão mais recente das ferramentas. 
 
-Confira [Monitorar os conjuntos de dados e o pipeline](data-factory-monitor-manage-pipelines.md) para obter instruções sobre como usar o Portal do Azure para monitorar o pipeline e os conjuntos de dados que você criou neste tutorial.
- 
+## Usar arquivos de configuração
+Você pode usar arquivos de configuração no Visual Studio para configurar propriedades de serviços/tabelas/pipelines vinculados de forma diferente para cada ambiente.
+
+Considere a definição de JSON a seguir para um serviço de Armazenamento do Azure vinculado. Para especificar **connectionString** com valores diferentes para accountname e accountkey com base no ambiente (Desenvolvimento/Teste/Produção) no qual você está implantando entidades de Data Factory. Você pode fazer isso usando um arquivo de configuração separado para cada ambiente.
+
+	{
+	    "name": "StorageLinkedService",
+	    "properties": {
+	        "type": "AzureStorage",
+	        "description": "",
+	        "typeProperties": {
+	            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+	        }
+	    }
+	} 
+
+### Adicionar um arquivo de configuração
+Adicione um arquivo de configuração para cada ambiente executando as seguintes etapas:
+
+1. Clique com botão direito do mouse no projeto de Data Factory em sua solução do Visual Studio, aponte para **Adicionar** e clique em **Novo item**.
+2. Selecione **Config** na lista de modelos instalados à esquerda, selecione **Arquivo de Configuração**, insira um **nome** para o arquivo de configuração e clique em **Adicionar**.
+
+	![Adicionar arquivo de configuração](./media/data-factory-build-your-first-pipeline-using-vs/add-config-file.png)
+3. Adicione parâmetros de configuração e seus valores no formato mostrado abaixo:
+
+		{
+		    "$schema": "http://datafactories.schema.management.azure.com/vsschemas/V1/Microsoft.DataFactory.Config.json",
+		    "AzureStorageLinkedService1": [
+		        {
+		            "name": "$.properties.typeProperties.connectionString",
+		            "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+		        }
+		    ],
+		    "AzureSqlLinkedService1": [
+		        {
+		            "name": "$.properties.typeProperties.connectionString",
+		            "value":  "Server=tcp:spsqlserver.database.windows.net,1433;Database=spsqldb;User ID=spelluru;Password=Sowmya123;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+		        }
+		    ]
+		}
+
+	Este exemplo configura a propriedade connectionString de um serviço de Armazenamento do Azure vinculado e um serviço vinculado do Azure SQL. Observe que a sintaxe para especificar o nome é [JsonPath](http://goessner.net/articles/JsonPath/).
+
+	Se o JSON tiver uma propriedade que tenha uma matriz de valores como mostrado abaixo:
+
+		"structure": [
+	  		{
+	  			"name": "FirstName",
+	    		"type": "String"
+	  		},
+	  		{
+	    		"name": "LastName",
+	    	    "type": "String"
+			}
+		],
+	
+	Você precisará configurar conforme indicado a seguir no arquivo de configuração (use a indexação com base em zero):
+		
+		{
+            "name": "$.properties.structure[0].name",
+            "value": "FirstName"
+        }
+        {
+            "name": "$.properties.structure[0].type",
+            "value": "String"
+        }
+        {
+            "name": "$.properties.structure[1].name",
+            "value": "LastName"
+        }
+        {
+            "name": "$.properties.structure[1].type",
+            "value": "String"
+        }
+
+
+### Implantar a solução usando uma configuração
+Ao publicar entidades do Azure Data Factory no VS, você pode especificar a configuração que deseja usar para essa operação de publicação.
+
+Para publicar as entidades em um projeto do Azure Data Factory usando o arquivo de configuração:
+
+1. Clique com botão direito do mouse no projeto de Data Factory e clique em **Publicar** para ver a caixa de diálogo **Publicar Itens**. 
+2. Selecione um data factory existente ou especifique valores para criar um novo na página **Configurar data factory** e clique em **Avançar**.   
+3. Na página **Publicar Itens**: você verá uma lista suspensa com as configurações disponíveis para o campo **Selecionar Configuração de Implantação**.
+
+	![Selecionar arquivo de configuração](./media/data-factory-build-your-first-pipeline-using-vs/select-config-file.png)
+
+4. Selecione o **arquivo de configuração** que deseja usar e clique em **Avançar**.
+5. Confirme que você vê o nome do arquivo JSON na página **Resumo** e clique em **Avançar**. 
+6. Clique em **Concluir** depois que a operação de implantação for concluída. 
+
+Quando você implantar, os valores do arquivo de configuração serão usados para definir valores de propriedades nos arquivos JSON para entidades de Data Factory (serviços vinculados, tabelas ou pipelines) antes que as entidades sejam implantadas no serviço Azure Data Factory.
 
 ## Próximas etapas
 Neste artigo, você criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script Hive em um cluster do HDInsight sob demanda. Para saber como usar uma Atividade de Cópia para copiar dados de um Blob do Azure para o SQL do Azure, confira [Tutorial: Copiar dados de um blob do Azure para o SQL do Azure](data-factory-get-started.md).
   
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

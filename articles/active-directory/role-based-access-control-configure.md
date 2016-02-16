@@ -10,10 +10,10 @@
 <tags
 	ms.service="active-directory"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/21/2016"
+	ms.date="02/10/2016"
 	ms.author="kgremban"/>
 
 # Controle de Acesso Baseado em Função do Azure
@@ -198,4 +198,4 @@ A propriedade **AssignableScopes** da função personalizada determina quem pode
 
 **Quem pode ver as funções personalizadas disponíveis para atribuição em um escopo?** -Os usuários que podem executar a operação `Microsoft.Authorization/roleDefinition/read` em um escopo podem exibir as funções RBAC disponíveis para atribuição nesse escopo. Todas as funções internas no RBAC do Azure permitem a visualização de funções disponíveis para atribuição.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->
