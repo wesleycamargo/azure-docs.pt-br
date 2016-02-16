@@ -78,63 +78,9 @@ Se você estiver seguindo a série de introdução do Node.js ou do Java para ap
 
 Se você estiver seguindo a série de introdução do .NET para aplicativos de API e já tiver implantado o aplicativo de exemplo, conforme indicado no [primeiro](app-service-api-dotnet-get-started.md) e no [segundo](app-service-api-cors-consume-javascript.md) tutoriais, vá para a seção [Configurar a autenticação](#azureauth).
 
-Se você ainda não tiver seguido o primeiro e o segundo tutoriais e quiser seguir este, primeiro verifique se cumpriu todos os [Pré-requisitos](app-service-api-dotnet-get-started.md#prerequisites) da série. Depois, execute as etapas a seguir para baixar e implantar o aplicativo de exemplo. Essas etapas duplicam o que você teria feito nos dois primeiros tutoriais, mas as instruções são abreviadas aqui.
+Se você ainda não realizou o primeiro e o segundo tutoriais e deseja seguir este, use o botão **Implantar no Azure** do [arquivo Leiame do repositório de exemplo de Lista de Tarefas Pendentes](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/readme.md) para implantar os aplicativos de API e o aplicativo Web.
 
-1. Baixe o aplicativo de exemplo.
-
-	a. Baixe o repositório [Azure-Samples/app-service-api-dotnet-todo-list](https://github.com/Azure-Samples/app-service-api-dotnet-to-do-list).
-
-	a. Abra a solução ToDoList no Visual Studio 2015 e compile a solução para restaurar os pacotes do NuGet.
-
-2. Implante o projeto ToDoListDataAPI para um novo aplicativo de API.
-
-	a. No projeto ToDoListDataAPI, abra o arquivo *App\_Start/SwaggerConfig.cs* e remova a marca de comentário do código **EnableSwaggerUi**.
-
-	b. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto ToDoListDataAPI e clique em **Publicar**.
-
-	c. Na etapa **Perfil** do assistente **Publicar Web**, clique em **Serviço de Aplicativo do Microsoft Azure**.
-
-	d. Na caixa de diálogo **Serviço de Aplicativo**, escolha a **Assinatura** do Azure que você deseja usar e clique em **Novo**.
-
-	e. Na guia **Hospedagem** da caixa de diálogo **Criar Serviço de Aplicativo**, clique em **Alterar Tipo** e em **Aplicativo de API**.
-
-	f. Insira um **Nome de Aplicativo de API**, como ToDoListDataAPI, mais um número para torná-lo exclusivo no domínio *azurewebsites.net*. Por exemplo: ToDoListDataAPI1230.
-
-	g. Na lista suspensa **Grupo de Recursos**, digite um nome como TodoListGroup para criar um novo grupo de recursos.
-
-	h. Na lista suspensa **Plano de Serviço de Aplicativo**, clique em **Novo** e insira as informações necessárias na caixa de diálogo **Configurar o Plano de Serviço de Aplicativo**.
-
-	i. Clique em **Criar**.
-
-	j. Clique em **Publicar**.
-
-3. Implante o projeto ToDoListAPI para um novo aplicativo de API.
-
-	a. No projeto ToDoListAPI, abra *Controllers\\ToDoListController.cs* e altere `http://localhost:45914` para `https://{your ToDoListDataAPI app name}.azurewebsites.net`.
-
-	b. Siga o mesmo procedimento para implantar o projeto ToDoListAPI que você seguiu para o projeto ToDoListDataAPI. Não se esqueça de alterar o tipo para **Aplicativo de API**.
-
-4. Implante o projeto ToDoListAngular para um novo aplicativo Web.
-
-	a. No projeto ToDoListAngular, abra o arquivo *app/scripts/todoListSvc.js*.
-
-	b. Marque como comentário a linha que define `apiEndpoint` como URL localhost, remova a marca de comentário da linha que define `apiEndPoint` como uma URL de azurewebsites.net e substitua o espaço reservado pelo nome real do aplicativo de API criado para ToDoListAPI.
-
-	c. Siga o mesmo procedimento para implantar o projeto ToDoListAPI que você seguiu para o projeto ToDoListDataAPI, **exceto que você não deve alterar o tipo de Aplicativo Web para Aplicativo de API**.
-
-5. Configure o CORS para o aplicativo de API no Azure.
-
-	a. Vá para o [portal do Azure](https://portal.azure.com/) e navegue até o aplicativo de API que você criou para o projeto ToDoListAPI.
-
-	b. Na folha **Aplicativo de API**, clique em **Configurações**.
-
-	c. Localize a seção **API** e clique em **CORS**.
-
-	d. Na caixa de texto, insira a URL da qual você deseja permitir chamadas. Para este tutorial, essa é a URL do aplicativo Web que você criou para o projeto ToDoListAngular. Por exemplo, digite "https://todolistangular.azurewebsites.net".
-
-	e. Clique em **Salvar**.
-
-6. Abra em um navegador a URL HTTPS do aplicativo Web e verifique se que você pode exibir, adicionar, editar e excluir itens pendentes.
+Quando a implantação for concluída, será mostrado um link HTTP para o aplicativo Web. Para executar o aplicativo e verificar se ele está funcionando, altere essa URL para HTTPS.
 
 ## <a id="azureauth"></a> Configurar a autenticação no Azure
 
@@ -391,4 +337,4 @@ Se você executar com êxito o aplicativo sem autenticação e, depois, ele não
 
 Neste tutorial, você aprendeu como usar a autenticação do Serviço de Aplicativo para um aplicativo de API e como chamar o aplicativo de API usando a biblioteca ADAL JS. No próximo tutorial, você aprenderá a [proteger o acesso ao aplicativo de API para cenários entre serviços](app-service-api-dotnet-service-principal-auth.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

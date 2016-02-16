@@ -3,7 +3,7 @@
 Para implantar o modelo ARM baixado usando a CLI do Azure, siga as etapas abaixo.
 
 1. Se você nunca usou a CLI do Azure, consulte [Instalar e configurar a CLI do Azure](xplat-cli-install.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
-2. Execute o comando **azure config mode** para alternar para o modo do Gerenciador de Recursos, como mostrado abaixo.
+2. Execute a opção de comando **`azure config mode`** para alternar para o modo do Gerenciador de Recursos, como mostrado abaixo.
 
 		azure config mode arm
 
@@ -11,7 +11,7 @@ Para implantar o modelo ARM baixado usando a CLI do Azure, siga as etapas abaixo
 
 		info:    New mode is arm
 
-3. Se necessário, execute **azure group create** para criar um novo grupo de recursos, como mostrado abaixo. Observe a saída do comando. A lista exibida após a saída explicar os parâmetros usados. Para saber mais sobre grupos de recursos, visite [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md).
+3. Se necessário, execute o **`azure group create`** para criar um novo grupo de recursos, como mostrado abaixo. Observe a saída do comando. A lista exibida após a saída explicar os parâmetros usados. Para obter mais informações sobre grupos de recursos, visite [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md).
 
 		azure group create -n TestRG -l centralus
 
@@ -32,7 +32,7 @@ Para implantar o modelo ARM baixado usando a CLI do Azure, siga as etapas abaixo
 	- **-n (ou --name)**. Nome do novo grupo de recursos. Para o nosso cenário, *TestRG*.
 	- **-l (ou --location)**. Região do Azure em que o novo grupo de recursos será criado. Para o nosso cenário, *centralus*.
 
-4. Execute o cmdlet **azure group deployment create** para implantar a nova Rede Virtual usando o modelo e os arquivos de parâmetro que você baixou e modificou acima. A lista exibida após a saída explicar os parâmetros usados.
+4. Execute o cmdlet **`azure group deployment create`** para implantar a nova rede virtual usando os arquivos de modelo e parâmetro que você baixou e modificou acima. A lista exibida após a saída explicar os parâmetros usados.
 
 		azure group deployment create -g TestRG -n TestVNetDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
 
@@ -65,7 +65,7 @@ Para implantar o modelo ARM baixado usando a CLI do Azure, siga as etapas abaixo
 	- **-f (ou --template-file)**. Caminho para o arquivo de modelo ARM.
 	- **-e (ou --parameters-file)**. Caminho para o arquivo de parâmetros ARM.
 
-5. Execute o comando **azure network vnet show** para exibir as propriedades da nova rede virtual, como mostrado abaixo.
+5. Execute o comando **`azure network vnet show`** para exibir as propriedades da nova rede virtual, como mostrado abaixo.
 
 		azure network vnet show -g TestRG -n TestVNet
 
@@ -89,4 +89,4 @@ Para implantar o modelo ARM baixado usando a CLI do Azure, siga as etapas abaixo
 		data:
 		info:    network vnet show command OK
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

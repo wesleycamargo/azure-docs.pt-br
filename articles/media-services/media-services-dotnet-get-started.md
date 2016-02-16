@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="01/28/2016"
+	ms.date="02/03/2016" 
 	ms.author="juliako"/>
 
 
@@ -66,7 +66,7 @@ Obtenha e execute um exemplo [aqui](https://azure.microsoft.com/documentation/sa
 
 1. No Portal Clássico do Azure, clique em **Novo**, em **Serviço de Mídia** e em **Criação Rápida**.
 
-![Criação Rápida dos Serviços de Mídia](./media/media-services-dotnet-get-started/wams-QuickCreate.png)
+	![Criação Rápida dos Serviços de Mídia](./media/media-services-dotnet-get-started/wams-QuickCreate.png)
 
 2. Em **NOME**, insira o nome da nova conta. Um nome de conta de Serviços de Mídia deve ser composto de letras minúsculas ou números, sem espaços, e deve ter de 3-24 caracteres de comprimento.
 
@@ -453,4 +453,4 @@ Se este tópico não contiver o que você esperava, se estiver faltando alguma i
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -3,7 +3,7 @@
 Você pode reutilizar o carregamento de modelos ARM predefinidos para um repositório github mantido pela Microsoft e aberto para a comunidade. Esses modelos podem ser implantados diretamente do github ou descarregados e modificados para atender às suas necessidades. Para implantar um modelo que cria uma Rede Virtual com duas sub-redes, siga as etapas abaixo.
 
 1. Em um navegador, navegue até [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates).
-2. Role para baixo na lista de modelos e clique em **101-duas-sub-redes**. Verifique o arquivo **README.md**, como mostrado abaixo.
+2. Role para baixo na lista de modelos e clique em **101-vnet-two-subnets**. Verifique o arquivo **README.md**, como mostrado abaixo.
 
 	![Arquivo READEME.md no github](./media/virtual-networks-create-vnet-arm-template-click-include/figure1.png)
 
@@ -16,7 +16,7 @@ Você pode reutilizar o carregamento de modelos ARM predefinidos para um reposit
 
 	![Grupo de recursos](./media/virtual-networks-create-vnet-arm-template-click-include/figure3.png)
 
-5. Se necessário, altere as configurações de **Assinatura** e de **Local** de sua Rede Virtual.
+5. Se necessário, altere as configurações de **Assinatura** e **Local** da sua rede virtual.
 6. Se você não deseja ver a Rede Virtual como um bloco no **Quadro Inicial**, desabilite **Fixar no Quadro Inicial**.
 5. Clique em **Termos legais**, leia os termos e clique em **Comprar** para concordar. 
 6. Clique em **Criar** para criar a Rede Virtual.
@@ -27,4 +27,4 @@ Você pode reutilizar o carregamento de modelos ARM predefinidos para um reposit
 
 	![Criar Rede Virtual no portal de visualização](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.gif)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

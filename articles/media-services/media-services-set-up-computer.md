@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/05/2015"  
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 # Configure seu ambiente
@@ -53,4 +53,4 @@ Escolha .NET ou a API REST para conectar-se aos serviços de mídia do Azure por
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

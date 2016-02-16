@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="hero-article"
-	ms.date="11/13/2015"
+	ms.date="02/08/2016"
 	ms.author="tomfitz"/>
 
 # Criar um aplicativo Web do WordPress no Serviço de Aplicativo do Azure
 
-Este tutorial mostra como localizar um aplicativo no Azure Marketplace e instalá-lo em um aplicativo Web do Serviço de Aplicativo. O tutorial usa um site de blog do WordPress como exemplo, mas o processo é semelhante em muitos outros aplicativos do Marketplace.
+Este tutorial mostra como implantar um site de blog do WordPress no Azure Marketplace.
 
 Ao concluir o tutorial, você terá seu próprio site de blog do WordPress ativo e em execução na nuvem.
 
@@ -28,11 +28,14 @@ O que você aprenderá:
 
 * Como localizar um modelo de aplicativo no Azure Marketplace.
 * Como criar um aplicativo Web no Serviço de Aplicativo do Azure com base no modelo.
-* Como definir configurações do Serviço de Aplicativo do Azure para o novo aplicativo Web e o banco de dados MySQL.
+* Como definir configurações do Serviço de Aplicativo do Azure para o novo aplicativo Web e o banco de dados.
 
 O Azure Marketplace disponibiliza uma ampla gama de aplicativos Web populares desenvolvidos pela Microsoft, por outras empresas e por iniciativas de software livre. Os aplicativos Web são criados em uma grande variedade de estruturas populares, como [PHP](/develop/nodejs/) neste exemplo do WordPress, [.NET](/develop/net/), [Node.js](/develop/nodejs/), [Java](/develop/java/) e [Python](/develop/python/), para citar alguns exemplos. Para criar um aplicativo Web do Azure Marketplace, o único software necessário será o navegador que você usa para o [Portal do Azure](https://portal.azure.com/).
 
-> [AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [ativar os benefícios de assinante do Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [inscrever-se em uma avaliação gratuita](/pt-BR/pricing/free-trial/?WT.mc_id=A261C142F).
+O site do WordPress implantado neste tutorial usa o MySQL para o banco de dados. Se, em vez disso, você desejar usar o Banco de Dados SQL para o banco de dados, consulte [Project Nami](http://projectnami.org/). O **Project Nami** também está disponível por meio do Marketplace.
+
+> [AZURE.NOTE]
+Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [ativar os benefícios de assinante do Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [inscrever-se em uma avaliação gratuita](/pt-BR/pricing/free-trial/?WT.mc_id=A261C142F).
 >
 > Se você quiser ter uma introdução ao Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751). Lá, você poderá criar imediatamente um aplicativo Web de curta duração inicial no Serviço de Aplicativo – sem exigência de cartão de crédito e sem compromissos.
 
@@ -44,7 +47,7 @@ O Azure Marketplace disponibiliza uma ampla gama de aplicativos Web populares de
 	
     ![Criar Novo][5]
 	
-3. Procure **WordPress** e clique em **WordPress**.
+3. Procure **WordPress** e clique em **WordPress**. Se você desejar usar o Banco de Dados SQL em vez de MySQL, procure **Project Nami**.
 
 	![WordPress da lista][7]
 	
@@ -62,7 +65,7 @@ O Azure Marketplace disponibiliza uma ampla gama de aplicativos Web populares de
 
 	Para saber mais sobre grupos de recursos, confira [Usando o Portal do Azure para gerenciar os recursos do Azure](../resource-group-portal.md).
 
-5. Selecione um **Plano de Serviço de Aplicativo/Local** ou crie um novo.
+5. Selecione um **Plano/Local do Serviço de Aplicativo** ou crie um novo.
 
 	Para obter mais informações sobre planos de serviço de aplicativo, consulte [Visão geral de planos de serviço de aplicativo do Azure](../azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
@@ -123,4 +126,4 @@ Para obter mais informações sobre como trabalhar com aplicativos Web do Servi�
 [7]: ./media/web-sites-php-web-site-gallery/search-web-app.png
 [browse]: ./media/web-sites-php-web-site-gallery/browse-web.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

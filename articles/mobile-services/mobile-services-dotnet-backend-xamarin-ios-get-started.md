@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="11/05/2015"
+	ms.date="02/10/2016"
 	ms.author="donnam"/>
 
 # <a name="getting-started"></a>Introdução aos Serviços Móveis
@@ -25,7 +25,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
->[AZURE.TIP]Se você for iniciante no desenvolvimento para dispositivos móveis usando o Microsoft Azure, leia [introdução aos Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md) para usá-los em vez dos Serviços Móveis do Azure; isso dará a você [vantagens adicionais](app-service-mobile-value-prop-migration-from-mobile-services-preview.md).
+>[AZURE.TIP] Se você for iniciante no desenvolvimento para dispositivos móveis usando o Microsoft Azure, leia [introdução aos Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md) para usá-los em vez dos Serviços Móveis do Azure; isso dará a você [vantagens adicionais](app-service-mobile-value-prop-migration-from-mobile-services-preview.md).
 
 Este tutorial mostra como adicionar um serviço de back-end baseado em nuvem a um aplicativo Xamarin iOS usando os Serviços Móveis do Azure. Neste tutorial, você criará um novo serviço móvel e um aplicativo simples _To do list_ que armazena dados do aplicativo no novo serviço móvel. O serviço móvel que você criará usa as linguagens do .NET com suporte usando o Visual Studio para a lógica de negócios do lado do servidor e para gerenciar o serviço móvel. Para criar um serviço móvel que permita que você escreva a lógica de negócios do lado do servidor em JavaScript, consulte [Versão de back-end do JavaScript] neste tópico.
 
@@ -143,4 +143,4 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

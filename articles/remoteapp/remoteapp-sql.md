@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="01/07/2016"
+   ms.date="02/02/2016"
    ms.author="elizapo"/>
 
 # SQL Azure com o Azure RemoteApp
@@ -22,7 +22,7 @@ Geralmente, quando os clientes optam por hospedar seus aplicativos do Windows na
 
 ## Migrar os dados SQL
 
-Comece com [Migrando um banco de dados do SQL Server para o Banco de Dados SQL do Azure](sql-database-cloud-migrate.md), esse artigo explica como fazer isso.
+Comece com [Migrando um banco de dados do SQL Server para o Banco de Dados SQL do Azure](../sql-database/sql-database-cloud-migrate.md).
 
 ## Configurar o Azure RemoteApp
 Hospede seu aplicativo do Windows no Azure RemoteApp. A seguir, um passo a passo de nível muito alto:
@@ -37,11 +37,11 @@ Hospede seu aplicativo do Windows no Azure RemoteApp. A seguir, um passo a passo
 ## Considerações sobre a configuração do aplicativo e do SQL:
 Há alguns pontos a considerar quando você estiver usando o SQL Azure com o RemoteApp:
 
-Saiba [como configurar um firewall de banco de dados SQL Azure](sql-database-firewall-configure.md). Um trecho do artigo declara “Inicialmente, todo acesso ao seu servidor do Banco de Dados SQL do Azure é bloqueado pelo firewall. Para começar a usar seu servidor de Banco de Dados SQL do Azure, você deve acessar o Portal Clássico e especificar uma ou mais regras de firewall no nível do servidor que permitem acesso ao seu servidor de Banco de Dados SQL do Azure. Use as regras de firewall para especificar quais intervalos de endereço IP da Internet têm permissão e se os aplicativos do Azure podem tentar se conectar ao seu servidor de Banco de Dados SQL”.
+Saiba [como configurar um firewall de banco de dados SQL Azure](../sql-database/sql-database-firewall-configure.md). Um trecho do artigo declara “Inicialmente, todo acesso ao seu servidor do Banco de Dados SQL do Azure é bloqueado pelo firewall. Para começar a usar seu servidor de Banco de Dados SQL do Azure, você deve acessar o Portal Clássico e especificar uma ou mais regras de firewall no nível do servidor que permitem acesso ao seu servidor de Banco de Dados SQL do Azure. Use as regras de firewall para especificar quais intervalos de endereço IP da Internet têm permissão e se os aplicativos do Azure podem tentar se conectar ao seu servidor de Banco de Dados SQL”.
 
 Além disso, quando um computador tenta se conectar ao seu servidor de banco de dados pela Internet, o firewall verifica o endereço IP de origem da solicitação com base no conjunto completo de regras de firewall no nível do servidor e (se necessário) no nível do banco de dados: “Se o endereço IP da solicitação estiver dentro de um dos intervalos especificados nas regras de firewall no nível do servidor, a conexão será concedida ao seu servidor de Banco de Dados SQL do Azure”. Portanto, podemos usar Intervalos de IP e não apenas os endereços IP de origem individuais.
 
-Siga as instruções passo a passo em [Como definir configurações de firewall no Banco de Dados SQL usando o Portal do Azure](sql-database-configure-firewall-settings.md) para especificar o intervalo de IP. Quando você estiver configurando as regras do Firewall do SQL, forneça o intervalo de IP da sub-rede especificada para a coleção do Azure RemoteApp. Isso deve permitir que os servidores ARA se conectem ao banco de dados SQL, embora eles tenham Endereços IP atribuídos dinamicamente.
+Siga as instruções passo a passo em [Como definir configurações de firewall no Banco de Dados SQL usando o Portal do Azure](../sql-database/sql-database-configure-firewall-settings.md) para especificar o intervalo de IP. Quando você estiver configurando as regras do Firewall do SQL, forneça o intervalo de IP da sub-rede especificada para a coleção do Azure RemoteApp. Isso deve permitir que os servidores ARA se conectem ao banco de dados SQL, embora eles tenham Endereços IP atribuídos dinamicamente.
 
 ## Solucionar problemas
 Se a experiência de usar um aplicativo cliente hospedado no Azure RemoteApp que se conecta a um banco de dados SQL quando hospedado no Azure ou no local estiver lenta, pode haver alguns motivos para isso.
@@ -50,4 +50,4 @@ Se a experiência de usar um aplicativo cliente hospedado no Azure RemoteApp que
 - O aplicativo cliente hospedado no Azure RemoteApp está sob carga excessiva. Escolher um plano de cobrança diferente, como a cobrança Premium, melhorará o desempenho. Outro truque é monitorar os recursos que o aplicativo está consumindo: durante uma sessão ativa, execute uma sequência de teclas ctrl-alt-end para iniciar a tela SAS, selecione o Gerenciador de Tarefas e observe a utilização de recursos para seu aplicativo.
 - O servidor SQL está sob carga excessiva ou não está otimizado. Siga as diretrizes do SQL para solução de problemas. 
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

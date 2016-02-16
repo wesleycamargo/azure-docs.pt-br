@@ -428,6 +428,8 @@ Isso cuida de toda a instalação e configuração inicial. Agora vamos ao motiv
 		app.get('/', taskList.showTasks.bind(taskList));
 		app.post('/addtask', taskList.addTask.bind(taskList));
 		app.post('/completetask', taskList.completeTask.bind(taskList));
+		app.set('view engine', 'jade');
+
 
 
 6. Essas linhas definem uma nova instância do nosso objeto **TaskDao**, com uma nova conexão ao Banco de Dados de Documentos (usando os valores lidos a partir de **config.js**), inicialize o objeto de tarefa e, em seguida, associe ações do formulário aos métodos no nosso controlador **TaskList**.
@@ -569,4 +571,4 @@ Para saber mais, consulte o [Centro de desenvolvedores do Node.js](https://azure
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

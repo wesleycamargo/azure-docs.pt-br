@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 <tags
    ms.service="expressroute"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/16/2016"
+   ms.date="02/08/2016"
    ms.author="cherylmc"/>
 
 
@@ -67,7 +67,7 @@ Verifique se o endereço IP e o número de AS estão registrados em um dos regis
 - [APNIC](https://www.apnic.net/)
 - [AFRINIC](https://www.afrinic.net/)
 - [LACNIC](http://www.lacnic.net/)
-- [RIPE NCC](https://www.ripe.net/)
+- [RIPENCC](https://www.ripe.net/)
 - [RADB](http://www.radb.net/)
 - [ALTDB](http://altdb.net/)
 
@@ -103,7 +103,8 @@ As rotas padrão são permitidas apenas em sessões de emparelhamento privado do
 
 **Observação:** anunciar rotas padrão interromperá o Windows e outras ativações de licenças de VM. Siga as instruções [aqui](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) para solucionar esse problema.
 
-## Suporte a comunidades BGP
+## Suporte a comunidades BGP (em breve)
+
 
 Esta seção fornece uma visão geral de como as comunidades BGP serão usadas com a Rota Expressa. A Microsoft anunciará rotas nos caminhos de emparelhamento público e da Microsoft com rotas marcadas com valores de comunidade apropriados. A lógica para fazer isso e os detalhes de valores de comunidade são descritos abaixo. No entanto, a Microsoft não adotará valores de comunidade marcados para rotas anunciadas à Microsoft.
 
@@ -169,8 +170,8 @@ A Microsoft não adota valores de comunidade BGP que você define. É necessári
 
 - Configurar sua conexão da Rota Expressa.
 
-	- [Criar um circuito da Rota Expressa](expressroute-howto-circuit-classic.md)
-	- [Configurar o roteamento](expressroute-howto-routing-classic.md)
-	- [Vincular uma Rede Virtual a um circuito de Rota Expressa](expressroute-howto-linkvnet-classic.md)
+	- [Criar um circuito da Rota Expressa para o modelo de implantação clássico](expressroute-howto-circuit-classic.md) ou [Criar e modificar um circuito da Rota Expressa usando o Gerenciador de Recursos do Azure](expressroute-howto-circuit-arm.md)
+	- [Configurar o roteamento para o modelo de implantação clássico](expressroute-howto-routing-classic.md) ou [Configurar o roteamento para o modelo de implantação do Gerenciador de Recursos](expressroute-howto-routing-arm.md)
+	- [Vincular uma rede virtual clássica a um circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md) ou [Conectar uma VNet do Gerenciador de Recursos a um circuito da Rota Expressa](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->
