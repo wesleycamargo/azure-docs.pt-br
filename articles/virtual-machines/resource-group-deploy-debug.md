@@ -296,8 +296,8 @@ Nesses casos, você deve ir para o portal e abrir um problema de suporte para au
 > [AZURE.NOTE] Lembre-se de que, para grupos de recursos, a cota é para cada região individual, não para a assinatura inteira. Se você precisar implantar 30 núcleos no Oeste dos EUA, será necessário pedir 30 núcleos do Gerenciador de Recursos no Oeste dos EUA. Se precisar implantar 30 núcleos em qualquer uma das regiões às quais tenha acesso, você deverá solicitar 30 núcleos do Gerenciador de recursos em todas as regiões.
  <!-- --> 
  Para ser específico sobre núcleos, por exemplo, você pode verificar as regiões para as quais deve solicitar o valor da cota apropriado usando o comando a seguir, que resulta em **jq** para análise json. 
- <!-- --> 
- azure provider show Microsoft.Compute --json | jq '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}'
+<!-- --> 
+		azure provider show Microsoft.Compute --json | jq '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}'
         {
           "name": "virtualMachines",
           "apiVersions": [
@@ -435,4 +435,4 @@ Para dominar a criação de modelos, leia [Criando modelos do Gerenciador de Rec
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0204_2016-->
