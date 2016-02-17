@@ -104,7 +104,12 @@ No nível do firewall corporativo, você precisa configurar os seguintes domíni
 
 | Nomes de domínio | Portas | Descrição |
 | ------ | --------- | ------------ |
-| **.servicebus.windows.net | 443, 80 | Ouvintes de Retransmissão do Barramento de Serviço sobre TCP (requer 443 para aquisição de token de Controle de Acesso) | | *.servicebus.windows.net | 9350-9354 | Retransmissão do Barramento de Serviço opcional sobre TCP | | *.core.windows.net | 443 | HTTPS | | *.clouddatahub.net | 443 | HTTPS | | graph.windows.net | 443 | HTTPS | | login.windows.net | 443 | HTTPS | 
+| **.servicebus.windows.net | 443, 80 | Ouvintes de Retransmissão do Barramento de Serviço sobre TCP (requer 443 para aquisição de token de Controle de Acesso) |
+| *.servicebus.windows.net | 9350-9354 | Retransmissão do Barramento de Serviço opcional sobre TCP |
+| *.core.windows.net | 443 | HTTPS |
+| *.clouddatahub.net | 443 | HTTPS |
+| graph.windows.net | 443 | HTTPS |
+| login.windows.net | 443 | HTTPS |
 
 No nível do firewall do windows, essas portas de saída normalmente são habilitadas. Se não forem, você poderá configurar as portas e os domínios adequadamente no computador do gateway.
 
@@ -688,4 +693,4 @@ Aqui está o fluxo de dados de alto nível para e o resumo das etapas para a có
 5.	O gateway descriptografa as credenciais com o mesmo certificado e se conecta ao armazenamento de dados local com o tipo de autenticação adequado.
 6.	O gateway copia dados do armazenamento local para um armazenamento em nuvem ou de um armazenamento em nuvem para um armazenamento de dados local dependendo de como a atividade de cópia é configurada no pipeline de dados. Observação: para esta etapa, o gateway se comunica diretamente com o serviço de armazenamento baseado em nuvem (por exemplo, Blob do Azure, SQL do Azure etc.) por um canal seguro (HTTPS).
 
-<!----HONumber=AcomDC_0204_2016-->
+<!-----HONumber=AcomDC_0204_2016-->

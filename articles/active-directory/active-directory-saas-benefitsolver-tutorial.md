@@ -82,8 +82,9 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Definir configurações de aplicativo](./media/active-directory-saas-benefitsolver-tutorial/IC804826.png "Definir configurações de aplicativo")
 
-    1.  Na caixa de texto **URL de Entrada**, digite ****http://azure.benefitsolver.com**.
-2.  Na caixa de texto **URL de Resposta**, digite ****https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**.
+    1.  Na caixa de texto **URL de Entrada**, digite **http://azure.benefitsolver.com**.
+	2.  Na caixa de texto **URL de Resposta**, digite **https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**.
+
 
     3.  Clique em **Próximo**.
 
@@ -145,4 +146,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0204_2016-->

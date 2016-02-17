@@ -205,7 +205,8 @@ Após a conclusão da operação, use o portal ou o Gerenciador de Recursos para
 Observação: para um cluster seguro, você precisará sempre de pelo menos um certificado válido (primário ou secundário, não revogado ou expirado) implantado ou você não poderá acessar o cluster.
 
 
-## Detalhes sobre os tipos de certificados usados pelo Service Fabric.
+## 
+Detalhes sobre os tipos de certificados usados pelo Service Fabric.
 
 ## Certificados X.509
 
@@ -245,4 +246,4 @@ Normalmente, os certificados de cliente não são emitidos por uma autoridade de
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
 [Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0204_2016-->
