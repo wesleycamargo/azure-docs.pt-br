@@ -455,7 +455,7 @@ Na tela de Configuração avançada, especifique a localização do arquivo de l
 
 Em seguida, escolha se deseja registrar, todas as mensagens de erro, nenhuma mensagem ou as mensagens críticas. Finalmente, decida com que frequência a mensagem de transferência na tela será atualizada com seu progresso.
 
-	![Screenshot of Advanced configuration screen](./media/documentdb-import-data/AdvancedConfiguration.png)
+	![Tela de configuração de captura de tela avançada](./media/documentdb-import-data/AdvancedConfiguration.png)
 
 ## Confirme as configurações de importação e de linha de comando de exibição
 

@@ -53,8 +53,8 @@ Este tópico demonstra o uso do recurso de Autenticação / Autorização do Ser
 11. Clique na guia **Avançado**, adicione o **URI de redirecionamento** de seu aplicativo aos **URIs de redirecionamento OAuth válidos** e depois clique em **Salvar alterações**. O URI de redirecionamento é a URL do seu aplicativo adicionada ao caminho _/.auth/login/facebook/callback_. Por exemplo: `https://contoso.azurewebsites.net/.auth/login/facebook/callback`. Certifique-se de que você está usando o esquema HTTPS.
 
 
-	> [AZURE.NOTE]
-	Se você estiver usando o Gateway do Serviço de Aplicativo em vez do recurso de Autenticação / Autorização do Serviço de Aplicativo, a URL de redirecionamento usará a URL de gateway com o caminho _/signin-facebook_.
+> [AZURE.NOTE]
+Se você estiver usando o Gateway do Serviço de Aplicativo em vez do recurso de Autenticação / Autorização do Serviço de Aplicativo, a URL de redirecionamento usará a URL de gateway com o caminho _/signin-facebook_.
 
 
 12. A conta do Facebook usada para registrar o aplicativo é um administrador do aplicativo. Neste ponto, apenas os administradores podem entrar neste aplicativo. Para autenticar outras contas do Facebook, clique em **Status e Análise** na barra de navegação à esquerda. Depois clique em **Sim** para habilitar o acesso ao público geral.

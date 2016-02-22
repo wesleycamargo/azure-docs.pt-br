@@ -54,7 +54,9 @@ Para criar uma VM denominada *DNS01* na sub-rede *Front-end* de uma VNet chamada
 
 6. Na folha **Configurações**, verifique se as seguintes propriedades são definidas são definidas com os valores abaixo e, em seguida, clique em **OK**.
 
-	-**Conta de armazenamento**: *vnetstorage* - **Rede**: *TestVNet* - **Sub-rede**: *FrontEnd*
+	-**Conta de armazenamento**: *vnetstorage*
+	- **Rede**: *TestVNet*
+	- **Sub-rede**: *FrontEnd*
 
 	![Escolha uma folha de tamanho](./media/virtual-networks-static-ip-arm-pportal/figure05.png)
 

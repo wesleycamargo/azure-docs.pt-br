@@ -19,6 +19,7 @@
 # Como usar o cliente gerenciado para Aplicativos Móveis do Azure
 
 [AZURE.INCLUDE [App-Service-Mobile-Selector-Client-Library](../../includes/app-service-mobile-selector-client-library.md)]
+&nbsp;
 
 ##Visão geral
 
@@ -54,7 +55,8 @@ Para saber como criar novas tabelas em seu back-end de Aplicativos Móveis, conf
 
 O código a seguir cria o objeto `MobileServiceClient` que é usado para acessar o back-end do Aplicativo Móvel.
 
-	MobileServiceClient client = new MobileServiceClient("MOBILE_APP_URL");
+	MobileServiceClient client = new MobileServiceClient(
+	"MOBILE_APP_URL");
 
 No código acima, substitua `MOBILE_APP_URL` pela URL do back-end do Aplicativo Móvel, que está localizada na folha de back-end de seu Aplicativo Móvel no [portal do Azure](https://portal.azure.com/).
 
@@ -257,7 +259,12 @@ O código a seguir ilustra como atualizar uma instância existente com a mesma I
 
 	await todoTable.UpdateAsync(todoItem);
 
-Para inserir dados não tipados, você pode tirar proveito do Json.NET da seguinte maneira: JObject jo = new JObject(); jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D"); jo.Add("Text", "Hello World"); jo.Add("Complete", false); var inserted = await table.UpdateAsync(jo);
+Para inserir dados não tipados, você pode tirar proveito do Json.NET da seguinte maneira:
+	JObject jo = new JObject();
+	jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
+	jo.Add("Text", "Hello World");
+	jo.Add("Complete", false);
+	var inserted = await table.UpdateAsync(jo);
 
 Observe que, ao fazer uma atualização, uma ID deve ser especificada. É assim que o back-end identifica a instância para atualização. A ID pode ser obtida do resultado da chamada de `InsertAsync`. Quando você tenta atualizar um item sem fornecer o valor de “Id”, uma `ArgumentException` é gerada.
 

@@ -208,7 +208,8 @@ c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticat
 		param = c1.OriginalIssuer,
 		param = "",
 		param = c2.Value);
-</pre>A regra personalizada deve ter esta aparência:
+</pre>
+A regra personalizada deve ter esta aparência:
 
 	![](./media/web-sites-dotnet-lob-application-adfs/6-per-session-identifier.png)
 
@@ -276,14 +277,21 @@ public ActionResult Contact()
 
     return View();
 }
-</pre>Como adicionei **Usuário de Teste** ao **Grupo de Teste em meu ambiente de laboratório** do AD FS, usarei o Grupo de Teste para testar a autorização em `About`. Para `Contact`, testarei o caso negativo de **Admins. do domínio**, ao qual o **Usuário de Teste** não pertence.
+</pre>
+Como adicionei **Usuário de Teste** ao **Grupo de Teste em meu ambiente de laboratório** do AD FS, usarei o Grupo de Teste para testar a autorização em `About`. Para `Contact`, testarei o caso negativo de **Admins. do domínio**, ao qual o **Usuário de Teste** não pertence.
 
 3. Inicie o depurador digitando `F5`, entre e, depois, clique em **Sobre**. Você deverá ver agora a página `~/About/Index` com êxito, se o usuário autenticado for autorizado para essa ação.
 4. Agora clique em **Contato**, que, em meu caso, não deve autorizar **Usuário de Teste** para a ação. No entanto, o navegador é redirecionado para o AD FS, que, por fim, mostra esta mensagem:
 
 	![](./media/web-sites-dotnet-lob-application-adfs/13-authorize-adfs-error.png)
 
-	Se você investigar esse erro no Visualizador de Eventos no servidor do AD FS, verá esta mensagem de exceção: <pre class="prettyprint"> Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>a mesma sessão do navegador cliente fez '6' solicitações nos últimos '11' segundos.</mark> Contate o administrador para obter detalhes. at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context) at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response) at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler) at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context) </pre>
+	Se você investigar esse erro no Visualizador de Eventos no servidor do AD FS, verá esta mensagem de exceção: <pre class="prettyprint">
+	Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>a mesma sessão do navegador cliente fez '6' solicitações nos últimos '11' segundos.</mark> Contate o administrador para obter detalhes.
+	   at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context)
+	   at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response)
+	   at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler)
+	   at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context) 
+	</pre>
 
 	O motivo pelo qual isso acontece é que, por padrão, o MVC retorna um 401 Não autorizado quando uma função do usuário não está autorizada. Isso dispara uma solicitação de nova tentativa de autenticação para seu provedor de identidade (AD FS). Uma vez que o usuário já está autenticado, o AD FS retorna para a mesma página, o que, em seguida, emite outro 401, criando um loop de redirecionamento. Você substituirá o método `HandleUnauthorizedRequest` de AuthorizeAttribute por lógica simples para mostrar algo que faça sentido, em vez de dar continuidade ao loop de redirecionamento.
 

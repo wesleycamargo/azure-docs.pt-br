@@ -600,9 +600,9 @@ Nesta seção, você criará um aplicativo Web MVC ASP.NET para ler os dados de 
 	- **CLUSTERNAME**: o nome do cluster HBase, por exemplo, *https://<HBaseClusterName>.azurehdinsight.net/*. 
     - **HADOOPUSERNAME**: o nome de usuário do Hadoop do cluster HBase. O nome padrão é *admin*.
     - **HADOOPUSERPASSWORD**: a senha do usuário do Hadoop do cluster HBase.
-    - **HBASETABLENAME** = "tweets\_by\_words";
+    - **HBASETABLENAME** = "tweets_by_words";
 
-	O nome da tabela HBase é **"tweets\_by\_words";**. Os valores devem corresponder aos valores que você enviou no serviço de streaming, para que o aplicativo Web leia os dados por meio da tabela HBase.
+	O nome da tabela HBase é **"tweets_by_words";**. Os valores devem corresponder aos valores que você enviou no serviço de streaming, para que o aplicativo Web leia os dados por meio da tabela HBase.
 
 
 
@@ -1205,7 +1205,7 @@ Nesta seção, você criará um aplicativo Web MVC ASP.NET para ler os dados de 
 
 		using System.Web.Http;
 
-2. E as seguintes linhas dentro da função **Application\_Start()**:
+2. E as seguintes linhas dentro da função **Application_Start()**:
 
 		// Register API routes
 		GlobalConfiguration.Configure(WebApiConfig.Register);
