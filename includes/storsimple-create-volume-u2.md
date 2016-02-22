@@ -1,4 +1,4 @@
-<!--author=alkohli last changed:12/14/15-->
+<!--author=SharS last changed: 02/04/2016-->
 
 #### Para criar um volume
 
@@ -18,10 +18,17 @@
 		É possível provisionar volumes fixados localmente de até 9 TB ou volumes em camadas de até 200 TB no dispositivo 8100. No dispositivo 8600 maior, é possível provisionar volumes fixados localmente de até 24 TB ou volumes em camadas de até 500 TB. Como o espaço local no dispositivo é necessário para hospedar o conjunto de trabalho de volumes em camadas, a criação de volumes fixados localmente afetará o espaço disponível para o provisionamento de volumes em camadas. Portanto, se você criar um volume fixado localmente, o espaço disponível para a criação de volumes em camadas será reduzido. Da mesma forma, se um volume em camadas é criado, o espaço disponível para a criação de volumes localmente fixados será reduzido.
 
 		Se você provisionar um volume fixado localmente de 9 TB (tamanho máximo permitido) em seu dispositivo 8100, você esgotará todo o espaço local disponível no dispositivo. Você não poderá criar um volume em camadas desse ponto em diante, pois não há espaço local no dispositivo para hospedar o conjunto de trabalho do volume em camadas. Os volumes existentes em camadas também afetam o espaço disponível. Por exemplo, se você tiver um dispositivo 8100 que já tem volumes em camadas de 100 TB, somente 4,5 TB de espaço estará disponível para volumes fixados localmente.
-   
+
+        A imagem a seguir mostra a caixa de diálogo **Configurações Básicas** para um volume fixo local.
+
+         ![Adicionar volume local](./media/storsimple-create-volume-u2/add-local-volume-include.png)
+
+        A imagem a seguir mostra a caixa de diálogo **Configurações Básicas** para um volume em camadas.
+
+         ![Adicionar volume local](./media/storsimple-create-volume-u2/add-tiered-volume-include.png)
+
    4. Clique no ícone de seta ![ícone-de-seta](./media/storsimple-create-volume-u2/HCS_ArrowIcon-include.png) para ir para a próxima página.
 
-  		![Add volume](./media/storsimple-create-volume-u2/AddLocalVolume1.png)
 
 3. Na caixa de diálogo **Configurações Adicionais**, adicione um novo registro de controle de acesso (ACR):
 
@@ -29,10 +36,10 @@
 	2. Em **Nome do Iniciador iSCSI**, forneça o iSCSI IQN (nome qualificado) do host Windows. Se você não tiver o IQN, vá para [Obter o IQN de um host do Windows Server](#get-the-iqn-of-a-windows-server-host).
 	3. Em **Backup padrão para este volume?**, selecione a caixa de seleção **Habilitar**. O backup padrão criará uma política que é executa às 22:30 todos os dias (hora do dispositivo) e cria um instantâneo de nuvem desse volume.
 	 
-     >[AZURE.NOTE]Depois que o backup está habilitado aqui, ele não pode ser revertido. Você precisará editar o volume para modificar essa configuração.
+     > [AZURE.NOTE] Depois que o backup está habilitado aqui, ele não pode ser revertido. Você precisará editar o volume para modificar essa configuração.
 
      ![Adicionar volume](./media/storsimple-create-volume-u2/AddVolumeAdditionalSettings1.png)
 
 4. Clique no ícone de verificação ![ícone de verificação](./media/storsimple-create-volume-u2/HCS_CheckIcon-include.png). Será criado um volume com as configurações especificadas.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

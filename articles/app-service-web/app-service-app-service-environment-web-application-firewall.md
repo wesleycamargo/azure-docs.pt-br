@@ -29,7 +29,7 @@ Neste documento, vamos configurar nosso Ambiente do Serviço de Aplicativo por t
 ![Arquitetura][Architecture]
 
 ## Configurando o Ambiente do Serviço de Aplicativo ##
-Para configurar um Ambiente de Serviço de Aplicativo, consulte a [nossa documentação](app-service-web-how-to-create-an-app-service-environment.md) sobre o assunto. Depois que você criar um Ambiente do Serviço de Aplicativo, será possível criar [Aplicativos Web](app-service-web-overview.md), [Aplicativos de API](app-service-api-apps-why-best-platform.md) e [Aplicativos Móveis](app-service-mobile-value-prop-preview.md) nesse ambiente e todos eles serão protegidos pelo WAF que configuraremos na próxima seção.
+Para configurar um Ambiente de Serviço de Aplicativo, consulte a [nossa documentação](app-service-web-how-to-create-an-app-service-environment.md) sobre o assunto. Depois que você criar um Ambiente do Serviço de Aplicativo, será possível criar [Aplicativos Web](app-service-web-overview.md), [Aplicativos de API](../app-service-api/app-service-api-apps-why-best-platform.md) e [Aplicativos Móveis](../app-service-mobile/app-service-mobile-value-prop.md) nesse ambiente e todos eles serão protegidos pelo WAF que configuraremos na próxima seção.
 
 ## Configurando o Serviço de Nuvem Barracuda WAF ##
 O Barracuda tem um [artigo detalhado](https://techlib.barracuda.com/WAF/AzureDeploy) sobre como implantar seu WAF em uma máquina virtual no Azure. Mas como queremos redundância, e não introduzir um único ponto de falha, você quer implantar pelo menos 2 VMs da instância WAF no mesmo Serviço de Nuvem ao seguir estas instruções.
@@ -66,7 +66,7 @@ Clicar na guia Serviços permitirá configurar seu WAF para serviços que ele es
 > Observação: dependendo de como os aplicativos são configurados e de quais recursos estão sendo usados no Ambiente do Serviço de Aplicativo, você precisará encaminhar o tráfego para portas TCP que não sejam a 80 e a 443; por exemplo, se você tiver IP SSL configurada para um Aplicativo Web. Para obter uma lista de portas de rede usadas nos Ambientes do Serviço de Aplicativo, consulte a seção Portas de Rede da [documentação sobre como Controlar Tráfego de Entrada](app-service-app-service-environment-control-inbound-traffic.md).
 
 ## Configurando o Gerenciador de Tráfego do Microsoft Azure (OPCIONAL) ##
-Se seu aplicativo estiver disponível em várias regiões, convém balancear a carga dele no [Gerenciador de Tráfego do Azure](traffic-manager.md). Para isso, é possível adicionar um ponto de extremidade no [portal clássico do Azure](https://manage.azure.com) usando o nome do Serviço de Nuvem do seu WAF no perfil do Gerenciador de Tráfego, como mostrado na imagem abaixo.
+Se seu aplicativo estiver disponível em várias regiões, convém balancear a carga dele no [Gerenciador de Tráfego do Azure](../traffic-manager/traffic-manager-overview.md). Para isso, é possível adicionar um ponto de extremidade no [portal clássico do Azure](https://manage.azure.com) usando o nome do Serviço de Nuvem do seu WAF no perfil do Gerenciador de Tráfego, como mostrado na imagem abaixo.
 
 ![Ponto de extremidade do Gerenciador de Tráfego][TrafficManagerEndpoint]
 
@@ -99,4 +99,4 @@ Substitua SourceAddressPrefix pelo VIP (Endereço IP Virtual) do Serviço de Nuv
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

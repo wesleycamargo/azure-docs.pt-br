@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/27/2015"
+	ms.date="02/08/2016"
 	ms.author="garye;bradsev" />
 
 
@@ -32,7 +32,7 @@ Para usar seus próprios dados no Estúdio de Aprendizado de Máquina para desen
 
 Cada uma dessas opções são descritas em um dos tópicos no menu acima. Este tópico mostra como importar dados de várias fontes de dados para usar no Estúdio de Aprendizado de Máquina.
 
-> [AZURE.NOTE]Há diversos conjuntos de dados de exemplo disponíveis no Estúdio de Aprendizado de Máquina que você pode usar para essa finalidade. Para saber mais, consulte [Usar os conjuntos de dados de amostra no Estúdio de Aprendizado de Máquina do Azure](machine-learning-use-sample-datasets.md).
+> [AZURE.NOTE] Há diversos conjuntos de dados de exemplo disponíveis no Estúdio de Aprendizado de Máquina que você pode usar para essa finalidade. Para saber mais, consulte [Usar os conjuntos de dados de amostra no Estúdio de Aprendizado de Máquina do Azure](machine-learning-use-sample-datasets.md).
 
 Este tópico introdutório também mostra como obter dados prontos para uso no Estúdio de Aprendizado de Máquina e descreve quais formatos de dados e tipos de dados são compatíveis.
 
@@ -91,4 +91,4 @@ Se necessário, você pode converter o formato Data Table de volta para o format
 [metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0211_2016-->

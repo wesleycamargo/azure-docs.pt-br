@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="12/16/2015" 
+    ms.date="02/08/2016" 
     ms.author="elizapo" />
 
 
@@ -26,9 +26,11 @@ Se você estiver implantando o Azure RemoteApp, provavelmente estará usando uma
 Para obter informações sobre como implantar os aplicativos de cliente do Office 365, consulte [Como usar sua assinatura do Office 365 com o Azure RemoteApp](remoteapp-officesubscription.md).
  
 ## Fase 1: Registrar sua assinatura gratuita Active Directory do Azure do Office 365
-Execute [Alterar o locatário do Active Directory do Azure no Azure RemoteApp](remoteapp-changetenant.md) para obter acesso administrativo ao Azure AD via Portal de Gerenciamento do Azure. Como resultado desse processo, você poderá fazer logon no portal do Azure e ver seu diretório lá – neste ponto, você não verá muito porque a assinatura completa do Azure usada com o Azure RemoteApp está em um diretório diferente.
+Se você está usando o portal clássico do Azure, use as etapas em [Registrar sua assinatura gratuita do Active Directory do Azure](https://technet.microsoft.com/library/dn832618.aspx) para obter acesso administrativo ao AD do Azure por meio do Portal de Gerenciamento. Como resultado desse processo, você poderá fazer logon no portal do Azure e ver seu diretório lá – neste ponto, você não verá muito porque a assinatura completa do Azure usada com o Azure RemoteApp está em um diretório diferente.
 
 Lembre-se do nome e da senha da conta de administrador que você criou nesta etapa – eles serão necessários na Fase 2.
+
+Se você está usando o portal do Azure, confira [Como registrar e ativar Active Directory do Azure gratuito usando o portal do Office 365](http://azureblogger.com/2016/01/how-to-register-and-activate-a-free-azure-active-directory-using-office-365-portal/).
 
 ## Fase 2: Altere o Azure AD associado à sua assinatura do Azure.
 Iremos alterar sua assinatura do Azure do seu diretório atual para o diretório do Office 365, com o qual trabalhamos na Fase 1.
@@ -43,4 +45,4 @@ Siga as instruções descritas em [Alterar o locatário do Active Directory do A
 
 Neste ponto, sua assinatura do Azure RemoteApp está associada ao Azure AD do Office 365. Você pode usar as contas de usuário existentes do Office 365 com o Azure RemoteApp!
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -191,4 +191,8 @@ Você pode desativá-lo, mas isso não é recomendado. A amostragem é projetada
 
 A dimensões de cidade, de região e de país são derivadas de endereços IP e nem sempre são precisas.
 
-<!---HONumber=AcomDC_0204_2016-->
+## Ainda não está funcionando...
+
+* [Fórum do Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/pt-BR/home?forum=ApplicationInsights)
+
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/05/2015" 
+  ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -44,7 +44,7 @@ Para localizar esses valores, vá para o Portal de Gerenciamento do Azure, selec
 
 Para começar a programar em relação aos serviços de mídia, você precisa criar uma instância **CloudMediaContext** que representa o contexto do servidor. O **CloudMediaContext** inclui referências para coleções importantes incluindo trabalhos, ativos, arquivos, políticas de acesso e localizadores.
 
->[AZURE.NOTE]A classe **CloudMediaContext** não é thread-safe. Você deve criar um novo CloudMediaContext por thread ou por conjunto de operações.
+>[AZURE.NOTE] A classe **CloudMediaContext** não é thread-safe. Você deve criar um novo CloudMediaContext por thread ou por conjunto de operações.
 
 
 O CloudMediaContext possui cinco sobrecargas de construtor. É recomendável usar construtores que usam **MediaServicesCredentials** como um parâmetro. Para obter mais informações, consulte **Reutilizando Tokens de serviço de controle de acesso**, a seguir.
@@ -196,4 +196,4 @@ Para recuperar valores de conexão da configuração, você pode usar a classe *
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

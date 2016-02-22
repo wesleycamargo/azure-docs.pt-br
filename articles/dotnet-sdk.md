@@ -103,7 +103,7 @@ As ferramentas do HDInsight no Gerenciador de Servidores permitem que você nave
 
 ###<a id="mobile">SDK para Aplicativo Móvel do Microsoft Azure
 
-Ferramentas para trabalhar com [Aplicativos Móveis do Serviço de Aplicativo do Azure](app-service-mobile/app-service-mobile-value-prop-preview.md).
+Ferramentas para trabalhar com [Aplicativos Móveis do Serviço de Aplicativo do Azure](app-service-mobile/app-service-mobile-value-prop.md).
 
 ###<a id="ps"></a>PowerShell do Microsoft Azure
 
@@ -186,4 +186,4 @@ Para obter o código-fonte do SDK do Azure para .NET, incluindo as bibliotecas d
 
 Para obter a documentação de referência da biblioteca de cliente do Azure, consulte [Referência do .NET do Azure](/documentation/api/).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

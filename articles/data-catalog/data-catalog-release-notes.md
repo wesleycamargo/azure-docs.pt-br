@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/20/2015"
+   ms.date="02/08/2016"
    ms.author="maroche"/>
 
 # Notas de versão do Catálogo de Dados do Azure
@@ -37,14 +37,6 @@ Ao se conectar a fontes de dados Teradata, os usuários devem ter instalado o dr
 
 A partir dessa data de lançamento do ADC, o [driver ODBC do Teradata para windows (versão 15.10)](http://downloads.teradata.com/download/connectivity/odbc-driver/windows) mais recente é compatível com o Office 2013, mas não com o Office 2016.
 
-## Notas da versão de 6 de novembro de 2015 do Catálogo de Dados do Azure
-
-### Os usuários podem encontrar erros ao iniciar a ferramenta de registro da fonte de dados
-
-Ao iniciar a ferramenta de registro de fonte de dados **Catálogo de Dados do Azure** no portal **Catálogo de Dados do Azure**, os usuários que instalaram anteriormente uma versão anterior da ferramenta poderão receber esta mensagem: "O aplicativo não pode ser iniciado. Entre em contato com o fornecedor do aplicativo."
-
-Os usuários que recebem essa mensagem devem usar o painel de controle do Windows para remover o aplicativo "Catálogo de Dados do Azure" existente e, em seguida, inicie novamente a ferramenta do portal do **Catálogo de Dados do Azure**.
-
 ## Notas da versão de 13 de julho de 2015 do Catálogo de Dados do Azure
 
 ### Registrando e conectando-se ao Banco de Dados do Oracle
@@ -64,7 +56,7 @@ O suporte para fontes de dados do SQL Server Reporting Services (SSRS) na versã
 
 Ao abrir ativos de dados no Microsoft Excel no portal do **Catálogo de Dados do Azure**, uma caixa de diálogo **Aviso de segurança do Microsoft Excel** pode ser exibida aos usuários. Esse é um comportamento padrão e esperado, e os usuários podem selecionar **Habilitar** para continuar.
 
-Para obter mais informações, veja [Habilitar ou desabilitar alertas de segurança sobre links e arquivos de sites suspeitos](https://support.office.com/pt-BR/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
+Para obter mais informações, veja [Habilitar ou desabilitar alertas de segurança sobre links e arquivos de sites suspeitos](https://support.office.com/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
 
 ### Colunas BLOB e UDT não encontradas nas visualizações
 
@@ -80,7 +72,7 @@ Há duas causas possíveis para esse comportamento de problema:
 
 Em algumas situações, esse comportamento de erro pode ocorrer apenas quando o usuário está na rede da empresa, ou quando está se conectando de fora da rede da empresa. A Política de Autenticação Global permite que os métodos de autenticação sejam habilitados separadamente para conexões intranet e extranet. Erros de logon poderão ocorrer se a autenticação de formulários não estiver habilitada para a rede por meio da qual o usuário está se conectando.
 
-Para obter mais informações, consulte [Configurando políticas de autenticação](https://technet.microsoft.com/pt-BR/library/dn486781.aspx).
+Para obter mais informações, consulte [Configurando políticas de autenticação](https://technet.microsoft.com/library/dn486781.aspx).
 
 **Causa 2: configuração de proxy da rede** Se a rede corporativa usar um servidor proxy, a ferramenta de registro não poderá se conectar ao Active Directory do Azure por meio do proxy. Os usuários podem garantir a ferramenta de registro editando o arquivo de configuração da ferramenta, adicionando esta seção ao arquivo:
 
@@ -96,4 +88,4 @@ Para obter mais informações, consulte [Configurando políticas de autenticaç�
 
 Para localizar o arquivo RegistrationTool.exe.config, inicie a ferramenta de registro e, em seguida, abra o utilitário Gerenciador de Tarefas do Windows. Na guia Detalhes do Gerenciador de tarefas, clique com o botão direito em RegistrationTool.exe e escolha Abrir local do arquivo no menu pop-up.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="02/03/2016"
 	ms.author="cynthn"/>
 
 
@@ -52,7 +52,10 @@ Para conectar máquinas virtuais em uma rede virtual:
 Para conectar máquinas virtuais em um serviço de nuvem autônomo:
 
 1.	Crie o serviço de nuvem no [portal clássico do Azure](http://manage.windowsazure.com). Clique em **Novo > Computação > Serviço de Nuvem > Criação Personalizada**. Ou você pode criar o serviço de nuvem para sua implantação ao criar sua primeira máquina virtual.
-2.	Ao criar as máquinas virtuais, escolha o nome do serviço de nuvem criado na etapa anterior. ![Adicionar uma máquina virtual a um serviço de nuvem existente](./media/howto-connect-vm-cloud-service/Connect-VM-to-CS.png)
+
+2.	Ao criar as máquinas virtuais, escolha o nome do serviço de nuvem criado na etapa anterior.
+
+	![Adicionar uma máquina virtual a um serviço de nuvem existente](./media/howto-connect-vm-cloud-service/Connect-VM-to-CS.png)
 
 ##Recursos
 [Máquinas virtuais de balanceamento de carga](load-balance-virtual-machines.md)
@@ -65,4 +68,4 @@ Após criar uma máquina virtual, é uma boa ideia adicionar um disco de dados p
 
 [Como anexar um disco de dados a uma máquina virtual Windows](storage-windows-attach-disk.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

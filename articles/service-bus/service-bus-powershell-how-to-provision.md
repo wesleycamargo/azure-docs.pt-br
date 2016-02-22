@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="service-bus"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="02/08/2016"
 	ms.author="sethm"/>
 
 # Gerenciar o Barramento de Serviço com o PowerShell
@@ -26,9 +26,9 @@ O PowerShell do Microsoft Azure é um ambiente de script que você pode usar par
 
 Antes de começar este artigo, você deve ter o seguinte:
 
-- Uma assinatura do Azure. O Azure é uma plataforma baseada em assinatura. Para obter mais informações sobre como adquirir uma assinatura, consulte [Opções de compra], [Ofertas para membros] ou [Avaliação gratuita].
+- Uma assinatura do Azure. O Azure é uma plataforma baseada em assinatura. Para obter mais informações sobre como adquirir uma assinatura, consulte [Opções de compra][], [Ofertas para membros][] ou [Avaliação gratuita][].
 
-- Um computador com o PowerShell do Azure. Para obter instruções, consulte [Instalar e configurar o PowerShell do Azure].
+- Um computador com o PowerShell do Azure. Para obter instruções, consulte [Instalar e configurar o PowerShell do Azure][].
 
 - Um entendimento geral dos scripts do PowerShell, dos pacotes NuGet e do .NET Framework.
 
@@ -171,7 +171,7 @@ Alguns scripts prontos também estão disponíveis para download:- [Scripts do P
 [Opções de compra]: http://azure.microsoft.com/pricing/purchase-options/
 [Ofertas para membros]: http://azure.microsoft.com/pricing/member-offers/
 [Avaliação gratuita]: http://azure.microsoft.com/pricing/free-trial/
-[Instalar e configurar o PowerShell do Azure]: ../install-configure-powershell.md
+[Instalar e configurar o PowerShell do Azure]: ../powershell-install-configure.md
 [pacote NuGet do Barramento de Serviço]: http://www.nuget.org/packages/WindowsAzure.ServiceBus/
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
@@ -179,4 +179,4 @@ Alguns scripts prontos também estão disponíveis para download:- [Scripts do P
 [API do .NET para o Barramento de Serviço]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.aspx
 [NamespaceManager]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/02/2016"
+   ms.date="02/04/2016"
    ms.author="jesseb"/>
 
 
@@ -56,12 +56,15 @@ O Contrato de Dados é a solução recomendada para garantir que seus dados seja
 
 ## Próximas etapas
 
-[Atualização do aplicativo do Service Fabric usando o Visual Studio](service-fabric-application-upgrade.md)
+[Atualizar seu Aplicativo Usando o Visual Studio](service-fabric-application-upgrade-tutorial.md) orienta você a fazer uma atualização de aplicativo usando o Visual Studio.
 
-[Atualização do aplicativo do Service Fabric usando o PowerShell](service-fabric-automate-powershell.md)
+[Atualizando seu aplicativo usando o Powershell](service-fabric-application-upgrade-tutorial-powershell.md) orienta você uma atualização de aplicativo usando o PowerShell.
 
-[Parâmetros de atualização](service-fabric-application-upgrade-parameters.md)
+Controle como seu aplicativo é atualizado usando [Parâmetros de Atualização](service-fabric-application-upgrade-parameters.md).
 
-[Atualização manual e atualização com um pacote diff](service-fabric-application-upgrade-advanced.md)
+Saiba como usar a funcionalidade avançada ao atualizar seu aplicativo consultando os [Tópicos Avançados](service-fabric-application-upgrade-advanced.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+Corrija problemas comuns em atualizações de aplicativo consultando as etapas em [Solucionando Problemas de Atualizações de Aplicativo](service-fabric-application-upgrade-troubleshooting.md).
+ 
+
+<!---HONumber=AcomDC_0211_2016-->

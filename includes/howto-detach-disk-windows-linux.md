@@ -4,7 +4,7 @@ Quando não precisar mais de um disco de dados conectado a uma máquina virtual,
 
 Se desejar usar os dados existentes no disco novamente, você pode reanexá-lo à mesma máquina virtual ou anexá-lo a uma outra máquina virtual.
 
-> [AZURE.NOTE]Não é possível desanexar um disco do sistema operacional, a menos que você também exclua a máquina virtual.
+> [AZURE.NOTE] Não é possível desanexar um disco do sistema operacional, a menos que você também exclua a máquina virtual.
 
 
 ## Localize o disco
@@ -12,7 +12,7 @@ Se desejar usar os dados existentes no disco novamente, você pode reanexá-lo �
 Se você não souber o nome do disco ou deseja verificá-lo antes de desanexá-lo, siga estas etapas.
 
 
-1. Se ainda não tiver feito isso, entre no [Portal do Azure](http://manage.windowsazure.com).
+1. Entre no [portal clássico do Azure](http://manage.windowsazure.com).
 
 2. Clique em **Máquinas virtuais**, clique no nome da máquina virtual e, em seguida, clique em **Painel**.
 
@@ -33,4 +33,4 @@ Se você não souber o nome do disco ou deseja verificá-lo antes de desanexá-l
 
 O disco permanece no armazenamento mas não esteja conectado a uma máquina virtual.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0211_2016-->

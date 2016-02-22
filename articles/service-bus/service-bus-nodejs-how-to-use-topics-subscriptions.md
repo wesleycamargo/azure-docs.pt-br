@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="02/08/2016" 
 	ms.author="sethm"/>
 
 
@@ -31,7 +31,7 @@ Criar um aplicativo Node.js em branco. Para obter instruções sobre como criar 
 
 ## Configurar seu aplicativo para usar o Barramento de serviço
 
-Para usar o barramento de serviço, baixe o pacote do Node.js do azure. Este pacote inclui um conjunto de bibliotecas que se comunicam com os serviços REST do barramento de serviço.
+Para usar o Barramento de Serviço, baixe o pacote do Node.js do Azure. Este pacote inclui um conjunto de bibliotecas que se comunicam com os serviços REST do barramento de serviço.
 
 ### Usar o NPM (gerenciador de pacotes de nós) para obter o pacote
 
@@ -53,7 +53,7 @@ Para usar o barramento de serviço, baixe o pacote do Node.js do azure. Este pac
 	└── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
 	```
 
-3.  Você pode executar manualmente o comando **ls** para verificar se uma pasta **node\_modules** foi criada. Dentro dessa pasta, você encontrará o pacote **azure**, que contém as bibliotecas necessárias para acessar os tópicos do Barramento de Serviço.
+3.  Você pode executar o comando **ls** manualmente para verificar se uma pasta **node\_modules** foi criada. Dentro dessa pasta, você encontrará o pacote **azure**, que contém as bibliotecas necessárias para acessar os tópicos do Barramento de Serviço.
 
 ### Importar o módulo
 
@@ -130,7 +130,7 @@ Dois filtros que implementam a lógica de repetição estão incluídos no SDK d
 
 As assinaturas do tópico também são criadas com o objeto **ServiceBusService**. As assinaturas são nomeadas e podem ter um filtro opcional que restringe o conjunto de mensagens entregues à fila virtual da assinatura.
 
-> [AZURE.NOTE]As assinaturas são persistentes e continuarão existindo até que elas ou o tópico ao qual estão associadas sejam excluídos. Se seu aplicativo contiver a lógica para criar uma assinatura, ele deve primeiro verificar se a assinatura já existe usando o método **getSubscription**.
+> [AZURE.NOTE] As assinaturas são persistentes e continuarão existindo até que elas ou o tópico ao qual estão associadas sejam excluídos. Se seu aplicativo contiver a lógica para criar uma assinatura, ele deve primeiro verificar se a assinatura já existe usando o método **getSubscription**.
 
 ### Criar uma assinatura com o filtro padrão (MatchAll)
 
@@ -152,7 +152,7 @@ O tipo de filtro mais flexível compatível com as assinaturas é o **SqlFilter*
 
 Os filtros podem ser adicionados a uma assinatura usando o método **createRule** do objeto **ServiceBusService**. Este método permite que você adicione novos filtros a uma assinatura existente.
 
-> [AZURE.NOTE]Como o filtro padrão é aplicado automaticamente em todas as assinaturas novas, você deve primeiro remover o filtro padrão, senão o filtro **MatchAll** substituirá todos os outros filtros que você possa especificar. Você pode remover a regra padrão usando o método **deleteRule** do objeto **ServiceBusService**.
+> [AZURE.NOTE] Como o filtro padrão é aplicado automaticamente em todas as assinaturas novas, você deve primeiro remover o filtro padrão, senão o filtro **MatchAll** substituirá todos os outros filtros que você possa especificar. Você pode remover a regra padrão usando o método **deleteRule** do objeto **ServiceBusService**.
 
 O exemplo a seguir cria uma assinatura denominada `HighMessages` com um **SqlFilter** que seleciona apenas as mensagens que tenham uma propriedade **MessageNumber** personalizada maior do que 3.
 
@@ -316,7 +316,7 @@ Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, 
 -   Referência da API para [SqlFilter][].
 -   Visite o repositório [SDK do Azure para o nó][] no GitHub.
 
-  [SDK do Azure para o nó]: https://github.com/WindowsAzure/azure-sdk-for-node
+  [SDK do Azure para o nó]: https://github.com/Azure/azure-sdk-for-node
   [portal clássico do Azure]: http://manage.windowsazure.com
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Filas, tópicos e assinaturas]: service-bus-queues-topics-subscriptions.md
@@ -327,4 +327,4 @@ Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, 
   [Aplicativo Web do Node.js com Armazenamento]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

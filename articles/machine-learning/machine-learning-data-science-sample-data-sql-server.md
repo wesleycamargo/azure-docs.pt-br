@@ -13,22 +13,27 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="02/07/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #<a name="heading"></a>Dados de exemplo no SQL Server no Azure
 
-Os links neste **menu** levam você até os tópicos que descrevem como obter amostras de dados de vários ambientes de armazenamento. Esta tarefa é uma etapa no Processo de Análise da Cortana (CAP).
-
-[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
 ## Introdução
 
-Este documento mostra como obter amostras de dados armazenados no SQL Server no Azure usando SQL e a linguagem de programação Python. Também mostra como mover dados de amostra para o Aprendizado de Máquina do Azure, salvando-os em um arquivo, carregando-os em um blob do Azure e, em seguida, lendo-os no AM do Azure.
+Este documento mostra como obter amostras de dados armazenados no SQL Server no Azure usando SQL e a linguagem de programação Python. Também mostra como mover dados de amostra para o Aprendizado de Máquina do Azure, salvando-os em um arquivo, carregando-os em um blob do Azure e, em seguida, lendo-os no Estúdio do Aprendizado de Máquina do Azure.
 
 A amostragem de Python usa a biblioteca ODBC [pyodbc](https://code.google.com/p/pyodbc/) para se conectar ao SQL Server no Azure e a biblioteca [Pandas](http://pandas.pydata.org/) para fazer a amostragem.
 
->[AZURE.NOTE]O código de exemplo SQL neste documento pressupõe que os dados estejam em um SQL Server no Azure. Caso não estejam, consulte o tópico [Mover dados para o SQL Server no Azure](machine-learning-data-science-move-sql-server-virtual-machine.md) para obter instruções sobre como mover os dados para um SQL Server no Azure.
+>[AZURE.NOTE] O código de exemplo SQL neste documento pressupõe que os dados estejam em um SQL Server no Azure. Caso não estejam, consulte o tópico [Mover dados para o SQL Server no Azure](machine-learning-data-science-move-sql-server-virtual-machine.md) para obter instruções sobre como mover os dados para um SQL Server no Azure.
+
+**Por que fazer amostragem dos dados?** Se o conjunto de dados que você deseja analisar é grande, geralmente é uma boa ideia reduzir a amostra de dados para um tamanho menor, mas representativo e mais gerenciável. Isso facilita a compreensão de dados, exploração e engenharia de recursos. Sua função no Processo de Análise do Cortana é habilitar a rápida criação de protótipos de funções de processamento de dados e modelos de aprendizado de máquina.
+
+O **menu** abaixo leva a tópicos que descrevem como obter amostras de dados de vários ambientes de armazenamento.
+
+[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
+
+A tarefa de amostragem é uma etapa no [CAP (Processo do Cortana Analytics)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 ##<a name="SQL"></a>Usando o SQL
 
@@ -52,7 +57,7 @@ TABLESAMPLE pode ser usado para amostragem conforme demonstrado a seguir. Isso p
 	FROM <table_name> 
 	TABLESAMPLE (10 PERCENT)
 
->[AZURE.NOTE]Você pode explorar e gerar recursos por meio desses dados amostrados armazenando-os em uma nova tabela
+>[AZURE.NOTE] Você pode explorar e gerar recursos por meio desses dados amostrados armazenando-os em uma nova tabela
 
 
 ###<a name="sql-aml"></a>Conectando ao Aprendizado de Máquina do Azure
@@ -121,4 +126,4 @@ Para obter um exemplo passo a passo completo do Processo de Análise da Cortana 
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

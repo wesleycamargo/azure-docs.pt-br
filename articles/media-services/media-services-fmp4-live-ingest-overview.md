@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/21/2015" 
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Especificação de ingestão dinâmica de MP4 fragmentado dos Serviços de Mídia do Azure
@@ -221,4 +221,4 @@ Veja abaixo uma implementação recomendada para faixas de áudio redundantes:
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

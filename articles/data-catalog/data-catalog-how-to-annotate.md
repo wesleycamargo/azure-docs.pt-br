@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/10/2015"
+   ms.date="02/08/2016"
    ms.author="maroche"/>
 
 
@@ -48,7 +48,7 @@ Durante a visualização do **Catálogo de Dados do Azure**, os seguintes tipos 
 ## Anotando vários ativos
 Ao selecionarem vários ativos de dados no portal do **Catálogo de Dados do Azure**, os usuários poderão anotar todos os ativos em uma única operação. As anotações serão aplicadas a todos os recursos selecionados, facilitando a seleção e o fornecimento de uma descrição consistente e conjuntos de marcas e de especialistas para ativos de dados relacionados.
 
-> [AZURE.NOTE]Marcas e especialistas também podem ser fornecidos durante o registro de ativos de dados por meio da ferramenta de registro de fontes de dados do **Catálogo de Dados do Azure**.
+> [AZURE.NOTE] Marcas e especialistas também podem ser fornecidos durante o registro de ativos de dados por meio da ferramenta de registro de fontes de dados do **Catálogo de Dados do Azure**.
 
 Quando várias tabelas e exibições forem selecionadas, somente as colunas que todos os ativos de dados selecionados tiverem em comum serão exibidas no portal do **Catálogo de Dados do Azure**. Isso permite que os usuários forneçam marcas e descrições de todas as colunas com o mesmo nome para todos os ativos selecionados.
 
@@ -58,4 +58,4 @@ Assim como os metadados extraídos da fonte de dados durante o registro são adi
 ## Resumo
 O registro de uma fonte de dados no **Catálogo de Dados do Azure** torna os dados descobríveis ao copiar metadados estruturais e descritivos da fonte de dados para o serviço Catálogo. Depois que uma fonte de dados tiver sido registrada, os usuários poderão fornecer anotações para facilitar a descoberta e a compreensão de dentro do portal do **Catálogo de Dados do Azure**.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

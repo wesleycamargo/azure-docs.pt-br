@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/20/2015"
+   ms.date="02/04/2016"
    ms.author="maroche"/>
 
 # Perguntas frequentes sobre o Catálogo de Dados do Azure
@@ -43,8 +43,10 @@ Durante a visualização, os serviços de **Catálogo de Dados do Azure** estão
 
 - Oeste dos EUA
 - Leste dos EUA
-- Oeste da Europa
+- Europa Ocidental
+- Norte da Europa
 - Leste da Austrália
+- Sudeste Asiático
 
 ## P.: Quais são os limites de número de ativos de dados no Catálogo de Dados do Azure?
 
@@ -80,11 +82,11 @@ As propriedades específicas serão diferentes conforme a fonte de dados, mas, e
 - Tipos de dados do atributo/coluna
 - Descrição do atributo/coluna
 
-> [AZURE.IMPORTANT]O registro de ativos de dados com o **Catálogo de Dados do Azure** não move ou copia seus dados para a nuvem. Registrar os ativos de uma fonte de dados copiará os metadados dos ativos para o Azure, mas os dados permanecerão no local na fonte de dados de origem. A única exceção a essa regra é se um usuário optar por carregar registros de visualização ou um perfil de dados ao registrar ativos. Quando você estiver incluindo uma visualização, até 20 registros serão copiados de cada ativo e armazenados como um instantâneo no **Catálogo de Dados do Azure**. Quando você estiver incluindo um perfil de dados, as informações agregadas (como o tamanho de tabelas, os valores nulos de porcentagem por coluna e os valores mínimos, máximo e médio para colunas) serão calculadas e incluídas nos metadados armazenados no catálogo.
+> [AZURE.IMPORTANT] O registro de ativos de dados com o **Catálogo de Dados do Azure** não move ou copia seus dados para a nuvem. Registrar os ativos de uma fonte de dados copiará os metadados dos ativos para o Azure, mas os dados permanecerão no local na fonte de dados de origem. A única exceção a essa regra é se um usuário optar por carregar registros de visualização ou um perfil de dados ao registrar ativos. Quando você estiver incluindo uma visualização, até 20 registros serão copiados de cada ativo e armazenados como um instantâneo no **Catálogo de Dados do Azure**. Quando você estiver incluindo um perfil de dados, as informações agregadas (como o tamanho de tabelas, os valores nulos de porcentagem por coluna e os valores mínimos, máximo e médio para colunas) serão calculadas e incluídas nos metadados armazenados no catálogo.
 
 <br/>
 
-> [AZURE.NOTE]Para fontes de dados como o SQL Server Analysis Services que têm uma propriedade **Description** de primeira classe, o aplicativo de publicação do **Catálogo de Dados do Azure** extrairá o valor dessa propriedade. Para bancos de dados relacionais do SQL Server que não têm uma propriedade **Description** de primeira classe, o aplicativo de publicação do **Catálogo de Dados do Azure** extrairá o valor da propriedade estendida ms\_description para objetos e colunas. Para saber mais, veja [Usando propriedades estendidas em objetos de banco de dados](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx) no TechNet.
+> [AZURE.NOTE] Para fontes de dados como o SQL Server Analysis Services que têm uma propriedade **Description** de primeira classe, o aplicativo de publicação do **Catálogo de Dados do Azure** extrairá o valor dessa propriedade. Para bancos de dados relacionais do SQL Server que não têm uma propriedade **Description** de primeira classe, o aplicativo de publicação do **Catálogo de Dados do Azure** extrairá o valor da propriedade estendida ms\_description para objetos e colunas. Para saber mais, veja [Usando propriedades estendidas em objetos de banco de dados](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx) no TechNet.
 
 ## P.: Quanto tempo levará para recursos recém-registrados aparecem no Catálogo de Dados do Azure?
 
@@ -147,4 +149,4 @@ Se você tiver problemas ou precisar de ajuda com a visualização do **Catálog
 
 Vá diretamente para o [fórum do Catálogo de Dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). As perguntas feitas serão posteriormente incluídas aqui.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

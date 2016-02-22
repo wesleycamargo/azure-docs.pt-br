@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/15/2015" 
+	ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -23,7 +23,8 @@ Este tópico contém informações sobre como inserir vários tipos de anúncios
 
 Para obter informações sobre o suporte a legendagem oculta e anúncios em vídeos de transmissão ao vivo, consulte [Padrões de legendagem oculta e inserção de anúncios com suporte](media-services-manage-channels-overview.md#cc_and_ads).
 
- 
+>[AZURE.NOTE] Atualmente, o Azure Media Player não dá suporte a anúncios.
+
 ##<a id="insert_ads_into_media"></a>Inserir anúncios em sua mídia
 
 Os Serviços de Mídia do Azure dão suporte à inserção de anúncios por meio da Plataforma de Mídia do Windows: Player Frameworks. As estruturas de player com suporte a anúncios estão disponíveis para dispositivos com Windows 8, Silverlight, Windows Phone 8 e iOS. Cada estrutura de player contém um código de exemplo que mostra como implementar um aplicativo de player. Há três tipos diferentes de anúncios que podem ser inseridos em sua media:list.
@@ -159,7 +160,7 @@ Application/x-javascript – o recurso é exibido em uma marca HTML <**script**>
 
 Application/x-shockwave-flash – o recurso é exibido em um Flash player.
 
-**<IFrameResource>** descreve um recurso HTML que pode ser exibido em um IFrame. **<HTMLResource>** descreve um trecho de código HTML que pode ser inserido em uma página da web. **<TrackingEvents>** especifica eventos de rastreamento e o URI de solicitação quando o evento ocorre. Neste exemplo, os eventos acceptInvitation e collapse são rastreados. Para saber mais sobre o elemento **<NonLinearAds>** e seus filhos, consulte IAB.NET/VAST. Observe que o elemento **<TrackingEvents>** está localizado dentro do elemento ** <NonLinearAds>** em vez do elemento **<NonLinear>**.
+**<IFrameResource>** descreve um recurso HTML que pode ser exibido em um IFrame. **<HTMLResource>** descreve um trecho de código HTML que pode ser inserido em uma página da web. **<TrackingEvents>** especifica eventos de rastreamento e o URI de solicitação quando o evento ocorre. Neste exemplo, os eventos acceptInvitation e collapse são rastreados. Para obter mais informações sobre o elemento **<NonLinearAds>** e seus filhos, consulte IAB.NET/VAST. Observe que o elemento **<TrackingEvents>** está localizado dentro do elemento ** <NonLinearAds>** em vez do elemento **<NonLinear>**.
 
 Anúncios complementares são definidos dentro de um elemento de <CompanionAds>. O elemento <CompanionAds> pode conter um ou mais elementos de <Companion>. Cada elemento de <Companion> descreve um anúncio complementar e pode conter um <StaticResource>, <IFrameResource>, ou <HTMLResource> que são especificados da mesma maneira que um anúncio não linear. Um arquivo VAST pode conter diversos anúncios complementares e o aplicativo de player pode escolher o anúncio mais apropriado a ser exibido. Para saber mais sobre VAST, consulte [VAST 3.0](http://www.iab.net/media/file/VASTv3.0.pdf).
 
@@ -812,4 +813,4 @@ O exemplo a seguir mostra como agendar um anúncio com sobreposição mid-roll.
 
 [Desenvolver aplicativos de player de vídeo](media-services-develop-video-players.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

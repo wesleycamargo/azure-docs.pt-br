@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="02/08/2016"
 	ms.author="hangzh;bradsev" />
 
 #<a name="heading"></a> Enviar consultas de Hive para clusters do Hadoop do HDInsight no processo e tecnologia de análise avançada 
@@ -167,7 +167,7 @@ Aqui estão alguns scripts de Hive de exemplo que podem ser usados para explorar
 
 Nesta seção, descrevemos maneiras de gerar recursos usando consultas de Hive.
 
-> [AZURE.NOTE]As consultas de Hive de exemplo nesta seção pressupõem que os dados foram carregados tabelas Hive em clusters de Hadoop do Azure HDInsight. Se não, siga as instruções de [Criar e carregar dados nas tabelas Hive](machine-learning-data-science-hive-tables.md) para carregar dados nas tabelas Hive primeiro.
+> [AZURE.NOTE] As consultas de Hive de exemplo nesta seção pressupõem que os dados foram carregados tabelas Hive em clusters de Hadoop do Azure HDInsight. Se não, siga as instruções de [Criar e carregar dados nas tabelas Hive](machine-learning-data-science-hive-tables.md) para carregar dados nas tabelas Hive primeiro.
 
 Depois de gerar recursos adicionais, você pode adicioná-los como colunas à tabela existente ou criar uma nova tabela com os recursos adicionais e a chave primária, que pode ser associada à tabela original.
 
@@ -314,4 +314,4 @@ As configurações de parâmetro padrão do cluster de Hive talvez não sejam ad
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

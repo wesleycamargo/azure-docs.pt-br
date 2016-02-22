@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/17/2015"
+   ms.date="02/04/2016"
    ms.author="subramar"/>
 
 
@@ -33,7 +33,7 @@ Essas etapas podem ser executadas baixando o aplicativo do GitHub e adicionando 
 
 Após adicioná-los ao projeto, crie e publique o aplicativo clicando com o botão direito do mouse no projeto do aplicativo, **VisualObjectsApplication** e selecionando o comando **Publicar** no item de menu do Service Fabric da maneira abaixo. Confira o [Tutorial de atualização de aplicativos do Service Fabric](service-fabric-application-upgrade-tutorial.md) para saber mais. Se preferir, você pode usar o PowerShell para implantar o seu aplicativo.
 
-> [AZURE.NOTE]Antes de qualquer um dos comandos do Service Fabric poder ser usado no PowerShell, você precisa primeiro conectar ao cluster usando o cmdlet `Connect-ServiceFabricCluster`. Da mesma forma, supõe-se que o Cluster já esteja configurado no computador local. Consulte o artigo [configurando o ambiente de desenvolvimento de Malha do serviço](service-fabric-get-started.md).
+> [AZURE.NOTE] Antes de qualquer um dos comandos do Service Fabric poder ser usado no PowerShell, você precisa primeiro conectar ao cluster usando o cmdlet `Connect-ServiceFabricCluster`. Da mesma forma, supõe-se que o Cluster já esteja configurado no computador local. Consulte o artigo [configurando o ambiente de desenvolvimento de Malha do serviço](service-fabric-get-started.md).
 
 Depois de criar o projeto no Visual Studio, você pode usar o comando do PowerShell **Copy-ServiceFabricApplicationPackage** para copiar o pacote de aplicativos para o ImageStore. Esta etapa é seguida pelo registro do aplicativo no tempo de execução do Service Fabric usando o cmdlet **Register-ServiceFabricApplicationPackage**. A etapa final é iniciar uma instância do aplicativo usando o cmdlet **New-ServiceFabricApplication**. Essas três etapas são semelhantes a usar o item de menu **Implantar** no Visual Studio.
 
@@ -136,4 +136,4 @@ Saiba como usar a funcionalidade avançada ao atualizar seu aplicativo consultan
 
 Corrija problemas comuns em atualizações de aplicativo consultando as etapas em [Solucionando problemas de atualizações de aplicativo](service-fabric-application-upgrade-troubleshooting.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

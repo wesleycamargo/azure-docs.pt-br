@@ -125,12 +125,11 @@ Os contras da implantação usando um IDE são:
 ###<a name="webmatrix"></a>Como implantar diretamente do WebMatrix
 
 * [Compilar e implantar um site do node.js no Azure usando o WebMatrix](web-sites-nodejs-use-webmatrix.md).
-* [Criar e implantar um aplicativo Web do PHP-MySQL usando o WebMatrix](web-sites-php-mysql-use-webmatrix.md).
 * [WebMatrix 3: Git Integrado e Implantação no Azure](http://www.codeproject.com/Articles/577581/Webmatrixplus3-3aplusIntegratedplusGitplusandplusD). Como usar o WebMatrix para implantar de um repositório de controle do código-fonte do Git.
 
-## <a name="onprem"></a>Implantar de um sistema de controle de código-fonte local
+## <a name="onprem"></a>Implantar de um sistema de controle do código-fonte local
 
-Se você trabalha em uma equipe de desenvolvimento de qualquer tamanho e usa um sistema SCM (gerenciamento de código-fonte local) como o [Team Foundation Server](https://www.visualstudio.com/products/tfs-overview-vs.aspx) (TFS), [Git](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs) ou [Mercurial](http://mercurial.selenic.com/), poderá configurar o Serviço de Aplicativo para integração com seu repositório e implantar diretamente no Serviço de Aplicativo em seu fluxo de trabalho de controle de código-fonte. Se você usar o TFS, também poderá configurá-lo para implantar continuamente no Serviço de Aplicativo.
+Se você trabalha em uma equipe de desenvolvimento de qualquer tamanho e usa um sistema SCM (gerenciamento de código-fonte local) como o [Team Foundation Server](https://www.visualstudio.com/products/tfs-overview-vs.aspx) (TFS), [Git](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs) ou [Mercurial](http://mercurial.selenic.com/), pode configurar o Serviço de Aplicativo para integração com seu repositório e implantar diretamente no Serviço de Aplicativo em seu fluxo de trabalho de controle do código-fonte. Se você usar o TFS, também poderá configurá-lo para implantar continuamente no Serviço de Aplicativo.
 
 O TFS usa a Implantação da Web para implantar no Serviço de Aplicativo, enquanto a implantação de repositórios Git/Mercurial usa Kudu (confira [Visão geral dos processos de implantação](#overview)).
 
@@ -157,7 +156,7 @@ Outros prós da implantação usando o TFS são:
 
 ###<a name="tfs"></a>Como implantar continuamente com o TFS
 
-* [Entrega contínua de serviços de nuvem no Azure](../cloud-services-dotnet-continuous-delivery.md). Este documento é destinado a um serviço de nuvem do Azure, mas parte do conteúdo é relevante a aplicativos Web.
+* [Entrega contínua de serviços de nuvem no Azure](../cloud-services/cloud-services-dotnet-continuous-delivery.md). Este documento é destinado a um serviço de nuvem do Azure, mas parte do conteúdo é relevante a aplicativos Web.
 
 ###<a name="gitmercurial"></a>Como implantar de um repositório Git ou Mercurial local
 
@@ -167,7 +166,7 @@ Outros prós da implantação usando o TFS são:
 * [Implantando DOIS sites no Azure de um repositório Git](http://www.hanselman.com/blog/DeployingTWOWebsitesToWindowsAzureFromOneGitRepository.aspx) Postagem de blog de Scott Hanselman.
 
 ## Implantar de um sistema de controle do código-fonte baseado em nuvem
-Se você trabalha em uma equipe de desenvolvimento de qualquer tamanho e usa um serviço SCM (gerenciamento de código-fonte) baseado em nuvem como o [Visual Studio Team Services](http://www.visualstudio.com/) (antigo Visual Studio Online), [GitHub](https://www.github.com), [GitLab](https://gitlab.com), [BitBucket](https://bitbucket.org/), [CodePlex](https://www.codeplex.com/), [Codebase](https://www.codebasehq.com) e [Kiln](https://www.fogcreek.com/kiln/), poderá configurar o Serviço de Aplicativo para integrar com seu repositório e implantar continuamente.
+Se você trabalha em uma equipe de desenvolvimento de qualquer tamanho e usa um serviço SCM (gerenciamento de código-fonte) baseado em nuvem como o [Visual Studio Team Services](http://www.visualstudio.com/) (antigo Visual Studio Online), [GitHub](https://www.github.com), [GitLab](https://gitlab.com), [BitBucket](https://bitbucket.org/), [CodePlex](https://www.codeplex.com/), [Codebase](https://www.codebasehq.com) e [Kiln](https://www.fogcreek.com/kiln/), pode configurar o Serviço de Aplicativo para integrar com seu repositório e implantar continuamente.
 
 O Visual Studio Team Services usa a Implantação da Web para implantar no Serviço de Aplicativo, enquanto a implantação de repositórios online usa Kudu (confira [Visão geral dos processos de implantação](#overview)).
 
@@ -195,8 +194,8 @@ Os outros prós da implantação usando o Visual Studio Team Services são:
 
 ###<a name="vsts"></a>Como implantar continuamente com o Visual Studio Team Services
 
-- [Entrega contínua no Azure usando Visual Studio Team Services e TFVC](../cloud-services-continuous-delivery-use-vso.md). Tutorial passo a passo que mostra como configurar o fornecimento contínuo por meio do Visual Studio Team Services em um aplicativo Web, usando o TFVC. 
-- [Entrega contínua no Azure usando o Visual Studio Team Services e Git](../cloud-services-continuous-delivery-use-vso-git.md). Semelhante ao tutorial anterior, porém usando o Git em vez do TFVC.
+- [Entrega contínua no Azure usando Visual Studio Team Services e TFVC](../cloud-services/cloud-services-continuous-delivery-use-vso.md). Tutorial passo a passo que mostra como configurar o fornecimento contínuo por meio do Visual Studio Team Services em um aplicativo Web, usando o TFVC. 
+- [Entrega contínua no Azure usando o Visual Studio Team Services e Git](../cloud-services/cloud-services-continuous-delivery-use-vso-git.md). Semelhante ao tutorial anterior, porém usando o Git em vez do TFVC.
 
 ###<a name="cloudgitmercurial"></a>Como implantar de um repositório Git ou Mercurial baseado em nuvem
 
@@ -284,4 +283,4 @@ Para obter mais informações sobre outros tópicos de implantação, consulte a
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

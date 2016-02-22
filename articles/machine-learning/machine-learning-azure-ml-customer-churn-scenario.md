@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015" 
+	ms.date="02/09/2016" 
 	ms.author="jeannt"/>
 
 # Analisando a Variação do Cliente usando o Aprendizado de Máquina do Microsoft Azure
@@ -65,7 +65,7 @@ Uma adição interessante nesse caso é a análise de big data. As empresas de t
 
  
 ##Implementando o arquétipo modelagem no Estúdio de Aprendizado de Máquina
-Dado o problema descrito acima, como podemos implementar uma abordagem integrada de modelagem e pontuação? Nesta seção, demonstraremos como conseguimos isso usando o Estúdio do Aprendizado de Máquina do Azure.
+Dado o problema descrito acima, qual é a melhor maneira de implementar uma abordagem integrada de modelagem e pontuação? Nesta seção, demonstraremos como conseguimos isso usando o Estúdio do Aprendizado de Máquina do Azure.
 
 A abordagem multimodelo é essencial ao projetar um arquétipo global para variação. Até mesmo a parte de pontuação (preditiva) da abordagem deve ser multimodelo.
 
@@ -99,7 +99,9 @@ Os diagramas a seguir ilustram os dados que foram usados.
 
 *Figura 7: Recursos extraídos da fonte de dados*
 > Observe que esses dados são particulares e, portanto, o modelo e os dados não podem ser compartilhados. No entanto, para um modelo semelhante usando dados publicamente disponíveis, consulte este experimento de exemplo na [Galeria de Análise do Cortana](http://gallery.azureml.net/): [Variação do Cliente de Telecomunicações](http://gallery.azureml.net/Experiment/31c19425ee874f628c847f7e2d93e383).
->
+> 
+> Para saber mais sobre como você pode implementar um modelo de análise de variação usando o Cortana Analytics Suite, também recomendamos [este vídeo](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) do gerente de programa sênior Wee Hyong Tok.
+> 
 
 ###Algoritmos usados no protótipo
 
@@ -127,7 +129,7 @@ Também enviamos o conjunto de dados para um modelo comparável criado usando a 
 Nesta seção, apresentamos nossas descobertas sobre a precisão dos modelos, com base no conjunto de dados de pontuação.
 
 ###Precisão e exatidão da pontuação
-Em geral, a implementação no Aprendizado de Máquina é inferior ao SAS em precisão em aproximadamente 10% a 15% (Área sob a Curva ou AUC).
+Em geral, a implementação no Aprendizado de Máquina do Azure é inferior ao SAS em precisão em aproximadamente 10% a 15% (Área sob a Curva ou AUC).
 
 No entanto, a métrica mais importante na variação é a taxa de classificação incorreta, ou seja, dos maiores N variantes previstos pelo classificador, quais deles **não** variaram de fato e ainda assim receberam tratamento especial? O diagrama a seguir compara essa taxa de classificação incorreta em todos os modelos:
 
@@ -188,7 +190,7 @@ Na indústria de telecomunicações, diversas práticas surgiram para analisar a
 	-	**Dados empresariais e de concorrência**. Obter todas as informações possíveis sobre o cliente (por exemplo, ele pode estar indisponível ou ser difícil de rastrear).
 -	Use a importância como critério para acelerar a seleção de recursos. Isso implica que o modelo de árvore de decisão aprimorado sempre é uma abordagem promissora.  
 
-O uso das quatro categorias precedentes cria a ilusão de que uma simples abordagem *determinística*, baseada em índices formados por fatores razoáveis divididos por categoria, seria suficiente para identificar os clientes apresentando risco de variação. Infelizmente, apesar de esse conceito parecer plausível, ele não é verdadeiro. O motivo é que a variação é um efeito temporal e os fatores que contribuem para a variação estão, geralmente, em estados transientes. O que leva um cliente a considerar a possibilidade de sair hoje pode ser diferente do motivo de amanhã e, com certeza, será diferente do motivo que ele terá para isso daqui a seis meses. Assim, um modelo *probabilístico* é necessário.
+O uso das quatro categorias cria a ilusão de que uma simples abordagem *determinística*, baseada em índices formados por fatores razoáveis divididos por categoria, seria suficiente para identificar os clientes apresentando risco de variação. Infelizmente, apesar de esse conceito parecer plausível, ele não é verdadeiro. O motivo é que a variação é um efeito temporal e os fatores que contribuem para a variação estão, geralmente, em estados transientes. O que leva um cliente a considerar a possibilidade de sair hoje pode ser diferente do motivo de amanhã e, com certeza, será diferente do motivo que ele terá para isso daqui a seis meses. Assim, um modelo *probabilístico* é necessário.
 
 Essa observação importante muitas vezes é ignorada pela empresa, que geralmente prefere uma abordagem orientada por Business Intelligence para a análise, principalmente porque é algo mais fácil de vender e permite automação simples.
 
@@ -213,13 +215,13 @@ Seu feedback nos ajudará a melhorar a qualidade dos white papers que produzirmo
 ##Referências
 [1] Predictive Analytics: Beyond the Predictions, W. McKnight, Information Management, julho/agosto de 2011, p. 18 a 20.
 
-[2] [Precisão e exatidão](http://en.wikipedia.org/wiki/Accuracy_and_precision) na Wikipédia
+[2] Artigo na Wikipédia: [Precisão e exatidão](http://en.wikipedia.org/wiki/Accuracy_and_precision)
 
 [3] [CRISP-DM 1.0: Guia de mineração de dados passo a passo](http://www.the-modeling-agency.com/crisp-dm.pdf)
 
-[4] Marketing de Big Data
+[4] [Marketing de Big Data: Envolva seus clientes com mais eficiência e agregue valor](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Marketing de Big Data: Envolva seus clientes com mais eficiência e agregue valor](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
+[5] [Modelo de variação de telecomunicações] (https://caqs.azure.net/#gallery/telcocustomerchurn) na Galeria do Cortana Analytics
 ##Apêndice
 
 ![][10]
@@ -238,4 +240,4 @@ Seu feedback nos ajudará a melhorar a qualidade dos white papers que produzirmo
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/29/2016"
+   ms.date="02/05/2016"
    ms.author="alkohli" />
 
 # Usar o serviço StorSimple Manager para gerenciar sua conta de armazenamento (Visualização)
@@ -72,7 +72,7 @@ Você pode editar uma conta de armazenamento usada pelo seu dispositivo. Se voc�
 
 3. Na caixa de diálogo **Adicionar/Editar conta de armazenamento**:
 
-  1. Na lista suspensa de **Contas de Armazenamento**, escolha uma conta existente que você deseja modificar. Isso também pode incluir contas de armazenamento que foram geradas automaticamente quando o serviço foi criado.
+  1. Na lista suspensa de **Contas de Armazenamento**, escolha uma conta existente que você deseja modificar.
   2. Se necessário, você poderá modificar a seleção em **Habilitar modo SSL**.
   3. Você pode escolher gerar novamente as chaves de acesso da conta de armazenamento. Para obter mais informações, confira [Regenerar as chaves da conta de armazenamento](storage-create-storage-account.md#manage-your-storage-access-keys). Forneça a nova chave de conta de armazenamento. Para uma conta de armazenamento do Azure, essa é a chave de acesso principal. 
   4. Clique no ícone de verificação ![ícone de verificação](./media/storsimple-ova-manage-storage-accounts/checkicon.png) para salvar as configurações. As configurações serão atualizadas na página **Configurar**. 
@@ -99,6 +99,6 @@ Você pode editar uma conta de armazenamento usada pelo seu dispositivo. Se voc�
 
 ## Próximas etapas
 
-- Saiba mais sobre como [usar o serviço StorSimple Manager para administrar o StorSimple Virtual Array](storsimple-ova-manager-service-administration.md).
+- Aprenda como [administrar sua StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

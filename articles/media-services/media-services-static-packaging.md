@@ -19,7 +19,7 @@
 
 # Usando o Azure Media Packager para realizar tarefas de empacotamento estáticas
 
->[AZURE.NOTE]O final da vida útil do Windows Azure Media Packager e do Windows Azure Media Encryptor foi estendido até 1º de março de 2017. Antes dessa data, as funcionalidades desses processadores serão adicionadas ao MES (Codificador de Mídia Padrão). Os clientes receberão instruções sobre como migrar seus fluxos de trabalho para enviar trabalhos ao MES. Os recursos de criptografia e de conversão de formato também poderão ser disponibilizados por meio do empacotamento dinâmico e da criptografia dinâmica.
+>[AZURE.NOTE]O final da vida útil do Microsoft Azure Media Packager e do Microsoft Azure Media Encryptor foi estendido até 1º de março de 2017. Antes dessa data, as funcionalidades desses processadores serão adicionadas ao MES (Codificador de Mídia Padrão). Os clientes receberão instruções sobre como migrar seus fluxos de trabalho para enviar trabalhos ao MES. Os recursos de criptografia e de conversão de formato também poderão ser disponibilizados por meio do empacotamento dinâmico e da criptografia dinâmica.
 
 ## Visão geral
 
@@ -1447,4 +1447,4 @@ Atualize o código a seguir para apontar para a pasta onde seus arquivos MP4 de 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

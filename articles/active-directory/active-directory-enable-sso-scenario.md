@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="10/16/2015"
+      ms.date="02/09/2016"
       ms.author="inhenk"/>
 
 # Gerenciando aplicativos com o AD do Azure (Active Directory do Azure)
@@ -124,4 +124,8 @@ Com o AD do Azure, é possível proteger seus aplicativos com políticas de aces
 
 Para começar a integrar aplicativos com o AD do Azure, confira o [Guia de introdução: integrando o Active Directory do Azure com aplicativos](active-directory-integrating-applications-getting-started.md).
 
-<!---HONumber=Oct15_HO4-->
+## Consulte também
+
+[Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
+
+<!---HONumber=AcomDC_0211_2016-->

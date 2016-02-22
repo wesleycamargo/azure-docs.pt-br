@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/02/2015"
+	ms.date="01/27/2016"
 	ms.author="glenga"/>
 
 # Automatizar os serviços móveis com ferramentas de linha de comando
@@ -79,7 +79,7 @@ O comando `mobile create` falha quando existe o serviço móvel especificado. Em
 
 ##Como listar serviços móveis existentes em uma assinatura
 
-> [AZURE.NOTE]Comandos na CLI relacionadas a "lista" e "script" funcionam apenas com o back-end do JavaScript.
+> [AZURE.NOTE] Comandos na CLI relacionadas a "lista" e "script" funcionam apenas com o back-end do JavaScript.
 
 O comando a seguir retorna uma lista de todos os serviços móveis em uma assinatura do Azure:
 
@@ -95,7 +95,7 @@ Você pode usar as ferramentas de linha de comando para excluir um serviço móv
 
 Com a inclusão dos parâmetros `-a` e `-q`, esse comando também exclui o Banco de Dados SQL e o servidor usados pelo serviço móvel, sem exibir um prompt.
 
-> [AZURE.NOTE]Se você não especificar o parâmetro <code>-q</code> juntamente com <code>-a</code> ou <code>-d</code>, a execução é interrompida e você será solicitado a selecionar opções de exclusão para seu Banco de Dados SQL. Somente utilize o parâmetro <code>-a</code> quando nenhum outro serviço usar o banco de dados ou servidor; caso contrário, use o parâmetro <code>-d</code> para excluir apenas os dados pertencentes ao serviço móvel que está sendo excluído.
+> [AZURE.NOTE] Se você não especificar o parâmetro <code>-q</code> juntamente com <code>-a</code> ou <code>-d</code>, a execução é interrompida e você será solicitado a selecionar opções de exclusão para seu Banco de Dados SQL. Somente utilize o parâmetro <code>-a</code> quando nenhum outro serviço usar o banco de dados ou servidor; caso contrário, use o parâmetro <code>-d</code> para excluir apenas os dados pertencentes ao serviço móvel que está sendo excluído.
 
 ##Como criar uma tabela no serviço móvel
 
@@ -187,4 +187,4 @@ Para obter mais informações sobre como registrar scripts, consulte [Referênci
 [reference-docs]: http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/#Commands_to_manage_mobile_services
 [Como instalar as Ferramentas de Linha de Comando do Azure para Mac e Linux]: http://go.microsoft.com/fwlink/p/?LinkId=275795
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="02/10/2016" 
 	ms.author="awills"/>
 
 
@@ -36,6 +36,7 @@ O monitor de dependência pronto para uso atualmente relata chamadas para esses 
  * Banco de Dados de Documentos, tabela, o armazenamento de blob e fila do Azure
 * Java
  * Chamadas para um banco de dados por meio de um driver [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/), como MySQL, SQL Server, PostgreSQL ou SQLite.
+* JavaScript em páginas da Web - o [SDK de página da Web](app-insights-javascript.md) registra automaticamente as chamadas do Ajax como dependências.
 
 Você pode escrever suas próprias chamadas SDK para monitorar outras dependências usando a [API de TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency).
 
@@ -111,7 +112,7 @@ Clique nesta linha para ver os eventos de solicitação individuais:
 
 Clique em qualquer instância de execução longa para inspecioná-la com mais detalhes.
 
-> [AZURE.NOTE]Role um pouco mais para baixo para escolher uma instância. A latência do pipeline pode significar que os dados para as instâncias superiores estão incompletos.
+> [AZURE.NOTE] Role um pouco mais para baixo para escolher uma instância. A latência do pipeline pode significar que os dados para as instâncias superiores estão incompletos.
 
 Role para baixo até as chamadas de dependência remotas relacionadas a essa solicitação:
 
@@ -144,7 +145,7 @@ Clique em um tipo de solicitação e a instância de solicitação para encontra
 
 O módulo padrão de acompanhamento de dependência descobre automaticamente dependências externas, como bancos de dados e APIs REST. Mas, talvez você queira que alguns componentes adicionais sejam tratados da mesma forma.
 
-Você pode escrever códigos que envia informações de dependência usando a mesma [API de TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency) usada pelos módulos padrão.
+Você pode escrever código que envia informações de dependência usando a mesma [API TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency) usada pelos módulos padrão.
 
 Por exemplo, se você criar seu código com um assembly que não escreveu, poderá determinar o tempo de todas as chamadas nele, para descobrir qual sua contribuição aos tempos de resposta. Para que esses dados sejam exibidos nos gráficos de dependência no Application Insights, envie-os usando `TrackDependency`.
 
@@ -181,9 +182,7 @@ Se desejar desativar o módulo padrão de acompanhamento de dependência, remova
 [availability]: app-insights-monitor-web-app-availability.md
 [azure]: ../insights-perf-analytics.md
 [client]: app-insights-javascript.md
-[detect]: app-insights-detect-triage-diagnose.md
 [diagnostic]: app-insights-diagnostic-search.md
-[knowUsers]: app-insights-overview-usage.md
 [metrics]: app-insights-metrics-explorer.md
 [netlogs]: app-insights-asp-net-trace-logs.md
 [perf]: app-insights-web-monitor-performance.md
@@ -191,8 +190,7 @@ Se desejar desativar o módulo padrão de acompanhamento de dependência, remova
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-asp-net-dependencies.md
 [roles]: app-insights-resources-roles-access-control.md
-[start]: app-insights-overview.md
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

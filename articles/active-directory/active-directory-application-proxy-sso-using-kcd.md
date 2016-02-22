@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 
 # Logon único com Proxy de Aplicativo
 
-> [AZURE.NOTE]O Proxy de Aplicativo é um recurso que está disponível somente se você tiver atualizado para a edição Premium ou Básica do Active Directory do Azure. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md).
+> [AZURE.NOTE] O Proxy de Aplicativo é um recurso que está disponível somente se você tiver atualizado para a edição Premium ou Básica do Active Directory do Azure. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md).
 
 Logon único é um elemento fundamental do Proxy de Aplicativo do AD do Azure. Ele fornece a melhor experiência de usuário: um usuário faz logon na nuvem, todas as validações de segurança ocorrem na nuvem (pré-autenticação) e, em seguida, quando a solicitação é enviada ao aplicativo local, o conector do Proxy de Aplicativo representa o usuário para que o aplicativo de back-end pense que se trata de um usuário normal proveniente de um dispositivo ingressado no domínio.
 
@@ -80,7 +80,7 @@ A configuração do Active Directory varia, dependendo se o conector de Proxy de
 		Get-ADComputer sharepointserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
 
 
->[AZURE.NOTE]`sharepointserviceaccount` pode ser a conta do computador do SPS ou uma conta de serviço sob a qual o pool de aplicativos do SPS está sendo executado.
+>[AZURE.NOTE] `sharepointserviceaccount` pode ser a conta do computador do SPS ou uma conta de serviço sob a qual o pool de aplicativos do SPS está sendo executado.
 
 
 ### Trabalho de criação do Portal clássico do Azure
@@ -90,7 +90,7 @@ A configuração do Active Directory varia, dependendo se o conector de Proxy de
 3. Em **Propriedades**, defina o **Método de Autenticação Interna** como **Autenticação Integrada do Windows**. ![Configuração de Aplicativo Avançada](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth2.png)  
 4. Insira o **SPN do Aplicativo Interno** do servidor de aplicativos. Neste exemplo, o SPN para nosso aplicativo publicado é http/lob.contoso.com.  
 
->[AZURE.IMPORTANT]Os UPNs no Active Directory do Azure devem ser idênticos aos UPNs no Active Directory local para que a pré-autenticação funcione. Verifique se o AD do Azure está sincronizado com o AD local.
+>[AZURE.IMPORTANT] Os UPNs no Active Directory do Azure devem ser idênticos aos UPNs no Active Directory local para que a pré-autenticação funcione. Verifique se o AD do Azure está sincronizado com o AD local.
 
 | | |
 | --- | --- |
@@ -160,9 +160,14 @@ Você pode fazer muito mais com o Proxy de Aplicativo:
 - [Confira o blog Application Proxy](http://blogs.technet.com/b/applicationproxyblog/)
 - [Assista aos nossos vídeos no Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
+## Recursos adicionais
+- [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
+- [Inscrever-se no Azure como uma organização](sign-up-organization.md)
+- [Identidade do Azure](fundamentals-identity.md)
+
 
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png
 [2]: ./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

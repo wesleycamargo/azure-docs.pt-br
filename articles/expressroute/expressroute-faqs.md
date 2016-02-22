@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/16/2016"
+   ms.date="02/09/2016"
    ms.author="cherylmc"/>
 
 # Perguntas Frequentes sobre Rota Expressa
@@ -179,6 +179,7 @@ Rota Expressa premium é uma coleção de recursos listados abaixo.
  - Limite maior na tabela de roteamento, de 4.000 rotas a 10.000 rotas para emparelhamento público e emparelhamento privado.
  - Maior número de VNets que podem ser conectadas ao circuito de Rota Expressa (o padrão é 10). Consulte a tabela seguir para obter mais detalhes.
  - Conectividade global através da rede de núcleo da Microsoft. Agora, você poderá conectar uma VNet em uma região geopolítica a um circuito de Rota Expressa em outra região. **Exemplo:** é possível conectar uma VNet criada na Europa Ocidental a um circuito de Rota Expressa criado no Vale do Silício.
+ - Conectividade com serviços do Office 365 e CRM Online.
 
 ### Quantas VNets posso vincular a um circuito de Rota Expressa se eu habilitei a Rota Expressa premium?
 A tabela a seguir informa os limites aumentados para o número de VNets que você pode conectar a um circuito de Rota Expressa. O limite padrão é 10.
@@ -187,7 +188,7 @@ A tabela a seguir informa os limites aumentados para o número de VNets que voc�
 
 | **Tamanho do circuito** | **Número de links de VNet para configuração padrão** | **Número de Links de VNet com Rota Expressa Premium** |
 |--------------|----------------------------------------|-----------------------------------------------|
-| 50 Mbps | 10 | Sem suporte |
+| 50 Mbps | 10 | 10 |
 | 100 Mbps | 10 | 20 |
 | 200 Mbps | 10 | 25 |
 | 500 Mbps | 10 | 40 |
@@ -213,49 +214,31 @@ Consulte [detalhes de preços](https://azure.microsoft.com/pricing/details/expre
 ### Eu pago algo pela Rota Expressa premium além dos encargos padrão da Rota Expressa?
 Sim. Os encargos da Rota Expressa premium somam-se aos encargos de circuito de Rota Expressa e aos encargos demandados pelo provedor de conectividade.
 
-## Rota Expressa e Office 365
+## Rota Expressa e serviços do Office 365 e CRM Online
 
-### Como criar um circuito de Rota Expressa para conectar aos serviços do Office 365?
+### Como criar um circuito de Rota Expressa para conectar aos serviços do Office 365 e CRM Online?
 
 1. Examine a página [Pré-requisitos da Rota Expressa](expressroute-prerequisites.md) para certificar-se de que você atende os requisitos
 2. Examine a lista de provedores de serviços e locais em [Locais e parceiros da Rota Expressa](expressroute-locations.md) para garantir que suas necessidades de conectividade são atendidas.
 3. Planeje seus requisitos de capacidade, revisando [Planejamento de rede e ajuste de desempenho para o Office 365](http://aka.ms/tune/)
-4. Siga as etapas listadas em fluxos de trabalho abaixo para configurar a conectividade. [Fluxos de trabalho da Rota Expressa para provisionamento e estados do circuito](expressroute-workflows.md).
+4. Siga as etapas listadas nos fluxos de trabalho abaixo para configurar a conectividade [Fluxos de trabalho da Rota Expressa para provisionamento do circuito e estados do circuito](expressroute-workflows.md).
 
-### Meus circuitos da Rota Expressa existentes dão suporte a conectividade com os serviços do Office 365?
-Sim. Seus circuitos da Rota Expressa existentes podem ser configurados para dar suporte a conectividade com os serviços do Office 365. Certifique-se de ter capacidade suficiente para conectar-se aos serviços do Office 365. [Planejamento da rede e ajuste de desempenho para o Office 365](http://aka.ms/tune/) ajudarão você a planejar suas necessidades de conectividade. Veja também [Criar e modificar um circuito da Rota Expressa](expressroute-howto-circuit-classic.md).
+>[AZURE.IMPORTANT] Certifique-se de ter habilitado o complemento premium da Rota Expressa ao configurar a conectividade com os serviços do Office 365 e CRM Online.
+
+### Meus circuitos da Rota Expressa existentes dão suporte a conectividade com os serviços do Office 365 e CRM Online?
+Sim. Seus circuitos da Rota Expressa existentes podem ser configurados para dar suporte a conectividade com os serviços do Office 365. Verifique se você tem capacidade suficiente para se conectar aos serviços do Office 365 e certifique-se de que você habilitou o complemento premium. [Planejamento da rede e ajuste de desempenho para o Office 365](http://aka.ms/tune/) ajudarão você a planejar suas necessidades de conectividade. Veja também [Criar e modificar um circuito da Rota Expressa](expressroute-howto-circuit-classic.md).
 
 ### Quais serviços do Office 365 podem ser acessados por uma conexão de Rota Expressa?
 
-**Há suporte para os seguintes serviços do Office 365:**
+Consulte a página [Intervalos de endereços IP e URLs do Office 365](http://aka.ms/o365endpoints) para obter uma lista atualizada dos serviços com suporte na Rota Expressa.
 
-- Exchange Online e Exchange Online Protection
-- SharePoint Online
-- Skype for Business Online
-- Office Online
-- AD do Azure e Sincronização do AD do Azure
-- Vídeo do Office 365
-- Power BI
-- Delve
-- Project Online
-
-**Não há suporte para os seguintes serviços do Office 365:**
-
-- Yammer
-- Downloads de cliente do Office 365 ProPlus
-- Autenticação de Provedor de Identidade Local
-- Serviço Office 365 (operado pela Vianet 21) na China
-
-Você pode se conectar a esses serviços pela Internet.
-
-### Quanto custa a Rota Expressa para Office 365?
-Não há nenhum custo adicional para conectar-se ao Office 365 por meio da Rota Expressa. A [página de detalhes de preços](https://azure.microsoft.com/pricing/details/expressroute/) fornece detalhes de custos para a Rota Expressa.
+### Qual é o custo da Rota Expressa para serviços do Office 365 e CRM Online?
+Os serviços do Office 365 e CRM Online requerem o complemento premium para serem habilitados. A [página de detalhes de preços](https://azure.microsoft.com/pricing/details/expressroute/) fornece detalhes de custos para a Rota Expressa.
 
 ### Em que regiões há suporte para Rota Expressa para Office 365?
 Consulte [Locais e parceiros da Rota Expressa](expressroute-locations.md) para obter mais informações sobre a lista de parceiros e os locais onde há suporte para a Rota Expressa.
 
 ### Posso acessar o Office 365 pela Internet mesmo se a Rota Expressa foi configurada para minha organização?
 Sim. Pontos de extremidade do serviço do Office 365 estão acessíveis pela Internet, embora a Rota Expressa tenha sido configurada para sua rede. Se você estiver em um local configurado para se conectar a serviços do Office 365 por meio de Rota Expressa, você se conectará por meio de Rota Expressa.
- 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

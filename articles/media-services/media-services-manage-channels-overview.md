@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="12/15/2015"  
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Trabalhando com Canais que recebam transmissão ao vivo de múltiplas taxas de bits de codificadores locais
@@ -240,7 +240,7 @@ Outras considerações relacionadas ao trabalho com canais e componentes relacio
 
 ##Como ciar canais que recebam transmissão ao vivo de diversas taxas de bits de codificadores locais
 
-Para obter mais informações sobre codificadores locais ativos, veja [Usando codificadores ativos de terceiros com os Serviços de Mídia do Azure](https://azure.microsoft.com/blog/azure-media-services-rtmp-support-and-live-encoders/).
+Para saber mais sobre codificadores locais ativos, consulte [Usando codificadores ativos de terceiros com os Serviços de Mídia do Azure](https://azure.microsoft.com/blog/azure-media-services-rtmp-support-and-live-encoders/).
 
 Escolha **Portal**, **.NET** e **API REST** para saber como criar e gerenciar canais e programas.
 
@@ -269,4 +269,4 @@ Escolha **Portal**, **.NET** e **API REST** para saber como criar e gerenciar ca
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

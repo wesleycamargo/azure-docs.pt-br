@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="02/07/2016"
 	ms.author="glenga"/>
 
 
@@ -26,7 +26,7 @@
 
 Quando sua empresa muda para nuvem, talvez não seja possível migrar todos os seus ativos para Azure imediatamente. As Conexões Híbridas permitem que os Serviços Móveis do Azure se conectem com segurança aos ativos locais. Dessa forma, você pode disponibilizar seus dados locais para os clientes móveis usando o Azure. Os ativos com suporte incluem qualquer recurso que seja executado em uma porta TCP estática, incluindo Microsoft SQL Server, MySQL, APIs da web HTTP e os serviços Web mais personalizados. As Conexões Híbridas utilizam a autorização de assinatura de acesso compartilhado (SAS) para proteger as conexões do seu serviço móvel e o Gerenciador de Conexões Híbridas local para a conexão híbrida. Para obter mais informações, consulte [Visão geral de Conexões Híbridas](../integration-hybrid-connection-overview.md).
 
-Neste tutorial, você aprenderá a modificar um serviço móvel de back-end do .NET para usar um banco de dados SQL Server local em vez do Banco de Dados SQL Azure padrão provisionado com seu serviço. As Conexões Híbridas também têm suporte para um serviço móvel de back-end do JavaScript, como descrito [neste artigo](http://blogs.msdn.com/b/azuremobile/archive/2014/05/12/connecting-to-an-external-database-with-node-js-backend-in-azure-mobile-services.aspx).
+Neste tutorial, você aprenderá a modificar um serviço móvel de back-end do .NET para usar um banco de dados SQL Server local em vez do Banco de Dados SQL Azure padrão provisionado com seu serviço. As Conexões Híbridas também têm suporte para um serviço móvel de back-end do JavaScript, conforme descrito [neste artigo](http://blogs.msdn.com/b/azuremobile/archive/2014/05/12/connecting-to-an-external-database-with-node-js-backend-in-azure-mobile-services.aspx).
 
 ##Pré-requisitos##
 
@@ -102,7 +102,7 @@ Agora que você verificou a conexão de banco de dados, é necessário adicionar
 
 	![Cadeia de conexão para banco de dados local](./media/mobile-services-dotnet-backend-hybrid-connections-get-started/11.png)
 
-2. Adicione uma nova cadeia de conexão do **SQL Server** chamada `OnPremisesDBConnection` com um valor como o seguinte:
+2. Adicione uma nova cadeia de conexão **SQL Server** denominada `OnPremisesDBConnection` com um valor como o seguinte:
 
 		Server=OnPremisesServer,1433;Database=OnPremisesDB;User ID=HybridConnectionsLogin;Password=<**secure_password**>
 
@@ -139,4 +139,4 @@ Agora que você verificou a conexão de banco de dados, é necessário adicionar
 [portal clássico do Azure]: http://manage.windowsazure.com
 [Introdução aos Serviços Móveis]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

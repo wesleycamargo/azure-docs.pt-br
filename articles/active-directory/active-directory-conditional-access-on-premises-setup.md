@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="02/09/2016"
 	ms.author="femila"/>
 
 
@@ -119,7 +119,8 @@ Isso ajudará você a integrar o seu locatário do AD do Azure com o Active Dire
 5.	Na seção **implantar e gerenciar**, siga as etapas 1 a 3 para integrar o Active Directory do Azure ao seu diretório local.
   1.	Adicionar domínios.
   2.	Instalar e executar o Azure AD Connect: instale o Azure AD Connect usando as instruções a seguir, [Instalação personalizada do Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
-  3. Verificar e gerenciar a sincronização de diretórios. Instruções de logon único estão disponíveis nessa etapa. >[AZURE.NOTE] Configure a Federação com o AD FS conforme descrito no documento vinculado acima. >[AZURE.NOTE] Você não precisa configurar nenhum dos recursos de visualização.
+  3. Verificar e gerenciar a sincronização de diretórios. Instruções de logon único estão disponíveis nessa etapa.
+  >[AZURE.NOTE] Configure a Federação com o AD FS conforme descrito no documento vinculado acima.[AZURE.NOTE] Você não precisa configurar nenhum dos recursos de visualização.
   
    
 
@@ -244,4 +245,8 @@ Agora, quando os usuários acessam seu aplicativo e um dispositivo que não est�
 
 ![Captura de tela de um erro quando os usuários não tiverem registrado seu dispositivo com o AD do Azure](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
 
-<!---HONumber=AcomDC_0128_2016-->
+##Artigos relacionados
+
+- [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
+
+<!---HONumber=AcomDC_0211_2016-->

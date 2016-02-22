@@ -34,7 +34,7 @@ O painel de Trabalhos Web no portal de gerenciamento do Azure fornece recursos d
 * [O Azure Webjobs é impressionante e você deve começar a usá-lo agora mesmo!](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html) (Postagem no blog por Troy Hunt).
 * [Recursos de Trabalhos Web do Azure](/blog/2014/10/22/webjobs-goes-into-full-production/)
 * [O que é o SDK de Trabalhos Web do Azure](websites-dotnet-webjobs-sdk.md)
-* [Diretrizes de trabalhos em segundo plano pelos Padrões e Práticas da Microsoft](https://github.com/mspnp/azure-guidance/blob/master/Background-Jobs.md)
+* [Diretrizes de trabalhos em segundo plano pelos Padrões e Práticas da Microsoft](/documentation/articles/best-practices-background-jobs/)
 * [Anunciando o RTM 1.1.0 do SDK de WebJobs do Microsoft Azure](/blog/azure-webjobs-sdk-1-1-0-rtm/)
 * [Introdução ao SDK de Trabalhos Web do Azure](websites-dotnet-webjobs-sdk-get-started.md)
 * [Como usar o armazenamento de fila do Azure com o SDK de Trabalhos Web](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
@@ -139,4 +139,4 @@ Consulte também as seguintes seções sobre [Implantação de Trabalhos Web](#d
 * [Twitter](http://twitter.com/). Use a hashtag #AzureWebJobs.
 * [Relatar um problema ou bug do WebJobs](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

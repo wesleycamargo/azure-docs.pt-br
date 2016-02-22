@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/02/2015"
+   ms.date="02/02/2016"
    ms.author="tomfitz"/>
 
 # Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure
@@ -271,7 +271,7 @@ Se você usar um arquivo de parâmetro para passar os valores de parâmetro para
 
 O tamanho do arquivo de parâmetro não pode ser superior a 64 KB.
 
-Para saber como definir parâmetros no modelo, confira [Criação de modelos](resource-group-authoring-templates.md/#parameters). Para obter detalhes sobre a referência a KeyVault e passar valores seguros, confira [Passar valores seguros durante a implantação ](resource-manager-keyvault-parameter.md)
+Para saber como definir parâmetros no modelo, confira [Criação de modelos](../resource-group-authoring-templates/#parameters). Para obter detalhes sobre a referência a KeyVault e passar valores seguros, confira [Passar valores seguros durante a implantação ](resource-manager-keyvault-parameter.md)
 
 ## Próximas etapas
 - Para obter um exemplo de como implantar recursos por meio da biblioteca de cliente do .NET, confira [Implantar recursos usando bibliotecas .NET e um modelo](./virtual-machines/arm-template-deployment.md)
@@ -282,4 +282,4 @@ Para saber como definir parâmetros no modelo, confira [Criação de modelos](re
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

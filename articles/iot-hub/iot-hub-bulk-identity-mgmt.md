@@ -336,6 +336,6 @@ Neste artigo, você aprendeu a realizar operações em massa no registro de iden
 
 - [Criar um Hub IoT usando um programa](iot-hub-rm-template.md)
 - [Métricas de uso do Hub IoT](iot-hub-metrics.md)
-- [Monitoramento de operações do Hub IoT](iot-hub-operations-montoring.md)
+- [Monitoramento de operações do Hub IoT](iot-hub-operations-monitoring.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

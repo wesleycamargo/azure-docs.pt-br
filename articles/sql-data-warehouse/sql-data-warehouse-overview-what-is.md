@@ -13,19 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/09/2016"
    ms.author="lodipalm;barbkess;mausher;jrj;sonyama;"/>
 
 
 # O que é o SQL Data Warehouse do Azure?
 
-O SQL Data Warehouse do Azure é um banco de dados distribuído de nível corporativo com capacidade de processar volumes imensos de dados relacionais e não relacionais. É o primeiro data warehouse de nuvem do setor que combina recursos SQL comprovados com a capacidade de expansão, redução e pausa em questão de segundos. O SQL Data Warehouse é também profundamente arraigado no Azure, e pode ser facilmente implantado em questão de segundos. Além disso, o serviço é totalmente gerenciado e remove o incômodo de gastar tempo com correção, manutenção e backups de software. Os backups internos e automáticos do SQL Data Warehouse oferecem suporte a tolerância a falhas e restauração de autoatendimento. Na criação do SQL Data Warehouse, nos concentramos em alguns atributos principais para garantir o aproveitamento total do Azure e criar um data warehouse que pudesse atender à carga de trabalho da qualquer empresa.
+O SQL Data Warehouse do Azure é um banco de dados distribuído de nível corporativo com capacidade de processar volumes imensos de dados relacionais e não relacionais. É o primeiro data warehouse de nuvem do setor que combina recursos SQL comprovados com a capacidade de expansão, redução e pausa em questão de segundos. O SQL Data Warehouse é também profundamente arraigado no Azure, e pode ser facilmente implantado em questão de segundos. Além disso, o serviço é totalmente gerenciado e remove o incômodo de gastar tempo com correção, manutenção e backups de software. Os backups internos e automáticos do SQL Data Warehouse oferecem suporte a tolerância a falhas e restauração de autoatendimento.
+
+Na criação do SQL Data Warehouse, nos concentramos em alguns atributos principais para garantir o aproveitamento total do Azure e criar um data warehouse que pudesse atender à carga de trabalho da qualquer empresa.
 
 ## Otimizado
 
 ### Arquitetura do Data Warehouse
 
-Em seu núcleo, o SQL Data Warehouse é executado usando uma arquitetura MPP (processamento paralelo maciço) da Microsoft, projetada originalmente para executar alguns dos maiores data warehouse corporativos locais. Essa arquitetura se beneficia dos aprimoramentos de desempenho de data warehouse internos e também permite que o SQL Data Warehouse expanda facilmente e paralelize a computação de consultas SQL complexas. Além disso, a arquitetura do SQL Data Warehouse é projetada para aproveitar sua presença no Azure. Combinando esses dois aspectos, a arquitetura se divide em quatro componentes principais:
+Em seu núcleo, o SQL Data Warehouse usa uma arquitetura MPP (processamento paralelo maciço) da Microsoft, projetada originalmente para executar alguns dos maiores data warehouse corporativos locais. Essa arquitetura se beneficia dos aprimoramentos de desempenho de data warehouse internos e também permite que o SQL Data Warehouse expanda facilmente e paralelize a computação de consultas SQL complexas. Além disso, a arquitetura do SQL Data Warehouse é projetada para aproveitar sua presença no Azure. Combinando esses dois aspectos, a arquitetura se divide em quatro componentes principais:
 
 ![Arquitetura do SQL Data Warehouse][1]
 
@@ -85,7 +87,7 @@ Em geral, queremos que as DWUs sejam simples. Quando você precisar de resultado
 
 - Para entender qual é o valor ideal de DWU é, tente escalar verticalmente, para cima e para baixo, e executar algumas consultas após carregar os dados. Como o dimensionamento é rápido, você pode experimentar vários níveis diferentes de desempenho sem confirmar por mais de uma hora.
 
-> [AZURE.NOTE]Observe que, devido à arquitetura ou ao Data Warehouse SQL talvez você não veja o desempenho esperado ao escalar volumes de dados mais baixos. Recomendamos começar com volumes de dados de 1 TB ou acima para obter resultados precisos do teste de desempenho.
+> [AZURE.NOTE] Observe que, devido à arquitetura ou ao Data Warehouse SQL talvez você não veja o desempenho esperado ao escalar volumes de dados mais baixos. Recomendamos começar com volumes de dados de 1 TB ou acima para obter resultados precisos do teste de desempenho.
 
 ## Integrado
 
@@ -124,7 +126,7 @@ O Polybase é fácil de usar e permite aproveitar dados de fontes diferentes usa
 
 Agora que você sabe um pouco sobre o SQL Data Warehouse, saiba mais sobre a [carga de trabalho do data warehouse], [provisionar] e carregar [dados de exemplo] para começar.
 
->[AZURE.NOTE]Queremos melhorar este artigo. Se você optar por responder "não" à pergunta "Este artigo foi útil?", inclua uma breve sugestão sobre como melhorar o artigo ou o que está faltando. Obrigado!
+>[AZURE.NOTE] Queremos melhorar este artigo. Se você optar por responder "não" à pergunta "Este artigo foi útil?", inclua uma breve sugestão sobre como melhorar o artigo ou o que está faltando. Obrigado!
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
@@ -138,4 +140,4 @@ Agora que você sabe um pouco sobre o SQL Data Warehouse, saiba mais sobre a [ca
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

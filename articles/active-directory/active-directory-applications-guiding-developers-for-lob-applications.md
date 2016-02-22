@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 # AD do Azure e aplicativos: orientando os desenvolvedores
@@ -77,4 +77,8 @@ Para aplicativos em que você confia, é possível consentir ao aplicativo em no
 
 Para saber mais sobre o consentimento do usuário e sobre a experiência de consentimento no Azure, confira [Integrando aplicativos com o Active Directory do Azure](active-directory-integrating-applications.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+##Artigos relacionados
+
+- [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
+
+<!---HONumber=AcomDC_0211_2016-->

@@ -26,23 +26,20 @@ As soluções pré-configuradas do Pacote IoT do Azure são implementações de 
 
 Cada solução pré-configurada implementa um cenário comum de IoT e é uma implementação completa de ponta a ponta que usa dispositivos para gerar telemetria.
 
-Além de implantar e de executar as soluções pré-configuradas no Azure, você pode baixar o código-fonte completo, personalizar e estender a solução para atender às suas necessidades específicas de IoT.
+Além de implantar e de executar as soluções no Azure, você pode baixar o código-fonte completo, personalizar e estender a solução para atender às suas necessidades específicas de IoT.
 
-As soluções pré-configuradas disponíveis são:
+> [AZURE.NOTE] O artigo [Introdução às soluções da IoT pré-configuradas][lnk-preconf-get-started] descreve como implantar e executar uma das soluções.
 
-- [Monitoramento remoto][lnk-remote-monitoring]
-- [Manutenção preditiva][lnk-predictive-maintenance]
-
-A tabela a seguir mostra como essas soluções pré-configuradas são mapeadas para recursos específicos de IoT:
+A tabela a seguir mostra como essas soluções são mapeadas para recursos específicos de IoT:
 
 | Solução | Ingestão de dados | Identidade do dispositivo | Comando e controle | Regras e ações | Análise preditiva |
 |------------------------|-----|-----|-----|-----|-----|
-| Monitoramento remoto | Sim | Sim | Sim | Sim | - |
-| Manutenção preditiva | Sim | Sim | Sim | Sim | Sim |
+| [Monitoramento remoto][lnk-remote-monitoring] | Sim | Sim | Sim | Sim | - | 
+| [Manutenção preditiva][lnk-predictive-maintenance] | Sim | Sim | Sim | Sim | Sim |
 
 ## Visão geral da solução pré-configurada de Monitoramento Remoto
 
-Esta seção descreve alguns dos principais elementos da solução pré-configurada de monitoramento remoto. O monitoramento remoto é a mais simples das soluções pré-configuradas e ilustra os elementos comuns de design compartilhados pelas outras soluções pré-configuradas.
+Nós optamos por abordar a solução pré-configurada de monitoramento remoto neste artigo porque ela é a mais simples das soluções e ilustra os elementos comuns de design compartilhados pelas outras soluções.
 
 O diagrama a seguir ilustra os principais elementos da solução de monitoramento remoto. As seções abaixo fornecem mais informações sobre esses elementos.
 
@@ -85,6 +82,8 @@ Nesta solução pré-configurada, o processador de eventos faz parte do *back-en
 
 ## Portal de solução
 
+![Painel da solução][img-dashboard]
+
 O portal da solução é uma interface de usuário baseada na Web implantado na nuvem como parte da solução pré-configurada. Ele permite que você:
 
 - Exiba o histórico de telemetria e de alarmes em um painel.
@@ -95,16 +94,17 @@ O portal da solução é uma interface de usuário baseada na Web implantado na 
 
 > [AZURE.NOTE] O portal da solução também mantém o [registro de identidade de dispositivo][lnk-identity-registry] do Hub IoT sincronizado com o armazenamento de informações mais detalhadas de estado do dispositivo no banco de dados do Banco de Dados de Documentos da solução.
 
-Nesta solução pré-configurada, o portal da solução faz parte do *back-end de solução de IoT* e parte da *Conectividade de processamento e de negócios* em uma [arquitetura de solução de IoT][lnk-what-is-azure-iot] típica.
+Nesta solução pré-configurada, o portal da solução faz parte do *back-end de solução de IoT* e parte da *Conectividade de processamento e de negócios* em uma [arquitetura da solução de IoT][lnk-what-is-azure-iot] típica.
 
 ## Próximas etapas
 
 Explore estes recursos para saber mais sobre as soluções pré-configuradas de IoT:
 
-- [Visão geral das soluções do Azure IoT pré-configuradas][lnk-suite-overview]
 - [Introdução às soluções da IoT pré-configuradas][lnk-preconf-get-started]
+- [Visão geral da solução pré-configurada de manutenção preditiva][lnk-predictive-maintenance]
 
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
+[img-dashboard]: ./media/iot-suite-what-are-preconfigured-solutions/dashboard.png
 [lnk-remote-monitoring]: iot-suite-remote-monitoring-sample-walkthrough.md
 [lnk-what-is-azure-iot]: iot-suite-what-is-azure-iot.md
 [lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
@@ -116,4 +116,4 @@ Explore estes recursos para saber mais sobre as soluções pré-configuradas de 
 [lnk-preconf-get-started]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/11/2015" 
+	ms.date="02/08/2016" 
 	ms.author="bradsev" />
 
 # Importação de Dados em Massa Paralela Usando Tabelas de Partição do SQL
 
-Para carregamento/transferência de big data para um banco de dados SQL, a importação de dados para o banco de dados SQL e as consultas subsequentes podem ser melhorados usando _Tabelas Particionadas e Exibições_. Este documento descreve como compilar tabelas particionadas para rápida importação de dados em massa paralela para um banco de dados do SQL Server.
+Este documento descreve como compilar tabelas particionadas para rápida importação de dados em massa paralela para um banco de dados do SQL Server.
+
+Para carregamento/transferência de big data para um banco de dados SQL, a importação de dados para o banco de dados SQL e as consultas subsequentes podem ser melhorados usando _Tabelas Particionadas e Exibições_.
 
 
 ## Criar um novo banco de dados e um conjunto de grupos de arquivos
@@ -29,7 +31,7 @@ Para carregamento/transferência de big data para um banco de dados SQL, a impor
 
 - Adicione um ou mais arquivos (conforme necessário) para cada grupo de arquivos de banco de dados
 
- >[AZURE.NOTE]Especifique o grupo de arquivos de destino que conterá os dados para essa partição e os nomes dos arquivos de banco de dados físico onde serão armazenados os dados do grupo de arquivos.
+ > [AZURE.NOTE] Especifique o grupo de arquivos de destino que conterá os dados para essa partição e os nomes dos arquivos de banco de dados físico onde serão armazenados os dados do grupo de arquivos.
  
 O exemplo a seguir cria um novo banco de dados com três grupos de arquivos que não são os grupos principal e de registro, contendo um arquivo físico cada um. Os arquivos de banco de dados são criados na pasta de Dados do SQL Server padrão, conforme configurado na instância do SQL Server. Para obter mais informações sobre os locais de arquivo padrão, consulte [Locais de arquivo para instâncias padrão e nomeadas do SQL Server](https://msdn.microsoft.com/library/ms143547.aspx).
 
@@ -177,11 +179,11 @@ ou
 	    CREATE INDEX <table_idx> ON <table_name>( [include index columns here] )
 	    ON <TablePScheme>(<partition)field>)
 
- >[AZURE.NOTE]Você pode optar por criar os índices antes de importar os dados em massa. Criar índices antes da importação em massa retardará o carregamento de dados.
+ > [AZURE.NOTE] Você pode optar por criar os índices antes de importar os dados em massa. Criar índices antes da importação em massa retardará o carregamento de dados.
 
 ## Exemplo de Processo e Tecnologia de Análise Avançada em ação
 
 Para obter um exemplo passo a passo completo do Processo de Análise do Cortana com um conjunto de dados público, consulte [Processo de Análise do Cortana em ação: usando o SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

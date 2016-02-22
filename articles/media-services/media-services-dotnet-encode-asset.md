@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/08/2015"  
+  ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -146,7 +146,7 @@ O seguinte método **EncodeToAdaptiveBitrateMP4Set** cria um trabalho de codific
 
 Em muitos cenários de aplicativo, os desenvolvedores querem criar uma série de tarefas de processamento. Nos serviços de mídia, você pode criar uma série de tarefas encadeadas. Cada tarefa executa etapas de processamento diferentes e pode usar diferentes processadores de mídia. As tarefas encadeadas podem entregar um ativo de uma tarefa para outra, desempenhando uma sequência linear de tarefas no ativo. No entanto, as tarefas executadas em um trabalho não precisam estar em uma sequência. Quando você cria uma tarefa encadeada, os objetos **ITask** são criados em um único objeto **IJob**.
 
->[AZURE.NOTE]Atualmente, há um limite de 30 tarefas por trabalho. Se você precisa encadear mais de 30 tarefas, crie mais de um trabalho para conter as tarefas.
+>[AZURE.NOTE] Atualmente, há um limite de 30 tarefas por trabalho. Se você precisa encadear mais de 30 tarefas, crie mais de um trabalho para conter as tarefas.
 
 O seguinte método **CreateChainedTaskEncodingJob** cria um trabalho que contém duas tarefas encadeadas. Como resultado, o método retorna um trabalho que contém dois ativos de saída.
 
@@ -225,4 +225,4 @@ O seguinte método **CreateChainedTaskEncodingJob** cria um trabalho que contém
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

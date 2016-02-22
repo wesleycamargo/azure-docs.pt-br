@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/05/2015"
+ 	ms.date="02/09/2016"  
 	ms.author="juliako"/>
 
 
@@ -23,6 +23,15 @@
 
 Os serviços de mídia do Microsoft Azure é um serviço que aceita solicitações HTTP com base em OData e pode responder em verbose JSON ou atom+pub. Como os serviços de mídia estão em conformidade com as diretrizes de design do Azure, há um conjunto de cabeçalhos HTTP necessários que cada cliente deve usar ao se conectar aos serviços de mídia, bem como um conjunto de cabeçalhos opcionais que podem ser usados. As seções a seguir descrevem os cabeçalhos e verbos HTTP que podem ser usados ao criar solicitações e receber respostas dos serviços de mídia.
 
+##Considerações 
+
+As seguintes considerações se aplicam ao usar REST.
+
+
+- Se for usar o JSON, você DEVERÁ definir o cabeçalho Accept como [formato JSON detalhado](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/). O Odata não entende a propriedade \_metadata na solicitação, a menos que você a defina como detalhado.
+
+	**Aceitar**: application/json;odata=verbose
+- Ao consultar entidades, um limite de 1.000 entidades podem ser retornadas ao mesmo tempo porque a REST v2 pública limita os resultados da consulta a 1.000 resultados. Você precisa usar **Ignorar** e **Levar** (.NET) / **superior** (REST), conforme descrito em [neste exemplo .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [neste exemplo de API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
 
 ## Os cabeçalhos de solicitação HTTP padrão suportados pelos serviços de mídia
 
@@ -38,7 +47,7 @@ MaxDataServiceVersion|Decimal|3\.0
 
 
 
->[AZURE.NOTE]Como os serviços de mídia usam o OData para expor seu repositório de metadados de ativo subjacente por meio de APIs REST, os cabeçalhos DataServiceVersion e MaxDataServiceVersion devem ser incluídos em qualquer solicitação. No entanto, se não forem, então os serviços de mídia assumem que o valor DataServiceVersion em uso é 3.0.
+>[AZURE.NOTE] Como os serviços de mídia usam o OData para expor seu repositório de metadados de ativo subjacente por meio de APIs REST, os cabeçalhos DataServiceVersion e MaxDataServiceVersion devem ser incluídos em qualquer solicitação. No entanto, se não forem, então os serviços de mídia assumem que o valor DataServiceVersion em uso é 3.0.
 
 Este é um conjunto de cabeçalhos opcional:
 
@@ -81,6 +90,10 @@ EXCLUIR|Exclui um objeto.
 MESCLAR|Atualiza um objeto existente com alterações de propriedade nomeada.
 HEAD|Retorna metadados de um objeto para uma resposta GET.
 
+##Limitações
+
+Ao consultar entidades, um limite de 1.000 entidades podem ser retornadas ao mesmo tempo porque a REST v2 pública limita os resultados da consulta a 1.000 resultados. Você precisa usar **Ignorar** e **Levar** (.NET) / **superior** (REST), conforme descrito em [neste exemplo .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [neste exemplo de API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities).
+
 
 ## Descobrindo o modelo de serviços de mídia
 
@@ -105,4 +118,4 @@ Você deve acrescentar "?api-version=2.x" ao final do URI se desejar exibir os m
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

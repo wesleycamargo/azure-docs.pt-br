@@ -22,7 +22,7 @@ O tempo de execução de Reliable Actors emite eventos [EventSource](https://msd
 ## Eventos EventSource
 O nome do provedor do EventSource do tempo de execução de Reliable Actors é "Microsoft-ServiceFabric-Actors". Os eventos dessa origem de eventos aparecem na janela [Eventos de Diagnóstico](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) quando o aplicativo de ator está sendo [depurado no Visual Studio](service-fabric-debugging-your-application.md).
 
-Exemplos de ferramentas e tecnologias que ajudam a coletar e/ou exibir eventos EventSource são [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Diagnóstico do Azure](../cloud-services-dotnet-diagnostics.md), [Log de Semântica](https://msdn.microsoft.com/library/dn774980.aspx) e [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
+Exemplos de ferramentas e tecnologias que ajudam a coletar e/ou exibir eventos EventSource são [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Diagnóstico do Azure](../cloud-services/cloud-services-dotnet-diagnostics.md), [Log de Semântica](https://msdn.microsoft.com/library/dn774980.aspx) e [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ### Palavras-chave
 Todos os eventos que pertencem ao EventSource dos Reliable Actors são associados a uma ou mais palavras-chave. Isso permite a filtragem dos eventos que são coletados. Os bits de palavra-chave são definidos a seguir.
@@ -44,7 +44,7 @@ O tempo de execução dos Reliable Actors define as categorias de contador de de
 
 Cada uma das categorias acima tem um ou mais contadores.
 
-O aplicativo [Monitor de Desempenho do Windows](https://technet.microsoft.com/library/cc749249.aspx) está disponível por padrão no sistema operacional Windows e pode ser usado para coletar e exibir dados do contador de desempenho. O [Diagnóstico do Azure](../cloud-services-dotnet-diagnostics.md) é outra opção para coletar dados do contador de desempenho e carregá-los nas tabelas do Azure.
+O aplicativo [Monitor de Desempenho do Windows](https://technet.microsoft.com/library/cc749249.aspx) está disponível por padrão no sistema operacional Windows e pode ser usado para coletar e exibir dados do contador de desempenho. O [Diagnóstico do Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) é outra opção para coletar dados do contador de desempenho e carregá-los nas tabelas do Azure.
 
 ### Nomes da instância do contador de desempenho
 Um cluster que tem um grande número de serviços de ator ou partições de serviço de ator terá um grande número de instâncias do contador de desempenho de ator. Os nomes da instância do contador de desempenho podem ajudar a identificar a [partição](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors) e o método de ator (se aplicável) aos quais a instância do contador de desempenho está associada.
@@ -153,4 +153,4 @@ O tempo de execução de Reliable Actors emite os eventos a seguir relacionados 
 |ActorActivated|5|Informativo|0x1|Um ator foi ativado.|
 |ActorDeactivated|6|Informativo|0x1|Um ator foi desativado.|
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Configurando o Active Directory do Azure para gerenciamento de acesso de aplicativos de autoatendimento | Microsoft Azure"
-	description="visão geral do gerenciamento de grupo de autoatendimento que permite aos usuários criar e gerenciar grupos de segurança no Active Directory do Azure e oferece aos usuários a possibilidade de solicitar associações de grupo de segurança"
+	description="visão geral do gerenciamento de grupo de autoatendimento que permite aos usuários criar e gerenciar grupos de segurança ou grupos do Office no Active Directory do Azure e oferece aos usuários a possibilidade de solicitar associações a um grupo de segurança ou grupo do Office"
 	services="active-directory"
 	documentationCenter=""
   authors="curtand"
@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015"
+	ms.date="02/09/2016"
 	ms.author="curtand"/>
 
-# Configurando o Active Directory do Azure para gerenciamento de acesso de aplicativos de autoatendimento
+# Configurando o Active Directory do Azure para gerenciamento de grupo de autoatendimento
 
-O gerenciamento de grupo de autoatendimento permite aos usuários criar e gerenciar grupos de segurança no Active Directory do Azure (AD do Azure) e oferece aos usuários a possibilidade de associações de grupo de segurança à solicitação, que podem ser subsequentemente aprovadas ou negadas pelo proprietário do grupo. Usando recursos de gerenciamento de grupo de autoatendimento, o controle diário de associação de grupo pode ser delegado à pessoa que compreender o contexto dos negócios naquela associação. Os recursos de gerenciamento de grupo de autoatendimento só estão disponíveis para grupos de segurança e para grupos do Office 365, não para grupos de segurança habilitados para email ou listas de distribuição.
+O gerenciamento de grupo de autoatendimento permite aos usuários criar e gerenciar grupos de segurança ou grupos do Office no Active Directory do Azure (AD do Azure) e oferece aos usuários a possibilidade de associação a um grupo de segurança ou grupo do Office à solicitação, que podem ser subsequentemente aprovadas ou negadas pelo proprietário do grupo. Usando recursos de gerenciamento de grupo de autoatendimento, o controle diário de associação de grupo pode ser delegado à pessoa que compreender o contexto dos negócios naquela associação. Os recursos de gerenciamento de grupo de autoatendimento só estão disponíveis para grupos de segurança e para grupos do Office 365, não para grupos de segurança habilitados para email ou listas de distribuição.
 
 O gerenciamento de grupo de autoatendimento atualmente está composto de dois cenários essenciais:gerenciamento de grupo delegado e gerenciamento de grupo de autoatendimento.
 
@@ -31,9 +31,9 @@ O gerenciamento de grupo de autoatendimento atualmente está composto de dois ce
 
 ## Disponibilização de um grupo para o usuário final de autoatendimento
 
-No Portal do Azure, na guia **Configuração**, defina a opção de **gerenciamento de grupo delegado** como Habilitada e, em seguida, defina a opção **Usuários podem criar de grupos** como Habilitada.
+No Portal do Azure, na guia **Configuração**, defina a opção de **gerenciamento de grupo delegado** como Habilitada e, em seguida, defina a opção **Usuários podem criar grupos de segurança** ou **Usuários podem criar grupos do Office** como Habilitada.
 
-Quando a opção **Usuários podem criar grupos** é definida como**Habilitada**, todos os usuários em seu diretório têm permissão para criar novos grupos de segurança e adicionar membros a esses grupos. Esses novos grupos também deverão aparecer no Painel de acesso para todos os outros usuários e que outros usuários podem criar solicitações para ingressar nesses grupos, se a configuração de política de grupo permitir isso. Se essa opção for definida como desativado, os usuários não poderão criar grupos e não será possível alterar os grupos existentes que são proprietários, mas ainda podem gerenciar os membros desses grupos e aprovar solicitações de outros usuários para ingressar em seus grupos.
+Quando a opção **Usuários podem criar grupos de segurança** é definida como **Habilitada**, todos os usuários em seu diretório têm permissão para criar novos grupos de segurança e adicionar membros a esses grupos. Esses novos grupos também deverão aparecer no Painel de acesso para todos os outros usuários e que outros usuários podem criar solicitações para ingressar nesses grupos, se a configuração de política de grupo permitir isso. Se essa opção for definida como desativado, os usuários não poderão criar grupos e não será possível alterar os grupos existentes que são proprietários, mas ainda podem gerenciar os membros desses grupos e aprovar solicitações de outros usuários para ingressar em seus grupos.
 
 Você também pode usar a opção **Os usuários que podem usar o autoatendimento para grupos de segurança** para obter um controle de acesso mais refinado sobre os recursos de gerenciamento de grupo de autoatendimento para seus usuários. Quando a opção **Usuários podem criar grupos** é definida como Habilitada, todos os usuários em seu diretório têm permissão para criar novos grupos de segurança e adicionar membros a esses grupos. Definindo também a opção **Os usuários que podem usar autoatendimento para grupos de segurança** para Alguns, você está restringindo o gerenciamento de grupo de segurança para apenas um grupo limitado de usuários. Quando essa opção estiver definida para Alguns, um grupo chamado SSGMSecurityGroupsUsers é criado no diretório e apenas aos usuários que você associou a esse grupo podem criar novos grupos de segurança e adicionar membros a esses grupos em seu diretório. Definindo a opção **Os usuários que podem usar autoatendimento para grupos de segurança** para Todos, você permite que todos os usuários em seu diretório criem novos grupos de segurança.
 
@@ -45,8 +45,10 @@ Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 
 * [Gerenciamento de acesso a recursos com grupos do Active Directory do Azure](active-directory-manage-groups.md)
 
+* [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
+
 * [O que é o Active Directory do Azure?](active-directory-whatis.md)
 
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

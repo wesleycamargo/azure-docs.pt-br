@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/28/2016"  
+	ms.date="02/03/2016" 
 	ms.author="juliako"/>
 
 #Codificação avançada com fluxo de trabalho do Media Encoder Premium
 
-**Observação** o processador de mídia do Fluxo de trabalho do Media Encoder Premium discutido neste tópico não está disponível na China.
+>[AZURE.NOTE]Para solucionar dúvidas sobre o codificador premium, envie um email para o mepd em Microsoft.com.
+>
+>O processador de mídia do Fluxo de trabalho do Media Encoder Premium discutido neste tópico não está disponível na China.
 
 ##Visão geral
 
@@ -33,6 +35,8 @@ Os tópicos a seguir descrevem os detalhes relacionados ao **Fluxo de trabalho d
 Este tópico demonstra como codificar com **Fluxo de trabalho do Media Encoder Premium** usando o .NET.
 
 As tarefas de codificação para o **Fluxo de trabalho do Media Encoder Premium** exigem um arquivo de configuração separado, chamado de arquivo de Fluxo de trabalho. Esses arquivos têm uma extensão .workflow e são criados usando a ferramenta [Designer de Fluxo de Trabalho](media-services-workflow-designer.md).
+
+>[AZURE.NOTE]Para solucionar dúvidas sobre o codificador premium, envie um email para o mepd em Microsoft.com.
 
 ##Codificar
 
@@ -50,7 +54,9 @@ As seguintes etapas são executadas:
 1. Criar um ativo e carregar um arquivo de fluxo de trabalho. 
 2. Criar um ativo e carregar um arquivo de mídia de origem.
 3. Obter o processador de mídia "Fluxo de trabalho do Media Encoder Premium".
-4. Criar um trabalho e uma tarefa.
+4. Criar um trabalho e uma tarefa. 
+
+	Na maioria dos casos, a cadeia de caracteres de configuração para a tarefa está vazia (como no exemplo a seguir). Há alguns cenários avançados (que exigem que você defina propriedades de tempo de execução dinamicamente) em que você forneceria uma cadeia de caracteres XML para a tarefa de codificação. Exemplos desses cenários são: criação de uma sobreposição, união de mídia paralela ou sequencial, colocação de legenda.
 5. Adicionar dois ativos de entrada à tarefa.
 	
 	a. 1º – o ativo de fluxo de trabalho.
@@ -264,10 +270,6 @@ O exemplo a seguir é um exemplo completo. Para saber mais sobre como configurar
 	}
 
 
-##Problemas conhecidos
-
-Se o vídeo de entrada não contiver a legendagem oculta, o ativo de saída ainda conterá um arquivo TTML vazio.
-
 
 ##Roteiros de aprendizagem dos Serviços de Mídia
 
@@ -277,4 +279,4 @@ Se o vídeo de entrada não contiver a legendagem oculta, o ativo de saída aind
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

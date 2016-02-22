@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/18/2015" 
+	ms.date="02/08/2016" 
 	ms.author="hangzh;bradsev" />
 
 #<a name="heading"></a> Enviar consultas do Hive para clusters Hadoop do HDInsight no Processo de Análise do Cortana
@@ -127,7 +127,7 @@ Descrevemos as seguintes tarefas de disputa de dados nesta seção usando o Hive
 1. [Exploração de dados](#hive-dataexploration)
 2. [Geração de recursos](#hive-featureengineering)
 
-> [AZURE.NOTE]As consultas de Hive de exemplo pressupõem que os dados foram carregados para tabelas Hive em clusters do Hadoop do Azure HDInsight. Se não, siga as instruções de [Criar e carregar dados nas tabelas Hive](machine-learning-data-science-hive-tables.md) para carregar dados nas tabelas Hive primeiro.
+> [AZURE.NOTE] As consultas de Hive de exemplo pressupõem que os dados foram carregados para tabelas Hive em clusters do Hadoop do Azure HDInsight. Se não, siga as instruções de [Criar e carregar dados nas tabelas Hive](machine-learning-data-science-hive-tables.md) para carregar dados nas tabelas Hive primeiro.
 
 ###<a name="hive-dataexploration"></a>Exploração de dados
 Aqui estão alguns scripts de Hive de exemplo que podem ser usados para explorar dados em tabelas Hive.
@@ -179,7 +179,7 @@ Nesta seção, descrevemos maneiras de gerar recursos usando consultas de Hive:
 4. [Extrair recursos de campo de texto](#hive-textfeature)
 5. [Calcular a distância entre coordenadas de GPS](#hive-gpsdistance)
 
-> [AZURE.NOTE]Depois de gerar recursos adicionais, você pode adicioná-los como colunas à tabela existente ou criar uma nova tabela com os recursos adicionais e a chave primária, que pode ser unida com a tabela original.
+> [AZURE.NOTE] Depois de gerar recursos adicionais, você pode adicioná-los como colunas à tabela existente ou criar uma nova tabela com os recursos adicionais e a chave primária, que pode ser unida com a tabela original.
 
 ####<a name="hive-frequencyfeature"></a> Geração de recursos baseada na frequência
 
@@ -325,4 +325,4 @@ As configurações de parâmetro padrão do cluster de Hive talvez não sejam ad
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

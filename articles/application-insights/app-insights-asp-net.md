@@ -114,7 +114,7 @@ Procure dados nos gráficos de Visão Geral. Primeiro, você apenas verá um ou 
 
 Clique em qualquer gráfico para ver métricas mais detalhadas. [Saiba mais sobre métricas.][perf]
 
-* *Nenhum dado de usuário ou página?* - [Adicionar dados de usuário e página](app-insights-asp-net-client.md)
+* *Nenhum dado de usuário ou página?* - [Adicionar dados de usuário e página](app-insights-web-track-usage.md)
 
 ### Pesquisa: eventos individuais
 
@@ -146,7 +146,7 @@ Quando você executa no modo de depuração, a telemetria é expressa através d
 
 #### Problemas no servidor de compilação?
 
-Veja [este item da Solução de problemas](app-insights-troubleshoot-faq.md#NuGetBuild).
+Veja [este item da Solução de problemas](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
 
 > [AZURE.NOTE] Se o seu aplicativo gerar muita telemetria (e você estiver usando o SDK do ASP.NET versão 2.0.0-beta3 ou posterior), o módulo de amostragem adaptável reduzirá automaticamente o volume enviado ao portal, enviando apenas uma fração representativa de eventos. No entanto, os eventos relacionados à mesma solicitação serão selecionadas ou desmarcadas como um grupo, para que você possa navegar entre os eventos relacionados. [Saiba mais sobre amostragem](app-insights-sampling.md).
 
@@ -169,7 +169,7 @@ Isso é particularmente útil se você tiver alguma [telemetria personalizada](a
 
 ## Próximas etapas
 
-- [Dados do usuário e da página](../article/application-insights/app-insights-asp-net-client.md#selector1)
+- [Dados do usuário e da página](../article/application-insights/app-insights-javascript.md#selector1)
 - [Exceções](../article/application-insights/app-insights-asp-net-exception-mvc.md#selector1)
 - [Dependências](../article/application-insights/app-insights-asp-net-dependencies.md#selector1)
 - [Disponibilidade](../article/application-insights/app-insights-monitor-web-app-availability.md#selector1)
@@ -212,4 +212,4 @@ Se você fez todas as personalizações no ApplicationInsights.config, salve uma
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

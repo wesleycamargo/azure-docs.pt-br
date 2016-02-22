@@ -50,7 +50,7 @@ A solução de problemas pode ser dividida em três tarefas distintas, em ordem 
 
 #### Controlar a integridade do serviço
 
-O Microsoft Azure publica sempre que há uma degradação no desempenho ou interrupção do serviço. Você pode controlar a integridade do serviço no [Portal do Azure](https://portal.azure.com/). Para saber mais, consulte [Controlar a integridade do serviço](insights-service-health.md).
+O Microsoft Azure publica sempre que há uma degradação no desempenho ou interrupção do serviço. Você pode controlar a integridade do serviço no [Portal do Azure](https://portal.azure.com/). Para saber mais, consulte [Controlar a integridade do serviço](../azure-portal/insights-service-health.md).
 
 #### Monitorar seu aplicativo Web
 
@@ -69,7 +69,7 @@ Algumas das métricas que deseja monitorar para seu aplicativo Web são
 Para obter mais informações, confira:
 
 -	[Monitorar aplicativos Web no Serviço de Aplicativo do Azure](web-sites-monitor.md)
--	[Receber notificações de alerta](insights-receive-alert-notifications.md)
+-	[Receber notificações de alerta](../azure-portal/insights-receive-alert-notifications.md)
 
 #### Monitorar o status de ponto de extremidade da Web
 
@@ -91,9 +91,9 @@ Cada aplicativo Web do Serviço de Aplicativo fornece um ponto de extremidade de
 
 O [Application Insights](/services/application-insights/) e o [New Relic](/marketplace/partners/newrelic/newrelic/) são duas das extensões de site para monitoramento de desempenho que estão disponíveis. Para usar o New Relic, instale um agente em tempo de execução. Para usar o Application Insights do Azure, recrie seu código com um SDK. Você também pode instalar uma extensão que fornece acesso a dados adicionais. O SDK permite que você escreva código para monitorar o uso e o desempenho de seu aplicativo em mais detalhes.
 
-Para usar o Application Insights, consulte [Monitorar o desempenho em aplicativos Web](app-insights-web-monitor-performance.md).
+Para usar o Application Insights, consulte [Monitorar o desempenho em aplicativos Web](../application-insights/app-insights-web-monitor-performance.md).
 
-Consulte [Gerenciamento de desempenho do aplicativo New Relic nos sites do Azure](store-new-relic-cloud-services-dotnet-application-performance-management.md).
+Consulte [Gerenciamento de desempenho do aplicativo New Relic nos sites do Azure](../store-new-relic-cloud-services-dotnet-application-performance-management.md).
 
 <a name="collect" />
 ### 2\. Coletar dados
@@ -184,6 +184,6 @@ Esta é geralmente a maneira mais simples de se recuperar de problemas de uso ú
 
  ![](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
-Você também pode gerenciar seu aplicativo Web usando o Azure Powershell. Para obter mais informações, consulte [Usando o PowerShell do Azure com o Gerenciador de Recursos do Azure](powershell-azure-resource-manager.md).
+Você também pode gerenciar seu aplicativo Web usando o Azure Powershell. Para obter mais informações, consulte [Usando o PowerShell do Azure com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

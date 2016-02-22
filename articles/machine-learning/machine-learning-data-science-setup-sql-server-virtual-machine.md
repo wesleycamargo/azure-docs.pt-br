@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="02/08/2016"
 	ms.author="mohabib;xibingao;bradsev" />
 
 # Configurar uma máquina virtual SQL Server do Azure como um servidor do IPython Notebook para análises avançadas
@@ -25,7 +25,7 @@ A galeria de Máquinas Virtuais do Azure inclui várias imagens que contêm o Mi
 - SQL Server 2012 SP2 Enterprise para dados de pequeno a médio porte
 - SQL Server 2012 SP2 Enterprise otimizado para cargas de trabalho de DataWarehousing para dados de grande a muito grande porte
 
- >[AZURE.NOTE] A imagem do SQL Server 2012 SP2 Enterprise **não inclui um disco de dados**. Você precisará adicionar e/ou anexar um ou mais discos rígidos virtuais para armazenar seus dados. Quando você cria uma máquina virtual do Azure, ela tem um disco para o sistema operacional mapeado para a unidade C e um disco temporário mapeado para a unidade D. Não utilize a unidade D para armazenar dados. Como seu nome quer dizer, ele oferece armazenamento apenas temporariamente. Não oferece redundância nem backup porque eles não residem no armazenamento do Azure.
+ > [AZURE.NOTE] A imagem do SQL Server 2012 SP2 Enterprise **não inclui um disco de dados**. Você precisará adicionar e/ou anexar um ou mais discos rígidos virtuais para armazenar seus dados. Quando você cria uma máquina virtual do Azure, ela tem um disco para o sistema operacional mapeado para a unidade C e um disco temporário mapeado para a unidade D. Não utilize a unidade D para armazenar dados. Como seu nome quer dizer, ele oferece armazenamento apenas temporariamente. Não oferece redundância nem backup porque eles não residem no armazenamento do Azure.
 
 
 ##<a name="Provision"></a>Conectar-se ao Portal Clássico do Azure e fornecer uma máquina virtual do SQL Server
@@ -46,7 +46,7 @@ A galeria de Máquinas Virtuais do Azure inclui várias imagens que contêm o Mi
     -   Na caixa **CONFIRMAR SENHA**, digite a senha novamente.
     -   Selecione o **Tamanho** apropriado na lista suspensa.
 
-     >[AZURE.NOTE] O tamanho da máquina virtual é especificado durante o provisionamento: A2 é o menor tamanho recomendado para cargas de trabalho de produção. O tamanho mínimo recomendado para uma máquina virtual é A3 ao usar o SQL Server Enterprise Edition. Selecione A3 ou maior ao usar o SQL Server Enterprise Edition. Selecione A4 ao usar o SQL Server 2012 ou 2014 Enterprise otimizado para imagens de cargas de trabalho transacionais. Selecione A7 ao usar o SQL Server 2012 ou 2014 Enterprise otimizado para imagens de cargas de trabalho do Data Warehouse. O tamanho selecionado limita o número de discos de dados que você pode configurar. Para obter informações mais atualizadas sobre tamanhos de máquina virtual disponíveis e o número de discos de dados que você pode anexar a uma máquina virtual, consulte [Tamanhos de Máquina Virtual para o Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx) . Para obter informações sobre preços, consulte [Preços de Máquinas Virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/).
+     > [AZURE.NOTE] O tamanho da máquina virtual é especificado durante o provisionamento: A2 é o menor tamanho recomendado para cargas de trabalho de produção. O tamanho mínimo recomendado para uma máquina virtual é A3 ao usar o SQL Server Enterprise Edition. Selecione A3 ou maior ao usar o SQL Server Enterprise Edition. Selecione A4 ao usar o SQL Server 2012 ou 2014 Enterprise otimizado para imagens de cargas de trabalho transacionais. Selecione A7 ao usar o SQL Server 2012 ou 2014 Enterprise otimizado para imagens de cargas de trabalho do Data Warehouse. O tamanho selecionado limita o número de discos de dados que você pode configurar. Para obter informações mais atualizadas sobre tamanhos de máquina virtual disponíveis e o número de discos de dados que você pode anexar a uma máquina virtual, consulte [Tamanhos de Máquina Virtual para o Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx) . Para obter informações sobre preços, consulte [Preços de Máquinas Virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
     Clique na seta de avanço na parte inferior à direita para continuar.
 
@@ -119,7 +119,7 @@ Para configurar a nova VM do SQL Server para servir como um servidor do IPython 
 
 Se a sua imagem de VM não incluir discos de dados, ou seja, discos que não sejam a unidade C (disco do sistema operacional) e a unidade D (disco temporário), você precisa adicionar um ou mais discos de dados para armazenar dados. A imagem VM para SQL Server 2012 SP2 Enterprise Optimized for DataWarehousing Workloads vem pré-configurada com discos adicionais para arquivos de log e de dados do SQL Server.
 
- >[AZURE.NOTE] Não utilize a unidade D para armazenar dados. Como seu nome quer dizer, ele oferece armazenamento apenas temporariamente. Não oferece redundância nem backup porque eles não residem no armazenamento do Azure.
+ > [AZURE.NOTE] Não utilize a unidade D para armazenar dados. Como seu nome quer dizer, ele oferece armazenamento apenas temporariamente. Não oferece redundância nem backup porque eles não residem no armazenamento do Azure.
 
 Para anexar discos de dados adicionais, execute as etapas descritas em [Como anexar um disco de dados a uma Máquina Virtual do Windows](storage-windows-attach-disk.md), que vai orientá-lo para:
 
@@ -143,7 +143,7 @@ O Mecanismo de Banco de Dados do SQL Server não pode usar a Autenticação do W
 
 	<br>
 
-	 >[AZURE.TIP] Você pode alterar o modo de autenticação do SQL Server usando uma alteração de chave do Registro do Windows ou usando o SQL Server Management Studio. Para alterar o modo de autenticação usando a alteração da chave do Registro, inicie uma **Nova consulta** e execute o seguinte script:
+	 > [AZURE.TIP] Você pode alterar o modo de autenticação do SQL Server usando uma alteração de chave do Registro do Windows ou usando o SQL Server Management Studio. Para alterar o modo de autenticação usando a alteração da chave do Registro, inicie uma **Nova consulta** e execute o seguinte script:
 
 		USE master
     	go
@@ -298,4 +298,4 @@ As próximas etapas no processo de ciência de dados estão mapeados no [Guia de
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

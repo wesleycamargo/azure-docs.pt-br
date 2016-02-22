@@ -1,20 +1,19 @@
-<properties 
-	pageTitle="Ferramentas de migração de banco de dados — converter CSV em JSON | Microsoft Azure" 
-	description="Saiba como usar as ferramentas de migração de dados do Banco de Dados de Documentos de software livre para importar dados para o Banco de Dados de Documentos. MongoDB, SQL, Armazenamento de tabela, DynamoDB, e CSV em JSON." 
-	keywords="csv em json, ferramentas de migração de banco de dados, converter csv em json"
-	services="documentdb" 
-	authors="andrewhoh" 
-	manager="jhubbard" 
-	editor="monicar" 
+<properties
+	pageTitle="Importar dados no Banco de Dados de Documentos | Microsoft Azure"
+	description="Saiba como usar a ferramenta de migração de dados de software livre do Banco de Dados de Documentos para importar dados no Banco de Dados de Documentos de várias fontes, incluindo arquivos JSON, arquivos CSV, SQL, MongoDB, armazenamento de tabelas do Azure, Amazon DynamoDB e coleções de Bancos de Dados de Documentos."
+	services="documentdb"
+	authors="andrewhoh"
+	manager="jhubbard"
+	editor="monicar"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/16/2015" 
+<tags
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/29/2016"
 	ms.author="anhoh"/>
 
 # Importar dados para o Banco de Dados de Documentos — ferramenta de migração de banco de dados
@@ -54,7 +53,7 @@ A ferramenta de migração de dados do Banco de Dados de Documentos é uma solu�
 Embora a ferramenta de importação inclua uma interface gráfica do usuário (dtui.exe), ela também pode ser controlada pela linha de comando (dt.exe). Na verdade, há uma opção de extrair o comando associado depois de configurar uma importação por meio da interface do usuário. Dados de origem em tabela (por exemplo, arquivos do SQL Server ou CSV) podem ser transformados, de forma que relações hierárquicas (subdocumentos) podem ser criadas durante a importação. Continue lendo para saber mais sobre as opções de origem, linhas de comando de exemplo para importar de cada origem, opções de destino e resultados de importação de visualização.
 
 
-##<a id="Install"></a>Instalando a ferramenta de migração de dados do Banco de Dados de Documentos ##
+##<a id="Install"></a>Instalando a ferramenta de migração de dados do Banco de Dados de Documentos
 
 O código-fonte da ferramenta de migração está disponível no GitHub [nesse repositório](https://github.com/azure/azure-documentdb-datamigrationtool) e há uma versão compilada no [Centro de Download da Microsoft](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d). Você pode compilar a solução ou simplesmente baixar e extrair a versão compilada em um diretório de sua escolha. Em seguida, execute um:
 
@@ -69,7 +68,7 @@ A opção de importador de origem de arquivo JSON permite importar um ou mais ar
 
 Aqui estão alguns exemplos de linha de comando para importar os arquivos JSON:
 
-	#Import a single JSON file	
+	#Import a single JSON file
 	dt.exe /s:JsonFile /s.Files:.\Sessions.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Sessions /t.CollectionTier:S3
 
 	#Import a directory of JSON files
@@ -139,10 +138,10 @@ Que retorna os seguintes resultados (parciais):
 Observe os aliases como Address.AddressType e Address.Location.StateProvinceName. Especificando um separador de aninhamento de “.”, a ferramenta de importação cria os sub-documentos Address e Address.Location durante a importação. Aqui está um exemplo de um documento resultante no Banco de Dados de Documentos:
 
 *{ "id": "956", "Name": "Finer Sales and Service", "Address": { "AddressType": "Main Office", "AddressLine1": "#500-75 O'Connor Street", "Location": { "City": "Ottawa", "StateProvinceName": "Ontario" }, "PostalCode": "K4B 1S2", "CountryRegionName": "Canada" } }*
- 
+
 Aqui estão alguns exemplos de linha de comando para importar do SQL Server:
 
-	#Import records from SQL which match a query	
+	#Import records from SQL which match a query
 	dt.exe /s:SQL /s.ConnectionString:"Data Source=<server>;Initial Catalog=AdventureWorks;User Id=advworks;Password=<password>;" /s.Query:"select CAST(BusinessEntityID AS varchar) as Id, * from Sales.vStoreWithAddresses WHERE AddressType='Main Office'" /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Stores /t.IdField:Id /t.CollectionTier:S3
 
 	#Import records from sql which match a query and create hierarchical relationships
@@ -191,7 +190,7 @@ Digite o nome da tabela do Azure por meio da qual os dados serão importados. Op
 
 A opção de importador de origem de armazenamento de tabela do Azure tem as seguintes opções adicionais:
 
-1. Incluir campos internos 
+1. Incluir campos internos
 	2. Todos - incluir todos os campos internos (PartitionKey, RowKey e Timestamp)
 	3. Nenhum - excluir todos os campos internos
 	4. RowKey - incluir somente o campo RowKey
@@ -202,7 +201,7 @@ Aqui está um exemplo de linha de comando para importar por meio do armazenament
 
 	dt.exe /s:AzureTable /s.ConnectionString:"DefaultEndpointsProtocol=https;AccountName=<Account Name>;AccountKey=<Account Key>" /s.Table:metrics /s.InternalFields:All /s.Filter:"PartitionKey eq 'Partition1' and RowKey gt '00001'" /s.Projection:ObjectCount;ObjectSize  /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:metrics /t.CollectionTier:S3
 
-##<a id="DynamoDBSource"></a>Importar do Amazon DynamoDB ##
+##<a id="DynamoDBSource"></a>Importar do Amazon DynamoDB
 
 A opção de importação de fonte do Amazon DynamoDB permite importar de uma tabela individual do Amazon DynamoDB e, opcionalmente, filtrar as entidades a serem importadas. Vários modelos são fornecidos para que a configuração de uma importação seja tão fácil quanto possível.
 
@@ -220,7 +219,7 @@ Aqui está um exemplo de linha de comando para importar do Amazon DynamoDB:
 
 	dt.exe /s:DynamoDB /s.ConnectionString:ServiceURL=https://dynamodb.us-east-1.amazonaws.com;AccessKey=<accessKey>;SecretKey=<secretKey> /s.Request:"{   """TableName""": """ProductCatalog""" }" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:catalogCollection /t.CollectionTier:S3
 
-##<a id="BlobImport"></a>Importar arquivos do armazenamento de blobs do Azure##
+##<a id="BlobImport"></a>Importar arquivos do armazenamento de blobs do Azure
 
 O arquivo JSON, arquivo de exportação do MongoDB e opções de importador de origem do arquivo CSV permitem que você importe um ou mais arquivos de Armazenamento de Blob do Azure. Depois de especificar uma URL do contêiner de Blob e a chave de conta, basta fornece uma expressão regular para selecionar os arquivos a serem importados.
 
@@ -269,7 +268,7 @@ Aqui estão alguns exemplos de linha de comando para importar por meio do Banco 
 	#Export a DocumentDB collection to a JSON file
 	dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /s.Collection:StoresSub /t:JsonFile /t.File:StoresExport.json /t.Overwrite /t.CollectionTier:S3
 
-##<a id="HBaseSource"></a>Importar do HBase ##
+##<a id="HBaseSource"></a>Importar do HBase
 
 A opção de importador de origem do HBase permite importar dados de uma tabela do HBase e, opcionalmente, filtrar os dados. Vários modelos são fornecidos para que a configuração de uma importação seja tão fácil quanto possível.
 
@@ -287,7 +286,7 @@ Aqui está um exemplo de linha de comando para importar do HBase:
 
 	dt.exe /s:HBase /s.ConnectionString:ServiceURL=<server-address>;Username=<username>;Password=<password> /s.Table:Contacts /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:hbaseimport
 
-##<a id="DocumentDBBulkTarget"></a>Importar para o Banco de Dados de Documentos (importação em massa) ##
+##<a id="DocumentDBBulkTarget"></a>Importar para o Banco de Dados de Documentos (importação em massa)
 
 O importador em massa do Banco de Dados de Documentos permite importar de qualquer uma das opções de origem disponíveis, usando um procedimento armazenado do Banco de Dados de Documentos para maior eficiência. A ferramenta dá suporte à importação para uma única coleção de Banco de Dados de Documento, bem como importação fragmentada na qual os dados são particionados em várias coleções de Banco de Dados de Documentos. Leia mais sobre o particionamento de dados em Banco de Dados de Documentos [aqui](documentdb-partition-data.md). A ferramenta vai criar, executar e, em seguida, excluir o procedimento armazenado da(s) coleção(ões) de destino.
 
@@ -323,23 +322,24 @@ Adicionalmente, ao importar tipos de dados (por exemplo, do SQL Server ou do Mon
 
 -	Cadeia de caracteres: Persistir como um valor de cadeia de caracteres
 -	Época: Persistir como um valor de número de época
--	Ambos: Persistir com os valores de número de cadeia de caracteres e de época. Essa opção criará um sub-documento, por exemplo: "date\_joined": {"Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245} 
+-	Ambos: Persistir com os valores de número de cadeia de caracteres e de época. Essa opção criará um sub-documento, por exemplo: "date\_joined": {"Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245}
 
 
 O importador em massa do Banco de Dados de Documentos tem as seguintes opções avançadas adicionais:
 
 1. Tamanho do lote: A ferramenta usa como padrão um tamanho de lote de 50. Se os documentos a serem importados forem grandes, considere reduzir o tamanho do lote. Da mesma forma, se os documentos a serem importados forem pequenos, considere aumentar o tamanho do lote.
-2. Tamanho máximo de script (bytes): A ferramenta usa como padrão a um tamanho máximo de script de 960KB
+2. Tamanho máximo de script (bytes): a ferramenta usa como padrão a um tamanho máximo de script de 512KB
 3. Desabilitar a geração automática de ID: Se todos os documentos a serem importados contiverem um campo de identificação, selecionar essa opção pode aumentar o desempenho. Documentos com um campo de ID exclusiva ausente não serão importados.
-4. Número de novas tentativas em caso de falha: Especifica o número de vezes para tentar se conectar novamente com o Banco de Dados de Documentos em caso de falhas transitórias (por exemplo, interrupção da conectividade de rede).
-5. Intervalo de novas tentativas: Especifica quanto tempo esperar para tentar se conectar novamente com o Banco de Dados de Documentos em caso de falhas transitórias (por exemplo, interrupção da conectividade de rede).
-6. Modo de conexão: Especifica o modo de conexão a ser usado com o Banco de Dados de Documentos. As opções disponíveis são DirectTcp, DirectHttps e Gateway. Os modos de conexão direta são mais rápidos, enquanto que o modo de gateway é mais amigável ao firewall, uma vez que só usa a porta 443.
+4. Atualizar documentos existentes: a ferramenta por padrão não substitui os documentos existentes com conflitos de ID. Esta opção permitirá a substituir documentos existentes por ids correspondentes. Esse recurso é útil para migrações de dados agendadas que atualizam documentos existentes.
+5. Número de novas tentativas em caso de falha: Especifica o número de vezes para tentar se conectar novamente com o Banco de Dados de Documentos em caso de falhas transitórias (por exemplo, interrupção da conectividade de rede).
+6. Intervalo de novas tentativas: Especifica quanto tempo esperar para tentar se conectar novamente com o Banco de Dados de Documentos em caso de falhas transitórias (por exemplo, interrupção da conectividade de rede).
+7. Modo de conexão: Especifica o modo de conexão a ser usado com o Banco de Dados de Documentos. As opções disponíveis são DirectTcp, DirectHttps e Gateway. Os modos de conexão direta são mais rápidos, enquanto que o modo de gateway é mais amigável ao firewall, uma vez que só usa a porta 443.
 
 ![Captura de tela das opções avançadas de importação em massa do Banco de Dados de Documentos](./media/documentdb-import-data/docdbbulkoptions.png)
 
 > [AZURE.TIP] A ferramenta de importação usa como padrão o modo de conexão DirectTcp. Se você enfrentar problemas de firewall, alterne para o modo de conexão Gateway, uma vez que ele só requer a porta 443.
 
-##<a id="DocumentDBSeqTarget"></a>Importar para o Banco de Dados de Documentos (importação de registros sequenciais) ##
+##<a id="DocumentDBSeqTarget"></a>Importar para o Banco de Dados de Documentos (importação de registros sequenciais)
 
 O importador de registro sequencial do Banco de Dados de Documentos permite que você importe por meio de qualquer uma das opções de origem disponíveis com base em cada registro. Você pode escolher esta opção se estiver importando para uma coleção existente que já atingiu a cota de procedimentos armazenados. A ferramenta dá suporte à importação para uma única coleção de Banco de Dados de Documento, bem como importação fragmentada na qual os dados são particionados em várias coleções de Banco de Dados de Documentos. Leia mais sobre o particionamento de dados em Banco de Dados de Documentos [aqui](documentdb-partition-data.md).
 
@@ -371,15 +371,16 @@ Há uma série de opções avançadas disponíveis durante a importação. Prime
 
 -	Cadeia de caracteres: Persistir como um valor de cadeia de caracteres
 -	Época: Persistir como um valor de número de época
--	Ambos: Persistir com os valores de número de cadeia de caracteres e de época. Essa opção criará um sub-documento, por exemplo: "date\_joined": {"Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245} 
+-	Ambos: Persistir com os valores de número de cadeia de caracteres e de época. Essa opção criará um sub-documento, por exemplo: "date\_joined": {"Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245}
 
 O importador de registros sequenciais do Banco de Dados de Documentos tem as seguintes opções avançadas adicionais:
 
 1. Número de solicitações paralelas: A ferramenta usa como padrão 2 solicitações paralelas. Se os documentos a serem importados forem pequenos, considere aumentar o número de solicitações paralelas. Observe que se esse número for muito elevado, a importação poderá sofrer limitação.
 2. Desabilitar a geração automática de ID: Se todos os documentos a serem importados contiverem um campo de identificação, selecionar essa opção pode aumentar o desempenho. Documentos com um campo de ID exclusiva ausente não serão importados.
-3. Número de novas tentativas em caso de falha: Especifica o número de vezes para tentar se conectar novamente com o Banco de Dados de Documentos em caso de falhas transitórias (por exemplo, interrupção da conectividade de rede).
-4. Intervalo de novas tentativas: Especifica quanto tempo esperar para tentar se conectar novamente com o Banco de Dados de Documentos em caso de falhas transitórias (por exemplo, interrupção da conectividade de rede).
-5. Modo de conexão: Especifica o modo de conexão a ser usado com o Banco de Dados de Documentos. As opções disponíveis são DirectTcp, DirectHttps e Gateway. Os modos de conexão direta são mais rápidos, enquanto que o modo de gateway é mais amigável ao firewall, uma vez que só usa a porta 443.
+3. Atualizar documentos existentes: a ferramenta por padrão não substitui os documentos existentes com conflitos de ID. Esta opção permitirá a substituir documentos existentes por ids correspondentes. Esse recurso é útil para migrações de dados agendadas que atualizam documentos existentes.
+4. Número de novas tentativas em caso de falha: Especifica o número de vezes para tentar se conectar novamente com o Banco de Dados de Documentos em caso de falhas transitórias (por exemplo, interrupção da conectividade de rede).
+5. Intervalo de novas tentativas: Especifica quanto tempo esperar para tentar se conectar novamente com o Banco de Dados de Documentos em caso de falhas transitórias (por exemplo, interrupção da conectividade de rede).
+6. Modo de conexão: Especifica o modo de conexão a ser usado com o Banco de Dados de Documentos. As opções disponíveis são DirectTcp, DirectHttps e Gateway. Os modos de conexão direta são mais rápidos, enquanto que o modo de gateway é mais amigável ao firewall, uma vez que só usa a porta 443.
 
 ![Captura de tela das opções avançadas de importação de registro sequencial do Banco de Dados de Documentos](./media/documentdb-import-data/documentdbsequentialoptions.png)
 
@@ -396,7 +397,6 @@ Usando a opção avançada de política de indexação, você pode selecionar um
 Os modelos de política que a ferramenta fornece são:
 
 - Padrão. Essa política é mais útil quando você está executando consultas de igualdade em cadeias de caracteres e usando as consultas ORDER BY, intervalo e igualdade para números. Essa política tem uma sobrecarga de armazenamento de índice menor que Intervalo.
-- Hash. Essa política é mais útil quando você está executando consultas de igualdade para números e cadeias de caracteres. Essa política tem a menor sobrecarga de armazenamento do índice.
 - Intervalo. Essa política é mais útil quando você está usando consultas ORDER BY, intervalo e igualdade em números e cadeias de caracteres. Essa política tem uma sobrecarga de armazenamento de índice maior do que Padrão ou Hash.
 
 
@@ -417,7 +417,7 @@ Você pode optar por melhorar a aparência do JSON resultante, o que aumentará 
 
 	Standard JSON export
 	[{"id":"Sample","Title":"About Paris","Language":{"Name":"English"},"Author":{"Name":"Don","Location":{"City":"Paris","Country":"France"}},"Content":"Don's document in DocumentDB is a valid JSON document as defined by the JSON spec.","PageViews":10000,"Topics":[{"Title":"History of Paris"},{"Title":"Places to see in Paris"}]}]
-	
+
 	Prettified JSON export
 	[
  	{
@@ -444,7 +444,7 @@ Você pode optar por melhorar a aparência do JSON resultante, o que aumentará 
       }
     ]
 	}]
-	
+
 ## Configuração avançada
 
 Na tela de Configuração avançada, especifique a localização do arquivo de log do qual você gostaria que os erros fossem gravados. As seguintes regras se aplicam a esta página:
@@ -452,6 +452,8 @@ Na tela de Configuração avançada, especifique a localização do arquivo de l
 1.	Se não for fornecido um nome de arquivo, todos os erros serão retornados na página Resultados.
 2.	Se for fornecido um nome de arquivo sem um diretório, o arquivo será ser criado (ou substituído) no diretório atual do ambiente.
 3.	Se você selecionar um arquivo existente, o arquivo será substituído, não há nenhuma opção de acréscimo.
+
+Em seguida, escolha se deseja registrar, todas as mensagens de erro, nenhuma mensagem ou as mensagens críticas. Finalmente, decida com que frequência a mensagem de transferência na tela será atualizada com seu progresso.
 
 	![Tela de configuração de captura de tela avançada](./media/documentdb-import-data/AdvancedConfiguration.png)
 
@@ -475,7 +477,4 @@ Na tela de Configuração avançada, especifique a localização do arquivo de l
 
 - Para saber mais sobre o Banco de Dados de Documentos, clique [aqui](http://azure.com/docdb).
 
-
- 
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

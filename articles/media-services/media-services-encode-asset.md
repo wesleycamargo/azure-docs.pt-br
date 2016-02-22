@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2015"  
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Visão Geral e Comparação de Codificadores de Mídia sob Demanda do Azure
@@ -33,9 +33,9 @@ Para aproveitar os benefícios do [empacotamento dinâmico](media-services-dynam
 
 Os Serviços de Mídia são compatíveis com os seguintes codificadores sob demanda descritos neste artigo:
 
-- **Media Encoder Standard**
-- **Codificador de Mídia do Azure**
-- **Fluxo de trabalho do Media Encoder Premium**
+- [Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
+- [Codificador de Mídia do Azure](media-services-encode-asset.md#azure-media-encoder)
+- [Fluxo de trabalho do Media Encoder Premium](media-services-encode-asset.md#media-encoder-premium-workflow)
 
 Este artigo fornece uma breve visão geral dos codificadores de mídia sob demanda e fornece links para artigos que oferecem informações mais detalhadas. O tópico também fornece uma comparação entre os codificadores.
 
@@ -139,6 +139,11 @@ Os metadados de saída dos codificadores estão descritos [aqui](http://msdn.mic
 O fluxo de trabalho do Media Encoder Premium é configurado usando fluxos de trabalho complexos. Os arquivos de fluxo de trabalho podem ser criados e atualizados usando a ferramenta [Designer de Fluxo de Trabalho](media-services-workflow-designer.md).
 
 [Como usar a codificação Premium nos Serviços de Mídia do Azure](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services/)
+
+###Problemas conhecidos
+
+Se o vídeo de entrada não contiver a legendagem oculta, o ativo de saída ainda conterá um arquivo TTML vazio.
+
 
 ##<a id="compare_encoders"></a>Comparar os codificadores
 
@@ -290,4 +295,4 @@ Para obter ajuda da equipe dos **Serviços de Mídia**, abra um [ticket de supor
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

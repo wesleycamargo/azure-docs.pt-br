@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="02/10/2016" 
 	ms.author="byvinyal"/>
 	
 # Serviço de Aplicativo do Azure: dimensionamento de aplicativos do Serviço de Aplicativo
@@ -38,4 +38,4 @@ Esta seção o ajudará a entender todos os fatores e ajudá-lo a conceber uma e
 
 [AZURE.INCLUDE [app-service-blueprint-scaling-app-service-applications](../../includes/app-service-blueprint-scaling-app-service-applications.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,10 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015"
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
-
-
 
 #<a id="monitormediaservicesaccount"></a>Como monitorar uma conta dos Serviços de Mídia
 
@@ -24,7 +22,7 @@ O painel Serviços de Mídia do Azure apresenta métricas de uso e informações
 
 Você pode monitorar o número de trabalhos de codificação na fila, as tarefas de codificação com falha, os trabalhos de codificação ativos representados pelos dados de entrada e saída do codificador, bem como o uso do armazenamento de blob associado à conta dos Serviços de Mídia. Além disso, se estiver transmitindo conteúdo a clientes, você também pode recuperar várias métricas de streaming. Você pode optar por monitorar os dados das últimas 6 horas, 24 horas ou 7 dias.
  
->[AZURE.NOTE]Custos adicionais estão associados ao monitoramento dos dados do armazenamento no Portal Clássico do Azure. Para obter mais informações, consulte [Análise de armazenamento e cobrança](http://go.microsoft.com/fwlink/?LinkId=256667).
+>[AZURE.NOTE] Custos adicionais estão associados ao monitoramento dos dados do armazenamento no Portal Clássico do Azure. Para obter mais informações, consulte [Análise de armazenamento e cobrança](http://go.microsoft.com/fwlink/?LinkId=256667).
 
 ##<a id="configuremonitoring"></a>Como monitorar uma conta dos Serviços de Mídia
 
@@ -38,7 +36,7 @@ Você pode monitorar o número de trabalhos de codificação na fila, as tarefas
 1. Clique no nome da **CONTA DE ARMAZENAMENTO** na seção **Visão Rápida**.
 2. Na página da conta de armazenamento, clique no link **configurar página** e role para baixo até as configurações de **monitoramento** dos serviços de Blob, Tabela e Fila, mostrados a seguir.
 
-	>[AZURE.NOTE]Os blobs são o único tipo de armazenamento com suporte nos Serviços de Mídia.
+	>[AZURE.NOTE] Os blobs são o único tipo de armazenamento com suporte nos Serviços de Mídia.
 
 	![StorageOptions][storage_options_scoped]
 
@@ -73,4 +71,4 @@ Você pode monitorar o número de trabalhos de codificação na fila, as tarefas
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

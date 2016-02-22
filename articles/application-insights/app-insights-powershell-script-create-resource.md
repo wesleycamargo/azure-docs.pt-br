@@ -95,8 +95,8 @@ Há duas maneiras de disponibilizar o iKey para o SDK:
 
 * [Criar recursos de teste da Web e do Application Insights por meio de modelos](app-insights-powershell.md)
 * [Configurar o monitoramento do diagnóstico do Azure com o PowerShell](app-insights-powershell-azure-diagnostics.md) 
-* [Definir alertas usando o PowerShell](app-insights-alerts.md#set-alerts-by-using-powershell)
+* [Definir alertas usando o PowerShell](app-insights-powershell-alerts.md)
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0211_2016-->

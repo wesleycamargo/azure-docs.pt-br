@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/11/2015" 
+	ms.date="02/05/2016" 
 	ms.author="awills"/>
 
 # Como ... no Application Insights?
@@ -36,7 +36,7 @@ Se definir um alerta para **Exceções do servidor**, talvez você precise fazer
 ### Exceções de email
 
 1. [Configurar monitoramento de exceção](app-insights-asp-net-exceptions.md)
-2. [Definir um alerta](app-insights-alert.md) na métrica de contagem de exceção
+2. [Definir um alerta](app-insights-alerts.md) na métrica de contagem de exceção
 
 
 ### Enviar emails sobre um evento em meu aplicativo
@@ -57,7 +57,7 @@ Como os alertas têm dois estados, você precisa enviar um valor baixo quando co
 
     telemetry.TrackMetric("Alarm", 0.5);
 
-Crie um gráfico no [Metrics Explorer](app-insights-metric-explorer.md) para ver o alarme:
+Crie um gráfico no [Metrics Explorer](app-insights-metrics-explorer.md) para ver o alarme:
 
 ![](./media/app-insights-how-do-i/010-alarm.png)
 
@@ -91,7 +91,7 @@ Considere o seguinte:
 ### Separar os resultados de desenvolvimento, teste e produção
 
 * Para ambientes diferentes, configurar diferentes ikeys
-* Para diferentes carimbos (desenvolvimento, teste, produção) marca a telemetria com diferentes valores de propriedade
+* Para diferentes carimbos (desenvolvimento, teste, produção) marcar a telemetria com diferentes valores de propriedade
 
 [Saiba mais](app-insights-separate-resources.md)
  
@@ -171,7 +171,7 @@ Ou
 <a name="search-specific-users"></a>
 ### Filtrar usuários anônimos ou autenticados
 
-Se os seus usuários se conectarem, você pode definir a [ID de usuário autenticado](app-insights-api-custom-events-metrics.md#authenticated-users). (Isso não ocorre automaticamente.)
+Se os seus usuários se conectarem, você poderá definir a [ID de usuário autenticado](app-insights-api-custom-events-metrics.md#authenticated-users). (Isso não ocorre automaticamente.)
 
 Você pode:
 
@@ -191,16 +191,17 @@ Crie um [filtro](app-insights-api-filtering-sampling.md#filtering). Isso permite
 
 Se desejar apenas [pesquisar usuários específicos](#search-specific-users), é possível definir a [ID de usuário autenticado](app-insights-api-custom-events-metrics.md#authenticated-users).
 
-Se você quiser uma lista de usuários com dados como, por exemplo, quais páginas eles exibem e com qual frequência eles fazem logon, você tem duas opções:
+Se você quiser uma lista de usuários com os dados como, por exemplo, quais páginas eles exibem e com qual frequência eles fazem logon, você terá duas opções:
 
 * [Defina a ID de usuário autenticado](app-insights-api-custom-events-metrics.md#authenticated-users) ou [exporte para um banco de dados](app-insights-code-sample-export-sql-stream-analytics.md) e use ferramentas adequadas para analisar seus dados de usuário.
-* Se você tiver apenas um pequeno número de usuários, envie métricas ou eventos personalizados usando os dados de interesse, como o valor da métrica ou o nome do evento, definindo a ID de usuário como uma propriedade. Para analisar os modos de exibição de página, substitua a chamada trackPageView JavaScript padrão. Para analisar a telemetria do lado do servidor, use um inicializador de telemetria para adicionar a ID de usuário para todas as telemetria do servidor. Em seguida, filtre e segmente as métricas e pesquisas na ID de usuário.
+* Se você tiver apenas um pequeno número de usuários, envie métricas ou eventos personalizados usando os dados de interesse, como o valor da métrica ou o nome do evento, definindo a ID de usuário como uma propriedade. Para analisar os modos de exibição de página, substitua a chamada trackPageView JavaScript padrão. Para analisar a telemetria do lado do servidor, use um inicializador de telemetria para adicionar a ID de usuário a todas as telemetria do servidor. Em seguida, filtre e segmente as métricas e pesquisas na ID de usuário.
 
 
 ## Reduzir o tráfego do meu aplicativo no Application Insights
 
 * Em [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), desabilite todos os módulos dos quais você não precisa, como o coletor do contador de desempenho.
 * Use a [Amostragem e filtragem](app-insights-api-filtering-sampling.md) no SDK.
+* Nas páginas da Web, limite o número de chamadas do Ajax relatadas para cada exibição de página. No trecho de script após `instrumentationKey:...`, insira: `,maxAjaxCallsPerView:3` (ou um número adequado).
 * Se estiver usando o [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric), calcule a agregação de lotes de valores de métrica antes de enviar o resultado. Há uma sobrecarga de TrackMetric() que possibilita isso.
 
 
@@ -229,7 +230,7 @@ Entre as métricas que você pode exibir no Metrics Explorer, existe um conjunto
 
 ![Abra o recurso Application Insights e clique em Servidores](./media/app-insights-how-do-i/121-servers.png)
 
-### Se você não ver dados do contador de desempenho
+### Se você não vir dados do contador de desempenho
 
 * **Servidor IIS** em seu próprio computador ou em uma VM. [Instalar Monitor de Status](app-insights-monitor-performance-live-website-now.md). 
 * **Site do Azure** - ainda não há suporte para contadores de desempenho. Existem várias métricas que você pode obter como parte padrão do painel de controle do site do Azure.
@@ -240,4 +241,4 @@ Entre as métricas que você pode exibir no Metrics Explorer, existe um conjunto
 * Primeiro, [adicione um novo gráfico](app-insights-metrics-explorer.md) e veja se o contador está no conjunto básico que oferecemos.
 * Caso contrário, [adicione o contador ao conjunto coletado pelo módulo do contador de desempenho](app-insights-web-monitor-performance.md#system-performance-counters).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

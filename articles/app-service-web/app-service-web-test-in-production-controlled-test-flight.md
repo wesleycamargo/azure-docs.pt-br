@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="02/02/2016"
 	ms.author="cephalin"/>
 # Implantação flighting (teste beta) no Serviço de Aplicativo do Azure
 
@@ -32,7 +32,7 @@ Uma implantação flighting não se trata apenas do roteamento de tráfego em te
 Neste tutorial, você aprenderá a reunir os seguintes cenários para testar seu aplicativo do Serviço de Aplicativo em produção:
 
 - [Encaminhar o tráfego de produção](app-service-web-test-in-production-get-start.md) para o seu aplicativo beta
-- [Instrumentar seu aplicativo](app-insights-web-track-usage.md) para obter métricas úteis
+- [Instrumentar seu aplicativo](../application-insights/app-insights-web-track-usage.md) para obter métricas úteis
 - Implantar continuamente seu aplicativo beta e rastrear métricas de aplicativo em tempo real
 - Compare as métricas entre o aplicativo de produção e o aplicativo de beta para ver como as alterações de código são convertidas para resultados
 
@@ -44,7 +44,7 @@ Neste tutorial, você aprenderá a reunir os seguintes cenários para testar seu
 -	Git Shell (instalado com o [GitHub para Windows](https://windows.github.com/)) – isso permite que você execute comandos do Git e do PowerShell na mesma sessão
 -	Bits do [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/download/v0.9.8-September2015/azure-powershell.0.9.8.msi) mais recentes
 -	Noções básicas sobre:
-	-	Implantação do modelo do [Gerenciador de Recursos do Azure](resource-group-overview.md) (veja [Implantar um aplicativo complexo de modo previsível no Azure](app-service-deploy-complex-application-predictably.md))
+	-	Implantação do modelo do [Gerenciador de Recursos do Azure](../resource-group-overview.md) (veja [Implantar um aplicativo complexo de modo previsível no Azure](app-service-deploy-complex-application-predictably.md))
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
@@ -174,7 +174,7 @@ Essa é uma tangente, pois o cenário demonstrado neste tutorial lida apenas com
 
 Nesta seção, você configurará os diferentes slots de implantação para enviar telemetria específica do slot para o mesmo recurso do Application Insights. Dessa forma, você pode comparar os dados de telemetria entre o tráfego de slots diferentes (ambientes de implantação) para ver o efeito das alterações de seu aplicativo com facilidade. Ao mesmo tempo, você pode separar o tráfego de produção do restante, para que você possa continuar a monitorar seu aplicativo de produção, conforme necessário.
 
-Já que você está reunindo dados sobre o comportamento do cliente, você poderá [adicionar um inicializador de telemetria ao seu código do JavaScript](app-insights-api-custom-events-metrics.md#js-initializer) em index.cshtml. Se desejar testar o desempenho do lado do servidor, por exemplo, também é possível realizar o mesmo em seu código do servidor (veja [API do Application Insights para métricas e eventos personalizados](app-insights-api-custom-events-metrics.md).
+Já que você está reunindo dados sobre o comportamento do cliente, você poderá [adicionar um inicializador de telemetria ao seu código do JavaScript](../application-insights/app-insights-api-custom-events-metrics.md#js-initializer) em index.cshtml. Se desejar testar o desempenho do lado do servidor, por exemplo, também é possível realizar o mesmo em seu código do servidor (veja [API do Application Insights para métricas e eventos personalizados](../application-insights/app-insights-api-custom-events-metrics.md).
 
 1. Primeiro, adicione o código entre os dois comentários `//` abaixo no bloco de JavaScript adicionado à marca `<heading>` anteriormente.
 
@@ -215,7 +215,7 @@ Já que você está reunindo dados sobre o comportamento do cliente, você poder
 
 5. Clique no botão **Favoritos** para salvar as configurações atuais do Metrics Explorer como algo como **Eventos personalizados: produção**. Você pode alternar facilmente entre esta exibição e uma exibição de slot de implantação posteriormente.
 
-    > [AZURE.TIP] Para uma análise ainda mais eficiente, considere [integrar seu recurso do Application Insights com o Power BI](app-insights-export-power-bi.md).
+    > [AZURE.TIP] Para uma análise ainda mais eficiente, considere [integrar seu recurso do Application Insights com o Power BI](../application-insights/app-insights-export-power-bi.md).
 
 ### Adicionar marcas específicas do slot às suas métricas de aplicativo de servidor
 Novamente, para fins de exatidão, você configurará o aplicativo do lado do servidor. Ao contrário do aplicativo cliente que é instrumentado em JavaScript, as marcas específicas do slot para o aplicativo de servidor são instrumentadas com o código do .NET.
@@ -369,10 +369,10 @@ O Serviço de Aplicativo do Azure facilita para as empresas de pequeno a médio 
 -   [Desenvolvimento de software Agile com o Serviço de Aplicativo do Azure](app-service-agile-software-development.md)
 -   [Configurar ambientes de preparo para aplicativos Web no Serviço de Aplicativo do Azure](web-sites-staged-publishing.md)
 -	[Implantar um aplicativo complexo de modo previsível no Azure](app-service-deploy-complex-application-predictably.md)
--	[Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md)
+-	[Criando modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md)
 -	[JSONLint - o validador JSON](http://jsonlint.com/)
 -	[Ramificação Git – Conceitos básicos de ramificação e mesclagem](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
--	[PowerShell do Azure](powershell-install-configure.md)
+-	[PowerShell do Azure](../powershell-install-configure.md)
 -	[Projeto Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

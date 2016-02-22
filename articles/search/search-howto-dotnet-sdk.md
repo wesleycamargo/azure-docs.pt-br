@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="01/29/2016"
+   ms.date="02/09/2016"
    ms.author="brjohnst"/>
 
 # Como usar a Pesquisa do Azure de um aplicativo .NET
@@ -29,9 +29,9 @@ A biblioteca de cliente define classes como `Index`, `Field` e `Document`, e ope
 - [Microsoft.Azure.Search](https://msdn.microsoft.com/library/azure/microsoft.azure.search.aspx)
 - [Microsoft.Azure.Search.Models](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.aspx)
 
-A versão atual do SDK do .Net da Pesquisa do Azure é uma versão de pré-lançamento. Se você quiser fornecer comentários para que possamos incorporar na primeira versão estável, visite nossa [página de comentários](https://feedback.azure.com/forums/263029-azure-search/).
+A versão atual do SDK .Net da Pesquisa do Azure está disponível para o público geral. Se você quer fornecer comentários para que possamos incorporar na próxima versão, visite nossa [página de comentários](https://feedback.azure.com/forums/263029-azure-search/).
 
-O SDK do .NET dá suporte à versão `2015-02-28` da API REST da Pesquisa do Azure, documentada no [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx). Agora, esta versão inclui suporte para analisadores de idioma da Microsoft. Recursos mais novos que *não* fazem parte dessa versão, como o suporte ao parâmetro de pesquisa `moreLikeThis`, estão em [visualização](search-api-2015-02-28-preview.md) e ainda não estão disponíveis no SDK. Confira em [Controle de versão do serviço de pesquisa](https://msdn.microsoft.com/library/azure/dn864560.aspx) ou [Atualizações mais recentes da Pesquisa do Azure](search-latest-updates.md) para obter atualizações do status de um desses recursos.
+O SDK do .NET dá suporte à versão `2015-02-28` da API REST da Pesquisa do Azure, documentada no [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx). Agora, esta versão inclui suporte para a sintaxe de consulta Lucene e analisadores de idioma da Microsoft. Recursos mais novos que *não* fazem parte dessa versão, como o suporte ao parâmetro de pesquisa `moreLikeThis`, estão em [visualização](search-api-2015-02-28-preview.md) e ainda não estão disponíveis no SDK. Confira em [Controle de versão do serviço de pesquisa](https://msdn.microsoft.com/library/azure/dn864560.aspx) ou [Atualizações mais recentes da Pesquisa do Azure](search-latest-updates.md) para obter atualizações do status de um desses recursos.
 
 Outros recursos que não têm suporte neste SDK incluem:
 
@@ -39,7 +39,7 @@ Outros recursos que não têm suporte neste SDK incluem:
 
 ## Atualizando para a última versão do SDK
 
-Se você já estiver usando uma versão mais antiga do SDK do .NET da Pesquisa do Azure e se quiser atualizar para a nova versão 1.0-preview, [este artigo](search-dotnet-sdk-migration.md) explicará como fazer isso.
+Se você já estiver usando uma versão mais antiga do SDK do .NET da Pesquisa do Azure e se quiser atualizar para a versão disponível para o público geral, [este artigo](search-dotnet-sdk-migration.md) explicará como fazer isso.
 
 ## Requisitos para o SDK
 
@@ -47,7 +47,7 @@ Se você já estiver usando uma versão mais antiga do SDK do .NET da Pesquisa d
 
 2. Seu próprio serviço de Pesquisa do Azure. Para usar o SDK, você precisará do nome do serviço e de uma ou mais chaves de API. [Criar um serviço no portal](search-create-service-portal.md) ajudará você com estas etapas.
 
-3. Baixe o [pacote NuGet](http://www.nuget.org/packages/Microsoft.Azure.Search) do SDK do .NET da Pesquisa do Azure usando "Gerenciar pacotes NuGet" no Visual Studio. Basta procurar o nome do pacote `Microsoft.Azure.Search` em NuGet.org. Selecione "Include Prerelease" para garantir que o SDK de pré-lançamento aparecerá nos resultados da pesquisa.
+3. Baixe o [pacote NuGet](http://www.nuget.org/packages/Microsoft.Azure.Search) do SDK do .NET da Pesquisa do Azure usando "Gerenciar pacotes NuGet" no Visual Studio. Basta procurar o nome do pacote `Microsoft.Azure.Search` em NuGet.org.
 
 O SDK do .NET da Pesquisa do Azure oferece suporte a aplicativos voltados para o .NET Framework 4.5, bem como a aplicativos da Windows Store destinados ao Windows 8.1 e Windows Phone 8.1. Não há suporte para o Silverlight.
 
@@ -645,4 +645,4 @@ Hotel.cs:
 
 Você também pode encontrar o código-fonte de exemplo completo [no GitHub](http://aka.ms/search-dotnet-howto).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

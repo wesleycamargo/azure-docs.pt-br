@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015"
+	ms.date="02/09/2016"
 	ms.author="curtand"/>
 
 
@@ -167,7 +167,7 @@ Agora você pode preencher os membros de um grupo com base no atributo gerenciad
 Para configurar um grupo como "Gerenciador"
 --------------------------------------------------------------------------------
 1. No portal do administrador, clique na guia **Configurar** e selecione **REGRA AVANÇADA**.
-2. Digite a regra com esta sintaxe: Funcionários subordinados a *Funcionários subordinados a {UserID\_do\_gerente}*. Um exemplo de regra válida para Funcionários Subordinados: 
+2. Digite a regra com esta sintaxe: Funcionários subordinados a *Funcionários subordinados a {UserID\_do\_gerente}*. Um exemplo de regra válida para Funcionários Subordinados:
 
 Funcionários subordinados a "62e19b97-8b3d-4d4a-a106-4ce66896a863”
 
@@ -183,8 +183,10 @@ Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 
 * [Gerenciamento de acesso a recursos com grupos do Active Directory do Azure](active-directory-manage-groups.md)
 
+* [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
+
 * [O que é o Active Directory do Azure?](active-directory-whatis.md)
 
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

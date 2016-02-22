@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="02/09/2016"
 	ms.author="femila"/>
 
 # Habilitando o acesso híbrido com Proxy de Aplicativo
@@ -39,7 +39,8 @@ Há apenas um requisito para habilitar o acesso a um aplicativo Web: o aplicativ
 7. A resposta é enviada através do proxy de aplicativo para o usuário.
 
 ## Artigos relacionados
+- [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 - [Habilitando o Proxy de Aplicativo do AD do Azure.](active-directory-application-proxy-enable.md#step-1-enable-application-proxy-in-azure-ad)
 - [Publicar aplicativos por meio do proxy de aplicativo do AD do Azure](active-directory-application-proxy-publish.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

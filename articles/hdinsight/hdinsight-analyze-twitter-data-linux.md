@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 # Analisar dados do Twitter usando o Hive no HDInsight
 
 Neste documento, você obterá tweets usando uma API de streaming do Twitter e então usará o Apache Hive em um cluster HDInsight baseado em Linux para processar os dados do formato JSON. O resultado será uma lista de usuários do Twitter que enviaram a maioria dos tweets com uma determinada palavra.
 
-> [AZURE.NOTE]Embora diversas partes deste documento possam ser usadas com clusters HDInsight baseados no Windows (Python e Hive, por exemplo), muitas etapas deste documento são específicas de clusters HDInsight baseados em Linux. Para obter as etapas específicas para um cluster baseado no Windows, confira [Analisar dados do Twitter usando o Hive no HDInsight](hdinsight-analyze-twitter-data.md).
+> [AZURE.NOTE] Embora diversas partes deste documento possam ser usadas com clusters HDInsight baseados no Windows (Python e Hive, por exemplo), muitas etapas deste documento são específicas de clusters HDInsight baseados em Linux. Para obter as etapas específicas para um cluster baseado no Windows, confira [Analisar dados do Twitter usando o Hive no HDInsight](hdinsight-analyze-twitter-data.md).
 
 ###Pré-requisitos
 
@@ -62,13 +62,13 @@ O Twitter permite que você recupere os [dados de cada tweet](https://dev.twitte
 8. Clique em **OAuth de teste** no canto superior direito da página.
 9. Anote a **Chave do consumidor**, o **Segredo do consumidor**, o **Token de acesso** e o **Segredo do token de acesso**. Você precisará dos valores mais tarde.
 
->[AZURE.NOTE]Quando usar o comando curl no Windows, use aspas duplas, em vez de aspas simples, para os valores de opção.
+>[AZURE.NOTE] Quando usar o comando curl no Windows, use aspas duplas, em vez de aspas simples, para os valores de opção.
 
 ###Baixar tweets
 
 O código Python a seguir baixará 10.000 tweets do Twitter e os salvará em um arquivo chamado __tweets.txt__.
 
-> [AZURE.NOTE]As etapas a seguir são executadas no cluster HDInsight, já que o Python já está instalado.
+> [AZURE.NOTE] As etapas a seguir são executadas no cluster HDInsight, já que o Python já está instalado.
 
 1. Conecte-se ao cluster HDInsight usando SSH:
 
@@ -91,9 +91,9 @@ O código Python a seguir baixará 10.000 tweets do Twitter e os salvará em um 
 
 		sudo apt-get install python-dev libffi-dev libssl-dev
 		sudo apt-get remove python-openssl
-		sudo pip install tweepy==3.2.0 progressbar pyOpenSSL requests[security]
+		sudo pip install tweepy progressbar pyOpenSSL requests[security]
 		
-	> [AZURE.NOTE]O segredo da remoção do python-openssl, da instalação do python-dev, libffi-dev, do libssl-dev, do pyOpenSSL e de requests[security] é evitar um aviso do InsecurePlatform ao se conectar ao Twitter via SSL desde o Python.
+	> [AZURE.NOTE] O segredo da remoção do python-openssl, da instalação do python-dev, libffi-dev, do libssl-dev, do pyOpenSSL e de requests[security] é evitar um aviso do InsecurePlatform ao se conectar ao Twitter via SSL desde o Python.
 	>
 	> O Tweepy v3.2.0 é usado para evitar o [um erro](https://github.com/tweepy/tweepy/issues/576) que pode ocorrer durante o processamento de tweets.
 
@@ -103,57 +103,57 @@ O código Python a seguir baixará 10.000 tweets do Twitter e os salvará em um 
 
 5. Use o seguinte como o conteúdo do arquivo __gettweets.py__. Substitua as informações de espaço reservado de __consumer/\_secret__, __consumer/\_key__, __access/\_token__ e __access/\_token/\_secret__ pelas informações do seu aplicativo do Twitter.
 
-		#!/usr/bin/python
-		
-		from tweepy import Stream, OAuthHandler
-		from tweepy.streaming import StreamListener
-		from progressbar import ProgressBar, Percentage, Bar
-		import json
-		import sys
-		
-		#Twitter app information
-		consumer_secret='Your consumer secret'
-		consumer_key='Your consumer key'
-		access_token='Your access token'
-		access_token_secret='Your access token secret'
-		
-		#The number of tweets we want to get
-		max_tweets=10000
-		
-		#Create the listener class that will receive and save tweets
-		class listener(StreamListener):
-		    #On init, set the counter to zero and create a progress bar
-		    def __init__(self, api=None):
-		        self.num_tweets = 0
-		        self.pbar = ProgressBar(widgets=[Percentage(), Bar()], maxval=max_tweets).start()
-		
-		    #When data is received, do this
-		    def on_data(self, data):
-		        #Append the tweet to the 'tweets.txt' file
-		        with open('tweets.txt', 'a') as tweet_file:
-		            tweet_file.write(data)
-		            #Increment the number of tweets
-		            self.num_tweets += 1
-		            #Check to see if we have hit max_tweets and exit if so
-		            if self.num_tweets >= max_tweets:
-		                self.pbar.finish()
-		                sys.exit(0)
-		            else:
-		                #increment the progress bar
-		                self.pbar.update(self.num_tweets)
-		        return True
-		
-		    #Handle any errors that may occur
-		    def on_error(self, status):
-		        print status
-		
-		#Get the OAuth token
-		auth = OAuthHandler(consumer_key, consumer_secret)
-		auth.set_access_token(access_token, access_token_secret)
-		#Use the listener class for stream processing
-		twitterStream = Stream(auth, listener())
-		#Filter for these topics
-		twitterStream.filter(track=["azure","cloud","hdinsight"])
+        #!/usr/bin/python
+
+        from tweepy import Stream, OAuthHandler
+        from tweepy.streaming import StreamListener
+        from progressbar import ProgressBar, Percentage, Bar
+        import json
+        import sys
+
+        #Twitter app information
+        consumer_secret='Your consumer secret'
+        consumer_key='Your consumer key'
+        access_token='Your access token'
+        access_token_secret='Your access token secret'
+
+        #The number of tweets we want to get
+        max_tweets=10000
+
+        #Create the listener class that will receive and save tweets
+        class listener(StreamListener):
+            #On init, set the counter to zero and create a progress bar
+            def __init__(self, api=None):
+                self.num_tweets = 0
+                self.pbar = ProgressBar(widgets=[Percentage(), Bar()], maxval=max_tweets).start()
+
+            #When data is received, do this
+            def on_data(self, data):
+                #Append the tweet to the 'tweets.txt' file
+                with open('tweets.txt', 'a') as tweet_file:
+                    tweet_file.write(data)
+                    #Increment the number of tweets
+                    self.num_tweets += 1
+                    #Check to see if we have hit max_tweets and exit if so
+                    if self.num_tweets >= max_tweets:
+                        self.pbar.finish()
+                        sys.exit(0)
+                    else:
+                        #increment the progress bar
+                        self.pbar.update(self.num_tweets)
+                return True
+
+            #Handle any errors that may occur
+            def on_error(self, status):
+                print status
+
+        #Get the OAuth token
+        auth = OAuthHandler(consumer_key, consumer_secret)
+        auth.set_access_token(access_token, access_token_secret)
+        #Use the listener class for stream processing
+        twitterStream = Stream(auth, listener())
+        #Filter for these topics
+        twitterStream.filter(track=["azure","cloud","hdinsight"])
 
 6. Use __Ctrl + X__ e __Y__ para salvar o arquivo.
 
@@ -167,8 +167,8 @@ O código Python a seguir baixará 10.000 tweets do Twitter e os salvará em um 
 
 Para carregar os dados no WASB (o sistema de arquivos distribuídos usado pelo HDInsight), use os seguintes comandos:
 
-	hadoop fs -mkdir -p /tutorials/twitter/data
-	hadoop fs -copyFromLocal tweets.txt /tutorials/twitter/data/tweets.txt
+	hdfs dfs -mkdir -p /tutorials/twitter/data
+	hdfs dfs -put tweets.txt /tutorials/twitter/data/tweets.txt
 
 Isso armazenará os dados em um local que todos os nós do cluster podem acessar.
 
@@ -181,109 +181,109 @@ Isso armazenará os dados em um local que todos os nós do cluster podem acessar
 	
 	Use o seguinte como conteúdo do arquivo:
 
-		set hive.exec.dynamic.partition = true;
-		set hive.exec.dynamic.partition.mode = nonstrict;
-		-- Drop table, if it exists
-		DROP TABLE tweets_raw;
-		-- Create it, pointing toward the tweets logged from Twitter
-		CREATE EXTERNAL TABLE tweets_raw (
-			json_response STRING
-		)
-		STORED AS TEXTFILE LOCATION '/tutorials/twitter/data';
-		-- Drop and recreate the destination table
-		DROP TABLE tweets;
-		CREATE TABLE tweets
-		(
-			id BIGINT,
-			created_at STRING,
-			created_at_date STRING,
-			created_at_year STRING,
-			created_at_month STRING,
-			created_at_day STRING,
-			created_at_time STRING,
-			in_reply_to_user_id_str STRING,
-			text STRING,
-			contributors STRING,
-			retweeted STRING,
-			truncated STRING,
-			coordinates STRING,
-			source STRING,
-			retweet_count INT,
-			url STRING,
-			hashtags array<STRING>,
-			user_mentions array<STRING>,
-			first_hashtag STRING,
-			first_user_mention STRING,
-			screen_name STRING,
-			name STRING,
-			followers_count INT,
-			listed_count INT,
-			friends_count INT,
-			lang STRING,
-			user_location STRING,
-			time_zone STRING,
-			profile_image_url STRING,
-			json_response STRING
-		);
-		-- Select tweets from the imported data, parse the JSON,
-		-- and insert into the tweets table
-		FROM tweets_raw
-		INSERT OVERWRITE TABLE tweets
-		SELECT
-			cast(get_json_object(json_response, '$.id_str') as BIGINT),
-			get_json_object(json_response, '$.created_at'),
-			concat(substr (get_json_object(json_response, '$.created_at'),1,10),' ',
-			substr (get_json_object(json_response, '$.created_at'),27,4)),
-			substr (get_json_object(json_response, '$.created_at'),27,4),
-			case substr (get_json_object(json_response,	'$.created_at'),5,3)
-				when "Jan" then "01"
-				when "Feb" then "02"
-				when "Mar" then "03"
-				when "Apr" then "04"
-				when "May" then "05"
-				when "Jun" then "06"
-				when "Jul" then "07"
-				when "Aug" then "08"
-				when "Sep" then "09"
-				when "Oct" then "10"
-				when "Nov" then "11"
-				when "Dec" then "12" end,
-			substr (get_json_object(json_response, '$.created_at'),9,2),
-			substr (get_json_object(json_response, '$.created_at'),12,8),
-			get_json_object(json_response, '$.in_reply_to_user_id_str'),
-			get_json_object(json_response, '$.text'),
-			get_json_object(json_response, '$.contributors'),
-			get_json_object(json_response, '$.retweeted'),
-			get_json_object(json_response, '$.truncated'),
-			get_json_object(json_response, '$.coordinates'),
-			get_json_object(json_response, '$.source'),
-			cast (get_json_object(json_response, '$.retweet_count') as INT),
-			get_json_object(json_response, '$.entities.display_url'),
-			array(
-				trim(lower(get_json_object(json_response, '$.entities.hashtags[0].text'))),
-				trim(lower(get_json_object(json_response, '$.entities.hashtags[1].text'))),
-				trim(lower(get_json_object(json_response, '$.entities.hashtags[2].text'))),
-				trim(lower(get_json_object(json_response, '$.entities.hashtags[3].text'))),
-				trim(lower(get_json_object(json_response, '$.entities.hashtags[4].text')))),
-			array(
-				trim(lower(get_json_object(json_response, '$.entities.user_mentions[0].screen_name'))),
-				trim(lower(get_json_object(json_response, '$.entities.user_mentions[1].screen_name'))),
-				trim(lower(get_json_object(json_response, '$.entities.user_mentions[2].screen_name'))),
-				trim(lower(get_json_object(json_response, '$.entities.user_mentions[3].screen_name'))),
-				trim(lower(get_json_object(json_response, '$.entities.user_mentions[4].screen_name')))),
-			trim(lower(get_json_object(json_response, '$.entities.hashtags[0].text'))),
-			trim(lower(get_json_object(json_response, '$.entities.user_mentions[0].screen_name'))),
-			get_json_object(json_response, '$.user.screen_name'),
-			get_json_object(json_response, '$.user.name'),
-			cast (get_json_object(json_response, '$.user.followers_count') as INT),
-			cast (get_json_object(json_response, '$.user.listed_count') as INT),
-			cast (get_json_object(json_response, '$.user.friends_count') as INT),
-			get_json_object(json_response, '$.user.lang'),
-			get_json_object(json_response, '$.user.location'),
-			get_json_object(json_response, '$.user.time_zone'),
-			get_json_object(json_response, '$.user.profile_image_url'),
-			json_response
-		WHERE (length(json_response) > 500);
+        set hive.exec.dynamic.partition = true;
+        set hive.exec.dynamic.partition.mode = nonstrict;
+        -- Drop table, if it exists
+        DROP TABLE tweets_raw;
+        -- Create it, pointing toward the tweets logged from Twitter
+        CREATE EXTERNAL TABLE tweets_raw (
+            json_response STRING
+        )
+        STORED AS TEXTFILE LOCATION '/tutorials/twitter/data';
+        -- Drop and recreate the destination table
+        DROP TABLE tweets;
+        CREATE TABLE tweets
+        (
+            id BIGINT,
+            created_at STRING,
+            created_at_date STRING,
+            created_at_year STRING,
+            created_at_month STRING,
+            created_at_day STRING,
+            created_at_time STRING,
+            in_reply_to_user_id_str STRING,
+            text STRING,
+            contributors STRING,
+            retweeted STRING,
+            truncated STRING,
+            coordinates STRING,
+            source STRING,
+            retweet_count INT,
+            url STRING,
+            hashtags array<STRING>,
+            user_mentions array<STRING>,
+            first_hashtag STRING,
+            first_user_mention STRING,
+            screen_name STRING,
+            name STRING,
+            followers_count INT,
+            listed_count INT,
+            friends_count INT,
+            lang STRING,
+            user_location STRING,
+            time_zone STRING,
+            profile_image_url STRING,
+            json_response STRING
+        );
+        -- Select tweets from the imported data, parse the JSON,
+        -- and insert into the tweets table
+        FROM tweets_raw
+        INSERT OVERWRITE TABLE tweets
+        SELECT
+            cast(get_json_object(json_response, '$.id_str') as BIGINT),
+            get_json_object(json_response, '$.created_at'),
+            concat(substr (get_json_object(json_response, '$.created_at'),1,10),' ',
+            substr (get_json_object(json_response, '$.created_at'),27,4)),
+            substr (get_json_object(json_response, '$.created_at'),27,4),
+            case substr (get_json_object(json_response,	'$.created_at'),5,3)
+                when "Jan" then "01"
+                when "Feb" then "02"
+                when "Mar" then "03"
+                when "Apr" then "04"
+                when "May" then "05"
+                when "Jun" then "06"
+                when "Jul" then "07"
+                when "Aug" then "08"
+                when "Sep" then "09"
+                when "Oct" then "10"
+                when "Nov" then "11"
+                when "Dec" then "12" end,
+            substr (get_json_object(json_response, '$.created_at'),9,2),
+            substr (get_json_object(json_response, '$.created_at'),12,8),
+            get_json_object(json_response, '$.in_reply_to_user_id_str'),
+            get_json_object(json_response, '$.text'),
+            get_json_object(json_response, '$.contributors'),
+            get_json_object(json_response, '$.retweeted'),
+            get_json_object(json_response, '$.truncated'),
+            get_json_object(json_response, '$.coordinates'),
+            get_json_object(json_response, '$.source'),
+            cast (get_json_object(json_response, '$.retweet_count') as INT),
+            get_json_object(json_response, '$.entities.display_url'),
+            array(
+                trim(lower(get_json_object(json_response, '$.entities.hashtags[0].text'))),
+                trim(lower(get_json_object(json_response, '$.entities.hashtags[1].text'))),
+                trim(lower(get_json_object(json_response, '$.entities.hashtags[2].text'))),
+                trim(lower(get_json_object(json_response, '$.entities.hashtags[3].text'))),
+                trim(lower(get_json_object(json_response, '$.entities.hashtags[4].text')))),
+            array(
+                trim(lower(get_json_object(json_response, '$.entities.user_mentions[0].screen_name'))),
+                trim(lower(get_json_object(json_response, '$.entities.user_mentions[1].screen_name'))),
+                trim(lower(get_json_object(json_response, '$.entities.user_mentions[2].screen_name'))),
+                trim(lower(get_json_object(json_response, '$.entities.user_mentions[3].screen_name'))),
+                trim(lower(get_json_object(json_response, '$.entities.user_mentions[4].screen_name')))),
+            trim(lower(get_json_object(json_response, '$.entities.hashtags[0].text'))),
+            trim(lower(get_json_object(json_response, '$.entities.user_mentions[0].screen_name'))),
+            get_json_object(json_response, '$.user.screen_name'),
+            get_json_object(json_response, '$.user.name'),
+            cast (get_json_object(json_response, '$.user.followers_count') as INT),
+            cast (get_json_object(json_response, '$.user.listed_count') as INT),
+            cast (get_json_object(json_response, '$.user.friends_count') as INT),
+            get_json_object(json_response, '$.user.lang'),
+            get_json_object(json_response, '$.user.location'),
+            get_json_object(json_response, '$.user.time_zone'),
+            get_json_object(json_response, '$.user.profile_image_url'),
+            json_response
+        WHERE (length(json_response) > 500);
 		
 		
 3. Pressione __Ctrl + X__ e pressione __Y__ para salvar o arquivo.
@@ -319,4 +319,4 @@ Neste tutorial vimos como transformar o conjunto de dados não estruturado JSON 
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->
