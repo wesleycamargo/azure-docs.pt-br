@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/03/2016"
 	ms.author="josephd"/>
 
 # Criar farm do SharePoint Server
@@ -23,7 +23,7 @@
 
 Com o Marketplace do portal do Microsoft Azure, você pode criar rapidamente farms pré-configurados do SharePoint Server 2013. Isso pode economizar muito tempo quando necessitar de um farm SharePoint básico ou de alta disponibilidade para um ambiente de desenvolvimento e teste, ou se estiver avaliando o SharePoint Server 2013 como uma solução de colaboração para a sua organização.
 
-> [AZURE.NOTE] O item **Farm do SharePoint Server** no Azure Marketplace do portal do Azure foi removido.
+> [AZURE.NOTE] O item **Farm do SharePoint Server** no Azure Marketplace do portal do Azure foi removido. Ele foi substituído pelos itens **Farm não HA do SharePoint 2013** e **Farm HA do SharePoint 2013**.
 
 O farm do SharePoint básico consiste em três máquinas virtuais nesta configuração.
 
@@ -51,8 +51,6 @@ Para criar o farm de alta disponibilidade (nove servidores) do SharePoint:
 3. No painel **Farm de HA do SharePoint 2013**, clique em **Criar**.
 4. Especifique as configurações nas sete etapas do painel **Criar Farm de HA do SharePoint 2013** e clique em **Criar**.
 
-> [AZURE.NOTE] A Microsoft lançou o SharePoint Server 2016 IT Preview. Para facilitar a instalação e teste desta visualização, você pode usar uma imagem da galeria de máquinas virtuais do Azure com o SharePoint Server 2016 IT Preview e seus pré-requisitos pré-instalados. Para saber mais, veja [Testar o SharePoint Server 2016 IT Preview no Azure](https://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
-
 ## Gerenciando os farms do SharePoint
 
 É possível administrar os servidores desses farms por meio de conexões da Área de Trabalho Remota. Para saber mais, veja [Fazer logon na máquina virtual](virtual-machines-windows-tutorial.md#log-on-to-the-virtual-machine).
@@ -65,4 +63,4 @@ No site Administração central do SharePoint, é possível configurar o My site
 
 - Descubra configurações adicionais do [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) nos serviços de infraestrutura do Azure.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

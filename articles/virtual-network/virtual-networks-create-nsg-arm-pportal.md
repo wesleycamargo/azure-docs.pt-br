@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Como criar NSGs no modo ARM usando o portal de visualização | Microsoft Azure"
-   description="Aprenda a criar e implantar NSGs no ARM usando o portal de visualização"
+   pageTitle="Como criar NSGs no modo ARM usando o portal do Azure | Microsoft Azure"
+   description="Aprenda a criar e implantar NSGs no ARM usando o portal do Azure"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="02/04/2016"
    ms.author="telmos" />
 
 # Como gerenciar NSGs usando o portal de visualização
@@ -56,4 +56,4 @@ Para criar regras em um NSG existente no portal de visualização, siga as etapa
 
 ![Portal de visualização - Nova regra](./media/virtual-networks-create-nsg-arm-pportal/figure5.png)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

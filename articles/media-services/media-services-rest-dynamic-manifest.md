@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="10/18/2015"  
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Criando filtros com a API REST dos Serviços de Mídia do Azure
@@ -40,7 +40,7 @@ Os tipos a seguir são usados durante a criação de filtros:
 
 
 
->[AZURE.NOTE]Ao trabalhar com a API REST dos serviços de mídia, as seguintes considerações se aplicam:
+>[AZURE.NOTE] Ao trabalhar com a API REST dos serviços de mídia, as seguintes considerações se aplicam:
 >
 >Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
 
@@ -367,11 +367,11 @@ Os exemplos a seguir mostram como adicionar filtros às URLs de streaming.
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
-##Veja também 
+##Consulte também 
 
 [Visão geral de manifestos dinâmicos](media-services-dynamic-manifest-overview.md)
  
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -25,7 +25,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-##Pré-requisitos##
+## Pré-requisitos ##
 
 Este artigo pressupõe que você já instalou um sistema operacional Oracle Linux em um disco rígido virtual. Existem várias ferramentas para criar arquivos .vhd, por exemplo, uma solução de virtualização como o Hyper-V. Para obter instruções, consulte [Instalar a função Hyper-V e configurar uma máquina Virtual](http://technet.microsoft.com/library/hh846766.aspx).
 
@@ -210,7 +210,7 @@ A preparação de uma máquina virtual Oracle Linux 7 para o Azure é muito pare
 
 		# sudo yum install WALinuxAgent
 
-13.	Não crie espaço swap no disco do sistema operacional
+13.	Não crie espaço de permuta no disco do SO.
 
 	O Agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à VM após o provisionamento no Azure. Observe que o disco de recurso local é um disco *temporário* e pode ser esvaziado quando a VM é desprovisionada. Depois de instalar o Agente Linux do Azure (consulte a etapa anterior), modifique os seguintes parâmetros em /etc/waagent.conf de maneira apropriada:
 
@@ -230,6 +230,6 @@ A preparação de uma máquina virtual Oracle Linux 7 para o Azure é muito pare
 
 
 ## Próximas etapas
-Agora você está pronto para usar o .vhd Oracle Linux para criar novas Máquinas Virtuais do Azure no Azure. Se estiver usando o Azure pela primeira vez e carregar o arquivo .vhd para o Azure, poderia seguir as etapas 2 e 3 [nestas diretrizes](virtual-machines-linux-create-upload-vhd.md).
+Agora você está pronto para usar o .vhd Oracle Linux para criar novas máquinas virtuais no Azure. Se esta é a primeira vez que você está carregando o arquivo .vhd no Azure, consulte as etapas 2 e 3 em [Criando e carregando um disco rígido virtual que contém o sistema operacional Linux](virtual-machines-linux-create-upload-vhd.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

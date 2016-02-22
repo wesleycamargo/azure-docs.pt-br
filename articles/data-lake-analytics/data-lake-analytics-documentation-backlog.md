@@ -3,8 +3,8 @@
    description="A Análise Data Lake é um serviço de computação de Big Data do Azure que permite usar dados para impulsionar seus negócios com as informações obtidas de seus dados na nuvem, independentemente de onde eles estiverem e de seu tamanho. A Análise Data Lake possibilita isso da maneira mais simples, mais escalonável e mais econômica possível. Esta página é a lista de pendências de nossos esforços de documentação"
    documentationCenter="na"
    services="data-lake-analytics"
-   authors="mumian"
-   manager="paulettm"
+   authors="pablissima"
+   manager="pablissima"
    editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/05/2015"
+   ms.date="02/10/2016"
    ms.author="mwinkle"/>
 
 # Lista de pendências de documentação da Análise Azure Data Lake
@@ -57,4 +57,4 @@ Há algumas opções para fornecer comentários sobre a lista de pendências:
 * Enviar uma solicitação pull sobre este documento no [Repositório de Conteúdo do Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
 * Enviar um email para [adlafeedback@microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

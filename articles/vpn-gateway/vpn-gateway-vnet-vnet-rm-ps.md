@@ -4,7 +4,7 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
 
@@ -23,9 +23,7 @@
 - [Azure Classic Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
-Este artigo o orientará pelas etapas usando o modelo de implantação do Gerenciador de Recursos. Se você estiver procurando por um modelo de implantação diferente para esta configuração, use as guias acima para selecionar o artigo desejado.
-
-Neste momento, não temos uma solução para conexões de VNet a VNet para redes virtuais criadas usando o método de implantação do Gerenciador de recursos que residem em assinaturas diferentes. Atualmente, a equipe está trabalhando em uma solução e prevemos ter etapas prontas até o final do ano. Quando estiverem disponíveis, este artigo vai expor essas etapas. As etapas a seguir são para VNets que estão na mesma assinatura.
+Este artigo explica as etapas para criar uma conexão entre redes virtuais usando o modelo de implantação do **Gerenciador de Recursos** e o PowerShell. Neste momento, não temos uma documentação para conexões de VNet a VNet para redes virtuais criadas usando o modelo de implantação do Gerenciador de Recursos que residem em assinaturas diferentes. Atualmente, a equipe está trabalhando em uma solução. Quando estiverem disponíveis, este artigo vai expor essas etapas. As etapas a seguir são para VNets que estão na mesma assinatura.
 
 **Sobre modelos de implantação do Azure**
 
@@ -33,7 +31,7 @@ Neste momento, não temos uma solução para conexões de VNet a VNet para redes
 	
 - Se suas redes virtuais foram criadas usando o modelo clássico de implantação, consulte [Criar uma conexão VNet a VNet](virtual-networks-configure-vnet-to-vnet-connection.md). O modelo de implantação clássico dá suporte à conexão entre VNets que residem em assinaturas diferentes.
 	
-- Se você quiser conectar uma rede virtual que foi criada no modelo de implantação clássico a uma rede virtual criada usando o modelo do Gerenciador de Recursos do Azure, consulte [Conectando VNets clássicas a novas VNets](../virtual-network/virtual-networks-arm-asm-s2s.md).
+- Se você quer conectar uma rede virtual que foi criada no modelo de implantação clássico a uma rede virtual criada usando o modelo do Gerenciador de Recursos do Azure, consulte [Conectando VNets clássicas a novas VNets](../virtual-network/virtual-networks-arm-asm-s2s.md).
 
 ## Sobre conexões de rede virtual a rede virtual
 
@@ -262,4 +260,4 @@ Depois de verificar se as sub-redes do gateway estão configuradas corretamente,
 
 Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Confira [Criar uma Máquina Virtual](../virtual-machines/virtual-machines-windows-tutorial.md) para obter as etapas.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

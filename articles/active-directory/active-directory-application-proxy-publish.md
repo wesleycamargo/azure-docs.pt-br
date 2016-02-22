@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 
 # Publicar aplicativos usando o Proxy de Aplicativo do AD do Azure
 
-> [AZURE.NOTE]O Proxy de Aplicativo é um recurso que está disponível somente se você tiver atualizado para a edição Premium ou Básica do Active Directory do Azure. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md).
+> [AZURE.NOTE] O Proxy de Aplicativo é um recurso que está disponível somente se você tiver atualizado para a edição Premium ou Básica do Active Directory do Azure. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md).
 
 Depois de habilitar o Proxy de Aplicativo do AD (Active Directory) do Microsoft Azure, você pode publicar aplicativos para torná-los acessíveis aos usuários fora de sua rede privada.
 
 Este artigo o orienta pelas etapas necessárias para publicar aplicativos em execução na rede local, para os quais deseja habilitar o acesso remoto seguro de fora da rede.
 
-> [AZURE.NOTE]Para verificar se o Conector está funcionando corretamente, o primeiro aplicativo que você publicará, antes de publicar um aplicativo real, deve ser qualquer site acessível a partir de sua rede privada, para garantir que os usuários possam acessá-lo da Internet.
+> [AZURE.NOTE] Para verificar se o Conector está funcionando corretamente, o primeiro aplicativo que você publicará, antes de publicar um aplicativo real, deve ser qualquer site acessível a partir de sua rede privada, para garantir que os usuários possam acessá-lo da Internet.
 
 
 ## Publicar um aplicativo usando o assistente
@@ -48,7 +48,7 @@ Este artigo o orienta pelas etapas necessárias para publicar aplicativos em exe
 | URL externa | Esta é a URL do serviço de nuvem que é usada para acessar o aplicativo de fora da sua rede privada. A URL é gerada automaticamente com base no nome fornecido, com o sufixo msappproxy.net. |
 | Método de pré-autenticação | Defina o tipo do método de pré-autenticação que você deseja que o aplicativo use: <br><br> a. Active Directory do Azure – quando um usuário tentar acessar um aplicativo, o Proxy de Aplicativo redirecionará o usuário para fazer logon com o AD do Azure, que autenticará o usuário, garantindo que ele tenha as permissões necessárias para o diretório e o aplicativo. <br><br> b. Passagem – a pré-autenticação não é realizada. |
 | Protocolo de URL externa | Por padrão, os aplicativos são publicados usando o protocolo HTTPS. O serviço redirecionará automaticamente os usuários que digitarem a URL com http. <br><br> A fim de habilitar o HTTP para um aplicativo interno, você precisará definir o método de pré-autenticação como Passagem para poder alterar o protocolo da URL externa de HTTPS para HTTP. Observe que a publicação de aplicativos usando HTTP pode criar problemas de segurança para o aplicativo e os usuários. <br><br> Você pode inserir um domínio personalizado em vez de usar o sufixo msappproxy.net padrão. Para obter mais informações, veja [Trabalhando com domínios personalizados](active-directory-application-proxy-custom-domains.md). |
-| URL interna | Esta é a URL interna que o conector do Proxy de Aplicativo usa para acessar o aplicativo internamente. Ela deverá ser a URL do aplicativo publicado que é usada para acessar o aplicativo de dentro de sua rede privada. Esta é uma URL válida, sem espaços ou símbolos. <br><br> Você pode especificar a publicação de determinado caminho no servidor back-end, sem publicar o restante do servidor. Isso permite que você publique, por exemplo, sites diferentes localizados no mesmo servidor do SharePoint, com diferentes nomes e regras de acesso. <br><br> O caminho é especificado no campo da URL interna e ficará visível na URL externa. |
+| URL interna | Esta é a URL interna que o conector do Proxy de Aplicativo usa para acessar o aplicativo internamente. Ela deverá ser a URL do aplicativo publicado que é usada para acessar o aplicativo de dentro de sua rede privada. Esta é uma URL válida, sem espaços ou símbolos. <br><br> Você pode especificar a publicação de determinado caminho no servidor back-end, sem publicar o restante do servidor. Isso permite que você publique, por exemplo, sites diferentes localizados no mesmo servidor do SharePoint, com diferentes nomes e regras de acesso. <br><br> O caminho é especificado no campo da URL interna e ficará visível na URL externa. Os caminhos internos e externos devem ser idênticos. |
 
   ![Propriedades do aplicativo](./media/active-directory-application-proxy-publish/aad_appproxy_appproperties.png)
 
@@ -65,7 +65,7 @@ Este artigo o orienta pelas etapas necessárias para publicar aplicativos em exe
 
 3. Selecione cada usuário ou grupo que você deseja atribuir a esse aplicativo e clique em **Atribuir**.
 
-> [AZURE.NOTE]Para aplicativos de autenticação integrada do Windows, é possível atribuir apenas usuários e grupos que são sincronizados a partir do seu Active Directory local. Usuários que fazem logon usando uma conta da Microsoft e convidados não podem ser atribuídos para aplicativos publicados com o Proxy de Aplicativo do Active Directory do Azure. Verifique se os usuários que você atribuiu fazem logon com as credenciais que fazem parte do mesmo domínio que o aplicativo que você está publicando.
+> [AZURE.NOTE] Para aplicativos de autenticação integrada do Windows, é possível atribuir apenas usuários e grupos que são sincronizados a partir do seu Active Directory local. Usuários que fazem logon usando uma conta da Microsoft e convidados não podem ser atribuídos para aplicativos publicados com o Proxy de Aplicativo do Active Directory do Azure. Verifique se os usuários que você atribuiu fazem logon com as credenciais que fazem parte do mesmo domínio que o aplicativo que você está publicando.
 
 
 ## Configuração avançada
@@ -111,7 +111,7 @@ Você pode fazer muito mais com o Proxy de Aplicativo:
 - [Assista aos nossos vídeos no Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 ## Recursos adicionais
+- [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
+- [Sobre a delegação restrita de Kerberos](http://technet.microsoft.com/library/cc995228.aspx)
 
-* [Sobre a delegação restrita de Kerberos](http://technet.microsoft.com/library/cc995228.aspx)
-
-<!----HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

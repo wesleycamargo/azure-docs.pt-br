@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="02/03/2016"   
 	ms.author="juliako"/>
 
 #Usar o codificador FMLE para enviar uma transmissão ao vivo de taxa de bits única
@@ -49,19 +49,19 @@ Observe que este tutorial descreve como usar o AAC. No entanto, por padrão, o F
 
 ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle1.png)
 
-2. Especifique um nome de canal; o campo de descrição é opcional. Em Configurações de Canal, selecione **Padrão** para a opção de Codificação Ativa, com o Protocolo de Entrada definido como **RTMP**. Você pode deixar todas as outras configurações como estão.
+2. Especifique um nome de canal; o campo de descrição é opcional. Em Configurações de Canal, selecione **Standard** para a opção de Codificação Ativa, com o Protocolo de Entrada definido como **RTMP**. Você pode deixar todas as outras configurações como estão.
 
 
 Verifique se a opção **Iniciar o novo canal agora** está marcada.
 
-3. Clique em **Criar Canal**. ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle2.png)
+3. Clique em **Criar Canal**.![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle2.png)
 
->[AZURE.NOTE]O canal pode levar até 20 minutos para ser iniciado.
+>[AZURE.NOTE] O canal pode levar até 20 minutos para ser iniciado.
 
 
 Enquanto o canal é iniciado, você pode [configurar o codificador](media-services-configure-fmle-live-encoder.md#configure_fmle_rtmp).
 
->[AZURE.IMPORTANT]Lembre-se de que a cobrança começa assim que o Canal entra em um estado pronto. Para obter mais informações, veja [Estados do canal](media-services-manage-live-encoder-enabled-channels.md#states).
+>[AZURE.IMPORTANT] Lembre-se de que a cobrança começa assim que o Canal entra em um estado pronto. Para obter mais informações, veja [Estados do canal](media-services-manage-live-encoder-enabled-channels.md#states).
 
 ##<a id=configure_fmle_rtmp></a>Configurar o codificador FMLE
 
@@ -127,11 +127,11 @@ Neste tutorial, são usadas as configurações de saída abaixo. O restante dest
 	Para redundância adicional, repita essas etapas com a URL de entrada secundária.
 8. Selecione **Conectar**.
 
->[AZURE.IMPORTANT]Antes de clicar em **Conectar**, é **necessário** verificar se o Canal está pronto. Além disso, lembre-se de não deixar o Canal em um estado pronto sem um feed de contribuição de entrada por mais de 15 minutos.
+>[AZURE.IMPORTANT] Antes de clicar em **Conectar**, é **necessário** verificar se o Canal está pronto. Além disso, lembre-se de não deixar o Canal em um estado pronto sem um feed de contribuição de entrada por mais de 15 minutos.
 
 ##Reprodução de teste
   
-1. Navegue até a ferramenta AMSE e clique com botão direito do mouse no canal a ser testado. No menu, focalize **Reproduzir a Visualização** e selecione **com o Azure Media Player**.  
+1. Navegue até a ferramenta AMSE e clique com botão direito do mouse no canal a ser testado. No menu, passe o mouse sobre **Reproduzir a Visualização** e selecione **com o Azure Media Player**.  
 
 	![fmle](./media/media-services-fmle-live-encoder/media-services-fmle8.png)
 
@@ -170,4 +170,4 @@ Veja o tópico [solução de problemas](media-services-troubleshooting-live-stre
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

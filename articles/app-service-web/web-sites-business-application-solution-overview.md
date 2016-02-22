@@ -32,7 +32,8 @@ A seguir há um exemplo de um aplicativo de linha de negócios em execução nos
 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/web-app-notitle.svg" width="100%" height="100%"></object>
 
-> [AZURE.NOTE]Este guia apresenta algumas das áreas e tarefas mais comuns que estão alinhadas aos aplicativos de linha de negócios. No entanto, há outros recursos dos Aplicativos Web do Serviço de Aplicativo do Azure que você pode usar em sua implementação específica. Para rever esses recursos, consulte também as outras guias no [Presença Global da Web](web-sites-global-web-presence-solution-overview.md) e [Campanhas de Marketing Digital](web-sites-digital-marketing-application-solution-overview.md).
+> [AZURE.NOTE]
+Este guia apresenta algumas das áreas e tarefas mais comuns que estão alinhadas aos aplicativos de linha de negócios. No entanto, há outros recursos dos Aplicativos Web do Serviço de Aplicativo do Azure que você pode usar em sua implementação específica. Para rever esses recursos, consulte também as outras guias no [Presença Global da Web](web-sites-global-web-presence-solution-overview.md) e [Campanhas de Marketing Digital](web-sites-digital-marketing-application-solution-overview.md).
 
 ## Incluir ativos existentes
 
@@ -79,10 +80,10 @@ Na camada **Padrão**, monitore a capacidade de resposta do aplicativo e receba 
 ## Mais Recursos
 
 - [Documentação de Aplicativos Web do Serviço de Aplicativo](/services/app-service/web/)
-- [Mapa de aprendizagem para Aplicativos Web do Serviço de Aplicativo do Azure](websites-learning-map.md)
+- [Mapa de aprendizagem para Aplicativos Web do Serviço de Aplicativo do Azure](/documentation/learning-paths/appservice-webapps/)
 - [Blog do Azure](/blog/topics/web/)
 
->[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE] Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -124,4 +125,4 @@ Na camada **Padrão**, monitore a capacidade de resposta do aplicativo e receba 
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -2,6 +2,7 @@
    pageTitle="Passo a passo detalhado usando a visualização de colaboração B2B do Active Directory do Azure| Microsoft Azure"
    description="A B2B do e diretório ativo do Active Directory do Azure suporta as relações entre empresas, permitindo que os parceiros de negócios acessem seletivamente seus aplicativos corporativos"
    services="active-directory"
+   documentationCenter=""
    authors="viv-liu"
    manager="cliffdi"
    editor=""
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="02/03/2016"
+   ms.date="02/09/2016"
    ms.author="viviali"/>
 
 # Visualização da colaboração B2B do AD do Azure: passo a passo detalhado
@@ -78,6 +79,7 @@ Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 - [Referência do formato de arquivo CSV](active-directory-b2b-references-csv-file-format.md)
 - [Formato do token de usuário externo](active-directory-b2b-references-external-user-token-format.md)
 - [Alterações de atributo do objeto de usuário externo](active-directory-b2b-references-external-user-object-attribute-changes.md)
-- [Limitações de visualização atuais](active-directory-b2b-current-preview-limitations.md)
+- [Limitações atuais da visualização](active-directory-b2b-current-preview-limitations.md)
+- [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

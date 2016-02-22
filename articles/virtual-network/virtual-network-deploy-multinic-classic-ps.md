@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 #Implantar VMs com várias NICs (clássicas) usando o PowerShell
@@ -31,7 +31,7 @@ Como, neste momento, você não pode ter VMs com uma única NIC e VMs com vária
 
 ## Pré-requisitos
 
-Antes de implantar os servidores de back-end, você precisa implantar o serviço de nuvem principal com todos os recursos necessários para este cenário. No mínimo, você precisa criar uma rede virtual com uma sub-rede para o back-end. Visite [Criar uma rede virtual usando o PowerShell](virtual-networks-create-vnet-classic-ps.md) para saber como implantar uma rede virtual.
+Antes de implantar os servidores de back-end, você precisa implantar o serviço de nuvem principal com todos os recursos necessários para este cenário. No mínimo, você precisa criar uma rede virtual com uma sub-rede para o back-end. Visite [Criar uma rede virtual usando o PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md) para saber como implantar uma rede virtual.
 
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -43,9 +43,9 @@ As VMs de back-end dependem da criação dos recursos descritos abaixo.
 - **Conta de armazenamento para discos de dados**. Para obter um melhor desempenho, os discos de dados dos servidores de banco de dados usam a tecnologia SDD (unidade de estado sólido), que requer uma conta de Armazenamento Premium. Verifique se o local do Azure no qual você vai implantar é compatível com o Armazenamento Premium.
 - **Conjunto de disponibilidade**. Todos os servidores de banco de dados são adicionados a um conjunto de disponibilidade único, para garantir que pelo menos uma das VMs está ativa e em execução durante a manutenção. 
 
-### Etapa 1 – Iniciar o script
+### Etapa 1: iniciar o script
 
-Baixe o script completo do PowerShell usado [aqui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/multinic.ps1). Realize os procedimentos abaixo para alterar o script para funcionar em seu ambiente.
+Baixe o script completo do PowerShell usado [aqui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-ps.ps1). Realize os procedimentos abaixo para alterar o script para funcionar em seu ambiente.
 
 1. Altere os valores das variáveis a seguir com base no grupo de recursos existente implantado acima, no tópico [Pré-requisitos](#Prerequisites).
 
@@ -157,7 +157,7 @@ Você deve usar um loop para criar várias VMs desejadas e para criar as NICs e 
 
 Agora que você baixou e alterou o script de acordo com suas necessidades, execute o script para criar VMs do banco de dados de back-end com várias NICs.
 
-1. Salve o script e execute-o no prompt de comando do **PowerShell** ou no **ISE do Windows PowerShell**. A saída inicial será exibida, conforme mostrado abaixo:
+1. Salve seu script e execute-o no prompt de comando do **PowerShell** ou **PowerShell ISE**. A saída inicial será exibida, conforme mostrado abaixo:
 
 		OperationDescription    OperationId                          OperationStatus
 		--------------------    -----------                          ---------------
@@ -171,4 +171,4 @@ Agora que você baixou e alterou o script de acordo com suas necessidades, execu
 		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
 		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded 
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

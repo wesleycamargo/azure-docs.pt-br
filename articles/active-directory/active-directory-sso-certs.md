@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/02/2016"
+	ms.date="02/09/2016"
 	ms.author="liviodlc"/>
 
 #Gerenciamento de certificados para logon único federado no Active Directory do Azure
@@ -76,6 +76,10 @@ As etapas de renovação mostradas abaixo idealmente não devem resultar em nenh
 
 	![Baixe e depois carregue o certificado](./media/active-directory-sso-certs/renew-config-app.PNG)
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+## Artigos relacionados
 
-<!---HONumber=AcomDC_0204_2016-->
+- [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
+- [Acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md)
+- [Solução de problemas de logon único baseado em SAML](active-directory-saml-debugging.md)
+
+<!---HONumber=AcomDC_0211_2016-->

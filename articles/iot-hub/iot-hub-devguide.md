@@ -98,7 +98,7 @@ As identidades de dispositivo são representadas como documentos JSON com as seg
 
 | Propriedade | Opções | Descrição |
 | -------- | ------- | ----------- |
-| deviceId | obrigatória, somente leitura em atualizações | Uma cadeia de caracteres que diferencia maiúsculas de minúsculas (com até 128 caracteres) de caracteres alfanuméricos ASCII 7 bits + `{'-', ':', '.', '+', '&percnt;', '_', '&num;', '&ast;', '?', '!', '(', ')', ',', '=', '&commat;', ';', '&dollar;', '''}`. |
+| deviceId | obrigatória, somente leitura em atualizações | Uma cadeia de caracteres que diferencia maiúsculas de minúsculas (com até 128 caracteres) de caracteres alfanuméricos ASCII 7 bits + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
 | generationId | obrigatória, somente leitura | Uma cadeia de caracteres que diferencia maiúsculas de minúsculas gerada pelo hub com até 128 caracteres. Isso é usado para distinguir os dispositivos com o mesmo **deviceId** quando são excluídos e recriados. |
 | etag | obrigatória, somente leitura | Uma cadeia de caracteres que representa uma etag fraca para a identidade do dispositivo, de acordo com [RFC7232][lnk-rfc7232].|
 | auth | opcional | Um objeto composto que contém as informações de autenticação e os materiais de segurança. |
@@ -366,10 +366,10 @@ Esse é o conjunto de propriedades do sistema em mensagens do Hub IoT.
 | -------- | ----------- |
 | MessageId | Um identificador configurável pelo usuário para a mensagem, normalmente usado para padrões de solicitação-resposta. Formato: uma cadeia de caracteres que diferencia maiúsculas de minúsculas (com até 128 caracteres) de caracteres alfanuméricos ASCII 7 bits + `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
 | Número de sequência | Um número (exclusivo por fila de dispositivos) atribuído pelo Hub IoT a cada mensagem da nuvem para o dispositivo. |
-| Para | Usado em mensagens [da nuvem para o dispositivo](#c2d) para especificar o campo de destino.|
+| Para | Usado em mensagens [da nuvem para o dispositivo](#c2d) para especificar o destino. |
 | ExpiryTimeUtc | Data e hora de expiração da mensagem. |
-| EnqueuedTime | Hora do recebimento da mensagem pelo Hub IoT. |
-| CorrelationId | A propriedade de cadeia de caracteres que geralmente contém a ID da mensagem da solicitação em padrões de solicitação-resposta. |
+| EnqueuedTime | Data e hora do recebimento da mensagem pelo Hub IoT. |
+| CorrelationId | Cadeia de propriedade em uma mensagem de resposta que geralmente contém a MessageId da solicitação em padrões de solicitação-resposta. |
 | UserId | Usada para especificar a origem das mensagens. Quando as mensagens são geradas pelo Hub IoT, são definidas como `{iot hub name}`. |
 | Ack | Usado em mensagens da nuvem para o dispositivo para solicitar ao Hub IoT a geração de mensagens de comentários como resultado do consumo da mensagem pelo dispositivo. Valores possíveis: **nenhum** (padrão): nenhuma mensagem de comentários é gerada, **positivo**: ocorre o recebimento de uma mensagem de comentários, se a mensagem estiver completa, **negativo**: ocorre o recebimento de uma mensagem de comentários, se a mensagem expirar (ou se a contagem máxima de entrega tiver sido atingida) sem ser concluída pelo dispositivo, **total**: positivos e negativos. Para saber mais, consulte [Comentários sobre a mensagem](#feedback). |
 | ConnectionDeviceId | Definida pelo Hub IoT em mensagens do dispositivo para nuvem . Contém a **deviceId** do dispositivo que enviou a mensagem. |
@@ -418,7 +418,7 @@ No entanto, há algumas distinções importantes entre as mensagens do dispositi
 * O Hub IoT não permite o particionamento arbitrário usando uma **PartitionKey**. As mensagens do dispositivo para a nuvem são particionadas com base em sua **deviceId** de origem.
 * O dimensionamento do Hub IoT é um pouco diferente dos Hubs de Eventos. Para saber mais, consulte [Dimensionando o Hub IoT][lnk-guidance-scale].
 
-Observe que isso não significa que você pode substituir o Hub IoT para os Hubs de Eventos em todos os cenários. Por exemplo, em alguns cálculos de processamento de eventos, talvez seja necessário fazer a repartição de eventos com relação a um campo ou propriedade diferente antes de analisar os fluxos de dados. Neste cenário, você poderia usar um Hub de Eventos para desacoplar duas partes do pipeline de processamento do fluxo.
+Observe que isso não significa que você pode substituir o Hub IoT para os Hubs de Eventos em todos os cenários. Por exemplo, em alguns cálculos de processamento de eventos, talvez seja necessário fazer a repartição de eventos com relação a um campo ou propriedade diferente antes de analisar os fluxos de dados. Neste cenário, você poderia usar um Hub de Eventos para desacoplar duas partes do pipeline de processamento do fluxo. Para obter mais informações, consulte *Partições* na [Visão Geral dos Hubs de Eventos][lnk-eventhub-partitions].
 
 Para obter detalhes sobre como usar as mensagens do dispositivo para a nuvem, consulte [SDKs e APIs do Hub IoT][lnk-apis-sdks].
 
@@ -497,17 +497,19 @@ Todas as mensagens da nuvem para o dispositivo têm um tempo de expiração. Iss
 
 Quando você envia uma mensagem da nuvem para o dispositivo, o serviço pode solicitar a entrega de um comentário por mensagem sobre o estado final dessa mensagem.
 
-- Se você definir a propriedade **Ack** como **positiva**, o Hub IoT vai gerar uma mensagem de comentários se, e somente se, a mensagem da nuvem para o dispositivo atingir o estado **Concluída**.
+- Se você definir a propriedade **Ack** como **positivo**, o Hub IoT vai gerar uma mensagem de comentários se, e somente se, a mensagem da nuvem para o dispositivo atingir o estado **Concluído**.
 - Se você definir a propriedade **Ack** como **negativa**, o Hub IoT vai gerar uma mensagem de comentários se, e somente se, a mensagem da nuvem para o dispositivo atingir o estado **Morta**.
-- Se você definir a propriedade **Ack** como **total**, o Hub IoT vai gerar uma mensagem de comentário em ambos os casos.
+- Se você definir a propriedade **Ack** como **total**, o Hub IoT vai gerar uma mensagem de comentários em ambos os casos.
 
-Como explicado em [Pontos de extremidade](#endpoints), o Hub IoT oferece comentários por meio de um ponto de extremidade voltado para o serviço (**/messages/servicebound/feedback**) como mensagens. A semântica de recebimento dos comentários é a mesma das mensagens da nuvem para o dispositivo, com o mesmo [ciclo de vida da mensagem](nº do ciclo de vida da mensagem). Sempre que possível, os comentários de mensagem são feitos em lotes em uma única mensagem, com o seguinte formato.
+> [AZURE.NOTE] Se **Ack** for **total** e não for recebida nenhuma mensagem de comentários, a mensagem de comentários expirou e o serviço não pode saber o que aconteceu com a mensagem original. Na prática, um serviço deve garantir que possa processar os comentários antes que eles expirem. O tempo máximo de validade é de dois dias, portanto, deverá haver tempo suficiente para executar o serviço de backup se ocorrer uma falha.
 
-Cada mensagem recuperada do ponto de extremidade dos comentários tem estas propriedades:
+Como explicado em [Pontos de extremidade](#endpoints), o Hub IoT oferece comentários por meio de um ponto de extremidade voltado para o serviço (**/messages/servicebound/feedback**) como mensagens. A semântica de recebimento dos comentários é a mesma das mensagens da nuvem para o dispositivo e tem o mesmo [ciclo de vida da mensagem](nº do ciclo de vida da mensagem). Sempre que possível, os comentários de mensagem são feitos em lotes em uma única mensagem, com o seguinte formato.
+
+Cada mensagem recuperada por um dispositivo do ponto de extremidade dos comentários tem estas propriedades:
 
 | Propriedade | Descrição |
 | -------- | ----------- |
-| EnqueuedTime | Carimbo de data e hora que indica quando o lote foi criado. |
+| EnqueuedTime | Carimbo de data/hora que indica quando a mensagem foi criada. |
 | UserId | `{iot hub name}` |
 | ContentType | `application/vnd.microsoft.iothub.feedback.json` |
 
@@ -517,9 +519,11 @@ O corpo é uma matriz de registros serializada em JSON, cada um com as seguintes
 | -------- | ----------- |
 | EnqueuedTimeUtc | Carimbo de data e hora que indica quando ocorreu a saída da mensagem. Por exemplo, o dispositivo foi concluído ou a mensagem expirou. |
 | OriginalMessageId | **MessageId** da mensagem da nuvem para o dispositivo a qual essas informações de comentários pertencem. |
-| Descrição | Valores de cadeia de caracteres para os resultados anteriores. |
+| StatusCode | Inteiro necessário. Usado em mensagens de comentários geradas pelo Hub IoT. <br/> 0 = êxito <br/> 1 = mensagem expirou <br/> 2 = contagem de entrega máxima excedida <br/> 3 = mensagem rejeitada |
+| Descrição | Valores de cadeia de caracteres para **StatusCode**. |
 | DeviceId | **DeviceId** do dispositivo de destino da mensagem da nuvem para o dispositivo a qual pertence esses comentários. |
 | DeviceGenerationId | **DeviceGenerationId** do dispositivo de destino da mensagem da nuvem para o dispositivo a qual pertence esses comentários. |
+
 
 **Importante**. O serviço deve especificar um **MessageId** para a mensagem da nuvem para o dispositivo, a fim de poder correlacionar seus comentários com a mensagem original.
 
@@ -530,6 +534,7 @@ O corpo é uma matriz de registros serializada em JSON, cada um com as seguintes
   {
     "OriginalMessageId": "0987654321",
     "EnqueuedTimeUtc": "2015-07-28T16:24:48.789Z",
+    "StatusCode": 0
     "Description": "Success",
     "DeviceId": "123",
     "DeviceGenerationId": "abcdefghijklmnopqrstuvwxyz"
@@ -552,6 +557,8 @@ Cada Hub IoT expõe as seguintes opções de configuração para mensagens da nu
 | feedback.ttlAsIso8601 | Retenção de mensagens informativas do serviço associado. | Intervalo ISO\_8601 de até 2D (mínimo de 1 minuto). Padrão: 1 hora. |
 | feedback.maxDeliveryCount | Contagem máxima de entrega para a fila de comentários. | 1 a 100. Padrão: 100. |
 
+Para obter mais informações, consulte [Gerenciar hubs IoT][lnk-manage].
+
 ## Cotas e limitação <a id="throttling"></a>
 
 Cada assinatura do Azure pode ter no máximo 10 hubs IoT.
@@ -569,14 +576,14 @@ A seguir, a lista de limitações impostas. Os valores referem-se a um hub indiv
 | Restrição | Valor por hub |
 | -------- | ------------- |
 | Operações de registro de identidade (criar, recuperar, listar, atualizar, excluir) | 100/min/unidade, até 5000/min |
-| Conexões do dispositivo | 120/s/unidade (para S2), 12/s/unidade (para S1). Mínimo de 100/s. |
-| Envios do dispositivo para a nuvem | 120/s/unidade (para S2), 12/s/unidade (para S1). Mínimo de 100/s. |
+| Conexões do dispositivo | 120/s/unidade (para S2), 12/s/unidade (para S1). <br/>Mínimo de 100/s. <br/> Por exemplo, duas unidades de S1 têm 2 * 12 = 24/s, mas você terá pelo menos 100/s em suas unidades. Com nove unidades S1 você tem 108/s (9 * 12) em suas unidades. |
+| Envios do dispositivo para a nuvem | 120/s/unidade (para S2), 12/s/unidade (para S1). <br/>Mínimo de 100/s. <br/> Por exemplo, duas unidades de S1 têm 2 * 12 = 24/s, mas você terá pelo menos 100/s em suas unidades. Com nove unidades S1 você tem 108/s (9 * 12) em suas unidades. |
 | Envios da nuvem para o dispositivo | 100/min/unidade |
 | Recebimentos da nuvem para o dispositivo | 1000/min/unidade |
 
 **Observação**. A qualquer momento, é possível aumentar as cotas ou restrições aumentando o número de unidades provisionadas em um Hub IoT.
 
-**Importante**: as operações de registro de identidade são destinadas para uso no tempo de execução em cenários de provisionamento e gerenciamento de dispositivos. Ler ou atualizar grandes números de identidades de dispositivo é permitido por meio de [trabalhos de importação/exportação](#importexport).
+**Importante**: as operações de Registro de identidade são destinadas para uso no tempo de execução em cenários de provisionamento e gerenciamento de dispositivos. Ler ou atualizar grandes números de identidades de dispositivo tem suporte por meio de [trabalhos de importação/exportação](#importexport).
 
 ## Próximas etapas
 
@@ -629,5 +636,7 @@ Você viu uma visão geral do desenvolvimento para Hub IoT. Siga estes links par
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 [lnk-bulk-identity]: iot-hub-bulk-identity-mgmt.md
+[lnk-eventhub-partitions]: event-hubs-overview.md#partitions
+[lnk-manage]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

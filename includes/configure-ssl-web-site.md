@@ -392,21 +392,19 @@ A habilitação do HTTPS para um domínio personalizado só está disponível pa
 
 > [AZURE.NOTE] Antes de mudar um aplicativo da camada **Free** para a camada **Standard**, você deve remover os limites de gastos em vigot para sua assinatura. Caso contrário, seu aplicativo poderá ficar indisponível se você atingir os limites antes do término do período de cobrança. Para obter mais informações sobre as camadas compartilhada e **Standard**, consulte os [Detalhes de preços][pricing].
 
-1.	Em seu navegador, abra o [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
+1.	No seu navegador, abra o [Portal do Azure](https://portal.azure.com).
 	
-2.	Clique na opção **Procurar** no lado esquerdo da página.
-
-3.	Clique na lâmina **Aplicativos Web**.
+2.	Clique na opção **Serviço de Aplicativo** no lado esquerdo da página.
 
 4.	Clique no nome do seu aplicativo.
 
 5.	Na página **Informações Gerais**, clique em **Configurações**.
 
-6.	Clique em **Escala**
+6.	Clique em **Escalar verticalmente**
 	
 	![Na guia Escala][scale]
 
-7.	Na seção **Escala**, defina o modo do plano de Serviço de Aplicativo clicando em **Selecionar**.
+7.	Na seção **Escalar verticalmente**, defina o modo do plano de Serviço de Aplicativo clicando em **Selecionar**.
 
 	> [AZURE.NOTE] Se você receber um erro "Configurando a escala para o aplicativo Web '&lt;nome do aplicativo&gt;' com falha", você pode usar o botão Detalhes para saber mais. Você pode receber um erro "Não servidores de instância padrão disponíveis para atender a esta solicitação". Se você receber esse erro, contate o [suporte do Azure](/support/options/).
 
@@ -415,11 +413,9 @@ A habilitação do HTTPS para um domínio personalizado só está disponível pa
 
 Antes de executar as etapas nesta seção, você precisa ter associado um nome de domínio personalizado ao seu aplicativo. Para obter mais informações, consulte [Configurando um nome de domínio personalizado para um aplicativo Web][customdomain].
 
-1.	No seu navegador, abra o [Portal de Gerenciamento do Azure](https://portal.azure.com).
+1.	No seu navegador, abra o [Portal do Azure](https://portal.azure.com).
 
-2.	Clique na opção **Procurar** no lado esquerdo da página.
-
-3.	Clique na lâmina **Aplicativos Web**.
+2.	Clique na opção **Serviço de Aplicativo** no lado esquerdo da página.
 
 4.	Clique no nome do seu aplicativo.
 
@@ -565,4 +561,4 @@ Para obter mais informações sobre o Módulo de Reescrita de URL do IIS, consul
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

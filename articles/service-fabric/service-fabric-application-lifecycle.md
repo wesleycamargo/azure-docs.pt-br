@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="01/20/2016"
-   ms.author="ryanwi; mani-ramaswamy"/>
+   ms.author="ryanwi"/>
 
 
 # Ciclo de vida do aplicativo Service Fabric
@@ -34,7 +34,7 @@ As funções do modelo de serviço são:
 
 
 ## Desenvolver
-1. Um *desenvolvedor de serviço* desenvolve tipos diferentes de serviços usando o modelo de programação [Reliable Actors](service-fabric-reliable-actors-introduction.md) ou [Reliable Services](../service-fabric/service-fabric-reliable-services-introduction.md).
+1. Um *desenvolvedor de serviço* desenvolve tipos diferentes de serviços usando o modelo de programação [Reliable Actors](service-fabric-reliable-actors-introduction.md) ou [Reliable Services](service-fabric-reliable-services-introduction.md).
 2. Um *desenvolvedor de serviço* descreve declarativamente os tipos de serviço desenvolvidos em um arquivo de manifesto do serviço que consiste em um ou mais pacotes de código, de configuração e de dados.
 3. Um *desenvolvedor de aplicativos* cria um aplicativo usando diferentes tipos de serviço.
 4. Um *desenvolvedor de aplicativos* descreve declarativamente o tipo de aplicativo em um manifesto de aplicativo referenciando os manifestos do serviço dos serviços membros e substituindo e parametrizando adequadamente as diferentes configurações de implantação e configurações dos serviços membros.
@@ -113,10 +113,10 @@ Confira [implantar um aplicativo](service-fabric-deploy-remove-applications.md) 
 Para saber mais sobre o desenvolvimento, o teste e o gerenciamento de aplicativos e serviços da Malha do Serviço, confira:
 
 - [Reliable Actors](service-fabric-reliable-actors-introduction.md)
-- [Reliable Services](../service-fabric/service-fabric-reliable-services-introduction.md)
+- [Reliable Services](service-fabric-reliable-services-introduction.md)
 - [Implantar um aplicativo](service-fabric-deploy-remove-applications.md)
 - [Atualização do aplicativo](service-fabric-application-upgrade.md)
 - [Visão geral da Possibilidade de Teste](service-fabric-testability-overview.md)
 - [Exemplo do ciclo de vida de aplicativo baseado em REST](service-fabric-rest-based-application-lifecycle-sample.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

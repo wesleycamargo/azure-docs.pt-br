@@ -3,7 +3,7 @@
    description="Resumo dos recursos da visualização pública e nossas metas para disponibilidade geral do SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="lvargas"
+   authors="twounder"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="01/07/2016"
-   ms.author="lvargas;mausher;barbkess"/>
+   ms.author="mausher;barbkess;sonyama"/>
 
 # Expectativas de visualização do SQL Data Warehouse
 
@@ -72,4 +72,4 @@ O SQL Data Warehouse armazena dados em um ou mais nós de computação, e cada u
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

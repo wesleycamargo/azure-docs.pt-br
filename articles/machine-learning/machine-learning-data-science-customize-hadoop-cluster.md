@@ -13,18 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2015" 
+	ms.date="02/08/2016" 
 	ms.author="hangzh;bradsev" />
 
 # Personalizar os clusters do Hadoop do Azure HDInsight para o Processo de Análise do Cortana. 
 
-Esse menu liga os tópicos que descrevem como configurar os vários ambientes de ciência de dados usados pelo Processo de Análise do Cortana (CAP).
-
-[AZURE.INCLUDE [configuração do ambiente de ciência de dados](../../includes/cap-setup-environments.md)]
+## Introdução
 
 Este artigo descreve como personalizar um cluster do Hadoop do HDInsight instalando Anaconda de 64 bits (Python 2.7) em cada nó quando o cluster está sendo provisionado no serviço HDInsight. Essa personalização prepara o cluster para uso com o processo de análise do Cortana. Ele também mostra como acessar o nó principal para enviar trabalhos personalizados para o cluster.
 
 Essa personalização disponibiliza convenientemente muitos módulos Python populares incluídos no Anaconda para uso em UDFs (Funções Definidas pelo Usuário) projetadas para processar os registros Hive do cluster. Para obter instruções sobre os procedimentos usados neste cenário, consulte [Enviar consultas Hive de clusters do Hadoop do HDInsight no processo de análise avançada](machine-learning-data-science-hive-queries.md).
+
+O menu abaixo liga os tópicos que descrevem como configurar os vários ambientes de ciência de dados usados pelo CAPS (Processo do Cortana Analytics).
+
+[AZURE.INCLUDE [configuração do ambiente de ciência de dados](../../includes/cap-setup-environments.md)]
 
 
 ## <a name="customize"></a>Personalizar o cluster do Hadoop do Azure HDInsight
@@ -39,7 +41,7 @@ Insira o nome do cluster a ser criado na página de configuração 1 e aceite os
 
 Na página de configuração 2, insira o número dos **NÓS DE DADOS**, selecione a **REGIÃO/REDE VIRTUAL** e selecione os tamanhos do **NÓ PRINCIPAL** e **NÓ DE DADOS**. Clique na seta para ir para a próxima página de configuração.
 
->[AZURE.NOTE]A **REGIÃO/REDE VIRTUAL** precisa ser a mesma que a região da conta de armazenamento que será usada para o cluster do Hadoop do HDInsight. Caso contrário, na quarta página de configuração, a conta de armazenamento que os usuários desejam usar não aparecerá na lista suspensa de **NOME DA CONTA**.
+>[AZURE.NOTE] A **REGIÃO/REDE VIRTUAL** precisa ser a mesma que a região da conta de armazenamento que será usada para o cluster do Hadoop do HDInsight. Caso contrário, na quarta página de configuração, a conta de armazenamento que os usuários desejam usar não aparecerá na lista suspensa de **NOME DA CONTA**.
 
 ![Criar espaço de trabalho][3]
 
@@ -74,7 +76,7 @@ Os usuários devem habilitar o acesso remoto ao cluster do Hadoop no Azure para 
 
 2. Na janela **Configurar Área de Trabalho Remota**, insira os campos NOME DE USUÁRIO e SENHA e selecione a data de validade para o acesso remoto. Em seguida, clique na marca de seleção para habilitar o acesso remoto ao nó principal do cluster do Hadoop.
 	
-	>[AZURE.NOTE]
+	>[AZURE.NOTE] 
 	>
 	>1. O nome de usuário e senha para o acesso remoto não são os mesmos usados ao criar o cluster do Hadoop. Eles são um conjunto separado de credenciais
 	>
@@ -102,4 +104,4 @@ Consulte [Enviar consultas de Hive para clusters do Hadoop do HDInsight no proce
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/04/2015"
+    ms.date="02/05/2016"
     ms.author="larryfr"/>
 
 # Desenvolvimento de Ação de Script com o HDInsight
 
 Ações de Script são um modo de personalizar clusters HDInsight do Azure por meio da especificação de configurações de cluster durante a instalação, ou por meio da instalação de serviços, ferramentas ou outros softwares adicionais no cluster.
 
-> [AZURE.NOTE]As informações neste documento são específicas de clusters HDInsight baseados em Linux. Para obter informações sobre como usar Ações de Script com clusters baseados no Windows, consulte [Desenvolvimento de Ação de Script com o HDInsight (Windows)](hdinsight-hadoop-script-actions.md).
+> [AZURE.NOTE] As informações neste documento são específicas de clusters HDInsight baseados em Linux. Para obter informações sobre como usar Ações de Script com clusters baseados no Windows, consulte [Desenvolvimento de Ação de Script com o HDInsight (Windows)](hdinsight-hadoop-script-actions.md).
 
 ## O que são Ações de Script?
 
@@ -43,7 +43,7 @@ Ao desenvolver um script personalizado para um cluster HDInsight, há várias pr
 - [Gravar informações para STDOUT e STDERR](#bPS7)
 - [Salvar arquivos como ASCII com terminações de linha LF](#bps8)
 
-> [AZURE.IMPORTANT]Ações de script devem ser concluídas em 60 minutos ou atingirão o tempo limite. Durante o provisionamento de nó, o script é executado simultaneamente com outros processos de instalação e configuração. A competição por recursos, como tempo de CPU ou largura de banda rede, pode fazer com que o script leve mais tempo para ser concluído comparado ao seu tempo de conclusão no ambiente de desenvolvimento.
+> [AZURE.IMPORTANT] Ações de script devem ser concluídas em 60 minutos ou atingirão o tempo limite. Durante o provisionamento de nó, o script é executado simultaneamente com outros processos de instalação e configuração. A competição por recursos, como tempo de CPU ou largura de banda rede, pode fazer com que o script leve mais tempo para ser concluído comparado ao seu tempo de conclusão no ambiente de desenvolvimento.
 
 ### <a name="bPS1"></a>Direcionar para a versão do Hadoop
 
@@ -55,7 +55,7 @@ Os usuários devem ter certeza de que todos os scripts e recursos usados pelo sc
 
 A melhor prática é baixar e arquivar tudo em uma conta de Armazenamento do Azure em sua assinatura.
 
-> [AZURE.IMPORTANT]A conta de armazenamento usada deve ser a conta de armazenamento padrão para o cluster ou então em um contêiner público somente leitura em qualquer outra conta de armazenamento.
+> [AZURE.IMPORTANT] A conta de armazenamento usada deve ser a conta de armazenamento padrão para o cluster ou então em um contêiner público somente leitura em qualquer outra conta de armazenamento.
 
 Por exemplo, os exemplos fornecidos pela Microsoft são armazenados na conta de armazenamento [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/), que é um contêiner público somente leitura mantido pela equipe do HDInsight.
 
@@ -73,7 +73,7 @@ Por exemplo, se um script personalizado instala um aplicativo em /usr/local/bin 
 
 Clusters HDInsight baseados em Linux fornecem dois nós de cabeçalho que estão ativos dentro do cluster; Ações de Script são executadas para ambos esses nós. Se os componentes que você instala esperam apenas um nó de cabeçalho, você deve criar um script que instalará o componente em apenas um dos dois nós de cabeçalho no cluster.
 
-> [AZURE.IMPORTANT]Serviços padrão instalados como parte do HDInsight são projetados para fazer failover entre os dois nós de cabeçalho, conforme necessário; no entanto, essa funcionalidade não se estende a componentes personalizados instalados por meio de Ações de Script. Se você precisa que os componentes instalados por meio de uma Ação de Script fiquem altamente disponíveis, você deve implementar seu próprio mecanismo de failover que use os dois nós de cabeçalho disponíveis.
+> [AZURE.IMPORTANT] Serviços padrão instalados como parte do HDInsight são projetados para fazer failover entre os dois nós de cabeçalho, conforme necessário; no entanto, essa funcionalidade não se estende a componentes personalizados instalados por meio de Ações de Script. Se você precisa que os componentes instalados por meio de uma Ação de Script fiquem altamente disponíveis, você deve implementar seu próprio mecanismo de failover que use os dois nós de cabeçalho disponíveis.
 
 ### <a name="bPS6"></a>Configurar os componentes personalizados para usar armazenamento de Blob do Azure
 
@@ -83,7 +83,7 @@ Por exemplo, a amostra a seguir copia o arquivo giraph-Examples.jar do sistema d
 
     hadoop fs -copyFromLocal /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
 
-### <a name="bPS7"></a>Gravar informações em STDOUT e STDERR
+### <a name="bPS7"></a>Gravar informações para STDOUT e STDERR
 
 As informações gravadas para STDOUT e STDERR são registradas e podem ser exibidas após o cluster ter sido provisionado usando a interface do usuário Web da Ambari.
 
@@ -147,7 +147,7 @@ Em que VARIABLENAME é o nome da variável. Para acessar a variável depois diss
 
 O acesso subsequente às informações poderia, então, usar `$PASSWORD`.
 
-Variáveis de ambiente definidas no script existem somente dentro do escopo do script. Em alguns casos, talvez seja necessário adicionar variáveis de ambiente gerais do sistema que persistirão após a conclusão do script. Geralmente, isso é para os usuários se conectando ao cluster via SSH poderem usar os componentes instalados pelo script. Isso pode ser feito adicionando a variável de ambiente a `/etc/environment`. Por exemplo, o demonstrado a seguir adiciona __HADOOP\_CONF\_DIR__:
+Variáveis de ambiente definidas no script existem somente dentro do escopo do script. Em alguns casos, talvez seja necessário adicionar variáveis de ambiente gerais do sistema que persistirão após a conclusão do script. Geralmente, isso é para os usuários se conectando ao cluster via SSH poderem usar os componentes instalados pelo script. Isso pode ser feito adicionando-se a variável de ambiente a `/etc/environment`. Por exemplo, o demonstrado a seguir adiciona __HADOOP\_CONF\_DIR__:
 
     echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 
@@ -183,7 +183,7 @@ A Microsoft fornece scripts de exemplo para instalar componentes em um cluster H
 - [Instalar e usar o Solr em clusters HDInsight](hdinsight-hadoop-solr-install-linux.md)
 - [Instalar e usar o Giraph em clusters HDInsight](hdinsight-hadoop-giraph-install-linux.md)  
 
-> [AZURE.NOTE]Os documentos vinculados acima são específicos de clusters HDInsight baseados em Linux. Para scripts que funcionam com o HDInsight baseados em Windows, consulte [Desenvolvimento de Ação de Script com o HDInsight (Windows)](hdinsight-hadoop-script-actions.md) ou use os links disponíveis na parte superior de cada artigo.
+> [AZURE.NOTE] Os documentos vinculados acima são específicos de clusters HDInsight baseados em Linux. Para scripts que funcionam com o HDInsight baseados em Windows, consulte [Desenvolvimento de Ação de Script com o HDInsight (Windows)](hdinsight-hadoop-script-actions.md) ou use os links disponíveis na parte superior de cada artigo.
 
 ##Solucionar problemas
 
@@ -197,7 +197,7 @@ Esse problema ocorre geralmente quando o script é criado em um ambiente Windows
 
 _Solução_: se for uma opção em seu editor de texto, selecione o formato Unix ou LF para terminação de linha. Você também pode usar os seguintes comandos em um sistema Unix para alterar o CRLF para um LF:
 
-> [AZURE.NOTE]Os comandos a seguir são a grosso modo equivalentes, no sentido que ambos devem alterar as terminações de linha CRLF para LF. Selecione um deles com base nos utilitários disponíveis no sistema.
+> [AZURE.NOTE] Os comandos a seguir são a grosso modo equivalentes, no sentido que ambos devem alterar as terminações de linha CRLF para LF. Selecione um deles com base nos utilitários disponíveis no sistema.
 
 | Command | Observações |
 | ------- | ----- |
@@ -220,4 +220,4 @@ Para o comando acima, substitua __INFILE__ pelo arquivo que contém a BOM. __OUT
 
 [Personalizar os clusters HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

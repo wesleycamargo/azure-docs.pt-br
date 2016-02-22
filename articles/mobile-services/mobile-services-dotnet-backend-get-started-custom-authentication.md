@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="12/28/2015"
+	ms.date="02/07/2016"
 	ms.author="mahender"/>
 
 # Introdução à autenticação personalizada
@@ -26,11 +26,11 @@
 ## Visão geral
 Este tópico mostra como autenticar usuários no back-end .NET dos Serviços Móveis do Azure emitindo seu próprio token de autenticação dos Serviços Móveis. Neste tutorial, você adiciona autenticação ao projeto de Início rápido usando um nome de usuário e senha personalizados para seu aplicativo.
 
->[AZURE.NOTE]Este tutorial demonstra um método avançado de autenticação de seus Serviços Móveis com credenciais personalizadas. Muitos aplicativos serão melhor ajustados para, em vez de usarem os provedores de identidade social integrados, permitirem que os usuários façam logon via Facebook, Twitter, Google, conta da Microsoft e Azure Active Directory. Se essa for a sua primeira experiência com autenticação nos Serviços Móveis, consulte o tutorial [Adicionar autenticação ao seu aplicativo].
+>[AZURE.NOTE] Este tutorial demonstra um método avançado de autenticação de seus Serviços Móveis com credenciais personalizadas. Muitos aplicativos serão melhor ajustados para, em vez de usarem os provedores de identidade social integrados, permitirem que os usuários façam logon via Facebook, Twitter, Google, conta da Microsoft e Azure Active Directory. Se essa for a sua primeira experiência com autenticação nos Serviços Móveis, consulte o tutorial [Adicionar autenticação ao seu aplicativo].
 
 Este tutorial baseia-se no quickstart dos Serviços Móveis. Você também deve primeiro concluir o tutorial [Introdução aos Serviços Móveis].
 
->[AZURE.IMPORTANT]A finalidade deste tutorial é mostrar como emitir um token de autenticação para Serviços Móveis. Ele não deve ser usado como diretrizes de segurança. Ao desenvolver seu aplicativo, é necessário estar atento às implicações de segurança do armazenamento de senha, e pode ser necessário ter uma estratégia para gerenciar ataques de força bruta.
+>[AZURE.IMPORTANT] A finalidade deste tutorial é mostrar como emitir um token de autenticação para Serviços Móveis. Ele não deve ser usado como diretrizes de segurança. Ao desenvolver seu aplicativo, é necessário estar atento às implicações de segurança do armazenamento de senha, e pode ser necessário ter uma estratégia para gerenciar ataques de força bruta.
 
 ## Configurar a tabela de contas
 
@@ -336,7 +336,7 @@ Em seguida, você pode criar um ponto de extremidade de entrada para os seus usu
 
         [AuthorizeLevel(AuthorizationLevel.Anonymous)]
 
->[AZURE.IMPORTANT]O seu `CustomLoginController` para uso na produção também deve conter uma estratégia de detecção de força bruta. Caso contrário, a sua solução de entrada poderá estar vulnerável a ataques.
+>[AZURE.IMPORTANT] O seu `CustomLoginController` para uso na produção também deve conter uma estratégia de detecção de força bruta. Caso contrário, a sua solução de entrada poderá estar vulnerável a ataques.
 
 ## Configurar o serviço móvel para requerer autenticação
 
@@ -381,13 +381,13 @@ No seu aplicativo cliente, será necessário desenvolver uma tela de entrada per
 
  	![](./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-custom-auth-access-success.png)
 
->[AZURE.IMPORTANT]Se você optar por publicar também esse projeto de serviço móvel no Azure para testes, lembre-se de que seus provedores de entrada e autenticação estarão vulneráveis a ataques. Certifique-se de que eles estão adequadamente protegidos ou de que os dados de teste que estão sendo protegidos não são importantes para você. Tome muito cuidado antes de usar um esquema de autenticação para proteger um serviço de produção.
+>[AZURE.IMPORTANT] Se você optar por publicar também esse projeto de serviço móvel no Azure para testes, lembre-se de que seus provedores de entrada e autenticação estarão vulneráveis a ataques. Certifique-se de que eles estão adequadamente protegidos ou de que os dados de teste que estão sendo protegidos não são importantes para você. Tome muito cuidado antes de usar um esquema de autenticação para proteger um serviço de produção.
 
 ## Entrar usando autenticação personalizada do cliente
 
 Esta seção descreve as etapas necessárias para acessar os pontos de extremidade de autenticação personalizada do cliente para obter o token de autenticação necessário para acessar o serviço móvel. Como o código de cliente específico necessário depende do seu cliente, as orientações fornecidas aqui são independentes de plataforma.
 
->[AZURE.NOTE]As bibliotecas cliente dos Serviços Móveis comunicam com o serviço através de HTTPS. Como esta solução requer que você envie senhas como texto sem formatação, você deve garantir que usa HTTPS ao chamar esses pontos de extremidade usando solicitações REST diretas.
+>[AZURE.NOTE] As bibliotecas cliente dos Serviços Móveis comunicam com o serviço através de HTTPS. Como esta solução requer que você envie senhas como texto sem formatação, você deve garantir que usa HTTPS ao chamar esses pontos de extremidade usando solicitações REST diretas.
 
 1. Crie os elementos de interface de usuário necessários no aplicativo cliente para permitir que os usuários insiram um nome de usuário e uma senha.
 
@@ -395,7 +395,7 @@ Esta seção descreve as etapas necessárias para acessar os pontos de extremida
 
 	Só é necessário chamar o ponto de extremidade **CustomRegistration** uma vez para criar uma conta para um determinado usuário, desde que você mantenha as informações de logon do usuário na tabela Contas. Para obter exemplos de como chamar uma API personalizada em várias plataformas de cliente com suporte, consulte o artigo [API Personalizada nos Serviços Móveis do Azure – SDKs cliente](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx).
 
-	> [AZURE.IMPORTANT]Como esta etapa de provisionamento de usuário ocorre apenas uma vez, você deve considerar criar a conta de usuário usando um método diferente. Em um ponto de extremidade de registro público, você também deve considerar implementar um processo de verificação baseado em email ou SMS ou alguma outra proteção para evitar a geração de contas fraudulentas. Você pode usar o Twilio para enviar mensagens SMS a partir dos Serviços Móveis. Você também pode usar o SendGrid para enviar emails a partir do Mobile Services. Para obter mais informações sobre como usar o SendGrid, veja [Enviar email dos Serviços Móveis com o SendGrid](store-sendgrid-mobile-services-send-email-scripts.md).
+	> [AZURE.IMPORTANT] Como esta etapa de provisionamento de usuário ocorre apenas uma vez, você deve considerar criar a conta de usuário usando um método diferente. Em um ponto de extremidade de registro público, você também deve considerar implementar um processo de verificação baseado em email ou SMS ou alguma outra proteção para evitar a geração de contas fraudulentas. Você pode usar o Twilio para enviar mensagens SMS a partir dos Serviços Móveis. Você também pode usar o SendGrid para enviar emails a partir do Mobile Services. Para obter mais informações sobre como usar o SendGrid, veja [Enviar email dos Serviços Móveis com o SendGrid](store-sendgrid-mobile-services-send-email-scripts.md).
 
 3. Use método **invokeApi** apropriado novamente, desta vez para chamar o ponto de extremidade **CustomRegistration**, passando o nome de usuário fornecido pelo tempo de execução e a senha no corpo da mensagem.
 
@@ -424,4 +424,4 @@ Assim, concluímos este tutorial.
 [ClaimsIdentity]: https://msdn.microsoft.com/library/system.security.claims.claimsidentity(v=vs.110).aspx
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0211_2016-->

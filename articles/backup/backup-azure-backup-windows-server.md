@@ -14,7 +14,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="01/22/2016"
+	 ms.date="02/05/2016"
 	 ms.author="jimpark;"/>
 
 # Fazer backup de pastas e arquivos do Windows Server ou do Windows Client para o Azure
@@ -51,5 +51,6 @@
 - [Gerenciar o Windows Server ou o Windows Client](backup-azure-manage-windows-server.md)
 - [Restaurar o Windows Server ou o Windows Client do Azure](backup-azure-restore-windows-server.md)
 - [Backup do Azure - Perguntas frequentes](backup-azure-backup-faq.md)
+- Visite o [Fórum de backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

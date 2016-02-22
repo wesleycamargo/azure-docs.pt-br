@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/11/2015"
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Visão geral do modelo de licença do Widevine
@@ -210,4 +210,4 @@ O exemplo a seguir mostra como usar as APIs do .NET para configurar uma licença
 
 [Usando a PlayReady e/ou a Criptografia Comum Dinâmica Widevine](media-services-protect-with-drm.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

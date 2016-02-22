@@ -252,11 +252,11 @@ Com os [Aplicativos Web do Serviço de Aplicativo do Azure](http://go.microsoft.
 
 A integração do Serviço de Aplicativo do Azure ou dos Serviços de Nuvem do Azure com a CDN do Azure oferece as seguintes vantagens:
 
-- Integrar a implantação de conteúdo (imagens, scripts e folhas de estilo) como parte do processo de [implantação contínua ](../web-sites-publish-source-control.md) de seu aplicativo Web do Azure
+- Integrar a implantação de conteúdo (imagens, scripts e folhas de estilo) como parte do processo de [implantação contínua ](../app-service-web/web-sites-publish-source-control.md) de seu aplicativo Web do Azure
 - Atualizar facilmente seus pacotes NuGet servidas pela CDN, como jQuery ou versões de Bootstrap 
 - Gerenciar seu aplicativo Web e o conteúdo fornecido pela CDN por meio da mesma interface do Visual Studio
 
-Para obter tutoriais relacionados, consulte:- [Uso da CDN do Azure no Serviço de Aplicativo do Azure](../cdn-websites-with-cdn.md) - [Integrar um serviço de nuvem à CDN do Azure](cdn-cloud-service-with-cdn.md)
+Para obter tutoriais relacionados, consulte:- [Uso da CDN do Azure no Serviço de Aplicativo do Azure](../app-service-web/cdn-websites-with-cdn.md) - [Integrar um serviço de nuvem à CDN do Azure](cdn-cloud-service-with-cdn.md)
 
 Sem integração aos Aplicativos Web do Serviço de Aplicativo ou aos Serviços de Nuvem do Azure, é possível usar a CDN do Azure para seus grupos de scripts, com os seguintes empecilhos:
 
@@ -267,10 +267,10 @@ Sem integração aos Aplicativos Web do Serviço de Aplicativo ou aos Serviços 
 
 ## Mais informações ##
 - [Visão geral da Rede de Distribuição de Conteúdo (CDN) do Azure](cdn-overview.md)
-- [Usar a CDN do Azure no Serviço de Aplicativo do Azure](../cdn-websites-with-cdn.md)
+- [Usar a CDN do Azure no Serviço de Aplicativo do Azure](../app-service-web/cdn-websites-with-cdn.md)
 - [Integrar um serviço de nuvem à CDN do Azure](cdn-cloud-service-with-cdn.md)
 - [Como mapear o conteúdo da CDN (rede de distribuição de conteúdo) para um domínio personalizado](http://msdn.microsoft.com/library/azure/gg680307.aspx)
 - [Usando a CDN para Azure](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="02/09/2016"
 	ms.author="markusvi"/>
 
 
@@ -116,7 +116,7 @@ Meus aplicativos para iOS tem suporte em qualquer iPhone ou iPad que executem o 
 
 
 
-> [AZURE.NOTE]Aplicativos que dão suporte a federação com o AD do Azure (incluindo Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365 e mais de 70 outros), podem ser conectados a praticamente qualquer navegador da Web em qualquer dispositivo, sem a necessidade de um plug-in ou aplicativo móvel. O restante da experiência do painel de acesso em [https://myapps.microsoft.com](https://myapps.microsoft.com/) também não requer que o aplicativo móvel Meus aplicativos seja usado em um dispositivo móvel.
+> [AZURE.NOTE] Aplicativos que dão suporte a federação com o AD do Azure (incluindo Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365 e mais de 70 outros), podem ser conectados a praticamente qualquer navegador da Web em qualquer dispositivo, sem a necessidade de um plug-in ou aplicativo móvel. O restante da experiência do painel de acesso em [https://myapps.microsoft.com](https://myapps.microsoft.com/) também não requer que o aplicativo móvel Meus aplicativos seja usado em um dispositivo móvel.
  
 
 
@@ -172,8 +172,12 @@ Alguns aplicativos podem exigir que um usuário altere sua senha na primeira ent
 
 Ao configurar o logon único para um aplicativo, o portal de gerenciamento do Azure fornece uma terceira opção de "Logon único existente". Simplesmente, essa opção permite ao administrador criar um link para um aplicativo e colocá-lo no painel de acesso para os usuários selecionados. Por exemplo, se houver um aplicativo que está configurado para autenticar usuários usando o Active Directory Federation Services 2.0, um administrador pode usar a opção "Logon único existente" para criar um link para ele no painel de acesso. Quando os usuários acessam o link, eles são autenticados usando o Active Directory Federation Services 2.0 ou qualquer que seja a solução de logon único existente fornecida pelo aplicativo.
 
+##Artigos relacionados
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+- [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS](active-directory-saas-tutorial-list.md)
+- [Introdução ao logon único e gerenciamento de acesso a aplicativos com o Active Directory do Azure](active-directory-appssoaccess-whatis.md)
+- [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS](active-directory-saas-app-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-access-panel-introduction/ic767166.png
@@ -181,4 +185,4 @@ Ao configurar o logon único para um aplicativo, o portal de gerenciamento do Az
 [3]: ./media/active-directory-saas-access-panel-introduction/ic767168.png
 [4]: ./media/active-directory-saas-access-panel-introduction/ic767169.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0211_2016-->

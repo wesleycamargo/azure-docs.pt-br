@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/11/2015" 
+	ms.date="02/04/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # Credenciais usadas para acessar a biblioteca de cliente do Banco de Dados Elástico
 
-A [biblioteca de cliente do Banco de Dados Elástico](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) usa três tipos diferentes de credenciais. As credenciais são usadas para acessar o [gerenciador de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md). Dependendo da necessidade, use a credencial com o menor nível de acesso possível.
+A [biblioteca de cliente do Banco de Dados Elástico](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) usa três tipos diferentes de credenciais para acessar o [gerenciador de mapa de fragmento](sql-database-elastic-scale-shard-map-management.md). Dependendo da necessidade, use a credencial com o menor nível de acesso possível.
 
 * **Credenciais de gerenciamento**: para criar ou manipular um gerenciador de mapa de fragmentos. (Consulte o [glossário](sql-database-elastic-scale-glossary.md).) 
 * **Credenciais de acesso**: para acessar um gerenciador de mapa de fragmentos existente para obter informações sobre fragmentos.
@@ -26,9 +26,9 @@ A [biblioteca de cliente do Banco de Dados Elástico](http://www.nuget.org/packa
 
 Consulte [Gerenciamento de bancos de dados e logons no Banco de Dados SQL do Azure](sql-database-manage-logins.md)
  
-## Credenciais de gerenciamento  
+## Sobre as credenciais de gerenciamento
 
-As credenciais de gerenciamento são usadas para criar um objeto [**ShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) para aplicativos que lidam com mapas de fragmento. (Por exemplo, consulte [Adicionando um fragmento usando ferramentas de Banco de Dados Elástico](sql-database-elastic-scale-add-a-shard.md).) O usuário da biblioteca de cliente de escala elástica cria os usuários do SQL e os logons do SQL Server e garante que cada um receba as permissões de leitura/gravação no banco de dados de mapa de fragmentos global e todos os bancos de dados de fragmentos também. Essas credenciais são usadas para manter o mapa do fragmento globais e os mapas de fragmento local quando as alterações para o mapa do fragmento são executadas. Por exemplo, usar as credenciais de gerenciamento para criar o objeto do gerenciador de mapa de fragmentos (usando [**GetSqlShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx):
+As credenciais de gerenciamento são usadas para criar um objeto [**ShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) para aplicativos que lidam com mapas de fragmento. (Por exemplo, consulte [Adicionando um fragmento usando ferramentas de Banco de Dados Elástico](sql-database-elastic-scale-add-a-shard.md) e [Roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md)) O usuário da biblioteca de cliente de escala elástica cria os usuários do SQL e os logons do SQL Server e garante que cada um receba as permissões de leitura/gravação no banco de dados de mapa de fragmentos global e todos os bancos de dados de fragmentos também. Essas credenciais são usadas para manter o mapa do fragmento globais e os mapas de fragmento local quando as alterações para o mapa do fragmento são executadas. Por exemplo, usar as credenciais de gerenciamento para criar o objeto do gerenciador de mapa de fragmentos (usando [**GetSqlShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx):
 
 	// Obtain a shard map manager. 
 	ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager( 
@@ -77,4 +77,4 @@ Assim como acontece com as credenciais de administrador, não use valores no for
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

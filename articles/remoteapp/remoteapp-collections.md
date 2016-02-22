@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="01/07/2016" 
+    ms.date="02/02/2016" 
     ms.author="elizapo" />
 
 
@@ -80,7 +80,7 @@ Se desejar usar contas do AD do Azure , você precisa se certificar de que seu l
 
 Usar o AD do Azure + Active Directory local é um pré-requisito para uma coleção híbrida. Você precisa usar o AD Connect para integrar os dois diretórios. Mas quando se trata da maneira como você configura o AD Connect, você tem algumas opções.
 
-Há dois cenários do AD Connect – usar a sincronização de senha ou a federação do AD. Confira as [informações do AD Connect](active-directory-aadconnect.md) para descobrir qual delas funciona melhor para você.
+Há dois cenários do AD Connect – usar a sincronização de senha ou a federação do AD. Confira as [informações do AD Connect](../active-directory/active-directory-aadconnect.md) para descobrir qual delas funciona melhor para você.
 
 Você também pode usar o AD do Azure + AD com uma coleção na nuvem. Lembre-se de seguir as mesmas etapas de configuração.
 
@@ -91,4 +91,4 @@ OK, acho que desvendamos tudo agora. Há apenas uma coisa que resta fazer: criar
 
 [Criar uma coleção na nuvem](remoteapp-create-cloud-deployment.md) ou [criar uma coleção híbrida](remoteapp-create-hybrid-deployment.md) – basta começar a criar.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

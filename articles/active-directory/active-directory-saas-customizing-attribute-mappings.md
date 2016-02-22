@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="02/09/2016"
 	ms.author="markusvi"/>
 
 
@@ -26,7 +26,7 @@ Há um conjunto predefinido de mapeamentos de atributo entre objetos de usuário
 
 No portal do AD do Azure, você pode acessar esse recurso clicando em Atributos na barra de ferramentas de um aplicativo SaaS.
 
-> [AZURE.NOTE]O link **Atributos** só estará disponível se você tiver o provisionamento do usuário habilitado para um aplicativo SaaS.
+> [AZURE.NOTE] O link **Atributos** só estará disponível se você tiver o provisionamento do usuário habilitado para um aplicativo SaaS.
 
 
 ![Salesforce][1]
@@ -81,8 +81,16 @@ Além desses quatro tipos de mapeamentos de atributo básicos, os mapeamentos de
 O AD do Microsoft Azure fornece uma implementação muito eficiente de um processo de sincronização. Em um ambiente inicializado, apenas os objetos que precisam de atualização são processados durante um ciclo de sincronização. A atualização de mapeamentos de atributo tem impacto no desempenho de um ciclo de sincronização. Isso ocorre porque uma atualização a uma configuração de mapeamento de atributo requer que todos os objetos gerenciados sejam reavaliados. Por isso, é uma prática recomendada manter o número de alterações consecutivas aos seus mapeamentos de atributos no mínimo.
 
 
+##Artigos relacionados
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+- [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
+- [Automatizar o provisionamento/desprovisionamento de usuários para aplicativos SaaS](active-directory-saas-app-provisioning.md)
+- [Escrevendo expressões para mapeamentos de atributo](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+- [Filtros de escopo para provisionamento de usuários](active-directory-saas-scoping-filters.md)
+- [Usando o SCIM para habilitar o provisionamento automático de usuários e grupos do Active Directory do Azure para aplicativos](active-directory-scim-provisioning.md)
+- [Notificações de provisionamento de conta](active-directory-saas-account-provisioning-notifications.md)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS](active-directory-saas-tutorial-list.md)
+
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-customizing-attribute-mappings/ic765497.png
@@ -90,4 +98,4 @@ O AD do Microsoft Azure fornece uma implementação muito eficiente de um proces
 [3]: ./media/active-directory-saas-customizing-attribute-mappings/ic775420.png
 [4]: ./media/active-directory-saas-customizing-attribute-mappings/ic775421.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0211_2016-->

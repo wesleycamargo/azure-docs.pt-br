@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/02/2016"
+    ms.date="02/09/2016"
     ms.author="liviodlc"/>
 
 #Resolução de problemas da extensão do painel de acesso do Internet Explorer
@@ -103,6 +103,10 @@ Para desinstalar a extensão do painel de acesso do computador:
 
 Se você encontrar problemas ao desinstalar a extensão, também pode removê-lo usando a ferramenta [Microsoft Fix It](https://go.microsoft.com/?linkid=9779673).
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+## Artigos relacionados
 
-<!---HONumber=AcomDC_0204_2016-->
+- [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
+- [Acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md)
+- [Como implantar a extensão do painel de acesso para o Internet Explorer usando a Política de Grupo](active-directory-saas-ie-group-policy.md)
+
+<!---HONumber=AcomDC_0211_2016-->

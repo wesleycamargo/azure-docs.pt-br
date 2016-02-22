@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 # Trabalhando com acesso condicional
-> [AZURE.NOTE]O Proxy de Aplicativo é um recurso que está disponível somente se você tiver atualizado para a edição Premium ou Básica do Active Directory do Azure. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md).
+> [AZURE.NOTE] O Proxy de Aplicativo é um recurso que está disponível somente se você tiver atualizado para a edição Premium ou Básica do Active Directory do Azure. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md).
 
 Agora você pode habilitar as regras de acesso para conceder acesso condicional para usuários e grupos que acessam os aplicativos publicados usando o Proxy de Aplicativo. Isso permite a você:
 
@@ -76,9 +76,10 @@ Você pode fazer muito mais com o Proxy de Aplicativo:
 - [Confira o blog Application Proxy](http://blogs.technet.com/b/applicationproxyblog/)
 - [Assista aos nossos vídeos no Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
+
 ## Recursos adicionais
+- [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
+- [Inscrever-se no Azure como uma organização](sign-up-organization.md)
+- [Identidade do Azure](fundamentals-identity.md)
 
-* [Inscrever-se no Azure como uma organização](sign-up-organization.md)
-* [Identidade do Azure](fundamentals-identity.md)
-
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

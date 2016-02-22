@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="02/08/2016"
 	ms.author="mohabib;xibingao;bradsev" />
 
 # Configurar uma máquina virtual do Azure como um servidor do IPython Notebook para análises avançadas
@@ -104,7 +104,7 @@ Os IPython Notebooks fornecem uma maneira fácil para que os usuários carreguem
 
 A cobrança das máquinas virtuais do Azure ocorre na forma **pague somente pelo que usa**. Para garantir que você não esteja sendo cobrado quando não estiver usando sua máquina virtual, ela deverá estar no estado **Parado (Desalocado)** quando não estiver em uso.
 
-> [AZURE.NOTE]Se você desligar a máquina virtual de dentro da VM (usando as opções de energia do Windows), a VM será interrompida, mas permanecerá alocada. Para garantir que você não continue sendo cobrado, sempre pare as máquinas virtuais no [Portal Clássico do Azure](http://manage.windowsazure.com/). Você também pode interromper a VM por meio do Powershell chamando **ShutdownRoleOperation** com "PostShutdownAction" igual a "StoppedDeallocated".
+> [AZURE.NOTE] Se você desligar a máquina virtual de dentro da VM (usando as opções de energia do Windows), a VM será interrompida, mas permanecerá alocada. Para garantir que você não continue sendo cobrado, sempre pare as máquinas virtuais no [Portal Clássico do Azure](http://manage.windowsazure.com/). Você também pode interromper a VM por meio do Powershell chamando **ShutdownRoleOperation** com "PostShutdownAction" igual a "StoppedDeallocated".
 
 Desligar e desalocar a máquina virtual:
 
@@ -143,4 +143,4 @@ As próximas etapas no processo e tecnologia de análise avançada estão mapead
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

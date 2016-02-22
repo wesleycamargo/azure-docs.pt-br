@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="02/09/2016"
 	ms.author="liamca"/>
 
 # Como pesquisar dados do StackExchange usando a Pesquisa do Azure
@@ -41,7 +41,7 @@ Neste exemplo, simplesmente transmitimos a palavra “azure” como um parâmetr
 
 > <http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=stackexchange&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28%26search=azure%26$filter=tagsCollection/any(t:+t+eq+'architecture')%26$orderby=viewCount+desc>
 
--	`Spelling Mistakes`: nossa nova (visualização) dá suporte para as [Expressões de Consulta da Lucene](https://msdn.microsoft.com/library/mt589323.aspx) e também permite que você execute algumas consultas bem interessantes, como a correspondência difusa dos resultados e limitação da pesquisa a campos específicos. Este exemplo procura a palavra “visualizar” no campo de título, mas o ~ indica a correspondência difusa, o que significa que resultados como “visualize” e “visualizando” também serão retornados.
+-	`Fuzzy Search`: nosso novo suporte para as [Expressões de Consulta da Lucene](https://msdn.microsoft.com/library/mt589323.aspx) também permite que você execute algumas consultas bem interessantes, como a correspondência difusa dos resultados e limitação da pesquisa a campos específicos. Este exemplo procura a palavra “visualizar” no campo de título, mas o ~ indica a correspondência difusa, o que significa que resultados como “visualize” e “visualizando” também serão retornados.
 
 > <http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=stackexchange&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28&search%3Dtitle%3Avisualise~%26querytype%3Dfull%26searchMode%3Dall%26%24select%3Dtitle>
 
@@ -109,4 +109,4 @@ Depois de fazer isso, você poderá usar o [Portal clássico do Azure](https://p
     Server=tcp:azs-playground.database.windows.net,1433;Database=StackExchange;User ID=reader@azs-playground;
     Password=EdrERBt3j6mZDP;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

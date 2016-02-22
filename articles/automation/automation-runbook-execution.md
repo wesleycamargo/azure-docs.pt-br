@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/10/2015"
+   ms.date="02/09/2016"
    ms.author="bwren" />
 
 # Execução de runbook na Automação do Azure
@@ -109,4 +109,4 @@ Quando você criar um runbook, verifique se o tempo para executar atividades ent
 
 - [Como iniciar um Runbook na Automação do Azure](automation-starting-a-runbook.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

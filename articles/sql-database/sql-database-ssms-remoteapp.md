@@ -1,17 +1,16 @@
 <properties 
 	pageTitle="Conectar-se ao Banco de Dados SQL usando o SQL Server Management Studio no Azure RemoteApp | Microsoft Azure" 
-	description="Use este tutorial para saber como usar o SQL Server Management Studio no Azure RemoteApp para segurança e desempenho ao conectar-se ao Banco de Dados SQL" 
+	description="Use este tutorial para aprender a usar o SQL Server Management Studio no Azure RemoteApp para segurança e desempenho ao se conectar ao Banco de Dados SQL"
 	services="sql-database" 
-	documentationCenter="" 
+	documentationCenter=""
 	authors="adhurwit" 
-	manager=""
-	tags=""//>
+	manager=""/>
 
 <tags 
 	ms.service="sql-database" 
 	ms.workload="data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
 	ms.topic="article" 
 	ms.date="01/20/2016" 
 	ms.author="adhurwit"/>
@@ -80,7 +79,7 @@ Para saber mais sobre como criar uma imagem do Azure RemoteApp, confira: [Como c
 
 Após a interrupção da execução da VM, encontre-a no portal atual e capture-a.
 
-Para saber mais sobre como capturar uma imagem, confira [Capturar uma imagem de uma máquina virtual do Windows do Azure criada com o modelo de implantação clássico](../virtual-machines-capture-image-windows-server.md).
+Para saber mais sobre como capturar uma imagem, confira [Capturar uma imagem de uma máquina virtual do Windows do Azure criada com o modelo de implantação clássico](../virtual-machines-capture-image-windows-server.md)
 
 
 ### 5\. Adicionar a imagens de modelo do Azure RemoteApp
@@ -159,4 +158,4 @@ Isso é tudo por enquanto. Aproveite!
 [5]: ./media/sql-database-ssms-remoteapp/publish.png
 [6]: ./media/sql-database-ssms-remoteapp/user.png
 
-<!----HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

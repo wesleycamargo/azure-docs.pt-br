@@ -21,7 +21,7 @@
 
 Neste tutorial, você aprenderá como criar aplicativos complexos de grande escala com o [Serviço de Aplicativo do Azure](/services/app-service/), de forma a oferecer suporte ao [desenvolvimento de software Agile](https://en.wikipedia.org/wiki/Agile_software_development). Ele pressupõe que você já sabe como [implantar aplicativos complexos de modo previsível no Azure](app-service-deploy-complex-application-predictably.md).
 
-Limitações em processos técnicos muitas vezes podem atrapalhar o êxito da implementação das metodologias Agile. O Serviço de Aplicativo do Azure, com recursos como [publicação contínua](web-sites-publish-source-control.md), [ambientes de preparo](web-sites-staged-publishing.md) (slots) e [monitoramento](web-sites-monitor.md), quando associado com sabedoria à coordenação e ao gerenciamento da implantação no[Gerenciador de Recursos do Azure](resource-group-overview.md), pode ser parte de uma solução excelente para desenvolvedores que adotam o desenvolvimento de software Agile.
+Limitações em processos técnicos muitas vezes podem atrapalhar o êxito da implementação das metodologias Agile. O Serviço de Aplicativo do Azure, com recursos como [publicação contínua](web-sites-publish-source-control.md), [ambientes de preparo](web-sites-staged-publishing.md) (slots) e [monitoramento](web-sites-monitor.md), quando associado com sabedoria à coordenação e ao gerenciamento da implantação no[Gerenciador de Recursos do Azure](../resource-group-overview.md), pode ser parte de uma solução excelente para desenvolvedores que adotam o desenvolvimento de software Agile.
 
 A tabela a seguir é uma breve lista que mostra os requisitos associados ao desenvolvimento Agile e como os serviços do Azure habilitam cada um deles.
 
@@ -43,7 +43,7 @@ Você verá um fluxo de trabalho dev-test-stage-production típico para publicar
 
 Colocando em palavras:
 
--	A arquitetura de implantação é separada em três ambientes distintos (ou [grupos de recursos](resource-group-overview.md) no Azure), cada um com seu próprio [plano do Serviço de Aplicativo](azure-web-sites-web-hosting-plans-in-depth-overview.md), configurações de [escala](web-sites-scale.md) e banco de dados SQL. 
+-	A arquitetura de implantação é separada em três ambientes distintos (ou [grupos de recursos](../resource-group-overview.md) no Azure), cada um com seu próprio [plano do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), configurações de [escala](web-sites-scale.md) e banco de dados SQL. 
 -	Cada ambiente pode ser gerenciado separadamente. Eles podem até mesmo existir em assinaturas diferentes.
 -	O preparo e a produção são implementados como dois slots do mesmo aplicativo de Serviço de Aplicativo. A ramificação mestre está configurada para integração contínua com o slot de preparo.
 -	Quando uma confirmação para a ramificação mestre é verificada no slot de preparo (com dados de produção), o aplicativo de preparo verificado é trocado no slot de produção [sem tempo de inatividade](web-sites-staged-publishing.md).
@@ -63,7 +63,7 @@ Você também usará a estratégia de ramificação típica, com código movendo
 -	Git Shell (instalado com [GitHub para Windows](https://windows.github.com/)) — permite que você execute comandos Git e do PowerShell na mesma sessão 
 -	Bits do [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/download/0.9.4-June2015/azure-powershell.0.9.4.msi) mais recentes
 -	Noções básicas sobre:
-	-	Implantação do modelo do [Gerenciador de Recursos do Azure](resource-group-overview.md) (consulte também[Implantar um aplicativo complexo de modo previsível no Azure](app-service-deploy-complex-application-predictably.md))
+	-	Implantação do modelo do [Gerenciador de Recursos do Azure](../resource-group-overview.md) (consulte também[Implantar um aplicativo complexo de modo previsível no Azure](app-service-deploy-complex-application-predictably.md))
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
@@ -270,14 +270,14 @@ O desenvolvimento de software Agile é indispensável para muitas empresas que d
 -	[Implantar um aplicativo complexo de modo previsível no Azure](app-service-deploy-complex-application-predictably.md)
 -	[Desenvolvimento Agile na prática: dicas e truques do ciclo de desenvolvimento modernizado](http://channel9.msdn.com/Events/Ignite/2015/BRK3707)
 -	[Estratégias de implantação avançada para aplicativos Web do Azure usando modelos do Gerenciador de Recursos](http://channel9.msdn.com/Events/Build/2015/2-620)
--	[Criação de modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md)
+-	[Criação de modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md)
 -	[JSONLint - o validador JSON](http://jsonlint.com/)
 -	[ARMClient – configurar publicação do GitHub no site](https://github.com/projectKudu/ARMClient/wiki/Setup-GitHub-publishing-to-Site)
 -	[Ramificação Git – Conceitos básicos de ramificação e mesclagem](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 -	[Blog de David Ebbo](http://blog.davidebbo.com/)
--	[PowerShell do Azure](powershell-install-configure.md)
--	[Ferramentas de linha de comando de plataformas cruzadas do Azure](xplat-cli-install.md)
+-	[PowerShell do Azure](../powershell-install-configure.md)
+-	[Ferramentas de linha de comando de plataformas cruzadas do Azure](../xplat-cli-install.md)
 -	[Criar ou editar usuários no AD do Azure](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Projeto Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

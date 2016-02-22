@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 # Executar consultas Hive usando o Console de Consulta
@@ -23,7 +23,7 @@
 
 Neste artigo, você aprenderá como usar o Console de Consulta do HDInsight para executar consultas do Hive em um cluster HDInsight Hadoop pelo seu navegador.
 
-> [AZURE.NOTE]O Console de Consulta está disponível somente em clusters HDInsight baseados no Windows.
+> [AZURE.NOTE] O Console de Consulta está disponível somente em clusters HDInsight baseados no Windows.
 
 
 ##<a id="prereq"></a>Pré-requisitos
@@ -45,6 +45,7 @@ Para concluir as etapas neste artigo, você precisará do seguinte.
 
 	Substitua o texto `Select * from hivesampletable` pelas seguintes instruções HiveQL:
 
+        set hive.execution.engine=tez;
         DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
         ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
@@ -56,7 +57,7 @@ Para concluir as etapas neste artigo, você precisará do seguinte.
     * **DROP TABLE**: exclui a tabela e o arquivo de dados, caso a tabela já exista.
     * **CREATE EXTERNAL TABLE**: cria uma nova tabela “externa” em Hive. As tabelas externas armazenam apenas a definição da tabela no Hive; os dados são deixados no local original.
 
-    > [AZURE.NOTE]As tabelas externas devem ser usadas quando você espera que os dados subjacentes sejam atualizados por uma fonte externa (como um processo automático de carregamento de dados) ou por outra operação MapReduce, mas você sempre quer que as consultas Hive utilizem os dados mais recentes.
+    > [AZURE.NOTE] As tabelas externas devem ser usadas quando você espera que os dados subjacentes sejam atualizados por uma fonte externa (como um processo automático de carregamento de dados) ou por outra operação MapReduce, mas você sempre quer que as consultas Hive utilizem os dados mais recentes.
     >
     > Remover uma tabela externa **não** exclui os dados, somente a definição de tabela.
 
@@ -121,4 +122,4 @@ Para obter informações sobre outros modos possíveis de trabalhar com Hadoop n
 
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

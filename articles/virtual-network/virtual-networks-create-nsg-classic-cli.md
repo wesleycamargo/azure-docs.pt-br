@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 # Como criar NSGs (clássicos) na CLI do Azure
@@ -27,14 +27,14 @@
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-Os comandos da CLI do Azure de exemplo abaixo esperam um ambiente simples já criado com base no cenário acima. Se você quiser executar os comandos da forma como eles aparecem neste documento, primeiro crie o ambiente de teste [criando uma VNet](virtual-networks-create-vnet-classic-cli).
+Os comandos da CLI do Azure de exemplo abaixo esperam um ambiente simples já criado com base no cenário acima. Se você quiser executar os comandos da forma como eles aparecem neste documento, primeiro crie o ambiente de teste [criando uma VNet](virtual-networks-create-vnet-classic-cli.md).
 
 ## Como criar o NSG para a sub-rede front-end
-Para criar um NSG chamado *NSG-FrontEnd* com base no cenário acima, siga as etapas abaixo.
+Para criar um NSG chamado **NSG-FrontEnd** com base no cenário acima, siga as etapas abaixo.
 
 1. Se você nunca usou a CLI do Azure, consulte [Instalar e configurar a CLI do Azure](xplat-cli-install.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
 
-2. Execute o comando **azure config mode** para alternar para o modo clássico, como mostrado abaixo.
+2. Execute o comando **`azure config mode`** para alternar para o modo clássico, como mostrado abaixo.
 
 		azure config mode asm
 
@@ -42,7 +42,7 @@ Para criar um NSG chamado *NSG-FrontEnd* com base no cenário acima, siga as eta
 
 		info:    New mode is asm
 
-3. Execute o comando **azure network nsg create** para criar um NSG.
+3. Execute o comando **`azure network nsg create`** para criar um NSG.
 
 		azure network nsg create -l uswest -n NSG-FrontEnd
 
@@ -77,7 +77,7 @@ Para criar um NSG chamado *NSG-FrontEnd* com base no cenário acima, siga as eta
 	- **-l (or --location)**. A região do Azure em que o novo NSG será criado. Para o nosso cenário, *westus*.
 	- **-n (or --name)**. Nome para o novo NGS. Para o nosso cenário, *NSG-FrontEnd*.
 
-4. Execute o comando **azure network nsg rule create** para criar uma regra que permite o acesso à porta 3389 (RDP) por meio da Internet.
+4. Execute o comando **`azure network nsg rule create`** para criar uma regra que permite o acesso à porta 3389 (RDP) por meio da Internet.
 
 		azure network nsg rule create -a NSG-FrontEnd -n rdp-rule -c Allow -p Tcp -r Inbound -y 100 -f Internet -o * -e * -u 3389
 
@@ -104,14 +104,14 @@ Para criar um NSG chamado *NSG-FrontEnd* com base no cenário acima, siga as eta
 	- **-n (or --name)**. Nome para a nova regra. Para o nosso cenário, *rdp-rule*.
 	- **-c (or --action)**. Nível de acesso para a regra (Negar ou Permitir).
 	- **-p (or --protocol)**. Protocolo (Tcp, Udp ou *) para a regra.
-	- **-r (or --type)**. Direção da conexão (Entrada ou Saída).
+- **-r (or --type)**. Direção da conexão (Entrada ou Saída).
 	- **-y (or --priority)**. Prioridade da regra.
 	- **-f (or --source-address-prefix)**. Prefixo do endereço de origem no CIDR ou uso de marcas padrão.
 	- **-o (or --source-port-range)**. Porta de origem ou intervalo de porta.
 	- **-e (or --destination-address-prefix)**. Prefixo do endereço de destino no CIDR ou uso de marcas padrão.
 	- **-u (or --destination-port-range)**. Porta de destino ou intervalo de porta.	
 
-5. Execute o comando **azure network nsg rule create** para criar uma regra que permite o acesso à porta 80 (HTTP) por meio da Internet.
+5. Execute o comando **`azure network nsg rule create`** para criar uma regra que permite o acesso à porta 80 (HTTP) por meio da Internet.
 
 		azure network nsg rule create -a NSG-FrontEnd -n web-rule -c Allow -p Tcp -r Inbound -y 200 -f Internet -o * -e * -u 80
 
@@ -132,7 +132,7 @@ Para criar um NSG chamado *NSG-FrontEnd* com base no cenário acima, siga as eta
 		data:    Priority                        : 200
 		info:    network nsg rule create command OK
 
-6. Execute o comando **azure network nsg subnet add** para vincular o NSG à sub-rede front-end.
+6. Execute o comando **`azure network nsg subnet add`** para vincular o NSG à sub-rede front-end.
 
 		azure network nsg subnet add -a NSG-FrontEnd --vnet-name TestVNet --subnet-name FrontEnd 
 
@@ -148,7 +148,7 @@ Para criar um NSG chamado *NSG-FrontEnd* com base no cenário acima, siga as eta
 ## Como criar o NSG para a sub-rede back-end
 Para criar um NSG chamado *NSG-BackEnd* com base no cenário acima, siga as etapas abaixo.
 
-3. Execute o comando **azure network nsg create** para criar um NSG.
+3. Execute o comando **`azure network nsg create`** para criar um NSG.
 
 		azure network nsg create -l uswest -n NSG-BackEnd
 
@@ -183,7 +183,7 @@ Para criar um NSG chamado *NSG-BackEnd* com base no cenário acima, siga as etap
 	- **-l (or --location)**. A região do Azure em que o novo NSG será criado. Para o nosso cenário, *westus*.
 	- **-n (or --name)**. Nome para o novo NGS. Para o nosso cenário, *NSG-FrontEnd*.
 
-4. Execute o comando **azure network nsg rule create** para criar uma regra que permite o acesso à porta 1433 (SQL) por meio da Internet.
+4. Execute o comando **`azure network nsg rule create`** para criar uma regra que permite o acesso à porta 1433 (SQL) por meio da sub-rede de front-end.
 
 		azure network nsg rule create -a NSG-BackEnd -n sql-rule -c Allow -p Tcp -r Inbound -y 100 -f 192.168.1.0/24 -o * -e * -u 1433
 
@@ -205,7 +205,7 @@ Para criar um NSG chamado *NSG-BackEnd* com base no cenário acima, siga as etap
 		info:    network nsg rule create command OK
 
 
-5. Execute o comando **azure network nsg rule create** para criar uma regra que recusa o acesso à Internet.
+5. Execute o comando **`azure network nsg rule create`** para criar uma regra que recusa o acesso à Internet.
 
 		azure network nsg rule create -a NSG-BackEnd -n web-rule -c Deny -p Tcp -r Outbound -y 200 -f * -o * -e Internet -u 80
 
@@ -226,7 +226,7 @@ Para criar um NSG chamado *NSG-BackEnd* com base no cenário acima, siga as etap
 		data:    Priority                        : 200
 		info:    network nsg rule create command OK
 
-6. Execute o comando **azure network nsg subnet add** para vincular o NSG à sub-rede back-end.
+6. Execute o comando **`azure network nsg subnet add`** para vincular o NSG à sub-rede back-end.
 
 		azure network nsg subnet add -a NSG-BackEnd --vnet-name TestVNet --subnet-name BackEnd 
 
@@ -239,4 +239,4 @@ Para criar um NSG chamado *NSG-BackEnd* com base no cenário acima, siga as etap
 		info:    Creating a network security group "NSG-BackEndX"
 		info:    network nsg subnet add command OK
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

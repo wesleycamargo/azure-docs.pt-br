@@ -36,7 +36,7 @@ Quando um recurso de ponto de extremidade é definido no manifesto do serviço, 
 </Resources>
 ```
 
-Confira [Configurando Reliable Services com monitoração de estado](../Service-Fabric/service-fabric-reliable-services-configuration.md) para ler mais sobre como fazer referência a pontos de extremidade do arquivo de configurações do pacote de configuração (settings.xml).
+Confira [Configurando Reliable Services com monitoração de estado](service-fabric-reliable-services-configuration.md) para ler mais sobre como fazer referência a pontos de extremidade do arquivo de configurações do pacote de configuração (settings.xml).
 
 ## Exemplo: especificando um ponto de extremidade HTTP para o serviço
 
@@ -137,4 +137,4 @@ Este está um exemplo de ApplicationManifest que precisa ser definido para HTTPS
 </ApplicationManifest>
 ```
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

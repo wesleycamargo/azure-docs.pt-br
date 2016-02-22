@@ -19,8 +19,9 @@
 # Configurar Grupos de Disponibilidade AlwaysOn na VM do Azure (PowerShell)
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
-- [PowerShell](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)
+- [Portal - Resource Manager](virtual-machines-sql-server-alwayson-availability-groups-gui-arm.md)
+- [Portal - Classic](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
+- [PowerShell - Classic](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)
 
 <br/>
 
@@ -61,7 +62,7 @@ O objetivo deste tutorial é mostrar as etapas necessárias para configurar a so
 
 	O comando **Get-AzurePublishgSettingsFile** gera automaticamente um certificado de gerenciamento que o Azure baixa para o seu computador. Um navegador será aberto automaticamente e você será solicitado a inserir as credenciais de conta da Microsoft para sua assinatura do Azure. O arquivo **.publishsettings** baixado contém todas as informações necessárias para gerenciar sua assinatura do Azure. Depois de salvar este arquivo em um diretório local, importe-o usando o comando **Import-AzurePublishSettingsFile**.
 
-	>[AZURE.NOTE]O arquivo publishsettings contém suas credenciais (sem codificação) que são usadas para administrar suas assinaturas e serviços do Azure. A melhor prática de segurança para este arquivo é armazená-lo temporariamente fora dos diretórios de origem (por exemplo, na pasta Libraries\\Documents) e, em seguida, excluí-la após a conclusão da importação. Um usuário mal-intencionado que obter acesso ao arquivo publishsettings poderia editar, criar e excluir os serviços do Azure.
+	>[AZURE.NOTE] O arquivo publishsettings contém suas credenciais (sem codificação) que são usadas para administrar suas assinaturas e serviços do Azure. A melhor prática de segurança para este arquivo é armazená-lo temporariamente fora dos diretórios de origem (por exemplo, na pasta Libraries\\Documents) e, em seguida, excluí-la após a conclusão da importação. Um usuário mal-intencionado que obter acesso ao arquivo publishsettings poderia editar, criar e excluir os serviços do Azure.
 
 1. Defina uma série de variáveis que você usará para criar sua infraestrutura de TI na nuvem.
 
@@ -271,7 +272,7 @@ O servidor de DC agora foi provisionado com êxito. Em seguida, você configurar
 		$dataDiskSize = 100
 		$dnsSettings = New-AzureDns -Name "ContosoBackDNS" -IPAddress "10.10.0.4"
 
-	O endereço IP **10.10.0.4** normalmente é atribuído à primeira VM que você criar na sub-rede **10.10.0.0/16** da rede virtual do Azure. Você deve verificar se esse é o endereço do servidor de DC executando **IPCONFIG**.
+	O endereço IP **10.10.0.4** normalmente é atribuído à primeira VM que você criar na sub-rede **10.10.0.0/16** da rede virtual do Azure. Você deve verificar se esse é o endereço do servidor DC executando **IPCONFIG**.
 
 1. Execute os seguintes comandos redirecionados para criar a primeira VM no cluster WSFC, chamado **ContosoQuorum**:
 
@@ -631,4 +632,4 @@ Agora você implementou com êxito o SQL Server AlwaysOn criando um grupo de dis
 
 Para obter outras informações sobre como usar o SQL Server no Azure, veja [SQL Server em Máquinas Virtuais do Azure](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

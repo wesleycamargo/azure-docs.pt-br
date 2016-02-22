@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Implantar uma VM com um IP público estático usando o portal de visualização no Gerenciador de Recursos | Microsoft Azure"
-   description="Saiba como implantar VMs com um IP público estático usando o portal de visualização no Gerenciador de Recursos"
+   pageTitle="Implantar uma VM com um IP público estático usando o portal do Azure no Gerenciador de Recursos | Microsoft Azure"
+   description="Saiba como implantar VMs com um IP público estático usando o portal do Azure no Gerenciador de Recursos"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/08/2016"
+   ms.date="02/04/2016"
    ms.author="telmos" />
 
 # Implantar uma VM com um IP público estático usando o Portal do Azure
@@ -59,4 +59,4 @@ Para criar uma VM com um endereço IP público estático no Portal do Azure, sig
 
 	![Portal do Azure - Criar endereço IP público](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

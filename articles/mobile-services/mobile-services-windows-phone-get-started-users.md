@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/02/2015"
+	ms.date="01/25/2016"
 	ms.author="glenga"/>
 
 # Adicionar autenticação ao aplicativo de Serviços Móveis
@@ -46,7 +46,7 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Você também deve,
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 
-&nbsp;&nbsp;3. No Visual Studio 2012 Express para Windows Phone, abra o projeto que você criou quando concluiu o tutorial [Adicionar os Serviços Móveis a um aplicativo existente](mobile-services-windows-phone-get-started-data.md).
+&nbsp;&nbsp;3. No Visual Studio, abra o projeto que você criou quando concluiu o tutorial [Adicionar os Serviços Móveis a um aplicativo existente](mobile-services-windows-phone-get-started-data.md).
 
 &nbsp;&nbsp;4. Pressione a tecla F5 para executar este aplicativo baseado em inicialização rápida; verifique se uma exceção não tratada com um código de status de 401 (não autorizado) é gerada depois que o aplicativo for iniciado. Isso acontece porque o aplicativo tenta acessar os Serviços Móveis como um usuário não autenticado, mas a tabela *TodoItem* agora exige autenticação.
 
@@ -82,4 +82,4 @@ No próximo tutorial, [Autorização do lado do serviço dos usuários dos Servi
 [Adicionar Serviços Móveis a um aplicativo existente]: mobile-services-windows-phone-get-started-data.md
 [Authorize users with scripts]: ../mobile-services-windows-phone-authorize-users-in-scripts.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/05/2015" 
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 
@@ -32,7 +32,7 @@ As etapas a seguir descrevem o fluxo de trabalho mais comum ao usar a API REST d
 1. Obtendo um token de acesso 
 2. Conectando o URI dos serviços de mídia 
 
-	>[AZURE.NOTE]Depois de se conectar com êxito a https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos Serviços de Mídia. Você deve fazer chamadas subsequentes para o novo URI. Você também poderá receber uma resposta HTTP/1.1 200 que contém a descrição de metadados API ODATA.
+	>[AZURE.NOTE] Depois de se conectar com êxito a https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos Serviços de Mídia. Você deve fazer chamadas subsequentes para o novo URI. Você também poderá receber uma resposta HTTP/1.1 200 que contém a descrição de metadados API ODATA.
 
 3. Poste suas chamadas de API subsequentes para a nova URL.
 
@@ -95,7 +95,8 @@ O exemplo a seguir mostra a resposta HTTP que contém o token de acesso no corpo
 	}
 	
 
->[AZURE.NOTE]É recomendável armazenar em cache os valores "access\_token" e "expires\_in" em um armazenamento externo. Os dados do token podem ser recuperados posteriormente a partir do armazenamento e reutilizados em suas chamadas de API REST dos serviços de mídia. Isso é especialmente útil para cenários em que o token pode ser compartilhado com segurança entre vários processos ou computadores.
+>[AZURE.NOTE]
+É recomendável armazenar em cache os valores "access\_token" e "expires\_in" em um armazenamento externo. Os dados do token podem ser recuperados posteriormente a partir do armazenamento e reutilizados em suas chamadas de API REST dos serviços de mídia. Isso é especialmente útil para cenários em que o token pode ser compartilhado com segurança entre vários processos ou computadores.
 
 Certifique-se de monitorar o valor "expires\_in" do token de acesso e atualizar suas chamadas de API REST com novos tokens, conforme necessário.
 
@@ -161,7 +162,7 @@ O exemplo a seguir demonstra a solicitação HTTP para o URI raiz dos Serviços 
 	 
 
 
->[AZURE.NOTE]Depois que obtiver o novo URI, este é o URI que deve ser usado para se comunicar com os serviços de mídia.
+>[AZURE.NOTE] Depois que obtiver o novo URI, este é o URI que deve ser usado para se comunicar com os serviços de mídia.
 
 
 ##Roteiros de aprendizagem dos Serviços de Mídia
@@ -172,4 +173,4 @@ O exemplo a seguir demonstra a solicitação HTTP para o URI raiz dos Serviços 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="02/08/2016"
 	ms.author="curtand;viviali"/>
 
 # Criar ou editar usuários no Azure AD
@@ -25,12 +25,12 @@ Você precisa criar uma conta para cada usuário que acessará um serviço de nu
 1. Clique em **Active Directory** e selecione o nome do diretório da sua organização.
 2. Na página **Usuários**, clique em **Adicionar usuário**.
 3. Na página **Conte-nos sobre este usuário**, para **Tipo de usuário**, selecione:
-	
+
 	- **Novo usuário na sua organização** – para criar uma nova conta de usuário em seu diretório
 	- **Usuário com uma conta da Microsoft existente** – para adicionar uma conta de consumidor da Microsoft existente ao seu diretório (isto é, uma conta do outlook)
 	- **Usuário em outro diretório do AD do Azure** – para adicionar uma conta de usuário ao seu diretório originado de outro diretório do AD do Azure (observação: você precisará ser membro do outro diretório para selecionar um usuário nele).
-	- **Usuários em empresas parceiras** - para convidar e autorizar os usuários da empresa parceira para o diretório ([veja B2B do Active Directory do Azure](active-directory-b2b-what-is-azure-ad-b2b.md))
-	
+	- **Usuários em empresas parceiras** - para convidar e autorizar os usuários da empresa parceira para o diretório ([veja Colaboração B2B do Active Directory do Azure](active-directory-b2b-what-is-azure-ad-b2b.md))
+
 
 4. Dependendo da opção selecionada, insira um nome de usuário, um endereço de email ou carregue um arquivo CSV para usuários de parceiros.
 5. O na página **Perfil** do usuário, forneça o nome e sobrenome do usuário, um nome amigável e uma função de usuário no menu suspenso Funções. Para obter mais informações sobre funções de usuário e administrador, consulte [Atribuindo funções de administrador no Azure AD](active-directory-assign-admin-roles.md). Especifique se deseja **Habilitar a autenticação multifator**.
@@ -87,7 +87,7 @@ Estas são as limitações conhecidas dos usuários externos do AD do Azure:
 - os usuários externos que são administradores não podem adicionar usuários de empresas parceiras aos diretórios (B2B) fora de seu diretório base
 - os usuários externos não podem consentir aplicativos multilocatários em diretórios fora de seu diretório base
 - No momento, o Visual Studio Online não oferece suporte ao acesso de usuários externos
-- No momento, o PowerBI não oferece suporte ao acesso de usuários externos 
+- No momento, o PowerBI não oferece suporte ao acesso de usuários externos
 - O Portal do Office não oferece suporte ao licenciamento de usuários externos
 
 ## Convidados
@@ -99,7 +99,7 @@ Os convidados têm um conjunto limitado de direitos no diretório. Esses direito
 - ver outros usuários e grupos associados a uma assinatura do Azure a que estejam atribuídos
 - ver os membros dos grupos aos quais pertencem
 - pesquisar outros usuários no diretório desde que saibam o endereço de email completo do usuário
-- ver apenas um conjunto limitado de atributos dos usuários pesquisados - limitados ao nome de exibição, o endereço de email, o nome UPNe a foto em miniatura 
+- ver apenas um conjunto limitado de atributos dos usuários pesquisados - limitados ao nome de exibição, o endereço de email, o nome UPNe a foto em miniatura
 - obter uma lista dos domínios verificados no locatário
 - consentir o acesso a aplicativos, concedendo a eles o mesmo acesso que eles têm em seu diretório
 
@@ -124,4 +124,4 @@ Então você pode editar as opções para controlar o acesso para os usuários e
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

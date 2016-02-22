@@ -36,6 +36,6 @@ NodeProperty — um mapa definido pelo usuário ou pelo sistema de uma cadeia de
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Próximas etapas
 
-Para saber mais: [Cenários de aplicativo](../service-fabric-application-scenarios).
+Para saber mais: [Cenários de aplicativo](service-fabric-application-scenarios.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -36,9 +36,9 @@ Essas ferramentas serão usadas para executar algumas das operações neste docu
 ## Fontes de log diferentes que você talvez queira coletar
 1. **Logs do Service Fabric:** emitidos pela plataforma para canais ETW e EventSource padrões. Os logs podem ser de vários tipos:
   - Eventos operacionais: logs para operações executadas na plataforma do Service Fabric. Os exemplos incluem criação de aplicativos e serviços, alterações de estado do nó e informações de atualização.
-  - [Eventos do modelo de programação do ator](https://azure.microsoft.com/service-fabric-reliable-actors-diagnostics/)
-  - [Eventos do modelo de Reliable Services](https://azure.microsoft.com/service-fabric-reliable-services-diagnostics/)
-2. **Eventos do aplicativo:** eventos emitidos do código de serviços e escritos usando a classe auxiliar EventSource fornecida nos modelos do Visual Studio. Para obter mais informações sobre como gravar logs de seu aplicativo, consulte [este artigo sobre como monitorar e diagnosticar serviços em uma configuração de máquina local](https://azure.microsoft.com/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/).
+  - [Eventos do modelo de programação do ator](service-fabric-reliable-actors-diagnostics.md)
+  - [Eventos do modelo de Reliable Services](service-fabric-reliable-services-diagnostics.md)
+2. **Eventos do aplicativo:** eventos emitidos do código de serviços e escritos usando a classe auxiliar EventSource fornecida nos modelos do Visual Studio. Para obter mais informações sobre como gravar logs de seu aplicativo, consulte [este artigo sobre como monitorar e diagnosticar serviços em uma configuração de máquina local](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 
 
 ## Implantar a extensão de diagnóstico em um cluster do Service Fabric para coletar e carregar logs
@@ -325,4 +325,4 @@ Você precisará atualizar a seção EtwEventSourceProviderConfiguration no WadC
 ## Próximas etapas
 Verifique os eventos de diagnóstico emitidos para [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) e [Reliable Services](service-fabric-reliable-services-diagnostics.md) para entender mais detalhadamente os eventos que você deve examinar na solução de problemas.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

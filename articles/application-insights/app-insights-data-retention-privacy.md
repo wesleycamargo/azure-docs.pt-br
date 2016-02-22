@@ -64,7 +64,7 @@ Há três fontes de dados:
 As principais categorias são:
 
 * [Telemetria do servidor Web](app-insights-asp-net.md) - solicitações HTTP. URI, tempo necessário para processar a solicitação, código de resposta, endereço IP do cliente. ID da sessão
-* [Páginas da Web](articles/app-insights-javascript.md) - contagens de página, usuário e sessão. Tempos de carregamento de página. Exceções.
+* [Páginas da Web](app-insights-javascript.md) - contagens de página, usuário e sessão. Tempos de carregamento de página. Exceções. Chamadas Ajax.
 * Contadores de desempenho - memória, CPU, E/S, ocupação de rede.
 * Contexto de cliente e servidor - sistema operacional, localidade, tipo de dispositivo, navegador, resolução da tela.
 * [Exceções](app-insights-asp-net-exceptions.md) e falhas - **despejos de pilha**, id da compilação, tipo de CPU. 
@@ -191,7 +191,7 @@ Sua ação | Classes de dados coletados (consulte a tabela a seguir)
 [Adicionar o Application Insights SDK a um projeto Web .NET][greenbrown] | ServerContext<br/>Inferido<br/>Contadores de desempenho<br/>Solicitações<br/>**Exceções**<br/>Sessão<br/>usuários
 [Monitor de status de instalação no IIS][redfield]<br/>[Adicionar extensão AI a uma VM do Azure ou aplicativo Web][azure]|Dependências<br/>ServerContext<br/>Inferido<br/>Contadores de desempenho
 [Adicionar o Application Insights a um aplicativo Web Java][java]|ServerContext<br/>Inferido<br/>Solicitação<br/>Sessão<br/>usuários
-[Adicionar SDK do JavaScript à página da Web][client]|ClientContext <br/>Inferido<br/>Página<br/>ClientPerf
+[Adicionar SDK do JavaScript à página da Web][client]|ClientContext <br/>Inferido<br/>Página<br/>ClientPerf<br/>Ajax
 [Adicionar o SDK a aplicativo da Windows Store][windows]|DeviceContext<br/>Usuários<br/>Falha de dados
 [Definir propriedades padrão][apiproperties]|**Propriedades** em todos os eventos padrão e personalizados
 [Chamar TrackMetric][api]|Valores numéricos<br/>**Propriedades**
@@ -218,6 +218,7 @@ Métricas | Valor e nome da métrica
 Eventos | Valor e nome do evento
 PageViews | URL e nome da página ou o nome de tela
 Desempenho do cliente | URL/nome de página, tempo de carregamento do navegador
+Ajax | Chamadas HTTP da página da Web para o servidor
 Solicitações |URL, duração, código de resposta
 Dependências|Tipo (SQL, HTTP,...), cadeia de conexão ou URI, síncrono/assíncrono, duração, sucesso, instrução SQL (com Monitor de Status)
 **Exceções** | Tipo, **mensagem**, pilhas de chamadas, arquivo-fonte e número de linha, ID do thread
@@ -264,4 +265,4 @@ Este produto inclui dados GeoLite2 criados pelo MaxMind, disponíveis em [http:/
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

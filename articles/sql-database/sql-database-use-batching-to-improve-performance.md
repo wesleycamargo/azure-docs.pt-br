@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="10/30/2015"
+	ms.date="02/04/2016"
 	ms.author="jroth" />
 
 # Como usar o envio em lote para melhorar o desempenho do aplicativo Banco de Dados SQL
@@ -41,7 +41,7 @@ A primeira parte do documento examina várias técnicas de envio em lote para ap
 ## Estratégias de envio em lote
 
 ### Observação sobre os resultados de tempo neste tópico
->[AZURE.NOTE]Os resultados não são parâmetros de comparação, mas têm como finalidade mostrar o **desempenho relativo**. Os intervalos se baseiam em uma média de pelo menos 10 execuções de teste. As operações são inserções em uma tabela vazia. Esses testes foram medidos antes do V12 e não correspondem necessariamente à produtividade que você pode obter em um banco de dados V12 usando as novas [camadas de serviço](sql-database-service-tiers.md). O benefício relativo da técnica de envio em lote deve ser semelhante.
+>[AZURE.NOTE] Os resultados não são parâmetros de comparação, mas têm como finalidade mostrar o **desempenho relativo**. Os intervalos se baseiam em uma média de pelo menos 10 execuções de teste. As operações são inserções em uma tabela vazia. Esses testes foram medidos antes do V12 e não correspondem necessariamente à produtividade que você pode obter em um banco de dados V12 usando as novas [camadas de serviço](sql-database-service-tiers.md). O benefício relativo da técnica de envio em lote deve ser semelhante.
 
 ### Transações
 Parece estranho iniciar uma análise do envio em lote discutindo transações. Mas o uso de transações no lado do cliente tem um efeito sutil no envio em lote do lado do servidor que melhora o desempenho. E é possível adicionar transações com apenas algumas linhas de código, portanto elas fornecem uma maneira rápida de melhorar o desempenho de operações sequenciais.
@@ -108,7 +108,7 @@ A tabela a seguir mostra alguns resultados de teste ad hoc. Os testes executaram
 | 100 | 2145 | 341 |
 | 1000 | 21479 | 2756 |
 
->[AZURE.NOTE]Os resultados não são parâmetros de comparação. Consulte a [Observação sobre os resultados de tempo neste tópico](#note-about-timing-results-in-this-topic)
+>[AZURE.NOTE] Os resultados não são parâmetros de comparação. Consulte a [Observação sobre os resultados de tempo neste tópico](#note-about-timing-results-in-this-topic)
 
 Com base nos resultados do teste anterior, a disposição de uma única operação em uma transação reduz o desempenho. Mas, à medida que você aumenta o número de operações em uma única transação, o aprimoramento do desempenho fica mais evidente. A diferença de desempenho também é mais perceptível quando todas as operações ocorrem dentro do datacenter do Microsoft Azure. O aumento da latência devido ao uso do Banco de Dados SQL fora do datacenter do Microsoft Azure ofusca o ganho de desempenho do uso das transações.
 
@@ -187,7 +187,7 @@ A tabela a seguir mostra os resultados do teste ad hoc do uso de parâmetros com
 | 1000 | 2615 | 382 |
 | 10000 | 23830 | 3586 |
 
->[AZURE.NOTE]Os resultados não são parâmetros de comparação. Consulte a [Observação sobre os resultados de tempo neste tópico](#note-about-timing-results-in-this-topic)
+>[AZURE.NOTE] Os resultados não são parâmetros de comparação. Consulte a [Observação sobre os resultados de tempo neste tópico](#note-about-timing-results-in-this-topic)
 
 O ganho de desempenho com o envio em lote fica imediatamente aparente. No teste sequencial anterior, 1000 operações levaram 129 segundos fora do datacenter e 21 segundos dentro do datacenter. Mas, com os parâmetros com valor de tabela, 1000 operações levam somente 2,6 segundos fora do datacenter e 0,4 segundos dentro do datacenter.
 
@@ -221,7 +221,7 @@ Os seguintes resultados do teste ad hoc mostram o desempenho do envio em lote co
 | 1000 | 2535 | 341 |
 | 10000 | 21605 | 2737 |
 
->[AZURE.NOTE]Os resultados não são parâmetros de comparação. Consulte a [Observação sobre os resultados de tempo neste tópico](#note-about-timing-results-in-this-topic)
+>[AZURE.NOTE] Os resultados não são parâmetros de comparação. Consulte a [Observação sobre os resultados de tempo neste tópico](#note-about-timing-results-in-this-topic)
 
 Em lotes menores, o uso dos parâmetros com valor de tabela superaram a classe **SqlBulkCopy**. No entanto, **SqlBulkCopy** teve um desempenho de 12 a 31% mais rápido do que os parâmetros com valor de tabela nos testes de 1.000 e 10.000 linhas. Assim como os parâmetros com valor de tabela, **SqlBulkCopy** é uma boa opção para inserções em lotes, especialmente quando comparado ao desempenho de operações que não são feitas em lotes.
 
@@ -259,7 +259,7 @@ Os seguintes resultados do teste ad hoc mostram o desempenho desse tipo de instr
 | 10 | 30 | 25 |
 | 100 | 33 | 51 |
 
->[AZURE.NOTE]Os resultados não são parâmetros de comparação. Consulte a [Observação sobre os resultados de tempo neste tópico](#note-about-timing-results-in-this-topic)
+>[AZURE.NOTE] Os resultados não são parâmetros de comparação. Consulte a [Observação sobre os resultados de tempo neste tópico](#note-about-timing-results-in-this-topic)
 
 Essa abordagem pode ser ligeiramente mais rápida para lotes com menos de 100 linhas. Embora o aprimoramento seja pequeno, essa técnica é outra opção que pode funcionar bem em seu cenário de aplicativo específico.
 
@@ -298,7 +298,7 @@ Em nossos testes, geralmente não houve vantagem em dividir lotes grandes em par
 | 100 | 10 | 465 |
 | 50 | 20 | 630 |
 
->[AZURE.NOTE]Os resultados não são parâmetros de comparação. Consulte a [Observação sobre os resultados de tempo neste tópico](#note-about-timing-results-in-this-topic)
+>[AZURE.NOTE] Os resultados não são parâmetros de comparação. Consulte a [Observação sobre os resultados de tempo neste tópico](#note-about-timing-results-in-this-topic)
 
 Veja que o melhor desempenho para 1000 linhas é enviá-las ao mesmo tempo. Em outros testes (não mostrados aqui), houve um pequeno ganho de desempenho ao dividir um lote de 10000 linhas em dois lotes de 5000. Como o esquema da tabela para esses testes é relativamente simples, você pode executar testes em seus dados e tamanhos de lote específicos a fim de verificar essas conclusões.
 
@@ -316,7 +316,7 @@ E se você adotasse a abordagem de redução do tamanho de lote, mas usasse vár
 | 250 [4] | 405 | 329 | 265 |
 | 100 [10] | 488 | 439 | 391 |
 
->[AZURE.NOTE]Os resultados não são parâmetros de comparação. Consulte a [Observação sobre os resultados de tempo neste tópico](#note-about-timing-results-in-this-topic)
+>[AZURE.NOTE] Os resultados não são parâmetros de comparação. Consulte a [Observação sobre os resultados de tempo neste tópico](#note-about-timing-results-in-this-topic)
 
 Há várias razões possíveis para a degradação do desempenho devido ao paralelismo:
 
@@ -604,4 +604,4 @@ A lista a seguir fornece um resumo das recomendações de envio em lote discutid
 
 Este artigo se concentrou em como o design do banco de dados e as técnicas de codificação relacionadas ao envio em lote podem melhorar o desempenho e a escalabilidade do aplicativo. Mas isso é apenas um fator em sua estratégia geral. Para conhecer outras maneiras de melhorar o desempenho e a escalabilidade, consulte [Diretrizes de desempenho do Banco de Dados SQL do Azure para bancos de dados únicos](sql-database-performance-guidance.md) e [Considerações de preço e desempenho para um pool de banco de dados elástico](sql-database-elastic-pool-guidance.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="02/07/2016"
 	ms.author="christopheranderson"/>
 
 # Recuperar o serviço móvel em caso de desastre
@@ -62,9 +62,9 @@ Para recuperar o serviço móvel após uma interrupção:
 
 4. Agora você pode usar o serviço secundário para recuperar o primário.
 
-	> [AZURE.IMPORTANT]Além de migrar seus arquivos, o comando Migrar também atualiza o nome do host de seu serviço primário para apontar para o serviço secundário, assim, os aplicativos cliente não precisam ser atualizados. No entanto, levará até 30 minutos para o nome de host ser resolvido para o novo serviço. Por esse motivo, é recomendável que o comando Migrar seja usado apenas em cenários de recuperação de desastre.
+	> [AZURE.IMPORTANT] Além de migrar seus arquivos, o comando Migrar também atualiza o nome do host de seu serviço primário para apontar para o serviço secundário, assim, os aplicativos cliente não precisam ser atualizados. No entanto, levará até 30 minutos para o nome de host ser resolvido para o novo serviço. Por esse motivo, é recomendável que o comando Migrar seja usado apenas em cenários de recuperação de desastre.
 
-	> [AZURE.IMPORTANT]Quando você executar o comando desta etapa, o serviço secundário será excluído para que sua capacidade possa ser usada para recuperar o serviço primário. É recomendável que você faça backup de seus scripts e configurações antes de executar o comando, se desejar mantê-los.
+	> [AZURE.IMPORTANT] Quando você executar o comando desta etapa, o serviço secundário será excluído para que sua capacidade possa ser usada para recuperar o serviço primário. É recomendável que você faça backup de seus scripts e configurações antes de executar o comando, se desejar mantê-los.
 
 	Quando estiver pronto, execute o comando:
 
@@ -77,7 +77,7 @@ Para recuperar o serviço móvel após uma interrupção:
 		info:    Migration complete. It may take 30 minutes for DNS to resolve to the migrated site.
 		info:    mobile migrate command OK
 
-    > [AZURE.NOTE]Pode levar alguns minutos para ver as alterações no Portal clássico do Azure depois que o comando é concluído.
+    > [AZURE.NOTE] Pode levar alguns minutos para ver as alterações no Portal clássico do Azure depois que o comando é concluído.
 
 5. Verifique se todos os scripts foram recuperados corretamente comparando-os com seus originais no controle do código-fonte. Na maioria dos casos, os scripts são recuperados automaticamente sem perda de dados, mas, se encontrar uma discrepância, você poderá recuperar esse script manualmente.
 
@@ -118,4 +118,4 @@ Agora você deve estar em um estado onde o serviço móvel foi recuperado para u
 [Painel de Serviços do Azure]: http://www.windowsazure.com/support/service-dashboard/
 [Automatizar serviços móveis com a CLI do Azure]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

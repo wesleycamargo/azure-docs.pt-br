@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="02/07/2016"
    ms.author="curtand"/>
 
 # Atalhos de teclado do portal clássico do Azure
@@ -37,17 +37,11 @@
 | J | Folha aberta anterior |
 | K | Próxima folha aberta |
 | L | Última folha aberta |
-| - | Minimizar folha ou restaurar de maximizada |
-| + | Maximizar a folha ou restaurar de minimizada |
-| # | Fechar folha atual |
-| ¦ | Fechar todas as folhas |
-| , | Mover o foco para a barra de comandos |
-|. | Mover o foco para a barra de navegação |
-|? | Exibir atalhos de teclado |
+| - | Minimizar folha ou restaurar de maximizada | | + | Maximizar a folha ou restaurar de minimizada | | # | Fechar folha atual | | ¦ | Fechar todas as folhas | | , | Mover o foco para a barra de comandos | |. | Mover o foco para a barra de navegação | |? | Exibir atalhos de teclado |
 
 
 ## Próximas etapas
 
 Conheça melhor o portal clássico do Azure: http://azure.microsoft.com.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

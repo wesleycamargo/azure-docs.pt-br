@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="01/11/2015"
+	ms.date="02/04/2016"
 	ms.author="wesmc"/>
 
 # Sincronização de dados offline em Aplicativos Móveis do Azure
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## O que é sincronização de dados offline?
 
@@ -37,8 +35,8 @@ A sincronização offline tem vários benefícios:
 Os tutoriais a seguir mostram como adicionar sincronização offline para os clientes móveis usando aplicativos móveis do Azure:
 
 * [Android: Habilitar a sincronização offline]
-* [iOS: Habilitar a sincronização offline]			
-* [Xamarin iOS: Habilitar a sincronização offline]	
+* [iOS: Habilitar a sincronização offline]
+* [Xamarin iOS: Habilitar a sincronização offline]
 * [Xamarin Android: Habilitar a sincronização offline]
 * [Windows 8.1: Habilitar a sincronização offline]
 
@@ -65,10 +63,10 @@ Um armazenamento local é associado ao contexto de sincronização usando um mé
 <!-- TODO: link to client references -->
 
 
-<!-- 
+<!--
 Client code will interact with the table using the `IMobileServiceSyncTable` interface to support offline buffering. This interface supports all the methods of `IMobileServiceTable` along with additional support for pulling data from a Mobile App backend table and merging it into a local store table. How the local table is synchronized with the backend database is mainly controlled by your logic in the client app.
 
-The sync table uses the [System Properties](https://msdn.microsoft.com/library/azure/dn518225.aspx) on the table to implement change tracking for offline synchronization. 
+The sync table uses the [System Properties](https://msdn.microsoft.com/library/azure/dn518225.aspx) on the table to implement change tracking for offline synchronization.
 
 
 
@@ -103,22 +101,23 @@ Ao usar tabelas de sincronização, o código do cliente controla quando as alte
 
   Se você deseja recusar a sincronização incremental, passe `null` como a ID da consulta. Nesse caso, todos os registros serão recuperados em cada chamada de `PullAsync`, que é potencialmente ineficiente.
 
- 
+
 
 <!--   mymobileservice-code.azurewebsites.net/tables/TodoItem?$filter=(__updatedAt ge datetimeoffset'1970-01-01T00:00:00.0000000%2B00:00')&$orderby=__updatedAt&$skip=0&$top=50&__includeDeleted=true&__systemproperties=__updatedAt%2C__deleted
  -->
+
 * **Limpeza**: é possível limpar o conteúdo do armazenamento local usando `IMobileServiceSyncTable.PurgeAsync`. Isso pode ser necessário se você tiver dados obsoletos no banco de dados do cliente, ou se quiser descartar todas as alterações pendentes.
 
   Uma limpeza removerá uma tabela do armazenamento local. Se houver operações pendentes de sincronização com o banco de dados do servidor, a limpeza lançará uma exceção, a menos que o parâmetro *forçar limpeza* estiver definido.
 
   Como exemplo de dados obsoletos no cliente, suponha que no exemplo "lista de tarefas", Device1 mantém apenas os itens que não foram concluídos. Em seguida, um todoitem "Comprar leite" é marcado como concluído no servidor por outro dispositivo. No entanto, Device1 ainda terá o todoitem "Comprar leite" em armazenamento local porque ele só está obtendo itens que não são marcados como concluídos. Uma limpeza limpará esse item obsoleto.
- 
+
 ## Próximas etapas
 
-* [iOS: Habilitar a sincronização offline]			
-* [Xamarin iOS: Habilitar a sincronização offline]	
+* [iOS: Habilitar a sincronização offline]
+* [Xamarin iOS: Habilitar a sincronização offline]
 * [Xamarin Android: Habilitar a sincronização offline]
-* [Windows 8.1: Habilitar a sincronização offline]	
+* [Windows 8.1: Habilitar a sincronização offline]
 
 <!-- Links -->
 
@@ -128,4 +127,4 @@ Ao usar tabelas de sincronização, o código do cliente controla quando as alte
 [Xamarin Android: Habilitar a sincronização offline]: ../app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Windows 8.1: Habilitar a sincronização offline]: ../app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/04/2016"
 	ms.author="krisragh"/>
 
 # Habilitar sincronização offline para seu aplicativo móvel iOS
 
 [AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Visão geral
 
@@ -30,9 +28,9 @@ Se essa for sua primeira experiência com os Aplicativos Móveis do Azure, você
 
 Para saber mais sobre o recurso de sincronização offline, confira o tópico [Sincronização de dados offline nos Aplicativos Móveis do Azure].
 
-## <a name="review-sync"></a>Examine o código de sincronização do cliente 
+## <a name="review-sync"></a>Examine o código de sincronização do cliente
 
-O projeto de cliente que você baixou para o tutorial [Criar um aplicativo do iOS] já contém códigos que dão suporte à sincronização offline usando um banco de dados local baseado em Dados Básicos. Esta seção é um resumo do que já está incluído no código do tutorial. Para obter uma visão geral conceitual do recurso, confira [Sincronização de dados offline nos Aplicativos Móveis do Azure].
+O projeto de cliente que você baixou para o tutorial [Criar um aplicativo iOS] já contém a sincronização offline do código de suporte usando um banco de dados local baseado em dados básicos. Esta seção é um resumo do que já está incluído no código do tutorial. Para obter uma visão geral conceitual do recurso, confira [Sincronização de dados offline nos Aplicativos Móveis do Azure].
 
 O recurso de sincronização de dados offline dos aplicativos móveis do Azure permite aos usuários finais interagir com um banco de dados local quando a rede não está acessível. Para usar esses recursos em seu aplicativo, inicialize o contexto de sincronização de `MSClient` e faça referência a um repositório local. Em seguida, faça referência à sua tabela por meio da interface da `MSSyncTable`.
 
@@ -107,7 +105,7 @@ Ao usar o armazenamento offline de dados principais, você precisa definir deter
       * MS\_TableConfig: para controlar a hora da última atualização para a última operação de sincronização para todas as operações de recepção
       * TodoItem: para armazenar os itens de tarefas. As colunas do sistema **createdAt**, **updatedAt** e **version** são propriedades opcionais do sistema.
 
->[AZURE.NOTE]O SDK de aplicativos móveis do Azure reserva nomes de coluna que começam com "**``**". Você não deve usar este prefixo em nada exceto colunas do sistema, caso contrário, os nomes de coluna serão modificados ao usar o back-end remoto.
+>[AZURE.NOTE] O SDK de aplicativos móveis do Azure reserva nomes de coluna que começam com "**``**". Você não deve usar este prefixo em nada exceto colunas do sistema, caso contrário, os nomes de coluna serão modificados ao usar o back-end remoto.
 
 - Ao usar o recurso de sincronização offline, você deve definir as tabelas do sistema, conforme mostrado abaixo.
 
@@ -238,6 +236,7 @@ Quando desejamos sincronizar o armazenamento local com o servidor, usamos os mé
 
 
 [Criar um aplicativo do iOS]: ../app-service-mobile-ios-get-started.md
+[Criar um aplicativo iOS]: ../app-service-mobile-ios-get-started.md
 [Sincronização de dados offline em Aplicativos Móveis do Azure]: ../app-service-mobile-offline-data-sync.md
 [Sincronização de dados offline nos Aplicativos Móveis do Azure]: ../app-service-mobile-offline-data-sync.md
 
@@ -248,6 +247,5 @@ Quando desejamos sincronizar o armazenamento local com o servidor, usamos os mé
 
 [Cobertura em nuvem: sincronização offline nos serviços móveis do Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
- 
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0211_2016-->

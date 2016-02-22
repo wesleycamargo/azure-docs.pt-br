@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="02/04/2016"
 	ms.author="jgao"/>
 
 
@@ -59,11 +59,11 @@ Se você usar a opção **Criação Rápida**, obterá a versão 3.1 do HDInsigh
 ##Destaques do recurso
 Alguns dos principais recursos da plataforma HDInsight incluem:
 
-- **Spark** - o Apache Spark é uma estrutura de processamento paralelo de código-fonte aberto que dá suporte ao processamento de memória para melhorar o desempenho dos aplicativos analíticos de big data. Recursos de computação na memória do Spark fazem dele uma boa escolha para algoritmos iterativos em cálculos de aprendizado e gráfico de máquina.
+- **Spark** - o Apache Spark é uma estrutura de processamento paralelo de código-fonte aberto que dá suporte ao processamento de memória para melhorar o desempenho dos aplicativos de análise de big data. Recursos de computação na memória do Spark fazem dele uma boa escolha para algoritmos iterativos em cálculos de aprendizado e gráfico de máquina.
 
 	O Spark também podem ser usado para executar o processamento de dados baseados em disco convencional. O Spark melhora a estrutura MapReduce tradicional, evitando gravações em disco nos estágios intermediários. Além disso, o Spark é compatível com o armazenamento de Blob do Azure e com HDFS (Sistema de Arquivos Distribuído Hadoop) para que os dados existentes possam ser processados facilmente por meio do Spark.
 
-	O Spark também pode ser adicionado usando a Ação de Script. A Ação de Script adiciona o Spark 1.2.0 ao cluster do HDInsight 3.2 ou o Spark 1.0.2 ao cluster do HDInsight 3.1. Para obter mais informações, consulte [Instalar e usar o Spark em clusters do HDInsight Hadoop](hdinsight-hadoop-spark-install.md).
+	O Spark também pode ser adicionado usando a Ação de Script. A Ação de Script adiciona o Spark 1.2.0 ao cluster do HDInsight 3.2 ou o Spark 1.0.2 ao cluster do HDInsight 3.1. Para obter mais informações, confira [Instalar e usar o Spark em clusters Hadoop HDInsight](hdinsight-hadoop-spark-install.md).
 
 
 - **Storm** - O Storm no Azure HDInsight agora está disponível ao público geral, proporcionando uma maneira rápida e fácil de implantar análise em tempo real em apenas alguns cliques e dentro de minutos. O Apache Storm no HDInsight do Azure é um projeto de código-fonte aberto no ecossistema do Apache Hadoop que fornece acesso a uma plataforma de análise capaz de processar milhões de eventos de maneira confiável. Agora os usuários de Hadoop podem obter insights sobre como os eventos ocorrem, além de insights de eventos passados. A Microsoft também fornece integração interna com o Visual Studio, facilitando a interação do desenvolvedor com o Storm. Agora você pode desenvolver, implantar e depurar topologias Storm de dentro do Visual Studio.
@@ -120,7 +120,7 @@ O SLA é definido em termos de uma "Janela de Suporte". Uma janela de suporte re
 
 A **Data de Reprovação** é a data após a qual a versão do cluster não pode ser criada no HDInsight.
 
-> [AZURE.NOTE]Os clusters HDInsight 2.1 e 3.0 são executados no SO Convidado do Azure [Família 4](../cloud-services-guestos-update-matrix.md), que usa a versão de 64 bits do Windows Server 2012 R2 e dá suporte ao .NET Framework 4.0, 4.5. e 4.5.1.
+> [AZURE.NOTE] Os clusters HDInsight 2.1 e 3.0 são executados no SO Convidado do Azure [Família 4](../cloud-services-guestos-update-matrix.md), que usa a versão de 64 bits do Windows Server 2012 R2 e dá suporte ao .NET Framework 4.0, 4.5. e 4.5.1.
 
 ## Notas de versão do Hortonworks associadas a versões do HDInsight##
 
@@ -160,4 +160,4 @@ A **Data de Reprovação** é a data após a qual a versão do cluster não pode
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

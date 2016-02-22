@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="01/28/2016" 
+	ms.date="02/10/2016" 
 	ms.author="larryfr"/>
 
 #Use o Python com o Hive e o Pig no HDInsight
@@ -23,7 +23,14 @@ Hive e Pig são ótimos para trabalhar com dados no HDInsight, mas algumas vezes
 
 > [AZURE.NOTE] As etapas neste artigo se aplicam ao cluster do HDInsight versões 2.1, 3.0, 3.1 e 3.2.
 
+##Requisitos
 
+* Um cluster HDInsight (Windows ou Linux)
+
+* Um editor de texto
+
+    > [AZURE.IMPORTANT] Se estiver usando um servidor HDInsight baseado em Linux, mas criando os arquivos de Python em um cliente Windows, você deverá usar um editor que usa LF como uma terminação de linha. Se não tem certeza se o seu editor usa LF ou CRLF, consulte a seção de [Solução de problemas](#troubleshooting) para ver as etapas para remover o caractere CR usando utilitários no cluster HDInsight.
+    
 ##<a name="python"></a>Python no HDInsight
 
 O Python 2.7 é instalado por padrão nos clusters do HDInsight 3.0 ou posterior. O Hive pode ser usado com essa versão do Python para processamento de fluxo (os dados são passados entre o Hive e o Python usando STDOUT/STDIN).
@@ -394,6 +401,22 @@ A saída para o trabalho **Pig** deve ter aparência similar à seguinte:
 
 ##<a name="troubleshooting"></a>Solucionar problemas
 
+###Erros durante a execução de trabalhos
+
+Ao executar o trabalho Hive, você pode encontrar um erro semelhante ao seguinte:
+
+    Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20001]: An error occurred while reading or writing to your custom script. It may have crashed with an error.
+    
+Esse problema pode ser causado pelas terminações de linha no arquivo streaming.py. Muitos editores Windows usam CRLF como padrão como a terminação de linha, mas aplicativos Linux geralmente esperam LF.
+
+Se você está usando um editor que não pode criar terminações de linha em LF ou não tem certeza de quais terminações de linha estão sendo usadas, use as seguintes instruções do PowerShell para remover os caracteres CR antes de carregar o arquivo no HDInsight:
+
+    $original_file ='c:\path\to\streaming.py'
+    $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
+    [IO.File]::WriteAllText($original_file, $text)
+
+###Scripts do PowerShell
+
 Ambos os scripts de Powershell de exemplo utilizados para executar os exemplos contêm uma linha comentada que exibirá a saída de erro para o trabalho. Se você não estiver vendo a saída esperada para o trabalho, remova o comentário da linha a seguir e veja se as informações de erro indicam um problema.
 
 	# Get-AzureRmHDInsightJobOutput `
@@ -424,4 +447,4 @@ Para outras maneiras de usar o Pig e o Hive e para saber como usar o MapReduce, 
 
 * [Usar o MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

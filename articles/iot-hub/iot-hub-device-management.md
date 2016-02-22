@@ -18,7 +18,7 @@
 
 # Gerenciamento de dispositivos IoT usando o Pacote IoT do Azure e o Hub IoT do Azure
 
-O Azure IoT Suite e o Hub IoT do Azure fornecem os recursos básicos que permitem o gerenciamento de dispositivos para as soluções de IoT, em larga escala, e para um conjunto diversificado de dispositivos e topologias de dispositivo. As referências ao gerenciamento de dispositivos neste artigo estão especificamente relacionadas ao gerenciamento de dispositivos IoT.
+O [Azure IoT Suite][lnk-iot-suite] e o Hub IoT do Azure fornecem os recursos básicos que permitem o gerenciamento de dispositivos para as soluções de IoT, em larga escala, e para um conjunto diversificado de dispositivos e topologias de dispositivo. As referências ao gerenciamento de dispositivos neste artigo estão especificamente relacionadas ao gerenciamento de dispositivos IoT.
 
 ## Introdução
 
@@ -72,7 +72,7 @@ Uma implantação IoT de produção que opera com restrições de rede e energia
 
 ### A solução pré-configurada para monitoramento remoto e seu modelo de dispositivo
 
-A solução pré-configurada para Monitoramento Remoto do Pacote IoT do Azure implementa um modelo de dispositivo autodefinido. Você pode usar esse modelo para iterar rapidamente enquanto define e aprimora os recursos do dispositivo.
+A [solução pré-configurada para Monitoramento Remoto][lnk-remote-monitoring] do Azure IoT Suite implementa um modelo de dispositivo autodefinido. Você pode usar esse modelo para iterar rapidamente enquanto define e aprimora os recursos do dispositivo.
 
 Você pode encontrar o código-fonte desta solução pré-configurada no repositório [azure-iot-solution][lnk-azure-iot-solution] do GitHub.
 
@@ -80,7 +80,7 @@ O código em que a solução pré-configurada de monitoramento remoto cria um ob
 
 O código em que o serviço de nuvem processa os eventos relacionados ao modelo de dispositivo está no arquivo **EventProcessor/EventProcessor.WorkerRole/Processors/DeviceManagementProcessor.cs**. Grande parte do trabalho envolvido na atuação em mensagens relacionadas ao modelo de dispositivo que um dispositivo envia para o lado do serviço da solução pré-configurada ocorre no método **ProcessJToken**.
 
-Assim que uma mensagem relacionada ao modelo de dispositivo é recebida, os métodos **UpdateDeviceFromSimulatedDeviceInfoPacketAsync** e **UpdateDeviceFromRealDeviceInfoPacketAsync** no arquivo **DeviceManagement/Infrastructure/BusinessLogic/DeviceLogic.cs** são responsáveis por atualizar o registro do dispositivo. As APIs de registro do dispositivo na solução pré-configurada de monitoramento remoto podem ser encontradas no arquivo **DeviceManagement/Web/WebApiControllers/DeviceApiController.cs**.
+Assim que uma mensagem relacionada ao modelo de dispositivo é recebida, os métodos **UpdateDeviceFromSimulatedDeviceInfoPacketAsync** e **UpdateDeviceFromRealDeviceInfoPacketAsync** no arquivo **DeviceManagement/Infrastructure/BusinessLogic/DeviceLogic.cs** são responsáveis por atualizar o Registro do dispositivo. As APIs de Registro do dispositivo na solução pré-configurada de monitoramento remoto podem ser encontradas no arquivo **DeviceManagement/Web/WebApiControllers/DeviceApiController.cs**.
 
 ### Modelos de dispositivo de gateway de campo
 
@@ -157,5 +157,7 @@ Para saber mais sobre o Hub IoT do Azure, consulte estes links:
 [service-bus-relay]: ../service-bus/service-bus-relay-overview.md
 [Conectar seu dispositivo]: https://azure.microsoft.com/develop/iot/
 [lnk-azure-iot-solution]: https://github.com/Azure/azure-iot-solution
+[lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
+[lnk-remote-monitoring]: ../iot-suite/iot-suite-remote-monitoring-sample-walkthrough.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

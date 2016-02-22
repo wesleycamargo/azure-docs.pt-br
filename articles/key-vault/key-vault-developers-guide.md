@@ -66,4 +66,4 @@ Os artigos a seguir apresentam orientação específica da tarefa:
 
 - [Extensões do Cofre da Chave do Microsoft Azure](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/1.0.0) fornece recursos estendidos para Cofre da Chave do Azure.
 
-<!----HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

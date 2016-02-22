@@ -19,6 +19,6 @@ Comprimento do nome da métrica | 100 | 100
 
 <sup>2</sup> Você pode adquirir capacidade adicional além 50 milhões.
  
-[Sobre cotas e preços no Application Insights](app-insights-pricing.md)
+[Sobre cotas e preços no Application Insights](../articles/application-insights/app-insights-pricing.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

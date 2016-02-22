@@ -25,7 +25,7 @@ Esses termos são usados em [Adicionando um fragmento usando ferramentas de Banc
 
 **Banco de dados**: um Banco de Dados SQL do Azure.
 
-**Roteamento dependente de dados**: a funcionalidade que permite que um aplicativo se conecte a um fragmento dada uma chave de fragmentação específica. Compare com a **Consulta de vários fragmentos**.
+**Roteamento dependente de dados**: a funcionalidade que permite que um aplicativo se conecte a um fragmento dada uma chave de fragmentação específica. Consulte [Roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md). Compare com a **[Consulta de vários fragmentos](sql-database-elastic-scale-multishard-querying.md)**.
 
 **Mapa de fragmentos global**: o mapa entre chaves de fragmentação e seus respectivos fragmentos em um **conjunto de fragmentos**. O mapa de fragmentos global é armazenado no **gerenciador do mapa de fragmentos**. Compare com o **mapa de fragmentos local**.
 
@@ -82,4 +82,4 @@ Esses termos são usados em [Adicionando um fragmento usando ferramentas de Banc
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

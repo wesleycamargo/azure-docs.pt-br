@@ -33,6 +33,6 @@ Lembre-se que é perfeitamente aceitável usar diferentes estruturas para servi�
 ## Próximas etapas
 
 - [Saiba mais sobre as APIs de Reliable Actors](service-fabric-reliable-actors-introduction.md)
-- [Saiba mais sobre as APIs de Reliable Services](../Service-Fabric/service-fabric-reliable-services-introduction.md)
+- [Saiba mais sobre as APIs de Reliable Services](service-fabric-reliable-services-introduction.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

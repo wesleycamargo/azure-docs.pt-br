@@ -81,30 +81,30 @@ O aplicativo de exemplo neste tutorial, [WebApp-WSFederation-DotNet)](https://gi
 
 5.	No App\_Start\\Startup.Auth.cs, altere as definições de cadeia de caracteres estática como destacado abaixo:
 	<pre class="prettyprint">
-	private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
-    <mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
-    <mark><del>private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];</del></mark>
-    <mark><del>private static string metadata = string.Format("{0}/{1}/federationmetadata/2007-06/federationmetadata.xml", aadInstance, tenant);</del></mark>
-    <mark>private static string metadata = string.Format("https://{0}/federationmetadata/2007-06/federationmetadata.xml", ConfigurationManager.AppSettings["ida:ADFS"]);</mark>
+private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
+<mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
+<mark><del>private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];</del></mark>
+<mark><del>private static string metadata = string.Format("{0}/{1}/federationmetadata/2007-06/federationmetadata.xml", aadInstance, tenant);</del></mark>
+<mark>private static string metadata = string.Format("https://{0}/federationmetadata/2007-06/federationmetadata.xml", ConfigurationManager.AppSettings["ida:ADFS"]);</mark>
 
-    <mark><del>string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);</del></mark>
-    </pre>
+<mark><del>string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);</del></mark>
+</pre>
 
 6.	Agora, você fará as alterações correspondentes no Web.config. Abra o Web.config e modifique as configurações do aplicativo como destacado abaixo:
 	<pre class="prettyprint">
-	&lt;appSettings>
-	  &lt;add key="webpages:Version" value="3.0.0.0" />
-	  &lt;add key="webpages:Enabled" value="false" />
-	  &lt;add key="ClientValidationEnabled" value="true" />
-	  &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" />
-	  <mark><del>&lt;add key="ida:Wtrealm" value="[Enter the App ID URI of WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" /></del></mark>
-	  <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" /></del></mark>
-	  <mark><del>&lt;add key="ida:Tenant" value="[Enter tenant name, e.g. contoso.onmicrosoft.com]" /></del></mark>
-	  <mark>&lt;add key="ida:RPIdentifier" value="[Enter the relying party identifier as configured in AD FS, e.g. https://localhost:44320/]" /></mark>
-	  <mark>&lt;add key="ida:ADFS" value="[Enter the FQDN of AD FS service, e.g. adfs.contoso.com]" /></mark>
+&lt;appSettings>
+  &lt;add key="webpages:Version" value="3.0.0.0" />
+  &lt;add key="webpages:Enabled" value="false" />
+  &lt;add key="ClientValidationEnabled" value="true" />
+  &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" />
+  <mark><del>&lt;add key="ida:Wtrealm" value="[Enter the App ID URI of WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" /></del></mark>
+  <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" /></del></mark>
+  <mark><del>&lt;add key="ida:Tenant" value="[Enter tenant name, e.g. contoso.onmicrosoft.com]" /></del></mark>
+  <mark>&lt;add key="ida:RPIdentifier" value="[Enter the relying party identifier as configured in AD FS, e.g. https://localhost:44320/]" /></mark>
+  <mark>&lt;add key="ida:ADFS" value="[Enter the FQDN of AD FS service, e.g. adfs.contoso.com]" /></mark>
 
-	&lt;/appSettings>
-	</pre>Preencha os valores de chave com base em seu respectivo ambiente.
+&lt;/appSettings>
+</pre>Preencha os valores de chave com base em seu respectivo ambiente.
 
 7.	Compile o aplicativo para verificar se não existem erros.
 
@@ -208,9 +208,7 @@ c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticat
 		param = c1.OriginalIssuer,
 		param = "",
 		param = c2.Value);
-	</pre>
-
-	A regra personalizada deve ter esta aparência:
+</pre>A regra personalizada deve ter esta aparência:
 
 	![](./media/web-sites-dotnet-lob-application-adfs/6-per-session-identifier.png)
 
@@ -263,37 +261,29 @@ Como incluiu associações de grupo como declarações de função em sua config
 1. Abra Controllers\\HomeController.cs.
 2. Decore os métodos de ação `About` e `Contact` e similares aos abaixo, usando as associações de grupo de segurança que seu usuário autenticado tem.  
 	<pre class="prettyprint">
-    <mark>[Authorize(Roles="Test Group")]</mark>
-    public ActionResult About()
-    {
-      ViewBag.Message = "A sua página de descrição do aplicativo.";
+<mark>[Authorize(Roles="Test Group")]</mark>
+public ActionResult About()
+{
+    ViewBag.Message = "A sua página de descrição do aplicativo.";
 
     return View();
-    }
+}
 
-    <mark>[Authorize(Roles="Domain Admins")]</mark>
-    public ActionResult Contact()
+<mark>[Authorize(Roles="Domain Admins")]</mark>
+public ActionResult Contact()
 {
     ViewBag.Message = "Your contact page.";
 
     return View();
-    }
-	</pre>
-
-	Como adicionei **Usuário de Teste** ao **Grupo de Teste em meu ambiente de laboratório** do AD FS, usarei o Grupo de Teste para testar a autorização em `About`. Para `Contact`, testarei o caso negativo de **Admins. do domínio**, ao qual o **Usuário de Teste** não pertence.
+}
+</pre>Como adicionei **Usuário de Teste** ao **Grupo de Teste em meu ambiente de laboratório** do AD FS, usarei o Grupo de Teste para testar a autorização em `About`. Para `Contact`, testarei o caso negativo de **Admins. do domínio**, ao qual o **Usuário de Teste** não pertence.
 
 3. Inicie o depurador digitando `F5`, entre e, depois, clique em **Sobre**. Você deverá ver agora a página `~/About/Index` com êxito, se o usuário autenticado for autorizado para essa ação.
 4. Agora clique em **Contato**, que, em meu caso, não deve autorizar **Usuário de Teste** para a ação. No entanto, o navegador é redirecionado para o AD FS, que, por fim, mostra esta mensagem:
 
 	![](./media/web-sites-dotnet-lob-application-adfs/13-authorize-adfs-error.png)
 
-	Se você investigar esse erro no Visualizador de Eventos no servidor do AD FS, verá esta mensagem de exceção: <pre class="prettyprint">
-	Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>a mesma sessão do navegador cliente fez '6' solicitações nos últimos '11' segundos.</mark> Contate o administrador para obter detalhes.
-	   at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context)
-	   at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response)
-	   at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler)
-	   at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context) 
-	</pre>
+	Se você investigar esse erro no Visualizador de Eventos no servidor do AD FS, verá esta mensagem de exceção: <pre class="prettyprint"> Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>a mesma sessão do navegador cliente fez '6' solicitações nos últimos '11' segundos.</mark> Contate o administrador para obter detalhes. at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context) at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response) at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler) at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context) </pre>
 
 	O motivo pelo qual isso acontece é que, por padrão, o MVC retorna um 401 Não autorizado quando uma função do usuário não está autorizada. Isso dispara uma solicitação de nova tentativa de autenticação para seu provedor de identidade (AD FS). Uma vez que o usuário já está autenticado, o AD FS retorna para a mesma página, o que, em seguida, emite outro 401, criando um loop de redirecionamento. Você substituirá o método `HandleUnauthorizedRequest` de AuthorizeAttribute por lógica simples para mostrar algo que faça sentido, em vez de dar continuidade ao loop de redirecionamento.
 
@@ -335,7 +325,7 @@ Como incluiu associações de grupo como declarações de função em sua config
 
 Um motivo pelo qual você desejaria implementar seu aplicativo de linha de negócios com o AD FS, em vez de Active Directory do Azure, são os problemas de conformidade em manter dados organizacionais fora do local. Isso também pode significar que o seu site do Azure deve acessar bancos de dados locais, pois você não tem permissão para usar o [banco de dados SQL](/services/sql-database/) como a camada de dados para seus sites.
 
-Os Aplicativos Web do Serviço de Aplicativo do Azure dão suporte ao acesso a bancos de dados locais com duas abordagens: [conexões híbridas](../integration-hybrid-connection-overview.md) e [redes virtuais](web-sites-integrate-with-vnet.md). Para obter mais informações, consulte [Usando integração de VNET e conexões híbridas com Aplicativos Web do Serviço de Aplicativo do Azure](https://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/).
+Os Aplicativos Web do Serviço de Aplicativo do Azure dão suporte ao acesso a bancos de dados locais com duas abordagens: [conexões híbridas](../biztalk-services/integration-hybrid-connection-overview.md) e [redes virtuais](web-sites-integrate-with-vnet.md). Para obter mais informações, consulte [Usando integração de VNET e conexões híbridas com Aplicativos Web do Serviço de Aplicativo do Azure](https://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/).
 
 <a name="bkmk_resources"></a>
 ## Outros recursos
@@ -353,4 +343,4 @@ Os Aplicativos Web do Serviço de Aplicativo do Azure dão suporte ao acesso a b
  
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

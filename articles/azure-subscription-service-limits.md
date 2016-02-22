@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/03/2015"
+	ms.date="02/11/2016"
 	ms.author="jroth"/>
 
 # Assinatura do Azure e limite de serviços, cotas e restrições
@@ -26,13 +26,11 @@ Este documento especifica alguns dos limites mais comuns do Microsoft Azure. Obs
 
 ## Limites e o Gerenciador de Recursos do Azure
 
-Agora é possível combinar vários recursos do Azure em um único Grupo de Recursos do Azure. Ao usar os Grupos de Recursos, limites que antes eram globais passam a ser gerenciados em nível regional com o Gerenciador de Recursos do Azure. Para obter mais informações sobre os Grupos de Recursos do Azure, consulte [Usando grupos de recursos para gerenciar recursos do Azure](resource-group-portal.md).
+Agora é possível combinar vários recursos do Azure em um único Grupo de Recursos do Azure. Ao usar os Grupos de Recursos, limites que antes eram globais passam a ser gerenciados em nível regional com o Gerenciador de Recursos do Azure. Para obter mais informações sobre os Grupos de Recursos do Azure, consulte [Usando grupos de recursos para gerenciar recursos do Azure](azure-portal/resource-group-portal.md).
 
 Nos limites abaixo, uma nova tabela foi adicionada para refletir quaisquer diferenças nos limites ao usar o Gerenciador de Recursos do Azure. Por exemplo, há uma tabela de **Limites de Assinatura** e uma tabela de **Limites de Assinatura – Gerenciador de Recursos do Azure**. Quando um limite se aplica a ambos os cenários, ele é mostrado apenas na primeira tabela. A menos que indicado de outro modo, os limites são globais em todas as regiões.
 
-> [AZURE.NOTE] É importante enfatizar que as cotas para recursos nos Grupos de Recursos do Azure são acessíveis de acordo com a região pela assinatura e não de acordo com a assinatura, assim como acontece com as cotas de gerenciamento de serviço. Vamos usar cotas de núcleos como exemplo. Se você precisar solicitar um aumento de cota com suporte para núcleos, você precisa decidir quantos núcleos deseja usar em quais regiões e, em seguida, fazer uma solicitação específica de cotas de núcleos do Grupo de Recursos do Azure para as quantidades e regiões desejadas. Portanto, se precisar usar 30 núcleos na Europa Ocidental para executar seu aplicativo lá, você deve solicitar especificamente 30 núcleos na Europa Ocidental. Mas você não terá um aumento na cota de núcleos em nenhuma outra região – somente a Europa Ocidental terá a cota de 30 núcleos.
-<!-- -->
-Como resultado, pode ser útil pensar em decidir quais devem ser as cotas do Grupo de Recursos do Azure para a carga de trabalho em uma determinada região e solicitar essa quantidade em cada região na qual esteja considerando a possibilidade de implantação. Consulte [Solucionando problemas de implantação](resource-group-deploy-debug.md##authentication-subscription-role-and-quota-issues) para obter mais ajuda ao descobrir suas cotas atuais para regiões específicas.
+> [AZURE.NOTE] É importante enfatizar que as cotas para recursos nos Grupos de Recursos do Azure são acessíveis de acordo com a região pela assinatura e não de acordo com a assinatura, assim como acontece com as cotas de gerenciamento de serviço. Vamos usar cotas de núcleos como exemplo. Se você precisar solicitar um aumento de cota com suporte para núcleos, você precisa decidir quantos núcleos deseja usar em quais regiões e, em seguida, fazer uma solicitação específica de cotas de núcleos do Grupo de Recursos do Azure para as quantidades e regiões desejadas. Portanto, se precisar usar 30 núcleos na Europa Ocidental para executar seu aplicativo lá, você deve solicitar especificamente 30 núcleos na Europa Ocidental. Mas você não terá um aumento na cota de núcleos em nenhuma outra região – somente a Europa Ocidental terá a cota de 30 núcleos. <!-- --> Como resultado, pode ser útil pensar em decidir quais devem ser as cotas do Grupo de Recursos do Azure para a carga de trabalho em uma determinada região e solicitar essa quantidade em cada região na qual esteja considerando a possibilidade de implantação. Consulte [Solucionando problemas de implantação](resource-group-deploy-debug.md##authentication-subscription-role-and-quota-issues) para obter mais ajuda ao descobrir suas cotas atuais para regiões específicas.
 
 
 ## Limites específicos de serviço
@@ -90,8 +88,8 @@ Os limites a seguir se aplicam ao usar o Gerenciador de Recursos do Azure e os G
 [AZURE.INCLUDE [azure-resource-groups-limits](../includes/azure-resource-groups-limits.md)]
 
 
-### Limites de Máquinas Virtuais
-#### Limites de máquinas virtuais
+### Limites de Máquinas virtuais
+#### Limites de Máquina virtual
 [AZURE.INCLUDE [azure-virtual-machines-limits](../includes/azure-virtual-machines-limits.md)]
 
 
@@ -125,7 +123,7 @@ Para obter mais detalhes sobre os limites da conta de armazenamento, veja [Metas
 
 [AZURE.INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
-#### Limites de Disco de Máquina Virtual 
+#### Limites de Disco de Máquina Virtual
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
@@ -162,7 +160,7 @@ Os limites de Serviço de Aplicativo a seguir incluem limites para Aplicativos W
 
 [AZURE.INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
-###Limites dos serviços BizTalk
+###Limites dos Serviços BizTalk
 A tabela a seguir mostra os limites para os serviços Biztalk do Azure.
 
 [AZURE.INCLUDE [biztalk-services-service-limits](../includes/biztalk-services-service-limits.md)]
@@ -192,7 +190,7 @@ O tipo de preço determina a capacidade e os limites de seu serviço de pesquisa
 
 Para saber mais sobre limites em chaves, combinações réplica-partição, solicitações, respostas e como obter alta disponibilidade para diferentes cargas de trabalho, consulte [Limites de serviço na Pesquisa do Azure](search/search-limits-quotas-capacity.md).
 
-### Limites de serviços de mídia
+### Limites de Serviços de Mídia
 
 [AZURE.INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
 
@@ -209,7 +207,7 @@ Para saber mais sobre limites em chaves, combinações réplica-partição, soli
 [AZURE.INCLUDE [notification-hub-limits](../includes/notification-hub-limits.md)]
 
 
-### Limites de barramento de serviço
+### Limites de Barramento de Serviço
 
 [AZURE.INCLUDE [azure-servicebus-limits](../includes/service-bus-quotas-table.md)]
 
@@ -235,7 +233,7 @@ Para saber mais sobre limites em chaves, combinações réplica-partição, soli
 
 [AZURE.INCLUDE [azure-remoteapp-limits](../includes/azure-remoteapp-limits.md)]
 
-### Limites do Sistema StorSimple
+### Limites do sistema StorSimple
 
 [AZURE.INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]
 
@@ -256,7 +254,7 @@ Para saber mais sobre limites em chaves, combinações réplica-partição, soli
 
 [AZURE.INCLUDE [application-insights-limits](../includes/application-insights-limits.md)]
 
-### Limites de gerenciamento de API
+### Limites de Gerenciamento de API
 
 [AZURE.INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]
 
@@ -279,6 +277,8 @@ Para obter os limites do Banco de Dados SQL, veja [Limites de recurso de Banco d
 
 [Entendendo os limites e aumentos do Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
-[Tamanhos de máquinas virtuais e serviços de nuvem do Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
+[Tamanhos de máquinas virtuais e serviços de nuvem do Azure](virtual-machines/virtual-machines-size-specs.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+[Tamanhos dos serviços de nuvem](cloud-services/cloud-services-sizes-specs.md)
+
+<!---HONumber=AcomDC_0211_2016-->

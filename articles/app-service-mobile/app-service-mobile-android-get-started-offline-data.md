@@ -12,14 +12,12 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/04/2016"
 	ms.author="donnam"/>
 
 # Habilitar sincronização offline para seu aplicativo móvel Android
 
 [AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Visão geral
 
@@ -31,12 +29,12 @@ Para saber mais sobre o recurso de sincronização offline, confira o tópico [S
 
 ## Atualizar o aplicativo para dar suporte à sincronização offline
 
-Com sincronização offline você lê e grava a partir de uma *tabela de sincronização* (usando a interface *IMobileServiceSyncTable*), que é parte de um banco de dados **SQL Lite**no dispositivo.
+Com sincronização offline você lê e grava de uma *tabela de sincronização* (usando a interface *IMobileServiceSyncTable*), que é parte de um banco de dados **SQLite** no dispositivo.
 
 Para enviar e receber alterações entre o dispositivo e os serviços móveis do Azure, você deve usar um *o contexto de sincronização* (*MobileServiceClient.SyncContext*), que você inicializar com o banco de dados local para armazenar dados localmente.
 
 1. Em `TodoActivity.java`, comente a definição existente de `mToDoTable` e remova a versão da tabela de sincronização:
-    
+
 	    private MobileServiceSyncTable<ToDoItem> mToDoTable;
 
 2. No método `onCreate`, comente a inicialização existente de `mToDoTable` e remova essa definição:
@@ -106,7 +104,7 @@ Quando você pressiona o botão, uma nova tarefa em segundo plano é iniciada e 
 
 * [Sincronização de dados offline em Aplicativos Móveis do Azure]
 
-* [Cobertura em nuvem: sincronização off-line nos serviços móveis do Azure] (observação: o vídeo está nos Serviços Móveis, mas a sincronização offline funciona de maneira semelhante nos Aplicativos Móveis do Azure)
+* [Cobertura em nuvem: sincronização offline nos serviços móveis do Azure] (observação: o vídeo está nos Serviços Móveis, mas a sincronização offline funciona de maneira semelhante nos Aplicativos Móveis do Azure)
 
 
 <!-- URLs. -->
@@ -116,7 +114,7 @@ Quando você pressiona o botão, uma nova tarefa em segundo plano é iniciada e 
 
 [Criar um aplicativo do iOS]: ../app-service-mobile-android-get-started.md
 
-[Cobertura em nuvem: sincronização off-line nos serviços móveis do Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Cobertura em nuvem: sincronização offline nos serviços móveis do Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0211_2016-->

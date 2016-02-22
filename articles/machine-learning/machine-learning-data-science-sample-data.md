@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Amostragem de dados no Processo de Análise da Cortana" 
-	description="Como explorar dados em vários ambientes de armazenamento." 
+	pageTitle="Amostra de dados em contêineres de blob do Azure, SQL Server e tabelas Hive | Microsoft Azure" 
+	description="Como explorar dados armazenados em vários ambientes do Azure." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev" 
@@ -13,23 +13,27 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="02/07/2016" 
 	ms.author="fashah;garye;bradsev" />
 
-#<a name="heading"></a>Amostragem de dados no Processo de Análise da Cortana
-
-Os links neste **menu** levam você até os tópicos que descrevem como obter amostras de dados de vários ambientes de armazenamento. Esta tarefa é uma etapa no Processo de Análise da Cortana (CAP).
-
-[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
+#<a name="heading"></a>Amostra de dados em contêineres de blob do Azure, SQL Server e tabelas Hive
 
 ## Introdução
 
-Este documento aborda os dados de amostragem armazenados no Armazenamento do Blobs do Azure, baixando-os por meio de programação e realizando amostragem com um exemplo de código Python. As etapas para isso são os seguintes:
-
-Este documento aborda como realizar a amostragem de dados armazenados em três locais normalmente usados no Processo de Análise da Cortana:
+Este documento aborda como realizar a amostragem de dados armazenados em três locais do Azure normalmente usados ao analisar e modelar dados no Processo do Cortana Analytics:
 
 - A amostragem dos **dados no contêiner de blobs do Azure** é realizada baixando-os programaticamente e realizando a amostragem com um exemplo de código Python.
 - A amostragem dos **dados do SQL Server** é realizada usando SQL e a linguagem de programação Python. 
 - A amostragem dos **dados da tabela do Hive** é realizada usando consultas de Hive.
 
-<!---HONumber=Nov15_HO1-->
+O **menu** abaixo leva aos tópicos que descrevem como obter amostras de dados de cada um desses ambientes de armazenamento do Azure.
+
+[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
+
+A tarefa de amostragem é uma etapa no [CAP (Processo do Cortana Analytics)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+
+## Por que fazer a amostragem de dados?
+
+Se o conjunto de dados que você deseja analisar é grande, geralmente é uma boa ideia reduzir a amostra de dados para um tamanho menor, mas representativo e mais gerenciável. Isso facilita a compreensão de dados, exploração e engenharia de recursos. Sua função no Processo de Análise do Cortana é habilitar a rápida criação de protótipos de funções de processamento de dados e modelos de aprendizado de máquina.
+
+<!---HONumber=AcomDC_0211_2016-->

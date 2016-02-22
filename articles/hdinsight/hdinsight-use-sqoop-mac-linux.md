@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 #Usar o Sqoop com Hadoop no HDInsight (SSH)
@@ -23,7 +23,7 @@
 
 Aprenda a usar o Sqoop para importar e exportar entre um cluster HDInsight baseado em Linux e o banco de dados SQL Server ou Banco de Dados SQL Server do Azure.
 
-> [AZURE.NOTE]As etapas deste artigo usam o SSH para se conectar a um cluster HDInsight baseado em Linux. Os clientes Windows também podem usar o PowerShell do Azure para trabalhar com Sqoop em clusters baseados em Linux, conforme documentado em [Usar o Sqoop com o Hadoop no HDInsight (PowerShell)](hdinsight-use-sqoop.md).
+> [AZURE.NOTE] As etapas deste artigo usam o SSH para se conectar a um cluster HDInsight baseado em Linux. Os clientes Windows também podem usar o PowerShell do Azure para trabalhar com Sqoop em clusters baseados em Linux, conforme documentado em [Usar o Sqoop com o Hadoop no HDInsight (PowerShell)](hdinsight-use-sqoop.md).
 
 ##O que é o Sqoop?
 
@@ -83,21 +83,21 @@ Você primeiro exportará **hivesampletable** para o banco de dados SQL do Azure
         data:    Server Name i1qwc540ts
         info:    sql server create command OK
 
-    > [AZURE.IMPORTANT]Observe o nome do servidor retornado por este comando. Esse é o nome curto do Banco de Dados SQL Server que foi criado. O nome de domínio totalmente qualificado (FQDN) é **&lt;shortname&gt;.database.windows.net**.
+    > [AZURE.IMPORTANT] Observe o nome do servidor retornado por este comando. Esse é o nome curto do Banco de Dados SQL Server que foi criado. O nome de domínio totalmente qualificado (FQDN) é **&lt;shortname&gt;.database.windows.net**.
 
 2. Use o seguinte comando para criar um banco de dados denominado **sqooptest** no Banco de Dados SQL Server:
 
-        sql db create [options] <serverName> sqooptest <adminLogin> <adminPassword>
+        azure sql db create [options] <serverName> sqooptest <adminLogin> <adminPassword>
 
     Isso retornará uma mensagem "OK" quando terminar.
 
-	> [AZURE.NOTE]Se você receber um erro indicando que não tem, talvez seja necessário adicionar o endereço IP da estação de trabalho cliente ao firewall do Banco de Dados SQL usando o seguinte comando:
+	> [AZURE.NOTE] Se você receber um erro indicando que não tem, talvez seja necessário adicionar o endereço IP da estação de trabalho cliente ao firewall do Banco de Dados SQL usando o seguinte comando:
 	>
-	> `sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
+	> `azure sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
 
 ##Criar uma tabela
 
-> [AZURE.NOTE]Há várias maneiras para se conectar ao Banco de Dados SQL para criar uma tabela. As seguintes etapas usam [FreeTDS](http://www.freetds.org/) do cluster HDInsight.
+> [AZURE.NOTE] Há várias maneiras para se conectar ao Banco de Dados SQL para criar uma tabela. As seguintes etapas usam [FreeTDS](http://www.freetds.org/) do cluster HDInsight.
 
 1. Utilize o SSH para se conectar ao cluster HDInsight com base em Linux. O endereço a ser usado ao conectar-se é `CLUSTERNAME-ssh.azurehdinsight.net` e a porta é `22`.
 
@@ -126,19 +126,19 @@ Você primeiro exportará **hivesampletable** para o banco de dados SQL do Azure
 5. Ao prompt `1>`, insira o seguinte:
 
         CREATE TABLE [dbo].[mobiledata](
-		[clientid] [nvarchar](50),
-		[querytime] [nvarchar](50),
-		[market] [nvarchar](50),
-		[deviceplatform] [nvarchar](50),
-		[devicemake] [nvarchar](50),
-		[devicemodel] [nvarchar](50),
-		[state] [nvarchar](50),
-		[country] [nvarchar](50),
-		[querydwelltime] [float],
-		[sessionid] [bigint],
-		[sessionpagevieworder] [bigint])
+        [clientid] [nvarchar](50),
+        [querytime] [nvarchar](50),
+        [market] [nvarchar](50),
+        [deviceplatform] [nvarchar](50),
+        [devicemake] [nvarchar](50),
+        [devicemodel] [nvarchar](50),
+        [state] [nvarchar](50),
+        [country] [nvarchar](50),
+        [querydwelltime] [float],
+        [sessionid] [bigint],
+        [sessionpagevieworder] [bigint])
         GO
-		CREATE CLUSTERED INDEX mobiledata_clustered_index on mobiledata(clientid)
+        CREATE CLUSTERED INDEX mobiledata_clustered_index on mobiledata(clientid)
         GO
 
     Quando a instrução `GO` for inserida, as instruções anteriores serão avaliadas. Primeiro, a tabela **mobiledata** é criada e, em seguida, um índice de cluster é adicionado a ela (exigido pelo Banco de Dados SQL).
@@ -202,11 +202,11 @@ Você também pode usar o Sqoop para importar e exportar dados do SQL Server, se
 
 * O HDInsight e o SQL Server devem estar na mesma rede virtual do Azure
 
-    > [AZURE.NOTE]O Azure HDInsight oferece suporte somente a redes virtuais baseadas no local, e não trabalha atualmente com redes virtuais baseadas em grupos de afinidade.
+    > [AZURE.NOTE] O Azure HDInsight oferece suporte somente a redes virtuais baseadas no local, e não trabalha atualmente com redes virtuais baseadas em grupos de afinidade.
 
     Ao usar o SQL Server no datacenter, você deve configurar a rede virtual como *site a site* ou *ponto a site*.
 
-    > [AZURE.NOTE]Para redes virtuais **ponto a site**, o SQL Server deve estar executando o aplicativo de configuração de cliente VPN, que está disponível no **Painel** de configuração da rede virtual do Azure.
+    > [AZURE.NOTE] Para redes virtuais **ponto a site**, o SQL Server deve estar executando o aplicativo de configuração de cliente VPN, que está disponível no **Painel** de configuração da rede virtual do Azure.
 
     Para obter informações sobre como criar e configurar uma rede virtual, consulte [Tarefas de configuração de rede virtual](../services/virtual-machines/).
 
@@ -263,4 +263,4 @@ Você aprendeu como usar Sqoop. Para obter mais informações, consulte:
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

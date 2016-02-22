@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 # Implantar VMs com várias NICs usando um modelo
@@ -37,13 +37,13 @@ Antes de implantar os servidor de back-end, você deve implantar o grupo de recu
 2. Na página do modelo, à direita do **Grupo de recursos pai**, clique em **Implantar no Azure**.
 3. Caso necessário, altere os valores de parâmetro e siga as etapas no Portal de visualização do Azure para implantar o grupo de recursos.
 
-> [AZURE.IMPORTANT]Verifique se os nomes da conta de armazenamento são exclusivos. Você não pode ter nomes de conta de armazenamento duplicados no Azure.
+> [AZURE.IMPORTANT] Verifique se os nomes da conta de armazenamento são exclusivos. Você não pode ter nomes de conta de armazenamento duplicados no Azure.
 
 ## Entender o modelo de implantação
 
 Antes de implantar o modelo fornecido com esta documentação, você deve compreender o que ele faz. As etapas a seguir fornecem uma visão geral adequada do modelo abordado.
 
-1. Navegue até [a página do modelo](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC).
+1. Navegue até [a página do modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC).
 2. Clique em **azuredeploy.json** para abrir o arquivo do modelo.
 3. Observe o parâmetro *osType* descrito abaixo. Esse parâmetro é usado para selecionar a imagem da VM que deve ser usada para o servidor de banco de dados, juntamente com várias configurações relacionadas ao sistema operacional.
 
@@ -59,11 +59,11 @@ Antes de implantar o modelo fornecido com esta documentação, você deve compre
 	      }
 	    },
 
-4. Role para baixo até a lista de variáveis e verifique a definição das variáveis *dbVMSetting* descritas abaixo. Ele recebe um dos elementos de matriz contidos na variável *dbVMSettings*. Se estiver familiarizado com a terminologia de desenvolvimento de software, você poderá exibir a variável *dbVMSettings* como uma tabela de hash ou como um dicionário.
+4. Role para baixo até a lista de variáveis e verifique a definição das variáveis **dbVMSetting** descritas abaixo. Ele recebe um dos elementos de matriz contidos na variável **dbVMSettings**. Se estiver familiarizado com a terminologia de desenvolvimento de software, você poderá exibir a variável **dbVMSettings** como uma tabela de hash ou como um dicionário.
 
 		"dbVMSetting": "[variables('dbVMSettings')[parameters('osType')]]"
 
-5. Digamos que você pretenda implantar VMs do Windows que estejam executando o SQL no back-end. Nesse caso, o valor de *osType* seria *Windows* e a variável *dbVMSetting* incluiria o elemento descrito abaixo, que representa o primeiro valor da variável *dbVMSettings*.
+5. Digamos que você pretenda implantar VMs do Windows que estejam executando o SQL no back-end. Nesse caso, o valor de **osType** seria *Windows* e a variável **dbVMSetting** incluiria o elemento descrito abaixo, que representa o primeiro valor da variável **dbVMSettings**.
 
 	      "Windows": {
 	        "vmSize": "Standard_DS3",
@@ -82,7 +82,7 @@ Antes de implantar o modelo fornecido com esta documentação, você deve compre
 	        "dbPort": 1433
 	      },
 
-6. Observe que o elemento *vmSize* contém o valor *Standard\_DS3*. Apenas determinados tamanhos de VM permitem o uso de várias NICs. Para verificar os tamanhos de VM habilitados para várias NICs, acesse a [visão geral sobre várias NICs](virtual-networks-multiple-nics.md).
+6. Observe que o elemento **vmSize** contém o valor *Standard\_DS3*. Apenas determinados tamanhos de VM permitem o uso de várias NICs. Para verificar os tamanhos de VM habilitados para várias NICs, acesse a [visão geral sobre várias NICs](virtual-networks-multiple-nics.md).
 7. Role para baixo até **recursos** e observe o primeiro elemento. Ele descreve uma conta de armazenamento. Essa conta de armazenamento é usada para manter os discos de dados usados por cada VM do banco de dados. Nesse cenário, cada VM do banco de dados tem um disco do sistema operacional em armazenamento regular e dois discos de dados em armazenamento SSD (premium).
 
 	    {
@@ -98,7 +98,7 @@ Antes de implantar o modelo fornecido com esta documentação, você deve compre
 	      }
 	    },
 
-8. Role para baixo até o próximo recurso, como mostrado a seguir. Esse recurso representa a NIC usada para acesso ao banco de dados em cada VM do banco de dados. Observe o uso da função **copy** deste recurso. O modelo permite implantar quantas VMs você desejar, com base no parâmetro *dbCount*. Portanto, você deve criar a mesma quantidade de NICs para acesso ao banco de dados, sendo uma para cada VM.
+8. Role para baixo até o próximo recurso, como mostrado a seguir. Esse recurso representa a NIC usada para acesso ao banco de dados em cada VM do banco de dados. Observe o uso da função **copy** deste recurso. O modelo permite implantar quantas VMs você desejar, com base no parâmetro **dbCount**. Portanto, você deve criar a mesma quantidade de NICs para acesso ao banco de dados, sendo uma para cada VM.
 
 	    {
 	      "apiVersion": "2015-06-15",
@@ -128,7 +128,7 @@ Antes de implantar o modelo fornecido com esta documentação, você deve compre
 	      }
 	    },
 
-9. Role para baixo até o próximo recurso, como mostrado a seguir. Esse recurso representa a NIC usada para gerenciamento em cada VM do banco de dados. Mais uma vez, você precisará de uma dessas NICs para cada VM do banco de dados. Observe o elemento *networkSecurityGroup*, vinculando um NSG que permite acesso ao RDP/SSH apenas para essa NIC.
+9. Role para baixo até o próximo recurso, como mostrado a seguir. Esse recurso representa a NIC usada para gerenciamento em cada VM do banco de dados. Mais uma vez, você precisará de uma dessas NICs para cada VM do banco de dados. Observe o elemento **networkSecurityGroup**, vinculando um NSG que permite acesso ao RDP/SSH apenas para essa NIC.
 
 	    {
 	      "apiVersion": "2015-06-15",
@@ -173,7 +173,7 @@ Antes de implantar o modelo fornecido com esta documentação, você deve compre
 	      }
 	    },
 
-11. Role para baixo até o próximo recurso. Esse recurso representa as VMs do banco de dados, como exibido nas primeiras linhas a seguir. Observe novamente o uso da função **copy**, assegurando a criação de várias VMs com base no parâmetro *dbCount*. Observe também a coleção *dependsOn*. Ela descreve duas NICs, que devem ser criadas antes da implantação da VM, juntamente com o conjunto de disponibilidade e a conta de armazenamento.
+11. Role para baixo até o próximo recurso. Esse recurso representa as VMs do banco de dados, como exibido nas primeiras linhas a seguir. Observe novamente o uso da função **copy**, assegurando a criação de várias VMs com base no parâmetro **dbCount**. Observe também a coleção **dependsOn**. Ela descreve duas NICs, que devem ser criadas antes da implantação da VM, juntamente com o conjunto de disponibilidade e a conta de armazenamento.
 
 		  "apiVersion": "2015-06-15",
 		  "type": "Microsoft.Compute/virtualMachines",
@@ -193,7 +193,7 @@ Antes de implantar o modelo fornecido com esta documentação, você deve compre
 		    "count": "[parameters('dbCount')]"
 		  },
 
-12. Role para baixo no recurso VM até o elemento **networkProfile**, como descrito a seguir. Observe que há duas NICs como referência para cada VM. Quando você cria várias NICs para uma VM, deve definir a propriedade *primary* de uma das NICs como *true* e o restante como *false*.
+12. Role para baixo no recurso VM até o elemento **networkProfile**, como descrito a seguir. Observe que há duas NICs como referência para cada VM. Quando você cria várias NICs para uma VM, deve definir a propriedade **primary** de uma das NICs como *true* e o restante como *false*.
 
         "networkProfile": {
           "networkInterfaces": [
@@ -211,9 +211,9 @@ Antes de implantar o modelo fornecido com esta documentação, você deve compre
 
 ## Implantar o modelo ARM usando clique para implantar
 
-> [AZURE.IMPORTANT]Não deixe de seguir as etapas [necessárias](#Pre-requisites) antes de seguir as instruções abaixo.
+> [AZURE.IMPORTANT] Não deixe de seguir as etapas [necessárias](#Pre-requisites) antes de seguir as instruções abaixo.
 
-O modelo de exemplo disponível no repositório público usa um arquivo de parâmetro que contém os valores padrão usados para gerar o cenário descrito acima. Para implantar esse modelo usando o recurso clicar para implantar, clique [neste link](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC), à direita do ** grupo de recursos Back-end (confira a documentação)** e clique em **Implantar no Azure**. Caso necessário, substitua os valores de parâmetro padrão e siga as instruções no portal.
+O modelo de exemplo disponível no repositório público usa um arquivo de parâmetro que contém os valores padrão usados para gerar o cenário descrito acima. Para implantar esse modelo usando o recurso clicar para implantar, clique [neste link](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC), à direita do ** grupo de recursos Back-end (confira a documentação)** e clique em **Implantar no Azure**. Caso necessário, substitua os valores de parâmetro padrão e siga as instruções no portal.
 
 A figura a seguir mostra o conteúdo do novo grupo de recursos, após a implantação.
 
@@ -225,7 +225,7 @@ Para implantar o modelo baixado usando o PowerShell, faça o seguinte.
 
 [AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
-3. Execute o cmdlet **New-AzureRmResourceGroup** para criar um grupo de recursos usando o modelo.
+3. Execute o cmdlet **`New-AzureRmResourceGroup`** para criar um grupo de recursos usando o modelo.
 
 		New-AzureRmResourceGroup -Name IaaSStory-Backend -Location uswest `
 		    -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.json' `
@@ -260,8 +260,8 @@ Para implantar o modelo baixado usando o PowerShell, faça o seguinte.
 
 Para implantar o modelo usando a CLI do Microsoft Azure, faça o seguinte:
 
-1. Se você nunca usou a CLI do Azure, veja [Instalar e configurar a CLI do Azure](xplat-cli.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
-2. Execute o comando **azure config mode** para alternar para o modo do Gerenciador de Recursos, como mostrado abaixo.
+1. Se você nunca usou a CLI do Azure, consulte [Instalar e configurar a CLI do Azure](xplat-cli.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
+2. Execute a opção de comando **`azure config mode`** para alternar para o modo do Gerenciador de Recursos, como mostrado abaixo.
 
 		azure config mode arm
 
@@ -269,9 +269,9 @@ Para implantar o modelo usando a CLI do Microsoft Azure, faça o seguinte:
 
 		info:    New mode is arm
 
-3. Abra o [arquivo de parâmetro](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json), selecione o seu conteúdo e salve-o em um arquivo no seu computador. Para este exemplo, salvamos o arquivo de parâmetros em *parameters.json*.
+3. Abra o [arquivo de parâmetro](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json), selecione o seu conteúdo e salve-o em um arquivo em seu computador. Para este exemplo, salvamos o arquivo de parâmetros em *parameters.json*.
 
-4. Execute o cmdlet **azure group deployment create** para implantar a nova rede virtual usando os arquivos de modelo e parâmetro que você baixou e modificou acima. A lista exibida após a saída explicar os parâmetros usados.
+4. Execute o cmdlet **`azure group deployment create`** para implantar a nova rede virtual usando os arquivos de modelo e parâmetro que você baixou e modificou acima. A lista exibida após a saída explicar os parâmetros usados.
 
 		azure group create -n IaaSStory-Backend -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.json -e parameters.json
 
@@ -292,4 +292,4 @@ Para implantar o modelo usando a CLI do Microsoft Azure, faça o seguinte:
 		data:
 		info:    group create command OK
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

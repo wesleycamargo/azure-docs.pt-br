@@ -14,7 +14,24 @@
 	ms.date="01/19/2016" 
 	ms.author="dimazaid"/>
  
-# Notas de versão das Ferramentas do Application Insights para Visual Studio v 4.1
+# Notas de versão das Ferramentas do Application Insights para Visual Studio v 4.2
+##Versão 4.2
+Nesta versão, adicionamos recursos para facilitar a pesquisa de dados no contexto de eventos, a capacidade de saltar para o código de mais eventos de dados e uma experiência simples para enviar dados de log para o Application Insights. Essa extensão é atualizada mensalmente. Se tem comentários ou solicitações de recursos, envie para aidevtools@microsoft.com
+###Experiência de registro em log sem cliques
+Se já estiver usando rastreamento com NLog, Log4Net ou System.Diagnostics, você não precisará se preocupar sobre como mover todos os seus rastreamentos para o AI. Agora, estamos integrando os adaptadores de registro do Application Insights com a experiência de configuração normal. Se já tiver uma dessas estruturas de registros configuradas, você o da seguinte forma:
+####Se já tiver o Application Insights adicionado
+- Clique com o botão direito do mouse no Nó do projeto -> Application Insights -> Configurar Application Insights. Verifique se aparece a opção de adicionar o adaptador correto à janela de configuração. 
+- Ou, quando compilar a solução, observe o pop-up que aparece no canto superior direito da tela e clique em configurar. ![Notificação de Registro](./media/app-insights-release-notes-vsix/LoggingToast.png)
+
+Depois de ter instalado o adaptador de registros, você pode executar o aplicativo e certificar-se de que vê os dados na guia de ferramentas de diagnóstico da seguinte forma: ![Rastreamentos](./media/app-insights-release-notes-vsix/Traces.png)
+###-Usuário pode saltar/localizar o código em que a propriedade de evento de telemetria é emitida
+Com a nova versão, o usuário pode clicar em qualquer valor nos detalhes do evento e isso pesquisará uma cadeia de caracteres correspondente na solução aberta atual. Os resultados serão exibidos na lista "Encontrar Resultados" no Visual Studio, conforme mostrado abaixo: ![Localizar Correspondência](./media/app-insights-release-notes-vsix/FindMatch.png)
+###-Nova tela para usuário não conectado na janela de Pesquisa
+Melhoramos a aparência de nossa janela de Pesquisa para orientar os usuários para pesquisar seus dados em produção. ![Janela de Pesquisa](./media/app-insights-release-notes-vsix/SearchWindow.png)
+###-Usuário pode ver todos os eventos de telemetria associados ao evento
+Foi adicionada uma nova guia ao lado dos detalhes do evento, que contém um consultas predefinidas para exibir todos os dados relacionados ao evento de telemetria que o usuário está examinando. Por exemplo: a solicitação tem um campo chamado ID de operação e todos os eventos associados a essa solicitação terão a mesma ID de operação, portanto, se ocorrer uma exceção ao processar a solicitação, ele receberá a mesma ID de operação que a solicitação para tornar mais fácil encontrá-la e assim por diante. Portanto, o usuário que examina uma solicitação agora pode clicar em "Toda a telemetria para esta operação" e isso abrirá uma nova guia com os novos resultados da pesquisa. ![Itens Relacionados](./media/app-insights-release-notes-vsix/RelatedItems.png)
+### -Acréscimo de histórico de avanço/retrocesso na Pesquisa
+Agora, o usuário pode ir e voltar entre os resultados da pesquisa. ![Voltar](./media/app-insights-release-notes-vsix/GoBAck.png)
 
 ##Versão 4.1
 Esta versão vem com uma quantidade de novos recursos e melhorias dos recursos existentes. Para obter essa versão, você precisa ter a Atualização 1 instalada em seu computador.
@@ -70,4 +87,4 @@ Em versões futuras da extensão Application Insights, vamos introduzir novas fu
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

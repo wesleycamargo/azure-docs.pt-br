@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="02/09/2016"
 	ms.author="tomfitz"/>
 
 #Criar um aplicativo Web PHP-MySQL no Serviço de Aplicativo do Azure e implantá-lo usando o Git
@@ -213,14 +213,15 @@ Para criar e executar o aplicativo localmente, siga as etapas abaixo. Observe qu
 
 		php -S localhost:8000
 
-Agora você pode navegar até **http://localhost:8000/** para testar o aplicativo.
+Agora você pode navegar até ****http://localhost:8000/** para testar o aplicativo.
 
 
 ##Publicar seu aplicativo
 
 Depois de testar seu aplicativo localmente, você poderá publicá-lo para aplicativos Web usando Git. Você inicializara seu repositório local do Git e publicará o aplicativo.
 
-> [AZURE.NOTE]Estas são as mesmas etapas mostradas no Portal do Azure no final da seção Criar um aplicativo Web e Configurar a publicação Git, apresentada acima.
+> [AZURE.NOTE]
+Estas são as mesmas etapas mostradas no Portal do Azure no final da seção Criar um aplicativo Web e Configurar a publicação Git, apresentada acima.
 
 1. (Opcional) Se você tiver esquecido a URL de seu repositório Git remoto, navegue até as propriedades do aplicativo Web no Portal do Azure.
 
@@ -261,7 +262,7 @@ Para publicar alterações em seu aplicativo, siga essas etapas:
 
 	![Site PHP do Azure][running-app]
 
->[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE] Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## Próximas etapas
 
@@ -302,4 +303,4 @@ Para obter mais informações, consulte o [Centro de desenvolvedores do PHP](/de
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/17/2015"
+   ms.date="02/04/2016"
    ms.author="subramar"/>
 
 # Atualização de aplicativos do Service Fabric: tópicos avançados
 
 ## Modo de atualização manual
 
-> [AZURE.NOTE]O modo manual não monitorado só deverá ser considerado em caso de atualização com falha ou suspensa. O modo monitorado é o modo de atualização recomendado para aplicativos do Service Fabric.
+> [AZURE.NOTE]  O modo manual não monitorado só deverá ser considerado em caso de atualização com falha ou suspensa. O modo monitorado é o modo de atualização recomendado para aplicativos do Service Fabric.
 
 O Service Fabric do Azure fornece vários modos de atualização para dar suporte a clusters de desenvolvimento e de produção. Cada uma das opções de implantação são ideais para ambientes diferentes.
 
@@ -49,12 +49,15 @@ Hipóteses em que usar um pacote diff seria uma boa opção:
 
 ## Próximas etapas
 
-[Tutorial de atualização](service-fabric-application-upgrade-tutorial.md)
+[Atualizar seu Aplicativo Usando o Visual Studio](service-fabric-application-upgrade-tutorial.md) orienta você a fazer uma atualização de aplicativo usando o Visual Studio.
 
-[Parâmetros de atualização](service-fabric-application-upgrade-parameters.md)
+[Atualizando seu aplicativo usando o Powershell](service-fabric-application-upgrade-tutorial-powershell.md) orienta você uma atualização de aplicativo usando o PowerShell.
 
-[Serialização de dados](service-fabric-application-upgrade-data-serialization.md)
+Controle como seu aplicativo é atualizado usando [Parâmetros de Atualização](service-fabric-application-upgrade-parameters.md).
 
-[Solucionando problemas de atualização de aplicativo](service-fabric-application-upgrade-troubleshooting.md)
+Torne suas atualizações de aplicativo compatíveis aprendendo a usar a [Serialização de Dados](service-fabric-application-upgrade-data-serialization.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+Corrija problemas comuns em atualizações de aplicativo consultando as etapas em [Solucionando Problemas de Atualizações de Aplicativo](service-fabric-application-upgrade-troubleshooting.md).
+ 
+
+<!---HONumber=AcomDC_0211_2016-->

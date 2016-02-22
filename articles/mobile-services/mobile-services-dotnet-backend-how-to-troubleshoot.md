@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="12/01/2015" 
+	ms.date="02/07/2016" 
 	ms.author="wesmc;ricksal"/>
 
 # Solucionar problemas de back-end .NET dos Serviços Móveis
@@ -41,7 +41,8 @@ Você pode usar qualquer depurador HTTP para enviar e inspecionar tráfego HTTP.
 1. Inicie com um projeto de servidor dos Serviços Móveis no **Visual Studio 2013 Update 2** ou posterior. Caso não tenha um em mãos, você pode criar um selecionando **Arquivo**, **Novo**, **Projeto** e, em seguida, selecionando o nó **Nuvem** e o modelo **Serviços Móveis do Microsoft Azure**.
 2. Pressione **F5**, o que compilará e executará o projeto. Na página inicial, selecione **Experimentar**.
 
-    >[AZURE.NOTE]Se o serviço for hospedado localmente, clicando no link você será direcionado para a próxima página. Entretanto, se hospedar na nuvem, você será solicitado a definir credenciais. Isso é feito para assegurar que usuários não autenticados não tenham acesso às informações sobre sua API e cargas. Para ver a página, é necessário fazer logon com um **nome de usuário em branco** e sua **chave do aplicativo** como a senha. A chave de aplicativo está disponível no Portal clássico do Azure, navegando até a guia **Painel** do seu serviço móvel e selecionando **Gerenciar chaves**.
+    >[AZURE.NOTE]
+    Se o serviço for hospedado localmente, clicando no link você será direcionado para a próxima página. Entretanto, se hospedar na nuvem, você será solicitado a definir credenciais. Isso é feito para assegurar que usuários não autenticados não tenham acesso às informações sobre sua API e cargas. Para ver a página, é necessário fazer logon com um **nome de usuário em branco** e sua **chave do aplicativo** como a senha. A chave de aplicativo está disponível no Portal clássico do Azure, navegando até a guia **Painel** do seu serviço móvel e selecionando **Gerenciar chaves**.
     >
     > ![Prompt de autenticação para acessar a página de ajuda][HelpPageAuth]
 
@@ -123,7 +124,7 @@ Quando você publica seu serviço móvel no Azure, ele é carregado pelo ambient
 
 Às vezes, é possível surgir conflitos de versão ao se referir a *versões principais diferentes* de assemblies obrigatórios (versões *secundárias* diferentes são permitidas). Frequentemente, isso acontece quando o NuGet solicita que você atualize para a versão mais recente de um dos pacotes usados pelo back-end .NET dos Serviços Móveis.
 
->[AZURE.NOTE]O aplicativo Serviços Móveis é atualmente compatível apenas com ASP.NET 5.1, a versão 5.2 do ASP.NET não tem suporte. Atualizar os pacotes NuGet ASP.NET para 5.2.* pode resultar em um erro após a implantação.
+>[AZURE.NOTE] O aplicativo Serviços Móveis é atualmente compatível apenas com ASP.NET 5.1, a versão 5.2 do ASP.NET não tem suporte. Atualizar os pacotes NuGet ASP.NET para 5.2.* pode resultar em um erro após a implantação.
 
 Se você atualizar esses pacotes, quando publicar o serviço atualizado para o Azure, verá uma página de aviso indicando o conflito:
 
@@ -163,4 +164,4 @@ As migrações podem ser complexas e exigir que o estado do banco de dados seja 
 <!-- Links -->
 [SymbolSource]: http://symbolsource.org
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

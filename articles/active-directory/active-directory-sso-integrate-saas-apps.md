@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="01/05/2016"
+    ms.date="02/09/2016"
     ms.author="curtand"/>
 
 # Integrar o logon único do Azure AD com aplicativos de SaaS  
@@ -43,7 +43,7 @@ O Azure AD fornece várias maneiras personalizáveis para implantar aplicativos 
 
 Configurar o logon único para um aplicativo já utilizado pela sua organização é um processo diferente de criar novas contas para um novo aplicativo. Há algumas etapas preliminares incluindo: mapeamento das identidades do usuário no aplicativo para as identidades do Azure AD e compreender como os usuários farão logon em um aplicativo depois dele ser integrado.
 
-> [AZURE.NOTE]Para configurar o SSO para um aplicativo existente, você precisa ter direitos de administrador globais no AD do Azure e no aplicativo de SaaS.
+> [AZURE.NOTE] Para configurar o SSO para um aplicativo existente, você precisa ter direitos de administrador globais no AD do Azure e no aplicativo de SaaS.
 
 ### Mapeamento das contas de usuário
 
@@ -68,4 +68,8 @@ Se o aplicativo não estiver na Galeria de Aplicativos, você poderá [adicioná
 
 Há muito mais detalhes sobre todos esses assuntos na biblioteca do Azure.com, começando com [O que é o acesso a aplicativos e o logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+## Consulte também
+
+- [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
+
+<!---HONumber=AcomDC_0211_2016-->

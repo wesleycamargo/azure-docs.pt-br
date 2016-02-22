@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/23/2015"
+    ms.date="02/06/2016"
     ms.author="elizapo" />
 
 
@@ -22,6 +22,9 @@
 
 Uma das vantagens do Azure RemoteApp é que estamos sempre trabalhando para melhorá-lo. Sempre que isso for feito, anunciaremos as alterações aqui.
 
+## Atualizações futuras
+Oi, você sabia que a equipe do RemoteApp do Azure envia atualizações mensais para o blog do RDS? Você pode ver não apenas o que mudou no RemoteApp do Azure, mas também outras informações sobre como usar o RDS. Confira o blog [Blog de Serviços de Área de Trabalho Remota](https://blogs.msdn.microsoft.com/rds/) para obter informações. Por exemplo, duas semanas atrás, eles postaram uma entrada sobre [levantar e mudar cargas de trabalho com o RemoteApp do Azure e o Azure AD](https://blogs.msdn.microsoft.com/rds/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services/).
+ 
 ## Setembro de 2015
 - O Infopath foi adicionado à imagem da galeria e ao modelo do Microsoft Office 365. Para compartilhar o Infopath, atualize suas coleções com a imagem mais recente.
 - Atualizações do cliente:
@@ -72,7 +75,7 @@ Houve várias adições (e meses) desde que criamos este tópico, então essa li
 - [Criar uma imagem do Azure RemoteApp com base em uma máquina virtual do Azure](remoteapp-image-on-azurevm.md). Torna carregar sua imagem personalizada para o Azure muito mais rápido.
 - Use uma Rede Virtual do Azure em vez de uma Rede Virtual do RemoteApp para se conectar os recursos da sua rede corporativa ao Azure. Nós atualizamos as [instruções de coleta híbrida](remoteapp-create-hybrid-deployment.md) para orientá-lo na criação de uma Rede Virtual do Azure (é a etapa 1).
 - Falando em Redes Virtuais, confira as [novas diretrizes](remoteapp-vnetsizing.md) em torno dos limites e limitações de tamanho de Redes Virtuais.
-- E, falando em limites - quais são os [limites e padrões de serviço](remoteapp-servicelimits.md)?
+- E, falando em limites - quais são os [limites e padrões de serviço](../azure-subscription-service-limits.md)?
 
 Quer saber mais sobre o RemoteApp do Azure? A equipe de RemoteApp estava em força no Ignite, há algumas semanas. Veja o vídeo do Eric: [Os Conceitos Básicos de Gerenciamento e Administração do Microsoft Azure RemoteApp](http://channel9.msdn.com/Events/Ignite/2015/BRK3868).
 
@@ -84,4 +87,4 @@ Obrigado por estar conosco - o mês que vem traz mais atualizações.
 ### Ajude-nos a ajudar você
 Você sabia que, além de classificar este artigo e fazer comentários, você pode alterar o próprio artigo? Falta alguma coisa? Há algo errado? Escrevi algo que não ficou muito claro? Role para cima e clique em **Editar no GitHub** para fazer alterações – elas serão enviadas para que as examinemos e depois de aprovadas, você verá as alterações e os aprimoramentos.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

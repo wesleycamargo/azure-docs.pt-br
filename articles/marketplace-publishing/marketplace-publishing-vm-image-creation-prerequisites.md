@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="10/09/2015"
+  ms.date="02/04/2016"
   ms.author="hascipio; v-divte"/>
 
 # Pré-requisitos técnicos para criar uma imagem de máquina virtual para o Azure Marketplace
@@ -33,7 +33,7 @@ Você pode desenvolver VMs do Azure baseadas em Windows ou Linux. Alguns element
 - Se você estiver usando o Linux, consulte a seção "Criar um VHD compatível com o Azure (baseado em Linux)" do [guia de publicação de imagem de Máquina Virtual](marketplace-publishing-vm-image-creation.md).
 - Se você estiver usando o Windows, consulte a seção "Criar um VHD compatível com o Azure (baseado em Windows)" do [guia de publicação de imagem de Máquina Virtual](marketplace-publishing-vm-image-creation.md).
 
-> [AZURE.NOTE]Você precisa ter acesso a um computador baseado no Windows para: - Executar a ferramenta de validação de certificação. - Criar a URL de assinatura de acesso compartilhado de VHD para o envio de certificação do VHD.
+> [AZURE.NOTE] Você precisa ter acesso a um computador baseado no Windows para: - Executar a ferramenta de validação de certificação. - Criar a URL de assinatura de acesso compartilhado de VHD para o envio de certificação do VHD.
 
 ## Desenvolver seu VHD
 Você pode desenvolver VHDs do Azure na nuvem ou no local:
@@ -51,4 +51,4 @@ Agora você revisou os pré-requisitos e concluiu a tarefa necessária, pode pro
 
 [link-acct-creation]: marketplace-publishing-accounts-creation-registration.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

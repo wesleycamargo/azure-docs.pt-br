@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 # Habilitando o Proxy de Aplicativo do AD do Azure.
@@ -63,7 +63,7 @@ Se o firewall reforça o tráfego de acordo com os usuários de origem, abra ess
   - Forneça suas credenciais de administrador global do AD do Azure. Seu locatário de administrador global pode ser diferente das suas credenciais do Microsoft Azure.
   - Verifique se o administrador que registra o Conector está no mesmo diretório em que você habilitou o serviço de Proxy de Aplicativo. Por exemplo, se o domínio de locatário for contoso.com, o administrador deverá ser admin@contoso.com ou qualquer outro alias no domínio.
   - Se a Configuração de Segurança Aprimorada do Internet Explorer estiver **Ativada** no servidor em que você estiver instalando o Conector do AD do Azure, a tela de registro poderá ser bloqueada. Se isso acontecer, siga as instruções na mensagem de erro para permitir o acesso. Certifique-se de que a Segurança Melhorada do Internet Explorer está desativada.
-<p>- Se o registro do Conector não for bem-sucedido, consulte [Solucionar problemas de Proxy de Aplicativo](active-directory-application-proxy-troubleshoot.md).  
+  - Se o registro do Conector não for bem-sucedido, consulte [Solucionar problemas de Proxy de Aplicativo](active-directory-application-proxy-troubleshoot.md).  
 
 4. Quando a instalação for concluída, dois novos serviços são adicionados ao seu servidor, conforme mostrado abaixo. Esses são o serviço de conector, que permite a conectividade, e um serviço de atualização automatizada que verifica periodicamente novas versões do conector e atualiza o conector conforme necessário. Clique em **Concluir** na janela de instalação para concluir a instalação
 
@@ -91,8 +91,9 @@ Você pode fazer muito mais com o Proxy de Aplicativo:
 - [Assista aos nossos vídeos no Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 ## Recursos adicionais
-* [Inscrever-se no Azure como uma organização](sign-up-organization.md)
-* [Identidade do Azure](fundamentals-identity.md)
-* [Publicar os aplicativos com Proxy de Aplicativo](active-directory-application-proxy-publish.md)
+- [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
+- [Inscrever-se no Azure como uma organização](sign-up-organization.md)
+- [Identidade do Azure](fundamentals-identity.md)
+- [Publicar os aplicativos com Proxy de Aplicativo](active-directory-application-proxy-publish.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

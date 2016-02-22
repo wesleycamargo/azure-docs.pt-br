@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015" 
+	ms.date="02/05/2016" 
 	ms.author="larryfr"/>
 
 #Analisar dados de sensor usando o Console de consulta Hive no Hadoop HDInsight
 
 Saiba como analisar dados do sensor usando o Console de consulta Hive com HDInsight (Hadoop) e depois visualizar os dados no Microsoft Excel usando o Power View.
 
-> [AZURE.NOTE]As etapas neste documento só funcionam com clusters HDInsight baseados no Windows.
+> [AZURE.NOTE] As etapas neste documento só funcionam com clusters HDInsight baseados no Windows.
 
 Nesta amostra, você usará o Hive para processar dados históricos produzidos por sistemas de aquecimento, ventilação e ar condicionado (HVAC) para identificar sistemas que não conseguem manter uma temperatura determinada de maneira confiável. Você saberá como:
 
@@ -38,7 +38,7 @@ Nesta amostra, você usará o Hive para processar dados históricos produzidos p
 
 * Microsoft Excel 2013
 
-	> [AZURE.NOTE]O Microsoft Excel é usado para visualização de dados no [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=pt-BR&rs=pt-BR&ad=US).
+	> [AZURE.NOTE] O Microsoft Excel é usado para visualização de dados no [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=pt-BR&rs=pt-BR&ad=US).
 
 * [Driver ODBC do Microsoft Hive](http://www.microsoft.com/download/details.aspx?id=40886)
 
@@ -54,4 +54,4 @@ Nesta amostra, você usará o Hive para processar dados históricos produzidos p
 
 3. Siga as instruções fornecidas na página da Web para concluir a amostra.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

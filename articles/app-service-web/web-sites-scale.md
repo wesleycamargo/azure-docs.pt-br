@@ -26,12 +26,11 @@ A expansão de Sites do Azure envolve duas ações relacionadas: mudar seu modo 
 
 As configurações de escala terão apenas alguns segundos para serem aplicadas e afetam todos os aplicativos Web em seu plano do Serviço de Aplicativo. Não é necessário alterar seu código nem reimplantar seus aplicativos.
 
-Para obter informações sobre planos do serviço de aplicativo, consulte [O que é um plano do Serviço de Aplicativo?](../web-sites-web-hosting-plan-overview.md) e [Visão geral aprofundada de planos do Serviço de Aplicativo do Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Para obter informações sobre os preços e recursos de planos individuais do Serviço de Aplicativo, consulte [Detalhes de Preços dos Serviços de Aplicativo](/pricing/details/web-sites/).
+Para obter informações sobre planos do serviço de aplicativo, consulte [O que é um plano do Serviço de Aplicativo?](../app-service/web-sites-web-hosting-plan-overview.md) e [Visão geral aprofundada de planos do Serviço de Aplicativo do Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Para obter informações sobre os preços e recursos de planos individuais do Serviço de Aplicativo, consulte [Detalhes de Preços dos Serviços de Aplicativo](/pricing/details/web-sites/).
 
-> [AZURE.NOTE]Antes de alternar de um aplicativo Web do modo **Gratuito** para o modo **Básico**, **Padrão** ou **Premium**, primeiro você deve remover os limites de gastos em vigor para sua assinatura do Serviço de Aplicativo do Azure. Para exibir ou alterar as opções para a sua assinatura do Serviço de Aplicativo do Microsoft Azure, consulte [Assinaturas do Microsoft Azure][azuresubscriptions].
+> [AZURE.NOTE] Antes de alternar de um aplicativo Web do modo **Gratuito** para o modo **Básico**, **Padrão** ou **Premium**, primeiro você deve remover os limites de gastos em vigor para sua assinatura do Serviço de Aplicativo do Azure. Para exibir ou alterar as opções para a sua assinatura do Serviço de Aplicativo do Microsoft Azure, consulte [Assinaturas do Microsoft Azure][azuresubscriptions].
 
-<a name="scalingsharedorbasic"></a>
-<!-- ===================================== -->
+<a name="scalingsharedorbasic"></a> <!-- ===================================== -->
 ## Dimensionando para o modo Compartilhado ou Básico
 <!-- ===================================== -->
 
@@ -51,12 +50,11 @@ Para obter informações sobre planos do serviço de aplicativo, consulte [O que
 	
 	A guia **Notificações** vai piscar **SUCESSO** em verde quando a operação for concluída.
 	
-<a name="scalingstandard"></a>
-<!-- ================================= -->
+<a name="scalingstandard"></a> <!-- ================================= -->
 ## Dimensionando para o modo Standard ou Premium
 <!-- ================================= -->
 
-> [AZURE.NOTE]Antes de mudar um plano do Serviço de Aplicativo para o modo **Padrão** ou **Premium**, você deve remover os limites de gasto existentes para sua assinatura do Serviço de Aplicativo do Microsoft Azure. Caso contrário, seu aplicativo Web correrá o risco de se tornar indisponível se você atingir os limites antes do término do período de cobrança. Para exibir ou alterar as opções para a sua assinatura do Serviço de Aplicativo do Microsoft Azure, consulte [Assinaturas do Microsoft Azure][azuresubscriptions].
+> [AZURE.NOTE] Antes de mudar um plano do Serviço de Aplicativo para o modo **Padrão** ou **Premium**, você deve remover os limites de gasto existentes para sua assinatura do Serviço de Aplicativo do Microsoft Azure. Caso contrário, seu aplicativo Web correrá o risco de se tornar indisponível se você atingir os limites antes do término do período de cobrança. Para exibir ou alterar as opções para a sua assinatura do Serviço de Aplicativo do Microsoft Azure, consulte [Assinaturas do Microsoft Azure][azuresubscriptions].
 
 1. Para dimensionar para o modo **Padrão** ou **Premium**, execute as mesmas etapas iniciais executadas para dimensionar para **Compartilhado** ou **Básica** e, em seguida, escolha um modo **Padrão** ou **Premium** em **Escolha sua faixa de preço** e, depois clique em **Selecionar**. 
 	
@@ -91,7 +89,7 @@ Para obter informações sobre planos do serviço de aplicativo, consulte [O que
 	
 	![Definir primeira regra de dimensionamento automático][SetFirstRule]
 	
-	>[AZURE.NOTE]A configuração de **Esfriar** especifica quanto tempo que essa regra deve esperar após a ação de escala anterior para dimensionar novamente.
+	>[AZURE.NOTE] A configuração de **Esfriar** especifica quanto tempo que essa regra deve esperar após a ação de escala anterior para dimensionar novamente.
 	
 6. Clique em **Adicionar Regra de Escala Vertical** e, em seguida, configure a segunda regra definindo a **Condição** para **Maior**, **Limite** para **90** (%) **Nos últimos** para **1** (minutos), **Escalar verticalmente por** para **3** (instância) e **Esfriar** para **1** (minutos).
 	
@@ -133,7 +131,7 @@ Dependendo do modo usado pelo aplicativo Web, os seguintes recursos para desenvo
 ### Suporte ao depurador ###
 
 - Suporte ao depurador está disponível para os modos **Gratuito**, **Compartilhado** e **Básico** em uma conexão simultânea por plano do Serviço de Aplicativo.
-- O suporte ao depurador está disponível para os modos **Padrão** e **Premium** em cinco conexões simultâneas por plano do Serviço de Aplicativo.
+- O suporte ao depurador está disponível para os modos **Padrão** e **Premium** em cinco conexões simultâneas por plano de Serviço de Aplicativo.
 
 <a name="OtherFeatures"></a>
 ## Outros recursos
@@ -144,7 +142,7 @@ Dependendo do modo usado pelo aplicativo Web, os seguintes recursos para desenvo
 
 - Para obter informações detalhadas sobre todos os recursos restantes nos planos do Serviço de Aplicativo, incluindo preços e recursos de interesse para todos os usuários (incluindo desenvolvedores), consulte [Detalhes de Preços do Serviço de Aplicativo](/pricing/details/web-sites/).
 
->[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE] Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 <a name="Next Steps"></a>
 ## Próximas etapas
@@ -175,7 +173,7 @@ Dependendo do modo usado pelo aplicativo Web, os seguintes recursos para desenvo
 	- [Como dimensionar sites do Azure - com Stefan Schackow](/documentation/videos/how-azure-web-sites-scale/)
 
 ## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!-- LINKS -->
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkId=309169
@@ -200,4 +198,4 @@ Dependendo do modo usado pelo aplicativo Web, os seguintes recursos para desenvo
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/05/2015"
+    ms.date="02/02/2016"
     ms.author="ericor" />
 
 
@@ -26,7 +26,7 @@ Agora que você criou sua imagem de modelo personalizada ou atualizou-a com as a
 ## Antes de começar
 
 1.      Verifique se a imagem personalizada cumpre os [requisitos de imagem](remoteapp-imagereqs.md) e os [requisitos do aplicativo](remoteapp-appreqs.md).
-2.      Instale o [módulo PowerShell do Azure](../install-configure-powershell.md).
+2.      Instale o [módulo PowerShell do Azure](../powershell-install-configure.md).
 
 ## Passo a passo sobre como carregar a imagem personalizada
 
@@ -43,7 +43,7 @@ Agora que você criou sua imagem de modelo personalizada ou atualizou-a com as a
 
 11.    Se o carregamento falhar devido a uma interrupção da rede ou problemas semelhantes, você sempre poderá retomar o processo de carregamento. Para retomar um carregamento, execute o script novamente usando a mesma linha de comando.
 
-> [AZURE.WARNING]Nunca modifique o script de upload. Verificações específicas foram implementadas para garantir que a imagem cumpra os requisitos de imagem e os requisitos do aplicativo.
+> [AZURE.WARNING] Nunca modifique o script de upload. Verificações específicas foram implementadas para garantir que a imagem cumpra os requisitos de imagem e os requisitos do aplicativo.
 
 ## Problemas comuns
 
@@ -51,4 +51,4 @@ Agora que você criou sua imagem de modelo personalizada ou atualizou-a com as a
 - Nunca altere o script, as validações existem para sua conveniência.
 - Se o arquivo vhd for bloqueado durante o carregamento, copie o arquivo ou mova-o para um novo local e tente novamente. Pode haver algum processo do Windows impedindo o carregamento.  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

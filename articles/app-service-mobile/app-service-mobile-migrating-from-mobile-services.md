@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="02/09/2016"
 	ms.author="adrianhall"/>
 
 # <a name="article-top"></a>Migrar seu Serviço Móvel do Azure existente para o Serviço de Aplicativo do Azure
@@ -65,7 +65,7 @@ Todos os sites de Serviços Móveis que compartilham um plano de hospedagem são
 
   1.  Faça logon no [Portal clássico do Azure].
   2.  Selecione o seu serviço móvel.
-  3.  Selecione a guia **ESCALA**.
+  3.  Selecione a guia **ESCALAR VERTICALMENTE**.
   4.  Em **Tipo de Serviço Móvel**, clique no tipo **STANDARD**. Clique no ícone **SALVAR** na parte inferior da página.
 
 Lembre-se de definir o tipo de preço para uma configuração apropriada após a migração.
@@ -117,7 +117,7 @@ Como ponto de partida, recomendamos o seguinte:
 
 Observe que há uma considerável flexibilidade na escolha do tipo de preço certo para o seu aplicativo. Consulte [Preços do Serviço de Aplicativo] para obter detalhes completos sobre os preços de seu novo Serviço de Aplicativo.
 
-> [AZURE.TIP]O tipo Standard do Serviço de Aplicativo contém acesso a vários recursos que você talvez queira usar, incluindo [slots de preparo], backups automáticos e dimensionamento automático. Confira os novos recursos lá!
+> [AZURE.TIP] O tipo Standard do Serviço de Aplicativo contém acesso a vários recursos que você talvez queira usar, incluindo [slots de preparo], backups automáticos e dimensionamento automático. Confira os novos recursos lá!
 
 ### <a name="review-migration-scheduler-jobs"></a>Examine os trabalhos do agendador migrados
 
@@ -143,7 +143,7 @@ As configurações de CORS migradas estão disponíveis como a configuração do
 
 Essa é uma tarefa opcional, mas fornece uma melhor experiência de gerenciamento para o futuro.
 
-> [AZURE.TIP]Uma das vantagens de usar um Serviço de Aplicativo do Azure é que você pode executar seu site da web e serviço móvel no mesmo site. Consulte a seção de [próximas etapas](#next-steps) para obter mais informações.
+> [AZURE.TIP]  Uma das vantagens de usar um Serviço de Aplicativo do Azure é que você pode executar seu site da web e serviço móvel no mesmo site. Consulte a seção de [próximas etapas](#next-steps) para obter mais informações.
 
 ### <a name="download-publish-profile"></a>Baixar um novo Perfil de publicação
 
@@ -192,7 +192,7 @@ A maioria das configurações para um serviço móvel migrado está disponível 
 
 Você pode atualizar várias configurações de aplicativo ao mesmo tempo.
 
-> [AZURE.TIP]Você observará que existem duas Configurações de Aplicativo com o mesmo valor. Por exemplo, você pode ver _ApplicationKey_ e _MS\_ApplicationKey_. Você só precisa alterar a configuração de aplicativo prefixada com **MS \_**. No entanto, é uma boa ideia atualizar ambas as configurações do aplicativo ao mesmo tempo.
+> [AZURE.TIP]  Você observará que existem duas Configurações de Aplicativo com o mesmo valor. Por exemplo, você pode ver _ApplicationKey_ e _MS\_ApplicationKey_. Você só precisa alterar a configuração de aplicativo prefixada com **MS \_**. No entanto, é uma boa ideia atualizar ambas as configurações do aplicativo ao mesmo tempo.
 
 ### <a name="authentication"></a>Autenticação
 
@@ -208,7 +208,7 @@ Todas as configurações de autenticação estão disponíveis como configuraç�
 
 Observação: **MS\_AadTenants** é armazenado como uma lista separada por vírgulas dos domínios de locatário (os campos "Locatários Permitidos" no portal de Serviços Móveis).
 
-> [AZURE.WARNING]**Não use os mecanismos de autenticação no menu Configurações**
+> [AZURE.WARNING] **Não use os mecanismos de autenticação no menu Configurações**
 >
 > O Serviço de aplicativo do Azure fornece um sistema de autenticação e autorização "sem código" separado no menu de Configurações _Autenticação/Autorização_ e a opção (preterida) _Autenticação Móvel_ no menu Configurações. Essas opções são incompatíveis com um Serviço Móvel do Azure migrado. Você pode [atualizar seu site] para aproveitar a autenticação do Serviço de Aplicativo do Azure.
 
@@ -277,11 +277,11 @@ O Hub de notificação será gerenciado por meio de [Portal do Azure]. Observe o
   2. Selecione **Procurar**> e depois selecione **Hubs de Notificação**
   3. Clique no nome do hub de notificação associado ao serviço móvel.
 
-> [AZURE.NOTE]O hub de notificação não estará visível se ele tiver um tipo “Misto”. Hubs de notificação do tipo "misto” utilizam Hubs de notificação e recursos do barramento de serviço herdados. Você precisará [Converter seus namespaces mistos]. Quando a conversão for concluída, o hub de notificação será exibido no [Portal do Azure].
+> [AZURE.NOTE] O hub de notificação não estará visível se ele tiver um tipo “Misto”. Hubs de notificação do tipo "misto” utilizam Hubs de notificação e recursos do barramento de serviço herdados. Você precisará [Converter seus namespaces mistos]. Quando a conversão for concluída, o hub de notificação será exibido no [Portal do Azure].
 
 Para obter mais informações, consulte a documentação [Hubs de Notificação].
 
-> [AZURE.TIP]Recursos de gerenciamento de Hubs de notificação no [Portal do Azure] ainda estão em visualização. O [Portal Clássico do Azure] permanece disponível para gerenciar os hubs de notificação.
+> [AZURE.TIP] Recursos de gerenciamento de Hubs de notificação no [Portal do Azure] ainda estão em visualização. O [Portal Clássico do Azure] permanece disponível para gerenciar os hubs de notificação.
 
 ### <a name="app-settings"></a>Outras configurações de aplicativo
 
@@ -393,4 +393,4 @@ Note que seu aplicativo é migrado para o serviço de aplicativo, há ainda mais
 [VNet]: ../app-service-web/web-sites-integrate-with-vnet.md
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="07/14/2015"
+   ms.date="02/09/2016"
    ms.author="elfish"/>
 
 #Atualizar aplicativo sem tempo de inatividade
@@ -31,4 +31,4 @@ Se o aplicativo puder operar temporariamente no modo somente leitura, o fluxo de
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

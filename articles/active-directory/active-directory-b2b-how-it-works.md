@@ -2,6 +2,7 @@
    pageTitle="Colaboração B2B do AD do Azure: como funciona | Microsoft Azure"
    description="Descreve como a colaboração B2B do Active Directory do Azure dá suporte a relações entre empresas, permitindo que os parceiros de negócios acessem de maneira seletiva seus aplicativos corporativos"
    services="active-directory"
+   documentationCenter=""
    authors="viv-liu"
    manager="cliffdi"
    editor=""
@@ -41,5 +42,6 @@ Embora uma assinatura paga (Básico ou Premium) do AD do Azure não seja necess�
  - [Formato do token de usuário externo](active-directory-b2b-references-external-user-token-format.md)
  - [Alterações de atributo do objeto de usuário externo](active-directory-b2b-references-external-user-object-attribute-changes.md)
  - [Limitações atuais da visualização](active-directory-b2b-current-preview-limitations.md)
+ - [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

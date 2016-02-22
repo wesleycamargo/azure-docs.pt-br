@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/04/2015" 
+	ms.date="02/05/2016" 
 	ms.author="larryfr"/>
 
 # Instalar e usar o Spark em clusters Hadoop do HDInsight
 
 Neste documento, você aprenderá como instalar o Spark usando a Ação de Script. A Ação de Script permite executar scripts para personalizar um cluster somente quando o cluster está sendo criado. Para obter mais informações, consulte [Personalizar cluster HDInsight usando a Ação de Script][hdinsight-cluster-customize]. Depois de ter instalado o Spark, você também aprenderá a executar uma consulta Spark em clusters HDInsight.
 
-> [AZURE.NOTE]O HDInsight também oferece o Spark como um tipo de cluster, o que significa que agora você pode provisionar diretamente um cluster do Spark sem modificar um cluster do Hadoop. No entanto, isso está limitado aos clusters baseados no Windows. Usando o tipo de cluster Spark, você obtém um cluster do HDInsight versão 3.2 do Windows com o Spark versão 1.3.1. Para saber mais, consulte [Introdução ao Apache Spark no HDInsight](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md).
+> [AZURE.NOTE] O HDInsight também oferece o Spark como um tipo de cluster, o que significa que agora você pode provisionar diretamente um cluster do Spark sem modificar um cluster do Hadoop. No entanto, isso está limitado aos clusters baseados no Windows. Usando o tipo de cluster Spark, você obtém um cluster do HDInsight versão 3.2 do Windows com o Spark versão 1.3.1. Para saber mais, consulte [Introdução ao Apache Spark no HDInsight](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md).
 
 ## <a name="whatis"></a>O que é Spark?
 
@@ -40,13 +40,13 @@ Você pode modificar esse script ou criar seu próprio script para instalar outr
 
 Esse script instala a versão 1.5.1 do Spark em `/usr/hdp/current/spark`.
 
-> [AZURE.WARNING]Você pode descobrir que alguns binários Spark 1.3.1 estão instalados por padrão no cluster HDInsight. Eles não devem ser usados e serão removidos da imagem do cluster HDInsight em uma atualização futura.
+> [AZURE.WARNING] Você pode descobrir que alguns binários Spark 1.3.1 estão instalados por padrão no cluster HDInsight. Eles não devem ser usados e serão removidos da imagem do cluster HDInsight em uma atualização futura.
 
 ## <a name="install"></a>Instalar o Spark usando ações de script
 
 Um exemplo de script para instalar Spark em um cluster HDInsight está disponível em um blob de armazenamento do Azure somente leitura em [https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh](https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh). Esta seção fornece instruções sobre como usar o exemplo de script durante a criação do cluster usando o Portal do Azure.
 
-> [AZURE.NOTE]Você também pode usar o Azure PowerShell ou o SDK do .NET do HDInsight para criar um cluster usando esse script. Para obter mais informações sobre como usar esses métodos, consulte [Personalizar clusters HDInsight com Ações de Script](hdinsight-hadoop-customize-cluster-linux.md).
+> [AZURE.NOTE] Você também pode usar o Azure PowerShell ou o SDK do .NET do HDInsight para criar um cluster usando esse script. Para obter mais informações sobre como usar esses métodos, consulte [Personalizar clusters HDInsight com Ações de Script](hdinsight-hadoop-customize-cluster-linux.md).
 
 1. Inicie a criação de um cluster usando as etapas em [Criar clusters de HDInsight baseados em Linux](hdinsight-hadoop-create-linux-clusters-portal.md), mas não conclua a criação.
 
@@ -59,7 +59,7 @@ Um exemplo de script para instalar Spark em um cluster HDInsight está disponív
 	* __ZOOKEEPER__: desmarque essa opção
 	* __PARÂMETROS__: deixe este campo em branco
     
-    > [AZURE.NOTE]O exemplo de script Spark instala somente componentes nos nós principais para que os outros tipos de nós possam ser desmarcados.
+    > [AZURE.NOTE] O exemplo de script Spark instala somente componentes nos nós principais para que os outros tipos de nós possam ser desmarcados.
 
 3. Na parte inferior das **Ações de Script**, use o botão **Selecionar** para salvar a configuração. Por fim, use o botão **Selecionar** na parte inferior da folha **Configuração Opcional** para salvar as informações de configuração opcional.
 
@@ -126,7 +126,7 @@ O SQL do Spark permite que você use o Spark para executar consultas relacionais
 
 		val hiveContext = new org.apache.spark.sql.hive.HiveContext(sc)
 
-	> [AZURE.NOTE]`sc` nesta instrução é o contexto padrão do Spark, que é definido quando você iniciar o shell do Spark.
+	> [AZURE.NOTE]  `sc` nesta instrução é o contexto padrão do Spark, que é definido quando você iniciar o shell do Spark.
 
 5. Execute uma consulta de Hive usando o contexto de Hive e grave a saída no console. A consulta recupera dados em dispositivos de uma fabricação específica e limita o número de registros recuperados a 20.
 
@@ -174,7 +174,7 @@ Nesta seção, você criará um aplicativo Scala que conta o número de linhas q
 		libraryDependencies += "org.apache.spark" %% "spark-core" % "1.2.0"
 
 
-	> [AZURE.NOTE]Lembre-se de manter as linhas em branco entre cada entrada.
+	> [AZURE.NOTE] Lembre-se de manter as linhas em branco entre cada entrada.
 	
 	Use __Ctrl+X__ e, em seguida, __Y__ e __Enter__ para salvar o arquivo.
 
@@ -236,4 +236,4 @@ Nesta seção, você criará um aplicativo Scala que conta o número de linhas q
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

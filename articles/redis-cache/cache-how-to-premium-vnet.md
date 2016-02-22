@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
+	ms.date="02/04/2016" 
 	ms.author="sdanie"/>
 
 # Como configurar o suporte de Rede Virtual para um Cache Redis do Azure Premium
@@ -27,7 +27,7 @@ Para obter informações sobre outros recursos de cache premium, veja [Como conf
 A implantação da [VNET (Rede Virtual do Azure)](https://azure.microsoft.com/services/virtual-network/) fornece isolamento e segurança avançados para o Cache Redis do Azure, bem como sub-redes, políticas de controle de acesso e outros recursos para restringir ainda mais o acesso ao Cache Redis do Azure.
 
 ## Suporte de rede virtual
-O suporte da VNET (Rede Virtual) é configurado na folha **Novo Cache Redis** durante a criação do cache. Para criar um cache, entre no [Portal do Azure](https://portal.azure.com) e clique em **Novo**->**Dados + Armazenamento**>**Cache Redis**.
+O suporte da VNET (Rede Virtual) é configurado na folha **Novo Cache Redis** durante a criação do cache. Para criar um cache, entre no [Portal do Azure](https://portal.azure.com) e clique em **Novo**-> **Dados + Armazenamento** > **Cache Redis**.
 
 ![Criar um Cache Redis][redis-cache-new-cache-menu]
 
@@ -35,33 +35,29 @@ Para configurar o suporte de VNET, primeiro selecione um dos caches **Premium** 
 
 ![Escolha sua camada de preço][redis-cache-premium-pricing-tier]
 
-A integração da VNET e do Cache Redis do Azure é configurada na folha **Rede Virtual**. Aqui, você pode selecionar uma VNET clássica existente. Para usar uma nova VNET, siga as etapas em [Criar uma rede virtual (clássica) usando o Portal do Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) e volte para a folha **Rede Virtual do Cache Redis** para selecioná-la.
+A integração VNET do Cache Redis do Azure é configurada na folha **Rede Virtual (clássica)**. Aqui, você pode selecionar uma VNET clássica existente. Para usar uma nova VNET, siga as etapas em [Criar uma rede virtual (clássica) usando o Portal do Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) e volte para a folha **Rede Virtual do Cache Redis** para selecioná-la.
 
->[AZURE.NOTE]O Cache Redis do Azure funciona com VNETs clássicas. Para obter informações sobre como criar uma VNET clássica, confira [Criar uma rede virtual (clássica) usando o Portal do Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Para obter informações sobre como conectar redes virtuais clássicas a VNETs ARM, confira [Conectando redes virtuais clássicas a novas redes virtuais](../virtual-network/virtual-networks-arm-asm-s2s.md).
+>[AZURE.NOTE] O Cache Redis do Azure funciona com VNETs clássicas. Para obter informações sobre como criar uma VNET clássica, confira [Criar uma rede virtual (clássica) usando o Portal do Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Para obter informações sobre como conectar redes virtuais clássicas a VNETs ARM, confira [Conectando redes virtuais clássicas a novas redes virtuais](../virtual-network/virtual-networks-arm-asm-s2s.md).
+
+Clique em **Rede Virtual (clássica)** na folha **Novo Cache Redis** e selecione a rede virtual desejada na lista suspensa para selecionar e configurar sua rede virtual.
 
 ![Rede virtual][redis-cache-vnet]
 
-Clique em **Rede Virtual** na folha **Rede Virtual** para selecionar e configurar sua VNET.
-
-![Rede virtual][redis-cache-vnet-select]
-
-Clique na VNET desejada para selecioná-la.
-
-![Rede virtual][redis-cache-vnet-subnet]
-
-Clique em Sub-rede para selecionar a sub-rede desejada.
+Na lista suspensa **Sub-rede**, selecione a sub-rede desejada.
 
 ![Rede virtual][redis-cache-vnet-ip]
 
-O campo **Endereço IP estático** é opcional. Se nenhum for especificado aqui, um será escolhido da sub-rede selecionada. Se desejar um endereço IP estático específico, digite o **Endereço IP estático** desejado e clique em **OK** para salvar a configuração de VNET. Se o IP estático selecionado já estiver sendo usado, uma mensagem de erro será exibida.
+O campo **Endereço IP estático** é opcional. Se nenhum for especificado aqui, um será escolhido da sub-rede selecionada. Se deseja um endereço IP estático específico, digite o **Endereço IP estático** desejado e clique em **OK** para salvar a configuração de VNET. Se o IP estático selecionado já estiver sendo usado, uma mensagem de erro será exibida.
 
-Depois que o cache é criado, ele pode ser acessado apenas pelos clientes na mesma VNET.
+Após o cache ser criado, você pode exibir o endereço IP e outras informações sobre a rede virtual clicando em **Rede Virtual** na folha **Configurações**.
 
->[AZURE.IMPORTANT]Para acessar sua instância do Cache Redis do Azure ao usar uma VNET, transmita o endereço IP estático do cache na VNET como o primeiro parâmetro e transmita um parâmetro `sslhost` com o ponto de extremidade do cache. No exemplo a seguir, o endereço IP estático é `10.10.1.5` e o ponto de extremidade do cache é `contoso5.redis.cache.windows.net`.
+![Rede virtual][redis-cache-vnet-info]
+
+>[AZURE.IMPORTANT] Para acessar sua instância do Cache Redis do Azure ao usar uma VNET, transmita o endereço IP estático do cache na VNET como o primeiro parâmetro e transmita um parâmetro `sslhost` com o ponto de extremidade do cache. No exemplo a seguir, o endereço IP estático é `172.160.0.99` e o ponto de extremidade do cache é `contoso5.redis.cache.windows.net`.
 
 	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 	{
-	    return ConnectionMultiplexer.Connect("10.10.1.5,sslhost=contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=password");
+	    return ConnectionMultiplexer.Connect("172.160.0.99,sslhost=contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=password");
 	});
 	
 	public static ConnectionMultiplexer Connection
@@ -119,10 +115,8 @@ Aprenda a usar mais recursos de cache premium.
 
 [redis-cache-vnet]: ./media/cache-how-to-premium-vnet/redis-cache-vnet.png
 
-[redis-cache-vnet-select]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-select.png
-
 [redis-cache-vnet-ip]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-ip.png
 
-[redis-cache-vnet-subnet]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-subnet.png
+[redis-cache-vnet-info]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-info.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

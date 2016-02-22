@@ -3,7 +3,7 @@
 	description="Processo e Tecnologia de Análise Avançada em ação"  
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,hangzh,weig"
+	authors="bradsev,hangzh-msft,wguo123"
 	manager="paulettm"
 	editor="cgronlun" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016" 
-	ms.author="bradsev;hangzh;wguo123"/>
+	ms.date="02/05/2016" 
+	ms.author="bradsev;hangzh;weig"/>
 
 
 # Processo do Cortana Analytics em ação: usando o SQL Data Warehouse
@@ -28,7 +28,14 @@ O procedimento segue o fluxo de trabalho do [CAP(Processo do Cortana Analytics)]
 
 Os dados de Corridas de Táxi de NYC são formados por cerca de 20 GB de arquivos CSV compactados (aproximadamente 48 GB descompactados) que incluem mais de 173 milhões de corridas individuais, com tarifas pagas por cada corrida. Cada registro de corrida inclui o local e o horário de saída e chegada, o número da carteira de habilitação do taxista anônima e o número de medalhão (identificador exclusivo do táxi). Os dados abrangem todas as corridas no ano de 2013 e são fornecidos nos dois conjuntos de dados a seguir para cada mês:
 
-1. O arquivo **trip\_data.csv** contém detalhes da corrida, como o número de passageiros, pontos de saída e chegada, duração e quilometragem da corrida. Veja alguns exemplos de registros: medallion,hack\_license,vendor\_id,rate\_code,store\_and\_fwd\_flag,pickup\_datetime,dropoff\_datetime,passenger\_count,trip\_time\_in\_secs,trip\_distance,pickup\_longitude,pickup\_latitude,dropoff\_longitude,dropoff\_latitude 89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171 0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-06 00:18:35,2013-01-06 00:22:54,1,259,1.50,-74.006683,40.731781,-73.994499,40.75066 0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-05 18:49:41,2013-01-05 18:54:23,1,282,1.10,-74.004707,40.73777,-74.009834,40.726002 DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388 DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
+1. O arquivo **trip\_data.csv** contém detalhes da corrida, como o número de passageiros, pontos de saída e chegada, duração e quilometragem da corrida. Aqui estão alguns exemplos de registros:
+
+		medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
+		89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
+		0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-06 00:18:35,2013-01-06 00:22:54,1,259,1.50,-74.006683,40.731781,-73.994499,40.75066
+		0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-05 18:49:41,2013-01-05 18:54:23,1,282,1.10,-74.004707,40.73777,-74.009834,40.726002
+		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388
+		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
 
 2. O arquivo **trip\_fare.csv** contém detalhes sobre as tarifas pagas em cada corrida, como tipo de pagamento, valor da tarifa, custos adicionais e impostos, gorjetas e pedágios e o valor total pago. Aqui estão alguns exemplos de registros:
 
@@ -51,7 +58,7 @@ Formulamos três problemas de previsão com base em *tip\_amount* para ilustrar 
 
 1. **Classificação binária**: prever ou não se uma gorjeta foi paga por uma corrida, ou seja, um *tip\_amount* maior que US$ 0 é um exemplo de positivo, enquanto um *tip\_amount* de US$ 0 é um exemplo de negativo.
 
-2. **Classificação multiclasse**: prever a faixa de gorjetas pagas pela corrida. Dividimos *tip\_amount* em cinco compartimentos ou classes:
+2. **Classificação multiclasse**: prever o intervalo da gorjetas pagas pela corrida. Dividimos *tip\_amount* em cinco compartimentos ou classes:
 
 		Class 0 : tip_amount = $0
 		Class 1 : tip_amount > $0 and tip_amount <= $5
@@ -66,9 +73,9 @@ Formulamos três problemas de previsão com base em *tip\_amount* para ilustrar 
 
 Para configurar o ambiente de Ciência de Dados do Azure, execute estas etapas:
 
-Crie sua própria **conta de armazenamento de blobs do Azure**.
+**Crie sua própria conta de armazenamento de blobs do Azure.**
 
-- Ao provisionar seu próprio armazenamento de blobs do Azure, escolha uma localização geográfica mais próxima possível do **Centro-Sul dos EUA**, que é onde estão armazenados os dados da NYC Taxi . Os dados serão copiados usando o AzCopy do contêiner de armazenamento de blobs público para um contêiner em sua própria conta de armazenamento. Quanto mais próximo seu armazenamento de blobs do Azure estiver do Centro-Sul dos EUA, mais rápido esta tarefa (Etapa 4) será concluída. 
+- Ao provisionar seu próprio armazenamento de blobs do Azure, escolha uma localização geográfica para ele mais próxima possível do **Centro-Sul dos EUA**, que é onde estão armazenados os dados da NYC Taxi. Os dados serão copiados usando o AzCopy do contêiner de armazenamento de blobs público para um contêiner em sua própria conta de armazenamento. Quanto mais próximo seu armazenamento de blobs do Azure estiver do Centro-Sul dos EUA, mais rápido esta tarefa (Etapa 4) será concluída. 
 - Para criar sua própria conta de armazenamento do Azure, execute as etapas descritas em [Sobre as contas de armazenamento do Azure](storage-create-storage-account.md). Lembre-se de anotar os valores das seguintes credenciais de conta de armazenamento, pois eles serão necessários mais tarde neste passo a passo. 
 
   - **Nome da Conta de Armazenamento**
@@ -118,7 +125,7 @@ Em seu *-DestDir*, execute o seguinte script do PowerShell no modo de administra
 
 	./SQLDW_Data_Import.ps1
 
-Quando o script do PowerShell for executado pela primeira vez, você receberá uma solicitação para inserir as informações de seu Azure SQL DW e de sua conta de armazenamento de blobs do Azure. Ao concluir a primeira execução deste script do PowerShell, as credenciais inseridas serão gravadas em um arquivo de configuração SQLDW.conf no diretório de trabalho atual. A futura execução desse arquivo de script do PowerShell terá a opção de ler todos os parâmetros necessários desse arquivo de configuração. Se você precisar alterar alguns parâmetros, escolha inserir os parâmetros na tela ao receber uma solicitação por meio da exclusão desse arquivo de configuração e inserção dos valores de parâmetros conforme solicitado ou alterar os valores de parâmetro editando o arquivo SQLDW.conf em seu diretório *-DestDir*.
+Quando o script do PowerShell for executado pela primeira vez, você receberá uma solicitação para inserir as informações de seu Azure SQL DW e de sua conta de armazenamento de blobs do Azure. Ao concluir a primeira execução deste script do PowerShell, as credenciais inseridas serão gravadas em um arquivo de configuração SQLDW.conf no diretório de trabalho atual. A futura execução desse arquivo de script do PowerShell terá a opção de ler todos os parâmetros necessários desse arquivo de configuração. Se você precisa alterar alguns parâmetros, escolha inserir os parâmetros na tela ao receber uma solicitação por meio da exclusão desse arquivo de configuração e inserção dos valores de parâmetros conforme solicitado ou alterar os valores de parâmetro editando o arquivo SQLDW.conf em seu diretório *-DestDir*.
 
 >[AZURE.NOTE] Para evitar conflitos de nome de esquema com aqueles já existentes em seu Azure SQL DW, ao ler os parâmetros diretamente do arquivo SQLDW.conf, um número aleatório de três dígitos é adicionado ao nome do esquema a partir do arquivo SQLDW.conf como o nome do esquema padrão para cada execução. O script do PowerShell pode solicitar um nome de esquema. Esse nome pode ser especificado a critério do usuário.
 
@@ -309,11 +316,11 @@ Esse arquivo de **script do PowerShell** conclui as seguintes tarefas:
 
 >[AZURE.NOTE] Dependendo da localização geográfica de sua conta de armazenamento de blobs particular, o processo de cópia dos dados de um blob público para sua conta de armazenamento particular pode demorar cerca de 15 minutos, ou até mais, e o processo de carregamento de dados de sua conta de armazenamento para seu Azure SQL DW pode demorar 20 minutos ou mais.
 
->[AZURE.NOTE] Se os arquivos .csv a serem copiados do armazenamento de blobs públicos para sua conta de armazenamento de blobs particular já existirem em sua conta de armazenamento de blob particular, o AzCopy perguntará se você deseja substituí-los. Se você não quiser substituí-los, digite **n** quando for solicitado. Se você quiser substituir **todos** eles, digite **a** quando for solicitado. Você também pode inserir **y** para substituí os arquivos .csv individualmente.
+>[AZURE.NOTE] Se os arquivos .csv a serem copiados do armazenamento de blobs públicos para sua conta de armazenamento de blobs particular já existirem em sua conta de armazenamento de blob particular, o AzCopy perguntará se você deseja substituí-los. Se você não quer substituí-los, digite **n** quando for solicitado. Se você quer substituir **todos** eles, digite **a** quando for solicitado. Você também pode inserir **y** para substituí os arquivos .csv individualmente.
 
 ![Plotar nº 21][21]
 
->[AZURE.TIP] **Usar seus próprios dados:** se os dados estiverem em sua máquina local em seu aplicativo real, você ainda poderá usar o AzCopy para carregar dados locais no armazenamento de blobs do Azure particular. Você só precisará alterar o local de **Origem**,`$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, no comando AzCopy do arquivo de script do PowerShell para um diretório local que contenha seus dados.
+>[AZURE.TIP] **Usar seus próprios dados:** se os dados estiverem em seu computador local em seu aplicativo real, você ainda poderá usar o AzCopy para carregar dados locais no armazenamento de blobs do Azure particular. Você só precisará alterar o local de **Origem**,`$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, no comando AzCopy do arquivo de script do PowerShell para um diretório local que contenha seus dados.
 	
 >[AZURE.TIP] Se seus dados já estiverem no armazenamento de blobs particular do Azure em seu aplicativo real, ignore a etapa do AzCopy no script do PowerShell e carregue os dados diretamente no Azure SQL DW. Isso exigirá mais edições do script para ajustá-lo para o formato de seus dados.
 
@@ -328,7 +335,7 @@ Após a execução bem-sucedida, você verá uma tela parecida com a seguinte:
 
 Nesta seção, executamos a exploração de dados e a geração de recursos por meio da execução de consultas SQL no Azure SQL DW usando diretamente o **Visual Studio Data Tools**. Todas as consultas SQL usadas nesta seção podem ser encontradas no exemplo de script chamado *SQLDW\_Explorations.sql*. Esse arquivo já foi baixado em seu diretório local pelo script do PowerShell. Você também pode recuperá-lo no [Github](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql). Mas o arquivo no Github não tem as informações do Azure SQL DW conectadas.
 
-Conecte-se ao seu Azure SQL DW usando o Visual Studio com o nome e senha de login do SQL DW e abra o **Pesquisador de Objetos do SQL** para confirmar se o banco de dados e as tabelas foram importados. Recupere o arquivo *SQLDW\_Explorations.sql*.
+Conecte-se ao seu Azure SQL DW usando o Visual Studio com o nome e senha de logon do SQL DW e abra o **Pesquisador de Objetos do SQL** para confirmar se o banco de dados e as tabelas foram importados. Recupere o arquivo *SQLDW\_Explorations.sql*.
 
 >[AZURE.NOTE] Para abrir um editor de consultas do PDW (Parallel Data Warehouse), use o comando **Nova Consulta** com seu PDW selecionado no **Pesquisador de Objetos do SQL**. O editor de consulta SQL padrão não tem suporte do PDW.
 
@@ -350,7 +357,7 @@ Essas consultas fornecem uma verificação rápida do número de linhas e coluna
 	-- Report number of columns in table <nyctaxi_trip>
 	SELECT COUNT(*) FROM information_schema.columns WHERE table_name = '<nyctaxi_trip>' AND table_schema = '<schemaname>'
 
-O resultado deve ser 173.179.759 linhas e 14 colunas.
+**Saída:** o resultado deve ser 173.179.759 linhas e 14 colunas.
 
 ### Exploração: distribuição de corridas por licença
 
@@ -362,7 +369,7 @@ Este exemplo de consulta identifica os medalhões (números de táxi) com mais d
 	GROUP BY medallion
 	HAVING COUNT(*) > 100
 
-A consulta deve retornar 13.369 medalhões.
+**Saída:** a consulta deve retornar uma tabela com linhas especificando os 13.369 medalhões (táxis) e o número de viagens concluídas por eles em 2013. A última coluna contém o número de viagens concluídas.
 
 ### Exploração: distribuição de corridas por medallion e hack\_license
 
@@ -373,6 +380,8 @@ Este exemplo identifica os medalhões (números de táxi) e números de hack\_li
 	WHERE pickup_datetime BETWEEN '20130101' AND '20130131'
 	GROUP BY medallion, hack_license
 	HAVING COUNT(*) > 100
+
+**Saída:** a consulta deve retornar uma tabela com 13.369 linhas especificando as 13.369 IDs de carro/motoristas que concluíram mais que 100 corridas em 2013. A última coluna contém o número de viagens concluídas.
 
 ### Avaliação de qualidade de dados: verificar registros com longitude e/ou latitude incorretos
 
@@ -387,9 +396,11 @@ Este exemplo investiga se qualquer um dos campos longitude e/ou latitude contém
 	OR    (pickup_longitude = '0' AND pickup_latitude = '0')
 	OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
 
+**Saída:** a consulta retorna 837.467 corridas que têm campos de longitude e/ou latitude inválidos.
+
 ### Exploração: distribuição de corridas com gorjeta versus sem gorjeta
 
-Este exemplo localiza o número de corridas que receberam gorjetas em comparação com aquelas que não receberam em um determinado período (ou no conjunto de dados completo, se envolver o ano inteiro). Essa distribuição reflete a distribuição de rótulo binário a ser usado posteriormente para modelagem de classificação binária.
+Este exemplo localiza o número de corridas que receberam gorjetas em comparação com aquelas que não receberam em um determinado período (ou no conjunto de dados completo, se envolver o ano inteiro conforme configurado aqui). Essa distribuição reflete a distribuição de rótulo binário a ser usado posteriormente para modelagem de classificação binária.
 
 	SELECT tipped, COUNT(*) AS tip_freq FROM (
 	  SELECT CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped, tip_amount
@@ -397,7 +408,7 @@ Este exemplo localiza o número de corridas que receberam gorjetas em comparaç�
 	  WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
 	GROUP BY tipped
 
-A consulta deve retornar as seguintes frequências de gorjeta: 90.447.622 com gorjeta e 82.264.709 sem gorjeta.
+**Saída:** a consulta deve retornar as seguintes frequências de gorjeta para o ano de 2013: 90.447.622 com gorjeta e 82.264.709 sem gorjeta.
 
 ### Exploração: distribuição de classe/intervalo de gorjetas
 
@@ -415,6 +426,16 @@ Esse exemplo calcula a distribuição dos intervalos de gorjetas em um determina
 	WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
 	GROUP BY tip_class
 
+**Saída:**
+
+|tip\_class | tip\_freq |
+| --------- | -------|
+|1 | 82230915 |
+|2 | 6198803 |
+|3 | 1932223 |
+|0 | 82264625 |
+|4 | 85765 |
+
 ### Exploração: calcular e comparar a distância da corrida
 
 Este exemplo converte a longitude e latitude de saída e chegada para pontos geográficos do SQL, calcula a distância de viagem usando a diferença de pontos geográficos do SQL e retorna uma amostra aleatória dos resultados de comparação. O exemplo limita os resultados às coordenadas válidas apenas usando a consulta de avaliação de qualidade de dados abordada anteriormente.
@@ -430,7 +451,7 @@ Este exemplo converte a longitude e latitude de saída e chegada para pontos geo
 	  DROP FUNCTION fnCalculateDistance
 	GO
 
-	-- User-defined function calculate the direct distance between two geographical coordinates.
+	-- User-defined function to calculate the direct distance  in mile between two geographical coordinates.
 	CREATE FUNCTION [dbo].[fnCalculateDistance] (@Lat1 float, @Long1 float, @Lat2 float, @Long2 float)
 	
 	RETURNS float
@@ -510,6 +531,16 @@ Veja um exemplo para chamar essa função a fim de gerar recursos em sua consult
 	AND CAST(pickup_latitude AS float) BETWEEN -90 AND 90
 	AND CAST(dropoff_latitude AS float) BETWEEN -90 AND 90
 	AND pickup_longitude != '0' AND dropoff_longitude != '0'
+
+**Saída:** esta consulta gera uma tabela (com 2.803.538 linhas) com latitudes e longitudes de saída e chegada e as distâncias diretas correspondentes em milhas. Estes são os resultados para as primeiras 3 linhas:
+
+|pickup\_latitude | pickup\_longitude | dropoff\_latitude |dropoff\_longitude | DirectDistance |
+|---| --------- | -------|-------| --------- | -------|
+|1 | 40\.731804 | -74.001083 | 40\.736622 | -73.988953 | .7169601222 |
+|2 | 40\.715794 | -74,010635 | 40\.725338 | -74.00399 | .7448343721 |
+|3 | 40\.761456 | -73.999886 | 40\.766544 | -73.988228 | 0\.7037227967 |
+
+
 
 ### Preparar dados para criação de modelo
 
@@ -815,7 +846,7 @@ Agora estamos prontos para prosseguir com a criação e implantação de modelo 
 
 
 
-Para iniciar o exercício de modelagem, faça logon em seu espaço de trabalho do **Aprendizado de Máquina do Azure**. Se você ainda não tiver criado uma espaço de trabalho de aprendizado de máquina, consulte [Criar um espaço de trabalho de AM do Azure](machine-learning-create-workspace.md).
+Para iniciar o exercício de modelagem, faça logon no seu espaço de trabalho do **Aprendizado de Máquina do Azure**. Se você ainda não tiver criado uma espaço de trabalho de aprendizado de máquina, consulte [Criar um espaço de trabalho de AM do Azure](machine-learning-create-workspace.md).
 
 1. Para ver os primeiros passos no Aprendizado de Máquina do Azure, consulte [O que é o Estúdio de Aprendizado de Máquina do Azure?](machine-learning-what-is-ml-studio.md)
 
@@ -933,4 +964,4 @@ Este passo a passo do exemplo, os scripts que o acompanham e os IPython Notebook
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

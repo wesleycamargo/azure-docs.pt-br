@@ -13,14 +13,12 @@
     ms.tgt_pltfrm="mobile-xamarin-android"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="11/22/2015"
+	ms.date="02/04/2016"
     ms.author="wesmc"/>
 
 # Habilitar sincronização offline para seu aplicativo móvel Xamarin.Android
 
 [AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Visão geral
 
@@ -38,10 +36,10 @@ Para saber mais sobre o recurso de sincronização offline, confira o tópico [S
 
 ## Examine o código de sincronização do cliente
 
-O projeto de cliente do Xamarin que você baixou ao concluir o tutorial [Criar um aplicativo do Xamarin Android] já contém um código que dá suporte à sincronização offline usando um banco de dados SQLite local. Aqui há um resumo breve do que já está incluído no código do tutorial. Para obter uma visão geral conceitual do recurso, confira [Sincronização de dados offline nos Aplicativos Móveis do Azure].
+O projeto de cliente Xamarin que você baixou ao concluir o tutorial [Criar um aplicativo Xamarin Android] já contém a sincronização offline do código de suporte usando um banco de dados SQLite local. Aqui há um resumo breve do que já está incluído no código do tutorial. Para obter uma visão geral conceitual do recurso, confira [Sincronização de dados Offline em aplicativos móveis do Azure].
 
-* Antes de qualquer operação de tabela poder ser executada, o armazenamento local deve ser inicializado. O banco de dados do armazenamento local é inicializado quando o `ToDoActivity.OnCreate()` executa o `ToDoActivity.InitLocalStoreAsync()`. Isso cria um novo banco de dados SQLite local usando a classe `MobileServiceSQLiteStore` fornecida pelo SDK do cliente de Aplicativos Móveis do Azure. 
- 
+* Antes de qualquer operação de tabela poder ser executada, o armazenamento local deve ser inicializado. O banco de dados do armazenamento local é inicializado quando o `ToDoActivity.OnCreate()` executa o `ToDoActivity.InitLocalStoreAsync()`. Isso cria um novo banco de dados SQLite local usando a classe `MobileServiceSQLiteStore` fornecida pelo SDK do cliente de Aplicativos Móveis do Azure.
+
 	O método `DefineTable` cria uma tabela no repositório local que corresponde aos campos no tipo fornecido, `ToDoItem`, neste caso. O tipo não precisa incluir todas as colunas que estão no banco de dados remoto. É possível armazenar apenas um subconjunto de colunas.
 
 		// ToDoActivity.cs
@@ -60,14 +58,14 @@ O projeto de cliente do Xamarin que você baixou ao concluir o tutorial [Criar u
             store.DefineTable<ToDoItem>();
 
             // Uses the default conflict handler, which fails on conflict
-            // To use a different conflict handler, pass a parameter to InitializeAsync. 
+            // To use a different conflict handler, pass a parameter to InitializeAsync.
 			// For more details, see http://go.microsoft.com/fwlink/?LinkId=521416.
             await client.SyncContext.InitializeAsync(store);
         }
 
 
 * O membro `toDoTable` do `ToDoActivity` é do tipo `IMobileServiceSyncTable` em vez do `IMobileServiceTable`. Isso instrui todas as operações de tabela CRUD (Criar, Ler, Atualizar e Excluir) no banco de dados do armazenamento local.
- 
+
 	Você decide quando essas alterações são enviadas por push para o back-end do aplicativo móvel do Azure chamando o `IMobileServiceSyncContext.PushAsync()` usando o contexto de sincronização para a conexão do cliente. O contexto de sincronização ajuda a preservar relações da tabela controlando e enviando por push as alterações em todas as tabelas que um aplicativo cliente tenha modificado quando o `PushAsync` é chamado.
 
 	O código fornecido chama o `ToDoActivity.SyncAsync()` para sincronizar sempre que a lista todoitem é atualizada ou um todoitem é adicionado ou concluído. Então ele sincroniza após cada alteração local executa um envio por push no contexto de sincronização e um pull na tabela de sincronização. No entanto, é importante observar que se o pull é executado em uma tabela que tenha atualizações locais pendentes controladas pelo contexto, e essa operação de pull automaticamente disparará um primeiro envio por push de contexto. Para esses casos (itens de atualizar, adicionar e concluir), você poderia omitir a chamada explícita `PushAsync`. Ela é redundante.
@@ -75,9 +73,7 @@ O projeto de cliente do Xamarin que você baixou ao concluir o tutorial [Criar u
     No código fornecido, todos os registros na tabela remota `TodoItem` são solicitados, mas também é possível filtrar os registros passando uma ID de consulta e uma consulta ao `PushAsync`. Para obter mais informações, confira a seção *Sincronização incremental* em [Sincronização de dados offline nos Aplicativos Móveis do Azure].
 
 	<!-- Need updated conflict handling info : `InitializeAsync` uses the default conflict handler, which fails whenever there is a conflict. To provide a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services].
-	-->	
-		// ToDoActivity.cs
-
+-->	// ToDoActivity.cs
         private async Task SyncAsync()
         {
 			try {
@@ -101,7 +97,7 @@ Nesta seção, você modificará o aplicativo cliente para simular um cenário o
 
 1. Na parte superior de `ToDoActivity.cs`, altere a inicialização do `applicationURL` para apontar para URLs inválidas:
 
-        const string applicationURL = @"https://your-service.azurewebsites.fail/"; 
+        const string applicationURL = @"https://your-service.azurewebsites.fail/";
 
 	Observe que quando seu aplicativo também estiver usando a autenticação, isso causará falha na entrada. Você também pode demonstrar o comportamento offline desabilitando redes Wi-Fi e celular no dispositivo ou usando o modo avião.
 
@@ -132,7 +128,7 @@ Nesta seção, você modificará o aplicativo cliente para simular um cenário o
 
    No Visual Studio, abra **Gerenciador de Servidores**. Navegue até o banco de dados em **Azure**->**Bancos de dados SQL**. Clique com o botão direito do mouse em seu banco de dados e selecione **Abrir no Gerenciador de Objetos do SQL Server**. Agora você pode navegar até sua tabela de banco de dados SQL e seu conteúdo.
 
-6. (Opcional) Use uma ferramenta REST, como o Fiddler ou Postman, para consultar seu back-end móvel, usando uma consulta GET no formulário `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem`. 
+6. (Opcional) Use uma ferramenta REST, como o Fiddler ou Postman, para consultar seu back-end móvel, usando uma consulta GET no formulário `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem`.
 
 
 ## Atualize o aplicativo cliente para reconectar seu back-end móvel
@@ -151,7 +147,7 @@ Nesta seção, você vai reconectar o aplicativo ao back-end móvel, que simula 
 
 * [Sincronização de dados offline em Aplicativos Móveis do Azure]
 
-* [Cobertura em nuvem: sincronização Offline nos serviços móveis do Azure] (Observação: o vídeo está nos Serviços Móveis, mas a sincronização offline funciona de maneira semelhante nos Aplicativos Móveis do Azure)
+* [Cobertura em nuvem: sincronização offline nos serviços móveis do Azure] (observação: o vídeo está nos Serviços Móveis, mas a sincronização offline funciona de maneira semelhante nos Aplicativos Móveis do Azure)
 
 <!-- ##Summary
 
@@ -167,8 +163,9 @@ Nesta seção, você vai reconectar o aplicativo ao back-end móvel, que simula 
 <!-- Images -->
 
 <!-- URLs. -->
+[Criar um aplicativo Xamarin Android]: ../app-service-mobile-xamarin-android-get-started.md
 [Criar um aplicativo do Xamarin Android]: ../app-service-mobile-xamarin-android-get-started.md
-[Sincronização de dados offline em Aplicativos Móveis do Azure]: ../app-service-mobile-offline-data-sync.md
+[Sincronização de dados Offline em aplicativos móveis do Azure]: ../app-service-mobile-offline-data-sync.md
 [Sincronização de dados offline nos Aplicativos Móveis do Azure]: ../app-service-mobile-offline-data-sync.md
 
 [How to use the Xamarin Component client for Azure Mobile Services]: ../partner-xamarin-mobile-services-how-to-use-client-library.md
@@ -176,6 +173,6 @@ Nesta seção, você vai reconectar o aplicativo ao back-end móvel, que simula 
 [Xamarin Studio]: http://xamarin.com/download
 [Extensão Xamarin]: http://xamarin.com/visual-studio
 
-[Cobertura em nuvem: sincronização Offline nos serviços móveis do Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Cobertura em nuvem: sincronização offline nos serviços móveis do Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!---HONumber=AcomDC_1125_2015--->
+<!---HONumber=AcomDC_0211_2016-->

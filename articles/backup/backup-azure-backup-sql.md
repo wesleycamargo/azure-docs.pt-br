@@ -7,7 +7,14 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/26/2015" ms.author="aashishr", "giridham"; "jimpark"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/08/2016"
+	ms.author="giridham; jimpark;"/>
 
 
 # Backup do Azure para cargas de trabalho do SQL Server usando o DPM
@@ -55,7 +62,7 @@ Antes de começar, verifique se todos os [pré-requisitos](../backup-azure-dpm-i
 
     ![Objetivos de curto prazo](./media/backup-azure-backup-sql/pg-shortterm.png)
 
-    >[AZURE.NOTE]Às 20:00 (de acordo com a entrada da tela), um ponto de backup é criado diariamente transferindo os dados que foram modificados do ponto de backup das 20:00 do dia anterior. Esse processo é chamado de **Backup Completo Expresso**. Enquanto os logs de transição são sincronizados a cada 15 minutos, se houver a necessidade de recuperar o banco de dados às 9h, o ponto será criado reproduzindo novamente os logs do último ponto de backup completo expresso (20h, neste caso).
+    >[AZURE.NOTE] Às 20:00 (de acordo com a entrada da tela), um ponto de backup é criado diariamente transferindo os dados que foram modificados do ponto de backup das 20:00 do dia anterior. Esse processo é chamado de **Backup Completo Expresso**. Enquanto os logs de transição são sincronizados a cada 15 minutos, se houver a necessidade de recuperar o banco de dados às 9h, o ponto será criado reproduzindo novamente os logs do último ponto de backup completo expresso (20h, neste caso).
 
 8. Clique em **Próximo**.
 
@@ -65,7 +72,7 @@ Antes de começar, verifique se todos os [pré-requisitos](../backup-azure-dpm-i
 
     O DPM cria um volume por fonte de dados (banco de dados SQL Server) para criar a cópia de backup inicial. Com essa abordagem, o LDM (Gerenciador de Discos Lógicos) limita o DPM a proteger somente até 300 fontes de dados (bancos de dados SQL Server). Para evitar isso, o DPM implementou outra abordagem que usa um único volume de várias fontes de dados. Isso é habilitado usando a opção **Colocalizar dados no Pool de Armazenamento do DPM**. Com essa abordagem, o DPM pode proteger até 2 mil bancos de dados SQL.
 
-    O DPM pode considerar o aumento do volume de backup conforme os dados de produção aumenta, desde que a opção **Aumentar os volumes automaticamente** seja selecionada. Se você desmarcar **Aumentar os volumes automaticamente**, isso limitará o armazenamento de backup usado para fazer backup das fontes de dados no grupo de proteção.
+    O DPM pode considerar o aumento do volume de backup conforme os dados de produção aumenta, desde que a opção **Aumentar os volumes automaticamente** seja selecionada. Se você desmarcar **Aumentar os volumes automaticamente**, isso limitará o armazenamento de backup usado para fazer backup de fontes de dados no grupo de proteção.
 
 9. Os administradores recebem a opção de transferir este backup inicial manualmente (fora da rede) para evitar o congestionamento de largura de banda ou pela rede. Eles também podem configurar a hora em que a transferência inicial pode acontecer. Clique em **Próximo**.
 
@@ -91,7 +98,7 @@ Antes de começar, verifique se todos os [pré-requisitos](../backup-azure-dpm-i
 
     Neste exemplo, os backups são feitos uma vez por dia às 12h e às 20h (parte inferior da tela)
 
-    >[AZURE.NOTE]É uma prática recomendada ter alguns pontos de recuperação de curto prazo em disco para recuperação rápida. Isso é chamado de "recuperação operacional". O Azure serve como um bom local fora do site com SLAs e garantia de disponibilidade superiores.
+    >[AZURE.NOTE] É uma prática recomendada ter alguns pontos de recuperação de curto prazo em disco para recuperação rápida. Isso é chamado de "recuperação operacional". O Azure serve como um bom local fora do site com SLAs e garantia de disponibilidade superiores.
 
     **Prática recomendada**: verifique se os Backups do Azure estão agendados após a conclusão de backups em disco local usando o DPM. Isso permite que o último backup de disco seja copiado para o Azure.
 
@@ -109,7 +116,7 @@ Antes de começar, verifique se todos os [pré-requisitos](../backup-azure-dpm-i
 14. Clique em **Avançar** e selecione a opção apropriada para transferir a cópia do backup inicial para o Azure. Você pode escolher **Automaticamente pela rede** ou **Backup Offline**.
 
     - **Automaticamente pela rede** transfere os dados de backup para o Azure de acordo com o agendamento escolhido para backup.
-    - Como o funcionamento do **Backup Offline** é explicado no [Fluxo de trabalho do Backup Offline no Backup do Azure](backup-azure-backup-import-export.md).
+    - Como o **Backup Offline** funciona é explicado no [Fluxo de trabalho de backup offline no Backup do Azure](backup-azure-backup-import-export.md).
 
     Escolha o mecanismo de transferência relevante para enviar a cópia de backup inicial para o Azure e clique em **Avançar**.
 
@@ -167,4 +174,4 @@ As seguintes etapas são necessárias para recuperar uma entidade protegida (ban
 
 • [Perguntas frequentes sobre o Backup do Azure](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

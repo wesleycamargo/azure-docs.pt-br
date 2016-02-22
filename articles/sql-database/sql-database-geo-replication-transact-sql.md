@@ -57,7 +57,7 @@ Use as seguintes etapas para criar um secundário não legível como um banco de
 
 1. Com a versão 13.0.600.65 ou posterior do SQL Server Management Studio.
 
- 	 >[AZURE.IMPORTANT] Baixe a versão [mais recente](https://msdn.microsoft.com/library/mt238290.aspx) do SQL Server Management Studio. É recomendável usar sempre a versão mais recente do Management Studio para continuar em sincronia com as atualizações do portal do Azure.
+ 	 > [AZURE.IMPORTANT] Baixe a versão [mais recente](https://msdn.microsoft.com/library/mt238290.aspx) do SQL Server Management Studio. É recomendável usar sempre a versão mais recente do Management Studio para continuar em sincronia com as atualizações do portal do Azure.
 
 
 2. Abra a pasta Bancos de Dados, expanda a pasta **Bancos de Dados do Sistema**, clique com o botão direito do mouse em **mestre** e, em seguida, clique em **Nova Consulta**.
@@ -231,6 +231,6 @@ Use as etapas a seguir para monitorar uma parceria de replicação geográfica.
 - [Destacar os novos recursos de replicação geográfica](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 - [Projetando aplicativos de nuvem para a continuidade de negócios usando a replicação geográfica](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
-- [Documentação do Banco de Dados SQL](sql-database.md)
+- [Documentação do Banco de Dados SQL](https://azure.microsoft.com/services/sql-database/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

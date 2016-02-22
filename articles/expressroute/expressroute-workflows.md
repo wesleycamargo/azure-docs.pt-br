@@ -34,8 +34,7 @@ A figura e as etapas correspondentes abaixo mostram as tarefas que você deve ex
 	-  Habilitar o emparelhamento público do Azure - Você deve habilitar o emparelhamento público do Azure se quiser se conectar aos serviços do Azure hospedados em endereços IP públicos. Esse é um requisito para acessar os recursos do Azure se você tiver optado por habilitar o roteamento padrão para emparelhamento privado do Azure.
 	-  Habilitar o emparelhamento da Microsoft - você deve habilitar isso para acessar os serviços do Office 365 e do CRM Online. 
 	
-	>[AZURE.IMPORTANT]Se você estiver habilitando o emparelhamento da Microsoft, verifique se o emparelhamento público do Azure também está habilitado para acessar o Azure AD. Use um proxy/borda diferente da usada para a Internet para se conectar à Microsoft. Usar a mesma borda para a Rota Expressa e para a Internet causará o roteamento assimétrico e falhas de conectividade em sua rede.
-
+	>[AZURE.IMPORTANT] Use um proxy/borda diferente da usada para a Internet para se conectar à Microsoft. Usar a mesma borda para a Rota Expressa e para a Internet causará o roteamento assimétrico e falhas de conectividade em sua rede.
 
 	![](./media/expressroute-workflows/expressroute-routing-workflow.png)
 
@@ -110,7 +109,7 @@ O estado de provisionamento BGP permite que você saiba se a sessão BGP foi hab
 
 Se o estado de prefixo público anunciado for definido como *validação necessária*, a sessão BGP não estará habilitada, pois os prefixos anunciados não corresponderam ao número AS em qualquer um dos registros do roteamento.
 
->[AZURE.IMPORTANT]Se o estado de prefixos públicos anunciados for *validação manual*, será necessário abrir um tíquete de suporte com o [suporte da Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) e fornecer provas de que você possui os endereços IP anunciados juntamente com o número do Sistema Autônomo associado.
+>[AZURE.IMPORTANT] Se o estado de prefixos públicos anunciados for *validação manual*, será necessário abrir um tíquete de suporte com o [suporte da Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) e fornecer provas de que você possui os endereços IP anunciados juntamente com o número do Sistema Autônomo associado.
 
 
 ## Próximas etapas
@@ -121,4 +120,4 @@ Se o estado de prefixo público anunciado for definido como *validação necess�
 	- [Configurar o roteamento](expressroute-howto-routing-arm.md)
 	- [Vincular uma Rede Virtual a um circuito de Rota Expressa](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

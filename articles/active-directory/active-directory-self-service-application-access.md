@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/14/2015"
+	ms.date="02/09/2016"
 	ms.author="asmalser"/>
 
 #Acesso a aplicativos de autoatendimento e gerenciamento delegado com o Active Directory do Azure
@@ -101,9 +101,12 @@ O bloco **Configurar** só será mostrado se o aplicativo foi configurado pelo a
 
 * **Os usuários entram automaticamente usando uma única conta que eu gerencio** –esse é um caso especial e é apropriado para ser usado quando é necessário conceder acesso a todos os usuários atribuídos usando uma conta compartilhada. O caso de uso mais comum para isso são os aplicativos de mídia social, em que uma organização tem uma única conta "corporativa" e vários usuários precisam fazer atualizações nessa conta. Isso também corresponde à senha SSO, em que os [administradores gerenciam credenciais](active-directory-appssoaccess-whatis.md#password-based-single-sign-on). No entanto, depois de selecionar essa opção, o aprovador deverá inserir o nome de usuário e a senha para a conta compartilhada única. Depois de concluído, todos os usuários atribuídos serão conectados usando essa conta ao clicar no aplicativo nos painéis de acesso do AD do Azure ou no Office 365.
 
+##Recursos adicionais
+- [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
+
 <!--Image references-->
 [1]: ./media/active-directory-self-service-application-access/ssaa_admin.PNG
 [2]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app.PNG
 [3]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app_config.PNG
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

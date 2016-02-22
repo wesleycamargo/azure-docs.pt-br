@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/04/2015" 
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 
@@ -60,9 +60,9 @@ A restrição **aberta** significa que o sistema fornecerá a chave para qualque
 
 Para escolher a política com restrição de token, pressione o botão **TOKEN**.
 
-A política restrita do **token** deve ser acompanhada por um token emitido por um STS (**Secure Token Service**). Os Serviços de Mídia dão suporte a tokens no formato [SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (**Tokens Web Simples**) e no formato JWT (**Token Web JSON**). Para obter informações, consulte [Autenticação de token JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
+A política restrita do **token** deve ser acompanhada por um token emitido por um **Secure Token Service** (STS). Os Serviços de Mídia dão suporte a tokens no formato [SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (**Tokens Web Simples**) e no formato JWT (**Token Web JSON**). Para obter informações, consulte [Autenticação de token JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
 
-Os Serviços de Mídia não fornecem **Serviços de Token Seguro**. Você pode criar um STS personalizado ou usar o Microsoft Azure ACS para emitir tokens. O STS deve ser configurado para criar um token assinado com as a chave especificada e declarações de emissão que você especificou na configuração de restrição do token. O serviço de distribuição de chaves dos serviços de mídia retornará a chave de criptografia para o cliente se o token for válido e as declarações no token corresponderem aos configurados para a chave de conteúdo. Para saber mais, consulte [Use o Azure ACS para emitir tokens](http://mingfeiy.com/acs-with-key-services).
+Os Serviços de Mídia não fornecem **Serviços de Token Seguro**. Você pode criar um STS personalizado ou usar o Microsoft Azure ACS para emitir tokens. O STS deve ser configurado para criar um token assinado com as a chave especificada e declarações de emissão que você especificou na configuração de restrição do token. O serviço de distribuição de chaves dos serviços de mídia retornará a chave de criptografia para o cliente se o token for válido e as declarações no token corresponderem aos configurados para a chave de conteúdo. Para saber mais, consulte [Uso do Azure ACS para emitir tokens](http://mingfeiy.com/acs-with-key-services).
 
 Ao configurar a política com restrição de **TOKEN**, você deve definir valores para **chave de verificação**, **emissor** e **audiência**. A chave de verificação primária contém a chave que o token foi assinado, o emissor é o serviço de token seguro que emite o token. A audiência (às vezes chamada de escopo) descreve a intenção do token ou o recurso que o token autoriza o acesso. O serviço de distribuição de chaves dos serviços de mídia valida que esses valores no token correspondem aos valores no modelo.
 
@@ -103,4 +103,4 @@ Agora que você configurou a política de autorização da chave de conteúdo, v
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

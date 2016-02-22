@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="02/10/2016" 
 	ms.author="stefsch"/>
 
 # Conexão segura a recursos de back-end a partir de um ambiente do Serviço de Aplicativo #
@@ -28,6 +28,8 @@ Por exemplo, pode haver um SQL Server em execução em um cluster de máquinas v
 Como outro exemplo, pontos de extremidade confidenciais podem ser executados localmente e conectados ao Azure via conexões [Site a Site][SiteToSite] ou [Rota Expressa do Azure][ExpressRoute]. Como resultado, apenas os recursos nas redes virtuais conectadas a túneis Site a Site ou de rota expressa poderão acessar pontos de extremidade locais.
 
 Para todos esses cenários, aplicativos em execução em um ambiente do serviço de aplicativo serão capazes de se conectar com segurança aos diversos servidores e recursos. Tráfego de saída de aplicativos que são executados em um ambiente do serviço de aplicativo para pontos de extremidade privados na mesma rede virtual (ou conectados à mesma rede virtual) passará apenas pela rede virtual. O tráfego de saída para pontos de extremidade privados não passará pela Internet pública.
+
+Uma limitação se aplica ao tráfego de saída de um ambiente de Serviço de Aplicativo para pontos de extremidade em uma rede virtual. Ambientes do Serviço de Aplicativo não podem acessar pontos de extremidade de máquinas virtuais localizados na **mesma** sub-rede que o ambiente do Serviço de Aplicativo. Isso não deve ser um problema, desde que os ambientes do Serviço de Aplicativo sejam implantados em uma sub-rede reservada para uso exclusivo pelo ambiente do Serviço de Aplicativo.
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -57,7 +59,7 @@ A porta 1433 pode ser protegida usando uma lista de controle de acesso de rede. 
 
 ![Exemplo de lista de controle de acesso de rede][NetworkAccessControlListExample]
 
-Quaisquer aplicativos em execução no ambiente do serviço de aplicativo na mesma rede virtual que o SQL Server serão capazes de se conectarem à instância do SQL Server usando o endereço IP **VNet interno** para a máquina virtual do SQL Server.
+Quaisquer aplicativos em execução no ambiente de serviço de aplicativo na mesma rede virtual que o SQL Server serão capazes de se conectarem à instância do SQL Server usando o endereço IP **VNet interno** para a máquina virtual do SQL Server.
 
 A cadeia de conexão de exemplo a seguir faz referência ao SQL Server usando seu endereço IP privado.
 
@@ -87,9 +89,9 @@ O resultado final é um conjunto de regras de segurança que bloqueiam o acesso 
 
 ## Introdução
 
-Para se familiarizar com os ambientes do serviço de aplicativo, consulte [Introdução ao ambiente do serviço de aplicativo][IntroToAppServiceEnvironment]
+Para se familiarizar com os ambientes de serviço de aplicativo, consulte [Introdução ao ambiente do serviço de aplicativo][IntroToAppServiceEnvironment]
 
-Para obter detalhes sobre como controlar o tráfego de entrada para seu ambiente do serviço de aplicativo, consulte [Controlando o tráfego de entrada para um ambiente do serviço de aplicativo][ControlInboundASE]
+Para obter detalhes sobre como controlar o tráfego de entrada para seu ambiente de serviço de aplicativo, consulte [Controlando o tráfego de entrada para um ambiente de serviço de aplicativo][ControlInboundASE]
 
 Para obter mais informações sobre a plataforma do Serviço de Aplicativo do Azure, consulte [Serviço de Aplicativo do Azure][AzureAppService].
 
@@ -114,4 +116,4 @@ Para obter mais informações sobre a plataforma do Serviço de Aplicativo do Az
 [NetworkAccessControlListExample]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png
 [DefaultNetworkSecurityRules]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 #Utilizar o Maven para criar aplicativos Java que usam o HBase com o HDInsight (Hadoop)
@@ -111,7 +111,7 @@ O [Maven](http://maven.apache.org/) é uma ferramenta de software para compreens
 
 	Isso configura um recurso (__conf\\hbase-site.xml__), que contém informações de configuração para o HBase.
 
-	> [AZURE.NOTE]Você também pode definir valores de configuração via código. Veja os comentários no exemplo __CreateTable__ abaixo sobre como fazer isso.
+	> [AZURE.NOTE] Você também pode definir valores de configuração via código. Veja os comentários no exemplo __CreateTable__ abaixo sobre como fazer isso.
 
 	Isso também configura o [Plug-in compilador do Maven](http://maven.apache.org/plugins/maven-compiler-plugin/) e o [Plug-in de tonalidade do Maven](http://maven.apache.org/plugins/maven-shade-plugin/). O plug-in compilador é usado para compilar a topologia. O plug-in de tonalidade é usado para evitar a duplicação de licenças no pacote JAR que é criado pelo Maven. O motivo do uso desse recurso é que os arquivos de licença duplicados causam um erro no momento da execução no cluster do HDInsight. Utilizar o plug-in de tonalidade do Maven com a implementação `ApacheLicenseResourceTransformer` evita esse erro.
 
@@ -125,7 +125,7 @@ O [Maven](http://maven.apache.org/) é uma ferramenta de software para compreens
 
 		scp USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml
 
-	> [AZURE.NOTE]Se você usou uma chave SSH com a conta, você pode precisar inserir a senha. Se você usou uma chave SSH com a conta, você precisará usar o `-i` parâmetro para especificar o caminho para o arquivo de chave. O exemplo a seguir carregará a chave privada de `~/.ssh/id_rsa`:
+	> [AZURE.NOTE] Se você usou uma chave SSH com a conta, você pode precisar inserir a senha. Se você usou uma chave SSH com a conta, você precisará usar o `-i` parâmetro para especificar o caminho para o arquivo de chave. O exemplo a seguir carregará a chave privada de `~/.ssh/id_rsa`:
 	>
 	> `scp -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml`
 
@@ -135,70 +135,73 @@ O [Maven](http://maven.apache.org/) é uma ferramenta de software para compreens
 
 2. Abra o arquivo __CreateTable.java__ e substitua o conteúdo existente pelo exibido a seguir:
 
-		package com.microsoft.examples;
-		import java.io.IOException;
+        package com.microsoft.examples;
+        import java.io.IOException;
 
-		import org.apache.hadoop.conf.Configuration;
-		import org.apache.hadoop.hbase.HBaseConfiguration;
-		import org.apache.hadoop.hbase.client.HBaseAdmin;
-		import org.apache.hadoop.hbase.HTableDescriptor;
-		import org.apache.hadoop.hbase.TableName;
-		import org.apache.hadoop.hbase.HColumnDescriptor;
-		import org.apache.hadoop.hbase.client.HTable;
-		import org.apache.hadoop.hbase.client.Put;
-		import org.apache.hadoop.hbase.util.Bytes;
+        import org.apache.hadoop.conf.Configuration;
+        import org.apache.hadoop.hbase.HBaseConfiguration;
+        import org.apache.hadoop.hbase.client.HBaseAdmin;
+        import org.apache.hadoop.hbase.HTableDescriptor;
+        import org.apache.hadoop.hbase.TableName;
+        import org.apache.hadoop.hbase.HColumnDescriptor;
+        import org.apache.hadoop.hbase.client.HTable;
+        import org.apache.hadoop.hbase.client.Put;
+        import org.apache.hadoop.hbase.util.Bytes;
 
-		public class CreateTable {
-		  public static void main(String[] args) throws IOException {
-		    Configuration config = HBaseConfiguration.create();
+        public class CreateTable {
+          public static void main(String[] args) throws IOException {
+            Configuration config = HBaseConfiguration.create();
 
-		    // Example of setting zookeeper values for HDInsight
-			//   in code instead of an hbase-site.xml file
-			//
-		    // config.set("hbase.zookeeper.quorum",
-		    //            "zookeepernode0,zookeepernode1,zookeepernode2");
-		    //config.set("hbase.zookeeper.property.clientPort", "2181");
-		    //config.set("hbase.cluster.distributed", "true");
+            // Example of setting zookeeper values for HDInsight
+            // in code instead of an hbase-site.xml file
+            //
+            // config.set("hbase.zookeeper.quorum",
+            //            "zookeepernode0,zookeepernode1,zookeepernode2");
+            //config.set("hbase.zookeeper.property.clientPort", "2181");
+            //config.set("hbase.cluster.distributed", "true");
             //
             //NOTE: Actual zookeeper host names can be found using Ambari:
             //curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts"
+            
+            //Linux-based HDInsight clusters don't use the default znode parent
+            config.set("zookeeper.znode.parent","/hbase-unsecure");
 
-		    // create an admin object using the config
-		    HBaseAdmin admin = new HBaseAdmin(config);
+            // create an admin object using the config
+            HBaseAdmin admin = new HBaseAdmin(config);
 
-		    // create the table...
-		    HTableDescriptor tableDescriptor = new HTableDescriptor(TableName.valueOf("people"));
-		    // ... with two column families
-		    tableDescriptor.addFamily(new HColumnDescriptor("name"));
-		    tableDescriptor.addFamily(new HColumnDescriptor("contactinfo"));
-		    admin.createTable(tableDescriptor);
+            // create the table...
+            HTableDescriptor tableDescriptor = new HTableDescriptor(TableName.valueOf("people"));
+            // ... with two column families
+            tableDescriptor.addFamily(new HColumnDescriptor("name"));
+            tableDescriptor.addFamily(new HColumnDescriptor("contactinfo"));
+            admin.createTable(tableDescriptor);
 
-		    // define some people
-		    String[][] people = {
-		        { "1", "Marcel", "Haddad", "marcel@fabrikam.com"},
-		        { "2", "Franklin", "Holtz", "franklin@contoso.com" },
-		        { "3", "Dwayne", "McKee", "dwayne@fabrikam.com" },
-		        { "4", "Rae", "Schroeder", "rae@contoso.com" },
-		        { "5", "Rosalie", "burton", "rosalie@fabrikam.com"},
-		        { "6", "Gabriela", "Ingram", "gabriela@contoso.com"} };
+            // define some people
+            String[][] people = {
+                { "1", "Marcel", "Haddad", "marcel@fabrikam.com"},
+                { "2", "Franklin", "Holtz", "franklin@contoso.com" },
+                { "3", "Dwayne", "McKee", "dwayne@fabrikam.com" },
+                { "4", "Rae", "Schroeder", "rae@contoso.com" },
+                { "5", "Rosalie", "burton", "rosalie@fabrikam.com"},
+                { "6", "Gabriela", "Ingram", "gabriela@contoso.com"} };
 
-		    HTable table = new HTable(config, "people");
+            HTable table = new HTable(config, "people");
 
-		    // Add each person to the table
-		    //   Use the `name` column family for the name
-		    //   Use the `contactinfo` column family for the email
-		    for (int i = 0; i< people.length; i++) {
-		      Put person = new Put(Bytes.toBytes(people[i][0]));
-		      person.add(Bytes.toBytes("name"), Bytes.toBytes("first"), Bytes.toBytes(people[i][1]));
-		      person.add(Bytes.toBytes("name"), Bytes.toBytes("last"), Bytes.toBytes(people[i][2]));
-		      person.add(Bytes.toBytes("contactinfo"), Bytes.toBytes("email"), Bytes.toBytes(people[i][3]));
-		      table.put(person);
-		    }
-		    // flush commits and close the table
-		    table.flushCommits();
-		    table.close();
-		  }
-		}
+            // Add each person to the table
+            //   Use the `name` column family for the name
+            //   Use the `contactinfo` column family for the email
+            for (int i = 0; i< people.length; i++) {
+              Put person = new Put(Bytes.toBytes(people[i][0]));
+              person.add(Bytes.toBytes("name"), Bytes.toBytes("first"), Bytes.toBytes(people[i][1]));
+              person.add(Bytes.toBytes("name"), Bytes.toBytes("last"), Bytes.toBytes(people[i][2]));
+              person.add(Bytes.toBytes("contactinfo"), Bytes.toBytes("email"), Bytes.toBytes(people[i][3]));
+              table.put(person);
+            }
+            // flush commits and close the table
+            table.flushCommits();
+            table.close();
+          }
+        }
 
 	Essa é a classe __CreateTable__, que criará uma tabela chamada __pessoas__ e a preencherá com alguns usuários pré-definidos.
 
@@ -317,7 +320,7 @@ O [Maven](http://maven.apache.org/) é uma ferramenta de software para compreens
 
 3. Assim que o comando for concluído, o diretório __hbaseapp/target__ conterá um arquivo chamado __hbaseapp-1.0-SNAPSHOT.jar__.
 
-	> [AZURE.NOTE]O arquivo __hbaseapp-1.0-SNAPSHOT.jar__ é um uberjar (algumas vezes chamado de fatjar), que contém todas as dependências exigidas para executar o aplicativo.
+	> [AZURE.NOTE] O arquivo __hbaseapp-1.0-SNAPSHOT.jar__ é um uberjar (algumas vezes chamado de fatjar), que contém todas as dependências exigidas para executar o aplicativo.
 
 ##Carregue o arquivo JAR e inicie um trabalho
 
@@ -327,7 +330,7 @@ O [Maven](http://maven.apache.org/) é uma ferramenta de software para compreens
 
 	Isso carregará o arquivo para o diretório inicial para sua conta de usuário do SSH.
 
-	> [AZURE.NOTE]Se você usou uma chave SSH com a conta, você pode precisar inserir a senha. Se você usou uma chave SSH com a conta, você precisará usar o `-i` parâmetro para especificar o caminho para o arquivo de chave. O exemplo a seguir carregará a chave privada de `~/.ssh/id_rsa`:
+	> [AZURE.NOTE] Se você usou uma chave SSH com a conta, você pode precisar inserir a senha. Se você usou uma chave SSH com a conta, você precisará usar o `-i` parâmetro para especificar o caminho para o arquivo de chave. O exemplo a seguir carregará a chave privada de `~/.ssh/id_rsa`:
 	>
 	> `scp -i ~/.ssh/id_rsa ./target/hbaseapp-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:.`
 
@@ -335,7 +338,7 @@ O [Maven](http://maven.apache.org/) é uma ferramenta de software para compreens
 
 		ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
-	> [AZURE.NOTE]Se você tiver usado uma senha para sua conta SSH, a inserção da senha poderá ser solicitada. Se você usou uma chave SSH com a conta, você precisará usar o `-i` parâmetro para especificar o caminho para o arquivo de chave. O exemplo a seguir carregará a chave privada de `~/.ssh/id_rsa`:
+	> [AZURE.NOTE] Se você tiver usado uma senha para sua conta SSH, a inserção da senha poderá ser solicitada. Se você usou uma chave SSH com a conta, você precisará usar o `-i` parâmetro para especificar o caminho para o arquivo de chave. O exemplo a seguir carregará a chave privada de `~/.ssh/id_rsa`:
 	>
 	> `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`
 
@@ -364,4 +367,4 @@ Após ter terminado o exemplo, use o comando a seguir na sessão do Azure PowerS
 
 	hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

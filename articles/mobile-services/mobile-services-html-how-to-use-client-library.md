@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="10/23/2015"
+	ms.date="01/26/2016"
 	ms.author="glenga"/>
 
 # Como usar um cliente HTML/JavaScript para os Serviços Móveis do Azure
@@ -164,7 +164,7 @@ Então, desde que seguirmos as regras, podemos adicionar filtros mais complexos 
 
 O código a seguir ilustra como classificar dados incluindo uma função `orderBy` ou `orderByDescending` na consulta. Ele retorna os itens da `todoItemTable` classificada em ordem crescente pelo campo `text`. Por padrão, o servidor retorna apenas os 50 primeiros elementos.
 
-> [AZURE.NOTE]Um tamanho da página de servidor controlado por nós usado por padrão para prevenir todos os elementos de serem retornados. Isso impede que solicitações padrão de grandes conjuntos de dados impactem negativamente o serviço. Você pode aumentar o número de itens a ser retornado pela chamada `take` conforme descrito na próxima seção. `todoItemTable` é a referência à tabela do serviço móvel que criamos anteriormente.
+> [AZURE.NOTE] Um tamanho da página de servidor controlado por nós usado por padrão para prevenir todos os elementos de serem retornados. Isso impede que solicitações padrão de grandes conjuntos de dados impactem negativamente o serviço. Você pode aumentar o número de itens a ser retornado pela chamada `take` conforme descrito na próxima seção. `todoItemTable` é a referência à tabela do serviço móvel que criamos anteriormente.
 
 	var ascendingSortedTable = todoItemTable.orderBy("text").read().done(function (results) {
 	   alert(JSON.stringify(results));
@@ -388,7 +388,7 @@ Para exemplos mais realistas e uma discussão mais abrangente do **InvokeApi**, 
 
 Os Serviços Móveis oferecem suporte a autenticação e a autorização de usuários de aplicativos usando uma variedade de provedores de identidade externos: o Facebook, o Google, a Conta da Microsoft e o Twitter. Você pode definir permissões em tabelas para restringir o acesso a operações específicas apenas para usuários autenticados. Você também pode usar a identidade de usuários autenticados para implementar regras de autorização em scripts do servidor. Para obter mais informações, consulte o tutorial [Introdução à autenticação].
 
->[AZURE.NOTE]Ao usar a autenticação em um aplicativo PhoneGap ou Cordova, você também deve adicionar os seguintes plug-ins ao projeto:
+>[AZURE.NOTE] Ao usar a autenticação em um aplicativo PhoneGap ou Cordova, você também deve adicionar os seguintes plug-ins ao projeto:
 >
 >+ https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git
 >+ https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git
@@ -504,8 +504,7 @@ O seguinte exemplo mostra como usar o Live SDK com APIs do WinJS para fornecer u
 	// Start the sign-in process.
 	authenticate();
 
-Isso inicializa o cliente do Live Connect, envia uma nova solicitação de logon à conta da Microsoft, envia o token de autenticação retornado aos Serviços Móveis e, em seguida, exibe informações sobre o usuário conectado. O aplicativo não é iniciado até que a autenticação seja bem-sucedida.
-<!--- //this guidance may be bad from an XSS vulnerability standpoint. We need to find better guidance for this
+Isso inicializa o cliente do Live Connect, envia uma nova solicitação de logon à conta da Microsoft, envia o token de autenticação retornado aos Serviços Móveis e, em seguida, exibe informações sobre o usuário conectado. O aplicativo não é iniciado até que a autenticação seja bem-sucedida. <!--- //this guidance may be bad from an XSS vulnerability standpoint. We need to find better guidance for this
 ###Caching the authentication token
 In some cases, the call to the login method can be avoided after the first time the user authenticates. We can use [sessionStorage] or [localStorage] to cache the current user identity the first time they log in and every subsequent time we check whether we already have the user identity in our cache. If the cache is empty or calls fail (meaning the current login session has expired), we still need to go through the login process.
 
@@ -666,4 +665,4 @@ Para controlar quais sites podem interagir e enviar solicitações para o seu se
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [referência de opções de consulta do sistema OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 
-<!---HONumber=AcomDC_1217_2015--->
+<!---HONumber=AcomDC_0211_2016-->

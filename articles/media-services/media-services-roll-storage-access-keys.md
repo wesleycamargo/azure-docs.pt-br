@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/15/2015"
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Como: Atualizar os Serviços de Mídia após implantar chaves de acesso de armazenamento
@@ -89,7 +89,7 @@ Aguarde pelo menos 30 minutos após a sincronização a nova chave de armazename
 
 Observe que ao atualizar (ou recriar) um localizador SAS, a URL sempre vai mudar.
 
->[AZURE.NOTE]Para certificar-se de preservar as URLs existentes de seus localizadores OnDemand, você precisa excluir o localizador existente e criar um novo com a mesma ID.
+>[AZURE.NOTE] Para certificar-se de preservar as URLs existentes de seus localizadores OnDemand, você precisa excluir o localizador existente e criar um novo com a mesma ID.
  
 O exemplo .NET a seguir mostra como recriar um localizador com a mesma ID.
 	
@@ -159,4 +159,4 @@ Use o mesmo procedimento, conforme descrito na [etapa 3](media-services-roll-sto
 
 Gostaríamos de agradecer às pessoas que contribuíram para a criação deste documento: Cenk Dingiloglu, Milan Gada, Seva Titov.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="02/08/2016"
    ms.author="sethm" />
 
 # Usando o Barramento de Serviço do Python com AMQP 1.0
@@ -21,7 +21,7 @@
 
 Proton-Python é uma associação da linguagem Pyhton a Proton-C; ou seja, Proton-Python é implementada como um wrapper em torno de um mecanismo implementado em C.
 
-## Baixando a biblioteca do cliente do Proton
+## Baixar a biblioteca do cliente do Proton
 
 Você pode baixar Proton-C e as associações relacionadas (inclusive Python) em [http://qpid.apache.org/download.html](http://qpid.apache.org/download.html). O download está na forma de código-fonte. Para compilar o código, siga as instruções contidas no pacote baixado.
 
@@ -31,7 +31,7 @@ Observe que no momento da redação deste artigo, o suporte a SSL no Proton-C s�
 
 O código a seguir mostra como enviar e receber mensagens de uma entidade de mensagens do Barramento de Serviço.
 
-### Enviando mensagens usando Proton-Python
+### Enviar mensagens usando Proton-Python
 
 O código a seguir mostra como enviar uma mensagem a uma entidade de mensagens do Barramento de Serviço.
 
@@ -45,7 +45,7 @@ messenger.put(message)
 messenger.send()
 ```
 
-### Recebendo mensagens usando Proton-Python
+### Receber mensagens usando Proton-Python
 
 O código a seguir mostra como receber uma mensagem de uma entidade de mensagens do Barramento de Serviço.
 
@@ -173,4 +173,4 @@ Está pronto(a) para saber mais? Visite os links a seguir:
 
 [Visão geral do AMQP do Barramento de Serviço]: service-bus-amqp-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

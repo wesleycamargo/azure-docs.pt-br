@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/29/2016"
+	ms.date="02/05/2016"
 	ms.author="trinadhk;jimpark"/>
 
 # O que é o Backup do Azure?
@@ -61,8 +61,7 @@ Como o Backup é uma solução de backup híbrida, é formado por vários compon
 | Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md)</p> |
 | Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md)</p> |
 | Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md)</p> |
-| VMs de IaaS do Azure (Windows)| - | [Backup do Azure (extensão de VM)](backup-azure-vms-introduction.md) | 
-| VMs de IaaS do Azure (Linux) | - | [Backup do Azure (extensão de VM)](backup-azure-vms-introduction.md) |
+| VMs de IaaS do Azure (Windows)| - | [Backup do Azure (extensão de VM)](backup-azure-vms-introduction.md) | | VMs de IaaS do Azure (Linux) | - | [Backup do Azure (extensão de VM)](backup-azure-vms-introduction.md) |
 
 ## Funcionalidade
 Estas cinco tabelas resumem como a funcionalidade do Backup é tratada em cada componente:
@@ -150,10 +149,16 @@ Para clientes que protegem seus dados em um servidor de backup (System Center DP
 | Pontos de recuperação no disco local | Não aplicável | Não aplicável | Não aplicável |
 | Pontos de recuperação em fita | Não aplicável | Não aplicável | Não aplicável |
 
+## O que é o arquivo de credencial do cofre?
+
+O arquivo de credenciais do cofre é um certificado gerado pelo portal para cada cofre de backup. O portal, em seguida, carrega a chave pública no ACS (Serviço de Controle de Acesso). A chave privada do certificado é disponibilizada para o usuário como parte do fluxo de trabalho que é fornecido como uma entrada no fluxo de trabalho de registro do computador. Isso autentica o computador para enviar os dados de backup para um cofre identificado no serviço de Backup do Azure.
+
+As credenciais do cofre são usadas somente durante o fluxo de trabalho de registro. É responsabilidade do usuário garantir que o arquivo de credenciais do cofre não seja comprometido. Se esse arquivo acabar em poder de qualquer usuário não autorizado, o arquivo de credenciais do cofre poderá ser usado para registrar outros computadores no mesmo cofre. No entanto, como os dados de backup são criptografados usando uma senha que pertence ao cliente, os dados de backup existentes não poderão ser comprometidos. Para atenuar esse problema, as credenciais do cofre são definidas para expirar em 48 horas. Você pode baixar as credenciais de um cofre de backup quantas vezes quiser – mas apenas o arquivo mais recente de credencial de cofre será aplicável durante o fluxo de trabalho de registro.
+
 ## Qual a diferença entre o Backup e o Azure Site Recovery?
 Muitos clientes confundem recuperação de backup e recuperação de desastre. Ambos capturam dados e fornecem semântica de restauração, mas a proposta principal é diferente para cada um deles.
 
-O Backup do Azure faz backup de dados no local e na nuvem. O Azure Site Recovery coordena a replicação, o failover e o failback de servidores físicos e máquinas virtuais. Você precisa dos dois para ter uma solução de recuperação de desastres completa. A estratégia de recuperação de desastres precisa manter os dados seguros e recuperáveis (Backup) *e* manter suas cargas de trabalho disponíveis e acessíveis (Recuperação de Site) no momento da interrupção.
+O Backup do Azure faz backup de dados no local e na nuvem. O Azure Site Recovery coordena a replicação, o failover e o failback de servidores físicos e máquinas virtuais. Você precisa dos dois para ter uma solução de recuperação de desastres completa. A estratégia de recuperação de desastre precisa manter os dados seguros e recuperáveis (Backup) *e* manter suas cargas de trabalho disponíveis e acessíveis (Recuperação de Site) no momento da interrupção.
 
 Para tomar decisões sobre backup e recuperação de desastre, é necessário entender os seguintes conceitos importantes:
 
@@ -161,18 +166,18 @@ Para tomar decisões sobre backup e recuperação de desastre, é necessário en
 | ------- | ------- | ------ | ----------------- |
 | RPO (Objetivo de Ponto de Recuperação) | A quantidade de perda de dados que é aceitável caso uma recuperação precise ser feita. | Há uma grande variação do RPO aceitável entre as soluções de backup. Os backups de máquina virtual geralmente têm um RPO de um dia, enquanto os backups de banco de dados têm RPOs de até 15 minutos. | As soluções de recuperação de desastre têm RPOs extremamente baixos. A cópia de DR pode ter um atraso de alguns segundos ou minutos. |
 | RTO (Objetivo de Tempo de Recuperação) | O tempo necessário para concluir uma recuperação ou restauração. | Devido ao RPO maior, a quantidade de dados que uma solução de backup precisa processar normalmente é muito maior. Isso gera RTOs maiores. Por exemplo, a restauração de dados de fitas pode demorar dias, dependendo do tempo necessário para transportar a fita de um local externo. | As soluções de recuperação de desastre têm RTOs menores, pois estão mais sincronizadas com a origem. Uma quantidade menor de alterações precisa ser processada. |
-| Retenção | Por quanto tempo os dados precisam ser armazenados | <p>Para cenários que exigem recuperação operacional (corrupção de dados, exclusão acidental de arquivos, falhas no sistema operacional), os dados de backup normalmente são retidos por 30 dias ou menos.</p> <p>Para fins de conformidade, talvez seja necessário armazenar os dados por meses ou até mesmo anos. Nesses casos, os dados de backup são ideais para arquivamento.</p> | A recuperação de desastres precisa apenas dos dados de recuperação operacionais. Isso geralmente demora poucas horas ou até um dia. Devido à captura de dados refinada usada em soluções de DR, não recomendamos o uso de dados de DR para a retenção de longo prazo. |
+| Retenção | Por quanto tempo os dados precisam ser armazenados | <p>Para cenários que exigem recuperação operacional (dados corrompidos, exclusão acidental de arquivos, falhas no sistema operacional), os dados de backup normalmente são retidos por 30 dias ou menos.</p> <p>Para fins de conformidade, talvez seja necessário armazenar os dados por meses ou até mesmo anos. Nesses casos, os dados de backup são ideais para arquivamento.</p> | A recuperação de desastres precisa apenas dos dados de recuperação operacionais. Isso geralmente demora poucas horas ou até um dia. Devido à captura de dados refinada usada em soluções de DR, não recomendamos o uso de dados de DR para a retenção de longo prazo. |
 
 
 ## Próximas etapas
 
 - [Teste o Backup do Azure](backup-try-azure-backup-in-10-mins.md)
 - [Perguntas frequentes sobre o serviço de Backup do Azure](backup-azure-backup-faq.md)
-- Visite o [Fórum do Backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
+- Visite o [Fórum de backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->
