@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="01/24/2016"
+	ms.date="02/14/2016"
 	ms.author="gusapost"/>
 
 # Introdução ao armazenamento de Fila do Azure usando o .NET
@@ -51,7 +51,7 @@ Certifique-se de fazer referência ao assembly `Microsoft.WindowsAzure.Storage.d
 
 ## Criar uma fila
 
-Um objeto **CloudQueueClient** permite que você obtenha objetos de referência para filas. O código a seguir cria um objeto **CloudQueueClient**. Todos os códigos neste guia usam uma cadeia de conexão de armazenamento armazenada na configuração dos serviços do aplicativo do Azure. Também existem outras maneiras de criar um objeto **CloudStorageAccount**. Confira a documentação da [CloudStorageAccount][] para obter detalhes.
+Um objeto **CloudQueueClient** permite que você obtenha objetos de referência para filas. O código a seguir cria um objeto **CloudQueueClient**. Todos os códigos neste guia usam uma cadeia de conexão de armazenamento armazenada na configuração dos serviços do aplicativo do Azure. Também existem outras maneiras de criar um objeto **CloudStorageAccount**. Confira a documentação da [CloudStorageAccount](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.cloudstorageaccount_methods.aspx) para obter detalhes.
 
     // Retrieve storage account from connection string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -246,20 +246,18 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Fila, siga es
 - Consulte a documentação de referência do serviço Fila para obter detalhes completos sobre as APIs disponíveis:
     - [Referência à Biblioteca de Cliente de Armazenamento para .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
     - [Referência da API REST](http://msdn.microsoft.com/library/azure/dd179355)
-- Saiba como simplificar o código que você escreve para trabalhar com o Armazenamento do Azure usando o [SDK do Azure WebJobs](../websites-dotnet-webjobs-sdk/).
+- Saiba como simplificar o código que você escreve para trabalhar com o Armazenamento do Azure usando o [SDK do Azure WebJobs](../app-service-web/websites-dotnet-webjobs-sdk.md).
 - Consulte outros guias de recursos para obter informações sobre opções adicionais para armazenar dados no Azure.
-    - Usar o [Armazenamento de Tabela](storage-dotnet-how-to-use-tables.md) para armazenar dados estruturados.
-    - Usar o [Armazenamento de Blob](storage-dotnet-how-to-use-blobs.md) para armazenar dados não estruturados.
-    - Usar o [Banco de Dados SQL](sql-database-dotnet-how-to-use.md) para armazenar dados relacionais.
+    - [Introdução ao armazenamento de Tabelas do Azure usando o .NET](storage-dotnet-how-to-use-tables.md) para armazenar dados estruturados.
+    - [Introdução ao armazenamento de Blobs do Azure usando o .NET](storage-dotnet-how-to-use-blobs.md) para armazenar dados não estruturados.
+    - [Como usar o Banco de Dados SQL nos aplicativos .NET](sql-database-dotnet-how-to-use.md) para armazenar dados relacionais.
 
   [Download and install the Azure SDK for .NET]: /develop/net/
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [Creating a Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
-  [CloudStorageAccount]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudstorageaccount_methods.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

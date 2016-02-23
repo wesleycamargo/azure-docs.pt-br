@@ -1,23 +1,23 @@
 
-<properties 
-	pageTitle="Usando o Azure AD Connect Health com o AD FS | Microsoft Azure" 
-	description="Esta é a página do Azure AD Connect Health sobre como monitorar a sua infraestrutura local do AD FS." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+<properties
+	pageTitle="Usando o Azure AD Connect Health com o AD FS | Microsoft Azure"
+	description="Esta é a página do Azure AD Connect Health sobre como monitorar a sua infraestrutura local do AD FS."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="01/21/2016" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="02/16/2016"
 	ms.author="billmath"/>
 
-# Usando o Azure AD Connect Health com o AD FS 
+# Usando o Azure AD Connect Health com o AD FS
 A documentação a seguir é específica para monitorar a sua infraestrutura do AD FS com o Azure AD Connect Health.
 
 ## Alertas do AD FS
@@ -74,4 +74,4 @@ Ao selecionar a opção de filtro na parte superior da folha, você pode filtrar
 * [Usando o Azure AD Connect Health para sincronização](active-directory-aadconnect-health-sync.md)
 * [Perguntas frequentes do Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

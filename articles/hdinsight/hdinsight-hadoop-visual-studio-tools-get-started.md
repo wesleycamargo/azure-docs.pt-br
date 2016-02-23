@@ -55,7 +55,7 @@ As Ferramentas HDInsight para Visual Studio e o Driver ODBC do Microsoft Hive s�
 ## Conectar-se a assinaturas do Azure
 As ferramentas do HDInsight para o Visual Studio permitem que você se conecte a seus clusters de HDInsight, execute algumas operações básicas de gerenciamento e execute consultas Hive.
 
->[AZURE.NOTE] Para obter informações sobre como se conectar a um cluster Hadoop genérico (visualização), consulte [escrever e enviar consultas Hive usando o Visual Studio](http://blogs.msdn.com/b/xiaoyong/archive/2015/05/04/how-to-write-and-submit-hive-queries-using-visual-studio.aspx).
+>[AZURE.NOTE] Para obter informações sobre como se conectar a um cluster Hadoop genérico, confira [escrever e enviar consultas Hive usando o Visual Studio](http://blogs.msdn.com/b/xiaoyong/archive/2015/05/04/how-to-write-and-submit-hive-queries-using-visual-studio.aspx).
 
 
 **Para conectar-se à sua assinatura do Azure**
@@ -256,15 +256,15 @@ Neste artigo, você aprendeu como se conectar a clusters HDInsight no Visual Stu
 
 
 <!--Link references-->
-[hdinsight-provision]: ../hdinsight/hdinsight-provision-clusters.md
-[hdinsight.introduction]: ../hdinsight-introduction.md
-[hdinsight.get.started]: ../hdinsight-get-started.md
-[hdinsight.hive]: ../hdinsight/hdinsight-use-hive.md
-[hdinsight.submit.jobs]: ../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md
-[hdinsight.analyze.twitter.data]: ../hdinsight/hdinsight-analyze-twitter-data.md
-[hdinsight.storm.visual.studio.tools]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
-[hdinsight.access.application.logs]: ../hdinsight/hdinsight-hadoop-access-yarn-app-logs.md
+[hdinsight-provision]: hdinsight/hdinsight-provision-clusters.md
+[hdinsight.introduction]: hdinsight-introduction.md
+[hdinsight.get.started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight.hive]: hdinsight/hdinsight-use-hive.md
+[hdinsight.submit.jobs]: hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md
+[hdinsight.analyze.twitter.data]: hdinsight/hdinsight-analyze-twitter-data.md
+[hdinsight.storm.visual.studio.tools]: hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
+[hdinsight.access.application.logs]: hdinsight/hdinsight-hadoop-access-yarn-app-logs.md
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

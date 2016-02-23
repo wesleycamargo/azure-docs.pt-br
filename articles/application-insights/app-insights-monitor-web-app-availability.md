@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/26/2016"
+	ms.date="02/11/2016"
 	ms.author="awills"/>
 
 # Monitorar a disponibilidade e a capacidade de resposta de qualquer site
@@ -207,19 +207,22 @@ Plug-ins de teste na Web fornecem uma maneira de fazer isso.
 
 Agora, carregue seu teste no portal. Ele usará os valores dinâmicos em todas as execuções do teste.
 
-## Entrada com OAuth
+## Lidando com a entrada
 
-Se os usuários entrarem em seu aplicativo usando a senha OAuth (por exemplo, Microsoft, Google ou Facebook), você poderá simular a entrada no seu teste da Web de várias etapas usando o plug-in SAML.
+Se os usuários entrarem em seu aplicativo, você terá várias opções para simular entradas para poder testar as páginas por trás da entrada. A abordagem usada dependerá do tipo de segurança fornecida pelo aplicativo.
 
-![Teste da Web de exemplo para o OAuth](./media/app-insights-monitor-web-app-availability/81.png)
+Em todos os casos, você deverá criar uma conta somente para fins de teste. Se possível, restrinja suas permissões para que ela seja somente leitura.
 
-O teste de exemplo executa estas etapas:
+* Nome de usuário e senha mais simples: basta registrar um teste na Web da maneira usual. Exclua os cookies primeiro.
+* Autenticação SAML. Para isso, você pode usar o plug-in SAML que está disponível para testes na Web.
+* Segredo do cliente: se seu aplicativo tiver uma rota de entrada que envolva um segredo do cliente, use-o. O Active Directory do Azure o fornece. 
+* Autenticação Aberta - por exemplo, entrar com sua conta da Microsoft ou do Google. Muitos aplicativos que usam OAuth oferecem a alternativa do segredo do cliente e, portanto, a primeira tática é investigar isso. Se o teste tiver de entrar usando OAuth, a abordagem geral será:
+ * Use uma ferramenta como o Fiddler para examinar o tráfego entre o navegador da web, o site de autenticação e seu aplicativo. 
+ * Executar duas ou mais entradas usando computadores ou navegadores diferentes ou em longos intervalos (para permitir que os tokens expirem).
+ * Ao comparar sessões diferentes, identifique o token passado de volta ao site de autenticação, que será então passado para o servidor de aplicativos após a entrada. 
+ * Registre um teste na Web usando o Visual Studio. 
+ * Parametrize os tokens, definindo o parâmetro quando o token for retornado do autenticador e usando-o na consulta ao site. (O Visual Studio tentará parametrizar o teste, mas não parametrizará corretamente os tokens).
 
-1. Solicite ao aplicativo Web em teste o endereço do ponto de extremidade OAuth.
-2. Entre usando o plug-in SAML.
-3. Execute o restante do teste no estado conectado.
-
-O plug-in SAML define uma variável `Assert`, que é usada na etapa 2.
 
 ## <a name="edit"></a> Editar ou desabilitar um teste
 
@@ -263,4 +266,4 @@ Talvez você deseje desabilitar testes na Web quando estiver fazendo a manutenç
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

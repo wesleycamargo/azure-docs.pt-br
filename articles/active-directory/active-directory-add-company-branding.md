@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/26/2016" 
+	ms.date="02/12/2016" 
 	ms.author="MarkVi"/>
 
 # Adicionar identidade visual da empresa às páginas de entrada e do painel de acesso
@@ -186,4 +186,4 @@ Cor da tela de fundo da página de entrada | A cor da tela de fundo da página d
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

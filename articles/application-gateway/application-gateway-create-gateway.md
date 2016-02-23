@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/10/2015"
+   ms.date="02/02/2016"
    ms.author="joaoma"/>
 
 # Criar, iniciar ou excluir um gateway de aplicativo
@@ -414,4 +414,4 @@ Se deseja obter mais informações sobre as opções de balanceamento de carga n
 - [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/05/2016"
+	ms.date="02/11/2016"
 	ms.author="curtand"/>
 
 # Como as assinaturas do Azure estão associadas ao Active Directory do Azure
@@ -35,7 +35,7 @@ Embora o Azure originalmente permitisse acesso somente por usuários de contas d
 Por exemplo, aqui um usuário com uma conta da Microsoft entra no portal clássico do Azure.
 
 > [AZURE.NOTE]
-> Para entrar no portal clássico do Azure, msmith@hotmail.com deve ter uma assinatura do Azure. A conta deve ser de um administrador de serviços ou de um coadministrador da assinatura.
+Para entrar no portal clássico do Azure, msmith@hotmail.com deve ter uma assinatura do Azure. A conta deve ser de um administrador de serviços ou de um coadministrador da assinatura.
 
 ![][1]
 
@@ -106,19 +106,32 @@ Se você se inscreveu no Office 365 usando uma conta corporativa ou de estudante
 Para gerenciar ambos os diretórios no portal clássico do Azure, execute essas etapas.
 
 > [AZURE.NOTE]
-> Essas etapas só podem ser realizadas enquanto o usuário está conectado com uma conta da Microsoft. Se o usuário estiver conectado com uma conta corporativa ou de estudante, a opção **Usar diretório existente** não estará disponível porque uma conta corporativa ou de estudante pode ser autenticada apenas por seu diretório-base (ou seja, o diretório em que a conta corporativa ou de estudante é armazenada, e que é propriedade da corporação ou instituição educacional).
+Essas etapas só podem ser realizadas enquanto o usuário está conectado com uma conta da Microsoft. Se o usuário estiver conectado com uma conta corporativa ou de estudante, a opção **Usar diretório existente** não estará disponível porque uma conta corporativa ou de estudante pode ser autenticada apenas por seu diretório-base (ou seja, o diretório em que a conta corporativa ou de estudante é armazenada, e que é propriedade da corporação ou instituição educacional).
 
 1. Entre no portal clássico do Azure usando sua conta da Microsoft.
+
 2. Clique em **Novo** > **Serviços de Aplicativos** > **Active Directory** > **Diretório** > **Criação Personalizada**.
+
 3. Clique em **Usar diretório existente** e marque **Estou pronto para sair agora**, então clique na marca de seleção para concluir a ação.
+
 4. Entre no portal clássico do Azure usando uma conta que tenha direitos de administrador global para o diretório comercial ou da escola.
+
 5. Quando for solicitado a **Usar diretório Contoso com o Azure?**, clique em **continuar**.
+
 6. Clique em **Sair agora**.
+
 7. Entre novamente no portal clássico do Azure usando sua conta da Microsoft. Ambos os diretórios aparecerão na extensão do Active Directory.
 
 
-## O que vem a seguir
-[Inscrever-se no Azure como uma organização](sign-up-organization.md)
+## Próximas etapas
+
+- Para saber mais sobre como alterar administradores para uma assinatura do Azure, veja [Como adicionar ou alterar as funções de administrador do Azure](../billing-add-change-azure-subscription-administrator.md)
+
+- Para saber mais sobre como o acesso aos recursos é controlado no Microsoft Azure, confira [Noções básicas sobre o acesso a recursos no Azure](active-directory-understanding-resource-access.md)
+
+- Para saber sobre como atribuir funções no AD do Azure, veja [Atribuindo funções de administrador no Active Directory do Azure](active-directory-assign-admin-roles.md)
+
+- [Inscrever-se no Azure como uma organização](sign-up-organization.md)
 
 
 <!--Image references-->
@@ -126,4 +139,4 @@ Para gerenciar ambos os diretórios no portal clássico do Azure, execute essas 
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0218_2016-->

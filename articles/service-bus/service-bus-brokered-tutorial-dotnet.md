@@ -9,7 +9,7 @@
 <tags 
    ms.service="service-bus"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/14/2015"
@@ -650,4 +650,4 @@ Para saber mais sobre o [Barramento de Serviço](https://azure.microsoft.com/ser
 
 [portal clássico do Azure]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

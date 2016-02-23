@@ -46,7 +46,7 @@ Um aplicativo do Service Fabric pode conter um ou mais serviços, cada um com um
 
 	![Caixa de diálogo Novo serviço no Visual Studio][2]
 
-	>[AZURE.NOTE]Para saber mais sobre as opções, veja [Escolhendo uma estrutura](service-fabric-choose-framework.md).
+	>[AZURE.NOTE] Para saber mais sobre as opções, veja [Escolhendo uma estrutura](service-fabric-choose-framework.md).
 
 	O Visual Studio cria o projeto de aplicativo e o projeto de serviço com estado e os exibe no Gerenciador de Soluções.
 
@@ -68,7 +68,7 @@ Agora que você tem um aplicativo, poderá tentar executá-lo.
 
 1. Pressione F5 no Visual Studio para implantar o aplicativo para depuração.
 
-	>[AZURE.NOTE]Isso levará algum tempo na primeira vez em que o Visual Studio estiver criando um cluster local para desenvolvimento. Um cluster local é executado no mesmo código de plataforma que você criará em um cluster com vários computadores, só que em um único computador. Você verá o status de criação do cluster na janela de saída do Visual Studio.
+	>[AZURE.NOTE] Isso levará algum tempo na primeira vez em que o Visual Studio estiver criando um cluster local para desenvolvimento. Um cluster local é executado no mesmo código de plataforma que você criará em um cluster com vários computadores, só que em um único computador. Você verá o status de criação do cluster na janela de saída do Visual Studio.
 
 	Quando o cluster estiver pronto, você receberá uma notificação do aplicativo gerenciador da bandeja do sistema do cluster local incluído com o SDK.
 
@@ -86,7 +86,7 @@ Agora que você tem um aplicativo, poderá tentar executá-lo.
 
 	O cluster local contém cinco nós hospedados em um único computador. Ele simula um cluster de cinco nós, onde os nós estão em computadores diferentes. Vamos desativar um dos nós no cluster local para simular a perda de uma máquina e experimentar o depurador do Visual Studio ao mesmo tempo.
 
-    >[AZURE.NOTE]Os eventos de diagnóstico de aplicativo emitidos pelo modelo de projeto usam a classe `ServiceEventSource` incluída. Para saber mais, veja [Como monitorar e diagnosticar serviços localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally).
+    >[AZURE.NOTE] Os eventos de diagnóstico de aplicativo emitidos pelo modelo de projeto usam a classe `ServiceEventSource` incluída. Para saber mais, veja [Como monitorar e diagnosticar serviços localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 
 4. Localize a classe em seu projeto de serviço que derive de StatefulService (por exemplo, MyStatefulService) e defina um ponto de interrupção na primeira linha do método `RunAsync`.
 
@@ -142,4 +142,4 @@ Agora que você tem um aplicativo, poderá tentar executá-lo.
 [systray-launch-sfx]: ./media/service-fabric-create-your-first-application-in-visual-studio/launch-sfx.png
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

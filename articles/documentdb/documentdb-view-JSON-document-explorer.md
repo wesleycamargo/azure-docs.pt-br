@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="01/28/2015"
+	ms.date="01/28/2016"
 	ms.author="anhoh"/>
 
 # Exibir, editar, criar e carregar documentos JSON usando o Gerenciador de Documentos do Banco de Dados de Documentos #
@@ -145,4 +145,4 @@ O Gerenciador de Documentos dá suporte à ingestão em massa de um ou mais docu
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

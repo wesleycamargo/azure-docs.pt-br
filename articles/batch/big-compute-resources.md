@@ -10,7 +10,7 @@
 <tags
    ms.service="multiple"
    ms.devlang="multiple"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
    ms.date="01/26/2016"
@@ -38,7 +38,7 @@ O [Lote](https://azure.microsoft.com/services/batch/) é um serviço de platafor
 
 * [Tutorial: Introdução à biblioteca de lote do Azure para .NET](batch-dotnet-get-started.md)
 
-* [Fórum do lote](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=azurebatch)
+* [Fórum do lote](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
 
 * [Vídeos de lote](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 
@@ -83,8 +83,7 @@ Use esses modelos do Azure para implantar clusters HPC do Linux.
 
 * [Referência do MS-MPI](https://msdn.microsoft.com/library/dn473458.aspx)
 
-* [Fórum do MPI](https://social.microsoft.com/Forums/pt-BR/home?forum=windowshpcmpi)
-
+* [Fórum do MPI](https://social.microsoft.com/Forums/home?forum=windowshpcmpi)
 
 ## Instâncias de computação intensiva
 
@@ -137,4 +136,4 @@ O Azure oferece [diversos tamanhos](../virtual-machines/virtual-machines-size-sp
 * Para os anúncios mais recentes, consulte o [blog da equipe do Microsoft HPC e Lote](http://blogs.technet.com/b/windowshpc/) e o [blog do Azure](https://azure.microsoft.com/blog/tag/hpc/).
 * Consulte também [o que há de novo no Lote](https://azure.microsoft.com/updates/?service=batch) ou assine o [RSS feed](https://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

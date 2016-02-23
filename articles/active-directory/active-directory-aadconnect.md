@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/25/2016"
+	ms.date="02/16/2016"
 	ms.author="andkjell;billmath"/>
 
 # Integração de suas identidades locais com o Active Directory do Azure
@@ -39,8 +39,8 @@ O Azure Active Directory Connect é composto de três partes principais. Elas s�
 <center>![Azure AD Connect Stack](./media/active-directory-aadconnect-how-it-works/AADConnectStack2.png) </center>
 
 - Sincronização - Esta parte é composta de componentes e funcionalidades lançados anteriormente, como [Dirsync e Azure AD Sync](active-directory-aadconnect-get-started-tools-comparison.md). Essa é a parte responsável pela criação de usuários e grupos. Ela também é responsável por garantir que as informações sobre usuários e grupos em seu ambiente local correspondam às da nuvem.
-- AD FS - Esta é uma parte opcional do Azure AD Connect e pode ser usada para configurar um ambiente híbrido usando uma infraestrutura de AD FS local. Esta parte pode ser usada pelas organizações para abordar implantações complexas que incluem itens como SSO de ingresso no domínio, imposição de política de logon de AD e cartão inteligente ou MFA de terceiros.
-- Monitoramento de Integridade - O Azure AD Connect Health pode fornecer monitoramento robusto de servidores do AD FS e fornecer um local central no portal do Azure para exibir essa atividade. Para obter informações adicionais, consulte [Azure Active Directory Connect Health](active-directory-aadconnect-health.md).
+- AD FS - Esta é uma parte opcional do Azure AD Connect e pode ser usada para configurar um ambiente híbrido usando uma infraestrutura de AD FS local. Esta parte pode ser usada pelas organizações para abordar implantações complexas que incluem itens como SSO de ingresso no domínio, imposição de política de entrada no AD e de cartão inteligente ou de MFA de terceiros.
+- Monitoramento de Integridade - o Azure AD Connect Health pode fornecer monitoramento robusto e fornecer um local central no portal do Azure para exibir essa atividade. Para obter informações adicionais, consulte [Azure Active Directory Connect Health](active-directory-aadconnect-health.md).
 
 ## Instalar o Azure AD Connect
 
@@ -89,9 +89,11 @@ A [sincronização de senha](active-directory-aadconnectsync-implement-password-
 
 O [write-back de senha](active-directory-passwords-getting-started.md) permitirá aos usuários alterar e redefinir suas senhas na nuvem e ter sua política de senha local aplicada.
 
-O [write-back do dispositivo](active-directory-aadconnect-get-started-custom-device-writeback.md) permitirá que um dispositivo registrado no Azure AD seja gravado de volta no Active Directory local, para que possa ser usado para acesso condicional.
+O [write-back do dispositivo](active-directory-aadconnect-feature-device-writeback.md) permitirá que um dispositivo registrado no Azure AD seja gravado de volta no Active Directory local, para que possa ser usado para acesso condicional.
 
 O recurso [impedir exclusões acidentais](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) é ativado por padrão e protegerá seu diretório na nuvem contra muitas exclusões ao mesmo tempo. Por padrão, ele permitirá 500 exclusões por execução, e isso pode ser alterado, dependendo do porte de sua organização.
+
+A [Atualização automática](active-directory-aadconnect-feature-automatic-upgrade.md) é habilitada por padrão para instalações de configurações expressas e garantirá que o Azure AD Connect esteja sempre atualizado com a versão mais recente.
 
 ### Próximas etapas para configurar recursos
 
@@ -100,8 +102,9 @@ O recurso [impedir exclusões acidentais](active-directory-aadconnectsync-featur
 | Configurar a filtragem | [Sincronização do Azure AD Connect: configurar a filtragem](active-directory-aadconnectsync-configure-filtering.md) |
 | Sincronização de senha | [Azure AD Connect Sync: implementar a sincronização de senha](active-directory-aadconnectsync-implement-password-synchronization.md) |
 | Write-back de senha | [Introdução ao gerenciamento de senhas](active-directory-passwords-getting-started.md) |
-| Write-back de dispositivo | [Habilitando write-back de dispositivo no Azure AD Connect](active-directory-aadconnect-get-started-custom-device-writeback.md) |
+| Write-back de dispositivo | [Habilitando write-back de dispositivo no Azure AD Connect](active-directory-aadconnect-feature-device-writeback.md) |
 | Impedir exclusões acidentais | [Sincronização do Azure AD Connect: impedir exclusões acidentais](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) |
+| Atualização automática | [Azure AD Connect: Atualização automática](active-directory-aadconnect-feature-automatic-upgrade.md)|
 
 ## Personalizar a sincronização do Azure AD Connect
 A sincronização do Azure AD Connect vem com uma configuração padrão que se destina a funcionar para a maioria dos clientes e das topologias. Porém, sempre há situações em que a configuração padrão não funcionará e deve ser ajustada. Há suporte para fazer alterações, conforme documentado nesta seção e nos tópicos vinculados.
@@ -116,11 +119,11 @@ O modelo de configuração em sincronização é chamado de [provisionamento dec
 
 | Tópico | |
 | --------- | --------- |
+| Todos os artigos sobre a sincronização do Azure AD Connect | [Sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md) |
 | Conceitos técnicos | [Sincronização do Azure AD Connect: conceitos técnicos](active-directory-aadconnectsync-technical-concepts.md) |
 | Noções básicas sobre a configuração padrão | [Sincronização do Azure AD Connect: Noções básicas sobre a configuração padrão](active-directory-aadconnectsync-understanding-default-configuration.md) |
 | Noções básicas sobre usuários e contatos | [Azure AD Connect Sync: noções básicas sobre usuários e contatos](active-directory-aadconnectsync-understanding-users-and-contacts.md) |
 | Provisionamento declarativo | [Azure AD Connect Sync: noções básicas sobre expressões de provisionamento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
-| Referência a funções de provisionamento declarativo | [Azure AD Connect Sync: referência de funções](active-directory-aadconnectsync-functions-reference.md) |
 | Alterar a configuração padrão | [Práticas recomendadas para alterar a configuração padrão](active-directory-aadconnectsync-best-practices-changing-default-configuration.md) |
 
 ## Mais informações e referências
@@ -141,4 +144,4 @@ Apresentação Ignite 2015 sobre como expandir seus diretórios locais para a nu
 
 [AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

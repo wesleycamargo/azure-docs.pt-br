@@ -1,6 +1,6 @@
 ## O que é armazenamento de fila?
 
-O armazenamento de filas do Azure é um serviço para armazenamento de um grande número de mensagens que podem ser acessadas de qualquer lugar do mundo por meio de chamadas autenticadas usando HTTP ou HTTPS. Uma única mensagem de fila pode ter até 64 KB de tamanho e uma fila pode conter milhões de mensagens, até o limite de capacidade total de uma conta de armazenamento. Uma conta de armazenamento pode conter até 500 TB de dados de blob, fila e tabela. Consulte [Escalabilidade e Metas de Desempenho do Armazenamento do Azure](http://msdn.microsoft.com/library/azure/dn249410.aspx) para obter detalhes sobre a capacidade da conta de armazenamento.
+O armazenamento de filas do Azure é um serviço para armazenamento de um grande número de mensagens que podem ser acessadas de qualquer lugar do mundo por meio de chamadas autenticadas usando HTTP ou HTTPS. Uma única mensagem de fila pode ter até 64 KB de tamanho e uma fila pode conter milhões de mensagens, até o limite de capacidade total de uma conta de armazenamento. Uma conta de armazenamento pode conter até 500 TB de dados de blob, fila e tabela. Consulte [Escalabilidade e Metas de Desempenho do Armazenamento do Azure](../articles/storage/storage-scalability-targets.md) para obter detalhes sobre a capacidade da conta de armazenamento.
 
 Usos comuns de Armazenamento de filas incluem:
 
@@ -14,8 +14,8 @@ O serviço Fila contém os seguintes componentes:
 ![Fila1](./media/storage-queue-concepts-include/queue1.png)
 
 
-- **Formato da URL:** as filas são acessadas usando o seguinte formato de URL:   
-	http://`<storage account>`.queue.core.windows.net/`<queue>` 
+- **Formato da URL:** as filas são acessadas usando o seguinte formato de URL: 
+	http://`<storage account>`.queue.core.windows.net/`<queue>' 
       
 	A URL a seguir endereça um fila no diagrama:
 		
@@ -27,4 +27,4 @@ O serviço Fila contém os seguintes componentes:
 
 - **Mensagem:** uma mensagem, em qualquer formato, de até 64 KB.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0218_2016-->

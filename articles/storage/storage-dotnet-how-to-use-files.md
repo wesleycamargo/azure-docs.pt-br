@@ -12,7 +12,7 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="02/03/2016"
+      ms.date="02/14/2016"
       ms.author="robinsh" />
 
 # Introdução ao Armazenamento de Arquivos do Azure no Windows
@@ -55,7 +55,7 @@ Este guia de introdução mostra os fundamentos sobre como utilizar o armazename
 	- Copie um arquivo em um blob na mesma conta de armazenamento.
 - Usar métricas de armazenamento do Azure para solucionar problemas
 
-Agora há suporte de armazenamento de arquivos para todas as contas de armazenamento; assim, você pode usar uma conta de armazenamento existente ou criar uma nova conta de armazenamento. Confira [Como criar, gerenciar ou excluir uma conta de armazenamento](storage-create-storage-account.md#create-a-storage-account) para saber como criar uma nova conta de armazenamento.
+Agora há suporte de armazenamento de arquivos para todas as contas de armazenamento; assim, você pode usar uma conta de armazenamento existente ou criar uma nova conta de armazenamento. Confira [Como criar uma conta de armazenamento](storage-create-storage-account.md#create-a-storage-account) para obter informações sobre como criar uma nova conta de armazenamento.
 
 ## Usar o Portal do Azure para gerenciar um compartilhamento de arquivos
 
@@ -130,11 +130,11 @@ Como alternativa, você pode usar o Azure PowerShell para criar e gerenciar comp
 
 ### Instalar os cmdlets do PowerShell para Armazenamento do Azure
 
-Para se preparar para usar o PowerShell, baixe e instale os cmdlets do PowerShell do Azure. Consulte [Como instalar e configurar o PowerShell do Azure](../install-configure-powershell.md) para obter o ponto e as instruções de instalação.
+Para se preparar para usar o PowerShell, baixe e instale os cmdlets do PowerShell do Azure. Consulte [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md) para obter o ponto e as instruções de instalação.
 
 > [AZURE.NOTE] É recomendável baixar e instalar ou atualizar para o módulo mais recente do PowerShell do Azure.
 
-Abra uma janela do PowerShell do Azure clicando em **Iniciar** e digitando **PowerShell do Azure**. A janela do PowerShell do Azure carrega do módulo do PowerShell do Azure para você.
+Abra uma janela do Azure PowerShell clicando em **Iniciar** e digitando **Windows PowerShell**. A janela do PowerShell carregará o módulo do Azure PowerShell para você.
 
 ### Criar um contexto para sua conta e chave de armazenamento
 
@@ -210,8 +210,8 @@ Quando um cliente acessa o armazenamento de arquivos, a versão SMB usada depend
 
 Para demonstrar como montar um compartilhamento de arquivos do Azure, criaremos agora uma máquina virtual do Azure que executa o Windows e estabeleceremos comunicação remota nela para montar o compartilhamento.
 
-1. Primeiramente, crie uma nova máquina virtual do Azure seguindo as instruções em [Criar uma máquina virtual executando o Windows Server](../virtual-machines-windows-tutorial.md).
-2. Em seguida, acesse remotamente a máquina virtual seguindo as instruções em [Como fazer logon em uma máquina virtual executando o Windows Server](../virtual-machines-log-on-windows-server.md).
+1. Primeiramente, crie uma nova máquina virtual do Azure seguindo as instruções em [Criar uma máquina virtual do Windows no Portal do Azure](../virtual-machines/virtual-machines-windows-tutorial.md).
+2. Em seguida, acesse remotamente a máquina virtual seguindo as instruções em [Fazer logon em uma máquina virtual do Windows usando o Portal do Azure](../virtual-machines/virtual-machines-arm-log-on-windows-vm.md).
 3. Abra uma janela do PowerShell na máquina virtual.
 
 ### Persistir as credenciais da sua conta de armazenamento para a máquina virtual
@@ -419,13 +419,13 @@ O exemplo a seguir cria uma política de acesso compartilhado em um compartilham
         Console.WriteLine(fileSas.DownloadText());
     }
 
-Para saber mais sobre como criar e usar assinaturas de acesso compartilhado, consulte [Assinaturas de acesso compartilhado: noções básicas sobre o modelo SAS](storage-dotnet-shared-access-signature-part-1.md) e [Criar e usar uma SAS com o serviço Blob](storage-dotnet-shared-access-signature-part-2.md).
+Para saber mais sobre como criar e usar as assinaturas de acesso compartilhado, confira [Assinaturas de Acesso Compartilhado: compreender o modelo SAS](storage-dotnet-shared-access-signature-part-1.md) e [Criar e usar uma SAS com o armazenamento de Blobs](storage-dotnet-shared-access-signature-part-2.md).
 
 ### Copiar arquivos
 
 A partir da versão 5.x da Biblioteca de Cliente do Armazenamento do Azure, você pode copiar um arquivo em outro arquivo, um arquivo em um blob ou um blob em um arquivo. Nas próximas seções, demonstramos como executar essas operações de cópia de modo programático.
 
-Você também pode usar o AzCopy para copiar um arquivo para outro, ou para copiar um blob em um arquivo ou vice-versa. Para obter detalhes sobre como copiar arquivos com o AzCopy, consulte [Como usar o AzCopy com o Armazenamento do Microsoft Azure](storage-use-azcopy.md#copy-files-in-azure-file-storage-with-azcopy).
+Você também pode usar o AzCopy para copiar um arquivo para outro, ou para copiar um blob em um arquivo ou vice-versa. Confira [Copiar arquivos no armazenamento de Arquivos do Azure com o AzCopy](storage-use-azcopy.md#copy-files-in-azure-file-storage-with-azcopy).
 
 > [AZURE.NOTE] Se você estiver copiando um blob em um arquivo, ou um arquivo em um blob, use uma assinatura de acesso compartilhado (SAS) para autenticar o objeto de origem, mesmo se você estiver copiando dentro da mesma conta de armazenamento.
 
@@ -586,8 +586,7 @@ Consulte estes links para obter mais informações sobre o armazenamento de arqu
 
 ### Artigos e vídeos conceituais
 
-- [Armazenamento de Arquivos do Azure: um sistema de arquivos SMB de nuvem ininterrupto SMB para Windows e Linux
-- https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+- [Armazenamento de Arquivos do Azure: um sistema de arquivos SMB de nuvem ininterrupto SMB para Windows e Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 - [Como utilizar o armazenamento de arquivos do Azure com Linux](storage-how-to-use-files-linux.md)
 
 ### Suporte de ferramentas para o armazenamento de arquivos
@@ -608,4 +607,4 @@ Consulte estes links para obter mais informações sobre o armazenamento de arqu
 - [Apresentando o serviço de arquivo do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persistindo conexões para arquivos do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

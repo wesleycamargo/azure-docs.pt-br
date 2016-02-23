@@ -12,11 +12,11 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="12/18/2015" 
 	ms.author="mimig"/>
 
-# Criar uma coleção do Banco de Dados de Documentos
+# Como criar uma coleção do Banco de Dados de Documentos usando o portal do Azure
 
 Para usar o Banco de Dados de Documentos do Microsoft Azure, você deve ter uma conta do [Banco de Dados de Documentos](documentdb-create-account.md), um [banco de dados](documentdb-create-database.md), uma coleção e documentos. Este tópico descreve como criar uma coleção do Banco de Dados de Documentos no Portal do Azure.
 
@@ -78,4 +78,4 @@ Agora que você tem uma coleção, a próxima etapa é adicionar documentos ou i
 
 Depois que os documentos estiverem em uma coleção, você poderá usar o [SQL do Banco de Dados de Documentos](documentdb-sql-query.md) para [executar consultas](documentdb-sql-query.md#executing-queries) nos documentos usando o [Gerenciador de Consultas](documentdb-query-collections-query-explorer.md) no portal, a [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou um dos [SDKs](documentdb-sdk-dotnet.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0218_2016-->

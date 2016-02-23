@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="01/08/2016" 
+	ms.date="02/17/2016" 
 	ms.author="tomfitz"/>
 
 # Usando o Azure PowerShell com o Gerenciador de Recursos do Azure
@@ -34,9 +34,9 @@ Para concluir este tutorial, você precisará:
   + Você pode [abrir uma conta do Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F): você recebe créditos que podem ser usados para experimentar serviços pagos do Azure e, mesmo após eles serem utilizados, você pode manter a conta e usar os serviços gratuitos do Azure, como os Sites. Seu cartão de crédito nunca será cobrado, a menos que você altere explicitamente suas configurações, solicitando esse tipo de cobrança.
   
   + Você pode [ativar benefícios para assinantes do MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): todos os meses, sua assinatura do MSDN concede créditos que podem ser usados para serviços pagos do Azure.
-- Azure PowerShell 1.0. Para obter informações sobre essa versão e como instalá-la, confira [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
+- Azure PowerShell 1.0. Para obter informações sobre esta versão e como instalá-la, confira [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md).
 
-Este tutorial foi criado para iniciantes do PowerShell, mas pressupõe que você compreende os conceitos básicos, como módulos, cmdlets e sessões. Para obter mais informações sobre o Windows PowerShell, consulte [Introdução ao PowerShell do Microsoft Azure (a página pode estar em inglês)](http://technet.microsoft.com/library/hh857337.aspx).
+Este tutorial foi criado para iniciantes do PowerShell, mas pressupõe que você compreende os conceitos básicos, como módulos, cmdlets e sessões.
 
 ## O que você implantará
 
@@ -358,6 +358,8 @@ Quando você digitar o comando, será solicitado que você forneça o parâmetro
     (Type !? for Help.)
     administratorLoginPassword: ********
 
+Se o modelo incluir um parâmetro com um nome que corresponda a um dos parâmetros no comando para implantar o modelo (como incluir um parâmetro chamado **ResourceGroupName** no modelo que é igual ao parâmetro **ResourceGroupName** no cmdlet [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx)), você será solicitado a fornecer um valor para um parâmetro com o sufixo **FromTemplate** (como **ResourceGroupNameFromTemplate**). Em geral, você deve evitar essa confusão não dando aos parâmetros o mesmo nome que os parâmetros usados para operações de implantação.
+
 O comando é executado e retorna mensagens conforme os recursos são criados. Por fim, você pode ver o resultado de sua implantação.
 
     DeploymentName    : azuredeploy
@@ -395,7 +397,7 @@ Depois de criar um grupo de recursos, você pode usar os cmdlets no módulo do G
 		
 		...
 
-      Se você quiser obter um determinado grupo de recursos, forneça o parâmetro **Name**.
+      Se você quiser obter determinado grupo de recursos, forneça o parâmetro **Name**.
       
           PS C:\> Get-AzureRmResourceGroup -Name TestRG1
 
@@ -461,4 +463,4 @@ Você pode mover os recursos existentes para um novo grupo de recursos. Para obt
 - Para ver um exemplo detalhado da implantação de um projeto, confira [Implantar microsserviços de maneira previsível no Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Para saber mais sobre como solucionar problemas de uma implantação com falha, confira [Solucionando problemas de implantações de grupos de recursos no Azure](./virtual-machines/resource-group-deploy-debug.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

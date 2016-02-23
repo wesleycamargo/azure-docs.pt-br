@@ -10,7 +10,7 @@
 <tags
 	ms.service="batch"
 	ms.devlang="multiple"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
 	ms.date="01/21/2016"
@@ -20,7 +20,7 @@
 
 Este artigo fornece uma visão geral básica dos principais recursos de API do serviço Lote do Azure. Desenvolvendo uma solução de computação distribuída usando as APIs [REST do Lote][batch_rest_api] ou [.NET do Lote][batch_net_api], você usará muitas das entidades e dos recursos discutidos a seguir.
 
-> [AZURE.TIP]Para obter uma visão geral técnica de nível mais alto do Lote, confira [Noções básicas do Lote do Azure](batch-technical-overview.md).
+> [AZURE.TIP] Para obter uma visão geral técnica de nível mais alto do Lote, confira [Noções básicas do Lote do Azure](batch-technical-overview.md).
 
 ## <a name="workflow"></a>Fluxo de trabalho do serviço de Lote
 
@@ -38,7 +38,7 @@ O fluxo de trabalho de alto nível a seguir é tipicamente usado em quase todos 
 
 6. Monitore o andamento do trabalho e recupere os resultados.
 
-> [AZURE.NOTE]Você precisará de uma [conta do Lote](batch-account-create-portal.md) para usar o serviço Lote e quase todas as soluções usarão uma conta do [Armazenamento do Azure][azure_storage] para o armazenamento e a recuperação de arquivos.
+> [AZURE.NOTE] Você precisará de uma [conta do Lote](batch-account-create-portal.md) para usar o serviço Lote e quase todas as soluções usarão uma conta do [Armazenamento do Azure][azure_storage] para o armazenamento e a recuperação de arquivos.
 
 Nas seções a seguir, você aprenderá sobre cada um dos recursos mencionados no fluxo de trabalho acima, bem como muitos outros recursos do Lote que habilitarão seu cenário de computação distribuído.
 
@@ -253,7 +253,8 @@ Uma fórmula de dimensionamento pode basear-se nas seguintes métricas:
 
 Para saber mais sobre o dimensionamento automático de um aplicativo, consulte [Dimensionar automaticamente nós de computação em um pool do Lote do Azure](batch-automatic-scaling.md).
 
-> [AZURE.TIP]Embora isso geralmente não seja necessário, é possível especificar nós individuais para serem removidos de um pool. Se você suspeitar que um nó seja menos confiável, por exemplo, poderá removê-lo do pool para impedir a atribuição de tarefas adicionais.
+> [AZURE.TIP]
+ Embora isso geralmente não seja necessário, é possível especificar nós individuais para serem removidos de um pool. Se você suspeitar que um nó seja menos confiável, por exemplo, poderá removê-lo do pool para impedir a atribuição de tarefas adicionais.
 
 ## <a name="cert"></a>Segurança com certificados
 
@@ -294,7 +295,7 @@ Para cada tarefa agendada em um trabalho, o seguinte conjunto de variáveis de a
 | `AZ_BATCH_TASK_ID` | A ID da tarefa atual. |
 | `AZ_BATCH_TASK_WORKING_DIR` | O caminho completo do diretório de trabalho da tarefa no nó. |
 
->[AZURE.NOTE]Não é possível substituir qualquer uma das variáveis definidas pelo sistema acima - elas são somente leitura.
+>[AZURE.NOTE] Não é possível substituir qualquer uma das variáveis definidas pelo sistema acima - elas são somente leitura.
 
 ## <a name="errorhandling"></a>Tratamento de erros
 
@@ -319,7 +320,7 @@ Durante a execução, um aplicativo pode produzir saída de diagnóstico que pod
 
 Uma depuração ainda mais extensa pode ser executada quando você efetuar logon em um nó de computação usando a *Área de Trabalho Remota*. Você pode [obter um arquivo de protocolo de área de trabalho remota de um nó][rest_rdp] (API REST do Lote) ou o uso do método [ComputeNode.GetRDPFile][net_rdp] (.NET API do Lote) para logon remoto.
 
->[AZURE.NOTE]Para se conectar a um nó via RDP, primeiro você deverá criar um usuário no nó. [Adicione uma conta de usuário a um nó][rest_create_user] à API REST do Lote ou use o método [ComputeNode.CreateComputeNodeUser][net_create_user] no .NET do Lote.
+>[AZURE.NOTE] Para se conectar a um nó via RDP, primeiro você deverá criar um usuário no nó. [Adicione uma conta de usuário a um nó][rest_create_user] à API REST do Lote ou use o método [ComputeNode.CreateComputeNodeUser][net_create_user] no .NET do Lote.
 
 ### Contabilidade de interrupções ou de falhas de tarefas
 
@@ -371,4 +372,4 @@ Cada nó em um pool tem uma ID exclusiva e o nó no qual uma tarefa é executada
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="12/18/2015"
+	ms.date="02/16/2015"
 	ms.author="spelluru"/>
 
-# Criar seu primeiro pipeline do Azure Data Factory usando o Visual Studio
+# Introdução ao Azure Data Factory (Visual Studio)
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
@@ -441,4 +441,4 @@ Quando você implantar, os valores do arquivo de configuração serão usados pa
 Neste artigo, você criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script Hive em um cluster do HDInsight sob demanda. Para saber como usar uma Atividade de Cópia para copiar dados de um Blob do Azure para o SQL do Azure, confira [Tutorial: Copiar dados de um blob do Azure para o SQL do Azure](data-factory-get-started.md).
   
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

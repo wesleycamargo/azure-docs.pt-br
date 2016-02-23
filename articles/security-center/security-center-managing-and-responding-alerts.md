@@ -13,9 +13,9 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/09/2016"
+   ms.date="02/11/2016"
    ms.author="yurid"/>
-
+ 
 # Gerenciando e respondendo a alertas de segurança na Central de segurança do Azure
 Este documento ajuda você a usar recursos da Central de Segurança do Azure para gerenciar e responder a alertas de segurança.
 
@@ -25,7 +25,9 @@ Este documento ajuda você a usar recursos da Central de Segurança do Azure par
  A Central de Segurança ajuda você a impedir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança dos recursos do Azure. Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
 
 ## O que são alertas de segurança?
-A Central de segurança coleta, analisa e integra automaticamente os dados de registro de seus recursos do Azure, da rede e de antimalware e firewalls integrados para detectar ameaças reais e reduzir os falsos positivos. Uma lista priorizada de alertas de segurança, incluindo alertas de soluções de parceiro integradas, é mostrada na Central de Segurança, junto com as informações que você precisa investigar rapidamente e recomendações sobre como corrigir um ataque. Os pesquisadores de segurança da Microsoft estão constantemente analisando ameaças emergentes em todo o mundo, incluindo novos padrões de ataque e tendências vistos em seus produtos de consumidor e empresariais e serviços online. Como resultado, a Central de Segurança pode atualizar seus algoritmos de detecção à medida que novas vulnerabilidades e explorações são descobertas, ajudando os clientes a acompanhar o ritmo das ameaças em constante evolução. Os exemplos de alguns dos tipos de ameaças que pode detectar a Central de Segurança incluem:
+A Central de segurança coleta, analisa e integra automaticamente os dados de registro de seus recursos do Azure, da rede e de antimalware e firewalls integrados para detectar ameaças reais e reduzir os falsos positivos. Uma lista priorizada de alertas de segurança, incluindo alertas de soluções de parceiro integradas, é mostrada na Central de Segurança, junto com as informações que você precisa investigar rapidamente e recomendações sobre como corrigir um ataque.
+ 
+Os pesquisadores de segurança da Microsoft estão constantemente analisando ameaças emergentes em todo o mundo, incluindo novos padrões de ataque e tendências vistos em seus produtos de consumidor e empresariais e serviços online. Como resultado, a Central de Segurança pode atualizar seus algoritmos de detecção à medida que novas vulnerabilidades e explorações são descobertas, ajudando os clientes a acompanhar o ritmo das ameaças em constante evolução. Os exemplos de alguns dos tipos de ameaças que pode detectar a Central de Segurança incluem:
 
 - **Detecção de força bruta em dados de rede**: usa modelos de aprendizado de máquina que entendem os padrões de tráfego de rede típica para seus aplicativos e habilita a detecção mais eficaz de tentativas de acesso que estão sendo executadas por indivíduos mal-intencionados, em vez de usuários legítimos.
 - **Detecção de força bruta em dados de ponto de extremidade**: baseada em análise de logs de máquina; habilita a diferenciação entre tentativas com falha e bem-sucedidas.
@@ -75,7 +77,7 @@ Nesse caso, os alertas disparados referem-se à atividade suspeita do protocolo 
 
 ![Sugestões sobre o que fazer com relação aos alertas de segurança na Central de Segurança do Azure](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig8.png)
 
-> [AZURE.NOTE] A correção sugerida pela Central de Segurança varia de acordo com o alerta de segurança. Em alguns casos, talvez seja necessário usar outros recursos do Azure para implementar a correção recomendada. Por exemplo, a correção para esse ataque é colocar o endereço IP que está gerando esse ataque em uma lista negra usando uma [ACL de rede](virtual-networks-acl.md) ou uma regra de [grupo de segurança de rede](virtual-networks-nsg.md).
+> [AZURE.NOTE] A correção sugerida pela Central de Segurança varia de acordo com o alerta de segurança. Em alguns casos, talvez seja necessário usar outros recursos do Azure para implementar a correção recomendada. Por exemplo, a correção para esse ataque é colocar o endereço IP que está gerando esse ataque em uma lista negra usando uma [ACL de rede](../virtual-network/virtual-networks-acl.md) ou uma regra de [grupo de segurança de rede](../virtual-network/virtual-networks-nsg.md).
 
 
 ## Próximas etapas
@@ -83,6 +85,6 @@ Neste documento, você aprendeu a configurar políticas de segurança na Central
 
 - [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) – saiba como monitorar a integridade dos recursos do Azure.
 - [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre perguntas frequentes sobre como usar o serviço.
-- [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure
+- [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

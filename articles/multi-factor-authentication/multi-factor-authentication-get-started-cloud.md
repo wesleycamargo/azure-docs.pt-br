@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="01/11/2016" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 # Introdução ao Servidor Azure Multi-Factor Authentication na nuvem
@@ -118,7 +118,7 @@ Para alterar o estado do usuário usando o Windows PowerShell, você pode usar o
 
 ## Enviar email aos usuários finais
 
-Depois de habilitar os usuários, aconselhamos que você envie a eles um email informando que eles precisarão fornecer as informações de contato. Veja a seguir um modelo de email que pode ser usado que inclui um link para um vídeo que os usuários podem assistir.
+Depois de habilitar os usuários, aconselhamos que você envie a eles um email informando que eles precisarão fornecer suas informações de contato. Veja a seguir um modelo de email que pode ser usado que inclui um link para um vídeo que os usuários podem assistir.
 
 		Subject: ACTION REQUIRED: Your password for Outlook and other apps needs updated
 
@@ -155,4 +155,4 @@ Depois de habilitar os usuários, aconselhamos que você envie a eles um email i
 ## Próximas etapas
 Agora que você configurou o Multi-Factor Authentication na nuvem, é possível seguir adiante acessando [Configurando o Azure Multi-Factor Authentication.](multi-factor-authentication-whats-next.md) Nesse documento, você aprenderá sobre relatórios, alertas de fraude, personalização de mensagens de voz e todos os recursos oferecidos pelo Azure Multi-Factor Authentication.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

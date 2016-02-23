@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.topic="get-started-article"
+	ms.date="02/18/2016"
 	ms.author="billmath"/>
 
 # Comparação de ferramentas de integração de diretório
@@ -27,8 +27,7 @@ Ao longo dos anos, as ferramentas de integração de diretório cresceram e evol
 
 Use a seguinte chave para cada uma das tabelas.
 
-● = Disponível agora</br>FR = versão futura</br>PP = visualização pública</br>
-
+● = Disponível Agora FR = Versão Futura PP = Visualização Pública
 
 ## Local para a sincronização de nuvem
 
@@ -72,7 +71,7 @@ Use a seguinte chave para cada uma das tabelas.
 | Oferece suporte à instalação em um controlador de domínio | ● | ● | ● | |
 | Oferece suporte à instalação usando o SQL Express | ● | ● | ● | |
 | Atualização fácil de DirSync |● | | | |
-| Idiomas do Windows Server de localização | FR | ● | ● | |
+| Idiomas do Windows Server de localização | ● | ● | ● | |
 | Suporte para Windows Server 2008 e Windows Server 2008 R2 | ● para sincronização, não para federação| ● | ● | ● |
 | Suporte para o Windows Server 2012 e Windows Server 2012 R2 | ● | ● | ● | Somente 2012 |
 
@@ -91,4 +90,4 @@ Permitir a personalização avançada para fluxos de atributo | ● | ● | | �
 ## Próximas etapas
 Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->
