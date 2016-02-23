@@ -38,7 +38,7 @@ O [Lote](https://azure.microsoft.com/services/batch/) é um serviço de platafor
 
 * [Tutorial: Introdução à biblioteca de lote do Azure para .NET](batch-dotnet-get-started.md)
 
-* [Fórum do lote](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=azurebatch)
+* [Fórum do lote](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
 
 * [Vídeos de lote](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 
@@ -83,7 +83,7 @@ Use esses modelos do Azure para implantar clusters HPC do Linux.
 
 * [Referência do MS-MPI](https://msdn.microsoft.com/library/dn473458.aspx)
 
-* [Fórum do MPI](https://social.microsoft.com/Forums/pt-BR/home?forum=windowshpcmpi)
+* [Fórum do MPI](https://social.microsoft.com/Forums/home?forum=windowshpcmpi)
 
 ## Instâncias de computação intensiva
 
