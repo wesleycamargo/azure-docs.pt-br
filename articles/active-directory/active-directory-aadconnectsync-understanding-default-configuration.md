@@ -1,20 +1,19 @@
 <properties
-   pageTitle="Sincronização do Azure AD Connect: práticas noções básicas sobre a configuração padrão | Microsoft Azure"
-   description="Este artigo descreve a configuração padrão na sincronização do Azure AD Connect."
-   services="active-directory"
-   documentationCenter=""
-   authors="andkjell"
-   manager="stevenpo"
-   editor=""/>
-
+    pageTitle="Sincronização do Azure AD Connect: práticas noções básicas sobre a configuração padrão | Microsoft Azure"
+    description="Este artigo descreve a configuração padrão na sincronização do Azure AD Connect."
+    services="active-directory"
+    documentationCenter=""
+    authors="andkjell"
+    manager="stevenpo"
+    editor=""/>
 <tags
-   ms.service="active-directory"
-   ms.workload="identity"
-   ms.tgt_pltfrm="na"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.date="01/21/2016"
-   ms.author="andkjell"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+	ms.topic="get-started-article"
+    ms.date="02/12/2016"
+    ms.author="andkjell"/>
 
 # Sincronização do Azure AD Connect: noções básicas sobre a configuração padrão
 
@@ -121,7 +120,7 @@ Nessa configuração, pressupomos que há uma conta habilitada na floresta de co
 
 Nosso objetivo com a configuração padrão é:
 
-- Informações de atributo relacionadas ao logon serão sincronizadas da floresta com a conta habilitada.
+- As informações de atributo relacionadas à entrada serão sincronizadas da floresta com a conta habilitada.
 - Atributos que podem ser encontrados na GAL (Lista de Endereços Global) serão sincronizados da floresta com a caixa de correio. Se nenhuma caixa de correio puder ser encontrada, qualquer outra floresta será usada.
 - Se uma caixa de correio vinculada for encontrada, a conta habilitada vinculada deverá encontrada para que o objeto seja exportado para o AD do Azure.
 
@@ -191,7 +190,7 @@ A seção de transformação define todos os fluxos de atributo que serão aplic
 
 ![Editar regra de sincronização de entrada](./media/active-directory-aadconnectsync-understanding-default-configuration/syncruletransformations.png)
 
-Para colocar isso em contexto, em uma implantação de floresta de Recurso de Conta, esperamos encontrar uma conta habilitada da floresta de contas e uma conta desabilitada na floresta de recursos com as configurações do Exchange e do Lync. A Regra de Sincronização que estamos examinando contém os atributos necessários para logon, e queremos que eles fluam da floresta em que encontramos uma conta habilitada. Todos esses fluxos de atributo são colocados juntos em uma Regra de Sincronização.
+Para colocar isso em contexto, em uma implantação de floresta de Recurso de Conta, esperamos encontrar uma conta habilitada da floresta de contas e uma conta desabilitada na floresta de recursos com as configurações do Exchange e do Lync. A Regra de Sincronização que estamos examinando contém os atributos necessários para a entrada, e queremos que eles fluam da floresta em que encontramos uma conta habilitada. Todos esses fluxos de atributo são colocados juntos em uma Regra de Sincronização.
 
 Uma transformação pode ter diferentes tipos: constante, direta e expressão.
 
@@ -217,7 +216,7 @@ O tópico de transformação é vasto e fornece uma grande parte da configuraç�
 
 ### Precedência
 
-Temos analisado algumas Regras de Sincronização individuais, mas as regras trabalham juntas na configuração. Em alguns casos, um valor de atributo vêm de várias regras de sincronização para o mesmo atributo de destino. Nesse caso, precedência do atributo é usada para determinar qual atributo vencerá. Como exemplo, vamos examinar o atributo sourceAnchor. Ele é um atributo importante para se conseguir fazer logon no AD do Azure. Podemos encontrar um fluxo de atributo para esse atributo em duas diferentes regras de sincronização, **Entrada do AD – usuário AccountEnabled** e **Entrada do AD – usuário comum**. Devido à precedência de Regra de Sincronização, o atributo sourceAnchor terá a contribuição da floresta com uma conta habilitada primeiro se houver vários objetos associados ao objeto metaverso. Se não houver nenhuma conta habilitada, utilizaremos a Regra de Sincronização detectora **Entrada do AD – usuário comum**. Isso garantirá que forneceremos uma sourceAnchor até mesmo para contas que estão desabilitadas.
+Temos analisado algumas Regras de Sincronização individuais, mas as regras trabalham juntas na configuração. Em alguns casos, um valor de atributo vêm de várias regras de sincronização para o mesmo atributo de destino. Nesse caso, precedência do atributo é usada para determinar qual atributo vencerá. Como exemplo, vamos examinar o atributo sourceAnchor. É um atributo importante para se conseguir entrar no AD do Azure. Podemos encontrar um fluxo de atributo para esse atributo em duas diferentes regras de sincronização, **Entrada do AD – usuário AccountEnabled** e **Entrada do AD – usuário comum**. Devido à precedência de Regra de Sincronização, o atributo sourceAnchor terá a contribuição da floresta com uma conta habilitada primeiro se houver vários objetos associados ao objeto metaverso. Se não houver nenhuma conta habilitada, utilizaremos a Regra de Sincronização detectora **Entrada do AD – usuário comum**. Isso garantirá que forneceremos uma sourceAnchor até mesmo para contas que estão desabilitadas.
 
 ![Regras de Sincronização Entrada](./media/active-directory-aadconnectsync-understanding-default-configuration/syncrulesinbound.png)
 
@@ -230,7 +229,7 @@ Agora sabemos o suficiente sobre Regras de Sincronização para poder entender c
 | Nome | Comentário |
 | :------------- | :------------- |
 | Entrada do AD – associação do usuário | Regra para associar objetos de espaço conector com metaverso. |
-| Entrada do AD – UserAccount habilitada | Atributos necessários para entrar no AD do Azure e no Office 365. Queremos esses atributos da conta habilitada. |
+| Entrada do AD – UserAccount habilitada | Os atributos necessários para entrar no AD do Azure e no Office 365. Queremos esses atributos da conta habilitada. |
 | Entrada do AD – usuário comum do Exchange | Atributos encontrados na Lista de Endereços Global. Vamos supor que a qualidade dos dados é melhor na floresta em que achamos a caixa de correio do usuário. |
 | Entrada do AD – usuário comum | Atributos encontrados na Lista de Endereços Global. No caso de não encontramos uma caixa de correio, outros objetos associados podem contribuir com o valor do atributo. |
 | Entrada do AD – usuário do Exchange | Só existirá se o Exchange tiver sido detectado. Fluirá todos os atributos do Exchange de infraestrutura. |
@@ -241,4 +240,4 @@ Agora sabemos o suficiente sobre Regras de Sincronização para poder entender c
 * [Azure AD Connect Sync: personalizando opções de sincronização](active-directory-aadconnectsync-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

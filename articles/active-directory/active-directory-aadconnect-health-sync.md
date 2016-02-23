@@ -1,20 +1,20 @@
 
-<properties 
-	pageTitle="Usando o Azure AD Connect Health com sincronização | Microsoft Azure" 
-	description="Esta é a página Azure AD Connect Health que discutirá como monitorar a sincronização do Azure Connect AD." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+<properties
+	pageTitle="Usando o Azure AD Connect Health com sincronização | Microsoft Azure"
+	description="Esta é a página Azure AD Connect Health que discutirá como monitorar a sincronização do Azure Connect AD."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="01/21/2016" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="02/16/2016"
 	ms.author="billmath"/>
 
 # Usando o Azure AD Connect Health para sincronização
@@ -55,4 +55,4 @@ Esse recurso oferece uma tendência gráfica do número de alterações que est�
 * [Usando o Azure AD Connect Health com o AD FS](active-directory-aadconnect-health-adfs.md)
 * [Perguntas frequentes do Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

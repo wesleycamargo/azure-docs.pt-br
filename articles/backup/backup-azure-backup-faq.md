@@ -13,7 +13,7 @@
    ms.workload="storage-backup-recovery"
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
-	 ms.topic="article"
+	 ms.topic="get-started-article"
 	 ms.date="01/28/2016"
 	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
@@ -100,6 +100,10 @@ Veja a seguir uma lista de perguntas frequentes sobre o Backup do Azure. Se voc�
 - *.microsoftonline.com
 - *.windows.net
 
+**P21. Posso instalar o agente de Backup do Azure em uma VM do Azure da qual o serviço de Backup do Azure já fez backup usando a extensão de Vm?** <br/> R21. Com certeza. O Backup do Azure oferece backup no nível VM para VMs do Azure usando a extensão de VM, e você pode instalar o agente de Backup do Azure no sistema operacional Windows Convidado para proteger arquivos e pastas em um sistema operacional convidado.
+
+**P22. Posso instalar o agente de Backup do Azure em uma VM do Azure para fazer backup de arquivos e pastas presentes no armazenamento temporário fornecido pela VM do Azure?** <br/> R22. Você pode instalar o agente de Backup do Azure no SO convidado do Windows e fazer backup de arquivos e pastas em tempstorage. No entanto, observe que os backups começarão a falhar quando os dados do armazenamento temporário forem apagados. Além disso, durante a restauração, só será possível restaurar para o armazenamento não temporário se os dados de armazenamento temporário tiverem sido excluídos.
+
 
 ## Backup e retenção
 **P1. Há um limite para o tamanho de cada fonte de dados submetida a backup?** <br/> R1. A partir de agosto de 2015, o tamanho máximo da fonte de dados será mencionado abaixo para vários sistemas operacionais
@@ -183,4 +187,4 @@ O tamanho da fonte de dados é medido como mencionado abaixo
 
 Assim que os backups começarem a ser executados com êxito com o novo local de cache, você poderá remover a pasta de cache original.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -51,7 +51,7 @@ O aplicativo é um aplicativo simples "hello world":
 Execute as tarefas a seguir para criar um novo projeto do Serviço de Nuvem do Azure, juntamente com a estrutura básica do Node.js:
 
 
-1. Execute o **PowerShell do Azure** como Administrador. (No **menu Iniciar** ou **tela Iniciar**, pesquise por **PowerShell do Azure**.)
+1. Execute o **Windows PowerShell** como Administrador. (No **menu Iniciar** ou **tela Iniciar**, pesquise por **Windows PowerShell**.)
 
 2.  [Conecte o PowerShell](powershell-install-configure.md#how-to-connect-to-your-subscription) à sua assinatura.
 3.  Insira o seguinte cmdlet do PowerShell para criar o projeto:
@@ -198,4 +198,4 @@ Para obter mais informações, consulte o [Centro de desenvolvedores do Node.js]
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

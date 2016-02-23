@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/10/2015"
+   ms.date="02/02/2016"
    ms.author="joaoma"/>
 
 
@@ -42,7 +42,7 @@ Neste cenário, você:
 - Criará uma sub-rede chamada Appgatewaysubnet que usa 10.0.0.0/28 como seu bloco CIDR.
 - Configurará dois IPs de back-end definidos anteriormente para os servidores Web nos quais deseja balancear a carga do tráfego. Neste exemplo de modelo, os IPs de back-end usados serão 10.0.1.10 e 10.0.1.11.
 
->[AZURE.NOTE]Esses são os parâmetros para este modelo. Para personalizar o modelo, você pode alterar as regras, o ouvinte e o SSL que abre o azuredeploy.json.
+>[AZURE.NOTE] Esses são os parâmetros para este modelo. Para personalizar o modelo, você pode alterar as regras, o ouvinte e o SSL que abre o azuredeploy.json.
 
 
 
@@ -73,7 +73,7 @@ Você pode baixar o modelo existente do Gerenciador de Recursos do Azure para cr
 	| **backendaddress2** | Endereço IP do segundo servidor Web |
 
 
->[AZURE.IMPORTANT]Os modelos do Gerenciador de Recursos do Azure mantidos no GitHub podem mudar ao longo do tempo. Verifique o modelo antes de usá-lo.
+>[AZURE.IMPORTANT] Os modelos do Gerenciador de Recursos do Azure mantidos no GitHub podem mudar ao longo do tempo. Verifique o modelo antes de usá-lo.
 
 6. Verifique o conteúdo em **resources** e observe o seguinte:
 
@@ -284,4 +284,4 @@ Se deseja obter mais informações sobre as opções de balanceamento de carga n
 - [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

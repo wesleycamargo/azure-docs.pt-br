@@ -10,7 +10,7 @@
 <tags
    ms.service="multiple"
    ms.devlang="multiple"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
    ms.date="01/26/2016"
@@ -85,7 +85,6 @@ Use esses modelos do Azure para implantar clusters HPC do Linux.
 
 * [Fórum do MPI](https://social.microsoft.com/Forums/pt-BR/home?forum=windowshpcmpi)
 
-
 ## Instâncias de computação intensiva
 
 O Azure oferece [diversos tamanhos](../virtual-machines/virtual-machines-size-specs.md), inclusive instâncias [A8 e A9](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) com uso intensivo de computação capazes de se conectar a uma rede RDMA de back-end, para executar cargas de trabalho de HPC para Linux e Windows.
@@ -137,4 +136,4 @@ O Azure oferece [diversos tamanhos](../virtual-machines/virtual-machines-size-sp
 * Para os anúncios mais recentes, consulte o [blog da equipe do Microsoft HPC e Lote](http://blogs.technet.com/b/windowshpc/) e o [blog do Azure](https://azure.microsoft.com/blog/tag/hpc/).
 * Consulte também [o que há de novo no Lote](https://azure.microsoft.com/updates/?service=batch) ou assine o [RSS feed](https://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

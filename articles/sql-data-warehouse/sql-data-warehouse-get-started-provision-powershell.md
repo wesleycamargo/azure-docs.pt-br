@@ -19,7 +19,7 @@
 # Criar um SQL Data Warehouse usando o Powershell
 
 > [AZURE.SELECTOR]
-- [Portal do Azure](sql-data-warehouse-get-started-provision.md)
+- [Azure Portal](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
@@ -30,7 +30,7 @@
 Se você ainda não tiver configurado o PowerShell, precisará baixá-lo e configurá-lo.
 
 1. Para baixar o módulo PowerShell do Azure, execute o [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
-2. Para executar o módulo, na janela de início, digite **Microsoft Azure PowerShell**.
+2. Para executar o módulo, na janela de início, digite **Windows PowerShell**.
 3. Execute este cmdlet para fazer logon no Gerenciador de Recursos do Azure. Para saber mais, consulte [Como instalar e configurar o Azure PowerShell][]\:
 
 	```
@@ -96,4 +96,4 @@ Se estiver interessado em obter mais informações sobre como gerenciar o SQL Da
 [firewall rules]: ../sql-database/sql-database-configure-firewall-settings.md
 [Como instalar e configurar o Azure PowerShell]: ./powershell-install-configure.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

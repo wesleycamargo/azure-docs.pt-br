@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # Apontar um domínio de Internet da empresa para um Domínio do Gerenciador de Tráfego do Azure.
@@ -25,7 +25,7 @@ Por exemplo, para apontar o nome de domínio de empresa www.contoso.com para o n
 
 Todas as solicitações de tráfego para *www.contoso.com* agora serão direcionadas para *contoso.trafficmanager.net*.
 
->[AZURE.IMPORTANT]Não é possível indicar um domínio de segundo nível, como *contoso.com*, para o domínio do Gerenciador de Tráfego. Essa é uma limitação do protocolo DNS, que não permite registros CNAME para nomes de domínio de segundo nível.
+>[AZURE.IMPORTANT] Não é possível indicar um domínio de segundo nível, como *contoso.com*, para o domínio do Gerenciador de Tráfego. Essa é uma limitação do protocolo DNS, que não permite registros CNAME para nomes de domínio de segundo nível.
 
 ## Próximas etapas
 
@@ -35,4 +35,4 @@ Todas as solicitações de tráfego para *www.contoso.com* agora serão direcion
 
 [Gerenciador de Tráfego - Desabilitar ou habilitar um ponto de extremidade](disable-or-enable-an-endpoint.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

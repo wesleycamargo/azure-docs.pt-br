@@ -11,7 +11,7 @@
 <tags
      ms.service="iot-suite"
      ms.devlang="na"
-     ms.topic="article"
+     ms.topic="get-started-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
      ms.date="11/27/2015"
@@ -74,4 +74,4 @@ Agora que tem uma visão geral do que o IoT Suite pode fazer e quais são seus p
 [lnk-preconfig-start]: iot-suite-getstarted-preconfigured-solutions/
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

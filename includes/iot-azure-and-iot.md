@@ -1,4 +1,4 @@
-# Azure e IoT
+# Azure e Internet das Coisas
 
 Bem vindo ao Microsoft Azure e à IoT (Internet das Coisas). Este artigo apresenta uma arquitetura da solução típica IoT que descreve as características de uma solução de IoT, que você pode implantar usando os serviços do Azure. Uma solução de IoT típica exige segurança, comunicação bidirecional entre dispositivos, numeração possivelmente em milhões e uma solução back-end que, por exemplo, use análise preditiva automatizada para revelar informações do fluxo de eventos do dispositivo para a nuvem.
 
@@ -46,4 +46,4 @@ Muitas soluções de IoT permitem aos usuários exibir e analisar os dados colet
 [lnk-machinelearning]: http://azure.microsoft.com/services/machine-learning/
 [Azure IoT Suite]: http://azure.microsoft.com/solutions/iot
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

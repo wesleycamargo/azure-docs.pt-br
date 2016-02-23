@@ -17,7 +17,7 @@
 	ms.date="12/17/2015" 
 	ms.author="mimig"/>
 
-# Criar uma conta de banco de dados do Banco de Dados de Documentos usando o portal do Azure
+# Como criar uma conta de banco de dados do Banco de Dados de Documentos usando o portal do Azure
 
 > [AZURE.SELECTOR]
 - [Azure Portal](documentdb-create-account.md)
@@ -50,4 +50,4 @@ Para saber mais sobre o Banco de Dados de Documentos, explore estes recursos:
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->
