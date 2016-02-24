@@ -58,17 +58,17 @@ Consulte [Tamanhos de máquina virtual](../virtual-machines/virtual-machines-siz
 
 Cada objeto com dados armazenado no Armazenamento do Azure (blobs, mensagens, entidades e arquivos) pertence a uma partição e é identificado por uma chave de partição. A partição determina como o Armazenamento do Azure equilibra as cargas de blobs, mensagens, entidades e arquivos em servidores a fim de atender às necessidades de tráfego desses objetos. A chave de partição é exclusiva dentro da conta de armazenamento e é usada para localizar um blob, mensagem ou entidade.
 
-A tabela acima em [Metas de escalabilidade para contas de armazenamento padrão](#scalability-targets-for-standard-storage-accounts) lista as metas de desempenho para uma única partição para cada serviço.
+A tabela mostrada acima em [Metas de escalabilidade para contas de armazenamento padrão](#scalability-targets-for-standard-storage-accounts) lista as metas de desempenho para uma única partição para cada serviço.
 
 As partições afetam o balanceamento de carga e a escalabilidade de cada um dos serviços de armazenamento das seguintes formas:
 
-- **Blobs**: a chave de partição de um blob é o nome do contêiner + nome do blob. Isso significa que cada blob possui sua própria partição. Blobs podem, portanto, ser distribuídos em vários servidores a fim de expandir o acesso a eles. Embora os blobs possam ser agrupados logicamente em contêineres de blob, o particionamento não é afetado de forma alguma por esse agrupamento.
+- **Blobs**: A chave de partição de um blob é o nome do contêiner + nome do blob. Isso significa que cada blob possui sua própria partição. Blobs podem, portanto, ser distribuídos em vários servidores a fim de expandir o acesso a eles. Embora os blobs possam ser agrupados logicamente em contêineres de blob, o particionamento não é afetado de forma alguma por esse agrupamento.
 
 - **Arquivos**: A chave de partição para um arquivo é o nome da conta + nome do compartilhamento do arquivos. Isso significa que todos os arquivos em um compartilhamento de arquivos também estão em uma única partição.
 
-- **Mensagens**: a chave de partição de uma mensagem é o nome da fila, portanto, todas mensagens em uma fila são agrupadas em uma única partição e são atendidas por um único servidor. Filas diferentes podem ser processadas por servidores diferentes a fim de equilibrar a carga, não importa a quantidade de filas que uma conta de armazenamento tenha.
+- **Mensagens**: A chave de partição de uma mensagem é o nome da fila, portanto, todas mensagens em uma fila são agrupadas em uma única partição e são atendidas por um único servidor. Filas diferentes podem ser processadas por servidores diferentes a fim de equilibrar a carga, não importa a quantidade de filas que uma conta de armazenamento tenha.
 
-- **Entidades**:aA chave de partição de uma entidade é nome da tabela + chave de partição, sendo que a chave de partição é o valor da propriedade obrigatória **PartitionKey** definida pelo usuário para a entidade.
+- **Entidades**: A chave de partição de uma entidade é nome da tabela + chave de partição, sendo que a chave de partição é o valor da propriedade obrigatória **PartitionKey** definida pelo usuário para a entidade.
 
 	Todas as entidades com o mesmo valor de chave de partição são agrupadas na mesma partição e são armazenadas no mesmo servidor de partição. É importante entender isso ao projetar seu aplicativo. Seu aplicativo deve equilibrar os benefícios de escalabilidade da propagação de entidades por várias partições com as vantagens de acesso de dados do agrupamento de entidades em uma única partição.
 
