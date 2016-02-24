@@ -2,11 +2,11 @@
 
 As novas APIs do Twitter v1.1 exigem que o aplicativo seja autenticado para acessar recursos. Primeiro, você precisa obter as credenciais necessárias para solicitar acesso usando o OAuth 2.0. Em seguida, você irá armazená-las com segurança nas configurações do aplicativo para seu serviço móvel.
 
-1. Se ainda não o fez, conclua as etapas do tópico <a href="../articles/mobile-services/mobile-services-how-to-register-twitter-authentication.md/" target="_blank">Registrar seus aplicativos para fazer logon no Twitter com os Serviços Móveis</a>. 
+1. Se ainda não o fez, conclua as etapas do tópico [Registrar seus aplicativos para fazer logon no Twitter com os Serviços Móveis](../../includes/mobile-services-how-to-register-twitter-authentication.md). 
   
   	O Twitter gera as credenciais necessárias para habilitar seu acesso às APIs do Twitter v1.1. Você pode obter essas credenciais no site de Desenvolvedores do Twitter.
 
-2. Navegue até o site <a href="http://go.microsoft.com/fwlink/p/?LinkId=268300" target="_blank">Desenvolvedores do Twitter</a>, entre usando suas credenciais de conta do Twitter e selecione seu aplicativo do Twitter.
+2. Navegue até o site [Desenvolvedores do Twitter](http://go.microsoft.com/fwlink/p/?LinkId=268300), entre usando suas credenciais de conta do Twitter e selecione seu aplicativo do Twitter.
 
 3. Na guia **Chaves e Tokens de Acesso** do aplicativo, anote os seguintes valores:
 
@@ -36,4 +36,4 @@ As novas APIs do Twitter v1.1 exigem que o aplicativo seja autenticado para aces
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Configurações do aplicativo]: http://msdn.microsoft.com/library/azure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

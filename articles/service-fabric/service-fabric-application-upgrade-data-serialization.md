@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/15/2015"
+   ms.date="02/04/2016"
    ms.author="jesseb"/>
 
 
 # Como a serialização de dados afeta a atualização de um aplicativo
 
-Em uma [atualização de aplicativo sem interrupção](service-fabric-application-upgrade.md), a atualização é aplicada a um subconjunto de nós, um domínio de atualização de cada vez. Durante esse processo, alguns domínios de atualização estarão na versão mais recente do seu aplicativo, e alguns domínios de atualização terão a versão mínima do seu aplicativo. Nesse momento, a nova versão do seu aplicativo deve ser capaz de ler a versão antiga dos dados, e a versão antiga do seu aplicativo deve ser capaz de ler a nova versão dos dados. Se o formato de dados não for compatível com versões anteriores e posteriores, a atualização poderá falhar ou os dados poderão ser perdidos. Este artigo discute o que constitui o formato de dados e oferece as práticas recomendadas para garantir que seus dados sejam compatíveis de uma versão para outra.
+Em uma [atualização de aplicativo sem interrupção](service-fabric-application-upgrade.md), a atualização é aplicada a um subconjunto de nós, um domínio de atualização de cada vez. Durante esse processo, alguns domínios de atualização estarão na versão mais recente do seu aplicativo, e alguns domínios de atualização terão a versão mínima do seu aplicativo. Durante a distribuição, a nova versão do seu aplicativo deve ser capaz de ler a versão antiga dos dados, e a versão antiga do seu aplicativo deve ser capaz de ler a nova versão dos dados. Se o formato de dados não for compatível com versões anteriores e posteriores, a atualização poderá falhar ou, pior ainda, os dados poderão ser perdidos ou corrompidos. Este artigo discute o que constitui o formato de dados e oferece as práticas recomendadas para garantir que seus dados sejam compatíveis de uma versão para outra.
 
 
 ## O que compõe o seu formato de dados?
@@ -47,7 +47,7 @@ Durante uma atualização sem interrupção, há dois cenários principais em qu
 1. Depois que um nó é atualizado e inicia o backup, o novo serializador carrega os dados que foram mantidos em disco pela versão antiga.
 2. Durante a atualização sem interrupção, o cluster conterá uma combinação das versões antiga e nova do seu código. Como as réplicas podem ser colocadas em diferentes domínios de atualização, e as réplicas enviam dados entre si, a versão nova e/ou antiga de seus dados pode ser encontrada pela versão nova e/ou antiga do seu serializador.
 
-> [AZURE.NOTE]A "nova versão" e "versão antiga" aqui se referem à versão do seu código que está em execução. "Novo serializador" refere-se ao código do serializador que está sendo executado na nova versão de seu aplicativo. "Novos dados" refere-se à classe C# serializada da nova versão do seu aplicativo.
+> [AZURE.NOTE] A "nova versão" e "versão antiga" aqui se referem à versão do seu código que está em execução. "Novo serializador" refere-se ao código do serializador que está sendo executado na nova versão de seu aplicativo. "Novos dados" refere-se à classe C# serializada da nova versão do seu aplicativo.
 
 As duas versões do formato de dados e código devem ser compatíveis uma com a outra. Se não forem compatíveis, a atualização sem interrupção pode falhar ou dados podem ser perdidos. A atualização sem interrupção pode falhar porque o código ou o serializador pode acionar exceções ou falhas ao encontrar a outra versão. Dados podem ser perdidos se, por exemplo, uma nova propriedade foi adicionada, mas o serializador antigo a descartar durante a desserialização.
 
@@ -56,12 +56,15 @@ O Contrato de Dados é a solução recomendada para garantir que seus dados seja
 
 ## Próximas etapas
 
-[Atualização do aplicativo do Service Fabric usando o Visual Studio](service-fabric-application-upgrade.md)
+[Atualizar seu Aplicativo Usando o Visual Studio](service-fabric-application-upgrade-tutorial.md) orienta você a fazer uma atualização de aplicativo usando o Visual Studio.
 
-[Atualização do aplicativo do Service Fabric usando o PowerShell](service-fabric-application-upgrade-powershell.md)
+[Atualizando seu aplicativo usando o Powershell](service-fabric-application-upgrade-tutorial-powershell.md) orienta você uma atualização de aplicativo usando o PowerShell.
 
-[Parâmetros de atualização](service-fabric-application-upgrade-parameters.md)
+Controle como seu aplicativo é atualizado usando [Parâmetros de Atualização](service-fabric-application-upgrade-parameters.md).
 
-[Atualização manual e atualização com um pacote diff](service-fabric-application-upgrade-advanced.md)
+Saiba como usar a funcionalidade avançada ao atualizar seu aplicativo consultando os [Tópicos Avançados](service-fabric-application-upgrade-advanced.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+Corrija problemas comuns em atualizações de aplicativo consultando as etapas em [Solucionando Problemas de Atualizações de Aplicativo](service-fabric-application-upgrade-troubleshooting.md).
+ 
+
+<!---HONumber=AcomDC_0211_2016-->

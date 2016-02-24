@@ -61,7 +61,7 @@ Nesta etapa, é possível usar o Azure PowerShell para criar um Azure Data Facto
 
 		New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH –Location "West US"
 
-	> [AZURE.IMPORTANT]O nome do Azure Data Factory deve ser globalmente exclusivo. Se você receber o erro: **O nome da data factory "FirstDataFactoryPSH" não está disponível**, altere o nome (por exemplo, seunomeFirstDataFactoryPSH). Use esse nome em vez de ADFTutorialFactoryPSH ao executar as etapas neste tutorial. Consulte o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos de Data Factory.
+	> [AZURE.IMPORTANT] O nome do Azure Data Factory deve ser globalmente exclusivo. Se você receber o erro: **O nome da data factory "FirstDataFactoryPSH" não está disponível**, altere o nome (por exemplo, seunomeFirstDataFactoryPSH). Use esse nome em vez de ADFTutorialFactoryPSH ao executar as etapas neste tutorial. Consulte o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos de Data Factory.
 	> 
 	> O nome do data factory pode ser registrado futuramente como um nome DNS e tornar-se publicamente visível.
 
@@ -73,7 +73,7 @@ Nesta etapa, você vinculará sua conta do Armazenamento do Azure e um cluster d
 ### Criar o serviço vinculado do armazenamento do Azure
 Nesta etapa, você vinculará a conta do Armazenamento do Azure ao data factory. Para o tutorial, use a mesma conta do Armazenamento do Azure para armazenar dados de entrada/saída e o arquivo do script do HQL.
 
-1. Crie um arquivo JSON chamado StorageLinkedService.json na pasta C:\ADFGetStarted com o conteúdo a seguir. Crie a pasta ADFGetStarted se ela ainda não existir.
+1. Crie um arquivo JSON chamado StorageLinkedService.json na pasta C:\\ADFGetStarted com o conteúdo a seguir. Crie a pasta ADFGetStarted se ela ainda não existir.
 
 		{
 	    	"name": "StorageLinkedService",
@@ -86,10 +86,10 @@ Nesta etapa, você vinculará a conta do Armazenamento do Azure ao data factory.
 	    	}
 		}
 
-	Substitua o **nome da conta** pelo nome da conta de armazenamento do Azure e a **chave de conta** pela chave de acesso da sua conta do armazenamento do Azure. Para saber como obter sua chave de acesso de armazenamento, confira [Exibir, copiar e regenerar chaves de acesso de armazenamento](http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys).
+	Substitua o **nome da conta** pelo nome da conta de armazenamento do Azure e a **chave de conta** pela chave de acesso da sua conta do armazenamento do Azure. Para saber como obter sua chave de acesso de armazenamento, confira [Exibir, copiar e regenerar chaves de acesso de armazenamento](https://azure.microsoft.com/documentation/articles/storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys).
 
 2. No Azure PowerShell, alterne para a pasta ADFGetStarted.
-3. Você pode usar o cmdlet **New-AzureRmDataFactoryLinkedService** para criar um serviço vinculado. Esse cmdlet e outros cmdlets de Data Factory que você usa neste tutorial exigem que os valores sejam passados aos parâmetros *ResourceGroupName* e *DataFactoryName*. Como alternativa, é possível usar **Get-AzureRmDataFactory** para obter um objeto **DataFactory** e passar o objeto sem digitar *ResourceGroupName* e *DataFactoryName* sempre que você executar um cmdlet. Execute o comando a seguir para atribuir a saída do cmdlet **Get-AzureDataFactory** a uma variável **$df**.
+3. Você pode usar o cmdlet **New-AzureDataFactoryLinkedService** para criar um serviço vinculado. Esse cmdlet e outros cmdlets de Data Factory que você usa neste tutorial exigem que os valores sejam passados aos parâmetros *ResourceGroupName* e *DataFactoryName*. Como alternativa, é possível usar **Get-AzureRmDataFactory** para obter um objeto **DataFactory** e passar o objeto sem digitar *ResourceGroupName* e *DataFactoryName* sempre que você executar um cmdlet. Execute o comando a seguir para atribuir a saída do cmdlet **Get-AzureDataFactory** a uma variável **$df**.
 
 		$df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH
 
@@ -106,7 +106,7 @@ Nesta etapa, você vinculará a conta do Armazenamento do Azure ao data factory.
 ### Criar o serviço vinculado do Azure HDInsight
 Nesta etapa, você vinculará um cluster do HDInsight sob demanda ao seu data factory. O cluster do HDInsight é automaticamente criado no tempo de execução e excluído após a conclusão do processamento, ficando ocioso durante o período especificado. Você pode usar seu próprio cluster do HDInsight em vez de usar um cluster do HDInsight sob demanda. Veja [Serviços vinculados de computação](data-factory-compute-linked-services.md) para obter detalhes.
 
-1. Crie um arquivo JSON chamado **HDInsightOnDemandLinkedService**.json na pasta **C:\ADFGetStarted** com o conteúdo a seguir.
+1. Crie um arquivo JSON chamado **HDInsightOnDemandLinkedService**.json na pasta **C:\\ADFGetStarted** com o conteúdo a seguir.
 
 		{
 		  "name": "HDInsightOnDemandLinkedService",
@@ -130,6 +130,15 @@ Nesta etapa, você vinculará um cluster do HDInsight sob demanda ao seu data fa
 	| TimeToLive | Especifica tempo ocioso de cluster HDInsight antes de ser excluído. |
 	| linkedServiceName | Especifica a conta de armazenamento que será usada para armazenar os logs gerados pelo HDInsight |
 
+	Observe o seguinte:
+	
+	- O Data Factory cria um cluster HDInsight **baseado no Windows** para você com o JSON acima. Você também pode fazer com que ele crie um cluster HDInsight **baseado em Linux**. Consulte [Serviço vinculado do HDInsight sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes. 
+	- Você pode usar **seu próprio cluster do HDInsight** em vez de usar um cluster do HDInsight sob demanda. Consulte [Serviço vinculado do HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) para obter detalhes.
+	- O cluster HDInsight cria um **contêiner padrão** no armazenamento de blobs especificado em JSON (**linkedServiceName**). O HDInsight não exclui esse contêiner quando o cluster é excluído. Isso ocorre por design. Com o serviço vinculado do HDInsight sob demanda, um cluster HDInsight é criado sempre que uma fatia precisa ser processada, a menos que haja um cluster ativo existente (**timeToLive**) e ele seja excluído quando o processamento for concluído.
+	
+		À medida que mais e mais fatias forem processadas, você verá muitos contêineres no armazenamento de blobs do Azure. Se você não precisa deles para solução de problemas dos trabalhos, convém excluí-los para reduzir o custo de armazenamento. O nome desses contêineres segue um padrão: "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp". Use ferramentas como [Gerenciador de Armazenamento da Microsoft](http://storageexplorer.com/) para excluir contêineres do armazenamento de blobs do Azure.
+
+	Consulte [Serviço vinculado do HDInsight sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes. 
 2. Execute o cmdlet **New-AzureRmDataFactoryLinkedService** para criar o serviço vinculado denominado HDInsightOnDemandLinkedService.
 
 		New-AzureRmDataFactoryLinkedService $df -File .\HDInsightOnDemandLinkedService.json
@@ -139,7 +148,7 @@ Nesta etapa, você vinculará um cluster do HDInsight sob demanda ao seu data fa
 Nesta etapa, você criará conjuntos de dados para representar dados de entrada e de saída para o processamento do Hive. Esses conjuntos de dados fazem referência ao **StorageLinkedService** que você criou anteriormente neste tutorial. Os pontos de serviço apontam para uma conta do Armazenamento do Azure e os conjuntos de dados especificam o contêiner, a pasta, o nome no armazenamento que contém os dados de entrada e de saída.
 
 ### Criar o conjunto de dados de entrada
-1. Crie um arquivo JSON denominado **InputTable.json** na pasta **C:\ADFGetStarted** com o seguinte conteúdo:
+1. Crie um arquivo JSON denominado **InputTable.json** na pasta **C:\\ADFGetStarted** com o seguinte conteúdo:
 
 		{
 			"name": "AzureBlobInput",
@@ -163,7 +172,7 @@ Nesta etapa, você criará conjuntos de dados para representar dados de entrada 
 		    }
 		} 
 
-	No exemplo anterior, você criou um conjunto de dados chamado **AzureBlobOutput** e especificou o trecho JSON, criou um conjunto de dados chamado **AzureBlobInput** que representa dados de entrada para uma atividade no pipeline. Além disso, você especifica que os dados de entrada estão localizados no contêiner de blob denominado **adfgetstarted** e na pasta chamada **inputdata**.
+	O JSON acima define um conjunto de dados chamado **AzureBlobInput**, que representa dados de entrada para uma atividade no pipeline. Além disso, ele especifica que os dados de entrada estão localizados no contêiner de blob denominado **adfgetstarted** e na pasta chamada **inputdata**.
 
 	A tabela a seguir fornece descrições das propriedades de JSON usadas no trecho de código:
 
@@ -184,7 +193,7 @@ Nesta etapa, você criará conjuntos de dados para representar dados de entrada 
 ### Criar o conjunto de dados de saída
 Agora, você criará o conjunto de dados de saída para representar os dados de saída armazenados no armazenamento de Blobs do Azure.
 
-1. Crie um arquivo JSON denominado **OutputTable.json** na pasta **C:\ADFGetStarted** com o seguinte conteúdo:
+1. Crie um arquivo JSON denominado **OutputTable.json** na pasta **C:\\ADFGetStarted** com o seguinte conteúdo:
 
 		{
 		  "name": "AzureBlobOutput",
@@ -205,7 +214,7 @@ Agora, você criará o conjunto de dados de saída para representar os dados de 
 		  }
 		}
 
-	No trecho JSON, você está criando um conjunto de dados chamado **AzureBlobOutput** e especificando a estrutura dos dados que serão produzidos pelo script do Hive. Além disso, você especifica que os resultados são armazenados no contêiner de blob denominado **adfgetstarted** e na pasta chamada **partitioneddata**. A seção **availability** especifica que o conjunto de dados de saída é produzido mensalmente.
+	O JSON acima define um conjunto de dados chamado **AzureBlobOutput**, que representa dados de saída para uma atividade no pipeline. Além disso, ele especifica que os resultados são armazenados no contêiner de blob denominado **adfgetstarted** e na pasta chamada **partitioneddata**. A seção **availability** especifica que o conjunto de dados de saída é produzido mensalmente.
 
 2. Execute o comando a seguir no Azure PowerShell para criar o conjunto de dados do Data Factory.
 
@@ -215,9 +224,9 @@ Agora, você criará o conjunto de dados de saída para representar os dados de 
 Nesta etapa, você criará seu primeiro pipeline com a atividade **HDInsightHive**. Observe que a fatia de entrada está disponível mensalmente (frequência: mês, intervalo: 1), a fatia de saída é produzida mensalmente e a propriedade do agendador para a atividade também é definida como mensal (veja abaixo). As configurações para o conjunto de dados de saída e o agendador de atividades devem corresponder. Neste momento, o conjunto de dados de saída é o que aciona a agenda, então você deve criar um conjunto de dados de saída, mesmo que a atividade não produza qualquer saída. Se a atividade não receber entradas, ignore a criação de conjunto de dados de entrada. As propriedades usadas no JSON a seguir são explicadas no final desta seção.
 
 
-1. Crie um arquivo JSON denominado MyFirstPipelinePSH.json na pasta C:\ADFGetStarted com o conteúdo a seguir:
+1. Crie um arquivo JSON denominado MyFirstPipelinePSH.json na pasta C:\\ADFGetStarted com o conteúdo a seguir:
 
-	> [AZURE.IMPORTANT]Substitua **storageaccountname** pelo nome da sua conta de armazenamento no JSON.
+	> [AZURE.IMPORTANT] Substitua **storageaccountname** pelo nome da sua conta de armazenamento no JSON.
 		
 		{
 		    "name": "MyFirstPipeline",
@@ -342,4 +351,4 @@ Neste artigo, você criou um pipeline com uma atividade de transformação (ativ
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

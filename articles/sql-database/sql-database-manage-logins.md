@@ -1,6 +1,7 @@
 <properties
-   pageTitle="Gerenciamento dos bancos de dados e logons no Banco de Dados SQL do Azure | Microsoft Azure"
-   description="Como usar a entidade de segurança no nível de servidor e outras contas para gerenciar logons e bancos de dados no Banco de Dados SQL."
+   pageTitle="Gerenciamento de segurança de banco de dados SQL - segurança de logon | Microsoft Azure"
+   description="Saiba mais sobre o gerenciamento de segurança de banco de dados SQL, especialmente sobre como gerenciar o acesso ao banco de dados e a segurança de logon por meio da conta de entidade de segurança no nível do servidor."
+   keywords="segurança do banco de dados SQL, gerenciamento de segurança de banco de dados, segurança de logon, segurança de banco de dados, acesso ao banco de dados"
    services="sql-database"
    documentationCenter=""
    authors="BYHAM"
@@ -14,20 +15,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/25/2015"
+   ms.date="02/01/2016"
    ms.author="rickbyh"/>
 
-# Gerenciamento de bancos de dados e logons no Banco de Dados SQL do Azure
+# Segurança de banco de dados SQL: gerenciar o acesso ao banco de dados e a segurança de logon  
+
+Saiba mais sobre o gerenciamento de segurança de banco de dados SQL, especialmente sobre como gerenciar o acesso ao banco de dados e a segurança de logon por meio da conta de entidade de segurança no nível do servidor. Entenda algumas diferenças e semelhanças nas opções de segurança de logon entre um banco de dados SQL e um SQL Server local.
+
+## Provisionamento de banco de dados e logon da entidade de segurança no nível do servidor
 
 No Banco de dados SQL do Microsoft Azure, quando você se inscreve para o serviço, o processo de provisionamento cria um servidor SQL do Azure, um banco de dados denominado **mestre**, e um logon que é a entidade no nível de servidor de seu servidor de Banco de Dados SQL do Azure. Esse logon é semelhante à entidade no nível de servidor (**sa**) para uma instância local do SQL Server.
 
 A conta da entidade no nível de servidor do Banco de Dados SQL do Azure sempre tem permissão para gerenciar toda a segurança no nível de servidor e nível de banco de dados. Este tópico descreve como você pode usar a entidade no nível de servidor e outras contas para gerenciar logons e bancos de dados no Banco de dados SQL.
 
-> [AZURE.IMPORTANT]O Banco de dados SQL V12 permite que os usuários se autentifiquem no banco de dados usando usuários do banco de dados independente. Os usuários do banco de dados independente não exigem logons. Isso torna os bancos de dados mais portáteis, mas reduz a capacidade de controlar o acesso ao banco de dados da entidade no nível de servidor. A habilitação de usuários do banco de dados independente tem impactos de segurança importantes. Para obter mais informações, consulte [Usuários do banco de dados independente - Tornando o banco de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx), [Bancos de dados independentes](https://technet.microsoft.com/library/ff929071.aspx), [CREATE USER (Transact-SQL)](https://technet.microsoft.com/library/ms173463.aspx) e [Conectar-se ao Banco de Dados SQL usando a autenticação do Active Directory do Azure](sql-database-aad-authentication.md).
+Os usuários do Azure que estiverem acessando o Banco de Dados SQL por meio do Controle de Acesso Baseado em Função do Azure e a API REST do Gerenciador de Recursos do Azure recebem permissões de suas Funções no Azure. As ações dos membros de função do Azure são executadas para eles pelo Mecanismo de Banco de Dados. Elas não são afetadas pelo modelo de permissões do Mecanismo de Banco de Dados e não são abordadas neste tópico. Para obter mais informações, confira [RBAC: funções internas]( https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/#sql-db-contributor).
 
-## Visão geral da administração de segurança do Banco de dados SQL
+> [AZURE.IMPORTANT] O Banco de dados SQL V12 permite que os usuários se autentifiquem no banco de dados usando usuários do banco de dados independente. Os usuários do banco de dados independente não exigem logons. Isso torna os bancos de dados mais portáteis, mas reduz a capacidade de controlar o acesso ao banco de dados da entidade no nível de servidor. A habilitação de usuários do banco de dados independente tem impactos de segurança importantes. Para obter mais informações, consulte [Usuários do banco de dados independente - Tornando o banco de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx), [Bancos de dados independentes](https://technet.microsoft.com/library/ff929071.aspx), [CREATE USER (Transact-SQL)](https://technet.microsoft.com/library/ms173463.aspx) e [Conectar-se ao Banco de Dados SQL usando a autenticação do Active Directory do Azure](sql-database-aad-authentication.md).
 
-A administração de segurança no Banco de dados SQL é semelhante à administração de segurança para uma instância local do SQL Server. O gerenciamento da segurança no nível de banco de dados é quase idêntico, com diferenças apenas nos parâmetros disponíveis. Como os Bancos de dados SQL podem ser dimensionados para um ou mais computadores físicos, o Banco de dados SQL do Azure usa uma estratégia diferente para a administração no nível de servidor. A tabela a seguir resume como a administração de segurança para um SQL Server local é diferente do Banco de dados SQL do Azure.
+## Visão geral do gerenciamento de segurança do banco de dados SQL
+
+O gerenciamento de segurança de banco de dados SQL é semelhante ao gerenciamento de segurança para uma instância local do SQL Server. O gerenciamento da segurança no nível de banco de dados é quase idêntico, com diferenças apenas nos parâmetros disponíveis. Como os Bancos de dados SQL podem ser dimensionados para um ou mais computadores físicos, o Banco de dados SQL do Azure usa uma estratégia diferente para a administração no nível de servidor. A tabela a seguir resume como o gerenciamento de segurança de banco de dados para um SQL Server local é diferente do banco de dados SQL do Azure.
 
 | Ponto de diferença | SQL Server local | Banco de Dados SQL do Azure |
 |------------------------------------------------|-----------------------------------------------------------------------------|--------------------------------------------------|
@@ -46,7 +53,7 @@ Seu servidor de Banco de Dados SQL do Azure é uma abstração que define um agr
 
 O banco de dados **mestre** controla os logons e quais logons têm permissão para criar bancos de dados ou outros logons. Você deverá estar conectado ao banco de dados **mestre** sempre que criar, alterar ou remover logons ou bancos de dados. O banco de dados **mestre** também tem os modos de exibição ``sys.sql_logins`` e ``sys.databases`` que você pode usar para exibir logons e bancos de dados.
 
-> [AZURE.NOTE]O comando ``USE`` não oferece suporte à alternância entre bancos de dados. Estabelecer uma conexão diretamente com o banco de dados de destino.
+> [AZURE.NOTE] O comando ``USE`` não oferece suporte à alternância entre bancos de dados. Estabelecer uma conexão diretamente com o banco de dados de destino.
 
 Você pode gerenciar a segurança no nível de banco de dados para usuários e objetos no Banco de dados SQL do Azure da mesma maneira que faria para uma instância local do SQL Server. Há diferenças apenas nos parâmetros disponíveis para os comandos correspondentes. Para saber mais, consulte [Diretrizes e limitações de segurança do Banco de Dados SQL do Azure](sql-database-security-guidelines.md).
 
@@ -58,7 +65,7 @@ Crie o primeiro usuário de banco de dados independente em um banco de dados ao 
 CREATE USER user1 WITH password='<Strong_Password>';
 ```
 
-> [AZURE.NOTE]Você deve usar uma senha forte ao criar um usuário de banco de dados independente. Para obter mais informações, consulte [Senhas fortes (a página pode estar em inglês)](https://msdn.microsoft.com/library/ms161962.aspx).
+> [AZURE.NOTE] Você deve usar uma senha forte ao criar um usuário de banco de dados independente. Para obter mais informações, consulte [Senhas fortes (a página pode estar em inglês)](https://msdn.microsoft.com/library/ms161962.aspx).
 
 Os usuários adicionais do banco de dados independente podem ser criados por qualquer usuário com a permissão **ALTER ANY USER**.
 
@@ -75,7 +82,7 @@ Gerenciar logons com o logon da entidade no nível de servidor conectando-se ao 
 CREATE LOGIN login1 WITH password='<ProvidePassword>';
 ```
 
-> [AZURE.NOTE]Você deve usar uma senha forte ao criar um logon. Para obter mais informações, consulte [Senhas fortes (a página pode estar em inglês)](https://msdn.microsoft.com/library/ms161962.aspx).
+> [AZURE.NOTE] Você deve usar uma senha forte ao criar um logon. Para obter mais informações, consulte [Senhas fortes (a página pode estar em inglês)](https://msdn.microsoft.com/library/ms161962.aspx).
 
 #### Uso de novos logons
 
@@ -87,7 +94,7 @@ Como algumas ferramentas implementam o protocolo TDS (TDS) de forma diferente, t
 
 Para que logons diferentes da entidade no nível de servidor gerenciem a segurança no nível de servidor, o Banco de Dados SQL do Azure oferece duas funções de segurança: **loginmanager**, para a criação de logons e **dbmanager** para a criação de bancos de dados. Apenas os usuários no banco de dados **mestre** podem ser adicionados a essas funções de banco de dados.
 
-> [AZURE.NOTE]Para criar logons ou bancos de dados, você deverá estar conectado ao banco de dados **mestre** (que é uma representação lógica do **mestre**).
+> [AZURE.NOTE] Para criar logons ou bancos de dados, você deverá estar conectado ao banco de dados **mestre** (que é uma representação lógica do **mestre**).
 
 ### A função loginmanager
 
@@ -116,7 +123,7 @@ EXEC sp_addrolemember 'dbmanager', 'login1User';
 EXEC sp_addrolemember 'loginmanager', 'login1User';
 ```
 
-> [AZURE.NOTE]Você deve usar uma senha forte ao criar um logon. Para obter mais informações, consulte [Senhas fortes (a página pode estar em inglês)](https://msdn.microsoft.com/library/ms161962.aspx).
+> [AZURE.NOTE] Você deve usar uma senha forte ao criar um logon. Para obter mais informações, consulte [Senhas fortes (a página pode estar em inglês)](https://msdn.microsoft.com/library/ms161962.aspx).
 
 ## Concessão de acesso de banco de dados para um logon
 
@@ -138,7 +145,7 @@ CREATE LOGIN login1 WITH password='<ProvidePassword>';
 CREATE DATABASE database1;
 ```
 
-> [AZURE.NOTE]Você deve usar uma senha forte ao criar um logon. Para obter mais informações, consulte [Senhas fortes (a página pode estar em inglês)](https://msdn.microsoft.com/library/ms161962.aspx).
+> [AZURE.NOTE] Você deve usar uma senha forte ao criar um logon. Para obter mais informações, consulte [Senhas fortes (a página pode estar em inglês)](https://msdn.microsoft.com/library/ms161962.aspx).
 
 O exemplo abaixo mostra como criar um usuário de banco de dados chamado **login1User** no banco de dados **database1** que corresponde ao logon **login1**. Para executar o exemplo a seguir, você deve primeiro criar uma nova conexão a database1, usando um logon com a permissão **ALTERAR QUALQUER USUÁRIO** no banco de dados. Qualquer usuário que se conecte como membro da função **db\_owner** terá essa permissão, como o logon que criou o banco de dados.
 
@@ -149,10 +156,10 @@ CREATE USER login1User FROM LOGIN login1;
 
 Esse modelo de permissão no nível de banco de dados no Banco de Dados SQL do Azure é o mesmo de uma instância local do SQL Server. Para obter informações, consulte os tópicos a seguir nas referências dos Manuais Online do SQL Server.
 
-- [Tópicos de instrução para Gerenciamento de logons, usuários e esquemas](https://msdn.microsoft.com/library/aa337552.aspx) 
-- [Lição 2: Configurando permissões em objetos do banco de dados](https://msdn.microsoft.com/library/ms365345.aspx) 
+- [Tópicos de instrução para Gerenciamento de logons, usuários e esquemas](https://msdn.microsoft.com/library/aa337552.aspx)
+- [Lição 2: Configurando permissões em objetos do banco de dados](https://msdn.microsoft.com/library/ms365345.aspx)
 
-> [AZURE.NOTE]As instruções do Transact-SQL relacionadas a segurança no Banco de Dados SQL do Azure podem diferir ligeiramente nos parâmetros disponíveis. Para saber mais, confira a sintaxe dos Manuais Online para obter instruções específicas.
+> [AZURE.NOTE] As instruções do Transact-SQL relacionadas a segurança no Banco de Dados SQL do Azure podem diferir ligeiramente nos parâmetros disponíveis. Para saber mais, confira a sintaxe dos Manuais Online para obter instruções específicas.
 
 ## Exibição de logons e bancos de dados
 
@@ -162,11 +169,11 @@ Para exibir logons e bancos de dados em seu servidor do Banco de Dados SQL do Az
 ```
 -- first, connect to the master database
 SELECT * FROM sys.sql_logins;
-SELECT * FROM sys.databases; 
+SELECT * FROM sys.databases;
 ```
 
 ## Consulte também
 
 [Limitações e diretrizes de segurança do Banco de Dados SQL do Azure](sql-database-security-guidelines.md) [Conectando-se ao Banco de Dados SQL usando a autenticação do Active Directory do Azure](sql-database-aad-authentication.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0204_2016--->

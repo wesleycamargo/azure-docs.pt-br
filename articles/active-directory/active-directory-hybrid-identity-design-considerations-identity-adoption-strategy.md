@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="02/09/2016"
 	ms.author="billmath"/>
 
 
@@ -39,7 +39,8 @@ Os cenários descritos acima são:
 - **Identidades sincronizadas**: são identidades existentes no local e na nuvem. Com o Azure AD Connect, os usuários são criados ou associados a contas existentes do AD do Azure. A senha do usuário é sincronizada do ambiente local para a nuvem, ao que chamamos de hash de senha. A única ressalva para o uso da identidade sincronizada é que, quando um usuário está desabilitado no ambiente local, pode demorar até 3 horas para que o status da conta seja exibido no AD do Azure. Isso se deve ao intervalo de tempo de sincronização.
 - **Identidades federadas**: são identidades existentes no local e na nuvem. Com o Azure AD Connect, os usuários são criados ou associados a contas existentes do AD do Azure.  
  
->[AZURE.NOTE]Para saber mais sobre as opções de integração, leia o artigo [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
+>[AZURE.NOTE]
+Para saber mais sobre as opções de integração, leia o artigo [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
 Confira as vantagens e as desvantagens de cada uma das estratégias na tabela abaixo:
 
@@ -81,7 +82,8 @@ Conheça também os recursos que não estão disponíveis:
 - A transição do Office para o processo de autenticação passiva lhes permitirá suportar exclusivamente os provedores de identidade SAML 2.0, mas o suporte será fornecido individualmente aos clientes.
 
 
->[AZURE.NOTE]Para obter a lista mais atualizada, leia o artigo em http://aka.ms/ssoproviders.
+>[AZURE.NOTE]
+Para obter a lista mais atualizada, leia o artigo em http://aka.ms/ssoproviders.
 
 ## Definir uma estratégia de sincronização
 Nesta tarefa, você vai definir a topologia e as ferramentas que vai usar para sincronizar os dados locais da organização na nuvem. Fornecemos informações detalhadas sobre o uso do Azure AD Connect para resolver as questões abordadas acima, uma vez que a maioria das organizações usa o Active Directory. Para os ambientes que não usam o Active Directory, temos informações sobre o uso do FIM 2010 R2 e do MIM 2016 para auxiliar no planejamento dessa estratégia. As versões futuras do Azure AD Connect, no entanto, serão compatíveis com os diretórios LDAP, de modo que essas informações podem ser úteis, dependendo da sua linha do tempo.
@@ -89,14 +91,16 @@ Nesta tarefa, você vai definir a topologia e as ferramentas que vai usar para s
 ###Ferramentas de sincronização
 Usamos diversas ferramentas de sincronização para vários cenários ao longo dos anos. Atualmente, o Azure AD Connect é a ferramenta de eleição para todos os cenários compatíveis. O AAD Sync e o DirSync continuam disponíveis e podem fazer parte do seu ambiente imediatamente.
 
->[AZURE.NOTE]Para obter informações recentes sobre os recursos com suporte de cada ferramenta, leia o artigo [Comparação de ferramentas de integração de diretório](active-directory-aadconnect-get-started-tools-comparison.md).
+>[AZURE.NOTE]
+Para obter informações recentes sobre os recursos com suporte de cada ferramenta, leia o artigo [Comparação de ferramentas de integração de diretório](active-directory-aadconnect-get-started-tools-comparison.md).
 
 ### Topologias com suporte
 Escolha a topologia que vai usar quando definir a estratégia de sincronização. Dependendo das informações indicadas na etapa 2, determine a topologia de utilização mais adequada. A floresta única, topologia exclusiva do AD do Azure, é a mais comum e consiste de uma floresta única do Active Directory e de uma instância única do AD do Azure. Ela será usada na maioria dos cenários, além de ser a topologia esperada para o uso da instalação expressa do Azure AD Connect Express, como ilustrado na imagem a seguir.
  
 ![](./media/hybrid-id-design-considerations/single-forest.png)O cenário de floresta única é muito comum nas organizações de pequeno e grande porte, que pretendem trabalhar com várias florestas, conforme ilustrado na Figure 5.
 
->[AZURE.NOTE]Para saber mais sobre as diversas topologias locais e as topologias do AD do Azure com serviço de sincronização do Azure AD Connect, leia o artigo [Topologias do Azure AD Connect](active-directory-aadconnect-topologies.md).
+>[AZURE.NOTE]
+Para saber mais sobre as diversas topologias locais e as topologias do AD do Azure com serviço de sincronização do Azure AD Connect, leia o artigo [Topologias do Azure AD Connect](active-directory-aadconnect-topologies.md).
 
 
 ![](./media/hybrid-id-design-considerations/multi-forest.png)
@@ -114,7 +118,8 @@ Se esse o caso, considere a topologia de várias florestas do AD do Azure, caso 
 - Quando não há nenhuma caixa de correio do usuário, qualquer floresta pode ser usada para contribuir com esses valores
 - Caso tenha uma caixa de correio vinculada, haverá outra conta em outra floresta usada para iniciar sessão.
 
->[AZURE.NOTE]Os objetos existentes no local e na nuvem são "conectados" através de um identificador exclusivo. No contexto de sincronização de diretório, este identificador exclusivo é conhecido como SourceAnchor. No contexto de logon único, ele é conhecido como ImmutableId. Para saber mais sobre o uso do SourceAnchor, consulte o artigo [Conceitos de design do Azure AD Connect](active-directory-aadconnect-design-concepts.md#sourceanchor).
+>[AZURE.NOTE]
+Os objetos existentes no local e na nuvem são "conectados" através de um identificador exclusivo. No contexto de sincronização de diretório, este identificador exclusivo é conhecido como SourceAnchor. No contexto de logon único, ele é conhecido como ImmutableId. Para saber mais sobre o uso do SourceAnchor, consulte o artigo [Conceitos de design do Azure AD Connect](active-directory-aadconnect-design-concepts.md#sourceanchor).
 
 Caso a situação descrita anteriormente não se aplique e se você tiver mais de uma conta ativa ou mais de uma caixa de correio, o Azure AD Connect vai escolher uma delas e ignorar as outras. Se você tiver vinculado caixas de correio, mas não vincular nenhuma outra conta, essas contas não serão exportadas para o AD do Azure e esse usuário não será membro de nenhum grupo. Com esse processo, diferente da atuação anterior com o DirSync, temos um melhor suporte para os cenários de várias florestas. Confira um cenário de várias florestas na imagem abaixo.
  
@@ -151,7 +156,8 @@ Lembre-se de que os itens a seguir não têm suporte e não devem ser escolhidos
 - Diretórios do AD do Azure são isolados por padrão. Não há suporte para alterações da configuração do Azure AD Connect Sync para ler dados de outro diretório do AD do Azure como uma tentativa de criar uma GAL comum e unificada entre os diretórios. Também não há suporte para a exportação de usuários como contatos para outro AD local usando o Azure AD Connect Sync.
 
 
->[AZURE.NOTE]Caso a organização restrinja o acesso à Internet para os computadores da rede, este artigo relaciona os pontos de extremidade (intervalos de endereços FQDNs, IPv4 e IPv6) que devem ser incluídos nas listas de permissão de saída e na zona de sites confiáveis do Internet Explorer de computadores cliente, para que os computadores usem o Office 365 com êxito. Para saber mais, leia o artigo [Intervalos de endereços IP e URLs do Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=pt-BR&rs=pt-BR&ad=US).
+>[AZURE.NOTE]
+Caso a organização restrinja o acesso à Internet para os computadores da rede, este artigo relaciona os pontos de extremidade (intervalos de endereços FQDNs, IPv4 e IPv6) que devem ser incluídos nas listas de permissão de saída e na zona de sites confiáveis do Internet Explorer de computadores cliente, para que os computadores usem o Office 365 com êxito. Para saber mais, leia o artigo [Intervalos de endereços IP e URLs do Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=pt-BR&rs=pt-BR&ad=US).
 
 ## Definir uma estratégia de autenticação multifator
 Nesta tarefa, você define a estratégia de autenticação multifator que vai usar. O Azure Multi-Factor Authentication é fornecido em duas versões distintas. Uma delas é baseada na nuvem e a outra é local usando o servidor Azure MFA. Com base na avaliação que você fez anteriormente, determine a solução mais adequada para sua estratégia. Use a tabela abaixo para determinar a opção de design que melhor atende aos requisitos de segurança da empresa:
@@ -176,12 +182,14 @@ Mesmo que defina uma solução para sua estratégia, você deve usar a avaliaç�
 | O AD do Azure e o AD local usando o Azure AD Connect com sincronização de senha | Ambos |
 | AD local | Servidor Multi-Factor Authentication |
 
->[AZURE.NOTE]Você deve garantir que a opção de design de autenticação multifator selecionada seja compatível com os recursos necessários para o seu design. Para saber mais, leia [Escolha a solução de segurança multifator mais adequada](../multi-factor-authentication-get-started.md#what-am-i-trying-to-secure).
+>[AZURE.NOTE]
+Você deve garantir que a opção de design de autenticação multifator selecionada seja compatível com os recursos necessários para o seu design. Para saber mais, leia [Escolha a solução de segurança multifator mais adequada](../multi-factor-authentication-get-started.md#what-am-i-trying-to-secure).
 
 ## Provedor de Multi-Factor Authentication
 A autenticação multifator está disponível por padrão para administradores globais que tenham um locatário do Active Directory do Azure. No entanto, se desejar estender este recurso para todos os usuários ou se pretende permitir que os administradores globais aproveitem os recursos, como o portal de gerenciamento, saudações personalizadas e relatórios, você deve comprar e configurar o provedor de Multi-Factor Authentication.
 
->[AZURE.NOTE]Você deve garantir que a opção de design de autenticação multifator selecionada seja compatível com os recursos necessários para o seu design.
+>[AZURE.NOTE]
+Você deve garantir que a opção de design de autenticação multifator selecionada seja compatível com os recursos necessários para o seu design.
 
 ##Próximas etapas
 [Determinar os requisitos para proteção de dados](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
@@ -189,4 +197,4 @@ A autenticação multifator está disponível por padrão para administradores g
 ## Consulte também
 [Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/28/2015"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # Partições de tabela no SQL Data Warehouse
 
@@ -333,4 +333,4 @@ Depois de migrar com êxito o esquema do seu banco de dados para o SQL Data Ware
 
 <!-- Other web references -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/05/2015"
+	ms.date="01/28/2016"
 	ms.author="juliako"/>
 
 
-#Empacotamento dinâmico 
+#Empacotamento dinâmico
 
 ##Visão geral
 
@@ -38,65 +38,39 @@ O diagrama a seguir mostra o fluxo de trabalho de empacotamento dinâmico.
 
 ##Cenário comum
 
-1. Carrega um arquivo de entrada (chamado de arquivo de mezanino). Por exemplo, H.264, MP4 ou WMV (para obter a lista de formatos com suporte, consulte [Formatos com suporte do Codificador dos Serviços de Mídia](media-services-azure-media-encoder-formats)).
- 
+1. Carrega um arquivo de entrada (chamado de arquivo de mezanino). Por exemplo, H.264, MP4 ou WMV (para obter a lista de formatos com suporte, consulte [Formatos com suporte do Codificador de Mídia Padrão](media-services-media-encoder-standard-formats.md)).
+
 1. Codifique o arquivo de mezanino para conjuntos de taxa de bits adaptável MP4 H.264.
- 
+
 1. Publique o ativo que contém a taxa de bits adaptável MP4 definida ao criar o localizador OnDemand.
- 
+
 1. Crie as URLs de streaming para acessar e transmitir seu conteúdo.
- 
->[AZURE.NOTE]Nem todos os formatos de arquivo MP4 têm suporte pelo empacotamento dinâmico; para obter mais informações, consulte [Formatos para empacotamento dinâmico sem suporte](media-services-dynamic-packaging-overview.md#unsupported_formats).
+
 
 ##Preparação de ativos para streaming dinâmico
 
 Para preparar o ativo de streaming dinâmico você tem duas opções:
 
-- Carregue um arquivo mestre e produza conjuntos de taxa de bits adaptável MP4 H.264 usando o Codificador de Mídia do Azure.
-- Carregar conjuntos de taxa de bits adaptável existente e validá-los usando o Empacotador de Mídia.
+1. [Carregue um arquivo mestre](media-services-dotnet-upload-files.md).
+2. [Use o Codificador de Mídia Padrão para produzir conjuntos de taxa de bits adaptáveis MP4 H.264](media-services-dotnet-encode-with-media-encoder-standard.md).
+3. [Transmita seu conteúdo](media-services-deliver-content-overview.md).
 
-###Carregue um arquivo mestre e produza conjuntos de taxa de bits adaptável MP4 H.264 usando o Codificador de Mídia do Azure
+-OU-
+ 
+1. Carregue os arquivos MP4 pré-codificados. 
 
-Para obter informações sobre como carregar e codificar ativos, consulte os seguintes artigos:
-
-
-Carregue seus arquivos usando o **Portal Clássico do Azure**, o **.NET** ou a **API REST**.
-
-[AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
-
-Codifique-os com o **Codificador de Mídia do Azure** usando o **Portal Clássico do Azure**, o **.NET** ou a **API REST**.
-
-[AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
-
-
-###Carregar conjuntos de taxa de bits adaptável existente e validá-los usando o Empacotador de Mídia
-
-Normalmente, você desejaria executar essa tarefa se estiver carregando um conjunto de arquivos MP4 com taxa de bits adaptável, que não tenham sido codificados com o Codificador dos Serviços de Mídia. O tópico [Validando MP4s com taxa de bits adaptável codificados com codificadores externos](https://msdn.microsoft.com/library/azure/dn750842.aspx) mostra como realizar essa tarefa.
-
-##Transmissão de seu conteúdo para clientes
-
-Uma vez que você tenha os conjuntos com taxa de bits adaptável, você pode publicar seu ativo criando um localizador sob demanda e compor as URLs de streaming para Smooth Streaming, MPEG DASH, HLS e HDS (apenas para licenciados Adobe PrimeTime/Access).
-
-Para obter informações sobre como criar localizadores e usar o empacotamento dinâmico para transmitir o conteúdo, consulte os tópicos a seguir:
-
-[Visão geral do fornecimento de conteúdo a clientes](media-services-deliver-content-overview.md).
-
-Configure a política de fornecimento de ativos usando **.NET** ou **API REST**.
-
-[AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
-
-Publicar ativos (pela criação de localizadores) usando o **Portal Clássico do Azure** ou **.NET**.
-
-[AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
+	>[AZURE.NOTE] Essa opção não é recomendada.
+	
+2. [Valide seus arquivos pré-codificados](media-services-static-packaging.md#validating-adaptive-bitrate-mp4s-encoded-with-external-encoders).
+3. [Transmita seu conteúdo](media-services-deliver-content-overview.md).
 
 
 ##<a id="unsupported_formats"></a>Formatos sem suporte pelo empacotamento dinâmico
 
 Os formatos de arquivo de origem a seguir não têm suporte pelo empacotamento dinâmico.
 
-- Arquivos mp4 Dolby digital plus.
-- Dolby digital mais arquivos smooth. 
-
+- Arquivos mp4 Dolby digital.
+- Arquivos suaves Dolby digital.
 
 ##Roteiros de aprendizagem dos Serviços de Mídia
 
@@ -106,4 +80,4 @@ Os formatos de arquivo de origem a seguir não têm suporte pelo empacotamento d
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

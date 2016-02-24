@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="02/05/2016" 
 	ms.author="elizapo"/>
 
 # Como criar uma coleção na nuvem do Azure RemoteApp
@@ -35,7 +35,7 @@ Este tutorial explica o processo de criação de uma implantação de nuvem. Há
 
 Você precisa fazer o seguinte antes de criar a coleção:
 
-- [Inscreva-se](http://azure.microsoft.com/services/remoteapp/) no RemoteApp do Azure. 
+- [Inscreva-se](https://azure.microsoft.com/services/remoteapp/) no RemoteApp do Azure. 
 - Colete informações sobre os usuários aos quais deseja conceder acesso. Podem ser informações da conta da Microsoft ou da conta corporativa do Active Directory para usuários ou grupos.
 - Este procedimento pressupõe que usará ou uma das imagens de modelo fornecidas como parte de sua assinatura ou que você já carregou a imagem do modelo que deseja usar. Se desejar fazer o upload da imagem do modelo, é possível fazer isso na página Imagens do modelo. Apenas clique em **Fazer o upload de uma imagem do modelo** e siga as etapas do assistente. 
 - Deseja usar a imagem do Office 365 ProPlus? Verifique as informações [aqui](remoteapp-officesubscription.md).
@@ -80,9 +80,9 @@ Para usar o Active Directory, o Azure RemoteApp exige uma sincronização de dir
 
 ## Etapa 3: Publicar aplicativos ##
 
-Um aplicativo do Azure RemoteApp é o aplicativo ou programa fornecido aos usuários. Ele está localizado na imagem do modelo na qual foi carregada a coleção. Quando um usuário acessa um aplicativo, ele aparece para ser executado no seu ambiente local, mas ele está, de fato, em execução no Azure.
+Um aplicativo do Azure RemoteApp é o aplicativo ou programa fornecido aos usuários. Ele está localizado na imagem do modelo na qual foi carregada a coleção. Quando um usuário acessa um aplicativo, ele aparece para ser executado no seu ambiente local, mas ele está, de fato, em execução em uma máquina virtual no Azure.
 
-Antes que os usuários possam acessar aplicativos, você precisa publicá-los para o feed do usuário final – uma lista dos aplicativos disponíveis que os usuários acessam por meio do cliente da área de trabalho remota.
+Antes que os usuários possam acessar aplicativos, você precisa publicá-los – os aplicativos de publicação permitem que os usuários acessem os aplicativos por meio do cliente da Área de Trabalho Remota.
  
 Você pode publicar vários aplicativos em sua coleção do RemoteApp. Na página de publicação, clique em **Publicar** para adicionar um programa. É possível publicar no menu **Iniciar** da imagem do modelo ou especificar o caminho na imagem do modelo do aplicativo. Se você optar por adicionar por meio menu **Iniciar**, escolha o aplicativo a ser publicado. Se você optar por fornecer o caminho para o aplicativo, forneça um nome para o aplicativo e o caminho para onde ele está instalado na imagem do modelo.
 
@@ -109,4 +109,4 @@ Agora que você criou sua coleção, precisa adicionar os usuários que você qu
 ### Ajude-nos a ajudar você 
 Você sabia que, além de classificar este artigo e fazer comentários, você pode alterar o próprio artigo? Falta alguma coisa? Há algo errado? Escrevi algo que não ficou muito claro? Role para cima e clique em **Editar no GitHub** para fazer alterações – elas serão enviadas para que as examinemos e depois de aprovadas, você verá as alterações e os aprimoramentos.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -6,7 +6,7 @@ Você deve criar um ponto de extremidade de carga equilibrada para cada VM que h
 
 1. Verifique que o**Nome** e **Porta pública** do ponto de extremidade do ouvinte que você deseja usar não esteja em uso. No exemplo abaixo, o nome é "MyEndpoint" e a porta é "1433".
 
-1. No seu cliente local, baixe e instale [o último módulo do PowerShell](http://azure.microsoft.com/downloads/).
+1. No seu cliente local, baixe e instale [o último módulo do PowerShell](https://azure.microsoft.com/downloads/).
 
 1. Inicie o **PowerShell do Azure**. Uma nova sessão do PowerShell é aberta com os módulos administrativos do Azure carregados.
 
@@ -18,4 +18,4 @@ Você deve criar um ponto de extremidade de carga equilibrada para cada VM que h
 
 	Após o arquivo de configurações de publicação tiver sido importado, você pode gerenciar sua assinatura do Azure na sessão do PowerShell.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -66,7 +66,7 @@ Os comandos a seguir devem ser executados usando a linha de comando do Node.js. 
 
 1. Cópia a pasta **lib** da pasta **iniciar** para a pasta **ContactList** criada pelo scaffolder.
 
-1. Substitua o código no arquivo **handlers/contacts.js** pelo código a seguir. Esse código usa os dados JSON armazenados no arquivo **lib/contacts.json** atendido por **lib/contactRepository.js**. O novo código contats.js a seguir responderá às solicitações HTTP a fim de obter todos os contatos que usam esse código.
+1. Substitua o código no arquivo **handlers/contacts.js** pelo código a seguir. Esse código usa os dados JSON armazenados no arquivo **lib/contacts.json** atendido por **lib/contactRepository.js**. O novo código contacts.js a seguir responderá às solicitações HTTP a fim de obter todos os contatos que usam esse código.
 
         'use strict';
         
@@ -86,7 +86,7 @@ Os comandos a seguir devem ser executados usando a linha de comando do Node.js. 
         
         module.exports = {
             get: function contacts_get(req, res) {
-                res.json(repository.get(req.params['id']))
+                res.json(repository.get(req.params['id']));
             }    
         };
 
@@ -151,7 +151,7 @@ Nesta seção, você verá o processo de criação de um Aplicativo de API novo 
 
 O repositório GitHub do qual você clonou o código-fonte não é o mesmo repositório no qual vai enviará por push o código para implantação. O exemplo de repositório GitHub continha o estado "Inicial" do código e, agora que você tenha realizou o scaffold do estado "final" do código, será necessário enviar por push esse código apenas para o repositório Git associado ao Aplicativo de API. A primeira etapa será criar seu Aplicativo de API usando o Portal do Azure, em seguida
 
-1. Navegar até o [Portal do Azure](http://portal.azure.com). 
+1. Navegar até o [Portal do Azure](https://portal.azure.com/). 
 
 1. Criar um novo Aplicativo de API.
 
@@ -243,4 +243,4 @@ Agora, você já criou e implantou com êxito seu primeiro Aplicativo de API usa
 
 Para expandir esse exemplo, você pode adicionar código aos manipuladores para armazenar os dados em um banco de dados ou no disco da instância de Aplicativo de API. Agora que você a Implantação Contínua está conectada, a alteração da funcionalidade do Aplicativo de API e sua extensão será tão fácil quanto a alterar e enviar seu código por push ao repositório Git.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

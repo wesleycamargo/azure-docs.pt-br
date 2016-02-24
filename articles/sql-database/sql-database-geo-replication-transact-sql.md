@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management"
-    ms.date="11/10/2015"
+    ms.date="01/25/2015"
     ms.author="carlrab"/>
 
 # Configurar a replicação geográfica para o Banco de Dados SQL do Azure com o Transact-SQL
@@ -46,9 +46,9 @@ Para configurar a replicação geográfica, você precisa do seguinte:
 
 ## Adicionar banco de dados secundário
 
-Você pode usar a instrução **ALTER DATABASE** para criar um banco de dados secundário replicado geograficamente em um servidor parceiro. Você executa essa instrução no banco de dados mestre do servidor que contém o banco de dados a ser replicado. O banco de dados replicado geograficamente (o "banco de dados primário") terá o mesmo nome do banco de dados sendo replicado e, por padrão, terá o mesmo nível de serviço do banco de dados primário. O banco de dados secundário pode ser legível ou não legível, e pode ser um único banco de dados ou um banco de dados elástico. Para obter mais informações, confira [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) e [Camadas de Serviço](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/). Depois do banco de dados secundário ser criado e propagado, os dados começarão a replicação assíncrona a partir do banco de dados primário. As etapas a seguir descrevem como configurar a replicação geográfica usando o Management Studio. As etapas para criar secundários não legíveis e legíveis, com um banco de dados individual ou um banco de dados elástico, são fornecidas.
+Você pode usar a instrução **ALTER DATABASE** para criar um banco de dados secundário replicado geograficamente em um servidor parceiro. Você executa essa instrução no banco de dados mestre do servidor que contém o banco de dados a ser replicado. O banco de dados replicado geograficamente (o "banco de dados primário") terá o mesmo nome do banco de dados sendo replicado e, por padrão, terá o mesmo nível de serviço do banco de dados primário. O banco de dados secundário pode ser legível ou não legível, e pode ser um único banco de dados ou um banco de dados elástico. Para obter mais informações, confira [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) e [Camadas de Serviço](sql-database-service-tiers.md). Depois do banco de dados secundário ser criado e propagado, os dados começarão a replicação assíncrona a partir do banco de dados primário. As etapas a seguir descrevem como configurar a replicação geográfica usando o Management Studio. As etapas para criar secundários não legíveis e legíveis, com um banco de dados individual ou um banco de dados elástico, são fornecidas.
 
-> [AZURE.NOTE]Se o banco de dados secundário existir no servidor parceiro especificado (por exemplo, porque no momento existe uma relação de replicação geográfica ou existiu anteriormente), o comando falhará.
+> [AZURE.NOTE] Se o banco de dados secundário existir no servidor parceiro especificado (por exemplo, porque no momento existe uma relação de replicação geográfica ou existiu anteriormente), o comando falhará.
 
 
 ### Adicionar um secundário não legível (banco de dados individual)
@@ -57,12 +57,12 @@ Use as seguintes etapas para criar um secundário não legível como um banco de
 
 1. Com a versão 13.0.600.65 ou posterior do SQL Server Management Studio.
 
- 	 >[AZURE.IMPORTANT]Baixe a versão [mais recente](https://msdn.microsoft.com/library/mt238290.aspx) do SQL Server Management Studio. É recomendável usar sempre a versão mais recente do Management Studio para continuar em sincronia com as atualizações do portal do Azure.
+ 	 > [AZURE.IMPORTANT] Baixe a versão [mais recente](https://msdn.microsoft.com/library/mt238290.aspx) do SQL Server Management Studio. É recomendável usar sempre a versão mais recente do Management Studio para continuar em sincronia com as atualizações do portal do Azure.
 
 
 2. Abra a pasta Bancos de Dados, expanda a pasta **Bancos de Dados do Sistema**, clique com o botão direito do mouse em **mestre** e, em seguida, clique em **Nova Consulta**.
 
-3. Use a seguinte instrução **ALTER DATABASE** para transformar um banco de dados local em uma replicação geográfica primária com um banco de dados secundário não legível em <MySecondaryServer1>.
+3. Use a seguinte instrução **ALTER DATABASE** para transformar um banco de dados local em uma replicação geográfica primária com um banco de dados secundário ilegível em MySecondaryServer1, no qual MySecondaryServer1 é o nome amigável do servidor.
 
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer1> WITH (ALLOW_CONNECTIONS = NO);
@@ -96,8 +96,8 @@ Use as seguintes etapas para criar um secundário não legível como um banco de
 3. Use a seguinte instrução **ALTER DATABASE** para transformar um banco de dados local em uma replicação geográfica primária com um banco de dados secundário não legível em um servidor secundário em um pool elástico.
 
         ALTER DATABASE <MyDB>
-           ADD SECONDARY ON SERVER <MySecondaryServer3> WITH (ALLOW_CONNECTIONS = NO)
-           , ELASTIC_POOL (name = MyElasticPool1);
+           ADD SECONDARY ON SERVER <MySecondaryServer3> WITH (ALLOW_CONNECTIONS = NO
+           , SERVICE_OBJECTIVE = ELASTIC_POOL (name = MyElasticPool1));
 
 4. Clique em **Execute** para executar a consulta.
 
@@ -113,8 +113,8 @@ Use as seguintes etapas para criar um secundário legível como um banco de dado
 3. Use a seguinte instrução **ALTER DATABASE** para transformar um banco de dados local em uma replicação geográfica primária com um banco de dados secundário legível em um servidor secundário em um pool elástico.
 
         ALTER DATABASE <MyDB>
-           ADD SECONDARY ON SERVER <MySecondaryServer4> WITH (ALLOW_CONNECTIONS = NO)
-           , ELASTIC_POOL (name = MyElasticPool2);
+           ADD SECONDARY ON SERVER <MySecondaryServer4> WITH (ALLOW_CONNECTIONS = ALL
+           , SERVICE_OBJECTIVE = ELASTIC_POOL (name = MyElasticPool2));
 
 4. Clique em **Execute** para executar a consulta.
 
@@ -122,7 +122,7 @@ Use as seguintes etapas para criar um secundário legível como um banco de dado
 
 ## Remover banco de dados secundário
 
-Você pode usar a instrução **ALTER DATABASE** para encerrar permanentemente a parceria de replicação entre um banco de dados secundário e seu primário. Essa instrução é executada no banco de dados mestre no qual reside o banco de dados primário. Após o encerramento da relação, o banco de dados secundário se torna um banco de dados de leitura/gravação normal. Se a conectividade com o banco de dados secundário for interrompida, o comando terá êxito, mas o secundário se tornará de leitura/gravação após a conectividade ser restaurada. Para obter mais informações, confira [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) e [Camadas de Serviço](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/).
+Você pode usar a instrução **ALTER DATABASE** para encerrar permanentemente a parceria de replicação entre um banco de dados secundário e seu primário. Essa instrução é executada no banco de dados mestre no qual reside o banco de dados primário. Após o encerramento da relação, o banco de dados secundário se torna um banco de dados de leitura/gravação normal. Se a conectividade com o banco de dados secundário for interrompida, o comando terá êxito, mas o secundário se tornará de leitura/gravação após a conectividade ser restaurada. Para obter mais informações, confira [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) e [Camadas de Serviço](sql-database-service-tiers.md).
 
 Use as seguintes etapas para remover um secundário replicado geograficamente de uma parceria de replicação geográfica.
 
@@ -148,10 +148,10 @@ O comando executa o seguinte fluxo de trabalho:
 
 2. Alterna as funções dos dois bancos de dados na parceria de replicação geográfica.
 
-Essa sequência garante que não ocorrerá nenhuma perda de dados. Há um breve período durante o qual os bancos de dados não estão disponíveis (na ordem de 0 a 25 segundos) enquanto as funções são alternadas. A operação inteira deve levar menos de um minuto para ser concluída em circunstâncias normais. Para obter mais informações, confira [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) e [Camadas de serviço](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/).
+Essa sequência garante que não ocorrerá nenhuma perda de dados. Há um breve período durante o qual os bancos de dados não estão disponíveis (na ordem de 0 a 25 segundos) enquanto as funções são alternadas. A operação inteira deve levar menos de um minuto para ser concluída em circunstâncias normais. Para obter mais informações, confira [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) e [Camadas de serviço](sql-database-service-tiers.md).
 
 
-> [AZURE.NOTE]Se o banco de dados primário não estiver disponível quando o comando for emitido, o comando falhará com uma mensagem de erro indicando que o servidor primário não está disponível. Em situações raras, é possível que a operação não seja concluída e pareça paralisada. Nesse caso, o usuário pode executar o comando de failover à força e aceitar a perda de dados.
+> [AZURE.NOTE] Se o banco de dados primário não estiver disponível quando o comando for emitido, o comando falhará com uma mensagem de erro indicando que o servidor primário não está disponível. Em situações raras, é possível que a operação não seja concluída e pareça paralisada. Nesse caso, o usuário pode executar o comando de failover à força e aceitar a perda de dados.
 
 Use as etapas a seguir para iniciar um failover planejado.
 
@@ -175,7 +175,7 @@ Essa funcionalidade foi designada para a recuperação de desastres quando a res
 
 No entanto, como a Restauração Pontual não é compatível com os bancos de dados secundários, se o usuário quiser recuperar os dados confirmados no antigo banco de dados primário que não foi replicado no novo banco de dados primário antes de ocorrer o failover forçado, ele precisará empregar o suporte para recuperar essa perda de dados.
 
-> [AZURE.NOTE]Se o comando for emitido quando o primário e o secundário estiverem online, o antigo primário se tornará o novo secundário, mas não haverá uma tentativa de sincronização dos dados. Então, poderá ocorrer uma perda de dados.
+> [AZURE.NOTE] Se o comando for emitido quando o primário e o secundário estiverem online, o antigo primário se tornará o novo secundário, mas não haverá uma tentativa de sincronização dos dados. Então, poderá ocorrer uma perda de dados.
 
 
 Se o banco de dados primário tiver vários bancos de dados secundários, o comando terá êxito apenas no servidor secundário, no qual o comando foi executado. No entanto, os outros secundários não saberão que ocorreu um failover forçado. O usuário terá que corrigir manualmente essa configuração usando uma API para "remover secundário" e, em seguida, reconfigurar a replicação geográfica nesses secundários adicionais.
@@ -228,9 +228,9 @@ Use as etapas a seguir para monitorar uma parceria de replicação geográfica.
 
 ## Recursos adicionais
 
-- [Destacar os novos recursos de replicação geográfica](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication)
+- [Destacar os novos recursos de replicação geográfica](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 - [Projetando aplicativos de nuvem para a continuidade de negócios usando a replicação geográfica](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
-- [Documentação do Banco de Dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Documentação do Banco de Dados SQL](https://azure.microsoft.com/services/sql-database/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

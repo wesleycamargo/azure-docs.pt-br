@@ -70,7 +70,7 @@ As seções a seguir ajudarão você a se preparar para usar o dispositivo virtu
 
 Antes de provisionar o dispositivo virtual, você precisará fazer as seguintes preparações no seu ambiente do Azure:
 
-- Para o dispositivo virtual, [configure uma rede virtual no Azure](../virtual-network/virtual-networks-create-vnet.md). 
+- Para o dispositivo virtual, [configure uma rede virtual no Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). 
 - É aconselhável utilizar o servidor DNS padrão fornecido pelo Azure em vez de especificar o nome do seu próprio servidor DNS. Se o nome do servidor DNS não for válido, haverá falha na criação do dispositivo virtual.
 - Ponto a site e site a site são opcionais, mas não obrigatórios. Se desejar, você pode configurar essas opções para cenários mais avançados. 
 
@@ -137,7 +137,7 @@ Execute as seguintes etapas para criar o dispositivo virtual StorSimple.
 
 	4. **Sub-rede** – a sub-rede na rede virtual para uso com o dispositivo virtual.
 
-	5. **Conta de Armazenamento para Criação de Dispositivo Virtual** – esta conta de armazenamento que será usada para armazenar a imagem do dispositivo virtual durante o provisionamento, e hospedará os discos do dispositivo virtual após o provisionamento. Esta conta de armazenamento deve estar na mesma região do dispositivo virtual e da rede virtual. Ela não deve ser usada para armazenamento de dados, o dispositivo físico ou o dispositivo virtual. Por padrão, uma nova conta de armazenamento será criada para essa finalidade. No entanto, se você souber que você já tem uma conta de armazenamento adequada para esse uso, poderá selecioná-la da lista.
+	5. **Conta de Armazenamento para Criação de Dispositivo Virtual** – esta conta de armazenamento será usada para armazenar a imagem do dispositivo virtual durante o provisionamento e hospedará os discos do dispositivo virtual após o provisionamento. Esta conta de armazenamento deve estar na mesma região do dispositivo virtual e da rede virtual. Ela não deve ser usada para armazenamento de dados, o dispositivo físico ou o dispositivo virtual. Por padrão, uma nova conta de armazenamento será criada para essa finalidade. No entanto, se você souber que você já tem uma conta de armazenamento adequada para esse uso, poderá selecioná-la da lista.
 
     >[AZURE.NOTE]O dispositivo virtual só pode trabalhar com as contas de armazenamento do Azure. Outros provedores de serviços de nuvem, como a Amazon, HP e OpenStack (que têm suporte para o dispositivo físico) não têm suporte para o dispositivo virtual StorSimple.
 	
@@ -370,7 +370,7 @@ O processo de failover começará. Quando o failover estiver concluído, vá par
 
 Se você configurou previamente e usou um dispositivo virtual StorSimple, mas agora deseja parar de acumular encargos de computação para seu uso, poderá desligar o dispositivo virtual. Desligar o dispositivo virtual não exclui seu sistema operacional ou os discos de dados do armazenamento. Isso para o acúmulo de encargos em sua assinatura, mas os encargos de armazenamento para os discos de sistema operacional e de dados continuarão.
 
-Se você excluir ou desligar o dispositivo virtual, ele será exibido como **Offline** na página Dispositivos do serviço Gerenciador do StorSimple. Você pode optar por desativá-lo ou por excluí-lo como um dispositivo e se também desejar excluir os backups criados pelo dispositivo virtual. Para saber mais, consulte [Desativar um dispositivo](storsimple-deactivate-and-delete-device.md#deactivate-a-device).
+Se você excluir ou desligar o dispositivo virtual, ele será exibido como **Offline** na página Dispositivos do serviço Gerenciador do StorSimple. Você pode optar por desativá-lo ou por excluí-lo como um dispositivo e se também desejar excluir os backups criados pelo dispositivo virtual. Para obter mais informações, consulte [Desativar e excluir um dispositivo StorSimple](storsimple-deactivate-and-delete-device.md).
 
 ### Para desligar o dispositivo virtual StorSimple
 
@@ -384,12 +384,12 @@ Se você excluir ou desligar o dispositivo virtual, ele será exibido como **Off
 
 1. Entre no portal clássico do Azure.
 
-- Clique em **Máquinas Virtuais** e então selecione o dispositivo virtual.
+2. Clique em **Máquinas Virtuais** e então selecione o dispositivo virtual.
 
-- Clique em **Excluir** e opte por excluir todos os discos da máquina virtual.
+3. Clique em **Excluir** e opte por excluir todos os discos da máquina virtual.
 
 ## Próximas etapas
 
 Saiba como [Restaurar um volume StorSimple a partir de um conjunto de backups](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

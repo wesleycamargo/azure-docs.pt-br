@@ -14,11 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="02/09/2016"
 	ms.author="bradsev;garye;gopitk" />
 
 
 # Importar os dados para o Estúdio de Aprendizado de Máquina do Azure de diferentes fontes de dados online com o módulo Leitor
+
+Este documento descreve o suporte para a importação de dados online de diversas fontes e as informações necessárias para a transmissão de dados dessas fontes para um experimento de Aprendizado de Máquina do Azure.
 
 [AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
@@ -32,14 +34,13 @@ Você pode acessar dados do Estúdio de Aprendizado de Máquina do Azure de uma 
 - Tabela do Azure
 - Banco de dados SQL do Azure ou SQL Server na VM do Azure
 - Um provedor de feed de dados, atualmente OData
-
-Este documento descreve essas fontes com suporte e as informações necessárias para a transmissão de dados dessas fontes para um experimento de Aprendizado de Máquina do Azure.
+ 
 
 O fluxo de trabalho para a condução de experiências no Estúdio de Aprendizado de Máquina do Azure consiste em arrastar e soltar componentes na tela. Para acessar fontes de dados online, adicione o módulo [Leitor][reader] ao seu experimento, selecione a **Fonte de dados** e forneça os parâmetros necessários para acessar os dados. As fontes de dados online com suporte são detalhadas na tabela a seguir. Esta tabela também resume os formatos de arquivo e os parâmetros com suporte usados para acessar os dados.
 
-> [AZURE.NOTE]Este artigo fornece informações gerais sobre o módulo [Leitor][reader]. Para saber mais sobre os tipos de dados que você pode acessar, formatos, parâmetros e respostas para perguntas comuns, consulte o tópico de referência do módulo [Leitor][reader].
+> [AZURE.NOTE] Este artigo fornece informações gerais sobre o módulo [Leitor][reader]. Para saber mais sobre os tipos de dados que você pode acessar, formatos, parâmetros e respostas para perguntas comuns, consulte o tópico de referência do módulo [Leitor][reader].
 
-> [AZURE.NOTE]Como esses dados de treinamento são acessados enquanto seu experimento está em execução, só estarão disponíveis nesse experimento. Por comparação, os dados armazenados em módulos de um conjunto de dados estão disponíveis para todos os experimentos em seu espaço de trabalho.
+> [AZURE.NOTE] Como esses dados de treinamento são acessados enquanto seu experimento está em execução, só estarão disponíveis nesse experimento. Por comparação, os dados armazenados em módulos de um conjunto de dados estão disponíveis para todos os experimentos em seu espaço de trabalho.
 
 
 ## Fontes de dados online com suporte
@@ -58,4 +59,4 @@ Provedor de feed de dados | Lê dados de um provedor de feeds com suporte. Atual
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

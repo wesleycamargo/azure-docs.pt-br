@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure"
-	ms.date="10/04/2015"
+	ms.date="01/04/2016"
 	ms.author="rasquill"/>
 
 # Como começar rapidamente com Docker no Azure Marketplace
@@ -25,11 +25,11 @@ A maneira mais rápida de começar a usar o [Docker] é ir para o Azure Marketpl
 
 Você pode conectar-se à VM imediatamente com SSH e começar a trabalhar com o Docker diretamente sem fazer mais nada.
 
-> [AZURE.NOTE]A VM criada pelo modelo do Azure Marketplace não hospeda a API remota do Docker para o gerenciamento por um cliente remoto do docker. Para habilitar o controle do host do Docker nesta VM remotamente, confira [Executando o Docker com HTTPS](https://docs.docker.com/articles/https/) ou siga as etapas em [Usando a extensão de VM do Docker do portal clássico do Azure](virtual-machines-docker-with-portal.md) ou [Usando a extensão de VM do Docker da CLI do Azure](virtual-machines-docker-with-xplat-cli-install.md). <!-- --> Se quiser automatizar sua VM do Azure Docker no Windows, você poderá [instalar a Docker Toolbox](https://docs.docker.com/installation/windows/) ou baixar o Docker.exe [da Chocolatey](https://chocolatey.org/packages/docker).
+> [AZURE.NOTE]A VM criada pelo modelo do Azure Marketplace não hospeda a API remota do Docker para o gerenciamento por um cliente remoto do docker. Para habilitar o controle do host do Docker nesta VM remotamente, confira [Executando o Docker com HTTPS](https://docs.docker.com/articles/https/) ou siga as etapas em [Usando a extensão de VM do Docker do portal clássico do Azure](virtual-machines-docker-with-portal.md) ou [Usando a extensão de VM do Docker da CLI do Azure](virtual-machines-docker-with-xplat-cli.md). <!-- --> Se quiser automatizar sua VM do Azure Docker no Windows, você poderá [instalar a Docker Toolbox](https://docs.docker.com/installation/windows/) ou baixar o Docker.exe [da Chocolatey](https://chocolatey.org/packages/docker).
 
 ## Faça logon no Portal
 
-Essa parte é fácil, a menos que você não tenha uma conta do Azure. [Obtenha uma gratuita facilmente](http://azure.microsoft.com/pricing/free-trial/)!
+Essa parte é fácil, a menos que você não tenha uma conta do Azure. [Obtenha uma gratuita facilmente](https://azure.microsoft.com/pricing/free-trial/)!
 
 ## Crie uma máquina virtual com a imagem de Docker de Canonical e MSOpenTech
 
@@ -78,4 +78,4 @@ Você vai querer começar a usar o [Docker]!
 [MSOpenTech]: http://msopentech.com/
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

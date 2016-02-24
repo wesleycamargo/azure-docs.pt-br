@@ -1,6 +1,6 @@
 <properties
    pageTitle="Padrão de redes e gráficos distribuídos | Microsoft Azure"
-   description="O padrão de projeto de como os Reliable Actors do Service Fabric podem ser usados para modelar os aplicativos como redes e gráficos distribuídos."
+   description="Padrão de design de como os Reliable Actors do Service Fabric podem ser usados para modelar os aplicativos como redes e gráficos distribuídos."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -14,21 +14,23 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/29/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
-# Padrão de design de Atores Confiáveis: gráficos e redes distribuídos
-Os Atores Confiáveis do Service Fabric representam uma opção natural para soluções complexas de modelagem que envolvam relações e a modelagem dessas relações como objetos.
+# Padrão de design dos Reliable Actors: gráficos e redes distribuídos
+O modelo de programação Reliable Actors do Service Fabric do Azure representa uma opção natural para soluções complexas de modelagem que envolvam relações e para a modelagem dessas relações como objetos.
 
-![][1]
+![Modelagem dos Reliable Actors do Service Fabric do Azure][1]
 
-Como ilustra o diagrama, a modelagem um usuário como uma instância de ator (nó na rede) é simples. Por exemplo, o "Friends Feed" (às vezes mencionado como o problema de "seguidor") permite que os usuários visualizem as atualizações de status das pessoas as quais eles estão conectados, um funcionamento semelhante ao do Facebook e Twitter. O modelo de ator fornece flexibilidade para abordar o problema de materialização. É possível popular o Friends Feed no momento em que ocorre o evento, atualizando o Friends Feed de todos os meus amigos no momento em que uma atualização é publicada, conforme ilustrado abaixo:
+Conforme ilustrado pelo diagrama acima, a modelagem de um usuário como instância de ator (um nó na rede) é simples. Por exemplo, o "Friends Feed" (às vezes chamado de problema de "seguidor") permite que os usuários visualizem as atualizações de status das pessoas com quem estão conectados, um funcionamento semelhante ao do Facebook e do Twitter.
 
-![][2]
+O modelo Reliable Actors apresenta uma abordagem flexível para o problema de materialização. Podemos popular o Friends Feed no momento em que ocorre o evento, atualizando o Friends Feed de todos os meus amigos no momento em que uma atualização é publicada, conforme ilustrado abaixo:
+
+![O modelo Reliable Actors e a população do Friends Feed][2]
 
 
 ## Exemplo de código de Cache Inteligente – Friends Feed da rede social (no momento do evento)
 
-Código de exemplo para popular o Friends Feed:
+Exemplo de código para popular o Friends Feed:
 
 ```csharp
 public interface ISocialPerson : IActor
@@ -122,9 +124,13 @@ public class SocialPerson : StatefulActor<SocialPersonState>, ISocialPerson
 }
 ```
 
-Como alternativa, é possível modelar nossos atores para distribuir e compilar o Friends Feed usando o temporizador de consulta, em outras palavras quando o usuário solicita seu Friends Feed. Outro método que podemos usar é a materializar os Friends Feed em um temporizador, por exemplo, a cada 5 minutos. Ou podemos otimizar o modelo e combinar a hora do evento e processamento de tempo de uma consulta com um modelo baseado em temporizador que dependa dos hábitos de usuário, como a frequência com que ele efetua logon ou publica uma atualização. Ao modelar um ator em uma rede social, também deve-se considerar os usuários "superusuários," com milhões de seguidores. Os desenvolvedores devem modelar o estado e o comportamento desses usuários de maneira diferente para atender à demanda. Da mesma forma, se quisermos modelar uma atividade que conecta vários atores de usuário a um único ator em atividade (hub e spoke) que também possa ser feito. Cenários bate-papo em grupo e de hospedagem de jogo são dois exemplos. Vamos tomar o chat de grupo como exemplo; um conjunto de participantes cria um ator de bate-papo em grupo que pode distribuir mensagens de um participante ao grupo, como no exemplo a seguir:
+Como alternativa, é possível modelar atores para distribuir e compilar o Friends Feed usando o temporizador de consulta, quando o usuário solicita seu Friends Feed. Você também pode materializar o Friends Feed em um temporizador (por exemplo, a cada cinco minutos). Ou podemos otimizar o modelo e combinar tanto o processamento da hora do evento quanto do tempo de uma consulta com um modelo baseado em temporizador que dependa dos hábitos de usuário, como a frequência com que ele faz logon ou publica uma atualização.
 
-## Exemplo de código de Cache Inteligente – GroupChat
+Ao modelar um ator em uma rede social, você também deverá considerar os “superusuários”, aqueles com milhões de seguidores. Os desenvolvedores devem modelar o estado e o comportamento desses usuários de maneira diferente para atender à demanda maior.
+
+Da mesma forma, se você quiser modelar uma atividade que conecta vários atores de usuário a um único ator em atividade (hub e spoke), também poderá fazê-lo. Chat em grupo e hospedagem de jogo são dois exemplos. Vejamos o exemplo de chat de grupo. Um conjunto de participantes cria um ator de chat em grupo que pode distribuir mensagens de um participante para o grupo. Isso é mostrado no exemplo abaixo:
+
+## Exemplo de código de Cache Inteligente – chat em grupo
 
 ```csharp
 public interface IGroupChat : IActor
@@ -202,12 +208,12 @@ public Task PublishMessageAsync(long participantId, string message)
 }
 ```
 
-Tudo o que ele realmente faz é aproveitar a capacidade dos atores confiáveis para permitir que qualquer ator trate de qualquer outro ator do cluster por id e se comunique com ele sem a necessidade de se preocupar com posicionamento, endereçamento, caching, mensagens, serialização ou roteamento.
+Essa abordagem aproveita a capacidade do modelo Reliable Actors para permitir que qualquer ator se dirija a qualquer outro ator do cluster por ID. Eles podem se comunicar sem a necessidade de se preocupar com posicionamento, endereçamento, cache, mensagens, serialização ou roteamento.
 
 ## Próximas etapas
 [Padrão: cache inteligente](service-fabric-reliable-actors-pattern-smart-cache.md)
 
-[Padrão: controle de recursos](service-fabric-reliable-actors-pattern-resource-governance.md)
+[Padrão: governança de recursos](service-fabric-reliable-actors-pattern-resource-governance.md)
 
 [Padrão: composição de serviço com estado](service-fabric-reliable-actors-pattern-stateful-service-composition.md)
 
@@ -224,4 +230,4 @@ Tudo o que ele realmente faz é aproveitar a capacidade dos atores confiáveis p
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch2.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015" 
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 
@@ -64,12 +64,12 @@ A seguir estão as etapas gerais para gerar chaves de conteúdo que você associ
 		}
 
 5. Crie a chave de conteúdo com os valores **EncryptedContentKey** (convertido em cadeia de caracteres codificada em base64), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType** e **Checksum** que você recebeu nas etapas anteriores.
-6. Associe a entidade **ContentKey** com sua entidade **Asset** por meio da operação $links.
+6. Associar a entidade **ContentKey** com sua entidade **ativos** por meio da operação $links.
 
 Observe que os exemplos que geram uma chave AES, criptografam a chave e calculam a soma de verificação foram omitidos deste tópico. Somente os exemplos que mostram como interagir com os serviços de mídia são fornecidos.
 
 
->[AZURE.NOTE]Ao trabalhar com a API REST dos serviços de mídia, as seguintes considerações se aplicam:
+>[AZURE.NOTE] Ao trabalhar com a API REST dos serviços de mídia, as seguintes considerações se aplicam:
 >
 >Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
 
@@ -262,4 +262,4 @@ Resposta:
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

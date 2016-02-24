@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Tutorial: Mover e processar arquivos de log usando o [PowerShell] do Data Factory
@@ -31,16 +31,13 @@ Neste passo a passo, podemos coletar logs de exemplo, processar e enriquecê-los
 
 	Este artigo não cobre todos os cmdlets de Data Factory. Consulte [Referência de cmdlet de Data Factory](https://msdn.microsoft.com/library/dn820234.aspx) para obter uma documentação abrangente sobre os cmdlets de Data Factory.
     
-	Se você estiver usando o Azure PowerShell com a **versão < 1.0**, você precisará usar os cmdlets que estão documentados [aqui][old-cmdlet-reference]. Você também precisará executar os seguintes comandos antes de usar os cmdlets do Data Factory:
-
 	1. Execute **Add-AzureAccount** e insira o nome de usuário e a senha que você usa para entrar no Portal do Azure.
 	2. Execute **Get-AzureSubscription** para exibir todas as assinaturas dessa conta.
 	3. Execute **Select-AzureSubscription** para selecionar a assinatura com a qual deseja trabalhar. Esta assinatura deve ser igual à que você usou no portal do Azure.
 	
 	Mantenha o Azure PowerShell aberto até o fim deste tutorial. Se você fechá-la e reabri-la, precisará executar esses comandos novamente.
 
-2. Alterne para o modo AzureResourceManager, pois os cmdlets da Azure Data Factory estão disponíveis nesse modo: **Switch-AzureMode AzureResourceManager**.
- 
+
 2.	**(recomendado)** Examine e pratique o tutorial no artigo [Introdução ao Azure Data Factory][adfgetstarted] para ver um tutorial simples e familiarizar-se com o portal e os cmdlets.
 3.	**(recomendado)** Examine e pratique o passo a passo no artigo [Usar o Pig e Hive com o Azure Data Factory][usepigandhive] para ver um passo a passo sobre como criar um pipeline para mover dados da fonte de dados local para um armazenamento de blob do Azure.
 4.	Baixe os arquivos [ADFWalkthrough][adfwalkthrough-download] na pasta **C:\\ADFWalkthrough** **preservando a estrutura da pasta**:
@@ -183,14 +180,14 @@ Nesta etapa, você criará uma data factory do Azure chamada **LogProcessingFact
 
 		New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name LogProcessingFactory –Location "West US"
 
-	> [AZURE.IMPORTANT]O nome do Azure Data Factory deve ser globalmente exclusivo. Se você receber o erro: **O nome de data factory "LogProcessingFactory" não está disponível**, altere o nome (por exemplo, seunomeLogProcessingFactory). Use esse nome em vez de LogProcessingFactory ao executar as etapas neste tutorial. Consulte o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos de Data Factory.
+	> [AZURE.IMPORTANT] O nome do Azure Data Factory deve ser globalmente exclusivo. Se você receber o erro: **O nome de data factory "LogProcessingFactory" não está disponível**, altere o nome (por exemplo, seunomeLogProcessingFactory). Use esse nome em vez de LogProcessingFactory ao executar as etapas neste tutorial. Consulte o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos de Data Factory.
 	> 
 	> O nome do data factory pode ser registrado futuramente como um nome DNS e tornar-se publicamente visível.
 
  
 ## <a name="MainStep3"></a> Etapa 3: Criar serviços vinculados
 
-> [AZURE.NOTE]Este artigo usa o PowerShell do Azure para criar pipelines, tabelas e serviços vinculados. Consulte [Tutorial usando Editor Data Factory][adftutorial-using-editor] se você deseja executar este tutorial usando o Portal do Azure, especificamente o Editor Data Factory.
+> [AZURE.NOTE] Este artigo usa o PowerShell do Azure para criar pipelines, tabelas e serviços vinculados. Consulte [Tutorial usando Editor Data Factory][adftutorial-using-editor] se você deseja executar este tutorial usando o Portal do Azure, especificamente o Editor Data Factory.
 
 Nesta etapa, você criará os seguintes serviços vinculados: StorageLinkedService, AzureSqlLinkedService, HDInsightStorageLinkedService e HDInsightLinkedService.
 
@@ -454,16 +451,6 @@ Pratique o [Guia passo a passo: usando a fonte de dados local][tutorial-onpremis
 [image-data-factory-tutorial-analyze-marketing-campaign-pipeline]: ./media/data-factory-tutorial-using-powershell/AnalyzeMarketingCampaignPipeline.png
 
 
-[image-data-factory-tutorial-egress-to-onprem-pipeline]: ./media/data-factory-tutorial-using-powershell/EgreeDataToOnPremPipeline.png
-
-[image-data-factory-tutorial-set-firewall-rules-azure-db]: ./media/data-factory-tutorial-using-powershell/SetFirewallRuleForAzureDatabase.png
-
-[image-data-factory-tutorial-portal-new-everything]: ./media/data-factory-tutorial-using-powershell/PortalNewEverything.png
-
-[image-data-factory-tutorial-datastorage-cache-backup]: ./media/data-factory-tutorial-using-powershell/DataStorageCacheBackup.png
-
-[image-data-factory-tutorial-dataservices-blade]: ./media/data-factory-tutorial-using-powershell/DataServicesBlade.png
-
 [image-data-factory-tutorial-new-datafactory-blade]: ./media/data-factory-tutorial-using-powershell/NewDataFactoryBlade.png
 
 [image-data-factory-tutorial-resourcegroup-blade]: ./media/data-factory-tutorial-using-powershell/ResourceGroupBlade.png
@@ -514,10 +501,6 @@ Pratique o [Guia passo a passo: usando a fonte de dados local][tutorial-onpremis
 
 [image-data-factory-monitoring-activity-run-details]: ./media/data-factory-tutorial-using-powershell/MonitoringActivityRunDetails.png
 
-[image-data-factory-datamanagementgateway-configuration-manager]: ./media/data-factory-tutorial-using-powershell/DataManagementGatewayConfigurationManager.png
-
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial-using-powershell/NewDataFactoryMenu.png
 
-[image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
-
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

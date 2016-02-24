@@ -13,14 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/28/2016"
 	ms.author="swkrish"/>
 
 # Visualização do Active Directory B2C do Azure: Como Personalizar a IU (Interface do Usuário) do AD B2C do Azure
 
 A experiência do usuário é fundamental em um aplicativo voltado ao consumidor. É a diferença entre um bom aplicativo e um aplicativo ótimo e também a diferença entre consumidores simplesmente ativos e aqueles realmente comprometidos. O AD (Active Directory) B2C do Azure permite que você personalize a inscrição e entrada do consumidor (*consulte a observação abaixo*) e as páginas de edição de perfil com controle perfeito de pixels.
 
-> [AZURE.NOTE]Atualmente, as páginas de entrada de conta local, emails de verificação e páginas de redefinição de senhas de autoatendimento só podem ser personalizados usando o [recurso de marca da empresa](./active-directory/active-directory-add-company-branding.md) e não pelos mecanismos descritos neste artigo.
+> [AZURE.NOTE]
+Atualmente, as páginas de entrada de conta local, emails de verificação e páginas de redefinição de senhas de autoatendimento só podem ser personalizados usando o [recurso de marca da empresa](../active-directory/active-directory-add-company-branding.md) e não pelos mecanismos descritos neste artigo.
 
 Neste artigo, você lerá sobre:
 
@@ -45,7 +46,8 @@ Se você quiser testar o recurso de personalização da experiência do usuário
 
 Nas seções abaixo, você encontrará exemplos dos fragmentos de HTML5 (para cada tipo de página) que o AD B2C do Azure mescla no elemento <div id="api"></div> localizado em seu conteúdo. Você pode usar suas próprias folhas de estilo para personalizar esses elementos de interface do usuário. Essas folhas de estilo precisarão substituir as folhas de estilo padrão que adicionarmos a essas páginas nos fragmentos de <head>.
 
-> [AZURE.IMPORTANT]Durante a visualização, espere que os elementos exatos da interface do usuário sofram modificações conforme aprendemos e nos adaptamos com base em seus comentários. Sempre Inspecione o código-fonte das páginas padrão para as atualizações mais recentes. Na verdade, a primeira alteração a ser considerada é a remoção de nossas folhas de estilo padrão; isso significa que você sempre terá de fornecer suas próprias folhas de estilo para esses elementos de interface do usuário em seu conteúdo.
+> [AZURE.IMPORTANT]
+	Durante a visualização, espere que os elementos exatos da interface do usuário sofram modificações conforme aprendemos e nos adaptamos com base em seus comentários. Sempre Inspecione o código-fonte das páginas padrão para as atualizações mais recentes. Na verdade, a primeira alteração a ser considerada é a remoção de nossas folhas de estilo padrão; isso significa que você sempre terá de fornecer suas próprias folhas de estilo para esses elementos de interface do usuário em seu conteúdo.
 
 ## Página de Seleção do Provedor de Identidade
 
@@ -276,4 +278,4 @@ Se você estiver planejando usar o recurso de personalização de interface do u
 	- Mozilla Firefox 38.0
 	- Mozilla Firefox 37.0
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

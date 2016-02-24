@@ -31,7 +31,7 @@ Monitoramento, detecção, diagnóstico e solução de problemas permitem dar co
 
 ## Exibir eventos do sistema da Malha do Serviço no Visual Studio
 
-O Service Fabric emite eventos do ETW para ajudar os desenvolvedores de aplicativos a entender o que está acontecendo na plataforma. Se você ainda não tiver feito isso, vá em frente e siga as etapas em [Criando seu primeiro aplicativo no Visual Studio](./service-fabric-create-your-first-application-in-visual-studio.md). Essas informações ajudarão você a colocar um aplicativo para funcionar com o Visualizador de Eventos de Diagnóstico mostrando as mensagens de rastreamento.
+O Service Fabric emite eventos do ETW para ajudar os desenvolvedores de aplicativos a entender o que está acontecendo na plataforma. Se você ainda não tiver feito isso, vá em frente e siga as etapas em [Criando seu primeiro aplicativo no Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md). Essas informações ajudarão você a colocar um aplicativo para funcionar com o Visualizador de Eventos de Diagnóstico mostrando as mensagens de rastreamento.
 
 1. Se a janela de eventos de diagnóstico não for exibida automaticamente, vá para a guia **Gerenciador de Servidores** no Visual Studio, clique com o botão direito do mouse no **Cluster do Service Fabric** e escolha **Exibir Eventos de Diagnóstico** no menu de contexto.
 
@@ -60,4 +60,4 @@ Depois de adicionar o rastreamento ETW personalizado ao código de serviço, voc
 ## Próximas etapas
 O mesmo código de rastreamento que você adicionou ao aplicativo acima para diagnóstico local funcionará com ferramentas que podem ser usadas para exibir esses eventos ao executar o aplicativo em um cluster do Azure. Confira estes artigos que abordam as diferentes opções para as ferramentas e descrevem como é possível configurá-las. * [Coletando logs de um cluster do Service Fabric no Diagnóstico do Azure e nos Insights Operacionais](service-fabric-diagnostics-how-to-setup-wad-operational-insights.md) * [Usando ElasticSearch como um repositório de rastreamento do aplicativo do Service Fabric](service-fabric-diagnostic-how-to-use-elasticsearch.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

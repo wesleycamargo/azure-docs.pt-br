@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Aplicativo de API de C#"
-   description="Aplicativo de API de C#"
+   pageTitle="Executar expressões C# em um aplicativo de API em C# em um aplicativo lógico | Microsoft Azure"
+   description="Aplicativo de Api ou conector C#"
    services="app-service\logic"
    documentationCenter=".net"
    authors="jeffhollan"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="10/29/2015"
+   ms.date="01/19/2016"
    ms.author="jehollan"/>
 
 #Aplicativo de API de C#
@@ -33,11 +33,11 @@ Para usar o aplicativo de API de C#, você precisa primeiro criar uma instância
 
 ##Usando o aplicativo de API de C# na superfície do designer de aplicativos lógicos
 ###Gatilho
-Você pode criar um gatilho que o serviço de aplicativo lógico vai sondar (em um intervalo que você definir) e, se ele retornar algo diferente de `false`, o aplicativo lógico será executado, caso contrário, ele aguardará até o próximo intervalo de sondagem para verificar novamente.
+Você pode criar um gatilho que o serviço de aplicativo lógico vai sondar (em um intervalo que você definir) e, se ele retornar algo diferente de `false`, o aplicativo lógico será executado; caso contrário, ele aguardará até o próximo intervalo de sondagem para verificar novamente.
 
-As entradas para o gatilho são: -**expressão C#** - uma expressão que será avaliada. Ele será invocado dentro de uma função e deve retornar `false` quando você não quiser que o aplicativo lógico seja executado e pode retornar qualquer outra coisa quando você quiser que o aplicativo lógico seja executado. Você poderá usar o conteúdo da resposta nas ações do aplicativo lógico.
+As entradas para o gatilho são: -**Expressão C#** - Uma expressão que será avaliada. Ele é invocado dentro de uma função e deverá retornar `false` quando você não quiser que o aplicativo Lógico seja executado, poderá retornar qualquer outra coisa quando quiser que o aplicativo lógico seja executado. Você pode usar o conteúdo da resposta nas ações do aplicativo lógico.
 
-Por exemplo, você pode ter um gatilho simples que só executará seu aplicativo lógico entre os minutos 15 e 30 da hora:
+Você pode ter um gatilho simples que somente executa seu aplicativo lógico entre os minutos 15 e 30 da hora:
 
 ```
 var d = new DateTime.Now; return (d.Minute > 15) && (d.Minute < 30);
@@ -47,7 +47,7 @@ var d = new DateTime.Now; return (d.Minute > 15) && (d.Minute < 30);
 
 Da mesma forma, você pode fornecer uma ação a ser executada.
 
-As entradas para a ação são: - **expressão C#** - uma expressão que será avaliada. Você deve incluir a instrução `return` para obter qualquer conteúdo. -**Objetos de contexto** - um objeto de contexto opcional que pode ser passado para o gatilho. Você pode definir quantas propriedades quiser, mas a base deve ser um JObject `{ ... }`, e os objetos podem ser referenciados no script por meio do nome da chave (o valor é transmitido como um JToken correspondente ao nome). - **Bibliotecas** - uma matriz opcional de arquivos. dll para incluir na compilação do script. A matriz usa a seguinte estrutura e funciona melhor ao lado de um conector de armazenamento de blob com o arquivo. dll como a saída:
+As entradas para a ação são: - **Expressão C#** - Uma expressão que será avaliada. Você deve incluir a instrução `return` para obter qualquer conteúdo. -**Objetos de contexto** - um objeto de contexto opcional que pode ser passado para o gatilho. Você pode definir quantas propriedades quiser, mas a base deve ser um JObject `{ ... }`, e os objetos podem ser referenciados no script por meio do nome da chave (o valor é transmitido como um JToken correspondente ao nome). - **Bibliotecas** - uma matriz opcional de arquivos. dll para incluir na compilação do script. A matriz usa a seguinte estrutura e funciona melhor ao lado de um conector de armazenamento de blob com o arquivo. dll como a saída:
 
 ```javascript
 [{"filename": "name.dll", "assembly": {Base64StringFromConnector}, "usingstatment": "using Library.Reference;"}]
@@ -105,4 +105,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0121_2016-->

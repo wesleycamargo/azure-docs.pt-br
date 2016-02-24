@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="12/02/2015" 
+	ms.date="01/20/2016" 
 	ms.author="casoper"/>
 
 
@@ -35,7 +35,7 @@ Os benefícios do uso da CDN para armazenar dados do Azure em cache incluem:
 
 	Um perfil CDN é uma coleção de pontos de extremidade CDN. Cada perfil contém um ou mais pontos de extremidade CDN. Depois de criar um perfil CDN, você poderá criar um novo ponto de extremidade CDN usando a origem que escolheu.
 	
-	>[AZURE.NOTE]Uma única assinatura do Azure está limitada a quatro perfis CDN. Cada perfil CDN está limitado a quatro pontos de extremidade CDN.
+	>[AZURE.NOTE]Por padrão, uma única assinatura do Azure é limitada a quatro perfis da CDN. Cada perfil da CDN é limitado a 10 pontos de extremidade da CDN.
 	>
 	> Os preços da CDN são aplicados no nível de perfil CDN. Se você quiser usar uma combinação de recursos CDN Standard e Premium, precisará de vários perfis CDN.
 	
@@ -147,4 +147,4 @@ A CDN do Microsoft Azure pode ser gerenciada de forma programática usando a [AP
 - [Limpar um ponto de extremidade CDN do Azure](cdn-purge-endpoint.md)
 - [API REST do Provedor de Recursos CDN](https://msdn.microsoft.com/library/mt634456.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -14,16 +14,23 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="12/04/2015" 
+	ms.date="02/10/2016" 
 	ms.author="larryfr"/>
 
 #Use o Python com o Hive e o Pig no HDInsight
 
 Hive e Pig são ótimos para trabalhar com dados no HDInsight, mas algumas vezes você precisa de uma linguagem de propósito mais geral. Tanto o Hive quanto o Pig permitem que você crie Funções Definidas pelo Usuário (UDF) usando uma variedade de linguagens de programação. Neste artigo, você aprenderá como usar uma UDF Python de Hive e Pig.
 
-> [AZURE.NOTE]As etapas neste artigo se aplicam ao cluster do HDInsight versões 2.1, 3.0, 3.1 e 3.2.
+> [AZURE.NOTE] As etapas neste artigo se aplicam ao cluster do HDInsight versões 2.1, 3.0, 3.1 e 3.2.
 
+##Requisitos
 
+* Um cluster HDInsight (Windows ou Linux)
+
+* Um editor de texto
+
+    > [AZURE.IMPORTANT] Se estiver usando um servidor HDInsight baseado em Linux, mas criando os arquivos de Python em um cliente Windows, você deverá usar um editor que usa LF como uma terminação de linha. Se não tem certeza se o seu editor usa LF ou CRLF, consulte a seção de [Solução de problemas](#troubleshooting) para ver as etapas para remover o caractere CR usando utilitários no cluster HDInsight.
+    
 ##<a name="python"></a>Python no HDInsight
 
 O Python 2.7 é instalado por padrão nos clusters do HDInsight 3.0 ou posterior. O Hive pode ser usado com essa versão do Python para processamento de fluxo (os dados são passados entre o Hive e o Python usando STDOUT/STDIN).
@@ -54,7 +61,7 @@ O Python pode ser utilizado como uma UDF por meio do Hive por meio da instruçã
 	FROM hivesampletable
 	ORDER BY clientid LIMIT 50;
 
-> [AZURE.NOTE]Em clusters de HDInsight baseados no Windows, a cláusula **USING** cláusula deve especificar o caminho completo para python.exe. Isso é sempre `D:\Python27\python.exe`.
+> [AZURE.NOTE] Em clusters de HDInsight baseados no Windows, a cláusula **USING** cláusula deve especificar o caminho completo para python.exe. Isso é sempre `D:\Python27\python.exe`.
 
 Aqui está o que este exemplo faz:
 
@@ -217,7 +224,7 @@ Após carregar os arquivos, use as etapas a seguir para executar os trabalhos de
 
 ###PowerShell
 
-Essas etapas usam o PowerShell do Azure. Se ele ainda não estiver instalado e configurado em sua máquina de desenvolvimento, consulte [Como instalar e configurar o PowerShell do Azure](../install-configure-powershell.md) antes de usar as etapas a seguir.
+Essas etapas usam o PowerShell do Azure. Se ele ainda não estiver instalado e configurado em sua máquina de desenvolvimento, consulte [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md) antes de usar as etapas a seguir.
 
 1. Usando os exemplos do Python [streaming.py](#streamingpy) e [jython.py](#jythonpy), crie cópias locais dos arquivos em seu computador do desenvolvimento.
 
@@ -255,7 +262,7 @@ Essas etapas usam o PowerShell do Azure. Se ele ainda não estiver instalado e c
 
 	Este script obtém informações a partir de seu cluster HDInsight, então, extrai a conta e a chave para a conta de armazenamento padrão, além de carregar os arquivos para a raiz do contêiner.
 
-	> [AZURE.NOTE]É possível encontrar outros métodos para carregar os scripts no documento [Carregar dados para trabalhos do Hadoop no HDInsight](hdinsight-upload-data.md).
+	> [AZURE.NOTE] É possível encontrar outros métodos para carregar os scripts no documento [Carregar dados para trabalhos do Hadoop no HDInsight](hdinsight-upload-data.md).
 
 Após carregar os arquivos, use os scripts do PowerShell a seguir para iniciar os trabalhos. Quando o trabalho é concluído, a saída deve ser gravada no console do PowerShell.
 
@@ -394,6 +401,22 @@ A saída para o trabalho **Pig** deve ter aparência similar à seguinte:
 
 ##<a name="troubleshooting"></a>Solucionar problemas
 
+###Erros durante a execução de trabalhos
+
+Ao executar o trabalho Hive, você pode encontrar um erro semelhante ao seguinte:
+
+    Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20001]: An error occurred while reading or writing to your custom script. It may have crashed with an error.
+    
+Esse problema pode ser causado pelas terminações de linha no arquivo streaming.py. Muitos editores Windows usam CRLF como padrão como a terminação de linha, mas aplicativos Linux geralmente esperam LF.
+
+Se você está usando um editor que não pode criar terminações de linha em LF ou não tem certeza de quais terminações de linha estão sendo usadas, use as seguintes instruções do PowerShell para remover os caracteres CR antes de carregar o arquivo no HDInsight:
+
+    $original_file ='c:\path\to\streaming.py'
+    $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
+    [IO.File]::WriteAllText($original_file, $text)
+
+###Scripts do PowerShell
+
 Ambos os scripts de Powershell de exemplo utilizados para executar os exemplos contêm uma linha comentada que exibirá a saída de erro para o trabalho. Se você não estiver vendo a saída esperada para o trabalho, remova o comentário da linha a seguir e veja se as informações de erro indicam um problema.
 
 	# Get-AzureRmHDInsightJobOutput `
@@ -424,4 +447,4 @@ Para outras maneiras de usar o Pig e o Hive e para saber como usar o MapReduce, 
 
 * [Usar o MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="12/14/2015"
+   ms.date="02/01/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Diferenças de Transact-SQL de Banco de Dados SQL do Azure
@@ -53,12 +53,12 @@ O Banco de Dados SQL V12 dá suporte a alguns, mas não todos os argumentos exis
 
 - Agrupamento de objetos do sistema
 - Conexão relacionado: instruções de ponto de extremidade, ORIGINAL\_DB\_NAME. A autenticação do Windows não está disponível para logons ou usuários de bancos de dados independentes.
-- Consultas entre banco de dados, encadeamento de propriedades de bancos de dados, configuração TRUSTWORTHY
+- Consultas entre bancos de dados para as operações INSERT, UPDATE e DELETE. (Há suporte para consultas entre bancos de dados somente leitura.)
+- Encadeamento de propriedades de bancos de dados, configuração TRUSTWORTHY
 - Coletor de dados
 - Diagramas de banco de dados
 - Database Mail
 - DATABASEPROPERTY (em vez disso, use DATABASEPROPERTYEX)
-- Transações distribuídas
 - Logons de EXECUTE AS
 - Criptografia: gerenciamento extensível de chaves
 - Eventos: eventos, notificações de eventos, notificações de consulta
@@ -95,6 +95,7 @@ O Banco de Dados SQL V12 dá suporte a alguns, mas não todos os argumentos exis
 - Disparadores: no escopo do servidor ou gatilhos de logon
 - Instrução USE
 
+
 ## Referência completa do Transact-SQL
 
 Para obter mais informações sobre gramática, uso e exemplos do Transact-SQL, veja [Referência do Transact-SQL (mecanismo de banco de dados)](https://msdn.microsoft.com/library/bb510741.aspx) nos Manuais Online do SQL Server.
@@ -107,4 +108,4 @@ A referência do Transact-SQL inclui tópicos relacionados a versões do SQL Ser
 
 Em alguns casos, o assunto geral de um tópico pode ser usado em um produto, mas há pequenas diferenças entre produtos. As diferenças são indicadas em pontos médios no tópico, conforme apropriado.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

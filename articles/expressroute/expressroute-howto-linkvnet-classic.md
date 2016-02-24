@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/02/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc" />
 
 # Vinculando a Rede Virtual a circuitos da Rota Expressa
@@ -23,13 +23,13 @@
 - [PowerShell - Resource Manager] (expressroute-howto-linkvnet-arm.md)  
 - [Template - Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection)
 
-Este artigo apresenta uma visão geral de como vincular redes virtuais a circuitos da Rota Expressa. As redes virtuais podem estar na mesma assinatura ou fazerem parte de outra assinatura. Este artigo aplica-se a Redes Virtuais implantadas com o modelo de implantação clássica. Se desejar vincular uma rede virtual implantada com o método de implantação do Gerenciador de Recursos do Azure, você poderá fazer isso usando um modelo. Veja a guia acima para navegar até o modelo.
+Este artigo apresenta uma visão geral de como vincular redes virtuais a circuitos da Rota Expressa. As redes virtuais podem estar na mesma assinatura ou fazerem parte de outra assinatura. Este artigo aplica-se a Redes Virtuais implantadas com o modelo de implantação clássica. Se você quiser vincular uma rede virtual implantada usando o modelo de implantação do Gerenciador de Recursos do Azure, confira [Vinculando uma Rede Virtual a um circuito da Rota Expressa](expressroute-howto-linkvnet-arm.md).
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
 ## Pré-requisitos de configuração
 
-- Você precisará da versão mais recente dos módulos do Azure PowerShell. Baixe o módulo mais recente do PowerShell na seção PowerShell da [página Downloads do Azure](http://azure.microsoft.com/downloads). Siga as instruções na página [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para obter orientações detalhadas sobre como configurar o computador para usar os módulos do Azure PowerShell. 
+- Você precisará da versão mais recente dos módulos do Azure PowerShell. Baixe o módulo mais recente do PowerShell na seção PowerShell da [página Downloads do Azure](https://azure.microsoft.com/downloads/). Siga as instruções na página [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para obter orientações detalhadas sobre como configurar o computador para usar os módulos do Azure PowerShell. 
 - Leia as páginas de [pré-requisitos](expressroute-prerequisites.md), [requisitos de roteamento](expressroute-routing.md) e [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
 - Você deve ter um circuito da Rota Expressa ativo. 
 	- Siga as instruções para [criar um circuito da Rota Expressa](expressroute-howto-circuit-classic.md) e para que o circuito seja habilitado pelo provedor de conectividade. 
@@ -49,7 +49,7 @@ Você pode vincular uma rede virtual a um circuito da Rota Expressa usando o cmd
 
 Um circuito da Rota Expressa pode ser compartilhado entre várias assinaturas. A figura abaixo mostra um esquema simples de como funciona o compartilhamento de circuitos da Rota Expressa entre várias assinaturas. Cada uma das nuvens menores dentro da nuvem grande é usada para representar assinaturas pertencentes a diferentes departamentos dentro de uma organização. Cada um dos departamentos dentro da organização pode usar sua própria assinatura para implantar seus serviços, mas pode compartilhar um único circuito da Rota Expressa para se conectar de volta à respectiva rede local. Um único departamento (neste exemplo: TI) pode ter o circuito da Rota Expressa. Outras assinaturas dentro da organização podem usar o circuito de Rota Expressa.
 
->[AZURE.NOTE]As cobranças por conectividade e largura de banda do circuito dedicado serão aplicadas ao proprietário do circuito da Rota Expressa. Todas as redes virtuais compartilham a mesma largura de banda.
+>[AZURE.NOTE] As cobranças por conectividade e largura de banda do circuito dedicado serão aplicadas ao proprietário do circuito da Rota Expressa. Todas as redes virtuais compartilham a mesma largura de banda.
 
 ![Conectividade entre assinaturas](./media/expressroute-howto-linkvnet-classic/cross-subscription.png)
 
@@ -150,4 +150,4 @@ O usuário de circuito pode executar o cmdlet a seguir para resgatar uma autoriz
 
 Para obter mais informações sobre a Rota Expressa, consulte [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

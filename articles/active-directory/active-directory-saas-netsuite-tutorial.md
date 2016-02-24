@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Tutorial: Integração do NetSuite ao Active Directory do Azure | Microsoft Azure"
-   description="Saiba como usar o NetSuite com o Active Directory do Azure para habilitar logon único, provisionamento automatizado e muito mais!"
-   services="active-directory"
-   documentationCenter=""
-   authors="liviodlc"
-   manager="TerryLanfear"
-   editor=""/>
+    pageTitle="Tutorial: Integração do Active Directory do Azure com o NetSuite | Microsoft Azure"
+    description="Saiba como usar o NetSuite com o Active Directory do Azure para habilitar logon único, provisionamento automatizado e muito mais!"
+    services="active-directory"
+    documentationCenter=""
+    authors="liviodlc"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="10/20/2015"
-   ms.author="liviodlc"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="02/09/2016"
+    ms.author="liviodlc"/>
 
 #Tutorial: Como integrar o NetSuite ao Active Directory do Azure
 
@@ -42,7 +42,7 @@ Este tutorial mostrará como conectar o ambiente NetSuite ao Active Directory do
 
 	![Clique em Adicionar para adicionar um novo aplicativo.][2]
 
-5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo a partir da galeria**.
+5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 
 	![Clique em Adicionar um aplicativo da galeria.][3]
 
@@ -64,7 +64,7 @@ Este tutorial mostrará como conectar o ambiente NetSuite ao Active Directory do
 
 	![Selecione Logon Único do AD do Azure][7]
 
-	> [AZURE.NOTE]Para saber mais sobre as diferentes opções de logon único, [clique aqui](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)
+	> [AZURE.NOTE] Para saber mais sobre as diferentes opções de logon único, [clique aqui](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)
 
 3. Na página **Definir Configurações de Aplicativo**, para o campo **URL de Resposta**, digite a URL do locatário do NetSuite usando um dos seguintes formatos:
 	- `https://<tenant-name>.netsuite.com/saml2/acs`
@@ -186,7 +186,7 @@ Este tutorial mostrará como conectar o ambiente NetSuite ao Active Directory do
 
 ##Etapa 3: Habilitar o provisionamento automatizado de usuários
 
-> [AZURE.NOTE]Por padrão, os usuários provisionados serão adicionados à subsidiária raiz de seu ambiente NetSuite.
+> [AZURE.NOTE] Por padrão, os usuários provisionados serão adicionados à subsidiária raiz de seu ambiente NetSuite.
 
 1. No Active Directory do Azure, na página Início Rápido para o NetSuite, clique em **Configurar provisionamento do usuário**.
 
@@ -220,7 +220,10 @@ Este tutorial mostrará como conectar o ambiente NetSuite ao Active Directory do
 
 4. Para testar suas configurações de logon único, abra o Painel de Acesso em [https://myapps.microsoft.com](https://myapps.microsoft.com/), entre na conta de teste e clique em **NetSuite**.
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+##Artigos relacionados
+
+- [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS](active-directory-saas-tutorial-list.md)
 
 [0]: ./media/active-directory-saas-netsuite-tutorial/azure-active-directory.png
 [1]: ./media/active-directory-saas-netsuite-tutorial/applications-tab.png
@@ -256,4 +259,4 @@ Este tutorial mostrará como conectar o ambiente NetSuite ao Active Directory do
 [31]: ./media/active-directory-saas-netsuite-tutorial/assign-users.png
 [32]: ./media/active-directory-saas-netsuite-tutorial/assign-confirm.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

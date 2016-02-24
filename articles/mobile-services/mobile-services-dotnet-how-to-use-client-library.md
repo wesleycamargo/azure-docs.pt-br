@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/02/2015"
+	ms.date="01/28/2016"
 	ms.author="glenga"/>
 
 # Como usar a biblioteca de cliente gerenciado para os Serviços Móveis do Azure
@@ -86,7 +86,7 @@ Esta seção descreve como emitir consultas para o serviço móvel, que inclui a
 - [Selecionar colunas específicas]
 - [Pesquisar dados por ID]
 
->[AZURE.NOTE]Um tamanho de página controlado por servidor é usado para impedir que todas as linhas sejam retornadas. Isso impede que solicitações padrão de grandes conjuntos de dados impactem negativamente o serviço. Para retornar mais de 50 linhas, use o método `Take`, conforme descrito em [Retornar dados em páginas].
+>[AZURE.NOTE] Um tamanho de página controlado por servidor é usado para impedir que todas as linhas sejam retornadas. Isso impede que solicitações padrão de grandes conjuntos de dados impactem negativamente o serviço. Para retornar mais de 50 linhas, use o método `Take`, conforme descrito em [Retornar dados em páginas].
 
 ### <a name="filtering"></a>Como filtrar dados retornados
 
@@ -211,7 +211,7 @@ A função `LookupAsync` pode ser usada para procurar objetos do banco de dados 
 
 ##<a name="inserting"></a>Como inserir dados em um serviço móvel
 
-> [AZURE.NOTE]Se você desejar executar operações de inserção, pesquisa, exclusão ou atualização em um tipo, será necessário criar um membro chamado **Id**. É por isso que a classe de exemplo **TodoItem** tem um membro de nome **Id**. Um valor de id válido deve sempre estar presente em operações de atualização e exclusão.
+> [AZURE.NOTE] Se você desejar executar operações de inserção, pesquisa, exclusão ou atualização em um tipo, será necessário criar um membro chamado **Id**. É por isso que a classe de exemplo **TodoItem** tem um membro de nome **Id**. Um valor de id válido deve sempre estar presente em operações de atualização e exclusão.
 
 O código a seguir ilustra como inserir novas linhas em uma tabela. O parâmetro contém os dados a serem inseridos como um objeto .NET.
 
@@ -283,7 +283,7 @@ Se você tentar excluir um item sem o campo "Id" já estar definido, o serviço 
 
 ##<a name="#custom-api"></a>Chamar uma API personalizada
 
-Uma API personalizada permite que você defina pontos de extremidade personalizados que expõem a funcionalidade do servidor que não mapeia para uma inserção, atualização, exclusão ou operação de leitura. Usando uma API personalizada, você pode ter mais controle sobre mensagens, incluindo ler e definir cabeçalhos de mensagens HTTP e definir um formato de corpo de mensagem diferente do JSON. Para obter um exemplo de como criar uma API personalizada em seu serviço móvel, consulte [Como: definir um ponto de extremidade de API personalizado](mobile-services-dotnet-backend-define-custom-api.md).
+Uma API personalizada permite que você defina pontos de extremidade personalizados que expõem a funcionalidade do servidor que não mapeia para uma inserção, atualização, exclusão ou operação de leitura. Usando uma API personalizada, você pode ter mais controle sobre mensagens, incluindo ler e definir cabeçalhos de mensagens HTTP e definir um formato de corpo de mensagem diferente do JSON. Para obter um exemplo de como criar uma API personalizada em seu serviço móvel, consulte [Como definir um ponto de extremidade de API personalizada](mobile-services-dotnet-backend-define-custom-api.md).
 
 Você pode chamar uma API personalizada chamando uma das sobrecargas de método [InvokeApiSync] no cliente. Por exemplo, a linha de código a seguir envia uma solicitação POST à API **completeAll** no serviço móvel local:
 
@@ -770,4 +770,4 @@ Essa propriedade converte todas as propriedades em letras minúsculas, durante a
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 [InvokeApiSync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

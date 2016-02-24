@@ -13,18 +13,18 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="02/08/2016" 
 	ms.author="eugenesh"/>
 
-#Conectar o Banco de Dados do SQL Azure à Pesquisa do Azure usando indexadores
+#Conectando o Banco de Dados do SQL do Azure à Pesquisa do Azure usando indexadores
 
 O serviço da Pesquisa do Azure é um serviço de pesquisa de nuvem hospedado que facilita o fornecimento de uma excelente experiência de pesquisa. Antes de pesquisar, você precisa popular um índice da Pesquisa do Azure com seus dados. Se os dados estiverem em um Banco de Dados SQL do Azure, o novo **indexador da Pesquisa do Azure para o Banco de Dados SQL do Azure** (ou **indexador do SQL Azure** para resumir) na Pesquisa do Azure poderá automatizar o processo de indexação. Isso significa menos código para escrever e menos infraestrutura para se preocupar.
 
-Atualmente, os indexadores funcionam apenas com o Banco de Dados SQL do Azure, SQL Server em VMs do Azure e [Banco de Dados de Documentos do Azure](../documentdb/documentdb-search-indexer.md). Neste artigo, vamos nos concentrar nos indexadores que funcionam com o Banco de Dados SQL do Azure. Se você quiser suporte para outras fontes de dados, forneça seus comentários no [Fórum de comentários da Pesquisa do Azure](http://feedback.azure.com/forums/263029-azure-search).
+Atualmente, os indexadores funcionam apenas com o Banco de Dados SQL do Azure, SQL Server em VMs do Azure e [Banco de Dados de Documentos do Azure](../documentdb/documentdb-search-indexer.md). Neste artigo, vamos nos concentrar nos indexadores que funcionam com o Banco de Dados SQL do Azure. Se você quiser suporte para outras fontes de dados, forneça seus comentários no [Fórum de comentários da Pesquisa do Azure](https://feedback.azure.com/forums/263029-azure-search/).
 
 Este artigo abordará a mecânica do uso de indexadores, mas também exploraremos recursos e comportamentos disponíveis apenas com os bancos de dados SQL (por exemplo, controle integrado de alterações).
 
-## Indexadores e fontes de dados ##
+## Indexadores e fontes de dados
 
 Para instalar e configurar um indexador do SQL Azure, você pode chamar a [API REST da Pesquisa do Azure](http://go.microsoft.com/fwlink/p/?LinkID=528173) para criar e gerenciar **indexadores** e **fontes de dados**.
 
@@ -38,7 +38,7 @@ Um **indexador** é um recurso que conecta fontes de dados a índices de pesquis
 - Atualizar um índice com as alterações feitas na fonte de dados com base em uma agenda.
 - Executar sob demanda para atualização de um índice, conforme necessário. 
 
-## Quando usar o indexador do SQL Azure ##
+## Quando usar o indexador do SQL Azure
 
 O uso do indexador do SQL Azure pode ou não ser apropriado dependendo de vários fatores relacionados aos seus dados. Se os dados atenderem aos requisitos a seguir, você poderá usar o indexador do SQL Azure:
 
@@ -47,10 +47,10 @@ O uso do indexador do SQL Azure pode ou não ser apropriado dependendo de vário
 - Os tipos de dados usados na fonte de dados têm suporte do indexador. A maioria dos tipos de SQL tem suporte, mas não todos. Para mais detalhes, confira [Mapeamento dos tipos de dados na Pesquisa do Azure](http://go.microsoft.com/fwlink/p/?LinkID=528105). 
 - Você não precisa de atualizações quase em tempo real no índice quando uma linha é alterada. 
 	- O indexador pode reindexar sua tabela no máximo a cada 5 minutos. Se os dados forem alterados com frequência e as alterações precisarem ser refletidas no índice em questão de segundos ou minutos, recomendamos o uso direto da [API do Índice de Pesquisa do Azure](https://msdn.microsoft.com/library/azure/dn798930.aspx). 
-- Se você tiver um conjunto grande de dados e planeja executar o indexador com base em uma agenda, o esquema permite a identificação eficiente de linhas alteradas (e excluídas, se for aplicável). Para mais detalhes, confira "Captura de linhas alteradas e excluídas" abaixo. 
+- Se você tiver um conjunto grande de dados e planeja executar o indexador com base em uma agenda, o esquema permitirá a identificação eficiente de linhas alteradas (e excluídas, se for aplicável). Para mais detalhes, confira "Captura de linhas alteradas e excluídas" abaixo. 
 - O tamanho dos campos indexados em uma linha não excede o tamanho máximo de uma solicitação de indexação de Pesquisa do Azure, que é de 16 MB. 
 
-## Criar e usar um indexador do SQL Azure ##
+## Criar e usar um indexador do SQL Azure
 
 Primeiro, crie a fonte de dados:
 
@@ -70,7 +70,7 @@ Você pode conseguir a cadeia de conexão no [Portal clássico do Azure](https:/
 
 Em seguida, crie um índice de destino da Pesquisa do Azure, caso ainda não tenha criado um. É possível fazer isso por meio da [UI do portal](https://portal.azure.com) ou usando a [API de Criação de Índices](https://msdn.microsoft.com/library/azure/dn798941.aspx). Certifique-se de que o esquema de seu índice de destino seja compatível com o esquema da tabela de origem. Confira a tabela a seguir para conhecer o mapeamento entre os tipos de dados de SQL e da Pesquisa do Azure.
 
-**Mapeamento entre tipos de dados SQL e tipos de dados do Azure Search**
+****Mapeamento entre tipos de dados SQL e tipos de dados da Pesquisa do Azure
 
 |Tipo de dados SQL | Tipos de campos de índice de destino permitidos |Observações 
 |------|-----|----|
@@ -145,7 +145,7 @@ A resposta deve parecer com a seguinte:
 
 O histórico de execução contém até 50 execuções mais recentes, classificadas em ordem cronológica inversa (de modo que a execução mais recente apareça em primeiro lugar na resposta). Informações adicionais sobre a resposta podem ser encontradas em [Obter o status do indexador](http://go.microsoft.com/fwlink/p/?LinkId=528198)
 
-## Executar indexadores de acordo com uma agenda ##
+## Executar indexadores de acordo com uma agenda
 
 Você também pode organizar o indexador para que execute periodicamente com base em uma agenda. Para fazer isso, basta adicionar a propriedade **schedule** ao criar ou atualizar o indexador. O exemplo a seguir mostra uma solicitação PUT para atualização do indexador:
 
@@ -179,11 +179,11 @@ Veja o que acontece:
 
 Você pode adicionar, alterar ou excluir uma agenda de um indexador existente usando uma solicitação de **indexador PUT**.
 
-## Captura de linhas novas, alteradas e excluídas ##
+## Captura de linhas novas, alteradas e excluídas
 
 Se você estiver usando uma agenda e a tabela contiver um número incomum de linhas, use uma política de detecção de alteração de dados para que o indexador possa recuperar com eficiência apenas as linhas novas ou alteradas sem precisar reindexar a tabela inteira.
 
-### Política de controle integrado de alterações do SQL ###
+### Política de controle integrado de alterações do SQL
 
 Se o banco de dados SQL oferece suporte ao [controle de alterações](https://msdn.microsoft.com/library/bb933875.aspx), recomendamos o uso da **Política de controle integrado de alterações do SQL**. Essa política permite um controle de alterações mais eficiente e também permite que a Pesquisa do Azure identifique linhas excluídas sem precisar adicionar uma coluna explícita de "exclusão reversível" à tabela.
 
@@ -208,7 +208,7 @@ Para usar essa política, crie ou atualize a fonte de dados da seguinte maneira:
 	  }
 	}
 
-### Política de detecção de alteração de marca d’água alta. ###
+### Política de detecção de alteração de marca d’água alta
 
 Embora a política de controle integrado de alterações do SQL seja recomendada, não será possível usá-la se os dados estiverem em uma exibição, ou se você estiver usando uma versão mais antiga do Banco de Dados SQL do Azure. Nesse caso, considere o uso da política de marca d'água alta. Essa política pode ser usada se a tabela contiver uma coluna que atenda aos seguintes critérios:
 
@@ -230,7 +230,7 @@ Por exemplo, uma coluna **rowversion** indexada é uma candidata ideal para a co
 	  }
 	}
 
-### Política de detecção de exclusão de coluna por exclusão reversível ###
+### Política de detecção de exclusão de coluna por exclusão reversível
 
 Quando as linhas são excluídas da tabela de origem, provavelmente você deseja excluí-las também do índice de pesquisa. Se você usar a política de controle integrado de alterações do SQL, isso será resolvido para você. No entanto, a política de controle de alterações de marca d'água alta não ajuda você com relação às linhas excluídas. O que fazer?
 
@@ -249,11 +249,11 @@ Ao usar a técnica de exclusão reversível, você pode especificar a política 
 
 Observe que **softDeleteMarkerValue** deve ser uma cadeia de caracteres – use a representação de cadeia de caracteres de seu valor real. Por exemplo, se você tiver uma coluna de inteiros na qual as linhas excluídas são marcadas com o valor 1, use `"1"`; se você tiver uma coluna BIT na qual as linhas excluídas são marcadas com o valor booliano real, use `"True"`.
 
-## Personalizar o indexador do SQL Azure ##
+## Personalizar o indexador do SQL Azure
  
 Você pode personalizar certos aspectos do comportamento do indexador (por exemplo, tamanho do lote, número de documentos que podem ser ignorados antes que uma execução de indexador falhe, entre outros). Para obter mais detalhes, veja [Personalização de indexador do Pesquisa do Azure](search-indexers-customization.md).
 
-## Perguntas frequentes ##
+## Perguntas frequentes
 
 **P:** Posso usar o indexador do SQL Azure com bancos de dados SQL em execução em VMs de IaaS no Azure?
 
@@ -275,8 +275,4 @@ R: Sim. No entanto, somente um indexador pode ser executado por vez em um nó. S
 
 R: Sim. O indexador é executado em um dos nós em seu serviço de pesquisa, e os recursos do nó são compartilhados entre a indexação e o atendimento ao tráfego de consultas e outras solicitações da API. Se você executar cargas de trabalho com indexação e consultas intensas e receber uma taxa alta de erros 503 ou tempos de resposta maiores, considere o aumento de seu serviço de pesquisa.
 
-
-
- 
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

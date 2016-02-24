@@ -33,9 +33,9 @@ O New Relic controla o tempo de carregamento e taxa de transferência da sua tra
 
 O New Relic Standard é oferecido gratuitamente aos usuários do Azure, o New Relic Pro é oferecido com base no tamanho da instância para os Serviços de Nuvem do Azure
 
-Para informações sobre preços, consulte o [página nova Relíquia no armazenamento do Azure](http://azure.microsoft.com/marketplace/partners/newrelic/newrelic)
+Para informações sobre preços, consulte o [página nova Relíquia no armazenamento do Azure](https://azure.microsoft.com/marketplace/partners/newrelic/newrelic/)
 
-> [AZURE.NOTE]Preços somente é listada para até 10 instâncias de computação. Para um número maior que 10, entre em contato com o New Relic (sales@newrelic.com) para obter o preço por volume.
+> [AZURE.NOTE] Preços somente é listada para até 10 instâncias de computação. Para um número maior que 10, entre em contato com o New Relic (sales@newrelic.com) para obter o preço por volume.
 
 Azure clientes recebem uma assinatura de avaliação de 2 semanas do nova Relíquia Pro ao implantar o agente Relíquia de novo.
 
@@ -148,4 +148,4 @@ Confira estes recursos adicionais para obter mais informações:
  * [Monitoramento real de usuários](https://newrelic.com/docs/features/real-user-monitoring): Visão geral de como o RUM detalha o tempo que leva para os navegadores de seus usuários carregarem as suas páginas da Web, de onde eles vêm e quais navegadores usam
  * [Encontrar Ajuda](https://newrelic.com/docs/site/finding-help): recursos disponíveis por meio do Centro de ajuda online do New Relic
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

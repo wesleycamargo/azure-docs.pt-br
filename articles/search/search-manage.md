@@ -21,7 +21,7 @@
 
 A Pesquisa do Azure é um serviço baseado em nuvem com uma API baseada em HTTP que pode ser usado em aplicativos de pesquisa personalizados. Nosso serviço de Pesquisa fornece o mecanismo para análise de texto de pesquisa em texto completo, recursos de pesquisa avançada, armazenamento de dados de pesquisa e uma sintaxe de comandos de consulta.
 
-Este artigo explica como administrar um serviço de Pesquisa no [Portal clássico do Azure](https://portal.azure.com).
+Este artigo explica como administrar um serviço de Pesquisa no [Portal do Azure](https://portal.azure.com).
 
 Como alternativa, você pode usar a API REST de gerenciamento. Confira [Introdução à API REST de Gerenciamento de Pesquisa do Azure](search-get-started-management-api.md) e [referência da API REST do Gerenciamento de Pesquisa do Azure](http://msdn.microsoft.com/library/azure/dn832684.aspx) para obter detalhes.
 
@@ -40,6 +40,10 @@ Para se planejar quanto à capacidade e compreender o impacto da cobrança, reco
 +	[Detalhes de preços](http://go.microsoft.com/fwlink/p/?LinkdID=509792)
 
 Quando você estiver pronto para se inscrever, confira [Criar um serviço de Pesquisa no portal](search-create-service-portal.md).
+
+##Análise de Pesquisa
+
+Você pode habilitar a coleta de dados sobre a atividade de pesquisa do usuário para verificar o desempenho do seu serviço de pesquisa, quais termos estão sendo usados e se esses termos retornaram visitas. A melhor maneira de analisar e visualizar esses dados é por meio de um pacote de conteúdo do Power BI. A primeira etapa é habilitar a análise do tráfego de pesquisa. Confira [Analyzing your Azure Search traffic](https://azure.microsoft.com/blog/analyzing-your-azure-search-traffic/) para saber como.
 
 <a id="sub-2"></a>
 ## Tarefas administrativas
@@ -105,7 +109,7 @@ Usando a API do serviço de pesquisa, você pode obter uma contagem dos document
 +	[Obter estatísticas de índice](http://msdn.microsoft.com/library/dn798942.aspx)
 +	[Contar documentos](http://msdn.microsoft.com/library/dn798924.aspx)
 
-> [AZURE.NOTE]Os comportamentos de cache podem aumentar um limite temporariamente. Por exemplo, ao usar o serviço compartilhado, você pode ver uma contagem de documentos que ultrapassa o limite de 10.000. O aumento é temporário e será detectado na próxima verificação de aplicação do limite.
+> [AZURE.NOTE] Os comportamentos de cache podem aumentar um limite temporariamente. Por exemplo, ao usar o serviço compartilhado, você pode ver uma contagem de documentos que ultrapassa o limite de 10.000. O aumento é temporário e será detectado na próxima verificação de aplicação do limite.
 
 
 <a id="sub-6"></a>
@@ -145,6 +149,9 @@ Não há um método de detecção que informe quais fragmentos de índices estã
 
 Para se planejar para o futuro, talvez você queira conferir o armazenamento (usando [Obter Estatísticas do Índice](http://msdn.microsoft.com/library/dn798942.aspx)) para ver o quanto você realmente usou.
 
+### Práticas recomendadas sobre escala e implantação de serviço em vários datacenters (vídeo)
+
+> [AZURE.VIDEO azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications]
 
 <a id="sub-7"></a>
 ## Iniciar ou parar o serviço
@@ -193,4 +200,4 @@ As funções fornecem controle de acesso depois da criação do serviço. Apenas
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

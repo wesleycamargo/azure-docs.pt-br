@@ -14,7 +14,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="10/19/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 # Configurar uma rede virtual para Rota Expressa
@@ -70,4 +70,4 @@ Essas etapas o orientarão ao longo da configuração de uma rede virtual e de u
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

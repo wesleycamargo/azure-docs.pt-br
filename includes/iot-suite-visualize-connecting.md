@@ -8,7 +8,7 @@ O painel da solução de monitoramento remoto permite que você exiba a telemetr
 
     ![][18]
 
-3. No painel de controle, selecione seu dispositivo no menu suspenso **Dispositivo para exibição** para exibir sua telemetria. A telemetria do aplicativo de exemplo é de 50 unidades de temperatura interna, 55 unidades de temperatura externa e 50 unidades de umidade. Observe que, por padrão, o painel exibe apenas os valores de temperatura e umidade.
+3. Clique em **Painel** para voltar ao painel de controle, selecione seu dispositivo no menu suspenso **Dispositivo para Exibição** para exibir sua telemetria. A telemetria do aplicativo de exemplo é de 50 unidades de temperatura interna, 55 unidades de temperatura externa e 50 unidades de umidade. Observe que, por padrão, o painel exibe apenas os valores de temperatura e umidade.
 
     ![][img-telemetry]
 
@@ -28,7 +28,7 @@ O painel da solução de monitoramento remoto permite solicitar que o Hub IoT en
 
     ![][14]
 
-    > [AZURE.NOTE]O histórico de comandos inicialmente mostra o status de comando como **Pendente**. Quando o dispositivo reconhece o comando, o status é alterado para **Sucesso**.
+    > [AZURE.NOTE] O histórico de comandos inicialmente mostra o status de comando como **Pendente**. Quando o dispositivo reconhece o comando, o status é alterado para **Sucesso**.
 
 5. No painel, verifique se o dispositivo está agora enviando 75 como o novo valor de temperatura.
 
@@ -43,4 +43,4 @@ O artigo [Personalizando soluções pré-configuradas][lnk-customize] descreve a
 [lnk-customize]: ../articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-dev-messaging]: ../articles/iot-hub/iot-hub-devguide.md#messaging
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

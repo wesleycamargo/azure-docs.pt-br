@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/21/2015"
+	ms.date="01/12/2016"
 	ms.author="stepsic"/>
 
 # Criar um novo aplicativo lógico conectando serviços SaaS
@@ -26,7 +26,7 @@
 
 Este tópico demonstra como, em apenas alguns minutos, você pode começar a usar os [Aplicativos Lógicos dos Serviços de Aplicativos](app-service-logic-what-are-logic-apps.md). Vamos percorrer um fluxo de trabalho que permite fornecer um conjunto de tweets em que você está interessado a uma pasta do Dropbox.
 
-Para usar esse cenário, você precisará de:
+Para usar este cenário, você precisará de:
 
 - Uma assinatura do Azure
 - Uma conta do Twitter
@@ -36,11 +36,11 @@ Para usar esse cenário, você precisará de:
 
 ## Obtenha os conectores
 
-Primeiro, você precisa criar os dois conectores que usará: [Conector do Dropbox](app-service-logic-connector-dropbox.md) e [Conector do Twitter](app-service-logic-connector-twitter.md). Devido a restrições na API do Twitter, também precisamos nos registrar para um aplicativo gratuito com o Twitter. Para criá-los:
+Primeiro, você precisa criar os dois conectores que usará: [Conector do Dropbox](app-service-logic-connector-dropbox.md) e [Conector do Twitter](app-service-logic-connector-twitter.md). Devido a restrições na API do Twitter, nós também precisamos nos registrar para um aplicativo gratuito no Twitter. Para criá-los:
 
 1. Entre no Portal do Azure.
 
-2. Clique em [Marketplace](https://portal.azure.com/#blade/HubsExtension/GalleryFeaturedMenuItemBlade/selectedMenuItemId/apiapps) na tela inicial e pesquise por Twitter (ou [clique aqui](https://portal.azure.com/#create/microsoft_com.TwitterConnector.0.2.2)).
+2. Clique em [Marketplace](https://portal.azure.com/#blade/HubsExtension/GalleryFeaturedMenuItemBlade/selectedMenuItemId/apiapps/) na tela inicial e pesquise por Twitter (ou [clique aqui](https://portal.azure.com/#create/microsoft_com.TwitterConnector.0.2.2/)).
 
 3. Selecione o **Conector do Twitter** e clique em **Criar**. Você obterá uma exibição com todas as suas configurações. Você pode deixar o nome como **Conector do Twitter**.
 4. Selecione as **Configurações do pacote**: aqui, você terá de inserir as informações de seu aplicativo Twitter. Você pode configurar um aplicativo gratuito com estas etapas:
@@ -70,7 +70,7 @@ Primeiro, você precisa criar os dois conectores que usará: [Conector do Dropbo
 
 10. Clique em **Criar**. A etapa de provisionamento pode levar um ou dois minutos.
 
-11. Agora, repita o processo com o [Dropbox](https://portal.azure.com/#create/microsoft_com.DropboxConnector.0.2.2).
+11. Agora, repita o processo com o [Dropbox](https://portal.azure.com/#create/microsoft_com.DropboxConnector.0.2.2/).
 
 ## Inicie o aplicativo lógico
 
@@ -116,13 +116,13 @@ As ações são o que seu fluxo de trabalho faz. Você pode ter qualquer quantid
 
 1. No painel direito, clique em **Conector do Twitter**.
 
-2. Depois que ele carregar, clique em **Autorizar**, entre em sua conta do Twitter e clique em **Autorizar aplicativo**.
+2. Depois de ser carregado, clique em **Autorizar**, entre em sua conta do Twitter e clique em **Autorizar aplicativo**.
 
 	Isso concede ao conector acesso à sua conta do Twitter. Uma lista de possíveis operações fornecidas pelo conector do Twitter é exibida.
 
 	![Ações](./media/app-service-logic-create-a-logic-app/actions.png)
 
-	> [AZURE.NOTE]O botão **Autorizar** usa a segurança OAUTH para se conectar aos serviços SaaS, como o Twitter. Mais informações sobre OAUTH em [Segurança OAUTH](app-service-logic-oauth-security.md).
+	> [AZURE.NOTE] O botão **Autorizar** usa a segurança OAUTH para se conectar aos serviços SaaS, como o Twitter. Mais informações sobre OAUTH em [Segurança OAUTH](app-service-logic-oauth-security.md).
 
 3. Clique em **Pesquisar tweets**, e em **Especificar uma consulta**, digite algo como `#MicrosoftAzure` e clique na marca de seleção verde.
 
@@ -188,4 +188,4 @@ Em menos de 5 minutos, você configurou um aplicativo lógico simples e o coloco
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [Usar os recursos de aplicativos lógicos]: app-service-logic-use-logic-app-features.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -3,7 +3,7 @@
 	description="Saiba mais sobre como começar a trabalhar com o exemplo de código no SDK do dispositivo IoT do Azure para C."
 	services="iot-hub"
 	documentationCenter=""
-	authors="MichelBarnett"
+	authors="olivierbloch"
 	manager="timlt"
 	editor=""/>
 
@@ -14,13 +14,13 @@
      ms.tgt_pltfrm="na"
      ms.workload="na"
      ms.date="11/10/2015"
-     ms.author="michelb"/>
+     ms.author="obloch"/>
 
 # Introdução ao SDK do dispositivo IoT do Azure para C
 
 O **SDK do dispositivo IoT do Azure** é um conjunto de bibliotecas projetadas para simplificar o processo de envio de eventos e o recebimento de mensagens do serviço **Hub IoT do Azure**. Existem diferentes variações do SDK, cada uma visando uma plataforma específica, mas este artigo descreve o **SDK do dispositivo IoT do Azure para C**.
 
-O SDK do dispositivo IoT do Azure para C foi escrito em ANSI (C99) para maximizar a portabilidade. Isso o torna bastante adequado para a operação em vários dispositivos e plataformas, especialmente onde a minimização do volume de disco e de memória for uma prioridade.
+O SDK do dispositivo IoT do Azure para C foi escrito em ANSI (C99) para maximizar a portabilidade. Isso o torna bastante adequado para a operação em vários dispositivos e plataformas, especialmente quando a minimização do volume de disco e de memória for uma prioridade.
 
 O SDK foi testado em uma ampla variedade de plataformas (consulte a [documentação do SDK](https://github.com/Azure/azure-iot-sdks/tree/master/c) para obter detalhes). Embora este artigo inclua explicações de exemplo de código em execução na plataforma Windows, lembre-se de que o código descrito neste artigo é exatamente o mesmo entre as várias plataformas com suporte.
 
@@ -98,7 +98,7 @@ Quando você tiver concluído as etapas anteriores, estará pronto para compilar
 
 ### Obtendo credenciais do dispositivo
 
-Agora que seu ambiente de desenvolvimento está configurado, a última coisa a fazer será obter um conjunto de credenciais de dispositivo. Para um dispositivo poder acessar um Hub IoT, primeiro você deverá adicionar o dispositivo ao registro de dispositivo do Hub IoT. Ao adicionar o dispositivo, você terá um conjunto de credenciais de dispositivo de que precisará para que o dispositivo possa se conectar a um Hub IoT. Os aplicativos de exemplo que veremos na próxima seção esperam essas credenciais na forma de uma **cadeia de conexão de dispositivo**.
+Agora que seu ambiente de desenvolvimento está configurado, a última coisa a fazer será obter um conjunto de credenciais de dispositivo. Para um dispositivo poder acessar um Hub IoT, primeiro você deverá adicionar o dispositivo ao Registro de dispositivo do Hub IoT. Ao adicionar o dispositivo, você terá um conjunto de credenciais de dispositivo de que precisará para que o dispositivo possa se conectar a um Hub IoT. Os aplicativos de exemplo que veremos na próxima seção esperam essas credenciais na forma de uma **cadeia de conexão de dispositivo**.
 
 A ferramenta [Gerenciador de Dispositivos](https://github.com/Azure/azure-iot-sdks/tree/master/tools/DeviceExplorer) (incluída no SDK do dispositivo IoT do Azure) usa as bibliotecas de serviço IoT do Azure para executar várias funções no Hub IoT, incluindo a adição de dispositivo. Se você usar o Gerenciador de Dispositivos para adicionar um dispositivo, você obterá uma cadeia de conexão correspondente. Você precisa dessa cadeia de conexão para executar os aplicativos de exemplo.
 
@@ -308,7 +308,7 @@ Os eventos e ações definidos no modelo definem uma superfície de API que voc�
 
 ### Enviando eventos
 
-O modelo define os eventos que você pode enviar ao Hub IoT. Neste exemplo, isso significa um dos dois eventos definidos usando a macro **WITH\_DATA**. Por exemplo, se você quiser enviar um evento **WindSpeed** a um Hub IoT, há algumas etapas envolvidas para que isso aconteça. A primeira é definir os dados que deseja enviar:
+O modelo define os eventos que você pode enviar ao Hub IoT. Neste exemplo, isso significa um dos dois eventos definidos usando a macro **WITH\_DATA**. Por exemplo, se você quer enviar um evento **WindSpeed** a um Hub IoT, há algumas etapas envolvidas para que isso aconteça. A primeira é definir os dados que deseja enviar:
 
 ```
 myWeather->WindSpeed = 15;
@@ -460,4 +460,4 @@ Cada uma dessas três funções se alinha às três funções de inicialização
 
 Este artigo abordou os conceitos básicos de como usar as bibliotecas no **SDK do dispositivo IoT do Azure para C**. Ele forneceu informações suficientes para entender o que está incluído no SDK, sua arquitetura e como começar a trabalhar com os exemplos do Windows. O próximo artigo continua a descrição do SDK, explicando [mais sobre a biblioteca IoTHubClient](iot-hub-device-sdk-c-iothubclient.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

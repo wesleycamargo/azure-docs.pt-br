@@ -13,11 +13,11 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="11/18/2015" 
 	ms.author="mimig"/>
 
-# Como criar um banco de dados para o Banco de Dados de Documentos
+# Como criar um banco de dados para o Banco de Dados de Documentos usando o portal do Azure
 
 Para usar o Banco de Dados de Documentos do Microsoft Azure, você deve ter uma conta do [Banco de Dados de Documentos](documentdb-create-account.md), um banco de dados, uma coleção e documentos. Este tópico descreve como criar um banco de dados para o Banco de Dados de Documentos no Portal do Microsoft Azure.
 
@@ -45,8 +45,8 @@ Os bancos de dados não precisam ser criados com o Portal; você também pode cr
 
 Agora que você sabe como criar um banco de dados para o Banco de Dados de Documentos, a próxima etapa é [criar uma coleção](documentdb-create-collection.md).
 
-Depois de criar sua coleção, você pode [adicionar documentos JSON](../documentdb-view-json-document-explorer.md) usando o Gerenciador de Documentos no Portal, [importar documentos](documentdb-import-data.md) na coleção usando a Ferramenta de Migração de Dados do Banco de Dados de Documentos ou usar um dos [SDKs do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn781482.aspx) para executar operações CRUD. O Banco de Dados de Documentos tem SDKs de API de JavaScript, .NET, Java, Python e Node.js. Para ver exemplos de código .NET que mostram como criar, remover, atualizar e excluir documentos, consulte [Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/DocumentManagement/Program.cs) no projeto DocumentManagement no repositório azure-documentdb-net no GitHub.com.
+Depois de criar sua coleção, você pode [adicionar documentos JSON](documentdb-view-json-document-explorer.md) usando o Gerenciador de Documentos no Portal, [importar documentos](documentdb-import-data.md) na coleção usando a Ferramenta de Migração de Dados do Banco de Dados de Documentos ou usar um dos [SDKs do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn781482.aspx) para executar operações CRUD. O Banco de Dados de Documentos tem SDKs de API de JavaScript, .NET, Java, Python e Node.js. Para ver exemplos de código .NET que mostram como criar, remover, atualizar e excluir documentos, consulte [Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/DocumentManagement/Program.cs) no projeto DocumentManagement no repositório azure-documentdb-net no GitHub.com.
 
 Depois que seus documentos estiverem em uma coleção, você pode usar o [SQL do Banco de Dados de Documentos](documentdb-sql-query.md) para [executar consultas](documentdb-sql-query.md#executing-queries) em seus documentos usando o [Gerenciador de Consultas](documentdb-query-collections-query-explorer.md) no Portal, a [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou um dos [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

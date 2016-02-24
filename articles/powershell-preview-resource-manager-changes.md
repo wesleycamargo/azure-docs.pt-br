@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="powershell"
 	ms.workload="na"
-	ms.date="10/09/2015"
+	ms.date="01/26/2016"
 	ms.author="gauravbh;tomfitz"/>
 
 #Mudanças nos cmdlets do PowerShell para gerenciamento do Gerenciador de Recursos do Azure
@@ -91,4 +91,4 @@ O que foi mostrado acima filtrará o resultado para mostrar os locais com suport
 
 Adicionamos suporte a políticas ao Gerenciador de Recursos do Azure. Cmdlets do PowerShell para gerenciar políticas foram adicionados nesta versão. Para obter mais detalhes sobre políticas, consulte [Usar a política para gerenciar recursos e controlar o acesso](resource-manager-policy.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Tutorial: Integração do Azure Stream Analytics e do Aprendizado de Máquina do Azure | Microsoft Azure" 
+	pageTitle="Tutorial: Análise de sentimento usando o Azure Stream Analytics e o Aprendizado de Máquina do Azure | Microsoft Azure" 
 	description="Como aproveitar o UDF e o aprendizado de máquina em trabalhos do stream analytics"
 	keywords=""
 	documentationCenter=""
@@ -15,11 +15,11 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/14/2015" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"
 />
 
-# Tutorial: Introdução ao Stream Analytics e à integração do Aprendizado de Máquina #
+# Tutorial: Executar análise de sentimento usando o Stream Analytics e o Aprendizado de Máquina #
 
 Este tutorial é projetado para ajudá-lo a configurar rapidamente um trabalho de Stream Analytics simples com a integração do Aprendizado de Máquina. Vamos aproveitar um Modelo do Aprendizado de Máquina da Análise de Sentimento da Galeria da Análise da Cortana para analisar dados de texto de streaming e determinar a pontuação de sentimento em tempo real. Este é um bom tutorial para entender cenários como análise de sentimento em tempo real do fluxo de dados do Twitter, análise de registro do chat do cliente com a equipe de suporte, comentários em fóruns/blogs/vídeos e muitos outros cenários preditivos com pontuação em tempo real.
   
@@ -142,7 +142,7 @@ Anote a URL do serviço Web e a tecla de acesso da planilha em Excel baixada, co
 
 Neste tutorial, um trabalho de Stream Analytics foi criado para ler fluxo de dados de texto e analisar o sentimento nele em tempo real. Você conseguiu fazer tudo isso sem precisar se preocupar com a complexidade de criar um modelo de análise de sentimento. Essa é uma das vantagens do pacote Análise da Cortana.
 
-A métrica relativa à função linguística do Aprendizado de Máquina também pode ser observada. Clique na guia **MONITOR**. Há três métricas relativas à função.
+A métrica relativa à função de Aprendizado de Máquina do Azure também pode ser observada. Clique na guia **MONITOR**. Há três métricas relativas à função.
   
 - SOLICITAÇÕES DE FUNÇÃO indica o número de solicitações para o serviço Web de aprendizado de máquina.  
 - EVENTOS DE FUNÇÃO indica o número de eventos na solicitação. Por padrão, cada solicitação ao serviço Web do AM contém até mil eventos.  
@@ -150,4 +150,4 @@ A métrica relativa à função linguística do Aprendizado de Máquina também 
 
     ![tutorial stream analytics aprendizado de máquina exibição no monitor am](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

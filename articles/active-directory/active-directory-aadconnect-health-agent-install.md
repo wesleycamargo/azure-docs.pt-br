@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="01/21/2016"
 	ms.author="billmath"/>
 
 
@@ -77,7 +77,7 @@ Para que o recurso de Análise de Uso colete e analise dados, o agente do Azure 
 #### Para habilitar a auditoria do AD FS 2.0
 
 1. Clique em **Iniciar**, aponte para **Programas**, aponte para **Ferramentas Administrativas** e clique em **Política de Segurança Local**.
-2. Navegue até a pasta **Configurações de Segurança\\Políticas Locais\\Gerenciamento de Direitos de Usuário** e clique duas vezes em Gerar auditorias de segurança.
+2. Navegue até a pasta **Configurações de segurança\\Políticas locais\\Gerenciamento de direitos de usuário** e, em seguida, clique duas vezes em Gerar auditorias de segurança.
 3. Na guia **Configuração de Segurança Local**, verifique se a conta de serviço do AD FS 2.0 está listada. Se ela não estiver presente, clique em **Adicionar Usuário ou Grupo**, adicione-a à lista e clique em **OK**.
 4. Abra um prompt de comando com privilégios elevados e execute o seguinte comando para habilitar auditoria: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
 5. Feche a Política de segurança Local e, em seguida, abra o snap-in de Gerenciamento. Para abrir o snap-in de Gerenciamento, clique em **Iniciar**, aponte para **Programas**, aponte para **Ferramentas Administrativas** e clique em Gerenciamento do AD FS 2.0.
@@ -112,7 +112,7 @@ Para que o recurso de Análise de Uso colete e analise dados, o agente do Azure 
 
 ![Logs de auditoria do AD FS](./media/active-directory-aadconnect-health-requirements/adfsaudit.png)
 
-> [AZURE.WARNING]Se você tiver uma política de grupo que esteja desabilitando a auditoria do AD FS, o agente do Azure AD Connect Health não poderá coletar informações. Certifique-se de que você não tem uma política de grupo que pssa desativar a auditoria.
+> [AZURE.WARNING] Se você tiver uma política de grupo que esteja desabilitando a auditoria do AD FS, o agente do Azure AD Connect Health não poderá coletar informações. Certifique-se de que você não tem uma política de grupo que pssa desativar a auditoria.
 
 [//]: # "Início da Seção de configuração de Proxy do agente"
 
@@ -126,7 +126,7 @@ Para verificar se o agente foi instalado, abra serviços e procure pelo seguinte
  
 ![Verificar sincronização do Azure AD Connect Health](./media/active-directory-aadconnect-health-sync/services.png)
 
->[Azure.NOTE]Lembre-se de que usar o Azure AD Connect Health requer o Azure AD Premium. Se você não tiver o Azure AD Premium, você não poderá concluir a configuração no portal do Azure. Para obter mais informações, veja os requisitos [aqui](active-directory-aadconnect-health.md#requirements).
+>[Azure.NOTE] Lembre-se de que usar o Azure AD Connect Health requer o Azure AD Premium. Se você não tiver o Azure AD Premium, você não poderá concluir a configuração no portal do Azure. Para obter mais informações, veja os requisitos [aqui](active-directory-aadconnect-health.md#requirements).
 
 
 
@@ -134,12 +134,13 @@ Para verificar se o agente foi instalado, abra serviços e procure pelo seguinte
 ## Configurar agentes do Azure AD Connect Health para usar HTTP Proxy
 Você pode configurar agentes do Azure AD Connect Health para trabalhar com um HTTP Proxy.
 
->[AZURE.NOTE]-Usar "Netsh WinHttp set ProxyServerAddress" não funcionará, pois o agente usa System.Net para fazer as solicitações da web em vez do Microsoft Windows HTTP Services. -O endereço de HTTP Proxy configurado será usado para passagem de mensagens HTTPS criptografadas. -Não há suporte para proxies autenticados (usando HTTPBasic).
+>[AZURE.NOTE]
+-Usar "Netsh WinHttp set ProxyServerAddress" não funcionará, pois o agente usa System.Net para fazer as solicitações da web em vez do Microsoft Windows HTTP Services. -O endereço de HTTP Proxy configurado será usado para passagem de mensagens HTTPS criptografadas. -Não há suporte para proxies autenticados (usando HTTPBasic).
 
 ### Alterar a configuração de proxy do agente de integridade
 Você tem as seguintes opções para configurar o agente do Azure AD Connect Health para usar um HTTP Proxy.
 
->[AZURE.NOTE]Você deve reiniciar todos os serviços do agente do Azure AD Connect Health para que as configurações de proxy sejam atualizadas. Execute o seguinte comando:<br> Restart-Service AdHealth*
+>[AZURE.NOTE] Você deve reiniciar todos os serviços do agente do Azure AD Connect Health para que as configurações de proxy sejam atualizadas. Execute o seguinte comando:<br> Restart-Service AdHealth*
 
 #### Importar configurações de proxy existentes
 
@@ -186,4 +187,4 @@ Você pode usar o comando a seguir para ler as configurações de proxy atuais.
 * [Usando o Azure AD Connect Health para sincronização](active-directory-aadconnect-health-sync.md)
 * [Perguntas frequentes do Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

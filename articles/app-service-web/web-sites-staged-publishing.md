@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="01/12/2016"
 	ms.author="cephalin"/>
 
 # Configurar ambientes de preparo para aplicativos Web no Serviço de Aplicativo do Azure
@@ -45,11 +45,12 @@ Cada modo de plano do Serviço de Aplicativo dá suporte a um número diferente 
 O aplicativo Web deve estar em execução no modo **Padrão** ou **Premium** para que você habilite vários slots de implantação.
 
 1. No [Portal do Azure](https://portal.azure.com/), abra a folha de seu aplicativo Web.
-2. Clique em **Slots de implantação**. Em seguida, na folha **Slots de implantação**, clique em **Adicionar Slot**.
+2. Clique em **Configurações** e então em **Slots de implantação**. Em seguida, na folha **Slots de implantação**, clique em **Adicionar Slot**.
 
 	![Adicionar um novo slot de implantação][QGAddNewDeploymentSlot]
 
-	> [AZURE.NOTE]Se o aplicativo Web ainda não está no modo **Padrão** ou **Premium**, você receberá uma mensagem indicando os modos com suporte para habilitar a publicação em estágios. Neste momento, você tem a opção de selecionar **Atualizar** e navegar para a guia **Escala** do aplicativo Web antes de continuar.
+	> [AZURE.NOTE]
+	Se o aplicativo Web ainda não está no modo **Padrão** ou **Premium**, você receberá uma mensagem indicando os modos com suporte para habilitar a publicação em estágios. Neste momento, você tem a opção de selecionar **Atualizar** e navegar para a guia **Escala** do aplicativo Web antes de continuar.
 
 2. Na folha **Adicionar um slot**, nomeie o slot e opte por clonar a configuração de aplicativo Web por meio de outro slot de implantação existente. Clique na marca de seleção para continuar.
 
@@ -97,7 +98,7 @@ Para configurar uma cadeia de conexão ou configuração de aplicativo para que 
 <a name="Swap"></a>
 ## Para permutar slots de implantação ##
 
->[AZURE.IMPORTANT]Antes de permutar um aplicativo Web por meio de um slot de implantação para produção, verifique se todas as configurações específicas de slot estão configuradas exatamente como você deseja tê-las no destino da permuta.
+>[AZURE.IMPORTANT] Antes de permutar um aplicativo Web por meio de um slot de implantação para produção, verifique se todas as configurações específicas de slot estão configuradas exatamente como você deseja tê-las no destino da permuta.
 
 1. Para permutar slots de implantação, clique no botão **Permutar** na barra de comandos do aplicativo Web ou na barra de comandos de um slot de implantação. Verifique se a origem e o destino da permuta estão definidos corretamente. Geralmente, o destino da permuta seria o slot de produção.  
 
@@ -109,7 +110,7 @@ Para configurar uma cadeia de conexão ou configuração de aplicativo para que 
 
 A Permuta Automática simplifica cenários DevOps em q você deseja implantar continuamente seu aplicativo Web, sem nenhuma inicialização a frio nem tempo de inatividade para clientes finais do aplicativo Web. Quando um slot de implantação estiver configurado para Permutação Automática em produção, sempre que você enviar por push a atualização de código para esse slot, o Serviço de Aplicativo permutará automaticamente o aplicativo Web para produção depois que ele já tiver feito seu aquecimento no slot.
 
->[AZURE.IMPORTANT]Ao habilitar a Permuta Automática para um slot, verifique se a configuração do slot é exatamente a configuração pretendida para o slot de destino (geralmente o slot de produção).
+>[AZURE.IMPORTANT] Ao habilitar a Permuta Automática para um slot, verifique se a configuração do slot é exatamente a configuração pretendida para o slot de destino (geralmente o slot de produção).
 
 Configurar a Permuta Automática para um slot é fácil. Siga as etapas abaixo:
 
@@ -123,7 +124,7 @@ Configurar a Permuta Automática para um slot é fácil. Siga as etapas abaixo:
 
 	![][Autoswap2]
 
-	>[AZURE.NOTE]Para testar a Permuta Automática para seu aplicativo Web, primeiro você poderá selecionar um slot de destino que não seja de produção em **Slot de Permuta Automática** para se familiarizar com o recurso.
+	>[AZURE.NOTE] Para testar a Permuta Automática para seu aplicativo Web, primeiro você poderá selecionar um slot de destino que não seja de produção em **Slot de Permuta Automática** para se familiarizar com o recurso.
 
 3. Execute um envio de código por push para esse slot de implantação. A Permuta Automática ocorrerá após um curto período de tempo e a atualização será refletida na URL do seu slot de destino.
 
@@ -134,7 +135,18 @@ A permuta multifase está disponível para simplificar a validação no contexto
 
 <a name="Rollback"></a>
 ## Para reverter um aplicativo de produção após a permuta ##
+
 Se algum erro for identificado na produção após uma permuta de slot, reverta os slots para os estados pré-permuta permutando ambos os slots imediatamente.
+
+<a name="Warm-up"></a>
+## Aquecimento personalizado antes da permuta ##
+
+Alguns aplicativos podem exigir ações personalizadas de aquecimento. O elemento de configuração applicationInitialization no web.config permite que você especifique ações de inicialização personalizadas a serem executadas antes de uma solicitação ser recebida. A operação de permuta aguardará esse aquecimento personalizado ser concluído. Este é está um exemplo fragmento do web.config.
+
+    <applicationInitialization>
+        <add initializationPage="/" hostName="[web app hostname]" />
+        <add initializationPage="/Home/About" hostname="[web app hostname]" />
+    </applicationInitialization>
 
 <a name="Delete"></a>
 ## Para excluir um slot de implantação##
@@ -150,7 +162,7 @@ Na folha para um slot de implantação, clique em **Excluir** na barra de comand
 
 O PowerShell do Azure é um módulo que fornece cmdlets para gerenciar o Azure por meio do Windows PowerShell, incluindo suporte ao gerenciamento de slots de implantação de aplicativos Web no Serviço de Aplicativo do Azure.
 
-- Para obter mais informações sobre como instalar e configurar o PowerShell do Azure, e como autenticar o PowerShell do Azure com sua assinatura do Azure, consulte [Como instalar e configurar o PowerShell do Microsoft Azure](../install-configure-powershell.md).  
+- Para obter mais informações sobre como instalar e configurar o PowerShell do Azure, e como autenticar o PowerShell do Azure com sua assinatura do Azure, consulte [Como instalar e configurar o PowerShell do Microsoft Azure](../powershell-install-configure.md).  
 
 - Para usar o novo modo do Gerenciador de Recursos do Azure para cmdlets do PowerShell, comece pelo seguinte: `Switch-AzureMode -Name AzureResourceManager`.
 
@@ -233,7 +245,7 @@ Para excluir um slot de implantação que não seja mais necessário, use o coma
 
 ----------
 
->[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE] Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## Próximas etapas ##
 [Aplicativo Web do Serviço de Aplicativo do Azure – bloquear o acesso Web a slots de implantação não sejam de produção](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
@@ -241,7 +253,7 @@ Para excluir um slot de implantação que não seja mais necessário, use o coma
 [Avaliação gratuita do Microsoft Azure](/pricing/free-trial/)
 
 ## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!-- IMAGES -->
 [QGAddNewDeploymentSlot]: ./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png
@@ -259,4 +271,4 @@ Para excluir um slot de implantação que não seja mais necessário, use o coma
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

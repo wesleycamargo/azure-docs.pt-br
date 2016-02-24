@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/22/2015"
+   ms.date="02/09/2016"
    ms.author="bwren" />
 
 # Configurações de runbook
@@ -60,4 +60,4 @@ Os comandos de exemplo a seguir mostram como definir as propriedades de um runbo
 - [Saída de Runbook e Mensagens](../automation-runbook-output-and-messages) 
 - [Criando ou Importando um Runbook](https://msdn.microsoft.com/library/dn643637.aspx) 
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -10,37 +10,39 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="11/18/2015" 
+    ms.date="02/09/2016" 
     ms.author="asmalser" />
 
 #Configurando logon único para aplicativos que não estão na galeria de aplicativo do Active Directory do Azure
 
-A galeria de aplicativos do Active Directory do Azure fornece uma lista de aplicativos que reconhecidamente dão suporte a um formulário de logon único com o Active Directory do Azure, conforme descrito [neste artigo](https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/). Como especialista em TI ou integrador de sistema em sua organização, quando você tiver localizado o aplicativo que deseja conectar, poderá começar seguindo as instruções apresentadas no portal de gerenciamento do Azure para habilitar o logon único.
+Este artigo é sobre um recurso que permite aos administradores configurar o logon único para aplicativos que não estejam presentes na galeria de aplicativos do Active Directory do Azure *sem escrever código*. Este recurso foi lançado na visualização técnica em 18 de novembro de 2015 e foi incluído no [Active Directory Premium do Azure](active-directory-editions.md). Se você estiver procurando orientações para desenvolvedores sobre como integrar aplicativos personalizados com o AD do Azure por meio de código, veja [Cenários de autenticação do AD do Azure](active-directory-authentication-scenarios.md).
 
-Os clientes com licenças [Active Directory Premium do Azure](https://msdn.microsoft.com/library/azure/dn532272.aspx) tem esses recursos adicionais, que podem ser chamados da categoria **Personalizado** da galeria de aplicativos do AD do Azure:
+A galeria de aplicativos do Active Directory do Azure fornece uma lista de aplicativos que reconhecidamente dão suporte a um formulário de logon único com o Active Directory do Azure, conforme descrito [neste artigo](active-directory-appssoaccess-whatis.md). Como especialista em TI ou integrador de sistema em sua organização, quando você tiver localizado o aplicativo que deseja conectar, poderá começar seguindo as instruções apresentadas no portal de gerenciamento do Azure para habilitar o logon único.
 
-* Conexão de autoatendimento de qualquer aplicativo com suporte a provedores de identidade SAML 2.0
-* Conexão de autoatendimento de qualquer aplicativo Web que tenha uma página de entrada baseada em HTML usando o SSO baseado em senha
-* Capacidade de adicionar links aos aplicativos no [inicializador de aplicativos do Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou no [Painel de acesso do AD do Azure](https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/#deploying-azure-ad-integrated-applications-to-users)
+Os clientes com licenças do [Active Directory Premium do Azure](active-directory-editions.md) também obtêm estes recursos adicionais:
+
+* Integração de autoatendimento de qualquer aplicativo com suporte a provedores de identidade SAML 2.0
+* Integração de autoatendimento de qualquer aplicativo Web que tenha uma página de entrada baseada em HTML usando o [SSO baseado em senha](active-directory-appssoaccess-whatis.md/#password-based-single-sign-on)
 * Conexão de autoatendimento de aplicativos que usam o protocolo SCIM para provisionamento de usuários ([descrito aqui](active-directory-scim-provisioning))
+* Capacidade de adicionar links aos aplicativos no [inicializador de aplicativos do Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou no [Painel de acesso do AD do Azure](active-directory-appssoaccess-whatis.md/#deploying-azure-ad-integrated-applications-to-users)
 
 Isso pode incluir não apenas aplicativos SaaS usados por você que ainda não foram integrados à galeria de aplicativos do AD do Azure, mas também aplicativos Web de terceiros que sua organização implantou em servidores sob seu controle, seja na nuvem ou locais.
 
-Observação: os desenvolvedores de aplicativos que estejam tentando para testar a compatibilidade entre seu aplicativo e esse recurso podem fazer isso usando uma [avaliação gratuita do Active Directory Premium do Azure](https://azure.microsoft.com/trial/get-started-active-directory/), mas são incentivados a adquirir uma [licença de Direitos de Uso Interno](https://mspartner.microsoft.com/en/us/pages/membership/internal-use-software.aspx).
+Esses recursos, também conhecidos como *modelos de integração de aplicativos*, fornecem pontos de conexão baseados em padrões para aplicativos que dão suporte à autenticação baseada em formulários, a SCIM ou a SAML e que incluem opções e configurações flexíveis para compatibilidade com um grande número de aplicativos.
 
-##Adicionando um aplicativo personalizado ou não listado 
+##Adicionando um aplicativo não listado
 
-Para configurar um aplicativo, entre no portal de gerenciamento do Azure usando sua conta de administrador do Active Directory do Azure e navegue até a seção **Active Directory > [Diretório] > Aplicativos**, selecione **Adicionar** e **Adicionar um aplicativo da galeria**.
+Para conectar um aplicativo usando um modelo de integração de aplicativo, entre no portal de gerenciamento do Azure usando sua conta de administrador do Active Directory do Azure e navegue até a seção **Active Directory > [Diretório] > Aplicativos**, selecione **Adicionar** e **Adicionar um aplicativo da galeria**.
 
 ![][1]
 
-Na galeria de aplicativos, você pode adicionar um aplicativo personalizado usando a categoria **Personalizado** à esquerda ou selecionando o link **Adicionar um aplicativo não listado** mostrado nos resultados da pesquisa se seu aplicativo desejado não foi encontrado. Depois de inserir um nome para seu aplicativo, você pode configurar as opções de logon único e comportamento.
+Na galeria de aplicativos, você pode adicionar um aplicativo não listado usando a categoria **Personalizado** à esquerda ou selecionando o link **Adicionar um aplicativo não listado** mostrado nos resultados da pesquisa se seu aplicativo desejado não foi encontrado. Depois de inserir um nome para seu aplicativo, você pode configurar as opções de logon único e comportamento.
 
 **Dica**: como uma prática recomendada, use a função de pesquisa para verificar se o aplicativo já existe na galeria de aplicativos. Se o aplicativo for encontrado e sua descrição mencionar "logon único", o aplicativo já tem suporte para logon único federado.
 
 ![][2]
 
-A adição de um aplicativo personalizado oferece uma experiência muito semelhante àquela disponível para aplicativos previamente integrados. Para iniciar, selecione **Configurar Logon Único**. A próxima tela apresenta três opções para configurar o logon único, descritas nas seções a seguir.
+A adição de um aplicativo dessa maneira oferece uma experiência muito semelhante àquela disponível para aplicativos previamente integrados. Para iniciar, selecione **Configurar Logon Único**. A próxima tela apresenta três opções para configurar o logon único, descritas nas seções a seguir.
 
 ![][3]
 
@@ -105,9 +107,15 @@ Observação: você pode carregar um logotipo de bloco para o aplicativo usando 
 
 Selecione esta opção para adicionar um link para um aplicativo no Painel de Acesso do AD do Azure ou no portal do Office 365 da sua organização. Você pode usar isso para adicionar links para aplicativos Web personalizado que atualmente usam o Serviços de Federação do Active Directory do Azure (ou outro serviço de federação) em vez do AD do Azure para autenticação. Ou você pode adicionar links profundos para páginas específicas do SharePoint ou outras páginas da Web que você queira que apareçam somente nos Painéis de Acesso do usuário.
 
-Depois de selecionar **Próximo**, você deverá inserir a URL do aplicativo a ser vinculado. Depois de concluído, os usuários e os grupos poderão ser atribuídos ao aplicativo, o que faz com que o aplicativo seja exibido no [inicializador de aplicativos do Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou no [painel de acesso do AD do Azure](https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/#deploying-azure-ad-integrated-applications-to-users) desses usuários.
+Depois de selecionar **Próximo**, você deverá inserir a URL do aplicativo a ser vinculado. Depois de concluído, os usuários e os grupos poderão ser atribuídos ao aplicativo, o que faz com que o aplicativo seja exibido no [inicializador de aplicativos do Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou no [painel de acesso do AD do Azure](active-directory-appssoaccess-whatis.md/#deploying-azure-ad-integrated-applications-to-users) desses usuários.
 
 Observação: você pode carregar um logotipo de bloco para o aplicativo usando o botão **Carregar Logotipo** na guia **Configurar** do aplicativo.
+
+## Artigos relacionados
+
+- [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
+- [Como personalizar declarações emitidas no token SAML para aplicativos pré-integrados](active-directory-saml-claims-customization.md)
+- [Solução de problemas de logon único baseado em SAML](active-directory-saml-debugging.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-custom-apps/customapp1.png
@@ -118,4 +126,4 @@ Observação: você pode carregar um logotipo de bloco para o aplicativo usando 
 [6]: ./media/active-directory-saas-custom-apps/customapp6.png
 [7]: ./media/active-directory-saas-custom-apps/customapp7.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

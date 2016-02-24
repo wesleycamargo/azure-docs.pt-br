@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015"
+ 	ms.date="02/09/2016"  
 	ms.author="juliako"/>
 
 
@@ -33,7 +33,8 @@ Este tópico mostra como realizar as seguintes tarefas de gerenciamento de servi
 - Listar todos os ativos 
 - Listar trabalhos e ativos 
 - Listar todas as políticas de acesso 
-- Listar todos os localizadores 
+- Listar todos os localizadores
+- Enumerar através de grandes coleções de entidades
 - Excluir um ativo 
 - Excluir um trabalho 
 - Excluir uma política de acesso 
@@ -245,6 +246,47 @@ Observe que um caminho de localizador para um ativo é apenas uma URL base para 
 	    }
 	}
 
+## Enumerar através de grandes coleções de entidades
+
+Ao consultar entidades, um limite de 1.000 entidades podem ser retornadas ao mesmo tempo porque a REST v2 pública limita os resultados da consulta a 1.000 resultados. Você precisa usar Ignorar e Levar ao enumerar através de grandes coleções de entidades.
+	
+A função a seguir faz um loop por todos os trabalhos na conta de Serviços de Mídia fornecida. Os Serviços de Mídia retornam 1.000 trabalhos da coleção de trabalhos. A função utiliza Ignorar e Levar para certificar-se de que todos os trabalhos sejam enumerados (caso você tenha mais de 1.000 trabalhos em sua conta).
+	
+	static void ProcessJobs()
+	{
+	    try
+	    {
+	
+	        int skipSize = 0;
+	        int batchSize = 1000;
+	        int currentBatch = 0;
+	
+	        while (true)
+	        {
+	            // Loop through all Jobs (1000 at a time) in the Media Services account
+	            IQueryable _jobsCollectionQuery = _context.Jobs.Skip(skipSize).Take(batchSize);
+	            foreach (IJob job in _jobsCollectionQuery)
+	            {
+	                currentBatch++;
+	                Console.WriteLine("Processing Job Id:" + job.Id);
+	            }
+	
+	            if (currentBatch == batchSize)
+	            {
+	                skipSize += batchSize;
+	                currentBatch = 0;
+	            }
+	            else
+	            {
+	                break;
+	            }
+	        }
+	    }
+	    catch (Exception ex)
+	    {
+	        Console.WriteLine(ex.Message);
+	    }
+	}
 
 ##Excluir um Ativo
 
@@ -339,4 +381,4 @@ O exemplo de código a seguir mostra como obter uma referência a uma política 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

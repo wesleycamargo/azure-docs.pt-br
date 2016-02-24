@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/15/2015"
+   ms.date="02/09/2016"
    ms.author="tomfitz"/>
 
 # Transmitir valores seguros durante a implantação
 
 Quando você precisa transmitir um valor seguro (como uma senha) como um parâmetro durante a implantação, é possível armazenar esse valor como um segredo em um [Cofre da Chave do Azure](./key-vault/key-vault-whatis.md) e fazer referência ao valor em outros modelos do Gerenciador de Recursos. Você inclui apenas uma referência ao segredo em seu modelo, para que o segredo nunca seja exposto, e você não precisa inserir manualmente o valor do segredo sempre que implantar os recursos. Você especifica quais usuários ou entidades de serviço podem acessar o segredo.
 
-> [AZURE.NOTE]Atualmente, apenas a CLI do Azure dá suporte à capacidade de fazer referência a um segredo do cofre da chave. O Azure PowerShell adicionará essa capacidade assim que possível.
+> [AZURE.NOTE] Atualmente, apenas a CLI do Azure dá suporte à capacidade de fazer referência a um segredo do cofre da chave. O Azure PowerShell adicionará essa capacidade assim que possível.
 
 ## Implantar um cofre da chave e segredo
 
@@ -33,34 +33,34 @@ Para saber mais sobre a implantação de um cofre da chave e um segredo, veja [E
 Você faz referência ao segredo em um arquivo de parâmetros que transmite valores para seu modelo. Você faz referência ao segredo transmitindo o identificador de recurso do cofre de chave e o nome do segredo.
 
     "parameters": {
-        "adminPassword": {
-            "reference": {
-                "keyVault": {
-                    "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
-                }, 
-                "secretName": "sqlAdminPassword" 
-            } 
-        }
+      "adminPassword": {
+        "reference": {
+          "keyVault": {
+            "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
+          }, 
+          "secretName": "sqlAdminPassword" 
+        } 
+      }
     }
 
 Um arquivo de parâmetro inteiro pode ter essa aparência:
 
     {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "sqlsvrAdminLogin": {
-                "value": ""
+      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "sqlsvrAdminLogin": {
+          "value": ""
+        },
+        "sqlsvrAdminLoginPassword": {
+          "reference": {
+            "keyVault": {
+              "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
             },
-            "sqlsvrAdminLoginPassword": {
-                "reference": {
-                    "keyVault": {
-                        "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
-                    },
-                    "secretName": "adminPassword"
-                }
-            }
+            "secretName": "adminPassword"
+          }
         }
+      }
     }
 
 O parâmetro que aceita o segredo deve ser um **securestring**. O exemplo a seguir mostra as seções relevantes de um modelo que implanta um SQL Server que exige uma senha de administrador.
@@ -102,7 +102,7 @@ O parâmetro que aceita o segredo deve ser um **securestring**. O exemplo a segu
 ## Próximas etapas
 
 - Para obter informações gerais sobre cofres de chave, veja [Introdução ao Cofre da Chave do Azure](./key-vault/key-vault-get-started.md).
-- Para saber mais sobre como implantar modelos, confira [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
+- Para obter informações sobre como usar um cofre de chave com uma máquina virtual, consulte [Considerações de segurança para o Gerenciador de Recursos do Azure](best-practices-resource-manager-security.md).
 - Para obter exemplos completos de referência de segredos de chave, veja [Exemplos do cofre da chave](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/03/2015"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # Instrução Create Table As Select (CTAS) no SQL Data Warehouse
 A instrução Create Table As Select ou CTAS é um dos mais importantes recursos do T-SQL disponível. É uma operação totalmente em paralelo que cria uma nova tabela com base na saída de uma instrução SELECT. O CTAS é a maneira mais rápida e simples de criar uma cópia de uma tabela. Você pode considerá-la uma versão sobrecarregada de SELECT... INTO se desejar. Este documento fornece exemplos e as práticas recomendadas para o CTAS.
@@ -429,4 +429,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

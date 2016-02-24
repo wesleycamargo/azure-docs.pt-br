@@ -1,25 +1,25 @@
-<properties 
-    pageTitle="Listar recursos de Armazenamento do Azure com a Biblioteca de Cliente de Armazenamento do Microsoft Azure para C++ | Microsoft Azure" 
-    description="Saiba como usar a APIs de listagem na Biblioteca de Cliente de Armazenamento do Microsoft Azure para C++ para enumerar contêineres, blobs, filas, tabelas e entidades." 
-    documentationCenter=".net" 
+<properties
+    pageTitle="Listar recursos de Armazenamento do Azure com a Biblioteca de Cliente de Armazenamento do Microsoft Azure para C++ | Microsoft Azure"
+    description="Saiba como usar a APIs de listagem na Biblioteca de Cliente de Armazenamento do Microsoft Azure para C++ para enumerar contêineres, blobs, filas, tabelas e entidades."
+    documentationCenter=".net"
     services="storage"
-    authors="tamram" 
-    manager="carolz" 
-    editor=""/>
-<tags 
-    ms.service="storage" 
-    ms.workload="storage" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/23/2015" 
-    ms.author="zhimingyuan;tamram"/>
+    authors="tamram"
+    manager="carmonm"
+    editor="tysonn"/>
+<tags
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="01/05/2016"
+    ms.author="dineshm"/>
 
 # Listar recursos de armazenamento do Azure em C++
 
 As operações de listagem são fundamentais para muitos cenários de desenvolvimento com o Armazenamento do Azure. Este artigo descreve como enumerar os objetos no Armazenamento do Azure usando a listagem APIs fornecidas na Biblioteca de Cliente do Armazenamento do Microsoft Azure para C++ com mais eficiência.
 
->[AZURE.NOTE]Este guia destina-se a Biblioteca de Cliente do Armazenamento do Azure para C++ versão 1.x, que está disponível via [NuGet](http://www.nuget.org/packages/wastorage) ou [GitHub](https://github.com/Azure/azure-storage-cpp).
+>[AZURE.NOTE] Este guia destina-se a Biblioteca de Cliente do Armazenamento do Azure para C++ versão 1.x, que está disponível via [NuGet](http://www.nuget.org/packages/wastorage) ou [GitHub](https://github.com/Azure/azure-storage-cpp).
 
 A Biblioteca de Cliente do Armazenamento fornece uma variedade de métodos de consulta ou lista de objetos no Armazenamento do Azure. Este artigo aborda os seguintes cenários:
 
@@ -54,7 +54,7 @@ Portanto, é impraticável listar todos os objetos em uma única resposta. Em ve
 
 A resposta para uma operação de listagem segmentada inclui:
 
--	<i>\_segment</i>, que contém o conjunto de resultados retornado para uma única chamada à API de listagem. 
+-	<i>\_segment</i>, que contém o conjunto de resultados retornado para uma única chamada à API de listagem.
 -	*continuation\_token*, que é passado para a próxima chamada para obter a próxima página de resultados. Quando não há mais nenhum resultados para retornar, o token de continuação é nulo.
 
 Por exemplo, uma chamada típica para listar todos os blobs em um contêiner pode se parecer com o seguinte trecho de código. O código está disponível em nossos [exemplos](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted/Application.cpp):
@@ -75,15 +75,15 @@ Por exemplo, uma chamada típica para listar todos os blobs em um contêiner pod
 	        process_diretory(it->as_directory());
 	    }
 	}
-	
+
 	    token = segment.continuation_token();
 	}
 	while (!token.empty());
 
 Observe que o número de resultados retornados em uma página pode ser controlado pelo parâmetro *max\_results* na sobrecarga de cada API, por exemplo:
-	
-	list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, bool use_flat_blob_listing, 
-		blob_listing_details::values includes, int max_results, const continuation_token& token, 
+
+	list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, bool use_flat_blob_listing,
+		blob_listing_details::values includes, int max_results, const continuation_token& token,
 		const blob_request_options& options, operation_context context)
 
 Se você não especificar o parâmetro *max\_results*, o valor máximo padrão de até 5.000 resultados é retornado em uma única página.
@@ -124,7 +124,7 @@ Você deve modificar o código para usar as APIs de listagem segmentada:
 	    {
 	        process_entity(*it);
 	    }
-	
+
 	    token = segment.continuation_token();
 	} while (!token.empty());
 
@@ -182,6 +182,6 @@ Para obter mais informações sobre o Armazenamento do Azure e a Biblioteca de C
 -	[Como usar o Armazenamento de Filas do C++](storage-c-plus-plus-how-to-use-queues.md)
 -	[Documentação Biblioteca de Cliente de Armazenamento do Azure para API do C++.](http://azure.github.io/azure-storage-cpp/)
 -	[Blog da equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
--	[Documentação do Armazenamento do Azure](http://azure.microsoft.com/documentation/services/storage/)
+-	[Documentação do Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -3,9 +3,9 @@ Você precisa de uma conta para implantar aplicativos no Azure. Este artigo desc
 ## Criar uma conta do Azure
 
 1.  Abra um navegador da Web e navegue até <http://azure.microsoft.com>.
-2.  Se você tiver uma assinatura do MSDN, navegue até a página [Benefício do Azure para assinantes do MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) e siga as etapas para criar uma conta ativando seus benefícios de assinante do MSDN.
+2.  Se você tiver uma assinatura do MSDN, navegue até a página [Benefício do Azure para assinantes do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) e siga as etapas para criar uma conta ativando seus benefícios de assinante do MSDN.
 
-   Caso contrário, vá para a página [criar uma conta gratuita de avaliação](http://azure.microsoft.com/pricing/free-trial/) e siga as etapas para criar uma conta de avaliação. Você precisará de um número de cartão de crédito e um número de celular para comprovação de identidade, mas não será cobrado.
+   Caso contrário, vá para a página [criar uma conta gratuita de avaliação](https://azure.microsoft.com/pricing/free-trial/) e siga as etapas para criar uma conta de avaliação. Você precisará de um número de cartão de crédito e um número de celular para comprovação de identidade, mas não será cobrado.
 
 ## Habilitar os recursos de visualização do Azure
 
@@ -18,4 +18,4 @@ Você precisa de uma conta para implantar aplicativos no Azure. Este artigo desc
 [2]: ./media/create-an-azure-account/antares-iaas-preview-05.png
 [3]: ./media/create-an-azure-account/antares-iaas-preview-06.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

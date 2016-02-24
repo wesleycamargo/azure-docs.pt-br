@@ -6,10 +6,10 @@
 | Réplicas de Cache Redis (para alta disponibilidade) | 1 |
 | Fragmentos em um cache premium com clustering | 10 |
 
-Os limites e tamanhos do Cache Redis do Azure são diferentes para cada camada de preços. Para ver os tipos de preço e seus tamanhos associados, confira [Preço do Cache Redis do Azure](http://azure.microsoft.com/pricing/details/cache/).
+Os limites e tamanhos do Cache Redis do Azure são diferentes para cada camada de preços. Para ver os tipos de preço e seus tamanhos associados, confira [Preço do Cache Redis do Azure](https://azure.microsoft.com/pricing/details/cache/).
 
 Para obter informações sobre os limites de configuração do Cache Redis do Azure, veja [Configuração padrão do servidor do Redis](redis-cache/cache-configure.md#default-redis-server-configuration).
 
 Como a configuração e o gerenciamento de instâncias do Cache Redis do Azure são realizados pela Microsoft, nem todos os comandos Redis recebem suporte no Cache Redis do Azure. Para saber mais, consulte [Comandos Redis sem suporte no Cache Redis do Azure]((redis-cache/cache-configure.md#redis-commands-not-supported-in-azure-redis-cache).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

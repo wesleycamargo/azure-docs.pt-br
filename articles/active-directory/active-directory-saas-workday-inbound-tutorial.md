@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 
@@ -142,7 +142,7 @@ Nesta etapa, você deve conceder permissões ao novo grupo de segurança para op
 2. Pesquise o sistema e selecione a área funcional **Sistema**. Clique em **OK**. <br><br> ![Políticas de segurança do domínio](./media/active-directory-saas-workday-inbound-tutorial/IC750987.png "Políticas de segurança do domínio")
 
 
-3. Na lista de políticas de segurança para a área funcional do sistema, expanda a Administração de Segurança e selecione a política de segurança de domínio, Provisionamento de Conta Externa. <br><br> ![Políticas de segurança do domínio](./media/active-directory-saas-workday-inbound-tutorial/IC750988.png "Políticas de segurança do domínio")
+3. Na lista de políticas de segurança para a área funcional do sistema, expanda a administração de segurança e selecione a política de segurança de domínio, Provisionamento de conta externa. <br><br> ![Políticas de segurança do domínio](./media/active-directory-saas-workday-inbound-tutorial/IC750988.png "Políticas de segurança do domínio")
 
 
 4. Clique no botão **Editar Permissões** e, em seguida, na página do diálogo **Editar Permissões**, adicione o novo grupo de segurança à lista de grupos de segurança com as permissões de integração **Get** e **Put**. <br><br> ![Editar permissões](./media/active-directory-saas-workday-inbound-tutorial/IC750989.png "Editar permissões")
@@ -224,4 +224,4 @@ Agora, você pode ir para a seção **Usuários** e verificar se o usuário do W
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

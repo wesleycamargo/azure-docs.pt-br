@@ -12,23 +12,22 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.topic="get-started-article"
+	ms.date="02/18/2016"
 	ms.author="billmath"/>
 
 # Comparação de ferramentas de integração de diretório
 
 Ao longo dos anos, as ferramentas de integração de diretório cresceram e evoluíram. Este documento tem o objetivo de ajudar a fornecer uma visão consolidada dessas ferramentas e uma comparação dos recursos que estão disponíveis em cada uma.
 
->[AZURE.NOTE]O Azure AD Connect incorpora componentes e funcionalidades lançados anteriormente como Dirsync e AAD Sync. Essas ferramentas não são mais lançadas individualmente e todas as melhorias futuras serão incluídas nas atualizações do Azure AD Connect, para que você sempre saiba onde obter a funcionalidade mais atual.
+>[AZURE.NOTE] O Azure AD Connect incorpora componentes e funcionalidades lançados anteriormente como Dirsync e AAD Sync. Essas ferramentas não são mais lançadas individualmente e todas as melhorias futuras serão incluídas nas atualizações do Azure AD Connect, para que você sempre saiba onde obter a funcionalidade mais atual.
 >
 >Atualmente, o Dirsync ainda tem suporte, mas em algum momento no futuro ele será substituído. Depois da substituição, só terá suporte por um período de tempo. Após esse período de tempo, o suporte para o Dirsync encerrará.
 
 
 Use a seguinte chave para cada uma das tabelas.
 
-● = Disponível agora</br>FR = versão futura</br>PP = visualização pública</br>
-
+● = Disponível Agora FR = Versão Futura PP = Visualização Pública
 
 ## Local para a sincronização de nuvem
 
@@ -72,7 +71,7 @@ Use a seguinte chave para cada uma das tabelas.
 | Oferece suporte à instalação em um controlador de domínio | ● | ● | ● | |
 | Oferece suporte à instalação usando o SQL Express | ● | ● | ● | |
 | Atualização fácil de DirSync |● | | | |
-| Idiomas do Windows Server de localização | FR | ● | ● | |
+| Idiomas do Windows Server de localização | ● | ● | ● | |
 | Suporte para Windows Server 2008 e Windows Server 2008 R2 | ● para sincronização, não para federação| ● | ● | ● |
 | Suporte para o Windows Server 2012 e Windows Server 2012 R2 | ● | ● | ● | Somente 2012 |
 
@@ -91,4 +90,4 @@ Permitir a personalização avançada para fluxos de atributo | ● | ● | | �
 ## Próximas etapas
 Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

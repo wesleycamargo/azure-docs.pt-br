@@ -20,6 +20,7 @@
 #Criar consultas na Pesquisa do Azure no .NET
 > [AZURE.SELECTOR]
 - [Overview](search-query-overview.md)
+- [Search Explorer](search-explorer.md)
 - [Fiddler](search-fiddler.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
@@ -40,8 +41,8 @@ O trecho de código a seguir cria um método que passa uma entrada de cadeia de 
 			sp.Filter = filter;
 		}
 	
-		DocumentSearchResponse<Hotel> response = indexClient.Documents.Search<Hotel>(searchText, sp);
-		foreach (SearchResult<Hotel> result in response)
+		DocumentSearchResult<Hotel> documentSearchResult = indexClient.Documents.Search<Hotel>(searchText, sp);
+		foreach (SearchResult<Hotel> result in documentSearchResult.Results)
 		{
 			Console.WriteLine(result.Document);
 		}
@@ -62,4 +63,4 @@ Na primeira chamada, procuramos todos os documentos com os termos de consulta "f
 
 A segunda chamada usa uma expressão $filter OData, category eq ‘Luxo’. Isso restringe a pesquisa a retornar apenas os documentos onde o campo de categoria corresponder exatamente à cadeia de caracteres "Luxo". Saiba mais sobre a sintaxe OData em [Sintaxe de expressão OData para a Pesquisa do Azure](https://msdn.microsoft.com/library/azure/dn798921.aspx).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 # Configurando um nome de domínio personalizado para um serviço de nuvem do Azure
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-custom-domain-name.md)
 - [Azure portal](cloud-services-custom-domain-name-portal.md)
+- [Azure classic portal](cloud-services-custom-domain-name.md)
 
 
 Quando você cria um Serviço de Nuvem, o Azure o atribui a um subdomínio do cloudapp.net. Por exemplo, se o Serviço de Nuvem for chamado "contoso", os usuários poderão acessar seu aplicativo em uma URL como http://contoso.cloudapp.net. O Azure também fornece um endereço IP virtual.
@@ -35,7 +35,7 @@ Você já entendeu o que são os registros CNAME e A? [Pule a explicação](#add
 <p/>
 
 > [AZURE.NOTE]
-> Os procedimentos nesta tarefa se aplicam aos Serviços de Nuvem do Azure. Para sites, consulte [Configurando um nome de domínio personalizado para um aplicativo Web do Serviço de Aplicativo do Azure](../web-sites-custom-domain-name.md). Para contas de armazenamento, consulte [Configurando um nome de domínio personalizado para uma conta de armazenamento do Azure](../storage-custom-domain-name.md).
+> Os procedimentos nesta tarefa se aplicam aos Serviços de Nuvem do Azure. Para os Serviços de Aplicativos, consulte [isto](../app-service-web/web-sites-custom-domain-name.md). Para as contas de armazenamento, consulte [isto](../storage/storage-custom-domain-name.md).
 
 
 ## Entender os registros CNAME e A
@@ -96,7 +96,7 @@ Por exemplo, o seguinte registro CNAME encaminha todo o tráfego de **www.contos
 Um visitante de **www.contoso.com** nunca verá o host verdadeiro (contoso.cloudapp.net) e, portanto, o processo de encaminhamento será invisível ao usuário final.
 
 > [AZURE.NOTE]
-> O exemplo acima aplica-se somente ao tráfego no subdomínio **www**. Uma vez que não é possível usar caracteres curinga com registros CNAME, você deve criar um CNAME para cada domínio/subdomínio. Se quiser direcionar tráfego de subdomínios, como \*.contoso.com, para o endereço cloudapp.net, você pode configurar uma entrada **Redirecionamento de URL** ou **Encaminhamento de URL** em suas configurações DNS, ou criar um registro A.
+> O exemplo acima aplica-se somente ao tráfego no subdomínio **www**. Uma vez que não é possível usar caracteres curinga com registros CNAME, você deve criar um CNAME para cada domínio/subdomínio. Se quiser direcionar tráfego de subdomínios, como *.contoso.com, para o endereço cloudapp.net, você pode configurar uma entrada **Redirecionamento de URL** ou **Encaminhamento de URL** em suas configurações DNS, ou criar um registro A.
 
 
 ## Adicionar um registro A ao seu domínio personalizado
@@ -125,7 +125,7 @@ Para criar um registro, primeiro você deve encontrar o endereço IP do seu serv
 
 2.  Agora, encontre onde você pode selecionar ou inserir registros A. Você pode ter que selecionar o tipo de registro de uma lista suspensa ou acessar uma página de configurações avançadas.
 
-3. Selecione ou digite o domínio ou subdomínio que usará este registro A. Por exemplo, selecione **www** se você deseja criar um alias para **www.customdomain.com**. Se você desejar criar uma entrada curinga para todos os subdomínios, digite '\_\_*\_\_'. Ele abrange todos os subdomínios como **mail.customdomain.com**, **login.customdomain.com** e **www.customdomain.com**.
+3. Selecione ou digite o domínio ou subdomínio que usará este registro A. Por exemplo, selecione **www** se você deseja criar um alias para **www.customdomain.com**. Se você desejar criar uma entrada curinga para todos os subdomínios, digite '__*__'. Ele abrange todos os subdomínios como **mail.customdomain.com**, **login.customdomain.com** e **www.customdomain.com**.
 
     Se você deseja criar um registro A para o domínio raiz, ele poderá estar listado como o símbolo '**@**' nas ferramentas de DNS do registrador.
 
@@ -138,15 +138,15 @@ Por exemplo, o seguinte registro A encaminha todo o tráfego de **contoso.com** 
 | @ | 137\.135.70.239 |
 
 
-Este exemplo demonstra como criar um registro A para o domínio raiz. Se você desejar criar uma entrada curinga para abranger todos os subdomínios, você digitaria '\_\_*\_\_' como o subdomínio.
+Este exemplo demonstra como criar um registro A para o domínio raiz. Se você desejar criar uma entrada curinga para abranger todos os subdomínios, você digitaria '__*__' como o subdomínio.
 
 >[AZURE.WARNING]
->Endereços IP no Azure são dinâmicos por padrão. Provavelmente, você desejará usar um [endereço IP reservado](..\virtual-network\virtual-networks-reserved-public-ip.md) para garantir que seu endereço IP não seja alterado.
+> Endereços IP no Azure são dinâmicos por padrão. Você provavelmente desejará usar um [endereço IP reservado](../virtual-network/virtual-networks-reserved-public-ip.md) para garantir que seu endereço IP não seja alterado.
 
 ## Próximas etapas
 
 * [Como gerenciar serviços de nuvem](cloud-services-how-to-manage.md)
-* [Como mapear o conteúdo da CDN para um domínio personalizado](cdn-map-content-to-custom-domain.md)
+* [Como mapear o conteúdo da CDN para um domínio personalizado](../cdn/cdn-map-content-to-custom-domain.md)
 * [Configuração geral do serviço de nuvem](cloud-services-how-to-configure.md).
 * Saiba como [implantar um serviço de nuvem](cloud-services-how-to-create-deploy.md).
 * Configurar [certificados SSL](cloud-services-configure-ssl-certificate.md).
@@ -165,4 +165,4 @@ Este exemplo demonstra como criar um registro A para o domínio raiz. Se você d
 [csurl]: ./media/cloud-services-custom-domain-name/csurl.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

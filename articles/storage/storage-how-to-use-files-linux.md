@@ -5,7 +5,7 @@
         documentationCenter="na"
         authors="jasontang501"
         manager="jahogg"
-        editor="" />
+        editor="tysonn" />
 
 <tags ms.service="storage"
       ms.workload="storage"
@@ -13,22 +13,22 @@
       ms.devlang="na"
       ms.topic="article"
       ms.date="12/17/2015"
-      ms.author="jutang;tamram" />
+      ms.author="jutang" />
 
 
-# Como usar o Armazenamento de Arquivos do Azure com o Linux 
+# Como usar o Armazenamento de Arquivos do Azure com o Linux
 
 ## Visão geral
 
 O armazenamento de arquivos do Azure oferece compartilhamentos de arquivos na nuvem usando o protocolo SMB padrão. Com os Arquivos do Azure, você pode migrar para o Azure os aplicativos empresariais que dependam de servidores de arquivos. Os aplicativos em execução no Azure podem facilmente montar compartilhamentos de arquivos a partir das máquinas virtuais do Azure executando o Linux. E com a versão mais recente do Armazenamento de arquivos, também é possível montar um compartilhamento de arquivos por meio de um aplicativo local que dá suporte ao SMB 3.0.
 
-Você pode criar compartilhamentos de arquivos do Azure usando o [Portal do Azure](portal.azure.com), os cmdlets do PowerShell do Armazenamento do Azure, as bibliotecas de cliente do Armazenamento do Azure ou a API REST do Armazenamento do Azure. Além disso, como os compartilhamentos de arquivos são compartilhamentos do SMB, você pode acessá-los por meio de APIs padrão do sistema de arquivos.
+Você pode criar compartilhamentos de arquivos do Azure usando o [Portal do Azure](https://portal.azure.com), os cmdlets do PowerShell do Armazenamento do Azure, as bibliotecas de cliente do Armazenamento do Azure ou a API REST do Armazenamento do Azure. Além disso, como os compartilhamentos de arquivos são compartilhamentos do SMB, você pode acessá-los por meio de APIs padrão do sistema de arquivos.
 
 O armazenamento de arquivos baseia-se na mesma tecnologia de armazenamento de Blobs, Tabelas e Filas e, portanto, o Armazenamento de arquivos oferece a disponibilidade, a durabilidade, a escalabilidade e a redundância geográfica existentes e incorporadas à plataforma de armazenamento do Azure. Para obter detalhes os destinos e os limites do desempenho do Armazenamento de arquivos, veja [Escalabilidade e metas de desempenho do Armazenamento do Azure](storage-scalability-targets.md).
 
 O armazenamento de arquivo agora está disponível e dá suporte a SMB 2.1 e a SMB 3.0. Para obter detalhes adicionais sobre o Armazenamento de arquivos, veja a [API REST do serviço de arquivo](https://msdn.microsoft.com/library/azure/dn167006.aspx).
 
->[AZURE.NOTE]O cliente SMB do Linux ainda não dá suporte à criptografia, portanto, montar um compartilhamento de arquivos do Linux ainda requer que o cliente esteja na mesma região do Azure que o compartilhamento de arquivos. No entanto, o suporte à criptografia para Linux está no roteiro dos desenvolvedores do Linux responsáveis pela funcionalidade SMB. As distribuições do Linux que dão suporte à criptografia no futuro também poderão montar um Compartilhamento de arquivos do Azure em qualquer lugar.
+>[AZURE.NOTE] O cliente SMB do Linux ainda não dá suporte à criptografia, portanto, montar um compartilhamento de arquivos do Linux ainda requer que o cliente esteja na mesma região do Azure que o compartilhamento de arquivos. No entanto, o suporte à criptografia para Linux está no roteiro dos desenvolvedores do Linux responsáveis pela funcionalidade SMB. As distribuições do Linux que dão suporte à criptografia no futuro também poderão montar um Compartilhamento de arquivos do Azure em qualquer lugar.
 
 ## Vídeo: Usando o armazenamento de arquivos do Azure com o Linux
 
@@ -40,10 +40,10 @@ Veja um vídeo que demonstra como criar e usar compartilhamentos de arquivos do 
 
 Ao criar uma máquina virtual do Linux no Azure, é possível especificar uma imagem do Linux que dá suporte ao SMB 2.1 ou posterior por meio da galeria de imagens do Azure. Veja abaixo uma lista das imagens do Linux recomendadas:
 
-- Ubuntu Server 14.04	
-- Ubuntu Server 15.04	
-- CentOS 7.1	
-- Open SUSE 13.2	
+- Ubuntu Server 14.04
+- Ubuntu Server 15.04
+- CentOS 7.1
+- Open SUSE 13.2
 - SUSE Linux Enterprise Server 12
 - SUSE Linux Enterprise Server 12 (Premium Image)
 
@@ -60,7 +60,7 @@ Em seguida, você precisa fazer um ponto de montagem (mkdir mymountpoint) e emit
 Você também pode adicionar configurações em /etc/fstab para montar o compartilhamento.
 
 Lembre-se de que 0777 aqui representa um código de permissão de arquivo/diretório que fornece permissões de execução/leitura/gravação para todos os usuários. Você pode substituí-lo por outro código de permissão do arquivo seguindo o documento de permissão de arquivo do Linux.
- 
+
 Também para manter um compartilhamento de arquivos montado após a reinicialização, é possível adicionar uma configuração como a abaixo em /etc/fstab:
 
     //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username= myaccountname,password= StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
@@ -93,14 +93,14 @@ Se você usar o Open SUSE 13.2, você pode montar o arquivo como mostrado abaixo
 
 ## Gerenciar o compartilhamento de arquivos ##
 
-O [Portal do Azure](portal.azure.com) fornece uma interface do usuário para gerenciar o Armazenamento de Arquivos do Azure. Você pode executar as seguintes ações em seu navegador da Web:
+O [portal do Azure](https://portal.azure.com) fornece uma interface do usuário para gerenciar o Armazenamento de Arquivos do Azure. Você pode executar as seguintes ações em seu navegador da Web:
 
 - Carregar e baixar arquivos de e para o compartilhamento de arquivos.
 - Monitorar o uso real de cada compartilhamento de arquivos.
 - Ajustar a cota de tamanho do compartilhamento de arquivos.
-- Copiar o comando `net use` a ser usado para montar o compartilhamento de arquivos de um cliente do Windows. 
+- Copiar o comando `net use` a ser usado para montar o compartilhamento de arquivos de um cliente do Windows.
 
-Você também pode usar a CLI do Azure (Interface de Linha de Comando de Plataforma Cruzada do Azure) do Linux para gerenciar o compartilhamento de arquivos. A CLI do Azure fornece um conjunto de comandos de software livre e de plataforma cruzada para trabalhar com o Armazenamento do Azure, incluindo o Armazenamento de arquivos. Ela fornece grande parte das mesmas funcionalidades encontradas no Portal do Azure, bem como funcionalidades avançadas de acesso a dados. Para obter exemplos, veja [Como usar a CLI do Azure com o Armazenamento do Azure](storage-azure-cli.md).
+Você também pode usar a CLI do Azure (Interface de Linha de Comando de Plataforma Cruzada do Azure) do Linux para gerenciar o compartilhamento de arquivos. A CLI do Azure fornece um conjunto de comandos de software livre e de plataforma cruzada para trabalhar com o Armazenamento do Azure, incluindo o Armazenamento de arquivos. Ela fornece grande parte das mesmas funcionalidades encontradas no Portal do Azure, bem como funcionalidades avançadas de acesso a dados. Para obter exemplos, veja [Usando a CLI do Azure com o Armazenamento do Azure](storage-azure-cli.md).
 
 ## Desenvolver com o armazenamento de arquivo ##
 
@@ -136,8 +136,8 @@ Consulte estes links para obter mais informações sobre o armazenamento de arqu
 ### Postagens no blog
 
 - [O Armazenamento de arquivos do Azure agora está disponível ao público geral](http://go.microsoft.com/fwlink/?LinkID=626728&clcid=0x409)
-- [Aprofunde-se com o Armazenamento de arquivos do Azure](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409) 
+- [Aprofunde-se com o Armazenamento de arquivos do Azure](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409)
 - [Apresentando o serviço de arquivo do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persistindo conexões para arquivos do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

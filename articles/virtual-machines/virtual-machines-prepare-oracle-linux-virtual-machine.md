@@ -1,22 +1,22 @@
-<properties 
-pageTitle="Preparar uma Máquina Virtual do Oracle Linux para o Azure | Microsoft Azure" 
-description="Configuração passo a passo de uma máquina virtual do Oracle que executa o Linux no Microsoft Azure." 
-services="virtual-machines" 
-authors="bbenz" 
+<properties
+pageTitle="Preparar uma Máquina Virtual do Oracle Linux para o Azure | Microsoft Azure"
+description="Configuração passo a passo de uma máquina virtual do Oracle que executa o Linux no Microsoft Azure."
+services="virtual-machines"
+authors="bbenz"
 documentationCenter="virtual-machines"
 tags="azure-service-management,azure-resource-manager"
 />
 
-<tags 
-ms.service="virtual-machines" 
-ms.devlang="na" 
-ms.topic="article" 
-ms.tgt_pltfrm="vm-linux" 
-ms.workload="infrastructure-services" 
-ms.date="06/22/2015" 
+<tags
+ms.service="virtual-machines"
+ms.devlang="na"
+ms.topic="article"
+ms.tgt_pltfrm="vm-linux"
+ms.workload="infrastructure-services"
+ms.date="06/22/2015"
 ms.author="bbenz" />
 
-#Preparar uma máquina virtual Oracle Linux para o Azure
+# Preparar uma máquina virtual Oracle Linux para o Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -25,7 +25,7 @@ ms.author="bbenz" />
 
 -   [Preparar uma máquina virtual do Oracle Linux 7.0 e versões posteriores para o Azure](virtual-machines-linux-create-upload-vhd-oracle.md)
 
-##Pré-requisitos
+## Pré-requisitos
 Este artigo pressupõe que você já instalou um sistema operacional Oracle Linux em um disco rígido virtual. Existem várias ferramentas para criar arquivos .vhd, por exemplo, uma solução de virtualização como o Hyper-V. Para obter instruções, veja [Instalar o Hyper-V e criar uma máquina virtual](http://technet.microsoft.com/library/hh846766.aspx).
 
 **Notas de instalação do Oracle Linux**
@@ -44,7 +44,10 @@ Este artigo pressupõe que você já instalou um sistema operacional Oracle Linu
 
 - Todos os VHDs devem ter tamanhos que sejam múltiplos de 1 MB.
 
-##Oracle Linux 6.4+
+- Certifique-se de que o repositório `Addons` está habilitado. Opte por editar o arquivo `/etc/yum.repo.d/public-yum-ol6.repo`(Oracle Linux 6) ou `/etc/yum.repo.d/public-yum-ol7.repo`(Oracle Linux) e altere a linha `enabled=0` para `enabled=1` em **[ol6\_addons]** ou **[ol7\_addons]** nesse arquivo.
+
+
+## Oracle Linux 6.4+
 Você deve concluir as etapas de configuração específicas do sistema operacional para que a máquina virtual seja executada no Azure.
 
 1. No painel central do Gerenciador do Hyper-V, selecione a máquina virtual.
@@ -55,7 +58,7 @@ Você deve concluir as etapas de configuração específicas do sistema operacio
 
 		# sudo rpm -e --nodeps NetworkManager
 
-	>[AZURE.NOTE]Se o pacote ainda não foi instalado, esse comando falhará com uma mensagem de erro. Isso é esperado.
+	>[AZURE.NOTE] Se o pacote ainda não foi instalado, esse comando falhará com uma mensagem de erro. Isso é esperado.
 
 4. Crie um arquivo chamado **network** no diretório /etc/sysconfig/ que contém o seguinte texto:
 
@@ -129,7 +132,7 @@ Você deve concluir as etapas de configuração específicas do sistema operacio
 
 14.  Clique em **Ação -> Desligar** no Gerenciador do Hyper-V. Agora, seu VHD Linux está pronto para ser carregado no Azure.
 
-##Oracle Linux 7.0 ou posterior
+## Oracle Linux 7.0 ou posterior
 **Alterações no Oracle Linux 7**
 
 Preparar uma máquina virtual Oracle Linux 7 para o Azure é muito semelhante ao processo para Oracle Linux 6. No entanto, há várias diferenças importantes que vale a pena observar:
@@ -153,7 +156,7 @@ Preparar uma máquina virtual Oracle Linux 7 para o Azure é muito semelhante ao
 		NETWORKING=yes
 		HOSTNAME=localhost.localdomain
 
-4.  Crie um arquivo chamado **ifcfg-eth0** no diretório /etc/sysconfig/network-scripts/ que contém o seguinte texto:
+4.  Crie um arquivo chamado **ifcfg-eth0** no diretório /etc/sysconfig/network-scripts/ com o seguinte texto:
 
 		DEVICE=eth0
 		ONBOOT=yes
@@ -222,4 +225,4 @@ Preparar uma máquina virtual Oracle Linux 7 para o Azure é muito semelhante ao
 
 15.  Clique em **Ação -> Desligar** no Gerenciador do Hyper-V. Agora, seu VHD Linux está pronto para ser carregado no Azure.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

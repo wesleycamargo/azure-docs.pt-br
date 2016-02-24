@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Mover dados para e do SQL Data Warehouse do Azure usando o Azure Data Factory
 
 Este artigo descreve como você pode usar a atividade de cópia em uma fábrica de dados para mover dados para o SQL Data Warehouse do Azure de outro armazenamento de dados e mover dados de outro armazenamento de dados para o SQL Azure. Este artigo se baseia no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral de movimentação de dados com a atividade de cópia e combinações de armazenamento de dados com suporte.
+
+O(s) exemplo(s) a seguir mostra(m) como copiar dados de e para o Azure SQL Data Warehouse e o Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** de qualquer uma das fontes a qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores) usando a atividade de cópia no Azure Data Factory.
+
 
 ## Exemplo: Copiar dados do SQL Data Warehouse do Azure para o Blob do Azure
 
@@ -193,7 +196,7 @@ O pipeline contém uma Atividade de Cópia que está configurada para usar os co
 	   }
 	}
 
-> [AZURE.NOTE]No exemplo acima, **sqlReaderQuery** é especificado para o SqlDWSource. A Atividade de Cópia executa essa consulta em relação à fonte de SQL Data Warehouse do Azure para obter os dados.
+> [AZURE.NOTE] No exemplo acima, **sqlReaderQuery** é especificado para o SqlDWSource. A Atividade de Cópia executa essa consulta em relação à fonte de SQL Data Warehouse do Azure para obter os dados.
 >  
 > Como alternativa, você pode especificar um procedimento armazenado especificando o **sqlReaderStoredProcedureName** e o **storedProcedureParameters** (se o procedimento armazenado usa parâmetros).
 >  
@@ -384,9 +387,9 @@ type | A propriedade type deve ser definida como: **AzureSqlDW** | Sim
 
 Observação: você precisa configurar o [Firewall do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Você precisa configurar o servidor de banco de dados para [permitir que os Serviços do Azure acessem o servidor](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Além disso, se você estiver copiando dados para o SQL Data Warehouse do Azure, de fora do Azure, incluindo fontes de dados locais com o gateway de fábrica de dados, você precisa configurar o intervalo de endereços IP apropriado para o computador que está enviando dados para o SQL Data Warehouse do Azure.
 
-## Propriedades de tipo do Conjunto de Dados SQL Data Warehouse do Azure
+## Propriedades de tipo do conjunto de dados do SQL Data Warehouse do Azure
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, veja o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). Seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).
+Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). Seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).
 
 A seção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção **typeProperties** para o conjunto de dados do tipo **AzureSqlDWTable** tem as propriedades a seguir.
 
@@ -394,9 +397,9 @@ A seção typeProperties é diferente para cada tipo de conjunto de dados e forn
 | -------- | ----------- | -------- |
 | tableName | Nome da tabela no banco de dados SQL Data Warehouse do Azure ao qual o serviço vinculado se refere. | Sim |
 
-## Propriedades de tipo de atividade de cópia de SQL Data Warehouse do Azure
+## Propriedades de tipo de atividade de cópia do SQL Data Warehouse do Azure
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, veja o artigo [Criando pipelines](data-factory-create-pipelines.md). Propriedades, como nome, descrição, tabelas de entrada e saída, várias políticas, etc. estão disponíveis para todos os tipos de atividades.
+Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, consulte o artigo [Criando pipelines](data-factory-create-pipelines.md). Propriedades, como nome, descrição, tabelas de entrada e saída, várias políticas, etc. estão disponíveis para todos os tipos de atividades.
 
 **Observação:** a Atividade de Cópia usa apenas uma entrada e produz apenas uma saída.
 
@@ -404,7 +407,7 @@ As propriedades disponíveis na seção typeProperties da atividade, por outro l
 
 ### SqlDWSource
 
-No caso da atividade de Cópia, quando a fonte é do tipo **SqlDWSource**, as seguintes propriedades estão disponíveis na seção **typeProperties**:
+No caso de Atividade de cópia, quando a fonte é do tipo **SqlDWSource**, as seguintes propriedades estão disponíveis na seção **typeProperties**:
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | -------- | ----------- | -------------- | -------- |
@@ -473,7 +476,7 @@ O **SqlDWSink** dá suporte às seguintes propriedades:
 
 ### Mapeamento de tipo do SQL Data Warehouse do Azure
 
-Como mencionado no artigo sobre [atividades de movimentação de dados](data-factory-data-movement-activities.md), a atividade de Cópia executa conversões do tipo automático de tipos de fonte para tipos de coletor, com a seguinte abordagem de duas etapas:
+Como mencionado no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md), a atividade de Cópia executa conversões automáticas de tipos de fonte para tipos de coletor, com a seguinte abordagem de duas etapas:
 
 1. Converter de tipos de fonte nativos para o tipo .NET
 2. Converter do tipo .NET para o tipo de coletor nativo
@@ -523,4 +526,4 @@ O mapeamento é o mesmo que o [Mapeamento de tipo de dados do SQL Server para o 
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0204_2016-->

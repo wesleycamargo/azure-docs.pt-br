@@ -25,7 +25,7 @@ Este tutorial mostra como criar um aplicativo Java e implantá-lo em aplicativos
 ## Pré-requisitos
 
 1. [Java Developer's Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (ou posterior)
-1. Uma assinatura paga ou de [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/) para o [Microsoft Azure](https://azure.microsoft.com)
+1. Uma assinatura paga ou de [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/) para o [Microsoft Azure](https://azure.microsoft.com/)
 1. O [Maven](https://maven.apache.org/) instalado na máquina de desenvolvimento
 1. O Git instalado na máquina de desenvolvimento. 
 
@@ -150,7 +150,7 @@ Esta demonstração começa com um corpo JSON do Swagger que será colado no edi
 ## Editar o código para adicionar a implementação da API
 Nesta seção, você substituirá a implementação do lado servidor do código gerado pelo seu código personalizado. O novo código retornará uma ArrayList de entidades de Contact para o cliente da chamada.
 
-1. Abra o arquivo de modelo *Contact.java* localizado na pasta *src/gen/java/swagger/model* usando o [Visual Studio Code](https://code.visualstudio.com) ou em seu editor de texto favorito. 
+1. Abra o arquivo de modelo *Contact.java* localizado na pasta *src/gen/java/io/swagger/model* usando o [Visual Studio Code](https://code.visualstudio.com) ou em seu editor de texto favorito. 
 
     ![Abrir Arquivo de Modelo de Contato](media/app-service-api-java-api-app/open-contact-model-file.png)
 
@@ -163,7 +163,7 @@ Nesta seção, você substituirá a implementação do lado servidor do código 
 			this.emailAddress = email;
 		}
 
-1. Abra o arquivo de implementação do serviço *ContactsApiServiceImpl.java* localizado na pasta *src/main/java/swagger/api/impl* usando o [Visual Studio Code](https://code.visualstudio.com) ou em seu editor de texto favorito.
+1. Abra o arquivo de implementação do serviço *ContactsApiServiceImpl.java* localizado na pasta *src/main/java/io/swagger/api/impl* usando o [Visual Studio Code](https://code.visualstudio.com) ou em seu editor de texto favorito.
 
     ![Abrir Arquivo de Código de Serviço de Contato](media/app-service-api-java-api-app/open-contact-service-code-file.png)
 
@@ -254,7 +254,7 @@ Nesta seção, você substituirá a implementação do lado servidor do código 
 ## Publicar a saída no Serviço de Aplicativo do Azure
 Nesta seção, você vai aprender a criar um novo Aplicativo de API usando o Portal do Azure, a preparar esse Aplicativo de API para hospedar aplicativos Java e a implantar o arquivo WAR recém-criado no Serviço de Aplicativo do Azure para executar seu novo Aplicativo de API.
 
-1. crie um novo aplicativo de API no [portal do Azure](http://portal.azure.com) clicando no item de menu **Novo -> Web + Móvel -> aplicativo de API**.
+1. crie um novo aplicativo de API no [portal do Azure](https://portal.azure.com/) clicando no item de menu **Novo -> Web + Móvel -> aplicativo de API**.
 	
 	![Criar um novo Aplicativo de API](media/app-service-api-java-api-app/create-api-app.png)
 
@@ -295,4 +295,4 @@ Para expandir esse exemplo, você pode aprender mais sobre o [SDK de Armazenamen
 
 Para obter mais informações sobre como usar o Java no Azure, consulte o [Centro de desenvolvedores do Java](/develop/java/).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

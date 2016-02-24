@@ -85,6 +85,6 @@ Exemplo de zona DNS no formato JSON:
 
 Leia a [documentação da API REST para zonas DNS](https://msdn.microsoft.com/library/azure/mt130626.aspx) para saber mais.
 
-Leia a [documentação da API REST para conjuntos de registros DNS](https://msdn.microsoft.com/library/azure/mt130626.aspx) para saber mais.
+Leia a [documentação da API REST para conjuntos de registros DNS](https://msdn.microsoft.com/library/azure/mt130627.aspx) para saber mais.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

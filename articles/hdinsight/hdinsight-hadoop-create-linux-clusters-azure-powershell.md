@@ -23,15 +23,15 @@
 
 O PowerShell do Azure é um ambiente de script poderoso que você pode usar para controlar e automatizar a implantação e o gerenciamento de suas cargas de trabalho no Azure. Este documento fornece informações sobre como provisionar um cluster HDInsight baseadas em Linux usando o Azure PowerShell, bem como um script de exemplo.
 
-> [AZURE.NOTE]O Azure PowerShell só está disponível em clientes do Windows. Se você estiver usando um cliente Linux, Unix ou Mac OS X, consulte [Criar um cluster HDInsight baseados em Linux usando o Azure CLI](hdinsight-hadoop-create-linux-cluster-azure-cli.md) para obter informações sobre como usar o CLI do Azure para criar um cluster.
+> [AZURE.NOTE] O Azure PowerShell só está disponível em clientes do Windows. Se você estiver usando um cliente Linux, Unix ou Mac OS X, consulte [Criar um cluster HDInsight baseados em Linux usando o Azure CLI](hdinsight-hadoop-create-linux-cluster-azure-cli.md) para obter informações sobre como usar o CLI do Azure para criar um cluster.
 
-##Pré-requisitos
+###Pré-requisitos
 
-- **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 - __Azure PowerShell__. Para obter informações sobre como configurar uma estação de trabalho para executar os cmdlets do Windows PowerShell do HDInsight, consulte [Instalar e configurar o PowerShell do Azure](../install-configure-powershell.md). Para obter mais informações sobre como usar o PowerShell do Azure com o HDInsight, consulte [Administrar o HDInsight usando o PowerShell](hdinsight-administer-use-powershell.md). Para obter a lista de cmdlets do Windows PowerShell do HDInsight, consulte [Referência de cmdlets do HDInsight](https://msdn.microsoft.com/library/azure/dn858087.aspx).
 
-##Criar o cluster
+##Criar clusters
 
 Os procedimentos a seguir são necessários para provisionar um cluster HDInsight usando o PowerShell do Azure:
 
@@ -100,11 +100,16 @@ O script a seguir demonstra como criar um novo cluster:
 
 Os valores especificados para **$clusterCredentials** são usados para criar a conta de usuário do Hadoop para o cluster. Você usará essa conta para se conectar ao cluster. Os valores especificados para **$sshCredentials** são usados para criar o usuário SSH para o cluster. Você pode usar essa conta para iniciar uma sessão SSH remota no cluster e executar trabalhos.
 
-> [AZURE.IMPORTANT]Nesse script, você deve especificar o número de nós de trabalho que estarão no cluster. Se você planeja ter mais de 32 nós de trabalho, seja na criação do cluster ou em seu dimensionamento após a criação, deverá também especificar um tamanho de nó de cabeçalho com pelo menos 8 núcleos e 14 GB de RAM.
+> [AZURE.IMPORTANT] Nesse script, você deve especificar o número de nós de trabalho que estarão no cluster. Se você planeja ter mais de 32 nós de trabalho, seja na criação do cluster ou em seu dimensionamento após a criação, deverá também especificar um tamanho de nó de cabeçalho com pelo menos 8 núcleos e 14 GB de RAM.
 >
 > Para saber mais sobre tamanhos de nós e custos associados, consulte [Preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 Pode levar até 15 minutos para o provisionamento ser concluído.
+
+##Personalizar clusters
+
+- Consulte [Personalizar clusters do HDInsight usando a Inicialização](hdinsight-hadoop-customize-cluster-bootstrap.md#use-azure-powershell).
+- Consulte [Personalizar clusters do HDInsight baseados em Windows usando a Ação de Script](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).
 
 ##Próximas etapas
 
@@ -135,4 +140,4 @@ Agora que você criou com êxito um cluster HDInsight, use o seguinte para apren
 * [Spark com Aprendizado de Máquina: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming Spark: usar o Spark no HDInsight para a criação de aplicativos streaming em tempo real](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

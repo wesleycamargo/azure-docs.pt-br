@@ -3,7 +3,7 @@
 	description="Saiba como configurar o logon único entre o Active Directory do Azure e o CloudPassage."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/30/2015"
-	ms.author="markvi"/>
+	ms.date="01/26/2016"
+	ms.author="jeedes"/>
 
 
 # Tutorial: integração do Active Directory do Azure ao CloudPassage
@@ -23,7 +23,8 @@ O objetivo deste tutorial é mostrar a você como integrar o CloudPassage com o 
 
 - Você pode controlar, no AD do Azure, quem tem acesso ao CloudPassage 
 - Você pode habilitar seus usuários a fazerem logon automaticamente no CloudPassage (logon único) com suas contas do AD do Azure
-- Você pode gerenciar suas contas em um local central – o Portal do Active Directory do Azure
+- Você pode gerenciar suas contas em um único local: o Active Directory do Azure 
+- 
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
@@ -35,7 +36,7 @@ Para configurar a integração do AD do Azure com o CloudPassage, você precisa 
 - Uma assinatura do CloudPassage com logon único habilitado
 
 
-> [AZURE.NOTE]Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+> [AZURE.NOTE] Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 
 
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
@@ -56,7 +57,7 @@ Para configurar a integração do CloudPassage com o AD do Azure, você precisa 
 
 ### Para adicionar o CloudPassage por meio da galeria, execute as seguintes etapas:
 
-1. No **Portal de Gerenciamento do Azure**, no painel navegação à esquerda, clique em **Active Directory**. <br><br> ![Active Directory][1]
+1. No **portal clássico do Azure**, no painel de navegação esquerdo, clique em **Active Directory**. <br><br> ![Active Directory][1]
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
@@ -79,15 +80,15 @@ Para configurar e testar o logon único do AD do Azure com o CloudPassage, você
 2. **[Criando um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
 4. **[Criação de um usuário de teste do CloudPassage](#creating-a-halogen-software-test-user)** - para ter um equivalente de Brenda Fernandes no CloudPassage que esteja vinculado à representação dela no AD do Azure.
 5. **[Atribuindo o usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Testando o logon único](#testing-single-sign-on)** - para verificar se a configuração funciona.
+5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
 
 ### Configuração do logon único do AD do Azure
 
-O objetivo desta seção é habilitar o logon único do AD do Azure no portal do AD do Azure e configurar o logon único em seu aplicativo do CloudPassage.<br> Seu aplicativo CloudPassage espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizado à sua configuração de atributos de token SAML. A captura de tela a seguir mostra um exemplo disso.<br><br> ![Configurar o logon único][21]
+O objetivo desta seção é habilitar o logon único do AD do Azure no portal clássico do AD do Azure e configurar o logon único em seu aplicativo CloudPassage.<br> Seu aplicativo CloudPassage espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizado à sua configuração de atributos de token SAML. A captura de tela a seguir mostra um exemplo disso.<br><br> ![Configurar o logon único][21]
 
 **Para configurar o logon único do AD do Azure com o CloudPassage, execute as seguintes etapas:**
 
-1. No portal do AD do Azure, na página de integração de aplicativos do **CloudPassage**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.<br><br> ![Configurar o logon único][7]
+1. No portal clássico do AD do Azure, na página de integração do aplicativo **CloudPassage**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.<br><br> ![Configurar o logon único][7]
 
 2. Na página **Como você deseja que os usuários façam logon no CloudPassage**, selecione **Logon único do AD do Azure** e clique em **Avançar**.<br><br>![Configurar o logon único][8]
 
@@ -113,22 +114,22 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal do
 8. Na seção de **Configurações de Logon Único**, execute as seguintes etapas: <br><br> ![Configurar o logon único][14]
 
 
-     8\.1. No portal do Azure, na página de diálogo **Configurar logon único no CloudPassage**, copie o valor da **URL do emissor** e, em seguida, cole-a na caixa de texto **URL do emissor SAML**.
+     8\.1. No portal clássico do Azure, na página de diálogo **Configurar logon único no CloudPassage**, copie o valor da **URL do Emissor** e cole-o na caixa de texto **URL do Emissor SAML**.
 
-     8\.2. No portal do Azure, na página de diálogo **Configurar logon único no CloudPassage**, copie o valor **Ponto de extremidade iniciado pelo Provedor de Serviço (SP)** e, em seguida, cole-o na caixa de texto **URL de ponto de extremidade de SAML**.
+     8\.2. No portal clássico do Azure, na página de diálogo **Configurar logon único no CloudPassage**, copie o valor de **Ponto de extremidade iniciado pelo Provedor de Serviço (SP)** e cole-o na caixa de texto **URL do ponto de extremidade SAML**.
 
-     8\.3. No portal do Azure, na página de diálogo **Configurar logon único no CloudPassage**, copie o valor de **URL de Logout** e cole-o na caixa de texto da **página inicial de Logout**.
+     8\.3. No portal clássico do Azure, na página de diálogo **Configurar logon único no CloudPassage**, copie o valor de **URL de Logout** e cole-o na caixa de texto **Página inicial de Logout**.
 
      8\.4. Crie um arquivo codificado em **base-64** usando o certificado baixado.
           
-      >[AZURE.TIP]Para obter mais detalhes, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+      >[AZURE.TIP] Para obter mais detalhes, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
      8\.5. Abra seu certificado codificado em base-64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado x 509**.
 
      8\.6. Clique em **Salvar**.
 
 
-9. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Avançar**.<br><br> ![Configurar o logon único][15]
+9. No portal clássico do AD do Azure, selecione a confirmação de configuração de logon único e clique em **Avançar**. <br><br> ![Configurar o logon único][15]
 
 
 10. Na página **Confirmação de logon único**, clique em **Concluir**.<br><br> ![Configurar o logon único][16]
@@ -156,26 +157,26 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal do
 
 
 
-### Criação de um usuário de teste do Azure AD
+### Criação de um usuário de teste do AD do Azure
 
-O objetivo desta seção é criar um usuário de teste no portal do Azure chamado Brenda Fernandes.<br><br> Na lista Usuários, selecione **Brenda Fernandes**.<br>![Criação de um usuário de teste do Azure AD](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_01.png)
+O objetivo desta seção é criar um usuário de teste chamado Brenda Fernandes no portal clássico do Azure.<br><br> Na lista Usuários, selecione **Brenda Fernandes**.<br>![Criação de um usuário de teste do Azure AD](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_01.png)
 
-**Para criar um usuário de teste no Azure AD, execute as seguintes etapas:**
+**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **Portal de Gerenciamento do Azure**, no painel navegação à esquerda, clique em **Active Directory**.<br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_02.png) 
+1. No **portal clássico do Azure**, no painel de navegação esquerdo, clique em **Active Directory**. <br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_02.png) 
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
 3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**.<br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_03.png)
  
-4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**. <br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_04.png)
+4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.<br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_04.png)
 
-5. Na página de caixa de diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas: <br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_05.png)
+5. Na página de diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas: <br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_05.png)
   1. Em Tipo de Usuário, selecione Novo usuário na organização.
-  2. Na caixa de texto **Nome de Usuário**, digite **BrendaFernandes**.
+  2. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
   3. Clique em Avançar.
 
-6.  Na página de caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas: <br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_06.png)
+6.  Na caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas: <br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_06.png)
   1. Na caixa de texto **Nome**, digite **Brenda**.  
   2. Na caixa de texto **Sobrenome**, digite **Fernandes**.
   3. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
@@ -184,8 +185,8 @@ O objetivo desta seção é criar um usuário de teste no portal do Azure chamad
 
 7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**.<br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_07.png)
  
-8. Na página de caixa de diálogo **Obter senha temporária** execute as seguintes etapas:<br>![Criação de um usuário de teste do Azure AD](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_08.png)
-  1. Anote o valor da **Nova Senha**.
+8. Na página de diálogo **Obter senha temporária**, execute as seguintes etapas: <br>![Criação de um usuário de teste do Azure AD](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_08.png)
+  1. Anote o valor da **Nova senha**.
   2. Clique em **Concluído**.   
 
 
@@ -230,7 +231,7 @@ O objetivo desta seção é permitir que Brenda Fernandes use o logon único do 
 
 **Para atribuir Brenda Fernandes ao CloudPassage, execute as seguintes etapas:**
 
-1. No portal do Azure, para abrir a exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu principal.<br> <br><br>![Atribuir usuário][26]
+1. No portal clássico do Azure, para abrir o modo de exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior. <br> <br><br> ![Atribuir usuário][26]
 2. Na lista de aplicativos, selecione **CloudPassage**. <br><br>![Atribuir usuário][27]
 1. No menu na parte superior, clique em **Usuários**.<br> <br><br>![Atribuir usuário][25]
 1. Na lista Usuários, selecione **Brenda Fernandes**.
@@ -281,4 +282,4 @@ O objetivo desta seção é testar sua configuração de logon único do AD do A
 [29]: ./media/active-directory-saas-cloudpassage-tutorial/tutorial_general_16.png
 [30]: ./media/active-directory-saas-cloudpassage-tutorial/tutorial_general_17.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

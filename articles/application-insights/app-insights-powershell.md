@@ -12,14 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="01/22/2016" 
 	ms.author="awills"/>
  
 # Criar recursos do Application Insights usando o PowerShell
 
 Este artigo mostra como criar um recurso do [Application Insights](app-insights-overview.md) no Azure automaticamente. Por exemplo, você pode fazer isso como parte de um processo de compilação. Juntamente com o recurso Application Insights básico, você pode criar [testes da web de disponibilidade](app-insights-monitor-web-app-availability.md), [configurar alertas](app-insights-alerts.md) e criar outros recursos do Azure.
 
-A chave para criar esses recursos são os modelos de JSON para o [Gerenciador de Recursos do Azure](powershell-azure-resource-manager.md). Em resumo, o procedimento é: baixar as definições de JSON dos recursos existentes; parametrizar certos valores como nomes; e, em seguida, executar o modelo sempre que você deseja criar um novo recurso. Você pode empacotar vários recursos juntos, criá-los de uma só vez - por exemplo, um monitor de aplicativo com testes de disponibilidade, alertas e armazenamento para exportação contínua. Existem algumas sutilezas para algumas das parametrizações, que vamos explicar aqui.
+A chave para criar esses recursos são os modelos de JSON para o [Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md). Em resumo, o procedimento é: baixar as definições de JSON dos recursos existentes; parametrizar certos valores como nomes; e, em seguida, executar o modelo sempre que você deseja criar um novo recurso. Você pode empacotar vários recursos juntos, criá-los de uma só vez - por exemplo, um monitor de aplicativo com testes de disponibilidade, alertas e armazenamento para exportação contínua. Existem algumas sutilezas para algumas das parametrizações, que vamos explicar aqui.
 
 ## Configuração única
 
@@ -100,7 +100,7 @@ Instale o módulo do Azure Powershell no computador em que você deseja executar
 
 ## Parametrizar o modelo
 
-Agora você tem que substituir os nomes específicos por parâmetros. Para [parametrizar um modelo](resource-group-authoring-templates.md), escreva expressões que usam um [conjunto de funções auxiliares](resource-group-template-functions.md).
+Agora você tem que substituir os nomes específicos por parâmetros. Para [parametrizar um modelo](../resource-group-authoring-templates.md), escreva expressões que usam um [conjunto de funções auxiliares](../resource-group-template-functions.md).
 
 Você não pode parametrizar apenas uma parte de uma cadeia de caracteres, então use `concat()` para criar cadeias de caracteres.
 
@@ -116,6 +116,27 @@ find | substitua por
 `"myAppName"` | `"[parameters('appName')]"`
 `"myappname"` (minúscula) | `"[toLower(parameters('appName'))]"`
 `"<WebTest Name="myWebTest" ...`<br/>` Url="http://fabrikam.com/home" ...>"`|`[concat('<WebTest Name="',` <br/> `parameters('webTestName'),` <br/> `'" ... Url="', parameters('Url'),` <br/> `'"...>')]" `
+
+## Se seu aplicativo for um Aplicativo Web do Azure
+
+Adicione esse recurso, ou se já houver um recurso `siteextensions`, parametrize-o desta maneira:
+
+```json
+    {
+      "apiVersion": "2014-04-01",
+      "name": "Microsoft.ApplicationInsights.AzureWebSites",
+      "type": "siteextensions",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]",
+        "[resourceId('Microsoft.Web/Sites/config', parameters('siteName'), 'web')]",
+        "[resourceId('Microsoft.Web/sites/sourcecontrols', parameters('siteName'), 'web')]"
+      ],
+      "properties": { }
+    }
+
+```
+
+Esse recurso implanta o SDK do Application Insights em seu aplicativo Web do Azure.
 
 ## Definir dependências entre os recursos
 
@@ -145,6 +166,7 @@ O Azure deve configurar os recursos na ordem explícita. Para certificar-se de q
                -webTestName aWebTest `
                -Url http://myapp.com `
                -text "Welcome!"
+               -siteName "MyAzureSite"
 
     ``` 
 
@@ -154,6 +176,7 @@ O Azure deve configurar os recursos na ordem explícita. Para certificar-se de q
     * -webTestName O nome do teste da web a ser criado.
     * -Url A url do seu aplicativo web.
     * -text Uma cadeia de caracteres que aparece na página da web.
+    * -siteName - usado se for um site do Azure
 
 
 ## Definir alertas de métrica
@@ -288,4 +311,13 @@ Aqui está o total do componente, o teste da web e o alerta de teste da web que 
 
 ```
 
-<!---HONumber=AcomDC_1203_2015-->
+## Consulte também
+
+Outros artigos sobre automação:
+
+* [Criar um recurso do Application Insights](app-insights-powershell-script-create-resource.md) -método rápido sem usar um modelo.
+* [Configurar alertas](app-insights-powershell-alerts.md)
+* [Enviar o Diagnóstico do Azure para o Application Insights](app-insights-powershell-azure-diagnostics.md)
+* [Criar anotações de versão](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
+
+<!---HONumber=AcomDC_0211_2016-->

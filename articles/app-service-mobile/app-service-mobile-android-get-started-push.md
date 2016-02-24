@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="02/04/2016"
 	ms.author="yuaxu"/>
 
 # Adicionar notificações de push ao seu aplicativo Android
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Visão geral
 Neste tutorial, você adicionará notificações por push ao projeto de [início rápido do Android] para que, sempre que um registro for inserido, uma notificação por push seja enviada. Este tutorial baseia-se no tutorial de [início rápido do Android], que você deve concluir primeiro. Se você não usar o projeto baixado do início rápido do servidor, você deve adicionar o pacote de extensão de notificação por push ao seu projeto. Para obter mais informações sobre pacotes de extensão do servidor, confira [Trabalhar com o servidor .NET back-end do SDK para Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
@@ -31,7 +29,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 * [Conta do Google](http://go.microsoft.com/fwlink/p/?LinkId=268302) com um endereço de email verificado.
 * [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) - não é necessário para um projeto de back-end Node.js.
-* Conclua o [tutorial de início rápido](../app-service-mobile-android-get-started.md).
+* Conclua o [tutorial de início rápido](app-service-mobile-android-get-started.md).
 
 ##<a name="create-hub"></a>Criar um Hub de notificação
 
@@ -59,7 +57,7 @@ Você deve certificar-se de que seu projeto de aplicativo do Android está pront
 
 A próxima etapa é instalar os serviços do Google Play. A mensagens de nuvem do Google tem alguns requisitos mínimos de nível do API para desenvolvimento e teste, o que a propriedade **minSdkVersion** no manifesto deve estar de acordo.
 
-Se você for testar com um dispositivo mais antigo, consulte [Configurar o SDK do Google Play Services] para determinar o mínimo que pode ser definido para esse valor e defina-o de maneira apropriada.
+Se estiver testando com um dispositivo mais antigo, consulte [Configurar o SDK do Google Play Services] para determinar o mínimo que pode ser definido para esse valor e defina-o de maneira apropriada.
 
 ###Inclua o Google Play Services no projeto
 
@@ -80,4 +78,6 @@ Você pode testar o aplicativo anexando um telefone Android com um cabo USB dire
 <!-- URLs -->
 [início rápido do Android]: app-service-mobile-android-get-started.md
 
-<!----HONumber=AcomDC_1223_2015-->
+[Configurar o SDK do Google Play Services]: https://developers.google.com/android/guides/setup
+
+<!---HONumber=AcomDC_0211_2016-->

@@ -19,13 +19,14 @@
 # Criar uma campanha de marketing digital em Aplicativos Web do Serviço de Aplicativo do Azure
 Os Aplicativos Web do [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) são uma ótima opção para campanhas de marketing digital. As campanhas de marketing digital geralmente têm curta duração e servem para orientar metas de marketing de curto prazo. Há dois cenários principais a serem considerados. No primeiro cenário, uma empresa de marketing de terceiros cria e gerencia a campanha para os clientes durante o período da promoção. Um segundo cenário envolve a empresa de marketing criando e, em seguida, transferindo a propriedade dos recursos digitais da campanha de marketing para os clientes. Em seguida, o cliente executa e gerencia a campanha de marketing digital por conta própria. É uma boa opção para ambos os cenários.
 
->[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE] Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 A seguir há um exemplo de uma campanha de marketing digital global multicanais usando Aplicativos Web do Serviço de Aplicativo. Ele demonstra o que você pode fazer simplesmente reunindo Aplicativos Web do Serviço de Aplicativo a outros serviços, com investimento técnico mínimo. **Clique em um elemento na topografia para ler mais sobre ele.**
 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/digital-marketing-notitle.svg" width="100%" height="100%"></object>
 
-> [AZURE.NOTE]Este guia apresenta algumas das áreas e tarefas mais comuns que estão alinhadas à execução de uma campainha de marketing digital em Aplicativos Web do Serviço de Aplicativo do Azure. No entanto, há outras soluções comuns que você pode implementar em Aplicativos Web do Serviço de Aplicativo. Para examinar essas soluções, consulte também as outras guias em [Presença Global da Web](web-sites-global-web-presence-solution-overview.md) e [Aplicativos de Negócios](web-sites-business-application-solution-overview.md).
+> [AZURE.NOTE]
+Este guia apresenta algumas das áreas e tarefas mais comuns que estão alinhadas à execução de uma campainha de marketing digital em Aplicativos Web do Serviço de Aplicativo do Azure. No entanto, há outras soluções comuns que você pode implementar em Aplicativos Web do Serviço de Aplicativo. Para examinar essas soluções, consulte também as outras guias em [Presença Global da Web](web-sites-global-web-presence-solution-overview.md) e [Aplicativos de Negócios](web-sites-business-application-solution-overview.md).
 
 ## Criar do zero ou incluir ativos existentes
 
@@ -88,7 +89,7 @@ Na camada **Padrão**, monitore a capacidade de resposta do aplicativo e receba 
 ## Mais Recursos
 
 - [Documentação de Aplicativos Web do Serviço de Aplicativo](/services/app-service/web/)
-- [Mapa de aprendizagem para Aplicativos Web do Serviço de Aplicativo do Azure](websites-learning-map.md)
+- [Mapa de aprendizagem para Aplicativos Web do Serviço de Aplicativo do Azure](/documentation/learning-paths/appservice-webapps/)
 - [Blog do Azure](/blog/topics/web/)
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
@@ -138,4 +139,4 @@ Na camada **Padrão**, monitore a capacidade de resposta do aplicativo e receba 
   [gitstaging]: http://www.bradygaster.com/post/multiple-environments-with-windows-azure-web-sites
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

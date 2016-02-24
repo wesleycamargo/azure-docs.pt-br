@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="Gerenciando a simultaneidade no Armazenamento do Microsoft Azure" 
-	description="Como gerenciar a simultaneidade para os serviços Blob, Fila, Tabela e Arquivo" 
-	services="storage" 
-	documentationCenter="" 
-	authors="jasonnewyork" 
-	manager="tadb" 
-	editor=""/>
+	pageTitle="Gerenciando a simultaneidade no Armazenamento do Microsoft Azure"
+	description="Como gerenciar a simultaneidade para os serviços Blob, Fila, Tabela e Arquivo"
+	services="storage"
+	documentationCenter=""
+	authors="jasonnewyork"
+	manager="tadb"
+	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="09/03/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="09/03/2015"
 	ms.author="jahogg"/>
 
 # Gerenciando a simultaneidade no Armazenamento do Microsoft Azure
 
-## Visão geral 
+## Visão geral
 
 Os aplicativos baseados na Internet modernos consistem normalmente em vários usuários exibindo e atualizando dados de forma simultânea. Isso exige que os desenvolvedores de aplicativos pensem cuidadosamente sobre como fornecer uma experiência previsível para os usuários finais, especialmente para cenários em que vários usuários podem atualizar os mesmos dados. Existem três estratégias de simultaneidade de dados principais que os desenvolvedores normalmente considerarão:
 
@@ -34,7 +34,7 @@ O serviço de Armazenamento do Azure oferece suporte para as três estratégias,
 
 Além de selecionar uma estratégia de simultaneidade adequada, os desenvolvedores também devem estar cientes de como uma plataforma de armazenamento isola as alterações, especialmente as alterações no mesmo objeto entre as transações. O serviço de Armazenamento do Azure usa o isolamento de instantâneo para permitir que as operações de leitura ocorram simultaneamente às operações de gravação em uma única partição. Diferente de outros níveis de isolamento, o isolamento de instantâneo garante que todas as leituras vejam um instantâneo consistente dos dados mesmo durante atualizações, retornando basicamente os últimos valores confirmados enquanto uma transação de atualização é processada.
 
-## Gerenciando a simultaneidade no serviço Blob
+## Gerenciando Simultaneidade em Armazenamento de Blobs
 Você pode optar por usar os modelos de simultaneidade otimista ou pessimista para gerenciar o acesso a blobs e contêineres no serviço Blob. Se você não especificar explicitamente uma estratégia, o padrão será último a gravar vence.
 
 ### Simultaneidade otimista para blobs e contêineres  
@@ -52,18 +52,18 @@ A estrutura desse processo é a seguinte:
 O trecho de C# a seguir (usando a Client Storage Library 4.2.0) mostra um exemplo simples de como criar um **If-Match AccessCondition** com base no valor da ETag acessado nas propriedades de um blob que foi recuperado ou inserido anteriormente. Ele usa então o objeto **AccessCondition** quando está atualizando o blob: o objeto **AccessCondition** adiciona o cabeçalho **If-Match** à solicitação. Se outro processo atualizou o blob, o serviço Blob retorna uma mensagem de status HTTP 412 (Falha de precondição). A amostra completa pode ser baixada [aqui](http://code.msdn.microsoft.com/windowsazure/Managing-Concurrency-using-56018114).
 
 	// Retrieve the ETag from the newly created blob
-	// Etag is already populated as UploadText should cause a PUT Blob call 
+	// Etag is already populated as UploadText should cause a PUT Blob call
 	// to storage blob service which returns the etag in response.
 	string orignalETag = blockBlob.Properties.ETag;
-	 
+
 	// This code simulates an update by a third party.
 	string helloText = "Blob updated by a third party.";
-	 
+
 	// No etag, provided so orignal blob is overwritten (thus generating a new etag)
 	blockBlob.UploadText(helloText);
-	Console.WriteLine("Blob updated. Updated ETag = {0}", 
+	Console.WriteLine("Blob updated. Updated ETag = {0}",
 	blockBlob.Properties.ETag);
-	 
+
 	// Now try to update the blob using the orignal ETag provided when the blob was created
 	try
 	{
@@ -93,7 +93,10 @@ Get Container Properties|	Sim|	Não|
 Get Container Metadata|	Sim|	Não|
 Set Container Metadata|	Sim|	Sim|
 Get Container ACL|	Sim|	Não|
-Set Container ACL|	Sim|	Sim (*)| Delete Container| Não| Sim| Lease Container| Sim| Sim| List Blobs| Não| Não 
+Set Container ACL|	Sim|	Sim (*)|
+Delete Container| Não| Sim|
+Lease Container| Sim| Sim|
+List Blobs| Não| Não 
 
 (*) As permissões definidas por SetContainerACL são armazenadas em cache e as atualizações dessas permissões levam 30 segundos para serem propagadas, período durante o qual não há garantia de que as atualizações são consistentes.
 
@@ -107,7 +110,16 @@ Get Blob Properties|	Sim|	Sim|
 Set Blob Properties|	Sim|	Sim|
 Get Blob Metadata|	Sim|	Sim|
 Set Blob Metadata|	Sim|	Sim|
-Lease Blob (*)| Sim| Sim| Snapshot Blob| Sim| Sim| Copy Blob| Sim| Sim (para blob de origem e destino)| Abort Copy Blob| Não| Não| Delete Blob| Não| Sim| Put Block| Não| Não| Put Block List| Sim| Sim| Get Block List| Sim| Não| Put Page| Sim| Sim| Get Page Ranges| Sim| Sim
+Lease Blob (*)| Sim| Sim|
+Snapshot Blob| Sim| Sim|
+Copy Blob| Sim| Sim (para blob de origem e destino)|
+Abort Copy Blob| Não| Não|
+Delete Blob| Não| Sim|
+Put Block| Não| Não|
+Put Block List| Sim| Sim|
+Get Block List| Sim| Não|
+Put Page| Sim| Sim|
+Get Page Ranges| Sim| Sim
 
 (*) Lease Blob não altera a ETag em um blob.
 
@@ -121,13 +133,13 @@ O trecho de C# a seguir mostra um exemplo de aquisição de uma concessão exclu
 	// Acquire lease for 15 seconds
 	string lease = blockBlob.AcquireLease(TimeSpan.FromSeconds(15), null);
 	Console.WriteLine("Blob lease acquired. Lease = {0}", lease);
-	 
+
 	// Update blob using lease. This operation will succeed
 	const string helloText = "Blob updated";
 	var accessCondition = AccessCondition.GenerateLeaseCondition(lease);
 	blockBlob.UploadText(helloText, accessCondition: accessCondition);
 	Console.WriteLine("Blob updated using an exclusive lease");
-	 
+
 	//Simulate third party update to blob without lease
 	try
 	{
@@ -182,7 +194,7 @@ Para obter mais informações, consulte:
 
 - [Especificando cabeçalhos condicionais para operações do serviço Blob](http://msdn.microsoft.com/library/azure/dd179371.aspx)
 - [Lease Container](http://msdn.microsoft.com/library/azure/jj159103.aspx)
-- [Lease Blob ](http://msdn.microsoft.com/library/azure/ee691972.aspx) 
+- [Lease Blob ](http://msdn.microsoft.com/library/azure/ee691972.aspx)
 
 ## Gerenciando a simultaneidade no serviço Tabela
 O serviço Tabela usa verificações de simultaneidade otimista como o comportamento padrão quando você está trabalhando com entidades, diferente do serviço Blob, em que é necessário escolher explicitamente realizar verificações de simultaneidade otimista. A outra diferença entre os serviços Tabela e Blob é que você pode gerenciar apenas o comportamento de simultaneidade de entidades, enquanto que com o serviço Blob é possível gerenciar a simultaneidade de contêineres e blobs.
@@ -211,7 +223,7 @@ O trecho de C# a seguir mostra uma entidade de cliente que foi criada ou recuper
 	    if (ex.RequestInformation.HttpStatusCode == 412)
 	        Console.WriteLine("Optimistic concurrency violation – entity has changed since it was retrieved.");
 	    else
-	        throw; 
+	        throw;
 	}  
 
 Para desabilitar explicitamente a verificação de simultaneidade, você deve definir a propriedade **ETag** do objeto **employee** para “*” antes de executar a operação de substituição.
@@ -228,7 +240,7 @@ Update Entity|	Sim|	Sim|
 Merge Entity|	Sim|	Sim|
 Delete Entity|	Não|	Sim|
 Insert or Replace Entity|	Sim|	Não|
-Insert or Merge Entity|	Sim|	Não 
+Insert or Merge Entity|	Sim|	Não
 
 Observe que as operações **Insert or Replace Entity** e **Insert or Merge Entity** *não* realizam nenhuma verificação de simultaneidade, pois não enviam um valor de ETag para o serviço Tabela.
 
@@ -266,11 +278,9 @@ Para encontrar o aplicativo de exemplo completo citado nesse blog:
 
 Para obter mais informações sobre Armazenamento do Azure, consulte:
 
-- [Página inicial do Armazenamento do Microsoft Azure](http://azure.microsoft.com/services/storage/)
+- [Página inicial do Armazenamento do Microsoft Azure](https://azure.microsoft.com/services/storage/)
 - [Introdução ao armazenamento do Azure](storage-introduction.md)
 - Introdução ao Armazenamento para [Blob](storage-dotnet-how-to-use-blobs.md), [Tabela](storage-dotnet-how-to-use-tables.md) e [Filas](storage-dotnet-how-to-use-queues.md)
 - Arquitetura de Armazenamento – [Armazenamento do Microsoft Azure: um serviço de armazenamento em nuvem altamente disponível com coerência forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
- 
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

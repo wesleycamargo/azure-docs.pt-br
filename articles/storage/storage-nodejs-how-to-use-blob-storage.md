@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Como usar o armazenamento de Blob do Node.js | Microsoft Azure"
-	description="Saiba como usar o serviço Blob do Azure para carregar, baixar, listar e excluir o conteúdo de blob. Os exemplos estão escritos no arquivo Node.js."
+	description="Saiba como usar o Armazenamento de Blobs do Azure para carregar, baixar, listar e excluir conteúdo de blob. Os exemplos estão escritos no arquivo Node.js."
 	services="storage"
 	documentationCenter="nodejs"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="nodejs"
 	ms.topic="article"
 	ms.date="12/01/2015"
-	ms.author="robmcm"/>
+	ms.author="micurd"/>
 
 
 
@@ -24,7 +24,7 @@
 
 ## Visão geral
 
-Este artigo mostra como executar cenários comuns usando o serviço Blob do Azure. Os exemplos são escritos usando a API do Node.js. Os cenários abordados incluem como carregar, listar, baixar e excluir blobs.
+Este artigo mostra como executar cenários comuns usando o Armazenamento de Blobs. Os exemplos são escritos usando a API do Node.js. Os cenários abordados incluem como carregar, listar, baixar e excluir blobs.
 
 [AZURE.INCLUDE [armazenamento-blob-conceitos-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -40,7 +40,7 @@ Para usar o armazenamento do Azure, você precisa do SDK de Armazenamento do Azu
 
 ### Usar o NPM (gerenciador de pacotes de nós) para obter o pacote
 
-1.  Use uma interface de linha de comando, como o **PowerShell** (Windows), o **Terminal** (Mac) ou o **Bash** (Unix), para navegar até a pasta onde você criou o aplicativo de exemplo.
+1.  Use uma interface de linha de comando, como **PowerShell** (Windows), **Terminal** (Mac) ou **Bash** (Unix), para navegar até a pasta onde você criou o aplicativo de exemplo.
 
 2.  Digite **npm install azure-storage** na janela de comando. A saída do comando é semelhante ao exemplo de código a seguir.
 
@@ -67,7 +67,7 @@ Usando o Bloco de Notas ou outro editor de texto, adicione o seguinte à parte s
 
 O módulo do Azure lerá as variáveis do ambiente `AZURE_STORAGE_ACCOUNT` e `AZURE_STORAGE_ACCESS_KEY` ou `AZURE_STORAGE_CONNECTION_STRING`, a fim de obter as informações necessárias para se conectar à sua conta de armazenamento do Azure. Se essas variáveis de ambiente não estiverem definidas, você deverá especificar as informações da conta chamando **createBlobService**.
 
-Para obter um exemplo de como definir variáveis de ambiente no [Portal do Azure](portal.azure.com) para um aplicativo Web do Azure, consulte [Aplicativo Web Node.js com armazenamento].
+Para obter um exemplo de como definir variáveis de ambiente no [Portal do Azure](https://portal.azure.com) para um aplicativo Web do Azure, consulte [Aplicativo Web Node.js com armazenamento].
 
 ## Criar um contêiner
 
@@ -75,7 +75,7 @@ O objeto **serviço Blob** permite que você trabalhe com contêineres e blobs. 
 
     var blobSvc = azure.createBlobService();
 
-> [AZURE.NOTE]Você pode acessar um blob anonimamente usando **createBlobServiceAnonymous** e fornecendo o endereço do host. Por exemplo, use `var blobSvc = azure.createBlobServiceAnonymous('https://myblob.blob.core.windows.net/');`.
+> [AZURE.NOTE] Você pode acessar um blob anonimamente usando **createBlobServiceAnonymous** e fornecendo o endereço do host. Por exemplo, use `var blobSvc = azure.createBlobServiceAnonymous('https://myblob.blob.core.windows.net/');`.
 
 [AZURE.INCLUDE [armazenamento-contêiner-nomeando-regras-include](../../includes/storage-container-naming-rules-include.md)]
 
@@ -99,7 +99,7 @@ Por padrão, novos contêineres são privados e não podem ser acessados ​​a
 
 * **contêiner** – permite o acesso anônimo de leitura ao conteúdo e aos metadados do blob e também aos metadados do contêiner
 
-O exemplo de código a seguir demonstra a configuração do nível de acesso para o **blob**:
+O exemplo de código a seguir demonstra a configuração do nível de acesso para **blob**:
 
     blobSvc.createContainerIfNotExists('mycontainer', {publicAccessLevel : 'blob'}, function(error, result, response){
       if(!error){
@@ -182,11 +182,11 @@ O exemplo de código a seguir carrega o conteúdo do arquivo **test.txt** em **m
 	  }
 	});
 
-> [AZURE.NOTE]Blobs de página consistem em 'páginas’ de 512 bytes. Você pode receber um erro ao carregar dados com um tamanho que não seja um múltiplo de 512.
+> [AZURE.NOTE] Blobs de página consistem em 'páginas’ de 512 bytes. Você pode receber um erro ao carregar dados com um tamanho que não seja um múltiplo de 512.
 
 ## Listar os blobs em um contêiner
 
-Para listar os blobs em um contêiner, use o método **listBlobsSegmented**. Se prefere retornar blobs com um prefixo específico, use **listBlobsSegmentedWithPrefix**.
+Para listar os blobs em um contêiner, use o método **listBlobsSegmented**. Se você quiser retornar blobs com um prefixo específico, use **listBlobsSegmentedWithPrefix**.
 
     blobSvc.listBlobsSegmented('mycontainer', null, function(error, result, response){
       if(!error){
@@ -270,7 +270,7 @@ Você pode adquirir uma nova concessão usando o método **acquireLease** especi
 
 As operações posteriores em **myblob** devem fornecer o parâmetro `options.leaseId`. A ID de concessão é retornada de **acquireLease** como `result.id`.
 
-> [AZURE.NOTE]Por padrão, a duração da concessão é infinita. Você pode especificar uma duração não infinita (entre 15 e 60 segundos) fornecendo o parâmetro `options.leaseDuration`.
+> [AZURE.NOTE] Por padrão, a duração da concessão é infinita. Você pode especificar uma duração não infinita (entre 15 e 60 segundos) fornecendo o parâmetro `options.leaseDuration`.
 
 Para remover uma concessão, use **releaseLease**. Para interromper uma concessão, mas evitar que outras pessoas obtenham uma nova concessão até a expiração da duração original, use **breakLease**.
 
@@ -278,7 +278,7 @@ Para remover uma concessão, use **releaseLease**. Para interromper uma concess�
 
 As assinaturas de acesso compartilhado (SAS) são uma forma segura de fornecer acesso granular a blobs e contêiner sem fornecer o nome ou as chaves da conta de armazenamento. As assinaturas de acesso compartilhado são frequentemente usadas para fornecer acesso limitado aos seus dados, por exemplo, ao permitir que um aplicativo móvel acesse os blobs.
 
-> [AZURE.NOTE]Embora você também possa permitir o acesso anônimo aos blobs, a assinatura de acesso compartilhado permite que você ofereça um acesso mais controlado, pois é necessário gerar a SAS.
+> [AZURE.NOTE] Embora você também possa permitir o acesso anônimo aos blobs, a assinatura de acesso compartilhado permite que você ofereça um acesso mais controlado, pois é necessário gerar a SAS.
 
 Um aplicativo confiável, como um serviço baseado em nuvem, gera uma assinatura de acesso compartilhado usando **generateSharedAccessSignature** de **BlobService** e o oferece a um aplicativo não confiável ou semiconfiável, como um aplicativo móvel. As assinaturas de acesso compartilhado são geradas usando uma política, que descreve as datas de início e de término da validade das assinaturas de acesso compartilhado, além do nível de acesso concedido ao titular das assinaturas.
 
@@ -377,4 +377,4 @@ Para saber mais, consulte os recursos a seguir.
 [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Referência do SDK do Armazenamento do Azure para APIs de nó]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="01/28/2016" 
 	ms.author="josephd"/>
 
 # Configurar um ambiente de nuvem híbrida para teste
@@ -46,9 +46,9 @@ Há cinco fases principais para configurar esse ambiente de teste de nuvem híbr
 4.	Criar a conexão VPN site a site.
 5.	Configurar o DC2. 
 
-Se ainda não tiver uma assinatura do Azure, você poderá se inscrever para uma avaliação gratuita em [Teste o Azure](http://azure.microsoft.com/pricing/free-trial/). Se tiver uma assinatura do MSDN, consulte [Benefício do Azure para assinantes do MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Se ainda não tiver uma assinatura do Azure, você poderá se inscrever para uma avaliação gratuita em [Teste o Azure](https://azure.microsoft.com/pricing/free-trial/). Se tiver uma assinatura do MSDN, consulte [Benefício do Azure para assinantes do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
->[AZURE.NOTE]Máquinas virtuais e gateways de redes virtuais no Azure geram custos monetários contínuos quando estão em execução. Esse custo é cobrado em sua avaliação gratuita, assinatura do MSDN ou assinatura paga. Para reduzir os custos de executar esse ambiente de teste quando ele não estiver em uso, confira [Minimizando os custos contínuos desse ambiente](#costs) neste tópico para saber mais.
+>[AZURE.NOTE] Máquinas virtuais e gateways de redes virtuais no Azure geram custos monetários contínuos quando estão em execução. Esse custo é cobrado em sua avaliação gratuita, assinatura do MSDN ou assinatura paga. Para reduzir os custos de executar esse ambiente de teste quando ele não estiver em uso, confira [Minimizando os custos contínuos desse ambiente](#costs) neste tópico para saber mais.
 
 Essa configuração requer uma sub-rede de teste de até quatro computadores conectada diretamente à Internet usando um endereço IP público. Se você não tiver esses recursos, poderá também [Configurar um ambiente de nuvem híbrida simulado para testes](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md). O ambiente de nuvem híbrida simulado para teste requer apenas uma assinatura do Azure.
 
@@ -291,25 +291,11 @@ Esta é a configuração atual.
  
 Seu ambiente de nuvem híbrida agora está pronto para testes.
 
-## Recursos adicionais
-
-[Configurar um farm de intranet do SharePoint em uma nuvem híbrida para teste](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
-
-[Configurar um aplicativo LOB baseado na Web em uma nuvem híbrida para teste](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Configurar a Sincronização de Diretórios (DirSync) do Office 365 em uma nuvem híbrida para teste](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
-
-[Configurar um ambiente de nuvem híbrida simulado para testes](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
-
-[Ambientes de teste de nuvem híbrida do Azure](../virtual-machines/virtual-machines-hybrid-cloud-test-environments.md)
-
-[Diretrizes de implementação dos Serviços de Infraestrutura do Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
-
 ## Minimizando os custos contínuos desse ambiente
 
 Para minimizar os custos de executar máquinas virtuais nesse ambiente, realize seus testes e demonstração necessários o mais rápido possível e, então, exclua ou desligue as máquinas virtuais quando você não as estiver usando. Por exemplo, você poderia usar um runbook e automação do Azure para desligar automaticamente as máquinas virtuais na rede virtual Test\_VNET ao final de cada dia útil. Para saber mais, confira [Introdução à automação do Azure](../automation-create-runbook-from-samples.md).
 
-O gateway de VPN do Azure é implementado como um conjunto de duas máquinas virtuais do Azure, o que gera um custo monetário contínuo. Para obter detalhes, confira [Preços - Rede Virtual](http://azure.microsoft.com/pricing/details/virtual-network/). Para minimizar os custos do gateway de VPN, crie o ambiente de teste e realize seus testes e demonstração necessários o mais rápido possível ou exclua o gateway com estas etapas.
+O gateway de VPN do Azure é implementado como um conjunto de duas máquinas virtuais do Azure, o que gera um custo monetário contínuo. Para obter detalhes, confira [Preços - Rede Virtual](https://azure.microsoft.com/pricing/details/virtual-network/). Para minimizar os custos do gateway de VPN, crie o ambiente de teste e realize seus testes e demonstração necessários o mais rápido possível ou exclua o gateway com estas etapas.
 
 1.	No Portal de Gerenciamento do Azure em seu computador local, clique em **Redes** no painel esquerdo, clique em **TestVNET** e, em seguida, clique em **Painel**.
 2.	Na barra de tarefas, clique em **Excluir Gateway**. Clique em **Sim** quando solicitado. Aguarde até que o gateway seja excluído e seu status seja alterado para **O Gateway Não Foi Criado**.
@@ -328,5 +314,8 @@ Em seguida, faça logon no RRAS1 como administrador local e execute estes comand
 
 Em seguida, vá para o Portal de Gerenciamento do Azure em seu computador local e aguarde até que a rede virtual TestVNET mostre um status de Conectado.
  
+## Próximas etapas
 
-<!---HONumber=Oct15_HO3-->
+- Configure um [farm de intranet do SharePoint](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md), um [aplicativo LOB baseado na Web](virtual-networks-setup-lobapp-hybrid-cloud-testing.md) ou um [servidor DirSync (Sincronização de Diretório) do Office 365](virtual-networks-setup-dirsync-hybrid-cloud-testing.md) neste ambiente.
+
+<!---HONumber=AcomDC_0204_2016-->

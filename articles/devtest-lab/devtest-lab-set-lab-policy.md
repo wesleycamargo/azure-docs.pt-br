@@ -1,20 +1,20 @@
 <properties
-pageTitle="Definir políticas de laboratório | Microsoft Azure"
-description="Aprenda a definir as políticas do laboratório, como os tamanhos das VMs, o número máximo de VMs por usuário e o desligamento automático."
-services="devtest-lab,virtual-machines"
-documentationCenter="na"
-authors="tomarcher"
-manager="douge"
-editor=""/>
+	pageTitle="Definir políticas de laboratório | Microsoft Azure"
+	description="Aprenda a definir as políticas do laboratório, como os tamanhos das VMs, o número máximo de VMs por usuário e o desligamento automático."
+	services="devtest-lab,virtual-machines"
+	documentationCenter="na"
+	authors="tomarcher"
+	manager="douge"
+	editor=""/>
 
 <tags
-ms.service="devtest-lab"
-ms.workload="na"
-ms.tgt_pltfrm="na"
-ms.devlang="na"
-ms.topic="article"
-ms.date="11/01/2015"
-ms.author="tarcher"/>
+	ms.service="devtest-lab"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/03/2016"
+	ms.author="tarcher"/>
 
 # Definir políticas de laboratório
 
@@ -26,9 +26,9 @@ Com o Laboratório de Desenvolvimento/Testes, você pode especificar as principa
 
 Para exibir (e alterar) as políticas de um laboratório, siga estas etapas:
 
-1. Entre no [Portal de visualização do Azure](http://portal.azure.com).
+1. Entre no [Portal de visualização do Azure](https://portal.azure.com).
 
-1. Toque em **Procurar** e em **Laboratórios de Desenvolvimento/Testes** na lista.
+1. Toque em **Procurar** e toque em **Laboratórios de Desenvolvimento/Teste** na lista.
 
 1. Na lista de laboratórios, toque no laboratório desejado.
 
@@ -100,4 +100,4 @@ A política de desligamento automático ajuda a minimizar o desperdício de labo
 
 1. Toque em **Salvar**.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

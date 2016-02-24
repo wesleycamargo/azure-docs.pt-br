@@ -10,10 +10,10 @@
 <tags
    ms.service="active-directory"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/01/2015"
+   ms.date="02/10/2016"
    ms.author="curtand"/>
 
 #Gerenciar o diretório para sua assinatura do Office 365 no Azure
@@ -48,7 +48,8 @@ Nesse caso, os dois diretórios são independentes um do outro.
 ##Para gerenciar dois diretórios independentes
 Para que Michael Smith gerencie os dois diretórios enquanto está inscrito no Azure como msmith@hotmail.com, ele precisa concluir as etapas a seguir:
 
-> [AZURE.NOTE]Essas etapas só podem ser realizadas quando o usuário está conectado com uma conta da Microsoft. Se o usuário estiver conectado com uma conta corporativa ou de estudante, a opção **Usar diretório existente** não estará disponível porque uma conta corporativa ou de estudante pode ser autenticada apenas por seu diretório-base (ou seja, o diretório em que a conta corporativa ou de estudante é armazenada, e que é propriedade da corporação ou instituição educacional).
+> [AZURE.NOTE]
+Essas etapas só podem ser realizadas quando o usuário está conectado com uma conta da Microsoft. Se o usuário estiver conectado com uma conta corporativa ou de estudante, a opção **Usar diretório existente** não estará disponível porque uma conta corporativa ou de estudante pode ser autenticada apenas por seu diretório-base (ou seja, o diretório em que a conta corporativa ou de estudante é armazenada, e que é propriedade da corporação ou instituição educacional).
 
 1.	Entre no portal clássico do Azure como msmith@hotmail.com.
 2.	Clique em **Novo** > **Serviços de Aplicativos** > **Active Directory** > **Diretório** > **Criação Personalizada**.
@@ -70,4 +71,4 @@ Agora vamos supor que John Doe precise entrar no portal clássico do Azure e adm
 ##Próximas etapas
 Para obter mais informações sobre a relação entre assinaturas e diretórios, consulte [Como uma assinatura é associada a um diretório](active-directory-how-subscriptions-associated-directory.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

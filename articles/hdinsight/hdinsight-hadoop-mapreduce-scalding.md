@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="12/04/2015"
+ ms.date="02/05/2016"
  ms.author="larryfr"/>
 
 # Desenvolver trabalhos de MapReduce do Scalding com o Apache Hadoop no HDInsight
@@ -24,7 +24,7 @@ Neste documento, aprenda como usar o Maven para criar um trabalho básico de con
 
 ## Pré-requisitos
 
-- **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Um Hadoop baseado em Windows ou Linux em clusters do HDInsight**. Consulte [Fornecimento do Hadoop baseado em Linux no HDInsight](hdinsight-hadoop-provision-linux-clusters.md) ou [Fornecimento do Hadoop baseado em Windows no HDInsight](hdinsight-provision-clusters.md) para obter mais informações.
 
 * **[Maven](http://maven.apache.org/)**
@@ -42,95 +42,95 @@ Neste documento, aprenda como usar o Maven para criar um trabalho básico de con
 2. No diretório **scaldingwordcount**, abra o arquivo **pom.xml** e substitua o conteúdo pelo seguinte:
 
         <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-          <modelVersion>4.0.0</modelVersion>
-          <groupId>com.microsoft.example</groupId>
-          <artifactId>scaldingwordcount</artifactId>
-          <version>1.0-SNAPSHOT</version>
-          <name>${project.artifactId}</name>
-          <properties>
+            <modelVersion>4.0.0</modelVersion>
+            <groupId>com.microsoft.example</groupId>
+            <artifactId>scaldingwordcount</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <name>${project.artifactId}</name>
+            <properties>
             <maven.compiler.source>1.6</maven.compiler.source>
             <maven.compiler.target>1.6</maven.compiler.target>
             <encoding>UTF-8</encoding>
-          </properties>
-          <repositories>
+            </properties>
+            <repositories>
             <repository>
-              <id>conjars</id>
-              <url>http://conjars.org/repo</url>
+                <id>conjars</id>
+                <url>http://conjars.org/repo</url>
             </repository>
             <repository>
-              <id>maven-central</id>
-              <url>http://repo1.maven.org/maven2</url>
+                <id>maven-central</id>
+                <url>http://repo1.maven.org/maven2</url>
             </repository>
-          </repositories>
-          <dependencies>
+            </repositories>
+            <dependencies>
             <dependency>
-              <groupId>com.twitter</groupId>
-              <artifactId>scalding-core_2.11</artifactId>
-              <version>0.13.1</version>
+                <groupId>com.twitter</groupId>
+                <artifactId>scalding-core_2.11</artifactId>
+                <version>0.13.1</version>
             </dependency>
             <dependency>
-              <groupId>org.apache.hadoop</groupId>
-              <artifactId>hadoop-core</artifactId>
-              <version>1.2.1</version>
-              <scope>provided</scope>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-core</artifactId>
+                <version>1.2.1</version>
+                <scope>provided</scope>
             </dependency>
-          </dependencies>
-          <build>
+            </dependencies>
+            <build>
             <sourceDirectory>src/main/scala</sourceDirectory>
             <plugins>
-              <plugin>
+                <plugin>
                 <groupId>org.scala-tools</groupId>
                 <artifactId>maven-scala-plugin</artifactId>
                 <version>2.15.2</version>
                 <executions>
-                  <execution>
+                    <execution>
                     <id>scala-compile-first</id>
                     <phase>process-resources</phase>
                     <goals>
-                      <goal>add-source</goal>
-                      <goal>compile</goal>
+                        <goal>add-source</goal>
+                        <goal>compile</goal>
                     </goals>
-                  </execution>
+                    </execution>
                 </executions>
-              </plugin>
-              <plugin>
+                </plugin>
+                <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>2.3</version>
                 <configuration>
-                  <transformers>
+                    <transformers>
                     <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer">
                     </transformer>
-                  </transformers>
-                  <filters>
+                    </transformers>
+                    <filters>
                     <filter>
-                      <artifact>*:*</artifact>
-                      <excludes>
+                        <artifact>*:*</artifact>
+                        <excludes>
                         <exclude>META-INF/*.SF</exclude>
                         <exclude>META-INF/*.DSA</exclude>
                         <exclude>META-INF/*.RSA</exclude>
-                      </excludes>
+                        </excludes>
                     </filter>
-                  </filters>
+                    </filters>
                 </configuration>
                 <executions>
-                  <execution>
+                    <execution>
                     <phase>package</phase>
                     <goals>
-                      <goal>shade</goal>
+                        <goal>shade</goal>
                     </goals>
                     <configuration>
-                      <transformers>
+                        <transformers>
                         <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                          <mainClass>com.twitter.scalding.Tool</mainClass>
+                            <mainClass>com.twitter.scalding.Tool</mainClass>
                         </transformer>
-                      </transformers>
+                        </transformers>
                     </configuration>
-                  </execution>
+                    </execution>
                 </executions>
-              </plugin>
+                </plugin>
             </plugins>
-          </build>
+            </build>
         </project>
 
     Este arquivo descreve o projeto, as dependências e os plug-ins. Aqui estão as entradas importantes:
@@ -158,19 +158,19 @@ Neste documento, aprenda como usar o Maven para criar um trabalho básico de con
         import com.twitter.scalding._
 
         class WordCount(args : Args) extends Job(args) {
-          // 1. Read lines from the specified input location
-          // 2. Extract individual words from each line
-          // 3. Group words and count them
-          // 4. Write output to the specified output location
-          TextLine(args("input"))
+            // 1. Read lines from the specified input location
+            // 2. Extract individual words from each line
+            // 3. Group words and count them
+            // 4. Write output to the specified output location
+            TextLine(args("input"))
             .flatMap('line -> 'word) { line : String => tokenize(line) }
             .groupBy('word) { _.size }
             .write(Tsv(args("output")))
 
-          //Tokenizer to split sentance into words
-          def tokenize(text : String) : Array[String] = {
+            //Tokenizer to split sentance into words
+            def tokenize(text : String) : Array[String] = {
             text.toLowerCase.replaceAll("[^a-zA-Z0-9\\s]", "").split("\\s+")
-          }
+            }
         }
 
     Isso implementa um trabalho básico de contagem de palavras.
@@ -185,7 +185,7 @@ Neste documento, aprenda como usar o Maven para criar um trabalho básico de con
 
 ## Executar o trabalho em um cluster baseado em Linux
 
-> [AZURE.NOTE]As etapas a seguir usam o SSH e o comando Hadoop. Para obter outros métodos de executar trabalhos do MapReduce, consulte [Usar o MapReduce no Hadoop no HDInsight](hdinsight-use-mapreduce.md).
+> [AZURE.NOTE] As etapas a seguir usam o SSH e o comando Hadoop. Para obter outros métodos de executar trabalhos do MapReduce, consulte [Usar o MapReduce no Hadoop no HDInsight](hdinsight-use-mapreduce.md).
 
 1. Use o comando a seguir para carregar o pacote para seu cluster HDInsight:
 
@@ -193,13 +193,13 @@ Neste documento, aprenda como usar o Maven para criar um trabalho básico de con
 
     Isso copiará os arquivos do sistema local para o nó principal.
 
-    > [AZURE.NOTE]Se você usou uma senha para proteger sua conta SSH, você será solicitado pela senha. Se você usou uma chave SSH, talvez precise usar o parâmetro `-i` e o caminho para a chave privada. Por exemplo, `scp -i /path/to/private/key target/scaldingwordcount-1.0-SNAPSHOT.jar username@clustername-ssh.azurehdinsight.net:.`
+    > [AZURE.NOTE] Se você usou uma senha para proteger sua conta SSH, você será solicitado pela senha. Se você usou uma chave SSH, talvez precise usar o parâmetro `-i` e o caminho para a chave privada. Por exemplo, `scp -i /path/to/private/key target/scaldingwordcount-1.0-SNAPSHOT.jar username@clustername-ssh.azurehdinsight.net:.`
 
 2. Use o comando a seguir para se conectar ao nó principal do cluster:
 
         ssh username@clustername-ssh.azurehdinsight.net
 
-    > [AZURE.NOTE]Se você usou uma senha para proteger sua conta SSH, você será solicitado pela senha. Se você usou uma chave SSH, talvez precise usar o parâmetro `-i` e o caminho para a chave privada. Por exemplo, `ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.net`
+    > [AZURE.NOTE] Se você usou uma senha para proteger sua conta SSH, você será solicitado pela senha. Se você usou uma chave SSH, talvez precise usar o parâmetro `-i` e o caminho para a chave privada. Por exemplo, `ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.net`
 
 3. Uma vez conectado ao nó principal, use o seguinte comando para executar o trabalho de contagem de palavras
 
@@ -229,7 +229,7 @@ Neste documento, aprenda como usar o Maven para criar um trabalho básico de con
 
 ## Executar o trabalho em um cluster baseado em Windows
 
-> [AZURE.NOTE]As etapas a seguir usam o Windows PowerShell. Para obter outros métodos de executar trabalhos do MapReduce, consulte [Usar o MapReduce no Hadoop no HDInsight](hdinsight-use-mapreduce.md).
+> [AZURE.NOTE] As etapas a seguir usam o Windows PowerShell. Para obter outros métodos de executar trabalhos do MapReduce, consulte [Usar o MapReduce no Hadoop no HDInsight](hdinsight-use-mapreduce.md).
 
 1. [Instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
 
@@ -245,7 +245,7 @@ Neste documento, aprenda como usar o Maven para criar um trabalho básico de con
 
 		Select-AzureRMSubscription -SubscriptionID <YourSubscriptionId>
 
-    > [AZURE.NOTE]Você pode usar `Get-AzureRMSubscription` para obter uma lista de todas as assinaturas associadas à sua conta, o que inclui a Id de assinatura de cada uma delas.
+    > [AZURE.NOTE] Você pode usar `Get-AzureRMSubscription` para obter uma lista de todas as assinaturas associadas à sua conta, o que inclui a Id de assinatura de cada uma delas.
 
 4. Use o seguinte script para carregar e executar o trabalho WordCount. Substitua `CLUSTERNAME` pelo nome de seu cluster HDInsight e verifique se `$fileToUpload` é o caminho correto para o arquivo __scaldingwordcount-1.0-SNAPSHOT.jar__.
 
@@ -291,7 +291,7 @@ Neste documento, aprenda como usar o Maven para criar um trabalho básico de con
             -clustername $clusterName `
             -jobdefinition $jobDef `
             -HttpCredential $creds
-        Write-Output "Job ID is: " + $job.JobId
+        Write-Output "Job ID is: $job.JobId"
         Wait-AzureRmHDInsightJob `
             -ClusterName $clusterName `
             -JobId $job.JobId `
@@ -344,4 +344,4 @@ Agora que você aprendeu como usar o Scalding para criar trabalhos do MapReduce 
 
 * [Usar trabalhos do MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

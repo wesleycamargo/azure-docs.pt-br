@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/28/2015"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
  
 # Modos de exibição no SQL Data Warehouse
@@ -58,15 +58,15 @@ Consequentemente, as opções a seguir não estão disponíveis: - não há nenh
 
 
 ## Próximas etapas
-Para obter mais dicas de desenvolvimento, consulte a [Visão geral de desenvolvimento do SQL Data Warehouse][].
+Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvolvimento no SQL Data Warehouse][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Visão geral de desenvolvimento do SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
+[Visão geral sobre o desenvolvimento no SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

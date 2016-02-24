@@ -13,12 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
-   ms.author="sahajs"/>
+   ms.date="01/07/2016"
+   ms.author="sahajs;barbkess;sonyama"/>
 
 # Analisar dados com o Aprendizado de Máquina do Azure
 Este tutorial mostrará como criar um modelo de aprendizado de máquina preditivo com o Aprendizado de Máquina do Azure usando seus dados do SQL Data Warehouse do Azure. Neste tutorial, vamos criar uma campanha de marketing direcionado da Adventure Works, uma loja de bicicletas, prevendo se um cliente tem probabilidade de comprar uma bicicleta ou não.
 
+> [AZURE.VIDEO integrating-azure-machine-learning-with-azure-sql-data-warehouse]
 
 ## Pré-requisitos
 Para acompanhar este tutorial, você precisará
@@ -139,4 +140,4 @@ Para saber mais sobre a criação de modelos de aprendizado de máquina de previ
 [carregar dados de exemplo manualmente]: sql-data-warehouse-get-started-manually-load-samples.md
 [Criar um SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

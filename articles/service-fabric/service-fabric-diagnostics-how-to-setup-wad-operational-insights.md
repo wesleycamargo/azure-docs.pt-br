@@ -36,9 +36,9 @@ Essas ferramentas serão usadas para executar algumas das operações neste docu
 ## Fontes de log diferentes que você talvez queira coletar
 1. **Logs do Service Fabric:** emitidos pela plataforma para canais ETW e EventSource padrões. Os logs podem ser de vários tipos:
   - Eventos operacionais: logs para operações executadas na plataforma do Service Fabric. Os exemplos incluem criação de aplicativos e serviços, alterações de estado do nó e informações de atualização.
-  - [Eventos do modelo de programação do ator](https://azure.microsoft.com/service-fabric-reliable-actors-diagnostics/)
-  - [Eventos do modelo de Reliable Services](https://azure.microsoft.com/service-fabric-reliable-services-diagnostics/)
-2. **Eventos do aplicativo:** eventos emitidos do código de serviços e escritos usando a classe auxiliar EventSource fornecida nos modelos do Visual Studio. Para obter mais informações sobre como gravar logs de seu aplicativo, consulte [este artigo sobre como monitorar e diagnosticar serviços em uma configuração de máquina local](https://azure.microsoft.com/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/).
+  - [Eventos do modelo de programação do ator](service-fabric-reliable-actors-diagnostics.md)
+  - [Eventos do modelo de Reliable Services](service-fabric-reliable-services-diagnostics.md)
+2. **Eventos do aplicativo:** eventos emitidos do código de serviços e escritos usando a classe auxiliar EventSource fornecida nos modelos do Visual Studio. Para obter mais informações sobre como gravar logs de seu aplicativo, consulte [este artigo sobre como monitorar e diagnosticar serviços em uma configuração de máquina local](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 
 
 ## Implantar a extensão de diagnóstico em um cluster do Service Fabric para coletar e carregar logs
@@ -55,6 +55,7 @@ Para ver a configuração de diagnóstico no modelo do Gerenciador de Recursos, 
 Além disso, antes de chamar esse comando de implantação você pode precisar fazer algumas configurações, incluindo a adição de sua conta do Azure (`Add-AzureAccount`), escolher uma assinatura (`Select-AzureSubscription`), mudar para o modo Gerenciador de Recursos (`Switch-AzureMode AzureResourceManager`) e criar o grupo de recursos, se você ainda não tiver feito isso (`New-AzureResourceGroup`).
 
 ```powershell
+
 New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentName -TemplateFile $pathToARMConfigJsonFile -TemplateParameterFile $pathToParameterFile –Verbose
 ```
 
@@ -62,7 +63,9 @@ New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $de
 Se você tiver um cluster existente que não tenha Diagnóstico implantado, pode adicioná-lo seguindo estas etapas. Crie os dois arquivos WadConfigUpdate.json e WadConfigUpdateParams.json, usando o JSON abaixo.
 
 ##### WadConfigUpdate.json
+
 ```json
+
 {
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -141,7 +144,10 @@ Se você tiver um cluster existente que não tenha Diagnóstico implantado, pode
 ```
 
 ##### WadConfigUpdateParams.json
-Substitua o vmNamePrefix pelo prefixo que você escolheu para nomes de VM ao criar o cluster. Em seguida, edite o vmStorageAccountName para a conta de armazenamento em que deseja carregar os logs das VMs. ```json
+Substitua o vmNamePrefix pelo prefixo que você escolheu para nomes de VM ao criar o cluster. Em seguida, edite o vmStorageAccountName como a conta de armazenamento em que deseja carregar os logs das VMs.
+
+```json
+
 {
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
@@ -161,7 +167,10 @@ Substitua o vmNamePrefix pelo prefixo que você escolheu para nomes de VM ao cri
 
 Depois de criar os arquivos JSON, conforme descrito acima, altere-os para as especificidades de seu ambiente. Em seguida, chame o seguinte comando, passando o nome do grupo de recursos para o cluster do Service Fabric. Quando esse comando for executado com êxito o Diagnóstico será implantado em todas as máquinas virtuais e começará a carregar os logs do cluster para as tabelas na conta de armazenamento do Azure especificada.
 
-Além disso, antes de chamar esse comando de implantação você pode precisar fazer algumas configurações, incluindo a adição de sua conta do Azure (`Add-AzureAccount`), escolher a assinatura correta (`Select-AzureSubscription`) e mudar para o modo Gerenciador de Recurso (`Switch-AzureMode AzureResourceManager`). ```powershell
+Além disso, antes de chamar esse comando de implantação, pode ser necessário fazer algumas configurações, incluindo a adição de sua conta do Azure (`Add-AzureAccount`), escolher a assinatura correta (`Select-AzureSubscription`) e mudar para o modo Gerenciador de Recursos (`Switch-AzureMode AzureResourceManager`).
+
+```ps
+
 New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentName -TemplateFile $pathToWADConfigJsonFile -TemplateParameterFile $pathToParameterFile –Verbose
 ```
 
@@ -174,7 +183,12 @@ Para ver as etapas para criar um espaço de trabalho do Operational Insights, v�
 [Operational Insights Integrado](https://technet.microsoft.com/library/mt484118.aspx)
 
 ### Configurar o espaço de trabalho do Insights Operacionais para exibir os logs do cluster
-Depois de criar o espaço de trabalho do Insights Operacionais conforme descrito acima, a próxima etapa é configurar o espaço de trabalho para extrair os logs das tabelas do armazenamento do Azure, em que eles estão sendo carregados do cluster pela extensão Diagnóstico. Atualmente, não é possível realizar essa configuração por meio do Portal do Insights Operacionais; ela só pode ser feita por comandos do PowerShell. Execute este script do PowerShell: ```powershell <# Esse script irá configurar um espaço de trabalho do Operations Management Suite (também conhecido como espaço de trabalho do Operational Insights) para ler Diagnósticos de uma conta de armazenamento do Azure.
+Depois de criar o espaço de trabalho do Insights Operacionais conforme descrito acima, a próxima etapa é configurar o espaço de trabalho para extrair os logs das tabelas do armazenamento do Azure, em que eles estão sendo carregados do cluster pela extensão Diagnóstico. Atualmente, não é possível realizar essa configuração por meio do Portal do Insights Operacionais; ela só pode ser feita por comandos do PowerShell. Execute o seguinte script do PowerShell:
+
+```powershell
+
+    <#
+    This script will configure an Operations Management Suite workspace (aka Operational Insights workspace) to read Diagnostics from an Azure Storage account.
 
     It will enable all supported data types (currently Windows Event Logs, Syslog, Service Fabric Events, ETW Events and IIS Logs).
 
@@ -183,7 +197,7 @@ Depois de criar o espaço de trabalho do Insights Operacionais conforme descrito
     If you have more than one OMS workspace you will be prompted for the workspace to configure.
 
     If you have more than one storage account you will be prompted for which storage account to configure.
-#>
+    #>
 
 Add-AzureAccount
 
@@ -241,17 +255,38 @@ function Select-StorageAccount {
     return $storage
 }
 
-$workspace = Select-Workspace $storageAccount = Select-StorageAccount
+$workspace = Select-Workspace
+$storageAccount = Select-StorageAccount
 
 $insightsName = $storageAccount.Name + $workspace.Name
 
 $existingConfig = ""
 
-try { $existingConfig = Get-AzureOperationalInsightsStorageInsight -Workspace $workspace -Name $insightsName -ErrorAction Stop } catch [Hyak.Common.CloudException] { # HTTP Not Found é retornado se o storage insight não existir }
+try
+{
+    $existingConfig = Get-AzureOperationalInsightsStorageInsight -Workspace $workspace -Name $insightsName -ErrorAction Stop
+}
+catch [Hyak.Common.CloudException]
+{
+    # HTTP Not Found is returned if the storage insight doesn't exist
+}
 
-if ($existingConfig) { Set-AzureOperationalInsightsStorageInsight -Workspace $workspace -Name $insightsName -Tables $validTables -Containers $validContainers
+if ($existingConfig) {
+    Set-AzureOperationalInsightsStorageInsight -Workspace $workspace -Name $insightsName -Tables $validTables -Containers $validContainers
 
-} else { if ($storageAccount.ResourceType -eq "Microsoft.ClassicStorage/storageAccounts") { Switch-AzureMode -Name AzureServiceManagement $key = (Get-AzureStorageKey -StorageAccountName $storageAccount.Name).Primary Switch-AzureMode -Name AzureResourceManager } else { $key = (Get-AzureStorageAccountKey -ResourceGroupName $storageAccount.ResourceGroupName -Name $storageAccount.Name).Key1 } New-AzureOperationalInsightsStorageInsight -Workspace $workspace -Name $insightsName -StorageAccountResourceId $storageAccount.ResourceId -StorageAccountKey $key -Tables $validTables -Containers $validContainers } ``` Depois de ter configurado a área de trabalho do Insights Operacionais para ler das tabelas do Azure na conta de armazenamento, deve efetuar login no portal e acessar a guia **Armazenamento** para o recurso Insights Operacionais. O resultado deve ser semelhante a este: ![Configuração de armazenamento do Insights Opcionais no portal do Azure](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/oi-connected-tables-list.png)
+} else {
+    if ($storageAccount.ResourceType -eq "Microsoft.ClassicStorage/storageAccounts") {
+        Switch-AzureMode -Name AzureServiceManagement
+        $key = (Get-AzureStorageKey -StorageAccountName $storageAccount.Name).Primary
+        Switch-AzureMode -Name AzureResourceManager
+    } else {
+        $key = (Get-AzureStorageAccountKey -ResourceGroupName $storageAccount.ResourceGroupName -Name $storageAccount.Name).Key1
+    }
+    New-AzureOperationalInsightsStorageInsight -Workspace $workspace -Name $insightsName -StorageAccountResourceId $storageAccount.ResourceId -StorageAccountKey $key -Tables $validTables -Containers $validContainers
+}
+```
+
+Depois de configurar o espaço de trabalho do Insights Operacionais para ler as tabelas do Azure em sua conta de armazenamento, você deverá entrar no portal e acessar a guia **Armazenamento** do recurso Insights Operacionais. O resultado deve ser semelhante a este: ![Configuração de armazenamento do Insights Opcionais no portal do Azure](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/oi-connected-tables-list.png)
 
 ### Pesquise e exiba os logs no Insights Operacionais
 Depois de configurar o seu espaço de trabalho do Insights Operacionais para ler os logs da conta de armazenamento especificada pode levar até 10 minutos para que os logs sejam exibidos na interface do usuário do Insights Operacionais. Para garantir que novos logs sejam gerados, você deve implantar um aplicativo do Service Fabric para seu cluster, pois isso irá gerar eventos operacionais da plataforma do Service Fabric.
@@ -290,4 +325,4 @@ Você precisará atualizar a seção EtwEventSourceProviderConfiguration no WadC
 ## Próximas etapas
 Verifique os eventos de diagnóstico emitidos para [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) e [Reliable Services](service-fabric-reliable-services-diagnostics.md) para entender mais detalhadamente os eventos que você deve examinar na solução de problemas.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

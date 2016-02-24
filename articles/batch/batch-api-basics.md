@@ -10,17 +10,17 @@
 <tags
 	ms.service="batch"
 	ms.devlang="multiple"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="11/19/2015"
+	ms.date="01/21/2016"
 	ms.author="yidingz;v-marsma"/>
 
 # Visão geral dos recursos do Lote do Azure
 
 Este artigo fornece uma visão geral básica dos principais recursos de API do serviço Lote do Azure. Desenvolvendo uma solução de computação distribuída usando as APIs [REST do Lote][batch_rest_api] ou [.NET do Lote][batch_net_api], você usará muitas das entidades e dos recursos discutidos a seguir.
 
-> [AZURE.TIP]Para obter uma visão geral técnica de nível mais alto do Lote, consulte [Noções básicas do Lote do Azure](batch-technical-overview.md).
+> [AZURE.TIP] Para obter uma visão geral técnica de nível mais alto do Lote, confira [Noções básicas do Lote do Azure](batch-technical-overview.md).
 
 ## <a name="workflow"></a>Fluxo de trabalho do serviço de Lote
 
@@ -38,7 +38,7 @@ O fluxo de trabalho de alto nível a seguir é tipicamente usado em quase todos 
 
 6. Monitore o andamento do trabalho e recupere os resultados.
 
-> [AZURE.NOTE]Você precisará de uma [conta do Lote](batch-account-create-portal.md) para usar o serviço Lote e quase todas as soluções usarão uma conta do [Armazenamento do Azure][azure_storage] para o armazenamento e a recuperação de arquivos.
+> [AZURE.NOTE] Você precisará de uma [conta do Lote](batch-account-create-portal.md) para usar o serviço Lote e quase todas as soluções usarão uma conta do [Armazenamento do Azure][azure_storage] para o armazenamento e a recuperação de arquivos.
 
 Nas seções a seguir, você aprenderá sobre cada um dos recursos mencionados no fluxo de trabalho acima, bem como muitos outros recursos do Lote que habilitarão seu cenário de computação distribuído.
 
@@ -61,6 +61,8 @@ Quando você usa o serviço Lote do Azure, tira proveito dos seguintes recursos:
 	- [Trabalho ManagerTask](#jobmanagertask)
 
 	- [Tarefas de preparação e liberação do trabalho](#jobpreprelease)
+
+	- [Tarefas de várias instâncias](#multiinstance)
 
 - [JobSchedule](#jobschedule)
 
@@ -145,10 +147,9 @@ Uma tarefa é uma unidade de computação que está associada a um trabalho e é
 Além das tarefas que você pode definir para realizar computação em um nó, as tarefas especiais a seguir também são fornecidas pelo serviço Lote:
 
 - [Iniciar tarefa](#starttask)
-
 - [Tarefa do Gerenciador de Trabalhos](#jobmanagertask)
-
 - [Tarefas de preparação e liberação do trabalho](#jobmanagertask)
+- [Tarefas de várias instâncias](#multiinstance)
 
 #### <a name="starttask"></a>Iniciar tarefa
 
@@ -188,6 +189,18 @@ O Lote fornece a tarefa de preparação do trabalho para configuração de execu
 As tarefas de preparação e liberação de trabalho permitem que você especifique uma linha de comando para ser executada quando a tarefa é invocada e oferecem recursos como o download do arquivo, a execução privilegiada, variáveis de ambiente personalizadas, duração de execução máxima, contagem de repetição e tempo de retenção de arquivo.
 
 Para saber mais sobre tarefas de preparação e de liberação de trabalho, consulte [Executar tarefas de preparação e de conclusão de trabalhos em nós de computação do Lote do Azure](batch-job-prep-release.md).
+
+#### <a name="multiinstance"></a>Tarefas de várias instâncias
+
+Uma [tarefa de várias instâncias][rest_multiinstance] é uma tarefa que é configurada para ser executada simultaneamente em mais de um nó de computação. Com as tarefas de várias instâncias, você pode habilitar cenários de computação de alto desempenho, como MPI (Message Passing Interface), que exige um grupo de nós de computação alocados juntos para processar uma única carga de trabalho.
+
+No Lote, você cria uma tarefa de várias instâncias especificando configurações de várias instâncias para uma [tarefa](#task) normal. Essas configurações incluem o número de nós de computação para executar a tarefa, uma linha de comando para a tarefa principal (o "comando de aplicativo"), um comando de coordenação e uma lista de arquivos de recurso comuns de cada tarefa.
+
+Quando você envia uma tarefa com as configurações de várias instâncias a um trabalho, o serviço de Lote executa o seguinte:
+
+1. Cria automaticamente uma tarefa principal e subtarefas suficientes que, juntas, executarão o número total de nós que você especificou. O Lote, em seguida, agenda essas tarefas para execução nos nós, que primeiro baixam os arquivos de recurso em comum que você especificou.
+2. Depois que os arquivos de recursos em comum foram baixados, o comando de coordenação é executado pela tarefa principal e pelas subtarefas. Esse comando de coordenação normalmente inicia um serviço em segundo plano (como `smpd.exe` de [MS-MPI][msmpi]) e verifica se os nós estão prontos para processar mensagens entre nós.
+3. Quando o comando de coordenação foi concluído com êxito pela tarefa principal e todas as subtarefas, a linha de comando da tarefa (o "comando de aplicativo") é executado apenas pela tarefa principal, o que geralmente inicia um aplicativo personalizado com MPI habilitado que processa sua carga de trabalho nos nós. Por exemplo, em um cenário de MPI do Windows, você normalmente executaria o aplicativo habilitado para MPI com `mpiexec.exe` de [MS-MPI][msmpi] usando o comando do aplicativo.
 
 ### <a name="jobschedule"></a>Trabalhos agendados
 
@@ -240,7 +253,8 @@ Uma fórmula de dimensionamento pode basear-se nas seguintes métricas:
 
 Para saber mais sobre o dimensionamento automático de um aplicativo, consulte [Dimensionar automaticamente nós de computação em um pool do Lote do Azure](batch-automatic-scaling.md).
 
-> [AZURE.TIP]Embora isso geralmente não seja necessário, é possível especificar nós individuais para serem removidos de um pool. Se você suspeitar que um nó seja menos confiável, por exemplo, poderá removê-lo do pool para impedir a atribuição de tarefas adicionais.
+> [AZURE.TIP]
+ Embora isso geralmente não seja necessário, é possível especificar nós individuais para serem removidos de um pool. Se você suspeitar que um nó seja menos confiável, por exemplo, poderá removê-lo do pool para impedir a atribuição de tarefas adicionais.
 
 ## <a name="cert"></a>Segurança com certificados
 
@@ -281,7 +295,7 @@ Para cada tarefa agendada em um trabalho, o seguinte conjunto de variáveis de a
 | `AZ_BATCH_TASK_ID` | A ID da tarefa atual. |
 | `AZ_BATCH_TASK_WORKING_DIR` | O caminho completo do diretório de trabalho da tarefa no nó. |
 
->[AZURE.NOTE]Não é possível substituir qualquer uma das variáveis definidas pelo sistema acima - elas são somente leitura.
+>[AZURE.NOTE] Não é possível substituir qualquer uma das variáveis definidas pelo sistema acima - elas são somente leitura.
 
 ## <a name="errorhandling"></a>Tratamento de erros
 
@@ -306,7 +320,7 @@ Durante a execução, um aplicativo pode produzir saída de diagnóstico que pod
 
 Uma depuração ainda mais extensa pode ser executada quando você efetuar logon em um nó de computação usando a *Área de Trabalho Remota*. Você pode [obter um arquivo de protocolo de área de trabalho remota de um nó][rest_rdp] (API REST do Lote) ou o uso do método [ComputeNode.GetRDPFile][net_rdp] (.NET API do Lote) para logon remoto.
 
->[AZURE.NOTE]Para se conectar a um nó via RDP, primeiro você deverá criar um usuário no nó. [Adicione uma conta de usuário a um nó][rest_create_user] à API REST do Lote ou use o método [ComputeNode.CreateComputeNodeUser][net_create_user] no .NET do Lote.
+>[AZURE.NOTE] Para se conectar a um nó via RDP, primeiro você deverá criar um usuário no nó. [Adicione uma conta de usuário a um nó][rest_create_user] à API REST do Lote ou use o método [ComputeNode.CreateComputeNodeUser][net_create_user] no .NET do Lote.
 
 ### Contabilidade de interrupções ou de falhas de tarefas
 
@@ -332,6 +346,7 @@ Cada nó em um pool tem uma ID exclusiva e o nó no qual uma tarefa é executada
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [cloud_service_sizes]: https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/
+[msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx
@@ -342,6 +357,7 @@ Cada nó em um pool tem uma ID exclusiva e o nó no qual uma tarefa é executada
 [net_create_user]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.createcomputenodeuser.aspx
 [net_getfile_node]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.getnodefile.aspx
 [net_getfile_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.getnodefile.aspx
+[net_multiinstancesettings]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.multiinstancesettings.aspx
 [net_rdp]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.getrdpfile.aspx
 
 [batch_rest_api]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
@@ -351,7 +367,9 @@ Cada nó em um pool tem uma ID exclusiva e o nó no qual uma tarefa é executada
 [rest_add_task]: https://msdn.microsoft.com/library/azure/dn820105.aspx
 [rest_create_user]: https://msdn.microsoft.com/library/azure/dn820137.aspx
 [rest_get_task_info]: https://msdn.microsoft.com/library/azure/dn820133.aspx
+[rest_multiinstance]: https://msdn.microsoft.com/pt-BR/library/azure/mt637905.aspx
+[rest_multiinstancesettings]: https://msdn.microsoft.com/library/azure/dn820105.aspx#multiInstanceSettings
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

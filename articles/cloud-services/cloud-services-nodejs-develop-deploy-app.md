@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="11/20/2015"
+	ms.date="02/04/2016" 
 	ms.author="robmcm"/>
 
 
@@ -25,9 +25,9 @@
 
 Este tutorial mostra como criar um aplicativo simples do Node.js em execução em um Serviço de Nuvem do Azure. Os Serviços de Nuvem são os blocos de construção de aplicativos de nuvem escalonáveis no Azure. Eles permitem a separação e o gerenciamento independente e o dimensionamento dos componentes de front-end e back-end de seu aplicativo. Os serviços de nuvem fornecem uma máquina virtual exclusiva robusta para hospedar cada função confiável.
 
-Para saber mais sobre serviços de nuvem e como eles são comparados aos Sites do Azure e máquinas virtuais, consulte [Comparação de Sites do Azure, Serviços de Nuvem e Máquinas virtuais](../choose-web-site-cloud-service-vm.md).
+Para saber mais sobre serviços de nuvem e como eles são comparados aos Sites do Azure e máquinas virtuais, consulte [Comparação de Sites do Azure, Serviços de Nuvem e Máquinas virtuais](../app-service-web/choose-web-site-cloud-service-vm.md).
 
->[AZURE.TIP]Procurando desenvolver um site simples? Se o seu cenário envolver apenas um site de front-end simples, <a href="../app-service-web/web-sites-nodejs-develop-deploy-mac.md">considere usar um aplicativo Web leve</a>. Você pode atualizar facilmente para um serviço de nuvem conforme o aplicativo Web cresce e suas necessidades mudam.
+>[AZURE.TIP] Procurando desenvolver um site simples? Se o seu cenário envolver apenas um site de front-end simples, <a href="../app-service-web/web-sites-nodejs-develop-deploy-mac.md">considere usar um aplicativo Web leve</a>. Você pode atualizar facilmente para um serviço de nuvem conforme o aplicativo Web cresce e suas necessidades mudam.
 
 
 Seguindo este tutorial, você irá criar um aplicativo da Web simples hospedado dentro de uma função Web. Você usará o emulador de computação para testar o aplicativo localmente e, em seguida, o implantará usando ferramentas de linha de comando do PowerShell.
@@ -38,9 +38,9 @@ O aplicativo é um aplicativo simples "hello world":
 
 ## Pré-requisitos
 
-> [AZURE.NOTE]Este tutorial usa o PowerShell do Azure, que requer o Windows.
+> [AZURE.NOTE] Este tutorial usa o PowerShell do Azure, que requer o Windows.
 
-- Instalar e configurar o [Powershell do Azure](../install-configure-powershell.md).
+- Instalar e configurar o [Powershell do Azure](../powershell-install-configure.md).
 - Baixe e instale o [SDK do Azure para .NET 2.7](http://www.microsoft.com/pt-BR/download/details.aspx?id=48178). Na configuração da instalação, selecione:
     - MicrosoftAzureAuthoringTools
     - MicrosoftAzureComputeEmulator
@@ -51,7 +51,7 @@ O aplicativo é um aplicativo simples "hello world":
 Execute as tarefas a seguir para criar um novo projeto do Serviço de Nuvem do Azure, juntamente com a estrutura básica do Node.js:
 
 
-1. Execute o **PowerShell do Azure** como Administrador. (No **menu Iniciar** ou **tela Iniciar**, pesquise por **PowerShell do Azure**.)
+1. Execute o **Windows PowerShell** como Administrador. (No **menu Iniciar** ou **tela Iniciar**, pesquise por **Windows PowerShell**.)
 
 2.  [Conecte o PowerShell](powershell-install-configure.md#how-to-connect-to-your-subscription) à sua assinatura.
 3.  Insira o seguinte cmdlet do PowerShell para criar o projeto:
@@ -76,7 +76,7 @@ Execute as tarefas a seguir para criar um novo projeto do Serviço de Nuvem do A
 
 	O cmdlet **Add-AzureNodeWebRole** cria um aplicativo básico do Node.js. Ele também modifica os arquivos **.csfg** e **.csdef** para adicionar entradas de configuração para a nova função.
 
-	> [AZURE.NOTE]Se você não especificar um nome de função, um nome padrão será usado. Você pode fornecer um nome como o primeiro parâmetro do cmdlet: `Add-AzureNodeWebRole MyRole`
+	> [AZURE.NOTE] Se você não especificar um nome de função, um nome padrão será usado. Você pode fornecer um nome como o primeiro parâmetro do cmdlet: `Add-AzureNodeWebRole MyRole`
 
 
 O aplicativo do Node.js é definido no arquivo **server.js**, localizado no diretório da função Web (**WebRole1**, por padrão). Eis o código:
@@ -112,7 +112,7 @@ Para implantar seu aplicativo do Azure, você deve primeiro baixar as definiçõ
         Import-AzurePublishSettingsFile [path to file]
 
 
-	> [AZURE.NOTE]Depois de importar as configurações de publicação, considere a exclusão do arquivo .publishsettings baixado, pois ele contém informações que podem permitir que alguém acesse sua conta.
+	> [AZURE.NOTE] Depois de importar as configurações de publicação, considere a exclusão do arquivo .publishsettings baixado, pois ele contém informações que podem permitir que alguém acesse sua conta.
 
 
 ### Publicar o aplicativo
@@ -132,7 +132,8 @@ Após a publicação for bem-sucedida, você verá uma resposta semelhante à se
 
 ![A saída do comando Publish-AzureService](./media/cloud-services-nodejs-develop-deploy-app/node19.png)
 
-> [AZURE.NOTE]Pode levar alguns minutos para o aplicativo ser implantado e tornar-se disponível quando for publicado pela primeira vez.
+> [AZURE.NOTE]
+Pode levar alguns minutos para o aplicativo ser implantado e tornar-se disponível quando for publicado pela primeira vez.
 
 Depois que a implantação for concluída, uma janela do navegador será aberta e irá navegar para o serviço de nuvem.
 
@@ -175,7 +176,7 @@ Depois de implantar seu aplicativo, convém desativá-lo para que você possa ev
 
 	![O status do comando Remove-AzureService](./media/cloud-services-nodejs-develop-deploy-app/node49.png)
 
-	> [AZURE.NOTE]Excluir o serviço não exclui a conta de armazenamento criada quando o serviço foi inicialmente publicado e você continuará a ser cobrado pelo armazenamento usado. Para saber mais sobre como excluir uma conta de armazenamento, consulte [Como excluir uma conta de armazenamento de uma assinatura do Azure](http://msdn.microsoft.com/library/windowsazure/hh531562.aspx).
+	> [AZURE.NOTE] Excluir o serviço não exclui a conta de armazenamento criada quando o serviço foi inicialmente publicado e você continuará a ser cobrado pelo armazenamento usado. Para saber mais sobre como excluir uma conta de armazenamento, consulte [Como excluir uma conta de armazenamento de uma assinatura do Azure](http://msdn.microsoft.com/library/windowsazure/hh531562.aspx).
 
 ## Próximas etapas
 
@@ -197,4 +198,4 @@ Para obter mais informações, consulte o [Centro de desenvolvedores do Node.js]
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

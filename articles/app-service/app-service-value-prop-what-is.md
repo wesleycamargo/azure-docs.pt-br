@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/02/2015" 
+	ms.date="01/05/2016" 
 	ms.author="omark"/>
 
 # O que é o Serviço de Aplicativo do Azure?
 O Serviço de Aplicativo do Azure é o único serviço de nuvem que integra tudo o que você precisa compilar com rapidez e facilidade aplicativos Web e móveis para qualquer plataforma e qualquer dispositivo. Criado para desenvolvedores, o Serviço de Aplicativo é uma plataforma totalmente gerenciada com recursos avançados, como DevOps interno, integração contínua com Visual Studio Team Services e GitHub, suporte ao preparo e à produção, bem como a aplicação automática de patch.
 
-O Serviço de Aplicativo do Azure é um serviço único que inclui todos os recursos existentes de sites do Azure, Serviços Móveis do Azure e Serviços BizTalk do Azure durante a adição de novos recursos. [Saiba mais](http://azure.microsoft.com/documentation/services/app-service/) sobre como o Serviço de Aplicativo se relaciona com esses serviços existentes.
+O Serviço de Aplicativo do Azure é um serviço único que inclui todos os recursos existentes de sites do Azure, Serviços Móveis do Azure e Serviços BizTalk do Azure durante a adição de novos recursos. [Saiba mais](https://azure.microsoft.com/documentation/services/app-service/) sobre como o Serviço de Aplicativo se relaciona com esses serviços existentes.
 
 ## Por que o Serviço de Aplicativo?
 Voltada para o desenvolvimento rápido de aplicativos Web e móveis, bem como para automatizar processos de negócios, o Serviço de Aplicativo do Azure fornece um conjunto integrado de recursos empresariais por meio de uma experiência única de desenvolvimento de gerenciamento, oferecendo os seguintes benefícios:
@@ -29,7 +29,7 @@ Voltada para o desenvolvimento rápido de aplicativos Web e móveis, bem como pa
 
 - **Conecte-se a qualquer serviço e desbloqueie os seus dados** - conecte o aplicativo Web ou móvel a sistemas empresariais ou SaaS em minutos com conectores internos. Escolha entre mais de 50 conectores para sistemas corporativos, como SAP, Siebel e Oracle para serviços de SaaS corporativo populares, como Salesforce e Office 365, para serviços de Internet populares, como o Facebook, Twitter e Dropbox.
 
-- **Integração simplificada** - integre dados entre nuvens e automatize processos de negócios em minutos com uma experiência de design visual simples. Integre facilmente sua lógica com qualquer aplicativo móvel ou Web por meio de APIs REST padrão. Compile integração de aplicativos empresariais sofisticada, soluções B2B usando o EDI, políticas de negócios (mecanismo de regras) e muito mais com base na plataforma de BizTalk líder do setor.
+- **Integração simplificada** - integre dados entre nuvens e automatize processos de negócios em minutos com uma experiência de design visual simples. Integre com facilidade sua lógica a qualquer aplicativo móvel ou Web por meio de APIs REST padrão. Compile integração de aplicativos empresariais sofisticada, soluções B2B usando o EDI, políticas de negócios (mecanismo de regras) e muito mais com base na plataforma de BizTalk líder do setor.
 
 - **Produtividade incomparável do desenvolvedor** - Otimizado para DevOps, com suporte à integração contínua para o Visual Studio Team Services e Github para que você possa se concentrar em melhorar rapidamente seus aplicativos sem se preocupar com a infraestrutura. Implante atualizações de aplicativo com recursos internos de preparação, reversão e teste em produção.
 
@@ -47,7 +47,7 @@ O Serviço de Aplicativo permite que você crie os seguintes tipos de aplicativo
 - [**Aplicativos de API**](../app-service-api-apps-why-best-platform) - Compile e consuma APIs de nuvem com facilidade.
 - [**Aplicativos Lógicos**](../app-service-logic-what-are-logic-apps) - automatize o acesso e o uso de dados entre nuvens sem escrever código.
 
-Como um único serviço integrado, o Serviço de Aplicativo torna fácil compor os tipos de aplicativo acima em uma única solução, permitindo que você compile facilmente aplicativos Web e clientes móveis usando o mesmo back-end e integre com sistemas locais, bem como serviços populares, como Office 365 e salesforce.com.
+Como um único serviço integrado, o Serviço de Aplicativo facilita a composição dos tipos de aplicativo acima em uma única solução, permitindo que você compile facilmente aplicativos Web e clientes móveis usando o mesmo back-end e integre com sistemas locais, bem como serviços populares, como o Office 365 e o salesforce.com.
 
 ### Planos de serviço de aplicativo
 Os Planos de Serviço de Aplicativo representam um conjunto de recursos e capacidades que pode ser compartilhado entre seus aplicativos. Os Planos de Serviço de Aplicativo dão suporte a alguns tipos de preço (por exemplo, Free, Shared, Basic, Standard e Premium), e cada tipo tem seus próprios recursos. Você pode alterar rapidamente o plano do Serviço de Aplicativo no qual um aplicativo é hospedado sem tempo de inatividade. [Saiba mais sobre Planos de Serviço de Aplicativo.](../web-sites-web-hosting-plan-overview.md)
@@ -60,4 +60,4 @@ Com o Serviço de Aplicativo do Azure, isso é tão fácil quanto selecionar um 
 [Crie um novo aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751) agora mesmo e gratuitamente. Nenhum cartão de crédito é exigido, sem problemas.
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

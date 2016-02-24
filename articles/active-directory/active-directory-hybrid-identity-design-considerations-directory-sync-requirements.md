@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Considerações de design de identidade híbrida do Active Directory do Azure - determinar os requisitos de sincronização de diretório | Microsoft Azure"
+	pageTitle="Considerações sobre o design da identidade híbrida do Active Directory do Azure - determinar os requisitos de sincronização de diretório | Microsoft Azure"
 	description="Identificar quais requisitos são necessários para a sincronização de todos os usuários entre nos locais e nuvem para a empresa."
 	documentationCenter=""
 	services="active-directory"
@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="02/02/2016"
 	ms.author="billmath"/>
 
 # Determinar os requisitos de sincronização de diretório
@@ -57,12 +57,13 @@ Você também precisa determinar a sincronização de diretórios de requisitos 
  - Se sua empresa não sabe a resposta para essa pergunta, leia a seção "Permissões de sincronização de senha" no artigo [Instalar o serviço de sincronização do Active Directory do Azure](https://msdn.microsoft.com/library/azure/dn757602.aspx#BKMK_CreateAnADAccountForTheSyncService) e determine se você já tiver uma conta com essas permissões, ou se você precisar criar uma.
 - Se você tiver sincronização multi-floresta o servidor de sincronização é capaz de obter em cada floresta?
  
->[AZURE.NOTE]Certifique-se de fazer anotações de cada resposta e entender o raciocínio por trás de resposta. [Determinar os requisitos de resposta a incidentes](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md) vai ultrapassar as opções disponíveis. Ao responder essas perguntas, você selecionará a opção que melhor se ajusta às necessidades da sua empresa.
+>[AZURE.NOTE]
+Certifique-se de fazer anotações de cada resposta e entender o raciocínio por trás de resposta. [Determinar os requisitos de resposta a incidentes](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md) vai ultrapassar as opções disponíveis. Ao responder essas perguntas, você selecionará a opção que melhor se ajusta às necessidades da sua empresa.
 
 ## Próximas etapas
-[Determine os requisitos de autenticação multifator](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
+[Determinar os requisitos de autenticação multifator](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
 ## Consulte também
-[Visão geral de considerações de design](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[Visão geral de considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

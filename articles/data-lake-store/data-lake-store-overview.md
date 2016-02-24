@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="01/22/2016"
    ms.author="nitinme"/>
 
 # Visão geral do Repositório Azure Data Lake
 
 O Repositório Azure Data Lake é um repositório em hiper-escala corporativo para cargas de trabalho de análise de big data. O Azure Data Lake permite que você capture dados de qualquer tamanho, tipo e velocidade de ingestão em um único lugar para análises operacionais e exploratórias.
 
-> [AZURE.TIP]Use o [Roteiro de aprendizagem do Repositório do Data Lake](https://azure.microsoft.com/documentation/learning-paths/data-lake-store-self-guided-training/) para começar a explorar o serviço Repositório do Azure Data Lake.
+> [AZURE.TIP] Use o [Roteiro de aprendizagem do Repositório do Data Lake](https://azure.microsoft.com/documentation/learning-paths/data-lake-store-self-guided-training/) para começar a explorar o serviço Repositório do Azure Data Lake.
 
 O Repositório Azure Data Lake pode ser acessado no Hadoop (disponível com o cluster HDInsight) usando as APIs REST compatíveis com WebHDFS. Ele foi especificamente desenvolvido para permitir a análise dos dados armazenados e está ajustado para trabalhar em cenários de análise de dados. Ele já inclui todos os recursos corporativos — segurança, capacidade de gerenciamento, escalabilidade, confiabilidade e disponibilidade — essenciais para casos de uso reais.
 
@@ -55,6 +55,8 @@ O Repositório Data Lake também fornece segurança de classe empresarial para o
 
 O Repositório Azure Data Lake pode armazenar quaisquer dados em formato nativo, como estão, sem exigir transformações prévias. O Repositório Data Lake não exige a definição de um esquema antes do carregamento dos dados, deixando por conta da estrutura de análise individual interpretar os dados e definir um esquema no momento da análise. Ser capaz de armazenar arquivos de formatos e tamanhos arbitrários possibilita ao Repositório Data Lake lidar com dados estruturados, semiestruturados e não estruturados.
 
+Os contêineres para dados do Repositório Azure Data Lake são basicamente pastas e arquivos. Você opera nos dados armazenados usando SDKs, o Portal do Azure e o Azure PowerShell. Desde que você coloque os dados no repositório usando essas interfaces e os contêineres apropriados, é possível armazenar qualquer tipo de dados. O Repositório Data Lake não realiza qualquer manipulação especial de dados com base no tipo de dados que armazena.
+
 
 ## <a name="DataLakeStoreSecurity"></a>Protegendo os dados no Repositório Azure Data Lake
 
@@ -86,4 +88,4 @@ Veja [Introdução ao Repositório do Data Lake usando o Portal do Azure](data-l
 - [Introdução ao Repositório Azure Data Lake usando o SDK do .NET](data-lake-store-get-started-net-sdk.md)
   
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="01/21/2016"
 	ms.author="wesmc"/>
 
 # Tratando conflitos de gravação do banco de dados
@@ -125,7 +125,7 @@ Dois ou mais clientes podem gravar alterações no mesmo item, ao mesmo tempo, e
 			public string Version { set; get; }
 		}
 
-	> [AZURE.NOTE]Ao usar tabelas sem tipo, habilite a simultaneidade otimista para adicionar o sinalizador Version a SystemProperties da tabela.
+	> [AZURE.NOTE] Ao usar tabelas sem tipo, habilite a simultaneidade otimista para adicionar o sinalizador Version a SystemProperties da tabela.
 	>
 	>`````
 	//Enable optimistic concurrency by retrieving __version
@@ -369,4 +369,4 @@ Este tutorial demonstrou como habilitar um aplicativo da Windows Store para trat
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 [Propriedades do sistema]: http://go.microsoft.com/fwlink/?LinkId=331143
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

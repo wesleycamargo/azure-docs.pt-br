@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="02/05/2016"
 	ms.author="nitinme"/>
 
 # Instalar e usar o Spark no cluster Hadoop do HDInsight usando Ação de Script
 
-> [AZURE.IMPORTANT]Este artigo foi substituído. Agora, o HDInsight oferece o Spark como um tipo de cluster de primeira classe para clusters baseados no Windows, o que significa que agora você pode criar diretamente um cluster do Spark sem modificar um cluster do Hadoop usando Ação de Script. Usando o tipo de cluster Spark, você obtém um cluster do HDInsight versão 3.2 com o Spark versão 1.3.1. Para instalar versões diferentes do Spark, você poderá usar uma Ação de Script. O HDInsight fornece um exemplo de script de Ação de Script.
+> [AZURE.IMPORTANT] Este artigo foi substituído. Agora, o HDInsight oferece o Spark como um tipo de cluster de primeira classe para clusters baseados no Windows, o que significa que agora você pode criar diretamente um cluster do Spark sem modificar um cluster do Hadoop usando Ação de Script. Usando o tipo de cluster Spark, você obtém um cluster do HDInsight versão 3.2 com o Spark versão 1.3.1. Para instalar versões diferentes do Spark, você poderá usar uma Ação de Script. O HDInsight fornece um exemplo de script de Ação de Script.
 
 Saiba como instalar o Spark no HDInsight baseado no Windows usando a Ação de Script e como executar consultas Spark em clusters HDInsight.
 
@@ -50,7 +50,7 @@ Um exemplo de script para instalar o Spark em um cluster HDInsight está dispon�
 
 Você pode modificar esse script ou criar seu próprio script para instalar outras versões do Spark.
 
-> [AZURE.NOTE]O script de exemplo funciona apenas com os clusters HDInsight versões 3.1 e 3.2. Para obter mais informações sobre as versões do cluster HDInsight, consulte [Versões do cluster HDInsight](hdinsight-component-versioning.md).
+> [AZURE.NOTE] O script de exemplo funciona apenas com os clusters HDInsight versões 3.1 e 3.2. Para obter mais informações sobre as versões do cluster HDInsight, consulte [Versões do cluster HDInsight](hdinsight-component-versioning.md).
 
 1. Inicie a criação de um cluster usando a opção **CRIAÇÃO PERSONALIZADA**, conforme descrito em [Criar clusters Hadoop no HDInsight](hdinsight-provision-clusters.md#portal). Selecione a versão do cluster dependendo do seguinte:
 
@@ -118,7 +118,7 @@ Execute as seguintes etapas para executar consultas Spark de um shell interativo
 
 O SQL do Spark permite que você use o Spark para executar consultas relacionais expressas em SQL (Structured Query Language), HiveQL ou Scala. Nesta seção, observaremos o uso do Spark para executar uma consulta de Hive em uma tabela de exemplo do Hive. A tabela de Hive usada nesta seção (chamada **hivesampletable**) fica disponível por padrão quando você cria um cluster.
 
->[AZURE.NOTE]O exemplo abaixo foi criado no **Spark 1.2.0**, que será instalado se você executar a ação de script durante a criação do cluster HDInsight 3.2.
+>[AZURE.NOTE] O exemplo abaixo foi criado no **Spark 1.2.0**, que será instalado se você executar a ação de script durante a criação do cluster HDInsight 3.2.
 
 1. No Portal do Azure, habilite a Área de Trabalho Remota para o cluster criado com o Spark instalado e, em seguida, acesse remotamente o cluster. Para instruções, consulte [Conectar-se a clusters HDInsight usando RDP](hdinsight-administer-use-management-portal.md#rdp).
 
@@ -201,7 +201,7 @@ Nesta seção, você usa a <a href="http://www.scala-sbt.org/0.13/docs/index.htm
 
 
 
-	>[AZURE.NOTE]Lembre-se de manter as linhas em branco no arquivo.
+	>[AZURE.NOTE] Lembre-se de manter as linhas em branco no arquivo.
 
 
 3. Na pasta **SimpleScalaApp**, crie uma estrutura de diretório **\\src\\main\\scala** e cole o programa Scala (**SimpleApp.scala**) que você criou anteriormente na pasta \\src\\main\\scala.
@@ -317,4 +317,4 @@ Consulte [Personalizar os clusters HDInsight usando a Ação de Script](hdinsigh
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 [powershell-install-configure]: ../install-configure-powershell.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

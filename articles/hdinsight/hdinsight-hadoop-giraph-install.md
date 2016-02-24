@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="02/05/2016"
 	ms.author="nitinme"/>
 
 # Instalar e usar o Giraph no HDInsight
@@ -27,9 +27,9 @@ Você pode instalar o Giraph em qualquer tipo de cluster (Hadoop, Storm, HBase, 
 **Artigos relacionados**
 
 - [Instalar o Giraph em clusters Hadoop do HDInsight (Linux)](hdinsight-hadoop-giraph-install-linux.md)
-- [Criar clusters Hadoop no HDInsight](hdinsight-provision-clusters.md): informações gerais sobre como criar clusters.
-- [Personalizar clusters HDInsight usando a Ação de Script][hdinsight-cluster-customize]\: informações gerais sobre como personalizar os clusters HDInsight usando Ação de Script.
-- [Desenvolver scripts de Ação de Script para o HDInsight](hdinsight-hadoop-script-actions.md)
+- [Criar clusters Hadoop no HDInsight](hdinsight-provision-clusters.md): informações gerais sobre como criar clusters HDInsight.
+- [Personalizar clusters HDInsight usando a Ação de Script][hdinsight-cluster-customize]\: informações gerais sobre como personalizar os clusters HDInsight usando a Ação de Script.
+- [Desenvolver scripts de Ação de Script para o HDInsight](hdinsight-hadoop-script-actions.md).
 
 ## O que é Giraph?
 
@@ -165,12 +165,12 @@ Consulte [Personalizar os clusters HDInsight usando a Ação de Script](hdinsigh
 ## Consulte também
 
 - [Instalar o Giraph em clusters Hadoop do HDInsight (Linux)](hdinsight-hadoop-giraph-install-linux.md)
-- [Criar clusters Hadoop no HDInsight](hdinsight-provision-clusters.md): informações gerais sobre como criar clusters.
-- [Personalizar clusters HDInsight usando a Ação de Script][hdinsight-cluster-customize]\: informações gerais sobre como personalizar os clusters HDInsight usando Ação de Script.
-- [Desenvolver scripts de Ação de Script para o HDInsight](hdinsight-hadoop-script-actions.md)
-- [Instalar e usar Spark em clusters HDInsight][hdinsight-install-spark]\: exemplo de Ação de Script sobre a instalação do Spark.
+- [Criar clusters Hadoop no HDInsight](hdinsight-provision-clusters.md): informações gerais sobre como criar clusters HDInsight.
+- [Personalizar clusters HDInsight usando a Ação de Script][hdinsight-cluster-customize]\: informações gerais sobre como personalizar os clusters HDInsight usando a Ação de Script.
+- [Desenvolver scripts de Ação de Script para o HDInsight](hdinsight-hadoop-script-actions.md).
+- [Instalar e usar o Spark em clusters HDInsight][hdinsight-install-spark]\: exemplo de Ação de Script sobre a instalação do Spark.
 - [Instalar R em clusters HDInsight][hdinsight-install-r]\: exemplo de Ação de Script sobre a instalação do R.
-- [Instalar Solr em clusters HDInsight](hdinsight-hadoop-solr-install.md): exemplo de Ação de Script sobre a instalação do Solr.
+- [Instalar o Solr em clusters HDInsight](hdinsight-hadoop-solr-install.md): exemplo de Ação de Script sobre a instalação do Solr.
 
 
 
@@ -183,4 +183,4 @@ Consulte [Personalizar os clusters HDInsight usando a Ação de Script](hdinsigh
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0211_2016-->

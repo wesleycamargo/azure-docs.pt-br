@@ -2,10 +2,10 @@
 	pageTitle="Conectar-se ao Banco de Dados SQL com uma consulta C# | Microsoft Azure"
 	description="Escreva um programa em C# para consultar um Banco de Dados SQL e se conectar a ele Informações sobre endereços IP, cadeias de conexão, logon seguro e Visual Studio gratuito."
 	services="sql-database"
-	keywords="consulta de banco de dados c#, consulta c#, conectar-se ao banco de dados"
+	keywords="consulta de banco de dados c#, consulta c#, conectar-se ao banco de dados, SQL C#"
 	documentationCenter=""
 	authors="MightyPen"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="10/09/2015"
+	ms.date="02/05/2016"
 	ms.author="genemi"/>
 
 
@@ -36,7 +36,7 @@ Este artigo descreve todas as etapas para as pessoas que não tenham experiênci
 Para executar o exemplo de código de consulta C#, você deverá ter:
 
 
-- Uma conta e uma assinatura do Azure. Você pode se inscrever em uma [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
+- Uma conta e uma assinatura do Azure. Você pode se [inscrever em uma avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 
 - Um banco de dados de demonstração **AdventureWorksLT** no serviço Banco de Dados SQL do Azure.
@@ -46,7 +46,7 @@ Para executar o exemplo de código de consulta C#, você deverá ter:
 - Visual Studio 2013 - atualização 4 (ou posterior). A Microsoft agora oferece a Comunidade do Visual Studio *gratuitamente*.
  - [Comunidade do Visual Studio, download](http://www.visualstudio.com/products/visual-studio-community-vs)
  - [Mais opções para o Visual Studio gratuito](http://www.visualstudio.com/products/free-developer-offers-vs.aspx)
- - Ou veja como a próxima [etapa](#InstallVSForFree) deste tópico descreve como o [Portal do Azure](http://portal.azure.com/) orienta você pela instalação do Visual Studio.
+ - Ou veja como a próxima [etapa](#InstallVSForFree) deste tópico descreve como o [Portal do Azure](https://portal.azure.com/) orienta você pela instalação do Visual Studio.
 
 
 <a name="InstallVSForFree" id="InstallVSForFree"></a>
@@ -59,13 +59,13 @@ Para executar o exemplo de código de consulta C#, você deverá ter:
 Caso seja necessário instalar o Visual Studio, você poderá:
 
 - Instalar a Comunidade do Visual Studio gratuitamente ao usar seu navegador para acessar as páginas da Web do produto Visual Studio que ofereçam downloads gratuitos e outras opções ou
-- Permita que o [Portal do Azure](http://portal.azure.com/) oriente você na página de download, que será descrita a seguir.
+- Permita que o [Portal do Azure](https://portal.azure.com/) oriente você na página de download, que será descrita a seguir.
 
 
 ### Visual Studio por meio do Portal do Azure
 
 
-1. Faça logon por meio do [Portal do Azure](http://portal.azure.com/), http://portal.azure.com/.
+1. Faça logon por meio do [Portal do Azure](https://portal.azure.com/), http://portal.azure.com/.
 
 2. Clique em **PROCURAR* TUDO** > **Bancos de dados SQL**. Será aberta uma folha para a pesquisa de bancos de dados.
 
@@ -127,7 +127,7 @@ Nosso exemplo de C# usa o assembly do .NET Framework **System.Configuration.dll*
 ## Etapa 4: Obter a cadeia de conexão
 
 
-Use o [Portal do Azure](http://portal.azure.com/) para copiar a cadeia de conexão necessária para a conexão ao banco de dados SQL.
+Use o [Portal do Azure](https://portal.azure.com/) para copiar a cadeia de conexão necessária para a conexão ao banco de dados SQL.
 
 Sua primeira utilização será para conectar o Visual Studio ao Banco de Dados SQL do Azure **AdventureWorksLT**.
 
@@ -305,7 +305,7 @@ namespace ConnectAndQuery_Example
 Tentamos manter o exemplo C# pequeno. Ainda assim, adicionamos código para ler um arquivo de configuração para atendermos a várias solicitações de clientes como você. Nós concordamos que os programas de qualidade de produção devem usar arquivos de configuração em vez de literais codificados no .exe.
 
 
-> [AZURE.WARNING]Para fins de brevidade do código, optamos por não incluir o código de manipulação de exceção e de lógica de repetição neste exemplo educativo. No entanto, os programas de produção que interagem com um banco de dados de nuvem devem incluir ambos.
+> [AZURE.WARNING] Para fins de brevidade do código, optamos por não incluir o código de manipulação de exceção e de lógica de repetição neste exemplo educativo. No entanto, os programas de produção que interagem com um banco de dados de nuvem devem incluir ambos.
 >
 > [Este](sql-database-develop-csharp-retry-windows.md) é um link para um exemplo de código com lógica de repetição.
 
@@ -316,7 +316,7 @@ Tentamos manter o exemplo C# pequeno. Ainda assim, adicionamos código para ler 
 O programa cliente C# não poderá se conectar ao Banco de Dados SQL até que o endereço IP do computador cliente tenha sido adicionado ao firewall do Banco de Dados SQL. O programa falhará com uma mensagem de erro útil que indica o endereço IP necessário.
 
 
-Você pode usar o [Portal do Azure](http://portal.azure.com/) para adicionar o endereço IP.
+Você pode usar o [Portal do Azure](https://portal.azure.com/) para adicionar o endereço IP.
 
 
 
@@ -358,4 +358,4 @@ Para saber mais, consulte <br/>[Como definir as configurações de firewall no B
 
 [50-VSCopyToOutputDirectoryProperty]: ./media/sql-database-connect-query/connqry-vs-appconfig-copytoputputdir-h.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/31/2015"
+   ms.date="01/05/2016"
    ms.author="alkohli" />
 
 # Configurar o MPIO (Multipath I/O) para seu dispositivo StorSimple
@@ -43,7 +43,7 @@ Para instalar esse recurso no host do Windows Server, conclua o procedimento a s
 
 #### Para instalar o MPIO no host
 
-1. Abra o Gerenciador de Servidores no host do Windows Server. Por padrão, o Gerenciador de Servidores começa quando um membro do grupo Administradores faz logon em um computador que está executando o Windows Server 2012 R2 ou o Windows Server 2012. Se o Gerenciador de Servidores ainda não estiver aberto, clique em **Iniciar > Gerenciador de Servidores**. ![Gerenciador de Servidores](./media/storsimple-configure-mpio-windows-server/IC740997.png)
+1. Abra o Gerenciador de Servidores no host do Windows Server. Por padrão, o Gerenciador de Servidores começa quando um membro do grupo Administradores faz logon em um computador que está executando o Windows Server 2012 R2 ou o Windows Server 2012. Se o Gerenciador do Servidor ainda não estiver aberto, clique em **Iniciar > Gerenciador do Servidor**. ![Gerenciador de Servidores](./media/storsimple-configure-mpio-windows-server/IC740997.png)
 2. Clique em **Gerenciador de Servidores > Painel de Controle > Adicionar funções e recursos**. Isso inicia o assistente **Adicionar Funções e Recursos**. ![Adicionar Assistente de Funções e Recursos 1](./media/storsimple-configure-mpio-windows-server/IC740998.png)
 3. No assistente **Adicionar Funções e Recursos**, faça o seguinte:
 
@@ -111,7 +111,7 @@ Depois do MPIO ser configurado no Windows Server, o(s) volume(s) criado(s) no di
 
 13. Inicialize o disco e crie um novo volume. Durante o processo de formato, selecione um tamanho de bloco de 64 KB. ![Gerenciamento de disco](./media/storsimple-configure-mpio-windows-server/IC741008.png)
 14. Em **Gerenciamento de Disco**, clique com o botão direito em **Disco** e selecione **Propriedades**.
-15. No Modelo StorSimple ####, na caixa de diálogo **Propriedades do Dispositivo de Disco com Vários Caminhos**, clique na **guia MPIO**. ![Prop do Dispositivo de Disco com Vários Caminhos do StorSimple 8100.](./media/storsimple-configure-mpio-windows-server/IC741009.png)
+15. No Modelo StorSimple ####, na caixa de diálogo **Propriedades do Dispositivo de Disco com Vários Caminhos**, clique na guia **MPIO**. ![Prop do Dispositivo de Disco com Vários Caminhos do StorSimple 8100.](./media/storsimple-configure-mpio-windows-server/IC741009.png)
 
 16. Na seção **Nome DSM**, clique em **Detalhes** e verifique se os parâmetros são definidos para os parâmetros padrão. Os parâmetros padrão são:
 
@@ -173,4 +173,4 @@ O procedimento a seguir descreve como adicionar sessões quando um dispositivo S
 Saiba mais sobre [usar o serviço StorSimple Manager para modificar a configuração do dispositivo StorSimple](storsimple-modify-device-config.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

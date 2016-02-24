@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="01/05/2016" 
 	ms.author="awills"/>
 
 # API do Application Insights para métricas e eventos personalizados 
@@ -300,7 +300,7 @@ Use essa chamada para acompanhar os tempos de resposta e taxas de êxito de cham
             }
 ```
 
-Lembre-se de que o servidor SDKs inclui um [módulo de dependência](app-insights-dependencies.md) que descobre e acompanha determinadas chamadas de dependência automaticamente - por exemplo, para APIs de REST e bancos de dados. Você precisa instalar um agente em seu servidor para fazer com que o módulo funcione. Se você desejar controlar chamadas que não são detectadas pelo acompanhamento automatizado, ou se você não quiser instalar o agente, você usaria essa chamada.
+Lembre-se de que os SDKs de servidor incluem um [módulo de dependência](app-insights-dependencies.md) que descobre e rastreia automaticamente determinadas chamadas de dependência; por exemplo, para bancos de dados e APIs REST. Você precisa instalar um agente em seu servidor para fazer com que o módulo funcione. Se você desejar controlar chamadas que não são detectadas pelo acompanhamento automatizado, ou se você não quiser instalar o agente, você usaria essa chamada.
 
 Para desativar o módulo padrão de rastreamento de dependência, edite [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) e exclua a referência a `DependencyCollector.DependencyTrackingTelemetryModule`.
 
@@ -348,7 +348,7 @@ Em um aplicativo MVC Web ASP.NET, por exemplo:
             </script>
         }
 
-Não é necessário usar o nome do usuário real de conexão. Só deve ser uma ID exclusiva para esse usuário. Não deve incluir espaços ou os caracteres `,;=|`.
+Não é necessário usar o nome do usuário real de conexão. Só deve ser uma ID exclusiva para esse usuário. Não deve incluir espaços, nem os caracteres `,;=|`.
 
 A ID de usuário também é definida em um cookie de sessão e enviada ao servidor. Se o servidor SDK estiver instalado, a ID de usuário autenticado será enviada como parte das propriedades de contexto de telemetria do cliente e servidor, para que você possa filtrar e pesquisar nela.
 
@@ -479,7 +479,7 @@ Se for mais conveniente, você poderá coletar os parâmetros de um evento em um
 
     telemetry.TrackEvent(event);
 
-
+> [AZURE.WARNING]Não reutilize a mesma instância de item de telemetria (`event` neste exemplo) para chamar Track*() várias vezes. Isso pode fazer com que a telemetria seja enviada com a configuração incorreta.
 
 #### <a name="timed"></a> Eventos de tempo
 
@@ -666,7 +666,7 @@ Há alguns limites no número de métricas e eventos por aplicativo (isto é, po
  * Até 500 pontos de dados por segundo para todos os outros dados, incluindo a telemetria padrão enviada pelos módulos SDK e eventos personalizados, métricas e outra telemetria enviada pelo seu código. (100 por segundo para o tipo de preço livre).
 1. Volume total mensal de dados, dependendo de seu [tipo de preço](app-insights-pricing.md).
 1.	Máximo de 200 nomes exclusivos de métrica e 200 nomes de propriedade exclusivo para seu aplicativo. As métricas incluem o envio de dados por meio de TrackMetric, bem como as medidas em outros tipos de dados como eventos. Os nomes de propriedades e métricas são globais por chave de instrumentação, não no escopo do tipo de dados.
-2.	As propriedades podem ser usadas para filtragem e agrupamento, somente enquanto tiverem menos de 100 valores exclusivos para cada propriedade. Depois que os valores exclusivos excederem 100, a propriedade ainda pode ser usada para pesquisa e filtragem, mas não para filtros.
+2.	As propriedades podem ser usadas para filtragem e agrupamento, somente enquanto tiverem menos de 100 valores exclusivos para cada propriedade. Depois que os valores exclusivos excederem 100, a propriedade ainda pode ser usada para pesquisa, mas não para filtros.
 3.	As propriedades padrão como Solicitar Nome e URL da Página estão limitadas a 1000 valores exclusivos por semana. Depois de 1000 valores exclusivos, os valores adicionais são marcados como "Outros valores". O valor original ainda pode ser usado para filtragem e pesquisa de texto completo.
 
 *Como evitar atingir o limite de taxa de dados?*
@@ -705,9 +705,9 @@ Há alguns limites no número de métricas e eventos por aplicativo (isto é, po
 
 
 
-* *P: Existe uma API REST?*
+* *Há uma API REST para obter dados do portal?*
 
-    Sim, mas nós ainda não a publicamos.
+    Sim, em breve. Enquanto isso, use a [exportação contínua](app-insights-export-telemetry.md).
 
 ## <a name="next"></a>Próximas etapas
 
@@ -736,4 +736,4 @@ Há alguns limites no número de métricas e eventos por aplicativo (isto é, po
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

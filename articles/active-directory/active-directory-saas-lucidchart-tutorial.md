@@ -2,7 +2,7 @@
     pageTitle="Tutorial: Integração do Active Directory do Azure com o Lucidchart | Microsoft Azure" 
     description="Saiba como usar o Lucidchart com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" manager="stevenpo"/>
 <tags 
     ms.service="active-directory" 
@@ -10,8 +10,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o Lucidchart
   
@@ -50,7 +50,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
     ![Adicionar aplicativo](./media/active-directory-saas-lucidchart-tutorial/IC749321.png "Adicionar aplicativo")
 
-5.  No diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+5.  Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 
     ![Adicionar um aplicativo da galeria](./media/active-directory-saas-lucidchart-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 
@@ -79,7 +79,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-lucidchart-tutorial/IC791188.png "Configurar a URL do Aplicativo")
 
-4.  Na página **Configurar logon único no Lucidchart**, para baixar os metadados, clique em **Baixar metadados** e salve o arquivo de dados no computador.
+4.  Na página **Configurar logon único no Lucidchart**, para baixar seus metadados, clique em **Baixar metadados** e, em seguida, salve o arquivo de dados em seu computador.
 
     ![Configurar o logon único](./media/active-directory-saas-lucidchart-tutorial/IC791189.png "Configurar o logon único")
 
@@ -118,10 +118,10 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
 
     ![Atribuir Usuários](./media/active-directory-saas-lucidchart-tutorial/IC791197.png "Atribuir Usuários")
 
-3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar sua atribuição.
+3.  Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
 
     ![Sim](./media/active-directory-saas-lucidchart-tutorial/IC767830.png "Sim")
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

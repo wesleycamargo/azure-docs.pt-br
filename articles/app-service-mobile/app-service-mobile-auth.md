@@ -3,7 +3,7 @@
 	description="Referência conceitual e visão geral do recurso Autenticação/Autorização para os Aplicativos Móveis do Azure"
 	services="app-service\mobile"
 	documentationCenter=""
-	authors="mattchenderson" 
+	authors="mattchenderson"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="02/04/2016"
 	ms.author="mahender"/>
 
 # Autenticação e Autorização nos Aplicativos Móveis do Azure
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## O que é a Autenticação/Autorização do Serviço de Aplicativo?
 
@@ -52,7 +50,7 @@ Depois que tudo estiver configurado no back-end, você pode modificar seu client
 - Usando uma única linha de código, permita que o SDK do cliente dos Aplicativos Móveis conectem os usuários.
 - Utilize um SDK publicado por um provedor de identidade específico para estabelecer a identidade e, em seguida, obtenha acesso ao Serviço de Aplicativo.
 
->[AZURE.TIP]A maior parte dos aplicativos deve usar um SDK do provedor para obter uma experiência de logon que se parece mais com a nativa e para aproveitar o suporte de atualização e outros benefícios específicos do provedor.
+>[AZURE.TIP] A maior parte dos aplicativos deve usar um SDK do provedor para obter uma experiência de logon que se parece mais com a nativa e para aproveitar o suporte de atualização e outros benefícios específicos do provedor.
 
 ### Como funciona a autenticação sem um SDK do provedor
 
@@ -106,4 +104,4 @@ Você também pode encontrar mais detalhes sobre os fluxos descritos acima na [v
 [Como configurar seu aplicativo para usar o logon da Conta da Microsoft]: app-service-mobile-how-to-configure-microsoft-authentication.md
 [Como configurar seu aplicativo para usar o logon do Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

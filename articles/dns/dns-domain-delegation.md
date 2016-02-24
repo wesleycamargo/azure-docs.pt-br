@@ -71,8 +71,8 @@ Para configurar a delegação, você precisa saber os nomes de servidor de nomes
 
 Usando o Azure PowerShell, os registros NS autoritativos podem ser obtidos conforme descrito a seguir (o nome do Registro “@” é usado para fazer referência a registros no ápice da zona).
 
-	PS C:\> $zone = Get-AzureRmDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
-	PS C:\> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
+	PS C:> $zone = Get-AzureRmDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
+	PS C:> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
 
 	Name              : @
 	ZoneName          : contoso.com
@@ -87,6 +87,8 @@ Usando o Azure PowerShell, os registros NS autoritativos podem ser obtidos confo
 Neste exemplo, servidores de nomes “ns1-04.azure-dns.com”, “ns2-04.azure-dns .net”, “ns3-04.azure-dns.org” e “ns4-04.azure-dns.info” foram atribuídos à zona “contoso.com”.
 
 Cada registrador tem suas próprias ferramentas de gerenciamento de DNS para alterar os registros de servidor de nomes para um domínio. Na página de gerenciamento do DNS do registrador, edite os registros NS e substitua-os por aqueles criados pelo Azure DNS.
+
+>[AZURE.NOTE]Ao delegar um domínio ao DNS do Azure, você deve usar os nomes do servidor de nomes fornecidos pelo DNS do Azure. Você não deve usar 'registros cola' para apontar para endereços IP do servidor de nomes do DNS do Azure, pois esses endereços IP podem mudar no futuro. Atualmente não há suporte às delegações usando nomes do servidores de nomes em sua própria zona (às vezes chamados de 'servidores de nome intuitivos') no DNS do Azure.
 
 Após concluir a delegação, você pode verificar se a resolução de nomes está funcionando, usando uma ferramenta como “nslookup” para consultar o registro SOA da zona (que também é criado automaticamente quando a zona é criada).
 
@@ -153,10 +155,8 @@ Da mesma forma que é feito ao delegar usando um registrador, podemos verificar 
 
 [Gerenciar registros DNS](dns-operations-recordsets.md)
 
-[Visão geral do Gerenciador de Tráfego](traffic-manager-overview.md)
-
 [Automatizar operações do Azure com o SDK do .NET](dns-sdk.md)
 
 [Referência da API REST do Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

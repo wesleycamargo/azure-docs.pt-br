@@ -14,14 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="11/30/2015"
+   ms.date="01/31/2016"
    ms.author="juliako"/>
 
-# SDK do Azure para .NET 2.8 e 2.8.1
+# SDK do Azure para .NET 2.8, 2.8.1 e 2.8.2
 
 ##Visão geral
  
-Este artigo contém as notas de versão (que inclui problemas conhecidos e alterações recentes) do SDK do Azure para o .NET versões 2.8 e 2.8.1.
+Esse artigo contém as notas de versão (que inclui problemas conhecidos e alterações recentes) do SDK do Azure para .NET versões 2.8, 2.8.1 e 2.8.2.
 
 Para ter acesso à lista completa dos novos recursos e atualizações desta versão, consulte a notificação do [SDK 2.8 do Azure para Visual Studio 2013 e Visual Studio 2015](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/).
 
@@ -37,7 +37,7 @@ Para ter acesso à lista completa dos novos recursos e atualizações desta vers
 
 ####Problemas conhecidos
 
-O SDK .NET 2.8 do Azure permite criar pacotes de Serviço de Nuvem do .NET 4.5.2. No entanto, a estrutura do .NET 4.5.2 só será instalada nas imagens do SO convidado padrão na versão do SO convidado de janeiro de 2016. Até lá, a estrutura do .NET 4.5.2 estará disponível por meio de uma versão distinta do SO convidado, de 2 de novembro de 2015. Confira a página [Matriz de Compatibilidade de Versões de SO Convidado e do SDK do Azure](../cloud-services-guestos-update-matrix.md) para acompanhar quando a imagem será lançada. Quando a imagem de 2 de novembro de 2015 for lançada, você poderá optar por usar essa imagem atualizando seu arquivo de configuração do Serviço de Nuvem (.cscfg). No arquivo de configuração de serviço, defina o atributo osVersion do elemento ServiceConfiguration para a cadeia de caracteres "WA-GUEST-OS-4.26\_201511-02". Se você optar por aceitar usar essa imagem, você não receberá mais atualizações automáticas para o SO convidado. Para obter as atualizações automáticas, a osVersion deve ser definida como "*" e o .NET 4.5.2 só estará disponível por meio de atualizações automáticas em janeiro de 2016.
+O SDK .NET 2.8 do Azure permite criar pacotes de Serviço de Nuvem do .NET 4.5.2. No entanto, a estrutura do .NET 4.5.2 só será instalada nas imagens do SO convidado padrão na versão do SO convidado de janeiro de 2016. Até lá, a estrutura do .NET 4.5.2 estará disponível por meio de uma versão distinta do SO convidado, de 2 de novembro de 2015. Confira a página [Matriz de Compatibilidade de Versões de SO Convidado e do SDK do Azure](../cloud-services/cloud-services-guestos-update-matrix.md) para acompanhar quando a imagem será lançada. Quando a imagem de 2 de novembro de 2015 for lançada, você poderá optar por usar essa imagem atualizando seu arquivo de configuração do Serviço de Nuvem (.cscfg). No arquivo de configuração de serviço, defina o atributo osVersion do elemento ServiceConfiguration para a cadeia de caracteres "WA-GUEST-OS-4.26\_201511-02". Se você optar por aceitar usar essa imagem, você não receberá mais atualizações automáticas para o SO convidado. Para obter as atualizações automáticas, a osVersion deve ser definida como "*" e o .NET 4.5.2 só estará disponível por meio de atualizações automáticas em janeiro de 2016.
 
 ###Fábrica de dados do Azure
 
@@ -84,7 +84,15 @@ Para saber mais, confira [SDK 2.8 do Azure para Visual Studio 2013 e Visual Stud
 2. Os clientes do Python podem enfrentar problemas de depuração. A equipe de serviço está criando uma correção para isso, mas se os clientes forem afetados, informe à Microsoft nos fóruns ou nas seções de comentários do blog de comunicado ou das notas de versão. 
 3. Os clientes em determinadas regiões (por exemplo, Sul da Índia) devem passar por erros de provisionamento do Serviço de Aplicativo. Isso é consistente com o portal, e os clientes que tiverem esse problema podem usar o portal do Azure para solicitar acesso a fim de publicar nessas regiões geográficas. Depois que eles solicitarem o acesso a essas regiões usando o portal do Azure, o provisionamento deve funcionar. 
 
+##SDK do Azure para .NET 2.8.2
 
+Após a instalação das ferramentas 2.8.2, os clientes podem enfrentar o problema a seguir.
+
+- Se você estiver usando o Windows 10 e não tiver instalado o Internet Explorer, poderá receber um erro de "Internet Explorer não encontrado". Para resolver o problema, instale o Internet Explorer usando a caixa de diálogo Adicionar/Remover Componentes do Windows.
+
+Se você observar esse problema, use o recurso Enviar um Smiley para relatá-lo.
+
+Para obter mais informações, confira [esta](https://azure.microsoft.com/blog/announcing-azure-sdk-2-8-2-for-net/) postagem.
 ##Outras atualizações
 
 Para obter outras atualizações, confira a [postagem de comunicado do SDK do Azure 2.8](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/).
@@ -95,4 +103,4 @@ Para obter outras atualizações, confira a [postagem de comunicado do SDK do Az
 
 [Informações de suporte e de desativação do SDK do Azure para .NET e APIs](https://msdn.microsoft.com/library/azure/dn479282.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Chamar Programas MapReduce da Data Factory
-Este artigo descreve como invocar um programa **MapReduce** de um pipeline do Azure Data Factory usando a **Atividade de HDInsight MapReduce**.
+A atividade MapReduce do HDInsight em um [pipeline](data-factory-create-pipelines.md) do Data Factory executa programas MapReduce no [seu próprio](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) cluster HDInsight baseado em Windows/Linux, ou em um [sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Este artigo se baseia no artigo [atividades de transformação de dados](data-factory-data-transformation-activities.md) que apresenta uma visão geral de transformação de dados e as atividades de transformação para as quais há suporte.
 
 ## Introdução 
 Um pipeline em uma fábrica de dados do Azure processa dados nos serviços de armazenamento vinculados utilizando serviços de computação vinculados. Ela contém uma sequência de atividades em que cada atividade executa uma operação de processamento específica. Este artigo descreve como usar atividade do HDInsight MapReduce.
  
-Consulte [Pig](data-factory-pig-activity) e [Hive](data-factory-hive-activity.md) para obter detalhes sobre como executar scripts do Pig/Hive em um cluster do HDInsight baseado no Windows/Linux a partir de um pipeline de fábrica de dados do Azure usando atividades do HDInsight Pig e Hive.
+Consulte [Pig](data-factory-pig-activity.md) e [Hive](data-factory-hive-activity.md) para obter detalhes sobre como executar scripts do Pig/Hive em um cluster do HDInsight baseado no Windows/Linux a partir de um pipeline de fábrica de dados do Azure usando atividades do HDInsight Pig e Hive.
 
 ## JSON para atividade do HDInsight MapReduce 
 
@@ -103,7 +103,7 @@ O pipeline neste exemplo executa o programa de contagem de palavras de mapa/redu
 ### Serviços vinculados
 Primeiro, crie um serviço vinculado para vincular o armazenamento do Azure que é usado pelo cluster do Azure HDInsight à fábrica de dados do Azure. Se você copiar/colar o código a seguir, não se esqueça de substituir o **nome da conta** e a **chave de conta** pelo nome e chave do armazenamento do Azure.
 
-#### Serviço vinculado a armazenamento
+#### Serviço vinculado de armazenamento do Azure
 
 	{
 	    "name": "StorageLinkedService",
@@ -130,7 +130,6 @@ Em seguida, você cria um serviço vinculado para vincular seu cluster do HDInsi
 	        }
 	    }
 	}
-
 
 ### Conjunto de dados
 
@@ -221,4 +220,4 @@ linkedServiceName | refere-se ao serviço vinculado do HDInsight criado anterior
 [Azure Classic Portal]: http://portal.azure.com
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -6,6 +6,6 @@
 | Tamanho de marca de difusão | 10K | 10K | Ilimitado |
 | N º de marcas (grupos de difusão) | 3K | 3K, a menos que difundido para menos de 5 dispositivos | Ilimitado |
 
-Para obter detalhes adicionais sobre esses limites e informações sobre preços, consulte [Preços de Hubs de Notificação](http://azure.microsoft.com/pricing/details/notification-hubs/).
+Para obter detalhes adicionais sobre esses limites e informações sobre preços, consulte [Preços de Hubs de Notificação](https://azure.microsoft.com/pricing/details/notification-hubs/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

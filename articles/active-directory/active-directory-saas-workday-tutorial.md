@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Tutorial: Integração do Active Directory do Azure com o Workday
@@ -148,7 +148,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 		
            >[AZURE.NOTE]Você pode obter as datas de “válido a partir de” e “válido até” do certificado baixado clicando duas vezes nele. As datas são listadas na guia **Detalhes**.
 
-      4.  Crie um arquivo **codificado em Base 64** por meio do certificado baixado.
+      4.  Crie um arquivo **codificado em base 64** usando o certificado baixado.
 
 		>[AZURE.TIP]Para obter mais detalhes, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
@@ -162,7 +162,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
      12\.2. Na caixa de texto **ID do Provedor de Serviço**, digite ****http://www.workday.com**.
 
-     12\.3. Selecione **Habilitar Autenticação do SAML Iniciada pelo SP**.
+     12\.3. Selecione **Habilitar a Autenticação do SAML Iniciada por SP**.
 
      12\.4. No portal do Azure, na página do diálogo **Configurar logon único no Workday**, copie o valor da **URL do Serviço de Logon Único** e cole-o na caixa de texto **URL do Serviço de SSO do IdP**.
      
@@ -194,7 +194,7 @@ Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos
 
 1.  No portal do AD do Azure, crie uma conta de teste.
 
-2.  Na página de integração de aplicativos do **Workday**, clique em **Atribuir usuários**.
+2.  Na página de integração de aplicativos do **Workday **, clique em **Atribuir usuários**.
 
     ![Atribuir Usuários](./media/active-directory-saas-workday-tutorial/IC782935.png "Atribuir Usuários")
 
@@ -202,6 +202,6 @@ Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos
 
     ![Sim](./media/active-directory-saas-workday-tutorial/IC767830.png "Sim")
   
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

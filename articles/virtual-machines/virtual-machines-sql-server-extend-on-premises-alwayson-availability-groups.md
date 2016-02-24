@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Estender Grupos de Disponibilidade AlwaysOn locais para o Azure | Microsoft Azure"
 	description="Este tutorial usa recurso criados com o modelo de implantação clássica e descreve como usar o assistente de Adição de Réplica no SSMS (SQL Server Management Studio) para adicionar uma réplica do Grupo de Disponibilidade AlwaysOn ao Azure."
 	services="virtual-machines"
@@ -8,13 +8,13 @@
 	editor="monicar"
 	tags="azure-service-management"/>
 
-<tags 
+<tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="11/13/2015"
+	ms.date="02/03/2016"
 	ms.author="jroth" />
 
 # Estender Grupos de Disponibilidade AlwaysOn locais para o Azure
@@ -25,7 +25,7 @@ Você pode estender grupos de disponibilidade locais para o Microsoft Azure prov
 
 Este tutorial pressupõe que você tenha o seguinte:
 
-- Uma assinatura ativa do Azure. Você pode [se inscrever para uma avaliação gratuita](http://azure.microsoft.com/pricing/free-trial).
+- Uma assinatura ativa do Azure. Você pode [se inscrever para uma avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 - Um Grupo de Disponibilidade AlwaysOn local. Para obter mais informações sobre os Grupos de Disponibilidade, consulte [Grupos de Disponibilidade AlwaysOn](https://msdn.microsoft.com/library/hh510230.aspx).
 
@@ -65,7 +65,7 @@ Esta seção mostra como usar o **Assistente de Adição de réplica do Azure** 
 |**Nome de usuário da VM**|Especifique um nome de usuário que se tornará a conta de administrador na VM|
 |**Senha do administrador da VM**|Especifique uma senha para a nova conta|
 |**Confirmar Senha**|Confirme a senha para a nova conta|
-|**Rede Virtual**|Especifique a rede virtual do Azure que a nova VM deve usar. Para obter mais informações sobre redes virtuais, consulte [Visão Geral da Rede Virtual](..\virtual-network\virtual-networks-overview.md).|
+|**Rede Virtual**|Especifique a rede virtual do Azure que a nova VM deve usar. Para obter mais informações sobre redes virtuais, consulte [Visão Geral da Rede Virtual](../virtual-network/virtual-networks-overview.md).|
 |**Sub-rede da rede virtual**|Especifique a sub-rede da rede virtual que a nova VM deve usar|
 |**Domínio**|Confirme se o valor preenchido previamente para o domínio está correto|
 |**Nome de usuário do domínio**|Especifique uma conta que esteja no grupo de administradores locais em nós do cluster local|
@@ -91,9 +91,9 @@ Esta seção mostra como usar o **Assistente de Adição de réplica do Azure** 
 
 1. O processo de provisionamento tem início. Quando o assistente for concluído com êxito, clique em **Fechar** para sair dele.
 
->[AZURE.NOTE]O Assistente de Adição de Réplica do Azure cria um arquivo de log em <Users><nome de usuário>\\AppData\\Local\\SQL Server\\AddReplicaWizard. Esse arquivo de log pode ser usado para solucionar problemas de implantações de réplica do Azure com falha. Se o assistente falhar durante a execução de alguma ação, todas as operações anteriores serão revertidas, incluindo a exclusão da VM provisionada.
+>[AZURE.NOTE] O Assistente para Adicionar Réplica do Azure cria um arquivo de log em Usuários\\Nome do Usuário\\AppData\\Local\\SQL Server\\AddReplicaWizard. Esse arquivo de log pode ser usado para solucionar problemas de implantações de réplica do Azure com falha. Se o assistente falhar durante a execução de alguma ação, todas as operações anteriores serão revertidas, incluindo a exclusão da VM provisionada.
 
-## Criar um ouvinte de Grupo de Disponibilidade
+## Criar um ouvinte de grupo de disponibilidade
 
 Após o grupo de disponibilidade ter sido criado, você deve criar um ouvinte para os clientes se conectarem às réplicas. Os ouvintes direcionam conexões de entrada para a réplica primária ou uma réplica secundária somente leitura. Para obter mais informações sobre os ouvintes, consulte [Configurar um ouvinte de ILB para Grupos de Disponibilidade AlwaysOn no Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md).
 
@@ -103,4 +103,4 @@ Além de usar o **Assistente de Adição de Réplica do Azure** para estender se
 
 Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, consulte [SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

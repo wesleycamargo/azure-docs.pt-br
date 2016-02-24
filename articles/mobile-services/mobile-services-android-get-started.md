@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="11/05/2015"
+	ms.date="02/05/2016"
 	ms.author="ricksal"/>
 
 # Introdução aos Serviços Móveis para Android (back-end do JavaScript)
@@ -42,7 +42,7 @@ A conclusão deste tutorial requer o [Android Developer Tools](https://developer
 
 O projeto de início rápido baixado contém o SDK de Serviços Móveis do Azure para Android.
 
-> [AZURE.IMPORTANT]Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28).
+> [AZURE.IMPORTANT] Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28).
 
 
 ## Criar um novo serviço móvel
@@ -97,4 +97,4 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [Introdução às notificações por push]: mobile-services-javascript-backend-android-get-started-push.md
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -12,8 +12,8 @@
 	ms.workload="multiple" 
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.topic="get-started-article" 
+	ms.date="02/17/2016" 
 	ms.author="tomfitz"/>
 
 # Usando o Azure PowerShell com o Gerenciador de Recursos do Azure
@@ -34,9 +34,9 @@ Para concluir este tutorial, você precisará:
   + Você pode [abrir uma conta do Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F): você recebe créditos que podem ser usados para experimentar serviços pagos do Azure e, mesmo após eles serem utilizados, você pode manter a conta e usar os serviços gratuitos do Azure, como os Sites. Seu cartão de crédito nunca será cobrado, a menos que você altere explicitamente suas configurações, solicitando esse tipo de cobrança.
   
   + Você pode [ativar benefícios para assinantes do MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): todos os meses, sua assinatura do MSDN concede créditos que podem ser usados para serviços pagos do Azure.
-- Azure PowerShell 1.0. Para obter informações sobre essa versão e como instalá-la, confira [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
+- Azure PowerShell 1.0. Para obter informações sobre esta versão e como instalá-la, confira [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md).
 
-Este tutorial foi criado para iniciantes do PowerShell, mas pressupõe que você compreende os conceitos básicos, como módulos, cmdlets e sessões. Para obter mais informações sobre o Windows PowerShell, consulte [Introdução ao PowerShell do Microsoft Azure (a página pode estar em inglês)](http://technet.microsoft.com/library/hh857337.aspx).
+Este tutorial foi criado para iniciantes do PowerShell, mas pressupõe que você compreende os conceitos básicos, como módulos, cmdlets e sessões.
 
 ## O que você implantará
 
@@ -89,7 +89,7 @@ O cmdlet solicita as credenciais de logon para sua conta do Azure. Depois de ent
 
 As configurações de conta expiram, portanto, você precisa atualizá-las ocasionalmente. Para atualizar as configurações de conta, execute **Login-AzureRmAccount** novamente.
 
->[AZURE.NOTE]Os módulos do Gerenciador de Recursos requer o Login-AzureRmAccount. Um arquivo de configurações de publicação não é suficiente.
+>[AZURE.NOTE] Os módulos do Gerenciador de Recursos requer o Login-AzureRmAccount. Um arquivo de configurações de publicação não é suficiente.
 
 ## Obter locais para tipos de recursos
 
@@ -212,7 +212,7 @@ Para o banco de dados, você verá:
 
 ## Criar seu modelo
 
-Este tópico não mostra como criar seu modelo nem discute a estrutura do modelo. Para obter essas informações, confira [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md). O modelo que você implantará é mostrado abaixo. Observe que o modelo usa as versões de API que você recuperou na seção anterior. Para garantir que todos os recursos residam na mesma região, usamos a expressão de modelo **resourceGroup().location** para usar o local do grupo de recursos.
+Este tópico não mostra como criar seu modelo nem discute a estrutura do modelo. Para obter essas informações, veja [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md). O modelo que você implantará é mostrado abaixo. Observe que o modelo usa as versões de API que você recuperou na seção anterior. Para garantir que todos os recursos residam na mesma região, usamos a expressão de modelo **resourceGroup().location** para usar o local do grupo de recursos.
 
 Observe, ainda, a seção de parâmetros. Esta seção define os valores que você pode fornecer ao implantar os recursos. Você usará esses valores posteriormente neste tutorial.
 
@@ -302,6 +302,9 @@ Você pode copiar o modelo e salvá-lo localmente como um arquivo .json. Neste t
                 "name": "[variables('siteName')]",
                 "type": "Microsoft.Web/sites",
                 "location": "[resourceGroup().location]",
+                "tags": {
+                    "team": "webdev"
+                },
                 "dependsOn": [
                     "[concat('Microsoft.Web/serverFarms/', parameters('hostingPlanName'))]"
                 ],
@@ -342,7 +345,7 @@ Especifique o grupo de recursos e o local do modelo. Se o seu modelo não for lo
 
 ###Parâmetros de modelo dinâmico
 
-Se estiver familiarizado com o PowerShell, você saberá que pode percorrer os parâmetros disponíveis para um cmdlet digitando um sinal de subtração (-) e, em seguida, pressionando a tecla TAB. Essa mesma funcionalidade também funciona com os parâmetros definidos no modelo. Assim que você digitar o nome do modelo, o cmdlet buscará o modelo, o analisará e adicionará os parâmetros do modelo ao comando de forma dinâmica. Isso facilita muito a especificação dos valores de parâmetros do modelo. E, se você esquecer um valor de parâmetro necessário, o PowerShell solicitará o valor.
+Se estiver familiarizado com o PowerShell, você saberá que pode percorrer os parâmetros disponíveis para um cmdlet digitando um sinal de subtração (-) e, em seguida, pressionando a tecla TAB. Essa mesma funcionalidade também funciona com os parâmetros definidos no modelo. Assim que você digitar o nome do modelo, o cmdlet buscará o modelo, o analisará e adicionará dinamicamente os parâmetros do modelo ao comando. Isso facilita muito a especificação dos valores de parâmetros do modelo. E, se você esquecer um valor de parâmetro necessário, o PowerShell solicitará o valor.
 
 Veja abaixo o comando completo com os parâmetros incluídos. Você pode fornecer seus próprios valores para os nomes dos recursos.
 
@@ -354,6 +357,8 @@ Quando você digitar o comando, será solicitado que você forneça o parâmetro
     Supply values for the following parameters:
     (Type !? for Help.)
     administratorLoginPassword: ********
+
+Se o modelo incluir um parâmetro com um nome que corresponda a um dos parâmetros no comando para implantar o modelo (como incluir um parâmetro chamado **ResourceGroupName** no modelo que é igual ao parâmetro **ResourceGroupName** no cmdlet [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx)), você será solicitado a fornecer um valor para um parâmetro com o sufixo **FromTemplate** (como **ResourceGroupNameFromTemplate**). Em geral, você deve evitar essa confusão não dando aos parâmetros o mesmo nome que os parâmetros usados para operações de implantação.
 
 O comando é executado e retorna mensagens conforme os recursos são criados. Por fim, você pode ver o resultado de sua implantação.
 
@@ -382,9 +387,9 @@ Depois de criar um grupo de recursos, você pode usar os cmdlets no módulo do G
 
 - Para obter todos os grupos de recursos em sua assinatura, use o cmdlet **Get-AzureRmResourceGroup**:
 
-		PS C:\>Get-AzureRmResourceGroup
+		PS C:\> Get-AzureRmResourceGroup
 
-		ResourceGroupName : TestRG
+		ResourceGroupName : TestRG1
 		Location          : westus
 		ProvisioningState : Succeeded
 		Tags              :
@@ -392,21 +397,38 @@ Depois de criar um grupo de recursos, você pode usar os cmdlets no módulo do G
 		
 		...
 
+      Se você quiser obter determinado grupo de recursos, forneça o parâmetro **Name**.
+      
+          PS C:\> Get-AzureRmResourceGroup -Name TestRG1
+
 - Para obter os recursos no grupo de recursos, use o cmdlet **Find-AzureRmResource** e seu parâmetro **ResourceGroupNameContains**. Sem parâmetros, o Find-AzureRmResource obtém todos os recursos em sua assinatura do Azure.
 
-		PS C:\> Find-AzureRmResource -ResourceGroupNameContains TestRG1
+        PS C:\> Find-AzureRmResource -ResourceGroupNameContains TestRG1
 		
-		Name              : exampleserver
-                ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Sql/servers/tfserver10
-                ResourceName      : exampleserver
-                ResourceType      : Microsoft.Sql/servers
-                Kind              : v12.0
-                ResourceGroupName : TestRG1
-                Location          : westus
-                SubscriptionId    : {guid}
+        Name              : exampleserver
+        ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Sql/servers/tfserver10
+        ResourceName      : exampleserver
+        ResourceType      : Microsoft.Sql/servers
+        Kind              : v12.0
+        ResourceGroupName : TestRG1
+        Location          : westus
+        SubscriptionId    : {guid}
                 
-                ...
+        ...
 	        
+- O modelo acima inclui uma marca em um recurso. Você pode aplicar marcas para organizar os recursos de modo lógico em sua assinatura. Você usa os comandos **Find-AzureRmResource** e **Find-AzureRmResourceGroup** comandos para consultar os recursos por marcas.
+
+        PS C:\> Find-AzureRmResource -TagName team
+
+        Name              : ExampleSiteuxq53xiz5etmq
+        ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Web/sites/ExampleSiteuxq53xiz5etmq
+        ResourceName      : ExampleSiteuxq53xiz5etmq
+        ResourceType      : Microsoft.Web/sites
+        ResourceGroupName : TestRG1
+        Location          : westus
+        SubscriptionId    : {guid}
+                
+      Há muito mais que você pode fazer com marcas. Para obter mais informações, veja [Usando marcas para organizar os recursos do Azure](resource-group-using-tags.md).
 
 ## Adicionar a um grupo de recursos
 
@@ -441,4 +463,4 @@ Você pode mover os recursos existentes para um novo grupo de recursos. Para obt
 - Para ver um exemplo detalhado da implantação de um projeto, confira [Implantar microsserviços de maneira previsível no Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Para saber mais sobre como solucionar problemas de uma implantação com falha, confira [Solucionando problemas de implantações de grupos de recursos no Azure](./virtual-machines/resource-group-deploy-debug.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

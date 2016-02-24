@@ -41,11 +41,11 @@ Este tópico apresenta um exemplo de código em duas fases:
 ## Pré-requisitos
 
 
-- Uma conta e uma assinatura do Azure. Você pode se inscrever em uma [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
+- Uma conta e uma assinatura do Azure. Você pode se inscrever em uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 
 - Qualquer banco de dados no qual você possa criar uma tabela.
- - Opcionalmente, você pode [criar um banco de dados de demonstração do **AdventureWorksLT**](sql-database-get-started.md) em questão minutos.
+ - Como alternativa, você pode [criar um banco de dados de demonstração do **AdventureWorksLT**](sql-database-get-started.md) em questão minutos.
 
 
 - SQL Server Management Studio (ssms.exe), sua Visualização de agosto de 2015 ou uma versão posterior. Você pode baixar o ssms.exe mais recente de:
@@ -597,4 +597,4 @@ Image references.
 
 [30_powershell_ise]: ./media/sql-database-xevent-code-event-file/event-file-powershell-ise-b30.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

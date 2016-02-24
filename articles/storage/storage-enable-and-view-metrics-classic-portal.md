@@ -4,8 +4,8 @@
 	services="storage" 
 	documentationCenter="" 
 	authors="tamram" 
-	manager="adinah" 
-	editor=""/>
+	manager="carmonm" 
+	editor="tysonn"/>
 
 <tags 
 	ms.service="storage" 
@@ -22,13 +22,13 @@
 
 ## Visão geral
 
-Por padrão, as métricas de armazenamento não estão habilitadas para os serviços de armazenamento. Você pode habilitar o monitoramento usando o [Portal Clássico do Azure](manage.windowsazure.com), Windows PowerShell ou com programação por meio de uma API de armazenamento.
+Por padrão, as métricas de armazenamento não estão habilitadas para os serviços de armazenamento. Você pode habilitar o monitoramento usando o [Portal Clássico do Azure](https://manage.windowsazure.com), Windows PowerShell ou com programação por meio de uma API de armazenamento.
 
 Quando você habilita as métricas de armazenamento, você deve escolher um período de retenção para os dados: este período determina quanto tempo o serviço de armazenamento mantém as métricas e as cobranças para o espaço necessário para armazená-los. Normalmente, você deve usar um período de retenção mais curto para métricas de minuto em vez de métricas por hora por causa do espaço extra significativo necessário para métricas de minuto. Você deve escolher um período de retenção que você tenha tempo suficiente para analisar os dados e baixar qualquer métricas que você deseja manter para análise offline ou para fins de relatório. Lembre-se de que você também será cobrado para baixar dados de métrica de sua conta de armazenamento.
 
 ## Como habilitar métricas de Armazenamento usando o Portal clássico do Azure
 
-No [Portal clássico do Azure](manage.windowsazure.com), você pode usar a página Configurar para uma conta de armazenamento para controlar Métricas de armazenamento. Para monitoramento, você pode definir um nível e um período de retenção em dias para cada um dos blobs, tabelas e filas. Em cada caso, o nível é um dos seguintes:
+No [Portal clássico do Azure](https://manage.windowsazure.com), você pode usar a página Configurar para uma conta de armazenamento para controlar Métricas de armazenamento. Para monitoramento, você pode definir um nível e um período de retenção em dias para cada um dos blobs, tabelas e filas. Em cada caso, o nível é um dos seguintes:
 
 - Desativado — nenhuma métrica será coletada.
 
@@ -211,4 +211,4 @@ A capacidade usada pelas tabelas de métricas também é faturável. Você pode 
 [Habilitando o armazenamento de análise de log e acessando os dados de log](https://msdn.microsoft.com/library/dn782840.aspx)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Importar um arquivo BACPAC para criar um novo banco de dados SQL do Azure usando o PowerShell" 
+    pageTitle="Importar um arquivo BACPAC para criar um novo banco de dados SQL do Azure usando o PowerShell | Microsoft Azure" 
     description="Importar um arquivo BACPAC para criar um novo banco de dados SQL do Azure usando o PowerShell" 
     services="sql-database" 
     documentationCenter="" 
@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="12/17/2015"
+    ms.date="02/05/2016"
     ms.author="sstein"/>
 
 # Importar um arquivo BACPAC para criar um novo banco de dados SQL do Azure usando o PowerShell
@@ -32,16 +32,16 @@ Um BACPAC é um arquivo .bacpac que contém um esquema de banco de dados e dados
 
 O banco de dados é criado de um BACPAC importado de um contêiner de blob de armazenamento do Azure. Se não tiver um arquivo .bacpac no armazenamento do Azure, você poderá criar um seguindo as etapas descritas em [Criar e exportar um BACPAC de um Banco de Dados SQL do Azure](sql-database-export-powershell.md).
 
-> [AZURE.NOTE]O Banco de Dados SQL do Azure cria e mantém backups automaticamente de cada banco de dados de usuário que você pode restaurar. Para obter detalhes, consulte [Visão geral da continuidade dos negócios](sql-database-business-continuity.md).
+> [AZURE.NOTE] O Banco de Dados SQL do Azure cria e mantém backups automaticamente de cada banco de dados de usuário que você pode restaurar. Para obter detalhes, consulte [Visão geral da continuidade dos negócios](sql-database-business-continuity.md).
 
 
 Para importar um banco de dados SQL, você precisará de:
 
 - Uma assinatura do Azure. Se você precisar de uma assinatura do Azure basta clicar em **AVALIAÇÃO GRATUITA** na parte superior desta página e, em seguida, voltar para concluir este artigo.
-- Um arquivo .bacpac (BACPAC) do banco de dados que deseja restaurar. O BACPAC deve estar em um contêiner de blob da [conta de armazenamento do Azure (clássico)](storage-create-storage-account.md).
+- Um arquivo .bacpac (BACPAC) do banco de dados que deseja importar. O BACPAC deve estar em um contêiner de blob da [conta de armazenamento do Azure (clássico)](storage-create-storage-account.md).
 
 
-> [AZURE.IMPORTANT]Este artigo contém comandos para versões do Azure PowerShell, *exceto* as versões 1.0 e posteriores. É possível verificar sua versão do Azure PowerShell com o comando **Get-Module azure | format-table version**.
+> [AZURE.IMPORTANT] Este artigo contém comandos para versões do Azure PowerShell, *exceto* as versões 1.0 e posteriores. É possível verificar sua versão do Azure PowerShell com o comando **Get-Module azure | format-table version**.
 
 
 
@@ -115,7 +115,7 @@ A execução desse comando solicitará uma senha. Insira o logon e a senha de ad
  
 
 
-## Script de restauração do PowerShell do Banco de Dados SQL
+## Script de importação do PowerShell do banco de dados SQL
 
 
     Add-AzureAccount
@@ -142,7 +142,7 @@ A execução desse comando solicitará uma senha. Insira o logon e a senha de ad
 
 ## Próximas etapas
 
-- [Conectar-se ao SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
+- [Conectar-se ao Banco de Dados SQL com o SQL Server Management Studio e executar um exemplo de consulta T-SQL](sql-database-connect-query-ssms.md)
 
 
 
@@ -153,4 +153,4 @@ A execução desse comando solicitará uma senha. Insira o logon e a senha de ad
 - [Executar análise de recuperação de desastres](sql-database-disaster-recovery-drills.md)
 - [Documentação do Banco de Dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 # Criar uma VM com diversos NICs
@@ -97,7 +97,7 @@ Se uma sub-rede for associada a um NSG e uma NIC dessa sub-rede for associada in
 - **O **tráfego de entrada **cujo destino é a NIC em questão flui primeiro pela sub-rede, acionando as regras do NSG da sub-rede, antes de passar para a NIC, quando serão acionadas as regras do NSG da NIC.
 - O **tráfego de saída** cujo destino é a NIC em questão flui primeiro para fora da sub-rede, acionando as regras do NSG da NIC, antes de passar pela sub-rede, quando serão acionadas as regras do NSG da sub-rede. 
 
-Saiba mais sobre [grupos de segurança de rede](virtual-networks-nsg) e como elas são aplicados com base nas associações a sub-redes, VMs e NICs.
+Saiba mais sobre [grupos de segurança de rede](virtual-networks-nsg.md) e como elas são aplicados com base nas associações a sub-redes, VMs e NICs.
 
 ## Como configurar uma VM de várias NICs em uma implantação clássica
 
@@ -164,7 +164,7 @@ Para criar uma máquina virtual com várias placas de rede (NICs), siga as etapa
 
 		New-AzureVM -ServiceName "MultiNIC-CS" –VNetName "MultiNIC-VNet" –VMs $vm
 
->[AZURE.NOTE]A VNet que você especificar aqui já deve existir (conforme mencionado nos pré-requisitos). O exemplo a seguir especifica uma rede virtual chamada **MultiNIC-VNet**.
+>[AZURE.NOTE] A VNet que você especificar aqui já deve existir (conforme mencionado nos pré-requisitos). O exemplo a seguir especifica uma rede virtual chamada **MultiNIC-VNet**.
 
 ## Acesso secundário à NIC para outras sub-redes
 
@@ -265,4 +265,4 @@ Para VMs do Linux, como o comportamento padrão usa roteamento de host fraco, re
 - Implante [VMs com MultiNIC em um cenário de aplicativo de 2 camadas, em uma implantação do Gerenciador de Recursos](virtual-network-deploy-multinic-arm-template.md).
 - Implante [VMs com MultiNIC em um cenário de aplicativo de 2 camadas, em uma implantação clássica](virtual-network-deploy-multinic-classic-ps.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

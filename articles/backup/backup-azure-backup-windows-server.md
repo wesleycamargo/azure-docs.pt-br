@@ -3,17 +3,24 @@
    description="Faça backup de um Windows Server ou Cliente do Windows no Azure com esse procedimento simples. Você pode fazer backup de arquivos e pastas do Windows na nuvem em algumas etapas simples."
    services="backup"
    documentationCenter=""
-   authors="aashishr"
+   authors="Jim-Parker"
    manager="jwhit"
    editor=""
    keywords="backup do windows server; fazer backup do windows server"/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2015" ms.author="jimpark"; "aashishr"/>
+<tags
+   ms.service="backup"
+   ms.workload="storage-backup-recovery"
+	 ms.tgt_pltfrm="na"
+	 ms.devlang="na"
+	 ms.topic="article"
+	 ms.date="02/05/2016"
+	 ms.author="jimpark;"/>
 
 # Fazer backup de pastas e arquivos do Windows Server ou do Windows Client para o Azure
 É fácil fazer backup de arquivos e pastas do Windows no Azure com este procedimento simples. Se ainda não tiver feito isto, conclua os [pré-requisitos](backup-configure-vault.md#before-you-start) para preparar o ambiente para o backup do computador com Windows antes de continuar.
 
-## Arquivos de backup
+## Fazer backup de arquivos e pastas
 1. Depois que o computador for registrado, abra o snap-in do MMC do Backup do Microsoft Azure.
 
     ![Resultado da pesquisa](./media/backup-azure-backup-windows-server/result.png)
@@ -44,5 +51,6 @@
 - [Gerenciar o Windows Server ou o Windows Client](backup-azure-manage-windows-server.md)
 - [Restaurar o Windows Server ou o Windows Client do Azure](backup-azure-restore-windows-server.md)
 - [Backup do Azure - Perguntas frequentes](backup-azure-backup-faq.md)
+- Visite o [Fórum de backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

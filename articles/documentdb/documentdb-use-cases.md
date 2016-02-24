@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="10/30/2015" 
+    ms.date="02/10/2016" 
     ms.author="hawong"/>
 
 # Casos de uso comuns do Banco de Dados de Documentos
@@ -36,7 +36,7 @@ Conteúdos como bate-papos, comentários e postagens podem ser armazenados no Ba
 
 Aplicativos que se integram com várias redes sociais devem responder às mudanças nos esquemas destas redes. Como os dados são automaticamente indexados por padrão no Banco de Dados de Documentos, os dados estão prontos para serem consultados a qualquer momento. Portanto, esses aplicativos têm a flexibilidade para recuperar as projeções de acordo com suas respectivas necessidades.
 
-Muitos dos aplicativos sociais são executados em escala global e podem apresentar os padrões de uso imprevisíveis. Flexibilidade para dimensionar o armazenamento de dados é essencial, uma vez que a camada do aplicativo é dimensionada de acordo com a demanda de uso. Você pode escalar horizontalmente incluindo partições de dados adicionais em uma conta do Banco de Dados de Documentos. Além disso, você também pode criar contas adicionais do Banco de Dados de Documentos em várias regiões. Para saber mais sobre a disponibilidade da região do serviço do Banco de Dados de Documentos, consulte [Regiões do Azure](http://azure.microsoft.com/regions/#services).
+Muitos dos aplicativos sociais são executados em escala global e podem apresentar os padrões de uso imprevisíveis. Flexibilidade para dimensionar o armazenamento de dados é essencial, uma vez que a camada do aplicativo é dimensionada de acordo com a demanda de uso. Você pode escalar horizontalmente incluindo partições de dados adicionais em uma conta do Banco de Dados de Documentos. Além disso, você também pode criar contas adicionais do Banco de Dados de Documentos em várias regiões. Para saber mais sobre a disponibilidade da região do serviço do Banco de Dados de Documentos, consulte [Regiões do Azure](https://azure.microsoft.com/regions/#services).
 
 ## Dados de catálogo
 Os cenários de uso de dados de catálogo envolvem armazenar e consultar um conjunto de atributos para entidades, como pessoas, lugares e produtos. Alguns exemplos de dados de catálogo são contas de usuário, catálogos de produtos, registros de dispositivo para IoT e sistemas de listas de materiais. Os atributos desses dados podem variar e podem mudar ao longo do tempo para atender aos requisitos do aplicativo.
@@ -48,7 +48,7 @@ O registro em log do aplicativo geralmente é emitido em grandes volumes e pode 
    
 Normalmente, há dois casos de uso importantes relacionados aos dados do log de eventos. O primeiro caso de uso é executar consultas ad hoc em um subconjunto dos dados para solução de problemas. Durante a solução de problemas, um subconjunto de dados é primeiramente recuperado do logs, normalmente por séries temporais. Em seguida, uma busca detalhada é executada filtrando o conjunto de dados com níveis de erro ou mensagens de erro. É aí que armazenar os logs de eventos no Banco de Dados de Documentos se torna uma vantagem. Os dados de log armazenados no Banco de Dados de Documentos são indexados automaticamente por padrão, assim, os dados estão prontos para serem consultados a qualquer momento. Além disso, os dados de log podem ser persistidos entre partições de dados como uma série temporal. Logs mais antigos podem ser colocados em armazenamento frio de acordo com sua política de retenção.
 
-O segundo caso de uso envolve executar trabalhos de análise de dados offline em um grande volume de dados de log. Exemplos desse caso de uso incluem análise de disponibilidade de servidor, análise de erros de aplicativo e análise de dados de sequência de cliques. Normalmente, o Hadoop é usado para executar esses tipos de análises. Com o conector do Hadoop para o Banco de Dados de Documentos, bancos de dados do Bancos e Dados de Documentos funcionam como fontes de dados e coletores de trabalhos Pig, Hive e Map/Reduce. Para obter detalhes sobre o conector do Hadoop para o Banco de Dados de Documentos, consulte [Executar um trabalho do Hadoop com o Banco de Dados de Documentos e HDInsight](documentdb-run-hadoop-with-hdinsight/).
+O segundo caso de uso envolve executar trabalhos de análise de dados offline em um grande volume de dados de log. Exemplos desse caso de uso incluem análise de disponibilidade de servidor, análise de erros de aplicativo e análise de dados de sequência de cliques. Normalmente, o Hadoop é usado para executar esses tipos de análises. Com o conector do Hadoop para o Banco de Dados de Documentos, bancos de dados do Bancos e Dados de Documentos funcionam como fontes de dados e coletores de trabalhos Pig, Hive e Map/Reduce. Para obter detalhes sobre o conector do Hadoop para o Banco de Dados de Documentos, consulte [Executar um trabalho do Hadoop com o Banco de Dados de Documentos e HDInsight](documentdb-run-hadoop-with-hdinsight.md).
 
 ## Dados de preferências do usuário
 Hoje em dia, aplicativos Web e móveis mais modernos vêm com modos de exibição e experiências mais complexos. Esses modos de exibição e experiências são geralmente dinâmicos, atendendo as preferências ou o humor do usuário e as necessidades da marca. Portanto, os aplicativos precisam conseguir recuperar configurações personalizadas com eficiência para renderizar experiências e elementos da interface do usuário rapidamente.
@@ -68,7 +68,7 @@ Para obter mais informações sobre as ofertas do Azure para IoT, consulte [Cria
 
 ## Próximas etapas
  
-Para começar a usar o Banco de Dados de Documentos, você pode criar uma [conta](http://azure.microsoft.com/pricing/free-trial/) e seguir nosso [roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/documentdb/) para conhecer o Banco de Dados de Documentos e localizar as informações necessárias.
+Para começar a usar o Banco de Dados de Documentos, você pode criar uma [conta](https://azure.microsoft.com/pricing/free-trial/) e seguir nosso [roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/documentdb/) para conhecer o Banco de Dados de Documentos e localizar as informações necessárias.
 
 Ou, se você quiser ler mais sobre os clientes que usam o Banco de Dados de Documentos, as histórias dos clientes a seguir estão disponíveis:
 
@@ -79,4 +79,4 @@ Ou, se você quiser ler mais sobre os clientes que usam o Banco de Dados de Docu
 - [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667). A loja do futuro utiliza pesquisa rápida e um fluxo de dados fácil.
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0211_2016-->

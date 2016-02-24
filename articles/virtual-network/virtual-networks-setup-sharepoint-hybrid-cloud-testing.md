@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="01/28/2016" 
 	ms.author="josephd"/>
 
 # Configurar um farm de intranet do SharePoint em uma nuvem híbrida para teste
@@ -44,7 +44,7 @@ Há três fases principais para configurar esse ambiente de teste de nuvem híbr
 2.	Configurar o computador do servidor SQL (SQL1).
 3.	Configurar o servidor do SharePoint (SP1).
 
-Se você não tiver uma conta do Azure, será possível se inscrever em uma conta gratuita no [Experimente o Azure](http://azure.microsoft.com/pricing/free-trial/). Se tiver uma assinatura do MSDN, consulte [Benefício do Azure para assinantes do MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Se você não tiver uma conta do Azure, será possível se inscrever em uma conta gratuita no [Experimente o Azure](https://azure.microsoft.com/pricing/free-trial/). Se tiver uma assinatura do MSDN, consulte [Benefício do Azure para assinantes do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ## Fase 1: Configurar o ambiente de nuvem híbrida
 
@@ -54,7 +54,7 @@ Esta é a configuração atual.
 
 ![](./media/virtual-networks-setup-sharepoint-hybrid-cloud-testing/CreateSPFarmHybridCloud_1.png)
 
-> [AZURE.NOTE]Para a Fase 1, você também pode configurar o ambiente de teste de nuvem híbrida simulada. Consulte [Configurar um ambiente de nuvem híbrida simulada para testes](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md) para ver as instruções.
+> [AZURE.NOTE] Para a Fase 1, você também pode configurar o ambiente de teste de nuvem híbrida simulada. Consulte [Configurar um ambiente de nuvem híbrida simulada para testes](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md) para ver as instruções.
  
 ## Fase 2: Configurar o computador do servidor SQL (SQL1)
 
@@ -85,7 +85,7 @@ Em seguida, crie uma máquina virtual do Azure para o SQL1 com estes comandos no
 
 Em seguida, conecte-se à nova máquina virtual SQL1* usando a conta de administrador local*.
 
-1.	No painel esquerdo do Portal de Gerenciamento do Azure, clique em **Máquinas Virtuais** e clique em **Executando** na coluna Status do SQL1.
+1.	No painel esquerdo do Portal de Gerenciamento do Azure, clique em **Máquinas Virtuais** e, em seguida, em **Executando** na coluna Status do SQL1.
 2.	Na barra de tarefas, clique em **Conectar**. 
 3.	Quando receber uma solicitação para abrir SQL1.rdp, clique em **Abrir**.
 4.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota, clique em **Conectar**.
@@ -195,23 +195,8 @@ Esta é a configuração atual.
  
 Seu farm de intranet do SharePoint em um ambiente de nuvem híbrida agora está pronto para teste.
 
-## Recursos adicionais
+## Próximas etapas
 
-[SharePoint nos serviços de infraestrutura do Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
+- Configure a [carga de trabalho de produção](../virtual-machines/virtual-machines-workload-intranet-sharepoint-overview.md).
 
-[Farm do SharePoint Server](../virtual-machines/virtual-machines-sharepoint-farm-azure-preview.md)
-
-[Configurar um ambiente de nuvem híbrida para teste](virtual-networks-setup-hybrid-cloud-environment-testing.md)
-
-[Configurar um aplicativo LOB baseado na Web em uma nuvem híbrida para teste](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Configurar a Sincronização de Diretórios (DirSync) do Office 365 em uma nuvem híbrida para teste](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
-
-[Configurar um ambiente de nuvem híbrida simulado para testes](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
-
-[Ambientes de teste de nuvem híbrida do Azure](../virtual-machines/virtual-machines-hybrid-cloud-test-environments.md)
-
-[Diretrizes de implementação dos Serviços de Infraestrutura do Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

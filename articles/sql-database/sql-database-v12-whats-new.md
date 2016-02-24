@@ -4,7 +4,7 @@
 	services="sql-database" 
 	documentationCenter="" 
 	authors="MightyPen" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	editor=""/>
 
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/11/2015" 
+	ms.date="02/05/2016" 
 	ms.author="genemi"/>
 
 
@@ -27,7 +27,7 @@ Este tópico descreve as muitas vantagens que a nova versão V12 do Banco de Dad
 Continuamos a adicionar recursos à V12. Portanto, recomendamos que você visite a nossa página da Web de atualizações de serviço do Azure e use os seus filtros:
 
 
-- Filtrado para o [Serviço de Banco de Dados SQL](http://azure.microsoft.com/updates/?service=sql-database).
+- Filtrado para o [Serviço de Banco de Dados SQL](https://azure.microsoft.com/updates/?service=sql-database).
 - Filtrado para disponibilidade geral [Anúncios (GA)](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) para recursos do Banco de Dados SQL.
 
 
@@ -132,7 +132,7 @@ Existem vários bons motivos pelos quais os clientes devem atualizar agora da V1
 Uma maneira fácil de verificar se você tem um banco de dados ou servidor lógico em execução em uma versão anterior do serviço de Banco de dados SQL é fazendo o seguinte:
 
 
-1. Vá para o [Portal do Azure](http://portal.azure.com/).
+1. Vá para o [Portal do Azure](https://portal.azure.com/).
 2. Clique em **Procurar**.
 3. Clique em **Servidores SQL**.
 4. O ícone ao lado de servidor ou banco de dados revela a história:
@@ -159,6 +159,6 @@ Se você ainda não estiver usando a V12, pode atualizar o seu servidor lógico 
 - Em 31 de julho de 2015, todas as regiões tinham foi promovidas para Disponibilidade Geral (GA).
 - A V12 foi lançada em dezembro de 2014, mas apenas com o status de Visualização.
 
-[Termos de Uso Adicionais para Visualizações do Microsoft Azure](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="event-hubs" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="01/26/2016" 
 	ms.author="sethm"/>
 
 # Ingestão de telemetria e eventos de aplicativo em escala
@@ -23,7 +23,7 @@ Os aplicativos modernos criam uma grande quantidade de informações enquanto es
 
 ## Explorar
 - [Hubs de Evento](event-hubs-overview.md)
-- [Detalhes dos Preços de Hubs de Evento](http://azure.microsoft.com/pricing/details/event-hubs/)
+- [Detalhes dos Preços de Hubs de Evento](https://azure.microsoft.com/pricing/details/event-hubs/)
 - [Perguntas frequentes sobre disponibilidade e suporte dos Hubs de Eventos](event-hubs-availability-and-support-faq.md)
 - [Padrão de Fornecimento do Evento](http://msdn.microsoft.com/library/dn589792.aspx)
  
@@ -32,9 +32,9 @@ Os aplicativos modernos criam uma grande quantidade de informações enquanto es
 - [Exemplos de Código dos Hubs de Eventos](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
  
 ## Serviços relacionados
-- [Barramento de Serviço](http://azure.microsoft.com/services/service-bus/)
-- [Armazenamento do Azure](http://azure.microsoft.com/services/storage/)
-- [HDInsight](http://azure.microsoft.com/services/hdinsight/)
+- [Barramento de Serviço](https://azure.microsoft.com/services/service-bus/)
+- [Armazenamento do Azure](https://azure.microsoft.com/services/storage/)
+- [HDInsight](https://azure.microsoft.com/services/hdinsight/)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-##Pré-requisitos##
+## Pré-requisitos ##
 
 Este artigo pressupõe que você já instalou um sistema operacional SUSE ou openSUSE Linux em um disco rígido virtual. Existem várias ferramentas para criar arquivos .vhd, por exemplo, uma solução de virtualização como o Hyper-V. Para obter instruções, consulte [Instalar a função Hyper-V e configurar uma máquina Virtual](http://technet.microsoft.com/library/hh846766.aspx).
 
@@ -78,7 +78,7 @@ Este artigo pressupõe que você já instalou um sistema operacional SUSE ou ope
 
 9.	Confira se o servidor SSH está instalado e configurado para iniciar no tempo de inicialização. Geralmente, esse é o padrão.
 
-10.	Não crie espaço swap no disco do sistema operacional
+10.	Não crie espaço de permuta no disco do SO.
 
 	O Agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à VM após o provisionamento no Azure. Observe que o disco de recurso local é um disco *temporário* e pode ser esvaziado quando a VM é desprovisionada. Depois de instalar o Agente Linux do Azure (consulte a etapa anterior), modifique os seguintes parâmetros em /etc/waagent.conf de maneira apropriada:
 
@@ -101,19 +101,17 @@ Este artigo pressupõe que você já instalou um sistema operacional SUSE ou ope
 
 ## Preparar o openSUSE 13.1+ ##
 
-1. No painel central do Gerenciador do Hyper-V, selecione a máquina virtual
+1. No painel central do Gerenciador do Hyper-V, selecione a máquina virtual.
 
-2. Clique em **Conectar** para abrir a janela para a máquina virtual
+2. Clique em **Conectar** para abrir a janela da máquina virtual.
 
-3. No shell, execute o comando '`zypper lr`'. Se esse comando retornar uma saída semelhante à seguinte (observe que os números de versão podem variar):
+3. No shell, execute o comando '`zypper lr`'. Se este comando retornar uma saída semelhante à seguinte, os repositórios estarão configurados conforme o esperado – nenhum ajuste é necessário (observe que os números de versão podem variar):
 
 		# | Alias                 | Name                  | Enabled | Refresh
 		--+-----------------------+-----------------------+---------+--------
 		1 | Cloud:Tools_13.1      | Cloud:Tools_13.1      | Yes     | Yes
 		2 | openSUSE_13.1_OSS     | openSUSE_13.1_OSS     | Yes     | Yes
 		3 | openSUSE_13.1_Updates | openSUSE_13.1_Updates | Yes     | Yes
-
-	, os repositórios estão configurados conforme o esperado e nenhum ajuste é necessário.
 
 	Se o comando retornar "Nenhum repositório definido...", use os seguintes comandos para adicionar esses repositórios:
 
@@ -134,7 +132,7 @@ Este artigo pressupõe que você já instalou um sistema operacional SUSE ou ope
 
 		# sudo zypper update
 
-5.	Instale o Agente Linux do Azure
+5.	Instale o Agente Linux do Azure.
 
 		# sudo zypper install WALinuxAgent
 
@@ -157,7 +155,7 @@ Este artigo pressupõe que você já instalou um sistema operacional SUSE ou ope
 
 9.	Confira se o servidor SSH está instalado e configurado para iniciar no tempo de inicialização. Geralmente, esse é o padrão.
 
-10.	Não crie espaço swap no disco do sistema operacional
+10.	Não crie espaço de permuta no disco do SO.
 
 	O Agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à VM após o provisionamento no Azure. Observe que o disco de recurso local é um disco *temporário* e pode ser esvaziado quando a VM é desprovisionada. Depois de instalar o Agente Linux do Azure (consulte a etapa anterior), modifique os seguintes parâmetros em /etc/waagent.conf de maneira apropriada:
 
@@ -179,4 +177,7 @@ Este artigo pressupõe que você já instalou um sistema operacional SUSE ou ope
 
 13. Clique em **Ação -> Desligar** no Gerenciador do Hyper-V. Agora, seu VHD Linux está pronto para ser carregado no Azure.
 
-<!---HONumber=Nov15_HO4-->
+## Próximas etapas
+Agora, você está pronto para usar o disco rígido virtual SUSE Linux para criar novas máquinas virtuais no Azure. Se esta é a primeira vez que você está carregando o arquivo .vhd no Azure, consulte as etapas 2 e 3 em [Criando e carregando um disco rígido virtual que contém o sistema operacional Linux](virtual-machines-linux-create-upload-vhd.md).
+
+<!---HONumber=AcomDC_0211_2016-->

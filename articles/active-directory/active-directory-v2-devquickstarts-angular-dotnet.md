@@ -45,7 +45,7 @@ Primeiro, crie um aplicativo no [Portal de Registro de Aplicativos](https://apps
 - Inserir o **URI de Redirecionamento** correto. O padrão para esse exemplo é `https://localhost:44326/`
 - Deixe a caixa de seleção **Permitir Fluxo Implícito** habilitada. 
 
-Copie a **ID do Aplicativo** atribuída ao seu aplicativo, você precisará dela em breve.
+Copie a **ID do Aplicativo** designada ao seu aplicativo, você precisará dela em breve.
 
 ## Instalar o adal.js
 Para começar, navegue até o projeto do qual você fez o download e instale o adal.js. Se o [bower](http://bower.io/) estiver instalado, basta executar este comando. Para qualquer incompatibilidade de dependência de versão, basta escolha a versão mais recente. ```
@@ -83,7 +83,7 @@ Enquanto configuramos as coisas, vamos fazer a API REST back-end funcionar. Na r
 ...
 ```
 
-Esse é todo o tempo que usaremos para discutir o funcionamento da API REST. Fique à vontade para examinar o código, mas se você quiser saber mais sobre como proteger as APIs Web com o Azure AD, consulte [este artigo](active-directory-v2-devquickstarts-dotnet-api.md).
+Esse é todo o tempo que usaremos para discutir o funcionamento da API REST. Fique à vontade para examinar o código, mas se você quiser saber mais sobre como proteger as APIs Web com o AD do Azure, confira [este artigo](active-directory-v2-devquickstarts-dotnet-api.md).
 
 ## Entrada de usuários
 Hora de escrever um pouco de código de identidade. Talvez você já tenha notado que o adal.js contém um provedor AngularJS, que funciona perfeitamente com o mecanismo de roteamento Angular. Comece adicionando o módulo adal ao aplicativo:
@@ -217,12 +217,12 @@ return $http.get('/api/tasks');
 ...
 ```
 
-Parabéns! Seu aplicativo de página única integrado ao Azure AD está concluído. Vá em frente, receba os aplausos. Ele pode autenticar os usuários, chamar com segurança sua API REST back-end usando OpenID Connect e obter informações básicas sobre o usuário. Para uso imediato, ele oferece suporte a qualquer usuário com uma conta pessoal da Microsoft ou uma conta corporativa/de estudante do Azure AD. Execute o aplicativo e, em um navegador, vá até `https://localhost:44326/`. Entre usando uma conta pessoal da Microsoft ou uma conta corporativa/de estudante. Adicione tarefas à lista de tarefas pendentes do usuário e saia. Tente entrar com o outro tipo de conta. Se você precisar de um locatário do Azure AD a fim de criar usuários corporativos/estudantes, [saiba como obter um aqui](active-directory-howto-tenant.md) (é gratuito).
+Parabéns! Seu aplicativo de página única integrado ao Azure AD está concluído. Vá em frente, receba os aplausos. Ele pode autenticar os usuários, chamar com segurança sua API REST back-end usando OpenID Connect e obter informações básicas sobre o usuário. Para uso imediato, ele oferece suporte a qualquer usuário com uma conta pessoal da Microsoft ou uma conta corporativa/de estudante do Azure AD. Execute o aplicativo e, em um navegador, vá até `https://localhost:44326/`. Entre usando uma conta pessoal da Microsoft ou uma conta corporativa/de estudante. Adicione tarefas à lista de tarefas pendentes do usuário e saia. Tente entrar com o outro tipo de conta. Se você precisar de um locatário do AD do Azure a fim de criar usuários corporativos/estudantes, [saiba como obter um aqui](active-directory-howto-tenant.md) (é gratuito).
 
-Para continuar aprendendo sobre a visualização do modelo de aplicativo v2.0, consulte nosso [guia do desenvolvedor v 2.0](active-directory-appmodel-v2-overview.md). Para obter recursos adicionais, consulte:
+Para continuar aprendendo sobre a visualização do modelo de aplicativo v2.0, confira nosso [guia do desenvolvedor v 2.0](active-directory-appmodel-v2-overview.md). Para obter recursos adicionais, consulte:
 
 - [Exemplos do Azure no GitHub >>](https://github.com/Azure-Samples)
-- [Azure AD no Stack Overflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
-- Documentação do Azure AD no [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+- [AD do Azure no Excedente de Pilha >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+- Documentação do Azure AD no [Azure.com >>](https://azure.microsoft.com/documentation/services/active-directory/)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Sincronização do Azure AD Connect: Conector LDAP genérico"
+   pageTitle="Sincronização do Azure AD Connect: conector LDAP genérico | Microsoft Azure"
    description="Este artigo descreve como configurar o Conector LDAP genérico da Microsoft."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/16/2015"
+   ms.date="01/21/2016"
    ms.author="andkjell"/>
 
 # Referência técnica do Conector LDAP genérico
@@ -49,13 +49,13 @@ Diretórios com suporte para gerenciamento de importação delta e de senha:
 
 - Microsoft Active Directory Lightweight Directory Services (AD LDS)
     - Oferece suporte para todas as operações de importação delta
-    - Oferece suporte para definição e alteração de senha
+    - Oferece suporte para definição de senha
 - Catálogo Global do Microsoft Active Directory (AD GC)
     - Oferece suporte para todas as operações de importação delta
-    - Oferece suporte para definição e alteração de senha
+    - Oferece suporte para definição de senha
 - Directory Server 389
     - Oferece suporte para todas as operações de importação delta
-    - Oferece suporte para definição de senha
+    - Oferece suporte para definição e alteração de senha
 - Apache Directory Server
     - Não oferece suporte para importação delta, pois esse diretório não tem um log de alteração persistente
     - Oferece suporte para definição de senha
@@ -71,10 +71,10 @@ Diretórios com suporte para gerenciamento de importação delta e de senha:
     - Oferece suporte para definição e alteração de senha
 - Open DJ
     - Oferece suporte para todas as operações de importação delta
-    - Oferece suporte para definição de senha
+    - Oferece suporte para definição e alteração de senha
 - Open DS
     - Oferece suporte para todas as operações de importação delta
-    - Oferece suporte para definição de senha
+    - Oferece suporte para definição e alteração de senha
 - Open LDAP (openldap.org)
     - Oferece suporte para todas as operações de importação delta
     - Oferece suporte para definição de senha
@@ -211,13 +211,13 @@ Veja a seguir uma lista de DNs de log de alteração padrão:
 | Apache Directory Server | Não disponível. |
 | Directory 389 | Log de alterações. Valor padrão a ser usado: **cn=changelog** |
 | IBM Tivoli DS | Log de alterações. Valor padrão a ser usado: **cn=changelog** |
-| Isode Directory | Log de alterações. Valor padrão a ser usado: **cn=ChangeLog**
+| Isode Directory | Log de alterações. Valor padrão a ser usado: **cn=changelog**
 | Novell/NetIQ eDirectory | Não disponível. TimeStamp. O Conector usará a data/hora da última atualização para obter os registros adicionados e atualizados. |
-| Open DJ/DS | Log de alterações. Valor padrão a ser usado: **cn=Changelog** |
+| Open DJ/DS | Log de alterações. Valor padrão a ser usado: **cn=changelog** |
 | Open LDAP | Log de acesso. Valor padrão a ser usado: **cn=accesslog** |
 | Oracle DSEE | Log de alterações. Valor padrão a ser usado: **cn=changelog** |
 | RadiantOne VDS | Diretório virtual. Depende do diretório conectado ao VDS. |
-| Sun One Directory Server | Log de alterações. Valor padrão a ser usado: **cn=Changelog** |
+| Sun One Directory Server | Log de alterações. Valor padrão a ser usado: **cn=changelog** |
 
 O atributo de senha é o nome do atributo que o Conector deve usar para definir a senha nas operações de alteração e definição de senha. Isso está definido por padrão como **userPassword**, mas pode ser alterado se for necessário para um determinado sistema LDAP.
 
@@ -279,4 +279,4 @@ Para diretórios com um log de alteração delta com base na data/hora, é altam
 
 -	Para saber mais sobre como habilitar o registro em log para solucionar problemas do conector, confira [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

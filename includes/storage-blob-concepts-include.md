@@ -26,7 +26,7 @@ O serviço Blob contém os seguintes componentes:
     
 	*Blobs de páginas* podem ter até 1 TB e são mais eficientes para operações frequentes de leitura/gravação. Máquinas virtuais do Azure usam blobs de páginas como sistema operacional e discos de dados.
 
-	Para obter mais informações sobre blobs, consulte [Noções gerais sobre blobs de blocos, blobs de páginas de blobs de anexo](https://msdn.microsoft.com/library/azure/ee691964.aspx).
+	Para obter mais informações sobre os blobs, confira [Compreendendo os Blobs de Bloco, Blobs de Anexo e Blobs de Página](https://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 ## Nomeando e referenciando contêineres e blobs
 
@@ -69,4 +69,4 @@ Você pode usar o caractere delimitador para listar blobs hierarquicamente.
 
 [Blob1]: ./media/storage-blob-concepts-include/blob1.jpg
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0218_2016-->

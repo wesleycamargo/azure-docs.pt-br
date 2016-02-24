@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/03/2015"
+   ms.date="02/01/2016"
    ms.author="v-darmi"/>
 
 
@@ -21,7 +21,7 @@
 
 As políticas disponíveis no serviço de Gerenciamento de API do Azure permitem uma ampla variedade de trabalhos úteis com base apenas na solicitação de entrada, na resposta de saída e em informações básicas de configuração. No entanto, a capacidade de interagir com serviços externos das políticas de Gerenciamento de API abre muitas outras oportunidades.
 
-Vimos anteriormente como podemos interagir com o [serviço Hub de Eventos do Azure para registro em log, monitoramento e análise](api-management-sample-logtoeventhub.md). Neste artigo, demonstraremos as políticas que permitem a interação com qualquer serviço externo baseado em HTTP. Essas políticas podem ser usadas para disparar eventos remotos ou para recuperar informações que serão usadas para manipular a solicitação e resposta originais de alguma forma.
+Vimos anteriormente como podemos interagir com o [serviço Hub de Eventos do Azure para registro em log, monitoramento e análise](api-management-log-to-eventhub-sample.md). Neste artigo, demonstraremos as políticas que permitem a interação com qualquer serviço externo baseado em HTTP. Essas políticas podem ser usadas para disparar eventos remotos ou para recuperar informações que serão usadas para manipular a solicitação e resposta originais de alguma forma.
 
 ## Send-One-Way-Request
 Possivelmente, a interação externa mais simples é o estilo de solicitação "disparar e esquecer" que permite que um serviço externo seja notificado sobre algum tipo de evento importante. Podemos usar a política de fluxo de controle `choose` para detectar qualquer tipo de condição de nosso interesse; se a condição for atendida, poderemos fazer uma solicitação HTTP externa usando a política [send-one-way-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest). Isso inclui uma solicitação para um sistema de mensagens como Hipchat ou Slack, ou uma API de email como SendGrid ou MailChimp, ou para incidentes de suporte críticos, algo como o PagerDuty. Todos esses sistemas de mensagens têm APIs HTTP simples que podemos facilmente invocar.
@@ -264,4 +264,9 @@ Na configuração da operação de espaço reservado podemos configurar o recurs
 ## Resumo
 O serviço de Gerenciamento de API do Azure fornece políticas flexíveis que podem ser aplicadas seletivamente ao tráfego HTTP e permite a composição de serviços back-end. Se você quiser aprimorar seu gateway de API com funções de alerta, verificação e recursos de validação, ou criar novos recursos compostos baseados em vários serviços back-end, a política `send-request` e as políticas relacionadas abrirão um mundo de oportunidades.
 
-<!---HONumber=AcomDC_1210_2015-->
+## Assista a uma visão geral dessas políticas em vídeo
+Para obter mais informações sobre as políticas [send-one-way-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest), [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) e [return-response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) abordadas neste artigo, assista ao vídeo a seguir.
+
+> [AZURE.VIDEO send-request-and-return-response-policies]
+
+<!---HONumber=AcomDC_0204_2016-->

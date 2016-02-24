@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="torsteng;sidneyh"/>
 
 # Biblioteca cliente do Banco de Dados Elástico com Entity Framework 
@@ -270,9 +270,9 @@ As abordagens descritas neste documento envolvem algumas limitações:
 
 * Dada a solicitação, presume-se que todo o processamento do banco de dados está contido dentro de um único fragmento, conforme identificado pela chave de fragmentação fornecida pela solicitação. No entanto, esse pressuposto nem sempre é verdadeiro. Por exemplo, quando não é possível disponibilizar uma chave de fragmentação. Para resolver isso, a biblioteca de cliente fornece a classe **MultiShardQuery** que implementa uma abstração de conexão para consultas em vários fragmentos. Aprender a usar o **MultiShardQuery** combinado com o EF está além do escopo deste documento
 
-## Conclusões 
+## Conclusão
 
-Aplicativos do Entity Framework podem aproveitar facilmente as ferramentas de banco de dados elástico no Banco de Dados SQL do Azure. Através das etapas descritas neste documento, os aplicativos do EF podem usar a funcionalidade da biblioteca de cliente de banco de dados elástico para roteamento dependente por construtores de refatoração das subclasses **DbContext** usadas no aplicativo EF. Isso limita as alterações necessárias para os locais onde as classes do **DbContext** já existem. Além disso, aplicativos do EF podem continuar a se beneficiar com a implantação automática do esquema, combinando as etapas que invocam as migrações necessárias do EF com o registro de novos fragmentos e mapeamentos no mapa de fragmentos.
+Através das etapas descritas neste documento, os aplicativos do EF podem usar a funcionalidade da biblioteca de cliente de banco de dados elástico para roteamento dependente por construtores de refatoração das subclasses **DbContext** usadas no aplicativo EF. Isso limita as alterações necessárias para os locais onde as classes do **DbContext** já existem. Além disso, aplicativos do EF podem continuar a se beneficiar com a implantação automática do esquema, combinando as etapas que invocam as migrações necessárias do EF com o registro de novos fragmentos e mapeamentos no mapa de fragmentos.
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
@@ -281,4 +281,4 @@ Aplicativos do Entity Framework podem aproveitar facilmente as ferramentas de ba
 [1]: ./media/sql-database-elastic-scale-use-entity-framework-applications-visual-studio/sample.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0204_2016-->

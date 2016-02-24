@@ -58,7 +58,7 @@ Modo de Autenticação | Sim | Especifique o modo de autenticação para se cone
 Nome de usuário | Não | Especifique um nome de usuário válido para se conectar ao site do SharePoint, se o modo de autenticação não for Padrão.
 Senha | Não | Especifique uma senha válida para se conectar ao site do SharePoint, se o modo de Autenticação não for Padrão.
 Biblioteca de Documentos / URLs Relativas da Lista | Sim | Especifique as bibliotecas de documentos/URLs de listas, com relação à URL do site do SharePoint, que podem ser modificadas pelo conector. Por exemplo, insira: *Listas/Tarefa, Documentos Compartilhados*.
-Cadeia de conexão do Barramento de Serviço | Não | Se você estiver estabelecendo conexão local, insira a cadeia de conexão de retransmissão do Barramento de Serviço.<br/><br/>[Usando o Gerenciador de Conexão Híbrida](app-service-logic-hybrid-connection-manager.md)<br/>[Preços do Barramento de Serviço](http://azure.microsoft.com/pricing/details/service-bus/)
+Cadeia de conexão do Barramento de Serviço | Não | Se você estiver estabelecendo conexão local, insira a cadeia de conexão de retransmissão do Barramento de Serviço.<br/><br/>[Usando o Gerenciador de Conexão Híbrida](app-service-logic-hybrid-connection-manager.md)<br/>[Preços do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/)
 
 5. Após a conclusão, as Configurações de Pacote são semelhantes às seguintes:  
 ![][2]
@@ -98,7 +98,7 @@ Depois de criar seu aplicativo de API, agora você pode usar o conector do Share
 ##  Gatilhos
 Use gatilhos se quiser iniciar um aplicativo lógico.
 
-> [AZURE.NOTE]Os gatilhos excluem os arquivos depois de lê-los. Para preservar esses arquivos, forneça um valor para o local de arquivamento.
+> [AZURE.NOTE] Os gatilhos excluem os arquivos depois de lê-los. Para preservar esses arquivos, forneça um valor para o local de arquivamento.
 
 ### 1\. Novo documento nos documentos compartilhados (JSON)
 Este gatilho é acionado quando um novo documento está disponível em “Documentos compartilhados”.
@@ -456,7 +456,7 @@ Status | Uma execução bem-sucedida da ação retorna o código de status 200 (
 
 ## Configuração Híbrida (opcional)
 
-> [AZURE.NOTE]Essa etapa será necessária apenas se você estiver usando o SharePoint local por trás do firewall.
+> [AZURE.NOTE] Essa etapa será necessária apenas se você estiver usando o SharePoint local por trás do firewall.
 
 O Serviço de Aplicativo usa o Gerenciador de Configuração Híbrida para se conectar com segurança ao sistema local. Se seu conector usar um SharePoint Server local, o Gerenciador de Conexão Híbrida será necessário.
 
@@ -465,9 +465,9 @@ Consulte [Usando o Gerenciador de Conexão Híbrida](app-service-logic-hybrid-co
 ## Faça mais com seu Conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
 
->[AZURE.NOTE]Se você deseja começar com os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógicos](https://tryappservice.azure.com/?appservice=logic), em que você pode criar imediatamente um aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
+>[AZURE.NOTE] Se você deseja começar com os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógicos](https://tryappservice.azure.com/?appservice=logic), em que você pode criar imediatamente um aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
 
-Exibir a referência da API REST do Swagger em [Conectores e referência dos Aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e Monitorar aplicativos de API e conector](app-service-api-manage-in-portal.md).
 
@@ -481,4 +481,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

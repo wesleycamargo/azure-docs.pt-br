@@ -38,8 +38,8 @@ Juntamente com o sistema operacional, outras opções de configuração com VMs 
 
 Outros benefícios a serem consideradas para VMs:
 
-**Pré-pago** – o Azure cobra um preço por hora com base no tamanho da VM e do sistema operacional. Para horas parciais, o Azure cobrará somente os minutos de uso. O armazenamento terá o preço e será cobrado separadamente. Para obter detalhes, consulte [preços de máquinas virtuais](http://azure.microsoft.com/pricing/details/virtual-machines/).
+**Pré-pago** – o Azure cobra um preço por hora com base no tamanho da VM e do sistema operacional. Para horas parciais, o Azure cobrará somente os minutos de uso. O armazenamento terá o preço e será cobrado separadamente. Para obter detalhes, consulte [preços de máquinas virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
 **Resiliência** – o Azure monitora o hardware físico que hospeda cada VM em execução. Se um servidor físico executando uma VM falhar, o Azure observa isso, a VM é movida para novo hardware e reinicia a VM. Esse processo é chamado, às vezes, recuperação de serviço. Azure também protege os dados de uma máquina virtual, mantendo cópias redundantes dos VHDs no armazenamento de blob.
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

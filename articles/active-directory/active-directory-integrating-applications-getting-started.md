@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="10/16/2015"
+      ms.date="02/09/2016"
       ms.author="inhenk"/>
 
 # Guia de introdução: integrando o Active Directory do Azure com aplicativos
@@ -74,12 +74,12 @@ Os artigos a seguir abordam as diferentes maneiras pelas quais os aplicativos s�
 - [Integrando a lista de tutoriais de aplicativos SaaS](active-directory-saas-tutorial-list.md)
 
 ## Gerenciando o acesso a aplicativos
-Os artigos a seguir descrevem as maneiras pelas quais você pode gerenciar o acesso aos aplicativos depois de serem integrados ao AD do Azure usando os Conectores do AD do Azure e o AD do Azure no portal do Azure.
+Os artigos a seguir descrevem as maneiras pelas quais você pode gerenciar o acesso aos aplicativos depois de serem integrados ao AD do Azure usando os Conectores do AD do Azure e o AD do Azure.
 
 - [Gerenciando o acesso a aplicativos com o AD do Azure](active-directory-managing-access-to-apps.md)
 - [Automatizando com os Conectores do AD do Azure](active-directory-saas-app-provisioning.md)
-- [Atribuindo usuários a um aplicativo](active-directory-applications-guiding-developers-assigning-users.md) com o portal do Azure.
-- [Atribuindo grupos a um aplicativo](active-directory-applications-guiding-developers-assigning-groups.md) com o portal do Azure.
+- [Atribuindo usuários a um aplicativo](active-directory-applications-guiding-developers-assigning-users.md)
+- [Atribuindo grupos a um aplicativo](active-directory-applications-guiding-developers-assigning-groups.md)
 - [Compartilhando contas](active-directory-sharing-accounts.md)
 
 ## Integrando aplicativos personalizados
@@ -87,4 +87,8 @@ Se você estiver escrevendo um novo aplicativo e desejar ajudar os desenvolvedor
 
 Se desejar adicionar seu aplicativo personalizado à Galeria de Aplicativos do Azure, veja [“Traga seu próprio aplicativo” com a configuração do SAML por autoatendimento do AD do Azure](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
 
-<!---HONumber=Oct15_HO4-->
+## Consulte também
+
+- [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
+
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="01/12/2016"
 	ms.author="krisragh"/>
 
 # Aprenda a usar a Biblioteca de Cliente iOS para os Serviços Móveis do Azure.
@@ -33,7 +33,7 @@ Este guia ensina a executar cenários comuns usando os Serviços Móveis do Azur
 
 ##<a name="Setup"></a>Configuração e pré-requisitos
 
-Este guia pressupõe que você tenha criado um serviço móvel com uma tabela. Para saber mais, consulte a seção [Criar uma tabela] ou reutilize a tabela `TodoItem` criada em [Início rápido dos serviços móveis]. Este guia pressupõe que a tabela tem o mesmo esquema das tabelas desses tutoriais. Este guia também pressupõe que o Xcode referencia `WindowsAzureMobileServices.framework` e importa `WindowsAzureMobileServices/WindowsAzureMobileServices.h`.
+Este guia pressupõe que você tenha criado um serviço móvel com uma tabela. Para saber mais, consulte [Criar uma tabela] ou reutilize a tabela `TodoItem` criada em [Início rápido dos Serviços Móveis]. Este guia pressupõe que a tabela tem o mesmo esquema das tabelas desses tutoriais. Este guia também pressupõe que o Xcode referencia `WindowsAzureMobileServices.framework` e importa `WindowsAzureMobileServices/WindowsAzureMobileServices.h`.
 
 ##<a name="create-client"></a>Como criar o cliente Serviços Móveis
 
@@ -333,4 +333,4 @@ O arquivo [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/az
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Manipulador de conflito]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

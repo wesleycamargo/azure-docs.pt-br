@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="01/22/2016"
 	ms.author="SilviaDoomra" />
 
 # Introdução às consultas elásticas para fragmentação (particionamento horizontal)
@@ -32,7 +32,7 @@ Aqui você vai criar um gerenciador de mapa de fragmentos juntamente com vários
 
 	![prompt de comando][1]
 
-2.  Na janela Comando, digite "1" e pressione **Enter**. Isso cria o gerenciador de mapa de fragmentos e adiciona dois fragmentos ao servidor. Em seguida, digite "3" e pressione **Enter**. Repita a ação mais quatro vezes. Isso insere linhas de dados de exemplo no seus fragmentos.
+2.  Na janela Comando, digite "1" e pressione **Enter**. Isso cria o gerenciador de mapa de fragmentos e adiciona dois fragmentos ao servidor. Em seguida, digite "3" e pressione **Enter**. Repita a ação quatro vezes. Isso insere linhas de dados de exemplo no seus fragmentos.
 3.  O [portal do Azure](https://portal.azure.com) deve mostrar três novos bancos de dados em seu servidor v12:
 
 	![Confirmação do Visual Studio][2]
@@ -44,11 +44,11 @@ Aqui você vai criar um gerenciador de mapa de fragmentos juntamente com vários
 ## Criar um banco de dados de consulta elástico
 
 1. Abra o [Portal do Azure](https://portal.azure.com) e faça logon.
-2. Crie um novo Banco de Dados SQL do Azure no mesmo servidor que a instalação do fragmento. Nomeie o banco de dados como "ElasticDBQuery". Para a camada de preços, você deve selecionar uma das ofertas Premium. A consulta de Banco de Dados Elástico está disponível apenas na camada Premium.
+2. Crie um novo Banco de Dados SQL do Azure no mesmo servidor que a instalação do fragmento. Nomeie o banco de dados como "ElasticDBQuery".
 
 	![Portal do Azure e camada de preços][3]
 
-	Observação: você pode usar um banco de dados Premium existente. Se fizer isso, ele não deve ser um dos fragmentos aonde você deseja executar suas consultas. Esse banco de dados será usado para criar os objetos de metadados para uma consulta de Banco de Dados Elástico.
+	Observação: você pode usar um banco de dados existente. Se fizer isso, ele não deve ser um dos fragmentos aonde você deseja executar suas consultas. Esse banco de dados será usado para criar os objetos de metadados para uma consulta de Banco de Dados Elástico.
 
 
 ## Criar objetos de banco de dados
@@ -121,15 +121,15 @@ Você observará que a consulta agrega os resultados de todos os fragmentos e fo
 6. 	Selecione a tabela **Clientes** na exibição de lista e clique em **Avançar**. Em seguida, clique em **Concluir**.
 7. 	No formulário **Importar dados** em **Selecione como deseja exibir esses dados na sua pasta de trabalho**, selecione **Tabela** e clique em **OK**.
 
-Todas as linhas da tabela **Clientes**, armazenada em fragmentos diferentes populam a planilha do Excel.
+Todas as linhas da tabela **Clientes**, armazenada em fragmentos diferentes, populam a planilha do Excel.
 
 ## Próximas etapas
 Agora você pode usar funções avançadas de visualização de dados do Excel. Você pode usar a cadeia de conexão com o nome do servidor, nome do banco de dados e credenciais para conectar suas ferramentas de integração de dados e BI ao banco de dados de consulta elástico. Certifique-se de que o SQL Server tem suporte como uma fonte de dados para a ferramenta. Você pode consultar o banco de dados de consulta elástico e tabelas externas como qualquer outro banco de dados e tabela do SQL Server que se conectariam à sua ferramenta.
 
 ### Custo
-Não há nenhum custo adicional para usar o recurso de consulta de Banco de Dados Elástico. No entanto, neste momento esse recurso está disponível apenas em bancos de dados Premium como um ponto de extremidade, mas os fragmentos podem ser de qualquer camada de serviço.
+Não há nenhum custo adicional para usar o recurso de consulta de Banco de Dados Elástico.
 
-Para obter informações sobre os preços, consulte [Detalhes de preços do Banco de Dados SQL](http://azure.microsoft.com/pricing/details/sql-database/).
+Para obter informações sobre os preços, consulte [Detalhes de preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
@@ -142,4 +142,4 @@ Para obter informações sobre os preços, consulte [Detalhes de preços do Banc
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

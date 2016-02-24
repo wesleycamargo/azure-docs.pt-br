@@ -13,267 +13,281 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/28/2015"
+	ms.date="01/26/2016" 
 	ms.author="tdykstra"/>
 
 # Autenticação de entidade de serviço para Aplicativos de API no Serviço de Aplicativo do Azure
 
-[AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
+[AZURE.INCLUDE [seletor](../../includes/app-service-api-auth-selector.md)]
 
 ## Visão geral
 
-Este tutorial mostra como usar os recursos de autenticação e autorização do Serviço de Aplicativo do Azure para proteger um aplicativo de API e como consumir um aplicativo de API protegido usando uma conta de serviço. O provedor de autenticação mostrado no tutorial é o Active Directory do Azure e o cliente e a API são APIs Web ASP.NET em execução em aplicativos de API.
+Este artigo explica como usar a autenticação do Serviço de Aplicativo para acesso [interno](app-service-api-authentication.md#internal) a aplicativos de API. Um cenário interno é quando você tem um aplicativo de API que deseja que seja consumível apenas por seu próprio código de aplicativo. A maneira mais fácil de implementar esse cenário no Serviço de Aplicativo é usar o Azure AD para proteger o aplicativo de API chamado. Você chama o aplicativo de API protegido com um token de portador que obtém do Azure AD fornecendo credenciais (entidade de serviço) de identidade do aplicativo.
 
-## Autenticação e autorização no Serviço de Aplicativo
+Neste artigo, você aprenderá o seguinte:
 
-Para obter uma introdução aos recursos de autenticação usados neste tutorial, consulte o tutorial anterior desta série, [autenticação e autorização para Aplicativos de API no Serviço de Aplicativo do Azure](app-service-api-authentication.md).
+* Como usar o Active Directory do Azure (Azure AD) para proteger um aplicativo de API contra acesso não autenticado.
+* Como consumir um aplicativo de API protegido de um aplicativo de API, um aplicativo Web ou um aplicativo móvel usando credenciais de entidade de serviço (identidade de aplicativo) do Azure AD. Para obter informações sobre como consumir de um aplicativo lógico, confira [Usando a API personalizada hospedada no Serviço de Aplicativo com Aplicativos Lógicos](../app-service-logic/app-service-logic-custom-hosted-api.md).
+* Como verificar se o aplicativo de API protegido não pode ser chamado de um navegador por usuários conectados.
+* Como verificar se o aplicativo de API protegido só pode ser chamado por uma entidade de serviço do Azure AD específica.
 
-## Como acompanhar este tutorial
+O artigo contém duas seções:
 
-Esse tutorial se baseia em um aplicativo de exemplo para o qual você baixa e cria um aplicativo de API no [primeiro tutorial da série de introdução dos Aplicativos de API e ASP.NET](app-service-api-dotnet-get-started.md).
+* A seção [Como configurar a autenticação de entidade de serviço no Serviço de Aplicativo do Azure](#authconfig) explica em termos gerais como configurar a autenticação para qualquer aplicativo de API e como consumir o aplicativo de API protegido. Esta seção aplica-se igualmente a todas as estruturas às quais o Serviço de Aplicativo dá suporte, incluindo .NET, Node.js e Java.
 
-## O projeto de exemplo CompanyUsers.API
+* Começando com a seção [Como continuar os tutoriais de introdução do .NET](#tutorialstart), o tutorial o orienta ao longo da configuração de um cenário de "acesso interno" para um aplicativo .NET de exemplo em execução no Serviço de Aplicativo.
 
-No [aplicativo de exemplo ContactsList](https://github.com/Azure-Samples/app-service-api-dotnet-contact-list), o projeto CompanyUsers.API é um projeto API Web simples com um método Get que retorna uma lista de contatos codificada. Para demonstrar um cenário de serviço a serviço, o método Get em ContactsList.API chama o método Get em CompanyContacts.API, adiciona os contatos obtidos ao que quer que esteja armazenado no repositório de dados e retorna a lista combinada.
+## <a id="authconfig"></a> Como configurar a autenticação da entidade de serviço no Serviço de Aplicativo do Azure
 
-Eis o método Get no CompanyUsers.API.
+Esta seção fornece instruções gerais que se aplicam a qualquer aplicativo de API. Para obter etapas específicas para o aplicativo de exemplo .NET de Lista de Tarefas Pendentes, vá para [Continuação dos tutoriais de introdução do .NET](#tutorialstart).
 
-		public async Task<IEnumerable<Contact>> Get()
-		{
-		    var contacts = new Contact[]{
-		                new Contact { Id = 1, EmailAddress = "nancy@contoso.com", Name = "Nancy Davolio"},
-		                new Contact { Id = 2, EmailAddress = "alexander@contoso.com", Name = "Alexander Carson"}
-		            };
-		
-		    return contacts;
-		}
+1. No [Portal do Azure](https://portal.azure.com/), navegue até a folha **Aplicativo de API** do aplicativo de API que você deseja proteger e clique em **Configurações**
 
+2. Na folha **Configurações**, localize a seção **Recursos** e clique em **Autenticação/Autorização**.
 
-E eis o método Get no ContactsList.API, mostrando como ele chama o CompanyContacts.API e adiciona os resultados ao que ele retorna. (Partes do código são omitidas aqui para que tudo fique mais claro).
-
-		private async Task<IEnumerable<Contact>> GetContacts()
-		{
-		    var contacts = await _storage.Get(FILENAME);
-		
-		    var contactsList = contacts.ToList<Contact>();
-		    using (var client = CompanyContactsAPIClientWithAuth())
-		    {
-		        var results = await client.Contacts.GetAsync();
-		        foreach (Contact c in results)
-		        {
-		            contactsList.Add(c);
-		        }
-		    }
-		
-		    return contactsList;
-		}
-
-O objeto de cliente retornado por `CompanyContactsAPIClientWithAuth()` no código acima é baseado no código de cliente gerado, mas adiciona um token de autorização para solicitações HTTP.
-
-		private static CompanyContactsAPI CompanyContactsAPIClientWithAuth()
-		{
-		    var client = new CompanyContactsAPI(new Uri(ConfigurationManager.AppSettings["CompanyContactsAPIUrl"]));
-		    client.HttpClient.DefaultRequestHeaders.Authorization =
-		        new AuthenticationHeaderValue("Bearer", ServicePrincipal.GetS2SAccessTokenForProdMSA().AccessToken);
-		    return client;
-		}
-
-## Criar um aplicativo de API no Azure e implantar o projeto CompanyContacts.API nele
-
-1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto CompanyContacts.API e clique em **Publicar**.
-
-3.  Na etapa **Perfil** do assistente **Publicar Web**, clique em **Serviço de Aplicativo do Microsoft Azure**.
-
-	![](./media/app-service-api-dotnet-service-principal-auth/selectappservice.png)
-
-4. Entre em sua conta do Azure, se ainda não tiver feito isso, ou atualize suas credenciais se elas tiverem expirado.
-
-4. Na caixa de diálogo **Serviço de Aplicativo**, escolha a **Assinatura** do Azure que você deseja usar e clique em **Novo**.
-
-	![](./media/app-service-api-dotnet-service-principal-auth/clicknew.png)
-
-3. Na guia **Hospedagem** da caixa de diálogo **Criar Serviço de Aplicativo**, clique em **Alterar Tipo** e em **Aplicativo de API**.
-
-4. Insira um **Nome de Aplicativo de API** que seja exclusivo no domínio *azurewebsites.net*.
-
-6. Na lista suspensa **Grupo de Recursos**, selecione o grupo de recursos que você tem usado nos tutoriais.
-
-4. Na lista suspensa **Plano de Serviço de Aplicativo**, selecione o plano que você tem usado nos tutoriais.
-
-7. Clique em **Criar**.
-
-	![](./media/app-service-api-dotnet-service-principal-auth/createappservice.png)
-
-	O Visual Studio cria o aplicativo de API e um perfil de publicação que tem todas as configurações necessárias para o novo aplicativo de API.
-
-8. Na guia **Conexão** do assistente **Publicar Web**, clique em **Publicar**.
-
-	![](./media/app-service-api-dotnet-service-principal-auth/conntab.png)
-
-	O Visual Studio implanta o projeto no novo aplicativo de API e abre um navegador com a URL do aplicativo de API. Uma página "criado com êxito" será exibida no navegador.
-
-9. Feche o navegador.
-
-## Atualizar o código de cliente gerado no projeto ContactsList.API
-
-O projeto ContactsList.API já tem o código de cliente gerado, mas você o excluirá e o regenerará de seu próprio aplicativo de API.
-
-1. No **Gerenciador de Soluções** do Visual Studio, no projeto ContactsList.API, exclua a pasta *CompanyContactsAPI*.
-
-2. Clique com o botão direito do mouse no projeto ContactsList.API e clique em **Adicionar > Cliente da API REST**.
-
-3. Na caixa de diálogo **Adicionar Cliente da API REST**, clique em **Baixar do Aplicativo de API do Microsoft Azure** e em **Procurar**.
-
-8. Na caixa de diálogo **Serviço de Aplicativo**, expanda o grupo de recursos que você está usando neste tutorial e escolha o aplicativo de API que acabou de criar
-
-	Se você não encontrar o aplicativo de API na lista, é possível que, ao criar o aplicativo de API, você tenha omitido acidentalmente a etapa que alterava o tipo de aplicativo Web para aplicativo de API. Nesse caso, você pode criar um novo aplicativo de API repetindo as etapas que realizou anteriormente. Você precisará escolher um nome diferente para o aplicativo de API, a menos que acesse o portal e exclua o aplicativo Web primeiro.
-
-10. Clique em **OK**.
-
-9. Na caixa de diálogo **Adicionar Cliente da API REST**, clique em **OK**.
-
-	O Visual Studio cria uma pasta com o nome do aplicativo de API e gera classes de cliente.
-
-## Atualizar o código em ContactsList.API e implantar o projeto
-
-O código em ContactsList.API que chama CompanyContacts.API estava comentado nos tutoriais anteriores. Nesta seção, você removerá o comentário do código e implantará o aplicativo.
-
-1. No projeto ContactsList.API, abra *Controllers/ContactsController.cs*.
-
-2. Na parte superior da classe `ContactsController`, no código que usa a classe de cliente gerada para adicionar um token de autorização, substitua o nome da classe `CompanyContactsAPI` pelo nome da classe gerada usando o aplicativo de API.
-
-	Por exemplo, se seu aplicativo de API se chamar CompanyContactsAPI3, o código será o seguinte:
-
-		 private static CompanyContactsAPI3 CompanyContactsAPIClientWithAuth()
-		 {
-		     var client = new CompanyContactsAPI3(new Uri(ConfigurationManager.AppSettings["CompanyContactsAPIUrl"]));
-		     client.HttpClient.DefaultRequestHeaders.Authorization =
-		         new AuthenticationHeaderValue("Bearer", ServicePrincipal.GetS2SAccessTokenForProdMSA().AccessToken);
-		     return client;
-		 }
- 
-4. No método `Get`, remova o bloco de código que chama CompanyContacts.API.
-
-		using (var client = CompanyContactsAPIClientWithAuth())
-		{
-		    var results = await client.Contacts.GetAsync();
-		    foreach (Contact c in results)
-		    {
-		        contactsList.Add(c);
-		    }
-		}
-
-2. Clique com o botão direito do mouse no projeto ContactsList.API e em **Publicar**.
-
-	O assistente **Publicar Web** é aberto no perfil de publicação que você usou anteriormente.
-
-3. No assistente **Publicar na Web**, clique em **Publicar**.
-
-	O Visual Studio implanta o projeto e abre uma janela do navegador para a URL base do aplicativo de API. Feche essa janela do navegador.
-
-## Configurar autenticação e autorização no Azure para o novo aplicativo de API
-
-1. No [portal do Azure](https://portal.azure.com/), navegue até a folha de Aplicativo de API do aplicativo de API que você criou neste tutorial para o projeto CompanyContacts.API e clique em **Configurações**.
-
-2. Localize a seção **Recursos** e clique em **Autenticação/Autorização**.
+	![](./media/app-service-api-dotnet-user-principal-auth/features.png)
 
 3. Na folha **Autenticação/Autorização**, clique em **Ativada**.
 
 4. Na lista suspensa **Ação a realizar quando a solicitação não está autenticada**, escolha **Fazer logon com o Active Directory do Azure**.
 
+5. Em **Provedores de Autenticação**, selecione **Active Directory do Azure**.
+
+	![](./media/app-service-api-dotnet-user-principal-auth/authblade.png)
+
+6. Configure a folha **Configurações do Active Directory do Azure** para criar um novo aplicativo Azure AD ou use um aplicativo existente do Azure AD, se você já tiver um que deseje usar.
+
+	Cenários internos normalmente envolvem um aplicativo de API que chama um aplicativo de API. Você pode usar aplicativos do Azure AD separados para cada aplicativo de API ou apenas um aplicativo Azure AD.
+
+	Para obter instruções detalhadas sobre essa folha, confira [Como configurar seu aplicativo de Serviço de Aplicativo para usar o logon do Active Directory do Azure](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md).
+
+7. Quando você terminar de usar a folha de configuração do provedor de autenticação, clique em **OK**.
+
+7. Na folha **Autenticação/Autorização**, clique em **Salvar**.
+
+Quando isso for feito, o Serviço de Aplicativo permitirá somente solicitações de chamadores no locatário do Azure AD configurado. Nenhum código de autenticação ou de autorização é necessário no aplicativo de API protegido. O token de portador é passado para o aplicativo de API, juntamente com declarações usadas com frequência em cabeçalhos HTTP, e você pode ler essas informações no código para validar que as solicitações são de um chamador específico, como uma entidade de serviço.
+
+Essa funcionalidade de autenticação funciona da mesma maneira para todas as linguagens às quais o Serviço de Aplicativo dá suporte, incluindo .NET, Node.js e Java.
+
+#### Como consumir o aplicativo de API protegido
+
+O chamador deve fornecer um token de portador do Azure AD com chamadas de API. Para obter um token de portador usando credenciais de entidade de serviço, o chamador usa a ADAL (Biblioteca de Autenticação do Active Directory para [.NET](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory), [Node.js](https://github.com/AzureAD/azure-activedirectory-library-for-nodejs), ou [Java](https://github.com/AzureAD/azure-activedirectory-library-for-java)). Para obter um token, o código que chama a ADAL fornece a ela as seguintes informações:
+
+* O nome de seu locatário do Azure AD.
+* A ID e o segredo do cliente (chave do aplicativo) do aplicativo Azure AD associado ao chamador.
+* A ID do cliente do aplicativo Azure AD associado ao aplicativo de API protegido. (Se apenas um aplicativo Azure AD for usado, essa será a mesma ID de cliente usada para o chamador.)
+
+Esses valores estão disponíveis nas páginas do Azure AD do [portal clássico do Azure](https://manage.windowsazure.com/).
+
+Depois que o token for adquirido, o chamador o incluirá em solicitações HTTP no cabeçalho de Autorização. O Serviço de Aplicativo valida o token e permite que as solicitações cheguem ao aplicativo de API protegido.
+
+#### Como proteger o aplicativo de API contra acesso por usuários no mesmo locatário
+
+Tokens de portador para usuários no mesmo locatário são considerados válidos para o aplicativo de API protegido. Se você quiser garantir que apenas uma entidade de serviço possa chamar o aplicativo de API protegido, adicione o código no aplicativo de API protegido para validar as seguintes declarações do token:
+
+* `appid` deve ser a ID do cliente do aplicativo Azure AD que está associado ao chamador. 
+* `oid` (`objectidentifier`) deve ser a ID da entidade de serviço do chamador. 
+
+O Serviço de Aplicativo também fornece a declaração `objectidentifier` no cabeçalho X-MS-CLIENT-PRINCIPAL-ID.
+
+### Como proteger o aplicativo de API contra acesso do navegador
+
+Se você não validar declarações no código no aplicativo de API protegido e se usar um aplicativo Azure AD diferente para o aplicativo de API protegido, verifique se a URL de Resposta do aplicativo Azure AD não é igual à URL base do aplicativo de API. Se a URL de Resposta apontar diretamente para o aplicativo de API protegido, um usuário no mesmo locatário do Azure AD poderá navegar até o aplicativo de API, fazer logon e chamar a API com êxito.
+
+## <a id="tutorialstart"></a> Como continuar os tutoriais de introdução do .NET
+
+Se você estiver seguindo a série de introdução do Node.js ou do Java para aplicativos de API, vá para a seção [Próximas etapas](#next-steps).
+
+O restante deste artigo continua a série de introdução do .NET para aplicativos de API e pressupõe que você tenha concluído o [tutorial de autenticação de usuário](app-service-api-user-principal-auth.md) e tenha o aplicativo de exemplo em execução no Azure com a autenticação de usuário habilitada.
+
+## Configurar a autenticação no Azure
+
+Nesta seção, você configurará o Serviço de Aplicativo para que as únicas solicitações HTTP que ele permita que cheguem ao aplicativo de API de camada de dados sejam aquelas que tiverem tokens de portador válidos do Azure AD.
+
+Na seção a seguir, você configurará o aplicativo de API de camada intermediária para enviar as credenciais do aplicativo ao Azure AD, obter de volta um token de portador e enviar o token de portador ao aplicativo de API de camada de dados. Esse processo é ilustrado no diagrama.
+
+![](./media/app-service-api-dotnet-service-principal-auth/appdiagram.png)
+
+1. No [portal do Azure](https://portal.azure.com/), navegue até a folha de Aplicativo de API do aplicativo de API que você criou para ToDoListDataAPI (camada de dados) e clique em **Configurações**.
+
+2. Na folha **Configurações**, localize a seção **Recursos** e clique em **Autenticação/Autorização**.
+
+3. Na folha **Autenticação/Autorização**, clique em **Ativada**.
+
+4. Na lista suspensa **Ação a realizar quando a solicitação não está autenticada**, escolha **Fazer logon com o Active Directory do Azure**.
+
+	Essa é a configuração que faz com que o Serviço de Aplicativo garanta que somente solicitações autenticadas cheguem ao aplicativo de API. Para solicitações com tokens de portador válido, o Serviço de Aplicativo passa os tokens para o aplicativo de API e popula os cabeçalhos HTTP com declarações comumente usadas para disponibilizar essas informações mais facilmente ao código.
+
 5. Em **Provedores de Autenticação**, clique em **Active Directory do Azure**.
 
 6. Na folha **Configurações do Active Directory do Azure**, clique em **Express**
 
-	O Azure criará automaticamente um aplicativo AAD no locatário AAD. Anote o nome do novo aplicativo AAD, já que você o selecionará posteriormente quando acessar o portal clássico do Azure para obter sua ID do cliente.
+	Com a opção **Expresso**, o Azure pode criar automaticamente um aplicativo do AAD no [locatário](https://msdn.microsoft.com/pt-BR/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) do Azure AD.
+
+	Você não precisa criar um locatário, pois cada conta do Azure tem um automaticamente.
+
+7. Em **Modo de gerenciamento**, clique em **Criar novo aplicativo do AD**.
+
+	O portal insere um valor padrão na caixa de entrada **Criar Aplicativo**.
+	
+	![](./media/app-service-api-dotnet-service-principal-auth/aadsettings.png)
+
+	Por padrão, o aplicativo Azure AD tem o mesmo nome que o aplicativo de API. Se preferir, você pode inserir um nome diferente.
+
+	Como alternativa, você pode usar um único aplicativo Azure AD para o aplicativo de API de chamada e o aplicativo de API protegido. Se escolher essa alternativa, você não precisará da opção **Criar novo aplicativo do AD** aqui, pois já criou um aplicativo Azure AD no início do tutorial de autenticação de usuário. Neste tutorial, você usará aplicativos do Azure AD separados para o aplicativo de API de chamada e o aplicativo de API protegido.
+
+8. Anote o valor que está na caixa de entrada **Criar Aplicativo**; você procurará esse aplicativo do AAD no portal clássico do Azure posteriormente.
 
 7. Clique em **OK**.
 
 10. Na folha **Autenticação/Autorização**, clique em **Salvar**.
- 
+
+	![](./media/app-service-api-dotnet-service-principal-auth/saveauth.png)
+
+	O Serviço de Aplicativo cria um aplicativo do Active Directory do Azure com a **URL de entrada** e a **URL de resposta** definidas automaticamente como a URL de seu aplicativo de API. O último valor habilita os usuários em seu locatário do AAD a fazer logon e acessar o aplicativo de API.
+
+### Verificar se o aplicativo de API está protegido
+
+1. Em um navegador, vá para a URL do aplicativo de API: na folha **Aplicativo de API** no portal do Azure, clique no link em **URL**. 
+
+	Você será redirecionado para uma tela de logon, pois solicitações não autenticadas não têm permissão para chegar ao aplicativo de API.
+
+	Se seu navegador for para a interface do usuário do Swagger, talvez já esteja conectado. Nesse caso, abra uma janela InPrivate ou Incognito e vá para a URL da interface do usuário do Swagger.
+
+18. Faça logon com as credenciais de um usuário em seu locatário do AAD.
+
+	Quando você estiver conectado, uma página "criado com êxito" será exibida no navegador.
+
+## Configurar o projeto ToDoListAPI para adquirir e enviar o token do Azure AD
+
+Nesta seção, você executará as seguintes tarefas:
+
+* Adicionar código no aplicativo de API de camada intermediária que usa credenciais do aplicativo Azure AD para adquirir um token e enviá-lo com solicitações HTTP ao aplicativo de API de camada de dados.
+* Obter as credenciais necessárias do Azure AD.
+* Inserir as credenciais nas configurações de ambiente de tempo de execução do Serviço de Aplicativo do Azure no aplicativo de API de camada intermediária. 
+
+### Configurar o projeto ToDoListAPI para adquirir e enviar o token do Azure AD
+
+Faça as alterações a seguir no projeto ToDoListAPI no Visual Studio.
+
+1. Remova as marcas de comentários de todo o código no arquivo *ServicePrincipal.cs*.
+
+	Esse é o código que usa a ADAL para .NET para adquirir o token de portador do Azure AD. Ele usa vários valores de configuração que você definirá mais tarde no ambiente de tempo de execução do Azure. O código é o seguinte:
+
+		public static class ServicePrincipal
+		{
+		    static string authority = ConfigurationManager.AppSettings["ida:Authority"];
+		    static string clientId = ConfigurationManager.AppSettings["ida:ClientId"];
+		    static string clientSecret = ConfigurationManager.AppSettings["ida:ClientSecret"];
+		    static string resource = ConfigurationManager.AppSettings["ida:Resource"];
+		
+		    public static AuthenticationResult GetS2SAccessTokenForProdMSA()
+		    {
+		        return GetS2SAccessToken(authority, resource, clientId, clientSecret);
+		    }
+		
+		    static AuthenticationResult GetS2SAccessToken(string authority, string resource, string clientId, string clientSecret)
+		    {
+		        var clientCredential = new ClientCredential(clientId, clientSecret);
+		        AuthenticationContext context = new AuthenticationContext(authority, false);
+		        AuthenticationResult authenticationResult = context.AcquireToken(
+		            resource,
+		            clientCredential);
+		        return authenticationResult;
+		    }
+		}
+
+	**Observação:** esse código requer a ADAL para o pacote do NuGet do .NET (Microsoft.IdentityModel.Clients.ActiveDirectory), que já está instalado no projeto. Se criasse o projeto do zero, você precisaria instalar este pacote. O pacote não é instalado automaticamente pelo modelo de novo projeto de aplicativo de API.
+
+2. Em *Controladores/ToDoListController*, remova as marcas de comentário do código no método `NewDataAPIClient` que adiciona o token a solicitações HTTP no cabeçalho de autorização.
+
+		client.HttpClient.DefaultRequestHeaders.Authorization =
+		    new AuthenticationHeaderValue("Bearer", ServicePrincipal.GetS2SAccessTokenForProdMSA().AccessToken);
+
+3. Implantar o projeto ToDoListAPI. (Clique com o botão direito do mouse no projeto e clique em **Publicar > Publicar**.)
+
+4. Feche a janela do navegador que será aberta depois que o projeto for implantado com êxito.
+
+### Obter valores de configuração do Azure AD
+
 11. No [portal clássico do Azure](https://manage.windowsazure.com/), vá para **Active Directory do Azure**.
 
 12. Na guia **Diretório**, clique no locatário do AAD.
 
 14. Clique em **Aplicativos > Aplicativo que minha empresa possui** e clique na marca de seleção.
 
-15. Na lista de aplicativos, clique no nome do aplicativo que o Azure criou quando você habilitou a autenticação para o aplicativo de API.
+15. Na lista de aplicativos, clique no nome do aplicativo que o Azure criou quando você habilitou a autenticação para o aplicativo de API ToDoListDataAPI (camada de dados).
 
-16. Clique em **Configurar**.
+16. Clique na guia **Configurar**.
 
-17. Mantenha essa página aberta para que você possa copiar e colar valores dela e atualizar os valores na página em etapas posteriores do tutorial.
+5. Copie o valor de **ID do cliente** e salve-o em algum local em que você possa obtê-lo posteriormente.
 
-## Atualizar configurações no aplicativo de API que executa o código do projeto ContactsList.API
+8. No portal clássico do Azure, volte à lista de **Aplicativos que minha empresa possui** e clique no aplicativo do AAD que você criou para o aplicativo de API ToDoListAPI (camada intermediária).
 
-3. Em outra janela do navegador, vá para o [portal clássico do Azure](https://manage.windowsazure.com/) e, em seguida, para a guia **Configurar** do aplicativo do AAD que você criou para o aplicativo de API ContactsList.API.
+16. Clique na guia **Configurar**.
 
-5. Em **Chaves**, selecione **1 ano** na lista suspensa **Selecionar duração**.
+5. Copie o valor de **ID do cliente** e salve-o em algum local em que você possa obtê-lo posteriormente.
+
+6. Em **Chaves**, selecione **1 ano** na lista suspensa **Selecionar duração**.
 
 6. Clique em **Salvar**.
 
 	![](./media/app-service-api-dotnet-service-principal-auth/genkey.png)
 
-7. Copie o valor da chave.
+7. Copie o valor de chave e salve-o em algum local em que você possa obtê-lo posteriormente.
 
 	![](./media/app-service-api-dotnet-service-principal-auth/genkeycopy.png)
 
-1. Em outra janela do navegador, vá para o [portal do Azure](https://portal.azure.com/) e navegue até a folha de aplicativo de API do aplicativo de API no qual você implantou o projeto ContactsList.API. (Esse é o aplicativo de API que está chamando, não aquele que está sendo chamado: ContactsList.API, não CompanyContacts.API.)
+### Definir configurações do Azure AD no ambiente de tempo de execução do aplicativo de API de camada intermediária
+
+1. Vá para o [portal do Azure](https://portal.azure.com/) e navegue até a folha **Aplicativo de API** do aplicativo de API que hospeda o projeto TodoListAPI (camada intermediária).
 
 2. Clique em **Configurações > Configurações do aplicativo**.
 
-3. Na seção **Configurações do aplicativo**, adicione uma chave chamada "ida:ClientSecret" e, no campo de valor, cole a chave que você acabou de criar.
+3. Na seção **Configurações do aplicativo**, adicione as seguintes chaves e valores:
 
-3. Adicione uma chave chamada "ida:ClientId" e, no campo de valor, cole a ID do cliente da mesma página **Configurar** do AAD.
+	|Chave|Valor|Exemplo
+	|---|---|---|
+	|ida:Authority|https://login.microsoftonline.com/{your Nome do locatário do Azure AD}|https://login.microsoftonline.com/contoso.onmicrosoft.com|
+	|ida:ClientId|ID do cliente do aplicativo de chamada (ToDoListAPI)|960adec2-b74a-484a-960adec2-b74a-484a|
+	|ida:ClientSecret|Chave de aplicativo do aplicativo de chamada (ToDoListAPI)|oCgdj3EYLfnR0p6iR3UvHFAfkn+zQB+0VqZT/6=
+	|ida:Resource|ID do cliente do aplicativo chamado (ToDoListDataAPI)|e65e8fc9-5f6b-48e8-e65e8fc9-5f6b-48e8|
 
-4. Adicione uma chave chamada "ida:Authority" e, no campo de valor, digite https://login.windows.net/{seu locatario}. Por exemplo, "https://login.windows.net/contoso.onmicrosoft.com".
+	Se estivesse usando um único aplicativo Azure AD para o aplicativo de chamada de API e o aplicativo de API protegido, você usaria o mesmo valor em `ida:ClientId` e `ida:Resource`.
 
-3. No portal clássico do Azure, vá para a guia **Configurar** do aplicativo do AAD que você criou para o aplicativo de API CompanyContacts.API.
+	O código usa o ConfigurationManager para obter esses valores, para que eles possam ser armazenados no arquivo Web.config do projeto ou no ambiente de tempo de execução do Azure. Enquanto um aplicativo do ASP.NET é executado no Serviço de Aplicativo do Azure, as configurações de ambiente automaticamente substituem as configurações de Web.config. As configurações de ambiente geralmente são uma [maneira mais segura de armazenar informações confidenciais em comparação com um arquivo Web.config](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
 
-4. Copie a ID do cliente.
-
-3. Na folha **Configurações do aplicativo** do portal do Azure, na seção **Configurações do aplicativo**, adicione uma chave chamada ida:Resource e, no campo de valor, cole a ID de Cliente que você acabou de copiar.
-
-4. Adicione uma chave chamada "CompanyContactsAPIUrl" e, no campo de valor, digite https://{nome do aplicativo de api}.azurewebsites.net. Por exemplo: "https://companycontactsapi.azurewebsites.net."
-
-6. Clique em Salvar.
+6. Clique em **Salvar**.
 
 	![](./media/app-service-api-dotnet-service-principal-auth/appsettings.png)
 
-## Testar no Azure
+### Testar o aplicativo
 
-1. Vá para a URL do aplicativo Web no qual você implantou o projeto ContactsList.Angular.AAD.
+1. Em um navegador, vá para a URL HTTPS do aplicativo Web de front-end do AngularJS.
 
-2. Clique na guia **Contatos** e faça logon.
+2. Clique na guia **Lista de tarefas pendentes** e faça logon usando as credenciais de um usuário de seu locatário do Azure AD.
 
-	Você verá a página Contatos com os contatos adicionais que foram recuperados do aplicativo de API CompanyContacts.API.
+4. Adicione itens pendentes para verificar se o aplicativo está funcionando.
 
-	![](./media/app-service-api-dotnet-service-principal-auth/contactspagewithdavolio.png)
+	![](./media/app-service-api-dotnet-service-principal-auth/mvchome.png)
 
-Assim como no tutorial anterior, você também pode configurar os projetos do Visual Studio com URLs de SSL de localhost e executar o aplicativo localmente. Nesse caso, você pode armazenar no arquivo Web.config as configurações armazenadas no Azure para execução no Azure (ID do cliente, segredo do cliente, etc.). No entanto, tenha cuidado para não fazer check-in para o controle de origem de um arquivo Web.config que contenha informações confidenciais, como o segredo do cliente. Para obter mais informações, consulte [Práticas recomendadas para implantação de senhas e outros dados confidenciais no Serviço de Aplicativo do Azure e ASP.NET](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
+	Se o aplicativo não funcionar conforme o esperado, verifique todas as configurações que você inseriu no portal do Azure. Se todas as configurações parecerem corretas, confira a seção [Solução de problemas](#troubleshooting) mais adiante neste tutorial.
 
 ## Proteger o aplicativo de API contra acesso do navegador
 
-Para este tutorial, você usou a opção Express no portal do Azure para configurar a autenticação do AAD para o aplicativo de API que você deseja acessar usando a autenticação de entidade de serviço. Por padrão, o serviço de aplicativo configura o novo aplicativo do AAD de maneira a habilitar um usuário a ir para a URL do aplicativo de API em um navegador e fazer logon. Isso significa que é possível que um usuário final, e não apenas uma entidade de serviço, tenha acesso à API. Se quiser que apenas uma entidade de serviço tenha acesso à API, você poderá impedir o acesso do navegador alterando a **URL de Resposta** no aplicativo do AAD para que ela seja diferente da URL de base do aplicativo de API.
+Para este tutorial, você criou um aplicativo Azure AD separado para o aplicativo de API ToDoListDataAPI (camada de dados). Como você viu, quando o Serviço de Aplicativo cria um aplicativo do AAD, ele configura o aplicativo do AAD de uma maneira que habilita um usuário a ir para a URL do aplicativo de API em um navegador e fazer logon. Isso significa que é possível que um usuário final em seu locatário do Azure AD (e não apenas uma entidade de serviço) acesse a API.
 
-### Verificar se o acesso do navegador funciona
-
-1. Em uma nova janela do navegador, vá para a URL HTTPS do aplicativo de API que você criou para o projeto CompanyContacts.API.
-
-	O navegador vai para uma tela de logon.
-	
-2. Faça logon com credenciais de um usuário no locatário do AAD.
-
-3. O navegador exibe a tela de "criado com êxito" do aplicativo de API.
-
-	Se a interface do usuário do Swagger estivesse habilitada, você poderia ir para a URL do `/swagger` e chamar a API. Você pode chamar a API por meio do navegador adicionando `/api/contacts/get` à URL.
+Se quiser impedir o acesso do navegador sem escrever código no aplicativo de API protegido, você poderá alterar a **URL de resposta** no aplicativo do AAD para que ela seja diferente da URL de base do aplicativo de API.
 
 ### Desabilitar o acesso do navegador
 
-1. Na guia **Configurar** do portal clássico do aplicativo do AAD criado para o projeto CompanyContacts.API, altere o valor do campo **URL de Resposta** para que seja uma URL válida, mas não a URL do aplicativo de API.
+1. Na guia **Configurar** do portal clássico do aplicativo do AAD criado para o projeto TodoListService, altere o valor do campo **URL de Resposta** para que seja uma URL válida, mas não a URL do aplicativo de API.
  
 2. Clique em **Salvar**.
 
 ### Verificar se o acesso de navegador não funciona mais
+
+Anteriormente, você verificou que pode ir para a URL do aplicativo de API por meio de um navegador fazendo logon com as credenciais de um usuário individual. Nesta seção, você verificará se que isso não é mais possível.
 
 1. Em uma nova janela do navegador, vá para a URL do aplicativo de API novamente.
 
@@ -281,27 +295,103 @@ Para este tutorial, você usou a opção Express no portal do Azure para configu
 
 3. O logon é bem-sucedido, mas leva a uma página de erro.
 
-	Você ainda pode acessar o aplicativo de API usando um token de entidade de serviço, mas os usuários no locatário do AAD não podem fazer logon e acessar a API por meio de um navegador.
+	Você configurou o aplicativo do AAD para que os usuários no locatário do AAD não possam fazer logon e acessar a API por meio de um navegador. Você ainda pode acessar o aplicativo de API usando um token de entidade de serviço, que você pode verificar indo para a URL do aplicativo Web e adicionando mais itens pendentes.
+
+## Restringir o acesso a uma entidade de serviço específica  
+
+Agora, qualquer chamador que possa obter um token para um usuário ou uma entidade de serviço em seu locatário do Azure AD poderá chamar o aplicativo de API TodoListDataAPI (camada de dados). Convém garantir que o aplicativo de API de camada de dados só aceite chamadas do aplicativo de API TodoListAPI (camada intermediária) e apenas de uma entidade de serviço específica.
+
+Você pode adicionar essas restrições adicionando código para validar as declarações `appid` e `objectidentifier` em chamadas de entrada.
+
+Para este tutorial, você coloca o código que valida a ID do aplicativo e a ID da entidade de serviço diretamente em suas ações do controlador. As alternativas são usar um atributo `Authorize` personalizado ou fazer essa validação nas sequências de inicialização (por exemplo, middleware OWIN). Para obter um exemplo desse último item, consulte [este aplicativo de exemplo](https://github.com/mohitsriv/EasyAuthMultiTierSample/blob/master/MyDashDataAPI/Startup.cs).
+
+Faça as alterações a seguir no projeto TodoListDataAPI.
+
+2. Abra o arquivo *Controllers/TodoListController.cs*.
+
+3. Remova as marcas de comentários das linhas que definem `trustedCallerClientId` e `trustedCallerServicePrincipalId`.
+
+		private static string trustedCallerClientId = ConfigurationManager.AppSettings["todo:TrustedCallerClientId"];
+		private static string trustedCallerServicePrincipalId = ConfigurationManager.AppSettings["todo:TrustedCallerServicePrincipalId"];
+
+4. Remova as marcas de comentários do código no método CheckCallerId. Esse método é chamado no início de cada método de ação no controlador.
+
+		private static void CheckCallerId()
+		{
+		    string currentCallerClientId = ClaimsPrincipal.Current.FindFirst("appid").Value;
+		    string currentCallerServicePrincipalId = ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/objectidentifier").Value;
+		    if (currentCallerClientId != trustedCallerClientId || currentCallerServicePrincipalId != trustedCallerServicePrincipalId)
+		    {
+		        throw new HttpResponseException(new HttpResponseMessage { StatusCode = HttpStatusCode.Unauthorized, ReasonPhrase = "The appID or service principal ID is not the expected value." });
+		    }
+		}
+
+5. Reimplante o projeto ToDoListDataAPI no Serviço de Aplicativo do Azure.
+
+6. No navegador, vá para a URL HTTPS do aplicativo Web de front-end do AngularJS e, na home page, clique na guia **Lista de tarefas pendentes**.
+
+	O aplicativo não funciona porque as chamadas ao back-end estão falhando. O novo código está verificando o appid e o objectidentifier reais, mas ainda não tem os valores corretos em relação aos quais deve verificá-los. O Console de Ferramentas de Desenvolvedor do navegador relata que o servidor está retornando um erro HTTP 401.
+
+	![](./media/app-service-api-dotnet-service-principal-auth/webapperror.png)
+
+	Nas etapas a seguir, você configura os valores esperados.
+
+8. Usando o PowerShell do Azure AD, obtenha o valor da entidade de serviço do aplicativo do Azure AD que você criou para o projeto TodoListWebApp.
+
+	a. Para obter instruções sobre como instalar o Azure PowerShell e conectar-se à sua assinatura, confira [Uso do PowerShell do Azure com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md).
+
+	b. Para obter uma lista de entidades de serviço, execute o comando `Login-AzureRmAccount` e, em seguida, o comando `Get-AzureRmADServicePrincipal`.
+
+	c. Localize o objectid da entidade de serviço do aplicativo TodoListAPI e salve-o em um local do qual você possa copiá-lo mais tarde.
+
+7. No portal do Azure, navegue até a folha do aplicativo Web para o qual você implantou o projeto ToDoListAngular.
+
+9. Clique em **Configurações > Configurações do aplicativo**.
+
+3. Na seção **Configurações do aplicativo**, adicione as seguintes chaves e valores:
+
+	|Chave|Valor|Exemplo
+	|---|---|---|
+	|todo:TrustedCallerServicePrincipalId|Id da entidade de serviço do aplicativo de chamada|4f4a94a4-6f0d-4072-4f4a94a4-6f0d-4072|
+	|todo:TrustedCallerClientId|ID do cliente do aplicativo de chamada ‒ copiada do aplicativo do AAD TodoListAPI|960adec2-b74a-484a-960adec2-b74a-484a|
+
+6. Clique em **Salvar**.
+
+	![](./media/app-service-api-dotnet-service-principal-auth/trustedcaller.png)
+
+6. No navegador, retorne à URL do aplicativo Web e, na home page, clique na guia **Lista**.
+
+	Desta vez, o aplicativo funciona como esperado, pois a ID do aplicativo chamador confiável e a ID da entidade de serviço são os valores esperados.
+
+	![](./media/app-service-api-dotnet-service-principal-auth/mvchome.png)
+
+## Como criar os projetos do zero
+
+Os dois projetos de API Web foram criados usando o modelo de projeto **Aplicativo de API do Azure** e substituindo o controlador de Valores padrão por um controlador ToDoList. Para adquirir tokens de entidade de serviço do Azure AD no projeto ToDoListAPI, foi instalado o pacote NuGet da [ADAL (Biblioteca de Autenticação do Active Directory) para .NET](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/)
+ 
+Para obter informações sobre como criar um aplicativo de página única do AngularJS com um back-end de API Web como ToDoListAngular, confira [Laboratório prático: criar um SPA (aplicativo de página única) com a API Web do ASP.NET e Angular.js](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs). Para obter informações sobre como adicionar código de autenticação do Azure AD, confira [Como proteger aplicativos de página única do AngularJS com o Azure AD](../active-directory/active-directory-devquickstarts-angular.md).
+
+## Solucionar problemas
+
+Se você executar com êxito o aplicativo sem autenticação e, depois, ele não funcionar quando você implementar a autenticação, na maioria das vezes o problema será decorrente de configurações incorretas ou inconsistentes. Comece verificando todas as configurações no Serviço de Aplicativo do Azure e no Active Directory do Azure. Aqui estão algumas sugestões específicas:
+
+* Depois de configurar o código em um projeto, verifique se você reimplantou esse projeto e não um dos outros.
+* Para as configurações definidas na folha **Configurações do Aplicativo** do portal do Azure, verifique se o aplicativo Web ou o aplicativo de API correto foi selecionado quando as configurações foram inseridas.
+* Verifique se você está usando URLs HTTPS no navegador, não URLs HTTP.
+* Verifique se CORS ainda está habilitado no aplicativo de API de camada intermediária, permitindo chamadas à camada intermediária por meio da URL HTTPS do front-end. Caso esteja em dúvida se o problema está relacionado ao CORS, tente usar "*" como a URL de origem permitida. **Importante:** algumas mensagens de erro do Console de Ferramentas de Desenvolvedor do navegador podem relatar um erro de CORS quando o problema real é a autenticação da camada de dados. Você pode verificar se esse é o caso desabilitando temporariamente a autenticação para o aplicativo de API ToDoListDataAPI.
+* Obtenha o máximo possível de informações nas mensagens de erro definindo o [modo customErrors como Desativado](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remoteview).
+* Se outros métodos falharem, tente uma [sessão de depuração remota](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug) e examine os valores das variáveis que são passadas para o código que obtém o token de portador em ToDoListAPI e o código que valida valores do Azure AD recebidos em ToDoListDataAPI. Observe que o código pode selecionar valores de configuração de várias fontes diferentes. Portanto, é possível que ocorram surpresas dessa maneira. Por exemplo, se você nomear incorretamente `ida:ClientId` como `ida:ClientID` ao definir as configurações do Serviço de Aplicativo, o código poderá receber o valor `ida:ClientId` que está procurando do arquivo Web.config, ignorando a configuração do Serviço de Aplicativo. 
 
 ## Próximas etapas
 
-Este é o último tutorial da série de Introdução aos aplicativos de API. Esta seção oferece sugestões adicionais para aprender mais sobre como trabalhar com aplicativos de API.
+Este é o último artigo da série de introdução aos Aplicativos de API.
 
-* Outras maneiras de implantar um aplicativo do Serviço de Aplicativo
+Para saber mais sobre o Active Directory do Azure, confira os recursos a seguir.
 
-	Para saber mais sobre outras maneiras de implantar projetos Web em aplicativos Web, usando o Visual Studio ou [automatizando a implantação](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) de um [sistema de controle do código-fonte](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), confira [Como implantar um aplicativo Web do Azure](web-sites-deploy.md).
+* [Guia dos desenvolvedores do AD do Azure](http://aka.ms/aaddev)
+* [Cenários do AD do Azure](http://aka.ms/aadscenarios)
+* [Exemplos do Azure AD](http://aka.ms/aadsamples) O exemplo [WebApp-WebAPI-OAuth2-AppIdentity-DotNet](http://github.com/AzureADSamples/WebApp-WebAPI-OAuth2-AppIdentity-DotNet) é semelhante ao que é mostrado neste tutorial, mas sem usar a autenticação do Serviço de Aplicativo.
 
-	O Visual Studio também pode gerar scripts do Windows PowerShell, que permitem a você automatizar a implantação. Para obter mais informações, consulte [Automatizar tudo (Compilando aplicativos de nuvem do mundo real com o Azure) ](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything).
+Para saber mais sobre outras maneiras de implantar projetos do Visual Studio em aplicativos de API, usando o Visual Studio ou [automatizando a implantação](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) de um [sistema de controle do código-fonte](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), confira [Como implantar um aplicativo do Serviço de Aplicativo do Azure](web-sites-deploy.md).
 
-* Como solucionar problemas de um aplicativo do Serviço de Aplicativo
-
-	O Visual Studio fornece ferramentas que facilitam a exibição dos logs do Azure à medida que são gerados em tempo real. Você também pode executar em modo de depuração remotamente no Azure. Para obter mais informações, consulte [Solucionando problemas de aplicativos Web do Azure no Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
-
-* Como adicionar um nome de domínio personalizado e SSL
-
-	Para obter informações sobre como utilizar SSL e seu próprio domínio (por exemplo www.contoso.com, em vez de contoso.azurewebsites.net), consulte os recursos a seguir:
-
-	* [Configurar um nome de domínio personalizado no Serviço de Aplicativo do Azure](web-sites-custom-domain-name.md)
-	* [Habilitar HTTPS para um site do Azure](web-sites-configure-ssl-certificate.md)
-
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

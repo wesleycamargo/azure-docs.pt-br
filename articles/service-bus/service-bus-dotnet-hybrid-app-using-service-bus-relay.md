@@ -89,7 +89,7 @@ Você pode gerenciar namespaces e entidades de mensagens do Barramento de Servi�
 
 5.  Depois de verificar se o nome do namespace está disponível, escolha o país ou a região em que o namespace deve ser hospedado (certifique-se de usar o mesmo país/região em que você está implantando seus recursos de computação).
 
-    > [AZURE.IMPORTANT]Selecione a *mesma região* que você pretende escolher paraimplantar seu aplicativo. Isso lhe dará o melhor desempenho.
+    > [AZURE.IMPORTANT] Selecione a *mesma região* que você pretende escolher paraimplantar seu aplicativo. Isso lhe dará o melhor desempenho.
 
 6.	Deixe os outros campos na caixa de diálogo com seus valores padrão (camada **Mensagens** e **Padrão**) e clique na marca de seleção. Agora, o sistema cria o seu namespace e o habilita. Talvez você precise aguardar vários minutos, enquanto o sistema provisiona recursos para sua conta.
 
@@ -402,7 +402,7 @@ Execute o aplicativo para verificar se ele funciona.
 
 ## Tornar seu aplicativo pronto para implantação no Azure
 
-É possível implantar seu aplicativo em um serviço de nuvem do Azure ou em um site do Azure. Para saber mais sobre a diferença entre sites e serviços de nuvem, consulte [Modelos de execução do Azure][executionmodels]. Para saber como implantar o aplicativo em um site do Azure, consulte [Implantando um aplicativo Web ASP.NET em um site do Azure](http://azure.microsoft.com/develop/net/tutorials/get-started/). Esta seção contém etapas detalhadas para implantar o aplicativo em um serviço de nuvem do Azure.
+É possível implantar seu aplicativo em um serviço de nuvem do Azure ou em um site do Azure. Para saber mais sobre a diferença entre sites e serviços de nuvem, consulte [Modelos de execução do Azure][executionmodels]. Para saber como implantar o aplicativo em um site do Azure, consulte [Implantando um aplicativo Web ASP.NET em um site do Azure](https://azure.microsoft.com/develop/net/tutorials/get-started/). Esta seção contém etapas detalhadas para implantar o aplicativo em um serviço de nuvem do Azure.
 
 Para implantar seu aplicativo em um serviço de nuvem, você adicionará um projeto de implantação de projeto de serviço de nuvem à solução. O projeto de implantação contém as informações de configuração necessárias para executar corretamente o aplicativo na nuvem.
 
@@ -422,7 +422,7 @@ Para implantar seu aplicativo em um serviço de nuvem, você adicionará um proj
 
 A próxima etapa é vincular o servidor de produtos local com o aplicativo ASP.NET MVC.
 
-1.  Se ele ainda não estiver aberto, no Visual Studio, reabra o projeto **ProductsPortal** criado na seção "Criando um aplicativo MVC ASP.NET".
+1.  Se ele ainda não estiver aberto, reabra o projeto **ProductsPortal** no Visual Studio criado na sessão “Criar um aplicativo ASP.NET MVC”.
 
 2.  Semelhante à etapa na seção "Criar um servidor local", adicione o pacote NuGet às referências do projeto. No Gerenciador de Soluções, clique com o botão direito do mouse em **Referências** e clique em **Gerenciar Pacotes NuGet**.
 
@@ -610,4 +610,4 @@ Para obter mais informações sobre o Barramento de Serviço, consulte os seguin
   [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
   [executionmodels]: ../cloud-services/fundamentals-application-models.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

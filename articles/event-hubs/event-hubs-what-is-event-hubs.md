@@ -1,5 +1,5 @@
 <properties
-	pageTitle="O que são Hubs de Eventos do Azure | Microsoft Azure"
+	pageTitle="O que são Hubs de Eventos do Azure? | Microsoft Azure"
 	description="Visão geral dos Hubs de Eventos do Azure"
 	services="event-hubs"
 	documentationCenter=".net"
@@ -12,8 +12,8 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/05/2015"
+	ms.topic="get-started-article"
+	ms.date="01/26/2016"
 	ms.author="sethm"/>
 
 # O que é Hub de Eventos do Azure?
@@ -45,4 +45,4 @@ Para obter informações detalhadas sobre Hub de Eventos, consulte os tópicos a
 [Tutorial de Hub de Eventos]: event-hubs-csharp-ephcs-getstarted.md
 [aplicativo de exemplo completo que usa Hub de Eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0218_2016-->

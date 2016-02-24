@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="02/08/2016" 
 	ms.author="bradsev" />
 
 
@@ -23,7 +23,7 @@
 
 A Máquina Virtual de Ciência de Dados da Microsoft é uma imagem de máquina virtual (VM) do Azure pré-instalada e configurada com diversas ferramentas populares que são usadas para a análise de dados e o aprendizado de máquina. As ferramentas incluídas são:
 
-- Revolution R Open
+- Microsoft R Server Developer Edition
 - Distribuição do Anaconda Python
 - Visual Studio Community Edition
 - Power BI Desktop
@@ -42,7 +42,7 @@ Não há encargos de software para esta imagem da VM de ciência de dados. Você
 
 Antes de criar uma Máquina Virtual de Ciência de Dados da Microsoft, você deve ter o seguinte:
 
-- **Uma assinatura do Azure**: para obter uma, confira [Obter avaliação gratuita do Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Uma assinatura do Azure**: para obter uma, confira [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 *   **Uma conta de armazenamento do Azure**: para criar uma, confira [Criar uma conta de armazenamento do Azure](storage-create-storage-account.md#create-a-storage-account) Como alternativa, a conta de armazenamento pode ser criada como parte do processo de criação da VM se você não desejar usar uma conta existente.
 
@@ -51,7 +51,7 @@ Antes de criar uma Máquina Virtual de Ciência de Dados da Microsoft, você dev
 
 Veja as etapas para criar uma instância da Máquina Virtual de Ciência de Dados da Microsoft:
 
-1.	Navegue até a máquina virtual listada no [Portal Clássico do Azure](https://portal.azure.com/#gallery/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
+1.	Navegue até a listagem de máquinas virtuais no [Portal do Azure](https://ms.portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
 2.	 Clique no botão **Criar** na parte inferior para ser levado para um assistente.![configure-data-science-vm](./media/machine-learning-data-science-provision-vm/configure-data-science-virtual-machine.png)
 3.	 As seções a seguir fornecem as **entradas** para cada uma das **5 etapas** (enumeradas à direita da figura acima) do assistente usado para criar a Máquina Virtual de ciência de Dados da Microsoft. Aqui estão as entradas necessárias para configurar cada uma das seguintes etapas:
 
@@ -70,7 +70,7 @@ Veja as etapas para criar uma instância da Máquina Virtual de Ciência de Dado
 
   **c. Configurações**
 
-   - **Tipo de disco**: escolha Premium se você preferir uma SSD (unidade de estado sólido); caso contrário, escolha “Standard”.
+   - **Tipo de disco**: escolha Premium se você preferir uma SSD (unidade de estado sólido); caso contrário, escolha "Padrão".
    - **Conta de Armazenamento**: é possível criar uma nova conta de armazenamento do Azure em sua assinatura ou usar uma já existente no mesmo *Local* que foi escolhido na etapa Noções básicas do assistente.
    - **Outros parâmetros**: na maioria dos casos, você simplesmente usará os valores padrão. É possível focalizar o link informativo para obter ajuda sobre um campo específico, caso você queira considerar o uso de valores não padrão.
 
@@ -83,23 +83,23 @@ Veja as etapas para criar uma instância da Máquina Virtual de Ciência de Dado
    - Clique em **Comprar** para iniciar o provisionamento. Um link para os termos da transação é fornecido. A VM não tem encargos adicionais além dos de computação para o tamanho do servidor que você escolheu na etapa **Tamanho**. 
 
 
-O provisionamento deve levar cerca de 10 a 20 minutos. O status do provisionamento é exibido no Portal Clássico do Azure.
+O provisionamento deve levar cerca de 10 a 20 minutos. O status do provisionamento é exibido no Portal do Azure.
 
 ## Como acessar uma Máquina Virtual de Ciência de Dados da Microsoft
 
 Depois de criar a VM, é possível fazer logon nela usando a área de trabalho remota com as credenciais da conta de Administrador criada na seção Noções básicas da etapa 4.
 
-Depois de criar e provisionar sua VM, você estará pronto para começar a usar as ferramentas que estão instaladas e configuradas nela. Há ícones da área de trabalho e blocos do menu Iniciar para várias das ferramentas.
+Depois de criar e provisionar sua VM, você estará pronto para começar a usar as ferramentas que estão instaladas e configuradas nela. Há blocos do menu Iniciar e ícones da área de trabalho para várias das ferramentas.
 
-## Como criar uma senha forte na Máquina Virtual de Ciência de Dados
+## Como criar uma senha forte no servidor do bloco de anotações do Jupyter 
 
-Execute o seguinte comando a partir de um prompt de comando na Máquina Virtual de Ciência de Dados para criar sua própria senha forte para a máquina.
+Execute o comando a seguir em um prompt de comando na Máquina Virtual de Ciência de Dados para criar sua própria senha forte para o servidor de bloco de anotações do Jupyter instalado na máquina.
 
 	c:\anaconda\python.exe -c "import IPython;print IPython.lib.passwd()"
 
-Insira a senha quando solicitado.
+Escolha uma senha forte quando solicitado.
 
-Você verá o hash de senha no formato "sha1:xxxxxx" na saída. Copie esse hash de senha e substitua o hash existente em seu arquivo de configuração do bloco de anotações localizado em: **C:\\Aaqs.ipython\\profile\_nbserver\\ipython\_notebook\_config.py** com um nome de parâmetro ***c.NotebookApp.password***.
+Você verá o hash de senha no formato "sha1:xxxxxx" na saída. Copie esse hash de senha e substitua o hash existente em seu arquivo de configuração do bloco de anotações localizado em: **C:\\ProgramData\\jupyter\\jupyter\_notebook\_config.py** por um nome de parâmetro ***c.NotebookApp.password***.
 
 Você só deve substituir o valor de hash existente que está entre aspas. As aspas e o prefixo ***sha1:*** para o valor do parâmetro precisam ser mantidos.
 
@@ -107,33 +107,41 @@ Por fim, você precisa parar e reiniciar o servidor do Ipython que está em exec
 
 ## Ferramentas Instaladas na Máquina Virtual de Ciência de Dados da Microsoft
 
-### R
-Se desejar usar o R para a análise, a VM tem o RRO (Revolution R Open) instalado. Esta é uma distribuição de Software Livre do R e é totalmente compatível com o CRAN-R. Contém o mecanismo mais recente do mecanismo de software livre do R junto com a Biblioteca de Kernel Intel Math. Um IDE chamado "RRO RGui" também é fornecido na VM. Sinta-se à vontade para baixar e usar outros IDEs, bem como o [RStudio](http://www.rstudio.com).
+### Microsoft R Server Developer Edition
+Se você quiser usar o R para sua análise, a VM tem a edição Microsoft R Server Developer instalada. O Microsoft R Server é uma plataforma de análise empresarial amplamente implementável com base em R e com suporte, escalonável e segura. Com suporte a diversas estatísticas de Big Data, modelos de previsão e recursos de aprendizado de máquina, o R Server oferece suporte a uma gama completa de análises: exploração, análise, visualização e modelagem. Usando e estendendo o software livre R, o Microsoft R Server é totalmente compatível com scripts e funções R e pacotes CRAN, a fim de analisar os dados em escala empresarial. Ele também soluciona as limitações de memória do software livre R adicionando o processamento paralelo e em blocos no Microsoft R Server, permitindo que os usuários executem análises em uma quantidade de dados muito maior do que cabe na memória principal. Um IDE para R também acompanha a VM e pode ser acessado clicando no ícone "Revolution R Enterprise 8.0" no menu Iniciar ou na área de trabalho. Sinta-se à vontade para baixar e usar outros IDEs, bem como o [RStudio](http://www.rstudio.com).
 
 ### Python
-Para o desenvolvimento com Python, a distribuição do Anaconda Python 2.7 foi instalada. Essa distribuição contém o Python base com aproximadamente 300 dos mais populares pacotes de matemática, engenharia e análise de dados. Você pode usar Ferramentas Python para Visual Studio (PTVS) que são instaladas na edição do Visual Studio 2015 Community ou um dos IDEs agrupado com Anaconda como IDLE ou Spyder. Você pode iniciar um desses pesquisando na barra de pesquisa (tecla **Win** + **S**).
+Para o desenvolvimento com Python, as distribuições 2.7 e 3.5 do Anaconda Python foram instaladas. Essa distribuição contém o Python base com aproximadamente 300 dos mais populares pacotes de matemática, engenharia e análise de dados. Você pode usar Ferramentas Python para Visual Studio (PTVS) que são instaladas na edição do Visual Studio 2015 Community ou um dos IDEs agrupado com Anaconda como IDLE ou Spyder. Você pode iniciar um desses pesquisando na barra de pesquisa (tecla **Win** + **S**). **Observação**: para apontar para Ferramentas Python para o Visual Studio no Anaconda Python 2.7 e 3.5, você precisa criar ambientes personalizados para cada versão acessando Ferramentas -> Ferramentas Python -> Ambientes Python, clicando em "+Personalizado" no Visual Studio 2015 Community Edition e definindo os caminhos de ambiente. O Anaconda Python 2.7 é instalado em C:\\Anaconda e o Anaconda Python 3.5 é instalado em c:\\Anaconda\\envs\\py35. Confira a [documentação do PTVS](https://github.com/Microsoft/PTVS/wiki/Selecting-and-Installing-Python-Interpreters#hey-i-already-have-an-interpreter-on-my-machine-but-ptvs-doesnt-seem-to-know-about-it) para ver as etapas detalhadas.
 
-### IPython Notebook
-A distribuição do Anaconda também é incluída em um IPython Notebook, um ambiente de compartilhamento de código e análise. Um servidor do IPython Notebook foi pré-configurado. Há um ícone de área de trabalho para iniciar o navegador para acessar o servidor do bloco de anotações. Se estiver na VM por meio da área de trabalho remota, você também poderá visitar [https://localhost:9999/](https://localhost:9999/) para acessar o servidor do IPython notebook (Observação: basta clicar em Continuar se receber avisos de certificado.)
+### Bloco de anotações do Jupyter
+A distribuição do Anaconda também acompanha um bloco de anotações do Jupyter, um ambiente de compartilhamento de código e de análise. Um servidor de bloco de anotações do Jupyter foi previamente configurado com os kernels do Python 2, do Python 3 e do R. Há um ícone de área de trabalho chamado "Bloco de anotações do Jupyter" para iniciar o navegador a fim de acessar o servidor do Notebook. Se estiver na VM por meio da área de trabalho remota, você também poderá visitar [https://localhost:9999/](https://localhost:9999/) para acessar o servidor do notebook do Jupyter (observação: clique em Continuar se receber avisos de certificado). Empacotamos exemplos de blocos de anotações, um em Python em outro em R. Você pode ver o link para os exemplos na home page do bloco de anotações após a autenticação no bloco de anotações do Jupyter usando a senha criada na etapa anterior.
 
 ### Visual Studio 2015 Community edition
-Visual Studio Community edition instalada na VM. É uma versão gratuita do IDE popular da Microsoft que pode ser usada para fins de avaliação e para equipes muito pequenas. Você pode consultar os termos de licenciamento [aqui](https://www.visualstudio.com/support/legal/mt171547). Abra o Visual Studio clicando duas vezes no ícone da área de trabalho ou no menu **Iniciar**. Você também pode pesquisar programas com **Win** + **S** e inserindo “Visual Studio”.
+Visual Studio Community edition instalada na VM. É uma versão gratuita do IDE popular da Microsoft que pode ser usada para fins de avaliação e para equipes muito pequenas. Você pode consultar os termos de licenciamento [aqui](https://www.visualstudio.com/support/legal/mt171547). Abra o Visual Studio clicando duas vezes no ícone da área de trabalho ou no menu **Iniciar**. Você também pode pesquisar programas com **Win** + **S** e inserindo “Visual Studio”. Lá, você pode criar projetos em linguagens como C# e Python. Você também encontrará plug-ins instalados que facilitam o trabalho com os serviços do Azure, como o Catálogo de Dados do Azure, o Azure HDInsight (Hadoop, Spark) e o Azure Data Lake.
 
-Observação: você pode receber uma mensagem informando que o seu período de avaliação expirou. É possível inserir credenciais da Conta da Microsoft ou criar uma e inseri-las para obter acesso ao Visual Studio Community Edition. Lá, você pode criar projetos em linguagens como C# e Python
+Observação: você pode receber uma mensagem informando que o seu período de avaliação expirou. É possível inserir credenciais da Conta da Microsoft ou criar uma e inseri-las para obter acesso ao Visual Studio Community Edition.
 
 ### SQL Server Express
 Uma versão limitada do SQL Server também é fornecida com o Community Edition do Visual Studio. Você pode acessar o SQL Server iniciando o **SQL Server Management Studio**. O nome da VM será populado como o Nome do Servidor. Use a Autenticação do Windows quando estiver conectado como o administrador no Windows. Quando estiver no SQL Server Management Studio, você pode criar outros usuários, criar bancos de dados, importar dados e executar consultas SQL.
 
 ### As tabelas 
-Várias ferramentas do Azure são instaladas na VM: - há um atalho da área de trabalho para acessar a documentação do SDK do Azure. - **AzCopy** usado para mover dados para dentro e para fora de sua Conta do Armazenamento do Microsoft Azure. - **Gerenciador do Armazenamento do Azure** usado para percorrer os objetos armazenados em sua Conta do Armazenamento do Azure. - **Microsoft Azure Powershell** - uma linguagem de script usada para administrar seus recursos do Azure em uma linguagem de script que também está instalada em sua VM.
+Várias ferramentas do Azure são instaladas na VM: – Há um atalho da área de trabalho para acessar a documentação do SDK do Azure. – O **AzCopy** é usado para mover dados para dentro e para fora de sua Conta do Armazenamento do Microsoft Azure. – O **Gerenciador de Armazenamento do Azure** é usado para percorrer os objetos armazenados em sua Conta do Armazenamento do Azure. – O **Microsoft Azure Powershell** é uma ferramenta usada para administrar seus recursos do Azure em uma linguagem de script no PowerShell que também está instalada em sua VM.
 
 ###Power BI
 
-Para ajudá-lo a compilar ótimos painéis e visualizações, o **Power BI Desktop** foi instalado. Use essa ferramenta para extrair dados de fontes diferentes, criar painéis e relatórios e publicá-los na nuvem. Para saber mais, visite o site do [Power BI](http://powerbi.microsoft.com).
+Para ajudá-lo a compilar ótimos painéis e visualizações, o **Power BI Desktop** foi instalado. Use essa ferramenta para extrair dados de fontes diferentes, criar painéis e relatórios e publicá-los na nuvem. Para saber mais, confira o site do [Power BI](http://powerbi.microsoft.com).
 
 Observação: será necessário uma conta do Office 365 para acessar o Power BI.
 
 ## Ferramentas de desenvolvimento adicionais da Microsoft
 O [**Microsoft Web Platform Installer**](https://www.microsoft.com/web/downloads/platform.aspx) pode ser usado para descobrir e baixar outras ferramentas de desenvolvimento da Microsoft. Também é um atalho para a ferramenta fornecida na área de trabalho de Máquina de Virtual de Ciência de Dados da Microsoft.
 
-<!---HONumber=AcomDC_1223_2015-->
+## Próximas etapas
+Veja algumas das próximas etapas para continuar sua aprendizagem e exploração.
+
+* Explore as várias ferramentas de ciência de dados na VM de ciência de dados clicando no menu Iniciar e conferindo as ferramentas listadas no menu
+* Navegue até **C:\\Arquivos de Programas\\Microsoft\\MRO-for-RRE\\8.0\\R-3.2.2\\library\\RevoScaleR\\demoScripts** para obter exemplos de uso da biblioteca RevoScaleR em R que oferece suporte à análise de dados em escala empresarial.  
+* Aprenda a compilar sistematicamente soluções completas de análise usando o [Processo de ciência de dados](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)
+* Visite a [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com) para obter exemplos de análise de dados e de aprendizado de máquina que usam o Cortana Analytics Suite. Também fornecemos um ícone no menu Iniciar e na área de trabalho na máquina virtual para facilitar o acesso 
+
+<!---HONumber=AcomDC_0211_2016-->

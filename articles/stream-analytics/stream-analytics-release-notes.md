@@ -13,10 +13,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/10/2015" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"/>
 
-#Notas de versão do Stream Analytic da Microsoft
+#Notas de versão do Stream Analytics
 
 ## Notas de versão de 10/12/2015 do Stream Analytics ##
 
@@ -25,7 +25,7 @@ Esta versão contém a seguinte atualização.
 Title | Descrição
 ---|---
 Atualização de versão da API REST | A versão da API REST foi atualizada para 2015-10-01. Detalhes podem ser encontrados no MSDN em [Referência de API REST do gerenciamento de análise de fluxo](https://msdn.microsoft.com/library/azure/dn835031.aspx) e [Integração de aprendizado de máquina no Stream Analytics](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md).
-Integração de Aprendizado de Máquina do Azure | Com essa versão, é fornecido suporte para funções definidas pelo usuário do Aprendizado de Máquina do Azure. Um tutorial pode ser encontrado [aqui](stream-analytics-machine-learning-tutorial.md), bem como o comunicado do blog geral [aqui](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx).
+Integração de Aprendizado de Máquina do Azure | Com essa versão, é fornecido suporte para funções definidas pelo usuário do Aprendizado de Máquina do Azure. Um tutorial pode ser encontrado [aqui](stream-analytics-machine-learning-integration-tutorial.md), bem como o comunicado do blog geral [aqui](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx).
 
 ## Notas de versão de 12/11/2015 do Stream Analytics ##
 
@@ -54,8 +54,8 @@ Esta versão contém as atualizações a seguir.
 Title | Descrição
 ---|---
 Visualização Pública do Azure IoT Suite | O Stream Analytics está incluído na Visualização Pública do Azure IoT Suite.
-Integração no Portal de Visualização do Azure | Além da presença contínua no Portal de Gerenciamento do Azure, o Stream Analytics agora está integrado no [Portal de Visualização do Azure](http://azure.microsoft.com/overview/preview-portal/). Lembre-se de que a funcionalidade do Stream Analytics no portal de Visualização é atualmente um subconjunto da funcionalidade oferecida no portal de Gerenciamento do Azure, sem suporte para o teste de consulta no navegador, configuração de saída do Power BI e navegação ou criação de novos recursos de entrada e saída nas assinaturas às quais você tem acesso.
-Suporte para a saída do Banco de Dados de Documentos | Os trabalhos do Stream Analytics agora podem ser importados para o [Banco de Dados de Documentos](http://azure.microsoft.com/services/documentdb/).
+Integração no Portal de Visualização do Azure | Além da presença contínua no portal de Gerenciamento do Azure, o Stream Analytics agora está integrado no [Portal de Visualização do Azure](https://azure.microsoft.com/overview/preview-portal/). Lembre-se de que a funcionalidade do Stream Analytics no portal de Visualização é atualmente um subconjunto da funcionalidade oferecida no portal de Gerenciamento do Azure, sem suporte para o teste de consulta no navegador, configuração de saída do Power BI e navegação ou criação de novos recursos de entrada e saída nas assinaturas às quais você tem acesso.
+Suporte para a saída do Banco de Dados de Documentos | Os trabalhos do Stream Analytics agora podem ser importados para o [Banco de Dados de Documentos](https://azure.microsoft.com/services/documentdb/).
 Suporte para a entrada do Hub IoT | Os trabalhos do Stream Analytics agora podem ingerir dados dos Hubs IoT.
 TIMESTAMP BY para eventos heterogêneos | Quando uma transmissão de dados única contém vários tipos de evento com carimbos de data/hora em diferentes campos, agora você pode usar o [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) com expressões para especificar diferentes campos de carimbo de data/hora para cada caso.
 
@@ -73,7 +73,7 @@ Esta versão contém as atualizações a seguir.
 
 Title|Descrição
 ---|---
-Função LAST adicionada |A função [LAST](http://msdn.microsoft.com/library/mt421186.aspx) agora está disponível nos trabalhos do Stream Analytics, permitindo que você recupere o evento mais recente em uma transmissão de eventos, em um determinado período de tempo.
+Função LAST adicionada |A função [LAST](http://msdn.microsoft.com/library/mt421186.aspx) agora está disponível nos trabalhos do Stream Analytics, permitindo que você recupere o evento mais recente em um fluxo de eventos, em um determinado período de tempo.
 Novas funções de matriz|As funções de matriz [GetArrayElement](http://msdn.microsoft.com/library/mt270218.aspx), [GetArrayElements](http://msdn.microsoft.com/library/mt298451.aspx) e [GetArrayLength](http://msdn.microsoft.com/library/mt270226.aspx) agora estão disponíveis.
 Novas funções de registro|As funções de registro [GetRecordProperties](http://msdn.microsoft.com/library/mt270221.aspx) e [GetRecordPropertyValue](http://msdn.microsoft.com/library/mt270220.aspx) agora estão disponíveis.
 
@@ -133,4 +133,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Solucionar problemas do Data Factory
@@ -94,10 +94,10 @@ Consulte o tópico Tabelas na [Referência de script JSON][json-scripting-refere
 ## Problema: Falha na operação de cópia híbrida
 Para obter mais detalhes:
 
-1. Inicie o Gerenciador de configuração de gateway de gerenciamento de dados no computador no qual o gateway foi instalado. Verifique se o **Nome do gateway** está definido como o nome lógico do gateway no **Portal Clássico do Azure**, se o **Status da chave do gateway** está **registrado** e se o **Status do serviço** está **Iniciado**. 
+1. Inicie o Gerenciador de configuração de gateway de gerenciamento de dados no computador no qual o gateway foi instalado. Verifique se o **Nome do gateway** está definido como o nome lógico do gateway no **Portal Clássico do Azure**, se o **Status da chave do gateway** é **registrado** e se o **Status do serviço** é **Iniciado**. 
 2. Inicie o **Visualizador de Eventos**. Expanda **Logs de aplicativos e serviços** e clique em **Gateway de gerenciamento de dados**. Verifique se há erros relacionados ao Gateway de Gerenciamento de Dados. 
 
-## Problema: Falha no provisionamento sob demanda do HDInsight com erro
+## Problema: falha no provisionamento sob demanda do HDInsight com erro
 
 Ao usar um serviço vinculado do tipo HDInsightOnDemandLinkedService, você deve especificar um linkedServiceName que aponta para o armazenamento de Blob do Azure. Essa conta de armazenamento será usada para copiar todos os logs e arquivos de suporte para o cluster HDInsight sob demanda. Às vezes, a atividade que faz o provisionamento sob demanda no HDInsight pode falhar com o seguinte erro:
 
@@ -109,7 +109,7 @@ Além disso, há uma segunda propriedade JSON additionalLinkedServiceNames, em q
 
 
 
-## Problema: Falha de atividade personalizada
+## Problema: falha de atividade personalizada
 Ao usar uma atividade personalizada na Azure Data Factory (tipo de atividade de pipeline CustomActivity), o aplicativo personalizado é executado no serviço vinculado especificado para HDInsight como um trabalho MapReduce de streaming apenas de mapeamento.
 
 Quando a atividade personalizada é executada, a Azure Data Factory poderá capturar essa saída do cluster HDInsight e salvá-la no contêiner de armazenamento *adfjobs* em sua conta de armazenamento de Blobs do Azure. Em caso de erro, você pode ler o texto do arquivo de texto de saída **stderr** após a ocorrência de uma falha. Os arquivos podem ser acessados e lidos no próprio Portal Clássico do Azure no navegador da Web, ou usando ferramentas do gerenciador de armazenamento para acessar os arquivos mantidos no contêiner de armazenamento, diretamente no Armazenamento de Blobs do Azure.
@@ -374,4 +374,4 @@ Nesse cenário, o conjunto de dados está em um estado de erro devido a uma falh
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

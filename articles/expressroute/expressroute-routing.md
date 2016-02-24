@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 <tags
    ms.service="expressroute"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/06/2015"
+   ms.date="02/08/2016"
    ms.author="cherylmc"/>
 
 
@@ -38,7 +38,7 @@ Você pode usar endereços IP privados ou endereços IP públicos para configura
  - Se uma sub-rede /29 for usada, será dividida em duas sub-redes /30. 
 	 - A primeira sub-rede /30 será usada para o link principal e a segunda sub-rede /30 será usada para o link secundário.
 	 - Para cada uma das sub-redes /30, é necessário o primeiro endereço IP da sub-rede /30 em seu roteador. A Microsoft usará o segundo endereço IP da sub-rede /30 para configurar uma sessão BGP.
-	 - Você deve instalar ambas as sessões BGP para que nosso [SLA de disponibilidade](http://azure.microsoft.com/support/legal/sla/) seja válido.  
+	 - Você deve instalar ambas as sessões BGP para que nosso [SLA de disponibilidade](https://azure.microsoft.com/support/legal/sla/) seja válido.  
 
 #### Exemplo para emparelhamento privado
 
@@ -59,7 +59,7 @@ Você deve usar endereços IP públicos que possui para configurar as sessões B
 - Se uma sub-rede /29 for usada, será dividida em duas sub-redes /30. 
 	- A primeira sub-rede /30 será usada para o link principal e a segunda sub-rede /30 será usada para o link secundário.
 	- Para cada uma das sub-redes /30, é necessário usar o primeiro endereço IP da sub-rede /30 em seu roteador. A Microsoft usará o segundo endereço IP da sub-rede /30 para configurar uma sessão BGP.
-	- Você deve instalar ambas as sessões BGP para que nosso [SLA de disponibilidade](http://azure.microsoft.com/support/legal/sla/) seja válido.
+	- Você deve instalar ambas as sessões BGP para que nosso [SLA de disponibilidade](https://azure.microsoft.com/support/legal/sla/) seja válido.
 
 Verifique se o endereço IP e o número de AS estão registrados em um dos registros listados abaixo.
 
@@ -67,10 +67,9 @@ Verifique se o endereço IP e o número de AS estão registrados em um dos regis
 - [APNIC](https://www.apnic.net/)
 - [AFRINIC](https://www.afrinic.net/)
 - [LACNIC](http://www.lacnic.net/)
-- [RIPE NCC](https://www.ripe.net/)
+- [RIPENCC](https://www.ripe.net/)
 - [RADB](http://www.radb.net/)
 - [ALTDB](http://altdb.net/)
-- [LEVEL3](http://rr.Level3.net/)
 
 
 ## Intercâmbio de roteamento dinâmico
@@ -104,7 +103,8 @@ As rotas padrão são permitidas apenas em sessões de emparelhamento privado do
 
 **Observação:** anunciar rotas padrão interromperá o Windows e outras ativações de licenças de VM. Siga as instruções [aqui](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) para solucionar esse problema.
 
-## Suporte a comunidades BGP
+## Suporte a comunidades BGP (em breve)
+
 
 Esta seção fornece uma visão geral de como as comunidades BGP serão usadas com a Rota Expressa. A Microsoft anunciará rotas nos caminhos de emparelhamento público e da Microsoft com rotas marcadas com valores de comunidade apropriados. A lógica para fazer isso e os detalhes de valores de comunidade são descritos abaixo. No entanto, a Microsoft não adotará valores de comunidade marcados para rotas anunciadas à Microsoft.
 
@@ -120,34 +120,35 @@ A Microsoft marcará prefixos anunciados por meio do emparelhamento público e d
 
 | **Região Geopolítica** | **Região do Microsoft Azure (o mesmo se aplica ao Office 365)** | **Valor de comunidade BGP** |
 |---|---|---|
-| **América do Norte** | | 12076:51201 |
+| **América do Norte** | | |
 | | Leste dos EUA | 12076:51004 |
 | | Leste dos EUA 2 | 12076:51005 |
 | | Oeste dos EUA | 12076:51006 |
 | | Centro-Norte dos EUA | 12076:51007 |
 | | Centro-Sul dos Estados Unidos | 12076:51008 |
 | | Centro dos EUA | 12076:51009 |
-| **América do Sul** | | 12076:51202 |
+| **América do Sul** | | |
 | | Sul do Brasil | 12076:51014 |
-| **Europa** | | 12076:51203 |
+| **Europa** | | |
 | | Norte da Europa | 12076:51003 |
 | | Europa Ocidental | 12076:51002 |
-| **Pacífico Asiático** | | 12076:51204 |
+| **Pacífico Asiático** | | |
 | | Ásia Oriental | 12076:51010 |
 | | Sudeste Asiático | 12076:51011 |
-| **Japão** | Leste do Japão | 12076:51012 |
+| **Japão** | | |
+| | Leste do Japão | 12076:51012 |
 | | Oeste do Japão | 12076:51013 |
-| **Austrália** | Leste da Austrália | 12076:51015 |
+| **Austrália** | | | 
+| | Leste da Austrália | 12076:51015 |
 | | Sudeste da Austrália | 12076:51016 |
-| **Índia** | Sul da Índia | 12076:51019 |
+| **Índia** | | |
+| | Sul da Índia | 12076:51019 |
 | | Oeste da Índia | 12076:51018 |
 | | Centro da Índia | 12076:51017 |
-| **Global** | **Só haverá suporte para ele e será publicado quando o complemento premium estiver habilitado** | 12076:51000 |
-| **Anycast** | | 12076:51250 |
 
 Todas as rotas anunciadas pela Microsoft serão marcadas com o valor de comunidade apropriado.
 
->[AZURE.IMPORTANT]Os prefixos globais serão marcados com um valor apropriado de comunidade e serão anunciados somente quando o complemento premium da Rota Expressa estiver habilitado.
+>[AZURE.IMPORTANT] Os prefixos globais serão marcados com um valor apropriado de comunidade e serão anunciados somente quando o complemento premium da Rota Expressa estiver habilitado.
 
 
 Além disso, a Microsoft também marcará prefixos com base no serviço ao qual eles pertencem. Isso se aplica somente ao emparelhamento da Microsoft. A tabela a seguir fornece um mapeamento de serviço para o valor de comunidade BGP.
@@ -163,14 +164,14 @@ Além disso, a Microsoft também marcará prefixos com base no serviço ao qual 
 
 ### Manipulando preferências de roteamento
 
-A Microsoft não adota valores de comunidade BGP que você define. É necessário configurar um par de sessões BGP por emparelhamento para garantir que os requisitos para o [SLA de disponibilidade](http://azure.microsoft.com/support/legal/sla/) sejam atendidos. No entanto, você pode configurar sua rede para preferir um link a outro usando técnicas padrão de manipulação de rota BGP. Você pode aplicar diferentes preferências locais de BGP a cada link para favorecer um caminho em vez de outro em sua rede para a Microsoft. Você pode preceder o caminho as nos anúncios de rota para influenciar o fluxo do tráfego da Microsoft em sua rede.
+A Microsoft não adota valores de comunidade BGP que você define. É necessário configurar um par de sessões BGP por emparelhamento para garantir que os requisitos para o [SLA de disponibilidade](https://azure.microsoft.com/support/legal/sla/) sejam atendidos. No entanto, você pode configurar sua rede para preferir um link a outro usando técnicas padrão de manipulação de rota BGP. Você pode aplicar diferentes preferências locais de BGP a cada link para favorecer um caminho em vez de outro em sua rede para a Microsoft. Você pode preceder o caminho as nos anúncios de rota para influenciar o fluxo do tráfego da Microsoft em sua rede.
 
 ## Próximas etapas
 
 - Configurar sua conexão da Rota Expressa.
 
-	- [Criar um circuito da Rota Expressa](expressroute-howto-circuit-classic.md)
-	- [Configurar o roteamento](expressroute-howto-routing-classic.md)
-	- [Vincular uma Rede Virtual a um circuito de Rota Expressa](expressroute-howto-linkvnet-classic.md)
+	- [Criar um circuito da Rota Expressa para o modelo de implantação clássico](expressroute-howto-circuit-classic.md) ou [Criar e modificar um circuito da Rota Expressa usando o Gerenciador de Recursos do Azure](expressroute-howto-circuit-arm.md)
+	- [Configurar o roteamento para o modelo de implantação clássico](expressroute-howto-routing-classic.md) ou [Configurar o roteamento para o modelo de implantação do Gerenciador de Recursos](expressroute-howto-routing-arm.md)
+	- [Vincular uma rede virtual clássica a um circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md) ou [Conectar uma VNet do Gerenciador de Recursos a um circuito da Rota Expressa](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0211_2016-->

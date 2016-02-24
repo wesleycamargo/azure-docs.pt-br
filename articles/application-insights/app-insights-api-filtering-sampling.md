@@ -80,7 +80,7 @@ Essa técnica fornece um controle mais direto sobre o que é incluído ou exclu�
 
 Para filtrar a telemetria, escreva um processador de telemetria e registre-o no SDK. Toda a telemetria passa pelo seu processador, e você pode optar por removê-la da transmissão ou por adicionar propriedades. Isso inclui a telemetria dos módulos padrão como o coletor de solicitação HTTP e o coletor de dependência, além da telemetria escrita por você. Por exemplo, você pode filtrar a telemetria sobre solicitações de robôs ou sobre chamadas de dependência bem-sucedidas.
 
-> [AZURE.WARNING]Filtrar a telemetria enviada do SDK usando processadores pode distorcer as estatísticas que você vê no portal e dificultar o acompanhamento de itens relacionados.
+> [AZURE.WARNING] Filtrar a telemetria enviada do SDK usando processadores pode distorcer as estatísticas que você vê no portal e dificultar o acompanhamento de itens relacionados.
 > 
 > Em vez disso, considere usar a [amostragem](#sampling).
 
@@ -154,14 +154,14 @@ Para filtrar a telemetria, escreva um processador de telemetria e registre-o no 
 
 Você pode transmitir valores de cadeia de caracteres do arquivo .config fornecendo propriedades nomeadas públicas em sua classe.
 
-> [AZURE.WARNING]Fique atento para que o nome do tipo e todos os nomes de propriedade no arquivo .config correspondam aos nomes de classe e de propriedade no código. Se o arquivo .config fizer referência a um tipo ou propriedade inexistente, o SDK poderá silenciosamente falhar ao enviar qualquer telemetria.
+> [AZURE.WARNING] Fique atento para que o nome do tipo e todos os nomes de propriedade no arquivo .config correspondam aos nomes de classe e de propriedade no código. Se o arquivo .config fizer referência a um tipo ou propriedade inexistente, o SDK poderá silenciosamente falhar ao enviar qualquer telemetria.
 
  
 **Como alternativa,** é possível inicializar o filtro no código. Em uma classe de inicialização adequada - por exemplo AppStart em Global.asax.cs - insira seu processador na cadeia:
 
 ```C#
 
-    var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
+    var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
     builder.Use((next) => new SuccessfulDependencyFilter(next));
 
     // If you have more processors:
@@ -217,7 +217,7 @@ public void Process(ITelemetry item)
 
 Se desejar diagnosticar chamadas lentas, filtre as rápidas.
 
-> [AZURE.NOTE]Isso distorcerá as estatísticas que você vê no portal. O gráfico de dependência parecerá como se as chamadas de dependência fossem todas falhas.
+> [AZURE.NOTE] Isso distorcerá as estatísticas que você vê no portal. O gráfico de dependência parecerá como se as chamadas de dependência fossem todas falhas.
 
 ``` C#
 
@@ -358,7 +358,7 @@ Insira um inicializador de telemetria logo após o código de inicialização qu
     </script>
 ```
 
-Para obter um resumo das propriedades não personalizadas disponíveis em telemetryItem, veja o [modelo de dados](app-insights-export-data-model.md/#lttelemetrytypegt).
+Para obter um resumo das propriedades não personalizadas disponíveis em telemetryItem, veja o [modelo de dados](app-insights-export-data-model.md#lttelemetrytypegt).
 
 Você pode adicionar quantos inicializadores desejar.
 
@@ -404,4 +404,4 @@ Você pode adicionar quantos inicializadores desejar.
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

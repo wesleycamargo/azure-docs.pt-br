@@ -11,9 +11,9 @@
 
 ## Usando a CLI do Azure com o Gerenciador de Recursos do Azure (ARM)
 
-Antes de usar a CLI do Azure com modelos e comandos do Gerenciador de Recursos para implantar recursos do Azure e cargas de trabalho usando grupos de recursos, será necessário ter uma conta com o Azure (obviamente). Se você não tiver uma conta, você pode obter uma [avaliação gratuita do Azure aqui](http://azure.microsoft.com/pricing/free-trial/).
+Antes de usar a CLI do Azure com modelos e comandos do Gerenciador de Recursos para implantar recursos do Azure e cargas de trabalho usando grupos de recursos, será necessário ter uma conta com o Azure (obviamente). Se você não tiver uma conta, você pode obter uma [avaliação gratuita do Azure aqui](https://azure.microsoft.com/pricing/free-trial/).
 
-> [AZURE.NOTE]Se você ainda não tiver uma conta do Azure, mas tem uma assinatura para a assinatura do MSDN, você pode obter créditos gratuitos do Azure ativando os seus [benefícios de assinante do MSDN aqui](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) – ou você pode usar a conta gratuita. Ambos funcionarão para o acesso ao Azure.
+> [AZURE.NOTE] Se você ainda não tiver uma conta do Azure, mas tem uma assinatura para a assinatura do MSDN, você pode obter créditos gratuitos do Azure ativando os seus [benefícios de assinante do MSDN aqui](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) – ou você pode usar a conta gratuita. Ambos funcionarão para o acesso ao Azure.
 
 ### Etapa 1: verificar a versão da CLI do Azure
 
@@ -62,6 +62,6 @@ Para usar o modo de Gerenciamento de Recursos do Azure (ARM) com a CLI do Azure,
     $ azure config mode arm
     info:    New mode is arm
 
-> [AZURE.NOTE]Você pode alternar novamente para usar os comandos de gerenciamento de serviço do Azure digitando `azure config mode asm`.
+> [AZURE.NOTE] Você pode alternar novamente para usar os comandos de gerenciamento de serviço do Azure digitando `azure config mode asm`.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

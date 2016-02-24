@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+  ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -22,7 +22,6 @@
 ##Visão geral
 
 Os Serviços de Mídia do Azure fornecem as ferramentas necessárias para criar aplicativos de player do cliente sofisticados e dinâmicos para a maioria das plataformas, incluindo: dispositivos iOS, dispositivos Android, Windows, Windows Phone, Xbox e decodificadores de sinais. Este tópico também fornece links para SDKs e estruturas de Player que você pode usar para desenvolver seus próprios aplicativos de cliente que podem consumir mídia de streaming dos Serviços de Mídia do Azure.
-
 
 ##Azure Media Player
 
@@ -34,7 +33,7 @@ Para mais informações:
 
 - [Azure Media Player](http://aka.ms/ampinfo)
 - [Documentação do Azure Media Player](http://aka.ms/ampdocs) 
-- [Blog de Introdução do Azure Media Player](http://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player)
+- [Blog de Introdução do Azure Media Player](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/)
 - [Inscreva-se para se manter atualizado com a versão mais recente do Azure Media Player](http://aka.ms/ampsignup)
 - [Adicionar novas solicitações de recurso, ideias, comentários](http://aka.ms/ampuservoice) 
 
@@ -75,11 +74,11 @@ Para obter informações sobre o suporte à legendagem oculta e a anúncios em v
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-##Veja também
+##Consulte também
 
 [Inserindo um vídeo de streaming adaptável MPEG-DASH em um aplicativo HTML5 com DASH.js](media-services-embed-mpeg-dash-in-html5.md)
 
 [Repositório do dash.js do GitHub](https://github.com/Dash-Industry-Forum/dash.js)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

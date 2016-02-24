@@ -22,7 +22,7 @@ Você pode usar o Portal dos Serviços BizTalk para configurar e implantar contr
 ## Exemplo baseado neste tutorial
 Este tutorial foi criado com base em uma amostra, **Enviando faturas EDIFACT usando os Serviços BizTalk**, que está disponível para download na [Galeria de Códigos do MSDN](http://go.microsoft.com/fwlink/?LinkId=401005). Você pode usar o exemplo e percorrer este tutorial para entender como o exemplo foi criado. Ou você pode usar este tutorial para criar sua própria solução do zero. Este tutorial é destinado a uma segunda abordagem, para que você entenda como a solução foi criada. Além disso, tanto quanto possível, o tutorial é consistente com o exemplo e usa os mesmos nomes para artefatos (por exemplo, esquemas, transformações) usados no exemplo.
 
->[AZURE.NOTE]Como essa solução envolve o envio de uma mensagem de uma ponte EAI para uma ponte EDI, ela reutiliza o [Exemplo de encadeamento de Ponte dos Serviços BizTalk ](http://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104).
+>[AZURE.NOTE] Como essa solução envolve o envio de uma mensagem de uma ponte EAI para uma ponte EDI, ela reutiliza o [Exemplo de encadeamento de Ponte dos Serviços BizTalk ](http://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104).
 
 ## O que faz a solução?
 
@@ -40,7 +40,7 @@ Para obter esse cenário de negócios, a Contoso usa os recursos fornecidos pelo
 
 *   Depois de receber a fatura, a Northwind retorna uma mensagem CONTRL à ponte de recebimento EDI implantada como parte do contrato.
 
-> [AZURE.NOTE]Opcionalmente, essa solução também demonstra como usar o processamento em lotes para enviar faturas em lotes em vez de enviar cada fatura separadamente.
+> [AZURE.NOTE] Opcionalmente, essa solução também demonstra como usar o processamento em lotes para enviar faturas em lotes em vez de enviar cada fatura separadamente.
 
 Para concluir o cenário, usamos as filas do Barramento de Serviço para enviar a fatura da Contoso para a Northwind ou receber a confirmação da Northwind. Essas filas podem ser criadas usando um aplicativo cliente, que está disponível para download e está incluído no pacote de exemplo disponível como parte deste tutorial.
 
@@ -173,7 +173,7 @@ O projeto dos Serviços BizTalk, **InvoiceProcessingBridge**, que transforma a m
 
 7.  No Gerenciador de Soluções, expanda o **MessageFlowItinerary.bcs** e clique duas vezes no arquivo **EDIBridge.config**. Substitua o conteúdo de **EDIBridge.config** com o seguinte:
 
-    > [AZURE.NOTE]Por que preciso editar o arquivo .config? O ponto de extremidade de serviço externo que adicionamos à tela do designer de ponte representa as pontes EDI que foram implantadas anteriormente. As pontes EDI são bidirecionais, com lado de envio e de recebimento. No entanto, a ponte EAI que adicionamos ao designer de ponte é uma ponte unidirecional. Portanto, para lidar com os padrões de troca de mensagem diferentes das duas pontes, usamos um comportamento de ponte personalizado, incluindo sua configuração no arquivo.config. Além disso, o comportamento personalizado também lida com a autenticação para o ponto de extremidade de ponte de envio EDI. Esse comportamento personalizado está disponível como um exemplo separado em [Exemplo de encadeamento de ponte dos Serviços BizTalk – EAI para EDI](http://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104). Essa solução reutiliza o exemplo.
+    > [AZURE.NOTE] Por que preciso editar o arquivo .config? O ponto de extremidade de serviço externo que adicionamos à tela do designer de ponte representa as pontes EDI que foram implantadas anteriormente. As pontes EDI são bidirecionais, com lado de envio e de recebimento. No entanto, a ponte EAI que adicionamos ao designer de ponte é uma ponte unidirecional. Portanto, para lidar com os padrões de troca de mensagem diferentes das duas pontes, usamos um comportamento de ponte personalizado, incluindo sua configuração no arquivo.config. Além disso, o comportamento personalizado também lida com a autenticação para o ponto de extremidade de ponte de envio EDI. Esse comportamento personalizado está disponível como um exemplo separado em [Exemplo de encadeamento de ponte dos Serviços BizTalk – EAI para EDI](http://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104). Essa solução reutiliza o exemplo.
     
     ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -239,7 +239,7 @@ O projeto dos Serviços BizTalk, **InvoiceProcessingBridge**, que transforma a m
 
 2.  No Gerenciador de Soluções do Visual Studio, clique com o botão direito do mouse no projeto **InvoiceProcessingBridge** e em**Implantar**.
 
-3.  Forneça os valores conforme mostrado na imagem e clique em **Implantar**. Você pode obter as credenciais do ACS para os Serviços BizTalk clicando em **Informações de Conexão** no painel dos Serviços BizTalk em.
+3.  Forneça os valores conforme mostrado na imagem e clique em **Implantar**. Você pode obter as credenciais do ACS para os Serviços BizTalk clicando em **Informações de Conexão** no painel dos Serviços BizTalk.
 
     ![][11]
 
@@ -312,4 +312,4 @@ O aspecto mais importante ao trabalhar em lotes é a versão real do lote, tamb�
 [17]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-17.PNG
 [18]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-18.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

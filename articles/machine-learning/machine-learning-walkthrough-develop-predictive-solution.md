@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Uma solução preditiva para o risco de crédito com o Aprendizado de Máquina | Microsoft Azure"
 	description="Um passo a passo detalhado mostrando como criar uma solução de análise preditiva para avaliação de risco de crédito no Estúdio de Aprendizado de Máquina do Azure."
-	keywords="credit risk, predictive analytics solution,risk assessment"
+	keywords="risco de crédito, solução de análise preditiva, avaliação de riscos"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/13/2015"
+	ms.date="02/03/2016"
 	ms.author="garye"/>
 
 
@@ -28,9 +28,7 @@ Neste passo a passo detalhado, seguiremos o processo de desenvolvimento de um mo
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Abra o Estúdio de Aprendizado de Máquina: [https://studio.azureml.net/Home](https://studio.azureml.net/Home). Para obter mais informações sobre os primeiros passos no Estúdio de Aprendizado de Máquina, consulte [Página Inicial do Estúdio de Aprendizado de Máquina do Microsoft Azure](https://studio.azureml.net/).
-
->[AZURE.TIP]Para baixar e imprimir um diagrama que fornece uma visão geral dos recursos do Estúdio de Aprendizado de Máquina, consulte [Diagrama de visão geral dos recursos do Estúdio de Aprendizado de Máquina do Azure](machine-learning-studio-overview-diagram.md).
+>[AZURE.TIP] Para baixar e imprimir um diagrama que fornece uma visão geral dos recursos do Estúdio de Aprendizado de Máquina, consulte [Diagrama de visão geral dos recursos do Estúdio de Aprendizado de Máquina do Azure](machine-learning-studio-overview-diagram.md).
 
 Para criar uma solução de avaliação de risco de crédito, vamos acompanhar estas etapas:
 
@@ -41,6 +39,6 @@ Para criar uma solução de avaliação de risco de crédito, vamos acompanhar e
 5.	[Implantar o serviço Web](machine-learning-walkthrough-5-publish-web-service.md)
 6.	[Acessar o serviço Web](machine-learning-walkthrough-6-access-web-service.md)
 
-Este passo a passo é baseado em uma versão simplificada do [Teste de exemplo de previsão de risco de crédito](../machine-learning-sample-credit-risk-prediction.md) incluído no Estúdio de Aprendizado de Máquina.
+Este passo a passo se baseia em uma versão simplificada do teste de exemplo [Classificação binária: previsão de risco de crédito](../machine-learning-sample-credit-risk-prediction.md) na [Galeria do Cortana Analytics](http://gallery.cortanaanalytics.com/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

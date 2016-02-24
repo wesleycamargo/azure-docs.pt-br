@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 # Usar o Hive com Hadoop no HDInsight com Remote Desktop.
@@ -23,7 +23,7 @@
 
 Neste artigo, você aprenderá como se conectar a um cluster HDInsight usando a Área de Trabalho Remota e então executar consultas Hive usando a CLI (Interface de Linha de Comando) do Hive.
 
-> [AZURE.NOTE]Esse documento não fornece uma descrição detalhada do que as instruções HiveQL que usadas nos exemplos fazem. Para obter informações sobre o HiveQL usado neste exemplo, consulte [Usar o Hive com o Hadoop no HDInsight](hdinsight-use-hive.md).
+> [AZURE.NOTE] Esse documento não fornece uma descrição detalhada do que as instruções HiveQL que usadas nos exemplos fazem. Para obter informações sobre o HiveQL usado neste exemplo, consulte [Usar o Hive com o Hadoop no HDInsight](hdinsight-use-hive.md).
 
 ##<a id="prereq"></a>Pré-requisitos
 
@@ -63,7 +63,7 @@ Quando conectado à área de trabalho para o cluster HDInsight, use as etapas a 
 
     * **CREATE EXTERNAL TABLE**: cria uma nova tabela “externa” em Hive. As tabelas externas armazenam apenas a definição da tabela no Hive (os dados são deixados no local original).
 
-		> [AZURE.NOTE]As tabelas externas devem ser usadas quando você espera que os dados subjacentes sejam atualizados por uma fonte externa (como um processo automático de carregamento de dados) ou por outra operação MapReduce, mas você sempre quer que as consultas Hive utilizem os dados mais recentes.
+		> [AZURE.NOTE] As tabelas externas devem ser usadas quando você espera que os dados subjacentes sejam atualizados por uma fonte externa (como um processo automático de carregamento de dados) ou por outra operação MapReduce, mas você sempre quer que as consultas Hive utilizem os dados mais recentes.
     	>
     	> Remover uma tabela externa **não** exclui os dados, somente a definição de tabela.
 
@@ -85,7 +85,7 @@ Quando conectado à área de trabalho para o cluster HDInsight, use as etapas a 
 
     * **CREATE TABLE IF NOT EXISTS**: cria uma tabela, se ela ainda não existir. Já que a palavra-chave **EXTERNAL** não é utilizada, essa é uma tabela interna, armazenada no depósito de dados do Hive e gerenciada totalmente pelo Hive.
 
-		> [AZURE.NOTE]Diferentemente de tabelas **EXTERNAS**, o descarte de uma tabela interna excluirá também os dados subjacentes.
+		> [AZURE.NOTE] Diferentemente de tabelas **EXTERNAS**, o descarte de uma tabela interna excluirá também os dados subjacentes.
 
     * **STORED AS ORC**: armazena os dados no formato ORC (colunar de linhas otimizadas). Esse é um formato altamente otimizado e eficiente para o armazenamento de dados do Hive.
 
@@ -144,4 +144,4 @@ Para obter informações sobre outros modos possíveis de trabalhar com Hadoop n
 [Powershell-install-configure]: ../powershell-install-configure.md
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

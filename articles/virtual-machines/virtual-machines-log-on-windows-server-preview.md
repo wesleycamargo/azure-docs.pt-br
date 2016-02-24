@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="01/21/2016"
 	ms.author="cynthn"/>
 
 # Como fazer logon em uma máquina virtual executando o Windows Server 
@@ -27,15 +27,11 @@ Você usará o botão **Conectar** no portal do Azure para iniciar uma sessão d
 
 1. Se ainda não tiver feito isso, entre no [portal do Azure](https://portal.azure.com/).
 
-2.	No menu Hub, clique em **Procurar**.
+2.	No menu Hub, clique em **Máquinas Virtuais**.
 
-3.	Na folha de pesquisa, role para baixo e clique em **Máquinas Virtuais**.
+3.	Selecione a máquina virtual na lista.
 
-	![Procurar máquinas virtuais](./media/virtual-machines-log-on-windows-server-preview/search-blade-preview-portal.png)
-
-4.	Selecione a máquina virtual na lista.
-
-5. Na folha da máquina virtual, clique em **Conectar**.
+4. Na folha da máquina virtual, clique em **Conectar**.
 
 	![Conectar-se à máquina virtual](./media/virtual-machines-log-on-windows-server-preview/preview-portal-connect.png)
 
@@ -47,4 +43,4 @@ Você usará o botão **Conectar** no portal do Azure para iniciar uma sessão d
 
 Se as dicas sobre como fazer logon não forem úteis para resolver seu problema, veja [Solucionar problemas de conexões da Área de Trabalho Remota com uma Máquina Virtual do Azure baseada em Windows](virtual-machines-troubleshoot-remote-desktop-connections.md). Este artigo orienta você no diagnóstico e na solução de problemas comuns.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

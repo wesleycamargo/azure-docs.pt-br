@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="02/10/2016" 
 	ms.author="awills"/>
 
 # Gerenciar cotas e preços do Application Insights
@@ -67,7 +67,7 @@ A qualquer momento, você pode alternar para a avaliação Premium gratuita de 3
 * Também é possível inspecionar os pontos de dados individuais na origem durante a depuração:
  * Caso execute seu aplicativo no modo de depuração no Visual Studio, os pontos de dados são registrados na janela de saída. 
  * Para exibir os pontos de dados do cliente, abra o painel de depuração do navegador (geralmente F12) e abra a guia de rede.
-
+* A taxa de dados é (por padrão) reduzida por [amostragem adaptável](app-insights-sampling). Isso significa que, conforme o uso de seu aplicativo aumenta, a taxa de telemetria não aumentará tanto quanto você poderia esperar.
 
 ### Excedente
 
@@ -85,6 +85,8 @@ O gráfico na parte inferior da folha de preços mostra o volume de ponto de dad
 ![Na parte inferior da folha de preços](./media/app-insights-pricing/03-allocation.png)
 
 Clique no gráfico para obter mais detalhes ou arraste sobre ele e clique em (+) para obter detalhes de um intervalo de tempo.
+
+O gráfico mostra o volume de dados que chegam no serviço Application Insights após a [amostragem](app-insights-sampling).
 
 
 ## Taxa de dados
@@ -112,17 +114,13 @@ Caso ocorra uma limitação, será exibido um aviso de notificação que isso ac
 * Abra Configurações/Cotas e Preços para ver o gráfico de Volume de dados.
 * Ou, no Metrics Explorer, adicione um novo gráfico e selecione **Volume de pontos de dados** como a métrica. Ative o Agrupamento e agrupe por **Tipo de dados**.
 
-*Como posso reduzir a quantidade de dados que meu aplicativo envia?*
-
-* Use a [amostragem](app-insights-sampling.md). Essa tecnologia reduz a taxa de dados sem distorcer suas métricas e sem afetar a capacidade de navegar entre itens relacionados na Pesquisa. No SDK do ASP.NET 2.0.0-beta3, a amostragem adaptável é habilitada por padrão.
-* [Desative coletores de telemetria](app-insights-configuration-with-applicationinsights-config.md) que você não precisa.
-
 
 ### Dicas para reduzir a sua taxa de dados
 
 Se você encontrar as limitações, aqui há algumas coisas que você pode fazer:
 
 * Use a [amostragem](app-insights-sampling.md). Essa tecnologia reduz a taxa de dados sem distorcer suas métricas e sem afetar a capacidade de navegar entre itens relacionados na Pesquisa.
+* [Limite o número de chamadas do Ajax que podem ser informadas](app-insights-javascript.md#detailed-configuration) em cada modo de exibição de página ou desative o relatório de Ajax.
 * Desative os módulos de coleção que você não precisa [editando o ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Por exemplo, você pode decidir que os contadores de desempenho ou dados de dependência não são essenciais.
 * Métricas de pré-agregação. Se você colocou chamadas ao TrackMetric no seu aplicativo, você pode reduzir o tráfego usando a sobrecarga que aceita o cálculo da média e o desvio padrão de um lote de medições. Ou então, você pode usar um [pacote de pré-agregação](https://www.myget.org/gallery/applicationinsights-sdk-labs). 
 
@@ -164,4 +162,4 @@ Encargos do Application Insights são adicionados à sua conta do Azure. Você p
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

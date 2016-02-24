@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="08/31/2015"
+    ms.date="01/05/2016"
     ms.author="v-sharos" />
 
 # Usar indicadores de monitoramento do StorSimple para gerenciar seu dispositivo   
@@ -31,7 +31,7 @@ O restante deste artigo descreve os vários LEDs indicadores de monitoramento, s
 
 ## LEDs indicadores no painel frontal
 
-O painel frontal, também conhecido como o *painel de operações* ou *painel ops*, exibe o status agregado de todos os módulos no sistema. O painel frontal é idêntico no dispositivo StorSimple e o compartimento EBOD é ilustrado abaixo.
+O painel frontal, também conhecido como o *painel de operações* ou *painel ops*, exibe o status agregado de todos os módulos no sistema. O painel frontal é idêntico no compartimento StorSimple primário e no compartimento EBOD, e é ilustrado abaixo.
 
    ![Painel frontal do dispositivo][1]
  
@@ -162,7 +162,12 @@ Use a tabela a seguir para determinar se o módulo do controlador EBOD está ope
 
 |Status | Módulo de E/S OK (verde) | Falha no módulo de E/S (âmbar) | Atividade da porta do host (verde) |
 |-------|----------------------|-------------------------------|----------------------------|
-| Módulo do controlador OK | ON | OFF | - | | Falha no módulo do controlador | OFF | ON | - | | Nenhuma conexão externa da porta do host | - | - | OFF | | Conexão externa da porta do host – sem atividade | - | - | ON | | Conexão externa da porta do host - atividade | - | - | Piscando | | Erro de metadados do módulo do controlador | Piscando | - | - |
+| Módulo do controlador OK | ON | OFF | - |
+| Falha no módulo do controlador | OFF | ON | - |
+| Nenhuma conexão externa da porta do host | - | - | OFF |
+| Conexão externa da porta do host – sem atividade | - | - | ON |
+| Conexão externa da porta do host - atividade | - | - | Piscando |
+| Erro de metadados do módulo do controlador | Piscando | - | - |
 
 ## LEDs indicadores do drive de disco para o compartimento primário e para o compartimento EBOD
 
@@ -256,4 +261,4 @@ Saiba mais sobre os [componentes e o status de hardware do StorSimple](storsimpl
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

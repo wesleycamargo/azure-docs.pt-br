@@ -1,37 +1,37 @@
 <properties
     pageTitle="Usando a CLI do Azure com o Armazenamento do Azure | Microsoft Azure"
-    description="Saiba como usar a interface de linha de comando do Azure (CLI do Azure) com o Armazenamento do Azure para criar e gerenciar contas de armazenamento e trabalhar com blobs e arquivos do Azure."
+    description="Saiba como usar a interface de linha de comando do Azure (CLI do Azure) com o Armazenamento do Azure para criar e gerenciar contas de armazenamento e trabalhar com blobs e arquivos do Azure. A CLI do Azure é uma ferramenta de plataforma cruzada"
     services="storage"
     documentationCenter="na"
     authors="tamram"
-    manager="jdial"/>
+    manager="carmonm"/>
 
 <tags
     ms.service="storage"
     ms.workload="storage"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
-    ms.topic="article" 
-    ms.date="09/28/2015"
-    ms.author="chungli;jiyang;yaxia;tamram"/>
+    ms.topic="article"
+    ms.date="01/05/2016"
+    ms.author="micurd"/>
 
 # Usando a CLI do Azure com o Armazenamento do Azure
 
 ## Visão geral
 
-A CLI do Azure fornece um conjunto de comandos entre plataformas de software livre para trabalhar com a Plataforma Azure. Ela fornece grande parte das mesmas funcionalidades encontradas no [Portal do Azure](portal.azure.com), bem como funcionalidades avançadas de acesso a dados.
+A CLI do Azure fornece um conjunto de comandos entre plataformas de software livre para trabalhar com a Plataforma Azure. Ela fornece grande parte das mesmas funcionalidades encontradas no [Portal do Azure](https://portal.azure.com), bem como funcionalidades avançadas de acesso a dados.
 
 Neste guia, exploraremos como usar a [Interface de Linha de Comando do Azure (CLI do Azure)](../xplat-cli-install.md) para executar uma variedade de tarefas de administração e desenvolvimento com o Armazenamento do Azure. É recomendável baixar e instalar ou atualizar para a CLI mais recente do Azure antes usar este guia.
 
 Este guia pressupõe que você conhece os conceitos básicos do Armazenamento do Azure. Este guia fornece vários scripts que demonstram o uso da CLI do Azure com o Armazenamento do Azure. Não se esqueça de atualizar as variáveis de script com base na sua configuração antes de executar cada script.
 
-> [AZURE.NOTE]O guia fornece os exemplos de comando e script da CLI do Azure em execução no modo ASM (Gerenciamento de Serviços do Azure). Consulte [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](../azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) para ver comandos de CLI do Azure para armazenamento no modo ARM (Modo de Gerenciamento de Recursos) do Azure.
+> [AZURE.NOTE] O guia fornece os exemplos de comando e script da CLI do Azure em execução no modo ASM (Gerenciamento de Serviços do Azure). Consulte [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](../azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) para ver comandos de CLI do Azure para armazenamento no modo ARM (Modo de Gerenciamento de Recursos) do Azure.
 
 ## Introdução ao Armazenamento do Azure e à CLI do Azure em 5 minutos
 
 Nos exemplos deste guia, usamos o Ubuntu, mas outras plataformas de sistema operacional devem funcionar de forma semelhante.
 
-**Novo no Azure:** obtenha uma assinatura do Microsoft Azure e uma conta da Microsoft associada a essa assinatura. Para obter informações sobre opções de compra do Azure, confira [Avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/), [Opções de compra](http://azure.microsoft.com/pricing/purchase-options/) e [Ofertas para membros](http://azure.microsoft.com/pricing/member-offers/) (para membros do MSDN, Microsoft Partner Network e BizSpark, entre outros programas da Microsoft).
+**Novo no Azure:** obtenha uma assinatura do Microsoft Azure e uma conta da Microsoft associada a essa assinatura. Para obter informações sobre opções de compra do Azure, confira [Avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/), [Opções de compra](https://azure.microsoft.com/pricing/purchase-options/) e [Ofertas para membros](https://azure.microsoft.com/pricing/member-offers/) (para membros do MSDN, Microsoft Partner Network e BizSpark, entre outros programas da Microsoft).
 
 Consulte [Gerenciar contas, assinaturas e funções administrativas](https://msdn.microsoft.com/library/azure/hh531793.aspx) para saber mais sobre as assinaturas do Azure.
 
@@ -129,7 +129,7 @@ Todos os blobs no armazenamento do Azure devem residir em um contêiner. Você p
 
         azure storage container create mycontainer
 
-> [AZURE.NOTE]Há três níveis de acesso de leitura anônimo: **Desativado**, **Blob** e **Contêiner**. Para evitar o acesso anônimo a blobs, defina o parâmetro de permissão como **Desativado**. Por padrão, o novo contêiner é privado e pode ser acessado apenas pelo proprietário da conta. Para permitir acesso de leitura público anônimo a recursos de blob, mas não aos metadados do contêiner ou à lista de blobs no contêiner, defina o parâmetro de permissão como **Blob**. Para permitir acesso de leitura público completo a recursos, metadados do contêiner e à lista de blobs no contêiner, defina o parâmetro de permissão como **Contêiner**. Para saber mais, confira [Gerenciar o acesso aos recursos de Armazenamento do Azure](storage-manage-access-to-resources.md).
+> [AZURE.NOTE] Há três níveis de acesso de leitura anônimo: **Desativado**, **Blob** e **Contêiner**. Para evitar o acesso anônimo a blobs, defina o parâmetro de permissão como **Desativado**. Por padrão, o novo contêiner é privado e pode ser acessado apenas pelo proprietário da conta. Para permitir acesso de leitura público anônimo a recursos de blob, mas não aos metadados do contêiner ou à lista de blobs no contêiner, defina o parâmetro de permissão como **Blob**. Para permitir acesso de leitura público completo a recursos, metadados do contêiner e à lista de blobs no contêiner, defina o parâmetro de permissão como **Contêiner**. Para saber mais, confira [Gerenciar o acesso aos recursos de Armazenamento do Azure](storage-manage-access-to-resources.md).
 
 ### Carregar um blob em um contêiner
 
@@ -206,7 +206,7 @@ Observe que o nome do diretório é opcional para a operação de listagem. Se o
 A partir da versão 0.9.8 da CLI do Azure, você pode copiar um arquivo para outro arquivo, um arquivo para um blob ou um blob para um arquivo. A seguir, demonstramos como executar essas operações de cópia usando comandos CLI. Para copiar um arquivo para o novo diretório:
 
 	azure storage file copy start --source-share srcshare --source-path srcdir/hello.txt --dest-share destshare --dest-path destdir/hellocopy.txt --connection-string $srcConnectionString --dest-connection-string $destConnectionString
-	
+
 Para copiar um blob para um diretório de arquivos:
 
 	azure storage file copy start --source-container srcctn --source-blob hello2.txt --dest-share hello --dest-path hellodir/hello2copy.txt --connection-string $srcConnectionString --dest-connection-string $destConnectionString
@@ -215,11 +215,10 @@ Para copiar um blob para um diretório de arquivos:
 
 Veja a seguir alguns artigos e recursos relacionados para saber mais sobre o Armazenamento do Azure.
 
-- [Documentação do Armazenamento do Azure](http://azure.microsoft.com/documentation/services/storage/)
+- [Documentação do Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
 - [Referência de API REST do Armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
 
 [Image1]: ./media/storage-azure-cli/azure_command.png
- 
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

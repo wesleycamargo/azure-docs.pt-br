@@ -14,25 +14,27 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2015"
-	ms.author="szarkos"/>
+	ms.date="01/22/2016"
+	ms.author="szark"/>
 
 # <a id="nonendorsed"> </a>Informações para as distribuições não endossadas #
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
-**Importante**: o SLA (contrato de nível de serviço) da plataforma do Azure aplica-se a máquinas virtuais com o sistema operacional Linux somente quando uma das [distribuições endossadas é usada](virtual-machines-../linux-endorsed-distributions.md). Todas as distribuições do Linux fornecidas na galeria de imagens do Azure são distribuições endossadas com a configuração necessária.
+**Importante**: o SLA (contrato de nível de serviço) da plataforma do Azure aplica-se a máquinas virtuais com o sistema operacional Linux somente quando uma das [distribuições endossadas é usada](virtual-machines-linux-endorsed-distributions.md). Todas as distribuições do Linux fornecidas na galeria de imagens do Azure são distribuições endossadas com a configuração necessária.
 
-- [Linux no Azure - Distribuições endossadas](virtual-machines-../linux-endorsed-distributions.md)
+- [Linux no Azure - Distribuições endossadas](virtual-machines-linux-endorsed-distributions.md)
 - [Suporte para imagens Linux no Microsoft Azure](http://support2.microsoft.com/kb/2941892)
 
 Todas as distribuições em execução no Azure precisam atender a diversos pré-requisitos para ter a chance de serem executadas corretamente na plataforma. Este artigo não é conclusivo, já que cada distribuição é diferente. Dessa forma, mesmo que você atenda a todos os critérios abaixo, talvez seja necessário ajustar significativamente o seu sistema Linux para garantir que ele seja executado corretamente na plataforma.
 
-Por isso, recomendamos que você inicie com uma das nossas [distribuições endossadas do Linux no Azure](../linux-endorsed-distributions.md) sempre que possível. Os artigos a seguir guiam você pela preparação das diversas distribuições endossadas do Linux que têm suporte no Azure:
+Por isso, recomendamos que você inicie com uma das nossas [distribuições endossadas do Linux no Azure](virtual-machines-linux-endorsed-distributions.md) sempre que possível. Os artigos a seguir guiam você pela preparação das diversas distribuições endossadas do Linux que têm suporte no Azure:
 
 - **[Distribuições com base em CentOS](virtual-machines-linux-create-upload-vhd-centos.md)**
+- **[Debian Linux](virtual-machines-linux-create-upload-vhd-debian.md)**
 - **[Oracle Linux](virtual-machines-linux-create-upload-vhd-oracle.md)**
+- **[Red Hat Enterprise Linux](virtual-machines-linux-create-upload-vhd-redhat.md)**
 - **[SLES e openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
 - **[Ubuntu](virtual-machines-linux-create-upload-vhd-ubuntu.md)**
 
@@ -76,7 +78,7 @@ As imagens de VHD no Azure devem ter um tamanho virtual alinhado para 1MB. Norma
 
 Para corrigir isso, você pode redimensionar a VM usando o console do Gerenciador do Hyper-V ou o cmdlet do Powershell [Resize-VHD](http://technet.microsoft.com/library/hh848535.aspx). Se você não estiver executando em um ambiente Windows, então é recomendável usar qemu-img para converter (se necessário) e redimensionar o VHD.
 
-> [AZURE.NOTE]Há um bug conhecido nas versões qemu-img > = 2.2.1 que resulta em um VHD formatado incorretamente. O problema será corrigido em uma versão futura do qemu- img. Por ora é recomendado usar a versão 2.2.0 ou inferior do qemu-img. Referência: https://bugs.launchpad.net/qemu/+bug/1490611
+> [AZURE.NOTE] Há um bug conhecido nas versões qemu-img > = 2.2.1 que resulta em um VHD formatado incorretamente. O problema será corrigido em uma versão futura do qemu- img. Por ora é recomendado usar a versão 2.2.0 ou inferior do qemu-img. Referência: https://bugs.launchpad.net/qemu/+bug/1490611
 
 
  1. Redimensionar o VHD diretamente, usando ferramentas como `qemu-img` ou `vbox-manage` pode resultar em um VHD incapaz de ser inicializado. Então convém primeiro converter o VHD para uma imagem de disco bruta. Se a imagem VM já foi criada como imagem de disco bruta (o padrão para alguns Hypervisors como KVM), você pode ignorar esta etapa:
@@ -107,7 +109,7 @@ Para corrigir isso, você pode redimensionar a VM usando o console do Gerenciado
 
 ## Requisitos do kernel do Linux ##
 
-Os drivers LIS (Serviços de Integração do Linux) para Hyper-V e Azure são obtidos diretamente no kernel upstream do Linux. Muitas distribuições que contam com uma versão recente do kernel do Linux (por exemplo, versões 3.x) já terão esses drivers ou fornecerão versões revertidas desses drivers com seus kernels. Os drivers são atualizados constantemente no kernel upstream com reparos e recursos. Por isso, recomendamos que você execute, sempre que possível, uma [distribuição endossada](../linux-endorsed-distributions.md) que inclua esses reparos e essas atualizações.
+Os drivers LIS (Serviços de Integração do Linux) para Hyper-V e Azure são obtidos diretamente no kernel upstream do Linux. Muitas distribuições que contam com uma versão recente do kernel do Linux (por exemplo, versões 3.x) já terão esses drivers ou fornecerão versões revertidas desses drivers com seus kernels. Os drivers são atualizados constantemente no kernel upstream com reparos e recursos. Por isso, recomendamos que você execute, sempre que possível, uma [distribuição endossada](virtual-machines-linux-endorsed-distributions.md) que inclua esses reparos e essas atualizações.
 
 Se você estiver executando uma variante das versões de **6.0 a 6.3** do Red Hat Enterprise Linux, será necessário instalar os drivers LIS mais recentes para o Hyper-V Os drivers podem ser encontrados [neste local](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). Os drivers LIS com o kernel já estão incluídos nas versões **6.4 e posteriores** do RHEL (e derivados). Por isso, não é necessário ter outros pacotes de instalação para executar esses sistemas no Azure.
 
@@ -193,4 +195,4 @@ O [agente Linux do Azure](virtual-machines-linux-agent-user-guide.md) (waagent) 
 
 - Em seguida, você deverá desligar a máquina virtual e carregar o VHD no Azure.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0204_2016-->

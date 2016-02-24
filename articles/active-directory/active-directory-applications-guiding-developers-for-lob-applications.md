@@ -3,7 +3,7 @@
 	description="Escrito para profissionais de TI, este artigo fornece diretrizes para a integração de aplicativos do Azure com o Active Directory."
 	services="active-directory"
 	documentationCenter=""
-	authors="IHenkel"
+	authors="kgremban"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
-	ms.author="inhenk"/>
+	ms.date="02/09/2016"
+	ms.author="kgremban"/>
 
 # AD do Azure e aplicativos: orientando os desenvolvedores
 
 ## Visão geral
 
-Este guia fornece uma visão geral do desenvolvimento de aplicativos de linhas de negócios (LoB) do Active Directory do Azure e foi escrito especificamente para os administradores globais do Active Directory/Office 365.
+Este guia fornece uma visão geral do desenvolvimento de aplicativos LoB (linhas de negócios) do AD (Active Directory) do Azure e foi escrito especificamente para os administradores globais do Active Directory/Office 365.
 
-A criação de aplicativos integrados ao AD do Azure oferece aos usuários em sua organização logon único com o Office 365. Ter o aplicativo no AD do Azure dá controle sobre a política de autenticação definida para o aplicativo. Para saber mais sobre acesso condicional e como proteger aplicativos com autenticação multifator (MFA), consulte o seguinte documento: [Configurando regras de acesso](active-directory-conditional-access-azuread-connected-apps.md)
+A criação de aplicativos integrados ao AD do Azure oferece aos usuários em sua organização logon único com o Office 365. Ter o aplicativo no AD do Azure dá controle sobre a política de autenticação definida para o aplicativo. Para saber mais sobre acesso condicional e como proteger aplicativos com MFA (autenticação multifator), consulte o seguinte documento: [Configurando regras de acesso](active-directory-conditional-access-azuread-connected-apps.md)
 
-Seu aplicativo precisa ser registrado para usar o Active Directory do Azure. Registrar o aplicativo permite que os desenvolvedores na sua organização autentiquem os membros de sua organização usando o AD do Azure e solicitem acesso aos seus recursos de usuário como email, calendário, documentos, etc.
+Seu aplicativo precisa ser registrado para usar o Active Directory do Azure. Registrar o aplicativo permite que os desenvolvedores na sua organização autentiquem os membros de sua organização usando o AD do Azure e solicitem acesso aos seus recursos de usuário como email, calendário, documentos etc.
 
 Qualquer membro do diretório (não convidados) pode registrar um aplicativo, também conhecido como *criação de um objeto de aplicativo*.
 
@@ -41,13 +41,13 @@ Registrar um aplicativo permite que qualquer usuário faça o seguinte:
 	  - Permissões de aplicativo (somente administradores globais). Por exemplo:
 	    - Associação de função em outro aplicativo do AD do Azure ou associação de grupo relativa a um recurso, grupo de recursos ou assinatura do Azure
 	  - Permissões (qualquer usuário). Por exemplo:
-	    - (AAD) Entrar e ler o perfil
+	    - (AD do Azure) Entrar e ler o perfil
 	    - (Exchange) Ler emails, enviar email
 	    - (SharePoint) Leitura
 
-> [AZURE.NOTE]Por padrão, qualquer membro pode registrar um aplicativo. Para saber como restringir as permissões para o registro de aplicativos para membros específicos, consulte o documento Como os aplicativos são adicionados ao AD do Azure
+> [AZURE.NOTE]Por padrão, qualquer membro pode registrar um aplicativo. Para saber como restringir as permissões para o registro de aplicativos para membros específicos, confira o documento [Como os aplicativos são adicionados ao AD do Azure](active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
-Aqui está o que você, o administrador global, precisará fazer para ajudar os desenvolvedores a tornar seu aplicativo pronto para produção:
+Aqui está o que você, o administrador global, precisará fazer para ajudar os desenvolvedores a preparar o aplicativo para produção:
 
 - Configurar regras de acesso (política de acesso/MFA)
 - Configurar o aplicativo para exigir a atribuição de usuário e atribuir usuários
@@ -65,10 +65,9 @@ Por padrão, a atribuição de usuário não é necessária para que ele acesse 
 
 [Exigindo atribuição do usuário](active-directory-applications-guiding-developers-requiring-user-assignment.md)
 
-Se você for um assinante do AD do Azure Premium ou Enterprise Mobility Suite (EMS), é altamente recomendável utilizar grupos. Atribuir grupos ao aplicativo permite delegar o gerenciamento de acesso contínuo ao proprietário do grupo. Você pode criar o grupo ou, se preferir, pedir à parte responsável na sua organização para criar o grupo usando o recurso de gerenciamento de grupo.
+Se você for um assinante do AD do Azure Premium ou Enterprise Mobility Suite (EMS), é altamente recomendável utilizar grupos. A atribuição de grupos ao aplicativo permite delegar o gerenciamento de acesso contínuo ao proprietário do grupo. Você pode criar o grupo ou, se preferir, pedir à parte responsável da sua organização para criar o grupo usando o recurso de gerenciamento de grupos.
 
-- [Atribuindo usuários a um aplicativo](active-directory-applications-guiding-developers-assigning-users.md)
-- [Atribuindo grupos a um aplicativo](active-directory-applications-guiding-developers-assigning-groups.md)
+[Atribuindo usuários a um aplicativo](active-directory-applications-guiding-developers-assigning-users.md) [Atribuindo grupos a um aplicativo](active-directory-applications-guiding-developers-assigning-groups.md)
 
 ## Suprimindo o consentimento do usuário
 
@@ -76,6 +75,10 @@ Por padrão, o usuário precisará consentir à permissão necessária para faze
 
 Para aplicativos em que você confia, é possível consentir ao aplicativo em nome de todos os usuários em sua organização.
 
-Para obter mais informações sobre o consentimento do usuário e a experiência de consentimento no Azure, consulte [Integrando aplicativos com o Active Directory do Azure](active-directory-integrating-applications.md)
+Para saber mais sobre o consentimento do usuário e sobre a experiência de consentimento no Azure, confira [Integrando aplicativos com o Active Directory do Azure](active-directory-integrating-applications.md).
 
-<!---HONumber=Oct15_HO3-->
+##Artigos relacionados
+
+- [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
+
+<!---HONumber=AcomDC_0211_2016-->

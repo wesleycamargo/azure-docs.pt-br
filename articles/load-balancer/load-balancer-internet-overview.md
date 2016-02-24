@@ -5,7 +5,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="load-balancer"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/16/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma" />
 
 
@@ -23,7 +23,7 @@ Um uso de pontos de extremidade é a configuração do balanceador de carga do A
 
 O balanceador de carga do Azure mapeia o endereço IP público e o número da porta do tráfego de entrada até o endereço IP privado e o número da porta da máquina virtual e vice-versa no tráfego de resposta da máquina virtual.
 
->[AZURE.NOTE]O balanceador de carga do Azure fornecerá um tráfego de rede de distribuição de hash entre várias instâncias de máquina virtual usando as configurações padrão (para obter mais informações sobre a distribuição de hash, veja [Recursos do balanceador de carga](load-balancer-overview.md#load-balancer-features). Se você estiver procurando por afinidade de sessão, confira [modo de distribuição do balanceador de carga](load-balancer-distribution-mode.md).
+>[AZURE.NOTE] O balanceador de carga do Azure fornecerá um tráfego de rede de distribuição de hash entre várias instâncias de máquina virtual usando as configurações padrão (para obter mais informações sobre a distribuição de hash, veja [Recursos do balanceador de carga](load-balancer-overview.md#load-balancer-features). Se você estiver procurando por afinidade de sessão, confira [modo de distribuição do balanceador de carga](load-balancer-distribution-mode.md).
 
 Para um serviço de nuvem que contenha instâncias de funções web ou funções de trabalho, você pode definir um ponto de extremidade público na definição do serviço (.csdef).
  
@@ -34,22 +34,18 @@ A figura a seguir mostra um ponto de extremidade de balanceamento de carga para 
 
 ![exemplo de balanceador de carga público](./media/load-balancer-internet-overview/IC727496.png))
 
-
-
 Quando os clientes da Internet enviam solicitações de página da Web para o endereço IP público do serviço de nuvem e a porta TCP 443, o balanceador de carga executa um balanceamento de carga baseado em hash dessas solicitações entre as três máquinas virtuais no conjunto de balanceamento de carga. Você pode obter mais informações sobre o algoritmo do balanceador de carga na página [Visão geral do balanceador de carga](load-balancer-overview.md#load-balancer-features).
 
 
 ## Próximas etapas
 
-[Visão geral do balanceador de carga interno](load-balancer-internal-overview.md)
+Depois de aprender sobre um balanceador de carga voltado para a Internet, você também pode ler sobre [balanceadores de carga internos](load-balancer-internal-overview.md) e verificar qual balanceador de carga pode ser mais adequado para sua implantação na nuvem.
 
-[Introdução à configuração de um balanceador de carga para a Internet](load-balancer-internet-getstarted.md)
+Você também pode [começar a criar um balanceador de carga voltado para a Internet](load-balancer-get-started-internet-arm-ps.md) e configurar o tipo de [modo de distribuição](load-balancer-distribution-mode.md) para um comportamento específico de tráfego de rede do balanceador de carga.
 
-[Configurar um modo de distribuição do balanceador de carga](load-balancer-distribution-mode.md)
-
-[Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
+Se seu aplicativo precisar manter conexões ativas para servidores por trás de um balanceador de carga, você poderá entender mais sobre [configurações de tempo limite de ociosidade do TCP para um balanceador de carga](load-balancer-tcp-idle-timeout.md). Assim, você saberá mais sobre o comportamento da conexão ociosa quando estiver usando um Balanceador de Carga do Azure.
 
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/02/2015"
+   ms.date="02/08/2016"
    ms.author="alkohli" />
 
 # Conectar remotamente ao seu dispositivo StorSimple
@@ -32,6 +32,8 @@ Este tutorial explica como configurar seu dispositivo para o gerenciamento remot
 - A conexão através de uma sessão HTTPS com um certificado autoassinado é a mais segura, sendo a opção recomendada.
 
 Você pode se conectar remotamente à interface do Windows PowerShell. No entanto, o acesso remoto ao seu dispositivo StorSimple por meio da interface do Windows PowerShell não está habilitado por padrão. Você precisa habilitar o gerenciamento remoto primeiro no dispositivo e então habilitá-lo no cliente usado para acessar seu dispositivo.
+
+As etapas descritas neste artigo foram executadas em um sistema de host executando o Windows Server 2012 R2.
 
 ## Conectar-se por meio de HTTP
 
@@ -61,7 +63,7 @@ Realize as seguintes etapas no Portal Clássico do Azure para habilitar o gerenc
 
 4. Agora, você pode optar por conectar-se usando HTTP. (O padrão é conectar-se por HTTPS.) Certifique-se de que HTTP esteja selecionado.
 
-    >[AZURE.NOTE]A conexão por HTTP só será aceitável em redes confiáveis.
+    >[AZURE.NOTE] A conexão por HTTP só será aceitável em redes confiáveis.
 
 6. Na parte inferior da página, clique em **Salvar**.
 
@@ -112,7 +114,7 @@ Execute as seguintes etapas no cliente para habilitar o gerenciamento remoto.
 
      `Enter-pssession -Credential $cred -ConfigurationName SSAdminConsole -ComputerName <device_ip>`
 
-     >[AZURE.NOTE]Para criar uma sessão do Windows PowerShell para ser usada com o dispositivo virtual StorSimple, acrescente o parâmetro `–port` e especifique a porta pública que você configurou na comunicação remota do dispositivo virtual StorSimple.
+     >[AZURE.NOTE] Para criar uma sessão do Windows PowerShell para ser usada com o dispositivo virtual StorSimple, acrescente o parâmetro `–port` e especifique a porta pública que você configurou na comunicação remota do dispositivo virtual StorSimple.
 
      Neste momento, uma sessão do Windows PowerShell remota já deve estar ativa para o dispositivo.
 
@@ -176,7 +178,7 @@ Execute as seguintes etapas no console serial do dispositivo para habilitar o ge
 
 4. Na saída de `Get-HcsSystem`, copie o número de série do dispositivo e salve-o para usar depois.
 
-    >[AZURE.NOTE]O número de série é mapeado para o nome CN no certificado.
+    >[AZURE.NOTE] O número de série é mapeado para o nome CN no certificado.
 
 5. Obtenha um certificado de gerenciamento remoto, digitando:
  
@@ -188,13 +190,13 @@ Execute as seguintes etapas no console serial do dispositivo para habilitar o ge
 
 5. Copie as informações do certificado de **---INICIAR CERTIFICADO---** até **---TERMINAR CERTIFICADO---** em um editor de texto como o bloco de notas e salve-o como arquivo .cer. (Você vai copiar esse arquivo para o host remoto quando preparar o host.)
 
-    >[AZURE.NOTE]Para gerar um novo certificado, use o cmdlet `Set-HcsRemoteManagementCert`.
+    >[AZURE.NOTE] Para gerar um novo certificado, use o cmdlet `Set-HcsRemoteManagementCert`.
 
 ### Preparar o host para gerenciamento remoto
 
 Para preparar o computador host para a conexão remota que use uma sessão HTTPS, execute os seguintes procedimentos:
 
-- [Importe o arquivo. cer no repositório de raiz do cliente ou no host remoto](#to-import-the-certificate-on-the-remote-host).
+- [Importe o arquivo. cer no repositório de raiz do cliente ou host remoto](#to-import-the-certificate-on-the-remote-host).
 
 - [Adicione os números de série do dispositivo ao arquivo de hosts em seu host remoto](#to-add-device-serial-numbers-to-the-remote-host).
 
@@ -272,4 +274,4 @@ Execute o procedimento a seguir no computador do qual você deseja fazer a conex
 
 - Saiba mais sobre como [usar o serviço do StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="11/09/2015"
+   ms.date="02/09/2016"
    ms.author="elfish"/>
 
 # Recuperar um Banco de Dados SQL do Azure de um erro do usuário
@@ -23,7 +23,7 @@ O Banco de Dados SQL do Azure oferece dois recursos principais para recuperaçã
 - Restauração Pontual 
 - Restaurar banco de dados excluído
 
-Saiba mais sobre esses recursos nesta [postagem de blog](http://azure.microsoft.com/blog/2014/10/01/azure-sql-database-point-in-time-restore/).
+Saiba mais sobre esses recursos nesta [postagem de blog](https://azure.microsoft.com/blog/2014/10/01/azure-sql-database-point-in-time-restore/).
 
 O Banco de Dados SQL do Azure sempre restaura para um novo banco de dados. Esses recursos de restauração são oferecidos para todos os bancos de dados Basic, Standard e Premium.
 
@@ -32,12 +32,12 @@ No caso de um erro do usuário ou uma modificação de dados não intencional, a
 
 Os bancos de dados Basic tem 7 dias de retenção, os bancos de dados Standard tem 14 dias de retenção e os bancos de dados Premium têm 35 dias de retenção. Para saber mais sobre a retenção de banco de dados, consulte a [Visão geral da continuidade dos negócios](sql-database-business-continuity.md).
 
-> [AZURE.NOTE]A restauração de um banco de dados cria um novo banco de dados. É importante garantir que o servidor que você está restaurando tenha capacidade de DTU suficiente para o novo banco de dados. Você pode solicitar um aumento dessa cota [contatando o suporte](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
+> [AZURE.NOTE] A restauração de um banco de dados cria um novo banco de dados. É importante garantir que o servidor que você está restaurando tenha capacidade de DTU suficiente para o novo banco de dados. Você pode solicitar um aumento dessa cota [contatando o suporte](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
 
 ###Portal do Azure
-Para usar a Recuperação pontual no Portal do Azure, use as etapas a seguir.
+Para usar a Recuperação Pontual no Portal do Azure, empregue as etapas a seguir.
 
-1. Faça logon no [Portal do Azure](https://portal.Azure.com).
+1. Faça logon no [Portal do Azure](https://portal.Azure.com)
 2. No lado esquerdo da tela, selecione **PROCURAR** e, em seguida, **Bancos de Dados SQL**.
 3. Navegue até o banco de dados e selecione-o.
 4. Na parte superior da folha do banco de dados, selecione **Restaurar**.
@@ -45,9 +45,9 @@ Para usar a Recuperação pontual no Portal do Azure, use as etapas a seguir.
 6. O processo de restauração do banco de dados começará e poderá ser monitorado usando **NOTIFICAÇÕES**, no lado esquerdo da tela.
 
 ###PowerShell
-Use o PowerShell para executar programaticamente uma Recuperação pontual com o cmdlet [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396). Para obter uma orientação detalhada, [assista ao vídeo deste procedimento](http://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-point-in-time-restore-with-microsoft-azure-powershell/).
+Use o PowerShell para executar programaticamente uma Recuperação pontual com o cmdlet [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396). Para obter uma orientação detalhada, [assista ao vídeo deste procedimento](https://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-point-in-time-restore-with-microsoft-azure-powershell/).
 
-> [AZURE.IMPORTANT]Este artigo contém comandos para versões do Azure PowerShell, *exceto* as versões 1.0 e posteriores. Você pode verificar sua versão do Azure PowerShell com o comando **Get-Module azure | format-table version**.
+> [AZURE.IMPORTANT] Este artigo contém comandos para versões do Azure PowerShell, *exceto* as versões 1.0 e posteriores. É possível verificar sua versão do Azure PowerShell com o comando **Get-Module azure | format-table version**.
 
 		$Database = Get-AzureSqlDatabase -ServerName "YourServerName" –DatabaseName “YourDatabaseName”
 		$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceDatabase $Database –TargetDatabaseName “NewDatabaseName” –PointInTime “2015-01-01 06:00:00”
@@ -68,21 +68,21 @@ No caso de um banco de dados excluído, o Banco de Dados SQL do Azure permite re
 
 O período de retenção de um banco de dados excluído é determinado pela camada de serviço do banco de dados enquanto ela existiu ou pelo número de dias em que o banco de dados existe, o que for menor. Para saber mais sobre retenção de banco de dados, leia nossa [visão geral da continuidade dos negócios](sql-database-business-continuity.md).
 
-> [AZURE.NOTE]A restauração de um banco de dados cria um novo banco de dados. É importante garantir que o servidor que você está restaurando tenha capacidade de DTU suficiente para o novo banco de dados. Você pode solicitar um aumento dessa cota [contatando o suporte](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
+> [AZURE.NOTE] A restauração de um banco de dados cria um novo banco de dados. É importante garantir que o servidor que você está restaurando tenha capacidade de DTU suficiente para o novo banco de dados. Você pode solicitar um aumento dessa cota [contatando o suporte](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
 
 ###Portal do Azure
-Para restaurar um banco de dados excluído usando o Portal do Azure, use as etapas a seguir.
+Para restaurar um banco de dados excluído usando o Portal do Azure, empregue as etapas a seguir.
 
-1. Faça logon no [Portal do Azure](https://portal.Azure.com).
+1. Faça logon no [Portal do Azure](https://portal.Azure.com)
 2. No lado esquerdo da tela, selecione **PROCURAR** e, em seguida, **Servidores SQL**.
 3. Navegue até o servidor e selecione-o.
-4. Em **Operações** na folha do servidor, selecione **Bancos de Dados Excluídos**.
+4. Role para baixo até **Operações** na folha do servidor, clique no bloco **Bancos de Dados Excluídos**.
 5. Selecione o banco de dados excluído que deseja restaurar.
 6. Especifique um nome de banco de dados e clique em **Criar**.
 7. O processo de restauração do banco de dados começará e poderá ser monitorado usando **NOTIFICAÇÕES**, no lado esquerdo da tela.
 
 ###PowerShell
-Para restaurar um banco de dados excluído usando o PowerShell, use o cmdlet [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396). Para obter uma orientação detalhada, [assista a um vídeo deste procedimento](http://azure.microsoft.com/documentation/videos/restore-a-deleted-sql-database-with-microsoft-azure-powershell/).
+Para restaurar um banco de dados excluído usando o PowerShell, use o cmdlet [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396). Para obter uma orientação detalhada, [assista a um vídeo deste procedimento](https://azure.microsoft.com/documentation/videos/restore-a-deleted-sql-database-with-microsoft-azure-powershell/).
 
 1. Localize o banco de dados excluído e a data da exclusão na lista de bancos de dados excluídos.
 		
@@ -106,4 +106,4 @@ Use a API REST para executar a restauração do banco de dados de modo programá
 	
 4.	Acompanhe o status de sua restauração usando a operação [Status de operações do banco de dados](http://msdn.microsoft.com/library/azure/dn720371.aspx).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

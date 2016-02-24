@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/15/2015"
+    ms.date="01/22/2016"
     ms.author="torsteng" />
 
 # Visão geral da consulta de banco de dados elástico do Banco de Dados SQL do Azure (visualização)
@@ -21,7 +21,7 @@ O recurso de consulta de banco de dados elástico (em visualização) permite qu
 
 ## Novidades na consulta de banco de dados elástico
 
-* Os cenários de consulta entre bancos de dados com um único banco de dados remoto agora podem ser definidos por completo no T-SQL. Isso permite consultas somente leitura de bancos de dados remotos. Isso fornece uma opção para que os clientes atuais do SQL Server local migrem aplicativos que usam nomes de três e quatro partes ou um servidor vinculado ao Banco de Dados SQL. 
+* Os cenários de consulta entre bancos de dados com um único banco de dados remoto agora podem ser definidos por completo no T-SQL. Isso permite consultas somente leitura de bancos de dados remotos. Isso fornece uma opção para que os clientes atuais do SQL Server local migrem aplicativos que usam nomes de três e quatro partes ou um servidor vinculado ao Banco de Dados SQL.
 * Agora há suporte para a consulta elástica no nível de desempenho Standard, além do nível de desempenho Premium. Veja a seção sobre Limitações da visualização abaixo sobre os limitações de desempenho para os níveis de desempenho inferiores.
 * As consultas elásticas agora podem enviar por push parâmetros SQL para os bancos de dados remotos para execução.
 * As chamadas de procedimento armazenado remoto ou as invocações de funções remotas que usam sp\_execute\_fanout agora podem usar parâmetros semelhantes a [sp\_executesql](https://msdn.microsoft.com/library/ms188001.aspx).
@@ -39,9 +39,9 @@ O objetivo é facilitar cenários de consultas em que vários bancos de dados ac
 Os cenários do cliente para a consulta elástica são caracterizados pelas seguintes topologias:
 
 * **Particionamento vertical – consultas entre bancos de dados** (Topologia 1): os dados são particionados verticalmente entre vários bancos de dados em uma camada de dados. Geralmente, diferentes conjuntos de tabelas residem em bancos de dados diferentes. Isso significa que o esquema é diferente em bancos de dados diferentes. Por exemplo, todas as tabelas de inventário estão em um banco de dados, enquanto todas as tabelas relacionadas à contabilidade estão em um segundo banco de dados. Casos de uso comuns com esta topologia exigem uma consulta ou compilação de relatórios entre tabelas em vários bancos de dados.
-* **Particionamento horizontal – Fragmentação** (Topologia 2): os dados são particionados horizontalmente para distribuir as linhas em uma camada de dados escalada horizontalmente. Com essa abordagem, o esquema é idêntico em todos os bancos de dados participantes. Essa abordagem também é chamada de “fragmentação”. A fragmentação pode ser executada e gerenciada com (1) as bibliotecas de ferramentas do banco de dados elástico ou com (2) a autofragmentação. Uma consulta elástica é usada para consultar ou compilar relatórios em vários fragmentos. 
+* **Particionamento horizontal – Fragmentação** (Topologia 2): os dados são particionados horizontalmente para distribuir as linhas em uma camada de dados escalada horizontalmente. Com essa abordagem, o esquema é idêntico em todos os bancos de dados participantes. Essa abordagem também é chamada de “fragmentação”. A fragmentação pode ser executada e gerenciada com (1) as bibliotecas de ferramentas do banco de dados elástico ou com (2) a autofragmentação. Uma consulta elástica é usada para consultar ou compilar relatórios em vários fragmentos.
 
-> [AZURE.NOTE]A consulta de banco de dados elástica funciona melhor em cenários de relatórios ocasionais em que a maior parte do processamento pode ser executada na camada de dados. Para os cenários de cargas de trabalho de relatórios pesadas ou data warehouse com consultas mais complexas, considere também usar o [SQL Data Warehouse do Azure](http://azure.microsoft.com/services/sql-data-warehouse/).
+> [AZURE.NOTE] A consulta de banco de dados elástica funciona melhor em cenários de relatórios ocasionais em que a maior parte do processamento pode ser executada na camada de dados. Para os cenários de cargas de trabalho de relatórios pesadas ou data warehouse com consultas mais complexas, considere também usar o [SQL Data Warehouse do Azure](https://azure.microsoft.com/services/sql-data-warehouse/).
 
 
 ## Topologias de consulta de Banco de Dados Elástico
@@ -74,7 +74,7 @@ O uso de uma consulta elástica para executar tarefas de relatórios em uma cama
 
 ![Particionamento horizontal - Usando a consulta elástica para relatórios de camadas de dados fragmentados][5]
 
-> [AZURE.NOTE]O banco de dados dedicado da consulta de banco de dados elástico deve ser um banco de dados do Banco de Dados SQL v12. Não há nenhuma restrição sobre os próprios fragmentos.
+> [AZURE.NOTE] O banco de dados dedicado da consulta de banco de dados elástico deve ser um banco de dados do Banco de Dados SQL v12. Não há nenhuma restrição sobre os próprios fragmentos.
 
 
 ## Implementando consultas do banco de dados elástico
@@ -85,19 +85,19 @@ As etapas para implementar a consulta elástica para os cenários de particionam
 
 As seguintes etapas configuram consultas de banco de dados elástico para cenários de particionamento vertical que exigem o acesso a uma tabela localizada em um banco de dados SQLDB remoto:
 
-*    [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx) mymasterkey 
+*    [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx) mymasterkey
 *    [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx) mycredential
 *    [CREATE/DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx) mydatasource do tipo **RDBMS**
 *    [CREATE/DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) mytable
 
 Depois de executar as instruções DDL, você pode acessar a tabela remota “mytable” como se ela fosse uma tabela local. O Banco de Dados SQL do Azure automaticamente abre uma conexão com o banco de dados remoto, processa a solicitação no banco de dados remoto e retorna os resultados. Mais informações sobre as etapas necessárias para o cenário de particionamento vertical podem ser encontradas em [consulta elástica para o particionamento vertical](sql-database-elastic-query-vertical-partitioning.md).
 
-### Particionamento horizontal - fragmentação 
+### Particionamento horizontal - fragmentação
 
 As seguintes etapas configuram consultas de banco de dados elástico para cenários de particionamento horizontal que exigem o acesso a um conjunto de tabelas que estão localizadas (normalmente) em vários bancos de dados SQLDB remotos:
 
 *    [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx) mymasterkey
-*    [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx) mycredential 
+*    [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx) mycredential
 *    Crie um [mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md) que representa sua camada de dados usando a biblioteca de clientes do banco de dados elástico.   
 *    [CREATE/DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx) mydatasource do tipo **SHARD\_MAP\_MANAGER**
 *    [CREATE/DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) mytable
@@ -117,7 +117,7 @@ A consulta elástica está incluída no custo dos bancos de dados do Banco de Da
 ## Limitações de visualização
 * A execução da primeira consulta elástica pode levar alguns minutos no nível de desempenho Standard. Esse tempo é necessário para carregar a funcionalidade de consulta elástica; o desempenho do carregamento melhora com níveis mais altos de desempenho.
 * Ainda não há suporte para scripts de fontes de dados externas ou de tabelas externas do SSMS ou SSDT.
-* A Importação/Exportação do Banco de Dados SQL ainda não dá suporte a tabelas externas e fontes de dados externas. Se precisar usar a função Importação/Exportação, remova esses objetos antes da exportação e depois recrie-os após a importação. 
+* A Importação/Exportação do Banco de Dados SQL ainda não dá suporte a tabelas externas e fontes de dados externas. Se precisar usar a função Importação/Exportação, remova esses objetos antes da exportação e depois recrie-os após a importação.
 * Atualmente, a consulta de banco de dados elástico dá suporte apenas ao acesso somente leitura para tabelas externas. Você pode, no entanto, usar a funcionalidade completa do T-SQL no banco de dados no qual a tabela externa é definida. Isso pode ser útil para, por exemplo, manter os resultados temporários usando, por exemplo, SELECT <column_list> INTO <local_table>, ou para definir os procedimentos armazenados no banco de dados de consulta elástica que se referem a tabelas externas.
 * Exceto nvarchar(max), não há suporte para tipos LOB em definições de tabela externa. Como uma solução alternativa, você pode criar uma exibição no banco de dados remoto que converte o tipo LOB em nvarchar(max), definir sua tabela externa na exibição em vez da tabela base e, em seguida, convertê-la novamente no tipo LOB original em suas consultas.
 * Atualmente, não há suporte para estatísticas de coluna em tabelas externas. Há suporte para as estatísticas de tabelas, mas elas precisam ser criadas manualmente.
@@ -135,7 +135,7 @@ Você pode encontrar mais informações sobre consultas entre bancos de dados e 
 
 Mais informações sobre os cenários de fragmentação e de particionamento horizontal estão disponíveis aqui:
 
-* [Visão geral do particionamento horizontal e da fragmentação](sql-database-elastic-query-horizontal-partitioning.md) 
+* [Visão geral do particionamento horizontal e da fragmentação](sql-database-elastic-query-horizontal-partitioning.md)
 * Experimente nosso tutorial passo a passo para ver um exemplo completo e funcional em execução em minutos: [Introdução à consulta de banco de dados elástico para particionamento horizontal (fragmentação)](sql-database-elastic-query-getting-started.md).
 
 
@@ -150,4 +150,4 @@ Mais informações sobre os cenários de fragmentação e de particionamento hor
 
 <!--anchors-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

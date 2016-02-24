@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
-# Práticas recomendadas para isolar aplicativos contra interrupções de serviço e desastres do Barramento de Serviço
+# Práticas recomendadas para isolar aplicativos contra interrupções e desastres do Barramento de Serviço
 
 Os aplicativos de missão crítica devem funcionar continuamente, mesmo na presença de interrupções ou de desastres não planejados. Este tópico descreve técnicas que podem ser usadas para proteger aplicativos do Barramento de Serviço contra uma potencial interrupção de serviço ou desastre.
 
@@ -37,7 +37,7 @@ Para proteger contra interrupções do ACS, use tokens de Assinatura de Acesso C
 
 ## Protegendo filas e tópicos contra falhas do armazenamento de mensagens
 
-Uma fila ou um tópico não particionado é atribuído a um repositório de mensagens. Se esse repositório de mensagens não estiver disponível, todas as operações naquela fila ou tópico falharão. Uma fila particionada, por outro lado, consiste em vários fragmentos. Cada fragmento é armazenado em um repositório de mensagens diferente. Quando uma mensagem é enviada a uma fila ou um tópico particionado, o Barramento de Serviço atribui a mensagem a um dos fragmentos. Se o repositório de mensagens correspondente não estiver disponível, o Barramento de Serviço grava a mensagem em um fragmento diferente, se possível. Para saber mais sobre entidades particionadas, confira [Particionando entidades do sistema de mensagens][].
+Uma fila ou um tópico não particionado é atribuído a um repositório de mensagens. Se esse repositório de mensagens não estiver disponível, todas as operações naquela fila ou tópico falharão. Uma fila particionada, por outro lado, consiste em vários fragmentos. Cada fragmento é armazenado em um repositório de mensagens diferente. Quando uma mensagem é enviada a uma fila ou um tópico particionado, o Barramento de Serviço atribui a mensagem a um dos fragmentos. Se o repositório de mensagens correspondente não estiver disponível, o Barramento de Serviço grava a mensagem em um fragmento diferente, se possível. Para obter mais informações sobre entidades particionadas, veja as [Entidades de mensagens particionadas][].
 
 ## Proteção contra interrupções ou desastres de datacenter
 
@@ -67,7 +67,7 @@ Um cliente recebe mensagens de ambas as filas. O receptor processa a primeira c�
 
 O exemplo [Replicação geográfica com o sistema de mensagens agenciado do Barramento de Serviço][] demonstra a replicação ativa de entidades do sistema de mensagens.
 
-> [AZURE.NOTE]A abordagem de replicação ativa dobra o número de operações e, portanto, essa abordagem pode gerar custos mais altos.
+> [AZURE.NOTE] A abordagem de replicação ativa dobra o número de operações e, portanto, essa abordagem pode gerar custos mais altos.
 
 ## Replicação passiva
 
@@ -99,14 +99,14 @@ Para saber mais sobre a recuperação de desastres, confira estes artigos:
 - [Orientação técnica sobre a continuação de negócios do Azure][]
 
   [Autenticação do Barramento de Serviço]: service-bus-authentication-and-authorization.md
-  [Particionando entidades do sistema de mensagens]: service-bus-partitioning.md
-  [Padrões de mensagens assíncronas e alta disponibilidade]: https://msdn.microsoft.com/library/azure/dn292562.aspx
+  [Entidades de mensagens particionadas]: service-bus-partitioning.md
+  [Padrões de mensagens assíncronas e alta disponibilidade]: service-bus-async-messaging.md
   [Replicação geográfica com mensagens retransmitidas do Barramento de Serviço]: http://code.msdn.microsoft.com/Geo-replication-with-16dbfecd
   [BrokeredMessage.MessageId]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx
   [BrokeredMessage.Label]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx
   [Replicação geográfica com o sistema de mensagens agenciado do Barramento de Serviço]: http://code.msdn.microsoft.com/Geo-replication-with-f5688664
   [Remetente de mensagem durável]: http://code.msdn.microsoft.com/Service-Bus-Durable-Sender-0763230d
-  [Continuidade dos negócios no Banco de dados SQL do Azure]: https://msdn.microsoft.com/library/azure/hh852669.aspx
+  [Continuidade dos negócios no Banco de dados SQL do Azure]: ../sql-database/sql-database-business-continuity.md
   [Orientação técnica sobre a continuação de negócios do Azure]: https://msdn.microsoft.com/library/azure/hh873027.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

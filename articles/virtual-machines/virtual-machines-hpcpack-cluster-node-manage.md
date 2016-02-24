@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="09/28/2015"
+ ms.date="01/08/2016"
  ms.author="danlep"/>
 
 # Gerenciar o número e a disponibilidade de nós de computação em um cluster HPC Pack no Azure
@@ -34,11 +34,11 @@ Se você criou um cluster HPC Pack em VMs do Azure, pode ser conveniente encontr
     * **Importe o arquivo de configurações de publicação do Azure**. Para fazer isso, execute os seguintes cmdlets do Azure PowerShell no nó de cabeçalho:
 
     ```
-    Get-AzurePublishSettingsFile 
-         
+    Get-AzurePublishSettingsFile
+
     Import-AzurePublishSettingsFile –PublishSettingsFile <publish settings file>
     ```
-    
+
     * **Configure o certificado de gerenciamento do Azure no nó de cabeçalho**. Se você tiver o arquivo .cer, importe-o no repositório de certificados CurrentUser\\My e, em seguida, execute o seguinte cmdlet do Azure PowerShell para seu ambiente do Azure (AzureCloud ou AzureChinaCloud):
 
     ```
@@ -60,7 +60,7 @@ Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
 
 * **ServiceName** - O nome do serviço de nuvem ao qual novas VMs de nó de computação serão adicionadas.
 
-* **ImageName** - O nome de imagem da VM do Azure, que pode ser obtido por meio do portal clássico do Azure ou do cmdlet **Get-AzureVMImage** do Azure PowerShell. A imagem deve atender aos seguintes requisitos:
+* **ImageName** - o nome de imagem da VM do Azure, que pode ser obtido por meio do portal clássico do Azure ou do cmdlet **Get-AzureVMImage** do Azure PowerShell. A imagem deve atender aos seguintes requisitos:
 
     1. Um sistema operacional Windows deve ser instalado.
 
@@ -74,13 +74,13 @@ Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
 
 * **DomainUserName** - Nome de usuário de domínio que será usado para ingressar as novas VMs no domínio.
 
-* **DomainUserPassword*** Senha do usuário de domínio
+* **DomainUserPassword** - senha do usuário de domínio.
 
-* **NodeNameSeries** (opcional) Padrão de nomenclatura 0 para os nós de computação. O formato deve ser &lt;*Root\_Name*&gt;&lt;*Start\_Number*&gt;%. Por exemplo, MyCN%10% significa uma série de nomes de nó de computação com início em MyCN11. Se não for especificado, o script usará a série de nomenclatura do nó configurado no cluster HPC.
+* **NodeNameSeries** (opcional) - padrão de nomenclatura para os nós de computação. O formato deve ser &lt;*Root\_Name*&gt;&lt;*Start\_Number*&gt;%. Por exemplo, MyCN%10% significa uma série de nomes de nó de computação com início em MyCN11. Se não for especificado, o script usará a série de nomenclatura do nó configurado no cluster HPC.
 
 ### Exemplo
 
-O exemplo a seguir adiciona 20 nós de computação de tamanho Grande no serviço de nuvem hpcservice1, com base na imagem de VM hpccnimage1.
+O exemplo a seguir adiciona 20 nós de computação de tamanho Grande no serviço de nuvem *hpcservice1*, com base na imagem de VM *hpccnimage1*.
 
 ```
 Add-HPCIaaSNode.ps1 –ServiceName hpcservice1 –ImageName hpccniamge1
@@ -103,9 +103,9 @@ Remove-HPCIaaSNode.ps1 -Node <Object> [-DeleteVHD] [-Force] [-Confirm] [<CommonP
 
 ### Parâmetros
 
- * **Name** - Nomes dos nós do cluster a serem removidos. Há suporte para caracteres curinga. O nome do conjunto de parâmetros é Nome. Não é possível especificar os dois parâmetros **Name** e **Node**.
+* **Name** - Nomes dos nós do cluster a serem removidos. Há suporte para caracteres curinga. O nome do conjunto de parâmetros é Nome. Não é possível especificar os dois parâmetros **Name** e **Node**.
 
-* **Node** * O objeto HpcNode para os nós a serem removidos, que pode ser obtido por meio do cmdlet [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx) do HPC PowerShell. O nome do conjunto de parâmetros é Nó. Não é possível especificar os dois parâmetros **Name** e **Node**.
+* **Node** - O objeto HpcNode para os nós a serem removidos, que pode ser obtido por meio do cmdlet [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx) do HPC PowerShell. O nome do conjunto de parâmetros é Nó. Não é possível especificar os dois parâmetros **Name** e **Node**.
 
 * **DeleteVHD** (opcional) - Configuração usada para excluir os discos associados para as VMs que foram removidas.
 
@@ -150,7 +150,7 @@ Start-HPCIaaSNode.ps1 –Name HPCNodeCN-*
 
 ## Interromper VMs de nó de computação
 
-Interrompa os nós de computação com o script **Stop-HpcIaaSNode.ps1**
+Interrompa os nós de computação com o script **Stop-HpcIaaSNode.ps1**.
 
 ### Sintaxe
 
@@ -165,7 +165,7 @@ Stop-HPCIaaSNode.ps1 -Node <Object> [-Force] [<CommonParameters>]
 
 * **Name**- Nomes dos nós do cluster a serem interrompidos. Há suporte para caracteres curinga. O nome do conjunto de parâmetros é Nome. Não é possível especificar os dois parâmetros **Name** e **Node**.
 
-* **Node** - O objeto HpcNode para os nós a serem interrompidos, que pode ser obtido por meio do cmdlet Get-HpcNode do HPC PowerShell. O nome do conjunto de parâmetros é Nó. Não é possível especificar os dois parâmetros **Name** e **Node**.
+* **Node** - O objeto HpcNode para os nós a serem interrompidos, que pode ser obtido por meio do cmdlet [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx) do HPC PowerShell. O nome do conjunto de parâmetros é Nó. Não é possível especificar os dois parâmetros **Name** e **Node**.
 
 * **Force** (opcional) - Configuração usada para forçar os nós HPC a ficarem offline antes de interrompê-los.
 
@@ -177,6 +177,6 @@ Stop-HPCIaaSNode.ps1 –Name HPCNodeCN-* -Force
 
 ## Próximas etapas
 
-* Se desejar uma maneira de aumentar ou reduzir automaticamente os recursos de computação do Azure de acordo com a atual carga de trabalho de trabalhos e tarefas no cluster, veja [Aumentar e reduzir os recursos de computação do Azure em um cluster HPC Pack](virtual-machines-hpcpack-cluster-node-autogrowshrink.md).
+* Se desejar uma maneira de aumentar ou reduzir automaticamente os nós de cluster de acordo com a atual carga de trabalho de trabalhos e tarefas no cluster, veja [Aumentar e reduzir automaticamente os recursos de computação do Azure em um cluster HPC Pack](virtual-machines-hpcpack-cluster-node-autogrowshrink.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

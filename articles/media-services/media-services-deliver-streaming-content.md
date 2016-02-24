@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+  ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -171,4 +171,4 @@ O código a seguir chama métodos de extensões do SDK do .NET que criam um loca
 
 [Baixar ativos](media-services-deliver-asset-download.md) [Configurar a política de entrega de ativos](media-services-dotnet-configure-asset-delivery-policy.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

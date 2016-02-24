@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="11/10/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma"/>
 
 # Como gerenciar registros DNS usando a CLI
@@ -24,7 +24,7 @@
 
 Este guia mostrará como gerenciar conjuntos de registro e registros de zona DNS.
 
->[AZURE.NOTE]O Azure DNS é um serviço somente do Gerenciador de Recursos do Azure. Ele não tem uma API do ASM. Portanto, você precisará garantir que a CLI do Azure está configurada para usar o modo do Gerenciador de Recursos usando o comando 'azure config mode arm'.
+>[AZURE.NOTE] O Azure DNS é um serviço somente do Gerenciador de Recursos do Azure. Ele não tem uma API do ASM. Portanto, você precisará garantir que a CLI do Azure está configurada para usar o modo do Gerenciador de Recursos usando o comando 'azure config mode arm'.
 
 >Se você vir “Erro: 'dns' não é um comando do Azure”, isso provavelmente significa que você está usando a CLI do Azure no modo ASM, não no modo do Gerenciador de Recursos.
 
@@ -34,24 +34,22 @@ Este guia mostrará como gerenciar conjuntos de registro e registros de zona DNS
 
 Os conjuntos de registros são criados usando o comando `azure network dns record-set create`. Você precisa especificar o nome do conjunto de registros, a zona, o TTL (Time-to-Live, tempo de vida) e o tipo de registro.
 
->[AZURE.NOTE]O nome do conjunto de registros deve ser um nome relativo, exceto o nome da zona. Por exemplo, o nome de conjunto de registros "www" na zona "contoso.com" criará um conjunto de registros com o nome totalmente qualificado "www.contoso.com".
+O nome do conjunto de registros deve ser um nome relativo, exceto o nome da zona. Por exemplo, o nome de conjunto de registros "www" na zona "contoso.com" criará um conjunto de registros com o nome totalmente qualificado "www.contoso.com".
 
->Para um registro definido no vértices da zona, use "@" como o nome do conjunto de registro, incluindo as aspas. O nome totalmente qualificado do conjunto de registros é igual ao nome da zona, nesse caso, "contoso.com".
+Para um registro definido no vértices da zona, use "@" como o nome do conjunto de registro, incluindo as aspas. O nome totalmente qualificado do conjunto de registros é igual ao nome da zona, nesse caso, "contoso.com".
 
-O DNS do Azure dá suporte aos seguintes tipos de registros: A, AAAA, CNAME, MX, NS, SOA, SRV, TXT. Conjuntos de registros do tipo SOA são criados automaticamente com cada zona, eles não podem ser criados separadamente. Observe que [o tipo de registro SPF foi preterido por padrões DNS em favor da criação de registros SPF usando o tipo de registro TXT](http://tools.ietf.org/html/rfc7208#section-3.1).
+O DNS do Azure dá suporte aos seguintes tipos de registros: A, AAAA, CNAME, MX, NS, SOA, SRV, TXT. Conjuntos de registros do tipo SOA são criados automaticamente com cada zona, eles não podem ser criados separadamente. Observe que [o tipo de registro SPF foi substituído por padrões DNS em favor da criação de registros SPF usando o tipo de registro TXT](http://tools.ietf.org/html/rfc7208#section-3.1).
 
 	azure network dns record-set create myresourcegroup contoso.com  www  A --ttl 300
 
 
->[AZURE.IMPORTANT]Conjuntos de registros CNAME não podem coexistir com outros conjuntos de registros com o mesmo nome. Por exemplo, você não pode criar um CNAME com o nome relativo "www" e um registro A com o nome relativo "www" ao mesmo tempo. Uma vez que o apex de zona (nome = "@") sempre contém os conjuntos de registro NS e SOA criados quando a zona é criada, isso significa que você não pode criar um conjunto de registros CNAME no apex da zona. Essas restrições são provenientes dos padrões DNS, elas não são limitações do DNS do Azure.
+>[AZURE.IMPORTANT] Conjuntos de registros CNAME não podem coexistir com outros conjuntos de registros com o mesmo nome. Por exemplo, você não pode criar um CNAME com o nome relativo "www" e um registro A com o nome relativo "www" ao mesmo tempo. Uma vez que o apex de zona (nome = "@") sempre contém os conjuntos de registro NS e SOA criados quando a zona é criada, isso significa que você não pode criar um conjunto de registros CNAME no apex da zona. Essas restrições são provenientes dos padrões DNS, elas não são limitações do DNS do Azure.
 
 ### Registros curinga
 
-O Azure DNS dá suporte a [registros curinga](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Eles são retornados para qualquer consulta com um nome correspondente (a menos que haja uma correspondência mais próxima de um conjunto de registros não curinga).
+O DNS do Azure dá suporte a [registros curinga](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Eles são retornados para qualquer consulta com um nome correspondente (a menos que haja uma correspondência mais próxima de um conjunto de registros não curinga). Para criar um conjunto de registros curinga, use o nome do conjunto de registros "*", ou um nome cujo primeiro rótulo seja "*", por exemplo, "*.foo".
 
->[AZURE.NOTE]Para criar um conjunto de registros curinga, use o nome do conjunto de registros "\*", ou um nome cujo primeiro rótulo seja "\*", por exemplo, "\*.foo".
-
->Conjuntos de registros curinga têm suporte para todos os tipos de registro, exceto NS e SOA.
+Conjuntos de registros curinga têm suporte para todos os tipos de registro, exceto NS e SOA.
 
 ## Obter um conjunto de registros
 Para recuperar um conjunto de registros existente, use `azure network dns record-set show`, especificando o grupo de recursos, o nome da zona, o nome relativo do conjunto de registros e o tipo de registro:
@@ -91,10 +89,10 @@ Para criar um conjunto de registros, use `azure network dns record-set create`, 
 	
 	azure network dns record-set create myresourcegroup  contoso.com "test-a"  A --ttl 300
 
->[AZURE.NOTE]Se o parâmetro – ttl não estiver definido, o valor padrão é 4 (em segundos).
+>[AZURE.NOTE] Se o parâmetro – ttl não estiver definido, o valor padrão é 4 (em segundos).
 
 
-Depois de criar o conjunto de registros A, adicione endereços IPv4 ao conjunto de registro com `azure network dns record-set add-record`:
+Depois de criar o conjunto de registros A, adicione o endereço IPv4 ao conjunto de registro com `azure network dns record-set add-record`:
 
 	azure network dns record-set add-record myresourcegroup contoso.com "test-a" A -a 192.168.1.1 
 
@@ -110,7 +108,7 @@ Depois de criar o conjunto de registros A, adicione endereços IPv4 ao conjunto 
 	
 	azure network dns record-set add-record  myresourcegroup contoso.com  test-cname CNAME -c "www.contoso.com"
 
->[AZURE.NOTE]Os registros CNAME permitem apenas um valor de cadeia de caracteres único.
+>[AZURE.NOTE] Os registros CNAME permitem apenas um valor de cadeia de caracteres único.
 
 ### Criar um conjunto de registros MX com um registro único
 
@@ -229,7 +227,7 @@ Remover o último registro de um conjunto de registros não exclui o conjunto de
 ## Excluir um conjunto de registros
 Os conjuntos de registro podem ser excluídos usando o cmdlet Remove-AzureDnsRecordSet.
 
->[AZURE.NOTE]Você não pode excluir os conjuntos de registro SOA e NS no apex da zona (nome = “@”) que são criados automaticamente quando a zona é criada. Eles serão excluídos automaticamente ao excluir a zona.
+>[AZURE.NOTE] Você não pode excluir os conjuntos de registro SOA e NS no apex da zona (nome = “@”) que são criados automaticamente quando a zona é criada. Eles serão excluídos automaticamente ao excluir a zona.
 
 No exemplo abaixo, o conjunto de registro A "test-a" será removido da zona DNS de contoso.com:
 
@@ -238,9 +236,10 @@ No exemplo abaixo, o conjunto de registro A "test-a" será removido da zona DNS 
 O comutador opcional “-q” pode ser usado para suprimir o prompt de confirmação.
 
 
-##Consulte também
+## Próximas etapas
 
-[Delegar um domínio ao Azure DNS](dns-domain-delegation.md)<BR> [Gerenciar zonas DNS](dns-operations-dnszones-cli.md)<BR> [Automatizar operações usando o SDK do .NET](dns-sdk.md)
+Depois de criar a zona DNS e os registros, você poderá [delegar seu domínio ao DNS do Azure](dns-domain-delegation.md).<BR> Saiba como [gerenciar zonas DNS](dns-operations-dnszones-cli.md) usando a CLI.<BR> Você também pode [automatizar operações usando o SDK do .NET](dns-sdk.md) para codificar as operações DNS do Azure em seu aplicativo.
+
  
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

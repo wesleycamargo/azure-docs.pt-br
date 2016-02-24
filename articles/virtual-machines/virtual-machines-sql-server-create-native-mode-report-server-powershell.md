@@ -23,7 +23,7 @@
 
 Este tópico descreve e fornece orientação para a implantação e a configuração de um servidor de relatório em modo nativo do SQL Server Reporting Services em uma Máquina Virtual do Azure. As etapas neste documento usam uma combinação de etapas manuais para criar a máquina virtual e um script do Windows PowerShell para configurar o Reporting Services na VM. O script de configuração inclui a abertura de uma porta de firewall para HTTP ou HTTPs.
 
->[AZURE.NOTE]Se você não precisar de **HTTPS** no servidor de relatório, **ignorar a etapa 2**.
+>[AZURE.NOTE] Se você não precisar de **HTTPS** no servidor de relatório, **ignorar a etapa 2**.
 >
 >Depois de criar a VM na etapa 1, vá até a seção Usar o script para configurar o servidor de relatório e HTTP. Após a execução do script, o servidor de relatório estará pronto para ser usado.
 
@@ -33,7 +33,7 @@ Este tópico descreve e fornece orientação para a implantação e a configura�
 	
 	- Para verificar o limite de núcleos de sua assinatura, no portal clássico do Azure, clique em CONFIGURAÇÕES no painel esquerdo e clique em USO no menu superior.
 	
-	- Para aumentar a cota de núcleos, entre em contato com o [Suporte do Azure](http://azure.microsoft.com/support/options/). Para saber mais sobre o tamanho da VM, consulte [Tamanhos de máquinas virtuais do Azure](virtual-machines-size-specs.md).
+	- Para aumentar a cota de núcleos, entre em contato com o [Suporte do Azure](https://azure.microsoft.com/support/options/). Para saber mais sobre o tamanho da VM, consulte [Tamanhos de máquinas virtuais do Azure](virtual-machines-size-specs.md).
 
 - **Script do Windows PowerShell**: o tópico supõe que você tenha um conhecimento funcional básico do Windows PowerShell. Para saber mais sobre como usar o Windows PowerShell, consulte o seguinte:
 
@@ -71,11 +71,11 @@ Este tópico descreve e fornece orientação para a implantação e a configura�
 	
 	- **Camada**: Standard
 	
-	- **Tamanho:A3** é o tamanho recomendado da VM para as cargas de trabalho do SQL Server. Se uma VM for usada apenas como um servidor de relatório, o tamanho de VM A2 será suficiente, a menos que o servidor de relatório enfrente uma grande carga de trabalho. Para saber mais sobre preços da VM, consulte [Preços das Máquinas Virtuais](http://azure.microsoft.com/pricing/details/virtual-machines/).
+	- **Tamanho:A3** é o tamanho recomendado da VM para as cargas de trabalho do SQL Server. Se uma VM for usada apenas como um servidor de relatório, o tamanho de VM A2 será suficiente, a menos que o servidor de relatório enfrente uma grande carga de trabalho. Para saber mais sobre preços da VM, consulte [Preços das Máquinas Virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/).
 	
 	- **Novo Nome de Usuário**: o nome fornecido é criado como um administrador na VM.
 	
-	- **Nova Senha** e **confirme**. Essa senha será usada para a nova conta de administrador, portanto, recomendamos o uso de uma senha forte.
+	- **Nova Senha** e **Confirmar**. Essa senha será usada para a nova conta de administrador, portanto, recomendamos o uso de uma senha forte.
 	
 	- Clique em **Próximo**. ![avançar](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC692021.gif)
 
@@ -99,7 +99,7 @@ Este tópico descreve e fornece orientação para a implantação e a configura�
 	
 	- Clique em Próximo. ![avançar](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC692021.gif)
 
-1. Na última página do assistente, mantenha o padrão **Instalar o agente de VM** selecionado. As etapas neste tópico não utilizam o agente de VM, mas se você planeja manter essa VM, o agente de VM e as extensões permitirão o aprimoramento da VM. Para saber mais sobre o agente de VM, consulte [Agente de VM e Extensões – Parte 1](http://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/). Uma das extensões padrão instaladas e em execução é a “BGINFO”, que exibe na área de trabalho da VM informações sobre o sistema, por exemplo, o IP interno e o espaço disponível na unidade.
+1. Na última página do assistente, mantenha o padrão **Instalar o agente de VM** selecionado. As etapas neste tópico não utilizam o agente de VM, mas se você planeja manter essa VM, o agente de VM e as extensões permitirão o aprimoramento da VM. Para saber mais sobre o agente de VM, consulte [Agente de VM e Extensões – Parte 1](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/). Uma das extensões padrão instaladas e em execução é a “BGINFO”, que exibe na área de trabalho da VM informações sobre o sistema, por exemplo, o IP interno e o espaço disponível na unidade.
 
 1. Clique em Concluído. ![ok](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC660122.gif)
 
@@ -107,7 +107,7 @@ Este tópico descreve e fornece orientação para a implantação e a configura�
 
 ## Etapa 2: criar um certificado de servidor
 
->[AZURE.NOTE]Se você não exigir o HTTPS no servidor de relatório, poderá **ignorar a etapa 2** e ir para a seção **Usar o script para configurar o servidor de relatório e HTTP**. Use o script HTTP para configurar rapidamente o servidor de relatório e deixá-lo pronto para uso.
+>[AZURE.NOTE] Se você não exigir o HTTPS no servidor de relatório, poderá **ignorar a etapa 2** e ir para a seção **Usar o script para configurar o servidor de relatório e HTTP**. Use o script HTTP para configurar rapidamente o servidor de relatório e deixá-lo pronto para uso.
 
 Para usar HTTPS na VM, será necessário um certificado SSL confiável. Dependendo do cenário, você poderá usar um dos dois métodos a seguir:
 
@@ -129,9 +129,9 @@ Para usar HTTPS na VM, será necessário um certificado SSL confiável. Dependen
 
 	[Ferramentas de segurança para administrar o Windows Server 2012](https://technet.microsoft.com/library/jj730960.aspx)
 
-	>[AZURE.NOTE]O campo **emitido para** do certificado SSL confiável deve ser igual ao **NOME DNS do Serviço de Nuvem** usado para a nova VM.
+	>[AZURE.NOTE] O campo **emitido para** do certificado SSL confiável deve ser igual ao **NOME DNS do Serviço de Nuvem** usado para a nova VM.
 
-1. **Instale o certificado do servidor no servidor Web**. Nesse caso, o servidor Web é a VM que hospeda o servidor de relatório, e o site é criado em etapas posteriores durante a configuração do Reporting Services. Para saber mais sobre como instalar o certificado do servidor no servidor Web usando o snap-in do MMC de Certificados, consulte [Instalar um Certificado do Servidor](https://technet.microsoft.com/library/cc740068).
+1. **Instale o certificado do servidor no servidor Web**. Nesse caso, o servidor Web é a VM que hospeda o servidor de relatório, e o site é criado em etapas posteriores durante a configuração do Reporting Services. Para saber mais sobre como instalar o certificado do servidor no servidor Web usando o snap-in do MMC de Certificados, consulte [Instalar um certificado de servidor](https://technet.microsoft.com/library/cc740068).
 	
 	Se você quiser usar o script incluído neste tópico para configurar o servidor de relatório, o valor de **impressão digital** dos certificados será exigido como um parâmetro do script. Consulte a próxima seção para obter detalhes sobre como obter a impressão digital do certificado.
 
@@ -328,7 +328,7 @@ Para usar o script do Windows PowerShell a fim de configurar o servidor de relat
 
 1. Execute o script.
 
-**Validação**: para verificar se a funcionalidade básica do servidor de relatório está funcionando, consulte a seção [Verificar a configuração](#verify-the-configuration) mais adiante neste tópico.
+**Validação**: para verificar se a funcionalidade básica do servidor de relatório está funcionando, consulte a seção [Verificar a configuração](#verify-the-configuration), mais adiante neste tópico.
 
 ### Usar o script para configurar o servidor de relatório e HTTPS
 
@@ -589,9 +589,9 @@ Se você não quiser executar o script do PowerShell para configurar o servidor 
 	
 	1. Mantenha o **Tipo de Autenticação** padrão como **Credenciais do Serviço** e clique em **Próximo**.
 	
-	1. Clique em **Próximo** na página **Resumo**.
+	1. Clique em **Avançar** na página **Resumo**.
 	
-	1. Quando a configuração estiver terminada, clique em **Concluir**.
+	1. Quando a configuração estiver concluída, clique em **Concluir**.
 
 1. No painel esquerdo, clique em **URL do Gerenciador de Relatórios**. Mantenha o **Diretório Virtual** padrão como **Relatórios** e clique em **Aplicar**.
 
@@ -599,13 +599,13 @@ Se você não quiser executar o script do PowerShell para configurar o servidor 
 
 ## Etapa 4: abrir a porta do Firewall do Windows
 
->[AZURE.NOTE]Se você tiver usado um dos scripts para configurar o servidor de relatório, ignore esta seção. O script incluiu uma etapa para abrir a porta do firewall. A porta padrão era 80 para HTTP e 443 para HTTPS.
+>[AZURE.NOTE] Se você tiver usado um dos scripts para configurar o servidor de relatório, ignore esta seção. O script incluiu uma etapa para abrir a porta do firewall. A porta padrão era 80 para HTTP e 443 para HTTPS.
 
 Para se conectar remotamente ao Gerenciador de Relatórios ou ao Servidor de Relatório na máquina virtual, será necessário ter um ponto de extremidade TCP na VM. É necessário abrir a mesma porta no firewall da VM. O ponto de extremidade foi criado durante o provisionamento da VM.
 
-Esta seção fornece informações básicas sobre como abrir a porta do firewall. Para saber mais, consulte [Configurar um Firewall para ter Acesso ao Servidor de Relatório](https://technet.microsoft.com/library/bb934283.aspx)
+Esta seção fornece informações básicas sobre como abrir a porta do firewall. Para saber mais, consulte [Configurar um firewall para acesso ao servidor de relatório](https://technet.microsoft.com/library/bb934283.aspx)
 
->[AZURE.NOTE]Se você tiver usado o script para configurar o servidor de relatório, ignore esta seção. O script incluiu uma etapa para abrir a porta do firewall.
+>[AZURE.NOTE] Se você tiver usado o script para configurar o servidor de relatório, ignore esta seção. O script incluiu uma etapa para abrir a porta do firewall.
 
 Se você tiver configurado uma porta privada para HTTPS diferente de 443, modifique o script a seguir adequadamente. Para abrir a porta **443** no Firewall do Windows, faça o seguinte:
 
@@ -655,7 +655,7 @@ Após a configuração e verificação do servidor de relatório, uma tarefa adm
 
 A tabela a seguir resume algumas opções disponíveis para publicação de relatórios existentes de um computador local para o servidor de relatório hospedado na Máquina Virtual do Microsoft Azure:
 
-- **Script RS.exe**: use o script RS.exe para copiar os itens de relatório de um servidor de relatório existente para sua Máquina Virtual do Microsoft Azure. Para saber mais, consulte a seção "Modo nativo para Modo nativo – Máquina Virtual do Microsoft Azure" em [Exemplo de Script rs.exe do Reporting Services para Migrar o Conteúdo entre os Servidores de Relatório](https://msdn.microsoft.com/library/dn531017.aspx).
+- **Script RS.exe**: use o script RS.exe para copiar itens de relatório de um servidor de relatório existente para sua Máquina Virtual do Microsoft Azure. Para saber mais, consulte a seção "Modo nativo para Modo nativo – Máquina Virtual do Microsoft Azure" em [Exemplo de Script rs.exe do Reporting Services para Migrar o Conteúdo entre os Servidores de Relatório](https://msdn.microsoft.com/library/dn531017.aspx).
 
 - **Construtor de Relatórios**: a máquina virtual inclui a versão de um clique do Construtor de Relatórios do Microsoft SQL Server. Para iniciar o Construtor de relatórios pela primeira vez na máquina virtual:
 
@@ -683,7 +683,7 @@ A tabela a seguir resume algumas opções disponíveis para publicação de rela
 
 ## Minimizar o custo se você não estiver usando a VM
 
->[AZURE.NOTE]Para minimizar os encargos de suas Máquinas Virtuais do Azure quando elas não estiverem em uso, finalize a VM no portal clássico do Azure. Se você usar as opções de energia do Windows em uma VM para desligá-la, ainda receberá a cobrança do mesmo valor para a máquina virtual. Para reduzir os encargos, é necessário finalizar a VM no portal clássico do Azure. Se você não precisar mais da VM, lembre-se de excluí-la e também os arquivos .vhd associados para evitar os encargos de armazenamento. Para saber mais, consulte a seção de perguntas frequentes em [Detalhes de Preços das Máquinas Virtuais](http://azure.microsoft.com/pricing/details/virtual-machines).
+>[AZURE.NOTE] Para minimizar os encargos de suas Máquinas Virtuais do Azure quando elas não estiverem em uso, finalize a VM no portal clássico do Azure. Se você usar as opções de energia do Windows em uma VM para desligá-la, ainda receberá a cobrança do mesmo valor para a máquina virtual. Para reduzir os encargos, é necessário finalizar a VM no portal clássico do Azure. Se você não precisar mais da VM, lembre-se de excluí-la e também os arquivos .vhd associados para evitar os encargos de armazenamento. Para saber mais, consulte a seção de perguntas frequentes em [Detalhes de Preços das Máquinas Virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
 ## Mais informações
 
@@ -695,14 +695,14 @@ A tabela a seguir resume algumas opções disponíveis para publicação de rela
 
 - Para obter informações gerais relacionadas às implantações do Business Intelligence do SQL Server nas Máquinas Virtuais do Azure, consulte [Business Intelligence do SQL Server nas Máquinas Virtuais do Azure](virtual-machines-sql-server-business-intelligence.md).
 
-- Para saber mais sobre o custo dos encargos de computação do Azure, consulte a guia Máquinas Virtuais da [Calculadora de preços do Azure](http://azure.microsoft.com/pricing/calculator/?scenario=virtual-machines).
+- Para saber mais sobre o custo dos encargos de computação do Azure, consulte a guia Máquinas Virtuais da [Calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/?scenario=virtual-machines).
 
 ### Conteúdo da comunidade
 
-- Para obter instruções detalhadas sobre como criar um servidor de relatório no modo nativo do Reporting Services sem usar um script, consulte [Hospedando o Serviço de Relatórios SQL na Máquina Virtual do Azure](http://adititechnologiesblog.blogspot.in/2012/07/hosting-sql-reporting-service-on-azure.html).
+- Para obter instruções detalhadas sobre como criar um servidor de relatório em modo nativo do Reporting Services sem usar script, consulte [Hospedando o serviço Relatórios SQL na máquina virtual Azure](http://adititechnologiesblog.blogspot.in/2012/07/hosting-sql-reporting-service-on-azure.html).
 
 ### Links para outros recursos para SQL Server em VMs do Azure
 
 [Visão geral do SQL Server em máquinas virtuais do Azure](virtual-machines-sql-server-infrastructure-services.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

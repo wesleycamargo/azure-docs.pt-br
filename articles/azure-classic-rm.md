@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter=""
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager,azure-service-management"/>
 
@@ -48,7 +48,7 @@ As seções a seguir explicam como os recursos do Azure são configurados usando
 O Azure tem dois portais:
 
 - **[Portal do Azure](https://manage.windowsazure.com):** se usou o Azure por um tempo, você já usou este portal. Ele é usado para criar e configurar recursos mais antigos do Azure que dão suporte ao modelo de implantação clássica. Você não pode usá-lo para criar ou configurar os recursos que dão suporte apenas ao Gerenciador de Recursos. 
-- **[Portal de visualização do Azure](http://azure.microsoft.com/overview/preview-portal/):** se você estiver usando um recurso do Azure mais recente, você provavelmente usou este portal. Ele pode ser usado para criar e configurar alguns recursos do Azure. Você poderá, por fim, criar e configurar todos os recursos do Azure com ele. Para alguns recursos que dão suporte a ambos os modelos de implantação, esse portal pode ser usado para criar e configurar um recurso usando qualquer um dos modelos de implantação. 
+- **[Portal de visualização do Azure](https://azure.microsoft.com/overview/preview-portal/):** se você estiver usando um recurso do Azure mais recente, você provavelmente usou este portal. Ele pode ser usado para criar e configurar alguns recursos do Azure. Você poderá, por fim, criar e configurar todos os recursos do Azure com ele. Para alguns recursos que dão suporte a ambos os modelos de implantação, esse portal pode ser usado para criar e configurar um recurso usando qualquer um dos modelos de implantação. 
 
 Alguns recursos só podem ser criados e configurados em um portal ou no outro. Alguns recursos (ainda) não podem ser criados ou configurados no portal e só podem ser configurados com o PowerShell, a CLI ou ambos. A documentação para obter detalhes sobre cada recurso do Azure para os quais o método pode ser criado.
 
@@ -57,7 +57,7 @@ Com o [PowerShell](powershell-install-configure.md), você pode usar uma linha d
 
 - **Somente os cmdlets do PowerShell:** você pode criar e configurar cada recurso do Azure individualmente usando os cmdlets para cada recurso. Você pode fazer isso em uma linha de comando ou com a inclusão de vários comandos em um script do PowerShell que você pode armazenar e criar versão.
 
-- **Cmdlets do PowerShell com um modelo do Gerenciador de Recursos do Azure:** você pode usar o PowerShell para criar recursos do Azure usando um modelo do Gerenciador de Recursos do Azure. Os modelos podem ser salvos e versões podem ser criadas. Saiba mais ao ler o artigo [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md). Vários [modelos de início rápido do Azure](http://azure.microsoft.com/documentation/templates/) existem para soluções comuns, e eles podem ser baixados e também modificados.
+- **Cmdlets do PowerShell com um modelo do Gerenciador de Recursos do Azure:** você pode usar o PowerShell para criar recursos do Azure usando um modelo do Gerenciador de Recursos do Azure. Os modelos podem ser salvos e versões podem ser criadas. Saiba mais ao ler o artigo [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md). Vários [modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) existem para soluções comuns, e eles podem ser baixados e também modificados.
 
 ## CLI
 Você pode criar e configurar recursos do Azure de computadores com Windows, OS X ou Linux usando a CLI. Leia o artigo [Instalar a CLI do Azure](xplat-cli-install.md) para instalar a CLI no sistema operacional de sua escolha. Como o PowerShell, há diferentes comandos que devem ser usados se você estiver criando recursos usando os modelos de implantação do [Gerenciador de Recursos](xplat-cli-azure-resource-manager.md) ou do [Clássico (Gerenciamento de serviço)](virtual-machines-command-line-tools.md).
@@ -68,4 +68,4 @@ Você pode criar e configurar recursos do Azure de computadores com Windows, OS 
 - Entenda como [criar modelos](/best-practices-resource-manager-design-templates.md).
 - Use as [práticas recomendadas](/best-practices-resource-manager-examples.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Introdução ao Transparent Data Encryption (TDE) em SQL Data Warehouse| Microsoft Azure" 
-	description="Introdução aos dados TDE (Transparent Data Encryption) no SQL Data Warehouse" 
-	services="sql-data-warehouse" 
-	documentationCenter="" 
-	authors="twounder" 
-	manager="barbkess" 
-	editor=""/>
+   pageTitle="Introdução ao Transparent Data Encryption (TDE) em SQL Data Warehouse| Microsoft Azure" 
+   description="Introdução aos dados TDE (Transparent Data Encryption) no SQL Data Warehouse" 
+   services="sql-data-warehouse" 
+   documentationCenter="" 
+   authors="twounder" 
+   manager="barbkess" 
+   editor=""/>
 
 <tags 
-	ms.service="sql-data-warehouse" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/20/2015" 
-	ms.author="twounder"/>
+   ms.service="sql-data-warehouse" 
+   ms.workload="data-management" 
+   ms.tgt_pltfrm="na" 
+   ms.devlang="na" 
+   ms.topic="article" 
+   ms.date="01/07/2016" 
+   ms.author="mausher;barbkess;sonyama"/>
  
 # Introdução aos dados TDE (Transparent Data Encryption) no SQL Data Warehouse
 > [AZURE.SELECTOR]
@@ -61,4 +61,4 @@ Para desabilitar a TDE para um SQL Data Warehouse, execute estas etapas:
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

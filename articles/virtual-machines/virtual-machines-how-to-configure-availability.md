@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configurar um conjunto de disponibilidade para VMs | Microsoft Azure"
+	pageTitle="Configurar um conjunto de disponibilidade para VMs clássicas | Microsoft Azure"
 	description="Configure um conjunto de disponibilidade para uma máquina virtual nova ou existente no modelo de implantação clássico usando o portal clássico do Azure e o Azure PowerShell."
 	services="virtual-machines"
 	documentationCenter=""
@@ -14,24 +14,24 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="01/07/2016"
 	ms.author="cynthn"/>
 
 # Como configurar um conjunto de disponibilidade para máquinas virtuais no modelo de implantação clássico
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos. Você também pode configurar conjuntos de disponibilidade em implantações do Gerenciador de Recursos.
 
 
 Os conjuntos de disponibilidade ajudam a manter as máquinas virtuais disponíveis em caso de tempo de inatividade (por exemplo, durante a manutenção). Ter duas ou mais máquinas virtuais com configurações parecidas em um conjunto de disponibilidade cria a redundância necessária para manter a disponibilidade dos aplicativos ou serviços executados em sua máquina virtual. Para obter detalhes sobre como isso funciona, veja [Gerenciar a disponibilidade das máquinas virtuais][].
 
 Você deve usar uma combinação de conjuntos de disponibilidade e pontos de extremidade de balanceamento de carga para ajudar a garantir que seu aplicativo esteja sempre disponível e sendo executado com eficiência. Para obter mais detalhes sobre pontos de extremidade de balanceamento de carga, confira [Balanceamento de carga de serviços de infraestrutura do Azure][].
 
-Você pode escolher uma destas opções para colocar máquinas virtuais em um conjunto de disponibilidade:
+No modelo de implantação clássico, você pode escolher uma destas opções para colocar máquinas virtuais em um conjunto de disponibilidade:
 
 - [Opção 1: crie uma máquina virtual e um conjunto de disponibilidade ao mesmo tempo.][]. Em seguida, adicione novas máquinas virtuais ao conjunto ao criá-las.
 - [Opção 2: adicione uma máquina virtual já existente a um conjunto de disponibilidade][].
 
->[AZURE.NOTE]As máquinas virtuais que você pretende inserir em um mesmo conjunto de disponibilidade devem pertencer ao mesmo serviço de nuvem.
+>[AZURE.NOTE] No modelo clássico, as máquinas virtuais que você pretende inserir em um mesmo conjunto de disponibilidade devem pertencer ao mesmo serviço de nuvem.
 
 ## <a id="createset"> </a>Opção 1: crie uma máquina virtual e um conjunto de disponibilidade ao mesmo tempo##
 
@@ -45,7 +45,7 @@ Para usar o portal clássico do Azure:
 
 3. Clique em **Máquina Virtual** e, em seguida, clique em **Da Galeria**.
 
-4. Nas duas primeiras telas, selecione uma imagem, um nome de usuário, uma senha, etc. Para obter mais detalhes, veja [Criar uma máquina virtual que executa o Windows][].
+4. Nas duas primeiras telas, selecione uma imagem, um nome de usuário, uma senha, etc. Para obter mais detalhes, consulte [Criar uma máquina virtual que execute o Windows][].
 
 5. Na terceira tela, você pode configurar recursos para rede, armazenamento e disponibilidade. Faça o seguinte:
 
@@ -96,7 +96,7 @@ Para usar os comandos do PowerShell do Azure, abra uma sessão do PowerShell do 
 
 	Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Set-AzureAvailabilitySet -AvailabilitySetName "<AvSetName>" | Update-AzureVM
 
->[AZURE.NOTE]A máquina virtual pode precisar ser reiniciada para concluir a adição ao conjunto de disponibilidade.
+>[AZURE.NOTE] A máquina virtual pode precisar ser reiniciada para concluir a adição ao conjunto de disponibilidade.
 
 ## Recursos adicionais
 
@@ -108,8 +108,8 @@ Para usar os comandos do PowerShell do Azure, abra uma sessão do PowerShell do 
 
 [Balanceamento de carga de serviços de infraestrutura do Azure]: virtual-machines-load-balance.md
 [Gerenciar a disponibilidade das máquinas virtuais]: virtual-machines-manage-availability.md
-[Criar uma máquina virtual que executa o Windows]: virtual-machines-windows-tutorial.md
+[Criar uma máquina virtual que execute o Windows]: virtual-machines-windows-tutorial.md
 [Visão geral da rede virtual]: virtual-networks-overview.md
-[Artigos para máquinas virtuais no Gerenciamento de Serviços]: virtual-machines-service-management-articles.md
+[Artigos para máquinas virtuais no Gerenciamento de Serviços]: https://azure.microsoft.com/documentation/articles/?tag=azure-service-management&service=virtual-machines
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

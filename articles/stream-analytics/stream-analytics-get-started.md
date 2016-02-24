@@ -14,7 +14,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="12/04/2015"
+	ms.date="02/04/2016"
 	ms.author="jeffstok" />
 
 
@@ -28,7 +28,9 @@ O Stream Analytics é um serviço completamente gerenciado que oferece baixa lat
 
 ## Cenário: detecção de fraudes de telecomunicações e SIM em tempo real
 
-Uma empresa de telecomunicações tem um grande volume de dados para as chamadas de entrada. A empresa precisa do seguinte de seus dados: *fazer um corte nesses dados para um valor gerenciável e obter informações sobre o uso do cliente ao longo do tempo e por regiões geográficas. *Detectar fraudes SIM (várias chamadas vindas da mesma identidade ao mesmo tempo, mas em locais geograficamente diferentes) em tempo real para que ela possa responder facilmente, notificando os clientes ou desligando o serviço.
+Uma empresa de telecomunicações tem um grande volume de dados para as chamadas de entrada. A empresa precisa do seguinte de seus dados: 
+*fazer um corte nesses dados para um valor gerenciável e obter informações sobre o uso do cliente ao longo do tempo e por regiões geográficas. 
+*Detectar fraudes SIM (várias chamadas vindas da mesma identidade ao mesmo tempo, mas em locais geograficamente diferentes) em tempo real para que ela possa responder facilmente, notificando os clientes ou desligando o serviço.
 
 Nos cenários da Internet das Coisas (IoT) canônica onde há uma tonelada de telemetria ou dados de sensor que estão sendo gerados – e os clientes desejam agregá-los ou alertar sobre anomalias em tempo real.
 
@@ -257,4 +259,4 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

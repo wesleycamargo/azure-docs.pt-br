@@ -1,11 +1,11 @@
-## Como criar uma rede virtual clássica no portal de visualização do Azure
+## Como criar uma rede virtual clássica no portal do Azure
 
 Para criar uma rede virtual clássica com base no cenário acima, siga as etapas abaixo.
 
 1. Em um navegador, navegue até http://portal.azure.com e, se necessário, entre com sua conta do Azure.
 2. Clique em **NOVO** > **Rede** > **Rede virtual**, observe que a lista **Selecionar um modelo de implantação** já mostra **Clássico** e, em seguida, clique em **Criar**, conforme visto na figura abaixo.
 
-	![Criar rede virtual no portal de visualização](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure1.gif)
+	![Criar rede virtual no portal do Azure](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure1.gif)
 
 3. Na folha **Rede virtual**, digite o **Nome** da rede virtual e clique em **Espaço de endereço**. Defina as configurações de espaço de endereço para a rede virtual e sua primeira sub-rede e clique em **OK**. A figura abaixo mostra as configurações do bloco CIDR do nosso cenário.
 
@@ -19,7 +19,7 @@ Para criar uma rede virtual clássica com base no cenário acima, siga as etapas
 
 6. Se não deseja ver a rede virtual como um bloco no **Quadro Inicial**, desabilite **Fixar no Quadro Inicial**.
 
-7. Clique em **Criar** e observe o bloco chamado **Criando a rede virtual**, como mostrado na figura abaixo.
+7. Clique em **Criar** e observe o bloco chamado **Criando a rede virtual** como mostrado na figura abaixo.
 
 	![Criar rede virtual no portal](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure4.png)
 
@@ -33,6 +33,6 @@ Para criar uma rede virtual clássica com base no cenário acima, siga as etapas
 
 10. Clique em **Sub-redes** > **Adicionar**. Em seguida, digite um **Nome** e especifique um **Intervalo de endereços (bloco CIDR)** para a sub-rede e clique em **OK**. A figura abaixo mostra as configurações do nosso cenário atual.
 
-	![Criar rede virtual no portal de visualização](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure7.gif)
+	![Criar rede virtual no portal do Azure](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure7.gif)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

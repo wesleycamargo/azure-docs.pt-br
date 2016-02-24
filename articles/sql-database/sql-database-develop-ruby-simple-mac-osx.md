@@ -21,10 +21,7 @@
 # Conectar ao Banco de Dados SQL usando o Ruby no Mac OS X (Yosemite)
 
 
-> [AZURE.SELECTOR]
-- [Node.js](sql-database-develop-nodejs-simple-mac.md)
-- [Python](sql-database-develop-python-simple-mac-osx.md)
-- [Ruby](sql-database-develop-ruby-simple-mac-osx.md)
+[AZURE.INCLUDE [SQL-Database-develop-Includes-Selector-Language-Platform-Depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
 Este tópico apresenta um exemplo de código Ruby que é executado em computadores Mac com o Yosemite para se conectar a um Banco de Dados SQL.
@@ -109,4 +106,4 @@ Para alinhar com o formato [datetime](http://msdn.microsoft.com/library/ms187819
     puts row
     end
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

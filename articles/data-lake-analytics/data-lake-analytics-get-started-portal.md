@@ -10,10 +10,10 @@
 <tags
    ms.service="data-lake-analytics"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/22/2015"
+   ms.date="01/04/2016"
    ms.author="jgao"/>
 
 # Tutorial: introdução à Análise do Azure Data Lake usando o Portal do Azure
@@ -31,9 +31,9 @@ Neste tutorial, você desenvolverá um trabalho que lê um arquivo TSV (valores 
 1. Crie uma conta da Análise Data Lake.
 2. Prepare os dados de origem. Os trabalhos da Análise Data Lake podem ler dados de contas do Repositório Azure Data Lake ou de contas de armazenamento de Blob do Azure. Neste exemplo, leremos do Repositório Azure Data Lake.  
 3. Desenvolva um script U-SQL.
-4. Envie um trabalho (script U-SQL) para a conta da Análise Data Lake. O trabalho faz a leitura dos dados de origem, processa os dados conforme as instruções no script U-SQL e salva a saída em uma conta do Repositório Data Lake ou em uma conta de armazenamento de Blob.
+4. Envie um trabalho (script U-SQL) para a conta da Análise Data Lake. O trabalho faz a leitura dos dados de origem, processa os dados conforme as instruções no script U-SQL e salva a saída em uma conta do Repositório Azure Data Lake ou em uma conta de armazenamento de Blob.
 
-**Pré-requisitos**
+###Pré-requisitos
 
 Antes de começar este tutorial, você deve ter o seguinte:
 
@@ -53,7 +53,7 @@ Cada conta da Análise Data Lake tem uma dependência da conta do [Repositório 
 
     ![Folha do portal de Análise Data Lake do Azure](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-create-adla.png)
 
-	- **Nome**: nome da conta da Análise.
+	- **Nome**: nomeie a conta da Análise.
 	- **Repositório Data Lake**: cada conta da Análise Data Lake tem uma conta dependente do Repositório Data Lake. A conta da Análise Data Lake e a conta dependente do Repositório Data Lake devem ser colocadas no mesmo data center do Azure. Siga as instruções para criar uma nova conta do Repositório Data Lake ou selecione uma existente.
 	- **Assinatura**: escolha a assinatura do Azure usada para a conta da Análise.
 	- **Grupo de Recursos**. Selecione um Grupo de Recursos do Azure existente ou crie um novo. O Gerenciador de Recursos do Azure (ARM) permite que você trabalhe com os recursos em seu aplicativo como um grupo. Para saber mais, consulte [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md). 
@@ -157,9 +157,9 @@ Depois de preparar os dados de origem, você pode começar a desenvolver um scri
 
 - Para ver uma consulta mais complexa, consulte [Analisar logs de site usando a Análise Data Lake do Azure](data-lake-analytics-analyze-weblogs.md).
 - Para começar a desenvolver aplicativos U-SQL, consulte [Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
-- Para aprender a usar o U-SQL, consulte [Introdução à linguagem U-SQL da Análise Data Lake do Azure](data-lake-analytics-u-sql-get-started.md).
+- Para aprender a usar o U-SQL, veja [Introdução à linguagem U-SQL da Análise do Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
 - Para obter as tarefas de gerenciamento, veja [Gerenciar a Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-manage-use-portal.md).
 - Para obter uma visão geral da Análise Data Lake, consulte [Visão geral da Análise Data Lake do Azure](data-lake-analytics-overview.md).
 - Para ver o mesmo tutorial usando outras ferramentas, clique nos seletores de guias na parte superior da página.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

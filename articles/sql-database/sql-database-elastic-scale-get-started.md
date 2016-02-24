@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="02/02/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # Introdução às ferramentas do Banco de Dados Elástico
@@ -61,7 +61,7 @@ Parabéns – você criou e executou com sucesso seu primeiro aplicativo fragmen
 ### Outras operações da escala elástica
 
 1. **Divisão de um fragmento existente:**: A capacidade de dividir fragmentos é fornecida por meio da **Ferramenta da Divisão de Mesclagem**. Você pode encontrar mais informações sobre essa ferramenta aqui: [Visão geral da ferramenta da Divisão de Mesclagem](sql-database-elastic-scale-overview-split-and-merge.md).
-2. **Mesclagem de fragmentos existentes**: a mesclagem de fragmentos também é realizada usando-se a **ferramenta de mesclagem de divisão**. Para obter mais informações, consulte: [Visão geral da ferramenta de divisão de mesclagem](sql-database-elastic-scale-overview-split-and-merge).   
+2. **Mesclagem de fragmentos existentes**: a mesclagem de fragmentos também é realizada usando-se a **ferramenta de mesclagem de divisão**. Para obter mais informações, consulte: [Visão geral da ferramenta de divisão de mesclagem](sql-database-elastic-scale-overview-split-and-merge.md).   
 
 
 ## Custo
@@ -70,17 +70,17 @@ As ferramentas de banco de dados elástico são gratuitas. As ferramentas de ban
 
 Por exemplo, o aplicativo de exemplo cria novos bancos de dados. O custo depende da edição de banco de dados do BD SQL do Azure escolhida e do uso do Azure do seu aplicativo.
 
-Para obter informações sobre os preços, consulte [Detalhes de preços do Banco de Dados SQL](http://azure.microsoft.com/pricing/details/sql-database/).
+Para obter informações sobre os preços, consulte [Detalhes de preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ## Próximas etapas
 Para saber mais, confira o Mapa de tópicos sobre ferramentas de banco de dados elásticos.
 
-* [Mapa de documentação de ferramentas elásticas de banco de dados](sql-database-elastic-scale-documentation-map.md) 
+* [Mapa de documentação de ferramentas elásticas de banco de dados](../learning-paths/sql-database-elastic-scale.md) 
 -    Amostras de código: 
     -    [Banco de dados elásticos com o SQL Azure - Introdução](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE)
     -    [Banco de dados elásticos com o SQL Azure - integração com o Entity Framework](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
     -    [Elasticidade do fragmento no Script Center](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
--    Blog: [Anúncio da Escala Elástica](http://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
+-    Blog: [Anúncio da Escala Elástica](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
 -    Canal 9: [Visão geral da Escala Elástica](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
 -    Fórum de discussão: [Fórum do banco de dados do SQL Azure](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
 
@@ -98,4 +98,4 @@ Para saber mais, confira o Mapa de tópicos sobre ferramentas de banco de dados 
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0204_2016-->

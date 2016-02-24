@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="09/28/2015"
+ ms.date="01/07/2016"
  ms.author="danlep"/>
 
 # Escalar vertical e horizontalmente de forma automática os recursos de computação do Azure em um cluster HPC Pack de acordo com a carga de trabalho do cluster
@@ -27,12 +27,14 @@ Se você implantar nós de “disparo contínuo” do Azure em seu cluster HPC P
 
 ## Pré-requisitos
 
-* **Cluster HPC Pack 2012 R2 Atualização 1 ou posterior** - O script **AzureAutoGrowShrink.ps1** está instalado na pasta %CCP\_HOME%bin. O nó de cabeçalho do cluster pode ser implantado localmente ou em uma VM do Azure. Veja [Configurar um cluster híbrido com o HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md) para começar com um nó de cabeçalho local e os nós de “disparo contínuo” do Azure. Veja o [script de implantação de IaaS do HPC Pack](virtual-machines-hpcpack-cluster-powershell-script.md)) para implantar rapidamente um cluster HPC Pack em VMs do Azure.
+* **Cluster HPC Pack 2012 R2 Atualização 1 ou posterior** - O script **AzureAutoGrowShrink.ps1** está instalado na pasta %CCP\_HOME%bin. O nó de cabeçalho do cluster pode ser implantado localmente ou em uma VM do Azure. Veja [Configurar um cluster híbrido com o HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md) para começar com um nó de cabeçalho local e os nós de “disparo contínuo” do Azure. Veja o [script de implantação de IaaS do HPC Pack](virtual-machines-hpcpack-cluster-powershell-script.md) para implantar rapidamente um cluster HPC Pack em VMs do Azure, ou use um [modelo de início rápido do Azure](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/).
+
+* **Azure PowerShell 0.8.12** - o script depende atualmente desta versão específica do Azure PowerShell. Se você estiver executando uma versão mais recente no nó principal, você terá que fazer downgrade do Azure PowerShell para a [versão 0.8.12](http://az412849.vo.msecnd.net/downloads03/azure-powershell.0.8.12.msi) para executar o script.
 
 * **Para um cluster com nós de disparo contínuo do Azure** - Execute o script em um computador cliente em que o HPC Pack está instalado ou no nó de cabeçalho. Se executado em um computador cliente, certifique-se de que você defina a variável $env:CCP\_SCHEDULER corretamente para apontar para o nó de cabeçalho. Os nós de “disparo contínuo” do Azure já devem ter sido adicionados ao cluster, mas podem estar no estado Não Implantado.
 
 
-* **Para um cluster implantado em VMs do Azure** - Execute o script no nó de cabeçalho da VM, pois ele depende dos scripts **Start-HpcIaaSNode.ps1** e **Stop-HpcIaaSNode.ps1** que estão instalados ali. Além disso, esses scripts exigem um certificado de gerenciamento ou um arquivo de configurações de publicação do Azure (veja [Gerenciar nós de computação em um cluster HPC Pack no Azure](virtual-machines-hpcpack-cluster-node-manage.md)). Verifique se todas as VMs de nó de computação necessárias já foram adicionadas ao cluster, mas elas podem estar no estado Interrompido.
+* **Para um cluster implantado em VMs do Azure** - Execute o script no nó de cabeçalho da VM, pois ele depende dos scripts **Start-HpcIaaSNode.ps1** e **Stop-HpcIaaSNode.ps1** que estão instalados ali. Além disso, esses scripts exigem um certificado de gerenciamento ou um arquivo de configurações de publicação do Azure (veja [Gerenciar nós de computação em um cluster HPC Pack no Azure](virtual-machines-hpcpack-cluster-node-manage.md)). Verifique se todas as VMs de nó de computação necessárias já foram adicionadas ao cluster. Eles podem estar no estado Parado.
 
 ## Sintaxe
 
@@ -102,4 +104,4 @@ O exemplo a seguir configura as VMs de nó de computação do Azure implantadas 
 .\AzureAutoGrowShrink.ps1 -NodeTemplates 'Default ComputeNode Template' -JobTemplates 'Default' -NodeType ComputeNodes -NumOfActiveQueuedTasksPerNodeToGrow 10 -NumOfActiveQueuedTasksToGrowThreshold 15 -NumOfInitialNodesToGrow 5 -GrowCheckIntervalMins 1 -ShrinkCheckIntervalMins 1 -ShrinkCheckIdleTimes 10 -ArgFile 'IaaSVMComputeNodes_Arg.xml' -LogFilePrefix 'IaaSVMComputeNodes_log'
 ```
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # Design da tabela no SQL Data Warehouse #
 SQL Data Warehouse é um sistema de banco de dados distribuído de processamento extremamente paralelo (MPP). Ele armazena dados em vários locais diferentes, conhecidos como **distribuições**. Cada **distribuição** é como um bucket, armazenando um único subconjunto de dados no data warehouse. Ao distribuir os dados e a funcionalidade de processamento em vários nós, o SQL Data Warehouse pode oferecer uma enorme escalabilidade, muito além de qualquer sistema individual.
@@ -306,4 +306,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

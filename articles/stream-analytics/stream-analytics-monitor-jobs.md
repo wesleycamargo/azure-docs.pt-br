@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"/>
 
 
@@ -27,7 +27,7 @@
 Antes de começar este artigo, você deve ter o seguinte:
 
 - Visual Studio 2012 ou 2013.
-- Baixe e instale o [Azure .NET SDK](http://azure.microsoft.com/downloads/).
+- Baixe e instale o [Azure .NET SDK](https://azure.microsoft.com/downloads/).
 - Um trabalho de Stream Analytics existente que precisa de monitoramento habilitado.
 
 ## Configurar um projeto
@@ -139,7 +139,8 @@ O código a seguir configurará as variáveis necessárias e os clientes de gere
 
 O código a seguir habilitará o monitoramento para um trabalho de Stream Analytics **existente**. A primeira parte do código realiza uma solicitação GET em relação ao serviço de Stream Analytics para recuperar informações sobre o trabalho específico do Stream Analytics. Ele usa a propriedade "Id" (recuperada da solicitação GET) como um parâmetro para o método Put na segunda metade do código que envia uma solicitação PUT ao serviço Insights para habilitar o monitoramento para o trabalho de Stream Analytics.
 
-> [AZURE.WARNING]Se você tiver habilitado antes o monitoramento de um trabalho diferente do Stream Analytics, por meio do Portal do Azure ou programaticamente por meio do código abaixo, **é recomendável que forneça o mesmo nome de conta de armazenamento que indicou quando habilitou o monitoramento antes.**
+> [AZURE.WARNING]
+Se você tiver habilitado antes o monitoramento de um trabalho diferente do Stream Analytics, por meio do Portal do Azure ou programaticamente por meio do código abaixo, **é recomendável que forneça o mesmo nome de conta de armazenamento que indicou quando habilitou o monitoramento antes.**
 > 
 > A conta de armazenamento está vinculada à região em que você criou o trabalho do Stream Analytics, não especificamente ao trabalho em si.
 > 
@@ -179,4 +180,4 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

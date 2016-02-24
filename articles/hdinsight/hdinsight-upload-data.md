@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="12/29/2015"
 	ms.author="jgao"/>
 
 
@@ -56,7 +56,7 @@ A Microsoft fornece os seguintes utilitários para trabalhar com armazenamento d
 | [AzCopy][azure-azcopy] | | | ✔ |
 | [Comando do Hadoop](#commandline) | ✔ | ✔ | ✔ |
 
-> [AZURE.NOTE]Enquanto o CLI do Azure, o Azure PowerShell e o AzCopy podem ser usados fora do Azure, o comando Hadoop só está disponível no cluster HDInsight e só permite carregar dados do sistema de arquivos local para o armazenamento de Blob do Azure.
+> [AZURE.NOTE] Enquanto o CLI do Azure, o Azure PowerShell e o AzCopy podem ser usados fora do Azure, o comando Hadoop só está disponível no cluster HDInsight e só permite carregar dados do sistema de arquivos local para o armazenamento de Blob do Azure.
 
 ###<a id="xplatcli"></a>Azure CLI
 
@@ -94,7 +94,7 @@ O Azure CLI é uma ferramenta de plataforma cruzada que permite que você gerenc
 
 			azure storage blob download -a <storage-account-name> -k <primary-key> <container-name> <blob-name> <destination-file>
 
-> [AZURE.NOTE]Se você for sempre trabalhar com a mesma conta de armazenamento, pode definir as seguintes variáveis de ambiente em vez de especificar a conta e a chave para cada comando:
+> [AZURE.NOTE] Se você for sempre trabalhar com a mesma conta de armazenamento, pode definir as seguintes variáveis de ambiente em vez de especificar a conta e a chave para cada comando:
 >
 > * **AZURE\_STORAGE\_ACCOUNT**: o nome da conta de armazenamento
 >
@@ -123,8 +123,7 @@ O Azure PowerShell é um ambiente de script que você pode usar para controlar e
 		Select-AzureSubscription $subscriptionName
 
 		# Get the storage account key
-		$storageaccountkey = get-azurestoragekey -ResourceGroupName $resourceGroupName -Name $storageAccountName | %{$_.Primary}
-
+		$storageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName | %{ $_.Key1 }
 		# Create the storage context object
 		$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageaccountkey
 
@@ -221,7 +220,7 @@ A Fábrica de Dados do Azure é um serviço completamente gerenciado para compor
 
 O Azure Data Factory pode ser usado para mover dados para o Armazenamento de Blob do Azure, ou para criar pipelines de dados que usam diretamente os recursos do HDInsight como Hive e Pig.
 
-Para obter mais informações, consulte a [Documentação do Azure Data Factory](http://azure.microsoft.com/documentation/services/data-factory/).
+Para obter mais informações, consulte a [Documentação do Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
 
 ###<a id="sqoop"></a>Apache Sqoop
 
@@ -240,7 +239,7 @@ O Armazenamento de Blob do Azure também pode ser acessado usando um SDK do Azur
 * Python
 * Ruby
 
-Para obter mais informações sobre como instalar os SDKs do Azure, consulte [Downloads do Azure](http://azure.microsoft.com/downloads/)
+Para obter mais informações sobre como instalar os SDKs do Azure, consulte [Downloads do Azure](https://azure.microsoft.com/downloads/)
 
 
 ## Próximas etapas
@@ -285,4 +284,4 @@ Agora que você compreende como obter dados no HDInsight, leia os seguintes arti
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="01/28/2016"
    ms.author="larryfr"/>
 
 # Processar eventos dos Hubs de Eventos do Azure com o Storm no HDInsight (Java)
@@ -30,9 +30,9 @@ Neste tutorial, você aprenderá a usar o spout e bolt dos Hubs de Eventos para 
 
     - Um [cluster baseado no Windows](hdinsight-apache-storm-tutorial-get-started.md): selecione esta opção se quiser utilizar o PowerShell para trabalhar com o cluster de um cliente Windows
 
-    > [AZURE.NOTE]A única diferença entre os dois tipos de cluster é se você usará o SSH para enviar a topologia para o cluster ou para um formulário da Web.
+    > [AZURE.NOTE] A única diferença entre os dois tipos de cluster é se você usará o SSH para enviar a topologia para o cluster ou para um formulário da Web.
 
-* Um [Hub de Eventos do Azure](../event-hubs/service-bus-event-hubs-csharp-ephcs-getstarted.md)
+* Um [Hub de Eventos do Azure](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 * [Oracle Java Developer Kit (JDK) versão 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) ou equivalente, como [OpenJDK](http://openjdk.java.net/)
 
@@ -40,7 +40,7 @@ Neste tutorial, você aprenderá a usar o spout e bolt dos Hubs de Eventos para 
 
 * Um editor de texto ou um ambiente de desenvolvimento integrado (IDE) Java
 
-	> [AZURE.NOTE]Seu editor ou IDE pode ter uma funcionalidade específica para trabalhar com o Maven que não é abordada neste documento. Para obter informações sobre os recursos do seu ambiente de edição, consulte a documentação do produto que você está usando.
+	> [AZURE.NOTE] Seu editor ou IDE pode ter uma funcionalidade específica para trabalhar com o Maven que não é abordada neste documento. Para obter informações sobre os recursos do seu ambiente de edição, consulte a documentação do produto que você está usando.
 
  * Um cliente SSH. Consulte um dos artigos a seguir para obter mais informações sobre a utilização do SSH com o HDInsight:
 
@@ -78,7 +78,7 @@ O arquivo **POM.xml** contém informações de configuração deste projeto Mave
 
 Isso adiciona uma dependência para o pacote eventhubs-storm-spout, que contém um spout para leitura dos Hubs de Eventos e um bolt para a gravação neles.
 
-> [AZURE.NOTE]Esse pacote não está disponível no Maven e será instalado manualmente no seu repositório local do Maven em uma etapa posterior.
+> [AZURE.NOTE] Esse pacote não está disponível no Maven e será instalado manualmente no seu repositório local do Maven em uma etapa posterior.
 
 ####Os componentes HdfsBolt e WASB
 
@@ -141,7 +141,7 @@ Normalmente, o HdfsBolt é usado para armazenar dados para o HDFS (Sistema de Ar
        <version>0.6.0</version>
      </dependency>
 
-> [AZURE.NOTE]Os pacotes para habilitação do WASB não estão disponíveis no repositório do Maven e serão instalados manualmente em uma etapa posterior.
+> [AZURE.NOTE] Os pacotes para habilitação do WASB não estão disponíveis no repositório do Maven e serão instalados manualmente em uma etapa posterior.
 
 ####O maven-compiler-plugin
 
@@ -269,7 +269,7 @@ Hubs de Eventos é a fonte de dados para este exemplo. Use as seguintes etapas p
 
 	![página 1 do assistente](./media/hdinsight-storm-develop-csharp-event-hub-topology/wiz1.png)
 
-	> [AZURE.NOTE]Você deve selecionar o mesmo **Local** como seu Storm no servidor HDInsight para reduzir a latência e os custos.
+	> [AZURE.NOTE] Você deve selecionar o mesmo **Local** como seu Storm no servidor HDInsight para reduzir a latência e os custos.
 
 2. Na tela **Configurar o Hub de Eventos**, insira os valores de **Contagem de partições** e **Retenção de Mensagem**. Para este exemplo, use uma contagem de partições de 10 e uma retenção de mensagens de 1. Observe a contagem de partições, pois você precisará desse valor posteriormente.
 
@@ -311,7 +311,7 @@ Hubs de Eventos é a fonte de dados para este exemplo. Use as seguintes etapas p
 
 		mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-main-3.0.0-SNAPSHOT.pom -DpomFile=lib/hadoop/hadoop-main-3.0.0-SNAPSHOT.pom
 
-	> [AZURE.NOTE]Se você estiver usando o Powershell, poderá ter de colocar os parâmetros `-D` entre aspas. Por exemplo: `"-Dfile=lib/hadoop/hadoop-main-3.0.0-SNAPSHOT.pom"`.
+	> [AZURE.NOTE] Se você estiver usando o Powershell, poderá ter de colocar os parâmetros `-D` entre aspas. Por exemplo: `"-Dfile=lib/hadoop/hadoop-main-3.0.0-SNAPSHOT.pom"`.
 
 	Além disso, esses arquivos são originalmente de https://github.com/hdinsight/hdinsight-storm-examples e, portanto, será possível encontrar as versões mais recentes nesse local.
 
@@ -333,7 +333,7 @@ O jar criado por este projeto contém duas topologias; __com.microsoft.example.E
 
     Se você tiver usado uma senha para sua conta SSH, a inserção da senha poderá ser solicitada. Se você tiver usado uma chave SSH com a conta, talvez seja necessário usar o parâmetro `-i` para especificar o caminho para o arquivo de chave. Por exemplo: `scp -i ~/.ssh/id_rsa ./target/EventHubExample-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:.`.
 
-    > [AZURE.NOTE]Se o cliente for uma estação de trabalho do Windows, talvez você não tenha um comando SCP instalado. Recomendamos o PSCP, que pode ser baixado da [página de download do PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+    > [AZURE.NOTE] Se o cliente for uma estação de trabalho do Windows, talvez você não tenha um comando SCP instalado. Recomendamos o PSCP, que pode ser baixado da [página de download do PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
     Esse comando copiará o arquivo para o diretório base do usuário SSH no cluster.
 
@@ -341,13 +341,13 @@ O jar criado por este projeto contém duas topologias; __com.microsoft.example.E
 
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
-    > [AZURE.NOTE]Se você tiver usado uma senha para sua conta SSH, a inserção da senha poderá ser solicitada. Se você tiver usado uma chave SSH com a conta, talvez seja necessário usar o parâmetro `-i` para especificar o caminho para o arquivo de chave. O exemplo a seguir carregará a chave privada de `~/.ssh/id_rsa`:
+    > [AZURE.NOTE] Se você tiver usado uma senha para sua conta SSH, a inserção da senha poderá ser solicitada. Se você usou uma chave SSH com a conta, você precisará usar o `-i` parâmetro para especificar o caminho para o arquivo de chave. O exemplo a seguir carregará a chave privada de `~/.ssh/id_rsa`:
     >
     > `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`
 
     Se você estiver usando o PuTTY, insira `CLUSTERNAME-ssh.azurehdinsight.net` no campo __Nome do Host (ou endereço IP)__ e clique em __Abrir__ para se conectar. Será solicitado que você insira seu nome de conta SSH.
 
-    > [AZURE.NOTE]Se você tiver usado uma senha para sua conta SSH, a inserção da senha poderá ser solicitada. Se você tiver usado uma chave SSH com a conta, talvez seja necessário usar as etapas a seguir para selecionar a chave:
+    > [AZURE.NOTE] Se você tiver usado uma senha para sua conta SSH, a inserção da senha poderá ser solicitada. Se você tiver usado uma chave SSH com a conta, talvez seja necessário usar as etapas a seguir para selecionar a chave:
     >
     > 1. Em **Categoria**, expanda **Conexão**, expanda **SSH** e selecione **Autenticação**.
     > 2. Clique em **Procurar** e selecione o arquivo .ppk que contém a chave privada.
@@ -372,7 +372,7 @@ O jar criado por este projeto contém duas topologias; __com.microsoft.example.E
         -rw-r--r--   1 storm supergroup      10267 2015-08-11 19:36 /devicedata/wasbbolt-14-11-1439321761090.txt
         -rw-r--r--   1 storm supergroup      10259 2015-08-11 19:36 /devicedata/wasbbolt-14-12-1439321762679.txt
 
-    > [AZURE.NOTE]Alguns arquivos podem mostrar um tamanho 0, já que foram criados pelo EventHubReader, mas os dados ainda não foram armazenados neles.
+    > [AZURE.NOTE] Alguns arquivos podem mostrar um tamanho 0, já que foram criados pelo EventHubReader, mas os dados ainda não foram armazenados neles.
 
     Você pode exibir o conteúdo desses arquivos usando o comando a seguir:
 
@@ -448,7 +448,7 @@ O EventHubSpout cria periodicamente pontos de verificação para seu estado para
 
 Você pode exportar e importar os pontos de verificação persistentes para WASB (Armazenamento do Azure usado pelo seu cluster HDInsight). Os scripts para fazer isso estão localizados no Storm no cluster HDInsight, em **c:\\apps\\dist\\storm-0.9.3.2.2.1.0-2340\\zkdatatool-1.0\\bin**.
 
->[AZURE.NOTE]O número de versão no caminho pode ser diferente, já que a versão do Storm instalada no cluster pode ser alterada no futuro.
+>[AZURE.NOTE] O número de versão no caminho pode ser diferente, já que a versão do Storm instalada no cluster pode ser alterada no futuro.
 
 Os scripts que estão nesse diretório são:
 
@@ -460,7 +460,7 @@ Os scripts que estão nesse diretório são:
 
 Exportar uma importação permite que você mantenha os dados de ponto de verificação quando precisar excluir o cluster, mas quiser retomar o processamento do deslocamento atual no hub quando colocar um novo cluster novamente online.
 
-> [AZURE.NOTE]Como os dados são mantidos para o contêiner de armazenamento padrão, o novo cluster **deverá** usar a mesma conta de armazenamento e o contêiner do cluster anterior.
+> [AZURE.NOTE] Como os dados são mantidos para o contêiner de armazenamento padrão, o novo cluster **deverá** usar a mesma conta de armazenamento e o contêiner do cluster anterior.
 
 ##Solucionar problemas
 
@@ -476,4 +476,4 @@ Para saber mais sobre como usar a interface do usuário Storm, consulte estes t�
 
 * [Topologias de exemplo para Storm no HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

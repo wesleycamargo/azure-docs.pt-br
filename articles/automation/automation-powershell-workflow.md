@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Aprendendo o fluxo de trabalho do PowerShell"
-   description="Os runbooks na Automação do Azure são baseados em fluxo de trabalho do Windows PowerShell. Este artigo é concebido como uma lição rápida para autores familiarizados com o PowerShell para entender as diferenças entre o PowerShell e o fluxo de trabalho do PowerShell."
+   description="Este artigo é concebido como uma lição rápida para autores familiarizados com o PowerShell para entender as diferenças entre o PowerShell e o fluxo de trabalho do PowerShell."
    services="automation"
    documentationCenter=""
    authors="bwren"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/01/2015"
+   ms.date="02/03/2016"
    ms.author="bwren" />
 
 # Aprendendo sobre o fluxo de trabalho do Windows PowerShell
@@ -25,9 +25,9 @@ Para obter detalhes completos sobre os tópicos nesse artigo, consulte [Introduz
 
 ## Tipos de runbook
 
-Há dois tipos de runbook na Automação do Azure,*textual* e *gráfico*. Você define o tipo de runbook ao criar o runbook e não pode converter um runbook para outro tipo após ele ser criado.
+Há três tipos de runbook na Automação do Azure, *Fluxo de Trabalho do PowerShell*, *PowerShell* e *gráfico*. Você define o tipo de runbook ao criar o runbook e não pode converter um runbook para outro tipo após ele ser criado.
 
-Os runbooks textuais são para usuários que preferem trabalhar diretamente com o código de fluxo de trabalho do PowerShell usando o editor de texto na Automação do Azure ou um editor offline como o PowerShell ISE. Se estiver criando um runbook textual, você deve compreender as informações neste artigo.
+Os runbooks do fluxo de trabalho do PowerShell e os runbooks do PowerShell são para usuários que preferem trabalhar diretamente com o código do PowerShell usando o editor de texto na Automação do Azure ou um editor offline como o PowerShell ISE. Se estiver criando um runbook do Fluxo de Trabalho do PowerShell, você deve compreender as informações nesse artigo.
 
 Os runbooks gráficos permitem que você crie um runbook usando as mesmas atividades e cmdlets, mas usando uma interface gráfica que oculta as complexidades do fluxo de trabalho do PowerShell subjacente. Os conceitos nesse artigo, como pontos de verificação e execução paralela ainda se aplicam aos runbooks gráficos, mas você não precisa se preocupar com a sintaxe detalhada.
 
@@ -129,7 +129,7 @@ Você pode passar valores para um bloco InlineScript, mas deve usar o modificado
 		$ServiceName = "MyService"
 	
 		$Output = InlineScript {
-			$Service = Get-Service -Name $Using:MyService
+			$Service = Get-Service -Name $Using:ServiceName
 			$Service.Stop()
 			$Service
 		}
@@ -206,7 +206,7 @@ O exemplo a seguir é semelhante ao exemplo anterior copiando os arquivos em par
 		Write-Output "All files copied."
 	}
 
-> [AZURE.NOTE]Não recomendamos a execução de runbooks filho em paralelo, uma vez que isso demonstrou fornecer resultados não confiáveis. Às vezes, a saída do runbook filho não será exibida e as configurações em um runbook filho podem afetar os outros runbooks filho paralelos
+> [AZURE.NOTE]  Não recomendamos a execução de runbooks filho em paralelo, uma vez que isso demonstrou fornecer resultados não confiáveis. Às vezes, a saída do runbook filho não será exibida e as configurações em um runbook filho podem afetar os outros runbooks filho paralelos
 
 
 ## Pontos de verificação
@@ -249,4 +249,4 @@ Para saber mais sobre pontos de verificação, confira [Adicionando pontos de ve
 
 - [Introduzindo o Fluxo de Trabalho do Windows PowerShell](http://technet.microsoft.com/library/jj134242.aspx) 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

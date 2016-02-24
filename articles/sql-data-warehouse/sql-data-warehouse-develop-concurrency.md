@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="jrowlandjones"
    manager="barbkess"
-   editor="jrowlandjones"/>
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/25/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # Gerenciamento de simultaneidade e carga de trabalho no SQL Data Warehouse
 Para oferecer um desempenho previsível em escala, o SQL Data Warehouse implementa mecanismos para gerenciamento de simultaneidade de carga de trabalho e a atribuição de recursos computacionais.
@@ -34,7 +34,7 @@ Como uma regra geral, cada consulta em execução ao mesmo tempo consome um ou m
 2. A **classe de recurso** à qual o usuário pertence
 3. Se a consulta ou operação é regida pelo modelo de slot de simultaneidade 
 
-> [AZURE.NOTE]Vale a pena observar que nem todas as consultas são regidas pela regra de consulta do slot de simultaneidade. No entanto, a maioria das consultas do usuário é. Algumas consultas e operações não consomem qualquer slot de simultaneidade. Essas consultas e operações ainda são limitadas pelo limite de consultas simultâneas, motivo pelo qual as duas regras são descritas. Consulte a seção [exceções de classe de recurso](#exceptions) abaixo para obter mais detalhes.
+> [AZURE.NOTE] Vale a pena observar que nem todas as consultas são regidas pela regra de consulta do slot de simultaneidade. No entanto, a maioria das consultas do usuário é. Algumas consultas e operações não consomem qualquer slot de simultaneidade. Essas consultas e operações ainda são limitadas pelo limite de consultas simultâneas, motivo pelo qual as duas regras são descritas. Consulte a seção [exceções de classe de recurso](#exceptions) abaixo para obter mais detalhes.
 
 A tabela a seguir descreve os limites de consultas simultâneas e slots de simultaneidade, supondo que sua consulta seja controlada por recurso.
 
@@ -75,7 +75,7 @@ O SQL Data Warehouse implementou classes de recursos com o uso de funções de b
 
 Você mesmo pode adicionar e remover a função de banco de dados de gerenciamento de carga de trabalho usando os procedimentos `sp_addrolemember` e `sp_droprolemember`. Observe que você precisará de permissão de `ALTER ROLE` para fazer isso. Não é possível usar a sintaxe ALTER ROLE DDL. Você deve usar os procedimentos armazenados mencionados anteriormente. Um exemplo completo de como criar logons e usuários é apresentado na seção [gerenciando usuários) [#gerenciando-usuários] no final deste artigo.
 
-> [AZURE.NOTE]Em vez de adicionar um usuário dentro e fora de um grupo de gerenciamento de carga de trabalho, costuma ser mais simples iniciar essas operações mais pesadas por meio de um logon/usuário separado permanentemente atribuído à classe de recurso mais elevada.
+> [AZURE.NOTE] Em vez de adicionar um usuário dentro e fora de um grupo de gerenciamento de carga de trabalho, costuma ser mais simples iniciar essas operações mais pesadas por meio de um logon/usuário separado permanentemente atribuído à classe de recurso mais elevada.
 
 ### Alocação de memória
 
@@ -183,7 +183,7 @@ Removed as these two are not confirmed / supported under SQLDW
 - CREATE EXTERNAL TABLE AS SELECT
 - REDISTRIBUTE 
 -->
-> [AZURE.NOTE]Vale a pena destacar que consultas `SELECT` em execução exclusivamente em exibições de gerenciamento dinâmico e exibições de catálogo **não** são regidas por classes de recursos.
+> [AZURE.NOTE] Vale a pena destacar que consultas `SELECT` em execução exclusivamente em exibições de gerenciamento dinâmico e exibições de catálogo **não** são regidas por classes de recursos.
 
 É importante lembrar-se de que a maioria das consultas do usuário final provavelmente será regida pelas classes de recurso. A regra geral é que a carga de trabalho da consulta ativa deve caber nos limites tanto da consulta simultânea quanto no do slot de simultaneidade, a menos que tenha sido excluída especificamente pela plataforma. Como um usuário final, você não pode optar por excluir uma consulta de modelo de slot de simultaneidade. Assim que um dos limites for excedido, as consultas começarão a ser enfileiradas. Consultas em fila serão tratadas em ordem de prioridade, seguido por hora de envio.
 
@@ -267,7 +267,7 @@ ORDER BY
 ;
 ```
 
-> [AZURE.NOTE]A consulta acima também pode ser usada para analisar o uso ativo e histórico dos grupos de carga de trabalho na solução de problemas.
+> [AZURE.NOTE] A consulta acima também pode ser usada para analisar o uso ativo e histórico dos grupos de carga de trabalho na solução de problemas.
 
 ## Exemplos de gerenciamento de carga de trabalho
 
@@ -285,7 +285,7 @@ CREATE LOGIN newperson WITH PASSWORD = 'mypassword'
 CREATE USER newperson for LOGIN newperson
 ```
 
-[AZURE.NOTE]é recomendável criar usuários para seus logons no banco de dados mestre ao trabalhar com o Banco de Dados SQL do Azure e SQL Data Warehouse. Há duas funções de servidor disponíveis nesse nível que exigem que o logon tenha um usuário em mestre para conceder a associação. As funções são `Loginmanager` e `dbmanager`. No Banco de Dados SQL do Azure e SQL Data Warehouse, essas funções concedem direitos para gerenciar logons e criar bancos de dados. Isso é diferente para o SQL Server. Para obter mais detalhes, consulte o artigo [Gerenciamento de bancos de dados e logons no Banco de Dados SQL do Azure].
+> [AZURE.NOTE] É recomendável criar usuários para logons no banco de dados mestre, no banco de dados SQL do Azure e no Azure SQL Data Warehouse. Há duas funções de servidor disponíveis nesse nível que exigem que o logon tenha um usuário em mestre para conceder a associação. As funções são `Loginmanager` e `dbmanager`. No Banco de Dados SQL do Azure e SQL Data Warehouse, essas funções concedem direitos para gerenciar logons e criar bancos de dados. Isso é diferente para o SQL Server. Para obter mais detalhes, consulte o artigo [Gerenciando bancos de dados e logons no Banco de Dados SQL do Azure].
 
 Depois que o logon for criado, a conta de usuário deve ser adicionada.
 
@@ -323,7 +323,7 @@ Para remover um usuário de uma função de gerenciamento de carga de trabalho, 
 EXEC sp_droprolemember 'largerc', 'newperson' 
 ```
 
-> [AZURE.NOTE]Não é possível remover um usuário de smallrc.
+> [AZURE.NOTE] Não é possível remover um usuário de smallrc.
 
 Para ver quais usuários são membros de uma determinada função, use a seguinte consulta:
 
@@ -448,8 +448,8 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 [Visão geral do desenvolvimento]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[Gerenciamento de bancos de dados e logons no Banco de Dados SQL do Azure]: https://msdn.microsoft.com/library/azure/ee336235.aspx
+[Gerenciando bancos de dados e logons no Banco de Dados SQL do Azure]: https://msdn.microsoft.com/library/azure/ee336235.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

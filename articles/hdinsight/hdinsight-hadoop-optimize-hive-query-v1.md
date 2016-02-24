@@ -34,7 +34,7 @@ O aumento do número de nós de trabalho em um cluster pode aproveitar mais mape
 	![scaleout\_1][image-hdi-optimize-hive-scaleout_1]
 - Em tempo de execução, você também pode escalar um cluster horizontalmente sem recriar um. Isso é mostrado abaixo.![scaleout\_1][image-hdi-optimize-hive-scaleout_2]
 
-Para obter mais detalhes sobre as diferentes máquinas virtuais com suporte no HDInsight, consulte [preços do HDInsight](http://azure.microsoft.com/pricing/details/hdinsight/).
+Para obter mais detalhes sobre as diferentes máquinas virtuais com suporte no HDInsight, consulte [preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ##Habilitar o Tez
 
@@ -218,4 +218,4 @@ Neste artigo, você aprendeu a vários métodos comuns de otimização de consul
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/partitioning_1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

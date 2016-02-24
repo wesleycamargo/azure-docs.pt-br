@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="02/04/2016"
 	ms.author="larryfr"/>
 
 # Tutorial de início rápido para a linguagem de programação R para o Aprendizado de Máquina do Azure
@@ -238,13 +238,24 @@ A entrada de Pacote de Script permite que você passe o conteúdo de um arquivo 
 	source("src/yourfile.R") # Reads a zipped R script
 	load("src/yourData.rdata") # Reads a zipped R data file
 
-> [AZURE.NOTE]O Aprendizado de Máquina do Azure trata arquivos zip como se eles estivessem no diretório src/. Portanto, é necessário prefixar seus nomes de arquivo com esse nome de diretório.
+> [AZURE.NOTE] O Aprendizado de Máquina do Azure trata arquivos zip como se eles estivessem no diretório src/. Portanto, é necessário prefixar seus nomes de arquivo com esse nome de diretório. Por exemplo, se o zip contiver os arquivos `yourfile.R` e `yourData.rdata` na raiz, aborde-os como `src/yourfile.R` e `src/yourData.rdata` ao usar `source` e `load`.
 
 Já discutimos o carregamento de conjuntos de dados em [Carregando o conjunto de dados](#loading). Após criar e testar o script R mostrado na seção anterior, faça o seguinte:
 
-1. Salve o script R em um arquivo .R. Eu chamo meu arquivo script "simpleplot.R".  
+1. Salve o script R em um arquivo .R. Eu chamo meu arquivo script "simpleplot.R". Este é o conteúdo.
 
-2.  Crie um arquivo zip e copie o script no arquivo zip.
+        ## Only one of the following two lines should be used
+        ## If running in Machine Learning Studio, use the first line with maml.mapInputPort()
+        ## If in RStudio, use the second line with read.csv()
+        cadairydata <- maml.mapInputPort(1)
+        # cadairydata  <- read.csv("cadairydata.csv", header = TRUE, stringsAsFactors = FALSE)
+        str(cadairydata)
+        pairs(~ Cotagecheese.Prod + Icecream.Prod + Milk.Prod + N.CA.Fat.Price, data = cadairydata)
+        ## The following line should be executed only when running in
+        ## Azure Machine Learning Studio
+        maml.mapOutputPort('cadairydata')
+
+2.  Crie um arquivo zip e copie o script no arquivo zip. No Windows, clique com botão direito do mouse no arquivo e selecione __Enviar para__ e em __Pasta compactada__. Isso criará um novo arquivo zip contendo o arquivo "simpleplot.R".
 
 3.	Adicione o arquivo aos **conjuntos de dados** no Estúdio de Aprendizado de Máquina, especificando o tipo como **zip**. Agora você deve ver o arquivo zip em seus conjuntos de dados.
 
@@ -252,7 +263,7 @@ Já discutimos o carregamento de conjuntos de dados em [Carregando o conjunto de
 
 5.	Conecte a saída do ícone **Dados zip** à entrada do **Pacote de Scripts** do módulo [Executar Script R][execute-r-script].
 
-6.	Digite a função `source()` com o nome do arquivo zip na janela de código do módulo [Executar Script R][execute-r-script]. No meu caso, digitei `source("src/SimplePlot.R")`.
+6.	Digite a função `source()` com o nome do arquivo zip na janela de código do módulo [Executar Script R][execute-r-script]. No meu caso, digitei `source("src/simpleplot.R")`.
 
 7.	Lembre-se de clicar em **Salvar**.
 
@@ -279,7 +290,7 @@ Execute seu teste clicando no botão **Executar**. Quando a execução for concl
     [ModuleOutput]  "ColumnTypes":System.Int32,3,System.Double,5,System.String,1
     [ModuleOutput] }
 
-Clicar duas vezes na página carregará dados adicionais, que terá uma aparência semelhante ao seguinte.
+Mais adiante na página, há informações mais detalhadas sobre as colunas, que parecerão com o seguinte.
 
 	[ModuleOutput] [1] "Loading variable port1..."
 	[ModuleOutput]
@@ -305,7 +316,7 @@ Clicar duas vezes na página carregará dados adicionais, que terá uma aparênc
 
 Esses resultados são como o esperado, com 228 observações e 9 colunas no dataframe. Podemos ver os nomes de coluna, o tipo de dados R e um exemplo de cada coluna.
 
-> [AZURE.NOTE]Essa mesma saída impressa está convenientemente disponível na saída do Dispositivo R do módulo [Executar Script R][execute-r-script]. Discutiremos as saídas do módulo [Executar Script R][execute-r-script] na próxima seção.
+> [AZURE.NOTE] Essa mesma saída impressa está convenientemente disponível na saída do Dispositivo R do módulo [Executar Script R][execute-r-script]. Discutiremos as saídas do módulo [Executar Script R][execute-r-script] na próxima seção.
 
 ####Dataset2
 
@@ -462,7 +473,7 @@ Os dataframes R oferecem suporte a recursos avançados de filtragem. Conjuntos d
 
 Há algumas filtragens que devemos fazer em nosso conjunto de dados. Se examinar as colunas no dataframe cadariydata, você verá duas colunas desnecessárias. A primeira coluna contém apenas um número de linha que não é muito útil. A segunda coluna, Year.Month, contém informações redundantes. Podemos facilmente excluir essas colunas usando o código R a seguir.
 
-> [AZURE.NOTE]De agora em diante nesta seção, só mostrarei o código adicional que estou adicionando ao módulo [Executar Script R][execute-r-script]. Adicionarei cada nova linha **antes** da função `str()`. Posso usar essa função para verificar os resultados no Estúdio de Aprendizado de Máquina do Azure.
+> [AZURE.NOTE] De agora em diante nesta seção, só mostrarei o código adicional que estou adicionando ao módulo [Executar Script R][execute-r-script]. Adicionarei cada nova linha **antes** da função `str()`. Posso usar essa função para verificar os resultados no Estúdio de Aprendizado de Máquina do Azure.
 
 Adiciono a linha a seguir a meu código R no módulo [Executar Script R][execute-r-script].
 
@@ -644,7 +655,7 @@ O código R completo para esta seção está disponível no arquivo zip baixado 
 
 Como já mencionado, as série de tempo são uma série de valores de dados indexados por tempo. Objetos de série de tempo R são usados para criar e gerenciar o índice de tempo. Há diversas vantagens em usar objetos de série de tempo. Os objetos de série temporal evitam que você tenha que lidar com os vários detalhes do gerenciamento dos valores de índice da série temporal que são encapsulados no objeto. Além disso, os objetos de série de tempo permitem que você use vários métodos de série de tempo para plotar, imprimir, modelar etc.
 
-A classe de série de tempo POSIXct é comumente usada e é relativamente simples. Essa classe de série de tempo mede o tempo a partir do início da época, 1º de janeiro de 1970. Vamos usar objetos de série de tempo POSIXct neste exemplo. Outras classes de objeto de série temporal de R amplamente utilizados incluem zoo e xts, série temporal extensível.
+A classe de série de tempo POSIXct é comumente usada e é relativamente simples. Essa classe de série de tempo mede o tempo a partir do início da época, 1º de janeiro de 1970. Vamos usar objetos de série de tempo POSIXct neste exemplo. Outras classes de objeto de série temporal de R amplamente utilizados incluem zoo e xts, série temporal extensível. 
 <!-- Additional information on R time series objects is provided in the references in Section 5.7. [commenting because this section doesn't exist, even in the original] -->
 
 ###	Exemplo de objeto de série temporal
@@ -1347,4 +1358,4 @@ Alguns ótimos recursos na Internet:
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
-<!-----HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

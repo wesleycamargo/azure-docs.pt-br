@@ -18,7 +18,7 @@
 
 # Exibir, editar e criar procedimentos armazenados, gatilhos e funções definidas pelo usuário usando o Gerenciador de Script do Banco de Dados de Documentos
 
-Este artigo fornece uma visão geral do Gerenciador de Script do [Banco de Dados de Documentos do Microsoft Azure](http://azure.microsoft.com/services/documentdb/), uma ferramenta do Portal do Azure que permite exibir artefatos de programação do Banco de Dados de Documentos no lado do servidor, incluindo procedimentos armazenados, gatilhos e funções definidas pelo usuário. Clique [aqui](documentdb-programming.md) para saber mais sobre programação do Banco de Dados de Documentos no servidor.
+Este artigo fornece uma visão geral do Gerenciador de Script do [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/), uma ferramenta do Portal do Azure que permite exibir artefatos de programação do Banco de Dados de Documentos no lado do servidor, incluindo procedimentos armazenados, gatilhos e funções definidas pelo usuário. Clique [aqui](documentdb-programming.md) para saber mais sobre programação do Banco de Dados de Documentos no servidor.
 
 Depois de concluir este tutorial, você poderá responder às seguintes perguntas:
 
@@ -56,7 +56,7 @@ O Gerenciador de Script pode ser iniciado por meio de qualquer conta, banco de d
 	![Captura de tela do Gerenciador de Script com resultados filtrados](./media/documentdb-view-scripts/scriptexplorerfilterresults.png)
 
 
-	> [AZURE.IMPORTANT]A funcionalidade de filtro do Gerenciador de Script filtra somente o conjunto de scripts carregado ***atualmente*** e não atualiza a coleção selecionada no momento.
+	> [AZURE.IMPORTANT] A funcionalidade de filtro do Gerenciador de Script filtra somente o conjunto de scripts carregado ***atualmente*** e não atualiza a coleção selecionada no momento.
 
 5. Para atualizar a lista de scripts carregada pelo Gerenciador de Script, basta clicar no comando **Atualizar** no topo da folha.
 
@@ -91,7 +91,7 @@ O Gerenciador de Script permite que você execute facilmente operações de CRUD
 
 	![Captura de tela da exibição de propriedades do script do Gerenciador de Script](./media/documentdb-view-scripts/scriptproperties.png)
 
-	> [AZURE.NOTE]A propriedade (\_ts) de carimbo de data/hora é representada internamente como tempo de época, mas o Gerenciador de Script exibe o valor em um formato GMT legível.
+	> [AZURE.NOTE] A propriedade (\_ts) de carimbo de data/hora é representada internamente como tempo de época, mas o Gerenciador de Script exibe o valor em um formato GMT legível.
 
 - Para excluir um script, selecione-o no Gerenciador de Script e clique no comando **Excluir**.
 
@@ -106,4 +106,4 @@ O Gerenciador de Script permite que você execute facilmente operações de CRUD
 Para saber mais sobre o Banco de Dados de Documentos, clique [aqui](http://azure.com/docdb).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

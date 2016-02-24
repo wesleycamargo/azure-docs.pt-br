@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="javascript"
 	ms.topic="get-started-article"
-	ms.date="11/06/2015"
+	ms.date="02/10/2016"
 	ms.author="glenga"/>
 
 # Introdução aos Serviços Móveis
@@ -26,7 +26,7 @@ Este tutorial mostra como adicionar um serviço de back-end baseado na nuvem a u
 
 Para concluir este tutorial, você precisará do seguinte:
 
-* Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F).
+* Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F).
 * [Visual Studio 2013 Express para Windows]
 
 ## Criar um novo serviço móvel
@@ -68,7 +68,7 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
    	Isso permite que você procure os dados inseridos pelo aplicativo na tabela.
 
->[AZURE.NOTE]Você poderá examinar o código que acessa o seu serviço móvel para consultar e inserir dados, que estão localizados no arquivo default.js.
+>[AZURE.NOTE] Você poderá examinar o código que acessa o seu serviço móvel para consultar e inserir dados, que estão localizados no arquivo default.js.
 
 ## Próximas etapas
 Agora que você concluiu o início rápido, saiba como trabalhar com o [cliente dos Serviços Móveis para HTML/JavaScript](mobile-services-html-how-to-use-client-library.md).
@@ -89,4 +89,4 @@ Agora que você concluiu o início rápido, saiba como trabalhar com o [cliente 
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [portal clássico do Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -104,8 +104,8 @@ Símbolos adicionais para Microsoft Office e tecnologias relacionadas estão dis
 
 ##Infográfico de arquitetura
 
-A Microsoft publica diversas arquiteturas relacionadas a cartazes/infográficos. Elas incluem [Criando aplicativos de nuvem do mundo real](http://azure.microsoft.com/documentation/infographics/building-real-world-cloud-apps/) e [Dimensionamento com serviços de nuvem](http://azure.microsoft.com/documentation/infographics/cloud-services/).
+A Microsoft publica diversas arquiteturas relacionadas a cartazes/infográficos. Elas incluem [Criando aplicativos de nuvem do mundo real](https://azure.microsoft.com/documentation/infographics/building-real-world-cloud-apps/) e [Dimensionamento com serviços de nuvem](https://azure.microsoft.com/documentation/infographics/cloud-services/).
 
 ![Infográfico de arquitetura do Azure](./media/architecture-overview/AzureArchInfographicThumb.jpg)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

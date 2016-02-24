@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/22/2015" 
+	ms.date="02/05/2016" 
 	ms.author="nitinme"/>
 
 
@@ -24,13 +24,13 @@ Streaming Spark estende a API de núcleo do Spark para criar aplicativos de proc
 
 Neste tutorial, você aprenderá a criar um Hub de eventos do Azure, a receber mensagens em um Hub de eventos usando um aplicativo de console em Java e a recuperá-las em paralelo usando um aplicativo Spark escrito em Scala. Esse aplicativo consome os dados transmitidos por meio de Hubs de Eventos e os encaminha para saídas diferentes (Blob de Armazenamento do Azure, tabela Hive e tabela SQL).
 
-> [AZURE.NOTE]Para seguir as instruções neste artigo, você terá que usar as duas versões do portal do Azure. Para criar um Hub de Eventos, você usará o [Portal do Azure](https://manage.windowsazure.com). Para trabalhar com o cluster HDInsight Spark, você usará o [Portal de Visualização do Azure](https://ms.portal.azure.com/).
+> [AZURE.NOTE] Para seguir as instruções neste artigo, você terá que usar as duas versões do portal do Azure. Para criar um Hub de Eventos, você usará o [Portal do Azure](https://manage.windowsazure.com). Para trabalhar com o cluster HDInsight Spark, você usará o [Portal de Visualização do Azure](https://ms.portal.azure.com/).
 
 **Pré-requisitos:**
 
 Você deve ter o seguinte:
 
-- Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - Um cluster do Apache Spark. Para obter instruções, consulte o artigo sobre como [Criar clusters do Apache Spark no Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 - Kit de desenvolvimento Oracle Java. Você pode instalá-lo clicando [aqui](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 - Um Java IDE. Este artigo usa IntelliJ IDEA 15.0.1. Você pode instalá-lo clicando [aqui](https://www.jetbrains.com/idea/download/).
@@ -55,7 +55,7 @@ Você deve ter o seguinte:
 
 	![página 1 do assistente](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.create.event.hub.png "Criar um Hub de Eventos do Azure")
 
-	> [AZURE.NOTE]Você deve selecionar o mesmo **Local** do cluster Apache Spark no HDInsight para reduzir latência e custos.
+	> [AZURE.NOTE] Você deve selecionar o mesmo **Local** do cluster Apache Spark no HDInsight para reduzir latência e custos.
 
 3. Na tela **Configurar Hub de Eventos**, insira os valores de **Contagem de Partição** e **Retenção de Mensagem** e clique na marca de seleção. Para este exemplo, use uma contagem de partições de 10 e uma retenção de mensagens de 1. Observe a contagem de partições, pois você precisará desse valor posteriormente.
 
@@ -88,14 +88,14 @@ Nesta seção, você pode usar um aplicativo Scala autônomo local para enviar u
 	
 2. Compile o projeto. No menu **Criar**, clique em **Criar Projeto**. O jar de saída é criado em **\\out\\artifacts**.
 
->[AZURE.TIP]Você também pode usar uma opção disponível no IntelliJ IDEA para criar o projeto diretamente de um repositório GitHub. Para entender como usar essa abordagem, siga as instruções na próxima seção para obter orientação. Observe que muitas etapas descritas na próxima seção não serão aplicável ao aplicativo Scala que você cria nessa etapa. Por exemplo:
+>[AZURE.TIP] Você também pode usar uma opção disponível no IntelliJ IDEA para criar o projeto diretamente de um repositório GitHub. Para entender como usar essa abordagem, siga as instruções na próxima seção para obter orientação. Observe que muitas etapas descritas na próxima seção não serão aplicável ao aplicativo Scala que você cria nessa etapa. Por exemplo:
 
 > * Você não terá de atualizar o POM para incluir a versão do Spark. Isso acontece porque não há nenhuma dependência no Spark para criar esse aplicativo
 > * Você não precisará adicionar alguns jars de dependência à biblioteca de projeto. Isso ocorre porque os jars não são necessários para esse projeto.
 
 ## Atualizar o aplicativo de transmissão Scala para receber os eventos
 
-Um aplicativo Scala de exemplo para receber o evento e roteá-lo para diferentes destinos está disponível em [https://github.com/hdinsight/spark-streaming-data-persistence-examples](https://github.com/hdinsight/spark-streaming-data-persistence-examples). Siga as etapas abaixo para atualizar o aplicativo e criar o jar de saída.
+Um aplicativo Scala de exemplo para receber o evento e encaminhá-lo para diferentes destinos está disponível em [https://github.com/hdinsight/spark-streaming-data-persistence-examples](https://github.com/hdinsight/spark-streaming-data-persistence-examples). Siga as etapas abaixo para atualizar o aplicativo e criar o jar de saída.
 
 1. Inicie o IntelliJ IDEA e, na tela de inicialização, selecione **Fazer check-out do controle de versão** e, em seguida, clique em **Git**.
 		
@@ -110,7 +110,7 @@ Um aplicativo Scala de exemplo para receber o evento e roteá-lo para diferentes
 
 	![Exibição de projeto](./media/hdinsight-apache-spark-eventhub-streaming/project-view.png)
 	
-2. Abra o pom.xml e verifique se que a versão do Spark está correta. No nó <properties>, procure o trecho a seguir e verifique a versão do Spark.
+4. Abra o pom.xml e verifique se que a versão do Spark está correta. No nó <properties>, procure o trecho a seguir e verifique a versão do Spark.
 
 		<scala.version>2.10.4</scala.version>
     	<scala.compat.version>2.10.4</scala.compat.version>
@@ -119,31 +119,32 @@ Um aplicativo Scala de exemplo para receber o evento e roteá-lo para diferentes
 
 	Verifique se o valor **spark.version** está definido para **1.5.1**.
 
-3. O aplicativo requer dois jars de dependência:
+5. O aplicativo requer dois jars de dependência:
 
-	* **Jar receptor EventHub**. Ele é necessário para o Spark receber as mensagens do hub de eventos. Este jar está disponível em seu cluster Spark Linux em `/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.1.2.3.2.1-12-jar-with-dependencies.jar`. Você pode usar pscp para copiar o jar para seu computador local.
+	* **Jar receptor EventHub**. Ele é necessário para o Spark receber as mensagens do hub de eventos. Este jar está disponível em seu cluster Spark Linux em `/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.2.2.3.3.1-7-jar-with-dependencies.jar`. Você pode usar pscp para copiar o jar para seu computador local.
 
-			pscp sshuser@mysparkcluster-ssh.azurehdinsight.net/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.1.2.3.2.1-12-jar-with-dependencies.jar C:/eventhubjar
+			pscp sshuser@mysparkcluster-ssh.azurehdinsight.net:/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.2.2.3.3.1-7-jar-with-dependencies.jar C:/eventhubjar
 
 		Isso copiará o arquivo jar do cluster Spark para seu computador local.
 
 	* **Jar do driver JDBC**. Isso é necessário para gravar as mensagens recebidas do hub de eventos em um Banco de Dados SQL do Azure. Você pode baixar v 4.1 ou posterior desse arquivo jar [daqui](https://msdn.microsoft.com/pt-BR/sqlserver/aa937724.aspx).
-
-	Adicione referência a esses jars na biblioteca do projeto. Execute as seguintes etapas:
-
-	1. Na janela IntelliJ IDEA em que o aplicativo abrir, clique em **Arquivo**, clique em **Estrutura do Projeto** e, em seguida, clique em **Bibliotecas**. 
-
-		![adicionar dependências ausentes](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "Adicionar jars de dependência ausente")
-
-		Clique no ícone de adicionar (![adicionar ícone](./media/hdinsight-apache-spark-eventhub-streaming/add-icon.png)), clique em **Java** e, em seguida, navegue até o local onde você baixou o jar do receptor EventHub. Siga os prompts para adicionar o arquivo jar à biblioteca do projeto.
-
-	2. Repita a etapa anterior para adicionar o jar JDBC também à biblioteca do projeto.
 	
-		![adicionar dependências ausentes](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "Adicionar jars de dependência ausente")
 
-	3. Clique em **Aplicar**.
+		Adicione referência a esses jars na biblioteca do projeto. Execute as seguintes etapas:
 
-4. Crie o arquivo jar de saída. Execute as seguintes etapas.
+		1. Na janela IntelliJ IDEA em que o aplicativo abrir, clique em **Arquivo**, clique em **Estrutura do Projeto** e, em seguida, clique em **Bibliotecas**. 
+
+			![adicionar dependências ausentes](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "Adicionar jars de dependência ausente")
+
+			Clique no ícone de adicionar (![adicionar ícone](./media/hdinsight-apache-spark-eventhub-streaming/add-icon.png)), clique em **Java** e, em seguida, navegue até o local onde você baixou o jar do receptor EventHub. Siga os prompts para adicionar o arquivo jar à biblioteca do projeto.
+
+		1. Repita a etapa anterior para adicionar o jar JDBC também à biblioteca do projeto.
+	
+			![adicionar dependências ausentes](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "Adicionar jars de dependência ausente")
+
+		1. Clique em **Aplicar**.
+
+6. Crie o arquivo jar de saída. Execute as seguintes etapas.
 	1. Na caixa de diálogo **Estrutura do Projeto**, clique em **Artefatos** e, em seguida, clique no sinal de mais. Na caixa de diálogo pop-up, clique em **JAR** e, em seguida, clique em **Dos módulos com dependências**.
 
 		![Criar JAR](./media/hdinsight-apache-spark-eventhub-streaming/create-jar-1.png)
@@ -208,7 +209,7 @@ Vamos entender quais são os parâmetros no arquivo de entrada:
 * **numExecutors** é o número de núcleos usados pelo Spark para executar o aplicativo de transmissão. Isso sempre deve ser pelo menos duas vezes o número de partições do hub de eventos.
 * **executorMemory**, **executorCores**, **driverMemory** são parâmetros usados para atribuir os recursos necessários para o aplicativo de transmissão.
 
->[AZURE.NOTE]Você não precisa criar as pastas de saída (EventCheckpoint, EventCount/EventCount10) que são usadas como parâmetros. O aplicativo de streaming cria para você.
+>[AZURE.NOTE] Você não precisa criar as pastas de saída (EventCheckpoint, EventCount/EventCount10) que são usadas como parâmetros. O aplicativo de streaming cria para você.
 	
 Quando você executar o comando, deve ver uma saída semelhante à seguinte:
 
@@ -336,7 +337,7 @@ Você deverá ver uma saída semelhante ao seguinte:
 
 * [Spark com BI: executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](hdinsight-apache-spark-use-bi-tools.md)
 
-* [Spark no aprendizado de máquina: use o Spark no HDInsight para analisar a temperatura de prédios usando dados do sistema HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark com Aprendizado de Máquina: usar o Spark no HDInsight para analisar a temperatura de prédios usando dados do sistema HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
 * [Spark com aprendizado de máquina: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
@@ -348,11 +349,13 @@ Você deverá ver uma saída semelhante ao seguinte:
 
 * [Executar trabalhos remotamente em um cluster do Spark usando Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
-### Extensões
+### Ferramentas e extensões
 
-* [Usar blocos de anotações Zeppelin com um cluster do Spark no HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Usar o plug-in de Ferramentas do HDInsight para IntelliJ IDEA para criar e enviar aplicativos Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Kernels disponíveis para o notebook Jupyter no cluster do Spark para HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+* [Usar blocos de anotações do Zeppelin com um cluster Spark no HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+
+* [Kernels disponíveis para o bloco de anotações Jupyter no cluster do Spark para HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
 ### Gerenciar recursos
 
@@ -369,4 +372,4 @@ Você deverá ver uma saída semelhante ao seguinte:
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

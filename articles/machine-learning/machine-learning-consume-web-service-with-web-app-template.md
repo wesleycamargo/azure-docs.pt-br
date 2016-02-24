@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/26/2015"
+	ms.date="02/03/2016"
 	ms.author="garye;raymondl"/>
 
 # Consumir um serviço Web de Aprendizado de Máquina do Azure com um modelo de aplicativo Web
@@ -56,7 +56,7 @@ Depois de implantar o serviço Web, você pode seguir as etapas abaixo para usar
 
 	![URI da solicitação][image4]
 
-3. Vá para [Aplicativo Web do Serviço de Solicitação-Resposta do Aprendizado de Máquina do Azure](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/) e clique em **Criar Aplicativo Web**. O modelo leva você até o Portal Clássico do Microsoft Azure, em que o novo aplicativo Web é criado.
+3. Vá para o [portal do Azure](https://portal.azure.com), **Logon**, clique em **Novo**, Pesquisar e selecione **Aplicativo Web ML Request-Response Service do Azure** e clique em **Criar**.
 
 	- Dê um nome exclusivo ao seu aplicativo Web. A URL do aplicativo Web será esse nome seguido de `.azurewebsites.net.` Por exemplo, `http://carprediction.azurewebsites.net.`
 
@@ -78,7 +78,7 @@ Depois de implantar o serviço Web, você pode seguir as etapas abaixo para usar
 
 6. O aplicativo Web exibe sua página **Configuração de Aplicativo Web** com as configurações atuais do serviço Web. Aqui você pode alterar as configurações usadas pelo aplicativo Web.
 
-	> [AZURE.NOTE]Alterar as configurações aqui apenas as altera para este aplicativo Web. Ele não altera as configurações padrão do serviço Web. Por exemplo, se você alterar a **Descrição** aqui, isso não alterará a descrição mostrada no painel de serviço Web no Estúdio de Aprendizado de Máquina.
+	> [AZURE.NOTE] Alterar as configurações aqui apenas as altera para este aplicativo Web. Ele não altera as configurações padrão do serviço Web. Por exemplo, se você alterar a **Descrição** aqui, isso não alterará a descrição mostrada no painel de serviço Web no Estúdio de Aprendizado de Máquina.
 
 	Quando terminar, clique em **Salvar alterações** e clique em **Ir para a Página Inicial**.
 
@@ -86,7 +86,7 @@ Depois de implantar o serviço Web, você pode seguir as etapas abaixo para usar
 
 Para retornar à página **Configuração**, vá para a página `setting.aspx` do aplicativo Web. Por exemplo: `http://carprediction.azurewebsites.net/setting.aspx.` Você será solicitado a digitar a chave de API novamente – você precisa dela para acessar a página e atualizar as configurações.
 
-Você pode parar, reiniciar ou excluir o aplicativo Web no Portal Clássico do Azure como qualquer outro aplicativo Web. Enquanto ele estiver em execução, você poderá navegar até o endereço web da página inicial e inserir novos valores.
+Você pode parar, reiniciar ou excluir o aplicativo Web no portal do Azure como qualquer outro aplicativo Web. Enquanto ele estiver em execução, você poderá navegar até o endereço web da página inicial e inserir novos valores.
 
 ## Como usar o modelo BES (Serviço de Execução em Lote)
 
@@ -125,4 +125,4 @@ Para saber mais sobre...
 [image6]: media\machine-learning-consume-web-service-with-web-app-template\web-service-info.png
 [image7]: media\machine-learning-consume-web-service-with-web-app-template\storage.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

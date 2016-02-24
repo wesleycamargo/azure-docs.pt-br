@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="11/23/2015"
+	ms.date="02/04/2016"
 	ms.author="jeffstok"/>
 
 
@@ -31,7 +31,7 @@ O Azure Stream Analytics é um serviço completamente gerenciado que oferece bai
 Antes de começar este artigo, você deve ter o seguinte:
 
 - Instale o Visual Studio 2012 ou 2013.
-- Baixe e instale o [Azure .NET SDK](http://azure.microsoft.com/downloads/).
+- Baixe e instale o [Azure .NET SDK](https://azure.microsoft.com/downloads/).
 - Crie um grupo de recursos do Azure em sua assinatura. O seguinte é um exemplo de script do PowerShell do Azure. Para obter mais informações sobre o PowerShell do Azure, consulte [Instalar e configurar o PowerShell do Azure](../install-configure-powershell.md).  
 
 
@@ -150,6 +150,8 @@ Adicione o seguinte código ao início do método **Main**:
 	StreamAnalyticsManagementClient client = new StreamAnalyticsManagementClient(aadTokenCredentials);
 
 O valor da variável **resourceGroupName** deve ser igual ao nome do grupo de recursos que você criou ou escolheu nas etapas de pré-requisito.
+
+Para automatizar o aspecto de apresentação de credencial da criação do trabalho, consulte [Autenticação de uma entidade de serviço com o Gerenciador de Recursos do Azure](./articles/resource-group-authenticate-service-principal.md).
 
 As seções restantes deste artigo pressupõem que esse código esteja no início do método **Main**.
 
@@ -364,4 +366,4 @@ Você tem de aprender as Noções básicas do uso de um SDK do .NET para criar e
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

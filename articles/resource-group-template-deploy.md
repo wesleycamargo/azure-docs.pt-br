@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/23/2015"
+   ms.date="02/02/2016"
    ms.author="tomfitz"/>
 
 # Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure
 
 Este tópico explica como usar modelos do Gerenciador de recursos do Azure para implantar seu aplicativo no Azure. Ele mostra como implantar seu aplicativo usando o Azure PowerShell, a CLI do Azure, a API REST ou o portal do Azure.
 
-Para obter uma introdução ao Gerenciador de Recursos, confira [Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md). Para saber mais sobre como criar modelos, veja [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
+Para obter uma introdução ao Gerenciador de Recursos, confira [Visão geral do Gerenciador de Recursos do Azure](./resource-group-overview.md). Para saber mais sobre a criação de modelos, veja [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
 
 Ao implantar um aplicativo com um modelo, você pode fornecer valores de parâmetro para personalizar como os recursos são criados. Você especifica valores para esses parâmetros embutidos ou em um arquivo de parâmetros.
 
@@ -257,19 +257,29 @@ Se você usar um arquivo de parâmetro para passar os valores de parâmetro para
             },
             "webSiteLocation": {
                 "value": "West US"
+            },
+            "adminPassword": {
+                "reference": {
+                   "keyVault": {
+                      "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
+                   }, 
+                   "secretName": "sqlAdminPassword" 
+                }   
             }
        }
     }
 
 O tamanho do arquivo de parâmetro não pode ser superior a 64 KB.
 
+Para saber como definir parâmetros no modelo, confira [Criação de modelos](../resource-group-authoring-templates/#parameters). Para obter detalhes sobre a referência a KeyVault e passar valores seguros, confira [Passar valores seguros durante a implantação ](resource-manager-keyvault-parameter.md)
+
 ## Próximas etapas
-- Para obter um exemplo de como implantar recursos por meio da biblioteca de cliente do .NET, confira [Implantar recursos usando bibliotecas .NET e um modelo](arm-template-deployment.md)
+- Para obter um exemplo de como implantar recursos por meio da biblioteca de cliente do .NET, confira [Implantar recursos usando bibliotecas .NET e um modelo](./virtual-machines/arm-template-deployment.md)
 - Para obter um exemplo detalhado de implantação de um aplicativo, confira [Provisionar e implantar microsserviços de forma previsível no Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
-- Para obter orientação sobre como implantar a solução em ambientes diferentes, confira [Ambientes de desenvolvimento e de teste no Microsoft Azure](solution-dev-test-environments-preview-portal.md).
+- Para obter orientação sobre como implantar a solução em ambientes diferentes, confira [Ambientes de desenvolvimento e de teste no Microsoft Azure](solution-dev-test-environments.md).
 - Para saber mais sobre as seções do modelo do Gerenciador de Recursos do Azure, confira [Criação de modelos](resource-group-authoring-templates.md)
 - Para obter uma lista das funções que você pode usar em um modelo do Gerenciador de Recursos do Azure, confira [Funções do modelo](resource-group-template-functions.md)
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

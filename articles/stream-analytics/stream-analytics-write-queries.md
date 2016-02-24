@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/11/2015" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"/>
 
 # Como escrever consultas em Stream Analytics
@@ -38,11 +38,11 @@ Escrevendo consulta para lógica de processamento de fluxo no Stream Analytics d
   
     ![Janela de Consulta de dados](./media/stream-analytics-write-queries/2-stream-analytics-write-queries.png)
 
-## Para validar que a consulta de dados está funcionando: ##
+## Para validar que os dados da consulta estão funcionando: ##
 
 Você pode testar se sua consulta se comporta conforme esperado executando-a no navegador em um ou mais arquivos JSON locais contendo dados de teste. Isso não iniciará o trabalho nem terá nenhuma implicação de faturamento.
 
-> [AZURE.NOTE]Atualmente, não há suporte para o teste de consulta no navegador no portal de visualização do Azure.
+> [AZURE.NOTE] Atualmente, não há suporte para o teste de consulta no navegador no portal de visualização do Azure.
 
 1.	Verifique se não há erros na consulta (caso contrário, o botão Testar será desabilitado) e clique no botão Testar.  
 
@@ -71,4 +71,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

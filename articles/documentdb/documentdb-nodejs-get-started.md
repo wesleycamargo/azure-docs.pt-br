@@ -41,11 +41,11 @@ Depois de concluir o tutorial do Node.js, use os botões de votação na parte s
 
 Agora vamos começar!
 
-## Pré-requisitos
+## Pré-requisitos para o tutorial do Node.js
 
 Certifique-se que você tem o seguinte:
 
-- Uma conta ativa do Azure. Se não tiver uma, você poderá se inscrever em uma [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/).
+- Uma conta ativa do Azure. Se não tiver uma, você poderá se inscrever em uma [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 - [Node.js](https://nodejs.org/) versão v0.10.29 ou superior.
 
 ## Etapa 1: Criar uma conta do Banco de Dados de Documentos
@@ -60,30 +60,30 @@ Vamos criar uma conta de Banco de Dados de Documentos. Se você já tiver uma co
 2. Localize a pasta ou o diretório em que você deseja salvar o aplicativo do Node.js.
 3. Crie dois arquivos JavaScript vazios com os seguintes comandos:
 	- Windows:    
-	    * **fsutil file createnew app.js 0**
-        * **fsutil file createnew config.js 0**
+	    * ```fsutil file createnew app.js 0```
+        * ```fsutil file createnew config.js 0```
 	- Linux/OS X: 
-	    * **toque em app.js**
-        * **toque em config.js**
+	    * ```touch app.js```
+        * ```touch config.js```
 4. Instale o módulo documentdb via npm. Use o seguinte comando:
-    * **npm install documentdb --save**
+    * ```npm install documentdb --save```
 
 Ótimo! Agora que você terminou a configuração, vamos começar a escrever o código.
 
 ##<a id="Config"></a> Etapa 3: Definir as configurações do aplicativo
 
-Abra *config.js* no editor de texto de sua preferência.
+Abra ```config.js``` no editor de texto de sua preferência.
 
-Em seguida, crie um objeto vazio chamado *config* e defina as propriedades *config.endpoint* e *config.authKey* para o ponto de extremidade e a chave de autorização do Banco de Dados de Documentos. Ambas as configurações podem ser encontradas no [Portal do Azure](https://portal.azure.com).
+Em seguida, crie um objeto vazio chamado ```config``` e defina as propriedades ```config.endpoint``` e ```config.authKey``` para o ponto de extremidade e a chave de autorização do Banco de Dados de Documentos. Ambas as configurações podem ser encontradas no [Portal do Azure](https://portal.azure.com).
 
-![Captura de tela do Portal do Azure mostrando uma conta do Banco de Dados de Documentos com o hub ATIVO realçado, o botão CHAVES realçado na folha da conta do Banco de Dados de Documentos e os valores de URI, de CHAVE PRIMÁRIA e de CHAVE SECUNDÁRIA realçados na folha Chaves][keys]
+![Tutorial do Node.js ‒ captura de tela do Portal do Azure mostrando uma conta do Banco de Dados de Documentos com o hub ATIVO realçado, o botão CHAVES realçado na folha da conta do Banco de Dados de Documentos e os valores de URI, de CHAVE PRIMÁRIA e de CHAVE SECUNDÁRIA realçados na folha Chaves ‒ banco de dados do Nó][keys]
 
     var config = {}
 
     config.endpoint = "https://YOUR_ENDPOINT_URI.documents.azure.com:443/";
     config.authKey = "oqTveZeWlbtnJQ2yMj23HOAViIr0ya****YOUR_AUTHORIZATION_KEY****ysadfbUV+wUdxwDAZlCfcVzWp0PQg==";
 
-Agora vamos adicionar a *ID de banco de dados*, a *ID da coleção* e *documentos JSON* para o objeto *config*. Abaixo de onde você define as propriedades *config.endpoint* e *config.authKey*, adicione o código a seguir. Se já tiver dados que gostaria de armazenar em seu banco de dados, você pode usar a[ferramenta de Migração de Dados](documentdb-import-data.md) do Banco de Dados de Documentos em vez de adicionar as definições do documento.
+Agora vamos adicionar a ```database id```, a ```collection id``` e os ```JSON documents``` ao seu objeto ```config```. Abaixo de onde você pode configurar as propriedades ```config.endpoint``` e ```config.authKey```, adicione o código a seguir. Se já tiver dados que gostaria de armazenar em seu banco de dados, você pode usar a[ferramenta de Migração de Dados](documentdb-import-data.md) do Banco de Dados de Documentos em vez de adicionar as definições do documento.
 
     config.dbDefinition = {"id": "FamilyRegistry"};
     config.collDefinition = {"id": "FamilyCollection"};
@@ -163,27 +163,27 @@ Agora vamos adicionar a *ID de banco de dados*, a *ID da coleção* e *documento
 
     config.docsDefinitions = documents;
 
-As definições de banco de dados, coleção e documento atuarão como a *ID de banco de dados*, *ID da coleção* e dados de documentos do Banco de Dados de Documentos.
+As definições de banco de dados, de coleção e de documento atuarão como a ```database id```, a ```collection id``` do Banco de Dados de Documentos e como os dados dos documentos.
 
-Finalmente, exporte o objeto *config*, para que você possa fazer referência a ele no arquivo *app.js*.
+Por fim, exporte o objeto ```config```, para que você possa fazer referência a ele no arquivo ```app.js```.
 
     module.exports = config;
 
-##<a id="Connect"></a> Etapa 4: Conectar-se a uma conta do Banco de Dados de Documentos
+##<a id="Connect"></a> Etapa 4: conectar-se a uma conta do Banco de Dados de Documentos
 
-Abra o arquivo *app.js* vazio no editor de texto. Importe o módulo *documentdb* e o módulo *config* recém-criado.
+Abra o arquivo ```app.js``` vazio no editor de texto. Importe o módulo ```documentdb``` e o módulo ```config``` recém-criado.
 
     var documentClient = require("documentdb").DocumentClient;
     var config = require("./config");
 
-Em seguida, vamos usar *config.endpoint* e *config.authKey*, salvos anteriormente, para criar um novo DocumentClient.
+Em seguida, usaremos o ```config.endpoint``` e a ```config.authKey``` salvos anteriormente para criar um novo DocumentClient.
 
     var client = new documentClient(config.endpoint, {"masterKey": config.authKey});
 
 Agora que você se conectou a uma conta do Banco de Dados de Documentos, vamos conferir o trabalho com recursos do Banco de Dados de Documentos.
 
-## Etapa 5: Criar um banco de dados do nó
-Um [banco de dados](documentdb-resources.md#databases) pode ser criado usando a função [createDatabase](https://azure.github.io/azure-documentdb-node/DocumentClient.html) da classe **DocumentClient**. Um banco de dados é o contêiner lógico de armazenamento de documentos particionado em coleções. Adicione uma função para criar um novo banco de dados no arquivo app.js com a *id* especificada no objeto *config*. Vamos verificar primeiro se um banco de dados com a mesma ID *FamilyRegistry* ainda não existe. Se existir, vamos retornar esse banco de dados, em vez de criar um novo.
+## Etapa 5: criar um banco de dados do Nó
+Um [banco de dados](documentdb-resources.md#databases) pode ser criado usando a função [createDatabase](https://azure.github.io/azure-documentdb-node/DocumentClient.html) da classe **DocumentClient**. Um banco de dados é o contêiner lógico de armazenamento de documentos particionado em coleções. Adicione uma função para criar um novo banco de dados no arquivo app.js com a ```id``` especificada no objeto ```config```. Primeiro, vamos verificar a existência de um banco de dados com a mesma ID ```FamilyRegistry```. Se existir, vamos retornar esse banco de dados, em vez de criar um novo.
 
     var getOrCreateDatabase = function(callback) {
         var querySpec = {
@@ -212,9 +212,9 @@ Um [banco de dados](documentdb-resources.md#databases) pode ser criado usando a 
 
 ##<a id="CreateColl"></a>Etapa 6: Criar uma coleção  
 
-> [AZURE.WARNING]**CreateDocumentCollectionAsync** criará uma nova coleção de S1, que tem implicações de preços. Para obter mais detalhes, visite a nossa [página de preços](https://azure.microsoft.com/pricing/details/documentdb/).
+> [AZURE.WARNING] **CreateDocumentCollectionAsync** criará uma nova coleção de S1, que tem implicações de preços. Para obter mais detalhes, visite a nossa [página de preços](https://azure.microsoft.com/pricing/details/documentdb/).
 
-Uma [coleção](documentdb-resources.md#collections) pode ser criada usando a função [createCollection](https://azure.github.io/azure-documentdb-node/DocumentClient.html) da classe **DocumentClient**. Uma coleção é um contêiner de documentos JSON e uma lógica de aplicativo JavaScript associada. A coleção recém-criada será mapeada para um [nível de desempenho S1](documentdb-performance-levels.md). Adicione uma função para criar uma nova coleção no arquivo app.js com a *id* especificada no objeto *config*. Novamente, vamos verificar se uma coleção com a mesma ID *FamilyCollection* ainda não existe. Se existir, vamos retornar essa coleção, em vez de criar uma nova.
+Uma [coleção](documentdb-resources.md#collections) pode ser criada usando a função [createCollection](https://azure.github.io/azure-documentdb-node/DocumentClient.html) da classe **DocumentClient**. Uma coleção é um contêiner de documentos JSON e uma lógica de aplicativo JavaScript associada. A coleção recém-criada será mapeada para um [nível de desempenho S1](documentdb-performance-levels.md). Adicione uma função para criar uma nova coleção no arquivo app.js com a ```id``` especificada no objeto ```config```. Novamente, verificaremos a existência de uma coleção com a mesma ID ```FamilyCollection```. Se existir, vamos retornar essa coleção, em vez de criar uma nova.
 
     var getOrCreateCollection = function(callback) {
 
@@ -246,7 +246,7 @@ Uma [coleção](documentdb-resources.md#collections) pode ser criada usando a fu
 ##<a id="CreateDoc"></a>Etapa 7: Criar um documento
 Um [documento](documentdb-resources.md#documents) pode ser criado usando a função [createDocument](https://azure.github.io/azure-documentdb-node/DocumentClient.html) da classe **DocumentClient**. Os documentos são conteúdo JSON (arbitrário) definido pelo usuário. Agora você pode inserir um documento no Banco de Dados de Documentos.
 
-Em seguida, adicione uma função a app.js para a criação de documentos contendo os dados JSON salvos no objeto *config*. Novamente, vamos verificar se um documento com a mesma ID ainda não existe.
+Em seguida, adicione uma função a app.js para a criação de documentos contendo os dados JSON salvos no objeto ```config```. Novamente, vamos verificar se um documento com a mesma ID ainda não existe.
 
     var getOrCreateDocument = function(document, callback) {
         var querySpec = {
@@ -276,11 +276,11 @@ Em seguida, adicione uma função a app.js para a criação de documentos conten
 
 Parabéns! Agora você tem funções para criar um banco de dados, uma coleção e o documento no Banco de Dados de Documentos!
 
-![Diagrama que ilustra a relação hierárquica entre a conta, o banco de dados, a coleção e os documentos](./media/documentdb-nodejs-get-started/node-js-tutorial-account-database.png)
+![Tutorial do Node.js ‒ diagrama que ilustra a relação hierárquica entre a conta, o banco de dados, a coleção e os documentos ‒ banco de dados do Nó](./media/documentdb-nodejs-get-started/node-js-tutorial-account-database.png)
 
-##<a id="Query"></a>Etapa 8: Consultar recursos do Banco de Dados de Documentos
+##<a id="Query"></a>Etapa 8: consultar recursos do Banco de Dados de Documentos
 
-O Banco de Dados de Documentos tem suporte para [consultas](documentdb-sql-query.md) avançadas de documentos JSON armazenados em cada coleção. O código de exemplo a seguir mostra uma consulta que pode ser executada em documentos em sua coleção. Adicione a função a seguir ao arquivo *app.js*. O Banco de Dados de Documentos dá suporte a consultas do tipo SQL, conforme mostrado abaixo. Para saber mais sobre como criar consultas complexas, consulte o [Espaço de Consulta](https://www.documentdb.com/sql/demo) e a [documentação de consulta](documentdb-sql-query.md).
+O Banco de Dados de Documentos tem suporte para [consultas](documentdb-sql-query.md) avançadas de documentos JSON armazenados em cada coleção. O código de exemplo a seguir mostra uma consulta que pode ser executada em documentos em sua coleção. Adicione a função a seguir ao arquivo ```app.js```. O Banco de Dados de Documentos dá suporte a consultas do tipo SQL, conforme mostrado abaixo. Para saber mais sobre como criar consultas complexas, consulte o [Espaço de Consulta](https://www.documentdb.com/sql/demo) e a [documentação de consulta](documentdb-sql-query.md).
 
     var queryCollection = function(documentId, callback) {
       var querySpec = {
@@ -302,11 +302,11 @@ O Banco de Dados de Documentos tem suporte para [consultas](documentdb-sql-query
 
 O diagrama a seguir ilustra como a sintaxe de consulta do SQL do Banco de Dados de Documentos é chamada em relação à coleção que você criou.
 
-![Diagrama que ilustra o escopo e o significado da consulta](./media/documentdb-nodejs-get-started/node-js-tutorial-collection-documents.png)
+![Tutorial do Node.js ‒ Diagrama que ilustra o escopo e o significado da consulta ‒ banco de dados do Nó](./media/documentdb-nodejs-get-started/node-js-tutorial-collection-documents.png)
 
 A palavra-chave [FROM](documentdb-sql-query.md/#from-clause) é opcional na consulta, pois as consultas do Banco de Dados de Documentos já têm o escopo para uma única coleção. Portanto, "FROM Families f" pode ser trocado por "FROM root r" ou qualquer outra variável de nome que você escolher. O Banco de Dados de Documentos fará com que Families, root ou o nome de variável escolhido por você faça referência à coleção atual, por padrão.
 
-##<a id="DeleteDatabase"></a>Etapa 9: Excluir o banco de dados do nó
+##<a id="DeleteDatabase"></a>Etapa 9: excluir o banco de dados do Nó
 
 Excluir o banco de dados criado removerá o banco de dados e todos os recursos filhos (coleções, documentos, etc.). Você pode excluir o banco de dados adicionando o trecho de código a seguir.
 
@@ -325,7 +325,7 @@ Agora que você definiu todas as funções necessárias para seu aplicativo, vam
 
 A ordem das chamadas de função será * *getOrCreateDatabase* * *getOrCreateCollection* * *getOrCreateDocument* * *getOrCreateDocument* * *queryCollection* * *cleanup*
 
-Adicione o trecho de código a seguir na parte inferior do seu código no *app.js*.
+Adicione o trecho de código a seguir à parte inferior do seu código em ```app.js```.
 
     getOrCreateDatabase(function(err, db) {
         if(err) return console.log(err);
@@ -361,7 +361,7 @@ Adicione o trecho de código a seguir na parte inferior do seu código no *app.j
 
 Agora você está pronto para executar o aplicativo Node.js.
 
-No terminal, localize o arquivo *app.js* e execute o comando: **node app.js**
+No terminal, localize o arquivo ```app.js``` e execute o comando: ```node app.js```
 
 Você deverá ver a saída do aplicativo iniciado. A saída deve corresponder ao texto de exemplo abaixo.
 
@@ -419,15 +419,15 @@ Você deverá ver a saída do aplicativo iniciado. A saída deve corresponder ao
 
 Parabéns! Você concluiu o tutorial do Node.js e tem seu primeiro aplicativo de console do Banco de Dados de Documentos!
 
-##<a id="GetSolution"></a> Obter a solução completa
+##<a id="GetSolution"></a> Obter a solução do tutorial do Node.js completa
 Para criar a solução de Introdução que contém todos os exemplos neste artigo, você precisará do seguinte:
 
 -   [Conta de Banco de Dados de Documentos][documentdb-create-account].
 -   A solução [GetStarted](https://github.com/Azure-Samples/documentdb-node-getting-started) disponível no GitHub.
 
-Instale o módulo **documentdb** via npm. Use o seguinte comando: * **npm install documentdb --save**
+Instale o módulo **documentdb** via npm. Use o seguinte comando: * ```npm install documentdb --save```
 
-Em seguida, no arquivo *config.js*, atualize os valores de config.endpoint e config.authKey, conforme descrito na [Etapa 3: Definir configurações do aplicativo](#Config).
+Em seguida, no arquivo ```config.js```, atualize os valores de config.endpoint e config.authKey, como descrito na [Etapa 3: Definir configurações do aplicativo](#Config).
 
 ## Próximas etapas
 
@@ -442,4 +442,4 @@ Em seguida, no arquivo *config.js*, atualize os valores de config.endpoint e con
 
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

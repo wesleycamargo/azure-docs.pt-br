@@ -225,7 +225,7 @@ O Portal de Gerenciamento do Azure inclui uma exibição gráfica prática, que 
 
 Você também pode monitorar a CPU, memória e uso de rede para o cache.
 
-Para obter mais informações e exemplos que mostram como criar e configurar um Cache Redis do Azure, visite a página [Visão geral do Cache Redis do Azure](http://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview/), no blog do Azure.
+Para obter mais informações e exemplos que mostram como criar e configurar um Cache Redis do Azure, visite a página [Visão geral do Cache Redis do Azure](https://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview/), no blog do Azure.
 
 ## Caching de estado de sessão e saída HTML
 
@@ -412,7 +412,7 @@ var customer1 = cache.Wait(task1);
 var customer2 = cache.Wait(task2);
 ```
 
-A página [Documentação para o Cache Redis do Azure](http://azure.microsoft.com/documentation/services/cache/) no site da Microsoft fornece mais informações sobre como escrever aplicativos cliente capazes de usar o Cache Redis do Azure. Informações adicionais estão disponíveis na [página Uso Básico](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Basics.md) no site da Stackexchange e na página [Pipelines e Multiplexadores](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md), no mesmo site fornece mais informações sobre operações assíncronas e pipelining com Redis e a biblioteca do StackExchange. A seção Casos de Uso para Caching do Redis, posteriormente nestas diretrizes, fornece exemplos de algumas das técnicas mais avançadas que você pode aplicar aos dados armazenados em um cache do Redis.
+A página [Documentação para o Cache Redis do Azure](https://azure.microsoft.com/documentation/services/cache/) no site da Microsoft fornece mais informações sobre como escrever aplicativos cliente capazes de usar o Cache Redis do Azure. Informações adicionais estão disponíveis na [página Uso Básico](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Basics.md) no site da Stackexchange e na página [Pipelines e Multiplexadores](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md), no mesmo site fornece mais informações sobre operações assíncronas e pipelining com Redis e a biblioteca do StackExchange. A seção Casos de Uso para Caching do Redis, posteriormente nestas diretrizes, fornece exemplos de algumas das técnicas mais avançadas que você pode aplicar aos dados armazenados em um cache do Redis.
 
 ## Casos de Uso para Caching do Redis
 
@@ -783,7 +783,7 @@ O padrão a seguir também pode ser relevante para seu cenário ao implementar c
 ## Mais informações
 
 - A página [Classe MemoryCache](http://msdn.microsoft.com/library/system.runtime.caching.memorycache.aspx) no site da Microsoft.
-- A página [Documentação do Cache Redis do Azure](http://azure.microsoft.com/documentation/services/cache/) no site da Microsoft.
+- A página [Documentação do Cache Redis do Azure](https://azure.microsoft.com/documentation/services/cache/) no site da Microsoft.
 - A página [Perguntas frequentes sobre o Cache Redis do Azure](redis-cache/cache-faq.md) no site da Microsoft.
 - A página [Modelo de Configuração](http://msdn.microsoft.com/library/windowsazure/hh914149.aspx) no site da Microsoft.
 - A página [Padrão Assíncrono Baseado em Tarefa](http://msdn.microsoft.com/library/hh873175.aspx) no site da Microsoft.
@@ -795,7 +795,7 @@ O padrão a seguir também pode ser relevante para seu cenário ao implementar c
 - A página [Usando o Redis como um Cache LRU](http://redis.io/topics/lru-cache) no site do Redis.
 - A [página Transações](http://redis.io/topics/transactions) no site do Redis.
 - A página [Segurança do Redis](http://redis.io/topics/security) no site do Redis.
-- A página [Visão geral do Cache Redis do Azure](http://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview/) no blog do Azure.
+- A página [Visão geral do Cache Redis do Azure](https://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview/) no blog do Azure.
 - A página [Executando o Redis em uma VM Linux do CentOS](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx) no Azure, no site da Microsoft.
 - A página [Provedor de Estado de Sessão ASP.NET para Cache Redis do Azure](redis-cache/cache-asp.net-session-state-provider.md), no site da Microsoft.
 - A página [Provedor de Cache de Saída ASP.NET para Cache Redis do Azure](redis-cache/cache-asp.net-output-cache-provider.md), no site da Microsoft.
@@ -804,4 +804,4 @@ O padrão a seguir também pode ser relevante para seu cenário ao implementar c
 - Para obter mais informações, consulte a página [Transações em Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) no repositório Stackexchange.Redis.
 - O [Guia de Particionamento de Dados](http://msdn.microsoft.com/library/dn589795.aspx), no site da Microsoft.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

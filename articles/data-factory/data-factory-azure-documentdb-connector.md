@@ -20,6 +20,9 @@
 
 Este artigo descreve como você pode usar a Atividade de Cópia em uma Azure Data Factory para mover dados para o Banco de Dados de Documentos do Azure de outro armazenamento de dados e mover dados de outro armazenamento de dados para o Banco de Dados de Documentos. Este artigo se baseia no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral de movimentação de dados com a atividade de cópia e combinações de armazenamento de dados com suporte.
 
+O(s) exemplo(s) a seguir mostra(m) como copiar dados de e para o Banco de Dados de Documentos do Azure e o Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** de qualquer uma das fontes a qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores) usando a atividade de cópia no Azure Data Factory.
+
+
 ## Exemplo: Copiar dados do Banco de Dados de Documentos para o Blob do Azure
 
 O exemplo a seguir mostra:
@@ -344,7 +347,7 @@ A tabela a seguir fornece a descrição para elementos JSON específicas para o 
 
 | **Propriedade** | **Descrição** | **Obrigatório** |
 | -------- | ----------- | --------- |
-| type | A propriedade do tipo deve ser definida como: **DocumentDb** | Sim |
+| type | A propriedade type deve ser definida como: **DocumentDb** | Sim |
 | connectionString | Especifique as informações necessárias para se conectar ao banco de dados do Banco de Dados de Documentos do Azure. | Sim |
 
 ## Propriedades de tipo de conjunto de dados do Banco de Dados de Documentos do Azure
@@ -380,7 +383,7 @@ Exemplo:
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, consulte o artigo [Criando pipelines](data-factory-create-pipelines.md). Propriedades, como nome, descrição, tabelas de entrada e saída, várias políticas, etc. estão disponíveis para todos os tipos de atividades.
  
-**Observação:** a Atividade de cópia usa apenas uma entrada e produz apenas uma saída.
+**Observação:** a Atividade de Cópia usa apenas uma entrada e produz apenas uma saída.
 
 As propriedades disponíveis na seção typeProperties da atividade, por outro lado, variam de acordo com cada tipo de atividade e, no caso de Atividade de cópia, variam dependendo dos tipos de fontes e coletores.
 
@@ -408,7 +411,7 @@ No caso da Atividade de cópia, quando a fonte é do tipo **DocumentDbCollection
 
 	**Resposta:** se os registros têm um campo "ID" e a operação de cópia tenta inserir um registro com a mesma ID, a operação de cópia gerará um erro.
  
-3. **Pergunta:** o suporte do Data Factory faz [intervalo ou o particionamento de dados baseado em hash](https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)?
+3. **Pergunta:** o suporte do Data Factory faz [intervalo ou o particionamento de dados baseado em hash]( https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)?
 
 	**Resposta:** Não. 
 4. **Pergunta:** posso especificar mais de uma coleção de Banco de Dados de Documentos para uma tabela?
@@ -416,4 +419,4 @@ No caso da Atividade de cópia, quando a fonte é do tipo **DocumentDbCollection
 	**Resposta:** Não. Somente uma coleção pode ser especificada no momento.
      
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016--->

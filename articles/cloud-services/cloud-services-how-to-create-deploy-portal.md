@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 
@@ -22,14 +22,14 @@
 # Como criar e implantar um serviço de nuvem
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-how-to-create-deploy.md)
 - [Azure portal](cloud-services-how-to-create-deploy-portal.md)
+- [Azure classic portal](cloud-services-how-to-create-deploy.md)
 
 O Portal do Azure oferece duas maneiras de criar e de implantar um serviço de nuvem: *Criação Rápida* e *Criação Personalizada*.
 
 Este artigo explica como usar o método Criação Rápida para criar um novo serviço de nuvem e usar **Carregar** para carregar e implantar um pacote de serviço de nuvem no Azure. Ao usar esse método, o Portal do Azure disponibiliza links convenientes para o cumprimento de todos os requisitos quando você precisar. Se você estiver pronto para implantar o serviço de nuvem ao criá-lo, é possível usar ambos ao mesmo tempo usando a Criação Personalizada.
 
-> [AZURE.NOTE]Se você planeja publicar o serviço de nuvem do VSTS (Visual Studio Team Services), use a Criação Rápida e configure a publicação do VSTS no Início Rápido do Azure ou no painel. Para obter mais informações, veja [Entrega contínua para o Azure usando o Visual Studio Team Services][TFSTutorialForCloudService] ou confira a ajuda da página **Início Rápido**.
+> [AZURE.NOTE] Se você planeja publicar o serviço de nuvem do VSTS (Visual Studio Team Services), use a Criação Rápida e configure a publicação do VSTS no Início Rápido do Azure ou no painel. Para obter mais informações, veja [Entrega contínua para o Azure usando o Visual Studio Team Services][TFSTutorialForCloudService] ou confira a ajuda da página **Início Rápido**.
 
 ## Conceitos
 Três componentes são necessários para implantar um aplicativo como um serviço de nuvem no Azure:
@@ -43,7 +43,7 @@ Três componentes são necessários para implantar um aplicativo como um serviç
 Você pode saber mais sobre eles e sobre como criar um pacote [aqui](cloud-services-model-and-package.md).
 
 ## Preparação do aplicativo
-Antes de poder implantar um serviço de nuvem, você deve criar o pacote do serviço de nuvem (arquivo .cspkg) do seu código do aplicativo e um arquivo de configuração do serviço de nuvem (.cscfg). O SDK do Azure fornece as ferramentas para preparar os arquivos exigidos para a implantação. Você pode instalar o SDK da página de [downloads de Azure](http://azure.microsoft.com/downloads/) no idioma em que você preferir desenvolver seu código do aplicativo.
+Antes de poder implantar um serviço de nuvem, você deve criar o pacote do serviço de nuvem (arquivo .cspkg) do seu código do aplicativo e um arquivo de configuração do serviço de nuvem (.cscfg). O SDK do Azure fornece as ferramentas para preparar os arquivos exigidos para a implantação. Você pode instalar o SDK da página de [downloads de Azure](https://azure.microsoft.com/downloads/) no idioma em que você preferir desenvolver seu código do aplicativo.
 
 Três recursos de serviço de nuvem precisam de configurações especiais antes que você exporte um pacote de serviço:
 
@@ -57,7 +57,7 @@ Para criar um serviço de nuvem com implantações de funções Web ou de Trabal
 
 ## Antes de começar
 
-- Se você não instalou o SDK do Azure, clique em **Instalar SDK do Azure** para abrir a[página de Downloads do Azure](http://azure.microsoft.com/downloads/) e baixar o SDK para o idioma em que você preferir desenvolver seu código. (Você terá uma oportunidade de fazer isso posteriormente).
+- Se você não instalou o SDK do Azure, clique em **Instalar SDK do Azure** para abrir a[página de Downloads do Azure](https://azure.microsoft.com/downloads/) e baixar o SDK para o idioma em que você preferir desenvolver seu código. (Você terá uma oportunidade de fazer isso posteriormente).
 
 - Se alguma instância de função precisar de certificados, crie-os. Os serviços de nuvem requerem um arquivo .pfx e uma chave privada. [Você pode carregar os certificados para o Azure]() enquanto cria e implanta o serviço de nuvem.
 
@@ -115,4 +115,4 @@ Se o pacote de implantação tiver sido [configurado para usar certificados](clo
 * [Gerenciar seu serviço de nuvem](cloud-services-how-to-manage-portal.md).
 * Configurar [certificados SSL](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

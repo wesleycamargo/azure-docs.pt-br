@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="curtand"
-   manager="msStevenPo"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/27/2015"
+   ms.date="02/09/2016"
    ms.author="curtand"/>
 
 # Colaboração B2B do AD do Azure (Active Directory do Azure)
@@ -71,5 +71,6 @@ Conferir nossos outros artigos sobre a colaboração B2B do Azure
 - [Formato do token de usuário externo](active-directory-b2b-references-external-user-token-format.md)
 - [Alterações de atributo do objeto de usuário externo](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [Limitações atuais da visualização](active-directory-b2b-current-preview-limitations.md)
+- [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0211_2016-->

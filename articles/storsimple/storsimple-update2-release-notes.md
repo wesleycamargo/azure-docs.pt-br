@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/22/2015"
+   ms.date="02/01/2016"
    ms.author="v-sharos" />
 
 # Notas de versão da Atualização 2 da série 8000 do StorSimple  
@@ -21,7 +21,7 @@
 
 As notas de versão a seguir descrevem os novos recursos e identificam os problemas críticos em aberto da Atualização 2 da série 8000 do StorSimple. Elas também contêm uma lista das atualizações de software, driver e firmware de disco do StorSimple incluídas nesta versão.
 
-A Atualização 2 pode ser aplicada a qualquer dispositivo do StorSimple que executa a Versão (GA) ou a Atualização 0.1 à 1.2.
+A Atualização 2 pode ser aplicada a qualquer dispositivo do StorSimple que executa a Versão (GA) ou a Atualização 0.1 à 1.2. A versão do dispositivo associada à Atualização 2 é 6.3.9600.17673.
 
 Examine as informações contidas nas notas de versão antes de implantar a atualização em sua solução do StorSimple.
 
@@ -68,7 +68,7 @@ A tabela a seguir fornece um resumo dos problemas que foram corrigidos nas Atual
 | Não. | Recurso | Problema | Aplica-se ao dispositivo físico | Aplica-se ao dispositivo virtual |
 |-----|---------|-------|--------------------------------|--------------------------------|
 | 1 | Interfaces de rede | Após uma atualização para a Atualização 1, o serviço do StorSimple Manager relatou que as portas Data2 e Data3 falharam em um controlador. Esse problema foi corrigido. | Sim | Não |
-| 2 | Atualizações | Após uma atualização para a Atualização 1, ocorreram alertas de alarme audível no portal do Azure em vários dispositivos. Esse problema foi corrigido. | Sim | Não |
+| 2 | Atualizações | Após atualizar para a Atualização 1, ocorreram alertas de alarme audível no portal clássico do Azure em vários dispositivos. Esse problema foi corrigido. | Sim | Não |
 | 3 | Autenticação Openstack | Ao usar o Openstack como seu provedor de serviços de nuvem, você poderá receber um erro informando que sua cadeia de caracteres de autenticação de nuvem é muito longa. Esse problema foi corrigido. | Sim | Não |
 
 
@@ -76,7 +76,7 @@ A tabela a seguir fornece um resumo dos problemas que foram corrigidos nas Atual
 
 A tabela a seguir fornece um resumo dos problemas conhecidos nesta versão.
 
-| Nº | Recurso | Problema | Comentários/soluções alternativas | Aplica-se ao dispositivo físico | Aplica-se ao dispositivo virtual |
+| Nº | Recurso | Problema | Comentários/solução alternativa | Aplica-se ao dispositivo físico | Aplica-se ao dispositivo virtual |
 |-----|---------|-------|----------------------------|----------------------------|---------------------------|
 | 1 | Quorum de disco | Em casos raros, se a maioria dos discos no invólucro de EBOD de um dispositivo 8600 for desconectada, fazendo com que não haja quórum de disco, o pool de armazenamento ficará offline. Permanecerá offline, mesmo que os discos sejam reconectados. | Você precisará reiniciar o dispositivo. Se o problema persistir, entre em contato com o Suporte da Microsoft para as próximas etapas. | Sim | Não |
 | 2 | ID de controlador incorreta | Quando a substituição do controlador é executada, o controlador 0 pode aparecer como controlador 1. Durante a substituição do controlador, quando a imagem é carregada a partir do nó par, a ID do controlador pode ser exibida inicialmente como a ID do controlador de pares. Em casos raros, esse comportamento pode ser percebido após uma reinicialização do sistema. | Nenhuma ação do usuário é necessária. Esta situação se resolverá depois que a substituição do controlador for concluída. | Sim | Não |
@@ -97,8 +97,10 @@ A tabela a seguir fornece um resumo dos problemas conhecidos nesta versão.
 | 17 | Volumes afixados localmente | O trabalho de restauração expõe o backup do instantâneo temporário no Catálogo de Backup, mas apenas pelo tempo que durar o trabalho de restauração. | Isso poderá ocorrer se o trabalho de restauração tiver apenas volumes fixados localmente ou uma combinação de volumes fixados e em camadas. Se o trabalho de restauração incluir apenas volumes em camadas, esse comportamento não ocorrerá. Nenhuma intervenção do usuário é necessária. | Sim | Não |
 | 18 | Volumes afixados localmente | Se você cancelar um trabalho de restauração e um failover do controlador ocorrer logo em seguida, o trabalho de restauração mostrará **Falha** em vez de **Cancelado**. Se um trabalho de restauração falhar e um failover do controlador ocorrer logo em seguida, o trabalho de restauração mostrará **Cancelado** em vez de **Falha**. | Isso poderá ocorrer se o trabalho de restauração tiver apenas volumes fixados localmente ou uma combinação de volumes fixados e em camadas. Se o trabalho de restauração incluir apenas volumes em camadas, esse comportamento não ocorrerá. Nenhuma intervenção do usuário é necessária. | Sim | Não |
 | 19 |Volumes afixados localmente | Se você cancelar um trabalho de restauração ou se uma restauração falhar e ocorrer um failover do controlador, outro trabalho de restauração aparecerá na página **Trabalhos**. | Isso poderá ocorrer se o trabalho de restauração tiver apenas volumes fixados localmente ou uma combinação de volumes fixados e em camadas. Se o trabalho de restauração incluir apenas volumes em camadas, esse comportamento não ocorrerá. Nenhuma intervenção do usuário é necessária. | Sim | Não |
-| 20 |Mensagem de visualização na criação do Serviço StorSimple Manager | A mensagem de visualização que é exibida na criação de um Serviço StorSimple Manager aplica-se apenas à série Virtual Array do Microsoft Azure StorSimple A série Virtual Array foi lançada recentemente e, no momento, trata-se de uma oferta de visualização, coberta pelos [termos complementares de visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). O Serviço StorSimple Manager e a série de dispositivos físicos StorSimple são soluções de disponibilidade geral e os termos complementares de visualização não se aplicam a eles. | | |
+| 20 |Mensagem de visualização na criação do Serviço StorSimple Manager | A mensagem de visualização que é exibida na criação de um Serviço StorSimple Manager aplica-se apenas à série Virtual Array do Microsoft Azure StorSimple. A série Virtual Array foi lançada recentemente e, no momento, trata-se de uma oferta de visualização, coberta pelos [termos complementares de visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). O Serviço StorSimple Manager e a série de dispositivos físicos StorSimple são soluções de disponibilidade geral e os termos complementares de visualização não se aplicam a eles. | | |
 | 21 |Volumes afixados localmente | O trabalho de restauração expõe um grupo de discos virtuais com o prefixo **tmpCollection** na página **Políticas de Backup**, mas apenas enquanto durar o trabalho de restauração.|Isso poderá ocorrer se o trabalho de restauração tiver apenas volumes fixados localmente ou uma combinação de volumes fixados e em camadas. Se o trabalho de restauração incluir apenas volumes em camadas, esse comportamento não ocorrerá. Nenhuma intervenção do usuário é necessária.|
+| 22 |Volumes afixados localmente | Se você tentar converter um volume em camadas (criado e clonado com a atualização 1.2 ou anterior) em um volume fixo local e o dispositivo estiver ficando sem espaço ou uma houver interrupção na nuvem, os clones podem estar corrompidos.| Esse problema ocorre apenas com volumes que foram criados e clonados com software anterior à Atualização 2. Isso deve ser um cenário incomum.|
+| 23 | Conversão de volume | Não atualize os ACRs conectados a um volume enquanto a conversão de volume estiver em andamento (em camadas para fixados localmente ou vice-versa). Atualizar os ACRs pode resultar em dados corrompidos. | Se necessário, atualize os ACRs antes da conversão de volume e não faça mais atualizações da ACR enquanto a conversão estiver em andamento. |
 
 ## Atualizações de controlador e firmware na Atualização 2
 
@@ -111,4 +113,8 @@ Essa versão atualiza o driver e o firmware de disco no dispositivo.
 
 Esta atualização não pode ser aplicada ao dispositivo virtual. Novos dispositivos virtuais precisarão ser criados.
 
-<!---HONumber=AcomDC_1223_2015-->
+## Próxima etapa
+
+Saiba como [instalar a Atualização 2](storsimple-install-update-2.md) no seu dispositivo StorSimple.
+
+<!---HONumber=AcomDC_0204_2016-->

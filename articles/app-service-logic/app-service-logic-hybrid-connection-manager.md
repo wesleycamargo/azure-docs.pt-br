@@ -21,11 +21,11 @@ Para usar um sistema local, O Serviço de Aplicativo do Azure usa o Gerenciador 
 
 O HCM (Gerenciador de Conexão Híbrida) é um instalador com clique único, instalado em um servidor IIS em sua rede, por trás do firewall. Usando uma retransmissão do Barramento de Serviço do Azure, o HCM autentica o sistema local com o conector no Azure.
 
-> [AZURE.NOTE]O Gerenciador de Conexão Híbrida será necessário apenas se você estiver se conectando a um recurso local por trás do firewall. Se não estiver se conectando a um sistema local, você não precisará do Gerenciador de Conexão Híbrida.
+> [AZURE.NOTE] O Gerenciador de Conexão Híbrida será necessário apenas se você estiver se conectando a um recurso local por trás do firewall. Se não estiver se conectando a um sistema local, você não precisará do Gerenciador de Conexão Híbrida.
 
 Para começar, você precisa do seguinte:
 
-- Cadeia de conexão SAS do namespace de retransmissão do Barramento de Serviço do Azure. Consulte [Preços do Barramento de Serviço](http://azure.microsoft.com/pricing/details/service-bus/) para determinar qual camada inclui retransmissões.
+- Cadeia de conexão SAS do namespace de retransmissão do Barramento de Serviço do Azure. Consulte [Preços do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/) para determinar qual camada inclui retransmissões.
 - Informações de entrada do sistema local, incluindo nome de usuário e senha. Por exemplo, se estiver se conectando a um SQL Server local, você precisará da conta e senha de logon do SQL Server.
 - Informações do servidor local, incluindo número da porta e nome do servidor. Por exemplo, se estiver se conectando a um SQL Server local, você precisará do número da porta TCP e nome do SQL Server.
 
@@ -56,7 +56,7 @@ Quando a instalação estiver concluída, você verá isto: <br/> ![][3]
 
 Agora, quando você navegar para o conector novamente, o status da conexão híbrida será **Conectado**. Pode ser necessário fechar o conector e reabri-lo: <br/> ![][4]
 
-> [AZURE.NOTE]Para alternar para a cadeia de conexão secundária, execute novamente a configuração de conexão híbrida e insira a **cadeia de configuração secundária**.
+> [AZURE.NOTE] Para alternar para a cadeia de conexão secundária, execute novamente a configuração de conexão híbrida e insira a **cadeia de configuração secundária**.
 
 
 ## Portas TCP e segurança
@@ -119,7 +119,7 @@ Se sua API personalizada usar uma porta TCP ou HTTP, você poderá usar [conexõ
 
 ## Leia mais
 
-[Monitorar seus aplicativos lógicos](app-service-logic-monitor-your-logic-apps.md)<br/> [Preços do Barramento de Serviço](http://azure.microsoft.com/pricing/details/service-bus/)
+[Monitorar seus aplicativos lógicos](app-service-logic-monitor-your-logic-apps.md)<br/> [Preços do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/)
 
 
 
@@ -133,4 +133,4 @@ Se sua API personalizada usar uma porta TCP ou HTTP, você poderá usar [conexõ
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

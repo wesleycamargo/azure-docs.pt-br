@@ -32,7 +32,7 @@ Você aprenderá a:
 -	Como preparar a máquina virtual para a pilha LAMP.
 -	Como instalar o software necessário pelo servidor LAMP na máquina virtual.
 
-Supõe-se que o leitor já tenha uma assinatura do Azure. Caso contrário, você poderá se inscrever em uma avaliação gratuita em [http://azure.microsoft.com](http://azure.microsoft.com). Se você tiver uma assinatura do MSDN, confira [Preço especial do Microsoft Azure: benefícios do MSDN, MPN, e Bizspark](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). Para saber mais sobre o Azure, confira [O que é o Azure?](http://azure.microsoft.com/overview/what-is-azure/)
+Supõe-se que o leitor já tenha uma assinatura do Azure. Caso contrário, você poderá se inscrever em uma avaliação gratuita em [http://azure.microsoft.com](https://azure.microsoft.com/). Se você tiver uma assinatura do MSDN, confira [Preço especial do Microsoft Azure: benefícios do MSDN, MPN, e Bizspark](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). Para saber mais sobre o Azure, confira [O que é o Azure?](https://azure.microsoft.com/overview/what-is-azure/)
 
 Além deste tópico, se você já tiver uma máquina virtual e estiver apenas procurando obter as noções básicas de instalação de uma pilha LAMP em diferentes distribuições do Linux, consulte [Instalar a Pilha LAMP em uma máquina virtual do Linux no Azure](virtual-machines-linux-install-lamp-stack.md).
 
@@ -53,7 +53,7 @@ Siga estas etapas para gerar a chave de autenticação SSH.
 -	Selecione e copie a chave pública em **Chave** e salve-a em um arquivo chamado **publicKey.pem**. Não clique em **Salvar chave pública**, porque o formato de arquivo da chave pública salva é diferente da chave pública que queremos.
 -	Clique em **Salvar chave privada** e salve-a em um arquivo chamado **privateKey.ppk**.
 
-###Etapa 2: Criar a imagem no Portal do Azure.
+###Etapa 2: Criar a imagem no portal do Azure.
 No [Portal do Azure](https://portal.azure.com/), clique em **Novo** na barra de tarefas e crie uma imagem seguindo estas instruções e escolhendo a imagem do Linux de acordo com as suas necessidades. Este exemplo usa a imagem do Ubuntu 14.04.
 
 ![][3]
@@ -76,7 +76,7 @@ Os pontos de extremidade no Azure são compostos por um protocolo (TCP ou UDP) j
 
 A porta TCP 80 é o número da porta padrão no qual o Apache escuta. Abrir essa porta com um ponto de extremidade do Azure permitirá que você e outros clientes da Internet acessem o servidor Web Apache.
 
-No Portal do Azure, clique em **Procurar -> Máquina Virtual** e clique na máquina virtual que você criou.
+No portal do Azure, clique em **Procurar -> Máquina Virtual** e clique na máquina virtual que você criou.
 
 ![][5]
 
@@ -89,7 +89,7 @@ Clique em **Adicionar**. Ao provisionar uma nova máquina virtual, você pode ha
 Configure o ponto de extremidade:
 
 1.	Digite um nome para o ponto de extremidade em **Ponto de Extremidade**.
-2.	Digite 80 na **Porta Pública**. Se você alterou a porta de escuta padrão do Apache, você deve atualizar a Porta privada para ser a mesma que a porta de escuta do Apache.
+2.	Digite 80 na **Porta pública**. Se você alterou a porta de escuta padrão do Apache, você deve atualizar a Porta privada para ser a mesma que a porta de escuta do Apache.
 3.	Digite 80 na **Porta Pública**. Por padrão, o tráfego HTTP usa a porta 80. Se você defini-lo como 80, não é necessário incluir o número da porta na URL que permite que você acesse o serviço Web Apache. Por exemplo: http://lampdemo.cloudapp.net. Se você definir a porta de escuta do Apache para outro valor, como 81, você precisará adicionar o número da porta à URL para acessar o serviço Web Apache. Por exemplo, http://lampdemo.cloudapp.net:81/.
 
 ![][7]
@@ -102,7 +102,7 @@ Clique em **OK** para adicionar o ponto de extremidade à máquina virtual.
 ###Etapa 2: Conectar-se à imagem criada
 Você pode escolher qualquer ferramenta SSH para se conectar à nova máquina virtual. Neste exemplo, usamos Putty.
 
-Primeiro, obtenha o nome DNS da máquina virtual no Portal do Azure. Clique em **Procurar -> Máquinas virtuais ->** o nome de sua máquina virtual **-> Propriedades** e, em seguida, verifique o campo **Nome do Domínio** do bloco **Propriedades**.
+Primeiro, obtenha o nome DNS da máquina virtual no portal do Azure. Clique em **Procurar -> Máquinas virtuais ->** o nome de sua máquina virtual **-> Propriedades** e, em seguida, verifique o campo **Nome do Domínio** do bloco **Propriedades**.
 
 Obtenha o número da porta para conexões SSH no campo **SSH**. Aqui está um exemplo.
 
@@ -350,8 +350,8 @@ Uma vez que você tenha configurado a pilha LAMP com êxito, você pode implanta
 		sudo chgrp lampappgroup /var/www/html/  # Change the ownership to group lampappgroup
 		sudo chmod g+w /var/www/html/                 # grant write permission to group lampappgroup
 
-	>[AZURE.NOTE]Talvez seja necessário fazer logon novamente se você quiser modificar um arquivo em /var/www/html /.
--	Use qualquer cliente SFTP (por exemplo, o FileZilla) para se conectar ao nome DNS da máquina virtual (por exemplo, lampdemo.cloudapp.net) e navegue até /**var/www/html** para publicar seu site. ![][18]
+	>[AZURE.NOTE] Talvez seja necessário fazer logon novamente se você quiser modificar um arquivo em /var/www/html /.
+-	Use qualquer cliente SFTP (por exemplo, o FileZilla) para se conectar ao nome DNS da máquina virtual (por exemplo, lampdemo.cloudapp.net) e navegue até /**var/www/html** para publicar seu site.![][18]
 
 
 
@@ -456,4 +456,4 @@ Uma vez que você tenha configurado a pilha LAMP com êxito, você pode implanta
 [17]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-17.png
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

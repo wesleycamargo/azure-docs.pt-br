@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
+   ms.date="12/28/2015"
    ms.author="masashin"/>
 
 # Diretriz específica do serviço de repetição
@@ -41,7 +41,7 @@ A tabela a seguir resume os recursos de repetição para os serviços do Azure d
 | **[Active Directory](#azure-active-directory-retry-guidelines)** | Topaz* (com estratégia de detecção personalizada) | Programático e declarativo | Blocos de código | Personalizado |
 **Topaz é o nome amigável para o Bloco de Aplicativos para Tratamento de Falhas Transitórias, incluído no <a href="http://msdn.microsoft.com/library/dn440719.aspx">Enterprise Library 6.0</a>. Você pode usar uma estratégia de detecção personalizada com o Topaz para a maioria dos serviços, como descrito nesta diretriz. As estratégias padrão do Topaz são mostradas na seção [Estratégias do Bloco de Aplicativos para Tratamento de Falhas Transitórias (Topaz)](#transient-fault-handling-application-block-topaz-strategies) no fim desta diretriz. Observe que o bloco agora é uma estrutura de software livre e não tem suporte direto da Microsoft.
 
-> [AZURE.NOTE]Para a maioria dos mecanismos de repetição internos do Azure, atualmente não há meios de aplicar uma política de repetição diferente para diferentes tipos de erro ou exceção além da funcionalidade incluída na política de repetição. Portanto, a melhor diretriz disponível neste momento em que este documento está sendo escrito é configurar uma política que forneça uma média ideal de desempenho e disponibilidade. Uma maneira de ajustar a política é analisar arquivos de log para determinar o tipo de falha transitória que está ocorrendo. Por exemplo, se a maioria dos erros estiver relacionada aos problemas de conectividade de rede, você poderá tentar uma repetição imediata em vez de aguardar um longo período para a primeira repetição.
+> [AZURE.NOTE] Para a maioria dos mecanismos de repetição internos do Azure, atualmente não há meios de aplicar uma política de repetição diferente para diferentes tipos de erro ou exceção além da funcionalidade incluída na política de repetição. Portanto, a melhor diretriz disponível neste momento em que este documento está sendo escrito é configurar uma política que forneça uma média ideal de desempenho e disponibilidade. Uma maneira de ajustar a política é analisar arquivos de log para determinar o tipo de falha transitória que está ocorrendo. Por exemplo, se a maioria dos erros estiver relacionada aos problemas de conectividade de rede, você poderá tentar uma repetição imediata em vez de aguardar um longo período para a primeira repetição.
 
 ## Diretrizes de repetição para o Armazenamento do Azure
 
@@ -212,7 +212,7 @@ namespace RetryCodeSamples
 
 ## Mais informações
 
-- [Recomendações de política de repetição da biblioteca do cliente de armazenamento do Azure](http://azure.microsoft.com/blog/2014/05/22/azure-storage-client-library-retry-policy-recommendations/)
+- [Recomendações de política de repetição da biblioteca do cliente de armazenamento do Azure](https://azure.microsoft.com/blog/2014/05/22/azure-storage-client-library-retry-policy-recommendations/)
 - [Biblioteca do cliente de armazenamento 2.0 – implementando políticas de repetição](http://gauravmantri.com/2012/12/30/storage-client-library-2-0-implementing-retry-policies/)
 
 ## Diretrizes de repetição para Banco de Dados SQL usando o Entity Framework 6
@@ -302,7 +302,7 @@ Considere começar com as seguintes configurações para operações de repetiç
 | Interativo, interface de usuário<br />ou primeiro plano | 2 segundos | Exponencial | MaxRetryCount<br />MaxDelay | 3<br />750 ms | 1ª tentativa — intervalo de 0 s<br />2ª tentativa — intervalo de 750 ms<br />3ª tentativa — intervalo de 750 ms |
 | Segundo plano<br /> ou lote | 30 segundos | Exponencial | MaxRetryCount<br />MaxDelay | 5<br />12 segundos | 1ª tentativa — intervalo de 0 s<br />2ª tentativa — intervalo de aprox. 1 s<br />3ª tentativa — intervalo de aprox. 3 s<br />4ª tentativa — intervalo de aprox. de 7 s<br />5ª tentativa — intervalo de 12 s |
 
-> [AZURE.NOTE]A latência de ponta a ponta visa o tempo limite padrão de conexões com o serviço. Se você especificar tempos limite de conexão mais longos, a latência de ponta a ponta será estendida por esse tempo adicional para cada tentativa de repetição.
+> [AZURE.NOTE] A latência de ponta a ponta visa o tempo limite padrão de conexões com o serviço. Se você especificar tempos limite de conexão mais longos, a latência de ponta a ponta será estendida por esse tempo adicional para cada tentativa de repetição.
 
 ## Exemplos (Banco de Dados SQL usando o Entity Framework 6)
 
@@ -429,7 +429,7 @@ Considere começar com as seguintes configurações para operações de repetiç
 | Interativo, interface de usuário<br />ou primeiro plano | 2 s | FixedInterval | Contagem de repetição<br />Intervalo de repetição<br />Primeira repetição rápida | 3<br />500 ms<br />verdadeiro | 1ª tentativa — intervalo de 0 s<br />2ª tentativa — intervalo de 500 ms<br />3ª tentativa — intervalo de 500 ms |
 | Segundo plano<br />ou lote | 30 s | ExponentialBackoff | Contagem de repetição<br />Retirada mín.<br />Retirada máx.<br />Retirada Delta<br />Primeira repetição rápida | 5<br />0 s<br />60 s<br />2 s<br />falso | 1ª tentativa — intervalo de 0 s<br />2ª tentativa — intervalo de aprox. 2 s<br />3ª tentativa — intervalo de aprox. 6 s<br />4ª tentativa — intervalo de aprox. de 14 s<br />5ª tentativa — intervalo de aprox. 30 s |
 
-> [AZURE.NOTE]A latência de ponta a ponta visa o tempo limite padrão de conexões com o serviço. Se você especificar tempos limite de conexão mais longos, a latência de ponta a ponta será estendida por esse tempo adicional para cada tentativa de repetição.
+> [AZURE.NOTE] A latência de ponta a ponta visa o tempo limite padrão de conexões com o serviço. Se você especificar tempos limite de conexão mais longos, a latência de ponta a ponta será estendida por esse tempo adicional para cada tentativa de repetição.
 
 ### Exemplos (Banco de Dados SQL usando o ADO.NET)
 
@@ -437,7 +437,7 @@ Esta seção descreve como você pode usar o Bloco de Aplicativos para Tratament
 
 No entanto, na versão atual do Bloco de Aplicativos para Tratamento de Falhas Transitórias, essas abordagens não oferecem suporte de modo inerente a operações assíncronas no Banco de Dados SQL. Uma boa prática exige que você use apenas técnicas assíncronas para acessar serviços do Azure, como Banco de Dados SQL, e você deve considerar as técnicas a seguir para usar o Bloco de Aplicativos para Tratamento de Falhas Transitórias com o Banco de Dados SQL.
 
-Você pode usar o suporte assíncrono simplificado na versão 5 da linguagem C# para criar versões assíncronas dos métodos fornecidos pelo bloco. Por exemplo, o código a seguir mostra como você pode criar uma versão assíncrona do método de extensão **ExecuteReaderWithRetry**. As alterações e adições no código original são realçadas. O código-fonte para Topaz está disponível no GitHub em [Bloco de Aplicativos para Tratamento de Falhas Transitórias (“Topaz”)](http://topaz.codeplex.com/SourceControl/latest).
+Você pode usar o suporte assíncrono simplificado na versão 5 da linguagem C# para criar versões assíncronas dos métodos fornecidos pelo bloco. Por exemplo, o código a seguir mostra como você pode criar uma versão assíncrona do método de extensão **ExecuteReaderWithRetry**. As alterações e adições no código original são realçadas. O código-fonte para Topaz está disponível no Codeplex em [Bloco de Aplicativos para Tratamento de Falhas Transitórias (“Topaz”)](http://topaz.codeplex.com/SourceControl/latest).
 
 ```csharp
 public async static Task<SqlDataReader> ExecuteReaderWithRetryAsync(this SqlCommand command, RetryPolicy cmdRetryPolicy,
@@ -517,8 +517,6 @@ As políticas de repetição são definidas de modo programático e como uma pol
 
 	namespaceManager.Settings.RetryPolicy = new RetryExponential(minBackoff: TimeSpan.FromSeconds(0.1),
 	                                                             maxBackoff: TimeSpan.FromSeconds(30),
-	                                                             deltaBackoff: TimeSpan.FromSeconds(2),
-	                                                             terminationTimeBuffer: TimeSpan.FromSeconds(5),
 	                                                             maxRetryCount: 3);
 
 Observe que esse código usa parâmetros nomeados para maior clareza. Como alternativa, você pode omitir os nomes, pois nenhum dos parâmetros é opcional.
@@ -530,8 +528,6 @@ Para definir a política de repetição padrão para todos os clientes criados d
 
 	messagingFactory.RetryPolicy = new RetryExponential(minBackoff: TimeSpan.FromSeconds(0.1),
 	                                                    maxBackoff: TimeSpan.FromSeconds(30),
-	                                                    deltaBackoff: TimeSpan.FromSeconds(2),
-	                                                    terminationTimeBuffer: TimeSpan.FromSeconds(5),
 	                                                    maxRetryCount: 3);
 
 Para definir a política de repetição para um cliente de mensagens, ou para substituir sua política padrão, defina a propriedade **RetryPolicy** usando uma instância da classe de política necessária:
@@ -539,8 +535,6 @@ Para definir a política de repetição para um cliente de mensagens, ou para su
 ```csharp
 client.RetryPolicy = new RetryExponential(minBackoff: TimeSpan.FromSeconds(0.1),
 	                                        maxBackoff: TimeSpan.FromSeconds(30),
-	                                        deltaBackoff: TimeSpan.FromSeconds(2),
-	                                        terminationTimeBuffer: TimeSpan.FromSeconds(5),
 	                                        maxRetryCount: 3);
 ```
 
@@ -619,8 +613,6 @@ namespace RetryCodeSamples
 		            new RetryExponential(
 		                minBackoff: TimeSpan.FromSeconds(0),
 		                maxBackoff: TimeSpan.FromSeconds(30),
-		                deltaBackoff: TimeSpan.FromSeconds(1.75),
-		                terminationTimeBuffer: TimeSpan.FromSeconds(4),
 		                maxRetryCount: 3);
 
 		        // Policies cannot be specified on a per-operation basis.
@@ -644,8 +636,6 @@ namespace RetryCodeSamples
 		            new RetryExponential(
 		                minBackoff: TimeSpan.FromSeconds(1),
 		                maxBackoff: TimeSpan.FromSeconds(30),
-		                deltaBackoff: TimeSpan.FromSeconds(2),
-		                terminationTimeBuffer: TimeSpan.FromSeconds(5),
 		                maxRetryCount: 3);
 
 
@@ -664,8 +654,6 @@ namespace RetryCodeSamples
 		            new RetryExponential(
 		                minBackoff: TimeSpan.FromSeconds(0.1),
 		                maxBackoff: TimeSpan.FromSeconds(30),
-		                deltaBackoff: TimeSpan.FromSeconds(2),
-		                terminationTimeBuffer: TimeSpan.FromSeconds(5),
 		                maxRetryCount: 3);
 
 
@@ -725,7 +713,7 @@ A tabela a seguir mostra as configurações padrão da política de repetição 
 |----------------------|-----------------------------------------|-----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ConfigurationOptions | ConnectRetry<br /><br />ConnectTimeout<br /><br />SyncTimeout | 3<br /><br />Máximo de 5000 ms mais SyncTimeout<br />1000 | O número de vezes para repetir tentativas de conexão durante a operação de conexão inicial.<br />Tempo limite (ms) para operações de conexão. Não é um intervalo entre tentativas de repetição.<br />Tempo (ms) para permitir operações síncronas. |
 
-> [AZURE.NOTE]SyncTimeout contribui com a latência de ponta a ponta de uma operação. No entanto, de modo geral, não é recomendável usar operações síncronas. Para saber mais, consulte [Pipelines e multiplexadores](http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md).
+> [AZURE.NOTE] SyncTimeout contribui com a latência de ponta a ponta de uma operação. No entanto, de modo geral, não é recomendável usar operações síncronas. Para saber mais, consulte [Pipelines e multiplexadores](http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md).
 
 ## Diretriz de uso de repetição
 
@@ -899,7 +887,7 @@ Não há mecanismo de repetição interno para Pesquisa, uma vez que o uso comum
 Considere as seguintes diretrizes ao usar a Pesquisa do Azure:
 
 * Use o código de status retornado pelo serviço para determinar o tipo de falha. Os códigos de status são definidos nos [códigos de status HTTP (Pesquisa do Azure)](http://msdn.microsoft.com/library/dn798925.aspx). O código de status 503 (Serviço Indisponível) indica que o serviço está sob carga pesada e a solicitação não pode ser processada imediatamente. A ação adequada é repetir a operação apenas após o tempo permitido para recuperação do serviço. Repetir após um intervalo muito curto provavelmente prolongará a indisponibilidade.
-* Consulte a seção [Diretrizes gerais de repetição e REST](#general-rest-and-retry-guidelines) mais adiante neste guia para obter informações gerais sobre como repetir operações REST.
+* Consulte a seção [Diretrizes gerais de repetição e REST](#general-rest-and-retry-guidelines) mais adiante nesta diretriz para obter informações gerais sobre como repetir operações REST.
 
 ## Mais informações
 
@@ -955,13 +943,11 @@ Considere começar com as seguintes configurações para operações de repetiç
 O exemplo de código a seguir mostra como você pode usar o Bloco de Aplicativos para Tratamento de Falhas Transitórias (Topaz) para definir uma estratégia de detecção de erro transitório personalizada adequada para uso com o cliente ADAL. O código cria uma nova instância **RetryPolicy** com base em uma estratégia de detecção personalizada do tipo **AdalDetectionStrategy**, conforme definido na listagem de códigos abaixo. As estratégias de detecção personalizadas para Topaz implementam a interface **ITransientErrorDetectionStrategy** e retornam verdadeiro se uma tentativa de repetição deve ser realizada ou **falso** se a falha parecer ser não transitória e uma tentativa de repetição não deve ser feita.
 
 	using System;
-	using System.Collections.Generic;
 	using System.Linq;
 	using System.Net;
-	using System.Text;
 	using System.Threading.Tasks;
+	using Microsoft.Practices.TransientFaultHandling;
 	using Microsoft.IdentityModel.Clients.ActiveDirectory;
-	using Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling;
 
 	namespace RetryCodeSamples
 	{
@@ -1121,4 +1107,4 @@ O Bloco de Aplicativos para Tratamento de Falhas Transitórias tem as estratégi
 | **Linear (intervalo fixo)** | retryCount<br />retryInterval<br />fastFirstRetry<br /> | 10<br />1 segundo<br />verdadeiro | O número de tentativas de repetição.<br />O intervalo entre repetições.<br />Se a primeira tentativa de repetição será feita imediatamente. |
 Para exemplos de como usar o Bloco de Aplicativos para Tratamento de Falhas Transitórias, consulte as seções Exemplos anteriormente nesta diretriz para Banco de Dados SQL usando o ADO.NET e Active Directory do Azure.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

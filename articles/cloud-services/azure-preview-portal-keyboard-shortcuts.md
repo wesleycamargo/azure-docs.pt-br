@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="02/07/2016"
    ms.author="curtand"/>
 
 # Atalhos de teclado do portal clássico do Azure
@@ -50,4 +50,4 @@
 
 Conheça melhor o portal clássico do Azure: http://azure.microsoft.com.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

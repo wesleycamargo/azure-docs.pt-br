@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/09/2016"
 	ms.author="markusvi"/>
 
 # Considerações de privacidade e segurança no Cloud App Discovery
@@ -47,7 +47,7 @@ Para obter mais instruções sobre opções de implantação, consulte [Guia de 
 
 ### Dados coletados pelo agente
 
-As informações descritas na lista a seguir são coletadas pelo agente quando é feita uma conexão ao aplicativo Web. As informações são coletadas apenas para os aplicativos que o administrador configurou para descoberta. <br> Você pode editar a lista de aplicativos na nuvem que o agente monitora por meio da folha do Cloud App Discovery no portal do [Microsoft Azure](https://portal.azure.com), em **Configurações**->**Coleta de Dados**->**Lista de Coleção de Aplicativos**. Para obter mais detalhes, consulte [Introdução ao Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx) <br> **Categoria das informações**: informações do usuário <br> **Descrição**: <br> o nome de usuário do Windows do processo que fez uma solicitação ao aplicativo Web de destino (por exemplo: DOMÍNIO\\nomedeusuário), bem como o SID (Identificador de Segurança) do Windows do usuário.
+As informações descritas na lista a seguir são coletadas pelo agente quando é feita uma conexão ao aplicativo Web. As informações são coletadas apenas para os aplicativos que o administrador configurou para descoberta. <br> Você pode editar a lista de aplicativos na nuvem que o agente monitora por meio da folha do Cloud App Discovery no portal do [Microsoft Azure](https://portal.azure.com/), em **Configurações**->**Coleta de Dados**->**Lista de Coleção de Aplicativos**. Para obter mais detalhes, consulte [Introdução ao Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx) <br> **Categoria das informações**: informações do usuário <br> **Descrição**: <br> o nome de usuário do Windows do processo que fez uma solicitação ao aplicativo Web de destino (por exemplo: DOMÍNIO\\nomedeusuário), bem como o SID (Identificador de Segurança) do Windows do usuário.
 
 
 **Categoria das informações**: informações do processo <br> **Descrição**: <br> o nome do processo que fez a solicitação ao aplicativo Web de destino (por exemplo: "iexplore.exe")
@@ -88,8 +88,10 @@ As seguintes informações de HTTP:
 
 
 
-> [AZURE.NOTE]As informações de HTTP acima são coletadas para todas as conexões não criptografadas. Para conexões de TLS, essas informações só são capturadas quando a configuração “Inspeção profunda” é ativada no portal. A configuração é “ON” por padrão. Para obter mais detalhes, consulte abaixo, e [Introdução ao Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)
+> [AZURE.NOTE] As informações de HTTP acima são coletadas para todas as conexões não criptografadas. Para conexões de TLS, essas informações só são capturadas quando a configuração “Inspeção profunda” é ativada no portal. A configuração é “ON” por padrão. Para obter mais detalhes, consulte abaixo, e [Introdução ao Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)
 
+
+Além dos dados que o agente coleta sobre a atividade de rede, ele também coleta informações anônimas sobre a configuração de software e hardware, relatórios de erros e informações sobre como o agente está sendo usado.
 
 <br><br>
 ### Como funciona o agente
@@ -156,7 +158,7 @@ Se o agente não consegue se comunicar com o serviço Cloud App Discovery por al
 
 ## Recebendo os dados ao final do serviço
 
-Os agentes se autenticam no serviço Cloud App Discovery usando o certificado de autenticação de cliente específico do computador mencionado acima e encaminha dados por um canal criptografado. <br> Os processos de pipeline analítico do serviço Cloud App Discovery processam metadados para cada cliente separadamente, particionando-os logicamente em todos os estágios do pipeline analítico Os metadados analisados conduzem os vários relatórios no portal.
+Os agentes se autenticam no serviço Cloud App Discovery usando o certificado de autenticação de cliente específico do computador mencionado acima e encaminha dados por um canal criptografado. <br> Os processos de pipeline analíticos do serviço Cloud App Discovery processa metadados para cada cliente separadamente, particionando-o logicamente em todos os estágios do pipeline de análise. Os metadados analisados conduzem os vários relatórios no portal.
 
 Os metadados não processados e analisados metadados são armazenados por até 180 dias. Além disso, os clientes podem escolher capturar metadados analisados em uma conta de armazenamento de blob do Azure de sua escolha. Isso é útil para análise offline de metadados, bem como retenção mais longa dos dados.
 
@@ -166,15 +168,16 @@ Em um esforço para proteger os metadados coletados seguros, por padrão somente
 
 
 
-> [AZURE.NOTE]Para obter mais detalhes, consulte [Introdução ao Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)
+> [AZURE.NOTE] Para obter mais detalhes, consulte [Introdução ao Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)
 
 <br> Qualquer usuário que acesse dados no portal deve ser licenciado com uma licença do Azure AD Premium.
 
 
 
-**Recursos adicionais**
+##Recursos adicionais
 
 
 * [Como descobrir aplicativos na nuvem não aprovados, usados em minha organização](active-directory-cloudappdiscovery-whatis.md)
+* [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

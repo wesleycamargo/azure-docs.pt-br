@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Como gerenciar um serviço de nuvem | Microsoft Azure" 
+	pageTitle="Tarefas comuns de gerenciamento de serviço de nuvem (clássico) | Microsoft Azure" 
 	description="Saiba como gerenciar serviços de nuvem no portal clássico do Azure." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015"
+	ms.date="01/20/2016"
 	ms.author="adegeo"/>
 
 
@@ -154,7 +154,8 @@ Use o procedimento a seguir para excluir uma implantação ou seu serviço de nu
 
 5. Para excluir o Serviço de Nuvem, clique em **Excluir o Serviço de Nuvem**. Em seguida, clique em **Sim** no prompt de confirmação.
 
-> [AZURE.NOTE]Se o monitoramento detalhado estiver configurado para seu serviço de nuvem, o Azure não exclui os dados de monitoramento de sua conta de armazenamento quando você exclui o serviço de nuvem. Você precisará excluir manualmente os dados. Para saber mais sobre onde encontrar as tabelas de métricas, confira "Como acessar dados detalhados de monitoramento fora do portal clássico do Azure" em [Como monitorar serviços de nuvem](cloud-services-how-to-monitor.md).
+> [AZURE.NOTE]
+Se o monitoramento detalhado estiver configurado para seu serviço de nuvem, o Azure não exclui os dados de monitoramento de sua conta de armazenamento quando você exclui o serviço de nuvem. Você precisará excluir manualmente os dados. Para saber mais sobre onde encontrar as tabelas de métricas, confira "Como acessar dados detalhados de monitoramento fora do portal clássico do Azure" em [Como monitorar serviços de nuvem](cloud-services-how-to-monitor.md).
 
 ## Próximas etapas
 
@@ -163,4 +164,4 @@ Use o procedimento a seguir para excluir uma implantação ou seu serviço de nu
 * Configurar um [nome de domínio personalizado](cloud-services-custom-domain-name.md).
 * Configurar [certificados SSL](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

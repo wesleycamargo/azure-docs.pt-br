@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/13/2015"
-	ms.author="georgem"/>
+	ms.date="02/09/2016"
+	ms.author="georgem;tomfitz"/>
 
 
 # Considerações de segurança do Gerenciador de Recursos do Azure
@@ -147,6 +147,8 @@ O fragmento do modelo abaixo deveria ser composto em construções de implantaç
         }
     }
 
+Para passar um valor de um cofre de chave como um parâmetro durante a implantação de um modelo, consulte [Passar valores seguros durante a implantação](resource-manager-keyvault-parameter.md).
+
 ## Entidades de serviço para interações entre assinaturas
 
 As identidades de serviço são representadas por entidades de serviço no Active Directory. As entidades de serviço estarão no centro de cenários de habilitação de chave para organizações de TI corporativas, SI (integradores de sistemas) e CSV (fornecedores de serviços de nuvem). Especificamente, haverá casos de uso em que uma dessas organizações precisará interagir com a assinatura de um de seus clientes.
@@ -174,7 +176,7 @@ Um grupo de segurança de rede é um objeto de nível superior associado à sua 
 
 Você pode associar um NSG a uma VM ou a uma sub-rede em uma rede virtual. Quando associado a uma máquina virtual, o NSG se aplica a todo o tráfego que é enviado e recebido pela instância de VM. Quando aplicado a uma sub-rede na rede virtual, ele se aplica a todo o tráfego que é enviado e recebido por todas as instâncias de VM na sub-rede. Uma VM ou sub-rede pode ser associada a apenas um NSG, no entanto, cada NSG pode conter até 200 regras. Você pode ter 100 NSGs por assinatura.
 
->[AZURE.NOTE]Não há suporte para grupos de segurança de rede e ACLs baseadas em ponto de extremidade na mesma instância de VM. Se você quiser usar um NSG e já tiver uma ACL de ponto de extremidade à disposição, primeiro remova a ACL de ponto de extremidade. Para saber mais sobre como fazer isso, confira [Gerenciando listas de controle de acesso (ACLs) para pontos de extremidade usando o PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
+>[AZURE.NOTE]  Não há suporte para grupos de segurança de rede e ACLs baseadas em ponto de extremidade na mesma instância de VM. Se você quiser usar um NSG e já tiver uma ACL de ponto de extremidade à disposição, primeiro remova a ACL de ponto de extremidade. Para saber mais sobre como fazer isso, confira [Gerenciando listas de controle de acesso (ACLs) para pontos de extremidade usando o PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
 
 ### Como funcionam os grupos de segurança de rede
 
@@ -306,7 +308,7 @@ Cada sub-rede criada em uma rede virtual é associada automaticamente a uma tabe
 
 No momento em que este artigo foi escrito, a [Rota Expressa](expressroute/expressroute-introduction.md) ainda não tinha suporte no [Provedor de Recursos de Rede](virtual-network/resource-groups-networking.md) para o Gerenciador de Recursos do Azure. Se houver uma conexão de Rota Expressa entre sua rede local e o Azure, você poderá habilitar o BGP para propagar rotas da rede local para o Azure assim que o provedor de recursos de rede der suporte à Rota Expressa. Essas rotas BGP são usadas da mesma maneira que as rotas padrão e as rotas definidas pelo usuário em cada sub-rede do Azure. Para obter mais informações, consulte [Introdução ao ExpressRoute](expressroute/expressroute-introduction.md).
 
->[AZURE.NOTE]Quando o NRP der suporte à Rota Expressa, você poderá configurar seu ambiente do Azure para usar um túnel à força por meio de sua rede local, criando uma rota definida pelo usuário para a sub-rede 0.0.0.0/0 que usa o gateway de VPN como o próximo salto. No entanto, isso só funcionará se você estiver usando um gateway de VPN, não o ExpressRoute. Para o ExpressRoute, o túnel à força é configurado por meio do BGP.
+>[AZURE.NOTE] Quando o NRP der suporte à Rota Expressa, você poderá configurar seu ambiente do Azure para usar um túnel à força por meio de sua rede local, criando uma rota definida pelo usuário para a sub-rede 0.0.0.0/0 que usa o gateway de VPN como o próximo salto. No entanto, isso só funcionará se você estiver usando um gateway de VPN, não o ExpressRoute. Para o ExpressRoute, o túnel à força é configurado por meio do BGP.
 
 ### Rotas definidas pelo usuário
 
@@ -323,7 +325,7 @@ As sub-redes contam com rotas padrão até que uma tabela de rotas seja associad
 2.	Rota BGP (quando o ExpressRoute é usado)
 3.	Rota padrão
 
->[AZURE.NOTE]As rotas definidas pelo usuário são aplicadas apenas a VMs do Azure e a serviços de nuvem. Por exemplo, se desejar adicionar um dispositivo virtual de firewall entre sua rede local e o Azure, você terá que criar uma rota definida pelo usuário para as tabelas de rotas do Azure que encaminham todo o tráfego direcionado ao espaço de endereço local para o dispositivo virtual. No entanto, o tráfego de entrada do espaço de endereço local fluirá através de seu gateway de VPN ou circuito do ExpressRoute diretamente para o ambiente do Azure, ignorando o dispositivo virtual.
+>[AZURE.NOTE] As rotas definidas pelo usuário são aplicadas apenas a VMs do Azure e a serviços de nuvem. Por exemplo, se desejar adicionar um dispositivo virtual de firewall entre sua rede local e o Azure, você terá que criar uma rota definida pelo usuário para as tabelas de rotas do Azure que encaminham todo o tráfego direcionado ao espaço de endereço local para o dispositivo virtual. No entanto, o tráfego de entrada do espaço de endereço local fluirá através de seu gateway de VPN ou circuito do ExpressRoute diretamente para o ambiente do Azure, ignorando o dispositivo virtual.
 
 ### Encaminhamento IP
 
@@ -332,9 +334,9 @@ Conforme descrito acima, uma das principais razões para criar uma rota definida
 Essa VM de dispositivo virtual deve ser capaz de receber o tráfego de entrada não endereçado a si mesma. Para permitir que uma VM receba o tráfego endereçado a outros destinos, você deve habilitar o Encaminhamento IP na VM.
 
 ## Próximas etapas
-- Para entender como configurar as entidades de segurança com o acesso correto para funcionar com os recursos em sua organização, consulte [Autenticando uma entidade de serviço com o Gerenciador de Recursos do Azure](resource-group-authenticate-service-principal.md)
+- Para entender como configurar as entidades de segurança com o acesso correto para funcionar com os recursos em sua organização, consulte [Autenticação de uma entidade de serviço com o Gerenciador de Recursos do Azure](resource-group-authenticate-service-principal.md)
 - Se precisar bloquear o acesso a um recurso, você pode usar bloqueios de gerenciamento. Consulte [Bloquear recursos com o Gerenciador de Recursos do Azure](resource-group-lock-resources.md)
 - Para configurar o roteamento e o encaminhamento IP, consulte [Como criar rotas e habilitar o encaminhamento IP no Azure](virtual-network/virtual-networks-udr-how-to.md) 
-- Para obter uma visão geral do controle de acesso baseado em função, veja [Controle de acesso baseado em função no portal do Microsoft Azure](role-based-access-control-configure.md).
+- Para obter uma visão geral do controle de acesso baseado em função, consulte [Controle de acesso baseado em função no portal do Microsoft Azure](role-based-access-control-configure.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="12/18/2015"
+   ms.date="02/04/2016"
    ms.author="alkohli"/>
 
 # Software StorSimple, alta disponibilidade e requisitos de rede
@@ -35,11 +35,11 @@ Os requisitos de software a seguir são para os clientes de armazenamento que ac
 
 | Sistemas operacionais com suporte | Versão necessária | Requisitos/observações adicionais |
 | --------------------------- | ---------------- | ------------- |
-| Windows Server | 2008R2 SP1, 2012, 2012R2 |Os volumes StorSimple iSCSI são suportados para o uso somente nos seguintes tipos de disco do Windows:<ul><li>Volume simples no disco básico</li><li>Volume simples e espelhado no disco dinâmico</li></ul>O provisionamento dinâmico do Windows Server 2012 e dos recursos ODX serão suportados se você estiver usando um volume StorSimple iSCSI.<br><br>O StorSimple pode criar apenas volumes escassamente provisionados. Ele não pode criar volumes parcial ou totalmente provisionados.<br><br>Reformatar um volume de provisionamento dinâmico pode levar muito tempo. É recomendável excluir o volume e criar um novo em vez de reformatar. No entanto, se você ainda preferir reformatar um volume:<ul><li>execute o comando a seguir antes de reformatar para evitar atrasos de reclamação de espaço: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>depois da conclusão da formatação, use o seguinte comando para reativar a reclamação de espaço:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>aplique o hotfix do Windows Server 2012, conforme descrito em [KB 2878635](https://support.microsoft.com/kb/2870270) em seu computador Windows Server.</li></ul></li></ul></ul> Se você estiver configurando o Gerenciador de Instantâneos do StorSimple ou o Adaptador do StorSimple para SharePoint, vá para [Requisitos de software para os componentes opcionais](#software-requirements-for-optional-components).|
-| VMWare ESX | 5\.1 | Suportado com o VMware vSphere 5.1 como cliente iSCSI. O recurso de bloco VAAI é suportado com o VMware vSphere v.5.1 nos dispositivos StorSimple. 
+| Windows Server | 2008R2 SP1, 2012, 2012R2 |Os volumes iSCSI do StorSimple são permitidos para o uso somente nos seguintes tipos de disco do Windows:<ul><li>Volume simples no disco básico</li><li>Volume simples e espelhado no disco dinâmico</li></ul>O provisionamento dinâmico do Windows Server 2012 e dos recursos ODX serão permitidos se você estiver usando um volume iSCSI do StorSimple.<br><br>O StorSimple pode criar volumes dinâmica ou totalmente provisionados. Não é possível criar volumes parcialmente provisionados.<br><br>Reformatar um volume de provisionamento dinâmico pode levar muito tempo. É recomendável excluir o volume e criar um novo em vez de reformatar. No entanto, se você ainda preferir reformatar um volume:<ul><li>execute o comando a seguir antes de reformatar para evitar atrasos de reclamação de espaço: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>depois da conclusão da formatação, use o seguinte comando para reativar a reclamação de espaço:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>aplique o hotfix do Windows Server 2012, conforme descrito em [KB 2878635](https://support.microsoft.com/kb/2870270) em seu computador Windows Server.</li></ul></li></ul></ul> Se você estiver configurando o Gerenciador de Instantâneos do StorSimple ou o Adaptador do StorSimple para SharePoint, vá para [Requisitos de software para os componentes opcionais](#software-requirements-for-optional-components).|
+| VMWare ESX | 5\.1 e 5.5 | Compatível com o VMware vSphere como cliente iSCSI. O recurso de bloco VAAI é compatível com o VMware vSphere nos dispositivos StorSimple. 
 | Linux RHEL/CentOS | 5 e 6 | Suporte para os clientes Linux iSCSI com o iniciador open-iSCSI versões 5 e 6. |
 | Linux | SUSE Linux 11 | |
- >[AZURE.NOTE]O IBM AIX não é suportado atualmente com o StorSimple.
+ > [AZURE.NOTE] O IBM AIX não é suportado atualmente com o StorSimple.
 
 ## Requisitos de software para os componentes opcionais
 
@@ -67,17 +67,17 @@ Seu dispositivo StorSimple é um dispositivo bloqueado. No entanto, é preciso a
 
 <sup>1</sup> Nenhuma porta de entrada precisa estar aberta na Internet pública.
 
-<sup>2</sup> Se várias portas tiverem uma configuração de gateway, a ordem do tráfego de saída roteado será determinada com base na ordem de roteamento da porta descrita em [Roteamento de porta](#port-routing) abaixo.
+<sup>2</sup> Se várias portas tiverem uma configuração de gateway, a ordem do tráfego de saída roteado será determinada com base na ordem de roteamento da porta descrita em [Roteamento de porta](#routing-metric) abaixo.
 
 <sup>3</sup> Os IPs fixos do controlador em seu dispositivo StorSimple devem ser roteáveis e conseguirem se conectar à Internet. Os endereços IP fixos são usados para fornecer as atualizações ao dispositivo. Se os controladores de dispositivo não puderem se conectar à Internet através de IPs fixa, não será possível atualizar o dispositivo StorSimple.
 
-> [AZURE.IMPORTANT]Verifique se o firewall não modifica nem descriptografa nenhum tráfego SSL entre o dispositivo StorSimple e o Azure.
+> [AZURE.IMPORTANT] Verifique se o firewall não modifica nem descriptografa nenhum tráfego SSL entre o dispositivo StorSimple e o Azure.
 
 ### Métrica de roteamento
 
 Uma métrica de roteamento é associada às interfaces e ao gateway que encaminha os dados para as redes especificadas. A métrica de roteamento é usada pelo protocolo de roteamento para calcular o melhor caminho para um determinado destino, se ela detecta que existem vários caminhos para o mesmo destino. Quanto menor a métrica de roteamento, maior será a preferência.
 
-No contexto do StorSimple, se vários gateways e interfaces de rede estiverem configurados para encaminhar o tráfego, a métrica de roteamento entrará em ação para determinar a ordem relativa em que as interfaces serão usadas. A métrica de roteamento não pode ser alterada pelo usuário. No entanto, você pode usar o cmdlet `Get-HcsRoutingTable` para imprimir a tabela de roteamento (e as métricas) em seu dispositivo do StorSimple. Mais informações sobre o [cmdlet Get-HcsRoutingTable](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-hcsroutingtable-cmdlet)
+No contexto do StorSimple, se vários gateways e interfaces de rede estiverem configurados para encaminhar o tráfego, a métrica de roteamento entrará em ação para determinar a ordem relativa em que as interfaces serão usadas. A métrica de roteamento não pode ser alterada pelo usuário. No entanto, você pode usar o cmdlet `Get-HcsRoutingTable` para imprimir a tabela de roteamento (e as métricas) em seu dispositivo do StorSimple. Mais informações sobre o cmdlet Get-HcsRoutingTable em [Solução de problemas com a implantação do StorSimple](storsimple-troubleshoot-deployment.md).
 
 Os algoritmos de métrica de roteamento são diferentes, dependendo da versão de software em execução no dispositivo do StorSimple.
 
@@ -118,7 +118,7 @@ A Atualização 2 contém vários aprimoramentos relacionados à rede; além dis
 
 - A ordem na qual o tráfego da nuvem será roteado pelas interfaces de rede é:
 	 
-	*Data 0 > Data 1 > Date 2 > Data 4 > Data 5*
+	*Data 0 > Data 1 > Data 2 > Data 3 > Data 4 > Data 5*
 
 	Isso pode ser explicado pelo exemplo a seguir.
 
@@ -153,7 +153,7 @@ Além dos requisitos de rede acima, para obter o desempenho ideal de sua soluç�
 
 - Verifique a conectividade de rede com a Internet está disponível sempre. Conexões de Internet esporádicas ou não confiáveis com os dispositivos, sem incluir qualquer conectividade com a Internet, resultarão em uma configuração sem suporte.
 
-- Isole o tráfego iSCSI e o tráfego de nuvem com interfaces de rede dedicadas em seu dispositivo para acesso iSCSI e à nuvem. Para obter mais informações, veja como [modificar as interfaces de rede](storsimple-modify-device-config.md#modify-network-interfaces) em seu dispositivo do StorSimple.
+- Isole o tráfego iSCSI e o tráfego de nuvem com interfaces de rede dedicadas em seu dispositivo para acesso iSCSI e à nuvem. Para obter mais informações, veja como [modificar as interfaces de rede](storsimple-modify-device-config.md#modify-network-interfaces) em seu dispositivo StorSimple.
 
 - Não use uma configuração do LACP (Protocolo de Agregação de Link) para as suas interfaces de rede. Essa é uma configuração sem suporte.
 
@@ -211,11 +211,11 @@ Cada módulo de controlador do dispositivo StorSimple tem quatro interfaces de r
 
 - Quando possível, use o MPIO em servidores para garantir que os servidores possam tolerar um link, rede ou falha de interface.
 
-Para saber mais sobre como colocar o dispositivo em rede para ter uma alta disponibilidade e desempenho, acesse [Instalar o dispositivo do StorSimple 8100](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device) ou [Instalar o dispositivo do StorSimple 8600](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device).
+Para saber mais sobre como colocar o dispositivo em rede para proporcionar alta disponibilidade e desempenho, acesse [Instalar o dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device) ou [Instalar o dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device).
 
 #### SSDs e HDDs
 
-Dispositivos StorSimple incluem discos de estado sólido (SSDs) e unidades de disco rígido (HDDs) protegidos com espaços espelhados, e uma espera ativa é fornecida para as HDDs. O uso de espaços espelhados garante que o dispositivo seja capaz de tolerar a falha de um ou mais SSDs ou HDDs.
+Dispositivos StorSimple incluem discos de estado sólido (SSDs) e unidades de disco rígido (HDDs) protegidos com espaços espelhados. O uso de espaços espelhados garante que o dispositivo seja capaz de tolerar a falha de um ou mais SSDs ou HDDs.
 
 - Certifique-se de que todos os módulos SSD e HDD estejam instalados.
 
@@ -256,9 +256,9 @@ Leia com atenção essas práticas recomendadas para garantir a alta disponibili
 ## Próximas etapas
 
 - [Saiba mais sobre os limites do sistema StorSimple](storsimple-limits.md).
-- [Saiba como implantar sua solução do StorSimple](storsimple-deployment-walkthrough.md).
+- [Saiba como implantar sua solução StorSimple](storsimple-deployment-walkthrough-u2.md).
  
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

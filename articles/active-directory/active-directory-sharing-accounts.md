@@ -13,7 +13,7 @@
  	ms.tgt_pltfrm="na"
  	ms.devlang="na"
  	ms.topic="article"
- 	ms.date="10/16/2015"  
+ 	ms.date="02/09/2016"  
  	ms.author="stevenpo"/>
 
 # Compartilhar contas com o AD do Azure
@@ -44,7 +44,7 @@ Os usuários fazem logon uma vez com sua conta institucional. Essa é a mesma co
 
 As contas compartilhadas não apenas aumentam a supervisão e melhoram a utilização, como também aumentam a segurança. Os usuários com permissões para usar as credenciais não vejam a senha compartilhada, mas em vez disso, obtém as permissões para usar a senha como parte de um fluxo de autenticação orquestrado. Além disso, com alguns aplicativos de SSO de senha, você tem a opção de o AD do Azure periodicamente substituir (atualização) a senha usando senhas grandes e complexas, aumentando a segurança da conta. O administrador pode conceder ou revogar facilmente o acesso a um aplicativo e também saber quem tem acesso à conta e quem acessou no passado.
 
-O AD do Azure oferece suporte a contas compartilhadas para qualquer usuário licenciado do Enterprise Mobility Suite (EMS), Premium ou Basic, em todos os tipos de aplicativos de logon único com senha. Você pode compartilhar as contas para qualquer um dos milhares de aplicativos previamente integrados na galeria de aplicativos e pode adicionar seu próprio aplicativo de autenticação de senha com os [aplicativos personalizados de SSO](active-directory-single-sign-on-newly-acquired-saas-apps.md).
+O AD do Azure oferece suporte a contas compartilhadas para qualquer usuário licenciado do Enterprise Mobility Suite (EMS), Premium ou Basic, em todos os tipos de aplicativos de logon único com senha. Você pode compartilhar as contas para qualquer um dos milhares de aplicativos previamente integrados na galeria de aplicativos e pode adicionar seu próprio aplicativo de autenticação de senha com os [aplicativos personalizados de SSO](active-directory-sso-integrate-saas-apps.md).
 
 Recursos do AD do Azure que permitem o compartilhamento de contas incluem:
 
@@ -55,7 +55,7 @@ Recursos do AD do Azure que permitem o compartilhamento de contas incluem:
 - [Painel/relatórios de uso de aplicativo](active-directory-passwords-get-insights.md)
 - Portais de acesso do usuário final
 - [Proxy do aplicativo](active-directory-application-proxy-get-started.md)
-- [Active Directory Marketplace](http://azure.microsoft.com/marketplace/active-directory/all/)
+- [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/all/)
 
 ## Compartilhamento de uma conta
 Para usar o AD do Azure para compartilhar uma conta, você precisará:
@@ -69,7 +69,8 @@ Você também pode tornar sua conta compartilhada mais segura com o Multi-Factor
 
 ## Artigos relacionados
 
+- [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 - [Proteger aplicativos com acesso condicional](active-directory-conditional-access.md)
 - [Gerenciamento de grupo de autoatendimento/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

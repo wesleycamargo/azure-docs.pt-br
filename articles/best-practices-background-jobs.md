@@ -171,7 +171,7 @@ Considere os seguintes pontos ao escolher como e onde implantar tarefas em segun
 
 As tarefas em segundo plano podem ser implementadas de forma que as impeça de serem implantadas nos Aplicativos Web do Azure ou nos Serviços de Nuvem, ou essas opções podem não ser convenientes. Exemplos típicos são serviços do Windows, utilitários de terceiros e programas executáveis. Isso também pode incluir programas escritos para um ambiente de execução diferente daquele que hospeda o aplicativo; por exemplo, pode ser um programa Unix ou Linux que você deseja executar por meio de um aplicativo Windows ou .NET. Você pode escolher entre uma variedade de sistemas operacionais para uma máquina virtual do Azure e executar o serviço ou o executável naquela máquina virtual.
 
-Para ajudar com a escolha de quando usar Máquinas Virtuais, confira a [Comparação de Serviço de Aplicativo, Serviços de Nuvem e Máquinas Virtuais do Azure](choose-web-site-cloud-service-vm.md). Para obter informações sobre as opções para [Máquinas Virtuais, consulte a Máquina Virtual e os tamanhos de Serviço de Nuvem do Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Para obter mais informações sobre os sistemas operacionais e imagens predefinidas disponíveis para Máquinas Virtuais, consulte a [Galeria de Máquinas Virtuais do Azure](http://azure.microsoft.com/gallery/virtual-machines/).
+Para ajudar com a escolha de quando usar Máquinas Virtuais, confira a [Comparação de Serviço de Aplicativo, Serviços de Nuvem e Máquinas Virtuais do Azure](choose-web-site-cloud-service-vm.md). Para obter informações sobre as opções para [Máquinas Virtuais, consulte a Máquina Virtual e os tamanhos de Serviço de Nuvem do Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Para obter mais informações sobre os sistemas operacionais e imagens predefinidas disponíveis para Máquinas Virtuais, consulte a [Galeria de Máquinas Virtuais do Azure](https://azure.microsoft.com/gallery/virtual-machines/).
 
 Para iniciar a tarefa em segundo plano em uma máquina virtual separada, você tem várias opções:
 
@@ -191,7 +191,7 @@ Considere os seguintes pontos ao decidir se deseja implantar tarefas em segundo 
 
 ### Mais informações
 
-- [Máquinas Virtuais](http://azure.microsoft.com/services/virtual-machines/) no Azure
+- [Máquinas Virtuais](https://azure.microsoft.com/services/virtual-machines/) no Azure
 - [Perguntas frequentes sobre Máquinas Virtuais do Azure](virtual-machines-questions.md)
 
 ## Considerações sobre o design
@@ -317,4 +317,4 @@ As tarefas em segundo plano devem oferecer desempenho suficiente para garantir q
 - [Filas do Azure e filas do Barramento de Serviço – comparações e contrastes](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - [Como habilitar o diagnóstico em um serviço de nuvem](cloud-services-dotnet-diagnostics.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

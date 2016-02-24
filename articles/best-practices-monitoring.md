@@ -37,7 +37,7 @@ O monitoramento permite que você obtenha uma visão geral de como um sistema es
 - Rastrear problemas que ocorrem, desde o relatório inicial por meio da análise de possíveis causas à retificação, atualizações de software resultantes e implantações.
 - Controlar as operações e depurar versões de software.
 
-> [AZURE.NOTE]Esta lista não se destina a ser completamente abrangente. Este documento se concentra nesses cenários como as situações mais comuns para realizar o monitoramento, mas pode haver outras menos comuns ou que sejam específicas para seu ambiente.
+> [AZURE.NOTE] Esta lista não se destina a ser completamente abrangente. Este documento se concentra nesses cenários como as situações mais comuns para realizar o monitoramento, mas pode haver outras menos comuns ou que sejam específicas para seu ambiente.
 
 As seções a seguir descrevem esses cenários mais detalhadamente. As informações sobre cada cenário são abordadas no seguinte formato:
 
@@ -108,7 +108,7 @@ Conforme o sistema é colocado cada vez mais sob pressão enquanto o volume de u
 
 O desempenho do sistema depende de vários fatores. Cada fator normalmente é medido usando KPIs (indicadores chave de desempenho), como o número de transações de banco de dados por segundo ou o volume de solicitações de rede que são atendidas com êxito em um determinado período de tempo. Alguns desses KPIs podem estar disponíveis como medidas de desempenho específicas, enquanto outros podem ser derivados de uma combinação de métricas.
 
-> [AZURE.NOTE]Para determinar se o desempenho é bom ou insatisfatório, você precisa compreender o nível de desempenho em que o sistema deveria ser capaz de ser executado. Para isso, é necessário observar o sistema enquanto ele está funcionando com uma carga típica e capturar os dados de cada KPI ao longo de um período de tempo. Isso pode envolver executar o sistema com uma carga simulada em um ambiente de teste e coletar os dados apropriados antes de implantar o sistema em um ambiente de produção.
+> [AZURE.NOTE] Para determinar se o desempenho é bom ou insatisfatório, você precisa compreender o nível de desempenho em que o sistema deveria ser capaz de ser executado. Para isso, é necessário observar o sistema enquanto ele está funcionando com uma carga típica e capturar os dados de cada KPI ao longo de um período de tempo. Isso pode envolver executar o sistema com uma carga simulada em um ambiente de teste e coletar os dados apropriados antes de implantar o sistema em um ambiente de produção.
 
 > Você também deve garantir que o monitoramento para fins de desempenho não se torne uma carga desnecessária para o sistema. Talvez você possa ajustar dinamicamente o nível de detalhes dos dados que o processo de monitoramento de desempenho coleta.
 
@@ -194,7 +194,7 @@ Um recurso do monitoramento de segurança é a variedade de fontes das quais os 
 ## Monitoramento de SLA
 Muitos sistemas comerciais que dão suporte a clientes pagantes fazem garantias quanto ao desempenho do sistema na forma de SLAs. Essencialmente, os SLAs declaram que o sistema é capaz de lidar com um volume definido de trabalho dentro de um período de tempo acordado e sem perder informações críticas. O monitoramento de SLA envolve garantir que o sistema possa atender a SLAs mensuráveis.
 
-> [AZURE.NOTE]O monitoramento de SLA está intimamente relacionado ao monitoramento de desempenho, mas enquanto o monitoramento de desempenho tem a finalidade de garantir que o sistema tenha um funcionamento _ideal_, o monitoramento de SLA é governado por uma obrigação contratual que define o que _ideal_ realmente significa.
+> [AZURE.NOTE] O monitoramento de SLA está intimamente relacionado ao monitoramento de desempenho, mas enquanto o monitoramento de desempenho tem a finalidade de garantir que o sistema tenha um funcionamento _ideal_, o monitoramento de SLA é governado por uma obrigação contratual que define o que _ideal_ realmente significa.
 
 Frequentemente, os SLAs são definidos em termos de:
 
@@ -202,7 +202,7 @@ Frequentemente, os SLAs são definidos em termos de:
 - Taxa de transferência operacional. Esse aspecto frequentemente é expresso como um ou mais limites máximos, como garantir que o sistema será capaz de dar suporte a até 100.000 solicitações de usuários simultâneas ou de manipular 10.000 transações de negócios simultâneas.
 - Tempo de resposta operacional. O sistema também pode fazer garantias quanto à taxa na qual as solicitações serão processadas. Por exemplo, 99% de todas as transações de negócios serão concluídas em 2 segundos, e nenhuma transação levará mais de 10 segundos.
 
-> [AZURE.NOTE]Alguns contratos para sistemas comerciais também podem incluir SLAs referentes ao suporte ao cliente. Por exemplo, todas as solicitações de suporte técnico obterão uma resposta dentro de 5 minutos e 99% de todos os problemas deverão ser totalmente resolvidos dentro de 1 dia útil. Um [acompanhamento de questões](#issue-tracking) (descrito posteriormente nesta seção) eficaz é fundamental para atender a SLAs como esses.
+> [AZURE.NOTE] Alguns contratos para sistemas comerciais também podem incluir SLAs referentes ao suporte ao cliente. Por exemplo, todas as solicitações de suporte técnico obterão uma resposta dentro de 5 minutos e 99% de todos os problemas deverão ser totalmente resolvidos dentro de 1 dia útil. Um [acompanhamento de questões](#issue-tracking) (descrito posteriormente nesta seção) eficaz é fundamental para atender a SLAs como esses.
 
 ### Requisitos para monitoramento de SLA
 No nível mais amplo, um operador deve ser capaz de determinar rapidamente se o sistema está cumprindo com os SLAs ou não. E se não, fazer uma busca detalhada e examinar os fatores subjacentes para determinar os motivos para o desempenho abaixo do padrão.
@@ -218,7 +218,7 @@ Todos esses indicadores devem ser capazes de ser filtrados por um período de te
 
 Um aplicativo em nuvem provavelmente incluirá um número de subsistemas e componentes. O operador deve ser capaz de selecionar um indicador amplo e ver como ele é composto por meio da integridade dos elementos subjacentes. Por exemplo, se o tempo de atividade do sistema geral ficar abaixo de um valor aceitável, o operador deve ser capaz de ter uma visão detalhadas para determinar quais elementos estão contribuindo para essa falha.
 
-> [AZURE.NOTE]O tempo de atividade do sistema precisa ser definido com cuidado. Em um sistema que usa a redundância para garantir a disponibilidade máxima, instâncias individuais de elementos podem falhar, mas o sistema pode permanecer funcional. O tempo de atividade do sistema apresentado pelo monitoramento da integridade deve indicar o tempo de atividade agregado de cada elemento, e não necessariamente se o sistema foi de fato interrompido. Além disso, falhas podem ocorrer de modo isolado. Portanto, mesmo se um sistema específico não estiver disponível, o restante do sistema pode permanecer disponível, mas com funcionalidade reduzida (em um sistema de comércio eletrônico, uma falha no sistema pode impedir que o cliente faça pedidos, mas o cliente ainda poderá navegar pelo catálogo de produtos).
+> [AZURE.NOTE] O tempo de atividade do sistema precisa ser definido com cuidado. Em um sistema que usa a redundância para garantir a disponibilidade máxima, instâncias individuais de elementos podem falhar, mas o sistema pode permanecer funcional. O tempo de atividade do sistema apresentado pelo monitoramento da integridade deve indicar o tempo de atividade agregado de cada elemento, e não necessariamente se o sistema foi de fato interrompido. Além disso, falhas podem ocorrer de modo isolado. Portanto, mesmo se um sistema específico não estiver disponível, o restante do sistema pode permanecer disponível, mas com funcionalidade reduzida (em um sistema de comércio eletrônico, uma falha no sistema pode impedir que o cliente faça pedidos, mas o cliente ainda poderá navegar pelo catálogo de produtos).
 
 Para fins de alerta, o sistema deve ser capaz de acionar um evento se qualquer um dos indicadores amplos ultrapassar um limite especificado. Os detalhes dos diversos fatores que compõem o indicador mais amplo devem estar disponíveis como dados contextuais para o sistema de alertas.
 
@@ -316,7 +316,7 @@ Se um usuário relatar um problema conhecido, que tem uma solução conhecida no
 ## Rastreando operações e depurando versões de software.
 Quando relata um problema, o usuário normalmente está ciente apenas do impacto imediato que ele tem sobre suas operações e pode somente relatar os resultados de sua própria experiência para um operador responsável por manter o sistema. Essas experiências geralmente são apenas um sintoma visível de um ou mais problemas fundamentais. Em muitos casos, um analista precisará estudar a cronologia das operações subjacentes para estabelecer a causa raiz do problema (este processo é conhecido como _Análise de causa raiz_).
 
-> [AZURE.NOTE]A Análise de causa raiz pode revelar ineficiências no design de um aplicativo. Nessas situações, talvez seja possível refazer os elementos afetados e implantá-los como parte de uma versão subsequente. Esse processo requer um controle cuidadoso, e os componentes atualizados devem ser monitorados de perto.
+> [AZURE.NOTE] A Análise de causa raiz pode revelar ineficiências no design de um aplicativo. Nessas situações, talvez seja possível refazer os elementos afetados e implantá-los como parte de uma versão subsequente. Esse processo requer um controle cuidadoso, e os componentes atualizados devem ser monitorados de perto.
 
 ### Requisitos para rastreamento e depuração
 Para rastrear eventos inesperados e outros problemas, é vital que os dados de monitoramento forneçam informações suficientes não apenas sobre os problemas que ocorrem no nível mais amplo, mas também incluam detalhes suficientes para permitir que o analista rastreie as origens desses problemas e reconstrua a sequência dos eventos ocorridos. Essas informações devem ser suficientes para permitir que o analista diagnostique a causa raiz de quaisquer problemas, de modo que o desenvolvedor possa fazer as modificações necessárias para impedir que eles ocorram novamente.
@@ -346,7 +346,7 @@ As informações usadas pelo processo de monitoramento podem vir de várias font
 
 Muitos aplicativos fazem uso de bibliotecas e estruturas para executar tarefas comuns como acessar um armazenamento de dados ou se comunicar em uma rede. Essas estruturas podem ser configuráveis para gerar suas próprias mensagens de rastreamento e informações de diagnóstico brutas, como taxas de transação, falhas e êxitos de transmissão de dados e assim por diante.
 
-> [AZURE.NOTE]Muitas estruturas modernas publicam o desempenho e rastreiam eventos automaticamente, e capturar essas informações é simplesmente uma questão de fornecer um meio de recuperar e armazená-las onde elas puderem ser processadas e analisadas.
+> [AZURE.NOTE] Muitas estruturas modernas publicam o desempenho e rastreiam eventos automaticamente, e capturar essas informações é simplesmente uma questão de fornecer um meio de recuperar e armazená-las onde elas puderem ser processadas e analisadas.
 
 O sistema operacional que está executando o aplicativo pode ser uma fonte de informações detalhadas de todo o sistema, como contadores de desempenho que indicam o uso da CPU, a utilização da memória e as taxas de E/S. Também podem ser relatados erros do sistema operacional (por exemplo, uma falha ao abrir um arquivo corretamente).
 
@@ -366,11 +366,11 @@ Além disso, seu código e/ou a infra-estrutura subjacente pode gerar eventos em
 
 - **Monitoramento do usuário real**. Essa abordagem registra as interações entre um usuário e o aplicativo e observa o fluxo de cada solicitação e resposta. Essas informações podem ter um propósito duplo: podem ser usadas para medir o uso por cada usuário e para determinar se os usuários estão recebendo uma qualidade de serviço adequada (por exemplo, tempos de resposta rápidos, baixa latência e pequenos erros que ocorrem). Os dados capturados podem ser usados para identificar áreas de preocupação em que falhas ocorrem com mais frequência e elementos em que o sistema fica mais lento, possivelmente devido a pontos problemáticos no aplicativo ou alguma outra forma de afunilamento. Se essa abordagem for implementada com cuidado, é possível reconstruir os fluxos dos usuários pelo aplicativo para fins de teste e depuração.
 
-	> [AZURE.IMPORTANT]Os dados capturados pelo monitoramento de usuários reais devem ser considerados altamente confidenciais, uma vez que podem incluir material confidencial. Se forem salvos, os dados capturados devem ser armazenados com segurança. Se os dados estiverem sendo usados para fins de monitoramento de desempenho ou depuração, todas as informações de identificação pessoal devem ser excluídas primeiro.
+	> [AZURE.IMPORTANT] Os dados capturados pelo monitoramento de usuários reais devem ser considerados altamente confidenciais, uma vez que podem incluir material confidencial. Se forem salvos, os dados capturados devem ser armazenados com segurança. Se os dados estiverem sendo usados para fins de monitoramento de desempenho ou depuração, todas as informações de identificação pessoal devem ser excluídas primeiro.
 
 - **Monitoramento de usuário sintético**. Nessa abordagem, você deve escrever seu próprio cliente de teste, que simula um usuário e executa uma série de operações configuráveis típicas. Você pode monitorar o desempenho do cliente de teste para ajudar a determinar o estado do sistema. Você também pode usar várias instâncias do cliente de teste como parte de uma operação de teste de carga para estabelecer qual é a resposta do sistema sob cargas excessivas e que tipo de saída de monitoramento é gerada sob essas condições.
 
-	> [AZURE.NOTE]Você pode implementar o monitoramento de usuários reais e sintéticos incluindo um código que rastreie e temporize a execução de chamadas de método e outras partes essenciais de um aplicativo.
+	> [AZURE.NOTE] Você pode implementar o monitoramento de usuários reais e sintéticos incluindo um código que rastreie e temporize a execução de chamadas de método e outras partes essenciais de um aplicativo.
 
 - **Perfis**. Essa abordagem se destina principalmente a monitorar e melhorar o desempenho do aplicativo. Em vez de operar no nível funcional empregado pelo monitoramento de usuários reais e sintéticos, captura informações mais detalhadas conforme o aplicativo é executado. A criação de perfis pode ser implementada por meio de uma amostragem periódica do estado de execução de um aplicativo (determinando qual parte do código o aplicativo está executando em um determinado ponto no tempo) ou do uso de uma instrumentação que insere testes no código em momentos importantes (como no início e no fim de uma chamada de método) e registra quais métodos foram chamados, em que momento, e quanto tempo cada chamada levou. Esses dados podem, depois, ser analisados para determinar quais partes do aplicativo podem causar problemas de desempenho.
 
@@ -386,7 +386,7 @@ Dados de instrumentação normalmente são compostos por informações gravadas 
 
 - O conteúdo de um log de rastreamento pode ser o resultado de dados textuais gravados pelo aplicativo, dados binários criados como resultado de um evento de rastreamento (se o aplicativo estiver usando o Rastreamento de Eventos para Windows – ETW) ou pode ser gerado por meio de logs de sistema que registram eventos resultantes de partes da infraestrutura, como um servidor Web. Mensagens de log textual geralmente são criadas para serem legíveis, mas também devem ser gravadas em um formato que permita que sejam analisadas facilmente por um sistema automatizado. Você também deve classificar os logs. Não grave todos os dados de rastreamento em um único log, mas use logs separados para gravar a saída do rastreamento por meio de diferentes aspectos operacionais do sistema. Isso permite que você filtre rapidamente as mensagens de log lendo o log adequado em vez de precisar processar um único arquivo longo. Nunca grave informações com requisitos de segurança diferentes (como informações de auditoria e dados de depuração) no mesmo log.
 
-	> [AZURE.NOTE]Um log pode ser implementado como um arquivo no sistema de arquivos ou pode ser mantido em algum outro formato, como um blob no armazenamento de blobs. Informações de log também podem ser mantidas em um armazenamento mais estruturado, como linhas em uma tabela.
+	> [AZURE.NOTE] Um log pode ser implementado como um arquivo no sistema de arquivos ou pode ser mantido em algum outro formato, como um blob no armazenamento de blobs. Informações de log também podem ser mantidas em um armazenamento mais estruturado, como linhas em uma tabela.
 
 - As métricas geralmente são apenas uma medida ou contagem de algum aspecto ou recurso do sistema em um momento específico, com uma ou mais marcas ou dimensões associadas (às vezes chamado de _amostra_). Uma única instância de uma métrica não costuma ser útil quando isolada, portanto as métricas precisam ser capturadas ao longo do tempo. A principal questão a considerar é quais métricas você deve registrar e com que frequência. Frequentemente, gerar dados de métricas pode impor uma significativa carga adicional ao sistema, enquanto capturar métricas com pouca frequência pode causar a perda das circunstâncias que levam a um evento significativo. As considerações variam de métrica para métrica. Por exemplo, a utilização da CPU em um servidor pode variar significativamente segundo a segundo, mas a alta utilização se torna um problema apenas se for longa, durante vários minutos.
 
@@ -396,7 +396,7 @@ Você pode monitorar facilmente contadores de desempenho individuais no nível d
 
 Todos os dados de monitoramento devem receber o carimbo de data/hora da mesma maneira. Para ter consistência, registre todas as datas e horas usando o Tempo Universal Coordenado. Isso ajudará a rastrear com mais facilidade as sequências de eventos.
 
-> [AZURE.NOTE]Computadores que operam em redes e fusos horários diferentes podem não estar sincronizados, de modo que você não deve depender apenas do uso de carimbos de data/hora para correlacionar dados de instrumentação que abrangem várias máquinas.
+> [AZURE.NOTE] Computadores que operam em redes e fusos horários diferentes podem não estar sincronizados, de modo que você não deve depender apenas do uso de carimbos de data/hora para correlacionar dados de instrumentação que abrangem várias máquinas.
 
 ### Quais informações os dados de instrumentação devem incluir?
 Considere os seguintes pontos ao decidir quais dados de instrumentação você precisa coletar:
@@ -472,7 +472,7 @@ Uma abordagem para implementar o modelo de pull é usar agentes de monitoramento
 
 _Figura 3. Usando um agente de monitoramento para obter informações e gravar em um armazenamento compartilhado_
 
-> [AZURE.NOTE]Usar um agente de monitoramento é ideal para capturar dados de instrumentação obtidos naturalmente de uma fonte de dados, como informações de Exibições de Gerenciamento do SQL Server ou o comprimento de uma Fila do barramento de serviço do Azure.
+> [AZURE.NOTE] Usar um agente de monitoramento é ideal para capturar dados de instrumentação obtidos naturalmente de uma fonte de dados, como informações de Exibições de Gerenciamento do SQL Server ou o comprimento de uma Fila do barramento de serviço do Azure.
 
 
 Dados de telemetria de um aplicativo de pequena escala em execução em um número limitado podem ser armazenados em um único local usando a abordagem descrita. No entanto, um aplicativo em nuvem global complexo, altamente dimensionável, pode facilmente gerar volumes enormes de dados de centenas de funções da Web e de trabalho, de fragmentos de bancos de dados e outros serviços. Esse fluxo de dados poderia facilmente sobrecarregar a largura de banda de E/S disponível com um único local central. Portanto, sua solução de telemetria deve ser dimensionável para impedir que ele atue como um ponto de estrangulamento conforme o sistema expandir, e idealmente deve incorporar um grau de redundância para reduzir os riscos de perder informações de monitoramento importantes (como dados de cobrança ou de auditoria) se parte do sistema falhar.
@@ -562,7 +562,7 @@ Observe que, para que um sistema de painéis funcione de maneira eficaz, ele dev
 
 Um bom painel não exibe apenas informações, ele fornece um meio de permitir que um analista faça perguntas ad hoc sobre essas informações. Alguns sistemas oferecem ferramentas de gerenciamento que o operador pode usar para executar essas tarefas e explorar os dados subjacentes. Como alternativa, dependendo do repositório usado para manter essas informações, talvez seja possível consultar os dados diretamente ou importá-los para ferramentas como o Microsoft Excel para análises e relatórios posteriores.
 
-> [AZURE.NOTE]Você deve restringir o acesso aos painéis a pessoal autorizado. Essas informações podem ser confidenciais comercialmente. Você também deve proteger os dados subjacentes apresentados pelo painel de controle para impedir que os usuários os alterem.
+> [AZURE.NOTE] Você deve restringir o acesso aos painéis a pessoal autorizado. Essas informações podem ser confidenciais comercialmente. Você também deve proteger os dados subjacentes apresentados pelo painel de controle para impedir que os usuários os alterem.
 
 ### Gerando alertas
 Gerar alertas é o processo de analisar os dados de instrumentação e monitoramento e gerar uma notificação se for detectado um evento significativo.
@@ -605,10 +605,10 @@ Em muitos casos, relatórios podem ser gerados por processos em lotes de acordo 
 - O artigo [Monitoramento, diagnóstico e solução de problemas de Armazenamento do Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md) no site da Microsoft.
 - O artigo [Azure: Noções básicas de telemetria e solução de problemas](http://social.technet.microsoft.com/wiki/contents/articles/18146.windows-azure-telemetry-basics-and-troubleshooting.aspx) no site da Microsoft.
 - A página [Habilitando o diagnóstico para os Serviços de Nuvem do Azure e máquinas virtuais](cloud-services-dotnet-diagnostics.md) no site da Microsoft.
-- As páginas do [Cache Redis do Azure](http://azure.microsoft.com/services/cache/), do [Banco de Dados de Documentos do Azure](http://azure.microsoft.com/services/documentdb/) e do [HDInsight](http://azure.microsoft.com/services/hdinsight/) no site da Microsoft.
+- As páginas do [Cache Redis do Azure](https://azure.microsoft.com/services/cache/), do [Banco de Dados de Documentos do Azure](https://azure.microsoft.com/services/documentdb/) e do [HDInsight](https://azure.microsoft.com/services/hdinsight/) no site da Microsoft.
 - A página [Como usar Filas do barramento de serviço](service-bus-dotnet-how-to-use-queues.md) no site da Microsoft.
 - O artigo [Microsoft SQL Server Business Intelligence em Máquinas Virtuais do Azure](./virtual-machines/virtual-machines-sql-server-business-intelligence.md) no site da Microsoft.
 - As páginas [Receber notificações de alerta](insights-receive-alert-notifications.md) e [Acompanhar a integridade do serviço](insights-service-health.md) no site da Microsoft.
 - A página do [Application Insights](app-insights-get-started.md) no site da Microsoft.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

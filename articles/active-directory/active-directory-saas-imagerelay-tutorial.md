@@ -3,7 +3,7 @@
 	description="Saiba como configurar o logon único entre o Active Directory do Azure e o ImageRelay."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
-	ms.author="markusvi"/>
+	ms.date="02/02/2016"
+	ms.author="jeedes"/>
 
 
 # Tutorial: Integração do Active Directory do Azure com o ImageRelay
@@ -35,7 +35,7 @@ Para configurar a integração do AD do Azure ao ImageRelay, você precisará do
 - Uma assinatura habilitada para logon único do ImageRelay
 
 
-> [AZURE.NOTE]Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+> [AZURE.NOTE] Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 
 
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
@@ -107,7 +107,7 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal do
 
     ![Configurar o logon único](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_05.png) <br>
 
-    a. Clique em **Baixar certificado** e salve o certificado no computador.
+    a. Clique em **Baixar certificado** e salve o arquivo em seu computador.
 
     b. Clique em **Próximo**.
 
@@ -151,7 +151,7 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal do
 
 
 ### Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar no portal do Azure um usuário de teste chamado Brenda Fernandes.<br> Na lista Usuários, selecione **Brenda Fernandes**.<br><br>![Criar um usuário do AD do Azure][20]<br>
+O objetivo desta seção é criar um usuário de teste no portal do Azure chamado Brenda Fernandes.<br> Na lista Usuários, selecione **Brenda Fernandes**.<br><br>![Criar um usuário do AD do Azure][20]<br>
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
@@ -167,7 +167,7 @@ O objetivo desta seção é criar no portal do Azure um usuário de teste chamad
 
     a. Em Tipo de Usuário, selecione Novo usuário na organização.
 
-    b. Na **caixa de texto** Nome de Usuário, digite **BrendaFernandes**.
+    b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
 
     c. Clique em **Próximo**.
 
@@ -177,7 +177,7 @@ O objetivo desta seção é criar no portal do Azure um usuário de teste chamad
 
     b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
 
-    c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
+    c. Na caixa de texto **Nome de exibição**, digite **Brenda Fernandes**.
 
     d. Na lista **Função**, selecione **Usuário**.
 
@@ -253,4 +253,4 @@ O objetivo desta seção é testar sua configuração de logon único do AD do A
 [204]: ./media/active-directory-saas-imagerelay-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-imagerelay-tutorial/tutorial_general_205.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

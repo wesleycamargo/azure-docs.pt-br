@@ -13,18 +13,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="02/07/2016" 
 	ms.author="sunliangms;fashah;garye;bradsev" />
 
 #<a name="heading"></a>Dados de exemplo no armazenamento de blob do Azure
 
-Os links neste **menu** levam você até os tópicos que descrevem como obter amostras de dados de vários ambientes de armazenamento. Esta tarefa é uma etapa no Processo de Análise da Cortana (CAP).
-
-[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
-
 ## Introdução
 
 Este documento aborda os dados de amostragem armazenados no Armazenamento do Blobs do Azure, baixando-os por meio de programação e realizando amostragem com um exemplo de código Python. As etapas para isso são os seguintes:
+
+**Por que fazer amostragem dos dados?** Se o conjunto de dados que você deseja analisar é grande, geralmente é uma boa ideia reduzir a amostra de dados para um tamanho menor, mas representativo e mais gerenciável. Isso facilita a compreensão de dados, exploração e engenharia de recursos. Sua função no Processo de Análise do Cortana é habilitar a rápida criação de protótipos de funções de processamento de dados e modelos de aprendizado de máquina.
+
+O **menu** abaixo leva a tópicos que descrevem como obter amostras de dados de vários ambientes de armazenamento.
+
+[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
+
+A tarefa de amostragem é uma etapa no [CAP (Processo do Cortana Analytics)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+
 
 ## Baixar e reduzir os dados de exemplo
 1. Baixe os dados do Armazenamento do Blobs do Azure usando o serviço blob com o código Python de exemplo a seguir: 
@@ -103,4 +108,4 @@ Você pode usar o seguinte código de exemplo para os reduzir os dados de exempl
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="11/20/2015"
+	ms.date="01/09/2016"
 	ms.author="robmcm"/>
 
 
@@ -23,7 +23,7 @@
 
 Socket.IO fornece uma comunicação em tempo real entre o seu servidor node.js e clientes usando WebSockets. Ele também dá suporte a fallback para outros transportes (como sondagem longa) que funcionam com navegadores mais antigos. Este tutorial explicará a você passo a passo como hospedar um aplicativo de chat baseado em Socket.IO como um aplicativo Web do Azure e como [dimensionar](#scale-out) o aplicativo usando o [Cache Redis do Azure](/documentation/services/cache). Para obter mais informações sobre o Socket.IO, consulte [http://socket.io/][socketio].
 
-> [AZURE.NOTE]Os procedimentos nesta tarefa aplicam-se a [Aplicativos Web do Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714); para serviços de nuvem, consulte <a href="http://www.windowsazure.com/develop/nodejs/tutorials/app-using-socketio/">Criar um aplicativo de chat do Node.js com Socket.IO em um serviço de nuvem do Azure</a>.
+> [AZURE.NOTE] Os procedimentos nesta tarefa aplicam-se a [Aplicativos Web do Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714); para serviços de nuvem, consulte <a href="http://www.windowsazure.com/develop/nodejs/tutorials/app-using-socketio/">Criar um aplicativo de chat do Node.js com Socket.IO em um serviço de nuvem do Azure</a>.
 
 
 ## Baixar o exemplo de chat
@@ -67,7 +67,7 @@ Para este projeto, usaremos o exemplo de chat do [repositório Socket.IOGitHub].
 
 Siga estas etapas para criar um aplicativo Web do Azure e habilitar a publicação Git e, em seguida, habilitar o suporte dado ao site pelo WebSocket.
 
-> [AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Avaliação Gratuita do Azure</a>.
+> [AZURE.NOTE] Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Avaliação Gratuita do Azure</a>.
 
 1. Instalar a interface de linha de comando do Azure (CLI do Azure) e conecte-se à sua assinatura do Azure. Consulte [Instalar e configurar a CLI do Azure](../xplat-cli).
 
@@ -93,7 +93,7 @@ Siga estas etapas para criar um aplicativo Web do Azure e habilitar a publicaç�
 
 	Quando solicitado, insira suas credenciais da etapa 2. Você receberá mensagens de status que módulos são importados no servidor. Quando esse processo for concluído, o aplicativo será hospedado em seu aplicativo Web do Azure.
 
- 	> [AZURE.NOTE]Durante a instalação do módulo, você poderá observar erros que '... O projeto importado não foi encontrado '. Isso podem ser ignorados.
+ 	> [AZURE.NOTE] Durante a instalação do módulo, você poderá observar erros que '... O projeto importado não foi encontrado '. Isso podem ser ignorados.
 
 4. Socket.IO usa o WebSocket, que não é habilitado por padrão no Azure. Para habilitar os websockets, use o seguinte comando:
 
@@ -101,7 +101,8 @@ Siga estas etapas para criar um aplicativo Web do Azure e habilitar a publicaç�
 
 	Se solicitado, digite o nome do aplicativo Web.
 
-	>[AZURE.NOTE]O comando 'azure site set -w' funcionará somente com a versão 0.7.4 ou superior da Interface de Linha de Comando do Azure. Você também pode habilitar o suporte ao WebSocket usando o [Portal do Azure](https://portal.azure.com).
+	>[AZURE.NOTE]
+	O comando 'azure site set -w' funcionará somente com a versão 0.7.4 ou superior da Interface de Linha de Comando do Azure. Você também pode habilitar o suporte ao WebSocket usando o [Portal do Azure](https://portal.azure.com).
 	>
 	>Para habilitar WebSockets usando o Portal do Azure, clique no aplicativo Web na folha de aplicativos Web, clique em **Todas as configurações** > **Configurações do aplicativo**. Em **Web Sockets**, clique em **Ativado**. Em seguida, clique em **Salvar**.
 
@@ -115,13 +116,13 @@ Seu aplicativo agora está sendo executado no Azure e pode retransmitir mensagen
 
 Os aplicativos Socket.IO podem ser expandidos usando um __adaptador__ para distribuir as mensagens e eventos entre várias instâncias do aplicativo. Embora haja vários adaptadores disponíveis, o adaptador [socket.io-redis](https://github.com/automattic/socket.io-redis) pode ser facilmente usado com o recurso Cache Redis do Azure.
 
-> [AZURE.NOTE]Um requisito adicional para expandir uma solução Socket.IO é dar suporte a sessões complexas. As sessões complexas são habilitadas por padrão para Aplicativos Web do Azure por meio do Request Routing do Azure. Para obter mais informações, consulte [Afinidade da instância nos Sites do Azure](http://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/).
+> [AZURE.NOTE] Um requisito adicional para expandir uma solução Socket.IO é dar suporte a sessões complexas. As sessões complexas são habilitadas por padrão para Aplicativos Web do Azure por meio do Request Routing do Azure. Para obter mais informações, consulte [Afinidade da instância nos Sites do Azure](https://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/).
 
 ###Criar um cache Redis
 
 Executar as etapas no [Criar um cache no Cache Redis do Azure](/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-a-cache) para criar um novo cache.
 
-> [AZURE.NOTE]Salvar __Nome do Host__ e __Chave primária__ para seu cache, já que estes serão necessários nas próximas etapas.
+> [AZURE.NOTE] Salvar __Nome do Host__ e __Chave primária__ para seu cache, já que estes serão necessários nas próximas etapas.
 
 ###Adicionar os módulos redis e socket.io-redis
 
@@ -129,7 +130,7 @@ Executar as etapas no [Criar um cache no Cache Redis do Azure](/documentation/ar
 
 		npm install socket.io-redis@0.1.4 redis@0.12.1 --save
 
-	> [AZURE.NOTE]As versões especificadas neste comando são as versões usadas ao testar este artigo.
+	> [AZURE.NOTE] As versões especificadas neste comando são as versões usadas ao testar este artigo.
 
 2. Modificar o arquivo __app.js__ para adicionar as seguintes linhas imediatamente após `var io = require('socket.io')(server);`
 
@@ -143,7 +144,7 @@ Executar as etapas no [Criar um cache no Cache Redis do Azure](/documentation/ar
 
 	Isso criará um cliente público e assinado no cache Redis criado anteriormente. Os clientes são usados com o adaptador para configurar o Socket.IO para usar o cache Redis para passar mensagens e eventos entre instâncias do seu aplicativo.
 
-	> [AZURE.NOTE]Embora o adaptador __socket.io-redis__ possa se comunicar diretamente com o Redis, a versão atual não dá suporte à autenticação requerida pelo cache Redis do Azure. Para que a conexão inicial seja criada usando o módulo __redis__, o cliente é passado ao adaptador __socket.io-redis__.
+	> [AZURE.NOTE] Embora o adaptador __socket.io-redis__ possa se comunicar diretamente com o Redis, a versão atual não dá suporte à autenticação requerida pelo cache Redis do Azure. Para que a conexão inicial seja criada usando o módulo __redis__, o cliente é passado ao adaptador __socket.io-redis__.
 	>
 	> Embora o Cache Redis do Azure dê suporte a conexões seguras usando a porta 6380, os módulos usados neste exemplo não dão suporte a conexões seguras a partir de 14/7/2014. O código acima usa o padrão, a porta não segura 6379.
 
@@ -183,7 +184,7 @@ Se os navegadores do cliente continuam para sondagens compridas em vez de usar o
 		  io.set('transports', ['websocket']);
 		});
 
-	> [AZURE.NOTE]Observe que os navegadores antigos que não deem suporte a WebSockets não serão capazes de conectar-se ao site enquanto o código acima estiver ativo, porque ele restringe a comunicação apenas aos WebSockets.
+	> [AZURE.NOTE] Observe que os navegadores antigos que não deem suporte a WebSockets não serão capazes de conectar-se ao site enquanto o código acima estiver ativo, porque ele restringe a comunicação apenas aos WebSockets.
 
 * **Usar o SSL**
 
@@ -207,7 +208,7 @@ Se os navegadores do cliente continuam para sondagens compridas em vez de usar o
 
 	Normalmente, os aplicativos Node.js não incluem um arquivo **web.config**, por tanto os Sites do Azure gerarão automaticamente um para os aplicativos Node.js assim que estiverem implantados. Como este arquivo é gerado automaticamente no servidor, você deve usar a URL FTP ou FTPS para seu site para visualizar esse arquivo. Você pode encontrar as URLs de FTP e FTPS para seu site no portal clássico selecionando seu aplicativo Web e o link **Painel**. As URLs são exibidas na seção **visão rápida**.
 
-	> [AZURE.NOTE]O arquivo **web.config** será gerado pelos sites do Azure apenas se seu aplicativo não fornecer um. Se você fornecer um arquivo **web.config** na raiz do projeto do seu aplicativo, esse arquivo será usado por aplicativos Web do Azure.
+	> [AZURE.NOTE] O arquivo **web.config** será gerado pelos sites do Azure apenas se seu aplicativo não fornecer um. Se você fornecer um arquivo **web.config** na raiz do projeto do seu aplicativo, esse arquivo será usado por aplicativos Web do Azure.
 
 	Se a entrada não estiver presente, ou for configurada para um valor `true`, então você deve criar um **web.config** na raiz do seu aplicativo Node.js e especificar um valor `false`. Para referência, abaixo se encontra um **web.config** padrão para um aplicativo que usa o **app.js** como o ponto de entrada.
 
@@ -262,7 +263,7 @@ Se os navegadores do cliente continuam para sondagens compridas em vez de usar o
 
 	Se seu aplicativo usar um ponto de entrada diferente de **app.js**, você deve substituir todas as ocorrências do **app.js** pelo ponto de entrada correto. Por exemplo, substituir o **app.js** com **server.js**.
 
->[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE] Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ##Próximas etapas
 
@@ -271,7 +272,7 @@ Neste tutorial, você aprendeu como criar um aplicativo de chat hospedado em um 
 Para obter mais informações, consulte também o [Centro de desenvolvedores do Node.js](/develop/nodejs/).
 
 ## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [socketio]: http://socket.io/
@@ -285,4 +286,4 @@ Para obter mais informações, consulte também o [Centro de desenvolvedores do 
 [pricing]: /pricing/details/web-sites/
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

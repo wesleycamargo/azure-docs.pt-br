@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="12/19/2015"
+   ms.date="01/30/2016"
    ms.author="tarcher" />
 
 # Otimizando o código do Azure
@@ -287,7 +287,7 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-Para obter mais informações, consulte [Tópicos e filas do barramento de serviço particionado | Blog do Microsoft Azure](http://azure.microsoft.com/blog/2013/10/29/partitioned-service-bus-queues-and-topics/) e confira a amostra [Fila particionada do Barramento de Serviço do Microsoft Azure](https://code.msdn.microsoft.com/windowsazure/Service-Bus-Partitioned-7dfd3f1f).
+Para obter mais informações, consulte [Tópicos e filas do barramento de serviço particionado | Blog do Microsoft Azure](https://azure.microsoft.com/blog/2013/10/29/partitioned-service-bus-queues-and-topics/) e confira a amostra [Fila particionada do Barramento de Serviço do Microsoft Azure](https://code.msdn.microsoft.com/windowsazure/Service-Bus-Partitioned-7dfd3f1f).
 
 ## Não definir SharedAccessStartTime
 
@@ -449,7 +449,7 @@ Armazene cadeias de conexão em arquivos de configuração ou ambientes do Azure
 
 - Para aplicativos do vNext do ASP.NET, use configuration.json para armazenar cadeias de conexão.
 
-Para obter informações sobre como usar arquivos de configurações, como web.config ou app.config, consulte [Diretrizes de configuração Web do ASP.NET] (https://msdn.microsoft.com/library/vstudio/ff400235(v=vs.100).aspx). Para obter informações sobre como variáveis de ambiente do Azure funcionam, consulte [Sites do Azure: como as cadeias de aplicativo e cadeias de conexão funcionam](http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/). Para obter informações sobre o armazenamento de cadeia de conexão no controle do código-fonte, consulte [Evitar colocar informações confidenciais, como cadeias de conexão em arquivos armazenados no repositório de código-fonte](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control).
+Para obter informações sobre como usar arquivos de configurações, como web.config ou app.config, consulte [Diretrizes de configuração Web do ASP.NET] (https://msdn.microsoft.com/library/vstudio/ff400235(v=vs.100).aspx). Para obter informações sobre como variáveis de ambiente do Azure funcionam, consulte [Sites do Azure: como as cadeias de aplicativo e cadeias de conexão funcionam](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/). Para obter informações sobre o armazenamento de cadeia de conexão no controle do código-fonte, consulte [Evitar colocar informações confidenciais, como cadeias de conexão em arquivos armazenados no repositório de código-fonte](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control).
 
 ## Usar arquivo de configuração de diagnóstico
 
@@ -530,6 +530,6 @@ public class BlogsController : Controller
 
 ## Próximas etapas
 
-Para saber mais sobre como otimizar e solucionar problemas de aplicativos do Azure, consulte [Solucionar problemas de um aplicativo Web no serviço de aplicativo do Azure usando o Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+Para saber mais sobre como otimizar e solucionar problemas de aplicativos do Azure, consulte [Solucionar problemas de um aplicativo Web no serviço de aplicativo do Azure usando o Visual Studio](/app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/14/2015"
+   ms.date="01/15/2016"
    ms.author="alkohli" />
 
 # Use o serviço StorSimple Manager para exibir e gerenciar trabalhos do StorSimple
@@ -77,7 +77,7 @@ Realize as etapas a seguir para cancelar um trabalho em execução.
 
 ### Para cancelar um trabalho
 
-1. Na página **Trabalhos**, exiba o(s) trabalho(s) em execução que você deseja cancelar executando uma consulta com os filtros apropriados.
+1. Na página **Trabalhos**, exiba os trabalhos em execução que você deseja cancelar executando uma consulta com os filtros apropriados.
 
 1. Selecione o trabalho.
 
@@ -93,4 +93,4 @@ Este trabalho agora está cancelado.
 
 - Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

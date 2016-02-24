@@ -28,7 +28,7 @@ Para agilizar os desenvolvedores que criam soluções com Serviço de Aplicativo
 
 No Serviço de Aplicativo do Azure, há diferentes "Níveis" de serviço disponíveis. Todos os níveis incluem todos os conectores e aplicativos de API, incluindo sua funcionalidade completa.
 
-[Preços de Serviço de Aplicativo](http://azure.microsoft.com/pricing/details/app-service/) descreve esses níveis de serviços e também lista o que está incluído nesses níveis. As seções a seguir descrevem as diversas categorias de aplicativos de API do BizTalk e conectores.
+[Preços de Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/) descreve esses níveis de serviços e também lista o que está incluído nesses níveis. As seções a seguir descrevem as diversas categorias de aplicativos de API do BizTalk e conectores.
 
 
 ## Conectores padrão
@@ -48,4 +48,4 @@ As regras de negócios encapsulam as políticas e as decisões que controlam pro
 Consulte [Conectores e lista de aplicativos da API](app-service-logic-connectors-list.md) para obter uma lista completa dos conectores e API aplicativos presentes em cada categoria, incluindo conectores padrão, BizTalk EAI, conectores Premium etc.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

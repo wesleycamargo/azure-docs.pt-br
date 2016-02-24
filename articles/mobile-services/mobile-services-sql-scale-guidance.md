@@ -204,7 +204,7 @@ Imagine um cenário em que você esteja prestes a enviar uma notificação por p
 
 - **Espalhar a carga ao longo do tempo.** Se você controlar a duração de determinados eventos (por exemplo, uma notificação transmitida por push), os quais se espera gerar um pico na demanda, e a duração desses eventos não for crítica, considere espalhá-los ao longo do tempo. No exemplo acima, talvez seja aceitável que seus clientes de aplicativo sejam notificados de um novo conteúdo do aplicativo em massa ao longo de um dia em vez de quase simultaneamente. Considere separar os clientes em grupos que permitirão uma entrega escalonada em cada lote. Se estiver usando Hubs de Notificação, aplicar uma marca adicional para acompanhar o lote e entregar uma notificação por push para essa marca é uma maneira fácil de implementar essa estratégia. Para obter mais informações sobre as marcas, consulte [Usar Hubs de Notificação para enviar notícias de última hora](../notification-hubs-windows-store-dotnet-send-breaking-news.md).
 - **Use o Armazenamento de Blob e de Tabela quando necessário.** Frequentemente, o conteúdo que os clientes verão durante o pico é razoavelmente estático e não precisa ser armazenado em um banco de dados SQL, já que seja pouco provável que você precise de capacidades de consulta relacionais nesse conteúdo. Nesse caso, considere armazenar o conteúdo no Armazenamento de Blob ou de Tabela. É possível acessar os blobs públicos diretamente no Armazenamento de Blob do dispositivo. Para acessar blobs de uma forma segura ou usar o Armazenamento de Tabela, será necessário passar pela API Personalizada dos Serviços Móveis para proteger sua chave de acesso do armazenamento. Para obter mais informações, consulte [Fazer upload de imagens no Armazenamento do Azure usando Serviços Móveis](mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage.md).
-- **Usar um cache em memória**. Outra alternativa é armazenar dados, os quais poderiam ser normalmente acessados durante um pico de tráfego, em um cache em memória como o [Cache do Azure](http://azure.microsoft.com/services/cache/). Isso significa que as solicitações de entrada poderiam buscar as informações necessárias na memória, em vez de consultar repetidamente o banco de dados.
+- **Usar um cache em memória**. Outra alternativa é armazenar dados, os quais poderiam ser normalmente acessados durante um pico de tráfego, em um cache em memória como o [Cache do Azure](https://azure.microsoft.com/services/cache/). Isso significa que as solicitações de entrada poderiam buscar as informações necessárias na memória, em vez de consultar repetidamente o banco de dados.
 
 <a name="Advanced"></a>
 ## Solução de problemas avançada
@@ -223,7 +223,7 @@ As etapas a seguir explicam como obter informações de conexão para o banco de
 1. Inicie o [portal clássico do Azure].
 2. Na guia Serviços Móveis, selecione o serviço com o qual deseja trabalhar.
 3. Selecione a guia **Configurar**.
-4. Selecione o nome **Banco de Dados SQL** na seção **Configurações do Banco de Dados**. Com isso, você navegará até a guia Banco de Dados SQL do Azure no portal.
+4. Selecione o nome **Banco de Dados SQL** na seção **Configurações do Banco de Dados**. Com isso, você irá até a guia Banco de Dados SQL do Azure no portal.
 5. Selecione **Configurar as regras de firewall do Azure para esse endereço IP**.
 6. Anote o endereço do servidor na seção **Conectar ao seu banco de dados**, por exemplo: *mcml4otbb9.database.windows.net*.
 
@@ -279,7 +279,8 @@ O portal de gerenciamento disponibiliza determinadas métricas para leitura se v
     WHERE database_name = 'todoitem_db'
     ORDER BY start_time DESC
 
-> [AZURE.NOTE]Execute essa consulta no banco de dados **principal** de seu servidor, uma vez que a exibição **sys.resource\\_stats** está presente apenas nesse banco de dados.
+> [AZURE.NOTE]
+Execute essa consulta no banco de dados **principal** de seu servidor, uma vez que a exibição **sys.resource\\_stats** está presente apenas nesse banco de dados.
 
 O resultado contem a seguinte métrica útil: CPU (% de limite de camada), Armazenamento (megabytes), Leituras de Dados Físicos (% de limite de camada), Gravações de Log (% de limite de camada), Memória (% de limite de camada), Contagem de Trabalhador, Contagem de Sessão, etc.
 
@@ -292,7 +293,8 @@ A exibição **[sys.event\_log](http://msdn.microsoft.com/library/azure/jj819229
     and event_type like 'throttling%'
     order by start_time desc
 
-> [AZURE.NOTE]Execute essa consulta no banco de dados **mestre** de seu servidor, uma vez que a exibição **sys.event\\_log** está presente apenas nesse banco de dados.
+> [AZURE.NOTE]
+Execute essa consulta no banco de dados **mestre** de seu servidor, uma vez que a exibição **sys.event\\_log** está presente apenas nesse banco de dados.
 
 <a name="AdvancedIndexing" ></a>
 ### Indexação avançada
@@ -305,7 +307,8 @@ Uma tabela ou exibição pode conter os seguintes tipos de índices:
 
 Para fornecer uma analogia ao mundo real: considere um livro ou uma técnica manual. O conteúdo de cada página é um registro, o número da página é o índice clusterizado e o índice de tópicos na parte final do livro é um índice não clusterizado. Cada entrada no índice de tópicos aponta para o índice clusterizado, o número da página.
 
-> [AZURE.NOTE]Por padrão, o back-end do JavaScript dos Serviços Móveis do Azure configura **\\_createdAt** como o índice clusterizado. Se você remover essa coluna ou se desejar um índice clusterizado diferente, procure seguir as [orientações de design de índice clusterizado](#ClusteredIndexes) abaixo. No back-end do .NET, a classe `EntityData` define `CreatedAt` como um índice clusterizado usando a anotação `[Index(IsClustered = true)]`.
+> [AZURE.NOTE]
+Por padrão, o back-end do JavaScript dos Serviços Móveis do Azure configura **\\_createdAt** como o índice clusterizado. Se você remover essa coluna ou se desejar um índice clusterizado diferente, procure seguir as [orientações de design de índice clusterizado](#ClusteredIndexes) abaixo. No back-end do .NET, a classe `EntityData` define `CreatedAt` como um índice clusterizado usando a anotação `[Index(IsClustered = true)]`.
 
 <a name="ClusteredIndexes"></a>
 #### Orientações de design de índices clusterizados
@@ -489,4 +492,4 @@ Para analisar o plano de consulta no **Portal de Gerenciamento do Banco de Dados
 <!-- BLOG LINKS -->
 [Quanto custa essa chave?]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

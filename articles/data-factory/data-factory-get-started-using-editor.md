@@ -12,8 +12,8 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="11/02/2015" 
+	ms.topic="article" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Tutorial: Criar um pipeline com a Atividade de Cópia usando o Data Factory Editor
@@ -25,7 +25,7 @@
 
 
 
-##Nesse tutorial
+##Neste tutorial
 Este tutorial contém as seguintes etapas:
 
 Etapa | Descrição
@@ -37,7 +37,7 @@ Etapa | Descrição
 [Etapa 5: Monitorar fatias e pipeline](#MonitorDataSetsAndPipeline) | Nesta etapa, você vai monitorar fatias de tabelas de entrada e de saída usando o Portal do Azure.
  
 
-## <a name="CreateDataFactory"></a>Etapa 1: Criar uma Azure Data Factory
+## <a name="CreateDataFactory"></a> Etapa 1: criar uma data factory do Azure
 Nesta etapa, você usa o Portal do Azure para criar uma data factory do Azure denominada **ADFTutorialDataFactory**.
 
 1.	Depois de fazer logon no [Portal do Azure][azure-portal], clique em **NOVO** no canto inferior esquerdo, selecione **Análises de dados** na folha **Criar** e clique em **Data Factory** na folha **Análises de dados**. 
@@ -62,7 +62,7 @@ Nesta etapa, você usa o Portal do Azure para criar uma data factory do Azure de
 	 
 	![Nome da data factory indisponível][image-data-factory-name-not-available]
 	
-	> [AZURE.NOTE]O nome do data factory pode ser registrado futuramente como um nome DNS e tornar-se publicamente visível.
+	> [AZURE.NOTE] O nome do data factory pode ser registrado futuramente como um nome DNS e tornar-se publicamente visível.
 
 9. Clique no hub **NOTIFICAÇÕES** à esquerda e procure as notificações do processo de criação. Clique em **X** para fechar a folha **NOTIFICAÇÕES** se ela estiver aberta.
 10. Depois que a criação estiver concluída, você verá a folha **DATA FACTORY**, conforme mostrado abaixo.
@@ -79,7 +79,6 @@ Nesta etapa, você criará dois serviços vinculados: **StorageLinkedService** e
 
 	![Bloco Criar e implantar][image-author-deploy-tile]
 
-	Consulte o tópico [Editor Data Factory][data-factory-editor] para obter a visão geral detalhada do Editor Data Factory.
 	 
 5. No **Editor**, clique no botão **Novo armazenamento de dados** na barra de ferramentas e selecione **Armazenamento do Azure** no menu suspenso. Você deve ver o modelo JSON para criar um serviço de armazenamento vinculado do Azure no painel à direita.
 
@@ -152,7 +151,7 @@ Uma tabela é um conjunto de dados retangular e tem um esquema. Nesta etapa, voc
 	- **folderPath** é definido como o contêiner **adftutorial**. É possível também especificar o nome de um blob dentro da pasta. Como você não está especificando o nome do blob, dados de todos os blobs no contêiner são considerados como um entrada de dados.  
 	- O **type** de formato é definido como **TextFormat**
 	- Há dois campos no arquivo de texto, **FirstName** e **LastName**, separados por uma vírgula (**columnDelimiter**)	
-	- A **availability** é definida como **hourly** (**frequency** definida como **hour** e **interval** definido como **1** ), de modo que o serviço Data Factory vai procurar dados de entrada a cada hora na pasta raiz do contêiner de blob (**adftutorial**) especificado. 
+	- A **disponibilidade** é definida como **horária** (a **frequência** é definida como **hora** e o **intervalo** definido como **1** ), de modo que o serviço Data Factory procure dados de entrada a cada hora na pasta raiz do contêiner de blob (**adftutorial**) especificado. 
 	
 
 	Se você não especificar um **fileName** para uma **tabela** de **entradas**, todos os arquivos/blobs da pasta de entrada (**folderPath**) serão considerados como entradas. Se você especificar um nome de arquivo em JSON, apenas arquivo/blob especificado será considerado como entrada de asn. Consulte os arquivos do [tutorial][adf-tutorial] para obter exemplos.
@@ -398,7 +397,6 @@ Para concluir este tutorial usando o PowerShell do Azure, consulte [Criar e moni
 [sql-management-studio]: http://azure.microsoft.com/documentation/articles/sql-database-manage-azure-ssms/#Step2
 [sql-cmd-exe]: https://msdn.microsoft.com/library/azure/ee336280.aspx
 
-[data-factory-editor]: data-factory-editor.md
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
@@ -461,4 +459,4 @@ Para concluir este tutorial usando o PowerShell do Azure, consulte [Criar e moni
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

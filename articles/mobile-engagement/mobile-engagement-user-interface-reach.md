@@ -19,28 +19,16 @@
 
 # Como entrar em contato com os usuários do seu aplicativo com notificações por push
 
-Este artigo descreve a guia **ALCANCE** do portal do **Mobile Engagement**. Você usa o portal do **Mobile Engagement** para monitorar e gerenciar seus aplicativos móveis. Observe que, para começar a usar o portal, primeiro você precisa criar uma conta do **Azure Mobile Engagement**. Para obter mais informações, veja [Criar uma conta do Azure Mobile Engagement](mobile-engagement-create-account.md).
+Este artigo descreve a guia **ALCANCE** do portal do **Mobile Engagement**. Você usa o portal do **Mobile Engagement** para monitorar e gerenciar seus aplicativos móveis. Observe que, para começar a usar o portal, primeiro é preciso criar uma conta do **Azure Mobile Engagement**. Para obter mais informações, veja [Criar uma conta do Azure Mobile Engagement](mobile-engagement-create-account.md).
 
 A seção Reach da interface do usuário é a ferramenta de gerenciamento de campanha Push onde você pode criar/editar/ativar/finalizar/monitorar e obter estatísticas sobre campanhas de notificação de envio e os recursos que também podem ser acessados via a API do Reach (e alguns elementos do nível baixo API de envio). Lembre-se de que, se você estiver usando as APIs ou a interface do usuário, você precisará integrar o Mobile Engagement do Azure e o Reach em seu aplicativo em cada plataforma com o SDK antes que você possa usar as campanhas Reach.
 
->[AZURE.NOTE]Muitas seções da interface do usuário do portal do **Mobile Engagement** contêm o botão **MOSTRAR AJUDA**. Pressione este botão para obter mais informações contextuais sobre uma seção.
+>[AZURE.NOTE] Muitas seções da interface do usuário do portal do **Mobile Engagement** contêm o botão **MOSTRAR AJUDA**. Pressione este botão para obter mais informações contextuais sobre uma seção.
 
- 
 ## Quatro tipos de notificações por Push
 1.    Anúncios - permitem que sejam enviadas mensagens de anúncio para usuários que redirecioná-las para outro local dentro de seu aplicativo ou para enviá-las para uma página da Web ou armazenamento fora de seu aplicativo. 
 2.    Pesquisas - permitem coletar informações dos usuários finais ao fazer perguntas a eles.
 3.    Envio de dados - permite enviar um arquivo de dados binário ou base64. As informações contidas em um envio de dados são enviadas ao seu aplicativo para modificar a experiência atual dos usuários em seu aplicativo. Seu aplicativo precisa ser capaz de processar os dados em um envio de dados.
-
-
-## Três categorias de estatísticas em tempo real mostradas para cada campanha:
-
-1.    Enviadas - quantos envios foram feitos com base nos critérios especificados na campanha. 
-2.    Respondidas - quantos usuários reagiram à notificação ao abri-la fora do aplicativo ou fechá-la no aplicativo. 
-3.    Acionadas - quantos usuários clicaram no link na notificação para serem redirecionados para um novo local no aplicativo, para uma loja ou um navegador da Web. 
-
-> [AZURE.NOTE]\: mais estatísticas detalhadas de campanha estão disponíveis nas estatísticas de API de Alcance
-
-
 
 ## Detalhes da campanha
 
@@ -50,11 +38,41 @@ Você pode editar, clonar, excluir ou ativar campanhas que ainda não foram ativ
 
 ## Comentários do Reach
 
-Para ver detalhes ou estatísticas de uma campanha, clique nela. Você pode, então, alternar da exibição de detalhes para a de estatísticas de uma campanha aberta que já foi ativada e alternar da exibição de estatísticas simples para a avançada para exibir informações mais detalhadas (dependendo de suas permissões). Você também pode usar as informações de comentários do Reach de uma campanha anterior como critérios de direcionamento em uma nova campanha. As estatísticas dos Comentários de Alcance também podem ser obtidas com **Estatísticas** da API de Alcance. Você também pode personalizar o público-alvo de suas campanhas de envio com base em campanhas anteriores.
+Clique em **Estatísticas** para ver os detalhes de uma Campanha de alcance. O modo de exibição **Simples** fornece uma representação visual na forma de um gráfico de barras da coluna sobre o que aconteceu após a ativação de uma campanha. O modo de exibição **Avançado** fornece detalhes mais granulares sobre a campanha por push. Esses detalhes não estarão disponíveis se você estiver enviando uma campanha de teste, ou seja, um envio por push para um dispositivo de teste. Veja como você deve interpretar esses detalhes:
+
+1. **Enviada por push** - Essa opção especifica o número de mensagens enviadas por push para os dispositivos. Esse número dependerá do público-alvo especificado durante a criação da campanha de push. Se você não especificar qualquer público-alvo, esse envio por push ocorrerá para todos os dispositivos registrados. Como todos os outros serviços de envio por push, não enviamos diretamente por push aos dispositivos, em vez disso, os enviamos para as respectivas plataformas específicas de Serviços de notificação por push (PNS - GCM/APNS/WNS) para que elas possam oferecer as notificações aos dispositivos. 
+
+2.	**Entregues** - Especifica o número de mensagens que são entregues com êxito pelo PNS ao dispositivo e confirmadas como recebidas pelo SDK do Mobile Engagement.
+		
+	*Motivos para a contagem Entregues ser menor do que a contagem de Enviada por push:*
+	
+	1. Se o usuário tiver desinstalado o aplicativo a partir do dispositivo, mas o PNS não souber sobre isso no momento do envio por push para o PNS, a mensagem será descartada.
+	2. Se o dispositivo tiver o aplicativo, mas os próprios dispositivos ficarem offline por longos períodos, o PNS não conseguirá entregar a mensagem para o dispositivo. 
+	3. Se a mensagem for entregue ao dispositivo, mas o SDK do Mobile Engagement no aplicativo não reconhecer o conteúdo da mensagem, ele descartará essa mensagem. Isso pode ocorrer se a personalização da notificação no aplicativo gerar uma exceção que possamos capturar no SDK e descartar a mensagem. Isso também pode ocorrer se o aplicativo no dispositivo estiver usando uma versão do SDK do Mobile Engagement que não é capaz de entender a versão mais recente da mensagem de envio por push enviada da plataforma. Porém, isso ocorre apenas quando o aplicativo tiver sido atualizado após o envio da notificação a partir da plataforma do serviço. A guia **Avançado** informará quantas mensagens foram descartadas. 
+	4. Em dispositivos iOS, às vezes as mensagens não serão entregues se o dispositivo estiver com bateria fraca ou se o aplicativo estiver consumindo uma quantidade significativa de energia durante o processamento de notificações remotas. Essa é uma limitação dos dispositivos iOS.   
+
+3.	**Exibidas** - especifica o número de mensagens mostradas com êxito para o usuário do aplicativo no dispositivo na forma de um sistema de notificação de push/fora do aplicativo no centro de notificação ou de uma notificação no aplicativo dentro do aplicativo móvel. A guia **Avançado** informará quantas foram notificações do sistema e quantas foram notificações no aplicativo.
+
+4.	**Interações do usuário** - especifica o número de mensagens com as quais o usuário do aplicativo interagiu e incluirá as mensagens que foram acionadas ou encerradas.
+
+	- *O usuário do aplicativo pode tomar uma ação com relação a uma notificação de uma das seguintes maneiras:*
+			
+		1. Se a notificação for uma notificação do sistema/fora do aplicativo ou uma notificação no aplicativo enviada como somente notificação, o usuário do aplicativo clicará na notificação.
+		2. Se a notificação for uma notificação no aplicativo com um texto, modo de exibição da Web ou pesquisa, o usuário do aplicativo clicará no botão Ação na notificação.
+		3. Se a notificação for uma notificação no aplicativo com um modo de exibição na Web, o usuário do aplicativo clicará em uma URL no modo de exibição da Web [somente Android]
+	
+	- *O usuário do aplicativo pode sair de uma notificação de qualquer uma das seguintes maneiras:*
+	
+		1. Clicando no botão Fechar diretamente na notificação. 
+		2. Deslizando para fechar ou excluindo a notificação. 
+		3. Geralmente, as notificações no aplicativo com o conteúdo de texto/Web e pesquisas são exibidas para o usuário do aplicativo em um processo de duas etapas. Primeiro eles recebem uma notificação e, quando clicam nela, veem o conteúdo de texto/Web/pesquisa subsequente. O usuário do aplicativo pode sair de uma notificação usando qualquer uma dessas etapas e os detalhes no modo de exibição Avançado captura isso. 
+
+5.	**Acionadas** - especifica o número de mensagens que foram acionadas explicitamente pelo usuário do aplicativo. Esse é o número mais interessante, pos informa quantos usuários do aplicativo ficaram interessados pela mensagem que você enviou com a notificação.
+ 
+> [AZURE.NOTE] Nas plataformas iOS e Windows, se o usuário estiver com o aplicativo aberto ,e a campanha for do tipo "Qualquer hora", é possível que as notificações fora do aplicativo e no aplicativo sejam exibidas ao mesmo tempo. Isso pode causar uma contagem de Exibidas maior do que de Entregues. Se o usuário interagir ou executar ações na notificação, até mesmo a contagem de Interações do usuário/Acionadas pode ser maior do que de Entregues.
 
 
 ![Reach2][19]
-
 
 ## Consulte também
 
@@ -153,4 +171,4 @@ Para ver detalhes ou estatísticas de uma campanha, clique nela. Você pode, ent
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

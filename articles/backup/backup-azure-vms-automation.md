@@ -7,16 +7,19 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="aashishr";"trinadhk" />
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/28/2016" ms.author="aashishr";"trinadhk" />
 
 
 # Implantar e gerenciar o backup de VMs do Azure usando o PowerShell
 Este artigo mostra como usar o Azure PowerShell para backup e recuperação de VMs IaaS do Azure.
 
 ## Conceitos
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+
 [Comece com o backup de VM IaaS do Azure](backup-azure-vms-introduction.md) na documentação de backup do Azure.
 
-> [AZURE.WARNING]Antes de começar, é importante ter noções básicas sobre os [pré-requisitos](backup-azure-vms-prepare.md) necessários para trabalhar com o Backup do Azure e as [limitações](backup-azure-vms-prepare.md#limitations) da atual solução de backup de VM.
+> [AZURE.WARNING] Antes de começar, é importante ter noções básicas sobre os [pré-requisitos](backup-azure-vms-prepare.md) necessários para trabalhar com o Backup do Azure e as [limitações](backup-azure-vms-prepare.md#limitations) da atual solução de backup de VM.
 
 Para usar efetivamente o PowerShell, é necessário compreender a hierarquia de objetos e de onde começar.
 
@@ -70,18 +73,18 @@ As seguintes tarefas de configuração e de registro podem ser automatizadas com
 
 ### Criar um cofre de backup
 
-> [AZURE.WARNING]Para clientes usando o Backup do Azure pela primeira vez, você precisa registrar o provedor de Backup do Azure para ser usado com sua assinatura. Isso pode ser feito executando o seguinte comando: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
+> [AZURE.WARNING] Para clientes usando o Backup do Azure pela primeira vez, você precisa registrar o provedor de Backup do Azure para ser usado com sua assinatura. Isso pode ser feito com a execução do seguinte comando: Register-AzureRMResourceProvider -ProviderNamespace "Microsoft.Backup"
 
 Você pode criar um novo cofre de backup usando o commandlet **New-AzureRMBackupVault**. O cofre de backup é um recurso do ARM e, portanto, você precisará colocá-lo em um Grupo de Recursos. Em um console do Azure PowerShell com privilégios elevados, execute os seguintes comandos:
 
 ```
-PS C:\> New-AzureRMResourceGroup –Name “test-rg” –Region “West US”
+PS C:\> New-AzureRMResourceGroup –Name “test-rg” –Location “West US”
 PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GeoRedundant
 ```
 
 É possível obter uma lista de todos os cofres de backup em uma determinada assinatura usando o commandlet **Get-AzureRMBackupVault**.
 
-> [AZURE.NOTE]É conveniente armazenar o objeto cofre de backup em uma variável. O objeto cofre é necessário como uma entrada para vários commandlets do Backup do Azure.
+> [AZURE.NOTE] É conveniente armazenar o objeto cofre de backup em uma variável. O objeto cofre é necessário como uma entrada para vários commandlets do Backup do Azure.
 
 
 ### Registrando as VMs
@@ -96,7 +99,7 @@ PS C:\> $registerjob = Register-AzureRMBackupContainer -Vault $backupvault -Name
 ## Fazer backup das VMs do Azure
 
 ### Crie uma política de proteção
-Não é obrigatório criar uma nova política de proteção para iniciar o backup das suas VMs. O cofre vem com uma 'Política Padrão' que pode ser usado para habilitar a proteção rapidamente e editada posteriormente com os detalhes à direita. É possível obter uma lista das políticas disponíveis no cofre usando o commandlet **Get-AzureRMBackupProtectionPolicy**:
+Não é obrigatório criar uma nova política de proteção para iniciar o backup das suas VMs. O cofre vem com uma 'Política Padrão' que pode ser usado para habilitar a proteção rapidamente e editada posteriormente com os detalhes à direita. Você pode obter uma lista das políticas disponíveis no cofre usando o commandlet **Get-AzureRMBackupProtectionPolicy**:
 
 ```
 PS C:\> Get-AzureRMBackupProtectionPolicy -Vault $backupvault
@@ -106,7 +109,7 @@ Name                      Type               ScheduleType       BackupTime
 DefaultPolicy             AzureVM            Daily              26-Aug-15 12:30:00 AM
 ```
 
-> [AZURE.NOTE]O fuso horário do campo BackupTime no PowerShell é UTC. No entanto, quando o tempo de backup é mostrado no portal do Azure, o fuso horário é alinhado ao sistema local com a diferença UTC.
+> [AZURE.NOTE] O fuso horário do campo BackupTime no PowerShell é UTC. No entanto, quando o tempo de backup é mostrado no portal do Azure, o fuso horário é alinhado ao sistema local com a diferença UTC.
 
 Uma política de backup está associada a pelo menos uma política de retenção. A política de retenção define quanto tempo um ponto de recuperação é mantido pelo Backup do Azure. O commandlet **New-AzureRMBackupRetentionPolicy** cria objetos do PowerShell que armazenam informações da política de retenção. Esses objetos de política de retenção são usados como entradas para o commandlet *New-AzureRMBackupProtectionPolicy* ou diretamente com o commandlet *Enable-AzureRMBackupProtection*.
 
@@ -141,12 +144,12 @@ WorkloadName    Operation       Status          StartTime              EndTime
 testvm          Backup          InProgress      01-Sep-15 12:24:01 PM  01-Jan-01 12:00:00 AM
 ```
 
-> [AZURE.NOTE]O fuso horário dos campos StartTime e EndTime mostrado no PowerShell é UTC. No entanto, quando as informações semelhantes são mostradas no portal do Azure, o fuso horário é alinhado ao relógio do seu sistema local.
+> [AZURE.NOTE] O fuso horário dos campos StartTime e EndTime mostrado no PowerShell é UTC. No entanto, quando as informações semelhantes são mostradas no portal do Azure, o fuso horário é alinhado ao relógio do seu sistema local.
 
 ### Monitoramento de um trabalho de backup
 A maioria das operações de longa duração no Backup do Azure são modeladas como um trabalho. Isso facilita acompanhar o andamento sem a necessidade de manter o portal do Azure aberto em todos os momentos.
 
-Para obter o status mais recente de um trabalho em andamento, use o commandlet **Get-AzureRMBackupJob**.
+Para obter o último status de um trabalho em andamento, use o commandlet **Get-AzureRMBackupJob**.
 
 ```
 PS C:\> $joblist = Get-AzureRMBackupJob -Vault $backupvault -Status InProgress
@@ -157,7 +160,7 @@ WorkloadName    Operation       Status          StartTime              EndTime
 testvm          Backup          InProgress      01-Sep-15 12:24:01 PM  01-Jan-01 12:00:00 AM
 ```
 
-Em vez de sondar esses trabalhos quanto à conclusão (o que é um código adicional e desnecessário), é mais simples usar o commandlet **Wait-AzureRMBackupJob**. Quando usado em um script, o commandlet fará uma pausa na execução até que o trabalho seja concluído ou o valor de tempo limite especificado seja atingido.
+Em vez de sondar esses trabalhos para conclusão – o que é um código adicional desnecessário - é mais simples usar o commandlet **Wait-AzureRMBackupJob**. Quando usado em um script, o commandlet fará uma pausa na execução até que o trabalho seja concluído ou o valor de tempo limite especificado seja atingido.
 
 ```
 PS C:\> Wait-AzureRMBackupJob -Job $joblist[0] -Timeout 43200
@@ -195,7 +198,7 @@ A variável ```$rp``` é uma matriz de pontos de recuperação para o item de ba
 
 Há uma diferença importante entre as operações de restauração feitas por meio do portal do Azure e por meio do Azure PowerShell. Com o PowerShell, a operação de restauração para na restauração de discos e configura as informações do ponto de recuperação. Ele não cria uma máquina virtual.
 
-> [AZURE.WARNING]O Restore-AzureRMBackupItem não cria uma VM. Ele restaura apenas os discos para a conta de armazenamento especificada. Este não é o mesmo comportamento que você verá no portal do Azure.
+> [AZURE.WARNING] O Restore-AzureRMBackupItem não cria uma VM. Ele restaura apenas os discos para a conta de armazenamento especificada. Este não é o mesmo comportamento que você verá no portal do Azure.
 
 ```
 PS C:\> $restorejob = Restore-AzureRMBackupItem -StorageAccountName "DestAccount" -RecoveryPoint $rp[0]
@@ -206,7 +209,7 @@ WorkloadName    Operation       Status          StartTime              EndTime
 testvm          Restore         InProgress      01-Sep-15 1:14:01 PM   01-Jan-01 12:00:00 AM
 ```
 
-É possível obter os detalhes da operação de restauração usando o commandlet **Get-AzureRMBackupJobDetails** depois que o trabalho de Restauração for concluído. A propriedade *ErrorDetails* terá as informações necessárias para recompilar a VM.
+Você pode obter os detalhes da operação de restauração usando o commandlet **Get-AzureRMBackupJobDetails** depois que o trabalho de restauração for concluído. A propriedade *ErrorDetails* terá as informações necessárias para recompilar a VM.
 
 ```
 PS C:\> $restorejob = Get-AzureRMBackupJob -Job $restorejob
@@ -220,9 +223,9 @@ Criar as VMs por meio dos discos restaurados pode ser feito usando os commandlet
 ```
  $properties  = $details.Properties
 
- $storageAccountName = $properties["TargetStorageAccountName"]
- $containerName = $properties["TargetContainerName"]
- $blobName = $properties["TargetBlobName"]
+ $storageAccountName = $properties["Target Storage Account Name"]
+ $containerName = $properties["Config Blob Container Name"]
+ $blobName = $properties["Config Blob Name"]
 
  $keys = Get-AzureStorageKey -StorageAccountName $storageAccountName
  $storageAccountKey = $keys.Primary
@@ -233,7 +236,7 @@ Criar as VMs por meio dos discos restaurados pode ser feito usando os commandlet
  Get-AzureStorageBlobContent -Container $containerName -Blob $blobName -Destination $destination_path -Context $storageContext
 
 
- $obj = [xml](Get-Content $destination_path)
+$obj = [xml](((Get-Content -Path $destination_path -Encoding UniCode)).TrimEnd([char]0x00))
  $pvr = $obj.PersistentVMRole
  $os = $pvr.OSVirtualHardDisk
  $dds = $pvr.DataVirtualHardDisks
@@ -327,4 +330,4 @@ $DAILYBACKUPSTATS | Out-GridView
 
 Se você deseja adicionar recursos de gráficos à saída do relatório, saiba mais no blog do TechNet em [Gráficos com o PowerShell](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

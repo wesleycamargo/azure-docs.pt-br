@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Criar ou editar usuários no Active Directory do Azure | Microsoft Azure"
-	description="Explica como criar ou editar contas de usuário no Active Directory do Azure."
+	description="Um tópico que explica como criar ou editar contas de usuário no Active Directory do Azure."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -12,23 +12,27 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/01/2015"
-	ms.author="curtand"/>
+	ms.topic="get-started-article"
+	ms.date="02/10/2016"
+	ms.author="curtand;viviali"/>
 
-# Criar ou editar usuários no Active Directory do Azure
+# Criar ou editar usuários no Azure AD
 
-Você precisa criar uma conta no Active Directory do Azure (Azure AD) para cada usuário que acessará um serviço em nuvem da Microsoft. Você também pode alterar as contas de usuário ou excluí-las quando elas não forem mais necessárias. Por padrão, os usuários não têm permissões de administrador, mas, opcionalmente, você pode atribuí-las.
+Você precisa criar uma conta para cada usuário que acessará um serviço de nuvem da Microsoft. Você também pode alterar as contas de usuário ou excluí-las quando elas não forem mais necessárias. Por padrão, os usuários não têm permissões de administrador, mas, opcionalmente, você pode atribuí-las.
 
 ## Criar um usuário
 
-1. Clique em **Active Directory** e no nome do diretório da sua organização.
+1. Clique em **Active Directory** e selecione o nome do diretório da sua organização.
 2. Na página **Usuários**, clique em **Adicionar usuário**.
 3. Na página **Conte-nos sobre este usuário**, para **Tipo de usuário**, selecione:
-	1. **Novo usuário na sua organização** – indica que você deseja que uma nova conta de usuário seja criada e gerenciada no diretório.
-	2. **Usuário com uma conta Microsoft existente** – indica que você deseja adicionar uma conta existente da Microsoft no seu diretório para colaborar com os recursos do Azure com um co-administrador que acessa o Azure com uma conta da Microsoft.
-	3. **Usuário em outro diretório do Azure AD** – indica que você deseja adicionar uma conta de usuário ao seu diretório que foi originado de outro diretório do Azure AD. Você precisa ser um membro do outro diretório para selecionar um usuário nele.
-4. Dependendo da opção selecionada, digite um nome de usuário ou nome de conta da Microsoft com que esse usuário irá se conectar.
+
+	- **Novo usuário na sua organização** – para criar uma nova conta de usuário em seu diretório
+	- **Usuário com uma conta da Microsoft existente** – para adicionar uma conta de consumidor da Microsoft existente ao seu diretório (isto é, uma conta do outlook)
+	- **Usuário em outro diretório do AD do Azure** – para adicionar uma conta de usuário ao seu diretório originado de outro diretório do AD do Azure (observação: você precisará ser membro do outro diretório para selecionar um usuário nele).
+	- **Usuários em empresas parceiras** - para convidar e autorizar os usuários da empresa parceira para o diretório ([veja Colaboração B2B do Active Directory do Azure](active-directory-b2b-what-is-azure-ad-b2b.md))
+
+
+4. Dependendo da opção selecionada, insira um nome de usuário, um endereço de email ou carregue um arquivo CSV para usuários de parceiros.
 5. O na página **Perfil** do usuário, forneça o nome e sobrenome do usuário, um nome amigável e uma função de usuário no menu suspenso Funções. Para obter mais informações sobre funções de usuário e administrador, consulte [Atribuindo funções de administrador no Azure AD](active-directory-assign-admin-roles.md). Especifique se deseja **Habilitar a autenticação multifator**.
 6. Na página **Obter senha temporária**, clique em **Criar**.
 
@@ -39,13 +43,13 @@ Se sua organização usa mais de um domínio, você deve saber sobre os seguinte
 
 ## Editar um usuário
 
-Se o usuário que você está tentando editar estiver sincronizado com o serviço do Active Directory local, será exibida uma mensagem de erro e não será possível editar o usuário usando esse procedimento. Para editar o usuário, use suas ferramentas de gerenciamento do Active Directory locais.
-
 Para editar um usuário no portal clássico do Azure:
 
 1. Clique em **Active Directory** e no nome do diretório da sua organização.
 2. Na página **Usuários**, clique no nome de exibição do usuário que deseja editar.
 3. Conclua suas alterações e, em seguida, clique em **Salvar**.
+
+Se o usuário que você está tentando editar estiver sincronizado com o serviço do Active Directory local, será exibida uma mensagem de erro e não será possível editar o usuário usando esse procedimento. Para editar o usuário, use suas ferramentas de gerenciamento do Active Directory locais.
 
 ## Redefinir a senha de um usuário
 
@@ -55,37 +59,53 @@ Para editar um usuário no portal clássico do Azure:
 4. Na caixa de diálogo de redefinição de senha, clique em **Redefinir**.
 5. Clique na marca de seleção para confirmar que a senha foi redefinida.
 
-## Criar um usuário externo
+## Criar usuários externos
 
-No Azure AD, você também pode adicionar usuários a um diretório do Azure AD a partir de outro diretório do Azure AD ou de um usuário com uma conta da Microsoft. Um usuário pode ser um membro de até 20 diretórios diferentes.
+No AD do Azure, você também pode adicionar usuários a um diretório do AD do Azure com uma conta da Microsoft de outro diretório do AD do Azure ao qual você pertença ou de empresas parceiras, carregando um arquivo CSV. Para criar um usuário externo, crie um usuário no portal e, como **Tipo de usuário**, selecione **Usuário em outro diretório do AD do Azure** ou **Usuários em empresas parceiras**.
 
-Os usuários que são adicionados de outro diretório são usuários externos. Os usuários externos podem colaborar com usuários que já existem em um diretório, como em um ambiente de teste, sem exigir que eles façam login com novas contas e credenciais. Usuários externos são autenticados por seu diretório base ao fazerem login, e essa autenticação funciona para todos os outros diretórios de que eles fazem parte.
-
-Para criar um usuário externo, crie um usuário no portal clássico do Azure e para **Tipo de usuário**, selecione **Usuário em outro diretório do Azure AD**.
+Os usuários criados de ambas as formas são originados de outro diretório e são criados como **usuários externos**. Os usuários externos podem colaborar com os usuários que já existem em um diretório usando sua conta única, sem a necessidade de criar novas contas e credenciais. Os usuários externos são autenticados por seu diretório base ao fazerem login, e essa autenticação funciona para todos os outros diretórios de que eles fazem parte.
 
 ## Limitações e gerenciamento de usuários externos
 
-Quando você adiciona um usuário de um diretório em um novo diretório, esse usuário é um usuário externo no novo diretório. Inicialmente, o nome de exibição e o nome de usuário são copiados do "diretório base" do usuário e marcados no usuário externo no outro diretório. Daí em diante, essas e outras propriedades do objeto do usuário externo são completamente independentes: se você fizer uma alteração no usuário no diretório base, como alterar o nome do usuário, adicionar um cargo, etc., essas alterações não são propagadas para a conta do usuário externo no outro diretório.
+Quando você adiciona um usuário de outro diretório ao seu diretório, esse usuário será um usuário externo no diretório. Inicialmente, o nome de exibição e o nome de usuário são copiados do "diretório base" do usuário e marcados no usuário externo no seu diretório. Daí em diante, essas e outras propriedades do objeto do usuário externo são completamente independentes: se houver uma alteração no usuário no diretório base, como alterar o nome do usuário, adicionar um cargo etc., essas alterações não serão propagadas para o objeto do usuário externo no seu diretório.
 
-A única ligação entre os dois objetos é que o usuário sempre se autentica no diretório base ou com sua conta da Microsoft. É por isso que você não vê uma opção para redefinir a senha ou habilitar a autenticação multifator para uma conta de usuário externo: atualmente, a política de autenticação do diretório base ou da conta da Microsoft é a única que é avaliada quando o usuário faz logon.
+A única ligação entre os dois objetos é que o usuário sempre se autentica no diretório base ou com a conta da Microsoft dele. É por isso que você não vê uma opção para redefinir a senha ou habilitar a autenticação multifator para um usuário externo: atualmente, a política de autenticação do diretório base ou da conta da Microsoft é a única que é avaliada quando o usuário faz logon.
 
-> [AZURE.NOTE]Você ainda pode desabilitar o usuário externo no diretório e isso bloqueará o acesso ao seu diretório.
+> [AZURE.NOTE]
+Você ainda pode desabilitar o usuário externo no diretório e isso bloqueará o acesso ao seu diretório.
 
-Se um usuário for excluído em seu diretório base ou cancelar a sua conta da Microsoft, o usuário externo ainda existirá no diretório. No entanto, o usuário não pode acessar recursos no diretório uma vez que ele não poderá mais se autenticar no seu diretório base ou conta da Microsoft.
+Se um usuário for excluído em seu diretório base ou cancelar a sua conta da Microsoft, o usuário externo ainda existirá no seu diretório. No entanto, o usuário não poderá acessar recursos no diretório, pois não poderá mais se autenticar no seu diretório base ou conta da Microsoft.
 
-Um usuário que seja um administrador de vários diretórios pode gerenciar cada um desses diretórios no portal clássico do Azure. No entanto, outros aplicativos, como o Office 365 não fornecem atualmente experiências para atribuir e acessar os serviços como um usuário externo em outro diretório. No futuro, forneceremos orientações para desenvolvedores sobre como seus aplicativos podem funcionar com usuários que sejam membros de vários diretórios.
+Estes são os serviços que oferecem suporte ao acesso por usuários externos do AD do Azure:
 
-Atualmente, há limitações no sentido de que um administrador pode conceder permissão apenas a um aplicativo multilocatário no seu diretório base e só pode ser provisionado para aplicativos SaaS e SSO por meio do painel de acesso no seu diretório base. Usuários de contas da Microsoft têm as mesmas limitações no sentido de que atualmente eles não podem conceder permissão para um aplicativo multilocatário ou usar o painel de acesso.
+- Portal clássico do Azure: permite que um usuário que seja um administrador de vários diretórios possa gerenciar cada um desses diretórios.
+- SharePoint Online: permite que um usuário externo acesse recursos autorizados do SharePoint Online se o compartilhamento externo estiver habilitado
+- Dynamics CRM: permite que um usuário externo acesse recursos autorizados no Dynamics CRM se o usuário for licenciado por meio do PowerShell
+
+Estas são as limitações conhecidas dos usuários externos do AD do Azure:
+
+- os usuários externos que são administradores não podem adicionar usuários de empresas parceiras aos diretórios (B2B) fora de seu diretório base
+- os usuários externos não podem consentir aplicativos multilocatários em diretórios fora de seu diretório base
+- No momento, o Visual Studio Online não oferece suporte ao acesso de usuários externos
+- No momento, o PowerBI não oferece suporte ao acesso de usuários externos
+- O Portal do Office não oferece suporte ao licenciamento de usuários externos
 
 ## Convidados
 
-Um **convidado** é um usuário em seu diretório que tem um tipo de usuário definido como "Convidado". Usuários regulares têm um tipo de usuário de "Membros" para indicar que eles são membros do diretório. Convidados são criados quando você compartilha um recurso com alguém externo ao seu diretório, por exemplo, quando você adiciona uma conta da Microsoft em sua assinatura do Azure ou compartilha um documento no SharePoint com um usuário externo.
+Um **convidado** é um usuário em seu diretório que tem um tipo de usuário definido como "Convidado". Os usuários regulares têm um UserType "Membros" para indicar que eles são membros do diretório. Os Convidados representam usuários de outros diretórios que foram convidados ao seu diretório para acessar um recurso específico, como um documento do SharePoint, um aplicativo ou um recurso do Azure.
 
-Os convidados têm um conjunto limitado de direitos no diretório. Esses direitos limitam a capacidade dos Convidados de descobrir informações sobre outros usuários no diretório, ao mesmo tempo em que podem interagir com os usuários e grupos associados com os recursos em que estão trabalhando. Por exemplo, um Convidado atribuído a uma assinatura do Azure poderá ver outros usuários e grupos associados à assinatura do Azure. Eles também podem localizar outros usuários no diretório que devem receber acesso à assinatura, contanto que saibam o endereço de email completo do usuário. Um convidado só pode ver um conjunto limitado de propriedades de outros usuários. Essas propriedades são limitadas ao nome de exibição, endereço de email, UPN (nome de entidade de usuário) e miniatura da foto.
+Os convidados têm um conjunto limitado de direitos no diretório. Esses direitos limitam a capacidade dos Convidados de descobrir informações sobre outros usuários no diretório, ao mesmo tempo em que podem interagir com os usuários e grupos associados com os recursos em que estão trabalhando. Os Convidados têm os seguintes recursos:
+
+- ver outros usuários e grupos associados a uma assinatura do Azure a que estejam atribuídos
+- ver os membros dos grupos aos quais pertencem
+- pesquisar outros usuários no diretório desde que saibam o endereço de email completo do usuário
+- ver apenas um conjunto limitado de atributos dos usuários pesquisados - limitados ao nome de exibição, o endereço de email, o nome UPNe a foto em miniatura
+- obter uma lista dos domínios verificados no locatário
+- consentir o acesso a aplicativos, concedendo a eles o mesmo acesso que eles têm em seu diretório
 
 ## Configurar políticas de acesso de usuário
 
-A guia **Configurar** do diretório inclui opções para controlar o acesso para usuários externos. Essas opções podem ser alteradas apenas na interface do usuário (não há nenhum método de API do Windows PowerShell) no portal clássico do Azure completo por um administrador global do diretório. Para abrir a guia **Configurar** no portal clássico do Azure, clique em **Active Directory** e no nome do diretório.
+A guia **Configurar** do diretório inclui opções para controlar o acesso para usuários externos. Essas opções só podem ser alteradas por um administrador global do diretório na interface do usuário (não há nenhum método do Windows PowerShell ou de API) do portal clássico do Azure. Para abrir a guia **Configurar** no portal clássico do Azure, clique em **Active Directory** e no nome do diretório.
 
 ![][1]
 
@@ -93,15 +113,8 @@ Então você pode editar as opções para controlar o acesso para os usuários e
 
 ![][2]
 
-Por padrão, os convidados não podem enumerar o conteúdo do diretório, assim eles não podem ver nenhum usuário ou grupo na **Lista de membros**. Eles podem pesquisar por um usuário digitando o endereço de email completo do usuário e depois conceder acesso. O conjunto de restrições padrão para os convidados são:
 
-- Eles não podem enumerar os usuários e grupos no diretório.
-- Eles podem ver detalhes limitados de um usuário se sabem o endereço de email do usuário.
-- Eles podem ver detalhes limitados de um grupo quando eles sabem o nome do grupo.
-
-A capacidade dos convidados verem detalhes limitados de um usuário ou grupo permite que eles convidem outras pessoas e vejam alguns detalhes das pessoas com quem eles estão colaborando.
-
-## O que vem a seguir?
+## O que vem a seguir
 
 - [Administrando o Azure AD](active-directory-administer.md)
 - [Gerenciar senhas no Azure AD](active-directory-manage-passwords.md)
@@ -111,4 +124,4 @@ A capacidade dos convidados verem detalhes limitados de um usuário ou grupo per
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

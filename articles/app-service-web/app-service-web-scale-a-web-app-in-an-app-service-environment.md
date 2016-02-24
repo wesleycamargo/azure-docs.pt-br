@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/26/2015" 
+	ms.date="01/14/2016" 
 	ms.author="ccompy"/>
 
 # Escalando aplicativos em um Ambiente do Serviço de Aplicativo #
@@ -58,7 +58,7 @@ Como observamos anteriormente, a seleção do pool de trabalho é acessada da in
 
 Antes de mover seu ASP de um pool de trabalho para outro, é importante se certificar de que você terá a capacidade adequada para o ASP. Na lista de pools de trabalhadores, não apenas o nome do pool de trabalhadores está listado, mas você também pode ver quantos trabalhadores estão disponíveis nesse pool de trabalhadores. Certifique-se de que há instâncias suficientes disponíveis para conter o seu Plano do Serviço de Aplicativo. Se precisar de mais recursos de computação no pool de trabalhadores para o qual deseja mover, providencie para que o administrador do seu ASE os adicione.
 
-> [AZURE.NOTE]Mover um ASP de um pool de trabalho causará uma reinicialização dos aplicativos nesse ASP. Isso pode causar uma pequena quantidade de tempo de inatividade para seu aplicativo, dependendo de quanto tempo ele leva para ser reiniciado.
+> [AZURE.NOTE] Mover um ASP de um pool de trabalho causará uma reinicialização dos aplicativos nesse ASP. Isso pode causar uma pequena quantidade de tempo de inatividade para seu aplicativo, dependendo de quanto tempo ele leva para ser reiniciado.
 
 ## Introdução
 
@@ -83,4 +83,4 @@ Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Az
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 [AppScale]: http://azure.microsoft.com/documentation/articles/web-sites-scale/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

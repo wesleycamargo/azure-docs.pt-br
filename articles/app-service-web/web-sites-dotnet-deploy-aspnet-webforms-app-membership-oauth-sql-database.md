@@ -3,7 +3,7 @@
 	description="Este tutorial mostra como criar um aplicativo com Web Forms ASP.NET 4.5 seguro que incorpora um banco de dados SQL e implanta o aplicativo no Azure." 
 	services="app-service\web" 
 	documentationCenter=".net" 
-	authors="Erikre" 
+	authors="erikre" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="12/10/2015" 
-	ms.author="erikre"/>
+	ms.author="tdykstra"/>
 
 
 # Criar e implantar um aplicativo Web Forms do ASP.NET seguro com associação, OAuth e Banco de Dados SQL no Serviço de Aplicativo do Azure
@@ -22,7 +22,8 @@
 ##Visão geral
 Este tutorial mostra como criar um aplicativo com Web Forms ASP.NET 4.5 seguro que incorpora um banco de dados SQL e implanta o aplicativo no Azure.
 
->[AZURE.NOTE]Para obter uma versão para MVC deste tutorial, consulte [Criar um aplicativo ASP.NET MVC com autenticação e o banco de dados SQL e implantar no Serviço de Aplicativo do Azure](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
+>[AZURE.NOTE] 
+Para obter uma versão para MVC deste tutorial, consulte [Criar um aplicativo ASP.NET MVC com autenticação e o banco de dados SQL e implantar no Serviço de Aplicativo do Azure](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
 
 É possível abrir uma conta do Azure gratuitamente e, se você ainda não tiver o Visual Studio 2013, o SDK instalará automaticamente o Visual Studio 2013 para o Web Express. É possível iniciar o desenvolvimento para o Azure de maneira gratuita.
 
@@ -39,9 +40,10 @@ Você aprenderá a:
 
 Você criará um aplicativo Web de lista de contatos simples criado no ASP.NET de Web Forms 4.5 e que usa o Entity Framework para acesso ao banco de dados. A imagem a seguir mostra a página de Web Forms que permite acesso de leitura e gravação ao banco de dados:
 
-	![Contatos - Editar página](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms00.png)
+![Contatos - Editar página](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms00.png)
 
->[AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Azure. Se não tiver uma conta, você poderá <a href="/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">ativar os benefícios de assinante do Visual Studio</a> ou <a href="/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">inscrever-se em uma avaliação gratuita</a>. Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](https://tryappservice.azure.com/), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE] 
+Para concluir este tutorial, você precisa de uma conta do Azure. Se não tiver uma conta, você poderá <a href="/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">ativar os benefícios de assinante do Visual Studio</a> ou <a href="/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">inscrever-se em uma avaliação gratuita</a>. Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](https://tryappservice.azure.com/), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ##Configurar o ambiente de desenvolvimento 
 Para começar, defina o ambiente de desenvolvimento instalando o Visual Studio 2013 e o SDK do Azure para .NET.
@@ -57,7 +59,8 @@ Para começar, defina o ambiente de desenvolvimento instalando o Visual Studio 2
 
 5. Se você ainda não tem o **Visual Studio Atualização 2**, baixe e instale o **[Visual Studio 2013 Atualização 2](http://www.microsoft.com/download/details.aspx?id=42666)** ou posterior.
 
-	>[AZURE.NOTE]É necessário que você instale o Visual Studio 2013 Atualização 2 ou posterior para poder utilizar o Google OAuth 2.0 e para utilizar SSL localmente, sem advertências. Além disso, você precisa da Atualização 2 para utilizar o Scaffolding dos Web Forms.
+>[AZURE.NOTE]  
+É necessário que você instale o Visual Studio 2013 Atualização 2 ou posterior para poder utilizar o Google OAuth 2.0 e para utilizar SSL localmente, sem advertências. Além disso, você precisa da Atualização 2 para utilizar o Scaffolding dos Web Forms.
 
 Quando a instalação for concluída, você terá todo o necessário para iniciar o desenvolvimento.
 
@@ -223,7 +226,8 @@ Agora que você criou e executou seu aplicativo localmente, é hora de implantá
 O aplicativo que você criou agora está em execução na nuvem. Na próxima vez que você implantar o aplicativo a partir do Visual Studio, somente os arquivos alterados (ou novos) serão implantados.  
 	![Aplicativo no Navegador](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms10.png)
 
->[AZURE.NOTE]Se ocorrer um erro durante a publicação em um aplicativo Web já estabelecido, é possível limpar o local antes de adicionar os novos arquivos. Publique o aplicativo novamente, porém na caixa de diálogo **Publicar na Web**, selecione a guia **Configurações**. Em seguida, defina as configurações como **Depurar** e selecione a opção **Remover os arquivos adicionais presentes no destino**. Selecione **Publicar** para implantar seu aplicativo novamente.  
+>[AZURE.NOTE] 
+Se ocorrer um erro durante a publicação em um aplicativo Web já estabelecido, é possível limpar o local antes de adicionar os novos arquivos. Publique o aplicativo novamente, porém na caixa de diálogo **Publicar na Web**, selecione a guia **Configurações**. Em seguida, defina as configurações como **Depurar** e selecione a opção **Remover os arquivos adicionais presentes no destino**. Selecione **Publicar** para implantar seu aplicativo novamente. 
 	![Caixa de diálogo Publicar na Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms11.png)
 
 ##Adicionar um banco de dados ao aplicativo 
@@ -268,9 +272,9 @@ As etapas a seguir permitirão que você utilize o Scaffolder de Web Forms.
 1. No Visual Studio, na barra de menus selecione **Ferramentas** -> **Extensões e Atualizações**. A caixa de diálogo **Extensões e Atualizações** é exibida.
 2. A partir do painel esquerdo da caixa de diálogo, selecione **Online** -> **Galeria do Visual Studio** -> **Ferramentas** -> **Scaffolding**.
 3. Se você não vê 'Scaffolding de Web Forms' na lista, insira 'Scaffolding de Web Forms' na caixa de pesquisa, à direita da caixa de diálogo.  
-4. Se o Scaffolder de Web Forms ainda não está instalado, selecione **Download** para baixar e instalar o 'Scaffolding de Web Forms'. Reinicie o Visual Studio se necessário. Certifique-se de salvar as alterações para o projeto quando solicitado.  
+4. Se o Scaffolder de Web Forms ainda não está instalado, selecione **Download** para baixar e instalar o 'Scaffolding de Web Forms'. Reinicie o Visual Studio se necessário. Certifique-se de salvar as alterações para o projeto quando solicitado. 
 	![Caixa de diálogo Extensões e Atualizações](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/ExtensionsAndUpdatesDB.png)  
-5. Compile o projeto (**Ctrl+Shift+B**). Você deve compilar o projeto antes de usar o mecanismo de scaffolding.  
+5. Compile o projeto **(Ctrl+Shift+B)**. Você deve compilar o projeto antes de usar o mecanismo de scaffolding.  
 6. No **Gerenciador de Soluções**, clique com botão direito do mouse em *projeto* e, em seguida, selecione **Adicionar** -> **Novo Item de Scaffold**. A caixa de diálogo **Adicionar Scaffold** é exibida.
 7. Selecione **Web Forms** a partir do painel esquerdo e selecione **Páginas Web Forms utilizando Entity Framework** a partir do painel central. Clique em **Adicionar**.  
 	![Caixa de diálogo Adicionar Scaffold](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13a.png)A caixa de diálogo **Adicionar Páginas de Web Forms** é exibida.  
@@ -686,7 +690,8 @@ Agora que o aplicativo Web está concluído, você pode publicá-lo no Azure.
 
 10. Em seguida, clique em **Publicar**. Seu aplicativo será publicado no Azure.
 
->[AZURE.NOTE]Se você fechou e abriu novamente o Visual Studio depois de criar o perfil de publicação, talvez você não veja a cadeia de conexão na lista suspensa. Nesse caso, em vez de editar o perfil de publicação que você criou anteriormente, crie um novo da mesma maneira como criou anteriormente e siga estas etapas na guia **Configurações**.)
+>[AZURE.NOTE]  
+Se você fechou e abriu novamente o Visual Studio depois de criar o perfil de publicação, talvez você não veja a cadeia de conexão na lista suspensa. Nesse caso, em vez de editar o perfil de publicação que você criou anteriormente, crie um novo da mesma maneira como criou anteriormente e siga estas etapas na guia **Configurações**.)
 
 ###Revisar o Aplicativo no Azure 
 1. No navegador, clique no link **Demonstração de Contato**. A Lista de Contatos é exibida.  
@@ -740,10 +745,11 @@ Anteriormente, no tutorial, você usou código para adicionar usuários à funç
 3. Na tabela **dbo.AspNetUsers**, encontre o usuário que você deseja incluir na função, copiando a *Id* do usuário.
 4. Cole a *Id* copiada no campo **UserId** da nova linha na tabela **AspNetUserRoles**.  
 
->[AZURE.NOTE]Estamos trabalhando em uma ferramenta que irá facilitar bastante o gerenciamento de usuários e funções.
+>[AZURE.NOTE]  
+Estamos trabalhando em uma ferramenta que irá facilitar bastante o gerenciamento de usuários e funções.
 
 ##Próximas etapas
-Para saber mais sobre Web Forms ASP.NET, consulte [Saiba sobre os Web Forms ASP.NET](http://www.asp.net/web-forms) no aplicativo Web ASP.NET e [Guias e tutoriais do Microsoft Azure](http://azure.microsoft.com/documentation/services/web-sites/#net).
+Para saber mais sobre Web Forms ASP.NET, consulte [Saiba sobre os Web Forms ASP.NET](http://www.asp.net/web-forms) no aplicativo Web ASP.NET e [Guias e tutoriais do Microsoft Azure](https://azure.microsoft.com/documentation/services/web-sites/#net).
 
 Este tutorial é baseado no tutorial para MVC [Criar um aplicativo MVC ASP.NET com autorização e banco de dados do SQL DB e implantá-lo no Serviço de Aplicativo do Azure](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md), escrito por Rick Anderson (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) com ajuda de Tom Dykstra e Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)).
 
@@ -751,4 +757,4 @@ Deixe comentários sobre o que você gostou e o que você gostaria de ver melhor
 
  
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

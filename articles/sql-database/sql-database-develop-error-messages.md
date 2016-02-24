@@ -1,6 +1,7 @@
-<properties 
-	pageTitle="Mensagens de erro para programas cliente do Banco de Dados SQL"
-	description="Para cada erro, são fornecidos a ID numérica e a mensagem de texto. Fique à vontade para fazer referência cruzada com seus próprios textos de mensagens de erro mais amigáveis, se desejar."
+<properties
+	pageTitle="Códigos de erro de SQL - erro de conexão de banco de dados | Microsoft Azure"
+	description="Saiba mais sobre os códigos de erro de SQL para aplicativos cliente do Banco de Dados SQL, como erros comuns de conexão de banco de dados, problemas de cópia de banco de dados e erros gerais."
+	keywords="código de erro de sql, acessar sql, erro de conexão de banco de dados, códigos de erro de sql"
 	services="sql-database"
 	documentationCenter=""
 	authors="MightyPen"
@@ -8,17 +9,17 @@
 	editor="" />
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/06/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="12/06/2015"
 	ms.author="genemi"/>
 
 
-# Mensagens de erro para programas cliente do Banco de Dados SQL
+# Códigos de erro de SQL para aplicativos cliente do Banco de Dados SQL: erro de conexão de banco de dados e outros problemas
 
 
 <!--
@@ -28,25 +29,19 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 -->
 
 
-Este tópico lista várias categorias de mensagens de erro. A maioria das categorias específicas do Banco de Dados SQL do Azure e não se aplicam ao Microsoft SQL Server.
+Este artigo lista os códigos de erro do SQL para o aplicativo cliente do Banco de Dados SQL, incluindo erros de conexão de banco de dados, erros transitórios (também chamadas de falhas transitórias), erros de governança de recursos, problemas de cópia de banco de dados e outros erros. A maioria das categorias específicas do Banco de Dados SQL do Azure e não se aplicam ao Microsoft SQL Server.
 
-
-Em seu programa cliente, você tem a opção de fornecer ao usuário uma mensagem alternativa, personalizada por você, para qualquer um dos erros.
-
-
-> [AZURE.TIP]A seção a seguir, sobre erros de [*falha transitória*](#bkmk_connection_errors), é muito importante.
-
-
+Em seu aplicativo cliente para qualquer um dos erros, é possível pode fornecer ao usuário uma mensagem que você personalizar.
 
 <a id="bkmk_connection_errors" name="bkmk_connection_errors">&nbsp;</a>
 
 
-## Falhas transitórias, perda de conexão e outros erros temporários
+## Erros de conexão de banco de dados, erros transitórios e outros erros temporários
 
-A tabela a seguir aborda os erros de perda de conexão e outros erros transitórios com que você pode se deparar ao trabalhar na Internet com o Banco de Dados SQL do Azure.
+A tabela a seguir aborda os códigos de erro de SQL para erros de perda de conexão e outros erros transitórios que podem ocorrer quando o aplicativo tenta acessar o Banco de Dados SQL.
 
 
-### Falhas transitórias mais comuns
+### Erros de conexão de banco de dados mais comuns e erros de falhas transitórias mais comuns
 
 
 Erros de falhas transitórias normalmente se manifestam como uma das seguintes mensagens de erro de seus programas de cliente:
@@ -64,13 +59,13 @@ Erros de falha transitória devem solicitar que o programa cliente execute a *l�
 
 - [Desenvolvimento do cliente e exemplos de código de início rápido para o Banco de Dados SQL](sql-database-develop-quick-start-client-code-samples.md)
 
-- [Ações para corrigir erros e falhas transitórias no Banco de Dados SQL](sql-database-connectivity-issues.md)
+- [Ações para corrigir erros de conexão e erros transitórios no Banco de Dados SQL](sql-database-connectivity-issues.md)
 
 
-### Números de erros de falha transitória
+### Códigos de erros de falha transitória
 
 
-| Número do erro | Severidade | Descrição |
+| Código do erro | Severidade | Descrição |
 | ---: | ---: | :--- |
 | 4060 | 16 | Não é possível abrir o banco de dados "%.&#x2a;ls" solicitado pelo logon. Houve falha no logon. |
 |40197|17|O serviço encontrou um erro ao processar sua solicitação. Tente novamente. Código de erro %d.<br/><br/>Você receberá este erro quando o serviço ficar inativo devido a atualizações de software ou hardware, falhas de hardware ou quaisquer outros problemas de failover. O código de erro (%d) inserido na mensagem de erro 40197 fornece informações adicionais sobre o tipo de falha ou failover que ocorreu. Alguns exemplos de códigos que são inseridos na mensagem de erro 40197 são 40020, 40143, 40166 e 40540.<br/><br/>Reconectar-se ao servidor do Banco de Dados SQL conectará você automaticamente a uma cópia íntegra do banco de dados. Seu aplicativo deve capturar o erro 40197, registrar o código de erro inserido (%d) na mensagem para solução do problema e tentar se reconectar ao Banco de Dados SQL até que os recursos estejam disponíveis e a conexão seja restabelecida.|
@@ -89,7 +84,7 @@ Erros de falha transitória devem solicitar que o programa cliente execute a *l�
 A tabela a seguir abrange vários erros que você pode encontrar ao copiar um banco de dados no Banco de Dados SQL do Azure. Para saber mais, confira [Copiar um Banco de Dados SQL do Azure](sql-database-copy.md).
 
 
-|Número do erro|Severidade|Descrição|
+|Código do erro|Severidade|Descrição|
 |---:|---:|:---|
 |40635|16|O cliente com endereço IP “%.&#x2a;ls” está desabilitado temporariamente.|
 |40637|16|A criação da cópia do banco de dados está desabilitada no momento.|
@@ -126,7 +121,7 @@ A tabela a seguir abrange os erros causados pelo uso excessivo de recursos enqua
 - [Limites de recursos do Banco de Dados SQL do Azure](sql-database-resource-limits.md)
 
 
-|Número do erro|Severidade|Descrição|
+|Código do erro|Severidade|Descrição|
 |---:|---:|:---|
 |10928|20|ID do recurso: %d. O limite de %s para o banco de dados é %d e foi atingido. Para saber mais, confira [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>A ID do recurso indica qual dos recursos atingiu o limite. Para threads de trabalho, a ID do recurso é igual a 1. Para sessões, a ID do recurso é igual a 2.<br/><br/>*Observação:* para saber mais sobre esse erro e como resolvê-lo, confira:<br/>•[Limites de recursos do Banco de Dados SQL do Azure](sql-database-resource-limits.md). |
 |10929|20|ID do recurso: %d. A garantia mínima de %s é %d, o limite máximo é %d e o uso atual do banco de dados é %d. No entanto, o servidor está muito ocupado para dar suporte a solicitações maiores que %d para este banco de dados. Para saber mais, confira [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Caso contrário, tente novamente mais tarde.<br/><br/>A ID do recurso indica qual dos recursos atingiu o limite. Para threads de trabalho, a ID do recurso é igual a 1. Para sessões, a ID do recurso é igual a 2.<br/><br/>*Observação:* para saber mais sobre esse erro e como resolvê-lo, confira:<br/>•[Limites de recursos do Banco de Dados SQL do Azure](sql-database-resource-limits.md).|
@@ -153,7 +148,7 @@ Para ver uma discussão adicional sobre a governança de recursos e os erros ass
 A tabela a seguir lista todos os erros gerais que não se enquadram em nenhuma categoria anterior.
 
 
-|Número do erro|Severidade|Descrição|
+|Código do erro|Severidade|Descrição|
 |---:|---:|:---|
 |15006|16|<AdministratorLogin> não é um nome válido porque contém caracteres inválidos.|
 |18452|14|Falha no logon. O logon é de um domínio não confiável e não pode ser usado com a autenticação do Windows.%.&#x2a;ls (logons do Windows não têm suporte nesta versão do SQL Server.)|
@@ -214,10 +209,10 @@ A tabela a seguir lista todos os erros gerais que não se enquadram em nenhuma c
 |40649|16|Tipo de conteúdo inválido especificado. Somente aplicativo/xml tem suporte.|
 |40650|16|A assinatura <subscription-id> não existe ou não está pronta para a operação.|
 |40651|16|Falha ao criar o servidor porque a assinatura <subscription-id> está desabilitada.|
-|40652|16|Não é possível mover ou criar o servidor. Assinatura <subscription-id> excederá a cota do servidor.|
+|40652|16|Não é possível mover ou criar o servidor. A assinatura <subscription-id> ultrapassará a cota do servidor.|
 |40671|17|Falha de comunicação entre o gateway e o serviço de gerenciamento. Tente novamente mais tarde.|
-|40852|16|Não é possível abrir o banco de dados '%.*ls' no servidor '%.*ls' solicitado pelo logon. O acesso ao banco de dados é permitido apenas usando uma cadeia de conexão habilitada para segurança. Para acessar esse banco de dados, modifique as cadeias de conexão para conter “secure” no FQDN do servidor. 'server name'.database.windows.net deve ser modificado para 'server name'.database.`secure`.windows.net.|
-|45168|16| O sistema do SQL Azure está sob carga e está estabelecendo um limite superior em operações CRUD simultâneas de BD para um único servidor (por exemplo, criar banco de dados). O servidor especificado na mensagem de erro ultrapassou o número máximo de conexões simultâneas. Tente novamente mais tarde.|
+|40852|16|Não é possível abrir o banco de dados '%.*ls' no servidor '%.*ls' solicitado pelo logon. O acesso ao banco de dados é permitido apenas usando uma cadeia de conexão habilitada para segurança. Para acessar esse banco de dados, modifique as cadeias de conexão para conter “secure” no FQDN do servidor. 'server name'.database.windows.net deve ser modificado para 'server name'.database.`secure`.windows.net.| 
+|45168|16| O sistema do SQL Azure está sob carga e está estabelecendo um limite superior em operações CRUD simultâneas de BD para um único servidor (por exemplo, criar banco de dados). O servidor especificado na mensagem de erro ultrapassou o número máximo de conexões simultâneas. Tente novamente mais tarde.| 
 |45169|16|O sistema SQL Azure está sob carga e está estabelecendo um limite superior para o número de operações CRUD de servidor simultâneas para uma única assinatura (por exemplo, criar servidor). A assinatura especificada na mensagem de erro ultrapassou o número máximo de conexões simultâneas e a solicitação foi negada. Tente novamente mais tarde.|
 
 
@@ -226,4 +221,4 @@ A tabela a seguir lista todos os erros gerais que não se enquadram em nenhuma c
 - [Diretrizes e limitações gerais do Banco de Dados SQL do Azure](sql-database-general-limitations.md)
 - [Limites de recursos do Banco de Dados SQL do Azure](sql-database-resource-limits.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

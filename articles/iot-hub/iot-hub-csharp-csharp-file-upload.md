@@ -24,7 +24,7 @@ O Hub IoT do Azure é um serviço totalmente gerenciado que permite comunicaçõ
 
 Este tutorial se baseia no código apresentado em [Enviar mensagens da nuvem para o dispositivo com o Hub IoT] para mostrar como usar mensagens da nuvem para o dispositivo para fornecer com segurança um URI de blob do Azure ao dispositivo a ser usado para carregar o arquivo. Além disso, ele mostra como usar os reconhecimentos de entrega do Hub IoT para disparar o processamento do arquivo do seu back-end de aplicativo. As vantagens dessa abordagem é a reutilização de identidade do dispositivo Hub IoT e a confirmação de entrega de mensagens da nuvem para o dispositivo para informar o back-end do aplicativo que o arquivo foi carregado com êxito.
 
-> [AZURE.NOTE]A mesma abordagem usada aqui pode ser usada para dispositivos baixarem arquivos com segurança da nuvem.
+> [AZURE.NOTE] A mesma abordagem usada aqui pode ser usada para dispositivos baixarem arquivos com segurança da nuvem.
 
 Encontre mais informações sobre as mensagens da nuvem para o dispositivo e segurança IoT no [Guia do Desenvolvedor do Hub IoT].
 
@@ -33,13 +33,13 @@ No final deste tutorial, você executará dois aplicativos de console do Windows
 * **SimulatedDevice**, uma versão modificada do aplicativo criado em [Enviar mensagens da nuvem para dispositivo], que se conecta a seu hub IoT e recebe mensagens da nuvem para o dispositivo contendo os URIs do blob do Azure. Para cada mensagem de nuvem para dispositivo recebida, ele dispara um upload de arquivo para o URI do blob especificado.
 * **SendCloudToDevice**, que compila um Azure URI do blob (conforme explicado em [Criar e usar uma SAS com o serviço Blob](../storage/storage-dotnet-shared-access-signature-part-2.md), envia em uma mensagem de nuvem para o dispositivo para dispositivo simulado por meio do Hub IoT e, em seguida, recebe seu reconhecimento de entrega.
 
-> [AZURE.NOTE]O Hub IoT tem suporte SDK para várias plataformas de dispositivo e idiomas (incluindo C, Java e Javascript) no entanto, SDKs de dispositivo IoT do Azure. Consulte o [Centro de Desenvolvedores do IoT do Azure] para obter instruções passo a passo sobre como conectar seu dispositivo ao código deste tutorial e, em geral, do Hub IoT do Azure. SDKs de serviço de IoT do Azure para Jave e Node estarão disponíveis em breve.
+> [AZURE.NOTE] O Hub IoT tem suporte SDK para várias plataformas de dispositivo e idiomas (incluindo C, Java e Javascript) no entanto, SDKs de dispositivo IoT do Azure. Consulte o [Centro de Desenvolvedores do IoT do Azure] para obter instruções passo a passo sobre como conectar seu dispositivo ao código deste tutorial e, em geral, do Hub IoT do Azure. SDKs de serviço de IoT do Azure para Jave e Node estarão disponíveis em breve.
 
 Para concluir este tutorial, você precisará do seguinte:
 
 + Microsoft Visual Studio 2015,
 
-+ Uma conta ativa do Azure. <br/>Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos Para obter detalhes, consulte [Avaliação Gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdevelop%2Fiot%2Ftutorials%2Ffile-upload%2F target="\_blank").
++ Uma conta ativa do Azure. <br/>Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos Para obter detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdevelop%2Fiot%2Ftutorials%2Ffile-upload%2F target="\_blank").
 
 
 [AZURE.INCLUDE [iot-hub-file-upload-cloud-csharp](../../includes/iot-hub-file-upload-cloud-csharp.md)]
@@ -79,7 +79,6 @@ Informações adicionais sobre o Hub IoT:
 <!-- Links -->
 
 [Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
-[Enviar mensagens da nuvem para o dispositivo com o Hub IoT]: iot-hub-csharp-csharp-c2d.md
 
 [portal do Azure]: https://portal.azure.com/
 
@@ -90,7 +89,6 @@ Informações adicionais sobre o Hub IoT:
 [Enviar mensagens da nuvem para dispositivo]: iot-hub-csharp-csharp-c2d.md
 [Enviar mensagens da nuvem para o dispositivo com o Hub IoT]: iot-hub-csharp-csharp-c2d.md
 [Enviar mensagens de nuvem para o dispositivo com o Hub IoT]: iot-hub-csharp-csharp-c2d.md
-[Envio de mensagens nuvem para dispositivo com o Hub IoT]: iot-hub-csharp-csharp-c2d.md
 [As mensagens do processo de dispositivo para nuvem]: iot-hub-csharp-csharp-process-d2c.md
 [Mensagens do processo de dispositivo para nuvem]: iot-hub-csharp-csharp-process-d2c.md
 [Uploading files from devices]: iot-hub-csharp-csharp-file-upload.md
@@ -103,4 +101,4 @@ Informações adicionais sobre o Hub IoT:
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Centro de Desenvolvedores do IoT do Azure]: http://www.azure.com/develop/iot
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

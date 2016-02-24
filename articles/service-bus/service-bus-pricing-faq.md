@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/09/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
-# Perguntas Frequentes sobre Preços do Barramento de Serviço
+# Perguntas frequentes sobre preços do Barramento de Serviço
 
-Esta seção responde a perguntas frequentes sobre a estrutura de preços do Barramento de Serviço. Você também pode visitar as [Perguntas frequentes de suporte do Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para informações gerais sobre preços do Microsoft Azure. Para saber mais sobre o preço do Barramento de Serviço, consulte [Detalhes de preço do Barramento de Serviço](http://azure.microsoft.com/pricing/details/service-bus/).
+Esta seção responde a perguntas frequentes sobre a estrutura de preços do Barramento de Serviço. Você também pode visitar as [Perguntas frequentes de suporte do Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para informações gerais sobre preços do Microsoft Azure. Para saber mais sobre o preço do Barramento de Serviço, consulte [Detalhes de preço do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/).
 
->[AZURE.NOTE]A estrutura de preços de Hubs de Eventos está descrita em [Perguntas frequentes sobre disponibilidade e suporte dos Hubs de Eventos](event-hubs-availability-and-support-faq.md), com mais informações no tópico [Preços de Hubs de Eventos](http://azure.microsoft.com/pricing/details/event-hubs/).
+>[AZURE.NOTE] A estrutura de preços de Hubs de Eventos está descrita em [Perguntas frequentes sobre disponibilidade e suporte dos Hubs de Eventos](../event-hubs/event-hubs-availability-and-support-faq.md), com mais informações no tópico [Preços de Hubs de Eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 - [Como é cobrado o Barramento de Serviço?](#how-do-you-charge-for-service-bus)
 - [Quais usos do Barramento de Serviço estão sujeitos à transferência de dados? O que não está?](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not)
@@ -32,7 +32,7 @@ Esta seção responde a perguntas frequentes sobre a estrutura de preços do Bar
 
 ## Como é cobrado o Barramento de Serviço?
 
-Para obter informações completas sobre os preços de Barramento de Serviço, consulte [Preços de Barramento de Serviço e cobrança](https://msdn.microsoft.com/library/dn831889.aspx) e [Detalhes de preço de Barramento de Serviço](http://azure.microsoft.com/pricing/details/service-bus/). Além dos preços mencionados, você é cobrado por transferências de dados associadas para saída fora do data center em que seu aplicativo está provisionado. Encontre mais detalhes em [Quais usos do Barramento de Serviço estão sujeitos à transferência de dados? na seção O que não está?](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not) abaixo.
+Para obter informações completas sobre os preços de Barramento de Serviço, consulte [Preços de Barramento de Serviço e cobrança](https://msdn.microsoft.com/library/dn831889.aspx) e [Detalhes de preço de Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/). Além dos preços mencionados, você é cobrado por transferências de dados associadas para saída fora do data center em que seu aplicativo está provisionado. Encontre mais detalhes em [Quais usos do Barramento de Serviço estão sujeitos à transferência de dados? na seção O que não está?](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not) abaixo.
 
 ## Quais usos do barramento de serviço estão sujeitos à transferência de dados? O que é não está?
 
@@ -88,11 +88,11 @@ Como ocorre com outros serviços no Azure, o Barramento de Serviço aplica um co
 
 - **Cotas de tamanho de mensagem**
 	- **Fila/Tópico/Assinatura**
-		- **Tamanho da mensagem** – cada mensagem está limitada a um tamanho total de 256KB, incluindo os cabeçalhos da mensagem.
+		- **Tamanho da mensagem**: cada mensagem está limitada a um tamanho total de 256KB, incluindo os cabeçalhos da mensagem.
 		- **Tamanho do cabeçalho da mensagem** – cada cabeçalho de mensagem é limitado a 64KB.
 
 	- **NetOneway e NetEvent** – cada mensagem é limitada a um tamanho total de 64KB, incluindo os cabeçalhos da mensagem.
-	- **Retransmissões http e NetTcp** – o Barramento de Serviço não impõe um limite superior ao tamanho dessas mensagens.
+	- **Retransmissões http e NetTcp**: o Barramento de Serviço não impõe um limite superior ao tamanho dessas mensagens.
 
 	As mensagens que excederem essas cotas de tamanho serão rejeitadas e uma exceção será recebida pelo código de chamada.
 
@@ -111,9 +111,9 @@ Para saber mais sobre as mensagens do Barramento de Serviço, confira os tópico
 - [Introdução ao sistema de mensagens Premium do Barramento de Serviço do Azure (postagem de blog)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 - [Introdução ao sistema de mensagens Premium do Barramento de Serviço do Azure (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 - [Visão geral de mensagens do Barramento de Serviço](service-bus-messaging-overview.md)
-- [Visão geral da arquitetura de Barramento de Serviço do Azure](fundamentals-service-bus-hybrid-solutions.md)
+- [Visão geral da arquitetura de Barramento de Serviço do Azure](service-bus-fundamentals-hybrid-solutions.md)
 - [Como usar filas do Barramento de Serviço](service-bus-dotnet-how-to-use-queues.md)
 
 [portal clássico do Azure]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

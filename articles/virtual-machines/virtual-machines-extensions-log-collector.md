@@ -47,7 +47,7 @@ Em ambos os modos de coleta, é possível especificar pastas de coleta de dados 
 ## Pré-requisitos
 
 - Você precisa ter uma conta de armazenamento para a extensão para salvar os arquivos zip gerados.
-- Verifique se você está usando os cmdlets do Azure PowerShell V0.8.0 ou superior. Para saber mais, confira [Downloads do Azure](http://azure.microsoft.com/downloads/).
+- Verifique se você está usando os cmdlets do Azure PowerShell V0.8.0 ou superior. Para saber mais, confira [Downloads do Azure](https://azure.microsoft.com/downloads/).
 
 ## Adicionar a extensão
 
@@ -126,7 +126,7 @@ Você pode acompanhar uma das duas etapas a seguir para adicionar o AzureLogColl
         $AdditionalDataList+= $a1
               #more locations can be added....
   
-    > [AZURE.NOTE]Você pode usar o token `%roleroot%` para especificar a unidade raiz da função, já que ela não usa uma unidade fixa.
+    > [AZURE.NOTE] Você pode usar o token `%roleroot%` para especificar a unidade raiz da função, já que ela não usa uma unidade fixa.
 
 4. Forneça o nome e a chave da conta de armazenamento do Azure na qual os arquivos coletados serão carregados.
 
@@ -521,4 +521,4 @@ SetAzureVMLogCollector.ps1
 
 Agora você pode examinar ou copiar os logs de um local muito simples.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

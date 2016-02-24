@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="02/09/2016" 
 	ms.author="ryancraw"/>
 
 # SDK do Banco de Dados de Documentos
@@ -59,7 +59,7 @@
   - Suporte ao provedor de LINQ aprimorado
     - **Matemática** - Abs, Acos, Asin, Atan, Ceiling, Cos, Exp, Floor, Log, Log10, Pow, Round, Sign, Sin, Sqrt, Tan e Truncate
     - **Cadeia de caracteres** - Concat, Contains, EndsWith, IndexOf, Count, ToLower, TrimStart, Replace, Reverse, TrimEnd, StartsWith, SubString e ToUpper
-    - **Matriz** - Concat, Contains, Count
+    - **Array** - Concat, Contains, Count
     - Operador **IN**
 
 ### <a name="1.3.0"/>[1\.3.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.3.0)
@@ -99,7 +99,7 @@ Houve uma alteração de nome do pacote NuGet entre a visualização e a GA. Mud
 - SDKs de visualização [Obsoleto]
 
 ## Datas de lançamento e desativação
-A Microsoft fornecerá uma notificação com, pelo menos, **12 meses** de antecedência de desativar um SDK, a fim de realizar uma transição estável para uma versão mais recente/com suporte.
+A Microsoft fornecerá uma notificação pelo menos **12 meses** antes de desativar um SDK, a fim de realizar uma transição tranquila para uma versão mais recente/com suporte.
 
 Os novos recursos, funcionalidades e otimizações são adicionados apenas ao SDK atual. Portanto, recomendamos que você atualize sempre que possível para a versão do SDK mais recente.
 
@@ -133,4 +133,4 @@ Todas as versões do SDK do Banco de Dados de Documentos do Azure para .NET ante
 
 Para saber mais sobre o Banco de Dados de Documentos, confira a página de serviço do [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

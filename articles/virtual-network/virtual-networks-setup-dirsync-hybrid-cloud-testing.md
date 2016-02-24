@@ -45,7 +45,7 @@ Há três fases principais para configurar esse ambiente de teste de nuvem híbr
 2.	Configurar a avaliação do Office 365 FastTrack.
 3.	Configurar o servidor DirSync (DS1).
 
-Se você não tiver uma conta do Azure, será possível se inscrever em uma conta gratuita no [Experimente o Azure](http://azure.microsoft.com/pricing/free-trial/). Se tiver uma assinatura do MSDN, consulte [Benefício do Azure para assinantes do MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Se você não tiver uma conta do Azure, será possível se inscrever em uma conta gratuita no [Experimente o Azure](https://azure.microsoft.com/pricing/free-trial/). Se tiver uma assinatura do MSDN, consulte [Benefício do Azure para assinantes do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ## Fase 1: Configurar o ambiente de nuvem híbrida
 
@@ -55,7 +55,7 @@ Esta é a configuração atual.
 
 ![](./media/virtual-networks-setup-dirsync-hybrid-cloud-testing/CreateDirSyncHybridCloud_1.png)
 
-> [AZURE.NOTE]Para a Fase 1, você também pode configurar o ambiente de teste de nuvem híbrida simulada. Consulte [Configurar um ambiente de nuvem híbrida simulada para testes](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md) para ver as instruções.
+> [AZURE.NOTE] Para a Fase 1, você também pode configurar o ambiente de teste de nuvem híbrida simulada. Consulte [Configurar um ambiente de nuvem híbrida simulada para testes](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md) para ver as instruções.
 
 ## Fase 2: Configurar a versão de avaliação do Office 365 FastTrack
 
@@ -120,7 +120,7 @@ Em seguida, habilite a Sincronização de Diretórios para sua versão de avalia
 2.	Para **Sincronização do Active Directory**, clique em **Configurar**.
 3.	Na página Configurar e gerenciar a sincronização do Active Directory, da etapa 3, clique em **Ativar**.
 4.	Quando a pergunta **Deseja ativar a sincronização do Active Directory?** for exibida, clique em **Ativar**. Depois disso, a mensagem **A sincronização do Active Directory está ativada** é exibida na etapa 3.
-5.	Deixe a página **Configurar e gerenciar a sincronização do Active Directory** aberta em CLIENT1.
+5.	Deixe a página **Configurar e gerenciar a sincronização do Active Directory** aberta no CLIENT1.
 
 Em seguida, faça logon no DC1 com a conta de CORP\\User1 e abra um prompt de comando do Windows PowerShell com nível de administrador. Execute estes comandos para criar uma nova unidade organizacional chamada contoso\_users e adicionar duas novas contas de usuário, para Marci Kaufman e Laura Cunha.
 
@@ -153,13 +153,13 @@ A coluna **Status** indica que a conta foi obtida através da sincronização co
 Em seguida, demonstre a sincronização de senha do Office 365 com a conta Laura Cunha do Microsoft Active Directory.
 
 1.	Em CLIENT1, na página **Usuários Ativos**, selecione a conta **Laura Cunha**.
-2.	Nas propriedades da conta Laura Cunha, em **Licença atribuída**, clique em **Editar**.
+2.	Nas propriedades da conta Lynda Meyer, em **Licença Atribuída**, clique em **Editar**.
 3.	Na guia **Atribuir Licença**, escolha um local em **Definir local do usuário** (como Brasil).
 4.	Selecione **Microsoft Office 365 Plano E3** e clique em **Salvar**.
 5.	Feche o Internet Explorer.
 6.	Abra o Internet Explorer e acesse ****http://portal.microsoftonline.com**.
 7.	Faça logon com as credenciais do Office 365 de Laura Cunha. O nome de usuário dela será laurac@<*Seu nome fictício*>.onmicrosoft.com. A senha é a senha da conta de usuário Laura Cunha do Active Directory.
-8.	Após o logon bem-sucedido, você verá a página principal do Portal do Office 365 com a mensagem **Vamos fazer a diferença hoje**.
+8.	Após o logon bem-sucedido, você verá a página do portal principal do Office 365 com **Vamos fazer a diferença hoje**.
 
 Esta é a configuração atual.
 
@@ -185,4 +185,4 @@ Este ambiente agora está pronto para você executar testes de aplicativos do Of
 
 [Diretrizes de implementação dos Serviços de Infraestrutura do Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

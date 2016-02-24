@@ -18,13 +18,13 @@
 
 # Usar o Active Directory para autenticação no Serviço de Aplicativo do Azure #
 
-[Aplicativos Web de Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) habilitam cenários de aplicativos na linha de negócios da empresa, dando suporte a SSO (logon único) de usuários dependendo de eles acessarem o aplicativo do seu ambiente local ou da Internet pública. Eles podem ser integrados ao AAD ([Active Directory do Azure](http://azure.microsoft.com/services/active-directory/)) ou a um STS (serviço de token local seguro), como o AD FS (Serviços de Federação do Active Directory), para autenticar os usuários internos do Active Directory e autorizá-los corretamente.
+[Aplicativos Web de Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) habilitam cenários de aplicativos na linha de negócios da empresa, dando suporte a SSO (logon único) de usuários dependendo de eles acessarem o aplicativo do seu ambiente local ou da Internet pública. Eles podem ser integrados ao AAD ([Active Directory do Azure](https://azure.microsoft.com/services/active-directory/)) ou a um STS (serviço de token local seguro), como o AD FS (Serviços de Federação do Active Directory), para autenticar os usuários internos do Active Directory e autorizá-los corretamente.
 
 ## Autenticação e autorização sem nenhum atrito ##
 
-Com alguns cliques no botão, você pode habilitar a autenticação e autorização para seu aplicativo Web. A configuração de estilo de caixa de seleção em todo aplicativo Web do Azure fornece o controle de acesso básico do seu aplicativo Web de linha de negócios. Ela faz isso aplicando HTTPS e autenticação a um locatário do AD do Azure de sua escolha antes de conceder aos usuários acesso a todo o conteúdo do aplicativo Web. Para saber mais, consulte [Autenticação/autorização de aplicativos Web](http://azure.microsoft.com/blog/2014/11/13/azure-websites-authentication-authorization/).
+Com alguns cliques no botão, você pode habilitar a autenticação e autorização para seu aplicativo Web. A configuração de estilo de caixa de seleção em todo aplicativo Web do Azure fornece o controle de acesso básico do seu aplicativo Web de linha de negócios. Ela faz isso aplicando HTTPS e autenticação a um locatário do AD do Azure de sua escolha antes de conceder aos usuários acesso a todo o conteúdo do aplicativo Web. Para saber mais, consulte [Autenticação/autorização de aplicativos Web](https://azure.microsoft.com/blog/2014/11/13/azure-websites-authentication-authorization/).
 
->[AZURE.NOTE]Esse recurso está atualmente na visualização.
+>[AZURE.NOTE] Esse recurso está atualmente na visualização.
 
 ## Implementar autenticação e autorização manualmente ##
 
@@ -46,10 +46,10 @@ Em muitos cenários, convém personalizar o comportamento de autenticação e au
 	-	Pode gerenciar [declarações](http://technet.microsoft.com/library/ee913571.aspx) de acordo com o aplicativo.
 	-	Deve ter uma solução separada para acessar dados do AD local através do firewall corporativo.
 
->[AZURE.NOTE]Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE] Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

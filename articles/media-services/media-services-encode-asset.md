@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015"  
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Visão Geral e Comparação de Codificadores de Mídia sob Demanda do Azure
@@ -33,9 +33,9 @@ Para aproveitar os benefícios do [empacotamento dinâmico](media-services-dynam
 
 Os Serviços de Mídia são compatíveis com os seguintes codificadores sob demanda descritos neste artigo:
 
-- **Media Encoder Standard**
-- **Codificador de Mídia do Azure**
-- **Fluxo de trabalho do Media Encoder Premium**
+- [Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
+- [Codificador de Mídia do Azure](media-services-encode-asset.md#azure-media-encoder)
+- [Fluxo de trabalho do Media Encoder Premium](media-services-encode-asset.md#media-encoder-premium-workflow)
 
 Este artigo fornece uma breve visão geral dos codificadores de mídia sob demanda e fornece links para artigos que oferecem informações mais detalhadas. O tópico também fornece uma comparação entre os codificadores.
 
@@ -72,13 +72,17 @@ Os metadados de entrada dos codificadores estão descritos [aqui](http://msdn.mi
 
 Os metadados de saída dos codificadores estão descritos [aqui](http://msdn.microsoft.com/library/azure/dn783217.aspx).
 
-###Miniatura
+###Gerar miniaturas
 
-Para saber mais sobre como gerar miniaturas, consulte [Como gerar miniaturas usando o Codificador de Mídia Padrão](media-services-dotnet-generate-thumbnail-with-mes.md).
+Para obter informações, consulte [Como gerar miniaturas usando o Codificador de Mídia Padrão](media-services-custom-mes-presets-with-dotnet.md#thumbnails).
 
-###Sobreposições de áudio e/ou vídeo
+###Cortar vídeos (recorte)
 
-Não é suportado no momento.
+Para obter informações, consulte [Como cortar vídeos usando o Codificador de Mídia Padrão](media-services-custom-mes-presets-with-dotnet.md#trim_video).
+
+###Criar sobreposições
+
+Para obter informações, consulte [Como criar sobreposições usando o Codificador de Mídia Padrão](media-services-custom-mes-presets-with-dotnet.md#overlay).
 
 ###Consulte também
 
@@ -128,13 +132,18 @@ Os metadados de saída dos codificadores estão descritos [aqui](http://msdn.mic
 
 ###Visão geral
 
-[Apresentando a codificação Premium nos Serviços de Mídia do Azure](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
+[Apresentando a codificação Premium nos Serviços de Mídia do Azure](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/)
 
 ###Como usar
 
 O fluxo de trabalho do Media Encoder Premium é configurado usando fluxos de trabalho complexos. Os arquivos de fluxo de trabalho podem ser criados e atualizados usando a ferramenta [Designer de Fluxo de Trabalho](media-services-workflow-designer.md).
 
-[Como usar a codificação Premium nos Serviços de Mídia do Azure](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
+[Como usar a codificação Premium nos Serviços de Mídia do Azure](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services/)
+
+###Problemas conhecidos
+
+Se o vídeo de entrada não contiver a legendagem oculta, o ativo de saída ainda conterá um arquivo TTML vazio.
+
 
 ##<a id="compare_encoders"></a>Comparar os codificadores
 
@@ -246,6 +255,26 @@ MP3 (MPEG-1 Audio Layer 3)|Não|Não|Sim
 Áudio do Windows Media|Não|Sim|Sim
 
 
+##Códigos do Erro  
+
+A tabela a seguir lista os códigos de erro que podem ser retornados caso um erro tenha sido encontrado durante a execução de tarefas de codificação. Para obter detalhes do erro no seu código .NET, use a classe [ErrorDetails](http://msdn.microsoft.com/library/microsoft.windowsazure.mediaservices.client.errordetail.aspx). Para obter detalhes do erro no seu código REST, use a API REST [ErrorDetail](https://msdn.microsoft.com/library/jj853026.aspx).
+
+ErrorDetail.Code|Causas possíveis para erro
+-----|-----------------------
+Desconhecido| Erro desconhecido ao executar a tarefa
+ErrorDownloadingInputAssetMalformedContent|Categoria de erros que abrange erros ao baixar um ativo de entrada, como nomes de arquivo inválidos, arquivo com comprimento zero, formatos incorretos e assim por diante.
+ErrorDownloadingInputAssetServiceFailure|Categoria de erros que aborda problemas no lado do serviço - por exemplo, erros de rede ou armazenamento durante o download.
+ErrorParsingConfiguration|Categoria de erros em que a tarefa <see cref="MediaTask.PrivateData"/> (configuração) não é válida, por exemplo, a configuração não é uma predefinição de sistema válida ou contém XML inválido.
+ErrorExecutingTaskMalformedContent|Categoria de erros durante a execução da tarefa em que os problemas de conteúdo nos arquivos de mídia de entrada causam falha.
+ErrorExecutingTaskUnsupportedFormat|Categoria de erros em que o processador de mídia não pode processar os arquivos fornecidos - não há suporte para o formato de mídia ou ele não coincide com a Configuração. Por exemplo, tentando produzir uma saída somente de áudio com base em um ativo que tenha apenas vídeo
+ErrorProcessingTask|Categoria de outros erros que o processador de mídia encontra durante o processamento da tarefa e que não estão relacionados ao conteúdo.
+ErrorUploadingOutputAsset|Categoria de erros ao carregar o ativo de saída
+ErrorCancelingTask|Categoria de erros para cobrir falhas durante a tentativa de cancelar a Tarefa
+TransientError|Categoria de erros para abordar problemas transitórios (por exemplo, problemas de rede temporários com o Armazenamento do Azure)
+
+
+Para obter ajuda da equipe dos **Serviços de Mídia**, abra um [ticket de suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
 
 
 ##Roteiros de aprendizagem dos Serviços de Mídia
@@ -259,10 +288,11 @@ MP3 (MPEG-1 Audio Layer 3)|Não|Não|Sim
 
 ##Artigos relacionados
 
+- [Executar tarefas avançadas de codificação ao personalizar predefinições do Codificador de Mídia Padrão](media-services-custom-mes-presets-with-dotnet.md)
 - [Cotas e limitações](media-services-quotas-and-limitations.md)
 
  
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

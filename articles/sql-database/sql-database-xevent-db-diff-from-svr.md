@@ -4,7 +4,7 @@
 	services="sql-database" 
 	documentationCenter="" 
 	authors="MightyPen" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	editor="" 
 	tags=""/>
 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2015" 
+	ms.date="02/05/2016" 
 	ms.author="genemi"/>
 
 
@@ -33,9 +33,9 @@ Este tópico explica como a implementação de eventos estendidos no Banco de Da
 *XEvents* é um apelido informal usado às vezes para "eventos estendidos" em blogs e outras fontes de informações.
 
 
-> [AZURE.NOTE]A partir de outubro de 2015, o recurso de sessão de evento estendido foi ativado no Banco de Dados SQL do Azure no nível de visualização. A data de Disponibilidade geral (GA) ainda não foi definida.
+> [AZURE.NOTE] A partir de outubro de 2015, o recurso de sessão de evento estendido foi ativado no Banco de Dados SQL do Azure no nível de visualização. A data de Disponibilidade geral (GA) ainda não foi definida.
 > 
-> A página [Atualizações de Serviço](http://azure.microsoft.com/updates/?service=sql-database) do Azure apresentará postagens quando forem feitos anúncios sobre a GA.
+> A página [Atualizações de Serviço](https://azure.microsoft.com/updates/?service=sql-database) do Azure apresentará postagens quando forem feitos anúncios sobre a GA.
 
 
 ## Pré-requisitos
@@ -44,7 +44,7 @@ Este tópico explica como a implementação de eventos estendidos no Banco de Da
 Este tópico pressupõe que você já tem algum conhecimento de:
 
 
-- [Serviço do Banco de Dados SQL do Azure](http://azure.microsoft.com/services/sql-database/)
+- [Serviço do Banco de Dados SQL do Azure](https://azure.microsoft.com/services/sql-database/)
 
 
 - [Eventos estendidos](http://msdn.microsoft.com/library/bb630282.aspx) no Microsoft SQL Server.
@@ -54,7 +54,7 @@ Este tópico pressupõe que você já tem algum conhecimento de:
 A exposição prévia aos itens a seguir é útil ao escolher o Arquivo de Evento como o [destino](#AzureXEventsTargets):
 
 
-- [Serviço de Armazenamento do Azure](http://azure.microsoft.com/services/storage/)
+- [Serviço de Armazenamento do Azure](https://azure.microsoft.com/services/storage/)
 
 
 - PowerShell
@@ -259,7 +259,7 @@ O destino **Arquivo de Evento** pode enfrentar latência de rede ou falhas ao pe
 - [Postagens do blog de Jonathan Kehayias sobre eventos estendidos no Microsoft SQL Server](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 
 
-Encontre outros tópicos com exemplos de código para eventos estendidos nos links a seguir. No entanto, você deve verificar regularmente qualquer exemplo para ver se ele destina-se ao Microsoft SQL Server ou o Banco de Dados SQL do Azure. Assim você pode decidir se pequenas alterações são necessárias para a execução do exemplo.
+Encontre outros tópicos com exemplos de código para eventos estendidos nos links a seguir. No entanto, você deve verificar regularmente os exemplos para ver se eles se destinam ao Microsoft SQL Server ou ao Banco de Dados SQL do Azure. Assim você pode decidir se pequenas alterações são necessárias para a execução do exemplo.
 
 
 <!--
@@ -269,4 +269,4 @@ Encontre outros tópicos com exemplos de código para eventos estendidos nos lin
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

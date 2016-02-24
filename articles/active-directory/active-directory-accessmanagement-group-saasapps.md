@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015"
+	ms.date="02/09/2016"
 	ms.author="curtand"/>
 
 
@@ -37,14 +37,19 @@ Esse recurso pode ser usado com centenas de aplicativos que você adiciona na Ga
 4. Você também pode ver quais usuários são atribuídos ao aplicativo, diretamente ou por associação em um grupo. Para fazer isso, altere **Mostrar lista suspensa de “Grupos”** para **“Todos os Usuários”**. A lista mostra usuários no diretório e se cada usuário está ou não atribuído ao aplicativo. A lista também mostra se os usuários atribuídos estão atribuídos diretamente ao aplicativo (tipo de atribuição mostrado como "Direto"), ou por meio de associação de grupo (tipo de atribuição mostrado como "Herdado".)
 
 
-> [AZURE.NOTE]Você verá a guia Usuários e Grupos somente depois que tiver habilitado Azure AD Premium e Azure AD Basic.
+> [AZURE.NOTE]
+Você verá a guia Usuários e Grupos somente depois que tiver habilitado Azure AD Premium e Azure AD Basic.
+
+##Artigos relacionados
 
 Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 
 * [Gerenciamento de acesso a recursos com grupos do Active Directory do Azure](active-directory-manage-groups.md)
 
+* [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
+
 * [O que é o Active Directory do Azure?](active-directory-whatis.md)
 
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

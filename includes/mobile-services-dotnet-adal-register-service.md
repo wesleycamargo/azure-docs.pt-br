@@ -5,7 +5,7 @@ Nesta seção, você registrará seu serviço móvel com o Active Directory do A
 
 1. Registre seu aplicativo com seu Active Directory do Azure seguindo o tópico [Como registrar-se com o Active Directory do Azure].
 
-2. No [portal clássico do Azure](https://manage.windowsazure.com/), retorne à extensão do Active Directory do Azure e clique no seu diretório ativo
+2. No [portal clássico do Azure](https://manage.windowsazure.com/), retorne à extensão do Active Directory do Azure e clique no diretório ativo
 
 3. Clique na guia **Aplicativos** e em seu aplicativo.
 
@@ -38,4 +38,4 @@ Nesta seção, você registrará seu serviço móvel com o Active Directory do A
 <!-- URLs. -->
 [Como registrar-se com o Active Directory do Azure]: ../articles/mobile-services/mobile-services-how-to-register-active-directory-authentication.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

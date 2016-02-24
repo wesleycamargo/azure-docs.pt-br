@@ -1,4 +1,13 @@
-<properties pageTitle="Mover dados para um banco de dados SQL Azure para Aprendizado de Máquina do Azure | Azure" description="Criar tabela SQL e carregar dados para a tabela SQL" services="machine-learning" documentationCenter="" authors="fashah" manager="jacob.spoelstra" editor="" videoId="" [hee scriptId="" />
+<properties 
+	pageTitle="Mover dados para um banco de dados do SQL Azure para Aprendizado de Máquina do Azure | Azure" 
+	description="Criar tabela SQL e carregar dados para a tabela SQL" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="fashah" 
+	manager="jacob.spoelstra" 
+	editor="" 
+	videoId=""
+	scriptId="" />
 
 <tags 
 	ms.service="machine-learning" 
@@ -6,19 +15,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="02/08/2016" 
 	ms.author="fashah;bradsev" />
 
 # Mover dados para um banco de dados do SQL Azure para aprendizado de máquina do Azure
-
-Esse **menu** liga os tópicos que descrevem a inclusão de dados em ambientes de destino em que os dados podem ser armazenados e processados durante o CAPS (Processo de Análise do Cortana).
-
-[AZURE.INCLUDE [seletor de dados de ingestão de limite](../../includes/cap-ingest-data-selector.md)]
 
 ## Introdução
 **Neste tópico,** resumimos as opções para movimentação de dados de arquivos simples (formatos CSV ou TSV) ou de dados armazenados em um SQL Server local para um Banco de Dados SQL do Azure. Essas tarefas para mover dados para a nuvem fazem parte do Processo de Análise do Cortana fornecido pelo Azure.
 
 Para um tópico que descreve as opções para mover dados para um SQL Server local para o aprendizado de máquina, consulte [Mover dados para o SQL Server em uma máquina virtual do Azure](machine-learning-data-science-move-sql-server-virtual-machine.md).
+
+O **menu** abaixo leva a tópicos que descrevem a inclusão de dados em outros ambientes de destino em que os dados podem ser armazenados e processados durante o CAPS (Processo do Cortana Analytics).
+
+[AZURE.INCLUDE [seletor de dados de ingestão de limite](../../includes/cap-ingest-data-selector.md)]
 
 A tabela a seguir resume as opções para mover dados para um Banco de Dados SQL do Azure.
 
@@ -31,9 +40,9 @@ A tabela a seguir resume as opções para mover dados para um Banco de Dados SQL
 ## <a name="prereqs"></a>Pré-requisitos
 Esse procedimento descrito aqui requer que você tenha:
 
-* Uma **assinatura do Azure**. Se você não tiver uma assinatura, poderá inscrever-se para uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Uma **Conta de armazenamento do Azure**. Você usará uma conta de armazenamento do Azure para armazenar os dados neste tutorial. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [Criar uma conta de armazenamento](storage-create-storage-account.md#create-a-storage-account). Depois de criar a conta de armazenamento, você precisará obter a chave de conta usada para acessar o armazenamento. Consulte [Exibir, copiar e regenerar chaves de acesso de armazenamento](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
-* Acesso a um **Banco de Dados SQL do Azure**. Se você deve configurar um Banco de Dados SQL do Azure, a [Guia de Introdução ao Banco de Dados SQL do Microsoft Azure](sql-database-get-started.md) fornece informações sobre como provisionar uma nova instância de um Banco de Dados SQL do Azure.
+* Uma **assinatura do Azure**. Se você não tiver uma assinatura, você pode se inscrever em uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
+* Uma **conta de armazenamento do Azure**. Você usará uma conta de armazenamento do Azure para armazenar os dados neste tutorial. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [Criar uma conta de armazenamento](storage-create-storage-account.md#create-a-storage-account). Depois de criar a conta de armazenamento, você precisará obter a chave de conta usada para acessar o armazenamento. Consulte [Exibir, copiar e regenerar chaves de acesso de armazenamento](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+* Acesso a um **Banco de dados do SQL Azure**. Se você deve configurar um Banco de Dados SQL do Azure, a [Guia de Introdução ao Banco de Dados SQL do Microsoft Azure](sql-database-get-started.md) fornece informações sobre como provisionar uma nova instância de um Banco de Dados SQL do Azure.
 * **Azure PowerShell** instalado e configurado localmente. Para saber mais, confira [Como instalar e configurar o PowerShell do Azure](powershell-install-configure.md).
 
 **Dados**: os processos de migração são demonstrados usando o [Conjunto de Dados de Táxi de NYC](http://chriswhong.com/open-data/foil_nyc_taxi/). O conjunto de Dados de Táxi de NYC contém informações sobre dados de viagem e feiras e está disponível, conforme observado nessa postagem, no armazenamento de blobs do Azure: [dados de táxi de NYC](http://www.andresmh.com/nyctaxitrips/). Um exemplo e uma descrição desses arquivos são fornecidos na [Descrição do Conjunto de Dados de Viagens de Táxi de NYC](machine-learning-data-science-process-sql-walkthrough.md#dataset).
@@ -77,4 +86,4 @@ O procedimento para mover dados para um banco de dados SQL do Azure com o Azure 
 
 Considere usar o ADF quando dados precisam ser migrados continuamente em um cenário híbrido que acessa os recursos locais e de nuvem e quando os dados são transacionados ou precisam ser modificados ou tiver lógica de negócios adicionada a eles durante a migração. O ADF permite o planejamento e monitoramento de trabalhos usando scripts simples de JSON que gerenciam a movimentação de dados em intervalos periódicos. O ADF também possui outros recursos, como suporte para operações complexas.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

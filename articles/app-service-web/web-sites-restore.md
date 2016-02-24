@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/11/2015" 
+	ms.date="01/26/2016" 
 	ms.author="cephalin"/>
 
 # Restaurar um aplicativo no Serviço de Aplicativo do Azure
@@ -22,7 +22,7 @@ Este artigo mostra como restaurar um aplicativo do Serviço de Aplicativo do qua
 
 O recurso de Restauração do Serviço de Aplicativo permite restaurar seu aplicativo com seus bancos de dados vinculados (Banco de Dados SQL ou MySQL) sob demanda para um estado anterior ou criar um novo aplicativo com base em um backup de seu aplicativo original. A criação de um novo aplicativo que é executado em paralelo à versão mais recente pode ser útil para testes A/B.
 
-O recurso de Restauração do Serviço de Aplicativo, disponível na folha **Backups** do [Portal do Azure](http://portal.azure.com), está disponível somente nos tipos de preço Standard e Premium. Para obter informações sobre como colocar em escala seu aplicativo usando a camada Standard ou Premium, veja [Escalar um aplicativo no Serviço de Aplicativo do Azure](web-sites-scale.md). Observe que a camada Premium permite a realização de um número maior de backups diários do que a camada Premium.
+O recurso de Restauração do Serviço de Aplicativo, disponível na folha **Backups** do [Portal do Azure](https://portal.azure.com), está disponível somente nos tipos de preço Standard e Premium. Para obter informações sobre como colocar em escala seu aplicativo usando a camada Standard ou Premium, veja [Escalar um aplicativo no Serviço de Aplicativo do Azure](web-sites-scale.md). Observe que a camada Premium permite a realização de um número maior de backups diários do que a camada Premium.
 
 <a name="PreviousBackup"></a>
 ## Para restaurar um aplicativo de um backup feito anteriormente
@@ -41,7 +41,7 @@ O recurso de Restauração do Serviço de Aplicativo, disponível na folha **Bac
 
 	![](./media/web-sites-restore/022ChooseDestination.png)
 	
-	>[AZURE.WARNING]Se você escolher **Substituir**, todos os dados relacionados a seu aplicativo existente serão apagados. Antes de clicar em **OK**, certifique-se de que isso é exatamente o que você deseja fazer.
+	>[AZURE.WARNING] Se você escolher **Substituir**, todos os dados relacionados a seu aplicativo existente serão apagados. Antes de clicar em **OK**, certifique-se de que isso é exatamente o que você deseja fazer.
 	
 	Você pode selecionar um **Aplicativo Existente** para restaurar o backup do aplicativo para outro aplicativo no mesmo grupo de recursos. Antes de usar essa opção, você já precisa ter criado outro aplicativo em seu grupo de recursos com o espelhamento da configuração de banco de dados para aquele definido no backup do aplicativo.
 	
@@ -73,15 +73,19 @@ O recurso de Restauração do Serviço de Aplicativo, disponível na folha **Bac
 	
 1. Para ver detalhes sobre o êxito ou a falha da operação de restauração do aplicativo, selecione a parte **Log de auditoria** da folha principal **Procurar**. 
 	
-	A folha **Log de áudio** exibe todas as suas operações, juntamente com detalhes de nível, status, recursos e tempo.
+	A folha **Log de auditoria** exibe todas as suas operações, juntamente com detalhes de nível, de status, de recursos e de tempo.
 	
 2. Role a folha para localizar as operações relacionadas a seu aplicativo.
 3. Para exibir detalhes adicionais sobre uma operação, selecione essa operação na lista.
 	
 A folha de detalhes exibirá as informações disponíveis relacionadas à operação.
 	
->[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
-	
+>[AZURE.NOTE] Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+
+## Próximas etapas
+
+Você também pode usar a API REST para fazer backup e restaurar aplicativos do Serviço de Aplicativo (consulte [Usar REST para fazer backup e restaurar aplicativos do Serviço de Aplicativo](websites-csm-backup.md)).
+
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
@@ -102,4 +106,4 @@ A folha de detalhes exibirá as informações disponíveis relacionadas à opera
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

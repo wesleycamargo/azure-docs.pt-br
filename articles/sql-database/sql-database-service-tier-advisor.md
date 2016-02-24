@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="12/01/2015"
+   ms.date="02/08/2015"
    ms.author="sstein"/>
 
 # Recomendações de camada de preços do Banco de Dados SQL
 
  São fornecidas recomendações tipo de preço que recomendam a camada de serviços e o nível de desempenho mais adequados para executar a carga de trabalho do banco de dados SQL do Azure.
 
-> [AZURE.NOTE]As recomendações de tipo de preço estão disponíveis apenas para bancos de dados Web e Business e pools de banco de dados elástico, e apenas no [Portal do Azure](https://portal.azure.com/).
+> [AZURE.NOTE] As recomendações de tipo de preço estão disponíveis apenas para bancos de dados Web e Business e pools de banco de dados elástico, e apenas no [Portal do Azure](https://portal.azure.com/).
 
 
 Obtenha as recomendações de tipo de preço durante as seguintes tarefas:
@@ -40,7 +40,7 @@ O serviço do Banco de Dados SQL analisa os requisitos atuais de desempenho e re
 
 Com a análise dessas informações, são recomendados a camada de serviço e o nível de desempenho mais adequados para execução da carga de trabalho comum do banco de dados e manutenção do respectivo conjunto de recursos atuais.
 
-- O serviço examina de 15 a 30 dias anteriores dos dados históricos (uso de recursos, tamanho do banco de dados e atividade do banco de dados) e faz uma comparação entre a quantidade de recursos consumidos e as reais limitações das camadas de serviço e dos níveis de desempenho atualmente disponíveis
+- O serviço examina de 15 a 30 dias anteriores dos dados históricos (uso de recursos, tamanho do banco de dados e atividade do banco de dados) e faz uma comparação entre a quantidade de recursos consumidos e as reais limitações das camadas de serviço e dos níveis de desempenho atualmente disponíveis.
 - Os dados são analisados em intervalos de 15 segundos e cada resultset do intervalo é classificado na camada de serviço e no nível de desempenho existentes mais adequados para tratamento da carga de trabalho do resultset.
 - Essas amostras de 15 segundos são agregadas à análise mais ampla de 15 a 30 dias, sendo assim recomendados a camada de serviço e o nível de desempenho que podem tratar de forma mais eficiente 95% da carga de trabalho histórica.
 
@@ -56,7 +56,7 @@ Com base no uso do banco de dados, atualmente, podemos encontrar 2 categorias de
 
 ## Obtendo recomendações de camada de preços
 
-Obtenha recomendações de camada de preços selecionando um banco de dados Web ou Business e clicando no bloco **Camada de preços**. (As recomendações de tipo de preço também estarão disponíveis quando você [Atualizar o Azure SQL Server para o V12](sql-database-v12-upgrade.md).)
+Obtenha recomendações de tipo de preço escolhendo um banco de dados Web ou Business. Clique em **Todas as configurações** e em **Tipo de preço (DTUs de escala)**. (As recomendações de tipo de preço também estarão disponíveis quando você [Atualizar o Azure SQL Server para o V12](sql-database-v12-upgrade.md).)
 
 1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. Clique em **PROCURAR** > **bancos de dados SQL**.
@@ -64,12 +64,10 @@ Obtenha recomendações de camada de preços selecionando um banco de dados Web 
 
     ![Selecionar um banco de dados][1]
 
-5. Na folha do banco de dados, selecione o bloco **Camada de preços**.
-
-    ![Camada de preços][2]
+5. Na folha do banco de dados, escolha **Todas as configurações** e **Tipo de preço (DTUs de escala)**.
 
 
-7. Depois de clicar no bloco **Camada de preços**, será exibida a folha **Camadas de preços recomendadas**, onde você pode clicar na camada sugerida e no botão **Selecionar** para alterar para a camada em questão.
+7. Os **Tipos de preço recomendados** são exibidos e você pode clicar no tipo sugerido e no botão **Selecionar** para alterar para esse tipo.
 
     ![Inscrever-se para obter a visualização][4]
 
@@ -81,7 +79,7 @@ Obtenha recomendações de camada de preços selecionando um banco de dados Web 
 
 ## Resumo
 
-As recomendações de camada de preços proporcionam uma experiência automatizada de coleta de dados de telemetria para cada banco de dados SQL, bem como apontam a melhor combinação de nível de desempenho/camada de serviço com base nos requisitos de recursos e nas necessidades reais de desempenho de um banco de dados. Clique no bloco **Camada de preços** em uma folha de banco de dados para ver as recomendações de camada de preços.
+As recomendações de camada de preços proporcionam uma experiência automatizada de coleta de dados de telemetria para cada banco de dados SQL, bem como apontam a melhor combinação de nível de desempenho/camada de serviço com base nos requisitos de recursos e nas necessidades reais de desempenho de um banco de dados. Na folha Configurações, clique em **Tipo de preço (DTUs de escala)** para ver as recomendações de tipo de preço para quaisquer bancos de dados Web e Business.
 
 
 
@@ -92,12 +90,10 @@ Dependendo dos detalhes do seu banco de dados específico, a execução de uma a
 
 <!--Image references-->
 [1]: ./media/sql-database-service-tier-advisor/select-database.png
-[2]: ./media/sql-database-service-tier-advisor/pricing-tier.png
-[3]: ./media/sql-database-service-tier-advisor/preview-sign-up.png
 [4]: ./media/sql-database-service-tier-advisor/choose-pricing-tier.png
 [5]: ./media/sql-database-service-tier-advisor/usage-details.png
 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

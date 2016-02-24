@@ -13,12 +13,14 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="01/11/2016"
 	ms.author="heidist"/>
 
 # Introdução à Pesquisa do Azure em Java
 
 Aprenda a criar um aplicativo de pesquisa Java personalizado que usa a Pesquisa do Azure para sua experiência de pesquisa. O tutorial usa a [API REST do Serviço de Pesquisa do Azure](https://msdn.microsoft.com/library/dn798935.aspx) para construir os objetos e as operações usados neste exercício.
+
+Para executar este exemplo, você deverá ter um serviço de Pesquisa do Azure, que você pode assinar no [Portal do Azure](https://portal.azure.com). Veja [Criar um serviço de Pesquisa do Azure no portal](search-create-service-portal.md) para obter instruções passo a passo.
 
 Para compilar e testar este exemplo, usamos o seguinte software:
 
@@ -28,17 +30,13 @@ Para compilar e testar este exemplo, usamos o seguinte software:
 
 - [Apache Tomcat 8.0](http://tomcat.apache.org/download-80.cgi)
 
-Para executar esse exemplo, você deverá ter um serviço Pesquisa do Azure, no qual você pode se inscrever no [Portal Clássico do Azure](https://portal.azure.com).
-
-> [AZURE.TIP]Baixe o código-fonte deste tutorial em [Demonstração do Java da Pesquisa do Azure](http://go.microsoft.com/fwlink/p/?LinkId=530197) no Github.
-
 ## Sobre os dados
 
 Este exemplo de aplicativo usa dados do [Serviço Geológico dos Estados Unidos (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), filtrados no estado de Rhode Island, para reduzir o tamanho do conjunto de dados. Vamos usar esses dados para criar um aplicativo de pesquisa que retorna prédios de referência, como hospitais e escolas, bem como características geológicas como rios, lagos e picos.
 
 Neste aplicativo, o programa **SearchServlet.java** cria e carrega o índice usando uma construção [Indexador](https://msdn.microsoft.com/library/azure/dn798918.aspx), recuperando o conjunto de dados filtrado do USGS por meio de um Banco de dados SQL do Azure público. Credenciais predefinidas e informações de conexão para a fonte de dados online são fornecidas no código do programa. Em termos de acesso a dados, nenhuma configuração adicional é necessária.
 
-> [AZURE.NOTE]Aplicamos um filtro a esse conjunto de dados para permanecer abaixo do limite de 10.000 documentos da camada de preços gratuita. Se você usar a camada padrão, esse limite não se aplica e você pode modificar este código para usar um conjunto de dados maior. Para obter detalhes sobre a capacidade de cada camada de preços, consulte [Limites e restrições](search-limits-quotas-capacity.md).
+> [AZURE.NOTE] Aplicamos um filtro a esse conjunto de dados para permanecer abaixo do limite de 10.000 documentos da camada de preços gratuita. Se você usar a camada padrão, esse limite não se aplica e você pode modificar este código para usar um conjunto de dados maior. Para obter detalhes sobre a capacidade de cada camada de preços, consulte [Limites e restrições](search-limits-quotas-capacity.md).
 
 ## Sobre os arquivos de programa
 
@@ -52,48 +50,19 @@ A lista a seguir descreve os arquivos que são relevantes para este exemplo.
 - config.properties: define a URL do serviço de Pesquisa e a chave de Api
 - Pom.xml: uma dependência do Maven
 
-
-## Criar o serviço
-
-1. Entre no [Portal Clássico do Azure](https://portal.azure.com).
-
-2. Na barra de navegação rápida, clique em **Novo** > **Dados + armazenamento** > **Pesquisa**.
-
-     ![][1]
-
-3. Configure o nome do serviço, camada de preços, grupo de recursos, assinatura e local. Essas configurações são necessárias e não podem ser alteradas após o início do fornecimento do serviço.
-
-     ![][2]
-
-	- O **nome do serviço** deve ser exclusivo, com letras minúsculas, menos de 15 caracteres e sem espaços. Esse nome se torna parte do ponto de extremidade de seu serviço de Pesquisa do Azure. Confira [Regras de nomenclatura](https://msdn.microsoft.com/library/azure/dn857353.aspx) para saber mais sobre as convenções de nomenclatura.
-
-	- A **Camada de preços** determina a capacidade e a cobrança. Ambas as camadas fornecem os mesmos recursos, mas em diferentes níveis de recursos.
-
-		- Um serviço na camada **Gratuito** é executado em clusters compartilhados com outros assinantes. Essa camada oferece capacidade suficiente para testar tutoriais e escrever código de prova de conceito, mas não deve ser utilizada para aplicativos de produção. A implantação de um serviço gratuito geralmente demora apenas alguns minutos.
-		- Um serviço na camada **Padrão** é executado em recursos dedicados e é altamente escalonável. Inicialmente, um serviço padrão é configurado com uma réplica e uma partição, mas você pode ajustar a capacidade após o serviço ser criado. A implantação de um serviço padrão demora mais tempo, normalmente cerca de quinze minutos.
-
-	- **Grupos de recursos** são contêineres para serviços e contêineres usados para um fim comum. Por exemplo, se for compilar um aplicativo de pesquisa personalizado baseado na Pesquisa do Azure, Sites do Azure e armazenamento em Blob do Azure, você pode criar um grupo de recursos que mantém esses serviços juntos nas páginas de gerenciamento do portal.
-
-	- **Assinatura** permite que você escolha entre várias assinaturas, se você tiver mais de uma.
-
-	- **Local** é a região do data center. Atualmente, todos os recursos devem ser executados no mesmo data center. Não há suporte para a distribuição de recursos em vários data centers.
-
-4. Clique em **Criar** para provisionar o serviço.
-
-Observe as notificações na barra de navegação rápida. Um aviso é exibido quando o serviço está pronto para uso.
-
 <a id="sub-2"></a>
-## Localizar o nome do serviço e a chave de Api do serviço de Pesquisa do Azure
+## Localizar o nome do serviço e a chave de api do serviço de Pesquisa do Azure
 
-Depois que o serviço for criado, você poderá retornar ao portal para obter a URL e `api-key`. Conexões com seu serviço de Pesquisa requerem que você tenha tanto uma URL quanto um `api-key` para autenticar a chamada.
+Todas as chamadas da API REST na Pesquisa do Azure exigem que você forneça a URL do serviço e uma chave de api.
 
-1. Na barra de navegação rápida, clique em **Home** e clique no Serviço de Pesquisa para abrir o painel do serviço.
-
-2. No painel de serviço, você verá blocos com as informações essenciais e o ícone de chave para acessar as chaves de administrador.
+1. Entre no [Portal do Azure](https://portal.azure.com).
+2. Na barra de atalhos, clique em **Serviço de Pesquisa** para listar todos os serviços da Pesquisa do Azure provisionados para sua assinatura.
+3. Selecione o serviço que você deseja usar.
+4. No painel de serviço, você verá blocos com as informações essenciais e o ícone de chave para acessar as chaves de administrador.
 
   	![][3]
 
-3. Copie a URL do serviço e uma chave de administrador. Você precisará dos três posteriormente, ao adicioná-los ao arquivo **config.properties**.
+5. Copie a URL do serviço e uma chave de administrador. Você precisará dos três posteriormente, ao adicioná-los ao arquivo **config.properties**.
 
 ## Baixar os arquivos de exemplo
 
@@ -123,7 +92,7 @@ Todas as modificações de arquivos subsequentes e instruções de execução se
 
 1. Em **Gerenciador de Projetos**, clique duas vezes em **config.properties** para editar as definições de configuração que contêm o nome do servidor e a chave de Api.
 
-2. Consulte as etapas explicadas anteriormente neste artigo, onde você encontrou a URL de serviço e a api-key no [Portal Clássico do Azure](https://portal.azure.com), para obter os valores que você vai inserir agora em **config.properties**.
+2. Confira as etapas explicadas anteriormente neste artigo,em que você encontrou a URL de serviço e a chave de Api no [Portal do Azure](https://portal.azure.com), para obter os valores que você vai inserir agora em **config.properties**.
 
 3. Em **config.properties**, substitua "Chave Api" com a chave de Api para o serviço. Em seguida, o nome do serviço (o primeiro componente da URL http://servicename.search.windows.net) substitui o "nome do serviço" no mesmo arquivo.
 
@@ -189,7 +158,7 @@ Se você ainda não especificou um ambiente de tempo de execução do servidor n
 
 5. Clique com o botão direito do mouse em **Search.jsp** > **Executar como** > **Executar no Servidor**. Selecione o servidor Apache Tomcat e, em seguida, clique em **Executar**.
 
-> [AZURE.TIP]Se você tiver usado um espaço de trabalho não padrão para armazenar seu projeto, precisará modificar a **Configuração de Execução** para indicar o local do projeto para evitar um erro de inicialização do servidor. No Gerenciador de Projetos, clique com o botão direito do mouse em **Search.jsp** > **Executar como** > **Configurações de Execução**. Selecione o servidor Apache Tomcat. Clique em **Argumentos**. Clique em **Espaço de Trabalho** ou **Sistema de Arquivos** para definir a pasta que contém o projeto.
+> [AZURE.TIP] Se você tiver usado um espaço de trabalho não padrão para armazenar seu projeto, precisará modificar a **Configuração de Execução** para indicar o local do projeto para evitar um erro de inicialização do servidor. No Gerenciador de Projetos, clique com o botão direito do mouse em **Search.jsp** > **Executar como** > **Configurações de Execução**. Selecione o servidor Apache Tomcat. Clique em **Argumentos**. Clique em **Espaço de Trabalho** ou **Sistema de Arquivos** para definir a pasta que contém o projeto.
 
 Quando você executar o aplicativo, verá uma janela do navegador, fornecendo uma caixa de pesquisa para inserir termos.
 
@@ -215,7 +184,7 @@ Este é o primeiro tutorial da Pesquisa do Azure com base em Java e no conjunto 
 
 Se você já tiver um plano de fundo na Pesquisa do Azure, você pode usar este exemplo como um trampolim para experimentos adicionais, talvez aumentando a [página de pesquisa](search-pagination.md) ou implementando [navegação facetada](search-faceted-navigation.md). Você também pode melhorar a página de resultados da pesquisa adicionando contagens e documentos em lote para que os usuários possam percorrer os resultados.
 
-Ainda não conhece a Pesquisa do Azure? Recomendamos os outros tutoriais para que você compreenda o que pode criar. Visite nossa [página de documentação](http://azure.microsoft.com/documentation/services/search/) para encontrar mais recursos. Você também pode exibir os links em nossa [Lista de vídeos e Tutorial](search-video-demo-tutorial-list.md) para acessar mais informações.
+Ainda não conhece a Pesquisa do Azure? Recomendamos os outros tutoriais para que você compreenda o que pode criar. Visite nossa [página de documentação](https://azure.microsoft.com/documentation/services/search/) para encontrar mais recursos. Você também pode exibir os links em nossa [Lista de vídeos e Tutorial](search-video-demo-tutorial-list.md) para acessar mais informações.
 
 <!--Image references-->
 [1]: ./media/search-get-started-java/create-search-portal-1.PNG
@@ -231,4 +200,4 @@ Ainda não conhece a Pesquisa do Azure? Recomendamos os outros tutoriais para qu
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

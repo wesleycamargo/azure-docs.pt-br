@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="02/03/2016"
 	ms.author="haining;garye" />
 
 
@@ -26,7 +26,7 @@ O diagrama **Visão geral dos recursos do Estúdio de Aprendizado de Máquina do
 
 Esse diagrama mostra como todas essas peças se encaixam.
 
-> [AZURE.NOTE]Consulte a [página de algoritmo de aprendizado de máquina para o Estúdio de Aprendizado de Máquina do Microsoft Azure](machine-learning-algorithm-cheat-sheet.md) para obter ajuda adicional para navegar e escolher algoritmos disponíveis na Máquina de Aprendizado.
+> [AZURE.NOTE] Consulte a [página de algoritmo de aprendizado de máquina para o Estúdio de Aprendizado de Máquina do Microsoft Azure](machine-learning-algorithm-cheat-sheet.md) para obter ajuda adicional para navegar e escolher algoritmos disponíveis na Máquina de Aprendizado.
 
 ## Baixe o diagrama de visão geral do Estúdio de Aprendizado de Máquina
 
@@ -47,4 +47,4 @@ Baixe o diagrama de **Visão geral de recursos do Estúdio de Aprendizado de Má
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

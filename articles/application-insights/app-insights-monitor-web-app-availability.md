@@ -12,13 +12,10 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/04/2015"
+	ms.date="02/11/2016"
 	ms.author="awills"/>
 
 # Monitorar a disponibilidade e a capacidade de resposta de qualquer site
-
-
-[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
 Após ter implantado seu aplicativo Web, você pode configurar testes na Web para monitorar sua disponibilidade e capacidade de resposta. O Application Insights envia solicitações em intervalos regulares por meio de pontos no mundo inteiro, e pode alertá-lo se o seu aplicativo responder lentamente ou simplesmente não responder.
 
@@ -210,6 +207,23 @@ Plug-ins de teste na Web fornecem uma maneira de fazer isso.
 
 Agora, carregue seu teste no portal. Ele usará os valores dinâmicos em todas as execuções do teste.
 
+## Lidando com a entrada
+
+Se os usuários entrarem em seu aplicativo, você terá várias opções para simular entradas para poder testar as páginas por trás da entrada. A abordagem usada dependerá do tipo de segurança fornecida pelo aplicativo.
+
+Em todos os casos, você deverá criar uma conta somente para fins de teste. Se possível, restrinja suas permissões para que ela seja somente leitura.
+
+* Nome de usuário e senha mais simples: basta registrar um teste na Web da maneira usual. Exclua os cookies primeiro.
+* Autenticação SAML. Para isso, você pode usar o plug-in SAML que está disponível para testes na Web.
+* Segredo do cliente: se seu aplicativo tiver uma rota de entrada que envolva um segredo do cliente, use-o. O Active Directory do Azure o fornece. 
+* Autenticação Aberta - por exemplo, entrar com sua conta da Microsoft ou do Google. Muitos aplicativos que usam OAuth oferecem a alternativa do segredo do cliente e, portanto, a primeira tática é investigar isso. Se o teste tiver de entrar usando OAuth, a abordagem geral será:
+ * Use uma ferramenta como o Fiddler para examinar o tráfego entre o navegador da web, o site de autenticação e seu aplicativo. 
+ * Executar duas ou mais entradas usando computadores ou navegadores diferentes ou em longos intervalos (para permitir que os tokens expirem).
+ * Ao comparar sessões diferentes, identifique o token passado de volta ao site de autenticação, que será então passado para o servidor de aplicativos após a entrada. 
+ * Registre um teste na Web usando o Visual Studio. 
+ * Parametrize os tokens, definindo o parâmetro quando o token for retornado do autenticador e usando-o na consulta ao site. (O Visual Studio tentará parametrizar o teste, mas não parametrizará corretamente os tokens).
+
+
 ## <a name="edit"></a> Editar ou desabilitar um teste
 
 Abra um teste individual para editá-lo ou desabilitá-lo.
@@ -252,4 +266,4 @@ Talvez você deseje desabilitar testes na Web quando estiver fazendo a manutenç
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

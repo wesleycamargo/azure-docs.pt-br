@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015"   
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 
@@ -43,8 +43,6 @@ Observe que as unidades reservadas são as mesmas para tarefas de Codificação 
 
 Para saber mais, consulte [Gerenciando Ativos de Serviços de Mídia entre Diversas Contas de Armazenamento](https://msdn.microsoft.com/library/azure/dn271889.aspx) e [Trabalhando com o Armazenamento do Azure](https://msdn.microsoft.com/library/azure/dn767951.aspx).
 
-
-
 ##Roteiros de aprendizagem dos Serviços de Mídia
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -53,4 +51,4 @@ Para saber mais, consulte [Gerenciando Ativos de Serviços de Mídia entre Diver
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

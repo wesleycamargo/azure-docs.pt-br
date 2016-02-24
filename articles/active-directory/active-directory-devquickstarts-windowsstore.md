@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="01/21/2016"
 	ms.author="dastrock"/>
 
 
@@ -51,7 +51,7 @@ Para habilitar seu aplicativo para obter tokens, primeiro será necessário regi
     -	O **Nome** do aplicativo descreverá seu aplicativo para os usuários finais
     -	O **URI de redirecionamento** é uma combinação de esquema e de cadeia de caracteres que o AD do Azure usará para retornar respostas de tokens. Insira um valor de espaço reservado por enquanto, por exemplo, `http://DirectorySearcher`. Substituiremos este valor posteriormente.
 -	Depois de concluir o registro, o AAD atribuirá a seu aplicativo um identificador de cliente único. Você precisará desse valor nas próximas seções, então copie-o da guia **Configurar**.
-- Também na guia **Configurar**, clique na seção “Permissões para outros aplicativos”. Para o aplicativo "Active Directory do Azure", adicione a permissão **Acessar o diretório de sua organização** em **Permissões delegadas**. Isso permitirá que seu aplicativo consulte a Graph API para usuários.
+- Também na guia **Configurar**, clique na seção “Permissões para outros aplicativos”. Para o aplicativo "Active Directory do Azure", adicione a permissão **Acessar o diretório como o usuário conectado** em **Permissões delegadas**. Isso permitirá que seu aplicativo consulte a Graph API para usuários.
 
 ## *2. Instalar e configurar a ADAL*
 Agora que você tem um aplicativo no AD do Azure, você pode instalar a ADAL e escrever seu código relacionado à identidade. Para que a ADAL seja capaz de se comunicar com o AD do Azure, é necessário fornecer algumas informações sobre o registro de seu aplicativo. Comece adicionando a ADAL ao projeto DirectorySearcher usando o Console do Gerenciador de Pacotes.
@@ -63,11 +63,12 @@ PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 -	No projeto DirectorySearcher, abra `MainPage.xaml.cs`. Substitua os valores na região `Config Values` para refletir os valores inseridos por você no Portal do Azure. Seu código fará referência a esses valores sempre que ele usar a ADAL.
     -	O `tenant` é o domínio do seu locatário do AD do Azure, por exemplo, contoso.onmicrosoft.com.
     -	O `clientId` é a clientId do seu aplicativo que você copiou do portal.
--	Agora você precisa descobrir o URI de retorno de chamada para seu aplicativo do Windows Phone. Defina um ponto de interrupção nessa linha no método `MainPage`:
+-	Agora você precisa descobrir o URI de retorno de chamada para seu aplicativo da Windows Store. Defina um ponto de interrupção nessa linha no método `MainPage`:
 
 ```
 redirectURI = Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri();
 ```
+- Compilar a solução, certificando-se de que todas as referências do pacote são restauradas. Se houver pacotes ausentes, abra o Gerenciador de Pacotes Nuget e restaure os pacotes.
 - Execute o aplicativo e copie separadamente o valor de `redirectUri` quando o ponto de interrupção for atingido. O resultado deve ser semelhante a
 
 ```
@@ -86,12 +87,11 @@ public MainPage()
 {
     ...
 
-    // ADAL for Windows Phone 8.1 builds AuthenticationContext instances through a factory
-    authContext = AuthenticationContext.CreateAsync(authority).GetResults();
+    authContext = new AuthenticationContext(authority);
 }
 ```
 
-- Agora localize o método `Search(...)`, que será chamado quando os usuário clicar no botão "Pesquisar" na interface do usuário do aplicativo. Esse método faz uma solicitação GET para que a Graph API do AD do Azure procure por usuários cujo UPN começa com o termo de pesquisa fornecido. Mas para consultar a Graph API, você precisa incluir um access\_token no cabeçalho `Authorization` da solicitação - é aí que entra a ADAL.
+- Agora localize o método `Search(...)`, que será chamado quando o usuário clicar no botão "Pesquisar" na interface do usuário do aplicativo. Esse método faz uma solicitação GET para que a Graph API do AD do Azure procure por usuários cujo UPN começa com o termo de pesquisa fornecido. Mas para consultar a Graph API, você precisa incluir um access\_token no cabeçalho `Authorization` da solicitação - é aí que entra a ADAL.
 
 ```C#
 private async void Search(object sender, RoutedEventArgs e)
@@ -146,6 +146,5 @@ Para referência, o exemplo concluído (sem seus valores de configuração) é f
 [Proteger uma API da Web .NET com o AD do Azure >>](active-directory-devquickstarts-webapi-dotnet.md)
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="10/28/2015"
+      ms.date="02/06/2016"
       ms.author="hascipio; v-divte" />
 
 # Guia para criar um modelo de solução para o Azure Marketplace
@@ -54,7 +54,7 @@ Também é possível validar a experiência de criação sem a implantação rea
 
 4. Copie e cole a URL em qualquer navegador e exiba a experiência do cliente de seu arquivo createUiDefinition.json.
 
-  >[AZURE.TIP]Enquanto seus desenvolvedores trabalham na criação e certificação de topologias do modelo de solução, os departamentos comercial, de marketing e/ou jurídico de sua empresa podem trabalhar no conteúdo jurídico e de marketing.
+  > [AZURE.TIP] Enquanto seus desenvolvedores trabalham na criação e certificação de topologias do modelo de solução, os departamentos comercial, de marketing e/ou jurídico de sua empresa podem trabalhar no conteúdo jurídico e de marketing.
 
 ## Próximas etapas
 Agora que você criou o modelo de solução e enviou o arquivo zip com os arquivos exigidos para certificação, continue e siga as instruções em [Guia de conteúdo de marketing do Marketplace](marketplace-publishing-push-to-staging.md) antes de preparar sua oferta para teste no ambiente de preparo. Ou, para ver o conjunto completo de artigos de publicação do Marketplace, confira [Noções básicas: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md).
@@ -74,4 +74,4 @@ Você também pode se interessar por estes artigos relacionados:
 [link-acct-creation]: marketplace-publishing-microsoft-accounts-creation-registration.md
 [link-pubportal]: https://publish.windowsazure.com
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0211_2016-->

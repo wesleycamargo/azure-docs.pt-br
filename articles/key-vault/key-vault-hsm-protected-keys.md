@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="09/18/2015"
+	ms.topic="article"
+	ms.date="02/01/2016"
 	ms.author="cabailey"/>
 #Como gerar e transferir chaves de HSM protegido para o Cofre da Chave do Azure
 
@@ -23,7 +23,9 @@ Para garantia extra, ao usar o Cofre da Chave do Azure, você pode importar ou g
 
 Use as informações neste tópico para ajudá-lo a planejar, gerar e transferir as suas próprias chaves de HSM protegido para usar com o Cofre da Chave do Azure.
 
->[AZURE.NOTE]Para obter mais informações sobre o Cofre da Chave do Azure, consulte [O que é o Cofre da Chave do Azure?](key-vault-whatis.md)
+Essa funcionalidade não está disponível para o Azure China.
+
+>[AZURE.NOTE] Para obter mais informações sobre o Cofre da Chave do Azure, consulte [O que é o Cofre da Chave do Azure?](key-vault-whatis.md)
 >
 >Para obter um tutorial de Introdução, que inclui a criação de um Cofre da Chave para chaves de HSM protegido, consulte [Introdução ao Cofre da Chave do Azure](key-vault-get-started.md).
 
@@ -58,8 +60,8 @@ Consulte a tabela a seguir para obter uma lista de pré-requisitos para o Traga 
 
 |Requisito|Mais informações|
 |---|---|
-|Uma assinatura do Azure|Para criar um Cofre da Chave do Azure, você precisa de uma assinatura do Azure: [Conecte-se para fazer a avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/)|
-|Um Cofre da Chave do Azure que dá suporte a HSMs|Para obter mais informações sobre os recursos e as camadas de serviço para o Cofre da Chave do Azure, consulte o site [Preços do Cofre da Chave do Azure](http://azure.microsoft.com/pricing/details/key-vault/).|
+|Uma assinatura do Azure|Para criar um Cofre da Chave do Azure, você precisa de uma assinatura do Azure: [Conecte-se para fazer a avaliação gratuita](../../../../pricing/free-trial)|
+|Um Cofre da Chave do Azure que dá suporte a HSMs|Para obter mais informações sobre os recursos e as camadas de serviço para o Cofre da Chave do Azure, consulte o site [Preços do Cofre da Chave do Azure](../../../../pricing/details/key-vault/).|
 |HSM da Thales, smartcards e software de suporte|Você deve ter acesso a um módulo de segurança de Hardware da Thales e conhecimento operacional básico dos HSMs da Thales. Consulte [Módulo de segurança de Hardware da Thales](https://www.thales-esecurity.com/msrms/buy) para obter a lista de modelos compatíveis ou para comprar um HSM, se você não tiver um.|
 |O hardware e o software a seguir:<ol><li>Uma estação de trabalho x64 offline com um sistema operacional Windows mínimo do Windows 7 e o software Thales nShield que seja, pelo menos, da versão 11.50.<br/><br/>Se esta estação de trabalho executar o Windows 7, você deverá [instalar o Microsoft .NET Framework 4.5](http://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Uma estação de trabalho que está conectada à Internet e tem um sistema operacional Windows mínimo do Windows 7.</li><li>Uma unidade USB ou outro dispositivo de armazenamento portátil que tenha pelo menos 16 MB de espaço livre.</li></ol>|Por motivos de segurança, é recomendável que a primeira estação de trabalho não seja conectada a uma rede. No entanto, isso não é programaticamente aplicado.<br/><br/>Observe que nas instruções a seguir, essa estação de trabalho é chamada de estação de trabalho desconectada.</p></blockquote><br/>Além disso, se a chave de locatário destina-se a uma rede de produção, recomendamos que você use uma segunda estação de trabalho separada para baixar o conjunto de ferramentas e carregar a chave de locatário. Porém, para fins de teste, você pode usar a mesma estação de trabalho que o primeiro.<br/><br/>Observe que nas instruções a seguir, essa segunda estação de trabalho é chamada de estação de trabalho conectada à Internet.</p></blockquote><br/>|
 
@@ -97,9 +99,9 @@ Não feche a janela do Azure PowerShell.
 
 ###Etapa 1.3: Baixe o conjunto de ferramentas BYOK para o Cofre da Chave do Azure
 
-Vá para Centro de Download da Microsoft e [Baixe o conjunto de ferramentas BYOK do Cofre da Chave do Azure](http://www.microsoft.com/download/details.aspx?id=45345) para a sua região:
+Vá para Centro de Download da Microsoft e [baixe o conjunto de ferramentas BYOK do Cofre da Chave do Azure](http://www.microsoft.com/download/details.aspx?id=45345) para a sua região ou instância do Azure:
 
-|Região|Nome do pacote|Hash de pacote SHA-256|
+|Região geográfica ou instância do Azure|Nome do pacote|Hash de pacote SHA-256|
 |---|---|---|
 |América do Norte|KeyVault-BYOK-Tools-UnitedStates.zip|D9FDA9F5A34E1388CD6C9138E5B75B7051FB7D6B11F087AFE0553DC85CCF0E36|
 |Europa|KeyVault-BYOK-Tools-Europe.zip|881DCA798305B8408C06BAE7B3EFBC1E9EA6113A8D6EC443464F3744896F32C3|
@@ -107,6 +109,7 @@ Vá para Centro de Download da Microsoft e [Baixe o conjunto de ferramentas BYOK
 |América Latina|KeyVault-BYOK-Tools-LatinAmerica.zip|B38015990D4D1E522B8367FF78E78E0234BF9592663470426088C44C3CAAAF48|
 |Japão|KeyVault-BYOK-Tools-Japan.zip|DB512CD9472FDE2FD610522847DF05E4D7CD49A296EE4A2DD74D43626624A113|
 |Austrália|KeyVault-BYOK-Tools-Australia.zip|8EBC69E58E809A67C036B50BB4F1130411AD87A7464E0D61A9E993C797915967|
+|[Azure Government](../../../../features/gov/)|KeyVault-BYOK-Tools-USGovCloud.zip|4DE9B33990099E4197ED67D786316F628E5218FC1EB0C24DCAD8A1851FD345B8|
 
 Para validar a integridade do seu conjunto de ferramentas BYOK baixado, na sua sessão do Azure PowerShell, use o cmdlet [Get-FileHash](https://technet.microsoft.com/library/dn520872.aspx).
 
@@ -173,7 +176,7 @@ Esta etapa é opcional, mas recomendada, para que você possa validar o seguinte
 
 Para validar o pacote baixado:
 
-1.	Execute o script verifykeypackage.py, associando um dos seguintes, dependendo da sua região:
+1.	Execute o script verifykeypackage.py, associando um dos seguintes, dependendo da sua região geográfica ou da instância do Azure:
 	- Para a América do Norte:
 
 			python verifykeypackage.py -k BYOK-KEK-pkg-NA-1 -w BYOK-SecurityWorld-pkg-NA-1
@@ -192,9 +195,12 @@ Para validar o pacote baixado:
 	- Para a Austrália:
 
 			python verifykeypackage.py -k BYOK-KEK-pkg-AUS-1 -w BYOK-SecurityWorld-pkg-AUS-1
+	- Para o [Azure Government](../../../../features/gov/), que usa a instância do governo dos EUA do Azure:
+
+			python verifykeypackage.py -k BYOK-KEK-pkg-USGOV-1 -w BYOK-SecurityWorld-pkg-USGOV-1
 
 	>[AZURE.TIP]O software Thales inclui python em %NFAST\_HOME%\\python\\bin
-	
+
 2.	Confirme que você vê o seguinte, que indica a validação bem-sucedida: **Resultado: SUCCESS**
 
 Este script valida a cadeia do signatário até a chave-raiz da Thales. O hash dessa chave raiz é inserido no script e o seu valor deve ser **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**. Você também pode confirmar esse valor separadamente visitando o [site da Thales](http://www.thalesesec.com/).
@@ -211,6 +217,8 @@ Execute o seguinte comando para gerar a chave:
 
 Quando você executar esse comando, use estas instruções:
 
+- O parâmetro *protect* deve ser definido com o valor **module**, como mostrado. Isso cria uma chave protegida pelo módulo. O conjunto de ferramentas BYOK não oferece suporte a chaves protegidas por OCS.
+
 - Substitua o valor de *contosokey* para a **ident** e **plainname** por qualquer valor de cadeia de caracteres. Para minimizar os custos administrativos e reduzir o risco de erros, recomendamos que você use o mesmo valor para ambos. O valor de **ident** deve conter somente números, traços, letras minúsculas.
 
 - O pubexp é deixado em branco (padrão) neste exemplo, mas você pode especificar valores específicos. Para obter mais informações, consulte a Documentação da Thales.
@@ -219,7 +227,7 @@ Este comando cria um arquivo de Chave com Token na sua pasta %NFAST\_KMDATA%\\lo
 
 Faça backup deste arquivo de Chave com Token em um local seguro.
 
->[AZURE.IMPORTANT]Posteriormente, quando transferir a sua chave para o Cofre da Chave do Azure, a Microsoft não poderá exportar esta chave novamente para você, por isso é extremamente importante fazer backup da sua chave e da segurança do Universo de segurança. Entre em contato com a Thales para obter orientação e as práticas recomendadas para fazer backup da sua chave.
+>[AZURE.IMPORTANT] Posteriormente, quando transferir a sua chave para o Cofre da Chave do Azure, a Microsoft não poderá exportar esta chave novamente para você, por isso é extremamente importante fazer backup da sua chave e da segurança do Universo de segurança. Entre em contato com a Thales para obter orientação e as práticas recomendadas para fazer backup da sua chave.
 
 Agora você está pronto para transferir a sua chave para o Cofre da Chave do Azure.
 
@@ -229,7 +237,7 @@ Para esta quarta etapa, execute os seguintes procedimentos na estação de traba
 
 ###Etapa 4.1: Criar uma cópia da chave com permissões reduzidas
 
-Para reduzir as permissões em sua chave, em um prompt de comando, execute um dos seguintes, dependendo da sua região:
+Para reduzir as permissões em sua chave, em um prompt de comando, execute um dos seguintes, dependendo da sua região geográfica ou da instância do Azure:
 
 - Para a América do Norte:
 
@@ -249,6 +257,9 @@ Para reduzir as permissões em sua chave, em um prompt de comando, execute um do
 - Para a Austrália:
 
 		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AUS-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AUS-1
+- Para o [Azure Government](../../../../features/gov/), que usa a instância do governo dos EUA do Azure:
+
+		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-USGOV-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-USGOV-1
 
 Quando você executar esse comando, substitua *contosokey* pelo mesmo valor especificado na **Etapa 3.3: Criar uma nova chave** na etapa [Gerar a sua chave](#step-3-generate-your-key).
 
@@ -270,7 +281,7 @@ Quando você executar este comando, substitua contosokey pelo mesmo valor especi
 
 ###Etapa 4.3: Criptografar a chave usando a Chave de Troca de Chaves da Microsoft
 
-Execute um dos seguintes comandos, dependendo da sua região:
+Execute um dos comandos a seguir, dependendo da sua região geográfica ou da instância do Azure:
 
 - Para a América do Norte:
 
@@ -290,18 +301,21 @@ Execute um dos seguintes comandos, dependendo da sua região:
 - Para a Austrália:
 
 		KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AUS-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AUS-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
+- Para o [Azure Government](../../../../features/gov/), que usa a instância do governo dos EUA do Azure:
+
+		KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-USGOV-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-USGOV-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
 
 Quando você executar esse comando, use estas instruções:
 
 - Substitua *contosokey* pelo identificador usado para gerar a chave na **Etapa 3.3: Criar uma nova chave** na etapa [Gerar a sua chave](#step-3-generate-your-key).
 
-- Substitua *SubscriptionID* pela ID da assinatura do Azure que contém o seu cofre da chave. Esse valor foi recuperado anteriormente, na **Etapa 1.2: obter a sua ID da assinatura do Azure** na etapa [Preparar a sua estação de trabalho conectada à Internet](#step-1-prepare-your-internet-connected-workstation).
+- Substitua *SubscriptionID* pela ID da assinatura do Azure que contém o seu Cofre da Chave. Esse valor foi recuperado anteriormente, na **Etapa 1.2: Obter a sua ID da assinatura do Azure** na etapa [Preparar a sua estação de trabalho conectada à Internet](#step-1-prepare-your-internet-connected-workstation).
 
 - Substitua *ContosoFirstHSMKey* por um rótulo que será usado para o nome do arquivo de saída.
 
 Quando ele for concluído com êxito, será exibido **Resultado: SUCCESS** e haverá um novo arquivo na pasta atual que tem o seguinte nome: TransferPackage-*ContosoFirstHSMkey*.byok
 
-###Etapa 4.4: Copie o pacote de transferência de chave para a estação de trabalho conectada à Internet 
+###Etapa 4.4: Copie o pacote de transferência de chave para a estação de trabalho conectada à Internet
 
 Use uma unidade USB ou outro armazenamento portátil para copiar o arquivo de saída da etapa anterior (KeyTransferPackage-ContosoFirstHSMkey.byok) para sua estação de trabalho conectada à Internet.
 
@@ -313,8 +327,9 @@ Para essa etapa final, na estação de trabalho conectada à Internet, use o cmd
 
 Se o upload for bem-sucedido, você verá exibidas as propriedades da chave que você acabou de adicionar.
 
+
 ##Próximas etapas
 
 Agora você pode usar essa chave de HSM protegido no Cofre da Chave. Para saber mais, consulte a seção **Se você deseja usar um módulo de segurança de hardware (HSM)** no tutorial [Introdução ao cofre da chave do Azure](key-vault-get-started.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

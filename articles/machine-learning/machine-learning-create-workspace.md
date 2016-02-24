@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2015" 
+	ms.date="02/03/2016" 
 	ms.author="garye;bradsev"/>
 
 
@@ -29,7 +29,7 @@ Para usar o Estúdio de Aprendizado de Máquina do Azure, você precisa ter um e
 
 ## Para criar um espaço de trabalho
 
-1. Entre na sua conta do Microsoft Azure.
+1. Entre no [portal clássico do Microsoft Azure](https://manage.windowsazure.com/).
 2. No painel de serviços do Microsoft Azure, clique em **APRENDIZADO DE MÁQUINA**.
 
     ![Serviço de Aprendizado de Máquina][1]
@@ -41,7 +41,7 @@ Para usar o Estúdio de Aprendizado de Máquina do Azure, você precisa ter um e
 
 5. Insira um **NOME DO ESPAÇO DE TRABALHO** para seu espaço de trabalho e especifique o **PROPRIETÁRIO DO ESPAÇO DE TRABALHO**. O proprietário do espaço de trabalho deve ser uma conta da Microsoft válida (por exemplo, name@outlook.com).
 
-    > [AZURE.NOTE]Mais tarde, você pode compartilhar os testes em que está trabalhando convidando outras pessoas para seu espaço de trabalho. Pode fazer isso no Estúdio de Aprendizado de Máquina na página **CONFIGURAÇÕES**. Basta ter a conta da Microsoft ou a conta da empresa de cada usuário.
+    > [AZURE.NOTE] Mais tarde, você pode compartilhar os testes em que está trabalhando convidando outras pessoas para seu espaço de trabalho. Pode fazer isso no Estúdio de Aprendizado de Máquina na página **CONFIGURAÇÕES**. Basta ter a conta da Microsoft ou a conta da empresa de cada usuário.
 
 6. Especificar o **LOCAL** do Azure, depois insira uma **CONTA DE ARMAZENAMENTO** do Azure existente ou selecione **Criar uma nova conta de armazenamento** para criar uma nova.
 7. Clique em **CRIAR UM ESPAÇO DE TRABALHO AM**.
@@ -67,4 +67,4 @@ Para saber mais sobre como gerenciar seu espaço de trabalho, consulte [Gerencia
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

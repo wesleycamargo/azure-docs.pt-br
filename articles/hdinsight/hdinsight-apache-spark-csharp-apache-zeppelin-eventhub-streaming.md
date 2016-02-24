@@ -20,22 +20,22 @@
 
 # Streaming Spark: processar eventos de Hubs de Eventos do Azure com o Apache Spark no HDInsight (Windows)
 
-> [AZURE.NOTE]O HDInsight agora fornece clusters do Spark no Linux. Para obter informações sobre como executar um aplicativo de streaming em clusters do Spark no HDInsight no Linux, confira [Streaming do Spark: processar eventos de Hubs de Eventos do Azure com o Apache Spark no HDInsight (Linux)](hdinsight-apache-spark-eventhub-streaming.md).
+> [AZURE.NOTE] O HDInsight agora fornece clusters do Spark no Linux. Para obter informações sobre como executar um aplicativo de streaming em clusters do Spark no HDInsight no Linux, confira [Streaming do Spark: processar eventos de Hubs de Eventos do Azure com o Apache Spark no HDInsight (Linux)](hdinsight-apache-spark-eventhub-streaming.md).
 
 Streaming Spark estende a API de núcleo do Spark para criar aplicativos de processamento de fluxo dimensionável, de alta taxa de transferência e com tolerância a falhas. Os dados podem ser ingeridos de várias fontes. Neste artigo, usamos Hubs de Eventos para ingerir dados. Hubs de Eventos é um sistema de ingestão altamente dimensionável, que pode receber milhões de eventos por segundo.
 
 Neste tutorial, você aprenderá como criar um Hub de Eventos do Azure, como ingerir mensagens em um Hub de Eventos usando um aplicativo de console em C# e recuperá-los em paralelo usando um bloco de notas Zeppelin configurado para Apache Spark no HDInsight.
 
-> [AZURE.NOTE]Para seguir as instruções neste artigo, você terá que usar as duas versões do portal do Azure. Para criar um Hub de Eventos, você usará o [Portal do Azure](https://manage.windowsazure.com). Para trabalhar com o cluster HDInsight Spark, você usará o [Portal de Visualização do Azure](https://ms.portal.azure.com/).
+> [AZURE.NOTE] Para seguir as instruções neste artigo, você terá que usar as duas versões do portal do Azure. Para criar um Hub de Eventos, você usará o [Portal do Azure](https://manage.windowsazure.com). Para trabalhar com o cluster HDInsight Spark, você usará o [Portal de Visualização do Azure](https://ms.portal.azure.com/).
 
 **Pré-requisitos:**
 
 Você deve ter o seguinte:
 
-- Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - Um cluster do Apache Spark. Para obter instruções, confira [Criar clusters do Apache Spark no Azure HDInsight](hdinsight-apache-spark-provision-clusters.md).
 - Um [Hub de Eventos do Azure](service-bus-event-hubs-csharp-ephcs-getstarted.md)
-- Uma estação de trabalho com o Microsoft Visual Studio 2013. Para obter instruções, confira [Instalar o Visual Studio](https://msdn.microsoft.com/library/e2h7fzkw.aspx).
+- Uma estação de trabalho com o Microsoft Visual Studio 2013. Para obter instruções, confira [Instalar Visual Studio](https://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
 ##<a name="createeventhub"></a>Criar Hub de Eventos do Azure
 
@@ -45,7 +45,7 @@ Você deve ter o seguinte:
 
 	![página 1 do assistente](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.create.event.hub.png "Criar um Hub de Eventos do Azure")
 
-	> [AZURE.NOTE]Você deve selecionar o mesmo **Local** do cluster Apache Spark no HDInsight para reduzir latência e custos.
+	> [AZURE.NOTE] Você deve selecionar o mesmo **Local** do cluster Apache Spark no HDInsight para reduzir latência e custos.
 
 3. Na tela **Configurar Hub de Eventos**, insira os valores de **Contagem de Partição** e **Retenção de Mensagem** e clique na marca de seleção. Para este exemplo, use uma contagem de partições de 10 e uma retenção de mensagens de 1. Observe a contagem de partições, pois você precisará desse valor posteriormente.
 
@@ -94,9 +94,9 @@ Para obter instruções sobre como alocar recursos em um cluster do Spark, confi
 
 1. No [Portal de Visualização do Azure](https://portal.azure.com/), no quadro inicial, clique no bloco do cluster Spark (se você o tiver fixado no quadro inicial). Você também pode navegar até o cluster em **Procurar Tudo** > **Clusters HDInsight**.   
 
-2. Na folha do cluster do Spark, clique em **Links Rápidos** e, na folha do **Painel de Cluster**, clique em **Bloco de Anotações Zeppelin**. Se você receber uma solicitação, insira as credenciais de administrador para o cluster.
+2. Na folha do cluster Spark, clique em **Links Rápidos** e, na folha do **Painel de Cluster**, clique em **Bloco de Anotações Zeppelin**. Se você receber uma solicitação, insira as credenciais de administrador para o cluster.
 
-	> [AZURE.NOTE]Você também pode acessar o Bloco de Notas Zeppelin de seu cluster abrindo a seguinte URL no navegador. Substitua __CLUSTERNAME__ pelo nome do seu cluster:
+	> [AZURE.NOTE] Você também pode acessar o Bloco de Notas Zeppelin de seu cluster abrindo a seguinte URL no navegador. Substitua __CLUSTERNAME__ pelo nome do cluster:
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/zeppelin`
 
@@ -104,7 +104,7 @@ Para obter instruções sobre como alocar recursos em um cluster do Spark, confi
 
 	![Criar um novo bloco de anotações do Zeppelin](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.createnewnote.png "Criar um novo bloco de anotações do Zeppelin")
 
-	Na mesma página, sob o título **Bloco de Anotações**, você verá um novo bloco de anotações com nomes começando com **Anotação XXXXXXXXX**. Clique no novo bloco de anotações.
+	Na mesma página, sob o título **Notebook**, você verá um novo bloco de anotações com o nome começando por **Note XXXXXXXXX**. Clique no novo bloco de anotações.
 
 3. Na página da Web para o novo bloco de anotações, clique no título e altere o nome do bloco de anotações, se desejar. Pressione ENTER para salvar a alteração do nome. Além disso, verifique se o cabeçalho do bloco de anotações mostra um status **Conectado** no canto superior direito.
 
@@ -112,7 +112,7 @@ Para obter instruções sobre como alocar recursos em um cluster do Spark, confi
 
 4. No parágrafo vazio criado por padrão no novo bloco de notas, cole o trecho a seguir e substitua os espaços reservados para usar a configuração do hub de eventos. Neste trecho, você recebe o fluxo do Hub de Eventos e o registra em uma tabela temporária, chamada **mytemptable**. Na próxima seção, iniciaremos o aplicativo do remetente. Em seguida, você pode ler os dados diretamente da tabela.
 
-	> [AZURE.NOTE]No trecho de código a seguir, **eventhubs.checkpoint.dir** deve ser definido como um diretório em seu contêiner de armazenamento padrão. Se o diretório não existe, o aplicativo streaming o cria. Você pode especificar o caminho completo para o diretório, como "**wasb://container@storageaccount.blob.core.windows.net/mycheckpointdir/**", ou o caminho relativo para o diretório, como "**/mycheckpointdir**".
+	> [AZURE.NOTE] No trecho de código a seguir, **eventhubs.checkpoint.dir** deve ser definido como um diretório em seu contêiner de armazenamento padrão. Se o diretório não existe, o aplicativo streaming o cria. Você pode especificar o caminho completo para o diretório, como "**wasb://container@storageaccount.blob.core.windows.net/mycheckpointdir/**", ou o caminho relativo para o diretório, como "**/mycheckpointdir**".
 
 		import org.apache.spark.streaming.{Seconds, StreamingContext}
 		import org.apache.spark.streaming.eventhubs.EventHubsUtils
@@ -141,7 +141,7 @@ Para obter instruções sobre como alocar recursos em um cluster do Spark, confi
 
 ##<a name="runapps"></a>Executar os aplicativos
 
-1. No bloco de notas Zeppelin, execute o parágrafo com o trecho de código. Pressione **SHIFT+ENTER** ou o botão **Reproduzir** no canto superior direito.
+1. No bloco de notas Zeppelin, execute o parágrafo com o trecho de código. Pressione **SHIFT + ENTER** ou o botão **Reproduzir** no canto superior direito.
 
 	O status no canto direito do parágrafo deve progredir de PRONTO, PENDENTE, EM EXECUÇÃO para CONCLUÍDO. A saída será exibida na parte inferior do mesmo parágrafo. A captura de tela é semelhante ao seguinte:
 
@@ -194,4 +194,4 @@ Instruções sobre como executar essas etapas e um exemplo de aplicativo de stre
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

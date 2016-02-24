@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/14/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # Visão geral de API de Hubs de Eventos
 
 Este artigo resume algumas das principais APIs de cliente .NET de Hubs de Eventos. Há duas categorias: APIs de gerenciamento e de tempo de execução. APIs de tempo de execução consistem em todas as operações necessárias para enviar e receber uma mensagem. Operações de gerenciamento permitem gerenciar um estado da entidade Hubs de Eventos, ao criar, atualizar e excluir entidades.
 
-Os cenários de monitoramento abrangem gerenciamento e tempo de execução. Para obter documentação de referência detalhada sobre as APIs do .NET, consulte a [Biblioteca de classes do .NET](https://msdn.microsoft.com/library/azure/mt419900.aspx) e referências da [API EventProcessorHost](https://msdn.microsoft.com/library/azure/mt445521.aspx).
+Os cenários de monitoramento abrangem gerenciamento e tempo de execução. Para obter a documentação de referência detalhada sobre as APIs do .NET, confira as referências [Barramento de Serviço .NET](https://msdn.microsoft.com/library/azure/mt419900.aspx) e [EventProcessorHost API](https://msdn.microsoft.com/library/azure/mt445521.aspx).
 
 ## APIs de gerenciamento
 
@@ -34,7 +34,7 @@ ehd.PartitionCount = SampleManager.numPartitions;
 namespaceManager.CreateEventHubAsync(ehd).Wait();
 ```
 
-### Atualizar
+### Atualização
 
 ```
 EventHubDescription ehd = await namespaceManager.GetEventHubAsync(eventHubName);
@@ -84,7 +84,7 @@ await client.SendAsync(data);
 ### Criar consumidor
 
 ```
-// Create the Event Hub client
+// Create the Event Hubs client
 EventHubClient eventHubClient = EventHubClient.Create(EventHubName);
 
 // Get the default consumer group
@@ -120,6 +120,7 @@ Essas APIs fornecem resiliência aos processos de trabalho que podem se tornar i
 ```
 // Checkpointing is done within the SimpleEventProcessor and on a per-consumerGroup per-partition basis, workers resume from where they last left off.
 // Use the EventData.Offset value for checkpointing yourself, this value is unique per partition.
+
 string eventHubConnectionString = System.Configuration.ConfigurationManager.AppSettings["Microsoft.ServiceBus.ConnectionString"];
 string blobConnectionString = System.Configuration.ConfigurationManager.AppSettings["AzureStorageConnectionString"]; // Required for checkpoint/state
 
@@ -185,7 +186,7 @@ Para saber mais sobre os cenários de Hubs de Eventos, consulte estes links:
 
 As referências de API .NET estão aqui:
 
-- [Referência de API do .NET de Hubs de Eventos e Barramento de Serviço](https://msdn.microsoft.com/library/azure/mt419900.aspx)
+- [Referências da API do .NET de Hubs de Eventos e do Barramento de Serviço](https://msdn.microsoft.com/library/azure/mt419900.aspx)
 - [Referência de API do host de processador de eventos](https://msdn.microsoft.com/library/azure/mt445521.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

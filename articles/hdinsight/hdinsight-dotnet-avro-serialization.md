@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="02/04/2015"
 	ms.author="jgao"/>
 
 
@@ -32,7 +32,7 @@ A representação serializada de um objeto no sistema Avro tem duas partes: o es
 ##O cenário do Hadoop
 O formato de serialização do Apache Avro é amplamente utilizado no Azure HDInsight e em outros ambientes Apache Hadoop. O Avro fornece um meio conveniente de representar estruturas de dados complexas em um trabalho MapReduce do Hadoop. O formato dos arquivos do Avro (arquivos contêiner de objetos do Avro) foi projetado para dar suporte ao modelo de programação distribuído do MapReduce. O recurso principal que habilita a distribuição é o fato de os arquivos serem divisíveis, no sentido de que uma pessoa pode buscar qualquer ponto em um arquivo e iniciar a leitura por meio de um bloco em específico.
 
-##Serialização na Biblioteca do Microsoft Avro
+##Serialização na biblioteca de Avro
 A Biblioteca do Microsoft .NET para Avro suporta dois modos de serialização de objetos:
 
 - **reflexão**: o esquema JSON dos tipos é criado automaticamente com base nos atributos do contrato de dados dos tipos .NET a serem serializados.
@@ -41,14 +41,16 @@ A Biblioteca do Microsoft .NET para Avro suporta dois modos de serialização de
 Quando o esquema de dados é conhecido tanto pelo gravador quanto pelo leitor do fluxo, os dados podem ser enviados sem o seu esquema. Caso um arquivo contêiner de objetos do Avro seja usado, o esquema será armazenado no arquivo. Você pode especificar outros parâmetros, como o codec usado para a compactação dos dados. Esses cenários são descritos com mais detalhes e ilustrados nos exemplos de código abaixo.
 
 
-## Pré-requisitos da Biblioteca do Microsoft Avro
+## Instalar a Biblioteca do Avro
+
+Os itens a seguir são necessários antes de instalar a biblioteca:
 
 - <a href="http://www.microsoft.com/download/details.aspx?id=17851" target="_blank">Microsoft .NET Framework 4</a>
 - <a href="http://james.newtonking.com/json" target="_blank">Newtonsoft Json.NET</a> (6.0.4 ou posterior)
 
 Observe que a dependência Newtonsoft.Json.dll também é baixada automaticamente com a instalação da Biblioteca do Microsoft Avro. A próxima seção mostra esse procedimento.
 
-## Instalação da Biblioteca do Microsoft Avro
+
 A Biblioteca do Microsoft Avro é distribuída como um pacote NuGet, que pode ser instalado pelo Visual Studio usando este procedimento:
 
 1. Selecione a guia **Projeto** -> **Gerenciar Pacotes NuGet...**
@@ -59,11 +61,10 @@ Observe que a dependência Newtonsoft.Json.dll (>=6.0.4) também é baixada auto
 
 Convém visitar a <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">home page da Biblioteca do Microsoft Avro</a> para ler as notas de versão atuais.
 
-##Código-fonte da Biblioteca do Microsoft Avro
 
 O código-fonte da Biblioteca do Microsoft Avro está disponível na <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">home page da Biblioteca do Microsoft Avro</a>.
 
-##Compilando o esquema com a Biblioteca do Microsoft Avro
+##Compilar esquemas usando a Biblioteca do Avro
 
 A Biblioteca do Microsoft Avro contém um utilitário de geração de código que permite criar tipos C# de maneira automática, com base no esquema JSON definido anteriormente. O utilitário de geração de código não é distribuído como um executável binário, mas pode ser facilmente compilado com este procedimento:
 
@@ -90,7 +91,7 @@ Observe que os namespaces são extraídos do esquema JSON usando a lógica descr
 
     Microsoft.Hadoop.Avro.Tools codegen /i:C:\SDK\src\Microsoft.Hadoop.Avro.Tools\SampleJSON\SampleJSONSchema.avsc /o:. /nf:my.own.nspace
 
-##<a name="samples"></a>Guia para os exemplos da Biblioteca do Microsoft Avro
+## Exemplos
 Cada um dos seis exemplos fornecidos neste tópico ilustra um cenário diferente com suporte pela Biblioteca do Microsoft Avro. A Biblioteca do Microsoft Avro foi projetada para funcionar com qualquer fluxo. Nestes exemplos, os dados são manipulados por fluxos de memória em vez de fluxos de arquivo ou bancos de dados, por questão de simplicidade e consistência. A abordagem usada em um ambiente de produção dependerá dos requisitos exatos do cenário, tais como fonte de dados e volume, restrições de desempenho e outros fatores.
 
 Os primeiros dois exemplos mostram como serializar e desserializar os dados nos buffers de fluxo de memória usando reflexão e registros genéricos. Presume-se que o esquema nesses dois casos é compartilhado entre os leitores e gravadores fora de banda.
@@ -1402,4 +1403,4 @@ Para limpar o cluster, execute este comando:
 [deflate-100]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
 [deflate-110]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0211_2016-->

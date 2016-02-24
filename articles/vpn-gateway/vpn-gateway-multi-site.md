@@ -41,13 +41,13 @@ Se já houver um gateway estático conectado à sua rede virtual, você poderá 
 
 Antes de começar a configuração, verifique se você tem os seguintes itens:
 
-- Uma assinatura do Azure. Se ainda não tiver uma assinatura do Azure, você poderá ativar os [benefícios de assinante do MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para uma [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
+- Uma assinatura do Azure. Se ainda não tiver uma assinatura do Azure, você poderá ativar os [benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 - Hardware de VPN compatível para cada caminho no local. Confira [Sobre dispositivos VPN para conectividade de rede virtual](http://go.microsoft.com/fwlink/p/?linkid=615099) para verificar se o dispositivo que você deseja usar é sabidamente compatível.
 
 - Um endereço IP IPv4 público voltado para o exterior para cada dispositivo VPN. O endereço IP não pode estar localizado atrás de um NAT. Isso é obrigatório.
 
-- A versão mais recente dos cmdlets do Azure PowerShell. Você pode baixar e instalar a versão mais recente na seção Windows PowerShell da página [Downloads](http://azure.microsoft.com/downloads/).
+- A versão mais recente dos cmdlets do Azure PowerShell. Você pode baixar e instalar a versão mais recente na seção Windows PowerShell da página [Downloads](https://azure.microsoft.com/downloads/).
 
 - Alguém que seja proficiente na configuração de seu hardware de VPN. Você não poderá usar os scripts VPN gerados automaticamente no Portal de Clássico do Azure para configurar os dispositivos VPN. Isso significa que você precisará ter um grande conhecimento de como configurar seu dispositivo VPN ou trabalhar com alguém que tenha.
 
@@ -131,7 +131,7 @@ Antes de começar a configuração, verifique se você tem os seguintes itens:
           </ConnectionsToLocalNetwork>
         </Gateway>
 
-5. **Salve o arquivo de configuração de rede e importe-o.** Para importar o arquivo de configuração da rede, confira [Para importar configurações da rede](../virtual-network/../virtual-network/virtual-networks-using-network-configuration-file.md#export-and-import-virtual-network-settings-using-the-management-portal). Ao importar esse arquivo com as alterações, os novos túneis serão adicionados. Os túneis usarão o gateway dinâmico que você criou anteriormente.
+5. **Salve o arquivo de configuração de rede e importe-o.** Para importar o arquivo de configuração da rede, consulte [Para importar as definições da sua rede](../virtual-network/../virtual-network/virtual-networks-using-network-configuration-file.md#export-and-import-virtual-network-settings-using-the-management-portal). Ao importar esse arquivo com as alterações, os novos túneis serão adicionados. Os túneis usarão o gateway dinâmico que você criou anteriormente.
 
 6. **Baixe as chaves pré-compartilhadas para os túneis de VPN.** Depois de adicionar os novos túneis, use o cmdlet do PowerShell Get-AzureVNetGatewayKey para obter as chaves pré-compartilhadas IPsec/IKE para cada túnel.
 
@@ -141,7 +141,7 @@ Antes de começar a configuração, verifique se você tem os seguintes itens:
 
 		Get-AzureVNetGatewayKey –VNetName "VNet1" –LocalNetworkSiteName "Site2"
 
-	Se preferir, você também pode usar a API REST *Obter Chave Compartilhada do Gateway de Rede Virtual* para obter as chaves pré-compartilhadas.
+	Se preferir, você também pode usar o API REST *Obter chave compartilhada de gateway de rede* para obter as chaves pré-compartilhadas.
 
 ## Verificar as conexões
 
@@ -177,4 +177,4 @@ Antes de começar a configuração, verifique se você tem os seguintes itens:
 
 Para saber mais sobre Gateways de VPN, confira [Sobre gateways de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/23/2015"
+   ms.date="01/27/2016"
    ms.author="bwren" />
 
 # Ativos de certificado na Automação do Azure
 
 Os certificados podem ser armazenados com segurança na Automação do Azure para que possam ser acessados pelos runbooks ou pelas configurações DSC usando a atividade **Get-AutomationCertificate**. Isso permite criar runbooks e configurações DSC que usam certificados para autenticação ou adicioná-los a recursos do Azure ou de terceiros.
 
->[AZURE.NOTE]Os ativos protegidos na Automação do Azure incluem credenciais, certificados, conexões e variáveis criptografadas. Esses ativos são criptografados e armazenados na Automação do Azure usando uma chave exclusiva que é gerada para cada conta de automação. Essa chave é criptografada por um certificado mestre e armazenada na Automação do Azure. Antes de armazenar um ativo seguro, a chave para a conta de automação é descriptografada usando o certificado mestre e usada para criptografar o ativo.
+>[AZURE.NOTE] Os ativos protegidos na Automação do Azure incluem credenciais, certificados, conexões e variáveis criptografadas. Esses ativos são criptografados e armazenados na Automação do Azure usando uma chave exclusiva que é gerada para cada conta de automação. Essa chave é criptografada por um certificado mestre e armazenada na Automação do Azure. Antes de armazenar um ativo seguro, a chave para a conta de automação é descriptografada usando o certificado mestre e usada para criptografar o ativo.
 
 ## Cmdlets do Windows PowerShell
 
@@ -40,13 +40,13 @@ As atividades na tabela a seguir são usadas para acessar certificados em um run
 |:---|:---|
 |Get-AutomationCertificate|Obtém um certificado a ser usado em um runbook ou configuração DSC.|
 
->[AZURE.NOTE]Evite usar variáveis no parâmetro –Name de GetAutomationCertificate, pois isso pode complicar a descoberta de dependências entre runbooks ou configurações DSC e ativos de certificados no momento do design.
+>[AZURE.NOTE] Evite usar variáveis no parâmetro –Name de Get-AutomationCertificate, pois isso pode complicar a descoberta de dependências entre runbooks ou configurações DSC e ativos de certificados no momento do design.
 
 ## Criando um novo certificado
 
-Ao criar um novo certificado, você carrega um arquivo cer ou pfx na Automação do Azure. Se marcar certificado como exportável, você poderá transferi-lo do repositório de certificados da Automação do Azure. Se ele não for exportável, ele só poderá ser usado para a assinatura no runbook ou na configuração DSC.
+Ao criar um novo certificado, você carrega um arquivo .cer ou .pfx na Automação do Azure. Se marcar certificado como exportável, você poderá transferi-lo do repositório de certificados da Automação do Azure. Se ele não for exportável, ele só poderá ser usado para a assinatura no runbook ou na configuração DSC.
 
-### Para criar um novo certificado com o portal do Azure
+### Para criar um novo certificado com o portal clássico do Azure
 
 1. Em sua conta de automação, clique em **Ativos** na parte superior da janela.
 1. Clique em **Adicionar Configuração** na parte inferior da janela.
@@ -57,7 +57,7 @@ Ao criar um novo certificado, você carrega um arquivo cer ou pfx na Automação
 1. Clique na marca de seleção para carregar o arquivo de certificado e salve o novo ativo de certificado.
 
 
-### Para criar um novo certificado com o portal de visualização do Azure
+### Para criar um novo certificado com o portal do Azure
 
 1. Em sua conta de automação, clique na parte **Ativos** para abrir a folha **Ativos**.
 1. Clique na parte **Certificados** para abrir a folha **Certificados**.
@@ -69,7 +69,7 @@ Ao criar um novo certificado, você carrega um arquivo cer ou pfx na Automação
 
 ### Para criar um novo certificado com o Windows PowerShell
 
-Os comandos de exemplo a seguir mostram como criar um novo certificado de automação e marcá-lo como exportável. Isso importa um arquivo pfx existente.
+Os comandos de exemplo a seguir mostram como criar um novo certificado de automação e marcá-lo como exportável. Isso importa um arquivo .pfx existente.
 
 	$certName = 'MyCertificate'
 	$certPath = '.\MyCert.pfx'
@@ -98,7 +98,7 @@ Você adiciona um **Get-AutomationCertificate** a um runbook gráfico clicando c
 
 A imagem a seguir mostra um exemplo do uso de um certificado em um runbook gráfico. Esse é o mesmo exemplo mostrado acima para adicionar um certificado a um serviço de nuvem de um runbook textual.
 
-Esse exemplo usa o parâmetro **UseConnectionObject** definido para a atividade Send-**TwilioSMS** que usa um objeto de conexão para autenticação no serviço. Um [link de pipeline](automation-graphical-authoring-intro.md#links-and-workflow) deve ser usado aqui, pois um link de sequência retornaria uma coleção contendo um único objeto, que o parâmetro Connection não está esperando.
+Esse exemplo usa o parâmetro **UseConnectionObject** definido para a atividade **Send-TwilioSMS** que usa um objeto de conexão para autenticação no serviço. Um [link de pipeline](automation-graphical-authoring-intro.md#links-and-workflow) deve ser usado aqui, pois um link de sequência retornaria uma coleção contendo um único objeto, que o parâmetro Connection não está esperando.
 
 ![](media/automation-certificates/add-certificate.png)
 
@@ -107,4 +107,4 @@ Esse exemplo usa o parâmetro **UseConnectionObject** definido para a atividade 
 
 - [Links na criação gráfica](automation-graphical-authoring-intro.md#links-and-workflow) 
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0204_2016-->

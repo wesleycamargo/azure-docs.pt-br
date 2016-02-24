@@ -14,27 +14,26 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/02/2015"
+	ms.date="02/05/2016"
 	ms.author="jgao"/>
 
 
 
-# Tutorial do HBase: Introdução ao uso do Apache HBase com o Hadoop no HDInsight (Windows)
+# Tutorial do HBase: Introdução ao uso do Apache HBase com o Hadoop baseado no Windows no HDInsight
 
 [AZURE.INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
 
-
 Saiba como criar um cluster HBase no HDInsight, criar tabelas HBase e consultar as tabelas usando o Apache Hive. Para obter informações gerais do HBase, consulte [Visão geral do HBase do HDInsight][hdinsight-hbase-overview].
 
-> [AZURE.NOTE]As informações neste documento são específicas de clusters HDInsight baseados em Windows. Para saber mais sobre o uso de clusters baseados no Linux, consulte [Tutorial do HBase: Introdução ao uso do Apache HBase com Hadoop no HDInsight (Linux)](hdinsight-hbase-tutorial-get-started-linux.md).
->
-> O HBase (versão 0.98.0) no HDInsight baseado em Windows está disponível somente para uso com os clusters do HDInsight 3.1 (baseado no Apache Hadoop e YARN 2.4.0). Para obter informações sobre a versão, consulte [O que há de novo nas versões de cluster do Hadoop fornecidas pelo HDInsight?][hdinsight-versions]
+As informações neste documento são específicas de clusters HDInsight baseados em Windows. Para saber mais sobre clusters baseados no Windows, use o seletor de guias na parte superior da página para alternar.
+
+> [AZURE.NOTE] O HBase (versão 0.98.0) no HDInsight baseado em Windows está disponível somente para uso com os clusters do HDInsight 3.1 (baseado no Apache Hadoop e YARN 2.4.0). Para obter informações sobre a versão, consulte [O que há de novo nas versões de cluster do Hadoop fornecidas pelo HDInsight?][hdinsight-versions]
 
 ###Pré-requisitos
 
 Antes de começar este tutorial do HBase, você deve ter o seguinte:
 
-- **Uma assinatura do Microsoft Azure**. Consulte [Obter avaliação gratuita do Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Uma assinatura do Microsoft Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **Uma estação de trabalho** com o Visual Studio 2013 ou superior instalado: para obter instruções, veja [Instalar o Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
 ## Nome do cluster HBase
@@ -57,7 +56,7 @@ Antes de começar este tutorial do HBase, você deve ter o seguinte:
 	- **Fonte de Dados** - crie uma nova conta de armazenamento do Azure ou selecione uma conta de armazenamento do Azure existente a ser usada como o sistema de arquivos padrão para o cluster. O local da conta de armazenamento padrão determina o local do cluster. A conta de armazenamento padrão e o cluster devem estar localizados no mesmo data center.
 	- **Tipos de Preço do Nó** - selecione o número de servidores de região para o cluster HBase.
 
-		> [AZURE.WARNING]Para alta disponibilidade dos serviços HBase, você deverá criar um cluster que contenha pelo menos **três** nós. Isso garante que, se um nó falhar, as regiões de dados do HBase estão disponíveis em outros nós.
+		> [AZURE.WARNING] Para alta disponibilidade dos serviços HBase, você deverá criar um cluster que contenha pelo menos **três** nós. Isso garante que, se um nó falhar, as regiões de dados do HBase estão disponíveis em outros nós.
 
 		> Se você estiver aprendendo a usar o HBase, sempre escolha 1 para o tamanho do cluster e exclua o cluster após cada uso para reduzir o custo.
 
@@ -65,9 +64,10 @@ Antes de começar este tutorial do HBase, você deve ter o seguinte:
 
 4. Clique em **Criar**.
 
->[AZURE.NOTE]Depois que um cluster HBase for excluído, você pode criar outro cluster HBase usando a mesma conta de armazenamento padrão e o mesmo contêiner de blob padrão. O novo cluster selecionará as tabelas HBase criadas por você no cluster original.
+>[AZURE.NOTE] Depois que um cluster HBase for excluído, você pode criar outro cluster HBase usando a mesma conta de armazenamento padrão e o mesmo contêiner de blob padrão. O novo cluster selecionará as tabelas HBase criadas por você no cluster original.
 
-## Usar o shell HBase
+## Criar tabelas e inserir dados
+
 Atualmente, há duas maneiras de acessar o HBase. Esta seção aborda o uso do shell do HBase. A próxima seção aborda o uso do SDK do .NET.
 
 Para a maioria das pessoas, os dados aparecem no formato de tabela:
@@ -136,7 +136,7 @@ Um arquivo de exemplo de dados foi carregado para um contêiner público de blob
 
 Você pode criar um arquivo de texto e carregá-lo à sua própria conta de armazenamento se desejar. Para obter instruções, consulte [Carregar dados para trabalhos de Hadoop no HDInsight][hdinsight-upload-data].
 
-> [AZURE.NOTE]Este procedimento usa a tabela Contatos HBase que você criou no último procedimento.
+> [AZURE.NOTE] Este procedimento usa a tabela Contatos HBase que você criou no último procedimento.
 
 1. Em sua sessão do RDP, clique no atalho **Linha de Comando do Hadoop** localizado na área de trabalho.
 2. Altere o diretório:
@@ -295,17 +295,14 @@ Em um cluster de alta disponibilidade, você encontrará um link para o nó mest
 
 
 ## O que vem a seguir?
-Neste tutoria do HBase para o HDInsight, você aprendeu a provisionar um cluster HBase, criar tabelas e exibir os dados nessas tabelas por meio do shell HBase. Você também aprendeu a usar a consulta do Hive dos dados em tabelas HBase e como usar as APIs REST C# do HBase para criar uma tabela HBase e recuperar dados da tabela.
+Neste tutorial do HBase para o HDInsight, você aprendeu a criar um cluster HBase, criar tabelas e exibir os dados nessas tabelas por meio do shell HBase. Você também aprendeu a usar a consulta do Hive dos dados em tabelas HBase e como usar as APIs REST C# do HBase para criar uma tabela HBase e recuperar dados da tabela.
 
 Para obter mais informações, consulte:
 
-- [Visão geral do HBase do HDInsight][hdinsight-hbase-overview].
-O HBase é um banco de dados NoSQL de código aberto Apache baseado no Hadoop que fornece acesso aleatório e uma sólida consistência para grandes quantidades de dados não estruturados e semiestruturados.
-- [Provisionar os clusters do HBase na Rede Virtual do Azure][hdinsight-hbase-provision-vnet] 
-Com a integração da rede virtual, os clusters do HBase podem ser implantados na mesma rede virtual que seus aplicativos, de modo que os aplicativos possam se comunicar diretamente com o HBase.
+- [Visão geral do HDInsight HBase][hdinsight-hbase-overview]. O HBase é um banco de dados NoSQL de código aberto Apache baseado no Hadoop que fornece acesso aleatório e uma sólida consistência para grandes quantidades de dados não estruturados e semiestruturados.
+- [Provisionar os clusters do HBase na Rede Virtual do Azure][hdinsight-hbase-provision-vnet] Com a integração da rede virtual, os clusters do HBase podem ser implantados na mesma rede virtual que seus aplicativos, de modo que os aplicativos possam se comunicar diretamente com o HBase.
 - [Configurar a replicação do HBase no HDInsight](hdinsight-hbase-geo-replication.md) Saiba como configurar a replicação do HBase em dois datacenters Azure.
-- [Analisar dados de sentimento no Twitter com o HBase no HDInsight][hbase-twitter-sentiment]
-Saiba como fazer a [análise de sentimento](http://en.wikipedia.org/wiki/Sentiment_analysis) em tempo real de Big Data, usando o HBase em um cluster Hadoop no HDInsight.
+- [Analisar dados de sentimento no Twitter com o HBase no HDInsight][hbase-twitter-sentiment] Saiba como fazer a [análise de sentimento](http://en.wikipedia.org/wiki/Sentiment_analysis) em tempo real de Big Data, usando o HBase em um cluster Hadoop no HDInsight.
 
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -334,4 +331,4 @@ Saiba como fazer a [análise de sentimento](http://en.wikipedia.org/wiki/Sentime
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

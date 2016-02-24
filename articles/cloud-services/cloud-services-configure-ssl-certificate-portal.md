@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 
@@ -22,12 +22,12 @@
 # Configurando SSL para um aplicativo no Azure
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-configure-ssl-certificate.md)
 - [Azure portal](cloud-services-configure-ssl-certificate-portal.md)
+- [Azure classic portal](cloud-services-configure-ssl-certificate.md)
 
 A criptografia SSL (Secure Socket Layer) é o método mais usado para proteger dados enviados pela Internet. Esta tarefa comum aborda como especificar um ponto de extremidade HTTPS para uma função Web e como carregar um certificado SSL para proteger seu aplicativo.
 
-> [AZURE.NOTE]Os procedimentos nesta tarefa se aplicam aos Serviços de Nuvem do Azure; para Sites, consulte [Configurando um certificado SSL para um site do Azure](../web-sites-configure-ssl-certificate.md).
+> [AZURE.NOTE] Os procedimentos nesta tarefa se aplicam aos Serviços de Nuvem do Azure; para os Serviços de Aplicativos, consulte [isto](../app-service-web/web-sites-configure-ssl-certificate.md).
 
 Esta tarefa usará uma implantação da produção; as informações sobre como usar uma implantação de preparo ao final deste tópico.
 
@@ -62,12 +62,20 @@ O aplicativo deve ser configurado para usar o certificado, e um ponto de extremi
             <Certificates>
                 <Certificate name="SampleCertificate" 
 							 storeLocation="LocalMachine" 
-                    		 storeName="CA" />
+                    		 storeName="CA"
+                             permissionLevel="limitedOrElevated" />
             </Certificates>
         ...
         </WebRole>
 
-    A seção **Certificados** define o nome do nosso certificado, seu local e o nome do repositório no qual está localizado. Optamos por armazenar o certificado no repositório CA, mas é possível escolher outras opções também. Consulte [Como associar um certificado a um serviço][] para obter mais informações.
+    A seção **Certificados** define o nome do nosso certificado, seu local e o nome do repositório no qual está localizado.
+    
+    As permissões (atributo `permisionLevel`) podem ser definidas como um dos seguintes:
+
+    | Valor da permissão | Descrição |
+    | ----------------  | ----------- |
+    | limitedOrElevated | **(Padrão)** Todos os processos de função podem acessar a chave privada. |
+    | elevado | Somente processos elevados podem acessar a chave privada.|
 
 2.  No arquivo de definição de serviço, adicione um elemento **InputEndpoint** dentro da seção **Pontos de extremidade** para habilitar HTTPS:
 
@@ -145,11 +153,11 @@ Agora que sua implantação está ativa e em execução no Azure, você pode se 
 
 2.  No navegador da Web, modifique o link para usar **https**em vez de **http**, e visite a página.
 
-    >[AZURE.NOTE]Se estiver usando um certificado autoassinado, ao navegar até um ponto de extremidade HTTPS associado com o certificado autoassinado, você verá um erro de certificado no navegador. O uso de um certificado assinado por uma certificação confiável eliminará esse problema; enquanto isso, você poderá ignorar o erro. (Outra opção é adicionar o certificado autoassinado ao repositório de certificado da autoridade de certificado confiável do usuário.)
+    >[AZURE.NOTE] Se estiver usando um certificado autoassinado, ao navegar até um ponto de extremidade HTTPS associado com o certificado autoassinado, você verá um erro de certificado no navegador. O uso de um certificado assinado por uma certificação confiável eliminará esse problema; enquanto isso, você poderá ignorar o erro. (Outra opção é adicionar o certificado autoassinado ao repositório de certificado da autoridade de certificado confiável do usuário.)
 
     ![Visualização de site](media/cloud-services-configure-ssl-certificate-portal/show-site.png)
 
-    >[AZURE.TIP]Se quiser usar SSL em uma implantação de preparação em lugar de uma implantação da produção, você precisará determinar primeiro o URL usado na implantação de preparação. Após o serviço de nuvem ter sido implantado, a URL para o ambiente de preparo será determinada pelo GUID da **ID da Implantação** neste formato: `https://deployment-id.cloudapp.net/`
+    >[AZURE.TIP] Se quiser usar SSL em uma implantação de preparação em lugar de uma implantação da produção, você precisará determinar primeiro o URL usado na implantação de preparação. Após o serviço de nuvem ter sido implantado, a URL para o ambiente de preparo será determinada pelo GUID da **ID da Implantação** neste formato: `https://deployment-id.cloudapp.net/`
       
     >Crie um certificado com o nome comum (CN) igual à URL baseada em GUID (por exemplo, **328187776e774ceda8fc57609d404462.cloudapp.net**), use o portal para adicionar o certificado ao serviço de nuvem de preparação, adicione as informações de certificado aos arquivos CSDEF e CSCFG, reempacote o aplicativo e atualize a implantação de preparação para usar o novo pacote e o arquivo CSCFG.
 
@@ -160,4 +168,4 @@ Agora que sua implantação está ativa e em execução no Azure, você pode se 
 * Configurar um [nome de domínio personalizado](cloud-services-custom-domain-name-portal.md).
 * [Gerenciar seu serviço de nuvem](cloud-services-how-to-manage-portal.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 
@@ -24,7 +24,7 @@
 
 Despejos de heap contêm um instantâneo da memória do aplicativo, incluindo os valores das variáveis no momento em que o despejo foi criado. Portanto, eles são muito úteis para diagnosticar problemas que ocorrem no tempo de execução.
 
-> [AZURE.NOTE]As informações neste artigo aplicam-se apenas ao HDInsight baseado em Linux. Para obter informações sobre o HDInsight baseado no Windows, consulte [Habilitar despejos de heap para serviços do Hadoop no HDInsight baseado no Windows](hdinsight-hadoop-collect-debug-heap-dumps.md)
+> [AZURE.NOTE] As informações neste artigo aplicam-se apenas ao HDInsight baseado em Linux. Para obter informações sobre o HDInsight baseado no Windows, consulte [Habilitar despejos de heap para serviços do Hadoop no HDInsight baseado no Windows](hdinsight-hadoop-collect-debug-heap-dumps.md)
 
 ## <a name="whichServices"></a>Serviços
 
@@ -49,7 +49,7 @@ Processos de mapeamento e redução são ligeiramente diferentes, uma vez que s�
 * **mapreduce.admin.map.child.java.opts**
 * **mapreduce.admin.reduce.child.java.opts**
 
-> [AZURE.NOTE]Nós recomendamos usar o Ambari para modificar os scripts e configurações de mapred-site.xml, pois ele processará a réplica de alterações nos nós do cluster. Consulte a seção [Usando o Ambari](#using-ambari) para ver as etapas específicas.
+> [AZURE.NOTE] Nós recomendamos usar o Ambari para modificar os scripts e configurações de mapred-site.xml, pois ele processará a réplica de alterações nos nós do cluster. Consulte a seção [Usando o Ambari](#using-ambari) para ver as etapas específicas.
 
 ###Habilitar despejos de heap
 
@@ -59,7 +59,7 @@ A seguinte opção habilita os despejos de heap quando ocorre um OutOfMemoryErro
 
 O **+** indica que a opção está habilitada. Por padrão, ela fica desabilitada.
 
-> [AZURE.WARNING]Despejos de heap não são habilitados para serviços do Hadoop no HDInsight por padrão, pois os arquivos de despejo podem ser grandes. Se você habilitá-los para solução de problemas, lembre-se de desabilitá-los após ter reproduzido o problema e coletado os arquivos de despejo.
+> [AZURE.WARNING] Despejos de heap não são habilitados para serviços do Hadoop no HDInsight por padrão, pois os arquivos de despejo podem ser grandes. Se você habilitá-los para solução de problemas, lembre-se de desabilitá-los após ter reproduzido o problema e coletado os arquivos de despejo.
 
 ###Local do despejo
 
@@ -75,7 +75,7 @@ Você também pode disparar um script quando um **OutOfMemoryError** ocorrer. Po
 
     -XX:OnOutOfMemoryError=/path/to/script
 
-> [AZURE.NOTE]Como o Hadoop é um sistema distribuído, qualquer script usado deve ser colocado em todos os nós no cluster em que o serviço é executado.
+> [AZURE.NOTE] Como o Hadoop é um sistema distribuído, qualquer script usado deve ser colocado em todos os nós no cluster em que o serviço é executado.
 >
 > O script deve também estar em um local que seja acessível pela conta em que o serviço é executado e deve fornecer permissões de execução. Por exemplo, você pode optar por armazenar scripts em `/usr/local/bin` e usar `chmod go+rx /usr/local/bin/filename.sh` para conceder permissões de leitura e execução.
 
@@ -87,7 +87,7 @@ Para modificar a configuração de um serviço, use as seguintes etapas:
 
     Quando solicitado, autentique no site usando o nome da conta HTTP (padrão: administrador) e a senha de seu cluster.
 
-    > [AZURE.NOTE]O Ambari poderá solicitar o nome de usuário e senha mais uma vez. Nesse caso, basta reinserir o mesmo nome de conta e senha
+    > [AZURE.NOTE] O Ambari poderá solicitar o nome de usuário e senha mais uma vez. Nesse caso, basta reinserir o mesmo nome de conta e senha
 
 2. Usando a lista à esquerda, selecione a área de serviço que você deseja modificar. Por exemplo, **HDFS**. Na área central, selecione a guia **Configurações**.
 
@@ -101,7 +101,7 @@ Para modificar a configuração de um serviço, use as seguintes etapas:
 
     ![HADOOP\_NAMENODE\_OPTS com -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/](./media/hdinsight-hadoop-heap-dump-linux/opts.png)
 
-	> [AZURE.NOTE]Ao habilitar despejos de heap para o processo filho de mapeamento ou redução, você procurará os campos rotulados **mapreduce.admin.map.child.java.opts** e **mapreduce.admin.reduce.child.java.opts**.
+	> [AZURE.NOTE] Ao habilitar despejos de heap para o processo filho de mapeamento ou redução, você procurará os campos rotulados **mapreduce.admin.map.child.java.opts** e **mapreduce.admin.reduce.child.java.opts**.
 
     Use o botão **Salvar** para salvar as alterações. Você pode inserir uma nota curta que descreve as alterações.
 
@@ -117,8 +117,8 @@ Para modificar a configuração de um serviço, use as seguintes etapas:
 
     ![Entrada Reiniciar todos os afetados](./media/hdinsight-hadoop-heap-dump-linux/restartbutton.png)
 
-    > [AZURE.NOTE]as entradas do botão **Reiniciar** podem ser diferentes para outros serviços.
+    > [AZURE.NOTE] as entradas do botão **Reiniciar** podem ser diferentes para outros serviços.
 
 8. Após os serviços serem reiniciados, use o botão **Ações de Serviço** para **Desativar o Modo de Manutenção**. Use este Ambari para retomar o monitoramento dos alertas do serviço.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

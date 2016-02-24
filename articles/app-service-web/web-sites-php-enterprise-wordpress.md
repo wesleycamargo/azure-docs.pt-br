@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="web"
-	ms.date="11/06/2015"
+	ms.date="01/26/2016"
 	ms.author="tomfitz"/>
 
 #WordPress de classe empresarial no Serviço de Aplicativo do Azure
@@ -26,11 +26,11 @@ Uma instalação básica do WordPress tem apenas dois requisitos.
 
 * **Banco de Dados MySQL** - disponível por meio do [ClearDB no Azure Marketplace][cdbnstore] ou é possível gerenciar a própria instalação do MySQL nas Máquinas Virtuais do Azure que usam [Windows][mysqlwindows] ou [Linux][mysqllinux].
 
-    > [AZURE.NOTE]O ClearDB fornece diversas configurações do MySQL, com características de desempenho diferentes para cada configuração. Consulte a [Azure Store][cdbnstore] for para obter informações sobre ofertas oferecidas por meio da Azure Store ou o [preço do ClearDB](http://www.cleardb.com/pricing.view) para ofertas diretamente no ClearDB.
+    > [AZURE.NOTE] O ClearDB fornece diversas configurações do MySQL, com características de desempenho diferentes para cada configuração. Consulte a [Azure Store][cdbnstore] for para obter informações sobre ofertas oferecidas por meio da Azure Store ou o [preço do ClearDB](http://www.cleardb.com/pricing.view) para ofertas diretamente no ClearDB.
 
 * **PHP 5.2.4 ou posterior** – o Serviço de Aplicativo do Azure atualmente fornece as versões [5\.4, 5.5 e 5.6 do PHP][phpwebsite].
 
-	> [AZURE.NOTE]Recomendamos sempre executar a versão mais recente do PHP para garantir que você tenha as correções de segurança mais recentes.
+	> [AZURE.NOTE] Recomendamos sempre executar a versão mais recente do PHP para garantir que você tenha as correções de segurança mais recentes.
 
 ###Implantação básica
 
@@ -53,7 +53,7 @@ A replicação e o roteamento para vários Bancos de Dados MySQL podem ser feito
 
 ###Implantação em várias regiões com armazenamento e cache de mídia
 
-Se o site aceitar uploads ou hospedar arquivos de mídia, use o armazenamento de Blob do Azure. Se você precisar de cache, leve em consideração [Redis cache][rediscache], [Memcache Cloud](https://azure.microsoft.com/marketplace/partners/garantiadata/memcached/), [MemCachier](https://azure.microsoft.com/marketplace/partners/memcachier/memcachier/) ou uma das outras ofertas de cache na [Azure Store](http://azure.microsoft.com/gallery/store/).
+Se o site aceitar uploads ou hospedar arquivos de mídia, use o armazenamento de Blob do Azure. Se você precisar de cache, leve em consideração [Redis cache][rediscache], [Memcache Cloud](https://azure.microsoft.com/marketplace/partners/garantiadata/memcached/), [MemCachier](https://azure.microsoft.com/marketplace/partners/memcachier/memcachier/) ou uma das outras ofertas de cache na [Azure Store](https://azure.microsoft.com/gallery/store/).
 
 ![Um aplicativo Web do Azure, hospedado em várias regiões, usando-se o roteador de Alta Disponibilidade do CDBR para MySQL, com Cache Gerenciado, armazenamento de Blob e CDN][performance-diagram]
 
@@ -96,7 +96,7 @@ Existem dois métodos de migrar um site do WordPress existente para o Serviço d
 
 * **[Exportação do WordPress][export]** - isso exporta o conteúdo de seu blog, que pode então ser importado para um novo site do WordPress no Serviço de Aplicativo do Azure usando o [plug-in do WordPress importer][import].
 
-	> [AZURE.NOTE]Embora permita migrar o conteúdo, esse processo não migra nenhum plug-in, tema ou outra personalização. Eles devem ser reinstalados manualmente.
+	> [AZURE.NOTE] Embora permita migrar o conteúdo, esse processo não migra nenhum plug-in, tema ou outra personalização. Eles devem ser reinstalados manualmente.
 
 * **Migração manual** - [faça backup do site][wordpressbackup] e do [banco de dados][wordpressdbbackup] e restaure-o manualmente em um aplicativo Web no Serviço de Aplicativo do Azure e no banco de dados MySQL para migrar sites altamente personalizados e evitar o tédio de instalar manualmente plug-ins, temas e outras personalizações.
 
@@ -232,7 +232,7 @@ Para fazer isto... | Use isto...
 
 * [Dicas para o WordPress no Azure](http://www.johnpapa.net/azurecleardbmysql/)
 
->[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo.. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE] Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo.. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -282,4 +282,4 @@ Para fazer isto... | Use isto...
 [cdn]: ../cdn-how-to-use.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -14,29 +14,33 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2015"
-	ms.author="szarkos"/>
+	ms.date="01/22/2016"
+	ms.author="szark"/>
 
 # Preparar uma máquina virtual do Ubuntu para o Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-##Pré-requisitos##
+## Imagens de nuvem oficiais do Ubuntu
+O Ubuntu agora publica VHDs oficiais do Azure para download em [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/). Se você precisar compilar sua própria imagem do Ubuntu especializada para o Azure, em vez de usar o procedimento manual abaixo, é recomendável começar com esses VHDs de trabalho conhecidos e personalizá-los conforme necessário.
+
+
+## Pré-requisitos
 
 Este artigo pressupõe que você já instalou um sistema operacional Ubuntu Linux em um disco rígido virtual. Existem várias ferramentas para criar arquivos .vhd, por exemplo, uma solução de virtualização como o Hyper-V. Para obter instruções, consulte [Instalar a função Hyper-V e configurar uma máquina Virtual](http://technet.microsoft.com/library/hh846766.aspx).
 
 **Notas de instalação do Ubuntu**
 
 - O formato VHDX não tem suporte no Azure, somente o **VHD fixo**. Você pode converter o disco em formato VHD usando o Gerenciador do Hyper-V ou o cmdlet convert-vhd.
-
 - Ao instalar o sistema Linux, é recomendável que você use partições padrão em vez de LVM (geralmente o padrão para muitas instalações). Isso irá evitar conflitos de nome LVM com VMs clonadas, especialmente se um disco do sistema operacional precisar ser anexado a outra VM para solução de problemas. Se você preferir, é possível usar LVM ou [RAID](virtual-machines-linux-configure-raid.md) em discos de dados.
-
 - Não configure uma partição de permuta no disco do SO. O agente Linux pode ser configurado para criar um arquivo de permuta no disco de recursos temporários. Verifique as etapas a seguir para obter mais informações a esse respeito.
-
 - Todos os VHDs devem ter tamanhos que sejam múltiplos de 1 MB.
 
 
-## <a id="ubuntu"> </a>Ubuntu 12.04 ##
+## Etapas manuais
+
+> [AZURE.NOTE] Antes de criar sua própria imagem personalizada do Ubuntu para o Azure, considere usar as imagens em [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/) como alternativa.
+
 
 1. No painel central do Gerenciador do Hyper-V, selecione a máquina virtual.
 
@@ -59,7 +63,7 @@ Este artigo pressupõe que você já instalou um sistema operacional Ubuntu Linu
 		# sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
 		# sudo apt-get update
 
-4. As imagens do Ubuntu Azure estão seguindo o kernel de *Habilitação de HardWare* (HWE). Atualize o sistema operacional para o kernel mais recente, executando os seguintes comandos:
+4. As imagens do Ubuntu Azure estão seguindo o kernel *Habilitação de Hardware* (HWE). Atualize o sistema operacional para o kernel mais recente, executando os seguintes comandos:
 
 	Ubuntu 12,04:
 
@@ -112,11 +116,14 @@ Este artigo pressupõe que você já instalou um sistema operacional Ubuntu Linu
 
 11. Clique em **Ação -> Desligar** no Gerenciador do Hyper-V. Agora, seu VHD Linux está pronto para ser carregado no Azure.
 
+## Próximas etapas
+Agora, você está pronto para usar o disco rígido virtual Ubuntu Linux para criar novas máquinas virtuais no Azure. Se esta é a primeira vez que você está carregando o arquivo .vhd no Azure, consulte as etapas 2 e 3 em [Criando e carregando um disco rígido virtual que contém o sistema operacional Linux](virtual-machines-linux-create-upload-vhd.md).
+
 ## Referências ##
 
-Kernel de Habilitação de HardWare do Ubuntu (HWE)
+Kernel de Habilitação de Hardware do Ubuntu (HWE):
 
 - [http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html](http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html)
 - [http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html](http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0211_2016-->

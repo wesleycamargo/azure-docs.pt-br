@@ -25,7 +25,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-##Pré-requisitos##
+## Pré-requisitos ##
 
 Este artigo pressupõe que você já instalou um sistema operacional Linux CentOS (ou derivado similar) em um disco rígido virtual. Existem várias ferramentas para criar arquivos .vhd, por exemplo, uma solução de virtualização como o Hyper-V. Para obter instruções, consulte [Instalar a função Hyper-V e configurar uma máquina Virtual](http://technet.microsoft.com/library/hh846766.aspx).
 
@@ -82,7 +82,7 @@ Este artigo pressupõe que você já instalou um sistema operacional Linux CentO
 		# sudo chkconfig network on
 
 
-8. **Somente CentOS 6.3**: instale os drivers dos LIS (Serviços de Integração do Linux)
+8. **Somente CentOS 6.3**: instale os drivers dos LIS (Serviços de Integração do Linux).
 
 	**Importante: essa etapa só é válida para o CentOS 6.3 e versões anteriores.** Os serviços de integração do Linux nas versões 6.4 ou posteriores do CentOS *já estão disponíveis no kernel padrão*.
 
@@ -148,7 +148,7 @@ Este artigo pressupõe que você já instalou um sistema operacional Linux CentO
 
 		exclude=kernel*
 
-12. Desabilite o módulo yum "fastestmirror", editando o arquivo "/etc/yum/pluginconf.d/fastestmirror.conf" e digite o seguinte em `[main]`
+12. Desabilite o módulo yum "fastestmirror", editando o arquivo "/etc/yum/pluginconf.d/fastestmirror.conf" e digite o seguinte em `[main]`:
 
 		set enabled=0
 
@@ -156,7 +156,7 @@ Este artigo pressupõe que você já instalou um sistema operacional Linux CentO
 
 		# yum clean all
 
-14. **Somente para o CentOS 6.3**, atualize o kernel usando este comando:
+14. **Somente no CentOS 6.3**, atualize o kernel usando este comando:
 
 		# sudo yum --disableexcludes=all install kernel
 
@@ -183,7 +183,7 @@ Este artigo pressupõe que você já instalou um sistema operacional Linux CentO
 
 	Observe que a instalação do pacote WALinuxAgent removerá o NetworkManager e os pacotes NetworkManager-gnome se eles já não tiverem sido removidos conforme descrito na etapa 2.
 
-18.	Não crie espaço swap no disco do sistema operacional
+18.	Não crie espaço de permuta no disco do SO.
 
 	O Agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à VM após o provisionamento no Azure. Observe que o disco de recurso local é um disco *temporário* e pode ser esvaziado quando a VM é desprovisionada. Depois de instalar o Agente Linux do Azure (consulte a etapa anterior), modifique os seguintes parâmetros em /etc/waagent.conf de maneira apropriada:
 
@@ -308,7 +308,7 @@ A preparação de uma máquina virtual CentOS 7 para o Azure é muito parecida c
 
 		GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
 
-	Isso também garantirá que todas as mensagens do console sejam enviadas para a primeira porta serial, que pode auxiliar o suporte do Azure com problemas de depuração. Além disso, recomendamos que você *remova* os seguintes parâmetros:
+	Isso garantirá que todas as mensagens do console sejam enviadas para a primeira porta serial, que pode auxiliar o suporte do Azure com problemas de depuração. Além disso, recomendamos que você *remova* os seguintes parâmetros:
 
 		rhgb quiet crashkernel=auto
 
@@ -336,7 +336,7 @@ A preparação de uma máquina virtual CentOS 7 para o Azure é muito parecida c
 
 		# sudo yum install WALinuxAgent
 
-15.	Não crie espaço swap no disco do sistema operacional
+15.	Não crie espaço de permuta no disco do SO.
 
 	O Agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à VM após o provisionamento no Azure. Observe que o disco de recurso local é um disco *temporário* e pode ser esvaziado quando a VM é desprovisionada. Depois de instalar o Agente Linux do Azure (consulte a etapa anterior), modifique os seguintes parâmetros em /etc/waagent.conf de maneira apropriada:
 
@@ -354,4 +354,7 @@ A preparação de uma máquina virtual CentOS 7 para o Azure é muito parecida c
 
 17. Clique em **Ação -> Desligar** no Gerenciador do Hyper-V. Agora, seu VHD Linux está pronto para ser carregado no Azure.
 
-<!---HONumber=AcomDC_1223_2015-->
+## Próximas etapas
+Agora, você está pronto para usar o disco rígido virtual CentOS Linux para criar novas máquinas virtuais no Azure. Se esta é a primeira vez que você está carregando o arquivo .vhd no Azure, consulte as etapas 2 e 3 em [Criando e carregando um disco rígido virtual que contém o sistema operacional Linux](virtual-machines-linux-create-upload-vhd.md).
+
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.workload="mobile"
-	ms.date="10/05/2015"
+	ms.date="01/22/2016"
 	ms.author="wesmc"/>
 
 # Adicionar notificações por push ao aplicativo Xamarin.Forms
@@ -68,7 +68,7 @@ Para ser capaz de armazenar dados de aplicativo no novo serviço móvel, primeir
 
   	Isso cria uma nova tabela de armazenamento **TodoItem** com o conjunto de permissões padrão, o que significa que qualquer usuário do aplicativo pode acessar e modificar dados na tabela.
 
-    > [AZURE.NOTE]O mesmo nome de tabela é usado no Guia de início rápido dos Serviços Móveis. No entanto, cada tabela é criada em um esquema específico para um determinado serviço móvel. Isso é para evitar colisões de dados quando vários serviços móveis usam o mesmo banco de dados.
+    > [AZURE.NOTE] O mesmo nome de tabela é usado no Guia de início rápido dos Serviços Móveis. No entanto, cada tabela é criada em um esquema específico para um determinado serviço móvel. Isso é para evitar colisões de dados quando vários serviços móveis usam o mesmo banco de dados.
 
 4. Clique na nova tabela **TodoItem** e verifique se não há linhas de dados.
 
@@ -76,7 +76,7 @@ Para ser capaz de armazenar dados de aplicativo no novo serviço móvel, primeir
 
   	Este é o requisito mínimo para uma tabela nos Serviços Móveis.
 
-    > [AZURE.NOTE]Quando o esquema dinâmico estiver ativado no seu serviço móvel, novas colunas serão criadas automaticamente quando objetos JSON forem enviados para o serviço móvel por uma operação de inserção ou atualização.
+    > [AZURE.NOTE] Quando o esquema dinâmico estiver ativado no seu serviço móvel, novas colunas serão criadas automaticamente quando objetos JSON forem enviados para o serviço móvel por uma operação de inserção ou atualização.
 
 Agora você está pronto para usar o novo serviço móvel como armazenamento de dados para o aplicativo.
 
@@ -87,13 +87,13 @@ Adicionaremos notificações por push a um exemplo existente.
 
 2. No [Portal clássico do Azure], clique em **Serviços Móveis** e, em seguida, clique no serviço móvel. Clique na guia **Painel** e anote a **URL do Site**. Em seguida, clique em **Gerenciar Chaves** e anote a **Chave do Aplicativo**. Você precisará desses valores quando acessar o serviço móvel do seu código de aplicativo.
 
-3. No projeto **ToDoAzure(Portable)** da solução, abra o arquivo **Constants.cs**, substitua `ApplicationURL` e `ApplicationKey` pela URL do site e a chave de aplicativo que você obteve na etapa anterior.
+3. No projeto **ToDoAzure(Portable)** da solução, abra o arquivo **Constants.cs**, substitua `ApplicationURL` e `ApplicationKey` pela URL do site e chave de aplicativo que você obteve na etapa anterior.
 
 ## <a name="iOS"></a>Adicionar notificações por push ao aplicativo Xamarin.Forms.iOS
 
 Você adicionará notificações por push ao aplicativo iOS usando o APNS (Serviço de Notificação por Push da Apple). Você precisará de uma conta ativa do Google e do [Componente cliente Google Cloud Messaging].
 
->[AZURE.IMPORTANT]Devido aos requisitos do APNS (Serviço de Notificação por Push da Apple), você deve implantar e testar as notificações por push em um dispositivo compatível com o iOS (iPhone ou iPad) em vez de usar o emulador.
+>[AZURE.IMPORTANT] Devido aos requisitos do APNS (Serviço de Notificação por Push da Apple), você deve implantar e testar as notificações por push em um dispositivo compatível com o iOS (iPhone ou iPad) em vez de usar o emulador.
 
 O APNS usa certificados para autenticar seu serviço móvel. Siga estas instruções para criar os certificados necessários e carregá-los no seu Serviço Móvel. Para a documentação oficial do recurso APNS, consulte [Serviço de Notificação por Push da Apple].
 
@@ -219,7 +219,7 @@ Após registrar seu aplicativo com o APNS e configurar seu projeto, configure se
 
     Anote o nome do arquivo e o local do certificado exportado.
 
-2. Faça logon no [Portal clássico do Azure], clique em **Serviços Móveis** e clique em seu aplicativo.
+2. Faça logon no [Portal clássico do Azure], clique em **Serviços Móveis** e então clique em seu aplicativo.
 
     ![][18]
 
@@ -290,7 +290,7 @@ Agora, seu serviço móvel está configurado para funcionar com o APNS.
             _deviceToken = _deviceToken.Trim('<', '>').Replace(" ", "");
 
             // Get Mobile Services client
-            MobileServiceClient client = todoItemManager.GetClient;
+            MobileServiceClient client = todoItemManager.GetClient();
 
             // Register for push with Mobile Services
             IEnumerable<string> tag = new List<string>() { "uniqueTag" };
@@ -302,7 +302,7 @@ Agora, seu serviço móvel está configurado para funcionar com o APNS.
 
             var push = client.GetPush();
 
-            push.RegisterTemplateAsync(_deviceToken, template, expiryDate, "myTemplate", tag)
+            push.RegisterTemplateAsync(_deviceToken, template, expiryDate, "myTemplate", tag);
         }
 
 7. Em **AppDelegate**, substitua o evento **ReceivedRemoteNotification**:
@@ -363,13 +363,13 @@ Seu aplicativo foi atualizado para oferecer suporte a notificações de push.
 
     Isso registra um novo script de inserção, que envia uma notificação por push (o texto inserido) para o dispositivo fornecido na solicitação de inserção.
 
-   >[AZURE.NOTE]Esse script atrasa o envio da notificação para que você tenha tempo de fechar o aplicativo para receber uma notificação do sistema.
+   >[AZURE.NOTE] Esse script atrasa o envio da notificação para que você tenha tempo de fechar o aplicativo para receber uma notificação do sistema.
 
 ### <a name="test"></a>Testar notificações por push no seu aplicativo
 
 1. Pressione o botão **Executar** para compilar o projeto e iniciar o aplicativo em um dispositivo compatível com iOS; em seguida, clique em **OK** para aceitar as notificações por push
 
-   >[AZURE.NOTE]Você deve aceitar explicitamente as notificações por push do seu aplicativo. Essa solicitação ocorrerá apenas na primeira vez que o aplicativo for executado.
+   >[AZURE.NOTE] Você deve aceitar explicitamente as notificações por push do seu aplicativo. Essa solicitação ocorrerá apenas na primeira vez que o aplicativo for executado.
 
 2. No aplicativo, clique no botão **Adicionar**, adicione um título de tarefa e clique no botão **Salvar**.
 
@@ -392,7 +392,7 @@ Você adicionará notificações por push ao aplicativo Android usando o serviç
 
 ###<a id="update-scripts"></a>Atualizar o script de inserção registrado para enviar notificações
 
->[AZURE.NOTE]As etapas a seguir mostram como atualizar o script registrado para a operação de inserção na tabela TodoItem no Portal clássico do Azure. Você também pode acessar e editar este script de serviço móvel diretamente no Visual Studio, no nó do Azure do Gerenciador de Servidores.
+>[AZURE.NOTE] As etapas a seguir mostram como atualizar o script registrado para a operação de inserção na tabela TodoItem no Portal clássico do Azure. Você também pode acessar e editar este script de serviço móvel diretamente no Visual Studio, no nó do Azure do Gerenciador de Servidores.
 
 No [portal clássico do Azure], clique na guia **Dados** e, em seguida, clique na tabela **TodoItem**.
 
@@ -402,7 +402,7 @@ No [portal clássico do Azure], clique na guia **Dados** e, em seguida, clique n
 
    ![][22]
 
-    This displays the function that is invoked when an insert occurs in the **TodoItem** table.
+Isso exibe a função que é chamada quando ocorre uma inserção na tabela **TodoItem**.
 
 3. Substitua a função de inserção com o seguinte código e **Salvar**:
 
@@ -434,7 +434,7 @@ No [portal clássico do Azure], clique na guia **Dados** e, em seguida, clique n
 
     Isso registra um novo script de inserção, que envia uma notificação por push (o texto inserido) para o dispositivo fornecido na solicitação de inserção.
 
-   >[AZURE.NOTE]Esse script atrasa o envio da notificação para que você tenha tempo de fechar o aplicativo para receber uma notificação do sistema.
+   >[AZURE.NOTE] Esse script atrasa o envio da notificação para que você tenha tempo de fechar o aplicativo para receber uma notificação do sistema.
 
 
 ###<a id="configure-app"></a>Configurar o projeto existente para notificações por push
@@ -539,6 +539,7 @@ Sua **MainActivity** agora está preparada para adicionar notificações por pus
             MainActivity.DefaultService.RunOnUiThread(() => Register(push, null));
 
         }
+
         public async void Register(Microsoft.WindowsAzure.MobileServices.Push push, IEnumerable<string> tags)
         {
             try
@@ -618,9 +619,14 @@ Sua **MainActivity** agora está preparada para adicionar notificações por pus
 
 12. Adicione as substituições de método a seguir para **OnUnRegistered()** e **OnError()**, necessárias à compilação do projeto.
 
+		protected override void OnUnRegistered(Context context, string registrationId)
+		{
+			Log.Error("GcmService", "Unregistered RegisterationId : " + registrationId);
+		}
+
         protected override void OnError(Context context, string errorId)
         {
-              Log.Error(PushHandlerBroadcastReceiver.TAG, "GCM Error: " + errorId);
+            Log.Error(PushHandlerBroadcastReceiver.TAG, "GCM Error: " + errorId);
         }
 
 ###<a id="test"></a>Testar notificações por push no seu aplicativo
@@ -629,7 +635,7 @@ Você pode testar o aplicativo anexando um telefone Android com um cabo USB dire
 
 Quando você executa o aplicativo no emulador, certifique-se de usar um Android Virtual Device (AVD) que oferece suporte a APIs do Google.
 
-> [AZURE.IMPORTANT]Para receber as notificações por push, você deve configurar uma conta do Google em seu Dispositivo Virtual para Android (no emulador, navegue até **Configurações** e clique em **Adicionar Conta**). Além disso, certifique-se de que o emulador esteja conectado à Internet.
+> [AZURE.IMPORTANT] Para receber as notificações por push, você deve configurar uma conta do Google em seu Dispositivo Virtual para Android (no emulador, navegue até **Configurações** e clique em **Adicionar Conta**). Além disso, certifique-se de que o emulador esteja conectado à Internet.
 
 1. A partir de **Ferramentas**, clique em **Abrir gerenciador de emulador do Android**, selecione seu dispositivo e, em seguida, clique em **Editar**.
 
@@ -702,7 +708,7 @@ Para que seu aplicativo possa receber notificações por push, você deve regist
 
 5. Pressione a tecla **F5** para executar o aplicativo. Uma caixa de diálogo pop-up com a chave do registro é exibida.
 
-6.	No Gerenciador de Soluções, expanda **Propriedades**, abra o arquivo WMAppManifest.xml, clique na guia **Recursos** e verifique se o recurso **ID\_CAP\_PUSH\_NOTIFICATION** está marcado.
+6.	No Gerenciador de Soluções, expanda **Propriedades**, abra o arquivo WMAppManifest.xml, clique na guia **Recursos** e verifique se a capacidade **ID\_CAP\_PUSH\_NOTIFICATION** está marcado.
 
    	![Habilitar notificações no VS](./media/partner-xamarin-mobile-services-xamarin-forms-get-started-push/mobile-app-enable-push-wp8.png)
 
@@ -762,7 +768,7 @@ Finalmente, você deve atualizar o script registrado para a operação de inser�
 
 1. No Visual Studio, pressione F5 para executar o aplicativo.
 
-    >[AZURE.NOTE]Você pode encontrar um RegistrationAuthorizationException 401 Não autorizado ao testar o emulador do Windows Phone. Isto pode ocorrer durante a chamada de `RegisterNativeAsync()` devido a forma que o emulador do Windows Phone sincroniza seu relógio com o PC anfitrião. Pode resultar em um token de segurança que será rejeitado. Para resolver isto basta definir manualmente o relógio no emulador antes de realizar o teste.
+    >[AZURE.NOTE] Você pode encontrar um RegistrationAuthorizationException 401 Não autorizado ao testar o emulador do Windows Phone. Isto pode ocorrer durante a chamada de `RegisterNativeAsync()` devido a forma que o emulador do Windows Phone sincroniza seu relógio com o PC anfitrião. Pode resultar em um token de segurança que será rejeitado. Para resolver isto basta definir manualmente o relógio no emulador antes de realizar o teste.
 
 5. No aplicativo, crie uma nova tarefa com o título **Hello push** e clique imediatamente no botão Iniciar ou Voltar para sair do aplicativo.
 
@@ -851,4 +857,4 @@ Finalmente, você deve atualizar o script registrado para a operação de inser�
 [Exemplo inicial de notificação por push do Azure para Xamarin.Forms]: https://github.com/Azure/mobile-services-samples/tree/master/TodoListXamarinForms
 [Exemplo completo da notificação por push do Azure para Xamarin.Forms]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

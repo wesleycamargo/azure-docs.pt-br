@@ -14,12 +14,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="11/23/2015"
+	ms.date="02/04/2016"
 	ms.author="jeffstok"/>
 
 # Direcionamento do Banco de Dados de Documentos do Azure para saída em JSON a partir do Stream Analytics
 
-O Stream Analytics pode direcionar o [Banco de Dados de Documentos do Azure](http://azure.microsoft.com/services/documentdb/) para saída em JSON, possibilitando o arquivamento de dados e consultas de baixa latência em dados JSON não estruturados. Saiba como implementar essa integração da melhor maneira possível.
+O Stream Analytics pode direcionar o [Banco de Dados de Documentos do Azure](https://azure.microsoft.com/services/documentdb/) para saída em JSON, possibilitando o arquivamento de dados e consultas de baixa latência em dados JSON não estruturados. Saiba como implementar essa integração da melhor maneira possível.
 
 Para aqueles que não estão familiarizados com o Banco de Dados de Documentos, veja [Roteiro de aprendizagem do Banco de Dados de Documentos](https://azure.microsoft.com/documentation/learning-paths/documentdb/) para obter uma introdução.
 
@@ -62,4 +62,4 @@ A criação de Banco de Dados de Documentos como uma saída no Stream Analytics 
 -   **Chave de Partição**: o nome do campo nos eventos de saída usado para especificar a chave para a saída do particionamento em várias coleções. Para uma saída de coleção única, nenhuma coluna de saída arbitrária pode ser usada, por exemplo, PartitionId.  
 -   **ID do Documento**: opcional. O nome do campo em eventos de saída usado para especificar a chave primária que serve de base para as operações de inserção ou atualização.  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

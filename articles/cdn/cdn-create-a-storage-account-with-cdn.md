@@ -24,11 +24,11 @@ CDN pode ser habilitada em cache o conteúdo do armazenamento do Azure. Ela ofer
 
 ## Etapa 1: Criar uma conta de armazenamento
 
-Use o procedimento a seguir para criar uma nova conta de armazenamento para uma assinatura do Azure. A conta de armazenamento dá acesso aos serviços de armazenamento do Azure. A conta de armazenamento representa o mais alto nível do namespace para acessar cada um dos componentes do serviço de armazenamento do Azure: serviços Blob, serviços Fila e serviços Tabela. Para obter mais informações, veja [Introdução ao Armazenamento do Microsoft Azure](../storage-introduction.md).
+Use o procedimento a seguir para criar uma nova conta de armazenamento para uma assinatura do Azure. A conta de armazenamento dá acesso aos serviços de armazenamento do Azure. A conta de armazenamento representa o mais alto nível do namespace para acessar cada um dos componentes do serviço de armazenamento do Azure: serviços Blob, serviços Fila e serviços Tabela. Para obter mais informações, veja [Introdução ao Armazenamento do Microsoft Azure](../storage/storage-introduction.md).
 
 Para criar uma conta de armazenamento, você deve ser o administrador de serviços ou um coadministrador da assinatura associada.
 
-> [AZURE.NOTE]Há vários métodos que você pode usar para criar uma conta de armazenamento, incluindo o Portal do Azure e o Powershell. Para este tutorial, usaremos o Portal do Azure.
+> [AZURE.NOTE] Há vários métodos que você pode usar para criar uma conta de armazenamento, incluindo o Portal do Azure e o Powershell. Para este tutorial, usaremos o Portal do Azure.
 
 **Para criar uma conta de armazenamento para uma assinatura do Azure**
 
@@ -64,7 +64,7 @@ Para criar uma conta de armazenamento, você deve ser o administrador de serviç
 
 Um perfil CDN é uma coleção de pontos de extremidade CDN. Cada perfil contém um ou mais pontos de extremidade CDN. Você pode desejar usar vários perfis para organizar seus pontos de extremidade CDN por domínio de Internet, aplicativo Web ou algum outro critério.
 
-> [AZURE.TIP]Se você já tiver um perfil CDN que você deseja usar para este tutorial, vá para [Etapa 3](#step-3-create-a-new-cdn-endpoint).
+> [AZURE.TIP] Se você já tiver um perfil CDN que você deseja usar para este tutorial, vá para [Etapa 3](#step-3-create-a-new-cdn-endpoint).
 
 **Para criar um perfil CDN**
 
@@ -82,7 +82,7 @@ Um perfil CDN é uma coleção de pontos de extremidade CDN. Cada perfil contém
 
 5. Selecione a **Assinatura** para este perfil CDN. Isso precisará ser a mesma assinatura que a da conta de armazenamento para os fins deste tutorial.
 
-6. Selecione um **Local**. Esse é o local do Azure onde suas informações de perfil CDN serão armazenadas. Isso não tem impacto sobre os locais do ponto de extremidade CDN. Ele não precisa ser o mesmo local da conta de armazenamento.
+6. Selecione um **Local**. Esse é o local do Azure onde suas informações de perfil CDN serão armazenadas. Ele não tem impacto sobre os locais de ponto de extremidade CDN. Não precisa ser o mesmo local da conta de armazenamento.
 
 7. Clique no botão **Criar** para criar um novo perfil.
 
@@ -90,7 +90,7 @@ Um perfil CDN é uma coleção de pontos de extremidade CDN. Cada perfil contém
 
 **Para criar um novo ponto de extremidade CDN para sua conta de armazenamento**
 
-1. No [Portal de Gerenciamento do Azure](https://portal.azure.com), navegue até o seu perfil CDN. Você pode tê-lo fixado ao painel na etapa anterior. Se não, você poderá encontrá-lo clicando em **Procurar**, em **perfis CDN** e clicando no perfil ao qual você pretende adicionar o ponto de extremidade.
+1. No [Portal de Gerenciamento do Azure](https://portal.azure.com), navegue até o seu perfil CDN. Você pode ter fixado ao painel na etapa anterior. Se não, você poderá encontrá-lo clicando em **Procurar**, em **perfis CDN** e clicando no perfil ao qual você pretende adicionar o ponto de extremidade.
 
     A folha do perfil CDN é exibida.
     
@@ -112,7 +112,7 @@ Um perfil CDN é uma coleção de pontos de extremidade CDN. Cada perfil contém
 
 6. Mantenha os padrões para **Caminho de origem**, **Cabeçalho de host de origem** e **Porta de protocolo/origem**. Você deve especificar pelo menos um protocolo (HTTP ou HTTPS).
 
-    > [AZURE.NOTE]Essa configuração permite o caching na CDN de todos os contêineres publicamente visíveis na conta de armazenamento. Se você deseja limitar o escopo a um único contêiner, use o **Caminho de origem**. Observe que o contêiner deve ter sua visibilidade definida como pública.
+    > [AZURE.NOTE] Essa configuração permite o caching na CDN de todos os contêineres publicamente visíveis na conta de armazenamento. Se você deseja limitar o escopo a um único contêiner, use o **Caminho de origem**. Observe que o contêiner deve ter sua visibilidade definida como pública.
 
 7. Clique no botão **Adicionar** para criar um novo ponto de extremidade.
 
@@ -120,7 +120,7 @@ Um perfil CDN é uma coleção de pontos de extremidade CDN. Cada perfil contém
 
     ![Ponto de extremidade CDN][cdn-endpoint-success]
 
-    > [AZURE.NOTE]O ponto de extremidade não estará imediatamente disponível para uso. Pode levar até 90 minutos para que o registro seja propagado pela rede CDN. Os usuários que tentarem usar imediatamente o nome de domínio CDN poderão receber o código de status 404 até que o conteúdo esteja disponível pela CDN.
+    > [AZURE.NOTE] O ponto de extremidade não estará imediatamente disponível para uso. Pode levar até 90 minutos para que o registro seja propagado pela rede CDN. Os usuários que tentarem usar imediatamente o nome de domínio CDN poderão receber o código de status 404 até que o conteúdo esteja disponível pela CDN.
 
 
 ## Etapa 4: acessar conteúdo da CDN
@@ -129,7 +129,7 @@ Para acessar o conteúdo armazenado em cache na CDN, utilize a URL da CDN fornec
 
 http://<*NomePontoExtremidade*>.azureedge.net/<*meuContêinerPúblico*>/<*NomeBlob*>
 
-> [AZURE.NOTE]Depois que você habilitar o acesso à CDN para uma conta de armazenamento ou serviço hospedado, todos os objetos disponíveis publicamente estarão qualificados para armazenamento em cache de borda CDN. Se você modificar um objeto que está armazenado em cache na CDN atualmente, o novo conteúdo não estará disponível por meio da CDN até que a CDN atualize seu conteúdo quando o período de vida do conteúdo em cache expirar.
+> [AZURE.NOTE] Depois que você habilitar o acesso à CDN para uma conta de armazenamento ou serviço hospedado, todos os objetos disponíveis publicamente estarão qualificados para armazenamento em cache de borda CDN. Se você modificar um objeto que está armazenado em cache na CDN atualmente, o novo conteúdo não estará disponível por meio da CDN até que a CDN atualize seu conteúdo quando o período de vida do conteúdo em cache expirar.
 
 ## Etapa 5: remover conteúdo da CDN
 
@@ -154,4 +154,4 @@ Um objeto que já está armazenado em cache na CDN permanecerá em cache até qu
 [cdn-add-endpoint]: ./media/cdn-create-a-storage-account-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-a-storage-account-with-cdn/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -4,7 +4,7 @@
     services="sql-database"
     documentationCenter=""  
     manager="jeffreyg"
-    authors="sidneyh"/>
+    authors="torsteng"/>
 
 <tags
     ms.service="sql-database"
@@ -12,14 +12,16 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/15/2015"
-    ms.author="sidneyh;torsteng" />
+    ms.date="01/28/2016"
+    ms.author="torsteng;sidneyh" />
 
 # Consultas do banco de dados elástico para fragmentação (particionamento horizontal)
 
 Este documento explica como configurar consultas de banco de dados elástico para cenários de particionamento horizontal e como executar as consultas. Para obter uma definição do cenário de particionamento horizontal, confira a [Visão geral da consulta de banco de dados elástico (visualização)](sql-database-elastic-query-overview.md).
 
-A funcionalidade faz parte do [conjunto de recursos do Banco de Dados Elástico do Banco de Dados](sql-database-elastic-scale.md) SQL do Azure.
+![Consultar em fragmentos][1]
+
+A funcionalidade faz parte do [conjunto de recursos do Banco de Dados Elástico do Banco de Dados](sql-database-elastic-scale-introduction.md) SQL do Azure.
  
 ## Criando objetos de banco de dados
 
@@ -198,7 +200,7 @@ A consulta elástica também apresenta um procedimento armazenado que fornece ac
 * Nome do banco de dados do mapa de fragmentos (nvarchar): o nome do banco de dados do mapa de fragmentos. 
 * Nome de usuário (nvarchar): o nome de usuário para fazer logon no banco de dados do mapa de fragmentos. 
 * Senha (nvarchar): senha do usuário. 
-* Nome do mapa de fragmentos (nvarchar): o nome do mapa de fragmentos a ser usado para a consulta. 
+* Nome do mapa de fragmentos (nvarchar): o nome do mapa de fragmentos a ser usado para a consulta. O nome é encontrado na tabela \_ShardManagement.ShardMapsGlobal, que é o nome padrão usado na criação de bancos de dados com o aplicativo de exemplo encontrado em [Introdução às ferramentas do Banco de Dados Elástico](sql-database-elastic-scale-get-started.md). O nome padrão encontrado no aplicativo é "CustomerIDShardMap".
 *  Consulta: a consulta T-SQL a ser executada em cada fragmento. 
 *  Declaração de parâmetro (nvarchar) - opcional: cadeia de caracteres com definições de tipo de dados para os parâmetros usados no parâmetro Query (como sp\_executesql). 
 *  Lista de valores de parâmetro - opcional: lista separada por vírgulas de valores de parâmetro (como sp\_executesql)  
@@ -210,7 +212,7 @@ Observe que as mesmas credenciais são usadas para conectar ao banco de dados do
 Exemplo:
 
 	sp_execute_fanout 
-		’myserver.database.windows.net', 
+		N'myserver.database.windows.net', 
 		N'ShardMapDb', 
 		N'myuser', 
 		N'MyPwd', 
@@ -236,6 +238,7 @@ Use cadeias de conexão regulares do SQL Server para conectar seu aplicativo e s
 
 
 <!--Image references-->
+[1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png
 <!--anchors-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

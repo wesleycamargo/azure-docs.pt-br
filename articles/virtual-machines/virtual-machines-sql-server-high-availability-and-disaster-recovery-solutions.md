@@ -1,22 +1,22 @@
-<properties 
+<properties
 	pageTitle="Alta Disponibilidade e Recuperação de Desastres para SQL Server | Microsoft Azure"
-	description="Este tutorial usa recursos criados com o modelo de implantação clássica e discute os vários tipos de estratégias HADR do SQL Server em execução em Máquinas Virtuais do Azure."
+	description="Uma discussão sobre os diversos tipos de estratégias HADR do SQL Server em execução em máquinas virtuais do Azure."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" 
+	editor="monicar"
 	tags="azure-service-management"/>
-<tags 
+<tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="11/13/2015"
+	ms.date="01/22/2016"
 	ms.author="jroth" />
 
-# Alta disponibilidade e recuperação de desastres para SQL Server em Máquinas Virtuais do Azure
+# Alta disponibilidade e recuperação de desastre para SQL Server nas Máquinas Virtuais do Azure
 
 ## Visão geral
 
@@ -39,6 +39,7 @@ As tecnologias HADR do SQL Server que têm suporte no Azure incluem:
 - [Espelhamento de banco de dados](https://technet.microsoft.com/library/ms189852.aspx)
 - [Envio de logs](https://technet.microsoft.com/library/ms187103.aspx)
 - [Backup e restauração com o Serviço de armazenamento de blob do Azure](https://msdn.microsoft.com/library/jj919148.aspx)
+- [Instâncias do cluster de failover do AlwaysOn](https://technet.microsoft.com/library/ms189134.aspx)
 
 É possível combinar as tecnologias para implementar uma solução SQL Server com alta disponibilidade e recursos de recuperação de desastre. Dependendo da tecnologia usada, uma implantação híbrida pode exigir um túnel VPN com a rede virtual do Azure. As seções a seguir mostram algumas das arquiteturas de implantação de exemplo.
 
@@ -48,10 +49,11 @@ Você pode ter uma solução de alta disponibilidade para seus bancos de dados d
 
 |Tecnologia|Arquiteturas de exemplo|
 |---|---|
-|**Grupos de disponibilidade AlwaysOn**|Todas as réplicas de disponibilidade executadas em VMs do Azure para alta disponibilidade na mesma região. Você precisa configurar um controlador de domínio além das máquinas virtuais do SQL Server, porque o WSFC (Windows Server Failover Clustering) requer um domínio do Active Directory.<br/> ![Grupos de disponibilidade AlwaysOn](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_ha_always_on.gif)<br/>Para obter mais informações, consulte [Configurar Grupos de Disponibilidade AlwaysOn no Azure (GUI)](virtual-machines-sql-server-alwayson-availability-groups-gui.md).|
+|**Grupos de disponibilidade AlwaysOn**|Todas as réplicas de disponibilidade executadas em VMs do Azure para alta disponibilidade na mesma região. Você precisa configurar uma VM de controlador de domínio, porque o WSFC (Windows Server Failover Clustering) requer um domínio do Active Directory.<br/> ![Grupos de disponibilidade AlwaysOn](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_ha_always_on.gif)<br/>Para obter mais informações, consulte [Configurar Grupos de Disponibilidade AlwaysOn no Azure (GUI)](virtual-machines-sql-server-alwayson-availability-groups-gui.md).|
 |**Espelhamento de banco de dados**|Os servidores principal, de espelho e testemunha, todos em execução no mesmo data center do Azure para alta disponibilidade. Você pode implantar usando um controlador de domínio.<br/>![Espelhamento de banco de dados](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_ha_dbmirroring1.gif)<br/>Você também pode implantar a mesma configuração de espelhamento de banco de dados sem um controlador de domínio, usando certificados do servidor.<br/>![Espelhamento de banco de dados](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_ha_dbmirroring2.gif)|
+|**Instâncias do cluster de failover do AlwaysOn**|FCI (Instâncias de cluster de failover), que requerem armazenamento compartilhado, podem ser criadas de duas maneiras diferentes.<br/><br/>1. Uma FCI em um WSFC de dois nós em execução nas VMs do Azure com armazenamento que dá suporte a uma solução de cluster de terceiros. Para obter um exemplo específico que usa SIOS DataKeeper, consulte [Alta disponibilidade para um compartilhamento de arquivos usando WSFC e o software de terceiros SIOS Datakeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/).<br/><br/>2. Uma FCI em um WSFC de dois nós em execução em VMs do Azure com armazenamento em um bloco compartilhado de destino iSCSI por meio da Rota Expressa. Por exemplo, o NPS (Armazenamento privado do NetApp) expõe um destino iSCSI por meio da Rota Expressa com Equinix para VMs do Azure.<br/><br/>Para armazenamento compartilhado de terceiros e soluções de replicação de dados, você deve contatar o fornecedor para tratar de problemas relacionados ao acesso a dados no failover.<br/><br/>Observe que usar o FCI sobre o [Armazenamento de arquivos do Azure](https://azure.microsoft.com/services/storage/files/) ainda não tem suporte, porque esta solução não utilizam o Armazenamento Premium. Estamos trabalhando para dar suporte a isso em breve.|
 
-## Somente Azure: soluções de recuperação de desastres
+## Somente Azure: soluções de recuperação de desastre
 
 Você pode ter uma solução de recuperação de desastres para seus bancos de dados do SQL Server no Azure usando Grupos de Disponibilidade AlwaysOn, espelhamento de banco de dados ou backup e restauração com blobs de armazenamento.
 
@@ -61,7 +63,7 @@ Você pode ter uma solução de recuperação de desastres para seus bancos de d
 |**Espelhamento de banco de dados**|Servidores principal e de espelho em execução em diferentes datacenters para recuperação de desastres. Você deve implantar usando certificados de servidor, pois um domínio do Active Directory não pode abranger vários datacenters.<br/>![Espelhamento de banco de dados](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_dr_dbmirroring.gif)|
 |**Backup e restauração com o Serviço de armazenamento de blob do Azure**|Bancos de dados de produção com backup direto no armazenamento de blob em um datacenter diferente para recuperação de desastre.<br/>![Backup e restauração](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_dr_backup_restore.gif)<br/>Para obter mais informações, consulte [Backup e Restauração para SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-backup-and-restore.md).|
 
-## TI híbrida: soluções de recuperação de desastres
+## TI híbrida: soluções de recuperação de desastre
 
 Você pode ter uma solução de recuperação de desastres para seus bancos de dados do SQL Server em um ambiente de TI híbrida, usando Grupos de disponibilidade AlwaysOn, espelhamento de banco de dados, envio de log e backup e restauração com o armazenamento de blog do Azure.
 
@@ -135,7 +137,7 @@ Para obter mais informações sobre conectividade de cliente, consulte:
 
 Você deve implantar sua solução HADR com a suposição de que pode haver períodos com alta latência da rede entre sua rede local e o Azure. Ao implantar réplicas do Azure, você deve usar confirmação assíncrona, em vez de confirmação síncrona, para o modo de sincronização. Ao implantar servidores de espelhamento de banco de dados localmente e no Azure, use o modo de alto desempenho, em vez do modo de alta segurança.
 
-### Suporte a replicação geográfica
+### Suporte para replicação geográfica
 
 A replicação geográfica em discos do Azure não dá suporte ao arquivo de dados e ao arquivo de log do mesmo banco de dados a ser armazenado em discos separados. GRS replica as alterações em cada disco, de forma independente e assíncrona. Esse mecanismo garante a ordem de gravação em um único disco na cópia replicada geograficamente, mas não em cópias replicadas geograficamente de vários discos. Se você configurar um banco de dados para armazenar arquivo de dados e arquivo de log em discos separados, os discos recuperados após um desastre poderão conter uma cópia mais recente do arquivo de dados do que o arquivo de log, interrompendo o log write-ahead no SQL Server e as propriedades ACID das transações. Se você não tiver a opção de desabilitar a replicação geográfica na conta de armazenamento, deverá manter todos os dados e arquivos de log em determinado banco de dados no mesmo disco. Se você precisar usar mais de um disco devido ao tamanho do banco de dados, terá de implantar uma das soluções de recuperação de desastres listadas anteriormente para garantir a redundância dos dados.
 
@@ -147,9 +149,9 @@ Para obter o melhor desempenho do SQL Server em execução em uma VM do Azure, c
 
 Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, consulte [SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-### Outros recursos:
+### Outros recursos
 
 - [Instalar uma nova floresta do Active Directory no Azure](../active-directory/active-directory-new-forest-virtual-machine.md)
 - [Criar cluster WSFC para Grupos de Disponibilidade AlwaysOn em VM do Azure](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

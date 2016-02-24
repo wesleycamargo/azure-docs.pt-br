@@ -50,13 +50,13 @@ O fluxo de trabalho que você deve implementar seguindo as instruções neste tu
 
 2.  Uma ação do Sqoop exporta a saída do HiveQL para uma tabela no banco de dados SQL do Azure. Para saber mais sobre o Sqoop, confira [Usar o Hadoop Sqoop com o HDInsight][hdinsight-use-sqoop].
 
-> [AZURE.NOTE]Para obter as versões do Oozie com suporte em clusters HDInsight, confira [Novidades nas versões de clusters fornecidas pelo HDInsight][hdinsight-versions].
+> [AZURE.NOTE] Para obter as versões do Oozie com suporte em clusters HDInsight, confira [Novidades nas versões de clusters fornecidas pelo HDInsight][hdinsight-versions].
 
 ###Pré-requisitos
 
 Antes de começar este tutorial, você deve ter o seguinte:
 
-- **Uma estação de trabalho com o PowerShell do Azure**. Consulte [Instalar e usar o PowerShell do Azure](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Para executar scripts do Windows PowerShell, você deve executar como administrador e configurar a política de execução como *RemoteSigned*. Para saber mais, confira [Executar scripts do Windows PowerShell][powershell-script].
+- **Uma estação de trabalho com o PowerShell do Azure**. Consulte [Instalar e usar o PowerShell do Azure](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Para executar scripts do Windows PowerShell, você deve executar como administrador e configurar a política de execução como *RemoteSigned*. Para saber mais, confira [Executar scripts do Windows PowerShell][powershell-script].
 
 ##Definir o fluxo de trabalho do Oozie e o script HiveQL relacionado
 
@@ -680,4 +680,4 @@ Neste tutorial, você aprendeu a definir um fluxo de trabalho do Oozie e a execu
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

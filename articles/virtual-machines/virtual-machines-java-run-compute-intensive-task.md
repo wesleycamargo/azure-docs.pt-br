@@ -5,7 +5,7 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"
+	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="01/09/2016"
 	ms.author="robmcm"/>
 
 # Como executar uma tarefa com uso intenso de computação no Java em uma máquina virtual
@@ -100,12 +100,12 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
 1.  No painel de navegação esquerdo, clique no nó **Barramento de Serviço** para exibir a lista de namespaces disponíveis.![Captura de tela de namespaces disponíveis][avail_namespaces]
 2.  Selecione o namespace que você acabou de criar na lista abaixo.![Captura de tela da lista de namespaces][namespace_list]
 3.  O painel direito **Propriedades** listará as propriedades do novo namespace.![Captura de tela do painel Propriedades][properties_pane]
-4.  A **Chave padrão** está oculta. Clique no botão **Exibir** para exibir as credenciais de segurança.![Captura de tela da chave padrão][default_key]
+4.  A **Chave padrão** está oculta. Clique no botão **Exibir** para exibir as credenciais de segurança. ![Captura de tela da chave padrão][default_key]
 5.  Anote o **Emissor Padrão** e a **Chave Padrão**, pois você usará essas informações abaixo para executar operações com o namespace.
 
 ## Como criar um aplicativo Java que executa uma tarefa de computação intensiva
 
-1. Na sua máquina de desenvolvimento (que não tem de ser a máquina virtual que você criou), faça o download do [Azure SDK para Java](http://azure.microsoft.com/develop/java/).
+1. Na sua máquina de desenvolvimento (que não tem de ser a máquina virtual que você criou), faça o download do [Azure SDK para Java](https://azure.microsoft.com/develop/java/).
 2. Crie um aplicativo de console Java usando o código de exemplo no final desta seção. Neste tutorial, usaremos **TSPSolver.java** como o nome do arquivo Java. Modifique os espaços reservados **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** e **your\_service\_bus\_key** para usar o **namespace** do barramento de serviço e os valores **Emissor Padrão** e **Chave Padrão**, respectivamente.
 3. Depois de codificar, exporte o aplicativo para um arquivo executável Java (JAR) e empacote as bibliotecas necessárias para o JAR gerado. Neste tutorial, usaremos **TSPSolver.jar** como o nome do arquivo JAR gerado.
 
@@ -484,7 +484,8 @@ Execute o aplicativo que exija muita computação, primeiro para criar a fila, d
 
  Se você não especificar um número, ele será executado para 10 cidades. Como localiza rotas atuais mais curtas, o solver as adicionará à fila.
 
-> [AZURE.NOTE]Quanto maior o número que você especificar, por mais tempo o solver será executado. Por exemplo, a execução de 14 cidades pode levar vários minutos, e a execução de 15 cidades pode levar várias horas. Aumentar para 16 ou mais cidades pode resultar em dias de tempo de execução (acabando em semanas, meses e anos). Isso ocorre porque o rápido aumento do número de permutas avaliadas pelo solver, como o número de cidades, aumenta.
+> [AZURE.NOTE]
+Quanto maior o número que você especificar, por mais tempo o solver será executado. Por exemplo, a execução de 14 cidades pode levar vários minutos, e a execução de 15 cidades pode levar várias horas. Aumentar para 16 ou mais cidades pode resultar em dias de tempo de execução (acabando em semanas, meses e anos). Isso ocorre porque o rápido aumento do número de permutas avaliadas pelo solver, como o número de cidades, aumenta.
 
 ### Como executar o aplicativo cliente de monitoramento
 1. Faça logon no computador onde você executará o aplicativo cliente. Ele não precisa estar na mesma máquina executando o aplicativo **TSPSolver**, embora possa ser.
@@ -520,4 +521,4 @@ Para os aplicativos solver e de cliente, é possível pressionar **Ctrl+C** para
 [default_key]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../java-add-certificate-ca-store.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="12/19/2015"
+   ms.date="01/30/2016"
    ms.author="tarcher" />
 
 # Publicando um serviço de nuvem usando as ferramentas do Azure
@@ -21,7 +21,7 @@ Usando as ferramentas do Azure para Microsoft Visual Studio, você pode publicar
 
 Para publicar um aplicativo do Azure, você deve ter uma assinatura do Azure. Você também deve configurar uma conta de armazenamento e serviço de nuvem a ser usada pelo aplicativo. Você pode configurar isso no [Portal de Gerenciamento do Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
 
->[AZURE.IMPORTANT]Ao publicar, você pode selecionar o ambiente de implantação para seu serviço de nuvem. Você também deve selecionar uma conta de armazenamento que é usada para armazenar o pacote de aplicativos para implantação. Após a implantação, o pacote de aplicativos é removido da conta de armazenamento. Para obter mais informações sobre como configurar esses serviços, consulte [Configurando os serviços necessários para publicar um serviço de nuvem do Visual Studio](vs-azure-tools-setting-up-services-required-to-publish-a-cloud-service-from-visual-studio.md).
+>[AZURE.IMPORTANT] Ao publicar, você pode selecionar o ambiente de implantação para seu serviço de nuvem. Você também deve selecionar uma conta de armazenamento que é usada para armazenar o pacote de aplicativos para implantação. Após a implantação, o pacote de aplicativos é removido da conta de armazenamento.
 
 Ao desenvolver e testar um aplicativo do Azure, você pode usar a implantação da Web para publicar alterações incrementalmente para funções Web. Depois de publicar seu aplicativo para um ambiente de implantação, a Implantação da Web permite implantar alterações diretamente na máquina virtual que está executando a função Web. Você não precisa empacotar e publicar o aplicativo do Azure inteiro sempre que desejar atualizar a função Web para testar as alterações. Com essa abordagem, você pode ter suas alterações de função da Web disponíveis na nuvem para testes sem aguardar a publicação do aplicativo em um ambiente de implantação.
 
@@ -61,7 +61,7 @@ Ao publicar seu aplicativo do Azure, você pode executar uma das seguintes taref
 
 1. (Opcional) Para cancelar o processo de implantação, no menu de atalho do item de linha no log de atividades, escolha **Cancelar e remover**. Isso interrompe o processo de implantação e exclui o ambiente de implantação do Azure.
 
-    >[AZURE.NOTE]Para remover este ambiente de implantação após ele ter sido implantado, você deve usar o Portal de Gerenciamento do Azure.
+    >[AZURE.NOTE] Para remover este ambiente de implantação após ele ter sido implantado, você deve usar o Portal de Gerenciamento do Azure.
 
 1. (Opcional) Após suas instâncias de função serem iniciadas, o Visual Studio mostra automaticamente o ambiente de implantação no nó **Serviços de Nuvem** no Gerenciador de Servidores. Daqui, você pode ver o status das instâncias de função individuais. Consulte [Gerenciando recursos de Azure com o Cloud Explorer](vs-azure-tools-resources-managing-with-cloud-explorer.md). A ilustração a seguir mostra as instâncias de função enquanto elas ainda estão no estado Inicializando:
 
@@ -97,7 +97,7 @@ O procedimento a seguir supõe que você esteja usando o assistente para **Publi
 
     O serviço de nuvem é publicado. A máquina virtual que é criada tem conexões remotas habilitadas para o IIS para que a Implantação da Web possa ser usada para atualizar suas funções Web sem as publicar novamente.
 
-    >[AZURE.NOTE]Se você tiver mais de uma instância configurada para uma função Web, será exibida uma mensagem de aviso informando que cada função Web será limitada a uma instância somente no pacote que é criado para publicar seu aplicativo. Clique em OK para continuar. Conforme mencionado na seção Requisitos, você pode ter mais de uma função Web, mas apenas uma instância de cada função.
+    >[AZURE.NOTE] Se você tiver mais de uma instância configurada para uma função Web, será exibida uma mensagem de aviso informando que cada função Web será limitada a uma instância somente no pacote que é criado para publicar seu aplicativo. Clique em OK para continuar. Conforme mencionado na seção Requisitos, você pode ter mais de uma função Web, mas apenas uma instância de cada função.
 
 ### Para atualizar sua função Web usando a Implantação da Web
 
@@ -131,7 +131,7 @@ O procedimento a seguir supõe que você esteja usando o assistente para **Publi
 
   1. Para adicionar um certificado SSL, abra o serviço de gerenciamento no Gerenciador do IIS. No Gerenciador do IIS, habilite o SSL abrindo o link **Ligações** no painel **Ação**. A caixa de diálogo **Adicionar Ligação do Site** é exibida. Escolha **Adicionar** e clique em HTTPS na lista suspensa **Tipo**. Na lista **Certificado SSL**, escolha o certificado SSL que foi assinado por uma autoridade de certificação e que você carregou no portal de gerenciamento do Azure. Para obter mais informações, consulte [Definir configurações de conexão para o serviço de gerenciamento](http://go.microsoft.com/fwlink/?LinkId=215824).
 
-      >[AZURE.NOTE]Se você adicionar um certificado SSL confiável, o triângulo amarelo de aviso não será mais exibido no **Assistente de Publicação**.
+      >[AZURE.NOTE] Se você adicionar um certificado SSL confiável, o triângulo amarelo de aviso não será mais exibido no **Assistente de Publicação**.
 
 ## Incluir arquivos no pacote de serviço
 
@@ -173,4 +173,4 @@ Talvez seja necessário incluir arquivos específicos em seu pacote de serviço 
 
 Para saber mais sobre a publicação do Azure por meio do Visual Studio, consulte o [Assistente de Publicação de Aplicativo do Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

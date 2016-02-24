@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="10/27/2015"
+   ms.date="02/03/2016"
    ms.author="derrickv"/>
 
 # Conceitos de desenvolvedor do Catálogo de Dados do Azure
@@ -90,7 +90,7 @@ Como apresentado na seção Conceitos Principais, o modelo de objeto **Catálogo
 
 Essas propriedades se aplicam a todos os tipos de ativos de raiz e todos os tipos de anotação.
 
-> [AZURE.NOTE]As propriedades cujos nomes começam com um sublinhado duplo são tipos do sistema.
+> [AZURE.NOTE] As propriedades cujos nomes começam com um sublinhado duplo são tipos do sistema.
 
 <table><tr><td><b>Nome da propriedade</b></td><td><b>Tipo de dados</b></td><td><b>Comentários</b></td></tr><tr><td>modifiedTime</td><td>DateTime</td><td>A hora da última modificação na raiz. Isso é definido pelo cliente. (O servidor não mantém esse valor).</td></tr><tr><td>__id</td><td>Cadeia de caracteres</td><td>ID do item (somente leitura). Essa ID garante a exclusividade do ativo em um catálogo.</td></tr><tr><td>__type</td><td>Cadeia de caracteres</td><td>O tipo de ativo (somente leitura)</td></tr><tr><td>__creatorId</td><td>Cadeia de caracteres</td><td>Uma cadeia de caracteres usada pelo criador do ativo para identificá-lo com exclusividade. </td></tr></table>
 
@@ -172,7 +172,7 @@ Há três funções: **Administrador**, **Proprietário** e **Colaborador**. Cad
 
 <table><tr><td><b>Função</b></td><td><b>Escopo</b></td><td><b>Direitos</b></td></tr><tr><td>Administrador</td><td>Catálogo (ou seja, todos os ativos/anotações no catálogo)</td><td>Read Delete ViewRoles ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>Proprietário</td><td>Cada ativo (ou seja, também conhecido como item de raiz)</td><td>Read Delete ViewRoles ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>Colaborador</td><td>Cada ativo e anotação individuais</td><td>Read Update Delete ViewRoles Note: todos os direitos são revogados se Read à direita do item for revogado do Colaborador</td></tr></table>
 
-> [AZURE.NOTE]Os direitos **Read**, **Update**, **Delete** e **ViewRoles** são aplicáveis a qualquer item (ativo ou anotação) enquanto **TakeOwnership**, **ChangeOwnership**, **ChangeVisibility** e **ViewPermissions** só são aplicáveis ao ativo de raiz.
+> [AZURE.NOTE] Os direitos **Read**, **Update**, **Delete** e **ViewRoles** são aplicáveis a qualquer item (ativo ou anotação) enquanto **TakeOwnership**, **ChangeOwnership**, **ChangeVisibility** e **ViewPermissions** só são aplicáveis ao ativo de raiz.
 >
 >O direito **Delete** aplica-se a um item, bem como qualquer subitem ou item único abaixo dele. Por exemplo, excluir um ativo também excluirá todas as anotações desse ativo.
 
@@ -182,7 +182,7 @@ A permissão funciona como uma lista de entradas de controle de acesso. Cada ent
 
 Durante a visualização do **Catálogo de Dados do Azure**, somente o direito **Read** tem suporte na lista de permissões para permitir que o cenário restrinja a visibilidade de um ativo.
 
-Por padrão, qualquer usuário autenticado tem o direito **Read** para qualquer item do catálogo, a menos que a visibilidade esteja restrita ao conjunto de entidades nas permissões.
+Por padrão qualquer usuário autenticado tem o direito **Read** para qualquer item do catálogo, a menos que a visibilidade esteja restrita ao conjunto de entidades nas permissões.
 
 ## API REST
 
@@ -257,9 +257,9 @@ As solicitações de exibição de item **PUT** e **POST** podem ser usadas para
 	    ]
 	}
 
-> [AZURE.NOTE]Em PUT, não é obrigatório especificar uma carga de item no corpo. PUT pode ser usado para atualizar apenas funções e/ou permissões.
+> [AZURE.NOTE] Em PUT, não é obrigatório especificar uma carga de item no corpo. PUT pode ser usado para atualizar apenas funções e/ou permissões.
 
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept2.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

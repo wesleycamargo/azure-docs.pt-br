@@ -42,7 +42,7 @@ Serviço de Cache Gerenciado do e Cache Redis do Azure são semelhantes, mas imp
 |Recurso do Serviço de Cache Gerenciado|Suporte do Serviço de Cache Gerenciado|Suporte do Cache Redis do Azure|
 |---|---|---|
 |Caches nomeados|Um cache padrão está configurado e nas ofertas de cache Standard e Premium, até nove caches nomeados adicionais podem ser configuradas se desejado.|Os Caches Redis do Azure possuem 16 bancos de dados que podem ser usados para implementar uma funcionalidade semelhante para caches nomeados. Para obter mais informações, confira [Configuração padrão do servidor Redis](cache-configure.md#default-redis-server-configuration).|
-|Alta Disponibilidade|Fornece alta disponibilidade para itens no cache nas ofertas de cache Standard e Premium. Se os itens são perdidos devido a uma falha, cópias de backup dos itens no cache ainda ficam disponíveis. Gravações no cache secundário são feitas de forma síncrona.|Alta disponibilidade nas ofertas de cache Standard e Premium, que possuem uma configuração Principal/Réplica de dois nós (cada fragmento em um cache Premium tem um par de principal/réplica). Gravações de réplica são feitas de forma assíncrona. Para obter mais informações, veja [Preço do Cache Redis do Azure](https://azure.microsoft.com/pricing/details/cache/).|
+|Alta Disponibilidade|Fornece alta disponibilidade para itens no cache nas ofertas de cache Standard e Premium. Se os itens são perdidos devido a uma falha, cópias de backup dos itens no cache ainda ficam disponíveis. Gravações no cache secundário são feitas de forma síncrona.|Alta disponibilidade nas ofertas de cache Standard e Premium, que possuem uma configuração Principal/Réplica de dois nós (cada fragmento em um cache Premium tem um par de principal/réplica). Gravações de réplica são feitas de forma assíncrona. Para obter mais informações, confira [Preço do Cache Redis do Azure](https://azure.microsoft.com/pricing/details/cache/).|
 |Notificações|Permite que os clientes recebam notificações assíncronas quando várias operações de cache ocorrem em um cache nomeado.|Aplicativos cliente podem usar o Redis pub/sub ou [Notificações de keyspace](cache-configure.md#keyspace-notifications-advanced-settings) para obter uma funcionalidade semelhante para notificações.|
 |Cache local|Armazena uma cópia dos objetos armazenados em cache localmente no cliente para acesso extremamente rápido.|Os aplicativos cliente precisariam implementar essa funcionalidade usando um dicionário ou uma estrutura de dados semelhantes.|
 |Política de remoção|Nenhuma ou LRU. A política padrão é LRU.|O Cache Redis do Azure suporta as seguintes políticas de remoção: volatile-lru, allkeys-lru, volatil-random, allkeys-random, volatile-ttl, noeviction. A política padrão é volatile-lru. Para obter mais informações, confira [Configuração padrão do servidor Redis](cache-configure.md#default-redis-server-configuration).|
@@ -56,7 +56,7 @@ O Cache Redis do Microsoft Azure está disponível nas seguintes camadas:
 
 -	**Básico** – um único nó. Vários tamanhos acima de 53 GB.
 -	**Padrão** – principal/réplica com dois nós. Vários tamanhos acima de 53 GB. SLA de 99,9%.
--	**Premium** – Primário/Réplica de dois nós com até 10 fragmentos. Vários tamanhos de 6 GB a 530 GB (entre em contato conosco para obter mais informações). Todos os recursos da camada Standard e muito mais, incluindo o suporte para o [cluster Redis](cache-how-to-premium-clustering.md), [persistência do Redis](cache-how-to-premium-persistence.md) e [Rede Virtual do Azure](cache-how-to-premium-vnet.md). SLA de 99,9%.
+-	**Premium** – dois nós Primário/Réplica com até 10 fragmentos. Vários tamanhos de 6 GB a 530 GB (entre em contato conosco para obter mais informações). Todos os recursos da camada Standard e muito mais, incluindo o suporte para o [cluster Redis](cache-how-to-premium-clustering.md), [persistência do Redis](cache-how-to-premium-persistence.md) e [Rede Virtual do Azure](cache-how-to-premium-vnet.md). SLA de 99,9%.
 
 Cada camada é diferente em termos de recursos e preços. Os recursos são abordados posteriormente neste manual e, para obter mais informações sobre preços, consulte [Detalhes de preços do Cache](https://azure.microsoft.com/pricing/details/cache/).
 
@@ -71,7 +71,7 @@ Caches no Cache Redis do Azure podem ser criados no [Portal do Azure](https://po
 -	Para criar um cache usando o Azure PowerShell, consulte [Gerenciar Cache Redis do Azure com o Azure PowerShell](cache-howto-manage-redis-cache-powershell.md).
 -	Para criar um cache usando a CLI do Azure, consulte [Como criar e gerenciar o Cache Redis do Azure usando a Interface de linha de comando do Azure (Azure CLI)](cache-manage-cli.md).
 
->[AZURE.NOTE]Para usar o Cache Redis do Azure, você precisa de uma conta do Azure. Se você não tiver uma, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero).
+>[AZURE.NOTE] Para usar o Cache Redis do Azure, você precisa de uma conta do Azure. Se você não tiver uma, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero).
 
 ## Configurar os clientes de Cache
 
@@ -143,7 +143,7 @@ Adicione o seguinte usando a instrução na parte superior de qualquer arquivo d
 								
 Se esse namespace não for resolvido, certifique-se de que você tenha adicionado o pacote NuGet StackExchange.Redis conforme descrito em [Configurar os clientes de cache](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
 
->[AZURE.NOTE]Observe que o cliente StackExchange.Redis requer o .NET Framework 4 ou superior.
+>[AZURE.NOTE] Observe que o cliente StackExchange.Redis requer o .NET Framework 4 ou superior.
 
 Para se conectar a uma instância de Cache Redis do Azure, chame o método estático `ConnectionMultiplexer.Connect` e passe-o na chave e no ponto de extremidade. Uma abordagem para compartilhar uma instância do `ConnectionMultiplexer` em seu aplicativo deve ter uma propriedade estática que retorna uma instância conectada, semelhante ao exemplo a seguir. Isso oferece uma maneira segura para o thread para inicializar somente uma única instância conectada do `ConnectionMultiplexer`. Neste exemplo, `abortConnect` é definido como false, o que significa que a chamada terá êxito mesmo que não seja possível estabelecer uma conexão com o cache. Um recurso chave do `ConnectionMultiplexer` é que ele vai restaurar automaticamente a conectividade ao cache assim que o problema de rede ou outras causas sejam resolvidos.
 
@@ -195,4 +195,4 @@ O Cache Redis do Azure possui provedores de Estado da Sessão ASP.NET e o cachin
 
 Explore a [documentação do Cache Redis do Azure](https://azure.microsoft.com/documentation/services/cache/) e veja os tutoriais, exemplos, vídeos e muito mais.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

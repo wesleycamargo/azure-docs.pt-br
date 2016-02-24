@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/09/2015"
+    ms.date="01/21/2016"
     ms.author="adegeo"/>
 
 # Qual é o modelo de serviço de nuvem e como empacotá-lo?
@@ -138,7 +138,7 @@ Você pode consultar o [esquema de configuração de serviço](https://msdn.micr
 
 <p/>
 
- >[AZURE.NOTE]A impressão digital do certificado pode ser adicionada ao arquivo de configuração usando um editor de texto, ou o valor pode ser adicionado na guia **Certificados** da página **Propriedades** da função no Visual Studio.
+ >[AZURE.NOTE] A impressão digital do certificado pode ser adicionada ao arquivo de configuração usando um editor de texto, ou o valor pode ser adicionado na guia **Certificados** da página **Propriedades** da função no Visual Studio.
 
 
 
@@ -190,16 +190,16 @@ Você pode atualizar a configuração do seu serviço de nuvem enquanto ele é e
 - **Alterando a impressão digital do certificado** Somente é possível atualizar um certificado quando uma instância de função está offline. Se um certificado é adicionado, excluído ou alterado enquanto uma instância de função estiver online, o Azure deixará a instância offline normalmente para atualizar o certificado e a deixará online novamente após a alteração ser concluída.
 
 ### Tratando alterações de configuração com eventos de tempo de execução do serviço
-A [biblioteca de tempo de execução do Azure](https://msdn.microsoft.com/library/azure/dn511024.aspx) inclui o namespace [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.aspx), que fornece classes para interagir com o ambiente do Azure do código em execução em uma instância de uma função. A classe [RoleEnvironment](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) define os seguintes eventos que são disparados antes e depois de uma alteração de configuração:
+A [biblioteca de tempo de execução do Azure](https://msdn.microsoft.com/library/azure/mt419365.aspx) inclui o namespace [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.aspx), que fornece classes para interagir com o ambiente do Azure do código em execução em uma instância de uma função. A classe [RoleEnvironment](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) define os seguintes eventos que são disparados antes e depois de uma alteração de configuração:
 
 - **[Alteração do ](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx)evento** Isso ocorre antes que a alteração de configuração seja aplicada a uma instância específica de uma função, fornecendo a oportunidade de desativar as instâncias de função, se necessário.
 - **[Evento](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changed.aspx) alterado** Ocorre depois que a alteração de configuração é aplicada a uma instância específica de uma função.
 
-> [AZURE.NOTE]Como as alterações de certificado sempre tornam as instâncias de uma função offline, elas não geram os eventos RoleEnvironment.Changing ou RoleEnvironment.Changed.
+> [AZURE.NOTE] Como as alterações de certificado sempre tornam as instâncias de uma função offline, elas não geram os eventos RoleEnvironment.Changing ou RoleEnvironment.Changed.
 
 <a name="cspkg"></a>
 ## ServicePackage.cspkg
-Para implantar um aplicativo como um serviço de nuvem no Azure, primeiro você deve empacotar o aplicativo no formato apropriado. Você pode usar a ferramenta de linha de comando **CSPack** (instalada com o [SDK do Azure](http://azure.microsoft.com/downloads/)) para criar o arquivo de pacote como uma alternativa para o Visual Studio.
+Para implantar um aplicativo como um serviço de nuvem no Azure, primeiro você deve empacotar o aplicativo no formato apropriado. Você pode usar a ferramenta de linha de comando **CSPack** (instalada com o [SDK do Azure](https://azure.microsoft.com/downloads/)) para criar o arquivo de pacote como uma alternativa para o Visual Studio.
 
 O **CSPack** usa o conteúdo do arquivo de definição de serviço e arquivo de configuração de serviço para definir o conteúdo do pacote. O **CSPack** gera um arquivo de pacote de aplicativos (.cspkg) que você pode carregar no Azure usando o [portal clássico do Azure](cloud-services-how-to-create-deploy/#how-to-deploy-a-cloud-service). Por padrão, o pacote é chamado `[ServiceDefinitionFileName].cspkg`, mas você pode especificar um nome diferente usando a opção `/out` de **CSPack**.
 
@@ -209,13 +209,15 @@ O **CSPack** usa o conteúdo do arquivo de definição de serviço e arquivo de 
 | 1\.7+ | C:\\Program Files\\Microsoft SDKs\\Azure\\.NET SDK\\[sdk-version]\\bin\\ |
 | &lt;1.6 | C:\\Program Files\\Azure SDK\\[sdk-version]\\bin\\ |
 
->[AZURE.NOTE]O CSPack.exe (no Windows) está disponível executando o atalho do **prompt de comando do Microsoft Azure** que é instalado com o SDK.
+>[AZURE.NOTE]
+O CSPack.exe (no Windows) está disponível executando o atalho do **prompt de comando do Microsoft Azure** que é instalado com o SDK.
 >  
 >Execute o programa CSPack.exe por ele mesmo para ver a documentação sobre todos os comandos e opções possíveis.
 
 <p />
 
->[AZURE.TIP]Execute seu serviço de nuvem localmente no **Emulador de computação do Microsoft Azure**, use a opção **/copyonly**. Essa opção copia os arquivos binários do aplicativo para um layout de diretório do qual eles podem ser executados no emulador de computação.
+>[AZURE.TIP]
+Execute seu serviço de nuvem localmente no **Emulador de computação do Microsoft Azure**, use a opção **/copyonly**. Essa opção copia os arquivos binários do aplicativo para um layout de diretório do qual eles podem ser executados no emulador de computação.
 
 ### Exemplo de comando para empacotar um serviço de nuvem
 O exemplo a seguir cria um pacote de aplicativos que contém as informações para uma função web. O comando especifica o arquivo de definição de serviço para usar, o diretório onde os arquivos binários podem ser encontrados e o nome do arquivo do pacote.
@@ -262,12 +264,11 @@ Estou usando o Visual Studio e desejo...
 * [Implantar um projeto de serviço de nuvem][vs_deploy]
 * [Configurar área de trabalho remota para uma instância de serviço de nuvem][vs_remote]
 
-
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop.md
-[vs_remote]: https://msdn.microsoft.com/library/gg443832.aspx
-[vs_deploy]: https://msdn.microsoft.com/library/ee460772.aspx
-[vs_reconfigure]: https://msdn.microsoft.com/library/ee405486.aspx
-[vs_create]: https://msdn.microsoft.com/library/ee405487.aspx
+[vs_remote]: ../vs-azure-tools-remote-desktop-roles.md
+[vs_deploy]: ../vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md
+[vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
+[vs_create]: ../vs-azure-tools-azure-project-create.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

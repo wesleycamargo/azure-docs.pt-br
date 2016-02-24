@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="12/17/2015" 
+	ms.date="02/02/2016" 
 	ms.author="juliako"/>
 
 
@@ -29,8 +29,6 @@ Os Serviços de Mídia do Microsoft Azure permitem fornecer fluxos criptografado
 Os Serviços de Mídia fornecem um serviço de distribuição de licenças do Microsoft PlayReady. Os Serviços de Mídia também fornecem APIs que permitem que você configure os direitos e restrições que você deseja que sejam impostos pelo tempo de execução do DRM do PlayReady quando um usuário reproduz conteúdo protegido. Quando um usuário solicita conteúdo protegido do PlayReady, o aplicativo player solicita uma licença do serviço de licença AMS. O serviço de licença AMS emitirá uma licença para o player se ele estiver autorizado. Uma licença do PlayReady contém a chave de descriptografia que pode ser usada pelo player cliente para descriptografar e transmitir o conteúdo.
 
 A partir da versão 3.5.2 do SDK do .NET dos Serviços de Mídia, os Serviços de Mídia também permitem que você configure um modelo de licença do Widevine e obtenha licenças do Widevine.
-
->[AZURE.NOTE]Os serviços de entrega de licenças do Widevine fornecidos pelos Serviços de Mídia do Azure estão em versão de visualização. Para saber mais, confira [este blog](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
 
 Você também pode usar os seguintes parceiros do AMS para ajudá-lo a fornecer licenças do Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/) e [castLabs](http://castlabs.com/company/partners/azure/). Para saber mais, consulte: integração com [Axinom](media-services-axinom-integration.md) e [castLabs](media-services-castlabs-integration.md).
 
@@ -84,9 +82,9 @@ Para obter informações detalhadas, consulte [Carregar arquivos em uma conta do
 
 ##Codificar o ativo contendo o arquivo para o conjunto de MP4 de taxa de bits adaptável
 
-Com a criptografia dinâmica, tudo o que você precisa fazer é criar um ativo que contenha um conjunto de arquivos MP4 com múltiplas taxas de bits ou arquivos de origem de Smooth Streaming com múltiplas taxas de bits. Em seguida, com base no formato especificado na solicitação de fragmento e manifesto, o servidor de Streaming Sob Demanda garantirá que você receba o fluxo no protocolo escolhido por você. Como resultado você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento, e os Serviços de Mídia vão criar e fornecer a resposta apropriada com base nas solicitações de um cliente. Para saber mais, consulte o tópico [Visão geral sobre o empacotamento dinâmico](media-services-dynamic-packaging-overview.md).
+Com a criptografia dinâmica, tudo o que você precisa fazer é criar um ativo que contenha um conjunto de arquivos MP4 com múltiplas taxas de bits ou arquivos de origem de Smooth Streaming com múltiplas taxas de bits. Em seguida, com base no formato especificado na solicitação de fragmento e manifesto, o servidor de Streaming Sob Demanda garantirá que você receba o fluxo no protocolo escolhido por você. Como resultado você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento, e os Serviços de Mídia vão criar e fornecer a resposta apropriada com base nas solicitações de um cliente. Para saber mais, consulte o tópico [Visão geral sobre o Empacotamento dinâmico](media-services-dynamic-packaging-overview.md).
 
-Para obter instruções sobre como codificar, consulte [Como codificar um ativo usando o codificador de mídia padrão](media-services-dotnet-encode-with-media-encoder-standard.md).
+Para obter instruções sobre como codificar, consulte [Como codificar um ativo usando o Codificador de mídia padrão](media-services-dotnet-encode-with-media-encoder-standard.md).
 	
 
 ##<a id="create_contentkey"></a>Criar uma chave de conteúdo e associá-la ao ativo codificado
@@ -116,7 +114,7 @@ Para obter informações detalhadas, consulte [Configurar política de entrega d
 
 Você precisará fornecer ao seu usuário a URL para Smooth Streaming, DASH ou HLS.
 
->[AZURE.NOTE]Se você adicionar ou atualizar a política de fornecimento do ativo, você deve excluir um localizador existente (se houver) e criar um novo localizador.
+>[AZURE.NOTE] Se você adicionar ou atualizar a política de fornecimento do ativo, você deve excluir um localizador existente (se houver) e criar um novo localizador.
 
 Para obter instruções sobre como publicar um ativo e criar uma URL de streaming, consulte [Criar uma URL de streaming](media-services-deliver-streaming-content.md).
 
@@ -627,8 +625,10 @@ O exemplo a seguir demonstra a funcionalidade que foi introduzida na versão 3.5
 
 ##Consulte também
 
+[CENC com DRM múltiplo e controle de acesso](media-services-cenc-with-multidrm-access-control.md)
+
 [Configurar o empacotamento Widevine com AMS](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)
 
-[Anunciando a visualização pública de serviços de entrega de licenças do Google Widevine nos Serviços de Mídia do Azure](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)
+[Anunciando os serviços de entrega de licenças do Google Widevine nos Serviços de Mídia do Azure](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="10/30/2015" 
+	ms.date="01/08/2016" 
 	ms.author="bradygaster"/>
 
 # Consumir um aplicativo de API do Azure usando HTML e JavaScript
@@ -38,7 +38,7 @@ Normalmente, o CORS (compartilhamento de recursos entre origens) é necessário 
 
 ### Habilitando CORS para Gateways de aplicativo de API
 
-Gateways de aplicativo de API podem ser configurados para habilitar CORS usando o Portal de Visualização do Azure. Adicionando a *appSetting* **MS\_CrossDomainOrigins**, você pode especificar as URLs que têm permissão para chamar seu aplicativo de API. Esta seção explicará como usar este *appSetting* para habilitar o CORS no nível do Gateway de API.
+Gateways de aplicativo de API podem ser configurados para habilitar CORS usando o Portal de Visualização do Azure. Adicionando a *appSetting* **MS_CrossDomainOrigins**, você pode especificar as URLs que têm permissão para chamar seu aplicativo de API. Esta seção explicará como usar este *appSetting* para habilitar o CORS no nível do Gateway de API.
 
 1. Navegue até a folha Portal de visualização do Azure para o aplicativo de API para o qual você deseja habilitar o CORS. Tendo chegado lá, clique no ícone *Gateway* para seu aplicativo de API. 
 
@@ -56,7 +56,7 @@ Gateways de aplicativo de API podem ser configurados para habilitar CORS usando 
 
 	![Configurações do aplicativo de gateway](./media/app-service-api-javascript-client/22-gateway-app-settings-blade.png)
 
-1. Adicione a configuração de aplicativo **MS\_CrossDomainOrigins**. Defina como o valor da configuração a lista separada por vírgulas de hosts HTTP para os quais você deseja fornecer acesso ao seu aplicativo de API. Se você deseja fornecer acesso a vários hosts, o valor de *appSetting* pode ser definido como algo parecido com o código a seguir.
+1. Adicione a configuração de aplicativo **MS_CrossDomainOrigins**. Defina como o valor da configuração a lista separada por vírgulas de hosts HTTP para os quais você deseja fornecer acesso ao seu aplicativo de API. Se você deseja fornecer acesso a vários hosts, o valor de *appSetting* pode ser definido como algo parecido com o código a seguir.
 
 		http://foo.azurewebsites.net, https://foo.azurewebsites.net, http://contactlistwebapp.azurewebsites.net
 
@@ -68,7 +68,7 @@ Gateways de aplicativo de API podem ser configurados para habilitar CORS usando 
 
 	![](./media/app-service-api-javascript-client/23-app-settings-set.png)
 
-A configuração de aplicativo **MS\_CrossDomainOrigins** é descrita detalhadamente na postagem de blog [Atualizações do .NET do Serviço Móvel do Azure](http://azure.microsoft.com/blog/2014/07/28/azure-mobile-services-net-updates/), por isso verifique esta postagem para obter mais detalhes sobre os detalhes da configuração.
+A configuração de aplicativo **MS_CrossDomainOrigins** é descrita detalhadamente na postagem de blog [Atualizações do .NET do Serviço Móvel do Azure](http://azure.microsoft.com/blog/2014/07/28/azure-mobile-services-net-updates/), por isso verifique esta postagem para obter mais detalhes sobre os detalhes da configuração.
 
 ### Habilitando CORS no código de API da Web
 
@@ -82,7 +82,7 @@ O processo de habilitar CORS na API Web está documentado no artigo ASP.NET [Per
 
 	![apiapp.json e metadados no Gerenciador de soluções](./media/app-service-api-javascript-client/01-cors-installed.png)
 
-1. Abra o arquivo *App\_Start/WebApiConfig.cs*. Adicione a linha de código abaixo ao método **Register** da classe **WebApiConfig** no arquivo.
+1. Abra o arquivo *App_Start/WebApiConfig.cs*. Adicione a linha de código abaixo ao método **Register** da classe **WebApiConfig** no arquivo.
 
 		config.EnableCors();
 
@@ -314,7 +314,7 @@ Nesta seção, você vai criar um novo aplicativo Web vazio, instalar e usar o A
 
 1, No código que você acabou de adicionar a index.html, substitua o número da porta na URL base (`http://localhost:1578`) pelo número de porta real para o projeto de API.
 
->[AZURE.NOTE]**Observação:** não use o número da porta do projeto do cliente HTML. É possível clicar com o botão direito do mouse no projeto de API e clicar em **Depurar > Iniciar Nova Instância** para ver uma janela de navegador que mostre o número da porta.
+>[AZURE.NOTE] **Observação:** não use o número da porta do projeto do cliente HTML. É possível clicar com o botão direito do mouse no projeto de API e clicar em **Depurar > Iniciar Nova Instância** para ver uma janela de navegador que mostre o número da porta.
 
 1. Assegure que, quando você executar o cliente HTML, o projeto de aplicativo de API também esteja em execução; caso contrário, o HTML JavaScript não funcionará corretamente. Clique com o botão direito na solução e selecione **Propriedades**. Em seguida, defina ambos os projetos da Web como **Iniciar sem depuração**, e especifique que o projeto de API seja executado primeiro. 
 
@@ -373,4 +373,4 @@ Este exemplo demonstrou como você pode usar AngularJS como sua plataforma de Ja
 
 Este exemplo mostra o acesso não autenticado a um aplicativo de API. Para saber mais sobre a autenticação no Serviço de Aplicativo, veja [Autenticação para aplicativos de API e aplicativos móveis](../app-service/app-service-authentication-overview.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

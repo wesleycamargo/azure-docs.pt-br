@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="01/21/2016"
 	ms.author="josephd"/>
 
 # Ambiente de teste Configuração de Base com o Gerenciador de Recursos do Azure
@@ -50,15 +50,15 @@ Há quatro fases para configurar a sub-rede Corpnet do ambiente de teste de Conf
 3.	Configurar o APP1.
 4.	Configurar o CLIENT1.
 
-Se ainda não tiver uma conta do Azure, você poderá se inscrever para obter uma avaliação gratuita em [Experimentar o Azure](http://azure.microsoft.com/pricing/free-trial/). Se tiver uma assinatura do MSDN, consulte [Benefício do Azure para assinantes do MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Se ainda não tiver uma conta do Azure, você poderá se inscrever para obter uma avaliação gratuita em [Experimentar o Azure](https://azure.microsoft.com/pricing/free-trial/). Se tiver uma assinatura do MSDN, consulte [Benefício do Azure para assinantes do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
-> [AZURE.NOTE]As máquinas virtuais no Azure incorrem em um custo monetário contínuo quando estão em execução. Esse custo é cobrado em sua avaliação gratuita, assinatura do MSDN ou assinatura paga. Para obter mais informações sobre os custos da execução de máquinas virtuais do Azure, consulte [Detalhes de preços de máquinas virtuais](http://azure.microsoft.com/pricing/details/virtual-machines/) e [Calculadora de preços do Azure](http://azure.microsoft.com/pricing/calculator/). Para reduzir os custos, consulte [Minimizando os custos de máquinas de virtuais do ambiente de teste no Azure](#costs).
+> [AZURE.NOTE] As máquinas virtuais no Azure incorrem em um custo monetário contínuo quando estão em execução. Esse custo é cobrado em sua avaliação gratuita, assinatura do MSDN ou assinatura paga. Para obter mais informações sobre os custos da execução de máquinas virtuais do Azure, consulte [Detalhes de preços de máquinas virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/) e [Calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/). Para reduzir os custos, consulte [Minimizando os custos de máquinas de virtuais do ambiente de teste no Azure](#costs).
 
 ## Fase 1: Criar a rede virtual
 
 Primeiro, inicie um prompt do Azure PowerShell.
 
-> [AZURE.NOTE]O comando a seguir define o uso do Azure PowerShell 1.0 e posterior. Para obter mais informações, consulte [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
+> [AZURE.NOTE] O comando a seguir define o uso do Azure PowerShell 1.0 e posterior. Para obter mais informações, consulte [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 Faça logon em sua conta.
 
@@ -158,6 +158,8 @@ Em seguida, configure DC1 como um controlador de domínio e servidor DNS para o 
 	Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
 	Install-ADDSForest -DomainName corp.contoso.com -DatabasePath "F:\NTDS" -SysvolPath "F:\SYSVOL" -LogPath "F:\Logs"
 
+Observe que esses comandos podem levar alguns minutos para ser concluídos.
+
 Após a reinicialização de DC1, reconecte-se à máquina virtual DC1.
 
 1.	No portal do Azure, clique em **Máquinas Virtuais** e, em seguida, clique na máquina virtual **DC1**.
@@ -169,12 +171,15 @@ Após a reinicialização de DC1, reconecte-se à máquina virtual DC1.
 - Senha: [senha da conta de administrador local]
 6.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota referindo-se aos certificados, clique em **Sim**.
 
-Em seguida, crie uma conta de usuário no Active Directory que será usada ao fazer logon em computadores membros do domínio CORP. Execute estes comandos, um de cada vez, em um prompt de comando do Windows PowerShell com nível de administrador.
+Em seguida, crie uma conta de usuário no Active Directory que será usada ao fazer logon em computadores membros do domínio CORP. Execute este comando em um prompt de comando com nível de administrador do Windows PowerShell.
 
 	New-ADUser -SamAccountName User1 -AccountPassword (read-host "Set user password" -assecurestring) -name "User1" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false
-	Add-ADPrincipalGroupMembership -Identity "CN=User1,CN=Users,DC=corp,DC=contoso,DC=com" -MemberOf "CN=Enterprise Admins,CN=Users,DC=corp,DC=contoso,DC=com","CN=Domain Admins,CN=Users,DC=corp,DC=contoso,DC=com"
 
-Observe que o primeiro comando resulta em um prompt para fornecer a senha da conta User1. Como essa conta será usada para conexões de área de trabalho remota para todos os computadores membros do domínio CORP, escolha uma senha forte. Para verificar a força da senha, consulte [Verificador de senha: usando senhas fortes](https://www.microsoft.com/security/pc-security/password-checker.aspx). Registre a senha da conta User1 e armazene-a em um local seguro.
+Observe que esse comando solicita que você forneça a senha da conta User1. Como essa conta será usada para conexões de área de trabalho remota para todos os computadores membros do domínio CORP, *escolha uma senha forte*. Para verificar a força da senha, consulte [Verificador de senha: usando senhas fortes](https://www.microsoft.com/security/pc-security/password-checker.aspx). Registre a senha da conta User1 e armazene-a em um local seguro.
+
+Em seguida, configure a nova conta User1 como um Administrador Corporativo. Execute este comando no prompt de comando com nível de administrador do Windows PowerShell.
+
+	Add-ADPrincipalGroupMembership -Identity "CN=User1,CN=Users,DC=corp,DC=contoso,DC=com" -MemberOf "CN=Enterprise Admins,CN=Users,DC=corp,DC=contoso,DC=com","CN=Domain Admins,CN=Users,DC=corp,DC=contoso,DC=com"
 
 Feche a sessão Área de Trabalho Remota com DC1 e reconecte usando a conta CORP\\User1.
 
@@ -239,6 +244,8 @@ Esta é a configuração atual.
 
 CLIENT1 atua como um tablet, computador laptop ou desktop típico na intranet da Contoso.
 
+> [AZURE.NOTE] O conjunto de comandos a seguir cria o CLIENT1 executando o Windows Server 2012 R2 Datacenter, o que pode ser feito para todos os tipos de assinaturas do Azure. Se você tiver uma assinatura do Azure baseada no MSDN, você pode criar o CLIENT1 executando o Windows 10, o Windows 8 ou o Windows 7 usando o [Portal do Azure](virtual-machines-windows-tutorial.md).
+
 Em primeiro lugar, preencha o nome do grupo de recursos, o local do Azure, o nome da conta de armazenamento e execute estes comandos no prompt de comando do Azure PowerShell no computador local para criar uma Máquina Virtual do Azure para CLIENT1.
 
 	$rgName="<resource group name>"
@@ -291,7 +298,7 @@ A configuração básica no Azure agora está pronta para desenvolvimento e test
 
 ## Próxima etapa
 
-- Use isso como uma base para compilação o [ambiente de teste de nuvem híbrida simulado](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
+- [Adicione uma nova máquina virtual](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md) à sub-rede Corpnet, como um Microsoft SQL Server em execução.
 
 
 ## <a id="costs"></a>Minimizando os custos de máquinas virtuais do ambiente de teste no Azure
@@ -321,4 +328,4 @@ Para iniciar as máquinas virtuais na ordem com o Azure PowerShell, preencha o n
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "APP1"
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

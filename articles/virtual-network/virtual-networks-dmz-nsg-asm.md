@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2015"
+   ms.date="02/01/2016"
    ms.author="jonor;sivae"/>
 
 # Exemplo 1: criar uma DMZ simples com NSGs
@@ -51,7 +51,7 @@ As seções a seguir fornecem uma descrição detalhada dos grupos de segurança
 ## Grupos de segurança de rede (NSG)
 Neste exemplo, um grupo NSG é criado e então carregado com seis regras.
 
->[AZURE.TIP]Em geral, você deve criar suas regras específicas "Permitir" primeiro e então as regras “Negar” mais genéricas por último. A prioridade atribuída ditará quais regras serão avaliadas primeiro. Quando o tráfego se aplicar a uma regra específica, nenhuma regra adicional será avaliada. As regras NSG podem se aplicar na direção de entrada ou de saída (na perspectiva da sub-rede).
+>[AZURE.TIP] Em geral, você deve criar suas regras específicas "Permitir" primeiro e então as regras “Negar” mais genéricas por último. A prioridade atribuída ditará quais regras serão avaliadas primeiro. Quando o tráfego se aplicar a uma regra específica, nenhuma regra adicional será avaliada. As regras NSG podem se aplicar na direção de entrada ou de saída (na perspectiva da sub-rede).
 
 Declarativamente, as regras a seguir estão sendo criadas para tráfego de entrada:
 
@@ -248,7 +248,7 @@ Esse script se baseará nas variáveis definidas pelo usuário;
 
 Este script do PowerShell deve ser executado localmente em um computador ou servidor conectado à Internet.
 
->[AZURE.IMPORTANT]Quando esse script for executado, poderá haver avisos ou outras mensagens informativas que aparecerão no PowerShell. Somente as mensagens de erro em vermelho são motivo de preocupação.
+>[AZURE.IMPORTANT] Quando esse script for executado, poderá haver avisos ou outras mensagens informativas que aparecerão no PowerShell. Somente as mensagens de erro em vermelho são motivo de preocupação.
 
 
 	<# 
@@ -550,4 +550,4 @@ Se você desejar instalar um aplicativo de exemplo para esse e outros exemplos d
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

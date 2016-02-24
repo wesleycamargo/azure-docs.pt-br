@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article" 
+	ms.topic="article" 
 	ms.date="12/18/2015"
 	ms.author="spelluru"/>
 
@@ -26,7 +26,7 @@
 
 Este artigo ajuda você a começar a criar seu primeiro data factory do Azure.
 
-> [AZURE.NOTE]Este artigo não fornece uma visão geral conceitual do serviço Azure Data Factory. Para obter uma visão geral detalhada do serviço, consulte [Introdução ao Azure Data Factory](data-factory-introduction.md).
+> [AZURE.NOTE] Este artigo não fornece uma visão geral conceitual do serviço Azure Data Factory. Para obter uma visão geral detalhada do serviço, consulte [Introdução ao Azure Data Factory](data-factory-introduction.md).
 
 ## Visão geral do tutorial
 Este tutorial apresenta as etapas necessárias para fazer seu primeiro data factory funcionar. Você criará um pipeline no data factory que transforma/processa dados de entrada para gerar dados de saída.
@@ -34,7 +34,7 @@ Este tutorial apresenta as etapas necessárias para fazer seu primeiro data fact
 ## Pré-requisitos
 Antes de iniciar este tutorial, você deverá ter os seguintes pré-requisitos:
 
-1.	**Uma assinatura do Azure** - se você não tiver uma, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Veja o artigo [Avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/) para ver como você pode obter uma conta de avaliação gratuita.
+1.	**Uma assinatura do Azure** - se você não tiver uma, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Consulte o artigo [Avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/) para ver como você pode obter uma conta de avaliação gratuita.
 
 2.	**Armazenamento do Azure** – você usará uma conta de armazenamento do Azure para armazenar os dados neste tutorial. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account). Depois de criar a conta de armazenamento, você precisará obter a chave de conta usada para acessar o armazenamento. Consulte [Exibir, copiar e regenerar chaves de acesso de armazenamento](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 
@@ -185,7 +185,7 @@ Usando o bloco de notas, crie um arquivo chamado **input.log** na pasta **c:\\ad
 
 ### Carregar o arquivo de entrada e o arquivo HQL no Armazenamento de Blobs do Azure
 
-Você pode usar qualquer ferramenta que desejar (por exemplo: Azure Storage Explorer, CloudXPlorer da ClumsyLeaf Software) para realizar essa tarefa. Esta seção fornece instruções sobre o uso da ferramenta AzCopy.
+Você pode usar qualquer ferramenta que desejar (por exemplo: [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com/), CloudXPlorer da ClumsyLeaf Software) para realizar essa tarefa. Esta seção fornece instruções sobre o uso da ferramenta AzCopy.
 	 
 2. Como preparar o armazenamento do Azure para o tutorial:
 	1. Baixe a [versão mais recente do **AzCopy**](http://aka.ms/downloadazcopy) ou a [versão de visualização mais recente](http://aka.ms/downloadazcopypr). Consulte o artigo [Como usar o AzCopy](../storage/storage-use-azcopy.md) para obter instruções sobre o uso do utilitário.
@@ -193,11 +193,11 @@ Você pode usar qualquer ferramenta que desejar (por exemplo: Azure Storage Expl
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
 
-	3. Navegue até a pasta c:\adfgettingstarted e execute o seguinte comando para carregar o arquivo **input.log** na conta de armazenamento (o contêiner **adfgetstarted** e a pasta **inputdata**). Substitua **StorageAccountName** pelo nome da sua conta de armazenamento e **Storage Key** pela chave de armazenamento da conta.
+	3. Navegue até a pasta c:\\adfgettingstarted e execute o seguinte comando para carregar o arquivo **input.log** na conta de armazenamento (o contêiner **adfgetstarted** e a pasta **inputdata**). Substitua **StorageAccountName** pelo nome da sua conta de armazenamento e **Storage Key** pela chave de armazenamento da conta.
 
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/inputdata /DestKey:<storagekey>  /Pattern:input.log
 
-		> [AZURE.NOTE]O comando acima cria um contêiner denominado **adfgetstarted** em seu armazenamento de Blobs do Azure e copia o arquivo **partitionweblogs.hql** da sua unidade local para a pasta **inputdata** no contêiner.
+		> [AZURE.NOTE] O comando acima cria um contêiner denominado **adfgetstarted** em seu armazenamento de Blobs do Azure e copia o arquivo **partitionweblogs.hql** da sua unidade local para a pasta **inputdata** no contêiner.
 	
 	5. Depois que o arquivo tiver sido carregado com êxito, você verá a saída semelhante à seguinte do AzCopy.
 	
@@ -209,7 +209,7 @@ Você pode usar qualquer ferramenta que desejar (por exemplo: Azure Storage Expl
 			Transfer skipped:        0
 			Transfer failed:         0
 			Elapsed time:            00.00:00:01
-	1. Repita as duas etapas anteriores para carregar o arquivo partitionweblogs.hql na pasta de scripts do contêiner adfgetstarted. Veja o código: 
+	1. Execute o comando a seguir para carregar o arquivo **partitionweblogs. HQL** para a pasta **script** do contêiner **adfgetstarted**. Veja o código: 
 	
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/script /DestKey:<storagekey>  /Pattern:partitionweblogs.hql
 
@@ -222,4 +222,4 @@ Agora você está pronto para começar o tutorial. Clique em uma das guias na pa
 - Visual Studio
 - Modelos do Gerenciador de Recursos do Azure 
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/27/2015" 
+	ms.date="02/08/2016" 
 	ms.author="mohabib;fashah;bradsev"/>
 
 
@@ -80,7 +80,7 @@ Para configurar seu ambiente de Ciência de Dados do Azure:
 
 3. [Provisionar uma Máquina Virtual de Ciência de Dados](machine-learning-data-science-setup-sql-server-virtual-machine.md), que servirá como um SQL Server, bem como um servidor do IPython Notebook.
 
-	> [AZURE.NOTE]Os scripts de exemplo e IPython Notebook serão baixados para a máquina virtual de Ciência de Dados durante o processo de instalação. Quando o script de pós-instalação da VM estiver concluída, os exemplos estarão na sua biblioteca de Documentos da VM: — Scripts de exemplo: `C:\Users<user_name>\Documents\Data Science Scripts` — Exemplo de IPython Notebooks: `C:\Users<user_name>\Documents\IPython Notebooks\DataScienceSamples` onde `<user_name>` é o nome de logon do Windows da sua VM. Vamos nos referir às pastas de exemplo como **Scripts de Exemplo** e **IPython Notebook de Exemplo**.
+	> [AZURE.NOTE] Os scripts de exemplo e IPython Notebook serão baixados para a máquina virtual de Ciência de Dados durante o processo de instalação. Quando o script de pós-instalação da VM estiver concluída, os exemplos estarão na sua biblioteca de Documentos da VM: — Scripts de exemplo: `C:\Users<user_name>\Documents\Data Science Scripts` — Exemplo de IPython Notebooks: `C:\Users<user_name>\Documents\IPython Notebooks\DataScienceSamples` onde `<user_name>` é o nome de logon do Windows da sua VM. Vamos nos referir às pastas de exemplo como **Scripts de Exemplo** e **IPython Notebook de Exemplo**.
 
 
 Dependendo do tamanho do conjunto de dados, do local da fonte de dados e do ambiente de destino do Azure selecionado, esse cenário será semelhante ao [Cenário nº 5: Conjunto de dados grande em arquivos locais, SQL Server de destino na VM do Azure.](../machine-learning-data-science-plan-sample-scenarios.md#largelocaltodb)
@@ -612,7 +612,7 @@ Para iniciar o exercício de modelagem, faça logon no seu espaço de trabalho d
 
 2. Faça logon no [Estúdio de Aprendizado de Máquina do Azure](https://studio.azureml.net).
 
-3. A página inicial do Estúdio fornece uma grande quantidade de informações, vídeos, tutoriais e links para a Referência de Módulos e outros recursos. Para saber mais sobre o Aprendizado de Máquina do Azure, consulte o [Centro de Documentação do Aprendizado de Máquina do Azure](http://azure.microsoft.com/documentation/services/machine-learning/).
+3. A página inicial do Estúdio fornece uma grande quantidade de informações, vídeos, tutoriais e links para a Referência de Módulos e outros recursos. Para saber mais sobre o Aprendizado de Máquina do Azure, consulte o [Centro de Documentação do Aprendizado de Máquina do Azure](https://azure.microsoft.com/documentation/services/machine-learning/).
 
 Uma experiência de treinamento típico consiste no seguinte:
 
@@ -649,7 +649,7 @@ Um exemplo de um experimento de classificação binária lendo dados diretamente
 
 ![Treino do AM do Azure][10]
 
-> [AZURE.IMPORTANT]Nos exemplos de modelagem de extração de dados e consulta de amostragem fornecidos nas seções anteriores, **todos os rótulos para os três exercícios de modelagem são incluídos na consulta**. Uma etapa importante (obrigatória) em cada um dos exercícios modelagem é **excluir** os rótulos desnecessários para os dois problemas e qualquer outro **vazamento de destino**. Por exemplo, ao usar classificação binária, use o rótulo **tipped** e exclua os campos **tip\_class**, **tip\_amount** e **total\_amount**. Esses últimos são vazamentos de destino, já que eles indicam a gorjeta paga.
+> [AZURE.IMPORTANT] Nos exemplos de modelagem de extração de dados e consulta de amostragem fornecidos nas seções anteriores, **todos os rótulos para os três exercícios de modelagem são incluídos na consulta**. Uma etapa importante (obrigatória) em cada um dos exercícios modelagem é **excluir** os rótulos desnecessários para os dois problemas e qualquer outro **vazamento de destino**. Por exemplo, ao usar classificação binária, use o rótulo **tipped** e exclua os campos **tip\_class**, **tip\_amount** e **total\_amount**. Esses últimos são vazamentos de destino, já que eles indicam a gorjeta paga.
 >
 > Para excluir as colunas desnecessárias e/ou vazamentos de destino, você pode usar o módulo [Colunas do Projeto][project-columns] ou o [Editor de Metadados][metadata-editor]. Para saber mais, consulte as páginas de referência [Colunas do Projeto][project-columns] e [Editor de Metadados][metadata-editor].
 
@@ -714,4 +714,4 @@ Este passo a passo do exemplo, os scripts que o acompanham e os IPython Notebook
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0211_2016-->

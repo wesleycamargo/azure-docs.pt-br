@@ -13,14 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="02/09/2016" 
 	ms.author="tomfitz"/>
 
 # Criar um aplicativo Web PHP-SQL e implantá-lo no Serviço de Aplicativo do Azure usando Git
 
 Este tutorial mostra como criar um aplicativo web do PHP no [serviço de aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) que se conecta ao banco de dados SQL do Azure e como implantá-lo usando o Git. Este tutorial presume que você tenha [PHP][install-php], [SQL Server Express][install-SQLExpress], o [Drivers da Microsoft para SQL Server para PHP](http://www.microsoft.com/download/en/details.aspx?id=20098) e [Git][install-git] instalado no seu computador. Após a conclusão deste guia, você terá um aplicativo Web PHP/SQL em execução no Azure.
 
-> [AZURE.NOTE]É possível instalar e configurar PHP, SQL Server Express, os Drivers da Microsoft para SQL Server para PHP usando o [Microsoft Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
+> [AZURE.NOTE]
+É possível instalar e configurar PHP, SQL Server Express, os Drivers da Microsoft para SQL Server para PHP usando o [Microsoft Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
 
 Você aprenderá a:
 
@@ -33,7 +34,7 @@ Seguindo este tutorial, você irá criar um aplicativo da web de registro simple
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE] Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ##Criar um aplicativo Web do Azure e configurar a publicação Git
 
@@ -244,12 +245,14 @@ Depois de testar o aplicativo localmente, você poderá publicá-lo nos Aplicati
 	$pwd = "<your password>";
 	$db = "<value of SQL Database>";
 
-> [AZURE.NOTE]Em <code>$host</code>, o valor do servidor deve ser precedido por <code>tcp:</code>.
+> [AZURE.NOTE]
+Em <code>$host</code>, o valor do servidor deve ser precedido por <code>tcp:</code>.
 
 
 Agora, você está pronto para configurar a publicação Git e publicar o aplicativo.
 
-> [AZURE.NOTE]Essas são as mesmas etapas indicadas no final da seção **Criar um aplicativo web do Azure e configurar a publicação do Git**, acima.
+> [AZURE.NOTE]
+Essas são as mesmas etapas indicadas no final da seção **Criar um aplicativo web do Azure e configurar a publicação do Git**, acima.
 
 
 1. Abra GitBash (ou um terminal, se o Git estiver em seu `PATH`), altere os diretórios para o diretório raiz de seu aplicativo (o diretório de **registro**) e execute os seguintes comandos:
@@ -295,4 +298,4 @@ Para publicar alterações no aplicativo, siga estas etapas:
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

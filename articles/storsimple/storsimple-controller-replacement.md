@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="01/14/2016"
    ms.author="alkohli" />
 
 # Substituir um módulo de controlador em seu dispositivo StorSimple
@@ -75,7 +75,7 @@ Conclua as etapas a seguir se um dos controladores do dispositivo Microsoft Azur
 
 #### Para remover um módulo de controlador único com falha
 
-1. No Portal clássico do Azure do serviço StorSimple Manager, clique na guia **Dispositivos** e, em seguida, clique no nome do dispositivo que você deseja monitorar.
+1. No portal clássico do Azure, acesse o serviço StorSimple Manager, clique na guia **Dispositivos** e, em seguida, clique no nome do dispositivo que você deseja monitorar.
 
 2. Clique na guia **Manutenção** e, em seguida, navegue até **Status de Hardware**. O status do Controlador 0 ou Controlador 1 deve estar vermelho, o que indica uma falha.
 
@@ -230,9 +230,9 @@ Cada um desses procedimentos é descrito abaixo.
 
 ### Usar o Portal clássico do Azure para identificar o controlador ativo
 
-No Portal de Gerenciamento, navegue até **Dispositivos** > **Manutenção** e role até a seção **Controladores**. Aqui você pode verificar qual controlador está ativo.
+No portal clássico do Azure, navegue até **Dispositivos** > **Manutenção** e role até a seção **Controladores**. Aqui você pode verificar qual controlador está ativo.
 
-![Identifique o controlador ativo no Portal de Gerenciamento](./media/storsimple-controller-replacement/IC752072.png)
+![Identificar o controlador ativo no portal clássico do Azure](./media/storsimple-controller-replacement/IC752072.png)
 
 **Figura 6** portal clássico do Azure mostrando o controlador ativo
 
@@ -266,4 +266,4 @@ Se esse LED estiver piscando, o controlador estará ativo e o outro controlador 
 
 Saiba mais sobre a [substituição de componentes de hardware StorSimple](storsimple-hardware-component-replacement.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

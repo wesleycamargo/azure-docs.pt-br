@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="01/07/2016"
 	ms.author="dkshir"/>
 
 # Como desanexar um disco de uma máquina virtual Linux
@@ -30,4 +30,4 @@
 
 [Usar a CLI do Azure com a API de Gerenciamento de Serviço](virtual-machines-command-line-tools.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

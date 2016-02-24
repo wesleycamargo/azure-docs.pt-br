@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/23/2015" 
+	ms.date="02/05/2016" 
 	ms.author="nitinme"/>
 
 
@@ -21,23 +21,35 @@
 
 Saiba como instalar blocos de anotações do Zeppelin em clusters Spark e como usar esses blocos de anotações.
 
+> [AZURE.IMPORTANT] O bloco de anotações do Zeppelin para o cluster HDInsight Spark é uma oferta para demonstrar como usar o Zeppelin em um ambiente do Azure HDInsight Spark. Se você quiser usar blocos de anotações para trabalhar com o HDInsight Spark, recomendamos que você use os blocos de anotações do Jupyter. Os blocos de anotações do Jupyter também oferecem opções diferentes de kernel, como o Scala, e continuarão a ter melhorias de recursos. Para obter instruções sobre como usar os blocos de anotações do Jupyter com o HDInsight Spark, veja [Executar consultas SQL do Spark usando um bloco de anotações do Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md#jupyter).
+
 **Pré-requisitos:**
 
-* Antes de começar este tutorial, você deve ter uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Antes de começar este tutorial, você deve ter uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Um cluster do Apache Spark. Para obter instruções, confira [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-provision-clusters.md).
 * Um cliente SSH. Para distribuições Linux e Unix ou o Macintosh OS X, o comando `ssh` é fornecido com o sistema operacional. Para sistemas Windows, é recomendável [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
-	> [AZURE.NOTE]Se você quiser usar um cliente SSH diferente de `ssh` ou PuTTY, consulte a documentação de seu cliente sobre como estabelecer um túnel SSH.
+	> [AZURE.NOTE] Se você quiser usar um cliente SSH diferente de `ssh` ou PuTTY, consulte a documentação de seu cliente sobre como estabelecer um túnel SSH.
 
 * Um navegador da Web que pode ser configurado para usar um proxy SOCKS
 
 * __(opcional)__: um plug-in como o [FoxyProxy](http://getfoxyproxy.org/,) que pode aplicar regras que só roteiam solicitações específicas pelo túnel.
 
-	> [AZURE.WARNING]Sem um plug-in como o FoxyProxy, todas as solicitações feitas por meio do navegador poderão ser roteadas pelo túnel. Isso pode resultar em um carregamento mais lento de páginas da Web em seu navegador.
+	> [AZURE.WARNING] Sem um plug-in como o FoxyProxy, todas as solicitações feitas por meio do navegador poderão ser roteadas pelo túnel. Isso pode resultar em um carregamento mais lento de páginas da Web em seu navegador.
 
 ## Instalar o Zeppelin como parte da criação do cluster
 
->[AZURE.NOTE]Pule essa etapa se você criou o cluster Spark usando o portal. Essa etapa será necessária somente se você estiver usando o SDK do .NET do HDInsight ou o Azure PowerShell.
+Você pode instalar o Zeppelin em um cluster Spark usando ação de script. A ação de script usa scripts personalizados para instalar componentes no cluster que não estão disponíveis por padrão. O script personalizado para instalar o Zeppelin em um cluster do Spark está disponível em ****https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
+
+### Usando o Portal do Azure
+
+Para obter instruções sobre como usar o SDK do .NET do HDInsight para executar a ação de script a fim de instalar o Zeppelin, confira [Personalizar os clusters HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-azure-portal). Você deve fazer algumas alterações nas instruções deste artigo.
+
+* Você deve usar o script para instalar o Zeppelin. O script a ser usado é ****https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
+
+* Você deve executar a ação de script somente no nó principal.
+
+* O script não precisa de parâmetros.
 
 ### Usando o SDK do .NET do HDInsight
 
@@ -139,13 +151,13 @@ Use as etapas a seguir para criar um túnel SSH usando o PuTTY.
 
 ### Usar o túnel de seu navegador
 
-> [AZURE.NOTE]As etapas desta seção usam o navegador Firefox, pois ele está disponível gratuitamente para os sistemas Linux, Unix, Macintosh OS X e Windows. Outros navegadores modernos, como o Google Chrome, o Microsoft Edge ou o Apple Safari também devem funcionar; no entanto, é possível que o plug-in FoxyProxy usado em algumas etapas não esteja disponível para todos os navegadores.
+> [AZURE.NOTE] As etapas desta seção usam o navegador Firefox, pois ele está disponível gratuitamente para os sistemas Linux, Unix, Macintosh OS X e Windows. Outros navegadores modernos, como o Google Chrome, o Microsoft Edge ou o Apple Safari também devem funcionar; no entanto, é possível que o plug-in FoxyProxy usado em algumas etapas não esteja disponível para todos os navegadores.
 
 1. Configure o navegador para usar **localhost:9876** como um proxy **SOCKS v5**. Aqui está a aparência das configurações do Firefox. Se você tiver usado uma porta diferente da 9876, altere a porta que usou:
 
 	![imagem das configurações do Firefox](./media/hdinsight-apache-spark-use-zeppelin-notebook/socks.png)
 
-	> [AZURE.NOTE]Selecionar **DNS Remoto** resolverá as solicitações de DNS (Sistema de Nomes de Domínio) usando o cluster HDInsight. Se essa opção estiver desmarcada, o DNS será resolvido localmente.
+	> [AZURE.NOTE] Selecionar **DNS Remoto** resolverá as solicitações de DNS (Sistema de Nomes de Domínio) usando o cluster HDInsight. Se essa opção estiver desmarcada, o DNS será resolvido localmente.
 
 2. Verifique se o tráfego está sendo roteado pelo túnel visitando um site como [http://www.whatismyip.com/](http://www.whatismyip.com/) com as configurações de proxy habilitadas e desabilitadas no Firefox. Embora as configurações estejam habilitadas, o endereço IP será de um computador no datacenter do Microsoft Azure.
 
@@ -200,7 +212,7 @@ Depois de configurar o túnel SSH, você poderá acessar o bloco de anotações 
 		http://hn0-myspar:9995
 
 	* **hn0**: denota headnode0
-	* **myspar**: são as cinco primeiras letras do cluster Spark.
+	* **myspar**: são as seis primeiras letras do nome do cluster Spark.
 	* **9995**: é a porta onde o bloco de anotações do Zeppelin pode ser acessado.
 
 2. Crie um novo bloco de anotações. No painel de cabeçalho, clique em **Notebook** e em **Criar Nova Anotação**.
@@ -258,7 +270,7 @@ Depois de configurar o túnel SSH, você poderá acessar o bloco de anotações 
 	 Clique nas opções de exibição (realçadas no retângulo) para alternar entre diferentes representações para o mesmo resultado. Clique em **Configurações** para escolher o que constitui a chave e os valores na saída. A captura de tela acima usa **buildingID** como a chave e a média de **temp\_diff** como o valor.
 
 	
-6. Você também pode executar instruções Spark SQL usando variáveis na consulta. O trecho a seguir mostra como definir uma variável, **Temp**, na consulta com os possíveis valores com os quais deseja consultar. Quando você executa a consulta pela primeira vez, uma lista suspensa é preenchida automaticamente com os valores especificados para a variável.
+6. Você também pode executar instruções Spark SQL usando variáveis na consulta. O seguinte trecho mostra como definir uma variável, **Temp**, na consulta com os possíveis valores com os quais você deseja consultar. Quando você executa a consulta pela primeira vez, uma lista suspensa é preenchida automaticamente com os valores especificados para a variável.
 
 		%sql
 		select buildingID, date, targettemp, (targettemp - actualtemp) as temp_diff
@@ -269,7 +281,7 @@ Depois de configurar o túnel SSH, você poderá acessar o bloco de anotações 
 
 	![Executar uma instrução do Spark SQL usando o bloco de anotações](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.note.sparksqlquery2.png "Executar uma instrução do Spark SQL usando o bloco de anotações")
 
-	Em consultas subsequentes, você pode selecionar um novo valor na lista suspensa e executar a consulta novamente. Clique em **Configurações** para escolher o que constitui a chave e os valores na saída. A captura de tela acima usa **buildingID** como chave, a média de **temp\_diff** como valor e **targettemp** como o grupo.
+	Em consultas subsequentes, você pode selecionar um novo valor na lista suspensa e executar a consulta novamente. Clique em **Configurações** para escolher o que constitui a chave e os valores no resultado. A captura de tela acima usa o **buildingID** como chave, a média de **temp\_diff** como valor e a **targettemp** como grupo.
 
 7. Reinicie o interpretador do SQL Sparks para sair do aplicativo. Clique na guia **Interpretador** na parte superior e, para o interpretador do Spark, clique em **Reiniciar**.
 
@@ -285,7 +297,7 @@ Depois de configurar o túnel SSH, você poderá acessar o bloco de anotações 
 
 * [Spark com BI: executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](hdinsight-apache-spark-use-bi-tools.md)
 
-* [Spark com Aprendizado de Máquina: usar o Spark no HDInsight para analisar a temperatura de prédios usando dados HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark com Aprendizado de Máquina: usar o Spark no HDInsight para analisar a temperatura de prédios usando dados do sistema HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
 * [Spark com Aprendizado de Máquina: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
@@ -297,9 +309,11 @@ Depois de configurar o túnel SSH, você poderá acessar o bloco de anotações 
 
 * [Criar um aplicativo autônomo usando Scala](hdinsight-apache-spark-create-standalone-application.md)
 
-* [Executar trabalhos remotamente em um cluster Spark usando Livy](hdinsight-apache-spark-livy-rest-interface.md)
+* [Executar trabalhos remotamente em um cluster do Spark usando Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
-### Extensões
+### Ferramentas e extensões
+
+* [Usar o plug-in de Ferramentas do HDInsight para IntelliJ IDEA para criar e enviar aplicativos Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
 * [Kernels disponíveis para o bloco de anotações do Jupyter no cluster Spark para HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
@@ -318,4 +332,4 @@ Depois de configurar o túnel SSH, você poderá acessar o bloco de anotações 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

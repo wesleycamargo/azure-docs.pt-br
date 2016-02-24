@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="01/07/2016"
 	ms.author="cephalin"/>
 
 
@@ -21,7 +21,7 @@
 
 Neste tutorial, você aprenderá como criar aplicativos complexos de grande escala com o [Serviço de Aplicativo do Azure](/services/app-service/), de forma a oferecer suporte ao [desenvolvimento de software Agile](https://en.wikipedia.org/wiki/Agile_software_development). Ele pressupõe que você já sabe como [implantar aplicativos complexos de modo previsível no Azure](app-service-deploy-complex-application-predictably.md).
 
-Limitações em processos técnicos muitas vezes podem atrapalhar o êxito da implementação das metodologias Agile. O Serviço de Aplicativo do Azure, com recursos como [publicação contínua](web-sites-publish-source-control.md), [ambientes de preparo](web-sites-staged-publishing.md) (slots) e [monitoramento](web-sites-monitor.md), quando associado com sabedoria à coordenação e ao gerenciamento da implantação no[Gerenciador de Recursos do Azure](resource-group-overview.md), pode ser parte de uma solução excelente para desenvolvedores que adotam o desenvolvimento de software Agile.
+Limitações em processos técnicos muitas vezes podem atrapalhar o êxito da implementação das metodologias Agile. O Serviço de Aplicativo do Azure, com recursos como [publicação contínua](web-sites-publish-source-control.md), [ambientes de preparo](web-sites-staged-publishing.md) (slots) e [monitoramento](web-sites-monitor.md), quando associado com sabedoria à coordenação e ao gerenciamento da implantação no[Gerenciador de Recursos do Azure](../resource-group-overview.md), pode ser parte de uma solução excelente para desenvolvedores que adotam o desenvolvimento de software Agile.
 
 A tabela a seguir é uma breve lista que mostra os requisitos associados ao desenvolvimento Agile e como os serviços do Azure habilitam cada um deles.
 
@@ -43,7 +43,7 @@ Você verá um fluxo de trabalho dev-test-stage-production típico para publicar
 
 Colocando em palavras:
 
--	A arquitetura de implantação é separada em três ambientes distintos (ou [grupos de recursos](resource-group-overview.md) no Azure), cada um com seu próprio [plano do Serviço de Aplicativo](azure-web-sites-web-hosting-plans-in-depth-overview.md), configurações de [escala](web-sites-scale.md) e banco de dados SQL. 
+-	A arquitetura de implantação é separada em três ambientes distintos (ou [grupos de recursos](../resource-group-overview.md) no Azure), cada um com seu próprio [plano do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), configurações de [escala](web-sites-scale.md) e banco de dados SQL. 
 -	Cada ambiente pode ser gerenciado separadamente. Eles podem até mesmo existir em assinaturas diferentes.
 -	O preparo e a produção são implementados como dois slots do mesmo aplicativo de Serviço de Aplicativo. A ramificação mestre está configurada para integração contínua com o slot de preparo.
 -	Quando uma confirmação para a ramificação mestre é verificada no slot de preparo (com dados de produção), o aplicativo de preparo verificado é trocado no slot de produção [sem tempo de inatividade](web-sites-staged-publishing.md).
@@ -63,19 +63,19 @@ Você também usará a estratégia de ramificação típica, com código movendo
 -	Git Shell (instalado com [GitHub para Windows](https://windows.github.com/)) — permite que você execute comandos Git e do PowerShell na mesma sessão 
 -	Bits do [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/download/0.9.4-June2015/azure-powershell.0.9.4.msi) mais recentes
 -	Noções básicas sobre:
-	-	Implantação do modelo do [Gerenciador de Recursos do Azure](resource-group-overview.md) (consulte também[Implantar um aplicativo complexo de modo previsível no Azure](app-service-deploy-complex-application-predictably.md))
+	-	Implantação do modelo do [Gerenciador de Recursos do Azure](../resource-group-overview.md) (consulte também[Implantar um aplicativo complexo de modo previsível no Azure](app-service-deploy-complex-application-predictably.md))
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
-> [AZURE.NOTE]Você precisa de uma conta do Azure para concluir este tutorial: + Você pode [abrir uma conta do Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F) – Você recebe créditos que podem ser usados para experimentar os serviços pagos do Azure e, mesmo depois que tiverem se esgotado, você pode manter a conta e usar serviços gratuitos do Azure, como Aplicativos Web. + Você pode [ativar os benefícios de assinante do Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) – A cada mês, a sua assinatura do Visual Studio fornece créditos que podem ser usados para serviços pagos do Azure.
+> [AZURE.NOTE] Você precisa de uma conta do Azure para concluir este tutorial: + Você pode [abrir uma conta do Azure gratuitamente](/pricing/free-trial/) – Você recebe créditos que podem ser usados para experimentar os serviços pagos do Azure e, mesmo depois que tiverem se esgotado, você pode manter a conta e usar serviços gratuitos do Azure, como Aplicativos Web. + Você pode [ativar os benefícios de assinante do Visual Studio](/pricing/member-offers/msdn-benefits-details/) – A cada mês, a sua assinatura do Visual Studio fornece créditos que podem ser usados para serviços pagos do Azure.
 >
 > Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## Configurar seu ambiente de produção ##
 
->[AZURE.NOTE]O script usado neste tutorial configurará automaticamente a publicação contínua de seu repositório GitHub. Isso requer que as credenciais do GitHub já estejam armazenadas no Azure; caso contrário, a implantação de scripts falhará ao tentar definir configurações de controle de origem para aplicativos Web.
+>[AZURE.NOTE] O script usado neste tutorial configurará automaticamente a publicação contínua de seu repositório GitHub. Isso requer que as credenciais do GitHub já estejam armazenadas no Azure; caso contrário, a implantação de scripts falhará ao tentar definir configurações de controle de origem para aplicativos Web.
 >
->Para armazenar suas credenciais do GitHub no Azure, crie um aplicativo Web no [Portal do Azure](https://portal.azure.com) e [configure a implantação do GitHub](web-sites-publish-source-control.md#Step7). Você só precisa fazer isso uma vez.
+>Para armazenar suas credenciais do GitHub no Azure, crie um aplicativo Web no [Portal do Azure](https://portal.azure.com/) e [configure a implantação do GitHub](web-sites-publish-source-control.md#Step7). Você só precisa fazer isso uma vez.
 
 Em um cenário típico de DevOps, você tem um aplicativo que está em execução em tempo real no Azure e deseja fazer alterações nele por meio de publicação contínua. Nesse cenário, você tem um modelo que desenvolveu, testou e usou para implantar o ambiente de produção. Você o configurará nesta seção.
 
@@ -83,7 +83,7 @@ Em um cenário típico de DevOps, você tem um aplicativo que está em execuçã
  
 	![](./media/app-service-agile-software-development/production-1-private-repo.png)
 
-2.	Abra uma sessão do Git Shell. Caso ainda não tenha o Git Shell, instale o [GitHub para Windows](https://windows.github.com/) agora.
+2.	Abra uma sessão do Git Shell. Se ainda não tiver o Git Shell, instale o [GitHub para Windows](https://windows.github.com/) agora.
 
 3.	Crie um clone local de seu bifurcação executando o seguinte comando:
 
@@ -99,7 +99,7 @@ Em um cenário típico de DevOps, você tem um aplicativo que está em execuçã
 
 	![](./media/app-service-agile-software-development/production-2-app-in-browser.png)
  
-	>[AZURE.TIP]Dê uma olhada em *&lt;raiz\_do\_repositório>*\\ARMTemplates\\Deploy.ps1 para ver como ele gera recursos com IDs exclusivas. Você pode usar a mesma abordagem para criar clones da mesma implantação sem se preocupar com conflitos entre os nomes de recursos.
+	>[AZURE.TIP] Dê uma olhada em *&lt;raiz\_do\_repositório>*\\ARMTemplates\\Deploy.ps1 para ver como ele gera recursos com IDs exclusivas. Você pode usar a mesma abordagem para criar clones da mesma implantação sem se preocupar com conflitos entre os nomes de recursos.
  
 6.	De volta à sessão do Git Shell, execute:
 
@@ -109,9 +109,9 @@ Em um cenário típico de DevOps, você tem um aplicativo que está em execuçã
 
 7.	Quando o script for concluído, volte para navegar até endereço do front-end (http://ToDoApp*&lt;unique_string>*master.azurewebsites.net/) para ver o aplicativo em execução na produção.
  
-5.	Faça logon no [Portal do Azure](https://portal.azure.com) e veja o que foi criado.
+5.	Faça logon no [Portal do Azure](https://portal.azure.com/) e veja o que foi criado.
 
-	Você deverá ser capaz de ver dois aplicativos Web no mesmo grupo de recursos, um com o sufixo `Api` no nome. Se examinar o modo de exibição do grupo de recursos, você também verá o banco de dados SQL e o servidor, o plano do Serviço de Aplicativo e os slots de preparo dos aplicativos Web. Percorra os diferentes recursos e compare-os com *&lt;raiz\_do\_repositório>*\\ARMTemplates\\ProdAndStage.json para ver como eles são configurados no modelo.
+	Você deverá ver dois aplicativos Web no mesmo grupo de recursos, um com o sufixo `Api` no nome. Se examinar o modo de exibição do grupo de recursos, você também verá o banco de dados SQL e o servidor, o plano do Serviço de Aplicativo e os slots de preparo dos aplicativos Web. Navegue pelos diferentes recursos e compare-os com *&lt;raiz\_repositório>*\\ARMTemplates\\ProdAndStage.json para ver como eles são configurados no modelo.
 
 	![](./media/app-service-agile-software-development/production-3-resource-group-view.png)
 
@@ -152,7 +152,7 @@ Agora que há um aplicativo complexo em execução em produção no Azure, você
 	-	O ambiente de desenvolvimento está em execução em tempo real no Azure.
 	-	Excluir o ambiente de desenvolvimento é tão simples quanto excluir o grupo de recursos. Você verá como fazer isso [posteriormente](#delete).
 
->[AZURE.NOTE]Quando houver vários desenvolvedores trabalhando na nova atualização, cada um deles poderá criar facilmente uma ramificação e um ambiente de desenvolvimento dedicado fazendo o seguinte:
+>[AZURE.NOTE] Quando houver vários desenvolvedores trabalhando na nova atualização, cada um deles poderá criar facilmente uma ramificação e um ambiente de desenvolvimento dedicado fazendo o seguinte:
 >
 >1.	Criar suas próprias bifurcações do repositório no GitHub (consulte [Bifurcar um repositório](https://help.github.com/articles/fork-a-repo/)).
 >2.	Clonar a bifurcação na máquina local
@@ -166,7 +166,7 @@ E você deverá ter seis aplicativos Web (três conjuntos de dois) em três grup
 
 ![](./media/app-service-agile-software-development/test-2-all-webapps.png)
  
->[AZURE.NOTE]Observe que ProdandStage.json especifica o ambiente de produção para usar o tipo de preço **Standard**, que é adequada para a escalabilidade do aplicativo de produção.
+>[AZURE.NOTE] Observe que ProdandStage.json especifica o ambiente de produção para usar o tipo de preço **Standard**, que é adequada para a escalabilidade do aplicativo de produção.
 
 ## Compilar e testar cada confirmação ##
 
@@ -180,7 +180,7 @@ Os arquivos de modelo ProdAndStage.json e Dev.json já especificam os parâmetro
 
 	![](./media/app-service-agile-software-development/commit-1-changes.png)
 
-	>[AZURE.NOTE]Se você não puder ler a imagem acima:
+	>[AZURE.NOTE] Se você não puder ler a imagem acima:
 	>
 	>- Na linha 18, altere `check-list` para `list-group`.
 	>- Na linha 19, altere `class="check-list-item"` para `class="list-group-item"`.
@@ -258,9 +258,8 @@ Como você projetou intencionalmente os ambientes de teste e desenvolvimento par
 	git push origin :Dev
 	git branch -d NewUpdate
 	git push origin :NewUpdate
-	Switch-AzureMode AzureResourceManager
-	Remove-AzureResourceGroup -Name ToDoApp<unique_string>dev-group -Force -Verbose
-	Remove-AzureResourceGroup -Name ToDoApp<unique_string>newupdate-group -Force -Verbose
+	Remove-AzureRmResourceGroup -Name ToDoApp<unique_string>dev-group -Force -Verbose
+	Remove-AzureRmResourceGroup -Name ToDoApp<unique_string>newupdate-group -Force -Verbose
 
 ## Resumo ##
 
@@ -271,14 +270,14 @@ O desenvolvimento de software Agile é indispensável para muitas empresas que d
 -	[Implantar um aplicativo complexo de modo previsível no Azure](app-service-deploy-complex-application-predictably.md)
 -	[Desenvolvimento Agile na prática: dicas e truques do ciclo de desenvolvimento modernizado](http://channel9.msdn.com/Events/Ignite/2015/BRK3707)
 -	[Estratégias de implantação avançada para aplicativos Web do Azure usando modelos do Gerenciador de Recursos](http://channel9.msdn.com/Events/Build/2015/2-620)
--	[Criação de modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md)
+-	[Criação de modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md)
 -	[JSONLint - o validador JSON](http://jsonlint.com/)
 -	[ARMClient – configurar publicação do GitHub no site](https://github.com/projectKudu/ARMClient/wiki/Setup-GitHub-publishing-to-Site)
 -	[Ramificação Git – Conceitos básicos de ramificação e mesclagem](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 -	[Blog de David Ebbo](http://blog.davidebbo.com/)
--	[PowerShell do Azure](powershell-install-configure.md)
--	[Ferramentas de linha de comando de plataformas cruzadas do Azure](xplat-cli-install.md)
+-	[PowerShell do Azure](../powershell-install-configure.md)
+-	[Ferramentas de linha de comando de plataformas cruzadas do Azure](../xplat-cli-install.md)
 -	[Criar ou editar usuários no AD do Azure](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Projeto Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -14,20 +14,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/30/2015"
+	ms.date="02/04/2016"
 	ms.author="jgao"/>
 
 # Enviar trabalhos Hadoop no HDInsight
 
 Aprenda a usar o PowerShell do Azure para enviar trabalhos do MapReduce e do Hive e a usar o SDK de .NET do HDInsight para enviar trabalhos do MapReduce, do Hive e streaming do Hadoop.
 
-> [AZURE.NOTE]As etapas neste artigo devem ser executadas em um cliente do Windows. Para obter informações sobre como usar um cliente Linux, OS X ou Unix para trabalhar com MapReduce, Hive ou Pig no HDInsight, consulte os seguintes artigos e selecione os links **SSH** ou **Curl** dentro de cada uma:
+> [AZURE.NOTE] As etapas neste artigo devem ser executadas em um cliente do Windows. Para obter informações sobre como usar um cliente Linux, OS X ou Unix para trabalhar com MapReduce, Hive ou Pig no HDInsight, consulte os seguintes artigos e selecione os links **SSH** ou **Curl** dentro de cada uma:
 >
 > - [Usar o Hive com o HDInsight](hdinsight-use-hive.md)
 > - [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
 > - [Usar o MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
-##Pré-requisitos
+###Pré-requisitos
 
 Antes de começar este artigo, você deve ter o seguinte:
 
@@ -212,7 +212,7 @@ O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o t
 						return null;
 					}
 		
-					return string.Join("&define=", defines.Select(x => x.Key + "%3D" + x.Value).ToArray());
+					return "&define=" + string.Join("&define=", defines.Select(x => x.Key + "%3D" + x.Value).ToArray());
 				}
 				private static string ConvertArgsToString(List<string> args)
 				{
@@ -266,4 +266,4 @@ Neste artigo, você aprendeu várias maneiras de criar um cluster HDInsight. Par
 
 [apache-hive]: http://hive.apache.org/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

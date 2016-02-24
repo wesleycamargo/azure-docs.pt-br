@@ -14,23 +14,23 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="02/04/2016"
 	ms.author="jgao"/>
 
 # Desenvolver scripts de Ação de Script para o HDInsight
 
-Aprenda a gravar scripts de Ação de Script para o HDInsight. Para obter informações sobre scripts de Ação de Script, consulte [Personalizar clusters HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster.md). Para o mesmo artigo escrito para o cluster HDInsight no sistema operacional Linux, consulte [Desenvolver scripts de Ação de Script para o HDInsight](hdinsight-hadoop-script-actions-linux.md).
+Aprenda a gravar scripts de Ação de Script para o HDInsight. Para obter informações sobre scripts de Ação de Script, consulte [Personalizar clusters HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster.md). Para o mesmo artigo escrito para clusters HDInsight baseados em Linux, consulte [Desenvolver scripts de Ação de Script para o HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
 A ação de script pode ser usada para instalar software adicional em execução em um cluster do Hadoop ou para alterar a configuração dos aplicativos instalados em um cluster. As Ações de Script são scripts executados em nós de cluster quando clusters HDInsight são implantados e são executados quando os nós no cluster concluírem a configuração do HDInsight. A Ação de script é executado sob privilégios de conta de administrador do sistema e concede direitos de acesso completo a nós do cluster. Cada cluster pode ser fornecido com uma lista de ações de script que serão executados na ordem em que forem especificados.
 
-> [AZURE.NOTE]Se a mensagem de erro a seguir for exibida:
+> [AZURE.NOTE] Se a mensagem de erro a seguir for exibida:
 > 
 >     System.Management.Automation.CommandNotFoundException; ExceptionMessage : The term 'Save-HDIFile' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
 > É porque você não incluiu métodos auxiliares. Consulte [Métodos auxiliares para scripts personalizados](hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts).
 
 ## Exemplos de scripts
 
-Para provisionar clusters do HDInsight no sistema operacional Windows, a Ação de Script é o script do Azure PowerShell. A seguir vejamos um exemplo de script para configurar os arquivos de configuração do site:
+Para criar clusters do HDInsight no sistema operacional Windows, a Ação de Script é o script do Azure PowerShell. A seguir vejamos um exemplo de script para configurar os arquivos de configuração do site:
 
 	param (
 	    [parameter(Mandatory)][string] $ConfigFileName,
@@ -94,7 +94,7 @@ Nome | Script
 
 A Ação de Script pode ser implantada por meio do Portal do Azure, Azure PowerShell ou usando o SDK do .NET do HDInsight. Para obter mais informações, consulte [Personalizar clusters HDInsight usando a Ação de Script][hdinsight-cluster-customize].
 
-> [AZURE.NOTE]Os scripts de exemplo funcionam apenas com o cluster HDInsight versão 3.1 ou posterior. Para obter mais informações sobre as versões do cluster HDInsight, consulte [Versões do cluster HDInsight](../hdinsight-component-versioning/).
+> [AZURE.NOTE] Os scripts de exemplo funcionam apenas com o cluster HDInsight versão 3.1 ou posterior. Para obter mais informações sobre as versões do cluster HDInsight, consulte [Versões do cluster HDInsight](../hdinsight-component-versioning/).
 
 
 
@@ -213,7 +213,7 @@ ou
 
 ### Lançar exceção para implantação de cluster malsucedida
 
-Se você quiser ser notificado com precisão sobre o fato de que a personalização do cluster não obteve êxito conforme o esperado, é importante lançar uma exceção e não realizar o provisionamento do cluster. Por exemplo, você talvez queira processar um arquivo caso ele exista e lidar com o caso de erro quando o arquivo não existe. Isso garante que o script seja encerrado normalmente e que o estado correto do cluster seja conhecido. O trecho a seguir fornece um exemplo de como fazer isso:
+Se você quiser ser notificado com precisão sobre o fato de que a personalização do cluster não obteve êxito conforme o esperado, será importante lançar uma exceção e não realizar a criação do cluster. Por exemplo, você talvez queira processar um arquivo caso ele exista e lidar com o caso de erro quando o arquivo não existe. Isso garante que o script seja encerrado normalmente e que o estado correto do cluster seja conhecido. O trecho a seguir fornece um exemplo de como fazer isso:
 
 	If(Test-Path($SomePath)) {
 		#Process file in some way
@@ -351,4 +351,4 @@ Se ocorre uma falha na execução, a saída que o descreve também estará conti
 <!--Reference links in article-->
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

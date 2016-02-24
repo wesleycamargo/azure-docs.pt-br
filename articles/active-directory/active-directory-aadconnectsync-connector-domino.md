@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Sincronização do Azure AD Connect: conector Lotus Domino"
+   pageTitle="Sincronização do Azure AD Connect: conector do Lotus Domino | Microsoft Azure"
    description="Este artigo descreve como configurar o conector Lotus Domino da Microsoft."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/16/2015"
+   ms.date="01/21/2016"
    ms.author="andkjell"/>
 
 # Referência técnica do conector Lotus Domino
@@ -34,7 +34,7 @@ Partindo de um ponto de vista detalhado, os seguintes recursos têm suporte na v
 
 | Recurso | Suporte |
 | --- | --- |
-| Fonte de dados conectada | Servidor: <li>Lotus Domino 8.5.x</li><li>Lotus Domino 9.x</li>Cliente:<li>Lotus Notes 8.5.x</li><li>Lotus Notes 9.x</li> |
+| Fonte de dados conectada | Servidor: <li>Lotus Domino 8.5.x</li><li>Lotus Domino 9.x</li>Cliente:<li>Lotus Notes 9.x</li> |
 | Cenários | <li>Gerenciamento de ciclo de vida do objeto</li><li>Gerenciamento de grupos</li><li>Gerenciamento de senhas</li> |
 | Operações | <li>Importação completa e Delta</li><li>Exportação</li><li>Definição e alteração de senha em senha HTTP</li> |
 | Esquema | <li>Pessoa (Usuário móvel, Contato [pessoas sem certificado])</li><li>Grupo</li><li>Recurso (Recurso, Sala, Reunião online)</li><li>Banco de dados Entrada de Email</li><li>Descoberta dinâmica de atributos para objetos com suporte</li> |
@@ -246,7 +246,7 @@ Se um novo Assistente chamado **Pedro Gonçalves** for atribuído a esse objeto 
 
 **Importar**
 
-A opção de operação Exportar oferece suporte a dois modos:
+A opção de operação Importar dá suporte a dois modos:
 
 - Padrão
 - Múltiplos Valores para Valor Único
@@ -344,7 +344,7 @@ O banco de dados Reserva de Recursos contém 3 tipos de documento:
 - Recurso
 - Reserva
 
-Para obter mais detalhes sobre a configuração do banco de dados Reserva de Recursos, confira [Setting up the Resource Reservations database](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_USING_GROUPS_OVER.html).
+Para obter mais detalhes sobre a configuração do banco de dados Reserva de Recursos, confira [Setting up the Resource Reservations database](https://www-01.ibm.com/support/knowledgecenter/SSKTMJ_8.0.1/com.ibm.help.domino.admin.doc/DOC/H_SETTING_UP_THE_RESOURCE_RESERVATIONS_DATABASE.html).
 
 **Criar, atualizar e excluir Recursos**
 
@@ -477,15 +477,15 @@ Há várias maneiras no Domino de estender o esquema, de modo que ele parecerá 
 
 **Abordagem 1: Estender o esquema do Lotus Domino**
 
-1. Crie uma cópia do Modelo do Diretório Domino <PUBNAMES.NTF> seguindo [estas etapas](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_CREATING_A_COPY_OF_THE_DEFAULT_PUBIC_ADDRESS_BOOK_TEMPLATE.html) (você não deve personalizar o modelo do diretório padrão IBM Lotus Domino):
-2. Abra o modelo do diretório Cópia do Domino <CONTOSO.NTF> que acabou de ser criado no Domino Designer e siga as etapas abaixo:
+1. Crie uma cópia do Modelo do Diretório Domino {PUBNAMES.NTF} seguindo [estas etapas](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_CREATING_A_COPY_OF_THE_DEFAULT_PUBIC_ADDRESS_BOOK_TEMPLATE.html) (você não deve personalizar o modelo do diretório padrão IBM Lotus Domino):
+2. Abra o modelo do diretório Cópia do Domino {CONTOSO.NTF} que acabou de ser criado no Domino Designer e siga as etapas abaixo:
     - Clique em Elementos Compartilhados e expanda os Subformulários
-    - Clique duas vezes no subformulário $[ObjectName]InheritableSchema (em que [ObjectName] é o nome da classe do objeto estrutural padrão ex: Person).
-    - Nomeie o atributo que você deseja adicionar ao esquema [MyPersonAtrribute] e de acordo, crie um campo selecionando o menu “Criar” e selecione “Campo” no menu.
+    - Clique duas vezes no subformulário ${ObjectName}InheritableSchema (em que {ObjectName} é o nome da classe do objeto estrutural padrão ex: Person).
+    - Nomeie o atributo que você deseja adicionar ao esquema {MyPersonAtrribute} e de acordo, crie um campo selecionando o menu “Criar” e selecione 'Campo' no menu.
     - No campo adicionado, defina suas propriedades selecionando seu Tipo, Estilo, Tamanho, Fonte e outros parâmetros relacionados na janela Propriedades do campo.
     - Mantenha o valor Padrão do atributo igual ao nome fornecido para esse atributo (por exemplo, se o nome do atributo for MyPersonAttribute, mantenha o valor padrão com o mesmo nome).
-    - Salve o subformulário $[ObjectName]InheritableSchema com os valores atualizados
-3. Substitua o Modelo do Diretório Domino <PUBNAMES.NTF> pelo novo modelo personalizado [CONTOSO.NTF] seguindo [estas etapas](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_RULES_FOR_CUSTOMIZING_THE_PUBLIC_ADDRESS_BOOK.html).
+    - Salve o subformulário ${ObjectName}InheritableSchema com os valores atualizados
+3. Substitua o Modelo do Diretório Domino {PUBNAMES.NTF} pelo novo modelo personalizado {CONTOSO.NTF} seguindo [estas etapas](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_RULES_FOR_CUSTOMIZING_THE_PUBLIC_ADDRESS_BOOK.html).
 4. Feche o Admin. do Domino e abra o Console do Domino para reiniciar o serviço LDAP e recarregar o esquema LDAP:
     - No Console do Domino, insira o comando sob o texto **Comando do Domino** arquivado para reiniciar o serviço LDAP - [Restart Task LDAP](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_STARTING_AND_STOPPING_THE_LDAP_SERVER_OVER.html).
     - Para recarregar o esquema LDAP, use o comando Tell LDAP - Tell LDAP ReloadSchema
@@ -494,8 +494,8 @@ Há várias maneiras no Domino de estender o esquema, de modo que ele parecerá 
 
 **Abordagem 2: Criar um auxClass com atributo personalizado e associar à classe do objeto**
 
-1. Crie uma cópia do Modelo do Diretório Domino [PUBNAMES.NTF] seguindo [estas etapas]()http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_CREATING_A_COPY_OF_THE_DEFAULT_PUBIC_ADDRESS_BOOK_TEMPLATE.html (Nunca personalize o Modelo do Diretório IBM Lotus Domino):
-2. Abra o modelo do diretório Cópia do Domino [CONTOSO.NTF] que acabou de ser criado no Domino Designer.
+1. Crie uma cópia do Modelo do Diretório Domino {PUBNAMES.NTF} seguindo [estas etapas](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_CREATING_A_COPY_OF_THE_DEFAULT_PUBIC_ADDRESS_BOOK_TEMPLATE.html) (Nunca personalize o Modelo do Diretório IBM Lotus Domino):
+2. Abra o modelo do diretório Cópia do Domino {CONTOSO.NTF} que acabou de ser criado no Domino Designer.
 3. No painel esquerdo, selecione o Código Compartilhado e, em seguida, os subformulários.
 4. Clique em Novo Subformulário
 5. Siga as etapas abaixo para especificar as propriedades do novo subformulário:
@@ -508,16 +508,16 @@ Há várias maneiras no Domino de estender o esquema, de modo que ele parecerá 
 6. Siga o procedimento abaixo para adicionar um campo e definir a classe de objeto auxiliar:
     - Abra o subformulário que você acabou de criar.
     - Escolha Criar - Campo.
-    - Ao lado de Nome na guia Básico da caixa de diálogo Campo, especifique qualquer nome, por exemplo: [MyPersonTestAttribute].
+    - Ao lado de Nome na guia Básico da caixa de diálogo Campo, especifique qualquer nome, por exemplo: {MyPersonTestAttribute}.
     - No campo adicionado, defina suas propriedades selecionando seu Tipo, Estilo, Tamanho, Fonte e outras propriedades relacionadas.
     - Mantenha o valor do atributo Padrão igual ao nome fornecido para esse atributo (por ex., se o nome do atributo for MyPersonTestAttribute, mantenha o valor padrão com o mesmo nome).
     - Salve o subformulário com valores atualizados e siga este procedimento:
         - No painel esquerdo, selecione o Código Compartilhado e, em seguida, Subformulários.
         - Selecione o novo subformulário e escolha Design - Propriedades de Design.
         - Clique na terceira guia da esquerda e selecione **Propagar essa proibição de alteração de design**.
-7. Abra o subformulário $[ObjectName]ExtensibleSchema, (em que [ObjectName] é o nome da classe de objeto estrutural padrão, por exemplo, Person).
-8. Insira Recurso e selecione o Subformulário (que você acabou de criar, por exemplo, TestSubform) e salve o subformulário $[ObjectName]ExtensibleSchema.
-9. Substitua o Modelo do Diretório Domino [PUBNAMES.NTF] pelo novo modelo personalizado [CONTOSO.NTF] seguindo [estas etapas](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_RULES_FOR_CUSTOMIZING_THE_PUBLIC_ADDRESS_BOOK.html).
+7. Abra o subformulário ${ObjectName}ExtensibleSchema, (em que {ObjectName} é o nome da classe de objeto estrutural padrão, por exemplo, Person).
+8. Insira Recurso e selecione o Subformulário (que você acabou de criar, por exemplo, TestSubform) e salve o subformulário ${ObjectName}ExtensibleSchema.
+9. Substitua o Modelo do Diretório Domino {PUBNAMES.NTF} pelo novo modelo personalizado {CONTOSO.NTF} seguindo [estas etapas](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_RULES_FOR_CUSTOMIZING_THE_PUBLIC_ADDRESS_BOOK.html).
 10. Feche o Admin. do Domino e abra o Console do Domino para reiniciar o serviço LDAP e recarregar o esquema LDAP:
     - No Console do Domino, insira o comando sob o texto **Comando do Domino** arquivado para reiniciar o serviço LDAP - [Restart Task LDAP](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_STARTING_AND_STOPPING_THE_LDAP_SERVER_OVER.html).
     - Para recarregar o esquema LDAP, use o comando Tell LDAP - Tell LDAP ReloadSchema
@@ -526,10 +526,10 @@ Há várias maneiras no Domino de estender o esquema, de modo que ele parecerá 
 
 **Abordagem 3: Adicionar o atributo personalizado à classe ExtensibleObject**
 
-1. Abra o arquivo [Schema.nsf] colocado no diretório raiz.
+1. Abra o arquivo {Schema.nsf} colocado no diretório raiz
 2. Selecione as Classes de Objeto LDAP no menu esquerdo em **Todos os Documentos do Esquema** e clique no botão **Adicionar classe de objeto**:
-3. Forneça o Nome LDAP no formulário de [###ExtensibleSchema] (em que ### é o nome da classe de objeto estrutural padrão, por ex., Person) com referência ao objeto para o qual deseja estender o esquema. Por exemplo, para estender o esquema para a classe de objeto Person, forneça [PersonExtensibleSchema] do nome LDAP.
-4. Forneça o nome da classe Superior Object, para o qual você deseja estender o esquema. Por exemplo, para estender o esquema para a classe de objeto Person, forneça o nome da classe Superior Object [dominoPerson]:
+3. Forneça o Nome LDAP no formulário de {zzzExtensibleSchema} (em que zzz é o nome da classe de objeto estrutural padrão, por ex., Person) com referência ao objeto para o qual deseja estender o esquema. Por exemplo, para estender o esquema para a classe de objeto Person, forneça {PersonExtensibleSchema} do nome LDAP.
+4. Forneça o nome da classe Superior Object, para o qual você deseja estender o esquema. Por exemplo, para estender o esquema para a classe de objeto Person, forneça o nome de classe Superior Object {dominoPerson}:
 5. Mencione uma OID válida correspondente para a classe de objeto.
 6. Selecione Estender/atributos personalizados nos campos Obrigatório ou Tipos de Atributo Opcionais de acordo com o requisito:
 7. Depois de adicionar os atributos necessários à ExtensibleObjectClass, clique no botão **Salvar e Fechar**.
@@ -539,4 +539,4 @@ Há várias maneiras no Domino de estender o esquema, de modo que ele parecerá 
 
 -	Para saber mais sobre como habilitar o registro em log para solucionar problemas do conector, confira [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

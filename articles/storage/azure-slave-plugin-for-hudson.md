@@ -1,22 +1,22 @@
 <properties
     pageTitle="Como usar o plug-in subordinado do Azure com Hudson Continuous Integration"
     description="Descreve como usar o plug-in subordinado do Azure com Hudson Continuous Integration."
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+	services="storage"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe" />
 
 <tags
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="11/19/2015" 
-	ms.author="v-dedomi"/>
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="01/11/2016"
+	ms.author="robmcm"/>
 
-#Como usar o plug-in subordinado do Azure com Hudson Continuous Integration
+# Como usar o plug-in subordinado do Azure com Hudson Continuous Integration
 
 O plug-in subordinado do Azure para Hudson permite provisionar nós subordinados no Azure ao executar compilações distribuídas.
 
@@ -27,7 +27,7 @@ O plug-in subordinado do Azure para Hudson permite provisionar nós subordinados
 4. Clique em **Search** e digite **Azure** para limitar a lista de plug-ins relevantes.
 
 	Se optar por percorrer a lista de plug-ins disponíveis, você encontrará o plug-in subordinado do Azure na seção **Cluster Management and Distributed Build** da guia **Others**.
-	 
+
 5. Marque a caixa de seleção **Azure Slave Plugin**.
 6. Clique em **Instalar**.
 7. Reinicie o Hudson.
@@ -81,7 +81,7 @@ Após obter seu perfil de assinatura, siga estas etapas para configurar o plug-i
 5. Copie o certificado de gerenciamento e a ID de assinatura do seu perfil de assinatura e cole-os nos campos apropriados.
 
 	Ao copiar o certificado de gerenciamento e a ID de assinatura, **não** inclua as aspas que contêm os valores.
-	
+
 6. Clique em **Verify configuration**.
 7. Quando a configuração for verificada com êxito, clique em **Save**.
 
@@ -100,7 +100,7 @@ Um modelo de máquina virtual define os parâmetros que o plug-in usará para cr
 
 5. Especifique um nome de serviço de nuvem no campo **Name**. Se o nome especificado se referir a um serviço de nuvem existente, a VM será provisionada nesse serviço. Caso contrário, o Azure criará um novo.
 6. No campo **Description**, especifique o texto que descreve o modelo que você está criando. Essas informações são apenas para fins de documentação e não são usadas no provisionamento de uma VM.
-7. No campo **Labels**, digite **linux**. Esse rótulo é usado para identificar o modelo que você está criando e, mais à frente, é usado para referenciar o modelo ao criar um trabalho do Hudson. 
+7. No campo **Labels**, digite **linux**. Esse rótulo é usado para identificar o modelo que você está criando e, mais à frente, é usado para referenciar o modelo ao criar um trabalho do Hudson.
 8. Selecione uma região onde a VM será criada.
 9. Selecione o tamanho adequado da VM.
 10. Selecione uma conta de armazenamento onde a VM será criada. Verifique se ela está na mesma região do serviço de nuvem que será usado. Caso deseje criar um novo armazenamento, deixe esse campo em branco.
@@ -118,11 +118,11 @@ Um modelo de máquina virtual define os parâmetros que o plug-in usará para cr
 	Caso deseje selecionar em uma lista de famílias de imagens, digite o primeiro caractere (diferencia maiúsculas de minúsculas) do nome da família de imagens. Por exemplo, se você digitar **U**, será exibida uma lista das famílias de servidores do Ubuntu. Quando você selecionar na lista, o Jenkins usará a versão mais recente da imagem do sistema dessa família ao provisionar sua VM.
 
 	![lista de famílias de SO](./media/azure-slave-plugin-for-hudson/hudson-oslist.png)
-	
+
 	Se você tiver uma imagem personalizada que deseja usar, insira o nome dessa imagem. Os nomes de imagens personalizadas não são mostrados em uma lista; por isso, você precisará garantir que o nome foi digitado corretamente.
 
 	Para este tutorial, digite **U** para exibir uma lista de imagens do Ubuntu e selecione **Ubuntu Server 14.04 LTS**.
- 
+
 14. Em **Launch method**, selecione **SSH**.
 15. Copie o script abaixo e cole no campo **Init script**.
 
@@ -152,7 +152,7 @@ Um modelo de máquina virtual define os parâmetros que o plug-in usará para cr
 		sudo apt-get install -y ant
 
 	O **script de inicialização** será executado após a criação da VM. Neste exemplo, o script instala ant, git e Java.
-	
+
 16. Nos campos **Username** e **Password**, insira valores de sua preferência para a conta de administrador que será criada na sua VM.
 17. Clique em **Verify Template** para verificar se os parâmetros especificados são válidos.
 18. Clique em **Save**.
@@ -162,12 +162,12 @@ Um modelo de máquina virtual define os parâmetros que o plug-in usará para cr
 
 Nesta seção, você criará uma tarefa do Hudson que será executada em um nó subordinado no Azure.
 
-1. No painel do Hudson, clique em **New Job**. 
+1. No painel do Hudson, clique em **New Job**.
 2. Digite um nome para o trabalho que você está criando.
 3. Para o tipo de trabalho, selecione **Build a free-style software job**.
 4. Clique em **OK**.
 5. Na página de configuração de trabalho, selecione **Restrict where this project can be run**.
-6. Selecione **Node and label menu** e selecione **linux** (especificamos esse rótulo ao criar o modelo de máquina virtual na seção anterior). 
+6. Selecione **Node and label menu** e selecione **linux** (especificamos esse rótulo ao criar o modelo de máquina virtual na seção anterior).
 
 7. Na seção **Build**, clique em **Add build step** e selecione **Execute shell**.
 8. Edite o seguinte script, substituindo **(nome da sua conta do github)**, **(nome do projeto)** e **(diretório do projeto)** por valores adequados e cole o script editado na área de texto exibida.
@@ -188,7 +188,7 @@ Nesta seção, você criará uma tarefa do Hudson que será executada em um nó 
   			git clone https://github.com/(your github account name)/(your project name).git
 
 		fi
-		
+
 		# change directory to project
 
 		cd $currentDir/(your project directory)
@@ -198,19 +198,10 @@ Nesta seção, você criará uma tarefa do Hudson que será executada em um nó 
 		#Execute build task
 
 		ant
-		
+
 9. Clique em **Save**.
-10. No painel do Hudson, localize o trabalho que você acabou de criar e clique no ícone **Schedule a build**. 
+10. No painel do Hudson, localize o trabalho que você acabou de criar e clique no ícone **Schedule a build**.
 
 Em seguida, o Hudson criará um nó subordinado usando o modelo criado na seção anterior e executará o script que você especificou na etapa de compilação dessa tarefa.
 
-
-
-
-
-
-  
-
-  
-
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

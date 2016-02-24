@@ -24,7 +24,7 @@ Este artigo mostra como começar a usar Docker e o [Redigir](http://github.com/d
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Modelo do Gerenciador de Recursos](https://azure.microsoft.com/documentation/templates/docker-wordpress-mysql/).
 
 
-Se você não estiver familiarizado com o Docker e contêineres, consulte o [Quadro de comunicações de nível elevado do Docker](http://azure.microsoft.com/documentation/videos/docker-high-level-whiteboard/).
+Se você não estiver familiarizado com o Docker e contêineres, consulte o [Quadro de comunicações de nível elevado do Docker](https://azure.microsoft.com/documentation/videos/docker-high-level-whiteboard/).
 
 ## Etapa 1: Configurar uma VM do Linux como um host do Docker
 
@@ -34,7 +34,7 @@ Você pode usar vários procedimentos do Azure e imagens disponíveis no Azure M
 
 Após a VM Linux estar em execução com o Docker, conecte-se a ela do seu computador cliente usando SSH. Se for necessário, instale o [Redigir](https://github.com/docker/compose/blob/882dc673ce84b0b29cd59b6815cb93f74a6c4134/docs/install.md) executando os dois comandos a seguir.
 
->[AZURE.TIP]Se você usou a extensão Docker VM para criar sua VM, o Redigir já está instalado para você. Ignore esses comandos e vá para a etapa 3. Você só precisa instalar o Redigir caso você mesmo tenha instalado o Docker na VM.
+>[AZURE.TIP] Se você usou a extensão Docker VM para criar sua VM, o Redigir já está instalado para você. Ignore esses comandos e vá para a etapa 3. Você só precisa instalar o Redigir caso você mesmo tenha instalado o Docker na VM.
 
 ```
 $ curl -L https://github.com/docker/compose/releases/download/1.1.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
@@ -89,7 +89,7 @@ Creating wordpress_db_1...
 Creating wordpress_wordpress_1...
 ```
 
->[AZURE.NOTE]Não se esqueça de usar a opção **-d** na inicialização para que os contêineres sejam executados continuamente em segundo plano.
+>[AZURE.NOTE] Não se esqueça de usar a opção **-d** na inicialização para que os contêineres sejam executados continuamente em segundo plano.
 
 Para verificar se os contêineres estão ativos, digite `docker-compose ps`. Você deve ver algo como:
 
@@ -118,11 +118,11 @@ Agora você deve ver a tela inicial do WordPress, na qual você pode concluir a 
 ## Próximas etapas
 
 * Confira a [Referência a CLI do Redigir](http://docs.docker.com/compose/reference/) e o [guia do usuário](http://docs.docker.com/compose/) para obter mais exemplos de criação e implantação de aplicativos de vários contêineres.
-* Use um modelo do Gerenciador de Recursos do Azure, seu ou da do [comunidade](http://azure.microsoft.com/documentation/templates/), para implantar uma VM do Azure com Docker e um aplicativo configurado com o Redigir. Por exemplo, o modelo [Implantar um blog WordPress com Docker](https://azure.microsoft.com/documentation/templates/docker-wordpress-mysql/) usa Docker e Redigir para implantar rapidamente o WordPress com um back-end do MySQL em uma VM do Ubuntu.
+* Use um modelo do Gerenciador de Recursos do Azure, seu ou da do [comunidade](https://azure.microsoft.com/documentation/templates/), para implantar uma VM do Azure com Docker e um aplicativo configurado com o Redigir. Por exemplo, o modelo [Implantar um blog WordPress com Docker](https://azure.microsoft.com/documentation/templates/docker-wordpress-mysql/) usa Docker e Redigir para implantar rapidamente o WordPress com um back-end do MySQL em uma VM do Ubuntu.
 * Tente integrar o Redigir do Docker com um cluster [Docker Swarm](virtual-machines-docker-swarm.md). Consulte [Integração do Redigir do Docker/Swarm](https://github.com/docker/compose/blob/master/SWARM.md) para cenários.
 
 <!--Image references-->
 
 [wordpress_start]: ./media/virtual-machines-docker-compose-quickstart/WordPress.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

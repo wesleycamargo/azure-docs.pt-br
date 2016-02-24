@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Codecs e formatos padrão do Codificador de Mídia" 
-	description="Este tópico fornece uma visão geral dos codecs e formatos do Codificador de Mídia do Azure." 
+	description="Este tópico oferece uma visão geral dos codecs e dos formatos do Codificador de Mídia Padrão." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako,anilmur" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="01/28/2016"  
 	ms.author="juliako"/>
 
 #Codecs e formatos padrão do codificador de mídia
@@ -121,4 +121,4 @@ MPEG2-TS |H.264 (Perfis Alto, Principal e Linha de base)|AAC-LC, HE-AAC v1, HE-A
 
 [Como codificar com o Codificador de Mídia Padrão](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 
@@ -28,7 +28,7 @@ Clusters do HDInsight baseados em Linux fornecem um conjunto de exemplos do MapR
 
 ##Pré-requisitos
 
-- **Uma assinatura do Azure**: consulte [Obter avaliação gratuita do Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)
+- **Uma assinatura do Azure**: consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)
 
 - **Um cluster do HDInsight baseado em Linux**: consulte [Introdução ao uso do Hadoop com o Hive no HDInsight no Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
@@ -69,7 +69,7 @@ Clusters do HDInsight baseados em Linux fornecem um conjunto de exemplos do MapR
 
 **Código-fonte**: o código-fonte desses exemplos está incluído no cluster do HDInsight em **/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples**
 
-> [AZURE.NOTE]O `2.2.4.9-1` no caminho é a versão do Hortonworks Data Platform para o cluster do HDInsight e pode ser alterado quando o HDInsight for atualizado.
+> [AZURE.NOTE] O `2.2.4.9-1` no caminho é a versão do Hortonworks Data Platform para o cluster do HDInsight e pode ser alterado quando o HDInsight for atualizado.
 
 ## Como executar os exemplos ##
 
@@ -81,13 +81,13 @@ Clusters do HDInsight baseados em Linux fornecem um conjunto de exemplos do MapR
 
 2. No prompt `username@#######:~$`, use o comando a seguir para listar os exemplos:
 
-        hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
 
     Isso vai gerar a lista de exemplos da seção anterior deste documento.
 
 3. Use o comando a seguir para obter ajuda com um exemplo específico. Neste caso, o exemplo é **wordcount**:
 
-        hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount
 
     Você deverá receber a seguinte mensagem:
 
@@ -97,17 +97,17 @@ Clusters do HDInsight baseados em Linux fornecem um conjunto de exemplos do MapR
 
 4. Use o seguinte para contar todas as palavras nos blocos de anotações de Leonardo Da Vinci, que são fornecidos como dados de exemplo com o cluster:
 
-    	hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
+    	yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
 
     A entrada para este trabalho é lida em ****wasb:///example/data/gutenberg/davinci.txt**.
 
     A saída do exemplo será armazenada em ****wasb:///example/data/davinciwordcount**.
 
-    > [AZURE.NOTE]Conforme observado na ajuda do exemplo wordcount, você também pode especificar vários arquivos de entrada. Por exemplo, `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` contaria as palavras em davinci.txt e ulysses.txt.
+    > [AZURE.NOTE] Conforme observado na ajuda do exemplo wordcount, você também pode especificar vários arquivos de entrada. Por exemplo, `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` contaria as palavras em davinci.txt e ulysses.txt.
 
 5. Quando o trabalho for concluído, use o seguinte comando para exibir a saída:
 
-        hadoop fs -cat /example/data/davinciwordcount/*
+        hdfs dfs -cat /example/data/davinciwordcount/*
 
     Isso vai concatenar todos os arquivos de saída produzidos pelo trabalho, além de exibi-los. Para este exemplo básico há apenas um arquivo. No entanto, se houvesse mais, o comando iteraria todos eles.
 
@@ -144,11 +144,11 @@ Agora, há uma certa forma de construir o quebra-cabeças Sudoku que não permit
     ? ? ? ? ? ? 2 ? ?
     ? ? ? ? 4 5 ? 7 8
 
-> [AZURE.NOTE]A porção `2.2.4.9-1` do caminho pode ser alterada conforme são feitas atualizações no cluster do HDInsight.
+> [AZURE.NOTE] A porção `2.2.4.9-1` do caminho pode ser alterada conforme são feitas atualizações no cluster do HDInsight.
 
 Para executar o exemplo do Sudoku, use o seguinte comando:
 
-    hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar sudoku /usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta
+    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar sudoku /usr/hdp/2.2.9.1-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta
 
 Os resultados devem se semelhar ao seguinte:
 
@@ -172,7 +172,7 @@ O redutor acumula os pontos contados pelos mapeadores e, em seguida, estima o va
 
 Use o seguinte comando para executar o exemplo. Ele usa 16 mapas com 10.000.000 exemplos cada um para estimar o valor de pi:
 
-    hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar pi 16 10000000
+    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar pi 16 10000000
 
 O valor retornado por este deve ser semelhante a **3,14159155000000000000**. Para referência, as 10 primeiras casas decimais de pi são 3,1415926535.
 
@@ -198,19 +198,19 @@ Use as seguintes etapas para gerar dados, classificar e validar a saída:
 
 1. Gerar 10 GB de dados, que serão armazenados no armazenamento padrão do cluster do HDInsight em ****wasb:///example/data/10GB-sort-input**:
 
-        hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=50 100000000 /example/data/10GB-sort-input
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=50 100000000 /example/data/10GB-sort-input
 
 	O `-Dmapred.map.tasks` informa o Hadoop quantas tarefas de mapeamento serão usadas para este trabalho. Os dois parâmetros finais instruem o trabalho a criar 10 GB de dados e armazená-los em ****wasb:///example/data/10GB-sort-input**.
 
 2. Use o comando a seguir para classificar os dados:
 
-		hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-input /example/data/10GB-sort-output
+		yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-input /example/data/10GB-sort-output
 
 	O `-Dmapred.reduce.tasks` informa o Hadoop quantas tarefas de redução serão usadas para o trabalho. Os dois parâmetros finais são apenas os locais de entrada e saída dos dados.
 
 3. Use o seguinte para validar os dados gerados pela classificação:
 
-		hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-output /example/data/10GB-sort-validate
+		yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-output /example/data/10GB-sort-validate
 
 ##Próximas etapas ##
 
@@ -236,4 +236,4 @@ Neste artigo, você aprendeu a executar os exemplos incluídos com os clusters d
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

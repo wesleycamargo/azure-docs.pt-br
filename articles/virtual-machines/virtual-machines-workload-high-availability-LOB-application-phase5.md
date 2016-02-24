@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="01/28/2016" 
 	ms.author="josephd"/>
 
 # Carga de trabalho de aplicativo de linha de negócios fase 5: criar o grupo de disponibilidade e adicionar os bancos de dados do aplicativo
@@ -119,4 +119,4 @@ Depois de configurar o ouvinte, você precisa configurar todas as máquinas virt
 
 - Consulte estes [diretrizes](virtual-machines-infrastructure-services-implementation-guidelines.md) se você estiver implantando sua própria carga de trabalho de TI no Azure.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

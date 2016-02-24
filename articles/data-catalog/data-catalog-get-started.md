@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/20/2015"
+   ms.date="02/08/2016"
    ms.author="derrickv"/>
 
 # Introdução ao Catálogo de Dados do Azure
@@ -24,15 +24,15 @@ Este artigo é um tutorial ponta a ponta dos cenários e recursos da visualizaç
 
 Antes de começar este tutorial, você deve ter o seguinte:
 
--	**Uma assinatura do Azure** - Se você não tiver uma, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Consulte o artigo [Avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/) para obter detalhes.
--	**Active Directory do Azure** - O Catálogo de Dados do Azure usa o [Active Directory do Azure](http://azure.microsoft.com/services/active-directory/) para gerenciar identidades e acesso.
+-	**Uma assinatura do Azure** - Se você não tiver uma, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Consulte o artigo [Avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/) para obter detalhes.
+-	**Active Directory do Azure** - O Catálogo de Dados do Azure usa o [Active Directory do Azure](https://azure.microsoft.com/services/active-directory/) para gerenciar identidades e acesso.
 -	**Fontes de dados** - O Catálogo de Dados do Azure fornece recursos para descoberta de fonte de dados, por isso você deve ter acesso a uma ou mais fontes de dados para prosseguir com o tutorial. O tutorial foi escrito usando os bancos de dados de exemplo do Adventure Works, porém você pode usar qualquer fonte de dados com suporte se preferir trabalhar com dados familiares e relevantes para sua função.
 
 ## Exercício 1: instalar o banco de dados de exemplo do Adventure Works
 
 Neste exercício, você instalará exemplo do Adventure Works para o mecanismo de Banco de Dados do SQL Server e SQL Server Analysis Services Multidimensional. Esses exemplos são usados nos exercícios a seguir.
 
-> [AZURE.NOTE]Este exercício é opcional. Os exercícios restantes neste tutorial fazem referência os bancos de dados de exemplo do Adventure Works, mas você pode optar por ignorá-los e trabalhar com suas próprias fontes de dados. Estas são as etapas para instalar o Adventure Works.
+> [AZURE.NOTE] Este exercício é opcional. Os exercícios restantes neste tutorial fazem referência os bancos de dados de exemplo do Adventure Works, mas você pode optar por ignorá-los e trabalhar com suas próprias fontes de dados. Estas são as etapas para instalar o Adventure Works.
 
 ### Instalar os bancos de dados Adventure Works 2014 OLTP e Data Warehouse
 
@@ -93,7 +93,7 @@ Neste exercício, você usará o portal do Catálogo de Dados do Azure para desc
 
 ### Veja a seguir como descobrir ativos de dados registrados
 
-O **Catálogo de Dados do Azure** tem uma sintaxe de pesquisa simples, mas avançada, que permite criar com facilidade as consultas que retornam os dados de que os usuários precisam. Para obter detalhes sobre o **Catálogo de Dados do Azure**, consulte a referência de sintaxe da Pesquisa.
+O **Catálogo de Dados do Azure** tem uma sintaxe de pesquisa simples, mas avançada, que permite criar com facilidade as consultas que retornam os dados de que os usuários precisam. Para obter detalhes sobre o **Catálogo de Dados do Azure**, consulte a Referência de sintaxe de pesquisa.
 
 O **Catálogo de Dados do Azure** tem as seguintes opções de pesquisa:
 
@@ -130,7 +130,7 @@ Neste exercício, você usará o portal do **Catálogo de Dados do Azure** para 
 
 1.	Faça logon no portal do **Catálogo de Dados do Azure**.
 2.	Clique em **Descobrir**.
-3.	Escolha um ou mais **ativos de dados**. Neste exemplo, escolha **ProductPhoto** e insira "Fotos de produto para materiais de marketing".
+3.	Escolha um ou mais **Ativos de Dados**. Neste exemplo, escolha **ProductPhoto** e insira "Fotos de produto para materiais de marketing".
 4.	Insira uma **Descrição** que ajudará outras pessoas a descobrirem e entenderem porque e como usar o ativo de dados selecionado. Digite, por exemplo: "Imagens do produto". Você também pode adicionar mais marcas e exibir colunas.
 5.	Agora você pode tentar pesquisar e filtrar para descobrir os ativos de dados usando os metadados descritivos que você adicionou ao catálogo.
 
@@ -142,7 +142,7 @@ Neste exercício, você adicionou informações descritivas aos ativos de dados 
 
 Neste exercício, você trabalhará com outro usuário adicionar metadados a ativos de dados no catálogo. A abordagem de crowdsourcing do Catálogo de Dados do Azure quanto a anotações permite que qualquer usuário adicione marcas, descrições e outros metadados, para que qualquer usuário com conhecimento sobre um ativo de dados e seu uso possa capturá-la e disponibilizá-la para os demais usuários.
 
-> [AZURE.NOTE]Se você não tiver outro usuário com quem trabalhar neste tutorial, não se preocupe! Qualquer usuário que acessa o catálogo de dados pode adicionar sua própria perspectiva sempre que desejar fazê-lo. Essa abordagem de crowdsourcing dos metadados permite que o conteúdo do catálogo e a riqueza dos metadados do catálogo cresçam com o tempo.
+> [AZURE.NOTE] Se você não tiver outro usuário com quem trabalhar neste tutorial, não se preocupe! Qualquer usuário que acessa o catálogo de dados pode adicionar sua própria perspectiva sempre que desejar fazê-lo. Essa abordagem de crowdsourcing dos metadados permite que o conteúdo do catálogo e a riqueza dos metadados do catálogo cresçam com o tempo.
 
 ### Veja aqui como fazer crowdsourcing dos metadados dos ativos de dados
 
@@ -159,7 +159,7 @@ Neste exercício, você explorou os recursos do Catálogo de Dados do Azure para
 Neste exercício, você usará o portal do **Catálogo de Dados do Azure** para se conectar a fontes de dados usando o Microsoft Excel.
 
 
-> [AZURE.NOTE]É importante lembrar que o **Catálogo de Dados do Azure** não concede aos usuários acesso à fonte de dados real – ele simplesmente facilita sua descoberta e sua compreensão. Quando os usuários se conectam a uma fonte de dados, o aplicativo cliente escolhido usará as credenciais do Windows ou solicitará as credenciais conforme necessário. Se o usuário não tiver recebido acesso à fonte de dados previamente, ele precisará desse acesso para poder conectar.
+> [AZURE.NOTE] É importante lembrar que o **Catálogo de Dados do Azure** não concede aos usuários acesso à fonte de dados real – ele simplesmente facilita sua descoberta e sua compreensão. Quando os usuários se conectam a uma fonte de dados, o aplicativo cliente escolhido usará as credenciais do Windows ou solicitará as credenciais conforme necessário. Se o usuário não tiver recebido acesso à fonte de dados previamente, ele precisará desse acesso para poder conectar.
 
 ### Veja como se conectar a uma fonte de dados do Excel
 
@@ -181,7 +181,7 @@ Neste exercício, você se conectou às fontes de dados descobertas usando o Cat
 
 Neste exercício, você usará o portal do **Catálogo de Dados do Azure** para remover dados de visualização de ativos de dados registrados e excluir ativos de dados do catálogo.
 
-> [AZURE.NOTE]O comportamento padrão do catálogo é permitir que qualquer usuário registre qualquer fonte de dados, bem como permitir que qualquer usuário exclua qualquer ativo de dados que foi registrado. Os recursos de gerenciamento incluídos na **Edição Standard do Catálogo de Dados do Azure** fornecem opções adicionais para a apropriação dos ativos, a restrição de quem pode descobri-los e a restrição de quem pode excluí-los.
+> [AZURE.NOTE] O comportamento padrão do catálogo é permitir que qualquer usuário registre qualquer fonte de dados, bem como permitir que qualquer usuário exclua qualquer ativo de dados que foi registrado. Os recursos de gerenciamento incluídos na **Edição Standard do Catálogo de Dados do Azure** fornecem opções adicionais para a apropriação dos ativos, a restrição de quem pode descobri-los e a restrição de quem pode excluí-los.
 
 No **Catálogo de Dados do Azure**, você pode remover a visualização do ativo individual ou excluir vários ativos.
 
@@ -198,7 +198,7 @@ Neste exercício, você removeu ativos de dados registrado do catálogo.
 
 Neste exercício, você usará os recursos de gerenciamento do **Catálogo de Dados do Azure** para se apropriar de ativos de dados e para controlar quais usuários poderão descobrir e gerenciar os ativos.
 
-Observação: os recursos de gerenciamento descritos neste exercício estão disponíveis apenas na Edição Standard do Catálogo de Dados do Azure e não na Edição Gratuita. No **Catálogo de Dados do Azure**, você pode se apropriar de ativos de dados, adicionar coproprietários para ativos de dados e definir a visibilidade dos ativos de dados.
+Observação: os recursos de gerenciamento descritos neste exercício estão disponíveis apenas na Edição Standard do Catálogo de Dados do Azure e não na Edição Gratuita. No **Catálogo de Dados do Azure**, você pode apropriar-se dos ativos de dados, adicionar co-proprietários e definir a visibilidade dos ativos de dados.
 
 ### Veja aqui como apropriar-se dos ativos de dados e restringir a visibilidade
 
@@ -232,4 +232,4 @@ Neste tutorial, você explorou recursos essenciais da visualização do **Catál
 [12]: ./media/data-catalog-get-started/ownership.png
 [13]: ./media/data-catalog-get-started/crowdsource.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

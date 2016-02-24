@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"/>
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/08/2015"
+   ms.date="02/04/2016"
    ms.author="cherylmc"/>
 
 # Criar e modificar um circuito da Rota Expressa usando o PowerShell
@@ -22,14 +22,14 @@
 [PowerShell - Classic](expressroute-howto-circuit-classic.md)
 [PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
 
-Este artigo fornece uma orientação pelas etapas de criação de um circuito da Rota Expressa usando cmdlets do PowerShell e o modelo de implantação clássico. As etapas a seguir também mostrarão a você como verificar o status, atualizar ou excluir e desprovisionar um circuito da Rota Expressa.
+Este artigo fornece uma orientação pelas etapas de criação de um circuito da Rota Expressa usando cmdlets do PowerShell e o modelo de implantação **clássico**. As etapas a seguir também mostrarão a você como verificar o status, atualizar ou excluir e desprovisionar um circuito da Rota Expressa. Se você deseja criar e modificar um circuito de Rota Expressa usando o modelo de implantação do **Gerenciador de Recursos**, consulte [Criar e modificar um circuito de Rota Expressa usando o modelo de implantação do Gerenciador de Recursos](expressroute-howto-circuit-arm.md).
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
 
 ## Pré-requisitos de configuração
 
-- Você precisará da versão mais recente dos módulos do Azure PowerShell. Baixe o módulo mais recente do PowerShell na seção PowerShell da [página Downloads do Azure](http://azure.microsoft.com/downloads). Siga as instruções na página [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para obter orientações detalhadas sobre como configurar o computador para usar os módulos do Azure PowerShell. 
+- Você precisará da versão mais recente dos módulos do Azure PowerShell. Baixe o módulo mais recente do PowerShell na seção PowerShell da [página Downloads do Azure](https://azure.microsoft.com/downloads/). Siga as instruções na página [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para obter orientações detalhadas sobre como configurar o computador para usar os módulos do Azure PowerShell. 
 - Examine a página [Pré-requisitos](expressroute-prerequisites.md) e a página [Fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
 
 ## Criar e provisionar um circuito da Rota Expressa
@@ -43,7 +43,7 @@ Este artigo fornece uma orientação pelas etapas de criação de um circuito da
 
 2. **Obtenha a lista de provedores, locais e larguras de banda com suporte.**
 
-	Antes de criar um circuito da Rota Expressa você precisará de uma lista de provedores de conectividade, dos locais com suporte e de opções de largura de banda. O cmdlet do PowerShell *Get-AzureDedicatedCircuitServiceProvider* retorna essas informações, que serão usadas em etapas posteriores.
+	Antes de criar um circuito da Rota Expressa você precisará de uma lista de provedores de conectividade, dos locais com suporte e de opções de largura de banda. O cmdlet do PowerShell *Get-AzureDedicatedCircuitServiceProvider* retorna essas informações, que serão usadas em etapas posteriores. Quando você executar o cmdlet, o resultado se parecerá com o exemplo abaixo.
 
 		PS C:\> Get-AzureDedicatedCircuitServiceProvider
 
@@ -197,7 +197,7 @@ Este artigo fornece uma orientação pelas etapas de criação de um circuito da
 
 7. **Vincule uma Rede Virtual a um circuito da Rota Expressa.**
 
-	Em seguia, vincule uma Rede Virtual ao seu circuito da Rota Expressa. Veja [Vinculando circuitos da Rota Expressa a redes virtuais](expressroute-howto-linkvnet-classic.md) para obter instruções passo a passo. Se você precisar criar uma rede virtual para a Rota Expressa, consulte [Criando uma rede virtual para a Rota Expressa](expressroute-howto-createvnet-classic.md) para obter instruções.
+	Em seguia, vincule uma Rede Virtual ao seu circuito da Rota Expressa. Veja [Vinculando circuitos da Rota Expressa a redes virtuais](expressroute-howto-linkvnet-classic.md) para obter instruções passo a passo. Se precisa criar uma rede virtual usando o modelo de implantação clássica da Rota Expressa, confira [Configurar uma rede virtual para Rota Expressa](expressroute-howto-vnet-portal-classic.md) para obter instruções.
 
 ##  Obter o status de um circuito da Rota Expressa
 
@@ -286,7 +286,7 @@ Você pode desabilitar o complemento premium da Rota Expressa para o circuito ex
 
 O complemento Premium agora está desabilitado para o seu circuito.
 
->[AZURE.IMPORTANT]Esta operação poderá falhar se você estiver usando recursos que ultrapassam o que é permitido para o circuito padrão.
+>[AZURE.IMPORTANT] Esta operação poderá falhar se você estiver usando recursos que ultrapassam o que é permitido para o circuito padrão.
 >
 >- Verifique se o número de redes virtuais vinculadas ao circuito é menor do que 10 antes de fazer o downgrade de Premium para padrão. Caso contrário, sua solicitação de atualização falhará e você receberá uma cobrança com as taxas premium.
 - Você precisa desvincular todas as redes virtuais em outras regiões geopolíticas. Caso contrário, sua solicitação de atualização falhará e você receberá uma cobrança com as taxas premium.
@@ -310,7 +310,7 @@ Verifique a página [Perguntas frequentes sobre a Rota Expressa](expressroute-fa
 
 O circuito será sido dimensionado no lado da Microsoft. Entre em contato com seu provedor de conectividade para que ele atualize as configurações a fim de corresponder a essa alteração. Observe que passaremos a lhe cobrar pela opção de largura de banda atualizada a partir desse momento.
 
->[AZURE.IMPORTANT]Não é possível reduzir a largura de banda de um circuito da Rota Expressa sem interrupções. O downgrade da largura de banda exige o desprovisionamento do circuito da Rota Expressa e um novo provisionamento de um novo circuito da Rota Expressa.
+>[AZURE.IMPORTANT] Não é possível reduzir a largura de banda de um circuito da Rota Expressa sem interrupções. O downgrade da largura de banda exige o desprovisionamento do circuito da Rota Expressa e um novo provisionamento de um novo circuito da Rota Expressa.
 
 ##  Excluir e desprovisionar um circuito da Rota Expressa
 
@@ -328,4 +328,4 @@ Se o provedor de serviços tiver desprovisionado o circuito (o estado de provisi
 
 - [Configurar o roteamento](expressroute-howto-routing-classic.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

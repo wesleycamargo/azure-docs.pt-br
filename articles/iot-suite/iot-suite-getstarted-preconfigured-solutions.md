@@ -2,13 +2,14 @@
 	pageTitle="Introdução às soluções pré-configuradas | Microsoft Azure"
 	description="Siga este tutorial para aprender a implantar uma solução pré-configurada do Azure IoT Suite."
 	services=""
+    suite="iot-suite"
 	documentationCenter=""
 	authors="dominicbetts"
 	manager="timlt"
 	editor=""/>
 
 <tags
-     ms.service="na"
+     ms.service="iot-suite"
      ms.devlang="na"
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
@@ -26,7 +27,7 @@ Este tutorial mostra como provisionar a solução pré-configurada de *monitoram
 
 Para concluir este tutorial, você precisará de uma assinatura ativa do Azure.
 
-> [AZURE.NOTE]Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure][lnk_free_trial].
+> [AZURE.NOTE]  Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure][lnk_free_trial].
 
 ## Provisionamento de uma solução pré-configurada de monitoramento remoto
 
@@ -56,7 +57,7 @@ Para concluir este tutorial, você precisará de uma assinatura ativa do Azure.
 
     ![][img-devicelist]
 
-2.  Você pode ver que há quatro dispositivos simulados criados pelo processo de provisionamento.
+2.  A lista de dispositivos mostra que há quatro dispositivos simulados criados pelo processo de provisionamento.
 
 3.  Clique em um dispositivo na lista de dispositivos para exibir os respectivos detalhes.
 
@@ -129,6 +130,8 @@ Para concluir este tutorial, você precisará de uma assinatura ativa do Azure.
 9.  Retorne à tabela **Histórico de Alarmes** no **Painel de Solução** e observe a alteração no comportamento devido à regra atualizada.
 
     ![][img-newhistory]
+    
+Ao terminar, você poderá excluir a solução pré-configurada de sua assinatura do Azure no site [azureiotsuite.com][lnk-azureiotsuite] - isso permite excluir facilmente todos os recursos que foram provisionados quando você criou a solução pré-configurada.
 
 ## Próximas etapas
 
@@ -159,4 +162,4 @@ Agora que você criou uma solução de trabalho pré-configurada, você pode pas
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-predictive]: iot-suite-predictive-overview.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

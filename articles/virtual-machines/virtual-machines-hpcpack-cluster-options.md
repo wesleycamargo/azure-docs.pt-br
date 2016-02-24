@@ -1,7 +1,7 @@
 <properties
  pageTitle="Opções de cluster do HPC Pack na nuvem | Microsoft Azure"
  description="Saiba mais sobre as opções com o Microsoft HPC Pack para criar e gerenciar um cluster HPC (computação de alto desempenho) na nuvem do Azure."
- services="virtual-machines,cloud-services"
+ services="virtual-machines,cloud-services,batch"
  documentationCenter=""
  authors="dlepow"
  manager="timlt"
@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="10/08/2015"
+ ms.date="02/04/2016"
  ms.author="danlep"/>
 
 # Opções para criar e gerenciar um cluster HPC (computação de alto desempenho) no Azure com o Microsoft HPC Pack
@@ -26,22 +26,29 @@ Aproveite os serviços de computação e de infraestrutura do Microsoft HPC Pack
 
 ## Executar um cluster HPC Pack em VMs do Azure
 
+### Modelos do Azure
+
+* (Marketplace) [Cluster HPC Pack para cargas de trabalho do Windows](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterwindowscn/)
+
+* (Marketplace) [Cluster HPC Pack para cargas de trabalho do Excel](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterexcelcn/)
+
+* (Marketplace) [Cluster HPC Pack para cargas de trabalho do Linux](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/)
+
+* (Início rápido) [Criar um cluster HPC](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)
+
+* (Início rápido) [Implantar um cluster de HPC Pack com nós de computação Linux](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)
+
+* (Início rápido) [Criar um cluster HPC com uma imagem personalizada de nó de computação](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/)
 
 ### Imagens de VM do Azure
 
-* [HPC Pack no Windows Server 2012 R2](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)
+* [HPC Pack no Windows Server 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)
 
-* [Nó de computação do HPC Pack no Windows Server 2012 R2](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodeonwindowsserver2012r2/)
+* [Nó de computação do HPC Pack no Windows Server 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodeonwindowsserver2012r2/)
 
-* [Nó de computação do HPC Pack com Excel no Windows Server 2012 R2](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodewithexcelonwindowsserver2012r2/)
+* [Nó de computação do HPC Pack com Excel no Windows Server 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodewithexcelonwindowsserver2012r2/)
 
-### Modelos de início rápido do Azure
 
-* [Criar um cluster HPC](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)
-
-* [Implantar um cluster de HPC Pack com nós de computação Linux](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)
-
-* [Criar um cluster HPC com uma imagem personalizada de nó de computação](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/)
 
 ### Script de implantação do PowerShell
 
@@ -59,9 +66,7 @@ Aproveite os serviços de computação e de infraestrutura do Microsoft HPC Pack
 
 
 
-### Implantação manual com o portal clássico do Azure
-
-
+### Implantação manual com o portal do Azure
 
 * [Configurar o nó de cabeçalho de um cluster HPC Pack em uma VM do Azure](virtual-machines-hpcpack-cluster-headnode.md)
 
@@ -69,7 +74,6 @@ Aproveite os serviços de computação e de infraestrutura do Microsoft HPC Pack
 
 * [Gerenciar nós de computação em um cluster HPC Pack no Azure](virtual-machines-hpcpack-cluster-node-manage.md)
 
-* [Adicionar nós de “disparo contínuo” do Azure a um nó de cabeçalho do HPC Pack no Azure](virtual-machines-hpcpack-cluster-node-burst.md)
 
 * [Aumentar ou reduzir os recursos de computação do Azure em um cluster HPC Pack](virtual-machines-hpcpack-cluster-node-autogrowshrink.md)
 
@@ -97,6 +101,6 @@ Aproveite os serviços de computação e de infraestrutura do Microsoft HPC Pack
 
 * [Tutorial: Executar OpenFOAM com o Microsoft HPC Pack em um cluster de RDMA do Linux no Azure](virtual-machines-linux-cluster-hpcpack-openfoam.md)
 
-<!-- * [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-hpcpack-cluster-rdma.md) -->
+* [Configurar um cluster de RDMA do Linux para executar aplicativos MPI](virtual-machines-linux-cluster-rdma.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

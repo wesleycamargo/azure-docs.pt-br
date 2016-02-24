@@ -33,7 +33,7 @@ Primeiro, você precisa de uma assinatura do [Microsoft Azure](http://azure.com)
 
 Ou então você pode criar uma nova assinatura. A avaliação gratuita permite que experimentar tudo no Azure. Depois que o período de avaliação expira, você pode achar a assinatura pré-paga apropriada, já que você não será cobrado pelos serviços gratuitos.
 
-Quando você tem acesso a uma assinatura, entre no Application Insights em [http://portal.azure.com](http://portal.azure.com) e use sua Live ID para fazer logon.
+Quando você tem acesso a uma assinatura, entre no Application Insights em [http://portal.azure.com](https://portal.azure.com) e use sua Live ID para fazer logon.
 
 
 ## Criar um recurso do Application Insights
@@ -94,4 +94,4 @@ Você pode escrever um [script do PowerShell](app-insights-powershell-script-cre
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

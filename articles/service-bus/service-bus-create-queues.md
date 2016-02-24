@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/16/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
 # Criar aplicativos que usem as filas do Barramento de Serviço
@@ -55,7 +55,7 @@ A seção a seguir mostra como usar o Barramento de Serviço para criar esse apl
 
 ### Inscrever-se em uma conta e em uma assinatura do Barramento de Serviço
 
-Você precisará de uma conta do Azure para começar a trabalhar com o Barramento de Serviço. Se você ainda não tiver uma assinatura, poderá se inscrever em uma avaliação gratuita [aqui](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
+Você precisará de uma conta do Azure para começar a trabalhar com o Barramento de Serviço. Se você ainda não tiver uma assinatura, poderá se inscrever em uma avaliação gratuita [aqui](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
 
 ### Criar um namespace de serviço
 
@@ -63,7 +63,7 @@ Quando você tiver uma assinatura, poderá criar um novo namespace. Será necess
 
 ### Instalar o pacote NuGet
 
-Para usar o namespace de serviço do Barramento de Serviço, um aplicativo deverá referenciar o assembly do Barramento de Serviço, especificamente o Microsoft.ServiceBus.dll. Esse assembly pode ser encontrado como parte do SDK do Microsoft Azure e o download está disponível na [página de download do SDK do Azure](http://azure.microsoft.com/downloads/). Entretanto, o pacote NuGet do Barramento de Serviço é a maneira mais fácil de obter a API do Barramento de Serviço e de configurar seu aplicativo com todas as dependências do Barramento de Serviço. Para obter detalhes sobre como usar o NuGet e o pacote do Barramento de Serviço, confira [Usando o pacote NuGet do Barramento de Serviço](https://msdn.microsoft.com/library/dn741354.aspx).
+Para usar o namespace de serviço do Barramento de Serviço, um aplicativo deverá referenciar o assembly do Barramento de Serviço, especificamente o Microsoft.ServiceBus.dll. Esse assembly pode ser encontrado como parte do SDK do Microsoft Azure e o download está disponível na [página de download do SDK do Azure](https://azure.microsoft.com/downloads/). Entretanto, o pacote NuGet do Barramento de Serviço é a maneira mais fácil de obter a API do Barramento de Serviço e de configurar seu aplicativo com todas as dependências do Barramento de Serviço. Para obter detalhes sobre como usar o NuGet e o pacote do Barramento de Serviço, confira [Usando o pacote NuGet do Barramento de Serviço](https://msdn.microsoft.com/library/dn741354.aspx).
 
 ### Criar a fila
 
@@ -97,7 +97,7 @@ Para operações de tempo de execução em entidades do Barramento de Serviço; 
  bm.Properties["MachineID"] = "POS_1";
 ```
 
-As mensagens enviadas e recebidas das filas do Barramento de Serviço são instâncias da classe [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx). Essa classe consiste em um conjunto de propriedades padrão (como [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) e [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), um dicionário usado para manter as propriedades do aplicativo e um corpo de dados de aplicativo arbitrários. Um aplicativo pode definir o corpo passando qualquer objeto serializável (o exemplo a seguir passa um objeto **SalesData** que representa os dados de vendas do terminal de PDV), que usará o [DataContractSerializer](https://msdn.microsoft.com/library/azure/system.runtime.serialization.datacontractserializer.aspx) para serializar o objeto. Como alternativa, poderá ser fornecido um objeto [Stream](https://msdn.microsoft.com/library/azure/system.io.stream.aspx).
+As mensagens enviadas para (e recebidas de) filas de Barramento de Serviço são instâncias da classe [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx). Essa classe consiste em um conjunto de propriedades padrão (como [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) e [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), um dicionário usado para manter as propriedades do aplicativo e um corpo de dados de aplicativo arbitrários. Um aplicativo pode definir o corpo passando qualquer objeto serializável (o exemplo a seguir passa um objeto **SalesData** que representa os dados de vendas do terminal de PDV), que usará o [DataContractSerializer](https://msdn.microsoft.com/library/azure/system.runtime.serialization.datacontractserializer.aspx) para serializar o objeto. Como alternativa, poderá ser fornecido um objeto [Stream](https://msdn.microsoft.com/library/azure/system.io.stream.aspx).
 
 A maneira mais fácil de enviar mensagens para uma determinada fila, no nosso caso, **DataCollectionQueue**, é usar [CreateMessageSender](https://msdn.microsoft.com/library/azure/hh322659.aspx) para criar um objeto [MessageSender](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx) diretamente da instância de [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx).
 
@@ -160,4 +160,4 @@ catch (Exception e)
 
 Agora que você aprendeu os conceitos básicos sobre filas, confira [Criar aplicativos que usam assinaturas e tópicos do Barramento de Serviço](service-bus-create-topics-subscriptions.md) para continuar essa discussão usando os recursos de publicação/assinatura do sistema de mensagens agenciado do Barramento de Serviço.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -12,20 +12,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/23/2015"
+   ms.date="01/27/2016"
    ms.author="bwren" />
 
 # Ativos de conexão na Automação do Azure
 
 Um ativo de conexão da Automação contém as informações necessárias para se conectar a um aplicativo ou serviço externo de um runbook ou da configuração DSC. Isso pode incluir as informações necessárias para autenticação, como um nome de usuário e uma senha, além das informações de conexão, como uma URL ou uma porta. O valor de uma conexão é manter todas as propriedades para se conectar a um aplicativo específico em um ativo, em vez de criar diversas variáveis. O usuário pode editar os valores para uma conexão em um único local, e você pode transmitir o nome de uma conexão para um runbook ou uma configuração DSC em um único parâmetro. As propriedades de uma conexão podem ser acessadas no runbook ou na configuração DSC com a atividade **Get-AutomationConnection**.
 
-Ao criar uma conexão, você deve especificar um *tipo de conexão*. O tipo de conexão é um modelo que define um conjunto de propriedades. A conexão define valores para cada propriedade definida em seu tipo de conexão. Os tipos de conexão são adicionados à Automação do Azure nos módulos de integração ou criados com a [API da Automação do Azure](http://msdn.microsoft.com/library/azure/mt163818.aspx). Os únicos tipos de conexão que estão disponíveis quando você cria uma conexão são aqueles instalados em sua conta de automação.
+Ao criar uma conexão, você deve especificar um *tipo de conexão*. O tipo de conexão é um modelo que define um conjunto de propriedades. A conexão define valores para cada propriedade definida em seu tipo de conexão. Os tipos de conexão são adicionados à Automação do Azure nos módulos de integração ou criados com a [API da Automação do Azure](http://msdn.microsoft.com/library/azure/mt163818.aspx). Os únicos tipos de conexão que estão disponíveis quando você cria uma conexão são aqueles instalados em sua conta de Automação.
 
->[AZURE.NOTE]Os ativos protegidos na Automação do Azure incluem credenciais, certificados, conexões e variáveis criptografadas. Esses ativos são criptografados e armazenados na Automação do Azure usando uma chave exclusiva que é gerada para cada conta de automação. Essa chave é criptografada por um certificado mestre e armazenada na Automação do Azure. Antes de armazenar um ativo seguro, a chave para a conta de automação é descriptografada usando o certificado mestre e usada para criptografar o ativo.
+>[AZURE.NOTE] Os ativos protegidos na Automação do Azure incluem credenciais, certificados, conexões e variáveis criptografadas. Esses ativos são criptografados e armazenados na Automação do Azure usando uma chave exclusiva que é gerada para cada conta de automação. Essa chave é criptografada por um certificado mestre e armazenada na Automação do Azure. Antes de armazenar um ativo seguro, a chave para a conta de automação é descriptografada usando o certificado mestre e usada para criptografar o ativo.
 
 ## Cmdlets do Windows PowerShell
 
-Os cmdlets na tabela a seguir são usados para criar e gerenciar conexões da Automação com o Windows PowerShell. Eles são fornecidos como parte do [módulo do Azure PowerShell](../powershell-install-configure.md) que está disponível para uso em runbooks e configurações DSC da Automação.
+Os cmdlets na tabela a seguir são usados para criar e gerenciar conexões de Automação com o Windows PowerShell. Eles são fornecidos como parte do [módulo do Azure PowerShell](../powershell-install-configure.md) que está disponível para uso em runbooks e na configuração DSC da Automação.
 
 |Cmdlet|Descrição|
 |:---|:---|
@@ -42,11 +42,11 @@ As atividades na tabela a seguir são usadas para acessar conexões em um runboo
 |---|---|
 |Get-AutomationConnection|Obtém uma conexão a ser usada. Retorna uma tabela de hash com as propriedades da conexão.|
 
->[AZURE.NOTE]Evite usar variáveis no parâmetro –Name de **Get-AutomationConnection**, pois isso pode complicar a descoberta de dependências entre runbooks ou configurações DSC e ativos de conexão no momento do design.
+>[AZURE.NOTE] Evite usar variáveis no parâmetro –Name de **Get-AutomationConnection**, pois isso pode complicar a descoberta de dependências entre runbooks ou configurações DSC e ativos de conexão no momento do design.
 
 ## Criando uma nova conexão
 
-### Para criar uma nova conexão com o portal do Azure
+### Para criar uma nova conexão com o portal clássico do Azure
 
 1. Em sua conta de automação, clique em **Ativos** na parte superior da janela.
 1. Clique em **Adicionar Configuração** na parte inferior da janela.
@@ -55,7 +55,7 @@ As atividades na tabela a seguir são usadas para acessar conexões em um runboo
 1. Conclua o assistente e clique na caixa de seleção para salvar a nova conexão.
 
 
-### Para criar uma nova conexão com o portal de visualização do Azure
+### Para criar uma nova conexão com o portal do Azure
 
 1. Em sua conta de automação, clique na parte **Ativos** para abrir a folha de **Ativos**.
 1. Clique na parte **Conexões** para abrir a folha **Conexões**.
@@ -95,7 +95,7 @@ Os comandos de exemplo a seguir mostram como usar a conexão do Twilio do exempl
 	Send-TwilioSMS -Connection $Con -From $NumFrom -To $NumTo -Body $Body
 
 	#Send text with connection properties.
-	Send-TwilioSMS -AccountSid $Con.AccountSid -AuthToken $Con.AuthToken $Con -From $NumFrom -To $NumTo -Body $Body
+	Send-TwilioSMS -AccountSid $Con.AccountSid -AuthToken $Con.AuthToken -From $NumFrom -To $NumTo -Body $Body
 
 ### Exemplos de runbook gráfico
 
@@ -120,4 +120,4 @@ A imagem abaixo mostra o mesmo exemplo mostrado acima, mas usa o conjunto de par
 - [Links na criação gráfica](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0204_2016-->

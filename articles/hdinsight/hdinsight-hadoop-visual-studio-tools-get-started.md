@@ -15,7 +15,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="11/30/2015"
+	ms.date="01/27/2016"
 	ms.author="jgao"/>
 
 # Começar a usar as ferramentas Hadoop para HDInsight do Visual Studio para executar uma consulta de Hive
@@ -38,7 +38,7 @@ Para concluir este tutorial e usar as ferramentas do Hadoop no Visual Studio, vo
 		- Visual Studio 2013 Community/Professional/Premium/Ultimate com [Atualização 4](https://www.microsoft.com/download/details.aspx?id=44921)
 		- Visual Studio 2015 (Community/Enterprise)
 
-	>[AZURE.NOTE]Atualmente, as ferramentas de HDInsight para o Visual Studio são fornecidas apenas na versão em inglês.
+	>[AZURE.NOTE] Atualmente, as ferramentas de HDInsight para o Visual Studio são fornecidas apenas na versão em inglês.
 
 
 ## Instalar ferramentas do HDInsight para Visual Studio
@@ -55,9 +55,7 @@ As Ferramentas HDInsight para Visual Studio e o Driver ODBC do Microsoft Hive s�
 ## Conectar-se a assinaturas do Azure
 As ferramentas do HDInsight para o Visual Studio permitem que você se conecte a seus clusters de HDInsight, execute algumas operações básicas de gerenciamento e execute consultas Hive.
 
->[AZURE.NOTE]Para usar o emulador de HDInsight, consulte [Introdução ao emulador do HDInsight](../hdinsight-get-started-emulator.md/#vstools).
-
->[AZURE.NOTE]Para obter informações sobre como se conectar a um cluster Hadoop genérico (visualização), consulte [escrever e enviar consultas Hive usando o Visual Studio](http://blogs.msdn.com/b/xiaoyong/archive/2015/05/04/how-to-write-and-submit-hive-queries-using-visual-studio.aspx).
+>[AZURE.NOTE] Para obter informações sobre como se conectar a um cluster Hadoop genérico, confira [escrever e enviar consultas Hive usando o Visual Studio](http://blogs.msdn.com/b/xiaoyong/archive/2015/05/04/how-to-write-and-submit-hive-queries-using-visual-studio.aspx).
 
 
 **Para conectar-se à sua assinatura do Azure**
@@ -66,7 +64,7 @@ As ferramentas do HDInsight para o Visual Studio permitem que você se conecte a
 2.	No menu **Exibir**, clique em **Gerenciador de Servidores** para abrir a janela Gerenciador de Servidores.
 3.	Expanda **Azure**, então expanda **HDInsight**.
 
-	>[AZURE.NOTE]Observe que a janela **Lista de tarefas do HDInsight** deve estar aberta. Se não estiver, clique em **Outras Janelas** no menu **Exibição** e depois clique na **Janela de Lista de Tarefas do HDInsight** para abri-la.  
+	>[AZURE.NOTE]Observe se a janela **lista de tarefas do HDInsight** está aberta. Se não estiver, clique em **Outras Janelas** no menu **Exibição** e depois clique na **Janela de Lista de Tarefas do HDInsight** para abri-la.  
 4.	Insira suas credenciais de assinatura do Azure e, em seguida, clique em **Entrar**. Isso só será necessário se você nunca tiver se conectado à assinatura do Azure pelo Visual Studio nesta estação de trabalho.
 5.	No Gerenciador de Servidores, você verá uma lista de clusters existentes do HDInsight. Se você não tiver nenhum cluster, poderá provisionar um usando o Portal do Azure, o Azure PowerShell ou o SDK do HDInsight. Para obter mais informações, consulte [Provisionar clusters do HDInsight][hdinsight-provision].
 
@@ -140,7 +138,7 @@ Há duas maneiras de criar e executar consultas Hive:
 
 	![Ferramentas Hadoop: Ferramentas do Visual Studio IntelliSense para HDInsight][14]
 
-	> [AZURE.NOTE]Apenas os metadados dos clusters selecionados na barra de ferramentas de HDInsight serão sugeridos.
+	> [AZURE.NOTE] Apenas os metadados dos clusters selecionados na barra de ferramentas de HDInsight serão sugeridos.
 4. (Opcional): clique em **Validar Script** para verificar os erros de sintaxe do script.
 
 	![Ferramentas Hadoop: validação local das ferramentas do HDinsight para Visual Studio][10]
@@ -182,7 +180,7 @@ A versão mais recente da ferramenta permite que você veja o que está dentro d
 
 ### Execução do Hive de caminho mais rápido via HiveServer2
 
->[AZURE.NOTE]Este tutorial funciona com o cluster HDInsight versão 3.2 e mais recentes.
+>[AZURE.NOTE] Este tutorial funciona com o cluster HDInsight versão 3.2 e mais recentes.
 
 As ferramentas do HDInsight usadas para enviar trabalhos Hive via WebHCat (também conhecido como Templeton). Demorou muito tempo para retornar informações de erro e detalhes do trabalho. Para resolver esse problema de desempenho, as Ferramentas do HDInsight executam trabalhos do Hive diretamente no cluster por meio do HiveServer2 para que ele ignore RDP/SSH. Além de melhorar o desempenho, os usuários também podem exibir o Hive em gráficos Tez e os detalhes da Tarefa.
 
@@ -210,7 +208,7 @@ Embora a execução de consultas por meio do HiveServer2 traga muitos benefício
 
 As Ferramentas do Visual Studio para HDInsight dão suporte para mostrar gráficos de desempenho para os trabalhos de Hive executados pelo mecanismo de execução Tez. Para saber mais sobre como habilitar Tez, consulte [usar o Hive no HDInsight][hdinsight.hive]. Depois de enviar um trabalho do Hive no Visual Studio, o Visual Studio mostrará o gráfico quando o trabalho for concluído. Talvez seja necessário clicar no botão **Atualizar** para obter o status mais recente do trabalho.
 
-> [AZURE.NOTE]Esse recurso só está disponível para o cluster HDInsight versão acima de 3.2.4.593 e só pode funcionar para trabalhos concluídos. Isso funciona para clusters baseados em Windows e Linux.
+> [AZURE.NOTE] Esse recurso só está disponível para o cluster HDInsight versão acima de 3.2.4.593 e só pode funcionar para trabalhos concluídos. Isso funciona para clusters baseados em Windows e Linux.
 
 ![gráfico de desempenho do hive tez do hadoop](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.hive.tez.performance.graph.png)
 
@@ -258,15 +256,15 @@ Neste artigo, você aprendeu como se conectar a clusters HDInsight no Visual Stu
 
 
 <!--Link references-->
-[hdinsight-provision]: ../hdinsight/hdinsight-provision-clusters.md
-[hdinsight.introduction]: ../hdinsight-introduction.md
-[hdinsight.get.started]: ../hdinsight-get-started.md
-[hdinsight.hive]: ../hdinsight/hdinsight-use-hive.md
-[hdinsight.submit.jobs]: ../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md
-[hdinsight.analyze.twitter.data]: ../hdinsight/hdinsight-analyze-twitter-data.md
-[hdinsight.storm.visual.studio.tools]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
-[hdinsight.access.application.logs]: ../hdinsight/hdinsight-hadoop-access-yarn-app-logs.md
+[hdinsight-provision]: hdinsight/hdinsight-provision-clusters.md
+[hdinsight.introduction]: hdinsight-introduction.md
+[hdinsight.get.started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight.hive]: hdinsight/hdinsight-use-hive.md
+[hdinsight.submit.jobs]: hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md
+[hdinsight.analyze.twitter.data]: hdinsight/hdinsight-analyze-twitter-data.md
+[hdinsight.storm.visual.studio.tools]: hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
+[hdinsight.access.application.logs]: hdinsight/hdinsight-hadoop-access-yarn-app-logs.md
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

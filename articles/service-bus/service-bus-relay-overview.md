@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="service-bus"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.topic="get-started-article"
+	ms.date="01/26/2016"
 	ms.author="sethm"/>
 
 
@@ -31,12 +31,11 @@ Você inicia a conexão entre o serviço local e o serviço de retransmissão us
 
 ## Próximas etapas
 
-Para obter mais detalhes sobre a retransmissão do Barramento de Serviço, consulte os tópicos a seguir.
+Para obter detalhes abrangentes sobre a Retransmissão do Barramento de Serviço, veja os tópicos a seguir.
 
 - [Visão geral da arquitetura de Barramento de Serviço do Azure](service-bus-fundamentals-hybrid-solutions.md)
-
 - [Como usar o serviço de Retransmissão do Barramento de Serviço](service-bus-dotnet-how-to-use-relay.md)
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0218_2016-->

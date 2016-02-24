@@ -2,6 +2,7 @@
    pageTitle="Formato do token de usuário externo para a visualização da colaboração B2B do Active Directory do Azure | Microsoft Azure"
    description="A B2B do Active Directory do Azure dá suporte a relações entre empresas, permitindo que os parceiros de negócios acessem de maneira seletiva seus aplicativos corporativos"
    services="active-directory"
+   documentationCenter=""
    authors="viv-liu"
    manager="cliffdi"
    editor=""
@@ -13,10 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="10/27/2015"
+   ms.date="02/09/2016"
    ms.author="viviali"/>
 
-# Formato do token de usuário externo para a visualização da colaboração B2B do AD do Azure (Active Directory do Azure)
+# Visualização da colaboração B2B do AD do Azure: formato de token de usuário externo
+
 As declarações de um token padrão do AD do Azure são descritas no artigo [Tipos de declaração e token com suporte](active-directory-token-and-claims.md) em azure.microsoft.com.
 
 As declarações que são diferentes para um usuário externo da colaboração B2B autenticado são as seguintes:<br/> - **OID:** a ID de objeto do locatário de recursos<br/> - **TID**: a ID de locatário do locatário de recursos<br/> - **Emissor**: este é o locatário de recursos<br/> - **IDP**: este é o locatário inicial do usuário<br/> - **AltSecId**: esta é a ID de segurança alternativa, que é opaca para você<br/>
@@ -30,5 +32,6 @@ Confira nossos outros artigos sobre a colaboração B2B do Azure:
 - [Referência do formato de arquivo CSV](active-directory-b2b-references-csv-file-format.md)
 - [Alterações de atributo do objeto de usuário externo](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [Limitações atuais da visualização](active-directory-b2b-current-preview-limitations.md)
+- [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0211_2016-->

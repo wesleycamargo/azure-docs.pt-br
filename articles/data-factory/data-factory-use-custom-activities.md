@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/15/2015"
+	ms.date="01/05/2016"
 	ms.author="spelluru"/>
 
 # Usar atividades personalizadas em um pipeline do Data Factory do Azure
@@ -126,6 +126,18 @@ O método tem alguns componentes principais que você precisa entender.
             Activity activity,
             IActivityLogger logger)
         {
+			// to get extended properties (for example: SliceStart)
+			DotNetActivity dotNetActivity = (DotNetActivity)activity.TypeProperties;
+            string sliceStartString = dotNetActivity.ExtendedProperties["SliceStart"];
+
+			// to log all extended properties			
+			IDictionary<string, string> extendedProperties = dotNetActivity.ExtendedProperties;
+			logger.Write("Logging extended properties if any...");
+			foreach (KeyValuePair<string, string> entry in extendedProperties)
+			{
+				logger.Write("<key:{0}> <value:{1}>", entry.Key, entry.Value);
+			}
+		
 
             // declare types for input and output data stores
             AzureStorageLinkedService inputLinkedService;
@@ -290,13 +302,13 @@ O método tem alguns componentes principais que você precisa entender.
 	![Arquivos de saída binários](./media/data-factory-use-custom-activities/Binaries.png)
 13. Carregue **MyDotNetActivity.zip** como um blob para o contêiner de blobs: **customactvitycontainer** no armazenamento de blobs do Azure que o serviço vinculado **StorageLinkedService** em **ADFTutorialDataFactory** utiliza. Crie o contêiner de blob **customactivitycontainer** se ele ainda não existir.
 
-> [AZURE.NOTE]Se você adicionar esse projeto de atividade do .NET para uma solução no Visual Studio que contenha um projeto de Data Factory, não será necessário executar as duas últimas etapas de criação do arquivo zip e carregá-lo manualmente para o armazenamento de blobs do Azure. Quando você publica entidades de Data Factory usando o Visual Studio, essas etapas são executadas automaticamente pelo processo de publicação. Consulte os artigos [Compilar seu primeiro pipeline usando o Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) e [Copiar dados de blob do Azure no SQL do Azure](data-factory-get-started-using-vs.md) para saber mais sobre como criar e publicar entidades de Data Factory usando o Visual Studio.
+> [AZURE.NOTE] Se você adicionar esse projeto de atividade do .NET para uma solução no Visual Studio que contenha um projeto de Data Factory, não será necessário executar as duas últimas etapas de criação do arquivo zip e carregá-lo manualmente para o armazenamento de blobs do Azure. Quando você publica entidades de Data Factory usando o Visual Studio, essas etapas são executadas automaticamente pelo processo de publicação. Consulte os artigos [Compilar seu primeiro pipeline usando o Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) e [Copiar dados de blob do Azure no SQL do Azure](data-factory-get-started-using-vs.md) para saber mais sobre como criar e publicar entidades de Data Factory usando o Visual Studio.
 
 ### Método Execute
 
 Esta seção fornece mais detalhes e observações sobre o código no método **Execute**.
  
-1. Os membros para iteração pela coleção de entrada são encontrados no namespace [Microsoft.WindowsAzure.Storage.Blob](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.aspx). A iteração através da coleção de blobs requer o uso da classe **BlobContinuationToken**. Em essência, você deve usar um loop do-while com o token, como o mecanismo para saída do loop. Consulte [Como usar o armazenamento de blobs do .NET](../storage/storage-dotnet-how-to-use-blobs.md). Um loop básico é mostrado aqui:
+1. Os membros para iteração pela coleção de entrada são encontrados no namespace [Microsoft.WindowsAzure.Storage.Blob](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.aspx). A iteração através da coleção de blobs requer o uso da classe **BlobContinuationToken**. Em essência, você deve usar um loop do-while com o token, como o mecanismo para saída do loop. Para obter mais informações, consulte o artigo sobre [Como usar o armazenamento de blobs do .NET](../storage/storage-dotnet-how-to-use-blobs.md). Um loop básico é mostrado aqui:
 
 		// Initialize the continuation token.
 		BlobContinuationToken continuationToken = null;
@@ -314,7 +326,7 @@ Esta seção fornece mais detalhes e observações sobre o código no método **
     		output = Calculate(blobList, logger, folderPath, ref continuationToken, "Microsoft");
 		} while (continuationToken != null);
 
-	Consulte a documentação para obter detalhes do método [ListBlobsSegmented](https://msdn.microsoft.com/library/jj717596.aspx).
+	Consulte a documentação do método [ListBlobsSegmented](https://msdn.microsoft.com/library/jj717596.aspx) para obter detalhes.
 
 2.	O código para trabalhar com o conjunto de blobs logicamente fica dentro do loop do-while. No método **Execute**, o loop do-while passa a lista de blobs para um método chamado **Calculate**. O método retorna uma variável de cadeia de caracteres chamada **output**, que é o resultado da iteração nos blobs do segmento.
 
@@ -401,7 +413,7 @@ Serviços vinculados vinculam armazenamentos de dados ou serviços de computaç�
 
 #### Criar o serviço vinculado do armazenamento do Azure
 
-1.	Clique no bloco **Criar e implantar** na folha **DATA FACTORY** de **CustomActivityFactory**. Isso inicia o Data Factory Editor.
+1.	Clique no bloco **Criar e implantar** na folha **DATA FACTORY** para **CustomActivityFactory**. Isso inicia o Data Factory Editor.
 2.	Clique em **Novo armazenamento de dados** na barra de comando e escolha **Armazenamento do Azure**. Você deve ver o script JSON para criar um serviço de armazenamento vinculado do Azure no editor.
 3.	Substitua **nome da conta** pelo nome da conta de armazenamento do Azure e **chave de conta** pela chave de acesso da sua conta de armazenamento do Azure. Para saber como obter sua chave de acesso de armazenamento, confira [Exibir, copiar e regenerar chaves de acesso de armazenamento](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 4.	Clique em **Implantar** na barra de comandos para implantar o serviço vinculado.
@@ -410,7 +422,7 @@ Serviços vinculados vinculam armazenamentos de dados ou serviços de computaç�
 #### Criar o serviço vinculado do Azure HDInsight 
 O serviço Data Factory do Azure dá suporte à criação de um cluster sob demanda e o usa para processar entrada a fim de gerar dados de saída. Você também pode usar seu próprio cluster para fazer isso. Quando você usa o cluster HDInsight sob demanda, um cluster é criado para cada fatia. Ao passo que, se você usar seu próprio cluster HDInsight, o cluster estará pronto para processar a fatia imediatamente. Portanto, quando você usar cluster sob demanda, não verá os dados de saída mais rapidamente que quando usa seu próprio cluster.
 
-> [AZURE.NOTE]Em tempo de execução, uma instância de uma atividade do .NET é executada em somente um nó de trabalho no cluster HDInsight. Ela não pode ser dimensionada para ser executada em vários nós. Múltiplas instâncias de atividade do .NET podem ser executadas em paralelo em diferentes nós do cluster do HDInsight.
+> [AZURE.NOTE] Em tempo de execução, uma instância de uma atividade do .NET é executada em somente um nó de trabalho no cluster HDInsight. Ela não pode ser dimensionada para ser executada em vários nós. Múltiplas instâncias de atividade do .NET podem ser executadas em paralelo em diferentes nós do cluster do HDInsight.
 
 Se você tiver estendido o tutorial [Introdução ao Azure Data Factory][adfgetstarted] com o passo a passo de [Usar o Pig e Hive com o Azure Data Factory][hivewalkthrough], poderá pular a criação desse serviço vinculado e usar o serviço vinculado que você já tem em ADFTutorialDataFactory.
 
@@ -640,7 +652,7 @@ A depuração consiste em algumas técnicas básicas:
 1.	Se a fatia de entrada não estiver definida como **Pronto**, confirme se a estrutura de pasta de entrada está correta e se file.txt existe nas pastas de entrada.
 2.	No método **Execute** da atividade personalizada, use o objeto **IActivityLogger** para registrar informações que o ajudarão a solucionar problemas. As mensagens registradas aparecerão no arquivo user\_0.log. 
 
-	Na folha **OutputDataset**, clique na fatia para ver a folha **FATIA DE DADOS** dessa fatia. Você verá as **execuções de atividade** dessa fatia. Você deverá ver uma execução de atividade para a fatia. Se você clicar em Executar na barra de comandos, poderá iniciar outra execução de atividade para a mesma fatia.
+	Na folha **OutputDataset**, clique na fatia para ver a folha **FATIA DE DADOS** dessa fatia. Você verá as **execuções de atividade** para essa fatia. Você deverá ver uma execução de atividade para a fatia. Se você clicar em Executar na barra de comandos, poderá iniciar outra execução de atividade para a mesma fatia.
 
 	Quando você clicar na execução da atividade, verá a folha **DETALHES DE EXECUÇÃO DA ATIVIDADE** com uma lista de arquivos de log. Você verá mensagens registradas no arquivo user\_0.log. Quando ocorrer um erro, você verá três execuções de atividade porque a contagem de repetições é definida como 3 no JSON do pipeline/atividade. Quando você clicar na execução da atividade, verá os arquivos de log que pode examinar para solucionar o erro.
 
@@ -657,8 +669,39 @@ A depuração consiste em algumas técnicas básicas:
 ## Atualizar a atividade personalizada
 Se você atualizar o código para a atividade personalizada, compile-o e carregue o arquivo zip que contém os novos binários para o armazenamento de blob.
 
+## Acessar propriedades estendidas
+Você pode declarar propriedades estendidas na atividade JSON, conforme mostrado abaixo:
+
+	"typeProperties": {
+	  "AssemblyName": "MyDotNetActivity.dll",
+	  "EntryPoint": "MyDotNetActivityNS.MyDotNetActivity",
+	  "PackageLinkedService": "StorageLinkedService",
+	  "PackageFile": "customactivitycontainer/MyDotNetActivity.zip",
+	  "extendedProperties": {
+	    "SliceStart": "$$Text.Format('{0:yyyyMMddHH-mm}', Time.AddMinutes(SliceStart, 0))",
+		"DataFactoryName": "CustomActivityFactory"
+	  }
+	},
+
+No exemplo acima, há duas propriedades estendidas: **SliceStart** e **DataFactoryName**. O valor de SliceStart baseia-se na variável de sistema SliceStart. Consulte [Variáveis de sistema](data-factory-scheduling-and-execution.md#data-factory-system-variables) para obter uma lista de variáveis de sistema com suporte. O valor de DataFactoryName é embutido no código como "CustomActivityFactory".
+
+Para acessar essas propriedades estendidas no método **Execute**, use código semelhante ao seguinte:
+
+	// to get extended properties (for example: SliceStart)
+	DotNetActivity dotNetActivity = (DotNetActivity)activity.TypeProperties;
+	string sliceStartString = dotNetActivity.ExtendedProperties["SliceStart"];
+
+	// to log all extended properties                               
+    IDictionary<string, string> extendedProperties = dotNetActivity.ExtendedProperties;
+    logger.Write("Logging extended properties if any...");
+    foreach (KeyValuePair<string, string> entry in extendedProperties)
+    {
+    	logger.Write("<key:{0}> <value:{1}>", entry.Key, entry.Value);
+	}
+
+
 ## <a name="AzureBatch"></a> Usar o serviço vinculado do Lote do Azure
-> [AZURE.NOTE]Consulte [Fundamentos do Lote do Azure][batch-technical-overview] para uma visão geral do serviço do Lote do Azure e consulte [Introdução à biblioteca do Lote do Azure para .NET][batch-get-started] para iniciar rapidamente o serviço Lote do Azure.
+> [AZURE.NOTE] Consulte [Fundamentos do Lote do Azure][batch-technical-overview] para uma visão geral do serviço do Lote do Azure e consulte [Introdução à biblioteca do Lote do Azure para .NET][batch-get-started] para iniciar rapidamente o serviço Lote do Azure.
 
 Você pode executar suas atividades personalizadas do .NET usando o Azure Batch como um recurso de computação. Você precisará criar seus próprios pools do Azure Batch e especificar o número de VMs junto com outras configurações. Pools do Azure Batch fornecem os seguintes recursos para os clientes:
 
@@ -674,7 +717,7 @@ Aqui estão os passos de alto nível para usar o serviço vinculado Azure Batch 
 1. Crie uma conta do Lote do Azure usando o [Portal do Azure](http://manage.windowsazure.com). Consulte o artigo [Criar e gerenciar uma conta do Lote do Azure][batch-create-account] para obter instruções. Anote a chave e o nome da conta do Azure Batch.
 
 	Você também pode usar o cmdlet [New-AzureBatchAccount][new-azure-batch-account] para criar uma conta do Azure Batch. Consulte [usando o Azure PowerShell para gerenciar conta do Azure lote][azure-batch-blog] para obter instruções detalhadas sobre como usar este cmdlet.
-2. Crie um pool do Azure Batch. Você pode baixar o código-fonte para o [ferramenta Gerenciador do Lote do Azure][batch-explorer], compilar e usá-lo (ou) usar a [Biblioteca do Lote do Azure para .NET][batch-net-library] para criar um pool do Lote do Azure. Consulte [Passo a passo de exemplo do gerenciador do Azure Batch][batch-explorer-walkthrough] para obter instruções passo a passo de como usar o Gerenciador do Azure Batch.
+2. Crie um pool do Azure Batch. Você pode baixar o código-fonte da [ferramenta Gerenciador do Lote do Azure][batch-explorer], compilar e usá-lo (ou) usar a [Biblioteca do Lote do Azure para .NET][batch-net-library] para criar um pool do Lote do Azure. Consulte [Passo a passo de exemplo do gerenciador do Azure Batch][batch-explorer-walkthrough] para obter instruções passo a passo de como usar o Gerenciador do Azure Batch.
 
 	Você também pode usar o cmdlet [New-AzureRmBatchPool](https://msdn.microsoft.com/library/mt628690.aspx) para criar um pool do Lote do Azure.
 
@@ -707,7 +750,7 @@ Aqui estão os passos de alto nível para usar o serviço vinculado Azure Batch 
 		  }
 		}
 
-	> [AZURE.IMPORTANT]A **URL** da **folha de conta do Lote do Azure** está no seguinte formato: accountname.region.batch.azure.com. Para a propriedade **batchUri** no JSON, você precisará **remover "accountname."** da URL e usar o **accountname** para a propriedade JSON de **accountName**.
+	> [AZURE.IMPORTANT] A **URL** da **folha de conta do Lote do Azure** está no seguinte formato: accountname.region.batch.azure.com. Para a propriedade **batchUri** no JSON, você precisará **remover "accountname."** da URL e usar o **accountname** para a propriedade JSON de **accountName**.
 
 	Para a propriedade **poolName**, você também pode especificar a ID do pool em vez do nome do pool.
 
@@ -719,11 +762,11 @@ Aqui estão os passos de alto nível para usar o serviço vinculado Azure Batch 
 
 	![tarefas do Azure Batch][image-data-factory-azure-batch-tasks]
 
-> [AZURE.NOTE]O serviço de Data Factory não suporta uma opção sob demanda para o Azure Batch como o faz para o HDInsight. Você só pode usar seu próprio pool do Azure Batch em um Azure Data Factory.
+> [AZURE.NOTE] O serviço de Data Factory não suporta uma opção sob demanda para o Azure Batch como o faz para o HDInsight. Você só pode usar seu próprio pool do Azure Batch em um Azure Data Factory.
 
 ## Consulte também
 
-[Atualizações do Azure Data Factory: Execute atividades ADF personalizadas do .NET usando o Azure Batch](http://azure.microsoft.com/blog/2015/05/01/azure-data-factory-updates-execute-adf-custom-net-activities-using-azure-batch/).
+[Atualizações do Azure Data Factory: Execute atividades ADF personalizadas do .NET usando o Azure Batch](https://azure.microsoft.com/blog/2015/05/01/azure-data-factory-updates-execute-adf-custom-net-activities-using-azure-batch/).
 
 [batch-net-library]: ../batch/batch-dotnet-get-started.md
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
@@ -760,4 +803,4 @@ Aqui estão os passos de alto nível para usar o serviço vinculado Azure Batch 
 
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -3,7 +3,7 @@
 	description="Gerenciar o controle de acesso com base em função com o Windows PowerShell"
 	services="active-directory"
 	documentationCenter="na"
-	authors="IHenkel"
+	authors="kgremban"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,15 +13,14 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/06/2015"
-	ms.author="inhenk"/>
+	ms.date="01/25/2016"
+	ms.author="kgremban"/>
 
 # Gerenciar o controle de acesso com base em função com o Windows PowerShell #
 
 > [AZURE.SELECTOR]
 - [Windows PowerShell](role-based-access-control-powershell.md)
-- [Azure CLI](role-based-access-control-xplat-cli-install.md)
-
+- [Azure CLI](role-based-access-control-xplat-cli.md)
 
 O controle de acesso baseado em função (RBAC) no Portal do Azure e na API de Gerenciamento de Recursos do Azure permite que você gerencie o acesso à sua assinatura em um nível detalhado. Com esse recurso, você pode conceder acesso aos usuários, grupos ou entidades de serviço do Active Directory atribuindo algumas funções para eles em um determinado escopo.
 
@@ -39,15 +38,15 @@ Para poder usar o Windows PowerShell para gerenciar o RBAC, você deve ter o seg
 
 Este tutorial foi criado para iniciantes do Windows PowerShell, mas pressupõe que você compreende os conceitos básicos, como módulos, cmdlets e sessões. Para obter mais informações sobre o Windows PowerShell, consulte [Introdução ao PowerShell do Microsoft Azure (a página pode estar em inglês)](http://technet.microsoft.com/library/hh857337.aspx).
 
-Para obter ajuda detalhada sobre qualquer cmdlet que você vir neste tutorial, use o cmdlet Get-Help.
+Para obter ajuda detalhada sobre qualquer cmdlet que você vir neste tutorial, use o cmdlet `Get-Help`
 
 	Get-Help <cmdlet-name> -Detailed
 
-Por exemplo, para obter ajuda sobre o cmdlet Add-AzureAccount, digite:
+Por exemplo, para obter ajuda para o cmdlet `Add-AzureAccount`, digite:
 
 	Get-Help Add-AzureAccount -Detailed
 
-Leia também os tutoriais a seguir para se familiarizar com a instalação e para usar o Gerenciador de Recursos do Azure do Windows PowerShell:
+Leia também os tutoriais a seguir para se familiarizar com a instalação e uso do Gerenciador de Recursos do Azure no Windows PowerShell:
 
 - [Como instalar e configurar o PowerShell do Azure](../install-configure-powershell.md)
 - [Usando o Windows PowerShell com o Gerenciador de Recursos](../powershell-azure-resource-manager.md)
@@ -55,19 +54,19 @@ Leia também os tutoriais a seguir para se familiarizar com a instalação e par
 
 ## Conectar-se às suas assinaturas
 
-Como o RBAC somente funciona com o Gerenciador de Recursos do Azure, a primeira coisa a fazer é alternar para o modo do Gerenciador de Recursos do Azure, digite:
+Como o RBAC funciona apenas com o Gerenciador de Recursos do Azure, a primeira medida é alternar para o modo do Gerenciador de Recursos do Azure.
 
     PS C:\> Switch-AzureMode -Name AzureResourceManager
 
 Para obter mais informações, consulte [Usando o Windows PowerShell com o Gerenciador de Recursos](../powershell-azure-resource-manager.md).
 
-Para se conectar as suas assinaturas do Azure, digite:
+Para se conectar às assinaturas do Azure, digite:
 
     PS C:\> Add-AzureAccount
 
-No controle do navegador pop-up, insira o nome de usuário e senha da conta do Azure. O PowerShell obterá todas as assinaturas que você tem com esta conta e considerará que o PowerShell usará a primeira como padrão. Observe que com o RBAC, você poderá obter estas assinaturas onde você tem algumas permissões sendo o coadministrador ou tendo alguma atribuição de função.
+No controle pop-up do navegador, insira o nome de usuário e senha da conta do Azure. O PowerShell obterá todas as assinaturas que você tem com esta conta e considerará que o PowerShell usará a primeira como padrão. Observe que com o RBAC, você poderá obter estas assinaturas onde você tem algumas permissões sendo o coadministrador ou tendo alguma atribuição de função.
 
-Se você tem várias assinaturas e deseja alternar para outra, digite:
+Se você tiver várias assinaturas e quiser alternar para outra, use estes comandos:
 
     # This will show you the subscriptions under the account.
     PS C:\> Get-AzureSubscription
@@ -84,17 +83,17 @@ Agora vamos verificar quais atribuições de função já existem na assinatura.
 
 Isso retornará todas as atribuições de função na assinatura. Há duas coisas a serem observadas:
 
-1. Você precisará ter acesso de leitura em nível de assinatura.
+1. Você precisa ter acesso de leitura no nível da assinatura.
 2. Se a assinatura tiver várias atribuições de função, pode demorar um pouco para obter todas.
 
-Você também pode verificar as atribuições de função existentes para uma definição de função em particular, em um determinado escopo para um usuário específico. Tipo:
+Também é possível verificar as atribuições de função existentes para uma definição de função específica, em um determinado escopo para um usuário específico. Tipo:
 
     PS C:\> Get-AzureRoleAssignment -ResourceGroupName group1 -Mail <user email> -RoleDefinitionName Owner
 
 Isso retornará todas as atribuições de função para um usuário em particular no seu locatário do AD, que tem uma atribuição de função de “Proprietário" para o grupo de recursos "group1". A atribuição de função pode vir de dois lugares:
 
 1. Uma atribuição de função de “Proprietário" ao usuário para o grupo de recursos.
-2. Uma atribuição de função de “Proprietário" ao usuário para o pai do grupo de recursos (neste caso, a assinatura), pois se você tiver qualquer permissão em um determinado nível, você terá as mesmas permissões que seus filhos.
+2. Uma atribuição de função de "Proprietário" ao usuário para o pai do grupo de recursos (neste caso, a assinatura), pois se você tiver qualquer permissão em um nível pai, você terá as mesmas permissões para todos os filhos.
 
 Todos os parâmetros deste cmdlet são opcionais. Você pode combiná-los para verificar as atribuições de função com diferentes filtros.
 
@@ -113,43 +112,34 @@ Qual função você deseja atribuir: você pode usar o seguinte cmdlet para ver 
 
     PS C:\> Get-AzureRoleDefinition
 
-Qual o escopo que você deseja atribuir: você tem três níveis de escopo
-
-    - The current subscription
-    - A resource group, to get a list of resource groups, type `PS C:\> Get-AzureResourceGroup`
-    - A resource, to get a list of resources, type `PS C:\> Get-AzureResource`
+Qual escopo você quer atribuir: há três níveis de escopos: a assinatura atual; um grupo de recursos, e para obter uma lista dos grupos de recursos, digite `PS C:\> Get-AzureResourceGroup`; um recurso, e para obter uma lista de recursos, digite `PS C:\> Get-AzureResource`
 
 Em seguida, use `New-AzureRoleAssignment` para criar uma atribuição de função. Por exemplo:
 
+	#This will create a role assignment at the current subscription level for a user as a reader.
+	PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Reader
 
-Isso criará uma atribuição de função em nível da assinatura atual para um usuário como um leitor.
-
-	 PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Reader
-
-Isso criará uma atribuição de função em nível de grupo de recursos.
-
+	#This will create a role assignment at a resource group level.
 	PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Contributor -ResourceGroupName group1
 
-Isso criará uma atribuição de função para um grupo em nível de grupo de recursos.
-
+	#This will create a role assignment for a group at a resource group level.
 	PS C:\> New-AzureRoleAssignment -ObjectID <group object ID> -RoleDefinitionName Reader -ResourceGroupName group1
 
-Isso criará uma atribuição de função em nível de recurso.
-
+	#This will create a role assignment at a resource level.
 	PS C:\> $resources = Get-AzureResource
     PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Owner -Scope $resources[0].ResourceId
 
 
 ## Verificar permissões
 
-Depois de você verificar que sua conta tem algumas atribuições de função, você pode realmente ver as permissões destas atribuições de função concedidas a você executando
+Depois de você verificar que sua conta tem algumas atribuições de função, você pode realmente ver as permissões destas atribuições de função concedidas a você executando:
 
     PS C:\> Get-AzureResourceGroup
     PS C:\> Get-AzureResource
 
 Esses dois cmdlets retornarão apenas os grupos de recursos ou recursos onde você tem permissão de leitura. E também mostrará as permissões que você tem.
 
-Então quando você tenta executar outro cmdlet como `New-AzureResourceGroup`, você receberá um erro de acesso negado se não tiver a permissão.
+Caso você não tenha a permissão, ao tentar executar outros cmdlets, por exemplo, `New-AzureResourceGroup`, você receberá um erro de acesso negado.
 
 ## Próximas etapas
 
@@ -164,4 +154,4 @@ Para saber mais sobre como gerenciar o controle de acesso com base em função c
 - [Configure o acesso baseado em função usando o CLI do Azure](role-based-access-control-xplat-cli-install.md)
 - [Solucionar problemas do controle de acesso com base em função](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -6,13 +6,12 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/20/2015" 
+	ms.date="02/04/2016" 
 	ms.author="robmcm"/>
-
 
 # Executando Cassandra com Linux no Azure e acessando-a do Node.js 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-datastax-template.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](https://azure.microsoft.com/documentation/templates/datastax-on-ubuntu/).
 
 ## Visão geral
 O Microsoft Azure é uma plataforma de nuvem aberta que executa tanto os softwares da Microsoft como os não pertencentes à Microsoft e que inclui sistemas operacionais, servidores de aplicativos, middlewares de mensagens, bem como bancos de dados SQL e NoSQL de ambos os modelos de software livre e comercial. A criação de serviços resilientes em nuvens públicas, incluindo o Azure, requer um planejamento cuidadoso e uma arquitetura deliberada para ambos os servidores de aplicativos, bem como camadas de armazenamento. A arquitetura de armazenamento distribuída de Cassandra naturalmente ajuda na criação de sistemas altamente disponíveis que são tolerantes a falhas para as falhas de cluster. Cassandra é um banco de dados NoSQL de escala na nuvem mantido pela Apache Software Foundation em cassandra.apache.org; Cassandra é escrito em Java e, portanto, pode ser executado em ambas as plataformas Windows e Linux.
@@ -32,7 +31,6 @@ A rede do Microsoft Azure permite a implantação de clusters particulares isola
 - Cada nó de Cassandra precisa de um endereço IP interno fixo
 
 Cassandra pode ser implantado em uma única região do Azure ou em várias regiões, de acordo com a natureza distribuída da carga de trabalho. O modelo de implantação de várias regiões pode ser utilizado para atender os usuários finais mais próximos de uma determinada região geográfica por meio da mesma infraestrutura de Cassandra. A replicação do nó interno de Cassandra cuida da sincronização de gravações de vários mestres provenientes de vários data centers e apresenta uma exibição consistente dos dados para os aplicativos. A implantação de várias regiões também pode ajudar na redução de risco de falhas mais amplas de serviço do Azure. A consistência ajustável e a replicação de topologia de Cassandra ajudará a atender às diversas necessidades de RPO dos aplicativos.
-
 
 ### Implantação de região única
 Começaremos com uma implantação de região única e utilizaremos os aprendizados obtidos na criação de um modelo de várias regiões. A rede virtual do Azure será usada para criar sub-redes isoladas para que os requisitos de segurança da rede mencionados acima possam ser atendidos. O processo descrito na criação da implantação de região única utiliza o Ubuntu 14.04 LTS e Cassandra 2.08; no entanto, o processo pode facilmente ser adotado para as outras variantes do Linux. A seguir estão algumas das características sistemáticas da implantação de região única.
@@ -111,7 +109,7 @@ As seguintes versões de software são usadas durante a implantação:
 <tr><td>JRE	</td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
 <tr><td>JNA	</td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
 <tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz)</td><td> 2.0.8</td></tr>
-<tr><td>Ubuntu	</td><td>[Microsoft Azure](http://azure.microsoft.com) </td><td>14.04 LTS</td></tr>
+<tr><td>Ubuntu	</td><td>[Microsoft Azure](https://azure.microsoft.com/) </td><td>14.04 LTS</td></tr>
 </table>
 
 Como o download do JRE requer a aceitação manual da licença do Oracle, para simplificar a implantação, baixe todos os softwares necessários para a área de trabalho para carregar mais tarde na imagem de modelo do Ubuntu que estaremos criando como precursora da implantação de cluster.
@@ -293,7 +291,7 @@ Certifique-se de que a máquina virtual esteja realçada e clique no link CAPTUR
 Isto levará alguns segundos e a imagem deverá estar disponível na seção MINHAS IMAGENS da galeria de imagens. A VM de origem será automaticamente delatada depois que a imagem for capturada com êxito.
 
 ##Processo de implantação de região única
-**Etapa 1: Criar a Rede Virtual** Faça logon no portal clássico do Azure e crie uma Rede Virtual com os atributos mostrados na tabela. Confira [Configurar uma rede virtual somente na nuvem no portal clássico do Azure](../virtual-network/virtual-networks-create-vnet.md) para obter as etapas detalhadas do processo.
+**Etapa 1: Criar a Rede Virtual** Faça logon no portal clássico do Azure e crie uma Rede Virtual com os atributos mostrados na tabela. Confira [Configurar uma rede virtual somente na nuvem no portal clássico do Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md) para obter as etapas detalhadas do processo.
 
 <table>
 <tr><th>Nome do atributo da VM</th><th>Valor</th><th>Comentários</th></tr>
@@ -342,7 +340,7 @@ A criação da lista de VMs mencionada acima exige o seguinte processo:
 
 O processo acima pode ser executado usando o portal clássico do Azure; use um computador com o Windows (ou uma VM no Azure, caso você não tenha acesso a um computador com o Windows), use o script do PowerShell a seguir para provisionar todas as 8 VMs automaticamente.
 
-**Lista1: script do PowerShell para provisionamento de máquinas virtuais**
+**Lista 1: script do PowerShell para provisionamento de máquinas virtuais**
 		
 		#Tested with Azure Powershell - November 2014	
 		#This powershell script deployes a number of VMs from an existing image inside an Azure region
@@ -499,6 +497,7 @@ No portal clássico do Azure, selecione todas as redes virtuais, clique em "Conf
 
 ###Etapa 4: criar Gateways em VNET1 e VNET2
 No painel de ambas as redes virtuais, clique em CRIAR GATEWAY, o que acionará o processo de provisionamento do gateway de VPN. Após alguns minutos, o painel de cada rede virtual deverá exibir o endereço de gateway real.
+
 ###Etapa 5: atualizar redes "Local" com os respectivos endereços "Gateway"###
 Edite ambas as redes locais para substituir o endereço IP do gateway de espaço reservado com o endereço IP real dos gateways provisionados. Use o seguinte mapeamento:
 
@@ -511,10 +510,10 @@ Edite ambas as redes locais para substituir o endereço IP do gateway de espaço
 ###Etapa 6: atualizar a chave compartilhada
 Use o seguinte script do Powershell para atualizar a chave do IPSec de cada gateway de VPN [use a mesma chave para ambos os gateways]: Set-AzureVNetGatewayKey -VNetName hk-vnet-east-us -LocalNetworkSiteName hk-lnet-map-to-west-us -SharedKey D9E76BKK Set-AzureVNetGatewayKey -VNetName hk-vnet-west-us -LocalNetworkSiteName hk-lnet-map-to-east-us -SharedKey D9E76BKK
 
-###Etapa 6: estabelecer a conexão VNET para VNET
+###Etapa 7: estabelecer a conexão VNET para VNET
 No portal clássico do Azure, use o menu "PAINEL" das duas redes virtuais para estabelecer a conexão gateway a gateway. Use os itens do menu "CONECTAR" na barra de ferramentas inferior. Após alguns minutos, o painel deverá exibir graficamente os detalhes da conexão.
 
-###Etapa 7: criar as máquinas virtuais na região #2 
+###Etapa 8: criar as máquinas virtuais na região nº 2 
 Criar a imagem do Ubuntu, conforme descrito na implantação da região #1, seguindo as mesmas etapas, ou copie o arquivo VHD de imagem para a conta de armazenamento do Azure localizada na região #2 e crie a imagem. Use esta imagem e crie a seguinte lista de máquinas virtuais em um novo serviço de nuvem hk-c-svc-east-us:
 
 
@@ -532,16 +531,19 @@ Criar a imagem do Ubuntu, conforme descrito na implantação da região #1, segu
 
 
 Siga as mesmas instruções que para a região #1, mas use o espaço de endereço de 10.2.xxx.xxx.
-###Etapa 8: configurar o Cassandra em cada VM
+
+###Etapa 9: configurar o Cassandra em cada VM
 Faça logon na VM e execute o seguinte procedimento:
 
 1. Edite $CASS\_HOME/conf/cassandra-rackdc.properties para especificar as propriedades de data center e rack no formato: dc =EASTUS rack =rack1
 2. Edite cassandra.yaml para configurar os nós de semente: Sementes: "10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10,10.2.2.4,10.2.2.6,10.2.2.8,10.2.2.10"
-###Etapa 9: iniciar o Cassandra
+
+###Etapa 10: iniciar o Cassandra
 Faça logon em cada VM e inicie o Cassandra em segundo plano, executando o seguinte comando: $CASS\_HOME/bin/cassandra
 
 ## Testar o cluster de várias regiões
 Até agora, Cassandra foi implantado em 16 nós com 8 nós em cada região do Azure. Estes nós estão no mesmo cluster por meio do nome comum do cluster e da configuração do nó de propagação. Use o seguinte processo para testar o cluster:
+
 ###Etapa 1: obter o IP do balanceador de carga interno para ambas as regiões usando o PowerShell
 - Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-west-us"
 - Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-east-us"  
@@ -690,6 +692,4 @@ O Microsoft Azure é uma plataforma flexível que permite a execução tanto de 
 - [http://www.datastax.com](http://www.datastax.com) 
 - [http://www.nodejs.org](http://www.nodejs.org) 
 
- 
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

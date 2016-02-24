@@ -2,7 +2,7 @@
     pageTitle="Tutorial: Integração do Active Directory do Azure ao AppDynamics | Microsoft Azure" 
     description="Saiba como usar o AppDynamics com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure ao AppDynamics
 
@@ -51,7 +51,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
     ![Adicionar aplicativo](./media/active-directory-saas-appdynamics-tutorial/IC749321.png "Adicionar aplicativo")
 
-5.  No diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+5.  Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 
     ![Adicionar um aplicativo da galeria](./media/active-directory-saas-appdynamics-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 
@@ -103,12 +103,12 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     3.  No portal do Azure, na página do diálogo **Configurar logon único no AppDynamics**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL de Logoff**.
     4.  Crie um arquivo **codificado em Base 64** por meio do certificado baixado.  
 
-        >[AZURE.TIP]Para obter mais detalhes, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP]Para obter mais detalhes, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
     5.  Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado**
     6.  Clique em **Salvar**. ![Salvar](./media/active-directory-saas-appdynamics-tutorial/IC777673.png "Salvar")
 
-9.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
+9.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar o diálogo **Configurar Logon Único**.
 
     ![Configurar o Logon Único](./media/active-directory-saas-appdynamics-tutorial/IC790226.png "Configurar o Logon Único")
 ##Configurando o provisionamento de usuários
@@ -150,4 +150,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

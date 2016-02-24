@@ -24,7 +24,7 @@ O portal do Microsoft Azure é um local central no qual você pode provisionar e
 
 ## Antes de começar
 
-Você precisará de uma assinatura válida do Azure para realizar este tutorial. Se não tiver uma, [inscreva-se para uma avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/) hoje mesmo. Quando tiver uma assinatura, você pode acessar o portal em [https://portal.azure.com].
+Você precisará de uma assinatura válida do Azure para realizar este tutorial. Se não tiver uma, [inscreva-se para uma avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/) hoje mesmo. Quando tiver uma assinatura, você pode acessar o portal em [https://portal.azure.com].
 
 ## Como criar um recurso
 
@@ -70,7 +70,7 @@ O Azure pré-configura as folhas para seus recursos, mas os blocos nessas folhas
 
 ## Como obter ajuda
 
-Se você tiver um problema, estamos à sua disposição. O portal tem uma página de ajuda e suporte que pode indicar a direção certa. Dependendo do seu [plano de suporte](http://azure.microsoft.com/support/plans/), você também pode criar tíquetes de suporte diretamente no portal. Depois de criar um tíquete de suporte, você pode gerenciar o ciclo de vida do tíquete de dentro do portal. Você pode acessar a página de ajuda e suporte navegando até Navegar -> Ajuda + suporte.
+Se você tiver um problema, estamos à sua disposição. O portal tem uma página de ajuda e suporte que pode indicar a direção certa. Dependendo do seu [plano de suporte](https://azure.microsoft.com/support/plans/), você também pode criar tíquetes de suporte diretamente no portal. Depois de criar um tíquete de suporte, você pode gerenciar o ciclo de vida do tíquete de dentro do portal. Você pode acessar a página de ajuda e suporte navegando até Navegar -> Ajuda + suporte.
 
 ![Ajuda e suporte][HelpSupport]
 
@@ -78,7 +78,7 @@ Se você tiver um problema, estamos à sua disposição. O portal tem uma págin
 
 Vamos revisar o que você aprendeu nesse tutorial: - você aprendeu como se inscrever, obter uma assinatura e navegar até o portal - você recebeu orientações sobre a interface do usuário do portal e aprendeu como criar e procurar recursos - você aprendeu como criar um recurso e procurar recursos - você aprendeu sobre as folhas de gerenciamento ou estrutura e como é possível gerenciar diferentes tipos de recursos de forma consistente - você aprendeu como personalizar o portal para trazer as informações de seu interesse para o primeiro plano - você aprendeu como controlar o acesso aos recursos usando o acesso baseado em função (RBAC) - você aprendeu como obter ajuda e suporte
 
-O portal do Microsoft Azure simplifica radicalmente a criação e o gerenciamento de seus aplicativos na nuvem. Dê uma olhada no [blog de gerenciamento de](http://azure.microsoft.com/blog/topics/management/) para se manter atualizado, uma vez que estamos constantemente [ouvindo comentários](http://feedback.azure.com/forums/223579-azure-preview-portal) e fazendo melhorias. O [ScottGu’s blog (Blog do ScottGu)](http://weblogs.asp.net/scottgu) é outro ótimo lugar para procurar todas as atualizações do Azure.
+O portal do Microsoft Azure simplifica radicalmente a criação e o gerenciamento de seus aplicativos na nuvem. Dê uma olhada no [blog de gerenciamento de](https://azure.microsoft.com/blog/topics/management/) para se manter atualizado, uma vez que estamos constantemente [ouvindo comentários](https://feedback.azure.com/forums/223579-azure-preview-portal/) e fazendo melhorias. O [ScottGu’s blog (Blog do ScottGu)](http://weblogs.asp.net/scottgu) é outro ótimo lugar para procurar todas as atualizações do Azure.
 
 [UIOrientation]: ./media/azure-portal-how-to-use/azure_portal_1.png
 [PortalCategories]: ./media/azure-portal-how-to-use/azure_portal_2.png
@@ -87,4 +87,4 @@ O portal do Microsoft Azure simplifica radicalmente a criação e o gerenciament
 [CustomizeBlades]: ./media/azure-portal-how-to-use/azure_portal_5.png
 [HelpSupport]: ./media/azure-portal-how-to-use/azure_portal_6.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

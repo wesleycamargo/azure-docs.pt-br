@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="02/07/2016"
 	ms.author="glenga"/>
 
 # Agendar trabalhos recorrentes nos Serviços Móveis
@@ -97,7 +97,7 @@ Em seguida, você precisa criar uma nova tabela na qual armazenar tweets.
 
 	A tabela Updates, que é criada no banco de dados quando o DbSet é acessado pela primeira vez, é usada pelo serviço para armazenar dados de tweet.
 
-	>[AZURE.NOTE]Ao usar o inicializador de banco de dados padrão, o Entity Framework vai remover e recriar o banco de dados sempre que detectar uma alteração no modelo de dados na definição do modelo Code First. Para fazer com que esse modelo de dados altere e mantenha os dados existentes no banco de dados, você deve usar as Migrações Code First. O inicializador padrão não pode ser usado em um Banco de Dados SQL do Azure. Para obter mais informações, consulte [Como usar as Migrações Code First para atualizar o modelo de dados](mobile-services-dotnet-backend-use-code-first-migrations.md).
+	>[AZURE.NOTE] Ao usar o inicializador de banco de dados padrão, o Entity Framework vai remover e recriar o banco de dados sempre que detectar uma alteração no modelo de dados na definição do modelo Code First. Para fazer com que esse modelo de dados altere e mantenha os dados existentes no banco de dados, você deve usar as Migrações Code First. O inicializador padrão não pode ser usado em um Banco de Dados SQL do Azure. Para obter mais informações, consulte [Como usar as Migrações Code First para atualizar o modelo de dados](mobile-services-dotnet-backend-use-code-first-migrations.md).
 
 Em seguida, você pode criar o trabalho agendado que acessa o Twitter e armazena dados de tweet na nova tabela Updates.
 
@@ -305,4 +305,4 @@ Parabéns, você criou com êxito um novo trabalho agendado em seu serviço móv
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [LINQ para projeto CodePlex do Twitter]: http://linqtotwitter.codeplex.com/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

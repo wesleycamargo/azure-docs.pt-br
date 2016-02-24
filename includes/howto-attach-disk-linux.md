@@ -1,5 +1,5 @@
 
-Para obter mais detalhes sobre discos, consulte [Sobre discos e VHDs para máquinas virtuais](../articles/virtual-machines-disks-vhds.md).
+Para obter mais detalhes sobre discos, consulte [Sobre discos e VHDs para máquinas virtuais](virtual-machines-disks-vhds.md).
 
 <a id="attachempty"></a>
 ## Como: anexar um disco vazio
@@ -62,7 +62,7 @@ Anexar um disco existente exige que você tenha um .vhd disponível em uma conta
 		uploaded successfully
 		info:    vm disk create command OK
 
-	Você também pode usar o comando `azure vm disk upload` para carregar um VHD em uma conta de armazenamento específico. Leia mais sobre os comandos para gerenciar seus discos de dados de máquinas virtuais do Azure [aqui](../virtual-machines-command-line-tools.md#commands-to-manage-your-azure-virtual-machine-data-disks).
+	Você também pode usar o comando `azure vm disk upload` para carregar um VHD em uma conta de armazenamento específico. Leia mais sobre os comandos para gerenciar seus discos de dados de máquinas virtuais do Azure [aqui](virtual-machines-command-line-tools.md#commands-to-manage-your-azure-virtual-machine-data-disks).
 
 5.  Digite o seguinte comando para anexar o VHD carregado desejado na máquina virtual:
 
@@ -90,6 +90,7 @@ Anexar um disco existente exige que você tenha um .vhd disponível em uma conta
 		info:    vm disk list command OK
 
 
-> [AZURE.NOTE]Depois de adicionar um disco de dados, você precisará fazer logon na máquina virtual e inicializar o disco para que a máquina virtual possa usar o disco para armazenamento.
+> [AZURE.NOTE]
+Depois de adicionar um disco de dados, você precisará fazer logon na máquina virtual e inicializar o disco para que a máquina virtual possa usar o disco para armazenamento.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

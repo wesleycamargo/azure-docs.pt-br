@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="07/30/2015"
+      ms.date="02/09/2016"
       ms.author="shoatman"/>
 
 # Como e por que os aplicativos são adicionados ao AD do Azure
@@ -91,7 +91,7 @@ Os aplicativos que você adiciona por conta própria incluem:
 ## Como os aplicativos são adicionados à minha instância do AD do Azure?
 Há muitas maneiras pelas quais um aplicativo pode ser adicionado ao AD do Azure:
 
-* Adicionar um aplicativo a partir de [Galeria de aplicativos do Active Directory do Azure](http://azure.microsoft.com/updates/azure-active-directory-over-1000-apps/)
+* Adicionar um aplicativo a partir de [Galeria de aplicativos do Active Directory do Azure](https://azure.microsoft.com/updates/azure-active-directory-over-1000-apps/)
 * Inscrever-se/entrar em um aplicativo de terceiros integrado ao Active Directory do Azure (por exemplo: [Smartsheet](https://app.smartsheet.com/b/home) ou [DocuSign](https://www.docusign.net/member/MemberLogin.aspx))
     * Durante a inscrição/entrada será solicitado aos usuários que concedam permissão ao aplicativo para acessar seus perfis, além de outras permissões. A primeira pessoa a dar consentimento faz com que uma entidade de serviço que representa o aplicativo seja adicionada ao diretório.
 * Inscrever-se/entrar nos serviços online da Microsoft, como o [Office 365](http://products.office.com/)
@@ -142,8 +142,12 @@ Saiba mais sobre como adicionar aplicativos ao AD do Azure e como configurar ser
 * Profissionais de TI: [Localize tutoriais para a configuração de determinados aplicativos pré-integrados](https://msdn.microsoft.com/library/azure/dn893637.aspx)
 * Profissionais de TI: [Saiba como publicar um aplicativo usando o Proxy do aplicativo do Active Directory do Azure](https://msdn.microsoft.com/library/azure/dn768219.aspx)
 
+## Consulte também
+
+- [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
+
 <!--Image references-->
 [apps_service_principals_directory]: media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
 [app_settings]: media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

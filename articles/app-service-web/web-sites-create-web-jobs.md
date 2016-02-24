@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="01/12/2016" 
 	ms.author="tdykstra"/>
 
 # Executar tarefas em segundo plano com Trabalhos Web
@@ -42,7 +42,7 @@ Os seguintes tipos de arquivo são aceitos:
 
 ## <a name="CreateOnDemand"></a>Criar um Trabalho Web sob demanda no portal
 
-1. Na folha **Aplicativo Web** do [Portal do Azure](http://portal.azure.com), clique em **Todas as configurações > Trabalhos Web** para mostrar a folha **Trabalhos Web**.
+1. Na folha **Aplicativo Web** do [Portal do Azure](https://portal.azure.com), clique em **Todas as configurações > Trabalhos Web** para mostrar a folha **Trabalhos Web**.
 	
 	![Lâmina do Trabalho Web](./media/web-sites-create-web-jobs/wjblade.png)
 	
@@ -70,7 +70,7 @@ Os seguintes tipos de arquivo são aceitos:
 
 2. Para iniciar ou interromper um Trabalho Web contínuo, clique com o botão direito do mouse no Trabalho Web na lista e clique em **Iniciar** ou **Parar**.
 	
-> [AZURE.NOTE]Se seu aplicativo Web for executado em mais de uma instância, um Trabalho Web em execução contínua será executado em todas as suas instâncias. Trabalhos Web agendados e sob demanda são executados em uma única instância selecionada para o balanceamento de carga pelo Microsoft Azure.
+> [AZURE.NOTE] Se seu aplicativo Web for executado em mais de uma instância, um Trabalho Web em execução contínua será executado em todas as suas instâncias. Trabalhos Web agendados e sob demanda são executados em uma única instância selecionada para o balanceamento de carga pelo Microsoft Azure.
 	
 > Para que WebJobs contínuos sejam executados de forma confiável e em todas as instâncias, ative a configuração Sempre Ativado* para o aplicativo Web, caso contrário, ele poderá interromper a execução quando o site de host do SCM ficar ocioso por muito tempo.
 
@@ -201,14 +201,14 @@ Os trabalhos agendados podem ser configurados mais detalhadamente nas páginas d
 - Os modos Básico e Padrão oferecem o recurso Sempre Ativo que, quando habilitado, evita que os aplicativos Web fiquem ociosos.
 - Só é possível depurar continuamente os Trabalhos Web em execução. Não há suporte para a depuração Trabalhos Web agendados ou sob demanda.
 
->[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE] Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## <a name="NextSteps"></a>Próximas etapas
  
 Para obter mais informações, consulte [Recursos Recomendados para Trabalhos Web do Azure][WebJobsRecommendedResources].
 
 ## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [PSonWebJobs]: http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx
@@ -239,4 +239,4 @@ Para obter mais informações, consulte [Recursos Recomendados para Trabalhos We
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

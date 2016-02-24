@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="02/08/2016" 
 	ms.author="sethm"/>
 
 # Como usar os tópicos AMQP 1.0 com o Service Bus .NET API
@@ -22,11 +22,11 @@ O AMQP (Protocolo de Enfileiramento de Mensagens Avançadas) 1.0 é um protocolo
 
 O suporte para o AMQP 1.0 no Service Bus significa que você pode usar o enfileiramento e publicar/assinar os recursos de mensagens agenciadas a partir de uma variedade de plataformas usando um protocolo binário eficiente. Além disso, você pode criar aplicativos formados por componentes criados com o uso de uma mistura de linguagens, estruturas e sistemas operacionais.
 
-Este artigo explica como usar os recursos do sistema de mensagens agenciado do Barramento de Serviço (tópicos sobre filas e publicação/assinatura) dos aplicativos do .NET que usam a API do .NET do Service Bus. Existe um artigo complementar que explica como fazer o mesmo usando a API do Java Message Service (JMS) padrão. Você pode usar esses dois guias em conjunto para saber mais sobre mensagens em plataformas cruzadas usando o AMQP 1.0.
+Este artigo explica como usar os recursos do sistema de mensagens agenciado do Barramento de Serviço (tópicos sobre filas e publicação/assinatura) dos aplicativos do .NET que usam a API do .NET do Service Bus. Existe um [artigo complementar](service-bus-java-how-to-use-jms-api-amqp.md) que explica como fazer o mesmo usando a API do Java Message Service (JMS) padrão. Você pode usar esses dois guias em conjunto para saber mais sobre mensagens em plataformas cruzadas usando o AMQP 1.0.
 
 ## Introdução ao Barramento de serviço
 
-Este artigo presume que você já tenha um namespace do Barramento de Serviço que contém uma fila denominada "queue1." Caso contrário, você pode criar o namespace e a fila usando o [Portal clássico do Azure](http://manage.windowsazure.com). Para obter mais informações sobre como criar namespaces e filas do Service Bus, consulte [Como usar filas do Barramento de Serviço](service-bus-dotnet-how-to-use-queues.md).
+Este artigo presume que você já tenha um namespace do Barramento de Serviço que contém uma fila denominada "queue1." Caso contrário, você pode criar o namespace e a fila usando o [Portal clássico do Azure](http://manage.windowsazure.com). Para obter mais informações sobre como criar namespaces e filas do Barramento de Serviço, consulte [Como usar filas do Barramento de Serviço](service-bus-dotnet-how-to-use-queues.md).
 
 ## Baixe o SDK do Barramento de Serviço
 
@@ -69,7 +69,7 @@ Ao usar o AMQP, a cadeia de conexão é acrescentada com `;TransportType=Amqp`, 
 
 ### Configurar o nome da entidade
 
-Este aplicativo de exemplo usa a configuração `EntityName` na seção **appSettings** do arquivo App.config para configurar o nome da fila com a qual o aplicativo troca mensagens.
+Esta amostra do aplicativo usa a configuração `EntityName` na seção **appSettings** do arquivo App.config para configurar o nome da fila com a qual o aplicativo troca mensagens.
 
 ### Um aplicativo simples do .NET que usa Filas do Barramento de Serviço
 
@@ -320,8 +320,8 @@ Agora que você leu uma visão geral do Barramento de Serviço e do AMQP com o .
 
 * [Suporte para o AMQP 1.0 no Barramento de Serviço do Azure](service-bus-amqp-overview.md)
 * [Como usar a API do JMS (Serviço de Mensagem Java) com Barramento de Serviço e AMQP 1.0](service-bus-java-how-to-use-jms-api-amqp.md)
-* [Como usar as filas do Barramento de Serviço](service-bus-dotnet-how-to-use-queues.md)
+* [Como usar filas do Barramento de Serviço](service-bus-dotnet-how-to-use-queues.md)
  
 [portal clássico do Azure]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

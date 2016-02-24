@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/18/2015"
+   ms.date="01/27/2016"
    ms.author="tarcher" />
 
 # Navegando e gerenciando recursos de armazenamento com o Gerenciador de Servidores
@@ -50,7 +50,7 @@ O nó de blobs exibe uma lista de contêineres para a conta de armazenamento sel
 
     ![Adicionando um novo contêiner de blob](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744153.bmp)
 
-    >[AZURE.NOTE]O nome do contêiner de blob deve começar com uma letra minúscula (a-z) ou um número (0-9).
+    >[AZURE.NOTE] O nome do contêiner de blob deve começar com uma letra minúscula (a-z) ou um número (0-9).
 
 ### Para excluir um contêiner de blob
 
@@ -74,7 +74,7 @@ O nó de blobs exibe uma lista de contêineres para a conta de armazenamento sel
 
     - Excluir um blob
 
-      >[AZURE.NOTE]Excluir um arquivo de um contêiner de blob não exclui o arquivo subjacente. Apenas remove o arquivo do contêiner de blob.
+      >[AZURE.NOTE] Excluir um arquivo de um contêiner de blob não exclui o arquivo subjacente. Apenas remove o arquivo do contêiner de blob.
 
     - Abrir um blob
 
@@ -82,7 +82,7 @@ O nó de blobs exibe uma lista de contêineres para a conta de armazenamento sel
 
 ### Para criar uma pasta ou subpasta em um contêiner de blob
 
-1. Escolha o contêiner de blob no Gerenciador de Servidores. Na janela do contêiner, escolha o botão **Carregar Blob**.
+1. Escolha o contêiner de blob no Gerenciador de Servidores. Na janela do contêiner, escolha o botão **Carregar blob**.
 
     ![Carregar um arquivo em uma pasta de blob](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766037.png)
 
@@ -98,7 +98,7 @@ O nó de blobs exibe uma lista de contêineres para a conta de armazenamento sel
 
  - Exclua todos os arquivos na pasta
 
-    >[AZURE.NOTE]Como as pastas em contêineres de blob são pastas virtuais, você não pode criar uma pasta vazia nem pode excluir uma pasta para excluir o conteúdo do arquivo. Você precisa excluir todo o conteúdo de uma pasta para excluir a pasta.
+    >[AZURE.NOTE] Como as pastas em contêineres de blob são pastas virtuais, você não pode criar uma pasta vazia nem pode excluir uma pasta para excluir o conteúdo do arquivo. Você precisa excluir todo o conteúdo de uma pasta para excluir a pasta.
 
 ### Para filtrar os blobs em um contêiner
 
@@ -109,7 +109,7 @@ Por exemplo, se você inserir o prefixo `hello` na caixa de texto do filtro e, e
 ![VST\_SE\_FilterBlobs](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC519076.png)
 
 
->[AZURE.NOTE]O campo de filtro diferencia maiúsculas de minúsculas e não dá suporte a filtragem com caracteres curinga. Os blobs só podem ser filtrados pelo prefixo. O prefixo pode incluir um delimitador se você estiver usando um delimitador para organizar blobs em uma hierarquia virtual. Por exemplo, filtrar pelo prefixo HelloFabric/ retorna todos os blobs que começam com essa cadeia de caracteres.
+>[AZURE.NOTE] O campo de filtro diferencia maiúsculas de minúsculas e não dá suporte a filtragem com caracteres curinga. Os blobs só podem ser filtrados pelo prefixo. O prefixo pode incluir um delimitador se você estiver usando um delimitador para organizar blobs em uma hierarquia virtual. Por exemplo, filtrar pelo prefixo HelloFabric/ retorna todos os blobs que começam com essa cadeia de caracteres.
 
 ### Para baixar os dados de blob
 
@@ -141,7 +141,7 @@ Por exemplo, se você inserir o prefixo `hello` na caixa de texto do filtro e, e
 
     O arquivo é baixado para um local temporário e aberto no computador local. Você deve carregar o blob novamente depois de fazer alterações.
 
-### Trabalhar com recursos de fila
+## Trabalhar com recursos de fila
 
 Filas de serviços de armazenamento são hospedadas em uma conta de armazenamento do Azure e você pode usá-las para permitir que suas funções do serviço de nuvem se comuniquem entre si e com outros serviços por um mecanismo de transmissão de mensagens. Você pode acessar a fila programaticamente por meio de um serviço de nuvem e em um serviço Web para clientes externos. Você também pode acessar a fila diretamente, usando o Gerenciador de Servidores no Visual Studio.
 
@@ -163,9 +163,9 @@ A imagem a seguir mostra uma fila que contém duas mensagens.
 
 Para saber mais sobre as filas de serviço de armazenamento, consulte [Como usar o serviço de armazenamento de fila](http://go.microsoft.com/fwlink/?LinkID=264702). Para saber mais sobre o serviço Web para filas de serviços de armazenamento, consulte [Conceitos do serviço Fila](http://go.microsoft.com/fwlink/?LinkId=264788). Para saber mais sobre como enviar mensagens a uma fila de serviços de armazenamento usando o Visual Studio, consulte [Enviando mensagens para uma fila de serviços de armazenamento](https://msdn.microsoft.com/library/azure/jj649344.aspx).
 
->[AZURE.NOTE]Filas de serviços de armazenamento são diferentes de filas do barramento de serviço. Para obter mais informações sobre filas do barramento de serviço, consulte Filas do barramento de serviço, tópicos e assinaturas.
+>[AZURE.NOTE] Filas de serviços de armazenamento são diferentes de filas do barramento de serviço. Para obter mais informações sobre filas do barramento de serviço, consulte Filas do barramento de serviço, tópicos e assinaturas.
 
-### Trabalhar com recursos de tabela
+## Trabalhar com recursos de tabela
 
 O serviço de armazenamento Tabela do Microsoft Azure armazena grandes quantidades de dados estruturados. O serviço é um repositório de dados NoSQL que aceita chamadas autenticadas de dentro e de fora da nuvem do Azure. As tabelas do Azure são ideais para armazenar dados estruturados não relacionais.
 
@@ -213,7 +213,7 @@ A tabela é organizada por entidades (mostradas nas linhas) e propriedades (most
 
     Insira os valores com cuidado porque você não pode alterá-los depois de fechar a caixa de diálogo, a menos que exclua a entidade e adicione novamente.
 
-## Para filtrar entidades
+### Para filtrar entidades
 
 Você pode personalizar o conjunto de entidades que aparecem em uma tabela, se usar o construtor de consultas.
 
@@ -235,35 +235,35 @@ Você pode personalizar o conjunto de entidades que aparecem em uma tabela, se u
 
     ![VST\_SE\_TableFilter](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC655337.png)
 
-## Atualizar dados de armazenamento
+### Atualizar dados de armazenamento
 
 Quando o Gerenciador de Servidores é conectado ou obtém dados de uma conta de armazenamento, ele pode levar até um minuto para que a operação seja concluída. Se não conseguir conectar, a operação pode atingir o tempo limite. Enquanto os dados são recuperados, você pode continuar a trabalhar em outras partes do Visual Studio. Para cancelar a operação se demorar muito, escolha o botão **Parar atualização** na barra de ferramentas do Gerenciador de Servidores.
 
-### Para atualizar dados de contêiner de blob
+#### Para atualizar dados de contêiner de blob
 
 - Selecione o nó **Blobs** sob **Armazenamento** e escolha o botão **atualizar** na barra de ferramentas do Gerenciador de Servidores.
 
 - Para atualizar a lista de blobs que é exibida, escolha o botão **Execute**.
 
-### Para atualizar dados de tabela
+#### Para atualizar dados de tabela
 
 - Selecione o nó **Tabelas** sob **Armazenamento** e escolha o botão **Atualizar**.
 
 - Para atualizar a lista de entidades exibida no **Designer de tabela**, escolha o botão **Executar** no **Designer de tabela**.
 
-### Para atualizar os dados da fila
+#### Para atualizar os dados da fila
 
 - Selecione o nó **Filas** e escolha o botão **Atualizar**.
 
-### Para atualizar todos os itens em uma conta de armazenamento
+#### Para atualizar todos os itens em uma conta de armazenamento
 
 - Escolha o nome da conta e, em seguida, escolha o botão **Atualizar** na barra de ferramentas do Gerenciador de Servidores.
 
-## Adicionar contas de armazenamento usando o Gerenciador de Servidores
+### Adicionar contas de armazenamento usando o Gerenciador de Servidores
 
 Há duas maneiras de adicionar contas de armazenamento usando o Gerenciador de Servidores. Você pode criar uma nova conta de armazenamento na sua assinatura do Azure ou pode anexar uma conta de armazenamento existente.
 
-### Para criar uma nova conta de armazenamento usando o Gerenciador de Servidores
+#### Para criar uma nova conta de armazenamento usando o Gerenciador de Servidores
 
 1. No Gerenciador de Servidores, abra o menu de atalho para o nó Armazenamento e escolha Criar Conta de Armazenamento.
 
@@ -283,7 +283,7 @@ Há duas maneiras de adicionar contas de armazenamento usando o Gerenciador de S
 
     A nova conta de armazenamento aparece na lista **Armazenamento** no Gerenciador de Soluções.
 
-### Para anexar uma conta de armazenamento existente usando o Gerenciador de Servidores
+#### Para anexar uma conta de armazenamento existente usando o Gerenciador de Servidores
 
 1. No Gerenciador de Servidores, abra o menu de atalho para o nó Armazenamento do Azure e escolha **Anexar armazenamento externo**.
 
@@ -307,10 +307,10 @@ Há duas maneiras de adicionar contas de armazenamento usando o Gerenciador de S
 
 - No Gerenciador de Servidores, abra o menu de atalho para o nome da conta e, em seguida, escolha **Excluir**. Se você excluir uma conta de armazenamento, qualquer informação de chave salva para essa conta também é removida.
 
-    >[AZURE.NOTE]Se você excluir uma conta de armazenamento do Gerenciador de servidores, isto não afeta sua conta de armazenamento ou todos os dados que ela contém. Isto simplesmente remove a referência do Gerenciador de Servidores. Para excluir permanentemente uma conta de armazenamento, use o Portal de Gerenciamento do Azure.
+    >[AZURE.NOTE] Se você excluir uma conta de armazenamento do Gerenciador de servidores, isto não afeta sua conta de armazenamento ou todos os dados que ela contém. Isto simplesmente remove a referência do Gerenciador de Servidores. Para excluir permanentemente uma conta de armazenamento, use o Portal de Gerenciamento do Azure.
 
 ## Próximas etapas
 
 Para saber mais sobre como usar os serviços de armazenamento do Azure, consulte [Acessando os serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).
 
-<!---HONumber=AcomDC_1223_2015--->
+<!---HONumber=AcomDC_0204_2016-->

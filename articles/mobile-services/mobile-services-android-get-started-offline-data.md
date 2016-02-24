@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="12/06/2015"
+	ms.date="02/07/2016"
 	ms.author="ricksal"/>
 
 # Adicionar a sincronização de dados Offline para seu aplicativo de serviços móveis Android
@@ -132,7 +132,7 @@ Para enviar por push e receber alterações entre o dispositivo e os Serviços M
 		}
 
 
-8. No método `onCreate`, adicione este código como a penúltima linha, um pouco antes da chamada para `refreshItemsFromTable`:
+8. No método `onCreate`, adicione este código como a próxima à última linha, um pouco antes da chamada a `refreshItemsFromTable`:
 
 			syncAsync();
 
@@ -149,7 +149,7 @@ Para enviar por push e receber alterações entre o dispositivo e os Serviços M
 			syncAsync();
 			refreshItemsFromTable();
 
-	Esse código é executado quando você pressiona o botão **Atualizar** no canto superior direito. Isso é o principal meio de sincronizar seu repositório local no Azure, além de sincronizar na inicialização. Isso incentiva o envio em lote de alterações de sincronização e é eficiente, considerando que a recepção do Azure é uma operação relativamente cara. Também é possível criar esse aplicativo para sincronizar a cada alteração, adicionando uma chamada ao `syncAsync` para os métodos `addItem` e `checkItem`, se o seu aplicativo precisar disso.
+	Esse código é executado quando você pressiona o botão **Atualizar** no canto superior direito. Isso é o principal meio de sincronizar seu repositório local no Azure, além de sincronizar na inicialização. Isso incentiva o envio em lote de alterações de sincronização e é eficiente, considerando que a recepção do Azure é uma operação relativamente cara. Também é possível criar esse aplicativo para sincronizar cada alteração, adicionando uma chamada para os métodos `syncAsync` para o `addItem` e `checkItem`, se seu aplicativo precisar disso.
 
 
 ## Testar o aplicativo
@@ -223,4 +223,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [tutorial de Início Rápido dos Serviços Móveis]: mobile-services-android-get-started.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

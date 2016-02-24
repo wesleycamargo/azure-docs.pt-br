@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Como executar a codificação ativa com codificadores locais
@@ -29,7 +29,7 @@ Os itens a seguir são necessários para concluir o tutorial:
 
 É recomendável revisar os seguintes artigos:
 
-- [Suporte RTMP dos Serviços de Mídia do Azure e Codificadores Ativos](http://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
+- [Suporte RTMP dos Serviços de Mídia do Azure e Codificadores Ativos.](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
 - [Trabalhando com Canais que recebam transmissão ao vivo de múltiplas taxas de bits de codificadores locais](media-services-manage-channels-overview.md)
  
 
@@ -49,7 +49,7 @@ O exemplo de código a seguir demonstra como concretar as seguintes tarefas:
 - Obtenha os localizadores para todos os seus pontos de extremidade de streaming
 - Desligar recursos
 	
-Para obter informações sobre como configurar um codificador ativo, consulte [Suporte a RTMP dos Serviços de Mídia do Azure e codificadores ativos](http://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
+Para obter informações sobre como configurar um codificador ativo, consulte [Suporte a RTMP dos Serviços de Mídia do Azure e codificadores ativos](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
 	
 		using System;
 		using System.Collections.Generic;
@@ -385,4 +385,4 @@ Para obter informações sobre como configurar um codificador ativo, consulte [S
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

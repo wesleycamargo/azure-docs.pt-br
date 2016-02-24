@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/09/2015" 
+	ms.date="01/26/2016" 
 	ms.author="spelluru"/>
 
 # Notas de versão do Data Factory do Azure
@@ -242,7 +242,7 @@ Observe o seguinte:
 - Uma nova propriedade **external** é adicionada um nível acima e definida como **true** para uma tabela externa. 
 - As propriedades do elemento **waitOnExternal**, como **retryInterval**, são adicionados à nova seção **externalData** no elemento **Política**.
 - O elemento **externalData** é um elemento opcional. 
-- Ao usar o elemento **externalData**, você deve ter a propriedade **external** definida como **true**. 
+- Quando você usa o elemento **externalData**, você deve ter a propriedade **external** definida para **true**. 
  
 
 ## Nova propriedade copyBehavior para o BlobSink
@@ -257,7 +257,7 @@ O **BlobSink** dá suporte à nova propriedade chamada: **copyBehavior**. Essa p
 **MergeFiles**: mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo/blob for especificado, o nome do arquivo mesclado será o nome especificado; caso contrário, será o nome de arquivo gerado automaticamente.
  
 ## Nova propriedade getDebugInfo para todas as atividades do HDInsight
-As atividades do HDInsight (Hive, Pig, MapReduce, Streaming do Hadoop) oferecem suporte à nova propriedade: **getDebugInfo**. A propriedade **getDebugInfo** é um elemento opcional. Quando ela é definida como **Falha**, os logs são baixados somente em caso de falha de execução. Quando ela é definida como **Todos**, os logs sempre são baixados, não importa o status de execução. Quando ela é definida como **Nenhum**, nenhum log é baixado.
+As atividades do HDInsight (Hive, Pig, MapReduce, Streaming do Hadoop) oferecem suporte à nova propriedade: **getDebugInfo**. A propriedade **getDebugInfo** é um elemento opcional. Quando ela é definida como **Falha**, os logs são baixados somente em caso de falha de execução. Quando ela é definida como **Todos**, os logs sempre são baixados, não importa o status de execução. Quando ela é definida para **Nenhum**, nenhum log é baixado.
 
   
      
@@ -290,12 +290,12 @@ Porém, se uma fatia mais antiga for executada novamente, ela não aparecerá na
 -  Você pode especificar a codificação para arquivos de texto em um Blob do Azure. Consulte a nova [propriedade encodingName](https://msdn.microsoft.com/library/dn894089.aspx#AzureBlob). 
 - Você pode invocar um procedimento armazenado com parâmetros adicionais ao copiar em um coletor de SQL.    
 
-Consulte a postagem de blog: [Atualização da Azure Data Factory - novos armazenamentos de dados](http://azure.microsoft.com/blog/2015/03/30/azure-data-factory-update-new-data-stores/) para obter mais informações, incluindo exemplos.
+Consulte a postagem de blog: [Atualização da Azure Data Factory - novos armazenamentos de dados](https://azure.microsoft.com/blog/2015/03/30/azure-data-factory-update-new-data-stores/) para obter mais informações, incluindo exemplos.
 
 ## Notas da versão de 27/02/2015 da Data Factory
 
 ### Novos aprimoramentos
-- **Editor da Azure Data Factory**. O Editor do Data Factory, que faz parte do Portal do Azure, permite criar, editar e implantar arquivos JSON que definem os pipelines, conjuntos de dados e serviços vinculados. O principal objetivo do editor é fornecer uma interface do usuário rápida e leve para criar artefatos do Azure Data Factory sem a necessidade de instalar o Azure PowerShell, possibilitando um uso mais ágil dos cmdlets do PowerShell. Consulte a postagem do blog [Editor da Azure Data Factory - um editor Web leve][adf-editor-blog] para uma visão geral e um vídeo sobre o Editor do Data Factory. Para uma visão geral detalhada do editor, consulte o artigo [Editor Data Factory][adf-editor].          
+- **Editor da Azure Data Factory**. O Editor do Data Factory, que faz parte do Portal do Azure, permite criar, editar e implantar arquivos JSON que definem os pipelines, conjuntos de dados e serviços vinculados. O principal objetivo do editor é fornecer uma interface do usuário rápida e leve para criar artefatos do Azure Data Factory sem a necessidade de instalar o Azure PowerShell, possibilitando um uso mais ágil dos cmdlets do PowerShell. Consulte a postagem do blog [Editor da Azure Data Factory - um editor Web leve][adf-editor-blog] para uma visão geral e um vídeo sobre o Editor do Data Factory.  
 
 ### Alterações
 
@@ -341,9 +341,8 @@ Consulte a postagem de blog: [Atualização da Azure Data Factory - novos armaze
     
   		Consulte [Usar atividades personalizadas em um pipeline da Azure Data Factory][adf-custom-activities] para obter uma explicação passo a passo sobre como criar uma atividade personalizada e usá-la em um pipeline da Azure Data Factory.
 
-[adf-azure-ml]: data-factory-create-predictive-pipelines.md
+[adf-azure-ml]: data-factory-azure-ml-batch-execution-activity.md
 [adf-custom-activities]: data-factory-use-custom-activities.md
-[adf-editor]: data-factory-editor.md
 
 [adf-editor-video]: http://channel9.msdn.com/Blogs/Windows-Azure/New-Azure-Data-Factory-Editor-UI
 [adf-editor-blog]: http://azure.microsoft.com/blog/2015/03/02/azure-data-factory-editor-a-light-weight-web-editor/
@@ -357,4 +356,4 @@ Consulte a postagem de blog: [Atualização da Azure Data Factory - novos armaze
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

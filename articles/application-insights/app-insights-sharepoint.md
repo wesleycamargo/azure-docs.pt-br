@@ -26,7 +26,7 @@ O Application Insights do Visual Studio monitora a disponibilidade, o desempenho
 ## Criar um recurso do Application Insights
 
 
-No [Portal do Azure](http://portal.azure.com), crie um novo recurso do Application Insights. Escolha ASP.NET como o tipo de aplicativo.
+No [Portal do Azure](https://portal.azure.com), crie um novo recurso do Application Insights. Escolha ASP.NET como o tipo de aplicativo.
 
 ![Clique em Propriedades, selecione a chave e pressione ctrl + C](./media/app-insights-sharepoint/01-new.png)
 
@@ -75,9 +75,9 @@ Insira uma web part e insira o trecho de código nela.
 
 Reimplante o aplicativo.
 
-Retorne à folha de seu aplicativo no [portal do Azure](http://portal.azure.com).
+Retorne à folha de seu aplicativo no [portal do Azure](https://portal.azure.com).
 
-Os primeiros eventos aparecerão na Pesquisa de Diagnóstico.
+Os primeiros eventos aparecerão na Pesquisa.
 
 ![](./media/app-insights-sharepoint/09-search.png)
 
@@ -91,7 +91,7 @@ Clique em qualquer gráfico para ver mais detalhes - exibições de página por 
 
 ![](./media/app-insights-sharepoint/07-pages.png)
 
-Ou usuários:
+Ou Usuários:
 
 
 ![](./media/app-insights-sharepoint/08-users.png)
@@ -108,4 +108,4 @@ Ou usuários:
 
 <!--Link references-->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

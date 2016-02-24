@@ -5,7 +5,7 @@
     documentationCenter="na"
     authors="ms-prkhad"
     manager=""
-    editor=""/>
+    editor="tysonn"/>
 
 <tags
     ms.service="storage"
@@ -14,7 +14,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="12/04/2015"
-    ms.author="robinsh"/>
+    ms.author="prkhad"/>
 
 # Armazenamento Premium do Azure: projeto para alto desempenho
 
@@ -385,7 +385,7 @@ Veja abaixo as capturas de tela dos resultado do teste Iometer para cenários co
 *Taxa de Transferência Máxima de Leituras e Gravações Combinadas* ![](media/storage-premium-storage-performance/image10.png)
 
 ### FIO  
-FIO é uma ferramenta popular para o armazenamento de parâmetros de comparação em VMs Linux. Ela tem a flexibilidade para selecionar diferentes tamanhos de E/S, leituras e gravações sequenciais ou aleatórias. Ela gera threads ou processos de trabalho para executar as operações de E/S especificadas. Você pode especificar o tipo de operação de E/S que cada thread de trabalho deve executar usando arquivos de trabalho. Criamos um arquivo de trabalho por cenário ilustrado nos exemplos abaixo. É possível alterar as especificações nesses arquivos de trabalho para comparar diferentes cargas de trabalho em execução no Armazenamento Premium. Nos exemplos, estamos usando uma VM Padrão DS14 com o **Ubuntu**. Use a mesma configuração descrita no início da seção Parâmetros de comparação e aqueça o cache antes de executar os testes de parâmetros de comparação.
+FIO é uma ferramenta popular para o armazenamento de parâmetros de comparação em VMs Linux. Ela tem a flexibilidade para selecionar diferentes tamanhos de E/S, leituras e gravações sequenciais ou aleatórias. Ela gera threads ou processos de trabalho para executar as operações de E/S especificadas. Você pode especificar o tipo de operação de E/S que cada thread de trabalho deve executar usando arquivos de trabalho. Criamos um arquivo de trabalho por cenário ilustrado nos exemplos abaixo. É possível alterar as especificações nesses arquivos de trabalho para comparar diferentes cargas de trabalho em execução no Armazenamento Premium. Nos exemplos, estamos usando uma VM DS14 padrão executando o **Ubuntu**. Use a mesma configuração descrita no início da seção Parâmetros de comparação e aqueça o cache antes de executar os testes de parâmetros de comparação.
 
 Antes de começar, instale a FIO na máquina virtual. Baixe-a do [GitHub](https://github.com/axboe/fio).
 
@@ -422,7 +422,7 @@ directory=/mnt/nocache
 Observe os itens importantes a seguir que estão de acordo com as diretrizes de projeto abordadas nas seções anteriores. Essas especificações são essenciais para impulsionar a IOPS máxima: - Um profundidade de fila alta de 256. - Um bloco pequeno de 8 KB. - Vários threads que executam gravações aleatórias.
 
 Execute o seguinte comando para iniciar o teste FIO por 30 segundos:
-				
+
 	sudo fio --runtime 30 fiowrite.ini
 
 Enquanto o teste é executado, você poderá ver o número de IOPS de gravação fornecido pela VM e pelos discos premium. Como mostrado no exemplo abaixo, a VM DS14 está fornecendo seu limite máximo de IOPS de gravação, isto é, 50.000 IOPS. ![](media/storage-premium-storage-performance/image11.png)
@@ -526,8 +526,8 @@ Saiba mais sobre o Armazenamento Premium do Azure:
 
 Para usuários do SQL Server, leia os artigos sobre Práticas recomendadas de desempenho para o SQL Server:
 
-- [Práticas recomendadas de desempenho do SQL Server nas 
-- Máquinas Virtuais do Azure](https://msdn.microsoft.com/library/azure/dn133149.aspx) 
+- [Práticas recomendadas de desempenho do SQL Server nas
+- Máquinas Virtuais do Azure](https://msdn.microsoft.com/library/azure/dn133149.aspx)
 - [Armazenamento Premium do Azure fornece desempenho mais alto para SQL Server na VM do Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

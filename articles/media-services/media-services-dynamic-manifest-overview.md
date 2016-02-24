@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="10/18/2015" 
+	ms.date="01/28/2016" 
 	ms.author="juliako"/>
 
 #Filtros e manifestos dinâmicos
@@ -120,7 +120,7 @@ Com o manifesto dinâmico, é possível criar perfis de dispositivos, como dispo
  
 ![Exemplo de filtragem de representação][renditions2]
 
-No exemplo a seguir, o Codificador de Mídia do Azure foi usado para codificar um ativo mezzanine em sete representações de vídeo ISO MP4s (de 180p para 1080p). O ativo codificado pode ser empacotado dinamicamente em qualquer um dos seguintes protocolos de streaming: HLS, Smooth, MPEG DASH e HDS. Na parte superior do diagrama, é mostrado o manifesto HLS para o ativo sem filtros (ele contém todas as sete representações). Na parte inferior esquerda, é mostrado o manifesto HLS ao qual foi aplicado um filtro chamado "ott". O filtro de "ott" especifica a remoção de todas as taxas de bits abaixo de 1Mbps, resultando na remoção dos dois níveis de qualidade inferiores da resposta. Na parte inferior direita, é mostrado o manifesto HLS, ao qual foi aplicado um filtro chamado "mobile". O filtro "mobile" especifica a remoção de representações em que a resolução é maior do que 720p, resultando na remoção de duas representações de 1080p.
+No exemplo a seguir, o codificador foi usado para codificar um ativo mezzanine em sete representações de vídeo ISO MP4s (de 180p para 1080p). O ativo codificado pode ser empacotado dinamicamente em qualquer um dos seguintes protocolos de streaming: HLS, Smooth, MPEG DASH e HDS. Na parte superior do diagrama, é mostrado o manifesto HLS para o ativo sem filtros (ele contém todas as sete representações). Na parte inferior esquerda, é mostrado o manifesto HLS ao qual foi aplicado um filtro chamado "ott". O filtro de "ott" especifica a remoção de todas as taxas de bits abaixo de 1Mbps, resultando na remoção dos dois níveis de qualidade inferiores da resposta. Na parte inferior direita, é mostrado o manifesto HLS, ao qual foi aplicado um filtro chamado "mobile". O filtro "mobile" especifica a remoção de representações em que a resolução é maior do que 720p, resultando na remoção de duas representações de 1080p.
 
 ![Filtragem de representação][renditions1]
 
@@ -192,7 +192,7 @@ Para combinar os filtros, você precisa definir os nomes dos filtros para a URL 
 
 Você pode combinar até três filtros.
 
-Para saber mais, confira [este blog](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support).
+Para saber mais, confira [este blog](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
 
 ##Conheça os problemas e limitações
@@ -212,7 +212,7 @@ Para saber mais, confira [este blog](http://azure.microsoft.com/blog/azure-media
 
 
 
-##Veja também
+##Consulte também
 
 [Visão geral do fornecimento de conteúdo a clientes](media-services-deliver-content-overview.md)
 
@@ -236,4 +236,4 @@ Para saber mais, confira [este blog](http://azure.microsoft.com/blog/azure-media
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

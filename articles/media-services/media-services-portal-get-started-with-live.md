@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="01/31/2016"  
 	ms.author="juliako"/>
 
 
@@ -37,7 +37,7 @@ Neste tutorial, o Portal Clássico do Azure é usado para realizar as seguintes 
 ## Pré-requisitos
 Os itens a seguir são necessários para concluir o tutorial.
 
-- Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](azure.microsoft.com).
+- Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](/pricing/free-trial/?WT.mc_id=A261C142F). 
 - Uma conta dos Serviços de Mídia. Para criar uma conta de Serviços de Mídia, consulte [Criar Conta](media-services-create-account.md).
 - Uma webcam e um codificador que possa enviar um fluxo ao vivo de múltiplas taxas de bits.
 
@@ -64,7 +64,7 @@ Para alterar o número de unidades de streaming reservadas, faça o seguinte:
 
 A alocação de quaisquer novas unidades de streaming leva cerca de 20 minutos para ser concluída.
 
->[AZURE.NOTE]No momento, mudar de qualquer valor positivo de unidades de streaming de volta para nenhuma unidade pode desabilitar o streaming por até uma hora.
+>[AZURE.NOTE] No momento, mudar de qualquer valor positivo de unidades de streaming de volta para nenhuma unidade pode desabilitar o streaming por até uma hora.
 >
 > O número mais alto de unidades especificadas para o período de 24 horas é usado para calcular o custo. Para obter informações sobre os detalhes de preços, consulte [Detalhes de preços dos Serviços de Mídia](http://go.microsoft.com/fwlink/?LinkId=275107).
 
@@ -88,15 +88,15 @@ Depois que o canal é criado, você pode obter URLs de ingestão que você forne
 
 ![ingesturls](./media/media-services-portal-get-started-with-live/media-services-ingest-urls.png)
 
-Para obter mais informações sobre URLs de ingestão, consulte [Usando codificadores de locais para enviar um fluxo ao vivo de múltiplas taxas de bits para um canal](../media-services-channels-overview.md).
+Para obter mais informações sobre URLs de ingestão, consulte [Usando codificadores de locais para enviar um fluxo ao vivo de múltiplas taxas de bits para um canal](media-services-channels-overview.md).
 
 ## Configurar um codificador ao vivo e receber transmissão ao vivo
 
->[AZURE.NOTE]Esta etapa exige a URL de ingestão do canal que foi mencionada na etapa anterior.
+>[AZURE.NOTE] Esta etapa exige a URL de ingestão do canal que foi mencionada na etapa anterior.
 
-Para obter informações detalhadas sobre como configurar Wirecast e iniciar a ingestão do fluxo, consulte [Configuração Wirecast](http://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
+Para obter informações detalhadas sobre como configurar Wirecast e iniciar a ingestão do fluxo, consulte [Configuração Wirecast](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
 
->[AZURE.NOTE]Se por algum motivo você parou o codificador e agora precisa reiniciá-lo, primeiramente você deve redefinir o canal clicando no comando **REDEFINIR** no Portal Clássico do Azure.
+>[AZURE.NOTE] Se por algum motivo você parou o codificador e agora precisa reiniciá-lo, primeiramente você deve redefinir o canal clicando no comando **REDEFINIR** no Portal Clássico do Azure.
 
 
 ## Criar e gerenciar um programa
@@ -205,11 +205,11 @@ Se este tópico não contiver o que você esperava, se estiver faltando alguma i
 
 
 ## Recursos adicionais
-- [Introdução à transmissão ao vivo usando o Portal Clássico do Azure](http://azure.microsoft.com/blog/getting-started-with-live-streaming-using-the-azure-management-portal/)
+- [Introdução à transmissão ao vivo usando o Portal Clássico do Azure](https://azure.microsoft.com/blog/getting-started-with-live-streaming-using-the-azure-management-portal/)
 
 <!-- URLs. -->
 [Azure Classic Portal]: http://manage.windowsazure.com/
 
 <!-- Images -->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

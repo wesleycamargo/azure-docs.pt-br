@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/20/2015"
+   ms.date="02/04/2016"
    ms.author="maroche"/>
 
 # Perguntas frequentes sobre o Catálogo de Dados do Azure
@@ -43,8 +43,10 @@ Durante a visualização, os serviços de **Catálogo de Dados do Azure** estão
 
 - Oeste dos EUA
 - Leste dos EUA
-- Oeste da Europa
+- Europa Ocidental
+- Norte da Europa
 - Leste da Austrália
+- Sudeste Asiático
 
 ## P.: Quais são os limites de número de ativos de dados no Catálogo de Dados do Azure?
 
@@ -54,37 +56,12 @@ A Edição Standard do **Catálogo de Dados do Azure** dá suporte a até 100.00
 
 ## P.: Quais são os tipos de ativos e fonte de dados com suporte?
 
-Durante a visualização, o **Catálogo de Dados do Azure** dá suporte atualmente a banco de dados do SQL Server relacional (incluindo o Banco de Dados SQL do Azure) e do SQL Server Analysis Services (multidimensionais e tabulares), bem como do SQL Server Reporting Services (somente em modo nativo) e do Oracle Database.
-
-Durante a visualização, o **Catálogo de Dados do Azure** dá suporte ao registro e à descoberta dos seguintes tipos de ativo:
-
-- Tabela do SQL Server
-- Exibição do SQL Server
-- Dimensão do SQL Server Analysis Services
-- Medida do SQL Server Analysis Services
-- KPI do SQL Server Analysis Services
-- Tabela do SQL Server Analysis Services
-- Relatório do SQL Server Reporting Services  
-- Tabela do Oracle Database
-- Exibição do Oracle Database
-- Blob de Armazenamento do Azure
-- Diretório de Armazenamento do Azure
-- Arquivo do HDFS
-- Diretório do HDFS
-- Tabela Teradata
-- Exibição do Teradata
-
-Além dos ativos listados acima, o **Catálogo de Dados do Azure** dá suporte à descoberta dos seguintes contêineres de ativos:
-
-- Banco de Dados SQL Server
-- Banco de dados Oracle
-- Cluster HDFS
-- Banco de dados do Teradata
+Consulte o [DSR do Catálogo de Dados](data-catalog-dsr.md) para obter a lista de fontes de dados com suporte no momento.
 
 
 ## P.: Como posso solicitar suporte para outra fonte de dados?
 
-As solicitações de recursos e outros comentários podem ser enviados para o [fórum do Catálogo de Dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+Solicitações de recursos e outros comentários podem ser enviados no [Fórum do Catálogo de Dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## P.: Como faço para começar a utilizar o Catálogo de Dados do Azure?
 
@@ -105,11 +82,11 @@ As propriedades específicas serão diferentes conforme a fonte de dados, mas, e
 - Tipos de dados do atributo/coluna
 - Descrição do atributo/coluna
 
-> [AZURE.IMPORTANT]O registro de ativos de dados com o **Catálogo de Dados do Azure** não move ou copia seus dados para a nuvem. Registrar os ativos de uma fonte de dados copiará os metadados dos ativos para o Azure, mas os dados permanecerão no local na fonte de dados de origem. A única exceção a essa regra é se um usuário optar por carregar registros de visualização ou um perfil de dados ao registrar ativos. Quando você estiver incluindo uma visualização, até 20 registros serão copiados de cada ativo e armazenados como um instantâneo no **Catálogo de Dados do Azure**. Quando você estiver incluindo um perfil de dados, as informações agregadas (como o tamanho de tabelas, os valores nulos de porcentagem por coluna e os valores mínimos, máximo e médio para colunas) serão calculadas e incluídas nos metadados armazenados no catálogo.
+> [AZURE.IMPORTANT] O registro de ativos de dados com o **Catálogo de Dados do Azure** não move ou copia seus dados para a nuvem. Registrar os ativos de uma fonte de dados copiará os metadados dos ativos para o Azure, mas os dados permanecerão no local na fonte de dados de origem. A única exceção a essa regra é se um usuário optar por carregar registros de visualização ou um perfil de dados ao registrar ativos. Quando você estiver incluindo uma visualização, até 20 registros serão copiados de cada ativo e armazenados como um instantâneo no **Catálogo de Dados do Azure**. Quando você estiver incluindo um perfil de dados, as informações agregadas (como o tamanho de tabelas, os valores nulos de porcentagem por coluna e os valores mínimos, máximo e médio para colunas) serão calculadas e incluídas nos metadados armazenados no catálogo.
 
 <br/>
 
-> [AZURE.NOTE]Para fontes de dados como o SQL Server Analysis Services que têm uma propriedade **Description** de primeira classe, o aplicativo de publicação do **Catálogo de Dados do Azure** extrairá o valor dessa propriedade. Para bancos de dados relacionais do SQL Server que não têm uma propriedade **Description** de primeira classe, o aplicativo de publicação do **Catálogo de Dados do Azure** extrairá o valor da propriedade estendida ms\_description para objetos e colunas. Para saber mais, veja [Usando propriedades estendidas em objetos de banco de dados](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx) no TechNet.
+> [AZURE.NOTE] Para fontes de dados como o SQL Server Analysis Services que têm uma propriedade **Description** de primeira classe, o aplicativo de publicação do **Catálogo de Dados do Azure** extrairá o valor dessa propriedade. Para bancos de dados relacionais do SQL Server que não têm uma propriedade **Description** de primeira classe, o aplicativo de publicação do **Catálogo de Dados do Azure** extrairá o valor da propriedade estendida ms\_description para objetos e colunas. Para saber mais, veja [Usando propriedades estendidas em objetos de banco de dados](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx) no TechNet.
 
 ## P.: Quanto tempo levará para recursos recém-registrados aparecem no Catálogo de Dados do Azure?
 
@@ -117,9 +94,9 @@ Depois de registrar os ativos com o **Catálogo de Dados do Azure**, poderá hav
 
 ## P.: Como posso anotar e enriquecer os metadados para meus ativos de dados registrados?
 
-A maneira mais simples de fornecer metadados para os ativos registrados é selecionar o ativo no portal do **Catálogo de Dados do Azure** e inserir os valores de metadados no painel de propriedades ou no painel de esquema para o objeto selecionado.
+A maneira mais simples de fornecer metadados para ativos registrados é selecionar o ativo no portal do **Catálogo de Dados do Azure** e inserir os valores de metadados no painel de propriedades ou no painel de esquema do objeto selecionado.
 
-Você também pode fornecer alguns metadados, como marcas e especialistas, durante o processo de registro. Os valores fornecidos no serviço de publicação do **Catálogo de Dados do Azure** serão aplicados a todos os ativos que estiverem sendo registrados no momento. Para exibir os objetos recém-registrados no portal e fazer uma anotação adicional, selecione o botão **Exibir Portal** na tela final do aplicativo de publicação do **Catálogo de Dados do Azure**.
+Você também pode fornecer alguns metadados, como marcas e especialistas, durante o processo de registro. Os valores fornecidos no serviço de publicação do **Catálogo de Dados do Azure** serão aplicados a todos os ativos que estiverem sendo registrados no momento. Para exibir os objetos recém-registrados no portal para anotação adicional, selecione o botão **Exibir Portal** na tela final do aplicativo de publicação do **Catálogo de Dados do Azure**.
 
 ## P.: Como posso excluir meus objetos de dados registrados?
 
@@ -131,7 +108,7 @@ Especialista é uma pessoa que tem uma perspectiva bem informada sobre um objeto
 
 ## P.: Qual é o SLA para visualização?
 
-Durante a visualização do **Catálogo de Dados do Azure**, não há nenhum SLAplícito.
+Durante a visualização do **Catálogo de Dados do Azure**, não há nenhum contrato de nível de serviço explícito.
 
 ## P.: Como posso compartilhar informações com a equipe do Catálogo de Dados do Azure se eu encontrar problemas?
 
@@ -172,4 +149,4 @@ Se você tiver problemas ou precisar de ajuda com a visualização do **Catálog
 
 Vá diretamente para o [fórum do Catálogo de Dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). As perguntas feitas serão posteriormente incluídas aqui.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

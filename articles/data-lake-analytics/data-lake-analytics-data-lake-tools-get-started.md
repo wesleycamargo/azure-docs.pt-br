@@ -10,10 +10,10 @@
 <tags
    ms.service="data-lake-analytics"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/21/2015"
+   ms.date="02/10/2016"
    ms.author="jgao"/>
 
 # Tutorial: desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio
@@ -52,7 +52,7 @@ U-SQL é uma linguagem altamente extensível e hiperescalonável para preparaç�
 1. Abra o Visual Studio.
 2. No menu **Exibir**, clique em **Gerenciador de Servidores** para abri-lo. Ou pressione **[CTRL]+[ALT]+S**.
 3. Clique com o botão direito do mouse em **Azure**, clique em "Conectar à Assinatura do Microsoft Azure" e siga as instruções.
-4. No **Gerenciador de Servidores**, expanda **Azure** e **Análise Data Lake**. Você deverá ver uma lista das suas contas da Análise Data Lake, caso haja alguma. Não é possível criar contas de Análise Data Lake no Visual Studio. Para criar uma conta, confira [Introdução à Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-get-started-portal.md) ou [Introdução à Análise do Azure Data Lake usando o Azure PowerShell](data-lake-analytics--get-started-powershell.md).
+4. No **Gerenciador de Servidores**, expanda **Azure** e **Análise Data Lake**. Você deverá ver uma lista das suas contas da Análise Data Lake, caso haja alguma. Não é possível criar contas de Análise Data Lake no Visual Studio. Para criar uma conta, confira [Introdução à Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-get-started-portal.md) ou [Introdução à Análise do Azure Data Lake usando o Azure PowerShell](data-lake-analytics-get-started-powershell.md).
 
 ## Carregar arquivos de dados de origem
 
@@ -60,7 +60,7 @@ Anteriormente neste tutorial, você carregou alguns dados na seção **Pré-requ
 
 Caso você queira usar seus próprios dados, estes são os procedimentos para carregar dados das Ferramentas do Data Lake.
 
-**Para carregar o arquivo na conta dependente do Azure Data Lake**
+**Para carregar arquivos na conta dependente do Azure Data Lake**
 
 1. No **Gerenciador de Servidores**, expanda **Azure**, **Análise Data Lake**, sua conta de Análise Data Lake e **Contas de Armazenamento**. Você deverá ver a conta padrão do Repositório Data Lake, as contas vinculadas do Repositório Data Lake e as contas de Armazenamento do Azure vinculadas. A conta padrão do Data Lake tem um rótulo "Conta de Armazenamento Padrão".
 2. Clique com o botão direito do mouse na conta de armazenamento padrão do Data Lake e clique em **Gerenciador**. Isso abrirá o painel Gerenciador das Ferramentas do Data Lake para Visual Studio. À esquerda, há um modo de exibição de árvore e o modo de exibição de conteúdo está à direita.
@@ -69,17 +69,17 @@ Caso você queira usar seus próprios dados, estes são os procedimentos para ca
 
 	![U-SQL do Projeto de U-SQL do Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-upload-files.png)
 
-**Para carregar o arquivo na conta de Armazenamento de Blobs do Azure**
+**Para carregar arquivos em uma conta de Armazenamento de Blobs vinculada do Azure**
 
 1. No **Gerenciador de Servidores**, expanda **Azure**, **Análise Data Lake**, sua conta de Análise Data Lake e **Contas de Armazenamento**. Você deverá ver a conta padrão do Repositório Data Lake, as contas vinculadas do Repositório Data Lake e as contas de Armazenamento do Azure vinculadas. 
 2. Expanda a conta de Armazenamento do Azure.
-3. Clique com o botão direito do mouse no contêiner onde você deseja carregar arquivos e clique em **Gerenciador**.
+3. Clique com o botão direito do mouse no contêiner onde você deseja carregar arquivos e clique em **Gerenciador**. Se você não tiver um contêiner, primeiro deverá criar um usando o portal do Azure, o Azure PowerShell ou outras ferramentas.
 4. Navegue até a pasta na qual você deseja carregar arquivos, 
 5. Clique com o botão direito do mouse em qualquer espaço em branco e clique em **Carregar**. 
 
 ## Desenvolver scripts U-SQL 
 
-Os trabalhos de Análise Data Lake são escritos na linguagem U-SQL. Para saber mais sobre o U-SQL, confira [Introdução à linguagem U-SQL](data-lake-analytics-u-sql-get-started.md) e [Referência de linguagem U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
+Os trabalhos de Análise Data Lake são escritos na linguagem U-SQL. Para saber mais sobre o U-SQL, consulte [Introdução à linguagem U-SQL](data-lake-analytics-u-sql-get-started.md) e [Referência da linguagem U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
 
 **Para criar e enviar um trabalho da Análise Data Lake**
 
@@ -101,7 +101,11 @@ Os trabalhos de Análise Data Lake são escritos na linguagem U-SQL. Para saber 
                     ClickedUrls     string
             FROM "/Samples/Data/SearchLog.tsv"
             USING Extractors.Tsv();
-        
+
+		@res =
+		    SELECT *
+		    FROM @searchlog;        
+
         OUTPUT @searchlog   
             TO "/Output/SearchLog-from-Data-Lake.csv"
         USING Outputters.Csv();
@@ -118,7 +122,7 @@ Os trabalhos de Análise Data Lake são escritos na linguagem U-SQL. Para saber 
     
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
-    >[AZURE.NOTE]Atualmente, não há suporte para o contêiner de Blob do Azure com permissões de acesso de blobs públicos ou de contêineres públicos.
+    >[AZURE.NOTE] Atualmente, não há suporte para o contêiner de Blob do Azure com permissões de acesso de blobs públicos ou de contêineres públicos.
 
 	Perceba os seguintes recursos:
 
@@ -219,6 +223,10 @@ Você verá uma conta *Local* no Visual Studio e o instalador cria uma pasta *Da
 - Para um determinado script: se um caminho relativo for referenciado nos caminhos de entrada/saída, pesquisaremos o DataRoot (bem como caminho do script se a entrada)
 - A pasta DataRoot não será referenciada se você estiver tentando registrar um assembly e usar um caminho relativo (veja a parte “Usar assemblies ao fazer a execução local” para obter mais detalhes)
 
+O vídeo a seguir demonstra o recurso de execução local do U-SQL:
+
+>[AZURE.VIDEO usql-localrun]
+
 ### Problemas e limitações conhecidos
 
 - A Execução Local do U-SQL não dá suporte à consulta de conjuntos de arquivos localmente. Confira [Conjuntos de arquivos U-SQL](https://msdn.microsoft.com/library/azure/mt621294.aspx). Isso será resolvido no futuro.
@@ -263,8 +271,6 @@ O procedimento a seguir só funciona no Visual Studio 2015. No Visual Studio mai
         CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
 3.	Definir pontos de interrupção no código C#.
 4.	Pressione **F5** para depurar o script referenciando o dll do C# localmente.  
- 
-
 
 ##Consulte também
 
@@ -279,7 +285,7 @@ Para ver mais tópicos de desenvolvimento:
 - [Analisar os weblogs usando a Análise Data Lake](data-lake-analytics-analyze-weblogs.md)
 - [Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 - [Introdução à linguagem U-SQL da Análise Data Lake do Azure](data-lake-analytics-u-sql-get-started.md)
-- [Desenvolver operadores do U-SQL definidos pelo usuário para trabalhos da Análise Data Lake](data-lake-analytics-u-sql-user-defined-operators.md)
+- [Desenvolver operadores do U-SQL definidos pelo usuário para trabalhos da Análise Data Lake](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 
 ##Apêndice A - Amostra do PowerShell para preparar o tutorial
 
@@ -353,4 +359,4 @@ O script do PowerShell a seguir prepara uma conta da Análise Data Lake do Azure
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0218_2016-->

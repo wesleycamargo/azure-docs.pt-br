@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="02/03/2016"
 	ms.author="garye"/>
 
 # O que é o Estúdio de Aprendizado de Máquina do Azure?
@@ -31,7 +31,7 @@ Para desenvolver um modelo de análise preditiva, normalmente você usa dados de
 
 O **Estúdio de Aprendizado de Máquina do Azure** oferece um espaço de trabalho visual e interativo para compilar, testar e iterar em um modelo de análise preditivo. Você arrasta e solta ***conjuntos de dados*** e ***módulos*** de análise em ***telas*** interativas conectando-as para formar um ***teste***, o qual você ***executa*** no Estúdio de Aprendizado de Máquina. Para iterar em seu design de modelo, você ***edita*** o teste, ***salva*** uma cópia, se desejado, e executa-o novamente. Quando você estiver pronto, você poderá converter sua ***teste de treinamento*** em uma ***experiência preditiva***, e, em seguida, ***publicar*** -la como um ***serviço Web*** para que seu modelo possa ser acessado por outros.
 
->[AZURE.TIP]Para baixar e imprimir um diagrama que fornece uma visão geral dos recursos do Estúdio de Aprendizado de Máquina, consulte [Diagrama de visão geral dos recursos do Estúdio de Aprendizado de Máquina do Azure](machine-learning-studio-overview-diagram.md).
+>[AZURE.TIP] Para baixar e imprimir um diagrama que fornece uma visão geral dos recursos do Estúdio de Aprendizado de Máquina, consulte [Diagrama de visão geral dos recursos do Estúdio de Aprendizado de Máquina do Azure](machine-learning-studio-overview-diagram.md).
 
 Não há necessidade de programação, basta conectar visualmente os conjuntos de dados e módulos para construir seu modelo de análise preditivo.
 
@@ -48,7 +48,7 @@ Existem três guias na parte superior: **Página inicial** (onde iniciar), **Est
 Clique na guia **Estúdio** e será solicitado que você entre usando a conta da Microsoft, ou sua conta de trabalho ou escola. Depois de conectado, você verá as seguintes guias à esquerda:
 
 - **TESTES** – Testes criados, executados e salvos como rascunhos
-- **SERVIÇOS WEB** -Serviços Web que você implantou a partir dos testes
+- **SERVIÇOS WEB** -serviços Web que você implantou dos testes
 - **NOTEBOOKS** - Notebooks Jupyter que você criou
 - **CONJUNTOS DE DADOS** - Conjuntos de dados que você carregou no Estúdio
 - **MODELOS TREINADOS** - Modelos que você treinou em testes e salvos no Estúdio
@@ -93,7 +93,7 @@ Para obter uma lista de conjuntos de dados de exemplo incluídos no Estúdio de 
 Um módulo é um algoritmo que você pode executar em seus dados. O Estúdio de Aprendizado de Máquina tem uma série de módulos, desde funções de ingresso até treinamento, pontuação e processos de validação. Aqui estão alguns exemplos dos módulos incluídos:
 
 - [Converter em ARFF][convert-to-arff] – converte um conjunto de dados serializados .NET no formato ARFF (Arquivo de Atributo-Relação).
-- [Estatísticas Elementares][elementary-statistics] – calcula as estatísticas elementares como média, desvio padrão etc.
+- [Calcular Estatísticas Elementares][elementary-statistics] – calcula as estatísticas elementares como média, desvio padrão etc.
 - [Regressão Linear][linear-regression] – cria um modelo online de regressão linear com base em descendência gradiente
 - [Modelo de Pontuação][score-model] – pontua uma classificação treinada ou modelo de regressão
 
@@ -115,4 +115,4 @@ Quando seu modelo de análise preditiva estiver pronto, você pode implantá-lo 
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

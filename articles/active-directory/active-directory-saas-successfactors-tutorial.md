@@ -11,12 +11,13 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Tutorial: Integração do Active Directory do Azure com o SuccessFactors
   
-O objetivo deste tutorial é mostrar a integração do Azure com o SuccessFactors no **modo de logon único iniciado pelo SP**. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+O objetivo deste tutorial é mostrar a integração do Azure com o SuccessFactors no **modo de logon único iniciado pelo SP**.  
+O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Assinatura habilitada por logon único do SuccessFactors no modo iniciado pelo Provedor de Serviços
@@ -52,7 +53,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
     ![Adicionar aplicativo](./media/active-directory-saas-successfactors-tutorial/IC749321.png "Adicionar aplicativo")
 
-5.  No diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+5.  Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 
     ![Adicionar um aplicativo da galeria](./media/active-directory-saas-successfactors-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 
@@ -84,10 +85,13 @@ Para obter logon único configurado, você precisará entrar em contato com sua 
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-successfactors-tutorial/IC791140.png "Configurar a URL do Aplicativo")
 
-    1.  Na caixa de texto **URL de Logon Único do SuccessFactors**, digite a URL usada pelos usuários para fazer logon em seu aplicativo do SuccessFactors (por exemplo: "**https://performancemanager4.successfactors.com/sf/home?company=CompanyName&loginMethod=SSO*")).
-2.  Na caixa de texto **URL de Resposta do SuccessFactors**, digite ****https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName**.
+    1.  Na caixa de texto **URL de Logon Único do SuccessFactors**, digite a URL usada pelos usuários para fazer logon em seu aplicativo do SuccessFactors (por exemplo: "*https://performancemanager4.successfactors.com/sf/home?company=CompanyName&loginMethod=SSO*").
+    2.  Na caixa de texto **URL de Resposta do SuccessFactors**, digite **https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName**.
 
-        >[AZURE.NOTE]Esse valor é apenas um espaço reservado temporário. Você obterá o valor real com a equipe de suporte do SuccessFactors. Mais tarde neste tutorial, você encontrará instruções sobre como entrar em contato com a equipe de suporte do SuccessFactors. No contexto desta conversa, você receberá a URL de Resposta do SuccessFactors real.
+        >[AZURE.NOTE]Esse valor é apenas um espaço reservado temporário.  
+        >Você obterá o valor real com a equipe de suporte do SuccessFactors.  
+        >Mais tarde neste tutorial, você encontrará instruções sobre como entrar em contato com a equipe de suporte do SuccessFactors.  
+        >No contexto desta conversa, você receberá a URL de Resposta do SuccessFactors real.
 
 4.  Na página **Configurar logon único no SuccessFactors**, para baixar seu certificado, clique em **Baixar certificado** e salve o arquivo de certificado no computador.
 
@@ -99,7 +103,7 @@ Para obter logon único configurado, você precisará entrar em contato com sua 
     2.  A URL de Logon Remoto
     3.  A URL de Logoff Remoto
 
-    >[AZURE.IMPORTANT]Solicite que a equipe de suporte do SuccessFactors defina o parâmetro NameId Format como “*Unspecified*”.
+    >[AZURE.IMPORTANT]Solicite que a equipe de suporte do SuccessFactors defina o parâmetro NameId Format como *“Unspecified”*.
 
     A equipe de suporte do Successfactors enviará a **URL de Resposta do Successfactors** correta necessária para o diálogo **Configurar URL do Aplicativo**.
 
@@ -109,7 +113,8 @@ Para obter logon único configurado, você precisará entrar em contato com sua 
 
 ##Configurando o provisionamento de usuários
   
-Para permitir que os usuários do AD do Azure façam logon no SuccessFactors, eles deverão ser provisionados no SuccessFactors. No caso do SuccessFactors, o provisionamento será uma tarefa manual.
+Para permitir que os usuários do AD do Azure façam logon no SuccessFactors, eles deverão ser provisionados no SuccessFactors.  
+No caso do SuccessFactors, o provisionamento será uma tarefa manual.
   
 Para obter os usuários criados no SuccessFactors, você precisará entrar em contato com a equipe de suporte do SuccessFactors.
 
@@ -131,4 +136,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!-----HONumber=AcomDC_0114_2016-->

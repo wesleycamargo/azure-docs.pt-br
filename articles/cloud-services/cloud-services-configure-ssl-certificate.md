@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Configurar SSL para um serviço de nuvem | Microsoft Azure" 
+	pageTitle="Configurar o SSL para um serviço de nuvem (clássico) | Microsoft Azure" 
 	description="Saiba como especificar um ponto de extremidade HTTPS para uma função Web e como carregar um certificado SSL para proteger seu aplicativo." 
 	services="cloud-services" 
 	documentationCenter=".net" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 
@@ -22,12 +22,12 @@
 # Configurando SSL para um aplicativo no Azure
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-configure-ssl-certificate.md)
 - [Azure portal](cloud-services-configure-ssl-certificate-portal.md)
+- [Azure classic portal](cloud-services-configure-ssl-certificate.md)
 
 A criptografia SSL (Secure Socket Layer) é o método mais usado para proteger dados enviados pela Internet. Esta tarefa comum aborda como especificar um ponto de extremidade HTTPS para uma função Web e como carregar um certificado SSL para proteger seu aplicativo.
 
-> [AZURE.NOTE]Os procedimentos nesta tarefa se aplicam aos Serviços de Nuvem do Azure; para Sites, consulte [Configurando um certificado SSL para um site do Azure](../web-sites-configure-ssl-certificate.md).
+> [AZURE.NOTE] Os procedimentos nesta tarefa se aplicam aos Serviços de Nuvem do Azure; para os Serviços de Aplicativos, consulte [isto](../app-service-web/web-sites-configure-ssl-certificate.md).
 
 Esta tarefa usará uma implantação da produção; as informações sobre como usar uma implantação de preparo ao final deste tópico.
 
@@ -62,12 +62,20 @@ O aplicativo deve ser configurado para usar o certificado, e um ponto de extremi
             <Certificates>
                 <Certificate name="SampleCertificate" 
 							 storeLocation="LocalMachine" 
-                    		 storeName="CA" />
+                    		 storeName="CA"
+                             permissionLevel="limitedOrElevated" />
             </Certificates>
         ...
         </WebRole>
 
-    A seção **Certificados** define o nome do nosso certificado, seu local e o nome do repositório no qual está localizado. Optamos por armazenar o certificado no repositório CA, mas é possível escolher outras opções também. Consulte [Como associar um certificado a um serviço][] para obter mais informações.
+    A seção **Certificados** define o nome do nosso certificado, seu local e o nome do repositório no qual está localizado.
+    
+    As permissões (atributo `permisionLevel`) podem ser definidas como um dos seguintes:
+
+    | Valor da permissão | Descrição |
+    | ----------------  | ----------- |
+    | limitedOrElevated | **(Padrão)** Todos os processos de função podem acessar a chave privada. |
+    | elevado | Somente processos elevados podem acessar a chave privada.|
 
 2.  No arquivo de definição de serviço, adicione um elemento **InputEndpoint** dentro da seção **Pontos de extremidade** para habilitar HTTPS:
 
@@ -160,4 +168,4 @@ Se quiser usar SSL em uma implantação de preparação em lugar de uma implanta
   [3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
   [4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

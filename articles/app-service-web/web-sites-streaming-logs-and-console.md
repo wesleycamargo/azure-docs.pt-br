@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="02/14/2016" 
 	ms.author="byvinyal"/>
 
 #Logs de streaming e o console
 
 ### Logs de streaming ###
 
-O Portal do Microsoft Azure fornece um visualizador de log de streaming integrado que permite que você exiba os eventos de rastreamento de seus aplicativos Web do Serviço de Aplicativo do Azure em tempo real.
+O Portal do Microsoft Azure fornece um visualizador de log de streaming integrado que permite que você exiba os eventos de rastreamento de seus aplicativos do Serviço de Aplicativo em tempo real.
 
 A configuração disso exige algumas etapas simples:
 
@@ -53,28 +53,22 @@ console.log("My trace statement").
 `````````````````````````
 
 ### Como habilitar e exibir os logs de streaming ###
-
-![][BrowseSitesScreenshot] Os diagnósticos são habilitados de acordo com cada aplicativo Web. No [portal](https://portal.azure.com), clique no botão **Procurar (1)** na barra de menus à esquerda e, em seguida, clique em **Aplicativos Web (2)** para obter a **lista (3)** de todos os aplicativos Web.
-
-Clique no nome do aplicativo Web que você deseja configurar para navegar até ele.
+![][BrowseSitesScreenshot] Os diagnósticos são habilitados de acordo com cada aplicativo Web. De dentro do [portal](https://portal.azure.com), navegue até o site para o qual deseja habilitar este recurso.
   
-![][DiagnosticsLogs] Em seguida, clique em **Configurações (1)** > **Logs de diagnóstico (2)** e **ative** o **Registro em Log do Aplicativo (Sistema de Arquivos)(3)**. A opção **Nível** permite alterar o nível de severidade de rastreamentos a serem capturados. Você deverá defini-lo como **Detalhado** se estiver tentando se familiarizar com o recurso porque isso garantirá que todas as instruções de rastreamento sejam registradas.
+![][DiagnosticsLogs] Em seguida, clique em **(1) Configurações** > **(2) Logs de diagnóstico** e **(3)ative** o **Registro em log do aplicativo (Sistema de arquivos)** ou **Registro em log do aplicativo (blob)**. A opção **Nível** permite alterar o nível de gravidade de rastreamentos a serem capturados. Você deverá defini-lo como **Detalhado** se estiver tentando se familiarizar com o recurso porque isso garantirá que todas as instruções de rastreamento sejam registradas.
 
 Clique em **SALVAR** na parte superior da lâmina, e você está pronto para exibir logs.
 
 **OBSERVAÇÃO:** quanto mais alto o **nível de severidade**, mais recursos serão consumidos para log e mais rastreamentos mais serão exibidos. Verifique se está definido para o nível apropriado ao usar esse recurso para um alto tráfego / site de produção.
 
-![][StreamingLogsScreenshot] Para exibir os logs em fluxo de dentro do portal, clique em **Ferramentas (1)** > **Fluxo de Log(2)**. Se o aplicativo Web estiver gravando ativamente instruções de rastreamento, você deverá vê-las na janela resultante quase em tempo real.
+![][StreamingLogsScreenshot] Para exibir os logs em fluxo de dentro do portal, clique em **(1) Ferramentas** > **(2) Fluxo de Log**. Se o aplicativo Web estiver gravando ativamente instruções de rastreamento, você deverá vê-las na **(3)** janela resultante quase em tempo real.
 
 ## Console ##
-
 O Portal do Azure dá ao console acesso ao ambiente do aplicativo Web. É possível explorar o sistema de arquivos do aplicativo Web e executar scripts do powershell/cmd. Você está vinculado às mesmas permissões definidas como o código do aplicativo Web em execução durante a execução dos comandos do console. Você não poderá acessar os diretórios protegidos ou executar scripts que exigem permissões elevadas.
 
-![][ConsoleScreenshot] Para chegar ao console, procure um aplicativo Web conforme descrito na seção acima. Clique em **Ferramentas**>**Console** e o console será aberto.
+![][ConsoleScreenshot] Para chegar ao console, procure um aplicativo Web conforme descrito na seção acima. Clique em **(1)Ferramentas**>**(2)Console** e o **(3)** console será aberto.
 
 Para se familiarizar com o console, tente comandos básicos como estes:
-
-
 
 `````````````````````````
 dir
@@ -84,12 +78,10 @@ dir
 cd
 `````````````````````````
 
-
-
 <!-- Images. -->
 [DiagnosticsLogs]: ./media/web-sites-streaming-logs-and-console/diagnostic-logs.png
 [BrowseSitesScreenshot]: ./media/web-sites-streaming-logs-and-console/browse-sites.png
 [StreamingLogsScreenshot]: ./media/web-sites-streaming-logs-and-console/streaming-logs.png
 [ConsoleScreenshot]: ./media/web-sites-streaming-logs-and-console/console.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

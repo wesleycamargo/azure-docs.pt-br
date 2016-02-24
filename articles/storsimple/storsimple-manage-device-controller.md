@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="01/15/2016"
    ms.author="alkohli" />
 
 # Gerenciar controladores de dispositivo StorSimple
@@ -84,10 +84,10 @@ Para gerenciar os controladores de dispositivo no Portal Clássico do Azure, exe
 Isso irá reiniciar ou desligar o controlador. A tabela a seguir resume os detalhes do que acontece dependendo das seleções feitas na caixa de diálogo **Alterar Configurações do Controlador**.
 													
 
-|Seleção n°|Se você optar por...|Acontecerá isso.|
+|Seleção #|Se você optar por...|Acontecerá isso.|
 |---|---|---|
 |1\.|Reinicie o controlador passivo.|Um trabalho será criado para reiniciar o controlador e você será notificado depois que o trabalho tiver sido criado com êxito. Isso iniciará a reinicialização do controlador. Você pode monitorar o processo de reinicialização acessando **Serviço > Painel de controle > Exibir logs de operação** e filtrando por parâmetros específicos do seu serviço.|
-|2\.|Reinicie o controlador ativo.|Você verá o seguinte aviso: "Se você reiniciar o controlador ativo, o dispositivo realizará failover para o controlador passivo. Deseja continuar?" </br>Se optar por continuar com essa operação, as etapas seguintes serão idênticas àquelas usadas para reiniciar o controlador passivo (confira a seleção 1).|
+|2\.|Reinicie o controlador ativo.|Você verá o seguinte aviso: "Se você reiniciar o controlador ativo, o dispositivo realizará failover para o controlador passivo. Deseja continuar?" </br>Se você optar por continuar com essa operação, as etapas seguintes serão idênticas àquelas usadas para reiniciar o controlador passivo (confira a seleção 1).|
 |3\.|Desligue o controlador passivo.|Você verá a seguinte mensagem: "Após a conclusão do desligamento, será necessário pressionar o botão de energia em seu controlador para ativá-lo. Tem certeza de que deseja desligar este controlador?" </br>Se você optar por continuar com essa operação, as etapas seguintes serão idênticas àquelas usadas para reiniciar o controlador passivo (confira a seleção 1).|
 |4\.|Desligue o controlador ativo.|Você verá a seguinte mensagem: "Após a conclusão do desligamento, será necessário pressionar o botão de energia em seu controlador para ativá-lo. Tem certeza de que deseja desligar este controlador?" </br>Se você optar por continuar com essa operação, as etapas seguintes serão idênticas àquelas usadas para reiniciar o controlador passivo (confira a seleção 1).|
 
@@ -121,7 +121,7 @@ Execute as seguintes etapas para desligar ou reiniciar um único controlador no 
 
 Esta seção explica como desligar um dispositivo StorSimple com falha ou em execução a partir de um computador remoto. Um dispositivo é desativado após desligar ambos os controladores do dispositivo. Um desligamento de dispositivo é feito quando o dispositivo está sendo movido fisicamente ou se for retirado de serviço.
 
-> [AZURE.IMPORTANT]Antes de desligar o dispositivo, verifique a integridade dos componentes do dispositivo. Navegue até **Dispositivos > Manutenção > Status de Hardware** e verifique se o status do LED de todos os componentes está verde. Somente um dispositivo íntegro terá um status em verde. Se o dispositivo está sendo desligado para substituir um componente com funcionamento incorreto, você verá um status de falha (vermelho) ou degradado (amarelo) para os respectivos componentes.
+> [AZURE.IMPORTANT]Antes de desligar o dispositivo, verifique a integridade dos componentes do dispositivo. Navegue até **Dispositivos > Manutenção > Status de Hardware** e verifique se o LED de status de todos os componentes está verde. Somente um dispositivo íntegro terá um status em verde. Se o dispositivo está sendo desligado para substituir um componente com funcionamento incorreto, você verá um status de falha (vermelho) ou degradado (amarelo) para os respectivos componentes.
 
 #### Para desligar um dispositivo StorSimple
 
@@ -191,7 +191,7 @@ Nesta seção, resumimos algumas das perguntas frequentes sobre o gerenciamento 
 
 - **Reiniciar o controlador ativo** – você será notificado de que continuar a operação resultará em uma interrupção temporária do serviço e será solicitada a sua confirmação.
 
-- **Desligar um controlador ativo** – você será notificado de que continuar a operação resultará em tempo de inatividade e que precisa pressionar o botão de energia em um ou ambos os controladores para ligar o dispositivo. Será solicitada a sua confirmação.
+- **Desligar um controlador ativo** – você será notificado de que continuar a operação resultará em tempo de inatividade e que você precisa pressionar o botão de energia em um ou ambos os controladores para ligar o dispositivo. Será solicitada a sua confirmação.
 
 **P.** Quando o desligamento ou reinicialização do controlador falharia durante a execução?
 
@@ -221,4 +221,4 @@ Nesta seção, resumimos algumas das perguntas frequentes sobre o gerenciamento 
 
 - Para saber mais sobre como usar o serviço StorSimple Manager, acesse [Usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_0121_2016-->

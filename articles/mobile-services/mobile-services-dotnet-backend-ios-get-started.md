@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="11/04/2015"
+	ms.date="02/07/2016"
 	ms.author="krisragh"/>
 
 # <a name="getting-started"></a>Introdução aos Serviços Móveis
@@ -25,11 +25,11 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
->[AZURE.TIP]Se você for iniciante no desenvolvimento para dispositivos móveis usando o Microsoft Azure, [comece com os Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-ios-get-started-preview.md) em vez de os Serviços Móveis do Azure; isso lhe fornecerá [vantagens adicionais](app-service-mobile-value-prop-migration-from-mobile-services-preview.md).
+>[AZURE.TIP] Se você for iniciante no desenvolvimento para dispositivos móveis usando o Microsoft Azure, [comece com os Aplicativos Móveis do Azure](../app-service-mobile/app-service-mobile-dotnet-backend-ios-get-started-preview.md) em vez de os Serviços Móveis do Azure; isso lhe fornecerá [vantagens adicionais](../app-service-mobile/app-service-mobile-value-prop-migration-from-mobile-services.md).
 
 Este tutorial mostra como adicionar um serviço de back-end baseado em nuvem a um aplicativo iOS usando os Serviços Móveis do Azure. Neste tutorial, você criará um novo serviço móvel e um aplicativo simples _To do list_ que armazena dados do aplicativo no novo serviço móvel. O serviço móvel usa o .NET e o Visual Studio para lógica de negócios do lado do servidor. Para criar um serviço móvel com uma lógica de negócios no lado do servidor no JavaScript, veja a [versão de back-end do JavaScript] deste tópico.
 
-> [AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Azure. Se não tiver uma conta, você poderá se inscrever para uma avaliação do Azure e obter [serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação](http://azure.microsoft.com/pricing/details/mobile-services/). Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-ios-get-started%2F).
+> [AZURE.NOTE] Para concluir este tutorial, você precisa de uma conta do Azure. Se não tiver uma conta, você poderá se inscrever para uma avaliação do Azure e obter [serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação](https://azure.microsoft.com/pricing/details/mobile-services/). Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-ios-get-started%2F).
 
 ## <a name="create-new-service"> </a>Criar um novo serviço móvel
 
@@ -69,7 +69,7 @@ Saiba como executar tarefas adicionais importantes nos Serviços Móveis:
 
 * [Adicionar autenticação a um aplicativo existente] <br/>Saiba como autenticar usuários de seu aplicativo com um provedor de identidade.
 
-* [Adicionar notificações por push a um aplicativo existente] <br/>Saiba como enviar uma notificação por push realmente básica ao seu aplicativo.
+* [Adicionar notificações por push a um aplicativo existente] <br/>Saiba como enviar uma notificação por push bem básica ao seu aplicativo.
 
 * [Solucionar problemas de back-end do .NET dos Serviços Móveis] <br/> Saiba como diagnosticar e corrigir problemas que podem surgir com um back-end do .NET dos Serviços Móveis.
 
@@ -103,4 +103,4 @@ Saiba como executar tarefas adicionais importantes nos Serviços Móveis:
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [versão de back-end do JavaScript]: mobile-services-ios-get-started.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

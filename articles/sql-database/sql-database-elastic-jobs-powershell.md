@@ -11,8 +11,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
-	ms.author="ddove; sidneyh" />
+	ms.date="02/02/2016" 
+	ms.author="ddove;sidneyh" />
 
 # Criar e gerenciar trabalhos de banco de dados elástico de Banco de Dados SQL usando o PowerShell (visualização)
 
@@ -25,9 +25,9 @@
 As APIs do PowerShell para o recurso **trabalhos de Banco de Dados Elástico** (em visualização) permitem que você defina um grupo de bancos de dados no qual os scripts serão executados. Este artigo mostra como criar e gerenciar o recurso **trabalhos de Banco de Dados Elástico** usando cmdlets do PowerShell. Consulte [Visão geral dos trabalhos elásticos](sql-database-elastic-jobs-overview.md).
 
 ## Pré-requisitos
-* Uma assinatura do Azure. Para obter uma avaliação gratuita, confira [Um mês de avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
+* Uma assinatura do Azure. Para obter uma avaliação gratuita, confira [Um mês de avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Um conjunto de bancos de dados criados com as ferramentas do Banco de Dados Elástico. Consulte [Introdução às ferramentas do Banco de Dados Elástico](sql-database-elastic-scale-get-started.md).
-* PowerShell do Azure. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](powershell-install-configure.md).
+* PowerShell do Azure. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
 * Pacote do PowerShell para **trabalhos de Banco de Dados Elástico**: consulte [Instalando trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-service-installation.md)
 
 ### Selecionar sua assinatura do Azure
@@ -242,11 +242,11 @@ Para executar um trabalho em todos os bancos de dados em um conjunto de fragment
 
 Este exemplo cria um gerenciador de mapas de fragmentos juntamente com vários fragmentos, seguido pela inserção de dados nos fragmentos.
 
-1. Compile e execute o aplicativo de exemplo da **Introdução às ferramentas de Banco de Dados Elástico**. Siga as etapas até a etapa 7 na seção [Baixar e executar o aplicativo de exemplo](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools). No final da etapa 7, você verá o seguinte prompt de comando:
+1. Compile e execute o aplicativo de exemplo da **Introdução às ferramentas de Banco de Dados Elástico**. Siga as etapas até a etapa 7 na seção [Baixe e execute o aplicativo de exemplo](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools). No final da etapa 7, você verá o seguinte prompt de comando:
 
 	![prompt de comando][1]
 
-2.  Na janela de comando, digite "1" e pressione **Enter**. Isso cria o gerenciador de mapa de fragmentos e adiciona dois fragmentos ao servidor. Em seguida, digite "3" e pressione **Enter**. Repita a ação quatro vezes. Isso insere linhas de dados de exemplo no seus fragmentos.
+2.  Na janela Comando, digite "1" e pressione **Enter**. Isso cria o gerenciador de mapa de fragmentos e adiciona dois fragmentos ao servidor. Em seguida, digite "3" e pressione **Enter**. Repita a ação quatro vezes. Isso insere linhas de dados de exemplo no seus fragmentos.
   
 3.  O [portal do Azure](https://portal.azure.com) deve mostrar três novos bancos de dados em seu servidor v12:
 
@@ -655,7 +655,7 @@ Use o [Get-AzureSqlJobTrigger](https://msdn.microsoft.com/library/mt346067.aspx)
 
 ## Para criar um DACPAC (aplicativo da camada de dados) para execução em bancos de dados
 
-Para criar um DACPAC, consulte [Aplicativos de camada de dados](https://msdn.microsoft.com/library/ee210546.aspx). Para implantar um DACPAC, use o cmdlet [New-AzureSqlJobContent](https://msdn.microsoft.com/library/mt346085.aspx). O DACPAC deve ser acessado pelo serviço. É recomendável carregar um DACPAC criado para o Armazenamento do Azure e criar uma [Assinatura de Acesso Compartilhado](storage-dotnet-shared-access-signature-part-1.md) para o DACPAC.
+Para criar um DACPAC, consulte [Aplicativos de camada de dados](https://msdn.microsoft.com/library/ee210546.aspx). Para implantar um DACPAC, use o cmdlet [New-AzureSqlJobContent](https://msdn.microsoft.com/library/mt346085.aspx). O DACPAC deve ser acessado pelo serviço. É recomendável carregar um DACPAC criado para o Armazenamento do Azure e criar uma [Assinatura de Acesso Compartilhado](../storage/storage-dotnet-shared-access-signature-part-1.md) para o DACPAC.
 
 	$dacpacUri = "{Uri}"
 	$dacpacName = "{Dacpac Name}"
@@ -694,4 +694,4 @@ Após um DACPAC ter sido criado no recurso trabalhos de Banco de Dados Elástico
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

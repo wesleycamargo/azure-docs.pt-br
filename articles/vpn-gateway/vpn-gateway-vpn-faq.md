@@ -84,8 +84,6 @@ Outras soluções VPN de software devem funcionar com nosso gateway, contanto qu
 
 ## Conexões Ponto a Site
 
-Atualmente, conexões ponto a site estão disponíveis somente para o modelo de implantação clássico (também conhecido como Gerenciamento de Serviço). Estamos trabalhando em uma solução do tipo ponto a site para o modelo de implantação do Gerenciador de Recursos do Azure. Quando ela estiver disponível, essa página será atualizada.
-
 ### Quais sistemas operacionais posso usar com ponto a site?
 
 Há suporte para os seguintes sistemas operacionais:
@@ -244,7 +242,7 @@ Para o tráfego entre diferentes redes virtuais do Azure, o Azure cobra somente 
 
 ### Posso conectar uma rede virtual com VPNs IPsec a meu circuito Rota Expressa?
 
-Sim, isso é suportado. Para obter mais informações, consulte [Configurar conexões de VPN Site a Site e de Rota Expressa que coexistam](../expressroute/expressroute-coexist.md).
+Sim, isso é suportado. Para obter mais informações, consulte [Configurar conexões de VPN Site a Site e de Rota Expressa que coexistam](../expressroute/expressroute-howto-coexist-classic.md).
 
 ## Conectividade entre locais e VMs
 
@@ -269,4 +267,4 @@ Você pode exibir mais informações sobre Gateways de VPN na [página de docume
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

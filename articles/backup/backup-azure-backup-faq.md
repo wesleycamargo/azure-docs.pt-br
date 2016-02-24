@@ -1,14 +1,21 @@
 <properties
    pageTitle="Perguntas frequentes do Backup do Azure | Microsoft Azure"
-   description="Perguntas frequentes sobre a solução de Backup do Azure – agente de backup, backup e retenção, recuperação, segurança e outras perguntas comuns sobre o serviço do Backup do Azure."
+   description="Respostas para perguntas frequentes sobre agente de backup, backup e retenção, recuperação, segurança e outras perguntas comuns sobre a solução de Backup do Azure."
    services="backup"
    documentationCenter=""
    authors="Jim-Parker"
-   manager="shreeshd"
+   manager="jwhit"
    editor=""
    keywords="solução de backup; serviço de backup"/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2015" ms.author="trinadhk";"giridham"; "arunak"; "jimpark"; "aashishr"/>
+<tags
+   ms.service="backup"
+   ms.workload="storage-backup-recovery"
+	 ms.tgt_pltfrm="na"
+	 ms.devlang="na"
+	 ms.topic="get-started-article"
+	 ms.date="01/28/2016"
+	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 # Serviço de Backup do Azure - Perguntas frequentes
 Veja a seguir uma lista de perguntas frequentes sobre o Backup do Azure. Se você tiver outras perguntas sobre a solução do Backup do Azure, vá para o [fórum de discussão](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) e poste suas perguntas. Alguém da sua comunidade o ajudará a obter respostas. Se uma pergunta for frequente, ela será adicionada a este artigo para que possa ser encontrada com rapidez e facilidade.
@@ -41,7 +48,7 @@ Veja a seguir uma lista de perguntas frequentes sobre o Backup do Azure. Se voc�
 
 **P6. Devo considerar o cofre como uma entidade de cobrança?** <br/> R6. Embora seja possível obter uma fatura detalhada de cada cofre, é altamente recomendável que você considere uma assinatura do Azure como uma entidade de cobrança. Ela é consistente entre todos os serviços e é mais fácil de gerenciar.
 
-**P7. Há um limite para o número de servidores/computadores que podem ser registrados em cada cofre?** <br/> R7. Sim, você pode registrar até 50 computadores por cofre. Para máquinas virtuais IaaS do Azure, o limite é 100 VMs por cofre. Se você precisar registrar mais computadores, crie um novo cofre.
+**P7. Há um limite para o número de servidores/computadores que podem ser registrados em cada cofre?** <br/> R7. Sim, você pode registrar até 50 computadores por cofre. Para máquinas virtuais IaaS do Azure, o limite é 200 VMs por cofre. Se você precisar registrar mais computadores, crie um novo cofre.
 
 **P8. Há um limite em relação à quantidade de dados que pode ser incluída no backup de um servidor/cliente Windows ou em um servidor SCDPM?** <br/> R8. Nº
 
@@ -71,7 +78,7 @@ Veja a seguir uma lista de perguntas frequentes sobre o Backup do Azure. Se voc�
 - Fluxo compactado: sem suporte, ignorado
 - Fluxo esparso: sem suporte, ignorado
 
-**P13. Qual é o requisito de tamanho mínimo para a pasta de cache?** <br/> R13. O tamanho da pasta de cache é determinado pela quantidade de dados submetida a backup. Em geral, de 10 a 15% do espaço necessário para o armazenamento de dados deve ser alocado para a pasta de cache.
+**P13. Qual é o requisito de tamanho mínimo para a pasta de cache?** <br/> R13. O tamanho da pasta de cache é determinado pela quantidade de dados submetida a backup. Em geral, deve esperar que 5% do espaço necessário para o armazenamento de dados deve ser alocado para a pasta de cache.
 
 **P14. Como faço para isolar os dados de servidor específicos para que eles não sejam recuperados por outros servidores em minha organização?**<br/> R14. Qualquer servidor registrado no mesmo cofre será capaz de recuperar os dados do backup feito por outros servidores que usam a mesma senha. Se você tiver servidores que deseja garantir que a recuperação ocorra apenas em servidores específicos na sua organização, deverá usar uma senha separada designada para esses servidores. Por exemplo, os servidores de recursos humanos podem usar uma senha de criptografia, os servidores de contabilidade podem usar outra senha e os outros servidores de armazenamento podem usar uma terceira senha.
 
@@ -92,6 +99,10 @@ Veja a seguir uma lista de perguntas frequentes sobre o Backup do Azure. Se voc�
 - *.WindowsAzure.com
 - *.microsoftonline.com
 - *.windows.net
+
+**P21. Posso instalar o agente de Backup do Azure em uma VM do Azure da qual o serviço de Backup do Azure já fez backup usando a extensão de Vm?** <br/> R21. Com certeza. O Backup do Azure oferece backup no nível VM para VMs do Azure usando a extensão de VM, e você pode instalar o agente de Backup do Azure no sistema operacional Windows Convidado para proteger arquivos e pastas em um sistema operacional convidado.
+
+**P22. Posso instalar o agente de Backup do Azure em uma VM do Azure para fazer backup de arquivos e pastas presentes no armazenamento temporário fornecido pela VM do Azure?** <br/> R22. Você pode instalar o agente de Backup do Azure no SO convidado do Windows e fazer backup de arquivos e pastas em tempstorage. No entanto, observe que os backups começarão a falhar quando os dados do armazenamento temporário forem apagados. Além disso, durante a restauração, só será possível restaurar para o armazenamento não temporário se os dados de armazenamento temporário tiverem sido excluídos.
 
 
 ## Backup e retenção
@@ -166,8 +177,8 @@ O tamanho da fonte de dados é medido como mencionado abaixo
 
 	| Caminho do registro | Chave do Registro | Valor |
 	| ------ | ------- | ------ |
-	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Azure Backup\Config` | ScratchLocation | <i>Novo local da pasta de cache</i> |
-	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Azure Backup\Config\CloudBackupProvider` | ScratchLocation | <i>Novo local da pasta de cache</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` | ScratchLocation | <i>Novo local da pasta de cache</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | <i>Novo local da pasta de cache</i> |
 
 
 + Inicie o OBEngine executando o comando abaixo em um prompt de comando elevado:
@@ -176,4 +187,4 @@ O tamanho da fonte de dados é medido como mencionado abaixo
 
 Assim que os backups começarem a ser executados com êxito com o novo local de cache, você poderá remover a pasta de cache original.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

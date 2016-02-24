@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 #Implantar VMs de várias NICs usando a CLI do Azure
@@ -35,9 +35,9 @@ Antes de implantar os servidor de back-end, você deve implantar o grupo de recu
 
 1. Navegue até [a página do modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC).
 2. Na página do modelo, à direita do **Grupo de recursos pai**, clique em **Implantar no Azure**.
-3. Caso necessário, altere os valores de parâmetro e siga as etapas no portal de visualização do Azure para implantar o grupo de recursos.
+3. Caso necessário, altere os valores de parâmetro e siga as etapas no Portal de visualização do Azure para implantar o grupo de recursos.
 
-> [AZURE.IMPORTANT]Verifique se os nomes da conta de armazenamento são exclusivos. Você não pode ter nomes de conta de armazenamento duplicados no Azure.
+> [AZURE.IMPORTANT] Verifique se os nomes da conta de armazenamento são exclusivos. Você não pode ter nomes de conta de armazenamento duplicados no Azure.
 
 [AZURE.INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
@@ -51,7 +51,7 @@ As VMs de back-end dependem da criação dos recursos descritos abaixo.
 
 ### Etapa 1 – Iniciar o script
 
-Você pode baixar o script bash completo usado [aqui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/arm/multinic.sh). Realize os procedimentos abaixo para alterar o script para funcionar em seu ambiente.
+Você pode baixar o script bash completo usado [aqui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/arm/virtual-network-deploy-multinic-arm-cli.sh). Realize os procedimentos abaixo para alterar o script para funcionar em seu ambiente.
 
 1. Altere os valores das variáveis a seguir com base no grupo de recursos existente implantado acima, no tópico [Pré-requisitos](#Prerequisites).
 
@@ -88,7 +88,7 @@ Você pode baixar o script bash completo usado [aqui](https://raw.githubusercont
 		                --name $backendSubnetName|grep Id)"
 		subnetId=${subnetId#*/}
 
->[AZURE.TIP]O primeiro comando acima usa [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) e [manipulação de cadeia de caracteres](http://tldp.org/LDP/abs/html/string-manipulation.html) (mais especificamente, a remoção de subcadeia de caracteres).
+>[AZURE.TIP] O primeiro comando acima usa [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) e [manipulação de cadeia de caracteres](http://tldp.org/LDP/abs/html/string-manipulation.html) (mais especificamente, a remoção de subcadeia de caracteres).
 
 4. Recuperar a ID para o NSG `NSG-RemoteAccess`. Você precisa fazer isso, pois as NICs a serem associadas a este NSG estão em um grupo de recursos diferente.
 
@@ -330,4 +330,4 @@ Agora que você baixou e alterou o script de acordo com suas necessidades, execu
 		info:    Updating VM "DB2"
 		info:    vm disk attach-new command OK
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

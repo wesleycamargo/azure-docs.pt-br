@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="02/09/2016"
 	ms.author="adrianhall"/>
 
 # <a name="article-top"></a>Migrar seu Serviço Móvel do Azure existente para o Serviço de Aplicativo do Azure
@@ -45,7 +45,6 @@ Há alguns motivos pelos quais você não deve migrar seus Serviços Móveis ago
   *  Você está atualmente em um período ocupado e não pode reiniciar um site no momento.
   *  Você não deseja afetar seu site de produção antes de testar o processo de migração.
   *  Você tem vários sites nos tipos de preços Básico ou Gratuito e não deseja migrar todos os sites ao mesmo tempo.
-  *  Você tem trabalhos agendados configurados como sob demanda que deseja migrar.
 
 Você está em um período ocupado, assim, planeje a migração durante uma janela de manutenção programada. O processo de migração reinicia seu site como parte do processo e seus usuários podem observar essa interrupção momentânea de disponibilidade.
 
@@ -66,7 +65,7 @@ Todos os sites de Serviços Móveis que compartilham um plano de hospedagem são
 
   1.  Faça logon no [Portal clássico do Azure].
   2.  Selecione o seu serviço móvel.
-  3.  Selecione a guia **ESCALA**.
+  3.  Selecione a guia **ESCALAR VERTICALMENTE**.
   4.  Em **Tipo de Serviço Móvel**, clique no tipo **STANDARD**. Clique no ícone **SALVAR** na parte inferior da página.
 
 Lembre-se de definir o tipo de preço para uma configuração apropriada após a migração.
@@ -118,7 +117,7 @@ Como ponto de partida, recomendamos o seguinte:
 
 Observe que há uma considerável flexibilidade na escolha do tipo de preço certo para o seu aplicativo. Consulte [Preços do Serviço de Aplicativo] para obter detalhes completos sobre os preços de seu novo Serviço de Aplicativo.
 
-> [AZURE.TIP]O tipo Standard do Serviço de Aplicativo contém acesso a vários recursos que você talvez queira usar, incluindo [slots de preparo], backups automáticos e dimensionamento automático. Confira os novos recursos lá!
+> [AZURE.TIP] O tipo Standard do Serviço de Aplicativo contém acesso a vários recursos que você talvez queira usar, incluindo [slots de preparo], backups automáticos e dimensionamento automático. Confira os novos recursos lá!
 
 ### <a name="review-migration-scheduler-jobs"></a>Examine os trabalhos do agendador migrados
 
@@ -144,7 +143,25 @@ As configurações de CORS migradas estão disponíveis como a configuração do
 
 Essa é uma tarefa opcional, mas fornece uma melhor experiência de gerenciamento para o futuro.
 
-> [AZURE.TIP]Uma das vantagens de usar um Serviço de Aplicativo do Azure é que você pode executar seu site da web e serviço móvel no mesmo site. Consulte a seção de [próximas etapas](#next-steps) para obter mais informações.
+> [AZURE.TIP]  Uma das vantagens de usar um Serviço de Aplicativo do Azure é que você pode executar seu site da web e serviço móvel no mesmo site. Consulte a seção de [próximas etapas](#next-steps) para obter mais informações.
+
+### <a name="download-publish-profile"></a>Baixar um novo Perfil de publicação
+
+O perfil de publicação do seu site é alterado durante a migração para o Serviço de Aplicativo do Azure. Você precisará de um novo perfil de publicação se pretende publicar o site de dentro do Visual Studio. Para baixar um novo perfil de publicação:
+
+  1.  Faça logon no [Portal do Azure].
+  2.  Selecione **Todos os recursos** ou **Serviços de Aplicativos** e clique no nome do Serviço Móvel migrado.
+  3.  Clique em **Obter perfil de publicação**.
+
+O arquivo PublishSettings será baixado para o seu computador. Ele normalmente será chamado _sitename_. PublishSettings. Você pode importar as configurações de publicação para o seu projeto existente:
+
+  1.  Abra o Visual Studio e o seu projeto de Serviço móvel do Azure.
+  2.  No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto e selecione **Publicar...**
+  3.  Clique em **Importar**
+  4.  Clique em **Procurar** e selecione seu arquivo de configurações de publicação baixado. Clique em **OK**
+  5.  Clique em **Validar Conexão** para garantir que as configurações de publicação funcionem.
+  6.  Clique em **Publicar** para publicar seu site.
+
 
 ## <a name="working-with-your-site"></a>Trabalhando com seu site após a migração
 
@@ -175,7 +192,7 @@ A maioria das configurações para um serviço móvel migrado está disponível 
 
 Você pode atualizar várias configurações de aplicativo ao mesmo tempo.
 
-> [AZURE.TIP]Você observará que existem duas Configurações de Aplicativo com o mesmo valor. Por exemplo, você pode ver _ApplicationKey_ e _MS\_ApplicationKey_. Você só precisa alterar a configuração de aplicativo prefixada com **MS \_**. No entanto, é uma boa ideia atualizar ambas as configurações do aplicativo ao mesmo tempo.
+> [AZURE.TIP]  Você observará que existem duas Configurações de Aplicativo com o mesmo valor. Por exemplo, você pode ver _ApplicationKey_ e _MS\_ApplicationKey_. Você só precisa alterar a configuração de aplicativo prefixada com **MS \_**. No entanto, é uma boa ideia atualizar ambas as configurações do aplicativo ao mesmo tempo.
 
 ### <a name="authentication"></a>Autenticação
 
@@ -191,7 +208,7 @@ Todas as configurações de autenticação estão disponíveis como configuraç�
 
 Observação: **MS\_AadTenants** é armazenado como uma lista separada por vírgulas dos domínios de locatário (os campos "Locatários Permitidos" no portal de Serviços Móveis).
 
-> [AZURE.WARNING]**Não use os mecanismos de autenticação no menu Configurações**
+> [AZURE.WARNING] **Não use os mecanismos de autenticação no menu Configurações**
 >
 > O Serviço de aplicativo do Azure fornece um sistema de autenticação e autorização "sem código" separado no menu de Configurações _Autenticação/Autorização_ e a opção (preterida) _Autenticação Móvel_ no menu Configurações. Essas opções são incompatíveis com um Serviço Móvel do Azure migrado. Você pode [atualizar seu site] para aproveitar a autenticação do Serviço de Aplicativo do Azure.
 
@@ -224,33 +241,24 @@ A guia _API_ nos Serviços Móveis foi substituída pelas _APIs Fáceis_ no Port
 
 Suas APIs migradas já estarão listadas na folha. Você também pode adicionar uma nova API a partir dessa folha. Para gerenciar uma API específica, clique na API. Na nova folha, você pode ajustar as permissões e editar os scripts para a API.
 
-### <a name="on-demand-jobs"></a>Trabalhos agendados sob demanda
+### <a name="on-demand-jobs"></a>Trabalhos do Agendador
 
-Trabalhos agendados sob demanda são disparados por meio de uma solicitação da web. É recomendável usar um cliente HTTP como [Postman], [Fiddler] ou [curl]. Se o site se chamar 'contoso', você terá um ponto de extremidade https://contoso.azure-mobile.net/jobs/_yourjobname_ que você poderá usar para disparar o trabalho sob demanda. Você precisará enviar um cabeçalho adicional **X-ZUMO-MASTER** com a chave mestra.
-
-A chave mestra poderá ser obtida da seguinte maneira:
+Todos os trabalhos do Agendador estão disponíveis por meio da seção de Coleções de trabalhos do Agendador. Para acessar seus trabalhos do Agendador:
 
   1. Faça logon no [Portal do Azure].
-  2. Selecione **Todos os recursos** ou **Serviços de Aplicativos** e clique no nome do Serviço Móvel migrado.
-  3. A folha Configurações será aberta por padrão; se não abrir, clique em **Configurações**.
-  4. Clique em **Configurações do aplicativo** no menu GERAL.
-  5. Procure a configuração de aplicativo **MS\_MasterKey**.
+  2. Selecione **Procurar>**, digite **Agenda** na caixa _Filtro_ e, em seguida, selecione **Coleções do Agendador**.
+  3. Selecione a Coleção de trabalhos para seu site. Ela será nomeada _sitename_-Jobs.
+  4. Clique em **Configurações**.
+  5. Clique em **Trabalhos do Agendador** em GERENCIAR.
 
-Você pode copiar e colar a chave mestra na sessão do Postman. Aqui está um exemplo de acionar um trabalho sob demanda em um serviço móvel migrado:
+Trabalhos agendados serão listados com a frequência especificada antes da migração. Trabalhos sob demanda serão desabilitados. Para executar um trabalho sob demanda:
 
-  ![Disparar um trabalho sob demanda com o Postman][2]
+  1. Selecione o trabalho que você deseja executar.
+  2. Se necessário, clique em **Habilitar** para habilitar o trabalho.
+  3. Clique em **Configurações** e, depois, **Agenda**.
+  4. Selecione uma Recorrência de **Uma vez** e clique em **Salvar**
 
-Observe as configurações:
-
-  * Método: **POST**
-  * URL: https://_yoursite_.azure-mobile.net/jobs/_yourjobname_
-  * Cabeçalhos: X-ZUMO-MASTER: _sua-chave-mestra_
-
-Como alternativa, você pode usar [curl] para disparar o trabalho sob demanda em uma linha de comando:
-
-    curl -H 'X-ZUMO-MASTER: yourmasterkey' --data-ascii '' https://yoursite.azure-mobile.net/jobs/yourjob
-
-Os trabalhos sob demanda estão localizados em `App_Data/config/scripts/scheduler post-migration`. É recomendável converter todos os trabalhos sob demanda para [WebJobs].
+Os trabalhos sob demanda estão localizados em `App_Data/config/scripts/scheduler post-migration`. É recomendável converter todos os trabalhos sob demanda para [WebJobs]. Você deve escrever novos trabalhos do Agendador como [WebJobs].
 
 ### <a name="notification-hubs"></a>Hubs de Notificação
 
@@ -269,11 +277,11 @@ O Hub de notificação será gerenciado por meio de [Portal do Azure]. Observe o
   2. Selecione **Procurar**> e depois selecione **Hubs de Notificação**
   3. Clique no nome do hub de notificação associado ao serviço móvel.
 
-> [AZURE.NOTE]O hub de notificação não estará visível se ele tiver um tipo “Misto”. Hubs de notificação do tipo "misto” utilizam Hubs de notificação e recursos do barramento de serviço herdados. Você precisará [Converter seus namespaces mistos]. Quando a conversão for concluída, o hub de notificação será exibido no [Portal do Azure].
+> [AZURE.NOTE] O hub de notificação não estará visível se ele tiver um tipo “Misto”. Hubs de notificação do tipo "misto” utilizam Hubs de notificação e recursos do barramento de serviço herdados. Você precisará [Converter seus namespaces mistos]. Quando a conversão for concluída, o hub de notificação será exibido no [Portal do Azure].
 
 Para obter mais informações, consulte a documentação [Hubs de Notificação].
 
-> [AZURE.TIP]Recursos de gerenciamento de Hubs de notificação no [Portal do Azure] ainda estão em visualização. O [Portal Clássico do Azure] permanece disponível para gerenciar os hubs de notificação.
+> [AZURE.TIP] Recursos de gerenciamento de Hubs de notificação no [Portal do Azure] ainda estão em visualização. O [Portal Clássico do Azure] permanece disponível para gerenciar os hubs de notificação.
 
 ### <a name="app-settings"></a>Outras configurações de aplicativo
 
@@ -385,4 +393,4 @@ Note que seu aplicativo é migrado para o serviço de aplicativo, há ainda mais
 [VNet]: ../app-service-web/web-sites-integrate-with-vnet.md
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="01/26/2016" 
 	ms.author="bradsev" />
 
 
@@ -106,7 +106,12 @@ XUF99EW9OIQOMV7Q7 | Automóvel de três volumes
 3.	Execute o aplicativo **CarEventGenerator.exe**.
 
 ### Referências
-[Solução do Simulador de Telemática do Veículo do Visual Studio](http://go.microsoft.com/fwlink/?LinkId=717075) [Hub de Eventos do Azure](http://azure.microsoft.com/services/event-hubs/) [Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
+
+[Solução Vehicle Telematics Simulator do Visual Studio](http://go.microsoft.com/fwlink/?LinkId=717075)
+
+[Hub de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/)
+
+[Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
 
 
 ## Ingestão
@@ -149,11 +154,16 @@ Depois que o pipeline for executado com êxito e o conjunto de dados 'RawCarEven
 *Figura 10 - PrepareSampleDataPipeline Output*
 
 ### Referências
-[SDK do Hub de Eventos do Azure para a ingestão do fluxo](event-hubs-csharp-ephcs-getstarted.md) [Recursos de movimentação de dados do Azure Data Factory](data-factory-data-movement-activities.md) [Atividade DotNet do Azure Data Factory](data-factory-use-custom-activities.md) [Solução da atividade DotNet do Azure Data Factory do Visual Studio para preparar os dados de exemplo](http://go.microsoft.com/fwlink/?LinkId=717077)
+
+[SDK do Hub de Eventos do Azure para ingestão de fluxo](event-hubs-csharp-ephcs-getstarted.md)
+
+[Funcionalidades de movimentação de dados do Azure Data Factory](data-factory-data-movement-activities.md) [Atividade DotNet do Azure Data Factory](data-factory-use-custom-activities.md)
+
+[Solução do Visual Studio de atividade DotNet do Azure Data Factory para preparação de dados de exemplo](http://go.microsoft.com/fwlink/?LinkId=717077)
 
 
 ## Preparar
->[AZURE.ALERT]Esta etapa na solução é aplicável somente ao processamento em lote.
+>[AZURE.ALERT] Esta etapa na solução é aplicável somente ao processamento em lote.
 
 Os sinais brutos e semi-estruturados do veículo e o conjunto de dados de diagnóstico são particionados na etapa de preparação dos dados em um formato de ANO/MÊS para uma consulta eficiente e o armazenamento escalonável a longo prazo (ou seja, permite falhas de uma conta de blob para a próxima, segundo a ordem de preenchimento). Os dados de saída (rotulados como *PartitionedCarEventsTable*) devem ser mantidos por um longo período como a forma básica/"mais bruta" de dados no "Data Lake" do cliente. Os dados de entrada desse pipeline normalmente seriam descartados pois os dados de saída têm total fidelidade com a entrada - são armazenados (particionados) melhor para um uso posterior.
 
@@ -386,7 +396,7 @@ Clique em [Baixar RealtimeDashboardApp](http://go.microsoft.com/fwlink/?LinkId=7
 
 *Figura 19 – RealtimeDashboardApp: Entrar no PowerBI*
 
->[AZURE.NOTE]Observação: se você deseja liberar o conjunto de dados do PowerBI, execute o RealtimeDashboardApp com o parâmetro 'flushdata':
+>[AZURE.NOTE] Observação: se você deseja liberar o conjunto de dados do PowerBI, execute o RealtimeDashboardApp com o parâmetro 'flushdata':
 
 	RealtimeDashboardApp.exe -flushdata
 
@@ -696,4 +706,4 @@ Clique aqui para obter instruções detalhadas sobre como configurar os relatór
 
 Este documento contém um detalhamento da Solução de Análise da Telemetria do Veículo. Isto apresenta um padrão de arquitetura lambda para a análise em tempo real e em lote com previsões e ações. Esse padrão se aplica a uma ampla variedade de casos de uso que exigem as análises de afunilamento (em tempo real) e de ampliação (em lote).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

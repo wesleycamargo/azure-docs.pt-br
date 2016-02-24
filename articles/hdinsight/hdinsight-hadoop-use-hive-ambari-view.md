@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/03/2015"
+   ms.date="01/04/2016"
    ms.author="larryfr"/>
 
 #Use o Modo de Exibição do Hive com o Hadoop no HDInsight.
@@ -123,7 +123,7 @@ Esse é o modo de exibição __Explicação Visual__ da consulta, que pode ser �
 
 ###Tez
 
-Escolha o ícone __Explicação Visual__ à direita do editor.
+Escolha o ícone de __Tez__ à direita do editor.
 
 ![ícones](./media/hdinsight-hadoop-use-hive-ambari-view/tez.png)
 
@@ -131,7 +131,7 @@ Isso exibirá o DAG (Gráfico acíclico dirigido) usado pelo Tez para essa consu
 
 ###Notificações
 
-Escolha o ícone __Explicação Visual__ à direita do editor.
+Escolha o ícone de __Notificações__ à direita do editor.
 
 ![ícones](./media/hdinsight-hadoop-use-hive-ambari-view/notifications.png)
 
@@ -199,4 +199,4 @@ Para obter informações sobre outras maneiras que você pode trabalhar com Hado
 
 * [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

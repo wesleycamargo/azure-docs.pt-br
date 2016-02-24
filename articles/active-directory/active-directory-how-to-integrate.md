@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/17/2015"
+   ms.date="02/02/2016"
    ms.author="mbaldwin"/>
 
 # Integração ao Active Directory do Azure
@@ -30,7 +30,7 @@ Há várias maneiras de seu aplicativo integrar-se ao AD do Azure. Aproveite o m
 
 **Reduza a fricção de entrada e reduza os custos de suporte.** Usando o AD do Azure para entrar no aplicativo, os usuários terão um nome e uma senha a menos para lembrar. Como desenvolvedor, você terá uma senha a menos para armazenar e proteger. Apenas o fato de não precisar lidar com redefinições de senha, por si só, pode ser uma economia significativa. O AD do Azure aprimora a entrada para alguns dos mais populares aplicativos de nuvem do mundo, incluindo o Office 365 e Microsoft Azure. Com centenas de milhões de usuários de milhões de organizações, provavelmente seu usuário já está conectado ao AD do Azure. Saiba mais sobre [Adicionando suporte para entrada de AD do Azure](active-directory-authentication-scenarios.md).
 
-**Simplifique a inscrição para o aplicativo.** Durante a inscrição para o aplicativo, o AD do Azure pode enviar informações essenciais sobre um usuário para que você possa preencher previamente o formulário de inscrição ou eliminá-lo completamente. Os usuários podem inscrever-se no aplicativo usando suas respectivas contas do AD do Azure por meio de uma experiência de consentimento familiar, semelhante àquelas encontradas em mídias sociais e aplicativos móveis. Qualquer usuário pode se inscrever e entrar em um aplicativo que é integrado ao AD do Azure sem a necessidade de envolvimento de TI. Saiba mais sobre como [inscrever o aplicativo para logon na conta do AD do Azure](../mobile-services-how-to-register-active-directory-authentication.md).
+**Simplifique a inscrição para o aplicativo.** Durante a inscrição para o aplicativo, o AD do Azure pode enviar informações essenciais sobre um usuário para que você possa preencher previamente o formulário de inscrição ou eliminá-lo completamente. Os usuários podem inscrever-se no aplicativo usando suas respectivas contas do AD do Azure por meio de uma experiência de consentimento familiar, semelhante àquelas encontradas em mídias sociais e aplicativos móveis. Qualquer usuário pode se inscrever e entrar em um aplicativo que é integrado ao AD do Azure sem a necessidade de envolvimento de TI. Saiba mais sobre como [inscrever o aplicativo para logon na conta do AD do Azure](../mobile-services/mobile-services-how-to-register-active-directory-authentication.md).
 
 ### Procure por usuários, gerencie o provisionamento de usuários e controle o acesso ao aplicativo
 
@@ -48,7 +48,7 @@ Há várias maneiras de seu aplicativo integrar-se ao AD do Azure. Aproveite o m
 
 ### Promova o aplicativo nos Marketplaces do Azure e do Office 365
 
-**Promova o aplicativo para milhões de organizações que já estão usando o AD do Azure.** Usuários que pesquisam e procuram por itens nesses Marketplaces já estão usando um ou mais serviços de nuvem, tornando-os clientes qualificados do serviço de nuvem. Saiba mais sobre como promover seu aplicativo no [Marketplace do Azure](http://azure.microsoft.com/marketplace/partner-program/).
+**Promova o aplicativo para milhões de organizações que já estão usando o AD do Azure.** Usuários que pesquisam e procuram por itens nesses Marketplaces já estão usando um ou mais serviços de nuvem, tornando-os clientes qualificados do serviço de nuvem. Saiba mais sobre como promover seu aplicativo no [Marketplace do Azure](https://azure.microsoft.com/marketplace/partner-program/).
 
 **Quando os usuários se inscreverem no aplicativo, este será exibido no painel de acesso do AD do Azure e no lançador de aplicativo do Office 365 desses usuários.** Os usuários poderão retornar rapidamente e facilmente ao seu aplicativo mais tarde, melhorando o envolvimento do usuário. Saiba mais sobre o [Painel de acesso do AD do Azure](active-directory-saas-access-panel-introduction.md).
 
@@ -68,7 +68,7 @@ A integração ao AD do Azure traz benefícios que não exigem que você escreva
 
 ### Recursos avançados de segurança
 
-**Multi-Factor Authentication.** O AD do Azure fornece Multi-Factor Authentication nativa. Os administradores de TI podem exigir Multi-Factor Authentication para acessar o aplicativo, para que você não precise codificar esse suporte por conta própria. Saiba mais sobre [Multi-Factor Authentication](http://azure.microsoft.com/documentation/services/multi-factor-authentication/).
+**Multi-Factor Authentication.** O AD do Azure fornece Multi-Factor Authentication nativa. Os administradores de TI podem exigir Multi-Factor Authentication para acessar o aplicativo, para que você não precise codificar esse suporte por conta própria. Saiba mais sobre [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/).
 
 **Detecção de entrada anormal.** O AD do Azure processa mais de um bilhão de entradas por dia, enquanto usa algoritmos de aprendizado de máquina para detectar atividades suspeitas e notifica os administradores de TI sobre possíveis problemas. Ao oferecer suporte a entrada no AD do Azure, o aplicativo obtém o benefício dessa proteção. Saiba mais sobre [visualização do relatório de acesso do Active Directory do Azure](active-directory-view-access-usage-reports.md).
 
@@ -90,4 +90,4 @@ A integração ao AD do Azure traz benefícios que não exigem que você escreva
 
 [Conectar usuários usando o AD do Azure](active-directory-authentication-scenarios.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0204_2016-->

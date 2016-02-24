@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="NA"
     ms.devlang="NA"
     ms.topic="article"
-    ms.date="12/16/2015"
+    ms.date="01/19/2016"
     ms.author="elizapo" />
 
 # O que vem pela frente no RemoteApp do Azure
@@ -21,10 +21,10 @@ Estamos sempre trabalhando para melhorar o RemoteApp do Azure com base em seus c
 
 |Recurso|Jan-mar 2016|Abril-junho de 2016|
 |-----------|-------|-------|
-|Aplicativo do RemoteApp do Azure disponível em ambos o [Portal clássico do Azure](http://manage.windowsazure.com) e o [Portal do Azure](http://portal.azure.com) |X | |
-|Aplicativo Universal do Windows 10 para visualização do RemoteApp do Azure|X| |
-|Capacidade de publicar aplicativos individuais para usuários específicos – **Visualização Pública** ([comentários](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec))|X | |
-|Pacote MSI redistribuível do cliente do Windows ([comentários](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6627191-client-deployment-provide-an-msi-package-to-allo))| X| |
+|Aplicativo do RemoteApp do Azure disponível em ambos o [Portal clássico do Azure](http://manage.windowsazure.com) e o [Portal do Azure](https://portal.azure.com) |X | |
+|Aplicativo Universal do Windows 10 com Continuum para RemoteApp do Azure - Visualização|X| |
+|Capacidade de publicar aplicativos individuais para usuários específicos – **Visualização Privada** ([comentários](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec/))|X | |
+|Pacote MSI redistribuível do cliente do Windows ([comentários](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6627191-client-deployment-provide-an-msi-package-to-allo/))| X| |
 |Cliente com base em HTML5 para o Azure RemoteApp|X ||
 |Suporte do ARM (Gerenciador de Recursos do Azure)||X|
 |Programa do CSP (Provedor de Soluções na Nuvem)||X|
@@ -46,4 +46,4 @@ Outros aperfeiçoamentos adicionados no início deste ano:
 - Disponibilidade em datacenters australianos
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

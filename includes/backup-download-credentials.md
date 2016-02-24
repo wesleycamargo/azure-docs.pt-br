@@ -27,6 +27,6 @@ O arquivo de credencial do cofre é baixado por meio de um canal seguro no Porta
 - Certifique-se de que as credenciais do cofre sejam salvas em um local que pode ser acessado no seu computador. Se forem armazenadas em um compartilhamento de arquivos/SMB, verifique as permissões de acesso.
 - O arquivo de credenciais do cofre é usado somente durante o fluxo de trabalho de registro.
 - O arquivo de credenciais do cofre expira após 48 horas e pode ser baixado no portal.
-- Consulte as [Perguntas frequentes](backup-azure-backup-faq.md) do Backup do Azure em caso de dúvidas sobre o fluxo de trabalho.
+- Veja [Perguntas frequentes](](../articles/backup/backup-azure-backup-faq.md) sobre o Backup do Azure em caso de dúvidas sobre o fluxo de trabalho.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

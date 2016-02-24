@@ -24,7 +24,7 @@ Este artigo fornece as informações necessárias para abrir um tíquete no Supo
 
 >[AZURE.NOTE]Somente o administrador da conta do Azure tem permissão para acessar o Centro de Contas.
 
-1. Acesse o site [Suporte do Azure](http://azure.microsoft.com/support) e clique em **Obter Suporte**. Você pode enviar um incidente no Portal do Microsoft Azure ou do Centro de Contas do Azure.
+1. Acesse o site [Suporte do Azure](https://azure.microsoft.com/support/) e clique em **Obter Suporte**. Você pode enviar um incidente no Portal do Microsoft Azure ou do Centro de Contas do Azure.
 
  * Para enviar um tíquete de suporte do [Portal do Azure](https://manage.windowsazure.com/), clique no nome de sua conta e clique em Contatar o Suporte da Microsoft.
  * Para enviar um tíquete de suporte do [Centro de Contas do Azure](https://account.windowsazure.com/Subscriptions), selecione uma assinatura, clique no nome de sua conta e clique em Contatar o Suporte da Microsoft.
@@ -49,4 +49,4 @@ Este artigo fornece as informações necessárias para abrir um tíquete no Supo
 
 Você será contatado por um representante do Suporte do Azure de acordo com os termos do contrato.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

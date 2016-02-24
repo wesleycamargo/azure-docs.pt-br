@@ -3,7 +3,7 @@
 	description="Encontre os artigos que descrevem como configurar o software Oracle em máquinas virtuais do Azure baseadas no Windows e em Linux."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="bbenz"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="10/05/2015"
-	ms.author="josephd"/>
+	ms.date="01/12/2016"
+	ms.author="bbenz"/>
 
 # Software Oracle hospedado em máquinas virtuais do Azure
 
@@ -56,4 +56,4 @@ Consulte [Considerações diversas sobre imagens de máquinas virtuais Oracle](v
 
 [Configurando o Oracle GoldenGate para Azure](virtual-machines-configuring-oracle-goldengate.md) percorre as etapas de configuração do banco de dados e da replicação.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

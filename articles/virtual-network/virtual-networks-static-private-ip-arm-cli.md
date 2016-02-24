@@ -233,7 +233,7 @@ Você não pode remover um endereço IP privado estático de uma NIC no CLI do A
 ## Como adicionar um endereço IP privado estático a uma VM existente
 Para adicionar um endereço IP privado estático à NIC usada pela VM criada com o script acima, execute o comando a seguir:
 
-	azure netwrok nic set -g TestRG -n TestNIC2 -a 192.168.1.101
+	azure network nic set -g TestRG -n TestNIC2 -a 192.168.1.101
 
 Saída esperada:
 
@@ -261,7 +261,7 @@ Saída esperada:
 ## Próximas etapas
 
 - Saiba mais sobre endereços [IP públicos reservados](../virtual-networks-reserved-public-ip).
-- Saiba mais sobre [endereços ILPIP (IP público em nível de instância)](../virtual-networks-instance-level-public-ip).
+- Saiba mais sobre endereços [ILPIP (IP público em nível de instância)](../virtual-networks-instance-level-public-ip).
 - Consulte as [APIs REST de IP reservado](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

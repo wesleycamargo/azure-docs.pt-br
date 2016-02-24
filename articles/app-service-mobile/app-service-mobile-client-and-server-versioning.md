@@ -3,7 +3,7 @@
   description="Lista dos SDKs clientes e compatibilidade com versões do SDK do servidor para os Serviços Móveis e Aplicativos Móveis do Azure"
   services="app-service\mobile"
   documentationCenter=""
-  authors="lindydonna" 
+  authors="lindydonna"
   manager="dwrede"
   editor=""/>
 
@@ -13,15 +13,12 @@
   ms.tgt_pltfrm="mobile-multiple"
   ms.devlang="dotnet"
   ms.topic="article"
-  ms.date="12/15/2015"
+  ms.date="02/04/2016"
   ms.author="donnam"/>
 
 # Controle de versão de cliente e servidor em Aplicativos Móveis e Serviços Móveis
 
 A versão mais recente dos Serviços Móveis do Azure é o recurso **Aplicativos Móveis** do Serviço de Aplicativo do Azure.
-
-<!-- Azure App Service offers a number of platform benefits over Mobile Services, including continuous integration and deployment, staging lots, and VNET support.
- -->
 
 Os SDKs de cliente e servidor de Aplicativos Móveis são baseados originalmente nos Serviços Móveis, mas *não* são compatíveis entre si. Ou seja, você deve usar um SDK de cliente de *Aplicativos Móveis* com SDK de servidor de *Aplicativos Móveis* e da mesma forma para *Serviços Móveis*. Esse contrato é imposto por meio de um valor de cabeçalho especial usado pelos SDKs de cliente e servidor, `ZUMO-API-VERSION`.
 
@@ -45,7 +42,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 Você pode recusar a verificação de versão definindo um valor **verdadeiro** para a configuração do aplicativo **MS\_SkipVersionCheck**. Especifique isso no seu web.config ou na seção Configurações do Aplicativo do Portal do Azure.
 
-> [AZURE.NOTE]Há algumas alterações de comportamento entre os Serviços Móveis e os Aplicativos Móveis, especialmente nas áreas de sincronização offline, autenticação e notificações por push. Você deve recusar verificação somente após o teste completo para garantir que essas alterações de comportamento não interrompam a funcionalidade do aplicativo.
+> [AZURE.NOTE] Há algumas alterações de comportamento entre os Serviços Móveis e os Aplicativos Móveis, especialmente nas áreas de sincronização offline, autenticação e notificações por push. Você deve recusar verificação somente após o teste completo para garantir que essas alterações de comportamento não interrompam a funcionalidade do aplicativo.
 
 ## Resumo de compatibilidade para todas as versões
 
@@ -82,7 +79,7 @@ Observação: as SDKs do cliente dos Serviços Móveis *não* enviam um valor de
 
 | Plataforma servidor | Versão | Cabeçalho de versão aceito |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
-| .NET | [WindowsAzure.MobileServices.Backend.* versão 1.0. x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **Nenhum cabeçalho de versão**|
+| .NET | [WindowsAzure.MobileServices.Backend.* versão 1.0. x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **Nenhum cabeçalho de versão**| 
 | Node.js | (em breve) | **Nenhum cabeçalho de versão** |
 
 <!-- TODO: add Node npm version -->
@@ -93,7 +90,7 @@ Observação: as SDKs do cliente dos Serviços Móveis *não* enviam um valor de
 | ---------------- | ---------------------------- | -------- |
 | Não especificado | Qualquer | 200 - OK |
 | Qualquer valor | Verdadeiro | 200 - OK |
-| Qualquer valor | Falso/não especificado | 400 - solicitação inválida | 
+| Qualquer valor | Falso/não especificado | 400 - solicitação inválida |
 
 ## <a name="2.0.0"></a>Servidor e cliente de Aplicativos Móveis do Azure
 
@@ -141,6 +138,4 @@ A verificação de versão está incluída nas seguintes versões do SDK do serv
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Migrar um Serviço Móvel para o Serviço de Aplicativo do Azure]: app-service-mobile-migrating-from-mobile-services.md
 
-
-<!-----HONumber=AcomDC_1217_2015-->
-
+<!---HONumber=AcomDC_0211_2016-->

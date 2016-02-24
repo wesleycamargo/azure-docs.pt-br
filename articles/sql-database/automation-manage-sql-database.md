@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="01/21/2016"
 	ms.author="jolevy"/>
 
 
@@ -25,7 +25,7 @@ Este guia apresentará o serviço de Automação do Azure e como ele pode ser us
 
 ## O que é Automação do Azure?
 
-[Automação do Azure](http://azure.microsoft.com/services/automation/) é um serviço do Azure para simplificar o gerenciamento de nuvem por meio da automação de processo. Com a Automação do Azure, tarefas de execução longa, manuais, propensas a erros e repetidas com frequência podem ser automatizadas para melhorar a confiabilidade, a eficiência e o tempo de implantação para sua organização.
+[Automação do Azure](https://azure.microsoft.com/services/automation/) é um serviço do Azure para simplificar o gerenciamento de nuvem por meio da automação de processo. Com a Automação do Azure, tarefas de execução longa, manuais, propensas a erros e repetidas com frequência podem ser automatizadas para melhorar a confiabilidade, a eficiência e o tempo de implantação para sua organização.
 
 A Automação do Azure fornece um mecanismo de execução de fluxo de trabalho altamente confiável e altamente disponível que pode ser dimensionado para atender às suas necessidades à medida que sua organização cresce. Na Automação do Azure, os processos podem ser inicializados manualmente por sistemas de terceiros ou a intervalos agendados para que as tarefas aconteçam exatamente quando necessário.
 
@@ -38,7 +38,7 @@ O Banco de Dados SQL do Azure pode ser gerenciado na Automação do Azure usando
 
 A Automação do Azure também tem a capacidade de se comunicar com servidores SQL diretamente, emitindo comandos SQL usando o PowerShell.
 
-A [galeria de runbooks de Automação do Azure](http://azure.microsoft.com/blog/2014/10/07/introducing-the-azure-automation-runbook-gallery/) contém uma variedade de runbooks da comunidade e da equipe de produto que introduzem a automação do gerenciamento dos Bancos de Dados SQL do Azure, outros serviços do Azure e sistemas de terceiros. A galeria de runbooks inclui:
+A [galeria de runbooks de Automação do Azure](https://azure.microsoft.com/blog/2014/10/07/introducing-the-azure-automation-runbook-gallery/) contém uma variedade de runbooks da comunidade e da equipe de produto que introduzem a automação do gerenciamento dos Bancos de Dados SQL do Azure, outros serviços do Azure e sistemas de terceiros. A galeria de runbooks inclui:
 
  * [Executar consultas SQL em um banco de dados do SQL Server](https://gallery.technet.microsoft.com/scriptcenter/How-to-use-a-SQL-Command-be77f9d2)
  * [Escalar verticalmente (para cima ou para baixo) um Banco de Dados SQL do Azure em uma agenda](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-e957354f)
@@ -49,8 +49,10 @@ A [galeria de runbooks de Automação do Azure](http://azure.microsoft.com/blog/
 
 Agora que você aprendeu os fundamentos de Automação do Azure e como ela pode ser usada para gerenciar bancos de dados do SQL Azure, siga estes links para obter mais informações sobre a Automação do Azure.
 
- * Confira o [Guia de introdução](../automation-create-runbook-from-samples.md) da Automação do Azure.
- * Leia a postagem no blog [Automação do Azure: seu agente SQL na nuvem](http://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/)
+- [Visão geral da Automação](../automation/automation-intro.md)
+- [Meu primeiro runbook](../automation/automation-first-runbook-graphical.md)
+- [Mapa de aprendizagem de Automação do Azure](https://azure.microsoft.com/documentation/learning-paths/automation/)
+- [Automação do Azure: seu Agente SQL na nuvem](https://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/) 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

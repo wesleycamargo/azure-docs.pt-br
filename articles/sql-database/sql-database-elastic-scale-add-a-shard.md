@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="01/27/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # Adicionando um fragmento usando ferramentas do Banco de Dados Elástico
@@ -25,7 +25,7 @@ Geralmente, os aplicativos precisam simplesmente adicionar novos fragmentos para
 Se o novo intervalo de valores de chave já não é parte de um mapeamento existente, é muito simples adicionar o novo fragmento e associar a nova chave ou o intervalo para esse fragmento.
 
 ### Exemplo: adicionar um fragmento e seu intervalo a um mapa de fragmentos existente
-No exemplo a seguir, um banco de dados denominado **sample\_shard\_2** e todos os objetos de esquema necessários dentro dele foram criados para conter o intervalo [300, 400).
+Este exemplo usa os métodos [TryGetShard](https://msdn.microsoft.com/library/azure/dn823929.aspx), o [CreateShard](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard.aspx), [CreateRangeMapping](https://msdn.microsoft.com/library/azure/dn807221.aspx#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.RangeShardMap`1.CreateRangeMapping(Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.RangeMappingCreationInfo{`0})) e cria uma instância da classe [ShardLocation](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardlocation.shardlocation.aspx#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardLocation.). No exemplo a seguir, um banco de dados denominado **sample\_shard\_2** e todos os objetos de esquema necessários dentro dele foram criados para conter o intervalo [300, 400).
 
     // sm is a RangeShardMap object.
     // Add a new shard to hold the range being added. 
@@ -79,4 +79,4 @@ Um banco de dados chamado "sample\_shard\_2" e todos os objetos de esquema neces
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

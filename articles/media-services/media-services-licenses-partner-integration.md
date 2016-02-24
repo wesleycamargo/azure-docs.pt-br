@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015"  
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Usando parceiros para fornecer licenças Widevine para os Serviços de Mídia do Azure
@@ -47,4 +47,4 @@ Você pode usar [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/) para for
 
 [Blog do Mingfei](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

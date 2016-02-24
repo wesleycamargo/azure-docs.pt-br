@@ -1,20 +1,19 @@
 <properties
-   pageTitle="Azure AD Connect: Topologias com suporte | Microsoft Azure"
-   description="Este tópico detalha as topologias com e sem suporte para o Azure AD Connect"
-   services="active-directory"
-   documentationCenter=""
-   authors="AndKjell"
-   manager="stevenpo"
-   editor=""/>
-
+    pageTitle="Azure AD Connect: Topologias com suporte | Microsoft Azure"
+    description="Este tópico detalha as topologias com e sem suporte para o Azure AD Connect"
+    services="active-directory"
+    documentationCenter=""
+    authors="AndKjell"
+    manager="stevenpo"
+    editor=""/>
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="12/02/2015"
-   ms.author="andkjell"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+	ms.topic="get-started-article"
+    ms.date="02/12/2016"
+    ms.author="andkjell"/>
 
 # Topologias para o Azure AD Connect
 
@@ -56,9 +55,17 @@ O assistente do Azure AD Connect oferece várias opções de como consolidar os 
 
 As topologias comuns são discutidas na próxima seção: [Separar topologias](#multiple-forests-separate-topologies), [Malha completa](#multiple-forests-full-mesh-with-optional-galsync) e [Conta-recurso](#multiple-forests-account-resource-forest).
 
-Sobre a configuração padrão entregue pelo Azure AD Connect Sync, são feitas as seguintes suposições: 1. Os usuários têm apenas uma conta habilitada e a floresta em que essa conta se encontra é usada para autenticar o usuário. Isso se aplica a para ambas as sincronizações de senha e de federação; userPrincipalName e sourceAnchor/immutableID virão desta floresta. 2. Os usuários têm apenas uma caixa de correio. 3. A floresta que hospeda a caixa de correio de um usuário tem a melhor qualidade de dados para atributos visíveis na GAL (Lista de Endereços Global) do Exchange. Se não houver nenhuma caixa de correio no usuário, qualquer floresta pode ser usada para contribuir com esses valores de atributos. 4. Se você tiver uma caixa de correio vinculada, então também há outra conta em outra floresta usada para fazer logon.
+Na configuração padrão oferecida pelo Azure AD Connect Sync, são feitas as seguintes suposições:
 
-Se seu ambiente não corresponder a essas suposições, acontecerá o seguinte:-Se você tiver mais de uma conta ativa ou mais de uma caixa de correio, o mecanismo de sincronização escolherá uma e ignorará as outras. -Se você tiver caixas vinculadas porém nenhuma outra conta, essas contas não serão exportadas para o AD do Azure e o usuário não será um membro de nenhum grupo. Em DirSync, uma caixa de correio vinculada seria representada como uma caixa de correio normal, por isso este é um comportamento intencionalmente diferente para dar melhor suporte a cenários de várias florestas.
+1.	Os usuários têm apenas uma conta habilitada e a floresta em que essa conta se encontra é usada para autenticar o usuário. Isso se aplica a para ambas as sincronizações de senha e de federação; userPrincipalName e sourceAnchor/immutableID virão desta floresta.
+2.	Os usuários têm apenas uma caixa de correio.
+3.	A floresta que hospeda a caixa de correio de um usuário tem a melhor qualidade de dados para atributos visíveis na GAL (Lista de Endereços Global) do Exchange. Se não houver nenhuma caixa de correio no usuário, qualquer floresta pode ser usada para contribuir com esses valores de atributos.
+4.	Se você tiver uma caixa de correio vinculada, então também há outra conta em outra floresta usada para fazer logon.
+
+Se seu ambiente não corresponder a essas suposições, acontecerá o seguinte:
+
+-	Se você tiver mais de uma conta ativa ou mais de uma caixa de correio, o mecanismo de sincronização escolherá uma e ignorará as outras.
+-	Se você tiver caixas de correio vinculadas, mas nenhuma outra conta, essas contas não serão exportadas para o AD do Azure e o usuário não será membro de qualquer grupo. Em DirSync, uma caixa de correio vinculada seria representada como uma caixa de correio normal, por isso este é um comportamento intencionalmente diferente para dar melhor suporte a cenários de várias florestas.
 
 ### Várias florestas, vários servidores de sincronização para um diretório do AD do Azure
 ![MultiForestMultiSyncUnsupported](./media/active-directory-aadconnect-topologies/MultiForestMultiSyncUnsupported.png)
@@ -109,7 +116,7 @@ Algumas cargas de trabalho do Office 365 têm certas restrições a topologias c
 | Carga de trabalho | |
 | --------- | --------- |
 | Exchange Online |	Se houver mais de uma organização do Exchange local (ou seja, o Exchange for implantado em mais de uma floresta), você deve usar o Exchange 2013 SP1 ou posterior. Os detalhes podem ser encontrados aqui: [Implantações híbridas com várias florestas do Active Directory](https://technet.microsoft.com/pt-BR/library/jj873754.aspx) |
-| Skype for Business | Ao usar várias florestas locais, somente a topologia de floresta conta-recurso terá suporte. Detalhes para as topologias com suporte podem ser encontrados aqui: [Requisitos ambientais do Skype for Business Server 2015](https://technet.microsoft.com/pt-BR/library/dn933910.aspx) |
+| Skype for Business | Ao usar várias florestas locais, somente a topologia de floresta conta-recurso terá suporte. Detalhes para topologias com suporte podem ser encontradas aqui: [requisitos ambientais do Skype for Business Server 2015](https://technet.microsoft.com/pt-BR/library/dn933910.aspx) |
 
 ## Servidor de preparo
 ![StagingServer](./media/active-directory-aadconnect-topologies/MultiForestStaging.png)
@@ -142,7 +149,10 @@ Nessa topologia não há nenhum “GALsync” entre as instâncias de diretório
 
 Com esta topologia, apenas um dos diretórios do AD do Azure pode habilitar Exchange híbridos com o Active Directory local.
 
-O requisito para um conjunto de objetos mutuamente exclusivo também se aplica ao write-back. Isso faz com que alguns recursos de write-back não tenham suporte com esta topologia, pois eles supõem a existência de uma única configuração local. Isso inclui: - Write-back de grupo com configuração padrão - Write-back de dispositivo
+O requisito para um conjunto de objetos mutuamente exclusivo também se aplica ao write-back. Isso faz com que alguns recursos de write-back não tenham suporte com esta topologia, pois eles supõem a existência de uma única configuração local. Isso inclui:
+
+-	Write-back de grupo com configuração padrão
+-	Write-back de dispositivo
 
 ### Cada objeto várias vezes em um diretório do AD do Azure
 ![SingleForestMultiDirectoryUnsupported](./media/active-directory-aadconnect-topologies/SingleForestMultiDirectoryUnsupported.png) ![SingleForestMultiConnectorsUnsupported](./media/active-directory-aadconnect-topologies/SingleForestMultiConnectorsUnsupported.png)
@@ -167,4 +177,4 @@ Saiba mais sobre a configuração de [sincronização do Azure AD Connect](activ
 
 Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

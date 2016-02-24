@@ -2,6 +2,7 @@
    pageTitle="Limitações atuais da visualização para a colaboração B2B do Active Directory do Azure | Microsoft Azure"
    description="A B2B do Active Directory do Azure dá suporte a relações entre empresas, permitindo que os parceiros de negócios acessem de maneira seletiva seus aplicativos corporativos"
    services="active-directory"
+   documentationCenter=""
    authors="viv-liu"
    manager="cliffdi"
    editor=""
@@ -13,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="10/27/2015"
+   ms.date="02/09/2016"
    ms.author="viviali"/>
 
-# Limitações atuais da visualização para a colaboração B2B do AD do Azure (Active Directory do Azure)
+# Visualização da colaboração do B2B do AD do Azure: limitações da visualização atual
 
 - O MFA (autenticação multifator) não tem suporte em usuários externos. Por exemplo, se a Contoso tiver o MFA, mas a Organização do Parceiro não, os usuários da Organização do Parceiro não podem ter permissão ao MFA por meio da colaboração B2B.
 - Convites são possíveis apenas por meio de CSV; não há suporte ao acesso de API e a convites individuais.
@@ -36,5 +37,6 @@ Confira nossos outros artigos sobre a colaboração B2B do Azure:
 - [Referência do formato de arquivo CSV](active-directory-b2b-references-csv-file-format.md)
 - [Formato do token de usuário externo](active-directory-b2b-references-external-user-token-format.md)
 - [Alterações de atributo do objeto de usuário externo](active-directory-b2b-references-external-user-object-attribute-changes.md)
+- [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="10/15/2015"
 	ms.author="darosa"/>
 
@@ -33,7 +33,7 @@ Algumas diferenças de alto nível são destacadas na tabela abaixo.
 
 **O Sistema de Mensagens Premium do Barramento de Serviço do Azure** fornece isolamento de recursos na camada de CPU e memória, de modo que a carga de trabalho do cliente seja executada isoladamente. Esse contêiner de recurso é chamado de *unidade do sistema de mensagens*. Cada namespace premium é alocado para pelo menos uma unidade do sistema de mensagens. Você pode adquirir 1, 2 ou 4 unidades do sistema de mensagens para cada namespace Premium do Barramento de serviço. Uma única carga de trabalho ou entidade pode abranger várias unidades do sistema de mensagens, e o número de unidades do sistema de mensagens pode ser alterado à vontade, embora a cobrança seja feita por taxas diárias ou de 24 horas. O resultado é um desempenho previsível e repetível para sua solução baseada no Barramento de Serviço.
 
-Esse desempenho não é apenas o mais previsível e disponível, mas também o mais rápido. O sistema de mensagens Premium do Barramento de Serviço do Azure se baseia no mecanismo de armazenamento introduzido nos [Hubs de Eventos do Azure](http://azure.microsoft.com/services/event-hubs/). Com o sistema de mensagens Premium, o desempenho de pico é muito mais rápido do que na camada Standard.
+Esse desempenho não é apenas o mais previsível e disponível, mas também o mais rápido. O sistema de mensagens Premium do Barramento de Serviço do Azure se baseia no mecanismo de armazenamento introduzido nos [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/). Com o sistema de mensagens Premium, o desempenho de pico é muito mais rápido do que na camada Standard.
 
 ## Diferenças técnicas do sistema de mensagens Premium
 
@@ -57,4 +57,4 @@ Para saber mais sobre as mensagens do Barramento de Serviço, confira os tópico
 - [Visão geral da arquitetura de Barramento de Serviço do Azure](service-bus-fundamentals-hybrid-solutions.md)
 - [Como usar filas do Barramento de Serviço](service-bus-dotnet-how-to-use-queues.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

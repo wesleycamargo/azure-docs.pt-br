@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015"
+	ms.date="02/02/2016"
 	ms.author="juliako"/>
 
 #Visão geral e cenários comuns do Serviços de Mídia do Azure
@@ -29,21 +29,25 @@ Você pode optar por transmitir seu conteúdo ao vivo ou fornecer conteúdo sob 
 Para compilar soluções de serviços de mídia, você pode usar:
 
 - [API REST dos Serviços de Mídia](https://msdn.microsoft.com/library/azure/hh973617.aspx)
-- Um dos SDKs de cliente disponíveis: [SDK dos Serviços de Mídia do Azure para .NET](https://github.com/Azure/azure-sdk-for-media-services), [SDK do Azure para Java](https://github.com/Azure/azure-sdk-for-java), [Serviços de Mídia do Azure para Node.js](https://github.com/fritzy/node-azure-media) ou [SDK do PHP do Azure](https://github.com/Azure/azure-sdk-for-php)
-- Ferramentas existentes: [Portal Clássico do Azure](http://manage.windowsazure.com/) ou [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer).
-
+- Um dos SDKs de cliente disponíveis: 
+	- [SDK dos Serviços de Mídia do Azure para .NET](https://github.com/Azure/azure-sdk-for-media-services), 
+	- [SDK do Azure para Java](https://github.com/Azure/azure-sdk-for-java), 
+	- [SDK do PHP do Azure](https://github.com/Azure/azure-sdk-for-php), 
+	- [Serviços de Mídia do Azure para Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (esta é uma versão de um SDK do Node.js que não foi criada pela Microsoft. Ele é mantido por uma comunidade e atualmente não tem cobertura de 100% das APIs do AMS). 
+- Ferramentas existentes: 
+	- [Portal Clássico do Azure](http://manage.windowsazure.com/) 
+	- [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) ([AMSE] Gerenciador de Serviços de Mídia do Azure é um aplicativo Winforms/C# para Windows)
 
 ##Roteiros de aprendizagem dos Serviços de Mídia
 
 Você pode exibir os roteiros de aprendizagem do AMS aqui:
 
-- [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+- [Fluxo de trabalho do streaming ao vivo do AMS](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Fluxo de trabalho do streaming sob demanda do AMS](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##Cartaz
 
-
-[Aqui](http://azure.microsoft.com/documentation/infographics/media-services/) é possível exibir o cartaz dos Serviços de Mídia do Azure que representa os fluxos de trabalho do AMS, desde a criação de mídia até o consumo.
+[Aqui](https://azure.microsoft.com/documentation/infographics/media-services/) é possível exibir o cartaz dos Serviços de Mídia do Azure que representa os fluxos de trabalho do AMS, desde a criação de mídia até o consumo.
 
 ##Pré-requisitos
 
@@ -56,12 +60,13 @@ Para começar a usar o Azure Media Services, você deve possuir o seguinte:
 	Além disso, saiba como conectar de forma programática [Conectar](media-services-dotnet-connect_programmatically.md).
 4. (Recomendado) Aloque uma ou mais unidades de escala. É recomendável alocar uma ou mais unidades de escala para aplicativos no ambiente de produção. Para obter mais informações, veja [Gerenciando pontos de extremidade de transmissão](media-services-manage-origins.md).
 
-##Conceitos
+##Visão geral e conceitos
 
-Para obter mais informações, veja [Conceitos](media-services-concepts.md).
+Para conferir os conceitos dos Serviços de Mídia do Azure, confira [Conceitos](media-services-concepts.md).
 
+Para uma série de instruções que apresenta a todos os componentes principais dos Serviços de Mídia do Azure, confira [Tutoriais passo a passo dos Serviços de Mídia do Azure](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). Este série apresenta uma ótima visão geral dos conceitos e usa a ferramenta AMSE para demonstrar as tarefas de AME. Observe que a ferramenta AMSE é uma ferramenta do Windows. Essa ferramenta oferece suporte à maioria das tarefas que você pode obter programaticamente com o [SDK do AMS para .NET](https://github.com/Azure/azure-sdk-for-media-services), [SDK do Azure para Java](https://github.com/Azure/azure-sdk-for-java) ou [SDK do PHP do Azure ](https://github.com/Azure/azure-sdk-for-php).
 
-##<a id="vod_scenarios"></a>Fornecendo mídia sob demanda com os Serviços de Mídia do Azure: cenários e tarefas comuns
+##<a id="vod_scenarios"></a>Fornecendo Mídia sob Demanda com os Serviços de Mídia do Azure: cenários e tarefas comuns
 
 Esta seção descreve cenários comuns e fornece links para tópicos relevantes. O diagrama a seguir mostra as partes principais da plataforma de serviços de mídia que estão envolvidas em fornecer conteúdo sob demanda.
 
@@ -92,12 +97,12 @@ Esta seção descreve cenários comuns e fornece links para tópicos relevantes.
 
 Para poder usar criptografia dinâmica, primeiro é necessário obter pelo menos uma unidade reservada de streaming no ponto de extremidade de streaming do qual você deseja transmitir conteúdo criptografado.
 
-1. Carregue um arquivo mezanino de alta qualidade em um ativo. Aplique a opção de criptografia de armazenamento ao ativo.
+1. Carregar um arquivo mezzanine de alta qualidade em um ativo. Aplique a opção de criptografia de armazenamento ao ativo.
 1. Codifique para um conjunto de arquivos MP4 com taxa de bits adaptável. Aplique a opção de criptografia de armazenamento ao ativo de saída.
 1. Crie uma chave de conteúdo de criptografia para o ativo que você quer que seja criptografado dinamicamente durante a reprodução.
 2. Configure a política de autorização de chave de conteúdo.
 1. Configure a política de entrega de ativos (usada pelo empacotamento dinâmico e criptografia dinâmica).
-1. Publique o ativo, criando um localizador OnDemand.
+1. Publicar o ativo criando um localizador OnDemand.
 1. Fluxo de conteúdo publicado. 
 
 ###Conteúdo do índice
@@ -114,11 +119,11 @@ Para poder usar criptografia dinâmica, primeiro é necessário obter pelo menos
 
 1. Carregar um arquivo mezzanine de alta qualidade em um ativo.
 1. Codificar em um único arquivo MP4.
-1. Publicar o ativo criando um localizador OnDemand ou SAS
+1. Publicar o ativo criando um localizador OnDemand ou SAS.
 
 	Se estiver usando o localizador OnDemand, verifique se você tem pelo menos uma unidade reservada de streaming no ponto de extremidade de streaming do qual você planeja baixar conteúdo de forma progressiva.
 
-	Se você estiver usando o localizador de SAS, o conteúdo será baixado do armazenamento de blob do Azure. Nesse caso, não é necessário ter unidades reservadas de streaming.
+	Se você estiver usando o localizador de SAS, o conteúdo será baixado do armazenamento de blobs do Azure. Nesse caso, não é necessário ter unidades reservadas de streaming.
   
 1. Download progressivo de conteúdo.
 
@@ -133,7 +138,7 @@ Para poder usar criptografia dinâmica, primeiro é necessário obter pelo menos
 - [Como proteger publicação](media-services-manage-content.md#publish)
 - [Como dimensionar a codificação](media-services-portal-encoding-units.md)
 
-##<a id="live_scenarios"></a>Entregando eventos de transmissão ao vivo com os Serviços de Mídia do Azure
+##<a id="live_scenarios"></a>Trabalhando com Eventos de Live Streaming com os Serviços de Mídia do Azure
 
 Ao trabalhar com a transmissão ao vivo, normalmente os seguintes componentes estão envolvidos:
 
@@ -142,16 +147,16 @@ Ao trabalhar com a transmissão ao vivo, normalmente os seguintes componentes es
   
 	Opcionalmente, vários codificadores ao vivo. Para determinados eventos ao vivo críticos que demandam disponibilidade e qualidade de experiência muito altas, é recomendável utilizar codificadores redundantes ativo-ativo para atingir um failover contínuo sem perda de dados.
 - Um serviço de streaming ao vivo que permite que você faça o seguinte: 
-	- inclusão de conteúdo ao vivo usando diversos protocolos de transmissão ao vivo (por exemplo RTMP ou Smooth Streaming) 
+	- inclusão de conteúdo ao vivo usando diversos protocolos de transmissão ao vivo (por exemplo RTMP ou Smooth Streaming), 
 	- codificação de seu fluxo no fluxo de taxa de bits adaptável
 	- visualização de sua transmissão ao vivo,
 	- armazenamento do conteúdo incluído para ser transmitido posteriormente (vídeo sob demanda)
 	- fornecimento do conteúdo por meio de protocolos de transmissão comuns (por exemplo, MPEG DASH, Smooth, HLS, HDS) diretamente aos seus clientes ou para uma CDN (Rede de Distribuição de Conteúdo) para a distribuição posterior. 
 	
 		
-O **AMS** (Serviços de Mídia do Microsoft Azure) fornece a capacidade de ingerir, codificar, visualizar, armazenar e entregar seu conteúdo de transmissão ao vivo.
+Os **Serviços de Mídia do Microsoft Azure** (AMS) fornecem a capacidade de incluir, codificar, visualizar, armazenar e fornecer o conteúdo de transmissão ao vivo.
 
-Ao fornecer conteúdo aos clientes, sua meta é fornecer um vídeo de alta qualidade para vários dispositivos em condições de rede diferentes. Para tratar da qualidade e das condições de rede, use os codificadores ao vivo para codificar seu fluxo para transmissão de vídeo com múltiplas taxas de bits (taxa de bits adaptável). Para lidar com a transmissão em dispositivos diferentes, use o [empacotamento dinâmico](media-services-dynamic-packaging-overview.md) dos Serviços de Mídia para reempacotar dinamicamente sua transmissão para diferentes protocolos. Os serviços de mídia oferecem suporte ao fornecimento das seguintes tecnologias de streaming com taxa de bits adaptável: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (apenas para licenciados do Adobe PrimeTime/Access).
+Ao fornecer conteúdo aos clientes, sua meta é fornecer um vídeo de alta qualidade para vários dispositivos em condições de rede diferentes. Para tratar da qualidade e das condições de rede, use os codificadores ao vivo para codificar seu fluxo para transmissão de vídeo com múltiplas taxas de bits (taxa de bits adaptável). Para lidar com streaming em diferentes dispositivos, use o [empacotamento dinâmico](media-services-dynamic-packaging-overview.md) dos Serviços de Mídia para reempacotar dinamicamente seu fluxo para diferentes protocolos. Os serviços de mídia oferecem suporte ao fornecimento das seguintes tecnologias de streaming de taxa de bits adaptável: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (apenas para licenciados do Adobe PrimeTime/Access).
 
 Nos Serviços de Mídia do Azure, **Canais**, **Programas** e **StreamingEndpoints** tratam de todas as funcionalidades de transmissão ao vivo, incluindo ingestão, formatação, DVR, segurança, escalabilidade e redundância.
 
@@ -160,8 +165,8 @@ Um **Canal** representa um pipeline para o processamento de conteúdo de transmi
 
 - Um codificador ao vivo local envia um fluxo de taxa de bits adaptável única para o Canal que é habilitado para realizar a codificação ao vico com os serviços de mídia em um dos seguintes formatos: RTP (MPEG-TS), RTMP oi Smooth Streaming (MP4 fragmentado). O Canal então realiza a codificação ao vivo do fluxo de entrada com taxa de bits única em um fluxo de vídeo (adaptável) de múltiplas taxas de bits. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
 
-	A codificação de uma transmissão ao vivo com os Serviços de Mídia está no modo **Visualização**.
-- Um codificador ativo local envia um **RTMP** ou **Smooth Streaming** (MP4 fragmentado) com múltiplas taxas de bits para o Canal. Você pode usar os codificadores ao vivo a seguir, que produz Smooth Streaming com múltiplas taxas de bits: Elemental, Envivio, Cisco. Os codificadores ao vivo a seguir produzem RTMP: transcodificadores Adobe Flash Live, Telestream Wirecast e Tricaster. Os fluxos ingeridos passam pelos **Canais**sem nenhum processamento adicional. Seu codificador ao vivo também pode enviar um fluxo de taxa de bits única para um canal que não está habilitado para codificação ao vivo, mas que não é recomendado. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
+	A codificação de um fluxo ao vivo com os Serviços de Mídia está no modo **Visualização**.
+- Um codificador ativo local envia um **RTMP** ou **Smooth Streaming** (MP4 fragmentado) com múltiplas taxas de bits para o Canal. Você pode usar os codificadores ao vivo a seguir, que produz Smooth Streaming de múltiplas taxas de bits: Elemental, Envivio, Cisco. Os codificadores ao vivo a seguir produzem RTMP: transcodificadores Adobe Flash Live, Telestream Wirecast e Tricaster. Os fluxos ingeridos passam pelos **Canais**sem nenhum processamento adicional. Seu codificador ao vivo também pode enviar um fluxo de taxa de bits única para um canal que não está habilitado para codificação ao vivo, mas que não é recomendado. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
 
 
 ###Trabalhando com canais habilitados a executar codificação ao vivo com os Serviços de Mídia do Azure
@@ -203,7 +208,7 @@ Você também pode dimensionar sua conta dos Serviços de Mídia adicionando con
 
 ##Suporte
 
-O [Suporte do Azure](http://azure.microsoft.com/support/options/) fornece opções de suporte do Azure, incluindo os Serviços de Mídia.
+O [Suporte do Azure](https://azure.microsoft.com/support/options/) fornece opções de suporte do Azure, incluindo os Serviços de Mídia.
 
 ##Padrões e práticas de orientação
 
@@ -222,7 +227,7 @@ O [Suporte do Azure](http://azure.microsoft.com/support/options/) fornece opçõ
 - Para proteção de conteúdo, garantimos que atenderemos com êxito a solicitações de chave em, no mínimo, 99,9% do tempo.
 - Para o indexador, podemos atenderemos com êxito às solicitações de tarefa do indexador processadas com uma unidade reservada para codificação em 99,9% do tempo.
 
-	Para obter mais informações, veja [SLA do Microsoft Azure](http://azure.microsoft.com/support/legal/sla/).
+	Para obter mais informações, veja [SLA do Microsoft Azure](https://azure.microsoft.com/support/legal/sla/).
 
 <!-- Images -->
 [overview]: ./media/media-services-overview/media-services-overview.png
@@ -231,4 +236,4 @@ O [Suporte do Azure](http://azure.microsoft.com/support/options/) fornece opçõ
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

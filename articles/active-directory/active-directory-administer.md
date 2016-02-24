@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Administrar seu diretório do Azure AD | Microsoft Azure"
-	description="Um tópico que explica o que é um locatário do Azure AD e como gerenciar um diretório do Azure AD."
+	description="Explica o que é um locatário do Azure AD e como gerenciar o Azure por meio do Active Directory do Azure"
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/01/2015"
+	ms.date="01/25/2016"
 	ms.author="markvi"/>
 
 # Administrar seu diretório do Azure AD
@@ -27,7 +27,7 @@ No local de trabalho habilitado pela nuvem, um locatário pode ser definido como
 
 Cada diretório do Azure AD é distinto e separado de outros diretórios do Azure AD. Assim como um prédio de escritórios corporativos é um ativo seguro específico somente a sua organização, um diretório do Azure AD também foi projetado para ser um ativo seguro para ser usado somente por sua organização. A arquitetura do Azure AD isola os dados as informações de identidade do cliente, evitando que sejam misturados a outros. Isso significa que os usuários e administradores de um diretório do Azure AD não podem acessar acidentalmente ou maliciosamente dados em outro diretório.
 
-![][1]
+![Gerenciar o Active Directory do Azure][1]
 
 ## Como posso obter um diretório do Azure AD?
 
@@ -40,7 +40,8 @@ O Azure AD oferece os principais recursos de gerenciamento de diretório e de id
 
 Quando você se inscreve para qualquer um desses serviços de nuvem da Microsoft, você obterá um diretório do Azure AD. Você pode criar diretórios adicionais conforme necessário. Por exemplo, você pode manter seu primeiro diretório como um diretório de produção e, em seguida, criar um outro diretório para teste ou preparo.
 
-> [AZURE.NOTE]Após se inscrever em seu primeiro serviço, recomendamos que você use a mesma conta de administrador associada à sua organização ao se inscrever para outros serviços de nuvem da Microsoft.
+> [AZURE.NOTE]
+Após se inscrever em seu primeiro serviço, recomendamos que você use a mesma conta de administrador associada à sua organização ao se inscrever para outros serviços de nuvem da Microsoft.
 
 Da primeira vez que você se inscrever para um serviço de nuvem da Microsoft, precisará fornecer detalhes sobre sua organização e o registro de nome de domínio na Internet da sua organização. Em seguida, essas informações são usadas para criar uma nova instância de diretório do Azure AD para sua organização. Esse mesmo diretório é usado para autenticar as tentativas de logon quando você se inscreve para vários serviços de nuvem da Microsoft.
 
@@ -115,7 +116,8 @@ Observe também que, ao contrário de outros recursos do Azure, seus diretórios
 ## Como posso excluir um diretório do Azure AD?
 Um administrador global pode excluir um diretório do Azure AD a partir do portal. Quando um diretório é excluído, todos os recursos contidos no diretório também serão excluídos; portanto, você deve se certificar de que não precisa do diretório antes de excluí-lo.
 
-> [AZURE.NOTE]Se o usuário estiver conectado com uma conta comercial ou de estudante, ele não deve tentar excluir seu diretório base. Por exemplo, se o usuário estiver conectado como joe@contoso.onmicrosoft.com, esse usuário não poderá excluir o diretório que tiver contoso.onmicrosoft.com como seu domínio padrão.
+> [AZURE.NOTE]
+Se o usuário estiver conectado com uma conta comercial ou de estudante, ele não deve tentar excluir seu diretório base. Por exemplo, se o usuário estiver conectado como joe@contoso.onmicrosoft.com, esse usuário não poderá excluir o diretório que tiver contoso.onmicrosoft.com como seu domínio padrão.
 
 ### Condições que devem ser atendidas para excluir um diretório do Azure AD
 
@@ -127,7 +129,8 @@ As seguintes condições são verificadas:
 - Não pode haver nenhum aplicativo no diretório. Qualquer aplicativo deve ser excluído antes que o diretório possa ser excluído.
 - Não pode haver assinaturas para Microsoft Online Services, como o Microsoft Azure, Office 365 ou Azure AD Premium associadas ao diretório. Por exemplo, se um diretório padrão tiver sido criado para você no Azure, você não poderá excluir esse diretório se sua assinatura do Azure ainda depender desse diretório para autenticação. Da mesma forma, você não pode excluir um diretório se outro usuário tiver associado uma assinatura a ele. Para associar sua assinatura a um diretório diferente, entre no Portal de Gerenciamento do Azure e clique em **Configurações** no painel de navegação esquerdo. Em seguida, na parte inferior da página **Assinaturas**, clique em **Editar diretório**. Para obter mais informações sobre as assinaturas do Azure, consulte [Como as assinaturas do Azure são associadas ao Azure AD](active-directory-how-subscriptions-associated-directory.md).
 
-    > [AZURE.NOTE]Se o usuário estiver conectado com uma conta comercial ou de estudante, ele não deve tentar excluir seu diretório base. Por exemplo, se o usuário estiver conectado como joe@contoso.onmicrosoft.com, esse usuário não poderá excluir o diretório que tiver contoso.onmicrosoft.com como seu domínio padrão.
+    > [AZURE.NOTE]
+    Se o usuário estiver conectado com uma conta comercial ou de estudante, ele não deve tentar excluir seu diretório base. Por exemplo, se o usuário estiver conectado como joe@contoso.onmicrosoft.com, esse usuário não poderá excluir o diretório que tiver contoso.onmicrosoft.com como seu domínio padrão.
 
 - Nenhum provedor de autenticação multifator pode ser vinculado ao diretório.
 
@@ -145,4 +148,4 @@ As seguintes condições são verificadas:
 [1]: ./media/active-directory-administer/aad_portals.png
 [2]: ./media/active-directory-administer/azure_tenants.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

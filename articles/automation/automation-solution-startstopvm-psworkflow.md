@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="09/25/2015"
+	ms.date="01/27/2016"
 	ms.author="bwren" />
 
 # Solução de Automação do Azure — iniciando e parando máquinas virtuais
@@ -28,11 +28,11 @@ Essa solução de Automação do Azure inclui runbooks para iniciar e parar máq
 - [Graphical](automation-solution-startstopvm-graphical.md)
 - [PowerShell Workflow](automation-solution-startstopvm-psworkflow.md)
 
-Esta é a versão de runbook do Fluxo de Trabalho do PowerShell dessa solução. Ela também é disponibilizada usando [runbooks gráficos](automation-solutions-startstopvm-graphical.md).
+Esta é a versão de runbook do Fluxo de Trabalho do PowerShell dessa solução. Ela também é disponibilizada usando [runbooks gráficos](automation-solution-startstopvm-graphical.md).
 
 ## Obtendo a solução
 
-Essa solução consiste em dois runbooks de Fluxo de Trabalho do PowerShell que você pode baixar dos links a seguir. Consulte a [versão gráfica](automation-solutions-startstopvm-graphical.md) desta solução para obter links para os runbooks gráficos.
+Essa solução consiste em dois runbooks de Fluxo de Trabalho do PowerShell que você pode baixar dos links a seguir. Consulte a [versão gráfica](automation-solution-startstopvm-graphical.md) desta solução para obter links para os runbooks gráficos.
 
 | Runbook | Link | Tipo | Descrição |
 |:---|:---|:---|:---|
@@ -193,4 +193,4 @@ As próximas linhas exploram cada máquina virtual. Primeiro o **PowerState** da
 - [Runbooks filhos na Automação do Azure](automation-child-runbooks.md) 
 - [Saída de runbook e mensagens na Automação do Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

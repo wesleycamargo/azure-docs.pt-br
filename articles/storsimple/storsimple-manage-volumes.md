@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/14/2015"
+   ms.date="01/15/2016"
    ms.author="v-sharos" />
 
 # Usar o serviço StorSimple Manager para gerenciar volumes
@@ -23,9 +23,9 @@
 
 Este tutorial explica como usar o serviço StorSimple Manager para criar e gerenciar volumes no dispositivo StorSimple e dispositivo virtual StorSimple.
 
-O serviço StorSimple Manager é uma extensão do portal do Azure que permite gerenciar a solução do StorSimple em uma única interface da Web. Além de gerenciar volumes, você pode usar o serviço StorSimple Manager para criar e gerenciar serviços do StorSimple, exibir e gerenciar dispositivos, exibir alertas, exibir e gerenciar políticas de backup e o catálogo de backup.
+O serviço StorSimple Manager é uma extensão do portal clássico do Azure que permite gerenciar a solução do StorSimple em uma única interface da Web. Além de gerenciar volumes, você pode usar o serviço StorSimple Manager para criar e gerenciar serviços do StorSimple, exibir e gerenciar dispositivos, exibir alertas, exibir e gerenciar políticas de backup e o catálogo de backup.
 
-> [AZURE.NOTE]O Azure StorSimple pode criar somente volumes pequenos de provisionamento. Não é possível criar volumes parcialmente ou totalmente provisionados em um sistema do Azure StorSimple.
+> [AZURE.NOTE] O Azure StorSimple pode criar somente volumes pequenos de provisionamento. Não é possível criar volumes parcialmente ou totalmente provisionados em um sistema do Azure StorSimple.
 >
 > Provisionamento dinâmico é uma tecnologia de virtualização no qual o armazenamento disponível parece exceder os recursos físicos. Em vez de reservar armazenamento suficiente com antecedência, o Azure StorSimple usa o provisionamento dinâmico para alocar espaço suficiente para atender às necessidades atuais. A natureza elástica do armazenamento em nuvem facilita essa abordagem porque o Azure StorSimple pode aumentar ou diminuir o armazenamento em nuvem para atender às diferentes demandas.
 
@@ -90,7 +90,7 @@ O seu novo volume agora está pronto para uso.
 
 Modifica um volume quando você precisa expandi-lo ou alterar os hosts que acessam o volume.
 
-> [AZURE.IMPORTANT]
+> [AZURE.IMPORTANT] 
 >
 > - Se você modificar o tamanho do volume no dispositivo, o tamanho do volume precisa ser alterado no host também. 
 > - As etapas do lado do host descritas aqui servem para o Windows Server 2012 (2012R2). Procedimentos para Linux ou para outros sistemas operacionais host serão diferentes. Consulte as instruções do sistema operacional host ao modificar o volume em um host que executa outro sistema operacional. 
@@ -108,16 +108,16 @@ Modifica um volume quando você precisa expandi-lo ou alterar os hosts que acess
   - Editar o **Nome** e o **Tipo de Aplicativo**.
   - Aumentar a **Capacidade Provisionada**. A **Capacidade Provisionada** só pode ser aumentada. Não é possível reduzir um volume depois que ele é criado.
 
-    > [AZURE.NOTE]Você não pode alterar o contêiner de volume depois que ele é atribuído a um volume.
+    > [AZURE.NOTE] Você não pode alterar o contêiner de volume depois que ele é atribuído a um volume.
 
 5. Em **Configurações Adicionais**, você pode fazer o seguinte:
 
   - Modificar os ACRs, desde que o volume esteja offline. Se o volume estiver online, você precisará colocá-lo offline primeiro. Consulte as etapas em [Colocar um volume offline](#take-a-volume-offline) antes de modificar o ACR.
   - Modificar a lista de ACRs depois que o volume está offline.
  
-    > [AZURE.NOTE]Você não pode alterar a opção **Habilitar um backup padrão para este volume** para o volume.
+    > [AZURE.NOTE] Você não pode alterar a opção **Habilitar um backup padrão para este volume** para o volume.
 
-6. Salve suas alterações, clicando no ícone de verificação ![check-icon](./media/storsimple-manage-volumes/HCS_CheckIcon.png). O portal do Azure exibirá uma mensagem de atualização do volume. Ele exibirá uma mensagem de êxito quando o volume for atualizado com êxito.
+6. Salve suas alterações, clicando no ícone de verificação ![check-icon](./media/storsimple-manage-volumes/HCS_CheckIcon.png). O portal clássico do Azure exibirá uma mensagem de atualização do volume. Ele exibirá uma mensagem de êxito quando o volume for atualizado com êxito.
 
 7. Se estiver expandindo um volume, conclua as seguintes etapas no computador host do Windows:
 
@@ -128,7 +128,7 @@ Modifica um volume quando você precisa expandi-lo ou alterar os hosts que acess
 
 ![Vídeo disponível](./media/storsimple-manage-volumes/Video_icon.png) **Vídeo disponível**
 
-Para assistir a um vídeo que demonstra como expandir um volume, clique [aqui](http://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume).
+Para assistir a um vídeo que demonstra como expandir um volume, clique [aqui](https://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume/).
 
 ## Colocar um volume offline
 
@@ -149,11 +149,11 @@ Talvez seja necessário colocar um volume offline quando você estiver planejand
 
     Depois que um volume está offline, a opção **Colocar Online** ficará disponível.
 
-> [AZURE.NOTE]O comando **Colocar Offline** envia uma solicitação para o dispositivo para colocar o volume offline. Se os hosts ainda estiverem usando o volume, ocorrerão conexões interrompidas, mas não ocorrerá nenhuma falha ao colocar o volume offline.
+> [AZURE.NOTE] O comando **Colocar Offline** envia uma solicitação para o dispositivo para colocar o volume offline. Se os hosts ainda estiverem usando o volume, ocorrerão conexões interrompidas, mas não ocorrerá nenhuma falha ao colocar o volume offline.
 
 ## Excluir um volume
 
-> [AZURE.IMPORTANT]Você pode excluir um volume apenas se ele estiver offline.
+> [AZURE.IMPORTANT] Você pode excluir um volume apenas se ele estiver offline.
 
 Conclua as seguintes etapas para excluir um volume.
 
@@ -193,8 +193,9 @@ Execute as seguintes etapas para habilitar ou desabilitar o monitoramento para u
 ## Próximas etapas
 
 - Saiba como [Clonar um volume StorSimple](storsimple-clone-volume.md).
+
 - Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

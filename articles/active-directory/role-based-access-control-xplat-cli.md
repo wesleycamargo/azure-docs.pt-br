@@ -3,7 +3,7 @@
 	description="Gerenciando o controle de acesso baseado em função com a interface de linha de comando do Azure"
 	services="active-directory"
 	documentationCenter="na"
-	authors="IHenkel"
+	authors="kgremban"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/14/2015"
-	ms.author="inhenk"/>
+	ms.date="01/25/2016"
+	ms.author="kgremban"/>
 
 # Gerenciando o controle de acesso baseado em função com a interface de linha de comando do Azure (CLI do Azure) #
 
@@ -22,9 +22,9 @@
 - [Windows PowerShell](role-based-access-control-powershell.md)
 - [Azure CLI](/role-based-access-control-xplat-cli-install.md)
 
-O controle de acesso com base em função (RBAC) no Portal do Azure e na API do Gerenciador de Recursos do Azure permite que você gerencie o acesso a sua assinatura e recursos em um nível detalhado. Com esse recurso, você pode conceder acesso aos usuários, grupos ou entidades de serviço do Active Directory atribuindo algumas funções para eles em um determinado escopo.
+O RBAC (Controle de Acesso baseado em função) no Portal do Azure e na API do Gerenciador de Recursos do Azure permite que você gerencie o acesso a sua assinatura e aos recursos de uma maneira detalhada. Com esse recurso, você pode conceder acesso aos usuários, grupos ou entidades de serviço do Active Directory atribuindo algumas funções para eles em um determinado escopo.
 
-Neste tutorial, você aprenderá a usar a CLI do Azure para gerenciar o controle de acesso baseado em função. Este tutorial traz orientações passo a passo do processo de criação e verificação das atribuições de função.
+Neste tutorial, você aprenderá a usar a CLI do Azure para gerenciar o RBAC. Este tutorial traz orientações passo a passo do processo de criação e verificação das atribuições de função.
 
 **Tempo estimado para conclusão:** 15 minutos
 
@@ -55,7 +55,7 @@ Para se conectar às assinaturas do Azure, digite:
 
     azure login -u <username>
 
-No prompt da linha de comando, insira sua senha da conta do Azure (somente use uma conta organizacional). A CLI do Azure obterá todas as assinaturas que você tem com esta conta e configurará sozinho para usar a primeira como padrão. Observe que com o controle de acesso baseado na função, você somente poderá obter estas assinaturas onde você tem algumas permissões sendo o coadministrador ou tendo alguma atribuição de função.
+No prompt da linha de comando, insira sua senha da conta do Azure (somente use uma conta organizacional). A CLI do Azure obterá todas as assinaturas que você tem com esta conta e configurará sozinho para usar a primeira como padrão. Observe que com o Controle de Acesso baseado em função, você somente poderá obter estas assinaturas onde tem algumas permissões, como coadministrador ou tendo alguma atribuição de função.
 
 Se você tem várias assinaturas e deseja alternar para outra, digite:
 
@@ -84,7 +84,7 @@ Você também pode verificar as atribuições de função existentes para uma de
 Isso retornará todas as atribuições de função para um determinado usuário no deu diretório Azure AD, que tem uma atribuição de função de “Proprietário" para o grupo de recursos "group1". A atribuição de função pode vir de dois lugares:
 
 1. Uma atribuição de função de “Proprietário" ao usuário para o grupo de recursos.
-2. Uma atribuição de função de “Proprietário" ao usuário para o pai do grupo de recursos (neste caso, a assinatura), pois se você tiver qualquer permissão em um determinado recurso pai, você terá as mesmas permissões para todos os seus recursos filhos.
+2. Uma atribuição de função de "Proprietário" ao usuário para o pai do grupo de recursos (neste caso, a assinatura), pois se você tiver qualquer permissão em um determinado recurso pai, você terá as mesmas permissões para todos os seus recursos filhos.
 
 Todos os parâmetros deste cmdlet são opcionais. Você pode combiná-los para verificar as atribuições de função com diferentes filtros.
 
@@ -108,7 +108,7 @@ Para criar uma atribuição de função, você precisa pensar sobre:
 
     `azure role list`
 
-- Qual o escopo que você deseja atribuir: você tem três níveis de escopo:
+- Qual o escopo que você deseja atribuir: você tem três níveis de escopo
 
     - A assinatura atual
     - Um grupo de recursos. Para obter uma lista dos grupos de recursos, digite `azure group list`
@@ -116,16 +116,13 @@ Para criar uma atribuição de função, você precisa pensar sobre:
 
 Em seguida, use `azure role assignment create` para criar uma atribuição de função. Por exemplo:
 
- - Isso criará uma atribuição de função em nível da assinatura atual para um usuário como um leitor:
-
+ 	#This will create a role assignment at the current subscription level for a user as a reader:
     `azure role assignment create --upn <user's email> -o Reader`
 
-- Isso criará uma atribuição de função em um nível de grupo de recursos:
-
+	#This will create a role assignment at a resource group level:
     `PS C:\> azure role assignment create --upn <user's email> -o Contributor -g group1`
 
-- Isso criará uma atribuição de função em um nível de recursos:
-
+	#This will create a role assignment at a resource level:
     `azure role assignment create --upn <user's email> -o Owner -g group1 -r Microsoft.Web/sites -u site1`
 
 ## <a id="verify"></a>Verificar permissões ##
@@ -144,11 +141,11 @@ Quando você tenta executar outros cmdlets como `azure group create`, receberá 
 Para saber mais sobre como gerenciar o controle de acesso com base em função com o CLI do Azure e tópicos relacionados:
 
 - [Controle de acesso baseado em função no Azure](../role-based-access-control-configure.md)
-- [Instalar e configurar a CLI do Azure](../xplat-cli-install.md).
+- [Instalar e configurar a CLI do Azure.](../xplat-cli-install.md)
 - [Usando a CLI do Azure com o Gerenciamento de Recursos](../xplat-cli-azure-resource-manager.md)
 - [Usando grupos de recursos para gerenciar os recursos do Azure](../azure-preview-portal-using-resource-groups.md): aprenda a criar e gerenciar grupos de recursos no Portal de Gerenciamento do Azure.
 - [Blog do Azure](http://blogs.msdn.com/windowsazure): obtenha informações sobre os novos recursos no Azure.
 - [Configurar o controle de acesso com base em função usando o Windows PowerShell](role-based-access-control-powershell.md)
 - [Solucionar problemas do controle de acesso com base em função](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

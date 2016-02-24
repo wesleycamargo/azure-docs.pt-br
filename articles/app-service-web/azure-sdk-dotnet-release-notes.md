@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="01/19/2016" 
 	ms.author="juliako"/>
 
 
@@ -65,9 +65,9 @@ Este tópico contém links para as Notas de versão SDK do Azure para .NET
 
 ##Tópicos relacionados
 
-[SDK do Azure para .NET](http://azure.microsoft.com/downloads/archive-net-downloads/)
+[SDK do Azure para .NET](https://azure.microsoft.com/downloads/archive-net-downloads/)
 
 [Notas de versão do SDK do Azure no MSDN](https://msdn.microsoft.com/library/azure/dn627519.aspx)
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

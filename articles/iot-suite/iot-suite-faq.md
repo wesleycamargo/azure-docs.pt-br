@@ -1,22 +1,23 @@
 <properties
   pageTitle="Perguntas frequentes sobre o Pacote do IoT do Azure | Microsoft Azure"
-  description="Perguntas frequentes do Pacote IoT."
+  description="Perguntas frequentes sobre o IoT Suite"
   services=""
+  suite="iot-suite"
   documentationCenter=""
   authors="aguilaaj"
   manager="timlt"
   editor=""/>
 
 <tags
-  ms.service="na"
+  ms.service="iot-suite"
   ms.devlang="na"
-  ms.topic="hero-article"
+  ms.topic="get-started-article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
   ms.date="11/17/2015"
   ms.author="araguila"/>
    
-# Perguntas frequentes
+# Perguntas frequentes sobre o IoT Suite
 
 ### Quantas instâncias do Banco de Dados de Documentos posso provisionar em uma assinatura?
 
@@ -42,4 +43,4 @@ Consulte a postagem do blog de Eric Golpe, [Passo a passo da exclusão de um loc
 [lnk-classic-portal]: https://manage.windowsazure.com
 [lnk-delete-aad-tennant]: http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

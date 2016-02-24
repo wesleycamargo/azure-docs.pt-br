@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="02/08/2016" 
 	ms.author="sethm"/>
 
 # Crie aplicativos da nuvem confiáveis e elásticos com o sistema de mensagens 
@@ -42,7 +42,7 @@ A demanda dinâmica é uma realidade para os aplicativos de hoje. De uma demanda
 
 ## Serviços relacionados
 
-- [Serviços de Nuvem](http://azure.microsoft.com/services/cloud-services/) 
+- [Serviços de Nuvem](https://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

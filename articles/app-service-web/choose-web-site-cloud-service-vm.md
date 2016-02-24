@@ -50,7 +50,7 @@ Abaixo estão alguns cenários de aplicação comuns com recomendações sobre q
 
 ### <a id="onprem"></a> Preciso de um front-end da Web com processamento em segundo plano e back-end de banco de dados para executar aplicativos de negócios integrados a ativos no local.
 
-Os Serviço de Aplicativo do Azure é uma ótima solução para aplicativos de negócios complexos. Eles permitem desenvolver aplicativos que são escalados automaticamente em uma plataforma com carga equilibrada, são protegidos pelo Active Directory e se conectam aos seus recursos no local. Eles facilitam o gerenciamento desses aplicativos por meio de um portal e APIs de nível mundial, e permitem que você obtenha informações sobre como os clientes estão os utilizando com ferramentas de informações sobre os aplicativos. O novo recurso [Webjobs][] permite executar processos e tarefas em segundo plano como parte de sua camada da Web, ao passo que a conectividade híbrida e os [recursos de VNET](../fundamentals-introduction-to-azure.md#networking/) facilitam a conexão de volta aos recursos locais. O Serviço de Aplicativo do Azure fornece SLA três noves para aplicativos Web e permite que você:
+Os Serviço de Aplicativo do Azure é uma ótima solução para aplicativos de negócios complexos. Eles permitem desenvolver aplicativos que são escalados automaticamente em uma plataforma com carga equilibrada, são protegidos pelo Active Directory e se conectam aos seus recursos no local. Eles facilitam o gerenciamento desses aplicativos por meio de um portal e APIs de nível mundial, e permitem que você obtenha informações sobre como os clientes estão os utilizando com ferramentas de informações sobre os aplicativos. O novo recurso [Webjobs][] permite executar processos e tarefas em segundo plano como parte de sua camada da Web, ao passo que a conectividade híbrida e os recursos de VNET facilitam a conexão de volta aos recursos locais. O Serviço de Aplicativo do Azure fornece SLA três noves para aplicativos Web e permite que você:
 
 * Execute seus aplicativos de maneira confiável em uma plataforma de nuvem de autorrecuperação e autocorreção.
 * Escale automaticamente em uma rede global de datacenters.
@@ -123,7 +123,7 @@ Se sua estrutura de software livre não tiver suporte no Serviço de Aplicativo,
 
 ### <a id="lob"></a>Eu tenho um aplicativo de linha de negócios que precisa se conectar à rede corporativa
 
-Se você deseja criar um aplicativo de linha de negócios, seu site pode exigir acesso direto a serviços ou dados da rede corporativa. Isso é possível em Serviço de Aplicativo, serviços de nuvem e máquinas virtuais que usam o [serviço de Rede Virtual do Azure](/services/virtual-network/). No Serviço de Aplicativo, você pode usar o [recurso de integração do VNET](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/), que permite que seus aplicativos Azure sejam executados como se estivessem em sua rede corporativa.
+Se você deseja criar um aplicativo de linha de negócios, seu site pode exigir acesso direto a serviços ou dados da rede corporativa. Isso é possível em Serviço de Aplicativo, serviços de nuvem e máquinas virtuais que usam o [serviço de Rede Virtual do Azure](/services/virtual-network/). No Serviço de Aplicativo, você pode usar o [recurso de integração do VNET](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/), que permite que seus aplicativos Azure sejam executados como se estivessem em sua rede corporativa.
 
 ### <a id="mobile"></a>Desejo hospedar uma API REST ou um serviço Web para clientes móveis
 
@@ -153,7 +153,7 @@ Implantar o código com a implantação da Web|X||X|Os Serviços de Nuvem oferec
 Suporte do WebMatrix|X||X|
 Acesso a serviços como o Barramento de Serviço, Armazenamento, Banco de Dados SQL|X|X|X|
 Camada de serviços da Web ou Web hospedada de uma arquitetura multicamada|X|X|X|
-Camada intermediária de host de uma arquitetura multicamada|X|X|X|Os aplicativos Web do Serviço de Aplicativo podem hospedar facilmente uma camada média da API REST, e o recurso [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) pode hospedar tarefas de processamento em segundo plano. Você pode executar o WebJobs em um site dedicado para alcançar a escalabilidade independente para a camada. O recurso de [aplicativos de API](../app-service-api/app-service-api-apps-why-best-platform.md) de visualização oferece ainda mais recursos para hospedar serviços REST.
+Camada intermediária de host de uma arquitetura multicamada|X|X|X|Os aplicativo Web do Serviço de Aplicativo podem hospedar facilmente uma camada média da API REST, e o recurso [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) pode hospedar tarefas de processamento em segundo plano. Você pode executar o WebJobs em um site dedicado para alcançar a escalabilidade independente para a camada. O recurso de [aplicativos de API](../app-service-api/app-service-api-apps-why-best-platform.md) de visualização oferece ainda mais recursos para hospedar serviços REST.
 Suporte integrado do MySQL como serviço|X|X|X|Os Serviços de Nuvem podem integrar o MySQL como serviço por meio de ofertas do ClearDB, mas não como parte do fluxo de trabalho do Portal do Azure.
 Suporte para ASP.NET, classic ASP, Node.js, PHP, Python|X|X|X|
 Dimensionamento para várias instâncias sem reimplantação|X|X|X|Máquinas Virtuais podem ser dimensionadas para várias instâncias, mas os serviços em execução nessas máquinas devem ser escritos para lidar com este dimensionamento. Você precisa configurar um balanceador de carga para rotear solicitações entre máquinas e criar um Grupo de Afinidade para impedir reinícios simultâneos de todas as instâncias devido a manutenções ou falhas de hardware.
@@ -170,15 +170,13 @@ Capacidade de definir/executar tarefas de inicialização||X|X|
 Capacidade de ouvir eventos de ETW||X|X|
 
 
-> [AZURE.NOTE]Se você quiser começar a usar o Serviço de Aplicativo do Azure antes de se inscrever para uma conta, acesse <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, em que é possível criar imediatamente um aplicativo de iniciante de curta duração no Serviço de Aplicativo do Azure gratuitamente. Nenhum cartão de crédito é exigido, sem compromissos.
+> [AZURE.NOTE]
+Se você quiser começar a usar o Serviço de Aplicativo do Azure antes de se inscrever para uma conta, acesse <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, em que é possível criar imediatamente um aplicativo de iniciante de curta duração no Serviço de Aplicativo do Azure gratuitamente. Nenhum cartão de crédito é exigido, sem compromissos.
 
 
 ## <a id="nextsteps"></a> Próximas etapas
 
-Para obter mais informações sobre as três opções de hospedagem na Web, consulte os recursos a seguir:
-
-* [Apresentando o Azure](../fundamentals-introduction-to-azure.md)
-* [Computar opções de hospedagem fornecidas pelo Azure](../fundamentals-application-models.md)
+Para obter mais informações sobre as três opções de hospedagem da Web, confira [Apresentação do Azure](../fundamentals-introduction-to-azure.md).
 
 Para começar a usar as opções escolhidas para seu aplicativo, consulte os seguintes recursos:
 
@@ -204,4 +202,4 @@ Para começar a usar as opções escolhidas para seu aplicativo, consulte os seg
   [armazenamento]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

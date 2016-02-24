@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="01/29/2016"
    ms.author="alkohli" />
 
 # Usar o serviço StorSimple Manager para monitorar seu dispositivo StorSimple 
@@ -45,6 +45,7 @@ Para o mesmo dispositivo, um instantâneo de nuvem foi capturado para dados de v
 
 A **utilização da capacidade** acompanha as métricas relacionadas à quantidade de espaço de armazenamento de dados usada por volumes, contêineres de volume ou dispositivo. Você pode criar relatórios com base na utilização de capacidade do armazenamento principal, armazenamento em nuvem ou armazenamento do dispositivo. A utilização da capacidade pode ser medida em um volume específico, um contêiner de volume específico ou todos os contêineres de volume.
 
+
 É possível descrever as capacidades de armazenamento primária, de nuvem e do dispositivo da seguinte maneira:
 
 ###Utilização da capacidade de armazenamento primário
@@ -74,6 +75,10 @@ Os gráficos a seguintes mostram o uso da capacidade de armazenamento principal 
 ![Utilização da capacidade primária antes do instantâneo da nuvem](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes2M.png)
 
 ![Utilização da capacidade primária após o instantâneo da nuvem](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes1M.png)
+
+Se estiver executando a Atualização 2 ou superior, você poderá dividir a utilização da capacidade principal do armazenamento por um volume individual, todos os volumes, todos os volumes em camadas e todos os volumes locais, conforme mostrado abaixo. Dividir por todos os volumes locais permitirá que você verifique rapidamente o volume da camada local que foi usado.
+
+![Utilização da capacidade principal para todos os volumes locais](./media/storsimple-monitor-device/localvolumes.png)
 
 
 ###Utilização da capacidade de armazenamento em nuvem
@@ -121,4 +126,4 @@ O **desempenho do dispositivo** acompanha métricas relacionadas ao desempenho d
 
 - Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

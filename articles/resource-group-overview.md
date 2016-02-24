@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/22/2015"
+   ms.date="02/02/2016"
    ms.author="tomfitz"/>
 
 # Visão geral do Gerenciador de Recursos do Azure
@@ -87,15 +87,15 @@ Para saber mais sobre como usar um modelo de implantação, consulte [Implantar 
 
 Para obter orientações sobre como estruturar os modelos, confira [Práticas recomendadas para a criação de modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-design-templates.md).
 
-Para obter orientação sobre como implantar a solução em ambientes diferentes, confira [Ambientes de desenvolvimento e de teste no Microsoft Azure](solution-dev-test-environments-preview-portal.md).
+Para obter orientação sobre como implantar a solução em ambientes diferentes, confira [Ambientes de desenvolvimento e de teste no Microsoft Azure](solution-dev-test-environments.md).
 
 ## Marcas
 
-O Gerenciador de Recursos fornece um recurso de marcação que permite classificar os recursos de acordo com suas necessidades de gerenciamento ou de cobrança. Pode ser útil usar marcas quando você tiver um conjunto complexo de grupos de recursos e recursos e se precisar visualizar os ativos da maneira que fizer mais sentido. Por exemplo, você pode marcar os recursos que servem para uma função semelhante em sua organização ou pertencem ao mesmo departamento.
+O Gerenciador de Recursos fornece um recurso de marcação que permite classificar os recursos de acordo com suas necessidades de gerenciamento ou de cobrança. Pode ser útil usar marcas quando você tiver um conjunto complexo de grupos de recursos e recursos e se precisar visualizar os ativos da maneira que fizer mais sentido. Por exemplo, você pode marcar os recursos que servem para uma função semelhante em sua organização ou pertencem ao mesmo departamento. Sem marcas, os usuários de sua organização podem criar vários recursos que podem ser muito difíceis de identificar e gerenciar mais tarde. Por exemplo, talvez você queira excluir todos os recursos de um projeto específico, mas, se esses recursos não forem marcados para o projeto, você precisará localizá-los manualmente. A marcação pode ser uma maneira importante de reduzir custos desnecessários em sua assinatura.
 
 Recursos não precisam residir no mesmo grupo de recursos para compartilhar uma marca. Você pode criar sua própria taxonomia de marca para garantir que todos os usuários na sua organização usem marcas comuns em vez de aplicarem marcas ligeiramente diferentes inadvertidamente (como por exemplo, "Dept" em vez de "Departamento").
 
-Para obter mais informações sobre marcas, consulte [Usando marcas para organizar os recursos do Azure](./resource-group-using-tags.md).
+Para obter mais informações sobre marcas, consulte [Usando marcas para organizar os recursos do Azure](./resource-group-using-tags.md). Você pode criar uma [política personalizada](#manage-resources-with-customized-policies) que requer a adição de marcas a recursos durante a implantação.
 
 ## Controle de acesso
 
@@ -111,7 +111,7 @@ Para ver as práticas recomendadas, confira [Considerações de segurança do Ge
 
 ## Gerenciar recursos com políticas personalizadas
 
-O Gerenciador de Recursos permite que você crie políticas personalizadas para gerenciar seus recursos. Os tipos de políticas que você criar poderão incluir cenários tão diferentes como impor uma convenção de nomenclatura a recursos, limitar quais regiões poderão hospedar um tipo de recurso ou exigir um valor de marca em recursos para organizar a cobrança por departamentos. Para saber mais, confira [Usar a Política para gerenciar recursos e controlar o acesso](resource-manager-policy.md).
+O Gerenciador de Recursos permite que você crie políticas personalizadas para gerenciar seus recursos. Os tipos de políticas que você criar poderão incluir cenários tão diferentes como impor uma convenção de nomenclatura a recursos, limitar quais tipos e instâncias de recursos poderão ser implantados, limitar quais regiões poderão hospedar um tipo de recurso ou exigir um valor de marca em recursos para organizar a cobrança por departamentos. Você pode criar políticas para ajudar a reduzir os custos e manter a consistência em sua assinatura. Para saber mais, confira [Usar a Política para gerenciar recursos e controlar o acesso](resource-manager-policy.md).
 
 ## Camada de gerenciamento consistente
 
@@ -119,7 +119,7 @@ O Gerenciador de Recursos fornece operações completamente compatíveis por mei
 
 Para obter informações sobre o PowerShell, consulte [Usando o PowerShell do Azure com o Gerenciador de Recursos](./powershell-azure-resource-manager.md) e [Cmdlets do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn757692.aspx).
 
-Para obter informações sobre a CLI do Azure, consulte [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](./virtual-machines/xplat-cli-azure-resource-manager.md).
+Para obter informações sobre a CLI do Azure, consulte [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](./xplat-cli-azure-resource-manager.md).
 
 Para obter informações sobre a API REST, consulte [Referência da API REST do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx).
 
@@ -138,4 +138,4 @@ Veja uma demonstração em vídeo desta visão geral:
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

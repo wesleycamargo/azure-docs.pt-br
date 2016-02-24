@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="12/15/2015"
+ ms.date="02/03/2016"
  ms.author="dobett"/>
 
 # Configurando e gerenciando o acesso ao Hub IoT
@@ -22,12 +22,14 @@ Este artigo fornece informações para ajudar os profissionais de TI a configura
 
 ## Conectividade de rede
 
-Os dispositivos se comunicam com o Hub IoT no Azure usando os protocolos AMQP e HTTPs. Normalmente, a opção de protocolo é orientada por requisitos específicos da solução. A tabela a seguir lista as portas de saída que devem ser abertas para um dispositivo para poder usar um protocolo específico:
+Os dispositivos podem se comunicar com o Hub IoT no Azure usando uma variedade de protocolos. Normalmente, a opção de protocolo é orientada por requisitos específicos da solução. A tabela a seguir lista as portas de saída que devem ser abertas para um dispositivo para poder usar um protocolo específico:
 
 | Protocolo | Porta(s) |
 | -------- | ------- |
 | HTTPS | 443 |
 | AMQP | 5671 |
+| AMQP sobre WebSockets | 443 |
+| MQTT | 8883 |
 
 Depois de criar um hub IoT em uma região do Azure, o hub manterá o mesmo endereço IP para o tempo de vida desse hub. No entanto, em um cenário de recuperação de desastres, se a Microsoft move o hub IoT para uma unidade de escala diferente, em seguida, será atribuído para um novo endereço IP.
 
@@ -49,4 +51,4 @@ Este artigo contém informações específicas para os profissionais de TI e des
 [lnk-devguide]: iot-hub-devguide.md#security
 [lnk-manage-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

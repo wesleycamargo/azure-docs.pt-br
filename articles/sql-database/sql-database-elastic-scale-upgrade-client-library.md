@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="01/01/2016" 
 	ms.author="ddove;sidneyh" />
 
 # Atualizar para a biblioteca de cliente de banco de dados elástico mais recente
@@ -85,7 +85,7 @@ Essas técnicas para atualizações de metadados podem ser aplicadas várias vez
 * Propriedade KeyType pública adicionada ao ShardMap 
 * Melhorias adicionadas que suportam cenários de recuperação de desastres e restauração de banco de dados para fragmentos 
 
-V**Versão 0.7 – outubro de 2014**
+**VVersão 0.7 – outubro de 2014**
 
 Versão de visualização inicial
 
@@ -97,4 +97,4 @@ Versão de visualização inicial
 [1]: ./media/sql-database-elastic-scale-upgrade-client-library/nuget-upgrade.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0204_2016-->

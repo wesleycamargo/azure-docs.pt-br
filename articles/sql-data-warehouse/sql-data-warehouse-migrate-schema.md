@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/19/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # Migrar seu esquema para o SQL Data Warehouse#
 
@@ -115,7 +115,7 @@ Em vez de:
 - **table**, converta em tabelas temporárias
 - **timestamp**, retrabalhe o código para usar datetime2 e a função `CURRENT_TIMESTAMP`. Observe que você não pode ter current\_timestamp como uma restrição padrão e o valor não será atualizado automaticamente. Se precisar migrar valores de versão de linha de uma coluna tipada timestamp, use binary(8) ou varbinary(8) para valores de versão de linha NOT NULL ou NULL.
 - **varchar(max)**, use varchar(8000) ou menor para melhor desempenho
-- **uniqueidentifier**, use varbinary(8)
+- **uniqueidentifier**, use varbinary(16) ou varchar(36) dependendo do formato de entrada (binário ou caractere) dos seus valores. Se o formato de entrada for baseado em caracteres, uma otimização é possível. Ao converter caracteres para o formato binário, pode-se reduzir o armazenamento de coluna em mais de 50%. Em tabelas muito grandes, essa otimização pode ser benéfica.
 - **tipos definidos pelo usuário**, converta de volta aos tipos nativos sempre que possível
 - **xml**, use um varchar(8000) ou menor para melhor desempenho. Divida entre colunas, se necessário.
 
@@ -145,4 +145,4 @@ Para obter mais dicas de desenvolvimento, consulte a [visão geral de desenvolvi
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

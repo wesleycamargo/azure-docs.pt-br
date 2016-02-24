@@ -10,17 +10,17 @@
 <tags
  ms.service="iot-hub"
  ms.devlang="na"
- ms.topic="article"
+ ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="11/05/2015"
+ ms.date="02/03/2016"
  ms.author="dobett"/>
 
 [AZURE.INCLUDE [iot-azure-e-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Próximas etapas
 
-O Hub IoT do Azure é um serviço do Azure que recebe telemetria na escala de seus dispositivos e roteia esses dados para um processador de eventos de fluxo. Você pode usar o Hub IoT para implementar seu próprio back-end de solução. O Hub IoT também pode enviar comandos da nuvem para o dispositivo para dispositivos específicos. Além disso, o Hub IoT inclui um registro de identidade do dispositivo que pode ajudar a provisionar dispositivos e gerenciar os dispositivos que podem se conectar ao hub. Para obter mais informações, consulte:
+O Hub IoT do Azure é um serviço do Azure que permite comunicações bidirecionais confiáveis e seguras entre milhões de dispositivos e um back-end de aplicativo. Ele permite que o aplicativo back-end receba telemetria em escala de seus dispositivos, encaminhe esses dados para um processador de eventos de fluxo e também envie comandos da nuvem para o dispositivo para dispositivos específicos. Você pode usar o Hub IoT para implementar seu próprio back-end de solução. Além disso, o Hub IoT inclui um registro de identidade do dispositivo usado para provisionar dispositivos, suas credenciais de segurança e os direitos de conexão ao hub. Para obter mais informações, consulte:
 
 - [O que é o Hub IoT?][lnk-iot-hub]
 - [Introdução ao Hub IoT][lnk-getstarted]
@@ -32,7 +32,7 @@ Você também pode se interessar pelo [Azure IoT Suite][lnk-iot-suite], que é u
 [lnk-getstarted]: iot-hub-csharp-csharp-getstarted.md
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
 [lnk-iot-hub]: iot-hub-what-is-iot-hub.md
-[lnk-iot-suite]: http://azure.microsoft.com/solutions/iot/
+[lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0218_2016-->

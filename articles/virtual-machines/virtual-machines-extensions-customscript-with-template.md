@@ -37,7 +37,7 @@ O modelo do Gerenciador de Recursos do Azure permite que você especifique de fo
 
 ### Pré-requisitos
 
-1. Instalar os Cmdlets do Azure PowerShell ou CLI do Azure mais recentes [aqui](http://azure.microsoft.com/downloads).
+1. Instalar os Cmdlets do Azure PowerShell ou CLI do Azure mais recentes [aqui](https://azure.microsoft.com/downloads/).
 2. Se os scripts forem executados em uma VM existente, verifique se o agente de VM está habilitado na VM, caso contrário, siga [este procedimento](virtual-machines-extensions-install) para instalar uma.
 3. Carregue os scripts que você deseja executar na máquina virtual para o armazenamento do Azure. Os scripts podem vir de um único ou vários contêineres de armazenamento.
 4. Como alternativa, os scripts também podem ser carregados para uma conta do Github.
@@ -102,4 +102,4 @@ Confira os exemplos abaixo para ver amostras completas de configuração de apli
 
 <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Extensão de Script personalizado em uma VM do Linux</a>. </br> <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Extensão de Script personalizado em uma VM do Windows</a>.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="02/04/2016"
 	ms.author="jgao"/>
 
 #Executar exemplos do MapReduce do Hadoop no HDInsight baseado em Windows
@@ -28,7 +28,7 @@ Um conjunto de amostras é fornecido para ajudar você a começar a executar tra
 - [**Estimador de Pi**][hdinsight-sample-pi-estimator]\: usa um método estatístico (quase Monte Carlo) para estimar o valor de pi.
 - [**Graysort de 10 GB**][hdinsight-sample-10gb-graysort]\: executar um GraySort de finalidade geral em um arquivo de 10 GB usando o HDInsight. Existem três trabalhos a serem executados: Teragen, para gerar os dados, Terasort, para classificar os dados e Teravalidate, para confirmar que os dados foram classificados corretamente.
 
->[AZURE.NOTE]O código-fonte pode ser encontrado no apêndice.
+>[AZURE.NOTE] O código-fonte pode ser encontrado no apêndice.
 
 Existe muita documentação adicional na Web para tecnologias relacionadas ao Hadoop, como a programação e o streaming de MapReduce baseado em Java, bem como documentação sobre o uso de cmdlets usados em scripts do Windows PowerShell. Para obter mais informações sobre esses recursos, consulte
 
@@ -44,11 +44,11 @@ Hoje em dia, muitas pessoas escolhem o Hive e o Pig em vez do MapReduce. Para ob
  
 **Pré-requisitos**:
 
-- **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **um cluster do HDInsight**. Para obter instruções sobre as várias maneiras pelas quais esses clusters podem ser criados, consulte [Criar clusters do Hadoop no HDInsight](hdinsight-provision-clusters.md).
 - **Uma estação de trabalho com o PowerShell do Azure**. Veja [Instalar o Azure PowerShell 1.0 e superior](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
 
-## Contagem de palavras - Java 
+## <a name="hdinsight-sample-wordcount"></a>Contagem de palavras - Java 
 
 Para enviar um projeto do MapReduce, primeiro você cria uma definição de trabalho do MapReduce. Na definição de trabalho, você especifica o arquivo jar do programa MapReduce e o local do arquivo jar, que é ****wasb:///example/jars/hadoop-mapreduce-examples.jar**, o nome da classe e os argumentos. O programa MapReduce de contagem de palavras usa dois argumentos: o arquivo de origem que será usado para contar palavras e o local para a saída.
 
@@ -114,11 +114,11 @@ Para obter o procedimento de desenvolver um programa MapReduce em Java, consulte
 
 3. Defina as três primeiras variáveis e execute o script.
 
-## Contagem de palavras - streaming em C#
+## <a name="hdinsight-sample-csharp-streaming"></a>Contagem de palavras - streaming em C#
 
 O Hadoop fornece uma API de streaming para o MapReduce que permite que você escreva funções de mapa e de redução em outras linguagens além do Java.
 
-> [AZURE.NOTE]As etapas deste tutorial se aplicam apenas aos clusters HDInsight baseados no Windows. Para obter um exemplo de streaming para clusters do HDInsight baseados em Linux, consulte [Desenvolver programas de streaming em Python para o HDInsight](hdinsight-hadoop-streaming-python.md).
+> [AZURE.NOTE] As etapas deste tutorial se aplicam apenas aos clusters HDInsight baseados no Windows. Para obter um exemplo de streaming para clusters do HDInsight baseados em Linux, consulte [Desenvolver programas de streaming em Python para o HDInsight](hdinsight-hadoop-streaming-python.md).
 
 No exemplo, o mapeador e o redutor são executáveis que leem a entrada de [stdin][stdin-stdout-stderr] (linha por linha) e emitem a saída para [stdout][stdin-stdout-stderr]. O programa conta todas as palavras do texto.
 
@@ -148,7 +148,7 @@ Para obter mais informações sobre a interface de Streaming do Hadoop, consulte
 	
 		example/data/StreamingOutput/wc.txt/part-00000		
 								
-## Estimador de PI
+## <a name="hdinsight-sample-pi-estimator"></a>Estimador de PI
 
 O estimador de Pi usa um método estatístico (quase Monte Carlo) para estimar o valor de pi. Os pontos colocados aleatoriamente em um quadrado de unidade também caem dentro de um círculo inscrito nesse quadrado com uma probabilidade igual à área do círculo, pi/4. O valor de pi pode ser estimado do valor de 4R onde R é a proporção do número de pontos que estão dentro do círculo em relação ao número total de pontos que estão dentro do quadrado. Quanto maior a amostra de pontos usados, melhor será a estimativa.
 
@@ -163,7 +163,7 @@ O script fornecido para este exemplo envia um trabalho jar do Hadoop e está con
 									-ClassName "pi" `
 									-Arguments "16", "10000000"
 
-## Graysort de 10 GB
+## <a name="hdinsight-sample-10gb-graysort"></a>Graysort de 10 GB
 
 Este exemplo usa uma quantidade modesta de 10 GB de dados para que possa ser executado de modo relativamente rápido. Ele usa os aplicativos MapReduce desenvolvidos por Owen O'Malley e Arun Murthy que ganharam o parâmetro de comparação anual de classificação de terabytes de finalidade geral ("daytona") em 2009, com uma taxa de 0,578 TB/m (100 TB em 173 minutos). Para obter mais informações sobre esse e outros benchmarks de classificação, consulte o site [Sortbenchmark](http://sortbenchmark.org/).
 
@@ -987,10 +987,10 @@ O código do programa MapReduce TeraSort é apresentado para inspeção nesta se
 [hdinsight-get-started]: ../hdinsight-get-started.md
 
 [hdinsight-samples]: hdinsight-run-samples.md
-[hdinsight-sample-10gb-graysort]: hdinsight-sample-10gb-graysort.md
-[hdinsight-sample-csharp-streaming]: hdinsight-sample-csharp-streaming.md
-[hdinsight-sample-pi-estimator]: hdinsight-sample-pi-estimator.md
-[hdinsight-sample-wordcount]: hdinsight-sample-wordcount.md
+[hdinsight-sample-10gb-graysort]: #hdinsight-sample-10gb-graysort
+[hdinsight-sample-csharp-streaming]: #hdinsight-sample-csharp-streaming
+[hdinsight-sample-pi-estimator]: #hdinsight-sample-pi-estimator
+[hdinsight-sample-wordcount]: #hdinsight-sample-wordcount
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
@@ -998,4 +998,4 @@ O código do programa MapReduce TeraSort é apresentado para inspeção nesta se
 [streamreader]: http://msdn.microsoft.com/library/system.io.streamreader.aspx
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

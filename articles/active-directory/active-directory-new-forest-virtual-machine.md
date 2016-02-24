@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="Instalar uma floresta do Active Directory em uma rede virtual do Azure | Microsoft Azure" 
 	description="Um tutorial que explica como criar uma nova floresta do Active Directory em uma máquina virtual (VM) em uma Rede Virtual do Azure." 
-	services="active-directory, virtual-network" 
+	services="active-directory, virtual-network"
+    keywords="máquina virtual do active directory, instalar floresta do active directory, vídeos do active directory do azure"
 	documentationCenter="" 
 	authors="markusvi" 
 	manager="stevenpo" 
@@ -13,7 +14,7 @@
 	ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-	ms.date="10/20/2015" 
+	ms.date="01/25/2016" 
 	ms.author="markusvi"/>
 
 
@@ -31,7 +32,7 @@ Você também pode estar interessado nestes tópicos relacionados:
 
 Nesse cenário, os usuários externos precisam acessar os aplicativos que são executados ingressados no domínio. As VMs que executam os servidores de aplicativos e as VMs que executam os controladores de domínio são instaladas em seus próprios serviços de nuvem em uma rede virtual do Azure. Elas também estão incluídas em um conjunto de disponibilidade para melhorar a tolerância a falhas.
 
-![][1] 7
+![Floresta do Active Directory em máquinas virtuais na Rede Virtual do Azure][1] 7
 ## Como isso difere do local?
 
 Não há muita diferença entre instalar um controlador de domínio no Azure em comparação com um local. As diferenças principais estão listadas na tabela a seguir.
@@ -137,4 +138,4 @@ Para obter mais informações sobre como usar o Windows PowerShell, consulte [In
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,26 +1,26 @@
 <properties 
-                pageTitle="Noções básicas sobre o acesso aos recursos do Azure." 
-                description="Este tópico explica os conceitos sobre como usar os administradores de assinatura para controlar o acesso aos recursos no portal do Azure completo." 
-                services="active-directory" 
-                documentationCenter="" 
-                authors="markusvi" 
-                manager="stevenpo" 
-                editor=""/>
+    pageTitle="Noções básicas sobre o acesso aos recursos do Azure." 
+    description="Este tópico explica os conceitos sobre como usar os administradores de assinatura para controlar o acesso aos recursos no portal do Azure completo." 
+    services="active-directory" 
+    documentationCenter="" 
+    authors="markusvi" 
+    manager="stevenpo" 
+    editor=""/>
 
 <tags 
-                ms.service="active-directory" 
-                ms.workload="identity" 
-                ms.tgt_pltfrm="na" 
-                ms.devlang="na" 
-                ms.topic="article" 
-                ms.date="10/30/2015" 
-                ms.author="markusvi"/>
+    ms.service="active-directory" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="01/26/2016" 
+    ms.author="markusvi"/>
 
 
 # Noções básicas sobre o acesso aos recursos do Azure
 
 
-> [AZURE.NOTE]Este tópico explica os conceitos sobre como usar os administradores de assinatura para controlar o acesso aos recursos no portal do Azure completo. Como alternativa, o portal de visualização do Azure fornece [O controle de acesso baseado em funções](role-based-access-control-configure.md) para que os recursos do Azure possam ser gerenciados com mais precisão.
+> [AZURE.NOTE] Este tópico explica os conceitos sobre como usar os administradores de assinatura para controlar o acesso aos recursos no portal do Azure completo. Como alternativa, o portal de visualização do Azure fornece [O controle de acesso baseado em funções](role-based-access-control-configure.md) para que os recursos do Azure possam ser gerenciados com mais precisão.
 
 Em outubro de 2013, o Portal de Gerenciamento do Azure e o Gerenciamento de Serviço de APIs foram integrados com o Active Directory do Azure para definir as bases visando melhorar a experiência do usuário em gerenciar o acesso aos recursos do Azure. O Active Directory do Azure já fornece ótimos recursos como o gerenciamento de usuários, sincronização de diretórios local, multi-factor authentication e controle de acesso do aplicativo. Naturalmente, eles também devem ser disponibilizados para gerenciar os recursos do Azure globalmente.
 
@@ -37,7 +37,7 @@ A funcionalidade no Portal de gerenciamento do Azure permite que os SAs que se c
 
 
 
-> [AZURE.NOTE]O comando **Editar Diretório** no Portal de Gerenciamento do Azure não está disponível para os usuários que se conectaram usando uma conta corporativa ou de estudante, pois essas contas podem se conectar apenas ao diretório ao qual pertencem.
+> [AZURE.NOTE] O comando **Editar Diretório** no Portal de Gerenciamento do Azure não está disponível para os usuários que se conectaram usando uma conta corporativa ou de estudante, pois essas contas podem se conectar apenas ao diretório ao qual pertencem.
 
 <br><br>![Fluxo de Logon de Usuário Simples][3]
 
@@ -64,4 +64,4 @@ Operações como mover recursos entre as assinaturas podem ser mais difíceis co
 [3]: ./media/active-directory-understanding-resource-access/IC707933.png
 [4]: ./media/active-directory-understanding-resource-access/IC707934.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

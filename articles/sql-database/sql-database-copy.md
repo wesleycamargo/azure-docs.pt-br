@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Copiar um Banco de Dados SQL do Azure"
+	pageTitle="Copiar um banco de dados SQL do Azure | Microsoft Azure"
 	description="Criar uma cópia de um Banco de Dados SQL do Azure"
 	services="sql-database"
 	documentationCenter=""
@@ -10,11 +10,12 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/16/2015"
+	ms.date="01/20/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
+
 
 
 # Copiar um Banco de Dados SQL do Azure
@@ -28,7 +29,7 @@
 
 As etapas a seguir mostram como copiar um banco de dados SQL com o [portal do Azure](https://portal.azure.com). A operação de cópia do banco de dados cria um novo banco de dados SQL. A cópia é um backup de instantâneo do banco de dados que você cria no mesmo servidor ou em um servidor diferente.
 
-> [AZURE.NOTE]O Banco de Dados SQL do Azure cria e mantém backups automaticamente de cada banco de dados de usuário que você pode restaurar. Para obter detalhes, consulte [Visão geral da continuidade dos negócios](sql-database-business-continuity.md).
+> [AZURE.NOTE] O Banco de Dados SQL do Azure cria e mantém backups automaticamente de cada banco de dados de usuário que você pode restaurar. Para obter detalhes, consulte [Visão geral da continuidade dos negócios](sql-database-business-continuity.md).
 
 Quando o processo de cópia for concluído, o novo banco de dados será um banco de dados totalmente funcional independente do banco de dados de origem. O novo banco de dados é transacionalmente consistente com o banco de dados de origem no momento da conclusão da cópia. O desempenho e a camada de nível de serviço (faixa de preço) da cópia do banco de dados são iguais aos do banco de dados de origem. Após a conclusão da cópia, a cópia se tornará um banco de dados independente e totalmente funcional. Os logons, os usuários e as permissões podem ser gerenciados independentemente.
 
@@ -84,7 +85,7 @@ Abra a folha do banco de dados SQL do banco de dados que você deseja copiar:
 
 ## Próximas etapas
 
-- [Conectar-se ao SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
+- [Conectar-se ao Banco de Dados SQL com o SQL Server Management Studio e executar um exemplo de consulta T-SQL](sql-database-connect-query-ssms.md)
 - [Exportar o banco de dados para um BACPAC](sql-database-export.md)
 
 
@@ -101,4 +102,4 @@ Abra a folha do banco de dados SQL do banco de dados que você deseja copiar:
 [3]: ./media/sql-database-copy/copy-notification.png
 [4]: ./media/sql-database-copy/monitor-copy.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

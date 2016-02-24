@@ -64,7 +64,7 @@ Você pode desativar todos os trabalhos em um conjunto de trabalhos em uma únic
 
 ## Preços
 
-Para obter detalhes sobre preços, confira [Preços do Agendador](http://azure.microsoft.com/pricing/details/scheduler/).
+Para obter detalhes sobre preços, confira [Preços do Agendador](https://azure.microsoft.com/pricing/details/scheduler/).
 
 ## Consulte também
  
@@ -75,7 +75,7 @@ Para obter detalhes sobre preços, confira [Preços do Agendador](http://azure.m
 
  [Introdução à utilização do Agendador no Portal do Azure](scheduler-get-started-portal.md)
 
- [Referência da API REST do Agendador do Azure](https://msdn.microsoft.com/library/dn528946)
+ [Referência da API REST do Agendador do Azure](https://msdn.microsoft.com/library/mt629143)
 
  [Referência de cmdlets do PowerShell do Agendador do Azure](scheduler-powershell-reference.md)
 
@@ -89,4 +89,4 @@ Para obter detalhes sobre preços, confira [Preços do Agendador](http://azure.m
 
   
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

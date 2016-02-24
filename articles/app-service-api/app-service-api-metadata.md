@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/25/2015"
+	ms.date="02/16/2016"
 	ms.author="tdykstra"/>
 
 # Metadados de Aplicativos de API do Serviço de Aplicativo para geração de códigos e descoberta de API 
@@ -56,4 +56,4 @@ Você pode gerar o código cliente para um aplicativo de API usando o Visual Stu
 
 Para obter um tutorial passo a passo que oriente você durante a criação, a implantação e o consumo de um aplicativo de API, confira [Introdução aos Aplicativos de API no Serviço de Aplicativo do Azure](app-service-api-dotnet-get-started.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

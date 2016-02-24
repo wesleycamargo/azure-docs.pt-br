@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="swkrish"
 	manager="msmbaldwin"
-	editor="curtand"/>
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,20 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="01/04/2016"
 	ms.author="swkrish"/>
 
 # Visualização do Active Directory B2C do Azure: como arquivar solicitações de suporte para o Active Directory B2C do Azure
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-Você pode arquivar solicitações de suporte para o Active Directory (AD) B2C do Azure no portal de visualização do Azure usando as seguintes etapas:
+Você pode arquivar solicitações de suporte para o Active Directory (AD) B2C do Azure no Portal do Azure usando as seguintes etapas:
 
-1. [Navegue até a folha de recursos do B2C no portal de visualização do Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Siga estas etapas para navegar até a folha de recursos do B2C no Portal do Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Alterne do locatário B2C para outro que tenha uma assinatura do Azure associada a ele. Normalmente, o segundo é o locatário de funcionário ou o locatário padrão criado quando você se inscreveu para uma assinatura do Azure. Leia [este artigo](active-directory-how-subscriptions-associated-directory.md#how-an-azure-subscription-is-related-to-azure-ad) para saber mais sobre a relação entre as assinaturas do Azure e os diretórios do Azure AD.
-
-    > [AZURE.IMPORTANT]
-    Esta etapa é obrigatória. O processo falhará se você ignorar esta etapa.
 
     ![Suporte — alternar diretórios](./media/active-directory-b2c-support/support-switch-dir.png)
 
@@ -48,8 +45,8 @@ Você pode arquivar solicitações de suporte para o Active Directory (AD) B2C d
 Se tiver ignorado a etapa 2 descrita acima e tentar criar uma solicitação de suporte no contexto do seu locatário B2C, você verá o erro a seguir.
 
 > [AZURE.IMPORTANT]
-> Não tente se inscrever em uma nova assinatura do Azure em seu locatário B2C.
+Não tente se inscrever em uma nova assinatura do Azure em seu locatário B2C.
 
 ![Suporte — sem assinatura](./media/active-directory-b2c-support/support-no-sub.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

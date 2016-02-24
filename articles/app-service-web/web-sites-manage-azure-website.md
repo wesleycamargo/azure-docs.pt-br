@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
-	ms.author="erikre"/>
+	ms.date="01/12/2016" 
+	ms.author="tdykstra"/>
 
 # Gerenciar um aplicativo Web no Serviço de Aplicativo do Azure
 
@@ -65,8 +65,8 @@ Enquanto seu aplicativo Web estiver em execução, verifique se ele está dispon
  
 ### Backups
 
-- Defina [backups automáticos](web-sites-backup.md) de seu aplicativo Web. Saiba mais sobre backups [neste vídeo](http://azure.microsoft.com/documentation/videos/azure-websites-automatic-and-easy-backup/).
-- Saiba sobre as opções para a [recuperação de banco de dados](../sql-database-business-continuity.md) no Banco de dados SQL do Azure.
+- Defina [backups automáticos](web-sites-backup.md) de seu aplicativo Web. Saiba mais sobre backups [neste vídeo](https://azure.microsoft.com/documentation/videos/azure-websites-automatic-and-easy-backup/).
+- Saiba sobre as opções para a [recuperação de banco de dados](../sql-database/sql-database-business-continuity.md) no Banco de dados SQL do Azure.
 
 ### Solucionar problemas
 
@@ -87,8 +87,8 @@ Considere o uso de uma [implantação em estágios](web-sites-staged-publishing.
 
 Se você usar o Visual Studio Team Services, é possível configurar a implantação contínua por meio do controle do código-fonte:
 
-- [Usando o TFVC (Controle de Versão do Team Foundation)](../cloud-services-continuous-delivery-use-vso.md) 
-- [Usando Git](../cloud-services-continuous-delivery-use-vso-git.md)
+- [Usando o TFVC (Controle de Versão do Team Foundation)](../cloud-services/cloud-services-continuous-delivery-use-vso.md) 
+- [Usando Git](../cloud-services/cloud-services-continuous-delivery-use-vso-git.md)
  
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -103,4 +103,4 @@ Se você usar o Visual Studio Team Services, é possível configurar a implanta�
 
   
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

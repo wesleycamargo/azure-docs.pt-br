@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/04/2015"
+	ms.date="02/04/2016"
 	ms.author="awills"/>
 
 
@@ -133,9 +133,9 @@ Abra estas portas para tráfego de saída no firewall do servidor:
 
 #### Problemas no servidor de compilação?
 
-Consulte [este item de solução de problemas](app-insights-troubleshoot-faq.md#NuGetBuild).
+Consulte [este item de solução de problemas](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
 
-> [AZURE.NOTE]Se o seu aplicativo gerar muita telemetria (e você estiver usando o SDK do ASP.NET versão 2.0.0-beta3 ou posterior), o módulo de amostragem adaptável reduzirá automaticamente o volume enviado ao portal, enviando apenas uma fração representativa de eventos. No entanto, os eventos relacionados à mesma solicitação serão selecionadas ou desmarcadas como um grupo, para que você possa navegar entre os eventos relacionados. [Saiba mais sobre amostragem](app-insights-sampling.md).
+> [AZURE.NOTE] Se o seu aplicativo gerar muita telemetria (e você estiver usando o SDK do ASP.NET versão 2.0.0-beta3 ou posterior), o módulo de amostragem adaptável reduzirá automaticamente o volume enviado ao portal, enviando apenas uma fração representativa de eventos. No entanto, os eventos relacionados à mesma solicitação serão selecionadas ou desmarcadas como um grupo, para que você possa navegar entre os eventos relacionados. [Saiba mais sobre amostragem](app-insights-sampling.md).
 
 
 ## 5\. Adicionar acompanhamento de dependência (e contadores de desempenho de IIS)
@@ -190,7 +190,7 @@ Verifique se `buildinfo.config` foi gerado pelo processo do MSBuild. No arquivo.
     </PropertyGroup> 
 ```
 
-Quando ele tem as informações de compilação, o módulo da web do Application Insights adiciona automaticamente **Versão do aplicativo** como uma propriedade para cada item de telemetria. Isso permite que você filtre por versão ao executar [pesquisas de diagnóstico][diagnostic] ou ao [explorar métricas][metrics].
+Quando ele tem as informações de compilação, o módulo da web Application Insights adiciona automaticamente **Versão do aplicativo** como uma propriedade para cada item de telemetria. Isso permite que você filtre por versão ao executar [pesquisas de diagnóstico][diagnostic] ou ao [explorar métricas][metrics].
 
 No entanto, observe que o número de versão de compilação é gerado apenas pelo MSBuild, não pela compilação de desenvolvedor no Visual Studio.
 
@@ -206,7 +206,7 @@ Para obter a visão de 360 graus completa de seu aplicativo, há mais algumas ta
 
 Dissemos no início deste artigo que iriamos mostrar a forma manual de criar um recurso do Application Insights e, em seguida, instalar o SDK. Acreditamos que é bom entender as duas partes do procedimento. Mas há uma forma automatizada ainda mais rápida para os aplicativos em ASP.NET (e muitos outros).
 
-Você precisará do [Visual Studio](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) (2013 atualização 3 ou posterior) e uma conta no [Microsoft Azure](http://azure.com).
+Você precisará do [Visual Studio](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) (2013, atualização 3 ou posterior) e de uma conta no [Microsoft Azure](http://azure.com).
 
 #### Se é um novo projeto...
 
@@ -269,4 +269,4 @@ Se esse aplicativo é parte de um aplicativo maior, você talvez queira usar **D
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

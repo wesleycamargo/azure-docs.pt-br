@@ -13,21 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
-	ms.author="fashah;garye" />
+	ms.date="02/05/2016" 
+	ms.author="bradsev;fashah;garye" />
 
 
 # Criar recursos para dados no SQL Server usando o SQL e o Python
 
-Os links de **menu** para os tópicos que descrevem como criar recursos para os dados em vários ambientes. Esta tarefa é uma etapa no Processo de Análise da Cortana (CAP).
-
-[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
-
 ## Introdução
 
-Este documento aborda a geração de recursos para os dados armazenados em uma VM do SQL Server no Azure. Isso pode ser feito usando o SQL ou usando uma linguagem de programação como o Python.
+Este documento mostra como gerar recursos para dados armazenados em uma VM do SQL Server no Azure, dos quais algoritmos podem aprender com eficiência. Isso pode ser feito usando o SQL ou usando uma linguagem de programação como o Python, sendo os dois usados aqui.
 
-> [AZURE.NOTE]Para obter um exemplo prático, você poderá usar o [conjunto de dados de Táxis de NYC](http://www.andresmh.com/nyctaxitrips/) e consultar o IPNB intitulado [Realizar a disputa de dados de NYC usando o IPython Notebook e o SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) para obter um passo a passo de ponta a ponta.
+> [AZURE.NOTE] Para obter um exemplo prático, você poderá usar o [conjunto de dados de Táxis de NYC](http://www.andresmh.com/nyctaxitrips/) e consultar o IPNB intitulado [Realizar a disputa de dados de NYC usando o IPython Notebook e o SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) para obter um passo a passo de ponta a ponta.
+
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
+Os links deste **menu** o levam até os tópicos que descrevem como criar recursos para os dados em vários ambientes. Esta tarefa é uma etapa no [CAP (Processo do Cortana Analytics)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+
 
 ## Pré-requisitos
 Este artigo supõe que você:
@@ -45,7 +45,7 @@ Nesta seção, descrevemos as maneiras de gerar recursos usando SQL:
 3. [Propagar os recursos de uma única coluna](#sql-featurerollout)
 
 
-> [AZURE.NOTE]Depois de gerar recursos adicionais, você pode adicioná-los como colunas à tabela existente ou criar uma nova tabela com os recursos adicionais e a chave primária, que pode ser unida com a tabela original.
+> [AZURE.NOTE] Depois de gerar recursos adicionais, você pode adicioná-los como colunas à tabela existente ou criar uma nova tabela com os recursos adicionais e a chave primária, que pode ser unida com a tabela original.
 
 ###<a name="sql-countfeature"></a>Geração de recursos baseada em contagem
 
@@ -96,10 +96,10 @@ As informações de localização podem pode ser destacadas da maneira indicada 
 Os recursos de localização acima podem ser usados ainda para gerar recursos adicionais de contagem, como descrito anteriormente.
 
 
-> [AZURE.TIP]É possível inserir os registros com programação usando a linguagem de sua escolha. Talvez seja necessário inserir os dados em partes para melhorar a eficiência de gravação [Confira o exemplo de como fazer isso usando pyodbc aqui](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
+> [AZURE.TIP] É possível inserir os registros com programação usando a linguagem de sua escolha. Talvez seja necessário inserir os dados em partes para melhorar a eficiência de gravação [Confira o exemplo de como fazer isso usando pyodbc aqui](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
  
 
-> [AZURE.TIP]Outra alternativa é inserir dados no banco de dados usando o [utilitário BCP](https://msdn.microsoft.com/library/ms162802.aspx)
+> [AZURE.TIP] Outra alternativa é inserir dados no banco de dados usando o [utilitário BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 
 ###<a name="sql-aml"></a>Conectar ao Aprendizado de Máquina do Azure
 
@@ -126,4 +126,4 @@ Agora, você pode trabalhar com o quadro de dados Pandas como abordado nos tópi
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016--->

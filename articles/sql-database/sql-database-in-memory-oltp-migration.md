@@ -13,7 +13,7 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="11/16/2015"
 	ms.author="jodebrui"/>
 
@@ -52,7 +52,7 @@ Exporte seu banco de dados de produção para um bacpac usando:
 
 Importe o bacpac para um novo banco de dados Premium.
 
-1. No [portal](http://portal.azure.com/) do Azure,
+1. No [portal](https://portal.azure.com/) do Azure,
  - Navegue até o servidor.
  - Selecione a opção [Importar Banco de Dados](sql-database-import.md).
  - Selecione uma camada de preços Premium.
@@ -192,7 +192,7 @@ As etapas de migração são:
 2. Reescreva o cabeçalho para que ele corresponda ao modelo anterior.
 
 3. Verificar se o código T-SQL de procedimento armazenado usa os recursos sem suporte para procedimentos armazenados compilados nativamente. Implemente soluções alternativas, se necessário.
- - Para obter detalhes, confira [Problemas de migração para procedimentos armazenados compilados nativamente](http://msdn.microsoft.com/library/dn296678.aspx).
+ - Para obter detalhes, consulte [Problemas de migração para procedimentos armazenados compilados nativamente](http://msdn.microsoft.com/library/dn296678.aspx).
 
 4. Renomeie o antigo procedimento armazenado usando SP\_RENAME. Ou simplesmente descarte-o usando DROP.
 
@@ -220,7 +220,7 @@ Para minimizar a latência de rede, execute o teste na mesma região geográfica
 
 Considere monitorar os efeitos de desempenho de suas implementações de Na Memória em produção:
 
-- [Monitorar o armazenamento na memória](https://azure.microsoft.com/documentation/articles/sql-database-in-memory-oltp-monitoring/).
+- [Monitorar o armazenamento na memória](sql-database-in-memory-oltp-monitoring.md).
 
 - [Monitoramento de Banco de Dados SQL usando exibições de gerenciamento dinâmico](sql-database-monitoring-with-dmvs.md)
 
@@ -233,4 +233,4 @@ Considere monitorar os efeitos de desempenho de suas implementações de Na Mem�
 
 - [Supervisor de Otimização de Memória](http://msdn.microsoft.com/library/dn284308.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

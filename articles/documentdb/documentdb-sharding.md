@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/05/2015" 
+	ms.date="02/03/2016" 
 	ms.author="arramac"/>
 
 # Como particionar os dados no Banco de Dados de Documentos com o SDK do .NET
 
-O Banco de Dados de Documentos do Azure é um serviço de banco de dados de documento que permite que você dimensione perfeitamente sua conta por meio do provisionamento de coleções usando os [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx) e as [APIs REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) (também chamado de **fragmentação**). Para tornar mais fácil desenvolver aplicativos particionados e reduzir a quantidade de código clichê necessário para tarefas de particionamento, adicionamos funcionalidades no SDK do .NET que facilitam a criação de aplicativos que serão dimensionados por várias partições.
+O Banco de Dados de Documentos do Azure é um serviço de banco de dados de documento que permite que você dimensione perfeitamente sua conta por meio do provisionamento de coleções usando os [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx) e as [APIs REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) (também chamado de **fragmentação**). Para facilitar o desenvolvimento de aplicativos particionados e reduzir a quantidade de código clichê necessário para tarefas de particionamento, adicionamos funcionalidades nos SDKs do .NET, Node.js e Java que facilitam a criação de aplicativos que são escalados horizontalmente por várias partições.
 
 Neste artigo, vamos dar uma olhada nas classes e interfaces no SDK do .NET e como usá-los para desenvolver aplicativos particionados.
 
@@ -96,15 +96,15 @@ foreach (UserProfile activeUser in query)
 ```
 
 ## Resolvedor de partição hash
-No particionamento hash, as partições são atribuídas com base no valor de uma função hash, permitindo distribuir uniformemente solicitações e dados entre várias partições. Essa abordagem costuma ser usada para particionar dados produzidos ou consumidos de um grande número de clientes diferentes e é útil para armazenar perfis de usuários, itens de catálogo e dados de telemetria de IoT ("Internet of Things", Internet das Coisas).
+No particionamento hash, as partições são atribuídas com base no valor de uma função hash, permitindo distribuir uniformemente solicitações e dados entre várias partições. Essa abordagem costuma ser usada para particionar dados produzidos ou consumidos de um grande número de clientes diferentes e é útil para armazenar perfis de usuários, itens de catálogo e dados de telemetria de IoT (Internet das Coisas).
 
-**Particionamento hash:** ![Diagrama ilustrando como o particionamento hash distribui igualmente as solicitações nas partições](media/documentdb-sharding/partition-hash.png "Particionamento hash")
+**Particionamento hash:** ![Diagrama ilustrando como o particionamento hash distribui igualmente as solicitações nas partições](media/documentdb-sharding/partition-hash.png)
 
 Um esquema de particionamento hash simples nas coleções *N* seria usar qualquer documento, e computar *hash(d) mod N* para determinar em qual coleção ele está posicionado. Mas um problema com essa técnica simples é que ela não funciona bem ao adicionar novas coleções, ou remover coleções, pois isso exigiria que quase todos os dados fossem embaralhados novamente. O [hash consistente](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.23.3738) é um algoritmo bem conhecido que soluciona isso ao implementar um esquema de hash que minimiza a quantidade de movimento de dados necessário durante a adição ou remoção de coleções.
 
 A classe [HashPartitionResolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.hashpartitionresolver.aspx) implementa a lógica para criar um anel de hash consistente sobre a função de hash especificada na interface [IHashGenerator](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.ihashgenerator.aspx). Por padrão, o HashPartitionResolver usa uma função de hash MD5, mas você pode trocá-la por sua própria implementação de hash. O HashPartitionResolver cria internamente 16 hashes ou "nós virtuais" dentro do anel de hash para cada coleção para alcançar uma distribuição mais uniforme de documentos entre as coleções, mas esse número pode variar para compensar a distorção de dados com a quantidade de computação do lado do cliente.
 
-**Hash consistente com HashPartitionResolver:** ![Diagrama ilustrando como HashPartitionResolver cria um anel de hash](media/documentdb-sharding/HashPartitionResolver.JPG "Hash consistente")
+**Hash consistente com HashPartitionResolver:** ![Diagrama ilustrando como HashPartitionResolver cria um anel de hash](media/documentdb-sharding/HashPartitionResolver.JPG)
 
 ## Resolvedor de partição de intervalo
 
@@ -114,7 +114,7 @@ No particionamento por intervalos, as partições são atribuídas com base no i
 
 **Particionamento por intervalos:**
 
-![Diagrama ilustrando como o particionamento de intervalos distribui igualmente as solicitações nas partições](media/documentdb-sharding/partition-range.png "Particionamento por intervalos")
+![Diagrama ilustrando como o particionamento de intervalos distribui igualmente as solicitações nas partições](media/documentdb-sharding/partition-range.png)
 
 Um caso especial de particionamento por intervalos é quando o intervalo é de apenas um único valor discreto, às vezes chamado de "particionamento de pesquisa". Normalmente, isso é usado para particionar por região (por exemplo, a partição da Escandinávia contém Noruega, Dinamarca e Suécia) ou para particionar locatários em um aplicativo multilocatários.
 
@@ -131,7 +131,7 @@ Dê uma olhada no [Projeto Github de exemplos de particionamento do Banco de Dad
 
 Os exemplos são de software livre e nós o encorajamos a enviar solicitações pull com contribuições que poderiam beneficiar outros desenvolvedores do Banco de Dados de Documentos. Consulte as [Diretrizes de contribuição](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) para obter instruções sobre como contribuir.
 
->[AZURE.NOTE]As criações da coleção têm sua taxa limitada pelo Banco de Dados de Documentos, por isso, alguns dos métodos de exemplo mostrados aqui podem levar alguns minutos para serem concluídos.
+>[AZURE.NOTE] As criações da coleção têm sua taxa limitada pelo Banco de Dados de Documentos, por isso, alguns dos métodos de exemplo mostrados aqui podem levar alguns minutos para serem concluídos.
 
 ##Perguntas frequentes
 **Por que o Banco de Dados de Documentos dá suporte ao particionamento do lado do cliente versus particionamento do lado do servidor?**
@@ -140,10 +140,6 @@ O Banco de Dados de Documentos dá suporte ao particionamento do lado do cliente
 
 - É muito difícil abstrair o conceito de uma coleção de desenvolvedores sem comprometer um dos três fatores a seguir: indexação/consulta consistente, alta disponibilidade e garantias de transações ACID. 
 - Bancos de dados de documento geralmente exigem flexibilidade em termos de definir estratégias de particionamento, o que uma abordagem do lado do servidor pode não acomodar. 
-
-**Por que o particionamento não tem suporte em outras plataformas (Node. js, Java ou Python)?**
-
-Iremos estender gradualmente o suporte de particionamento a outras plataformas com base nos comentários de clientes do SDK .NET.
 
 **Como adicionar ou remover uma coleção ao meu esquema de particionamento?**
 
@@ -164,7 +160,7 @@ Você pode serializar o estado do particionador como JSON e armazená-lo em arqu
 * [Documentação do SDK .NET do Banco de Dados de Documentos no MSDN](https://msdn.microsoft.com/library/azure/dn948556.aspx)
 * [Amostras do .NET do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-net)
 * [Limites do Banco de Dados de Documentos](documentdb-limits.md)
-* [Blog do Banco de Dados de Documentos sobre dicas de desempenho](http://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
+* [Blog do Banco de Dados de Documentos sobre dicas de desempenho](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

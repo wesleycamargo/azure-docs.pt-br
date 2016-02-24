@@ -38,7 +38,7 @@ O aplicativo usa o [padrão centrado em fila](http://www.asp.net/aspnet/overview
 
 ## Arquitetura alternativa: sites e trabalhos Web
 
-Este tutorial mostra como executar front-end e back-end no serviço de nuvem do Azure. Uma alternativa é executar o front-end em um [site do Azure](/services/web-sites/) e usar o recurso [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) (atualmente em visualização) para o back-end. Para obter um tutorial que usa WebJobs, consulte [Introdução ao SDK WebJobs do Azure](../websites-dotnet-webjobs-sdk-get-started.md). Para obter informações sobre como escolher os serviços que melhor se ajustam ao seu cenário, consulte [Comparação de Sites, Serviços de Nuvem e Máquinas Virtuais do Azure](../choose-web-site-cloud-service-vm.md).
+Este tutorial mostra como executar front-end e back-end no serviço de nuvem do Azure. Uma alternativa é executar o front-end em um [site do Azure](/services/web-sites/) e usar o recurso [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) (atualmente em visualização) para o back-end. Para obter um tutorial que usa WebJobs, consulte [Introdução ao SDK WebJobs do Azure](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md). Para obter informações sobre como escolher os serviços que melhor se ajustam ao seu cenário, consulte [Comparação de Sites, Serviços de Nuvem e Máquinas Virtuais do Azure](../app-service-web/choose-web-site-cloud-service-vm.md).
 
 ## O que você aprenderá
 
@@ -219,7 +219,7 @@ O projeto Web e o projeto de função de trabalho possuem suas próprias cadeias
 
 Você usará uma [transformação de Web.config](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) para a função de trabalho e uma configuração de ambiente de serviço de nuvem para a função de trabalho.
 
->[AZURE.NOTE]Nesta seção e na próxima, você armazenará credenciais nos arquivos de projeto. [Não armazene dados confidenciais em repositórios de código-fonte público](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets).
+>[AZURE.NOTE] Nesta seção e na próxima, você armazenará credenciais nos arquivos de projeto. [Não armazene dados confidenciais em repositórios de código-fonte público](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets).
 
 1. No projeto ContosoAdsWeb, abra o arquivo de transformação *Web.Release.config* para o arquivo *Web.config* do aplicativo, exclua o bloco de comentário que contém um elemento `<connectionStrings>` e cole o código a seguir no lugar.
 
@@ -347,11 +347,11 @@ A configuração `<Instances>` especifica o número de máquinas virtuais onde o
 
 9. Você pode testar o aplicativo criando, visualizando e editando alguns anúncios, como fez ao executar o aplicativo localmente.
 
->[AZURE.NOTE]Ao finalizar o teste, exclua ou interrompa o serviço de nuvem. Mesmo que não estiver usando o serviço de nuvem, seus acúmulos serão cobrados porque os recursos do computador virtual serão reservados para o serviço. E se você deixá-lo em execução, qualquer um que encontrar sua URL poderá criar e exibir anúncios. No [portal clássico do Azure](http://manage.windowsazure.com) acesse a guia **Painel** para seu serviço de nuvem e depois clique no botão **Excluir**, na parte inferior da página. Se apenas deseja evitar que outros acessem temporariamente o site, em vez disso clique em **Parar**. Nesse caso, as tarifas continuarão a acumular. Você pode seguir um procedimento semelhante para excluir o banco de dados SQL e a conta de armazenamento quando não precisar mais dela.
+>[AZURE.NOTE] Ao finalizar o teste, exclua ou interrompa o serviço de nuvem. Mesmo que não estiver usando o serviço de nuvem, seus acúmulos serão cobrados porque os recursos do computador virtual serão reservados para o serviço. E se você deixá-lo em execução, qualquer um que encontrar sua URL poderá criar e exibir anúncios. No [portal clássico do Azure](http://manage.windowsazure.com) acesse a guia **Painel** para seu serviço de nuvem e depois clique no botão **Excluir**, na parte inferior da página. Se apenas deseja evitar que outros acessem temporariamente o site, em vez disso clique em **Parar**. Nesse caso, as tarifas continuarão a acumular. Você pode seguir um procedimento semelhante para excluir o banco de dados SQL e a conta de armazenamento quando não precisar mais dela.
 
 ## Criar o aplicativo do zero
 
-Se ainda não fez o download do
+Se ainda não fez o download do 
 [aplicativo completo](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4), faça-o agora. Você copiará os arquivos do projeto baixado para o novo projeto.
 
 A criação do Contoso Ads envolve as seguintes etapas:
@@ -578,11 +578,11 @@ Um código similar obtém uma referência para a fila de *imagens* e cria uma no
 
 ### ContosoAdsWeb - \_Layout.cshtml
 
-O arquivo *_Layout.cshtml* define o nome do aplicativo no cabeçalho e no rodapé e cria uma entrada de menu "Anúncios".
+O arquivo *\_Layout.cshtml* define o nome do aplicativo no cabeçalho e no rodapé e cria uma entrada de menu "Anúncios".
 
-### ContosoAdsWeb - Views\Home\Index.cshtml
+### ContosoAdsWeb - Views\\Home\\Index.cshtml
 
-O arquivo *Views\Home\Index.cshtml* exibe links de categoria na home page. Os links passam o valor inteiro da enumeração `Category` em uma variável querystring para a página Índice de anúncio.
+O arquivo *Views\\Home\\Index.cshtml* exibe links de categoria na home page. Os links passam o valor inteiro da enumeração `Category` em uma variável querystring para a página Índice de anúncio.
 
 		<li>@Html.ActionLink("Cars", "Index", "Ad", new { category = (int)Category.Cars }, null)</li>
 		<li>@Html.ActionLink("Real estate", "Index", "Ad", new { category = (int)Category.RealEstate }, null)</li>
@@ -671,7 +671,7 @@ O próximo exemplo mostra o código que exclui blobs quando você exclui um anú
 		    await blobToDelete.DeleteAsync();
 		}
 
-### ContosoAdsWeb - Views\Ad\Index.cshtml e Details.cshtml
+### ContosoAdsWeb - Views\\Ad\\Index.cshtml e Details.cshtml
 
 O arquivo *Index.cshtml* exibe miniaturas com os outros dados de anúncio.
 
@@ -681,7 +681,7 @@ O arquivo *Details.cshtml* exibe a imagem em tamanho real.
 
 		<img src="@Html.Raw(Model.ImageURL)" />
 
-### ContosoAdsWeb - Views\Ad\Create.cshtml e Edit.cshtml
+### ContosoAdsWeb - Views\\Ad\\Create.cshtml e Edit.cshtml
 
 Os arquivos *Create.cshtml* e *Edit.cshtml* especificam a codificação de formulário que habilita o controlador a obter o objeto `HttpPostedFileBase`.
 
@@ -770,7 +770,7 @@ O `ProcessQueueMessage` é chamado quando uma mensagem em fila é encontrada.
 
 Esse código lê o banco de dados para obter a URL da imagem, converte a imagem para uma miniatura, salva a miniatura em um blob, atualiza o banco de dados com a URL do blob da miniatura e exclui a mensagem da fila.
 
->[AZURE.NOTE]O código no método `ConvertImageToThumbnailJPG` usa classes no namespace System.Drawing para simplificar. Entretanto, as classes nesse namespace foram projetadas para uso nos formulários do Windows. Elas não têm suporte para uso em um serviço Windows ou ASP.NET. Para saber mais sobre as opções de processamento de imagem, consulte [Geração dinâmica de imagem](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) e [Visão aprofundada de redimensionamento de imagens](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na).
+>[AZURE.NOTE] O código no método `ConvertImageToThumbnailJPG` usa classes no namespace System.Drawing para simplificar. Entretanto, as classes nesse namespace foram projetadas para uso nos formulários do Windows. Elas não têm suporte para uso em um serviço Windows ou ASP.NET. Para saber mais sobre as opções de processamento de imagem, consulte [Geração dinâmica de imagem](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) e [Visão aprofundada de redimensionamento de imagens](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na).
 
 ## Solucionar problemas
 
@@ -816,4 +816,4 @@ Para saber mais, consulte os recursos a seguir:
 * [Como gerenciar serviços de nuvem](cloud-services-how-to-manage.md)
 * [Armazenamento do Azure](/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -158,7 +158,7 @@ Para o Woodgrove implantar a replicação e manter endereços IP é necessário 
 
 ### Opção 2: Endereços IP modificados
 
-Essa abordagem parece ser a mais comum e significa que o endereço IP de cada VM que executa o failover será alterado. A principal desvantagem dessa abordagem é que sua infraestrutura de rede precisa estar ciente de que os endereços IP foram alterados e que as entradas DNS normalmente precisarão ser alteradas ou liberadas em toda a rede, assim como as entradas armazenadas nas tabelas de rede. Isso poderia incorrer em tempo de inatividade dependendo de como a infraestrutura do DNS está configurada. Esses problemas podem ser reduzidos usando valores de TTL baixos no caso de aplicativos de intranet e usando o [Gerenciador de Tráfego do Azure](http://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/)para aplicativos baseados na internet.
+Essa abordagem parece ser a mais comum e significa que o endereço IP de cada VM que executa o failover será alterado. A principal desvantagem dessa abordagem é que sua infraestrutura de rede precisa estar ciente de que os endereços IP foram alterados e que as entradas DNS normalmente precisarão ser alteradas ou liberadas em toda a rede, assim como as entradas armazenadas nas tabelas de rede. Isso poderia incorrer em tempo de inatividade dependendo de como a infraestrutura do DNS está configurada. Esses problemas podem ser reduzidos usando valores de TTL baixos no caso de aplicativos de intranet e usando o [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/)para aplicativos baseados na internet.
 
 #### Exemplo - endereços IP modificados
 
@@ -177,17 +177,17 @@ Vamos analisar esse cenário com um exemplo que tem um terceiro local a partir d
 - As máquinas virtuais atualizarão o servidor DNS que estiverem usando depois que forem iniciadas. As entradas DNS normalmente precisam ser alteradas ou liberadas em toda a rede e as entradas em cache nas tabelas de rede precisam ser atualizadas ou liberadas, portanto, não é incomum enfrentar tempo de inatividade enquanto ocorrem essas alterações de estado. Isso pode ser reduzido:
 
 	- Usando valores TTL baixos para aplicativos de intranet.
-	- Usando [Azure Traffic Manager com o Site Recovery] (http://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/ para aplicativos baseados em internet).
+	- Usando [Azure Traffic Manager com o Site Recovery] (https://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/ para aplicativos baseados em internet/).
 	- Usando o script a seguir em seu plano de recuperação para atualizar o servidor DNS para garantir uma atualização em tempo hábil (o script não é necessário se o registro de DNS dinâmico estiver configurado)
 
     string]$Zone, [string]$name, [string]$IP ) $Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name $newrecord = $record.clone() $newrecord.RecordData[0].IPv4Address = $IP Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
 
 #### Exemplo - Failover para o Azure
 
-A configuração de infra-estrutura de rede do Azure como uma [postagem de blog](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) de Local de Recuperação de Desastres explica como configurar a infra-estrutura de rede do Azure necessária quando reter endereços IP não é um requisito. Ela começa descrevendo o aplicativo e, em seguida, analisa como configurar a rede local e no Azure. Depois conclui com instruções para executar um teste de failover e um failover planejado.
+A configuração de infra-estrutura de rede do Azure como uma [postagem de blog](https://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) de Local de Recuperação de Desastres explica como configurar a infra-estrutura de rede do Azure necessária quando reter endereços IP não é um requisito. Ela começa descrevendo o aplicativo e, em seguida, analisa como configurar a rede local e no Azure. Depois conclui com instruções para executar um teste de failover e um failover planejado.
 
 ## Próximas etapas
 
 [Saiba](site-recovery-network-mapping.md) como a Recuperação de Site mapeia redes de origem e destino.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

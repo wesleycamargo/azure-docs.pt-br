@@ -14,16 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/02/2015"
+   ms.date="01/28/2016"
    ms.author="larryfr"/>
 
 #Executar consultas Hive usando o PowerShell
 
 [AZURE.INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
-Este documento fornece um exemplo de como usar o Azure PowerShell no modo de Grupo de Recursos do Azure para executar consultas do Hive em um Hadoop no cluster HDInsight. Para usar o Azure PowerShell no modo de Serviço do Azure, veja [Executar consultas do Hive usando o modo ASM do PowerShell](hdinsight-hadoop-use-hive-powershell-v1.md).
+Este documento fornece um exemplo de como usar o Azure PowerShell no modo de Grupo de Recursos do Azure para executar consultas do Hive em um Hadoop no cluster HDInsight.
 
-> [AZURE.NOTE]Esse documento não fornece uma descrição detalhada do que as instruções HiveQL que usadas nos exemplos fazem. Para obter informações sobre o HiveQL usado neste exemplo, veja [Usar o Hive com o Hadoop no HDInsight](hdinsight-use-hive.md).
+> [AZURE.NOTE] Esse documento não fornece uma descrição detalhada do que as instruções HiveQL que usadas nos exemplos fazem. Para obter informações sobre o HiveQL usado neste exemplo, veja [Usar o Hive com o Hadoop no HDInsight](hdinsight-use-hive.md).
 
 
 **Pré-requisitos**
@@ -114,12 +114,14 @@ As etapas a seguir demonstram como usar esses cmdlets para executar um trabalho 
     
 7. Quando o trabalho for concluído, ele deverá retornar informações semelhantes às seguintes:
 
-		Display the standard output...
-		[ERROR]	3
+        Display the standard output...
+        2012-02-03      18:35:34        SampleClass0    [ERROR] incorrect       id
+        2012-02-03      18:55:54        SampleClass1    [ERROR] incorrect       id
+        2012-02-03      19:25:27        SampleClass4    [ERROR] incorrect       id
 
 4. Como mencionado anteriormente, **Invoke-Hive** pode ser usado para executar uma consulta e aguardar a resposta. Use os seguintes comandos, substituindo **CLUSTERNAME** pelo nome do cluster:
 
-        Use-AzureRmHDInsightCluster -ClusterName $clusterName
+        Use-AzureRmHDInsightCluster -ClusterName $clusterName -HttpCredential $creds
         #Get the cluster info so we can get the resource group, storage, etc.
         $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
         $resourceGroup = $clusterInfo.ResourceGroup
@@ -130,7 +132,7 @@ As etapas a seguir demonstram como usar esses cmdlets para executar um trabalho 
             -ResourceGroupName $resourceGroup `
             | %{ $_.Key1 }
         Invoke-AzureRmHDInsightHiveJob `
-            -StatusFolder "wasb:///example/statusout" `
+            -StatusFolder "statusout" `
             -DefaultContainer $container `
             -DefaultStorageAccountName $storageAccountName `
             -DefaultStorageAccountKey $storageAccountKey `
@@ -146,7 +148,7 @@ As etapas a seguir demonstram como usar esses cmdlets para executar um trabalho 
 		2012-02-03	18:55:54	SampleClass1	[ERROR]	incorrect	id
 		2012-02-03	19:25:27	SampleClass4	[ERROR]	incorrect	id
 
-	> [AZURE.NOTE]Para consultas HiveQL mais longas, é possível usar o cmdlet **Here-Strings** do PowerShell do Azure ou arquivos de script HiveQL. Os fragmentos a seguir mostram como usar o cmdlet **Invoke-Hive** para executar um arquivo de script HiveQL. O arquivo de script HiveQL deve ser carregado em wasb://.
+	> [AZURE.NOTE] Para consultas HiveQL mais longas, é possível usar o cmdlet **Here-Strings** do PowerShell do Azure ou arquivos de script HiveQL. Os fragmentos a seguir mostram como usar o cmdlet **Invoke-Hive** para executar um arquivo de script HiveQL. O arquivo de script HiveQL deve ser carregado em wasb://.
 	>
 	> `Invoke-AzureRmHDInsightHiveJob -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
 	>
@@ -184,4 +186,4 @@ Para obter informações sobre outros modos possíveis de trabalhar com Hadoop n
 
 * [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

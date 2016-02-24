@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="TomArcher"
 	manager="douge"
-	editor="tlee" />
+	editor="" />
 
  <tags
 	ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="11/17/2015"
+	ms.date="02/04/2016"
 	ms.author="tarcher" />
 
 # Visão geral do script de implantação de projeto do Grupo de Recursos do Azure
@@ -35,7 +35,7 @@ Como nem todas as implantações de modelo precisam ter artefatos adicionais que
 
 Veja a seguir uma descrição das ações executadas por seções específicas do script Deploy-AzureResourceGroup.ps1 do Azure PowerShell.
 
->[AZURE.NOTE]A versão descrita será a 1.0 do script Deploy-AzureResourceGroup.ps1.
+>[AZURE.NOTE] A versão descrita será a 1.0 do script Deploy-AzureResourceGroup.ps1.
 
 1.	Declare os parâmetros necessários ao projeto de implantação do Gerenciador de Recursos do Azure. Alguns parâmetros têm valores padrão definidos na criação do projeto. Você pode alterar esses valores padrão no script ou adicionar valores de parâmetros diferentes antes de executar o script.
 
@@ -209,7 +209,7 @@ Veja a seguir uma descrição das ações executadas por seções específicas d
 
     ![][3]
 
-	>[AZURE.NOTE]Se os parâmetros obrigatórios precisarem de valores, essa caixa de diálogo será exibida automaticamente na implantação.
+	>[AZURE.NOTE] Se os parâmetros obrigatórios precisarem de valores, essa caixa de diálogo será exibida automaticamente na implantação.
 
     ![][4]
 
@@ -264,4 +264,4 @@ Saiba mais sobre o Gerenciador de Recursos do Azure lendo [Visão geral do Geren
 [4]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy5c.png
 [5]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy6c.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

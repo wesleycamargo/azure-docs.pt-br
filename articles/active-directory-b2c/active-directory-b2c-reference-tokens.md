@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/21/2016"
 	ms.author="dastrock"/>
 
 # Visualização do AD B2C do Azure: Referência de Token
@@ -155,4 +155,4 @@ Os tempos de vida do token a seguir são fornecidos puramente para fins de compr
 | Tokens de atualização | Até 14 dias | Um único token de atualização é válido para um máximo de 14 dias. No entanto, o token de atualização pode se tornar inválido a qualquer momento por vários motivos, de modo que o aplicativo deve continuar testando e usando um token de atualização até que este falhe ou até que o aplicativo o substitua por um novo token de atualização. Um token de atualização também se tornará inválido caso se passem 90 dias desde que o usuário inseriu suas credenciais. |
 | Códigos de Autorização | 5 minutos | Os códigos de autorização são propositadamente de curta duração e devem ser resgatados imediatamente para access\_tokens, id\_tokens e refresh\_tokens quando eles são recebidos. |
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

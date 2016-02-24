@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Depurando um serviço de nuvem no Azure ou máquina virtual no Visual Studio | Microsoft Azure"
-   description="Depuração de um Serviço de Nuvem ou Máquina Virtual no Visual Studio"
-   services="visual-studio-online"
-   documentationCenter="na"
-   authors="TomArcher"
-   manager="douge"
-   editor="tlee" />
+	pageTitle="Depurando um serviço de nuvem no Azure ou máquina virtual no Visual Studio | Microsoft Azure"
+	description="Depuração de um Serviço de Nuvem ou Máquina Virtual no Visual Studio"
+	services="visual-studio-online"
+	documentationCenter="na"
+	authors="TomArcher"
+	manager="douge"
+	editor="" />
 <tags 
-   ms.service="visual-studio-online"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="multiple"
-   ms.workload="na"
-   ms.date="10/28/2015"
-   ms.author="tarcher" />
+	ms.service="visual-studio-online"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="multiple"
+	ms.workload="na"
+	ms.date="02/04/2016"
+	ms.author="tarcher" />
 
 # Depurando um serviço de nuvem ou máquina virtual do Azure no Visual Studio
 
@@ -48,7 +48,7 @@ Para depurar um serviço de nuvem em um computador remoto, você deve habilitar 
 
 Se você habilitar a depuração remota para um serviço de nuvem, ela não mostrará degradação de desempenho nem incorrerá em cobranças adicionais. Você não deve usar a depuração remota em um serviço de produção, pois os clientes que usam o serviço podem ser negativamente afetados.
 
->[AZURE.NOTE]Ao publicar um serviço de nuvem no Visual Studio, você pode habilitar o **IntelliTrace** para qualquer função nesse serviço que se destine ao .NET Framework 4 ou .NET Framework 4.5. Usando o **IntelliTrace**, você pode examinar os eventos que ocorreram em uma instância de função no passado e reproduzir o contexto no tempo em que ocorreu. Consulte [Depurando um serviço de nuvem publicado com o IntelliTrace e o Visual Studio](http://go.microsoft.com/fwlink/?LinkID=623016) e [Usando o IntelliTrace](https://msdn.microsoft.com/library/dd264915.aspx).
+>[AZURE.NOTE] Ao publicar um serviço de nuvem no Visual Studio, você pode habilitar o **IntelliTrace** para qualquer função nesse serviço que se destine ao .NET Framework 4 ou .NET Framework 4.5. Usando o **IntelliTrace**, você pode examinar os eventos que ocorreram em uma instância de função no passado e reproduzir o contexto no tempo em que ocorreu. Consulte [Depurando um serviço de nuvem publicado com o IntelliTrace e o Visual Studio](http://go.microsoft.com/fwlink/?LinkID=623016) e [Usando o IntelliTrace](https://msdn.microsoft.com/library/dd264915.aspx).
 
 ### Para habilitar a depuração remota para um serviço de nuvem
 
@@ -74,7 +74,7 @@ Se você habilitar a depuração remota para um serviço de nuvem, ela não most
 
     ![Anexar Depurador](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746719.gif)
 
-1. Depois que o depurador for anexado a uma instância, depure como de costume. O depurador é anexado automaticamente ao processo de host apropriado da sua função. Dependo da função, o depurador será anexado a w3wp.exe, a WaWorkerHost.exe ou a WaIISHost.exe. Para verificar o processo ao qual o depurador é anexado, expanda o nó da instância no Gerenciador de Servidores. Consulte [Arquitetura de Função do Azure](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx) para obter mais informações sobre os processos do Azure.
+1. Depois que o depurador for anexado a uma instância, depure como de costume. O depurador é anexado automaticamente ao processo de host apropriado da sua função. Dependo da função, o depurador será anexado a w3wp.exe, a WaWorkerHost.exe ou a WaIISHost.exe. Para verificar o processo ao qual o depurador é anexado, expanda o nó da instância no Gerenciador de Servidores. Consulte [Arquitetura de função do Azure](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx) para obter mais informações sobre os processos do Azure.
 
     ![Caixa de diálogo Selecionar tipo de código](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC718346.png)
 
@@ -82,7 +82,7 @@ Se você habilitar a depuração remota para um serviço de nuvem, ela não most
 
     ![Processos de depuração](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC690787.gif)
 
->[AZURE.WARNING]Evite paradas longas em pontos de interrupção durante a depuração remota. O Azure trata um processo que foi interrompido por um pouco mais de alguns minutos como sem resposta e para de enviar tráfego para essa instância. Se você parar por muito tempo, o msvsmon.exe será desanexado do processo.
+>[AZURE.WARNING] Evite paradas longas em pontos de interrupção durante a depuração remota. O Azure trata um processo que foi interrompido por um pouco mais de alguns minutos como sem resposta e para de enviar tráfego para essa instância. Se você parar por muito tempo, o msvsmon.exe será desanexado do processo.
 
 Para desanexar o depurador de todos os processos em sua instância ou função, abra o menu de atalho da função ou instância que você está depurando e clique em Desanexar Depurador.
 
@@ -102,7 +102,7 @@ No SDK 2.3 do Azure, a depuração remota tem as limitações a seguir.
 
 Você pode depurar programas que são executados em máquinas virtuais do Azure usando o Gerenciador de Servidores no Visual Studio. Quando você habilita a depuração remota em uma máquina virtual do Azure, o Azure instala a extensão da depuração remota na máquina virtual. Em seguida, você poderá anexá-la a processos na máquina virtual e depurar normalmente.
 
->[AZURE.NOTE]As máquina virtuais criadas por meio da pilha do gerenciador de recursos do Azure podem ser remotamente depuradas usando o Cloud Explorer no Visual Studio 2015. Para saber mais, consulte [Gerenciando recursos do Azure com o Cloud Explorer](http://go.microsoft.com/fwlink/?LinkId=623031).
+>[AZURE.NOTE] As máquina virtuais criadas por meio da pilha do gerenciador de recursos do Azure podem ser remotamente depuradas usando o Cloud Explorer no Visual Studio 2015. Para saber mais, consulte [Gerenciando recursos do Azure com o Cloud Explorer](http://go.microsoft.com/fwlink/?LinkId=623031).
 
 ### Para depurar uma máquina virtual do Azure
 
@@ -190,4 +190,4 @@ Os projetos ASP.NET do Visual Studio oferecem uma opção para criar uma máquin
 - Use o **Intellitrace** para coletar um log de chamadas e eventos de um servidor de liberação. Consulte [Depurando um serviço de nuvem publicado com o IntelliTrace e o Visual Studio](http://go.microsoft.com/fwlink/?LinkID=623016).
 - Use o **Diagnóstico do Azure** para registrar em log informações detalhadas do código em execução nas funções, estejam elas em execução no ambiente de desenvolvimento ou no Azure. Consulte [Coletando dados de log usando o Diagnóstico do Azure](http://go.microsoft.com/fwlink/p/?LinkId=400450).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

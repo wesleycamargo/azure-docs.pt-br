@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="11/16/2015"
+   ms.date="02/09/2016"
    ms.author="elfish"/>
 
 # Perguntas frequentes sobre continuidade dos negócios
@@ -60,4 +60,4 @@ Para replicação geográfica ativa, todos os bancos de dados secundários são 
 
 Use a exibição de gerenciamento dinâmico (DMVs) [sys.dm\_geo\_replication\_link\_status](https://msdnstage.redmond.corp.microsoft.com/library/mt575504.aspx) para obter o último horário de replicação, último atraso de replicação e outras informações sobre o link de replicação.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

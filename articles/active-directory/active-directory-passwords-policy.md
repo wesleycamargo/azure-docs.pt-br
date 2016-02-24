@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="01/07/2016"
 	ms.author="curtand"/>
 
 
@@ -45,7 +45,7 @@ A tabela a seguir descreve as configurações de política de senha disponíveis
 | Expiração de senha | <ul><li>Valor padrão: **falso** dias (indica que a expiração da senha está habilitada) </li><li>O valor pode ser configurado para contas de usuário individuais usando o cmdlet Set-MsolUser. </li></ul> |
 | Histórico de senha | A última senha não pode ser usada novamente. |
 | Duração do histórico de senha | Para sempre |
-| Bloqueio de conta | <ul><li>Após 10 tentativas mal-sucedidas (senha incorreta) de logon, o usuário precisará resolver um diálogo CAPTCHA como parte do logon.</li><li>Depois de 10 tentativas mal-sucedidas (senha incorreta) de logon e resolução correta do diálogo CAPTCHA, o usuário será bloqueado por um período de tempo. Mais senhas incorretas levarão a um aumento exponencial no período de bloqueio.</li></ul> |
+| Bloqueio de conta | Após 10 tentativas malsucedidas de entrar (senha incorreta), o usuário será bloqueado por um minuto. Mais tentativas de entrar incorretas farão com que o usuário seja bloqueado por durações cada vez maiores. |
 
 
 ## Próximas etapas
@@ -60,4 +60,4 @@ A tabela a seguir descreve as configurações de política de senha disponíveis
 * [Solucionar problemas do Gerenciamento de Senhas](active-directory-passwords-troubleshoot.md)
 * [Saiba mais](active-directory-passwords-learn-more.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0114_2016-->

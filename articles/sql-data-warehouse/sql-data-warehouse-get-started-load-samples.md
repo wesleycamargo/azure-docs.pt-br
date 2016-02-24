@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
-   ms.author="lodipalm;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="lodipalm;barbkess;sonyama"/>
 
 # Carregar dados de amostra no SQL Data Warehouse
 
@@ -73,7 +73,7 @@ Na verdade, o SQL Data Warehouse oferece suporte a quase todas as construções 
 
 
 ## Próximas etapas
-Agora que proporcionamos a você um aquecimento com a verificação de dados de exemplo, consulte como [desenvolver][], [carregar][] ou [migrar][].
+Agora que proporcionamos a você uma introdução à verificação de dados de exemplo, consulte como [desenvolver][], [carregar][] ou [migrar][].
 
 <!--Image references-->
 
@@ -95,4 +95,4 @@ Agora que proporcionamos a você um aquecimento com a verificação de dados de 
 <!--Other Web references-->
 [Sample Data Scripts]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

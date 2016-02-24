@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/29/2015"
+	ms.date="01/13/2016"
 	ms.author="mohisri"/>
 
 # Aplicativos de API do Serviço de Aplicativo: o que mudou
@@ -21,7 +21,7 @@
 No evento Connect(), em novembro de 2015, foram [anunciados](https://azure.microsoft.com/blog/azure-app-service-updates-november-2015/) vários aprimoramentos para o Serviço de Aplicativo do Azure. Esses aprimoramentos incluem alterações subjacentes aos Aplicativos de API para alinhar da melhor forma possível com Aplicativos Web e Móveis, reduzir a contagem de conceitos e melhorar o desempenho da implantação e do tempo de execução. A partir de 30 de novembro de 2015, os novos aplicativos de API criados usando o Portal de Gerenciamento do Azure ou as ferramentas mais recentes refletirão essas alterações. Este artigo descreve essas alterações e como reimplantar os aplicativos existentes para tirar proveito dos recursos.
 
 
-> [AZURE.NOTE]A visualização inicial dos Aplicativos de API oferecia suporte a dois cenários principais: 1) APIs personalizadas para uso em Aplicativos Lógicos ou seus próprios clientes e 2) API do Marketplace (geralmente conectores SaaS) para uso em Aplicativos Lógicos. Este artigo aborda o primeiro cenário, APIs personalizadas. Para as APIs do Marketplace, uma experiência aprimorada de designer de Aplicativos Lógicos e uma base de conectividade subjacente serão introduzidas no começo de 2016. As APIs do Marketplace existentes permanecem disponíveis no designer de Aplicativos Lógicos.
+> [AZURE.NOTE] A visualização inicial dos Aplicativos de API oferecia suporte a dois cenários principais: 1) APIs personalizadas para uso em Aplicativos Lógicos ou seus próprios clientes e 2) API do Marketplace (geralmente conectores SaaS) para uso em Aplicativos Lógicos. Este artigo aborda o primeiro cenário, APIs personalizadas. Para as APIs do Marketplace, uma experiência aprimorada de designer de Aplicativos Lógicos e uma base de conectividade subjacente serão introduzidas no começo de 2016. As APIs do Marketplace existentes permanecem disponíveis no designer de Aplicativos Lógicos.
 
 ## Alterações de recurso
 Os principais recursos dos Aplicativos de API: autenticação, CORS e metadados de API, foram movidos diretamente para o Serviço de Aplicativo. Com essa alteração, os recursos ficam disponíveis em Aplicativos de API, Web e Móveis. Na verdade, todos os três compartilham o mesmo tipo de recurso **Microsoft.Web/sites** no Gerenciador de Recursos. O gateway de Aplicativos de API não é mais necessário ou oferecidos em Aplicativos de API. Isso também facilita o uso da API de Gerenciamento do Azure, pois haverá apenas um gateway de Gerenciamento de API.
@@ -30,7 +30,7 @@ Os principais recursos dos Aplicativos de API: autenticação, CORS e metadados 
 
 Um princípio de design fundamental da atualização dos Aplicativos de API é a possibilidade de usar sua API como ela está e na linguagem de sua preferência. Se a sua API já estiver implantada como um Aplicativo Web ou Aplicativo Móvel*, não será necessário reimplantar o aplicativo para tirar proveito dos novos recursos.
 
-> [AZURE.NOTE]*Se você estiver atualmente na visualização dos Aplicativos de API, confira uma orientação de migração detalhada abaixo.
+> [AZURE.NOTE] *Se você estiver atualmente na visualização dos Aplicativos de API, confira uma orientação de migração detalhada abaixo.
 
 ### Autenticação
 Os recursos existentes de autenticação de Aplicativos de API, Aplicativos/Serviços Móveis e Aplicativos Web para uso imediato foram unificados e estão disponíveis em uma única folha de autenticação do Serviço de Aplicativo do Azure no Portal de Gerenciamento. Para obter uma introdução sobre os serviços de autenticação no Serviço de Aplicativo, confira [Expandindo a autenticação/autorização do Serviço de Aplicativo](https://azure.microsoft.com/blog/announcing-app-service-authentication-authorization/).
@@ -44,7 +44,7 @@ Para cenários de API, há diversos recursos novos relevantes:
 Para saber mais sobre os novos recursos de autenticação, veja [Autenticação e autorização para Aplicativos de API no Serviço de Aplicativo do Azure](app-service-api-authentication.md). Para saber mais sobre como migrar aplicativos de API existentes do modelo de aplicativos de API anterior para o novo, confira [Migração de aplicativos de API existentes](#migrating-existing-api-apps) posteriormente neste artigo.
  
 ### CORS
-Em vez de uma configuração de aplicativo **MS\_CrossDomainOrigins** delimitada por vírgula, agora há uma folha no portal de Gerenciamento do Azure para a configuração do CORS. Como alternativa, é possível configurá-lo usando as ferramentas do Gerenciador de Recursos, como o Azure PowerShell, a CLI ou o [Gerenciador de Recursos](https://resources.azure.com/). Defina a propriedade **cors** no tipo de recurso **Microsoft.Web/sites/config** para o recurso **&lt;nome do site&gt;/web**. Por exemplo:
+Em vez de uma configuração de aplicativo **MS\_CrossDomainOrigins** delimitada por vírgula, agora há uma folha no Portal de Gerenciamento do Azure para configuração de CORS. Como alternativa, é possível configurá-lo usando as ferramentas do Gerenciador de Recursos, como o Azure PowerShell, a CLI ou o [Gerenciador de Recursos](https://resources.azure.com/). Defina a propriedade **cors** no tipo de recurso **Microsoft.Web/sites/config** para o recurso **&lt;nome do site&gt;/web**. Por exemplo:
 
     {
         "cors": {
@@ -79,7 +79,7 @@ Com a racionalização dos tipos de Serviço de Aplicativo, a publicação tamb�
 
 ![Publicação de Aplicativos de API](./media/app-service-api-whats-changed/api-apps-publish.png)
 
-Para saber mais sobre o SDK 2.8.1, leia a [postagem de blog](https://azure.microsoft.com/blog/announcing-azure-sdk-2-8-1-for-net/) do comunicado.
+Para saber mais sobre o SDK 2.8.1, leia a [postagem de blog](https://azure.microsoft.com/blog/announcing-azure-sdk-2-8-1-for-net/) com o anúncio.
 
 Como alternativa, você pode importar manualmente o perfil de publicação no portal de gerenciamento a fim de habilitar a publicação. No entanto, o Gerenciador de Nuvem, a geração de código e aseleção/criação de aplicativos de API exigirão o SDK 2.8.1 ou superior.
 
@@ -122,7 +122,7 @@ O modelo anterior de Aplicativos de API apresentava APIs para a descoberta de ou
 O designer de Aplicativos Lógicos adicionará integração perfeita com o novo modelo de Aplicativos de API no início de 2016. Dito isso, o conector HTTP incorporado aos Aplicativos Lógicos pode invocar qualquer ponto de extremidade HTTP e oferece suporte à autenticação de entidade de serviço, que também recebe suporte nativo dos serviços de autenticação do Serviço de Aplicativo. Saiba como consumir uma API hospedada no Serviço de Aplicativo em Aplicativos Lógicos em [Usando a API personalizada hospedada no Serviço de Aplicativo com aplicativos lógicos](../app-service-logic/app-service-logic-custom-hosted-api.md).
 
 ### <a id="documentation"></a> Documentação para o modelo anterior de Aplicativos de API
-Alguns artigos de [azure.microsoft.com](https://azure.microsoft.com) que foram escritos para o antigo modelo de Aplicativos de API não se aplicam mais ao novo modelo e serão removidos do site. As URLs serão redirecionadas para o equivalente mais próximo que funcione com o novo modelo, mas você ainda poderá ver os artigos antigos no [Repositório de documentação do GitHub para azure.microsoft.com](https://github.com/Azure/azure-content). A maioria dos artigos desejados será encontrada na pasta [articles/app-service-api](https://github.com/Azure/azure-content/tree/master/articles/app-service-api). Estes são os links diretos para alguns dos artigos que talvez ainda estejam em uso caso você esteja dando suporte a aplicativos de API mais antigos ou se você criar novos aplicativos de API de conector do Marketplace.
+Alguns artigos de [azure.microsoft.com](https://azure.microsoft.com/) que foram escritos para o antigo modelo de Aplicativos de API não se aplicam mais ao novo modelo e serão removidos do site. As URLs serão redirecionadas para o equivalente mais próximo que funcione com o novo modelo, mas você ainda poderá ver os artigos antigos no [Repositório de documentação do GitHub para azure.microsoft.com](https://github.com/Azure/azure-content). A maioria dos artigos desejados será encontrada na pasta [articles/app-service-api](https://github.com/Azure/azure-content/tree/master/articles/app-service-api). Estes são os links diretos para alguns dos artigos que talvez ainda estejam em uso caso você esteja dando suporte a aplicativos de API mais antigos ou se você criar novos aplicativos de API de conector do Marketplace.
 
 * [Visão geral de autenticação](https://github.com/Azure/azure-content/tree/master/articles/app-service/app-service-authentication-overview.md)
 * [Proteger um aplicativo de API](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-dotnet-add-authentication.md)
@@ -141,4 +141,4 @@ Para saber mais, leia os artigos na seção [Documentação de Aplicativos de AP
 - [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=AzureAPIApps)
 - [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-apps)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

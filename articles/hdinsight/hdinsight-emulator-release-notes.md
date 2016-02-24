@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015" 
+	ms.date="02/04/2016" 
 	ms.author="jgao"/>
 
 
@@ -23,7 +23,8 @@
 
 
 
-> [AZURE.NOTE]A maneira mais fácil de verificar o número de versão é abrir Adicionar/Remover Programas e localizar a entrada **Emulador do Microsoft HDInsight para o Azure** (para a versão 1.0.0.0 ou posterior) ou **Microsoft HDInsight Developer Preview** (para versões anteriores à 1.0.0.0).
+> [AZURE.NOTE] 
+A maneira mais fácil de verificar o número de versão é abrir Adicionar/Remover Programas e localizar a entrada **Emulador do Microsoft HDInsight para o Azure** (para a versão 1.0.0.0 ou posterior) ou **Microsoft HDInsight Developer Preview** (para versões anteriores à 1.0.0.0).
 
 ## Versão 2.0.0.0, lançada em 29 de agosto de 2014
 
@@ -89,7 +90,7 @@
 
 * Novo painel HDInsight com os seguintes recursos:
  
-	* Conexão a vários clusters, inclusive à instalação local e aos clusters em execução remota por meio do serviço Azure HDInsight. Para obter mais informações sobre o serviço HDInsight, consulte [http://azure.microsoft.com/pt-br/documentation/services/hdinsight/](http://azure.microsoft.com/documentation/services/hdinsight/).
+	* Conexão a vários clusters, inclusive à instalação local e aos clusters em execução remota por meio do serviço Azure HDInsight. Para obter mais informações sobre o serviço HDInsight, consulte [http://azure.microsoft.com/pt-br/documentation/services/hdinsight/](https://azure.microsoft.com/documentation/services/hdinsight/).
  
 	* Configure o armazenamento de Blob do Azure no cluster local. Consulte as instruções detalhadas abaixo.
 
@@ -276,4 +277,4 @@
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0211_2016-->

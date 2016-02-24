@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Editando um modelo do Gerenciador de Recursos com o Visual Studio | Microsoft Azure"
    description="Saiba como adicionar recursos a um modelo do Gerenciador de Recursos do Azure usando o Visual Studio."
-   services="visual-studio-online"
+   services="azure-resource-manager"
    documentationCenter="na"
-   authors="TomArcher"
-   manager="douge"
+   authors="tfitzmac"
+   manager="wpickett"
    editor="" />
 <tags 
-   ms.service="multiple"
+   ms.service="azure-resource-manager"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="11/13/2015"
-   ms.author="tarcher" />
+   ms.date="02/09/2016"
+   ms.author="tomfitz" />
 
 # Editando modelos de Gerenciador de Recursos com o Visual Studio
 
@@ -61,7 +61,7 @@ Para obter mais informações sobre a estrutura do modelo, consulte [Criação d
 
 ## Consulte também
 
-[Criação e implantação de grupos de recursos do Azure por meio do Visual Studio](vs-azure-tools-resource-groups-deployment-project-create-deploy.md)
+[Criação e implantação de grupos de recursos do Azure por meio do Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 [Cmdlets do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn757692.aspx)
 
@@ -69,4 +69,4 @@ Para obter mais informações sobre a estrutura do modelo, consulte [Criação d
 
 [Vídeo do Channel9: Gerenciador de Recursos do Azure](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B224#fbid=)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

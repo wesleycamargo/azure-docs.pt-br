@@ -35,7 +35,7 @@ Dependendo de suas seleções de **Exibição**, o painel **Resultados** mostra 
 | Versão | A versão do software instalado no dispositivo |
 | Status | Se o dispositivo está disponível |
 | Sincronizado pela última vez | Data e hora em que o dispositivo foi sincronizado pela última vez |
-| N° de série | O número de série do dispositivo |
+| # de série | O número de série do dispositivo |
  
 Se clicar com o botão direito no nó **Dispositivos** no painel **Escopo**, você pode selecionar as seguintes ações:
 
@@ -263,4 +263,4 @@ Se um dispositivo StorSimple falhar e for substituído por um dispositivo em esp
 - Saiba como [usar o StorSimple Snapshot Manager para administrar sua solução do StorSimple](storsimple-snapshot-manager-admin.md).
 - Saiba como [Usar o StorSimple Snapshot Manager para exibir e gerenciar volumes](storsimple-snapshot-manager-manage-volumes.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_0121_2016-->

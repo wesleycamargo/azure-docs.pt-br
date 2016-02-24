@@ -1,23 +1,23 @@
-## Como criar uma Rede Virtual no portal de visualização do Azure
+## Como criar uma rede virtual no portal do Azure
 
 Para criar uma Rede Virtual com base no cenário anterior, usando o Portal de visualização do Azure, siga as etapas abaixo.
 
 1. Em um navegador, navegue até http://portal.azure.com e, se necessário, entre com sua conta do Azure.
 2. Clique em **NOVO** > **Rede** > **Rede Virtual** e, em seguida, clique em **Gerenciador de recursos** na lista **Selecionar um modelo de implantação** e, em seguida, clique **Criar**, como mostrado na figura abaixo.
 
-	![Criar Rede Virtual no portal de visualização](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure1.gif)
+	![Criar rede virtual no portal do Azure](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure1.gif)
 
 3. Na folha **Criar rede virtual**, defina as configurações de Rede Virtual, como mostrado na figura abaixo.
 
 	![Criar folha de rede virtual](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure2.png)
 
-4. Clique em **Grupo de recursos** e selecione um grupo de recursos ao qual adicionar a Rede Virtual ou clique em **Criar novo** para adicionar a Rede Virtual a um novo grupo de recursos. A figura a seguir mostra as configurações de grupo de recurso para um novo grupo de recursos denominado **TestRG**. Para saber mais sobre grupos de recursos, visite [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md/#resource-groups).
+4. Clique em **Grupo de recursos** e selecione um grupo de recursos ao qual adicionar a Rede Virtual ou clique em **Criar novo** para adicionar a Rede Virtual a um novo grupo de recursos. A figura a seguir mostra as configurações de grupo de recurso para um novo grupo de recursos denominado **TestRG**. Para obter mais informações sobre grupos de recursos, visite [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md/#resource-groups).
 
 	![Grupo de recursos](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure3.png)
 
-5. Se necessário, altere as configurações de **Assinatura** e de **Local** de sua Rede Virtual.
+5. Se necessário, altere as configurações de **Assinatura** e **Local** da sua rede virtual.
 
-6. Se você não deseja ver a Rede Virtual como um bloco no **Quadro Inicial**, desabilite **Fixar no Quadro Inicial**.
+6. Se não deseja ver a rede virtual como um bloco no **Quadro Inicial**, desabilite **Fixar no Quadro Inicial**.
 
 7. Clique em **Criar** e observe o bloco chamado **Criando a rede virtual** como mostrado na figura abaixo.
 
@@ -25,7 +25,7 @@ Para criar uma Rede Virtual com base no cenário anterior, usando o Portal de vi
 
 8. Aguarde a criação da Rede Virtual e, na folha **Rede Virtual**, clique em **Todas as configurações** > **Sub-redes** > **Adicionar** como mostrado abaixo.
 
-	![Adicionar sub-rede no portal de visualização](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure5.gif)
+	![Como adicionar uma sub-rede no portal do Azure](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure5.gif)
 
 9. Especifique as configurações de sub-rede para a sub-rede *back-end*, como mostrado abaixo e clique **OK**.
 
@@ -35,4 +35,4 @@ Para criar uma Rede Virtual com base no cenário anterior, usando o Portal de vi
 
 	![Lista de sub-redes na Rede Virtual](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure7.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

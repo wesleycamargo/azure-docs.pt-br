@@ -21,13 +21,14 @@
 
 Os Aplicativos Web do [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) têm todos os recursos de que você precisa para estabelecer uma presença global na Web para seu site .COM. Independentemente do porte de sua organização, você precisa de uma plataforma robusta, segura e escalonável para impulsionar seus negócios, o reconhecimento de sua marca e suas comunicações com os clientes. Os Aplicativos Web do Serviço de Aplicativo podem ajudar a manter sua identidade e marca corporativa com a continuidade dos negócios garantida pela Microsoft.
 
->[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE] Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 A seguir há um exemplo de um site .COM em execução nos Aplicativos Web do Serviço de Aplicativo. Ele demonstra o que você pode fazer simplesmente reunindo Aplicativos Web a outros serviços, com investimento técnico mínimo. **Clique em um elemento na topografia para ler mais sobre ele.**
 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/corp-website-visio.svg" width="100%" height="100%"></object>
 
-> [AZURE.NOTE]Este guia apresenta algumas das áreas e tarefas mais comuns que estão alinhadas com a execução de um site .COM voltado ao público em Aplicativos Web do Serviço de Aplicativo do Azure. No entanto, há outras soluções comuns que você pode implementar em Aplicativos Web do Serviço de Aplicativo do Azure. Para examinar essas soluções, consulte também os outros guias em [Campanhas de Marketing Digital](web-sites-digital-marketing-application-solution-overview.md) e [Aplicativos de negócios](web-sites-business-application-solution-overview.md).
+> [AZURE.NOTE]
+Este guia apresenta algumas das áreas e tarefas mais comuns que estão alinhadas com a execução de um site .COM voltado ao público em Aplicativos Web do Serviço de Aplicativo do Azure. No entanto, há outras soluções comuns que você pode implementar em Aplicativos Web do Serviço de Aplicativo do Azure. Para examinar essas soluções, consulte também os outros guias em [Campanhas de Marketing Digital](web-sites-digital-marketing-application-solution-overview.md) e [Aplicativos de negócios](web-sites-business-application-solution-overview.md).
 
 ## Criar do zero ou incluir ativos existentes
 
@@ -89,7 +90,7 @@ Torne seu site .COM atraente com recursos de mídia avançada, como:
 ## Mais Recursos
 
 - [Documentação de Aplicativos Web do Serviço de Aplicativo](/services/app-service/web/)
-- [Mapa de aprendizagem para Aplicativos Web do Serviço de Aplicativo do Azure](websites-learning-map.md)
+- [Mapa de aprendizagem para Aplicativos Web do Serviço de Aplicativo do Azure](/documentation/learning-paths/appservice-webapps/)
 - [Blog do Azure](/blog/topics/web/)
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
@@ -137,4 +138,4 @@ Torne seu site .COM atraente com recursos de mídia avançada, como:
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

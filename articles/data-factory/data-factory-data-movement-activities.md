@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="02/03/2016" 
 	ms.author="spelluru"/>
 
 # Atividades de movimentação de dados
-A [Atividade de Cópia](#copyactivity) executa a movimentação de dados no Azure Data Factory e é alimentada por um [Serviço de Movimentação de Dados globalmente disponível](#global) que pode copiar dados entre vários armazenamentos de dados de forma segura, confiável e escalonável. O serviço escolhe automaticamente a região ideal para executar a operação de movimentação de dados baseada no local de origem e no armazenamento de dados do coletor. Atualmente, a região usada é a mais próxima ao armazenamento de dados do coletor.
+A [Atividade de Cópia](#copyactivity) executa a movimentação de dados no Azure Data Factory e é alimentada por um [serviço globalmente disponível](#global) que pode copiar dados entre vários armazenamentos de dados de forma segura, confiável e escalonável. O serviço escolhe automaticamente a região ideal para realizar a movimentação de dados. A região usada é a mais próxima ao armazenamento de dados do coletor.
  
 Vamos entender como a movimentação de dados ocorre em cenários diferentes.
 
 ## Copiando dados entre dois armazenamentos de dados em nuvem
-Quando os armazenamentos de dados de origem e coletores (destino) residem na nuvem, a atividade de cópia passa pelas fases a seguir para copiar/mover os dados da origem para o coletor. O serviço de movimentação de dados
+Quando os armazenamentos de dados de origem e coletores (destino) residem na nuvem, a atividade de cópia passa pelas fases a seguir para copiar/mover os dados da origem para o coletor. O serviço que capacita a Atividade de Cópia executa o seguinte:
 
 1. Lê dados do armazenamento de dados de origem
 2.	Executa a serialização/desserialização, a compactação/descompactação, o mapeamento de coluna e a conversão de tipo baseado nas configurações de conjuntos de dados de entrada e de saída e na atividade de cópia. 
@@ -32,7 +32,7 @@ Quando os armazenamentos de dados de origem e coletores (destino) residem na nuv
 
 
 ## Copiando dados entre um armazenamento de dados local e um armazenamento de dados na nuvem
-Para [mover com segurança dados entre armazenamentos de dados locais dentro do seu firewall corporativo armazenamento de dados de nuvem](#moveonpremtocloud), você precisará instalar o gateway de gerenciamento de dados, que é um agente que permite a movimentação e o processamento de dados híbridos em seu computador local. O gateway de gerenciamento de dados pode ser instalado no mesmo computador do próprio armazenamento de dados ou em computador separado que tenha acesso ao armazenamento de dados.. Neste cenário, a serialização/desserialização, a compactação/descompactação, o mapeamento de coluna e a conversão de tipo são executadas pelo gateway de gerenciamento de dados. O serviço de movimentação de dados não está envolvido nesse cenário.
+Para [mover com segurança dados entre armazenamentos de dados locais dentro do seu firewall corporativo armazenamento de dados de nuvem](#moveonpremtocloud), você precisará instalar o gateway de gerenciamento de dados, que é um agente que permite a movimentação e o processamento de dados híbridos em seu computador local. O gateway de gerenciamento de dados pode ser instalado no mesmo computador do próprio armazenamento de dados ou em computador separado que tenha acesso ao armazenamento de dados.. Neste cenário, a serialização/desserialização, a compactação/descompactação, o mapeamento de coluna e a conversão de tipo são executadas pelo gateway de gerenciamento de dados. Os dados não fluem pelo serviço Azure Data Factory nesse caso. O gateway de gerenciamento de dados grava diretamente os dados no repositório de destino.
 
 ![cópia local para nuvem](.\media\data-factory-data-movement-activities\onprem-to-cloud.png)
 
@@ -44,38 +44,35 @@ A atividade de cópia copia os dados de um armazenamento de dados de **origem** 
 
 | Fontes| Coletores |
 |:------- | :---- |
-| <ul><li>[Blob do Azure](data-factory-azure-blob-connector.md)</li><li>[Tabela do Azure](data-factory-azure-table-connector.md)</li><li>[Banco de Dados SQL do Azure](data-factory-azure-sql-connector.md)</li><li>[Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Banco de Dados de Documentos do Azure](data-factory-azure-documentdb-connector.md)</li><li>[Azure Data Lake Store](data-factory-azure-datalake-connector.md)</li><li>[SQL Server local/Azure IaaS](data-factory-sqlserver-connector.md)</li><li>[Sistema de arquivos local/Azure IaaS](data-factory-onprem-file-system-connector.md)</li><li>[Oracle Database local/Azure IaaS](data-factory-onprem-oracle-connector.md)</li><li>[MySQL Database local/Azure IaaS ](data-factory-onprem-mysql-connector.md)</li><li>[DB2 Database local/Azure IaaS](data-factory-onprem-db2-connector.md)</li><li>[Teradata Database local/Azure IaaS ](data-factory-onprem-teradata-connector.md)</li><li>[Sybase Database local/Azure IaaS](data-factory-onprem-sybase-connector.md)</li><li>[PostgreSQL Database local/Azure IaaS](data-factory-onprem-postgresql-connector.md)</li></ul> | <ul><li>[Azure Blob](data-factory-azure-blob-connector.md)</li><li>[Tabela do Azure](data-factory-azure-table-connector.md)</li><li>[Banco de Dados SQL do Azure](data-factory-azure-sql-connector.md)</li><li>[Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Banco de Dados de Documento do Azure](data-factory-azure-documentdb-connector.md)</li><li>[Azure Data Lake Store](data-factory-azure-datalake-connector.md)</li><li>[SQL Server local/Azure IaaS](data-factory-sqlserver-connector.md)</li><li>[Sistema de arquivos local /Azure IaaS](data-factory-onprem-file-system-connector.md)</li></ul> |
+| <ul><li>[Blob do Azure](data-factory-azure-blob-connector.md)</li><li>[Tabela do Azure](data-factory-azure-table-connector.md)</li><li>[Banco de Dados SQL do Azure](data-factory-azure-sql-connector.md)</li><li>[Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Banco de Dados de Documentos do Azure (veja a observação abaixo)](data-factory-azure-documentdb-connector.md)</li><li>[Azure Data Lake Store](data-factory-azure-datalake-connector.md)</li><li>[SQL Server local/IaaS do Azure](data-factory-sqlserver-connector.md)</li><li>[Sistema de Arquivos local/IaaS do Azure](data-factory-onprem-file-system-connector.md)</li><li>[Oracle Database local/IaaS do Azure](data-factory-onprem-oracle-connector.md)</li><li>[Banco de dados MySQL local/IaaS do Azure ](data-factory-onprem-mysql-connector.md)</li><li>[Banco de dados DB2 local/IaaS do Azure](data-factory-onprem-db2-connector.md)</li><li>[Banco de dados Teradata local/IaaS do Azure ](data-factory-onprem-teradata-connector.md)</li><li>[Banco de dados Sybase local/IaaS do Azure](data-factory-onprem-sybase-connector.md)</li><li>[Banco de dados PostgreSQL local/IaaS do Azure](data-factory-onprem-postgresql-connector.md)</li><li>[Fontes de dados ODBC locais/IaaS do Azure](data-factory-odbc-connector.md)</li><li>[Sistema de Arquivos Distribuídos Hadoop (HDFS) local/IaaS do Azure](data-factory-hdfs-connector.md)</li></ul> | <ul><li>[Azure Blob](data-factory-azure-blob-connector.md)</li><li>[Tabela do Azure](data-factory-azure-table-connector.md)</li><li>[Banco de Dados SQL do Azure](data-factory-azure-sql-connector.md)</li><li>[Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Banco de Dados de Documentos do Azure (ver observação abaixo)](data-factory-azure-documentdb-connector.md)</li><li>[Azure Data Lake Store](data-factory-azure-datalake-connector.md)</li><li>[SQL Server Local/IaaS do Azure](data-factory-sqlserver-connector.md)</li><li>[Sistema de arquivos local /IaaS do Azure](data-factory-onprem-file-system-connector.md)</li></ul> |
 
+
+> [AZURE.NOTE] Você só pode mover de/para um Banco de Dados de Documentos do Azure de/para outros serviços do Azure como Blobs do Azure, Tabela do Azure, Banco de Dados SQL, SQL Data Warehouse, Banco de Dados de Documentos do Azure e Repositório Azure Data Lake. Também haveria suporte em breve para a matriz completa para Banco de Dados de Documentos do Azure.
 
 ## Tutorial
-Para obter um tutorial rápido sobre como usar a Atividade de Cópia, confira [Tutorial: Usar a Atividade de Cópia em um pipeline do Azure Data Factory](data-factory-get-started.md). No tutorial, você usará a Atividade de Cópia para copiar dados de um armazenamento de blob do Azure para um banco de dados SQL do Azure. A tabela a seguir lista as fontes e coletores com suporte pela Atividade de cópia.
+Para obter um tutorial rápido sobre como usar a Atividade de Cópia, confira [Tutorial: Usar a Atividade de Cópia em um pipeline do Azure Data Factory](data-factory-get-started.md). No tutorial, você usará a Atividade de Cópia para copiar dados de um armazenamento de blob do Azure para um banco de dados SQL do Azure.
 
 ## <a name="copyactivity"></a>Atividade de Cópia
-A atividade de cópia usa um conjunto de dados de entrada (**origem**) e um conjunto de dados de saída (**coletor**). A cópia de dados é feita em um modo de lotes de acordo com a agenda especificada na atividade. Para saber mais sobre como definir atividades em geral em um alto nível como várias seções e propriedades JSON disponíveis para todas as atividades, confira o artigo [Entendendo pipelines e atividades](data-factory-create-pipelines.md).
+A atividade de cópia usa um conjunto de dados de entrada (**origem**) e um conjunto de dados de saída (**coletor**). A cópia de dados é feita em um modo de lotes de acordo com a agenda especificada na atividade. Para saber mais sobre como definir atividades em geral, consulte o artigo [Noções básicas sobre pipelines e atividades](data-factory-create-pipelines.md).
 
 A atividade de cópia fornece as seguintes funcionalidades:
 
 ### <a name="global"></a>Movimentação de dados globalmente disponível
-Mesmo que a sua própria Azure Data Factory esteja disponível somente nas regiões oeste dos EUA e no norte da Europa, o serviço de movimentação de dados capacita a atividade de cópia disponível globalmente nas regiões e regiões geográficas a seguir. A topologia globalmente disponível garante a movimentação de dados eficiente, evitando saltos entre regiões na maioria dos casos.
+Mesmo que a sua própria Azure Data Factory esteja disponível somente nas regiões oeste dos EUA e na Europa Setentrional, o serviço capacita a atividade de cópia disponível globalmente nas regiões e regiões geográficas a seguir. A topologia globalmente disponível garante a movimentação de dados eficiente, evitando saltos entre regiões na maioria dos casos.
 
-| Região | Geografia |
-| ------ | --------- | 
-| Centro dos EUA | EUA |
-| Leste dos EUA | EUA |
-| Leste dos EUA 2 | EUA |
-| Centro-Norte dos EUA | EUA |
-| Centro-Sul dos Estados Unidos | EUA |
-| Oeste dos EUA | EUA |
-| Sul do Brasil | América Latina |
-| Norte da Europa | EMEA |
-| Europa Ocidental | EMEA |
-| Sudeste Asiático | Ásia-Pacífico |
-| Leste do Japão | Ásia-Pacífico |
+O **Gateway de Gerenciamento de Dados** ou o **Azure Data Factory** realiza a movimentação de dados com base na localização dos repositórios de dados de origem e de destino em uma operação de cópia. Confira a seguinte tabela para obter detalhes:
 
-Observe o seguinte:
+Local do repositório de dados de origem | Local do repositório de dados de destino | A movimentação de dados é executada por  
+-------------------------- | ------------------------------- | ----------------------------- 
+VM local/do Azure (IaaS) | nuvem | **Gateway de Gerenciamento de Dados** no computador local/VM do Azure. Os dados não fluem pelo serviço na nuvem. <p> Observação: o Gateway de Gerenciamento de Dados pode estar no mesmo computador local/VM do Azure que o repositório de dados ou em outro computador local/VM do Azure, desde que possa se conectar a ambos os repositórios de dados.</p>
+nuvem | VM local/do Azure (IaaS) | Mesmo que acima. 
+VM local/do Azure (IaaS) | VM local/do Azure | **Gateway de Gerenciamento de Dados associado à origem**. Os dados não fluem pelo serviço na nuvem. Confira a observação acima.   
+nuvem | nuvem | <p>**O serviço de nuvem que capacita a Atividade de Cópia**. O Azure Data Factory usa a implantação do serviço na região mais próxima ao local do coletor na mesma região geográfica. Consulte a tabela a seguir para obter mapeamento: </p><table><tr><th>Região do repositório de dados de destino</th> <th>Região usada para movimentação de dados</th></tr><tr><td>Leste dos EUA</td><td>Oeste dos EUA</td></tr><tr><td>Leste dos EUA 2</td><td>Oeste dos EUA 2</td><tr/><tr><td>EUA Central</td><td>EUA Central</td><tr/><tr><td>Oeste dos EUA</td><td>Oeste dos EUA</td></tr><tr><td>Centro-Norte dos EUA</td><td>Centro-Norte dos EUA</td></tr><tr><td>Centro-Sul dos EUA</td><td>Centro-Sul dos EUA</td></tr><tr><td>Europa Setentrional</td><td>Europa Setentrional</td></tr><tr><td>Europa Ocidental</td><td>Europa Ocidental</td></tr><tr><td>Sudeste Asiático</td><td>Sudeste Asiático</td></tr><tr><td>Ásia Oriental</td><td>Sudeste Asiático</td></tr><tr><td>Leste do Japão</td><td>Leste do Japão</td></tr><tr><td>Oeste do Japão</td><td>Leste do Japão</td></tr><tr><td>Sul do Brasil</td><td>Sul do Brasil</td></tr></table>
 
-- Se estiver copiando dados de uma **fonte de dados local** para a **nuvem** ou vice-versa (por exemplo: SQL Server local -> Blobs do Azure), a movimentação de dados, na verdade, é feita pelo **gateway de gerenciamento de dados** em seu ambiente local sem envolvimento do Serviço de Movimento de Dados.
-- Se você estiver copiando de uma **fonte de nuvem** para um **destino de nuvem** (por exemplo: Blob do Azure -> SQL Azure), o **serviço de movimentação de dados** escolhe a implantação é **mais próxima do local de coletor na mesma região geográfica** para fazer a transferência. Por exemplo, se você está copiando do Sudeste da Ásia para o Oeste do Japão, a implantação do Serviço de Movimentação de Dados no Leste do Japão é usada para realizar a cópia. Quando a origem e o destino estiverem na mesma região geográfica e não houver nenhum Serviço de Movimentação de Dados disponível nela (por exemplo, Austrália, no momento), a atividade de cópia falhará em vez de percorrer uma região geográfica alternativa. Observação: o serviço de movimentação de dados seria estendido também à Austrália. 
+
+> [AZURE.NOTE] Se a região do repositório de dados de destino não estiver na lista acima, a Atividade de Cópia falhará em vez de passar por uma região alternativa. Incluiremos o Leste da Austrália e o Sudeste da Austrália em breve.
+
+
 
 ### <a name="moveonpremtocloud"></a>Mover os dados com segurança entre o local e a nuvem
 Um dos desafios da integração de dados moderna é mover dados continuamente para e do local para a nuvem. O gateway de gerenciamento de dados é um agente que você pode instalar localmente para habilitar pipelines de dados híbridos.
@@ -113,4 +110,4 @@ No caso da atividade de cópia, a seção **typeProperties** varia de acordo com
 ### Desempenho e Ajuste da Atividade de Cópia 
 Confira o artigo [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) que descreve os principais fatores que afetam o desempenho da movimentação de dados (Atividade de Cópia) no Azure Data Factory. Ele também lista o desempenho observado durante os testes internos e discute várias maneiras de otimizar o desempenho da Atividade de Cópia.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

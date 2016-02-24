@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/21/2016" 
 	ms.author="josephd"/>
 
 # Carga de trabalho de aplicativo de linha de negócios fase 4: configurar os servidores Web
@@ -31,7 +31,7 @@ Há duas máquinas virtuais de servidor Web nas quais você pode implantar aplic
 
 Primeiro, você configurar o balanceamento de carga interno para que o Azure distribua o tráfego do cliente para o aplicativo de linha de negócios uniformemente entre os dois servidores Web. Isso requer que você especifique uma instância de balanceamento de carga interno, que consiste em um nome e o seu próprio endereço IP, atribuído por meio do espaço de endereço de sub-rede que você designou para sua rede virtual do Azure.
 
-> [AZURE.NOTE]O comando a seguir define o uso do Azure PowerShell 1.0 e posterior. Para obter mais informações, consulte [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
+> [AZURE.NOTE] O comando a seguir define o uso do Azure PowerShell 1.0 e posterior. Para obter mais informações, consulte [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 Especifique os valores para as variáveis, removendo os caracteres < and >. Observe que esse conjunto de comandos do Azure PowerShell usa valores das seguintes tabelas:
 
@@ -109,7 +109,7 @@ Quando você tiver fornecido a todos os valores adequados, execute o bloco resul
 	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-> [AZURE.NOTE]Como essas máquinas virtuais são para um aplicativo de intranet, elas não recebem um endereço IP público ou um rótulo de nome de domínio DNS e não são expostas na Internet. No entanto, isso também significa que você não pode se conectar a eles no portal do Azure. O botão **Conectar** não ficará disponível quando você exibir as propriedades da máquina virtual.
+> [AZURE.NOTE] Como essas máquinas virtuais são para um aplicativo de intranet, elas não recebem um endereço IP público ou um rótulo de nome de domínio DNS e não são expostas na Internet. No entanto, isso também significa que você não pode se conectar a eles no portal do Azure. O botão **Conectar** não ficará disponível quando você exibir as propriedades da máquina virtual.
 
 Use o cliente de área de trabalho remota de sua preferência e crie uma conexão de área de trabalho remota para cada máquina virtual do servidor Web. Use seu nome DNS ou do computador da intranet e as credenciais da conta de administrador local.
 
@@ -130,10 +130,10 @@ Em seguida, para cada servidor Web, instale e configure o IIS.
 3. Na página Selecionar tipo de instalação, clique em **Avançar**.
 4. Na página Selecionar servidor de destino, clique em **Avançar**.
 5. Na página Funções do servidor, clique em **Servidor Web (IIS)** na lista **Funções**.
-6. Quando solicitado, clique em **Adicionar Recursos** e clique em **Avançar**.
+6. Quando solicitado, clique em **Adicionar Recursos** e depois em **Avançar**.
 7. Na página Selecionar recursos, clique em **Avançar**.
 8. Na página Servidor Web (IIS), clique em **Avançar**.
-9. Na página Selecionar serviços da função, marque ou desmarque as caixas de seleção dos serviços que você precisa para testar seu aplicativo LOB e, em seguida, clique em **Avançar**. 10. Na página Confirmar seleções da instalação, clique em **Instalar**.
+9. Na página Selecionar serviços da função, marque ou desmarque as caixas de seleção dos serviços que você precisa para testar seu aplicativo LOB e clique em **Avançar**. 10. Na página Confirmar seleções da instalação, clique em **Instalar**.
 
 ## Implantar seu aplicativo de linha de negócios nas máquinas virtuais do servidor Web
 
@@ -151,4 +151,4 @@ Este diagrama é a configuração resultante da conclusão bem-sucedida desta fa
 
 - Use a [Fase 5](virtual-machines-workload-high-availability-LOB-application-phase5.md) para concluir a configuração desta carga de trabalho.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

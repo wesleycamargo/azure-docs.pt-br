@@ -46,13 +46,13 @@ Como alternativa, você pode [baixar o aplicativo concluído como. zip](https://
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
-## 1\. Registrar um aplicativo
+## 1. Registrar um aplicativo
 Crie um novo aplicativo em [apps.dev.microsoft.com](https://apps.dev.microsoft.com) ou siga estas [etapas detalhadas](active-directory-v2-app-registration.md). Não se esqueça de:
 
 - Copiar a **ID do Aplicativo** designada ao seu aplicativo, você precisará dela logo.
 - Crie um **Segredo de Aplicativo** do tipo **Senha** e anote seu valor para uso posterior.
 - Adicionar a plataforma **Web** para seu aplicativo.
-- Inserir o **URI de Redirecionamento** correto. O uri de redirecionamento indica ao AD do Azure para onde as respostas de autenticação devem ser direcionadas — o padrão para este tutorial é `https://localhost:44326/`.
+- Inserir o **URI de Redirecionamento** correto. O URI de redirecionamento indica ao Azure AD para onde as respostas de autenticação devem ser direcionadas — o padrão para este tutorial é `https://localhost:44326/`.
 
 
 ## 2\. Conectar o usuário com o OpenID Connect
@@ -93,7 +93,7 @@ public void ConfigureAuth(IAppBuilder app)
 
 					ClientId = clientId,
 					Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0"),
-					Scope = "openid offline_access",
+					Scope = "openid email profile offline_access",
 					RedirectUri = redirectUri,
 					PostLogoutRedirectUri = redirectUri,
 					TokenValidationParameters = new TokenValidationParameters
@@ -119,8 +119,8 @@ Na notificação `AuthorizationCodeReceived`, queremos usar [OAuth 2.0 em conjun
 
 - Primeiramente, instale a versão de visualização do ADAL:
 
-```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease```
-- E adicione outra instrução `using` para o arquivo `App_Start\Startup.Auth.cs` para ADAL. 
+```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease``` 
+- E adicione outra instrução `using` para o arquivo `App_Start\Startup.Auth.cs` para ADAL.
 - Agora, adicione um novo método, o manipulador de eventos `OnAuthorizationCodeReceived`. Esse manipulador usará o ADAL para adquirir um token de acesso para a API Lista de Tarefas Pendentes e armazenará o token no cache do token do ADAL para depois:
 
 ```C#
@@ -203,8 +203,8 @@ Para referência, o exemplo concluído (sem seus valores de configuração) [é 
 
 ## Próximas etapas
 
-Para obter recursos adicionais, confira:
-- [A visualização do modelo de aplicativo v2.0 >>](active-directory-appmodel-v2-overview.md)
-- [Marca "adal" da StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
+Para obter recursos adicionais, confira: 
+- [A visualização do modelo de aplicativo v2.0 >>](active-directory-appmodel-v2-overview.md) 
+- [Tag StackOverflow "adal" >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

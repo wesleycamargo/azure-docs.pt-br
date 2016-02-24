@@ -27,7 +27,7 @@ Como um cliente de visualização, você pode ter usado uma dessas versões mais
 
 Agora que a Pesquisa do Azure está disponível publicamente, recomendamos fazer a transição para versões mais recentes: 2015-02-28 é a versão oficial da API da versão disponível publicamente da Pesquisa do Azure. Esta versão está documentada no [MSDN](https://msdn.microsoft.com/library/azure/dn798933.aspx).
 
-Também estamos implantando a próxima versão de visualização, [2015-02-28-Preview](search-api-2015-02-28-preview.md), apresentando recursos que ainda estão em desenvolvimento. Você pode fornecer comentários sobre a API de visualização por meio dos [Fóruns de Pesquisa do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=azuresearch) ou da nossa [página de comentários](http://feedback.azure.com/forums/263029-azure-search).
+Também estamos implantando a próxima versão de visualização, [2015-02-28-Preview](search-api-2015-02-28-preview.md), apresentando recursos que ainda estão em desenvolvimento. Você pode fazer comentários sobre a API de visualização por meio dos [fóruns da Pesquisa do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=azuresearch) ou da nossa [página de comentários](https://feedback.azure.com/forums/263029-azure-search /).
 
 ###Lista de verificação para migração###
 
@@ -144,4 +144,4 @@ A versão de API `2015-02-28` está sob SLA. Use as opções de suporte e os lin
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

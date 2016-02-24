@@ -1,23 +1,23 @@
-<properties 
-	pageTitle="Gerenciar Bancos de Dados SQL do Azure usando o Portal Clássico do Azure" 
-	description="Saiba como usar o Portal Clássico do Azure para gerenciar um banco de dados relacional na nuvem usando o Portal Clássico." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jeffreyg" 
+<properties
+	pageTitle="Gerenciar Bancos de Dados SQL do Azure usando o Portal Clássico do Azure"
+	description="Saiba como usar o Portal Clássico do Azure para gerenciar um banco de dados relacional na nuvem usando o Portal Clássico."
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
 	editor=""/>
 
-<tags 
-	ms.service="sql-database" 
-	ms.devlang="NA" 
-	ms.workload="data-management" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="NA" 
-	ms.date="09/11/2015" 
+<tags
+	ms.service="sql-database"
+	ms.devlang="NA"
+	ms.workload="data-management"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.date="01/22/2016"
 	ms.author="sstein"/>
 
 
-# Gerenciando Bancos de Dados SQL do Azure usando o Portal Clássico do Azure
+# Gerenciando Bancos de Dados SQL do Azure usando o Portal do Azure
 
 
 > [AZURE.SELECTOR]
@@ -25,16 +25,14 @@
 - [SSMS](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
-O [Portal Clássico do Azure][Classic Portal] permite que você crie, monitore e gerencie servidores e bancos de dados SQL do Azure. Este artigo destacará as operações de banco de dados que podem ser realizadas usando o Portal Clássico.
-
->[AZURE.NOTE]Se você não estiver familiarizado com o Portal Clássico do Azure, este [tour em vídeo fornecerá uma visão geral][Azure Classic Portal Tour] de seus recursos e conceitos gerais.
+O [Portal do Azure](https://portal.azure.com/) permite que você crie, monitore e gerencie servidores lógicos e bancos de dados SQL do Azure. Este artigo destaca algumas das tarefas mais comuns.
 
 ![Visão geral sobre o banco de dados](./media/sql-database-manage-portal/sqldatabase_annotated.png)
 
 ## 1\. Ações de gerenciamento de banco de dados
 ![Ações de gerenciamento de banco de dados](./media/sql-database-manage-portal/sqldatabase_actions.png)
 
-O Portal Clássico do Azure fornece um conjunto de ações comuns de banco de dados acessíveis na parte superior da folha de um banco de dados. Você pode restaurar um banco de dados para um ponto anterior no tempo, abrir um banco de dados no Visual Studio, copiar um banco de dados para um novo servidor e exportar o banco de dados para uma conta de armazenamento do Azure.
+O Portal do Azure fornece um conjunto de ações comuns de banco de dados acessíveis na parte superior da folha de um banco de dados. Você pode restaurar um banco de dados para um ponto anterior no tempo, abrir um banco de dados no Visual Studio, copiar um banco de dados para um novo servidor e exportar o banco de dados para uma conta de armazenamento do Azure.
 
 - [Restaurar um banco de dados SQL](sql-database-point-in-time-restore-tutorial-management-portal.md)
 - [Abrir um banco de dados SQL no Visual Studio](sql-database-connect-query.md)
@@ -54,7 +52,7 @@ Os Bancos de Dados SQL do Azure podem ser configurados para rastrear todos os ev
 
 - [Auditoria de Banco de Dados SQL do Azure](sql-database-auditing-get-started.md)
 
-Bancos de dados SQL do Azure também podem ser configurados para mascarar dados confidenciais a usuários não privilegiados.
+Os bancos de dados SQL do Azure também podem ser configurados para mascarar dados confidenciais para usuários não privilegiados.
 
 - [Mascaramento de dados dinâmicos](sql-database-dynamic-data-masking-get-started.md)
 
@@ -62,7 +60,7 @@ Bancos de dados SQL do Azure também podem ser configurados para mascarar dados 
 ## 4\. Replicação geográfica
 ![Replicação geográfica](./media/sql-database-manage-portal/sqldatabase_georeplication.png)
 
-É possível configurar bancos de dados SQL do Azure para replicar de forma assíncrona as transações confirmadas para um banco de dados secundário. Parte de replicação geográfica no Portal Clássico permite que você selecione a região do Azure na qual gostaria de colocar o banco de dados secundário.
+É possível configurar bancos de dados SQL do Azure para replicar de forma assíncrona as transações confirmadas para um banco de dados secundário. Parte da replicação geográfica no portal permite que você selecione a região do Azure na qual gostaria de colocar o banco de dados secundário.
 
 - [Replicação Geográfica](https://msdn.microsoft.com/library/azure/dn783447.aspx)
 
@@ -74,7 +72,7 @@ Bancos de dados SQL do Azure também podem ser configurados para mascarar dados 
 * [Banco de Dados SQL](sql-database-technical-overview.md)   
 * [Monitorando o Banco de Dados SQL Usando Exibições de Gerenciamento Dinâmico][]   
 * [Referência Transact-SQL (Banco de Dados SQL)][]
-  
+
   [Azure Classic Portal Tour]: https://go.microsoft.com/fwlink/?LinkID=522341
   [Classic Portal]: https://portal.azure.com
   [Azure part monitoring]: ../documentdb-monitor-accounts.md
@@ -87,7 +85,4 @@ Bancos de dados SQL do Azure também podem ser configurados para mascarar dados 
   [AzureDb Auditing]: http://azure.microsoft.com/documentation/articles/sql-database-auditing-get-started/
   [AzureDb datamasking]: http://azure.microsoft.com/documentation/articles/sql-database-dynamic-data-masking-get-started/
 
- 
- 
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

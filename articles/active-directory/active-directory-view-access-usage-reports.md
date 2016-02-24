@@ -34,7 +34,7 @@ No Portal de Gerenciamento do Azure, os relatórios são categorizados das segui
 > [AZURE.NOTE]
 >
 - Alguns relatórios avançados de uso de recursos e anomalias estão disponíveis somente quando você habilita o [Azure Active Directory Premium](active-directory-get-started-premium.md). Relatórios avançados ajudam a melhorar a segurança de acesso, responder às ameaças potenciais e obter acesso a análises sobre o uso do aplicativo e acesso do dispositivo.
-- As Azure Active Directory Premium e Basic estão disponíveis para clientes na China usando a instância mundial do Active Directory do Azure. As edições Azure Active Directory Premium e Basic não têm suporte atualmente no serviço Microsoft Azure operado pela 21Vianet na China. Para obter mais informações, entre em contato conosco no [Fórum do Active Directory do Azure](http://feedback.azure.com/forums/169401-azure-active-directory).
+- As Azure Active Directory Premium e Basic estão disponíveis para clientes na China usando a instância mundial do Active Directory do Azure. As edições Azure Active Directory Premium e Basic não têm suporte atualmente no serviço Microsoft Azure operado pela 21Vianet na China. Para obter mais informações, entre em contato conosco no [Fórum do Active Directory do Azure](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ## Relatórios
 
@@ -221,7 +221,7 @@ Somente determinados tipos de eventos de entrada serão exibidos no relatório d
 | ----------------------								| ---------		|
 | Entradas no [Painel de Acesso](http://myapps.microsoft.com/) | Sim |
 | Entradas no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com/) | Sim |
-| Entradas no [Portal do Microsoft Azure](http://portal.azure.com/) | Sim |
+| Entradas no [Portal do Microsoft Azure](https://portal.azure.com/) | Sim |
 | Entradas no [Portal do Office 365](http://portal.office.com/) | Sim |
 | Entradas em um aplicativo nativo, como o Outlook (consulte exceção abaixo) | Sim |
 | Entradas em um aplicativo federado/provisionado por meio do Painel de Acesso, como Salesforce | Sim |
@@ -253,7 +253,7 @@ Se você suspeitar que uma conta de usuário pode estar comprometida ou qualquer
 1. No Portal de Gerenciamento do Azure, clique em **Active Directory** e no nome do diretório da sua organização, então clique em **Relatórios**.
 2. Na página Relatórios, clique no relatório que você deseja exibir e/ou baixar.
 
-    > [AZURE.NOTE]Se esta for a primeira vez que você usa o recurso de relatório do Active Directory do Azure, verá uma mensagem para aceitar. Se você concordar, clique no ícone de marca de seleção para continuar.
+    > [AZURE.NOTE] Se esta for a primeira vez que você usa o recurso de relatório do Active Directory do Azure, verá uma mensagem para aceitar. Se você concordar, clique no ícone de marca de seleção para continuar.
 
 3. Clique no menu suspenso ao lado de Intervalo e, em seguida, selecione um dos seguintes intervalos de tempo que deverá ser usado ao gerar este relatório:
     - Últimas 24 horas
@@ -271,11 +271,11 @@ Se você estiver exibindo os relatórios de anomalias, perceba que você pode ig
 
 ## Notificações automáticas por email
 
-Para saber mais sobre as notificações de relatórios do AD do Azure, confira [Notificações de relatórios do Active Directory do Azure](active-directory-reporting-notifications.md).
+Para saber mais sobre as notificações de relatórios do Azure AD, confira [Notificações de relatórios do Active Directory do Azure](active-directory-reporting-notifications.md).
 
 ## O que vem a seguir
 
 - [Introdução ao Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Adicionar identidade visual da empresa às páginas de Entrada e do Painel de acesso](active-directory-add-company-branding.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

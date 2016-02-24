@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Mover dados para e do SQL Server local ou em IaaS (VM do Azure) usando o Azure Data Factory
@@ -27,6 +27,8 @@ Os conceitos e as etapas necessários para conectar-se com o SQL Server hospedad
 Consulte o artigo [movendo dados entre pontos locais e na nuvem](data-factory-move-data-between-onprem-and-cloud.md) para saber mais sobre o Gateway de gerenciamento de dados e obter instruções passo a passo de como configurar o gateway. Configurar uma instância de gateway é um pré-requisito para a conexão com o SQL Server.
 
 Embora você possa instalar o gateway no mesmo computador local ou instância VM de nuvem que o SQL Server, é recomendável instalá-los em computadores separados ou na VM de nuvem, para obter melhor desempenho e evitar contenção de recursos.
+
+Os exemplos a seguir mostram como copiar dados entre o SQL Server e o Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** de qualquer uma das fontes a qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores) usando a atividade de cópia no Azure Data Factory.
 
 ## Exemplo: copiar dados do SQL Server para Blob do Azure
 
@@ -204,7 +206,7 @@ O pipeline contém uma Atividade de Cópia que está configurada para usar os co
 	   }
 	}
 
-> [AZURE.NOTE]No exemplo acima, **sqlReaderQuery** é especificado para o SqlSource. A Atividade de Cópia executa essa consulta na fonte do Banco de Dados do SQL Server para obter os dados.
+> [AZURE.NOTE] No exemplo acima, **sqlReaderQuery** é especificado para o SqlSource. A Atividade de Cópia executa essa consulta na fonte do Banco de Dados do SQL Server para obter os dados.
 >  
 > Como alternativa, você pode especificar um procedimento armazenado especificando o **sqlReaderStoredProcedureName** e o **storedProcedureParameters** (se o procedimento armazenado usar parâmetros).
 >  
@@ -431,11 +433,11 @@ Se o nome de usuário e senha forem especificados, o gateway os usará para repr
 	     } 
 	}
 
-Veja [Definir credenciais e segurança](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) para obter detalhes sobre como definir credenciais para uma fonte de dados do SQL Server.
+Consulte [Definir credenciais e segurança](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) para obter detalhes sobre como definir credenciais para uma fonte de dados do SQL Server.
 
 ## Propriedades de tipo de conjunto de dados do SQL Server
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, veja o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). Seções como estrutura, disponibilidade e política de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Server, blob do Azure, tabela do Azure, etc.).
+Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). Seções como estrutura, disponibilidade e política de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Server, blob do Azure, tabela do Azure, etc.).
 
 A seção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção **typeProperties** para o conjunto de dados do tipo **SqlServerTable** tem as propriedades a seguir.
 
@@ -445,9 +447,9 @@ A seção typeProperties é diferente para cada tipo de conjunto de dados e forn
 
 ## Propriedades de tipo de atividade de cópia do SQL Server
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, veja o artigo [Criando pipelines](data-factory-create-pipelines.md). Propriedades, como nome, descrição, tabelas de entrada e saída, várias políticas, etc. estão disponíveis para todos os tipos de atividades.
+Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, consulte o artigo [Criando pipelines](data-factory-create-pipelines.md). Propriedades, como nome, descrição, tabelas de entrada e saída, várias políticas, etc. estão disponíveis para todos os tipos de atividades.
 
-> [AZURE.NOTE]A Atividade de cópia usa apenas uma entrada e produz apenas uma saída.
+> [AZURE.NOTE] A Atividade de cópia usa apenas uma entrada e produz apenas uma saída.
 
 As propriedades disponíveis na seção typeProperties da atividade, por outro lado, variam de acordo com cada tipo de atividade e, no caso de Atividade de cópia, variam dependendo dos tipos de fontes e coletores.
 
@@ -482,6 +484,28 @@ O **SqlSink** dá suporte às seguintes propriedades:
 | storedProcedureParameters | Parâmetros para o procedimento armazenado. | Pares de nome/valor. Nomes e uso de maiúsculas e minúsculas de parâmetros devem corresponder aos nomes e o uso de maiúsculas e minúsculas dos parâmetros do procedimento armazenado. | Não | 
 | sqlWriterTableType | Nome do tipo de tabela especificado pelo usuário a ser utilizado no procedimento armazenado acima. A atividade de cópia disponibiliza aqueles dados sendo movidos em uma tabela temporária com esse tipo de tabela. O código de procedimento armazenado pode mesclar os dados sendo copiados com dados existentes. | Um nome de tipo de tabela. | Não |
 
+## Solucionar problemas de conexão
+
+1. Configure seu SQL Server para aceitar conexões remotas. Inicie o **SQL Server Management Studio**, clique com botão direito do mouse em **servidor** e clique em **Propriedades**. Selecione **Conexões** na lista e marque **Permitir conexões remotas ao servidor**.
+	
+	![Habilitar conexões remotas](.\media\data-factory-sqlserver-connector\AllowRemoteConnections.png)
+
+	Confira [Configurar a opção de configuração do servidor de acesso remoto](https://msdn.microsoft.com/library/ms191464.aspx) para obter as etapas detalhadas. 
+2. Inicie o **SQL Server Configuration Manager**. Expanda **Configuração de Rede do SQL Server** para a instância que você deseja e selecione **Protocolos para MSSQLSERVER**. Você deve ver os protocolos no painel à direita. Habilite TCP/TP clicando em **TCP/IP** e clicando em **Habilitar**.
+
+	![Habilitar TCP/IP](.\media\data-factory-sqlserver-connector\EnableTCPProptocol.png)
+
+	Confira [Habilitar ou desabilitar um protocolo de rede de servidor](https://msdn.microsoft.com/library/ms191294.aspx) para obter detalhes e formas alternativas de habilitar um protocolo TCP/IP. 
+3. Na mesma janela, clique duas vezes em **TCP/IP** para iniciar a janela **Propriedades de TCP/IP**.
+4. Alterne para a guia **Endereços IP**. Role para baixo para ver a seção **IPAll**. Anote a **Porta TCP** (a padrão é **1433**).
+5. Crie uma **regra para o Firewall do Windows** no computador para permitir o tráfego de entrada por essa porta.  
+6. **Verifique a conexão**: use o SQL Server Management Studio de um computador diferente para conectar-se ao SQL Server usando um nome totalmente qualificado. Por exemplo: <machine>.<domain>.corp.<company>.com,1433.
+
+	> [AZURE.IMPORTANT] 
+	Confira [Portas e considerações de segurança](data-factory-move-data-between-onprem-and-cloud.md#port-and-security-considerations) para obter informações detalhadas.
+	>   
+	> Confira [Solução de problemas de gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) para ver dicas sobre como solucionar problemas de conexão/gateway.
+
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
 
@@ -491,9 +515,9 @@ O **SqlSink** dá suporte às seguintes propriedades:
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 
-### Mapeamento de tipo para SQL Server e SQL Azure
+### Mapeamento de tipo para SQL Server e Azure SQL
 
-Conforme mencionado no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md), a atividade de cópia executa conversões automáticas de tipo de tipos de fonte para tipos de coletor, com a abordagem em duas etapas descrita a seguir:
+Como mencionado no artigo sobre [atividades de movimentação de dados](data-factory-data-movement-activities.md), a atividade de Cópia executa conversões automáticas de tipos de fonte para tipos de coletor, com a seguinte abordagem de duas etapas:
 
 1. Converter de tipos de fonte nativos para o tipo .NET
 2. Converter do tipo .NET para o tipo de coletor nativo
@@ -543,4 +567,4 @@ O mapeamento é o mesmo que o mapeamento de tipo de dados do SQL Server para o A
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

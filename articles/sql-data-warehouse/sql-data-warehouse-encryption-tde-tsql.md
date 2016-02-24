@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Introdução ao TSQL de Transparent Data Encryption (TDE) do SQL Data Warehouse | Microsoft Azure" 
-	description="Introdução ao TSQL de Transparent Data Encryption (TDE) do SQL Data Warehouse" 
-	services="sql-data-warehouse" 
-	documentationCenter="" 
-	authors="twounder" 
-	manager="" 
-	editor=""/>
+   pageTitle="Introdução ao TSQL de Transparent Data Encryption (TDE) do SQL Data Warehouse | Microsoft Azure" 
+   description="Introdução ao TSQL de Transparent Data Encryption (TDE) do SQL Data Warehouse" 
+   services="sql-data-warehouse" 
+   documentationCenter="" 
+   authors="twounder" 
+   manager="barbkess" 
+   editor=""/>
 
 <tags 
-	ms.service="sql-data-warehouse" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/21/2015" 
-	ms.author="twounder"/>
+   ms.service="sql-data-warehouse" 
+   ms.workload="data-management" 
+   ms.tgt_pltfrm="na" 
+   ms.devlang="na" 
+   ms.topic="article" 
+   ms.date="01/07/2016" 
+   ms.author="mausher;barbkess;sonyama"/>
  
 # Introdução ao Transparent Data Encryption (TDE)
 > [AZURE.SELECTOR]
@@ -73,4 +73,4 @@ Um resultado de ```1``` indica um banco de dados criptografado, ```0``` indica u
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

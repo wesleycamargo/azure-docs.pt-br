@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Indexação Automática no Banco de Dados de Documentos | Microsoft Azure" 
+	pageTitle="Indexação automática no Banco de Dados de Documentos | Microsoft Azure" 
 	description="Saiba mais sobre o funcionamento da indexação no Banco de Dados de Documentos do Azure." 
 	services="documentdb" 
 	authors="arramac" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="02/03/2016" 
 	ms.author="arramac"/>
 	
 # Indexação automática no Banco de Dados de Documentos do Azure
@@ -28,13 +28,13 @@ Depois de ler este artigo, você poderá responder às seguintes perguntas:
 
 ##<a id="HowDocumentDBIndexingWorks"></a> Funcionamento da indexação do Banco de Dados de Documentos
 
-O [Banco de Dados de Documentos do Microsoft Azure](http://azure.microsoft.com/services/documentdb/) é um verdadeiro banco de dados independente de esquema desenvolvido especificamente para JSON. Ele não espera ou exige qualquer esquema ou definições de índice secundárias para indexar dados em escala. Isso permite que você defina rapidamente e itere em modelos de dados de aplicativo usando o Banco de Dados de Documentos. Ao incluir documentos em uma coleção, o Banco de Dados de Documentos indexa todas as propriedades de documento automaticamente e elas ficam disponíveis para consulta. A indexação automática permite que você armazene documentos pertencentes a esquemas completamente arbitrários sem se preocupar com esquemas ou índices secundários.
+O [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/) é um verdadeiro banco de dados independente de esquema desenvolvido especificamente para JSON. Ele não espera ou exige qualquer esquema ou definições de índice secundárias para indexar dados em escala. Isso permite que você defina rapidamente e itere em modelos de dados de aplicativo usando o Banco de Dados de Documentos. Ao incluir documentos em uma coleção, o Banco de Dados de Documentos indexa todas as propriedades de documento automaticamente e elas ficam disponíveis para consulta. A indexação automática permite que você armazene documentos pertencentes a esquemas completamente arbitrários sem se preocupar com esquemas ou índices secundários.
 
 Com o objetivo de eliminar a incompatibilidade de impedância entre o banco de dados e os modelos de programação de aplicativo, o Banco de Dados de Documentos explora a simplicidade do JSON e sua falta de uma especificação de esquema. Ele não faz nenhuma suposição sobre os documentos e permite que os documentos de uma coleção do Banco de Dados de Documentos variem no esquema, além de valores específicos da instância. Em comparação com outros bancos de dados de documentos, o mecanismo de banco de dados do Banco de Dados de Documentos opera diretamente no nível de gramática do JSON, permanecendo agnóstico em relação ao conceito de um esquema de documento e obscurecendo o limite entre os valores de instância e de estrutura de documentos. Isso, por sua vez, permite que ele indexe automaticamente documentos sem exigir um esquema ou índices secundários.
 
 A indexação do Banco de Dados de Documentos aproveita-se que a gramática JSON permite que os documentos sejam **representados como árvores**. Para um documento JSON ser representado como uma árvore, precisa ser criado um nó raiz fictício que seja pai do restante de nós reais no documento abaixo. Cada rótulo, inclusive os índices da matriz em um documento JSON torna-se um nó da árvore. A figura a seguir ilustra um documento JSON de exemplo e sua representação de árvore correspondente.
 
->[AZURE.NOTE]Como o JSON é autodescritivo, ou seja, cada documento inclui o esquema (metadados) e os dados; por exemplo, o `{"locationId": 5, "city": "Moscow"}` revela que há duas propriedades `locationId` e `city`, e que elas têm valores de propriedade numéricos e de cadeia de caracteres. O Banco de Dados de Documentos pode inferir o esquema de documentos e indexá-los quando inseridos ou substituídos, sem que seja necessário definir esquemas ou índices secundários.
+>[AZURE.NOTE] Como o JSON é autodescritivo, ou seja, cada documento inclui o esquema (metadados) e os dados; por exemplo, o `{"locationId": 5, "city": "Moscow"}` revela que há duas propriedades `locationId` e `city`, e que elas têm valores de propriedade numéricos e de cadeia de caracteres. O Banco de Dados de Documentos pode inferir o esquema de documentos e indexá-los quando inseridos ou substituídos, sem que seja necessário definir esquemas ou índices secundários.
 
 
 **Documentos JSON como árvores:**
@@ -67,4 +67,4 @@ A indexação do Banco de Dados de Documentos foi projetada para eficiência de 
 - Saiba mais sobre como personalizar o índice do Banco de Dados de Documentos [aqui](documentdb-indexing-policies.md)
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0204_2016-->

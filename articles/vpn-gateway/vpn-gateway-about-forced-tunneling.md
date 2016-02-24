@@ -46,7 +46,7 @@ O túnel forçado no Azure é configurado por meio de Rotas de Rede virtual Defi
 
 	- **Rotas locais de Rede Virtual:** diretamente para as VMs de destino na mesma rede virtual
 	
-	- **Rotas locais:** para o Gateway de VPN do Azure
+	- **Rotas locais:** gateway de VPN do Azure
 	
 	- **Rota padrão:** diretamente para a Internet. Observe que os pacotes destinados para os endereços IP privados não cobertos pelas duas rotas anteriores serão removidos.
 
@@ -106,7 +106,7 @@ No exemplo, a Rede Virtual "MultiTier-VNet" tem 3 sub-redes: *Front-end*, *Mid-T
 
 - Uma rede virtual configurada.
 
-- A versão mais recente dos cmdlets do Azure PowerShell usando o Web Platform Installer. Você pode baixar e instalar a versão mais recente da seção **Windows PowerShell** da [página de download](http://azure.microsoft.com/downloads/).
+- A versão mais recente dos cmdlets do Azure PowerShell usando o Web Platform Installer. Você pode baixar e instalar a versão mais recente da seção **Windows PowerShell** da [página de download](https://azure.microsoft.com/downloads/).
 
 ## Configurar o túnel forçado
 
@@ -165,4 +165,4 @@ Abaixo estão alguns cmdlets adicionais do PowerShell que podem ser úteis ao tr
 
 	Remove-AzureVnetGatewayDefaultSites -VNetName <virtualNetworkName>
 
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016--->

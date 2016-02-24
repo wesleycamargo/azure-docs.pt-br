@@ -11,17 +11,17 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="12/18/2015"
+	ms.date="02/09/2016"
 	ms.author="ashmaka"/>
 
 # O que é a Pesquisa do Azure?
-Pesquisa do Azure é uma solução de pesquisa como um serviço de nuvem que delega o gerenciamento de infraestrutura e servidor à Microsoft, fornecendo um serviço pronto para uso que você pode preencher com seus dados e então utilizar para pesquisa. A pesquisa do Azure permite que você adicione facilmente uma experiência de pesquisa robusta aos seus aplicativos usando uma API REST simples ou o SDK do .NET sem gerenciar de infraestrutura de pesquisa nem se tornar um especialista em pesquisa.
+A Pesquisa do Azure é uma solução de pesquisa como um serviço de nuvem que delega o gerenciamento de infraestrutura e servidor à Microsoft, fornecendo um serviço pronto para uso que você pode preencher com seus dados e então utilizar para adicionar pesquisa a seu aplicativo Web ou móvel. A Pesquisa do Azure permite que você adicione facilmente uma experiência de pesquisa robusta aos seus aplicativos usando uma [API REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) simples ou o [SDK do .NET](search-howto-dotnet-sdk.md) sem gerenciar a infraestrutura de pesquisa nem se tornar um especialista em pesquisa.
 
 ## Dá aos seus usuários uma experiência de pesquisa avançada
 
-**Consultas avançadas** usando operadores lógicos, expressões de comparação e muito mais podem ser formuladas usando [sintaxe de OData](https://msdn.microsoft.com/library/azure/dn798921.aspx) e [sintaxe de consulta simples](https://msdn.microsoft.com/library/azure/dn798920.aspx). Além disso, a [sintaxe de consulta Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx) (atualmente em visualização) pode permitir a pesquisa difusa, pesquisa por proximidade, aprimoramento de termo e expressões regulares. A pesquisa do Azure também oferece suporte a analisadores léxicos personalizados para permitir que seu aplicativo lide com consultas de pesquisa complexas usando expressões regulares e correspondência fonética.
+**Consultas avançadas** podem ser formuladas usando a [sintaxe de consulta simples](https://msdn.microsoft.com/library/azure/dn798920.aspx), que oferece operadores lógicos, operadores de pesquisa de frase, operadores de sufixo e operadores de precedência. Além disso, a [sintaxe de consulta Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx) pode permitir a pesquisa difusa, pesquisa por proximidade, aprimoramento de termo e expressões regulares. A pesquisa do Azure também oferece suporte a analisadores léxicos personalizados para permitir que seu aplicativo lide com consultas de pesquisa complexas usando expressões regulares e correspondência fonética.
 
-**Suporte ao idioma** está [incluído para idiomas diferentes de 56](https://msdn.microsoft.com/library/azure/dn879793.aspx). Usando analisadores Lucene e analisadores da Microsoft (refinados por anos de processamento de idioma natural no Office e no Bing), a pesquisa do Azure pode analisar texto com quebra de palavras, normalização do texto, tematização e muito mais. Isso permite que a caixa de pesquisa do aplicativo trate com inteligência erros de ortografia, tempo verbal, substantivos plurais irregulares (por exemplo, ' mouse' x 'mice') e muito mais.
+**Suporte ao idioma** está [incluído para idiomas diferentes de 56](https://msdn.microsoft.com/library/azure/dn879793.aspx). Usando tanto analisadores Lucene quanto analisadores da Microsoft (refinados por anos de processamento de idioma natural no Office e no Bing), a Pesquisa do Azure pode analisar o texto na caixa de pesquisa do seu aplicativo para tratar inteligentemente elementos linguísticos específicos a um idioma, incluindo tempos verbais, sexo, substantivos plurais irregulares (por exemplo, 'mouse' x 'mice'), decomposição de palavras, quebra de palavras (para idiomas sem espaços) e muito mais.
 
 A opção **Sugestões de pesquisa** pode ser habilitada para barras de pesquisa com preenchimento automático e barras de previsão de digitação. [Documentos reais no seu índice são sugeridos](https://msdn.microsoft.com/library/azure/dn798936.aspx) conforme os usuários inserem entrada de pesquisa parcial.
 
@@ -29,9 +29,9 @@ A opção **Sugestões de pesquisa** pode ser habilitada para barras de pesquisa
 
 **Navegação facetada** é facilmente adicionada à sua página de resultados de pesquisa com a Pesquisa do Azure. Usando [apenas um único parâmetro de consulta](https://msdn.microsoft.com/library/azure/dn798927.aspx), A Pesquisa do Azure retornará todas as informações necessárias para construir uma experiência de pesquisa facetada na interface do usuário do seu aplicativo para permitir aos usuários fazer o drill-down e filtrar resultados de pesquisa (por exemplo, filtrar itens de catálogo por faixa de preços ou marca).
 
-**Suporte** [geoespacial](https://msdn.microsoft.com/library/azure/dn798921.aspx) permite processar de, filtrar e exibir maneira inteligente os locais geográficos. A Pesquisa do Azure permite que os usuários explorarem dados com base na proximidade de um resultado de pesquisa para um local específico ou em uma região geográfica específica.
+**Suporte** [geoespacial](search-create-geospatial.md) permite processar de, filtrar e exibir maneira inteligente os locais geográficos. A Pesquisa do Azure permite que os usuários explorarem dados com base na proximidade de um resultado de pesquisa para um local específico ou em uma região geográfica específica.
 
-**Filtros** podem ser usado para incorporar facilmente navegação mista (por exemplo, filtragem por categoria ou preço), aprimorar a formulação de consulta e filtrar com base em critérios especificados pelo usuário ou pelo desenvolvedor.
+**Filtros** podem ser usado para facilmente incorporar faceted navigation na interface do usuário de seu aplicativo, aprimorar a formulação de consulta e filtrar com base em critérios especificados pelo usuário ou pelo desenvolvedor. Crie filtros poderosos usando a [sintaxe de OData](https://msdn.microsoft.com/library/azure/dn798921.aspx).
 
 ## Capacitar seus desenvolvedores com um serviço fácil de usar
 
@@ -39,9 +39,9 @@ A opção **Sugestões de pesquisa** pode ser habilitada para barras de pesquisa
 
 **Totalmente gerenciada** como uma solução de ponta a ponta, a Pesquisa do Azure não requer absolutamente nenhum gerenciamento de infraestrutura. Seu serviço pode ser adaptado facilmente às suas necessidades ajustando a sua escala em duas dimensões para lidar com mais armazenamento de documento, maiores cargas de consulta ou ambos.
 
-A **integração de dados** usando [indexadores](https://msdn.microsoft.com/library/azure/dn946891.aspx) permite que a Pesquisa do Azure rastreie automaticamente o Banco de Dados SQL ou o Banco de Dados de Documentos do Azure para sincronizar o conteúdo do índice de pesquisa com seu armazenamento de dados primário.
+A **integração de dados** usando [indexadores](https://msdn.microsoft.com/library/azure/dn946891.aspx) permite que a Pesquisa do Azure rastreie automaticamente o Banco de Dados SQL, o Banco de Dados de Documentos do Azure ou o [Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md) para sincronizar o conteúdo do seu índice de pesquisa com seu armazenamento de dados primário.
 
-**Violação de documento** está disponível [para ler e indexar os principais formatos de arquivos](search-howto-indexing-azure-blob-storage.md), incluindo Microsoft Office, bem como documentos PDF e HTML.
+**Violação de documento** está disponível (atualmente em visualização) [para ler e indexar os principais formatos de arquivos](search-howto-indexing-azure-blob-storage.md), incluindo Microsoft Office, bem como documentos PDF e HTML.
 
 **Análise de tráfego de pesquisa** é [facilmente coletada e analisada](search-traffic-analytics.md) para revelar novas informações sobre o que os usuários estão digitando na caixa de pesquisa.
 
@@ -49,7 +49,7 @@ A **integração de dados** usando [indexadores](https://msdn.microsoft.com/libr
 
 **Classificação** é oferecida para vários campos por meio do esquema de índice e então alternada no momento da consulta com um parâmetro de pesquisa único.
 
-**Paginação** e limitação dos resultados da pesquisa são simples com o controle bem ajustado que a Pesquisa do Azure oferece sobre seus resultados da pesquisa.
+**Paginação** e limitação dos resultados da pesquisa são [simples com o controle bem ajustado](search-pagination-page-layout.md) que a Pesquisa do Azure oferece sobre seus resultados da pesquisa.
 
 O **Gerenciador de pesquisa** permite que emitir consultas em todos os seus índices diretamente do portal do Azure da sua conta para testar consultas e refinar os perfis de pontuação.
 
@@ -82,4 +82,4 @@ Você pode experimentar a Pesquisa do Azure hoje mesmo! Se você já tiver uma c
 
 Se não tiver uma conta do Azure, pode experimentar uma sessão gratuita de 60 minutos sem necessidade de qualquer inscrição. Vá para [Experimentar o Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/p/?LinkId=618214) e selecione "Aplicativo Web." Selecione o modelo de "ASP.NET + Pesquisa do Azure" para começar.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

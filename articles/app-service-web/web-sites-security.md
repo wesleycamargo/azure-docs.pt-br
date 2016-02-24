@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Proteger um aplicativo Web no Serviço de Aplicativo do Azure"
-	description="Saiba como proteger um aplicativo Web do Azure."
+	pageTitle="Proteger um aplicativo no Serviço de Aplicativo do Azure"
+	description="Saiba como proteger um aplicativo Web, um back-end de aplicativo móvel ou um aplicativo de API no Serviço de Aplicativo do Azure."
 	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
@@ -13,27 +13,64 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="01/12/2016"
 	ms.author="cephalin"/>
 
 
-#Proteger um aplicativo Web no Serviço de Aplicativo do Azure
+#Proteger um aplicativo no Serviço de Aplicativo do Azure
 
-Um dos desafios do desenvolvimento de um aplicativo Web é como fornecer um dispositivo seguro e protegido para os clientes. Neste artigo, você saberá os recursos do [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) que podem proteger o aplicativo Web.
+Este artigo ajuda você a começar a proteger seu aplicativo Web, o back-end do aplicativo móvel ou o aplicativo de API no Serviço de Aplicativo do Azure.
 
-> [AZURE.NOTE]Uma discussão completa das considerações sobre segurança para aplicativos Web está além do escopo deste documento. Como ponto de partida para mais diretrizes sobre como proteger aplicativos Web, consulte o [Open Web Application Security Project (OWASP)](https://www.owasp.org/index.php/Main_Page), mais especificamente o [o projeto das 10 mais](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project), que lista as 10 principais falhas de segurança em aplicativos Web, conforme determinado pelos membros do OWASP.
+A segurança no Serviço de Aplicativo do Azure tem dois níveis:
 
-[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+- **Segurança de plataforma e infraestrutura** - você confia no Azure para ter os serviços de que precisa para executar tarefas com segurança na nuvem.
+- **Segurança de aplicativo** -você precisa projetar o aplicativo em si de modo seguro. Isso inclui como você se integra ao Active Directory do Azure, como gerencia certificados e como garante que pode se comunicar com segurança com diferentes serviços. 
 
-##<a name="https"></a> Comunicações seguras
+#### Segurança de plataforma e infraestrutura
+Como o Serviço de Aplicativo mantém as VMs, o armazenamento, as conexões de rede, as estruturas da Web, os recursos de gerenciamento e a integração do Azure e muito mais, ele é ativamente protegido e fortalecido, além de passar continuamente por rigorosas verificações de conformidade para garantir que:
 
-Se você usar o nome de domínio ****.azurewebsites.net** criado para o aplicativo Web, será possível usar imediatamente o protocolo HTTPS, já que um certificado SSL é fornecido para todos os nomes de domínio ****.azurewebsites.net**. Se o site usar um [nome de domínio personalizado](web-sites-custom-domain-name.md), será possível carregar um certificado SSL para [habilitar o protocolo HTTPS](web-sites-configure-ssl-certificate.md) para o domínio personalizado.
+- Seus aplicativos do Serviço de Aplicativo estejam isolados da Internet e de outros recursos do Azure dos clientes.
+- A comunicação de segredos (por exemplo, cadeias de conexão) entre o aplicativo do Serviço de Aplicativo e outros recursos do Azure (por exemplo, Banco de Dados SQL) em um grupo de recursos permaneça dentro do Azure e não cruze nenhum limite de rede. Os segredos sejam sempre criptografados.
+- Toda a comunicação entre seu aplicativo do Serviço de Aplicativo e recursos externos, como gerenciamento do PowerShell, interface de linha de comando, SDKs do Azure, APIs REST e conexões híbridas, seja corretamente criptografada.
+- O gerenciamento de ameaças 24 horas por dia proteja recursos do Serviço de Aplicativo contra malware, DDoS (negação de serviços distribuído), MITM (man-in-the-middle) e outras ameaças. 
 
-##<a name="develop"></a> Desenvolvimento seguro
+Para saber mais sobre segurança de plataforma e infraestrutura no Azure, confira [Centro de Confiabilidade do Azure](/support/trust-center/security/).
+
+#### Segurança do aplicativo
+
+Enquanto o Azure é responsável por proteger a infraestrutura e a plataforma em que seu aplicativo é executado, é sua responsabilidade proteger o aplicativo em si. Em outras palavras, você precisa desenvolver, implantar e gerenciar o código e o conteúdo do aplicativo de maneira segura. Caso contrário, o código ou conteúdo do aplicativo pode ficar vulnerável a ameaças como:
+
+- Injeção de SQL
+- Sequestro de sessão
+- Script entre sites
+- MITM no nível de aplicativo
+- DDoS no nível de aplicativo
+
+Uma discussão completa das considerações sobre segurança para aplicativos Web está além do escopo deste documento. Como ponto de partida para mais diretrizes sobre como proteger seu aplicativo, confira [OWASP (Open Web Application Security Project)](https://www.owasp.org/index.php/Main_Page), mais especificamente o [projeto das 10 principais](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project), que lista as 10 principais falhas de segurança em aplicativos Web, conforme determinado pelos membros do OWASP.
+
+## Executar testes de penetração no aplicativo
+
+Uma das maneiras mais fáceis de começar a fazer testes de vulnerabilidades no aplicativo do Serviço de Aplicativo é usar a [integração à Tinfoil Security](/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) para executar a verificação de vulnerabilidades de um clique no aplicativo. Você pode exibir os resultados do teste em um relatório de fácil compreensão e aprender como corrigir cada vulnerabilidade com instruções passo a passo.
+
+Se preferir realizar seus próprios testes de penetração ou se desejar usar outro pacote de scanners ou provedor, você deverá seguir o [processo de aprovação do teste de penetração do Azure](https://security-forms.azure.com/penetration-testing/terms) e obter aprovação prévia para realizar os testes de penetração desejados.
+
+##<a name="https"></a> Comunicação segura com os clientes
+
+Se você usar o nome de domínio ***.azurewebsites.net** criado para o aplicativo do Serviço de Aplicativo, será possível usar imediatamente o protocolo HTTPS, já que um certificado SSL é fornecido para todos os nomes de domínio ***.azurewebsites.net**. Se o site usar um [nome de domínio personalizado](web-sites-custom-domain-name.md), será possível carregar um certificado SSL para [habilitar o protocolo HTTPS](web-sites-configure-ssl-certificate.md) para o domínio personalizado.
+
+Habilitar o [HTTPS](https://en.wikipedia.org/wiki/HTTPS) pode ajudar a proteger contra ataques MITM na comunicação entre o aplicativo e seus usuários.
+
+## Camada de dados segura
+
+O Serviço de Aplicativo integra-se favoravelmente ao Banco de Dados SQL, de modo que todas as cadeias de conexão são criptografadas em todos os sentidos e são descriptografadas apenas na VM em que o aplicativo é executado *e* apenas quando o aplicativo é executado. Além disso, o Banco de Dados SQL do Azure inclui muitos recursos de segurança que ajudam a proteger os dados do aplicativo contra ameaças cibernéticas, incluindo [criptografia em repouso](https://msdn.microsoft.com/library/dn948096.aspx), [Sempre Criptografado](https://msdn.microsoft.com/library/mt163865.aspx), [Máscara de Dados Dinâmicos](../sql-database/sql-database-dynamic-data-masking-get-started.md) e [Detecção de Ameaças](sql-database-threat-detection-get-started). Se você tem dados confidenciais ou requisitos de conformidade, confira [Protegendo o Banco de Dados SQL](../sql-database/sql-database-security.md) para saber mais sobre como proteger seus dados.
+
+Se você usar um provedor de banco de dados de terceiros, como ClearDB, será preciso consultar a documentação do provedor diretamente no que se refere às práticas recomendadas de segurança.
+
+##<a name="develop"></a> Desenvolvimento e implantação seguros
 
 ### Publicando configurações de publicação de perfis e publicação
 
-Durante o desenvolvimento de aplicativos, a realização de tarefas de gerenciamento ou a automação de tarefas usando utilitários como **Visual Studio**, **Web Matrix**, **Azure PowerShell** ou a **Interface de linha de comando do Azure (CLI do Azure)**, é possível usar um arquivo de *configurações de publicação* ou um *perfil de publicação*. Ambos autenticam você no Azure e devem ser protegidos para evitar o acesso não autorizado.
+Durante o desenvolvimento de aplicativos, a realização de tarefas de gerenciamento ou a automação de tarefas usando utilitários como **Visual Studio**, **Web Matrix**, **Azure PowerShell** ou a **Interface de linha de comando do Azure (CLI do Azure)**, é possível usar um arquivo de *configurações de publicação* ou um *perfil de publicação*. Ambos os tipos de arquivo autenticam você no Azure e devem ser protegidos para impedir o acesso não autorizado.
 
 * Um arquivo de **configurações de publicação** contém
 
@@ -43,46 +80,47 @@ Durante o desenvolvimento de aplicativos, a realização de tarefas de gerenciam
 
 * Um arquivo de **perfil de publicação** contém
 
-	* Informações de publicação para seu aplicativo Web
+	* Informações para publicar no aplicativo
 
-Se você usa um utilitário que utiliza configurações de publicação ou perfil de publicação, importe o arquivo que contém as configurações de publicação ou o perfil para o utilitário e **exclua** o arquivo. Se você precisar manter o arquivo para compartilhar com outros que trabalhem no projeto, por exemplo, armazene-o em um local seguro, como um diretório **criptografado** com permissões restritas.
+Se você usar um utilitário que utiliza um arquivo de configurações de publicação ou um arquivo de perfil de publicação, importe o arquivo que contém as configurações de publicação ou o perfil no utilitário e **exclua** o arquivo. Se você precisar manter o arquivo para compartilhar com outros que trabalhem no projeto, por exemplo, armazene-o em um local seguro, como um diretório *criptografado* com permissões restritas.
 
 Além disso, você deve se certificar de que as credenciais importadas sejam seguras. Por exemplo, o **Azure PowerShell** e a **Interface da Linha de Comando do Azure (CLI do Azure)** armazenam informações importadas no seu **diretório base** (*~* em sistemas Linux ou OS X e em */usuários/seunomedeusuário* em sistemas Windows). Para ter segurança extra, convém **criptografar** esses locais usando as ferramentas de criptografia disponíveis para o sistema operacional.
 
 ### Definições de configuração e cadeias de conexão
-É uma prática comum armazenar cadeias de conexão, credenciais de autenticação e outras informações confidenciais em arquivos de configuração. Infelizmente, esses cookies podem ser expostos no site ou pode haver check-in deles em um repositório público, expondo essas informações.
+É uma prática comum armazenar cadeias de conexão, credenciais de autenticação e outras informações confidenciais em arquivos de configuração. Infelizmente, esses cookies podem ser expostos no site ou pode haver check-in deles em um repositório público, expondo essas informações. Uma pesquisa simples no [GitHub](https://github.com), por exemplo, pode descobrir incontáveis arquivos de configuração com segredos expostos nos repositórios públicos.
 
-O Serviço de Aplicativo do Azure permite que você armazene informações de configuração como parte do ambiente de tempo de execução de aplicativos Web, como **configurações do aplicativo** e **cadeias de conexão**. Os valores são expostos ao aplicativo durante o tempo de execução por meio de *variáveis do ambiente* na maioria das linguagens de programação. Para aplicativos do .NET, esses valores são injetados na configuração do .NET durante o tempo de execução.
+A prática recomendada é manter essas informações fora dos arquivos de configuração do aplicativo. O Serviço de Aplicativo permite que você armazene informações de configuração como parte do ambiente de tempo de execução, como **configurações do aplicativo** e **cadeias de conexão**. Os valores são expostos ao aplicativo durante o tempo de execução por meio de *variáveis do ambiente* na maioria das linguagens de programação. Para aplicativos do .NET, esses valores são injetados na configuração do .NET durante o tempo de execução. Fora essas situações, essas definições de configuração permanecerão criptografadas, a menos que você as exiba ou as configure usando o [Portal do Azure](https://portal.azure.com) ou utilitários como o PowerShell ou a CLI do Azure.
 
-As **Configurações do aplicativo** e **cadeias de conexão** são configuráveis usando-se o [Portal do Azure](http://portal.azure.com) ou os utilitários como o PowerShell ou a CLI do Azure.
-
-Para obter mais informações sobre configurações do aplicativo e cadeias de conexão, consulte [Configurando aplicativos Web](web-sites-configure.md).
+Armazenar informações de configuração no Serviço de Aplicativo permite que o administrador do aplicativo bloqueie informações confidenciais dos aplicativos de produção. Os desenvolvedores podem usar um conjunto separado de definições de configuração para desenvolvimento de aplicativo e as definições podem ser automaticamente substituídas pelas definições configuradas no Serviço de Aplicativo. Nem mesmo os desenvolvedores precisam conhecer os segredos configurados do aplicativo de produção. Para obter mais informações sobre como configurar definições de aplicativo e cadeias de conexão no Serviço de Aplicativo, confira [Configurando aplicativos Web](web-sites-configure.md).
 
 ### Protocolo FTPS
 
-O Azure oferece acesso FTP seguro ao sistema de arquivos para o aplicativo Web por meio do protocolo **FTPS**. Isso permite acessar com segurança o código do aplicativo no aplicativo Web, bem como os logs de diagnóstico. O link FTPS para seu aplicativo Web pode ser encontrado seguindo estas etapas:
+O Serviço de Aplicativo do Azure fornece acesso FTP seguro ao sistema de arquivos para seu aplicativo por meio de **FTPS**. Isso permite acessar com segurança o código do aplicativo no aplicativo Web, bem como os logs de diagnóstico. É recomendável usar sempre FTPS em vez de FTP.
 
-1. Abra o [Portal do Azure](http://portal.azure.com).
+O link FTPS para seu aplicativo pode ser encontrado seguindo estas etapas:
+
+1. Abra o [Portal do Azure](https://portal.azure.com).
 2. Selecione **Procurar Tudo**.
-3. Na folha **Procurar**, selecione **Aplicativos Web**.
-4. Na folha **Aplicativos Web**, selecione o aplicativo Web desejado.
-5. Na folha do aplicativo Web, selecione **Todas as configurações**.
+3. Na folha **Procurar**, selecione **Serviços de Aplicativo**.
+4. Na folha **Serviços de Aplicativo**, selecione o aplicativo desejado.
+5. Na folha do aplicativo, selecione **Todas as configurações**.
 6. Na folha **Configurações**, selecione **Propriedades**.
 7. Os links FTP e FTPS são fornecidos na folha **Configurações**. 
 
 Para obter mais informações sobre o protocolo FTPS, consulte [Protocolo FTPS](http://en.wikipedia.org/wiki/File_Transfer_Protocol).
 
->[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
-
 ## Próximas etapas
 
-Para obter mais informações sobre a segurança da plataforma Azure, informações sobre como relatar um **incidente de segurança ou um abuso**, ou informar à Microsoft que você realizará **testes de penetração** no site, consulte a seção de segurança da [Central de Confiabilidade do Microsoft Azure](http://azure.microsoft.com/support/trust-center/security/).
+Para obter mais informações sobre a segurança da plataforma Azure, informações sobre como relatar um **incidente de segurança ou um abuso**, ou informar à Microsoft que você realizará **testes de penetração** no site, consulte a seção de segurança da [Central de Confiabilidade do Microsoft Azure](https://azure.microsoft.com/support/trust-center/security/).
 
-Para obter mais informações sobre os arquivos **web.config** ou **applicationhost.config** em aplicativos Web, consulte [Opções de configuração desbloqueadas em aplicativos Web do Serviço de Aplicativo do Azure](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/).
+Para saber mais sobre os arquivos **web.config** ou **applicationhost.config** em aplicativos do Serviço de Aplicativo, confira [Configuration options unlocked in Azure App Service web apps](https://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/).
 
-Para obter informações sobre como registrar em log informações de aplicativos Web, que podem ser úteis na detecção de ataques, consulte [Habilitar registro em log de diagnóstico](web-sites-enable-diagnostic-log.md).
+Para saber mais sobre como registrar em log informações de aplicativos do Serviço de Aplicativo, que podem ser úteis na detecção de ataques, confira [Habilitar o registro em log de diagnóstico](web-sites-enable-diagnostic-log.md).
+
+>[AZURE.NOTE] Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-<!---HONumber=AcomDC_1203_2015-->
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+
+<!---HONumber=AcomDC_0211_2016-->

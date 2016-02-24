@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/05/2015"   
+	ms.date="01/28/2016"   
 	ms.author="juliako"/>
 
 
 # Usando o Azure Media Packager para realizar tarefas de empacotamento estáticas
 
->[AZURE.NOTE]O Microsoft Azure Media Packager e o Microsoft Azure Media Encryptor atingirão o fim da vida útil em 1º de março de 2016. Nesse momento, esses componentes não estarão mais disponíveis. Os recursos de criptografia e de conversão de formato estarão disponíveis por meio do empacotamento dinâmico e da criptografia dinâmica.
+>[AZURE.NOTE]O final da vida útil do Microsoft Azure Media Packager e do Microsoft Azure Media Encryptor foi estendido até 1º de março de 2017. Antes dessa data, as funcionalidades desses processadores serão adicionadas ao MES (Codificador de Mídia Padrão). Os clientes receberão instruções sobre como migrar seus fluxos de trabalho para enviar trabalhos ao MES. Os recursos de criptografia e de conversão de formato também poderão ser disponibilizados por meio do empacotamento dinâmico e da criptografia dinâmica.
 
 ## Visão geral
 
@@ -968,7 +968,7 @@ O exemplo nesta seção codifica um arquivo mezzanine (neste caso, MP4) em arqui
 
 Se você deseja proteger o conteúdo com o PlayReady, terá a opção de usar a [criptografia dinâmica](media-services-protect-with-drm.md) (a opção recomendada) ou a criptografia estática (conforme descrito nesta seção).
 
->[AZURE.NOTE]Para proteger o conteúdo usando o PlayReady, primeiro você deverá converter/codificar seu conteúdo em um formato do Smooth Streaming.
+>[AZURE.NOTE] Para proteger o conteúdo usando o PlayReady, primeiro você deverá converter/codificar seu conteúdo em um formato do Smooth Streaming.
 
 O exemplo nesta seção codifica um arquivo mezzanine (neste caso, um MP4) em arquivos MP4 de várias taxas de bits. Ele então empacota os MP4s no Smooth Streaming e criptografa o Smooth Streaming com o PlayReady. Para produzir o HTTP Live Streaming (HLS) criptografado com o PlayReady, o ativo do PlayReady Smooth Streaming precisa ser empacotado no HLS. Este tópico demonstra como executar todas estas etapas.
 
@@ -1447,4 +1447,4 @@ Atualize o código a seguir para apontar para a pasta onde seus arquivos MP4 de 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

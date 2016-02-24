@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2015"
+   ms.date="01/20/2016"
    ms.author="aprameyr"/>
 
 # Disponibilidade dos serviços de malha do serviço
@@ -38,7 +38,7 @@ Esse conceito de réplica como primária ou secundária ativa é conhecido como 
 ### Funções de réplica
 A função de uma réplica é usada para gerenciar o ciclo de vida do estado que está sendo gerenciado por essa réplica. Uma réplica cuja função é primária atende a solicitações de leitura. Ela também atende a solicitações de gravação atualizando seu estado e replicando as alterações para as secundárias ativas em seu conjunto de réplicas. Uma réplica secundária ativa é responsável por receber alterações de estado que a réplica primária replicou e por atualizar sua exibição do estado.
 
->[AZURE.NOTE]Modelos de programação de alto nível, como a [Estrutura de reliable actors](service-fabric-reliable-actors-introduction.md) abstrai o conceito de função da réplica do desenvolvedor.
+>[AZURE.NOTE] Modelos de programação de alto nível, como a [Estrutura de reliable actors](service-fabric-reliable-actors-introduction.md) abstrai o conceito de função da réplica do desenvolvedor.
 
 ## Próximas etapas
 
@@ -50,4 +50,4 @@ Para obter informações sobre os conceitos do Service Fabric, consulte o seguin
 
 - [Definindo e gerenciando o estado](service-fabric-concepts-state.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

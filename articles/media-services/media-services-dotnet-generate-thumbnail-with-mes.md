@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/15/2015"    
+	ms.date="01/28/2016" 
 	ms.author="juliako"/>
 
 
@@ -302,7 +302,6 @@ Para obter informações sobre o esquema, consulte [este](https://msdn.microsoft
 	          <MaxBitrate>4500</MaxBitrate>
 	        </H264Layer>
 	      </H264Layers>
-	      <Chapters />
 	    </H264Video>
 	    <AACAudio>
 	      <Profile>AACLC</Profile>
@@ -361,7 +360,7 @@ As seguintes considerações se aplicam:
 
 	- Número de quadro se eles forem números inteiros não negativos, por exemplo: "Start": "120",
 	- Relativos à duração da origem se expressos com sufixo %, por exemplo: "Start": "15%" OU
-	- Carimbo de data/hora se expressos no formato HH:MM:SS… Por exemplo, "Start": "00:01:00"
+	- Carimbo de data/hora se expresso no formato HH:MM:SS… Por exemplo, "Start": "00:01:00"
 
 	Você pode combinar as notações como desejar.
 	
@@ -383,4 +382,4 @@ As seguintes considerações se aplicam:
 
 [Visão geral da codificação de serviços de mídia](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

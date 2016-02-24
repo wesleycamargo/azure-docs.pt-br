@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Criar uma rede virtual usando o Portal de Visualização do Azure | Microsoft Azure"
-   description="Saiba como criar uma rede virtual usando o Portal de Visualização do Azure no ARM | Gerenciador de Recursos."
+   pageTitle="Criar uma rede virtual usando o Portal do Azure | Microsoft Azure"
+   description="Saiba como criar uma rede virtual usando o portal do Azure no ARM | Gerenciador de Recursos."
    services="virtual-network"
    documentationCenter=""
    authors="telmosampaio"
@@ -14,10 +14,10 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="02/04/2016"
    ms.author="telmos"/>
 
-# Criar uma rede virtual usando o Portal de Visualização do Azure
+# Criar uma Rede Virtual usando o portal do Azure
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnet-selectors-arm-include.md)]
 
@@ -30,4 +30,4 @@
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-arm-pportal-include](../../includes/virtual-networks-create-vnet-arm-pportal-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

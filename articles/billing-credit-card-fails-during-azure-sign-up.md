@@ -59,9 +59,9 @@ A oferta de avaliação gratuita do Azure é limitada a uma ativação.
 
 Sugestões:
 
-Se a ativação da avaliação gratuita falhar por você já ter ativado uma assinatura do Azure anteriormente, use outro plano do Azure disponível listado nos [detalhes da oferta do Microsoft Azure](http://azure.microsoft.com/support/legal/offer-details/) em vez do plano de avaliação gratuita do Azure.
+Se a ativação da avaliação gratuita falhar por você já ter ativado uma assinatura do Azure anteriormente, use outro plano do Azure disponível listado nos [detalhes da oferta do Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) em vez do plano de avaliação gratuita do Azure.
 
 ## Entre em contato com o Suporte do Azure
 Se você continuar enfrentando problemas de inscrição após executar essas etapas de solução de problemas, entre em contato com o [Suporte do Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

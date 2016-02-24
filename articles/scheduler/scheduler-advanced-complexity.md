@@ -187,7 +187,7 @@ Todos os agendamentos abaixo pressupõem que o _intervalo_ é definido como 1. A
 
  [Planos e Cobrança no Agendador do Azure](scheduler-plans-billing.md)
 
- [Referência da API REST do Agendador do Azure](https://msdn.microsoft.com/library/dn528946)
+ [Referência da API REST do Agendador do Azure](https://msdn.microsoft.com/library/mt629143)
 
  [Referência de cmdlets do PowerShell do Agendador do Azure](scheduler-powershell-reference.md)
 
@@ -199,4 +199,4 @@ Todos os agendamentos abaixo pressupõem que o _intervalo_ é definido como 1. A
  
   
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

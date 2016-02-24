@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 #Executar consultas Hive usando as ferramentas de HDInsight para o Visual Studio
@@ -23,7 +23,7 @@
 
 Nesse artigo, você aprenderá a enviar remotamente consultas de Hive para um cluster HDInsight, usando para isso as ferramentas de HDInsight para o Visual Studio.
 
-> [AZURE.NOTE]Esse documento não fornece uma descrição detalhada do que fazem as instruções HiveQL usadas nos exemplos. Para obter informações sobre o HiveQL usado neste exemplo, consulte [Usar o Hive com o Hadoop no HDInsight](hdinsight-use-hive.md).
+> [AZURE.NOTE] Esse documento não fornece uma descrição detalhada do que fazem as instruções HiveQL usadas nos exemplos. Para obter informações sobre o HiveQL usado neste exemplo, consulte [Usar o Hive com o Hadoop no HDInsight](hdinsight-use-hive.md).
 
 ##<a id="prereq"></a>Pré-requisitos
 
@@ -50,7 +50,7 @@ Para concluir as etapas neste artigo, você precisará do seguinte.
     * **DROP TABLE**: exclui a tabela e o arquivo de dados, caso a tabela já exista.
     * **CREATE EXTERNAL TABLE**: cria uma nova tabela “externa” em Hive. As tabelas externas armazenam apenas a definição da tabela no Hive (os dados são mantidos no local original).
 
-        > [AZURE.NOTE]As tabelas externas devem ser usadas quando você espera que os dados subjacentes sejam atualizados por uma fonte externa (como um processo automático de carregamento de dados) ou por outra operação MapReduce, mas você sempre quer que as consultas Hive utilizem os dados mais recentes.
+        > [AZURE.NOTE] As tabelas externas devem ser usadas quando você espera que os dados subjacentes sejam atualizados por uma fonte externa (como um processo automático de carregamento de dados) ou por outra operação MapReduce, mas você sempre quer que as consultas Hive utilizem os dados mais recentes.
         >
         > Remover uma tabela externa **não** exclui os dados, somente a definição de tabela.
 
@@ -74,7 +74,7 @@ Para concluir as etapas neste artigo, você precisará do seguinte.
 
     * **CREATE TABLE IF NOT EXISTS**: cria uma tabela, se ela ainda não existir. Já que a palavra-chave **EXTERNAL** não é utilizada, essa é uma tabela interna, armazenada no depósito de dados do Hive e gerenciada totalmente pelo Hive.
 
-        > [AZURE.NOTE]Diferentemente de tabelas **EXTERNAS**, o descarte de uma tabela interna excluirá também os dados subjacentes.
+        > [AZURE.NOTE] Diferentemente de tabelas **EXTERNAS**, o descarte de uma tabela interna excluirá também os dados subjacentes.
 
     * **STORED AS ORC**: armazena os dados no formato ORC (colunar de linhas otimizadas). Esse é um formato altamente otimizado e eficiente para o armazenamento de dados do Hive.
     * **INSERT OVERWRITE ... SELECT**: seleciona linhas da tabela **log4jLogs** que contêm **[ERROR]** e insere os dados na tabela **errorLogs**.
@@ -135,4 +135,4 @@ Para obter mais informações sobre as ferramentas do HDInsight para o Visual St
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

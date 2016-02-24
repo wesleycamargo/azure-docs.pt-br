@@ -4,7 +4,7 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"/>
 
@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2015"
+   ms.date="02/04/2016"
    ms.author="cherylmc"/>
 
 # Redefinir um Gateway de VPN do Azure usando o PowerShell
@@ -54,9 +54,8 @@ Se a conexão não é restaurada após a primeira reinicialização, execute o m
 
 Após duas reinicializações, se você ainda estiver tendo problemas de conectividade entre locais, abra um tíquete de suporte do Portal Clássico do Azure para entrar em contato com o Suporte do Microsoft Azure.
 
-
 ## Próximas etapas
 	
 Consulte a [Referência do PowerShell](https://msdn.microsoft.com/library/azure/mt270366.aspx) para obter mais informações sobre esse cmdlet.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

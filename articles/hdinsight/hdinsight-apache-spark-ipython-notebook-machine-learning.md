@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/22/2015" 
+	ms.date="02/05/2016" 
 	ms.author="nitinme"/>
 
 
@@ -22,13 +22,13 @@
 
 Aprenda a criar uma aplicativo de aprendizado de máquina usando um cluster do Apache Spark no HDInsight. Este artigo mostra como usar o bloco de anotações do Jupyter disponível com o cluster para compilar e testar o aplicativo. O aplicativo usa os dados de HVAC.csv de exemplo que estão disponíveis em todos os clusters por padrão.
 
-> [AZURE.TIP]Este tutorial também está disponível como um bloco de anotações Jupyter em um cluster do Spark (Linux) que você pode criar no HDInsight. A experiência do bloco de anotações permite executar os trechos de código Python no próprio bloco de anotações. Para executar o tutorial de dentro de um bloco de anotações, crie um cluster do Spark, inicie um bloco de anotações Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`) e execute o bloco de anotações **Aprendizado de Máquina do Spark - prever a temperatura do prédio usando data.ipynb de HVAC** na pasta **Python**.
+> [AZURE.TIP] Este tutorial também está disponível como um bloco de anotações Jupyter em um cluster do Spark (Linux) que você pode criar no HDInsight. A experiência do bloco de anotações permite executar os trechos de código Python no próprio bloco de anotações. Para executar o tutorial de dentro de um bloco de anotações, crie um cluster do Spark, inicie um bloco de anotações Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`) e execute o bloco de anotações **Aprendizado de Máquina do Spark - prever a temperatura do prédio usando data.ipynb de HVAC** na pasta **Python**.
 
 **Pré-requisitos:**
 
 Você deve ter o seguinte:
 
-- Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - Um cluster do Apache Spark no HDInsight no Linux. Para obter instruções, confira [Criar clusters do Apache Spark no Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md). 
 
 ##<a name="data"></a>Mostrar-me os dados
@@ -47,9 +47,9 @@ Podemos usar esses dados para prever se um prédio será mais quente ou frio com
 
 1. No [Portal de Visualização do Azure](https://portal.azure.com/), no quadro inicial, clique no bloco do cluster Spark (se você o tiver fixado no quadro inicial). Você também pode navegar até o cluster em **Procurar Tudo** > **Clusters HDInsight**.   
 
-2. Na folha do cluster Spark, clique em **Links Rápidos** e, na folha do **Painel de Cluster**, clique em **Bloco de Anotações Jupyter**. Se você receber uma solicitação, insira as credenciais de administrador para o cluster.
+2. Na folha do cluster Spark, clique em **Links Rápidos** e, na folha **Painel do Cluster**, clique em **Notebook do Jupyter**. Se você receber uma solicitação, insira as credenciais de administrador para o cluster.
 
-	> [AZURE.NOTE]Você também pode acessar o Bloco de Notas Jupyter de seu cluster abrindo a seguinte URL no navegador. Substitua __CLUSTERNAME__ pelo nome do seu cluster:
+	> [AZURE.NOTE] Você também pode acessar o Bloco de Notas Jupyter de seu cluster abrindo a seguinte URL no navegador. Substitua __CLUSTERNAME__ pelo nome do cluster:
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
@@ -135,7 +135,7 @@ Podemos usar esses dados para prever se um prédio será mais quente ou frio com
 		training = documents.toDF()
 
 
-5. Configure o pipeline de aprendizado de máquina Spark que consiste de três estágios: tokenizer, hashingTF e lr. Para saber mais sobre o que é um pipeline e como ele funciona, confira <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Pipeline de aprendizado de máquina Spark</a>.
+5. Configure o pipeline de aprendizado de máquina Spark que consiste de três estágios: tokenizer, hashingTF e lr. Para obter mais informações sobre o que é um pipeline e como ele funciona, confira <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Pipeline de aprendizado de máquina Spark</a>.
 
 	Cole o trecho a seguir em uma célula vazia e pressione **SHIFT+ENTER**.
 
@@ -148,7 +148,7 @@ Podemos usar esses dados para prever se um prédio será mais quente ou frio com
 
 		model = pipeline.fit(training)
 
-7. Verifique o documento de treinamento para o ponto de verificação de seu progresso com o aplicativo. Cole o trecho a seguir em uma célula vazia e pressione **SHIFT+ENTER**.
+7. Verifique o documento de treinamento para o ponto de verificação de seu progresso com o aplicativo. Cole o trecho a seguir em uma célula vazia e pressione **SHIFT + ENTER**.
 
 		training.show()
 
@@ -188,7 +188,7 @@ Podemos usar esses dados para prever se um prédio será mais quente ou frio com
 
 8.  Prepare um conjunto de dados para executar o modelo treinado. Para fazer isso, passamos uma ID de sistema e a idade do sistema (denotado como **SystemInfo** no resultado de treinamento), e o modelo deve prever se o prédio com essa ID de sistema e idade de sistema seria mais quente (indicado por 1,0) ou mais frio (indicado pelo 0,0).
 
-	Cole o trecho a seguir em uma célula vazia e pressione **SHIFT+ENTER**.
+	Cole o trecho a seguir em uma célula vazia e pressione **SHIFT + ENTER**.
 		
 		# SystemInfo here is a combination of system ID followed by system age
 		Document = Row("id", "SystemInfo")
@@ -200,7 +200,7 @@ Podemos usar esses dados para prever se um prédio será mais quente ou frio com
                       (6L, "7 22")]) \
     		.map(lambda x: Document(*x)).toDF() 
 
-9. Por fim, faça as previsões nos dados de teste. Cole o trecho a seguir em uma célula vazia e pressione **SHIFT+ENTER**.
+9. Por fim, faça as previsões nos dados de teste. Cole o trecho a seguir em uma célula vazia e pressione **SHIFT + ENTER**.
 
 		# Make predictions on test documents and print columns of interest
 		prediction = model.transform(test)
@@ -219,7 +219,7 @@ Podemos usar esses dados para prever se um prédio será mais quente ou frio com
 
 	Na primeira linha na previsão, você pode ver que para um sistema HVAC com ID 20 e sistema de 25 anos, o prédio estará quente (**previsão = 1,0**). O primeiro valor de DenseVector (0,49999) corresponde à previsão 0,0 e o segundo valor (0,5001) corresponde à previsão 1,0. Na saída, mesmo que o segundo valor seja apenas um pouco mais alto, o modelo mostra **previsão = 1,0**.
 
-11. Depois de concluir a execução do aplicativo, você deve fechar o bloco de notas para liberar os recursos. Para isso, no menu **Arquivo** no bloco de notas, clique em **Fechar e Interromper**. Isso desligará e fechará o bloco de notas.
+11. Depois de concluir a execução do aplicativo, você deve fechar o bloco de notas para liberar os recursos. Para isso, no menu **Arquivo** do bloco de anotações, clique em **Fechar e Interromper**. Isso desligará e fechará o bloco de notas.
 	  	   
 
 ##<a name="anaconda"></a>Use a biblioteca Anaconda scikit-learn para Aprendizado de Máquina
@@ -236,7 +236,7 @@ Os clusters Apache Spark no HDInsight incluem bibliotecas Anaconda. Isso também
 
 * [Spark com Aprendizado de Máquina: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
-* [Streaming Spark: usar o Spark no HDInsight para a criação de aplicativos streaming em tempo real](hdinsight-apache-spark-eventhub-streaming.md)
+* [Streaming Spark: usar o Spark no HDInsight para a criação de aplicativos de streaming em tempo real](hdinsight-apache-spark-eventhub-streaming.md)
 
 * [Análise de log do site usando o Spark no HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
@@ -246,9 +246,11 @@ Os clusters Apache Spark no HDInsight incluem bibliotecas Anaconda. Isso também
 
 * [Executar trabalhos remotamente em um cluster do Spark usando Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
-### Extensões
+### Ferramentas e extensões
 
-* [Usar blocos de anotações Zeppelin com um cluster do Spark no HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Usar o plug-in de Ferramentas do HDInsight para IntelliJ IDEA para criar e enviar aplicativos Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
+
+* [Usar blocos de anotações do Zeppelin com um cluster Spark no HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
 * [Kernels disponíveis para o bloco de anotações Jupyter no cluster do Spark para HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
@@ -273,4 +275,4 @@ Os clusters Apache Spark no HDInsight incluem bibliotecas Anaconda. Isso também
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

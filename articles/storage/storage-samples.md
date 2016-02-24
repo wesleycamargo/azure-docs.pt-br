@@ -1,18 +1,18 @@
 <properties
    pageTitle="Exemplos do Armazenamento do Azure | Microsoft Azure"
-   description="Exibir, baixar e testar exemplos do Armazenamento do Azure. Descubra os exemplos de introdução aos blobs, filas, tabelas e arquivos usando as bibliotecas do cliente de armazenamento do .NET, Java, Node.js e C++."
+   description="Exiba, baixe e execute exemplos de código e aplicativos para o Armazenamento do Azure. Descubra os exemplos de introdução aos blobs, filas, tabelas e arquivos usando as bibliotecas do cliente de armazenamento do .NET, Java, Node.js e C++."
    services="storage"
    documentationCenter="na"
    authors="tamram"
    manager="na"
-   editor="na" />
+   editor="tysonn" />
 <tags
    ms.service="storage"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="09/01/2015"
+   ms.date="01/06/2016"
    ms.author="tamram" />
 
 # Exemplos do Armazenamento do Azure
@@ -20,9 +20,13 @@
 ## Visão geral
 Use os links abaixo para exibir e baixar exemplos de como trabalhar com o Armazenamento do Azure.
 
+## Biblioteca de Exemplo de Código do Azure
+
+A [Biblioteca de Exemplo de Código](https://azure.microsoft.com/documentation/samples/?service=storage) inclui exemplos do Armazenamento do Azure que você pode baixar e executar localmente. A Biblioteca de Exemplo de Código fornece exemplo de código em formato .zip. Como alternativa, você pode navegar e clonar o repositório GitHub para cada exemplo.
+
 ## Amostras do .NET
 
-Para explorar os exemplos do .NET, baixe a [Biblioteca do Cliente de Armazenamento do .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) do NuGet. A biblioteca de cliente de armazenamento do .NET também está disponível no [SDK do Azure para .NET](http://azure.microsoft.com/downloads/).
+Para explorar os exemplos do .NET, baixe a [Biblioteca do Cliente de Armazenamento do .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) do NuGet. A biblioteca de cliente de armazenamento do .NET também está disponível no [SDK do Azure para .NET](https://azure.microsoft.com/downloads/).
 
 * [Introdução aos blobs, tabelas e filas do Azure em 5 minutos](storage-getting-started-guide.md)
 * [Gerenciando a simultaneidade usando o Armazenamento do Azure – aplicativo de exemplo](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)
@@ -81,4 +85,4 @@ Para explorar os exemplos do C++, baixe a [Biblioteca do Cliente de Armazenament
 - [Código-fonte da biblioteca do cliente de armazenamento do C++](https://github.com/Azure/azure-storage-cpp)
 - [Referência da Biblioteca do Cliente do C++](http://azure.github.io/azure-storage-cpp/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

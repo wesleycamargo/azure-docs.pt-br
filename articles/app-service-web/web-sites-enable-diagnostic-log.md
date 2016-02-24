@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="01/06/2016"
 	ms.author="cephalin"/>
 
 # Habilitar o registro em log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure
@@ -57,7 +57,7 @@ Para habilitar o diagnóstico no [Portal do Azure](https://portal.azure.com), v�
 
 Ao habilitar o **diagnóstico de aplicativos**, você também escolhe o **Nível**. Essa configuração permite que você filtre as informações capturadas como **informativas**, **de aviso** ou **de erro**. Configurar isto para **detalhado** fará o log de toda informação produzida pelo aplicativo.
 
-> [AZURE.NOTE]Diferentemente de alterar o arquivo web.config, habilitar o diagnóstico de aplicativos ou alterar os níveis de log do diagnóstico não recicla o domínio do aplicativo em que este é executado.
+> [AZURE.NOTE] Diferentemente de alterar o arquivo web.config, habilitar o diagnóstico de aplicativos ou alterar os níveis de log do diagnóstico não recicla o domínio do aplicativo em que este é executado.
 
 Na guia **Configurar** do aplicativo Web do [portal clássico ](https://manage.windowsazure.com), você pode selecionar **armazenamento** ou **sistema de arquivos** para **log de servidor Web**. Selecionar **armazenamento** permite que você selecione uma conta de armazenamento e, em seguida, um contêiner de blob onde os logs estarão gravados. Todos os outros logs para **diagnóstico de site** serão gravados apenas no sistema de arquivos.
 
@@ -68,7 +68,7 @@ A guia **Configurar** do aplicativo Web do [portal clássico](https://manage.win
 * **Armazenamento de blob** - armazena as informações de diagnóstico de aplicativo na Conta especificada de Armazenamento do Azure e no contêiner de blob.
 * **Período de retenção** - por padrão, os logs não são automaticamente excluídos do **armazenamento de blob**. Selecione **definir retenção** e insira o número de dias que os logs serão mantidos se você desejar excluir os logs automaticamente.
 
->[AZURE.NOTE]Se você [regenerar as chaves de acesso de sua conta de armazenamento](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys), é necessário redefinir a respectiva configuração de log para usar as chaves atualizadas. Para fazer isso:
+>[AZURE.NOTE] Se você [regenerar as chaves de acesso de sua conta de armazenamento](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys), é necessário redefinir a respectiva configuração de log para usar as chaves atualizadas. Para fazer isso:
 >
 > 1. Na guia **Configurar**, defina o respectivo recurso de log como **Desativado**. Salve sua configuração.
 > 2. Habilite novamente o log para o blob ou para a tabela da conta de armazenamento. Salve sua configuração.
@@ -77,9 +77,9 @@ Qualquer combinação de sistema de arquivos, armazenamento de tabela ou armazen
 
 Enquanto todos os três locais de armazenamento fornecem as mesmas informações básicas para eventos registrados, o **armazenamento em tabela** e o **armazenamento de blob** registram informações adicionais como a ID da instância, a ID do thread e um carimbo de data/hora mais granular (formato de escala) do que realizar o log no **sistema de arquivos**.
 
-> [AZURE.NOTE]As informações armazenadas em **armazenamento de tabela** ou **armazenamento de blob** apenas podem ser acessadas usando um cliente de armazenamento ou um aplicativo que possa trabalhar diretamente com estes sistemas de armazenamento. Por exemplo, o Visual Studio 2013 contém um Gerenciador de Armazenamento que pode ser usado para explorar armazenamentos de tabela ou de blob e o HDInsight pode acessar dados gravados no armazenamento de blob. Você também pode gravar um aplicativo que acesse o Armazenamento do Azure usando um dos [SDKs do Azure](/downloads/#).
+> [AZURE.NOTE] As informações armazenadas em **armazenamento de tabela** ou **armazenamento de blob** apenas podem ser acessadas usando um cliente de armazenamento ou um aplicativo que possa trabalhar diretamente com estes sistemas de armazenamento. Por exemplo, o Visual Studio 2013 contém um Gerenciador de Armazenamento que pode ser usado para explorar armazenamentos de tabela ou de blob e o HDInsight pode acessar dados gravados no armazenamento de blob. Você também pode gravar um aplicativo que acesse o Armazenamento do Azure usando um dos [SDKs do Azure](/downloads/#).
 
-> [AZURE.NOTE]O diagnóstico também pode ser habilitado a partir do PowerShell do Azure usando o cmdlet **Set-AzureWebsite**. Se você não instalou o PowerShell do Azure ou não o configurou para usar sua Assinatura do Azure, consulte [Como usar o PowerShell do Azure](/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> [AZURE.NOTE] O diagnóstico também pode ser habilitado a partir do PowerShell do Azure usando o cmdlet **Set-AzureWebsite**. Se você não instalou o PowerShell do Azure ou não o configurou para usar sua Assinatura do Azure, consulte [Como usar o PowerShell do Azure](/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 ##<a name="download"></a>Como baixar logs
 
@@ -101,7 +101,7 @@ A estrutura de diretórios onde os logs estão armazenados é a seguinte:
 
 Para acessar informações de diagnóstico usando o FTP, visite o **Painel** do seu aplicativo Web no [portal clássico](https://manage.windowsazure.com). Na seção **visão rápida**, use o link **Logs de diagnóstico de FTP** para acessar os arquivos de log usando FTP. A entrada **Implantação/Usuário FTP** lista o nome de usuário que deve ser usado para acessar o site FTP.
 
-> [AZURE.NOTE]Se a entrada **Implantação/Usuário FTP** não estiver definida ou se você esqueceu a senha para este usuário, uma nova senha e nome de usuário poderão ser criados usando o link **Redefinir credenciais de implantação** na seção **visão rápida** do **Painel**.
+> [AZURE.NOTE] Se a entrada **Implantação/Usuário FTP** não estiver definida ou se você esqueceu a senha para este usuário, uma nova senha e nome de usuário poderão ser criados usando o link **Redefinir credenciais de implantação** na seção **visão rápida** do **Painel**.
 
 ### Baixar com o PowerShell do Azure
 
@@ -111,7 +111,7 @@ Para baixar os arquivos de log, inicie uma nova instância do PowerShell do Azur
 
 Isto salvará os logs para o aplicativo Web especificado pelo parâmetro **-Name** em um arquivo chamado **logs.zip** no diretório atual.
 
-> [AZURE.NOTE]Se você não instalou o PowerShell do Azure ou não o configurou para usar sua Assinatura do Azure, consulte [Como usar o PowerShell do Azure](/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> [AZURE.NOTE] Se você não instalou o PowerShell do Azure ou não o configurou para usar sua Assinatura do Azure, consulte [Como usar o PowerShell do Azure](/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 ### Baixar com a interface de linha de comando do Azure
 
@@ -121,7 +121,7 @@ Para baixar os arquivos de log usando a Interface da Linha de Comando do Azure, 
 
 Isto salvará os logs para o aplicativo Web chamado 'webappname' em um arquivo chamado **diagnostics.zip** no diretório atual.
 
-> [AZURE.NOTE]Se você não instalou a interface de linha de comando do Azure (CLI do Azure) ou não configurou para usar sua assinatura do Azure, consulte [Como usar a CLI do Azure](../xplat-cli-install.md).
+> [AZURE.NOTE] Se você não instalou a interface de linha de comando do Azure (CLI do Azure) ou não configurou para usar sua assinatura do Azure, consulte [Como usar a CLI do Azure](../xplat-cli-install.md).
 
 ## Como exibir os logs de rastreamento de Java no Application Insights
 
@@ -132,21 +132,21 @@ O Application Insights do Visual Studio fornece ferramentas para filtrar e pesqu
 2. Adicionar o pacote do Ouvinte de Rastreamento ao seu projeto.
  * Clique com o botão direito do mouse em seu projeto e escolha Gerenciar Pacotes NuGet. Selecione `Microsoft.ApplicationInsights.TraceListener` [Saiba mais](../application-insights/app-insights-asp-net-trace-logs.md)
 3. Carregue seu projeto e execute-o para gerar dados de log.
-4. No [Portal do Azure](http://portal.azure.com/), navegue até o novo recurso do Application Insights e abra **Pesquisa**. Você verá os dados de log, a solicitação, o uso e outras telemetrias. Algumas telemetrias podem levar alguns minutos para aparecer: clique em Atualizar. [Saiba mais](../application-insights/app-insights-diagnostic-search.md)
+4. No [Portal do Azure](https://portal.azure.com/), navegue até o novo recurso do Application Insights e abra **Pesquisa**. Você verá os dados de log, a solicitação, o uso e outras telemetrias. Algumas telemetrias podem levar alguns minutos para aparecer: clique em Atualizar. [Saiba mais](../application-insights/app-insights-diagnostic-search.md)
 
-[Saiba mais sobre desempenho de rastreamento com o Application Insights](../insights-perf-analytics.md)
+[Saiba mais sobre desempenho de rastreamento com o Application Insights](../azure-portal/insights-perf-analytics.md)
 
 ##<a name="streamlogs"></a>Como transmitir logs
 
 Ao desenvolver um aplicativo, é sempre útil visualizar informações de registro em log realizado em tempo quase real. Isto pode ser feito ao transmitir informações de log para seu ambiente de desenvolvimento usando o PowerShell do Azure ou a Interface de Linha de Comando do Azure.
 
-> [AZURE.NOTE]Alguns tipos de buffer de log gravam no arquivo de log, o que pode resultar em eventos com problemas na transmissão. Por exemplo, uma entrada para log de aplicativo, que ocorre quando um usuário visita uma página, pode ser exibida durante a transmissão antes da entrada de log HTTP correspondente para a solicitação da página.
+> [AZURE.NOTE] Alguns tipos de buffer de log gravam no arquivo de log, o que pode resultar em eventos com problemas na transmissão. Por exemplo, uma entrada para log de aplicativo, que ocorre quando um usuário visita uma página, pode ser exibida durante a transmissão antes da entrada de log HTTP correspondente para a solicitação da página.
 
-> [AZURE.NOTE]O streaming de log também transmitirá informações gravadas em qualquer arquivo de texto armazenado na pasta **D:\\home\\LogFiles\**.
+> [AZURE.NOTE] O streaming de log também transmitirá informações gravadas em qualquer arquivo de texto armazenado na pasta **D:\\home\\LogFiles\**.
 
 ### O streaming realizado com o PowerShell do Azure
 
-Para transmitir informações de log, inicie uma nova instância do PowerShell do Azure e use o seguinte comando:
+Para transmitir informações de log, inicie uma nova instância do Azure PowerShell e use o seguinte comando:
 
 	Get-AzureWebSiteLog -Name webappname -Tail
 
@@ -162,7 +162,7 @@ Para filtrar tipos específicos de log como HTTP, use o parâmetro **-Caminho**.
 
 Para visualizar uma lista de caminhos disponíveis, use o parâmetro -ListPath.
 
-> [AZURE.NOTE]Se você não instalou o PowerShell do Azure ou não o configurou para usar sua Assinatura do Azure, consulte [Como usar o PowerShell do Azure](/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> [AZURE.NOTE] Se você não instalou o PowerShell do Azure ou não o configurou para usar sua Assinatura do Azure, consulte [Como usar o PowerShell do Azure](/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 ### Transmitir com a Interface da linha de comando do Azure
 
@@ -180,7 +180,7 @@ Para filtrar tipos específicos de log como HTTP, use o parâmetro **-Caminho**.
 
 	azure site log tail webappname --path http
 
-> [AZURE.NOTE]Se você não instalou a Interface da Linha de Comando ou não a configurou para usar a sua Assinatura do Azure, consulte [Como usar a Interface da linha de comando do Azure](../xplat-cli-install.md).
+> [AZURE.NOTE] Se você não instalou a Interface da Linha de Comando ou não a configurou para usar a sua Assinatura do Azure, consulte [Como usar a Interface da linha de comando do Azure](../xplat-cli-install.md).
 
 ##<a name="understandlogs"></a> Como compreender os logs de diagnóstico
 
@@ -239,7 +239,7 @@ Os dados armazenados em um blob deverão ser semelhantes ao seguinte:
 	date,level,applicationName,instanceId,eventTickCount,eventId,pid,tid,message
 	2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
 
-> [AZURE.NOTE]A primeira linha do log conterá os cabeçalhos da coluna, como representado neste exemplo.
+> [AZURE.NOTE] A primeira linha do log conterá os cabeçalhos da coluna, como representado neste exemplo.
 
 ### Rastreamento de solicitação falha
 
@@ -255,7 +255,7 @@ Logs detalhados de erro são documentos HTML que fornecem informações mais det
 
 Os logs do servidor da Web são formatados usando o [formato W3C estendido de arquivo de log](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Esta informação pode ser lida usando um editor de texto ou analisada usando ferramentas como o [Analisador de Log](http://go.microsoft.com/fwlink/?LinkId=246619).
 
-> [AZURE.NOTE]Os logs gerados por aplicativos Web do Azure não dão suporte aos campos __s-computername__, __s-ip__ ou __cs-version__.
+> [AZURE.NOTE] Os logs gerados por aplicativos Web do Azure não dão suporte aos campos __s-computername__, __s-ip__ ou __cs-version__.
 
 ##<a name="nextsteps"></a> Próximas etapas
 
@@ -263,11 +263,11 @@ Os logs do servidor da Web são formatados usando o [formato W3C estendido de ar
 - [Solucionando problemas de aplicativos Web do Azure no Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
 - [Analisar logs de aplicativos Web no HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
-> [AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> [AZURE.NOTE] Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

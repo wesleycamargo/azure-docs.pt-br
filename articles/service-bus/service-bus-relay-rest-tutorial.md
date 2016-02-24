@@ -27,7 +27,7 @@ A primeira etapa é criar um namespace de serviço e obter uma chave de Assinatu
 
 ### Para criar um namespace de serviço e obter uma chave SAS
 
-1. Para criar um namespace no [portal clássico do Azure][], execute as etapas em [Como criar ou modificar um namespace do serviço Barramento de Serviço](https://msdn.microsoft.com/library/hh690931.aspx).
+1. Para criar um namespace de serviço, visite o [portal clássico do Azure][]. Clique em **Barramento de Serviço** no lado esquerdo e clique em **Criar**. Digite um nome para o namespace e clique na marca de seleção.
 
 2. Na janela principal do portal, clique no nome do namespace de serviço que você criou na etapa anterior.
 
@@ -241,7 +241,7 @@ Assim como nas etapas anteriores, há pouca diferença entre a implementação d
 
 ### Para definir a configuração a fim de executar o serviço da Web no Barramento de Serviço
 
-1. Clique com o botão direito do mouse no projeto **ImageListener**. Em seguida, clique em **Adicionar** e em **Novo Item**.
+1. Clique com o botão direito do mouse no projeto **ImageListener**. Em seguida, clique em **Adicionar** e, em seguida, em **Novo Item**.
 
 2. No **Gerenciador de Soluções**, clique duas vezes em **App.config**, que atualmente contém os seguintes elementos XML:
 
@@ -584,4 +584,4 @@ Agora que você compilou um aplicativo que usa o serviço de retransmissão do B
 
 [portal clássico do Azure]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

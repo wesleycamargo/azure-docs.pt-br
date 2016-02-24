@@ -13,17 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="12/17/2015"
+	ms.date="02/03/2016" 
 	ms.author="juliako"/>
 
 
 # Introdução ao fornecimento de conteúdo sob demanda usando o SDK do .NET
 
+
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 
 >[AZURE.NOTE]
-> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
+Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
  
 ##Visão geral 
 
@@ -59,13 +60,13 @@ Os itens a seguir são necessários para concluir o tutorial.
 
 ##Baixar exemplo
 
-Obtenha e execute um exemplo [aqui](http://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
+Obtenha e execute um exemplo [aqui](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
 ##Criar uma conta de Serviços de Mídia usando o portal
 
 1. No Portal Clássico do Azure, clique em **Novo**, em **Serviço de Mídia** e em **Criação Rápida**.
 
-![Criação Rápida dos Serviços de Mídia](./media/media-services-dotnet-get-started/wams-QuickCreate.png)
+	![Criação Rápida dos Serviços de Mídia](./media/media-services-dotnet-get-started/wams-QuickCreate.png)
 
 2. Em **NOME**, insira o nome da nova conta. Um nome de conta de Serviços de Mídia deve ser composto de letras minúsculas ou números, sem espaços, e deve ter de 3-24 caracteres de comprimento.
 
@@ -108,13 +109,13 @@ Para alterar o número de unidades de streaming reservadas, faça o seguinte:
 
 3. Para especificar o número de unidades de streaming, clique na guia ESCALA e mova o controle deslizante **capacidade reservada**.
 
-![Página Escala](./media/media-services-dotnet-get-started/media-services-origin-scale.png)
+	![Página Escala](./media/media-services-dotnet-get-started/media-services-origin-scale.png)
 
 4. Pressione **SALVAR** para salvar suas alterações.
 
 A alocação de quaisquer novas unidades de streaming leva cerca de 20 minutos para ser concluída.
 
->[AZURE.NOTE]No momento, mudar de qualquer valor positivo de unidades de streaming de volta para nenhuma unidade pode desabilitar o streaming por até uma hora.
+>[AZURE.NOTE] No momento, mudar de qualquer valor positivo de unidades de streaming de volta para nenhuma unidade pode desabilitar o streaming por até uma hora.
 >
 > O número mais alto de unidades especificadas para o período de 24 horas é usado para calcular o custo. Para saber mais sobre os detalhes de preços, consulte [Detalhes de preços dos Serviços de Mídia](http://go.microsoft.com/fwlink/?LinkId=275107).
 
@@ -124,13 +125,13 @@ A alocação de quaisquer novas unidades de streaming leva cerca de 20 minutos p
 
 1. Crie um novo Aplicativo de Console C# no Visual Studio 2013, no Visual Studio 2012 ou no Visual Studio 2010 SP1. Digite o **nome**, o **Local** e o **Nome da solução** e **OK**.
 
-2. Use o pacote Nuget [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) para instalar as **Extensões do SDK .NET dos Serviços de Mídia do Azure**. As Extensões do SDK do .NET dos Serviços de Mídia do Azure são um conjunto de métodos de extensão e funções auxiliares que simplificarão seu código e tornarão mais fácil desenvolver com os Serviços de Mídia. Instalar esse pacote também instala o **SDK do .NET dos Serviços de Mídia** e adiciona todas as outras dependências necessárias.
+2. Use o pacote Nuget [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) para instalar **extensões do SDK .NET dos Serviços de Mídia do Azure**. As Extensões do SDK do .NET dos Serviços de Mídia do Azure são um conjunto de métodos de extensão e funções auxiliares que simplificarão seu código e tornarão mais fácil desenvolver com os Serviços de Mídia. Instalar esse pacote também instala o **SDK do .NET dos Serviços de Mídia** e adiciona todas as outras dependências necessárias.
 
 3. Adicione uma referência ao assembly do System.Configuration. Esse assembly contém a classe **System.Configuration.ConfigurationManager** que é utilizada para acessar arquivos de configuração, como App.config.
 
 4. Abra o arquivo App.config (adicione o arquivo ao seu projeto se ele não foi adicionado por padrão) e adicione uma seção *appSettings* ao arquivo. Defina os valores para o nome e chave de conta de seus Serviços de Mídia do Azure, conforme mostrado no exemplo a seguir. Para obter as informações de nome da conta e de chave, abra o Portal Clássico do Azure, selecione sua conta de serviços de mídia e clique no botão **GERENCIAR CHAVES**.
 
-<configuration>
+		<configuration>
 		...
 		  <appSettings>
 		    <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
@@ -150,13 +151,13 @@ A alocação de quaisquer novas unidades de streaming leva cerca de 20 minutos p
 		using System.Threading;
 		using System.IO;
 		using Microsoft.WindowsAzure.MediaServices.Client;
-		using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
+		
 
 6. Crie uma nova pasta sob o diretório projects e copie um arquivo .mp4 ou .wmv que você deseja codificar e enviar por streaming, ou baixar progressivamente. Este exemplo usa o caminho "C:\\VideoFiles".
 
 ##Conectar-se à conta dos Serviços de Mídia
 
-Ao usar os serviços de mídia com o .NET, você deve usar a classe **CloudMediaContext** para a maioria das tarefas de programação dos Serviços de Mídia: conectar-se à conta de Serviços de Mídia; criar, atualizar, acessar e excluir os seguintes objetos: ativos, arquivos de ativos, trabalhos, políticas de acesso, localizadores etc.
+Ao usar os serviços de mídia com o .NET, você deve usar a classe **CloudMediaContext** para a maioria das tarefas de programação dos Serviços de Mídia: conectar-se à conta de Serviços de Mídia; criar, atualizar, acessar e excluir os seguintes objetos: ativos, arquivos de ativos, trabalhos, políticas de acesso, localizadores, etc.
 
 Substitua a classe Program padrão pelo código a seguir. O código demonstra como ler os valores de conexão por meio do arquivo App.config e como criar o objeto **CloudMediaContext** para poder se conectar aos Serviços de Mídia. Para saber mais sobre como conectar-se aos Serviços de Mídia, veja [Conectando-se aos Serviços de Mídia com o SDK dos Serviços de Mídia para .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
 
@@ -213,12 +214,11 @@ A função **Main** chama métodos que serão definidos posteriormente nesta se�
 
 No Serviços de Mídia, você carrega (ou insere) seus arquivos digitais em um ativo. A entidade **Asset** pode conter vídeo, áudio, imagens, coleções de miniaturas, sequências de texto e arquivos de legendas (e os metadados sobre esses arquivos). Depois que os arquivos são carregados, o conteúdo é armazenado com segurança na nuvem para processamento adicional e transmissão. Os arquivos no ativo são chamados **Arquivos de Ativo**.
 
-O método **UploadFile** definido abaixo chama **CreateFromFile** (definido em Extensões do SDK .NET). **CreateFromFile** cria um novo ativo no qual o arquivo de origem especificado é carregado.
+O método **UploadFile** definido abaixo chama **CreateFromFile** (definido em extensões do SDK .NET). **CreateFromFile** cria um novo ativo no qual o arquivo de origem especificado é carregado.
 
 O método **CreateFromFile** contém **AssetCreationOptions**, que permite especificar uma das seguintes opções de criação de ativos:
 
-- **None** - nenhuma criptografia é usada. Esse é o valor padrão. Observe que, ao usar essa opção, seu conteúdo não será protegido quando estiver em trânsito ou em repouso no armazenamento.
-Se você pretende enviar um MP4 usando o download progressivo, use essa opção.
+- **None** - nenhuma criptografia é usada. Esse é o valor padrão. Observe que, ao usar essa opção, seu conteúdo não será protegido quando estiver em trânsito ou em repouso no armazenamento. Se você pretende enviar um MP4 usando o download progressivo, use essa opção.
 - **StorageEncrypted** – use essa opção para criptografar seu conteúdo limpo localmente usando a criptografia AES de 256 bits e, em seguida, carregá-lo para o armazenamento do Azure, onde ele é armazenado, criptografado em repouso. Ativos protegidos pela criptografia de armazenamento são descriptografados automaticamente e posicionados em um sistema de arquivos criptografado antes da codificação, então opcionalmente criptografados novamente antes do carregamento como um novo ativo de saída. O caso de uso primário para criptografia de armazenamento é quando você deseja proteger seus arquivos de mídia de entrada de alta qualidade com criptografia forte em repouso no disco.
 - **CommonEncryptionProtected** — use esta opção se você estiver carregando conteúdo que já foi criptografado e protegido com criptografia comum ou DRM PlayReady (por exemplo, Smooth Streaming protegido com DRM PlayReady).
 - **EnvelopeEncryptionProtected** – use esta opção se você estiver carregando HLS criptografado com AES. Observe que os arquivos devem ter sido codificados e criptografados pelo Gerenciador de Transformação.
@@ -256,7 +256,7 @@ Para aproveitar os benefícios do empacotamento dinâmico, você precisa fazer o
 - Codificar ou transcodificar seu arquivo mezanino (fonte) em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável.  
 - Obter pelo menos uma unidade de streaming para o ponto de extremidade de streaming do qual você planeja fornecer seu conteúdo.
 
-O código a seguir mostra como enviar um trabalho de codificação. O trabalho contém uma tarefa que determina a transcodificação do arquivo de mezanino em um conjunto de MP4s de taxa de bits adaptável usando **Codificador de Mídia do Azure**. O código envia o trabalho e aguarda até que ele seja concluído.
+O código a seguir mostra como enviar um trabalho de codificação. O trabalho contém uma tarefa que determina a transcodificação do arquivo de mezanino em um conjunto de MP4s de taxa de bits adaptável usando o **Codificador de Mídia Standard**. O código envia o trabalho e aguarda até que ele seja concluído.
 
 Depois que o trabalho for concluído, você poderá transmitir seu ativo ou baixar progressivamente arquivos MP4 criados como resultado de transcodificação. Observe que você não precisa ter mais de 0 unidade de streaming para baixar progressivamente arquivos MP4.
 
@@ -453,4 +453,4 @@ Se este tópico não contiver o que você esperava, se estiver faltando alguma i
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

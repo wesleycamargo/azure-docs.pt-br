@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"/>
 
 # Usando dados de referência e tabelas de pesquisa em um fluxo de entrada do Stream Analytics
@@ -74,9 +74,9 @@ Para configurar os dados de referência, você primeiro precisa criar uma entrad
 
 Se os seus dados de referência são um conjunto de dados de alteração lenta, o suporte para atualização de dados de referência é habilitado especificando, na configuração de entrada, um padrão de caminho usando os tokens {date} e {time}. O Stream Analytics pegará as definições de dados de referência baseadas nesse padrão de caminho. Por exemplo, um padrão de ````"/sample/{date}/{time}/products.csv"```` com um formato de data de "AAAA-MM-DD" e um tempo de formato "Hh: mm" informa o Stream Analytics para acompanhar o blob atualizado ````"/sample/2015-04-16/17:30/products.csv"```` às 17:30, em 16 de abril de 2015 fuso horário UTC.
 
-> [AZURE.NOTE]Atualmente os trabalhos do Stream Analytics procuram pela atualização de blob somente quando a hora do computador coincide com a hora codificada no nome do blob. Por exemplo o trabalho procurará /sample/2015-04-16/17:30/products.csv entre 17:30 hora e 17:30:59.9 em 16 de abril de 2015 no fuso horário UTC. Quando o relógio chega em 17:31, ele para de procurar por /sample/2015-04-16/17:30/products.csv e começa a procurar por /sample/2015-04-16/17:31/products.csv. Uma exceção a isso é iniciada quando o trabalho precisa reprocessar dados de volta no tempo ou quando o trabalho é o primeiro a iniciar. Na hora de início, o trabalho está procurando o blob mais recente produzido antes da hora especificada de início do trabalho. Isso é feito para garantir que haja um conjunto de dados de referência não vazio quando o trabalho é iniciado. Se um não for encontrado, o trabalho falhará e exibirá um aviso de diagnóstico para o usuário:
+> [AZURE.NOTE] Atualmente os trabalhos do Stream Analytics procuram pela atualização de blob somente quando a hora do computador coincide com a hora codificada no nome do blob. Por exemplo o trabalho procurará /sample/2015-04-16/17:30/products.csv entre 17:30 hora e 17:30:59.9 em 16 de abril de 2015 no fuso horário UTC. Quando o relógio chega em 17:31, ele para de procurar por /sample/2015-04-16/17:30/products.csv e começa a procurar por /sample/2015-04-16/17:31/products.csv. Uma exceção a isso é iniciada quando o trabalho precisa reprocessar dados de volta no tempo ou quando o trabalho é o primeiro a iniciar. Na hora de início, o trabalho está procurando o blob mais recente produzido antes da hora especificada de início do trabalho. Isso é feito para garantir que haja um conjunto de dados de referência não vazio quando o trabalho é iniciado. Se um não for encontrado, o trabalho falhará e exibirá um aviso de diagnóstico para o usuário:
 
-A [Azure Data Factory](http://azure.microsoft.com/documentation/services/data-factory/) pode ser utilizada para orquestrar a tarefa de criar os blobs atualizados exigidos pelo Stream Analytics para atualizar as definições de dados de referência. O Data Factory é um serviço de integração de dados baseado em nuvem que automatiza a movimentação e a transformação dos dados. O Data Factory dá suporte [à conexão de um grande número de armazenamentos de dados local baseados em nuvem](./articles/data-factory-data-movement-activities.md) e mover dados facilmente em um agendamento regular que você especificar. Para obter mais informações e orientações passo a passo sobre como configurar um pipeline de Data Factory para gerar dados de referência para o Stream Analytics que é atualizado em um cronograma predefinido, confira este [exemplo de GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs).
+A [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) pode ser utilizada para orquestrar a tarefa de criar os blobs atualizados exigidos pelo Stream Analytics para atualizar as definições de dados de referência. O Data Factory é um serviço de integração de dados baseado em nuvem que automatiza a movimentação e a transformação dos dados. O Data Factory dá suporte [à conexão de um grande número de armazenamentos de dados local baseados em nuvem](./articles/data-factory-data-movement-activities.md) e mover dados facilmente em um agendamento regular que você especificar. Para obter mais informações e orientações passo a passo sobre como configurar um pipeline de Data Factory para gerar dados de referência para o Stream Analytics que é atualizado em um cronograma predefinido, confira este [exemplo de GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs).
 
 ## Dicas sobre como atualizar seus dados de referência ##
 
@@ -103,4 +103,4 @@ Você foi apresentado ao Stream Analytics, um serviço gerenciado para análise 
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

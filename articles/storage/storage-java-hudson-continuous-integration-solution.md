@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Como usar o Hudson com o serviço Blob do Azure | Microsoft Azure"
+	pageTitle="Como usar o Hudson com o Armazenamento de Blobs | Microsoft Azure"
 	description="Descreve como usar o Hudson com o armazenamento de Blob do Azure como um repositório para artefatos de compilação."
 	services="storage"
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="10/12/2015" 
+	ms.date="01/09/2016" 
 	ms.author="robmcm"/>
 
 # Usando o Armazenamento do Azure com uma solução Hudson Continuous Integration
 
 ## Visão geral
 
-As informações a seguir mostram como usar o serviço Blob do Azure como um repositório de artefatos de compilação criado por uma solução Hudson Continuous Integration (CI), ou como uma fonte de arquivos baixáveis a serem usados em um processo de compilação. Um dos cenários em que isso poderia ser útil é quando você está codificando em um ambiente de desenvolvimento ágil (usando Java ou outras linguagens), as compilações estão sendo executadas com base na integração contínua e você precisa de um repositório para seus artefatos de compilação, para que possa, por exemplo, compartilhá-los com outros membros da organização, com seus clientes ou mantê-los em um arquivo. Outro cenário é quando o seu próprio trabalho de compilação requer outros arquivos, por exemplo, dependências a serem baixadas como parte da entrada da compilação.
+As informações a seguir mostram como usar o Armazenamento de Blobs como um repositório de artefatos de compilação criado por uma solução de CI (Integração Contínua) Hudson, ou como uma fonte de arquivos baixáveis a serem usados em um processo de compilação. Um dos cenários em que isso poderia ser útil é quando você está codificando em um ambiente de desenvolvimento ágil (usando Java ou outras linguagens), as compilações estão sendo executadas com base na integração contínua e você precisa de um repositório para seus artefatos de compilação, para que possa, por exemplo, compartilhá-los com outros membros da organização, com seus clientes ou mantê-los em um arquivo. Outro cenário é quando o seu próprio trabalho de compilação requer outros arquivos, por exemplo, dependências a serem baixadas como parte da entrada da compilação.
 
 Neste tutorial, você usará o plug-in do Armazenamento do Azure para o Hudson CI disponibilizado pela Microsoft.
 
@@ -86,11 +86,11 @@ Para usar o serviço Blob com o Hudson, você deverá instalar o plug-in Armazen
 2. Na página **Gerenciar Hudson**, clique em **Configurar Sistema**.
 3. Na seção **Configuração da Conta de Armazenamento do Microsoft Azure**:
 
-    a. Insira o nome da conta de armazenamento, que pode ser obtido no [portal do Azure](portal.azure.com).
+    a. Insira o nome da conta de armazenamento, que pode ser obtido no [portal do Azure](https://portal.azure.com).
 
-    b. Insira a chave de conta de armazenamento, que também pode ser obtida no [portal do Azure](portal.azure.com).
+    b. Insira a chave de conta de armazenamento, que também pode ser obtida no [portal do Azure](https://portal.azure.com).
 
-    c. Use o valor padrão para **URL de Ponto de Extremidade de Serviço Blob**, se você estiver usando a nuvem pública do Azure. Se estiver usando uma nuvem do Azure diferente, use o ponto de extremidade como especificado no [portal do Azure](portal.azure.com) para a sua conta de armazenamento.
+    c. Use o valor padrão para **URL de Ponto de Extremidade de Serviço Blob**, se você estiver usando a nuvem pública do Azure. Se estiver usando uma nuvem do Azure diferente, use o ponto de extremidade como especificado no [portal do Azure](https://portal.azure.com) para a sua conta de armazenamento.
 
     d. Clique em **Validar credenciais de armazenamento** para validar sua conta de armazenamento.
 
@@ -129,7 +129,7 @@ Para fins de instrução, primeiro será necessário criar um trabalho que crie 
 13. No painel do Hudson, clique em **Build Now** para executar **MyJob**. Examine a saída do console para o status. As mensagens de status do Armazenamento do Azure serão incluídas na saída do console quando a ação de pós-compilação iniciar o carregamento dos artefatos de compilação.
 14. Após a conclusão bem-sucedida do trabalho, você poderá examinar os artefatos de compilação abrindo o blob público.
 
-    a. Entre no [Portal do Azure](portal.azure.com).
+    a. Entre no [Portal do Azure](https://portal.azure.com).
 
     b. Clique em **Armazenamento**.
 
@@ -166,7 +166,7 @@ Segue abaixo uma visão geral dos componentes do serviço Blob.
 
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
 
-    (O formato acima aplica-se a uma nuvem pública do Azure. Se estiver usando uma nuvem do Azure diferente, use o ponto de extremidade localizado no [portal do Azure](portal.azure.com) para determinar o ponto de extremidade de sua URL).
+    (O formato acima aplica-se a uma nuvem pública do Azure. Se estiver usando uma nuvem do Azure diferente, use o ponto de extremidade localizado no [portal do Azure](https://portal.azure.com) para determinar o ponto de extremidade de sua URL).
 
     No formato acima, `storageaccount` representa o nome da sua conta de armazenamento, `container_name` representa o nome do seu contêiner e `blob_name` representa o nome do seu blob, respectivamente. Dentro do nome do contêiner, é possível ter vários caminhos, separados por uma barra, **/**. O exemplo de nome do contêiner neste tutorial foi **MyJob** e **${BUILD\_ID}/${BUILD\_NUMBER}** foi usado para o caminho virtual comum, fazendo com que o blob tivesse uma URL no seguinte formato:
 
@@ -177,4 +177,4 @@ Segue abaixo uma visão geral dos componentes do serviço Blob.
   [Como criar uma conta de armazenamento (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/?LinkId=279823
   [Conheça o Hudson (a página pode estar em inglês)]: http://wiki.eclipse.org/Hudson-ci/Meet_Hudson
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

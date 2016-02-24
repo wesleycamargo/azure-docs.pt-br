@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="01/14/2016" 
 	ms.author="team-pi@sendgrid.com"/>
 
 
@@ -48,7 +48,7 @@ Para obter mais informações, veja [https://sendgrid.com](https://sendgrid.com)
 
 O [pacote NuGet do SendGrid](https://www.nuget.org/packages/Sendgrid) é a maneira mais fácil de obter a API do SendGrid e para configurar seu aplicativo com todas as dependências. O NuGet é uma extensão do Visual Studio incluída no Microsoft Visual Studio 2015, que facilita a instalação e a atualização de bibliotecas e ferramentas.
 
-> [AZURE.NOTE]Para instalar o NuGet se você estiver executando uma versão do Visual Studio anterior ao Visual Studio 2015, visite [http://www.nuget.org](http://www.nuget.org) e clique no botão **Instalar NuGet**.
+> [AZURE.NOTE] Para instalar o NuGet se você estiver executando uma versão do Visual Studio anterior ao Visual Studio 2015, visite [http://www.nuget.org](http://www.nuget.org) e clique no botão **Instalar NuGet**.
 
 Para instalar o pacote NuGet do SendGrid no seu aplicativo, faça o seguinte:
 
@@ -261,4 +261,4 @@ Agora que você já conhece as noções básicas do serviço de email SendGrid, 
   [entrega de e-mail transacional]: https://sendgrid.com/transactional-email
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

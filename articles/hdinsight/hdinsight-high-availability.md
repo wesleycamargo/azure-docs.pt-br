@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="02/04/2016"
 	ms.author="jgao"/>
 
 
@@ -63,7 +63,7 @@ Para acessar registros de trabalhos no nó principal secundário caso ele tenha 
 ![](./media/hdinsight-high-availability/Hadoop.Head.Node.Log.Files.png)
 
 
-## Configurar o tamanho do nó principal
+## Configurar o tamanho do nó de cabeça
 Os nós principais são alocados como grandes VMs (máquinas virtuais) por padrão. Esse tamanho é adequado para o gerenciamento da maior parte dos trabalhos de Hadoop executados no cluster. Mas há cenários que podem exigir máquinas virtuais extragrandes para os nós principais. Um exemplo é quando o cluster tem de gerenciar um grande número de pequenos trabalhos de Oozie.
 
 VMs extragrandes podem ser configuradas usando cmdlets do PowerShell do Azure ou o SDK do HDInsight.
@@ -100,10 +100,10 @@ Para o SDK, a história é semelhante. A criação e o provisionamento de um clu
     };
 
 
-**Referências**
+## Próximas etapas
 
-- [ZooKeeper](http://zookeeper.apache.org/)
+- [Apache ZooKeeper](http://zookeeper.apache.org/)
 - [Conectar ao clusters HDInsight usando o RDP](hdinsight-administer-use-management-portal.md#rdp)
 - [Usando o SDK .NET do HDInsight](hdinsight-provision-clusters.md#sdk)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

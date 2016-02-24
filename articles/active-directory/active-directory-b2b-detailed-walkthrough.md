@@ -1,7 +1,8 @@
 <properties
    pageTitle="Passo a passo detalhado usando a visualização de colaboração B2B do Active Directory do Azure| Microsoft Azure"
-   description="A B2B do e diretório ativo do Active Directory do Azure suporta as relações entre empresas, permitindo que os parceiros de negócios acessem seletivamente seus aplicativos corporativos"
+   description="A colaboração B2B do Active Directory do Azure dá suporte a relações entre empresas, permitindo que os parceiros de negócios acessem de maneira seletiva seus aplicativos corporativos"
    services="active-directory"
+   documentationCenter=""
    authors="viv-liu"
    manager="cliffdi"
    editor=""
@@ -10,13 +11,14 @@
 <tags
    ms.service="active-directory"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="10/27/2015"
+   ms.date="02/10/2016"
    ms.author="viviali"/>
 
-# Passo a passo detalhado usando a visualização de colaboração B2B do Active Directory do Azure (AD do Azure)
+# Visualização da colaboração B2B do AD do Azure: passo a passo detalhado
+
 Este passo a passo descreve como usar a colaboração B2B do AD do Azure. Como administradores de TI da Contoso, queremos compartilhar aplicativos com funcionários de três empresas parceiras. Nenhuma das empresas parceiras precisa ter o AD do Azure.
 
 - Alice da Simple Partners Org
@@ -26,7 +28,7 @@ Este passo a passo descreve como usar a colaboração B2B do AD do Azure. Como a
 Após o envio de convites a usuários de parceiros, podemos configurá-los no AD do Azure para conceder acesso aos aplicativos e associação a grupos por meio do portal do Azure. Vamos começar pela adição de Alice.
 
 ## Adicionando Alice ao diretório da Contoso
-1. Crie um arquivo .csv com os cabeçalhos, conforme mostrado, preenchendo apenas o **Email**, **DisplayName** e **InviteContactUsUrl** de Alice. **DisplayName** é o nome que será exibido no convite e também o nome que será exibido no diretório do AD do Azure da Contoso. **InviteContactUsUrl** é uma maneira de Alice entrar em contato com a Contoso. No exemplo a seguir, é especificado o perfil da Contoso no LinkedIn. É importante que os títulos na primeira linha do arquivo .csv estejam na mesma ordem e escritos da mesma forma, conforme mostrado. Consulte a seção Formato CSV abaixo. ![Exemplo de arquivo CSV para Alice](./media/active-directory-b2b-detailed-walkthrough/AliceCSV.png)
+1. Crie um arquivo .csv com os cabeçalhos, conforme mostrado, preenchendo apenas o **Email**, **DisplayName** e **InviteContactUsUrl** de Alice. **DisplayName** é o nome que será exibido no convite e também o nome que será exibido no diretório do AD do Azure da Contoso. **InviteContactUsUrl** é uma maneira de Alice entrar em contato com a Contoso. No exemplo a seguir, é especificado o perfil da Contoso no LinkedIn. É importante que os títulos na primeira linha do arquivo .csv estejam na mesma ordem e sejam escritos da mesma forma, como mostrado. Consulte a seção Formato CSV abaixo. ![Exemplo de arquivo CSV para Alice](./media/active-directory-b2b-detailed-walkthrough/AliceCSV.png)
 
 2. No portal do Azure, adicionar um usuário no diretório da Contoso (Active Directory > Contoso > Usuários > Adicionar Usuário). Na lista suspensa "Tipo de Usuário", selecione "Usuários em empresas parceiras". Carregue o arquivo .csv. Feche o arquivo .csv antes do carregamento. ![Carregamento do arquivo CSV para Alice](./media/active-directory-b2b-detailed-walkthrough/AliceUpload.png)
 
@@ -34,7 +36,7 @@ Após o envio de convites a usuários de parceiros, podemos configurá-los no AD
 
 4. Do ponto de vista de Alice, ela receberá o email a seguir. ![Email de convite para Alice](./media/active-directory-b2b-detailed-walkthrough/AliceEmail.png)
 
-5. Alice clica no link e deverá aceitar o convite e fazer logon usando suas credenciais corporativas. Se Alice não estiver no diretório do AD do Azure, ela precisará se inscrever. ![Inscrição após o convite para Alice](./media/active-directory-b2b-detailed-walkthrough/AliceSignUp.png)
+5. Alice clica no link e é solicitada a aceitar o convite e fazer logon usando suas credenciais corporativas. Se Alice não estiver no diretório do AD do Azure, ela precisará se inscrever. ![Inscrição após o convite para Alice](./media/active-directory-b2b-detailed-walkthrough/AliceSignUp.png)
 
 6. Alice é redirecionada para o Painel de Acesso do Aplicativo, vazio até que ela tenha acesso aos aplicativos. ![Painel de acesso para Alice](./media/active-directory-b2b-detailed-walkthrough/AliceAccessPanel.png)
 
@@ -77,6 +79,7 @@ Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 - [Referência do formato de arquivo CSV](active-directory-b2b-references-csv-file-format.md)
 - [Formato do token de usuário externo](active-directory-b2b-references-external-user-token-format.md)
 - [Alterações de atributo do objeto de usuário externo](active-directory-b2b-references-external-user-object-attribute-changes.md)
-- [Limitações de visualização atuais](active-directory-b2b-current-preview-limitations.md)
+- [Limitações atuais da visualização](active-directory-b2b-current-preview-limitations.md)
+- [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0218_2016-->

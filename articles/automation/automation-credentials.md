@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/23/2015"
+   ms.date="01/27/2016"
    ms.author="bwren" />
 
 # Ativos de credenciais na Automação do Azure
 
 Um ativo de credencial de Automação contém um objeto [PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) que contém credenciais de segurança, como um nome de usuário e uma senha. Runbooks e configurações DSC podem usar cmdlets que aceitam um objeto PSCredential para autenticação ou eles podem extrair o nome de usuário e a senha do objeto PSCredential para fornecê-los a algum aplicativo ou serviço que exija a autenticação. As propriedades de uma credencial são armazenadas com segurança na Automação do Azure e podem ser acessadas no runbook ou na configuração DSC com a atividade [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx).
 
->[AZURE.NOTE]Os ativos protegidos na Automação do Azure incluem credenciais, certificados, conexões e variáveis criptografadas. Esses ativos são criptografados e armazenados na Automação do Azure usando uma chave exclusiva que é gerada para cada conta de automação. Essa chave é criptografada por um certificado mestre e armazenada na Automação do Azure. Antes de armazenar um ativo seguro, a chave para a conta de automação é descriptografada usando o certificado mestre e usada para criptografar o ativo.
+>[AZURE.NOTE] Os ativos protegidos na Automação do Azure incluem credenciais, certificados, conexões e variáveis criptografadas. Esses ativos são criptografados e armazenados na Automação do Azure usando uma chave exclusiva que é gerada para cada conta de automação. Essa chave é criptografada por um certificado mestre e armazenada na Automação do Azure. Antes de armazenar um ativo seguro, a chave para a conta de automação é descriptografada usando o certificado mestre e usada para criptografar o ativo.
 
 ## Cmdlets do Windows PowerShell
 
@@ -40,12 +40,12 @@ As atividades na tabela a seguir são usadas para acessar credenciais em um runb
 |:---|:---|
 |Get-AutomationPSCredential|Obtém uma credencial a ser usada em um runbook ou configuração DSC. Retorna um objeto [System.Management.Automation.PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential).|
 
->[AZURE.NOTE]Evite usar variáveis no parâmetro –Name de Get-AutomationPSCredential, pois isso pode complicar a descoberta de dependências entre runbooks ou configurações DSC e ativos de credenciais no momento do design.
+>[AZURE.NOTE] Evite usar variáveis no parâmetro –Name de Get-AutomationPSCredential, pois isso pode complicar a descoberta de dependências entre runbooks ou configurações DSC e ativos de credenciais no momento do design.
 
 ## Criando uma nova credencial
 
 
-### Para criar uma nova variável com o portal do Azure
+### Para criar uma nova variável com o portal clássico do Azure
 
 1. Em sua conta de automação, clique em **Ativos** na parte superior da janela.
 1. Clique em **Adicionar Configuração** na parte inferior da janela.
@@ -54,7 +54,7 @@ As atividades na tabela a seguir são usadas para acessar credenciais em um runb
 1. Conclua o assistente e clique na caixa de seleção para salvar a nova credencial.
 
 
-### Para criar uma nova credencial com o portal de visualização do Azure
+### Para criar uma nova credencial com o portal do Azure
 
 1. Em sua conta de automação, clique na parte **Ativos** para abrir a folha **Ativos**.
 1. Clique na parte **Credenciais** para abrir a folha **Credenciais**.
@@ -92,12 +92,12 @@ Você adiciona uma atividade **Get-AutomationPSCredential** a um runbook gráfic
 
 ![Adicionar a credencial à tela](media/automation-credentials/credential-add-canvas.png)
 
-A imagem a seguir mostra um exemplo do uso de uma credencial em um runbook gráfico. Nesse caso, ela está sendo usada para fornecer autenticação para um runbook para os recursos do Azure, conforme descrito em [Configurando a autenticação para recursos do Azure](#automation-configuring.md). A primeira atividade recupera a credencial que tem acesso à assinatura do Azure. A atividade **Add-AzureAccount** usa essa credencial para fornecer autenticação para qualquer atividade que vier depois dela. Um [link de pipeline](automation-graphical-authoring-intro.md#links-and-workflow) está disponível, já que **Get-AutomationPSCredential** está esperando um único objeto.
+A imagem a seguir mostra um exemplo do uso de uma credencial em um runbook gráfico. Nesse caso, ela está sendo usada para fornecer autenticação para um runbook para os recursos do Azure, conforme descrito em [Configurando a autenticação para recursos do Azure](automation-configuring.md). A primeira atividade recupera a credencial que tem acesso à assinatura do Azure. A atividade **Add-AzureAccount** usa essa credencial para fornecer autenticação para qualquer atividade que vier depois dela. Um [link de pipeline](automation-graphical-authoring-intro.md#links-and-workflow) está disponível, já que **Get-AutomationPSCredential** está esperando um único objeto.
 
 ![Adicionar a credencial à tela](media/automation-credentials/get-credential.png)
 
 ## Usando uma credencial do PowerShell na DSC
-Embora as Configurações DSC na Automação do Azure possam fazer referência aos ativos de credenciais usando **Get-AutomationPSCredential**, os ativos de credenciais também podem ser transmitidos por meio de parâmetros, se desejado. Para obter mais informações, veja [Compilando configurações na DSC de Automação do Azure](automation-dsc-compile.md#credential-assets).
+Embora as Configurações DSC na Automação do Azure possam fazer referência aos ativos de credencial usando **Get-AutomationPSCredential**, os ativos de credencial também podem ser transmitidos por meio de parâmetros, se desejado. Para obter mais informações, veja [Compilando configurações na DSC de Automação do Azure](automation-dsc-compile.md#credential-assets).
 
 ## Artigos relacionados
 
@@ -105,4 +105,4 @@ Embora as Configurações DSC na Automação do Azure possam fazer referência a
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0204_2016-->

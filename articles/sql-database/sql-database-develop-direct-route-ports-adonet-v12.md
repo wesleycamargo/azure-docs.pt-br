@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="MightyPen"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor="" />
 
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="02/05/2016" 
 	ms.author="genemi"/>
 
 
@@ -120,4 +120,4 @@ As diferenças de conexão do cliente entre o Banco de Dados SQL V11 e V12 são 
 
 - [Como definir as configurações de firewall no Banco de Dados SQL](sql-database-configure-firewall-settings.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

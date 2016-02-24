@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/03/2015"
+	ms.date="02/03/2016"
 	ms.author="garye"/>
 
 # Tutorial de aprendizado de máquina: Crie sua primeira experiência no Studio de Aprendizado de Máquina do Azure
@@ -29,7 +29,7 @@ Insira Estúdio de Aprendizado de Máquina: [https://studio.azureml.net](https:/
 
 Para obter informações mais gerais sobre o Estúdio do Aprendizado de Máquina, consulte [O que é o Estúdio de Aprendizado de Máquina?](machine-learning-what-is-ml-studio.md)
 
->[AZURE.TIP]Para baixar e imprimir um diagrama que fornece uma visão geral dos recursos do Estúdio de Aprendizado de Máquina, consulte [Diagrama de visão geral dos recursos do Estúdio de Aprendizado de Máquina do Azure](machine-learning-studio-overview-diagram.md).
+>[AZURE.TIP] Para baixar e imprimir um diagrama que fornece uma visão geral dos recursos do Estúdio de Aprendizado de Máquina, consulte [Diagrama de visão geral dos recursos do Estúdio de Aprendizado de Máquina do Azure](machine-learning-studio-overview-diagram.md).
 
 
 ## Cinco etapas para criar um experimento
@@ -76,7 +76,7 @@ Feche a janela de visualização clicando no "**x**" no canto superior direito.
 
 Um conjunto de dados geralmente requer algum pré-processamento antes de poder ser analisado. Você deve ter observado os valores ausentes presentes nas colunas de várias linhas. Os valores ausentes precisam ser limpos para que o modelo possa analisar os dados corretamente. Em nosso caso, vamos remover quaisquer linhas que contém valores ausentes. Além disso, a coluna **normalized-losses** tem uma grande proporção de valores ausentes, portanto excluiremos totalmente essa coluna do modelo.
 
-> [AZURE.TIP]Limpar os valores ausentes dos dados de entrada é um pré-requisito para usar a maioria dos módulos.
+> [AZURE.TIP] Limpar os valores ausentes dos dados de entrada é um pré-requisito para usar a maioria dos módulos.
 
 Primeiro, removeremos a coluna **normalized-losses** e removeremos qualquer linha que tenha dados ausentes.
 
@@ -94,7 +94,7 @@ Primeiro, removeremos a coluna **normalized-losses** e removeremos qualquer linh
 
     ![Propriedades de Colunas do Projeto][screen4]
 
-    > [AZURE.TIP]É possível adicionar um comentário em um módulo ao clicar duas vezes nele e inserir o texto. Isso pode ajudar a ver rapidamente o que o módulo está fazendo em seu experimento. Nesse caso, clique duas vezes no módulo [Colunas do Projeto][project-columns] e digite o comentário “Excluir perdas normalizadas”.
+    > [AZURE.TIP] É possível adicionar um comentário em um módulo ao clicar duas vezes nele e inserir o texto. Isso pode ajudar a ver rapidamente o que o módulo está fazendo em seu experimento. Nesse caso, clique duas vezes no módulo [Colunas do Projeto][project-columns] e digite o comentário “Excluir perdas normalizadas”.
 
 3. Arraste o módulo [Limpar valores ausentes][clean-missing-data] até a tela do experimento e conecte-o ao módulo [Colunas do Projeto][project-columns]. No painel de **Propriedades**, selecione **Remover linha inteira** em **Modo de limpeza** para limpar os dados removendo linhas que têm valores ausentes. Clique duas vezes no módulo e digite o comentário “Remover linhas de valor ausente".
 
@@ -124,7 +124,7 @@ Vamos criar um modelo que usa um subconjunto dos recursos em nosso conjunto de d
 
 3. No seletor de coluna, selecione **Nenhuma coluna** para **Começar com**, em seguida, selecione **Incluir** e **nomes de coluna** na linha do filtro. Insira nossa lista de nomes da coluna. Isso instrui o módulo a percorrer apenas colunas que especificamos.
 
-	> [AZURE.TIP]Como executamos o experimento, as definições de coluna para os dados passaram do conjunto de dados original por meio do módulo [Limpar dados ausentes][clean-missing-data]. Ao conectar [Colunas do Projeto][project-columns] a [Limpar dados ausentes][clean-missing-data], o módulo [Colunas do Projeto][project-columns] torna-se ciente das definições de coluna em nossos dados. Ao clicar na caixa **nomes de colunas**, é exibida uma lista das colunas e você pode selecionar as colunas que deseja adicionar à lista.
+	> [AZURE.TIP] Como executamos o experimento, as definições de coluna para os dados passaram do conjunto de dados original por meio do módulo [Limpar dados ausentes][clean-missing-data]. Ao conectar [Colunas do Projeto][project-columns] a [Limpar dados ausentes][clean-missing-data], o módulo [Colunas do Projeto][project-columns] torna-se ciente das definições de coluna em nossos dados. Ao clicar na caixa **nomes de colunas**, é exibida uma lista das colunas e você pode selecionar as colunas que deseja adicionar à lista.
 
 4. Clique no botão de marca de seleção (OK).
 
@@ -142,7 +142,7 @@ Desejamos prever o preço de um automóvel, que pode ser qualquer valor, portant
 
 1. Podemos usar nossos dados para teste e treinamento dividindo-os em conjuntos separados de treinamento e de teste. Selecione e arraste o módulo [Dividir Dados][split] até a tela do experimento e conecte-o à porta de saída do último módulo [Colunas do Projeto][project-columns]. Configure **Fração de linhas no primeiro conjunto de dados de saída** para 0,75. Desta forma, usaremos 75% dos dados para treinar o modelo e manteremos 25% para teste.
 
-	> [AZURE.TIP]Alterando o parâmetro **Semente aleatória**, é possível produzir amostras aleatórias diferentes para treinamento e teste. Esse parâmetro controla a alimentação do gerador de número pseudoaleatório.
+	> [AZURE.TIP] Alterando o parâmetro **Semente aleatória**, é possível produzir amostras aleatórias diferentes para treinamento e teste. Esse parâmetro controla a alimentação do gerador de número pseudoaleatório.
 
 2. Execute o experimento. Isso permite que os módulos [Colunas do Projeto][project-columns] e [Dividir Dados][split] passem pelas definições de coluna para os módulos que incluiremos em seguida.
 
@@ -196,15 +196,15 @@ O experimento final deve ficar assim:
 
 Agora que você concluiu um primeiro tutorial de aprendizado de máquina e o seu experimento foi configurado, você pode iterar para tentar melhorar o modelo. Por exemplo, é possível alterar os recursos usados em sua previsão. Ou é possível modificar as propriedades do algoritmo [Regressão Linear][linear-regression] ou tentar um algoritmo diferente. Ainda é possível adicionar vários algoritmos de Aprendizado de Máquina à sua experiência de aprendizagem e comparar dois usando o módulo [Avaliar modelo][evaluate-model].
 
-> [AZURE.TIP]Use o botão **SALVAR COMO** na tela do experimento para copiar qualquer iteração do seu experimento. Você pode ver todas as iterações do seu experimento clicando em **EXIBIR O HISTÓRICO DE EXECUÇÃO** na tela. Consulte [Gerenciar iterações do experimento no Estúdio de Aprendizado de Máquina do Azure][runhistory] para obter mais detalhes.
+> [AZURE.TIP] Use o botão **SALVAR COMO** na tela do experimento para copiar qualquer iteração do seu experimento. Você pode ver todas as iterações do seu experimento clicando em **EXIBIR O HISTÓRICO DE EXECUÇÃO** na tela. Consulte [Gerenciar iterações do experimento no Estúdio de Aprendizado de Máquina do Azure][runhistory] para obter mais detalhes.
 
 [runhistory]: machine-learning-manage-experiment-iterations.md
 
-Quando estiver satisfeito com seu modelo, você poderá implantá-lo como um serviço Web a ser usado para prever preços de automóveis usando novos dados. Consulte [Implantar um serviço Web do Aprendizado de Máquina do Azure][publish] para obter mais detalhes.
+Quando estiver satisfeito com seu modelo, você poderá implantá-lo como um serviço Web a ser usado para prever preços de automóveis usando novos dados. Veja [Implantar um serviço Web do Aprendizado de Máquina do Azure][publish] para obter mais detalhes.
 
 [publish]: machine-learning-publish-a-machine-learning-web-service.md
 
-Para obter um passo a passo maior e detalhado das técnicas de modelagem de previsão para criar, treinar, pontuar e implantar um modelo, consulte [Desenvolver uma solução preditiva usando o Aprendizado de Máquina do Azure][walkthrough].
+Para obter um passo a passo maior e detalhado das técnicas de modelagem de previsão para criar, treinar, pontuar e implantar um modelo, veja [Desenvolver uma solução preditiva usando o Aprendizado de Máquina do Azure][walkthrough].
 
 [walkthrough]: machine-learning-walkthrough-develop-predictive-solution.md
 
@@ -234,4 +234,4 @@ Para obter um passo a passo maior e detalhado das técnicas de modelagem de prev
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -24,7 +24,7 @@
 
 Se você não conseguir acessar um aplicativo em execução em uma máquina virtual do Azure, este artigo descreve uma abordagem metódica para isolar a origem do problema e corrigi-lo.
 
-> [AZURE.NOTE]Para obter ajuda para se conectar a uma máquina virtual do Azure, consulte [Solucionar problemas de conexões de Área de Trabalho Remota para uma Máquina Virtual do Azure baseada no Windows](virtual-machines-troubleshoot-remote-desktop-connections.md) ou [Solucionar problemas de conexões SSH (Secure Shell) para uma máquina virtual do Azure baseada em Linux](virtual-machines-troubleshoot-ssh-connections.md).
+> [AZURE.NOTE]  Para obter ajuda para se conectar a uma máquina virtual do Azure, consulte [Solucionar problemas de conexões de Área de Trabalho Remota para uma Máquina Virtual do Azure baseada no Windows](virtual-machines-troubleshoot-remote-desktop-connections.md) ou [Solucionar problemas de conexões SSH (Secure Shell) para uma máquina virtual do Azure baseada em Linux](virtual-machines-troubleshoot-ssh-connections.md).
 
 Há quatro áreas principais nas quais é possível solucionar problemas de acesso de um aplicativo que está sendo executado em uma máquina virtual do Azure.
 
@@ -86,7 +86,7 @@ Se não conseguir acessar o aplicativo, verifique o seguinte:
 - Para máquinas virtuais criadas usando a API de Gerenciamento de Serviços, cuja configuração do ponto de extremidade da máquina virtual está permitindo tráfego de entrada, especialmente o protocolo (TCP ou UDP) e os números de porta pública e privada. Para obter mais informações, confira [Como configurar pontos de extremidade para uma Máquina Virtual](virtual-machines-set-up-endpoints.md)
 - Para máquinas virtuais criadas usando a API de Gerenciamento de Serviços, as ACLs (Listas de Controle de Acesso) no ponto de extremidade não estão impedindo o tráfego de entrada da Internet. Para obter mais informações, confira [Como configurar pontos de extremidade para uma Máquina Virtual](virtual-machines-set-up-endpoints.md)
 - Para máquinas virtuais criadas no Gerenciador de Recursos, que a configuração da regra NAT de entrada da máquina virtual está permitindo o tráfego de entrada, especialmente o protocolo (TCP ou UDP) e os números de porta pública e privada.
-- Se os Grupos de segurança de rede permitem o tráfego de saída de respostar e de entrada de solicitações. Para obter mais informações, consulte [O que é um NSG (Grupo de Segurança de Rede)?](virtual-networks-nsg.md).
+- Se os Grupos de segurança de rede permitem o tráfego de saída de respostar e de entrada de solicitações. Para obter mais informações, consulte [O que é um NSG (Grupo de Segurança de Rede)?](../virtual-network/virtual-networks-nsg.md).
 
 Se a máquina virtual ou ponto de extremidade for um membro de um conjunto com balanceamento de carga:
 
@@ -116,8 +116,8 @@ Para obter mais informações, consulte [Solução de problemas de conectividade
 
 Se tiver executado as etapas acima neste artigo e precisar de mais ajuda para corrigir o problema, você pode:
 
-- Obter ajuda de especialistas do Azure no mundo inteiro. Enviar sua dúvida nos fóruns do MSDN Azure ou Stack Overflow. Consulte [Fóruns do Microsoft Azure](http://azure.microsoft.com/support/forums/) para obter mais informações.
-- Registrar um incidente de suporte do Azure. Vá até o [Site de Suporte do Azure](http://azure.microsoft.com/support/options/) e clique em **Obter suporte** em **Suporte técnico e de cobrança**.
+- Obter ajuda de especialistas do Azure no mundo inteiro. Enviar sua dúvida nos fóruns do MSDN Azure ou Stack Overflow. Consulte [Fóruns do Microsoft Azure](https://azure.microsoft.com/support/forums/) para obter mais informações.
+- Registrar um incidente de suporte do Azure. Vá até o [Site de Suporte do Azure](https://azure.microsoft.com/support/options/) e clique em **Obter suporte** em **Suporte técnico e de cobrança**.
 
 ## Recursos adicionais
 
@@ -125,4 +125,4 @@ Se tiver executado as etapas acima neste artigo e precisar de mais ajuda para co
 
 [Solucionar problemas de conexões SSH (Secure Shell) para uma máquina virtual do Azure baseada em Linux](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

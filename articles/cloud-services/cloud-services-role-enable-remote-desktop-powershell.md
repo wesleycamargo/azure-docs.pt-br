@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="09/17/2015" 
+ms.date="01/19/2016" 
 ms.author="saurabh"/>
 
 # Habilitar a Conexão de Área de Trabalho Remota para uma função nos serviços de nuvem do Azure usando o PowerShell
@@ -20,12 +20,12 @@ ms.author="saurabh"/>
 >[AZURE.SELECTOR]
 - [Azure classic portal](cloud-services-role-enable-remote-desktop.md)
 - [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
-- [Visual Studio](https://msdn.microsoft.com/library/gg443832.aspx)
+- [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
 
 
 A área de trabalho remota permite que você acesse a área de trabalho de uma função em execução no Azure. Você pode usar a conexão da área de trabalho remota para solucionar e diagnosticar problemas com seu aplicativo durante a execução.
 
-Este artigo descreve como habilitar a área de trabalho remota em suas funções de serviço de nuvem usando o PowerShell. Consulte [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md) para os pré-requisitos necessários para este artigo. O PowerShell usa a abordagem de Extensão da Área de Trabalho Remota para que você possa habilitar a Área de Trabalho Remota, mesmo depois que o aplicativo for implantado.
+Este artigo descreve como habilitar a área de trabalho remota em suas funções de serviço de nuvem usando o PowerShell. Consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para os pré-requisitos necessários para este artigo. O PowerShell usa a abordagem de Extensão da Área de Trabalho Remota para que você possa habilitar a Área de Trabalho Remota, mesmo depois que o aplicativo for implantado.
 
 
 ## Configurar a Área de Trabalho Remota por meio do PowerShell
@@ -50,7 +50,7 @@ Use o PowerShell a seguir para criar um arquivo de senha de segurança:
 
 Uma vez criado o arquivo de senha (password.txt), você usará apenas esse arquivo e não terá que especificar a senha em texto sem formatação. Se precisar atualizar a senha, você poderá executar o PowerShell acima novamente, com a nova senha, para gerar um novo arquivo password.txt.
 
->[AZURE.IMPORTANT]Ao definir a senha, certifique-se de atender aos [requisitos de complexidade](https://technet.microsoft.com/library/cc786468.aspx).
+>[AZURE.IMPORTANT] Ao definir a senha, certifique-se de atender aos [requisitos de complexidade](https://technet.microsoft.com/library/cc786468.aspx).
 
 Para criar o objeto de credencial com base no arquivo de senha segura, você deve ler os conteúdos do arquivo e convertê-los novamente em uma cadeia de caracteres segura, usando [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx). Além de credenciais, o cmdlet [Set-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495117.aspx) também aceita um parâmetro *Expiration* que especifica um DateTime (data e hora) em que a conta de usuário vai expirar. Você pode obtê-lo especificando uma data e hora estáticas ou você pode simplesmente optar por expirar a conta em alguns dias a partir da data atual.
 
@@ -94,7 +94,7 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 
 ```  
 
->[AZURE.NOTE]O parâmetro *UninstallConfiguration* desinstalará qualquer configuração de extensão que tenha sido aplicada ao serviço. Em toda a configuração de extensão que está associada à configuração do serviço para ativar a extensão com uma implantação, a implantação deve ser associada a essa configuração de extensão. Chamar o cmdlet Remove sem *UninstallConfiguration* dissociará a implantação da configuração de extensão, removendo assim efetivamente a extensão da implantação. No entanto, a configuração de extensão ainda permanecerá associada ao serviço. Para remover completamente a configuração de extensão, você deve chamar o cmdlet Remove com o parâmetro *UninstallConfiguration*.
+>[AZURE.NOTE] O parâmetro *UninstallConfiguration* desinstalará qualquer configuração de extensão que tenha sido aplicada ao serviço. Em toda a configuração de extensão que está associada à configuração do serviço para ativar a extensão com uma implantação, a implantação deve ser associada a essa configuração de extensão. Chamar o cmdlet Remove sem *UninstallConfiguration* dissociará a implantação da configuração de extensão, removendo assim efetivamente a extensão da implantação. No entanto, a configuração de extensão ainda permanecerá associada ao serviço. Para remover completamente a configuração de extensão, você deve chamar o cmdlet Remove com o parâmetro *UninstallConfiguration*.
 
 
 
@@ -102,4 +102,4 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 
 [Como configurar serviços de nuvem](cloud-services-how-to-configure.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="01/12/2016"
 	ms.author="krisragh;donnam"/>
 
 # Introdução à sincronização de dados offline nos Serviços Móveis
@@ -35,7 +35,7 @@ A sincronização offline oferece várias vantagens:
 * Sincroniza dados em vários dispositivos
 * Detecta os conflitos quando o mesmo registro é modificado por dois dispositivos
 
-> [AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Azure. Se não tiver uma conta, você poderá se inscrever para uma avaliação do Azure e obter [serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação](http://azure.microsoft.com/pricing/details/mobile-services/). Para obter detalhes, consulte [Avaliação Gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28 target=“\_blank”).
+> [AZURE.NOTE] Para concluir este tutorial, você precisa de uma conta do Azure. Se não tiver uma conta, você poderá se inscrever para uma avaliação do Azure e obter [serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação](https://azure.microsoft.com/pricing/details/mobile-services/). Para obter detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28 target=“\_blank”).
 
 Este tutorial se baseia no [tutorial de Início Rápido dos Serviços Móveis], que você deve concluir primeiro. Vamos primeiro examinar o código relacionado à sincronização offline já no Início Rápido.
 
@@ -102,7 +102,7 @@ O segundo parâmetro para `pullWithQuery` é uma ID de consulta _ para _sincroni
 ```
 
 
->[AZURE.NOTE]Para remover registros do armazenamento local do dispositivo quando tiverem sido excluídos do banco de dados do serviço móvel, você deve habilitar a [Exclusão Reversível]. Caso contrário, seu aplicativo deverá chamar `MSSyncTable.purgeWithQuery` periodicamente para limpar o armazenamento local.
+>[AZURE.NOTE] Para remover registros do armazenamento local do dispositivo quando tiverem sido excluídos do banco de dados do serviço móvel, você deve habilitar a [Exclusão Reversível]. Caso contrário, seu aplicativo deverá chamar `MSSyncTable.purgeWithQuery` periodicamente para limpar o armazenamento local.
 
 
 * Em **QSTodoService.m**, os métodos `addItem` e `completeItem` invocam `syncData` após a modificação de dados. Em **QSTodoListViewController.m**, o método `refresh` também chama `syncData` para que a interface do usuário exiba os dados mais recentes em cada atualização e no lançamento (`init` chama `refresh`).
@@ -120,7 +120,7 @@ Ao usar o armazenamento offline de dados principais, você precisa definir deter
       * MS\_TableConfig: para controlar a hora da última atualização da última operação de sincronização para todas as operações de pull
       * TodoItem: para armazenar os itens pendentes. As colunas do sistema **ms\_createdAt**, **ms\_updatedAt** e **ms\_version** são propriedades opcionais do sistema.
 
->[AZURE.NOTE]O SDK dos serviços móveis reserva nomes de coluna que começam com “**`ms_`**”. Não use esse prefixo em algo diferente das colunas do sistema. Caso contrário, os nomes de coluna serão modificados ao usar o serviço remoto.
+>[AZURE.NOTE] O SDK dos serviços móveis reserva nomes de coluna que começam com “**`ms_`**”. Não use esse prefixo em algo diferente das colunas do sistema. Caso contrário, os nomes de coluna serão modificados ao usar o serviço remoto.
 
 - Ao usar o recurso de sincronização offline, você deve definir as tabelas do sistema, conforme mostrado abaixo.
 
@@ -275,4 +275,4 @@ Para sincronizar o repositório local com o servidor, você usou `MSSyncTable.pu
 
 [tutorial de Início Rápido dos Serviços Móveis]: mobile-services-ios-get-started.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Modelo do Gerenciador de Recursos para um segredo em um cofre da chave | Microsoft Azure"
-   description="Mostra o esquema de segredos do cofre da chave do Gerenciador de Recursos."
+   description="Mostra o esquema do Gerenciador de Recursos para a implantação de segredos de cofre da chave por meio de um modelo."
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/15/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
 # Esquema de modelo do segredo do cofre da chave
@@ -227,4 +227,4 @@ O segundo exemplo implanta o segredo como um recurso de nível superior que é a
 - Para obter informações gerais sobre cofres de chave, veja [Introdução ao Cofre da Chave do Azure](./key-vault/key-vault-get-started.md).
 - Para obter um exemplo de como fazer referência a um segredo do cofre da chave durante a implantação de modelos, veja [Transmitir valores seguros durante a implantação](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

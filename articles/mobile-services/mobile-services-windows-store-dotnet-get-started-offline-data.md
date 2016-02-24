@@ -33,7 +33,7 @@ Se você preferir assistir a um vídeo, o clipe à direita segue as mesmas etapa
 
 Neste tutorial, você atualizará o projeto de aplicativo Universal desde o tutorial da [Introdução aos Serviços Móveis] para dar suporte aos recursos offline dos Serviços Móveis do Azure. Em seguida, você adicionará dados em um cenário offline desconectado, sincronizará esses itens ao banco de dados online e, em seguida, fará logon no [Portal clássico do Azure] para exibir as alterações de dados feitas durante a execução do aplicativo.
 
->[AZURE.NOTE]O objetivo deste tutorial é ajudar você a compreender melhor como os Serviços Móveis permitem usar o Azure para armazenar e recuperar dados em um aplicativo da Windows Store. Se esta for sua primeira experiência com os Serviços Móveis, primeiro conclua o tutorial [Introdução aos Serviços Móveis].
+>[AZURE.NOTE] O objetivo deste tutorial é ajudar você a compreender melhor como os Serviços Móveis permitem usar o Azure para armazenar e recuperar dados em um aplicativo da Windows Store. Se esta for sua primeira experiência com os Serviços Móveis, primeiro conclua o tutorial [Introdução aos Serviços Móveis].
 
 ##Pré-requisitos
 
@@ -44,27 +44,27 @@ Este tutorial exige o seguinte:
 * [SDK dos Serviços móveis do Azure versão 1.3.0 (ou posterior)][Mobile Services SDK Nuget]
 * [Armazenamento do SQLite dos Serviços Móveis do Azure versão 1.0.0 (ou posterior)][SQLite store nuget]
 * [SQLite para Windows 8.1](http://www.sqlite.org/download.html)
-* Uma conta do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28).
+* Uma conta do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28).
 
 ## <a name="enable-offline-app"></a>Atualizar o aplicativo para dar suporte aos recursos offline
 
 Os recursos offline dos Serviços Móveis do Azure permitem que você interaja com um banco de dados local quando estiver em um cenário offline com seu Serviço Móvel. Para usar esses recursos em seu aplicativo, você deve inicializar um `MobileServiceClient.SyncContext` para um armazenamento local. Em seguida, faça referência à sua tabela por meio da interface da `IMobileServiceSyncTable`. Neste tutorial, usamos o SQLite para o repositório local.
 
->[AZURE.NOTE]Você pode ignorar esta seção e obter apenas o projeto de exemplo que já tem o suporte offline do repositório de amostras GitHub para os Serviços Móveis. O projeto de exemplo com o suporte offline habilitado está localizado aqui, [Exemplo offline da TodoList].
+>[AZURE.NOTE] Você pode ignorar esta seção e obter apenas o projeto de exemplo que já tem o suporte offline do repositório de amostras GitHub para os Serviços Móveis. O projeto de exemplo com o suporte offline habilitado está localizado aqui, [Exemplo offline da TodoList].
 
 1. Instale o tempo de execução do SQLite para Windows 8.1 e Windows Phone 8.1.
 
     * **Tempo de Execução do Windows 8.1:** instalar o [SQLite para Windows 8.1].
     * **Windows Phone 8.1:** instalar o [SQLite para Windows Phone 8.1].
 
-    >[AZURE.NOTE]Se você estiver usando o Internet Explorer, clicando no link para instalar o SQLite pode ser solicitado que você baixe o arquivo .vsix como um arquivo .zip. Salve o arquivo em um local no seu disco rígido com a extensão .vsix em vez de .zip. O duplo clique no arquivo .vsix no Windows Explorer para executar a instalação.
+    >[AZURE.NOTE] Se você estiver usando o Internet Explorer, clicando no link para instalar o SQLite pode ser solicitado que você baixe o arquivo .vsix como um arquivo .zip. Salve o arquivo em um local no seu disco rígido com a extensão .vsix em vez de .zip. O duplo clique no arquivo .vsix no Windows Explorer para executar a instalação.
 
 2. No Visual Studio, abra o projeto que você concluiu no tutorial [Introdução aos Serviços Móveis]. Instale o pacote **WindowsAzure.MobileServices.SQLiteStore** do NuGet para o tempo de execução do Windows 8.1 e os projetos do Windows Phone 8.1.
 
     * **Windows 8.1:** no Gerenciador de Soluções, clique com botão direito do mouse no projeto do Windows 8.1 e clique em **Gerenciar Pacotes NuGet** para executar o Gerenciador de Pacotes do NuGet. Procure **SQLiteStore** para instalar o pacote do `WindowsAzure.MobileServices.SQLiteStore`.
     * **Windows Phone 8.1:** clique com o botão direito do mouse no projeto do Windows Phone 8.1 e clique em **Gerenciar Pacotes Nuget** para executar o Gerenciador de Pacotes do NuGet. Procure **SQLiteStore** para instalar o pacote do `WindowsAzure.MobileServices.SQLiteStore`.
 
-    >[AZURE.NOTE]Se a instalação criar uma referência a uma versão anterior do SQLite, apenas exclua essa referência duplicada.
+    >[AZURE.NOTE] Se a instalação criar uma referência a uma versão anterior do SQLite, apenas exclua essa referência duplicada.
 
     ![][2]
 
@@ -183,7 +183,7 @@ Os recursos offline dos Serviços Móveis do Azure permitem que você interaja c
 
     Neste exemplo, recuperamos todos os registros da `todoTable` remota, mas também é possível filtrar registros passando uma consulta. O primeiro parâmetro para `PullAsync` é uma ID da consulta usada para sincronização incremental, que usa o carimbo de data/hora `UpdatedAt` para obter apenas os registros modificados desde a última sincronização. A ID da consulta deve ser uma cadeia de caracteres descritiva que é exclusiva para cada consulta lógica em seu aplicativo. Se desejar sair da sincronização incremental, passe `null` como a ID da consulta. Isso recuperará todos os registros de cada operação de pull, o que é potencialmente ineficiente.
 
-    >[AZURE.NOTE]Para remover registros de armazenamento local do dispositivo quando eles tiverem sido excluídos do banco de dados do serviço móvel, você deve habilitar a [Exclusão Reversível]. Caso contrário, seu aplicativo deverá chamar `IMobileServiceSyncTable.PurgeAsync()` periodicamente para limpar o armazenamento local.
+    >[AZURE.NOTE] Para remover registros de armazenamento local do dispositivo quando eles tiverem sido excluídos do banco de dados do serviço móvel, você deve habilitar a [Exclusão Reversível]. Caso contrário, seu aplicativo deverá chamar `IMobileServiceSyncTable.PurgeAsync()` periodicamente para limpar o armazenamento local.
 
     Observe que `MobileServicePushFailedException` pode ocorrer devido a uma operação de push ou de pull. Ele pode ocorrer por uma recepção porque a operação de recepção executa internamente um envio para certificar-se de que todas as tabelas, juntamente com quaisquer relacionamentos serão consistentes. O próximo tutorial, [Tratando conflitos com o suporte offline para os Serviços Móveis], mostra como manipular essas exceções relacionadas à sincronização.
 
@@ -284,4 +284,4 @@ Nesta seção você reconecta o aplicativo ao serviço móvel. Isso simula o apl
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
 [Portal clássico do Azure]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

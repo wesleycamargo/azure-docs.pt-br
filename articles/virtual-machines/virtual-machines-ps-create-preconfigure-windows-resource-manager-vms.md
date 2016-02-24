@@ -20,11 +20,11 @@
 # Criar e configurar uma Máquina Virtual do Windows com o Gerenciador de Recursos e o Azure PowerShell
 
 > [AZURE.SELECTOR]
-- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
-- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
-- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
-- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
-- [Azure CLI](virtual-machines-linux-tutorial.md)
+- [Portal - Windows](virtual-machines-windows-tutorial.md)
+- [PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [CLI](virtual-machines-linux-tutorial.md)
 
 <br>
 
@@ -214,7 +214,7 @@ Para criar uma NIC e adicioná-la a uma instância do balanceador de carga para 
 - Do número de índice do pool de endereços back-end da instância do balanceador de carga para atribuir à NIC.
 - Do número de índice da regra NAT de entrada para atribuir à NIC.
 
-Para obter informações sobre como criar uma instância do balanceador de carga com regras NAT de entrada, consulte [Criar um balanceador de carga usando o Gerenciador de Recursos do Azure](../load-balancer/load-balancer-arm-powershell.md).
+Para obter informações sobre como criar uma instância do balanceador de carga com regras NAT de entrada, consulte [Como criar um balanceador de carga usando o Gerenciador de Recursos do Azure](../load-balancer/load-balancer-arm-powershell.md).
 
 Copie estas linhas em seu conjunto de comandos e especifique os nomes e números de índice necessários.
 
@@ -271,7 +271,7 @@ Para determinar os possíveis valores da cadeia de caracteres da VM para a opç�
 	$avName="<availability set name>"
 	Get-AzureRmVMSize -ResourceGroupName $rgName -AvailabilitySetName $avName | Select Name
 
-> [AZURE.NOTE]Atualmente, com o Gerenciador de Recursos, é possível apenas adicionar uma máquina virtual a um conjunto de disponibilidade durante sua criação.
+> [AZURE.NOTE] Atualmente, com o Gerenciador de Recursos, é possível apenas adicionar uma máquina virtual a um conjunto de disponibilidade durante sua criação.
 
 Para adicionar outro disco de dados à VM, copie estas linhas em seu conjunto de comandos e especifique as configurações de disco.
 
@@ -391,8 +391,8 @@ Veja o conjunto de comandos do Azure PowerShell para criar essa máquina virtual
 
 [Implantar e gerenciar máquinas virtuais do Azure usando modelos de Gerenciador de Recursos e o PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 
-[Criar uma máquina virtual do Windows com um modelo do Gerenciador de Recursos e o PowerShell](virtual-machines-create-windows-powershell-resource-manager-template-simple)
+[Criar uma máquina virtual do Windows com um modelo do Gerenciador de Recursos e o PowerShell](virtual-machines-create-windows-powershell-resource-manager-template.md)
 
-[Como instalar e configurar o PowerShell do Azure](../install-configure-powershell.md)
+[Como instalar e configurar o PowerShell do Azure](powershell-install-configure.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

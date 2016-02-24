@@ -75,6 +75,6 @@ Para adicionar um Efetuar login/logout em sua exibição, você pode usar a exib
     &lt;/html>
 </pre>
 
-[Saiba mais sobre o Active Directory do Azure](http://azure.microsoft.com/services/active-directory/)
+[Saiba mais sobre o Active Directory do Azure](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

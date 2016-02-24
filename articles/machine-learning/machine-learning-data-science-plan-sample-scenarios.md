@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/18/2015"
+	ms.date="02/08/2016"
 	ms.author="msolhab;bradsev" />
 
 
@@ -28,7 +28,7 @@ A **árvore de decisão** para selecionar os cenários de exemplo apropriados pa
 
 Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cenário, são listados uma possível ciência de dados ou fluxo de análise avançada e os recursos de suporte do Azure.
 
->[AZURE.NOTE]**Para todos os cenários a seguir, você precisa:**
+>[AZURE.NOTE] **Para todos os cenários a seguir, você precisa:**
 
 *   [Criar uma conta de armazenamento](storage-whatis-account.md)
 *   [Criar um espaço de trabalho de AM do Azure](machine-learning/machine-learning-create-workspace.md)
@@ -168,7 +168,7 @@ Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cená
 
     f. Se junções de tabelas forem necessárias, crie índices para agilizá-las.
 
- >[AZURE.NOTE]Para um carregamento mais rápido de grandes quantidades de dados, é recomendável criar tabelas particionadas e importar em massa os dados em paralelo. Para saber mais, consulte [Importação de Dados em Paralelo para Tabelas Particionadas do SQL](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+ > [AZURE.NOTE] Para um carregamento mais rápido de grandes quantidades de dados, é recomendável criar tabelas particionadas e importar em massa os dados em paralelo. Para saber mais, consulte [Importação de Dados em Paralelo para Tabelas Particionadas do SQL](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 5.  Explore dados e crie recursos conforme necessário. Observe que os recursos não precisam ser materializado nas tabelas do banco de dados. Anote somente a consulta necessária para criá-los.
 
@@ -208,7 +208,7 @@ Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cená
 
 	f. Se junções de tabelas forem necessárias, crie índices para agilizá-las.
 
-> [AZURE.NOTE]Para um carregamento mais rápido de grandes quantidades de dados, crie tabelas particionadas e importe em massa os dados em paralelo. Para saber mais, consulte [Importação de Dados em Paralelo para Tabelas Particionadas do SQL](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+> [AZURE.NOTE] Para um carregamento mais rápido de grandes quantidades de dados, crie tabelas particionadas e importe em massa os dados em paralelo. Para saber mais, consulte [Importação de Dados em Paralelo para Tabelas Particionadas do SQL](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 5.  Explore dados e crie recursos conforme necessário. Observe que os recursos não precisam ser materializado nas tabelas do banco de dados. Anote somente a consulta necessária para criá-los.
 
@@ -264,7 +264,7 @@ Para replicar todo o banco de dados do SQL Server na sua VM do SQL Server, você
 
     d. Execute as consultas do Hive para criar o banco de dados e tabelas e carregue dados do armazenamento de blob para as tabelas do Hive.
 
- 	> [AZURE.NOTE]Se o volume de dados for grande, os usuários podem criar a tabela do Hive com partições. Em seguida, os usuários podem usar um loop `for` na linha de comando do Hadoop no nó principal para carregar dados na tabela do Hive particionada, por partição.
+ 	> [AZURE.NOTE] Se o volume de dados for grande, os usuários podem criar a tabela do Hive com partições. Em seguida, os usuários podem usar um loop `for` na linha de comando do Hadoop no nó principal para carregar dados na tabela do Hive particionada, por partição.
 
 6.  Explore dados e crie recursos conforme necessário na linha de comando do Hadoop. Observe que os recursos não precisam ser materializado nas tabelas do banco de dados. Anote somente a consulta necessária para criá-los.
 
@@ -314,4 +314,4 @@ Para obter um passo a passo do Aprendizado de Máquina do Azure que emprega o Pr
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

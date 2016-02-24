@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Introdução com um projeto de serviços móveis Cordova (Serviços Conectados do Visual Studio)"
+	pageTitle="Introdução a um projeto de serviços móveis Cordova (Serviços Conectados do Visual Studio) | Microsoft Azure"
 	description="Descreve as primeiras etapas que você pode tomar depois de conectar seu projeto Cordova aos Serviços Móveis do Azure usando os Serviços Conectados do Visual Studio."
 	services="mobile-services"
 	documentationCenter=""
-	authors="TomArcher"
+	authors="mlhoop"
 	manager="douge"
 	editor=""/>
 
@@ -13,19 +13,12 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/17/2015"
-	ms.author="tarcher"/>
+	ms.date="01/05/2016"
+	ms.author="mlearned"/>
 
 # Introdução aos serviços móveis (Projetos Cordova)
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
-&nbsp;
-
-
-> [AZURE.SELECTOR]
-> - [Getting Started](vs-mobile-services-cordova-getting-started.md)
-> - [What Happened](vs-mobile-services-cordova-what-happened.md)
 
 ##Primeiras etapas
 A primeira etapa necessária para seguir o código nesses exemplos depende de a qual tipo de serviço móvel você está conectado.
@@ -33,8 +26,6 @@ A primeira etapa necessária para seguir o código nesses exemplos depende de a 
 - Para obter um serviço móvel de back-end JavaScript, crie uma tabela chamada TodoItem. Para criar uma tabela, localize o serviço móvel sob o nó Azure no Gerenciador de servidores, clique com o botão direito no nó do serviço móvel para abrir o menu de contexto e escolha **Criar Tabela**. Digite "TodoItem" como o nome da tabela.
 
 - Se você tiver um serviço móvel de back-end .NET, já existe uma tabela TodoItem no modelo do projeto padrão que o Visual Studio criou para você, mas será necessário publicá-la no Azure. Para publicá-lo, abra o menu de contexto do projeto de serviço móvel no Gerenciador de servidores e escolha **Publicar na Web**. Aceite os padrões e escolha o botão **Publicar**.
-
-
 
 ##Criar uma referência para uma tabela
 
@@ -97,6 +88,6 @@ Exclua uma linha em uma tabela de dados usando o método **del**. Chame o métod
         items.splice(items.indexOf(todoItem), 1);
     });
 
-[Saiba mais sobre serviços móveis](http://azure.microsoft.com/documentation/services/mobile-services/)
+[Saiba mais sobre serviços móveis](https://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

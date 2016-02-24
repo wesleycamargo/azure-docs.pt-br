@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/12/2015"
+	ms.date="02/03/2016"
 	ms.author="jeffreyg; ronitr"/>
  
 # Introdução à auditoria do banco de dados SQL
@@ -21,7 +21,7 @@ A Auditoria do Banco de Dados SQL do Azure rastreia eventos do banco de dados e 
 
 A auditoria pode ajudar você a manter uma conformidade regulatória, a entender a atividade do banco de dados e a obter informações sobre discrepâncias e anomalias que poderiam indicar preocupações de negócios ou suspeitas de violações de segurança.
 
-As ferramentas de auditoria permitem e facilitam a adoção de padrões de conformidade, mas não garantem a conformidade. Para obter mais informações sobre os programas Azure que oferecem suporte à conformidade com os padrões, consulte o [Azure Trust Center](http://azure.microsoft.com/support/trust-center/compliance).
+As ferramentas de auditoria permitem e facilitam a adoção de padrões de conformidade, mas não garantem a conformidade. Para obter mais informações sobre os programas Azure que oferecem suporte à conformidade com os padrões, consulte o [Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/).
 
 + [Fundamentos da Auditoria do Banco de Dados SQL do Azure]
 + [Configurar a auditoria do banco de dados]
@@ -29,7 +29,7 @@ As ferramentas de auditoria permitem e facilitam a adoção de padrões de confo
 
 ##<a id="subheading-1"></a>Fundamentos da Auditoria do Banco de Dados SQL do Azure
 
-A seção a seguir descreve a configuração de auditoria usando o Portal do Azure. Você também pode [Configurar a auditoria do banco de dados usando o Portal Clássico do Azure].
+A seção a seguir descreve a configuração de auditoria usando o Portal do Azure. Você também pode [configurar a auditoria do banco de dados usando o Portal Clássico do Azure].
 
 A auditoria de Banco de Dados SQL permite:
 
@@ -37,7 +37,7 @@ A auditoria de Banco de Dados SQL permite:
 - **Relate** sobre a atividade do banco de dados. Utilizar relatórios pré-configurados e um painel para iniciar rapidamente um relatório de atividades e eventos.
 - **Analise** relatórios. Encontrar eventos suspeitos, atividades incomuns e tendências.
 
-> [AZURE.NOTE]Agora você pode receber alertas proativos em atividades anômalas de banco de dados que podem indicar possíveis ameaças de segurança usando o novo recurso **Detecção de Ameaças**, agora em modo de visualização. A Detecção de Ameaças pode ser ativada e configurada a partir a folha de configuração de auditoria. Para obter mais detalhes, consulte [Introdução à Detecção de Ameaças](sql-database-threat-detection-get-started.md).
+> [AZURE.NOTE] Agora você pode receber alertas proativos em atividades anômalas de banco de dados que podem indicar possíveis ameaças de segurança usando o novo recurso **Detecção de Ameaças**, agora em modo de visualização. A Detecção de Ameaças pode ser ativada e configurada a partir a folha de configuração de auditoria. Para obter mais detalhes, consulte [Introdução à Detecção de Ameaças](sql-database-threat-detection-get-started.md).
 
 Você pode configurar a auditoria para as categorias de eventos a seguir:
 
@@ -159,7 +159,7 @@ Há vários cmdlets do PowerShell que você pode usar para configurar a auditori
 [Fundamentos da Auditoria do Banco de Dados SQL do Azure]: #subheading-1
 [Configurar a auditoria do banco de dados]: #subheading-2
 [Analisar os logs e relatórios de auditoria]: #subheading-3
-[Configurar a auditoria do banco de dados usando o Portal Clássico do Azure]: #subheading-4
+[configurar a auditoria do banco de dados usando o Portal Clássico do Azure]: #subheading-4
 [Practices for usage in production]: #subheading-5
 [Storage Key Regeneration]: #subheading-6
 [Automation]: #subheading-7
@@ -178,4 +178,4 @@ Há vários cmdlets do PowerShell que você pode usar para configurar a auditori
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

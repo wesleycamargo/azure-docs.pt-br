@@ -3,7 +3,7 @@
 	description="Depois que um serviço de aprendizado de máquina é implantado, o serviço Web RESTFul disponibilizado pode ser consumido como serviço de solicitação-resposta ou como um serviço de execução em lote."
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev"
+	authors="garyericson"
 	manager="paulettm"
 	editor="cgronlun" />
 
@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd"
-	ms.date="10/19/2015"
-	ms.author="bradsev" />
+	ms.date="02/10/2016"
+	ms.author="garye" />
 
 
 # Como consumir um serviço Web de Aprendizado de Máquina do Azure que foi implantado por meio de um teste de Aprendizado de Máquina
@@ -33,7 +33,7 @@ Isso significa que os serviços podem ser consumidos em aplicativos Web, aplicat
 
 Um serviço Web de Aprendizado de Máquina do Azure pode ser consumido de duas maneiras diferentes, como um serviço de solicitação-resposta ou como um serviço de execução de lote. Em cada cenário, a funcionalidade é fornecida por meio do serviço Web RESTFul que é disponibilizado para consumo depois que o teste tiver sido implantado. Implantando um serviço Web de Aprendizado de Máquina no Azure com um ponto de extremidade de serviço Web do Azure, em que o serviço é escalado automaticamente com base no uso, você pode evitar custos antecipados e contínuos de recursos de hardware.
 
-> [AZURE.TIP]Para conhecer uma maneira simples de criar um aplicativo Web a fim de acessar seu serviço da Web, consulte [Consumir um serviço Web de Aprendizado de Máquina do Azure com um modelo de aplicativo Web](machine-learning-consume-web-service-with-web-app-template.md).
+> [AZURE.TIP] Para conhecer uma maneira simples de criar um aplicativo Web a fim de acessar seu serviço da Web, consulte [Consumir um serviço Web de Aprendizado de Máquina do Azure com um modelo de aplicativo Web](machine-learning-consume-web-service-with-web-app-template.md).
 
 <!-- When this article gets published, fix the link and uncomment
 For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**.
@@ -63,17 +63,17 @@ Um BES seria útil quando as respostas não são necessárias imediatamente, com
 ## Exemplos
 Para mostrar como funcionam o RRS e o BES, usamos um exemplo de serviço Web do Azure. Esse serviço seria usado em um cenário IOT (Internet das coisas). Para manter a simplicidade, nosso dispositivo envia apenas um valor, `cog_speed`, e recebe uma única resposta de volta.
 
-Há quatro tipos de informações que são necessárias para chamar o serviço de RRS ou BES. Essas informações estarão prontamente disponíveis nas páginas do serviço em [Páginas de serviço do Aprendizado de Máquina do Azure](https://studio.azureml.net) depois que o teste tiver sido implantado. Clique no link SERVIÇOS WEB à esquerda da tela e você verá os serviços implantados. Para obter informações sobre um serviço específico, há links da página de ajuda da API para RRS e BES.
+Há quatro tipos de informações que são necessárias para chamar o serviço de RRS ou BES. Essas informações estarão prontamente disponíveis nas páginas do serviço no [Estúdio do Aprendizado de Máquina do Azure](https://studio.azureml.net) depois que o teste tiver sido implantado. Clique na guia SERVIÇOS WEB à esquerda da tela e você verá os serviços implantados. Clique em um serviço para localizar as informações de e links de RRS e BES a seguir:
 
-1.	A **chave de API do serviço**, disponível na página principal dos serviços
-2.	O **URI do serviço**, disponível na página de Ajuda da API do serviço escolhido
-3.	O **corpo da solicitação da API** esperado, disponível na página de Ajuda da API do serviço escolhido
-4.	O **corpo da resposta da API** esperado, disponível na página de Ajuda da API do serviço escolhido
+1.	A **chave de API** do serviço, disponível no Painel de serviços
+2.	O **URI de solicitação** de serviço, disponível na página de Ajuda da API do serviço escolhido
+3.	Os **cabeçalhos de solicitação** e o **corpo** esperados, disponíveis na página de Ajuda da API do serviço escolhido
+4.	Os **cabeçalhos de resposta** e o **corpo** esperados, disponíveis na página de Ajuda da API do serviço escolhido
 
 Nos dois exemplos abaixo, a linguagem C# é usada para ilustrar o código necessário e a plataforma de destino é uma área de trabalho do Windows 8.
 
 ### Exemplo de RRS
-Na página de ajuda da API, além do URI, você pode encontrar definições e exemplos de código de entrada e saída. A entrada da API é chamada, especificamente para este serviço, e é a carga da chamada à API.
+Clique em **SOLICITAÇÃO/RESPOSTA** na **PÁGINA DE AJUDA DA API** do Painel de serviço para exibir a página de Ajuda da API. Na página, além do URI, você pode encontrar definições e exemplos de código de entrada e saída. A entrada da API, especificamente para este serviço, é mostrada abaixo e é a carga da chamada à API.
 
 **Solicitação de exemplo**
 
@@ -97,7 +97,7 @@ Na página de ajuda da API, além do URI, você pode encontrar definições e ex
 	}
 
 
-Da mesma forma, a resposta da API também é chamada novamente especificamente para esse serviço.
+De maneira semelhante, a resposta da API para esse serviço também é mostrada abaixo.
 
 **Resposta de exemplo**
 
@@ -125,7 +125,7 @@ Da mesma forma, a resposta da API também é chamada novamente especificamente p
 	  "GlobalParameters": {}
 	}
 
-Na parte inferior da página, você encontrará exemplos de código. Abaixo está o exemplo de código para a implementação do C#
+Na parte inferior da página de ajuda, você encontrará os exemplos de código. Abaixo está o exemplo de código para a implementação do C#.
 
 **Código de exemplo**
 
@@ -200,7 +200,7 @@ Na parte inferior da página, você encontrará exemplos de código. Abaixo est�
 	}
 
 ### Exemplo de BES
-Na página de ajuda da API, além de URI, você encontrará informações sobre várias chamadas que estão disponíveis. Ao contrário do serviço RRS, o serviço BES é assíncrono. Isso significa que a API do BES está simplesmente colocando na fila um trabalho a ser executado, e o chamador sonda o status do trabalho para ver quando ele foi concluído. Veja as operações com suporte para trabalhos em lotes no momento:
+Ao contrário do serviço RRS, o serviço BES é assíncrono. Isso significa que a API do BES está simplesmente colocando na fila um trabalho a ser executado, e o chamador sonda o status do trabalho para ver quando ele foi concluído. Veja as operações com suporte para trabalhos em lotes no momento:
 
 1. Criar (enviar) um trabalho em lotes
 1. Iniciar esse trabalho em lotes
@@ -213,13 +213,15 @@ Ao criar um trabalho em lotes para o ponto de extremidade de serviço de Aprendi
 
 * **Input**: representa uma referência de blob na qual a entrada do trabalho em lotes é armazenada.
 * **GlobalParameters**: representa o conjunto de parâmetros globais que é possível definir para o experimento. Um experimento de Aprendizado de Máquina do Azure pode ter parâmetros obrigatórios e opcionais que personalizam a execução do serviço, e o chamador deve fornecer todos os parâmetros obrigatórios se aplicável. Esses parâmetros são especificados como uma coleção de pares chave-valor.
-* **Outputs**: se o serviço definiu uma ou mais saídas, permitimos que o chamador redirecione qualquer uma delas para um local de blob do Azure que preferir. Isso permitirá salvar as saídas do serviço em um local preferencial e com um nome previsível, caso contrário, o nome de blob de saída é gerado aleatoriamente. **OBSERVE** que o serviço espera que o conteúdo de saída, de acordo com o tipo, sejam salvos como formatos com suporte:
-  - saídas de conjuntos de dados: podem ser salvas como **CSV, TSV, ARFF**
-  - saídas de modelos treinados: podem ser salvas como **ILEARNER**
+* **Outputs**: se o serviço definiu uma ou mais saídas, o chamador pode redirecionar qualquer uma delas para um local de blob do Azure. Isso permite salvar as saídas do serviço em um local preferencial e com um nome previsível, caso contrário, o nome de blob de saída é gerado aleatoriamente. 
+
+    Observe que o serviço espera que o conteúdo de saída, de acordo com o tipo, sejam salvos como formatos com suporte:
+  - saídas de conjuntos de dados: podem ser salvas como **.csv, .tsv, .arff**
+  - saídas de modelos treinados: podem ser salvas como **.ilearner**
 
   As substituições de local de saída são especificadas como uma coleção de *<output name  blob reference>* pares, em que o *nome de saída* é o nome definido pelo usuário para um nó de saída específico (também mostrado na página de Ajuda da API do serviço) e a *referência de blob* é uma referência a um local de blob do Azure para o qual a saída dever ser direcionada.
 
-Todos esses parâmetros de criação de trabalho podem ser opcionais, dependendo da natureza do serviço. Por exemplo, os serviços sem nenhum nó de entrada definido não exigem a passagem em um parâmetro *Input* e o recurso de substituição de local de saída é totalmente opcional, caso contrário, as saídas serão armazenadas na conta de armazenamento padrão configurada para o espaço de trabalho do Aprendizado de Máquina do Azure. A seguir, mostramos uma carga de solicitação de exemplo, conforme passada à API REST, de um serviço em que apenas as informações de entrada são passadas:
+Todos esses parâmetros de criação de trabalho podem ser opcionais, dependendo da natureza do serviço. Por exemplo, serviços sem um nó de entrada definido não exigem a passagem em um parâmetro de *Entrada*. Da mesma forma, o recurso de substituição de local de saída é totalmente opcional, caso contrário, as saídas serão armazenadas na conta de armazenamento padrão configurada para o espaço de trabalho do Aprendizado de Máquina do Azure. A seguir, mostramos uma carga de solicitação de exemplo, conforme passada à API REST, de um serviço em que apenas as informações de entrada são fornecidas:
 
 **Solicitação de exemplo**
 
@@ -243,11 +245,11 @@ A resposta à API de criação de trabalho em lotes é a ID exclusiva do trabalh
 
 **2. Iniciar um trabalho de execução em lotes**
 
-A criação de um trabalho em lotes apenas o registra no sistema e o coloca em um estado *não iniciado*. Para realmente agendar o trabalho para execução, você precisará chamar a API **iniciar** descrita na página de Ajuda da API do ponto de extremidade de serviço e fornecer a ID do trabalho obtida quando o trabalho foi criado.
+A criação de um trabalho em lotes o registra no sistema e o coloca em um estado *não iniciado*. Para realmente agendar o trabalho para execução, você chama a API **iniciar** descrita na página de Ajuda da API do ponto de extremidade de serviço e fornecer a ID do trabalho obtida quando o trabalho foi criado.
 
 **3. Obter o status de um trabalho de execução em lotes**
 
-Você pode sondar o status do trabalho assíncrono em lotes a qualquer momento ao passar a ID do trabalho para a API GetJobStatus. A resposta da API conterá um indicador do estado atual do trabalho, bem como os resultados reais do trabalho em lotes se concluído com êxito. Em caso de erro, mais informações sobre os motivos reais relacionados à falha são retornados na propriedade *Details*.
+Você pode sondar o status do trabalho assíncrono em lotes a qualquer momento ao passar a ID do trabalho para a API GetJobStatus. A resposta da API conterá um indicador do estado atual do trabalho, bem como os resultados reais do trabalho em lotes se concluído com êxito. Em caso de erro, mais informações sobre os motivos reais relacionados à falha são retornados na propriedade *Details*, conforme mostrado aqui:
 
 **Carga de resposta**
 
@@ -297,11 +299,11 @@ Um trabalho em lotes em execução pode ser cancelado a qualquer momento ao cham
 
 
 
-#### Usando o [SDK do BES](machine-learning-consume-web-services.md#batch-execution-service-sdk)
+#### Usando o SDK do BES
 
-O [pacote NuGet do SDK do BES](http://www.nuget.org/packages/Microsoft.Azure.MachineLearning/) fornece funções que simplificam a chamada do BES para pontuação no modo em lotes. Para instalar o pacote NuGet no Visual Studio, vá para Ferramentas, selecione Gerenciador de Pacotes NuGet e clique em Console do Gerenciador de Pacotes.
+O [pacote NuGet do SDK do BES](http://www.nuget.org/packages/Microsoft.Azure.MachineLearning/) fornece funções que simplificam a chamada do BES para pontuação no modo em lotes. Para instalar o pacote NuGet, no Visual Studio, no menu **Ferramentas**, selecione **Gerenciador de Pacotes NuGet** e clique em **Console do Gerenciador de Pacotes**.
 
-Os testes AzureML implantados como serviços Web podem incluir módulos de entrada de serviço Web, o que significa que eles esperam que a entrada seja fornecida por meio da chamada do serviço Web na forma de uma referência a um local de blob. Também há a opção de não usar um módulo de entrada de serviço Web, mas sim um módulo Leitor em vez disso. Nesse caso, o Leitor normalmente leria um banco de dados SQL usando uma consulta em tempo de execução para obter os dados. Os parâmetros do serviço Web podem ser usados para apontar dinamicamente para outros servidores ou tabelas, etc. O SDK dá suporte a esses padrões.
+Testes do Aprendizado de Máquina do Azure que são implantados como serviços Web podem incluir módulos de entrada de serviço Web. Isso significa que eles esperam que a entrada seja fornecida por meio da chamada de serviço Web na forma de uma referência a um local de blob. Também há a opção de não usar um módulo de entrada de serviço Web, mas sim um módulo **Leitor** em vez disso. Nesse caso, o módulo **Leitor** normalmente leria um BD SQL usando uma consulta em tempo de execução para obter os dados. Os parâmetros do serviço Web podem ser usados para apontar dinamicamente para outros servidores ou tabelas, etc. O SDK dá suporte a esses padrões.
 
 O exemplo de código abaixo demonstra como você pode enviar e monitorar um trabalho em lotes em relação a um ponto de extremidade de serviço de Aprendizado de Máquina do Azure usando o SDK do BES. Observe os comentários para obter detalhes sobre as configurações e as chamadas.
 
@@ -433,4 +435,4 @@ O exemplo de código abaixo demonstra como você pode enviar e monitorar um trab
 	    }
 	}
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

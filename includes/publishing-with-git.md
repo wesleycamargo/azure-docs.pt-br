@@ -2,13 +2,13 @@ O [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=52971
 
 Neste artigo, você aprenderá a usar o Git para publicar diretamente do seu computador local em Aplicativos Web (no Azure, esse método de publicação é chamado de **Git Local**). Você também saberá como habilitar a implantação contínua de sites de repositório, como BitBucket, CodePlex, DropBox, GitHub ou Mercurial. Para obter mais informações sobre como usar o TFS para implantação contínua, consulte [Envio contínuo ao Azure por meio do Visual Studio Team Services].
 
-> [AZURE.NOTE]Muitos dos comandos Git descritos neste artigo são executados automaticamente ao criar um aplicativo Web usando as [Ferramentas de Linha de Comando do Azure para Mac e Linux](/develop/nodejs/how-to-guides/command-line-tools/)
+> [AZURE.NOTE] Muitos dos comandos Git descritos neste artigo são executados automaticamente ao criar um aplicativo Web usando as [Ferramentas de Linha de Comando do Azure para Mac e Linux](/develop/nodejs/how-to-guides/command-line-tools/)
 
-## <a id="Step1"></a>Etapa 1: instalando o Git
+## <a id="Step1"></a>Etapa 1: Instalando o Git
 
 As etapas necessárias para instalar o Git variam de acordo com o sistema operacional. Consulte [Instalando o Git] para distribuições específicas de sistemas operacionais e orientações de instalação.
 
-> [AZURE.NOTE]Em alguns sistemas operacionais, uma versão da linha de comando e uma versão da GUI do Git estão disponíveis. As instruções fornecidas neste artigo usam a versão de linha de comando.
+> [AZURE.NOTE] Em alguns sistemas operacionais, uma versão da linha de comando e uma versão da GUI do Git estão disponíveis. As instruções fornecidas neste artigo usam a versão de linha de comando.
 
 ## <a id="Step2"></a>Etapa 2: Criar um repositório local
 
@@ -42,7 +42,7 @@ Aplicativos Web dão suporte a aplicativos criados em uma variedade de linguagen
 
 		git add index.html 
 
-	> [AZURE.NOTE]Você pode encontrar ajuda sobre qualquer comando git digitando -ajuda ou --ajuda após o comando. Por exemplo, para obter opções de parâmetro para o comando adicionar, digite 'git add - help' para ajuda de linha de comando ou adicione 'git add --help' para obter mais ajuda.
+	> [AZURE.NOTE] Você pode encontrar ajuda sobre qualquer comando git digitando -ajuda ou --ajuda após o comando. Por exemplo, para obter opções de parâmetro para o comando adicionar, digite 'git add - help' para ajuda de linha de comando ou adicione 'git add --help' para obter mais ajuda.
 
 4. Em seguida, confirme as alterações no repositório usando o comando a seguir:
 
@@ -88,7 +88,7 @@ Use as etapas a seguir para publicar o seu aplicativo Web no Azure usando o Git 
 
 		git remote add azure https://username@needsmoregit.scm.azurewebsites.net:443/NeedsMoreGit.git
 
-    > [AZURE.NOTE]O comando **remoto** adiciona uma referência com nome a um repositório remoto. Neste exemplo, ele cria uma referência chamada ‘azure’ para o repositório do aplicativo Web.
+    > [AZURE.NOTE] O comando **remoto** adiciona uma referência com nome a um repositório remoto. Neste exemplo, ele cria uma referência chamada ‘azure’ para o repositório do aplicativo Web.
 
 1. Use a seguinte da linha de comando para transferir o conteúdo do repositório atual do repositório local para o "azure" remoto:
 
@@ -108,7 +108,7 @@ Use as etapas a seguir para publicar o seu aplicativo Web no Azure usando o Git 
 		To https://username@needsmoregit.scm.azurewebsites.net:443/NeedsMoreGit.git
 		* [new branch]		master -> master
 
-	> [AZURE.NOTE]O repositório criado para o seu aplicativo Web espera solicitações por push para definir como destino a ramificação <strong>mestre</strong> do seu repositório, que será usada como o conteúdo do aplicativo Web.
+	> [AZURE.NOTE] O repositório criado para o seu aplicativo Web espera solicitações por push para definir como destino a ramificação <strong>mestre</strong> do seu repositório, que será usada como o conteúdo do aplicativo Web.
 
 2. Volte para a folha de seu aplicativo Web no Portal do Azure. **Nenhuma implantação encontrada** deve ser alterada para **Implantação Ativa** com uma entrada de log de seu envio por push mais recente.
 
@@ -150,7 +150,7 @@ A implantação de arquivos do GitHub, CodePlex ou BitBucket requer que você te
   
 	![](./media/publishing-with-git/azure7-setup-github-configure.png)
 
-	> [AZURE.NOTE]Ao habilitar a implantação contínua com GitHub ou BitBucket, os projetos públicos e privados serão exibidos.
+	> [AZURE.NOTE] Ao habilitar a implantação contínua com GitHub ou BitBucket, os projetos públicos e privados serão exibidos.
 
 O Azure cria uma associação com o repositório selecionado e extrai os arquivos da ramificação especificada. Depois que o processo for concluído, a seção **Implantação** da folha de seu aplicativo Web mostrará uma mensagem **Implantação Ativa**, que indica que a implantação foi bem-sucedida.
 
@@ -182,11 +182,9 @@ As etapas para enviar sua solução do Visual Studio para Aplicativos Web são a
 		_app/
 		nuget.exe
 
-	>[AZURE.NOTE]Se usar o GitHub, você pode gerar opcionalmente um arquivo .gitignore específico do Visual Studio ao criar seu repositório, que inclui todos os arquivos temporários comuns, resultados da compilação etc. Você pode personalizá-lo para que ele atenda às suas necessidades específicas.
+	>[AZURE.NOTE] Se usar o GitHub, você pode gerar opcionalmente um arquivo .gitignore específico do Visual Studio ao criar seu repositório, que inclui todos os arquivos temporários comuns, resultados da compilação etc. Você pode personalizá-lo para que ele atenda às suas necessidades específicas.
 
 -	Adicionar toda a árvore do diretório da solução para seu repositório, com o arquivo .sln na raiz do repositório.
-
--	Na sua solução do Visual Studio, [habilitar a Restauração de Pacote NuGet](http://docs.nuget.org/Consume/Package-Restore) para que o Visual Studio restaure automaticamente os pacotes faltantes.
 
 Assim que você tiver configurado seu repositório conforme descrito e tiver configurado seu aplicativo Web do Azure para publicação contínua por meio de um dos repositórios Git online, você poderá desenvolver seu aplicativo ASP.NET localmente no Visual Studio e implantar continuamente seu código, simplesmente enviando por push suas alterações a seu repositório Git online.
 
@@ -265,7 +263,7 @@ Estes são erros ou problemas comumente encontrados ao usar o Git para publicar 
 * [Documentação do Git]
 * [Kudu do Projeto](https://github.com/projectkudu/kudu/wiki)
 
->[AZURE.NOTE]Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE] Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -297,4 +295,4 @@ Estes são erros ou problemas comumente encontrados ao usar o Git para publicar 
 [Usando o Dropbox para compartilhar repositórios do Git]: https://gist.github.com/trey/2722927
 [Envio contínuo ao Azure por meio do Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

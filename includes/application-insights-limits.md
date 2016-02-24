@@ -1,4 +1,4 @@
- Os limites dependem da [camada de preços](http://azure.microsoft.com/pricing/details/application-insights/) que você escolher.
+ Os limites dependem da [camada de preços](https://azure.microsoft.com/pricing/details/application-insights/) que você escolher.
 
 **Recurso** | **Limite padrão** | **Limite máximo**
 -------- | ------------- | -------------
@@ -19,6 +19,6 @@ Comprimento do nome da métrica | 100 | 100
 
 <sup>2</sup> Você pode adquirir capacidade adicional além 50 milhões.
  
-[Sobre cotas e preços no Application Insights](app-insights-pricing.md)
+[Sobre cotas e preços no Application Insights](../articles/application-insights/app-insights-pricing.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

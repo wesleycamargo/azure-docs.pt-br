@@ -7,10 +7,10 @@ conjuntos de dados em um data factory | 500 | 5\.000
 fatias simultâneas por conjunto de dados | 10 | 10
 bytes por objeto para objetos do pipeline <sup>1</sup> | 200 KB | 2000 KB
 bytes por objeto para objetos de conjunto de dados e serviço vinculado <sup>1</sup> | 30 KB | 2000 KB
-campos por objeto | 100 | [Contate o suporte](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
-bytes por identificador ou nome de campo | 2 KB | [Contate o suporte](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
-bytes por campo | 30 KB | [Contate o suporte](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
-núcleos de cluster sob demanda HDInsight em uma assinatura <sup>2</sup> | 48 | [Contate o suporte](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
+campos por objeto | 100 | [Contate o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
+bytes por identificador ou nome de campo | 2 KB | [Contate o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
+bytes por campo | 30 KB | [Contate o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
+núcleos de cluster sob demanda HDInsight em uma assinatura <sup>2</sup> | 48 | [Contate o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 Contagem novas tentativas de execução de atividade do pipeline | 1000 | MaxInt (32 bits)
 
 <sup>1</sup> Objetos de pipeline, conjunto de dados e serviço vinculado representam um agrupamento lógico de sua carga de trabalho. Os limites desses objetos não estão relacionados à quantidade de dados que você pode mover e processar com o serviço Azure Data Factory. O data factory foi desenvolvido para ser dimensionado de modo a lidar com petabytes de dados.
@@ -29,4 +29,4 @@ Valor de tempo limite de nova tentativa | 1 segundo | 1 segundo
 
 O Gerenciador de Recursos do Azure tem limites para chamadas de API. Você pode fazer chamadas de API em um intervalo dentro dos [limites de API do Gerenciador de Recursos do Azure](azure-subscription-service-limits/#resource-group-limits).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

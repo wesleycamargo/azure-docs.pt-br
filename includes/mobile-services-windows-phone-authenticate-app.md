@@ -21,9 +21,9 @@
             }
         }
 
-    Isso cria uma variável de membro para armazenar o usuário atual e um método para manipular o processo de autenticação. O usuário é autenticado usando um logon do Facebook.
+    Isso cria uma variável de membro para armazenar o usuário atual e um método para manipular o processo de autenticação. O usuário é autenticado usando um logon do Twitter.
 
-    >[AZURE.NOTE]Se você estiver usando um provedor de identidade diferente do Facebook, altere o valor de <strong>MobileServiceAuthenticationProvider</strong> acima para o valor de seu provedor.</p> </div>
+    >[AZURE.NOTE]Se você está usando um provedor de identidade além do Twitter, altere o valor <strong>MobileServiceAuthenticationProvider</strong> acima para o valor de seu provedor.</p> </div>
 
 2. Exclua o método **OnNavigatedTo** existente, ou remova seu comentário, e substitua-o pelo método a seguir que trata o evento **Loaded** para a página.
 
@@ -50,4 +50,4 @@
 
    	Ao entrar com êxito, o aplicativo deve ser executado sem erros, e você deve ser capaz de consultar os Serviços Móveis e fazer atualizações de dados.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

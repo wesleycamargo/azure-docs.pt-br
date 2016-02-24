@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # Esquemas definidos pelo usuário no SQL Data Warehouse
 
@@ -111,15 +111,15 @@ FROM	[edw].customer
 > [AZURE.NOTE]Qualquer alteração na estratégia de esquema precisa de uma revisão do modelo de segurança para o banco de dados. Em muitos casos, você poderá simplificar o modelo de segurança ao atribuir permissões no nível do esquema. Se forem necessárias permissões mais granulares, então você poderá usar funções de banco de dados.
 
 ## Próximas etapas
-Para obter mais dicas de desenvolvimento, consulte [Visão geral de desenvolvimento][].
+Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvimento][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Visão geral de desenvolvimento]: sql-data-warehouse-overview-develop.md
+[Visão geral do desenvolvimento]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

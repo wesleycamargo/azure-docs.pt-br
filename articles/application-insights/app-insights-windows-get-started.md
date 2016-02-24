@@ -12,36 +12,43 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/21/2015"
+	ms.date="02/03/2016"
 	ms.author="awills"/>
 
 # Análise de aplicativos do Windows Phone e da Windows Store
 
-A Microsoft oferece duas soluções para devOps de dispositivo: o [HockeyApp](http://hockeyapp.net/), para análise de fluxo de trabalho e de falhas de devOps e o [Application Insights](app-insights-overview.md), para análise de uso e de falhas.
+A Microsoft fornece duas soluções para devOps de dispositivo: [HockeyApp](http://hockeyapp.net/) para análise do cliente e [Application Insights](app-insights-overview.md) para o servidor.
 
-O [HockeyApp](http://hockeyapp.net/) é a nossa solução de DevOps Móvel para aplicativos de dispositivos iOS, OS X, Android ou Windows, bem como aplicativos de plataforma cruzada baseados no Xamarin, no Cordova e no Unity. Com ele, você pode distribuir compilações para testadores beta, coletar dados de falha e obter comentários dos usuários. Ele é integrado ao Visual Studio Team Services, permitindo a compilação fácil de implantações e a integração de itens de trabalho. Saiba mais na [Base de Dados de Conhecimento do HockeyApp](http://support.hockeyapp.net/kb) e mantenha-se atualizado consultando o [Blog do HockeyApp](http://hockeyapp.net/blog/).
+O [HockeyApp](http://hockeyapp.net/) é a nossa solução de DevOps Móvel para aplicativos de dispositivos iOS, OS X, Android ou Windows, bem como aplicativos de plataforma cruzada baseados no Xamarin, no Cordova e no Unity. Com ele, você pode distribuir compilações para testadores beta, coletar dados de falha e obter métricas e comentários dos usuários. Ele é integrado ao Visual Studio Team Services, permitindo a compilação fácil de implantações e a integração de itens de trabalho.
 
-Se seu aplicativo tiver um lado servidor, use o [Application Insights](app-insights-overview.md) para monitorar o lado do servidor Web de seu aplicativo em [ASP.NET](app-insights-asp-net.md) ou em [J2EE](app-insights-java-get-started.md). Envie a telemetria para o mesmo recurso do Application Insights para poder correlacionar eventos nos dois lados.
+Acesse:
 
-Também há um [SDK do Application Insights para aplicativos Universais C++](https://github.com/Microsoft/ApplicationInsights-CPP) que envia telemetria ao portal do Application Insights.
+* [HockeyApp](http://support.hockeyapp.net/kb)
+* [Blog do HockeyApp](http://hockeyapp.net/blog/)
+* Ingresse em [Hockeyapp Preseason](http://hockeyapp.net/preseason/) para obter versões anteriores.
 
-O Application Insights do Visual Studio permite que você monitore seu aplicativo publicado quanto a:
+Se seu aplicativo tiver um lado servidor, use o [Application Insights](app-insights-overview.md) para monitorar o lado do servidor Web de seu aplicativo em [ASP.NET](app-insights-asp-net.md) ou em [J2EE](app-insights-java-get-started.md).
 
-* [**Uso**][windowsUsage] - saiba quantos usuários você tem e o que eles estão fazendo com seu aplicativo.
-* [**Falhas**][windowsCrash] - obtenha relatórios de diagnóstico de falhas e entenda seu impacto sobre os usuários.
+## SDK do Application Insights para seus dispositivos Windows
+
+Apesar de recomendarmos o HockeyApp, também há uma versão mais antiga do SDK do Application Insights que você pode usar para monitorar as [falhas][windowsCrash] e o [uso][windowsUsage] em seus aplicativos de dispositivos Windows.
+
+Observe que o suporte para o SDK do dispositivo mais antigo será desativado.
 
 ![](./media/app-insights-windows-get-started/appinsights-d018-oview.png)
 
-Para muitos tipos de aplicativo, o [Visual Studio pode adicionar o Application Insights ao seu aplicativo](#ide) praticamente sem que você perceba. Mas como você está lendo este artigo para obter uma compreensão melhor do que está acontecendo, guiaremos você pelas etapas manualmente.
 
-Você precisará de:
+Para instalar o SDK mais antigo, você precisará:
 
 * Uma assinatura do [Microsoft Azure][azure].
 * Visual Studio 2013 ou posterior.
 
-## 1\. Criar um recurso do Application Insights 
 
-No [Portal do Azure][portal], crie um novo recurso do Application Insights.
+### 1\. Obter um recurso do Application Insights 
+
+No [Portal do Azure][portal], crie um recurso do Application Insights.
+
+Criar um novo recurso:
 
 ![Escolha Novo, Serviços de Desenvolvedor, Application Insights](./media/app-insights-windows-get-started/01-new.png)
 
@@ -54,11 +61,14 @@ A chave identifica o recurso. Você precisará dela em breve, para configurar o 
 ![Abrir a gaveta de lista suspensa do Essentials e selecione a chave de instrumentação](./media/app-insights-windows-get-started/02-props.png)
 
 
-## 2\. Adicionar o SDK do Application Insights aos seus aplicativos
+### 2\. Adicionar o SDK do Application Insights aos seus aplicativos
 
 No Visual Studio, adicione o SDK adequado ao seu projeto.
 
-Se for um aplicativo Windows Universal, repita as etapas tanto para o projeto do Windows Phone quanto para o projeto do Windows.
+
+* Se for um aplicativo em C++, use o [SDK do C++](https://github.com/Microsoft/ApplicationInsights-CPP) em vez do pacote do NuGet ilustrado abaixo.
+
+Se for um aplicativo Universal do Windows, repita as etapas abaixo para o projeto do Windows Phone e para o projeto do Windows.
 
 1. Clique com o botão direito do mouse no projeto no Gerenciador de Soluções e escolha **Gerenciar Pacotes NuGet**.
 
@@ -98,11 +108,11 @@ Se for um aplicativo Windows Universal, repita as etapas tanto para o projeto do
 
 **Aplicativos Universais do Windows**: repita as etapas para os projetos Phone e Store. [Exemplo de um aplicativo Universal do Windows 8.1](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/Windows%208.1%20Universal).
 
-## <a name="network"></a>3. Habilitar o acesso à rede para seu aplicativo
+### <a name="network"></a>3. Habilitar o acesso à rede para seu aplicativo
 
 Se seu aplicativo ainda não [solicitou acesso de rede de saída](https://msdn.microsoft.com/library/windows/apps/hh452752.aspx), você precisará adicioná-lo ao seu manifesto como uma [capacidade necessária](https://msdn.microsoft.com/library/windows/apps/br211477.aspx).
 
-## <a name="run"></a>4. Execute seu projeto
+### <a name="run"></a>4. Execute seu projeto
 
 [Execute o aplicativo com F5](http://msdn.microsoft.com/library/windows/apps/bg161304.aspx) e use-o para gerar alguma telemetria.
 
@@ -113,7 +123,7 @@ No Visual Studio, você verá uma contagem de eventos que foram recebidas.
 No modo Depurar, a telemetria é enviada logo que é gerada. No modo Liberar, a telemetria é armazenada no dispositivo e enviada apenas quando a execução do aplicativo é retomada.
 
 
-## <a name="monitor"></a>5. Veja os dados de monitoramento
+### <a name="monitor"></a>5. Veja os dados de monitoramento
 
 Abrir Application Insights do seu projeto.
 
@@ -129,11 +139,11 @@ Se você estiver esperando mais dados, clique em Atualizar depois de alguns segu
 Clique em qualquer gráfico para ver mais detalhes.
 
 
-## <a name="deploy"></a>5. Publicar seu aplicativo na Store
+### <a name="deploy"></a>5. Publicar seu aplicativo na Store
 
 [Publique seu aplicativo](http://dev.windows.com/publish) e veja os dados se acumularem conforme os usuários o baixam e utilizam.
 
-## Personalizar sua telemetria
+### Personalizar sua telemetria
 
 #### Escolhendo os coletores
 
@@ -176,46 +186,12 @@ Para obter mais detalhes, consulte [Métricas e eventos personalizados][api].
 * [Detectar e diagnosticar falhas em seu aplicativo][windowsCrash]
 * [Saiba mais sobre métricas][metrics]
 * [Saber mais sobre a Pesquisa de Diagnóstico][diagnostic]
+* [Acompanhar o uso do seu aplicativo][windowsUsage]
+* [Usar a API para enviar telemetria personalizada][api]
+* [Solucionar problemas][qna]
 
+* [Usar HockeyApp para análise de falhas, distribuição beta e comentários sobre seu aplicativo](http://hockeyapp.net/)
 
-## <a name="ide"></a>Configuração automatizada
-
-Se você preferir permitir que o Visual Studio execute as etapas de configuração, você pode fazer isso com Windows Phone, Windows Store e muitos outros tipos de aplicativos.
-
-###<a name="new"></a> Se você estiver criando um novo projeto de aplicativo do Windows...
-
-Na caixa de diálogo Novo Projeto, selecione Application Insights.
-
-Se for solicitado que você faça logon, use as credenciais da conta do Azure (que é separada da sua conta do Visual Studio Team Services).
-
-![](./media/app-insights-windows-get-started/appinsights-d21-new.png)
-
-
-###<a name="existing"></a> Ou então, se é um projeto existente...
-
-Adicione o Application Insights por meio do Gerenciador de Soluções.
-
-
-![](./media/app-insights-windows-get-started/appinsights-d22-add.png)
-
-## Para atualizar para uma nova versão do SDK
-
-Quando uma [nova versão do SDK é lançada](app-insights-release-notes-windows.md): * clique com o botão direito no seu projeto e escolha Gerenciar pacotes NuGet. * Selecione os pacotes instalados do Application Insights e escolha Ação: Atualizar.
-
-
-## <a name="usage"></a>Próximas etapas
-
-
-[Detectar e diagnosticar falhas em seu aplicativo][windowsCrash]
-
-[Capturar logs de diagnóstico e pesquisar neles][diagnostic]
-
-
-[Acompanhar o uso do seu aplicativo][windowsUsage]
-
-[Usar a API para enviar telemetria personalizada][api]
-
-[Solucionar problemas][qna]
 
 
 
@@ -231,4 +207,4 @@ Quando uma [nova versão do SDK é lançada](app-insights-release-notes-windows.
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

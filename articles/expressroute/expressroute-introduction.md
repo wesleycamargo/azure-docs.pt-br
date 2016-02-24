@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Introdução à Rota Expressa | Microsoft Azure"
-	description="Esta página fornece uma visão geral do serviço Rota Expressa, incluindo o modo de funcionamento de uma conexão da Rota Expressa."
-	documentationCenter="na"
-	services="expressroute"
-	authors="cherylmc"
-	manager="carolz"
-	editor=""/>
+   pageTitle="Introdução à Rota Expressa | Microsoft Azure"
+   description="Esta página fornece uma visão geral do serviço Rota Expressa, incluindo o modo de funcionamento de uma conexão da Rota Expressa."
+   documentationCenter="na"
+   services="expressroute"
+   authors="cherylmc"
+   manager="carolz"
+   editor=""/>
 <tags 
-	ms.service="expressroute"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/22/2015"
-	ms.author="cherylmc"/>
+   ms.service="expressroute"
+   ms.devlang="na"
+   ms.topic="article" 
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services" 
+   ms.date="01/16/2016"
+   ms.author="cherylmc"/>
 
 # Visão Geral Técnica da Rota Expressa
 
@@ -28,7 +28,7 @@ A Rota Expressa do Microsoft Azure permite que você estenda suas redes locais a
 - Conectividade global com os serviços da Microsoft em todas as regiões com o complemento premium da Rota Expressa.
 - Roteamento dinâmico entre sua rede e a Microsoft por meio de protocolos padrão da indústria (BGP).
 - Redundância interna em cada local de emparelhamento para proporcionar maior confiabilidade.
-- [SLA](http://azure.microsoft.com/support/legal/sla/) do tempo de atividade da conexão.
+- [SLA](https://azure.microsoft.com/support/legal/sla/) do tempo de atividade da conexão.
 - QoS e suporte para várias classes de serviço para aplicativos especiais, como o Skype for Business.
 
 Consulte as [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md) para obter mais detalhes.
@@ -55,7 +55,7 @@ A Microsoft usa o protocolo padrão do setor para roteamento dinâmico (BGP) a f
 
 ### Redundância
 
-Cada circuito da Rota Expressa é formado por duas conexões com dois roteadores de borda do Microsoft Enterprise (MSEEs) do provedor de conectividade/borda de sua rede. A Microsoft exigirá uma conexão BGP dupla do provedor de conectividade/seu lado – uma para cada MSEE. Você pode optar por não implantar dispositivos redundantes/circuitos de Ethernet em seu lado. No entanto, os provedores de conectividade usam dispositivos redundantes para garantir que as conexões sejam entregues à Microsoft de forma redundante. É obrigatório ter uma configuração de conectividade de Camada 3 redundante para que nosso [SLA](http://azure.microsoft.com/support/legal/sla/) seja válido.
+Cada circuito da Rota Expressa é formado por duas conexões com dois roteadores de borda do Microsoft Enterprise (MSEEs) do provedor de conectividade/borda de sua rede. A Microsoft exigirá uma conexão BGP dupla do provedor de conectividade/seu lado – uma para cada MSEE. Você pode optar por não implantar dispositivos redundantes/circuitos de Ethernet em seu lado. No entanto, os provedores de conectividade usam dispositivos redundantes para garantir que as conexões sejam entregues à Microsoft de forma redundante. É obrigatório ter uma configuração de conectividade de Camada 3 redundante para que nosso [SLA](https://azure.microsoft.com/support/legal/sla/) seja válido.
 
 ### Conectividade com serviços de nuvem da Microsoft
 
@@ -124,4 +124,4 @@ Escolha o modelo de cobrança que funcione melhor para você. Escolha um dos mod
 	- [Configurar o roteamento](expressroute-howto-routing-classic.md)
 	- [Vincular uma rede virtual a um circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

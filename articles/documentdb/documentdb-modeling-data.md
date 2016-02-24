@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Modelando dados no Banco de Dados de Documentos do Azure | Microsoft Azure" 
-	description="Saiba como modelar dados para um banco de dados de documentos NoSQL, como o Banco de Dados de Documentos do Azure." 
+	description="Saiba mais sobre como modelar dados para Banco de Dados de Documentos, um banco de dados de documento NoSQL." 
+	keywords="modelando dados"
 	services="documentdb" 
 	authors="ryancrawcour" 
 	manager="jhubbard" 
@@ -87,7 +88,7 @@ De modo geral, use modelos de dados inseridos quando:
 - Houver dados inseridos que não crescerão **sem limite**.
 - Houver dados inseridos que são **integrais** aos dados de um documento.
 
-> [AZURE.NOTE]De modo geral, modelos de dados desnormalizados oferecem melhor desempenho de **leitura**.
+> [AZURE.NOTE] De modo geral, modelos de dados desnormalizados oferecem melhor desempenho de **leitura**.
 
 ###Quando não inserir
 
@@ -113,7 +114,7 @@ Veja este trecho de JSON.
 
 Uma entidade de postagem com comentários inseridos seria assim se estivéssemos modelando um sistema de blog comum, ou CMS. O problema com este exemplo é que a matriz de comentários é **ilimitada**, o que significa que não há limite (prático) para o número de comentários que qualquer postagem pode ter. Isso se tornará um problema, pois o tamanho do documento poderá aumentar significativamente.
 
-> [AZURE.TIP]Documentos no Banco de Dados de Documentos têm um tamanho máximo. Para saber mais, consulte [limites do Banco de Dados de Documentos](documentdb-limits.md).
+> [AZURE.TIP] Documentos no Banco de Dados de Documentos têm um tamanho máximo. Para saber mais, consulte [limites do Banco de Dados de Documentos](documentdb-limits.md).
 
 Conforme o tamanho do documento aumenta, a capacidade de transmitir dados eletronicamente, bem como de ler e atualizar o documento, em escala, será afetada.
 
@@ -220,7 +221,7 @@ No JSON abaixo, optamos por usar o exemplo do portfólio de ações, mas, dessa 
 
 Uma desvantagem imediata dessa abordagem é se o aplicativo precisar mostrar informações sobre cada ação contida no portfólio de uma pessoa ao mostrar o portfólio. Nesse caso, você precisaria ir várias vezes ao banco de dados para carregar as informações de cada documento de ação. Aqui, nós decidimos aumentar a eficiência das operações de gravação, que acontecem com frequência ao longo do dia. Por outro lado, comprometemos as operações de leitura, que têm menor potencial de afetar o desempenho deste sistema em particular.
 
-> [AZURE.NOTE]Modelos de dados normalizados **podem demandar mais viagens de ida e volta ao servidor**.
+> [AZURE.NOTE] Modelos de dados normalizados **podem demandar mais viagens de ida e volta ao servidor**.
 
 ### E as chaves estrangeiras?
 Como no momento não há o conceito de restrição e chave estrangeira, entre outros, qualquer relação interna que houver nos documentos será um "elo fraco" e não será verificada pelo banco de dados. Se quiser garantir que os dados a que um documento está se referindo realmente existem, você precisa fazer isso no aplicativo, por meio de gatilhos por parte do servidor ou de procedimentos armazenados no Banco de Dados de Documentos.
@@ -233,7 +234,7 @@ De modo geral, use modelos de dados normalizados quando:
 - Dados relacionados **mudarem com frequência**.
 - Dados referenciados podem ser **ilimitados**.
 
-> [AZURE.NOTE]De moro geral, normalizar traz melhor desempenho de **gravação**.
+> [AZURE.NOTE] De moro geral, normalizar traz melhor desempenho de **gravação**.
 
 ###Onde eu coloco a relação?
 O crescimento da relação ajuda a determinar em qual documento armazenar a referência.
@@ -383,13 +384,13 @@ O principal aspecto deste artigo é entender que modelar dados em um ambiente se
 
 Assim como não há apenas uma forma de representar um dado em uma tela, não há apenas uma forma de modelar seus dados. Você precisa entender eu aplicativo e como ele vai produzir, consumir e processar dados. E então, aplicando algumas das diretrizes apresentadas aqui, você pode começar a criar um modelo que trata das necessidades imediatas do seu aplicativo. Quando seus aplicativos precisarem mudar, você pode tirar proveito da flexibilidade de um banco de dados sem esquemas para adotar as mudanças e desenvolver seu modelo de dados facilmente.
 
-Para saber mais sobre o Banco de Dados de Documentos, consulte a página de [documentação](../../services/documentdb/) do serviço.
+Para saber mais sobre o Banco de Dados de Documentos do Azure, veja a página de [documentação](https://azure.microsoft.com/documentation/services/documentdb/) do serviço.
 
 Para saber mais sobre o ajuste de índices no Banco de Dados de Documentos do Azure, consulte o artigo sobre as [políticas de indexação](documentdb-indexing-policies.md).
 
 Para saber como fragmentar seus dados em diversas partições, consulte [Particionando dados no Banco de Dados de Documentos](documentdb-partition-data.md).
 
-Por fim, para obter diretrizes sobre fragmentação e modelagem de dados para aplicativos multilocatários, consulte [Dimensionando um aplicativo multilocatário com o Banco de Dados de Documentos do Azure](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
+Por fim, para obter diretrizes sobre fragmentação e modelagem de dados para aplicativos multilocatários, confira [Scaling a Multi-Tenant Application with Azure DocumentDB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

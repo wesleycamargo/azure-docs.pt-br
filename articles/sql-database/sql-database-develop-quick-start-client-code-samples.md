@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015" 
+	ms.date="01/10/2016" 
 	ms.author="genemi"/>
 
 
@@ -39,7 +39,7 @@ Os exemplos abrangem:
 - Exemplos de código que convertem os conjuntos de resultados relacionais em um formato orientado ao objeto.
 
 
-> [AZURE.NOTE]Exemplos de código para outras linguagens estão sendo preparados, e os links até eles serão adicionados a este tópico.
+> [AZURE.NOTE] Exemplos de código para outras linguagens estão sendo preparados, e os links até eles serão adicionados a este tópico.
 
 
 ## Clientes no Linux
@@ -51,7 +51,7 @@ Esta seção fornece links para tópicos com exemplo de código para programas c
 | Linguagem | Pequeno exemplo | Exemplo de repetição | Relacionado ao objeto |
 | :-- | :-- | :-- | :-- |
 | Node.js | [Entediante](sql-database-develop-nodejs-simple-linux.md) | . | . |
-| Python | [FreeTDS, pymssql](sql-database-develop-python-simple-unbutu-linux.md) | . | . |
+| Python | [FreeTDS, pymssql](sql-database-develop-python-simple-ubuntu-linux.md) | . | . |
 | Ruby | [FreeTDS, TinyTDS](sql-database-develop-ruby-simple-linux.md) | . | . |
 
 
@@ -86,7 +86,7 @@ Esta seção fornece links para tópicos com exemplo de código para programas c
 ## Consulte também
 
 
-- [Downloads de SDKs e ferramentas para várias plataformas e idiomas](http://azure.microsoft.com/downloads/#cmd-line-tools)
+- [Downloads de SDKs e ferramentas para várias plataformas e idiomas](https://azure.microsoft.com/downloads/#cmd-line-tools)
 - [Bibliotecas de conexões para Banco de Dados SQL e SQL Server](sql-database-libraries.md)
 - [Lista de códigos numéricos para erros transitórios](sql-database-develop-error-messages.md#bkmk_connection_errors)<br/>&nbsp;
 - [Desenvolvimento do Banco de Dados SQL do Azure: tópicos sobre como fazer](http://msdn.microsoft.com/library/azure/ee621787.aspx)
@@ -94,4 +94,4 @@ Esta seção fornece links para tópicos com exemplo de código para programas c
 - [Criar seu primeiro Banco de Dados SQL do Azure](sql-database-get-started.md)
 - [Entity Framework 6 aqui, EF 7 em GitHub](http://entityframework.codeplex.com/)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

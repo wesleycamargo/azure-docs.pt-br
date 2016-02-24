@@ -18,7 +18,7 @@
 
 # Autenticação de uma entidade de serviço com o Gerenciador de Recursos do Azure
 
-Este tópico mostra como permitir que uma entidade de serviço (como um processo automatizado, aplicativo ou serviço) acesse outros recursos em sua assinatura. Com o Gerenciador de Recursos do Azure, você pode usar o controle de acesso baseado em função para conceder ações permitidas para uma entidade de serviço e autenticar essa entidade de serviço. Este tópico mostra como usar o PowerShell e CLI do Azure para atribuir uma função à entidade de serviço e autenticar essa entidade.
+Este tópico mostra como permitir que uma entidade de serviço (como um processo automatizado, aplicativo ou serviço) acesse outros recursos em sua assinatura. Com o Gerenciador de Recursos do Azure, você pode usar o controle de acesso baseado em função para conceder ações permitidas para uma entidade de serviço e autenticar essa entidade de serviço. Este tópico mostra como usar o PowerShell e a CLI do Azure para atribuir uma função à entidade de serviço e autenticar essa entidade.
 
 Ele mostra como autenticar com um nome de usuário e uma senha ou um certificado.
 
@@ -312,4 +312,4 @@ Nesta seção, você executará as etapas para criar uma entidade de serviço pa
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

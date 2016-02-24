@@ -20,9 +20,9 @@
 # Lista de Conectores e de Aplicativos de API a serem usados em seus Aplicativos Lógicos
 Saiba mais sobre todos os conectores e Aplicativos de API disponibilizados pela Microsoft a serem usados em seus Aplicativos Lógicos
 
-Para obter informações de preço e uma lista do que é incluído com cada camada de serviço, consulte [Preços do Serviço de Aplicativo do Azure](http://azure.microsoft.com/pricing/details/app-service/).
+Para obter informações de preço e uma lista do que é incluído com cada camada de serviço, consulte [Preços do Serviço de Aplicativo do Azure](https://azure.microsoft.com/pricing/details/app-service/).
 
-> [AZURE.NOTE]Se você deseja começar com os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógicos](https://tryappservice.azure.com/?appservice=logic), em que você pode criar imediatamente um aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> [AZURE.NOTE] Se você deseja começar com os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógicos](https://tryappservice.azure.com/?appservice=logic), em que você pode criar imediatamente um aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## Conectores principais
 A tabela a seguir lista todos os conectores e aplicativos de API criados pela Microsoft, que estão disponíveis como Conectores principais:
@@ -89,9 +89,9 @@ Vários conectores fornecem gatilhos para aplicativos lógicos. Os gatilhos são
 Os conectores também podem ser usados como ações dentro do Aplicativo Lógico. Ações são úteis para pesquisar dados no Aplicativo Lógico que podem, em seguida, ser usado na execução. Por exemplo, talvez seja necessário pesquisar dados de um banco de dados SQL para obter informações adicionais sobre um cliente durante o processamento de um pedido. Ou então, talvez seja necessário escrever, atualizar ou excluir dados em um destino. Você pode fazer isso usando as ações fornecidas pelos conectores. As ações são mapeadas para operações em aplicativos de API (conforme definido pelos seus metadados Swagger).
 
 ## Criar seus próprios conectores e aplicativos de AP
-[Referência de conectores e de aplicativos de API](http://aka.ms/appservicesconnectorreference) [Gatilhos de aplicativo de API do Serviço de Aplicativo do Azure](../app-service-api/app-service-api-dotnet-triggers.md) [Referência de aplicativo lógico](https://msdn.microsoft.com/library/azure/dn948510.aspx)
+[Connectors and API Apps Reference (Referência de conectores e de aplicativos de API)](http://aka.ms/appservicesconnectorreference) [Gatilhos de aplicativo de API do Serviço de Aplicativo do Azure](../app-service-api/app-service-api-dotnet-triggers.md) [Logic App Reference (Referência de aplicativo lógico)](https://msdn.microsoft.com/library/azure/dn948510.aspx)
 
 ## Mais informações sobre conectores e aplicativos de API
 [O que são aplicativos de API do BizTalk e conectores](app-service-logic-what-are-biztalk-api-apps.md) [Usando o Gerenciador de Conexão Híbrida no Serviço de Aplicativo do Azure](app-service-logic-hybrid-connection-manager.md) [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

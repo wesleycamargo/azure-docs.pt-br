@@ -2,9 +2,9 @@
 
 Para implantar o modelo ARM baixado usando o PowerShell, siga as etapas abaixo.
 
-1. Se você nunca tiver usado o Azure PowerShell, consulte [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md) e siga as instruções até o final para entrar no Azure e selecionar sua assinatura.
+1. Se você nunca usou o Azure PowerShell, consulte [Como Instalar e Configurar o Azure PowerShell](powershell-install-configure.md) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
 
-3. Se necessário, execute o cmdlet **New-AzureRmResourceGroup** para criar um novo grupo de recursos. O comando abaixo cria um grupo de recursos chamado *TestRG* na região do Azure do *Centro dos EUA*. Para obter mais informações sobre grupos de recursos, visite [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md).
+3. Se necessário, execute o **`New-AzureRmResourceGroup`** para criar um novo grupo de recursos. O comando abaixo cria um grupo de recursos chamado *TestRG* na região do Azure do *Centro dos EUA*. Para saber mais sobre grupos de recursos, visite [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md).
 
 		New-AzureRmResourceGroup -Name TestRG -Location centralus
 		
@@ -20,7 +20,7 @@ Para implantar o modelo ARM baixado usando o PowerShell, siga as etapas abaixo.
 		                    *
 		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
 
-4. Execute o cmdlet **New-AzureRmResourceGroupDeployment** para implantar a nova rede virtual usando os arquivos de modelo e parâmetro que você baixou e modificou acima.
+4. Execute o cmdlet **`New-AzureRmResourceGroupDeployment`** para implantar a nova rede virtual usando os arquivos de modelo e parâmetro que você baixou e modificou acima.
 
 		New-AzureRmResourceGroupDeployment -Name TestVNetDeployment -ResourceGroupName TestRG `
 			-TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
@@ -46,7 +46,7 @@ Para implantar o modelo ARM baixado usando o PowerShell, siga as etapas abaixo.
 		
 		Outputs           :
 
-5. Execute o cmdlet **Get-AzureRmVirtualNetwork** para exibir as propriedades da nova rede virtual, conforme mostrado abaixo.
+5. Execute o cmdlet **`Get-AzureRmVirtualNetwork`** para exibir as propriedades da nova rede virtual, conforme mostrado abaixo.
 
 
 		Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
@@ -92,4 +92,4 @@ Para implantar o modelo ARM baixado usando o PowerShell, siga as etapas abaixo.
 		                      }
 		                    ]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

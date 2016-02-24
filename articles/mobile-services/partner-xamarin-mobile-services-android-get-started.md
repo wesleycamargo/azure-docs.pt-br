@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/05/2015"
+	ms.date="02/10/2016"
 	ms.author="donnam"/>
 
 # <a name="getting-started"></a>Introdução aos Serviços Móveis
@@ -44,7 +44,7 @@ A conclusão deste tutorial requer o [Xamarin.Android], que instala o Xamarin St
 
 O projeto quickstart baixado contém o componente dos Serviços Móveis do Azure para o Xamarin.Android. Embora esse projeto tenha como alvo o Android 4.2 ou uma versão posterior, o SDK dos Serviços Móveis exige apenas o Android 2.2 ou uma versão posterior.
 
-> [AZURE.IMPORTANT]Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5).
+> [AZURE.IMPORTANT] Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5).
 
 ## <a name="create-new-service"> </a>Criar um novo serviço móvel
 
@@ -82,7 +82,7 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
 3. Pressione o botão **Executar** para compilar o projeto e iniciar o aplicativo. Você será solicitado a selecionar um emulador ou um dispositivo USB conectado.
 
-	> [AZURE.NOTE]Para que seja possível executar o projeto no emulador do Android, você deverá definir no mínimo um AVD (Dispositivo Virtual Android). Use o Gerenciador do AVD para criar e gerenciar esses dispositivos.
+	> [AZURE.NOTE] Para que seja possível executar o projeto no emulador do Android, você deverá definir no mínimo um AVD (Dispositivo Virtual Android). Use o Gerenciador do AVD para criar e gerenciar esses dispositivos.
 
 4. No aplicativo, digite um texto significativo, como _Concluir o tutorial_ e clique em **Adicionar**.
 
@@ -90,7 +90,8 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
 	Isso envia uma solicitação de POST para o novo serviço móvel hospedado no Azure. Os dados da solicitação são inseridos na tabela TodoItem. Os itens armazenados na tabela são retornados pelo serviço móvel, e os dados são exibidos na lista.
 
-	> [AZURE.NOTE]Você pode examinar o código que acessa o serviço móvel para consultar e inserir dados que estão localizados no arquivo ToDoActivity.cs C#.
+	> [AZURE.NOTE]
+   	Você pode examinar o código que acessa o serviço móvel para consultar e inserir dados que estão localizados no arquivo ToDoActivity.cs C#.
 
 6. Novamente no [portal clássico do Azure], clique na guia **Dados** e clique na tabela **TodoItems**.
 
@@ -109,7 +110,7 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 
 * [Introdução às notificações por push] Saiba como enviar uma notificação por push bastante básica a seu aplicativo.
 
-* [Como usar o cliente do Componente Xamarin para os Serviços Móveis do Azure](partner-xamarin-mobile-services-how-to-use-client-library.md) Saiba como consultar o serviço móvel, trabalhar com dados e acessar as APIs personalizadas.
+
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
@@ -145,4 +146,4 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [Azure]: http://azure.microsoft.com/
 [portal clássico do Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

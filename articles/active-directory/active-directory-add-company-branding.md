@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/30/2015" 
+	ms.date="02/12/2016" 
 	ms.author="MarkVi"/>
 
 # Adicionar identidade visual da empresa às páginas de entrada e do painel de acesso
@@ -21,7 +21,7 @@
 > [AZURE.NOTE]
 >
 - A identidade visual da empresa é um recurso que está disponível somente se você atualizou para a edição Premium ou Basic do Active Directory do Azure. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md).
-- As edições Premium e Basic do Active Directory do Azure estão disponíveis para clientes na China usando a instância mundial do Active Directory do Azure. As edições Azure Active Directory Premium e Basic não têm suporte atualmente no serviço Microsoft Azure operado pela 21Vianet na China. Para obter mais informações, entre em contato no [Fórum do Active Directory do Azure](http://feedback.azure.com/forums/169401-azure-active-directory).
+- As edições Premium e Basic do Active Directory do Azure estão disponíveis para clientes na China usando a instância mundial do Active Directory do Azure. As edições Azure Active Directory Premium e Basic não têm suporte atualmente no serviço Microsoft Azure operado pela 21Vianet na China. Para obter mais informações, entre em contato no [Fórum do Active Directory do Azure](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 Muitas empresas querem aplicar aparência e funcionalidade consistentes em todos os sites e serviços que gerenciam para que os usuários finais não sejam confundidos quando precisarem usar esses sites. O Active Directory do Azure fornece esse recurso, permitindo que você personalize a aparência das seguintes páginas Web direcionadas ao usuário final, para que ele inclua o esquema de cor e o logotipo da empresa:
 
@@ -80,7 +80,8 @@ Logotipo de faixa | Mostrado na parte superior direita da página. Substitua o l
 Ilustração grande/cor da tela de fundo | Mostrado à esquerda da página. Substitua a imagem que normalmente seria exibida pelo site de destino ao qual os usuários estão se conectando. A cor da tela de fundo pode ser mostrada no lugar da ilustração grande em conexões de baixa largura de banda ou em telas muito estreitas.
 Texto da página de entrada | Mostrado acima do rodapé da página quando você precisa transmitir informações úteis aos usuários antes de eles entrar com sua conta corporativa ou de estudante. Por exemplo, você pode querer incluir o número de telefone da assistência técnica ou uma instrução legal.
 
-> [AZURE.NOTE]Todos os elementos são opcionais. Por exemplo, se você especificar um logotipo de faixa, mas nenhuma ilustração grande, a página de entrada mostrará o logotipo e ilustração do site de destino (ou seja, a imagem da estrada da Califórnia do Office 365).
+> [AZURE.NOTE]
+Todos os elementos são opcionais. Por exemplo, se você especificar um logotipo de faixa, mas nenhuma ilustração grande, a página de entrada mostrará o logotipo e ilustração do site de destino (ou seja, a imagem da estrada da Califórnia do Office 365).
 
 Você também pode localizar todos os elementos desta página. Depois de configurar um elemento “padrão” de personalização, você pode configurar versões adicionais para localidades diferentes. Você também pode misturar e combinar vários elementos. Por exemplo, você pode:
 
@@ -185,4 +186,4 @@ Cor da tela de fundo da página de entrada | A cor da tela de fundo da página d
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0218_2016-->

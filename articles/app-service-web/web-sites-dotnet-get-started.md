@@ -42,7 +42,7 @@ O que você aprenderá:
 * Como usar o **Gerenciador de Servidores** do Visual Studio para abrir arquivos remotos e iniciar uma sessão de depuração remota. 
 * Como usar o [Portal do Azure](/overview/preview-portal/) para monitorar e gerenciar seu aplicativo Web.
 
-> [AZURE.NOTE]Este tutorial fala sobre o uso do ASP.NET com o Serviço de Aplicativo do Azure; ele não ensina a desenvolver um aplicativo Web ASP.NET. Para obter uma introdução ao ASP.NET MVC 5, confira [Introdução ao ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) no site do [ASP.NET](http://asp.net/). Para obter links para outros artigos com mais detalhes sobre como usar o Serviço de Aplicativo do Azure, confira a seção [Próximas etapas](#next-steps).
+> [AZURE.NOTE] Este tutorial fala sobre o uso do ASP.NET com o Serviço de Aplicativo do Azure; ele não ensina a desenvolver um aplicativo Web ASP.NET. Para obter uma introdução ao ASP.NET MVC 5, confira [Introdução ao ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) no site do [ASP.NET](http://asp.net/). Para obter links para outros artigos com mais detalhes sobre como usar o Serviço de Aplicativo do Azure, confira a seção [Próximas etapas](#next-steps).
 > 
 > Ajude-nos a dar forma ao escopo e à abordagem deste tutorial -- se houver outros tópicos que você gostaria que abordássemos aqui em um tutorial de introdução, deixe um [Comentário do Disqus](#comments) ao final do tutorial.
 
@@ -79,7 +79,7 @@ O diagrama ilustra o que você está fazendo nas etapas de criação e implanta�
 
 3. Verifique se o **.NET Framework 4.5.2** está selecionado como a estrutura de destino.
 
-4.  O [Application Insights do Azure](app-insights-overview.md) monitora seu aplicativo Web quanto à sua disponibilidade, desempenho e utilização. Desmarque a caixa de seleção **Adicionar o Application Insights ao Projeto** se você não quiser experimentá-lo.
+4.  O [Application Insights do Azure](app-insights-overview.md) monitora seu aplicativo Web quanto à sua disponibilidade, desempenho e utilização. Desmarque a caixa de seleção **Adicionar Application Insights ao projeto** se você não quiser experimentá-lo.
 
 4. Dê ao aplicativo o nome **MyExample**.
 
@@ -129,7 +129,7 @@ O diagrama ilustra o que você está fazendo nas etapas de criação e implanta�
 
 	A seção [Próximas etapas](#next-steps) tem links para informações sobre grupos de recursos.
 
-5. Insira **MyExampleGroup** ou outro nome se preferir, como o nome do grupo de recursos.
+5. Digite **MyExampleGroup** ou outro nome, se preferir, para o nome do grupo de recursos.
 
 5. Na lista suspensa **Região**, escolha o local mais próximo de você.
 
@@ -167,7 +167,7 @@ Nesta seção, você implanta projeto Web para o aplicativo Web, como ilustrado 
 
 	![Escolher Publicar](./media/web-sites-dotnet-get-started/choosepublish.png)
 
-	Em poucos segundos, o assistente de **Publicar Web** é exibido. O assistente abre um *perfil de publicação* com configurações para implantar um projeto Web para o novo aplicativo Web. Se desejar implantar um aplicativo Web diferente, você poderá clicar na guia **Perfil** para criar um perfil diferente. Para este tutorial, você aceitará as configurações que implantam o aplicativo Web que você criou anteriormente.
+	Em poucos segundos, o assistente de **Publicar Web** é exibido. O assistente abre um *perfil de publicação* com configurações para implantar um projeto Web para o novo aplicativo Web. Se desejar implantar um aplicativo Web diferente, você pode clicar na guia **Perfil** para criar um perfil diferente. Para este tutorial, você aceitará as configurações que implantam o aplicativo Web que você criou anteriormente.
 
 8. Na guia **Conexão** do assistente de **Publicar Web**, clique em **Avançar**.
 
@@ -199,7 +199,7 @@ Nesta seção, você implanta projeto Web para o aplicativo Web, como ilustrado 
 
 13. Mantenha esta janela do navegador aberta para uso na próxima seção.
 
-**Dica:** você pode habilitar a barra de ferramentas **Publicação Web com um Clique** para uma implantação ainda mais rápida. Clique em **Exibir > Barras de Ferramentas** e selecione **Publicação Web com Um Clique**. Você pode usar a barra de ferramentas para selecionar um perfil, clicar em um botão para publicar ou clicar em um botão para abrir o assistente de **Publicar Web**.
+**Dica:** você pode habilitar a barra de ferramentas **Publicação Web com um Clique** para uma implantação ainda mais rápida. Clique em **Exibir > Barras de Ferramentas** e, em seguida, selecione **Publicação Web com Um Clique**. Você pode usar a barra de ferramentas para selecionar um perfil, clique em um botão para publicar ou clique em um botão para abrir o assistente **Publicar Web**.
 
 ![Barra de ferramentas Publicação Web com Um Clique](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
 
@@ -271,7 +271,7 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
 
 * Outras maneiras de implantar um projeto Web
 
-	Para saber mais sobre outras maneiras de implantar projetos Web em aplicativos Web, usando o Visual Studio ou [automatizando a implantação](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) de um [sistema de controle do código-fonte](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), confira [Como implantar um aplicativo Web do Azure](web-sites-deploy.md).
+	Para obter informações sobre outras maneiras de implantar projetos em aplicativos Web, usando o Visual Studio ou [automatizando a implantação](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) de um [sistema de controle do código-fonte](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), consulte [Como implantar um aplicativo Web do Azure](web-sites-deploy.md).
 
 	O Visual Studio também pode gerar scripts do Windows PowerShell, que permitem a você automatizar a implantação. Para obter mais informações, consulte [Automatizar tudo (Compilando aplicativos de nuvem do mundo real com o Azure) ](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything).
 
@@ -288,7 +288,7 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
 
 * Como adicionar recursos em tempo real como chat
 
-	Se o aplicativo Web incluir recursos em tempo real (como um serviço de chat, um jogo, um indicador de ações, entre outros), você poderá obter o melhor desempenho utilizando o [ASP.NET SignalR](http://www.asp.net/signalr) com o método de transporte [WebSockets](/blog/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites/). Para obter mais informações, consulte [Usando SignalR com aplicativos Web do Azure](http://www.asp.net/signalr/overview/signalr-20/getting-started-with-signalr-20/using-signalr-with-windows-azure-web-sites).
+	Se o aplicativo Web incluirá recursos em tempo real (como um serviço de chat, um jogo, um indicador de ações, entre outros), você pode obter o melhor desempenho utilizando o [ASP.NET SignalR](http://www.asp.net/signalr) com o método de transporte [WebSockets](/blog/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites/). Para obter mais informações, consulte [Usando SignalR com aplicativos Web do Azure](http://www.asp.net/signalr/overview/signalr-20/getting-started-with-signalr-20/using-signalr-with-windows-azure-web-sites).
 
 * Como escolher entre o Serviço de Aplicativo, os Serviços de Nuvem e as Máquinas Virtuais do Azure para aplicativos Web
 
@@ -296,9 +296,9 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
 
 * [Como escolher ou criar um plano de Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
-* [Como escolher ou criar um grupo de recursos](../azure-preview-portal-using-resource-groups.md)
+* [Como escolher ou criar um grupo de recursos](../azure-portal/resource-group-portal.md)
 
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e os serviços existentes do Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

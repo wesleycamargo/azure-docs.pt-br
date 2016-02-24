@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na"      
     ms.devlang="na"      
     ms.topic="article"      
-    ms.date="10/05/2015"      
+    ms.date="02/09/2016"      
     ms.author="arramac"/>
 
 # Particionar e dimensionar dados no Banco de Dados de Documentos
 
-O [Banco de Dados de Documentos do Microsoft Azure](../../services/documentdb/) foi criado para ajudá-lo a obter um desempenho rápido e previsível e para *expandir* diretamente com seu aplicativo conforme ele cresce. O Banco de Dados de Documentos tem sido usado para alimentar serviços de produção de grande escala na Microsoft, como o Repositório de Dados do Usuário que alimenta o pacote MSN de aplicativos Web e para celular.
+O [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/) foi criado para ajudá-lo a obter um desempenho rápido e previsível e para *expandir* diretamente com seu aplicativo conforme ele cresce. O Banco de Dados de Documentos tem sido usado para alimentar serviços de produção de grande escala na Microsoft, como o Repositório de Dados do Usuário que alimenta o pacote MSN de aplicativos Web e para celular.
 
 Você pode conseguir reduzir horizontalmente quase infinitamente em termos de armazenamento e produtividade para seu aplicativo no Banco de Dados de Documentos, particionando seus dados horizontalmente - um conceito comumente chamado de **fragmentação**. Contas do Banco de Dados de Documentos podem ser dimensionadas linearmente com o custo, por meio de unidades empilháveis chamadas de **coleções**. A melhor forma de particionar os dados entre as coleções depende do formato dos dados e dos padrões de acesso.
 
@@ -28,7 +28,7 @@ Depois de ler este artigo sobre dimensionamento, você poderá responder às seg
  - Quando você usaria cada uma das técnicas de particionamento e por quê?
  - Como você pode criar um aplicativo particionado no Banco de Dados de Documentos do Azure?
 
-Este artigo apresenta alguns conceitos sobre a fragmentação. Se você estiver pronto para escrever um código que particiona os dados usando o SDK do .NET do Banco de Dados de Documentos, consulte [Particionamento de dados com o SDK do .NET do Banco de Dados de Documentos](documentdb-sharding.md).
+Este artigo apresenta alguns conceitos sobre a fragmentação. Se você está pronto para escrever um código que particiona os dados usando os SDKs do Banco de Dados de Documentos, consulte [Particionamento de dados com o SDK do Banco de Dados de Documentos](documentdb-sharding.md).
 
 ## Coleções = Partições
 
@@ -46,17 +46,17 @@ Vejamos essas técnicas com mais detalhes.
 
 No particionamento por intervalos, as partições são atribuídas com base no intervalo em que se encontra a chave de partição. Normalmente, ele é usado para fazer o particionamento com propriedades de *carimbo de data/hora* (por exemplo, eventTime entre 1º de fevereiro de 2015 e 2 de fevereiro de 2015).
 
-> [AZURE.TIP]Você deve usar o particionamento por intervalos se suas consultas forem restritas a valores em intervalos específicos com relação à chave de partição.
+> [AZURE.TIP] Você deve usar o particionamento por intervalos se suas consultas forem restritas a valores em intervalos específicos com relação à chave de partição.
 
 Um caso especial de particionamento por intervalos é quando o intervalo é um único valor. Normalmente, ele é usado para particionamento por valores discretos, como região (por exemplo, a partição da Escandinávia contém Noruega, Dinamarca e Suécia).
 
-> [AZURE.TIP]O particionamento por intervalos oferece o maior grau de controle no gerenciamento de um aplicativo multilocatário. Você pode atribuir múltiplos locatários a uma coleção, um locatário a uma coleção, ou mesmo um locatário a várias coleções.
+> [AZURE.TIP] O particionamento por intervalos oferece o maior grau de controle no gerenciamento de um aplicativo multilocatário. Você pode atribuir múltiplos locatários a uma coleção, um locatário a uma coleção, ou mesmo um locatário a várias coleções.
 
 ## Particionamento hash
 
 No particionamento hash, as partições são atribuídas com base no valor de uma função hash, permitindo distribuir uniformemente solicitações e dados entre várias partições. Ele costuma ser usado para particionar dados produzidos ou consumidos por um grande número de clientes diferentes e é útil para armazenar perfis de usuários, itens de catálogo e dados de telemetria de dispositivo IoT ("Internet das Coisas").
 
-> [AZURE.TIP]Você deve usar o particionamento hash sempre que houver entidades demais para enumerar (como usuários ou dispositivos), e a taxa de solicitação for relativamente uniforme entre as entidades.
+> [AZURE.TIP] Você deve usar o particionamento hash sempre que houver entidades demais para enumerar (como usuários ou dispositivos), e a taxa de solicitação for relativamente uniforme entre as entidades.
 
 ## Escolhendo a técnica de particionamento ideal
 
@@ -112,4 +112,4 @@ Neste artigo, apresentamos algumas técnicas comuns para particionar dados com o
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

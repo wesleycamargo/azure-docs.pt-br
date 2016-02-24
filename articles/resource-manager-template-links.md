@@ -1,6 +1,6 @@
 <properties
    pageTitle="Modelo de vinculação de recursos do Gerenciador de Recursos | Microsoft Azure"
-   description="Mostra o esquema de modelo do gerenciador de recursos para criar vínculos entre os recursos relacionados."
+   description="Mostra o esquema do Gerenciador de Recursos para implantar vínculos entre os recursos relacionados por meio de um modelo."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/09/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
 # Vínculos de recursos - esquema do modelo
@@ -124,9 +124,20 @@ O exemplo a seguir aplica um bloqueio somente leitura a um aplicativo Web.
         "outputs": {}
     }
 
+## Modelos de início rápido
+
+Os seguintes modelos de início rápido implantam recursos com um link.
+
+- [Alerta de fila com Aplicativo lógico](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
+- [Alerta de Margem de atraso com Aplicativo lógico](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
+- [Provisionar um aplicativo de API com um gateway existente](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-app-gateway-existing)
+- [Provisionar um aplicativo de API com um novo gateway](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-app-gateway-new)
+- [Crie um Aplicativo Lógico mais um aplicativo de API usando um modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-api-app-create)
+- [Aplicativo lógico que envia uma mensagem de texto quando um alerta é acionado](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
+
 
 ## Próximas etapas
 
 - Para obter informações sobre a estrutura do modelo, veja [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

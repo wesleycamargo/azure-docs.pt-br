@@ -48,7 +48,7 @@ Os itens a seguir são necessários para concluir este tutorial:
 	Você pode usar qualquer servidor web para hospedar o aplicativo, mas estes são os servidores web com suporte dos scripts baixados.
 
 + Um navegador da Web que ofereça suporte a HTML5.
-+ Uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank). 
++ Uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank). 
 
 
 ## <a name="create-new-service"> </a>Criar um novo serviço móvel
@@ -82,7 +82,7 @@ Nesta seção, você criará um novo aplicativo HTML que está conectado ao seu 
 
   	![][9]
 
-	> [AZURE.IMPORTANT]Se você implantar o aplicativo quickstart em um servidor web que não seja o localhost, adicione o nome do host do servidor web à lista **Permitir solicitações de nomes de host**. Para obter mais informações, consulte [Compartilhamento de recursos entre origens](http://msdn.microsoft.com/library/windowsazure/dn155871.aspx).
+	> [AZURE.IMPORTANT] Se você implantar o aplicativo quickstart em um servidor web que não seja o localhost, adicione o nome do host do servidor web à lista **Permitir solicitações de nomes de host**. Para obter mais informações, consulte [Compartilhamento de recursos entre origens](http://msdn.microsoft.com/library/windowsazure/dn155871.aspx).
 
 ## Hospedar e executar seu aplicativo HTML
 
@@ -94,7 +94,7 @@ O estágio final deste tutorial consiste em hospedar e executar seu novo aplicat
 	+ ** launch-mac.command** (computadores com Mac OS X)
 	+ ** launch-linux.sh** (computadores com Linux)
 
-	> [AZURE.NOTE]Em um computador Windows, digite `R` quando o PowerShell solicitar que você confirme se deseja executar o script. Seu navegador da web poderá avisá-lo para não executar o script por ele ter sido baixado da internet. Quando isso acontecer, você deverá solicitar que o navegador continue para carregar o script.
+	> [AZURE.NOTE] Em um computador Windows, digite `R` quando o PowerShell solicitar que você confirme se deseja executar o script. Seu navegador da web poderá avisá-lo para não executar o script por ele ter sido baixado da internet. Quando isso acontecer, você deverá solicitar que o navegador continue para carregar o script.
 
 	Isso iniciará um servidor web no computador local para hospedar o novo aplicativo.
 
@@ -106,7 +106,7 @@ O estágio final deste tutorial consiste em hospedar e executar seu novo aplicat
 
    	Isso envia uma solicitação de POST para o novo serviço móvel hospedado no Azure. Os dados da solicitação são inseridos na tabela TodoItem. Os itens armazenados na tabela são retornados pelo serviço móvel, e os dados são exibidos na segunda coluna do aplicativo.
 
-	> [AZURE.NOTE]Você poderá examinar o código que acessa o seu serviço móvel para consultar e inserir dados, que estão localizados no arquivo page.js.
+	> [AZURE.NOTE] Você poderá examinar o código que acessa o seu serviço móvel para consultar e inserir dados, que estão localizados no arquivo page.js.
 
 4. Novamente no [portal clássico do Azure], clique na guia **Dados** e clique na tabela **TodoItems**.
 
@@ -154,4 +154,4 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

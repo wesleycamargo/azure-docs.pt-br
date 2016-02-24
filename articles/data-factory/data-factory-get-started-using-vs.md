@@ -12,8 +12,8 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="11/02/2015" 
+	ms.topic="article" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Tutorial: Criar e monitorar uma data factory usando o Visual Studio
@@ -37,12 +37,12 @@ Neste tutorial, você fará o seguinte usando o Visual Studio 2013:
 ### Pré-requisitos
 Você deve ter os seguintes itens instalados no computador: 
 - Visual Studio 2013 
-- Baixe o SDK do Azure para Visual Studio 2013. Navegue até a [Página de Download do Azure](http://azure.microsoft.com/downloads/) e clique em **Instalação do VS 2013** na seção **.NET**.
+- Baixe o SDK do Azure para Visual Studio 2013. Navegue até a [Página de Download do Azure](https://azure.microsoft.com/downloads/) e clique em **Instalação do VS 2013** na seção **.NET**.
 
 ### Passo a passo
 
 #### Criar o projeto do Visual Studio 
-1. Inicie o **Visual Studio 2013**. Clique em **Arquivo**, indique **Novo** e, em seguida, clique em **Projeto**. Você deve ver a caixa de diálogo **Novo Projeto**.  
+1. Inicie o **Visual Studio 2013**. Clique em **Arquivo**, indique **Novo** e, em seguida, clique em **Projeto**. Você deverá ver a caixa de diálogo **Novo Projeto**.  
 2. Na caixa de diálogo **Novo Projeto**, selecione o modelo **DataFactory** e clique em **Projeto Vazio de Data Factory**. Se você não vir o modelo DataFactory, feche o Visual Studio, instale o SDK do Azure para Visual Studio 2013 e reabra o Visual Studio.  
 
 	![Caixa de diálogo Novo projeto](./media/data-factory-get-started-using-vs/new-project-dialog.png)
@@ -73,7 +73,7 @@ Nesta etapa, você criará dois serviços vinculados: **AzureStorageLinkedServic
 
 5. Clique com o botão direito no nó **Serviços Vinculados** no **Gerenciador de Soluções** novamente, aponte para **Adicionar** e clique em **Novo Item**. 
 6. Desta vez, selecione **Serviço Vinculado SQL do Azure** e clique em **Adicionar**. 
-7. No **arquivo AzureSqlLinkedService1.json**, substitua **servername**, **databasename**, ****username@servername** e **password** pelos nomes do seu servidor SQL do Azure, banco de dados, conta de usuário e senha.
+7. No **arquivo AzureSqlLinkedService1.json**, substitua **servername**, **databasename**, **username@servername** e **password** pelos nomes do seu servidor SQL do Azure, banco de dados, conta de usuário e senha.
 8.  Salve o arquivo **AzureSqlLinkedService1.json**. 
 
 
@@ -148,7 +148,7 @@ Na etapa anterior, você criou os serviços vinculados **AzureStorageLinkedServi
 		}
 
 #### Criar o pipeline 
-Você criou tabelas e serviços vinculados de entrada/saída até o momento. Agora, você criará um pipeline com uma **Atividade de Cópia** para copiar dados do blob do Azure no banco de dados SQL do Azure.
+Você criou tabelas e serviços vinculados de entrada/saída até o momento. Agora, você criará um pipeline com uma **Atividade de Cópia** para copiar dados do blob do Azure ao banco de dados SQL do Azure.
 
 
 1. Clique com o botão direito do mouse em **Pipelines** no **Gerenciador de Soluções**, aponte para **Adicionar** e clique em **Novo Item**.  
@@ -202,7 +202,7 @@ Você criou tabelas e serviços vinculados de entrada/saída até o momento. Ago
 #### Publicar/implantar entidades de data factory
   
 18. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto e clique em **Publicar**. 
-19. Se a caixa de diálogo **Entrar na sua conta da Microsoft** for exibida, insira as credenciais da conta que tem a assinatura do Azure e clique em **entrar**.
+19. Se a caixa de diálogo **Entrar na sua conta da Microsoft** for exibida, insira as credenciais da conta com a assinatura do Azure e clique em **entrar**.
 20. Você deve ver a caixa de diálogo a seguir:
 
 	![Caixa de diálogo Publicar](./media/data-factory-get-started-using-vs/publish.png)
@@ -212,24 +212,24 @@ Você criou tabelas e serviços vinculados de entrada/saída até o momento. Ago
 	2. Digite **VSTutorialFactory** para **Nome**.  
 	
 		> [AZURE.NOTE]  
-		> O nome da data factory do Azure deve ser globalmente exclusivo. Se você receber um erro sobre o nome da data factory durante a publicação, altere o nome (por exemplo, seunomeVSTutorialFactory) e tente publicar novamente. Consulte o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos de Data Factory.
+		O nome da data factory do Azure deve ser globalmente exclusivo. Se você receber um erro sobre o nome da data factory durante a publicação, altere o nome (por exemplo, seunomeVSTutorialFactory) e tente publicar novamente. Consulte o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos de Data Factory.
 		> 
 		> O nome do data factory pode ser registrado futuramente como um nome DNS e tornar-se publicamente visível.
 	3. Selecione a assinatura certa para o campo **Assinatura**. 
-	4. Selecione o **grupo de recursos** para a data factory a ser criada. 
-	5. Selecione a **região** da data factory. 
+	4. Selecione o **grupo de recursos** para o data factory a ser criado. 
+	5. Selecione a **região** do data factory. 
 	6. Clique em **Avançar** para alternar para a página **Publicar Itens**. 
 23. Na página **Publicar Itens**, verifique se todas as entidades de Data Factories estão selecionadas e clique em **Avançar** para alternar para a página **Resumo**.     
-24. Analise o resumo e clique em **Avançar** para iniciar o processo de implantação e exibir o **Status da Implantação**.
+24. Examine o resumo e clique em **Avançar** para iniciar o processo de implantação e exibir o **Status da Implantação**.
 25. Na página **Status da Implantação**, você deve ver o status do processo de implantação. Clique em Concluir depois que a implantação tiver terminado. 
 
 
 ## Use o Gerenciador de Servidores para examinar as entidades de data factory
 
 1. No **Visual Studio**, clique em **Exibir** no menu e em **Gerenciador de Servidores**.
-2. Na janela Gerenciador de Servidores, expanda **Azure** e expanda **Data Factory**. Se **Entrar no Visual Studio** for exibido, digite a **conta** associada à sua assinatura do Azure e clique em **Continuar**. Digite a **Senha** e clique em **Entrar**. O Visual Studio tenta obter informações sobre todas as data factories do Azure em sua assinatura. Você verá o status da operação na janela **Lista de Tarefas de Data Factory**.  
+2. Na janela Gerenciador de Servidores, expanda **Azure** e expanda **Data Factory**. Se **Entrar no Visual Studio** for exibido, insira a **conta** associada à sua assinatura do Azure e clique em **Continuar**. Insira a **senha** e clique em **Entrar**. O Visual Studio tenta obter informações sobre todas as data factories do Azure em sua assinatura. Você verá o status da operação na janela **Lista de Tarefas de Data Factory**.
 	![Gerenciador de Servidores](./media/data-factory-get-started-using-vs/server-explorer.png)
-3. Clique com o botão direito em uma data factory e selecione Exportar Data Factory para Novo Projeto para criar um projeto do Visual Studio com base em uma data factory existente.  
+3. Clique com o botão direito em uma data factory e selecione Exportar Data Factory para Novo Projeto para criar um projeto do Visual Studio com base em uma data factory existente.
 	![Exportar data factory para um projeto VS](./media/data-factory-get-started-using-vs/export-data-factory-menu.png)  
 
 ## Atualizar ferramentas de data factory para o Visual Studio
@@ -241,4 +241,4 @@ Para atualizar as ferramentas da Azure Data Factory para o Visual Studio, faça 
 
 Confira [Monitorar os conjuntos de dados e o pipeline](data-factory-get-started-using-editor.md#MonitorDataSetsAndPipeline) para obter instruções sobre como usar o Portal do Azure para monitorar o pipeline e os conjuntos de dados que você criou neste tutorial.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -4,8 +4,8 @@
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
-	manager="adinah"
-	editor="cgronlun"/>
+	manager="carmonm"
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -20,18 +20,18 @@
 
 ## Visão geral
 
-É possível monitorar sua conta de armazenamento no [Portal do Azure](portal.azure.com). Quando você configurar sua conta de armazenamento para o monitoramento por meio do portal, o Armazenamento do Azure usará [Análise de armazenamento](http://msdn.microsoft.com/library/azure/hh343270.aspx) para acompanhar métricas para sua conta e dados de solicitação de log.
+É possível monitorar sua conta de armazenamento no [Portal do Azure](https://portal.azure.com). Quando você configurar sua conta de armazenamento para o monitoramento por meio do portal, o Armazenamento do Azure usará [Análise de armazenamento](http://msdn.microsoft.com/library/azure/hh343270.aspx) para acompanhar métricas para sua conta e dados de solicitação de log.
 
-> [AZURE.NOTE]Há custos adicionais associados ao exame de dados de monitoramento no [Portal do Azure](portal.azure.com). Para obter mais informações, consulte <a href="http://msdn.microsoft.com/library/azure/hh360997.aspx">Análise de armazenamento e cobrança</a>. <br />
+> [AZURE.NOTE] Há custos adicionais associados ao exame de dados de monitoramento no [Portal do Azure](https://portal.azure.com). Para obter mais informações, consulte <a href="http://msdn.microsoft.com/library/azure/hh360997.aspx">Análise de armazenamento e cobrança</a>. <br />
 
-> O Armazenamento de arquivos do Azure atualmente dá suporte às métricas de Análise de Armazenamento, mas ainda não dá suporte ao registro em log. É possível habilitar métricas para o Armazenamento de arquivos do Azure por meio de [Portal do Azure](portal.azure.com).
+> O Armazenamento de arquivos do Azure atualmente dá suporte às métricas de Análise de Armazenamento, mas ainda não dá suporte ao registro em log. É possível habilitar métricas para o Armazenamento de arquivos do Azure por meio de [Portal do Azure](https://portal.azure.com).
 
 > Para um guia aprofundado sobre como usar a Análise de Armazenamento e outras ferramentas para identificar, diagnosticar e solucionar problemas relacionados ao Armazenamento do Azure, consulte [Monitorar, diagnosticar e solucionar problemas do Armazenamento do Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md).
 
 
 ## Como configurar o monitoramento para uma conta de armazenamento
 
-1. No [Portal do Azure](portal.azure.com), clique em **Armazenamento** e no nome da conta de armazenamento para abrir o painel.
+1. No [Portal do Azure](https://portal.azure.com), clique em **Armazenamento** e no nome da conta de armazenamento para abrir o painel.
 
 2. Clique em **Configurar** e role para baixo até as configurações de **monitoramento** dos serviços Blob, Tabela e Fila.
 
@@ -55,7 +55,7 @@ Você deve começar a visualizar o monitoramento de dados no painel e a página 
 
 Até que você configure o monitoramento para uma conta de armazenamento, nenhum dado de monitoramento é coletado e os gráficos de métricas no painel e na página **Monitorar** ficam vazios.
 
-Depois de definir os níveis de monitoramento e as políticas de retenção, você pode escolher quais das métricas disponíveis serão monitoradas no [Portal do Azure](portal.azure.com) e quais métricas serão plotadas nos gráficos de métricas. Um conjunto de métricas padrão é exibido em cada nível de monitoramento. Você pode usar **Adicionar métricas** para adicionar ou remover métricas da lista de métricas.
+Depois de definir os níveis de monitoramento e as políticas de retenção, você pode escolher quais das métricas disponíveis serão monitoradas no [Portal do Azure](https://portal.azure.com) e quais métricas serão plotadas nos gráficos de métricas. Um conjunto de métricas padrão é exibido em cada nível de monitoramento. Você pode usar **Adicionar métricas** para adicionar ou remover métricas da lista de métricas.
 
 As métricas são armazenadas na conta de armazenamento em quatro tabelas intituladas $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue e $MetricsCapacityBlob. Para obter mais informações, consulte [Sobre as Métricas de Analítica de Armazenamento](http://msdn.microsoft.com/library/azure/hh343258.aspx).
 
@@ -64,7 +64,7 @@ As métricas são armazenadas na conta de armazenamento em quatro tabelas intitu
 
 No painel, você pode escolher até seis métricas para serem traçadas no gráfico de métricas de nove métricas disponíveis. Para cada serviço (Blob, Tabela e Fila), as métricas de Disponibilidade, Percentual de Êxitos e Total de Solicitações estão disponíveis. As métricas disponíveis no painel são as mesmas para o monitoramento mínimo ou detalhado.
 
-1. No [Portal do Azure](portal.azure.com), clique em **Armazenamento** e no nome da conta de armazenamento para abrir o painel.
+1. No [Portal do Azure](https://portal.azure.com), clique em **Armazenamento** e no nome da conta de armazenamento para abrir o painel.
 
 2. Para alterar as métricas que são traçadas no gráfico, realize uma das seguintes ações:
 
@@ -92,7 +92,7 @@ Use os procedimentos a seguir para escolher quais métricas de armazenamento dev
 ## Tutorial: Adicionar métricas à tabela de métricas
 
 
-1. No [Portal do Azure](portal.azure.com), clique em **Armazenamento** e no nome da conta de armazenamento para abrir o painel.
+1. No [Portal do Azure](https://portal.azure.com), clique em **Armazenamento** e no nome da conta de armazenamento para abrir o painel.
 
 2. Clique em **Monitoramento**.
 
@@ -100,7 +100,7 @@ Use os procedimentos a seguir para escolher quais métricas de armazenamento dev
 
 	![Monitoring\_VerboseDisplay](./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png)
 
-	> [AZURE.NOTE]Considere os custos ao selecionar as métricas. Existem transações e custos de saída associados à atualização das exibições do monitoramento. Para obter mais informações, consulte [Análise de armazenamento e cobrança](http://msdn.microsoft.com/library/azure/hh360997.aspx).
+	> [AZURE.NOTE] Considere os custos ao selecionar as métricas. Existem transações e custos de saída associados à atualização das exibições do monitoramento. Para obter mais informações, consulte [Análise de armazenamento e cobrança](http://msdn.microsoft.com/library/azure/hh360997.aspx).
 
 3. Clique em **Adicionar Métricas**.
 
@@ -113,7 +113,7 @@ Use os procedimentos a seguir para escolher quais métricas de armazenamento dev
 	![AddMetricsScrollbar](./media/storage-monitor-storage-account/Storage_AddMetrics_Scrollbar.png)
 
 
-5. Clique na seta para baixo próxima a uma métrica para expandir uma lista das operações na qual a métrica é delimitada para incluir. Selecione cada uma das operações que você deseja exibir na tabela de métricas no [Portal do Azure](portal.azure.com).
+5. Clique na seta para baixo próxima a uma métrica para expandir uma lista das operações na qual a métrica é delimitada para incluir. Selecione cada uma das operações que você deseja exibir na tabela de métricas no [Portal do Azure](https://portal.azure.com).
 
 	Na ilustração a seguir, a métrica de PERCENTUAL DE ERRO DE AUTORIZAÇÃO foi expandida.
 
@@ -140,7 +140,7 @@ Use os procedimentos a seguir para escolher quais métricas de armazenamento dev
 
 Para cada um dos serviços de armazenamento disponíveis com sua conta de armazenamento (Blob, Tabela e Fila), é possível salvar logs de diagnóstico para as Solicitações de Leitura, Solicitações de Gravação e/ou Solicitações de Exclusão e definir a política de retenção de dados para cada um dos serviços.
 
-1. No [Portal do Azure](portal.azure.com), clique em **Armazenamento** e no nome da conta de armazenamento para abrir o painel.
+1. No [Portal do Azure](https://portal.azure.com), clique em **Armazenamento** e no nome da conta de armazenamento para abrir o painel.
 
 2. Clique em **Configurar** e use a seta para baixo no teclado para rolar para baixo até **registrar em log**.
 
@@ -157,4 +157,4 @@ Para cada um dos serviços de armazenamento disponíveis com sua conta de armaze
 
 Os logs de diagnóstico são salvos em um contêiner de blob denominado $logs em sua conta de armazenamento. Para obter informações sobre como acessar o contêiner $logs, consulte [Sobre o Log de Analítica do Armazenamento](http://msdn.microsoft.com/library/azure/hh343262.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

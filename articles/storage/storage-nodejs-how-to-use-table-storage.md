@@ -5,7 +5,7 @@
 	documentationCenter="nodejs"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="nodejs"
 	ms.topic="article"
 	ms.date="12/01/2015"
-	ms.author="robmcm"/>
+	ms.author="micurd"/>
 
 
 # Como usar o armazenamento de Tabela do Azure por meio do Node.js
@@ -71,7 +71,7 @@ Adicione o código a seguir à parte superior do arquivo **server.js** em seu ap
 
 O módulo do azure lerá as variáveis de ambiente AZURE\_STORAGE\_ACCOUNT e AZURE\_STORAGE\_ACCESS\_KEY, ou AZURE\_STORAGE\_CONNECTION\_STRING para obter as informações necessárias para se conectar à sua conta de armazenamento do Azure. Se essas variáveis de ambiente não estiverem definidas, você deverá especificar as informações da conta ao chamar **TableService**.
 
-Para ver um exemplo de como definir variáveis de ambiente no [portal do Azure](portal.azure.com) para um Site do Azure, veja [Aplicativo Web do Node.js com armazenamento].
+Para ver um exemplo de como definir variáveis de ambiente no [portal do Azure](https://portal.azure.com) para um Site do Azure, veja [Aplicativo Web do Node.js com armazenamento].
 
 ## Criar uma tabela
 
@@ -125,7 +125,7 @@ A seguir, um exemplo de definição de uma entidade. Observe que **dueDate** é 
 	  dueDate: {'_':new Date(2015, 6, 20), '$':'Edm.DateTime'}
 	};
 
-> [AZURE.NOTE]Existe também um campo **Carimbo de Data/Hora** para cada registro, que é definido pelo Azure quando uma entidade é inserida ou atualizada.
+> [AZURE.NOTE] Existe também um campo **Carimbo de Data/Hora** para cada registro, que é definido pelo Azure quando uma entidade é inserida ou atualizada.
 
 Você também pode usar o **entityGenerator** para criar entidades. O exemplo a seguir cria a mesma entidade tarefa usando o **entityGenerator**.
 
@@ -151,7 +151,7 @@ Resposta de exemplo:
 
 	{ '.metadata': { etag: 'W/"datetime\'2015-02-25T01%3A22%3A22.5Z\'"' } }
 
-> [AZURE.NOTE]Por padrão, **insertEntity** não retorna a entidade inserida como parte da informação de `response`. Se você planeja executar outras operações nessa entidade ou se desejar armazenar as informações em cache, pode ser útil retorná-las como parte de `result`. Você pode fazer isso habilitando **echoContent** da seguinte maneira:
+> [AZURE.NOTE] Por padrão, **insertEntity** não retorna a entidade inserida como parte da informação de `response`. Se você planeja executar outras operações nessa entidade ou se desejar armazenar as informações em cache, pode ser útil retorná-las como parte de `result`. Você pode fazer isso habilitando **echoContent** da seguinte maneira:
 >
 > `tableSvc.insertEntity('mytable', task, {echoContent: true}, function (error, result, response) {...}`
 
@@ -175,7 +175,7 @@ O exemplo a seguir demonstra a atualização de uma entidade usando **updateEnti
       }
     });
 
-> [AZURE.NOTE]Por padrão, a atualização de uma entidade não verifica se os dados que estão sendo atualizados foram modificados anteriormente por outro processo. Para suporte a atualizações simultâneas:
+> [AZURE.NOTE] Por padrão, a atualização de uma entidade não verifica se os dados que estão sendo atualizados foram modificados anteriormente por outro processo. Para suporte a atualizações simultâneas:
 >
 > 1. Obtenha a ETag do objeto que está sendo atualizado. Isso será retornado como parte de `response` para qualquer operação relacionada à entidade e pode ser recuperado através de `response['.metadata'].etag`.
 >
@@ -302,7 +302,7 @@ Você pode excluir uma entidade usando suas chaves de partição e de linha. Nes
 	  }
 	});
 
-> [AZURE.NOTE]Considere o uso de ETags ao excluir itens, para garantir que o item não seja modificado por outro processo. Veja [Atualizar uma entidade](#update-an-entity) para obter informações sobre o uso de ETags.
+> [AZURE.NOTE] Considere o uso de ETags ao excluir itens, para garantir que o item não seja modificado por outro processo. Veja [Atualizar uma entidade](#update-an-entity) para obter informações sobre o uso de ETags.
 
 ## Excluir uma tabela
 
@@ -448,4 +448,4 @@ Para obter mais informações, veja os recursos a seguir.
   [Aplicativo Web do Node.js com armazenamento]: ../storage-nodejs-use-table-storage-web-site.md
   [Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

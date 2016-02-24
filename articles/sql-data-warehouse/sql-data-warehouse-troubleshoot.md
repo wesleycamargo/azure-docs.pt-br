@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="TwoUnder"
-   manager=""
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="12/11/2015"
-   ms.author="twounder"/>
+   ms.date="01/07/2016"
+   ms.author="mausher;sonyama;barbkess"/>
 
 # Solucionar problemas
 O tópico a seguir lista alguns dos problemas mais comuns com os quais os clientes se deparam com o Azure SQL Data Warehouse.
@@ -90,4 +90,4 @@ Consulte o artigo [visão geral de desenvolvimento][] para obter algumas diretri
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

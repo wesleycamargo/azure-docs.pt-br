@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data" 
-	ms.date="09/04/2015"
+	ms.date="02/04/2016"
 	ms.author="raymondl;garye"/>
 
 #Habilitar o log de serviços Web de Aprendizado de Máquina  
@@ -44,4 +44,4 @@ Este documento fornece informações sobre o recurso de log de Serviços Web AM 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

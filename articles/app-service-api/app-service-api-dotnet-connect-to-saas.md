@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Conectar-se a uma plataforma SaaS de um aplicativo de API ASP.NET no Serviço de Aplicativo do Azure
@@ -22,7 +22,7 @@
 
 ## Visão geral
 
-Este tutorial mostra como escrever código e configurar em um [aplicativo de API](app-service-api-apps-why-best-platform.md) que se conecta a uma [Plataforma de Software como um serviço (SaaS)](../app-service/app-service-authentication-overview.md#obotosaas) usando o [SDK do Aplicativo de API do Serviço de Aplicativo para .NET](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/). O tutorial também mostra como chamar o aplicativo de API de um cliente .NET usando o [SDK do Serviço de Aplicativo para .NET](http://www.nuget.org/packages/Microsoft.Azure.AppService). Ao final do tutorial, você terá um cliente de aplicativo do console .NET que chama um aplicativo de API .NET em execução no Serviço de Aplicativo do Azure. O aplicativo de API chama a API do Dropbox e retorna uma lista de arquivos e pastas em na conta de Dropbox do usuário.
+Este tutorial mostra como codificar e configurar um [aplicativo de API](app-service-api-apps-why-best-platform.md) que se conecta a uma [plataforma SaaS (Software como serviço)](../app-service/app-service-authentication-overview.md#obotosaas) usando o [SDK de aplicativo de API do Serviço de Aplicativo para .NET](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/). O tutorial também mostra como chamar o aplicativo de API de um cliente .NET usando o [SDK do Serviço de Aplicativo para .NET](http://www.nuget.org/packages/Microsoft.Azure.AppService). Ao final do tutorial, você terá um cliente de aplicativo do console .NET que chama um aplicativo de API .NET em execução no Serviço de Aplicativo do Azure. O aplicativo de API chama a API do Dropbox e retorna uma lista de arquivos e pastas em na conta de Dropbox do usuário.
 
 Como alternativa para escrever código que chama uma API de SaaS diretamente de um aplicativo de API personalizado, você pode chamar um [aplicativo de API de conector](../app-service-logic/app-service-logic-what-are-biztalk-api-apps.md) pré-empacotado. Para obter informações sobre como fazer isso, consulte [Implantar e configurar um aplicativo de API de conector SaaS](app-service-api-connnect-your-app-to-saas-connector.md).
 
@@ -221,9 +221,9 @@ Nesta seção, você criará um projeto de aplicativo de console que usa o códi
 
 2. Defina uma referência para System.Windows.Forms.
  
-	* No ** Gerenciador de Soluções**, clique com o botão direito do mouse em ** Referências** e, em seguida, clique em ** Adicionar Referência**.
+	* No **Gerenciador de Soluções**, clique com o botão direito do mouse em **Referências** e, em seguida, clique em **Adicionar Referência**.
 
-	* Marque a caixa de seleção à esquerda de **System.Windows.Forms** e, em seguida, clique em **OK**.
+	* Marque a caixa de seleção à esquerda de **System.Windows.Forms**e, em seguida, clique em **OK**.
 	 
 	![](./media/app-service-api-dotnet-connect-to-saas/setref.png)
 
@@ -427,7 +427,7 @@ Se você obtiver erros HTTP 405 quando o código chamar GetConsentLinkAsync, ver
 
 ![](./media/app-service-api-dotnet-connect-to-saas/http405.png)
 
-O erro 405 de método não permitido é emitido porque o cliente tenta fazer uma solicitação HTTP POST não relacionada a SSL, o gateway redireciona para **https://* e o redirecionamento causa uma solicitação GET. A URL de recuperação de um link de consentimento só aceita solicitações POST.
+O erro 405 de método não permitido é emitido porque o cliente tenta fazer uma solicitação HTTP POST não relacionada a SSL, o gateway redireciona para *https://* e o redirecionamento causa uma solicitação GET. A URL de recuperação de um link de consentimento só aceita solicitações POST.
 
 ### <a id="400"></a>Erro HTTP 400 em vez da página de logon do Dropbox
 
@@ -449,9 +449,9 @@ Se você remover %3d%3d do final do valor da cadeia de consulta `error`, ela ser
 
 ## Próximas etapas
 
-Você aprender a codificar e configurar um aplicativo de API que se conecta a uma plataforma SaaS. Para obter links para outros tutoriais sobre como lidar com a autenticação em aplicativos da API, consulte [Autenticação para aplicativos de API e aplicativos móveis - Próximas etapas](../app-service/app-service-authentication-overview.md#next-steps).
+Você aprender a codificar e configurar um aplicativo de API que se conecta a uma plataforma SaaS. Para obter links para outros tutoriais sobre como lidar com a autenticação em aplicativos da API, consulte [Autenticação para aplicativos de API e aplicativos móveis - próximas etapas](../app-service/app-service-authentication-overview.md#next-steps).
 
-[Azure preview portal]: https://portal.azure.com/
-[Azure portal]: https://manage.windowsazure.com/
+[portal de visualização do Azure]: https://portal.azure.com/
+[portal do Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,21 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="02/05/2016"
 	ms.author="zhangya;bradsev" />
 
 
 # Engenharia de recurso no Processo de Análise da Cortana 
 
-Os links deste **menu** o levam até os tópicos que descrevem como criar recursos para os dados em vários ambientes. Esta tarefa é uma etapa no Processo de Análise da Cortana (CAP).
+A engenharia de recurso tenta aumentar a capacidade de previsão dos algoritmos de aprendizado criando recursos de dados brutos que facilitam o processo de aprendizado de recursos.
 
 [AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
+Os links deste **menu** o levam até os tópicos que descrevem como criar recursos para os dados em vários ambientes. Esta tarefa é uma etapa no [CAP (Processo do Cortana Analytics)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 ##Introdução
 
 Este tópico explica a finalidade da criação de recursos e fornece exemplos de sua função no processo de aperfeiçoamento de dados do aprendizado de máquina. Esses exemplos foram extraídos do Estúdio de Aprendizado de Máquina do Azure.
 
-A engenharia e a seleção de recursos é uma parte do processo de CAP descrito em [O que é o Processo de Análise da Cortana?](machine-learning-data-science-the-cortana-analytics-process.md) A criação e a seleção de recursos fazem parte da etapa **Recursos de desenvolvimento** do CAP. * **engenharia de recurso**: Este processo tenta criar recursos adicionais relevantes a partir de recursos brutos existentes nos dados, e aumenta o poder de previsão do algoritmo de aprendizagem. * **seleção de recurso**: Este processo seleciona o principal subconjunto de recursos de dados originais, em uma tentativa de reduzir a dimensionalidade do problema de treinamento.
+A engenharia e a seleção de recursos é uma parte do processo de CAP descrito em [O que é o Processo de Análise da Cortana?](machine-learning-data-science-the-cortana-analytics-process.md) A criação e a seleção de recursos fazem parte da etapa **Recursos de desenvolvimento** do CAP. * **engenharia de recurso**: Este processo tenta criar recursos adicionais relevantes de recursos brutos existentes nos dados, e aumenta o poder de previsão do algoritmo de aprendizagem. * **seleção de recurso**: Este processo seleciona o principal subconjunto de recursos de dados originais, em uma tentativa de reduzir a dimensionalidade do problema de treinamento.
 
 Normalmente, a **engenharia de recursos** é aplicada primeiro para gerar recursos adicionais e, em seguida, a etapa de **seleção do recurso** é feita para eliminar recursos redundantes, altamente correlacionados ou irrelevantes.
 
@@ -95,4 +96,4 @@ Recursos de engenharia e selecionados aumentam a eficiência do processo de trei
 Observe que nem sempre é necessário realizar a engenharia ou a seleção de recursos. Essa necessidade depende dos dados que temos ou coletamos, do algoritmo que escolhemos e do objetivo do experimento.
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016--->

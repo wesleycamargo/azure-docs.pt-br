@@ -12,8 +12,8 @@
 	ms.workload="multiple" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.topic="get-started-article" 
+	ms.date="02/11/2016" 
 	ms.author="tomfitz"/>
 
 
@@ -21,11 +21,12 @@
 
 ## Introdução
 
-Historicamente, para gerenciar um recurso (como um servidor de banco de dados, um banco de dados ou um aplicativo Web) no Microsoft Azure era necessário executar operações em um recurso de cada vez. Se você tivesse um aplicativo complexo composto de vários recursos, seria necessário coordenar manualmente alterações na infraestrutura do aplicativo. No portal do Azure, você pode usar o Gerenciador de Recursos do Azure para criar grupos de recursos para implantar e gerenciar todos os recursos em um aplicativo coletivamente.
+O Gerenciador de Recursos do Azure permite implantar e gerenciar suas soluções por meio de grupos de recursos. Este tópico fornece uma visão geral de como usar grupos de recursos no portal do Azure. Normalmente, um grupo de recursos contém recursos relacionados a um aplicativo específico. Por exemplo, um grupo pode conter um aplicativo Web que hospeda seu site público, um Banco de Dados SQL que armazena dados relacionais usados pelo site e uma conta de Armazenamento que armazena ativos não relacionais. Todos os recursos em um grupo de recursos devem compartilhar o mesmo ciclo de vida. Para obter mais informações sobre o Gerenciador de Recursos, consulte [Visão geral do Gerenciador de Recursos](../resource-group-overview.md).
 
-Normalmente, um grupo de recursos contém recursos relacionados a um aplicativo específico. Por exemplo, um grupo pode conter um aplicativo Web que hospeda seu site público, um Banco de Dados SQL que armazena dados relacionais usados pelo site e uma conta de Armazenamento que armazena ativos não relacionais. Todos os recursos em um grupo de recursos devem compartilhar o mesmo ciclo de vida. Para obter mais informações sobre o Gerenciador de Recursos, consulte [Visão geral do Gerenciador de Recursos](../resource-group-overview.md).
+Atualmente, nem todo serviço dá suporte ao portal ou ao Gerenciador de Recursos. Para esses serviços, você precisará usar o [portal clássico](https://manage.windowsazure.com). Para conhecer o status de cada serviço, confira o [Gráfico de disponibilidade do portal do Azure](https://azure.microsoft.com/features/azure-portal/availability/).
 
-Este tópico fornece uma visão geral de como usar grupos de recursos no portal do Azure. Atualmente, nem todo serviço dá suporte ao portal ou ao Gerenciador de Recursos. Para esses serviços, você precisará usar o [portal clássico](https://manage.windowsazure.com). Para saber o status de cada serviço, confira [Suporte do Gerenciador de Recursos do Azure para serviços, regiões e versões de API](resource-manager-supported-services.md)
+Você também pode gerenciar recursos por meio do Azure PowerShell e da CLI do Azure. Para obter mais informações sobre como usar essas interfaces, confira [Como usar o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md) e [Usar a CLI do Azure para Mac, Linux e Windows com o Gerenciador de Recursos do Azure](../xplat-cli-azure-resource-manager.md).
+
 
 ## Criar recursos e grupo de recursos
 
@@ -37,13 +38,17 @@ Você dá a ele um nome e um local e, se necessário, seleciona uma assinatura.
 
 ![definir valores de grupo](./media/resource-group-portal/set-group-properties.png)
 
-No entanto, você não precisa criar explicitamente um grupo de recursos vazio. Ao criar um novo recurso, você pode optar por criar um novo grupo de recursos ou usar um grupo de recursos existente. A imagem a seguir mostra como criar um novo aplicativo Web com a opção de selecionar um grupo de recursos existente ou criar um novo.
+Ao implantar os recursos, você pode optar por implantá-los no grupo de recursos que criou. A imagem a seguir mostra como criar um novo aplicativo Web em um grupo de recursos existente.
 
 ![criar grupo de recursos](./media/resource-group-portal/select-existing-group.png)
 
+Como alternativa, você pode optar por criar um novo grupo de recursos ao implantar ois recursos. Em vez de selecionar um dos grupos de recursos existentes em sua assinatura, selecione **Novo** e dê um nome ao grupo de recursos.
+
+![criar novo grupo de recursos](./media/resource-group-portal/select-new-group.png)
+
 ## Procurar grupos de recursos
 
-Você pode procurar entre todos os grupos de recursos clicando em **Procurar Tudo** e **Grupos de recursos**.
+Você pode procurar entre todos os grupos de recursos clicando em **Grupos de recursos**.
 
 ![procurar grupos de recursos](./media/resource-group-portal/browse-groups.png)
 
@@ -54,6 +59,20 @@ Quando você seleciona um determinado grupo de recursos, você vê uma folha do 
 A folha do grupo de recursos também fornece uma visão unificada de suas informações de cobrança e monitoramento de todos os recursos no grupo de recursos.
 
 ![monitoramento e cobrança](./media/resource-group-portal/monitoring-billing.png)
+
+## Exibir sua assinatura e custos
+
+Você pode exibir informações sobre sua assinatura e os custos acumulados para todos os recursos. Selecione **Assinaturas** e a assinatura que você deseja ver. Talvez você só tenha uma assinatura para selecionar.
+
+![assinatura](./media/resource-group-portal/select-subscription.png)
+
+Na folha da assinatura, você verá uma taxa de gravação.
+
+![taxa de gravação](./media/resource-group-portal/burn-rate.png)
+
+Haverá também uma divisão de custos por tipo de recurso.
+
+![custo de recurso](./media/resource-group-portal/cost-by-resource.png)
 
 ## Personalizar a interface
 
@@ -131,13 +150,13 @@ Você pode aplicar marcas a recursos e grupos de recursos para organizar seus at
 
 Se você quiser executar uma implantação, mas não usa nenhum dos modelos no marketplace, você pode criar um modelo personalizado que define a infraestrutura para sua solução. Para saber mais sobre modelos, confira [Criando modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
 
-Para implantar um modelo personalizado por meio do portal, selecione **Novo**, **Marketplace** e **Tudo**.
-
-![localizar implantação de modelo](./media/resource-group-portal/launch-template.png)
-
-Procure **Implantação de Modelo** e selecione esse item na lista retornada.
+Para implantar um modelo personalizado por meio do portal, selecione **Novo** e comece a procurar **Implantação de Modelo** até poder selecioná-lo nas opções.
 
 ![procurar implantação de modelo](./media/resource-group-portal/search-template.png)
+
+Selecione **Implantação de Modelo** dos recursos disponíveis.
+
+![selecionar implantação de modelo](./media/resource-group-portal/select-template.png)
 
 Depois de iniciar a implantação de modelo, você pode criar o modelo personalizado e definir valores para a implantação.
 
@@ -146,12 +165,8 @@ Depois de iniciar a implantação de modelo, você pode criar o modelo personali
 ## Próximas etapas
 Introdução
 
-- Para obter uma introdução aos conceitos no Gerenciador de Recursos, confira [Visão Geral do Gerenciador de Recursos do Azure](../resource-group-overview.md).  
+- Para obter uma introdução aos conceitos no Gerenciador de Recursos, consulte [Visão Geral do Gerenciador de Recursos do Azure](../resource-group-overview.md).
 - Para obter uma introdução ao uso do Azure PowerShell ao implantar recursos, confira [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md).
-- Para obter uma introdução ao uso da CLI do Azure ao implantar recursos, confira [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](../xplat-cli-azure-resource-manager.md). 
-  
+- Para obter uma introdução ao uso da CLI do Azure ao implantar recursos, confira [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](../xplat-cli-azure-resource-manager.md).
 
-
- 
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->
