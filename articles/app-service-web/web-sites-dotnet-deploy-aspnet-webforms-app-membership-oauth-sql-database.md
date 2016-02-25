@@ -426,13 +426,13 @@ As etapas a seguir permitirão que você adicione um provedor de autenticação 
 6. Clique em **Criar nova ID de cliente** em **OAuth**. A caixa de diálogo **Criar ID de Cliente** será exibida.  
 	![Google - Criar ID de Cliente](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21c.png)  
 7. Na caixa de diálogo **Criar ID de Cliente**, mantenha o **Aplicativo Web** padrão para o tipo de aplicativo.  
-8. Defina as **Origens de JavaScript autorizados** para a URL do SSL utilizado anteriormente por você neste tutorial (****https://localhost:44300/**, a menos que você tenha criado outros projetos de SSL). Esta URL é a origem para seu aplicativo. Para este exemplo, você irá inserir apenas a URL de teste do localhost. Todavia, você pode inserir múltiplas URLs na conta, para localhost e produção.
+8. Defina as **Origens de JavaScript autorizados** para a URL do SSL utilizado anteriormente por você neste tutorial (**https://localhost:44300/**, a menos que você tenha criado outros projetos de SSL). Esta URL é a origem para seu aplicativo. Para este exemplo, você irá inserir apenas a URL de teste do localhost. Todavia, você pode inserir múltiplas URLs na conta, para localhost e produção.
 
 9. Defina o **URI de Redirecionamento Autorizado** com o seguinte valor:
 
 		https://localhost:44300/signin-google  
 
-	Este valor é o URI que o OAuth ASP.NET utiliza para comunicar-se com o servidor google OAuth. Lembre-se da URL de SSL que você utilizou acima (****https://localhost:44300/** a menos que você tenha criado outros projetos SSL).
+	Este valor é o URI que o OAuth ASP.NET utiliza para comunicar-se com o servidor google OAuth. Lembre-se da URL de SSL que você utilizou acima (**https://localhost:44300/** a menos que você tenha criado outros projetos SSL).
  
 10. Selecione o botão **Criar**.
 11. No Visual Studio, atualize o método `UseGoogleAuthentication` da página *Startup.Auth.cs* copiando e colando o **AppId** e o **Segredo do Aplicativo** no método. Os valores da **AppId** e do **Segredo do aplicativo**, mostrados abaixo, são exemplos e não funcionarão.  
@@ -757,4 +757,4 @@ Deixe comentários sobre o que você gostou e o que você gostaria de ver melhor
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->
