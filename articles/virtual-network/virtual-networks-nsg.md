@@ -242,9 +242,9 @@ Os requisitos acima de 1 a 6 (com exceção do 3) estão confinados aos espaços
 
 |Regra|Access|Prioridade|Intervalo de endereços de origem|Porta de origem|Intervalo de endereços de destino|Porta de destino|Protocolo|
 |---|---|---|---|---|---|---|---|
-|permitir RDP da Internet|Permitir|100|INTERNET|**|*|3389|TCP|
+|permitir RDP da Internet|Permitir|100|INTERNET|*|\*|3389|TCP|
 
->[AZURE.NOTE] Observe que o intervalo de endereços de origem para essa regra é **Internet**, não o VIP (IP virtual) do balanceador de carga; a porta de origem é *****, não 500001. Não confunda regras NAT/regras de balanceamento de carga com as regras NSG. As regras NSG sempre estão relacionadas à verdadeira origem e ao destino final do tráfego, **NÃO** ao balanceador de carga entre os dois.
+>[AZURE.NOTE] Observe que o intervalo de endereços de origem para essa regra é **Internet**, não o VIP (IP virtual) do balanceador de carga; a porta de origem é **\***, não 500001. Não confunda regras NAT/regras de balanceamento de carga com as regras NSG. As regras NSG sempre estão relacionadas à verdadeira origem e ao destino final do tráfego, **NÃO** ao balanceador de carga entre os dois.
 
 ### NSG para gerenciamento de NICs no back-end
 
@@ -252,7 +252,7 @@ Os requisitos acima de 1 a 6 (com exceção do 3) estão confinados aos espaços
 
 |Regra|Access|Prioridade|Intervalo de endereços de origem|Porta de origem|Intervalo de endereços de destino|Porta de destino|Protocolo|
 |---|---|---|---|---|---|---|---|
-|permitir RDP do front-end|Permitir|100|192\.168.1.0/24|**|*|3389|TCP|
+|permitir RDP do front-end|Permitir|100|192\.168.1.0/24|*|\*|3389|TCP|
 
 ### NSG para NICs de acesso ao banco de dados no back-end
 
@@ -260,7 +260,7 @@ Os requisitos acima de 1 a 6 (com exceção do 3) estão confinados aos espaços
 
 |Regra|Access|Prioridade|Intervalo de endereços de origem|Porta de origem|Intervalo de endereços de destino|Porta de destino|Protocolo|
 |---|---|---|---|---|---|---|---|
-|permitir SQL do front-end|Permitir|100|192\.168.1.0/24|**|*|1433|TCP|
+|permitir SQL do front-end|Permitir|100|192\.168.1.0/24|*|\*|1433|TCP|
 
 Uma vez que alguns dos NSGs acima precisam estar associados a NICs individuais, você precisa implantar esse cenário como uma implantação do Gerenciador de Recursos. Observe como as regras são combinadas no nível de sub-rede e da NIC, dependendo de como elas precisam ser aplicadas.
 
