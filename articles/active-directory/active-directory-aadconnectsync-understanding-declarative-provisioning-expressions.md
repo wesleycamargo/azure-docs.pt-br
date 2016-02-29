@@ -3,7 +3,7 @@
 	description="Explica as expressões de provisionamento declarativo."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="andkjell"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,19 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
 # Sincronização do Azure AD Connect: noções básicas sobre expressões de provisionamento declarativo
-
 A sincronização do Azure AD Connect baseia-se no provisionamento declarativo introduzido pela primeira vez no Forefront Identity Manager 2010, para permitir que você implemente sua lógica de negócios de integração de identidade completa sem necessidade de escrever código compilado.
 
 Uma parte essencial do provisionamento declarativo é a linguagem de expressão usada nos fluxos de atributo. A linguagem usada é um subconjunto de VBA (Visual Basic® for Applications) da Microsoft. Essa linguagem é usada no Microsoft Office e os usuários com experiência em VBScript também a reconhecerão. A Linguagem de expressão de provisionamento declarativo está apenas usando funções e não é uma linguagem estruturada; não existem métodos nem instruções. Em vez disso, as funções serão aninhadas no fluxo do programa expresso.
 
 Para obter mais detalhes, consulte [Bem-vindo ao Visual Basic para referência de linguagem de aplicativos para Office 2013](https://msdn.microsoft.com/library/gg264383.aspx).
 
-Os atributos são fortemente tipados. Uma função que espera que um atributo de cadeia de caracteres de valor único não aceite vários valores ou atributos de um tipo diferente. Ela também diferencia maiúsculas de minúsculas. Tanto nomes de funções quanto nomes de atributo devem ter a capitalização apropriada, ou um erro será gerado
+Os atributos são fortemente tipados. Uma função aceita somente atributos do tipo correto. Ela também diferencia maiúsculas de minúsculas. Tanto nomes de funções quanto nomes de atributo devem ter a capitalização apropriada, ou um erro será gerado
 
 ## Identificadores e definições de idioma
 
@@ -65,7 +64,7 @@ O sistema fornece o seguinte parâmetro usado para obter o identificador do cone
 
 Um exemplo que preencherá o domínio de atributo metaverso com o nome netbios do domínio em que o usuário está localizado:
 
-`domain <- %Domain.Netbios%`
+`domain` <- `%Domain.Netbios%`
 
 ### Operadores
 
@@ -85,13 +84,13 @@ Os operadores são avaliados da esquerda para a direita e têm a mesma prioridad
 
 Atributos de cadeia de caracteres são definidos por padrão para serem indexáveis e seu comprimento máximo é 448 caracteres. Se você está trabalhando com atributos de cadeia de caracteres que podem conter mais, certifique-se de incluir o seguinte no fluxo de atributo:
 
-`attributeName <- Left([attributeName],448)`
+`attributeName` <- `Left([attributeName],448)`
 
 ### Alterando o userPrincipalSuffix
 
 O atributo userPrincipalName no Active Directory não é sempre conhecido pelos usuários e pode não ser adequado como a ID de logon. O guia de instalação da sincronização do Azure AD Connect permite escolher um atributo diferente, por exemplo, email. Mas, em alguns casos, o atributo deve ser calculado. Por exemplo, a empresa Contoso tem dois diretórios do AD do Azure, um para produção e outro para testes. Eles querem que os usuários em seu locatário de teste apenas alteram o sufixo na ID de logon.
 
-`userPrincipalName <- Word([userPrincipalName],1,"@") & "@contosotest.com"`
+`userPrincipalName` <- `Word([userPrincipalName],1,"@") & "@contosotest.com"`
 
 Nesta expressão, tomamos tudo à esquerda do primeiro símbolo “@” (Word) e concatenamos com uma cadeia de caracteres fixa.
 
@@ -99,7 +98,7 @@ Nesta expressão, tomamos tudo à esquerda do primeiro símbolo “@” (Word) e
 
 Alguns atributos no Active Directory são compostos de vários valores no esquema, mesmo que pareçam de valor único nos Usuários e computadores do Active Directory. Um exemplo é o atributo de descrição.
 
-`description <- IIF(IsNullOrEmpty([description]),NULL,Left(Trim(Item([description],1)),448))`
+`description` <- `IIF(IsNullOrEmpty([description]),NULL,Left(Trim(Item([description],1)),448))`
 
 Nesta expressão, caso o atributo tenha um valor, podemos levar o primeiro item (Item) no atributo, remover espaços à direita e à esquerda (Trim, cortar) e, em seguida, manter os primeiros 448 caracteres (Left, à esquerda) na cadeia de caracteres.
 
@@ -111,7 +110,7 @@ Para Regras de Sincronização de entrada, a constante **NULL** sempre deve ser 
 
 Há duas constantes diferentes a usar para Regras de Sincronização de saída: NULL e IgnoreThisFlow. Ambas indicam que o fluxo de atributo não tem nada com o que contribuir, mas a diferença é o que acontece quando não há outra regra que tenha, tampouco, algo com o que contribuir. Se houver um valor existente no diretório conectado, uma constante NULL preparará uma exclusão do atributo e o removerá, enquanto IgnoreThisFlow manterá o valor existente.
 
-#### ImportedValue
+### ImportedValue
 
 A função ImportedValues é diferente de todas as outras funções, já que o nome de atributo deve ser colocado entre aspas, em vez de colchetes: ImportedValue("proxyAddresses").
 
@@ -119,7 +118,7 @@ Geralmente, durante a sincronização, um atributo usará o valor esperado, mesm
 
 Um exemplo disso pode ser encontrado na Regra de Sincronização de Entrada integrada no AD – Usuário Comum do Exchange no qual, no Exchange Híbrido, o valor adicionado pelo Exchange online só deverá ser sincronizado caso tenha sido confirmado que o valor foi exportado com êxito:
 
-`proxyAddresses <- RemoveDuplicates(Trim(ImportedValues("proxyAddresses")))`
+`proxyAddresses` <- `RemoveDuplicates(Trim(ImportedValues("proxyAddresses")))`
 
 Para obter uma lista completa de funções, consulte [Sincronização do Azure AD Connect: referência de funções](active-directory-aadconnectsync-functions-reference.md)
 
@@ -131,4 +130,4 @@ Para obter uma lista completa de funções, consulte [Sincronização do Azure A
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

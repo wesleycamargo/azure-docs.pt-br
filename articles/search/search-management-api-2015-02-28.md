@@ -1,6 +1,20 @@
-<properties pageTitle="API REST de Gerenciamento da Pesquisa do Azure Versão 2015-02-28 | Microsoft Azure | Serviço de pesquisa de nuvem hospedado" description="API REST de Gerenciamento da Pesquisa do Azure: versão 2015-02-28" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
+<properties
+	pageTitle="API REST de Gerenciamento da Pesquisa do Azure Versão 2015-02-28 | Microsoft Azure | Serviço de pesquisa de nuvem hospedado"
+	description="API REST de Gerenciamento da Pesquisa do Azure: versão 2015-02-28"
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="mblythe"
+	editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="11/04/2015" ms.author="heidist" />
+<tags
+	ms.service="search"
+	ms.devlang="rest-api"
+	ms.workload="search"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.date="11/04/2015"
+	ms.author="heidist" />
 
 # API de gerenciamento: versão 2015-02-28
 
@@ -39,7 +53,7 @@ Observe que se o seu código de aplicativo lidar com *operações de gerenciamen
 
 O aplicativo de exemplo documentado em [Introdução à API REST de Gerenciamento da Pesquisa do Azure](http://go.microsoft.com/fwlink/p/?linkID=516968) demonstra as técnicas de autenticação para cada tipo de operação. As instruções sobre como configurar um aplicativo cliente para usar o Active Directory estão incluídas na introdução.
 
-O controle de acesso para o Gerenciador de Recursos do Azure usa as funções internas Proprietário, Colaborador e Leitor. Por padrão, todos os administradores de serviço são membros da função Proprietário. Para obter mais detalhes, consulte o [Controle de acesso baseado em função no portal clássico do Azure](../role-based-access-control-configure.md).
+O controle de acesso para o Gerenciador de Recursos do Azure usa as funções internas Proprietário, Colaborador e Leitor. Por padrão, todos os administradores de serviço são membros da função Proprietário. Para obter mais detalhes, consulte o [Controle de acesso baseado em função no portal clássico do Azure](../active-directory/role-based-access-control-configure.md).
 
 
 ### Resumo das APIs ##
@@ -812,4 +826,4 @@ O código de status de resposta será HTTP 200 (OK) se tiver êxito.
 
 Nenhum.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

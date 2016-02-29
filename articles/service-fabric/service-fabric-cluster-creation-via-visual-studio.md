@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/13/2015"
+   ms.date="02/12/2016"
    ms.author="karolz@microsoft.com"/>
 
 # Configurar um cluster do Service Fabric usando o Visual Studio
@@ -45,7 +45,7 @@ Antes da implantação do modelo para a criação do cluster, você deve fornece
 |sourceVaultValue |A *ID do recurso* do cofre da chave no qual o certificado que protege o cluster é armazenado.|
 |certificateUrlValue |A URL do certificado de segurança do cluster.|
 
-O modelo do Gerenciador de Recursos do Service Fabric do Visual Studio cria um cluster seguro que é protegido por um certificado. Esse certificado é identificado pelos últimos três parâmetros do modelo (`certificateThumbprint`, `sourceVaultValue` e `certificateUrlValue`) e deve existir em um **Cofre da Chave do Azure**. Para saber mais sobre como criar o certificado de segurança do cluster, veja o artigo [Como proteger um cluster do Service Fabric usando certificados](service-fabric-cluster-security.md).
+O modelo do Gerenciador de Recursos do Service Fabric do Visual Studio cria um cluster seguro que é protegido por um certificado. Esse certificado é identificado pelos últimos três parâmetros do modelo (`certificateThumbprint`, `sourceVaultValue` e `certificateUrlValue`) e deve existir em um **Cofre da Chave do Azure**. Para saber mais sobre como criar o certificado de segurança do cluster, veja o artigo [Como proteger um cluster do Service Fabric usando certificados](service-fabric-cluster-security.md#secure-a-service-fabric-cluster-by-using-certificates).
 
 ## Opcional: adicionar portas públicas do aplicativo
 Talvez você queira alterar as portas públicas de aplicativos do cluster antes de implantá-lo. Por padrão, o modelo abre apenas duas portas TCP públicas (80 e 8081). Se você precisar de mais para seus aplicativos, modifique a definição de Balanceador de Carga do Azure no modelo. A definição é armazenada no arquivo de modelo principal (`SecureFabricCluster.json`). Abra o arquivo e pesquise `loadBalancedAppPort`. Você perceberá que cada porta está associada a três artefatos:
@@ -106,6 +106,8 @@ Você pode monitorar o andamento do processo de implantação na janela de saíd
 
 Se houver erros, acesse o [Portal do Azure](https://portal.azure.com/) e verifique as **Notificações**. Uma implantação com falha do grupo de recursos deixará informações detalhadas sobre o diagnóstico nesse local.
 
+>[AZURE.NOTE] Os clusters de Service Fabric exigem um determinado número de nós que devem estar ativos em todos os momentos para manter a disponibilidade e preservar o estado - conhecido como "manter o quórum". Consequentemente, normalmente não é seguro desligar todos os computadores no cluster, a menos que você tenha executado primeiro um [backup completo do estado](service-fabric-reliable-services-backup-restore.md).
+
 ## Próximas etapas
 - [Saiba mais sobre como configurar o cluster do Service Fabric usando o portal do Azure](service-fabric-cluster-creation-via-portal.md)
 - [Saiba mais sobre como gerenciar e implantar aplicativos do Service Fabric usando o Visual Studio](service-fabric-manage-application-in-visual-studio.md)
@@ -115,4 +117,4 @@ Se houver erros, acesse o [Portal do Azure](https://portal.azure.com/) e verifiq
 [2]: ./media/service-fabric-cluster-creation-via-visual-studio/selecting-azure-template.png
 [3]: ./media/service-fabric-cluster-creation-via-visual-studio/deploy-to-azure.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -37,17 +37,19 @@ Ao carregar no SQL Data Warehouse a partir de uma instância do SQL Server local
 
 As seções a seguir analisarão cada etapa com mais detalhes e fornecerão exemplos do processo.
 
-> [AZURE.NOTE]Antes de mover dados de um sistema como o SQL Server, recomendamos que você leia os artigos [Migrar esquema][] e [Migrar código][] de nossa documentação.
+> [AZURE.NOTE] Antes de mover dados de um sistema como o SQL Server, recomendamos que você leia os artigos [Migrar esquema][] e [Migrar código][] de nossa documentação.
 
 ## Exportando arquivos com BCP
 
 Para preparar os arquivos para a movimentação para o Azure, você precisará exportá-los para arquivos simples. A melhor maneira de fazer isso é usar o Utilitário de Linha de Comando BCP. Se você ainda não tiver o utilitário, baixe-o com os [Utilitários de Linha de Comando da Microsoft para SQL Server][]. Veja a seguir um exemplo parecido de comando BCP:
 
 ```
-bcp "<Directory><File>" -c -T -S <Server Name> -d <Database Name>
+bcp "select top 10 * from <table>" queryout "<Directory><File>" -c -T -S <Server Name> -d <Database Name> -- Export Query
+or
+bcp <table> out "<Directory><File>" -c -T -S <Server Name> -d <Database Name> -- Export Table
 ```
 
-Esse comando pegará os resultados de uma consulta e os exportará para um arquivo no diretório de sua escolha. Você consegue paralelizar o processo executando ao mesmo tempo vários comandos BCP para tabelas separadas. Isso permitirá a execução de até um processo BCP por núcleo do servidor, nosso conselho é testar algumas operações menores em configurações diferentes para ver o que funciona melhor para seu ambiente.
+Para maximizar a taxa de transferência, você pode tentar paralelizar o processo executando vários comandos BCP simultâneos para tabelas separadas ou partições separadas em uma única tabela. Isso permitirá que você distribua o consumo da CPU por BCP ao longo de vários núcleos do servidor em que o BCP está em execução. Se você está extraindo de um sistema PDW ou SQL DW, precisará adicionar -q, argumento identificador entre aspas ao seu comando BCP. Você também pode precisar adicionar -U e -P para especificar o nome de usuário e a senha, se o seu ambiente não usar o Active Directory.
 
 Além disso, como carregaremos usando PolyBase, observe que PolyBase ainda não dá suporte a UTF-16, e todos os arquivos devem estar em UTF-8. Isso pode ser feito facilmente, incluindo o sinalizador '-c' em seu comando BCP, ou você também pode converter arquivos simples de UTF-16 para UTF-8 com o código abaixo:
 
@@ -62,7 +64,7 @@ Se estiver movendo dados no intervalo de 5 a 10 terabytes ou mais, recomendamos 
 
 As etapas a seguir detalharão como mover dados do local para uma conta de armazenamento do Azure usando AZCopy. Se você não tiver uma conta de armazenamento do Azure na mesma região, poderá criar uma seguindo a [Documentação do armazenamento do Azure][]. Você também pode carregar dados de uma conta de armazenamento em uma região diferente, mas o desempenho nesse caso não será o melhor.
 
-> [AZURE.NOTE]Esta documentação pressupõe que você instalou o utilitário de linha de comando AZCopy e é capaz de executá-lo com o Powershell. Se este não for o caso, siga as [Instruções de instalação do AZCopy][].
+> [AZURE.NOTE] Esta documentação pressupõe que você instalou o utilitário de linha de comando AZCopy e é capaz de executá-lo com o Powershell. Se este não for o caso, siga as [Instruções de instalação do AZCopy][].
 
 Agora, com base em um conjunto de arquivos criados usando o BCP, o AzCopy pode simplesmente ser executado do powershell do Azure ou por meio da execução de um script do powershell. Em um alto nível, o prompt necessário para executar o AZCopy assumirá o formato:
 
@@ -201,4 +203,4 @@ Para obter mais dicas de desenvolvimento, confira a [visão geral sobre desenvol
 [Documentação do armazenamento do Azure]: https://azure.microsoft.com/pt-BR/documentation/articles/storage-create-storage-account/
 [Documentação da Rota Expressa]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

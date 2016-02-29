@@ -3,7 +3,7 @@
 	description="Este tópico mostra como configurar o codificador Elemental Live para enviar uma transmissão de taxa de bits única para os canais do AMS que estão habilitados para a codificação ativa." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako,cenkdin,anilmur" 
+	authors="cenkdin" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
-	ms.author="juliako"/>
+	ms.date="02/17/2016"
+	ms.author="cenkdin;anilmur;juliako"/>
 
 #Usar o codificador Elemental Live para enviar uma transmissão ao vivo de taxa de bits única
 
@@ -58,13 +58,13 @@ Esta seção mostra como configurar um codificador Elemental Live que faz uma tr
 
 Verifique se a opção **Iniciar o novo canal agora** está marcada.
 
-3. Clique em **Criar Canal**. ![Elementares](./media/media-services-elemental-live-encoder/media-services-elemental12.png)
+3. Clique em **Criar Canal**.![Elementares](./media/media-services-elemental-live-encoder/media-services-elemental12.png)
 
->[AZURE.NOTE]O canal pode levar até 20 minutos para ser iniciado.
+>[AZURE.NOTE] O canal pode levar até 20 minutos para ser iniciado.
 
 Enquanto o canal é iniciado, você pode [configurar o codificador](media-services-configure-elemental-live-encoder.md#configure_elemental_rtp).
 
->[AZURE.IMPORTANT]Lembre-se de que a cobrança começa assim que o Canal entra em um estado pronto. Para obter mais informações, veja [Estados do canal](media-services-manage-live-encoder-enabled-channels.md#states).
+>[AZURE.IMPORTANT] Lembre-se de que a cobrança começa assim que o Canal entra em um estado pronto. Para obter mais informações, veja [Estados do canal](media-services-manage-live-encoder-enabled-channels.md#states).
 
 ###<a id=configure_elemental_rtp></a>Configurar o codificador do Elemental Live 
 
@@ -95,7 +95,7 @@ Neste tutorial, são usadas as configurações de saída abaixo. O restante dest
 	
 	![Elementares](./media/media-services-elemental-live-encoder/media-services-elemental13.png)
 	
-	>[AZURE.NOTE]É recomendável que o evento Elementar tenha o código de tempo definido como "Relógio do Sistema" para ajudar o codificador a reconectar em caso de falha na transmissão.
+	>[AZURE.NOTE] É recomendável que o evento Elementar tenha o código de tempo definido como "Relógio do Sistema" para ajudar o codificador a reconectar em caso de falha na transmissão.
 
 4. Agora que a Saída foi criada, clique em **Adicionar Transmissão**. As configurações de saída agora podem ser configuradas.
 5. Role para baixo até a “Transmissão 1” que você acabou de criar, clique na guia **Vídeo** à esquerda e expanda a seção de configurações **Avançadas**. 
@@ -127,15 +127,15 @@ Neste tutorial, são usadas as configurações de saída abaixo. O restante dest
 
 	Para redundância adicional, repita essas etapas com a URL de entrada secundária, criando uma guia separada de "Saída" para Streaming de UDP/TS.
 	
-7. Clique em **Criar** (se um novo evento foi criado) ou **Atualizar** (se estiver editando um evento pré-existente) e inicie o codificador.
+7. Clique em **Criar** (se um novo evento foi criado) ou **Atualizar** (se estiver editando um evento já existente) e inicie o codificador.
 
->[AZURE.IMPORTANT]Antes de clicar em **Iniciar** na interface Web do Elemental Live, é **necessário** verificar se o Canal está pronto. Além disso, lembre-se de não deixar o Canal em um estado pronto sem um evento por mais de 15 minutos.
+>[AZURE.IMPORTANT] Antes de clicar em **Iniciar** na interface Web do Elemental Live, é **necessário** verificar se o Canal está pronto. Além disso, lembre-se de não deixar o Canal em um estado pronto sem um evento por mais de 15 minutos.
 
 Após a transmissão estar em execução por 30 segundos, navegue de volta até a ferramenta AMSE e reproduza o teste.
 
 ###Reprodução de teste
   
-1. Navegue até a ferramenta AMSE e clique com botão direito do mouse no canal a ser testado. No menu, focalize **Reproduzir a Visualização** e selecione **com o Azure Media Player**.  
+1. Navegue até a ferramenta AMSE e clique com botão direito do mouse no canal a ser testado. No menu, passe o mouse sobre **Reproduzir a Visualização** e selecione **com o Azure Media Player**.  
 
 	![Elementares](./media/media-services-elemental-live-encoder/media-services-elemental8.png)
 
@@ -173,4 +173,4 @@ Veja o tópico [solução de problemas](media-services-troubleshooting-live-stre
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

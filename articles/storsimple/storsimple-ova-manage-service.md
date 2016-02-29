@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/26/2016"
+   ms.date="02/05/2016"
    ms.author="alkohli" />
 
 # Implantar o serviço StorSimple Manager para o StorSimple Virtual Array
@@ -105,10 +105,10 @@ Execute as etapas a seguir para regenerar uma chave de registro de serviço.
 
 ## Próximas etapas
 
-- Saiba mais sobre como [começar](storsimple-ova-deploy1-portal-prep.md) a implantar um StorSimple Virtual Array.
+- Saiba como obter uma [Introdução](storsimple-ova-deploy1-portal-prep.md) com uma matriz virtual StorSimple.
 	
-- Saiba mais sobre como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-ova-manager-service-administration.md).
+- Saiba como [administrar o seu dispositivo StorSimple](storsimple-ova-web-ui-admin.md).
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

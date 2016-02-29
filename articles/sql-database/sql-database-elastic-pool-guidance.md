@@ -20,7 +20,7 @@
 # Considerações de preço e desempenho para um pool de banco de dados elástico
 
 
-Este documento fornece diretrizes para ajudar a avaliar a economia de usar um pool de banco de dados elástico para um grupo de bancos de dados com base em padrões de uso do banco de dados e diferenças de preços entre um pool de banco de dados elástico e bancos de dados individuais. Diretrizes adicionais também são fornecidas para ajudar a determinar o tamanho do pool atual necessário para um conjunto existente de Bancos de Dados SQL.
+Avalie se usar um pool de banco de dados elástico para um grupo de bancos de dados é econômico com base em padrões de uso do banco de dados e diferenças de preços entre um pool de banco de dados elástico e os bancos de dados individuais. Diretrizes adicionais também são fornecidas para ajudar a determinar o tamanho do pool atual necessário para um conjunto existente de Bancos de Dados SQL.
 
 - Para ter uma visão geral dos pools de banco de dados elástico, consulte [Pools banco de dados do banco elástico do Banco de Dados SQL](sql-database-elastic-pool.md).
 - Para obter informações detalhadas sobre os pools de banco de dados elástico, consulte [Referência do pool de banco de dados elástico do Banco de Dados SQL](sql-database-elastic-pool-reference.md).
@@ -30,7 +30,7 @@ Este documento fornece diretrizes para ajudar a avaliar a economia de usar um po
 
 ## Pools de banco de dados elástico
 
-ISVs de SaaS desenvolvem aplicativos criados com base em camadas de dados de grande escala compostas por vários bancos de dados. Um padrão comum de aplicativo para cada um desses bancos de dados é ter diferentes clientes com padrões de uso exclusivamente variados e imprevisíveis. Pode ser difícil para o ISV prever os requisitos de recursos de cada banco de dados individualmente. Em tais circunstâncias, o ISV pode provisionar excessivamente os recursos causando despesas consideráveis para garantir que uma taxa de transferência e tempos de resposta favoráveis para todos os bancos de dados. Ou então, o ISV pode gastar menos com o risco de oferecer uma experiência de baixo desempenho para seus clientes.
+ISVs de SaaS desenvolvem aplicativos criados com base em camadas de dados de grande escala compostas por vários bancos de dados. Um padrão comum de aplicativo é dar a cada cliente seu próprio banco de dados. Mas diferentes clientes têm padrões de uso variados e imprevisíveis, e é difícil prever os requisitos de recursos de cada usuário de banco de dados. Portanto, um ISV pode provisionar excessivamente os recursos causando despesas consideráveis para garantir uma taxa de transferência e tempos de resposta favoráveis para todos os bancos de dados. Ou então, o ISV pode gastar menos com o risco de oferecer uma experiência de baixo desempenho para seus clientes.
 
 Pools de banco de dados elástico no Banco de Dados SQL do Azure permitem que ISVs de SaaS otimizem o desempenho de preço para um grupo de bancos de dados dentro de um orçamento prescrito oferecendo elasticidade de desempenho para cada banco de dados. Pools de banco de dados elástico permitem ao ISV adquirir eDTUs (Unidades de Taxa de Transferência de Banco de Dados Elástico) para um pool compartilhado por vários bancos de dados para acomodar períodos de uso imprevisíveis em bancos de dados individuais. O requisito de eDTU para um pool é determinado pela utilização de agregação de seus bancos de dados. A quantidade de eDTUs disponíveis para o pool é controlado pelo orçamento do ISV. Pools de banco de dados elástico facilitam a tarefa de ISVs ponderarem sobre o impacto do orçamento no desempenho e vice-versa para o pool. Basta o ISV adicionar bancos de dados ao pool, definir as garantias ou limites de eDTU necessários para os bancos de dados e definir a eDTU do pool com base no seu orçamento. Usando pools de banco de dados elástico, os ISVs podem aumentar seu serviço com perfeição desde uma startup lean até uma empresa madura em escala cada vez maior.
   
@@ -435,4 +435,4 @@ Nem todos os bancos de dados individuais são candidatos ideais para pools de ba
 [2]: ./media/sql-database-elastic-pool-guidance/four-databases.png
 [3]: ./media/sql-database-elastic-pool-guidance/twenty-databases.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

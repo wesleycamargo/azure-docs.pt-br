@@ -55,7 +55,7 @@ A opção de banco de dados padrão é Titan, que custa US$ 3,50. Não mostramos
 
 ## Estou executando o MySQL em minha própria máquina virtual do Azure. Posso conectar meu aplicativo Web do Azure ao meu banco de dados?
 
-Sim. Você pode conectar seu aplicativo Web ao seu banco de dados desde que sua VM do Azure tenha acesso remoto ao seu aplicativo Web. Clique aqui para obter detalhes.
+Sim. Você pode conectar seu aplicativo Web ao seu banco de dados desde que sua VM do Azure tenha acesso remoto ao seu aplicativo Web. Para saber mais, confira [Instalar o MySQL em uma máquina virtual](../virtual-machines/virtual-machines-mysql-windows-server-2008r2.md).
 
 ## Em quais países os clusters MySQL do ClearDB Premium têm suporte?
 
@@ -84,6 +84,14 @@ Você pode usar o [Assistente de Atualização do ClearDB](https://www.cleardb.c
 ## Quem devo contatar para obter suporte quando meu banco de dados ficar inativo?
 
 Entre em contato com o [Suporte do ClearDB](https://www.cleardb.com/developers/help/support) para quaisquer problemas relacionados ao banco de dados. Esteja preparado para fornecer as informações de sua assinatura do Azure.
+
+## Posso criar usuários adicionais para minha solução de cluster de banco de dados MySQL ClearDB?  
+
+Não. Não é possível criar usuários adicionais, mas você pode criar bancos de dados adicionais no cluster do banco de dados ClearDB.
+
+## Quando migrar meus recursos de uma assinatura para outra, meu banco de dados MySQL ClearDB será migrado também?  
+
+Quando você executar recursos de migração entre assinaturas, mas serão aplicadas algumas [limitações](app-service-move-resources.md). O banco de dados MySQL ClearDB é um serviço de terceiros e, portanto, não será migrado durante a migração da assinatura do Azure. Se você não gerenciar a migração do banco de dados MySQL antes da migração de recursos do Azure, seus bancos de dados MySQL ClearDB poderão ser desabilitados. Primeiro, migre manualmente os bancos de dados e, em seguida, realize a migração da assinatura do Azure para seu aplicativo Web.
 
 ## Posso adquirir o WordPress Escalonável com uma assinatura do Enterprise Agreement (EA)?
 
@@ -116,4 +124,4 @@ Contate o [Atendimento ao Cliente Corporativo](http://aka.ms/AzureEntSupport) so
 
 [Perguntas frequentes sobre o Azure Marketplace](/marketplace/faq/)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

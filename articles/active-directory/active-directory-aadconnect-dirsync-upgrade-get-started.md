@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/21/2016"
+   ms.date="02/16/2016"
    ms.author="shoatman;billmath"/>
 
 # Atualizando a sincronização do Active Directory do Microsoft Azure (DirSync) com o Azure AD Connect
@@ -58,13 +58,13 @@ As seguintes alterações de configuração são compatíveis com o DirSync e se
 - Suas configurações de domínio/floresta e do AD do Azure
 - Filtragem com base em atributos de usuário
 
-As seguintes alterações não podem ser atualizadas. Se você tiver feito alguma dessas alterações, a atualização será bloqueada.
+As alterações a seguir não podem ser atualizadas. Se você fez essa alteração, a atualização será bloqueada:
+
+- Alterações de DirSync sem suporte, por exemplo, atributos removidos e uso de uma DLL de extensão personalizada
 
 ![Atualização bloqueada](./media/active-directory-aadconnect-dirsync-upgrade-get-started/analysisblocked.png)
 
 Nesses casos, a recomendação é instalar um novo servidor do Azure AD Connect no [modo de preparo](active-directory-aadconnectsync-operations.md#staging-mode) e verificar a antiga configuração do DirSync e a nova configuração do Azure AD Connect. Aplique qualquer alteração novamente usando uma configuração personalizada, como descrito em [Configuração personalizada de sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md).
-
-- Alterações de DirSync sem suporte, por exemplo, atributos removidos e uso de uma DLL de extensão personalizada
 
 Senhas usadas pelo DirSync para as contas de serviço não podem ser recuperadas e não serão migradas. Essas senhas serão redefinidas durante a atualização.
 
@@ -197,4 +197,4 @@ Agora que você tem o Azure AD Connect instalado, pode [verificar a instalação
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

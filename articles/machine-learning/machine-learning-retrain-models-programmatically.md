@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="02/12/2016"
 	ms.author="raymondl;garye"/>
 
 
@@ -96,6 +96,8 @@ Diagrama 1: visão geral do processo readaptação
 
 7. *Atualizar o Modelo Treinado do Ponto de Extremidade agregado* Para concluir o processo, precisamos atualizar o modelo treinado do ponto de extremidade predicativo que criamos na Etapa 4 acima.
 
+	(Se adicionou um novo ponto de extremidade usando o Portal do Azure, você pode clicar no nome do novo do ponto de extremidade, em seguida, no link UpdateResource para obter a URL que você precisa para atualizar o modelo do ponto de extremidade).
+
 	A saída de BES acima mostra as informações para o resultado de recuperação para "output1", que contém as informações de local do modelo recuperado. Agora precisamos pegar esse modelo treinado e atualizar o ponto de extremidade da pontuação (criado na etapa 4 acima). Veja abaixo o exemplo de código:
 
 	```C#
@@ -138,7 +140,7 @@ Diagrama 1: visão geral do processo readaptação
 	}
 	```
 
-	"apiKey" e "endpointUrl" ficam visíveis no painel do ponto de extremidade para esta chamada.
+	"apiKey" e "endpointUrl" ficam visíveis no painel do ponto de extremidade para esta chamada. O parâmetro "Nome" em Recursos deve corresponder ao nome do Modelo Treinado Salvo no Teste Preditivo.
 
 	Com o sucesso desta chamada, o novo ponto de extremidade será iniciado usando um modelo recuperado aproximadamente dentro de 15 segundos.
 
@@ -156,4 +158,4 @@ Usando as APIs de Recuperação podemos atualizar o modelo treinado de um de Ser
 <!-- Module References -->
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

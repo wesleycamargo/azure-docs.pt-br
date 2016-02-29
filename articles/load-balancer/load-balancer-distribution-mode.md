@@ -4,7 +4,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="load-balancer"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/02/2015"
+   ms.date="02/02/2016"
    ms.author="joaoma" />
 
 
@@ -42,7 +42,7 @@ Adicione um ponto de extremidade do Azure a uma máquina virtual e defina o modo
 
 	Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM
 
->[AZURE.NOTE]LoadBalancerDistribution pode ser definido como sourceIP para balanceamento de carga de tupla 2 (IP de origem, IP de destino), balanceamento de carga, sourceIPProtocol para tupla 3 (IP de origem, IP DestinaDestination, protocolo) ou nenhum se você quiser o comportamento padrão de balanceamento de carga de tupla 5
+>[AZURE.NOTE] LoadBalancerDistribution pode ser definido como sourceIP para balanceamento de carga de tupla 2 (IP de origem, IP de destino), balanceamento de carga, sourceIPProtocol para tupla 3 (IP de origem, IP DestinaDestination, protocolo) ou nenhum se você quiser o comportamento padrão de balanceamento de carga de tupla 5
 
 
 Recupee uma configuração de modo de distribuição do balanceador de carga do ponto de extremidade
@@ -149,4 +149,4 @@ O valor de LoadBalancerDistribution pode ser sourceIP para afinidade de 2 tuplas
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

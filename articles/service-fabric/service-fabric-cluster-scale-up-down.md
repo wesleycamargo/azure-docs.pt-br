@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/29/2016"
+   ms.date="02/12/2016"
    ms.author="chackdan"/>
 
 
@@ -63,6 +63,8 @@ A remoção de nós é um processo em duas etapas:
 
     d. Clique no ícone **Excluir** para excluir a VM.
 
+>[AZURE.NOTE] Os clusters de Service Fabric exigem um determinado número de nós que devem estar ativos em todos os momentos para manter a disponibilidade e preservar o estado - conhecido como "manter o quórum". Consequentemente, normalmente não é seguro desligar todos os computadores no cluster, a menos que você tenha executado primeiro um [backup completo do estado](service-fabric-reliable-services-backup-restore.md).
+
 ## Dimensionar automaticamente os clusters do Service Fabric
 
 Neste momento, os clusters do Service Fabric não são compatíveis com dimensionamento automático. Em breve, os clusters serão construídos sobre conjuntos de escala de máquina virtual. Nesse momento, o dimensionamento automático se tornará possível e se comportará de maneira semelhante ao comportamento do dimensionamento automático disponível nos serviços de nuvem.
@@ -79,4 +81,4 @@ Este artigo aborda o dimensionamento de clusters usando o portal. No entanto, vo
 <!--Image references-->
 [BrowseServiceFabricClusterResource]: ./media/service-fabric-cluster-scale-up-down/BrowseServiceFabricClusterResource.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -123,7 +123,7 @@ Existem vários bons motivos pelos quais os clientes devem atualizar agora da V1
 
 - A V12 do Banco de dados SQL tem uma longa lista de recursos além daqueles já existentes na V11.
 - Continuamos a adicionar novos recursos à V12, mas nenhum recurso novo será adicionado à V11.
-- A maioria dos novos recursos é lançada na V12 do Banco de dados SQL antes de eles serem lançados para o Microsoft SQL Server.
+- A maioria dos novos recursos é lançada na V12 do Banco de Dados SQL antes de eles serem lançados para o Microsoft SQL Server.
 
 
 ## Você já está usando a V12?
@@ -150,7 +150,7 @@ Outra técnica para determinar a versão é executar a instrução `SELECT @@ver
 Um banco de dados V12 pode ser hospedado somente em um servidor lógico V12. E um servidor V12 pode hospedar apenas bancos de dados V12.
 
 
-Se você ainda não estiver usando a V12, pode atualizar o seu servidor lógico seguindo as etapas em [Atualizar para o Banco de Dados SQL V12 in-loco](sql-database-v12-upgrade.md).
+Se você ainda não estiver usando a V12, pode atualizar o seu servidor lógico seguindo as etapas em [Atualizar para o Banco de Dados SQL V12 in-loco](sql-database-v12-plan-prepare-upgrade.md).
 
 
 ## <a name="V12AzureSqlDbPreviewGaTable"></a> Regiões de Disponibilidade Geral
@@ -161,4 +161,4 @@ Se você ainda não estiver usando a V12, pode atualizar o seu servidor lógico 
 
 [Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

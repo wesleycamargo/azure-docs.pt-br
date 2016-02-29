@@ -14,12 +14,12 @@
   ms.tgt_pltfrm="na" 
   ms.devlang="na" 
   ms.topic="article" 
-  ms.date="01/22/2016" 
+  ms.date="02/17/2016" 
   ms.author="tamram"/>
 
 # Replicação de Armazenamento do Azure
 
-Os dados da sua conta de armazenamento do Microsoft Azure sempre são replicados para garantir durabilidade e alta disponibilidade, cumprindo o [SLA do Armazenamento do Azure](https://azure.microsoft.com/support/legal/sla/) mesmo diante de falhas transitórias de hardware.
+Os dados da sua conta de armazenamento do Microsoft Azure sempre são replicados para garantir durabilidade e alta disponibilidade, cumprindo o [SLA do Armazenamento do Azure](https://azure.microsoft.com/support/legal/sla/storage) mesmo diante de falhas transitórias de hardware.
 
 Quando você cria uma conta de armazenamento, deve selecionar uma das seguintes opções de replicação:
 
@@ -66,8 +66,12 @@ O GRS (armazenamento com redundância geográfica) replica seus dados para uma r
 Para uma conta de armazenamento com GRS habilitado, uma atualização primeiro é confirmada para a região primária, na qual é replicada três vezes. Em seguida, a atualização é replicada para a região secundária, na qual também é replicada três vezes em domínios de falha e domínios de atualização separados.
 
 
-> [AZURE.NOTE] Com o GRS, as solicitações de gravação de dados são replicadas de forma assíncrona para a região secundária. É importante observar que optar por GRS não afeta a latência de solicitações feitas na região primária. No entanto, como a replicação assíncrona envolve um atraso, no caso de um desastre regional, é possível que as alterações que ainda não foram replicadas para a região secundária sejam pedidas se os dados não puderem ser recuperados da região primária | Ao criar uma conta de armazenamento, você pode selecionar a região primária para a conta. A região secundária é determinada com base na região primária e não pode ser alterada. A tabela a seguir mostra os emparelhamentos de regiões primárias e secundárias | Primárias | Secundárias |
-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------|
+> [AZURE.NOTE] Com GRS, solicitações de gravação de dados são replicadas de forma assíncrona para a região secundária. É importante observar que optar por GRS não afeta a latência de solicitações feitas na região primária. No entanto, como a replicação assíncrona envolve um atraso, no caso de um desastre regional, é possível que as alterações que ainda não foram replicadas para a região secundária sejam pedidas se os dados não puderem ser recuperados da região primária.
+ 
+Quando você cria uma conta de armazenamento, pode selecionar a região primária para a conta. A região secundária é determinada com base na região primária e não pode ser alterada. A tabela a seguir mostra os emparelhamentos de regiões primárias e secundárias.
+ 
+| Primário | Secundário |
+|---------------------|---------------------|
 | Centro-Norte dos EUA | Centro-Sul dos Estados Unidos |
 | Centro-Sul dos Estados Unidos | Centro-Norte dos EUA |
 | Leste dos EUA | Oeste dos EUA |
@@ -87,8 +91,6 @@ Para uma conta de armazenamento com GRS habilitado, uma atualização primeiro �
 | Sudeste da Austrália | Leste da Austrália |
 | Sul da Índia | Centro da Índia |
 | Centro da Índia | Sul da Índia |
- |
-uth
 
 
 ## Armazenamento com redundância geográfica com acesso de leitura
@@ -99,10 +101,10 @@ Quando você habilita o acesso somente leitura aos dados na região secundária,
 
 ## Próximas etapas
 
-- [Sobre as contas de Armazenamento do Azure](storage-create-storage-account)
+- [Sobre as contas de armazenamento do Azure](storage-create-storage-account.md)
 - [Metas de desempenho e escalabilidade do Armazenamento do Azure](storage-scalability-targets.md)
 - [Armazenamento com redundância geográfica com acesso de leitura e opções de redundância do Armazenamento do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)  
 - [Emulador de Armazenamento do Microsoft Azure 3.1 com RA-GRS](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/08/microsoft-azure-storage-emulator-3-1-with-ra-grs.aspx)
-- [Artigo SOSP de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
+- [SOSP Paper - Armazenamento do Azure: um serviço de armazenamento em nuvem altamente disponível com coerência forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

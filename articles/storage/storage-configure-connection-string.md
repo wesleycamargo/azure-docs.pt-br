@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="02/17/2016"
 	ms.author="tamram"/>
 
 # Configurar cadeias de conexão do Armazenamento do Azure
@@ -37,7 +37,7 @@ Seu aplicativo precisará armazenar a cadeia de conexão para autenticar o acess
 
 Armazenar a cadeia de conexão em um arquivo de configuração facilita a atualização da cadeia de conexão para alternar entre o emulador de armazenamento e uma conta de armazenamento do Azure na nuvem. Você precisa editar a cadeia de conexão para apontar para sua conta de armazenamento.
 
-Você pode usar a classe [CloudConfigurationManager](https://msdn.microsoft.com/library/microsoft.windowsazure.cloudconfigurationmanager.aspx) do Azure para acessar a cadeia de conexão em tempo de execução, independentemente de onde ela estiver sendo executada.
+Você pode usar a classe [Gerenciador de Configuração do Microsoft Azure](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/) para acessar a cadeia de conexão em tempo de execução, independentemente de onde ela estiver sendo executada.
 
 ## Criar uma cadeia de conexão para o emulador de armazenamento
 
@@ -57,7 +57,7 @@ Por exemplo, a cadeia de conexão será semelhante à seguinte cadeia de conexã
 	AccountName=storagesample;
 	AccountKey=<account-key>
 
-> [AZURE.NOTE]O Armazenamento do Azure dá suporte a HTTP e HTTPS em uma cadeia de conexão; no entanto, usar HTTPS é altamente recomendável.
+> [AZURE.NOTE] O Armazenamento do Azure dá suporte a HTTP e HTTPS em uma cadeia de conexão; no entanto, usar HTTPS é altamente recomendável.
 
 ## Criando uma cadeia de conexão para um ponto de extremidade explícito do armazenamento
 
@@ -119,4 +119,4 @@ Por exemplo, a cadeia de conexão deve ser semelhante ao seguinte exemplo de cad
 	AccountKey=<account-key>;
 	EndpointSuffix=core.chinacloudapi.cn;
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

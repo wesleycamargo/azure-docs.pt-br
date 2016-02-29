@@ -16,8 +16,6 @@
 	ms.date="01/26/2016"
 	ms.author="danlep"/>
 
-
-
 # Cotas e limites para o serviço do Lote do Azure
 
 Este artigo lista o padrão e os limites máximos de determinados recursos que você pode usar com o serviço do Lote do Azure. A maioria destes limites são cotas que o Azure aplica à sua assinatura ou contas do Lote.
@@ -95,4 +93,4 @@ O suporte do Azure entrará em contato com você. A conclusão do pedido pode le
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/13/2016"
+    ms.date="02/11/2016"
     ms.author="elizapo" />
 
 
@@ -32,26 +32,14 @@ Se você receber uma mensagem como “GoldImageInvalid” quando estiver aguarda
 
 
 ## A sua VNET tem grupos de segurança de rede definidos? ##
-Se você tiver grupos de segurança de rede definidos na sub-rede que você está usando para sua coleção, verifique se as seguintes URLs estão acessíveis de dentro da sub-rede:
-
-	https://management.remoteapp.windowsazure.com  
-	https://opsapi.mohoro.com  
-	https://telemetry.remoteapp.windowsazure.com  
-	https://*.remoteapp.windowsazure.com  
-	https://login.windows.net (if you have Active Directory)  
-	https://login.microsoftonline.com  
-	Azure storage *.remoteapp.windowsazure.com  
-	*.core.windows.net  
-	https://www.remoteapp.windowsazure.com  
-	https://www.remoteapp.windowsazure.com  
-
-Abra as seguintes portas na sub-rede virtual:
-
-Entrada - TCP: 3030, TCP: 443 Saída - TCP: 443
+Se você tiver grupos de segurança de rede definidos na sub-rede que você está usando para sua coleção, verifique se essas [URLs e portas](remoteapp-ports.md) estão acessíveis de dentro da sub-rede.
 
 Você pode adicionar grupos de segurança de rede adicionais às máquinas virtuais implantadas por você na sub-rede para um controle mais rigoroso.
 
 ## Você está usando seus próprios servidores DNS? Eles são acessíveis da sua sub-rede VNET? ##
+>[AZURE.NOTE] Você precisa verificar se os servidores DNS na sua rede virtual estão sempre ativados e sempre capazes de resolver os problemas das máquinas virtuais hospedadas na rede virtual. Não use o DNS do Google para isso.
+
+
 Para coleções híbridas, use seus próprios servidores DNS. Você os especifica no seu esquema de configuração de rede ou por meio do portal de gerenciamento ao criar a rede virtual. Os servidores DNS são usados na ordem em que eles forem especificados em uma forma de failover (em vez de round robin).
 
 Verifique se os servidores DNS de sua coleção estão acessíveis e disponíveis da sub-rede VNET especificada para essa coleção.
@@ -79,4 +67,4 @@ Verifique se os detalhes do domínio fornecidos são válidos e se o controlador
 
 O nome de domínio criado ou adicionado deve ser um nome de domínio interno (não o seu nome de domínio do Azure AD) e deve estar no formato DNS resolvível (contoso. local). Por exemplo, você tem um nome interno do Active Directory (Contoso) e um UPN do Active Directory (contoso.com): deve, então, usar o nome interno ao criar sua coleção.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0218_2016-->

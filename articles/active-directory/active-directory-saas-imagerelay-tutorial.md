@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/02/2016"
+	ms.date="02/11/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ O objetivo deste tutorial é mostrar como integrar o ImageRelay ao Active Direct
 
 - No AD do Azure, você pode controlar quem tem acesso ao ImageRelay
 - Você pode permitir que seus usuários façam logon automaticamente no ImageRelay (logon único) com as contas do AD do Azure
-- Você pode gerenciar suas contas em um local central, o portal do Active Directory do Azure
+- Você pode gerenciar suas contas em um local central, o portal clássico do Active Directory do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
@@ -57,7 +57,7 @@ Para configurar a integração do ImageRelay ao AD do Azure, você precisará ad
 
 **Para adicionar o ImageRelay da galeria, execute as seguintes etapas:**
 
-1. No portal do Azure, no painel de navegação à esquerda, clique em **Active Directory**. <br><br>![Active Directory][1]<br>
+1. No portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**. <br><br>![Active Directory][1]<br>
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
@@ -65,7 +65,7 @@ Para configurar a integração do ImageRelay ao AD do Azure, você precisará ad
 4. Clique em **Adicionar** na parte inferior da página.<br><br> ![Aplicativos][3]<br>
 5. No diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.<br><br>![Aplicativos][4]<br>
 6. Na caixa de pesquisa, digite **ImageRelay**.<br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_01.png)<br>
-7. No painel de resultados, selecione **ImageRelay** e clique em **Concluir** para adicionar o aplicativo. <br><br>
+7. No painel de resultados, selecione **ImageRelay** e clique em **Concluir** para adicionar o aplicativo. <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_02.png)<br>
 
 ##  Configurar e testar o logon único do AD do Azure
 O objetivo desta seção é mostrar como configurar e testar o logon único do AD do Azure com o ImageRelay com base em um usuário de teste chamado “Brenda Fernandes”.
@@ -82,12 +82,12 @@ Para configurar e testar o logon único do AD do Azure com o ImageRelay, você p
 
 ### Configuração do logon único do AD do Azure
 
-O objetivo desta seção é habilitar o logon único do AD do Azure no portal do AD do Azure e configurar o logon único em seu aplicativo ImageRelay.
+O objetivo desta seção é habilitar o logon único do AD do Azure no Portal Clássico do AD do Azure e configurar o logon único em seu aplicativo ImageRelay.
 
 
 **Para configurar o logon único do AD do Azure com o ImageRelay, execute as seguintes etapas:**
 
-1. No portal do AD do Azure, na página de integração do aplicativo **ImageRelay**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1. No Portal Clássico do AD do Azure, na página de integração do aplicativo **ImageRelay**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
 
      ![Configurar o logon único][6] <br>
 
@@ -141,7 +141,7 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal do
 
     - Selecione o grupo de permissão (por exemplo, **SSO Básico**) que terá permissão para entrar somente por meio de logon único.<br><br>![Configurar o logon único](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_20.png)<br>
 
-6. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Próximo**.
+6. No Portal clássico do AD do Azure, selecione a confirmação de configuração de logon único e clique em **Avançar**.
 
     ![Logon único do AD do Azure][10]<br>
 
@@ -151,11 +151,11 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal do
 
 
 ### Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no portal do Azure chamado Brenda Fernandes.<br> Na lista Usuários, selecione **Brenda Fernandes**.<br><br>![Criar um usuário do AD do Azure][20]<br>
+O objetivo desta seção é criar um usuário de teste no Portal Clássico do AD do Azure chamado Brenda Fernandes.<br> Na lista Usuários, escolha **Brenda Fernandes**.<br><br>![Criar um usuário do AD do Azure][20]<br>
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **portal do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.<br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_09.png) <br>
+1. No **Portal Clássico do AD do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_09.png)<br>
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
@@ -213,7 +213,7 @@ O objetivo desta seção é permitir que Brenda Fernandes use o logon único do 
 
 **Para atribuir Brenda Fernandes ao ImageRelay, execute as seguintes etapas:**
 
-1. No portal do Azure, para abrir a exibição dos aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior.<br><br>![Atribuir usuário][201] <br>
+1. No Portal clássico do Azure, para abrir o modo de exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior. <br><br>![Atribuir usuário][201] <br>
 
 2. Na lista de aplicativos, selecione **ImageRelay**.<br><br>![Configurar o logon único](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_23.png) <br>
 
@@ -253,4 +253,4 @@ O objetivo desta seção é testar sua configuração de logon único do AD do A
 [204]: ./media/active-directory-saas-imagerelay-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-imagerelay-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

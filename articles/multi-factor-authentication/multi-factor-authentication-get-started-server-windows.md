@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 # Autenticação do Windows e Servidor Azure Multi-Factor Authentication
@@ -49,4 +49,4 @@ A seção Autenticação do Windows permite que o administrador habilite e confi
 10. Selecione Sub-rede se desejar especificar um intervalo de IPs usando a notação de sub-rede. Insira o IP inicial da sub-rede e escolha a máscara de rede adequada na lista suspensa. 
 11. Clique no botão OK.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

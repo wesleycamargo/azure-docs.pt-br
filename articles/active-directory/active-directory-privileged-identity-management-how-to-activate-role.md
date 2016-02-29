@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="02/11/2016"
    ms.author="kgremban"/>
 
 # Privileged Identity Management do Azure: como ativar ou desativar uma função
@@ -31,13 +31,10 @@
 9. Clique em **OK**. A função agora será ativada.
 10. Depois que uma função tiver sido ativada, também é possível desativar uma função clicando **Desativar**. Além disso, a função pode ser removida do usuário usando as etapas em [Adicionar ou Remover uma Função](active-directory-privileged-identity-management-how-to-add-role-to-user.md).
 
-
-Para saber mais sobre as configurações de ativação de função, consulte [Como configurar a ativação de função](active-directory-privileged-identity-management-how-to-configure-role-activation.md).
-
-Para obter mais informações sobre alertas de segurança específicos para as configurações de ativação de função, consulte [Como Configurar Alertas de Segurança](active-directory-privileged-identity-management-how-to-configure-security-alerts).
+Para obter mais informações sobre alertas de segurança específicos para as configurações de ativação de função, consulte [Como Configurar Alertas de Segurança](active-directory-privileged-identity-management-how-to-configure-security-alerts.md).
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Próximas etapas
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

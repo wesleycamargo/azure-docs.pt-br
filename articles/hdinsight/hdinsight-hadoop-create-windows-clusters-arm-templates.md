@@ -21,14 +21,14 @@
 
 [AZURE.INCLUDE [seletor](../../includes/hdinsight-create-windows-cluster-selector.md)]
 
-Aprenda a criar clusters HDInsight usando modelos de ARM (Gerenciador de Recursos do Azure). Para obter mais informações, consulte [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md). Para outros recursos e ferramentas de criação de cluster, clique na guia Selecionar na parte superior dessa página ou consulte [Métodos de criação de cluster](hdinsight-provision-clusters.md#cluster-creation-methods).
+Aprenda a criar clusters HDInsight usando modelos de ARM (Gerenciador de Recursos do Azure). Para saber mais, confira [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](../resource-group-template-deploy.md). Para outros recursos e ferramentas de criação de cluster, clique na guia Selecionar na parte superior dessa página ou consulte [Métodos de criação de cluster](hdinsight-provision-clusters.md#cluster-creation-methods).
 
 ###Pré-requisitos:
 
 Antes de começar a seguir as instruções neste artigo, você deve ter o seguinte:
 
 - [Assinatura do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- [Azure PowerShell](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater) e/ou [CLI do Azure](xplat-cli-install.md). 
+- [Azure PowerShell](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater) e/ou [CLI do Azure](../xplat-cli-install.md). 
 
 ## Modelos de ARM
 
@@ -38,8 +38,8 @@ Um modelo de ARM para criar um cluster HDInsight e a conta de Armazenamento do A
 
 Para obter mais informações sobre o modelo de ARM, consulte
 
-- [Criar modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md)
-- [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md)
+- [Criar modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md)
+- [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](../resource-group-template-deploy.md)
 
 
 ## Implantação com o PowerShell
@@ -102,7 +102,7 @@ O procedimento a seguir cria o cluster HDInsight baseados em Linux.
 
 	O script do PowerShell configura apenas o nome do cluster e o nome da conta de armazenamento. Você pode definir outros valores do modelo de ARM.
 	
-Para obter mais informações, consulte [Implantar com PowerShell](resource-group-template-deploy.md#deploy-with-powershell).
+Para saber mais, confira [Implantar com PowerShell](../resource-group-template-deploy.md#deploy-with-powershell).
 
 ## Implantar com a CLI do Azure
 
@@ -115,22 +115,22 @@ O exemplo a seguir cria um cluster e sua conta de armazenamento dependente e o c
 
 ## Implantar com a API REST
 
-Consulte [Implantar com a API REST](resource-group-template-deploy.md#deploy-with-the-rest-api).
+Consulte [Implantar com a API REST](../resource-group-template-deploy.md#deploy-with-the-rest-api).
 
 ## Implantação com o Visual Studio
 
 Com o Visual Studio você pode criar um projeto do grupo de recursos e implantá-lo ao Azure por meio da interface do usuário. Selecione o tipo de recursos a serem incluídos em seu projeto e os recursos serão adicionados automaticamente ao modelo do Gerenciador de recursos. O projeto também fornece um script do PowerShell para implantar o modelo.
 
-Para obter uma introdução ao uso do Visual Studio com grupos de recursos, confira [Criação e implantação de grupos de recursos do Azure usando o Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+Para obter uma introdução ao uso do Visual Studio com grupos de recursos, confira [Criação e implantação de grupos de recursos do Azure usando o Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
 ##Próximas etapas
 Neste artigo, você aprendeu várias maneiras de criar um cluster HDInsight. Para saber mais, consulte os seguintes artigos:
 
-- Para obter um exemplo de como implantar recursos por meio da biblioteca de cliente do .NET, confira [Implantar recursos usando bibliotecas .NET e um modelo](arm-template-deployment.md).
-- Para obter um exemplo detalhado de implantação de um aplicativo, confira [Provisionar e implantar microsserviços de forma previsível no Azure](app-service-deploy-complex-application-predictably.md).
-- Para obter orientação sobre como implantar a solução em ambientes diferentes, confira [Ambientes de desenvolvimento e de teste no Microsoft Azure](solution-dev-test-environments.md).
-- Para saber mais sobre as seções do modelo do Gerenciador de Recursos do Azure, confira [Criação de modelos](resource-group-authoring-templates.md).
-- Para obter uma lista das funções que você pode usar em um modelo do Gerenciador de Recursos do Azure, confira [Funções do modelo](resource-group-template-functions.md).
+- Para obter um exemplo de como implantar recursos por meio da biblioteca de cliente do .NET, confira [Implantar recursos usando bibliotecas .NET e um modelo](../virtual-machines/arm-template-deployment.md).
+- Para obter um exemplo detalhado de implantação de um aplicativo, confira [Provisionar e implantar microsserviços de forma previsível no Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
+- Para obter orientação sobre como implantar a solução em ambientes diferentes, confira [Ambientes de desenvolvimento e de teste no Microsoft Azure](../solution-dev-test-environments.md).
+- Para saber mais sobre as seções do modelo do Gerenciador de Recursos do Azure, confira [Criação de modelos](../resource-group-authoring-templates.md).
+- Para obter uma lista das funções que você pode usar em um modelo do Gerenciador de Recursos do Azure, confira [Funções do modelo](../resource-group-template-functions.md).
 
 
 ##Apêndice A: modelo de ARM
@@ -444,4 +444,4 @@ O modelo a seguir do Gerenciador de Recursos do Azure cria um cluster Hadoop bas
 	  }
 	}
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

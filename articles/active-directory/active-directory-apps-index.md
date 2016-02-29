@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="02/16/2016"
 	ms.author="markvi;liviodlc"/>
 
 #Índice de artigos sobre gerenciamento de aplicativos no Active Directory do Azure
@@ -24,7 +24,7 @@ Há uma introdução rápida para cada recurso importante, além de uma orienta�
 
 ##Artigos de visão geral
 
-Os artigos a seguir são bons pontos de partida para quem deseja apenas uma breve explicação dos recursos de gerenciamento de aplicativo do AD do Azure. Esses tópicos são explorados com mais profundidade no restante deste guia.
+Os artigos a seguir são bons pontos de partida para quem deseja apenas uma breve explicação dos recursos de gerenciamento de aplicativo do AD do Azure.
 
 | Guia de artigos | |
 | :---: | --- |
@@ -32,6 +32,18 @@ Os artigos a seguir são bons pontos de partida para quem deseja apenas uma brev
 | Uma visão geral dos vários recursos no AD do Azure relacionados à habilitação do logon único, definição de quem tem acesso aos aplicativos e como os usuários iniciam os aplicativos | [Acesso aos aplicativos e logon único no Active Directory do Azure](active-directory-appssoaccess-whatis.md) |
 | Um exame das diferentes etapas envolvidas na integração de aplicativos ao AD do Azure | [Integração do Active Directory do Azure com os aplicativos](active-directory-integrating-applications-getting-started.md)<br /><br />[Habilitação do logon único em aplicativos SaaS](active-directory-sso-integrate-saas-apps.md)<br /><br />[Gerenciamento do acesso aos aplicativos](active-directory-managing-access-to-apps.md) |
 | Uma explicação técnica de como os aplicativos são representados no AD do Azure | [Como e por que os aplicativos são adicionados ao AD do Azure](active-directory-how-applications-are-added.md) |
+
+##Artigos de solução de problemas
+
+Esta seção fornece acesso rápido às guias de solução de problemas relevantes. Para saber mais sobre cada área de recurso, veja o resto da página.
+
+| Área de recurso | |
+| :---: | --- |
+| Logon único federado | [Solução de problemas de logon único baseado em SAML](active-directory-saml-debugging.md) |
+| Logon único baseado em senha | [Solucionando problemas da extensão do painel de acesso para o Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
+| Proxy de Aplicativo | [Guia de solução de problemas de Proxy de Aplicativo](active-directory-application-proxy-troubleshoot.md) |
+| Logon único entre o AD local e o AD do Azure | [Solucionar problemas de sincronização de senha](active-directory-aadconnectsync-implement-password-synchronization.md#managing-password-synchronization)<br /><br />[Solucionar problemas de write-back de senha](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) | 
+| Associações de grupo dinâmico | [Solucionar problemas de associações a grupos dinâmicos](active-directory-accessmanagement-troubleshooting.md) |
 
 ##SSO (Logon único)
 
@@ -77,7 +89,7 @@ Se você tiver aplicativos em sua rede privada que precisam ser acessados por us
 
 O Proxy de Aplicativo está disponível para todas as edições do AD do Azure para até dez aplicativos por usuário. O [AD do Azure Premium](https://azure.microsoft.com/pricing/details/active-directory/) oferece suporte a uma quantidade ilimitada de aplicativos. Se sua organização tiver o [AD do Azure Basic](https://azure.microsoft.com/pricing/details/active-directory/) ou o [AD do Azure Premium](https://azure.microsoft.com/pricing/details/active-directory/), você poderá [usar grupos para atribuir acesso a aplicativos](#how-to-manage-who-has-access-to-which-apps).
 
-Você também pode se interessar pelos [Serviços de domínio do AD do Azure](active-directory-ds-overview.md), que permitem a migração de seus aplicativos locais para o Azure, satisfazendo ainda as necessidades de identidade desses aplicativos.
+Você também pode se interessar pelos [Serviços de domínio do AD do Azure](../active-directory-domain-services/active-directory-ds-overview.md), que permitem a migração de seus aplicativos locais para o Azure, satisfazendo ainda as necessidades de identidade desses aplicativos.
 
 ###Habilitação do logon único entre o AD do Azure e o AD local
 
@@ -87,10 +99,12 @@ Se sua organização mantém um Active Directory do Windows Server no local junt
 | :---: | --- |
 | Uma visão geral sobre as opções de logon único oferecidas no Azure AD Connect, bem como informações sobre o gerenciamento de ambientes híbridos | [Opções de logon único do usuário no Azure AD Connect](active-directory-aadconnect-user-signin.md) |
 | Diretrizes gerais para o gerenciamento de ambientes com o Active Directory local e o Active Directory do Azure | [Considerações de design de identidade híbrida do AD do Azure](active-directory-hybrid-identity-design-considerations-overview.md)<br /><br />[Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md) |
-| Orientação sobre como usar a Sincronização de senha para habilitar o SSO e sobre como usar o write-back de senha com a Redefinição de senha por autoatendimento do AD do Azure | [Implementar a sincronização de senha com o AD Azure Connect](active-directory-aadconnectsync-implement-password-synchronization.md)<br /><br />[Guia de introdução ao gerenciamento de senhas no AD do Azure](active-directory-passwords-getting-started.md) |
+| Orientação sobre como usar a Sincronização de Senha para habilitar SSO | [Implementar a sincronização de senha com o Azure AD Connect](active-directory-aadconnectsync-implement-password-synchronization.md)<br /><br />[Solucionar problemas de sincronização de senha](https://support.microsoft.com/pt-BR/kb/2855271) |
+| Orientação sobre como usar o Write-back de Senha para habilitar SSO | [Guia de Introdução ao gerenciamento de Senhas no AD do Azure](active-directory-passwords-getting-started.md)<br /><br />[Solucionar problemas de write-back de senha](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| Orientação sobre como usar provedores de identidade de terceiros para habilitar SSO | [Lista de provedores de identidade de terceiros compatíveis que podem ser usados para habilitar o logon único](https://aka.ms/ssoproviders) | 
 | Como os usuários do Windows 10 podem aproveitar os benefícios do logon único por meio do ingresso no AD do Azure | [Estendendo os recursos de nuvem para dispositivos com Windows 10 por meio do ingresso no Active Directory do Azure](active-directory-azureadjoin-overview.md) |
 
-O Azure AD Connect está disponível para [todas as edições do Active Directory do Azure](https://azure.microsoft.com/pricing/details/active-directory/). A Redefinição de senha por autoatendimento do AD do Azure está disponível para o [AD do Azure Básico](https://azure.microsoft.com/pricing/details/active-directory/) e o [AD do Azure Premium](https://azure.microsoft.com/pricing/details/active-directory/). O Write-back de Senha no AD local é um recurso do [AD do Azure Premium](https://azure.microsoft.com/pricing/details/active-directory/).
+O Azure AD Connect está disponível para [todas as edições do Active Directory do Azure](https://azure.microsoft.com/pricing/details/active-directory/). A Redefinição de senha por autoatendimento do AD do Azure está disponível para o [AD do Azure Básico](https://azure.microsoft.com/pricing/details/active-directory/) e o [AD do Azure Premium](https://azure.microsoft.com/pricing/details/active-directory/). O Write-back de senha no AD local é um recurso do [AD do Azure Premium](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ###Acesso condicional: imponha requisitos adicionais de segurança a aplicativos de alto risco
 
@@ -128,7 +142,7 @@ Automatize a criação, a manutenção e a remoção de identidades de usuário 
 
 | Guia de artigos | |
 | :---: | --- |
-| Saiba mais sobre como isso funciona e encontre respostas para perguntas comuns | [Automatizar o provisionamento/desprovisionamento de usuários para aplicativos SaaS](active-directory-saas-app-provisioning.md) |
+| Saiba mais sobre como isso funciona e encontre respostas para perguntas comuns | [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS](active-directory-saas-app-provisioning.md) |
 | Configurar como as informações são mapeadas entre o AD do Azure e seu aplicativo SaaS | [Personalização dos mapeamentos de atributo](active-directory-saas-customizing-attribute-mappings.md)<br><br>[Como escrever expressões para mapeamentos de atributo](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
 | Como habilitar o provisionamento automatizado para qualquer aplicativo que ofereça suporte ao protocolo SCIM | [Configurar o provisionamento automatizado de usuário para qualquer aplicativo habilitado para SCIM](active-directory-scim-provisioning.md) |
 | Receba notificações sobre falhas de provisionamento | [Notificações de provisionamento](active-directory-saas-account-provisioning-notifications.md) |
@@ -189,7 +203,7 @@ O Painel de acesso do AD do Azure é o local onde os usuários finais podem inic
 | Como acessar aplicativos do AD do Azure no aplicativo móvel Navegador Gerenciado do Intune | [Navegador Gerenciado do Intune](https://technet.microsoft.com/pt-BR/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
 | Como acessar aplicativos do AD do Azure usando links profundos para iniciar o logon único | [Como obter links de logon direto para seus aplicativos](active-directory-appssoaccess-whatis.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |
 
-O Painel de acesso está disponível para [todas as edições do Active Directory do Azure](https://azure.microsoft.com/pricing/details/active-directory/).
+O Painel de Acesso está disponível para [todas as edições do Active Directory do Azure](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ###Relatórios: audite com facilidade as alterações de acesso ao aplicativo e monitore as entradas nos aplicativos
 
@@ -214,4 +228,4 @@ Para ver quais relatórios estão incluídos em edições diferentes do Active D
 
 [Autenticação Multifator do Azure](https://azure.microsoft.com/services/multi-factor-authentication/)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

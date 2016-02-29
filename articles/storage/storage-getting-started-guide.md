@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="02/14/2016" 
 	ms.author="tamram"/>
 
 # Introdução ao Armazenamento do Azure em cinco minutos 
@@ -30,7 +30,7 @@ Você precisará atender aos seguintes pré-requisitos antes de iniciar:
 
 1. Para compilar e criar o aplicativo, você precisará ter uma versão do [Visual Studio](https://www.visualstudio.com/) instalada no computador. 
 
-2. Instalar a versão mais recente do [SDK do Azure para .NET](https://azure.microsoft.com/downloads/). O SDK inclui os projetos de exemplo de Início Rápido do Azure, o emulador de armazenamento do Azure e a [Biblioteca de Cliente de Armazenamento do Azure para .NET](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx).
+2. Instalar a versão mais recente do [SDK do Azure para .NET](https://azure.microsoft.com/downloads/). O SDK inclui os projetos de exemplo de Início Rápido do Azure, o emulador de armazenamento do Azure e a [Biblioteca de Cliente de Armazenamento do Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
 3. Certifique-se de que você tem o [.NET Framework 4.5](http://www.microsoft.com/download/details.aspx?id=30653) instalado no computador, uma vez que ele é necessário para os projetos de exemplo de Início Rápido do Azure que usaremos neste tutorial.
 
@@ -39,7 +39,7 @@ Você precisará atender aos seguintes pré-requisitos antes de iniciar:
 4. Você precisará de uma assinatura do Azure e de uma conta de armazenamento do Azure.
 
     - Para obter uma assinatura do Azure, confira [Avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/), [Opções de compra](https://azure.microsoft.com/pricing/purchase-options/) e [Ofertas para membros](https://azure.microsoft.com/pricing/member-offers/) (para membros de outros programas da Microsoft, MSDN, Microsoft Partner Network e BizSpark).
-    - Para criar uma conta de armazenamento no Azure, confira [Como criar, gerenciar ou excluir uma conta de armazenamento](storage-create-storage-account.md).
+    - Para criar uma conta de armazenamento no Azure, consulte [Como criar uma conta de armazenamento](storage-create-storage-account.md#create-a-storage-account).
 
 ## Execute o seu primeiro aplicativo do Armazenamento do Azure no Armazenamento do Azure na nuvem
 
@@ -98,15 +98,16 @@ Em seguida, execute o aplicativo de exemplo no Emulador de Armazenamento do Azur
 Consulte estes recursos para saber mais sobre o Armazenamento do Azure:
 
 * [Introdução ao Armazenamento do Microsoft Azure](storage-introduction.md)
-* [Como usar o Armazenamento de Blob no .NET](storage-dotnet-how-to-use-blobs.md)
-* [Como usar o Armazenamento de Tabela no .NET](storage-dotnet-how-to-use-tables.md)
-* [Como usar o Armazenamento de Fila no .NET](storage-dotnet-how-to-use-queues.md)
-* [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy)
+* [Introdução ao armazenamento de Blobs do Azure usando o .NET](storage-dotnet-how-to-use-blobs.md)
+* [Introdução ao armazenamento de Tabelas do Azure usando o .NET](storage-dotnet-how-to-use-tables.md)
+* [Introdução ao Armazenamento de Filas do Azure usando o .NET](storage-dotnet-how-to-use-queues.md)
+* [Introdução ao Armazenamento de Arquivos do Azure no Windows](storage-dotnet-how-to-use-files.md)
+* [Transferir dados com o Utilitário de Linha de Comando AzCopy](storage-use-azcopy.md)
 * [Documentação do Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
-* [Biblioteca de Cliente do Armazenamento do Azure](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
-* [API REST de Armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+* [Biblioteca de cliente de armazenamento do Microsoft Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
+* [API REST de serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

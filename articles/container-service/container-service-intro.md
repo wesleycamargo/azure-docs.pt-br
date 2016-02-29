@@ -1,21 +1,21 @@
 <properties
    pageTitle="Introdução ao Serviço do Contêiner do Azure | Microsoft Azure"
    description="O ACS (Serviço de Contêiner do Azure) fornece uma maneira de simplificar a criação, configuração e gerenciamento de um cluster de máquinas virtuais que são pré-configuradas para executar aplicativos contidos."
-   services="virtual-machines"
+   services="container-service"
    documentationCenter=""
    authors="rgardler"
-   manager="nepeters"
+   manager="timlt"
    editor=""
    tags="acs, azure-container-service"
    keywords="Docker, Contêineres, Microsserviços, Mesos, Azure"/>
    
 <tags
-   ms.service="virtual-machines"
+   ms.service="container-service"
    ms.devlang="na"
-   ms.topic="home-page"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="02/16/2016"
    ms.author="rogardle"/>
 
 # Introdução ao Serviço de Contêiner do Azure
@@ -28,8 +28,6 @@ O ACS utiliza o Docker para garantir que os contêineres do seu aplicativo sejam
 
 O Serviço de Contêiner do Azure permite que você aproveite os recursos de nível empresarial do Azure e ainda manter a portabilidade do aplicativo, inclusive nas camadas de orquestração.
 
-Enquanto o serviço está no modo de visualização, pedimos que aqueles que estão interessados em testar o serviço [se autodesignem](http://aka.ms/acspreview). Depois que o acesso de visualização tiver sido fornecido, um email será enviado com mais detalhes, incluindo modelos de implantação e instruções de introdução. Para usar o serviço, você precisará de uma assinatura do Azure; se não tiver uma, por que não se inscrever para obter uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/)?
-
 Usando o Serviço de Contêiner do Azure
 -----------------------------
 
@@ -38,11 +36,7 @@ Nosso objetivo com o Serviço de Contêiner do Azure é fornecer um ambiente de 
 Criando um Cluster do Docker usando o Serviço de Contêiner do Azure
 -------------------------------------------------------
 
-Depois de [solicitar](http://aka.ms/acspreview) e receber permissão de acesso à visualização, você pode usar um dos vários modelos do Gerenciador de Recursos do Azure que permitem que você implante seu primeiro cluster por meio do Portal do Azure. Com esses modelos, você pode criar um serviço com rapidez e iniciar a implantação de aplicativos nele imediatamente. Para começar, basta escolher o tamanho do seu cluster e se você deseja usar o Docker Swarm ou o Apache Mesos para gerenciar seus aplicativos.
-
-Você também pode [usar a linha de comando](/documentation/articles/resource-group-template-deploy/) para criar Serviços do Contêiner do Azure usando esses mesmos modelos. Quando estiver familiarizado com a estrutura desses modelos, você poderá escrever seu próprio modelo e automatizar por completo a criação de um cluster do Serviço de Contêiner do Azure.
-
-A documentação completa e o suporte serão fornecidos aos participantes da visualização e serão publicados aqui depois que o serviço estiver aberto para o público.
+Para começar a usar o Serviço de Contêiner do Azure, um cluster ACS será implantado usando um modelo do Gerenciador de Recursos do Azure. Essa implantação pode ser configurada com opções de tamanho e de disponibilidade diferentes e será configurada com o Apache Mesos ou o Docker Swarm. Os modelos do Gerenciador de Recursos do Azure podem ser implantados por meio do Portal do Azure, usando a CLI do Azure ou o PowerShell. Os modelos também podem ser modificados para incluir uma configuração do Azure avançada ou adicional. Para saber mais sobre implantação e o cluster ACS, confira [Implantar um cluster do Serviço de Contêiner do Azure](./container-service-deployment.md).
 
 Implantando um aplicativo
 ------------------------
@@ -77,11 +71,9 @@ No Mesos, há suporte para um grande número de [estruturas](http://mesos.apache
 
 O Marathon é um sistema de inicialização e controle de todo o cluster para serviços em cgroups ou, no caso do ACS, contêineres do Docker. É um parceiro ideal para o Chronos, um agendador de trabalhos tolerante a falhas para o Mesos que manipula as dependências e agendamentos com hora.
 
-O Marathon e o Chronos fornecem uma interface do usuário da Web da qual você pode implantar seus aplicativos. Você acessará isso em uma URL semelhante a `http://DNS\_PREFIX.REGION.cloudapp.azure.com`, em que DNS\_PREFIX e REGION são definidos no momento da implantação. É claro, você também pode fornecer seu próprio nome DNS.
+O Marathon e o Chronos fornecem uma interface do usuário da Web da qual você pode implantar seus aplicativos. Você acessará isso em uma URL semelhante a `http://DNS\_PREFIX.REGION.cloudapp.azure.com`, em que DNS\_PREFIX e REGION são definidos no momento da implantação. É claro, você também pode fornecer seu próprio nome DNS. Para saber mais sobre como executar um contêiner usando a interface de usuário da Web do Marathon, confira [Gerenciamento de contêiner pela interface de usuário da Web](./container-service-mesos-marathon-ui.md).
 
-Você também pode usar as APIs REST para se comunicar com o Marathon e Chronos. Há várias bibliotecas de cliente disponíveis para cada ferramenta, que abrangem uma variedade de idiomas e, claro, você pode usar o protocolo HTTP em qualquer idioma. Além disso, muitas ferramentas populares de DevOps dão suporte para esses agendadores. Isso fornece uma flexibilidade máxima para a equipe de operações quando estiver trabalhando com um cluster do ACS.
-
-A documentação completa e o suporte serão fornecidos aos participantes da visualização e serão publicados aqui depois que o serviço estiver aberto para o público.
+Você também pode usar as APIs REST para se comunicar com o Marathon e Chronos. Há várias bibliotecas de cliente disponíveis para cada ferramenta, que abrangem uma variedade de idiomas e, claro, você pode usar o protocolo HTTP em qualquer idioma. Além disso, muitas ferramentas populares de DevOps dão suporte para esses agendadores. Isso fornece uma flexibilidade máxima para a equipe de operações quando estiver trabalhando com um cluster do ACS. Para saber mais sobre como executar um contêiner usando a API REST do Marathon, confira [Gerenciamento de contêiner com a API REST](./container-service-mesos-marathon-rest.md).
 
 ### Usando o Docker Swarm
 
@@ -99,13 +91,6 @@ As ferramentas com suporte para gerenciar contêineres em um cluster do Swarm, i
 
 -   Jenkins
 
-A documentação completa e o suporte serão fornecidos aos participantes da visualização e serão publicados aqui depois que o serviço estiver aberto para o público.
-
-Obtendo acesso
---------------
-
-Enquanto o serviço está no modo de visualização, pedimos que aqueles que estão interessados em testar o serviço [se autodesignem](http://aka.ms/acspreview). Primeiro, será necessário uma Assinatura do Azure; se você não tiver uma, porque não se inscrever para obter uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/)?
-
 Vídeos
 ------
 Comunicado sobre o AzureCon:
@@ -116,4 +101,4 @@ Introdução ao ACS:
 
 > [AZURE.VIDEO connect-2015-getting-started-developing-with-docker-and-azure-container-service]
 
-<!---HONumber=AcomDC_0128_2016--->
+<!---HONumber=AcomDC_0218_2016-->

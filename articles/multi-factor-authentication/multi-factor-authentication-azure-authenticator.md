@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 
@@ -33,7 +33,7 @@ Com o lançamento do aplicativo Azure Authenticator, disponível para [Windows P
 
 Em primeiro lugar, verifique se você tem o código QR ou o código e a URL para entrada manual da conta que deseja adicionar ao aplicativo.
 
-> [AZURE.NOTE]Não tem certeza de como obter o código QR? Entre em contato com o suporte técnico para obter assistência.
+> [AZURE.NOTE] Não tem certeza de como obter o código QR? Entre em contato com o suporte técnico para obter assistência.
 > 
 > Não é possível ativar sua conta com o novo aplicativo? Entre em contato com o suporte técnico.
 >
@@ -164,4 +164,4 @@ Desse ponto em diante, quando for necessário verificar sua entrada, você tocar
 
 ![ID de Toque](./media/multi-factor-authentication-azure-authenticator/touchid2.png)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

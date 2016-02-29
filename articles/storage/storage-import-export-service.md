@@ -57,10 +57,11 @@ Ao criar um trabalho de importação ou de exportação, você também precisar�
 6.	**Tamanho máximo de um trabalho:** o tamanho de um trabalho é determinado pela capacidade dos discos rígidos usados e a quantidade máxima de dados que podem ser armazenados em uma conta de armazenamento. Cada trabalho pode conter, no máximo, 10 discos rígidos.
 7.  **Sistema operacional com suporte:** o cliente pode usar um dos seguintes sistemas operacionais para preparar o disco rígido usando a ferramenta de importação/exportação do Azure antes do envio para o Azure - Windows 7, Windows 8, Windows 8.1, Windows 10*, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2.  
 
-  > [AZURE.IMPORTANT] 
-    -Consulte a [seção de Perguntas frequentes](#frequently-asked-questions) para obter instruções especiais se você estiver usando um computador Windows 10 para preparar o disco rígido.
-    
-    - External hard disk drives that come with an in built USB adaptor are not supported by this service. Please do not prepare an external HDD. The disk inside the external casing also cannot be used for importing data. Use a 3.5" SATA II/III **internal** hard disk drive. If you cannot connect the SATA disk directly to your machine, use an external SATA to USB adaptor. See the list of recommended adaptors in FAQ section.
+  > [AZURE.IMPORTANT]
+  >  
+  >  - Consulte a [seção de Perguntas frequentes](#frequently-asked-questions) para obter instruções especiais se você estiver usando um computador Windows 10 para preparar o disco rígido.
+  >  
+  >  - Não há suporte para unidades de disco rígido externas que vêm com um adaptador USB integrado neste serviço. Não prepare um HDD externo. O disco dentro da estrutura externa também não pode ser usado para importar dados. Use uma unidades de disco rígido **interna** SATA II/III de 3,5 polegadas. Se você não conseguir conectar o disco SATA diretamente ao seu computador, use um SATA externo para o adaptador USB. Consulte a lista de adaptadores recomendados na seção de perguntas frequentes.
 
 ## Criar um trabalho de importação no Portal Clássico##
 
@@ -290,4 +291,4 @@ Siga as instruções abaixo para usar o Windows 10 para preparar seu HDD:
 [export-job-03]: ./media/storage-import-export-service-classic-portal/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

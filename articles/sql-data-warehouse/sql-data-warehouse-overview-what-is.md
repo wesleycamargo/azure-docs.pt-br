@@ -47,7 +47,7 @@ Essa abordagem MPP permite que o SQL Data Warehouse use uma abordagem do tipo di
 
 - Além de criar planos de consulta ideais, o SQL Data Warehouse incorpora técnicas e algoritmos avançados que movem dados eficientemente entre os recursos de computação, conforme a necessidade, para executar a consulta. Essas operações estão integradas aos Serviços de Movimentação de Dados do data warehouse, e as otimizações ocorrem automaticamente.
 
-- A inclusão de índices columnstore clusterizados ao dispositivo também é fundamental para alcançar um desempenho de consulta rápida. Ao usar o armazenamento baseado em coluna, o SQL Data Warehouse pode obter até 5 vezes mais ganhos de compactação em relação ao armazenamento tradicional orientado por linha e até 10 vezes mais ganhos de desempenho em consulta. As consultas de data warehouse funcionam bem em índices columnstore porque frequentemente examinam a tabela inteira ou toda a partição de uma tabela e minimizam o impacto da movimentação de dados para etapas de consulta.
+- A inclusão de índices columnstore clusterizados para SQL Data Warehouse também é fundamental para alcançar o desempenho de consulta rápida. Ao usar o armazenamento baseado em coluna, o SQL Data Warehouse pode obter até 5 vezes mais ganhos de compactação em relação ao armazenamento tradicional orientado por linha e até 10 vezes mais ganhos de desempenho em consulta. As consultas de data warehouse funcionam bem em índices columnstore porque frequentemente examinam a tabela inteira ou toda a partição de uma tabela e minimizam o impacto da movimentação de dados para etapas de consulta.
 
 ## Escalonável
 
@@ -140,4 +140,4 @@ Agora que você sabe um pouco sobre o SQL Data Warehouse, saiba mais sobre a [ca
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

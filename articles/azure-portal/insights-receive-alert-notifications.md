@@ -42,31 +42,29 @@ Você pode usar o [API REST](https://msdn.microsoft.com/library/azure/dn931945.a
 
 6. Você também pode escolher **Eventos** e receber uma notificação quando ocorrer um determinado evento. 
     ![Eventos](./media/insights-receive-alert-notifications/Insights_Events.png)
-    
->[AZURE.NOTE] Neste momento, apenas há suporte para os Eventos para Aplicativos Web. 
 
 7. Finalmente, você pode optar por enviar uma notificação por email aos administradores responsáveis.
 
-Depois de clicar em **Salvar**, dentro de alguns minutos você será informado sempre que a métrica que escolheu exceder o limite. 
+Depois de clicar em **Salvar**, dentro de alguns minutos você será informado sempre que a métrica que escolheu exceder o limite.
 
 ## Gerenciar suas regras de alerta
 
-Depois de criar uma regra de alerta, você pode exibir uma visualização de seu limite de alerta comparado à métrica do dia anterior. 
+Depois de criar uma regra de alerta, você pode exibir uma visualização de seu limite de alerta comparado à métrica do dia anterior.
 
 ![Eventos](./media/insights-receive-alert-notifications/Insights_EditAlert.png)
 
 
-É claro que você pode editar essa regra de alerta e **Desabilitar** ou **Habilitar** se deseja interromper temporariamente a recepção de notificações sobre ele. 
+É claro que você pode editar essa regra de alerta e **Desabilitar** ou **Habilitar** se deseja interromper temporariamente a recepção de notificações sobre ele.
 
 ## Próximas etapas
 
 * [Configurar webhooks em seus alertas](insights-webhooks-alerts.md) para direcionar notificações a vários canais
 * [Monitore as métricas de serviço](insights-how-to-customize-monitoring.md) para se certificar de que o serviço está disponível e responsivo.
 * [Ative o monitoramento e diagnóstico](insights-how-to-use-diagnostics.md) para coletar métricas detalhadas de alta frequência em seu serviço.
-* [Monitore a disponibilidade e a capacidade de resposta de qualquer página da Web](../app-insights-monitor-web-app-availability.md) com o Application Insights para que você possa descobrir se a página está inativa.
+* [Monitore a disponibilidade e a capacidade de resposta de qualquer página da Web](../application-insights/app-insights-monitor-web-app-availability.md) com o Application Insights para que você possa descobrir se a página está inativa.
 * [Monitore o desempenho do aplicativo](insights-perf-analytics.md) se você quiser compreender exatamente como seu código está sendo executado na nuvem.
 * [Exiba eventos e logs de auditoria](insights-debugging-with-events.md) para saber tudo o que aconteceu no seu serviço.
 * [Acompanhe a integridade do serviço](insights-service-health.md) para saber quando o Azure sofreu interrupções de serviço ou degradação do desempenho.
  
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

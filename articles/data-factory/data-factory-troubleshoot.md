@@ -52,9 +52,9 @@ Verifique se o SQL Server está acessível por meio do computador em que o gatew
 2. Tente se conectar à instância do SQL Server usando as credenciais especificadas por você no Portal Clássico do Azure usando o SSMS (SQL Server Management Studio).
 
 
-## Problema: Fatias de entrada estão permanentemente no estado PendingExecution ou PendingValidation
+## Problema: as fatias de entrada ficam sempre no estado Aguardando
 
-As fatias poderiam estar no estado **PendingExecution** ou **PendingValidation** devido a vários motivos, e um dos mais comuns é que a propriedade **external** não é especificada como **true**. Qualquer conjunto de dados produzido fora do escopo da Azure Data Factory deve ser marcado com a propriedade **external**. Isso indica que os dados são externos e não têm suporte por quaisquer pipelines dentro da data factory. As fatias de dados são marcadas como **Pronto** depois que os dados estão disponíveis no respectivo armazenamento.
+As fatias poderiam estar no estado **Aguardando** devido a vários motivos, e um dos mais comuns é que a propriedade **external** não é especificada como **true**. Qualquer conjunto de dados produzido fora do escopo da Azure Data Factory deve ser marcado com a propriedade **external**. Isso indica que os dados são externos e não têm suporte por quaisquer pipelines dentro da data factory. As fatias de dados são marcadas como **Pronto** depois que os dados estão disponíveis no respectivo armazenamento.
 
 Consulte o exemplo a seguir para o uso da propriedade **external**. Como opção, você pode especificar **externalData*** quando definir external como true.
 
@@ -207,7 +207,7 @@ Neste passo a passo, você apresentará um erro no tutorial do artigo Introduç�
 	![Folha Fatia de dados com execuções ativas][image-data-factory-troubleshoot-dataslice-blade-with-active-runs]
 
 
-7. Na folha **Detalhes de Execução da Atividade** da execução de atividade selecionada, você verá detalhes sobre o erro. Nesse cenário, você deve ver: **Nome de objeto inválido “emp”**.
+7. Na folha **Detalhes de Execução da Atividade** da execução de atividade selecionada, você verá detalhes sobre o erro. Nesse cenário, você deve ver: **Nome de objeto inválido 'emp'**.
 
 	![Detalhes da execução de atividade com um erro][image-data-factory-troubleshoot-activity-run-with-error]
 
@@ -374,4 +374,4 @@ Nesse cenário, o conjunto de dados está em um estado de erro devido a uma falh
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

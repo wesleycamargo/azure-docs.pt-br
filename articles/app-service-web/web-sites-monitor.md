@@ -171,7 +171,7 @@ Os arquivos de log podem ser baixados usando FTP, PowerShell do Azure ou a CLI d
 
 **PowerShell do Azure**
 
-1. Na **Tela Inicial** ou no **Menu Iniciar**, pesquise por **PowerShell do Azure**. Clique com o botão direito do mouse no **PowerShell do Azure** e selecione **Executar como Administrador**.
+1. Na **Tela Inicial** ou no **Menu Iniciar**, procure **Windows PowerShell**. Clique com o botão direito do mouse na entrada **Windows PowerShell** e selecione **Executar como Administrador**.
 
 	> [AZURE.NOTE] Se o **PowerShell do Azure** não estiver instalado, consulte [Introdução aos cmdlets do PowerShell do Azure](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) para obter informações sobre a instalação e a configuração.
 
@@ -289,4 +289,4 @@ Para obter mais informações sobre o monitoramento de pontos de extremidade do 
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

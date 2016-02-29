@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="02/11/2016"
 	ms.author="donnam"/>
 
 # Adicionar autenticação ao aplicativo de Serviços Móveis
@@ -78,7 +78,7 @@ Em seguida, você atualizará o aplicativo para autenticar os usuários antes de
             }
         }
 
-	> [AZURE.NOTE]Se você estiver usando um provedor de identidade que não seja a Conta da Microsoft, altere o valor passado para **LoginAsync** acima para um dos seguintes: _Facebook_, _Twitter_, _Google_ ou _WindowsAzureActiveDirectory_.
+	> [AZURE.NOTE] Se você estiver usando um provedor de identidade que não seja a Conta da Microsoft, altere o valor passado para **LoginAsync** acima para um dos seguintes: _Facebook_, _Twitter_, _Google_ ou _WindowsAzureActiveDirectory_.
 
 3. Mova a solicitação da tabela **ToDoItem** do construtor **ToDoService** para um novo método chamado **CreateTable**:
 
@@ -155,4 +155,4 @@ No próximo tutorial, [Autorizar usuários com scripts], você irá obter o valo
 [o projeto de exemplo concluído]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 [Xamarin.iOS]: http://xamarin.com/download
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

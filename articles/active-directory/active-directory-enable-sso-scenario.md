@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Gerenciando aplicativos com o Active Directory do Azure | Microsoft Azure"
-   description="Este artigo apresenta os benefícios da integração do Active Directory do Azure com seus aplicativos locais, de nuvem e SaaS."
-   services="active-directory"
-   documentationCenter=""
-   authors="ihenkel"
-   manager="stevenpo"
-   editor=""/>
+    pageTitle="Gerenciando aplicativos com o Active Directory do Azure | Microsoft Azure"
+    description="Este artigo apresenta os benefícios da integração do Active Directory do Azure com seus aplicativos locais, de nuvem e SaaS."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="stevenpo"
+    editor=""/>
 
    <tags
       ms.service="active-directory"
@@ -13,12 +13,10 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="02/09/2016"
-      ms.author="inhenk"/>
+      ms.date="02/16/2016"
+      ms.author="markvi"/>
 
-# Gerenciando aplicativos com o AD do Azure (Active Directory do Azure)
-
-## Visão geral
+# Gerenciamento de aplicativos com o Active Directory do Azure
 
 Além do fluxo de trabalho ou do conteúdo real, as empresas têm dois requisitos básicos para todos os aplicativos:
 
@@ -30,9 +28,9 @@ No mundo dos aplicativos em nuvem, a melhor maneira de alcançar isso é usando 
 
 Na terminologia de computação:
 
-- *Quem* é conhecido como a *identidade* – um repositório de dados que consiste em usuários e grupos
+- *Quem* é conhecido como *identidade* - o gerenciamento de usuários e grupos
 
-- *O que* é conhecido como o *gerenciamento de acesso* – gerenciamento de acesso aos recursos protegidos
+- *O que* é conhecido como *gerenciamento de acesso*, o gerenciamento de acesso aos recursos protegidos
 
 Ambos os componentes juntos são conhecidos como *IAM (Gerenciamento de Identidades e Acesso)*, que é definido pelo grupo [Gartner](http://www.gartner.com/it-glossary/identity-and-access-management-iam) como “*a disciplina de segurança que permite que os indivíduos certos acessem os recursos certos nos momentos certos para os motivos certos*”.
 
@@ -40,7 +38,7 @@ Certo, então, qual é o problema? Se o IAM *não for gerenciado* em um só luga
 
 - Os administradores de identidades precisam criar e atualizar individualmente as contas de usuário em todos os aplicativos de maneira separada, uma atividade demorada e redundante.
 
-- Os usuários precisam memorizar várias credenciais para acessar os aplicativos de que precisam para trabalhar, especialmente porque eles são incentivados a não usar a mesma senha para cada aplicativo por razões de segurança. Como resultado, os usuários tendem a anotar suas senhas ou usar outras soluções de gerenciamento de senhas que apresentam outros riscos de segurança de dados.
+- Os usuários precisam memorizar várias credenciais para acessar os aplicativos com que precisam trabalhar. Como resultado, os usuários tendem a anotar suas senhas ou usar outras soluções de gerenciamento de senhas que apresentam outros riscos de segurança de dados.
 
 - Atividades demoradas e redundantes reduzem a quantidade de tempo que os usuários e administradores trabalham em atividades comerciais que aumentam o resultado dos negócios.
 
@@ -52,15 +50,24 @@ Portanto, o que geralmente impede que as organizações adotem soluções integr
 
 - As ferramentas de monitoramento e de segurança exigem integração e personalização adicional para obter cenários de E2E abrangentes.
 
-## AD do Azure (Active Directory do Azure) integrado com aplicativos
+## Active Directory do Azure integrado com aplicativos
 
-O AD do Azure (Active Directory do Azure) é a solução abrangente de IDaaS (Identidade como Serviço) da Microsoft que habilita o IAM como um serviço de nuvem e fornece gerenciamento de acesso interno, SSO (logon único) e relatórios [pré-integrados com milhares de aplicativos](https://azure.microsoft.com/marketplace/active-directory/), incluindo Salesforce, Google Apps, Box, Concur e muito mais. Com o AD do Azure, os aplicativos que você publica para seus parceiros e clientes (comerciais ou consumidores) terão os mesmos recursos de gerenciamento de identidades e de acesso, liberando você para se concentrar em seu negócio principal.
+O Active Directory do Azure é a solução IDaaS (Identidade como Serviço) abrangente da Microsoft que:
 
-O valor do AD do Azure vai além de “simples” aplicativos em nuvem. Você também pode usá-lo com aplicativos locais, fornecendo acesso remoto seguro, evitando a necessidade de VPNs ou de outro sistema de gerenciamento de acesso remoto tradicional.
+- Habilita o IAM como um serviço de nuvem 
+
+- Fornece gerenciamento de acesso central, logon único (SSO) e relatórios
+
+- Oferece suporte ao gerenciamento de acesso integrado para [milhares de aplicativos](https://azure.microsoft.com/marketplace/active-directory/) na galeria de aplicativos, incluindo Salesforce, Google Apps, Box, Concur e outros.
+
+
+Com o Active Directory do Azure, os aplicativos que você publica para seus parceiros e clientes (comerciais ou consumidores) têm os mesmos recursos de gerenciamento de identidades e de acesso.<br> Isso permite que você reduza significativamente os custos operacionais.
 
 E se você precisar implementar um aplicativo que ainda não está listado na galeria de aplicativos? Embora isso seja um pouco mais demorado do que configurar o SSO para aplicativos da galeria de aplicativos, o AD do Azure fornece um assistente que ajuda você com a configuração.
 
-Ao fornecer o gerenciamento de acesso central e SSO (logon único) para todos os seus aplicativos, o AD do Azure oferece a solução para problemas de produtividade e segurança de dados.
+O valor do AD do Azure vai além de “simples” aplicativos em nuvem. Você também pode usar com aplicativos locais, fornecendo acesso remoto seguro. Com o acesso remoto seguro, você pode eliminar a necessidade de VPNs ou outras implantações de gerenciamento de acesso remoto tradicionais.
+
+Ao fornecer o gerenciamento de acesso central e SSO (logon único) para todos os seus aplicativos, o AD do Azure oferece a solução para os principais problemas de produtividade e de segurança de dados.
 
 - Os usuários podem acessar vários aplicativos com um único logon, proporcionando mais tempo para a geração de receitas ou para a realização de atividades de operações de negócios.
 
@@ -128,4 +135,4 @@ Para começar a integrar aplicativos com o AD do Azure, confira o [Guia de intro
 
 [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->
