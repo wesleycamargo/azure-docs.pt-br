@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/06/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # Introdução à criação de um balanceador de carga para a Internet (clássico) na CLI do Azure
@@ -130,7 +130,7 @@ Você precisa excluir o ponto de extremidade associado ao conjunto de balanceado
 	azure vm endpoint delete web1 tcp-80-80
 
 
->[AZURE.NOTE]Você pode explorar mais opções para gerenciar pontos de extremidade usando o comando `azure vm endpoint --help`
+>[AZURE.NOTE] Você pode explorar mais opções para gerenciar pontos de extremidade usando o comando `azure vm endpoint --help`
 
 
 ## Próximas etapas
@@ -143,4 +143,4 @@ Você precisa excluir o ponto de extremidade associado ao conjunto de balanceado
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

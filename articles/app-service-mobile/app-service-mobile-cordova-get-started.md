@@ -4,13 +4,15 @@
     services="app-service\mobile"
     documentationCenter="javascript"
     authors="adrianhall"
-    manager="glenga"
-    editor=""/>
+    manager="ggailey777"
+    editor=""
+    tags=""
+    keywords="cordova,javascript,móvel,cliente" />
 
 <tags
     ms.service="app-service-mobile"
     ms.workload="na"
-    ms.tgt_pltfrm="mobile-javascript"
+    ms.tgt_pltfrm="mobile-html"
     ms.devlang="javascript"
     ms.topic="article"
     ms.date="02/09/2016"
@@ -48,6 +50,22 @@ Você também pode ignorar o Visual Studio e usar a linha de comando do Apache C
 
 [AZURE.INCLUDE [app-service-mobile-cordova-run-app](../../includes/app-service-mobile-cordova-run-app.md)]
 
+## Próximas etapas
+
+Agora que você concluiu este tutorial de início rápido, passe para um dos tutoriais a seguir:
+
+* [Adicionar autenticação] ao aplicativo Apache Cordova.
+* [Adicionar Notificações por push] ao seu aplicativo Apache Cordova.
+
+Saiba mais sobre os principais conceitos com o Serviço de Aplicativo do Azure.
+
+* [Autenticação]
+* [Notificações por Push]
+
+Saiba como usar os SDKs.
+
+* [SDK do Servidor ASP.NET]
+* [SDK do Servidor Node.js]
 
 <!-- Images. -->
 
@@ -55,5 +73,11 @@ Você também pode ignorar o Visual Studio e usar a linha de comando do Apache C
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2015]: http://www.visualstudio.com/
 [Ferramentas do Visual Studio para Apache Cordova]: https://www.visualstudio.com/pt-BR/features/cordova-vs.aspx
+[Adicionar autenticação]: app-service-mobile-cordova-get-started-users.md
+[Adicionar Notificações por push]: app-service-mobile-cordova-get-started-push.md
+[Autenticação]: app-service-mobile-auth.md
+[Notificações por Push]: ../notification-hubs/notification-hubs-overview.md
+[SDK do Servidor ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[SDK do Servidor Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

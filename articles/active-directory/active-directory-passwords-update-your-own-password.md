@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="02/16/2016" 
 	ms.author="asteen"/>
 
 # Como atualizar sua própria senha
@@ -48,7 +48,7 @@ A maneira mais rápida de se registrar para redefinição de senha é ir para ht
  
     ![][015]
 
- >[AZURE.IMPORTANT]Se o administrador permitir que você se registre em mais de uma opção, recomendamos que também registre uma opção de backup caso perca seu telefone ou o acesso a seu email.
+ >[AZURE.IMPORTANT] Se o administrador permitir que você se registre em mais de uma opção, recomendamos que também registre uma opção de backup caso perca seu telefone ou o acesso a seu email.
 
 ## Como alterar sua senha do O365
 Siga as etapas abaixo para alterar a senha de sua conta corporativa ou de estudante do Office 365. Se você tiver esquecido sua senha e quiser redefini-la, siga as etapas [daqui](#how-to-reset-your-password).
@@ -76,7 +76,7 @@ Siga as etapas abaixo para alterar a senha de sua conta corporativa ou de estuda
 
 Siga as etapas abaixo para redefinir a senha de sua conta corporativa ou de estudante usando a tela de entrada de uma conta corporativa ou de estudante.
 
- >[AZURE.IMPORTANT]Esse recurso só estará disponível para você se tiver sido ativado pelo administrador. Se ele não estiver ativado, você verá uma mensagem indicando que a sua conta não está habilitada para esse recurso. Nesse caso, você pode usar o link "contate seu administrador" para entrar em contato com seu administrador e desbloquear sua conta.<br><br>Se o administrador tiver habilitado esse recurso, você precisará se inscrever primeiro para poder usá-lo. Você pode fazer isso aqui: http://aka.ms/ssprsetup
+ >[AZURE.IMPORTANT] Esse recurso só estará disponível para você se tiver sido ativado pelo administrador. Se ele não estiver ativado, você verá uma mensagem indicando que a sua conta não está habilitada para esse recurso. Nesse caso, você pode usar o link "contate seu administrador" para entrar em contato com seu administrador e desbloquear sua conta.<br><br>Se o administrador tiver habilitado esse recurso, você precisará se inscrever primeiro para poder usá-lo. Você pode fazer isso aqui: http://aka.ms/ssprsetup
  
 
  1. Na página de entrada da conta corporativa ou de estudante, clique no link “não consegue acessar sua conta?” ou vá diretamente para https://passwordreset.microsoftonline.com.
@@ -123,7 +123,7 @@ Encontrou algum problema durante a redefinição da senha? Leia sobre [problemas
 ## Como desbloquear sua conta
 Siga as etapas abaixo para desbloquear sua conta local usando a tela de entrada de uma conta corporativa ou de estudante. **Observação: você só poderá desbloquear sua conta se ela tiver sido bloqueada localmente.**
 
- >[AZURE.IMPORTANT]Esse recurso só estará disponível para você se tiver sido ativado pelo administrador. Se ele não estiver ativado, você verá uma mensagem indicando que a sua conta não está habilitada para esse recurso. Nesse caso, você pode usar o link "contate seu administrador" para entrar em contato com seu administrador e desbloquear sua conta.<br><br>Se o administrador tiver habilitado esse recurso, você precisará se inscrever primeiro para poder usá-lo. Você pode fazer isso aqui: http://aka.ms/ssprsetup
+ >[AZURE.IMPORTANT] Esse recurso só estará disponível para você se tiver sido ativado pelo administrador. Se ele não estiver ativado, você verá uma mensagem indicando que a sua conta não está habilitada para esse recurso. Nesse caso, você pode usar o link "contate seu administrador" para entrar em contato com seu administrador e desbloquear sua conta.<br><br>Se o administrador tiver habilitado esse recurso, você precisará se inscrever primeiro para poder usá-lo. Você pode fazer isso aqui: http://aka.ms/ssprsetup
 
 
  1. Na página de entrada da conta corporativa ou de estudante, clique no link “não consegue acessar sua conta?” ou vá diretamente para https://passwordreset.microsoftonline.com.
@@ -162,7 +162,7 @@ Siga as etapas abaixo para desbloquear sua conta local usando a tela de entrada 
  
     ![][010]
   
- >[AZURE.IMPORTANT]Não deixe de atualizar todos os seus dispositivos com a senha mais recente, já que muitas vezes um aplicativo invasor com uma senha antiga (como seu cliente de email no celular) pode ser o responsável pelo bloqueio da sua conta.
+ >[AZURE.IMPORTANT] Não deixe de atualizar todos os seus dispositivos com a senha mais recente, já que muitas vezes um aplicativo invasor com uma senha antiga (como seu cliente de email no celular) pode ser o responsável pelo bloqueio da sua conta.
  
 Encontrou algum problema durante o desbloqueio da conta? Leia sobre [problemas comuns e suas soluções](#common-problems-and-their-solutions)
 
@@ -252,4 +252,4 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 [014]: ./media/active-directory-passwords-update-your-own-password/014.jpg "Image_014.jpg"
 [015]: ./media/active-directory-passwords-update-your-own-password/015.jpg "Image_015.jpg"
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

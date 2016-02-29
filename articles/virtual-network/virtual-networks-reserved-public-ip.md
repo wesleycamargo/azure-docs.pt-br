@@ -12,13 +12,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="02/10/2016"
    ms.author="telmos" />
 
 # Visão geral de IPs reservados
 Os endereços IP no Azure recaem em duas categorias: dinâmicos e reservados. Os endereços IP públicos gerenciados pelo Azure são dinâmicos por padrão. Isso significa que o endereço IP usado para um determinado serviço de nuvem (VIP) ou para acessar uma VM ou instância de função diretamente (ILPIP) pode mudar de tempos em tempos, quando recursos forem desligados ou desalocados.
 
 Para evitar que endereços IP sejam alterados, é possível reservar um endereço IP. Os IPs reservados podem ser usados apenas como um VIP, garantindo que o endereço IP do serviço de nuvem permaneça o mesmo, mesmo se os recursos forem desligados ou desalocados. Além disso, você pode converter IPs dinâmicos existentes usados como um VIP para um endereço IP reservado.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-network-ip-addresses-overview-arm.md).
+
+Certifique-se de que você entenda como os [endereços IP](virtual-network-ip-addresses-overview-classic.md) funcionam no Azure.
 
 ## Quando eu precisarei de um IP reservado?
 - **Você deseja garantir que o IP seja reservado em sua assinatura**. Se você quiser reservar um endereço IP que não será liberado da sua assinatura sob nenhuma circunstância, deverá usar um IP reservado público.  
@@ -73,14 +77,14 @@ O script a seguir cria um novo IP reservado e o associa a um novo serviço de nu
 	| Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
 	| New-AzureVM -ServiceName TestService -ReservedIPName MyReservedIP -Location "Central US"
 
->[AZURE.NOTE]Quando você cria um IP reservado a ser usado com um serviço de nuvem, você ainda precisará fazer referência à VM usando *VIP:&lt;número de porta>* para comunicação de entrada. Reservar um IP não significa que você pode conectar-se à VM diretamente. O IP reservado é atribuído ao serviço de nuvem no qual a VM foi implantada. Se você quiser se conectar diretamente a uma VM por IP, precisará configurar um IP público em nível de instância. Um IP público em nível de instância é um tipo de IP público (chamado de ILPIP) atribuído diretamente à sua VM. Ele não pode ser reservado. Veja [IP Público em Nível de Instância (ILPIP)](../virtual-networks-instance-level-public-ip) para obter mais informações.
+>[AZURE.NOTE] Quando você cria um IP reservado a ser usado com um serviço de nuvem, você ainda precisará fazer referência à VM usando *VIP:&lt;número de porta>* para comunicação de entrada. Reservar um IP não significa que você pode conectar-se à VM diretamente. O IP reservado é atribuído ao serviço de nuvem no qual a VM foi implantada. Se você quiser se conectar diretamente a uma VM por IP, precisará configurar um IP público em nível de instância. Um IP público em nível de instância é um tipo de IP público (chamado de ILPIP) atribuído diretamente à sua VM. Ele não pode ser reservado. Veja [IP Público em Nível de Instância (ILPIP)](../virtual-networks-instance-level-public-ip) para obter mais informações.
 
 ## Como remover um IP reservado de uma implantação em execução
 Para remover o IP reservado adicionado ao novo serviço criado no script acima, execute o seguinte comando do PowerShell:
 
 	Remove-AzureReservedIPAssociation -ReservedIPName MyReservedIP -ServiceName TestService
 
->[AZURE.NOTE]Removendo um IP reservado de uma implantação em execução não remove a reserva de sua assinatura. Ele simplesmente libera o IP para ser usado por outro recurso em sua assinatura.
+>[AZURE.NOTE] Removendo um IP reservado de uma implantação em execução não remove a reserva de sua assinatura. Ele simplesmente libera o IP para ser usado por outro recurso em sua assinatura.
 
 ## Como associar um IP reservado a uma implantação em execução
 O script abaixo cria um novo serviço de nuvem chamado *TestService2* com uma nova VM denominada *TestVM2*, e então associa o IP reservado existente chamado *MyReservedIP* ao serviço de nuvem.
@@ -113,10 +117,10 @@ Você também pode associar um IP reservado a um serviço de nuvem usando um arq
 
 ## Próximas etapas
 
+- Entenda como o [endereçamento IP](virtual-network-ip-addresses-overview-classic.md) funciona no modelo de implantação clássico.
+
 - Saiba mais sobre [endereços IP privados reservados](../virtual-networks-reserved-private-ip).
 
 - Saiba mais sobre [endereços ILPIP (IP Público de Nível de Instância)](../virtual-networks-instance-level-public-ip).
 
-- Verifique as [APIs REST do IP reservado](https://msdn.microsoft.com/library/azure/dn722420.aspx).
-
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

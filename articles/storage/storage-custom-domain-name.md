@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2015"
+	ms.date="02/14/2016"
 	ms.author="tamram"/>
 
 
@@ -24,7 +24,7 @@
 Você pode configurar um domínio personalizado para acessar os dados de blob em sua conta de armazenamento do Azure. O ponto de extremidade padrão para o Armazenamento de Blobs é https://<*minha\_conta\_de\_armazenamento*>.blob.core.windows.net. Se você mapear um domínio personalizado e um subdomínio como **www.contoso.com** para o ponto de extremidade do blob para sua conta de armazenamento, logo, os usuários também poderão acessar dados do blob em sua conta de armazenamento usando esse domínio.
 
 
-> [AZURE.NOTE]	Os procedimentos nesta tarefa se aplicam a contas de armazenamento do Azure. Para os serviços de nuvem, consulte <a href = "/develop/net/common-tasks/custom-dns/">Configurando um nome de domínio personalizado para um serviço de nuvem do Azure</a>; para os Sites, consulte <a href="/develop/net/common-tasks/custom-dns-web-site/">Configurando um nome de domínio personalizado para um Site do Azure</a>.
+> [AZURE.NOTE]	Os procedimentos nesta tarefa se aplicam a contas de armazenamento do Azure. Para serviços de nuvem, consulte <a href = "/develop/net/common-tasks/custom-dns/"> Configurando um nome de domínio personalizado para um serviço de nuvem do Azure</a>; para sites, consulte <a href="/develop/net/common-tasks/custom-dns-web-site/">Configurar um nome de domínio personalizado no Serviço de Aplicativo do Azure</a>.
 
 Existem duas maneiras de apontar seu domínio personalizado para o ponto de extremidade do blob de sua conta de armazenamento. A maneira mais simples é criar um Registro CNAME que mapeia seu domínio e subdomínio personalizados ao ponto de extremidade do blob. Um Registro CNAME é um recurso do DNS que mapeia um domínio de origem a um domínio de destino. Nesse caso, o domínio de origem é o seu domínio e subdomínio personalizados – observe que o subdomínio é sempre necessário. O domínio de destino é o ponto de extremidade do serviço de blobs.
 
@@ -42,7 +42,7 @@ Contêiner raiz|**URL padrão:** http://mystorageaccount.blob.core.windows.net/m
 
 Use este procedimento para registrar seu domínio personalizado se você não se importar com a indisponibilidade temporária do domínio para os usuários ou se seu domínio personalizado não estiver atualmente hospedando um aplicativo.
 
-Se o seu domínio personalizado no momento estiver oferecendo suporte a um aplicativo que não pode ter nenhum tempo de inatividade, use o procedimento descrito em <a href="#register-asverify">Registrar um domínio personalizado para sua conta de armazenamento usando o subdomínio de intermediário asverify</a>.
+Se o seu domínio personalizado no momento estiver oferecendo suporte a um aplicativo que não pode ter nenhum tempo de inatividade, use o procedimento descrito em <a href="#register-a-custom-domain-for-your-storage-account-using-the-intermediary-asverify-subdomain">Registrar um domínio personalizado para sua conta de armazenamento usando o subdomínio de intermediário asverify</a>.
 
 Para configurar um nome de domínio personalizado, você deve criar um novo Registro CNAME com seu registrador de domínio. O Registro CNAME especifica um alias para um nome de domínio; nesse caso, ele mapeia o endereço do seu domínio personalizado ao ponto de extremidade de Armazenamento de Blobs para sua conta de armazenamento.
 
@@ -114,6 +114,6 @@ Por exemplo, você pode usar o seguinte URI para acessar um formulário da Web p
 
 ## Recursos adicionais
 
--   <a href="http://msdn.microsoft.com/library/azure/gg680307.aspx">Como mapear o conteúdo da CDN para um domínio personalizado</a>
+-   [Como mapear o domínio personalizado para o ponto de extremidade da CDN (Rede de Distribuição de Conteúdo)](../cdn/cdn-map-content-to-custom-domain.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

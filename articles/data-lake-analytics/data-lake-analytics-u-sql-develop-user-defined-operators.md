@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/22/2015"
+   ms.date="02/10/2016"
    ms.author="jgao"/>
 
 
@@ -26,16 +26,16 @@ Saiba como desenvolver operadores definidos pelo usuário para serem usados e re
 - Visual Studio 2015, Visual Studio 2013 atualização 4 ou Visual Studio 2012 com Visual C++ instalado 
 - SDK do Microsoft Azure para .NET versão 2.5 ou posterior. Instale-o usando o Web Platform Installer.
 - Uma conta da Análise Data Lake. Veja [Introdução à Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-get-started-portal.md).
-- Acompanhe o tutorial [Introdução ao U-SQL Studio da Análise Azure Data Lake](data-lake-analytics-u-sql-studio-get-started.md).
-- Conectar-se ao Azure, veja [Introdução ao U-SQL Studio da Análise Azure Data Lake](data-lake-analytics-u-sql-studio-get-started.md#connect-to-azure). 
-- Carregar os dados de origem, veja [Introdução ao U-SQL Studio da Análise Azure Data Lake](data-lake-analytics-u-sql-studio-get-started.md#upload-source-data-files). 
+- Acompanhe o tutorial [Introdução ao U-SQL Studio da Análise Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
+- Conectar-se ao Azure, veja [Introdução ao U-SQL Studio da Análise Azure Data Lake](data-lake-analytics-u-sql-get-started.md#connect-to-azure). 
+- Carregar os dados de origem, veja [Introdução ao U-SQL Studio da Análise Azure Data Lake](data-lake-analytics-u-sql-get-started.md#upload-source-data-files). 
 
 ## Definir e usar o operador definido pelo usuário no U-SQL
 
 **Para criar e enviar um trabalho do U-SQL**
 
 1. No menu **Arquivo**, clique em **Novo** e em **Projeto**.
-2. Selecione o tipo **Projeto do U-SQL**.
+2. Escolha o tipo **Projeto U-SQL**.
 
 	![novo projeto de U-SQL do Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
 
@@ -147,4 +147,4 @@ Saiba como desenvolver operadores definidos pelo usuário para serem usados e re
 - [Introdução à Análise Data Lake usando o portal do Azure](data-lake-analytics-get-started-portal.md)
 - [Usar as Ferramentas do Data Lake para Visual Studio para desenvolver aplicativos do U-SQL](data-lake-analytics-data-lake-tools-get-started.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

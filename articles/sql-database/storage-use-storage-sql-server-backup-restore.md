@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="vm-windows-sql-server"
 	ms.topic="article"
-	ms.date="02/05/2015"
+	ms.date="02/16/2016"
 	ms.author="carlrab"/>
 
 
@@ -72,4 +72,4 @@ Criar uma conta do Azure é a primeira etapa para esse processo. Para obter inst
 
 [Práticas recomendadas de backup e restauração (Serviço de armazenamento de blob do Azure)](http://go.microsoft.com/fwlink/?LinkId=272394)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="02/16/2016" 
 	ms.author="asteen"/>
 
 # Saiba mais sobre Gerenciamento de Senha
@@ -101,7 +101,7 @@ Saiba mais sobre como implantar o write-back de senha em [Introdução: gerencia
 ### Quais dados são usados na redefinição de senha?
 A tabela a seguir descreve onde e como esses dados são usados durante a redefinição de senha e foi projetada para ajudá-lo a decidir quais opções de autenticação são adequadas para a sua organização. Esta tabela também mostra os requisitos de formatação quando você fornecer dados em nome dos usuários de caminhos de entrada que não validarem esses dados.
 
-> [AZURE.NOTE]O Telefone comercial não aparece no portal de registro porque os usuários atualmente não podem editá-lo no diretório.
+> [AZURE.NOTE] O Telefone comercial não aparece no portal de registro porque os usuários atualmente não podem editá-lo no diretório.
 
 <table>
           <tbody><tr>
@@ -379,4 +379,4 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 [001]: ./media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

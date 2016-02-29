@@ -38,13 +38,13 @@ Durante a configuração, você deve especificar uma conta de Armazenamento do B
 
 >[AZURE.NOTE] Não compartilhe um contêiner de armazenamento de Blobs entre múltiplos clusters. Não há suporte para isso.
 
-Para obter mais informações sobre o uso de repositórios de blob secundários, consulte [Usando o Armazenamento de Blob do Azure com o HDInsight](hdinsight-use-blob-storage.md).
+Para obter mais informações sobre o uso de repositórios de blob secundários, consulte [Usando o Armazenamento de Blob do Azure com o HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
 ### Metastore
 
 O Spark permite definir esquema e tabelas do Hive em dados brutos. Você pode salvar esses esquemas e metadados da tabela em metastores externos. Usar o metastore ajuda a manter seus metadados do Hive para que você não precise recriar tabelas do Hive ao criar um novo cluster. Por padrão, o Hive usa um banco de dados integrado para armazenar essas informações. O banco de dados integrado não é capaz de preservar os metadados quando o cluster é excluído.
 
-Para obter instruções sobre como criar um banco de dados SQL do Azure, confira [Create your first Azure SQL Database](sql-database-get-started.md).
+Para obter instruções sobre como criar um banco de dados SQL do Azure, confira [Create your first Azure SQL Database](../sql-database/sql-database-get-started.md).
 
 ### Personalização do cluster
 
@@ -242,4 +242,4 @@ Especifique o tipo de cluster Spark:
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Use o Sqoop com o HDInsight"
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

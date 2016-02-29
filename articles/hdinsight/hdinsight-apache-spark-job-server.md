@@ -20,11 +20,11 @@
 
 # Spark Job Server nos clusters do Azure HDInsight (Windows)
 
-> [AZURE.NOTE]O HDInsight agora fornece clusters do Spark no Linux, que usa Livy para enviar trabalhos remotamente para um cluster do Spark. Para obter informações sobre como usar Livy com clusters do Spark no HDInsight no Linux, confira [Enviar trabalhos Spark remotamente usando Livy com clusters Spark no HDInsight (Linux)](hdinsight-apache-spark-livy-rest-interface.md).
+> [AZURE.NOTE] O HDInsight agora fornece clusters do Spark no Linux, que usa Livy para enviar trabalhos remotamente para um cluster do Spark. Para obter informações sobre como usar Livy com clusters do Spark no HDInsight no Linux, confira [Enviar trabalhos Spark remotamente usando Livy com clusters Spark no HDInsight (Linux)](hdinsight-apache-spark-livy-rest-interface.md).
 
 Cluster do Apache Spark nos pacotes Azure HDInight. Spark Job Server como parte da implantação do cluster. O Spark Job Server fornece APIs REST para criar o contexto do Spark, enviar o aplicativo Spark ao contexto, verificar status do trabalho, eliminar o contexto, etc. Este artigo fornece alguns exemplos sobre como usar o Curl para realizar algumas tarefas comuns em um cluster do Spark usando um servidor de trabalho.
 
->[AZURE.NOTE]Para obter a documentação completa para o Spark Job Server, confira [https://github.com/spark-jobserver/spark-jobserver](https://github.com/spark-jobserver/spark-jobserver).
+>[AZURE.NOTE] Para obter a documentação completa para o Spark Job Server, confira [https://github.com/spark-jobserver/spark-jobserver](https://github.com/spark-jobserver/spark-jobserver).
 
 ## <a name="uploadjar"></a>Carregar um jar para um cluster do Spark
 
@@ -74,14 +74,14 @@ Exemplo:
 * [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
 
-[hdinsight-versions]: ../hdinsight-component-versioning/
-[hdinsight-upload-data]: ../hdinsight-upload-data/
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
+[hdinsight-versions]: hdinsight-component-versioning.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: ../storage-create-storage-account/
+[azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0218_2016-->

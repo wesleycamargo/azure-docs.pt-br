@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -28,11 +28,7 @@ A sincronização do Azure AD Connect é executada em uma conta de serviço cria
 - **Não há suporte** para alteração ou redefinição da senha da conta de serviço. Se isso ocorrer, as chaves de criptografia serão destruídas e o serviço não poderá acessar o banco de dados ou ser iniciado.
 
 ## Alterações no agendador
-A sincronização do Azure AD Connect está definida para sincronizar dados de identidade a cada três horas. Durante a instalação, uma tarefa agendada é criada em execução em uma conta de serviço com permissões para operar o servidor de sincronização.
-
-- **Não há suporte** para alterações na tarefa agendada. A senha da conta de serviço não é conhecida. Consulte [Alterações na conta de serviço](#changes-to-the-service-account)
-- **Não há suporte** para frequência de sincronização menor do que o padrão de 3 horas.
-	- Há suporte para fazer sincronizações individuais ao testar uma nova configuração. Mas você não deve executar exportações ao AD do Azure de forma mais frequente.
+A partir da versão 1.1 (fevereiro de 2016), você pode configurar o [agendador](active-directory-aadconnectsync-feature-scheduler.md) para ter um ciclo de sincronização diferente do padrão de 30 minutos.
 
 ## Alterações nas regras de sincronização
 O assistente de instalação fornece uma configuração que deve funcionar nos cenários mais comuns. No caso de precisar fazer alterações na configuração, você deve seguir estas regras para continuar com uma configuração com suporte.
@@ -113,4 +109,4 @@ Saiba mais sobre a configuração de [sincronização do Azure AD Connect](activ
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

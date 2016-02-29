@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+	ms.date="02/16/2016" 
 	ms.author="jeffstok"
 />
 
@@ -37,7 +37,7 @@ Depois de concluir este tutorial, você poderá:
 
 Você terá os seguintes pré-requisitos para concluir este tutorial com êxito.
 
--   [Azure PowerShell](../install-configure-powershell.md) mais recente
+-   [Azure PowerShell](../powershell-install-configure.md) mais recente
 -   O Visual Studio 2015 ou o [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) gratuito
 -   [Assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/)
 -   Privilégios administrativos no computador
@@ -150,7 +150,7 @@ O script Setup.ps1 na pasta TollApp no GitHub pode ser usado para criar todos os
 
 Faça download e salve os arquivos e pastas [TollApp](https://github.com/streamanalytics/samples/releases) de suporte. Certifique-se de baixar a versão mais recente.
 
-Abra uma janela do “Microsoft Azure PowerShell” **COMO UM ADMINISTRADOR**. Se você ainda não tiver o Azure PowerShell, siga as instruções para instalá-lo: [Instale e configure o Azure PowerShell](../install-configure-powershell.md)
+Abra uma janela do “Microsoft Azure PowerShell” **COMO UM ADMINISTRADOR**. Se você ainda não tiver o Azure PowerShell, siga as instruções para instalá-lo: [Instale e configure o Azure PowerShell](../powershell-install-configure.md)
 
 O Windows bloqueia automaticamente os arquivos ps1, dll e exe baixados da Internet. É necessário definir a Política de Execução antes de executar o script. Verifique se a janela do Azure PowerShell está executando como um administrador. Execute “Set-ExecutionPolicy unrestricted”. Quando solicitado, digite "Y".
 
@@ -534,4 +534,4 @@ Observe que os recursos são identificados pelo nome. Certifique-se de examinar 
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image57.png)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

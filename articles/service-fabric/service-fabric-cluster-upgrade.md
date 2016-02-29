@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/23/2015"
+   ms.date="02/16/2016"
    ms.author="chackdan"/>
 
 # Atualizar um cluster do Service Fabric
@@ -37,8 +37,6 @@ Se as políticas de integridade do cluster não forem atendidas, a atualização
 Tentamos executar a mesma atualização algumas vezes mais, caso alguma atualização falhe por motivos de infraestrutura. Após os n dias a partir da data de envio do email, prosseguiremos para a Fase 2.
 
 Se as políticas de integridade do cluster forem atendidas, a atualização será considerada bem-sucedida e marcada como concluída. Isso poderá acontecer durante a atualização inicial ou durante qualquer nova execução das atualizações desta fase. Nenhum email de confirmação será enviado após uma execução bem-sucedida. Isso serve para evitar o envio de muitos emails. O recebimento de um email deve ser visto como uma exceção. Esperamos que a maioria das atualizações do cluster tenha êxito sem afetar a disponibilidade de seu aplicativo.
-
-Para obter detalhes sobre como definir as políticas de integridade personalizadas para seu cluster, confira [Atualização do cluster e parâmetros de integridade](service-fabric-cluster-health-parameters.md).
 
 ### Fase 2: a atualização é executada usando apenas as políticas de integridade padrão
 
@@ -76,7 +74,7 @@ Você pode atualizar facilmente os certificados primário ou secundário no port
 
 ![Captura de tela que mostra as impressões digitais do certificado no Portal do Azure.][CertificateUpgrade]
 
->[AZURE.NOTE]Antes de você identificar um certificado que deseja usar para os recursos de cluster, é necessário concluir as etapas a seguir; caso contrário, o novo certificado não será usado: 1. Carregar o novo certificado no Cofre da Chave: Consulte [Segurança do Service Fabric](service-fabric-cluster-security.md) para obter instruções. Comece com a etapa 2 neste documento. 2. Atualize todas as máquinas virtuais que compõem seu cluster, para que o certificado seja implantado nelas. Para fazer isso, consulte o [Blog da equipe do Cofre da Chave do Azure](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx).
+>[AZURE.NOTE] Antes de você identificar um certificado que deseja usar para os recursos de cluster, é necessário concluir as etapas a seguir; caso contrário, o novo certificado não será usado: 1. Carregar o novo certificado no Cofre da Chave: Consulte [Segurança do Service Fabric](service-fabric-cluster-security.md) para obter instruções. Comece com a etapa 2 neste documento. 2. Atualize todas as máquinas virtuais que compõem seu cluster, para que o certificado seja implantado nelas. Para fazer isso, consulte o [Blog da equipe do Cofre da Chave do Azure](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx).
 
 ### Portas do aplicativo
 
@@ -101,7 +99,7 @@ Para abrir uma nova porta em todas as VMs em um tipo de nó, faça o seguinte:
 
 Para cada um dos tipos de nó, é possível adicionar as propriedades de posicionamento personalizadas que você deseja usar em seus aplicativos. NodeType é uma propriedade padrão que você pode usar sem adicioná-la explicitamente.
 
->[AZURE.NOTE]Para obter detalhes sobre o uso das propriedades de posicionamento, consulte a [Visão geral das restrições de posicionamento](service-fabric-placement-constraint.md).
+>[AZURE.NOTE] Para obter detalhes sobre o uso das propriedades de posicionamento, consulte a [Visão geral das restrições de posicionamento](service-fabric-placement-constraint.md).
 
 ### Métricas de capacidade
 
@@ -125,4 +123,4 @@ Se for necessário atualizar a imagem do sistema operacional nas máquinas virtu
 [AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes.png
 [AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

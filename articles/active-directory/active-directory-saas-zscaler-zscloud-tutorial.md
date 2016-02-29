@@ -1,5 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Integração do Active Directory do Azure com o Zscaler ZSCloud | Microsoft Azure" description="Saiba como usar o Zscaler ZSCloud com o Active Directory do Azure para habilitar logon único, provisionamento automatizado e muito mais." 
+    pageTitle="Tutorial: Integração do Active Directory do Azure com o Zscaler ZSCloud | Microsoft Azure"
+    description="Saiba como usar o Zscaler ZSCloud com o Active Directory do Azure para habilitar logon único, provisionamento automatizado e muito mais." 
     services="active-directory" 
     authors="markusvi"  
     documentationCenter="na" 
@@ -83,7 +84,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800280.png "Configurar a URL do Aplicativo")
 
-    >[AZURE.NOTE]Você pode obter o valor real para o ambiente de sua equipe de suporte Zscaler ZSCloud se necessário.
+    >[AZURE.NOTE] Você pode obter o valor real para o ambiente de sua equipe de suporte Zscaler ZSCloud se necessário.
 
 4.  Na página **Configurar logon único no Zscaler ZSCloud**, para baixar seu certificado, clique em **Baixar certificado** e salve o arquivo de certificado no computador.
 
@@ -181,7 +182,7 @@ Para permitir que os usuários do AD do Azure façam logon no Zscaler ZSCloud, e
     1.  Digite **UserID**, **Nome de Exibição do Usuário**, **Senha** e **Confirmar Senha** e selecione **Grupos** e o **Departamento** de uma conta válida do AAD que você deseja provisionar.
     2.  Clique em **Salvar**.
 
->[AZURE.NOTE]É possível usar qualquer outra ferramenta de criação da conta de usuário do Zscaler ZSCloud ou APIs fornecidas pelo Zscaler ZSCloud para provisionar as contas de usuário do AAD.
+>[AZURE.NOTE] É possível usar qualquer outra ferramenta de criação da conta de usuário do Zscaler ZSCloud ou APIs fornecidas pelo Zscaler ZSCloud para provisionar as contas de usuário do AAD.
 
 ##Atribuindo usuários
   
@@ -201,4 +202,4 @@ Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

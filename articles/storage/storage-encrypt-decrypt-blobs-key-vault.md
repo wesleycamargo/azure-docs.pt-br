@@ -24,9 +24,9 @@ Este tutorial aborda como aproveitar a criptografia de armazenamento do cliente 
 
 **Tempo estimado para conclusão:** 20 minutos
 
-Para obter informações gerais sobre o Cofre da Chave do Azure, consulte [O que é o Cofre da Chave do Azure?](key-vault/key-vault-whatis.md).
+Para obter informações gerais sobre o Cofre da Chave do Azure, consulte [O que é o Cofre da Chave do Azure?](../key-vault/key-vault-whatis.md).
 
-Para obter informações gerais sobre a criptografia de cliente do Armazenamento do Azure, consulte [Introdução à Criptografia do Lado do Cliente do Armazenamento do Microsoft Azure](storage-client-side-encryption.md).
+Para obter informações gerais sobre a criptografia de cliente do armazenamento do Azure, consulte [Criptografia do lado do cliente e o cofre da chave do Azure para armazenamento do Microsoft Azure](storage-client-side-encryption.md).
 
 
 ## Pré-requisitos
@@ -40,7 +40,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 ## Visão geral da criptografia do lado do cliente
 
-Para uma visão geral da criptografia do lado do cliente do Armazenamento do Azure, consulte [Introdução à Criptografia do Lado do Cliente do Armazenamento do Microsoft Azure](storage-client-side-encryption.md)
+Para obter uma visão geral da criptografia do lado do cliente do armazenamento do Azure, consulte [Criptografia do lado do cliente e o cofre da chave do Azure para o Armazenamento do Microsoft Azure](storage-client-side-encryption.md)
 
 Aqui está uma breve descrição de como funciona a criptografia do lado do cliente:
 
@@ -51,7 +51,7 @@ Aqui está uma breve descrição de como funciona a criptografia do lado do clie
 
 
 ## Configure o seu Cofre da Chave do Azure
-Para continuar com este tutorial, você precisa realizar as etapas a seguir, que são descritas no tutorial: [Introdução ao Cofre da Chave do Azure](key-vault/key-vault-get-started.md):
+Para continuar com este tutorial, você precisa realizar as etapas a seguir, que são descritas no tutorial: [Introdução ao Cofre da Chave do Azure](../key-vault/key-vault-get-started.md):
 
 - Crie um cofre da chave.
 - Adicionar uma chave ou segredo ao cofre da chave.
@@ -235,4 +235,4 @@ Para obter as informações mais recentes sobre o Armazenamento do Microsoft Azu
 <!--Image references-->
 [1]: ./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

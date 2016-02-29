@@ -36,7 +36,7 @@ O SDK do Azure para .NET instala os seguintes produtos:
 - [Emulador de Armazenamento do Microsoft Azure](#stgemulator)
 - [Ferramentas de Armazenamento do Microsoft Azure](#stgtools)
 - [Bibliotecas do Microsoft Azure para .NET](#libraries)
-- [Ferramentas do HDInsight para Visual Studio](#hdinsight) e [Driver ODBC do Microsoft Hive](#hdinsight)
+- [Ferramentas do HDInsight para Visual Studio e Driver ODBC do Microsoft Hive](#hdinsight)
 - [SDK V1.0 para Aplicativo Móvel do Microsoft Azure](#mobile)
 - [PowerShell do Microsoft Azure](#ps)
 
@@ -99,9 +99,9 @@ Incluem os itens a seguir:
 
 ###<a id="hdinsight"></a>Ferramentas do HDInsight para Visual Studio e Driver ODBC do Microsoft Hive
 
-As ferramentas do HDInsight no Gerenciador de Servidores permitem que você navegue pelos bancos de dados do Hive e contas de armazenamento vinculadas de clusters do HDInsight, crie tabelas, e crie e envie consultas do Hive. Para saber mais, consulte [Introdução ao uso das ferramentas do HDInsight Hadoop para Visual Studio](hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md).
+As ferramentas do HDInsight no Gerenciador de Servidores permitem que você navegue pelos bancos de dados do Hive e contas de armazenamento vinculadas de clusters do HDInsight, crie tabelas, e crie e envie consultas do Hive. Para obter mais informações, consulte [Introdução ao uso das ferramentas do HDInsight Hadoop para Visual Studio](hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md).
 
-###<a id="mobile">SDK para Aplicativo Móvel do Microsoft Azure
+###<a id="mobile"></a>SDK V1.0 para Aplicativo Móvel do Microsoft Azure
 
 Ferramentas para trabalhar com [Aplicativos Móveis do Serviço de Aplicativo do Azure](app-service-mobile/app-service-mobile-value-prop.md).
 
@@ -186,4 +186,4 @@ Para obter o código-fonte do SDK do Azure para .NET, incluindo as bibliotecas d
 
 Para obter a documentação de referência da biblioteca de cliente do Azure, consulte [Referência do .NET do Azure](/documentation/api/).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

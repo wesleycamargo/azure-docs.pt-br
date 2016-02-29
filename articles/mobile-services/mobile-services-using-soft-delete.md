@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="02/11/2016"
 	ms.author="wesmc"/>
 
 # Usando exclusão reversível nos Serviços Móveis
@@ -36,7 +36,7 @@ Alguns dos benefícios em potencial de usar a exclusão reversível:
 
 * Ao usar o recurso [Sincronização de dados offline para Serviços Móveis], o SDK do cliente automaticamente consulta registros excluídos e remove-os do banco de dados local. Sem a exclusão reversível habilitada, é preciso gravar código adicional no back-end para que o SDK do cliente saiba que registros remover do armazenamento local. Caso contrário, o armazenamento local e o back-end do cliente serão inconsistentes com relação a esses registros excluídos e o método do cliente `PurgeAsync()` deve ser chamado para limpar o armazenamento local.
 * Alguns aplicativos têm uma necessidade de negócios de nunca excluir dados fisicamente, ou excluir dados apenas depois de terem sido auditados. O recurso de exclusão reversível pode ser útil nesse cenário.
-* A exclusão reversível pode ser usada para implementar um recurso de "restauração", para que possam ser recuperados dados excluídos acidentalmente. No entanto, registros excluídos com exclusão reversível ocupam espaço no banco de dados, portanto, você deve considerar a criação de um trabalho agendado para eliminar permanentemente os registros excluídos em caráter reversível. Para um exemplo disso, consulte [Usando exclusão reversível com o back-end do .NET] e [Usando exclusão reversível com o back-end do JavaScript]. Seu código de cliente também deve periodicamente chamar `PurgeAsync()`, de modo que esses registros de exclusão irreversível não permaneçam no armazenamento de dados local do dispositivo.
+* A exclusão reversível pode ser usada para implementar um recurso de "restauração", para que possam ser recuperados dados excluídos acidentalmente. No entanto, registros excluídos com exclusão reversível ocupam espaço no banco de dados, portanto, você deve considerar a criação de um trabalho agendado para eliminar permanentemente os registros excluídos em caráter reversível. Para um exemplo disso, consulte [Usando exclusão reversível com o back-end do .NET](#using-with-dotnet) e [Usando exclusão reversível com o back-end do JavaScript](#using-with-javascript). Seu código de cliente também deve periodicamente chamar `PurgeAsync()`, de modo que esses registros de exclusão irreversível não permaneçam no armazenamento de dados local do dispositivo.
 
 
 
@@ -113,7 +113,7 @@ Para saber mais sobre como agendar trabalhos com serviços móveis de back-end d
 
 
 
-##Usando exclusão reversível com o back-end do JavaScript
+## <a name="using-with-javascript"></a> Usando exclusão reversível com o back-end do JavaScript
 
 Você usa scripts de tabela para adicionar lógica em torno do recurso de exclusão reversível com os serviços móveis do back-end do JavaScript.
 
@@ -165,4 +165,4 @@ Para saber mais sobre os trabalhos agendados com Serviços Móveis de back-end d
 [Sincronização de dados offline para Serviços Móveis]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 [Portal clássico do Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

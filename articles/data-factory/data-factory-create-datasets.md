@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Criando conjuntos de dados" 
+	pageTitle="Conjuntos de dados no Azure Data Factory | Microsoft Azure" 
 	description="Entenda os conjuntos de dados do Azure Data Factory e aprenda como criá-los." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="01/26/2016" 
 	ms.author="spelluru"/>
 
-# Conjunto de dados
+# Conjuntos de dados no Azure Data Factory
 
 ## Descrição
 Um conjunto de dados é uma descrição lógica dos dados. Os dados que estão sendo descritos podem variar de simples bytes, dados semiestruturados como arquivos CSV até mesmo modelos ou tabelas relacionais. O mecanismo (endereço, protocolo, esquema de autenticação) para acessar os dados é definido no serviço vinculado e referenciado na definição de conjunto de dados.
@@ -58,7 +58,7 @@ Um conjunto de dados é uma descrição lógica dos dados. Os dados que estão s
 
 ### Exemplo
 
-Abaixo está um exemplo de um conjunto de dados que representa uma tabela chamada **MyTable**no **Banco de dados SQL do Azure**. As cadeias de conexão de banco de dados SQL do Azure são definidas no **AzureSqlLinkedService** referenciado neste conjunto de dados. Esse conjunto de dados é dividido diariamente.
+Abaixo está um exemplo de um conjunto de dados que representa uma tabela chamada **MyTable** no **Banco de dados SQL do Azure**. As cadeias de conexão de banco de dados SQL do Azure são definidas no **AzureSqlLinkedService** referenciado neste conjunto de dados. Esse conjunto de dados é dividido diariamente.
 
 	{
 	    "name": "DatasetSample",
@@ -183,7 +183,7 @@ Conjuntos de dados externos são aqueles que não são produzidos por um pipelin
 | Nome | Descrição | Obrigatório | Valor Padrão |
 | ---- | ----------- | -------- | -------------- |
 | dataDelay | <p>Tempo para esperar a verificação na disponibilidade dos dados externos de uma determinada fatia. Por exemplo, se os dados tiverem que estar disponíveis por hora, para verificar se os dados externos estão realmente disponíveis e se a fatia correspondente Pronta pode ser atrasada por dataDelay.</p><p>Só se aplica a hora atual. Por exemplo, se for 13h agora e esse valor for 10 minutos, a validação será iniciada em 13h10.</p><p>Essa configuração não afeta fatias no passado (fatias com a hora de término da fatia + dataDelay < agora serão processadas sem atraso).</p> <p>Um período de tempo maior que 23h59 precisa ser especificado usando o formato dia.horas:minutos:segundos. Por exemplo, para especificar 24 horas, não use 24:00:00; em vez disso, use 1.00:00:00. Se você usar 24:00:00, esse valor será tratado como 24 dias (24.00:00:00). Para 1 dia e 4 horas, especifique 1:04:00:00. </p>| Não | 0 |
-| retryInterval | O tempo de espera entre uma falha e a próxima tentativa de repetição. Aplica-se a hora atual. Se o anterior falhou, podemos esperar muito tempo após a última tentativa. <p>Se forem 13h agora, começaremos a primeira tentativa. Se a duração para concluir a primeira verificação de validação for 1 minuto e a operação falhou, a próxima repetição será 1:00 + 1 min (duração) + 1min (intervalo de repetição) = 13h02. </p><p>Para fatias no passado, não haverá nenhum atraso. A repetição acontecerá imediatamente.</p> | Não | 00:01:00 (1 minuto) | 
+| retryInterval | O tempo de espera entre uma falha e a próxima tentativa de repetição. Aplica-se a hora atual. Se o anterior falhou, podemos esperar muito tempo após a última tentativa. <p>Se forem 13h agora, começaremos a primeira tentativa. Se a duração para concluir a primeira verificação de validação for 1 minuto e a operação tiver falhado, a próxima repetição será 1:00 + 1 min (duração) + 1min (intervalo de repetição) = 13h02. </p><p>Para fatias no passado, não haverá nenhum atraso. A repetição acontecerá imediatamente.</p> | Não | 00:01:00 (1 minuto) | 
 | retryTimeout | O tempo limite para cada tentativa de repetição.<p>Se for definido como 10 minutos, a validação deve ser concluída em 10 minutos. Se demorar mais de 10 minutos para executar a validação, a repetição atingirá o tempo limite.</p><p>Se todas as tentativas para a validação excederem o tempo limite, a fatia será marcada como TimedOut.</p> | Não | 00:10:00 (10 minutos) |
 | maximumRetry | Número de vezes para verificar a disponibilidade dos dados externos. O valor máximo permitido é 10. | Não | 3 | 
 
@@ -208,4 +208,4 @@ Se precisar executar um pipeline mensalmente em uma data e hora específicas (di
 	  }
 	}
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

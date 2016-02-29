@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="10/14/2015" 
+    ms.date="02/12/2016" 
     ms.author="olgali"/>
 #Obtenha ajuda sobre o Aprendizado de Máquina no suporte por chat ao vivo
 
@@ -31,4 +31,4 @@ Os membros da equipe, na verdade, respondem à sua pergunta. Se você não vir o
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0218_2016-->

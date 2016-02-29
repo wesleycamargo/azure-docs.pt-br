@@ -380,7 +380,7 @@ Nesta etapa, você usará o PowerShell do Azure para monitorar o que está acont
 		Start             : 3/3/2015 12:00:00 AM
 		End               : 3/3/2015 1:00:00 AM
 		RetryCount        : 0
-		Status            : PendingExecution
+		Status            : Waiting
 		LatencyStatus     :
 		LongRetryCount    : 0
 
@@ -392,7 +392,7 @@ Nesta etapa, você usará o PowerShell do Azure para monitorar o que está acont
 		Start             : 3/4/2015 11:00:00 PM
 		End               : 3/4/2015 12:00:00 AM
 		RetryCount        : 0
-		Status            : PendingExecution
+		Status            : Waiting
 		LatencyStatus     : 
 		LongRetryCount    : 0
 
@@ -443,4 +443,4 @@ Consulte [Referência de cmdlet de Data Factory][cmdlet-reference] para obter um
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

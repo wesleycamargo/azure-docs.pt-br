@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="02/15/2016" 
 	ms.author="micurd"/>
 
 # Transferir dados com o Utilitário de Linha de Comando AzCopy
@@ -22,7 +22,7 @@
 
 AzCopy é um utilitário de linha de comando projetado para cópia de dados para e do armazenamento de Blob, Arquivo e Tabelas do Microsoft Azure. Com o AzCopy, é possível migrar seus dados do sistema de arquivos para o Armazenamento do Azure, ou vice-versa, usando comandos simples e com um desempenho ideal. Você também pode copiar dados de um objeto para outro em sua conta de armazenamento, ou entre contas de armazenamento.
 
-> [AZURE.NOTE]Este guia pressupõe que você tenha o AzCopy 5.0 ou posterior instalado.
+> [AZURE.NOTE] Este guia pressupõe que você tenha o AzCopy 5.0 ou posterior instalado.
 
 A visualização da biblioteca de Movimentação de Dados do Armazenamento do Microsoft Azure agora está disponível para download por meio do [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement). A Biblioteca de Movimentação de Dados é a biblioteca principal subjacente ao AzCopy. O código-fonte está disponível no [GitHub](https://github.com/Azure/azure-storage-net-data-movement). Para obter mais informações, veja [Apresentando a Visualização da Biblioteca de Movimentação de Dados do Armazenamento do Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
 
@@ -38,7 +38,7 @@ Em seguida, abra uma janela de comando e navegue até o diretório de instalaç�
 
 	AzCopy /Source:<source> /Dest:<destination> /Pattern:<filepattern> [Options]
 
-> [AZURE.NOTE]Da versão 3.0.0 do AzCopy, a sintaxe da linha de comando do AzCopy requer que todos os parâmetros sejam especificados para incluir o nome do parâmetro, *por exemplo*, `/ParameterName:ParameterValue`.
+> [AZURE.NOTE] Da versão 3.0.0 do AzCopy, a sintaxe da linha de comando do AzCopy requer que todos os parâmetros sejam especificados para incluir o nome do parâmetro, *por exemplo*, `/ParameterName:ParameterValue`.
 
 ## Escrever seu primeiro comando AzCopy
 
@@ -446,7 +446,7 @@ Os exemplos abaixo demonstram vários cenários para copiar blobs com o AzCopy.
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 
-Para saber mais sobre como trabalhar com as chaves de acesso de armazenamento, veja [Exibir, copiar e regenerar chaves de acesso de armazenamento](../storage-create-storage-account/#regeneratestoragekeys).
+Para obter mais informações sobre como trabalhar com as chaves de acesso de armazenamento, consulte [Gerenciar suas chaves de acesso de armazenamento](storage-create-storage-account.md#manage-your-storage-access-keys).
 
 ### Copiar um blob por meio da cópia no servidor
 
@@ -936,7 +936,7 @@ Observe que os algoritmos compatíveis com FIPS estão desabilitados por padrão
 
 ## Versões do AzCopy
 
-> [AZURE.NOTE]Recomendamos a instalação da versão mais recente do AzCopy para obter melhor desempenho e novos recursos.
+> [AZURE.NOTE] Recomendamos a instalação da versão mais recente do AzCopy para obter melhor desempenho e novos recursos.
 
 | Versão | O que há de novo | Versão da Biblioteca do Cliente .NET referenciada | Versão da API REST de armazenamento de destino |
 |---------|-----------------------------------------------------------------------------------------------------------------|--------|----------|
@@ -964,22 +964,21 @@ Para obter mais informações sobre o Armazenamento do Azure e o AzCopy, consult
 
 ### Documentação do Armazenamento do Azure:
 
-- [Introdução ao Armazenamento do Azure](storage-introduction.md)
-- [Como usar o Armazenamento de blob do .NET](storage-dotnet-how-to-use-blobs.md)
-- [Como usar o Armazenamento de Arquivos no .NET](storage-dotnet-how-to-use-files.md)
-- [Como usar o Armazenamento de Tabela do .NET](storage-dotnet-how-to-use-tables.md)
-- [Como criar, gerenciar ou excluir uma conta de armazenamento](storage-create-storage-account.md)
-- [Usar o Serviço de Importação/Exportação para transferir dados para o Armazenamento de Blobs](storage-import-export-service.md)
+- [Introdução ao Armazenamento do Microsoft Azure](storage-introduction.md)
+- [Introdução ao armazenamento de Blobs do Azure usando o .NET](storage-dotnet-how-to-use-blobs.md)
+- [Introdução ao Armazenamento de Arquivos do Azure no Windows](storage-dotnet-how-to-use-files.md)
+- [Introdução ao armazenamento de Tabelas do Azure usando o .NET](storage-dotnet-how-to-use-tables.md)
+- [Sobre as contas de armazenamento do Azure](storage-create-storage-account.md)
+- [Usar o serviço de Importação/Exportação do Microsoft Azure para transferir dados para o Armazenamento de Blob](storage-import-export-service.md)
 
 ### Postagens de blog de armazenamento do Azure:
-- [DML: apresentando a versão de visualização da biblioteca de movimentação de dados do armazenamento do azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
+- [Apresentando a versão de visualização da biblioteca de movimentação de dados do armazenamento do Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
 - [AzCopy: Introducing synchronous copy and customized content type (AzCopy: introdução a cópia síncrona e tipo de conteúdo personalizado)](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
 - [AzCopy: Announcing General Availability of AzCopy 3.0 plus preview release of AzCopy 4.0 with Table and File support (AzCopy: anúncio de disponibilidade geral do AzCopy 3.0 mais versão de teste do AzCopy 4.0 com suporte para Tabela e Arquivo)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
-- [AzCopy: Optimized for Large-Scale Copy Scenarios (AzCopy: otimizado para cenários de cópia em larga escala)](http://go.microsoft.com/fwlink/?LinkId=507682)
 - [Apresentando o serviço de arquivo do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [AzCopy: Support for read-access geo-redundant storage (AzCopy: suporte para o armazenamento com redundância geográfica com acesso de leitura)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
 - [AzCopy: Transfer data with re-startable mode and SAS token (AzCopy: transferir dados com o modo reiniciável e token de SAS)](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
 - [AzCopy: Using cross-account Copy Blob (AzCopy: usando blob de cópia em várias contas)](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy: Uploading/downloading files for Azure Blobs (AzCopy: Upload/download de arquivos para Blobs do Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

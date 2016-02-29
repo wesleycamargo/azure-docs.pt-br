@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="02/12/2016"
 	ms.author="yuridio"/>
 
 # Determinar os requisitos de gerenciamento de conteúdo para sua solução de identidade híbrida
@@ -32,7 +32,8 @@ Em geral, os requisitos de gerenciamento de conteúdo aproveitará o sistema de 
 - Classificação de dados: identificar o usuário ou grupo e nível de acesso a um objeto de acordo com sua classificação. 
 - Proteção contra vazamento de dados: controles de segurança responsáveis pela proteção de dados para evitar vazamento precisam interagir com o sistema de identidade para validar a identidade do usuário. Isso também é importante para a finalidade de trilha de auditoria.
 
->[AZURE.NOTE]Leitura [classificação de dados para preparação de nuvem](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) para obter mais informações sobre as práticas recomendadas e diretrizes para a classificação de dados.
+>[AZURE.NOTE]
+Leitura [classificação de dados para preparação de nuvem](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) para obter mais informações sobre as práticas recomendadas e diretrizes para a classificação de dados.
 
 Quando planejar sua solução de identidade híbrida, certifique-se de que as seguintes perguntas serão respondidas de acordo com os requisitos da sua organização:
 
@@ -50,7 +51,8 @@ Quando planejar sua solução de identidade híbrida, certifique-se de que as se
 - Sua empresa precisa criptografar todos os documentos/conteúdos compartilhados com parceiros comerciais externos?
 - Sua empresa precisa impor políticas corporativas em determinados tipos de emails (não responder a todos, não encaminhar)?
  
->[AZURE.NOTE]Certifique-se de fazer anotações de cada resposta e entender o raciocínio por trás de resposta. [Definir a estratégia de proteção de dados definir](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) ultrapassará as opções disponíveis e vantagens/desvantagens de cada opção. Depois de responder a essas perguntas, você selecionará a opção que melhor se ajusta às necessidades da sua empresa.
+>[AZURE.NOTE]
+Certifique-se de fazer anotações de cada resposta e entender o raciocínio por trás de resposta. [Definir a estratégia de proteção de dados definir](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) ultrapassará as opções disponíveis e vantagens/desvantagens de cada opção. Depois de responder a essas perguntas, você selecionará a opção que melhor se ajusta às necessidades da sua empresa.
 
 
 ## Próximas etapas
@@ -59,4 +61,4 @@ Quando planejar sua solução de identidade híbrida, certifique-se de que as se
 ## Consulte também
 [Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

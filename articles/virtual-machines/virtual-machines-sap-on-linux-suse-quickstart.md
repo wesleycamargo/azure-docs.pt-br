@@ -14,7 +14,7 @@
    ms.topic="campaign-page"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="na"
-   ms.date="11/26/2015"
+   ms.date="02/12/2016"
    ms.author="hermannd"/>
 
 # Testando o SAP NetWeaver em VMs SUSE Linux no Microsoft Azure
@@ -76,6 +76,21 @@ Nunca monte discos de dados do Azure em uma VM Linux do Azure por meio da ID do 
 
 O problema com a ID do dispositivo é que ela pode mudar, e a VM do Azure pode travar no processo de inicialização. Você pode adicionar o parâmetro nofail em /etc/fstab para atenuar o problema. Mas observe que, com o nofail, os aplicativos podem usar o ponto de montagem como antes e talvez gravar no sistema de arquivos raiz caso um disco de dados do Azure externo não tenha sido montado durante a inicialização.
 
+A única exceção na montagem via UUID está relacionada a anexar um disco do sistema operacional para fins de solução de problemas, conforme descrito na seção a seguir.
+
+## Solucionando problemas de VM SUSE que não está acessível mais
+
+Pode haver situações em que uma VM SUSE no Azure trave no processo de inicialização (por exemplo, erro relacionado à montagem de discos). O problema pode ser verificado, por exemplo, pelo recurso de diagnóstico de inicialização no portal para VMs v2 ( [consulte este blog](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/) ).
+
+Uma opção para resolver o problema é anexar o disco do sistema operacional da VM danificada a outra VM SUSE no Azure e, em seguida, fazer as alterações apropriadas como editar o /etc/fstab ou remover regras de udev de rede, conforme descrito na próxima seção.
+
+No entanto, há uma coisa importante a considerar. Implantar várias VMs SUSE da mesma imagem de galeria do Azure (por exemplo, SLES 11 SP4) mostra que o disco do sistema operacional sempre será montado pelo mesmo UUID. Anexar um disco do sistema operacional de uma VM diferente por UUID que foi implantado usando a mesma imagem da Galeria do Azure resultará, portanto, em dois UUIDs idênticos. Isso causa problemas e poderia significar que, na verdade, a VM está destinada à solução de problemas do sistema operacional anexado e danificado no disco do SO em vez de o original.
+
+Há duas possibilidades para evitar que isso aconteça:
+
+* usar uma imagem da Galeria do Azure diferente para a VM para solução de problemas (por exemplo, SLES 12 em vez do SLES 11 SP4)
+* não anexar o disco do sistema operacional danificado de outra VM por meio de UUID, mas usar algo
+
 ## Carregando uma VM SUSE do local no Azure
 
 [Este artigo](virtual-machines-linux-create-upload-vhd-suse.md) descreve as etapas para carregar uma VM SUSE do local para o Azure.
@@ -83,7 +98,7 @@ O problema com a ID do dispositivo é que ela pode mudar, e a VM do Azure pode t
 Se você quiser carregar uma VM sem a etapa de desprovisionamento no final para manter, por exemplo, uma instalação existente do SAP, bem como o nome do host, verifique os itens a seguir:
 
 * Verifique se o disco do sistema operacional foi montado via UUID e não por meio da ID do dispositivo. Alterar para o UUID somente em /etc/fstab não é suficiente para o disco do sistema operacional. Além disso, não se esqueça de adaptar o carregador de inicialização por meio do YaST ou editando /boot/grub/menu.lst
-* Caso você tenha usado o formato VHDX para o disco do sistema operacional do SUSE e convertido em VHD para carregar no Azure, é muito provável que o dispositivo de rede tenha mudado de eth0 para eth1. Para evitar problemas quando você estiver inicializando o Azure, mude de volta para eth0, como descrito [neste artigo](https://dartron.wordpress.com/2013/09/27/fixing-eth1-in-cloned-sles-11-vmware/):
+* Caso você tenha usado o formato VHDX para o disco do sistema operacional do SUSE e convertido em VHD para carregar no Azure, é muito provável que o dispositivo de rede tenha mudado de eth0 para eth1. Para evitar problemas quando você estiver inicializando o Azure, mude de volta para eth0, como descrito [neste artigo](https://dartron.wordpress.com/2013/09/27/fixing-eth1-in-cloned-sles-11-vmware/).
 
 Além do que está descrito neste artigo, também recomendamos a remoção do seguinte:
 
@@ -147,4 +162,4 @@ Se você deseja usar a área de trabalho Gnome para instalar um sistema de demon
 
 Há uma restrição de suporte da Oracle para Linux em ambientes virtualizados. Este é um tópico geral, não um tópico específico do Azure. No entanto, é importante entendê-lo. O SAP não dará suporte ao Oracle no SUSE ou ao Red Hat em uma nuvem pública como o Azure. Os clientes devem contatar a Oracle diretamente para discutir este assunto.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

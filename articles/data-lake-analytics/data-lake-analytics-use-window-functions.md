@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/11/2015"
+   ms.date="02/11/2016"
    ms.author="jgao"/>
 
 
@@ -35,9 +35,9 @@ As funções de janela são categorizadas em:
 
 - Percorra os seguintes tutoriais:
 
-    - [Introdução ao uso de ferramentas Azure Data Lake para Visual Studio](data-lake-analytics-use-data-lake-tools.md).
+    - [Introdução ao uso de ferramentas Azure Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
     - [Introdução ao uso de U-SQL para trabalhos de análise do Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
-- Criar uma conta de Análise do Azure Data Lake conforme instruído em [Introdução ao uso de ferramentas Azure Data Lake para Visual Studio](data-lake-analytics-use-data-lake-tools.md).
+- Criar uma conta de Análise do Azure Data Lake conforme instruído em [Introdução ao uso de ferramentas Azure Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - Criar um projeto do Visual Studio U-SQL conforme instruído em [Introdução ao uso de U-SQL para trabalhos de análise do Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
 
 ## Conjuntos de dados de amostra
@@ -136,7 +136,7 @@ A consulta abaixo usa uma agregação para calcular o salário total de todos os
             SUM(Salary) AS TotalSalary
         FROM @employees;
     
->[AZURE.NOTE]Para obter instruções para teste e verificação de saída, consulte[Introdução ao uso de U-SQL para trabalhos de análise do Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
+>[AZURE.NOTE] Para obter instruções para teste e verificação de saída, confira [Introdução ao uso de U-SQL para trabalhos de análise do Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
 
 O resultado é uma única linha com uma única coluna. US$ 165.000 é a soma do valor de salário da tabela inteira.
 
@@ -144,7 +144,7 @@ O resultado é uma única linha com uma única coluna. US$ 165.000 é a soma do 
 |-----------
 |165000
 
->[AZURE.NOTE]Se você estiver começando com as funções de janela, vale a pena lembrar os números nas saídas.
+>[AZURE.NOTE] Se você estiver começando com as funções de janela, vale a pena lembrar os números nas saídas.
 
 A instrução abaixo usa a cláusula GROUP BY para calcular o salário total de cada departamento:
 
@@ -198,7 +198,7 @@ Ao contrário de GROUP BY, há tantas linhas de saída quanto de entrada:
 
 O valor 165000 (o total de todos os salários) é colocado em cada linha de saída. Esse total provém da "janela" de todas as linhas, para que ela inclua todos os salários.
 
-O exemplo a seguir demonstra como refinar "janela" para listar todos os funcionários, o departamento e o salário total para o departamento. PARTITION BY é adicionado à cláusula OVER.
+O exemplo a seguir demonstra como refinar "janela" a fim de listar todos os funcionários, o departamento e o salário total do departamento. PARTITION BY é adicionado à cláusula OVER.
 
     @result=
     SELECT
@@ -296,7 +296,7 @@ O resultado :
 
 ### Usar MIN e MAX
 
-O exemplo a seguir adiciona um campo adicional para cada linha para mostrar o menor salário de cada departamento.
+O exemplo a seguir adiciona um campo adicional para cada linha, para mostrar o menor salário de cada departamento:
 
     @result =
         SELECT 
@@ -340,7 +340,7 @@ As funções a seguir são funções de classificação com suporte:
 	        [ORDER BY <identifier, > …[n] [ASC|DESC]] 
 	) AS <alias>
 
-- A cláusula ORDER BY é opcional para funções de classificação. Se ORDERY BY for especificado, ela determinará a ordem de classificação. Se ORDER BY não for especificado, o U-SQL atribuirá valores baseados na ordem em que lê o registro. Isso resultará em valor não determinístico de ROW NUMBER, RANK ou DENSE RANK quando a cláusula ORDER BY não for especificada.
+- A cláusula ORDER BY é opcional para funções de classificação. Se ORDER BY for especificada, ela determinará a ordem de classificação. Se ORDER BY não for especificado, o U-SQL atribuirá valores baseados na ordem em que lê o registro. Isso resultará em valor não determinístico de ROW NUMBER, RANK ou DENSE RANK quando a cláusula ORDER BY não for especificada.
 - NTILE requer uma expressão que é avaliada como um número inteiro positivo. Esse número Especifica o número de grupos em que cada partição deve ser dividida. O identificador é usado apenas com a função de classificação NTILE. 
 
 Para obter mais detalhes sobre a cláusula OVER, consulte [Referência U-SQL]().
@@ -739,8 +739,8 @@ PERCENTILE\_DISC não interpola valores; portanto, o mediano para Web é 200, o 
 - [Usar tutoriais interativos da Análise do Azure Data Lake](data-lake-analytics-use-interactive-tutorials.md)
 - [Analisar logs de site usando a Análise do Azure Data Lake](data-lake-analytics-analyze-weblogs.md)
 - [Introdução à linguagem U-SQL da Análise Azure Data Lake](data-lake-analytics-u-sql-get-started.md)
-- [Gerenciar a Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-use-portal.md)
-- [Gerenciar a Análise Azure Data Lake usando o Azure PowerShell](data-lake-analytics-use-powershell.md)
+- [Gerenciar a Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-manage-use-portal.md)
+- [Gerenciar a Análise Azure Data Lake usando o Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
 - [Monitorar e solucionar problemas em trabalhos da Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/27/2015"
+   ms.date="02/11/2016"
    ms.author="jgao"/>
 
 # Gerenciar a Análise do Azure Data Lake usando o Portal do Azure
@@ -102,8 +102,8 @@ A exclusão de uma conta da Análise não excluirá a conta dependente do Reposi
 
 No momento, a Análise Data Lake dá suporte às seguintes fontes de dados:
 
-- [Repositório Azure Data Lake](data-lake-store-overview.md)
-- [Armazenamento do Blob do Azure](storage-introduction.md)
+- [Repositório Azure Data Lake](../data-lake-store/data-lake-store-overview.md)
+- [Armazenamento do Azure](../storage/storage-introduction.md)
 
 Quando você cria uma conta da Análise Data Lake, é necessário indicar uma conta do Repositório Azure Data Lake como a conta de armazenamento padrão. A conta padrão do Repositório Data Lake é usada para armazenar metadados de trabalho e logs de auditoria de trabalho. Depois de criar uma conta da Análise Data Lake, é possível adicionar outras contas do Repositório Data Lake e/ou uma conta de Armazenamento do Azure.
 
@@ -154,7 +154,7 @@ Quando você cria uma conta da Análise Data Lake, é necessário indicar uma co
 
 <a name="upload-data-to-wasb"></a> **Para carregar arquivos na conta de Armazenamento de Blob do Azure**
 
-Consulte [Carregar dados em trabalhos do Hadoop no HDInsight](hdinsight-upload-data.md). As informações se aplicam à Análise Data Lake.
+Consulte [Carregar dados em trabalhos do Hadoop no HDInsight](../hdinsight/hdinsight-upload-data.md). As informações se aplicam à Análise Data Lake.
 
 
 ## Gerenciar usuários
@@ -170,7 +170,7 @@ A Análise Data Lake usa o controle de acesso com base em funções com o Active
 |Usuário do laboratório DevTest|Permite que você veja tudo e se conecte, inicie, reinicie e desligue máquinas virtuais.|  
 |Administrador de Acesso do Usuário|Permite que você gerencie o acesso do usuário aos recursos do Azure.|  
 
-Para saber mais sobre como criar usuários e grupos de segurança do Active Directory do Azure, consulte [O que é o Active Directory do Azure](active-directory-whatis.md).
+Para saber mais sobre como criar usuários e grupos de segurança do Active Directory do Azure, consulte [O que é o Active Directory do Azure](../active-directory/active-directory-whatis.md).
 
 **Para adicionar usuários ou grupos de segurança a uma conta da Análise**
 
@@ -181,7 +181,7 @@ Para saber mais sobre como criar usuários e grupos de segurança do Active Dire
 3. Na folha **Usuário**, clique em **Adicionar**.
 4. Selecione uma função e adicione um usuário, em seguida clique em **OK**.
 
-**Observação: se esse usuário ou grupo de segurança precisar enviar trabalhos, será necessário conceder a permissão no Repositório Data Lake. Para obter mais detalhes, consulte [Proteger dados armazenados no Repositório Data Lake](data-lake-store-secure-data.md).**
+**Observação: se esse usuário ou grupo de segurança precisar enviar trabalhos, será necessário conceder a permissão no Repositório Data Lake. Para obter mais detalhes, consulte [Proteger dados armazenados no Repositório Data Lake](../data-lake-store/data-lake-store-secure-data.md).**
 
 
 
@@ -244,8 +244,6 @@ Consulte [Monitorar trabalhos de Análise Data Lake](#monitor-jobs).
 
 ##Monitorar o uso da conta
 
-[Introdução - precisamos explicar os termos e conectar as partes.]
-
 **Para monitorar o uso da conta**
 
 1. Abra a conta da Análise que você deseja gerenciar. Para obter instruções, consulte [Acessar contas da Análise Data Lake](#access-adla-account). O painel Uso mostra a utilização:
@@ -271,7 +269,7 @@ O [catálogo do U-SQL](data-lake-analytics-use-u-sql-catalog.md) é usado para e
 <!-- ################################ -->
 ## Usar os grupos do Gerenciador de Recursos do Azure
 
-Aplicativos normalmente são compostos por vários componentes, como, por exemplo, um aplicativo Web, banco de dados, servidor de banco de dados, armazenamento e serviços de terceiros. O Gerenciador de Recursos do Azure (ARM) permite trabalhar com os recursos do seu aplicativo como um grupo, designado um Grupo de Recursos do Azure. Você pode implantar, atualizar, monitorar ou excluir todos os recursos do seu aplicativo com uma única operação coordenada. Usar um modelo para a implantação e esse modelo pode ser útil para ambientes diferentes, como teste, preparação e produção. Você pode esclarecer a cobrança para sua organização exibindo os custos acumulados para todo o grupo. Para saber mais, consulte [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md).
+Aplicativos normalmente são compostos por vários componentes, como, por exemplo, um aplicativo Web, banco de dados, servidor de banco de dados, armazenamento e serviços de terceiros. O Gerenciador de Recursos do Azure (ARM) permite trabalhar com os recursos do seu aplicativo como um grupo, designado um Grupo de Recursos do Azure. Você pode implantar, atualizar, monitorar ou excluir todos os recursos do seu aplicativo com uma única operação coordenada. Usar um modelo para a implantação e esse modelo pode ser útil para ambientes diferentes, como teste, preparação e produção. Você pode esclarecer a cobrança para sua organização exibindo os custos acumulados para todo o grupo. Para saber mais, consulte [Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md).
 
 Um serviço de Análise Data Lake pode incluir os seguintes componentes:
 
@@ -292,7 +290,7 @@ Uma conta da Análise Data Lake e as contas de armazenamento dependentes devem s
 
 - [Visão geral da Análise do Microsoft Azure Data Lake](data-lake-analytics-overview.md)
 - [Introdução à Análise do Data Lake usando o Portal do Azure](data-lake-analytics-get-started-portal.md)
-- [Gerenciar a Análise Azure Data Lake usando o Azure PowerShell](data-lake-analytics-use-powershell.md)
+- [Gerenciar a Análise Azure Data Lake usando o Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
 - [Monitorar e solucionar problemas em trabalhos da Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

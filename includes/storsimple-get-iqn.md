@@ -2,7 +2,7 @@
 
 #### Para obter o IQN do host do Windows
 
-1. Inicie o iniciador Microsoft iSCSI no host do Windows.
+1. Inicie o iniciador Microsoft iSCSI no host do Windows. Clique em **Iniciar** > **Ferramentas Administrativas** > **Iniciador iSCSI**.
 
 2. Na janela **Propriedades do Iniciador iSCSI**, na guia **Configuração** selecione e copie a cadeia de caracteres do campo **Nome do Iniciador**.
  
@@ -10,4 +10,4 @@
 
 3. Salve esta cadeia de caracteres.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0218_2016-->

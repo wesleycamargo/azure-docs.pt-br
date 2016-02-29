@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/27/2016"
+   ms.date="02/17/2016"
    ms.author="alkohli" />
 
 # Limites do sistema StorSimple
@@ -34,7 +34,7 @@ O StorSimple fornece armazenamento escalonável e flexível para seu datacenter.
 | Número máximo de conexões iSCSI dos iniciadores | 512 | |
 | Número máximo de registros de controle de acesso por dispositivo | 64 | |
 | Número máximo de volumes por política de backup | 24 | |
-| Número máximo de backups retidos por política de backup | 64 | |
+| Número máximo de backups retidos por programação (em uma política de backup) | 64 | |
 | Número máximo de agendas por política de backup | 10 | |
 | Número máximo de instantâneos de qualquer tipo que podem ser retidos por volume | 256 | Isso inclui instantâneos locais e instantâneos de nuvem. |
 | Número máximo de instantâneos que podem estar presentes em qualquer dispositivo | 10\.000 | |
@@ -52,4 +52,4 @@ O StorSimple fornece armazenamento escalonável e flexível para seu datacenter.
 
 Analise os [requisitos de sistema do StorSimple](storsimple-system-requirements.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

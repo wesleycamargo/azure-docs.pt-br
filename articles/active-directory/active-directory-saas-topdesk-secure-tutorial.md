@@ -1,5 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Integração do Active Directory do Azure ao TOPdesk - Secure | Microsoft Azure" description="Saiba como usar o TOPdesk - Secure com o Active Directory do Azure para habilitar logon único, provisionamento automatizado e muito mais!" 
+    pageTitle="Tutorial: Integração do Active Directory do Azure ao TOPdesk - Secure | Microsoft Azure"
+    description="Saiba como usar o TOPdesk - Secure com o Active Directory do Azure para habilitar logon único, provisionamento automatizado e muito mais!" 
     services="active-directory" 
     authors="markusvi"  
     documentationCenter="na" 
@@ -15,8 +16,7 @@
 
 #Tutorial: Integração do Active Directory do Azure ao TOPdesk - Secure
   
-O objetivo deste tutorial é mostrar a integração do Azure com o TOPdesk - Secure.  
-O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+O objetivo deste tutorial é mostrar a integração do Azure com o TOPdesk - Secure. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Uma assinatura habilitada para logon único do TOPdesk - Secure
@@ -66,8 +66,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ##Configurando o logon único
   
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no TOPdesk - Secure com sua conta do AD do Azure usando federação baseada em protocolo SAML.  
-Configurar o logon único para o TOPdesk - Secure requer que você carregue um arquivo de ícone de logotipo. Para obter o arquivo do ícone, entre em contato com a equipe de suporte do TOPdesk.
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no TOPdesk - Secure com sua conta do AD do Azure usando federação baseada em protocolo SAML. Configurar o logon único para o TOPdesk - Secure requer que você carregue um arquivo de ícone de logotipo. Para obter o arquivo do ícone, entre em contato com a equipe de suporte do TOPdesk.
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
@@ -90,11 +89,10 @@ Configurar o logon único para o TOPdesk - Secure requer que você carregue um a
     ![Configurações Técnicas](./media/active-directory-saas-topdesk-secure-tutorial/IC790855.png "Configurações Técnicas")
 
     1.  Clique em **Baixar** para baixar o arquivo de metadados públicos e salve-o localmente no computador.
-    2.  Abra o arquivo de metadados e localize o nó **AssertionConsumerService**.
-        ![Serviço de Declaração do Consumidor](./media/active-directory-saas-topdesk-secure-tutorial/IC790856.png "Serviço de Declaração do Consumidor")
+    2.  Abra o arquivo de metadados e localize o nó **AssertionConsumerService**. ![Serviço de Declaração do Consumidor](./media/active-directory-saas-topdesk-secure-tutorial/IC790856.png "Serviço de Declaração do Consumidor")
     3.  Copie o valor de **AssertionConsumerService**.  
 
-        >[AZURE.NOTE]Você precisará do valor na seção **Configurar URL do Aplicativo** mais adiante neste tutorial.
+        >[AZURE.NOTE] Você precisará do valor na seção **Configurar URL do Aplicativo** mais adiante neste tutorial.
 
 6.  Em outra janela do navegador da Web, faça logon em seu portal do **Active Directory do Azure** como administrador.
 
@@ -110,9 +108,9 @@ Configurar o logon único para o TOPdesk - Secure requer que você carregue um a
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-topdesk-secure-tutorial/IC790604.png "Configurar a URL do Aplicativo")
 
-    1.  Na caixa de texto **URL de Logon do TOPdesk - Secure**, digite a URL usada pelos usuários para entrar no aplicativo TOPdesk - Secure (por exemplo: "*https://qssolutions.topdesk.net*").
-    2.  Na caixa de texto **URL de Resposta do TOPdesk – Secure**, cole a **URL AssertionConsumerService do TOPdesk - Secure** (por exemplo: "*https://qssolutions.topdesk.net/tas/public/login/saml*")
-    3.  Clique em **Próximo**.
+    1.  Na caixa de texto **URL de Logon do TOPdesk - Secure**, digite a URL usada pelos usuários para entrar no aplicativo TOPdesk - Secure (por exemplo: "**https://qssolutions.topdesk.net*")).
+2.  Na caixa de texto **URL de Resposta do TOPdesk – Secure**, cole a **URL AssertionConsumerService do TOPdesk - Secure** (por exemplo: "**https://qssolutions.topdesk.net/tas/public/login/saml*")
+3.  Clique em **Próximo**.
 
 10. Na página **Configurar logon único no TOPdesk - Secure**, para baixar o arquivo de metadados, clique em **Baixar metadados** e salve o arquivo localmente no computador.
 
@@ -150,8 +148,8 @@ Configurar o logon único para o TOPdesk - Secure requer que você carregue um a
     1.  Para carregar o arquivo de metadados baixado, em **Metadados de Federação**, clique em **Procurar**.
     2.  Para carregar o arquivo de certificado, em **Certificado (RSA)**, clique em **Procurar**.
     3.  Para carregar o arquivo de logotipo que você recebeu da equipe de suporte do TOPdesk, em **Ícone do logotipo**, clique em **Procurar**.
-    4.  Na caixa de texto **Atributo do nome de usuário**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-    5.  Na caixa de texto **Nome de exibição**, digite um nome para a sua configuração.
+    4.  Na caixa de texto **Atributo do nome de usuário**, digite ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+5.  Na caixa de texto **Nome de exibição**, digite um nome para a sua configuração.
     6.  Clique em **Salvar**.
 
 17. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
@@ -160,8 +158,7 @@ Configurar o logon único para o TOPdesk - Secure requer que você carregue um a
 
 ##Configurando o provisionamento de usuários
   
-Para permitir que os usuários do AD do Azure façam logon no TOPdesk - Secure, eles deverão ser provisionados no TOPdesk - Secure.  
-No caso do TOPdesk - Secure, o provisionamento é uma tarefa manual.
+Para permitir que os usuários do AD do Azure façam logon no TOPdesk - Secure, eles deverão ser provisionados no TOPdesk - Secure. No caso do TOPdesk - Secure, o provisionamento é uma tarefa manual.
 
 ###Para configurar o provisionamento de usuários, execute as seguintes etapas:
 
@@ -181,7 +178,7 @@ No caso do TOPdesk - Secure, o provisionamento é uma tarefa manual.
     4.  Na caixa de texto **Nome de Logon** da seção **Logon no TOPdesk**, digite um nome de logon para o usuário.
     5.  Clique em **Salvar**.
 
->[AZURE.NOTE]É possível usar qualquer outra ferramenta de criação da conta de usuário do TOPdesk - Secure ou APIs fornecidas pelo TOPdesk - Secure para provisionar as contas de usuário do AAD.
+>[AZURE.NOTE] É possível usar qualquer outra ferramenta de criação da conta de usuário do TOPdesk - Secure ou APIs fornecidas pelo TOPdesk - Secure para provisionar as contas de usuário do AAD.
 
 ##Atribuindo usuários
   
@@ -201,4 +198,4 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!----HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

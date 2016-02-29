@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/29/2016"
+   ms.date="02/12/2016"
    ms.author="chackdan"/>
 
 
@@ -52,7 +52,9 @@ Há duas maneiras de criar um modelo personalizado do Gerenciador de Recursos:
 
 ## Implantar o modelo do Gerenciador de Recursos no Azure usando o Azure PowerShell
 
-Confira [Implantar modelos de Gerenciador de Recursos usando o PowerShell](resource-group-template-deploy.md) para obter diretrizes detalhadas sobre como implantar o modelo usando o PowerShell.
+Confira [Implantar modelos de Gerenciador de Recursos usando o PowerShell](../resource-group-template-deploy.md) para obter diretrizes detalhadas sobre como implantar o modelo usando o PowerShell.
+
+>[AZURE.NOTE] Os clusters de Service Fabric exigem um determinado número de nós que devem estar ativos em todos os momentos para manter a disponibilidade e preservar o estado - conhecido como "manter o quórum". Consequentemente, normalmente não é seguro desligar todos os computadores no cluster, a menos que você tenha executado primeiro um [backup completo do estado](service-fabric-reliable-services-backup-restore.md).
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Próximas etapas
@@ -63,4 +65,4 @@ Confira [Implantar modelos de Gerenciador de Recursos usando o PowerShell](resou
 <!--Image references-->
 [DownloadTemplate]: ./media/service-fabric-cluster-creation-via-arm/DownloadTemplate.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

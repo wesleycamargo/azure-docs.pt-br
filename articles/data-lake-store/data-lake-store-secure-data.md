@@ -112,14 +112,14 @@ Ao atribuir usuários/grupos de segurança ao sistema de arquivos do Azure Data 
 	![Atribuir permissões ao grupo](./media/data-lake-store-secure-data/adl.acl.4.png "Atribuir permissões ao grupo")
 
 
-	>[AZURE.NOTE]A permissão de Execução é necessária para a enumeração de diretórios e costuma ser necessária ao fornecer a um usuário ou grupo o acesso somente leitura aos dados.
+	>[AZURE.NOTE] A permissão de Execução é necessária para a enumeração de diretórios e costuma ser necessária ao fornecer a um usuário ou grupo o acesso somente leitura aos dados.
 
 
 6. Na folha **Adicionar Acesso Personalizado**, clique em **OK**. O grupo recém-adicionado, com as permissões associadas, estará listado na folha **Acesso**.
 
 	![Atribuir permissões ao grupo](./media/data-lake-store-secure-data/adl.acl.5.png "Atribuir permissões ao grupo")
 
-	> [AZURE.IMPORTANT]Na versão atual, você pode ter apenas 12 entradas em **Acesso Personalizado**. Se você quiser adicionar mais de 12 usuários, crie grupos de segurança, adicione usuários aos grupos, forneça acesso a esses grupos de segurança para a conta do repositório Data Lake.
+	> [AZURE.IMPORTANT] Na versão atual, você pode ter apenas nove entradas em **Acesso Personalizado**. Se você quiser adicionar mais de nove usuários, crie grupos de segurança, adicione os usuários aos grupos, forneça acesso a esses grupos de segurança para a conta do repositório Data Lake.
 
 7. Se for necessário, também é possível modificar as permissões de acesso depois de adicionar o grupo. Marque ou desmarque a caixa de seleção de cada tipo de permissão (Leitura, Gravação, Execução) com base em seu desejo de remover ou atribuir essa permissão ao grupo de segurança. Clique em **Salvar** para salvar as alterações ou em **Descartar** para desfazer as alterações.
 
@@ -165,4 +165,4 @@ Quando você remove as ACLs de grupos de segurança do sistema de arquivos do re
 - [Introdução ao Repositório Data Lake usando o PowerShell](data-lake-store-get-started-powershell.md)
 - [Introdução ao Repositório Data Lake usando o SDK do .NET](data-lake-store-get-started-net-sdk.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

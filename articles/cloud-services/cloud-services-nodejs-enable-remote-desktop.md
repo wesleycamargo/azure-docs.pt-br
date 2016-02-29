@@ -26,7 +26,7 @@ A Área de Trabalho Remota permite que você acesse a área de trabalho da inst�
 ## Pré-requisitos
 
 - Instalar e configurar o [Powershell do Azure](../powershell-install-configure.md).
-- Implantar um aplicativo Node.js para um Serviço de Nuvem do Azure Para saber mais, consulte [Criar e implantar um aplicativo Node.js em um Serviço de Nuvem do Azure](cloud-services-nodejs-develop-deploy-app.md).
+- Implantar um aplicativo Node.js em um Serviço de Nuvem do Azure. Para saber mais, consulte [Criar e implantar um aplicativo Node.js em um Serviço de Nuvem do Azure](cloud-services-nodejs-develop-deploy-app.md).
 
 
 ## Etapa 1: Usar o PowerShell do Azure para configurar o serviço para acesso à área de trabalho remota
@@ -35,7 +35,7 @@ Para usar a Área de Trabalho Remota, você precisa atualizar a definição e a 
 
 Execute as etapas a seguir em um computador que contém os arquivos de origem de seu aplicativo.
 
-1. Execute o **PowerShell do Azure** como Administrador. (No **menu Iniciar** ou **tela Iniciar**, pesquise por **PowerShell do Azure**.)
+1. Execute o **Windows PowerShell** como Administrador. (No **menu Iniciar** ou **tela Inicial**, pesquise por **Windows PowerShell**.)
 
 2.  Navegue até o diretório que contém a definição de serviço (.csdef) e os arquivos de configuração de serviço (.cscfg).
 
@@ -57,7 +57,7 @@ Execute as etapas a seguir em um computador que contém os arquivos de origem de
 
 Depois de publicar a definição do serviço de atualização, você pode se conectar à instância da função.
 
-1.  No [portal clássico do Azure], selecione **Serviços de Nuvem ** e selecione o serviço.
+1.  No [portal clássico do Azure], selecione **Serviços de Nuvem** e selecione o serviço.
 
 	![portal clássico do Azure][cloud-services]
 
@@ -73,7 +73,7 @@ Depois de publicar a definição do serviço de atualização, você pode se con
 
     ![Prompt de segurança do Windows][5]
 
-4.  Clique em **Conectar** e será exibido um prompt de segurança para a inserção das credenciais para acessar a instância. Digite a senha criada na [Etapa1]\[Etapa 1: Configurar o serviço para acesso à Área de Trabalho Remota usando o PowerShell do Azure] e, em seguida, clique em **OK**.
+4.  Clique em **Conectar** e será exibido um prompt de segurança para a inserção das credenciais para acessar a instância. Digite a senha criada na [Etapa1][Etapa 1: Configurar o serviço para acesso à Área de Trabalho Remota usando o PowerShell do Azure] e, em seguida, clique em **OK**.
 
     ![prompt de nome de usuário/senha][6]
 
@@ -115,4 +115,4 @@ Quando você não precisar mais de conexões de área de trabalho remota para as
 [Usando a Área de Trabalho Remota com as funções do Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -426,6 +426,27 @@ Esses atributos para o usuário são além dos outros aplicativos que você sele
 | msExchUserHoldPolicies| X| | | Retenção de Litígio: permite que os serviços de nuvem determinem quais usuários estão em Retenção de Litígio.|
 | proxyAddresses| X| X| X| Somente o endereço x500 do Exchange Online é inserido.|
 
+## Write-back de dispositivo
+Os objetos do dispositivo são criados no Active Directory. Eles podem ser dispositivos ingressados no domínio do Azure AD ou computadores ingressados no domínio do Windows 10.
+
+| Nome do atributo| Dispositivo| Comentário |
+| --- | :-: | --- |
+| altSecurityIdentities | X| |
+| displayName | X| |
+| dn | X| |
+| msDS-CloudAnchor | X| |
+| msDS-DeviceID | X| |
+| msDS-DeviceObjectVersion | X| |
+| msDS-DeviceOSType | X| |
+| msDS-DeviceOSVersion | X| |
+| msDS-DevicePhysicalIDs | X| |
+| msDS-KeyCredentialLink | X| Somente com o esquema do AD do Windows Server 2016 |
+| msDS-IsCompliant | X| |
+| msDS-IsEnabled | X| |
+| msDS-IsManaged | X| |
+| msDS-RegisteredOwner | X| |
+
+
 ## Observações sobre os atributos
 - Ao usar uma ID Alternativa, o atributo local userPrincipalName será sincronizado com o atributo do AD do Azure onPremisesUserPrincipalName. O atributo de ID Alternativa, por exemplo, email, será sincronizado com o atributo do AD do Azure userPrincipalName.
 
@@ -435,4 +456,4 @@ Saiba mais sobre a configuração de [sincronização do Azure AD Connect](activ
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

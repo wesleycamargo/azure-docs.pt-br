@@ -72,9 +72,8 @@ Esta página ajuda você a configurar um cluster do Service Fabric. Sua assinatu
 
 	b. Adicione todas as portas, separadas por vírgulas, no campo **Pontos de extremidade de entrada do aplicativo**. Por padrão, o ponto de extremidade de conexão do cliente TCP é 19000, portanto não é necessário especificá-lo. Por exemplo, o aplicativo de exemplo WordCount precisa da porta 83 aberta. Você encontrará isso no arquivo servicemanifest.xml em seu pacote de aplicativos. (Pode haver mais de um arquivo servicemanifest.xml.)
 
-    c. A maioria dos aplicativos de exemplo usam as portas 80 e 8081. Portanto, adicione-as se você planeja implantar exemplos para esse cluster. 
+    c. A maioria dos aplicativos de exemplo usam as portas 80 e 8081. Portanto, adicione-as se você planeja implantar exemplos para esse cluster. ![Portas][Ports]
 
-![Portas][Ports]
 10. Não é necessário configurar as **Propriedades de Posicionamento**, pois uma propriedade de posicionamento padrão de "NodeTypeName" foi adicionada pelo sistema. Você pode adicionar mais se o aplicativo exigir.
 
 ## Configurar a segurança
@@ -113,13 +112,13 @@ Depois que a implantação for concluída, você pode inspecionar o cluster no p
 
 1. Acesse **Procurar** e clique em **Clusters do Service Fabric**.
 
-2. Localize o cluster e clique nele. 
+2. Localize o cluster e clique nele. ![Captura de tela da localização do cluster no portal.][BrowseCluster]
 
-![Captura de tela da localização do cluster no portal.][BrowseCluster]
-3. Agora você pode ver os detalhes do cluster no painel, inclusive o endereço IP público do cluster. Passar com o mouse sobre o **Endereço IP Público do Cluster** abrirá uma área de transferência na qual você pode clicar para copiar o endereço. 
+3. Agora você pode ver os detalhes do cluster no painel, inclusive o endereço IP público do cluster. Passar com o mouse sobre o **Endereço IP Público do Cluster** abrirá uma área de transferência na qual você pode clicar para copiar o endereço. ![Captura de tela dos detalhes do cluster no painel de controle.][ClusterDashboard]
 
-![Captura de tela dos detalhes do cluster no painel de controle.][ClusterDashboard]
   A seção **Monitor do Nó** na folha do painel do cluster indica o número de VMs íntegras e não íntegras. Você pode encontrar mais detalhes sobre a integridade do cluster em [Introdução ao modelo de integridade do Service Fabric](service-fabric-health-introduction.md).
+
+>[AZURE.NOTE] Os clusters de Service Fabric exigem um determinado número de nós que devem estar ativos em todos os momentos para manter a disponibilidade e preservar o estado - conhecido como "manter o quórum". Consequentemente, normalmente não é seguro desligar todos os computadores no cluster, a menos que você tenha executado primeiro um [backup completo do estado](service-fabric-reliable-services-backup-restore.md).
 
 ## Conectar-se ao cluster e implantar um aplicativo
 
@@ -208,4 +207,4 @@ Agora que você está conectado, execute os seguintes comandos para implantar se
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

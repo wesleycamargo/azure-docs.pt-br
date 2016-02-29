@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Configurar a proteção entre sites locais VMWare"
-	description="Use este artigo para configurar a proteção entre dois locais VMware usando o Azure Site Recovery."
+	pageTitle="Replicar máquinas virtuais VMware locais ou servidores físicos em um site secundário | Microsoft Azure"
+	description="Use este artigo para replicar máquinas virtuais VMware ou servidores físicos Windows/Linux para um site secundário com o Azure Site Recovery."
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/03/2015"
+	ms.date="02/16/2016"
 	ms.author="raynew"/>
 
 
-# Configurar a proteção entre sites locais VMWare
+# Replicar máquinas virtuais VMware locais ou servidores físicos em um site secundário
 
 
 ## Visão geral
@@ -27,7 +27,7 @@ O InMage Scout no Azure Site Recovery fornece replicação em tempo real entre o
 
 ## Pré-requisitos
 
-- **Conta do Azure**: você precisará de uma conta do [Microsoft Azure](https://azure.microsoft.com/). Você pode começar com uma [avaliação gratuita](pricing/free-trial/).
+- **Conta do Azure**: você precisará de uma conta do [Microsoft Azure](https://azure.microsoft.com/). Você pode começar com uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/). [Saiba mais](https://azure.microsoft.com/pricing/details/site-recovery/) sobre os preços da Recuperação de Site.
 
 
 ## Etapa 1: criar um cofre
@@ -36,7 +36,7 @@ O InMage Scout no Azure Site Recovery fornece replicação em tempo real entre o
 2. Clique em **Serviços de Dados** > **Serviços de Recuperação** > **Cofre de Recuperação de Site**.
 3. Clique em **Criar Novo** > **Criação Rápida**.
 4. Em **Nome**, digite um nome amigável para identificar o cofre.
-5. Em **Região**, selecione a região geográfica para o cofre. Para verificar as regiões com suporte, consulte a Disponibilidade Geográfica nos [Detalhes dos Preços do Azure Site Recovery](pricing/details/site-recovery/).
+5. Em **Região**, selecione a região geográfica para o cofre. Para verificar as regiões com suporte, consulte a Disponibilidade Geográfica nos [Detalhes dos Preços do Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 
 Verifique a barra de status para confirmar que o cofre foi criado com sucesso. O cofre será listado como **Ativo** na página de Serviços de Recuperação.
 
@@ -130,4 +130,4 @@ Essa última atualização inclui correções de bugs e novos recursos:
 
 Publique qualquer pergunta no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

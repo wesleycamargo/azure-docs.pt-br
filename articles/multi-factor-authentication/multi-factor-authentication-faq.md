@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/11/2016" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 # Perguntas frequentes sobre o Azure Multi-Factor Authentication
@@ -75,7 +75,8 @@ Todos os custos são distribuídos no custo por usuário ou por autenticação d
 
 O Azure Multi-Factor Authentication está disponível como um serviço autônomo com opções de cobrança por usuário e por autenticação, ou em conjunto com o Active Directory Premium do Azure e o Enterprise Mobility Suite. O serviço independente está disponível com base no consumo e é cobrado mensalmente no compromisso monetário do Azure, ou como uma licença anual por usuário disponível por meio de um Microsoft Enterprise Agreement, do Programa de Licença de Volume Aberto, do programa de Fornecedores de Soluções na Nuvem e Diretamente.
 
->[AZURE.IMPORTANT]As regiões da Austrália estão disponíveis a clientes com presença comercial na Austrália ou na Nova Zelândia.
+>[AZURE.IMPORTANT]
+As regiões da Austrália estão disponíveis a clientes com presença comercial na Austrália ou na Nova Zelândia.
 
 Modelos de cobrança | Preço
 ------------- | ------------- |
@@ -136,7 +137,7 @@ Você pode excluir todas as senhas de aplicativo dos usuários para impedir qual
 Para obter informações sobre como criar senhas de aplicativo, confira [Ajuda com senhas de aplicativo](multi-factor-authentication-end-user-app-passwords.md)
 
 
->[AZURE.NOTE]Autenticação moderna para os clientes do Office 2013
+>[AZURE.NOTE] Autenticação moderna para os clientes do Office 2013
 >
 > Os clientes do Office 2013 (incluindo o Outlook) agora têm suporte a novos protocolos de autenticação e podem ser habilitados para oferecer suporte ao Multi-Factor Authentication. Isso significa que, uma vez habilitadas, as senhas de aplicativo não são necessárias para usar com os clientes do Office 2013. Para saber mais, confira [Anúncio da visualização pública da autenticação moderna do Office 2013](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
@@ -179,4 +180,4 @@ Atualmente, a verificação de segurança adicional pode ser usada somente com a
 
 Uma solução alternativa para isso é ter uma conta de usuário para as operações administrativas e outra para as operações não administrativas. Posteriormente, você pode vincular caixas de correio entre a conta administrativa e a conta não administrativa para que seja possível entrar no Outlook usando a conta não administrativa. Para obter mais detalhes sobre isso, veja [Fornecer a um administrador a capacidade de abrir e exibir o conteúdo da caixa de correio de um usuário] (http://help.outlook.com/141/gg709759(d=loband).aspx?sl=1)).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -12,14 +12,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/05/2016"
+    ms.date="02/14/2016"
     ms.author="dineshm"/>
 
 # Listar recursos de armazenamento do Azure em C++
 
 As operações de listagem são fundamentais para muitos cenários de desenvolvimento com o Armazenamento do Azure. Este artigo descreve como enumerar os objetos no Armazenamento do Azure usando a listagem APIs fornecidas na Biblioteca de Cliente do Armazenamento do Microsoft Azure para C++ com mais eficiência.
 
->[AZURE.NOTE] Este guia destina-se a Biblioteca de Cliente do Armazenamento do Azure para C++ versão 1.x, que está disponível via [NuGet](http://www.nuget.org/packages/wastorage) ou [GitHub](https://github.com/Azure/azure-storage-cpp).
+>[AZURE.NOTE] Este guia destina-se à Biblioteca de Cliente do Armazenamento do Azure para C++ versão 2.x, que está disponível via [NuGet](http://www.nuget.org/packages/wastorage) ou [GitHub](https://github.com/Azure/azure-storage-cpp).
 
 A Biblioteca de Cliente do Armazenamento fornece uma variedade de métodos de consulta ou lista de objetos no Armazenamento do Azure. Este artigo aborda os seguintes cenários:
 
@@ -33,7 +33,7 @@ Cada um desses métodos é mostrado usando sobrecargas diferentes para diferente
 
 ## Assíncrono versus síncrono
 
-Como a Biblioteca de Cliente de Armazenamento para C++ é construída sobre a [Biblioteca C++ REST (Projeto Casablanca)](http://casablanca.codeplex.com/), nós oferecemos inerentemente suporte a operações assíncronas usando [pplx::task](http://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Por exemplo:
+Como a Biblioteca de Cliente de Armazenamento para C++ é construída sobre a [Biblioteca C++ REST](https://github.com/Microsoft/cpprestsdk), nós oferecemos inerentemente suporte a operações assíncronas usando [pplx::task](http://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Por exemplo:
 
 	pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;
 
@@ -162,7 +162,7 @@ Observe que a listagem lenta só está disponível no modo síncrono.
 
 A listagem lenta, em comparação com a listagem greedy, busca dados somente quando necessário. Nos bastidores, ela busca dados do Armazenamento do Azure apenas quando o próximo iterador passa para o próximo segmento. Portanto, o uso de memória é controlado com um tamanho limitado e a operação é rápida.
 
-As APIs de listagem lenta estão incluídas na Biblioteca de Cliente de Armazenamento do C++ na versão 1.0.0.
+As APIs de listagem lenta estão incluídas na Biblioteca de Cliente de Armazenamento do C++ na versão 2.2.0.
 
 ## Conclusão
 
@@ -184,4 +184,4 @@ Para obter mais informações sobre o Armazenamento do Azure e a Biblioteca de C
 -	[Blog da equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 -	[Documentação do Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

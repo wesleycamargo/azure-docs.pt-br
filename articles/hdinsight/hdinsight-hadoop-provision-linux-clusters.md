@@ -24,7 +24,7 @@
 
 Neste documento, você aprenderá sobre as diferentes maneiras de criar um cluster HDInsight baseado em Linux no Azure, bem como configurações opcionais que podem ser usadas com o cluster. O HDInsight fornece Apache Hadoop, Apache Storm e Apache HBase como serviços na plataforma de nuvem do Azure.
 
-> [AZURE.NOTE] Este documento fornece instruções sobre as diferentes maneiras de criar um cluster. Se você procura uma abordagem de início rápido para criar um cluster, consulte [Introdução ao Azure HDInsight no Linux](../hdinsight-hadoop-linux-get-started.md).
+> [AZURE.NOTE] Este documento fornece instruções sobre as diferentes maneiras de criar um cluster. Se você procura uma abordagem de início rápido para criar um cluster, consulte [Introdução ao Azure HDInsight no Linux](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 ## O que é um cluster HDInsight?
 
@@ -69,7 +69,7 @@ Clusters do Spark para HDInsight têm três tipos de nós: - Nó principal (2 n�
 
 ###Armazenamento do Azure para HDInsight
 
-Cada tipo de cluster também terá uma ou mais contas do Armazenamento do Azure associadas ao cluster. O HDInsight usa os blobs do Azure dessas contas de armazenamento como o repositório de dados do seu cluster. Manter os dados separados do cluster permite excluir clusters quando não estiverem em uso e preservar seus dados. Em seguida, você pode usar a mesma conta de armazenamento em um novo cluster se precisar fazer mais análises. Para obter mais informações, consulte [Usar o Armazenamento de Blob do Azure com o HDInsight](../hdinsight-use-blob-storage.md).
+Cada tipo de cluster também terá uma ou mais contas do Armazenamento do Azure associadas ao cluster. O HDInsight usa os blobs do Azure dessas contas de armazenamento como o repositório de dados do seu cluster. Manter os dados separados do cluster permite excluir clusters quando não estiverem em uso e preservar seus dados. Em seguida, você pode usar a mesma conta de armazenamento em um novo cluster se precisar fazer mais análises. Para obter mais informações, consulte [Usar o Armazenamento de Blob do Azure com o HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
 ## <a id="configuration"></a>Opções de configuração básicas
 
@@ -103,7 +103,7 @@ Você pode provisionar clusters HDInsight em um dos dois sistemas operacionais a
 
 - **HDInsight no Windows (Windows Server 2012 R2 Datacenter)**: selecione esta opção se precisar integrar com serviços baseados em Windows e tecnologias que serão executadas no cluster com Hadoop, ou se você estiver migrando de uma distribuição Hadoop baseada em Windows existente.
 
-- **HDInsight em Linux (Ubuntu 12.04 LTS para Linux)**: selecione essa opção se estiver familiarizado com Linux ou Unix, migrando de uma solução Hadoop existente baseada no Linux ou se quiser fácil integração com componentes do ecossistema do Hadoop criados para Linux. Para obter mais informações, consulte [Introdução ao Hadoop no Linux em HDInsight](hdinsight-hadoop-linux-get-started.md).
+- **HDInsight em Linux (Ubuntu 12.04 LTS para Linux)**: selecione essa opção se estiver familiarizado com Linux ou Unix, migrando de uma solução Hadoop existente baseada no Linux ou se quiser fácil integração com componentes do ecossistema do Hadoop criados para Linux. Para obter mais informações, consulte [Introdução ao Hadoop no Linux em HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 > [AZURE.NOTE] As informações neste documento pressupõem que você está usando um cluster HDInsight baseado em Linux. Para obter informações específicas de clusters baseados no Windows, consulte [Criar clusters Hadoop baseados no Windows no HDInsight](hdinsight-provision-clusters.md).
 
@@ -113,7 +113,7 @@ Se você tiver várias assinaturas do Azure, use isso para selecionar a que dese
 
 ###Grupo de recursos
 
-Aplicativos normalmente são compostos por vários componentes, como, por exemplo, um aplicativo Web, banco de dados, servidor de banco de dados, armazenamento e serviços de terceiros. O Gerenciador de Recursos do Azure (ARM) permite trabalhar com os recursos do seu aplicativo como um grupo, designado um Grupo de Recursos do Azure. Você pode implantar, atualizar, monitorar ou excluir todos os recursos do seu aplicativo com uma única operação coordenada. Usar um modelo para a implantação e esse modelo pode ser útil para ambientes diferentes, como teste, preparação e produção. Você pode esclarecer a cobrança para sua organização exibindo os custos acumulados para todo o grupo. Para obter mais informações, veja [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md).
+Aplicativos normalmente são compostos por vários componentes, como, por exemplo, um aplicativo Web, banco de dados, servidor de banco de dados, armazenamento e serviços de terceiros. O Gerenciador de Recursos do Azure (ARM) permite trabalhar com os recursos do seu aplicativo como um grupo, designado um Grupo de Recursos do Azure. Você pode implantar, atualizar, monitorar ou excluir todos os recursos do seu aplicativo com uma única operação coordenada. Usar um modelo para a implantação e esse modelo pode ser útil para ambientes diferentes, como teste, preparação e produção. Você pode esclarecer a cobrança para sua organização exibindo os custos acumulados para todo o grupo. Para obter mais informações, veja [Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md).
 
 ###Credenciais
 
@@ -192,7 +192,7 @@ Para obter mais informações sobre como usar o HDInsight com uma Rede Virtual, 
 
 O metastore contém metadados Hive e Oozie, como informações sobre tabelas Hive, partições, esquemas e colunas. Usar o metastore ajuda a manter seus metadados Hive e Oozie para que você não tenha que recriar tabelas Hive ou trabalhos do Oozie ao criar um novo cluster.
 
-Usar a opção de configuração Metastore permite especificar um metastore externo usando o Banco de Dados SQL. Isso permite que as informações de metadados sejam preservadas quando você excluir um cluster, já que elas são armazenadas externamente no banco de dados. Para obter instruções sobre como criar um banco de dados SQL do Azure, consulte [Criar seu primeiro banco de dados SQL do Azure](sql-database-get-started.md).
+Usar a opção de configuração Metastore permite especificar um metastore externo usando o Banco de Dados SQL. Isso permite que as informações de metadados sejam preservadas quando você excluir um cluster, já que elas são armazenadas externamente no banco de dados. Para obter instruções sobre como criar um banco de dados SQL do Azure, consulte [Criar seu primeiro banco de dados SQL do Azure](../sql-database/sql-database-get-started.md).
 
 > [AZURE.NOTE] A configuração de Metastore não está disponível para tipos de cluster HBase.
 
@@ -206,7 +206,7 @@ Você pode instalar componentes adicionais ou personalizar a configuração de c
 
 Em alguns casos, você poderá adicionar mais armazenamento ao cluster. Por exemplo, se você tiver várias Contas do Armazenamento do Azure para diferentes regiões geográficas ou para diferentes serviços, mas desejar analisá-los com o HDInsight.
 
-Para obter mais informações sobre o uso de repositórios de blob secundários, consulte [Usando o armazenamento de Blob do Azure com o HDInsight](../hdinsight-use-blob-storage.md).
+Para obter mais informações sobre o uso de repositórios de blob secundários, consulte [Usando o armazenamento de Blob do Azure com o HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
 ##<a id="nextsteps"></a><a id="options"></a> Métodos de criação
 
@@ -221,24 +221,24 @@ Neste artigo, você aprendeu as informações básicas sobre como criar um clust
 | [SDK .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 
 
-[hdinsight-use-mapreduce]: ../hdinsight-use-mapreduce/
-[hdinsight-use-hive]: ../hdinsight-use-hive/
-[hdinsight-use-pig]: ../hdinsight-use-pig/
-[hdinsight-upload-data]: ../hdinsight-upload-data/
+[hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
+[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 
 
-[hdinsight-customize-cluster]: ../hdinsight-hadoop-customize-cluster/
-[hdinsight-get-started]: ../hdinsight-get-started/
-[hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
+[hdinsight-customize-cluster]: hdinsight-hadoop-customize-cluster.md
+[hdinsight-get-started]: hdinsight-get-started.md
+[hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 
-[hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
+[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 
 [azure-management-portal]: https://manage.windowsazure.com/
 
 [azure-command-line-tools]: ../xplat-cli/
-[azure-create-storageaccount]: ../storage-create-storage-account/
+[azure-create-storageaccount]: ../storage/storage-create-storage-account.md
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -268,4 +268,4 @@ Neste artigo, você aprendeu as informações básicas sobre como criar um clust
 
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Use o Sqoop com o HDInsight"
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

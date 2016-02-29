@@ -13,26 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 
 # Considerações de desempenho sobre Gerenciador de Tráfego
 
-
-As perguntas comuns sobre o Gerenciador de Tráfego do Azure dizem respeito a possíveis problemas de desempenho que ele pode causar. Normalmente, as perguntas são do tipo "Quanta latência o Gerenciador de Tráfego adicionará ao meu site?", "Meu site de monitoramento diz que meu site ficou lento por algumas horas ontem – houve algum problema com o Gerenciador de Tráfego?", "Onde estão os servidores do Gerenciador de Tráfego? Quero ter certeza de que eles estão no mesmo datacenter que meu site para que o desempenho não seja afetado".
-
-Esta página falará sobre o impacto direto no desempenho que o Gerenciador de Tráfego pode causar em um site. Se você tiver um site no Leste dos EUA e outro na Ásia, e o site no Leste dos EUA estiver falhando nos testes do Gerenciador de Tráfego, todos os usuários serão direcionados ao seu site na Ásia, e você verá os impactos no desempenho. Porém, esse impacto no desempenho não tem nada a ver com o próprio Gerenciador de Tráfego.
+Esta página explica as considerações de desempenho usando o Gerenciador de Tráfego. Cenários, como: você tem um site na região dos EUA e na Ásia e uma delas tem falhas na verificação de integridade para testes do Gerenciador de Tráfego, todos os usuários serão direcionados à região íntegra e o comportamento poderá ser exibido como problema de desempenho, mas seria um comportamento esperado com base na distância para a solicitação do usuário.
 
   
 
 ## Observação importante sobre o funcionamento do Gerenciador de Tráfego
 
-[A Visão geral do Gerenciador de Tráfego](traffic-manager-overview.md) é um excelente recurso para aprender como funciona o Gerenciador de Tráfego, mas há muitas informações nessa página, e pode ser difícil escolher as informações importantes relacionadas ao desempenho. Os pontos importantes na documentação do MSDN são as etapas 5 e 6 da Imagem 3, que explicarei aqui com mais detalhes:
-
 - Essencialmente, o Gerenciador de Tráfego faz apenas uma coisa – resolução de DNS. Isso significa que o único impacto de desempenho que o Gerenciador de Tráfego pode ter sobre seu site é na pesquisa inicial de DNS.
 - Esclarecimento sobre a pesquisa de DNS do Gerenciador de Tráfego. O Gerenciador de Tráfego preenche, e atualiza regularmente, os servidores raiz de DNS normais da Microsoft com base em sua política e nos resultados de teste. Portanto, mesmo durante a pesquisa inicial de DNS não há qualquer envolvimento do Gerenciador de Tráfego, uma vez que a solicitação de DNS é tratada pelos servidores raiz de DNS normais da Microsoft. Se o Gerenciador de Tráfego 'cair' (ou seja, se ocorrer uma falha nas VMs que realizam a investigação de política e atualização de DNS), não haverá qualquer impacto em seu nome DNS do Gerenciador de Tráfego, uma vez que as entradas nos servidores DNS da Microsoft ainda serão preservadas. O único impacto será a não realização da investigação e da atualização com base na política (ou seja, se o site primário ficar inativo, o Gerenciador de Tráfego não poderá atualizar o DNS a fim de apontar para seu site de failover).
-- O tráfego NÃO flui através do Gerenciador de Tráfego. Não há qualquer servidor do Gerenciador de Tráfego atuando como intermediário entre seus clientes e o serviço hospedado do Azure. Após a conclusão da pesquisa de DNS, o Gerenciador de Tráfego é completamente removido da comunicação entre o cliente e o servidor.
+- O tráfego NÃO flui pelo Gerenciador de Tráfego. Não há qualquer servidor do Gerenciador de Tráfego atuando como intermediário entre seus clientes e o serviço hospedado do Azure. Após a conclusão da pesquisa de DNS, o Gerenciador de Tráfego é completamente removido da comunicação entre o cliente e o servidor.
 - A pesquisa de DNS é muito rápida e é armazenado em cache. A pesquisa inicial de DNS dependerá do cliente e de seus servidores DNS configurados. Normalmente, um cliente pode fazer uma pesquisa de DNS em cerca de 50 ms (consulte http://www.solvedns.com/dns-comparison/). Após a conclusão da primeira pesquisa os resultados serão armazenados em cache durante o tempo de vida do DNS, cujo padrão para o Gerenciador de Tráfego é de 300 segundos.
 - A política do Gerenciador de Tráfego que você escolher (desempenho, failover e round robin) não tem qualquer influência sobre o desempenho do DNS. Sua política de desempenho pode afetar negativamente a experiência do usuário, por exemplo, se você envia usuários dos Estados Unidos a um serviço hospedado na Ásia. Porém, esse problema de desempenho não é causado pelo Gerenciador de Tráfego.
 
@@ -77,11 +72,6 @@ http://www.whatsmydns.net/ – esse site realizará uma pesquisa de DNS de 20 lo
 
 http://www.digwebinterface.com – semelhante ao site watchmouse, mas este mostra informações de DNS mais detalhadas, incluindo CNAMEs e registros A. Marque ‘Colorize output’ e ‘Stats’ nas opções e selecione 'All'em Nameservers.
 
-## Conclusão
-
-Considerando as informações acima, sabemos que o único impacto no desempenho causado pelo Gerenciador de Tráfego em um site é a primeira pesquisa de DNS (os tempos variam, mas a média é de cerca de 50 ms), e o impacto 0 no desempenho durante a vida do DNS (padrão de 300 segundos), e, em seguida, novamente uma atualização no cache de DNS após o vencimento do TTL. Portanto, a resposta à pergunta "Quanto latência o Gerenciador de Tráfego adicionará ao meu site?" é, essencialmente, zero.
-
-
 ## Próximas etapas
 
 
@@ -94,4 +84,4 @@ Considerando as informações acima, sabemos que o único impacto no desempenho 
 [Cmdlets do Gerenciador de Tráfego do Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->
