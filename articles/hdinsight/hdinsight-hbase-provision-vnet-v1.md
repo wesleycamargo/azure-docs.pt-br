@@ -133,7 +133,8 @@ Como outros clusters do HDInsight, o cluster HBase requer uma conta de armazenam
 	<tr><td>Tamanho do nó principal</td><td><p>Selecione um tamanho de VM para o nó principal.</p></td></tr>
 	<tr><td>Tamanho do nó de dados</td><td><p>Selecione um tamanho de VM para os nós de dados.</p></td></tr>
 	<tr><td>Tamanho do Zookeeper</td><td><p>Selecione um tamanho de VM para o nó Zookeper.</p></td></tr>
-</table>>[AZURE.NOTE] O custo pode variar de acordo com sua escolha de VMs. O HDInsight usa todas as VMs de camada padrão para nós de cluster. Para obter informações sobre como os tamanhos de VM afetam os preços, consulte <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Preços do HDInsight</a>.
+</table>
+>[AZURE.NOTE] O custo pode variar de acordo com sua escolha de VMs. O HDInsight usa todas as VMs de camada padrão para nós de cluster. Para obter informações sobre como os tamanhos de VM afetam os preços, consulte <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Preços do HDInsight</a>.
 
 	Clique no botão direito.
 
@@ -178,7 +179,8 @@ Como outros clusters do HDInsight, o cluster HBase requer uma conta de armazenam
     </td></tr>
 	<tr><td>Contas de armazenamento adicionais</td>
 		<td>Se necessário, especifique contas de armazenamento adicionais para o cluster. O HDInsight dá suporte a várias contas do Armazenamento. Não há nenhum limite quanto ao número de contas do Armazenamento que um cluster pode usar. No entanto, se você criar um cluster usando o Portal Clássico do Azure, você terá um limite de sete, devido às restrições da interface do usuário. Cada conta de armazenamento adicional que você especificar adiciona uma página extra de <strong>Conta de Armazenamento</strong> ao assistente, em que você pode especificar as informações da conta. Por exemplo, na captura de tela acima, nenhuma conta de armazenamento adicional está selecionada, e portanto, não ocorre adição de uma página extra ao assistente.</td></tr>
-</table>Clique na seta à direita.
+</table>
+Clique na seta à direita.
 
 7. Na página **Ações de Script** selecione a marca de seleção no canto inferior direito. Não clique no botão **Adicionar ação de script**, já que este tutorial não requer uma configuração de cluster personalizado.
 

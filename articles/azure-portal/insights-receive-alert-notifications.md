@@ -32,13 +32,16 @@ Você pode usar o [API REST](https://msdn.microsoft.com/library/azure/dn931945.a
 
 2. Clique no bloco **Regras de alerta** na lente **Operações**.
 
-3. Clique no comando **Adicionar alerta**. ![Adicionar alerta](./media/insights-receive-alert-notifications/Insights_AddAlert.png)
+3. Clique no comando **Adicionar alerta**.
+    ![Adicionar alerta](./media/insights-receive-alert-notifications/Insights_AddAlert.png)
 
 4. Você pode nomear a regra de alerta e escolher uma descrição que aparecerá no email de notificação.
 
-5. Quando você seleciona **Métricas**, poderá escolher uma condição e um valor de limite para a métrica. Esse é o período de tempo que o Azure usa para monitorar e plotar a atividade de alerta. ![Condição e limite](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)
+5. Quando você seleciona **Métricas**, poderá escolher uma condição e um valor de limite para a métrica. Esse é o período de tempo que o Azure usa para monitorar e plotar a atividade de alerta.
+    ![Condição e limite](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)
 
-6. Você também pode escolher **Eventos** e receber uma notificação quando ocorrer um determinado evento. ![Eventos](./media/insights-receive-alert-notifications/Insights_Events.png)
+6. Você também pode escolher **Eventos** e receber uma notificação quando ocorrer um determinado evento. 
+    ![Eventos](./media/insights-receive-alert-notifications/Insights_Events.png)
 
 7. Finalmente, você pode optar por enviar uma notificação por email aos administradores responsáveis.
 

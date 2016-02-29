@@ -72,7 +72,8 @@ Esta página ajuda você a configurar um cluster do Service Fabric. Sua assinatu
 
 	b. Adicione todas as portas, separadas por vírgulas, no campo **Pontos de extremidade de entrada do aplicativo**. Por padrão, o ponto de extremidade de conexão do cliente TCP é 19000, portanto não é necessário especificá-lo. Por exemplo, o aplicativo de exemplo WordCount precisa da porta 83 aberta. Você encontrará isso no arquivo servicemanifest.xml em seu pacote de aplicativos. (Pode haver mais de um arquivo servicemanifest.xml.)
 
-    c. A maioria dos aplicativos de exemplo usam as portas 80 e 8081. Portanto, adicione-as se você planeja implantar exemplos para esse cluster. ![Portas][Ports]
+    c. A maioria dos aplicativos de exemplo usam as portas 80 e 8081. Portanto, adicione-as se você planeja implantar exemplos para esse cluster.
+    ![Portas][Ports]
 
 10. Não é necessário configurar as **Propriedades de Posicionamento**, pois uma propriedade de posicionamento padrão de "NodeTypeName" foi adicionada pelo sistema. Você pode adicionar mais se o aplicativo exigir.
 
@@ -112,7 +113,8 @@ Depois que a implantação for concluída, você pode inspecionar o cluster no p
 
 1. Acesse **Procurar** e clique em **Clusters do Service Fabric**.
 
-2. Localize o cluster e clique nele. ![Captura de tela da localização do cluster no portal.][BrowseCluster]
+2. Localize o cluster e clique nele.
+![Captura de tela da localização do cluster no portal.][BrowseCluster]
 
 3. Agora você pode ver os detalhes do cluster no painel, inclusive o endereço IP público do cluster. Passar com o mouse sobre o **Endereço IP Público do Cluster** abrirá uma área de transferência na qual você pode clicar para copiar o endereço. ![Captura de tela dos detalhes do cluster no painel de controle.][ClusterDashboard]
 

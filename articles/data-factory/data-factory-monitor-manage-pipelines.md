@@ -543,7 +543,9 @@ Você pode implantar alertas para métricas da mesma maneira como faz para event
  
 Substitua subscriptionId, resourceGroupName e dataFactoryName no exemplo acima pelos valores adequados.
 
-*metricName*, a partir de agora, dá suporte a 2 valores: - FailedRuns - SuccessfulRuns
+*metricName*, a partir de agora, dá suporte a 2 valores:
+ - FailedRuns
+ - SuccessfulRuns
 
 **Implantando o alerta:**
 

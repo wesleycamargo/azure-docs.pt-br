@@ -127,7 +127,7 @@ Se você estiver instalando em um cluster do Hyper-V, execute as etapas 5 a 11 e
 
 	![Atualizações da Microsoft](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_Provider1.png)
 
-7. Em **Instalação ** especifique onde você deseja instalar o Provedor e o Agente no servidor Hyper-V.
+7. Em **Instalação** especifique onde você deseja instalar o Provedor e o Agente no servidor Hyper-V.
 
 	![Local de instalação](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_Provider2.png)
 

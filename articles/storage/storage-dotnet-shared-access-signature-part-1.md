@@ -251,7 +251,10 @@ O exemplo de código a seguir cria uma política de acesso armazenada em um cont
        // To ensure SAS is valid immediately, don’t set the start time.
        // This way, you can avoid failures caused by small clock differences.
        SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
-       Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Create | SharedAccessBlobPermissions.Add
+       Permissions = SharedAccessBlobPermissions.Write |
+       SharedAccessBlobPermissions.Read |
+       SharedAccessBlobPermissions.Create |
+       SharedAccessBlobPermissions.Add
     });
 
     // The public access setting explicitly specifies that
@@ -314,6 +317,8 @@ As assinaturas de acesso compartilhado são úteis para fornecer permissões lim
 - [Introdução ao Armazenamento de Arquivos do Azure no Windows](storage-dotnet-how-to-use-files.md)
 - [Gerenciar o acesso de leitura anônimo aos contêineres e blobs](storage-manage-access-to-resources.md)
 - [Delegando acesso com uma assinatura de acesso compartilhado](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-- [Introdução ao SAS de Fila e Tabela](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx) [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
+- [Introdução ao SAS de Fila e Tabela](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
+[sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
+[sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
 <!---HONumber=AcomDC_0218_2016-->
