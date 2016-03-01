@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="02/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -39,6 +39,7 @@ Este tópico é a base da **sincronização do Azure AD Connect** (também chama
 | **Recursos** ||
 | [Implementar a sincronização de senha](active-directory-aadconnectsync-implement-password-synchronization.md) | Descreve o funcionamento da sincronização de senha, como implementá-la, como operá-la e como solucionar problemas. |
 | [Impedir exclusões acidentais](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) | Descreve o recurso para *impedir exclusões acidentais* e como configurá-lo. |
+| [Agendador](active-directory-aadconnectsync-feature-scheduler.md) | Descreve o agendador interno que está importando, sincronizando e exportando dados. |
 | **Operações** ||
 | [Considerações e tarefas operacionais](active-directory-aadconnectsync-operations.md) | Descreve os problemas operacionais, como a recuperação de desastre. |
 | **Mais informações e referências** ||
@@ -50,4 +51,4 @@ Este tópico é a base da **sincronização do Azure AD Connect** (também chama
 
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

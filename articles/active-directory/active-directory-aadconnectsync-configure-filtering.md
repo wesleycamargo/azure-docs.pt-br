@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/16/2016"
 	ms.author="andkjell;markusvi"/>
 
 
@@ -75,11 +75,15 @@ Você pode usar várias opções de filtragem ao mesmo tempo. Por exemplo, você
 ## Filtragem baseada em domínio
 Esta seção fornece a você as etapas necessárias para configurar seu filtro de domínio. Se você adicionar ou remover domínios na floresta depois de ter instalado o Azure AD Connect também será necessário atualizar a configuração de filtragem.
 
+A melhor maneira de alterar a filtragem baseada em domínio é executando o assistente de instalação para alterar o [domínio e filtragem OUs](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering). O assistente de instalação está automatizando todas as tarefas documentadas neste tópico.
+
+Você só deve seguir estas etapas se por algum motivo não conseguir executar o assistente de instalação.
+
 A configuração de filtragem baseada em domínio consiste nestas etapas:
 
 - [Selecione os domínios](#select-domains-to-be-synchronized) que devem ser incluídos na sincronização.
 - Para cada domínio adicionado e removido, ajuste os [perfis de execução](#update-run-profiles).
-- [Aplicar e verificar as alterações](#apply-and-verify-changes).
+- [Aplicar e verificar as alterações](#apply-and-verify-changes)
 
 ### Selecionar os domínios a serem sincronizados
 **Para definir o filtro de domínio, execute as seguintes etapas:**
@@ -124,6 +128,10 @@ Para fechar o diálogo **Configurar Perfis de Execução**, clique em **OK**.
 - Para concluir a configuração, [Aplicar e verificar as alterações](#apply-and-verify-changes).
 
 ## Filtragem baseada em unidade organizacional
+A melhor maneira de alterar a filtragem baseada em OU é executando o assistente de instalação para alterar o [domínio e filtragem OUs](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering). O assistente de instalação está automatizando todas as tarefas documentadas neste tópico.
+
+Você só deve seguir estas etapas se por algum motivo não conseguir executar o assistente de instalação.
+
 **Para configurar a filtragem baseada em unidade organizacional, execute as seguintes etapas:**
 
 1. Entre no servidor que está executando a sincronização do Azure AD Connect usando uma conta que seja membro do grupo de segurança **ADSyncAdmins**.
@@ -151,7 +159,7 @@ A filtragem baseada em entrada está utilizando a configuração padrão, na qua
 
 Na filtragem de entrada, usaremos o poder do **escopo** para determinar quais objetos devem ou não ser sincronizados. Aqui, você fará os ajustes para os requisitos da sua própria organização. O módulo de escopo tem **grupo** e **cláusula** para determinar se uma regra de sincronização deve estar no escopo. Um **grupo** conterá uma ou várias **cláusulas**. Há um E lógico entre várias cláusulas e um OU lógico entre vários grupos.
 
-Vamos examinar um exemplo: ![Escopo](./media/active-directory-aadconnectsync-configure-filtering/scope.png) Isso deve ser lido como **(departamento = TI) OU (departamento = Vendas E c = US)**.
+Vamos examinar um exemplo: ![Escopo](./media/active-directory-aadconnectsync-configure-filtering/scope.png) Isso deve ser lido como **(departamento = TI) OU (departamento = Vendas E c = EUA)**.
 
 Nos exemplos e nas etapas abaixo, usaremos o objeto de usuário como um exemplo, mas você poderá usar isso para todos os tipos de objeto.
 
@@ -166,7 +174,7 @@ No exemplo a seguir, vamos filtrar (e não sincronizar) todos os usuários em qu
 4. Dê à regra um nome descritivo, como "*Entrada do AD – User DoNotSyncFilter*". Selecione a floresta correta, **Usuário** como o **Tipo de objeto do CS** e **Pessoa** como o **Tipo de objeto do MV**. Como **Tipo de Vínculo**, selecione **Junção** e, em tipo de precedência, digite um valor não usado atualmente por outra regra de sincronização (por exemplo: 500); em seguida, clique em **Avançar**. ![Descrição da entrada 1](./media/active-directory-aadconnectsync-configure-filtering/inbound1.png)  
 5. Em **Filtro de escopo**, clique em **Adicionar Grupo**, clique em **Adicionar Cláusula** e, no atributo, selecione **ExtensionAttribute15**. Verifique se o Operador está definido como **EQUAL** e digite o valor **NoSync** na caixa Valor. Clique em **Próximo**. ![Escopo da entrada 2](./media/active-directory-aadconnectsync-configure-filtering/inbound2.png)  
 6. Deixe as regras de **Junção** vazias e, em seguida, clique em **Avançar**.
-7. Clique em **Adicionar Transformação**, selecione o **FlowType** como **Constante**, selecione o Atributo de Destino **cloudFiltered** e, na caixa de texto Origem, digite **True**. Clique em **Adicionar** para salvar a regra. ![Transformação da entrada 3](./media/active-directory-aadconnectsync-configure-filtering/inbound3.png)
+7. Clique em **Adicionar Transformação**, selecione o **Tipo de Fluxo** como **Constante**, selecione o Atributo de Destino **cloudFiltered** e, na caixa de texto Origem, digite **True**. Clique em **Adicionar** para salvar a regra. ![Transformação da entrada 3](./media/active-directory-aadconnectsync-configure-filtering/inbound3.png)
 8. Para concluir a configuração, [Aplicar e verificar as alterações](#apply-and-verify-changes).
 
 #### Filtragem positiva, "sincronizar somente estas"
@@ -219,13 +227,13 @@ Se você tiver alterado a configuração usando a filtragem de **atributo**, pre
 Siga estas etapas:
 
 1. Inicie o **Serviço de Sincronização** no menu Iniciar.
-2. Selecione **Conectores** e, na lista **Conectores**, selecione o Conector onde você alterou uma configuração anteriormente. Em **Ações** selecione **Executar**. ![Execução do conector](./media/active-directory-aadconnectsync-configure-filtering/connectorrun.png)  
+2. Selecione **Conectores** e, na lista **Conectores**, selecione o Conector onde você alterou uma configuração anteriormente. Em **Ações**, selecione **Executar**. ![Execução do conector](./media/active-directory-aadconnectsync-configure-filtering/connectorrun.png)  
 3. Em **Perfis de execução**, selecione a operação mencionada na seção anterior. Se você precisar executar duas ações, execute a segunda após a primeira ter sido concluída (a coluna **Estado** será **Ocioso** para o conector selecionado).
 
 Após a sincronização, todas as alterações serão preparadas para exportação. Antes de realmente fazermos as alterações no AD do Azure, queremos verificar que todas essas alterações estejam corretas.
 
 1. Inicie um prompt de comando e vá para `%Program Files%\Microsoft Azure AD Sync\bin`
-2. Execute: `csexport "Name of Connector" %temp%\export.xml /f:x` O nome do Conector pode ser encontrado no serviço de sincronização. Ele terá um nome semelhante a "contoso.com – AAD" do Azure AD.
+2. Execute: `csexport "Name of Connector" %temp%\export.xml /f:x` o nome do Conector pode ser encontrado no serviço de sincronização. Ele terá um nome semelhante a "contoso.com – AAD" do Azure AD.
 3. Execute: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`
 4. Agora você tem um arquivo em % temp % chamado export.csv que pode ser examinado no Microsoft Excel. Esse arquivo contém todas as alterações que estão prestes a ser exportadas.
 5. Faça as alterações necessárias na configuração ou nos dados e execute essas etapas novamente (Importar, Sincronizar e Verificar) até o momento estimado para que as alterações a serem exportadas ocorram.
@@ -246,4 +254,4 @@ Saiba mais sobre a configuração de [sincronização do Azure AD Connect](activ
 
 Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

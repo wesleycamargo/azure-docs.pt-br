@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/09/2016"
+   ms.date="02/23/2016"
    ms.author="terrylan"/>
 
 # Gerenciando recomendações de segurança na Central de Segurança do Azure
@@ -38,7 +38,7 @@ Em [Configurando políticas de segurança na Central de Segurança do Azure](sec
 - Habilitar a coleta de dados.
 - Escolher quais recomendações ver como parte da política de segurança.
 
-As recomendações de política atuais giram em torno de atualizações do sistema, regras de linha de base, programas antimalware, [ACLs para pontos de extremidade](../virtual-machines/virtual-machines-set-up-endpoints.md), [grupos de segurança de rede](../virtual-networks/virtual-networks-nsg.md) em sub-redes e em interfaces de rede, auditoria de Banco de Dados SQL, transparent data encryption do banco de dados SQL e firewalls de aplicativo Web. [Configurando políticas de segurança](security-center-policies.md) fornece uma descrição de cada opção de recomendação.
+As recomendações de política atuais giram em torno de atualizações do sistema, regras de linha de base, programas antimalware, [ACLs para pontos de extremidade](../virtual-machines/virtual-machines-set-up-endpoints.md), [grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md) em sub-redes e em interfaces de rede, auditoria de Banco de Dados SQL, transparent data encryption do banco de dados SQL e firewalls de aplicativo Web. [Configurando políticas de segurança](security-center-policies.md) fornece uma descrição de cada opção de recomendação.
 
 ### Monitorar as recomendações
 Depois de definir uma política de segurança, a Central de Segurança analisa o estado de segurança de seus recursos para identificar possíveis vulnerabilidades. O bloco **Recomendações** na folha **Central de Segurança** permite saber o número total de recomendações identificadas pela Central de Segurança.
@@ -62,17 +62,19 @@ As recomendações são mostradas em um formato de tabela, em que cada linha rep
     - **Média**: existe uma vulnerabilidade, e etapas não críticas ou adicionais são necessárias para eliminá-la ou para concluir um processo.
     - **Baixa**: existe uma vulnerabilidade que deve ser abordada, mas não exige atenção imediata. (Por padrão, não são apresentadas recomendações baixas, mas você pode filtrar as recomendações baixas caso deseje vê-las.)
 
-Use a tabela a seguir como referência para ajudá-lo a entender as recomendações disponíveis e o que cada uma delas fará se você aplicá-las:
+Use a tabela a seguir como referência para ajudá-lo a entender as recomendações disponíveis e o que cada uma delas fará se você as aplicar.
+
+> [AZURE.NOTE] Você compreenderá os [modelos de implantação clássica e do Gerenciador de Recursos](../azure-classic-rm.md) para recursos do Azure.
 
 |Recomendações|Descrição|
 |-----|-----|
 |Habilitar Coleta de Dados para máquinas virtuais/assinaturas|Recomenda que você habilite a coleta de dados na política de segurança para cada uma de suas assinaturas ou para as VMs selecionadas.|
 |Resolver regras de linha de base incompatíveis|Recomenda que você alinhe as configurações do sistema operacional com as linhas de base recomendadas, por exemplo, não permitir o armazenamento de senhas.|
 |Aplicar atualizações do sistema|Recomenda que você implante a atualizações críticas e de segurança do sistema ausentes para VMs (somente VMs do Windows).|
-|Configurar ACLs para pontos de extremidade|Recomenda que você configure listas de controle de acesso para restringir o acesso de entrada nas máquinas virtuais (somente VMs clássicas).|
-|Adicione um firewall do aplicativo Web|Recomenda que você implante um WAF (firewall do aplicativo Web) para pontos de extremidade da Web (somente no Gerenciador de Recursos de VMs).|
+|Configurar ACLs para pontos de extremidade|Recomenda que você configure listas de controle de acesso para restringir o acesso de entrada nas máquinas virtuais (somente as clássicas).|
+|[Adicione um firewall do aplicativo Web](security-center-add-web-application-firewall.md)|Recomenda que você implante um WAF (firewall do aplicativo Web) para pontos de extremidade da Web. O processo de provisionamento automático baseia-se nos pacotes WAF (criados usando o modelo de implantação do Gerenciador de Recursos) implantados em uma Rede Virtual separada. O acesso aos aplicativos Web protegido em máquinas virtuais (clássicas) é restrito aos dispositivos WAF que estejam usando somente NSG. No futuro, esse suporte será estendido para uma implantação totalmente personalizada de pacotes WAF (clássica).|
 |Finalizar a configuração de firewall do aplicativo Web|Para concluir a configuração de um WAF, o tráfego deve ser roteado para o dispositivo do WAF. Se essa recomendação for seguida, serão concluídas as alterações de configuração necessárias.|
-|Habilitar Antimalware|Recomenda que você provisione programas antimalware para máquinas virtuais (somente VMs do Windows).|
+|[Habilitar Antimalware](security-center-enable-antimalware.md)|Recomenda que você provisione programas antimalware para máquinas virtuais (somente VMs do Windows).|
 |Habilitar Grupos de Segurança de Rede em interfaces de rede/sub-redes|Recomenda que você habilite NSGs (grupos de segurança de rede) em sub-redes e em interfaces de rede (somente VMs do Gerenciador de Recursos).|
 |Restringir o acesso por meio de pontos de extremidade externos públicos|Recomenda que você configure regras de tráfego de entrada para NSGs.|
 |Habilitar a auditoria do servidor SQL|Recomenda que você habilite auditoria para servidores Azure SQL (somente serviço Azure SQL; não inclui SQL em execução em máquinas virtuais).|
@@ -83,11 +85,11 @@ Use a tabela a seguir como referência para ajudá-lo a entender as recomendaç�
 
 Você pode filtrar e ignorar as recomendações.
 
-1. Clique em **Filtro** na folha **Recomendações**. A folha **Filtro** é aberta e você seleciona os valores de gravidade e estado que deseja ver.
+1. Clique em **Filtro** na folha **Recomendações**. A folha **Filtro** é aberta e você seleciona os valores de gravidade e de estado que deseja ver.
 
     ![][3]
 
-2. Se você determinar que uma recomendação não se aplica, poderá ignorar a recomendação e removê-la da exibição. Há duas maneiras de ignorar uma recomendação. Uma das maneiras consiste em clicar com o botão direito do mouse em um item e selecionar **Ignorar**. A outra maneira é passar o mouse sobre um item, clicar nos três pontos que aparecem à direita e selecionar **Ignorar**. Você pode exibir as recomendações ignoradas clicando em **Filtro** e selecionando **Ignoradas**.
+2. Se você determinar que uma recomendação não se aplica, poderá ignorar a recomendação e removê-la da exibição. Há duas maneiras de ignorar uma recomendação. Uma das maneiras consiste em clicar com o botão direito do mouse em um item e selecionar **Ignorar**. A outra maneira é passar o mouse sobre um item, clicar nos três pontos que aparecem à direita e selecionar **Ignorar**. Você pode exibir as recomendações ignoradas ao clicar em **Filtro** e selecionar **Ignoradas**.
 
     ![][4]
 
@@ -101,35 +103,17 @@ Depois de examinar todas as recomendações, decida qual delas aplicar primeiro.
 4. Informações adicionais sobre a solução antimalware são exibidas. Selecione **Criar**.
 5. Insira as configurações necessárias na folha **Adicionar Extensão** e selecione **OK**. ![][6]
 
-O [Antimalware da Microsoft](../azure-security/azure-security-antimalware.md) agora está ativo na máquina virtual selecionada.
+O [Antimalware da Microsoft](../azure-security-antimalware.md) agora está ativo na máquina virtual selecionada.
 
-### Implantar soluções de parceiro integradas
-
-Outra recomendação que você pode receber é implantar uma solução integrada de segurança de um parceiro da Microsoft. Vamos examinar um exemplo de como fazer isso.
-
-1. Volte para a folha **Recomendações**.
-2.	Selecione a recomendação **Proteger o aplicativo Web usando o firewall do aplicativo Web**. Isso abre a folha **Aplicativos Web Desprotegidos**. ![][7]
-3. Selecione um aplicativo Web; a folha **Adicionar um Firewall do Aplicativo Web** será aberta.
-4. Selecione **Firewall do Aplicativo Web Barracuda**. Uma folha se abre fornecendo informações sobre o **Firewall do Aplicativo Web Barracuda**.
-5. Clique em **Criar** na folha de informações. A folha **Novo Firewall do Aplicativo Web** é aberta e você pode executar as etapas de **Configuração da VM** e fornecer **Informações do WAF**.
-6. Selecione **Configuração da VM**. Na folha **Configuração da VM**, você deve inserir as informações necessárias para criar a máquina virtual que executará o WAF. ![][8]
-7. Volte para a folha **Novo Firewall do Aplicativo Web** e selecione **Informações do WAF**. Na folha **Informações do WAF**, você configura o WAF em si. A Etapa 6 permite configurar a máquina virtual na qual o WAF será executado, e a Etapa 7 permite provisionar o WAF em si.
-
-8. Volte para a folha **Recomendações**. Uma nova entrada foi gerada depois que você criou o WAF, chamada **Finalizar a configuração de firewall do aplicativo Web**. Essa entrada informa o que é necessário para concluir o processo de conectar o WAF dentro da Rede Virtual do Azure para que ele possa proteger o aplicativo. ![][9]
-
-9. Selecione **Finalizar a configuração de firewall do aplicativo Web**. Uma nova lâmina é aberta. Você pode ver que há um aplicativo Web que precisa ter seu tráfego redirecionado.
-10. Selecione o aplicativo Web. Uma folha será aberta com etapas para concluir a configuração de firewall do aplicativo Web. Conclua as etapas e, em seguida, clique em **Restringir o tráfego**. A Central de Segurança realizará as etapas para você. ![][10]
-
-Os logs daquele WAF agora estão totalmente integrados. A Central de Segurança pode iniciar a coleta e a análise dos logs automaticamente para revelar alertas de segurança importantes para você.
 
 ## Próximas etapas
 Neste documento, você foi apresentado às recomendações de segurança da Central de Segurança. Para saber mais sobre a Central de Segurança, confira o seguinte:
 
-- [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md) – saiba como definir as políticas de segurança.
+- [Configuração de políticas de segurança na Central de Segurança do Azure](security-center-policies.md) – saiba como definir as políticas de segurança.
 - [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) – saiba como monitorar a integridade dos recursos do Azure.
-- [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) – aprenda a gerenciar e a responder a alertas de segurança.
-- [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre perguntas frequentes sobre como usar o serviço.
-- [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure.
+- [Gerenciamento e resposta a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) – aprenda a gerenciar e a responder a alertas de segurança
+- [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) -- encontre perguntas frequentes sobre como usar o serviço.
+- [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) -- encontre postagens no blog sobre conformidade e segurança do Azure.
 
 <!--Image references-->
 [2]: ./media/security-center-recommendations/recommendations-tile.png
@@ -137,9 +121,5 @@ Neste documento, você foi apresentado às recomendações de segurança da Cent
 [4]: ./media/security-center-recommendations/dismiss-recommendations.png
 [5]: ./media/security-center-recommendations/select-enable-antimalware.png
 [6]: ./media/security-center-recommendations/install-antimalware.png
-[7]: ./media/security-center-recommendations/secure-web-application.png
-[8]: ./media/security-center-recommendations/vm-configuration.png
-[9]: ./media/security-center-recommendations/finalize-waf.png
-[10]: ./media/security-center-recommendations/restrict-traffic.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

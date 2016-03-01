@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/17/2015"
+	ms.date="02/17/2016"
 	ms.author="heidist"/>
 
 # Criar consultas na Pesquisa do Azure usando chamadas REST
@@ -67,4 +67,4 @@ Pesquise o índice inteiro e ordene por um campo específico (lastRenovationDate
 
 Uma solicitação de consulta bem-sucedida resultará em um código de Status "200 OK" e os resultados da pesquisa serão encontrados no formato JSON no corpo da resposta. Para saber mias, visite a seção "Resposta" [desta página](https://msdn.microsoft.com/library/azure/dn798927.aspx).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

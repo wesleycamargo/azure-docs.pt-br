@@ -17,12 +17,15 @@
 	ms.author="heidist"/>
 
 # Introdução à Pesquisa do Azure no NodeJS
+> [AZURE.SELECTOR]
+- [Portal](search-get-started-portal.md)
+- [.NET](search-get-started-dotnet.md)
 
 Aprenda a criar um aplicativo de pesquisa NodeJS personalizado que usa a Pesquisa do Azure para a sua experiência de pesquisa. O tutorial usa a [API REST do Serviço de Pesquisa do Azure](https://msdn.microsoft.com/library/dn798935.aspx) para construir os objetos e as operações usados neste exercício.
 
 Usamos [NodeJS](https://nodejs.org) e NPM, [Sublime Text 3](http://www.sublimetext.com/3) e o Windows PowerShell no Windows 8.1 para desenvolver e testar esse código.
 
-Para executar este exemplo, você deverá ter um serviço de Pesquisa do Azure, que você pode assinar no [Portal do Azure](https://portal.azure.com). Veja [Criar um serviço de Pesquisa do Azure no portal](search-create-service-portal.md) para obter instruções passo a passo.
+Para executar este exemplo, você deverá ter um serviço de Pesquisa do Azure, no qual poderá se inscrever no [Portal do Azure](https://portal.azure.com). Veja [Criar um serviço de Pesquisa do Azure no portal](search-create-service-portal.md) para obter instruções passo a passo.
 
 ## Sobre os dados
 
@@ -118,4 +121,4 @@ Ainda não conhece a Pesquisa do Azure? Recomendamos os outros tutoriais para qu
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/09/2016"
+	ms.date="02/17/2016"
 	ms.author="billmath"/>
 
 # Monitorar infraestrutura de identidade local e serviços de sincronização na nuvem
@@ -122,5 +122,6 @@ Para começar, siga um destes procedimentos:
 * [Usando o Azure AD Connect Health com o AD FS](active-directory-aadconnect-health-adfs.md)
 * [Usando o Azure AD Connect Health for Sync](active-directory-aadconnect-health-sync.md)
 * [Perguntas frequentes do Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
+* [Histórico de versão do Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

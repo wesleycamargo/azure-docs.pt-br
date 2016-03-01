@@ -391,7 +391,7 @@ Para especificar o período ativo para o pipeline, você pode usar o cmdlet Set-
 
 	![Folha FATIA DE DADOS RawGameEventsTable][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
 
-	Se houver um erro, você verá um status **Falha** aqui. Você também pode ver as duas fatias com status **Pronto** ou com status **PendingValidation**, dependendo da rapidez com que as fatias são processadas.
+	Se houver um erro, você verá um status **Falha** aqui. Você também pode ver as duas fatias com o status **Pronto** ou com status **Aguardando**, dependendo da rapidez com que as fatias são processadas.
  
 	Consulte a [Referência do Desenvolvedor do Azure Data Factory][developer-reference] para obter uma compreensão de todos os status possíveis da fatia.
 
@@ -503,4 +503,4 @@ Pratique o [Guia passo a passo: usando a fonte de dados local][tutorial-onpremis
 
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial-using-powershell/NewDataFactoryMenu.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

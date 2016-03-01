@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="02/12/2016"
 	ms.author="yuridio"/>
 
 #Planejar para aumentar a segurança de dados usando solução de identidade forte
@@ -26,7 +26,8 @@ A primeira etapa para proteger os dados é identificar quem pode acessar os dado
 
 Ao planejar sua solução de identidade híbrida, você deve compreender os requisitos de proteção de dados de seus negócios e quais opções estão disponíveis para melhor atender a esses requisitos.
  
->[AZURE.NOTE]Depois de concluir o planejamento de segurança de dados, reveja [Determinar os requisitos de autenticação multifator](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md) para garantir que suas seleções sobre os requisitos de autenticação multifator não foram afetadas por decisões tomadas nesta seção.
+>[AZURE.NOTE]
+Depois de concluir o planejamento de segurança de dados, reveja [Determinar os requisitos de autenticação multifator](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md) para garantir que suas seleções sobre os requisitos de autenticação multifator não foram afetadas por decisões tomadas nesta seção.
 
 ## Determinar os requisitos para proteção de dados
 Na era da mobilidade, a maioria das empresas têm uma meta em comum: permitir que os usuários sejam produtivos em seus dispositivos móveis no local ou remotamente em qualquer lugar a fim de aumentar a produtividade. Embora isso seja um objetivo comum, as empresas que têm essa exigência também se preocupam com a quantidade de ameaças que devem ser reduzidas para proteger os dados da empresa e manter a privacidade do usuário. Cada empresa pode ter requisitos diferentes em relação a isso; as regras de conformidade diferentes que variam de acordo com o setor em que atua a empresa levam a decisões de design diferentes.
@@ -70,13 +71,14 @@ A legislação e a conformidade regulatória variará de acordo com a indústria
 - A solução de identidade híbrida está em conformidade com as exigências regulatórias para a sua empresa?
 - A solução de identidade híbrida tem recursos internos que permitem que sua empresa seja compatível com esses requisitos regulatórios? 
  
->[AZURE.NOTE]Faça anotações de cada resposta e entenda o raciocínio por trás da resposta. [Definir a estratégia de proteção de dados definir](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) abordará as opções disponíveis e vantagens/desvantagens de cada opção. Depois de responder a essas perguntas, você selecionará a opção que melhor se ajusta às necessidades da sua empresa.
+>[AZURE.NOTE]
+Faça anotações de cada resposta e entenda o raciocínio por trás da resposta. [Definir a estratégia de proteção de dados definir](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) ultrapassará as opções disponíveis e vantagens/desvantagens de cada opção. Depois de responder a essas perguntas, você selecionará a opção que melhor se ajusta às necessidades da sua empresa.
 
 ## Próximas etapas
  [Determinar requisitos de gerenciamento de conteúdo](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
 
 
 ## Consulte também
-[Visão geral de considerações de design](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0218_2016-->

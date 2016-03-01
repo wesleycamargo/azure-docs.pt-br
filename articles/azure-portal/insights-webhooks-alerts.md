@@ -1,8 +1,8 @@
 <properties
 	pageTitle="Como configurar alertas do Azure para enviar para outros sistemas"
 	description="Redirecionar alertas do Azure para outros sistemas que não são do Azure."
-	authors="rboucher"
-	manager="ronmart"
+	authors="kamathashwin"
+	manager=""
 	editor=""
 	services="azure-portal"
 	documentationCenter="na"/>
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/25/2015"
-	ms.author="robb"/>
+	ms.date="02/16/2016"
+	ms.author="ashwink"/>
 
 # Como configurar webhooks para alertas
 
@@ -73,7 +73,7 @@ A operação POST conterá o seguinte esquema e conteúdo JSON para todos os ale
 }
 ```
 
->[AZURE.NOTE]Em nossa próxima atualização, adicionaremos suporte para os alertas de Eventos ("conditionType": "Event")
+>[AZURE.NOTE] Em nossa próxima atualização, adicionaremos suporte para os alertas de Eventos ("conditionType": "Event")
 
 
 | Campo | Obrigatório? | Conjunto fixo de valor(es)? | Observações |
@@ -103,7 +103,7 @@ A operação POST conterá o seguinte esquema e conteúdo JSON para todos os ale
 |propriedades |N |Opcional |É um conjunto de pares <Key  Value> (ou seja, Dicionário<String  String>) que inclui detalhes sobre o evento. O campo de propriedades é opcional. Em um fluxo de trabalho personalizado baseado em aplicativo lógico ou UI, os usuários podem inserir chaves/valores que podem ser transmitidos por meio do conteúdo. O modo alternativo para transmitir as propriedades personalizadas para o webhook é por meio do próprio URI do webhook (como parâmetros de consulta)|
 
 
->[AZURE.NOTE]Você não pode usar o campo de propriedades por meio do Portal. Em nossa próxima versão do SDK do Insights, você poderá definir as propriedades por meio da API de Alerta.
+>[AZURE.NOTE] Você não pode usar o campo de propriedades por meio do Portal. Em nossa próxima versão do SDK do Insights, você poderá definir as propriedades por meio da API de Alerta.
 
 ## Próximas etapas
 
@@ -123,4 +123,4 @@ Use os Alertas do Azure para enviar mensagens para outros serviços. Use os mode
 
 [Usar Aplicativo Lógico para enviar mensagens para uma Fila do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

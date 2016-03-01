@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/16/2016"
 	ms.author="markusvi"/>
 
 
@@ -536,7 +536,7 @@ usada para determinar se CGuid() será bem-sucedida.
 
 **Comentários:** <br> para um atributo, isso poderia ser avaliado como True se o atributo estivesse ausente, ou estivesse presente mas fosse uma cadeia de caracteres vazia.<br> O inverso dessa função é chamado de IsPresent.
 
-**Exemplo:** <br> `IsNull([displayName])` <br> retorna True se o atributo não está presente ou é uma cadeia de caracteres vazia no CS ou MV.
+**Exemplo:** <br> `IsNullOrEmpty([displayName])` <br> retorna True se o atributo não está presente ou é uma cadeia de caracteres vazia no CS ou MV.
 
 
 
@@ -1058,4 +1058,4 @@ Se a cadeia de caracteres contém um número menor que o número de palavras ou 
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

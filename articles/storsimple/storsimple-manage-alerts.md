@@ -4,15 +4,15 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="12/14/2015"
+   ms.workload="NA"
+   ms.date="02/09/2016"
    ms.author="v-sharos" />
 
 # Use o serviço StorSimple Manager para exibir e gerenciar alertas do StorSimple
@@ -31,7 +31,7 @@ Seu dispositivo StorSimple gera alertas em resposta a uma variedade de condiçõ
 
 - **Problemas de hardware**– Esses alertas informam sobre a integridade de seu hardware. Eles permitem saber se as atualizações de firmware são necessárias, se uma interface de rede está com problemas ou se há um problema com uma de suas unidades de dados.
 
-- **Problemas de conectividade** – esses alertas ocorrem quando há dificuldade na transferência de dados. Podem ocorrer problemas de comunicação durante a transferência de dados de e para a conta de armazenamento do Azure ou devido à falta de conectividade entre os dispositivos e o serviço StorSimple Manager. Problemas de comunicação são alguns dos mais difíceis de corrigir porque há muitos pontos de falha. Você deve sempre verificar primeiro se a conectividade de rede e o acesso à Internet estão disponíveis antes de continuar com a solução de problemas mais avançados. Para obter ajuda com a solução de problemas, acesse [Solucionar problemas com o cmdlet Test-Connection](storsimple-troubleshoot-deployment.md/#troubleshoot-with-the-test-hcsmconnection-cmdlet).
+- **Problemas de conectividade** – esses alertas ocorrem quando há dificuldade na transferência de dados. Podem ocorrer problemas de comunicação durante a transferência de dados de e para a conta de armazenamento do Azure ou devido à falta de conectividade entre os dispositivos e o serviço StorSimple Manager. Problemas de comunicação são alguns dos mais difíceis de corrigir porque há muitos pontos de falha. Você deve sempre verificar primeiro se a conectividade de rede e o acesso à Internet estão disponíveis antes de continuar com a solução de problemas mais avançados. Para obter ajuda com a solução de problemas, acesse [Solucionar problemas com o cmdlet Test-Connection](storsimple-troubleshoot-deployment.md).
 
 - **Problemas de desempenho** – esses alertas são causados quando o sistema não estiver sendo executado corretamente, como quando ele está sob uma carga pesada.
 
@@ -49,9 +49,9 @@ Alertas têm diferentes níveis de severidade, dependendo do impacto que terá a
 
 ## Definição de configurações de alerta
 
-Você pode escolher se deseja ser notificado por email das condições de alerta para cada um dos dispositivos StorSimple. Além disso, você pode identificar outros destinatários da notificação de alerta, digitando seus endereços de email na caixa **OUTROS DESTINATÁRIOS DE EMAIL**, separados por ponto e vírgula.
+Você pode escolher se deseja ser notificado por email das condições de alerta para cada um dos dispositivos StorSimple. Além disso, você pode identificar outros destinatários da notificação de alerta, digitando seus endereços de email na caixa **Outros destinatários de email**, separados por ponto e vírgula.
 
->[AZURE.NOTE]Você pode inserir um máximo de 20 endereços de email por dispositivo.
+>[AZURE.NOTE] Você pode inserir um máximo de 20 endereços de email por dispositivo.
 
 Depois de habilitar a notificação por email para um dispositivo, os membros da lista de notificação receberão uma mensagem de email sempre que um alerta crítico ocorrer. As mensagens serão enviadas por **storsimple-alerts-noreply@mail.windowsazure.com* e descreverão a condição de alerta. Os destinatários podem clicar em **Cancelar inscrição** para serem removidos da lista de notificação de email.
 
@@ -61,21 +61,21 @@ Depois de habilitar a notificação por email para um dispositivo, os membros da
 
 2. Em **Configurações de Alerta**, defina o seguinte:
 
-    1. No campo **ENVIAR NOTIFICAÇÃO POR EMAIL**, selecione **SIM**.
+    1. No campo **Enviar notificação por email**, selecione **SIM**.
 
-    2. No campo **ADMINISTRADORES DO SERVIÇO DE EMAIL**, selecione **SIM** se desejar que o administrador de serviço e todos os coadministradores recebam as notificações de alerta.
+    2. No campo **Administradores do serviços de email**, selecione **SIM** se desejar que o administrador de serviços e todos os coadministradores recebam as notificações de alerta.
 
-    3. No campo **OUTROS DESTINATÁRIOS DE EMAIL** insira os endereços de email de todos os outros destinatários que devem receber as notificações de alerta. Insira os nomes no formato **someone@somewhere.com*. Use ponto e vírgula para separar os endereços de email. Você pode configurar um máximo de 20 endereços de email por dispositivo.
+    3. No campo **Outros destinatários de email**, insira os endereços de email de todos os outros destinatários que devem receber as notificações de alerta. Insira os nomes no formato **someone@somewhere.com*. Use ponto e vírgula para separar os endereços de email. Você pode configurar um máximo de 20 endereços de email por dispositivo.
 
         ![Configuração da notificação de alertas](./media/storsimple-manage-alerts/AlertNotify.png)
 
-3. Para enviar uma notificação de email de teste, clique no ícone de seta ao lado de **ENVIAR EMAIL DE TESTE**. O serviço StorSimple Manager exibirá mensagens de status conforme ele encaminha a notificação de teste.
+3. Para enviar uma notificação de email de teste, clique no ícone de seta ao lado de **Enviar email de teste**. O serviço StorSimple Manager exibirá mensagens de status conforme ele encaminha a notificação de teste.
 
 4. Quando a seguinte mensagem for exibida, clique em **OK**.
 
     ![Email de notificação de teste de alertas enviado](./media/storsimple-manage-alerts/HCS_AlertNotificationConfig3.png)
 
-    >[AZURE.NOTE]Se a mensagem de notificação de teste não pode ser enviada, o serviço StorSimple Manager exibirá uma mensagem apropriada. Clique em **OK**, aguarde alguns minutos e, em seguida, tente enviar a mensagem de notificação de teste novamente.
+    >[AZURE.NOTE] Se a mensagem de notificação de teste não pode ser enviada, o serviço StorSimple Manager exibirá uma mensagem apropriada. Clique em **OK**, aguarde alguns minutos e, em seguida, tente enviar a mensagem de notificação de teste novamente.
 
 ## Exibir e controlar os alertas
 
@@ -91,7 +91,7 @@ Clicar em um alerta na lista fornece detalhes adicionais para o mesmo, incluindo
 
 ![Exemplo de alerta de hardware](./media/storsimple-manage-alerts/admin_alerts_hardware.png)
 
-Você pode copiar os detalhes do alerta para um arquivo de texto se precisar enviar as informações ao Suporte da Microsoft. Depois de seguir a recomendação e resolver localmente a condição de alerta, você deverá limpar o alerta no dispositivo selecionando-o na guia **Alertas** e clicando em **Limpar**. Para limpar vários alertas, pressione a tecla Ctrl ao selecionar os alertas e, em seguida, clique em **Limpar**. Observe que alguns alertas são removidos automaticamente quando o problema é resolvido ou quando o sistema atualiza o alerta com novas informações.
+Você pode copiar os detalhes do alerta para um arquivo de texto se precisar enviar as informações ao Suporte da Microsoft. Depois de seguir a recomendação e resolver localmente a condição de alerta, você deverá limpar o alerta no dispositivo selecionando-o na guia **Alertas** e clicando em **Limpar**. Para limpar vários alertas, selecione cada alerta, clique em qualquer coluna exceto na coluna **alerta** e clique em **Limpar** após ter selecionado todos os alertas a serem limpos. Observe que alguns alertas são removidos automaticamente quando o problema é resolvido ou quando o sistema atualiza o alerta com novas informações.
 
 Ao clicar em **Limpar**, você terá a oportunidade de fornecer comentários sobre o alerta e as etapas que você seguiu para resolver o problema. Alguns eventos serão removidos pelo sistema se outro evento for disparado com novas informações. Nesse caso, você verá a seguinte mensagem de erro.
 
@@ -177,7 +177,7 @@ Se a conectividade de nuvem falhar em seu dispositivo de produção do StorSimpl
 
 |Texto de alerta|Evento|Mais informações / ações recomendadas|
 |:---|:---|:---|
-|As operações de recuperação não puderam restaurar todas as configurações para esse serviço. Os dados de configuração do dispositivo estão em um estado inconsistente para alguns dispositivos.|Inconsistência de dados detectada após a recuperação de desastres.|Os dados criptografados no serviço não estão sincronizados com os do dispositivo. Autorize o dispositivo <*nome do dispositivo*> do StorSimple Manager a iniciar o processo de sincronização. Use a Interface do Windows PowerShell para StorSimple para executar o cmdlet `Restore-HcsmEncryptedServiceData` no dispositivo <*nome do dispositivo*>, fornecendo a senha antiga como entrada para este cmdlet para restaurar o perfil de segurança. Em seguida, execute o cmdlet `Invoke-HcsmServiceDataEncryptionKeyChange` para atualizar a chave de criptografia de dados de serviço. Após a execução da ação adequada, exclua este alerta da página de alertas.|
+|As operações de recuperação não puderam restaurar todas as configurações para esse serviço. Os dados de configuração do dispositivo estão em um estado inconsistente para alguns dispositivos.|Inconsistência de dados detectada após a recuperação de desastres.|Os dados criptografados no serviço não estão sincronizados com os do dispositivo. Autorizar o dispositivo <*nome do dispositivo*> do StorSimple Manager a iniciar o processo de sincronização. Use a Interface do Windows PowerShell para StorSimple para executar o cmdlet `Restore-HcsmEncryptedServiceData` no dispositivo <*nome do dispositivo*>, fornecendo a senha antiga como entrada para este cmdlet para restaurar o perfil de segurança. Em seguida, execute o cmdlet `Invoke-HcsmServiceDataEncryptionKeyChange` para atualizar a chave de criptografia de dados de serviço. Após a execução da ação adequada, exclua este alerta da página de alertas.|
 
 
 ### Alertas de hardware
@@ -254,4 +254,4 @@ Se a conectividade de nuvem falhar em seu dispositivo de produção do StorSimpl
 
 Saiba mais sobre [Erros do StorSimple e solução de problemas de um dispositivo operacional](storsimple-troubleshoot-operational-device.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Serviço de Aplicativo do Azure e seu impacto sobre os serviços existentes do Azure" 
-	description="Explica como o novo Serviço de Aplicativo do Azure e seus recursos afetam os serviços existentes no Azure." 
-	authors="yochayk" 
-	writer="yochayk" 
-	editor="yochayk" 
-	manager="nirma" 
-	services="app-service" 
+<properties
+	pageTitle="Serviço de Aplicativo do Azure e seu impacto sobre os serviços existentes do Azure"
+	description="Explica como o novo Serviço de Aplicativo do Azure e seus recursos afetam os serviços existentes no Azure."
+	authors="yochayk"
+	writer="yochayk"
+	editor="yochayk"
+	manager="nirma"
+	services="app-service"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/24/2015" 
+<tags
+	ms.service="app-service"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/12/2016"
 	ms.author="yochayk"/>
 
 
@@ -24,7 +24,7 @@ Este artigo descreve as alterações nos serviços existentes do Azure como part
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## Visão geral 
+## Visão geral
 
 O [Serviço de Aplicativo do Azure](https://azure.microsoft.com/services/app-service/) é um serviço de nuvem novo e exclusivo que habilita os desenvolvedores a criar aplicativos Web e móveis para qualquer plataforma e qualquer dispositivo. O Serviço de Aplicativo é uma solução integrada criada para simplificar funções de codificação repetidas, integrar-se a sistemas corporativos e de SaaS e automatizar processos de negócios, além de atender às suas necessidades de segurança, confiabilidade e escalabilidade.
 
@@ -60,8 +60,8 @@ A tabela a seguir explica como os serviços existentes do Azure são mapeados pa
 <td align="left">Serviços móveis do Azure</td>
 <td align="left">Aplicativos Móveis</td>
 <td align="left"><p><li>Os Serviços Móveis continuam disponíveis como um serviço autônomo e permanecem com suporte completo.</p>
-<p><li>Os Aplicativos Móveis são um novo tipo de aplicativo do Serviço de Aplicativo, que integram toda a funcionalidade dos Serviços Móveis e muito mais. Os Aplicativos Móveis estão em visualização pública.</p>
-<p><li>É fácil [migrar dos Serviços Móveis para os Aplicativos Móveis](../app-service-mobile/app-service-mobile-migrating-from-mobile-services.md). Como os Aplicativos Móveis ainda estão em visualização, ainda não são recomendados para a execução de aplicativos de produção.</p>
+<p><li>Os Aplicativos Móveis são um tipo de aplicativo do Serviço de Aplicativo, que integram toda a funcionalidade dos Serviços Móveis e muito mais.</p>
+<p><li>É fácil <a href="http://go.microsoft.com/fwlink/?LinkID=724279&clcid=0x409">migrar dos Serviços Móveis para Aplicativos Móveis</a>.</p>
 <p><li>Como parte do Serviço de Aplicativo, os Aplicativos Móveis obtêm novos recursos além de Serviços Móveis, como a integração com sistemas de SaaS e locais, slots de preparação, WebJobs, melhores opções de dimensionamento e muito mais.</p>
 <p><li><a href="http://azure.microsoft.com/services/app-service/mobile/">Saiba mais sobre os Aplicativos Móveis</a>.</p>
 </tr>
@@ -91,6 +91,5 @@ A tabela a seguir explica como os serviços existentes do Azure são mapeados pa
 </table>
 
 Para saber mais, acesse a documentação do [Serviço de Aplicativo](https://azure.microsoft.com/documentation/services/app-service/).
- 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

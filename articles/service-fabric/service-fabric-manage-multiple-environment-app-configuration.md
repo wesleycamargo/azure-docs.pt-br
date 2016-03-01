@@ -10,7 +10,7 @@
 <tags
    ms.service="service-fabric"
    ms.devlang="dotNet"
-   ms.topic="hero-article"
+   ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="11/25/2015"
@@ -53,7 +53,7 @@ Cada um dos parâmetros nomeados deve ser definido dentro do elemento Parameters
 
 O atributo DefaultValue especifica o valor a ser usado na ausência de um parâmetro mais específico para um determinado ambiente.
 
->[AZURE.NOTE]Nem todos os parâmetros da instância de serviço são adequados para a configuração por ambiente. No exemplo acima, os valores LowKey e HighKey para o esquema de particionamento do serviço são definidos explicitamente para todas as instâncias do serviço, já que o intervalo de partição é uma função do domínio de dados, não do ambiente.
+>[AZURE.NOTE] Nem todos os parâmetros da instância de serviço são adequados para a configuração por ambiente. No exemplo acima, os valores LowKey e HighKey para o esquema de particionamento do serviço são definidos explicitamente para todas as instâncias do serviço, já que o intervalo de partição é uma função do domínio de dados, não do ambiente.
 
 
 ### Definições de configuração de serviço por ambiente
@@ -81,7 +81,7 @@ Para substituir esse valor por um par de aplicativo/ambiente específico, crie u
 
 Esse parâmetro pode então ser configurado pelo ambiente como mostrado acima. Você pode fazer isso declarando-o na seção de parâmetros do manifesto do aplicativo e especificando valores específicos nos arquivos de parâmetro do aplicativo.
 
->[AZURE.NOTE]No caso de definições de configuração de serviço, há três locais onde o valor de uma chave pode ser definido: o pacote de configuração de serviço, o manifesto do aplicativo e o arquivo de parâmetro do aplicativo. O Service Fabric sempre escolherá o arquivo de parâmetro de aplicativo primeiro (se especificado), o manifesto do aplicativo e, por fim, o pacote de configuração.
+>[AZURE.NOTE] No caso de definições de configuração de serviço, há três locais onde o valor de uma chave pode ser definido: o pacote de configuração de serviço, o manifesto do aplicativo e o arquivo de parâmetro do aplicativo. O Service Fabric sempre escolherá o arquivo de parâmetro de aplicativo primeiro (se especificado), o manifesto do aplicativo e, por fim, o pacote de configuração.
 
 
 ### Arquivos de parâmetros de aplicativo
@@ -129,4 +129,4 @@ Para saber mais sobre alguns dos principais conceitos discutidos neste tópico, 
 [publishdialog]: ./media/service-fabric-manage-multiple-environment-app-configuration/publish-dialog-choose-app-config.png
 [app-parameters-solution-explorer]: ./media/service-fabric-manage-multiple-environment-app-configuration/app-parameters-in-solution-explorer.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

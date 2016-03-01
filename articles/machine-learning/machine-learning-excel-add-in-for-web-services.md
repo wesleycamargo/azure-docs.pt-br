@@ -10,11 +10,11 @@
 
 <tags
 	ms.service="machine-learning"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
+    	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="11/23/2015"
+	ms.date="02/12/2016"
 	ms.author="tedway;garye" />
 
 # Suplemento do Excel para serviços Web de aprendizado de máquina do Azure
@@ -73,4 +73,4 @@ Faça quaisquer perguntas abaixo ou em nosso [fórum](http://go.microsoft.com/fw
 [05]: ./media/machine-learning-excel-add-in-for-web-services/image5.png
 [06]: ./media/machine-learning-excel-add-in-for-web-services/image6.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

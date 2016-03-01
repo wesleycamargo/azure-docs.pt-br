@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/28/2015"
+   ms.date="02/02/2016"
    ms.author="joaoma"/>
 
 # Configurar um Application Gateway para o descarregamento SSL usando o modelo implantação clássico
@@ -24,12 +24,11 @@
 O Azure Application Gateway pode ser configurado para encerrar a sessão de protocolo SSL no gateway para evitar que a onerosa tarefa de descriptografia de SSL aconteça no Web farm. O descarregamento SSL também simplifica a configuração do servidor front-end e o gerenciamento do aplicativo Web.
 
 
-
 ## Antes de começar
 
 1. Instale a versão mais recente dos cmdlets do Azure PowerShell usando o Web Platform Installer. Você pode baixar e instalar a versão mais recente da seção **Windows PowerShell** da [página Downloads](https://azure.microsoft.com/downloads/).
-2. Verifique se você tem uma rede virtual em funcionamento com uma sub-rede válida.
-3. Verifique se você tem servidores back-end na rede virtual ou com um IP/VIP público atribuído.
+2. Verifique se você tem uma rede virtual em funcionamento com uma sub-rede válida. Verifique se não há máquinas virtuais ou implantações em nuvem usando a sub-rede. O gateway de aplicativo deve estar sozinho em uma sub-rede de rede virtual.
+3. Os servidores que você configurará para usar o gateway de aplicativo deverão existir ou ter seus pontos de extremidade criados na rede virtual ou com um IP/VIP público atribuído.
 
 Para configurar o descarregamento de SSL em um Application Gateway, execute as seguintes etapas na ordem listada:
 
@@ -56,7 +55,6 @@ Este exemplo mostra o cmdlet na primeira linha, seguido pela saída.
 	Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
 
 Para validar que esse gateway foi criado, você poderá usar o cmdlet **Get-AzureApplicationGateway**.
-
 
 No exemplo, *Description*, *InstanceCount* e *GatewaySize* são parâmetros opcionais. O valor padrão para *InstanceCount* é 2, com um valor máximo de 10. O valor padrão para *GatewaySize* é Medium. Small e Large são outros valore disponíveis. *VirtualIPs* e *DnsName* são mostrados em branco porque o gateway ainda não foi iniciado. Eles serão criados depois que o gateway estiver em estado de execução.
 
@@ -235,4 +233,4 @@ Se deseja obter mais informações sobre as opções de balanceamento de carga n
 - [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -268,4 +268,4 @@ O serviço Gerenciamento de API do Azure fornece um lugar ideal para capturar o 
 	-	[referência de política de log ao hub de eventos](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
 	
 
-<!---HONumber=Nov15_HO3--->
+<!---HONumber=Nov15_HO3---->

@@ -1,11 +1,4 @@
-<properties
-	pageTitle="Replicar as máquinas virtuais VMware e os servidores físicos no Azure com o Azure Site Recovery (herdado) | Microsoft Azure" 
-	description="Descreve uma implantação herdada para a configuração do Azure Site Recovery a fim de administrar a replicação, o failover e a recuperação de máquinas virtuais VMware locais e de servidores físicos com o Windows/Linux no Azure."
-	services="site-recovery"
-	documentationCenter=""
-	authors="rayne-wiselman"
-	manager="jwhit"
-	editor=""/>
+<properties pageTitle="Replicar as máquinas virtuais VMware e os servidores físicos no Azure com o Azure Site Recovery (herdado) | Microsoft Azure" description="Descreve uma implantação herdada para a configuração do Azure Site Recovery a fim de administrar a replicação, o failover e a recuperação de máquinas virtuais VMware locais e de servidores físicos com o Windows/Linux no Azure." " services="site-recovery" documentationCenter="" authors="rayne-wiselman" manager="jwhit" editor=""/>
 
 <tags
 	ms.service="site-recovery"
@@ -107,8 +100,6 @@ Você precisará de:
 **Cofre do Azure Site Recovery** | Configure depois de assinar o serviço Site Recovery. | Registre os servidores em um cofre do Site Recovery. O cofre coordena e administra a replicação de dados, o failover e a recuperação entre o site local e o Azure.
 **Mecanismo de replicação** | <p>**Pela Internet**: comunica e replica dados dos servidores locais protegidos e do Azure usando um canal de comunicação SSL/TLS seguro por uma conexão pública de Internet. Essa é a opção padrão.</p><p>**VPN/Rota Expressa**: comunica e replica dados entre servidores locais e o Azure por uma conexão VPN. Você precisará configurar uma conexão VPN site a site ou de Rota Expressa entre o site local e a rede do Azure.</p><p>Você selecionará como deseja replicar durante a implantação da Recuperação de Site. Não será possível alterar o mecanismo depois que ele tiver sido configurado sem afetar a proteção em servidores já protegidos.| <p>Nenhuma opção exige que você abra portas de rede de entrada em computadores protegidos. Toda a comunicação de rede é iniciada no site local.</p> 
 
-Você pode saber mais sobre os componentes, provedores e agentes do Site Recovery em [Componentes do Site Recovery](site-recovery-components.md).
-
 ## Planejamento da capacidade
 
 As principais áreas de consideração são:
@@ -123,8 +114,8 @@ As principais áreas de consideração são:
 - **Número de origens por servidor de destino mestre**—vários computadores de origem podem ser protegidos com um único servidor de destino mestre. No entanto, um único computador de origem não pode ser protegido entre vários servidores de destino mestre, pois à medida que os discos são replicados, um VHD que espelha o tamanho do disco é criado no armazenamento de blobs do Azure e conectado como um disco de dados ao servidor de destino mestre.  
 - **Taxa máxima de alteração diária por origem**—há três fatores que precisam ser lembrados ao considerar a taxa de alteração recomendada por origem. Para as considerações baseadas no destino, dois IOPS são necessários no disco de destino para cada operação na origem. Isso porque uma leitura de dados antigos e uma gravação de novos dados acontecerão no disco de destino. 
 	- **Taxa de alteração diária com suporte do servidor de processo**—um computador de origem não pode abranger vários servidores de processo. Um único servidor de processo pode dar suporte a até 1 TB de taxa de alteração diária. Portanto, 1 TB é a taxa máxima de alteração de dados diária com suporte para uma máquina de origem. 
-	- **Taxa de transferência máxima com suporte do disco de destino**—a variação máxima por disco de origem não pode ser superior a 144 GB/dia (com um tamanho de gravação de 8 K). Confira a tabela na seção de destino mestre para ver a taxa de transferência e o IOPs do destino de vários tamanhos de gravação. Esse número deve ser dividido por dois, pois cada IOP gera 2 IOPS no disco de destino. Consulte [Escalabilidade e metas de desempenho ao usar o Armazenamento Premium](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts) durante a configuração de destino para a conta de Armazenamento Premium.
-	- **Taxa de transferência máxima com suporte da conta de armazenamento**—uma origem não pode abranger várias contas de armazenamento. Supondo que uma conta de armazenamento obtenha um máximo de 20.000 solicitações por segundo e que cada IOP de origem gere 2 IOPS no servidor de destino mestre, é recomendável manter o número de IOPS na origem em 10.000. Consulte [Escalabilidade e metas de desempenho ao usar o Armazenamento Premium](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts) durante a configuração da fonte para a conta de Armazenamento Premium.
+	- **Taxa de transferência máxima com suporte do disco de destino**—a variação máxima por disco de origem não pode ser superior a 144 GB/dia (com um tamanho de gravação de 8 K). Confira a tabela na seção de destino mestre para ver a taxa de transferência e o IOPs do destino de vários tamanhos de gravação. Esse número deve ser dividido por dois, pois cada IOP gera 2 IOPS no disco de destino. Leia sobre [Metas de desempenho e escalabilidade do Azure](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts) ao configurar o destino para contas de armazenamento premium.
+	- **Taxa de transferência máxima com suporte da conta de armazenamento**—uma origem não pode abranger várias contas de armazenamento. Supondo que uma conta de armazenamento obtenha um máximo de 20.000 solicitações por segundo e que cada IOP de origem gere 2 IOPS no servidor de destino mestre, é recomendável manter o número de IOPS na origem em 10.000. Leia sobre [Metas de desempenho e escalabilidade do Azure](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts) ao configurar a origem para as contas de armazenamento premium.
 
 ### Considerações para servidores de componente
 
@@ -185,7 +176,7 @@ DS4 padrão | 1 disco (1 x 1023 GB) | 1 disco (1 x 1023 GB) | 15 discos (15 x 10
 O planejamento de capacidade para o servidor de destino mestre depende:
 
 - Das limitações e do desempenho do armazenamento do Azure
-	- O número máximo de discos altamente utilizados para uma VM de camada padrão, é de cerca de 40 (20.000/500 IOPS por disco) em uma única conta de armazenamento. Consulte [Metas de escalabilidade para contas de armazenamento padrão](../storage/storage-scalability-targets.md#scalability-targets-for-standard-storage-accounts) para obter mais informações. Da mesma forma consulte [Metas de escalabilidade para contas de Armazenamento Premium](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts) para obter mais informações sobre a conta de Armazenamento Premium.
+	- O número máximo de discos altamente utilizados para uma VM de camada padrão, é de cerca de 40 (20.000/500 IOPS por disco) em uma única conta de armazenamento. Leia sobre [alvos de escalabilidade de armazenamento padrão sccounts](../storage/storage-scalability-targets.md#scalability-targets-for-standard-storage-accounts) e para [sccounts de armazenamento premium](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts).
 -	Da taxa de alteração diária 
 -	Do armazenamento do volume de retenção.
 
@@ -226,13 +217,13 @@ O elemento gráfico resume as etapas da implantação.
 
 ## Conectividade de rede
 
-Você tem duas opções para configurar a conectividade de rede entre o site local e a rede virtual do Azure na qual os componentes de infraestrutura (Servidor de configuração, Servidores de destino mestre) são implantados. Você precisará decidir qual opção de conectividade de rede vai usar antes de implantar o servidor de configuração. Trata-se de uma escolha no momento da implantação, que não pode ser alterada posteriormente.
+Você tem duas opções ao configurar a conectividade de rede entre o site local e a rede virtual do Azure no qual os componentes de infraestrutura (servidor de configuração, servidores de destino mestre) são implantados. Você precisará decidir qual opção de conectividade de rede vai usar antes de implantar o servidor de configuração. Você precisará escolher essa configuração no momento da implantação. Ele não pode ser alterado posteriormente.
 
-**Internet pública:** a comunicação e replicação de dados entre os servidores locais (Servidor de processo, Servidores protegidos) e os servidores de componentes de infraestrutura do Azure (Servidor de configuração, Servidor de destino mestre) ocorre em uma conexão SSL/TLS segura dos pontos de extremidade locais para os públicos no Servidor de configuração e no Servidor de destino mestre. (A única exceção é a conexão entre o Servidor de processo e o Servidor de destino mestre na porta TCP 9080, que é não criptografada. Somente informações de controle relacionadas ao protocolo de replicação usado para configurar a replicação são trocadas nesta conexão.)
+**Internet pública:** comunicação e replicação de dados entre servidores locais (servidor de processo, computadores protegidos) e os servidores de componentes de infraestrutura do Azure (servidor de configuração, servidor de destino mestre) ocorre em uma conexão SSL/TLS segura do local para os pontos de extremidade públicos nos servidores de destino mestre e de configuração. (A única exceção é a conexão entre o servidor de processo e o servidor de destino mestre na porta TCP 9080 que será criptografada. Somente as informações de controle relacionadas ao protocolo de replicação para a configuração de replicação são trocadas nesta conexão.)
 
 ![Diagrama de implementação para Internet](./media/site-recovery-vmware-to-azure-classic-legacy/internet-deployment.png)
 
-**VPN:** a comunicação e replicação de dados entre os servidores locais (Servidor de processo, Servidores protegidos) e os servidores de componentes de infraestrutura do Azure (Servidor de configuração, Servidor de destino mestre) ocorre em uma conexão de VPN entre sua rede local e a rede virtual do Azure, onde o Servidor de configuração e o Servidor de destino mestre estão implantados. Certifique-se de que sua rede local esteja conectada à rede virtual do Azure por uma conexão da Rota Expressa ou uma conexão VPN site a site.
+**VPN**: comunicação e replicação de dados entre servidores locais (servidor de processo, computadores protegidos) e os servidores de componentes de infraestrutura do Azure (servidor de configuração, servidor de destino mestre) ocorre em uma conexão VPN entre sua rede local e a rede virtual do Azure em que o servidor de configuração e os servidores de destino mestre são implantados. Certifique-se de que sua rede local esteja conectada à rede virtual do Azure por uma conexão da Rota Expressa ou uma conexão VPN site a site.
 
 ![Diagrama de implementação para VPN](./media/site-recovery-vmware-to-azure-classic-legacy/vpn-deployment.png)
 
@@ -813,4 +804,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0128_2016---->
+<!---HONumber=AcomDC_0218_2016-->

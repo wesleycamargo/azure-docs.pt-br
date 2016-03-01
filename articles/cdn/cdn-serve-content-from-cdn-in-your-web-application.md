@@ -42,7 +42,7 @@ Neste tutorial, você aprenderá a fazer o seguinte:
 Este tutorial tem os seguintes pré-requisitos:
 
 -	Uma [conta do Microsoft Azure](/account/) ativa. Você pode se inscrever para uma conta de avaliação
--	Visual Studio 2013 com o [SDK do Azure ](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) para GUI de gerenciamento de blob
+-	Visual Studio 2013 com o [SDK do Azure](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) para GUI de gerenciamento de blob
 -	[PowerShell do Azure](http://go.microsoft.com/?linkid=9811175&clcid=0x409) (usado para [Automatizar o carregamento de conteúdo de seu aplicativo ASP.NET ao ponto de extremidade da CDN](#upload))
 
 > [AZURE.NOTE] Você precisa de uma conta do Azure para concluir este tutorial: +, você pode [Abrir uma conta do Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F) - Você recebe créditos que podem ser usados para experimentar os serviços do Azure pagos e, mesmo depois que tiverem se esgotado, você pode manter a conta e usar serviços do Azure gratuitos, como sites. + Você pode [ativar os benefícios de assinante MSDN](/pricing/member-offers/msdn-benefits-details/) - Sua assinatura do MSDN fornece você créditos a cada mês que podem ser usados para serviços do Azure pagos.
@@ -151,8 +151,8 @@ Nesta seção, você aprendeu como criar um ponto de extremidade da CDN, carrega
 
 Se quiser carregar de maneira simples todo o conteúdo de seu aplicativo Web ASP .NET para o ponto de extremidade da CDN, ou se implanta o aplicativo usando fornecimento contínuo (para ver um exemplo, consulte [Fornecimento contínuo para Serviços de nuvem no Azure](../cloud-services/cloud-services-dotnet-continuous-delivery.md)), você pode usar o PowerShell do Azure para automatizar a sincronização dos arquivos de conteúdo mais recentes com blobs do Azure sempre que implantar sua aplicação da Web. Por exemplo, você pode executar o script em [Carregar Arquivos de Conteúdo de um Aplicativo ASP.NET para Blobs do Azure](http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a) para carregar todos os arquivos de conteúdo em um aplicativo ASP.NET. Para usar este script:
 
-4. No menu **Iniciar**, execute **PowerShell do Microsoft Azure**.
-5. Na janela do PowerShell do Azure, execute `Get-AzurePublishSettingsFile` para baixar um arquivo de configurações de publicação para sua conta do Azure.
+4. No menu **Iniciar**, execute **Windows PowerShell**.
+5. Na janela PowerShell, execute `Get-AzurePublishSettingsFile` para baixar um arquivo de configurações de publicação para sua conta do Azure.
 6. Após ter baixado o arquivo de configurações de publicação, execute o seguinte: 
 
 		Import-AzurePublishSettingsFile "<yourDownloadedFilePath>"
@@ -252,7 +252,7 @@ Com os [Aplicativos Web do Serviço de Aplicativo do Azure](http://go.microsoft.
 
 A integração do Serviço de Aplicativo do Azure ou dos Serviços de Nuvem do Azure com a CDN do Azure oferece as seguintes vantagens:
 
-- Integrar a implantação de conteúdo (imagens, scripts e folhas de estilo) como parte do processo de [implantação contínua ](../app-service-web/web-sites-publish-source-control.md) de seu aplicativo Web do Azure
+- Integrar a implantação de conteúdo (imagens, scripts e folhas de estilo) como parte do processo de [implantação contínua](../app-service-web/web-sites-publish-source-control.md) de seu aplicativo Web do Azure
 - Atualizar facilmente seus pacotes NuGet servidas pela CDN, como jQuery ou versões de Bootstrap 
 - Gerenciar seu aplicativo Web e o conteúdo fornecido pela CDN por meio da mesma interface do Visual Studio
 
@@ -273,4 +273,4 @@ Sem integração aos Aplicativos Web do Serviço de Aplicativo ou aos Serviços 
 - [Usando a CDN para Azure](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

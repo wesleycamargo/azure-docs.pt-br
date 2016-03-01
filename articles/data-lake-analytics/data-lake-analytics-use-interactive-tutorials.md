@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="02/11/2016"
    ms.author="jgao"/>
 
 
@@ -22,7 +22,7 @@
 O Portal do Azure fornece um tutorial interativo para você começar a usar a Análise do Data Lake. Este artigo mostra como acompanhar o tutorial para analisar logs de site.
 
 
->[AZURE.NOTE]Se desejar acompanhar o mesmo tutorial usando o Visual Studio, veja [Analisar logs de site usando a Análise Data Lake](data-lake-analytics-analyze-weblogs.md). Mais tutoriais interativos serão adicionados ao portal.
+>[AZURE.NOTE] Se desejar acompanhar o mesmo tutorial usando o Visual Studio, veja [Analisar logs de site usando a Análise Data Lake](data-lake-analytics-analyze-weblogs.md). Mais tutoriais interativos serão adicionados ao portal.
 
 
 Para ver outros tutoriais, confira:
@@ -42,7 +42,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 Você deve ter uma conta da Análise Data Lake antes de executar trabalhos.
 
-Cada conta da Análise Data Lake tem uma dependência da conta do [Repositório Azure Data Lake](data-lake-store-overview.md). Essa conta é conhecida como a conta padrão do Repositório Data Lake. Você pode criar a conta do Repositório Data Lake antecipadamente ou ao criar sua conta da Análise Data Lake. Neste tutorial, você criará a conta do Repositório Data Lake com a conta da Análise
+Cada conta da Análise Data Lake tem uma dependência da conta do [Repositório Azure Data Lake](../data-lake-store/data-lake-store-overview.md). Essa conta é conhecida como a conta padrão do Repositório Data Lake. Você pode criar a conta do Repositório Data Lake antecipadamente ou ao criar sua conta da Análise Data Lake. Neste tutorial, você criará a conta do Repositório Data Lake com a conta da Análise
 
 **Para criar uma conta da Análise Data Lake**
 
@@ -88,4 +88,4 @@ Cada conta da Análise Data Lake tem uma dependência da conta do [Repositório 
 - [Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 - [Analisar logs de site usando a Análise Azure Data Lake](data-lake-analytics-analyze-weblogs.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

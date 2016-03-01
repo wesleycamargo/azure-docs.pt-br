@@ -54,7 +54,7 @@ Nesta seção, você criará um aplicativo do console do Java que cria uma nova 
     ```
     RegistryManager registryManager = RegistryManager.createFromConnectionString(connectionString);
 
-    Device device = Device.createFromId(deviceId);
+    Device device = Device.createFromId(deviceId, null, null);
     try {
       device = registryManager.addDevice(device);
     } catch (IotHubException iote) {
@@ -228,4 +228,4 @@ Nesta seção, você cria um aplicativo do console do Java que lê mensagens do 
 [lnk-event-hubs-overview]: event-hubs-overview.md
 [lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

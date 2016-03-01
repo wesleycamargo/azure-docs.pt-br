@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="12/03/2015"
+	ms.date="02/11/2016"
 	ms.author="yuaxu"/>
 
 # Adicionar notificações por push a seu aplicativo de Serviços Móveis
@@ -36,7 +36,7 @@ Este tutorial exige o seguinte:
 + [Xamarin.iOS Studio]
 + [Componente dos Serviços Móveis do Azure]
 
->[AZURE.IMPORTANT]Devido aos requisitos de APNS, você deve implantar e testar as notificações por push em um dispositivo compatível com o iOS (iPhone ou iPad), em vez de no emulador.
+>[AZURE.IMPORTANT] Devido aos requisitos de APNS, você deve implantar e testar as notificações por push em um dispositivo compatível com o iOS (iPhone ou iPad), em vez de no emulador.
 
 O APNS usa certificados para autenticar seu serviço móvel. Siga estas instruções para criar os certificados necessários e carregá-los no seu Serviço Móvel. Para a documentação oficial do recurso APNS, consulte [Serviço de Notificação por Push da Apple].
 
@@ -310,7 +310,7 @@ Seu aplicativo foi atualizado para oferecer suporte a notificações de push.
 
     Isso registra um novo script de inserção, que usa o [objeto apns] para enviar uma notificação por push (o texto inserido) para o dispositivo fornecido na solicitação de inserção.
 
-   >[AZURE.NOTE]Esse script atrasa o envio da notificação para que você tenha tempo de fechar o aplicativo para receber uma notificação do sistema.
+   >[AZURE.NOTE] Esse script atrasa o envio da notificação para que você tenha tempo de fechar o aplicativo para receber uma notificação do sistema.
 
 ## <a name="test"></a>Testar notificações por push no seu aplicativo
 
@@ -318,7 +318,7 @@ Seu aplicativo foi atualizado para oferecer suporte a notificações de push.
 
     ![][23]
 
-   >[AZURE.NOTE]Você deve aceitar explicitamente as notificações por push do seu aplicativo. Essa solicitação ocorrerá apenas na primeira vez que o aplicativo for executado.
+   >[AZURE.NOTE] Você deve aceitar explicitamente as notificações por push do seu aplicativo. Essa solicitação ocorrerá apenas na primeira vez que o aplicativo for executado.
 
 2. No aplicativo, digite um texto significativo, como por exemplo _Uma nova tarefa de Serviços Móveis_ e clique no ícone de adição (**+**).
 
@@ -403,4 +403,4 @@ Este tutorial foi concluído com êxito.
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
 [Xamarin.iOS]: http://xamarin.com/download
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

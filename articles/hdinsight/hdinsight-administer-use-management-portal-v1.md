@@ -36,14 +36,14 @@ Também há outras ferramentas disponíveis para administrar o HDInsight além d
 Antes de começar este artigo, você deve ter o seguinte:
 
 - **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- **Conta de armazenamento do Azure** - um cluster do HDInsight usa um contêiner de Armazenamento de Blob do Azure como o sistema de arquivos padrão. Para obter mais informações sobre como o Armazenamento de Blob do Azure fornece uma experiência perfeita com os clusters HDInsight, consulte [Usar o Armazenamento de Blob do Azure com o HDInsight](../hdinsight-use-blob-storage.md). Para obter detalhes sobre como criar uma conta do Armazenamento do Azure, consulte [Como criar uma conta de armazenamento](../storage-create-storage-account.md).
+- **Conta de armazenamento do Azure** - um cluster do HDInsight usa um contêiner de Armazenamento de Blob do Azure como o sistema de arquivos padrão. Para obter mais informações sobre como o Armazenamento de Blob do Azure fornece uma experiência perfeita com os clusters HDInsight, consulte [Usar o Armazenamento de Blob do Azure com o HDInsight](hdinsight-hadoop-use-blob-storage.md). Para obter detalhes sobre como criar uma conta do Armazenamento do Azure, consulte [Como criar uma conta de armazenamento](../storage/storage-create-storage-account.md).
 
 
 ##Provisionar clusters do HDInsight
 
 Você pode provisionar clusters HDInsight no Portal Clássico do Azure usando a opção Criação Rápida ou Criação Personalizada. Consulte os links a seguir para obter instruções:
 
-- [Provisionar um cluster usando a criação rápida](../hdinsight-get-started.md#provision)
+- [Provisionar um cluster usando a criação rápida](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [Provisionar um cluster usando criação personalizada](hdinsight-provision-clusters.md#portal)
 
 [AZURE.INCLUDE [lista do centro de dados](../../includes/hdinsight-pricing-data-centers-clusters.md)]
@@ -182,7 +182,7 @@ Na captura de tela anterior, o nome da pasta tem o número de versão do Hadoop 
 	cd %hcatalog_home%
 
 ##Dimensionar clusters
-Consulte [Dimensionar clusters Hadoop no HDInsight](hdinsight-hadoop-cluster-scaling.md).
+Consulte [Dimensionar clusters Hadoop no HDInsight](hdinsight-administer-use-management-portal.md#scale-clusters).
 
 ##Próximas etapas
 Neste artigo, você aprendeu como criar um cluster HDInsight usando o Portal Clássico do Azure e como abrir a ferramenta de linha de comando do Hadoop. Para saber mais, consulte os seguintes artigos:
@@ -191,11 +191,11 @@ Neste artigo, você aprendeu como criar um cluster HDInsight usando o Portal Cl�
 * [Administrar o HDInsight usando a CLI do Azure](hdinsight-administer-use-command-line.md)
 * [Provisionar clusters HDInsight](hdinsight-provision-clusters.md)
 * [Enviar trabalhos Hadoop de forma programática](hdinsight-submit-hadoop-jobs-programmatically.md)
-* [Introdução ao Azure HDInsight](../hdinsight-get-started.md)
+* [Introdução ao Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 * [Qual versão do Hadoop está no Azure HDInsight?](hdinsight-component-versioning.md)
 
 [image-hdi-create-rpd-user]: ./media/hdinsight-administer-use-management-portal-v1/hdi.createrdpuser.png
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal-v1/hdinsight-hadoop-command-line.png "Linha de comando do Hadoop"
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal-v1/hdi.clustercreate.uploadcert.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

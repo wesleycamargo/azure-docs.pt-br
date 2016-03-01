@@ -33,7 +33,7 @@ A seguinte é uma captura de tela do aplicativo concluído:
 
 Execute as seguintes etapas para criar um novo projeto de serviço de nuvem chamado 'expressapp':
 
-1. No **Menu Iniciar** ou **Tela Iniciar**, pesquise por **PowerShell do Azure**. Finalmente, clique com o botão direito do mouse no **PowerShell do Azure** e selecione **Executar como Administrador**.
+1. No **menu Iniciar** ou **tela Inicial**, pesquise por **Windows PowerShell**. Finalmente, clique com o botão direito do mouse em **Windows PowerShell** e selecione **Executar como Administrador**.
 
 	![Ícone PowerShell do Azure](./media/cloud-services-nodejs-develop-deploy-express-app/azure-powershell-start.png)
 
@@ -45,7 +45,7 @@ Execute as seguintes etapas para criar um novo projeto de serviço de nuvem cham
 		PS C:\Node\expressapp> Add-AzureNodeWebRole
 		PS C:\Node\expressapp> Set-AzureServiceProjectRole WebRole1 Node 0.10.21
 
-	> [AZURE.NOTE]Por padrão, o **Add-AzureNodeWebRole** usa uma versão mais antiga do Node.js. A instrução **Set-AzureServiceProjectRole** acima instrui o Azure usar a versão 1021 do Nó. Observe que os parâmetros diferenciam maiúsculas de minúsculas. Você pode verificar se a versão correta do Node.js foi selecionada verificando a propriedade **engines** em **WebRole1\\package.json**.
+	> [AZURE.NOTE] Por padrão, o **Add-AzureNodeWebRole** usa uma versão mais antiga do Node.js. A instrução **Set-AzureServiceProjectRole** acima instrui o Azure usar a versão 1021 do Nó. Observe que os parâmetros diferenciam maiúsculas de minúsculas. Você pode verificar se a versão correta do Node.js foi selecionada verificando a propriedade **engines** em **WebRole1\\package.json**.
 
 ##Instalar o Express
 
@@ -138,4 +138,4 @@ Para obter mais informações, consulte o [Centro de desenvolvedores do Node.js]
 
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="dalechen"
-	manager="msmets"
+	manager="felixwu"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="02/14/2016"
 	ms.author="daleche"/>
 
 # Restaurar um banco de dados para um ponto anterior no tempo, restaurar um banco de dados excluído ou recuperar-se de uma interrupção do datacenter
@@ -42,4 +42,4 @@ O Azure também fornece backups de cada banco de dados em uma região diferente 
 
 - No [Portal do Azure](https://azure.microsoft.com/), clique em **Novo**, clique em **Dados e Armazenamento**, clique em **Banco de Dados SQL** e selecione **Backup** como a origem do banco de dados. Confira [Recuperar um Banco de Dados SQL do Azure de uma interrupção](sql-database-disaster-recovery.md) para obter detalhes.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

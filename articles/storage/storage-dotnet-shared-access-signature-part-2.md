@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="02/14/2016"
 	ms.author="tamram"/>
 
 
@@ -543,9 +543,9 @@ Execute o aplicativo de console e observe a saída para ver quais operações s�
 
 ## Próximas etapas
 
-[Assinaturas de acesso compartilhado, Parte 1: Noções básicas sobre o modelo SAS](../storage-dotnet-shared-access-signature-part-1/)
+[Assinaturas de acesso compartilhado, Parte 1: Noções básicas sobre o modelo SAS](storage-dotnet-shared-access-signature-part-1.md)
 
-[Gerenciar o acesso aos recursos de Armazenamento do Azure](http://msdn.microsoft.com/library/azure/ee393343.aspx)
+[Gerenciar o acesso de leitura anônimo aos contêineres e blobs](storage-manage-access-to-resources.md)
 
 [Delegando acesso com uma assinatura de acesso compartilhado (API REST)](http://msdn.microsoft.com/library/azure/ee395415.aspx)
 
@@ -554,4 +554,4 @@ Execute o aplicativo de console e observe a saída para ver quais operações s�
 [sas-console-output-1]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-1.PNG
 [sas-console-output-2]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-2.PNG
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

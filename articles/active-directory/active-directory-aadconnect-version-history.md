@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="02/16/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: histórico de lançamento de versão
@@ -26,6 +26,34 @@ Links relacionados:
 
 - Para obter permissões necessárias para aplicar uma atualização, veja [contas e permissões](active-directory-aadconnect-accounts-permissions.md#upgrade)
 - [Baixar o Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+
+## 1\.1.105.0
+Lançamento: fevereiro de 2016
+
+**Novos recursos:**
+
+- O recurso [Atualização automática](active-directory-aadconnect-feature-automatic-upgrade.md) para clientes de configurações expressas.
+- Suporte para o administrador global usando MFA e PIM no assistente de instalação.
+    - Será preciso autorizar que o proxy também permita tráfego para https://secure.aadcdn.microsoftonline-p.com se utilizar a MFA.
+    - Você precisa adicionar https://secure.aadcdn.microsoftonline-p.com à sua lista de sites confiáveis para a MFA funcionar corretamente.
+- Permita alterar o método de logon do usuário após a instalação inicial.
+- Permita [Domínio e filtragem UO](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) no assistente de instalação. Isso também permite conectar-se às florestas em que nem todos os domínios estão disponíveis.
+- O [Agendador](active-directory-aadconnectsync-feature-scheduler.md) é integrado ao mecanismo de sincronização.
+
+**Recursos promovidos da visualização para GA:**
+
+- [Write-back de dispositivo](active-directory-aadconnect-feature-device-writeback.md).
+- [Extensões de diretório](active-directory-aadconnectsync-feature-directory-extensions.md).
+
+**Novos recursos de visualização:**
+
+- O novo intervalo de ciclo de sincronização padrão é de 30 minutos. Ele costumava ser de 3 horas para todas as versões anteriores. Adiciona suporte para alterar o comportamento do [Agendador](active-directory-aadconnectsync-feature-scheduler.md).
+
+**Problemas corrigidos:**
+
+- A página Verificar domínios DNS nem sempre reconheceu os domínios.
+- Solicita credenciais de administrador de domínio ao configurar o ADFS.
+- As contas locais do AD não são reconhecidas pelo assistente de instalação se estiverem localizadas em um domínio com uma árvore DNS diferente do domínio raiz.
 
 ## 1\.0.9131.0
 Lançamento: dezembro de 2015
@@ -114,7 +142,7 @@ Nome alterado de Azure AD Sync para Azure AD Connect.
 
 - [Write-back de usuário](active-directory-aadconnect-feature-preview.md#user-writeback)
 - [Write-back de grupo](active-directory-aadconnect-feature-preview.md#group-writeback)
-- [Write-back de dispositivo](active-directory-aadconnect-get-started-custom-device-writeback.md)
+- [Write-back de dispositivo](active-directory-aadconnect-feature-device-writeback.md)
 - [Extensões de diretório](active-directory-aadconnect-feature-preview.md#directory-extensions)
 
 
@@ -209,4 +237,4 @@ Lançamento: setembro de 2014
 ## Próximas etapas
 Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

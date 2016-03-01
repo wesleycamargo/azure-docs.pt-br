@@ -77,11 +77,11 @@ Muitos algoritmos de aprendizado de máquina usam a linearidade. Os algoritmos d
 
 ![Limite de classe não linear][1]
 
-***Limite de classe não linear**** - contar com um algoritmo de classificação linear resultaria em baixa precisão*
+***Limite de classe não linear*** - contar com um algoritmo de classificação linear resultaria em baixa precisão*
 
 ![Dados com uma tendência não linear][2]
 
-***Dados com uma tendência não linear**** - usar um método de regressão linear geraria erros muito maiores do que o necessário*
+***Dados com uma tendência não linear*** - usar um método de regressão linear geraria erros muito maiores do que o necessário*
 
 Apesar de seus riscos, os algoritmos lineares são muito populares como uma primeira linha de ataque. Eles tendem a ser algoritmicamente simples e rápidos de treinar.
 
@@ -237,4 +237,4 @@ O Aprendizado de Máquina do Azure também inclui acesso a uma poderosa estrutur
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->

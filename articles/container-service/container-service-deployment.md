@@ -28,8 +28,8 @@ Este documento explica a implantação e o cluster do Serviço de Contêiner do 
  
 Selecione um dos modelos a seguir para implantar um cluster Mesos ou Docker Swarm. **Observação** - ambos os modelos são iguais, exceto pela seleção do orquestrador padrão.
  
-* Mesos: [https://github.com/Azure/azure-quickstart-templates/tree/master/acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/acs-mesos)
-* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/master/acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/acs-swarm)
+* Mesos: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
+* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
  
 Todas as páginas do modelo têm um botão 'implantar no Azure'. Se você clicar nesse botão, iniciará o portal do Azure com um formulário semelhante a este. <br />
 
@@ -67,8 +67,8 @@ Para criar uma instância do Serviço de Contêiner do Azure usando a linha de c
  
 Selecione um dos modelos a seguir para implantar um cluster Mesos ou Docker Swarm. **Observação** - ambos os modelos são iguais, exceto pela seleção do orquestrador padrão.
  
-* Mesos: [https://github.com/Azure/azure-quickstart-templates/tree/master/acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/acs-mesos)
-* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/master/acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/acs-swarm)
+* Mesos: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
+* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
  
 Em seguida, verifique se a CLI do Azure foi conectada a uma assinatura do Azure. Isso pode ser feito usando o comando a seguir.
 
@@ -127,8 +127,8 @@ Um cluster do ACS também pode ser implantado com o PowerShell. Este documento �
 
 Selecione um dos modelos a seguir para implantar um cluster Mesos ou Docker Swarm. **Observação** - ambos os modelos são iguais, exceto pela seleção do orquestrador padrão.
  
-* Mesos: [https://github.com/Azure/azure-quickstart-templates/tree/master/acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/acs-mesos)
-* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/master/acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/acs-swarm)
+* Mesos: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
+* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
 
 Antes de criar um cluster em sua assinatura do Azure, verifique se sua sessão do PowerShell foi conectada no Azure. Isso pode ser feito com o comando `Get-AzureRMSubscription`.
 
@@ -173,4 +173,4 @@ Agora que você tem um cluster em funcionamento, acesse estes documentos para ob
 
  
 
-<!-----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

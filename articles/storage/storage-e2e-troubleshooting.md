@@ -3,7 +3,7 @@
 	description="Um tutorial que demonstra a solução de problemas ponta a ponta com Análise de Armazenamento do Azure, AzCopy e Analisador de Mensagem da Microsoft"
 	services="storage"
 	documentationCenter="dotnet"
-	authors="tamram"
+	authors="robinsh"
 	manager="carmonm"/>
 
 <tags
@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/01/2015"
-	ms.author="tamram"/>
+	ms.date="02/14/2016"
+	ms.author="robinsh"/>
 
 # Solução de problemas ponta a ponta usando Métricas de Armazenamento do Azure e Registro em Log, AzCopy e Analisador de Mensagem
 
@@ -25,7 +25,7 @@ Diagnóstico e solução de problemas são habilidades chaves para a criação e
 
 Neste tutorial, demonstraremos como identificar certos erros do cliente que podem afetar o desempenho e solucionar esses erros de ponta a ponta usando as ferramentas fornecidas pela Microsoft e o Armazenamento do Azure para otimizar o aplicativo cliente.
 
-Este tutorial fornece uma exploração prática de um cenário de solução de problemas de ponta a ponta. Para obter um guia conceitual detalhado para solucionar problemas dos aplicativos de armazenamento do Azure, consulte [Monitorar, diagnosticar e solucionar problemas de Armazenamento](storage-monitoring-diagnosing-troubleshooting.md).
+Este tutorial fornece uma exploração prática de um cenário de solução de problemas de ponta a ponta. Para obter um guia conceitual detalhado para solucionar problemas dos aplicativos de armazenamento do Azure, consulte [Monitorar, diagnosticar e solucionar problemas de Armazenamento do Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md).
 
 ## Ferramentas para solucionar problemas de aplicativos de armazenamento do Azure
 
@@ -38,9 +38,9 @@ Para solucionar problemas de aplicativos cliente que usam o armazenamento do Mic
 
 - **Portal do Azure**. Você pode configurar log e métricas para sua conta de armazenamento no [Portal do Azure](https://portal.azure.com). Você também pode exibir gráficos que mostram o desempenho do seu aplicativo ao longo do tempo e configurar alertas para notificá-lo se seu aplicativo for executado de forma diferente do esperado para uma métrica especificada.
 
-	Consulte [Como monitorar uma conta de armazenamento](storage-monitor-storage-account.md) para obter informações sobre como configurar o monitoramento no Portal do Azure.
+	Consulte [Monitorar uma conta de armazenamento no Portal do Azure](storage-monitor-storage-account.md) para obter informações sobre como configurar o monitoramento no Portal do Azure.
 
-- **AzCopy**. Os logs do servidor do Armazenamento do Azure são armazenados como blobs, então você pode usar o AzCopy para copiar os blobs de log para um diretório local para análise usando o Analisador de Mensagem da Microsoft. Consulte [Como usar o AzCopy com o Armazenamento do Microsoft Azure](storage-use-azcopy.md) para obter mais informações sobre o AzCopy.
+- **AzCopy**. Os logs do servidor do Armazenamento do Azure são armazenados como blobs, então você pode usar o AzCopy para copiar os blobs de log para um diretório local para análise usando o Analisador de Mensagem da Microsoft. Consulte [Transferir dados com o utilitário de linha de comando do AzCopy](storage-use-azcopy.md) para obter mais informações sobre o AzCopy.
 
 - **Analisador de Mensagem da Microsoft**. O Analisador de Mensagem é uma ferramenta que consome os arquivos de log e exibe dados de log em um formato visual que torna mais fácil a filtragem, pesquisa e agrupamento de dados de log em conjuntos úteis que você pode usar para analisar erros e problemas de desempenho. Consulte o [Guia Operacional do Analisador de Mensagem da Microsoft](http://technet.microsoft.com/library/jj649776.aspx) para obter mais informações sobre o Analisador de Mensagem.
 
@@ -92,7 +92,7 @@ Primeiro, precisaremos configurar o log de armazenamento do Azure e suas métric
 
 **Através do Portal do Azure**
 
-Para configurar o registro em log e as métricas para sua conta de armazenamento usando o [Portal do Azure](https://portal.azure.com), siga as instruções em [Como monitorar uma conta de armazenamento](storage-monitor-storage-account.md).
+Para configurar o registro em log e as métricas para sua conta de armazenamento usando o [Portal Azure](https://portal.azure.com), siga as instruções em [Monitorar uma conta de armazenamento no Portal do Azure](storage-monitor-storage-account.md).
 
 > [AZURE.NOTE] Não é possível definir a métrica de minutos usando o Portal do Azure. No entanto, é recomendável que você a defina para os fins deste tutorial e para investigar problemas de desempenho com seu aplicativo. Você pode definir a métrica de minutos usando o PowerShell como mostrado abaixo ou de forma pragmática usando a biblioteca do cliente de armazenamento.
 >
@@ -100,7 +100,7 @@ Para configurar o registro em log e as métricas para sua conta de armazenamento
 
 **Por meio do PowerShell**
 
-Para começar com o PowerShell do Azure, consulte [Como instalar e configurar o Azure PowerShell](../install-configure-powershell.md).
+Para começar com o PowerShell do Azure, consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md).
 
 1. Use o cmdlet [Add-AzureAccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) para adicionar sua conta de usuário do Azure à janela do PowerShell:
 
@@ -130,11 +130,9 @@ Para começar com o PowerShell do Azure, consulte [Como instalar e configurar o 
 
 ### Configurar o log de cliente .NET
 
-Para configurar o log do cliente de um aplicativo .NET, habilite o diagnóstico do .NET no arquivo de configuração do aplicativo (Web.config ou App.config). Consulte o [Log do Cliente usando a Biblioteca do Cliente de Armazenamento](http://msdn.microsoft.com/library/azure/dn782839.aspx) e [Log do Cliente com o SDK de Armazenamento do Microsoft Azure para Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) no MSDN para obter detalhes.
+Para configurar o log do cliente de um aplicativo .NET, habilite o diagnóstico do .NET no arquivo de configuração do aplicativo (Web.config ou App.config). Consulte o [Log do Cliente usando a Biblioteca do Cliente de Armazenamento .NET](http://msdn.microsoft.com/library/azure/dn782839.aspx) e [Log do Cliente com o SDK de Armazenamento do Microsoft Azure para Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) no MSDN para obter detalhes.
 
 O log do lado do cliente inclui informações detalhadas sobre como o cliente prepara a solicitação e recebe e processa a resposta.
-
-O log do cliente está configurado no arquivo App.config ou Web.config no seu aplicativo. Para obter detalhes, consulte o [Log do cliente usando a Biblioteca do Cliente de Armazenamento](http://msdn.microsoft.com/library/azure/dn782839.aspx) no MSDN.
 
 A biblioteca de cliente de armazenamento armazena dados de log do cliente no local especificado no arquivo de configuração do aplicativo (Web.config ou App.config).
 
@@ -174,7 +172,7 @@ Quando seu aplicativo já estiver sendo executado por algum tempo, você pode re
 
 No portal, você verá agora a **Porcentagem de Êxitos** no gráfico de monitoramento, junto com quaisquer outras métricas adicionadas. No cenário que examinaremos em seguida analisando os logs no Analisador de Mensagem, a taxa de porcentagem de êxito é um pouco inferior a 100%.
 
-Para obter mais detalhes sobre como adicionar métricas à página de Monitoramento, consulte [Como: adicionar métricas à tabela de métricas](storage-monitor-storage-account.md#addmonitoringmetrics).
+Para obter mais detalhes sobre como adicionar métricas à página de Monitoramento, consulte [Como: adicionar métricas à tabela de métricas](storage-monitor-storage-account.md#how-to-add-metrics-to-the-metrics-table).
 
 > [AZURE.NOTE] Pode levar algum tempo para que seus dados de métricas apareçam no Portal do Azure depois que você habilitar a métrica de armazenamento. Isso ocorre porque as métricas por hora da hora anterior não são exibidas no Portal do Azure até que a hora atual tenha decorrido. Além disso, métricas de minuto atualmente não são exibidas no Portal do Azure. Dessa forma, dependendo de quando você habilitar a métrica, pode levar até duas horas para ver os dados dela.
 
@@ -186,9 +184,9 @@ Você pode usar a ferramenta de linha de comando AzCopy para baixar esses arquiv
 
 	AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest:C:\Temp\Logs\Server /Pattern:"blob/2015/01/02" /SourceKey:<storageaccountkey> /S /V
 
-O AzCopy está disponível para download na página [Downloads do Azure](https://azure.microsoft.com/downloads/). Para obter detalhes sobre como usar o AzCopy, consulte [Como usar o AzCopy com o Armazenamento do Microsoft Azure](storage-use-azcopy.md).
+O AzCopy está disponível para download na página [Downloads do Azure](https://azure.microsoft.com/downloads/). Para obter detalhes sobre como usar o AzCopy, consulte [Transferir dados com o utilitário de linha de comando do AzCopy](storage-use-azcopy.md).
 
-Para obter informações adicionais sobre como baixar os logs do servidor, consulte [Habilitando o Log de Armazenamento e Acessando os Dados de Log](http://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata).
+Para obter informações adicionais sobre como baixar os logs do servidor, consulte [Baixar armazenamento de dados de log](http://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata).
 
 ## Usar o Analisador de Mensagem da Microsoft para analisar dados de log
 
@@ -339,14 +337,14 @@ Agora que você está familiarizado com o uso do Analisador de Mensagem para ana
 | Para Investigar... | Use a Expressão do Filtro... | A expressão se Aplica ao Log (Cliente, Servidor, Rede, Todos) |
 |------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
 | Atrasos inesperados na entrega de mensagens em uma fila | AzureStorageClientDotNetV4.Description contém "Repetindo a operação que falhou". | Cliente |
-| Aumento de HTTP no PercentThrottlingError | HTTP.Response.StatusCode == 500 &#124;&#124; HTTP.Response.StatusCode == 503 | Rede |
+| Aumento de HTTP no PercentThrottlingError | HTTP.Response.StatusCode == 500 || HTTP.Response.StatusCode == 503 | Rede |
 | Aumento em PercentTimeoutError | HTTP.Response.StatusCode == 500 | Rede |
 | Aumento em PercentTimeoutError (todos) |    *StatusCode == 500 |Todos |
 | Aumentar PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Cliente |
 | Mensagens HTTP 403 (Proibido) | HTTP.Response.StatusCode == 403 | Rede |
 | Mensagens HTTP 404 (Não encontrado) | HTTP.Response.StatusCode == 404 | Rede |
 | 404 (todos) | *StatusCode == 404 | Todos |
-| Problema de autorização da SAS (Assinatura de Acesso Compartilhado) | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Rede | 
+| Problema de autorização da SAS (Assinatura de Acesso Compartilhado) | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Rede |
 | Mensagens HTTP 409 (Conflito) | HTTP.Response.StatusCode == 409 |Rede |
 | 409 (todos) | *StatusCode == 409 | Todos |
 |O PercentSuccess Baixo ou as entradas do log de análise têm operações com o status de transação ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Servidor |
@@ -359,10 +357,10 @@ Agora que você está familiarizado com o uso do Analisador de Mensagem para ana
 
 Para obter mais informações sobre cenários de ponta a ponta para solução de problemas no Armazenamento do Azure, consulte estes recursos:
 
-- [Monitorar, diagnosticar e solucionar problemas de Armazenamento](storage-monitoring-diagnosing-troubleshooting.md)
+- [Monitoramento, diagnóstico e solução de problemas de Armazenamento do Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md)
 - [Análise de Armazenamento](http://msdn.microsoft.com/library/azure/hh343270.aspx)
-- [Como monitorar uma conta de armazenamento](storage-monitor-storage-account.md)
-- [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy)
+- [Monitorar uma conta de armazenamento no Portal do Azure](storage-monitor-storage-account.md)
+- [Transferir dados com o Utilitário de Linha de Comando AzCopy](storage-use-azcopy.md)
 - [Guia Operacional do Analisador de Mensagem da Microsoft](http://technet.microsoft.com/library/jj649776.aspx)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

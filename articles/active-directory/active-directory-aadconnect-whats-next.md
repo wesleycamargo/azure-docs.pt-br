@@ -13,11 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/16/2016"
 	ms.author="billmath"/>
 
 # Próximas etapas e como gerenciar o Azure AD Connect
 A seguir estão tópicos operacionais avançados que permitem que você personalize o Azure Active Directory Connect para atender às necessidades e requisitos de sua organização.
+
+## Configuração opcional em seu serviço do AD FS
+Você pode personalizar a imagem do logotipo e a ilustração para as páginas de logon do AD FS fazendo logon no AD FS e usando PSH para fazer essa configuração.
+
+	Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"} –Illustration @{path=”c:\Contoso\illustration.png”}
+
+Confira [Personalizar as Páginas de Conexão do AD FS](https://technet.microsoft.com/library/dn280950.aspx) para obter uma descrição completa das possibilidades de configuração.
 
 ## Atribuir licenças aos usuários do Azure AD Premium e do Enterprise Mobility
 
@@ -69,4 +76,4 @@ Habilitar o modo de preparação | Isso permite que você prepare as informaçõ
 ## Próximas etapas
 Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/12/2015"
+	ms.date="02/11/2016"
 	ms.author="glenga"/>
 
 
@@ -56,7 +56,7 @@ Este tutorial é um passo a passo de como o [Exemplo de serviços móveis offlin
 
 3. No Visual Studio 2013, abra o arquivo de solução *mobile-services-samples\\TodoOffline\\WindowsUniversal\\TodoOffline-Universal.sln*. Pressione a tecla **F5** para recompilar e executar o projeto. Verifique se os pacotes NuGet estão restaurados e se as referências estão definidas corretamente.
 
-    >[AZURE.NOTE]Talvez seja necessário excluir todas as referências antigas no tempo de execução do SQLite e substituí-los por uma referência atualizada conforme mencionado no tutorial [Introdução aos dados offline].
+    >[AZURE.NOTE] Talvez seja necessário excluir todas as referências antigas no tempo de execução do SQLite e substituí-los por uma referência atualizada conforme mencionado no tutorial [Introdução aos dados offline].
 
 4. No aplicativo, digite algum texto em **Inserir um TodoItem**, em seguida, clique em **Salvar** para adicionar alguns itens de tarefas no repositório local. Em seguida, feche o aplicativo.
 
@@ -87,7 +87,7 @@ Está na hora de testar o aplicativo nos Serviços Móveis.
 
 Em um cenário do mundo real, um conflito de sincronização ocorre quando um aplicativo envia atualizações por push para um registro no banco de dados e, em seguida, outro aplicativo tenta enviar uma atualização por push para o mesmo registro usando uma versão desatualizada desse registro. Se você se lembrar da [Introdução aos dados offline], a propriedade de versão do sistema é necessária para dar suporte aos recursos de sincronização offline. Essas informações de versão são examinadas com cada atualização do banco de dados. Se uma instância do aplicativo tentar atualizar um registro usando uma versão desatualizada, ocorrerá um conflito e ele será capturado como uma `MobileServicePreconditionFailedException` no aplicativo. Se o aplicativo não capturar a `MobileServicePreconditionFailedException`, uma `MobileServicePushFailedException` terminará sendo lançada e descreverá o número de erros de sincronização encontrados.
 
->[AZURE.NOTE]Para oferecer suporte à sincronização dos registros excluídos com a sincronização de dados offline, você deverá habilitar a [Exclusão Reversível](mobile-services-using-soft-delete.md). Caso contrário, será necessário remover manualmente os registros do armazenamento local ou chamar `IMobileServiceSyncTable::PurgeAsync()` para limpar o armazenamento local.
+>[AZURE.NOTE] Para oferecer suporte à sincronização dos registros excluídos com a sincronização de dados offline, você deverá habilitar a [Exclusão Reversível](mobile-services-using-soft-delete.md). Caso contrário, será necessário remover manualmente os registros do armazenamento local ou chamar `IMobileServiceSyncTable::PurgeAsync()` para limpar o armazenamento local.
 
 
 As etapas a seguir mostram os clientes Windows Phone 8.1 e Windows Store 8.1 em execução ao mesmo tempo para causar e resolver um conflito usando o exemplo.
@@ -168,4 +168,4 @@ Quando um push é cancelado, `PushAsync` lançará uma `MobileServicePushFailedE
 [Repositório de exemplos GitHub para Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=512865
 [Exemplo de serviços móveis offline de tarefas pendentes]: http://go.microsoft.com/fwlink/?LinkId=512866
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -201,7 +201,7 @@ As definições de fluxos de trabalho do Oozie são escritas em hPDL (uma Lingua
 
 As seguintes etapas criam o Banco de Dados SQL do Azure para o qual os dados serão exportados.
 
-> [AZURE.IMPORTANT] Antes de executar essas etapas, você deve [instalar e configurar a CLI do Azure](xplat-cli-install.md). A instalação da CLI e as etapas para criar um banco de dados podem ser executadas no cluster HDInsight ou sua estação de trabalho local.
+> [AZURE.IMPORTANT] Antes de executar essas etapas, você deve [instalar e configurar a CLI do Azure](../xplat-cli-install.md). A instalação da CLI e as etapas para criar um banco de dados podem ser executadas no cluster HDInsight ou sua estação de trabalho local.
 
 1. Use o comando a seguir para criar um novo servidor de Banco de Dados SQL do Azure:
 
@@ -721,4 +721,4 @@ Neste tutorial, você aprendeu a definir um fluxo de trabalho do Oozie e a execu
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

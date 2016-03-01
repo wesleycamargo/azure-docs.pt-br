@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="02/16/2016" 
 	ms.author="asteen"/>
 
 # Personalização do gerenciamento de senhas para atender às necessidades da sua organização
@@ -130,7 +130,7 @@ A tabela a seguir descreve como cada controle afeta a experiência dos usuários
 ## Comportamento de gerenciamento de senha
 A tabela a seguir descreve como cada controle afeta a experiência dos usuários que se registram para a redefinição de senha e que redefinem as suas senhas. Você pode configurar essas opções na seção **Política de redefinição de senha do usuário** da guia **Configurar** do seu diretório no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com).
 
-> [AZURE.NOTE]A conta de administrador que você está usando deve ter uma licença AAD Premium atribuída para ver esses controles de política.<br><br>Eles se aplicam somente aos usuários finais que estão redefinindo as suas senhas, não aos administradores. **Os administradores têm uma política padrão de email alternativo e/ou telefone celular que é definida para eles pela Microsoft e não pode ser alterada.**
+> [AZURE.NOTE] A conta de administrador que você está usando deve ter uma licença AAD Premium atribuída para ver esses controles de política.<br><br>Eles se aplicam somente aos usuários finais que estão redefinindo as suas senhas, não aos administradores. **Os administradores têm uma política padrão de email alternativo e/ou telefone celular que é definida para eles pela Microsoft e não pode ser alterada.**
 
 <table>
             <tbody><tr>
@@ -872,4 +872,4 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 
 [001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

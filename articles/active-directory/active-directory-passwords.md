@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="02/16/2016" 
 	ms.author="asteen"/>
 	
 
 # Redefinição de senha do AD do Azure para usuários e administradores
 
-  >[AZURE.IMPORTANT]Você está aqui porque deseja redefinir sua senha do Azure ou do O365? Nesse caso, [ignore esta seção](#users-how-to-manage-your-own-password).
+  >[AZURE.IMPORTANT] Você está aqui porque deseja redefinir sua senha do Azure ou do O365? Nesse caso, [ignore esta seção](#users-how-to-manage-your-own-password).
   
 O autoatendimento tem sido das principais metas para os departamentos de TI em todo o mundo, como uma medida de redução de custos e economia de trabalho. De fato, o mercado é inundado com produtos que permitem que você gerencie seus grupos locais, senhas ou perfis de usuário na nuvem ou no local. O AD do Azure se diferencia dessas ofertas, fornecendo alguns dos recursos de autoatendimento mais fáceis de usar e mais poderosos disponíveis atualmente.
 
@@ -252,4 +252,4 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 * [**Solução de problemas**](active-directory-passwords-troubleshoot.md) - aprenda a solucionar rapidamente os problemas com o serviço
 * [**Saiba mais**](active-directory-passwords-learn-more.md) - aprofunde-se nos detalhes técnicos do funcionamento do serviço
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/19/2015"   
+	ms.date="02/12/2015"   
 	ms.author="adsolank"/>
 
 
@@ -221,4 +221,4 @@ O método a seguir carrega um arquivo de mídia como um ativo e cria um trabalho
 
 <!-- URLs. -->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

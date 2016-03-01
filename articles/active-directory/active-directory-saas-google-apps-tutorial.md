@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/09/2016"
+    ms.date="02/17/2016"
     ms.author="liviodlc"/>
 
 #Tutorial: Como integrar o Google Apps ao Active Directory do Azure
@@ -22,7 +22,7 @@ Este tutorial mostrará como conectar seu ambiente do Google Apps ao Active Dire
 
 ##Pré-requisitos
 
-1. Para acessar o Active Directory do Azure por meio do [Portal de Gerenciamento do Azure](https://manage.windowsazure.com), primeiro é preciso ter uma assinatura válida do Azure.
+1. Para acessar o Active Directory do Azure por meio do [Portal clássico do Azure](https://manage.windowsazure.com), primeiro é preciso ter uma assinatura válida do Azure.
 
 2. É preciso ter um locatário válido para o [Google Apps for Work](https://www.google.com/work/apps/) ou o [Google Apps for Education](https://www.google.com/edu/products/productivity-tools/). Você pode usar uma conta de avaliação gratuita para qualquer serviço.
 
@@ -32,9 +32,27 @@ Como habilitar o logon único no Google Apps em dois minutos:
 
 > [AZURE.VIDEO enable-single-sign-on-to-google-apps-in-2-minutes-with-azure-ad]
 
+##Perguntas frequentes
+
+1. **P: Os Chromebooks e outros dispositivos Chrome são compatíveis com o logon único do AD do AD do Azure?**
+
+	R: Sim, os usuários poderão entrar em seus dispositivos Chromebook usando suas credenciais do AD do Azure. Confira este [artigo de suporte do Google Apps](https://support.google.com/chrome/a/answer/6060880) para saber mais sobre o motivo de os usuários receberem uma solicitação por credenciais duas vezes.
+
+2. **P: Se eu habilitar o logon único, os usuários conseguirão usar suas credenciais do AD do Azure para entrar em qualquer produto do Google, como o Google Classroom, o GMail, o Google Drive, o YouTube etc?**
+
+	R: Sim, dependendo de [quais aplicativos do Google](https://support.google.com/a/answer/182442?hl=en&ref_topic=1227583) você optar por habilitar ou desabilitar para sua organização.
+
+3. **P: Posso habilitar o logon único apenas para um subconjunto de meus usuários do Google Apps?**
+
+	R: Não, ativar o logon único exigirá imediatamente que todos os usuários do Google Apps se autentiquem com as credenciais do AD do Azure. Como o Google Apps não oferece suporte a vários provedores de identidade, o provedor de identidade para seu ambiente do Google Apps pode ser o AD do Azure ou o Google, mas não ambos ao mesmo tempo.
+
+4. **P: Se um usuário se conectar por meio do Windows, ele será autenticado automaticamente no Google Apps sem que uma senha seja solicitada?**
+
+	R: Há duas opções para este cenário. Primeiro, os usuários podem entrar em dispositivos com Windows 10 por meio do [Ingresso no Active Directory do Azure](active-directory-azureadjoin-overview.md). Como alternativa, os usuários podem entrar em dispositivos com Windows que ingressaram em um domínio para um Active Directory local com logon único habilitado no AD do Azure por meio de uma implantação dos [Serviços de Federação do Active Directory (AD FS)](active-directory-aadconnect-user-signin.md). Obviamente, as duas opções exigem que você siga o tutorial a seguir para habilitar o logon único entre o AD do Azure e o Google Apps.
+
 ##Etapa 1: adicionar Google Apps ao seu diretório
 
-1. No [Portal de Gerenciamento do Azure](https://manage.windowsazure.com), no painel navegação à esquerda, clique em **Active Directory**.
+1. No [portal clássico do Azure](https://manage.windowsazure.com), no painel de navegação à esquerda, clique em **Active Directory**.
 
 	![Selecione Active Directory no painel de navegação esquerdo.][0]
 
@@ -176,7 +194,7 @@ Se você preferir configurar manualmente o logon único, conclua as seguintes et
 
 4. Se você ainda não adicionou um nome de domínio personalizado ao Active Directory do Azure, siga as etapas abaixo:
 
-	- No [Portal de Gerenciamento do Azure](https://manage.windowsazure.com), no painel navegação à esquerda, clique em **Active Directory**. Na lista de diretórios, selecione o diretório. 
+	- No [portal clássico do Azure](https://manage.windowsazure.com), no painel de navegação à esquerda, clique em **Active Directory**. Na lista de diretórios, selecione o diretório. 
 
 	- Clique em **Domínios** no menu de nível superior e, em seguida, clique em **Adicionar um domínio personalizado**.
 
@@ -188,7 +206,7 @@ Se você preferir configurar manualmente o logon único, conclua as seguintes et
 
 	- Clique em **Avançar** para ir até a página de verificação. Para verificar se você possui esse domínio, é preciso editar os registros DNS do domínio de acordo com os valores fornecidos nesta página. É possível optar por verificar usando **Registros MX** ou **Registros TXT**, dependendo do que você selecionar na opção **Tipo de Registro**. Para obter instruções mais abrangentes sobre como verificar o nome de domínio com o AD do Azure, consulte [Adicionar seu próprio nome de domínio ao AD do Azure](https://go.microsoft.com/fwLink/?LinkID=278919&clcid=0x409).
 
-		![Verifique o nome de domínio][19]
+		![Verifique o seu nome de domínio.][19]
 
 	- Repita as etapas acima para todos os domínios que você pretende adicionar ao diretório.
 
@@ -295,4 +313,4 @@ Se você preferir configurar manualmente o logon único, conclua as seguintes et
 [29]: ./media/active-directory-saas-google-apps-tutorial/assign-users.png
 [30]: ./media/active-directory-saas-google-apps-tutorial/assign-confirm.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

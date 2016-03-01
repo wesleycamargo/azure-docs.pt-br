@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="node"
 	ms.topic="hero-article" 
-	ms.date="11/18/2015"
+	ms.date="02/19/2016"
 	ms.author="anhoh"/>
 
 # Tutorial do Node.js NoSQL: aplicativo de console Node.js do Banco de Dados de Documentos  
@@ -442,4 +442,4 @@ Em seguida, no arquivo ```config.js```, atualize os valores de config.endpoint e
 
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -16,7 +16,12 @@
 	ms.date="01/04/2016" 
 	ms.author="spelluru"/>
 
+
 # Monitorar e gerenciar pipelines do Azure Data Factory
+> [AZURE.SELECTOR]
+- [Using Azure Portal/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
+- [Using Monitoring and Management App](data-factory-monitor-manage-app.md)
+
 O serviço de Fábrica de Dados fornece uma exibição confiável e completa de seus serviços de armazenamento, processamento e movimentação de dados. Ele ajuda a avaliar rapidamente a integridade de dados de ponta a ponta do pipeline, identificar problemas e tomar uma ação corretiva, se necessário. Você também pode controlar visualmente a linhagem de dados e as relações entre os dados em qualquer uma de suas fontes e ver um histórico completo de execução de trabalhos, integridade do sistema e dependências em um único painel de monitoramento.
 
 Este artigo descreve como monitorar, gerenciar e depurar seus pipelines. Ele também fornece informações sobre como criar alertas e ser notificado sobre falhas.
@@ -270,15 +275,13 @@ Em caso de falha na validação da fatia devido a uma falha de política (por ex
 
 ### Usando o PowerShell do Azure
 
-Você pode executar novamente as falhas usando o cmdlet 'Set-AzureRmDataFactorySliceStatus'.
+Você pode executar novamente as falhas usando o cmdlet Set-AzureRmDataFactorySliceStatus. Confira o tópico [Set-AzureRmDataFactorySliceStatus](https://msdn.microsoft.com/library/mt603522.aspx) para obter a sintaxe e outros detalhes sobre o cmdlet.
 
-	Set-AzureRmDataFactorySliceStatus [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Status] <String> [[-UpdateType] <String> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
+**Exemplo:** o exemplo a seguir define o status de todas as fatias da tabela "DAWikiAggregatedData" como "Aguardando" no Azure Data Factory "WikiADF".
 
-**Exemplo:** o exemplo a seguir define o status de todas as fatias da tabela 'DAWikiAggregatedData' para 'PendingExecution' na Azure Data Factory 'WikiADF'.
+**Observação:** UpdateType é definido como UpstreamInPipeline, o que significa que o status de cada fatia da tabela e todas as tabelas dependentes (upstream) que são usadas como tabelas de entrada para as atividades no pipeline é definido como "Aguardando". Outro valor possível para esse parâmetro é "Individual".
 
-**Observação:** o UpdateType é definido como UpstreamInPipeline, o que significa que o status de cada fatia da tabela e todas as tabelas dependentes (upstream) que são usadas como tabelas de entrada para as atividades no pipeline é definido como "PendingExecution". Outro valor possível para esse parâmetro é "Individual".
-
-	Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -TableName DAWikiAggregatedData -Status PendingExecution -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
+	Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -TableName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
 
 
 ## Criar alertas
@@ -540,9 +543,9 @@ Você pode implantar alertas para métricas da mesma maneira como faz para event
  
 Substitua subscriptionId, resourceGroupName e dataFactoryName no exemplo acima pelos valores adequados.
 
-*metricName*, a partir de agora, dá suporte a 2 valores: 
-- FailedRuns
-- SuccessfulRuns
+*metricName*, a partir de agora, dá suporte a 2 valores:
+ - FailedRuns
+ - SuccessfulRuns
 
 **Implantando o alerta:**
 
@@ -569,4 +572,4 @@ Você verá a seguinte mensagem após a implantação bem-sucedida:
 
 Você também usar o cmdlet **Add-AlertRule** para implantar uma regra de alerta. Consulte o tópico sobre [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) para obter detalhes e exemplos.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

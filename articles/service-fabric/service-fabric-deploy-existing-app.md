@@ -1,40 +1,40 @@
 <properties
-   pageTitle="Implantar um aplicativo personalizado no Service Fabric do Azure | Microsoft Azure"
+   pageTitle="Implantar um executável existente à Service Fabric do Azure | Microsoft Azure"
    description="Instruções passo a passo sobre como empacotar um aplicativo existente para que ele possa ser implantado em um cluster da Malha de Serviço do Azure."
    services="service-fabric"
    documentationCenter=".net"
    authors="bmscholl"
    manager="timlt"
    editor=""/>
-
+   
 <tags
    ms.service="service-fabric"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/17/2015"
+   ms.date="02/12/2016"
    ms.author="bscholl"/>
 
-# Implantar um aplicativo personalizado no Service Fabric
+# Implantar um executável convidado à Service Fabric
 
-Você pode executar qualquer tipo de aplicativo existente, como o Node.js, o Java ou os aplicativos nativos no Service Fabric do Azure. O Service Fabric trata esses aplicativos como serviços sem estado e os coloca em nós em um cluster com base na disponibilidade e em outras métricas. Este artigo descreve como empacotar e implantar um aplicativo existente em um cluster do Service Fabric.
+Você pode executar qualquer tipo de aplicativo, como o Node.js, o Java ou os aplicativos nativos no Service Fabric do Azure. A terminologia de Service Fabric se refere a esses tipos de aplicativos como executáveis convidados. Os executáveis convidados são tratados pela Service Fabric como serviços sem monitoração de estado. Como resultado, eles serão colocados em nós em um cluster, com base na disponibilidade e outras métricas. Este artigo descreve como empacotar e implantar um executável convidado em um cluster de Service Fabric.
 
-## Benefícios da execução de um aplicativo personalizado no Service Fabric
+## Benefícios de executar um executável convidado no Service Fabric
 
-Há várias vantagens de executar um aplicativo em um cluster do Service Fabric:
+Há várias vantagens que vêm com a execução de um convidado executável em um cluster de Service Fabric:
 
 - Alta disponibilidade. Os aplicativos executados no Service Fabric são altamente disponíveis de imediato. O Service Fabric assegura uma instância de um aplicativo esteja sempre funcionando.
 - Monitoramento de integridade. O monitoramento de integridade pronto para uso do Service Fabric detecta se o aplicativo está em execução e fornece informações de diagnóstico em caso de falha.   
 - Gerenciamento do ciclo de vida do aplicativo. Além de fornecer atualizações sem tempo de inatividade, o Service Fabric também permite reverter para a versão anterior se houver um problema durante a atualização.    
 - Densidade. Você pode executar vários aplicativos no cluster, o que elimina a necessidade um hardware próprio para a execução de cada aplicativo.
 
-Neste artigo, abordaremos as etapas básicas para empacotar um aplicativo existente e implantá-lo no Service Fabric.
+Neste artigo, abordaremos as etapas básicas para empacotar um convidado executável e implantá-lo à Service Fabric.
 
 
 ## Visão geral resumida de arquivos de manifesto do serviço e do aplicativo
 
-Antes de entrar em detalhes sobre a implantação de um aplicativo existente, é útil entender o modelo de empacotamento e implantação do Service Fabric. O modelo de implantação de empacotamento do Service Fabric depende basicamente de dois arquivos:
+Antes de você entrar nos detalhes da implantação de um convidado executável, é útil entender o modelo de implantação e empacotamento do Service Fabric. O modelo de implantação de empacotamento do Service Fabric depende basicamente de dois arquivos:
 
 
 * **Manifesto do aplicativo**
@@ -48,7 +48,7 @@ Antes de entrar em detalhes sobre a implantação de um aplicativo existente, é
 
   O manifesto do serviço descreve os componentes de um serviço. Inclui dados, como o nome e o tipo de serviço (informações que o Service Fabric usa para gerenciar o serviço) e seus componentes de código, configuração e dados. O manifesto do serviço também inclui alguns parâmetros adicionais que podem ser usados para configurar o serviço após sua implantação.
 
-  Não vamos entrar em detalhes sobre todos os parâmetros diferentes que estão disponíveis no manifesto do serviço. Veremos o subconjunto necessário para que um aplicativo existente seja executado no Service Fabric.
+  Não vamos entrar em detalhes sobre todos os parâmetros diferentes que estão disponíveis no manifesto do serviço. Passaremos pelo subconjunto que é necessário para tornar um convidado executável executado na Service Fabric.
 
 
 ## Estrutura de arquivos do pacote de aplicativos
@@ -75,14 +75,14 @@ Observação: você não precisa criar os diretórios `config` e `data` se não 
 
 ## Processo de empacotamento de um aplicativo existente
 
-O processo de empacotamento de um aplicativo existente baseia-se nas seguintes etapas:
+O processo de empacotamento de um executável convidado é baseado nas seguintes etapas:
 
 1. Criar a estrutura de diretórios do pacote.
 2. Adicionar os arquivos de configuração e código do aplicativo.
 3. Editar o arquivo de manifesto do serviço.
 4. Editar o arquivo de manifesto do aplicativo.
 
->[AZURE.NOTE]Forneceremos uma ferramenta de empacotamento que permite criar o ApplicationPackage automaticamente. No momento, a ferramenta está em visualização. Você pode baixá-lo [aqui](http://aka.ms/servicefabricpacktool).
+>[AZURE.NOTE] Forneceremos uma ferramenta de empacotamento que permite criar o ApplicationPackage automaticamente. No momento, a ferramenta está em visualização. Você pode baixá-lo [aqui](http://aka.ms/servicefabricpacktool).
 
 ### Criar a estrutura de diretórios do pacote
 Você pode começar criando a estrutura de diretórios como descrito anteriormente.
@@ -92,10 +92,10 @@ Depois de criar a estrutura de diretório, você pode adicionar os arquivos de c
 
 O Service Fabric faz uma cópia do conteúdo do diretório raiz do aplicativo, portanto, não há estrutura predefinida a usar que não criar dois diretórios principais, código e configurações. (Você pode escolher nomes diferentes, se desejar. Mais detalhes estão na próxima seção.)
 
->[AZURE.NOTE]Certifique-se de incluir todos os arquivos/dependências de que o aplicativo precisa. A Malha de Serviço copiará o conteúdo do pacote de aplicativos em todos os nós do cluster onde os serviços do aplicativo serão implantados. O pacote deve conter todos os códigos que o aplicativo precisa para ser executado. Não recomendamos supor que as dependências já estão instaladas.
+>[AZURE.NOTE] Certifique-se de incluir todos os arquivos/dependências de que o aplicativo precisa. A Malha de Serviço copiará o conteúdo do pacote de aplicativos em todos os nós do cluster onde os serviços do aplicativo serão implantados. O pacote deve conter todos os códigos que o aplicativo precisa para ser executado. Não recomendamos supor que as dependências já estão instaladas.
 
 ### Editar o arquivo de manifesto do serviço
-A próxima etapa é editar o arquivo de Manifesto do Serviço para incluir as seguintes informações:
+A próxima etapa é editar o arquivo de manifesto do serviço para incluir as seguintes informações:
 
 - O nome da fila do tipo de serviço. Esse é um ID que o Service Fabric usa para identificar um serviço.
 - O comando a ser usado para iniciar o aplicativo (ExeHost).
@@ -220,7 +220,7 @@ No elemento `ServiceManifestImport`, você pode especificar um ou mais serviços
 ```
 
 ### Configurar registro em log
-Para um aplicativo existente, é muito útil poder ver logs do console para descobrir se os scripts de configuração e aplicativo mostram algum erro. O redirecionamento do console pode ser configurado no arquivo `ServiceManifest.xml` usando o elemento `ConsoleRedirection`.
+Para executáveis convidados, é muito útil poder ver logs do console para descobrir se os scripts de configuração e aplicativo mostram todos os erros. O redirecionamento do console pode ser configurado no arquivo `ServiceManifest.xml` usando o elemento `ConsoleRedirection`.
 
 ```xml
 <EntryPoint>
@@ -284,10 +284,10 @@ Se você navegar até o diretório usando o Gerenciador de Servidores, poderá l
 
 
 ## Próximas etapas
-Neste artigo, você aprendeu as etapas básicas de empacotamento e implantação de um aplicativo existente no Service Fabric. Como uma próxima etapa, confira o conteúdo adicional deste tópico.
+Neste artigo, você aprendeu como empacotar um executável convidado e implantá-lo à Service Fabric. Como uma próxima etapa, confira o conteúdo adicional deste tópico.
 
-- Exemplo de empacotamento e implantação de um aplicativo personalizado no [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Custom/SimpleApplication), incluindo um link para a versão de pré-lançamento da ferramenta de empacotamento
-- [Implantar vários aplicativos personalizados](service-fabric-deploy-multiple-apps.md)
+- [Exemplo de empacotamento e implantação de um convidado executável no GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Custom/SimpleApplication), incluindo um link para a versão de pré-lançamento da ferramenta de empacotamento
+- [Implantar vários executáveis de convidado](service-fabric-deploy-multiple-apps.md)
 - [Criar seu primeiro aplicativo do Service Fabric usando o Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0218_2016-->

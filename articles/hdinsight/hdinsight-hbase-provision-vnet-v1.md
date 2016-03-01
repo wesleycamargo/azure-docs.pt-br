@@ -36,7 +36,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 - **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **Uma estação de trabalho com o PowerShell do Azure**. Consulte [Instalar e usar o PowerShell do Azure](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Para obter instruções, consulte [Instalar e configurar o PowerShell do Azure](../install-configure-powershell.md). Para executar scripts do PowerShell do Azure, você deve executar o PowerShell do Azure como administrador e configurar a política de execução como *RemoteSigned*. Consulte [Usando o cmdlet Set-ExecutionPolicy][2].
+- **Uma estação de trabalho com o PowerShell do Azure**. Consulte [Instalar e usar o PowerShell do Azure](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Para obter instruções, consulte [Instalar e configurar o PowerShell do Azure](../powershell-install-configure.md). Para executar scripts do PowerShell do Azure, você deve executar o PowerShell do Azure como administrador e configurar a política de execução como *RemoteSigned*. Consulte [Usando o cmdlet Set-ExecutionPolicy][2].
 
 	Antes de executar scripts do PowerShell do Azure, verifique se você está conectado à sua assinatura do Azure usando o seguinte cmdlet:
 
@@ -84,7 +84,7 @@ Um servidor DNS é opcional, mas necessário em alguns casos. O procedimento foi
 
 **Para criar uma conta de Armazenamento do Azure e um contêiner de armazenamento de Blob a ser usado pelo cluster**
 
-> [AZURE.NOTE] Os clusters do HDInsight usam o armazenamento de blob do Azure para armazenar dados. Para obter mais informações, consulte [Usar o armazenamento de blob do Azure com o Hadoop no HDInsight](../hdinsight-use-blob-storage.md). Você precisará de uma conta de armazenamento e um contêiner de armazenamento de blob. O local da conta de armazenamento deve corresponder ao local da rede virtual e ao local do cluster.
+> [AZURE.NOTE] Os clusters do HDInsight usam o armazenamento de blob do Azure para armazenar dados. Para obter mais informações, consulte [Usar o armazenamento de blob do Azure com o Hadoop no HDInsight](hdinsight-hadoop-use-blob-storage.md). Você precisará de uma conta de armazenamento e um contêiner de armazenamento de blob. O local da conta de armazenamento deve corresponder ao local da rede virtual e ao local do cluster.
 
 Como outros clusters do HDInsight, o cluster HBase requer uma conta de armazenamento do Azure e um contêiner de armazenamento de Blob como o sistema de arquivos padrão. O local da conta de armazenamento deve corresponder ao local da rede virtual e ao local do cluster. Para obter mais informações, consulte [Usar o armazenamento de blob do Azure com o Hadoop no HDInsight][hdinsight-storage]. Quando você provisiona um cluster HBase, você tem as opções de criar um novo ou usar os existentes. Este procedimento mostra como criar uma conta de armazenamento e um contêiner de armazenamento de Blobs usando o Portal Clássico do Azure.
 
@@ -133,7 +133,8 @@ Como outros clusters do HDInsight, o cluster HBase requer uma conta de armazenam
 	<tr><td>Tamanho do nó principal</td><td><p>Selecione um tamanho de VM para o nó principal.</p></td></tr>
 	<tr><td>Tamanho do nó de dados</td><td><p>Selecione um tamanho de VM para os nós de dados.</p></td></tr>
 	<tr><td>Tamanho do Zookeeper</td><td><p>Selecione um tamanho de VM para o nó Zookeper.</p></td></tr>
-</table>>[AZURE.NOTE] O custo pode variar de acordo com sua escolha de VMs. O HDInsight usa todas as VMs de camada padrão para nós de cluster. Para obter informações sobre como os tamanhos de VM afetam os preços, consulte <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Preços do HDInsight</a>.
+</table>
+>[AZURE.NOTE] O custo pode variar de acordo com sua escolha de VMs. O HDInsight usa todas as VMs de camada padrão para nós de cluster. Para obter informações sobre como os tamanhos de VM afetam os preços, consulte <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Preços do HDInsight</a>.
 
 	Clique no botão direito.
 
@@ -178,7 +179,8 @@ Como outros clusters do HDInsight, o cluster HBase requer uma conta de armazenam
     </td></tr>
 	<tr><td>Contas de armazenamento adicionais</td>
 		<td>Se necessário, especifique contas de armazenamento adicionais para o cluster. O HDInsight dá suporte a várias contas do Armazenamento. Não há nenhum limite quanto ao número de contas do Armazenamento que um cluster pode usar. No entanto, se você criar um cluster usando o Portal Clássico do Azure, você terá um limite de sete, devido às restrições da interface do usuário. Cada conta de armazenamento adicional que você especificar adiciona uma página extra de <strong>Conta de Armazenamento</strong> ao assistente, em que você pode especificar as informações da conta. Por exemplo, na captura de tela acima, nenhuma conta de armazenamento adicional está selecionada, e portanto, não ocorre adição de uma página extra ao assistente.</td></tr>
-</table>Clique na seta à direita.
+</table>
+Clique na seta à direita.
 
 7. Na página **Ações de Script** selecione a marca de seleção no canto inferior direito. Não clique no botão **Adicionar ação de script**, já que este tutorial não requer uma configuração de cluster personalizado.
 
@@ -186,11 +188,11 @@ Como outros clusters do HDInsight, o cluster HBase requer uma conta de armazenam
 
 	> [AZURE.NOTE] Esta página pode ser usada para personalizar o cluster durante a instalação. Para obter mais informações, consulte [Personalizar clusters HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster.md).
 
-Para começar a trabalhar com o novo cluster do HBase, você pode usar os procedimentos encontrados em [Introdução ao uso do HBase com Hadoop no HDInsight](../hdinsight-hbase-get-started.md).
+Para começar a trabalhar com o novo cluster do HBase, você pode usar os procedimentos encontrados em [Introdução ao uso do HBase com Hadoop no HDInsight](hdinsight-hbase-tutorial-get-started.md).
 
 ##Conectar-se ao cluster do HBase provisionado em uma rede virtual usando as APIs RPC Java do HBase
 
-1.	Provisione uma máquina virtual IaaS (infraestrutura como serviço) na mesma rede virtual do Azure e na mesma sub-rede. De maneira que a máquina virtual e o cluster do HBase usem o mesmo servidor DNS interno para resolver nomes de host. Para fazer isso, você deve escolher a opção **Da galeria** e selecionar a rede virtual em vez de um datacenter. Para obter instruções, consulte [Criar uma máquina virtual que executa o Windows Server](../virtual-machines-windows-tutorial.md). Uma imagem padrão do Windows Server 2012 com uma VM pequena é suficiente.
+1.	Provisione uma máquina virtual IaaS (infraestrutura como serviço) na mesma rede virtual do Azure e na mesma sub-rede. De maneira que a máquina virtual e o cluster do HBase usem o mesmo servidor DNS interno para resolver nomes de host. Para fazer isso, você deve escolher a opção **Da galeria** e selecionar a rede virtual em vez de um datacenter. Para obter instruções, consulte [Criar uma máquina virtual que executa o Windows Server](../virtual-machines/virtual-machines-windows-tutorial.md). Uma imagem padrão do Windows Server 2012 com uma VM pequena é suficiente.
 
 2.	Ao usar um aplicativo Java para se conectar ao HBase remotamente, você deve usar o nome de domínio totalmente qualificado (FQDN). Para determiná-lo, é preciso obter o sufixo DNS específico da conexão do cluster do HBase. Para fazer isso, use o Curl para consultar o Ambari, ou use a área de trabalho remota para conectar-se ao cluster.
 
@@ -378,11 +380,11 @@ Para usar essa informação em um aplicativo Java, você pode seguir as etapas e
 
 Neste tutorial, você aprendeu como provisionar um cluster do HBase. Para obter mais informações, consulte:
 
-- [Introdução ao HDInsight](../hdinsight-get-started.md)
+- [Introdução ao HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [Configurar a replicação do HBase no HDInsight](hdinsight-hbase-geo-replication.md)
 - [Provisionar clusters do Hadoop no HDInsight](hdinsight-provision-clusters.md)
-- [Introdução ao uso do HBase com Hadoop no HDInsight](../hdinsight-hbase-get-started.md)
-- [Analisar dados de sentimento no Twitter com o HBase no HDInsight](../hdinsight-hbase-twitter-sentiment.md)
+- [Introdução ao uso do HBase com Hadoop no HDInsight](hdinsight-hbase-tutorial-get-started.md)
+- [Analisar dados de sentimento no Twitter com o HBase no HDInsight](hdinsight-hbase-analyze-twitter-sentiment.md)
 - [Visão geral da Rede Virtual][vnet-overview]
 
 
@@ -390,10 +392,10 @@ Neste tutorial, você aprendeu como provisionar um cluster do HBase. Para obter 
 [2]: http://technet.microsoft.com/library/ee176961.aspx
 [3]: http://technet.microsoft.com/library/hh847889.aspx
 
-[hbase-get-started]: ../hdinsight-hbase-get-started.md
-[hbase-twitter-sentiment]: ../hdinsight-hbase-twitter-sentiment.md
+[hbase-get-started]: hdinsight-hbase-tutorial-get-started.md
+[hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 [vnet-overview]: ../virtual-network/virtual-networks-overview.md
-[vm-create]: ../virtual-machines-windows-tutorial.md
+[vm-create]: ../virtual-machines/virtual-machines-windows-tutorial.md
 
 [azure-portal]: https://management.windowsazure.com
 [azure-create-storageaccount]: ../storage-create-storage-account.md
@@ -411,15 +413,15 @@ Neste tutorial, você aprendeu como provisionar um cluster do HBase. Para obter 
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
 
-[powershell-install]: ../install-configure-powershell.md
+[powershell-install]: ../powershell-install-configure.md
 
 
 [hdinsight-customize-cluster]: hdinsight-hadoop-customize-cluster.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
-[hdinsight-storage-powershell]: ../hdinsight-use-blob-storage.md#powershell
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-storage-powershell]: hdinsight-hadoop-use-blob-storage.md#powershell
 [hdinsight-analyze-flight-delay-data]: hdinsight-analyze-flight-delay-data.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
@@ -430,4 +432,4 @@ Neste tutorial, você aprendeu como provisionar um cluster do HBase. Para obter 
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "Detalhes de provisionamento do novo cluster HBase"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Usar a Ação de Script para personalizar um cluster HBase"
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

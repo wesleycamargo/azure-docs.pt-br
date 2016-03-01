@@ -91,7 +91,7 @@ Para criar o serviço vinculado para o SQL Server local, clique em **Repositóri
 Para criar o serviço vinculado para a conta de Armazenamento de Blobs do Azure, clique no **Repositório de Dados** na página inicial do ADF no Portal Clássico do Azure, selecione *Conta de Armazenamento do Azure* e insira a chave de conta e o nome do contêiner do Armazenamento de Blobs do Azure. Nomeie o serviço de link como *adfds*.
 
 ###<a name="adf-linked-service-azure-sql"></a>Serviço vinculado para o banco de dados do SQL Azure
-Para criar o serviço vinculado para o Banco de Dados SQL do Azure, clique no **Repositório de Dados** na página inicial do ADF no Portal Clássico do Azure, selecione *SQL Azure* e insira as credenciais para o *nome de usuário* e a *senha* do banco de dados SQL do Azure. O *nome de usuário* deve ser especificado como **user@servername*.
+Para criar o serviço vinculado para o Banco de Dados SQL do Azure, clique no **Repositório de Dados** na página inicial do ADF no Portal Clássico do Azure, selecione *SQL Azure* e insira as credenciais para o *nome de usuário* e a *senha* do banco de dados SQL do Azure. O *nome de usuário* deve ser especificado como *user@servername*.
 
 
 ##<a name="adf-tables"></a>Definir e criar tabelas para especificar como acessar os conjuntos de dados
@@ -305,4 +305,4 @@ Depois que o pipeline é executado, você poderá ver os dados aparecerem no con
 
 Observe que não utilizamos a funcionalidade fornecida pelo ADF para dados de pipe incrementalmente. Para obter mais detalhes sobre como fazer isso e outros recursos fornecidos pelo ADF, consulte a [documentação do ADF](https://azure.microsoft.com/services/data-factory/).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->

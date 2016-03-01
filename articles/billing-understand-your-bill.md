@@ -3,8 +3,8 @@
    description="Entenda sua fatura do Azure"
    services=""
    documentationCenter="Azure"
-   authors="kareni"
-   manager="jocho"
+   authors="erihur"
+   manager="kareni"
    editor=""
    tags="billing"/>
 
@@ -14,38 +14,39 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/22/2015"
-   ms.author="kareni"/>
+   ms.date="02/04/2016"
+   ms.author="erihur"/>
 
 
 # Entenda sua fatura do Microsoft Azure
 
-Os encargos das assinaturas do Microsoft Azure variam de acordo com o plano de tarifas. Alguns planos de tarifas, como o Visual Studio Ultimate com MSDN, incluem créditos mensais que podem ser usados em qualquer serviço do Azure com base em suas necessidades.
+Os encargos das assinaturas do Microsoft Azure variam de acordo com o plano de tarifas. Alguns planos de tarifas, como as assinaturas do MPN (Visual Studio Enterprise), incluem créditos mensais que podem ser usados em qualquer serviço do Azure com base em suas necessidades.
 
 Observe que até 24 horas de uso latente de seu período de cobrança anterior pode ser relatado no seu período de cobrança atual.
 
 Para obter mais informações sobre os planos de taxa e consumo, confira a [página Opções de Compra do Microsoft Azure](https://azure.microsoft.com/pricing/purchase-options/).
 
-Os links abaixo abrangem uma lista completa de todos os serviços do Microsoft Azure.
+<!-- The below links cover a complete list of all Microsoft Azure services.
 
-- [Lista de Detalhes do Serviço (csv1)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv1.xlsx)
-- [Lista de Detalhes do Serviço (csv2)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv2.xlsx)
+<!-- - [Service Details list (csv1)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv1.xlsx)
+<!-- - [Service Details list (csv2)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv2.xlsx)
 
-*OBSERVAÇÃO: o link **csv1** se refere aos nomes de cabeçalho de coluna para a versão 1 do csv e o link **csv2** se refere aos novos nomes de cabeçalho de coluna para versão 2 do csv. Esses arquivos são atualizados mensalmente.*
+<!-- *NOTE: The **csv1** link refers to the column header names for csv version 1 and **csv2** link refers to the new column header names for csv version 2.  These files are updated monthly.*-->
 
+<!-- Below section commented out as a new "right nav" floating bar is created for each article and is no longer necessary to have this section.
 
-## Conteúdo:
+## Content:
 
-Este tópico ajuda você com as seguintes tarefas ao ler sua fatura.
+This topic helps you with the following tasks when reading your bill.
 
--  Exibir ou baixar uma fatura do Azure
--  Informações do cliente
--  Entender o Resumo da Fatura
--  Entender os Encargos Atuais
--  Informações do rodapé
--  Entender as Informações Adicionais
--  Entender os encargos de uso detalhados
--  Analisar os dados de uso diário
+-  View or Download a Bill for Azure
+-  Customer Information
+-  Understand the Invoice Summary
+-  Understand the Current Charges
+-  Footer Information
+-  Understand the Additional Information
+-  Understand Detailed Usage Charges
+-  Analyze Daily Usage Data -->
 
 ### Exibir ou baixar uma fatura do Microsoft Azure:
 
@@ -77,8 +78,10 @@ Para exibir ou baixar uma fatura:
     ![Resumo -histórico de cobrança 5](./media/billing-understand-your-bill/ContentViewaBillforMA5.png)
 
 
+***Importante:*** *os encargos listados nas declarações de cobrança para clientes internacionais servem somente para fins de estimativa, já que os bancos têm custos diferentes para as taxas de conversão.*
 
-**A seguir estão algumas instruções de exemplo para duas ofertas diferentes disponíveis no Microsoft Azure.**
+
+A seguir estão algumas instruções de exemplo para duas ofertas diferentes disponíveis no Microsoft Azure.
 
  **TIPO DA OFERTA** | **DESCRIÇÃO** | **DOWNLOAD** |
  :--------- |:-------- | :-------|
@@ -108,7 +111,7 @@ Tipo de pagamento usado na conta (isto é, Fatura ou Cartão de Crédito).
 Endereço de pagamentos do Microsoft Azure.
 
 ### Oferta de assinatura
-Tipo de oferta de assinatura que tiver sido adquirida (ou seja, pré-pago, MSDN-Vidual Studio Ultimate, etc.)
+Tipo de oferta de assinatura que foi adquirida (ou seja, pré-pago, MSDN-Visual Studio Enterprise, etc.)
 
 ### Email do Proprietário da Conta
 O endereço de email da conta no qual a conta do Microsoft Azure está registrada.
@@ -142,7 +145,7 @@ Encargos de uso são o total de encargos mensais em uma assinatura. Você é cob
 Descontos de serviço em seu uso seriam refletidos neste item de linha que se aplica à sua fatura atual.
 
 ### Ajustes
-Ajustes diversos são créditos diversos ou encargos pendentes aplicados à sua fatura atual. Por exemplo, se você tivesse a oferta Visual Studio Ultimate com MSDN, você veria um crédito mensal neste item de linha. Se você cancelasse sua assinatura, veria encargos para o uso mensal que excede o crédito mensal incluído na sua oferta desde o início do período de cobrança atual até a data de cancelamento de assinatura.
+Ajustes diversos são créditos diversos ou encargos pendentes aplicados à sua fatura atual. Por exemplo, se você tivesse a oferta Visual Studio Enterprise com MSDN, veria um crédito mensal neste item de linha. Se você cancelasse sua assinatura, veria encargos para o uso mensal que excede o crédito mensal incluído na sua oferta desde o início do período de cobrança atual até a data de cancelamento de assinatura.
 
 ## Informações do rodapé
 ![rodapé](./media/billing-understand-your-bill/footerinformation.png)
@@ -257,10 +260,10 @@ Navegue até a seção **Gerenciar contas, assinaturas e funções administrativ
 
 - [Alterar o cartão de crédito em sua conta do Microsoft Azure](https://msdn.microsoft.com/library/azure/dn736050.aspx)
 
-- [O que devo fazer se minha assinatura do Azure ficar desabilitada?](https://msdn.microsoft.com/library/azure/dn736049.aspx)
+<!-- - [What do I do if my Azure subscription become disabled?](https://msdn.microsoft.com/library/azure/dn736049.aspx)-->
 
 
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -24,14 +24,14 @@ Use este índice de erros de rastreamento de pilha do Hadoop para solucionar pro
 ## Mensagens de erro de Memória insuficiente
 * [Corrigir um erro de OOM (memória insuficiente) com configurações de Hive](hdinsight-hadoop-hive-out-of-memory-error-oom.md): corrija um erro de OOM (memória insuficiente) de uma consulta de Hive. O cenário de cliente inclui uma consulta em várias tabelas grandes.
 
-> [AZURE.NOTE]Mais artigos para solução de problemas de erro de rastreamento de pilha serão lançados em breve.
+> [AZURE.NOTE] Mais artigos para solução de problemas de erro de rastreamento de pilha serão lançados em breve.
 
 ## Mais artigos sobre solução de problemas para o HDInsight
 
 * [Informações sobre o uso do HDInsight no Linux](hdinsight-hadoop-linux-information.md)
-* [Depurar Hadoop no HDInsight: exibir logs e interpretar mensagens de erro](hhdinsight-debug-jobs.md)
+* [Depurar Hadoop no HDInsight: exibir logs e interpretar mensagens de erro](hdinsight-debug-jobs.md)
 * [Acessar logs do aplicativo YARN no Hadoop no HDInsight programaticamente](hdinsight-hadoop-access-yarn-app-logs.md)
 * [Coletar despejos de heap no armazenamento de Blob para depurar e analisar serviços do Hadoop](hdinsight-hadoop-collect-debug-heap-dumps.md)
 * [Notas de versão dos componentes do Hadoop no Azure HDInsight](hdinsight-release-notes.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

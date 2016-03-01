@@ -125,7 +125,7 @@ Consulte as duas funções de trabalho de exemplo instrumentadas para solicitaç
 
 ## Diagnóstico do Azure
 
-[Os dados do Diagnóstico do Azure](vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) incluem logs de aplicativo, contadores de desempenho e eventos de gerenciamento de função. Você pode enviá-los ao Application Insights para que possa vê-los junto com o restante da sua telemetria, facilitando o diagnóstico dos problemas.
+[Os dados do Diagnóstico do Azure](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) incluem logs de aplicativo, contadores de desempenho e eventos de gerenciamento de função. Você pode enviá-los ao Application Insights para que possa vê-los junto com o restante da sua telemetria, facilitando o diagnóstico dos problemas.
 
 Os diagnósticos do Azure são especialmente úteis se uma função falhar inesperadamente ou não puder ser iniciada.
 
@@ -263,7 +263,7 @@ Faça assim:
 ## Tópicos relacionados
 
 * [Configurar o envio dos Diagnósticos do Azure ao Application Insights](app-insights-azure-diagnostics.md)
-* [Usando o PowerShell para enviar os diagnósticos do Azure ao Application Insights])(app-insights-powershell-azure-diagnostics.md)
+* [Usando o PowerShell para enviar diagnósticos do Azure ao Application Insights](app-insights-powershell-azure-diagnostics.md)
 
 
 
@@ -281,4 +281,4 @@ Faça assim:
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

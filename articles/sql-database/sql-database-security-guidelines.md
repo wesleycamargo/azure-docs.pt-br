@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="11/24/2015"
+   ms.date="02/16/2016"
    ms.author="rickbyh"/>
 
 # Limitações e diretrizes de segurança de Banco de Dados SQL do Azure
@@ -37,7 +37,7 @@ Para validar certificados com o código de aplicativo ADO.NET, defina ``Encrypt=
 
 O SQL Server Management Studio também oferece suporta à validação do certificado. Na caixa de diálogo **Conectar ao servidor**, clique em **Criptografar conexão** na guia **Propriedades de conexão**.
 
-> [AZURE.NOTE]O SQL Server Management Studio não oferece suporte a conexões de banco de dados SQL em versões anteriores ao SQL Server 2008 R2.
+> [AZURE.NOTE] O SQL Server Management Studio não oferece suporte a conexões de banco de dados SQL em versões anteriores ao SQL Server 2008 R2.
 
 Embora o SQLCMD ofereceu suporte ao Banco de dados SQL começando com o SQL Server 2008, ele não oferece suporte à validação de certificado em versões anteriores ao SQL Server 2008 R2. Para validar certificados com o SQLCMD a partir do SQL Server 2008 R2, use a opção ``-N`` da linha de comando e não use a opção ``-C``. Ao utilizar a opção -N, o SQLCMD solicita uma conexão criptografada. Ao não utilizar a opção ``-C``, o SQLCMD não confia implicitamente o certificado do servidor e é forçado a validar o certificado.
 
@@ -49,7 +49,7 @@ A autenticação do Active Directory (segurança integrada) está disponível co
 
 O [Banco de dados SQL V12](sql-database-v12-whats-new.md) permite que os usuários façam a autenticação no banco de dados usando os usuários do banco de dados independente. Para obter mais informações, veja [Usuários do banco de dados independente – Tornando portátil o banco de dados](https://msdn.microsoft.com/library/ff929188.aspx), [CREATE USER (Transact-SQL)](https://technet.microsoft.com/library/ms173463.aspx) e [Bancos de dados independentes](https://technet.microsoft.com/library/ff929071.aspx).
 
-> [AZURE.NOTE]A Microsoft recomenda usar usuários de banco de dados independentes para melhorar a escalabilidade.
+> [AZURE.NOTE] A Microsoft recomenda usar usuários de banco de dados independentes para melhorar a escalabilidade.
 
 O Mecanismo do Banco de dados fecha conexões permanecem ociosas por mais de 30 minutos. A conexão deve efetuar logon novamente para que possa ser usada.
 
@@ -64,7 +64,7 @@ Para o logon principal no nível de servidor, as seguintes restrições se aplic
 - O usuário de banco de dados no banco de dados mestre correspondente para o logon principal no nível de servidor não pode ser alterado ou descartado. 
 - Embora o logon na entidade de segurança no nível do servidor não seja um membro das duas funções de banco de dados, **dbmanager** e **loginmanager**, no banco de dados **mestre**, ele tem todas as permissões concedidas para essas duas funções.
 
-> [AZURE.NOTE]Esse logon é criado durante o provisionamento do servidor e é semelhante ao logon **sa** em uma instância do SQL Server.
+> [AZURE.NOTE] Esse logon é criado durante o provisionamento do servidor e é semelhante ao logon **sa** em uma instância do SQL Server.
 
 Para todos os logons, as seguintes restrições se aplicam:
 
@@ -111,4 +111,4 @@ Considere os seguintes pontos para tornar seus aplicativos de Banco de dados SQL
 
 [Central de segurança do mecanismo de banco de dados do SQL Server e banco de dados SQL do Azure](https://msdn.microsoft.com/library/bb510589)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

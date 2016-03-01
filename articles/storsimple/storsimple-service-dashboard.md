@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="02/01/2016"
    ms.author="v-sharos" />
 
 # Use o painel de serviço do StorSimple Manager
@@ -22,8 +22,6 @@
 A página do painel serviço do StorSimple Manager fornece uma exibição resumida de todos os dispositivos conectados ao serviço StorSimple Manager, destacando aqueles que precisam de atenção do administrador do sistema. Este tutorial apresenta a página do painel, explica seu conteúdo e função e descreve as tarefas que podem ser executadas nesta página.
 
 ![Painel de serviço](./media/storsimple-service-dashboard/HCS_ServiceDashboard.png)
-
-**Figura 1: Painel de serviço do StorSimple Manager**
 
 O painel de serviço do StorSimple Manager exibe as seguintes informações:
 
@@ -78,4 +76,4 @@ Você pode exibir os logs de operação clicando no link de logs de operação d
 
 - Saiba mais sobre como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

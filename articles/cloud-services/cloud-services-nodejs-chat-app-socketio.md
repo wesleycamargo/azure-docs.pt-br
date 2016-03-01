@@ -36,7 +36,7 @@ Verifique se os seguintes produtos e versões estão instalados para concluir co
 
 As etapas a seguir criam o projeto de serviço de nuvem que hospedará o aplicativo Socket.IO.
 
-1. No **Menu Iniciar** ou **Tela Iniciar**, pesquise por **PowerShell do Azure**. Finalmente, clique com o botão direito do mouse no **PowerShell do Azure** e selecione **Executar como Administrador**.
+1. No **menu Iniciar** ou **tela Inicial**, pesquise por **Windows PowerShell**. Finalmente, clique com o botão direito do mouse em **Windows PowerShell** e selecione **Executar como Administrador**.
 
 	![Ícone PowerShell do Azure][powershell-menu]
 
@@ -143,7 +143,7 @@ Seu aplicativo agora está sendo executado no Azure e pode retransmitir mensagen
 
 ##Próximas etapas
 
-Neste tutorial, você aprendeu como criar um aplicativo de chat básico hospedado em um Serviço de Nuvem do Azure. Para saber como hospedar esse aplicativo em um Site do Azure, consulte [Criar um aplicativo de chat do Node.js com Socket.IO em um Site do Azure][chatwebsite]
+Neste tutorial, você aprendeu como criar um aplicativo de chat básico hospedado em um Serviço de Nuvem do Azure. Para saber como hospedar esse aplicativo em um Site do Azure, confira [Criar um aplicativo de chat do Node.js com Socket.IO em um Site do Azure][chatwebsite].
 
 Para obter mais informações, consulte também o [Centro de desenvolvedores do Node.js](/develop/nodejs/).
 
@@ -170,4 +170,4 @@ Para obter mais informações, consulte também o [Centro de desenvolvedores do 
   
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->
