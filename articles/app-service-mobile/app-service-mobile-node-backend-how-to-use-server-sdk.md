@@ -107,7 +107,7 @@ O Visual Studio 2015 exige uma extensão para desenvolver aplicativos Node.js no
 
 8. Clique em **Fechar**.
 
-9. Abra o arquivo _app.js_ para adicionar suporte ao SDK de Aplicativos Móveis do Azure: Na linha 6, na parte inferior das exigências de declarações da biblioteca, adicione o seguinte código:
+9. Abra o arquivo _app.js_ para adicionar suporte ao SDK de Aplicativos Móveis do Azure. Na linha 6, na parte inferior das exigências de declarações da biblioteca, adicione o seguinte código:
 
         var bodyParser = require('body-parser');
         var azureMobileApps = require('azure-mobile-apps');
@@ -636,7 +636,7 @@ Você também pode especificar a autenticação em operações específicas:
 		get: function (req, res, next) {
 			var date = { currentTime: Date.now() };
 			res.status(200).type('application/json').send(date);
-		});
+		}
 	};
 	// The GET methods must be authenticated.
 	api.get.access = 'authenticated';
@@ -671,6 +671,38 @@ O SDK dos Aplicativos Móveis do Azure usa a [middleware analisador de corpo](ht
 
 Você pode ajustar o limite de 50 MB que mostramos acima. Observe que o arquivo será codificado em base 64 antes da transmissão, o que aumentará o tamanho do upload real.
 
+### <a name="howto-customapi-sql"></a>Como executar instruções SQL personalizadas
+
+O SDK de Aplicativos Móveis do Azure permite o acesso a todo o Contexto por meio do objeto da solicitação, permitindo que você execute facilmente instruções SQL com parâmetros para o provedor de dados definido:
+
+    var api = {
+        get: function (request, response, next) {
+            // Check for parameters - if not there, pass on to a later API call
+            if (typeof request.params.completed === 'undefined')
+                return next();
+
+            // Define the query - anything that can be handled by the mssql
+            // driver is allowed.
+            var query = {
+                sql: 'UPDATE TodoItem SET complete=@completed',
+                parameters: [{
+                    completed: request.params.completed
+                }]
+            };
+
+            // Execute the query.  The context for Azure Mobile Apps is available through
+            // request.azureMobile - the data object contains the configured data provider.
+            request.azureMobile.data.execute(query)
+            .then(function (results) {
+                response.json(results);
+            });
+        }
+    };
+
+    api.get.access = 'authenticated';
+    module.exports = api;
+
+Este ponto de extremidade pode ser acessado por s
 ## <a name="Debugging"></a>Depuração e solução de problemas
 
 O Serviço de Aplicativo do Azure fornece várias técnicas de depuração e de solução de problemas para aplicativos Node.js. Todas essas técnicas estão disponíveis.
@@ -771,4 +803,4 @@ Também é possível executar, do editor, o código no site
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

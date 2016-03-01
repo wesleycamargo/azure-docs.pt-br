@@ -14,7 +14,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="12/01/2015"
+    ms.date="02/23/2016"
     ms.author="adamkr; sstein"/>
 
 # Criar um pool de banco de dados elástico com o PowerShell para expansão de recursos para vários bancos de dados SQL 
@@ -26,7 +26,7 @@
 
 Saiba como gerenciar vários bancos de dados criando um [pool de banco de dados elástico](sql-database-elastic-pool.md) usando cmdlets do PowerShell.
 
-> [AZURE.NOTE]No momento, os pools de banco de dados elástico estão em visualização e disponíveis apenas com Servidores V12 do Banco de Dados SQL. Se você tiver um servidor de Banco de Dados SQL V11, poderá [usar o PowerShell para atualizar para o V12 e criar um pool](sql-database-upgrade-server.md) em uma única etapa.
+> [AZURE.NOTE] No momento, os pools de banco de dados elástico estão em visualização e disponíveis apenas com Servidores V12 do Banco de Dados SQL. Se você tiver um servidor de Banco de Dados SQL V11, poderá [usar o PowerShell para atualizar para o V12 e criar um pool](sql-database-upgrade-server-portal.md) em uma única etapa.
 
 Os pools de banco de dados elástico permitem expandir recursos de banco de dados e o gerenciamento entre vários bancos de dados SQL.
 
@@ -47,14 +47,14 @@ Para executar os cmdlets do PowerShell, você precisa ter o Azure PowerShell ins
 
 Agora que você está executando o módulo do Gerenciador de Recursos do Azure, terá acesso a todos os cmdlets necessários para criar e configurar um pool de banco de dados elástico. Primeiro você deve estabelecer o acesso à sua conta do Azure. Execute o seguinte e você receberá um sinal na tela para inserir suas credenciais. Use o mesmo email e senha usados para entrar no Portal do Azure.
 
-	Add-AzureRmAccount
+	Login-AzureRmAccount
 
 Após entrar, você verá algumas informações na tela, incluindo a ID usada para entrar e as assinaturas do Azure as quais você tem acesso.
 
 
 ### Selecionar sua assinatura do Azure
 
-Para selecionar a assinatura, é necessário ter a ID ou o nome da assinatura (**-SubscriptionName**). Você pode copiar essas informações da etapa anterior, ou, se tiver várias assinaturas, poderá executar o cmdlet **Get-AzureSubscription** e copiar as informações da assinatura desejada do resultado. Quando tiver sua assinatura, execute o seguinte cmdlet:
+Para selecionar a assinatura, será necessário ter a ID ou o nome da assinatura (**-SubscriptionName**). Você pode copiar essas informações da etapa anterior, ou, se tiver várias assinaturas, poderá executar o cmdlet **Get-AzureSubscription** e copiar as informações da assinatura desejada do resultado. Quando tiver sua assinatura, execute o seguinte cmdlet:
 
 	Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
@@ -237,4 +237,4 @@ Depois de criar um pool de banco de dados elástico, você pode gerenciar os ban
 
 Para saber mais sobre pools de banco de dados elásticos e bancos de dados elásticos, incluindo detalhes sobre APIs e erros, confira a [Referência de bancos de dados elásticos](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

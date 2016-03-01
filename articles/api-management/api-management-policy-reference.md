@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="02/16/2016" 
 	ms.author="sdanie"/>
 
 # Referência de políticas do Gerenciamento de API do Azure
 
 Esta seção fornece um índice para as políticas de [referência de política de Gerenciamento de API][]. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API][].
 
-Expressões de política podem ser usadas como valores de atributo ou texto em qualquer uma das políticas de Gerenciamento de API, a menos que a política especifique o contrário. Algumas políticas, como [Controlar fluxo][] e [Definir variável][] se baseiam em expressões de políticas. Para obter mais informações, consulte [Políticas avançadas][] e [Expressões de política][].
+Expressões de política podem ser usadas como valores de atributo ou texto em qualquer uma das políticas de Gerenciamento de API, a menos que a política especifique o contrário. Algumas políticas, como [Controlar fluxo][] e [Definir variável][] se baseiam em expressões de políticas. Para obter mais informações, confira [Políticas avançadas][] e [Expressões de política][].
 
 ## Índice de referência de política
 
@@ -42,6 +42,7 @@ Expressões de política podem ser usadas como valores de atributo ou texto em q
 	-	[Definir método de solicitação](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod) - Permite alterar o método HTTP de uma solicitação.
 	-	[Definir status](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetStatus) - Altera o código de status de HTTP para o valor especificado.
 	-	[Definir variável][] - Mantém um valor em uma variável [contexto][] para acesso posterior.
+	-	[Aguardar](https://msdn.microsoft.com/library/azure/dn894085.aspx#Wait) - Aguarda a conclusão da solicitação de Envio embutida, Obtenção do valor do cache ou Controle de políticas de fluxo antes de continuar.
 -	[Políticas de autenticação][]
 	-	[Autenticar com o Basic][] - Autenticar com um serviço de back-end usando a autenticação Básica.
 	-	[Autenticar com o certificado de cliente][] - Autenticar com um serviço de back-end usando certificados de cliente.
@@ -118,4 +119,4 @@ Para obter mais informações sobre expressões de política, consulte o vídeo 
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

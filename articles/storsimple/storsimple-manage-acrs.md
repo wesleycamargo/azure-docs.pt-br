@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="01/26/2016"
    ms.author="alkohli" />
 
 # Usar o serviço StorSimple Manager para gerenciar registros de controle de acesso
@@ -27,7 +27,7 @@ Este tutorial explica as seguintes tarefas comuns relacionadas ao ACR:
 - Editar um registro de controle de acesso 
 - Excluir um registro de controle de acesso 
 
-> [AZURE.IMPORTANT]
+> [AZURE.IMPORTANT] 
 > 
 > - Ao atribuir um ACR a um volume, lembre-se que o volume não é acessado simultaneamente por mais de um host não clusterizado porque isso poderia corromper o volume. 
 > - Ao excluir um ACR de um volume, certifique-se de que o host correspondente não esteja acessando o volume porque a exclusão poderia resultar em uma interrupção de leitura/gravação.
@@ -47,7 +47,7 @@ Execute as etapas a seguir para adicionar um ACR.
 3. Forneça o nome IQN do host do Windows em **Nome do Iniciador iSCSI**. Para obter o IQN do host do Windows Server, siga este procedimento:
 
    - Inicie o iniciador Microsoft iSCSI no host do Windows.
-   - Na janela Propriedades do Iniciador iSCSI, na guia Configuração, selecione e copie a cadeia de caracteres do campo Nome do Iniciador.
+   - Na janela **Propriedades do Iniciador iSCSI**, na guia **Configuração** selecione e copie a cadeia de caracteres do campo **Nome do Iniciador**.
    - Cole essa cadeia de caracteres no campo **Nome do Iniciador iSCSI** na tabela de ACRs no Portal clássico do Azure.
 
 4. Clique em **Salvar** para salvar o ACR recentemente criado. A listagem de tabela será atualizada para refletir essa adição.
@@ -56,7 +56,7 @@ Execute as etapas a seguir para adicionar um ACR.
 
 Use a página **Configurar** no Portal clássico do Azure para editar ACRs.
 
-> [AZURE.NOTE]Você pode modificar somente os ACRs que não estejam em uso no momento. Para editar um ACR associado a um volume que esteja em uso no momento, primeiramente, você deverá colocar o volume no estado offline.
+> [AZURE.NOTE] Você pode modificar somente os ACRs que não estejam em uso no momento. Para editar um ACR associado a um volume que esteja em uso no momento, primeiramente, você deverá colocar o volume no estado offline.
 
 Execute as etapas a seguir para editar um ACR.
 
@@ -74,7 +74,7 @@ Execute as etapas a seguir para editar um ACR.
 
 Use a página **Configurar** no Portal clássico do Azure para excluir ACRs.
 
-> [AZURE.NOTE]Você pode excluir somente os ACRs que não estejam em uso no momento. Para excluir um ACR associado a um volume que esteja em uso no momento, primeiramente, você deverá colocar o volume no estado offline.
+> [AZURE.NOTE] Você pode excluir somente os ACRs que não estejam em uso no momento. Para excluir um ACR associado a um volume que esteja em uso no momento, primeiramente, você deverá colocar o volume no estado offline.
 
 Execute as etapas a seguir para excluir um registro de controle de acesso.
 
@@ -95,4 +95,4 @@ Execute as etapas a seguir para excluir um registro de controle de acesso.
 - Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0218_2016-->

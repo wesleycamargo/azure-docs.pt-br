@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,18 +12,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="02/12/2016"
    ms.author="alkohli" />
 
 # Configure o CHAP para seu dispositivo StorSimple
 
-Este tutorial explica como configurar o CHAP para seu dispositivo StorSimple. CHAP significa Challenge Handshake Authentication Protocol. É um esquema de autenticação usado pelos servidores para validar a identidade de clientes remotos. A verificação baseia-se em uma senha ou segredo compartilhado.
+Este tutorial explica como configurar o CHAP para seu dispositivo StorSimple. O procedimento detalhado neste artigo se aplica ao StorSimple série 8000, bem como dispositivos StorSimple 1200.
 
-O protocolo CHAP pode ser unidirecional ou bidirecional (mútuo). O CHAP unidirecional é quando o destino autentica um iniciador. CHAP mútuo ou inverso, por outro lado, requer que o destino autentique o iniciador e, em seguida, o iniciador autentique o destino. A autenticação do iniciador pode ser implementada sem a autenticação do destino. No entanto, a autenticação do destino pode ser implementada somente se a autenticação do iniciador também for implementada.
+CHAP significa Challenge Handshake Authentication Protocol. É um esquema de autenticação usado pelos servidores para validar a identidade de clientes remotos. A verificação baseia-se em uma senha ou segredo compartilhado. O protocolo CHAP pode ser unidirecional ou bidirecional (mútuo). O CHAP unidirecional é quando o destino autentica um iniciador. CHAP mútuo ou inverso, por outro lado, requer que o destino autentique o iniciador e, em seguida, o iniciador autentique o destino. A autenticação do iniciador pode ser implementada sem a autenticação do destino. No entanto, a autenticação do destino pode ser implementada somente se a autenticação do iniciador também for implementada.
 
 Como prática recomendada, é sugerimos usar o CHAP para aumentar a segurança do iSCSI.
 
->[AZURE.NOTE]Tenha em mente que não há suporte para IPSEC no momento em dispositivos StorSimple.
+>[AZURE.NOTE] Tenha em mente que não há suporte para IPSEC no momento em dispositivos StorSimple.
 
 As configurações do CHAP no dispositivo StorSimple podem ser definidas das seguintes maneiras:
 
@@ -49,8 +49,11 @@ Na autenticação unidirecional, o destino autentica o iniciador. Essa autentica
 
 	2. Forneça uma senha para o iniciador CHAP.
 
-    > [AZURE.IMPORTANT]O nome de usuário do CHAP deve conter menos de 233 caracteres. A senha do CHAP deve conter entre 12 e 16 caracteres. Um nome de usuário ou senha mais longo resultará em falha de autenticação no host do Windows.
+   		 > [AZURE.IMPORTANT] O nome de usuário do CHAP deve conter menos de 233 caracteres. A senha do CHAP deve conter entre 12 e 16 caracteres. Um nome de usuário ou senha mais longo resultará em falha de autenticação no host do Windows.
+    
+	3. Confirme a senha.
 
+4. Clique em **Salvar**. Uma mensagem de confirmação será exibida. Clique em **OK** para salvar as alterações.
 #### Para configurar a autenticação unidirecional no servidor de host do Windows
 
 1. No servidor de host do Windows, inicie o Iniciador iSCSI.
@@ -83,9 +86,11 @@ Na autenticação unidirecional, o destino autentica o iniciador. Essa autentica
 
 		![Configurações gerais avançadas](./media/storsimple-configure-chap/IC740946.png)
 
-5. Na guia **Destinos** da janela **Propriedades do Iniciador iSCSI**, o status do dispositivo deve aparecer como **Conectado**.
+5. Na guia **Destinos** da janela **Propriedades do Iniciador iSCSI**, o status do dispositivo deve aparecer como **Conectado**. Se você estiver usando um dispositivo StorSimple 1200, cada volume será montado como um destino iSCSI conforme mostrado abaixo. Portanto, as etapas 3 a 4 precisarão ser repetidas para cada volume.
 
-    > [AZURE.IMPORTANT]Se você alterar o nome iSCSI, o novo nome será usado para novas sessões do iSCSI. Novas configurações não são usadas para sessões existentes até que você faça logoff e logon novamente.
+	![Volumes montados como destinos separados](./media/storsimple-configure-chap/chap4.png)
+
+    > [AZURE.IMPORTANT] Se você alterar o nome iSCSI, o novo nome será usado para novas sessões do iSCSI. Novas configurações não são usadas para sessões existentes até que você faça logoff e logon novamente.
 
 Para saber mais sobre como configurar o CHAP no servidor de host do Windows, vá para [Considerações adicionais](#additional-considerations).
 
@@ -152,8 +157,8 @@ Na autenticação bidirecional, o destino autentica o iniciador e, em seguida, o
 
 		![Configurações avançadas de autenticação mútua](./media/storsimple-configure-chap/IC740950.png)
 
-	5. Clique em **OK** para concluir a configuração CHAP.
-
+	5. Clique em **OK** para concluir a configuração CHAP
+	 
 Para saber mais sobre como configurar o CHAP no servidor de host do Windows, vá para [Considerações adicionais](#additional-considerations).
 
 ## Considerações adicionais
@@ -192,4 +197,4 @@ Você pode verificar se o CHAP está sendo usado executando as etapas a seguir.
 
 - Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/17/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 
@@ -66,7 +66,7 @@ Para saber mais sobre os recursos de continuidade de negócios de outras ediçõ
 <!--Article references-->
 [business continuity overview]: ../sql-database/sql-database-business-continuity.md
 [Finalize a recovered database]: ../sql-database/sql-database-recovered-finalize.md
-[Opções de redundância de armazenamento do Azure]: storage-redundancy/#read-access-geo-redundant-storage-ra-grs.md
+[Opções de redundância de armazenamento do Azure]: ../storage/storage-redundancy.md#read-access-geo-redundant-storage
 [Visão geral de continuidade de negócios do Banco de Dados SQL]: ../sql-database/sql-database-business-continuity.md
 [Recuperar após erro do usuário]: sql-data-warehouse-business-continuity-recover-from-user-error.md
 
@@ -78,4 +78,4 @@ Para saber mais sobre os recursos de continuidade de negócios de outras ediçõ
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

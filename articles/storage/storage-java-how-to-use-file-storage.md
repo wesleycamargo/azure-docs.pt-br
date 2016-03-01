@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/16/2016"
 	ms.author="jutang"/>
 
 # Como usar o Armazenamento de Arquivo no Java
@@ -208,12 +208,12 @@ Para excluir um compartilhamento deve-se chamar o método **deleteIfExists** em 
 
 Se você quiser saber mais sobre outras APIs de armazenamento do Azure, siga estes links.
 
-- [SDK do Azure para Java](http://azure.microsoft.com/develop/java/)
+- [Central de Desenvolvedores do Java](http://azure.microsoft.com/develop/java/)
 - [SDK de Armazenamento do Azure para Java](https://github.com/azure/azure-storage-java)
 - [SDK de Armazenamento do Azure para Android](https://github.com/azure/azure-storage-android)
 - [Referência de SDK do Cliente de Armazenamento do Azure](http://dl.windowsazure.com/storage/javadoc/)
-- [API REST de Armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+- [API REST de serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 - [Blog da equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
-- [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy.md)
+- [Transferir dados com o Utilitário de Linha de Comando AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

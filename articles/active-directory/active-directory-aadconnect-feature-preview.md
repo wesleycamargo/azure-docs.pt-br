@@ -13,27 +13,14 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/21/2016"
+   ms.date="02/16/2016"
    ms.author="andkjell;billmath"/>
 
 # Mais detalhes sobre os recursos no modo de visualização
 Este tópico descreve como usar recursos presentes atualmente na visualização.
 
-## Extensões de diretório
-Extensões de diretório permite que você estenda o esquema no Azure AD com seus próprios atributos do Active Directory local. Isso permite que você compile aplicativos de LOB consumindo atributos que você continua gerenciando localmente. Esses atributos podem ser consumidos por meio de [extensões de diretório do Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) ou [Microsoft Graph](https://graph.microsoft.io/). Você pode ver os atributos disponíveis usando [gerenciador do Azure AD Graph](https://graphexplorer.cloudapp.net) e [o gerenciador do Microsoft Graph](https://graphexplorer2.azurewebsites.net/) respectivamente.
-
-No momento, nenhuma carga de trabalho do Office 365 consumirá esses atributos.
-
-Durante a instalação do Azure AD Connect, um aplicativo será registrado onde esses atributos estarão disponíveis. Você pode ver esse aplicativo no Portal do Azure. ![Aplicativo de extensão do esquema](./media/active-directory-aadconnect-feature-preview/extension3.png)
-
-Agora, estes atributos estarão disponíveis por meio do Graph: ![Gráfico](./media/active-directory-aadconnect-feature-preview/extension4.png)
-
-Os atributos são prefixados com extension\_{AppClientId}\_. O AppClientId terá o mesmo valor para todos os atributos no seu diretório do AD do Azure.
-
-Há suporte apenas para atributos de valor único e os valores nos atributos não podem ter mais de 250 caracteres.
-
 ## Write-back de grupo
-A opção para write-back do grupo nos recursos opcionais permitirá que você faça write-back de "Grupos do Office 365" para uma floresta com o Exchange instalado. Esse é um grupo que é sempre controlado na nuvem. Se tiver o Exchange local, você pode gravar novamente esses grupos localmente, assim os usuários com uma caixa de correio do Exchange local podem enviar e receber emails destes grupos.
+A opção para write-back do grupo nos recursos opcionais permitirá que você faça write-back de **Grupos do Office 365** para uma floresta com o Exchange instalado. Esse é um grupo que é sempre controlado na nuvem. Se tiver o Exchange local, você pode gravar novamente esses grupos localmente, assim os usuários com uma caixa de correio do Exchange local podem enviar e receber emails destes grupos.
 
 Mais informações sobre Grupos do Office 365 e como usá-los podem ser encontradas [aqui](http://aka.ms/O365g).
 
@@ -53,7 +40,7 @@ Esse grupo será representado como um grupo de distribuição no AD DS local. Se
 
 O write-back do usuário está na versão inicial de visualização. Ele só pode ser usado quando o Azure AD é a origem de todos os objetos de usuário e o Active Directory local está vazio antes de habilitar o recurso (implantação em campo verde).
 
-> [AZURE.WARNING] Esse recurso só deve ser avaliado em um ambiente de teste e não deve ser usado em um diretório do Azure AD usado para uso em produção.
+>[AZURE.WARNING] Esse recurso só deve ser avaliado em um ambiente de teste e não deve ser usado em um diretório do Azure AD usado para uso em produção.
 
 .
 
@@ -64,4 +51,4 @@ Continuar a [Instalação personalizada do Azure AD Connect](active-directory-aa
 
 Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

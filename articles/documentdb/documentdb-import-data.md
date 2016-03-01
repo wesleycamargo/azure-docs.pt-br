@@ -1,6 +1,7 @@
 <properties
-	pageTitle="Importar dados no Banco de Dados de Documentos | Microsoft Azure"
-	description="Saiba como usar a ferramenta de migração de dados de software livre do Banco de Dados de Documentos para importar dados no Banco de Dados de Documentos de várias fontes, incluindo arquivos JSON, arquivos CSV, SQL, MongoDB, armazenamento de tabelas do Azure, Amazon DynamoDB e coleções de Bancos de Dados de Documentos."
+	pageTitle="Ferramenta de migração de banco de dados para o Banco de Dados de Documentos | Microsoft Azure"
+	description="Saiba como usar as ferramentas de migração de dados de software livre do Banco de Dados de Documentos para importar dados no Banco de Dados de Documentos a partir de várias fontes, incluindo arquivos do MongoDB, SQL Server, Armazenamento de Tabelas, Amazon DynamoDB, CSV e JSON. Conversão de CSV para JSON."
+	keywords="csv em json, ferramentas de migração de banco de dados, converter csv em json" 
 	services="documentdb"
 	authors="andrewhoh"
 	manager="jhubbard"
@@ -16,7 +17,7 @@
 	ms.date="01/29/2016"
 	ms.author="anhoh"/>
 
-# Importar dados para o Banco de Dados de Documentos — ferramenta de migração de banco de dados
+# Importar dados para o Banco de Dados de Documentos com a ferramenta de migração de banco de dados
 
 Este artigo mostra como usar a ferramenta de migração de dados do Banco de Dados de Documentos de software livre para importar dados no [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/) de várias fontes, incluindo arquivos JSON, arquivos CSV, coleções de SQL, MongoDB, Armazenamento da Tabela do Azure e coleções de Banco de Dados de Documentos.
 
@@ -328,7 +329,7 @@ Adicionalmente, ao importar tipos de dados (por exemplo, do SQL Server ou do Mon
 O importador em massa do Banco de Dados de Documentos tem as seguintes opções avançadas adicionais:
 
 1. Tamanho do lote: A ferramenta usa como padrão um tamanho de lote de 50. Se os documentos a serem importados forem grandes, considere reduzir o tamanho do lote. Da mesma forma, se os documentos a serem importados forem pequenos, considere aumentar o tamanho do lote.
-2. Tamanho máximo de script (bytes): a ferramenta usa como padrão a um tamanho máximo de script de 512KB
+2. Tamanho máximo de script (bytes): a ferramenta usa como padrão um tamanho máximo de script de 512KB
 3. Desabilitar a geração automática de ID: Se todos os documentos a serem importados contiverem um campo de identificação, selecionar essa opção pode aumentar o desempenho. Documentos com um campo de ID exclusiva ausente não serão importados.
 4. Atualizar documentos existentes: a ferramenta por padrão não substitui os documentos existentes com conflitos de ID. Esta opção permitirá a substituir documentos existentes por ids correspondentes. Esse recurso é útil para migrações de dados agendadas que atualizam documentos existentes.
 5. Número de novas tentativas em caso de falha: Especifica o número de vezes para tentar se conectar novamente com o Banco de Dados de Documentos em caso de falhas transitórias (por exemplo, interrupção da conectividade de rede).
@@ -455,7 +456,7 @@ Na tela de Configuração avançada, especifique a localização do arquivo de l
 
 Em seguida, escolha se deseja registrar, todas as mensagens de erro, nenhuma mensagem ou as mensagens críticas. Finalmente, decida com que frequência a mensagem de transferência na tela será atualizada com seu progresso.
 
-	![Tela de configuração de captura de tela avançada](./media/documentdb-import-data/AdvancedConfiguration.png)
+	![Screenshot of Advanced configuration screen](./media/documentdb-import-data/AdvancedConfiguration.png)
 
 ## Confirme as configurações de importação e de linha de comando de exibição
 
@@ -477,4 +478,4 @@ Em seguida, escolha se deseja registrar, todas as mensagens de erro, nenhuma men
 
 - Para saber mais sobre o Banco de Dados de Documentos, clique [aqui](http://azure.com/docdb).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -210,7 +210,7 @@ Observação: **MS\_AadTenants** é armazenado como uma lista separada por vírg
 
 > [AZURE.WARNING] **Não use os mecanismos de autenticação no menu Configurações**
 >
-> O Serviço de aplicativo do Azure fornece um sistema de autenticação e autorização "sem código" separado no menu de Configurações _Autenticação/Autorização_ e a opção (preterida) _Autenticação Móvel_ no menu Configurações. Essas opções são incompatíveis com um Serviço Móvel do Azure migrado. Você pode [atualizar seu site] para aproveitar a autenticação do Serviço de Aplicativo do Azure.
+> O Serviço de aplicativo do Azure fornece um sistema de autenticação e autorização "sem código" separado no menu de Configurações _Autenticação/Autorização_ e a opção (preterida) _Autenticação Móvel_ no menu Configurações. Essas opções são incompatíveis com um Serviço Móvel do Azure migrado. Você pode [atualizar seu site](app-service-mobile-net-upgrading-from-mobile-services.md) para aproveitar a autenticação do Serviço de Aplicativo do Azure.
 
 ### <a name="easytables"></a>Dados
 
@@ -393,4 +393,4 @@ Note que seu aplicativo é migrado para o serviço de aplicativo, há ainda mais
 [VNet]: ../app-service-web/web-sites-integrate-with-vnet.md
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

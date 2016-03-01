@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/20/2016"
+   ms.date="02/08/2016"
    ms.author="alkohli" />
 
 
@@ -26,7 +26,7 @@ Este tutorial de implantação se aplica à Matriz Virtual Microsoft Azure StorS
 
 Os procedimentos descritos aqui levam um intervalo de aproximadamente 30 minutos a 1 hora para concluir. As informações publicadas nesse artigo aplicam-se somente a Matrizes Virtuais StorSimple.
 
->[AZURE.IMPORTANT]
+>[AZURE.IMPORTANT] 
 >
 >- A StorSimple Virtual Array está em visualização e é destinada para fins de planejamento de implantação e avaliação. Não há suporte para a instalação dessa visualização em um ambiente de produção. 
 >- Se você tiver quaisquer problemas com a StorSimple Virtual Array, publique-os no [fórum do MSDN do StorSimple](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple).
@@ -99,6 +99,11 @@ Use as instruções passo a passo a seguir para preparar e configurar seu dispos
     5. Uma caixa de diálogo aparecerá. Insira suas credenciais de domínio no formato especificado. Clique no ícone de verificação ![ícone de verificação](./media/storsimple-ova-deploy3-iscsi-setup/image15.png). As credenciais de domínio serão verificadas. Você verá uma mensagem de erro se as credenciais estiverem incorretas.
 
         ![credenciais](./media/storsimple-ova-deploy3-iscsi-setup/image8.png)
+        
+           > [AZURE.NOTE]
+	   > 
+	   > Se estiver ingressando em seu servidor iSCSI em um domínio, certifique-se de que sua matriz virtual esteja em sua própria unidade organizacional (UO) do Microsoft Azure Active Directory e que não haja objetos de política de grupo (GPO) aplicados a ele.
+	   
 
     6. Clique em **Aplicar**. Isso aplicará e validará as configurações do dispositivo.
  
@@ -112,7 +117,7 @@ Use as instruções passo a passo a seguir para preparar e configurar seu dispos
 
     2. Especifique **Autenticação** como **Básica**, **NTLM** ou **Nenhuma**.
 
-    3. Se você estiver usando autenticação, você também precisará fornecer um **Nome de Usuário** e **Senha**.
+    3. Se estiver usando autenticação, você também precisará fornecer um **Nome de Usuário** e uma **Senha**.
 
     4. Clique em **Aplicar**. Isso validará e aplicará as configurações de proxy Web definidas.
  
@@ -134,7 +139,7 @@ Use as instruções passo a passo a seguir para preparar e configurar seu dispos
 
     1. Insira a **Chave de registro do serviço** que você obteve na **Etapa 2: obter a chave de registro do serviço** em [Implantar StorSimple Virtual Array - Preparar o Portal](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
 
-    2. Se não é o primeiro dispositivo que você está registrando com esse serviço, você precisará fornecer a **Chave de criptografia de dados de serviço**. Essa chave é necessária com a chave de registro do serviço para registrar dispositivos adicionais no serviço StorSimple Manager. Para obter mais informações, consulte [Obter a chave de criptografia de dados de serviço](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) em sua interface do usuário da Web local.
+    2. Se não for o primeiro dispositivo que você está registrando com esse serviço, você precisará fornecer a **Chave de criptografia de dados de serviço**. Essa chave é necessária com a chave de registro do serviço para registrar dispositivos adicionais no serviço StorSimple Manager. Para obter mais informações, consulte [Obter a chave de criptografia de dados de serviço](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) em sua interface do usuário da Web local.
 
     3. Clique em **Registrar**. Isso reiniciará o dispositivo. Talvez seja necessário aguardar de 2 a 3 minutos até que o dispositivo seja registrado com êxito. Depois que o dispositivo for reiniciado, você será levado à página de entrada.
 
@@ -156,7 +161,7 @@ Execute as etapas a seguir no portal clássico do Azure para concluir a configur
 
 #### Para concluir a configuração mínima do dispositivo
 
-1. Na página **Dispositivos**, selecione o dispositivo que você acabou de criar. Este dispositivo apareceria como **Ativo**. Clique na seta próxima do nome do dispositivo e, em seguida, clique em **Início Rápido**.
+1. Na página **Dispositivos**, selecione o dispositivo que você acabou de criar. Este dispositivo apareceria como **Ativo**. Clique na seta próxima ao nome do dispositivo e, em seguida, clique em **Início Rápido**.
 
     ![Página Dispositivos](./media/storsimple-ova-deploy3-iscsi-setup/image13.png)
 
@@ -166,9 +171,9 @@ Execute as etapas a seguir no portal clássico do Azure para concluir a configur
 
 3. No assistente Configurar dispositivo, na página **Configurações Básicas**, faça o seguinte:
 
-   1. Especifique uma conta de armazenamento para ser usada com seu dispositivo. Nesta assinatura, você pode selecionar uma conta de armazenamento existente na lista suspensa, ou você pode especificar **Adicionar mais** para escolher uma conta de uma assinatura diferente.
+   1. Especifique uma conta de armazenamento para ser usada com seu dispositivo. Nesta assinatura, você pode selecionar uma conta de armazenamento existente na lista suspensa, ou pode especificar **Adicionar mais** para escolher uma conta de uma assinatura diferente.
 
-   2. Defina as configurações de criptografia para todos os dados em repouso que serão enviados para a nuvem. (o StorSimple usa a criptografia AES-256). Para criptografar seus dados, selecione a caixa de seleção **Habilitar criptografia de armazenamento em nuvem**. Insira uma chave de criptografia de armazenamento em nuvem que contenha 32 caracteres. Redigite a chave para confirmá-la.
+   2. Defina as configurações de criptografia para todos os dados em repouso que serão enviados para a nuvem. (o StorSimple usa a criptografia AES-256). Para criptografar seus dados, marque a caixa de seleção **Habilitar criptografia de armazenamento em nuvem**. Insira uma chave de criptografia de armazenamento em nuvem que contenha 32 caracteres. Redigite a chave para confirmá-la.
 
    3. Clique no ícone de verificação ![ícone de verificação](./media/storsimple-ova-deploy3-iscsi-setup/image15.png).
 
@@ -305,4 +310,4 @@ Execute as etapas a seguir para obter o iSCSI IQN (Nome Qualificado) de um host 
 <!--Reference link-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0218_2016-->

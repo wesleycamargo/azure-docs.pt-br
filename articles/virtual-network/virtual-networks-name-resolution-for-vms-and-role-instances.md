@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/02/2015"
+   ms.date="02/02/2016"
    ms.author="joaoma" />
 
 # Resolução de nomes de máquinas virtuais e instâncias de função
@@ -158,7 +158,7 @@ Você pode especificar vários servidores DNS a serem usados por suas VMs e inst
 
 ### Especificando um servidor DNS no Portal de Gerenciamento
 
-Ao criar sua rede virtual no Portal de Gerenciamento, você pode especificar o endereço IP e o nome do(s) servidor(es) DNS que deseja usar. Depois de criar a rede virtual, as máquinas virtuais e as instâncias de função implantadas na rede virtual são configuradas automaticamente com as configurações DNS especificadas. Os servidores DNS especificados para um serviço de nuvem específico (clássico do Azure) ou uma placa de interface de rede (implantações baseadas em ARM) têm precedência sobre aqueles especificados para a rede virtual. Veja [Sobre como configurar uma rede virtual no Portal de Gerenciamento](virtual-networks-settings.md).
+Ao criar sua rede virtual no Portal de Gerenciamento, você pode especificar o endereço IP e o nome do(s) servidor(es) DNS que deseja usar. Depois de criar a rede virtual, as máquinas virtuais e as instâncias de função implantadas na rede virtual são configuradas automaticamente com as configurações DNS especificadas. Os servidores DNS especificados para um serviço de nuvem específico (clássico do Azure) ou uma placa de interface de rede (implantações baseadas em ARM) têm precedência sobre aqueles especificados para a rede virtual.
 
 ### Especificando um servidor DNS usando arquivos de configuração (clássico do Azure)
 
@@ -177,8 +177,6 @@ O arquivo de configuração de serviço é criado para cada serviço de nuvem ad
 
 [Esquema de configuração de Rede Virtual](https://msdn.microsoft.com/library/azure/jj157100)
 
-[Sobre definir as configurações de rede virtual no Portal de Gerenciamento](virtual-networks-settings.md)
-
 [Configurar uma rede virtual usando um arquivo de configuração de rede](virtual-networks-using-network-configuration-file.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

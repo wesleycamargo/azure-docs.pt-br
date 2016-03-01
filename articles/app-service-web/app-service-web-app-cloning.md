@@ -114,4 +114,4 @@ Esse recurso está atualmente em visualização. Estamos trabalhando para adicio
 - [Introdução ao ambiente de Serviço de Aplicativo](app-service-app-service-environment-intro.md)
 - [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

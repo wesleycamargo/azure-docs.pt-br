@@ -1,4 +1,4 @@
-Os dados da sua conta de armazenamento do Microsoft Azure sempre são replicados para garantir durabilidade e alta disponibilidade, cumprindo o [SLA do Armazenamento do Azure](https://azure.microsoft.com/support/legal/sla/) mesmo diante de falhas transitórias de hardware. Quando você cria uma conta de armazenamento, deve selecionar uma das seguintes opções de replicação:
+Os dados da sua conta de armazenamento do Microsoft Azure sempre são replicados para garantir durabilidade e alta disponibilidade, cumprindo o [SLA para Armazenamento](https://azure.microsoft.com/support/legal/sla/storage/) mesmo diante de falhas transitórias de hardware. Quando você cria uma conta de armazenamento, deve selecionar uma das seguintes opções de replicação:
 
 - **Armazenamento com redundância local (LRS).** O armazenamento com redundância local mantém três cópias dos seus dados. O LRS é replicado três vezes em uma única instalação, em uma única região. O LRS protege os dados contra falhas normais de hardware, mas não contra falha de uma única instalação.  
   
@@ -22,8 +22,8 @@ Os dados da sua conta de armazenamento do Microsoft Azure sempre são replicados
  
 Confira [Replicação de armazenamento do Azure](../articles/storage/storage-redundancy.md) para obter mais detalhes sobre as opções de replicação de armazenamento do Azure.
 
-Para informações sobre preços de replicação de conta de armazenamento, confira [Detalhes de preços de armazenamento](https://azure.microsoft.com/pricing/details/storage/).
+Para informações sobre preços de replicação da conta de armazenamento, consulte [Preços de Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
 
-Para obter detalhes arquitetônicos sobre a durabilidade com o armazenamento do Azure, confira o [Artigo de SOSP do Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
+Para obter detalhes arquitetônicos sobre a durabilidade com o armazenamento do Azure, consulte [SOSP Paper - Azure Storage: A Highly Available Cloud Storage Service with Strong](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -76,7 +76,7 @@ Sim. Você pode a replicar máquinas virtuais Hyper-V em nuvem no servidor VMM n
 
 Você pode proteger servidores físicos que executem Windows e Linux no Azure ou em site secundário. [Saiba](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment) mais sobre os requisitos de sistema operacional. As mesmas limitações se aplicam independentemente de se estar replicando servidores físicos para o Azure ou para um site secundário.
 
-Observe que servidores físicos serão executados como VMs no Azure se seu servidor local ficar inativo. Atualmente, não há suporte para o failback para um servidor físico local. Você precisará realizar o failback para uma VM VMware.
+Observe que servidores físicos serão executados como VMs no Azure se seu servidor local ficar inativo. Atualmente, não há suporte para o failback para um servidor físico local. Você só pode executar failback para uma máquina virtual em execução no VMware.
 
 ### Quais VMs VMware posso proteger?
 
@@ -219,4 +219,4 @@ Sim, você pode replicar máquinas virtuais Hyper-V e o Azure, ou entre os sites
 - Leia a [visão geral do Site Recovery](site-recovery-overview.md)
 - Saiba mais sobre a [arquitetura do Site Recovery](site-recovery-components.md)  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

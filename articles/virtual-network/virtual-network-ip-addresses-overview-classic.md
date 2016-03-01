@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/12/2016"
+   ms.date="02/11/2016"
    ms.author="telmos" />
 
 # Endereços IP (clássico) no Azure
@@ -26,7 +26,7 @@ Endereços IP privados são usados para comunicação em uma VNet (rede virtual)
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-network-ip-addresses-overview-arm.md).
 
 ## Endereços IP públicos
-Endereços IP públicos permitem que os recursos do Azure comuniquem-se com os serviços públicos do Azure, como [Cache Redis do Azure](https://azure.microsoft.com/services/cache/), [Hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/), [bancos de dados SQL](sql-database-technical-overview.md) e [armazenamento do Azure](storage-introduction.md).
+Endereços IP públicos permitem que os recursos do Azure comuniquem-se com os serviços públicos do Azure, como [Cache Redis do Azure](https://azure.microsoft.com/services/cache/), [Hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/), [bancos de dados SQL](../sql-database/sql-database-technical-overview.md) e [armazenamento do Azure](../storage/storage-introduction.md).
 
 Um endereço IP público é associado aos seguintes tipos de recursos:
 
@@ -47,7 +47,7 @@ Quando você cria um serviço de nuvem ou em uma VM de IaaS, precisa fornecer um
 ### Serviços de Nuvem
 Um serviço de nuvem sempre tem um endereço IP público, conhecido como VIP (endereço IP virtual). Você pode criar pontos de extremidade em um serviço de nuvem para associar portas diferentes no VIP para portas internas em VMs e instâncias de função no serviço de nuvem.
 
-Você pode atribuir [vários VIPs a um serviço de nuvem](load-balancer-multivip.md), o que permite cenários multiVIP como ambiente multilocatário com sites baseados em SSL.
+Um serviço de nuvem pode conter várias VMs de IaaS ou instâncias de função de PaaS, todos expostos por meio do mesmo VIP de serviço de nuvem. Você também pode atribuir [vários VIPs a um serviço de nuvem](../load-balancer/load-balancer-multivip.md), o que permite cenários multiVIP como ambiente multilocatário com sites baseados em SSL.
 
 Você pode garantir que o endereço IP público de um serviço de nuvem permaneça igual, mesmo quando todas as instâncias de função são interrompidas, usando um endereço IP público *estático*, conhecido como [IP Reservado](virtual-networks-reserved-public-ip.md). Você pode criar um recurso IP (reservado) estático em um local específico e atribuí-lo a qualquer serviço de nuvem naquele local. Não é possível especificar o endereço IP real para o IP reservado, ele é alocado do pool de endereços IP disponíveis no local em que é criado. Esse endereço IP não é liberado até você explicitamente excluí-lo.
 
@@ -58,14 +58,18 @@ Endereços IP públicos (reservados) estáticos são usados nos cenários em que
 - consome serviços Web externos que usam o modelo de segurança com base em IP.
 - usa certificados SSL vinculados a um endereço IP.
 
+>[AZURE.NOTE] Quando você cria uma VM clássica, um contêiner *serviço de nuvem* é criado pelo Azure, que tem um endereço IP virtual (VIP). Quando a criação é feita por meio do portal, um padrão de *ponto de extremidade* RDP ou SSH é configurado pelo portal para conectar-se à VM por meio do VIP de serviço de nuvem. Este VIP de serviço de nuvem pode ser reservado, o que efetivamente fornece um endereço IP reservado para se conectar à VM. Você pode abrir portas adicionais configurando mais pontos de extremidade.
+
 ### VMs de IaaS e instâncias de função PaaS
-Você pode atribuir um endereço IP público a uma [VM](virtual-machines-about.md) de IaaS ou a uma instância de função de PaaS dentro de um serviço de nuvem. Isso é conhecido como [ILPIP](virtual-networks-instance-level-public-ip.md) (endereço IP público em nível de instância). Esse endereço IP público pode ser apenas dinâmico.
+Você pode atribuir um endereço IP público diretamente em a uma [VM](../virtual-machines/virtual-machines-about.md) de IaaS ou em uma instância de função de PaaS dentro de um serviço de nuvem. Isso é conhecido como [ILPIP](virtual-networks-instance-level-public-ip.md) (endereço IP público em nível de instância). Esse endereço IP público pode ser apenas dinâmico.
+
+>[AZURE.NOTE] Isso é diferente do VIP do serviço em nuvem, que é um contêiner para VMs de instâncias de função IaaS ou PaaS, como um serviço de nuvem pode conter várias VMs de IaaS ou instâncias de função de PaaS, expostos por meio do mesmo VIP de serviço de nuvem.
 
 ### Gateways VPN
-Um [gateway de VPN](vpn-gateway-about-vpngateways.md) pode ser usado para conectar uma VNet do Azure a outra VNet do Azure ou a redes locais. Um gateway de VPN recebe um endereço IP público *dinamicamente*, que permite a comunicação com a rede remota.
+Um [gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) pode ser usado para conectar uma VNet do Azure a outra VNet do Azure ou a redes locais. Um gateway de VPN recebe um endereço IP público *dinamicamente*, que permite a comunicação com a rede remota.
 
 ### Application gateways
-O [Application Gateway](application-gateway-introduction.md) do Azure pode ser usado para balanceamento de carga Layer7 para rotear tráfego de rede com base em HTTP. O Application Gateway recebe um endereço IP público *dinamicamente*, que serve como o VIP com balanceamento de carga.
+O [Application Gateway](../application-gateway/application-gateway-introduction.md) do Azure pode ser usado para balanceamento de carga Layer7 para rotear tráfego de rede com base em HTTP. O Application Gateway recebe um endereço IP público *dinamicamente*, que serve como o VIP com balanceamento de carga.
 
 ### Visão rápida
 A tabela a seguir mostra cada tipo de recurso com os métodos de alocação possíveis (dinâmico/estático) e capacidade de atribuir vários endereços IP públicos.
@@ -115,7 +119,7 @@ Quando você cria uma VM, um mapeamento para o nome de host para seu endereço I
 No caso de um serviço de nuvem *autônomo*, você será capaz de resolver nomes de host de todas as instâncias de VMs/função dentro do mesmo serviço de nuvem apenas. No caso de um serviço de nuvem em uma rede virtual, você será capaz de resolver nomes de host de todas as instâncias de função/VMs na rede virtual.
 
 ### Balanceadores de carga internos (ILB) e gateways de aplicativo
-Você pode atribuir um endereço IP privado para a configuração de **front-end** de um [balanceador de carga interno do Azure](load-balancer-internal-overview.md) (ILB) ou um [Azure Application Gateway](application-gateway-introduction.md). Esse endereço IP privado serve como ponto de extremidade interno, acessível somente aos recursos dentro da sua rede virtual (VNet) e de redes remotas conectadas à VNet. Você pode atribuir a um endereço IP privado dinâmico ou estático à configuração de front-end. Você também pode atribuir vários endereços IP privados para habilitar cenários de multi-vip.
+Você pode atribuir um endereço IP privado para a configuração de **front-end** de um [balanceador de carga interno do Azure](../load-balancer/load-balancer-internal-overview.md) (ILB) ou um [Azure Application Gateway](../application-gateway/application-gateway-introduction.md). Esse endereço IP privado serve como ponto de extremidade interno, acessível somente aos recursos dentro da sua rede virtual (VNet) e de redes remotas conectadas à VNet. Você pode atribuir a um endereço IP privado dinâmico ou estático à configuração de front-end. Você também pode atribuir vários endereços IP privados para habilitar cenários de multi-vip.
 
 ### Visão rápida
 A tabela a seguir mostra cada tipo de recurso com os métodos de alocação possíveis (dinâmico/estático) e capacidade de atribuir vários endereços IP privados.
@@ -162,4 +166,4 @@ A seguir está uma comparação dos recursos de endereçamento IP no Gerenciador
 ## Próximas etapas
 - [Implantar uma VM com um endereço IP privado estático](virtual-networks-static-private-ip-classic-pportal.md) usando o portal clássico.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

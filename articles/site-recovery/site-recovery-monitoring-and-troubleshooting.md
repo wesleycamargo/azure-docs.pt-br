@@ -205,4 +205,4 @@ Servidor de Configuração (CS), Servidor de Processo (PS), Destino Mestre (MT)
 ### Solução de problemas da área de trabalho remota após failover
 -   Muitos clientes têm enfrentado problemas para conexão com a VM com failover no Azure. [Use o documento de solução de problemas para fazer o RDP na VM](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!---HONumber=AcomDC_1217_2015--->
+<!---HONumber=AcomDC_1217_2015---->

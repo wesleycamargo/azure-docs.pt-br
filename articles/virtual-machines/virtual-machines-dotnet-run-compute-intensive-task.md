@@ -3,9 +3,9 @@
 	description="Saiba como implantar e executar um aplicativo .NET que exige computação intensa em uma máquina virtual do Azure e como usar filas de Barramento de Serviço do Azure para monitorar o progresso remotamente."
 	services="virtual-machines"
 	documentationCenter=".net"
-	authors="wadepickett"
-	manager="wpickett"
-	editor="mollybos"
+	authors="davidmu1"
+	manager="timlt"
+	editor=""
 	tags=“azure-service-management"/>
 
 <tags
@@ -15,7 +15,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="06/25/2015"
-	ms.author="wpickett"/>
+	ms.author="davidmu"/>
 
 # Como executar uma tarefa que exija muita computação no .NET em uma máquina virtual Azure
 
@@ -551,4 +551,4 @@ Em vez de usar TSPSolver para criar ou excluir a fila, é possível criá-la ou 
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

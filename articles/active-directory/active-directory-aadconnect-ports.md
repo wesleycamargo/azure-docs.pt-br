@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="02/09/2016"
 	ms.author="billmath"/>
 
 # Portas e Protocolos Requeridos para Identidade Híbrida
@@ -74,15 +74,14 @@ Esta tabela descreve as portas e protocolos que são necessários para a comunic
 As tabelas a seguir descrevem os pontos de extremidade, portas e protocolos que são necessários para a comunicação entre agentes do Azure AD Connect Health e Azure AD
 
 ### Tabela 6a - portas e protocolos para o agente do Azure AD Connect Health para o (AD FS/Sync) e Azure AD
-Esta tabela descreve as portas e protocolos que são necessários para a comunicação entre os agentes do Azure AD Connect Health e Azure AD.
+Esta tabela descreve as portas e protocolos de saída a seguir que são necessários para a comunicação entre os agentes do Azure AD Connect Health e o Azure AD.
 
 | Protocolo |Portas |Descrição
 | --------- | --------- |--------- |
-| HTTP|80 (TCP/UDP)|
-|HTTPS|443(TCP/UDP)|
-|Barramento de Serviço do Azure|5671 (TCP/UDP)|
+|HTTPS|443(TCP/UDP)| Saída
+|Barramento de Serviço do Azure|5671 (TCP/UDP)| Saída
 
 ### 6b - pontos de extremidade de agente do Azure AD Connect Health para (AD FS/Sync) e Azure AD
 Para obter uma lista de pontos de extremidade, veja [a seção Requisitos para o agente do Azure AD Connect Health](active-directory-aadconnect-health.md#requirements)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

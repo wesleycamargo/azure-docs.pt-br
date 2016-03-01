@@ -4,7 +4,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="load-balancer"
@@ -63,7 +63,7 @@ Exemplos de modelos:
 
 [Cmdlets de rede do Azure](https://msdn.microsoft.com/library/azure/mt163510.aspx) podem ser usados para criar um balanceador de carga. Introdução aos cmdlets de ARM e APIs REST
 
-- [Como criar um balanceador de carga usando o gerenciador de recursos do Azure](../load-balancer-arm-powershell)
+- [Como criar um balanceador de carga usando o gerenciador de recursos do Azure](load-balancer-get-started-internet-arm-ps.md)
 
 - [Usando a CLI do Azure com o gerenciamento de recursos do Azure](../xplat-cli-azure-resource-manager)
 
@@ -76,4 +76,4 @@ Você também pode [começar a criar um balanceador de carga voltado para a Inte
 
 Se seu aplicativo precisar manter conexões ativas para servidores por trás de um balanceador de carga, você poderá entender mais sobre [configurações de tempo limite de ociosidade do TCP para um balanceador de carga](load-balancer-tcp-idle-timeout.md). Assim, você saberá mais sobre o comportamento da conexão ociosa quando estiver usando um Balanceador de Carga do Azure.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

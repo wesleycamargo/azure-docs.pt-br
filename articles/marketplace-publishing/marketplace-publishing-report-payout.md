@@ -31,9 +31,13 @@ Os relatórios estarão disponíveis 45 dias após o encerramento do trimestre e
 ### Acessar relatórios de pagamento no Centro de Desenvolvimento
 
 1. Navegue até o Centro de Desenvolvimento em https://dev.windows.com/pt-BR.
-2. Clique em **Painel**. ![LandingPageDashboardHighlight][1]
+2. Clique em **Painel**.
 
-3. Clique em **Resumo do Pagamento**. ![DashboardPayoutSummary][2]
+    ![LandingPageDashboardHighlight][1]
+
+3. Clique em **Resumo do Pagamento**.
+
+    ![DashboardPayoutSummary][2]
 
 
 ## Exibir relatórios de pagamento no Centro de Desenvolvimento
@@ -58,7 +62,9 @@ O relatório de pagamento para cada trimestre registra todas as transações que
 
 1. Navegue até o portal de publicação em https://publish.windowsazure.com.
 2. Na seção **Publicadores**, clique em **Relatórios de Pagamento**.
-3. Clique na lista suspensa para exibir todos os relatórios de pagamentos trimestrais disponíveis. ![accessingpayoutreport][5]
+3. Clique na lista suspensa para exibir todos os relatórios de pagamentos trimestrais disponíveis.
+
+    ![accessingpayoutreport][5]
 
 
 ### Ler os relatórios de pagamento
@@ -94,7 +100,7 @@ Se você tiver perguntas relacionadas a seus pagamentos, entre em contato com no
 
 ## Próximas etapas
 
-Para outras consultas de suporte, registre um problema em https://portal.azure.com.
+Para outras consultas de suporte, registre um problema em <https://portal.azure.com>.
 
 [1]: ./media/marketplace-publishing-report-payout/LandingPage-DashboardHighlight.png
 [2]: ./media/marketplace-publishing-report-payout/Dashboard-PayoutSummary.png
@@ -106,4 +112,4 @@ Para outras consultas de suporte, registre um problema em https://portal.azure.c
 [8]: ./media/marketplace-publishing-report-payout/ledgerdefinitions.png
 [9]: ./media/marketplace-publishing-report-payout/payoutquestions.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

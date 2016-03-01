@@ -17,7 +17,10 @@
 	ms.author="heidist"/>
 
 # Introdução ao seu primeiro aplicativo de Pesquisa do Azure em .NET
-
+> [AZURE.SELECTOR]
+- [.NET](search-get-started-dotnet.md)
+- [Portal](search-get-started-portal.md)
+ 
 Aprenda como criar um aplicativo personalizado de pesquisa .Net no Visual Studio 2013 ou posterior, que use a Pesquisa do Azure para sua experiência de pesquisa. Este tutorial usa o [SDK do .NET da Pesquisa do Azure](https://msdn.microsoft.com/library/azure/dn951165.aspx), bem como a API REST do serviço de Pesquisa do Azure.
 
 Para executar este exemplo, você precisará de um serviço de Pesquisa do Azure, no qual poderá se inscrever no [Portal do Azure](https://portal.azure.com). Para obter instruções passo a passo, veja [Criar um serviço de Pesquisa do Azure no portal](search-create-service-portal.md).
@@ -671,4 +674,4 @@ Ainda não conhece a Pesquisa do Azure? Recomendamos os outros tutoriais para qu
 [11]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-1.PNG
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

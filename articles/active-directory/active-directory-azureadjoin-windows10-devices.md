@@ -148,15 +148,6 @@ Como alternativa a ter uma infraestrutura PKI, você pode habilitar o Microsoft 
 
 ## Perguntas frequentes
 
-###Quais produtos de fornecedores de MDM terceirizados se integram ao AD do Azure?
-
-Os seguintes produtos de fornecedores se integram com o AD do Azure para o registro unificado e o acesso condicionado no Windows 10:
-
-- AirWatch da VMware
-- Citrix Xenmobile
-- Lightspeed Mobile Manager
-- MDM SOTI local
-
 ###E quanto a Ingressar no local de trabalho no Windows 10?
 O ingresso no local de trabalho no Windows 8.1 foi usado para habilitar o BYOD. No Windows 10, o BYOD é habilitado usando Adicionar conta corporativa, conforme explicado anteriormente neste documento. Para organizações que não integram o MDM ao AD do Azure, os usuários podem registrar o dispositivo no gerenciamento manualmente em **Configurações** > **Contas** > **Acesso corporativo**.
 
@@ -170,7 +161,7 @@ Os usuários atualizando de dispositivos ingressados no domínio do Windows 8.1 
 * [Windows 10 para a empresa: maneiras de usar dispositivos para o trabalho](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Estendendo os recursos de nuvem para dispositivos Windows 10 por meio da Junção do Active Directory do Azure](active-directory-azureadjoin-user-upgrade.md)
 * [Saiba mais sobre cenários de uso da Junção do Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
-* [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com Windows 10](active-directory-azureadjoin-devices-group-policy.md)
+* [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com o Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

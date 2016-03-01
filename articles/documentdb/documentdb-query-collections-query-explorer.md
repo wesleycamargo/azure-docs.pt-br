@@ -1,81 +1,82 @@
-<properties 
-	pageTitle="Criar, editar e executar consultas SQL em uma coleção do Banco de Dados de Documentos usando o Gerenciador de Consultas | Microsoft Azure" 
-	description="Saiba mais sobre o Gerenciador de Consultas do Banco de Dados de Documentos, uma ferramenta de Portal do Azure para criar, editar e executar consultas SQL em uma coleção do Banco de Dados de Documentos." 
-	services="documentdb" 
-	authors="AndrewHoh" 
-	manager="jhubbard" 
-	editor="monicar" 
+<properties
+	pageTitle="Gerenciador de Consultas do Banco de Dados de Documentos: um editor de consultas SQL | Microsoft Azure"
+	description="Saiba mais sobre o Gerenciador de Consultas do Banco de Dados de Documentos, um editor de consultas SQL no portal do Azure para gravar consultas SQL e executá-las em uma coleção do Banco de Dados de Documentos NoSQL."
+	keywords="gravação de consultas sql, editor de consultas sql"
+	services="documentdb"
+	authors="AndrewHoh"
+	manager="jhubbard"
+	editor="monicar"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
+<tags
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/01/2015" 
+	ms.date="02/23/2016"
 	ms.author="anhoh"/>
 
-# Criar, editar e executar consultas SQL em uma coleção do Banco de Dados de Documentos usando o Gerenciador de Consultas #
+# Gravar, editar e executar consultas SQL para o Banco de Dados de Documentos usando o Gerenciador de Consultas 
 
-Este artigo fornece uma visão geral do Gerenciador de Consultas do [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/), uma ferramenta do Portal do Microsoft Azure que habilita criar, editar e executar consultas em uma coleção do Banco de Dados de Documentos.
+Este artigo oferece uma visão geral do Gerenciador de Consultas do [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/), uma ferramenta do portal do Azure que permite gravar, editar e executar consultas SQL em uma coleção do [Banco de Dados de Documentos](documentdb-create-collection).
 
-Depois de concluir este tutorial, você poderá responder às seguintes perguntas:
+1. No Portal do Azure, na barra de navegação, clique em **Contas do Banco de Dados de Documentos**. Se **Contas do Banco de Dados de Documentos** não estiver visível, clique em **Procurar** e então clique em **Contas do Banco de Dados de Documentos**.
 
--	Como posso criar, editar e executar facilmente consultas em uma coleção do Banco de Dados de Documentos por meio de um navegador da Web?
--	Como eu posso navegar facilmente entre as páginas de resultados de consultas do Banco de Dados de Documentos por meio de um navegador da Web?
--	Como eu posso solucionar erros de sintaxe com minha consulta do Banco de Dados de Documentos? 
+2. Na parte superior da folha **Conta do Banco de Dados de Documentos**, clique em **Gerenciador de Consultas**.
 
-##<a id="Launch"></a>Iniciar e navegar pelo Gerenciador de Consultas##
+	![Captura de tela do portal do Azure com o Gerenciador de Consultas realçado](./media/documentdb-query-collections-query-explorer/queryexplorercommand.png)
 
-O Gerenciador de Consultas pode ser iniciado por meio de qualquer conta, banco de dados ou lâmina de coleção do Banco de Dados de Documentos.
-  
-1. Na parte superior da conta do Banco de Dados de Documentos ou folha de banco de dados, basta clicar no comando **Gerenciador de Consultas**.
+    >[AZURE.NOTE] O Gerenciador de Consultas também aparece nas folhas do banco de dados e da coleção.
 
-	![Captura de tela do comando do Gerenciador de Consultas](./media/documentdb-query-collections-query-explorer/queryexplorercommand.png)
+3. Na folha **Gerenciador de Consultas**, selecione os **Bancos de Dados** e as **Coleções** a serem consultados nas listas suspensas e entre na consulta a ser executada.
 
-2. Como alternativa, na parte inferior de cada folha, há uma lente de **Ferramentas de Desenvolvedor** que contém o bloco do **Gerenciador de Consultas**.
-	
-	![Captura de tela da parte do Gerenciador de Consultas](./media/documentdb-query-collections-query-explorer/queryexplorerpart.png)
+    As listas suspensas **Banco de dados** e **Coleções** terão sido preenchidas previamente dependendo da situação em que você iniciar o Gerenciador de Consultas.
 
-2. Basta clicar no bloco para iniciar o Gerenciador de Consultas.
+    Uma consulta padrão `SELECT TOP 100 * FROM c` é fornecida. Você pode aceitar a consulta padrão ou construir sua própria consulta usando a linguagem de consulta SQL descrita na [referência rápida da consulta SQL](documentdb-sql-query-cheat-sheet.md) ou no artigo [Consulta SQL e sintaxe SQL](documentdb-sql-query.md) artigo.
 
-	As caixas das listas suspensas **Banco de dados** e **Coleção** são preenchidas previamente dependendo da situação em que você inicia o Gerenciador de Consultas. Por exemplo, se você iniciá-lo por meio de uma lâmina de banco de dados, o banco de dados atual será preenchido. Se iniciá-lo por meio de uma lâmina de coleção, a coleção atual será preenchida.
+    Clique em **Executar consulta** para exibir os resultados.
 
-	![Captura de tela do Gerenciador de Consultas](./media/documentdb-query-collections-query-explorer/queryexplorerinitial.png)
+	![Captura de tela da gravação de consultas SQL no Gerenciador de Consultas, um editor de consultas SQL](./media/documentdb-query-collections-query-explorer/queryexplorerinitial.png)
 
-##<a id="Create"></a>Criar, editar e executar consultas com o Gerenciador de Consultas##
+4. A folha **Resultados** exibe a saída da consulta.
 
-O Gerenciador de Consultas permite criar, editar e executar consultas facilmente em uma coleção do Banco de Dados de Documentos, e inclui o realce de valores e palavras-chave básicas para aprimorar a experiência de criação de consultas.
+	![Captura de tela dos resultados de gravação de consultas SQL no Gerenciador de Consultas](./media/documentdb-query-collections-query-explorer/queryresults1.png)
 
-- Ao abrir o Gerenciador de Consultas inicialmente, uma consulta padrão SELECT * FROM c é fornecida. Você pode aceitar a consulta padrão ou construir a sua e clicar no botão **Executar consulta** para exibir os resultados. O Gerenciador de Consultas dá suporte à linguagem de consulta SQL do Banco de Dados de Documentos, conforme descrito em [Consultar o Banco de Dados de Documentos](documentdb-sql-query.md).
+## Trabalhar com os resultados
 
-	![Captura de tela de resultados de consulta do Gerenciador de Consultas](./media/documentdb-query-collections-query-explorer/queryresults1.png)
+Por padrão, o Gerenciador de Consultas retorna resultados em conjuntos de 100. Se sua consulta produzir mais de 100 resultados, basta usar os comandos **Próxima página** e **Página anterior** para percorrer o conjunto de resultados.
 
-- Você também pode inserir várias consultas, realçar a que você deseja executar e clicar no botão **Executar consulta** para exibir os resultados.
+![Captura de tela de suporte à paginação do Gerenciador de Consultas](./media/documentdb-query-collections-query-explorer/queryresultspagination.png)
 
-	![Captura de tela de Realçar e Executar do Gerenciador de Consultas](./media/documentdb-query-collections-query-explorer/queryexplorerhighlightandrun.png)
+Para as consultas bem-sucedidas, o painel **Informação** contém métricas como a carga de solicitação, o número de viagens de ida e volta feitas pela consulta, o conjunto de resultados em exibição e se há mais resultados, que podem ser acessados usando o comando **Próxima página**, como mencionado anteriormente.
 
-- Você pode carregar o conteúdo de um arquivo existente usando o comando **Carregar Arquivo**.
+![Captura de tela de informações de consulta do Gerenciador de Consultas](./media/documentdb-query-collections-query-explorer/queryinformation.png)
 
-	![Captura de tela de Carregar Arquivo do Gerenciador de Consultas](./media/documentdb-query-collections-query-explorer/loadqueryfile.png)
+## Usar várias consultas
 
-- Por padrão, o Gerenciador de Consultas retorna resultados em conjuntos de 100. Se sua consulta produzir mais de 100 resultados, basta usar os comandos **Próxima página** e **Página anterior** para percorrer o conjunto de resultados.
+Se você estiver usando várias consultas e se quiser alternar rapidamente entre elas, poderá inserir todas as consultas na caixa de texto de consulta da folha **Gerenciador de Consultas**, realçar a que você deseja executar clicar em **Executar consulta** para exibir os resultados.
 
-	![Captura de tela de suporte à paginação do Gerenciador de Consultas](./media/documentdb-query-collections-query-explorer/queryresultspagination.png)
+![Captura de tela da gravação de várias consultas SQL no Gerenciador de Consultas (um editor de consultas SQL) e realçando e executando consultas individuais.](./media/documentdb-query-collections-query-explorer/queryexplorerhighlightandrun.png)
 
-- Consultas bem-sucedidas fornecem informações como a carga de solicitação, o conjunto de resultados em exibição e se há mais resultados, que podem ser acessados usando o comando **Próxima página**, como mencionado anteriormente.
+## Adicionar consultas de um arquivo no editor de consultas SQL
 
-	![Captura de tela de informações de consulta do Gerenciador de Consultas](./media/documentdb-query-collections-query-explorer/queryinformation.png)
+Você pode carregar o conteúdo de um arquivo existente usando o comando **Carregar Arquivo**.
 
-- Da mesma forma, se uma consulta for concluída com erros, o Gerenciador de Consultas exibe uma lista de erros que podem ajudar em esforços de solução de problemas.
+![Captura de tela que mostra como carregar consultas SQL de um arquivo no Gerenciador de Consultas usando Carregar arquivo](./media/documentdb-query-collections-query-explorer/loadqueryfile.png)
 
-	![Captura de tela de erros de consulta do Gerenciador de Consultas](./media/documentdb-query-collections-query-explorer/queryerror.png)
+## Solucionar problemas
 
-##<a name="NextSteps"></a>Próximas etapas
+Se uma consulta for concluída com erros, o Gerenciador de Consultas exibirá uma lista de erros que podem ajudar em esforços de solução de problemas.
 
-- Para saber mais sobre o Banco de Dados de Documentos, clique [aqui](http://azure.com/docdb).
-- Para saber mais sobre a gramática SQL do Banco de Dados de Documentos com suporte pelo Gerenciador de Consultas, clique [aqui](documentdb-sql-query.md).
- 
+![Captura de tela de erros de consulta do Gerenciador de Consultas](./media/documentdb-query-collections-query-explorer/queryerror.png)
 
-<!---HONumber=AcomDC_0128_2016-->
+## Executar consultas SQL do Banco de Dados de Documentos fora do portal
+
+O Gerenciador de Consultas no portal do Azure é apenas uma maneira de executar consultas SQL no Banco de Dados de Documentos. Você também pode executar consultas SQL usando o [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou [SDKs de cliente](documentdb-sdk-dotnet.md). Para saber mais sobre como usar esses outros métodos, veja [Executar consultas SQL](documentdb-sql-query.md#executing-sql-queries)
+
+## Próximas etapas
+
+Para saber mais sobre a gramática SQL do Banco de Dados de Documentos com suporte no Gerenciador de Consultas, veja o artigo [Consulta SQL e sintaxe SQL](documentdb-sql-query.md) ou imprima a [referência rápida de consulta SQL](documentdb-sql-query-cheat-sheet.md). Talvez você também goste de experimentar o [Query Playground](https://www.documentdb.com/sql/demo), onde poderá testar as consultas online usando um conjunto de dados de exemplo.
+
+<!---HONumber=AcomDC_0224_2016-->

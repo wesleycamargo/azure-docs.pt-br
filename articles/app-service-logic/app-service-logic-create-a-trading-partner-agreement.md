@@ -10,16 +10,17 @@
 <tags
    ms.service="app-service-logic"
    ms.devlang="multiple"
-   ms.topic="article"
+	ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="12/07/2015"
+   ms.date="02/18/2016"
    ms.author="rajram"/>
-
 
 # Criando um acordo entre parceiros comerciais   
 
-Parceiros comerciais são as entidades envolvidas em comunicações B2B (Entre Empresas). Quando dois parceiros estabelecem uma relação, isso é chamado de um *Acordo*. O acordo definido se baseia na comunicação que os dois parceiros desejam atingir e é específica com relação a transporte ou protocolo. Os diferentes transportes e protocolos B2B com suporte do Serviço de Aplicativo do Azure incluem:
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
+
+Parceiros comerciais são as entidades envolvidas em comunicações B2B (business-to-business). Quando dois parceiros estabelecem uma relação, isso é chamado de um *Acordo*. O acordo definido se baseia na comunicação que os dois parceiros desejam atingir e é específica com relação a transporte ou protocolo. Os diferentes transportes e protocolos B2B com suporte do Serviço de Aplicativo do Azure incluem:
 
 - AS2 (Applicability Statement 2)
 - EDIFACT (Nações Unidas/Intercâmbio Eletrônico de Dados para Administração, Comércio e Transporte (UN/EDIFACT))
@@ -78,4 +79,4 @@ Para criar acordos entre parceiros comerciais:
 [3]: ./media/app-service-logic-create-a-trading-partner-agreement/X12AgreementCreation.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/22/2016"
+   ms.date="02/17/2016"
    ms.author="alkohli" />
 
 # Use a interface do usuário da Web para administrar sua StorSimple Virtual Array (visualização)
@@ -94,7 +94,7 @@ Um pacote de log é composto de todos os logs relevantes que podem ajudar o Supo
 
 ## Desligue e reinicie seu dispositivo
 
-Você pode desligar ou reiniciar seu dispositivo virtual usando a interface do usuário da Web local.
+Você pode desligar ou reiniciar seu dispositivo virtual usando a interface do usuário da Web local. Nós recomendamos que antes de reiniciar, você execute os volumes ou compartilhamentos offline no host e, em seguida, no dispositivo. Isso minimizará a possibilidade de dados corrompidos.
 
 #### Para desligar o dispositivo virtual
 
@@ -136,4 +136,4 @@ Você pode desligar ou reiniciar seu dispositivo virtual usando a interface do u
 
 Saiba como [usar o serviço StorSimple Manager para gerenciar seu dispositivo](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

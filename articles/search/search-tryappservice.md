@@ -13,22 +13,23 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="search" 
-   ms.date="01/13/2016"
+   ms.date="02/21/2016"
    ms.author="heidist"/>
 
 # Experimente a Pesquisa do Azure gratuitamente com o Serviço de Aplicativo do Azure
 
 [Testar Serviço de Aplicativo do Azure](https://tryappservice.azure.com/) é uma sessão gratuita de uma hora baseada em navegador para testar os Serviços do Azure, incluindo a **Pesquisa do Azure**, sem necessidade de assinatura. O site fornece diversos modelos para sua escolha. Ao selecionar o modelo do ASP.NET que inclui a Pesquisa do Azure, você obtém acesso a um site da Web totalmente funcional, com o apoio de serviços que você selecionou.
 
-Como parte da oferta [Testar Serviço de Aplicativo do Azure](https://tryappservice.azure.com/), o serviço de Pesquisa do Azure já foi criado e está pronto para receber consultas de pesquisa. Você não pode carregar nem usar seus próprios dados ou índice, mas pode executar consultas e fazer várias alterações de código que reformulam a experiência do usuário.
+Como parte da oferta **Testar Serviço de Aplicativo do Azure**, o serviço de Pesquisa do Azure já foi criado e está pronto para receber consultas de pesquisa. Você não pode carregar nem usar seus próprios dados ou índice, mas pode executar consultas e fazer várias alterações de código que reformulam a experiência do usuário.
 
-Os dados de pesquisa da [USGS (United States Geological Survey)](http://geonames.usgs.gov/domestic/download_data.htm) consistem em cerca de 3 milhões de linhas de pontos de referência, locais históricos, construções e outros pontos de referência nos EUA.
+Os dados de pesquisa da [USGS (United States Geological Survey)](http://geonames.usgs.gov/domestic/download_data.htm) consistem em cerca de três milhões de linhas de pontos de referência, locais históricos, construções e outros pontos de referência nos EUA.
 
 ## Introdução
 
 Se você ainda não iniciou a sessão de 1 hora, siga estas etapas para começar.
 
-1. Vá para [https://tryappservice.azure.com](https://tryappservice.azure.com/) e role para baixo para selecionar **Aplicativo Web**. 
+1. Clique duas vezes em [https://tryappservice.azure.com](https://tryappservice.azure.com/) para abrir este site em uma nova janela do navegador.
+2. Role para baixo para selecionar **Aplicativo Web**. 
 2. Clique em **Próximo**.
 3. Escolha o modelo **ASP.NET + Site da Pesquisa do Azure**.
 
@@ -523,4 +524,4 @@ A captura de tela a seguir mostra o esquema usado para criar o índice usado nes
 [13]: ./media/search-tryappservice/AzSearch-TryAppService-Schema.png
 [14]: ./media/search-tryappservice/AzSearch-TryAppService-HitHighlight.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

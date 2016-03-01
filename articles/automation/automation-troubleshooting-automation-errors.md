@@ -139,6 +139,42 @@ Este artigo explica alguns dos erros comuns que podem ocorrer ao se trabalhar co
 
   <br/>
 
+## Solucionar erros comuns ao trabalhar com DSC (Configuração de estado desejado)  
+
+### Cenário: o nó está com um status de falha e um erro "Não encontrado"
+
+**Erro:** o nó apresenta um relatório de status "Falha" contendo o erro "A tentativa de obter a ação do servidor https://<url>//accounts/<account-id>Nodes(AgentId=<agent-id>)/GetDscAction falhou porque não foi possível encontrar uma configuração válida <guid>."
+
+**Motivo do erro:** essa falha normalmente ocorre porque o nó é atribuído a um nome de configuração (por exemplo, ABC) em vez de um nome de configuração de nó (por exemplo, ABC.WebServer).
+
+**Dicas de solução de problemas:** verifique mais uma vez se o nome de configuração do nó está sendo usado e não o nome de configuração. Você pode usar o botão "atribuir configuração de nó" na folha do nó no portal ou o cmdlet Set-AzureRMAutomationDscNode para mapear o nó até uma configuração de nó válida.
+
+### Cenário: nenhuma configuração de nó (arquivos mof) é produzida quando uma compilação de configuração é executada
+
+**Erro:** seu trabalho de compilação de DSC foi suspenso com o seguinte erro: "Compilação concluída com êxito, mas nenhum arquivo .mofs de configuração do nó foi gerado".
+
+**Motivo do erro:** quando a expressão ao lado de "Nó" na configuração de DSC retornar $null, nenhuma configuração de nó será produzida.
+
+**Dicas de solução de problemas:** verifique se a expressão ao lado de Nó não está retornando $null. Se você estiver passando ConfigurationData, certifique-se de que esteja passando os valores esperados que a configuração precisa dos dados de configuração. No exemplo, "$AllNodes." Confira https://azure.microsoft.com/pt-BR/documentation/articles/automation-dsc-compile/#configurationdata para saber mais.
+
+### Cenário: o relatório de nó de DSC fica preso no estado "Em andamento"
+
+**Erro:** o Agente DSC gera "Nenhuma instância foi encontrada com os valores de propriedade especificados".
+
+**Motivo do erro:** você atualizou sua versão do WMF e corrompeu o WMI.
+
+**Dicas de solução de problemas:** siga as instruções nesta publicação para corrigir o problema: https://msdn.microsoft.com/pt-BR/powershell/wmf/limitation_dsc
+
+### Cenário: não é possível usar uma credencial em uma configuração de DSC 
+
+**Erro:** seu trabalho de compilação do DSC foi suspenso com o seguinte erro: "System.InvalidOperationException erro ao processar a propriedade "Credential" DO TIPO "<some resource name>": a conversão e armazenamento de uma senha criptografada como texto sem formatação é permitida somente se PSDscAllowPlainTextPassword estiver definido como true".
+
+**Motivo do erro:** você tentou usar uma credencial em uma configuração, mas não passou o ConfigurationData adequado para definir PSAllowPlainTextPassword como true para cada configuração de nó.
+
+**Dicas de solução de problemas:** passe o ConfigurationData adequado para definir PSAllowPlainTextPassword como true para cada configuração de nó mencionada na configuração. Confira https://azure.microsoft.com/pt-BR/documentation/articles/automation-dsc-compile/#assets para saber mais.
+
+  <br/>
+
 ## Próximas etapas
 
 Se tiver seguido as etapas de solução de problemas acima e precisar de mais ajuda a qualquer momento neste artigo, você poderá:
@@ -151,4 +187,4 @@ Se tiver seguido as etapas de solução de problemas acima e precisar de mais aj
 
 - Postar comentários ou solicitações de recursos para a Automação do Azure em [User Voice](https://feedback.azure.com/forums/34192--general-feedback).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/27/2015"
+   ms.date="02/11/2016"
    ms.author="jgao"/>
 
 # Solucionar problemas em trabalhos da Análise do Azure Data Lake usando o Portal do Azure
@@ -26,9 +26,9 @@ Neste tutorial, você criará um problema de arquivo de origem ausente e usará 
 
 Antes de começar este tutorial, você deve ter o seguinte:
 
-- **Conhecimento básico do processo de trabalho da Análise Data Lake**. Veja [Introdução à Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-get-started-use-portal.md).
-- **Uma conta da Análise Data Lake**. Veja [Introdução à Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-get-started-use-portal.md#create-adl-analytics-account).
-- **Copie os dados de exemplo na conta padrão do Repositório Data Lake**. Veja [Preparar dados de origem](data-lake-analytics-get-started-use-portal.md.md#prepare-source-data)
+- **Conhecimento básico do processo de trabalho da Análise Data Lake**. Veja [Introdução à Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-get-started-portal.md).
+- **Uma conta da Análise Data Lake**. Veja [Introdução à Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-get-started-portal.md#create-adl-analytics-account).
+- **Copie os dados de exemplo na conta padrão do Repositório Data Lake**. Veja [Preparar dados de origem](data-lake-analytics-get-started-portal.md#prepare-source-data)
 
 ##Enviar um trabalho da Análise Data Lake
 
@@ -107,7 +107,7 @@ Na última seção, você enviou um trabalho e o trabalho falhou.
 
 - [Visão geral da Análise Azure Data Lake](data-lake-analytics-overview.md)
 - [Introdução à Análise Azure Data Lake usando o Azure PowerShell](data-lake-analytics-get-started-powershell.md)
-- [Introdução ao U-SQL da Análise Azure Data Lake usando o Visual Studio](data-lake-analytics-get-started-u-sql-studio.md)
+- [Introdução ao U-SQL da Análise Azure Data Lake usando o Visual Studio](data-lake-analytics-u-sql-get-started.md)
 - [Gerenciar a Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-manage-use-portal.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -4,7 +4,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="load-balancer"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/26/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # Introdução à configuração de um balanceador de carga para a Internet usando o Gerenciador de Recursos do Azure
@@ -54,7 +54,7 @@ As etapas a seguir mostram como configurar um balanceador de carga entre 2 máqu
 
 
 ### Etapa 1
-Alterne para o modo PowerShell para usar os cmdlets do ARM. Mais informações estão disponíveis em [Usando o Windows PowerShell com o Gerenciador de Recursos](powershell-azure-resource-manager.md).
+Alterne para o modo PowerShell para usar os cmdlets do ARM. Há mais informações disponíveis em [Usando o Windows PowerShell com o Gerenciador de Recursos](powershell-azure-resource-manager.md).
 
 
     PS C:\> Switch-AzureMode -Name AzureResourceManager
@@ -272,7 +272,7 @@ Use o comando Remove-AzureLoadBalancer para excluir um balanceador de carga cria
 
 	Remove-AzureLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 
->[AZURE.NOTE]Você pode usar a opção -Force para evitar a solicitação de exclusão.
+>[AZURE.NOTE] Você pode usar a opção -Force para evitar a solicitação de exclusão.
 
 
 ## Veja também
@@ -282,4 +282,4 @@ Use o comando Remove-AzureLoadBalancer para excluir um balanceador de carga cria
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

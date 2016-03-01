@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/17/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Recuperar um banco de dados de um erro do usuário no SQL Data Warehouse
@@ -25,8 +25,10 @@ O SQL Data Warehouse oferece dois recursos principais para a recuperação de er
 
 Os dois recursos restauram um novo banco de dados no mesmo servidor.
 
+Há duas APIs diferentes que oferecem suporte a uma restauração de banco de dados do SQL Data Warehouse: API REST e Azure PowerShell. Você pode usar qualquer um para acessar a funcionalidade de restauração do SQL Data Warehouse.
+
 ## Restaurar um banco de dados dinâmico
-No caso de erro de usuário causando modificações de dados não intencionais, você pode restaurar o banco de dados para qualquer um dos pontos de restauração dentro do período de retenção. Os instantâneos de banco de dados para um banco de dados dinâmico ocorrem a cada 8 horas e são mantidos por 7 dias.
+No caso de erro de usuário causando modificações de dados não intencionais, você pode restaurar o banco de dados para qualquer um dos pontos de restauração dentro do período de retenção. Os instantâneos de banco de dados para um banco de dados dinâmico ocorrem, pelo menos, a cada 8 horas e são mantidos por 7 dias.
 
 ### PowerShell
 
@@ -136,4 +138,4 @@ Para saber mais sobre os recursos de continuidade de negócios de outras ediçõ
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

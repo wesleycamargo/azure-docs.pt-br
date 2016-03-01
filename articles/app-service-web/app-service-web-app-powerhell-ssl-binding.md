@@ -23,6 +23,7 @@ Com o lançamento do Microsoft Azure PowerShell versão 1.1.0, um novo cmdlet fo
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 
+
 ## Carregando e associando um novo certificado SSL ##
 
 Cenário: o usuário gostaria de associar um certificado SSL a um dos seus aplicativos Web.
@@ -30,6 +31,15 @@ Cenário: o usuário gostaria de associar um certificado SSL a um dos seus aplic
 Se soubermos o nome do grupo de recursos que contém o aplicativo Web, o nome do aplicativo Web, o caminho de arquivo. pfx de certificado no computador do usuário, a senha para o certificado e o nome de host personalizado, poderemos usar o seguinte comando do PowerShell para criar essa associação de SSL:
 
     New-AzureRmWebAppSSLBinding -ResourceGroupName myresourcegroup -WebAppName mytestapp -CertificateFilePath PathToPfxFile -CertificatePassword PlainTextPwd -Name www.contoso.com
+
+Observe que antes de adicionar uma associação SSL a um aplicativo Web, você já deverá ter configurado um nome de host (domínio personalizado). Se o nome de host não estiver configurado, você receberá um erro dizendo que o ‘nome de host’ não existe durante a execução de New-AzureRmWebAppSSLBinding. Você pode adicionar um nome de host diretamente do portal ou usando o Azure PowerShell. O seguinte trecho do PowerShell pode ser usado para configurar o nome do host antes de executar o New-AzureRmWebAppSSLBinding.
+  
+    $webApp = Get-AzureRmWebApp -Name mytestapp -ResourceGroupName myresourcegroup  
+    $hostNames = $webApp.HostNames  
+    $HostNames.Add("www.contoso.com")  
+    Set-AzureRmWebApp -Name mytestapp -ResourceGroupName myresourcegroup -HostNames $HostNames   
+  
+É importante entender que o cmdlet Set-AzureRmWebApp substitui o nome de host do aplicativo Web. Portanto, o trecho do PowerShell acima é anexado à lista existente de nomes de host para o aplicativo Web.
 
 ## Carregando e associando um certificado SSL existente ##
 
@@ -61,4 +71,4 @@ Observe que, se a associação de SSL removida for a última associação que us
 - [Introdução ao ambiente de Serviço de Aplicativo](app-service-app-service-environment-intro.md)
 - [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0218_2016-->

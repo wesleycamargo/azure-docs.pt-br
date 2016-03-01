@@ -4,7 +4,7 @@
 	services="virtual-machines"
 	documentationCenter=""
 	authors="joaoma"
-	manager="adinah"
+	manager="carmonm"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="02/02/2016"
 	ms.author="joaoma"/>
 
 
@@ -77,12 +77,17 @@ O diagrama a seguir mostra um exemplo de um ponto de extremidade de carga balanc
 
 ![loadbalancing](./media/virtual-machines-load-balance/LOBServers.png)
 
+## Considerações do Balanceador de carga
+
+Um balanceador de carga é configurado por padrão para o tempo limite de uma sessão ociosa em 4 minutos. Se o seu aplicativo por trás de um balanceador de carga deixar uma conexão ociosa por mais de 4 minutos e não tiver uma configuração de Keep-Alive, a conexão será descartada. Você pode alterar o comportamento do balanceador de carga para permitir uma [configuração de tempo limite mais longa para o balanceador de carga do Azure](../load-balancer/load-balancer-tcp-idle-timeout.md).
+
+Outra consideração é o tipo de modo de distribuição com suporte pelo Balanceador de Carga do Azure. Você pode configurar a afinidade de IP de origem (IP de origem, IP de destino) ou o protocolo de IP de origem (IP de origem, IP de destino e protocolo). Verifique o [Modo de distribuição do balanceador de carga do Azure (afinidade de IP de origem)](../load-balancer/load-balancer-distribution-mode.md) para obter mais informações.
+
+
 ## Próximas etapas
 
 Para conhecer as etapas para criar um conjunto balanceado de carga, consulte [Configurar um conjunto balanceado de carga interno](../load-balancer/load-balancer-internal-getstarted.md).
 
 Para obter mais informações sobre o balanceador de carga, confira [Balanceamento de carga interno](../load-balancer/load-balancer-internal-overview.md).
 
-<!-- LINKS -->
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

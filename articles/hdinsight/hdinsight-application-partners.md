@@ -5,7 +5,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="09/25/2015"
+	ms.date="02/16/2016"
 	ms.author="paulettm"/>
 # Parceiros de aplicativos do HDInsight
 
@@ -41,4 +41,4 @@ A RedPoint foi a primeira colocada em pesquisas de usuário em relação a veloc
 
 ![](media/hdinsight-application-partners/kyvos8.png) A Kyvos está comprometida em desvendar o poder da Análise de Big Data com sua exclusiva tecnologia “OLAP no Hadoop”. Isso permite que você crie cubos locais no Hadoop com escalabilidade linear, eliminando as limitações das soluções tradicionais de OLAP e permitindo a análise multidimensional interativa em Big Data. Os usuários podem visualizar, explorar e analisar os dados interativamente no Hadoop sem a necessidade de programação.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0218_2016-->

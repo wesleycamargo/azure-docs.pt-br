@@ -1,6 +1,6 @@
 <properties
    pageTitle="Implantar um aplicativo Node.js usando MongoDB | Microsoft Azure"
-   description="Instruções passo a passo sobre como empacotar vários aplicativos para implantar em um cluster do Service Fabric do Azure"
+   description="Instruções passo a passo sobre como empacotar executáveis convidados para implantar em um cluster do Service Fabric do Azure"
    services="service-fabric"
    documentationCenter=".net"
    authors="bmscholl"
@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/17/2015"
+   ms.date="02/12/2016"
    ms.author="bscholl"/>
 
 
-# Implantar vários aplicativos personalizados
+# Implantar vários executáveis de convidado
 
-Este artigo mostra como empacotar e implantar vários aplicativos no Service Fabric do Azure usando a versão de visualização da ferramenta de empacotamento Service Fabric, disponível em [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool)
+Este artigo mostra como empacotar e implantar vários executáveis convidados no Service Fabric do Azure usando a versão de visualização da ferramenta de empacotamento Service Fabric, disponível em [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool).
 
-Para criar um pacote do Service Fabric manualmente, leia como [implantar um aplicativo existente no Service Fabric](service-fabric-deploy-existing-app.md).
+Para criar um pacote de Service Fabric manualmente, examine como [implantar um convidado executável ao Service Fabric](service-fabric-deploy-existing-app.md).
 
 Embora este passo a passo mostre como implantar um aplicativo com um front-end Node.js que usa MongoDB como o repositório de dados, você pode aplicar as etapas a qualquer aplicativo que tenha dependências de outro aplicativo.
 
@@ -125,7 +125,7 @@ O Service Fabric precisa iniciar o MongoDB com um comando semelhante ao mostrado
 ```
 mongod.exe --dbpath [path to data]
 ```
-> [AZURE.NOTE]Os dados não serão preservados no caso de uma falha de nó se você colocar o diretório de dados do MongoDB no diretório local do nó. Você deve usar o armazenamento durável ou implementar um conjunto de réplicas do MongoDB para evitar a perda de dados.
+> [AZURE.NOTE] Os dados não serão preservados no caso de uma falha de nó se você colocar o diretório de dados do MongoDB no diretório local do nó. Você deve usar o armazenamento durável ou implementar um conjunto de réplicas do MongoDB para evitar a perda de dados.
 
 No PowerShell ou no shell de comando, executamos a ferramenta de empacotamento com os seguintes parâmetros:
 
@@ -182,7 +182,7 @@ A última etapa é publicar o aplicativo no cluster do Service Fabric local usan
 Connect-ServiceFabricCluster localhost:19000
 
 Write-Host 'Copying application package...'
-Copy-ServiceFabricApplicationPackage -ApplicationPackagePath '[yourtargetdirectory]' -ImageStoreConnectionString 'file:C:\SfDevCluster\Data\ImageStore' -ApplicationPackagePathInImageStore 'Store\NodeAppType'
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath '[yourtargetdirectory]' -ImageStoreConnectionString 'file:C:\SfDevCluster\Data\ImageStoreShare' -ApplicationPackagePathInImageStore 'Store\NodeAppType'
 
 Write-Host 'Registering application type...'
 Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'Store\NodeAppType'
@@ -196,6 +196,6 @@ Neste tutorial, você viu como empacotar facilmente dois aplicativos existentes 
 
 ## Próximas etapas
 
-- Saiba como [empacotar um aplicativo único manualmente](service-fabric-deploy-existing-app.md).
+- Saiba como [empacotar um aplicativo convidado manualmente](service-fabric-deploy-existing-app.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0218_2016-->

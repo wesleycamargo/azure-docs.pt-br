@@ -11,17 +11,14 @@
 	ms.service="mobile-services"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
+	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="02/05/2016"
 	ms.author="glenga"/>
 
 # Criar um serviço móvel de back-end .NET que usa o armazenamento de tabela
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
-&nbsp;
-
 
 Este tópico mostra como usar um repositório de dados não relacional para seu serviço móvel de back-end .NET. Neste tutorial, você modificará o projeto de início rápido de Serviços Móveis do Azure para usar o armazenamento em tabela do Azure no lugar do repositório de dados padrão do Banco de Dados SQL do Azure.
 
@@ -39,7 +36,7 @@ Primeiro, você precisa configurar seu serviço móvel e o projeto de código de
 
   	Esse procedimento adiciona o suporte para serviços de armazenamento do Azure ao projeto de serviço móvel de back-end do .NET.
 
-3. Se você ainda não criou sua conta de armazenamento, consulte [Como criar uma conta de armazenamento](../storage-create-storage-account.md).
+3. Se você ainda não criou sua conta de armazenamento, consulte [Como criar uma conta de armazenamento](../storage/storage-create-storage-account.md).
 
 4. No [portal clássico do Azure], clique em **Armazenamento**, na conta de armazenamento e em **Gerenciar Chaves**.
 
@@ -142,7 +139,7 @@ Agora que você viu como é fácil usar o armazenamento de tabela com o back-end
 
 + [Conectar-se a um SQL Server local usando Conexões Híbridas](mobile-services-dotnet-backend-hybrid-connections-get-started.md)</br>As Conexões Híbridas permitem que o serviço móvel se conecte com segurança aos ativos locais. Dessa forma, você pode disponibilizar seus dados locais para os clientes móveis usando o Azure. Os ativos com suporte incluem qualquer recurso que seja executado em uma porta TCP estática, incluindo Microsoft SQL Server, MySQL, APIs da web HTTP e os serviços Web mais personalizados.
 
-+ [Carregar imagens no Armazenamento do Azure usando Serviços Móveis](mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage.md)</br>Mostra como estender o exemplo TodoList do projeto para permitir que você carregue imagens do seu aplicativo no armazenamento de Blob do Azure.
++ [Carregar imagens no Armazenamento do Azure usando Serviços Móveis](mobile-services-dotnet-backend-windows-universal-dotnet-upload-data-blob-storage.md)</br>Mostra como estender o exemplo TodoList do projeto para permitir que você carregue imagens do seu aplicativo no armazenamento de Blob do Azure.
 
 <!-- Anchors. -->
 [Create a non-relational store]: #create-store
@@ -159,4 +156,4 @@ Agora que você viu como é fácil usar o armazenamento de tabela com o back-end
 [What is the Table Service]: ../storage-dotnet-how-to-use-tables.md#what-is
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

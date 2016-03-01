@@ -1,5 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Integração do Active Directory do Azure ao TOPdesk - Secure | Microsoft Azure" description="Saiba como usar o TOPdesk - Secure com o Active Directory do Azure para habilitar logon único, provisionamento automatizado e muito mais!" 
+    pageTitle="Tutorial: Integração do Active Directory do Azure ao TOPdesk - Secure | Microsoft Azure"
+    description="Saiba como usar o TOPdesk - Secure com o Active Directory do Azure para habilitar logon único, provisionamento automatizado e muito mais!" 
     services="active-directory" 
     authors="markusvi"  
     documentationCenter="na" 
@@ -94,7 +95,7 @@ Configurar o logon único para o TOPdesk - Secure requer que você carregue um a
         ![Serviço de Declaração do Consumidor](./media/active-directory-saas-topdesk-secure-tutorial/IC790856.png "Serviço de Declaração do Consumidor")
     3.  Copie o valor de **AssertionConsumerService**.  
 
-        >[AZURE.NOTE]Você precisará do valor na seção **Configurar URL do Aplicativo** mais adiante neste tutorial.
+        >[AZURE.NOTE] Você precisará do valor na seção **Configurar URL do Aplicativo** mais adiante neste tutorial.
 
 6.  Em outra janela do navegador da Web, faça logon em seu portal do **Active Directory do Azure** como administrador.
 
@@ -181,7 +182,7 @@ No caso do TOPdesk - Secure, o provisionamento é uma tarefa manual.
     4.  Na caixa de texto **Nome de Logon** da seção **Logon no TOPdesk**, digite um nome de logon para o usuário.
     5.  Clique em **Salvar**.
 
->[AZURE.NOTE]É possível usar qualquer outra ferramenta de criação da conta de usuário do TOPdesk - Secure ou APIs fornecidas pelo TOPdesk - Secure para provisionar as contas de usuário do AAD.
+>[AZURE.NOTE] É possível usar qualquer outra ferramenta de criação da conta de usuário do TOPdesk - Secure ou APIs fornecidas pelo TOPdesk - Secure para provisionar as contas de usuário do AAD.
 
 ##Atribuindo usuários
   
@@ -201,4 +202,4 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!----HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/09/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # Introdução à criação de um balanceador de carga interno (clássico) para os serviços de nuvem
@@ -32,7 +32,7 @@ Há suporte para o balanceador de carga interno tanto para máquinas virtuais qu
 
 A configuração do balancedor de carga interno deve ser definida durante a criação da primeira implantação no serviço de nuvem, conforme mostrado no exemplo abaixo.
 
->[AZURE.IMPORTANT]Um pré-requisito para executar as etapas a seguir é ter uma rede virtual já criada para a implantação em nuvem. Será necessário o nome de rede virtual e de sub-rede para criar o Balanceamento de Carga Interno.
+>[AZURE.IMPORTANT] Um pré-requisito para executar as etapas a seguir é ter uma rede virtual já criada para a implantação em nuvem. Será necessário o nome de rede virtual e de sub-rede para criar o Balanceamento de Carga Interno.
 
 ### Etapa 1
 
@@ -91,4 +91,4 @@ O tráfego de rede terá a carga equilibrada usando o balanceador de carga testL
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

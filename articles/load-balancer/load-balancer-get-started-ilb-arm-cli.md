@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/16/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # Introdução à criação de um balanceador de carga interno usando a CLI do Azure
@@ -91,7 +91,7 @@ Crie um balanceador de carga interno usando o comando `azure network lb create`.
  	
 	azure network lb create -n nrprg -l westus
 
->[AZURE.NOTE]todos os recursos de um balanceador de carga interno, como uma rede virtual e sub-rede da rede virtual, devem estar no mesmo grupo de recursos e na mesma região.
+>[AZURE.NOTE] todos os recursos de um balanceador de carga interno, como uma rede virtual e sub-rede da rede virtual, devem estar no mesmo grupo de recursos e na mesma região.
 
 
 ### Etapa 2 
@@ -148,7 +148,7 @@ Crie investigações de integridade para o balanceador de carga. Uma investigaç
 
 **-g** - grupo de recursos **-l** - nome do conjunto de balanceadores de carga internos **-n** - nome do teste de integridade **-p** - protocolo usado pelo teste de integridade **-i** - intervalo de investigação em segundos **-c** - número de verificações
 
->[AZURE.NOTE]A plataforma Microsoft Azure usa um endereço IPv4 estático e publicamente roteável para uma variedade de cenários administrativos. O endereço IP é 168.63.129.16. Esse endereço IP não deve ser bloqueado por nenhum firewall porque ele pode causar um comportamento inesperado. Em relação ao Balanceamento de Carga Interno do Azure, esse endereço IP é usado por testes de monitoramento do balanceador de carga para determinar o estado de integridade para máquinas virtuais em um conjunto com balanceamento de carga. Se um grupo de segurança de rede é usado para restringir o tráfego para máquinas virtuais do Azure em um conjunto com balanceamento de carga interno, ou então é aplicado a uma Sub-rede de Rede Virtual, certifique-se de que uma regra de segurança de rede seja adicionada para permitir o tráfego em 168.63.129.16.
+>[AZURE.NOTE] A plataforma Microsoft Azure usa um endereço IPv4 estático e publicamente roteável para uma variedade de cenários administrativos. O endereço IP é 168.63.129.16. Esse endereço IP não deve ser bloqueado por nenhum firewall porque ele pode causar um comportamento inesperado. Em relação ao Balanceamento de Carga Interno do Azure, esse endereço IP é usado por testes de monitoramento do balanceador de carga para determinar o estado de integridade para máquinas virtuais em um conjunto com balanceamento de carga. Se um grupo de segurança de rede é usado para restringir o tráfego para máquinas virtuais do Azure em um conjunto com balanceamento de carga interno, ou então é aplicado a uma Sub-rede de Rede Virtual, certifique-se de que uma regra de segurança de rede seja adicionada para permitir o tráfego em 168.63.129.16.
 
 ## Criar NICs
 
@@ -167,7 +167,7 @@ Parâmetros:
 - **--subnet-name** - nome da sub-rede 
 - **--subnet-vnet-name** - nome da rede virtual
 - **-d** - ID do recurso de pool back-end - começa com /subscription/{subscriptionID/resourcegroups/<resourcegroup-name>/providers/Microsoft.Network/loadbalancers/<load-balancer-name>/backendaddresspools/<name-of-the-backend-pool> 
-- **-e** - ID da regra NAT que será associada ao recurso NIC - começa com /subscriptions/####################################/resourceGroups/<resourcegroup-name>/providers/Microsoft.Network/loadBalancers/<load-balancer-name>/inboundNatRules/<nat-rule-name>
+- **-e** – ID da regra NAT que será associada ao recurso NIC – começa com /subscriptions/####################################/resourceGroups/<resourcegroup-name>/providers/Microsoft.Network/loadBalancers/<load-balancer-name>/inboundNatRules/<nat-rule-name>
 
 
 Saída esperada:
@@ -208,7 +208,7 @@ Crie uma VM (máquina virtual) chamada *DB1* e a associe à NIC chamada *lb-nic1
 
 	azure vm create --resource-group nrprg --name DB1 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic1-be --availset-name nrp-avset --storage-account-name web1nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
 
->[AZURE.IMPORTANT]As VMs em um balanceador de carga precisam estar no mesmo conjunto de disponibilidade. Use `azure availset create` para criar um conjunto de disponibilidade.
+>[AZURE.IMPORTANT] As VMs em um balanceador de carga precisam estar no mesmo conjunto de disponibilidade. Use `azure availset create` para criar um conjunto de disponibilidade.
 
 ### Etapa 4
 
@@ -232,4 +232,4 @@ Em que **nrprg** é o grupo de recursos e **ilbset** o nome do balanceador de ca
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

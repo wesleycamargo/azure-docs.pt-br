@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015" 
+	ms.date="02/16/2016" 
 	ms.author="spelluru"/>
 
 # Mover dados para e do Banco de Dados de Documentos usando o Azure Data Factory
@@ -419,4 +419,4 @@ No caso da Atividade de cópia, quando a fonte é do tipo **DocumentDbCollection
 	**Resposta:** Não. Somente uma coleção pode ser especificada no momento.
      
 
-<!---HONumber=AcomDC_0204_2016--->
+<!---HONumber=AcomDC_0218_2016--->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 
@@ -30,7 +30,7 @@ Sendo assim, a primeira coisa que você precisa fazer é concluir o processo de 
 - **Ligação telefônica, texto ou aplicativo móvel no celular**: se estiver usando um celular, escolha entre receber uma ligação, um texto ou usar o aplicativo móvel.
 - **Aplicativo móvel com um código de notificação ou verificação**: se estiver usando o aplicativo móvel, escolha entre receber uma notificação a qual responder ou um código de verificação.
 
-> [AZURE.NOTE]Esteja ciente de que seu departamento de TI pode desabilitar uma ou mais das opções acima. Se esse for o caso, essas opções não serão disponibilizadas durante o processo de registro.
+> [AZURE.NOTE]  Esteja ciente de que seu departamento de TI pode desabilitar uma ou mais das opções acima. Se esse for o caso, essas opções não serão disponibilizadas durante o processo de registro.
 
 Agora que você decidiu sobre seu método de verificação, é hora de fazer o registro. Use o link [Experiência de Configuração](multi-factor-authentication-end-user-first-time.md) para começar com um passo a passo sobre o processo de registro.
 
@@ -49,4 +49,4 @@ Tópico|Descrição
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

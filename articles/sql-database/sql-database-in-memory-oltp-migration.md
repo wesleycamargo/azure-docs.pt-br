@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="jodebrui"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor="MightyPen"/>
 
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="02/11/2016"
 	ms.author="jodebrui"/>
 
 
@@ -233,4 +233,4 @@ Considere monitorar os efeitos de desempenho de suas implementações de Na Mem�
 
 - [Supervisor de Otimização de Memória](http://msdn.microsoft.com/library/dn284308.aspx)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

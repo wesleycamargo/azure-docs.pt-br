@@ -14,17 +14,17 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="02/04/2016"
+	ms.date="02/17/2016"
 	ms.author="jeffstok"/>
 
 
-# Exemplos de consulta para padrões de uso do Stream Analytics #
+# Exemplos de consulta para padrões de uso do Stream Analytics
 
-## Introdução ##
+## Introdução
 
 As consultas no Stream Analytics do Azure são expressadas em uma linguagem de consulta do tipo SQL, que está documentada na [Referência de Linguagem de Consulta do Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx). Este artigo descreve soluções para vários padrões comuns de consulta com base em cenários do mundo real. É um trabalho em andamento e continuará sendo atualizado com novos padrões de forma contínua.
 
-## Exemplo de consulta: conversões de tipo de dados ##
+## Exemplo de consulta: conversões de tipo de dados
 **Descrição**: defina os tipos das propriedades no fluxo de entrada. Por exemplo, o peso do carro está vindo no fluxo de entrada como cadeias de caracteres e precisa ser convertido em INT para executar a SOMA.
 
 **Entrada**:
@@ -53,7 +53,8 @@ As consultas no Stream Analytics do Azure são expressadas em uma linguagem de c
 
 **Explicação**: use uma instrução de CONVERSÃO no campo Peso para especificar seu tipo (consulte a lista de Tipos de dados com suporte [aqui](https://msdn.microsoft.com/library/azure/dn835065.aspx)).
 
-## Exemplo de consulta: usando Like/Not like para fazer correspondência de padrões ##
+
+## Exemplo de consulta: usando Like/Not like para fazer correspondência de padrões
 **Descrição**: verifique se um valor de campo no evento corresponde a um determinado padrão. Por exemplo, retornar placas de carro que comecem com A e terminem com 9
 
 **Entrada**:
@@ -82,7 +83,7 @@ As consultas no Stream Analytics do Azure são expressadas em uma linguagem de c
 
 **Explicação**: use instrução LIKE para verificar se o valor do campo PlacaDeCarro começa com A e depois tem uma cadeia de zero ou mais caracteres e termina com 9.
 
-## Exemplo de consulta: especifique a lógica para casos/valores diferentes (instruções CASE) ##
+## Exemplo de consulta: especifique a lógica para casos/valores diferentes (instruções CASE)
 **Descrição**: forneça uma computação diferente para um campo com base em alguns critérios. Por exemplo, forneça uma descrição de cadeia de caracteres para quantos carros da mesma marca passaram com um caso especial para 1.
 
 **Entrada**:
@@ -116,7 +117,7 @@ As consultas no Stream Analytics do Azure são expressadas em uma linguagem de c
 
 **Explicação**: a cláusula CASE nos permite fornecer uma computação diferente com base em alguns critérios (no nosso caso, a contagem de carros na janela de agregação).
 
-## Exemplo de consulta: enviar dados para várias saídas ##
+## Exemplo de consulta: enviar dados para várias saídas
 **Descrição**: envie dados para vários destinos de saída de um único trabalho. Por exemplo, analise os dados para um alerta de limite e arquive todos os eventos no armazenamento de blob.
 
 **Entrada**:
@@ -224,7 +225,7 @@ As consultas no Stream Analytics do Azure são expressadas em uma linguagem de c
 
 **Explicação:** fazemos uma agregação inicial para obter marcas exclusivas com sua contagem pela janela. Em seguida, fazemos uma agregação de quantas marcas temos, considerando todos valores exclusivos em uma janela obtêm o mesmo carimbo de hora e a segunda janela de agregação deve ser mínima para não agregar duas janelas da primeira etapa.
 
-## Exemplo de consulta: determinar se um valor foi alterado ##
+## Exemplo de consulta: determinar se um valor foi alterado#
 **Descrição**: examine um valor anterior para determinar se ele é diferente do valor atual. Por exemplo, o carro anterior na estrada com pedágio é da mesma marca que o carro atual?
 
 **Entrada**:
@@ -252,7 +253,7 @@ As consultas no Stream Analytics do Azure são expressadas em uma linguagem de c
 
 **Explicação**: use LAG para inspecionar um fluxo de entrada do evento anterior e obter o valor Marca. Em seguida, compare-o à Marca no evento atual e retire o evento se eles forem diferentes.
 
-## Exemplo de consulta: localizar o primeiro evento em uma janela ##
+## Exemplo de consulta: localizar o primeiro evento em uma janela
 **Descrição**: localizar o primeiro carro em cada intervalo de 10 minutos?
 
 **Entrada**:
@@ -306,7 +307,7 @@ Agora vamos alterar o problema e localizar o primeiro carro de determinada Marca
 	WHERE 
 		IsFirst(minute, 10) OVER (PARTITION BY Make) = 1
 
-## Exemplo de consulta: localizar o último evento em uma janela ##
+## Exemplo de consulta: localizar o último evento em uma janela
 **Descrição**: localize o último carro a cada intervalo de 10 minutos.
 
 **Entrada**:
@@ -351,7 +352,7 @@ Agora vamos alterar o problema e localizar o primeiro carro de determinada Marca
 
 **Explicação**: há duas etapas na consulta. A primeira localiza o carimbo de data e hora mais recente em janelas de 10 minutos. A segunda etapa une os resultados da primeira consulta com fluxo original para localizar eventos que correspondem aos carimbos de data e hora mais recentes em cada janela.
 
-## Exemplo de consulta: detectar a ausência de eventos ##
+## Exemplo de consulta: detectar a ausência de eventos
 **Descrição**: verifique se um fluxo não tem um valor que corresponde a um determinado critério. Por exemplo, 2 carros consecutivos da mesma marca passaram pelo pedágio em 90 segundos?
 
 **Entrada**:
@@ -413,7 +414,7 @@ Agora vamos alterar o problema e localizar o primeiro carro de determinada Marca
 
 **Explicação**: usar a função LAST para recuperar o último valor temporal, quando o tipo de evento era ‘Start’. Observe que a função LAST usa PARTITION BY [usuário] para indicar que o resultado deverá ser calculado por usuário exclusivo. A consulta tem um limite máximo de uma hora de diferença de tempo entre os eventos ‘Start’ e ‘Stop’, mas é configurável como necessária (LIMIT DURATION(hour, 1).
 
-## Exemplo de consulta: detectar a duração de uma condição ##
+## Exemplo de consulta: detectar a duração de uma condição
 **Descrição**: descubra há quanto tempo uma condição ocorreu. Por exemplo, suponha que um bug que resultou no peso incorreto de todos os carros (acima de 9 mil quilos). Queremos calcular a duração do bug.
 
 **Entrada**:
@@ -454,16 +455,59 @@ WHERE
 
 **Explicação**: usar LAG para exibir o fluxo de entrada de 24 horas e procurar por instâncias, nas quais StartFault e StopFault são incluídas por peso < 20000.
 
+## Exemplo de consulta: preencher valores ausentes
+**Descrição**: para o fluxo de eventos que têm valores ausentes, produzir um fluxo de eventos com intervalos regulares. Por exemplo, gere eventos a cada 5 segundos que relatam o ponto de dados visto mais recentemente.
+
+**Entrada**:
+
+| t | value |
+|--------------------------|-------|
+| "2014-01-01T06:01:00" | 1 |
+| "2014-01-01T06:01:05" | 2 |
+| "2014-01-01T06:01:10" | 3 |
+| "2014-01-01T06:01:15" | 4 |
+| "2014-01-01T06:01:30" | 5 |
+| "2014-01-01T06:01:35" | 6 |
+
+**(10 primeiras linhas) de saída**:
+
+| windowend | lastevent.t | lastevent.value |
+|--------------------------|--------------------------|--------|
+| 2014-01-01T14:01:00.000Z | 2014-01-01T14:01:00.000Z | 1 |
+| 2014-01-01T14:01:05.000Z | 2014-01-01T14:01:05.000Z | 2 |
+| 2014-01-01T14:01:10.000Z | 2014-01-01T14:01:10.000Z | 3 |
+| 2014-01-01T14:01:15.000Z | 2014-01-01T14:01:15.000Z | 4 |
+| 2014-01-01T14:01:20.000Z | 2014-01-01T14:01:15.000Z | 4 |
+| 2014-01-01T14:01:25.000Z | 2014-01-01T14:01:15.000Z | 4 |
+| 2014-01-01T14:01:30.000Z | 2014-01-01T14:01:30.000Z | 5 |
+| 2014-01-01T14:01:35.000Z | 2014-01-01T14:01:35.000Z | 6 |
+| 2014-01-01T14:01:40.000Z | 2014-01-01T14:01:35.000Z | 6 |
+| 2014-01-01T14:01:45.000Z | 2014-01-01T14:01:35.000Z | 6 |
+
+    
+**Solução**:
+
+    SELECT
+    	System.Timestamp AS windowEnd,
+    	TopOne() OVER (ORDER BY t DESC) AS lastEvent
+    FROM
+    	input TIMESTAMP BY t
+    GROUP BY HOPPINGWINDOW(second, 300, 5)
+
+
+**Explicação**: esta consulta gerará ventos a cada 5 segundos e produzirá o último evento recebido antes. A duração da [Janela de salto](https://msdn.microsoft.com/library/dn835041.aspx "Janela de salto - Stream Analytics do Azure") determina o quanto no passado a consulta buscará para localizar o evento mais recente (300 segundos neste exemplo).
+
+
 ## Obter ajuda
 Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=AzureStreamAnalytics)
 
 ## Próximas etapas
 
 - [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
-- [Introdução ao uso do Stream Analytics do Azure](../stream.analytics.get.started.md)
+- [Introdução ao uso do Stream Analytics do Azure](stream-analytics-get-started.md)
 - [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

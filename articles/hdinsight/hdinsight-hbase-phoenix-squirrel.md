@@ -20,7 +20,7 @@
 
 Saiba como usar o [Apache Phoenix](http://phoenix.apache.org/) no HDInsight e como instalar e configurar o SQuirreL na sua estação de trabalho para se conectar a um cluster HBase no HDInsight. Para obter mais informações sobre o Phoenix, consulte [Phoenix em 15 minutos ou menos](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Para conhecer a gramática de Phoenix, consulte [Gramática do Phoenix](http://phoenix.apache.org/language/index.html).
 
->[AZURE.NOTE]Para obter as informações de versão do Phoenix no HDInsight, consulte [O que há de novo nas versões de cluster Hadoop fornecidas pelo HDInsight?][hdinsight-versions].
+>[AZURE.NOTE] Para obter as informações de versão do Phoenix no HDInsight, consulte [O que há de novo nas versões de cluster Hadoop fornecidas pelo HDInsight?][hdinsight-versions].
 
 ##Usar o SQLLine
 [SQLLine](http://sqlline.sourceforge.net/) é um utilitário de linha de comando para executar o SQL.
@@ -91,7 +91,7 @@ Antes de seguir os procedimentos, você deve ter o seguinte:
 
 - Um cluster HBase implantado em uma rede virtual do Azure com uma máquina virtual DNS. Para obter instruções, consulte [Provisionar clusters HBase na Rede Virtual do Azure][hdinsight-hbase-provision-vnet]. 
 
-	>[AZURE.IMPORTANT]Você deve instalar um servidor DNS na rede virtual. Para obter instruções, consulte [Configurar DNS entre duas redes virtuais do Azure](hdinsight-hbase-geo-replication-configure-DNS.md).
+	>[AZURE.IMPORTANT] Você deve instalar um servidor DNS na rede virtual. Para obter instruções, consulte [Configurar DNS entre duas redes virtuais do Azure](hdinsight-hbase-geo-replication-configure-DNS.md).
 
 - Obtenha o sufixo DNS específico da Conexão do cluster de cluster HBase. Para obtê-lo, faça RDP no cluster e, em seguida, execute IPConfig. O sufixo DNS é semelhante a:
 
@@ -155,7 +155,7 @@ Uma maneira de criar um certificado X.509 é usando a ferramenta de criação de
 
 	Não feche o prompt de comando. Você precisará dele no próximo procedimento.
 
-	>[AZURE.NOTE]Como você criou um certificado raiz do qual serão gerados certificados de cliente, você pode querer exportar o certificado juntamente com a sua chave privada e salvá-lo em um local seguro onde possa ser recuperado.
+	>[AZURE.NOTE] Como você criou um certificado raiz do qual serão gerados certificados de cliente, você pode querer exportar o certificado juntamente com a sua chave privada e salvá-lo em um local seguro onde possa ser recuperado.
 
 **Para criar um certificado de cliente**
 
@@ -216,7 +216,7 @@ Uma maneira de criar um certificado X.509 é usando a ferramenta de criação de
 2. Abra/execute o arquivo jar. Ele requer o [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html).
 3. Clique em **Avançar** duas vezes.
 4. Especifique um caminho onde você tenha permissão de gravação e, em seguida, clique em **Avançar**.
-	>[AZURE.NOTE]A pasta de instalação padrão é C:\\Program Files\\squirrel-sql-3.6. Para gravar nesse caminho, o instalador deve receber o privilégio de administrador. Abra um prompt de comando como administrador, navegue até a pasta bin do Java e, em seguida, execute
+	>[AZURE.NOTE] A pasta de instalação padrão é C:\\Program Files\\squirrel-sql-3.6. Para gravar nesse caminho, o instalador deve receber o privilégio de administrador. Abra um prompt de comando como administrador, navegue até a pasta bin do Java e, em seguida, execute
 	>
 	>     java.exe -jar [the path of the SQuirreL jar file] 
 5. Clique em **OK** para confirmar a criação do diretório de destino.
@@ -242,7 +242,7 @@ Você precisa copiá-lo para a sua estação de trabalho no caminho [Pasta de in
 	- **URL de exemplo**: jdbc:phoenix:zookeeper2.contoso-hbase-eu.f5.internal.cloudapp.net
 	- **Nome da classe**: org.apache.phoenix.jdbc.PhoenixDriver
 
-	>[AZURE.WARNING]Usuário com todas as letras minúsculas na URL de exemplo. Você pode usar o quorum zookeeper completo no caso de um deles estar inativo. Os nomes de host são zookeeper0, zookeeper1 e zookeeper2.
+	>[AZURE.WARNING] Usuário com todas as letras minúsculas na URL de exemplo. Você pode usar o quorum zookeeper completo no caso de um deles estar inativo. Os nomes de host são zookeeper0, zookeeper1 e zookeeper2.
 
 	![HDInsight HBase Phoenix SQuirreL driver][img-squirrel-driver]
 4. Clique em **OK**.
@@ -289,7 +289,7 @@ Neste artigo, você aprendeu a usar o Apache Phoenix no HDInsight. Para obter ma
 [vnet-point-to-site-connectivity]: https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT
 
 [hdinsight-versions]: hdinsight-component-versioning.md
-[hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
+[hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md#connect-to-hdinsight-clusters-by-using-rdp
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
@@ -306,4 +306,4 @@ Neste artigo, você aprendeu a usar o Apache Phoenix no HDInsight. Para obter ma
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->
