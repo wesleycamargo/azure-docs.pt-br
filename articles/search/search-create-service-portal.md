@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="02/05/2016"
+	ms.date="02/18/2016"
 	ms.author="heidist"/>
 
 # Criar um serviço de Pesquisa do Azure no Portal do Azure
@@ -25,7 +25,7 @@ A Pesquisa do Azure está disponível com níveis de preços que variam desde gr
 
 ## Adicionar a Pesquisa do Azure à sua assinatura gratuitamente
 
-Como administrador, você pode adicionar a Pesquisa do Azure a uma assinatura do Azure existente sem custos adicionais ao selecionar o serviço compartilhado. Você pode se inscrever para obter uma [assinatura de avaliação gratuita](../includes/free-trial-note.md) e começar sua avaliação.
+Como administrador, você pode adicionar a Pesquisa do Azure a uma assinatura do Azure existente sem custos adicionais ao selecionar o serviço compartilhado. Você pode se inscrever para obter uma [assinatura de avaliação gratuita](../../includes/free-trial-note.md) e começar sua avaliação.
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 
@@ -126,4 +126,4 @@ Agora que o serviço foi criado, você pode executar as próximas etapas: criar 
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

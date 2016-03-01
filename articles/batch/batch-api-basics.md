@@ -192,15 +192,9 @@ Para saber mais sobre tarefas de preparação e de liberação de trabalho, cons
 
 #### <a name="multiinstance"></a>Tarefas de várias instâncias
 
-Uma [tarefa de várias instâncias][rest_multiinstance] é uma tarefa que é configurada para ser executada simultaneamente em mais de um nó de computação. Com as tarefas de várias instâncias, você pode habilitar cenários de computação de alto desempenho, como MPI (Message Passing Interface), que exige um grupo de nós de computação alocados juntos para processar uma única carga de trabalho.
+Uma [tarefa de várias instâncias](batch-mpi.md) é uma tarefa configurada para ser executada simultaneamente em mais de um nó de computação. Com as tarefas de várias instâncias, você pode habilitar cenários de computação de alto desempenho, como MPI (Message Passing Interface), que exige um grupo de nós de computação alocados juntos para processar uma única carga de trabalho.
 
-No Lote, você cria uma tarefa de várias instâncias especificando configurações de várias instâncias para uma [tarefa](#task) normal. Essas configurações incluem o número de nós de computação para executar a tarefa, uma linha de comando para a tarefa principal (o "comando de aplicativo"), um comando de coordenação e uma lista de arquivos de recurso comuns de cada tarefa.
-
-Quando você envia uma tarefa com as configurações de várias instâncias a um trabalho, o serviço de Lote executa o seguinte:
-
-1. Cria automaticamente uma tarefa principal e subtarefas suficientes que, juntas, executarão o número total de nós que você especificou. O Lote, em seguida, agenda essas tarefas para execução nos nós, que primeiro baixam os arquivos de recurso em comum que você especificou.
-2. Depois que os arquivos de recursos em comum foram baixados, o comando de coordenação é executado pela tarefa principal e pelas subtarefas. Esse comando de coordenação normalmente inicia um serviço em segundo plano (como `smpd.exe` de [MS-MPI][msmpi]) e verifica se os nós estão prontos para processar mensagens entre nós.
-3. Quando o comando de coordenação foi concluído com êxito pela tarefa principal e todas as subtarefas, a linha de comando da tarefa (o "comando de aplicativo") é executado apenas pela tarefa principal, o que geralmente inicia um aplicativo personalizado com MPI habilitado que processa sua carga de trabalho nos nós. Por exemplo, em um cenário de MPI do Windows, você normalmente executaria o aplicativo habilitado para MPI com `mpiexec.exe` de [MS-MPI][msmpi] usando o comando do aplicativo.
+Para obter uma discussão detalhada sobre como executar trabalhos da MPI no Lote usando a biblioteca .NET do Lote, faça check-out de [Usar as tarefas de várias instâncias para executar os aplicativos MPI (Message Passing Interface) no Lote do Azure](batch-mpi.md).
 
 ### <a name="jobschedule"></a>Trabalhos agendados
 
@@ -372,4 +366,4 @@ Cada nó em um pool tem uma ID exclusiva e o nó no qual uma tarefa é executada
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -40,7 +40,7 @@ Alguns exemplos de cargas de trabalho que normalmente são processadas usando es
 * Análise de estresse de engenharia
 * Teste de software
 
-O lote também pode realizar cálculos paralelos com uma etapa de redução no final, além de executar cargas de trabalho HPC mais complexas, como aplicativos de MPI (Interface de Transmissão de Mensagens).
+O Lote também pode realizar cálculos paralelos com uma etapa de redução no final, além de executar cargas de trabalho HPC mais complexas, como aplicativos de [MPI (Interface de Transmissão de Mensagens)](batch-mpi.md).
 
 Para obter uma comparação entre o Lote e outras opções de solução HPC no Azure, confira [Soluções do Lote e HPC](batch-hpc-solutions.md).
 
@@ -56,7 +56,7 @@ Ao criar soluções que usam o Lote do Azure para processamento paralelo de carg
 
 Ao desenvolver soluções de Lote, você usará as contas a seguir no Microsoft Azure.
 
-- [Conta e assinatura do Azure][free_trial] - se ainda não tiver uma conta do Azure, você poderá ativar o **benefício de assinante do MSDN** ou inscrever-se para uma [avaliação gratuita][msdn_benefits]. Ao criar uma conta, uma assinatura padrão será criada para você.
+- [Conta e assinatura do Azure][free_account] - se ainda não tiver uma assinatura do Azure, você poderá ativar o **benefício de assinante do MSDN** ou inscrever-se para uma [conta gratuita do Azure][msdn_benefits]. Ao criar uma conta, uma assinatura padrão será criada para você.
 
 - **Conta do Lote** - quando os aplicativos interagem com o serviço de Lote, o nome da conta, a URL da conta, e uma chave de acesso são usados como credenciais. Todos os recursos do Lote, como pools, nós de computação, trabalhos e tarefas estão associados a uma conta do Lote. Você pode [criar e gerenciar uma conta do Lote](batch-account-create-portal.md) no portal do Azure.
 
@@ -76,7 +76,7 @@ Para compilar soluções usando o Lote do Azure, você pode usar as bibliotecas 
 
 - [Gerenciador do Lote do Azure][batch_explorer] - o Gerenciador do Lote é um dos aplicativos de exemplo do .NET do Lote [disponíveis no GitHub][github_samples]. Compile esse aplicativo WPF (Windows Presentation Foundation) com o Visual Studio 2013 ou 2015 e use-o para procurar e gerenciar os recursos em sua conta do Lote durante o desenvolvimento e a depuração de suas soluções do Lote. Exiba detalhes da tarefa, do pool e do trabalho, baixe arquivos de nós de computação ou até mesmo se conecte a nós remotamente por meio de arquivos de RDP (Área de Trabalho Remota) que você obtém com apenas alguns cliques na interface do Gerenciador do Lote.
 
-- [Gerenciador de Armazenamento do Microsoft Azure][storage_explorer] - embora não seja estritamente uma ferramenta do Lote do Azure, o Gerenciador de Armazenamento é outra ferramenta valiosa a ser usada durante o desenvolvimento e a depuração de suas soluções de lote.
+- [Gerenciador de Armazenamento do Microsoft Azure][storage_explorer] - embora não seja estritamente uma ferramenta do Lote do Azure, o Gerenciador de Armazenamento é outra ferramenta valiosa a ser usada durante o desenvolvimento e a depuração de suas soluções do Lote.
 
 ## Cenário: escalar horizontalmente uma carga de trabalho paralela
 
@@ -94,7 +94,7 @@ Nesse cenário comum, o aplicativo ou serviço processa uma carga de trabalho co
 
 3. Criar um **trabalho** do Lote para executar a carga de trabalho no pool de nós de computação. Ao criar um trabalho, você pode associá-lo a um pool do Lote.
 
-4. Adicionar **tarefas** ao trabalho. Quando você adiciona tarefas a um trabalho, o serviço de Lote agenda automaticamente as tarefas para execução em nós de computação no pool. Cada tarefa usa o aplicativo que você carregou para processar os arquivos de entrada.
+4. Adicione **tarefas** ao trabalho. Quando você adiciona tarefas a um trabalho, o serviço de Lote agenda automaticamente as tarefas para execução em nós de computação no pool. Cada tarefa usa o aplicativo que você carregou para processar os arquivos de entrada.
 
     - 4a. Antes da execução de uma tarefa, ela pode baixar os dados (os arquivos de entrada) que deve processar para o nó de computação ao qual está atribuída. Se o aplicativo ainda não tiver sido instalado no nó (confira a etapa nº 2), ele poderá ser baixado aqui em vez disso. Quando os downloads forem concluídos, as tarefas serão executadas em seus nós atribuídos.
 
@@ -127,7 +127,7 @@ Agora que você já viu um exemplo de um cenário do Lote, é hora de se aprofun
 [batch_ps]: https://msdn.microsoft.com/library/azure/mt125957.aspx
 [batch_rest]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
 [data_factory]: https://azure.microsoft.com/documentation/services/data-factory/
-[free_trial]: https://azure.microsoft.com/pricing/free-trial/
+[free_account]: https://azure.microsoft.com/free/
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
 [msdn_benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
@@ -136,4 +136,4 @@ Agora que você já viu um exemplo de um cenário do Lote, é hora de se aprofun
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

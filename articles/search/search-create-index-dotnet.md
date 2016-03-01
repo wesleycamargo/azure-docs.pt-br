@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Criar um índice da Pesquisa do Azure usando o.NET| Microsoft Azure | Serviço de pesquisa de nuvem hospedado"
+	pageTitle="Criar um índice da Pesquisa do Azure usando o .NET| Microsoft Azure | Serviço de pesquisa de nuvem hospedado"
 	description="Crie um índice no código usando o SDK ou a biblioteca .NET da Pesquisa do Azure."
 	services="search"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/09/2015"
+	ms.date="02/18/2016"
 	ms.author="heidist"/>
 
 # Criar um índice da Pesquisa do Azure usando o .NET
@@ -28,7 +28,7 @@ Este artigo mostra como criar um índice usando o [SDK do .NET da Pesquisa do Az
 
 Os pré-requisitos para a criação de um índice incluem ter estabelecido anteriormente uma conexão com o serviço de pesquisa, o que normalmente é feito por meio de um `SearchServiceClient`. Uma prática recomendada para garantir uma reimplantação descomplicada é excluir um índice existente de mesmo nome, caso ele já exista.
 
-Supondo um índice chamado 'hotéis', você poderá construir um método para isso da seguinte maneira:
+Supondo que haja um índice chamado 'hotéis', você poderá construir um método para isso da seguinte maneira:
 
     private static void DeleteHotelsIndexIfExists(SearchServiceClient serviceClient)
     {
@@ -66,4 +66,4 @@ Para criar um novo índice de "hotéis", construa um método semelhante ao segui
 
 Esse método cria um novo objeto `Index` com uma lista de objetos `Field` que definem o esquema do novo índice. Cada campo tem um nome, tipo de dados e vários atributos que definem seu comportamento de pesquisa. Além dos campos, você também pode adicionar perfis de pontuação, sugestões ou opções de CORS para o índice (eles foram omitidos do exemplo por questão de brevidade). Você pode saber mais sobre o objeto Index e suas partes na referência do SDK no [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.index_members.aspx), bem como na [Referência da API REST da Pesquisa do Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

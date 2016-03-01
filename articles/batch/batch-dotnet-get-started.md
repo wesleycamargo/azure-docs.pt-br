@@ -28,9 +28,9 @@ Este artigo pressupõe que você tenha um conhecimento prático do C# e do Visua
 
 ### Contas
 
-- **Conta do azure** -- se você ainda não tiver uma assinatura do Azure, poderá criar uma conta de avaliação gratuita em minutos em [avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/).
+- **Conta do Azure** -- se você ainda não tiver uma assinatura do Azure, poderá [criar uma conta gratuita do Azure][azure_free_account].
 - **Conta do Lote** -- quando você tiver uma assinatura do Azure, poderá [criar e gerenciar uma conta do Lote do Azure](batch-account-create-portal.md).
-- **Conta de armazenamento** -- veja a seção “Criar uma conta de armazenamento” em [Sobre as contas de armazenamento do Azure](../storage-create-storage-account.md).
+- **Conta do armazenamento** -- veja a seção “Criar uma conta de armazenamento” em [Sobre as contas de armazenamento do Azure](./../storage/storage-create-storage-account.md).
 
 ### Visual Studio
 
@@ -626,6 +626,7 @@ Agora que você está familiarizado com o fluxo de trabalho básico de uma solu�
 - Confira uma implementação diferente do processamento da carga de trabalho “N palavras principais” usando o Lote no exemplo [TopNWords][github_topnwords]
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
+[azure_free_account]: https://azure.microsoft.com/free/
 [azure_portal]: https://portal.azure.com
 [batch_explorer_blog]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 [batch_learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
@@ -680,4 +681,4 @@ Agora que você está familiarizado com o fluxo de trabalho básico de uma solu�
 [10]: ./media/batch-dotnet-get-started/credentials_storage_sm.png "Credenciais do Armazenamento no Portal"
 [11]: ./media/batch-dotnet-get-started/batch_workflow_minimal_sm.png "Fluxo de trabalho da solução do Lote (diagrama mínimo)"
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

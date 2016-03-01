@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/09/2016"
+	ms.date="02/19/2016"
 	ms.author="awills"/>
 
 # Application Insights para páginas da Web
@@ -170,7 +170,7 @@ Clique em qualquer linha para obter detalhes específicos.
 
 > [AZURE.NOTE] Se você excluir o filtro Navegadores na folha, as dependências de servidor e AJAX serão incluídas nesses gráficos. Clique em Restaurar padrões para reconfigurar o filtro.
 
-**Para fazer drill down de falhas de chamadas Ajax**, uma maneira rápida consiste em alterar o gráfico de falhas para uma grade e, em seguida, clicar em uma linha para ver ocorrências específicas.
+**Para analisar detalhadamente as falhas de chamadas Ajax**, role para baixo até a grade Falhas de dependência e clique em uma linha para ver as instâncias específicas.
 
 ![](./media/app-insights-javascript/37.png)
 
@@ -238,4 +238,4 @@ Quer saber o que os usuários fazem com seu aplicativo?
 * [Eventos e métricas personalizados](app-insights-api-custom-events-metrics.md)
 * [Build-measure-learn](app-insights-overview-usage.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

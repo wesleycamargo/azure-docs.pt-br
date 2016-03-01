@@ -4,7 +4,7 @@
 	services="app-service\logic"
 	documentationCenter=""
 	authors="MandiOhlinger"
-	manager="dwrede"
+	manager="erikre"
 	editor="cgronlun"/>
 
 <tags
@@ -12,17 +12,19 @@
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/03/2015"
+	ms.topic="get-started-article"
+	ms.date="02/11/2016"
 	ms.author="mandia"/>
 
 
 # Lista de Conectores e de Aplicativos de API a serem usados em seus Aplicativos Lógicos
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos. Para a versão do esquema 2015-08-01-preview, clique em [Lista de APIs](../connectors/apis-list.md).
+
 Saiba mais sobre todos os conectores e Aplicativos de API disponibilizados pela Microsoft a serem usados em seus Aplicativos Lógicos
 
 Para obter informações de preço e uma lista do que é incluído com cada camada de serviço, consulte [Preços do Serviço de Aplicativo do Azure](https://azure.microsoft.com/pricing/details/app-service/).
 
-> [AZURE.NOTE] Se você deseja começar com os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógicos](https://tryappservice.azure.com/?appservice=logic), em que você pode criar imediatamente um aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> [AZURE.NOTE] Se você quiser começar a usar os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o aplicativo lógico](https://tryappservice.azure.com/?appservice=logic). Você pode criar imediatamente um aplicativo lógico de início e de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## Conectores principais
 A tabela a seguir lista todos os conectores e aplicativos de API criados pela Microsoft, que estão disponíveis como Conectores principais:
@@ -32,8 +34,7 @@ Nome | Descrição
 [Azure HDInsight](app-service-logic-connector-hdinsight.md) | Use este conector para criar um cluster Hadoop no Azure, enviar diferentes trabalhos Hadoop e muito mais.
 [Barramento de Serviço do Azure](app-service-logic-connector-azureservicebus.md) | Pode enviar mensagens de tópicos e filas do Barramento de Serviço e receber mensagens de assinaturas e filas do Barramento de Serviço.
 [Blob de Armazenamento do Azure](app-service-logic-connector-azurestorageblob.md) | Conecta-se ao armazenamento de Blob e pode obter, excluir, listar e muito mais. 
-Pesquisa do Bing | Pesquisa do Bing para Web, imagens, notícias e vídeo.
-Bing Translate | Use o Bing para traduzir textos para outro idioma.
+[Bing Translator](https://azure.microsoft.com/marketplace/partners/microsoft_com/bingtranslator) | Use o Bing para traduzir textos para outro idioma.
 [Box](app-service-logic-connector-box.md) | Conecta-se a caixa e pode carregar, obter, excluir, listar e mais tarefas de arquivo.
 [Chatter](app-service-logic-connector-chatter.md) | Conecta-se a conversas e pode postar mensagens, pesquisa e até mesmo recuperar novas mensagens.
 [Dropbox](app-service-logic-connector-dropbox.md) | Conecte-se ao Dropbox e pode obter, excluir, listar e mais tarefas de arquivo.
@@ -94,4 +95,4 @@ Os conectores também podem ser usados como ações dentro do Aplicativo Lógico
 ## Mais informações sobre conectores e aplicativos de API
 [O que são aplicativos de API do BizTalk e conectores](app-service-logic-what-are-biztalk-api-apps.md) [Usando o Gerenciador de Conexão Híbrida no Serviço de Aplicativo do Azure](app-service-logic-hybrid-connection-manager.md) [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

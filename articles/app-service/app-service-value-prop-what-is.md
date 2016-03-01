@@ -13,7 +13,7 @@
 	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="01/05/2016" 
 	ms.author="omark"/>
 
@@ -50,7 +50,7 @@ O Serviço de Aplicativo permite que você crie os seguintes tipos de aplicativo
 Como um único serviço integrado, o Serviço de Aplicativo facilita a composição dos tipos de aplicativo acima em uma única solução, permitindo que você compile facilmente aplicativos Web e clientes móveis usando o mesmo back-end e integre com sistemas locais, bem como serviços populares, como o Office 365 e o salesforce.com.
 
 ### Planos de serviço de aplicativo
-Os Planos de Serviço de Aplicativo representam um conjunto de recursos e capacidades que pode ser compartilhado entre seus aplicativos. Os Planos de Serviço de Aplicativo dão suporte a alguns tipos de preço (por exemplo, Free, Shared, Basic, Standard e Premium), e cada tipo tem seus próprios recursos. Você pode alterar rapidamente o plano do Serviço de Aplicativo no qual um aplicativo é hospedado sem tempo de inatividade. [Saiba mais sobre Planos de Serviço de Aplicativo.](../web-sites-web-hosting-plan-overview.md)
+Os Planos de Serviço de Aplicativo representam um conjunto de recursos e capacidades que pode ser compartilhado entre seus aplicativos. Os Planos de Serviço de Aplicativo dão suporte a alguns tipos de preço (por exemplo, Free, Shared, Basic, Standard e Premium), e cada tipo tem seus próprios recursos. Você pode alterar rapidamente o plano do Serviço de Aplicativo no qual um aplicativo é hospedado sem tempo de inatividade. [Saiba mais sobre Planos de Serviço de Aplicativo.](azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
 ##Introdução ao Serviço de Aplicativo
 Quer uma amostra? Familiarize-se em segundos.
@@ -60,4 +60,4 @@ Com o Serviço de Aplicativo do Azure, isso é tão fácil quanto selecionar um 
 [Crie um novo aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751) agora mesmo e gratuitamente. Nenhum cartão de crédito é exigido, sem problemas.
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->
