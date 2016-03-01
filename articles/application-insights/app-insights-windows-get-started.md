@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/03/2016"
+	ms.date="02/19/2016"
 	ms.author="awills"/>
 
 # Análise de aplicativos do Windows Phone e da Windows Store
@@ -83,6 +83,7 @@ Se for um aplicativo Universal do Windows, repita as etapas abaixo para o projet
 4. Adicione um arquivo ApplicationInsights.config à raiz do seu projeto e insira a chave de instrumentação copiada do portal. Veja abaixo um exemplo de xml para esse arquivo de configuração.
 
 	```xml
+
 		<?xml version="1.0" encoding="utf-8" ?>
 		<ApplicationInsights>
 			<InstrumentationKey>YOUR COPIED INSTRUMENTATION KEY</InstrumentationKey>
@@ -96,6 +97,7 @@ Se for um aplicativo Universal do Windows, repita as etapas abaixo para o projet
 5. Adicione o código de inicialização a seguir. É melhor adicionar este código ao construtor `App()`. Se você fizer isso em outro lugar, poderá perder coleta automática das primeiras exibições de página.
 
 ```C#
+
 	public App()
 	{
 	   // Add this initilization line. 
@@ -207,4 +209,4 @@ Para obter mais detalhes, consulte [Métricas e eventos personalizados][api].
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/08/2016"
+   ms.date="02/22/2016"
    ms.author="yurid"/>
 
 # Configuração de políticas de segurança na Central de segurança do Azure
@@ -65,12 +65,12 @@ As políticas de segurança são configuradas para cada assinatura. Para modific
 
 | Política | Quando o estado for Ativado |
 |----- |-----|
-| Atualizações do Sistema | Recupera uma lista de atualizações disponíveis do Windows Update ou WSUS, dependendo de qual serviço está configurado para a máquina virtual, a cada 12 horas, e recomenda que as atualizações ausentes sejam instaladas nas máquinas virtuais do Windows. |
+| Atualizações do Sistema | Recupera uma lista de atualizações disponíveis do Windows Update ou WSUS, dependendo de qual serviço está configurado para a máquina virtual, a cada 12 horas, e recomenda que as atualizações críticas e de segurança ausentes sejam instaladas nas máquinas virtuais do Windows. |
 | Regras de linha de base | Analisa todas as máquinas virtuais com suporte a cada 12 horas para identificar quaisquer configurações de sistema operacional que podem tornar a máquina virtual mais vulnerável a ataques e recomenda as alterações de configuração para tratar essas vulnerabilidades. Consulte a [lista de linhas de base recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) para obter mais informações sobre as configurações específicas que estão sendo monitoradas. |
 | Antimalware | Recomenda que o antimalware seja provisionado para todas as máquinas virtuais do Windows para ajudar a identificar e remover vírus, spyware e outros softwares mal-intencionados. |
 | Lista de controle de acesso nos pontos de extremidade | Recomenda que uma ACL [(Lista de controles de acesso)](virtual-machines-set-up-endpoints.md) seja configurada para limitar o acesso a pontos de extremidade de máquina virtual Clássica. Isso normalmente seria usado para garantir que somente os usuários que estão conectados à rede corporativa possam acessar as máquinas virtuais. |
 | Grupos de segurança de rede | Recomenda que NSGs [(Grupos de segurança de rede)](virtual-networks-nsg.md) sejam configurados para controlar o tráfego de entrada e saída para sub-redes e interfaces de rede para máquinas virtuais de Gerenciador de Recursos. Os NSGs configurados para uma sub-rede serão herdados por todas as interfaces de rede de máquina virtual, a menos que especificado o contrário. Além de verificar se um NSG foi configurado, essa opção avalia as regras de segurança de entrada para identificar se há regras que permitem o tráfego de entrada. |
-| Firewall do Aplicativo Web | Recomenda que um Firewall do aplicativo Web seja fornecido em máquinas virtuais de Gerenciador de recursos quando: ILPIP [(IP público de nível de instância)](virtual-networks-instance-level-public-ip.md) é usado e as regras de segurança de entrada de NSG associado estão configuradas para permitir o acesso à porta 80/443. O IP de balanceamento de carga (VIP) é usado e o balanceamento de carga associado e as regras NAT de entrada estão configuradas para permitir acesso à porta 80/443 (para obter mais informações, consulte [Suporte do Gerenciador de Recursos do Azure para Balanceador de Carga](load-balancer-arm.md)) |
+| Firewall do Aplicativo Web | Recomenda que um Firewall do aplicativo Web seja fornecido em máquinas virtuais quando: ILPIP [(IP público de nível de instância)](virtual-networks-instance-level-public-ip.md) é usado e as regras de segurança de entrada de NSG associado estão configuradas para permitir o acesso à porta 80/443. O IP de balanceamento de carga (VIP) é usado e o balanceamento de carga associado e as regras NAT de entrada estão configuradas para permitir acesso à porta 80/443 (para obter mais informações, consulte [Suporte do Gerenciador de Recursos do Azure para Balanceador de Carga](load-balancer-arm.md)) |
 | Auditoria SQL | Recomenda que a auditoria de acesso a Servidores SQL do Azure e bancos de dados esteja habilitada para conformidade, detecção avançada e fins de investigação. |
 | Transparent Data Encryption do SQL | Recomenda que a criptografia em repouso seja habilitada para arquivos de log de bancos de dados SQL do Azure, backups associados e transação para que mesmo se os seus dados forem violados, eles não possam ser lidos. |
 
@@ -85,4 +85,4 @@ Neste documento, você aprendeu como configurar políticas de segurança na Cent
 - [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre perguntas frequentes sobre como usar o serviço
 - [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

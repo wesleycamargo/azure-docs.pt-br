@@ -4,15 +4,15 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="adinah"
+   manager="carmonm"
    editor="" />
 <tags
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="01/14/2016"
+   ms.workload="NA"
+   ms.date="02/22/2016"
    ms.author="alkohli" />
 
 # Implantação do seu dispositivo StorSimple local
@@ -167,8 +167,7 @@ Execute as seguintes etapas para criar uma nova instância do serviço StorSimpl
 
 > [AZURE.IMPORTANT] Se você não ativou a criação automática de uma conta de armazenamento com seu serviço, você precisará criar pelo menos uma conta de armazenamento depois que você criou com êxito um serviço. Esta conta de armazenamento será usada quando você criar um contêiner de volume.
 >
-> Se você não tiver criado uma conta de armazenamento automaticamente, vá para [Configurar uma nova conta de armazenamento para o serviço](#configure-a-new-storage-account-for-the-service) para obter instruções detalhadas. 
-> Se você habilitou a criação automática de uma conta de armazenamento, vá para [Etapa 2: Obter a chave de registro do serviço](#step-2:-get-the-service-registration-key).
+> Se você não tiver criado uma conta de armazenamento automaticamente, vá para [Configurar uma nova conta de armazenamento para o serviço](#configure-a-new-storage-account-for-the-service) para obter instruções detalhadas. Se você habilitou a criação automática de uma conta de armazenamento, vá para [Etapa 2: Obter a chave de registro do serviço](#step-2:-get-the-service-registration-key).
 
 ## Etapa 2: Obter a chave de registro do serviço
 
@@ -294,4 +293,4 @@ Execute as etapas a seguir no portal clássico do Azure para criar um backup man
 
 - Use o [Serviço StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) para gerenciar o seu dispositivo StorSimple.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

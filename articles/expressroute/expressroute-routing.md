@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/08/2016"
+   ms.date="02/12/2016"
    ms.author="cherylmc"/>
 
 
@@ -118,7 +118,7 @@ Você pode adquirir mais de um circuito da Rota Expressa por região geopolític
 
 A Microsoft marcará prefixos anunciados por meio do emparelhamento público e do emparelhamento da Microsoft com valores de comunidade BGP apropriados indicando a região em que os prefixos estão hospedados. Você pode contar com os valores de comunidade para tomar decisões de roteamento apropriadas e oferecer o roteamento ideal aos clientes.
 
-| **Região Geopolítica** | **Região do Microsoft Azure (o mesmo se aplica ao Office 365)** | **Valor de comunidade BGP** |
+| **Região Geopolítica** | **Região do Microsoft Azure** | **Valor de comunidade BGP** |
 |---|---|---|
 | **América do Norte** | | |
 | | Leste dos EUA | 12076:51004 |
@@ -174,4 +174,4 @@ A Microsoft não adota valores de comunidade BGP que você define. É necessári
 	- [Configurar o roteamento para o modelo de implantação clássico](expressroute-howto-routing-classic.md) ou [Configurar o roteamento para o modelo de implantação do Gerenciador de Recursos](expressroute-howto-routing-arm.md)
 	- [Vincular uma rede virtual clássica a um circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md) ou [Conectar uma VNet do Gerenciador de Recursos a um circuito da Rota Expressa](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/10/2015"
+	ms.date="02/10/2016"
 	ms.author="heidist"/>
 
 #Criar consultas na Pesquisa do Azure no .NET
@@ -63,4 +63,4 @@ Na primeira chamada, procuramos todos os documentos com os termos de consulta "f
 
 A segunda chamada usa uma expressão $filter OData, category eq ‘Luxo’. Isso restringe a pesquisa a retornar apenas os documentos onde o campo de categoria corresponder exatamente à cadeia de caracteres "Luxo". Saiba mais sobre a sintaxe OData em [Sintaxe de expressão OData para a Pesquisa do Azure](https://msdn.microsoft.com/library/azure/dn798921.aspx).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

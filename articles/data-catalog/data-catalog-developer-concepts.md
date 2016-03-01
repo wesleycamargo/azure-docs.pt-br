@@ -10,7 +10,7 @@
 <tags 
    ms.service="data-catalog"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
    ms.date="02/03/2016"
@@ -190,7 +190,7 @@ As solicitações de exibição de item **PUT** e **POST** podem ser usadas para
 
 > [AZURE.NOTE]
 >
-> **\_\_permissions** aplica-se somente a um item raiz.
+> **__**\_\_permissions** aplica-se somente a um item raiz.
 >
 > A função **Proprietário** só é aplicável a um item raiz.
 >
@@ -262,4 +262,4 @@ As solicitações de exibição de item **PUT** e **POST** podem ser usadas para
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept2.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

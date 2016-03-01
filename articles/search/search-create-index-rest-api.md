@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/17/2015"
+	ms.date="02/18/2016"
 	ms.author="heidist"/>
 
 # Criar um índice da Pesquisa do Azure usando uma API REST
@@ -65,4 +65,4 @@ Isso é onde você pode identificar o nome do índice ("hotéis", neste caso), b
 
 Para uma solicitação bem-sucedida, você deverá ver o código de status "201 Criado". Para saber mais sobre como criar um índice por meio da API REST, visite [esta página](https://msdn.microsoft.com/library/azure/dn798941.aspx).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0224_2016-->

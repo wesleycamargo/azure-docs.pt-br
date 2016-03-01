@@ -78,11 +78,90 @@ O reconhecimento de comando de dispositivo é fornecido por meio do hub IoT.
 
 ### Trabalhos do Stream Analytics do Azure
 
-**Trabalho 1: a Telemetria** opera no fluxo de entrada da telemetria do dispositivo com o uso de dois comandos. O primeiro comando envia todas as mensagens de telemetria dos dispositivos para o armazenamento de blob persistente. O segundo comando calcula os valores de umidade média, mínima e máxima em uma janela deslizante de cinco minutos. Esses dados também são enviados para o armazenamento de blob.
+**Trabalho 1: Telemetria** opera no fluxo de entrada da telemetria do dispositivo de duas maneiras. A primeira envia todas as mensagens de telemetria dos dispositivos para o armazenamento de blobs persistente. A segunda calcula os valores de umidade média, mínima e máxima em uma janela deslizante de cinco minutos. Esses dados também são enviados para o armazenamento de blob. Esse trabalho usa a seguinte definição de consulta:
 
-**Trabalho 2: as Informações do Dispositivo** filtram as mensagens de informações de dispositivo do fluxo de mensagens de entrada e as envia para um ponto de extremidade do Hub de Eventos. Um dispositivo envia mensagens de informações do dispositivo na inicialização e em resposta a um comando **SendDeviceInfo**.
+```
+WITH 
+    [StreamData]
+AS (
+    SELECT
+        *
+    FROM 
+      [IoTHubStream] 
+    WHERE
+        [ObjectType] IS NULL -- Filter out device info and command responses
+) 
 
-**Trabalho 3: as Regras** avaliam os valores de entrada da telemetria de temperatura e de umidade em relação aos limites de cada dispositivo. Os valores de limite são definidos no editor de regras incluído na solução. Cada par de dispositivo/valor é armazenado por carimbo de data/hora em um blob que é lido no Stream Analytics como **Dados de Referência**. O trabalho compara qualquer valor não vazio com o limite definido para o dispositivo. Se ele exceder a condição “>”, o trabalho gerará um evento de **alarme** que indica que o limite foi excedido e que fornece o dispositivo, o valor e os valores de carimbo de data/hora.
+SELECT
+    *
+INTO
+    [Telemetry]
+FROM
+    [StreamData]
+
+SELECT
+    DeviceId,
+    AVG (Humidity) AS [AverageHumidity], 
+    MIN(Humidity) AS [MinimumHumidity], 
+    MAX(Humidity) AS [MaxHumidity], 
+    5.0 AS TimeframeMinutes 
+INTO
+    [TelemetrySummary]
+FROM
+    [StreamData]
+WHERE
+    [Humidity] IS NOT NULL
+GROUP BY
+    DeviceId, 
+    SlidingWindow (mi, 5)
+```
+
+**Trabalho 2: as Informações do Dispositivo** filtram as mensagens de informações de dispositivo do fluxo de mensagens de entrada e as envia para um ponto de extremidade do Hub de Eventos. Um dispositivo envia mensagens de informações do dispositivo na inicialização e em resposta a um comando **SendDeviceInfo**. Esse trabalho usa a seguinte definição de consulta:
+
+```
+SELECT * FROM DeviceDataStream Partition By PartitionId WHERE  ObjectType = 'DeviceInfo'
+```
+
+**Trabalho 3: as Regras** avaliam os valores de entrada da telemetria de temperatura e de umidade em relação aos limites de cada dispositivo. Os valores de limite são definidos no editor de regras incluído na solução. Cada par de dispositivo/valor é armazenado por carimbo de data/hora em um blob que é lido no Stream Analytics como **Dados de Referência**. O trabalho compara qualquer valor não vazio com o limite definido para o dispositivo. Se ele exceder a condição “>”, o trabalho gerará um evento de **alarme** que indica que o limite foi excedido e que fornece o dispositivo, o valor e os valores de carimbo de data/hora. Esse trabalho usa a seguinte definição de consulta:
+
+```
+WITH AlarmsData AS 
+(
+SELECT
+     Stream.DeviceID,
+     'Temperature' as ReadingType,
+     Stream.Temperature as Reading,
+     Ref.Temperature as Threshold,
+     Ref.TemperatureRuleOutput as RuleOutput,
+     Stream.EventEnqueuedUtcTime AS [Time]
+FROM IoTTelemetryStream Stream
+JOIN DeviceRulesBlob Ref ON Stream.DeviceID = Ref.DeviceID
+WHERE
+     Ref.Temperature IS NOT null AND Stream.Temperature > Ref.Temperature
+
+UNION ALL
+
+SELECT
+     Stream.DeviceID,
+     'Humidity' as ReadingType,
+     Stream.Humidity as Reading,
+     Ref.Humidity as Threshold,
+     Ref.HumidityRuleOutput as RuleOutput,
+     Stream.EventEnqueuedUtcTime AS [Time]
+FROM IoTTelemetryStream Stream
+JOIN DeviceRulesBlob Ref ON Stream.DeviceID = Ref.DeviceID
+WHERE
+     Ref.Humidity IS NOT null AND Stream.Humidity > Ref.Humidity
+)
+
+SELECT *
+INTO DeviceRulesMonitoring
+FROM AlarmsData
+
+SELECT *
+INTO DeviceRulesHub
+FROM AlarmsData
+```
 
 ### Host do processador
 
@@ -145,4 +224,4 @@ Você pode desabilitar um dispositivo e depois que ele for desabilitado, poderá
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_08.png)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

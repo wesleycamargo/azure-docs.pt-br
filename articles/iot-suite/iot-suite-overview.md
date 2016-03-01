@@ -14,7 +14,7 @@
      ms.topic="get-started-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="11/27/2015"
+     ms.date="02/19/2016"
      ms.author="dobett"/>
 
 # Visão geral do Azure IoT Suite
@@ -49,7 +49,7 @@ Para obter uma visão geral da arquitetura de uma solução de IoT típica, cons
 
 ## Soluções pré-configuradas
 
-O Pacote IoT inclui soluções pré-configuradas que o habilitam a começar rapidamente e explorar os cenários comuns da IoT possibilitados pelo Pacote do Azure IoT. Você pode implantar as soluções em sua assinatura do Azure e executar uma solução IoT completa e de ponta a ponta.
+O Pacote IoT inclui soluções pré-configuradas que o habilitam a começar rapidamente e explorar os cenários comuns da IoT, como o *Monitoramento remoto* e a *Manutenção preditiva*, possibilitados pelo Azure IoT Suite. Você pode implantar as soluções em sua assinatura do Azure e executar um cenário IoT completo e de ponta a ponta.
 
 ## Próximas etapas
 
@@ -74,4 +74,4 @@ Agora que tem uma visão geral do que o IoT Suite pode fazer e quais são seus p
 [lnk-preconfig-start]: iot-suite-getstarted-preconfigured-solutions/
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

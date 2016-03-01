@@ -29,7 +29,7 @@ A integração de seus diretórios locais ao AD do Azure torna os usuários mais
 
 - Ferramenta única para fornecer uma experiência de implantação fácil de sincronização e entrada.
 
-- Fornece os recursos mais recentes para seus cenários. O Azure AD Connect substitui as versões mais antigas das ferramentas de integração de identidade, como DirSync e Azure AD Sync. Para obter mais informações, confira [Comparação das ferramentas de integração de diretórios](active-directory-aadconnect-get-started-tools-comparison.md).
+- Fornece os recursos mais recentes para seus cenários. O Azure AD Connect substitui as versões mais antigas das ferramentas de integração de identidade, como DirSync e Azure AD Sync. Para saber mais, confira [Comparação das ferramentas de integração de diretórios de Identidade Híbrida](active-directory-hybrid-identity-design-considerations-tools-comparison.md).
 
 
 ### Como o Azure AD Connect funciona
@@ -38,7 +38,7 @@ O Azure Active Directory Connect é composto de três partes principais. Elas s�
 
 <center>![Azure AD Connect Stack](./media/active-directory-aadconnect-how-it-works/AADConnectStack2.png) </center>
 
-- Sincronização - Esta parte é composta de componentes e funcionalidades lançados anteriormente, como [Dirsync e Azure AD Sync](active-directory-aadconnect-get-started-tools-comparison.md). Essa é a parte responsável pela criação de usuários e grupos. Ela também é responsável por garantir que as informações sobre usuários e grupos em seu ambiente local correspondam às da nuvem.
+- Sincronização - Esta parte é composta de componentes e funcionalidades lançados anteriormente, como [Dirsync e Azure AD Sync](active-directory-hybrid-identity-design-considerations-tools-comparison.md). Essa é a parte responsável pela criação de usuários e grupos. Ela também é responsável por garantir que as informações sobre usuários e grupos em seu ambiente local correspondam às da nuvem.
 - AD FS - Esta é uma parte opcional do Azure AD Connect e pode ser usada para configurar um ambiente híbrido usando uma infraestrutura de AD FS local. Esta parte pode ser usada pelas organizações para abordar implantações complexas que incluem itens como SSO de ingresso no domínio, imposição de política de entrada no AD e de cartão inteligente ou de MFA de terceiros.
 - Monitoramento de Integridade - o Azure AD Connect Health pode fornecer monitoramento robusto e fornecer um local central no portal do Azure para exibir essa atividade. Para obter informações adicionais, consulte [Azure Active Directory Connect Health](active-directory-aadconnect-health.md).
 
@@ -144,4 +144,4 @@ Apresentação Ignite 2015 sobre como expandir seus diretórios locais para a nu
 
 [AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -48,8 +48,7 @@ Os valores são:
 - **Configurações do pool de servidores back-end:** cada pool tem configurações como porta, protocolo e afinidade baseada em cookie. Essas configurações são vinculadas a um pool e aplicadas a todos os servidores no pool.
 - **Porta front-end:** essa porta é a porta pública aberta no gateway de aplicativo. O tráfego atinge essa porta e é redirecionado para um dos servidores back-end.
 - **Ouvinte:** o ouvinte tem uma porta front-end, um protocolo (HTTP ou HTTPS, que diferencia maiúsculas de minúsculas) e o nome do certificado SSL (se estiver configurando o descarregamento SSL).
-- **Regra:** a regra vincula o ouvinte e o pool de servidores back-end e define à qual pool de servidores back-end o tráfego deve ser direcionado quando atinge um ouvinte específico. Atualmente, há suporte apenas para a regra *básica*. A regra *básica* é a distribuição de carga round robin.
-
+- **Regra:** a regra vincula o ouvinte e o pool de servidores back-end e define à qual pool de servidores back-end o tráfego deve ser direcionado quando atinge um ouvinte específico.
 
 
 ## Criar um novo gateway de aplicativo
@@ -60,12 +59,12 @@ Para criar um Application Gateway:
 2. Crie um arquivo XML de configuração ou um objeto de configuração.
 3. Confirme a configuração do recurso de gateway de aplicativo recém-criado.
 
->[AZURE.NOTE] Se você precisar configurar uma investigação personalizada para o gateway de aplicativo, veja [Criar um gateway de aplicativo com investigações personalizadas usando o PowerShell](application-gateway-create-probe-classic-ps.md). Confira [investigações personalizadas e monitoramento de integridade](application-gateway-probe-overview.md) para obter mais informações.
+>[AZURE.NOTE] Se você precisar configurar uma investigação personalizada para o gateway de aplicativo, veja [Criar um gateway de aplicativo com investigações personalizadas usando o PowerShell](application-gateway-create-probe-classic-ps.md). Confira [investigações personalizadas e monitoramento de integridade](application-gateway-probe-overview.md) para saber mais.
 
 
 ### Criar um recurso de gateway de aplicativo
 
-Para criar o gateway, use o cmdlet **New-AzureApplicationGateway**, substituindo os valores pelos seus próprios. Observe que a cobrança pelo gateway não se inicia neste momento. A cobrança é iniciada em uma etapa posterior, quando o gateway é iniciado com êxito.
+Para criar o gateway, use o cmdlet **New-AzureApplicationGateway**, substituindo os valores pelos seus. Observe que a cobrança pelo gateway não se inicia neste momento. A cobrança é iniciada em uma etapa posterior, quando o gateway é iniciado com êxito.
 
 O exemplo a seguir mostra como criar um novo Application Gateway usando uma rede virtual chamada "testvnet1" e uma sub-rede denominada "subnet-1".
 
@@ -82,7 +81,7 @@ O exemplo a seguir mostra como criar um novo Application Gateway usando uma rede
  *Description*, *InstanceCount* e *GatewaySize* são parâmetros opcionais.
 
 
-Para validar que esse gateway foi criado, você poderá usar o cmdlet **Get-AzureApplicationGateway** cmdlet.
+Para validar que o gateway foi criado, use o cmdlet **Get-AzureApplicationGateway**.
 
 
 
@@ -345,7 +344,7 @@ Depois que o gateway tiver sido configurado, use o cmdlet **Start-AzureApplicati
 
 ## Verificar o status do gateway
 
-Use o cmdlet **Get-AzureApplicationGateway** para verificar o status do gateway. Se Start-**AzureApplicationGateway** tiver sido bem-sucedido na etapa anterior, o item *Estado* deverá ser Em execução e *Vip* e *DnsName* deverão ter entradas válidas.
+Use o cmdlet **Get-AzureApplicationGateway** para verificar o status do gateway. Se **Start-AzureApplicationGateway** tiver sido bem-sucedido na etapa anterior, o item *Estado* deverá ser Em execução e *Vip* e *DnsName* deverão ter entradas válidas.
 
 Este exemplo mostra um gateway de aplicativo que está ativo, em execução e pronto para assumir o tráfego destinado a `http://<generated-dns-name>.cloudapp.net`.
 
@@ -414,4 +413,4 @@ Se deseja obter mais informações sobre as opções de balanceamento de carga n
 - [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

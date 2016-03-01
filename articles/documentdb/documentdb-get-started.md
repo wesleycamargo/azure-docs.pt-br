@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="11/18/2015"
+	ms.date="02/19/2016"
 	ms.author="anhoh"/>
 
 # Tutorial do NoSQL: criar um aplicativo de console em C# do Banco de Dados de Documentos 
@@ -478,4 +478,4 @@ Para restaurar as referências do Banco de Dados de Documentos do SDK do .NET no
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -7,14 +7,7 @@
 	manager="stevenpo" 
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
-	ms.author="billmath"/>
+<tags ms.service="multi-factor-authentication" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="02/18/2016"" ms.author="billmath"/>
 
 
 # Proteger recursos de nuvem e locais usando o Servidor Azure Multi-Factor Authentication com o AD FS do Windows Server 2012 R2
@@ -33,6 +26,7 @@ Ao instalar o Servidor Azure Multi-Factor Authentication, você tem as duas opç
 Antes de começar, esteja ciente das seguintes informações:
 
 - Não é um requisito que o Servidor Azure Multi-Factor Authentication seja instalado no seu servidor de federação do AD FS. No entanto, o Adaptador do Multi-Factor Authentication para o AD FS deve ser instalado em um Windows Server 2012 R2 executando o AD FS. Você pode instalar o servidor em outro computador, desde que seja uma versão com suporte, e instalar o adaptador do AD FS separadamente no seu servidor de federação do AD FS. Consulte o procedimento abaixo para obter instruções sobre como instalar o adaptador separadamente.
+- Quando o adaptador do AD FS do Servidor Multi-Factor Authentication foi criado, era esperado que o AD FS pudesse passar o nome da terceira parte confiável para o adaptador que poderia ser usado como um nome de aplicativo. No entanto, isso não aconteceu. Se estiver usando mensagens de texto ou de métodos de autenticação de aplicativos móveis, as cadeias de caracteres definidas em Configurações da Empresa contêm um espaço reservado "<$application\_name$>". Esse espaço reservado não é substituído quando o Adaptador do AD FS é usado. Por isso, é recomendável remover o espaço reservado das cadeias de caracteres apropriadas quando você estiver protegendo o AD FS.
 
 - A conta conectada deve ter privilégios para criar grupos de segurança no Active Directory.
 
@@ -229,4 +223,4 @@ Execute o script \\Program Files\\Multi-Factor Authentication Server\\Register-M
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

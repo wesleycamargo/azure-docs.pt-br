@@ -25,7 +25,13 @@
 
 O armazenamento de Blobs do Azure é um serviço que armazena dados de arquivos na nuvem. O armazenamento de blobs pode ser qualquer tipo de texto ou dados binários, como um documento, um arquivo de mídia ou um instalador do aplicativo. O armazenamento de blobs é às vezes chamado de armazenamento de objeto.
 
-Este tutorial mostra como gravar código .NET para alguns cenários comuns usando o armazenamento de Blobs do Azure. Os cenários abrangidos incluem carregamento, listagem, download e exclusão de blobs. Este tutorial leva apenas uma hora para ser concluído.
+### Sobre este tutorial
+
+Este tutorial mostra como gravar código .NET para alguns cenários comuns usando o armazenamento de Blobs do Azure. Os cenários abrangidos incluem carregamento, listagem, download e exclusão de blobs.
+
+**Tempo estimado para conclusão:** 45 minutos
+
+**Pré-requisitos:**
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -169,7 +175,7 @@ Quando você chama **ListBlobs** no contêiner 'photos' (como no exemplo acima),
 	Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
 
-Opcionalmente, você pode definir o parâmetro **UseFlatBlobListing** do método **ListBlobs** como** true**. Nesse caso, cada blob no contêiner é retornado como um objeto **CloudBlockBlob**. A chamada a **ListBlobs** para retornar uma listagem simples tem esta aparência:
+Opcionalmente, você pode definir o parâmetro **UseFlatBlobListing** do método **ListBlobs** como** true**. Nesse caso, cada blob no contêiner é retornado como um objeto **CloudBlockBlob**. A chamada para **ListBlobs** para retornar uma lista simples tem esta aparência:
 
     // Loop over items within the container and output the length and URI.
 	foreach (IListBlobItem item in container.ListBlobs(null, true))
@@ -353,9 +359,9 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Blob, siga es
 - [Introdução ao Armazenamento de tabelas para .NET](storage-dotnet-how-to-use-tables.md)
 - [Introdução ao Armazenamento de filas para .NET](storage-dotnet-how-to-use-queues.md)
 - [Introdução ao Armazenamento de arquivos para .NET](storage-dotnet-how-to-use-files.md)
-- [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy.md)
-- [Como usar um Banco de Dados SQL do Azure em aplicativos .NET.](../sql-database/sql-database-dotnet-how-to-use.md)
+- [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy)
 - [Como usar o armazenamento de blob do Azure com o SDK de Trabalhos Web](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
+- [Usando o Banco de Dados SQL do .NET (C#)](../sql-database/sql-database-dotnet-how-to-use.md)
 
   [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
   [Blob6]: ./media/storage-dotnet-how-to-use-blobs/blob6.png
@@ -368,4 +374,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Blob, siga es
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->
