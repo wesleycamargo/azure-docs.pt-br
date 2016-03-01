@@ -182,7 +182,7 @@ A permissão funciona como uma lista de entradas de controle de acesso. Cada ent
 
 Durante a visualização do **Catálogo de Dados do Azure**, somente o direito **Read** tem suporte na lista de permissões para permitir que o cenário restrinja a visibilidade de um ativo.
 
-Por padrão qualquer usuário autenticado tem o direito **Read** para qualquer item do catálogo, a menos que a visibilidade esteja restrita ao conjunto de entidades nas permissões.
+Por padrão, qualquer usuário autenticado tem o direito **Read** para qualquer item do catálogo, a menos que a visibilidade esteja restrita ao conjunto de entidades nas permissões.
 
 ## API REST
 
@@ -190,7 +190,7 @@ As solicitações de exibição de item **PUT** e **POST** podem ser usadas para
 
 > [AZURE.NOTE]
 >
-> **__**\_\_permissions** aplica-se somente a um item raiz.
+> **\_\_permissions** aplica-se somente a um item raiz.
 >
 > A função **Proprietário** só é aplicável a um item raiz.
 >

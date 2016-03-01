@@ -1,6 +1,6 @@
 1.	Entre no [portal do Microsoft Azure](https://portal.azure.com/) online.
-2.	Na barra de navegação, clique em **Novo**, em seguida, clique em **Dados + Armazenamento** e, em seguida, clique em **Banco de Dados de Documentos do Azure**.
-
+2.	Na barra de navegação, clique em **Novo**, em seguida, clique em **Dados + Armazenamento** e, em seguida, clique em **Banco de Dados de Documentos do Azure**. 
+  
 	![Captura de tela do portal do Azure para criação de um banco de dados, destacando o botão Novo, Dados + Armazenamento na folha Criar, e o Banco de Dados de Documentos do Azure na folha Dados + Armazenamento](media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)
 
 3. Na folha **Nova conta do Banco de Dados de Documentos**, especifique a configuração desejada para a conta do Banco de Dados de Documentos.
@@ -17,7 +17,7 @@
 	- Use **Local** para especificar a localização geográfica na qual hospedar a sua conta do Banco de Dados de Documentos.
 
 4.	Após as opções da nova conta do Banco de Dados de Documentos serem configuradas, clique em **Criar**. Pode levar alguns minutos para criar a conta do Banco de Dados de Documentos. Para verificar o status, você pode monitorar o progresso no quadro inicial. ![Captura de tela do bloco Criando no quadro inicial - criador de banco de dados online](media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)
-
+  
 	Ou então, você pode monitorar o progresso do hub de notificações.
 
 	![Crie bancos dados rapidamente - Captura de tela do hub de notificações, mostrando que a conta do Banco de Dados de Documentos está sendo criada](media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-4.png)
