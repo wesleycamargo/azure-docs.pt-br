@@ -138,4 +138,4 @@ Para o ILB, você deve criar primeiro o balanceador de carga interno. Isso é fe
 
 [AZURE.INCLUDE [Ouvinte das próximas etapas](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0204_2016-->
