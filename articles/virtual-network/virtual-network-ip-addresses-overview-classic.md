@@ -152,18 +152,18 @@ Na maioria dos casos, endereços IP públicos são gratuitos. Há um custo nomin
 ## Diferenças entre as implantações do Gerenciador de recursos e clássica
 A seguir está uma comparação dos recursos de endereçamento IP no Gerenciador de Recursos com o modelo de implantação clássico.
 
-|Recurso|Clássico|Gerenciador de Recursos|
+||Recurso|Clássico|Gerenciador de Recursos|
 |---|---|---|---|
 |**Endereço IP público**|VM|Conhecido como um ILPIP (somente dinâmico)|Conhecido como um IP público (dinâmico ou estático)|
-|Atribuído a uma VM IaaS ou a uma instância de função de PaaS|Associado à NIC da VM|
-|Balanceador de Carga para a Internet|Conhecido como VIP (dinâmico) ou IP Reservado (estático)|Conhecido como um IP público (dinâmico ou estático)|
-|Atribuído a um serviço de nuvem|Associado à configuração de front-end do Balanceador de Carga|
-|
+|||Atribuído a uma VM IaaS ou a uma instância de função de PaaS|Associado à NIC da VM|
+||Balanceador de Carga para a Internet|Conhecido como VIP (dinâmico) ou IP Reservado (estático)|Conhecido como um IP público (dinâmico ou estático)|
+|||Atribuído a um serviço de nuvem|Associado à configuração de front-end do Balanceador de Carga|
+||||
 |**Endereço IP privado**|VM|Conhecido como um DIP|Conhecido como um endereço IP privado|
-|Atribuído a uma VM IaaS ou a uma instância de função de PaaS|Atribuído à NIC da VM|
-|Balanceador de Carga Interno (ILB)|Atribuído ao ILB (dinâmico ou estático)|Atribuído à configuração de front-end do ILB (dinâmico ou estático)|
+|||Atribuído a uma VM IaaS ou a uma instância de função de PaaS|Atribuído à NIC da VM|
+||Balanceador de Carga Interno (ILB)|Atribuído ao ILB (dinâmico ou estático)|Atribuído à configuração de front-end do ILB (dinâmico ou estático)|
 
 ## Próximas etapas
 - [Implantar uma VM com um endereço IP privado estático](virtual-networks-static-private-ip-classic-pportal.md) usando o portal clássico.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0218_2016-->
