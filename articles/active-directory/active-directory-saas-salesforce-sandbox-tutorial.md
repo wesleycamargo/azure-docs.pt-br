@@ -78,7 +78,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Salesforce Sandbox](./media/active-directory-saas-salesforce-sandbox-tutorial/IC746479.png "Salesforce Sandbox")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de logon**, digite sua URL usando o seguinte padrão, "*`http://company.my.salesforce.com` e, em seguida, clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de logon**, digite sua URL usando o seguinte padrão, `http://company.my.salesforce.com` e, em seguida, clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781022.png "Configurar a URL do Aplicativo")
 
@@ -161,7 +161,7 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 
     ![Novo Token](./media/active-directory-saas-salesforce-sandbox-tutorial/IC698776.png "Novo Token")
 
-5.  Marque a caixa de entrada de um email do Salesforce.com usando "**confirmação de segurança de salesforce.com.com* *" como o assunto.
+5.  Marque a caixa de entrada de um email do Salesforce.com usando "**confirmação de segurança de salesforce.com.com**" como o assunto.
 
 6.  Leia o email e copie o valor do token de segurança.
 
@@ -204,4 +204,4 @@ Agora você deve aguardar 10 minutos e verificar se a conta foi sincronizada com
   
 Se quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0218_2016-->

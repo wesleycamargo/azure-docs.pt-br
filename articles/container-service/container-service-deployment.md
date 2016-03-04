@@ -154,7 +154,7 @@ Quando tiver um Grupo de Recursos, você poderá criar o cluster com o comando a
 New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESOURCE_GROUP_NAME -TemplateUri TEMPLATE_URI
  ```
  
-### Provide template parameters
+### Fornecer parâmetros de modelo
  
 Se estiver familiarizado com o PowerShell, você saberá que pode percorrer os parâmetros disponíveis para um cmdlet digitando um sinal de subtração (-) e, em seguida, pressionando a tecla TAB. Essa mesma funcionalidade também funciona com os parâmetros definidos no modelo. Logo que você digitar o nome do modelo, o cmdlet buscará o modelo, analisará os parâmetros e adicionará os parâmetros do modelo ao comando dinamicamente. Isso facilita muito a especificação dos valores de parâmetros do modelo. E, se você esquecer um valor de parâmetro necessário, o PowerShell solicitará o valor.
  
@@ -173,4 +173,4 @@ Agora que você tem um cluster em funcionamento, acesse estes documentos para ob
 
  
 
-<!----HONumber=AcomDC_0224_2016-->
+<!-----HONumber=AcomDC_0224_2016-->
