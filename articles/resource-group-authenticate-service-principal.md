@@ -314,4 +314,4 @@ Nesta seção, você executará as etapas para criar uma entidade de serviço pa
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0224_2016--->
