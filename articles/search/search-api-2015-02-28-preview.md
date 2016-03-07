@@ -1254,7 +1254,7 @@ A **Pesquisa** aceita vários parâmetros que fornecem critérios de consulta e 
 
 > [AZURE.NOTE] Definir esse parâmetro para um valor inferior a 100 pode ser útil para garantir a disponibilidade de pesquisa até mesmo para serviços com apenas uma réplica. No entanto, não existe a garantia de que todos os documentos correspondentes estejam presentes nos resultados da pesquisa. Se rechamada da pesquisa é mais importante para o seu aplicativo do que a disponibilidade, é melhor deixar `minimumCoverage` em seu valor padrão de 100.
 
-`api-version=[string]` (obrigatório). A versão de visualização é `api-version=2015-02-28-Preview`. Consulte Controle de versão de serviço de pesquisa para obter detalhes e versões alternativas.
+`api-version=[string]` (obrigatório). A versão de visualização é `api-version=2015-02-28-Preview`. Consulte [Controle de versão de serviço de pesquisa](http://msdn.microsoft.com/library/azure/dn864560.aspx) para obter detalhes e versões alternativas.
 
 Observação: para essa operação, o `api-version` é especificado como um parâmetro de consulta na URL, independentemente de você chamar **Pesquisa** com GET ou POST.
 
@@ -1662,7 +1662,7 @@ Além disso, a codificação de URL só é necessária ao se chamar a API REST d
 
 **Parâmetros de consulta**
 
-**Suggestions** aceita vários parâmetros que fornecem critérios de consulta e também especificam o comportamento da pesquisa. Você fornece esses parâmetros na cadeia de consulta da URL ao chamar **Sugestões** via GET, e como propriedades JSON no corpo da solicitação ao chamar **Sugestões** via POST. A sintaxe para alguns parâmetros é ligeiramente diferente entre GET e POST. Essas diferenças são indicadas, como aplicável, abaixo:
+**Sugestões** aceita vários parâmetros que fornecem critérios de consulta e também especificam o comportamento da pesquisa. Você fornece esses parâmetros na cadeia de consulta da URL ao chamar **Sugestões** via GET, e como propriedades JSON no corpo da solicitação ao chamar **Sugestões** via POST. A sintaxe para alguns parâmetros é ligeiramente diferente entre GET e POST. Essas diferenças são indicadas, como aplicável, abaixo:
 
 `search=[string]` ‒ o texto de pesquisa a ser usado para sugerir consultas. Deve ter pelo menos 1 e não mais que 100 caracteres.
 
@@ -1686,11 +1686,11 @@ Além disso, a codificação de URL só é necessária ao se chamar a API REST d
 
 `$filter=[string]` (opcional) par uma expressão que filtra os documentos considerados para sugestões.
 
-> [AZURE.NOTE] Ao chamar **Suggestions** usando POST, esse parâmetro será chamado de `filter` em vez de `$filter`.
+> [AZURE.NOTE]Ao chamar **Sugestões** usando POST, esse parâmetro será chamado de `filter`, em vez de `$filter`.
 
 `$orderby=[string]` (opcional) ‒ uma lista de expressões separadas por vírgulas para classificar os resultados. Cada expressão pode ser um nome de campo ou uma chamada para a função `geo.distance()`. Cada expressão pode ser seguida de `asc` para indicar a ordem crescente e `desc` para indicar a ordem decrescente. O padrão é a ordem crescente. Há um limite de 32 cláusulas para `$orderby`.
 
-> [AZURE.NOTE] Ao chamar **Suggestions** usando POST, esse parâmetro será chamado de `orderby` em vez de `$orderby`.
+> [AZURE.NOTE]Ao chamar **Sugestões** usando POST, esse parâmetro será chamado de `orderby`, em vez de `$orderby`.
 
 `$select=[string]` (opcional) ‒ uma lista de campos separados por vírgulas a serem recuperados. Se não for especificado, somente a chave do documento e o texto de sugestão serão retornados. Você pode solicitar explicitamente todos os campos ao definir esse parâmetro para `*`.
 

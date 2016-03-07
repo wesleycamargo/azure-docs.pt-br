@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="02/17/2016"
-	ms.author="billmath;vakarand"/>
+	ms.author="billmath"; "vakarand"/>
 
 
 # Perguntas frequentes (FAQ) do Azure AD Connect Health

@@ -27,7 +27,8 @@ Aplicativos que usam o ponto de extremidade v2.0 também podem consumir APIs RES
 
 
 ## Introdução
-Escolha sua plataforma favorita abaixo para compilar um aplicativo usando nossas bibliotecas e estruturas de software livre. Como alternativa, você pode usar nossa documentação do protocolo do OAuth 2.0 e OpenID Connect para enviar e receber mensagens de protocolo diretamente sem usar uma biblioteca de autenticação. <!-- TODO: Finalize this table  -->
+Escolha sua plataforma favorita abaixo para compilar um aplicativo usando nossas bibliotecas e estruturas de software livre. Como alternativa, você pode usar nossa documentação do protocolo do OAuth 2.0 e OpenID Connect para enviar e receber mensagens de protocolo diretamente sem usar uma biblioteca de autenticação.
+<!-- TODO: Finalize this table  -->
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
 

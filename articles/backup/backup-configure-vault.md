@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="02/23/2016"
-	ms.author="trinadhk; jimpark; markgal"/>
+	ms.author="trinadhk"; "jimpark"; "markgal"/>
 
 
 # Preparar o ambiente para fazer backup de computadores do Windows para o Azure

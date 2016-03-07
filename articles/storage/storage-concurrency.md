@@ -93,7 +93,10 @@ Get Container Properties|	Sim|	Não|
 Get Container Metadata|	Sim|	Não|
 Set Container Metadata|	Sim|	Sim|
 Get Container ACL|	Sim|	Não|
-Set Container ACL|	Sim|	Sim (*)| Delete Container| Não| Sim| Lease Container| Sim| Sim| List Blobs| Não| Não 
+Set Container ACL|	Sim|	Sim (*)|
+Delete Container| Não| Sim|
+Lease Container| Sim| Sim|
+List Blobs| Não| Não 
 
 (*) As permissões definidas por SetContainerACL são armazenadas em cache e as atualizações dessas permissões levam 30 segundos para serem propagadas, período durante o qual não há garantia de que as atualizações são consistentes.
 
@@ -107,7 +110,16 @@ Get Blob Properties|	Sim|	Sim|
 Set Blob Properties|	Sim|	Sim|
 Get Blob Metadata|	Sim|	Sim|
 Set Blob Metadata|	Sim|	Sim|
-Lease Blob (*)| Sim| Sim| Snapshot Blob| Sim| Sim| Copy Blob| Sim| Sim (para blob de origem e destino)| Abort Copy Blob| Não| Não| Delete Blob| Não| Sim| Put Block| Não| Não| Put Block List| Sim| Sim| Get Block List| Sim| Não| Put Page| Sim| Sim| Get Page Ranges| Sim| Sim
+Lease Blob (*)| Sim| Sim|
+Snapshot Blob| Sim| Sim|
+Copy Blob| Sim| Sim (para blob de origem e destino)|
+Abort Copy Blob| Não| Não|
+Delete Blob| Não| Sim|
+Put Block| Não| Não|
+Put Block List| Sim| Sim|
+Get Block List| Sim| Não|
+Put Page| Sim| Sim|
+Get Page Ranges| Sim| Sim
 
 (*) Lease Blob não altera a ETag em um blob.
 

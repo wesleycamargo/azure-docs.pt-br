@@ -68,7 +68,8 @@ Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Mar
 
 1. No quadro inicial do Azure, selecione **Marketplace**.
 2. Pesquise "Conector do Box", selecione-o e selecione **Criar**.
-3. Digite o Nome, o Plano do Serviço de Aplicativo e outras propriedades: ![][1]
+3. Digite o Nome, o Plano do Serviço de Aplicativo e outras propriedades: 
+	![][1]
 4. Selecione **Criar**.
 
 
@@ -80,13 +81,17 @@ Depois de criar o aplicativo de API, você pode usar o Conector do Box como uma 
 
 	> [AZURE.NOTE] Se o conector do Box é selecionado no início do aplicativo lógico, ele atua como gatilho. Caso contrário, as ações podem ser executadas na conta do Box usando o conector. O Conector do Box não tinha nenhum gatilho na data de criação deste artigo.
 
-2. Autentique e autorize os aplicativos lógicos a executarem operações em seu nome. Selecione **Autorizar** no Conector do Box: ![][2]
+2. Autentique e autorize os aplicativos lógicos a executarem operações em seu nome. Selecione **Autorizar** no Conector do Box: 
+	![][2]
 
-3. Insira os detalhes de conexão da conta do Box na qual você deseja executar as operações: ![][3]
+3. Insira os detalhes de conexão da conta do Box na qual você deseja executar as operações: 
+	![][3]
 
-4. Conceda aos aplicativos lógicos acesso à sua conta para executar operações em seu nome: ![][4]
+4. Conceda aos aplicativos lógicos acesso à sua conta para executar operações em seu nome: 
+	![][4]
 
-5. A lista de ações é exibida e você pode escolher a operação apropriada que deseja executar: ![][5]
+5. A lista de ações é exibida e você pode escolher a operação apropriada que deseja executar: 
+	![][5]
 
 ## Faça mais com seu Conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).

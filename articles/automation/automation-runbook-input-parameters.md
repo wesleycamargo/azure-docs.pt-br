@@ -98,9 +98,17 @@ Você pode usar a atividade [**Write-Output**](https://technet.microsoft.com/lib
 
 4. Crie dois parâmetros com as seguintes propriedades que serão usadas pela atividade **Get-AzureVM**:
 
-    * **Parâmetro1:** Nome – VMName, Tipo – String, Obrigatório – No
-
-    * **Parameter2:** Name--ServiceName, Type--String, Mandatory--No, Default value--Custom, Custom default value--<Nome do serviço padrão que contém as máquinas virtuais>
+    * **Parâmetro1:** 
+    Nome – VMName,
+    Tipo – String,
+    Obrigatório – No
+	
+    * **Parâmetro2:** 
+    Nome – ServiceName,
+    Tipo – String,
+    Obrigatório – No,
+    Valor padrão – Custom,
+    Valor padrão personalizado – \<nome do serviço padrão que contém as máquinas virtuais>
 
 5. Depois de adicionar os parâmetros, clique em **OK**. Agora você pode exibi-los na **folha Entrada e saída**. Clique em **OK** novamente e clique em **Salvar** e **Publicar** o runbook.
 

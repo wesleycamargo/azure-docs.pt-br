@@ -467,23 +467,23 @@ Para saber mais, veja como [usar o comando interativo de solução de problemas 
 |Tipo|Command|Descrição|
 |---|---|---|
 |**iSCSI**|`service iscsid start`|Iniciar o serviço iSCSI|
-|`service iscsid stop`|Parar o serviço iSCSI|
-|`service iscsid restart`|Reiniciar o serviço iSCSI|
-|`iscsiadm -m discovery -t sendtargets -p <TARGET_IP>`|Descobrir os destinos disponíveis no endereço especificado|
-|`iscsiadm -m node --login -T <TARGET_IQN>`|Fazer logon no destino iSCSI|
-|`iscsiadm -m node --logout -p <Target_IP>`|Faça logoff do destino iSCSI|
-|`cat /etc/iscsi/initiatorname.iscsi`|Imprimir o nome do iniciador iSCSI|
-|`iscsiadm –m session –s <sessionid> -P 3`|Verificar o estado da sessão de iSCSI e o volume descoberto no host|
-|`iscsi –m session`|Mostra todas as sessões de iSCSI estabelecidas entre o host e o dispositivo StorSimple|
+||`service iscsid stop`|Parar o serviço iSCSI|
+||`service iscsid restart`|Reiniciar o serviço iSCSI|
+||`iscsiadm -m discovery -t sendtargets -p <TARGET_IP>`|Descobrir os destinos disponíveis no endereço especificado|
+||`iscsiadm -m node --login -T <TARGET_IQN>`|Fazer logon no destino iSCSI|
+||`iscsiadm -m node --logout -p <Target_IP>`|Faça logoff do destino iSCSI|
+||`cat /etc/iscsi/initiatorname.iscsi`|Imprimir o nome do iniciador iSCSI|
+||`iscsiadm –m session –s <sessionid> -P 3`|Verificar o estado da sessão de iSCSI e o volume descoberto no host|
+||`iscsi –m session`|Mostra todas as sessões de iSCSI estabelecidas entre o host e o dispositivo StorSimple|
 | | | |
-|**Múltiplos caminhos**|`service multipathd start`|Iniciar o daemon de vários caminhos|
-|`service multipathd stop`|Parar o daemon de vários caminhos|
-|`service multipathd restart`|Reiniciar o daemon de vários caminhos|
-|`chkconfig multipathd on` </br> OU </br> `mpathconf –with_chkconfig y`|Habilitar daemon de vários caminhos para iniciar no momento da inicialização|
-|`multipathd –k`|Inicie o console interativo para solução de problemas|
-|`multipath –l`|Listar as conexões e dispositivos de vários caminhos|
-|`mpathconf --enable`|Criar um arquivo mulitpath.conf de exemplo `/etc/mulitpath.conf`|
-|
+||**Múltiplos caminhos**|`service multipathd start`|Iniciar o daemon de vários caminhos|
+||`service multipathd stop`|Parar o daemon de vários caminhos|
+||`service multipathd restart`|Reiniciar o daemon de vários caminhos|
+||`chkconfig multipathd on` </br> OU </br> `mpathconf –with_chkconfig y`|Habilitar daemon de vários caminhos para iniciar no momento da inicialização|
+||`multipathd –k`|Inicie o console interativo para solução de problemas|
+||`multipath –l`|Listar as conexões e dispositivos de vários caminhos|
+||`mpathconf --enable`|Criar um arquivo mulitpath.conf de exemplo `/etc/mulitpath.conf`|
+||||
 
 ## Próximas etapas
 

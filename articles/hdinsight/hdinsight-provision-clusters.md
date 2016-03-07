@@ -51,7 +51,9 @@ Veja a seguir as opções de configuração básica para criar um cluster HDInsi
 	
 - **Sistema operacional**
 
-	Você pode criar clusters HDInsight em um dos dois seguintes sistemas operacionais: - **HDInsight no Windows (Windows Server 2012 R2 Datacenter)**: - **HDInsight no Linux (Ubuntu 12.04 LTS para Linux)**: o HDInsight oferece a opção de configurar clusters Linux no Azure. Configure um cluster do Linux, se você estiver familiarizado com o Linux ou Unix, migre de uma solução Hadoop baseada em Linux existente ou deseja fácil integração com componentes do ecossistema do Hadoop criados para o Linux. Para obter mais informações, consulte [Introdução ao Hadoop no Linux em HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+	Você pode criar clusters HDInsight em um dos dois seguintes sistemas operacionais:
+	- **HDInsight no Windows (Windows Server 2012 R2 Datacenter)**:
+	- **HDInsight no Linux (Ubuntu 12.04 LTS para Linux)**: o HDInsight oferece a opção de configurar clusters Linux no Azure. Configure um cluster do Linux, se você estiver familiarizado com o Linux ou Unix, migre de uma solução Hadoop baseada em Linux existente ou deseja fácil integração com componentes do ecossistema do Hadoop criados para o Linux. Para obter mais informações, consulte [Introdução ao Hadoop no Linux em HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 - **Tipo do cluster** e **tamanho do cluster (ou seja, nós de dados)**
 
@@ -77,16 +79,25 @@ Veja a seguir as opções de configuração básica para criar um cluster HDInsi
 
 	![Funções de cluster Hadoop do HDInsight](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png)
 
-	Clusters do HBase para HDInsight são implantados com três funções: - Servidores principais (2 nós) - Servidores de região (pelo menos 1 nó) - Nós mestre/zookeeper (3 nós)
+	Clusters do HBase para HDInsight são implantados com três funções: 
+	- Servidores principais (2 nós) 
+	- Servidores de região (pelo menos 1 nó) 
+	- Nós mestre/zookeeper (3 nós)
 
 	![Funções de cluster Hadoop do HDInsight](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)
 
-	Clusters do Storm para HDInsight são implantados com três funções: - Nós Nimbus (2 nós) - Servidores de supervisão (pelo menos 1 nó) - Nós zookeeper (3 nós)
+	Clusters do Storm para HDInsight são implantados com três funções: 
+	- Nós Nimbus (2 nós) 
+	- Servidores de supervisão (pelo menos 1 nó) 
+	- Nós zookeeper (3 nós)
 
 
 	![Funções de cluster Hadoop do HDInsight](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)
 
-	Clusters do Spark para HDInsight são implantados com três funções: - Nó principal (2 nós) - Nó de trabalho (pelo menos 1 nó) - Nós zookeeper (3 nós) (gratuito para Zookeepers A1)
+	Clusters do Spark para HDInsight são implantados com três funções: 
+	- Nó principal (2 nós) 
+	- Nó de trabalho (pelo menos 1 nó) 
+	- Nós zookeeper (3 nós) (gratuito para Zookeepers A1)
 
 	Os clientes são cobrados pelo uso desses nós pela duração da vida útil do cluster. A cobrança é iniciada quando um cluster é criado e para quando o cluster é excluído (clusters não podem ser desalocados ou colocados em espera). O tamanho do cluster afeta seu preço. Para fins de aprendizado, é recomendável usar 1 nó de dados. Para obter mais informações sobre os preços do HDInsight, confira [Preços do HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 

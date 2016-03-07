@@ -19,7 +19,9 @@
 #Tutorial: Integração do Active Directory do Azure com a Área Restrita Salesforce
 >[AZURE.TIP]Para ver comentários, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=521878).
   
-O objetivo deste tutorial é mostrar a integração do Azure com a Área Restrita Salesforce. As áreas restritas oferecem a capacidade de criar várias cópias da sua organização em ambientes separados por uma variedade de finalidades, como desenvolvimento, testes e treinamento, sem comprometer os dados e os aplicativos em sua organização de produção do Salesforce. Para obter mais detalhes, confira [Visão geral da área restrita](https://help.salesforce.com/HTViewHelpDoc?id=create_test_instance.htm&language=en_US)
+O objetivo deste tutorial é mostrar a integração do Azure com a Área Restrita Salesforce.  
+As áreas restritas oferecem a capacidade de criar várias cópias da sua organização em ambientes separados por uma variedade de finalidades, como desenvolvimento, testes e treinamento, sem comprometer os dados e os aplicativos em sua organização de produção do Salesforce.  
+Para obter mais detalhes, confira [Visão geral da área restrita](https://help.salesforce.com/HTViewHelpDoc?id=create_test_instance.htm&language=en_US)
   
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
