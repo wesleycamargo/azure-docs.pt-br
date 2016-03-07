@@ -13,10 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="01/19/2016"
+   ms.date="02/22/2016"
    ms.author="jehollan"/>
 
 #Aplicativo de API de C#
+
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
+
 O aplicativo de API de C# oferece uma maneira fácil de executar expressões C# simples *enquanto seu aplicativo lógico* é executado.
 
 ##Quando você deve usar esse aplicativo de API?
@@ -33,9 +36,9 @@ Para usar o aplicativo de API de C#, você precisa primeiro criar uma instância
 
 ##Usando o aplicativo de API de C# na superfície do designer de aplicativos lógicos
 ###Gatilho
-Você pode criar um gatilho que o serviço de aplicativo lógico vai sondar (em um intervalo que você definir) e, se ele retornar algo diferente de `false`, o aplicativo lógico será executado; caso contrário, ele aguardará até o próximo intervalo de sondagem para verificar novamente.
+Você pode criar um gatilho que o serviço de aplicativo lógico vai sondar (em um intervalo que você definir) e, se ele retornar algo diferente de `false`, o Aplicativo Lógico será executado; caso contrário, ele aguardará até o próximo intervalo de sondagem para verificar novamente.
 
-As entradas para o gatilho são: -**Expressão C#** - Uma expressão que será avaliada. Ele é invocado dentro de uma função e deverá retornar `false` quando você não quiser que o aplicativo Lógico seja executado, poderá retornar qualquer outra coisa quando quiser que o aplicativo lógico seja executado. Você pode usar o conteúdo da resposta nas ações do aplicativo lógico.
+As entradas para o gatilho são: -**Expressão C#** - Uma expressão que será avaliada. Ele é invocado dentro de uma função e deverá retornar `false` quando você não quiser que o Aplicativo Lógico seja executado, podendo retornar qualquer outra coisa quando quiser que o aplicativo lógico seja executado. Você pode usar o conteúdo da resposta nas ações do aplicativo lógico.
 
 Você pode ter um gatilho simples que somente executa seu aplicativo lógico entre os minutos 15 e 30 da hora:
 
@@ -105,4 +108,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

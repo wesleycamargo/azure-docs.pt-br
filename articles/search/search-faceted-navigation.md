@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Como implementar a navegação facetada na Pesquisa do Azure | Microsoft Azure | Serviço de pesquisa de nuvem hospedado" 
+	pageTitle="Como implementar a navegação facetada na Pesquisa do Azure | Microsoft Azure | categorias de navegação de pesquisa" 
 	description="Navegação facetada adicionada aos aplicativos que são integrados à Pesquisa do Azure, um serviço de pesquisa hospedado na nuvem do Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="02/18/2016" 
 	ms.author="heidist"/>
 
 #Como implementar a navegação facetada na Pesquisa do Azure
@@ -29,10 +29,6 @@ Facetas podem ajudar a encontrar o que você está procurando, garantindo que vo
 A implementação da navegação facetada varia entre diferentes tecnologias de pesquisa e pode ser um processo muito complexo. Na Pesquisa do Azure, a navegação mistas baseia-se no momento da consulta, usando os campos atribuídos especificados anteriormente no seu esquema. Nas consultas compiladas pelo seu aplicativo, uma consulta deve enviar *parâmetros de faceta de consulta* para receber os valores de filtro de faceta disponíveis para esse conjunto de resultados do documento. Para realmente recortar o conjunto de resultados do documento, o aplicativo deve aplicar uma expressão `$filter`.
 
 Em termos de desenvolvimento do aplicativo, escrever um código que construa consultas constitui a maior parte do trabalho. Muitos dos comportamentos de aplicativo que você desejaria da navegação facetada são fornecidos pelo serviço, incluindo suporte integrado para configuração de intervalos e obtenção de contagens de resultados de uma determinada faceta. O serviço também inclui padrões pertinentes, que o ajudarão a evitar estruturas de navegação complicadas.
-
-Para uma experiência prática, recomendamos este exemplo no CodePlex: [Catálogo AdventureWorks de Pesquisa do Azure](https://azuresearchadventureworksdemo.codeplex.com/)
-
-Você também pode assistir [Aprofundamento na Pesquisa do Azure](http://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). Em 45:25, há uma demonstração de como implementar facetas.
 
 Este artigo contém as seguintes seções:
 
@@ -128,7 +124,7 @@ Observe que cada faceta tem um rótulo (Cores, Categorias, Preços), uma associa
   ![][2]
  
 
-> [AZURE.TIP]Ao criar a página de resultados da pesquisa, lembre-se de adicionar um mecanismo para limpar facetas. Se você usar as caixas de seleção, os usuários podem intuir facilmente como limpar os filtros. Para outros layouts, talvez seja necessário um padrão de navegação estrutural ou outra abordagem criativa. Por exemplo, no catálogo AdventureWorks, um aplicativo de exemplo, você pode clicar no título, catálogo AdventureWorks, para redefinir a página de pesquisa.
+> [AZURE.TIP] Ao criar a página de resultados da pesquisa, lembre-se de adicionar um mecanismo para limpar facetas. Se você usar as caixas de seleção, os usuários podem intuir facilmente como limpar os filtros. Para outros layouts, talvez seja necessário um padrão de navegação estrutural ou outra abordagem criativa. Por exemplo, no catálogo AdventureWorks, um aplicativo de exemplo, você pode clicar no título, catálogo AdventureWorks, para redefinir a página de pesquisa.
 
 <a name="buildindex"></a>
 ##Compilar o índice
@@ -143,7 +139,7 @@ A seguir temos o esquema para o aplicativo de exemplo do Catálogo AdventureWork
  
 Observe que `Facetable` é desativado para os campos de cadeia de caracteres que não devem ser usados como facetas, como um nome ou ID. Desligar a facetagem onde você não precisa dela ajuda a manter o tamanho do índice pequeno e geralmente melhora o desempenho.
 
-> [AZURE.TIP]Como prática recomendada, inclua o conjunto completo de atributos de índice para cada campo. Embora `Facetable` seja ativado por padrão para quase todos os campos, definir propositadamente cada atributo pode ajudá-lo a considerar as implicações de cada decisão do esquema.
+> [AZURE.TIP] Como prática recomendada, inclua o conjunto completo de atributos de índice para cada campo. Embora `Facetable` seja ativado por padrão para quase todos os campos, definir propositadamente cada atributo pode ajudá-lo a considerar as implicações de cada decisão do esquema.
 
 <a name="checkdata"></a>
 ##Verificar a qualidade de dados 
@@ -228,7 +224,7 @@ Para cada campo facetado na árvore de navegação, há um limite padrão de 10 
 
 Observe a diferença entre os resultados da pesquisa e os resultados da faceta. Os resultados da pesquisa são todos os documentos que correspondem à consulta. Os resultados da faceta são as correspondências para cada valor da faceta. No exemplo, os resultados da pesquisa incluem nomes de cidades que não estão na lista de classificação da faceta (5 em nosso exemplo). Os resultados que são filtrados por meio de navegação facetada se tornam visíveis ao usuário quando ele ou ela limpa facetas ou escolhe outras facetas além de Cidade.
 
-> [AZURE.NOTE]Discutir `count` quando há mais de um tipo pode ser confuso. A tabela a seguir oferece um breve resumo de como o termo é usado na API de Pesquisa do Azure, um código de exemplo e a documentação.
+> [AZURE.NOTE] Discutir `count` quando há mais de um tipo pode ser confuso. A tabela a seguir oferece um breve resumo de como o termo é usado na API de Pesquisa do Azure, um código de exemplo e a documentação.
 
 - `@colorFacet.count`<br/> No código de apresentação, você deverá ver um parâmetro de contagem na faceta, usada para exibir o número de resultados da faceta. Nos resultados da faceta, a contagem indica o número de documentos que correspondam ao intervalo ou termo da faceta em questão.
 
@@ -303,7 +299,7 @@ Você pode encontrar exemplos de filtros em [Sintaxe de expressão OData (Pesqui
 
 Demonstração do Adventure Works da Pesquisa do Azure em Codeplex contém os exemplos mencionados neste artigo. Ao trabalhar com os resultados da pesquisa, monitore a URL quanto a alterações na construção de consulta. Esse aplicativo acrescenta facetas ao URI conforme você seleciona cada uma.
 
-1.	Configure o aplicativo de exemplo (consulte [Criar seu primeiro aplicativo para obter instruções](search-create-first-solution.md)). 
+1.	Configure o aplicativo de exemplo para usar a URL de serviço e a chave de api. 
 
 	Observe o esquema definido no arquivo Program.cs do projeto CatalogIndexer. Ele especifica os campos facetáveis para cor, listPrice, tamanho, peso, categoryName e modelName. Apenas alguns deles (cor, listPrice e categoryName) são realmente implementados na navegação facetada.
 
@@ -336,6 +332,8 @@ Para obter mais informações sobre princípios de design para navegação facet
 
 - [Design para pesquisa facetada](http://www.uie.com/articles/faceted_search/)
 - [Padrões de design: navegação facetada](http://alistapart.com/article/design-patterns-faceted-navigation)
+
+Você também pode assistir [Aprofundamento na Pesquisa do Azure](http://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). Em 45:25, há uma demonstração de como implementar facetas.
 
 <!--Anchors-->
 [How to build it]: #howtobuildit
@@ -373,4 +371,4 @@ Para obter mais informações sobre princípios de design para navegação facet
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

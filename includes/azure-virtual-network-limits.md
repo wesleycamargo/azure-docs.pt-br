@@ -3,7 +3,7 @@ Os limites a seguir se aplicam somente a recursos de rede gerenciados pelo model
 Recurso| Limite padrão | Limite máximo
 --- | --- | --- 
 Redes virtuais por assinatura | 50 | 100
-Sites de rede local por rede virtual | 20 | entre em contato com o suporte
+Sites de rede locais por assinatura | 20 | entre em contato com o suporte
 Servidores DNS por rede virtual | 20 | 100
 Máquinas virtuais e instâncias de função por rede virtual | 2\.048 | 2\.048
 Conexões TCP simultâneas para uma máquina virtual ou instância de função | 500K | 500K 
@@ -43,4 +43,4 @@ Application gateways | 50 | 50
 
 Entre em contato com o suporte caso precise aumentar esses limites.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="12/04/2015"
+   ms.date="02/21/2016"
    ms.author="robinsh" />
 
 # Metas de desempenho e escalabilidade do Armazenamento do Azure
@@ -29,7 +29,7 @@ Este tópico descreve os tópicos de desempenho e escalabilidade do Armazenament
 
 >Quando seu aplicativo atingir o limite de uma partição, o Armazenamento do Azure passará a retornar respostas com o código de erro 503 (servidor ocupado) ou o código de erro 500 (tempo limite da operação). Quando isso ocorre, o aplicativo deve usar uma política de retirada exponencial para repetições. A retirada exponencial permite que a carga na partição diminua e afasta os picos de tráfego nessa partição.
 
-Se as necessidades de seu aplicativo excederem as metas de escalabilidade de uma única conta de armazenamento, crie seu aplicativo para usar múltiplas contas de armazenamento e faça o particionamento dos seus objetos de dados nessas contas de armazenamento. Consulte [Detalhes de preços de armazenamento](https://azure.microsoft.com/pricing/details/storage/) para obter informações sobre o preço por volume.
+Se as necessidades de seu aplicativo excederem as metas de escalabilidade de uma única conta de armazenamento, crie seu aplicativo para usar múltiplas contas de armazenamento e faça o particionamento dos seus objetos de dados nessas contas de armazenamento. Consulte [Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/) para obter informações sobre preço por volume.
 
 
 ## Metas de escalabilidade para blobs, filas, tabelas e arquivos
@@ -40,7 +40,7 @@ Se as necessidades de seu aplicativo excederem as metas de escalabilidade de uma
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks](../../includes/azure-storage-limits-vm-disks.md)]
 
-Consulte [Tamanhos de máquina virtual](../virtual-machines/virtual-machines-size-specs.md) para saber mais detalhes.
+Consulte [Tamanhos de máquinas virtuais](../virtual-machines/virtual-machines-size-specs.md) para saber mais detalhes.
 
 ### Contas de armazenamento padrão
 
@@ -58,17 +58,17 @@ Consulte [Tamanhos de máquina virtual](../virtual-machines/virtual-machines-siz
 
 Cada objeto com dados armazenado no Armazenamento do Azure (blobs, mensagens, entidades e arquivos) pertence a uma partição e é identificado por uma chave de partição. A partição determina como o Armazenamento do Azure equilibra as cargas de blobs, mensagens, entidades e arquivos em servidores a fim de atender às necessidades de tráfego desses objetos. A chave de partição é exclusiva dentro da conta de armazenamento e é usada para localizar um blob, mensagem ou entidade.
 
-A tabela mostrada acima em [Metas de escalabilidade para contas de armazenamento padrão](#scalability-targets-for-standard-storage-accounts) lista as metas de desempenho para uma única partição para cada serviço.
+A tabela acima em [Metas de escalabilidade para contas de armazenamento padrão](#standard-storage-accounts) lista as metas de desempenho para uma única partição para cada serviço.
 
 As partições afetam o balanceamento de carga e a escalabilidade de cada um dos serviços de armazenamento das seguintes formas:
 
-- **Blobs**: A chave de partição de um blob é o nome do contêiner + nome do blob. Isso significa que cada blob possui sua própria partição. Blobs podem, portanto, ser distribuídos em vários servidores a fim de expandir o acesso a eles. Embora os blobs possam ser agrupados logicamente em contêineres de blob, o particionamento não é afetado de forma alguma por esse agrupamento.
+- **Blobs**: a chave de partição de um blob é o nome do contêiner + nome do blob. Isso significa que cada blob possui sua própria partição. Blobs podem, portanto, ser distribuídos em vários servidores a fim de expandir o acesso a eles. Embora os blobs possam ser agrupados logicamente em contêineres de blob, o particionamento não é afetado de forma alguma por esse agrupamento.
 
 - **Arquivos**: A chave de partição para um arquivo é o nome da conta + nome do compartilhamento do arquivos. Isso significa que todos os arquivos em um compartilhamento de arquivos também estão em uma única partição.
 
-- **Mensagens**: A chave de partição de uma mensagem é o nome da fila, portanto, todas mensagens em uma fila são agrupadas em uma única partição e são atendidas por um único servidor. Filas diferentes podem ser processadas por servidores diferentes a fim de equilibrar a carga, não importa a quantidade de filas que uma conta de armazenamento tenha.
+- **Mensagens**: a chave de partição de uma mensagem é o nome da fila, portanto, todas mensagens em uma fila são agrupadas em uma única partição e são atendidas por um único servidor. Filas diferentes podem ser processadas por servidores diferentes a fim de equilibrar a carga, não importa a quantidade de filas que uma conta de armazenamento tenha.
 
-- **Entidades**: A chave de partição de uma entidade é nome da tabela + chave de partição, sendo que a chave de partição é o valor da propriedade obrigatória **PartitionKey** definida pelo usuário para a entidade.
+- **Entidades**:aA chave de partição de uma entidade é nome da tabela + chave de partição, sendo que a chave de partição é o valor da propriedade obrigatória **PartitionKey** definida pelo usuário para a entidade.
 
 	Todas as entidades com o mesmo valor de chave de partição são agrupadas na mesma partição e são armazenadas no mesmo servidor de partição. É importante entender isso ao projetar seu aplicativo. Seu aplicativo deve equilibrar os benefícios de escalabilidade da propagação de entidades por várias partições com as vantagens de acesso de dados do agrupamento de entidades em uma única partição.
 
@@ -80,9 +80,9 @@ As partições afetam o balanceamento de carga e a escalabilidade de cada um dos
 
 - [Detalhes de preços de armazenamento](https://azure.microsoft.com/pricing/details/storage/)
 - [Assinatura do Azure e limites de serviços, cotas e restrições](../azure-subscription-service-limits.md)
-- [Armazenamento Premium: Armazenamento de Alto Desempenho para as Cargas de Trabalho da Máquina Virtual do Azure](storage-premium-storage-preview-portal/)
+- [Armazenamento Premium: Armazenamento de Alto Desempenho para as Cargas de Trabalho da Máquina Virtual do Azure](storage-premium-storage.md)
 - [Replicação de armazenamento do Azure](storage-redundancy.md)
 - [Lista de verificação de desempenho e escalabilidade do Armazenamento do Microsoft Azure](storage-performance-checklist.md)
 - [Armazenamento do Microsoft Azure: um serviço de armazenamento em nuvem altamente disponível com coerência forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

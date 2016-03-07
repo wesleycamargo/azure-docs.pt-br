@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/18/2015"
+	ms.date="02/23/2016"
 	ms.author="nicking"/>
 
 # Usar REST para fazer backup e restaurar aplicativos do Serviço de Aplicativo
@@ -92,7 +92,7 @@ Um backup do aplicativo começará imediatamente após o recebimento da solicita
 }
 ```
 
->[AZURE.NOTE]É possível encontrar mensagens de erro na propriedade de registro da resposta HTTP.
+>[AZURE.NOTE] É possível encontrar mensagens de erro na propriedade de registro da resposta HTTP.
 
 <a name="schedule-automatic-backups"></a>
 ## Agendar backups automáticos
@@ -225,9 +225,9 @@ No corpo da solicitação, envie um objeto JSON que contém a nova URL de SAS. A
 }
 ```
 
->[AZURE.NOTE]Por motivos de segurança, a URL de SAS associada a um backup não é retornada quando você envia uma solicitação GET para um backup específico. Se você quiser exibir a URL de SAS associada a um backup, envie uma solicitação POST para a mesma URL acima e inclua apenas um objeto JSON vazio no corpo da solicitação. A resposta do servidor conterá todas as informações do backup, incluindo sua URL de SAS.
+>[AZURE.NOTE] Por motivos de segurança, a URL de SAS associada a um backup não é retornada quando você envia uma solicitação GET para um backup específico. Se você quiser exibir a URL de SAS associada a um backup, envie uma solicitação POST para a mesma URL acima e inclua apenas um objeto JSON vazio no corpo da solicitação. A resposta do servidor conterá todas as informações do backup, incluindo sua URL de SAS.
 
 <!-- IMAGES -->
 [SampleWebsiteInformation]: ./media/websites-csm-backup/01siteconfig.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0224_2016-->

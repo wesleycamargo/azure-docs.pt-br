@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="02/04/2016"
+	ms.date="02/18/2016"
 	ms.author="jeffstok"/>
 
 
@@ -29,8 +29,9 @@ Ferramentas de análise de mídias sociais ajudam as organizações a compreende
 Um site de mídia de notícias está interessado em obter uma vantagem sobre seus concorrentes apresentando conteúdo do site que é imediatamente relevante para seus leitores. Eles usam percepções de mídia social sobre tópicos relevantes para seus leitores fazendo uma análise de sentimento em tempo real sobre dados do Twitter. Especificamente, para identificar quais são os tópicos mais populares, eles precisam de análise em tempo real no Twitter sobre o volume de tweets e de sentimento para os tópicos principais. Então, essencialmente eles precisam de um mecanismo de análise para análise de sentimento baseado nesse feed de mídia social.
 
 ## Pré-requisitos
-1.	É necessária uma conta do Twitter para este tutorial.  
-2.	Essa explicação passo a passo usa um aplicativo de cliente do Twitter que está localizado no GitHub. Baixe-o [aqui](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient) e siga as etapas abaixo para configurar sua solução.
+1.	Conta do Twitter e [token de acesso do OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens) 
+2.	[TwitterClient.zip](http://download.microsoft.com/download/1/7/4/1744EE47-63D0-4B9D-9ECF-E379D15F4586/TwitterClient.zip) do Centro de Download da Microsoft
+3.	Opcional: código-fonte do cliente do Twitter do [Github](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient) 
 
 ## Criar uma entrada de Hub de Eventos e um Grupo de Consumidores
 
@@ -55,16 +56,15 @@ Fornecemos um aplicativo de cliente que acessará os dados do Twitter por meio d
 
 Siga estas etapas para configurar o aplicativo:
 
-1.	[Baixar a solução TwitterClient](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient)
-2.	Abra App.config e substitua oauth\_consumer\_key, oauth\_consumer\_secret, oauth\_token e oauth\_token\_secret por tokens do Twitter com seus valores.  
+1.	[Baixar a solução TwitterClient](http://download.microsoft.com/download/1/7/4/1744EE47-63D0-4B9D-9ECF-E379D15F4586/TwitterClient.zip)
+2.	Abra o TwitterClient.exe.config e substitua oauth\_consumer\_key, oauth\_consumer\_secret, oauth\_token e oauth\_token\_secret por tokens do Twitter pelos seus valores.  
 
 	[Etapas para gerar um token de acesso OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
 
 	Observe que você precisa criar um aplicativo vazio para gerar um token.  
-3.	Substitua os valores EventHubConnectionString e EventHubName em App.config pela cadeia de conexão e o nome do Hub de Eventos.
-4.	*Opcional:* ajuste as palavras-chave a serem pesquisadas. Por padrão, esse aplicativo procura por "Azure,Skype,XBox,Microsoft,Seattle". Você poderá ajustar os valores de twitter\_keywords em App.config, se desejar.
-5.	Compilar a solução
-6.	Inicie o aplicativo. Você verá eventos de Tweet com os valores CreatedAt, Topic e SentimentScore sendo enviados ao Hub de Eventos:
+3.	Substitua os valores de EventHubConnectionString e EventHubName em TwitterClient.exe.config pela cadeia de conexão e o nome do Hub de Eventos.
+4.	*Opcional:* ajuste as palavras-chave a serem pesquisadas. Por padrão, esse aplicativo procura por "Azure,Skype,XBox,Microsoft,Seattle". Você poderá ajustar os valores de twitter\_keywords em TwitterClient.exe.config, se desejar.
+5.	Executar o **TwitterClient.exe** para iniciar o aplicativo. Você verá eventos de Tweet com os valores CreatedAt, Topic e SentimentScore sendo enviados ao Hub de Eventos:
 
 	![Análise de sentimento: valores de SentimentScore enviados para um hub de eventos.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-sentiment-output-to-event-hub.png)
 
@@ -236,4 +236,4 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

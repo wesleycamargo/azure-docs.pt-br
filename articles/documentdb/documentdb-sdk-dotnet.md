@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/09/2016" 
+	ms.date="02/19/2016" 
 	ms.author="ryancraw"/>
 
 # SDK do Banco de Dados de Documentos
@@ -30,12 +30,15 @@
 
 ## Notas de versão
 
+### <a name="1.5.3"/>[1\.5.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.3)
+  - **[Fixo]** Consultas no ponto de extremidade do Banco de Dados de Documentos geram: “System.Net.Http.HttpRequestException: erro ao copiar o conteúdo para um fluxo.
+
 ### <a name="1.5.2"/>[1\.5.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.2)
   - Expansão do suporte do LINQ, incluindo novos operadores para paginação, expressões condicionais e comparação de intervalo.
     - Operador Take para habilitar o comportamento de SELECT TOP no LINQ
     - Operador CompareTo para habilitar comparações de intervalo de cadeia de caracteres
     - Operadores condicionais (?) e de união (??)
-  - **[Corrigido]** ArgumentOutOfRangeException ao combinar a projeção do Modelo com Where-In na consulta LINQ. [Nº 81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
+  - **[Fixo]** ArgumentOutOfRangeException ao combinar a projeção do Modelo com o Where-In na consulta linq. [#81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
 
 ### <a name="1.5.1"/>[1\.5.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.1)
  - **[Corrigido]** Se Select não for a última expressão, o Provedor LINQ presumiu que não havia projeção e produziu SELECT * incorretamente. [Nº 58](https://github.com/Azure/azure-documentdb-dotnet/issues/58)
@@ -112,18 +115,19 @@ Todas as versões do SDK do Banco de Dados de Documentos do Azure para .NET ante
  
 | Versão | Data do lançamento | Data de desativação 
 | ---	  | ---	         | ---
+| [1\.5.3](#1.5.3) | 19 de fevereiro de 2016 |---
 | [1\.5.2](#1.5.2) | 14 de dezembro de 2015 |---
 | [1\.5.1](#1.5.1) | 23 de novembro de 2015 |---
-| [1\.5.0](#1.5.0) | 5 de outubro de 2015 |--- 
-| [1\.4.1](#1.4.1) | 25 de agosto de 2015 |--- 
-| [1\.4.0](#1.4.0) | 13 de agosto de 2015 |--- 
-| [1\.3.0](#1.3.0) | 5 de agosto de 2015 |--- 
-| [1\.2.0](#1.2.0) | 6 de julho de 2015 |--- 
-| [1\.1.0](#1.1.0)| 30 de abril de 2015 |--- 
-| [1\.0.0](#1.0.0) | 8 de abril de 2015 |--- 
-| [0\.9.3-prelease](#0.9.x-preview) | 12 de março de 2015 | 29 de fevereiro de 2016 
-| [0\.9.2-prelease](#0.9.x-preview) | Janeiro de 2015 | 29 de fevereiro de 2016 
-| [.9.1-prelease](#0.9.x-preview) | 13 de outubro de 2014 | 29 de fevereiro de 2016 
+| [1\.5.0](#1.5.0) | 05 de outubro de 2015 |---
+| [1\.4.1](#1.4.1) | 25 de agosto de 2015 |---
+| [1\.4.0](#1.4.0) | 13 de agosto de 2015 |---
+| [1\.3.0](#1.3.0) | 05 de agosto de 2015 |---
+| [1\.2.0](#1.2.0) | 06 de julho de 2015 |---
+| [1\.1.0](#1.1.0) | 30 de abril de 2015 |---
+| [1\.0.0](#1.0.0) | 08 de abril de 2015 |---
+| [0\.9.3-prelease](#0.9.x-preview) | 12 de março de 2015 | 29 de fevereiro de 2016
+| [0\.9.2-prelease](#0.9.x-preview) | janeiro de 2015 | 29 de fevereiro de 2016
+| [.9.1-prelease](#0.9.x-preview) | 13 de outubro de 2014 | 29 de fevereiro de 2016
 | [0\.9.0-prelease](#0.9.x-preview) | 21 de agosto de 2014 | 29 de fevereiro de 2016
 
 ## Perguntas frequentes
@@ -133,4 +137,4 @@ Todas as versões do SDK do Banco de Dados de Documentos do Azure para .NET ante
 
 Para saber mais sobre o Banco de Dados de Documentos, confira a página de serviço do [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

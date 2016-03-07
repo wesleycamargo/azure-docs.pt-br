@@ -1,5 +1,5 @@
 <properties
-	pageTitle="API Web do Node.js do modelo de aplicativo v2.0 | Microsoft Azure"
+	pageTitle="API Web NodeJS do Azure AD v2.0 | Microsoft Azure"
 	description="Como criar uma API Web do Node JS que aceite tokens da conta pessoal da Microsoft e das contas corporativas ou de estudante."
 	services="active-directory"
 	documentationCenter="nodejs"
@@ -13,24 +13,19 @@
   	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="02/20/2016"
 	ms.author="brandwe"/>
 
-# Visualização do modelo de aplicativo v2.0: proteger uma API da Web usando node.js
+# Proteger uma API Web usando node.js
 
 > [AZURE.NOTE]
-Essas informações se aplicam à visualização pública do modelo de aplicativo v2.0. Para obter instruções sobre como integrar-se ao serviço do AD do Azure disponível ao público geral, consulte o [Guia do Desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md).
+	Nem todos os recursos e cenários do Azure Active Directory têm suporte no ponto de extremidade v2.0. Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da v2.0](active-directory-v2-limitations.md).
 
-Com o modelo de aplicativo v2.0, você pode proteger uma API da Web usando tokens de acesso [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow), permitindo que os usuários com contas pessoal, corporativa ou escolar da Microsoft acessem de forma segura sua API da Web.
+Com o ponto de extremidade v2.0 do Azure Active Directory, você pode proteger uma API Web usando tokens de acesso [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow), permitindo que usuários com contas pessoais, corporativas ou de estudante da Microsoft acessem sua API Web com segurança.
 
 **Passport** é middleware de autenticação para o Node.js. Extremamente flexível e modular, o Passport pode ser colocado sem impedimento em qualquer aplicativo Web baseado em Express ou Restify. Um conjunto abrangente de estratégias suportam a autenticação usando um nome de usuário e senha, Facebook, Twitter e mais. Desenvolvemos uma estratégia para o Active Directory do Microsoft Azure. Instalaremos esse módulo e, em seguida, adicionaremos o plug-in `passport-azure-ad` do Active Directory do Microsoft Azure.
 
-Para isso, você precisará:
-
-1. Registrar um aplicativo com o Active Directory do Azure
-2. Configure seu aplicativo para usar o plug-in azure-ad-passport do Passport.
-3. Configurar um aplicativo cliente chamar a API da Web da lista de tarefas
-
+## Baixar
 O código para este tutorial é mantido [no GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs). Para acompanhar, você pode [baixar o esqueleto do aplicativo como um .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs/archive/skeleton.zip) ou clonar o esqueleto:
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs.git```
@@ -38,8 +33,8 @@ O código para este tutorial é mantido [no GitHub](https://github.com/AzureADQu
 O aplicativo completo também é fornecido no final deste tutorial.
 
 
-## 1. Registrar um aplicativo
-Crie um novo aplicativo em [apps.dev.microsoft.com](https://apps.dev.microsoft.com) ou siga estas [etapas detalhadas](active-directory-v2-app-registration.md).  Não se esqueça de:
+## 1\. Registrar um aplicativo
+Crie um novo aplicativo em [apps.dev.microsoft.com](https://apps.dev.microsoft.com) ou siga estas [etapas detalhadas](active-directory-v2-app-registration.md). Não se esqueça de:
 
 - Copiar a **ID do Aplicativo** designada ao seu aplicativo, você precisará dela logo.
 - Adicione a plataforma **Móvel** de seu aplicativo.
@@ -57,7 +52,7 @@ Para usar este exemplo com êxito, você deve ter uma instalação do MongoDB fu
 
 Instalar o MongoDB a partir de [http://mongodb.org](http://www.mongodb.org).
 
-> [AZURE.NOTE]Este passo a passo presume que você use os pontos de extremidade de servidor e de instalação padrão para MongoDB que, no momento da redação deste artigo, são: mongodb://localhost
+> [AZURE.NOTE] Este passo a passo presume que você use os pontos de extremidade de servidor e de instalação padrão para MongoDB que, no momento da redação deste artigo, são: mongodb://localhost
 
 ## 4: instalar os módulos Restify em sua API Web
 
@@ -126,7 +121,7 @@ A saída desse comando deve ser semelhante ao seguinte:
 	├── verror@1.3.6 (extsprintf@1.0.2)
 	├── csv@0.3.6
 	├── http-signature@0.10.0 (assert-plus@0.1.2, asn1@0.1.11, ctype@0.5.2)
-	└── bunyan@0.22.0 (mv@0.0.5)
+	└── bunyan@0.22.0(mv@0.0.5)
 
 
 ## 5: instalar Passport.js em sua API da Web
@@ -314,7 +309,7 @@ Agora todos os essa preparação passará a compensar, enquanto agrupamos esses 
 
 Para este passo a passo usaremos MongoDB para armazenar nossas tarefas conforme discutido em ***Etapa 4***.
 
-Se você se lembra do arquivo js que criamos na Etapa 11, chamamos de nosso banco de dados *tasklist*, uma vez que foi o que usamos no final da nossa URL de conexão mogoose\_auth\_local. Você não precisa criar esse banco de dados com antecedência no MongoDB, ele criará isso para nós na primeira execução do nosso aplicativo de servidor (supondo que ele ainda não exista).
+Se você chamar novamente o arquivo config.js criado na Etapa 11, chamaremos nosso banco de dados *tasklist*, já que foi isso que colocamos no final da nossa URL de conexão mogoose\_auth\_local. Você não precisa criar esse banco de dados com antecedência no MongoDB, ele criará isso para nós na primeira execução do nosso aplicativo de servidor (supondo que ele ainda não exista).
 
 Agora que dissemos ao servidor qual banco de dados MongoDB, gostaríamos de usar, precisamos escrever algum código adicional para criar o modelo e o esquema para as tarefas do nosso servidor.
 
@@ -650,13 +645,12 @@ Primeiro, certifique-se de que sua instância do monogoDB está em execução.
 
 Em seguida, vá até o diretório e inicie a ondulação.
 
-`$ cd azuread`
-`$ node server.js`
+`$ cd azuread` `$ node server.js`
 
 `$ curl -isS http://127.0.0.1:8080 | json`
 
 ```Shell
-HTTP/1.1 200 OK
+HTTP/1.1 2.0OK
 Connection: close
 Content-Type: application/json
 Content-Length: 171
@@ -770,7 +764,7 @@ O Passport usa um padrão semelhante para todas as Estratégias (Twitter, Facebo
 > [AZURE.IMPORTANT]
 O código acima usa qualquer usuário que tente se autenticar em nosso servidor. Isso é conhecido como registro automático. Em servidores de produção, não convém permitir que qualquer pessoa entre sem primeiro passar por um processo de registro que você decide. Esse geralmente é o padrão que você vê em aplicativos de consumidor que lhe permitem registrar-se com o Facebook, mas depois pedem que você preencha informações adicionais. Se esse não fosse um programa de linha de comando, poderíamos ter apenas extraído o e-mail do objeto de token que é retornado e pedido que ele preenchesse informações adicionais. Como esse é um servidor de teste, basta adicioná-los ao banco de dados na memória.
 
-### 2. Por fim, proteger alguns pontos de extremidade
+### 2\. Por fim, proteger alguns pontos de extremidade
 
 Você pode proteger pontos de extremidade, especificando a chamada passport.authenticate() com o protocolo que você deseja usar.
 
@@ -854,10 +848,8 @@ Para referência, o exemplo concluído (sem os valores de configuração) [é fo
 
 Agora você pode ir para tópicos mais avançados. Você pode desejar experimentar:
 
-[Proteger um aplicativo Web com o modelo de aplicativo v2.0 no Node. js >>](active-directory-v2-devquickstarts-node-web.md)
+[Proteger um aplicativo Web do Node.js usando o ponto de extremidade v2.0 >>](active-directory-v2-devquickstarts-node-web.md)
 
-Para obter recursos adicionais, confira:
-- [A Visualização do Modelo de Aplicativo v2.0 >>](active-directory-appmodel-v2-overview.md)
-- [StackOverflow "azure-active-directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+Para obter recursos adicionais, confira: - [O guia do desenvolvedor da v2.0 >>](active-directory-appmodel-v2-overview.md) - [Marca "azure-active-directory" de StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

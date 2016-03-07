@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -27,7 +27,7 @@ Este tutorial explica como remover e substituir uma unidade de disco rígido com
 
 - Instalar a unidade de disco de reposição
 
->[AZURE.IMPORTANT]Antes de remover e substituir uma unidade de disco, examine as informações de segurança em [Substituição de componentes de hardware do StorSimple](storsimple-hardware-component-replacement.md).
+>[AZURE.IMPORTANT] Antes de remover e substituir uma unidade de disco, examine as informações de segurança em [Substituição de componentes de hardware do StorSimple](storsimple-hardware-component-replacement.md).
 
 ## Soltar o bloqueio antiviolação
 
@@ -37,7 +37,7 @@ Este procedimento explica como os bloqueios antiviolação em seu dispositivo St
 
 1. Cuidadosamente, insira a chave de bloqueio (uma chave de fenda T10 "à prova de violações" fornecidos pela Microsoft) no encaixe da abertura da alça. 
 
-    >[AZURE.NOTE]Se o bloqueio antiviolação estiver ativado, o indicador vermelho ficará visível na abertura.
+    >[AZURE.NOTE] Se o bloqueio antiviolação estiver ativado, o indicador vermelho ficará visível na abertura.
 
     ![Unidade de disco bloqueada](./media/storsimple-disk-drive-replacement/IC741056.png)
 
@@ -118,10 +118,10 @@ Após uma falha de unidade em seu dispositivo Microsoft Azure StorSimple e depoi
 
 5. Verifique se a troca foi bem-sucedida e se a unidade está funcionando pelo Portal clássico do Azure, indo até **Manutenção** > **Status de Hardware**. Em **Componentes compartilhados** ou **Componentes compartilhados do compartimento EBOD**, o status da unidade deverá ficar verde, indicando que está íntegra.
 
-    >[AZURE.NOTE]Pode levar várias horas até que o status do disco fique verde após a troca.
+    >[AZURE.NOTE] Pode levar várias horas até que o status do disco fique verde após a troca.
 
 ## Próximas etapas
 
 Saiba mais sobre a [substituição de componentes de hardware StorSimple](storsimple-hardware-component-replacement.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

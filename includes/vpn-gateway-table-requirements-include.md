@@ -1,12 +1,14 @@
-The table below lists the requirements for policy-based and route-based VPN gateways. This table applies to both the Resource Manager and classic deployment models. For the classic model, Policy-based VPN gateways are the same as Static gateways, and Route-based gateways are the same as Dynamic gateways.
+A tabela a seguir lista os requisitos para gateways de VPN baseados em política e em rota. Esta tabela aplica-se a ambos os modelos de implantação do Gerenciador de Recursos e clássico. Para o modelo clássico, gateways de VPN baseados em políticas são o mesmo que gateways Estáticos e gateways baseados em rota são o mesmos que gateways Dinâmico.
 
 
-|   | **Policy-based Basic VPN Gateway** | **Route-based Basic VPN Gateway** | **Route-based Standard VPN Gateway**   | **Route-based High Performance VPN Gateway** |
+| | **Gateway de VPN Básico Baseado em Política** | **Gateway de VPN Básico Baseado em Rota** | **Gateway de VPN Standard Baseado em Rota** | **Gateway de VPN de Alto Desempenho Baseado em Rota** |
 |---|---------------------------------------|---------------------------------------|----------------------------|----------------------------------|
-|    **Site-to-Site connectivity   (S2S)**  | Policy-based VPN configuration        | Route-based VPN configuration  | Route-based VPN configuration     | Route-based VPN configuration    |
-| **Point-to-Site connectivity (P2S**)      | Not supported   | Supported (Can coexist with S2S)  | Supported (Can coexist with S2S)  | Supported (Can coexist with S2S) |
-| **Authentication method**                 |    Pre-shared key  | Pre-shared key for S2S connectivity, Certificates for P2S connectivity | Pre-shared key for S2S connectivity, Certificates for P2S connectivity | Pre-shared key for S2S connectivity, Certificates for P2S connectivity |
-| **Maximum number of S2S connections**       | 1                              | 10                                                                    | 10                                | 30                               |
-| **Maximum number of P2S connections**       | Not supported                  | 128                                                                   | 128                               | 128                              |
-|**Active routing support (BGP)**           | Not supported                  | Not supported                                                         | Not supported                     | Not supported                    |
+| **Conectividade site a site (S2S)** | Configuração de VPN baseada em política | Configuração de VPN baseada em rota | Configuração de VPN baseada em rota | Configuração de VPN baseada em rota |
+| **Conectividade P2S (Ponto a Site**) | Sem suporte | Com suporte (pode coexistir com S2S) | Com suporte (pode coexistir com S2S) | Com suporte (pode coexistir com S2S) |
+| **Método de autenticação** | Chave pré-compartilhada | Chave pré-compartilhada para conectividade S2S, Certificados para conectividade P2S | Chave pré-compartilhada para conectividade S2S, Certificados para conectividade P2S | Chave pré-compartilhada para conectividade S2S, Certificados para conectividade P2S |
+| **Número máximo de conexões S2S** | 1 | 10 | 10 | 30 |
+| **Número máximo de conexões P2S** | Sem suporte | 128 | 128 | 128 |
+|**Suporte ao roteamento ativo (BGP)** | Sem suporte | Sem suporte | Sem suporte | Sem suporte |
  
+
+<!---HONumber=AcomDC_0224_2016-->

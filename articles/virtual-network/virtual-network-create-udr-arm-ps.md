@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Controlar o roteamento e usar dispositivos virtuais no Gerenciador de Recursos usando o PowerShell | Microsoft Azure"
-   description="Controlar o roteamento e usar dispositivos virtuais no Azure PowerShell"
+   description="Saiba como controlar o roteamento e usar dispositivos virtuais no Gerenciador de Recursos usando o PowerShell"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,16 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="02/23/2016"
    ms.author="telmos" />
 
-#Criar UDR (Rotas Definidas pelo Usuário) no PowerShell
+#Criar UDR (Rotas de Definida pelo Usuário) no Gerenciador de Recursos usando o PowerShell
 
 [AZURE.INCLUDE [virtual-network-create-udr-arm-selectors-include.md](../../includes/virtual-network-create-udr-arm-selectors-include.md)]
 
 [AZURE.INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artigo aborda o modelo de implantação do Gerenciador de Recursos. Você também pode [criar UDRs no modelo de implantação clássico](virtual-network-create-udr-classic-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artigo aborda o modelo de implantação do Gerenciador de Recursos. Você também pode [criar UDRs no modelo de implantação clássica](virtual-network-create-udr-classic-ps.md).
 
 [AZURE.INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
@@ -56,7 +56,7 @@ Para criar a tabela de rotas e a rota necessária para a sub-rede de front-end c
 		Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
 			-AddressPrefix 192.168.1.0/24 -RouteTable $routeTable
 
->[AZURE.WARNING]A saída do comando acima mostra o conteúdo do objeto de configuração da rede virtual, que existe apenas no computador no qual você está executando o PowerShell. Você precisa executar o cmdlet **Set-AzureVirtualNetwork** para salvar essas configurações no Azure.
+>[AZURE.WARNING] A saída do comando acima mostra o conteúdo do objeto de configuração da rede virtual, que existe apenas no computador no qual você está executando o PowerShell. Você precisa executar o cmdlet **Set-AzureVirtualNetwork** para salvar essas configurações no Azure.
 
 7. Salve a nova configuração de sub-rede no Azure.
 
@@ -68,7 +68,7 @@ Para criar a tabela de rotas e a rota necessária para a sub-rede de front-end c
 		ResourceGroupName : TestRG
 		Location          : westus
 		Id                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-		Etag              : W/"7df26c0e-652f-4754-bc4e-733fef7d5b2b"
+		Etag              : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 		ProvisioningState : Succeeded
 		Tags              : 
 		                    Name         Value
@@ -181,7 +181,7 @@ Para criar a tabela de rotas e a rota necessária para a sub-rede de back-end co
 		                    ]
 
 ## Habilite o encaminhamento de IP em FW1
-Para habilitar o encaminhamento de IP na NIC usada por **FW1**, execute as etapas abaixo.
+Para habilitar o encaminhamento de IP na NIC usada por **FW1**, siga as etapas abaixo.
 
 1. Crie uma variável que contém as configurações para a NIC usada por FW1. Em nosso cenário, a NIC é chamada **NICFW1**.
 
@@ -236,4 +236,4 @@ Para habilitar o encaminhamento de IP na NIC usada por **FW1**, execute as etapa
 		NetworkSecurityGroup : null
 		Primary              : True
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

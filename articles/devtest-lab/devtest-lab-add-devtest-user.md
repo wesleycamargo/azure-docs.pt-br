@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/18/2016"
 	ms.author="tarcher"/>
 
 # Adicionar proprietários e usuários a um Laboratório de Desenvolvimento/Teste
+
+> [AZURE.NOTE] Clique no link a seguir para exibir o vídeo que acompanha este artigo: [como definir a segurança no seu Laboratório de Desenvolvimento/Teste](/documentation/videos/how-to-set-security-in-your-devtest-lab)
 
 ## Visão geral
 
@@ -101,4 +103,4 @@ Para adicionar um usuário do Laboratório de Desenvolvimento/Teste ao seu labor
 
 	1. A folha **Usuários** exibe as funções e usuários adicionados.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

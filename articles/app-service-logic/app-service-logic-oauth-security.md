@@ -13,15 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="02/18/2016"
 	ms.author="mandia"/>
 
 
 # Saiba mais sobre a segurança OAuth em conectores de SaaS
+
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
+
 Muitos dos conectores de SaaS (software como serviço), como Facebook, Twitter, DropBox e assim por diante, exigem que os usuários autentiquem usando o protocolo OAUTH. Ao usar esses Conectores de SaaS por meio de Aplicativos Lógicos, fornecemos uma experiência do usuário simplificada na qual você clica em "Autorizar" no designer de Aplicativos Lógicos. Ao **Autorizar**, você será solicitado a se conectar (se já não o tiver feito) e a fornecer consentimento para se conectar ao serviço SaaS em seu nome. Após seu consentimento e autorização, seus Aplicativos Lógicos poderão acessar esses serviços SaaS.
 
 ## Criar seu próprio aplicativo de SaaS
-Essa experiência simplificada é possível porque criamos e registramos anteriormente o aplicativo nesses serviços SaaS. Em alguns casos, você pode registrar e usar seu próprio aplicativo. Isso é necessário, por exemplo, quando você quer usar os conectores de SaaS em seus aplicativos personalizados, por exemplo, ao [Deploy a SaaS connector API app (Implantar um aplicativo de API de conector SaaS)](app-service-api-connnect-your-app-to-saas-connector.md). Este exemplo usa o Conector do Dropbox, mas o processo é o mesmo para todos os conectores que dependem de OAuth.
+Essa experiência simplificada é possível porque criamos e registramos anteriormente o aplicativo nesses serviços SaaS. Em alguns casos, você pode registrar e usar seu próprio aplicativo. Isso é necessário, por exemplo, quando você quer usar os conectores de SaaS em seus aplicativos personalizados, por exemplo, ao [Deploy a SaaS connector API app (Implantar um aplicativo de API de conector SaaS)](../app-service-api/app-service-api-connnect-your-app-to-saas-connector.md). Este exemplo usa o Conector do Dropbox, mas o processo é o mesmo para todos os conectores que dependem de OAuth.
 
 Até mesmo no contexto de Aplicativos Lógicos, você pode usar seu próprio aplicativo em vez do aplicativo padrão que fornecemos. Se ocorrer falha ao se conectar usando o botão "Autorizar", você pode tentar criar seu próprio aplicativo. As etapas usadas para o conector do Twitter são listadas abaixo:
 
@@ -38,7 +41,7 @@ Até mesmo no contexto de Aplicativos Lógicos, você pode usar seu próprio apl
 
 Agora você pode usar o Conector por meio de Aplicativos Lógicos. Ao usar o Conector por meio de Aplicativos Lógicos, ele usa seu aplicativo em vez do aplicativo padrão.
 
-> [AZURE.NOTE]Se você autorizou um aplicativo anteriormente, talvez precise autorizá-lo novamente.
+> [AZURE.NOTE] Se você autorizou um aplicativo anteriormente, talvez precise autorizá-lo novamente.
 
 
 <!--Image references-->
@@ -48,4 +51,4 @@ Agora você pode usar o Conector por meio de Aplicativos Lógicos. Ao usar o Con
 [4]: ./media/app-service-logic-oauth-security/TwitterApp.png
 [5]: ./media/app-service-logic-oauth-security/TwitterKeys.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0224_2016-->

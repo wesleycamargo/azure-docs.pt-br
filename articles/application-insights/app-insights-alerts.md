@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/22/2016" 
+	ms.date="02/19/2016" 
 	ms.author="awills"/>
  
 # Definir alertas no Application Insights
@@ -100,6 +100,10 @@ Alguns alertas populares são:
 * **Tempo de resposta do servidor** e **Solicitações com falha** para o lado do servidor dos aplicativos Web. Além de configurar alertas, confira essas métricas para ver se elas variam de forma desproporcional com altas taxas de solicitação: isso pode indicar que seu aplicativo está ficando sem recursos.
 * **Exceções de servidor** - para vê-las, você precisa fazer algumas [configurações adicionais](app-insights-asp-net-exceptions.md).
 
+## Automação
+
+* [Usar o PowerShell para automatizar a configuração de alertas](app-insights-powershell-alerts.md)
+* [Usar webhooks para automatizar a resposta a alertas](../azure-portal/insights-webhooks-alerts.md)
 
 ## Consulte também
 
@@ -119,4 +123,4 @@ Alguns alertas populares são:
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

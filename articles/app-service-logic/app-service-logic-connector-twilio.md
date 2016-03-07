@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/30/2015"
+   ms.date="02/11/2016"
    ms.author="sameerch"/>
 
 
 # Introdução ao Conector do Twilio e à adição dele ao seu Aplicativo Lógico
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos. Para a versão do esquema 2015-08-01-preview, clique em [API do Twilio](../connectors/create-api-twilio.md).
+
 Conecte-se à sua conta do Twilio para enviar e receber mensagens SMS. Você também pode recuperar os números de telefone e os dados de uso. Aplicativos lógicos podem ser disparados com base em diversas fontes de dados e oferecem conectores para obter e processar dados como parte do fluxo. Você pode adicionar o conector do Twilio a seu fluxo de trabalho de negócios e processar dados como parte desse fluxo de trabalho dentro de um Aplicativo Lógico.
 
 ## Criando um conector do Twilio para seu aplicativo lógico ##
@@ -25,7 +27,8 @@ Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Mar
 
 1. No quadro inicial do Azure, selecione **Marketplace**.
 2. Procure "Conector do Twilio", selecione-o e selecione **Criar**.
-3. Configure o conector do Twilio da seguinte maneira: ![][1]  
+3. Configure o conector do Twilio da seguinte maneira: 
+	![][1]  
 	- **Local** - escolha a região geográfica onde você quer que o conector seja implantado
 	- **Assinatura** - escolha uma assinatura na qual você deseja que esse conector seja criado
 	- **Grupo de recursos** - selecione ou crie um grupo de recursos onde o conector deve residir
@@ -43,9 +46,12 @@ Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Mar
 ## Usando o conector do Twilio em seu aplicativo lógico ##
 Depois de criar seu aplicativo de API, você pode usar o conector do Twilio como ação para seu aplicativo lógico. Para fazer isso, você precisa:
 
-1.	Criar um novo Aplicativo Lógico e escolher o mesmo grupo de recursos que tem o conector do Twilio: ![][2]
-2.	Abra "Gatilhos e Ações" para abrir o Designer de Aplicativos Lógicos e configurar seu fluxo: ![][3]
-3.	O conector do Twilio seria exibido na seção "Aplicativos de API neste grupo de recursos" na galeria, no lado direito: ![][4]
+1.	Criar um novo Aplicativo Lógico e escolher o mesmo grupo de recursos que tem o conector do Twilio: 
+	![][2]
+2.	Abra "Gatilhos e Ações" para abrir o Designer de Aplicativos Lógicos e configurar seu fluxo: 
+	![][3]
+3.	O conector do Twilio seria exibido na seção "Aplicativos de API neste grupo de recursos" na galeria, no lado direito: 
+	![][4]
 4. Você pode soltar o aplicativo de API do conector do Twilio no editor clicando em "Conector do Twilio".
 
 5.	Agora você pode usar o conector do Twilio no fluxo. Você pode usar a ação "Enviar mensagem" no fluxo para enviar uma mensagem. Configure as propriedades de entrada para a ação "Enviar Mensagem" da seguinte maneira:
@@ -53,14 +59,15 @@ Depois de criar seu aplicativo de API, você pode usar o conector do Twilio como
 	- **Para o Número de Telefone** - O número de telefone de destino. O formato aceito é: +, seguido do código do país e do número de telefone. Por exemplo, +16175551212 Se você omitir o +, o Twilio usará o código do país que você inseriu no número ‘De’.
 	- **Texto** - O texto da mensagem que você deseja enviar.
 
-	![][5] ![][6]
+	![][5] 
+	![][6]
 
 ## Faça mais com seu Conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
 
->[AZURE.NOTE]Se você deseja começar com os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógicos](https://tryappservice.azure.com/?appservice=logic), em que você pode criar imediatamente um aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
+>[AZURE.NOTE] Se você deseja começar com os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógicos](https://tryappservice.azure.com/?appservice=logic), em que você pode criar imediatamente um aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
 
-Exibir a referência da API REST do Swagger em [Conectores e referência dos Aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar Aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
 
@@ -72,4 +79,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [5]: ./media/app-service-logic-connector-twilio/img5.PNG
 [6]: ./media/app-service-logic-connector-twilio/img6.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

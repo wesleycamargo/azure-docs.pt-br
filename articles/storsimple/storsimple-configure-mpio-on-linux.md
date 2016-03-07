@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="storsimple"
@@ -21,7 +21,7 @@ Este artigo explica as etapas necessárias para a configuração do Multipathing
 
 Este procedimento é aplicável a todos os modelos de dispositivos da série StorSimple 8000.
 
->[AZURE.NOTE]Este procedimento não pode ser usado para um dispositivo virtual StorSimple. Para saber mais, veja como configurar servidores host para seu dispositivo virtual.
+>[AZURE.NOTE] Este procedimento não pode ser usado para um dispositivo virtual StorSimple. Para saber mais, veja como configurar servidores host para seu dispositivo virtual.
 
 ## Sobre vários caminhos 
 
@@ -207,7 +207,7 @@ Como mostrado na figura anterior:
 
 A configuração acima gerará quatro caminhos separados entre o dispositivo e o host se o host e as interfaces de dados forem roteáveis.
 
->[AZURE.IMPORTANT]
+>[AZURE.IMPORTANT] 
 >
 >- É recomendável que você não misture as interfaces de rede de 1 GbE e de 10 GbE para vários caminhos. Quando você estiver usando duas interfaces de rede, ambas as interfaces deverão ser do tipo idêntico.
 >- Em seu dispositivo StorSimple, DATA0, DATA1, DATA4 e DATA5 são interfaces de 1 GbE, enquanto DATA2 e DATA3 são interfaces de rede de 10 GbE.|
@@ -285,7 +285,8 @@ Esse algoritmo de balanceamento de carga usa todos os vários caminhos disponív
 
 
 
-> [AZURE.NOTE]Os valores mais comuns de `path_grouping_policy` incluem:
+> [AZURE.NOTE] 
+Os valores mais comuns de `path_grouping_policy` incluem:
 	
 > - failover = um caminho por grupo de prioridade
 > - multibus = todos os caminhos válidos em um grupo de prioridade
@@ -470,18 +471,18 @@ Para saber mais, veja como [usar o comando interativo de solução de problemas 
 ||`service iscsid restart`|Reiniciar o serviço iSCSI|
 ||`iscsiadm -m discovery -t sendtargets -p <TARGET_IP>`|Descobrir os destinos disponíveis no endereço especificado|
 ||`iscsiadm -m node --login -T <TARGET_IQN>`|Fazer logon no destino iSCSI|
-||`iscsiadm -m node --logout -p <Target_IP>`|Fazer logoff no destino iSCSI|
+||`iscsiadm -m node --logout -p <Target_IP>`|Faça logoff do destino iSCSI|
 ||`cat /etc/iscsi/initiatorname.iscsi`|Imprimir o nome do iniciador iSCSI|
-||`iscsiadm –m session –s <sessionid> -P 3`|Verificar o estado da sessão iSCSI e o volume descoberto no host|
-||`iscsi –m session`|Mostra todas as sessões iSCSI estabelecidas entre o host e o dispositivo StorSimple|
+||`iscsiadm –m session –s <sessionid> -P 3`|Verificar o estado da sessão de iSCSI e o volume descoberto no host|
+||`iscsi –m session`|Mostra todas as sessões de iSCSI estabelecidas entre o host e o dispositivo StorSimple|
 | | | |
-|**Vários caminhos**|`service multipathd start`|Iniciar o daemon de vários caminhos|
+||**Múltiplos caminhos**|`service multipathd start`|Iniciar o daemon de vários caminhos|
 ||`service multipathd stop`|Parar o daemon de vários caminhos|
 ||`service multipathd restart`|Reiniciar o daemon de vários caminhos|
-||`chkconfig multipathd on` </br> OU </br> `mpathconf –with_chkconfig y`|Habilitar o daemon de vários caminhos a ser iniciado no momento da inicialização|
-||`multipathd –k`|Iniciar o console interativo para a solução de problemas|
-||`multipath –l`|Listar conexões e dispositivos de vários caminhos|
-||`mpathconf --enable`|Criar um arquivo mulitpath.conf de exemplo no `/etc/mulitpath.conf`|
+||`chkconfig multipathd on` </br> OU </br> `mpathconf –with_chkconfig y`|Habilitar daemon de vários caminhos para iniciar no momento da inicialização|
+||`multipathd –k`|Inicie o console interativo para solução de problemas|
+||`multipath –l`|Listar as conexões e dispositivos de vários caminhos|
+||`mpathconf --enable`|Criar um arquivo mulitpath.conf de exemplo `/etc/mulitpath.conf`|
 ||||
 
 ## Próximas etapas
@@ -491,4 +492,4 @@ Já que você está configurando o MPIO no host Linux, talvez também seja neces
 - [Configurando o MPIO no CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
 - [Guia de treinamento do Linux](http://linux-training.be/files/books/LinuxAdm.pdf)
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

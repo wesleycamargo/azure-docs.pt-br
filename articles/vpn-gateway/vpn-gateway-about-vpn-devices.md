@@ -144,8 +144,8 @@ A tabela a seguir lista as ofertas de criptografia e autenticação IPsec SA. Of
 | 18 | - | AH MD5, sem tempos de vida |
 
 
-- Você pode especificar a criptografia NULL de IPsec ESP com gateway de VPN baseado em rota e de Alto Desempenho. Isso serve para conexões de VNet a VNet nas redes do Azure. 
+- Você pode especificar a criptografia NULL de IPsec ESP com gateways de VPN baseados em rota e de Alto Desempenho. Criptografia com base em nulo não oferece proteção para dados em trânsito, devendo ser usada apenas quando for exigido o máximo de taxa de transferência com o mínimo de latência mínima. Os clientes podem optar por usar isso em cenários de comunicação vnet a vnet, ou quando a criptografia está sendo aplicada em outro lugar na solução.
 
 - Para a conectividade entre locais através da Internet, use as configurações padrão de gateway de VPN do Azure com criptografia e algoritmos de hash listados nas tabelas acima para garantir a segurança da comunicação crítica.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

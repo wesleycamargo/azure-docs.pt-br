@@ -60,7 +60,7 @@ Operações como mover recursos entre as assinaturas podem ser mais difíceis co
 
 - Para saber mais sobre como alterar administradores para uma assinatura do Azure, veja [Como adicionar ou alterar as funções de administrador do Azure](../billing-add-change-azure-subscription-administrator.md)
 
-- Para saber mais sobre como o Active Directory do Azure está relacionado à sua assinatura do Azure, confira [Como as assinaturas do Azure estão associadas ao Active Directory do Azure] (active-directory-how-subscriptions-associated directory.md)
+- Para saber mais sobre como o Azure Active Directory está relacionado à sua assinatura do Azure, consulte [Como as assinaturas do Azure estão associadas ao Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 
 - Para saber sobre como atribuir funções no AD do Azure, veja [Atribuindo funções de administrador no Active Directory do Azure](active-directory-assign-admin-roles.md)
 
@@ -72,4 +72,4 @@ Operações como mover recursos entre as assinaturas podem ser mais difíceis co
 [3]: ./media/active-directory-understanding-resource-access/IC707933.png
 [4]: ./media/active-directory-understanding-resource-access/IC707934.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

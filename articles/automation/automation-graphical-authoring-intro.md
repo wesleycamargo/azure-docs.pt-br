@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/19/2016"
-   ms.author="bwren" />
+   ms.date="02/18/2016"
+   ms.author="magoedte;bwren" />
 
 # Criação gráfica na Automação do Azure
 
@@ -30,7 +30,7 @@ Todos os runbooks na Automação do Azure são Fluxos de Trabalho do Windows Pow
 
 ## Visão geral do editor gráfico
 
-Você pode abrir o editor gráfico no portal de visualização do Azure criando ou editando um runbook gráfico.
+Você pode abrir o editor gráfico no Portal do Azure criando ou editando um runbook gráfico.
 
 ![Espaço de trabalho gráfico](media/automation-graphical-authoring-intro/graphical-editor.png)
 
@@ -79,7 +79,7 @@ Você pode importar um arquivo de runbook gráfico selecionando a opção **impo
 
 ### Testando um runbook gráfico
 
-Você pode testar a versão de rascunho de um runbook no portal de visualização do Azure, mantendo a versão publicada do runbook inalterada, ou pode testar um novo runbook antes que ele seja publicado. Isso permite que você verifique se o runbook está funcionando corretamente antes de substituir a versão publicada. Quando você testa um runbook, o runbook de Rascunho é executado, e as ações que ele realiza são concluídas. Nenhum histórico de trabalho é criado, mas a saída é exibida no Painel de Saída de Teste.
+Você pode testar a versão de Rascunho de um runbook no Portal do Azure, mantendo a versão publicada do runbook inalterada, ou então pode testar um novo runbook antes que ele seja publicado. Isso permite que você verifique se o runbook está funcionando corretamente antes de substituir a versão publicada. Quando você testa um runbook, o runbook de Rascunho é executado, e as ações que ele realiza são concluídas. Nenhum histórico de trabalho é criado, mas a saída é exibida no Painel de Saída de Teste.
 
 Abra o controle de Teste para um runbook abrindo o runbook para edição e, em seguida, clique no botão **Painel de teste**.
 
@@ -298,9 +298,9 @@ Você deve se autenticar no início do runbook e após cada ponto de verificaç�
 
 ### Entrada de runbook
 
-Um runbook pode exigir entrada de um usuário quando o usuário iniciar o runbook por meio do portal de visualização do Azure ou de outro runbook, se o atual é usado como filho. Por exemplo, se tiver um runbook que cria uma máquina virtual, talvez você precise fornecer informações como o nome da máquina virtual e outras propriedades sempre que iniciar o runbook.
+Um runbook pode exigir a entrada de um usuário quando este iniciar o runbook por meio do Portal do Azure ou de outro runbook, se o atual for usado como filho. Por exemplo, se tiver um runbook que cria uma máquina virtual, talvez você precise fornecer informações como o nome da máquina virtual e outras propriedades sempre que iniciar o runbook.
 
-Você aceita a entrada para um runbook definindo um ou mais parâmetros de entrada. Você fornece valores para esses parâmetros sempre que o runbook é iniciado. Quando você iniciar um runbook com o portal de visualização do Azure, ele solicitará que você forneça valores para cada um dos parâmetros de entrada do runbook.
+Você aceita a entrada para um runbook definindo um ou mais parâmetros de entrada. Você fornece valores para esses parâmetros sempre que o runbook é iniciado. Quando você iniciar um runbook com o Portal do Azure, ele solicitará que você forneça valores para cada um dos parâmetros de entrada do runbook.
 
 Você pode acessar parâmetros de entrada para um runbook clicando no botão **Entrada e saída** na barra de ferramentas do runbook.
 
@@ -316,7 +316,7 @@ Cada parâmetro de entrada é definido pelas propriedades na tabela a seguir.
 |:---|:---|
 | Nome | O nome exclusivo do parâmetro. Pode conter apenas caracteres alfanuméricos e não pode conter espaços. |
 | Descrição | Uma descrição opcional para o parâmetro de entrada. |
-| Tipo | Tipo de dados esperado para o valor do parâmetro. O portal de visualização do Azure fornecerá um controle apropriado para o tipo de dados de cada parâmetro quando a entrada for solicitada. |
+| Tipo | Tipo de dados esperado para o valor do parâmetro. O Portal do Azure fornecerá um controle apropriado para o tipo de dados para cada parâmetro quando a entrada for solicitada. |
 | Obrigatório | Especifica se deve ser fornecido um valor para o parâmetro. O runbook não poderá ser iniciado se você não fornecer um valor para cada parâmetro obrigatório que não tenha um valor padrão definido. |
 | Valor Padrão | Especifica o valor que será usado para o parâmetro, se nenhum for fornecido. Pode ser Nulo ou um valor específico. |
 
@@ -419,4 +419,4 @@ O exemplo a seguir usam a saída de uma atividade chamada *Obter conexão do Twi
 - [Operadores](https://technet.microsoft.com/library/hh847732.aspx)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

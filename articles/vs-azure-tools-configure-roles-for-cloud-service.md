@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="01/30/2016"
+   ms.date="02/24/2016"
    ms.author="tarcher" />
 
 # Configurar as funções para um Serviço de Nuvem do Azure com o Visual Studio
@@ -77,7 +77,7 @@ Para melhorar o desempenho do serviço de nuvem, você pode alterar o número de
 
 Você pode adicionar, remover ou modificar cadeias de conexão para suas configurações de serviço. Talvez você queira cadeias de conexão diferentes para configurações de serviço diferentes. Por exemplo, você pode querer uma cadeia de conexão local para uma configuração de serviço local que tem um valor de `UseDevelopmentStorage=true`. Você também pode querer definir uma configuração de serviço de nuvem que use uma conta de armazenamento no Azure.
 
->[AZURE.CAUTION] Quando você insere as informações de chave da conta de armazenamento do Azure para uma cadeia de conexão de conta de armazenamento, essas informações são armazenadas localmente no arquivo de configuração de serviço. No entanto, atualmente essas informações não são armazenadas como texto criptografado.
+>[AZURE.WARNING] Quando você insere as informações de chave da conta de armazenamento do Azure para uma cadeia de conexão de conta de armazenamento, essas informações são armazenadas localmente no arquivo de configuração de serviço. No entanto, atualmente essas informações não são armazenadas como texto criptografado.
 
 Ao usar um valor diferente para cada configuração de serviço, você não precisa usar cadeias de conexão diferentes em seu serviço de nuvem ou modificar seu código quando publicar o serviço de nuvem no Azure. Você pode usar o mesmo nome para a cadeia de conexão no seu código e o valor será diferente, com base na configuração de serviço que você selecionar quando criar seu serviço de nuvem ou quando publicá-lo.
 
@@ -183,7 +183,7 @@ Ao usar um valor diferente para cada configuração de serviço, você não prec
 
 ## Gerenciar o armazenamento local para cada instância de função
 
-Você pode adicionar o armazenamento do sistema de arquivos local para cada instância de uma função. Você pode armazenar aqui dados locais que não precisam ser acessados por outras funções. Quaisquer dados que você não precisar salvar em tabela, blob ou armazenamento do Banco de Dados SQL podem ser armazenados aqui. Por exemplo, você poderia usar esse armazenamento local para armazenar em cache dados que podem precisar ser usados novamente. Esses dados armazenados não podem ser acessados por outras instâncias de uma função. Para obter mais informações sobre recursos de armazenamento local, consulte [Configurar Recursos de Armazenamento Local](/cloud-services/cloud-services-configure-local-storage-resources.md).
+Você pode adicionar o armazenamento do sistema de arquivos local para cada instância de uma função. Você pode armazenar aqui dados locais que não precisam ser acessados por outras funções. Quaisquer dados que você não precisar salvar em tabela, blob ou armazenamento do Banco de Dados SQL podem ser armazenados aqui. Por exemplo, você poderia usar esse armazenamento local para armazenar em cache dados que podem precisar ser usados novamente. Esses dados armazenados não podem ser acessados por outras instâncias de uma função. Para obter mais informações sobre recursos de armazenamento local, consulte [Configurar Recursos de Armazenamento Local](cloud-services/cloud-services-configure-local-storage-resources.md).
 
 Configurações de armazenamento locais se aplicam a todas as configurações de serviço. Você só pode adicionar, remover ou modificar o armazenamento local para todas as configurações de serviço.
 
@@ -293,7 +293,7 @@ Você pode coletar dados de diagnóstico do seu serviço de nuvem do Azure. Esse
 
 ## Alterar o tamanho da máquina virtual usada para cada função
 
-Você pode definir o tamanho da máquina virtual para cada função. Só é possível definir o tamanho para todas as configurações de serviço. Se você selecionar um tamanho de máquina menor, menos núcleos de CPU, memória e armazenamento em disco local serão alocados. A largura de banda alocada também será menor. Para obter mais informações sobre esses tamanhos e os recursos alocados, consulte [Tamanhos para Serviços de Nuvem](/cloud-services/cloud-services-sizes-specs.md).
+Você pode definir o tamanho da máquina virtual para cada função. Só é possível definir o tamanho para todas as configurações de serviço. Se você selecionar um tamanho de máquina menor, menos núcleos de CPU, memória e armazenamento em disco local serão alocados. A largura de banda alocada também será menor. Para obter mais informações sobre esses tamanhos e os recursos alocados, consulte [Tamanhos para Serviços de Nuvem](cloud-services/cloud-services-sizes-specs.md).
 
 Os recursos necessários para cada máquina virtual no Azure afetam o custo da execução do seu serviço de nuvem no Azure. Para obter mais informações sobre cobrança do Azure, consulte [Entenda sua fatura do Microsoft Azure](billing-understand-your-bill.md).
 
@@ -376,4 +376,4 @@ Qualquer certificado de gerenciamento que você associar às suas configuraçõe
 ## Próximas etapas
 Saiba mais sobre projetos do Azure no Visual Studio, lendo [Configurando um projeto do Azure](vs-azure-tools-configuring-an-azure-project.md). Saiba mais sobre o esquema do serviço de nuvem lendo [Referência de Esquema](https://msdn.microsoft.com/library/azure/dd179398).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

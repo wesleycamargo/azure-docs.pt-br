@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introdução ao AngularJS do AD do Azure | Microsoft Azure"
+	pageTitle="Introdução ao AngularJS do Azure AD v2.0 | Microsoft Azure"
 	description="Como compilar um aplicativo de página única Angular JS que autentica usuários com contas da Microsoft pessoais e contas corporativas ou de estudante."
 	services="active-directory"
 	documentationCenter=""
@@ -13,22 +13,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
 
-# Visualização do modelo de aplicativo v2.0: adicionar autenticação a um aplicativo de página única AngularJS - .NET
+# Adicionar as credenciais a um aplicativo de página única do AngularJS - .NET
 
-Neste artigo adicionaremos a autenticação com contas da Microsoft a um aplicativo AngularJS usando o modelo de aplicativo v2.0 do Active Directory do Azure. O modelo de aplicativo v2.0 permite que você execute uma integração única em seu aplicativo e autentique usuários com contas pessoais e corporativas/de estudante.
+Neste artigo adicionaremos a entrada com contas da plataforma Microsoft a um aplicativo AngularJS usando o ponto de extremidade v2.0 do Azure Active Directory. O ponto de extremidade v2.0 permite executar uma integração única em seu aplicativo e autenticar usuários com contas pessoais e corporativas/de estudante.
 
-Este exemplo é um aplicativo de página única de uma simples lista de tarefas pendentes que armazena as tarefas em uma API REST back-end. Ele é escrito usando a estrutura .NET 4.5 MVC e protegido usando tokens de portador OAuth do Azure AD. O aplicativo AngularJS usará nossa biblioteca de autenticação JavaScript de código aberto [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js) para manipular todo o processo de entrada e adquirir tokens para chamar a API REST. O mesmo padrão pode ser aplicado para autenticar as outras APIs REST, como o [Microsoft Graph](https://graph.microsoft.com) ou as APIs do Gerenciador de Recursos do Azure.
+Este exemplo é um aplicativo de página única de uma simples lista de tarefas pendentes que armazena as tarefas em uma API REST back-end. Ele é escrito usando a estrutura .NET 4.5 MVC e protegido usando tokens de portador OAuth do Azure AD. O aplicativo AngularJS usará nossa biblioteca de autenticação JavaScript de código aberto [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js) para manipular todo o processo de entrada e adquirir tokens para chamar a API REST. O mesmo padrão pode ser aplicado para autenticar as outras APIs REST, como o [Microsoft Graph](https://graph.microsoft.com).
+
+> [AZURE.NOTE]
+	Nem todos os recursos e cenários do Azure Active Directory têm suporte no ponto de extremidade v2.0. Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da v2.0](active-directory-v2-limitations.md).
 
 ## Baixar
 
 Para começar, será necessário baixar e instalar o Visual Studio. Em seguida, você pode clonar ou [baixar](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-DotNet/archive/skeleton.zip) um aplicativo de esqueleto:
 
 ```
-git clone --branch skeleton https://github.com/AzureADQuickStarst/AppModelv2-SinglePageApp-AngularJS-DotNet.git
+git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-DotNet.git
 ```
 
 O aplicativo de esqueleto inclui todo o código clichê de um aplicativo AngularJS simples, mas não contém as partes relacionadas à identidade. Se você não quiser acompanhar, clone ou [baixe](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-DotNet/archive/complete.zip) o exemplo completo.
@@ -219,10 +222,10 @@ return $http.get('/api/tasks');
 
 Parabéns! Seu aplicativo de página única integrado ao Azure AD está concluído. Vá em frente, receba os aplausos. Ele pode autenticar os usuários, chamar com segurança sua API REST back-end usando OpenID Connect e obter informações básicas sobre o usuário. Para uso imediato, ele oferece suporte a qualquer usuário com uma conta pessoal da Microsoft ou uma conta corporativa/de estudante do Azure AD. Execute o aplicativo e, em um navegador, vá até `https://localhost:44326/`. Entre usando uma conta pessoal da Microsoft ou uma conta corporativa/de estudante. Adicione tarefas à lista de tarefas pendentes do usuário e saia. Tente entrar com o outro tipo de conta. Se você precisar de um locatário do AD do Azure a fim de criar usuários corporativos/estudantes, [saiba como obter um aqui](active-directory-howto-tenant.md) (é gratuito).
 
-Para continuar aprendendo sobre a visualização do modelo de aplicativo v2.0, confira nosso [guia do desenvolvedor v 2.0](active-directory-appmodel-v2-overview.md). Para obter recursos adicionais, consulte:
+Para continuar aprendendo sobre o ponto de extremidade v2.0, confira nosso [guia do desenvolvedor v2.0](active-directory-appmodel-v2-overview.md). Para obter recursos adicionais, consulte:
 
 - [Exemplos do Azure no GitHub >>](https://github.com/Azure-Samples)
 - [AD do Azure no Excedente de Pilha >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 - Documentação do Azure AD no [Azure.com >>](https://azure.microsoft.com/documentation/services/active-directory/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 12/01/15-->
+<!--author=alkohli last changed: 02/22/2016-->
 
 
 ### Para configurar e registrar o dispositivo
@@ -27,9 +27,9 @@
    - Gateway
    - Endereço IP do servidor DNS Primário
     
-		Note que o sistema validará as configurações de rede após cada etapa no processo
-   
-      > [AZURE.NOTE] Você terá que aguardar alguns minutos para que a máscara da sub-rede e as configurações de DNS sejam aplicadas. Se você receber a mensagem de erro "Verificar a conectividade de rede com Dados 0", verifique a conexão de rede física na interface de rede DADOS 0 de seu controlador ativo.
+	Note que o sistema validará as configurações de rede após cada etapa no processo.
+		   
+	> [AZURE.NOTE] Você terá que aguardar alguns minutos para que a máscara da sub-rede e as configurações de DNS sejam aplicadas. Se você receber a mensagem de erro "Verificar a conectividade de rede com Dados 0", verifique a conexão de rede física na interface de rede DADOS 0 de seu controlador ativo.
 
 8. (Opcional) configure seu servidor proxy da Web. Embora a configuração do proxy da Web seja opcional, **saiba que se você usar um proxy da Web, poderá apenas configurá-lo aqui**. Para obter mais informações, visite [Configurar proxy da Web para seu dispositivo](../articles/storsimple/storsimple-configure-web-proxy.md).
 
@@ -58,14 +58,14 @@
   2. Clique em **Exibir dispositivos conectados**.
   3. Na página **Dispositivos**, verifique se o dispositivo conectou com êxito o serviço pesquisando o status. O status do dispositivo deve ser **Online**.
    
-    	![StorSimple Devices page](./media/storsimple-configure-and-register-device-u1/HCS_DevicesPageM_U1-include.png) 
+	![Página dos Dispositivos StorSimple](./media/storsimple-configure-and-register-device-u1/HCS_DevicesPageM_U1-include.png)
   
-        Se o status do dispositivo for Offline, espere alguns minutos para que ele fique online. 
-      
-        Se o dispositivo ainda estiver offline após alguns minutos, você precisará verificar se a rede de firewall estava configurada conforme o descrito em [requisitos de rede para o dispositivo StorSimple](../articles/storsimple/storsimple-system-requirements.md). 
+	Se o status do dispositivo for **Offline**, aguarde um momento até que o dispositivo fique online.
 
-		Se você não tiver suporte a HTTP 1.1, verifique a porta 9354 para ter certeza de que ela está aberta para comunicação de saída. Essa porta é usada para comunicação entre o serviço StorSimple Manager e seu dispositivo StorSimple.
+	Se o dispositivo continuar offline após alguns minutos, você precisará certificar-se de que a rede do firewall foi configurada conforme descrito nos [requisitos de rede para seu dispositivo StorSimple](../articles/storsimple/storsimple-system-requirements.md).
+
+	Verifique se a porta 9354 está aberta para comunicações de saída, pois ela é usada pelo barramento de serviço para a comunicação serviço-dispositivo do StorSimple Manager.
      
        
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

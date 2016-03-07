@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Modelo de Aplicativo v2.0 | Microsoft Azure"
-	description="Como registrar um aplicativo com a Microsoft para habilitar a entrada e integrar aplicativos do modelo de aplicativo v2.0."
+	pageTitle="Registro de aplicativo v2.0 | Microsoft Azure"
+	description="Como registrar um aplicativo na Microsoft para habilitar a entrada e acessar os serviços da Microsoft usando o ponto de extremidade v2.0"
 	services="active-directory"
 	documentationCenter=""
 	authors="dstrockis"
@@ -13,32 +13,37 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
-# Visualização do modelo de aplicativo v2.0: Como registrar um aplicativo com a Microsoft
+# Como registrar um aplicativo com o ponto de extremidade v2.0
 
-Para criar um aplicativo que aceite entrada do AD do Azure e do MSA, você primeiro precisará registrar um aplicativo com a Microsoft. Você não poderá usar nenhum aplicativo existente que já tenha com o AD do Azure ou MSA; é necessário criar um novo.
+Para criar um aplicativo que aceite entrada do AD do Azure e do MSA, você primeiro precisará registrar um aplicativo com a Microsoft. Você não poderá usar nenhum dos seus aplicativos existentes com o Azure AD ou MSA, será necessário criar um novo.
 
-> [AZURE.NOTE]Essas informações se aplicam à visualização pública do modelo de aplicativo v2.0. Para obter instruções sobre como integrar-se ao serviço do AD do Azure disponível ao público geral, consulte o [Guia do Desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md).
+> [AZURE.NOTE]
+	Nem todos os recursos e cenários do Azure Active Directory têm suporte no ponto de extremidade v2.0. Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da v2.0](active-directory-v2-limitations.md).
 
-## Visite o Portal de Registro de Aplicativo da Microsoft
-Primeiro as prioridades, navegue até [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com). Este é o novo portal de registro de aplicativo onde você pode gerenciar todos os seus aplicativos Microsoft.
+## Visite o Portal de Registro de Aplicativos da Microsoft
+Primeiro as prioridades, navegue até [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com). Este é o novo portal de registro de aplicativos em que você pode gerenciar todos os seus aplicativos Microsoft.
 
 Entrar com uma conta da Microsoft pessoal, profissional ou escolar. Se você não tiver uma, inscreva-se para uma nova conta pessoal. Vá em frente, não vai demorar muito. Vamos aguardar aqui.
 
 Pronto? Você deve agora estar olhando a lista de aplicativos da Microsoft, que provavelmente está vazia. Vamos mudar isso.
 
-<!-- TODO: Verify strings here -->
-Clique em **Adicionar um aplicativo** e dê um nome a ele. O portal atribuirá ao seu aplicativo uma Id globalmente exclusiva do aplicativo que você usará posteriormente em seu código. Se seu aplicativo incluir um componente do servidor que precisa de tokens de acesso para chamar APIs (pense: Office, Azure ou terceiros), você também desejará criar um ** Segredo do Aplicativo** aqui.<!-- TODO: Link for app secrets -->
+Clique em **Adicionar um aplicativo** e dê um nome a ele. O portal atribuirá ao seu aplicativo uma Id globalmente exclusiva do aplicativo que você usará posteriormente em seu código. Se seu aplicativo incluir um componente do servidor que precisa de tokens de acesso para chamar APIs (tais como: Office, Azure ou sua própria API Web), também convém criar um **Segredo de Aplicativo** aqui. <!-- TODO: Link for app secrets -->
 
-Em seguida, adicione as plataformas que seu aplicativo usará. Para aplicativos baseados na Web, forneça um **URI de redirecionamento** onde é possível enviar mensagens de entrada. Para aplicativos móveis, copie o URI de redirecionamento padrão criado automaticamente para você.
+Em seguida, adicione as Plataformas que seu aplicativo usará.
+
+- Para aplicativos baseados na Web, forneça um **URI de Redirecionamento** em que é possível enviar mensagens de entrada.
+- Para aplicativos móveis, copie o URI de redirecionamento criado automaticamente para você.
 
 Opcionalmente, você pode personalizar a aparência de sua página de entrada na Seção do perfil. Certifique-se de clicar em **Salvar**antes de continuar.
 
-## Criar um Aplicativo de Início Rápido
-Agora que você tem um aplicativo da Microsoft, pode concluir um dos nossos tutoriais de início rápido para começar a usar o modelo de aplicativo v2.0. Aqui estão algumas recomendações:
+> [AZURE.NOTE] Quando você cria um aplicativo usando [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com), ele será registrado no locatário inicial da conta que você usa para entrar no portal. Isso significa que não é possível registrar um aplicativo no seu locatário do Azure AD usando uma conta pessoal da Microsoft. Se você quiser registrar um aplicativo em um determinado locatário explicitamente, entre com uma conta criada originalmente no locatário em questão.
+
+## Compilar um aplicativo de início rápido
+Agora que você tem um aplicativo da Microsoft, poderá concluir um dos nossos tutoriais de início rápido da v2.0. Aqui estão algumas recomendações:
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

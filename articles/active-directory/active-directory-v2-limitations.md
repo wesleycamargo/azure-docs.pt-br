@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Limitações e restrições do modelo de aplicativo v2.0 | Microsoft Azure"
-	description="Uma lista de limitações e restrições com o modelo de aplicativo v2.0 do AD do Azure."
+	pageTitle="Limitações e restrições do ponto de extremidade da v2.0 | Microsoft Azure"
+	description="Uma lista de limitações e restrições com o ponto de extremidade da v2.0 do Azure AD."
 	services="active-directory"
 	documentationCenter=""
 	authors="dstrockis"
@@ -13,76 +13,87 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
-# Visualização do modelo de aplicativo v2.0: limitações e restrições
+# Devo usar o ponto de extremidade da v2.0? 
 
-Há vários recursos e funcionalidades do modelo de aplicativo v2.0 que ainda não são compatíveis no período de visualização pública. Cada uma dessas limitações será removida antes que o modelo de aplicativo v2.0 seja disponível ao público geral, mas é preciso estar ciente delas se você estiver criando aplicativos durante a visualização pública.
+Ao criar aplicativos que se integram ao Active Directory do Azure, você precisará decidir se os protocolos de autenticação e o ponto de extremidade da v2.0 atendem às suas necessidades. O modelo de aplicativo do Azure AD original ainda tem suporte completo e, em alguns aspectos, tem mais recursos do que a v2.0. No entanto, o ponto de extremidade da v2.0 [oferece benefícios consideráveis](active-directory-v2-compare.md) para desenvolvedores que podem convencê-lo a usar o novo modelo de programação. Ao longo do tempo, a v2.0 será expandida para abranger todos os recursos do Azure AD, para que você só precise usar o ponto de extremidade da v2.0.
 
-> [AZURE.NOTE]Essas informações se aplicam à visualização pública do modelo de aplicativo v2.0. Para obter instruções sobre como integrar-se ao serviço do AD do Azure disponível ao público geral, consulte o [Guia do Desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md).
+No momento, há dois recursos principais que você pode obter com o ponto de extremidade da v2.0:
 
-## Suporte para aplicativos de produção
-Aplicativos que se integram ao modelo de aplicativo v2.0 não devem ser apresentados ao público como aplicativos de nível de produção. O modelo de aplicativo v2.0 está em visualização pública neste momento; alterações significativas podem ser introduzidas a qualquer momento e não há nenhum SLA garantido pelo serviço. Não haverá suporte para qualquer incidente que possa ocorrer. Se você estiver disposto a aceitar os riscos de fazer uma dependência em um serviço que ainda está em desenvolvimento, deve entrar em contato com @AzureAD para discutir o escopo de seu aplicativo ou serviço.
+- Conectar usuários com contas pessoais e de trabalho.
+- Chamar a [API do Outlook convergida](https://dev.outlook.com).
 
-## Restrições em aplicativos
-Os tipos de aplicativos a seguir não são compatíveis atualmente na visualização pública do modelo de aplicativo v2.0. Para obter uma descrição dos tipos de aplicativos compatíveis, consulte [este artigo](active-directory-v2-flows.md).
+Esses dois recursos podem ser implementados em aplicativos Web, móveis e para PC. Se esses recursos relativamente limitados fazem sentido para seu aplicativo, é recomendável usar o ponto de extremidade da v2.0. Se seu aplicativo requer recursos adicionais de serviços da Microsoft, recomendamos que você continue a usar os pontos de extremidade comprovados do Azure AD e a conta da Microsoft. Futuramente, os pontos de extremidade da v2.0 substituirão o Azure AD e a conta da Microsoft, e ajudaremos todos os desenvolvedores a passar para o ponto de extremidade da v2.0.
 
-##### Aplicativos de página única (Javascript)
-Muitos aplicativos modernos têm um front-end de Aplicativo de Página Única escrito principalmente em javascript e muitas vezes usando estruturas de SPA, como AngularJS, Ember.js, Durandal, etc. O serviço do AD do Azure disponível ao público geral é compatível com esses aplicativos usando o [Fluxo Implícito do OAuth 2.0](active-directory-v2-protocols.md#oauth2-implicit-flow); no entanto, esse fluxo ainda não está disponível no modelo de aplicativo v2.0. Em breve ele será adicionado.
+Enquanto isso, este artigo destina-se a ajudá-lo a determinar se o ponto de extremidade da v 2.0 é adequado para você. Continuaremos a atualizar este artigo ao longo do tempo para refletir o estado atual do ponto de extremidade da v2.0. Por isso, confira-o novamente para reavaliar seus requisitos em relação aos recursos da v2.0.
 
-Se você está ansioso para obter um SPA que funcione com o modelo de aplicativo v2.0, poderá implementar a autenticação usando o [fluxo de aplicativo Web](active-directory-v2-flows.md#web-apps). Mas essa não é a abordagem recomendada, e a documentação para esse cenário será limitada. Se você quiser ter uma ideia do cenário de SPA, é possível conferir o [exemplo de código SPA do AD do Azure disponível ao público geral](active-directory-devquickstarts-angular.md).
+Se você tem um aplicativo existente com o Azure AD que não usa o ponto de extremidade da v2.0, não é necessário começar do zero. No futuro, forneceremos uma maneira de habilitar seus aplicativos existentes do Azure AD para uso com o ponto de extremidade da v2.0.
 
-##### Aplicativos do lado do servidor/daemons
-Os aplicativos que contêm processos de longa duração ou que operem sem a presença de um usuário também precisam de uma maneira de acessar recursos protegidos, como APIs da Web. Esses aplicativos podem se autenticar e obter tokens usando a identidade do aplicativo (em vez de a identidade de um usuário delegado) usando o [fluxo de credenciais de cliente do OAuth 2.0](active-directory-v2-protocols.md#oauth2-client-credentials-grant-flow).
-
-Esse fluxo não é compatível com o modelo de aplicativo v2.0, o que equivale a dizer que os aplicativos só podem obter tokens após a ocorrência de um fluxo de entrada do usuário interativo. O fluxo de credenciais de cliente será adicionado em breve. Se você quiser ver o fluxo de credenciais de cliente no modelo de aplicativo do AD do Azure disponível ao público geral, confira o [Exemplo de daemon no GitHub](https://github.com/AzureADSamples/Daemon-DotNet).
-
-##### APIs de Web encadeadas (em nome de)
-Muitas arquiteturas incluem uma API da Web que precisa chamar outra API da Web downstream, ambas protegidas pelo modelo de aplicativo v2.0. Este cenário é comum em clientes nativos que têm um back-end de API da Web que, por sua vez, chama um serviço Microsoft Online, como o Office 365 ou o Graph API.
-
-Este cenário de API da Web encadeado pode ter suporte com o uso da concessão OAuth 2.0 Jwt Bearer Credential, também conhecida como [Fluxo Em Nome De](active-directory-v2-protocols.md#oauth2-on-behalf-of-flow). No entanto, o fluxo Em Nome De não está implementado atualmente na visualização do modelo de aplicativo v2.0. Para ver como esse fluxo funciona no serviço do AD do Azure disponível ao público geral, confira o [exemplo de código Em Nome De no GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
+## Restrições quanto a aplicativos
+Os seguintes tipos de aplicativos atualmente não têm suporte no ponto de extremidade da v2.0. Para obter uma descrição dos tipos de aplicativos compatíveis, consulte [este artigo](active-directory-v2-flows.md).
 
 ##### APIs da Web autônomas
-Na visualização do modelo de aplicativo v2.0, você tem a capacidade de [criar uma API da Web que é protegida usando tokens OAuth](active-directory-v2-flows.md#web-apis) a partir do ponto de extremidade v2.0. No entanto, essa API da Web só poderá receber tokens de um cliente que compartilha a mesma ID de aplicativo. A criação de um serviço da Web de terceiros que é acessado de vários clientes diferentes não é compatível.
+Com o ponto de extremidade da v2.0, você tem a capacidade de [criar uma API Web protegida usando OAuth 2.0](active-directory-v2-flows.md#web-apis). No entanto, essa API Web só poderá receber tokens de um aplicativo que compartilhe a mesma ID de aplicativo. Não há suporte para a criação de uma API Web que é acessada de um cliente com uma Id de Aplicativo diferente. Esse cliente não poderá solicitar nem obter permissões para sua API Web.
 
-Para ver como criar uma API da Web que aceita tokens de um cliente conhecido com a mesma Id de aplicativo, consulte os exemplos de API da Web do modelo de aplicativo v2.0 em nossa seção [Introdução](active-directory-appmodel-v2-overview.md#getting-started).
+Para ver como criar uma API Web que aceita tokens de um cliente com a mesma Id de Aplicativo, confira os exemplos de API Web do ponto de extremidade da v 2.0 na seção [Introdução](active-directory-appmodel-v2-overview.md#getting-started).
 
-## Restrições em usuários
-Atualmente, todos os aplicativos criados com o modelo de aplicativo v2.0 serão expostos publicamente a todos os usuários com uma Conta da Microsoft ou uma conta do AD do Azure. Qualquer usuário com qualquer tipo de conta poderá navegar com êxito até o aplicativo ou instalá-lo, inserir as credenciais no modelo de aplicativo v2.0 e concordar com as permissões do seu aplicativo. É possível escrever o código do aplicativo para rejeitar entradas de determinados conjuntos de usuários, mas isso não impedirá que eles consigam concordar com o aplicativo.
+##### Aplicativos do lado do servidor/daemons
+Os aplicativos que contêm processos de longa duração ou que operem sem a presença de um usuário também precisam de uma maneira de acessar recursos protegidos, como APIs da Web. Esses aplicativos podem se autenticar e obter tokens usando a identidade do aplicativo (em vez de a identidade delegada de um usuário) usando o fluxo de credenciais do cliente OAuth 2.0.
 
-Na verdade, seus aplicativos não podem restringir os tipos de usuários que podem entrar no aplicativo. Não será possível criar aplicativos de Linha de Negócios (restringidos a usuários em uma organização), aplicativos disponíveis apenas para usuários corporativos (com uma conta do AD do Azure) ou aplicativos disponíveis apenas aos consumidores (com uma Conta da Microsoft).
+Esse fluxo atualmente não tem suporte no ponto de extremidade da v2.0. Isso significa que os aplicativos só podem obter tokens após a ocorrência de um fluxo de entrada de usuário interativo. O fluxo de credenciais de cliente será adicionado em breve. Se quiser ver o fluxo de credenciais de cliente usando o ponto de extremidade original do Azure AD, confira o [exemplo de Daemon no GitHub](https://github.com/AzureADSamples/Daemon-DotNet).
 
-## Restrições em registros de aplicativos
-Neste momento, todos os aplicativos que desejam integrar-se com o modelo de aplicativo v2.0 devem criar um novo registro de aplicativo em [apps.dev.microsoft.com](https://apps.dev.microsoft.com). Nenhum aplicativo existente da Conta da Microsoft ou do AD do Azure será compatível com o modelo de aplicativo v2.0, nem os aplicativos serão registrados em nenhum portal além do novo Portal de Registro de Aplicativo. Não há um caminho de migração para um aplicativo a partir do serviço do AD do Azure disponível ao público geral para o modelo de aplicativo v2.0.
+##### Fluxo em nome de da API Web
+Muitas arquiteturas incluem uma API Web que precisa chamar outra API Web downstream, ambas protegidas pelo ponto de extremidade da v2.0. Esse cenário é comum em clientes nativos que têm um back-end de API Web que, por sua vez, chama um serviço Microsoft Online ou outra API Web personalizada que dá suporte ao Azure AD.
 
-Da mesma forma, os aplicativos registrados no novo Portal de Registro de Aplicativo funcionarão exclusivamente com o modelo de aplicativo v2.0. Não é possível usar o Portal de Registro de Aplicativo para criar aplicativos que vão se integrar com êxito aos serviços de Conta da Microsoft ou do AD do Azure.
+Esse cenário pode ter suporte usando a concessão Credencial de Portador Jwt do OAuth 2.0, também conhecido como fluxo Em Nome de. No entanto, o fluxo Em Nome de não tem suporte no ponto de extremidade da v2.0. Para ver como esse fluxo funciona no serviço do AD do Azure disponível ao público geral, confira o [exemplo de código Em Nome De no GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
+
+## Restrições quanto a registros de aplicativos
+No momento, todos os aplicativos que desejam integrar-se ao ponto de extremidade da v2.0 devem criar um novo registro de aplicativo em [apps.dev.microsoft.com](https://apps.dev.microsoft.com). Nenhum aplicativo existente da Conta da Microsoft ou do Azure AD será compatível com o ponto de extremidade da v2.0, nem o serão os aplicativos registrados em qualquer portal além do novo Portal de Registro de Aplicativo. Planejamos fornecer uma maneira de habilitar aplicativos existentes para uso como um aplicativo da v2.0, mas, no momento, não há um caminho de migração para um aplicativo para o ponto de extremidade da v2.0.
+
+Da mesma forma, os aplicativos registrados no novo Portal de Registro de Aplicativo não funcionarão em relação ao ponto de extremidade de autenticação original do Azure AD. Porém, você pode usar aplicativos criados no Portal de Registro de Aplicativo para serem integrados com êxito ao ponto de extremidade de autenticação da conta da Microsoft, `https://login.live.com`.
 
 Aplicativos que são registrados no novo Portal de Registro de Aplicativo são atualmente restritos a um conjunto limitado de valores redirect\_uri. O redirect\_uri para serviços e aplicativos Web deve começar com o esquema ou `https`, enquanto o redirect\_uri para todas as outras plataformas deve usar o valor embutido em código de `urn:ietf:oauth:2.0:oob`.
 
 Para saber como registrar um aplicativo no novo Portal de Registro de Aplicativo, consulte [este artigo](active-directory-v2-app-registration.md).
 
-## Restrições em serviços e APIs
-O modelo de aplicativo v2.0 atualmente é compatível com entrada para qualquer aplicativo registrado no novo Portal de Registro de Aplicativo, desde que ele se enquadre na lista de [fluxos de autenticação compatíveis](active-directory-v2-flows.md). No entanto, esses aplicativos só poderão adquirir tokens de acesso do OAuth 2.0 para um conjunto muito limitado de recursos. O ponto de extremidade v2.0 emitirá somente access\_tokens para:
+## Restrições quanto a serviços e APIs
+O ponto de extremidade da v2.0 atualmente dá suporte à entrada para qualquer aplicativo registrado no novo Portal de Registro de Aplicativo, desde que ele se enquadre na lista de [fluxos de autenticação com suporte](active-directory-v2-flows.md). No entanto, esses aplicativos só poderão adquirir tokens de acesso do OAuth 2.0 para um conjunto muito limitado de recursos. O ponto de extremidade v2.0 emitirá somente access\_tokens para:
 
 - O aplicativo que solicitou o token. Um aplicativo pode adquirir um access\_token para si mesmo, se o aplicativo lógico é constituído de várias camadas ou componentes diferentes. Para ver esse cenário em ação, confira nossos tutoriais de [Introdução](active-directory-appmodel-v2-overview.md#getting-started).
 - As APIs REST do Outlook Mail, Calendar e Contacts, que estão localizadas em https://outlook.office.com. Para saber como escrever um aplicativo que acessa essas APIs, consulte estes tutoriais de [Introdução ao Office](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
+- As APIs do Microsoft Graph. Para saber mais sobre o Microsoft Graph e todos os dados que estão disponíveis, acesse [https://graph.microsoft.io](https://graph.microsoft.io).
 
-Mais serviços Microsoft Online serão adicionados em breve, bem como suporte para seus próprios serviços e APIs da Web.
+Nenhum outro serviço tem suporte no momento. Mais serviços Microsoft Online serão adicionados no futuro, bem como suporte para seus próprios serviços e APIs Web personalizados.
 
-## Restrições em bibliotecas e SDKs
-Nem todas as linguagens e plataformas têm bibliotecas compatíveis com a visualização do modelo de aplicativo v2.0. O conjunto de bibliotecas de autenticação atualmente é limitado para .NET, iOS, Android, NodeJS e Javascript. Tutoriais e exemplos de código correspondentes para cada um estão disponíveis em nossa seção [Introdução](active-directory-appmodel-v2-overview.md#getting-started).
+## Restrições quanto a bibliotecas e SDKs
+Para ajudá-lo a experimentar itens, fornecemos uma versão experimental da Biblioteca de Autenticação do Active Directory que é compatível com o ponto de extremidade da v2.0. No entanto, essa versão do ADAL está em um estado de visualização. Ela não tem suporte e será alterada significativamente nos próximos meses. Há exemplos de código que usam a ADAL para .NET, iOS, Android e Javascript disponíveis na seção [Introdução](active-directory-appmodel-v2-overview.md#getting-started), se você deseja colocar um aplicativo em execução rapidamente com o ponto de extremidade da v2.0.
 
-Se você deseja integrar um aplicativo com o modelo de aplicativo v2.0 usando outra linguagem ou plataforma, consulte a [Referência de Protocolo do OpenID Connect e OAuth 2.0](active-directory-v2-protocols.md), que instruirá sobre como construir as mensagens HTTP necessárias para se comunicar com o ponto de extremidade v2.0.
+Se deseja usar o ponto de extremidade da v2.0 em um aplicativo de produção, você tem as seguintes opções:
 
-## Restrições em protocolos
-O modelo de aplicativo v2.0 é compatível com Open ID Connect e OAuth 2.0. No entanto, nem todos os recursos e capacidades de cada protocolo foram incorporados ao modelo de aplicativo v2.0. Alguns exemplos incluem:
+- Se está criando um aplicativo Web, você pode usar com segurança nosso middleware do servidor disponível para realizar a entrada e a validação de token. Isso inclui o middleware OWIN Open ID Connect para ASP.NET e o plug-in NodeJS Passport. Exemplos de código que usam esses middlewares também estão disponíveis na seção [Introdução](active-directory-appmodel-v2-overview.md#getting-started).
+- Para outras plataformas e aplicativos móveis e nativos, você também pode fazer a integração com o ponto de extremidade da v2.0 enviando e recebendo diretamente mensagens de protocolo no código do aplicativo. Os protocolos OAuth e OpenID Connect da v2.0 [foram documentados explicitamente](active-directory-v2-protocols.md) para ajudá-lo a executar essa integração.
+- Finalmente, você pode usar bibliotecas de software livre do Open ID Connect e do OAuth para fazer a integração com o ponto de extremidade da v2.0. O protocolo da v2.0 deve ser compatível com muitas bibliotecas de protocolo de software livre sem grandes alterações. A disponibilidade dessas bibliotecas varia por linguagem e plataforma, e os sites do [Open ID Connect](http://openid.net/connect/) e do [OAuth 2.0](http://oauth.net/2/) mantêm uma lista de implementações populares. Abaixo estão listados os exemplos e as bibliotecas de clientes de software livre que foram testados com o ponto de extremidade da v2.0. Observe que recursos como o [Registro de Cliente Dinâmico do OpenID Connect](https://openid.net/specs/openid-connect-registration-1_0.html) e pontos de extremidade de validação de token ainda não têm suporte e talvez precisem ser desabilitados na biblioteca para funcionar com o ponto de extremidade da v2: 
 
-- Suporte total para o parâmetro `prompt` do OpenID Connect
-- O parâmetro `login_hint` do OpenID Connect
-- O parâmetro `domain_hint` do OpenID Connect
+  - [Servidor de Identidade Java WSO2](https://docs.wso2.com/display/IS500/Introducing+the+Identity+Server)
+  - [Java Gluu Federation](https://github.com/GluuFederation/oxAuth)
+  - [Node.Js passport-openidconnect](https://www.npmjs.com/package/passport-openidconnect)
+  - [Cliente Básico do OpenID Connect PHP](https://github.com/jumbojett/OpenID-Connect-PHP)
+  - [Exemplo de OpenID Connect Android](https://github.com/learning-layers/android-openid-connect)
+
+## Restrições quanto a protocolos
+O ponto de extremidade da v2.0 dá suporte apenas a Open ID Connect e OAuth 2.0. No entanto, nem todos os recursos e capacidades de cada protocolo foram incorporados ao ponto de extremidade da v2.0. Alguns exemplos incluem:
+
 - O `end_sesssion_endpoint` do OpenID Connect
+- A concessão de credenciais de cliente do OAuth 2.0
 
-Para entender melhor o escopo da funcionalidade de protocolo compatível no modelo de aplicativo v2.0, leia nossa [Referência de Protocolo do OpenID Connect e OAuth 2.0](active-directory-v2-protocols.md).
+Para entender melhor o escopo da funcionalidade de protocolo compatível no ponto de extremidade da v2.0, leia nossa [Referência de Protocolo do OpenID Connect e OAuth 2.0](active-directory-v2-protocols.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+## Recursos de desenvolvedor avançados do Azure AD
+Há um conjunto de recursos de desenvolvedor disponíveis no serviço do Active Directory do Azure que ainda não têm suporte no ponto de extremidade da v2.0, incluindo:
+
+- Declarações de grupo para usuários do Azure AD
+- Funções de aplicativo e declarações de função
+
+<!---HONumber=AcomDC_0224_2016-->

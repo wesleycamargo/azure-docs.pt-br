@@ -19,6 +19,18 @@
 
 Após de ter [Configurado o Application Insights no seu projeto](app-insights-overview.md), os dados de telemetria sobre desempenho e uso do aplicativo aparecerá no recurso do Application Insights do projeto no [portal do Azure](https://portal.azure.com).
 
+## O painel
+
+Ao entrar no [Portal do Azure](https://portal.azure.com), você chega primeiro ao painel. Você pode personalizá-lo ou colocá-lo em modo de tela inteira. Este exemplo foi personalizado para mostrar os principais gráficos de interesse dos seus proprietários.
+
+
+![Um painel personalizado.](./media/app-insights-portal/30.png)
+
+1. Clique no canto superior a qualquer momento para voltar para o painel.
+2. **+ Novo** cria um novo recurso. Um [recurso do Application Insights](app-insights-create-new-resource.md) é um local para armazenar e analisar a telemetria do seu aplicativo.
+3. A barra de navegação abre seus recursos existentes.
+4. Edite e crie painéis usando a barra de ferramentas do painel.
+
 ## Encontrar sua telemetria
 
 Entre no [portal do Azure](https://portal.azure.com) e navegue até o recurso do Application Insights que você criou para seu aplicativo.
@@ -83,14 +95,28 @@ Escolha o que deseja ver na visão geral. Em Personalizar, você pode inserir t�
 
 ![Clique em Editar. Arraste blocos e gráficos. Adicione blocos da galeria. Em seguida, clique em Concluído.](./media/app-insights-portal/020-customize.png)
 
-### Personalizar o painel do Azure
+## Painéis
+
+O painel do Portal do Azure é a home page que você vê quando entra pela primeira vez [no portal](https://portal.azure.com). Nele, você pode reunir gráficos e blocos (grupos de gráficos) de vários recursos.
+
+![Clique em Editar. Arraste blocos e gráficos. Adicione blocos da galeria. Em seguida, clique em Concluído.](./media/app-insights-portal/30.png)
+
+Quando você encontra uma folha ou um gráfico que é particularmente interessante, você pode fixá-lo para o painel. Você o verá da próxima vez que retornar.
+
+![Para fixar um gráfico, passe o mouse sobre ele e clique em "…" no cabeçalho.](./media/app-insights-portal/33.png)
+
+É possível salvar mais de um painel e alternar entre eles. Quando você fixa um gráfico ou folha, ele é adicionado ao painel atual.
+
+![Para alternar entre os painéis, clique em Painel e selecione um painel salvo. Para criar e salvar um novo painel, clique em Novo. Para reorganizar, clique em Editar.](./media/app-insights-portal/32.png)
+
+Por exemplo, você pode ter um painel para exibir em tela inteira na sala da equipe e outro para desenvolvimento geral.
 
 
-O painel do Portal do Azure é a home page que você vê quando entra pela primeira vez no portal. Nele, você pode reunir blocos (grupos de gráficos) de vários recursos.
+No painel, uma folha é exibida como um bloco: clique nele para ir para a folha. Um gráfico replica o gráfico em seu local original.
 
-Para fixar um bloco da folha de visão geral do Application Insights no painel do portal, selecione o cabeçalho do bloco e "...".
 
-Para obter um painel mais abrangente, use [Power BI](https://azure.microsoft.com/blog/application-insights-content-pack-for-power-bi/) para exibir sua telemetria.
+![](./media/app-insights-portal/35.png)
+
 
 ## Folhas de métricas
 
@@ -159,7 +185,7 @@ Se você editar uma folha mas em seguida decidir voltar ao conjunto original sal
 
 A pesquisa exibe eventos individuais, como exibições de página, solicitações, exceções, rastreamentos de log e eventos personalizados. Ela não mostra as métricas agregadas ou instâncias da chamada trackmetric ().
 
-> [AZURE.NOTE]Se o seu aplicativo gerar muita telemetria (e você estiver usando o SDK do ASP.NET versão 2.0.0-beta3 ou posterior), o módulo de amostragem adaptável reduzirá automaticamente o volume enviado ao portal, enviando apenas uma fração representativa de eventos. No entanto, os eventos relacionados à mesma solicitação serão selecionadas ou desmarcadas como um grupo, para que você possa navegar entre os eventos relacionados. [Saiba mais sobre amostragem](app-insights-sampling.md).
+> [AZURE.NOTE] Se o seu aplicativo gerar muita telemetria (e você estiver usando o SDK do ASP.NET versão 2.0.0-beta3 ou posterior), o módulo de amostragem adaptável reduzirá automaticamente o volume enviado ao portal, enviando apenas uma fração representativa de eventos. No entanto, os eventos relacionados à mesma solicitação serão selecionadas ou desmarcadas como um grupo, para que você possa navegar entre os eventos relacionados. [Saiba mais sobre amostragem](app-insights-sampling.md).
 
 Abra a pesquisa de diagnóstico:
 
@@ -179,7 +205,7 @@ Por exemplo, escolha solicitações com um código de resposta específicos.
 
 Não escolher nenhum valor para uma determinada propriedade tem o mesmo efeito que escolher todos os valores; ele desativará a filtragem para essa propriedade.
 
-> [AZURE.NOTE]Se o seu aplicativo gerar muita telemetria, o módulo de amostragem adaptável reduzirá automaticamente o volume enviado ao portal, enviando apenas uma fração representativa de eventos. Os eventos que fazem parte da mesma operação serão selecionados ou desmarcados como um grupo, para que você possa navegar entre os eventos relacionados. [Saiba mais sobre amostragem.](app-insights-sampling.md)
+> [AZURE.NOTE] Se o seu aplicativo gerar muita telemetria, o módulo de amostragem adaptável reduzirá automaticamente o volume enviado ao portal, enviando apenas uma fração representativa de eventos. Os eventos que fazem parte da mesma operação serão selecionados ou desmarcados como um grupo, para que você possa navegar entre os eventos relacionados. [Saiba mais sobre amostragem.](app-insights-sampling.md)
 
 
 ### Reduzir o escopo de sua pesquisa
@@ -205,4 +231,4 @@ Para ver a pesquisa novamente, **vá até a folha de visão geral** e abra Favor
 
 Se você os salvou com o intervalo de tempo Relativo, a folha reaberta contém os dados mais recentes. Se você os salvou com o intervalo de tempo Absoluto, consulte os mesmos dados, sempre.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

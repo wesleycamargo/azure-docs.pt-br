@@ -14,14 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required" 
-   ms.date="11/04/2015"
+   ms.date="02/04/2016"
    ms.author="heidist"/>
 
 # Monitorar o uso e as estatísticas em um serviço de Pesquisa do Azure
 
 Acompanhar o crescimento do tamanho dos índices e do documento pode ajudar você a ajustar a capacidade de forma proativa antes de atingir o limite superior que você estabeleceu para seu serviço.
 
-Para monitorar o uso de recursos, você pode ver contagens e estatísticas com facilidade no [Portal do Azure](https://portal.azure.com), mas também pode obter essas informações por meio de programação se estiver criando uma ferramenta de administração de serviço personalizada. Este artigo aborda as etapas das duas técnicas.
+Para monitorar o uso de recursos, você pode ver as contagens e estatísticas do seu serviço com facilidade no [Portal do Azure](https://portal.azure.com), mas também pode obter essas informações por meio de programação se estiver criando uma ferramenta de administração de serviço personalizada. Este artigo aborda as etapas das duas técnicas.
+
+Você também pode usar o novo recurso de análise de tráfego de pesquisa para obter informações sobre as atividades no nível do índice. Visite [Análise de Tráfego de Pesquisa para a Pesquisa do Azure](search-traffic-analytics.md) para começar.
 
 ##Ver contagens e métricas no portal 
 
@@ -57,4 +59,4 @@ Visite [Gerenciar o serviço de pesquisa no Microsoft Azure](search-manage.md) p
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0224_2016-->

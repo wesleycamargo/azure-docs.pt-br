@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="02/17/2016"
 	ms.author="tomfitz"/>
 
 # Como usar o Armazenamento de Fila do PHP
@@ -42,12 +42,13 @@ Neste guia, você usará os recursos do armazenamento de Filas que podem ser cha
 
 Para usar as APIs de armazenamento de Filas do Azure, você precisa:
 
-1. Fazer referência ao arquivo do carregador automático usando a instrução [require\_once][require_once].
+1. Fazer referência ao arquivo do carregador automático usando a instrução [require\_once].
 2. Fazer referência a qualquer classe que possa usar.
 
 O exemplo a seguir mostra como incluir o arquivo de carregador automático e fazer referência à classe **ServicesBuilder**.
 
-> [AZURE.NOTE]Este exemplo (e outros exemplos neste artigo) pressupõe que você instalou as Bibliotecas de Cliente PHP para Azure por meio do Compositor. Se você instalou as bibliotecas manualmente ou como um pacote PEAR, você precisará fazer referência ao arquivo de carregador automático `WindowsAzure.php`.
+> [AZURE.NOTE]
+Este exemplo (e outros exemplos neste artigo) pressupõe que você instalou as Bibliotecas de Cliente PHP para Azure por meio do Compositor. Se você instalou as bibliotecas manualmente ou como um pacote PEAR, você precisará fazer referência ao arquivo de carregador automático `WindowsAzure.php`.
 
 	require_once 'vendor\autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
@@ -115,7 +116,7 @@ O objeto **QueueRestProxy** permite que você crie uma fila com o método **crea
 		echo $code.": ".$error_message."<br />";
 	}
 
-> [AZURE.NOTE]Você não deve depender de maiúsculas e minúsculas para as chaves de metadados. Todas as chaves são lidas do serviço em letras minúsculas.
+> [AZURE.NOTE] Você não deve depender de maiúsculas e minúsculas para as chaves de metadados. Todas as chaves são lidas do serviço em letras minúsculas.
 
 
 ## Adicionar uma mensagem a uma fila
@@ -380,7 +381,7 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Filas do Azur
 Para saber mais, veja também a [Central de desenvolvedores do PHP](/develop/php/).
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
-[require_once]: http://www.php.net/manual/en/function.require-once.php
-[Azure Portal]: portal.azure.com
+[require\_once]: http://www.php.net/manual/en/function.require-once.php
+[Azure Portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

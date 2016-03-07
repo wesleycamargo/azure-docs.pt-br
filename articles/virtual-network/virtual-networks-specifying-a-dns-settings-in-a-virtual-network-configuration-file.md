@@ -1,27 +1,30 @@
 <properties 
    pageTitle="Especificando as configurações DNS em um arquivo de configuração de Rede Virtual | Microsoft Azure"
-   description="Como alterar as configurações do servidor DNS em uma rede virtual usando um arquivo de configuração de rede virtual"
+   description="Como alterar as configurações do servidor DNS em uma rede virtual usando um arquivo de configuração de rede virtual no modelo de implantação clássica"
    services="virtual-network"
    documentationCenter="na"
-   authors="joaoma"
+   authors="telmosampaio"
    manager="carmonm"
-   editor="tysonn" />
+   editor="tysonn" 
+   tags="azure-service-management" />
 <tags 
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/25/2015"
-   ms.author="joaoma" />
+   ms.date="02/23/2016"
+   ms.author="telmos" />
 
 # Especificando as configurações de DNS em um arquivo de configuração de rede virtual
 
 Um arquivo de configuração de rede tem dois elementos que você pode usar para especificar as configurações do Sistema de Nome de Domínio (DNS): **DnsServers** e **DnsServerRef**. Você pode adicionar uma lista de servidores DNS especificando seus endereços IP e fazendo referência a nomes para o elemento **DnsServers**. Você pode usar um elemento **DnsServerRef** para especificar quais entradas do servidor DNS do elemento DnsServers serão usadas para sites de rede diferentes dentro da sua rede virtual.
 
->[AZURE.IMPORTANT] Para obter informações sobre como configurar o arquivo de configuração de rede, consulte [Configurar uma rede virtual usando um arquivo de configuração de rede](virtual-networks-using-network-configuration-file.md). Para obter informações sobre cada elemento contido no arquivo de configuração de rede, consulte [Esquema de configuração de Rede Virtual do Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artigo aborda o modelo de implantação clássico.
 
 O arquivo de configuração de rede pode conter os seguintes elementos. O título de cada elemento é vinculado a uma página que fornece informações adicionais sobre as configurações de valores de elemento.
+
+>[AZURE.IMPORTANT] Para obter informações sobre como configurar o arquivo de configuração de rede, consulte [Configurar uma rede virtual usando um arquivo de configuração de rede](virtual-networks-using-network-configuration-file.md). Para obter informações sobre cada elemento contido no arquivo de configuração de rede, consulte [Esquema de configuração de Rede Virtual do Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
 [Elemento DNS](http://go.microsoft.com/fwlink/?LinkId=248093)
 
@@ -47,10 +50,8 @@ O arquivo de configuração de rede pode conter os seguintes elementos. O títul
 
 ## Próximas etapas
 
-[Configurar uma rede virtual usando arquivos de configuração de rede](virtual-networks-using-network-configuration-file.md)
+- Compreenda o [Esquema de Configuração de Rede Virtual do Azure](http://go.microsoft.com/fwlink/?LinkId=248093).
+- Compreenda o [Esquema de Configuração do Serviço do Azure](https://msdn.microsoft.com/library/windowsazure/ee758710).
+- [Configurar uma rede virtual usando arquivos de configuração de rede](virtual-networks-using-network-configuration-file.md).
 
-[Esquema de configuração de Rede Virtual do Azure](http://go.microsoft.com/fwlink/?LinkId=248093)
-
-[Esquema de configuração de serviço do Azure](https://msdn.microsoft.com/library/windowsazure/ee758710)
-
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

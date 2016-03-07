@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="01/06/2016"
+   ms.date="02/21/2016"
    ms.author="tamram" />
 
 # Exemplos do Armazenamento do Azure
@@ -28,12 +28,12 @@ A [Biblioteca de Exemplo de Código](https://azure.microsoft.com/documentation/s
 
 Para explorar os exemplos do .NET, baixe a [Biblioteca do Cliente de Armazenamento do .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) do NuGet. A biblioteca de cliente de armazenamento do .NET também está disponível no [SDK do Azure para .NET](https://azure.microsoft.com/downloads/).
 
-* [Introdução aos blobs, tabelas e filas do Azure em 5 minutos](storage-getting-started-guide.md)
+* [Introdução ao Armazenamento do Azure em cinco minutos](storage-getting-started-guide.md)
 * [Gerenciando a simultaneidade usando o Armazenamento do Azure – aplicativo de exemplo](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)
 * [Introdução aos blobs](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts/DataBlobStorage)
 * [Introdução às tabelas](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts/DataTableStorage)
 * [Introdução às filas](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts/DataStorageQueue)
-* [Introdução aos arquivos](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts/DataTableStorage)
+* [Introdução aos arquivos](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts/DataFileStorage)
 
 ## Exemplos do Java
 
@@ -85,4 +85,4 @@ Para explorar os exemplos do C++, baixe a [Biblioteca do Cliente de Armazenament
 - [Código-fonte da biblioteca do cliente de armazenamento do C++](https://github.com/Azure/azure-storage-cpp)
 - [Referência da Biblioteca do Cliente do C++](http://azure.github.io/azure-storage-cpp/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

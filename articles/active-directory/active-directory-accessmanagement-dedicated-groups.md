@@ -25,6 +25,19 @@ Quando a opção Habilitar Grupos Dedicados é definida como **Sim**, você aind
 
 O grupo dedicado Todos os Usuários pode ser útil se você deseja atribuir as mesmas permissões a todos os usuários no diretório. Por exemplo, você pode conceder a todos os usuários no seu acesso ao diretório para um aplicativo SaaS atribuindo acesso para o grupo dedicado de Todos os Usuários a esse aplicativo.
 
+Observe que o grupo dedicado "Todos os Usuários" inclui todos os usuários no diretório e isso inclui os convidados e usuários externos. Se você precisar de um grupo que exclui os usuários externos, é possível criar um grupo com uma regra dinâmica como
+
+(user.userPrincipalName -notContains "#EXT#@")
+
+Para um grupo que exclui todos os Convidados, use uma regra como
+
+(user.userType -ne "Guest")
+
+Este artigo explica mais sobre como criar uma regra para gerenciar os membros em um grupo no Azure Active Directory:
+
+* [Criação de uma regra simples para configurar associações dinâmicas para um grupo](active-directory-accessmanagement-simplerulegroup.md)
+
+
 Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 
 * [Gerenciamento de acesso a recursos com grupos do Active Directory do Azure](active-directory-manage-groups.md)
@@ -32,4 +45,4 @@ Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 * [O que é o Active Directory do Azure?](active-directory-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

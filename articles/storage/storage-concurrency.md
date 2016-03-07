@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="02/20/2016"
 	ms.author="jahogg"/>
 
 # Gerenciando a simultaneidade no Armazenamento do Microsoft Azure
@@ -49,7 +49,7 @@ A estrutura desse processo é a seguinte:
 4.	Se o valor da ETag atual do blob for uma versão diferente da ETag no cabeçalho condicional **If-Match** na solicitação, o serviço retornará um erro 412 para o cliente. Isso indica para o cliente que outro processo atualizou o blob desde que ele o recuperou.
 5.	Se o valor atual de ETag do blob for a mesma versão de ETag no cabeçalho condicional **If-Match** na solicitação, o serviço realizará a operação solicitada e atualizará o valor da ETag atual do blob para mostrar que foi criada uma nova versão.  
 
-O trecho de C# a seguir (usando a Client Storage Library 4.2.0) mostra um exemplo simples de como criar um **If-Match AccessCondition** com base no valor da ETag acessado nas propriedades de um blob que foi recuperado ou inserido anteriormente. Ele usa então o objeto **AccessCondition** quando está atualizando o blob: o objeto **AccessCondition** adiciona o cabeçalho **If-Match** à solicitação. Se outro processo atualizou o blob, o serviço Blob retorna uma mensagem de status HTTP 412 (Falha de precondição). A amostra completa pode ser baixada [aqui](http://code.msdn.microsoft.com/windowsazure/Managing-Concurrency-using-56018114).
+O trecho de C# a seguir (usando a Client Storage Library 4.2.0) mostra um exemplo simples de como criar um **If-Match AccessCondition** com base no valor da ETag acessado nas propriedades de um blob que foi recuperado ou inserido anteriormente. Ele usa então o objeto **AccessCondition** quando está atualizando o blob: o objeto **AccessCondition** adiciona o cabeçalho **If-Match** à solicitação. Se outro processo atualizou o blob, o serviço Blob retorna uma mensagem de status HTTP 412 (Falha de precondição). Você pode baixar o exemplo completo aqui: [Gerenciando a Simultaneidade usando o Armazenamento do Azure](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
 	// Retrieve the ETag from the newly created blob
 	// Etag is already populated as UploadText should cause a PUT Blob call
@@ -128,7 +128,7 @@ Para bloquear um blob para uso exclusivo, é possível obter uma [concessão](ht
 
 As concessões permitem que diferentes estratégias de sincronização tenham suporte, incluindo gravação exclusiva/leitura compartilhada, gravação exclusiva/leitura exclusiva e gravação compartilhada/leitura exclusiva. Nos locais em que há uma concessão, o serviço de Armazenamento impõe gravações exclusivas (operações de exclusão, definição e colocação), mas a garantia de exclusividade para operações de leitura requer que o desenvolvedor garanta que todos os aplicativos cliente usam uma ID de concessão e que apenas um cliente de cada vez tem uma ID de concessão válida. As operações de leitura que não incluem uma ID de concessão resultam em leituras compartilhadas.
 
-O trecho de C# a seguir mostra um exemplo de aquisição de uma concessão exclusiva por 30 segundos em um blob, atualizando o conteúdo do blob e liberando a concessão. Se já houver uma concessão válida no blob quando você tentar obter uma nova concessão, o serviço Blob retornará um resultado de status “HTTP (409) Conflito”. O trecho abaixo usa um objeto **AccessCondition** para encapsular as informações da concessão quando ela faz uma solicitação para atualizar o blob no serviço de Armazenamento. A amostra completa pode ser baixada [aqui](http://code.msdn.microsoft.com/windowsazure/Managing-Concurrency-using-56018114).
+O trecho de C# a seguir mostra um exemplo de aquisição de uma concessão exclusiva por 30 segundos em um blob, atualizando o conteúdo do blob e liberando a concessão. Se já houver uma concessão válida no blob quando você tentar obter uma nova concessão, o serviço Blob retornará um resultado de status “HTTP (409) Conflito”. O trecho abaixo usa um objeto **AccessCondition** para encapsular as informações da concessão quando ela faz uma solicitação para atualizar o blob no serviço de Armazenamento. Você pode baixar o exemplo completo aqui: [Gerenciando a Simultaneidade usando o Armazenamento do Azure](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
 	// Acquire lease for 15 seconds
 	string lease = blockBlob.AcquireLease(TimeSpan.FromSeconds(15), null);
@@ -209,7 +209,7 @@ Para usar a simultaneidade otimista e verificar se outro processo modificou uma 
 
 Observe que diferente do serviço Blob, o serviço Tabela exige que o cliente inclua um cabeçalho **If-Match** em solicitações de atualização. No entanto, é possível forçar uma atualização incondicional (estratégia último a gravar vence) e ignorar as verificações de simultaneidade se o cliente definir o cabeçalho **If-Match** com o caractere curinga (*) na solicitação.
 
-O trecho de C# a seguir mostra uma entidade de cliente que foi criada ou recuperada anteriormente tendo seu endereço de email atualizado. A operação de recuperação ou inserção inicial armazena o valor da ETag no objeto do cliente e, como a amostra usa a mesma instância de objeto ao executar a operação de substituição, ela automaticamente envia o valor da ETag de volta ao serviço Tabela, permitindo que o serviço verifique se há violações de simultaneidade. Se outro processo atualizou a entidade no armazenamento de tabela, o serviço retorna uma mensagem de status HTTP 412 (Falha de precondição). A amostra completa pode ser baixada [aqui](http://code.msdn.microsoft.com/windowsazure/Managing-Concurrency-using-56018114).
+O trecho de C# a seguir mostra uma entidade de cliente que foi criada ou recuperada anteriormente tendo seu endereço de email atualizado. A operação de recuperação ou inserção inicial armazena o valor da ETag no objeto do cliente e, como a amostra usa a mesma instância de objeto ao executar a operação de substituição, ela automaticamente envia o valor da ETag de volta ao serviço Tabela, permitindo que o serviço verifique se há violações de simultaneidade. Se outro processo atualizou a entidade no armazenamento de tabela, o serviço retorna uma mensagem de status HTTP 412 (Falha de precondição). Você pode baixar o exemplo completo aqui: [Gerenciando a Simultaneidade usando o Armazenamento do Azure](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
 	try
 	{
@@ -274,13 +274,13 @@ O serviço de Armazenamento do Microsoft Azure foi desenvolvido para atender às
 
 Para encontrar o aplicativo de exemplo completo citado nesse blog:
 
-- [Gerenciando a simultaneidade usando o Armazenamento do Azure — aplicativo de amostra](http://code.msdn.microsoft.com/windowsazure/Managing-Concurrency-using-56018114)  
+- [Gerenciando a simultaneidade usando o Armazenamento do Azure — aplicativo de amostra](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)  
 
 Para obter mais informações sobre Armazenamento do Azure, consulte:
 
 - [Página inicial do Armazenamento do Microsoft Azure](https://azure.microsoft.com/services/storage/)
 - [Introdução ao armazenamento do Azure](storage-introduction.md)
-- Introdução ao Armazenamento para [Blob](storage-dotnet-how-to-use-blobs.md), [Tabela](storage-dotnet-how-to-use-tables.md) e [Filas](storage-dotnet-how-to-use-queues.md)
-- Arquitetura de Armazenamento – [Armazenamento do Microsoft Azure: um serviço de armazenamento em nuvem altamente disponível com coerência forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+- Introdução ao Armazenamento para [Blob](storage-dotnet-how-to-use-blobs.md), [Tabela](storage-dotnet-how-to-use-tables.md), [Filas](storage-dotnet-how-to-use-queues.md) e [Arquivos](storage-dotnet-how-to-use-files.md)
+- Arquitetura de Armazenamento – [Armazenamento do Azure: um serviço de armazenamento em nuvem altamente disponível com coerência forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

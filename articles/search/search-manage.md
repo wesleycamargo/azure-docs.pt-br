@@ -14,14 +14,14 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="heidist"/>
 
 # Gerenciar seu serviço de Pesquisa no Microsoft Azure
 
 A Pesquisa do Azure é um serviço baseado em nuvem com uma API baseada em HTTP que pode ser usado em aplicativos de pesquisa personalizados. Nosso serviço de Pesquisa fornece o mecanismo para análise de texto de pesquisa em texto completo, recursos de pesquisa avançada, armazenamento de dados de pesquisa e uma sintaxe de comandos de consulta.
 
-Este artigo explica como administrar um serviço de Pesquisa no [Portal do Azure](https://portal.azure.com).
+Este artigo explica como administrar um serviço de Pesquisa no [Portal do Azure](https://portal.azure.com). Você também pode usar o novo recurso de análise de tráfego de pesquisa para obter informações sobre as atividades no nível do índice. Visite [Análise de Tráfego de Pesquisa para a Pesquisa do Azure](search-traffic-analytics.md) para começar.
 
 Como alternativa, você pode usar a API REST de gerenciamento. Confira [Introdução à API REST de Gerenciamento de Pesquisa do Azure](search-get-started-management-api.md) e [referência da API REST do Gerenciamento de Pesquisa do Azure](http://msdn.microsoft.com/library/azure/dn832684.aspx) para obter detalhes.
 
@@ -43,7 +43,7 @@ Quando você estiver pronto para se inscrever, confira [Criar um serviço de Pes
 
 ##Análise de Pesquisa
 
-Você pode habilitar a coleta de dados sobre a atividade de pesquisa do usuário para verificar o desempenho do seu serviço de pesquisa, quais termos estão sendo usados e se esses termos retornaram visitas. A melhor maneira de analisar e visualizar esses dados é por meio de um pacote de conteúdo do Power BI. A primeira etapa é habilitar a análise do tráfego de pesquisa. Confira [Analyzing your Azure Search traffic](https://azure.microsoft.com/blog/analyzing-your-azure-search-traffic/) para saber como.
+Você pode habilitar a coleta de dados sobre a atividade de pesquisa do usuário para verificar o desempenho do seu serviço de pesquisa, quais termos estão sendo usados e se esses termos retornaram visitas. A melhor maneira de analisar e visualizar esses dados é por meio de um pacote de conteúdo do Power BI. A primeira etapa é habilitar a análise do tráfego de pesquisa. Consulte [Analisando o tráfego da Pesquisa do Azure](https://azure.microsoft.com/blog/analyzing-your-azure-search-traffic/) para saber como.
 
 <a id="sub-2"></a>
 ## Tarefas administrativas
@@ -66,7 +66,7 @@ Os desenvolvedores que estiverem compilando aplicativos de pesquisa precisarão 
 
 Para obter a URL do serviço do painel de serviço:
 
-1.	Entre no [Portal Clássico do Azure](https://portal.azure.com).
+1.	Entre no [Portal do Azure](https://portal.azure.com).
 2.	Clique em **Navegar** | **Tudo** | **Serviços de pesquisa**.
 3.	Clique no nome do seu serviço de pesquisa para abrir o painel.
 4.	Clique em **PROPRIEDADES** para abrir uma página de propriedades. A URL do serviço está no topo da página. Você pode fixar esta página para acessá-la rapidamente mais tarde.
@@ -166,7 +166,7 @@ Parar ou iniciar o serviço não desativa a cobrança. Você deve excluir o serv
 <a id="sub-8"></a>
 ## Definir funções sobre o acesso administrativo
 
-O Azure fornece um modelo global de autorização baseado em funções para todos os serviços gerenciados por meio do portal ou na API do Gerenciador de Recursos do Azure, se você estiver usando uma ferramenta de administração personalizada. Funções de Leitor, Colaborador e Proprietário definem o nível de administração para usuários do Active Directory, grupos e entidades de segurança que você atribui a cada função. Consulte o [Controle de acesso baseado em função no Portal clássico do Azure](../role-based-access-control-configure.md) para obter detalhes sobre a associação de função.
+O Azure fornece um modelo global de autorização baseado em funções para todos os serviços gerenciados por meio do portal ou na API do Gerenciador de Recursos do Azure, se você estiver usando uma ferramenta de administração personalizada. Funções de Leitor, Colaborador e Proprietário definem o nível de administração para usuários do Active Directory, grupos e entidades de segurança que você atribui a cada função. Consulte o [Controle de acesso baseado em função no Portal clássico do Azure](../active-directory/role-based-access-control-configure.md) para obter detalhes sobre a associação de função.
 
 Em termos de Pesquisa do Azure, controles de acesso baseados em função determinam as seguintes tarefas administrativas:
 
@@ -177,7 +177,7 @@ Proprietário|Iniciar, interromper ou excluir o serviço.<p>Gerar e exibir as ch
 Colaborador|Tem o mesmo nível de acesso que o Proprietário, com exceção de gerenciamento de função. Por exemplo, um Colaborador pode exibir e gerar novamente a `api-key`, mas não pode modificar as associações de função.
 Leitor|Exibir chaves de consulta e de status do serviço. Os membros dessa função não podem iniciar ou parar um serviço, nem exibir chaves de administração.
 
-Observe que as funções não concedem direitos de acesso para o ponto de extremidade de serviço. As operações do serviço de pesquisa, como gerenciamento de índices, preenchimento de índice e consultas em dados de pesquisa, são controladas por meio de chaves de api, não funções. Consulte “Autorização para gerenciamento versus operações de dados” no [Controle de acesso baseado em função no Portal clássico do Azure](../role-based-access-control-configure.md) para mais informações.
+Observe que as funções não concedem direitos de acesso para o ponto de extremidade de serviço. As operações do serviço de pesquisa, como gerenciamento de índices, preenchimento de índice e consultas em dados de pesquisa, são controladas por meio de chaves de api, não funções. Consulte "Autorização para gerenciamento versus operações de dados" no [Controle de acesso baseado em função no Portal do Azure](../active-directory/role-based-access-control-configure.md) para obter mais informações.
 
 As funções fornecem controle de acesso depois da criação do serviço. Apenas os gerentes de assinatura podem adicionar um serviço de Pesquisa a uma assinatura.
 
@@ -200,4 +200,4 @@ As funções fornecem controle de acesso depois da criação do serviço. Apenas
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/29/2016"
+   ms.date="02/12/2016"
    ms.author="chackdan"/>
 
 
@@ -72,8 +72,7 @@ Esta página ajuda você a configurar um cluster do Service Fabric. Sua assinatu
 
 	b. Adicione todas as portas, separadas por vírgulas, no campo **Pontos de extremidade de entrada do aplicativo**. Por padrão, o ponto de extremidade de conexão do cliente TCP é 19000, portanto não é necessário especificá-lo. Por exemplo, o aplicativo de exemplo WordCount precisa da porta 83 aberta. Você encontrará isso no arquivo servicemanifest.xml em seu pacote de aplicativos. (Pode haver mais de um arquivo servicemanifest.xml.)
 
-    c. A maioria dos aplicativos de exemplo usam as portas 80 e 8081. Portanto, adicione-as se você planeja implantar exemplos para esse cluster.
-    ![Portas][Ports]
+    c. A maioria dos aplicativos de exemplo usam as portas 80 e 8081. Portanto, adicione-as se você planeja implantar exemplos para esse cluster. ![Portas][Ports]
 
 10. Não é necessário configurar as **Propriedades de Posicionamento**, pois uma propriedade de posicionamento padrão de "NodeTypeName" foi adicionada pelo sistema. Você pode adicionar mais se o aplicativo exigir.
 
@@ -113,8 +112,7 @@ Depois que a implantação for concluída, você pode inspecionar o cluster no p
 
 1. Acesse **Procurar** e clique em **Clusters do Service Fabric**.
 
-2. Localize o cluster e clique nele.
-![Captura de tela da localização do cluster no portal.][BrowseCluster]
+2. Localize o cluster e clique nele. ![Captura de tela da localização do cluster no portal.][BrowseCluster]
 
 3. Agora você pode ver os detalhes do cluster no painel, inclusive o endereço IP público do cluster. Passar com o mouse sobre o **Endereço IP Público do Cluster** abrirá uma área de transferência na qual você pode clicar para copiar o endereço. ![Captura de tela dos detalhes do cluster no painel de controle.][ClusterDashboard]
 
@@ -191,11 +189,16 @@ Agora que você está conectado, execute os seguintes comandos para implantar se
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
+## RDP em uma instância de VMSS (Conjunto de Escala de Máquina Virtual) ou um Nó de Cluster 
+
+Cada um dos NodeTypes que você especificar no cluster resultará na configuração de um VMSS. Consulte [Como realizar RDP em sua instância VMSS](service-fabric-cluster-nodetypes.md) para ver mais detalhes.
+
 ## Próximas etapas
 
 - [Gerenciando aplicativos da Malha do Serviço no Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 - [Segurança do Cluster do Service Fabric](service-fabric-cluster-security.md)
 - [Introdução ao modelo de Integridade do Service Fabric](service-fabric-health-introduction.md)
+- [Como usar o RDP para sua instância do VMSS](service-fabric-cluster-nodetypes.md)
 
 <!--Image references-->
 [SearchforServiceFabricClusterTemplate]: ./media/service-fabric-cluster-creation-via-portal/SearchforServiceFabricClusterTemplate.png
@@ -209,4 +212,4 @@ Agora que você está conectado, execute os seguintes comandos para implantar se
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

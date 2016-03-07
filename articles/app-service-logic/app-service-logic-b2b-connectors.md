@@ -4,8 +4,8 @@
 	services="app-service\logic" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+	manager="erikre" 
+	editor=""/>
 
 <tags 
 	ms.service="app-service-logic" 
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/04/2016" 
+	ms.date="02/11/2016" 
 	ms.author="mandia"/>
 
 # Conectores entre empresas e aplicativos de API no Serviço de Aplicativo do Microsoft Azure
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
+
 O Serviço de Aplicativo do Microsoft Azure (ou Serviço de Aplicativo, para abreviar) inclui muitos aplicativos de API do BizTalk que são vitais para ambientes de integração. Esses Aplicativos de API são baseados nos conceitos e ferramentas usados no BizTalk Server, mas agora estão disponíveis como parte do Serviço de Aplicativo do Azure.
 
 Uma categoria desses aplicativos de API são os aplicativos de API B2B (Entre Empresas). Usando esses aplicativos de API B2B, você pode facilmente adicionar parceiros, criar contratos e fazer tudo o que faria localmente usando EDI, AS2 e EDIFACT.
@@ -49,8 +51,8 @@ Quando você cria aplicativos de API B2B, há alguns recursos necessários. Esse
 
 Requisito | Descrição
 --- | ---
-Banco de Dados SQL Azure | Armazena itens B2B incluindo esquemas, parceiros, certificados e contratos. Cada um dos aplicativos de API B2B requer seu próprio banco de dados SQL do Azure. <br/><br/>* * Observação * * Copie a cadeia de conexão para esse banco de dados.<br/><br/>[Criar um banco de dados SQL do Azure](../sql-database-get-started.md)
-Contêiner do Armazenamento de Blob do Azure | Armazena propriedades das mensagens quando o arquivamento AS2 está habilitado. Se você não precisar de arquivamento de mensagens AS2, não será necessário um contêiner de armazenamento. <br/><br/>* * Observação * * Se você estiver habilitando arquivamento, copie a cadeia de conexão para o armazenamento de Blob.<br/><br/>[Sobre contas de armazenamento do Azure](../storage-create-storage-account.md)
+Banco de Dados SQL Azure | Armazena itens B2B incluindo esquemas, parceiros, certificados e contratos. Cada um dos aplicativos de API B2B requer seu próprio banco de dados SQL do Azure. <br/><br/>* * Observação * * Copie a cadeia de conexão para esse banco de dados.<br/><br/>[Criar um banco de dados SQL do Azure](../sql-database/sql-database-get-started.md)
+Contêiner do Armazenamento de Blob do Azure | Armazena propriedades das mensagens quando o arquivamento AS2 está habilitado. Se você não precisar de arquivamento de mensagens AS2, não será necessário um contêiner de armazenamento. <br/><br/>* * Observação * * Se você estiver habilitando arquivamento, copie a cadeia de conexão para o armazenamento de Blob.<br/><br/>[Sobre contas de armazenamento do Azure](../storage/storage-create-storage-account.md)
 Namespace do Barramento de Serviço e seus valores de chave | Armazena dados de envio em lote de X12 e EDIFACT. Se você não precisar de envio em lote, não será necessário um namespace de Barramento de Serviço.<br/><br/>** Observação ** Se você estiver habilitando o processamento em lote, copie esses valores.<br/><br/>[Criar um Namespace de barramento de serviço](http://msdn.microsoft.com/library/azure/hh690931.aspx)
 Instância do TPM | Uma instância do TPM (Gerenciamento de Parceiros Comerciais) do BizTalk é necessária para criar um conector AS2 e um aplicativo de API X12 ou EDIFACT. Quando cria o aplicativo de API do TPM, você está criando a instância do TPM. <br/><br/>**Observação** Saiba o nome do seu Aplicativo de API do TPM. 
 
@@ -71,7 +73,7 @@ As seguintes etapas criam os aplicativos de API B2B usando a folha de aplicativo
 
 #### Criar os aplicativos de API de TPM (Gerenciamento de Parceiros Comerciais) do BizTalk
 
-> [AZURE.NOTE]Uma instância do TPM (Gerenciamento de Parceiros Comerciais) do BizTalk é necessária para criar um conector AS2 e um aplicativo de API X12 ou EDIFACT. Quando cria o aplicativo de API do TPM, você está criando a instância do TPM.
+> [AZURE.NOTE] Uma instância do TPM (Gerenciamento de Parceiros Comerciais) do BizTalk é necessária para criar um conector AS2 e um aplicativo de API X12 ou EDIFACT. Quando cria o aplicativo de API do TPM, você está criando a instância do TPM.
 
 As etapas a seguir criam a instância de TPM:
 
@@ -175,7 +177,7 @@ O Serviço de Aplicativo do Microsoft Azure expõe os diferentes tipos de aplica
 
 Dentro de seu aplicativo, a simples seleção dos aplicativos de API B2B da Galeria os adiciona automaticamente ao seu aplicativo.
 
-> [AZURE.IMPORTANT]Para adicionar conectores e aplicativos de API criados anteriormente, crie aplicativos lógicos, móveis ou da Web no mesmo grupo de recursos.
+> [AZURE.IMPORTANT] Para adicionar conectores e aplicativos de API criados anteriormente, crie aplicativos lógicos, móveis ou da Web no mesmo grupo de recursos.
 
 As etapas a seguir adicionam aplicativos de API B2B a aplicativos lógicos, móveis ou da Web:
 
@@ -187,11 +189,11 @@ As etapas a seguir adicionam aplicativos de API B2B a aplicativos lógicos, móv
 
 3. Na **Galeria**, selecione o aplicativo de API B2B, que é adicionado automaticamente a seu aplicativo. Você também pode criar um novo aplicativo de API B2B.
 
-	> [AZURE.IMPORTANT]O conector AS2 e os aplicativos de API X12, EDIFACT exigem uma instância do TPM. Então, se você estiver criando novos aplicativos de API B2B, crie primeiro o aplicativo de API do TPM e crie o conector AS2 e o aplicativos de API X12 ou EDIFACT.
+	> [AZURE.IMPORTANT] O conector AS2 e os aplicativos de API X12, EDIFACT exigem uma instância do TPM. Então, se você estiver criando novos aplicativos de API B2B, crie primeiro o aplicativo de API do TPM e crie o conector AS2 e o aplicativos de API X12 ou EDIFACT.
 
 4. Selecione **OK** para salvar suas alterações.
 
->[AZURE.NOTE]Se você deseja começar com os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógicos](https://tryappservice.azure.com/?appservice=logic), em que você pode criar imediatamente um aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
+>[AZURE.NOTE] Se você quiser começar a usar os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógico](https://tryappservice.azure.com/?appservice=logic). Você pode criar instantaneamente um aplicativo lógico de início e de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## Mais recursos B2B
 
@@ -206,4 +208,4 @@ As etapas a seguir adicionam aplicativos de API B2B a aplicativos lógicos, móv
 
 [Lista de conectores e Aplicativos de API](app-service-logic-connectors-list.md)<br/><br/> [O que são conectores e Aplicativos de API do BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0224_2016-->

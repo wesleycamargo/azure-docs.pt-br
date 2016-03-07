@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="02/17/2016"
 	ms.author="tomfitz"/>
 
 # Como usar o armazenamento de blob no PHP
@@ -42,7 +42,7 @@ Neste guia, você usará os recursos de serviços que podem ser chamados em um a
 
 Para usar as APIs do serviço Blob do Azure, você precisa:
 
-1. Fazer referência ao arquivo de carregador automático usando a instrução [require\_once][require_once], e
+1. Fazer referência ao arquivo de carregador automático usando a instrução [require\_once], e
 2. Fazer referência a qualquer classe que você possa usar.
 
 O exemplo a seguir mostra como incluir o arquivo de carregador automático e fazer referência à classe **ServicesBuilder**.
@@ -291,19 +291,19 @@ Finalmente, para excluir um contêiner de blob, passe o nome do contêiner para 
 Agora que você aprendeu os conceitos básicos do serviço Blob do Azure, siga estes links para saber mais sobre tarefas de armazenamento mais complexas.
 
 - Visite o [Blog da Equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
-- Consulte o exemplo de blob de blocos PHP em <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php>.
-- Consulte o exemplo de blob de páginas PHP em <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php>
-- [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy)
+- Consulte o [exemplo de blob de blocos PHP](https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php).
+- Consulte o [exemplo de blob de páginas PHP](https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php).
+- [Transferir dados com o Utilitário de Linha de Comando AzCopy](storage-use-azcopy.md)
  
-Para obter mais informações, veja também o [Centro de Desenvolvedores do PHP](/develop/php/).
+Para saber mais, veja também a [Central de desenvolvedores do PHP](/develop/php/).
 
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
 [container-acl]: http://msdn.microsoft.com/library/azure/dd179391.aspx
 [error-codes]: http://msdn.microsoft.com/library/azure/dd179439.aspx
 [file_get_contents]: http://php.net/file_get_contents
-[require_once]: http://php.net/require_once
+[require\_once]: http://php.net/require_once
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

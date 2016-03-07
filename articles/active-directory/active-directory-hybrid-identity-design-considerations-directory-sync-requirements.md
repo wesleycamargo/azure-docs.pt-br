@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="02/02/2016"
+	ms.date="02/23/2016"
 	ms.author="billmath"/>
 
 # Determinar os requisitos de sincronização de diretório
@@ -37,9 +37,11 @@ Certifique-se de responder às seguintes perguntas:
   - O que é o estado atual do UPNs na sua organização? 
   - Você tem um diretório diferente que os usuários se autenticam?
   - Sua empresa usa o Microsoft Exchange?
-    - Planeja de ter uma implantação híbrida de mudança? 
+    - Planeja de ter uma implantação híbrida de mudança?
+
+Agora que você tem uma ideia sobre os requisitos de sincronização, será necessário determinar qual ferramenta é a correta para atender a esses requisitos. A Microsoft fornece várias ferramentas para realizar a integração e a sincronização de diretórios. Consulte [Tabela de comparação das ferramentas de integração de diretórios de Identidade Híbrida](active-directory-hybrid-identity-design-considerations-tools-comparison.md) para saber mais.
    
-Agora que você tem uma ideia sobre os requisitos de sincronização para a sua empresa, você precisa avaliar os aplicativos que usam esses serviços de diretório. Essa avaliação é importante para definir os requisitos técnicos para integrar esses aplicativos para a nuvem. Certifique-se de responder às seguintes perguntas:
+Agora que você tem uma ideia sobre os requisitos de sincronização para a sua empresa, será necessário avaliar os aplicativos que usam esses serviços de diretório. Essa avaliação é importante para definir os requisitos técnicos para integrar esses aplicativos para a nuvem. Certifique-se de responder às seguintes perguntas:
 
 - Esses aplicativos serão movidos para a nuvem e usar o diretório?
 - Há atributos especiais que precisam ser sincronizados na nuvem para que esses aplicativos possam usá-los com sucesso?
@@ -66,4 +68,4 @@ Certifique-se de fazer anotações de cada resposta e entender o raciocínio por
 ## Consulte também
 [Visão geral de considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

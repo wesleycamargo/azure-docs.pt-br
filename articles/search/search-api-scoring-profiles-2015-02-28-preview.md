@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Perfis de pontuação (Versão da API REST da Pesquisa do Azure 2015-02-28-Preview) | Microsoft Azure | Serviço de pesquisa de nuvem hospedado"
+	pageTitle="Perfis de pontuação (Versão da API REST da Pesquisa do Azure 2015-02-28-Preview) | Microsoft Azure | API da Visualização da Pesquisa do Azure"
 	description="A Pesquisa do Azure é um serviço de pesquisa de nuvem hospedado que dá suporte ao ajuste de resultados classificados com base em perfis de pontuação definidos pelo usuário."
 	services="search"
 	documentationCenter=""
@@ -14,11 +14,11 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.author="heidist"
-	ms.date="11/04/2015" />
+	ms.date="02/18/2016" />
 
 # Perfis de pontuação (API REST do Azure Search Versão 2015-02-28-Preview)
 
-> [AZURE.NOTE]Este artigo descreve os perfis de pontuação na versão [2015-02-28-Preview](search-api-2015-02-28-preview.md). Atualmente não há nenhuma diferença entre a versão `2015-02-28` documentada no [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx) e a versão `2015-02-28-Preview` descrita aqui.
+> [AZURE.NOTE] Este artigo descreve os perfis de pontuação na versão [2015-02-28-Preview](search-api-2015-02-28-preview.md). No momento, não há nenhuma diferença entre a versão `2015-02-28` documentada no [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx) e a versão `2015-02-28-Preview` descrita aqui, porém oferecemos este documento mesmo assim para fornecer uma abrangência de documentação em toda a API.
 
 ## Visão geral
 
@@ -55,7 +55,7 @@ Para usar esse perfil de pontuação, sua consulta é formulada para especificar
 
     GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&api-version=2015-02-28-Preview
 
-Essa consulta pesquisa o termo 'estalagem' e passa o local atual. Observe que essa consulta inclui outros parâmetros, como `scoringParameter`. Os parâmetros de consulta são descritos em [Pesquisar documentos (API do Azure Search)](search-api-2015-02-28-preview/#SearchDocs.md).
+Essa consulta pesquisa o termo 'estalagem' e passa o local atual. Observe que essa consulta inclui outros parâmetros, como `scoringParameter`. Os parâmetros de consulta são descritos em [Pesquisar documentos (API do Azure Search)](search-api-2015-02-28-preview/#SearchDocs).
 
 Clique em [Exemplo](#example) para examinar um exemplo mais detalhado de um perfil de pontuação.
 
@@ -372,4 +372,4 @@ Para obter mais exemplos, consulte [Esquema XML: tipos de dados (site W3.org)](h
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0224_2016--->

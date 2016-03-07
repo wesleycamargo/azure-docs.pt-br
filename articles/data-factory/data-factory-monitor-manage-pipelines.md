@@ -296,6 +296,8 @@ Eventos do Azure fornecem percepções úteis sobre o que está acontecendo em s
 
 Você pode criar alertas para esses eventos de usuário e configurá-los para enviar notificações por email para o administrador e os coadministradores da assinatura. Além disso, você pode especificar endereços de email adicionais de usuários que precisem receber notificações por email quando as condições forem atendidas. Isso é muito útil quando você deseja ser notificado sobre falhas e não quer monitorar continuamente sua data factory.
 
+> [AZURE.NOTE] O portal não mostra alertas em eventos neste momento. Use o [Aplicativo de Monitoramento e Gerenciamento](data-factory-monitor-manage-app.md) para ver todos os alertas.
+
 #### Especificando uma definição de alerta:
 Para especificar uma definição de alerta, você deve criar um arquivo JSON que descreva as operações sobre as quais você deseja ser alertado. No exemplo abaixo, o alerta enviará uma notificação por email para a operação RunFinished. Para ser específico, uma notificação por email será enviado quando uma execução no Data Factory for concluída e essa execução falhar (Status = FailedExecution).
 
@@ -377,7 +379,7 @@ Depois que a implantação do grupo de recursos for concluída com êxito, você
 	Outputs           :
 
 #### Recuperando a lista de implantações de grupo de recursos do Azure
-Para recuperar a lista de implantações do grupo de recursos do Azure já implantadas, use o cmdlet **Get-AzureRmResourceGroupDeployment**, conforme mostrado no exemplo a seguir:
+Para recuperar a lista de implantações do Grupo de Recursos do Azure já implantadas, use o cmdlet **Get-AzureRmResourceGroupDeployment**, conforme mostrado no exemplo a seguir:
 
 	Get-AzureRmResourceGroupDeployment -ResourceGroupName adf
 	
@@ -544,8 +546,8 @@ Você pode implantar alertas para métricas da mesma maneira como faz para event
 Substitua subscriptionId, resourceGroupName e dataFactoryName no exemplo acima pelos valores adequados.
 
 *metricName*, a partir de agora, dá suporte a 2 valores:
- - FailedRuns
- - SuccessfulRuns
+- FailedRuns
+- SuccessfulRuns
 
 **Implantando o alerta:**
 
@@ -572,4 +574,13 @@ Você verá a seguinte mensagem após a implantação bem-sucedida:
 
 Você também usar o cmdlet **Add-AlertRule** para implantar uma regra de alerta. Consulte o tópico sobre [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) para obter detalhes e exemplos.
 
-<!---HONumber=AcomDC_0218_2016-->
+## Mover o data factory para outro grupo de recursos ou assinatura
+Você pode mover um data factory para outro grupo de recursos ou assinatura diferente usando o botão **Mover** da barra de comandos na home page do seu data factory.
+
+![Mover o Data Factory](./media/data-factory-monitor-manage-pipelines/MoveDataFactory.png)
+
+Você também pode mover todos os recursos relacionados (como alertas associados ao data factory) juntamente com ele.
+
+![Mover a caixa de diálogo Recursos](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
+
+<!---HONumber=AcomDC_0224_2016-->

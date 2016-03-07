@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Cancelar o registro de servidores e desabilitar a proteção | Microsoft Azure" 
-	description="O Azure Site Recovery coordena a replicação, o failover e a recuperação de máquinas virtuais localizadas em servidores locais no Azure ou em um armazenamento de dados secundário. Use este artigo para cancelar o registro de servidores de um cofre de Recuperação de Site e desativar a proteção para máquinas virtuais e servidores físicos." 
+	pageTitle="Remover os servidores e desabilitar a proteção | Microsoft Azure" 
+	description="Este artigo descreve como cancelar o registro de servidores de um cofre de Recuperação de Site e desabilitar a proteção para máquinas virtuais e servidores físicos." 
 	services="site-recovery" 
 	documentationCenter="" 
 	authors="rayne-wiselman" 
@@ -13,12 +13,18 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="12/14/2015" 
+	ms.date="02/22/2016" 
 	ms.author="raynew"/>
 
-# Cancelar o registro de servidores e desabilitar a proteção
+# Remover os servidores e desabilitar a proteção
 
-Este artigo descreve como cancelar o registro de servidores no cofre de Recuperação de Site e como desabilitar a proteção das máquinas virtuais protegidas pela Recuperação de Site. Se você tiver dúvidas após a leitura deste artigo, publique-as no [Fórum de Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+O Azure Site Recovery contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) administrando a replicação, o failover e a recuperação de máquinas virtuais e servidores físicos. As máquinas podem ser replicadas no Azure ou em um datacenter local secundário. Para uma breve visão geral, leia [O que é o Azure Site Recovery?](site-recovery-overview.md)
+
+## Visão geral
+
+Este artigo descreve como cancelar o registro de servidores no cofre de Recuperação de Site e como desabilitar a proteção das máquinas virtuais protegidas pela Recuperação de Site.
+
+Publique eventuais comentários ou perguntas no final deste artigo ou no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## Cancelar o registro de um servidor VMM
 
@@ -210,6 +216,8 @@ Se você quiser interromper a proteção de uma máquina virtual VMware ou de um
 			- Você não deve desinstalar o Serviço de Mobilidade da máquina virtual.
 	
 	- **Desabilitar a proteção**—Se você habilitar e salvar essa opção, a máquina não será mais protegida pela Recuperação de Site. As configurações de proteção para a máquina serão limpas automaticamente.
-	- **Remover do cofre**—Se você selecionar essa opção, a máquina será removida somente do cofre da Recuperação de Site. As configurações de proteção local da máquina não serão afetadas. Para remover as configurações na máquina e remover a máquina virtual da assinatura do Azure, será necessário limpar as configurações desinstalando o Serviço de Mobilidade. ![Opções de remoção](./media/site-recovery-manage-registration-and-protection/RegistrationProtection_RemoveVM.png)
+	- **Remover do cofre**—Se você selecionar essa opção, a máquina será removida somente do cofre da Recuperação de Site. As configurações de proteção local da máquina não serão afetadas. Para remover as configurações no computador e remover a máquina virtual da assinatura do Azure, será necessário limpar as configurações desinstalando o Serviço de Mobilidade.
+	
+		![Opções de remoção](./media/site-recovery-manage-registration-and-protection/remove-vm.png)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/18/2016"
 	ms.author="dastrock"/>
 
 # Visualização de Azure AD B2C: conexão na Web com OpenID Connect
@@ -26,9 +26,9 @@ O OpenID Connect é um protocolo de autenticação criado com base em OAuth 2.0 
 
 O [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) estende o protocolo de *autorização* do OAuth 2.0 para uso como um protocolo de *autenticação*, o que permite executar o logon único usando o OAuth. Ele apresenta o conceito de um `id_token`, que é um token de segurança que permite ao cliente verificar a identidade do usuário e obter informações básicas de perfil sobre o usuário. Como ele estende o OAuth 2.0, também permite que aplicativos adquiram **access\_tokens** com segurança, os quais podem ser usados para acessar os recursos protegidos por um [servidor de autorização](active-directory-b2c-reference-protocols.md#the-basics). O OpenID Connect é a nossa recomendação se você estiver criando um aplicativo Web que fica hospedado em um servidor e é acessado por meio de um navegador. Se você deseja adicionar o gerenciamento de identidades para seus aplicativos móveis ou para área de trabalho usando o Azure AD B2C, você deve usar [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) em vez de OpenID Connect.
 
-O Azure AD B2C estende o protocolo padrão OpenID Connect para fazer mais do que uma simples ação de autenticação e autorização. Ele apresenta o [**parâmetro de política**](active-directory-b2c-reference-poliices.md), que permite usar o OpenID Connect para adicionar experiências de usuário ao seu aplicativo, como inscrição, entrada e gerenciamento de perfil. Aqui, mostraremos como usar OpenID Connect e políticas para implementar cada uma dessas experiências em seus aplicativos nativos e obter access\_tokens para acessar APIs Web.
+O Azure AD B2C estende o protocolo padrão OpenID Connect para fazer mais do que uma simples ação de autenticação e autorização. Ele apresenta o [**parâmetro de política**](active-directory-b2c-reference-policies.md), que permite usar o OpenID Connect para adicionar experiências de usuário ao seu aplicativo, como inscrição, entrada e gerenciamento de perfil. Aqui, mostraremos como usar OpenID Connect e políticas para implementar cada uma dessas experiências em seus aplicativos nativos e obter access\_tokens para acessar APIs Web.
 
-As solicitações HTTP de exemplo abaixo usam nosso diretório B2C de exemplo, **fabrikamb2c.onmicrosoft.com**, bem como nosso aplicativo ****https://aadb2cplayground.azurewebsites.net** e políticas de exemplo. Você é livre para experimentar as solicitações sozinho usando esses valores ou os substituindo pelos seus próprios. Saiba como [obter seu próprio diretório B2C, aplicativos e políticas](#use-your-own-b2c-directory).
+As solicitações HTTP de exemplo abaixo usam nosso diretório B2C de exemplo, **fabrikamb2c.onmicrosoft.com**, bem como nosso aplicativo ****https://aadb2cplayground.azurewebsites.net** e políticas de exemplo. Você é livre para experimentar as solicitações sozinho usando esses valores ou os substituindo pelos seus próprios. Saiba como [obter seu próprio locatário, aplicativo e políticas de B2C](#use-your-own-b2c-directory).
 
 ## Enviar solicitações de autenticação
 Quando o aplicativo Web precisa autenticar o usuário e executar uma política, ele pode direcionar o usuário para o ponto de extremidade `/authorize`. Essa é a parte interativa do fluxo, em que o usuário realmente irá executar uma ação, dependendo da política. Nessa solicitação, o cliente indica as permissões que precisa adquirir do usuário no parâmetro `scope` e a política para executar no parâmetro `p`. Três exemplos são fornecidos abaixo (com quebras de linha para facilitar a leitura), cada um com uma política diferente. Para ter uma ideia de como funciona cada solicitação, tente colar a solicitação em um navegador e executá-lo.
@@ -84,7 +84,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | response\_mode | recomendável | Especifica o método que deve ser usado para enviar o authorization\_code resultante de volta ao aplicativo. Pode ser um de 'query', 'form\_post' ou 'fragment'. |
 | state | recomendável | Um valor incluído na solicitação também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. Um valor exclusivo gerado aleatoriamente que normalmente é usado para impedir ataques de solicitação intersite forjada. O estado também é usado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página em que ele estava. |
 | nonce | obrigatório | Um valor incluído na solicitação, gerado pelo aplicativo, que será incluído no id\_token resultante como uma declaração. O aplicativo pode verificar esse valor para reduzir os ataques de reprodução de token. Normalmente, o valor é uma cadeia de caracteres aleatória e exclusiva que pode ser usada para identificar a origem da solicitação. |
-| p | obrigatório | Indica a política a ser executada. É o nome de uma política criada no seu diretório B2C cujo valor deve começar com "b2c\_1\_". Saiba mais sobre políticas [aqui](active-directory-b2c-reference-policies.md). |
+| p | obrigatório | Indica a política a ser executada. É o nome de uma política criada no seu diretório de B2C locatário cujo valor deve começar com "b2c\_1\_". Saiba mais sobre políticas [aqui](active-directory-b2c-reference-policies.md). |
 | prompt | opcional | Indica o tipo de interação do usuário que é necessário. O único valor válido no momento é 'login', que força o usuário a inserir suas credenciais na solicitação. O logon único não terá efeito. |
 
 Nesse momento, o usuário será solicitado a concluir o fluxo de trabalho da política. Isso pode exigir que o usuário insira seu nome de usuário e senha, entre com uma identidade social, inscreva-se no diretório ou outras etapas, dependendo de como a política estiver definida. Quando o usuário conclui a política, o Azure AD retornará uma resposta ao seu aplicativo no evento do tipo `redirect_uri`, usando o método especificado no parâmetro `response_mode`. A resposta será exatamente a mesma para cada um dos casos acima, independentemente da política que foi executada.
@@ -123,7 +123,7 @@ error=access_denied
 ## Validar o id\_token
 Apenas receber o id\_token não é suficiente para autenticar o usuário; você deve validar a assinatura do id\_token e verificar as declarações no token de acordo com os requisitos do aplicativo. O Azure AD B2C usa [JWTs (Tokens Web JSON)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) e criptografia de chave pública para assinar tokens e verificar se eles são válidos. Há muitas bibliotecas de software livre para validar JWTs dependendo do idioma de preferência. Recomendamos que você explore essas opções em vez de implementar a sua própria lógica de validação. As informações aqui serão úteis para descobrir como usar essas bibliotecas adequadamente.
 
-O Azure AD B2C tem um ponto de extremidade de metadados do OpenID Connect, que permite a um aplicativo buscar informações sobre o Azure AD B2C no tempo de execução. Essas informações incluem pontos de extremidade, conteúdos de token e chaves de assinatura de token. Há um documento de metadados JSON para cada política no seu diretório B2C. Por exemplo, o documento de metadados para a política `b2c_1_sign_in` no `fabrikamb2c.onmicrosoft.com` está localizado em:
+O Azure AD B2C tem um ponto de extremidade de metadados do OpenID Connect, que permite a um aplicativo buscar informações sobre o Azure AD B2C no tempo de execução. Essas informações incluem pontos de extremidade, conteúdos de token e chaves de assinatura de token. Há um documento de metadados JSON para cada política no seu locatário de B2C. Por exemplo, o documento de metadados para a política `b2c_1_sign_in` no `fabrikamb2c.onmicrosoft.com` está localizado em:
 
 `https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
 
@@ -133,8 +133,7 @@ Uma das propriedades desse documento de configuração é o `jwks_uri`, cujo val
 
 A fim de determinar qual política foi usada na assinatura de um id\_token (e onde buscar os metadados), você tem duas opções. Primeiro, o nome da política é incluído na declaração `acr` no id\_token. Para obter informações sobre como analisar as declarações de um id\_token, consulte a [referência de token do Azure AD B2C](active-directory-b2c-reference-tokens.md). A outra opção é codificar a política no valor do parâmetro `state` quando você emitir a solicitação e decodificá-la para determinar qual política foi usada. Qualquer um dos métodos é perfeitamente válido.
 
-Depois que tiver adquirido o documento de metadados do ponto de extremidade de metadados OpenID Connect, você pode usar as chaves públicas RSA256 localizadas nesse ponto de extremidade para validar a assinatura do id\_token. Pode haver várias chaves listadas nesse ponto de extremidade em qualquer ponto no tempo, cada uma identificada por um `kid`. O cabeçalho do id\_token também contém uma declaração `kid`, que indica quais dessas chaves foi usada para assinar o id\_token. Consulte a [referência ao token do Azure AD B2C](active-directory-b2c-reference-tokens.md) para obter mais informações, incluindo [Validando tokens](active-directory-b2c-reference-tokens.md#validating-tokens) e [Informações importantes sobre substituição de chave de assinatura](active-directory-b2c-reference-tokens.md#validating-tokens). 
-<!--TODO: Improve the information on this-->
+Depois que tiver adquirido o documento de metadados do ponto de extremidade de metadados OpenID Connect, você pode usar as chaves públicas RSA256 localizadas nesse ponto de extremidade para validar a assinatura do id\_token. Pode haver várias chaves listadas nesse ponto de extremidade em qualquer ponto no tempo, cada uma identificada por um `kid`. O cabeçalho do id\_token também contém uma declaração `kid`, que indica quais dessas chaves foi usada para assinar o id\_token. Consulte a [referência ao token do Azure AD B2C](active-directory-b2c-reference-tokens.md) para obter mais informações, incluindo [Validando tokens](active-directory-b2c-reference-tokens.md#validating-tokens) e [Informações importantes sobre substituição de chave de assinatura](active-directory-b2c-reference-tokens.md#validating-tokens). <!--TODO: Improve the information on this-->
 
 Depois que tiver validado a assinatura do id\_token, haverá algumas declarações que você precisará verificar:
 
@@ -327,13 +326,13 @@ p=b2c_1_sign_in
 | post\_logout\_redirect\_uri | recomendável | A URL a qual o usuário deve ser redirecionado após o logout com êxito. Se não estiver incluído, o usuário verá uma mensagem genérica do Azure AD B2C. |
 
 > [AZURE.NOTE]
-	Embora o direcionamento do usuário para o `end_session_endpoint` remova o estado de usuários em logon único com o AD do Azure, ele não desconectará o usuário efetivamente. Em vez disso, o usuário selecionará o IDP no qual deseja entrar e será novamente autenticado sem inserir suas credenciais. No caso de IDPs de redes sociais, esse é o comportamento esperado. Se um usuário deseja sair do seu diretório B2C, isso não significa necessariamente que deseja sair inteiramente da sua conta do Facebook. No entanto, no caso de contas locais, deve ser possível encerrar a sessão do usuário corretamente. É uma [limitação](active-directory-b2c-limitations.md) conhecida da visualização do Azure AD que o logout de conta local não funciona corretamente. Uma solução alternativa e imediata é enviar o parâmetro `&prompt=login` em cada solicitação de autenticação, que terá a aparência do comportamento desejado, mas interromperá o logon único entre aplicativos no seu diretório B2C.
+	Embora o direcionamento do usuário para o `end_session_endpoint` remova o estado de logon único do usuário com o Azure AD B2C, ele não desconectará a sessão de IdP social do usuário. Se o usuário selecionar o mesmo IdP durante uma conexão posterior, ele será autenticados novamente sem precisar digitar suas credenciais. Se um usuário desejar sair do seu aplicativo B2C, isso não significa necessariamente que ele deseja desconectar totalmente sua conta do Facebook. No entanto, no caso de contas locais, a sessão do usuário será encerrada corretamente.
 
-## Use seu próprio diretório B2C
+## Usar seu próprio locatário B2C
 
 Se você quiser experimentar essas solicitações por conta própria, primeiro deve seguir estas três etapas e substituir os valores de exemplo acima com os seus:
 
-- [Criar um diretório B2C](active-directory-b2c-get-started.md) e usar o nome do seu diretório nas solicitações.
+- [Crie um locatário de B2C](active-directory-b2c-get-started.md) e use o nome do seu locatário nas solicitações.
 - [Criar um aplicativo](active-directory-b2c-app-registration.md) para obter uma Id de aplicativo e um redirect\_uri. Você deve incluir um **aplicativo Web/API Web** em seu aplicativo e, opcionalmente, criar um **segredo do aplicativo**.
 - [Criar suas regras](active-directory-b2c-reference-policies.md) para obter os nomes de política.
 
@@ -347,4 +346,4 @@ image goes here
 
 -->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Aplicativo universal do Windows do modelo de aplicativo v2.0 | Microsoft Azure"
+	pageTitle="Aplicativo universal do Windows do Azure AD v2.0 | Microsoft Azure"
 	description="Como criar um aplicativo universal do Windows que conecte usuários com a conta pessoal da Microsoft e as contas corporativas ou de estudante."
 	services="active-directory"
 	documentationCenter=""
@@ -11,15 +11,14 @@
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.topic="article"
-  ms.tgt_pltfrm="mobile-windows-store"
+  	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
-	ms.date="12/09/2015"
+	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
-  # Visualização do modelo de aplicativo v2.0: adicionar conexão a um aplicativo universal do Windows
+  # Adicionar credenciais a um aplicativo Universal do Windows usando o ponto de extremidade v2.0. O tutorial de início rápido para aplicativos Universais do Windows ainda não está pronto... Volte em breve e verifique se há atualizações de @AzureAD no Twitter.
 
-  O tutorial de início rápido para aplicativos universais do Windows ainda não está totalmente pronto... Volte em breve e verifique se há atualizações de @AzureAD no Twitter.
+> [AZURE.NOTE]
+	Nem todos os recursos e cenários do Azure Active Directory têm suporte no ponto de extremidade v2.0. Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da v2.0](active-directory-v2-limitations.md).
 
-  >[AZURE.NOTE]Essas informações se aplicam à visualização pública do modelo de aplicativo v2.0. Para obter instruções sobre como integrar-se ao serviço AD do Azure disponível ao público geral, consulte o [Guia do desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md).
-
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

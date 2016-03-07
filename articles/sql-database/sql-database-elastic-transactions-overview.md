@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Visão geral das transações de banco de dados elástico com o Banco de dados SQL do Azure (em visualização)"
-   description="Visão geral das transações de banco de dados elástico com o Banco de dados SQL do Azure (em visualização)"
+   pageTitle="Visão Geral das Transações de Banco de Dados Elástico com o Banco de Dados SQL do Azure"
+   description="Visão Geral das Transações de Banco de Dados Elástico com o Banco de Dados SQL do Azure"
    services="sql-database"
    documentationCenter=""
    authors="torsteng"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="sql-database"
-   ms.date="02/01/2016"
+   ms.date="02/23/2016"
    ms.author="torsteng"/>
 
-# Visão geral das transações de banco de dados elástico com o Banco de dados SQL do Azure (em visualização)
+# Visão Geral das Transações de Banco de Dados Elástico com o Banco de Dados SQL do Azure
 
 As transações de banco de dados elástico para Banco de dados SQL (BD SQL) do Azure permitem que você execute transações que abranjam vários bancos de dados no BD SQL. As transações de banco de dados elástico do BD SQL estão disponíveis para aplicativos .NET usando ADO .NET e se integram à experiência de programação conhecida usando as classes [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx). Para obter a biblioteca, confira [.NET Framework 4.6.1 (Web Installer)](https://www.microsoft.com/download/details.aspx?id=49981).
 
@@ -94,11 +94,13 @@ As transações de banco de dados elástico do BD SQL também oferecem suporte a
 	}
 
 
-## Configuração das funções de trabalho no Azure
+## Instalação do .NET para os Serviços de Nuvem do Azure
 
-Você pode automatizar a instalação e a implantação da versão e das bibliotecas .NET necessárias para as transações de banco de dados elástico no Azure (no SO convidado do seu serviço de nuvem). Para funções de trabalho no Azure, use as tarefas de inicialização. Os conceitos e as etapas estão documentados em [Instalar o .NET em uma Função do Serviço de Nuvem](../cloud-services/cloud-services-dotnet-install-dotnet.md).
+O Azure fornece várias ofertas para hospedar aplicativos .NET. Uma comparação entre as diferentes ofertas está disponível em [Comparação entre o Serviço de Aplicativo do Azure, os Serviços de Nuvem e as Máquinas Virtuais](../app-service-web/choose-web-site-cloud-service-vm.md). Se o SO convidado da oferta for inferior ao .NET 4.6.1 exigido para transações elásticas, será necessário atualizar o SO para 4.6.1.
 
-Observe que o instalador do .NET 4.6.1 requer mais armazenamento temporário durante o processo de inicialização nos serviços de nuvem do Azure que o instalador para .NET 4.6. Para garantir uma instalação bem-sucedida, você precisa aumentar o armazenamento temporário para o serviço de nuvem do Azure no seu arquivo ServiceDefinition.csdef na seção LocalResources e nas configurações do ambiente de sua tarefa de inicialização, conforme mostrado no exemplo a seguir:
+Para os Serviços de Aplicativos do Azure, não há suporte para atualizações para o SO convidado. Para as Máquinas virtuais do Azure, basta fazer logon na VM e executar o instalador do .NET Framework mais recente. Para os Serviços de Nuvem do Azure, você precisará incluir a instalação de uma versão mais recente do .NET em tarefas de inicialização da sua implantação. Os conceitos e as etapas estão documentados em [Instalar o .NET em uma Função do Serviço de Nuvem](../cloud-services/cloud-services-dotnet-install-dotnet.md).
+
+Observe que o instalador do .NET 4.6.1 pode exigir mais armazenamento temporário durante o processo de inicialização nos Serviços de Nuvem do Azure que o instalador do .NET 4.6. Para garantir uma instalação bem-sucedida, você precisa aumentar o armazenamento temporário para o serviço de nuvem do Azure no seu arquivo ServiceDefinition.csdef na seção LocalResources e nas configurações do ambiente de sua tarefa de inicialização, conforme mostrado no exemplo a seguir:
 
 	<LocalResources>
 	...
@@ -118,6 +120,17 @@ Observe que o instalador do .NET 4.6.1 requer mais armazenamento temporário dur
 			</Environment>
 		</Task>
 	</Startup>
+	
+## Transações entre vários servidores
+
+Há suporte para transações de Banco de Dados Elástico entre diferentes servidores lógicos no Banco de Dados SQL do Azure. Quando as transações cruzam os limites do servidor lógico, os servidores participantes precisam primeiro serem inseridos em uma relação de comunicação comum. Após a relação de comunicação ser estabelecida, qualquer banco de dados em qualquer um dos dois servidores poderá participar de transações elásticas com bancos de dados do outro servidor. Com transações abrangendo mais de dois servidores lógicos, uma relação de comunicação deve estar em vigor para qualquer par de servidores lógicos.
+
+Use os cmdlets do PowerShell a seguir para gerenciar as relações de comunicação entre servidores para transações de Banco de Dados Elástico:
+
+* **New-AzureRmSqlServerCommunicationLink**: use esse cmdlet para criar uma nova relação de comunicação entre dois servidores lógicos no Banco de Dados SQL do Azure. A relação é simétrica, o que significa que ambos os servidores podem iniciar transações com outro.
+* **Get-AzureRmSqlServerCommunicationLink**: use esse cmdlet para recuperar as relações de comunicação existentes e suas propriedades.
+* **Remove-AzureRmSqlServerCommunicationLink**: use esse cmdlet para remover as relações de comunicação existentes. 
+
 
 ## Monitorando o status da transação
 
@@ -136,7 +149,6 @@ As seguintes limitações se aplicam atualmente para as transações de banco de
 * Há suporte somente para transações em bancos de dados no BD SQL. Outros provedores de recursos [X/Open XA](https://en.wikipedia.org/wiki/X/Open_XA) e bancos de dados fora do BD SQL não podem participar de transações de banco de dados elástico. Isso significa que as transações de banco de dados elástico não podem se estender para o SQL Server e o Banco de Dados SQL do Azure no local. Para transações distribuídas no local, continue a usar o MSDTC. 
 * Há suporte somente para transações coordenadas pelo cliente a partir de um aplicativo .NET. Há planos para suporte do lado do servidor para o T-SQL, como INICIAR TRANSAÇÃO DISTRIBUÍDA, mas ainda não está disponível. 
 * Há suporte somente para bancos de dados no V12 do BD SQL do Azure.
-* Há suporte somente para bancos de dados que pertençam ao mesmo servidor lógico no BD SQL.
 
 ## Saiba mais
 
@@ -145,4 +157,4 @@ Você ainda não está usando os recursos de banco de dados elástico nos seus a
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

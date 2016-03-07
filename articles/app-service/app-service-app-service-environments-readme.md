@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/09/2016" 
-	ms.author="yochay"/>
+	ms.date="02/18/2016" 
+	ms.author="stefsch"/>
 
 # Visão geral
 
@@ -32,7 +32,23 @@ Ambientes de Serviço de Aplicativo são isolados para executar somente aplicati
 
 Os aplicativos muitas vezes precisam acessar recursos corporativos, como bancos de dados internos e serviços Web. Os aplicativos em execução em Ambientes de Serviço de Aplicativo podem acessar os recursos acessíveis via conexões VPN [Site a Site][SiteToSite] e [Rota Expressa do Azure][ExpressRoute].
 
+* [O que é um Ambiente do Serviço de Aplicativo?](../app-service-web/app-service-app-service-environment-intro.md)
+* [Criando um Ambiente do Serviço de Aplicativo](../app-service-web/app-service-web-how-to-create-an-app-service-environment.md)
+* [Criando Aplicativos em um Ambiente do Serviço de Aplicativo](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md)
+* [Configurando um Ambiente do Serviço de Aplicativo](../app-service-web/app-service-web-configure-an-app-service-environment.md) 
+* [Dimensionando aplicativos em um Ambiente do Serviço de Aplicativo](../app-service-web/app-service-web-scale-a-web-app-in-an-app-service-environment.md)
+* [Arquitetura e Segurança de Rede](../app-service-web/app-service-app-service-environment-network-architecture-overview.md)
+
+## Instruções
+
 [AZURE.INCLUDE [app-service-blueprint-app-service-environment](../../includes/app-service-blueprint-app-service-environment.md)]
+
+
+## Vídeos
+[AZURE.VIDEO azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps]
+
+[AZURE.VIDEO microsoft-ignite-2015-running-enterprise-web-and-mobile-apps-on-azure-app-service]
+
 
 <!-- LINKS -->
 [PremiumTier]: http://azure.microsoft.com/pricing/details/app-service/
@@ -43,4 +59,4 @@ Os aplicativos muitas vezes precisam acessar recursos corporativos, como bancos 
 [SiteToSite]: https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

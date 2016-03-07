@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/06/2015" 
+	ms.date="02/06/2016" 
 	ms.author="spelluru"/>
 
 # Criar pipelines preditivos usando as atividades do Aprendizado de Máquina do Azure   
 ## Visão geral
 
-> [AZURE.NOTE]Consulte os artigos [Introdução ao Azure Data Factory](data-factory-introduction.md) e [Criar seu primeiro pipeline](data-factory-build-your-first-pipeline.md) para começar a introdução ao serviço do Azure Data Factory.
+> [AZURE.NOTE] Consulte os artigos [Introdução ao Azure Data Factory](data-factory-introduction.md) e [Criar seu primeiro pipeline](data-factory-build-your-first-pipeline.md) para começar a introdução ao serviço do Azure Data Factory.
 
 ## Introdução
 
@@ -49,7 +49,7 @@ Veja a seção [Atualizando modelos do AM do Azure usando a Atividade do Recurso
 Você usa o Azure Data Factory para orquestrar o processamento e movimentação de dados e realizar a execução de lote usando o Aprendizado de Máquina do Azure. Para conseguir isso, você precisará fazer o seguinte:
 
 1. Criar um serviço vinculado de Aprendizado de Máquina do Azure. Você precisará o seguinte:
-	1. **URI de Solicitação** para a API de Execução do Lote. Você pode encontrar o URI de Solicitação clicando no link **EXECUÇÃO EM LOTE** na página de serviços Web (mostrada abaixo).
+	1. **URI de Solicitação** para a API de Execução do Lote. Você pode encontrar o URI de solicitação clicando no link **EXECUÇÃO EM LOTES** na página de serviços Web (mostrada abaixo).
 	1. **Chave de API** para o serviço Web publicado do Aprendizado de Máquina do Azure. Você pode encontrar a chave API clicando no serviço Web publicado. 
  2. Use a atividade **AzureMLBatchExecution**.
 
@@ -61,7 +61,7 @@ Você usa o Azure Data Factory para orquestrar o processamento e movimentação 
 ### Cenário: Experimentos usando entradas/saídas de serviço Web que se referem aos dados no armazenamento de Blob do Azure
 Nesse cenário, o serviço Web de aprendizado de máquina do Azure faz previsões usando dados de um arquivo em um armazenamento de blob do Azure e armazena os resultados de previsão no armazenamento de blob. O JSON a seguir define um pipeline do Azure Data Factory com uma atividade AzureMLBatchExecution. A atividade contém o conjunto de dados **DecisionTreeInputBlob** como entrada e **DecisionTreeResultBlob** como a saída. O **DecisionTreeInputBlob** é transmitido como uma entrada para o serviço Web usando a propriedade JSON **webServiceInput** e o **DecisionTreeResultBlob** como uma saída para o serviço Web usando a propriedade JSON **webServiceOutputs**.
 
-> [AZURE.NOTE]Conjuntos de dados que são referenciados pelas propriedades **webServiceInput** e **webServiceOutputs ** (em **typeProperties**) também devem ser incluídos nas **entradas** e **saídas** da atividade.
+> [AZURE.NOTE] Conjuntos de dados que são referenciados pelas propriedades **webServiceInput** e **webServiceOutputs ** (em **typeProperties**) também devem ser incluídos nas **entradas** e **saídas** da atividade.
 
 
 	{
@@ -104,7 +104,7 @@ Nesse cenário, o serviço Web de aprendizado de máquina do Azure faz previsõe
 	  }
 	}
 
-> [AZURE.NOTE]Apenas as entradas e saídas da atividade AzureMLBatchExecution podem ser passadas como parâmetros para o serviço Web. Por exemplo, no trecho JSON acima, DecisionTreeInputBlob é uma entrada para a atividade de AzureMLBatchExecution, que é passada como entrada para o serviço Web a través do parâmetro webServiceInput.
+> [AZURE.NOTE] Apenas as entradas e saídas da atividade AzureMLBatchExecution podem ser passadas como parâmetros para o serviço Web. Por exemplo, no trecho JSON acima, DecisionTreeInputBlob é uma entrada para a atividade de AzureMLBatchExecution, que é passada como entrada para o serviço Web a través do parâmetro webServiceInput.
 
 ### Exemplo
 
@@ -125,7 +125,7 @@ Recomendamos que você estude o tutorial [Compile seu primeiro pipeline com o Da
 		  }
 		}
 
-2. Criar a **entrada** do **conjunto de dados** da Azure Data Factory. Observe que ao contrário de alguns outros conjuntos de dados do Data Factory, esses devem conter os valores **folderPath** e **fileName**. Você pode usar o particionamento para fazer com que cada execução em lote (cada fatia de dados) processe ou produza arquivos de entrada e saída exclusiva. Provavelmente, você precisará incluir algumas atividades upstream para transformar a entrada para o formato de arquivo CSV e colocá-lo na conta de armazenamento de cada fatia. Nesse caso, não inclua as configurações de **external** e **externalData** mostradas no exemplo abaixo e seu DecisionTreeInputBlob será o conjunto de dados de saída de uma Atividade diferente.
+2. Criar a **entrada** do **conjunto de dados** da Azure Data Factory. Observe que ao contrário de alguns outros conjuntos de dados do Data Factory, esses devem conter os valores **folderPath** e **fileName**. Você pode usar o particionamento para fazer com que cada execução em lote (cada fatia de dados) processe ou produza arquivos de entrada e saída exclusiva. Provavelmente, você precisará incluir algumas atividades upstream para transformar a entrada para o formato de arquivo CSV e colocá-lo na conta de armazenamento de cada fatia. Nesse caso, não inclua as configurações de **external** e **externalData** mostradas no exemplo abaixo, e seu DecisionTreeInputBlob será o conjunto de dados de saída de uma Atividade diferente.
 
 		{
 		  "name": "DecisionTreeInputBlob",
@@ -216,9 +216,9 @@ Recomendamos que você estude o tutorial [Compile seu primeiro pipeline com o Da
 		    }
 		  }
 		}
-5. Por fim, crie um pipeline que contém uma Atividade **AzureMLBatchExecution**. Ela obterá o local do arquivo de entrada dos conjuntos de dados de entrada, chamará a API de execução em lote de Aprendizado de Máquina do Azure e copiará a saída da execução em lote para o blob especificado no seu conjunto de dados de saída. 
+5. Por fim, crie um pipeline que contenha uma atividade **AzureMLBatchScoring**. Ela obterá o local do arquivo de entrada dos conjuntos de dados de entrada, chamará a API de execução em lote de Aprendizado de Máquina do Azure e copiará a saída da execução em lote para o blob especificado no seu conjunto de dados de saída. 
 
-	> [AZURE.NOTE]A atividade AzureMLBatchExecution pode ter zero ou mais entradas e uma ou mais saídas.
+	> [AZURE.NOTE] A atividade AzureMLBatchExecution pode ter zero ou mais entradas e uma ou mais saídas.
 
 		{
 		  "name": "PredictivePipeline",
@@ -260,9 +260,9 @@ Recomendamos que você estude o tutorial [Compile seu primeiro pipeline com o Da
 		  }
 		}
 
-	Ambos os valores de data/hora de **início** e de **término** devem estar no [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. A hora de **término** é opcional. Se você não especificar o valor para a propriedade **end**, ele será calculado como “**início + 48 horas**”. Para executar o pipeline indefinidamente, especifique **9999-09-09** como o valor para a propriedade **end**. Consulte a [Referência de script JSON](https://msdn.microsoft.com/library/dn835050.aspx) para obter detalhes sobre as propriedades JSON.
+	Ambos os valores de data/hora de **início** e de **término** devem estar no [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. A hora de **término** é opcional. Se você não especificar o valor para a propriedade **término**, ele será calculado como "**início + 48 horas**". Para executar o pipeline indefinidamente, especifique **9999-09-09** como o valor para a propriedade **end**. Consulte a [Referência de script JSON](https://msdn.microsoft.com/library/dn835050.aspx) para obter detalhes sobre as propriedades JSON.
 
-	> [AZURE.NOTE]A especificação de entrada para a atividade AzureMLBatchExecution é opcional.
+	> [AZURE.NOTE] A especificação de entrada para a atividade AzureMLBatchExecution é opcional.
 
 ### Cenário: Experimentos usando módulos Leitor/Gravador para fazer referência a dados em vários armazenamentos
 
@@ -270,7 +270,7 @@ Outro cenário comum durante a criação de experimentos AM do Azure é usar mó
 
 Ao usar os módulos leitor e gravador, é recomendável usar um parâmetro de serviço Web para cada propriedade desses módulos leitor/gravador. Esses parâmetros da Web permitem que você configure os valores durante o tempo de execução. Por exemplo, você poderia criar um experimento com um módulo leitor que usa um banco de dados SQL do Azure: XXX.database.windows.net. Depois que o serviço web tiver sido implantado, você precisa habilitar os consumidores do serviço Web para especificar outro servidor SQL do Azure chamado YYY.database.windows.net. Você pode usar um parâmetro de serviço Web para permitir que esse valor seja configurado.
 
-> [AZURE.NOTE]A saída e entrada de serviço Web são diferentes dos parâmetros de serviço Web. No primeiro cenário, você viu como uma entrada e saída podem ser especificados para um serviço Web do AM do Azure. Nesse cenário, você passará parâmetros para um serviço Web que correspondem às propriedades dos módulos leitor/gravador.
+> [AZURE.NOTE] A saída e entrada de serviço Web são diferentes dos parâmetros de serviço Web. No primeiro cenário, você viu como uma entrada e saída podem ser especificados para um serviço Web do AM do Azure. Nesse cenário, você passará parâmetros para um serviço Web que correspondem às propriedades dos módulos leitor/gravador.
 
 Vejamos um cenário para o uso de parâmetros de serviço Web. Você tem um serviço Web implantado do Aprendizado de Máquina do Azure que está usando um módulo leitor para ler dados de uma das fontes de dados de Aprendizado de Máquina do Azure com suporte (por exemplo: banco de dados SQL do Azure). Após a execução do lote, os resultados são gravados usando um módulo Gravador (banco de dados SQL do Azure). Não há entradas e saídas de serviço Web definidas nos experimentos. Nesse caso, é recomendável que você configure os parâmetros de serviço Web relevantes para os módulos leitor e gravador. Isso permitirá que os módulos leitor/gravador sejam configurados ao usar a atividade AzureMLBatchExecution. Você especifica parâmetros de serviço Web na seção **globalParameters** no JSON da atividade da seguinte maneira:
 
@@ -290,7 +290,7 @@ Você também pode usar [Funções do Data Factory](https://msdn.microsoft.com/l
     	}
   	}
  
-> [AZURE.NOTE]Os parâmetros de serviço Web diferenciam maiúsculas de minúsculas, portanto, garanta que os nomes que você especificar na atividade de JSON correspondam aos expostos pelo serviço Web.
+> [AZURE.NOTE] Os parâmetros de serviço Web diferenciam maiúsculas de minúsculas, portanto, garanta que os nomes que você especificar na atividade de JSON correspondam aos expostos pelo serviço Web.
 
 ### Uso de um módulo Leitor para ler dados de vários arquivos no Blob do Azure
 Os pipelines de big data (Pig, Hive, etc...) podem gerar um ou mais arquivos de saída sem extensões. Por exemplo, quando você especifica uma tabela externa do Hive, os dados para a tabela externa do Hive podem ser armazenados no armazenamento de blob do Azure com o seguinte nome 000000\_0. É possível usar o módulo leitor em um experimento para ler vários arquivos e usá-los para previsões.
@@ -352,7 +352,7 @@ Ao usar o módulo de leitor em uma experiência de Aprendizado de Máquina do Az
 No exemplo JSON acima:
 
 - O serviço Web implantado de Aprendizado de Máquina do Azure usa um modulo leitor e gravador para ler/gravar dados de/para um banco de dados SQL do Azure. Este serviço Web expõe os seguintes quatro parâmetros: Nome do servidor de banco de dados, Nome do banco de dados, Nome de conta de usuário do servidor e Senha de conta de usuário do servidor.  
-- Ambos os valores de data/hora de **início** e de **término** devem estar no [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. A hora de **término** é opcional. Se você não especificar o valor para a propriedade **end**, ele será calculado como “**início + 48 horas**”. Para executar o pipeline indefinidamente, especifique **9999-09-09** como o valor para a propriedade **end**. Consulte a [Referência de script JSON](https://msdn.microsoft.com/library/dn835050.aspx) para obter detalhes sobre as propriedades JSON.
+- Ambos os valores de data/hora de **início** e de **término** devem estar no [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. A hora de **término** é opcional. Se você não especificar o valor para a propriedade **término**, ele será calculado como "**início + 48 horas**". Para executar o pipeline indefinidamente, especifique **9999-09-09** como o valor para a propriedade **end**. Consulte a [Referência de script JSON](https://msdn.microsoft.com/library/dn835050.aspx) para obter detalhes sobre as propriedades JSON.
 
 ### Outros cenários
 
@@ -448,13 +448,13 @@ As **lições** são:
 Ao longo do tempo, os modelos de previsão nos experimentos de pontuação do AM do Azure precisam ser treinados novamente usando novos conjuntos de dados de entrada. Depois de concluir o novo treinamento, você deseja atualizar o serviço Web de pontuação com o modelo do AM treinado novamente. As etapas típicas para habilitar novos treinamentos e a atualização de modelos do AM do Azure por meio de serviços Web são:
 
 1. Crie um teste no [Estúdio AM do Azure](https://studio.azureml.net). 
-2. Quando estiver satisfeito com o modelo, use o Estúdio AM do Azure para publicar serviços Web para o **teste de treinamento** e pontuação/**teste preditivo**.
+2. Quando estiver satisfeito com o modelo, use o Estúdio AM do Azure para publicar serviços Web para o **experimento de treinamento** e pontuação/**experimento preditivo**.
 
 A tabela a seguir descreve os serviços Web usados neste exemplo. Confira [Readaptar os modelos do Aprendizado de Máquina de forma programática](../machine-learning/machine-learning-retrain-models-programmatically.md) para obter detalhes.
 
 | Tipo de serviço Web | description 
 | :------------------ | :---------- 
-| **Serviço Web de treinamento** | Recebe dados de treinamento e produz modelos treinados. A saída do treinamento é um arquivo .ilearner em um armazenamento de Blob do Azure. O **ponto de extremidade padrão** é criado automaticamente para você quando o teste de treinamento é publicado como um serviço Web. Você pode criar mais pontos de extremidade, mas o exemplo usa apenas o ponto de extremidade padrão |
+| **Serviço Web de treinamento** | Recebe dados de treinamento e produz modelos treinados. A saída do treinamento é um arquivo .ilearner em um armazenamento de Blob do Azure. O **ponto de extremidade padrão** é criado automaticamente para você quando o experimento de treinamento é publicado como um serviço Web. Você pode criar mais pontos de extremidade, mas o exemplo usa apenas o ponto de extremidade padrão |
 | **Serviço Web de pontuação** | Recebe exemplos de dados sem rótulo de e faz previsões. A saída de previsão pode ter diversas formas, como um arquivo .csv ou linhas em um banco de dados SQL do Azure, dependendo da configuração do experimento. O ponto de extremidade padrão é criado automaticamente para você quando o teste preditivo é publicado como um serviço Web. Você precisará criar o segundo **ponto de extremidade não padrão e atualizável** usando o [Portal Clássico do Azure](https://manage.windowsazure.com). Você pode criar mais pontos de extremidade, mas este exemplo usa apenas o ponto de extremidade atualizável não padrão. Confira o artigo [Criar pontos de extremidade](../machine-learning/machine-learning-create-endpoint.md) para conhecer as etapas.       
  
 A figura a seguir descreve o relacionamento entre os pontos de extremidade de treinamento e de pontuação no AM do Azure.
@@ -469,7 +469,7 @@ Você pode invocar o **serviço Web de pontuação** usando a **Atividade de Rec
 O cenário a seguir fornece mais detalhes com um exemplo de novo treinamento e de atualização de modelos do AM do Azure de um pipeline do Azure Data Factory.
  
 ### Cenário: novo treinamento e atualização de um modelo do AM do Azure
-Esta seção fornece um pipeline de exemplo que usa a **atividade Execução em Lotes do AM do Azure** para treinar novamente um modelo e a **atividade Recurso de Atualização do AM do Azure** para atualizar o modelo no serviço Web pontuação. Ele também fornece trechos JSON para todos os conjuntos de dados, serviços vinculados e pipeline no exemplo.
+Esta seção fornece um pipeline de exemplo que usa a **atividade de Execução de Lote do AM do Azure** para treinar novamente um modelo e a **atividade de Recurso de Atualização do AM do Azure** para atualizar o modelo no serviço Web de pontuação. Ele também fornece trechos JSON para todos os conjuntos de dados, serviços vinculados e pipeline no exemplo.
 
 Este é o modo de exibição de diagrama do pipeline de exemplo. Como você pode ver, a Atividade de Execução de Lote do AM do Azure ML obtém a entrada de treinamento e produz uma saída de treinamento (arquivo do iLearner). A Atividade de Recurso de Atualização do AM do Azure obtém a saída deste treinamento e atualiza o modelo no ponto de extremidade de serviço Web de pontuação. A Atividade do Recurso de Atualização não produz nenhuma saída. O placeholderBlob é apenas um conjunto de dados de saída fictício necessário ao serviço Azure Data Factory para executar o pipeline.
 
@@ -755,7 +755,7 @@ Você também pode usar [Funções do Data Factory](https://msdn.microsoft.com/l
     	}
   	}
  
-> [AZURE.NOTE]Os parâmetros de serviço Web diferenciam maiúsculas de minúsculas, portanto, garanta que os nomes que você especificar na atividade de JSON correspondam aos expostos pelo serviço Web.
+> [AZURE.NOTE] Os parâmetros de serviço Web diferenciam maiúsculas de minúsculas, portanto, garanta que os nomes que você especificar na atividade de JSON correspondam aos expostos pelo serviço Web.
 
 ## Consulte também
 
@@ -772,4 +772,4 @@ Você também pode usar [Funções do Data Factory](https://msdn.microsoft.com/l
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

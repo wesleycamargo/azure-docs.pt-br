@@ -13,7 +13,7 @@ A seguir há condições de erro que geram exceções:
 3.	O resultado da consulta SQL não tem um nome de coluna especificado no mapeamento.
 
 ## Exemplos de mapeamento de coluna
-> [AZURE.NOTE]Os exemplos a seguir são para o SQL Azure e Blobs do Azure, mas são aplicáveis da mesma maneira a qualquer armazenamento de dados que oferece suporte a tabelas retangulares. Você precisará ajustar o conjunto de dados e as definições de serviço vinculado nos exemplos abaixo para apontar para dados na fonte de dados relevante.
+> [AZURE.NOTE] Os exemplos a seguir são para o Azure SQL e os Blobs do Azure, mas são aplicáveis a qualquer repositório de dados com suporte a conjuntos de dados retangulares. Você precisará ajustar o conjunto de dados e as definições de serviço vinculado nos exemplos abaixo para apontar para dados na fonte de dados relevante.
 
 ### Exemplo 1 - mapeamento de coluna do SQL Azure para blobs do Azure
 Neste exemplo, a tabela de entrada tem uma estrutura e ela aponta para uma tabela do SQL em um banco de dados SQL Azure.
@@ -149,4 +149,4 @@ Nesse caso, os resultados da consulta primeiro são mapeados para colunas especi
 
 ![Fluxo de mapeamento de coluna-2](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow-2.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

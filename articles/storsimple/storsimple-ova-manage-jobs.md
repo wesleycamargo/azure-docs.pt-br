@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="02/22/2016"
    ms.author="v-sharos" />
 
 # Use o serviço StorSimple Manager para exibir os trabalhos para a matriz de Virtual do StorSimple (visualização)
@@ -60,8 +60,16 @@ Execute as etapas a seguir para exibir os detalhes de qualquer trabalho.
  
     ![Página de detalhes do trabalho](./media/storsimple-ova-manage-jobs/ovajobs2.png)
 
+#### Falhas de trabalho quando a máquina virtual está em pausa no hipervisor
+
+Quando um trabalho estiver em andamento no seu StorSimple Virtual Array e o dispositivo (a máquina virtual provisionada no hipervisor) estiver em pausa há mais de 15 minutos, o trabalho falhará. Isso ocorre devido ao tempo StorSimple Virtual Array estar fora de sincronia com a hora do Microsoft Azure. Um exemplo de uma falha do trabalho de restauração é mostrado na seguinte captura de tela.
+
+![Falha no trabalho de restauração](./media/storsimple-ova-manage-jobs/restorejobfailure.png)
+
+Essas falhas serão aplicadas aos trabalhos de backup, restauração, atualização e failover. Se sua máquina virtual for provisionada no Hyper-V, ela eventualmente sincronizará a hora com o hipervisor. Depois que isso acontece, você pode reiniciar seu trabalho.
+
 ## Próximas etapas
 
-[Aprenda como usar a interface do usuário da Web local para administrar sua StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+[Saiba como usar a interface do usuário da Web local para administrar sua StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

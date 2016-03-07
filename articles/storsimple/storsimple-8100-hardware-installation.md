@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -261,7 +261,7 @@ Lembre-se disso no caso de alta disponibilidade e desempenho:
 
 Para saber mais, consulte **Interfaces de rede** em [Requisitos de alta disponibilidade para seu dispositivo StorSimple](storsimple-system-requirements.md#high-availability-requirements-for-storsimple).
 
->[AZURE.NOTE]Se você estiver usando transceptores SFP+ com suas interfaces de rede 10 GbE, use os adaptadores QSFP-SFP+ fornecidos. Para obter mais informações, acesse [Suporte para hardware de interfaces de rede de 10 GbE em seu dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
+>[AZURE.NOTE] Se você estiver usando transceptores SFP+ com suas interfaces de rede 10 GbE, use os adaptadores QSFP-SFP+ fornecidos. Para obter mais informações, acesse [Suporte para hardware de interfaces de rede de 10 GbE em seu dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
     
 
    
@@ -283,7 +283,7 @@ Execute as etapas a seguir para cabear a porta serial.
 
 6. Verifique se a conexão está funcionando pressionando Enter no console. Um menu de console serial deve aparecer.
 
->[AZURE.NOTE]**Gerenciamento Noturno**: quando o dispositivo for instalado em um data center remoto ou em uma sala de computadores com acesso limitado, certifique-se de que as conexões seriais com ambos os controladores sempre estejam conectadas a um comutador de console serial ou equipamento semelhante. Isso permite operações de suporte e controle remoto fora de banda se houver interrupções na rede ou falhas inesperadas.
+>[AZURE.NOTE] **Gerenciamento Noturno**: quando o dispositivo for instalado em um data center remoto ou em uma sala de computadores com acesso limitado, certifique-se de que as conexões seriais com ambos os controladores sempre estejam conectadas a um comutador de console serial ou equipamento semelhante. Isso permite operações de suporte e controle remoto fora de banda se houver interrupções na rede ou falhas inesperadas.
 
 Agora o dispositivo está cabeado para energia, acesso à rede e conectividade serial. A próxima etapa será configurar o software e implantar o dispositivo.
 
@@ -291,4 +291,4 @@ Agora o dispositivo está cabeado para energia, acesso à rede e conectividade s
 
 Saiba como [implantar e configurar seu dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

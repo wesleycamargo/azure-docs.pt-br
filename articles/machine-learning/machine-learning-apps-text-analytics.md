@@ -1,6 +1,6 @@
 <properties
 	pageTitle="APIs de Aprendizado de Máquina: Análise de texto| Microsoft Azure"
-	description="APIs de análise de texto fornecidas pelo Aprendizado de Máquina do Azure. Elas podem ser usadas para analisar textos não estruturados para a execução de tarefas como análise de sentimento, extração de frases-chave e detecção de idioma."
+	description="As APIs de análise de texto do Aprendizado de Máquina da Microsoft podem ser usadas para analisar texto não estruturado a fim de fazer a análise de sentimento, a extração de frases-chave, a detecção de idioma e a detecção de tópico."
 	services="machine-learning"
 	documentationCenter=""
 	authors="onewth"
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015"
+	ms.date="02/22/2016"
 	ms.author="onewth"/>
 
 
-# APIs de Aprendizado de Máquina: análise de texto para sentimento, extração de frases-chave e detecção de idioma
+# APIs de Aprendizado de Máquina: análise de texto para sentimento, extração de frases-chave, detecção de idioma e detecção de tópico
 
 ## Visão geral
 
-API de Análise de Texto é um pacote de [serviços Web](https://datamarket.azure.com/dataset/amla/text-analytics) de análise de texto criado com o Aprendizado de Máquina do Azure. A API pode ser usada para analisar textos não estruturados para a execução de tarefas como análise de sentimento, extração de frases-chave e detecção de idioma. Nenhum dado de treinamento é necessário para usar essa API, basta colocar seus dados de texto. Essa API usa técnicas avançadas de processamento de idioma natural para proporcionar as melhores previsões.
+API de Análise de Texto é um pacote de [serviços Web](https://datamarket.azure.com/dataset/amla/text-analytics) de análise de texto criado com o Aprendizado de Máquina do Azure. A API pode ser usada para analisar textos não estruturados para a execução de tarefas como análise de sentimento, extração de frases-chave, detecção de idioma e de tópico. Nenhum dado de treinamento é necessário para usar essa API, basta colocar seus dados de texto. Essa API usa técnicas avançadas de processamento de idioma natural para proporcionar as melhores previsões.
 
 Você pode ver a análise de texto em ação em nosso [site de demonstração](https://text-analytics-demo.azurewebsites.net/), no qual você também encontrará [exemplos](https://text-analytics-demo.azurewebsites.net/Home/SampleCode) de como implementar a análise de texto em C# e Python.
 
@@ -40,6 +40,10 @@ A API retorna uma lista de cadeias de caracteres representando os principais pon
 ## Detecção de idioma
 
 A API retorna o idioma detectado e uma pontuação numérica entre 0 e 1. Classificações próximas a 1 indicam 100% de certeza de que o idioma identificado é verdadeiro. Há 120 idiomas com suporte no total.
+
+## Detecção de tópico
+
+Essa é uma API recém-lançada que retorna os principais tópicos detectados para obter uma lista de registros de texto enviados. Um tópico é identificado por uma frase-chave, que pode ser uma ou mais palavras relacionadas. Essa API requer o envio de, no mínimo, 100 registros de texto, mas foi projetada para detectar os tópicos em centenas ou em milhares de registros. Observe que essa API cobra uma transação por registro de texto enviado. A API é projetada para funcionar bem com textos curto escritos por humanos, como revisões e comentários do usuário.
 
 ---
 
@@ -161,14 +165,14 @@ Corpo da solicitação:
 	{"Inputs":
 	[
 	    {"Id":"1","Text":"hello world"},
-    	    {"Id":"2","Text":"hello foo world"},
-    	    {"Id":"3","Text":"hello my world"},
+	    {"Id":"2","Text":"hello foo world"},
+	    {"Id":"3","Text":"hello my world"},
 	]}
 
 Na resposta abaixo, você obtém a lista de pontuações associada às IDs do texto:
 
 	{
-	  "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata", 
+	  "odata.metadata":"<url>", 
 	  "SentimentBatch":
 	  [
 		{"Score":0.9549767,"Id":"1"},
@@ -210,7 +214,7 @@ Corpo da solicitação:
 
 Na resposta abaixo, você obtém a lista de frases-chave, associada às IDs do texto:
 
-	{ "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata",
+	{ "odata.metadata":"<url>",
 	 	"KeyPhrasesBatch":
 		[
 		   {"KeyPhrases":["unique decor","friendly staff","wonderful hotel"],"Id":"1"},
@@ -261,4 +265,122 @@ Isso retorna a resposta a seguir, na qual o idioma inglês é detectado na prime
        "Errors": []
     }
 
-<!---HONumber=AcomDC_1125_2015-->
+---
+
+## APIs de detecção de tópico
+
+Essa é uma API recém-lançada que retorna os principais tópicos detectados para obter uma lista de registros de texto enviados. Um tópico é identificado por uma frase-chave, que pode ser uma ou mais palavras relacionadas. Observe que essa API cobra uma transação por registro de texto enviado.
+
+Essa API requer o envio de, no mínimo, 100 registros de texto, mas foi projetada para detectar os tópicos em centenas ou em milhares de registros.
+
+
+### Tópicos – enviar trabalho
+
+**URL**
+
+	https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/StartTopicDetection
+
+**Solicitação de exemplo**
+
+
+Na chamada POST abaixo, estamos solicitando tópicos para um conjunto de 100 artigos, em que o primeiro e o último artigo de entrada são exibidos e duas StopPhrases são incluídas.
+
+	POST https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/StartTopicDetection HTTP/1.1
+
+Corpo da solicitação:
+
+	{"Inputs":[
+		{"Id":"1","Text":"I loved the food at this restaurant"},
+		...,
+		{"Id":"100","Text":"I hated the decor"}
+	],
+	"StopPhrases":[
+		"restaurant", “visitor"
+	]}
+
+Na resposta abaixo, você obtém a JobId do trabalho enviado:
+
+	{
+		"odata.metadata":"<url>",
+		"JobId":"<JobId>"
+	}
+
+Uma lista de frases com uma ou mais palavras que não devem ser retornadas como tópicos. Pode ser usado para filtrar tópicos muito genéricos. Por exemplo, em um conjunto de dados sobre análises de hotéis, "hotel" e "hostel" podem ser frases de interrupção adequadas.
+
+### Tópicos – pesquisa de resultados do trabalho
+
+**URL**
+
+	https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetTopicDetectionResult
+
+**Solicitação de exemplo**
+
+Passe a JobId retornada da etapa 'Enviar trabalho' para buscar os resultados. Recomendamos que você chame esse ponto de extremidade a cada minuto até o Status='Concluído' na resposta. Levará cerca de dez minutos para um trabalho ser concluído, ou mais em caso de trabalhos com milhares de registros.
+
+	GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetTopicDetectionResult?JobId=<JobId>
+
+
+Durante o processamento, a resposta será a seguinte:
+
+	{
+		"odata.metadata":"<url>",
+		"Status":"Running",
+ 		"TopicInfo":[],
+		"TopicAssignment":[],
+		"Errors":[]
+	}
+
+
+A API retorna o resultado em JSON no seguinte formato:
+
+	{
+		"odata.metadata":"<url>",
+		"Status":"Finished",
+		"TopicInfo":[
+		{
+			"TopicId":"ed00480e-f0a0-41b3-8fe4-07c1593f4afd",
+			"Score":8.0,
+			"KeyPhrase":"food"
+		},
+		...
+		{
+			"TopicId":"a5ca3f1a-fdb1-4f02-8f1b-89f2f626d692",
+			"Score":6.0,
+			"KeyPhrase":"decor"
+    		}
+  		],
+		"TopicAssignment":[
+		{
+			"Id":"1",
+			"TopicId":"ed00480e-f0a0-41b3-8fe4-07c1593f4afd",
+			"Distance":0.7809
+		},
+		...
+		{
+			"Id":"100",
+			"TopicId":"a5ca3f1a-fdb1-4f02-8f1b-89f2f626d692",
+			"Distance":0.8034
+		}
+		],
+		"Errors":[]
+
+
+As propriedades de cada parte da resposta são as seguintes:
+
+**Propriedades de TopicInfo**
+
+| Chave | Descrição |
+|:-----|:----|
+| TopicId | Um identificador exclusivo para cada tópico. |
+| Pontuação | Contagem de registros atribuídos ao tópico. |
+| KeyPhrase | Uma palavra ou frase que resume o tópico. Pode ser uma ou várias palavras. |
+
+**Propriedades de TopicAssignment**
+
+| Chave | Descrição |
+|:-----|:----|
+| ID | Identificador do registro. É igual à ID incluída na entrada. |
+| TopicId | A ID do tópico a que o registro foi atribuído. |
+| Distância | Confiança em que o registro pertence ao tópico. Uma distância mais próxima a zero indica maior confiança. |
+
+<!---HONumber=AcomDC_0224_2016-->

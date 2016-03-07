@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="02/23/2016"
 	ms.author="asmalser"/>
 
 
@@ -107,4 +107,4 @@ Para que os usuários provisionados do AAD possam ver o Evidence.com em seus Pai
  
 4.	No rodapé da página, clique no botão **Atribuir**.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

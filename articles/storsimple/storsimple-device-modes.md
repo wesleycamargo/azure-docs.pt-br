@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -42,7 +42,7 @@ O dispositivo StorSimple pode operar nos modos normal, de manutenção ou de rec
 
 Você pode colocar o sistema no modo de manutenção somente por meio do Windows PowerShell para StorSimple. Todas as solicitações de E/S são pausadas neste modo. Serviços como NVRAM (memória de acesso aleatório não volátil) ou o serviço de cluster também são interrompidos. Ambos os controladores são reiniciados quando você entra ou sai desse modo. Quando você sair do modo de manutenção, todos os serviços continuarão e deverão estar íntegros. Isso pode levar alguns minutos.
 
->[AZURE.NOTE]**Só há suporte ao modo de Manutenção em um dispositivo que esteja funcionando corretamente. Não há suporte a ele em um dispositivo no qual um dos controladores ou ambos não estejam funcionando.**</br>
+>[AZURE.NOTE] **Só há suporte ao modo de Manutenção em um dispositivo que esteja funcionando corretamente. Não há suporte a ele em um dispositivo no qual um dos controladores ou ambos não estejam funcionando.**</br>
 
 ### Modo de recuperação
 
@@ -50,7 +50,7 @@ O modo de recuperação pode ser descrito como "Modo Seguro do Windows com supor
 
 Se o sistema entrar no modo de recuperação, você deverá contatar o Suporte da Microsoft para obter as próximas etapas. Para obter mais informações, vá para [Contatar o Suporte da Microsoft](storsimple-contact-microsoft-support.md).
 
->[AZURE.NOTE]**Você não pode colocar o dispositivo no modo de recuperação. Se o dispositivo estiver em um estado inválido, o modo de recuperação tentará colocá-lo em um estado em que a equipe de Suporte da Microsoft possa examiná-lo.**
+>[AZURE.NOTE] **Você não pode colocar o dispositivo no modo de recuperação. Se o dispositivo estiver em um estado inválido, o modo de recuperação tentará colocá-lo em um estado em que a equipe de Suporte da Microsoft possa examiná-lo.**
 
 ## Determinar o modo do dispositivo StorSimple
 
@@ -63,7 +63,7 @@ Se o sistema entrar no modo de recuperação, você deverá contatar o Suporte d
 
 Você pode colocar o dispositivo StorSimple no modo de manutenção (do modo normal) para realizar a manutenção ou instalar atualizações do modo de manutenção. Execute os seguintes procedimentos para entrar ou sair do modo de manutenção.
 
-> [AZURE.IMPORTANT]Antes de entrar no modo de manutenção, verifique se ambos os controladores de dispositivo estão íntegros, acessando o **Status de Hardware** na página **Manutenção** no Portal clássico do Azure. Se o controlador não estiver íntegro, contate o Suporte da Microsoft para as próximas etapas. Para obter mais informações, vá para [Contatar o Suporte da Microsoft](storsimple-contact-microsoft-support.md).
+> [AZURE.IMPORTANT] Antes de entrar no modo de manutenção, verifique se ambos os controladores de dispositivo estão íntegros, acessando o **Status de Hardware** na página **Manutenção** no Portal clássico do Azure. Se o controlador não estiver íntegro, contate o Suporte da Microsoft para as próximas etapas. Para obter mais informações, vá para [Contatar o Suporte da Microsoft](storsimple-contact-microsoft-support.md).
 
 #### Para entrar no modo de manutenção
 
@@ -97,4 +97,4 @@ Você pode colocar o dispositivo StorSimple no modo de manutenção (do modo nor
 
 Saiba como [aplicar atualizações do modo normal e de manutenção](storsimple-update-device.md) no dispositivo StorSimple.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

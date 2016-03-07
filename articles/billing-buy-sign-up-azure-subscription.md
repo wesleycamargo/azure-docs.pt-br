@@ -15,14 +15,48 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/21/2015"
+	ms.date="02/21/2016"
 	ms.author="genli"/>
 
-# Como se inscrever, comprar, atualizar ou ativar uma assinatura do Azure
+# Ofertas do Azure - benefícios e limites, como se inscrever, compra, atualizar ou Ativar
 
+O Azure fornece várias ofertas para atender às suas necessidades de negócio e começar a usar o Azure. Visite as [Ofertas do Azure](https://azure.microsoft.com/support/legal/offer-details/) para obter uma lista completa de todas as ofertas ativas com detalhes de cada oferta como o que ela abrange, seus benefícios e a disponibilidade por países/regiões.
+
+A lista a seguir fornece detalhes sobre ofertas comuns
+
+- **Avaliação gratuita**
+  - [Guia de inscrição e passo a passo](#SignupFreeTrial)
+  - [Benefícios](https://azure.microsoft.com/pricing/free-trial/)
+  - [PERGUNTAS FREQUENTES](https://azure.microsoft.com/pricing/free-trial-faq/)
+  - [Atualizar a Versão de Avaliação Gratuita para Pré-Pago](#UpgradeFreeToPYG)
+- **Pré-paga**
+   - [Inscrever-se](https://azure.microsoft.com/pricing/purchase-options/)
+   - [Preços](https://azure.microsoft.com/pricing/)
+- **MPN** (Microsoft Partner Network) - Os membros recebem os créditos Azure mensais gratuitamente  
+  - [Benefícios do Azure para parceiros](https://azure.microsoft.com/offers/ms-azr-0025p/)
+  - [Registre-se como um parceiro](http://go.microsoft.com/fwlink/?linkid=309258&clcid=0x409) ou [Assine o Microsoft Action Pack](http://go.microsoft.com/fwlink/?linkid=525768&clcid=0x409)
+  - Use os créditos Azure - Acesse o [portal MPN](https://mspartner.microsoft.com/Pages/Locale.aspx), verifique seu status de qualificação e siga as etapas em Chaves de Software e benefícios. Se não for possível verificar sua qualificação, contate o [suporte do MPN](https://mspartner.microsoft.com/Pages/Support/Premium/contact-support.aspx).
+- **Assinante do MSDN e do Visual Studio**
+  - [Benefícios do MSDN para Desenvolvimento/Teste.](https://azure.microsoft.com/offers/ms-azr-0023p/) [Benefícios do assinante do Visual Studio.](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)
+  - [Ativar o crédito Azure do assinante do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)
+  - [Ativar os benefícios do Azure no MSDN em três etapas simples](https://www.youtube.com/watch?v=SN2CA71uOEI&feature=youtu.be). Faça logon na [página da conta do MSDN](https://msdn.microsoft.com/subscriptions/manage/default.aspx) e verifique a qualificação clicando em “Ativar benefício do Azure”. Se não for possível verificar sua qualificação, contate o [Atendimento ao Cliente de Assinaturas MSDN](https://msdn.microsoft.com/subscriptions/contactus.aspx)
+- **BizSpark**
+  - [Benefícios do BizSpark](https://www.microsoft.com/bizspark/default.aspx#start-two). Para ver mais detalhes, consulte [Crédito Azure Mensal para Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0064p/)
+  - [Junte-se ao BizSpark](https://www.microsoft.com/bizspark/signup/default.aspx). Se você encontrar problemas, entre em contato com [a Equipe do BizSpark](mailto:bizspark@microsoft.com?subject=BizSpark%20Support&body=Thank%20you%20for%20contacting%20BizSpark.%20Please%20provide%20as%20much%20of%20the%20following%20information%20as%20possible,%20as%20it%20will%20help%20expedite%20our%20response%20to%20you.%0aContact%20name:%0aStartup%20name:%0aMicrosoft%20Account/Live%20ID:%0aSpecific%20description%20of%20issue%20experienced%20or%20question:%0a%0aThank%20you,%0a%0aThe%20BizSpark%20Team).
+- **BizSpark Plus**
+   - [Saiba mais sobre o BizSpark Plus](https://www.microsoft.com/bizspark/plus/default.aspx). Para obter mais detalhes, consulte os [Benefícios do BizSpark Plus](https://azure.microsoft.com/offers/ms-azr-0149p/)
+   - [Participe do BizSpark](https://www.microsoft.com/bizspark/signup/default.aspx) e trabalhe com seu contato de parceiro para atualizar para o BizSpark Plus. Se você encontrar problemas, entre em contato com [a Equipe do BizSpark](mailto:bizspark@microsoft.com?subject=BizSpark%20Support&body=Thank%20you%20for%20contacting%20BizSpark.%20Please%20provide%20as%20much%20of%20the%20following%20information%20as%20possible,%20as%20it%20will%20help%20expedite%20our%20response%20to%20you.%0aContact%20name:%0aStartup%20name:%0aMicrosoft%20Account/Live%20ID:%0aSpecific%20description%20of%20issue%20experienced%20or%20question:%0a%0aThank%20you,%0a%0aThe%20BizSpark%20Team).
+- **Revendedores** (programas de Licenciamento por Volume Aberto)
+  - [Ativar a Chave de Serviço Online - guia passo a passo](#activateKey)
+  - [Compra, Benefícios, Ativar](https://azure.microsoft.com/offers/ms-azr-0111p/)
+- **EA (Enterprise Agreement)**
+  - [Licenciamento do Azure para o Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/)
+  - Para ativar, entre em contato com o Gerente de Conta ou Revendedor da Microsoft para começar a usar hoje mesmo
+
+<a name="SignupFreeTrial"></a>
 ## Inscrever-se em uma assinatura de Avaliação Gratuita do Azure
 
-Para se inscrever em uma assinatura de Avaliação Gratuita do Azure, você deve fornecer um número de telefone, um cartão de crédito e uma Conta da Microsoft. Sua conta da Microsoft é o endereço de email usado, juntamente com sua senha, para entrar em qualquer programa ou serviço do Windows Live, como Outlook, Hotmail ou OneDrive. Você pode configurar uma conta da Microsoft usando qualquer endereço de e-mail que pertence a você, incluindo o e-mail da sua empresa. Confira [Perguntas frequentes sobre a conta da Microsoft](https://www.microsoft.com/pt-BR/account/faq.aspx) para obter mais detalhes.
+Para se inscrever em uma assinatura de Avaliação Gratuita do Azure, você deve fornecer um número de telefone, um cartão de crédito e uma Conta da Microsoft. Sua conta da Microsoft é o endereço de email usado, juntamente com sua senha, para entrar em qualquer programa ou serviço do Windows Live, como Outlook, Hotmail ou OneDrive. Você pode configurar uma conta da Microsoft usando qualquer endereço de e-mail que pertence a você, incluindo o e-mail da sua empresa. Confira [Perguntas frequentes sobre a conta da Microsoft](https://www.microsoft.com/account/faq.aspx) para obter mais detalhes.
 
 >[AZURE.NOTE] Seu número de telefone e os detalhes do seu cartão de crédito são usados apenas para verificar sua identidade. Embora seu cartão de crédito não será cobrado, a Microsoft colocará uma espera de autorização em uma quantidade mínima para verificar se o cartão de crédito é válido. A suspensão será liberada dentro de 3 a 5 dias úteis, dependendo das políticas da sua instituição financeira.
 
@@ -38,7 +72,7 @@ Para se inscrever em uma assinatura de Avaliação Gratuita do Azure, você deve
 
  **Observação** Embora seu cartão de crédito não seja cobrado, a Microsoft colocará uma espera de autorização nele de uma quantia mínima para verificar se o cartão de crédito é válido. A suspensão será liberada dentro de 3 a 5 dias úteis, dependendo das políticas da sua instituição financeira.
 
- Se você receber um erro após enviar as informações do cartão de crédito, confira o artigo [Meu cartão de crédito não é aprovado ao tentar me inscrever no Azure](../billing-credit-card-fails-during-azure-sign-up.md).
+ Se você receber um erro após enviar as informações do cartão de crédito, confira o artigo [Meu cartão de crédito não é aprovado ao tentar me inscrever no Azure](billing-credit-card-fails-during-azure-sign-up.md).
 
  ![cardverify](./media/billing-buy-sign-up-azure-subscription/VardVerify.png)</br> 6. Na seção **Contrato**, marque a caixa se você concordar com o contrato de assinatura, os detalhes da oferta e a política de privacidade. Em seguida, selecione **Inscrever-se**. A captura de tela de exemplo é para a versão em inglês do contrato. O formulário de contrato pode variar por país.
 
@@ -48,7 +82,8 @@ Para se inscrever em uma assinatura de Avaliação Gratuita do Azure, você deve
 
  Neste caso, tente usar outro navegador para concluir o processo de inscrição. Se o problema persistir, contate o [Suporte do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para obter ajuda.</br> 7. Quando a assinatura estiver pronta, selecione **Começar a gerenciar meu serviço** para começar.</br> ![startservice](./media/billing-buy-sign-up-azure-subscription/startservice.png)
 
-## Atualizar sua assinatura de Avaliação Gratuita do Azure para uma assinatura pré-paga
+<a name="UpgradeFreeToPYG"></a>
+## Atualizar a Versão de Avaliação Gratuita do Azure para Pré-Pago
 
 1. Faça logon no [Portal da Conta do Azure](https://account.windowsazure.com/subscriptions) usando a conta da Microsoft ou sua conta corporativa ou de estudante que você usou para se inscrever para a avaliação gratuita.
 2. Escolha a assinatura e selecione **Atualizar**.</br>![billpage](./media/billing-buy-sign-up-azure-subscription/billpage.png)
@@ -56,9 +91,10 @@ Para se inscrever em uma assinatura de Avaliação Gratuita do Azure, você deve
 
 Quando você atualizar de uma assinatura de avaliação gratuita em uma assinatura pré-paga, nenhum benefício restantes de sua avaliação gratuita, como o limite de 30 dias ou o crédito de US $200 para usar em serviços do Azure continuará até que um deles esteja esgotado. A atualização de assinatura ocorrerá somente depois disso.
 
-## Ativar sua assinatura do Azure usando uma Chave de Ativação de Serviço Online (uma chave 5x5)
+<a name="activateKey"></a>
+## Ativar usando uma Chave de Ativação do Serviço Online
 
-Se tiver comprado créditos do Azure via Open de um revendedor, siga estas etapas para ativar sua assinatura:
+Se você tiver comprado créditos do Azure via Open de um revendedor e recebido uma chave de ativação (chave 5x5), siga estas etapas para ativar sua assinatura:
 
 1. Vá para a [página de resumo da assinatura](https://account.windowsazure.com/subscriptions) em azure.com.
 
@@ -66,30 +102,4 @@ Se tiver comprado créditos do Azure via Open de um revendedor, siga estas etapa
 
 3. Insira a chave do produto (Product Key) e marque a opção de contrato.
 
-## Inscrições do Azure para clientes Enterprise Agreements, MSDN, MPN e BizSpark
-
-Verifique no canal do programa de benefícios se você está qualificado para o plano escolhido:
-
-### MSDN
-- [Comparar os benefícios da assinatura](https://www.visualstudio.com/pt-BR/products/msdn-subscriptions-vs/#AdditionalPageSections_1)
-- Verifique o status de qualificação na [página da sua conta MSDN](https://msdn.microsoft.com/subscriptions/manage/default.aspx).
-- Se não for possível verificar o status, contate o [Atendimento ao Cliente de Assinaturas MSDN](https://msdn.microsoft.com/subscriptions/contactus.aspx)
-- [Oferta de Desenvolvimento e Teste MSDN Pré-Pago](https://azure.microsoft.com/offers/ms-azr-0023p/)
-
-### MPN
-
-- Acesse o [portal do MPN](https://mspartner.microsoft.com/en/us/Pages/Locale.aspx) e verifique o status da sua qualificação
-- [Principais benefícios do MPN](https://mspartner.microsoft.com/en/us/Pages/Membership/core-benefits.aspx)
-- [Requisitos do MPN](https://mspartner.microsoft.com/en/us/Pages/Membership/core-benefits.aspx#Requirements)
-- Se não for possível verificar seu status, contate o [suporte do MPN](https://mspartner.microsoft.com/en/us/Pages/Support/Premium/contact-support.aspx).
-
-### BizSpark
-
-- Acesse o [portal do Bizspark](https://www.microsoft.com/bizspark/default.aspx) e verifique o status da sua qualificação
-- Se não for possível verificar o status, contate o Suporte do Bizspark enviando um email para [Contatar a equipe do BizSpark](mailto:bizspark@microsoft.com?subject=BizSpark%20Support&body=Thank%20you%20for%20contacting%20BizSpark.%20Please%20provide%20as%20much%20of%20the%20following%20information%20as%20possible,%20as%20it%20will%20help%20expedite%20our%20response%20to%20you.%0aContact%20name:%0aStartup%20name:%0aMicrosoft%20Account/Live%20ID:%0aSpecific%20description%20of%20issue%20experienced%20or%20question:%0a%0aThank%20you,%0a%0aThe%20BizSpark%20Team).
-
-### BizSpark Plus
-
-- [Portal do Microsoft BizSpark Plus](http://www.microsoft.com/bizspark/plus/default.aspx)
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

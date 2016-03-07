@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="heidist"/>
 
 #Como paginar os resultados da pesquisa na Pesquisa do Azure#
@@ -22,7 +22,7 @@ Este artigo fornece orientação sobre como usar a API REST do Serviço de Pesqu
  
 Em cada caso mencionado abaixo, as opções relacionadas à página que colaboram com dados ou informações para sua página de resultados da pesquisa são especificadas por meio de solicitações de [Documento de Pesquisa](http://msdn.microsoft.com/library/azure/dn798927.aspx) enviadas ao Serviço de Pesquisa do Azure. As solicitações incluem um comando GET, um caminho e os parâmetros de consulta que informam ao serviço que está sendo solicitado, e como formular a resposta.
 
-> [AZURE.NOTE]Uma solicitação válida inclui diversos elementos, como uma URL de serviço e o caminho, o verbo HTTP, `api-version` etc. Para resumir, recortamos os exemplos para destacar apenas a sintaxe relevante para a paginação. Confira a documentação da [API REST do Serviço de Pesquisa do Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx) para obter detalhes sobre a sintaxe da solicitação.
+> [AZURE.NOTE] Uma solicitação válida inclui diversos elementos, como uma URL de serviço e o caminho, o verbo HTTP, `api-version` etc. Para resumir, recortamos os exemplos para destacar apenas a sintaxe relevante para a paginação. Confira a documentação da [API REST do Serviço de Pesquisa do Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx) para obter detalhes sobre a sintaxe da solicitação.
 
 ## Total de ocorrências e contagens de página ##
 
@@ -82,7 +82,7 @@ Você criaria um método que aceitasse a opção de classificação selecionada 
 
  ![][5]
  
-> [AZURE.NOTE]Embora a pontuação padrão seja suficiente para muitos cenários, recomendamos basear a relevância em um perfil personalizado de pontuação. Um perfil personalizado de pontuação permite um aumento dos itens mais úteis para o seu negócio. Confira [Adicionar um perfil de pontuação](http://msdn.microsoft.com/library/azure/dn798928.aspx) para saber mais.
+> [AZURE.NOTE] Embora a pontuação padrão seja suficiente para muitos cenários, recomendamos basear a relevância em um perfil personalizado de pontuação. Um perfil personalizado de pontuação permite um aumento dos itens mais úteis para o seu negócio. Confira [Adicionar um perfil de pontuação](http://msdn.microsoft.com/library/azure/dn798928.aspx) para saber mais.
 
 ## Navegação facetada ##
 
@@ -102,7 +102,7 @@ Confira [Pesquisar Documentos (API de Pesquisa do Azure)](http://msdn.microsoft.
 
 - [API REST do Serviço de Pesquisa do Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx)
 - [Operações de índice](http://msdn.microsoft.com/library/azure/dn798918.aspx)
-- [Operações de documento](http://msdn.microsoft.com/library/azure/dn800962.aspx).
+- [Operações de documento.](http://msdn.microsoft.com/library/azure/dn800962.aspx)
 - [Vídeos e tutoriais sobre a Pesquisa do Azure](search-video-demo-tutorial-list.md)
 - [Navegação facetada na Pesquisa do Azure](search-faceted-navigation.md)
 
@@ -114,4 +114,4 @@ Confira [Pesquisar Documentos (API de Pesquisa do Azure)](http://msdn.microsoft.
 [4]: ./media/search-pagination-page-layout/Pages-4-SortbyRelevance.png
 [5]: ./media/search-pagination-page-layout/Pages-5-BuildSort.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

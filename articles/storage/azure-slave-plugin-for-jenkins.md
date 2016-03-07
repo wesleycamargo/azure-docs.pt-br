@@ -204,4 +204,4 @@ Nesta seção, você criará uma tarefa do Jenkins que será executada em um nó
 
 Em seguida, o Jenkins criará um nó subordinado usando o modelo criado na seção anterior e executará o script que você especificou na etapa de compilação dessa tarefa.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="02/09/2016"
+	ms.date="02/23/2016"
 	ms.author="billmath"/>
 
 
@@ -92,7 +92,7 @@ Nesta tarefa, você vai definir a topologia e as ferramentas que vai usar para s
 Usamos diversas ferramentas de sincronização para vários cenários ao longo dos anos. Atualmente, o Azure AD Connect é a ferramenta de eleição para todos os cenários compatíveis. O AAD Sync e o DirSync continuam disponíveis e podem fazer parte do seu ambiente imediatamente.
 
 >[AZURE.NOTE]
-Para obter informações recentes sobre os recursos com suporte de cada ferramenta, leia o artigo [Comparação de ferramentas de integração de diretório](active-directory-aadconnect-get-started-tools-comparison.md).
+Para obter informações recentes sobre os recursos com suporte de cada ferramenta, leia o artigo [Comparação de ferramentas de integração de diretório](active-directory-hybrid-identity-design-considerations-tools-comparison.md).
 
 ### Topologias com suporte
 Escolha a topologia que vai usar quando definir a estratégia de sincronização. Dependendo das informações indicadas na etapa 2, determine a topologia de utilização mais adequada. A floresta única, topologia exclusiva do AD do Azure, é a mais comum e consiste de uma floresta única do Active Directory e de uma instância única do AD do Azure. Ela será usada na maioria dos cenários, além de ser a topologia esperada para o uso da instalação expressa do Azure AD Connect Express, como ilustrado na imagem a seguir.
@@ -197,4 +197,4 @@ Você deve garantir que a opção de design de autenticação multifator selecio
 ## Consulte também
 [Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

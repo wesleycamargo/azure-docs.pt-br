@@ -13,10 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="01/19/2016"
+   ms.date="02/18/2016"
    ms.author="rajram"/>
 
 # Codificador de Arquivo Simples do BizTalk
+
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
 
 Use o conector de Codificação de Arquivo Simples do BizTalk para permitir a interoperabilidade entre os dados de arquivo simples (por exemplo, um arquivo do Excel ou CSV) e dados XML. Ele pode converter uma instância de arquivo simples em XML e vice-versa.
 
@@ -69,4 +71,4 @@ A ação retorna a saída como uma cadeia de caracteres ‒ Arquivo Simples. A s
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

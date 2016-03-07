@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="eugenesh"/>
 
 #Personalização do indexador da Pesquisa do Azure
@@ -117,4 +117,4 @@ Mesmo se você optar por tolerar algumas falhas, as informações sobre quais do
 E isso é tudo por enquanto. Caso você tenha pensamentos ou sugestões para futuras ideias de conteúdo, envie um tweet para nós usando a hashtag #AzureSearch ou envie suas ideias pela nossa [página UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

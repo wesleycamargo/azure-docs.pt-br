@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="02/03/2015"
+   ms.date="02/03/2016"
    ms.author="sstein"/>
 
 # Visão do desempenho de consulta de Banco de Dados SQL do Azure
@@ -33,7 +33,7 @@ Gerenciamento e ajuste do desempenho de bancos de dados relacionais são uma tar
  
 ## Permissões
 
-As seguintes permissões de [controle de acesso baseado em função](role-based-access-control-configure.md) são necessárias para usar a Visão do Desempenho de Consulta:
+As seguintes permissões de [controle de acesso baseado em função](../active-directory/role-based-access-control-configure.md) são necessárias para usar a Visão do Desempenho de Consulta:
 
 - As permissões **Leitor**, **Proprietário**, **Colaborador**, **Colaborador do banco de dados SQL** ou **Colaborador do SQL Server** são necessárias para exibir as consultas e gráficos que consomem mais recursos. 
 - As permissões **Proprietário**, **Colaborador**, **Colaborador do banco de dados SQL** ou **Colaborador do SQL Server** são necessárias para exibir o texto da consulta.
@@ -170,4 +170,4 @@ Para obter recomendações adicionais para melhorar o desempenho do seu banco de
 [2]: ./media/sql-database-query-performance/top-queries.png
 [3]: ./media/sql-database-query-performance/query-details.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

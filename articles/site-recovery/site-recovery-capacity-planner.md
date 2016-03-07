@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Planejar a capacidade de proteção da máquina virtual e do servidor físico no Azure Site Recovery | Microsoft Azure"
+	pageTitle="Planejar a capacidade de proteger máquinas virtuais e o servidor físico no Azure Site Recovery | Microsoft Azure"
 	description="O Azure Site Recovery coordena a replicação, o failover e a recuperação de máquinas virtuais e servidores físicos locais para o Azure ou para um site local secundário." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,17 +13,17 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="12/14/2015" 
+	ms.date="02/22/2016" 
 	ms.author="raynew"/>
 
-# Planejar a capacidade de proteção da máquina virtual e do servidor físico no Azure Site Recovery
+# Planejar a capacidade de proteger máquinas virtuais e o servidor físico no Azure Site Recovery
 
-A ferramenta Planejador de Capacidade ajuda você a descobrir os requisitos de capacidade para proteger VMs Hyper-V, VMs VMware e servidores físicos Windows/Linux com o Azure Site Recovery.
+A ferramenta Planejador de Capacidade do Azure Site Recovery ajuda você a descobrir os requisitos de capacidade para proteger VMs Hyper-V, VMs VMware e servidores físicos Windows/Linux com o Azure Site Recovery.
 
 
 ## Visão geral
 
-Use a ferramenta para analisar o ambiente de origem e as cargas de trabalho a fim de descobrir as necessidades de largura de banda, de recursos de servidor necessários no local de origem e de recursos (máquinas virtuais e armazenamento, etc.) necessários no local de destino.
+Use o Planejador de Capacidade do Site Recovery para analisar o ambiente de origem e as cargas de trabalho a fim de descobrir as necessidades de largura de banda, de recursos de servidor necessários no local de origem e de recursos (máquinas virtuais e armazenamento, etc.) necessários no local de destino.
 
 Você pode executar a ferramenta em vários modos:
 
@@ -121,7 +121,7 @@ Como exemplo, para seis VMs com os valores mostrados na tabela, a ferramenta cal
 	-  A VM4 pode usar a segunda conta de armazenamento padrão.
 	-  A VM5 e a VM6 precisam de uma conta de armazenamento premium e podem usar a mesma conta.
 
-	>[AZURE.NOTE]O IOPS no armazenamento standard e premium é calculado no nível da VM e não no nível do disco. Uma máquina virtual padrão pode manipular até 500 IOPS por disco. Se o IOPS de um disco for maior que 500, você precisará do armazenamento premium. No entanto, se o IOPS de um disco for superior a 500, mas o IOPS do total de discos de VM dentro dos limites de VM do Azure padrão do suporte (tamanho da VM, número de discos, número de adaptadores, CPU e memória), o planejador escolherá uma VM padrão e não uma da série DS ou GS. Você precisará atualizar manualmente a célula de tamanho do mapeamento do Azure com a VM da série DS ou GS apropriada.
+	>[AZURE.NOTE]  O IOPS no armazenamento standard e premium é calculado no nível da VM e não no nível do disco. Uma máquina virtual padrão pode manipular até 500 IOPS por disco. Se o IOPS de um disco for maior que 500, você precisará do armazenamento premium. No entanto, se o IOPS de um disco for superior a 500, mas o IOPS do total de discos de VM dentro dos limites de VM do Azure padrão do suporte (tamanho da VM, número de discos, número de adaptadores, CPU e memória), o planejador escolherá uma VM padrão e não uma da série DS ou GS. Você precisará atualizar manualmente a célula de tamanho do mapeamento do Azure com a VM da série DS ou GS apropriada.
 
 5. Depois que todos os detalhes estiverem prontos, clique em **Enviar dados para a ferramenta de planejamento** para abrir o **Planejador de Capacidade**. As cargas de trabalho são realçadas para mostrar se estão qualificadas ou não para proteção.
 
@@ -133,4 +133,4 @@ Como exemplo, para seis VMs com os valores mostrados na tabela, a ferramenta cal
 
 	![Planejador de Capacidade](./media/site-recovery-capacity-planner/capacity-planner.png)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

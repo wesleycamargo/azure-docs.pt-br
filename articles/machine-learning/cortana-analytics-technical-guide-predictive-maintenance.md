@@ -262,7 +262,7 @@ As etapas a seguir mostrarão como visualizar a saída de dados em tempo real de
     -   Passe o mouse sobre esse bloco no painel, clique no ícone "editar" no canto superior direito para alterar o título para "Exibição de frota do sensor 11 em relação ao limite 48,26" e o subtítulo"Média na frota ao longo do tempo".
 
 ## **Como excluir a solução**
-Não se esqueça de parar o gerador de dados quando não estiver usando ativamente a solução, pois a execução dele incorrerá em custos mais altos. Se não estiver usando a solução, exclua-a. A exclusão da solução excluirá todos os componentes provisionados em sua assinatura quando você implantou a solução. Para excluir a solução, clique com botão direito do mouse no nome da solução no painel esquerdo do modelo de solução e clique em Excluir.
+Não se esqueça de parar o gerador de dados quando não estiver usando ativamente a solução, pois a execução dele incorrerá em custos mais altos. Se não estiver usando a solução, exclua-a. A exclusão da solução excluirá todos os componentes provisionados em sua assinatura quando você implantou a solução. Para excluir a solução, clique com botão no nome da solução no painel esquerdo do modelo de solução e clique em Excluir.
 
 ## **Ferramentas de estimativa de custo**
 
@@ -272,4 +272,4 @@ As duas ferramentas a seguir estão disponíveis para ajudar você a entender me
 
 -   [Ferramenta Calculadora de Preço do Microsoft Azure (área de trabalho)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

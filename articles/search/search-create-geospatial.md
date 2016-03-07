@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Criar um aplicativo de pesquisa geoespacial usando a Pesquisa do Azure | Microsoft Azure | Serviço de pesquisa de nuvem hospedado" 
+	pageTitle="Criar um aplicativo de pesquisa geoespacial usando a Pesquisa do Azure | Microsoft Azure | Serviço de pesquisa em nuvem hospedado" 
 	description="Crie um aplicativo de pesquisa geoespacial usando o Bing e a Pesquisa do Azure, um serviço de pesquisa de nuvem hospedado do Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
@@ -13,12 +13,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="02/18/2016" 
 	ms.author="heidist"/>
 
 # Criar um aplicativo de pesquisa geoespacial usando a Pesquisa do Azure
 
-Este tutorial demonstra como adicionar a pesquisa geoespacial aos aplicativos Web usando a Pesquisa do Azure e o Bing Mapas. Ao usar a pesquisa geográfica, você pode encontrar destinos de pesquisa dentro de uma distância determinada de um ponto (como encontrar todos os restaurantes a uma distância de 5 Km do meu local atual). A capacidade geoespacial na Pesquisa do Azure fornece suporte comumente usado nas técnicas de mapeamento. Por exemplo, se você deseja usar formas de polígono em um aplicativo imobiliário mostrando casas para venda dentro do limite do polígono, você pode facilmente fazer isso usando a sintaxe de pesquisa simples ou OData.
+Este tutorial demonstra como adicionar a pesquisa geoespacial aos aplicativos Web usando a Pesquisa do Azure e o Bing Mapas. Ao usar a pesquisa geográfica, você pode encontrar destinos de pesquisa dentro de uma distância determinada de um ponto (como encontrar todos os restaurantes a uma distância de 5 Km do meu local atual). A capacidade geoespacial da Pesquisa do Azure dá suporte às técnicas de mapeamento mais usadas. Por exemplo, se você deseja usar formas de polígono em um aplicativo imobiliário mostrando casas para venda dentro do limite do polígono, você pode facilmente fazer isso usando a sintaxe de pesquisa simples ou OData.
 
 Para obter mais visão geral, assista a este vídeo no Canal 9 sobre a [Pesquisa do Azure e Dados Geoespaciais](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data)
 
@@ -167,4 +167,4 @@ Para um estudo individual adicional, considere adicionar mais capacidade ao apli
 [7]: ./media/search-create-geospatial/AzureSearch-geo1-App.PNG
 [12]: ./media/search-create-geospatial/AzureSearch_Create2_CodeplexDownload.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

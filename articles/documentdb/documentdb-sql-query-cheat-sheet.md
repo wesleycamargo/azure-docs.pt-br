@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="02/16/2016" 
 	ms.author="mimig"/>
 
 # PDF de consulta SQL do Banco de Dados de Documentos
@@ -39,4 +39,4 @@ Escreva suas consultas mais rapidamente baixando a folha de consulta SQL e usand
 - Para obter um passo a passo das opções de consulta disponíveis no Banco de Dados de Documentos, veja [Consultar o Banco de Dados de Documentos](documentdb-sql-query.md).
 - Para obter a documentação de referência relacionada, veja [Linguagem de consulta SQL do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn782250.aspx).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -1,6 +1,8 @@
 ### Suporte à compactação  
 O processamento de grandes conjuntos de dados pode causar afunilamentos de E/S e de rede. Portanto, os dados compactados em repositórios não apenas aceleram a transferência de dados pela rede e economizam espaço em disco, mas também oferecem aprimoramentos consideráveis de desempenho no processamento de Big Data. No momento, a compactação tem suporte para armazenamentos de dados baseados em arquivo, por exemplo, Blob do Azure ou o Sistema de arquivos local.
 
+> [AZURE.NOTE] Não há suporte para configurações de compactação de dados no **AvroFormat** neste momento.
+
 Para especificar a compactação de um conjunto de dados, use a propriedade **compactação** no conjunto de dados JSON, como no exemplo a seguir:
 
 	{  
@@ -40,4 +42,4 @@ Quando você especifica a propriedade de compactação em um conjunto de dados d
 - Ler dados de um arquivo de texto sem formatação do Sistema de arquivos local, compactá-los usando o formato GZip e gravar os dados compactados em um blob do Azure. Nesse caso, você define um conjunto de dados do Blob do Azure com a propriedade de compactação JSON.  
 - Ler dados compactados em GZIP de um blob do Azure, descompactá-los, compactá-los usando BZIP2 e gravar os dados de resultado em um blob do Azure. Nesse caso, você define o conjunto de dados de entrada do Blob do Azure com o tipo de compactação definido como GZIP, e o conjunto de dados de saída com o tipo de compactação definido como BZIP2.   
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

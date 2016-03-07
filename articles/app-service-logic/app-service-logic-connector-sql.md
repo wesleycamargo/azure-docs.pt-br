@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/30/2015"
+   ms.date="02/11/2016"
    ms.author="sameerch"/>
 
 
 # Introdução ao Conector do Microsoft SQL e à adição dele ao seu Aplicativo Lógico
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos. Para a versão do esquema 2015-08-01-preview do Azure SQL, clique em [API do SQL Azure](../connectors/create-api-sqlazure.md).
+
 Conecte-se ao SQL Server local ou a um banco de dados SQL do Azure para criar e alterar suas informações ou dados. Conectores podem ser usados em Aplicativos de Lógicos para obter, processar ou enviar dados como parte de um “fluxo de trabalho”. Utilizando o Conector do SQL em seu fluxo de trabalho, você pode chegar a diversos resultados. Por exemplo, você pode:
 
 - Expor uma seção dos dados residentes no seu banco de dados SQL usando um aplicativo da Web ou móvel.
@@ -59,7 +61,7 @@ Nome do Servidor Parceiro | Não | Se o servidor primário não estiver disponí
 Tabelas | Não | Lista as tabelas de banco de dados que podem ser atualizadas pelo conector. Por exemplo, digite *OrdersTable* ou *EmployeeTable*. Se nenhuma tabela for especificada, todas as tabelas poderão ser usadas. Tabelas válidas e/ou procedimentos armazenados são necessários para usar esse conector como uma ação.
 Procedimentos Armazenados | Não | Informe um procedimento armazenado existente que pode ser chamado pelo conector. Por exemplo, digite *sp\_IsEmployeeEligible* ou *sp\_CalculateOrderDiscount*. Tabelas válidas e/ou procedimentos armazenados são necessários para usar esse conector como uma ação.
 Consulta de Dados Disponíveis | Para suporte de gatilho | Instrução SQL para determinar se há dados disponíveis para sondar uma tabela de banco de dados do SQL Server. Deve retornar um valor numérico que representa o número de linhas de dados disponíveis. Exemplo: SELECT COUNT(*) from nome\_da\_tabela.
-Pesquisar consulta de dados | Para suporte de gatilho | A instrução SQL para pesquisar a tabela de banco de dados do SQL Server. Você pode especificar qualquer número de instruções SQL separadas por ponto e vírgula. Essa instrução é executada transacionalmente e confirmada somente quando os dados são armazenados com segurança em seu aplicativo lógico. Exemplo: SELECT * FROM nome\_da\_tabela; DELETE FROM nome\_da\_tabela. <br/><br/>**Observação**<br/>Você deve fornecer uma instrução de pesquisa que evite um loop infinito. Para isso, exclua, mova ou atualize os dados selecionados para garantir que eles não sejam sondados novamente.
+Pesquisar consulta de dados | Para suporte de gatilho | A instrução SQL para pesquisar a tabela de banco de dados do SQL Server. Você pode especificar qualquer número de instruções SQL separadas por ponto e vírgula. Essa instrução é executada transacionalmente e confirmada somente quando os dados são armazenados com segurança em seu aplicativo lógico. Exemplo: SELECT * FROM nome\_da\_tabela; DELETE FROM nome\_da\_tabela. <br/><br/>***Observação**<br/>Você deve fornecer uma instrução de pesquisa que evite um loop infinito. Para isso, exclua, mova ou atualize os dados selecionados para garantir que eles não sejam sondados novamente.
 
 5. Após a conclusão, as Configurações de Pacote serão semelhantes às seguintes:  
 ![][1]  
@@ -122,7 +124,7 @@ Você pode testar o aplicativo lógico adicionando um novo registro na tabela qu
 
 Consulta SQL | Suportado | Sem suporte
 --- | --- | ---
-Cláusula Where | <ul><li>Operadores: AND, OR =, <>, <, <=, >, >= e LIKE</li><li>Várias subcondições podem ser combinadas com "(" e ")"</li><li>Literais de cadeia de caracteres, Datetime (entre aspas simples), números (apenas caracteres numéricos)</li><li>Deve estar rigorosamente em formato de expressão binária, como ((operando do operador operando) AND/OR (operando do operador operando))*</li></ul> | <ul><li>Operadores: Between, IN</li><li>Todas as funções internas, como ADD(), MAX() NOW(), POWER() e assim por diante</li><li>Operadores matemáticos, como *, -, + e assim por diante</li><li>Concatenações de cadeia de caracteres usando +.</li><li>Todas as junções</li><li>IS NULL e IS NOT Null</li><li>Quaisquer números com caracteres não numéricos, como números hexadecimais</li></ul>
+Cláusula Where | <ul><li>Operadores: AND, OR =, <>, <, <=, >, >= e LIKE</li><li>Várias subcondições podem ser combinadas com "(" e ")"</li><li>Literais de cadeia de caracteres, Datetime (entre aspas simples), números (apenas caracteres numéricos)</li><li>Deve estar rigorosamente em formato de expressão binária, como ((operando do operador operando) AND/OR (operando do operador operando))**</li></ul> | <ul><li>Operadores: Between, IN</li><li>Todas as funções internas, como ADD(), MAX() NOW(), POWER() e assim por diante</li><li>Operadores matemáticos, como *, -, + e assim por diante</li><li>Concatenações de cadeia de caracteres usando +.</li><li>Todas as junções</li><li>IS NULL e IS NOT Null</li><li>Quaisquer números com caracteres não numéricos, como números hexadecimais</li></ul>
 Campos (na consulta Select) | <ul><li>Nomes de colunas válidos separados por vírgulas. Nenhum prefixo de nome de tabela permitido (o conector funciona em uma tabela por vez).</li><li>Os nomes podem escapar com "[" e "]"</li></ul> | <ul><li>Palavras-chave como TOP, DISTINCT e assim por diante</li><li>Alias, como Rua + Cidade + Código Postal como endereço</li><li>Todas as funções internas, como ADD(), MAX() NOW(), POWER() e assim por diante</li><li>Operadores matemáticos, como *, -, + e assim por diante</li><li>Concatenações de cadeias de caracteres usando +</li></ul>
 
 #### Dicas
@@ -133,11 +135,11 @@ Campos (na consulta Select) | <ul><li>Nomes de colunas válidos separados por v�
 
 ## Configuração Híbrida (opcional)
 
-> [AZURE.NOTE] Essa etapa será necessária apenas se você estiver usando o SQL Server local por trás do firewall.
+> [AZURE.NOTE]Essa etapa será necessária apenas se você estiver usando o SQL Server local por trás do firewall.
 
 O Serviço de Aplicativo usa o Gerenciador de Configuração Híbrida para se conectar com segurança ao sistema local. Se seu conector usar um SQL Server local, o Gerenciador de Conexão Híbrida será necessário.
 
-> [AZURE.NOTE] Se você deseja começar com os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógicos](https://tryappservice.azure.com/?appservice=logic), em que você pode criar imediatamente um aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
+> [AZURE.NOTE]Se você deseja começar com os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógicos](https://tryappservice.azure.com/?appservice=logic), em que você pode criar imediatamente um aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
 
 Consulte [Usando o Gerenciador de Conexão Híbrida](app-service-logic-hybrid-connection-manager.md).
 
@@ -161,4 +163,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

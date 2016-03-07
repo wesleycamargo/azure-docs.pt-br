@@ -16,13 +16,13 @@
    ms.date="02/17/2016"
    ms.author="tomfitz"/>
 
-# Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure
+# Implantar um Grupo de Recursos com o modelo do Azure Resource Manager
 
-Este tópico explica como usar modelos do Gerenciador de recursos do Azure para implantar seu aplicativo no Azure. Ele mostra como implantar seu aplicativo usando o Azure PowerShell, a CLI do Azure, a API REST ou o portal do Azure.
+Este tópico explica como usar modelos do Azure Resource Manager para implantar seus Recursos no Azure. Ele mostra como implantar seus Recursos usando o Azure PowerShell, a CLI do Azure, a API REST ou o portal do Azure.
 
 Para obter uma introdução ao Gerenciador de Recursos, confira [Visão geral do Gerenciador de Recursos do Azure](./resource-group-overview.md). Para saber mais sobre a criação de modelos, veja [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
 
-Ao implantar um aplicativo com um modelo, você pode fornecer valores de parâmetro para personalizar como os recursos são criados. Você especifica valores para esses parâmetros embutidos ou em um arquivo de parâmetros.
+Ao implantar uma definição de aplicativo com um modelo, você pode fornecer valores de parâmetro para personalizar como os recursos são criados. Você especifica valores para esses parâmetros embutidos ou em um arquivo de parâmetros.
 
 ## Implantações incrementais e completas
 
@@ -284,4 +284,4 @@ Para saber como definir parâmetros no modelo, confira [Criação de modelos](..
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

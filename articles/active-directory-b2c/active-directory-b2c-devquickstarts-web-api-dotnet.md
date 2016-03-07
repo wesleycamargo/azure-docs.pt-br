@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/17/2016"
 	ms.author="dastrock"/>
 
 # Visualização do AD B2C do Azure: chamando uma API Web de um aplicativo Web do .NET
@@ -36,7 +36,7 @@ Agora você precisa criar um aplicativo no diretório B2C, que dá ao AD do Azur
 
 - Incluir um **aplicativo Web/api Web** no aplicativo
 - Digitar `https://localhost:44316/` como uma **URL de Resposta** - é a URL padrão para este exemplo de código.
-- Criar um **Segredo do Aplicativo** para seu aplicativo e copiá-lo. Você precisará dele em breve.
+- Criar um **Segredo do Aplicativo** para seu aplicativo e copiá-lo. Você precisará dele em breve. Observe que este valor precisa ter [escape de XML](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) antes de ser usado.
 - Copiar a **ID do Aplicativo** atribuída ao aplicativo. Você também precisará dela em breve.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -89,7 +89,7 @@ Quando o `TaskService` recebe solicitações de `TaskWebApp`, ele verifica se h�
 
 Este artigo não abordará os detalhes de proteção do `TaskService`. Se você quiser saber como uma API web autentica com segurança solicitações usando o AD B2C do Azure, confira nosso [artigo Introdução à API Web](active-directory-b2c-devquickstarts-api-dotnet.md).
 
-## 6. Configurar o aplicativo Web da tarefa
+## 6\. Configurar o aplicativo Web da tarefa
 
 Para que o `TaskWebApp` se comunique com o AD B2C do Azure, há alguns parâmetros comuns que você precisará fornecer. No projeto `TaskWebApp`, abra o arquivo `web.config` na raiz do projeto e substitua os valores na seção `<appSettings>`. Esses valores serão usados em todo o aplicativo web.
 
@@ -387,4 +387,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

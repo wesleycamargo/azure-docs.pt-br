@@ -143,7 +143,7 @@ Sim. Você terá que criar um gateway de Rota Expressa em sua rede virtual. Have
 Você deve estabelecer um circuito de Rota Expressa e configurar rotas para emparelhamento público.
 
 ### Há limites no número de rotas que posso anunciar?
-Sim. Aceitamos até 4.000 prefixos de rota para emparelhamento privado e emparelhamento público. Você poderá aumentar esse limite para 10.000 rotas se habilitar o recurso premium da Rota Expressa.
+Sim. Aceitamos até 4.000 prefixos de rota para emparelhamento privado e 200 para cada emparelhamento público e da Microsoft. Você poderá aumentar esse limite para 10.000 rotas para emparelhamento privado se habilitar o recurso premium da Rota Expressa.
 
 ### Há restrições de intervalos de endereços IP que posso anunciar durante a sessão BGP?
 Prefixos anunciados via BGP devem ser /29 ou maiores (/28 a /8).
@@ -241,4 +241,4 @@ Consulte [Locais e parceiros da Rota Expressa](expressroute-locations.md) para o
 ### Posso acessar o Office 365 pela Internet mesmo se a Rota Expressa foi configurada para minha organização?
 Sim. Pontos de extremidade do serviço do Office 365 estão acessíveis pela Internet, embora a Rota Expressa tenha sido configurada para sua rede. Se você estiver em um local configurado para se conectar a serviços do Office 365 por meio de Rota Expressa, você se conectará por meio de Rota Expressa.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

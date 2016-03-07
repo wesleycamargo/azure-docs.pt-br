@@ -191,8 +191,12 @@ Você pode desativá-lo, mas isso não é recomendado. A amostragem é projetada
 
 A dimensões de cidade, de região e de país são derivadas de endereços IP e nem sempre são precisas.
 
+## Exceção "método não encontrado" em execução nos Serviços de Nuvem do Azure
+
+Você compilou para .NET 4.6? O 4.6 não tem suporte automático nas funções dos Serviços de Nuvem do Azure. [Instale o 4.6 em cada função](../cloud-services/cloud-services-dotnet-install-dotnet.md) antes de executar seu aplicativo.
+
 ## Ainda não está funcionando...
 
 * [Fórum do Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/pt-BR/home?forum=ApplicationInsights)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

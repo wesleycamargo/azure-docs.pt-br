@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Comparação de Serviço de Aplicativo, serviços de nuvem e máquinas virtuais do Azure"
-	description="Saiba quando usar o Serviço de Aplicativo do Azure, Serviços de Nuvem e Máquinas Virtuais para hospedar aplicativos Web."
+	pageTitle="Comparação entre o Serviço de Aplicativo do Azure, Serviços de Nuvem, Máquinas Virtuais e Service Fabric "
+	description="Saiba quando usar o Serviço de Aplicativo do Azure, os Serviços de Nuvem, Máquinas Virtuais e o Service Fabric para hospedar aplicativos Web."
 	services="app-service\web, virtual-machines, cloud-services"
 	documentationCenter=""
 	authors="tdykstra"
@@ -12,15 +12,15 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="11/19/2015"
+	ms.topic="article"
+	ms.date="02/22/2016"
 	ms.author="tdykstra"/>
 
-# Comparação de Serviço de Aplicativo, Serviços de nuvem e Máquinas virtuais do Azure
+# Comparação entre o Serviço de Aplicativo do Azure, Serviços de Nuvem, Máquinas Virtuais e Service Fabric
 
 ## Visão geral
 
-O Azure oferece várias maneiras de hospedar sites da Web: [Serviço de Aplicativo do Azure][], [Serviços de nuvem][] e [Máquinas virtuais][]. Este artigo ajuda você a entender as opções e fazer a escolha certa para seu aplicativo Web.
+O Azure oferece várias maneiras de hospedar sites da Web: [Serviço de Aplicativo do Azure][], [Serviços de Nuvem][], [Máquinas Virtuais][] e o [Service Fabric][]. Este artigo ajuda você a entender as opções e fazer a escolha certa para seu aplicativo Web.
 
 O Serviço de Aplicativo do Azure é a melhor opção para a maioria dos aplicativos Web. A implantação e o gerenciamento estão integrados na plataforma, os sites podem ser dimensionados rapidamente para suportar altas cargas de tráfego e o gerenciador de balanceamento de carga e tráfego integrado oferece alta disponibilidade. Você pode mover sites existentes para o Serviço de Aplicativo do Azure facilmente com uma [ferramenta de migração online](https://www.migratetoazure.net/), usar um aplicativo de software livre da Galeria de Aplicativos Web ou criar um novo site usando a estrutura e as ferramentas de sua escolha. O recurso [WebJobs][] facilita a adição do processamento de tarefas em segundo plano ao seu Serviço de Aplicativo.
 
@@ -50,7 +50,7 @@ Abaixo estão alguns cenários de aplicação comuns com recomendações sobre q
 
 ### <a id="onprem"></a> Preciso de um front-end da Web com processamento em segundo plano e back-end de banco de dados para executar aplicativos de negócios integrados a ativos no local.
 
-Os Serviço de Aplicativo do Azure é uma ótima solução para aplicativos de negócios complexos. Eles permitem desenvolver aplicativos que são escalados automaticamente em uma plataforma com carga equilibrada, são protegidos pelo Active Directory e se conectam aos seus recursos no local. Eles facilitam o gerenciamento desses aplicativos por meio de um portal e APIs de nível mundial, e permitem que você obtenha informações sobre como os clientes estão os utilizando com ferramentas de informações sobre os aplicativos. O novo recurso [Webjobs][] permite executar processos e tarefas em segundo plano como parte de sua camada da Web, ao passo que a conectividade híbrida e os recursos de VNET facilitam a conexão de volta aos recursos locais. O Serviço de Aplicativo do Azure fornece SLA três noves para aplicativos Web e permite que você:
+Os Serviço de Aplicativo do Azure é uma ótima solução para aplicativos de negócios complexos. Eles permitem desenvolver aplicativos que são escalados automaticamente em uma plataforma com carga equilibrada, são protegidos pelo Active Directory e se conectam aos seus recursos no local. Eles facilitam o gerenciamento desses aplicativos por meio de um portal e APIs de nível mundial, e permitem que você obtenha informações sobre como os clientes estão os utilizando com ferramentas de informações sobre os aplicativos. O recurso [Webjobs][] permite executar processos e tarefas em segundo plano como parte de sua camada da Web, ao passo que a conectividade híbrida e os recursos de VNET facilitam a conexão de volta aos recursos locais. O Serviço de Aplicativo do Azure fornece SLA três noves para aplicativos Web e permite que você:
 
 * Execute seus aplicativos de maneira confiável em uma plataforma de nuvem de autorrecuperação e autocorreção.
 * Escale automaticamente em uma rede global de datacenters.
@@ -138,36 +138,36 @@ Além disso, o Serviço de Aplicativo do Azure tem um novo recurso de visualiza�
 
 ##<a name="features"></a>Comparação de Recursos
 
-A tabela a seguir compara os recursos de Serviço de Aplicativo, serviços de nuvem e máquinas virtuais para ajudá-lo a fazer a melhor escolha. Para obter as informações mais recentes sobre SLA para cada opção, consulte os [Acordos de Nível de Serviço do Azure](/support/legal/sla/).
+A tabela a seguir compara os recursos do Serviço de Aplicativo, Serviços de Nuvem, Máquinas Virtuais e Service Fabric para ajudar você a fazer a melhor escolha. Para obter as informações mais recentes sobre SLA para cada opção, consulte os [Acordos de Nível de Serviço do Azure](/support/legal/sla/).
 
-Recurso|Serviço de Aplicativo (aplicativos Web)|Serviços de nuvem (funções Web)|Máquinas Virtuais|Observações
----|---|---|---|---
-Implantação quase instantânea|X|||Implantar um aplicativo ou uma atualização de um aplicativo em um Serviço de Nuvem ou criar uma Máquina Virtual leva no mínimo alguns minutos; implantar um aplicativo em um aplicativo Web leva segundos.
-Dimensionar para máquinas maiores sem reimplantação|X|||
-Instâncias do servidor da Web compartilham conteúdos e configuração, o que significa que você não precisa implantar ou configurar novamente conforme realiza o dimensionamento.|X|||
-Vários ambientes de implantação (produção e preparo)|X|X||
-Gerenciamento de atualização automática do sistema operacional|X|X||
-Alternância ininterrupta entre plataformas (alterne facilmente entre 32 bits e 64 bits)|X|X||
-Implantar código com GIT, FTP|X||X|
-Implantar o código com a implantação da Web|X||X|Os Serviços de Nuvem oferecem suporte ao uso da Implantação da Web para implantar atualizações em instâncias de função individuais. No entanto, eles não podem ser usados para a implantação inicial de uma função, e se a Implantação da Web for usada para uma atualização, você precisará implantar separadamente em cada instância de uma função. Várias instâncias são necessárias para se qualificar para SLA de Serviço de Nuvem para ambientes de produção.
-Suporte do WebMatrix|X||X|
-Acesso a serviços como o Barramento de Serviço, Armazenamento, Banco de Dados SQL|X|X|X|
-Camada de serviços da Web ou Web hospedada de uma arquitetura multicamada|X|X|X|
-Camada intermediária de host de uma arquitetura multicamada|X|X|X|Os aplicativo Web do Serviço de Aplicativo podem hospedar facilmente uma camada média da API REST, e o recurso [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) pode hospedar tarefas de processamento em segundo plano. Você pode executar o WebJobs em um site dedicado para alcançar a escalabilidade independente para a camada. O recurso de [aplicativos de API](../app-service-api/app-service-api-apps-why-best-platform.md) de visualização oferece ainda mais recursos para hospedar serviços REST.
-Suporte integrado do MySQL como serviço|X|X|X|Os Serviços de Nuvem podem integrar o MySQL como serviço por meio de ofertas do ClearDB, mas não como parte do fluxo de trabalho do Portal do Azure.
-Suporte para ASP.NET, classic ASP, Node.js, PHP, Python|X|X|X|
-Dimensionamento para várias instâncias sem reimplantação|X|X|X|Máquinas Virtuais podem ser dimensionadas para várias instâncias, mas os serviços em execução nessas máquinas devem ser escritos para lidar com este dimensionamento. Você precisa configurar um balanceador de carga para rotear solicitações entre máquinas e criar um Grupo de Afinidade para impedir reinícios simultâneos de todas as instâncias devido a manutenções ou falhas de hardware.
-Suporte para SSL|X|X|X|Para aplicativos Web do Serviço de Aplicativo, o SSL para nomes de domínio personalizados só tem suporte no modo Básico e Padrão. Para obter informações sobre como usar SSL com aplicativos Web, consulte [Configurar um certificado SSL para um Website do Azure](../app-service-web/web-sites-configure-ssl-certificate.md).
-Integração do Visual Studio|X|X|X|
-Depuração Remota|X|X|X|
-Implantar código com TFS|X|X|X|
-Isolamento de rede com a [Rede Virtual do Azure](/services/virtual-network/)|X|X|X|Consulte também [Integração de Rede Virtual dos Websites do Azure](/blog/2014/09/15/azure-websites-virtual-network-integration/)
-Suporte a [Gerenciador de Tráfego do Azure](/services/traffic-manager/)|X|X|X|
-Monitoramento do ponto de extremidade integrado|X|X|X|
-Acesso remoto a área de trabalho para servidores||X|X|
-Instalação de qualquer MSI personalizado||X|X|
-Capacidade de definir/executar tarefas de inicialização||X|X|
-Capacidade de ouvir eventos de ETW||X|X|
+Recurso|Serviço de Aplicativo (aplicativos Web)|Serviços de nuvem (funções Web)|Máquinas Virtuais|Service Fabric|Observações
+---|---|---|---|---|---
+Implantação quase instantânea|X|||X|Implantar um aplicativo ou uma atualização de um aplicativo em um Serviço de Nuvem ou criar uma Máquina Virtual leva no mínimo alguns minutos; implantar um aplicativo em um aplicativo Web leva segundos.
+Dimensionar para máquinas maiores sem reimplantação|X|||X|
+Instâncias do servidor da Web compartilham conteúdos e configuração, o que significa que você não precisa implantar ou configurar novamente conforme realiza o dimensionamento.|X|||X|
+Vários ambientes de implantação (produção e preparo)|X|X||X|O Service Fabric permite ter vários ambientes para seus aplicativos ou implantar diferentes versões do seu aplicativo lado a lado.
+Gerenciamento de atualização automática do sistema operacional|X|X|||Atualizações automáticas do sistema operacional estão planejadas para uma futura versão do Service Fabric.
+Alternância ininterrupta entre plataformas (alterne facilmente entre 32 bits e 64 bits)|X|X|||
+Implantar código com GIT, FTP|X||X||
+Implantar o código com a implantação da Web|X||X||Os Serviços de Nuvem oferecem suporte ao uso da Implantação da Web para implantar atualizações em instâncias de função individuais. No entanto, eles não podem ser usados para a implantação inicial de uma função, e se a Implantação da Web for usada para uma atualização, você precisará implantar separadamente em cada instância de uma função. Várias instâncias são necessárias para se qualificar para SLA de Serviço de Nuvem para ambientes de produção.
+Suporte do WebMatrix|X||X||
+Acesso a serviços como o Barramento de Serviço, Armazenamento, Banco de Dados SQL|X|X|X|X|
+Camada de serviços da Web ou Web hospedada de uma arquitetura multicamada|X|X|X|X|
+Camada intermediária de host de uma arquitetura multicamada|X|X|X|X|Os aplicativo Web do Serviço de Aplicativo podem hospedar facilmente uma camada média da API REST, e o recurso [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) pode hospedar tarefas de processamento em segundo plano. Você pode executar o WebJobs em um site dedicado para alcançar a escalabilidade independente para a camada. O recurso de [aplicativos de API](../app-service-api/app-service-api-apps-why-best-platform.md) de visualização oferece ainda mais recursos para hospedar serviços REST.
+Suporte integrado do MySQL como serviço|X|X|X||Os Serviços de Nuvem podem integrar o MySQL como serviço por meio de ofertas do ClearDB, mas não como parte do fluxo de trabalho do Portal do Azure.
+Suporte para ASP.NET, classic ASP, Node.js, PHP, Python|X|X|X|X|O Service Fabric dá suporte à criação de um front-end da Web usando [ASP.NET 5](../service-fabric/service-fabric-add-a-web-frontend.md), ou então você pode implantar qualquer tipo de aplicativo (Node.js, Java, etc.) como um [executável convidado](../service-fabric/service-fabric-deploy-existing-app.md).
+Dimensionamento para várias instâncias sem reimplantação|X|X|X|X|Máquinas Virtuais podem ser dimensionadas para várias instâncias, mas os serviços em execução nessas máquinas devem ser escritos para lidar com este dimensionamento. Você precisa configurar um balanceador de carga para rotear solicitações entre máquinas e criar um Grupo de Afinidade para impedir reinícios simultâneos de todas as instâncias devido a manutenções ou falhas de hardware.
+Suporte para SSL|X|X|X|X|Para aplicativos Web do Serviço de Aplicativo, o SSL para nomes de domínio personalizados só tem suporte no modo Básico e Padrão. Para obter informações sobre como usar SSL com aplicativos Web, consulte [Configurar um certificado SSL para um Website do Azure](../app-service-web/web-sites-configure-ssl-certificate.md).
+Integração do Visual Studio|X|X|X|X|
+Depuração Remota|X|X|X||
+Implantar código com TFS|X|X|X|X|
+Isolamento de rede com a [Rede Virtual do Azure](/services/virtual-network/)|X|X|X|X|Consulte também [Integração de Rede Virtual dos Websites do Azure](/blog/2014/09/15/azure-websites-virtual-network-integration/)
+Suporte a [Gerenciador de Tráfego do Azure](/services/traffic-manager/)|X|X|X|X|
+Monitoramento do ponto de extremidade integrado|X|X|X||
+Acesso remoto a área de trabalho para servidores||X|X|X|
+Instalação de qualquer MSI personalizado||X|X|X|O Service Fabric permite hospedar qualquer arquivo executável como um [executável convidado](../service-fabric/service-fabric-deploy-existing-app.md), ou então você pode instalar qualquer aplicativo nas VMs.
+Capacidade de definir/executar tarefas de inicialização||X|X|X|
+Capacidade de ouvir eventos de ETW||X|X|X|
 
 
 > [AZURE.NOTE]
@@ -176,18 +176,20 @@ Se você quiser começar a usar o Serviço de Aplicativo do Azure antes de se in
 
 ## <a id="nextsteps"></a> Próximas etapas
 
-Para obter mais informações sobre as três opções de hospedagem da Web, confira [Apresentação do Azure](../fundamentals-introduction-to-azure.md).
+Para obter mais informações sobre as três opções de hospedagem da Web, consulte [Apresentação do Azure](../fundamentals-introduction-to-azure.md).
 
 Para começar a usar as opções escolhidas para seu aplicativo, consulte os seguintes recursos:
 
 * [Serviço de aplicativo do Azure](/documentation/services/app-service/)
 * [Serviços de nuvem do Azure](/documentation/services/cloud-services/)
 * [Máquinas Virtuais do Azure](/documentation/services/virtual-machines/)
+* [Service Fabric](/documentation/services/service-fabric)
 
   [ChoicesDiagram]: ./media/choose-web-site-cloud-service-vm/Websites_CloudServices_VMs_3.png
   [Serviço de Aplicativo do Azure]: /services/app-service/
-  [Serviços de nuvem]: http://go.microsoft.com/fwlink/?LinkId=306052
-  [Máquinas virtuais]: http://go.microsoft.com/fwlink/?LinkID=306053
+  [Serviços de Nuvem]: http://go.microsoft.com/fwlink/?LinkId=306052
+  [Máquinas Virtuais]: http://go.microsoft.com/fwlink/?LinkID=306053
+  [Service Fabric]: /services/service-fabric
   [ClearDB]: http://www.cleardb.com/
   [WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
   [Configuring an SSL certificate for an Azure Website]: http://www.windowsazure.com/develop/net/common-tasks/enable-ssl-web-site/
@@ -200,6 +202,5 @@ Para começar a usar as opções escolhidas para seu aplicativo, consulte os seg
   [servicebus]: http://www.windowsazure.com/documentation/services/service-bus/
   [sqldatabase]: http://www.windowsazure.com/documentation/services/sql-database/
   [armazenamento]: http://www.windowsazure.com/documentation/services/storage/
- 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

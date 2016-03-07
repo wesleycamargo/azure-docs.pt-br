@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Visualização do Active Directory B2C do Azure: personalização de IU (interface do usuário) | Microsoft Azure"
-	description="Um tópico sobre os recursos de personalização de IU (Interface do usuário) no Active Directory B2C do Azure"
+	description="Um tópico sobre os recursos de personalização de IU (interface do usuário) no Azure Active Directory B2C"
 	services="active-directory-b2c"
 	documentationCenter=""
 	authors="swkrish"
@@ -16,40 +16,40 @@
 	ms.date="01/28/2016"
 	ms.author="swkrish"/>
 
-# Visualização do Active Directory B2C do Azure: Como Personalizar a IU (Interface do Usuário) do AD B2C do Azure
+# Visualização do Azure Active Directory B2C: personalizar a IU (Interface do Usuário) do Azure AD B2C
 
-A experiência do usuário é fundamental em um aplicativo voltado ao consumidor. É a diferença entre um bom aplicativo e um aplicativo ótimo e também a diferença entre consumidores simplesmente ativos e aqueles realmente comprometidos. O AD (Active Directory) B2C do Azure permite que você personalize a inscrição e entrada do consumidor (*consulte a observação abaixo*) e as páginas de edição de perfil com controle perfeito de pixels.
+A experiência do usuário é fundamental em um aplicativo voltado ao consumidor. É a diferença entre um bom aplicativo e um aplicativo ótimo e também a diferença entre consumidores simplesmente ativos e aqueles realmente comprometidos. O Azure AD (Azure Active Directory) B2C permite personalizar as páginas de inscrição, entrada (*consulte a observação abaixo*) e edição de perfil do consumidor com controle perfeito de pixels.
 
 > [AZURE.NOTE]
-Atualmente, as páginas de entrada de conta local, emails de verificação e páginas de redefinição de senhas de autoatendimento só podem ser personalizados usando o [recurso de marca da empresa](../active-directory/active-directory-add-company-branding.md) e não pelos mecanismos descritos neste artigo.
+No momento, as páginas de entrada de conta local, emails de verificação e páginas de redefinição de senhas por autoatendimento só podem ser personalizados usando o [recurso de identificação visual da empresa](../active-directory/active-directory-add-company-branding.md) e não pelos mecanismos descritos neste artigo.
 
 Neste artigo, você lerá sobre:
 
-- Visão geral do recurso de personalização da IU (interface do usuário) da página.
+- O recurso de personalização da IU (interface do usuário) da página.
 - Uma ferramenta auxiliar que ajudará você a testar o recurso de personalização da interface do usuário da página usando nosso conteúdo de exemplo.
 - Os elementos principais da interface do usuário em cada tipo de página.
 - Práticas recomendadas ao exercitar esse recurso.
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-## Recurso de Personalização da IU (Interface do Usuário) da Página
+## O recurso de personalização da interface do usuário da página
 
-O recurso de personalização da interface do usuário de página permite que você personalize a aparência das páginas de inscrição, entrada edição de perfil do consumidor (pela configuração de [políticas](active-directory-b2c-reference-policies.md)). Seus consumidores terão experiências consistentes ao navegar entre seu aplicativo e as páginas atendidas pelo serviço do AD B2C do Azure.
+Com o recurso de personalização da interface do usuário de página, você pode personalizar a aparência das páginas de inscrição, entrada e edição de perfil do consumidor (com a configuração de [políticas](active-directory-b2c-reference-policies.md)). Seus consumidores terão experiências consistentes ao navegar entre seu aplicativo e as páginas atendidas pelo serviço do Azure AD B2C.
 
-Ao contrário de outros serviços no qual as opções são limitadas ou só estão disponíveis por meio de APIs, o AD B2C do Azure usa uma abordagem moderna (e mais simples) para a personalização da interface do usuário da página. Eis aqui como ele funciona: o AD B2C do Azure executa o código no navegador do cliente e usa uma abordagem moderna chamada [CORS (Compartilhamento de Recursos Entre Origens)](http://www.w3.org/TR/cors/) para carregar conteúdo proveniente de uma URL que você especifica em uma política. Você pode especificar URLs diferentes para diferentes páginas. O código mescla o conteúdo do AD B2C do Azure (chamado de elementos de interface do usuário) e o conteúdo carregado por meio de sua URL e exibe a página para o consumidor. Tudo que você precisa fazer é criar um conteúdo HTML5 bem-formado com um elemento `<div id="api"></div>` localizado em algum lugar no `<body>` - é para este local que o conteúdo do AD B2C do Azure é mesclado. E hospede esse conteúdo em um ponto de extremidade HTTPS (com CORS permitido). Você também pode formatar totalmente o estilo dos elementos da interface do usuário do AD B2C do Azure.
+Ao contrário de outros serviços nos quais as opções de interface do usuário são limitadas ou só estão disponíveis por meio de APIs, o Azure AD B2C usa uma abordagem moderna (e mais simples) para a personalização da interface do usuário da página. Eis aqui como ele funciona: o AD B2C do Azure executa o código no navegador do cliente e usa uma abordagem moderna chamada [CORS (Compartilhamento de Recursos Entre Origens)](http://www.w3.org/TR/cors/) para carregar conteúdo proveniente de uma URL que você especifica em uma política. Você pode especificar URLs diferentes para diferentes páginas. O código mescla os elementos de interface do usuário do Azure AD B2C com o conteúdo carregado da URL e exibe a página para o consumidor. Tudo que você precisa fazer é criar um conteúdo HTML5 bem-formado com um elemento `<div id="api"></div>` localizado em algum lugar no `<body>`. Esse elemento marca onde o conteúdo do Azure AD B2C é inserido. Esse conteúdo deve ser hospedado em um ponto de extremidade HTTPS (com CORS permitido). Você também pode formatar totalmente o estilo dos elementos da interface do usuário do Azure AD B2C.
 
-## Experimentando o recurso de personalização da interface do usuário
+## Experimente o recurso de personalização da interface do usuário
 
-Se você quiser testar o recurso de personalização da experiência do usuário usando nosso conteúdo HTML e CSS de exemplo hospedado no Armazenamento de Blob do Azure, nós fornecemos [uma ferramenta auxiliar simples](active-directory-b2c-reference-ui-customization-helper-tool.md) para carregar e configurar seu conteúdo estático.
+Se você quiser testar o recurso de personalização da interface do usuário usando nosso conteúdo HTML e CSS de exemplo hospedado no Armazenamento de Blobs do Azure, nós fornecemos [uma ferramenta auxiliar simples](active-directory-b2c-reference-ui-customization-helper-tool.md) para carregar e configurar seu conteúdo estático.
 
-## Os Elementos principais da interface do usuário em cada Tipo de Página.
+## Os elementos principais da interface do usuário em cada tipo de página
 
-Nas seções abaixo, você encontrará exemplos dos fragmentos de HTML5 (para cada tipo de página) que o AD B2C do Azure mescla no elemento <div id="api"></div> localizado em seu conteúdo. Você pode usar suas próprias folhas de estilo para personalizar esses elementos de interface do usuário. Essas folhas de estilo precisarão substituir as folhas de estilo padrão que adicionarmos a essas páginas nos fragmentos de <head>.
+Nas seções abaixo, você encontrará exemplos dos fragmentos de HTML5 (para cada tipo de página) que o Azure AD B2C mescla ao elemento <div id="api"></div> localizado no seu conteúdo. Você pode usar suas próprias folhas de estilo para personalizar esses elementos de interface do usuário. Essas folhas de estilo precisarão substituir as folhas de estilo padrão que adicionarmos a essas páginas nos fragmentos de <head>.
 
 > [AZURE.IMPORTANT]
-	Durante a visualização, espere que os elementos exatos da interface do usuário sofram modificações conforme aprendemos e nos adaptamos com base em seus comentários. Sempre Inspecione o código-fonte das páginas padrão para as atualizações mais recentes. Na verdade, a primeira alteração a ser considerada é a remoção de nossas folhas de estilo padrão; isso significa que você sempre terá de fornecer suas próprias folhas de estilo para esses elementos de interface do usuário em seu conteúdo.
+	Durante a visualização, espere que os elementos exatos da interface do usuário sofram modificações conforme aprendemos e nos adaptamos com base em seus comentários. Sempre Inspecione o código-fonte das páginas padrão para as atualizações mais recentes. Na verdade, a primeira alteração que está sendo considerada é a remoção das nossas folhas de estilos padrão; isso significa que você sempre terá de fornecer suas próprias folhas de estilos para esses elementos de interface do usuário no seu conteúdo.
 
-## Página de Seleção do Provedor de Identidade
+### Página de seleção do provedor de identidade
 
 Esta página contém uma lista de provedores de identidade que o usuário pode escolher durante a inscrição ou entrada. Esses são os provedores de identidade social, como Facebook e Google+, ou então contas locais (baseadas em endereço de email ou nome de usuário).
 
@@ -59,7 +59,7 @@ Esta página contém uma lista de provedores de identidade que o usuário pode e
 	<div class="intro">
          <p>Sign up</p>
 	</div>
-	
+
 	<div>
 		<ul>
 			<li>
@@ -77,27 +77,27 @@ Esta página contém uma lista de provedores de identidade que o usuário pode e
 
 ```
 
-## Página de Inscrição de Conta Local
+### Página de Inscrição de Conta local
 
-Esta página contém um formulário de inscrição que o usuário deve preencher ao entrar, usando uma conta local baseada em nome de usuário ou endereço de email. O formulário pode conter diferentes controles de entrada como caixa de entrada de texto, caixa de entrada de senha, botão de opção, lista suspensa de seleção única e caixas de multisseleção.
+Esta página contém um formulário de inscrição que o usuário deve preencher ao inscrever-se usando uma conta local baseada em endereço de email ou nome de usuário. O formulário pode conter diferentes controles de entrada como caixa de entrada de texto, caixa de entrada de senha, botão de opção, caixas de lista suspensa de seleção única e caixas de seleção múltipla.
 
 ```HTML
 
-<div id="api" data-name="SelfAsserted"> 
-	<div class="intro"> 
+<div id="api" data-name="SelfAsserted">
+	<div class="intro">
 		<p>Create your account by providing the following details</p>
 	</div>
-	
-	<div id="attributeVerification"> 
+
+	<div id="attributeVerification">
 		<div class="errorText" id="passwordEntryMismatch" style="display: none;">The password entry fields do not match. Please enter the same password in both fields and try again.</div>
 		<div class="errorText" id="requiredFieldMissing" style="display: none;">A required field is missing. Please fill out all required fields and try again.</div>
 		<div class="errorText" id="fieldIncorrect" style="display: none;">One or more fields are filled out incorrectly. Please check your entries and try again.</div>
 		<div class="errorText" id="claimVerificationServerError" style="display: none;"></div>
-		<div class="attr" id="attributeList"> 
+		<div class="attr" id="attributeList">
 			<ul>
-				<li> 
+				<li>
 					<div class="attrEntry validate">
-						<div> 
+						<div>
 							<div class="verificationInfoText" id="email_intro" style="display: inline;">Verification is necessary. Please click Send button.</div>
 							<div class="verificationInfoText" id="email_info" style="display:none">Verification code has been sent to your inbox. Please copy it to the input box below.</div>
 							<div class="verificationSuccessText" id="email_success" style="display:none">E-mail address verified. You can now continue.</div>
@@ -111,40 +111,40 @@ Esta página contém um formulário de inscrição que o usuário deve preencher
 						<label>Email</label>
 						<input id="email" class="textInput" type="text" placeholder="Email" required="" autofocus=""><a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('Email address that can be used to contact you.');" class="tiny">What is this?</a>
 
-					<div class="buttons verify" claim_id="email"> 
+					<div class="buttons verify" claim_id="email">
 						<div id="email_ver_wait" class="working" style="display: none;"></div>
-							<label id="email_ver_input_label" for="email_ver_input" style="display: none;">Verification code</label> 
+							<label id="email_ver_input_label" for="email_ver_input" style="display: none;">Verification code</label>
 							<input id="email_ver_input" type="text" placeholder="Verification code" style="display:none">
 							<button id="email_ver_but_send" class="sendButton" type="button" style="display: inline;">Send verification code</button>
 							<button id="email_ver_but_verify" class="verifyButton" type="button" style="display:none">Verify code</button>
 							<button id="email_ver_but_resend" class="sendButton" type="button" style="display:none">Send new code</button>
 							<button id="email_ver_but_edit" class="editButton" type="button" style="display:none">Change e-mail</button>
-							<button id="email_ver_but_default" class="defaultButton" type="button" style="display:none">Default</button> 
+							<button id="email_ver_but_default" class="defaultButton" type="button" style="display:none">Default</button>
 						</div>
 					</div>
 				</li>
-				<li> 
+				<li>
 					<div class="attrEntry">
 						<div class="helpText">8-16 characters, containing 3 out of 4 of the following: Lowercase characters, uppercase characters, digits (0-9), and one or more of the following symbols: @ # $ % ^ &amp; * - _ + = [ ] { } | \ : ' , ? / ` ~ " ( ) ; .This information is required</div>
 						<label>Enter password</label>
 						<input id="password" class="textInput" type="password" placeholder="Enter password" pattern="^((?=.*[a-z])(?=.*[A-Z])(?=.*\d)|(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])|(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9])|(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]))([A-Za-z\d@#$%^&amp;*-_+=[]{}|\\:',?/`~";();!]|\.(?!@)){8,16}$" title="8-16 characters, containing 3 out of 4 of the following: Lowercase characters, uppercase characters, digits (0-9), and one or more of the following symbols: @ # $ % ^ &amp; * - _ + = [ ] { } | \ : ' , ? / ` ~ "; ( ) ; ." required=""><a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('Enter password');" class="tiny">What is this?</a>
 					</div>
 				</li>
-				<li> 
+				<li>
 					<div class="attrEntry">
 						<div class="helpText"> This information is required</div>
 						<label>Reenter password</label>
 						<input id="reenterPassword" class="textInput" type="password" placeholder="Reenter password" pattern="^((?=.*[a-z])(?=.*[A-Z])(?=.*\d)|(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])|(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9])|(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]))([A-Za-z\d@#$%^&amp;*-_+=[]{}|\\:',?/`~";();!]|\.(?!@)){8,16}$" title=" " required=""><a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('Reenter password');" class="tiny">What is this?</a>
 					</div>
 				</li>
-				<li> 
+				<li>
 					<div class="attrEntry">
 						<div class="helpText">This information is required</div>
 						<label>Name</label>
 						<input id="displayName" class="textInput" type="text" placeholder="Name" required=""><a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('Your display name.');" class="tiny">What is this?</a>
 					</div>
 				</li>
-				<li> 
+				<li>
 					<div class="attrEntry">
 						<div class="helpText"></div>
 						<label>Gender</label>
@@ -155,14 +155,14 @@ Esta página contém um formulário de inscrição que o usuário deve preencher
 						<a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('');" class="tiny">What is this?</a>
 					</div>
 				</li>
-				<li> 
+				<li>
 					<div class="attrEntry">
 						<div class="helpText"></div>
 						<label>Loyalty number</label>
 						<input id="extension_MemNum" class="textInput" type="text" placeholder="Loyalty number"><a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('Membership number');" class="tiny">What is this?</a>
 					</div>
 				</li>
-				<li> 
+				<li>
 					<div class="attrEntry">
 						<div class="helpText"></div>
 						<label>State</label>
@@ -175,18 +175,18 @@ Esta página contém um formulário de inscrição que o usuário deve preencher
 						<a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('Your residential state or province.');" class="tiny">What is this?</a>
 					</div>
 				</li>
-				<li> 
+				<li>
 					<div class="attrEntry">
 						<div class="helpText">This information is required</div>
 						<label>Zip code</label>
 						<input id="postalCode" class="textInput" type="text" placeholder="Zip code" required=""><a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('The postal code of your address.');" class="tiny">What is this?</a>
 					</div>
 				</li>
-			</ul> 
+			</ul>
 		</div>
 		<div class="buttons"> <button id="continue" disabled="">Create</button> <button id="cancel">Cancel</button></div>
 	</div>
-	<div class="verifying-modal"> 
+	<div class="verifying-modal">
 		<div class="preloader"> <img src="https://login.microsoftonline.com/static/img/win8loader.gif" alt="Please wait"></div>
 		<div id="verifying_blurb"></div>
 	</div>
@@ -194,13 +194,13 @@ Esta página contém um formulário de inscrição que o usuário deve preencher
 
 ```
 
-## Página de Inscrição de Conta Social
+### Página de inscrição de conta social
 
 Esta página contém um formulário de inscrição que o consumidor precisa preencher ao se inscrever usando uma conta existente de um provedor de identidade social, como o Facebook ou Google+. Esta página é semelhante à página de inscrição de conta local (mostrada na seção anterior) com exceção dos campos de entrada de senha.
 
-## Página Multi-Factor Authentication
+### Página da Multi-Factor Authentication
 
-Esta página permite que os usuários verifiquem seus números de telefone (usando texto ou voz) durante a inscrição ou entrada.
+Nesta página, os usuários pode verificar seus números de telefone (usando mensagem de texto ou por voz) durante a inscrição ou entrada.
 
 ```HTML
 
@@ -244,8 +244,7 @@ Esta página permite que os usuários verifiquem seus números de telefone (usan
 
 ```
 
-## Página de Erro
-
+### Página de erro
 
 ```HTML
 
@@ -262,12 +261,12 @@ Esta página permite que os usuários verifiquem seus números de telefone (usan
 
 ```
 
-## Coisas para lembrar ao criar seu próprio Conteúdo
+## O que lembrar ao criar seu próprio conteúdo
 
-Se você estiver planejando usar o recurso de personalização de interface do usuário da página, examine as seguintes práticas recomendadas:
+Se você estiver planejando usar o recurso de personalização de interface do usuário da página, examine as práticas recomendadas a seguir:
 
-- Não copie substituindo o modelo de padrão do AD B2C do Azure nem tente modificá-lo. É melhor criar o conteúdo HTML5 do zero e usar o modelo padrão como referência.
-- Por motivos de segurança, não permitimos incluir nenhum JavaScript em seu conteúdo. A maior parte do que você precisa deve estar disponível imediatamente. Caso contrário, use a [Voz do Usuário](http://feedback.azure.com/forums/169401-azure-active-directory) para solicitar novas funcionalidades.
+- Não copie substituindo o modelo de padrão do Azure AD B2C nem tente modificá-lo. É melhor criar o conteúdo HTML5 do zero e usar o modelo padrão como referência.
+- Por motivos de segurança, não permitimos incluir nenhum JavaScript em seu conteúdo. A maior parte do que você precisa já deve estar disponível imediatamente. Caso contrário, use a [Voz do Usuário](http://feedback.azure.com/forums/169401-azure-active-directory) para solicitar novas funcionalidades.
 - Versões do navegador para as quais há suporte:
 	- Internet Explorer 11
 	- Internet Explorer 10
@@ -278,4 +277,4 @@ Se você estiver planejando usar o recurso de personalização de interface do u
 	- Mozilla Firefox 38.0
 	- Mozilla Firefox 37.0
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

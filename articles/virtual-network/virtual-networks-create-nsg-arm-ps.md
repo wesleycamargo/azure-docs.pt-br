@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Como criar NSGs no modo ARM usando o PowerShell| Microsoft Azure"
-   description="Aprenda a criar e implantar NSGs no ARM usando o PowerShell"
+   pageTitle="Como criar NSGs no Azure Resource Manager usando o PowerShell | Microsoft Azure"
+   description="Aprenda a criar e implantar NSGs no Azure Resource Manager usando o PowerShell"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="02/23/2016"
    ms.author="telmos" />
 
-# Como criar NSGs no PowerShell
+# Como criar NSGs no Gerenciador de Recursos usando o PowerShell
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
@@ -34,7 +34,7 @@ Para criar um NSG chamado *NSG-FrontEnd* com base no cenário acima, siga as eta
 
 [AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
-1. Se você nunca tiver usado o Azure PowerShell, consulte [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md) e siga as instruções até o final para entrar no Azure e selecionar sua assinatura.
+1. Se você nunca tiver usado o Azure PowerShell, consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) e siga as instruções até o final para entrar no Azure e selecionar sua assinatura.
 
 3. Crie uma regra de segurança permitindo acesso da Internet à porta 3389.
 
@@ -123,7 +123,7 @@ Para criar um NSG chamado *NSG-FrontEnd* com base no cenário acima, siga as eta
 		                        "ProvisioningState": "Succeeded"
 		                      }
 
->[AZURE.WARNING]A saída do comando acima mostra o conteúdo do objeto de configuração da rede virtual, que existe apenas no computador no qual você está executando o PowerShell. Você precisa executar o **Set-AzureRmVirtualNetwork** cmdlet para salvar essas configurações no Azure.
+>[AZURE.WARNING] A saída do comando acima mostra o conteúdo do objeto de configuração da rede virtual, que existe apenas no computador no qual você está executando o PowerShell. Você precisa executar o cmdlet `Set-AzureRmVirtualNetwork` para salvar essas configurações no Azure.
 
 7. Salve as novas configurações da VNet no Azure.
 
@@ -182,4 +182,4 @@ Para criar um NSG chamado *NSG-BackEnd* com base no cenário acima, siga as etap
 
 		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

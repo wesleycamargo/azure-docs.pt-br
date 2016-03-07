@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="01/09/2016" 
+	ms.date="02/21/2016" 
 	ms.author="robmcm"/>
 
 # Usando o Armazenamento do Azure com uma solução Hudson Continuous Integration
@@ -28,7 +28,7 @@ Neste tutorial, você usará o plug-in do Armazenamento do Azure para o Hudson C
 
 O Hudson possibilita a integração contínua de um projeto de software permitindo que os desenvolvedores integrem de forma fácil as alterações de código e fazendo com que as compilações sejam produzidas automaticamente e com frequência, aumentando, assim, a produtividade dos desenvolvedores. As compilações têm uma versão e os artefatos de compilação podem ser carregados em vários repositórios. Este artigo mostra como usar o armazenamento de Blob do Azure como o repositório dos artefatos de compilação. Ele também mostra como baixar as dependências do armazenamento de Blob do Azure.
 
-Mais informações sobre o Hudson podem ser encontradas em [Conheça o Hudson (a página pode estar em inglês)][].
+Mais informações sobre o Hudson podem ser encontradas em [Conheça o Hudson (a página pode estar em inglês)](http://wiki.eclipse.org/Hudson-ci/Meet_Hudson).
 
 ## Benefícios do uso do serviço Blob ##
 
@@ -62,7 +62,7 @@ Será necessário o seguinte para usar o serviço Blob com a solução Hudson CI
 
 - Uma conta do Azure. Você pode se inscrever para uma conta do Azure em <http://www.azure.com>.
 
-- Uma conta de armazenamento do Azure. Se você não tiver uma conta de armazenamento, crie uma usando as etapas em [Como criar uma conta de armazenamento (a página pode estar em inglês)][].
+- Uma conta de armazenamento do Azure. Se você não tiver uma conta de armazenamento, crie uma usando as etapas em [Criar uma Conta de Armazenamento](storage-create-storage-account.md#create-a-storage-account).
 
 - Estar familiarizado com a solução Hudson CI é recomendável, mas não é obrigatório, já que o conteúdo a seguir usará um exemplo básico para mostrar a você as etapas necessárias ao usar o serviço Blob como um repositório para os artefatos de compilação do Hudson CI.
 
@@ -121,7 +121,7 @@ Para fins de instrução, primeiro será necessário criar um trabalho que crie 
 
     Abaixo da seção **Command** em que você inseriu um script para **Execute Windows batch command**, existe um link para as variáveis de ambiente reconhecidas pelo Hudson. Clique nesse link para obter os nomes de variáveis de ambiente e as descrições. Observe que as variáveis de ambiente que contêm caracteres especiais, como a variável de ambiente **BUILD\_URL**, não são permitidas como um nome de contêiner ou um caminho virtual comum.
 
-8. Clique em **Tornar o novo contêiner público por padrão** para este exemplo. Se desejar usar um contêiner particular, você precisará criar uma assinatura de acesso compartilhado para permitir o acesso. Isso está além do escopo deste artigo. Você pode saber mais sobre assinaturas de acesso compartilhado em [Criando uma assinatura de acesso compartilhado (a página pode estar em inglês)](http://go.microsoft.com/fwlink/?LinkId=279889).
+8. Clique em **Tornar o novo contêiner público por padrão** para este exemplo. Se desejar usar um contêiner particular, você precisará criar uma assinatura de acesso compartilhado para permitir o acesso. Isso está além do escopo deste artigo. Você pode aprender mais sobre as Assinatura de Acesso Compartilhado em [Assinaturas de Acesso Compartilhado: entendendo o Modelo SAS](storage-dotnet-shared-access-signature-part-1.md).
 9. [Opcional] Clique em **Limpar contêiner antes de carregar** se quiser que o contêiner seja limpo de conteúdo antes que os artefatos de compilação sejam carregados (deixe a opção desmarcada se não quiser limpar o conteúdo do contêiner).
 10. Em **Lista de artefatos a serem carregados**, insira **text/*.txt**.
 11. Em **Common virtual path for uploaded artifacts**, digite **${BUILD\_ID}/${BUILD\_NUMBER}**.
@@ -161,7 +161,7 @@ Segue abaixo uma visão geral dos componentes do serviço Blob.
 
 - **Conta de armazenamento**: todo o acesso ao Armazenamento do Azure é feito por meio de uma conta de armazenamento. Este é o nível mais alto do namespace para o acesso de blobs. Uma conta pode conter um número ilimitado de contêineres, desde que seu tamanho total seja inferior a 100 TB.
 - **Contêiner**: o contêiner fornece um agrupamento de conjunto de blobs. Todos os blobs devem ter um contêiner. Uma conta pode conter um número ilimitado de contêineres. Um contêiner pode armazenar um número ilimitado de blobs.
-- **Blob**: um arquivo de qualquer tipo e tamanho. Existem dois tipos de blobs que podem ser armazenados no Armazenamento do Azure: blobs de blocos e de páginas. A maioria dos arquivos são blobs de bloco. Um único blob de blocos pode ter até 200 GB de tamanho. Este tutorial usa blobs de bloco. Os blobs de página, um outro tipo de blob, podem ter até 1 TB de tamanho e são mais eficientes quando os intervalos de bytes em um arquivo são modificados com frequência. Para obter mais informações sobre blobs, consulte [Noções gerais sobre blobs de blocos e blobs de páginas (a página pode estar em inglês)](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+- **Blob**: um arquivo de qualquer tipo e tamanho. Existem dois tipos de blobs que podem ser armazenados no Armazenamento do Azure: blobs de blocos e de páginas. A maioria dos arquivos são blobs de bloco. Um único blob de blocos pode ter até 200 GB de tamanho. Este tutorial usa blobs de bloco. Os blobs de página, um outro tipo de blob, podem ter até 1 TB de tamanho e são mais eficientes quando os intervalos de bytes em um arquivo são modificados com frequência. Para obter mais informações sobre os blobs, consulte [Compreendendo os Blobs de Bloco, Blobs de Anexo e Blobs de Página](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 - **Formato de URL**: os blobs são endereçáveis usando o seguinte formato de URL:
 
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
@@ -174,7 +174,12 @@ Segue abaixo uma visão geral dos componentes do serviço Blob.
 
 ## Próximas etapas
 
-  [Como criar uma conta de armazenamento (a página pode estar em inglês)]: http://go.microsoft.com/fwlink/?LinkId=279823
-  [Conheça o Hudson (a página pode estar em inglês)]: http://wiki.eclipse.org/Hudson-ci/Meet_Hudson
+- [Conheça o Hudson](http://wiki.eclipse.org/Hudson-ci/Meet_Hudson)
+- [SDK de Armazenamento do Azure para Java](https://github.com/azure/azure-storage-java)
+- [Referência de SDK do Cliente de Armazenamento do Azure](http://dl.windowsazure.com/storage/javadoc/)
+- [API REST de serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+- [Blog da equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 
-<!---HONumber=AcomDC_0128_2016-->
+Para obter mais informações, consulte também o [Centro de desenvolvedores do Java](https://azure.microsoft.com/develop/java/).
+
+<!---HONumber=AcomDC_0224_2016-->

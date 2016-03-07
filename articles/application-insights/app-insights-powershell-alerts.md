@@ -12,12 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/22/2016" 
+	ms.date="02/19/2016" 
 	ms.author="awills"/>
  
 # Usar o PowerShell para configurar alertas no Application Insights
 
 Você pode automatizar a configuração de [alertas](app-insights-alerts.md) no [Visual Studio Application Insights](app-insights-overview.md).
+
+Além disso, você pode [definir webhooks para automatizar sua resposta a um alerta](../azure-portal/insights-webhooks-alerts.md).
 
 ## Configuração única
 
@@ -31,7 +33,7 @@ Instale o módulo do Azure Powershell no computador em que você deseja executar
 
 ## Conecte-se ao Azure
 
-Inicie o Azure PowerShell e [conecte-se à sua assinatura](powershell-install-configure.md):
+Inicie o Azure PowerShell e [conecte-se à sua assinatura](../powershell-install-configure.md):
 
 ```PowerShell
 
@@ -131,6 +133,9 @@ performanceCounter | [Desempenho](app-insights-configuration-with-applicationins
 remoteDependencyFailed| [Dependência](app-insights-configuration-with-applicationinsights-config.md#nuget-package-1)
 request,<br/>requestFailed|[Solicitação do servidor](app-insights-configuration-with-applicationinsights-config.md#nuget-package-2)
 
+## Webhooks
+
+Você pode [automatizar sua resposta a um alerta](../azure-portal/insights-webhooks-alerts.md). O Azure ligará para um endereço web de sua escolha quando um alerta for gerado.
 
 ## Consulte também
 
@@ -138,8 +143,9 @@ request,<br/>requestFailed|[Solicitação do servidor](app-insights-configuratio
 * [Script para configurar o Application Insights](app-insights-powershell-script-create-resource.md)
 * [Criar recursos de teste da Web e do Application Insights por meio de modelos](app-insights-powershell.md)
 * [Automatizar o acoplamento do Diagnóstico do Microsoft Azure ao Application Insights](app-insights-powershell-azure-diagnostics.md)
+* [Automatizar sua resposta a um alerta](../azure-portal/insights-webhooks-alerts.md)
 
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

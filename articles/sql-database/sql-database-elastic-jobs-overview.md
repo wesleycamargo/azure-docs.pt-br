@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="02/23/2016" 
 	ms.author="ddove;sidneyh" />
 
 # Visão geral de trabalhos de bancos de dados elásticos
@@ -23,7 +23,7 @@ O recurso **trabalhos do Banco de Dados Elástico** (visualização) o habilita 
 * todos os bancos de dados em um [pool do Banco de Dados Elástico](sql-database-elastic-pool.md)
 * um conjunto de fragmentos (criado usando a [biblioteca de cliente do Banco de Dados Elástico](sql-database-elastic-database-client-library.md)). 
  
-Para obter instruções sobre a instalação, vá para [Instalando os componentes do trabalho de banco de dados elástico](sql-database-elastic-jobs-service-installation.md).
+Para obter instruções sobre a instalação, vá para [Instalando os componentes do trabalho de banco de dados elástico](sql-database-elastic-jobs-service-installation.md). Consulte também a [Introdução aos Trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-getting-started.md).
 
 Os **trabalhos de Banco de Dados Elástico** atualmente são um serviço de nuvem do Azure hospedado pelo cliente, que permite a execução de tarefas administrativas ad hoc e agendadas, as quais são chamadas de **trabalhos**. Com os trabalhos, você pode gerenciar de maneira fácil e confiável grandes grupos de Bancos de Dados do Azure SQL executando scripts Transact-SQL para executar operações administrativas.
 
@@ -91,7 +91,7 @@ Os seguintes componentes trabalham juntos para criar um Serviço de Nuvem do Azu
 * **Serviço de Nuvem do Azure**: os trabalhos de banco de dados elástico (visualização) são fornecidos como um Serviço de Nuvem do Azure hospedado pelo cliente para a execução das tarefas solicitadas. No portal, o serviço é implantado e hospedado em sua assinatura do Microsoft Azure. O serviço implantado por padrão é executado com o mínimo de duas funções de trabalho a fim de manter a alta disponibilidade. O tamanho padrão de cada função de trabalho (ElasticDatabaseJobWorker) é executado em uma instância de A0. Para obter os preços, confira [preços dos serviços de Nuvem](https://azure.microsoft.com/pricing/details/cloud-services/). 
 * **Banco de dados SQL do Azure**: O serviço usa um Banco de Dados SQL do Azure conhecido como o **banco de dados de controle** para armazenar todos os metadados de trabalho. A camada de serviço padrão é S0. Para obter os preços, confira [Preços de Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 * **Barramento de Serviço do Azure**: um Barramento de Serviço do Azure serve para coordenação do trabalho no Serviço de Nuvem do Azure. Consulte [Preços de Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/).
-* **Armazenamento do Azure**: uma conta do Armazenamento do Azure é usada para armazenar o log de saída de diagnóstico no caso em que um problema exige mais depuração (confira [Habilitando o diagnóstico nos Serviços de Nuvem do Azure e em máquinas virtuais](../service-fabric/cloud-services-dotnet-diagnostics.md)). Para obter os preços, confira [Preços de Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
+* **Armazenamento do Azure**: uma conta de Armazenamento do Azure é usada para armazenar o log de saída de diagnóstico no caso em que um problema exige mais depuração (consulte [Habilitando o diagnóstico nos Serviços de Nuvem do Azure e em máquinas virtuais](../cloud-services/cloud-services-dotnet-diagnostics.md)). Para obter os preços, confira [Preços de Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
 
 ## Como os trabalhos de banco de dados elástico funcionam
 1.	Um banco de dados de controle, que armazena todos os dados de estado e metadados, é atribuído a um banco de dados SQL do Azure.
@@ -116,7 +116,7 @@ Há vários tipos de tarefas de trabalho que realizarão a execução de trabalh
 4.	Depois de concluir todas as tarefas de trabalho, o controlador atualiza os trabalhos para um estado concluído. A qualquer momento durante a execução do trabalho, a API do PowerShell pode ser usada para exibir o estado atual dessa execução. Todos os tempos retornados pelas APIs do PowerShell são representados em formato UTC. Se desejado, uma solicitação de cancelamento pode ser iniciada para interromper um trabalho. 
 
 ## Próximas etapas
-[Instalar os componentes](sql-database-elastic-jobs-service-installation.md) e, em seguida, [criar e adicionar um log a cada banco de dados no grupo de bancos de dados](sql-database-security.md). Para entender mais a criação de trabalho e o gerenciamento, consulte [criar e gerenciar trabalhos do banco de dados elástico](sql-database-elastic-jobs-create-and-manage.md).
+[Instalar os componentes](sql-database-elastic-jobs-service-installation.md) e, em seguida, [criar e adicionar um log a cada banco de dados no grupo de bancos de dados](sql-database-security.md). Para entender mais a criação de trabalho e o gerenciamento, consulte [criar e gerenciar trabalhos do banco de dados elástico](sql-database-elastic-jobs-create-and-manage.md). Consulte também a [Introdução aos Trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-getting-started.md).
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -124,4 +124,4 @@ Há vários tipos de tarefas de trabalho que realizarão a execução de trabalh
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Como conectar o Banco de Dados SQL do Azure à Pesquisa do Azure usando indexadores | Microsoft Azure | Serviço de pesquisa de nuvem hospedado" 
+	pageTitle="Conectando o Banco de Dados SQL do Azure à Pesquisa do Azure usando indexadores | Microsoft Azure | Indexadores" 
 	description="Saiba como extrair dados do Banco de Dados SQL do Azure para um índice de Pesquisa do Azure usando indexadores." 
 	services="search" 
 	documentationCenter="" 
@@ -275,4 +275,4 @@ R: Sim. No entanto, somente um indexador pode ser executado por vez em um nó. S
 
 R: Sim. O indexador é executado em um dos nós em seu serviço de pesquisa, e os recursos do nó são compartilhados entre a indexação e o atendimento ao tráfego de consultas e outras solicitações da API. Se você executar cargas de trabalho com indexação e consultas intensas e receber uma taxa alta de erros 503 ou tempos de resposta maiores, considere o aumento de seu serviço de pesquisa.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

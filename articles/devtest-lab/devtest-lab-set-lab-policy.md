@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/18/2016"
 	ms.author="tarcher"/>
 
 # Definir políticas de laboratório
+
+> [AZURE.NOTE] Clique no link a seguir para exibir o vídeo que acompanha este artigo: [como definir criar artefatos personalizados](/documentation/videos/how-to-set-vm-policies-in-a-devtest-lab)
 
 ## Visão geral
 
@@ -100,4 +102,4 @@ A política de desligamento automático ajuda a minimizar o desperdício de labo
 
 1. Toque em **Salvar**.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

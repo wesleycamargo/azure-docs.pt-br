@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/30/2015"
+   ms.date="02/12/2016"
    ms.author="mfussell"/>
 
 # Cenários de aplicativos do Service Fabric
@@ -22,9 +22,9 @@ O Service Fabric do Azure oferece uma plataforma confiável e flexível que perm
 
 A plataforma Malha do Serviço no Azure é ideal para as seguintes categorias de aplicativos e serviços:
 
-- **Serviços altamente disponíveis**: os serviços da Malha do Serviço fornece failover extremamente rápido. O Service Fabric permite criar várias réplicas de serviço secundárias. Se um nó, processo ou serviço individual falhar devido a uma falha de hardware, ou outra falha, uma das réplicas secundárias é imediatamente promovida a uma réplica primária com perda insignificante de serviço aos clientes.
+- **Serviços altamente disponíveis**: serviços do Service Fabric fornecem failover rápido criando várias réplicas de serviço secundárias. Se um nó, processo ou serviço individual falhar devido a uma falha de hardware, ou outra falha, uma das réplicas secundárias é promovida a uma réplica primária com perda mínima de serviço.
 
-- **Serviços escalonáveis**: serviços individuais podem ser particionados, permitindo que seu estado seja escalado horizontalmente no cluster. Além disso, os serviços individuais podem ser criados e removidos dinamicamente. Os serviços podem ser escalados horizontalmente de modo rápido e fácil de algumas instâncias em alguns nós para milhares de instâncias em muitos nós e, em seguida, imediatamente reduzidos verticalmente novamente, dependendo das suas necessidades de recurso. Você pode usar o Service Fabric para compilar esse serviço e gerenciar os respectivos ciclos de vida completos.
+- **Serviços escalonáveis**: serviços individuais podem ser particionados, permitindo que seu estado seja escalado horizontalmente no cluster. Além disso, os serviços individuais podem ser criados e removidos dinamicamente. Os serviços podem ser escalados horizontalmente de modo rápido e fácil de algumas instâncias em alguns nós para milhares de instâncias em muitos nós e, em seguida, reduzidos verticalmente novamente, dependendo das suas necessidades de recurso. Você pode usar o Service Fabric para compilar esse serviço e gerenciar os respectivos ciclos de vida completos.
 
 - **Computação em dados não estáticos**: o Service Fabric permite compilar aplicativos com monitoração de estado que fazem uso intenso de dados, entrada/saída e computação. O Service Fabric permite a colocação de processamento (computação) e dados em aplicativos. Normalmente, quando seu aplicativo exige acesso a dados, há latência de rede que é associada a um cache de dados externo ou a uma camada de armazenamento. Com os serviços do Service Fabric com monitoração de estado, essa latência é eliminada, o que habilita leituras e gravações com mais desempenho. Por exemplo, digamos que você tenha um aplicativo que executa uma seleção de recomendação em tempo real para clientes com um requisito de tempo de ida e volta de menos de 100 milissegundos. As características de latência e desempenho dos serviços do Service Fabric (onde a computação da seleção de recomendação é colocada com os dados e regras) fornece uma experiência responsiva ao usuário em comparação com o modelo de implementação padrão de ter que buscar os dados necessários no armazenamento remoto.
 
@@ -39,7 +39,7 @@ A criação de aplicativos com funções de trabalho com o serviço de nuvem do 
 
 Ao criar aplicativos que consistem em microsserviços, você normalmente tem uma combinação de aplicativos Web sem estado (ASP.NET, node.js, etc.) chamando serviços de camada intermediária de negócios com e sem monitoração de estado, tudo implantado no mesmo cluster do Service Fabric usando os comandos de implantação do Service Fabric. Cada um desses serviços não depende de escala, confiabilidade e uso de recursos, melhorando consideravelmente a agilidade no gerenciamento de ciclo de vida e desenvolvimento.
 
-Os microsserviços com monitoração de estado simplificam o design dos aplicativos porque eliminam a necessidade de filas e caches adicionais que têm sido tradicionalmente necessários para abordar os requisitos de disponibilidade e de latência de um aplicativo totalmente sem monitoração de estado. Uma vez que os serviços com monitoração de estado são, de forma natural, de alta disponibilidade e baixa latência, isso significa que há menos partes móveis para gerenciar no seu aplicativo como um todo. Os diagramas a seguir ilustram as diferenças entre criar um aplicativo sem monitoração de estado e um com monitoração de estado. Ao aproveitar os modelos de programação dos [serviços confiáveis](service-fabric-reliable-services-introduction.md) e [atores confiáveis](service-fabric-reliable-actors-introduction.md), os serviços com monitoração de estado reduzem a complexidade do aplicativo, ao mesmo tempo que alcançam uma alta taxa de transferência e baixa latência.
+Os microsserviços com monitoração de estado simplificam o design dos aplicativos porque eliminam a necessidade de filas e caches adicionais que têm sido tradicionalmente necessários para abordar os requisitos de disponibilidade e de latência de um aplicativo totalmente sem monitoração de estado. Uma vez que os serviços com monitoramento de estado são, de forma natural, altamente disponíveis e baixa latência, isso significa que há menos partes móveis para gerenciar no seu aplicativo como um todo. Os diagramas a seguir ilustram as diferenças entre criar um aplicativo sem monitoração de estado e um com monitoração de estado. Ao aproveitar os modelos de programação dos [serviços confiáveis](service-fabric-reliable-services-introduction.md) e [atores confiáveis](service-fabric-reliable-actors-introduction.md), os serviços com monitoração de estado reduzem a complexidade do aplicativo, ao mesmo tempo que alcançam uma alta taxa de transferência e baixa latência.
 
 ## Um aplicativo criado usando serviços sem monitoração de estado##
 ![Aplicativo usando serviço sem monitoração de estado][Image1]
@@ -68,4 +68,4 @@ Confira também os seguintes tópicos:
 [Image1]: media/service-fabric-application-scenarios/AppwithStatelessServices.jpg
 [Image2]: media/service-fabric-application-scenarios/AppwithStatefulServices.jpg
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0224_2016-->

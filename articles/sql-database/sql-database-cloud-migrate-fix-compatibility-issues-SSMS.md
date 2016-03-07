@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="12/17/2015"
+   ms.date="02/22/2016"
    ms.author="carlrab"/>
 
-# Corrigir problemas de compatibilidade do banco de dados do SQL Server antes da migração para o Banco de Dados SQL
+# Corrigir problemas de compatibilidade do banco de dados do SQL Server com SSMS antes da migração para o Banco de Dados SQL
 
 Se você determinar que o banco de dados do SQL Server de origem não é compatível, terá várias opções para corrigir os problemas de compatibilidade do banco de dados identificados.
 
@@ -33,4 +33,4 @@ Use o SQL Server Management Studio para corrigir problemas de compatibilidade us
 
 [Selecionar método de migração](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0224_2016-->

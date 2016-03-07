@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/15/2015" 
+	ms.date="02/19/2016" 
 	ms.author="awills"/>
  
 # Exportar telemetria do Application Insights
@@ -42,7 +42,7 @@ Na folha Visão geral do aplicativo no portal do Application Insights, abra Expo
 
 ![Role para baixo e clique em Exportação contínua](./media/app-insights-export-telemetry/01-export.png)
 
-Adicione uma exportação e escolha uma [conta de armazenamento do Azure](../storage-introduction.md) no qual você deseja colocar os dados:
+Adicione uma exportação e escolha uma [conta de armazenamento do Azure](../storage/storage-introduction.md) no qual você deseja colocar os dados:
 
 ![Clique em Adicionar, Destino de exportação, Conta de armazenamento e, em seguida, crie um novo repositório ou escolha um repositório existente](./media/app-insights-export-telemetry/02-add.png)
 
@@ -170,7 +170,6 @@ Em escalas maiores, considere usar o [HDInsight](https://azure.microsoft.com/ser
 
     Se a conta pertence à sua organização, você precisa ser membro do grupo de proprietários ou do grupo de colaboradores.
 
-    <!-- Your account has to be either a paid-for account, or in the free trial period. -->
 
 * *Eu posso exportar diretamente para meu próprio repositório local?*
 
@@ -210,4 +209,4 @@ Em escalas maiores, considere usar o [HDInsight](https://azure.microsoft.com/ser
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

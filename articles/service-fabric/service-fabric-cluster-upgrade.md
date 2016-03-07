@@ -16,19 +16,20 @@
    ms.date="02/16/2016"
    ms.author="chackdan"/>
 
+
 # Atualizar um cluster do Service Fabric
 
 Um cluster do Azure Service Fabric é um recurso cujo proprietário é você, mas que é parcialmente gerenciado pela Microsoft. Este artigo descreve o que é gerenciado automaticamente e o que você pode configurar por conta própria.
 
 ## Configuração do cluster gerenciada automaticamente
 
-A Microsoft mantém o código de malha e a configuração executada em um cluster. Executamos atualizações automáticas monitoradas no software de acordo com a necessidade. Essas atualizações podem ser feitas no código, na configuração ou em ambos. Para garantir que seu aplicativo não seja afetado por essas atualizações, ou que o impacto seja o menor possível, executamos as atualizações nas três fases indicadas a seguir.
+A Microsoft mantém o código de malha e a configuração executada em um cluster. Executamos atualizações automáticas monitoradas no software de acordo com a necessidade. Essas atualizações podem ser feitas no código, na configuração ou em ambos. Para garantir que seu aplicativo sofra o mínimo ou nenhum impacto por conta dessas atualizações, nos ás executamos nas três fases indicadas a seguir.
 
-### Fase 1: a atualização é executada usando todas as políticas de integridade do cluster
+### Fase 1: uma atualização é executada usando todas as políticas de integridade do cluster
 
 Durante esta fase, as atualizações realizam um domínio de atualização por vez, e os aplicativos em execução no cluster continuam em execução sem qualquer tempo de inatividade. As políticas de integridade do cluster (uma combinação de integridade do nó e da integridade de todos os aplicativos executados no cluster) são atendidas durante a atualização.
 
-Se as políticas de integridade do cluster não forem atendidas, a atualização será revertida e um email será enviado ao proprietário da assinatura. O email contém as seguintes informações:
+Se as políticas de integridade do cluster não forem atendidas, a atualização será revertida. Em seguida, um email é enviado para o proprietário da assinatura. O email contém as seguintes informações:
 
 - Uma notificação de que precisamos reverter uma atualização de cluster.
 - Sugestões de ações corretivas, se houver alguma.
@@ -38,11 +39,11 @@ Tentamos executar a mesma atualização algumas vezes mais, caso alguma atualiza
 
 Se as políticas de integridade do cluster forem atendidas, a atualização será considerada bem-sucedida e marcada como concluída. Isso poderá acontecer durante a atualização inicial ou durante qualquer nova execução das atualizações desta fase. Nenhum email de confirmação será enviado após uma execução bem-sucedida. Isso serve para evitar o envio de muitos emails. O recebimento de um email deve ser visto como uma exceção. Esperamos que a maioria das atualizações do cluster tenha êxito sem afetar a disponibilidade de seu aplicativo.
 
-### Fase 2: a atualização é executada usando apenas as políticas de integridade padrão
+### Fase 2: uma atualização é executada usando apenas as políticas de integridade padrão
 
-As políticas de integridade são definidas de forma que o número de aplicativos íntegros no início da atualização permaneça o mesmo durante o processo de atualização. Durante a Fase 2, assim como na Fase 1, as atualizações ocorrem em um domínio de atualização por vez, e os aplicativos em execução no cluster continuam em execução sem qualquer tempo de inatividade. As políticas de integridade do cluster (uma combinação de integridade do nó e da integridade de todos os aplicativos executados no cluster) são atendidas durante a atualização.
+As políticas de integridade desta fase são definidas de forma que o número de aplicativos íntegros no início da atualização permaneça o mesmo durante o processo de atualização. Assim como na Fase 1, na Fase 2 as atualizações ocorrem em um domínio de atualização por vez, e os aplicativos em execução no cluster continuam em execução sem qualquer tempo de inatividade. As políticas de integridade do cluster (uma combinação de integridade do nó e da integridade de todos os aplicativos executados no cluster) são atendidas durante a atualização.
 
-Se as políticas de integridade do cluster em vigor não forem atendidas, a atualização será revertida e um email será enviado ao proprietário da assinatura. O email contém as seguintes informações:
+Se as políticas de integridade do cluster em vigor não forem atendidas, a atualização será revertida. Em seguida, um email é enviado para o proprietário da assinatura. O email contém as seguintes informações:
 
 - Uma notificação de que precisamos reverter uma atualização de cluster.
 - Sugestões de ações corretivas, se houver alguma.
@@ -52,13 +53,13 @@ Tentamos executar a mesma atualização algumas vezes mais, caso alguma atualiza
 
 Se as políticas de integridade do cluster forem atendidas, a atualização será considerada bem-sucedida e marcada como concluída. Isso poderá acontecer durante a atualização inicial ou durante qualquer nova execução das atualizações desta fase. Nenhum email de confirmação será enviado após uma execução bem-sucedida.
 
-### Fase 3: a atualização é executada usando políticas de integridade agressivas
+### Fase 3: uma atualização é executada usando políticas de integridade agressivas
 
-Essas políticas de integridade são destinadas à conclusão da atualização, em vez da integridade dos aplicativos. Pouquíssimas atualizações de cluster chegarão a esta fase. Caso seu cluster chegue a esta fase, há uma boa chance de seu aplicativo deixar de ser íntegro e/ou de perder a disponibilidade.
+Essas políticas de integridade desta fase são destinadas à conclusão da atualização, em vez da integridade dos aplicativos. Pouquíssimas atualizações de cluster chegarão a esta fase. Caso seu cluster chegue a esta fase, há uma boa chance de seu aplicativo deixar de ser íntegro e/ou de perder a disponibilidade.
 
 Assim como nas duas outras fases, as atualizações da Fase 3 realizam um domínio de atualização por vez.
 
-Se as políticas de integridade do cluster em vigor não forem atendidas, a atualização será revertida. Tentamos executar a mesma atualização algumas vezes mais, caso alguma atualização falhe por motivos de infraestrutura. Depois disso, o cluster será marcado para que não receba mais suporte e/ou atualizações.
+Se as políticas de integridade do cluster não forem atendidas, a atualização será revertida. Tentamos executar a mesma atualização algumas vezes mais, caso alguma atualização falhe por motivos de infraestrutura. Depois disso, o cluster será marcado para que não receba mais suporte e/ou atualizações.
 
 Um email com essas informações será enviado ao proprietário da assinatura, juntamente com as ações corretivas. Não esperamos que qualquer cluster entre em um estado no qual a Fase 3 falhou.
 
@@ -70,11 +71,11 @@ Estas são as configurações que você pode alterar em um cluster ativo.
 
 ### Certificados
 
-Você pode atualizar facilmente os certificados primário ou secundário no portal (exibido abaixo) ou por meio da emissão de um comando PUT no recurso servicefabric.cluster.
+Você pode atualizar facilmente os certificados primário ou secundário no Portal do Azure (exibido abaixo) ou por meio da emissão de um comando PUT no recurso servicefabric.cluster.
 
 ![Captura de tela que mostra as impressões digitais do certificado no Portal do Azure.][CertificateUpgrade]
 
->[AZURE.NOTE] Antes de você identificar um certificado que deseja usar para os recursos de cluster, é necessário concluir as etapas a seguir; caso contrário, o novo certificado não será usado: 1. Carregar o novo certificado no Cofre da Chave: Consulte [Segurança do Service Fabric](service-fabric-cluster-security.md) para obter instruções. Comece com a etapa 2 neste documento. 2. Atualize todas as máquinas virtuais que compõem seu cluster, para que o certificado seja implantado nelas. Para fazer isso, consulte o [Blog da equipe do Cofre da Chave do Azure](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx).
+>[AZURE.NOTE] Antes de identificar um certificado que você deseja usar para os recursos de cluster, é necessário concluir as etapas a seguir; caso contrário, o novo certificado não será usado: 1. Carregar o novo certificado no Cofre de Chaves do Azure. Consulte [Segurança do Service Fabric](service-fabric-cluster-security.md) para obter instruções. Comece com a etapa 2 neste documento. 2. Atualize todas as VMs (máquinas virtuais) que compõem seu cluster, para que o certificado seja implantado nelas. Para fazer isso, consulte o [Blog da equipe do Cofre da Chave do Azure](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx).
 
 ### Portas do aplicativo
 
@@ -84,7 +85,7 @@ Para abrir uma nova porta em todas as VMs em um tipo de nó, faça o seguinte:
 
 1. Adicione uma nova investigação ao balanceador de carga apropriado.
 
-    Se você tiver implantado o cluster usando o portal, os balanceadores de carga receberão o nome "loadBalancer-0", "loadBalancer-1" e assim por diante, um para cada tipo de nó. Como os nomes de balanceador de carga são exclusivos apenas em um grupo de recursos, será melhor procurá-los em um grupo de recursos específico.
+    Se você tiver implantado o cluster usando o portal, os balanceadores de carga receberão o nome "loadBalancer-0", "loadBalancer-1" e assim por diante, um para cada tipo de nó. Como os nomes de balanceador de carga são exclusivos apenas em um grupo de recursos, será melhor pesquisá-los em um grupo de recursos específico.
 
     ![Captura de tela que mostra a adição de uma investigação a um balanceador de carga no portal.][AddingProbes]
 
@@ -92,7 +93,7 @@ Para abrir uma nova porta em todas as VMs em um tipo de nó, faça o seguinte:
 
     Adicione uma nova regra ao mesmo balanceador de carga usando a investigação criada na etapa anterior.
 
-    ![Captura de tela que mostra a adição de uma ova regra a um balanceador de carga no portal.][AddingLBRules]
+    ![Captura de tela que mostra a adição de uma nova regra a um balanceador de carga no portal.][AddingLBRules]
 
 
 ### Propriedades de posicionamento
@@ -107,11 +108,11 @@ Para cada um dos tipos de nó, é possível adicionar métricas de capacidade pe
 
 ### Patches do sistema operacional nas VMs que fazem parte do cluster
 
-Isso será disponibilizado como um recurso automatizado. Mas, hoje, você é responsável por corrigir suas VMs. Você deve fazer isso uma VM por vez, para que você não desative mais de uma por vez.
+Essa funcionalidade está prevista como um recurso automatizado futuramente. Contudo, no momento, você é responsável por aplicar patches nas suas VMs. Você deve fazer isso uma VM por vez, para que você não desative mais de uma por vez.
 
 ### Atualizações do sistema operacional nas VMs que fazem parte do cluster
 
-Se for necessário atualizar a imagem do sistema operacional nas máquinas virtuais do cluster, faça isso uma VM por vez. Além disso, você é responsável por essa atualização. Atualmente, não há automação para isso.
+Se for necessário atualizar a imagem do sistema operacional nas máquinas virtuais do cluster, faça isso uma VM por vez. Você é responsável por esta atualização. Atualmente não há nenhuma automação para isso.
 
 ## Próximas etapas
 
@@ -123,4 +124,4 @@ Se for necessário atualizar a imagem do sistema operacional nas máquinas virtu
 [AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes.png
 [AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

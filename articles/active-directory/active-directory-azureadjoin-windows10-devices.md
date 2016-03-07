@@ -1,160 +1,171 @@
-<properties 
-	pageTitle="Usando dispositivos com Windows 10 no local de trabalho | Microsoft Azure" 
-	description="Fornece um instantâneo dos usuários, dos recursos e da TI, realçando as diferentes maneiras em que um dispositivo pode ser provisionado e usado em uma empresa com o Windows 10." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="femila" 
-	manager="stevenpo" 
+<properties
+	pageTitle="Usando dispositivos com Windows 10 no local de trabalho | Microsoft Azure"
+	description="Fornece um instantâneo dos recursos para os usuários e a TI, realçando as diferentes maneiras como um dispositivo pode ser provisionado e usado em uma empresa com o Windows 10."
+	services="active-directory"
+	documentationCenter=""
+	authors="femila"
+	manager="stevenpo"
 	editor=""
 	tags="azure-classic-portal"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/19/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="11/19/2015"
 	ms.author="femila"/>
 
 # Usando dispositivos com Windows 10 no local de trabalho
 
-O Windows 10 oferece três modelos para que as organizações possam permitir o acesso aos recursos de trabalho pelos usuários de forma segura e conveniente.
+O Windows 10 oferece três modelos para que as organizações possam habilitar os usuários a acessar recursos de trabalho de forma segura e conveniente.
 
-1. **Junção do AD do Azure**, novo no Windows 10, uma experiência de provisionamento de trabalho de autoatendimento direcionada aos funcionários que acessa basicamente recursos na nuvem, como o Office 365.
-1. **Ingresso no domínio**, melhor no Windows 10 quando conectado ao AD do Azure, para organizações com grandes investimentos em aplicativos e recursos locais.
-1. **Uma nova experiência BYOD simplificada** que permite aos usuários adicionar uma conta corporativa ao Windows para que possam acessar facilmente os recursos de trabalho em dispositivos pessoais.
+- **Ingresso no Active Directory do Azure** (Ingresso no Azure AD), para funcionários que acessam recursos como o Office 365 principalmente na nuvem. O Ingresso no Azure AD é uma experiência de provisionamento de trabalho de autoatendimento no Windows 10.
+- **Ingresso no domínio**, para organizações com investimentos em aplicativos e recursos locais. O ingresso no domínio oferece uma experiência aprimorada no Windows 10 quando conectado ao Azure AD.
+- **Uma nova experiência BYOD simplificada**, para os usuários que desejam adicionar uma conta corporativa ou de estudante ao Windows e acessar facilmente os recursos em dispositivos pessoais.
 
-A tabela abaixo apresenta um instantâneo dos usuários, dos recursos e da TI, realçando as diferentes maneiras em que um dispositivo pode ser provisionado e usado em uma empresa com o Windows 10:
+A tabela a seguir apresenta um instantâneo dos recursos para usuários e administradores de TI, realçando as diferentes maneiras como um dispositivo pode ser provisionado e usado em uma empresa com o Windows 10:
 
 | | Ingresso no domínio | Ingresso no AD do Azure | Dispositivo pessoal |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|---------------|-----------------|
-| Entrada em dispositivo com Windows usando contas corporativas | Sim | Sim | Não |
-| SSO de usuário para aplicativos Office365 e Azure AD, [1] Logon Único ou a capacidade de acessar os recursos da empresa sem inserir as credenciais novamente depois de entrar uma vez. | Sim | Sim | Sim |
-| SSO do usuário para aplicativos Kerberos/NTLM | Sim | Limitado | Por meio de VPN |
-| Autenticação forte e entrada conveniente para a conta corporativa com o Microsoft Passport e o Windows Hello | Sim | Sim | Sim |
-| Acesso à Windows Store empresarial usando conta corporativa (sem a exigência de conta da Microsoft). | Sim | Sim | Sim |
-| Roaming de configurações de usuário entre dispositivos em conformidade com a empresa usando a conta corporativa | Sim | Sim | Sim |
-| Restringir o acesso a aplicativos organizacionais de dispositivos em conformidade com políticas de dispositivo organizacional | Sim | Sim | Sim |
-| Provisionamento de autoatendimento pelo usuário de dispositivos para o trabalho de qualquer lugar | Não | Sim | Sim |
-| Capacidade de gerenciar dispositivos | Sim, via GP/SCCM | Sim | Sim |
+| Entrada em dispositivo com o Windows para contas corporativas ou de estudante. | Sim | Sim | Não |
+| SSO (logon único) de usuário para aplicativos do Office 365 e do Azure AD. O SSO é a capacidade de entrar apenas uma vez para acessar recursos organizacionais. | Sim | Sim | Sim |
+| SSO do usuário para aplicativos Kerberos/NTLM. | Sim | Limitado | Sim, via VPN |
+| Autorização forte e entrada conveniente para a conta corporativa ou de estudante com o Microsoft Passport e o Windows Hello. | Sim | Sim | Sim |
+| Acesso à Windows Store empresarial com uma conta corporativa ou de estudante (não uma conta da Microsoft). | Sim | Sim | Sim |
+| Roaming de configurações de usuário entre dispositivos em conformidade com a empresa usando contas corporativas ou de estudante. | Sim | Sim | Sim |
+| A capacidade de restringir o acesso a aplicativos organizacionais aos dispositivos que estão em conformidade com as políticas de dispositivo organizacionais. | Sim | Sim | Sim |
+| Provisionamento de autoatendimento pelo usuário de dispositivos para o "trabalho em qualquer lugar". | Não | Sim | Sim |
+| Capacidade de gerenciar dispositivos. | Sim, via GP/SCCM | Sim | Sim |
 
-##Dispositivos corporativos: ingresso no AD do Azure e ingresso no domínio
+## Usar dispositivos corporativos com Ingresso no Azure AD e ingresso no domínio no Windows 10
 
-O Windows 10 oferece dois modelos para dispositivos corporativos para acessar recursos de trabalho:
+O Windows 10 oferece duas maneiras para que os dispositivos corporativos acessem recursos de trabalho:
 
 - Ingresso no AD do Azure
-- Ingresso no domínio.
+- Ingresso no domínio
 
- Ambas as opções são válidas dependendo dos requisitos e das necessidades da organização. Em alguns casos, as organizações podem se beneficiar habilitando os dois métodos de implantação.
+ Ambos podem ser opções válidas, dependendo das necessidades e dos requisitos de uma organização. Em alguns casos, as organizações podem se beneficiar habilitando os dois métodos de implantação.
 
 ## Quando usar o ingresso no Active Directory do Azure?
 
-O ingresso no AD do Azure é uma nova experiência de provisionamento de autoatendimento no Windows 10. Ele é direcionado para funcionários que basicamente acessem recursos de trabalho na nuvem, como o Office 365. É uma maneira simples de configurar PCs, tablets e telefones para a empresa. Os dispositivos são gerenciados por MDM usando controles consistentes entre plataformas Windows.
+O ingresso no AD do Azure é uma nova experiência de provisionamento de autoatendimento no Windows 10. Ele se destina a funcionários que acessam recursos de trabalho como o Office 365 principalmente na nuvem. É uma maneira simples de configurar computadores, tablets e telefones para a empresa. Os dispositivos são gerenciados por meio do gerenciamento de dispositivo móvel, usando controles consistentes em plataformas Windows.
 
 **Use o ingresso no Azure AD por qualquer um destes motivos**:
 
-1.	Você deseja habilitar o provisionamento de autoatendimento de dispositivos para trabalhadores em outros lugares.
-2.	Você fornece aos usuários dispositivos móveis corporativos, como tablets e telefones.
-3.	Você deseja gerenciar um conjunto de usuários no AD do Azure em vez de no AD, como trabalhadores temporários, prestadores de serviços ou alunos.
-4.	Você deseja fornecer recursos de ingresso para trabalhadores em escritórios remotos com infraestrutura local limitada.
-5.	Você não tem AD local.
+- Você deseja habilitar o provisionamento de autoatendimento de dispositivos para funcionários em qualquer lugar.
+- Você fornece aos usuários dispositivos móveis corporativos, como tablets e telefones.
+- Você deseja gerenciar um conjunto de usuários no Azure AD em vez de no Active Directory, como funcionários temporários, prestadores de serviços ou alunos.
+- Você deseja fornecer recursos de ingresso para trabalhadores em escritórios remotos com infraestrutura local limitada.
+- Você não tem um Active Directory local.
 
-Algumas organizações usam o ingresso no AD do Azure como a principal maneira de implantar dispositivos corporativos, especialmente à medida que eles estão migrando a maioria ou todos os seus recursos para a nuvem. As organizações híbridas com o AD e o Azure AD podem optar por implantar um método ou outro, dependendo do usuário ou do departamento. Escolas e universidades podem gerenciar a equipe no AD e os alunos no AD do Azure, ou algumas empresas talvez prefiram escritórios remotos ou o departamento de vendas no AD do Azure. Tanto o Ingresso no AD do Azure quanto o Ingresso no domínio são métodos que podem ser utilizados em uma organização híbrida. O ingresso no AD do Azure pode ser um ótimo complemento para a implantação de dispositivos em um ambiente de trabalho.
+Algumas organizações usam o ingresso no AD do Azure como a principal maneira de implantar dispositivos corporativos, especialmente à medida que eles estão migrando a maioria ou todos os seus recursos para a nuvem. As organizações híbridas com o Active Directory e o Azure AD também podem optar por implantar um método ou outro, dependendo do usuário ou do departamento.
 
-**Se a maior parte do acesso aos recursos da empresa é por meio da nuvem, uma organização pode ter benefícios adicionais**:
+Escolas e universidades, por exemplo, podem gerenciar funcionários no Active Directory e alunos no Azure AD. Algumas empresas talvez queiram gerenciar filiais ou departamentos de vendas remotos no Azure AD. O Ingresso no Azure AD e o ingresso no domínio são métodos que podem ser utilizados em uma organização híbrida. O ingresso no Azure AD pode ser um ótimo complemento ao ingresso no domínio para a implantação de dispositivos em um ambiente de trabalho.
 
-- Você poderá remover dependências na infraestrutura de identidade local.
-- Você pode simplificar o seu modelo de implantação de dispositivos afastando-se das soluções de geração de imagens, permitindo a configuração de autoatendimento.
-- Você pode usar o MDM para gerenciar todos os seus dispositivos em diferentes plataformas.
+**Se o acesso mais comum aos recursos da empresa for por meio da nuvem, sua organização poderá ter benefícios adicionais se**:
 
-Para saber mais sobre o Ingresso no AD do Azure, confira [Estendendo recursos de nuvem para dispositivos com Windows 10 usando o Ingresso no Active Directory do Azure](active-directory-azureadjoin-overview.md).
+- Você puder remover dependências na infraestrutura de identidade local.
+- Você puder simplificar o modelo de implantação de dispositivos afastando-se das soluções de geração de imagens, permitindo a configuração de autoatendimento.
+- Você puder usar o gerenciamento de dispositivos móveis para gerenciar todos os dispositivos em diferentes plataformas.
 
-## Quando usar o Ingresso no domínio (ou continuar usando)
+Para saber mais sobre o Ingresso no Azure AD, confira [Estendendo recursos de nuvem para dispositivos com Windows 10 usando o Ingresso no Active Directory do Azure](active-directory-azureadjoin-overview.md).
 
-O ingresso no domínio é a maneira tradicional usada pelas organizações para conectar dispositivos de trabalho pelo menos nos últimos 15 anos. Ele permitiu que usuários entrassem em seus dispositivos usando suas contas corporativas do AD e que o departamento de TI gerenciasse esses dispositivos de maneira total e centralizada. As organizações geralmente dependem de métodos de geração de imagens para provisionar dispositivos e geralmente usam o SCCM (System Center Configuration Manager) ou a política de grupo para gerenciá-los.
+## Quando usar o ingresso no domínio (ou continuar a usá-lo)
 
-**Você poderia usar o ingresso no domínio da sua empresa por qualquer um desses motivos**:
+Nos últimos 15 anos, muitas organizações têm usado o ingresso no domínio para conectar dispositivos de trabalho. Ele habilita os usuários a entrar em seus dispositivos com suas contas corporativas ou de estudante do Active Directory. O ingresso no domínio também permite que o departamento de TI gerencie esses dispositivos de forma centralizada e completa. As organizações geralmente dependem de métodos de geração de imagens para provisionar dispositivos e, muitas vezes, usam o SCCM (System Center Configuration Manager) ou a GP (Política de Grupo) para gerenciá-los.
+
+**Sua empresa deve usar o ingresso no domínio (ou continuar a usá-o) por qualquer um dos seguintes motivos**:
 
 - Você tem aplicativos Win32 implantados nesses dispositivos que usam o Kerberos/NTLM.
 - Você precisa de GP ou SCCM/DCM para gerenciar dispositivos.
 - Você deseja continuar a usar soluções de geração de imagens para configurar dispositivos de seus funcionários.
 
-**O ingresso no domínio do Windows 10 também lhe oferece os seguintes benefícios depois de estar conectado ao AD do Azure**:
+**O ingresso no domínio do Windows 10 também lhe oferece os seguintes benefícios quando conectado ao Azure AD**:
 
-- Autenticação forte associada ao dispositivo e entrada conveniente para a conta corporativa com o Microsoft Passport e o Windows Hello.
-- Acesso à Windows Store empresarial usando contas corporativas (sem a exigência de conta da Microsoft).
-- Roaming de configurações de usuário entre dispositivos em conformidade com a empresa usando a conta corporativa (sem a exigência de conta da Microsoft).
-- Capacidade de restringir o acesso a aplicativos organizacionais de dispositivos em conformidade com as políticas de dispositivo organizacionais.
-- Para saber mais sobre o Ingresso no AD do Azure, confira [Estendendo recursos de nuvem para dispositivos com Windows 10 usando o Ingresso no Active Directory do Azure](active-directory-azureadjoin-overview.md).
+- Autenticação forte associada ao dispositivo e entrada conveniente para contas corporativas ou de estudante com o Microsoft Passport e o Windows Hello.
+- Acesso à Windows Store corporativa para dispositivos que usam contas corporativas ou de estudante (não é necessária uma conta da Microsoft).
+- Roaming compatível com a empresa de configurações de usuário entre dispositivos que usam contas corporativas ou de estudante (não é necessária uma conta da Microsoft).
+- A capacidade de restringir o acesso a aplicativos organizacionais aos dispositivos que estão em conformidade com as políticas de dispositivo organizacionais.
 
-##Habilitando dispositivos pessoais para trabalhar com contas corporativas
+Para saber mais sobre o Ingresso no Azure AD, confira [Estendendo recursos de nuvem para dispositivos com Windows 10 usando o Ingresso no Active Directory do Azure](active-directory-azureadjoin-overview.md).
 
-Para oferecer suporte a BYOD na empresa, o Windows 10 dá ao usuário a capacidade de "adicionar uma conta corporativa ou de estudante" a seu computador, tablet ou telefone. A adição de uma conta corporativa registra os dispositivos no AD do Azure e, opcionalmente, registra o dispositivo no MDM configurado pela organização para os dispositivos. O diretório mostrará esses dispositivos com o status 'Registrado' vs. 'Ingressado no AD do Azure'. O departamento de TI pode aplicar políticas diferentes com base nessas informações, com mais informalidade em um dispositivo pessoal do que em um dispositivo corporativo, se desejar.
+## Habilitar o ingresso de dispositivos pessoais para o trabalho ou a escola
 
-Os usuários podem adicionar uma conta corporativa a seus dispositivos pessoais de forma muito conveniente: ao acessar um aplicativo corporativo pela primeira vez, ou manualmente usando o aplicativo Configurações. Essa conta corporativa fornecerá SSO aos recursos organizacionais.
+Para dar suporte a BYOD na empresa, o Windows 10 fornece ao usuário a capacidade de "adicionar uma conta corporativa ou de estudante" a seu computador, tablet ou telefone. Depois que o usuário adiciona uma conta corporativa ou de estudante, o dispositivo é registrado no Azure AD e, opcionalmente, é registrado no sistema de gerenciamento de dispositivos móveis que a organização configurou. O diretório mostrará esses dispositivos com o status 'Registrado' vs. 'Ingressado no AD do Azure'. Os administradores de TI podem aplicar políticas diferentes com base nessas informações, com mais informalidade em dispositivos pessoais do que em dispositivos corporativos, se desejarem.
+
+Os usuários podem adicionar uma conta corporativa ou de estudante para seus dispositivos pessoais de forma muito conveniente. Eles podem fazer isso ao acessar um aplicativo de trabalho pela primeira vez ou podem fazê-lo manualmente, por meio do menu Configurações. Essa conta fornecerá SSO para os recursos organizacionais.
 
 Para saber mais sobre o Ingresso no AD do Azure, confira [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com Windows 10](active-directory-azureadjoin-devices-group-policy.md).
 
-## Habilitando o ingresso no domínio ou no AD do Azure 
+## Habilitar o ingresso no domínio ou o Ingresso no Azure AD
 
-Todos os métodos descritos acima (Ingresso no domínio, Ingresso no AD do Azure e Adicionar conta corporativa) têm pontos de entrada na experiência do usuário do Windows 10. No entanto, todos requerem que o departamento de TI habilite a funcionalidade na infraestrutura para que ela funcione.
+Todos os métodos descritos anteriormente (ingresso no domínio, Ingresso no Azure AD e Adicionar conta corporativa ou de estudante) têm pontos de entrada na experiência do usuário do Windows 10. No entanto, todos eles exigem um administrador de TI para habilitar a funcionalidade na infraestrutura para que a experiência funcione.
 
-##Ingresso no AD do Azure
+## Requisitos para a implantação do Ingresso no Azure AD
 
 Para implantar o ingresso no AD do Azure para um conjunto de usuários, você precisa do seguinte:
----------------------------------------------------------------------------
-- Ter uma assinatura do AD do Azure.
-- Mais recursos exigirão uma assinatura do Azure AD Premium, como a inscrição automática do MDM.
-- Ter uma assinatura válida do Azure AD Premium.
-- Ter um MDM (assinatura Intune ou o MDM para Office365 ou de qualquer um dos fornecedores terceirizados de MDMs que integram com o AD do Azure. Confira a seção de Perguntas frequentes para obter detalhes)
-- Se você for híbrido, é altamente recomendável fazer o seguinte:
-- Implantar o Azure AD Connect para estender o diretório local ao AD do Azure.
 
-##Ingresso no domínio
+- Uma assinatura do Azure AD.
+- Uma assinatura do Azure AD Premium, como registro automático de gerenciamento de dispositivos móveis, se você precisar de mais recursos.
+- Gerenciamento de dispositivos móveis – por exemplo, uma assinatura do Microsoft Intune, gerenciamento de dispositivos móveis para o Office 365 ou qualquer um dos fornecedores parceiros de gerenciamento de dispositivos móveis que se integram ao Azure AD. (Confira a [seção de perguntas frequentes](#frequently-asked-questions) no fim deste artigo para obter mais informações.)
 
-O ingresso no domínio continua a funcionar como sempre. No entanto, para obter os benefícios do AD do Azure, você precisará do seguinte:
+Se suas instalações são híbridas, é altamente recomendável que você implante o Azure AD Connect para estender o diretório local ao Azure AD.
 
-- Ter uma assinatura do AD do Azure.
-- Implantar o Azure AD Connect para estender o diretório local ao AD do Azure.
-- Definir a política para conectar dispositivos ingressados no domínio ao AD do Azure.
-- Para saber mais sobre o Ingresso no domínio no Windows 10, confira <link-to-DJ-in-Win10-deployment-guide>.
-- Para acesso condicional, você pode criar uma política que permite o acesso a dispositivos 'ingressados no domínio'. Para habilitar regras que exijam dispositivos compatíveis, você precisa do seguinte:
-- Versão 1509 para visualização técnica do System Center Configuration Manager (confira a documentação do TechNet e as postagens no blog).
+## Requisitos para usar o ingresso no domínio com o Azure AD
 
-##BYOD e Adicionar conta corporativa
+O ingresso no domínio continuará a funcionar como sempre. No entanto, para obter os benefícios do Azure AD, você precisará do seguinte:
 
-Para habilitar o BYOD com contas corporativas, você precisa do seguinte:
+- Uma assinatura do Azure AD.
+- Uma implantação do Azure AD Connect para estender o diretório local ao Azure AD.
+- Uma política que permita que dispositivos que ingressaram no domínio tenham acesso condicional ao Azure AD.
+- Uma política que permita o acesso a dispositivos "que ingressaram no domínio" se você desejar restringir o acesso para alguns dispositivos.
+- System Center Configuration Manager versão 1509 para Visualização Técnica, para habilitar regras para exigir dispositivos compatíveis. (Confira a documentação do TechNet e a postagem de blog.)
 
-- Ter uma assinatura do AD do Azure.
-- Mais recursos exigirão uma assinatura do Azure AD Premium, como a inscrição automática do MDM.
-- Ter uma assinatura válida do Azure AD Premium.
-- Ter um MDM (assinatura Intune ou o MDM para Office365 ou de qualquer um dos fornecedores terceirizados de MDMs que integram com o AD do Azure. Confira a seção de Perguntas frequentes para obter detalhes)
+Para obter mais informações sobre o ingresso no domínio no Windows 10, confira <link-to-DJ-in-Win10-deployment-guide>.
 
-##Microsoft Passport
+## Requisitos para usar BYOD e "Adicionar uma conta corporativa ou de estudante"
 
-Para habilitar o Microsoft Passport, você precisará também do seguinte:
+Para habilitar BYOD ("traga seu próprio dispositivo") com contas corporativas ou de estudante, você precisa do seguinte:
 
-- Infraestrutura de PKI para suporte a autenticação baseada em certificado usando o Microsoft Passport.
-- Assinatura do Intune para suporte a autenticação baseada em certificado usando o Microsoft Passport para ingresso no AD do Azure AD e Contas Corporativas.
-- Versão 1509 para visualização técnica do System Center Configuration Manager (confira a documentação do TechNet e as postagens no blog) para suporte de autenticação baseada em certificado usando o Microsoft Passport para Ingresso no Domínio.
+- Uma assinatura do Azure AD.
+- Uma assinatura do Azure AD Premium, como registro automático de gerenciamento de dispositivos móveis, se você precisar de mais recursos.
+
+## Requisitos para usar o Microsoft Passport
+
+Para habilitar o Microsoft Passport, você precisará do seguinte:
+
+- Uma PKI (infraestrutura de chave pública) para suporte a autenticação baseada em certificado que usa o Microsoft Passport.
+- Uma assinatura do Intune para suporte a autenticação baseada em certificado que usa o Microsoft Passport para ingresso para o Ingresso no Azure AD e contas corporativas ou de estudante.
+- Versão 1509 do System Center Configuration Manager para visualização técnica (confira a documentação do TechNet e a postagem de blog) para suporte de autenticação baseada em certificado que usa o Microsoft Passport para ingresso no domínio.
+- Uma política para habilitar o Microsoft Passport na organização.
+
+Como alternativa ao uso de uma PKI, você pode habilitar o Microsoft Passport baseado em chave usando o seguinte procedimento:
+
+- Implante controladores de domínio do Windows Server 2016 "Visualização de Produção 1" (sem a necessidade de níveis funcionais de domínio ou floresta; vários controladores de domínio para redundância servindo a cada site do Active Directory serão suficientes).
 - Definir a política para habilitar o Microsoft Passport na organização.
 
-Como alternativa a ter uma infraestrutura PKI, você pode habilitar o Microsoft Passport baseado em chave usando o seguinte procedimento:
-
-- Implante controladores de domínio do Windows Server 2016 ‘Visualização de Produção 1’ (não há necessidade de domínio ou o nível funcional de floresta; alguns controladores de domínio de redundância servindo cada site do AD serão suficientes).
-- Definir a política para habilitar o Microsoft Passport na organização.
-- Para saber mais sobre o Microsoft Passport e o Windows Hello no Windows 10, confira <link-to-MS-Passport-and-Windows-Hello-document>.
+Para saber mais sobre o Microsoft Passport e o Windows Hello no Windows 10, confira <link-to-MS-Passport-and-Windows-Hello-document>.
 
 ## Perguntas frequentes
+### Quais produtos de gerenciamento de dispositivos móveis de parceiro são integrados ao Azure AD?
 
-###E quanto a Ingressar no local de trabalho no Windows 10?
-O ingresso no local de trabalho no Windows 8.1 foi usado para habilitar o BYOD. No Windows 10, o BYOD é habilitado usando Adicionar conta corporativa, conforme explicado anteriormente neste documento. Para organizações que não integram o MDM ao AD do Azure, os usuários podem registrar o dispositivo no gerenciamento manualmente em **Configurações** > **Contas** > **Acesso corporativo**.
+Os seguintes produtos de fornecedores se integram com o AD do Azure para o registro unificado e o acesso condicionado no Windows 10:
 
-###O usuário pode conectar sua conta da Microsoft (MSA) à Conta de domínio no Windows 10?
-Não no Windows 10. No Windows 8.1, os usuários de dispositivos ingressados no domínio poderiam "conectar" seu MSA (por exemplo, Hotmail, Live, Outlook, XBox, etc.) à sua conta de domínio para permitir determinadas experiências como o SSO para serviços Live, o uso da Windows Store e a mobilidade das configurações do usuário entre vários dispositivos. No Windows 10, a funcionalidade Conectar MSA foi desativada. O usuário pode adicionar um ou mais MSAs como contas adicionais para habilitar SSO para serviços de consumidor, como a Windows Store. Isso é feito em **Configurações** > **Contas** > **Sua conta**.
+- AirWatch da VMware
+- Citrix Xenmobile
+- Lightspeed Mobile Manager
+- Gerenciamento de dispositivos móveis locais SOTI
 
-Os usuários atualizando de dispositivos ingressados no domínio do Windows 8.1 que tenham sua MSA conectada automaticamente terão essa MSA adicionada à lista de contas adicionais usadas por eles.
+### E quanto a Ingressar no local de trabalho no Windows 10?
+O ingresso no local de trabalho era usado no Windows 8.1 para habilitar o BYOD. No Windows 10, o BYOD é habilitado usando "Adicionar conta corporativa ou de estudante", conforme explicado anteriormente neste documento. Para organizações que não integram o gerenciamento de dispositivos móveis ao Azure AD, os usuários podem registrar o dispositivo no gerenciamento manualmente em **Configurações** > **Contas** > **Acesso corporativo**.
+
+
+### Os usuários podem conectar sua conta da Microsoft à conta de domínio no Windows 10?
+Não no Windows 10. No Windows 8.1, os usuários de dispositivos que ingressaram no domínio podiam "conectar" sua conta da Microsoft (por exemplo, Hotmail, Live, Outlook, Xbox etc.) à conta de domínio para habilitar determinadas experiências, como o SSO para serviços Live, o uso da Windows Store e o roaming de configurações de usuário entre vários dispositivos. No Windows 10, a funcionalidade de "conexão" da conta da Microsoft foi desativada. O usuário pode adicionar uma ou mais contas da Microsoft como contas adicionais para habilitar o SSO para serviços de consumidor, como a Windows Store. Isso é feito em **Configurações** > **Contas** > **Sua conta**.
+
+Os usuários que estão atualizando de dispositivos que ingressaram no domínio do Windows 8.1 e que tiveram sua conta da Microsoft conectada terão essa conta adicionada automaticamente à lista de contas adicionais que eles usam.
 
 
 ## Informações adicionais
@@ -164,4 +175,4 @@ Os usuários atualizando de dispositivos ingressados no domínio do Windows 8.1 
 * [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com o Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

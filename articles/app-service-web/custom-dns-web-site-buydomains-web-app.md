@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/09/2016"
+	ms.date="02/22/2016"
 	ms.author="robmcm"/>
 
 # Comprar e configurar um nome de domínio personalizado no Serviço de Aplicativo do Azure.
@@ -97,5 +97,23 @@ Depois que a configuração estiver concluída, o nome do domínio personalizado
 
 Nesse ponto, você deve poder inserir o nome de domínio personalizado no navegador e ver se ele te leva com êxito ao aplicativo Web.
  
+## O que acontece com o domínio personalizado que você comprou
 
-<!---HONumber=AcomDC_0128_2016-->
+O domínio personalizado adquirido na folha **Domínios personalizados e SSL** está vinculado à assinatura do Azure. Como um recurso do Azure, esse domínio personalizado é separado e independente do Aplicativo do Serviço de Aplicativo para o qual você comprou o domínio. Isso significa que:
+
+- No Portal do Azure, você pode usar o domínio personalizado que você comprou para mais de um aplicativo de Serviço de Aplicativo e não apenas para o aplicativo para o qual você adquiriu o domínio personalizado. 
+- Você pode gerenciar todos os domínios personalizados comprados na assinatura do Azure acessando a folha **Domínios personalizados e SSL** de *qualquer* aplicativo de Serviço de Aplicativo na assinatura.
+- Você pode atribuir qualquer aplicativo de Serviço de Aplicativo da mesma assinatura do Azure a um subdomínio deste domínio personalizado.
+- Se você decidir excluir um aplicativo do Serviço de Aplicativo, você pode optar por não excluir o domínio personalizado ao qual ele está vinculado se quiser continuar usando o domínio para outros aplicativos.
+
+## Se não conseguir ver o domínio personalizado que você comprou
+
+Se você comprou o domínio personalizado na folha **Domínios personalizados e SSL**, mas não consegue ver o domínio personalizado em **Domínios gerenciados**, verifique os seguintes pontos:
+
+- A criação de domínio personalizado pode não ter terminado. Verifique o sino de notificação na parte superior do Portal do Azure para ver o andamento.
+- A criação de domínio personalizado pode ter falhado por algum motivo. Verifique o sino de notificação na parte superior do Portal do Azure para ver o andamento.
+- O criação do domínio personalizado pode ter sido bem-sucedida, mas a folha pode não ter sido atualizada. Experimente reabrir a folha **Domínios personalizados e SSL**.
+- Você pode ter excluído o domínio personalizado em algum momento. Verifique os logs de auditoria clicando em **Configurações** > **Logs de Auditoria** da folha principal do seu aplicativo. 
+- A folha **Domínios personalizados e SSL** que você está procurando pode pertencer a um aplicativo é criado em uma assinatura diferente do Azure. Alterne para outro aplicativo em uma assinatura diferente e verifique sua folha **Domínios personalizados e SSL**. No portal, você não conseguirá ver ou gerenciar os domínios personalizados criados em uma assinatura do Azure diferente da do aplicativo. No entanto, ao clicar em **Gerenciamento avançado** na folha **Gerenciar domínio** do domínio, você será redirecionado para o domínio do site do provedor, em que poderá [configurar manualmente o seu domínio personalizado como qualquer domínio personalizado externo](web-sites-custom-domain-name.md) para aplicativos criados em uma assinatura diferente do Azure. 
+
+<!---HONumber=AcomDC_0224_2016-->

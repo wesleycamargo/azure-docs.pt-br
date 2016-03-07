@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/30/2016"
+	ms.date="02/21/2016"
 	ms.author="tarcher"/>
 
 # Introdução ao Armazenamento de Fila do Azure e aos Serviços Conectados do Visual Studio (Projetos WebJob)
@@ -24,13 +24,13 @@ Este artigo descreve como começar a usar o armazenamento de Filas do Azure no p
 
 Este artigo fornece exemplos de código em C# que mostram como usar o SDK do Azure WebJobs versão 1.x com o serviço de armazenamento de Fila do Azure.
 
-O armazenamento de filas do Azure é um serviço para armazenamento de um grande número de mensagens que podem ser acessadas de qualquer lugar do mundo por meio de chamadas autenticadas usando HTTP ou HTTPS. Uma única mensagem de fila pode ter até 64 KB de tamanho e uma fila pode conter milhões de mensagens, até o limite de capacidade total de uma conta de armazenamento. Consulte [Como usar o Armazenamento de Filas do .NET](storage-dotnet-how-to-use-queues.md) para obter mais informações. Para saber mais sobre ASP.NET, confira [ASP.NET](http://www.asp.net).
+O armazenamento de filas do Azure é um serviço para armazenamento de um grande número de mensagens que podem ser acessadas de qualquer lugar do mundo por meio de chamadas autenticadas usando HTTP ou HTTPS. Uma única mensagem de fila pode ter até 64 KB de tamanho e uma fila pode conter milhões de mensagens, até o limite de capacidade total de uma conta de armazenamento. Consulte a [Introdução ao Armazenamento de Filas do Azure usando o .NET](storage-dotnet-how-to-use-queues.md) para obter mais informações. Para saber mais sobre ASP.NET, confira [ASP.NET](http://www.asp.net).
 
 
 
 ## Como disparar uma função quando é recebida uma mensagem da fila
 
-Para gravar uma função que o SDK de Trabalhos Web chama quando uma mensagem da fila é recebida, use o atributo **QueueTrigger**. O construtor de atributo tem um parâmetro de cadeia que especifica o nome da fila para sondagem. Você também pode [definir dinamicamente o nome da fila](how-to-set-configuration-options).
+Para gravar uma função que o SDK de Trabalhos Web chama quando uma mensagem da fila é recebida, use o atributo **QueueTrigger**. O construtor de atributo tem um parâmetro de cadeia que especifica o nome da fila para sondagem. Para saber como definir o nome da fila dinamicamente, confira [Como definir as Opções de Configuração](#how-to-set-configuration-options).
 
 ### Mensagens da fila da cadeia
 
@@ -259,7 +259,7 @@ A interface **IBinder** também pode ser usada com os atributos **Table** e **Bl
 
 ## Como ler e gravar blobs e tabelas ao processar uma mensagem da fila
 
-Os atributos **Blob** e **Table** permitem que você leia e grave os blobs e as tabelas. Os exemplos nesta seção se aplicam a blobs. Para obter exemplos de código que mostram como acionar processos quando blobs são criados ou atualizados, consulte [Como usar o armazenamento de blob do Azure com o SDK de Trabalhos Web](/app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), e para obter exemplos de código que lê e grava as tabelas, consulte [Como usar o armazenamento de tabela do Azure com o SDK de Trabalhos Web](/app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md).
+Os atributos **Blob** e **Table** permitem que você leia e grave os blobs e as tabelas. Os exemplos nesta seção se aplicam a blobs. Para obter exemplos de código que mostram como acionar processos quando blobs são criados ou atualizados, consulte [Como usar o armazenamento de blob do Azure com o SDK de Trabalhos Web](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), e para obter exemplos de código que lê e grava as tabelas, consulte [Como usar o armazenamento de tabela do Azure com o SDK de Trabalhos Web](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md).
 
 ### Mensagens da fila de cadeia de caracteres que disparam operações de blob
 
@@ -275,7 +275,7 @@ O exemplo a seguir utiliza objetos **Stream** para ler e gravar os blobs. A mens
 		    blobInput.CopyTo(blobOutput, 4096);
 		}
 
-O atributo construtor **Blob** aceita um parâmetro **blobPath** que especifica o nome do blob e o contêiner. Para obter mais informações sobre esse espaço reservado, consulte [Como usar o armazenamento de blob do Azure com o SDK de Trabalhos Web](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md),
+O atributo construtor **Blob** aceita um parâmetro **blobPath** que especifica o nome do blob e o contêiner. Para obter mais informações sobre esse espaço reservado, consulte [Como usar o Armazenamento de Blobs do Azure com o SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md).
 
 Quando o atributo decora um objeto **Stream**, outro parâmetro de construtor especifica o modo **FileAccess** como leitura, gravação ou leitura/gravação.
 
@@ -290,7 +290,7 @@ O exemplo a seguir utiliza um objeto **CloudBlockBlob** para excluir um blob. A 
 
 ### Mensagens de fila POCO [(Objeto Plain Old CLR](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
 
-Para objetos POCO armazenados como JSON na mensagem da fila, é possível utilizar espaços reservados que as propriedades de nome do objeto no parâmetro **blobPath** do atributo **Queue**. Também é possível utilizar os [nomes de propriedade de metadados de fila](#get-queue-or-queue-message-metadata) como espaços reservados.
+Para objetos POCO armazenados como JSON na mensagem da fila, é possível utilizar espaços reservados que as propriedades de nome do objeto no parâmetro **blobPath** do atributo **Queue**. Também é possível utilizar os nomes de propriedade de metadados de fila como espaços reservados. Consulte [Obter a fila ou os metadados de mensagem da fila](#get-queue-or-queue-message-metadata).
 
 O exemplo a seguir copia um blob para um novo blob com uma extensão diferente. A mensagem da fila é um objeto **BlobInformation** que inclui as propriedades **BlobName** e **BlobNameWithoutExtension**. Os nomes de propriedade são usados como espaços reservados no caminho de blob para os atributos **Blob**.
 
@@ -308,7 +308,7 @@ O SDK usa o [pacote NuGet Newtonsoft.Json](http://www.nuget.org/packages/Newtons
 		var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(blobInfo));
 		logQueue.AddMessage(queueMessage);
 
-Se você precisar fazer algum trabalho em sua função antes de vincular um blob a um objeto, você pode usar o atributo no corpo da função, [conforme mostrado anteriormente para o atributo da fila](#use-webjobs-sdk-attributes-in-the-body-of-a-function).
+Se você precisar fazer algum trabalho em sua função antes de associar um blob a um objeto, você poderá usar o atributo no corpo da função, conforme mostrado em [Usar o SDK do WebJobs no corpo de uma função](#use-webjobs-sdk-attributes-in-the-body-of-a-function).
 
 ###Tipos com os quais você pode usar o atributo Blob
 
@@ -332,7 +332,7 @@ As mensagens cujo conteúdo faz com que uma função falhe são chamadas de *men
 
 ### Manipulação automática de mensagens suspeitas
 
-O SDK chamará uma função até 5 vezes para processar uma mensagem da fila. Se a quinta tentativa falhar, a mensagem é movida para uma fila de mensagens suspeitas. [O número máximo de novas tentativas é configurável](#how-to-set-configuration-options).
+O SDK chamará uma função até 5 vezes para processar uma mensagem da fila. Se a quinta tentativa falhar, a mensagem é movida para uma fila de mensagens suspeitas. Veja como configurar o número máximo de tentativas em [Como definir opções de configuração](#how-to-set-configuration-options).
 
 A fila de mensagens suspeita é denominada *{originalqueuename}*-suspeita. Você pode gravar uma função para processar as mensagens da fila de mensagens suspeitas registrando-as ou enviando uma notificação de que a atenção manual é necessária.
 
@@ -501,7 +501,7 @@ Para gravar [logs de rastreamento do aplicativo](web-sites-dotnet-troubleshoot-v
 
 A saída do console aparecerá no painel somente se o programa estiver em execução em um Trabalho Web do Azure, não se o programa estiver em execução localmente ou em outro ambiente.
 
-Você pode desabilitar registro em log [definindo a cadeia de conexão do painel para nulo](#how-to-set-configuration-options).
+É possível desabilitar o log definindo a cadeia de conexão do painel de controle como null. Para obter mais informações, consulte [Como definir as Opções de Configuração](#how-to-set-configuration-options).
 
 O exemplo a seguir mostra várias maneiras de gravar logs:
 
@@ -541,6 +541,6 @@ E, em uma tabela do Azure os logs **Console.Out** e **Console.Error** têm essa 
 
 ##Próximas etapas
 
-Este guia forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com filas do Azure. Para obter mais informações sobre como usar os Trabalhos Web do Azure e o SDK de Trabalhos Web, consulte [Trabalhos Web do Azure – Recursos recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
+Este guia forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com filas do Azure. Para obter mais informações sobre como usar o Azure WebJobs e o SDK do WebJobs, consulte [Recursos de documentação do Azure WebJobs](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->
