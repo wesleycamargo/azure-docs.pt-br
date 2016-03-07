@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/02/2016"
+	ms.date="02/10/2016"
 
 	ms.author="femila"/>
 
@@ -93,4 +93,4 @@ Você pode preparar seus funcionários e usuários para usarem seus dispositivos
 * [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com o Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0224_2016--->
+<!---HONumber=AcomDC_0224_2016---->
