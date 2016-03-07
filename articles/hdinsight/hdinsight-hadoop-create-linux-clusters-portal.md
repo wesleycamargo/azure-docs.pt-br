@@ -20,7 +20,7 @@
 
 #Criar clusters baseados em Linux no HDInsight usando o portal de visualização do Azure
 
-[AZURE.INCLUDE [seletor](../../includes/hdinsight-create-linux-cluster-selector.md)]
+[AZURE.INCLUDE [seletor](../../includes/hdinsight-selector-create-clusters.md)]
 
 O portal de visualização do Azure é uma ferramenta de gerenciamento baseado na web para serviços e recursos hospedados na nuvem do Microsoft Azure. Use as informações neste documento para criar um novo cluster HDInsight baseados em Linux usando o portal de visualização e o navegador da Web
 
@@ -182,4 +182,4 @@ Agora que você criou com êxito um cluster HDInsight, use o seguinte para apren
 * [Spark com Aprendizado de Máquina: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming Spark: usar o Spark no HDInsight para a criação de aplicativos streaming em tempo real](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

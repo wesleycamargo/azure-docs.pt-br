@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Perfis de pontuação (Versão da API REST da Pesquisa do Azure 2015-02-28-Preview) | Microsoft Azure | Serviço de pesquisa de nuvem hospedado"
+	pageTitle="Perfis de pontuação (Versão da API REST da Pesquisa do Azure 2015-02-28-Preview) | Microsoft Azure | API da Visualização da Pesquisa do Azure"
 	description="A Pesquisa do Azure é um serviço de pesquisa de nuvem hospedado que dá suporte ao ajuste de resultados classificados com base em perfis de pontuação definidos pelo usuário."
 	services="search"
 	documentationCenter=""
@@ -14,11 +14,11 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.author="heidist"
-	ms.date="11/04/2015" />
+	ms.date="02/18/2016" />
 
 # Perfis de pontuação (API REST do Azure Search Versão 2015-02-28-Preview)
 
-> [AZURE.NOTE]Este artigo descreve os perfis de pontuação na versão [2015-02-28-Preview](search-api-2015-02-28-preview.md). Atualmente não há nenhuma diferença entre a versão `2015-02-28` documentada no [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx) e a versão `2015-02-28-Preview` descrita aqui.
+> [AZURE.NOTE] Este artigo descreve os perfis de pontuação na versão [2015-02-28-Preview](search-api-2015-02-28-preview.md). No momento, não há nenhuma diferença entre a versão `2015-02-28` documentada no [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx) e a versão `2015-02-28-Preview` descrita aqui, porém oferecemos este documento mesmo assim para fornecer uma abrangência de documentação em toda a API.
 
 ## Visão geral
 
@@ -55,7 +55,7 @@ Para usar esse perfil de pontuação, sua consulta é formulada para especificar
 
     GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&api-version=2015-02-28-Preview
 
-Essa consulta pesquisa o termo 'estalagem' e passa o local atual. Observe que essa consulta inclui outros parâmetros, como `scoringParameter`. Os parâmetros de consulta são descritos em [Pesquisar documentos (API do Azure Search)](search-api-2015-02-28-preview/#SearchDocs.md).
+Essa consulta pesquisa o termo 'estalagem' e passa o local atual. Observe que essa consulta inclui outros parâmetros, como `scoringParameter`. Os parâmetros de consulta são descritos em [Pesquisar documentos (API do Azure Search)](search-api-2015-02-28-preview/#SearchDocs).
 
 Clique em [Exemplo](#example) para examinar um exemplo mais detalhado de um perfil de pontuação.
 
@@ -302,7 +302,7 @@ Esta seção mostra a sintaxe e o modelo para perfis de pontuação. Consulte [R
 </tr><tr>
 <td>atualização</td>	<td>A função de pontuação atualização é usada para alterar as pontuações de classificação para os itens com base nos valores nos campos DateTimeOffset. Por exemplo, um item com uma data mais recente pode ter classificação mais alta do que itens mais antigos. (Observe que também é possível classificar itens, como os eventos de calendário, com datas futuras, de modo que os itens mais próximos à data atual possam ter uma classificação superior do que itens com data mais distantes.) Na versão atual do serviço, uma extremidade do intervalo será corrigida para a hora atual. A outra extremidade é um momento no passado com base em “boostingDuration”. Para aumentar um intervalo de horários no futuro, use um “boostingDuration” com valor negativo. A taxa à qual o aumento é alterado em um intervalo máximo e mínimo é determinada pela Interpolação é aplicada ao perfil de pontuação (consulte a figura abaixo). Para inverter o fator de aumento aplicado, escolha um fator de aumento que seja inferior a 1.</td>
 </tr><tr>
-<td>atualização | boostingDuration</td>	<td>Define um período de expiração após o qual o aumento será interrompido para um documento específico. Consulte [Definir boostingDuration ](#bkmk_boostdur) na próxima seção para obter a sintaxe e exemplos.</td>
+<td>atualização | boostingDuration</td>	<td>Define um período de expiração após o qual o aumento será interrompido para um documento específico. Consulte [Definir boostingDuration ][#bkmk_boostdur] na próxima seção para obter a sintaxe e exemplos.</td>
 </tr><tr>
 <td>distância</td>	<td>A função de pontuação distância é usada para afetar a pontuação de documentos com base em sua distância ou proximidade em relação a um local geográfico de referência. O local de referência é fornecido como parte da consulta em um parâmetro (usando a opção de cadeia de caracteres 'scoringParameterquery') como um argumento lon,lat.</td>
 </tr><tr>
@@ -372,4 +372,4 @@ Para obter mais exemplos, consulte [Esquema XML: tipos de dados (site W3.org)](h
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0224_2016-->

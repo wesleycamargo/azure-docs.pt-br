@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -123,7 +123,7 @@ Os diferentes parâmetros que podem ser usados com o cmdlet Export-HcsSupportPac
 
 Após gerar um pacote de suporte, talvez você precise editá-lo para remover informações específicas do cliente, como nomes de volume, endereços IP de dispositivos e nomes de backup dos arquivos de log.
 
-> [AZURE.IMPORTANT]Você só pode editar um pacote de suporte que tenha sido gerado por meio do Windows PowerShell para StorSimple. Você não pode editar um pacote criado no Portal Clássico do Azure com o serviço StorSimple Manager.
+> [AZURE.IMPORTANT] Você só pode editar um pacote de suporte que tenha sido gerado por meio do Windows PowerShell para StorSimple. Você não pode editar um pacote criado no Portal Clássico do Azure com o serviço StorSimple Manager.
 
 Para editar um pacote de suporte antes de carregá-los no site de Suporte da Microsoft, você precisará descriptografar o pacote de suporte, editar os arquivos e criptografá-lo novamente. Execute as seguintes etapas para editar um pacote de suporte:
 
@@ -200,4 +200,4 @@ Abaixo há um exemplo que demonstra como descriptografar, editar e criptografar 
 
 - Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

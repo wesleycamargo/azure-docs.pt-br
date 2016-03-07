@@ -13,22 +13,30 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/18/2015"
+   ms.date="02/12/2016"
    ms.author="mfussell"/>
 
 # Visão geral da Malha do Serviço
-O Service Fabric do Azure é uma plataforma de sistemas distribuídos usada para criar aplicativos escalonáveis, confiáveis e facilmente gerenciados para a nuvem A Malha do Serviço resolve os desafios significativos do desenvolvimento e gerenciamento de aplicativos em nuvem. Ao usar o Service Fabric, desenvolvedores e administradores podem evitar a resolução de problemas complexos de infraestrutura e, em vez disso, se concentram na implementação de cargas de trabalho essenciais e exigentes sabendo que elas são escalonáveis, confiáveis e gerenciáveis. O Service Fabric representa a plataforma de middleware de última geração para criação e gerenciamento de serviços dimensionáveis de nuvem de Camada 1 e nível corporativo.
+O Service Fabric é uma plataforma de sistemas distribuídos que torna mais fácil empacotar, implantar e gerenciar microsserviços escalonáveis e confiáveis, bem como resolver desafios significativos no desenvolvimento e gerenciamento de aplicativos em nuvem. Ao usar o Service Fabric, desenvolvedores e administradores podem evitar a resolução de problemas complexos de infraestrutura e, em vez disso, se concentram na implementação de cargas de trabalho essenciais e exigentes sabendo que elas são escalonáveis, confiáveis e gerenciáveis. O Service Fabric representa a plataforma de middleware de última geração para criação e gerenciamento de aplicativos escalonáveis de nuvem de Camada 1 e nível corporativo.
 
 ## Aplicativos compostos por microsserviços
 A Malha do Serviço permite criar e gerenciar aplicativos escalonáveis e confiáveis compostos por microsserviços que são executados em densidade bastante alta em um pool compartilhado de computadores (geralmente conhecido como um cluster da Malha do Serviço). Ele fornece um tempo de execução sofisticado para criação de microsserviços distribuídos, escalonáveis, com e sem estado. Ele também fornece recursos abrangentes de gerenciamento de aplicativos para provisionamento, implantação, monitoramento, atualização/aplicação de patch e exclusão de aplicativos implantados.
 
-O Service Fabric é a tecnologia de muitos serviços atuais da Microsoft, como Bancos de Dados SQL do Azure, Banco de Dados de Documentos do Azure, Cortana, Power BI, Microsoft Intune, Hubs de Eventos do Azure, muitos serviços de núcleo do Azure e Skype for Business, apenas para citar alguns.
+Por que uma abordagem de microsserviços é importante? Os dois motivos principais são:
 
-A Malha do Serviço foi personalizada para a criação de serviços “nascidos na nuvem” que podem começar pequenos, conforme a necessidade, e se expandir em escala massiva com centenas ou milhares de computadores, criando clusters da Malha do Serviço entre conjuntos de disponibilidade em uma região ou entre regiões.
+1. Eles permitem escalar diferentes partes do seu aplicativo conforme as suas necessidades
+
+2. As equipes de desenvolvimento podem ser mais ágeis na distribuição de alterações, fornecendo assim recursos aos seus clientes mais rápido e com mais frequência.
+
+O Service Fabric é a tecnologia de muitos serviços atuais da Microsoft, como Bancos de Dados SQL do Azure, Banco de Dados de Documentos do Azure, Cortana, Power BI, Microsoft Intune, Hubs de Eventos do Azure, Azure IoT e muitos serviços principais do Azure e Skype for Business, apenas para citar alguns.
+
+O Service Fabric foi personalizado para a criação de serviços “nascidos na nuvem” que podem começar pequenos, conforme a necessidade, e expandirem em imensa escala com centenas ou milhares de computadores.
 
 Os serviços em escala da Internet de hoje são criados usando microsserviços. Exemplos de microsserviços são gateways de protocolo, perfis de usuário, carrinhos de compra, processamento de inventário, filas e caches. O Service Fabric é uma plataforma de microsserviços que fornece a cada microsserviço um nome exclusivo que pode ser com ou sem estado.
 
 A Malha do Serviço fornece recursos abrangentes de gerenciamento de ciclo de vida e tempo de execução para aplicativos compostos por esses microsserviços. Ela hospeda microsserviços em contêineres que são implantados e ativados no cluster da Malha do Serviço. Assim como um aumento gigantesco na densidade é possibilitado ao passar de VMs para contêineres, uma ordem de grandeza semelhante na densidade se torna possível ao passar de contêineres para microsserviços. Por exemplo, um único cluster de Banco de Dados SQL do Azure, que é criado no Service Fabric, engloba centenas de computadores que executam dezenas de milhares de contêineres que hospedam um total de centenas de milhares de bancos de dados. (Cada banco de dados é um microsserviço com estado do Service Fabric.) O mesmo se aplica aos Hubs de Eventos e a outros serviços mencionados acima. Por esse motivo o termo "hiperescala" pode ser usado para descrever os recursos do Service Fabric. Se os contêineres fornecem alta densidade, os microsserviços fornecem hiperescala.
+
+Para obter mais informações sobre a abordagem de microsserviços, leia o artigo [Por que usar uma abordagem de microsserviços para construir aplicativos?](service-fabric-overview-microservices.md)
 
 ![Plataforma Service Fabric][Image1]
 
@@ -36,7 +44,7 @@ A Malha do Serviço fornece recursos abrangentes de gerenciamento de ciclo de vi
 
 Os microsserviços sem estado (gateways de protocolo, proxies Web, etc.) não mantêm um estado mutável fora de qualquer solicitação e de sua resposta do serviço. As funções de trabalho dos Serviços de Nuvem do Azure são um exemplo de serviço sem estado. Os microsserviços com estado (contas de usuário, bancos de dados, dispositivos, carrinhos de compra, filas, etc.) mantêm um estado mutável e autoritativo além da solicitação e de sua resposta. Os aplicativos em escala da Internet de hoje consistem em uma combinação de microsserviços com e sem estado.
 
-Por que os microsserviços com estado são importantes? Por que não usar serviços sem estado simplesmente para tudo? Por dois motivos:
+Por que não usar serviços sem estado simplesmente para tudo? Os dois motivos principais são:
 
 1. Capacidade de criar serviços OLTP (transação online) tolerantes a falhas, de alta produtividade e baixa latência, como vitrines interativas, pesquisa, sistemas IoT (Internet das Coisas), sistemas comerciais, sistemas de processamento de cartão de crédito e de detecção de fraude, gerenciamento de registros pessoais, etc., mantendo código e dados encerrados no mesmo computador.
 
@@ -60,15 +68,15 @@ Ao usar a Malha do Serviço, você pode:
 
 - Desenvolver usando uma abordagem "datacenter no seu computador". O ambiente de desenvolvimento local usa o mesmo código que é executado nos datacenters do Azure.
 
-- Desenvolver aplicativos compostos por microsserviços, executáveis e outras estruturas de aplicativo de sua escolha, como ASP.NET, Node.js, etc.
+- Desenvolva aplicativos compostos por microsserviços usando o modelo de programação do Service Fabric ou simplesmente hospede executáveis e outras estruturas de aplicativo de sua preferência, como ASP.NET, Node.js, etc.
 
-- Desenvolver serviços/microsserviços com e sem estado e torná-los altamente confiáveis.
+- Desenvolva microsserviços com e sem monitoração de estado e torne-os altamente confiáveis.
 
-- Simplificar o design do aplicativo usando serviços/microsserviços com estado no lugar de caches e filas.
+- Simplifique o design do seu aplicativo usando microsserviços com monitoramento de estado em vez de caches e filas.
 
 - Implantar aplicativos em segundos.
 
-- Implantar no Azure ou em nuvens locais executando o Windows Server sem mudanças no código. Escreva uma vez e implante em qualquer cluster da Malha do Serviço.
+- Implante no Azure ou em nuvens locais que executam o Windows Server ou o Linux sem qualquer mudança no código. Escreva uma vez em qualquer lugar e implante em qualquer cluster do Service Fabric.
 
 - Implantar aplicativos em densidade mais alta do que as máquinas virtuais, implantando centenas ou milhares de aplicativos por computador.
 
@@ -91,11 +99,11 @@ Ao usar a Malha do Serviço, você pode:
 
 * Para mais informações:
 	* [Por que usar uma abordagem de microsserviço para construir aplicativos?](service-fabric-overview-microservices.md)
-	* [Visão geral técnica](service-fabric-technical-overview.md)
+	* [Visão geral da terminologia](service-fabric-technical-overview.md)
 * Configurando o [ambiente de desenvolvimento](service-fabric-get-started.md) do Service Fabric  
 * Escolhendo uma [estrutura do modelo de programação](service-fabric-choose-framework.md) para o serviço
 
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0224_2016-->

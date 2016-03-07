@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="12/01/2015"
+    ms.date="02/23/2016"
     ms.author="sstein"/>
 
 # Configurar a replicação geográfica para o Banco de Dados SQL do Azure com o PowerShell
@@ -36,7 +36,7 @@ Os bancos de dados Standard podem ter um secundário não legível e devem usar 
 
 Para configurar a replicação geográfica, você precisará do seguinte:
 
-- Uma assinatura do Azure. Se você precisar de uma assinatura do Azure basta clicar em **AVALIAÇÃO GRATUITA** na parte superior desta página e, em seguida, voltar para concluir este artigo.
+- Uma assinatura do Azure. Se você precisar de uma assinatura do Azure basta clicar em **CONTA GRATUITA** na parte superior desta página e, em seguida, voltar para concluir este artigo.
 - Um Banco de Dados SQL do Azure - o banco de dados primário que você deseja replicar para uma região geográfica diferente.
 - Azure PowerShell 1.0 ou posterior. Você pode baixar e instalar os módulos do Azure PowerShell seguindo [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md).
 
@@ -215,4 +215,4 @@ O comando a seguir recupera o status do link de replicação entre o banco de da
 - [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
 - [Documentação do Banco de Dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

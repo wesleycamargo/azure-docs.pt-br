@@ -1,6 +1,7 @@
 <properties
-	pageTitle="Exibir procedimentos armazenados, gatilhos e funções definidas pelo usuário usando o Gerenciador de Script do Banco de Dados de Documentos| Microsoft Azure"
-	description="Saiba mais sobre o Gerenciador de Script do Banco de Dados de Documentos, uma ferramenta do Portal do Azure que permite exibir artefatos de programação do Banco de Dados de Documentos no lado do servidor, incluindo procedimentos armazenados, gatilhos e funções definidas pelo usuário."
+	pageTitle="Gerenciador de Script do Banco de Dados de Documentos, um editor de JavaScript | Microsoft Azure"
+	description="Saiba mais sobre o Gerenciador de Script do Banco de Dados de Documentos, uma ferramenta do Portal do Azure que permite gerenciar artefatos de programação do Banco de Dados de Documentos no lado do servidor, incluindo procedimentos armazenados, gatilhos e funções definidas pelo usuário."
+	keywords="editor de JavaScript"
 	services="documentdb"
 	authors="AndrewHoh"
 	manager="jhubbard"
@@ -12,46 +13,31 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="12/01/2015"
+	ms.topic="article"
+	ms.date="02/23/2016"
 	ms.author="anhoh"/>
 
-# Exibir, editar e criar procedimentos armazenados, gatilhos e funções definidas pelo usuário usando o Gerenciador de Script do Banco de Dados de Documentos
+# Criar e executar procedimentos armazenados, gatilhos e funções definidas pelo usuário usando o Gerenciador de Script do Banco de Dados de Documentos
 
-Este artigo fornece uma visão geral do Gerenciador de Script do [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/), uma ferramenta do Portal do Azure que permite exibir artefatos de programação do Banco de Dados de Documentos no lado do servidor, incluindo procedimentos armazenados, gatilhos e funções definidas pelo usuário. Clique [aqui](documentdb-programming.md) para saber mais sobre programação do Banco de Dados de Documentos no servidor.
+Este artigo fornece uma visão geral do Gerenciador de Script do [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/), um editor de JavaScript no portal do Azure que permite exibir e executar artefatos de programação do Banco de Dados de Documentos no lado do servidor, incluindo procedimentos armazenados, gatilhos e funções definidas pelo usuário. Leia mais sobre programação no lado do servidor do Banco de Dados de Documentos no artigo [Procedimentos armazenados, disparadores de banco de dados e UDFs](documentdb-programming.md).
 
-Depois de concluir este tutorial, você poderá responder às seguintes perguntas:
+## Iniciar Gerenciador de Script
 
--	Como posso exibir facilmente procedimentos armazenados do Banco de Dados de Documentos por meio de um navegador da Web?
--	Como posso exibir facilmente gatilhos do Banco de Dados de Documentos por meio de um navegador da Web?
--	Como posso exibir facilmente funções definidas pelo usuário do Banco de Dados de Documentos por meio de um navegador da Web?
+1. No portal do Azure, no Jumpbar, clique em **Contas do Banco de Dados de Documentos**. Se **Contas do Banco de Dados de Documentos** não estiver visível, clique em **Procurar** e clique em **Contas do Banco de Dados de Documentos**.
 
-## Iniciar e navegar pelo Gerenciador de Script
-
-O Gerenciador de Script pode ser iniciado por meio de qualquer conta, banco de dados ou folha de coleção do Banco de Dados de Documentos.
-
-1. Na parte superior da conta do Banco de Dados de Documentos ou folha de banco de dados, basta clicar no comando **Gerenciador de Script**.
+2. Na parte superior da folha **Conta do Banco de Dados de Documentos**, clique em **Gerenciador de Script**.
 
 	![Captura de tela do comando do Gerenciador de Script](./media/documentdb-view-scripts/scriptexplorercommand.png)
  
-2. Como alternativa, na parte inferior de cada folha, há uma lente **Ferramentas de Desenvolvimento** que contém a parte **Gerenciador de Script**.
+    >[AZURE.NOTE] O Gerenciador de Script também aparece nas folhas do banco de dados e da coleção.
 
-	![Captura de tela da parte do Gerenciador de Script](./media/documentdb-view-scripts/scriptexplorerpart.png)
-
-2. Basta clicar no comando ou na parte para iniciar o Gerenciador de Script.
-
-	<p>As caixas das listas suspensas **Banco de dados** e **Coleção** são preenchidas previamente dependendo do contexto em que você inicia o Gerenciador de Script. Por exemplo, se você iniciá-lo por meio de uma lâmina de banco de dados, o banco de dados atual será preenchido. Se iniciá-lo por meio de uma lâmina de coleção, a coleção atual será preenchida.
+    As caixas das listas suspensas **Banco de dados** e **Coleção** são preenchidas previamente dependendo do contexto em que você inicia o Gerenciador de Script. Por exemplo, se você iniciá-lo por meio de uma lâmina de banco de dados, o banco de dados atual será preenchido. Se iniciá-lo por meio de uma lâmina de coleção, a coleção atual será preenchida.
 
 	![Captura de tela do Gerenciador de Script](./media/documentdb-view-scripts/scriptexplorerinitial.png)
 
+4.  Use as caixas das listas suspensas **Banco de dados** e **Coleção** para alterar a coleção cujos scripts estão sendo exibidos sem precisar fechar e iniciar o Gerenciador de Script novamente.
 
-3. As caixas das listas suspensas **Banco de dados** e **Coleção** podem ser usadas para alterar a coleção cujos scripts estão sendo exibidos sem precisar fechar e iniciar o Gerenciador de Script novamente.
-
-4. O Gerenciador de Script também dá suporte à filtragem do conjunto de scripts carregado atualmente segundo a propriedade de ID. Basta digitar na caixa de filtro.
-
-	![Captura de tela do Gerenciador de Script com filtro realçado](./media/documentdb-view-scripts/scriptexplorerfilter.png)
-
-	E os resultados da lista do Gerenciador de Script são filtrados com base nos critérios fornecidos.
+5. O Gerenciador de Script também dá suporte à filtragem do conjunto de scripts carregado atualmente segundo a propriedade de ID. Digite na caixa de filtro e os resultados da lista do Gerenciador de Script são filtrados com base nos critérios fornecidos.
 
 	![Captura de tela do Gerenciador de Script com resultados filtrados](./media/documentdb-view-scripts/scriptexplorerfilterresults.png)
 
@@ -63,13 +49,13 @@ O Gerenciador de Script pode ser iniciado por meio de qualquer conta, banco de d
 	![Captura de tela do comando de atualização do Gerenciador de Script](./media/documentdb-view-scripts/scriptexplorerrefresh.png)
 
 
-## Exibir, editar, criar e excluir procedimentos armazenados, disparadores e funções definidas pelo usuário com o Gerenciador de Script
+## Criar, exibir e editar procedimentos armazenados, gatilhos e funções definidas pelo usuário
 
 O Gerenciador de Script permite que você execute facilmente operações de CRUD em artefatos de programação do Banco de Dados de Documentos do lado do servidor.
 
-- Para criar um script, basta clicar no comando criar aplicável no Explorador de script , fornecer uma id, inserir o conteúdo do script e clicar no comando **Salvar**.
+- Para criar um script, basta clicar no comando criar aplicável no Explorador de script , fornecer uma id, inserir o conteúdo do script e clicar em **Salvar**.
 
-	![Captura de tela da opção de criação do Gerenciador de Script](./media/documentdb-view-scripts/scriptexplorercreatecommand.png)
+	![Captura de tela da opção Criar do Gerenciador de Script mostrando o editor de JavaScript](./media/documentdb-view-scripts/scriptexplorercreatecommand.png)
 
 - Ao criar um disparador, você também deve especificar a operação e o tipo de gatilho
 
@@ -79,7 +65,7 @@ O Gerenciador de Script permite que você execute facilmente operações de CRUD
 
 	![Captura de tela da experiência de exibição de script do Gerenciador de Script](./media/documentdb-view-scripts/scriptexplorerviewscript.png)
 
-- Para editar um script, basta fazer as alterações desejadas e clicar no comando **Salvar**.
+- Para editar um script, basta fazer as alterações desejadas no editor de JavaScript editor e clicar em **Salvar**.
 
 	![Captura de tela da experiência de exibição de script do Gerenciador de Script](./media/documentdb-view-scripts/scriptexplorereditscript.png)
 
@@ -101,9 +87,34 @@ O Gerenciador de Script permite que você execute facilmente operações de CRUD
 
 	![Captura de tela do comando excluir do Gerenciador de Script](./media/documentdb-view-scripts/scriptexplorerdeletescript2.png)
 
+## Executar um procedimento armazenado
+
+O Gerenciador de Script permite que você execute os procedimentos armazenados no servidor usando o portal do Azure.
+
+- Quando abrir uma nova folha Criar procedimento armazenado, um script padrão (*prefixo*) será fornecido. Para executar o script *prefixo* ou seu próprio script, adicione uma *id* e *entradas*. Para procedimentos armazenados que aceitam vários parâmetros, todas as entradas devem estar em uma matriz (por exemplo, *["foo", "bar"]*).
+
+	![Captura de tela da folha Gerenciador de Script para adicionar entrada e executar procedimento armazenado](./media/documentdb-view-scripts/documentdb-execute-a-stored-procedure-input.png)
+
+- Para executar um procedimento armazenado, basta clicar no comando **Salvar e Executar** no painel do editor de script.
+
+	> [AZURE.NOTE] O comando **Salvar e Executar** salvará o procedimento armazenado antes da execução, o que significa que ele substituirá a versão do procedimento armazenado salva anteriormente.
+
+- As execuções de procedimento armazenado terão status *Procedimento armazenado salvo e executado com êxito* e os resultados retornados serão preenchidos no painel *Resultados*.
+
+	![Captura de tela da folha Procedimentos Armazenados do Gerenciador de Script para executar procedimento armazenado](./media/documentdb-view-scripts/documentdb-execute-a-stored-procedure.png)
+
+- Se a execução encontrar um erro, ele será preenchido no painel *Resultados*.
+
+	![Captura de tela da exibição de propriedades do script do Gerenciador de Script. Executar um procedimento armazenado com erros](./media/documentdb-view-scripts/documentdb-execute-a-stored-procedure-error.png)
+
+## Trabalhar com scripts fora do portal
+
+O Gerenciador de Script no portal do Azure é apenas uma maneira de trabalhar com procedimentos armazenados, disparadores e funções definidas pelo usuário no Banco de Dados de Documentos. Você também pode trabalhar com scripts usando a API REST e os [SDKs clientes](documentdb-sdk-dotnet.md). A documentação da API REST inclui exemplos para trabalhar com [procedimentos armazenados usando REST](https://msdn.microsoft.com/library/azure/mt489092.aspx), [funções definidas pelo usuário usando REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) e [gatilhos usando REST](https://msdn.microsoft.com/library/azure/mt489116.aspx). Existem exemplos disponíveis mostrando como [trabalhar com scripts que usam C#](documentdb-dotnet-samples.md#server-side-programming-examples) e [com os scripts que usam o Node.js](documentdb-nodejs-samples.md#server-side-programming-examples).
+
 ## Próximas etapas
 
-Para saber mais sobre o Banco de Dados de Documentos, clique [aqui](http://azure.com/docdb).
- 
+Saiba mais sobre programação no lado do servidor do Banco de Dados de Documentos no artigo [Procedimentos armazenados, gatilhos de banco de dados e UDFs](documentdb-programming.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+O [Roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/documentdb/) também é um recurso útil para orientar você à medida que for aprendendo a usar o Banco de Dados de Documentos.
+
+<!---HONumber=AcomDC_0224_2016-->

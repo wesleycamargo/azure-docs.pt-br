@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/30/2016"
+	ms.date="02/21/2016"
 	ms.author="tarcher"/>
 
 # Introdução ao armazenamento de blob e aos serviços conectados do Visual Studio (ASP.NET)
 
 ## Visão geral
 
-Este artigo descreve como começar a usar o armazenamento de Blobs do Azure depois de criar ou fazer referência a uma conta de armazenamento do Azure em um aplicativo ASP.NET usando a caixa de diálogo do Visual Studio **Adicionar Serviços Conectados**. O artigo mostra como criar contêineres de blob e executar outras tarefas comuns, como carregar, listar, baixar e excluir blobs. Os exemplos são escritos em C# e usam a [Biblioteca do cliente de armazenamento do Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+Este artigo descreve como começar a usar o armazenamento de Blobs do Azure depois de criar ou fazer referência a uma conta de armazenamento do Azure em um aplicativo ASP.NET usando a caixa de diálogo do Visual Studio **Adicionar Serviços Conectados**. O artigo mostra como criar contêineres de blob e executar outras tarefas comuns, como carregar, listar, baixar e excluir blobs. Os exemplos são escritos em C# e usam a [Biblioteca do Cliente do Armazenamento do Microsoft Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
- - Para obter mais informações sobre como usar o armazenamento de blobs do Azure, consulte [Como usar o Armazenamento de blobs do .NET](storage-dotnet-how-to-use-blobs.md).
+ - Para obter mais informações sobre como usar o Armazenamento de Blobs do Azure, consulte [Introdução ao Armazenamento de Blobs do Azure usando .NET](storage-dotnet-how-to-use-blobs.md).
  - Para obter mais informações sobre projetos ASP.NET, consulte [ASP.NET](http://www.asp.net).
 
 
@@ -76,8 +76,6 @@ O Armazenamento de Blob do Azure oferece suporte a blobs de blocos e a blobs de 
 
 Para carregar um arquivo em um blob de blocos, obtenha uma referência de contêiner e use-a para obter uma referência de blob de blocos. Quando tiver uma referência de blob, poderá transferir qualquer fluxo de dados para ele, chamando o método **UploadFromStream**. Essa operação criará o blob, caso ele não exista, ou o substituirá, caso ele já exista. O exemplo a seguir mostra como carregar um blob em um contêiner e pressupõe que o contêiner já tenha sido criado.
 
-    // Get a CloudBlobContainer named 'container' as described in "Access blob containers in code."
-
     // Create or overwrite the "myblob" blob with contents from a local file.
     using (var fileStream = System.IO.File.OpenRead(@"path\myfile"))
     {
@@ -87,8 +85,6 @@ Para carregar um arquivo em um blob de blocos, obtenha uma referência de contê
 ## Listar os blobs em um contêiner
 
 Para listar os blobs em um contêiner, use o método **ListBlobs** para recuperar os blobs e/ou diretórios dentro dele. Para acessar o avançado conjunto de propriedades e métodos para um **IListBlobItem** retornado, você deve convertê-lo em um objeto **CloudBlockBlob**, **CloudPageBlob** ou **CloudBlobDirectory**. Se o tipo for desconhecido, você poderá usar uma verificação de tipo para determinar no qual convertê-lo. O código a seguir demonstra como recuperar e apresentar a saída do URI de cada item no contêiner **photos**.
-
-    // Get a CloudBlobContainer named 'container' as described in "Access blob containers in code."
 
 	// Loop over items within the container and output the length and URI.
 	foreach (IListBlobItem item in container.ListBlobs(null, false))
@@ -158,8 +154,6 @@ E o exemplo a seguir mostra os resultados.
 
 Para baixar blobs, use o método **DownloadToStream**. O exemplo a seguir usa o método **DownloadToStream** para transferir o conteúdo do blob para um objeto de fluxo que você pode persistir em um arquivo local.
 
-    // Get a CloudBlobContainer named 'container' as described in "Access blob containers in code"
-
     // Retrieve a reference to a blob named "photo1.jpg".
     CloudBlockBlob blockBlob = container.GetBlockBlobReference("photo1.jpg");
 
@@ -170,8 +164,6 @@ Para baixar blobs, use o método **DownloadToStream**. O exemplo a seguir usa o 
     }
 
 Você também pode usar o método **DownloadToStream** para baixar o conteúdo de um blob como uma cadeia de texto.
-
-    // Get a CloudBlobContainer named 'container' as described in "Access blob containers in code"
 
 	// Retrieve a reference to a blob named "myblob.txt"
 	CloudBlockBlob blockBlob2 = container.GetBlockBlobReference("myblob.txt");
@@ -186,8 +178,6 @@ Você também pode usar o método **DownloadToStream** para baixar o conteúdo d
 ## Excluir blobs
 
 Para excluir um blob, use o método **Delete**.
-
-    // Get a CloudBlobContainer named 'container' as described in "Access blob containers in code"
 
     // Retrieve reference to a blob named "myblob.txt".
     CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob.txt");
@@ -237,4 +227,4 @@ Como o exemplo de método chama um método assíncrono, ele deve ser precedido p
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

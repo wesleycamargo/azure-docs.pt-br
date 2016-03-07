@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="02/19/2016" 
 	ms.author="tamram"/>
 
 # Gerenciar o acesso de leitura anônimo aos contêineres e blobs
@@ -40,7 +40,7 @@ Você pode definir permissões de contêiner das seguintes maneiras:
 
 - No [Portal do Azure](https://portal.azure.com).
 - Programaticamente, usando a biblioteca de cliente de armazenamento ou a API REST.
-- Usando o PowerShell. Para obter informações sobre como configurar permissões de contêiner do Azure PowerShell, consulte [Usando o Azure PowerShell com o Armazenamento do Azure](storage-powershell-guide-full#how-to-manage-azure-blobs).
+- Usando o PowerShell. Para obter informações sobre como configurar permissões de contêiner do Azure PowerShell, consulte [Usando o Azure PowerShell com o Armazenamento do Azure](storage-powershell-guide-full.md#how-to-manage-azure-blobs).
 
 ### Definindo permissões de contêiner no Portal do Azure
 
@@ -155,4 +155,4 @@ A tabela a seguir mostra quais operações podem ser chamadas por usuários anô
 - [Assinaturas de acesso compartilhado: noções básicas sobre o modelo SAS](storage-dotnet-shared-access-signature-part-1.md)
 - [Delegando acesso com uma assinatura de acesso compartilhado](https://msdn.microsoft.com/library/azure/ee395415.aspx) 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

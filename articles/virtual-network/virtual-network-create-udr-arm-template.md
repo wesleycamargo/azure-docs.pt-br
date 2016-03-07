@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Controlar o roteamento e usar dispositivos virtuais no Gerenciador de Recursos usando um modelo | Microsoft Azure"
-   description="Aprenda a controlar o roteamento e usar dispositivos virtuais no Azure usando modelos"
+   description="Saiba como controlar o roteamento e usar dispositivos virtuais no Azure Resource Manager usando um modelo"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="02/23/2016"
    ms.author="telmos" />
 
-#Criar UDR (Rotas Definidas pelo Usuário) usando um modelo
+#Criar UDR (Rotas de Definida pelo Usuário) no Gerenciador de Recursos usando um modelo
 
 [AZURE.INCLUDE [virtual-network-create-udr-arm-selectors-include.md](../../includes/virtual-network-create-udr-arm-selectors-include.md)]
 
@@ -31,7 +31,7 @@
 
 Você pode exibir e baixar o [modelo de exemplo](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR).
 
-A seção a seguir mostra a definição de UDR de front-end no arquivo azuredeploy-vnet-nsg-udr.json com base no cenário acima.
+A seção a seguir mostra a definição de UDR de front-end no arquivo **azuredeploy-vnet-nsg-udr.json** com base no cenário acima.
 
 	"apiVersion": "2015-06-15",
 	"type": "Microsoft.Network/routeTables",
@@ -108,7 +108,7 @@ Você também precisa garantir que a VM **FW1** tenha a propriedade de encaminha
 
 ## Implantar o modelo ARM usando clique para implantar
 
-O modelo de exemplo disponível no repositório público usa um arquivo de parâmetro que contém os valores padrão usados para gerar o cenário descrito acima. Para implantar esse modelo usando a opção clique para implantar, siga [esse link](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR), clique em **Implantar no Azure**, substitua os valores de parâmetro padrão, se necessário, e siga as instruções no portal.
+O modelo de exemplo disponível no repositório público usa um arquivo de parâmetro que contém os valores padrão usados para gerar o cenário descrito acima. Para implantar esse modelo usando a opção de clique para implantar, acesse [este link](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR), clique em **Implantar no Azure**, substitua os valores de parâmetro padrão, se necessário, e siga as instruções no portal.
 
 ## Implantar o modelo ARM usando o PowerShell
 
@@ -116,13 +116,17 @@ Para implantar o modelo ARM baixado usando o PowerShell, siga as etapas abaixo.
 
 [AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
-1. Se você nunca usou o Azure PowerShell, consulte [como instalar e configurar o Azure PowerShell](powershell-install-configure.md) e siga as instruções até o final para entrar no Azure e selecionar sua assinatura.
+1. Se você nunca usou o Azure PowerShell, consulte [Como Instalar e Configurar o Azure PowerShell](../powershell-install-configure.md) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
 
-3. Execute o cmdlet **New-AzureRmResourceGroup** para criar um grupo de recursos usando o modelo.
+2. Execute o cmdlet `New-AzureRmResourceGroup` para criar um grupo de recursos.
 
-		New-AzureRmResourceGroup -Name TestRG -Location westus `
-		    -TemplateFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json' `
-		    -TemplateParameterFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json'	
+		New-AzureRmResourceGroup -Name TestRG -Location westus
+
+3. Execute o cmdlet `New-AzureRmResourceGroupDeployment` para implantar o modelo.
+
+		New-AzureRmResourceGroupDeployment -Name DeployUDR -ResourceGroupName TestRG `
+		    -TemplateUri https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json `
+		    -TemplateParameterUri https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json	    	
 
 	Saída esperada:
 
@@ -164,14 +168,14 @@ Para implantar o modelo ARM baixado usando o PowerShell, siga as etapas abaixo.
 		                    testvnetstorageprm  Microsoft.Storage/storageAccounts        westus  
 		                    testvnetstoragestd  Microsoft.Storage/storageAccounts        westus  
 		                    
-		ResourceId        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG
+		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
 
 ## Implantar o modelo ARM usando a CLI do Azure
 
 Para implantar o modelo ARM usando a CLI do Azure, siga as etapas abaixo.
 
-1. Se você nunca usou a CLI do Azure, veja [Instalar e configurar a CLI do Azure](xplat-cli.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
-2. Execute o comando **azure config mode** para alternar para o modo do Gerenciador de Recursos, como mostrado abaixo.
+1. Se você nunca usou a CLI do Azure, consulte [Instalar e configurar a CLI do Azure](../xplat-cli-install.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
+2. Execute o comando `azure config mode` para alternar para o modo do Gerenciador de Recursos, como mostrado abaixo.
 
 		azure config mode arm
 
@@ -179,7 +183,7 @@ Para implantar o modelo ARM usando a CLI do Azure, siga as etapas abaixo.
 
 		info:    New mode is arm
 
-3. No seu navegador, navegue até ****https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, copie o conteúdo do arquivo json e cole em um novo arquivo em seu computador. Para esse cenário, você deve copiar o valores abaixo em um arquivo chamado **c:\\udr\\azuredeploy.parameters.json**.
+3. No navegador, navegue até ****https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, copie o conteúdo do arquivo JSON e cole-o em um novo arquivo em seu computador. Para esse cenário, você deve copiar o valores abaixo em um arquivo chamado **c:\\udr\\azuredeploy.parameters.json**.
 
 		{
 		  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -218,7 +222,7 @@ Para implantar o modelo ARM usando a CLI do Azure, siga as etapas abaixo.
 		data:    
 		info:    group create command OK
 
-5. Execute o comando **exibir grupo do azure** para exibir os recursos criados no novo grupo de recursos.
+5. Execute o comando **azure group show** para exibir os recursos criados no novo grupo de recursos.
 
 		azure group show TestRG
 
@@ -390,6 +394,6 @@ Para implantar o modelo ARM usando a CLI do Azure, siga as etapas abaixo.
 		data:    
 		info:    group show command OK
 
->[AZURE.TIP]Se você não vir todos os recursos, execute o comando **exibir implantação de grupo do azure** para garantir que o estado de provisionamento da implantação é *bem-sucedido*.
+>[AZURE.TIP] Se você não encontrar todos os recursos, execute o comando `azure group deployment show` para garantir que o estado de provisionamento da implantação seja *Êxito*.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

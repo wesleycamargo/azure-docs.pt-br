@@ -3,7 +3,7 @@
 	description="Saiba como monitorar uma conta de armazenamento no Azure usando o Portal do Azure."
 	services="storage"
 	documentationCenter=""
-	authors="tamram"
+	authors="robinsh"
 	manager="carmonm"
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
-	ms.author="tamram"/>
+	ms.date="02/19/2016"
+	ms.author="robinsh"/>
 
 # Monitorar uma conta de armazenamento no Portal do Azure
 
@@ -157,4 +157,4 @@ Para cada um dos serviços de armazenamento disponíveis com sua conta de armaze
 
 Os logs de diagnóstico são salvos em um contêiner de blob denominado $logs em sua conta de armazenamento. Para obter informações sobre como acessar o contêiner $logs, consulte [Sobre o Log de Analítica do Armazenamento](http://msdn.microsoft.com/library/azure/hh343262.aspx)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

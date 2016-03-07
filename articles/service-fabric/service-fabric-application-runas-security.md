@@ -13,21 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/24/2015"
+   ms.date="02/12/2016"
    ms.author="mfussell"/>
 
 # RunAs: Executar um aplicativo de Service Fabric com permissões de segurança diferentes
 O Service Fabric do Azure fornece o recurso de proteção de aplicativos em execução no cluster em contas de usuário diferentes, conhecido como **RunAs**. O Service Fabric também protege os recursos usados pelos aplicativos com a conta de usuário, como arquivos, diretórios e certificados.
 
-Por padrão, os aplicativos de Service Fabric são executados na conta sob a qual o processo Fabric.exe está sendo executado. O Service Fabric também fornece a capacidade de executar aplicativos em uma conta de usuário local, especificada no manifesto do aplicativo. Os tipos de conta com suporte para RunAs são **LocalUser**, **NetworkService**, **LocalService** e **LocalSystem**.
+Por padrão, os aplicativos de Service Fabric são executados na conta sob a qual o processo Fabric.exe está sendo executado. O Service Fabric também fornece a capacidade de executar aplicativos em uma conta de usuário ou em um sistema local especificado no manifesto do aplicativo. Os tipos de conta do sistema local com suporte para RunAs são **LocalUser**, **NetworkService**, **LocalService** e **LocalSystem**.
 
-> [AZURE.NOTE]As contas de domínio têm suporte em implantações do Windows Server nas quais o Active Directory do Azure está disponível.
+> [AZURE.NOTE] As contas de domínio têm suporte em implantações do Windows Server nas quais o Active Directory do Azure está disponível.
 
 É possível definir e criar grupos de usuários onde um ou mais usuários podem ser adicionados a cada grupo a gerenciados em conjunto. Isso será particularmente útil quando houver vários usuários para pontos de entrada de serviço diferentes e eles precisarem de privilégios comuns disponíveis no nível do grupo.
 
 ## Definir a política de RunAs para SetupEntryPoint
 
-Como descrito no [modelo de aplicativo](service-fabric-application-model.md), o **SetupEntryPoint** é um ponto de entrada privilegiado executado com as mesmas credenciais que o Service Fabric (normalmente, a conta *rede*) antes de qualquer outro ponto de entrada. O arquivo executável especificado pelo **EntryPoint** normalmente é o host de serviço de longa execução; portanto, ter um ponto de entrada de instalação separado evita a necessidade de executar o executável do host de serviço com altos privilégios por longos períodos de tempo. O executável especificado pelo **EntryPoint** é executado depois que o **SetupEntryPoint** é encerrado com êxito. O processo resultante é monitorado e reiniciado (começando novamente com **SetupEntryPoint**) se ele terminar ou falhar.
+Como descrito no [modelo de aplicativo](service-fabric-application-model.md), o **SetupEntryPoint** é um ponto de entrada privilegiado executado com as mesmas credenciais que o Service Fabric (normalmente, a conta *NetworkService*) antes de qualquer outro ponto de entrada. O arquivo executável especificado pelo **EntryPoint** normalmente é o host de serviço de longa execução; portanto, ter um ponto de entrada de instalação separado evita a necessidade de executar o executável do host de serviço com altos privilégios por longos períodos de tempo. O executável especificado pelo **EntryPoint** é executado depois que o **SetupEntryPoint** é encerrado com êxito. O processo resultante é monitorado e reiniciado (começando novamente com **SetupEntryPoint**) se ele terminar ou falhar.
 
 Veja abaixo um exemplo simples de manifesto do serviço mostrando o SetupEntryPoint e o EntryPoint principal para o serviço.
 
@@ -42,6 +42,7 @@ Veja abaixo um exemplo simples de manifesto do serviço mostrando o SetupEntryPo
     <SetupEntryPoint>
       <ExeHost>
         <Program>MySetup.bat</Program>
+        <WorkingFolder>CodePackage</WorkingFolder>
       </ExeHost>
     </SetupEntryPoint>
     <EntryPoint>
@@ -54,9 +55,9 @@ Veja abaixo um exemplo simples de manifesto do serviço mostrando o SetupEntryPo
 </ServiceManifest>
 ~~~
 
-### Configurar a política de RunAs
+### Configurar a política RunAs usando uma conta local
 
-Após ter configurado do serviço para ter um SetupEntryPoint, é possível alterar as permissões de segurança sob as quais ele é executado no manifesto do aplicativo. O exemplo a seguir mostra como configurar o serviço para ser executado com privilégios de conta de administrador.
+Após ter configurado do serviço para ter um SetupEntryPoint, é possível alterar as permissões de segurança sob as quais ele é executado no manifesto do aplicativo. O exemplo a seguir mostra como configurar o serviço para ser executado com privilégios de conta de administrador de usuário.
 
 ~~~
 <?xml version="1.0" encoding="utf-8"?>
@@ -93,13 +94,13 @@ Em seguida, certifique-se de que o arquivo MySetup.bat é incluído no service p
 Agora, abra o arquivo MySetup.bat e adicione os comandos a seguir.
 
 ~~~
-REM Defina uma variável de ambiente do sistema. Isso requer privilégios de administrador
+REM Set a system environment variable. This requires administrator privilege
 setx -m TestVariable "MyValue"
-echo System TestVariable set to > test.txt
-echo %TestVariable% >> test.txt
+echo System TestVariable set to > out.txt
+echo %TestVariable% >> out.txt
 
-REM Para excluir essa variável do sistema use
-REM REG delete "HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment" /v TestVariable /f
+REM To delete this system variable us
+REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v TestVariable /f
 ~~~
 
 Em seguida, compile e implante a solução em um cluster de desenvolvimento local. Após a inicialização do serviço, conforme mostrado no Gerenciador do Service Fabric, é possível ver que MySetup.bat foi bem-sucedido de duas maneiras. Abra um prompt de comando do PowerShell e digite:
@@ -115,8 +116,30 @@ Em seguida, anote o nome do nó em que o serviço foi implantado e iniciado no G
 C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ~~~
 
+###  Configurar a política RunAs usando contas do sistema local
+Em geral, é preferível executar o script de inicialização usando uma conta do sistema local em vez de uma conta de administradores, como mostrado acima. A execução da política RunAs como administrador geralmente não funciona bem, já que os computadores têm o UAC (Controle de Acesso de Usuário) habilitado por padrão. Em tais casos, **a recomendação é executar o SetupEntryPoint como LocalSystem em vez de um usuário local adicionado ao grupo Administradores**. O exemplo a seguir mostra a definição de SetupEntryPoint para ser executado como LocalSystem.
+
+~~~
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+   <ServiceManifestImport>
+      <ServiceManifestRef ServiceManifestName="MyServiceTypePkg" ServiceManifestVersion="1.0.0" />
+      <ConfigOverrides />
+      <Policies>
+         <RunAsPolicy CodePackageRef="Code" UserRef="SetupLocalSystem" EntryPointType="Setup" />
+      </Policies>
+   </ServiceManifestImport>
+   <Principals>
+      <Users>
+         <User Name="SetupLocalSystem" AccountType="LocalSystem" />
+      </Users>
+   </Principals>
+</ApplicationManifest>
+~~~
+
 ##  Iniciar comandos do PowerShell a partir do SetupEntryPoint
-Para executar o PowerShell a partir do ponto **SetupEntryPoint**, execute **PowerShell.exe** em um arquivo em lotes que aponte para um arquivo do PowerShell. Primeiro, adicione um arquivo do PowerShell ao projeto de serviço, por exemplo, **MySetup.ps1**. Não deixe de definir a propriedade *Copiar se for mais recente* para que esse arquivo também seja incluído no pacote de serviço. O exemplo a seguir mostra um exemplo de arquivo em lotes para iniciar um arquivo do PowerShell chamado MySetup.ps1, que define uma variável de ambiente do sistema chamada **TestVariable**.
+Para executar o PowerShell do ponto **SetupEntryPoint**, execute **PowerShell.exe** em um arquivo em lotes que aponte para um arquivo do PowerShell. Primeiro, adicione um arquivo do PowerShell ao projeto de serviço, por exemplo, **MySetup.ps1**. Não deixe de definir a propriedade *Copiar se for mais recente* para que esse arquivo também seja incluído no pacote de serviço. O exemplo a seguir mostra um exemplo de arquivo em lotes para iniciar um arquivo do PowerShell chamado MySetup.ps1, que define uma variável de ambiente do sistema chamada **TestVariable**.
+
 
 Use MySetup.bat para iniciar o arquivo do PowerShell.
 
@@ -126,16 +149,52 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 
 No arquivo do PowerShell, adicione o seguinte para definir uma variável de ambiente do sistema:
 
-```
+~~~
 [Environment]::SetEnvironmentVariable("TestVariable", "MyValue", "Machine")
 [Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt
-```
+~~~
+
+**Observação:** por padrão, quando o arquivo em lote é executado, ele examina a pasta de aplicativo chamada **trabalho** em busca de arquivos. Nesse caso, quando MySetup.bat é executado, queremos que o MySetup.ps1 seja encontrado na mesma pasta, que é a pasta do **pacote de código** do aplicativo. Para alterar essa pasta, defina a pasta de trabalho como mostrado abaixo.
+    
+~~~
+<SetupEntryPoint>
+    <ExeHost>
+    <Program>MySetup.bat</Program>
+    <WorkingFolder>CodePackage</WorkingFolder>
+    </ExeHost>
+</SetupEntryPoint> 
+~~~
+
+## Usando a política de redirecionamento de console para depuração local dos pontos de entrada
+De vez em quando, é útil ver a saída do console da execução de um script para fins de depuração. Para fazer isso, você pode definir uma política de redirecionamento de console que grava a saída em um arquivo. A saída do arquivo é gravada na pasta de aplicativo chamada **log** no nó onde o aplicativo é implantado e executado (veja onde encontrá-la no exemplo acima).
+
+**Observação: nunca** use a política de redirecionamento de console em um aplicativo implantado na produção, pois isso pode afetar o failover do aplicativo. **SÓ** use isso para fins de depuração e de desenvolvimento locais.
+
+O exemplo a seguir mostra a configuração de redirecionamento do console com um valor de FileRetentionCount.
+
+~~~
+<SetupEntryPoint>
+    <ExeHost>
+    <Program>MySetup.bat</Program>
+    <WorkingFolder>CodePackage</WorkingFolder>
+    <ConsoleRedirection FileRetentionCount="10"/>
+    </ExeHost>
+</SetupEntryPoint> 
+~~~
+
+Se você alterar o arquivo MySetup.ps1 para gravar um comando **Echo**, ele gravará o arquivo de saída para fins de depuração.
+
+~~~
+Echo "Test console redirection which writes to the application log folder on the node that the application is deployed to" 
+~~~
+
+**Depois de ter depurado seu script, remova imediatamente a política de redirecionamento de console**
 
 ## Aplicar RunAsPolicy aos serviços
 Nas etapas acima, você viu como aplicar a política RunAs a um SetupEntryPoint. Agora, vamos analisar com mais detalhes como criar entidades diferentes que possam ser aplicadas como políticas de serviço.
 
 ### Criar grupos de usuários locais
-É possível definir e criar grupos de usuários nos quais um ou mais usuários podem ser adicionados a um grupo. Isso será particularmente útil se houver vários usuários para pontos de entrada de serviço diferentes e eles precisarem de privilégios comuns disponíveis no nível do grupo. O exemplo a seguir mostra um grupo local chamado **LocalAdminGroup** com privilégios de Administrador. Dois usuários, Customer1 e Customer2, tornam-se membros desse grupo local.
+É possível definir e criar grupos de usuários nos quais um ou mais usuários podem ser adicionados a um grupo. Isso será particularmente útil se houver vários usuários para pontos de entrada de serviço diferentes e eles precisarem de privilégios comuns disponíveis no nível do grupo. O exemplo a seguir mostra um grupo local chamado **LocalAdminGroup** com privilégios de administrador. Dois usuários, Customer1 e Customer2, tornam-se membros desse grupo local.
 
 ~~~
 <Principals>
@@ -162,7 +221,7 @@ Nas etapas acima, você viu como aplicar a política RunAs a um SetupEntryPoint.
 ~~~
 
 ### Criar usuários locais
-Você pode criar um usuário local que pode ser usado para proteger um serviço dentro do aplicativo. Quando um tipo de conta **LocalUser** é especificado na seção Principals do manifesto do aplicativo, o Service Fabric cria contas de usuário local em máquinas nas quais o aplicativo foi implantado. Por padrão, essas contas não têm os mesmos nomes especificados no manifesto do aplicativo (por exemplo, Customer3 no exemplo abaixo). Em vez disso, eles são gerados dinamicamente e têm senhas aleatórias.
+Você pode criar um usuário local que pode ser usado para proteger um serviço dentro do aplicativo. Quando um tipo de conta **LocalUser** é especificado na seção Entidades do manifesto do aplicativo, o Service Fabric cria contas de usuário local em máquinas nas quais o aplicativo foi implantado. Por padrão, essas contas não têm os mesmos nomes especificados no manifesto do aplicativo (por exemplo, Customer3 no exemplo abaixo). Em vez disso, eles são gerados dinamicamente e têm senhas aleatórias.
 
 ~~~
 <Principals>
@@ -182,7 +241,7 @@ Você pode criar um usuário local que pode ser usado para proteger um serviço 
 -->
 
 ## Atribuir políticas aos pacotes de códigos do serviço
-A seção **RunAsPolicy** para um **ServiceManifestImport** especifica a conta da seção de entidades que deve ser usada para executar um pacote de códigos. Ela também associa os pacotes de código do manifesto do serviço com contas de usuário na seção entidades. Você pode especificar isso para os pontos de entrada de configuração ou principal, ou especificar Todos para aplicar a ambos. O exemplo a seguir mostra a aplicação de políticas diferentes:
+A seção **RunAsPolicy** para uma **ServiceManifestImport** especifica a conta da seção de entidades que deve ser usada para executar um pacote de códigos. Ela também associa os pacotes de código do manifesto do serviço com contas de usuário na seção entidades. Você pode especificar isso para os pontos de entrada de configuração ou principal, ou especificar Todos para aplicar a ambos. O exemplo a seguir mostra a aplicação de políticas diferentes:
 
 ~~~
 <Policies>
@@ -194,7 +253,7 @@ A seção **RunAsPolicy** para um **ServiceManifestImport** especifica a conta d
 Se **EntryPointType** não for especificado, o padrão será definido como EntryPointType ="Main". A especificação de um **SetupEntryPoint** é especialmente útil quando você deseja executar determinada operação de instalação de privilégio alto em uma conta do sistema. O código de serviço real pode ser executado em uma conta de baixo privilégio.
 
 ### Aplicar uma política padrão a todos os pacotes de códigos de serviço
-A seção **DefaultRunAsPolicy** é usada para especificar uma conta de usuário padrão para todos os pacotes de códigos que não tenham uma **RunAsPolicy** específica definida. Quando a maioria dos pacotes de códigos especificada nos manifestos do serviço usados por um aplicativo precisar ser executada com o mesmo usuário de RunAs, o aplicativo poderá definir apenas uma política RunAs padrão nessa conta de usuário, em vez de especificar uma **RunAsPolicy** para cada pacote de códigos. O exemplo a seguir especifica que quando um pacote de códigos não tiver uma **RunAsPolicy** especificada, ele deverá ser executado em uma **MyDefaultAccount** especificada na seção Principals.
+A seção **DefaultRunAsPolicy** é usada para especificar uma conta de usuário padrão para todos os pacotes de códigos que não tenham uma **RunAsPolicy** específica definida. Quando a maioria dos pacotes de códigos especificada nos manifestos do serviço usados por um aplicativo precisar ser executada com o mesmo usuário de RunAs, o aplicativo poderá definir apenas uma política RunAs padrão nessa conta de usuário, em vez de especificar uma **RunAsPolicy** para cada pacote de códigos. O exemplo a seguir especifica que quando um pacote de códigos não tiver uma **RunAsPolicy** especificada, ele deverá ser executado em uma **MyDefaultAccount** especificada na seção Entidades.
 
 ~~~
 <Policies>
@@ -292,4 +351,4 @@ O manifesto do aplicativo abaixo mostra várias configurações diferentes descr
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0224_2016-->

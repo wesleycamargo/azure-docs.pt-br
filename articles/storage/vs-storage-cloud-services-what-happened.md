@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-  ms.date="12/16/2015"
+	ms.date="02/21/2016"
 	ms.author="tarcher"/>
 
 # O que aconteceu ao meu projeto dos serviços de nuvem (serviço conectado do Armazenamento do Azure do Visual Studio)?
@@ -38,4 +38,4 @@ Elementos foram criados com a cadeia de conexão e chave da conta de armazenamen
 - **ServiceConfiguration.Cloud.cscfg**
 - **ServiceConfiguration.Local.cscfg**
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

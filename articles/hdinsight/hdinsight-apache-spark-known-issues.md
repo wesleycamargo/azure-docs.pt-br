@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="02/17/2016" 
 	ms.author="nitinme"/>
 
 # Problemas conhecidos do Apache Spark no Azure HDInsight (Linux)
@@ -54,11 +54,11 @@ O servidor de histórico Spark não é iniciado automaticamente depois de um clu
 
 Inicie manualmente o servidor de histórico do Ambari.
 
-##Erro ao carregar um bloco de anotações com mais de 2 MB.
+##Erro ao carregar um Notebook de tamanhos maiores
 
 **Sintoma:**
 
-Você pode visualizar um erro **`Error loading notebook`** ao carregar blocos de anotações com mais de 2 MB.
+Você pode encontrar um erro **`Error loading notebook`** ao carregar notebooks com um tamanho maior.
 
 **Atenuação:**
 
@@ -75,68 +75,26 @@ Para evitar que esse erro aconteça no futuro, você deve seguir algumas prátic
 
 **Sintoma:**
 
-A primeira instrução no notebook Jupyter usando o Magic Spark pode demorar mais de um minuto.
+A primeira instrução no notebook Jupyter usando a mágica do Spark pode demorar mais de um minuto.
 
-**Atenuação:**
+**Explicação:**
  
-Não há solução alternativa. Leva um minuto às vezes.
+Isso acontece quando a primeira célula de código é executada. Em segundo plano, isso inicia a configuração de sessão e os contextos de Spark, SQL e Hive são definidos. Depois desses contextos são definidos, a primeira instrução é executada e isso dá a impressão de que a instrução levou muito tempo para ser concluída.
 
 ##Tempo limite do notebook do Jupyter atingido na criação da sessão
 
 **Sintoma:**
 
-Quando o cluster Spark está sem recursos, os kernels Spark e Pyspark no notebook do Jupyter atingirão o tempo limite ao tentar criar a sessão. Atenuações:
+Quando o cluster Spark está sem recursos, os kernels Spark e Pyspark no notebook do Jupyter atingirão o tempo limite ao tentar criar a sessão.
+
+**Atenuações:**
 
 1. Libere alguns recursos do cluster Spark:
 
-    - Pare outros blocos de anotações do Spark no menu Fechar e Parar ou clicando em Desligar no gerenciador de notebook.
-    - Pare outros aplicativos do Spark YARN.
+    - Pare outros notebooks do Spark no menu Fechar e Parar ou clicando em Desligar no gerenciador de notebook.
+    - Interrompendo outros aplicativos Spark do YARN.
 
 2. Reinicie o notebook que você está tentando iniciar. Recursos suficientes devem estar disponíveis para você criar uma sessão agora.
-
-##Problema de formatação de resultados de saída do notebook
-
-**Sintoma:**
- 
-Resultados de saída do notebook são formatados incorretamente após a execução de uma célula a partir dos kernels Spark e Pyspark Jupyter. Isso inclui resultados bem-sucedidos de execuções de célula, bem como stacktraces do Spark ou outros erros.
-
-**Atenuação:**
- 
-Esse problema será corrigido em uma versão futura.
-
-##Erros de digitação em notebooks de amostra
- 
-- **Notebook do Python 4 (analisar logs com o Spark usando uma biblioteca personalizada)**
-
-    "Vamos supor que você os copie para wasb:///example/data/iislogparser.py" deveria ser "Vamos supor que você os copie para wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py"".
-
-- **Notebook Python 5 (aprendizado de máquina Spark - análise de previsão em dados de inspeção de alimentos usando MLLib)**
-
-    "Uma visualização rápida pode ajudar a entender a distribuição desses resultados" contém algum código incorreto que não será executado. Deve ser editado para o seguinte:
-
-        countResults = df.groupBy('results').count().withColumnRenamed('count', 'cnt').collect() 
-        labels = [row.results for row in countResults] 
-        sizes = [row.cnt for row in countResults] 
-        colors = ['turquoise', 'seagreen', 'mediumslateblue', 'palegreen', 'coral'] 
-        plt.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors) plt.axis('equal') 
-        
-- **Notebook Python 5 (aprendizado de máquina Spark - análise de previsão em dados de inspeção de alimentos usando MLLib)**
-
-    O comentário final nota que a taxa de falsos negativos e a taxa de falsos positivos são 12,6% e 16,0% respectivamente. Esses números estão incorretos; execute o código para exibir o gráfico de pizza com as porcentagens reais.
-
-- **Notebooks do Python 6 e 7**
-
-    A primeira célula falha em registrar o método sc.stop() a ser chamado quando o notebook é encerrado. Em determinadas circunstâncias, isso pode causar perda de recursos do Spark. Você pode evitar isso certificando-se executar a importação atexit; atexit.register(lambda:sc.stop()) nesses notebooks antes de interrompê-los. Se você tiver acidentalmente vazado recursos, siga as instruções acima para eliminar aplicativos YARN com vazamento.
-     
-##Não é possível personalizar as configurações de memória/núcleo
-
-**Sintoma:**
- 
-Você não pode especificar configurações de memória/núcleo diferentes do padrão de kernels Spark/Pyspark.
-
-**Atenuação:**
- 
-Este recurso estará disponível no futuro.
 
 ## Problema de permissão no diretório de log do Spark 
 
@@ -156,4 +114,4 @@ Quando hdiuser envia um trabalho com spark-submit, há um erro java.io.FileNotFo
 - [Visão geral: Apache Spark no Azure HDInsight (Linux)](hdinsight-apache-spark-overview.md)
 - [Introdução: provisionar o Apache Spark no Azure HDInsight (Linux) e executar consultas interativas usando o Spark SQL](hdinsight-apache-spark-jupyter-spark-sql.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

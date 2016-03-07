@@ -486,7 +486,7 @@ fileName | Especifique o nome do arquivo no **folderPath** se quiser que a tabel
 partitionedBy | partitionedBy pode utilizado para especificar um filename, folderPath dinâmico para dados de série temporal. Por exemplo, folderPathparametrizado para cada hora dos dados. | Não
 Formatar | Há suporte para dois tipos de formatos: **TextFormat**, **AvroFormat**. Você precisa definir a propriedade type no formato para qualquer um desses valores. Quando o forAvroFormatmat é TextFormat, você pode especificar as propriedades opcionais adicionais para o formato. Consulte a seção abaixo para obter mais detalhes. **A propriedade Format não tem suporte atualmente para sistemas de arquivos locais. Ele deve ser habilitado em breve, conforme documentado aqui.** | Não
 fileFilter | Especifique um filtro a ser usado para selecionar um subconjunto de arquivos no folderPath em vez de todos os arquivos. <p>Os valores permitidos são: * (vários caracteres) e ? (um único caractere).</p><p>Exemplo 1: "fileFilter": "*.log"</p>Exemplo 2: "fileFilter": 2014-1-?.txt"</p><p>**Observação: fileFilter é aplicável a um conjunto de dados FileShare de entrada</p> | Não
-| compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos com suporte são: GZip, Deflate e BZip2. Os níveis com suporte são: Melhor e Mais rápido. Consulte a seção [Suporte à compactação](#compression-support) para obter mais detalhes. | Não |
+| compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos com suporte são: **GZip**, **Deflate** e **BZip2** e os níveis com suporte são: **Melhor** e **Mais rápido**. Consulte a seção [Suporte à compactação](#compression-support) para obter mais detalhes. | Não |
 
 > [AZURE.NOTE] filename e fileFilter não podem ser usados simultaneamente.
 
@@ -608,4 +608,4 @@ false | mergeFiles | <p>Para uma pasta de origem Pasta 1 com a seguinte estrutur
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="02/17/2016" 
 	ms.author="nitinme"/>
 
 
@@ -63,7 +63,7 @@ Nas etapas a seguir, você desenvolverá um modelo para ver o que é necessário
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-2. Crie um novo bloco de anotações. Clique em **Novo** e em **Python 2**.
+2. Crie um novo bloco de anotações. Clique em **Novo** e em **PySpark**.
 
 	![Criar um novo bloco de anotações do Jupyter](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.createnotebook.png "Criar um novo bloco de anotações do Jupyter")
 
@@ -71,27 +71,15 @@ Nas etapas a seguir, você desenvolverá um modelo para ver o que é necessário
 
 	![Fornecer um nome para o bloco de anotações](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.notebook.name.png "Fornecer um nome para o bloco de anotações")
 
-3. Comece a criar seu aplicativo de aprendizado de máquina. Você deve iniciar com a configuração do ambiente Pyspark. Para fazer isso, coloque o cursor na célula e pressione **SHIFT + ENTER**.
+3. Por ter criado um notebook usando o kernel PySpark, não será necessário criar nenhum contexto explicitamente. Os contextos do Spark, SQL e Hive serão criados automaticamente para você ao executar a primeira célula de código. Você pode começar a criar seu aplicativo de aprendizado de máquina importando os tipos necessários para este cenário. Para fazer isso, coloque o cursor na célula e pressione **SHIFT + ENTER**.
 
 
-		import pyspark
-		from pyspark import SparkConf
-		from pyspark import SparkContext
-		from pyspark.sql import SQLContext
-		%matplotlib inline
-		import matplotlib.pyplot as plt
 		from pyspark.ml import Pipeline
 		from pyspark.ml.classification import LogisticRegression
 		from pyspark.ml.feature import HashingTF, Tokenizer
 		from pyspark.sql import Row
 		from pyspark.sql.functions import UserDefinedFunction
 		from pyspark.sql.types import *
-		import atexit
-		
-		sc = SparkContext(conf=SparkConf().setMaster('yarn-client'))
-		sqlContext = SQLContext(sc)
-		atexit.register(lambda: sc.stop())
-
 
 ## Construir um dataframe de entrada
 
@@ -143,19 +131,21 @@ Já temos um SQLContext que podemos usar para realizar transformações em dados
 	      '(41.97583445690982, -87.7107455232781)']]
 
 
-3. A saída acima nos dá uma ideia do esquema do arquivo de entrada; o arquivo inclui o nome de cada estabelecimento, o tipo de estabelecimento, o endereço, os dados da inspeção e a localização, entre outras informações. Vamos selecionar algumas colunas que serão úteis para nossa análise de previsão e agrupar os resultados como um dataframe.
+3. A saída acima nos dá uma ideia do esquema do arquivo de entrada; o arquivo inclui o nome de cada estabelecimento, o tipo de estabelecimento, o endereço, os dados da inspeção e a localização, entre outras informações. Vamos selecionar algumas colunas que serão úteis para nossa análise de previsão e agrupar os resultados como uma estrutura de dados, que usaremos então para criar uma tabela temporária.
 
 
 		schema = StructType([
-		        StructField("id", IntegerType(), False), 
-		        StructField("name", StringType(), False), 
-		        StructField("results", StringType(), False), 
-		        StructField("violations", StringType(), True)])
-		
+        StructField("id", IntegerType(), False), 
+        StructField("name", StringType(), False), 
+        StructField("results", StringType(), False), 
+        StructField("violations", StringType(), True)])
+
 		df = sqlContext.createDataFrame(inspections.map(lambda l: (int(l[0]), l[1], l[12], l[13])) , schema)
+		df.registerTempTable('CountResults')
 
-4. Agora temos uma *dataframe*, `df` em que podemos executar nossa análise. Incluímos quatro colunas de interesse no dataframe: **id**, **nome**, **resultados** e **violações**. Vamos obter uma pequena amostra dos dados:
-
+4. Agora temos uma *dataframe*, `df` em que podemos executar nossa análise. Também temos uma chamada de tabela temporária **CountResults**. Incluímos quatro colunas de interesse no dataframe: **id**, **nome**, **resultados** e **violações**.
+	
+	Vamos obter uma pequena amostra dos dados:
 
 		df.show(5)
 
@@ -177,81 +167,96 @@ Já temos um SQLContext que podemos usar para realizar transformações em dados
 
 ## Entender os dados
 
-Vamos começar a ter uma ideia do que o nosso conjunto de dados contém. Por exemplo, quais são os diferentes valores na coluna **resultados**?
+1. Vamos começar a ter uma ideia do que o nosso conjunto de dados contém. Por exemplo, quais são os diferentes valores na coluna **resultados**?
 
 
 	df.select('results').distinct().show()
 
 	
-Você verá algo semelhante ao mostrado a seguir:
+	Você verá algo semelhante ao mostrado a seguir:
 
-    # -----------------
-	# THIS IS AN OUTPUT
-	# -----------------
-
-	+--------------------+
-    |             results|
-    +--------------------+
-    |                Fail|
-    |Business Not Located|
-    |                Pass|
-    |  Pass w/ Conditions|
-    |     Out of Business|
-    +--------------------+
+	    # -----------------
+		# THIS IS AN OUTPUT
+		# -----------------
+	
+		+--------------------+
+	    |             results|
+	    +--------------------+
+	    |                Fail|
+	    |Business Not Located|
+	    |                Pass|
+	    |  Pass w/ Conditions|
+	    |     Out of Business|
+	    +--------------------+
     
-Uma rápida visualização pode nos ajudar a entender a distribuição desses resultados.
+2. Uma rápida visualização pode nos ajudar a entender a distribuição desses resultados. Já temos os dados em uma tabela temporária **CountResults**. Você pode executar a seguinte consulta SQL em relação à tabela para entender melhor como os resultados são distribuídos.
 
-	countResults = df.groupBy('results').count().collect()
-	labels = [row.results for row in countResults]
-	sizes = [row.count for row in countResults]
-	colors = ['turquoise', 'seagreen', 'mediumslateblue', 'palegreen', 'coral']
-	plt.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors)
-	plt.axis('equal')
+		%%sql -o countResultsdf
+		SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
 
+	A mágica do `%%sql` seguido pelo `-o countResultsdf` assegura que a saída da consulta sejam mantida localmente no servidor Jupyter (normalmente o nó principal do cluster). A saída é mantida como uma estrutura de dados [Pandas](http://pandas.pydata.org/) com o nome especificado **countResultsdf**.
+	
+	Você verá algo semelhante ao mostrado a seguir:
+	
+	![Saída da consulta SQL](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/query.output.png "Saída da consulta SQL")
 
-Você verá algo semelhante ao mostrado a seguir:
+	Para obter mais informações sobre a mágica do `%%sql`, bem como outras mágicas disponíveis com o kernel PySpark, consulte [Kernels disponíveis em notebooks Jupyter com clusters HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
 
-    
-![Saída de resultado](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/output_13_1.png)
+3. Você também pode usar Matplotlib, uma biblioteca usada para construir a visualização de dados para criar um gráfico. Como o gráfico deve ser criado da estrutura de dados **countResultsdf** mantida localmente, o trecho de código deve começar com a mágica `%%local`. Isso garante que o código seja executado localmente no servidor do Jupyter.
 
+		%%local
+		%matplotlib inline
+		import matplotlib.pyplot as plt
+		
+		
+		labels = countResultsdf['results']
+		sizes = countResultsdf['cnt']
+		colors = ['turquoise', 'seagreen', 'mediumslateblue', 'palegreen', 'coral']
+		plt.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors)
+		plt.axis('equal')
 
-Você pode ver que uma inspeção pode ter cinco resultados distintos
+	Você verá algo semelhante ao mostrado a seguir:
 
-* Negócios não localizados 
-* Reprovado
-* Aprovado
-* Aprovar c/condições e
-* Fora de negócio 
-
-Vamos desenvolver um modelo que possa adivinhar o resultado de uma inspeção de alimentos, considerando as violações. Uma vez que a regressão logística é um método de classificação binária, faz sentido agrupar os dados em duas categorias: **Reprovado** e **Aprovado**. Um "Passar c/Condições" ainda é uma aprovação, portanto, ao treinar o modelo, consideraremos os dois resultados equivalentes. Dados com os outros resultados ("Negócios não localizados", "Fora Negócio") não são úteis, então iremos removê-los do nosso conjunto de treinamento. Isso deve ser estar ok, já que essas duas categorias compõem uma porcentagem muito pequena dos resultados de qualquer forma.
-
-Vamos prosseguir e converter nosso dataframe existente (`df`) em um novo dataframe em que cada inspeção é representada como um par de violações de rótulo. No nosso caso, um rótulo de `0.0` representa uma falha, um rótulo de `1.0` representa um sucesso e um rótulo de `-1.0` representa alguns resultados diferentes desses dois. Vamos filtrar esses outros resultados ao calcular o novo quadro de dados.
-
-
-	def labelForResults(s):
-	    if s == 'Fail':
-	        return 0.0
-	    elif s == 'Pass w/ Conditions' or s == 'Pass':
-	        return 1.0
-	    else:
-	        return -1.0
-	label = UserDefinedFunction(labelForResults, DoubleType())
-	labeledData = df.select(label(df.results).alias('label'), df.violations).where('label >= 0')
+	![Saída de resultado](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/output_13_1.png)
 
 
-Vamos recuperar uma linha dos dados rotulados para ver sua aparência.
+4. Você pode ver que uma inspeção pode ter cinco resultados distintos:
+	
+	* Negócios não localizados 
+	* Reprovado
+	* Aprovado
+	* Aprovar c/condições e
+	* Fora de negócio 
+
+	Vamos desenvolver um modelo que possa adivinhar o resultado de uma inspeção de alimentos, considerando as violações. Uma vez que a regressão logística é um método de classificação binária, faz sentido agrupar os dados em duas categorias: **Reprovado** e **Aprovado**. Um "Passar c/Condições" ainda é uma aprovação, portanto, ao treinar o modelo, consideraremos os dois resultados equivalentes. Dados com os outros resultados ("Negócios não localizados", "Fora Negócio") não são úteis, então iremos removê-los do nosso conjunto de treinamento. Isso deve ser estar ok, já que essas duas categorias compõem uma porcentagem muito pequena dos resultados de qualquer forma.
+
+5. Vamos prosseguir e converter nosso dataframe existente (`df`) em um novo dataframe em que cada inspeção é representada como um par de violações de rótulo. No nosso caso, um rótulo de `0.0` representa uma falha, um rótulo de `1.0` representa um sucesso e um rótulo de `-1.0` representa alguns resultados diferentes desses dois. Vamos filtrar esses outros resultados ao calcular o novo quadro de dados.
 
 
-	labeledData.take(1)
+		def labelForResults(s):
+		    if s == 'Fail':
+		        return 0.0
+		    elif s == 'Pass w/ Conditions' or s == 'Pass':
+		        return 1.0
+		    else:
+		        return -1.0
+		label = UserDefinedFunction(labelForResults, DoubleType())
+		labeledData = df.select(label(df.results).alias('label'), df.violations).where('label >= 0')
 
 
-Você verá algo semelhante ao mostrado a seguir:
+	Vamos recuperar uma linha dos dados rotulados para ver sua aparência.
 
-    # -----------------
-	# THIS IS AN OUTPUT
-	# -----------------
 
-	[Row(label=0.0, violations=u"41. PREMISES MAINTAINED FREE OF LITTER, UNNECESSARY ARTICLES, CLEANING  EQUIPMENT PROPERLY STORED - Comments: All parts of the food establishment and all parts of the property used in connection with the operation of the establishment shall be kept neat and clean and should not produce any offensive odors.  REMOVE MATTRESS FROM SMALL DUMPSTER. | 35. WALLS, CEILINGS, ATTACHED EQUIPMENT CONSTRUCTED PER CODE: GOOD REPAIR, SURFACES CLEAN AND DUST-LESS CLEANING METHODS - Comments: The walls and ceilings shall be in good repair and easily cleaned.  REPAIR MISALIGNED DOORS AND DOOR NEAR ELEVATOR.  DETAIL CLEAN BLACK MOLD LIKE SUBSTANCE FROM WALLS BY BOTH DISH MACHINES.  REPAIR OR REMOVE BASEBOARD UNDER DISH MACHINE (LEFT REAR KITCHEN). SEAL ALL GAPS.  REPLACE MILK CRATES USED IN WALK IN COOLERS AND STORAGE AREAS WITH PROPER SHELVING AT LEAST 6' OFF THE FLOOR.  | 38. VENTILATION: ROOMS AND EQUIPMENT VENTED AS REQUIRED: PLUMBING: INSTALLED AND MAINTAINED - Comments: The flow of air discharged from kitchen fans shall always be through a duct to a point above the roofline.  REPAIR BROKEN VENTILATION IN MEN'S AND WOMEN'S WASHROOMS NEXT TO DINING AREA. | 32. FOOD AND NON-FOOD CONTACT SURFACES PROPERLY DESIGNED, CONSTRUCTED AND MAINTAINED - Comments: All food and non-food contact equipment and utensils shall be smooth, easily cleanable, and durable, and shall be in good repair.  REPAIR DAMAGED PLUG ON LEFT SIDE OF 2 COMPARTMENT SINK.  REPAIR SELF CLOSER ON BOTTOM LEFT DOOR OF 4 DOOR PREP UNIT NEXT TO OFFICE.")]
+		labeledData.take(1)
+
+
+	Você verá algo semelhante ao mostrado a seguir:
+	
+	    # -----------------
+		# THIS IS AN OUTPUT
+		# -----------------
+	
+		[Row(label=0.0, violations=u"41. PREMISES MAINTAINED FREE OF LITTER, UNNECESSARY ARTICLES, CLEANING  EQUIPMENT PROPERLY STORED - Comments: All parts of the food establishment and all parts of the property used in connection with the operation of the establishment shall be kept neat and clean and should not produce any offensive odors.  REMOVE MATTRESS FROM SMALL DUMPSTER. | 35. WALLS, CEILINGS, ATTACHED EQUIPMENT CONSTRUCTED PER CODE: GOOD REPAIR, SURFACES CLEAN AND DUST-LESS CLEANING METHODS - Comments: The walls and ceilings shall be in good repair and easily cleaned.  REPAIR MISALIGNED DOORS AND DOOR NEAR ELEVATOR.  DETAIL CLEAN BLACK MOLD LIKE SUBSTANCE FROM WALLS BY BOTH DISH MACHINES.  REPAIR OR REMOVE BASEBOARD UNDER DISH MACHINE (LEFT REAR KITCHEN). SEAL ALL GAPS.  REPLACE MILK CRATES USED IN WALK IN COOLERS AND STORAGE AREAS WITH PROPER SHELVING AT LEAST 6' OFF THE FLOOR.  | 38. VENTILATION: ROOMS AND EQUIPMENT VENTED AS REQUIRED: PLUMBING: INSTALLED AND MAINTAINED - Comments: The flow of air discharged from kitchen fans shall always be through a duct to a point above the roofline.  REPAIR BROKEN VENTILATION IN MEN'S AND WOMEN'S WASHROOMS NEXT TO DINING AREA. | 32. FOOD AND NON-FOOD CONTACT SURFACES PROPERLY DESIGNED, CONSTRUCTED AND MAINTAINED - Comments: All food and non-food contact equipment and utensils shall be smooth, easily cleanable, and durable, and shall be in good repair.  REPAIR DAMAGED PLUG ON LEFT SIDE OF 2 COMPARTMENT SINK.  REPAIR SELF CLOSER ON BOTTOM LEFT DOOR OF 4 DOOR PREP UNIT NEXT TO OFFICE.")]
 
 
 ## Criar um modelo de regressão logística do dataframe de entrada
@@ -275,79 +280,106 @@ MLLib oferece uma maneira fácil de executar essa operação. Primeiro, iremos "
 
 Podemos usar o modelo criado anteriormente para *prever* quais serão os resultados das novas inspeções com base nas violações observadas. Treinamos esse modelo no conjunto de dados **Food\_Inspections1.csv**. Vamos usar um segundo conjunto de dados, **Food\_Inspections2.csv**, para *avaliar* a força desse modelo em dados novos. Esse segundo conjunto de dados (**Food\_Inspections2.csv**) já deve estar no contêiner de armazenamento padrão associado ao cluster.
 
-O trecho de código a seguir cria um novo dataframe, **predictionsDf** que contém a previsão gerada pelo modelo.
+1. O trecho de código a seguir cria um novo dataframe, **predictionsDf** que contém a previsão gerada pelo modelo. O trecho de código também cria uma tabela temporária **Predictions** com base na estrutura de dados.
 
 
-	testData = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
+		testData = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
 	             .map(csvParse) \
 	             .map(lambda l: (int(l[0]), l[1], l[12], l[13]))
-	testDf = sqlContext.createDataFrame(testData, schema).where("results = 'Fail' OR results = 'Pass' OR results = 'Pass w/ Conditions'")
-	predictionsDf = model.transform(testDf)
-	predictionsDf.columns
+		testDf = sqlContext.createDataFrame(testData, schema).where("results = 'Fail' OR results = 'Pass' OR results = 'Pass w/ Conditions'")
+		predictionsDf = model.transform(testDf)
+		predictionsDf.registerTempTable('Predictions')
+		predictionsDf.columns
 
 
-Você verá algo semelhante ao mostrado a seguir:
-
-    # -----------------
-	# THIS IS AN OUTPUT
-	# -----------------
+	Você verá algo semelhante ao mostrado a seguir:
 	
-	['id',
-     'name',
-     'results',
-     'violations',
-     'words',
-     'features',
-     'rawPrediction',
-     'probability',
-     'prediction']
+	    # -----------------
+		# THIS IS AN OUTPUT
+		# -----------------
+		
+		['id',
+	     'name',
+	     'results',
+	     'violations',
+	     'words',
+	     'features',
+	     'rawPrediction',
+	     'probability',
+	     'prediction']
 
-Examine uma das previsões. Execute este trecho de código:
+2. Examine uma das previsões. Execute este trecho de código:
 
-	predictionsDf.take(1)
+		predictionsDf.take(1)
 
-Você verá a previsão para a primeira entrada no conjunto de dados de teste.
+	Você verá a previsão para a primeira entrada no conjunto de dados de teste.
 
-O método `model.transform()` aplicará a mesma transformação para novos dados com o mesmo esquema, e chegará a uma previsão de como classificar os dados. Podemos fazer algumas estatísticas simples para ter uma ideia de quão precisas foram nossas previsões:
+3. O método `model.transform()` aplicará a mesma transformação para novos dados com o mesmo esquema, e chegará a uma previsão de como classificar os dados. Podemos fazer algumas estatísticas simples para ter uma ideia de quão precisas foram nossas previsões:
 
 
-	numSuccesses = predictionsDf.where("""(prediction = 0 AND results = 'Fail') OR 
-	                                      (prediction = 1 AND (results = 'Pass' OR 
-	                                                           results = 'Pass w/ Conditions'))""").count()
-	numInspections = predictionsDf.count()
+		numSuccesses = predictionsDf.where("""(prediction = 0 AND results = 'Fail') OR 
+		                                      (prediction = 1 AND (results = 'Pass' OR 
+		                                                           results = 'Pass w/ Conditions'))""").count()
+		numInspections = predictionsDf.count()
+		
+		print "There were", numInspections, "inspections and there were", numSuccesses, "successful predictions"
+		print "This is a", str((float(numSuccesses) / float(numInspections)) * 100) + "%", "success rate"
+
+	A saída se parece com o seguinte:
 	
-	print "There were", numInspections, "inspections and there were", numSuccesses, "successful predictions"
-	print "This is a", str((float(numSuccesses) / float(numInspections)) * 100) + "%", "success rate"
-
-A saída se parece com o seguinte:
-
-    # -----------------
-	# THIS IS AN OUTPUT
-	# -----------------
-
-	There were 9315 inspections and there were 8087 successful predictions
-    This is a 86.8169618894% success rate
-
-
-Usar regressão logística com o Spark fornece um modelo preciso da relação entre as descrições de violações em inglês e se um determinado negócio seria aprovado ou reprovado uma inspeção de alimentos. Podemos construir uma visualização final para ajudar a justificar os resultados do teste:
-
+	    # -----------------
+		# THIS IS AN OUTPUT
+		# -----------------
 	
-	failSuccess = predictionsDf.where("prediction = 0 AND results = 'Fail'").count()
-	failFailure = predictionsDf.where("prediction = 0 AND results <> 'Fail'").count()
-	passSuccess = predictionsDf.where("prediction = 1 AND results <> 'Fail'").count()
-	passFailure = predictionsDf.where("prediction = 1 AND results = 'Fail'").count()
-	labels = ['True positive', 'False positive', 'True negative', 'False negative']
-	sizes = [failSuccess, failFailure, passSuccess, passFailure]
-	plt.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors)
-	plt.axis('equal')
+		There were 9315 inspections and there were 8087 successful predictions
+	    This is a 86.8169618894% success rate
 
 
-Você deve ver a saída a seguir.
+	Usar regressão logística com o Spark fornece um modelo preciso da relação entre as descrições de violações em inglês e se um determinado negócio seria aprovado ou reprovado uma inspeção de alimentos.
 
-![Saída da previsão](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/output_26_1.png)
+## Criar uma representação visual da previsão
+
+Podemos construir uma visualização final para ajudar a justificar os resultados do teste.
+
+1. Vamos começar extraindo o diferentes previsões e os resultados da tabela temporária **Predictions** criada anteriormente.
+
+		%%sql -o predictionstable
+		SELECT prediction, results FROM Predictions
+
+2. No trecho de código **predictionstable** acima está a estrutura de dados local do servidor do Jupyter que mantém a saída da consulta SQL. Agora você pode usar a mágica do `%%local` para executar os snippets de código posteriores na estrutura de dados mantida localmente.
+
+		%%local
+		failSuccess = predictionstable[(predictionstable.prediction == 0) & (predictionstable.results == 'Fail')]['prediction'].count()
+		failFailure = predictionstable[(predictionstable.prediction == 0) & (predictionstable.results <> 'Fail')]['prediction'].count()
+		passSuccess = predictionstable[(predictionstable.prediction == 1) & (predictionstable.results <> 'Fail')]['prediction'].count()
+		passFailure = predictionstable[(predictionstable.prediction == 1) & (predictionstable.results == 'Fail')]['prediction'].count()
+		failSuccess,failFailure,passSuccess,passFailure
+
+	A saída se parece com o seguinte:
+	
+		# -----------------
+		# THIS IS AN OUTPUT
+		# -----------------
+	
+		(276, 46, 1917, 261)
+
+3. Por fim, use o trecho de código a seguir para gerar a plotagem.
+
+		%%local
+		%matplotlib inline
+		import matplotlib.pyplot as plt
+		
+		labels = ['True positive', 'False positive', 'True negative', 'False negative']
+		sizes = [failSuccess, failFailure, passSuccess, passFailure]
+		plt.pie(sizes, labels=labels, autopct='%1.1f%%')
+		plt.axis('equal')
+	
+	Você deve ver a saída a seguir.
+	
+	![Saída da previsão](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/output_26_1.png)
 
 
-Neste gráfico, um resultado "positivo" refere-se a uma reprovação na inspeção de alimentos, enquanto um resultado negativo refere-se a uma aprovação na inspeção. Isso corresponde (aproximadamente) a uma taxa de falsos negativos de 12,6% e um a uma taxa de falsos positivos de 16,0%.
+	Neste gráfico, um resultado "positivo" refere-se a uma reprovação na inspeção de alimentos, enquanto um resultado negativo refere-se a uma aprovação na inspeção.
 
 ## Fechar o notebook
 
@@ -387,4 +419,4 @@ Depois de concluir a execução do aplicativo, você deve encerrar o notebook pa
 
 * [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

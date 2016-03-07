@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/25/2015" 
+	ms.date="02/19/2016" 
 	ms.author="awills"/>
  
 # Introdução ao Application Insights com Java no Eclipse
@@ -260,4 +260,4 @@ Você pode inserir o código tanto no JavaScript da página da Web quanto no Jav
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

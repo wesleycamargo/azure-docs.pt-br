@@ -6,7 +6,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="objectivec"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/17/2016"
 	ms.author="brandwe"/>
 
 # Visualização do B2C do AD do Azure: chamando uma API Web de um aplicativo do iOS
@@ -33,7 +33,7 @@ Agora você precisa criar um aplicativo no diretório B2C, que dá ao AD do Azur
 
 - Incluir um **aplicativo Web/api Web** no aplicativo
 - Digitar `http://localhost:3000/auth/openid/return` como uma **URL de Resposta** - é a URL padrão para este exemplo de código.
-- Criar um **Segredo do Aplicativo** para seu aplicativo e copiá-lo. Você precisará dele em breve.
+- Criar um **Segredo do Aplicativo** para seu aplicativo e copiá-lo. Você precisará dele em breve. Observe que este valor precisa ter [escape de XML](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) antes de ser usado.
 - Copiar a **ID do Aplicativo** atribuída ao aplicativo. Você também precisará dela em breve.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -617,4 +617,4 @@ Agora você pode ir para tópicos mais avançados sobre o B2C. Você pode deseja
 
 [Personalizando seu aplicativo de experiência do usuário do B2C >>]()
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

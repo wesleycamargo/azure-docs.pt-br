@@ -2,7 +2,7 @@
 	pageTitle="Usando o Conector do OneDrive em Aplicativos Lógicos | Serviço de Aplicativo do Microsoft Azure"
 	description="Como criar e configurar o Conector do OneDrive ou o aplicativo de API e usá-lo em um aplicativo lógico no Serviço de Aplicativo do Azure"
 	authors="rajeshramabathiran"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="app-service\logic"
 	documentationCenter=""/>
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/11/2015"
+	ms.date="02/11/2016"
 	ms.author="rajram"/>
 
 # Introdução ao Conector do OneDrive e à adição dele a seu Aplicativo Lógico
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos. Para a versão do esquema 2015-08-01-preview, clique em [API do OneDrive](../connectors/create-api-onedrive.md).
+
 Conecte-se ao seu OneDrive para carregar, baixar e excluir arquivos. Aplicativos lógicos podem ser disparados com base em diversas fontes de dados e oferecem conectores para obter e processar dados como parte do fluxo. Você pode adicionar o Conector do OneDrive a seu fluxo de trabalho de negócios e processar dados como parte desse fluxo de trabalho dentro de um Aplicativo Lógico.
 
 ## Criando um Conector do OneDrive para seu aplicativo lógico ##
@@ -26,13 +28,7 @@ Para usar o conector do OneDrive, primeiro você precisa criar uma instância do
 2.	Em "Tudo", pesquise "Conector do OneDrive".
 3.	Configure o Conector do OneDrive da seguinte maneira:
 
-	![][1]
-	- **Nome** - dê um nome para o Conector do OneDrive
-	- **Plano do Serviço de Aplicativo** - selecione ou crie um plano de serviço de aplicativo
-	- **Camada de preços** - escolha uma camada de preços para o conector
-	- **Grupo de recursos** - selecione ou crie um grupo de recursos onde o conector deve residir
-	- **Assinatura** - escolha uma assinatura na qual você deseja que esse conector seja criado
-	- **Local** - escolha o local geográfico onde quer que o conector seja implantado
+	![][1] - **Nome** - dê um nome para o Conector do OneDrive - **Plano do Serviço de Aplicativo** - selecione ou crie um plano de serviço de aplicativo - **Camada de preços** - escolha uma camada de preços para o conector - **Grupo de recursos** - selecione ou crie um grupo de recursos onde o conector deve residir - **Assinatura** - escolha uma assinatura na qual você deseja que esse conector seja criado - **Local** -escolha o local geográfico onde quer que o conector seja implantado
 
 4. Clique em Criar. Será criado um novo Conector do OneDrive.
 5. Após criar a instância do aplicativo de API, você pode criar um aplicativo lógico no mesmo grupo de recursos para usar o conector do OneDrive.
@@ -49,8 +45,7 @@ Depois que o aplicativo de API for criado, você poderá usar o Conector do OneD
 	![][2]
 4.	Você pode soltar o aplicativo de API do Conector do OneDrive no editor clicando em "Conector do OneDrive". Clique no botão Autorizar. Forneça suas credenciais de Microsoft (se não for conectado automaticamente). Clique em "Sim" para permitir o acesso.
 
-	![][3]
-	![][4]
+	![][3] ![][4]
 
 5.	Agora você pode usar o Conector do OneDrive no fluxo. Atualmente, os gatilhos não estão disponíveis no conector do OneDrive. As ações disponíveis são: Obter Arquivo, Carregar um Arquivo, Excluir Arquivos e Listar Arquivos.
 
@@ -78,7 +73,7 @@ Depois que o aplicativo de API for criado, você poderá usar o Conector do OneD
 ## Faça mais com seu Conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
 
->[AZURE.NOTE]Se você deseja começar com os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógicos](https://tryappservice.azure.com/?appservice=logic), em que você pode criar imediatamente um aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
+>[AZURE.NOTE] Se você deseja começar com os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógicos](https://tryappservice.azure.com/?appservice=logic), em que você pode criar imediatamente um aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
 
 Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -97,4 +92,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [Criar um novo aplicativo lógico]: app-service-logic-create-a-logic-app.md
 [Definição da API do OneDrive]: https://msdn.microsoft.com/library/dn974227.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

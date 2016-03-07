@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/15/2016"
+   ms.date="02/22/2016"
    ms.author="tomfitz"/>
 
 # Funções do modelo do Gerenciador de Recursos do Azure
@@ -556,6 +556,7 @@ Retorna o valor da variável. O nome do parâmetro especificado deve ser definid
 O Gerenciador de Recursos fornece as seguintes funções para obter valores de recurso:
 
 - [listkeys](#listkeys)
+- [listar*](#list)
 - [providers](#providers)
 - [reference](#reference)
 - [resourceGroup](#resourcegroup)
@@ -569,11 +570,11 @@ Para obter valores de parâmetros, de variáveis ou da implantação atual, veja
 
 **listKeys (resourceName ou resourceIdentifier, apiVersion)**
 
-Retorna as chaves para uma conta de armazenamento. A identificação de recurso pode ser especificada usando a [função resourceId](./#resourceid) ou usando o formato **providerNamespace/resourceType/resourceName**. Você pode usar a função para obter a primaryKey e secondaryKey.
+Retorna as chaves para qualquer tipo de recurso que der suporte à operação de listKeys. A identificação de recurso pode ser especificada usando a [função resourceId](./#resourceid) ou usando o formato **providerNamespace/resourceType/resourceName**. Você pode usar a função para obter a primaryKey e secondaryKey.
   
 | Parâmetro | Obrigatório | Descrição
 | :--------------------------------: | :------: | :----------
-| resourceName ou resourceIdentifier | Sim | Identificador exclusivo de uma conta de armazenamento.
+| resourceName ou resourceIdentifier | Sim | Identificador exclusivo para o recurso.
 | apiVersion | Sim | Versão de API do estado de tempo de execução do recurso.
 
 O exemplo a seguir mostra como retornar as chaves de uma conta de armazenamento na seção de saídas.
@@ -584,6 +585,19 @@ O exemplo a seguir mostra como retornar as chaves de uma conta de armazenamento 
         "type" : "object" 
       } 
     } 
+
+<a id="list" />
+### listar*
+
+**list* (resourceName ou resourceIdentifier, apiVersion)**
+
+Qualquer operação que começar com **list** pode ser usada como uma função no seu modelo. Isso inclui **listKeys**, como mostrado acima, mas também operações como **list**, **listAdminKeys**, e **listStatus**. Ao chamar a função, use o nome real da função e não list*. Para determinar quais tipos de recursos têm uma operação de lista, use o seguinte comando do PowerShell.
+
+    PS C:\> Get-AzureRmProviderOperation -OperationSearchString *  | where {$_.Operation -like "*list*"} | FT Operation
+
+Ou então, recupere a lista com a CLI do Azure. O exemplo a seguir recupera todas as operações de **apiapps** e usa o utilitário [jq](http://stedolan.github.io/jq/download/) do JSON para filtrar apenas as operações de lista.
+
+    azure provider operations show --operationSearchString */apiapps/* --json | jq ".[] | select (.operation | contains("list"))"
 
 <a id="providers" />
 ### providers
@@ -792,4 +806,4 @@ O exemplo a seguir mostra a função de assinatura chamada na seção de saídas
 - Para iterar um número de vezes especificado ao criar um tipo de recurso, confira [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
 - Para ver como implantar o modelo que você criou, consulte [Implantar um aplicativo com o Modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

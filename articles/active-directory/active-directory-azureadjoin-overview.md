@@ -1,72 +1,74 @@
-<properties 
-	pageTitle="Estendendo os recursos de nuvem para dispositivos Windows 10 por meio da Junção do Active Directory do Azure| Microsoft Azure" 
-	description="Fornece uma visão geral detalhada de como os dispositivos Windows 10 podem utilizar a junção do AD do Azure para se registrar no Active Directory do Azure." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="femila" 
-	manager="stevenpo" 
+<properties
+	pageTitle="Estendendo os recursos de nuvem para dispositivos Windows 10 por meio da Junção do Active Directory do Azure| Microsoft Azure"
+	description="Fornece uma visão geral detalhada de como os dispositivos Windows 10 podem utilizar o Ingresso no Azure AD para se registrar no Active Directory do Azure."
+	services="active-directory"
+	documentationCenter=""
+	authors="femila"
+	manager="stevenpo"
 	editor=""
 	tags="azure-classic-portal"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/07/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="12/07/2015"
 	ms.author="femila"/>
 
 # Estendendo os recursos de nuvem para dispositivos Windows 10 por meio da Junção do Active Directory do Azure
 
-## O que é a Junção do Active Directory do Azure? 
-A Junção do Active Directory do Azure (Azure AD) é a funcionalidade que registra um dispositivo empresarial no Active Directory do Azure para habilitar o gerenciamento centralizado. Isso significa que agora os usuários (funcionários, alunos) podem ser conectados à nuvem da empresa através do Active Directory do Azure. Isso permite implantações simplificadas do Windows e acesso a aplicativos e recursos organizacionais por meio de dispositivos Windows, sejam eles dispositivos da empresa ou pessoais (BYOD).
+## O que é o Ingresso no Active Directory do Azure?
+O Ingresso no Active Directory do Azure (Azure AD) é a funcionalidade que registra um dispositivo corporativo no Active Directory do Azure para habilitar seu gerenciamento centralizado. Ele permite que os usuários, como funcionários e alunos, se conectem à nuvem da empresa por meio do Active Directory do Azure. Isso habilita implantações simplificadas do Windows e acesso a aplicativos e recursos organizacionais por meio de qualquer dispositivo Windows, tanto dispositivos corporativos quanto pessoais (BYOD).
 
-A Junção do Azure AD é voltada para empresas que são principalmente ou somente a nuvem (normalmente, pequenas e médias empresas que não têm uma infraestrutura do Active Directory local). A Junção do Azure AD também pode ser usado por grandes organizações em dispositivos que são incapazes de fazer o ingresso no domínio tradicional (como dispositivos móveis, por exemplo) ou por usuários que precisam acessar principalmente o Office 365 ou outros aplicativos de SaaS do Azure AD.
+O Ingresso no Azure AD destina-se a empresas que priorizam a nuvem/usam somente a nuvem (normalmente, pequenas e médias empresas), que não têm uma infraestrutura do Active Directory do Windows Server local. Dito isto, o Ingresso no Azure AD pode ser e também será usado por organizações de grande porte em dispositivos que são incapazes de realizar um ingresso no domínio tradicional (dispositivos móveis, por exemplo) ou para usuários que precisam acessar principalmente o Office 365 ou outros aplicativos SaaS do Azure AD.
 
-Embora a junção do ingresso no domínio tradicional ainda traga a melhor experiência local em dispositivos que são capazes de realizar a junção de domínio, a junção do Azure AD é adequada para dispositivos que não são capazes de realizar o ingresso no domínio e para áreas em que você deseja gerenciar usuários na nuvem com recursos do MDM, em vez de suas experiências tradicionais de gerenciamento de domínio com a Política de Grupo e o SCCM.
+Embora o ingresso no domínio tradicional ainda ofereça a melhor local experiência local em dispositivos que são capazes de ingressar no domínio, o Ingresso no Azure AD é adequado para dispositivos que não podem ingressar no domínio. O Ingresso no Azure AD também é adequado para gerenciar usuários na nuvem. Ele faz isso usando recursos de gerenciamento de dispositivos móveis em vez de ferramentas de gerenciamento de domínio tradicionais, como a Política de Grupo e o SCCM (System Center Configuration Manager).
 
-![](./media/active-directory-azureadjoin/active-directory-azureadjoin-overview.png)
+![Visão geral de dispositivos corporativos e pessoais com o Active Directory local e o Azure AD](./media/active-directory-azureadjoin/active-directory-azureadjoin-overview.png)
 
 
-## Por que as empresas devem adotar a Junção do AD do Azure 
+## Por que as empresas devem adotar o Ingresso no Azure AD?
 
-* **Se sua empresa estiver principalmente na nuvem**: se você adotar ou estiver se mudando para um modelo no qual está reduzindo o volume local e deseja operar mais na nuvem, a junção do Azure AD pode beneficiá-lo. Você pode ter criado contas do Azure AD manualmente ou sincronizando seu AD local. De qualquer forma, você tem uma conta no Azure AD e pode usá-la para entrar no Windows 10. Os usuários podem juntar seus computadores ao Azure AD por meio do processo do OOBE ou através das Configurações. Agora, seus usuários têm acesso de SSO a seus recursos de nuvem, como o Office 365, no navegador ou em aplicativos do Office. 
-* **Instituições educacionais**: um dos grandes cenários sobre o qual ouvimos é como instituições de ensino têm dois tipos de usuários: professores e alunos. Os membros do corpo docente são considerados integrantes de longo prazo da organização e é desejável criar contas locais para eles. Mas os alunos são membros de prazo mais curto da organização e, portanto, podem ser gerenciados no Azure AD, de modo que a escala do diretório pode ser enviada para a nuvem em vez do local. Agora, esses alunos podem entrar no Windows com sua conta do Azure AD e obter acesso aos recursos do Office 365 em aplicativos do Office. 
-* **Empresas de varejo**: outro aspeto de que os clientes nos falam é seu desejo de ter um gerenciamento mais fácil dos trabalhadores sazonais. Novamente, funcionários de longo prazo, em período integral, têm contas locais e normalmente usariam computadores dentro do domínio. Mas trabalhadores sazonais são membros de prazo mais curto da organização e, portanto, é desejável gerenciá-los onde seja possível mover as licenças de usuário mais facilmente. A criação desses usuários na nuvem com licenças do Office 365 permite que os usuários tenham os benefícios de entrar em aplicativos do Windows e do Office com uma conta do Azure AD, mantendo uma maior mobilidade de suas licenças quando eles saem. 
-* **Outras empresas**: e, para além desses cenários específicos, você pode notar que, mesmo que mantenha os usuários em seu diretório do AD local, você ainda se beneficiaria de ter usuários com a junção do Azure AD devido à experiência de junção simplificada, ao gerenciamento de dispositivos no Azure AD, o registro automático do MDM e o logon único no Azure AD e em recursos locais.  
+* **Empresas que estão principalmente na nuvem**: se você tiver migrado ou estiver migrando para um modelo no qual esteja reduzindo seu volume local e deseje operar mais na nuvem, o Ingresso no Azure AD poderá beneficiá-lo. Você pode ter criado contas do Azure AD manualmente ou sincronizando seu Active Directory local. De qualquer forma, você tem uma conta no Azure AD e pode usá-la para entrar no Windows 10. Os usuários podem fazer o ingresso de seus computadores no Azure AD por meio da OOBE (configuração inicial pelo usuário) ou do menu Configurações. Após o ingresso, os usuários desfrutarão das vantagens do SSO (logon único) para recursos de nuvem como o Office 365, no navegador ou em aplicativos do Office.
 
-## Recursos da Junção do Azure AD
+* **Instituições educacionais**: um dos cenários sobre os quais ouvimos falar com frequência é que as instituições de ensino têm dois tipos de usuários: professores e alunos. Os membros do corpo docente são considerados integrantes de longo prazo da organização. Portanto, é desejável criar contas locais para eles. Porém, os alunos são membros temporários da organização e, assim, podem ser gerenciados no Azure AD. Isso significa que a escala do diretório pode ser enviada para a nuvem em vez de ser armazenada localmente. Isso também significa que os alunos podem entrar no Windows com suas contas do Azure AD e obter acesso aos recursos do Office 365, no navegador ou em aplicativos do Office.
+
+* **Empresas de varejo**: outro cenário que os clientes mencionam é seu desejo de gerenciar funcionários sazonais mais facilmente. Novamente, as contas para funcionários em tempo integral de longo prazo geralmente são criadas como contas locais em computadores que ingressaram no domínio. Porém, os trabalhadores sazonais são membros de curto prazo da organização. Portanto, é desejável gerenciá-los onde as licenças de usuário possam ser mais facilmente movidas. A criação dessas contas de usuários na nuvem com licenças do Office 365 permite que os usuários tenham os benefícios de entrar em aplicativos do Office e no Windows com uma conta do Azure AD. Enquanto isso, você mantém mais flexibilidade com suas licenças depois que eles partem.
+* **Outras empresas**: embora você mantenha os usuários no Active Directory local, ainda poderia se beneficiar se os usuários ingressassem no Azure AD. Isso ocorre porque o Azure AD oferece uma experiência simplificada de ingresso, gerenciamento de dispositivos eficiente, registro de gerenciamento automático de dispositivos móveis e capacidade de logon único para o Azure AD e recursos locais.  
+
+## Quais recursos o Ingresso no Azure AD oferece?
 Com a Junção do Azure AD, você obtém o seguinte:
 
-* **Autoprovisionamento de dispositivos corporativos**: com o Windows 10, os usuários finais podem configurar um dispositivo totalmente novo na experiência de configuração inicial pelo usuário, sem o envolvimento de TI.
+* **Autoprovisionamento de dispositivos corporativos**: com o Windows 10, os usuários podem configurar um dispositivo totalmente novo na experiência de configuração inicial pelo usuário, sem o envolvimento da TI.
 
 
-* **Suporte para formatos modernos**: a Junção do Azure AD funciona em dispositivos que não têm recursos tradicionais de ingresso no domínio.
+* **Suporte para fatores forma modernos**: o Ingresso no Azure AD funciona em dispositivos que não têm recursos tradicionais de ingresso no domínio.
 
 
-* **Usa contas organizacionais existentes**: os usuários finais não precisam mais criar e manter uma conta pessoal da Microsoft para obter a melhor experiência em dispositivos emitidos da empresa, como no Windows 8. Em vez disso, eles podem usar sua conta de trabalho existente no Azure AD. Para muitas organizações, isso basicamente significa configurar e fazer logon no Windows com as mesmas credenciais usadas para acessar o Office 365.
+* **Suporte para contas organizacionais existentes**: os usuários não precisam mais criar e manter uma conta da Microsoft pessoal para obter a melhor experiência em dispositivos fornecidos pela empresa, como ocorria com o Windows 8. Em vez disso, eles podem usar suas contas corporativas existentes no Azure AD. Para muitas organizações, isso basicamente significa que os usuários podem configurar e entrar no Windows com as mesmas credenciais que usam para acessar o Office 365.
 
 
-* **Registro automático de MDM**: os dispositivos podem ser registrados automaticamente no gerenciamento quando conectados ao Azure AD. Isso funciona com o Microsoft Intune e MDMs de terceiros. Quando gerenciado com o Intune, a TI será ser capaz de monitorar/gerenciar dispositivos com a junção do Azure AD junto com dispositivos com junção de domínio no console de gerenciamento do SCCM.
+* **Registro automático de gerenciamento de dispositivos móveis**: os dispositivos podem ser registrados automaticamente no gerenciamento de dispositivos móveis quando conectados ao Azure AD. Esse processo funciona com o Microsoft Intune e as soluções de gerenciamento de dispositivos móveis de parceiros. Quando o gerenciamento de dispositivos é feito com o Intune, os administradores de TI podem monitorar/gerenciar dispositivos com o Ingresso no Azure AD junto com dispositivos com ingresso no domínio no console de gerenciamento do SCCM.
 
 
-* **Logon único para recursos da empresa**: os usuários aproveitem o logon único da área de trabalho do Windows para aplicativos e recursos na nuvem, como o Office 365 e milhares de aplicativos de negócios que dependem do Azure AD para autenticação através do [Azure AD Connect](active-directory-azureadjoin-deployment-aadjoindirect.md). Dispositivos da empresa unidos ao Azure AD também aproveitarão o SSO em recursos locais quando o dispositivo estiver na rede corporativa, e de qualquer lugar quando os recursos estiverem expostos por meio do [Proxy de aplicativo do Azure AD](https://msdn.microsoft.com/library/azure/Dn768219.aspx).
+* **Logon único para recursos corporativos**: os usuários aproveitam o logon único na área de trabalho do Windows para aplicativos e recursos na nuvem, como o Office 365 e milhares de aplicativos de negócios que dependem do Azure AD para autenticação por meio do [Azure AD Connect](active-directory-azureadjoin-deployment-aadjoindirect.md). Dispositivos corporativos que ingressaram no Azure AD também aproveitam o SSO em recursos locais quando o dispositivo está em uma rede corporativa, e em qualquer lugar quando esses recursos são expostos por meio do [Proxy de Aplicativo do Azure AD](https://msdn.microsoft.com/library/azure/Dn768219.aspx).
 
 
-* **Roaming de estado do sistema operacional**: coisas como as configurações de acessibilidade, senhas de Wi-Fi e sites serão sincronizadas entre dispositivos corporativos sem a necessidade de uma conta pessoal da Microsoft.
+* **Roaming de estado do sistema operacional**: configurações de acessibilidade, sites, senhas de Wi-Fi e outras configurações são sincronizados entre dispositivos corporativos sem a necessidade de uma conta da Microsoft pessoal.
 
 
-* **Windows Store pronta para a empresa**: a Windows Store dará suporte à aquisição e ao licenciamento de aplicativos com contas do Azure AD. As organizações serão capaz de licenciar aplicativos por volume e torná-los disponíveis para os usuários em sua organização.
+* **Windows Store pronta para a empresa**: a Windows Store dá suporte à aquisição e ao licenciamento de aplicativos com contas do Azure AD. As organizações podem licenciar aplicativos por volume e disponibilizá-los para os usuários em sua organização.
 
-## Como diferentes dispositivos funcionam com a Junção do Azure AD
+## Como diferentes dispositivos funcionam com o Ingresso no Azure AD?
 
-| Dispositivo corporativo (unido a um domínio local) | Dispositivo corporativo (unido à nuvem) | Dispositivo pessoal |
+| Dispositivo corporativo (que ingressou em um domínio local) | Dispositivo corporativo (que ingressou na nuvem) | Dispositivo pessoal |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
-| Os usuários entram no Windows com as credenciais de trabalho (como fazem hoje) | Os usuários podem entrar no Windows com as credenciais de trabalho que são gerenciadas no AD do Azure. Isso é relevante para dispositivos corporativos em três casos: a organização não tem o AD local (por exemplo, pequenas empresas), a organização não cria todas as contas de usuário no AD (por exemplo, alunos, consultores, trabalhadores sazonais), dispositivos corporativos que não podem ser associados a um domínio (local), como telefones ou tablets que executam um SKU móvel. Por exemplo, um dispositivo secundário levado ao chão de fábrica/varejo, funciona para organizações gerenciadas e federadas. | Os usuários entram no Windows com suas credenciais pessoais do MSA (sem alteração) |
-| Os usuários têm acesso ao roaming de configurações e à Windows Store – esses serviços funcionam com a conta de trabalho (sem necessidade de uma MSA pessoal). Exige que as empresas conectem seu AD local ao Azure AD | Configuração de autoatendimento – os usuários podem ir para a FRX (tela de apresentação) por meio de suas contas de trabalho (como alternativa ao provisionamento dos dispositivos pela TI – os dois métodos têm suporte) | É muito fácil adicionar uma conta de trabalho gerenciada no AD ou Azure AD |
-| SSO da área de trabalho para sites/aplicativos/recursos de trabalho, localmente ou nos aplicativos em nuvem que usam o Azure AD para autenticação | Registro automático no diretório corporativo (Azure AD) e autorregistro no MDM. (recurso do Azure AD Premium) | Fornece o SSO entre aplicativos e sites/recursos com essa conta de trabalho |
-| Os usuários podem adicionar sua MSA pessoal para acessar suas imagens/arquivos pessoais sem afetar os dados da empresa (as configurações de roaming continuam funcionando com a conta de trabalho). A conta de MSA habilita o SSO e não exige mais o roaming das configurações | SSPR (redefinição de senha de autoatendimento) no winlogon (capacidade de redefinir senha esquecida) (é necessário o AzureAD Premium para isso) | Fornece acesso ao repositório corporativo para que os usuários possam obter e usar aplicativos de LoB em seus dispositivos pessoais | |
+| Os usuários podem entrar no Windows com credenciais corporativas (como fazem hoje) | Os usuários podem entrar no Windows com as credenciais de trabalho que são gerenciadas no Azure AD. Isso é relevante para dispositivos corporativos em três casos: 1) A organização não tem o Active Directory local (por exemplo, uma pequena empresa). 2) A organização não cria todas as contas de usuário no Active Directory (por exemplo, contas para alunos, consultores ou funcionários sazonais não são criadas no Active Directory). 3) A organização tem dispositivos corporativos que não podem ingressar em um domínio (local), como telefones ou tablets que executam uma SKU Móvel (por exemplo, um dispositivo secundário levado ao chão de fábrica/varejo). O Ingresso do Azure AD dá suporte ao ingresso de dispositivos corporativos para organizações gerenciadas e federadas. | Os usuários entram no Windows com suas credenciais pessoais da conta da Microsoft (sem alteração) |
+| Os usuários têm acesso às configurações de roaming e à Windows Store corporativa. Esses serviços funcionam com contas corporativas e não exigem uma conta da Microsoft pessoal. Isso requer que as empresas conectem seu Active Directory local ao Azure AD. | Os usuários podem fazer a instalação de autoatendimento. Eles podem percorrer a FRX (tela de apresentação) por meio de sua conta corporativa como uma alternativa ao provisionamento dos dispositivos pela TI, embora ambos os métodos tenham suporte. | Os usuários podem adicionar facilmente uma conta corporativa que é gerenciada no Active Directory ou no Azure AD. |
+| Os usuários têm a capacidade de SSO na área de trabalho para aplicativos, sites e recursos corporativos, incluindo recursos locais e aplicativos na nuvem que usam o Azure AD para autenticação. | Os dispositivos são registrados automaticamente no diretório corporativo (Azure AD) e registrados automaticamente no gerenciamento de dispositivos móveis. (Recurso do Azure AD Premium). | Os usuários têm a capacidade de SSO entre aplicativos e para sites/recursos com essa conta corporativa. |
+| Os usuários podem adicionar suas contas da Microsoft pessoais para acessar seus arquivos e imagens pessoais sem afetar os dados corporativos. (As configurações de roaming continuam a funcionar com suas contas corporativas.) A conta da Microsoft habilita o SSO e não exige mais o roaming de configurações. | Os usuários podem executar uma SSPR (redefinição de senha de autoatendimento) no winlogon, o que significa que podem redefinir uma senha esquecida. (Recurso do Azure AD Premium). | Os usuários têm acesso à Windows Store corporativa, assim, podem adquirir e usar aplicativos de linha de negócios em seus dispositivos pessoais. | |
 
 
 ## Informações adicionais
@@ -74,7 +76,7 @@ Com a Junção do Azure AD, você obtém o seguinte:
 * [Estendendo os recursos de nuvem para dispositivos Windows 10 por meio da Junção do Active Directory do Azure](active-directory-azureadjoin-user-upgrade.md)
 * [Autenticando identidades sem senhas com o Microsoft Passport](active-directory-azureadjoin-passport.md)
 * [Saiba mais sobre cenários de uso da Junção do Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
-* [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com Windows 10](active-directory-azureadjoin-devices-group-policy.md)
+* [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com o Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

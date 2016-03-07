@@ -5,6 +5,6 @@ Alguns dos casos nos quais os dispositivos virtuais podem ser usados incluem:
 - Monitorando o tráfego com um sistema de detecção de intrusões (IDS)
 - Controlando o tráfego com um firewall
 
-Para saber mais sobre UDR, visite [Rotas definidas pelo usuário e encaminhamento de IP](./virtual-networks-udr-overview.md).
+Para saber mais sobre UDR, visite [Rotas definidas pelo usuário e encaminhamento de IP](../articles/virtual-network/virtual-networks-udr-overview.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

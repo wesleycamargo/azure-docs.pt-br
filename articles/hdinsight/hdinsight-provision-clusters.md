@@ -19,7 +19,7 @@
 
 # Crie clusters Hadoop baseados no Windows no HDInsight
 
-[AZURE.INCLUDE [seletor](../../includes/hdinsight-create-windows-cluster-selector.md)]
+[AZURE.INCLUDE [seletor](../../includes/hdinsight-selector-create-clusters.md)]
 
 Aprenda a planejar para criar clusters do HDInsight.
 
@@ -209,4 +209,4 @@ Neste artigo, você aprendeu as informações básicas sobre como criar um clust
 | [SDK .NET](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [Modelos de ARM](hdinsight-hadoop-create-windows-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

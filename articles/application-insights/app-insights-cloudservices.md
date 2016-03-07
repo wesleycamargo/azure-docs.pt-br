@@ -230,9 +230,7 @@ Você pode especificar contadores de desempenho personalizados adicionais, ou ou
 
 ## Telemetria correlacionada para funções de trabalho
 
-É uma experiência de diagnóstico avançada, quando você pode ver o que levou a uma solicitação com falha ou alta latência. Com as funções da web, o SDK automaticamente configura a correlação entre a telemetria relacionada.
-Para funções de trabalho, você pode usar um inicializador de telemetria personalizado para definir um atributo de contexto Operation.Id comum para todas as telemetrias para obter isso.
-Isso permitirá que você veja se o problema de latência/falha foi causado devido a alguma dependência ou ao seu código, rapidamente!
+É uma experiência de diagnóstico avançada, quando você pode ver o que levou a uma solicitação com falha ou alta latência. Com as funções da web, o SDK automaticamente configura a correlação entre a telemetria relacionada. Para funções de trabalho, você pode usar um inicializador de telemetria personalizado para definir um atributo de contexto Operation.Id comum para todas as telemetrias para obter isso. Isso permitirá que você veja se o problema de latência/falha foi causado devido a alguma dependência ou ao seu código, rapidamente!
 
 Faça assim:
 
@@ -260,6 +258,10 @@ Faça assim:
 
 [O exemplo](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) monitora um serviço que tem uma função web e duas funções de trabalho.
 
+## Exceção "método não encontrado" em execução nos Serviços de Nuvem do Azure
+
+Você compilou para .NET 4.6? O 4.6 não tem suporte automático nas funções dos Serviços de Nuvem do Azure. [Instale o 4.6 em cada função](../cloud-services/cloud-services-dotnet-install-dotnet.md) antes de executar seu aplicativo.
+
 ## Tópicos relacionados
 
 * [Configurar o envio dos Diagnósticos do Azure ao Application Insights](app-insights-azure-diagnostics.md)
@@ -281,4 +283,4 @@ Faça assim:
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -169,7 +169,7 @@ As consultas no Stream Analytics do Azure são expressadas em uma linguagem de c
 	HAVING
 		[Count] >= 3
 
-**Explicação**: a cláusula INTO informa o Stream Analytics quais das saídas gravar os dados dessa instrução. A primeira consulta é uma passagem dos dados que recebemos para uma saída que chamamos de SaídaDeArquivos. A segunda consulta faz uma agregação e filtragem simples e envia os resultados para um sistema de alerta de downstream. *Observação*: você também pode reutilizar os resultados de CTEs (ou seja, instruções COM). Isso tem o benefício adicional de abrir menos os leitores para a fonte de entrada, por exemplo.
+**Explicação**: a cláusula INTO informa o Stream Analytics quais das saídas gravar os dados dessa instrução. A primeira consulta é uma passagem dos dados que recebemos para uma saída que chamamos de SaídaDeArquivos. A segunda consulta faz uma agregação e filtragem simples e envia os resultados para um sistema de alerta de downstream. *Observação*: você também pode reutilizar os resultados de CTEs (ou seja, instruções COM). Isso tem o benefício adicional de abrir menos leitores para a fonte de entrada, por exemplo.
 
 	WITH AllRedCars AS (
 		SELECT
@@ -415,7 +415,7 @@ Agora vamos alterar o problema e localizar o primeiro carro de determinada Marca
 **Explicação**: usar a função LAST para recuperar o último valor temporal, quando o tipo de evento era ‘Start’. Observe que a função LAST usa PARTITION BY [usuário] para indicar que o resultado deverá ser calculado por usuário exclusivo. A consulta tem um limite máximo de uma hora de diferença de tempo entre os eventos ‘Start’ e ‘Stop’, mas é configurável como necessária (LIMIT DURATION(hour, 1).
 
 ## Exemplo de consulta: detectar a duração de uma condição
-**Descrição**: descubra há quanto tempo uma condição ocorreu. Por exemplo, suponha que um bug que resultou no peso incorreto de todos os carros (acima de 9 mil quilos). Queremos calcular a duração do bug.
+**Descrição**: descubra há quanto tempo uma condição ocorreu. Por exemplo, suponha que um bug que resultou no peso incorreto de todos os carros (acima de 9.000 quilos). Queremos calcular a duração do bug.
 
 **Entrada**:
 
@@ -510,4 +510,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

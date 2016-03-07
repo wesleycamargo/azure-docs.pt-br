@@ -12,11 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/21/2016"
+   ms.date="02/18/2016"
    ms.author="joaoma"/>
 
-# O que é o Application Gateway?
-
+# Visão geral do Application Gateway
 
 O Microsoft Azure Application Gateway fornece uma solução de balanceamento de carga HTTP gerenciada pelo Azure com base no balanceamento de carga de camada 7.
 
@@ -26,8 +25,8 @@ Atualmente, o Application Gateway dá suporte à entrega de aplicativo de camada
 
 - Balanceamento de carga HTTP
 - Afinidade de sessão baseada em cookie
-- Descarregamento do protocolo SSL
-
+- [Descarregamento do protocolo SSL](application-gateway-ssl-arm.md)
+- [Roteamento de conteúdo baseado em URL](application-gateway-url-route-overview.md) 
 
 ## Balanceamento de carga de camada 7 HTTP
 
@@ -41,7 +40,7 @@ O balanceamento de carga de camada 7 HTTP é útil para:
 - Aplicativos que deseja liberar de farms do servidor Web da sobrecarga da terminação SSL.
 - Aplicativos, como uma rede de distribuição de conteúdo, que exigem que várias solicitações HTTP na mesma conexão TCP de execução longa sejam roteadas ou balanceadas por carga para diferentes servidores back-end.
 
-
+ 
 ## Instâncias e tamanhos de gateway
 
 O Application Gateway atualmente é oferecido em 3 tamanhos: Pequeno, Médio e Grande. Os tamanhos de instância pequenos são destinados a cenários de desenvolvimento e teste.
@@ -59,9 +58,10 @@ A tabela abaixo mostra uma taxa de transferência de desempenho médio para cada
 
 >[AZURE.NOTE] Essa é uma orientação aproximada para uma taxa de transferência de application gateway. A taxa de transferência real depende de diversos detalhes de ambiente, como o tamanho médio da página, o local das instâncias de back-end e o tempo de processamento para o servidor de uma página.
 
+
 ## Monitoramento da integridade
 
-O Application Gateway do Azure monitora automaticamente a integridade das instâncias de back-end. Para saber mais, confira [Visão geral do monitoramento de integridade do Application Gateway](application-gateway-probe-overview.md).
+O Application Gateway do Azure monitora automaticamente a integridade das instâncias de back-end. Para saber mais, consulte a [Visão geral do monitoramento de integridade do Application Gateway](application-gateway-probe-overview.md).
 
 ## Configurando e gerenciando
 
@@ -70,6 +70,8 @@ O Application Gateway do Azure monitora automaticamente a integridade das instâ
 
 ## Próximas etapas
 
-Depois de aprender sobre o Application gateway, você pode [criar um application gateway](application-gateway-create-gateway.md) ou [criar um descarregamento de SSL do application gateway](application-gateway-ssl.md) para conexões HTTPS com balanceamento de carga.
+Depois de aprender mais sobre o Application Gateway, você pode [criar um application gateway](application-gateway-create-gateway.md) ou [criar um descarregamento de SSL do application gateway](application-gateway-ssl.md) para balancear a carga de conexões HTTPS.
 
-<!---HONumber=AcomDC_0128_2016-->
+Para saber como criar um application gateway usando a URL com base em roteamento de conteúdo, acesse [Criar um application gateway usando o roteamento baseado em URL](application-gateway-create-url-route-arm-ps.md) para obter mais informações.
+
+<!---HONumber=AcomDC_0224_2016-->

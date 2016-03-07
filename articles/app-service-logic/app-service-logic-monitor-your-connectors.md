@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="02/18/2016" 
 	ms.author="mandia"/>
 
 # Gerenciar e monitorar aplicativos de API e conectores internos
+
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
 
 Você criou um aplicativo de API interno. E agora?
 
@@ -66,7 +68,7 @@ As etapas são as seguintes:
 
 O Gerenciador de Conexão Híbrida lhe oferece a capacidade de conectar-se a um sistema local, como SQL Server ou SAP. Essa conectividade híbrida usa o Barramento de Serviço do Azure para conectar e controlar a segurança entre os recursos do Azure e seus recursos locais.
 
-Consulte [Usando o Gerenciador de Conexão Híbrida no Serviço de Aplicativo do Azure](app-service-logic-hybrid-connection-manager.md). 
+Consulte [Usando o Gerenciador de Conexão Híbrida no Serviço de Aplicativo do Azure](app-service-logic-hybrid-connection-manager.md).
 
 > [AZURE.NOTE] O Gerenciador de Conexão Híbrida será necessário apenas se você estiver se conectando a um recurso local por trás do firewall. Se você não estiver se conectando a um sistema local, o Gerenciador de Conexão Híbrida talvez não esteja listado na folha do conector.
 
@@ -75,7 +77,7 @@ Métricas de desempenho são recursos internos incluídos em cada aplicativo de 
 
 ![][monitoring]
 
-Você pode: 
+Você pode:
 
 - Selecione **Solicitações e erros** para adicionar diferentes métricas de desempenho, incluindo códigos de erro HTTP comumente conhecidos, como códigos de status HTTP 200, 400 ou 500. Também é possível consultar os tempos de resposta, quantas solicitações são feitas ao aplicativo de API, a quantidade de dados em entrada e a quantidade de dados em saída. Com base nas métricas de desempenho, você pode criar alertas de email quando uma métrica excede um limite de sua escolha. 
 - Em **Uso**, veja a quantidade de **CPU** usada pelo aplicativo de API, examine a **cota de uso** atual em MB e consulte a utilização máxima de dados com base na faixa de custo. **Despesa estimada** pode ajudá-lo a determinar os custos potenciais da execução do aplicativo de API.
@@ -94,11 +96,11 @@ Colaborador | Tem acesso completo à experiência de gerenciamento. Não é capa
 Leitor | Pode exibir todos os recursos, exceto segredos.
 Administrador de Acesso do Usuário | Pode exibir todos os recursos, criar/gerenciar funções e criar/gerenciar tíquetes de suporte.
 
-Consulte [Controle de acesso baseado em função no portal do Microsoft Azure](role-based-access-control-configure.md).
+Consulte [Controle de acesso baseado em função no portal do Microsoft Azure](../active-directory/role-based-access-control-configure.md).
 
 Você pode adicionar usuários e atribuir funções específicas ao aplicativo de API com facilidade. O portal mostra os usuários com acesso e as funções atribuídas a eles:
 
-![][access]  
+![][access]
 
 - Selecione **Usuários** para adicionar um usuário, atribuir uma função e remover um usuário.
 - Selecione **Funções** para ver todos os usuários em uma função específica, adicionar um usuário a uma função e remover um usuário de uma função. 
@@ -112,17 +114,14 @@ Você pode adicionar usuários e atribuir funções específicas ao aplicativo d
 > 
 > ![][host]
 > 
-> Essas propriedades são específicas ao site que hospeda o aplicativo de API. Ao usar um aplicativo de API ou um conector interno, a maioria dessas propriedades não se aplica, e é recomendável que você não as atualize. Se tiver criado seu aplicativo de API no Visual Studio e implantado-o em sua assinatura do Azure, você poderá usar as folhas Host e Gateway. [Gerenciar aplicativos de API](../app-service-api/app-service-api-manage-in-portal.md) fornece mais informações sobre o que você pode fazer nessas folhas com o aplicativo de API personalizado criado. 
+> Essas propriedades são específicas ao site que hospeda o aplicativo de API. Ao usar um aplicativo de API ou um conector interno, a maioria dessas propriedades não se aplica, e é recomendável que você não as atualize. Se tiver criado seu aplicativo de API no Visual Studio e implantado-o em sua assinatura do Azure, você poderá usar as folhas Host e Gateway. [Gerenciar aplicativos de API](../app-service-api/app-service-api-manage-in-portal.md) fornece mais informações sobre o que você pode fazer nessas folhas com o aplicativo de API personalizado criado.
 
 
->[AZURE.NOTE] Se você deseja começar com os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógicos](https://tryappservice.azure.com/?appservice=logic), em que você pode criar imediatamente um aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido e não há compromissos.
+>[AZURE.NOTE] Se você quiser começar a usar os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Aplicativo Lógico](https://tryappservice.azure.com/?appservice=logic). Você pode criar um aplicativo lógico de início e de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido e não há compromissos.
 
 ## Leia mais
 
-[Monitorar seus aplicativos lógicos](app-service-logic-monitor-your-logic-apps.md)<br/>
-[Lista de conectores de aplicativos de API no Serviço de Aplicativo](app-service-logic-connectors-list.md)<br/>
-[Controle de acesso baseado em função no portal do Microsoft Azure](role-based-access-control-configure.md)<br/>
-[Usando o Gerenciador de Conexão Híbrida no Serviço de Aplicativo do Azure](app-service-logic-hybrid-connection-manager.md)
+[Monitorar seus aplicativos lógicos](app-service-logic-monitor-your-logic-apps.md)<br/> [Lista de conectores de aplicativos de API no Serviço de Aplicativo](app-service-logic-connectors-list.md)<br/> [Controle de acesso baseado em função no portal do Microsoft Azure](../active-directory/role-based-access-control-configure.md)<br/> [Usando o Gerenciador de Conexão Híbrida no Serviço de Aplicativo do Azure](app-service-logic-hybrid-connection-manager.md)
 
 
 <!--Image references-->
@@ -135,4 +134,4 @@ Você pode adicionar usuários e atribuir funções específicas ao aplicativo d
 [hostsettings]: ./media/app-service-logic-monitor-your-connectors/hostsettings.png
 [apiapphost]: ./media/app-service-logic-monitor-your-connectors/apiapphost.png
 
-<!------HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

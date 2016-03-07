@@ -1,4 +1,4 @@
-<!--author=SharS last changed: 12/14/15-->
+<!--author=SharS last changed: 02/22/2016-->
 
 ### Para configurar e registrar o dispositivo
 
@@ -16,7 +16,7 @@
   
 5. Conclua as etapas a seguir para definir as configurações de rede necessárias e mínimas para seu dispositivo.
 
-    > [AZURE.IMPORTANT]Essas etapas de configuração devem ser executadas no controlador ativo do dispositivo. O menu do console serial indica o estado do controlador na mensagem de faixa. Se você não estiver conectado ao controlador ativo, desconecte e conecte-se ao controlador ativo.
+    > [AZURE.IMPORTANT] Essas etapas de configuração devem ser executadas no controlador ativo do dispositivo. O menu do console serial indica o estado do controlador na mensagem de faixa. Se você não estiver conectado ao controlador ativo, desconecte e conecte-se ao controlador ativo.
 
       1. No prompt de comando, digite sua senha. A senha do dispositivo padrão é **Senha1**.
 
@@ -32,11 +32,11 @@
        - Endereço IP do servidor DNS Primário
        - Endereço IP do servidor NTP Primário
  
-        > [AZURE.NOTE]Você terá que aguardar alguns minutos para que a máscara de sub-rede e as configurações de DNS sejam aplicadas.
+        > [AZURE.NOTE] Você terá que aguardar alguns minutos para que a máscara de sub-rede e as configurações de DNS sejam aplicadas.
 
       4. Opcionalmente, configure seu servidor proxy da Web.
 
-      >[AZURE.IMPORTANT]Embora a configuração do proxy da Web seja opcional, saiba que se você usar um proxy da Web, só poderá configurá-lo aqui. Para obter mais informações, visite [Configurar proxy da Web para seu dispositivo](storsimple-configure-web-proxy.md).
+      > [AZURE.IMPORTANT] Embora a configuração do proxy da Web seja opcional, saiba que se você usar um proxy da Web, só poderá configurá-lo aqui. Para obter mais informações, visite [Configurar proxy da Web para seu dispositivo](storsimple-configure-web-proxy.md).
 
 6. Pressione Ctrl + C para sair do assistente de instalação.
  
@@ -97,7 +97,7 @@
 
 14. A etapa final do assistente de instalação registra seu dispositivo no serviço Gerenciador StorSimple. Para isso, será necessária a chave de registro do serviço obtida na [Etapa 2: obter a chave de registro](storsimple-get-service-registration-key-gov.md). Depois de fornecer a chave de registro, talvez seja necessário aguardar de 2 a 3 minutos antes do dispositivo ser registrado.
 
-      >[AZURE.NOTE]Você pode pressionar Ctrl + C a qualquer momento para sair do assistente de instalação. Se você tiver inserido todas as configurações de rede (endereço IP para Dados 0, Máscara de sub-rede e Gateway), as entradas serão mantidas.
+      > [AZURE.NOTE] Você pode pressionar Ctrl + C a qualquer momento para sair do assistente de instalação. Se você tiver inserido todas as configurações de rede (endereço IP para Dados 0, Máscara de sub-rede e Gateway), as entradas serão mantidas.
 
 	![Progresso do registro do StorSimple](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegistrationProgress-gov-include.png)
 
@@ -105,7 +105,9 @@
 	
 	![Dispositivo de registro do StorSimple 7](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice7_gov-include.png)
 
-      >[AZURE.IMPORTANT]Para copiar o texto da janela do console serial, basta selecionar o texto. Em seguida, você deverá poder colá-lo na área de transferência ou em qualquer editor de texto. >> NÃO use Ctrl + C para copiar a chave de criptografia de dados de serviço. Usar Ctrl + C fará com que você saia do assistente de instalação. Como resultado, a senha de administrador do dispositivo não será alterada, e o dispositivo voltará para a senha padrão.
+      > [AZURE.IMPORTANT] Para copiar o texto da janela do console serial, basta selecionar o texto. Então, você conseguirá colá-lo na área de transferência ou em qualquer editor de texto.
+      > 
+      > NÃO use Ctrl + C para copiar a chave de criptografia de dados do serviço. Usar Ctrl + C fará com que você saia do assistente de instalação. Como resultado, a senha de administrador do dispositivo não será alterada, e o dispositivo voltará para a senha padrão.
 
 16. Saia do console serial.
 
@@ -117,9 +119,11 @@
     	![StorSimple Devices page](./media/storsimple-configure-and-register-device-gov-u2/HCS_DeviceOnline-gov-include.png) 
   
         If the device status is **Offline**, wait for a couple of minutes for the device to come online. 
-      
-        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in the [network requirements for your StorSimple device](https://msdn.microsoft.com/library/dn772371.aspx). If you do not have HTTP 1.1 support, check port 9354 to make sure that it is open for outbound communication. This port is used for communication between the StorSimple Manager service and your StorSimple device.
+
+        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in [networking requirements for your StorSimple device](../articles/storsimple/storsimple-system-requirements.md). 
+
+        Verify that port 9354 is open for outbound communication as this is used by the service bus for StorSimple Manager Service-to-device communication.
      
         
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

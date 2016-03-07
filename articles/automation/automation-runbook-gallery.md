@@ -12,8 +12,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="02/03/2016"
-	ms.author="bwren" />
+	ms.date="02/18/2016"
+	ms.author="magoedte;bwren" />
 
 
 # Galerias de runbook e de módulos para a Automação do Azure
@@ -24,13 +24,13 @@ Você pode obter runbooks da [Galeria de Runbook](#runbooks-in-runbook-gallery) 
 
 ## Runbooks na Galeria de Runbook
 
-A [Galeria de Runbook](http://gallery.technet.microsoft.com/scriptcenter/site/search?f[0].Type=RootCategory&f[0].Value=WindowsAzure&f[1].Type=SubCategory&f[1].Value=WindowsAzure_automation&f[1].Text=Automation) fornece uma variedade de runbooks da Microsoft e da comunidade que você pode importar para a Automação do Azure. Você pode baixar um runbook da galeria hospedada no [Script Center do TechNet](http://gallery.technet.microsoft.com/) ou pode importar runbooks diretamente da galeria do portal do Azure e do portal de visualização do Azure.
+A [Galeria de Runbook](http://gallery.technet.microsoft.com/scriptcenter/site/search?f[0].Type=RootCategory&f[0].Value=WindowsAzure&f[1].Type=SubCategory&f[1].Value=WindowsAzure_automation&f[1].Text=Automation) fornece uma variedade de runbooks da Microsoft e da comunidade que você pode importar para a Automação do Azure. Você pode baixar um runbook da galeria hospedada no [Script Center do TechNet](http://gallery.technet.microsoft.com/) ou pode importar runbooks diretamente da galeria do Portal Clássico do Azure ou do Portal do Azure.
 
-Você só pode importar diretamente da Galeria de Runbook usando o portal do Azure ou o portal de visualização do Azure. Não é possível executar essa função usando o Windows PowerShell.
+Somente é possível importar diretamente da Galeria de Runbook usando o Portal Clássico do Azure ou o Portal do Azure. Não é possível executar essa função usando o Windows PowerShell.
 
 >[AZURE.NOTE] Você deverá validar o conteúdo de todos os runbooks obtidos da Galeria de Runbook e tomar muito cuidado ao instalá-los e executá-los em um ambiente de produção.|
 
-### Para importar um runbook da Galeria de Runbook com o portal do Azure
+### Para importar um runbook da Galeria de Runbook com o Portal Clássico do Azure
 
 1. No portal de Gerenciamento do Azure, clique em **Novo**, **Serviços de Aplicativos**, **Automação**, **Runbook**, **Da Galeria**.
 2. Selecione uma categoria para exibir os runbooks relacionados e selecione um runbook para exibir seus detalhes. Quando você selecionar o runbook desejado, clique no botão de seta para a direita.<br> ![Galeria de Runbook](media/automation-runbook-gallery/runbook-gallery.png)
@@ -38,9 +38,9 @@ Você só pode importar diretamente da Galeria de Runbook usando o portal do Azu
 4. Insira os detalhes do runbook e clique no botão com a marca de seleção. O nome do runbook já estará preenchido.
 5. O runbook aparecerá na guia **Runbooks** para a Conta de Automação.
 
-### Para importar um runbook da Galeria de Runbook com o portal de visualização do Azure
+### Para importar um runbook da Galeria de Runbook com o portal do Azure
 
-1. No Portal de Visualização do Azure, abra sua conta de Automação. 
+1. No Portal do Azure, abra sua conta de Automação. 
 2. Clique no bloco **Runbooks** para abrir a lista de runbooks.
 3. Clique no botão **Procurar na galeria**. <br> ![Botão Procurar na galeria](media/automation-runbook-gallery/browse-gallery-button.png)
 4. Localize o item da galeria desejado e selecione-o para exibir seus detalhes. <br> ![Procurar na galeria](media/automation-runbook-gallery/browse-gallery.png)
@@ -81,18 +81,18 @@ A Microsoft incentiva você a adicionar à Galeria de Runbook os runbooks que, e
 
 ## Módulos na Galeria do PowerShell
 
-Os módulos do PowerShell contêm cmdlets que você pode usar em seus runbooks, e os módulos existentes que podem ser instalados na Automação do Azure estão disponíveis na [Galeria do PowerShell](http://www.powershellgallery.com). Você pode iniciar esta galeria no portal de visualização do Azure e instalá-los diretamente na Automação do Azure ou pode baixá-los e instalá-los manualmente. Não é possível instalar os módulos diretamente do portal do Azure, mas você pode baixá-los e instalá-los como o faria com qualquer módulo.
+Os módulos do PowerShell contêm cmdlets que você pode usar em seus runbooks, e os módulos existentes que podem ser instalados na Automação do Azure estão disponíveis na [Galeria do PowerShell](http://www.powershellgallery.com). Você pode inicializar esta galeria no Portal do Azure e instalá-los diretamente na Automação do Azure ou pode baixá-los e instalá-los manualmente. Não é possível instalar os módulos diretamente do Portal Clássico do Azure, mas você pode baixá-los e instalá-los como o faria com qualquer módulo.
 
-### Para importar um módulo da Galeria do PowerShell com o portal de visualização do Azure
+### Para importar um módulo da Galeria do PowerShell com o Portal do Azure
 
-1. No Portal de Visualização do Azure, abra sua conta de Automação. 
+1. No Portal do Azure, abra sua conta de Automação. 
 2. Clique no bloco **Ativos** para abrir a lista de ativos.
 3. Clique no bloco **Módulos** para abrir a lista de módulos.
 3. Clique no botão **Galeria do PowerShell** para iniciar a Galeria do PowerShell em outra janela do navegador. <br> ![Galeria do PowerShell](media/automation-runbook-gallery/powershell-gallery-button.png)
 4. Clique no menu **Módulos** para acessar a lista de módulos disponíveis.<br> ![Botão Galeria do PowerShell](media/automation-runbook-gallery/powershell-gallery.png)
 4. Localize o módulo em que você está interessado e selecione-o para exibir seus detalhes.
 5. Para instalar o módulo diretamente na Automação do Azure, clique no botão **Implantar na Automação do Azure**.<br> ![Botão Galeria do PowerShell](media/automation-runbook-gallery/powershell-gallery-detail.png)
-6. Você retornará ao portal de visualização do Azure em um painel de **Implantação personalizada**. Especifique se você instalará o módulo em uma **Conta de Automação Nova ou Existente** e o **Nome da Conta de Automação**. O **Local da Conta de Automação** será ignorado se você usar uma conta existente. 
+6. Você retornará ao Portal do Azure em um painel de **Implantação personalizada**. Especifique se você instalará o módulo em uma **Conta de Automação Nova ou Existente** e o **Nome da Conta de Automação**. O **Local da Conta de Automação** será ignorado se você usar uma conta existente. 
 7. Selecione **Grupo de recursos** e especifique um grupo de recursos existente ou crie um novo para o módulo.
 6. Selecione **Termos legais** e clique em **Comprar**. Observe que, apesar do nome desse botão, você não será realmente cobrado pela instalação de um módulo.
 7. Clique em **Criar** para importar o módulo. Isso pode demorar alguns minutos, pois cada atividade precisa ser extraída.  
@@ -108,4 +108,4 @@ Você pode enviar solicitações para a [Voz do Usuário](https://feedback.azure
 - [Criando ou importando um runbook na Automação do Azure](automation-creating-importing-runbook.md)
 - [Aprendendo o fluxo de trabalho do PowerShell](automation-powershell-workflow.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

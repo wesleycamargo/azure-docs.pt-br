@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="02/23/2016" 
 	ms.author="sstein"/>
 
 # Gerenciar o Banco de Dados SQL do Azure com o PowerShell
@@ -35,7 +35,7 @@ Para executar os cmdlets do PowerShell, você precisa ter o Azure PowerShell ins
 
 Para executar os cmdlets do PowerShell em sua assinatura do Azure, primeiramente você deve estabelecer acesso à sua conta do Azure. Execute o seguinte e você receberá um sinal na tela para inserir suas credenciais. Use o mesmo email e senha usados para entrar no Portal Clássico do Azure.
 
-	Add-AzureRmAccount
+	Login-AzureRmAccount
 
 Após entrar, você verá algumas informações na tela, incluindo a ID usada para entrar e as assinaturas do Azure as quais você tem acesso.
 
@@ -127,4 +127,4 @@ Combinar comandos e automatizar. Por exemplo, substitua tudo que está entre asp
 
 - [Cmdlets do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

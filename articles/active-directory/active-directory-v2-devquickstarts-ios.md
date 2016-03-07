@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Aplicativo para iOS do modelo de aplicativo v2.0 | Microsoft Azure"
+	pageTitle="Aplicativo iOS do Azure AD v2.0 | Microsoft Azure"
 	description="Como criar um aplicativo iOS que conecte usuários com a conta da Microsoft pessoal e as contas corporativas ou de estudante."
 	services="active-directory"
 	documentationCenter=""
@@ -13,13 +13,14 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="02/20/2016"
 	ms.author="brandwe"/>
 
-# Visualização do modelo de aplicativo v2.0: adicionar entrada para um aplicativo iOS
+# Adicionar as credenciais a um aplicativo iOS usando o ponto de extremidade v2.0
 
-O tutorial de início rápido para iOS ainda não está totalmente pronto... Volte em breve e verifique se há atualizações do @AzureAD no Twitter.
+O tutorial de início rápido para iOS ainda não está totalmente pronto... Volte em breve e verifique se há atualizações de @AzureAD no Twitter.
 
-> [AZURE.NOTE]Essas informações se aplicam à visualização pública do modelo de aplicativo v2.0. Para obter instruções sobre como integrar-se ao serviço AD do Azure disponível ao público geral, consulte o [Guia do desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md).
+> [AZURE.NOTE]
+	Nem todos os recursos e cenários do Azure Active Directory têm suporte no ponto de extremidade v2.0. Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da v2.0](active-directory-v2-limitations.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

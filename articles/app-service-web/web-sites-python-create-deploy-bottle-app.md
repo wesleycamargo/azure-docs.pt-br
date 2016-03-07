@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="11/17/2015"
+	ms.date="02/19/2016"
 	ms.author="huvalo"/>
 
 
@@ -26,7 +26,7 @@ Você criará um aplicativo Web usando a estrutura da Web Bottle (consulte vers�
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE] Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## Pré-requisitos
 
@@ -56,7 +56,6 @@ Você deve ter o Python e Git já instalados, mas certifique-se de ter uma das v
 A primeira etapa na criação de seu aplicativo é criar o aplicativo Web por meio do [Portal do Azure](https://portal.azure.com).
 
 1. Faça logon no Portal do Azure e clique no botão **Novo** no canto inferior esquerdo. 
-2. Clique em **Web + móvel**.
 3. Na caixa de pesquisa, digite "python".
 4. Nos resultados da pesquisa, selecione **Bottle** e clique em **Criar**.
 5. Configure o novo aplicativo Bottle, como a criação de um novo plano de Serviço de Aplicativo e um novo grupo de recursos para ele. Em seguida, clique em **Criar**.
@@ -377,7 +376,7 @@ Para obter informações sobre como usar o Armazenamento de Tabela do Azure e o 
 - [Bottle e Armazenamento de Tabela do Azure com Ferramentas Python 2.1 para Visual Studio]
 
 ## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 
 <!--Link references-->
@@ -397,4 +396,4 @@ Para obter informações sobre como usar o Armazenamento de Tabela do Azure e o 
 [Documentação do Bottle]: http://bottlepy.org/docs/dev/index.html
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

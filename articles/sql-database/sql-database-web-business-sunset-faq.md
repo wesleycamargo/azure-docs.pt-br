@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="12/01/2015"
+   ms.date="02/23/2016"
    ms.author="sstein" />
 
 # Últimas perguntas frequentes de Web e Business Edition
@@ -31,13 +31,13 @@ Para ajudá-lo com a atualização de bancos de dados Web e Business, o serviço
 
 ## Por que o Portal do Azure mostra os meus bancos de dados das versões Web e Business como obsoletos?
 
-Porque os bancos de dados das versões Web e Business não estarão disponíveis depois de setembro de 2015; o portal rotulou os bancos de dados comerciais e da Web como Desativados. Os bancos de dados comerciais e da Web ainda podem ser provisionados e gerenciados como de costume, mas o rótulo Desativado é um lembrete de que é melhor usar as camadas de serviço Basic, Standard ou Premium para novos bancos de dados. O rótulo desativado também fornece um lembrete de que qualquer banco de dados Web e Business deve ser atualizado para Premium, Basic ou Standard. Para obter informações detalhadas sobre como atualizar bancos de dados Web ou Business existentes para novas camadas de serviço, consulte [Atualizar banco de dados SQL Web/Business para novas camadas de serviço](sql-database-upgrade-new-service-tiers.md).
+Porque os bancos de dados das versões Web e Business não estarão disponíveis depois de setembro de 2015; o portal rotulou os bancos de dados comerciais e da Web como Desativados. O rótulo desativado também fornece um lembrete de que qualquer banco de dados Web e Business deve ser atualizado para Premium, Basic ou Standard. Para obter informações detalhadas sobre como atualizar bancos de dados Web ou Business existentes para novas camadas de serviço, consulte [Atualizar para o Banco de Dados SQL do Azure V12](sql-database-upgrade-server-portal.md).
 
 ## Que nova camada de serviço é a melhor opção para atualizar meu banco de dados existente Web ou Business?
 
 A seleção de uma nova camada de serviço e de um nível de desempenho apropriados para seu banco de dados Web ou Business existente depende dos requisitos específicos de desempenho e de recursos para seu aplicativo.
 
-Use as recomendações de tipo de preço descritas acima ou, para obter informações detalhadas para ajudá-lo a selecionar uma nova camada de serviço apropriado, consulte [Atualizar banco de dados SQL Web/Business para novas camadas de serviço](sql-database-upgrade-new-service-tiers.md).
+Use as recomendações de tipo de preço descritas acima ou, para obter informações detalhadas para ajudá-lo a selecionar uma nova camada de serviço apropriado, consulte [Atualizar para o Banco de Dados SQL do Azure V12](sql-database-upgrade-server-portal.md).
 
 ## Por que a Microsoft está introduzindo novas camadas de serviço?
 
@@ -66,6 +66,6 @@ Os bancos de dados SQL Basic, Standard e Premium do Azure são cobrados por hora
 
 [Camadas de serviço](sql-database-service-tiers.md)
 
-[Atualizar os bancos de dados Web/Business do Banco de Dados SQL para novas camadas de serviço](sql-database-upgrade-new-service-tiers.md)
+[Atualizar para o Banco de Dados SQL Azure V12](sql-database-upgrade-server-portal.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

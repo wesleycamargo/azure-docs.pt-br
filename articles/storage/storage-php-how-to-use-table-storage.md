@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="02/17/2016"
 	ms.author="tomfitz"/>
 
 
@@ -23,7 +23,7 @@
 
 ## Visão geral
 
-Este guia mostra como executar cenários comuns usando o serviço Tabela do Azure. As amostras são escritas em PHP e usam o [SDK do Azure para PHP][download]. Os cenários abrangidos incluem **criar e excluir uma tabela, e inserir, excluir e consultar entidades em uma tabela**. Para obter mais informações sobre o serviço Tabela do Azure, consulte a seção [Próximas etapas](#NextSteps).
+Este guia mostra como executar cenários comuns usando o serviço Tabela do Azure. As amostras são escritas em PHP e usam o [SDK do Azure para PHP][download]. Os cenários abrangidos incluem **criar e excluir uma tabela, e inserir, excluir e consultar entidades em uma tabela**. Para obter mais informações sobre o serviço Tabela do Azure, consulte a seção [Próximas etapas](#next-steps).
 
 [AZURE.INCLUDE [armazenamento-tabela-conceitos-include](../../includes/storage-table-concepts-include.md)]
 
@@ -87,7 +87,7 @@ Para os exemplos descritos aqui, a cadeia de conexão será passada diretamente.
 
 ## Criar uma tabela
 
-O objeto **TableRestProxy** permite que você crie uma tabela com o método **createTable**. Ao criar uma tabela, você pode definir o tempo limite do serviço Tabela. (Para obter mais informações sobre o tempo limite do serviço de Tabela, consulte [Definindo tempos limite para operações de serviço Tabela][table-service-timeouts].)
+O objeto **TableRestProxy** permite que você crie uma tabela com o método **createTable**. Ao criar uma tabela, você pode definir o tempo limite do serviço Tabela. (Para obter mais informações sobre o tempo limite do serviço Tabela, consulte [Definindo Tempos Limite para Operações de Serviço Tabela][table-service-timeouts].)
 
 	require_once 'vendor\autoload.php';
 
@@ -109,7 +109,7 @@ O objeto **TableRestProxy** permite que você crie uma tabela com o método **cr
 		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 	}
 
-Para obter informações sobre restrições em nomes de tabelas, consulte [Noções básicas sobre o modelo de dados do serviço Tabela][table-data-model].
+Para obter informações sobre restrições em nomes de tabelas, consulte [Noções Básicas sobre o Modelo de Dados do Serviço Tabela][table-data-model].
 
 ## Adicionar uma entidade a uma tabela
 
@@ -250,7 +250,7 @@ As consultas de entidades são construídas usando filtros (para obter mais info
 
 ## Recuperar um subconjunto de entidades em uma partição
 
-O mesmo padrão usado no exemplo anterior pode ser usado para recuperar qualquer subconjunto de entidades em uma partição. O subconjunto de entidades que você recupera é determinado pelo filtro usado (para obter mais informações, consulte [Consultando tabelas e entidades][filters]). O exemplo a seguir mostra como usar um filtro para recuperar todas as entidades com um determinado `Location` e um `DueDate` menor do que uma data especificada.
+O mesmo padrão usado no exemplo anterior pode ser usado para recuperar qualquer subconjunto de entidades em uma partição. O subconjunto de entidades que você recupera é determinado pelo filtro usado (para obter mais informações, consulte [Consultando Tabelas e Entidades][filters]). O exemplo a seguir mostra como usar um filtro para recuperar todas as entidades com um determinado `Location` e um `DueDate` menor do que uma data especificada.
 
 	require_once 'vendor\autoload.php';
 
@@ -435,7 +435,7 @@ O exemplo a seguir mostra como executar as operações **insertEntity** e **dele
 		echo $code.": ".$error_message."<br />";
 	}
 
-Para obter mais informações sobre operações de tabela em lotes, consulte [Executando transações do grupo de entidades][entity-group-transactions].
+Para obter mais informações sobre operações de tabela em lotes, consulte [Executando transações do grupo de entidade][entity-group-transactions].
 
 ## Excluir uma tabela
 
@@ -478,4 +478,4 @@ Para saber mais, veja também a [Central de desenvolvedores do PHP](/develop/php
 [filters]: http://msdn.microsoft.com/library/azure/dd894031.aspx
 [entity-group-transactions]: http://msdn.microsoft.com/library/azure/dd894038.aspx
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

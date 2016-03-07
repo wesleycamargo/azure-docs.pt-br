@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="heidist"/>
 
 #Transição da versão da api de visualização=2014* para a versão da api=2015*#
@@ -144,4 +144,4 @@ A versão de API `2015-02-28` está sob SLA. Use as opções de suporte e os lin
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

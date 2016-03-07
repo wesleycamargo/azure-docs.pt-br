@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="02/18/2016"
 	ms.author="curtand"/>
 
 # Atribuindo funções de administrador no Active Directory do Azure (Azure AD)
@@ -94,7 +94,7 @@ O administrador global tem acesso a todos os recursos administrativos. Por padr�
 
 - Para saber mais sobre como o acesso aos recursos é controlado no Microsoft Azure, confira [Noções básicas sobre o acesso a recursos no Azure](active-directory-understanding-resource-access.md)
 
-- Para saber mais sobre como o Active Directory do Azure está relacionado à sua assinatura do Azure, confira [Como as assinaturas do Azure estão associadas ao Active Directory do Azure] (active-directory-how-subscriptions-associated directory.md)
+- Para saber mais sobre como o Azure Active Directory está relacionado à sua assinatura do Azure, consulte [Como as assinaturas do Azure estão associadas ao Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 
 - [Gerenciar usuários](active-directory-create-users.md)
 
@@ -102,4 +102,4 @@ O administrador global tem acesso a todos os recursos administrativos. Por padr�
 
 - [Gerenciar grupos](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

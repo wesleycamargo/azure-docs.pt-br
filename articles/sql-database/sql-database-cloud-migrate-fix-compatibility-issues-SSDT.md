@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="12/17/2015"
+   ms.date="02/22/2016"
    ms.author="carlrab"/>
 
-# Corrigir problemas de compatibilidade do banco de dados do SQL Server antes da migração para o Banco de Dados SQL
+# Corrigir problemas de compatibilidade do banco de dados do SQL Server com SSDT antes da migração para o Banco de Dados SQL
 
 Se você determinar que o banco de dados do SQL Server de origem não é compatível, terá várias opções para corrigir os problemas de compatibilidade do banco de dados identificados.
 
@@ -31,10 +31,10 @@ Usar o SQL Server Data Tools para Visual Studio (“SSDT”) para importar o esq
 
   ![Diagrama de migração do VSSSDT](./media/sql-database-cloud-migrate/03VSSSDTDiagram.png)
 
-  >[AZURE.NOTE]Se a migração somente de esquema for necessária, o esquema poderá ser publicado diretamente do Visual Studio no Banco de Dados SQL do Azure. Use esse método quando o esquema de banco de dados requer mais alterações do que o Assistente de migração pode administrar sozinho.
+  > [AZURE.NOTE] Se a migração somente de esquema for necessária, o esquema poderá ser publicado diretamente do Visual Studio no Banco de Dados SQL do Azure. Use esse método quando o esquema de banco de dados requer mais alterações do que o Assistente de migração pode administrar sozinho.
 
 ## Próxima etapa: selecionar o método de migração e executar a migração
 
 [Selecionar método de migração](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0224_2016-->

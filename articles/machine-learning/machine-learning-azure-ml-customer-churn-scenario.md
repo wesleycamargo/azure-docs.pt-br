@@ -221,7 +221,7 @@ Seu feedback nos ajudará a melhorar a qualidade dos white papers que produzirmo
 
 [4] [Marketing de Big Data: Envolva seus clientes com mais eficiência e agregue valor](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Modelo de variação de telecomunicações] (https://caqs.azure.net/#gallery/telcocustomerchurn) na Galeria do Cortana Analytics
+[5] [Modelo de variação de telecomunicações] (http://gallery.cortanaanalytics.com/Experiment/Telco-Customer-Churn-5) na Galeria do Cortana Analytics
 ##Apêndice
 
 ![][10]
@@ -240,4 +240,4 @@ Seu feedback nos ajudará a melhorar a qualidade dos white papers que produzirmo
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

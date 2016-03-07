@@ -181,7 +181,7 @@ Nesta seção, você cria um aplicativo do console do Java que lê mensagens do 
     public static void main( String[] args ) throws IOException
     ```
 
-12. Adicione o método a seguir ao método **main** da classe **App**. Esse código cria uma instância de **EventHubClient** para se conectar ao ponto de extremidade compatível com o Hub de Eventos no hub IoT. Em seguida, ele cria dois threads para ler as duas partições. Substitua **{youriothubkey}**, **{youreventhubcompatiblenamespace}** e **{youreventhubcompatiblename}** pelos valores anotados anteriormente. O valor do espaço reservado **{youreventhubcompatiblenamespace}** é proveniente do **ponto de extremidade compatível com o Hub de Eventos**: ele tem o formato **xxxxnamespace.servicebus.windows.net**.
+12. Adicione o método a seguir ao método **main** da classe **App**. Esse código cria uma instância de **EventHubClient** para se conectar ao ponto de extremidade compatível com o Hub de Eventos no hub IoT. Em seguida, ele cria dois threads para ler as duas partições. Substitua **{youriothubkey}**, **{youreventhubcompatiblenamespace}** e **{youreventhubcompatiblename}** pelos valores anotados anteriormente. O valor do espaço reservado **{youreventhubcompatiblenamespace}** é proveniente do **ponto de extremidade compatível com o Hub de Eventos**: ele tem o formato **xxxxnamespace** (em outras palavras, remova o prefixo ****sb://** e o sufixo **.servicebus.windows.net** do valor do ponto de extremidade compatível com o Hub de Eventos do portal).
 
     ```
     String policyName = "iothubowner";
@@ -213,7 +213,7 @@ Nesta seção, você cria um aplicativo do console do Java que lê mensagens do 
 
 13. Salve e feche o arquivo App.java.
 
-14. Para criar o aplicativo **read-d2c-messages** usando o Maven, execute o comando a seguir no prompt de comando na pasta read-d2c-messages:
+14. Para compilar o aplicativo **read-d2c-messages** usando o Maven, execute o comando a seguir no prompt de comando na pasta read-d2c-messages:
 
     ```
     mvn clean package -DskipTests
@@ -228,4 +228,4 @@ Nesta seção, você cria um aplicativo do console do Java que lê mensagens do 
 [lnk-event-hubs-overview]: event-hubs-overview.md
 [lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

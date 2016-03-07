@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/06/2015" 
+	ms.date="02/16/2016" 
 	ms.author="awills"/>
 
 # Criar um novo recurso do Application Insights
@@ -31,7 +31,7 @@ Se você ainda não tiver uma [conta da Microsoft, obtenha uma agora mesmo](http
 
 Primeiro, você precisa de uma assinatura do [Microsoft Azure](http://azure.com). Se sua equipe ou organização tem uma assinatura do Azure, o proprietário pode adicioná-lo a ela usando seu Windows Live ID.
 
-Ou então você pode criar uma nova assinatura. A avaliação gratuita permite que experimentar tudo no Azure. Depois que o período de avaliação expira, você pode achar a assinatura pré-paga apropriada, já que você não será cobrado pelos serviços gratuitos.
+Ou então você pode criar uma nova assinatura. A conta gratuita permite que experimentar de tudo no Azure. Depois que o período de avaliação expira, você pode achar a assinatura pré-paga apropriada, já que você não será cobrado pelos serviços gratuitos.
 
 Quando você tem acesso a uma assinatura, entre no Application Insights em [http://portal.azure.com](https://portal.azure.com) e use sua Live ID para fazer logon.
 
@@ -94,4 +94,4 @@ Você pode escrever um [script do PowerShell](app-insights-powershell-script-cre
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

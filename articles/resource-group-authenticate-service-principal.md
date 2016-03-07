@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="11/18/2015"
+   ms.date="02/21/2016"
    ms.author="tomfitz"/>
 
 # Autenticação de uma entidade de serviço com o Gerenciador de Recursos do Azure
@@ -25,9 +25,11 @@ Ele mostra como autenticar com um nome de usuário e uma senha ou um certificado
 Você pode usar o Azure PowerShell ou a CLI do Azure para Mac, Linux e Windows. Se você não tem o Azure PowerShell instalado, consulte [Como instalar e configurar o Azure PowerShell](./powershell-install-configure.md). Se você não tiver a CLI do Azure instalada, consulte [Instalar e configurar a CLI do Azure](xplat-cli-install.md). Para obter informações sobre como usar o portal para executar essas etapas, consulte o aplicativo [Criar Active Directory e entidade de serviço usando o portal](resource-group-create-service-principal-portal.md)
 
 ## Conceitos
-1. AAD (Active Directory do Azure) - um serviço de gerenciamento de identidades e acesso para a nuvem. Para obter mais informações, consulte [O que é o Active Directory do Azure](active-directory/active-directory-whatis.md)
+1. AAD (Active Directory do Azure) - um serviço de gerenciamento de identidades e acesso para a nuvem. Para obter mais informações, consulte [O que é o Azure Active Directory](active-directory/active-directory-whatis.md)
 2. Entidade de serviço - uma instância de um aplicativo em um diretório que precisa acessar outros recursos.
-3. Aplicativo do AD - registro de diretório que identifica um aplicativo ao AAD. Para obter mais informações, consulte [Noções básicas de autenticação no AD do Azure](https://msdn.microsoft.com/library/azure/874839d9-6de6-43aa-9a5c-613b0c93247e#BKMK_Auth).
+3. Aplicativo do AD - registro de diretório que identifica um aplicativo ao AAD.
+
+Para obter uma explicação mais detalhada de aplicativos e entidades de serviço, consulte [Objetos de aplicativo e de entidade de serviço](active-directory/active-directory-application-objects.md). Para obter mais informações sobre a autenticação do Active Directory, consulte [Cenários de autenticação do Azure AD](active-directory/active-directory-authentication-scenarios.md).
 
 ## Autenticar a entidade de serviço com senha — PowerShell
 
@@ -312,4 +314,4 @@ Nesta seção, você executará as etapas para criar uma entidade de serviço pa
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -12,8 +12,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="01/19/2016"
-	ms.author="bwren" />
+	ms.date="02/18/2016"
+	ms.author="magoedte;bwren" />
 
 # Editando runbooks de texto na Automação do Azure
 
@@ -25,7 +25,7 @@ Cada runbook da Automação do Azure tem duas versões, Rascunho e Publicado. Ed
 
 Para trabalhar com [Runbooks gráficos](automation-runbook-types.md#graphical-runbooks), consulte [Criação gráfica na Automação do Azure](automation-graphical-authoring-intro.md).
 
-## Para editar um runbook com o portal de visualização do Azure
+## Para editar um runbook com o portal do Azure
 
 Use o procedimento a seguir para abrir um runbook para edição no editor de texto.
 
@@ -144,4 +144,4 @@ Os seguintes comandos de exemplo mostram como substituir o conteúdo existente d
 - [Agendas](automation-schedules.md)
 - [Variáveis](automation-variables.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

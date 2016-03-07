@@ -21,7 +21,7 @@
 
 Talvez seja necessário aplicar atualizações de software ou hotfixes para manter sua StorSimple Virtual Array atualizada. Em geral, é recomendável que você instale atualizações por meio do portal clássico do Azure. No entanto, em casos em que o portal não está disponível, você pode usar a interface do usuário da Web local para aplicar hotfixes ou atualizações. Este tutorial descreve como usar a interface do usuário da Web local para aplicar uma atualização ou hotfix. (Para obter procedimentos durante a instalação de atualizações por meio do portal clássico, vá para [Instalar atualizações regulares por meio do portal clássico do Azure](storsimple-update-device.md#install-regular-updates-via-the-azure-classic-portal).)
 
-Tenha em mente que uma instalação de atualização ou hotfix pode reiniciar seu dispositivo. Visto que a StorSimple Virtual Array é um dispositivo de nó único, quaisquer E/Ss até então em andamento serão interrompidas e o dispositivo passará por algum tempo de inatividade.
+Tenha em mente que uma instalação de atualização ou hotfix pode reiniciar seu dispositivo. Visto que a StorSimple Virtual Array é um dispositivo de nó único, quaisquer E/Ss até então em andamento serão interrompidas e o dispositivo passará por algum tempo de inatividade. Também recomendamos que, antes de aplicar uma atualização, você deixe os volumes ou compartilhamentos offline no host e, em seguida, no dispositivo. Isso minimizará a possibilidade de dados corrompidos.
 
 ## Usar a interface do usuário da Web local para aplicar uma atualização ou hotfix
 
@@ -39,4 +39,4 @@ Antes da instalação da atualização ou hotfix, certifique-se de que você tem
 
 Saiba mais sobre a [administração de sua StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

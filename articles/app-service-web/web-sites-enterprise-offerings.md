@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="02/20/2016" 
 	ms.author="anwestg"/>
 
 # White paper Ofertas de Aplicativos Web do Serviço de Aplicativo do Azure para Enterprise #
@@ -45,11 +45,11 @@ Estruturas e plataformas da web estão cada vez mais sendo usadas para desenvolv
 
 O Aplicativos Web do Serviço de Aplicativo é uma boa opção para hospedar esses aplicativos, oferecendo infraestrutura escalonável e confiável que é gerenciada e corrigida com quase nenhuma intervenção manual e tempo de inatividade. A plataforma Microsoft Azure fornece várias opções de armazenamento de dados para dar suporte a aplicativos web hospedados nos Aplicativos Web do Banco de Dados SQL do Microsoft Azure, um banco de dados como serviço gerenciado relacional e escalável, e serviços populares de nossos parceiros, como banco de dados ClearDB MySQL e MongoDB.
 
-Uma abordagem alternativa é fazer uso de seu investimento existente no local. No cenário de exemplo, um sistema de despesas de funcionários, você pode desejar manter seu armazenamento de dados em sua própria infraestrutura interna. Isso pode ser para integração com sistemas internos (relatórios, folha de pagamento, cobrança etc.) ou para satisfazer um requisito de governança de TI. Os Aplicativos Web fornecem diversos métodos para permitir que você se conecte à sua infraestrutura local:
+Uma abordagem alternativa é utilizar seu investimento existente local. No cenário de exemplo, um sistema de despesas de funcionários, você pode desejar manter seu armazenamento de dados em sua própria infraestrutura interna. Isso pode ser para integração com sistemas internos (relatórios, folha de pagamento, cobrança etc.) ou para satisfazer um requisito de governança de TI. Os Aplicativos Web fornecem diversos métodos para permitir que você se conecte à sua infraestrutura local:
 
 - [Ambientes do Serviço de Aplicativo](app-service-app-service-environment-intro.md) - O ASE (Ambientes do Serviço de Aplicativo) é um novo recurso Premium que foi recém-adicionado à oferta do Serviço de Aplicativo do Microsoft Azure. Os ASEs fornecem um ambiente totalmente isolado e dedicado para executar aplicativos do Serviço de Aplicativo do Azure com segurança em alta escala, oferecendo também isolamento e acesso seguro à rede   
 - [Conexões híbridas](../biztalk-services/integration-hybrid-connection-overview.md) – As conexões híbridas são um recurso dos Serviços BizTalk do Microsoft Azure e permitem que os Aplicativos Web se conectem a recursos locais com segurança, por exemplo, SQL Server, MySQL, APIs da Web e serviços Web personalizados. 
-- [Integração de Rede Virtual](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) – A integração do Aplicativos Web com a Rede Virtual do Azure permite que você conecte seu aplicativo Web a uma Rede Virtual do Azure que, por sua vez, pode ser conectado a sua infraestrutura local através de uma VPN site a site. 
+- [Integração de Rede Virtual](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/): a integração do Aplicativos Web com a Rede Virtual do Azure permite que você conecte seu aplicativo Web a uma Rede Virtual do Azure que, por sua vez, pode ser conectado a sua infraestrutura local através de uma VPN site a site. 
 
 O diagrama a seguir mostra um exemplo de solução de alto nível com as opções de conectividade para os recursos locais. O primeiro exemplo mostra como isso pode ser feito usando os recursos padrão do Serviço de Aplicativo do Azure e o segundo mostra como isso pode ser obtido com a oferta premium, Ambientes do Serviço de Aplicativo.
 
@@ -83,9 +83,9 @@ O Aplicativos Web do Serviço de Aplicativo fornece uma plataforma estável e co
 
 A Plataforma Microsoft Azure permite que controles de autorização com base em função, possibilitando níveis corporativos de controle de recursos no Aplicativos Web. O RBAC proporciona às empresas a capacidade de implementar suas próprias políticas de gerenciamento de acesso para todos os seus ativos no ambiente do Azure, atribuindo usuários a grupos e, por sua vez, atribuindo as permissões necessárias para esses grupos em relação ao ativo, como um aplicativo Web. Para saber mais sobre o RBAC no Azure, confira [http://aka.ms/azurerbac](../role-based-access-control-configure/). Ao utilizar Aplicativos Web você pode ter certeza de seus aplicativos Web serão implantados em um ambiente seguro e você terá controle total para a região que os ativos são implantados.
 
-Os Ambientes do Serviço de Aplicativo do Azure [http://aka.ms/aseintro] são uma nova opção de plano de serviço premium para os clientes corporativos que desejam usar o Serviço de Aplicativo do Azure; eles também fornecem um ambiente totalmente isolado e dedicado. Isso permite que os clientes corporativos implantem aplicativos que podem aproveitar uma escala muito alta, ao mesmo tempo que também têm controle total sobre o tráfego de rede de entrada e saída; além disso, os ASEs permitem que os aplicativos tenham conexões seguras de alta velocidade em redes virtuais oas recursos locais.
+Os Ambientes do Serviço de Aplicativo do Azure [http://aka.ms/aseintro](http://aka.ms/aseintro) são uma nova opção de plano de serviço premium para os clientes corporativos que desejam usar o Serviço de Aplicativo do Azure; eles também fornecem um ambiente totalmente isolado e dedicado. Isso permite que os clientes corporativos implantem aplicativos que podem aproveitar uma escala muito alta, ao mesmo tempo que também têm controle total sobre o tráfego de rede de entrada e saída; além disso, os ASEs permitem que os aplicativos tenham conexões seguras de alta velocidade em redes virtuais oas recursos locais.
 
-Além disso, os Aplicativos Web do Serviço de Aplicativo também podem usar por completo de seus investimentos locais, oferecendo a capacidade de se conectar novamente a seus recursos internos, como o data warehouse ou o ambiente do SharePoint. Como discutido em [Solução de alto nível], você pode usar conexões híbridas e conectividade de rede virtual para estabelecer conexões com a infraestrutura local e serviços.
+Além disso, os Aplicativos Web do Serviço de Aplicativo também podem usar por completo de seus investimentos locais, oferecendo a capacidade de se conectar novamente a seus recursos internos, como o data warehouse ou o ambiente do SharePoint. Como discutido em [Solução de alto nível](#highlevel), você pode usar conexões híbridas e conectividade de rede virtual para estabelecer conexões com a infraestrutura local e serviços.
 
 ### Escala global ###
 
@@ -135,7 +135,7 @@ A plataforma Azure oferece uma série de alternativas ao uso de Banco de Dados S
 #### Conectividade aos recursos no local ####
 Os Aplicativos Web do Serviço de Aplicativo oferecem várias opções para conexão aos recursos locais, como bancos de dados, permitindo a reutilização da infraestrutura de alto valor existente. As opções são listadas abaixo:
 
-- Os Ambientes do Serviço de Aplicativo são isolados e criados em uma sub-rede de uma rede virtual, permitindo que o ambiente se comunique com pontos de extremidade privados localizados na mesma rede virtual - [http://aka.ms/appserviceasenetworking]
+- Os Ambientes do Serviço de Aplicativo são isolados e criados em uma sub-rede de uma rede virtual, permitindo que o ambiente se comunique com pontos de extremidade privados localizados na mesma rede virtual - [http://aka.ms/appserviceasenetworking](http://aka.ms/appserviceasenetworking)
 - A integração de rede virtual do Aplicativos Web dá suporte à integração entre o Aplicativos Web e uma rede virtual do Azure, permitindo o acesso a recursos que são executados em sua rede virtual, que, se conectada à sua rede nas instalações com VPN de local a local, possibilita a conectividade direta aos sistemas no local.
 - As conexões híbridas são um recurso dos Serviços BizTalk do Azure e fornecem uma maneira fácil de se conectar aos recursos individuais locais, como o SQL Server, MySQL, APIs de Web HTTP e a maioria dos serviços Web personalizados.
 
@@ -159,4 +159,4 @@ Para saber mais sobre o serviço Aplicativos Web do Serviço de Aplicativo do Az
  
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

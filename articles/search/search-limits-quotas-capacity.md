@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/19/2015"
+	ms.date="02/15/2016"
 	ms.author="heidist"/>
 
 # Limites de serviço na Pesquisa do Azure
@@ -112,4 +112,4 @@ As chaves de API são usadas para autenticação de serviço. Há dois tipos. Ch
 
 <sup>1</sup> na Pesquisa do Azure, o corpo de uma solicitação está sujeito a um limite superior de 16 MB, impondo um limite prático no conteúdo de campos individuais ou Coleções que, caso contrário, não são limitadas por limites teóricos (consulte [Tipos de dados com suporte](https://msdn.microsoft.com/library/azure/dn798938.aspx) para obter mais informações sobre restrições e composição de campos).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

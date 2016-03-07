@@ -2,7 +2,7 @@
 	pageTitle="Usando o Conector SFTP em Aplicativos Lógicos | Serviço de Aplicativo do Microsoft Azure"
 	description="Como criar e configurar o Conector SFTP ou o aplicativo de API e usá-lo em um aplicativo lógico no Serviço de Aplicativo do Azure"
 	authors="anuragdalmia"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="app-service\logic"
 	documentationCenter=""/>
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="02/11/2016"
 	ms.author="sameerch"/>
 
 # Introdução ao Conector SFTP e à adição dele ao seu Aplicativo Lógico
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos. Para a versão do esquema 2015-08-01-preview, clique em [API do SFTP](../connectors/create-api-sftp.md).
+
 O Conector SFTP permite mover dados de e para um servidor SFTP. Você pode baixar ou carregar arquivos ou listar arquivos de e para um servidor SFTP.
 
 Aplicativos lógicos podem ser disparados com base em diversas fontes de dados e oferecem conectores para obter e processar dados como parte do fluxo. Você pode adicionar o Conector SFTP a seu fluxo de trabalho de negócios e processar dados como parte desse fluxo de trabalho dentro de um Aplicativo Lógico.
@@ -56,18 +58,17 @@ Depois de criar seu aplicativo de API, você pode usar o conector de SFTP como g
 
 5.	Agora você pode usar o conector de SFTP no fluxo. Você pode usar o arquivo recuperado do gatilho de SFTP ("TriggerOnFileAvailable") em outras ações no fluxo.
 
-	> [AZURE.IMPORTANT]O gatilho SFTP "TriggerOnFileAvailable" exclui o arquivo recuperado após o processamento do arquivo.
+	> [AZURE.IMPORTANT] O gatilho SFTP "TriggerOnFileAvailable" exclui o arquivo recuperado após o processamento do arquivo.
 
 6.	Configure as propriedades de entrada de gatilho de SFTP da seguinte maneira:
 
 	- **Caminho da Pasta** - especifique o caminho da pasta da qual os arquivos precisam ser recuperados.
 	- **O tipo de arquivo: texto ou binário** - selecione o tipo do arquivo.
 	- **Máscara de arquivo** - especifique a máscara de arquivo a ser aplicada para a recuperação de arquivos. ' *' recupera todos os arquivos na pasta especificada.
-	- **Excluir Máscara de Arquivo** - especifique a máscara de arquivo a ser aplicada para a exclusão de arquivos. Se a propriedade "Máscara de Arquivo" também for definida, a Máscara de Exclusão de Arquivo será aplicada primeiro.
+- **Excluir Máscara de Arquivo** - especifique a máscara de arquivo a ser aplicada para a exclusão de arquivos. Se a propriedade "Máscara de Arquivo" também for definida, a Máscara de Exclusão de Arquivo será aplicada primeiro.
 
 
-	![][9]  
-	![][10]
+	![][9] ![][10]
 
 7.	De maneira semelhante, você pode usar as ações de SFTP no fluxo. Você pode usar a ação "Carregar Arquivo" para carregar um arquivo no servidor SFTP. Configure as propriedades de entrada para a ação "Carregar Arquivo" da seguinte maneira:
 
@@ -76,17 +77,16 @@ Depois de criar seu aplicativo de API, você pode usar o conector de SFTP como g
 	- **Caminho do Arquivo** - especifique o caminho do arquivo a ser carregado
 	- **Substituir** - especifique "true" para substituir o arquivo se ele já existir
 	- ****Anexar Se Existir** - especifique "true" ou "false". Quando definido como "true", os dados serão anexados ao arquivo, se ele existir. Quando definido como "false", o arquivo será substituído, se ele existir
-	- **Pasta Temporária** - se fornecida, o adaptador carregará o arquivo para o “Caminho da Pasta Temporária” e, quando o carregamento for concluído, o arquivo será movido para o “Caminho da Pasta”. O “Caminho da Pasta Temporária” deve estar no mesmo disco físico que o “Caminho da Pasta” para garantir que a operação de movimentação seja atômica. A pasta temporária pode ser usada apenas quando a propriedade Anexar se Existir está desabilitada.
+- **Pasta Temporária** - se fornecida, o adaptador carregará o arquivo para o “Caminho da Pasta Temporária” e, quando o carregamento for concluído, o arquivo será movido para o “Caminho da Pasta”. O “Caminho da Pasta Temporária” deve estar no mesmo disco físico que o “Caminho da Pasta” para garantir que a operação de movimentação seja atômica. A pasta temporária pode ser usada apenas quando a propriedade Anexar se Existir está desabilitada.
 
-	![][11]  
-	![][12]
+	![][11] ![][12]
 
 ## Faça mais com seu Conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
 
->[AZURE.NOTE]Se você deseja começar com os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógicos](https://tryappservice.azure.com/?appservice=logic), em que você pode criar imediatamente um aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
+>[AZURE.NOTE] Se você deseja começar com os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógicos](https://tryappservice.azure.com/?appservice=logic), em que você pode criar imediatamente um aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
 
-Exibir a referência da API REST do Swagger em [Conectores e referência dos Aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar Aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
 
@@ -105,4 +105,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [11]: ./media/app-service-logic-connector-sftp/img11.PNG
 [12]: ./media/app-service-logic-connector-sftp/img12.PNG
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

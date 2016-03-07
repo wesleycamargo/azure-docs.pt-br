@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="02/18/2016"
 	ms.author="sameerch"/>
 
 
 # Integrar com um servidor SAP local
-Usando o conector do SAP, você pode conectar aplicativos web, móveis e lógica de Serviços de Aplicativos do Azure ao servidor SAP existente. Isso permite a invocação de RFCs, BAPIs, tRFCs, além do envio de IDocs ao servidor SAP, mesmo se ele estiver atrás de seu firewall local.
+
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
+
+Usando o [Conector do SAP](app-service-logic-connector-sap.md), você pode conectar aplicativos Web, móveis e lógicos dos Serviços de Aplicativos do Azure ao servidor SAP existente. Isso permite a invocação de RFCs, BAPIs, tRFCs, além do envio de IDocs ao servidor SAP, mesmo se ele estiver atrás de seu firewall local.
 
 Se você tiver um servidor SAP local, use um ouvinte híbrido para estabelecer a conectividade com o conector SAP, conforme exibido:
 
@@ -106,7 +109,7 @@ Selecione **Disparadores e ações**. O designer de fluxo de trabalho de aplicat
 
 Selecione o conector SAP no painel direito e selecione uma ação na guia Ações.
 
-> [AZURE.NOTE]A lista de ações baseia-se na configuração que você inseriu quando criou o conector SAP.
+> [AZURE.NOTE] A lista de ações baseia-se na configuração que você inseriu quando criou o conector SAP.
 
 Para a ação selecionada, você verá os parâmetros de entrada e saída. Você pode entrar nas entradas para a ação e usar a saída da ação atual em outros aplicativos de API, possivelmente para mais tomada de decisões no fluxo de trabalho.
 
@@ -121,4 +124,4 @@ Para a ação selecionada, você verá os parâmetros de entrada e saída. Você
 [8]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.HybridConnection.Connected.PNG
 [9]: http://www.microsoft.com/download/details.aspx?id=35552
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0224_2016-->

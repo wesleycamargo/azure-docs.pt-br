@@ -58,6 +58,8 @@ Uma exclusividade do SQL Data Warehouse é a capacidade de pausar e retomar a co
 
 A ação de pausa retorna os recursos de computação para o pool de recursos disponíveis no datacenter e a ação de retomada adquire os recursos de computação necessários para a DWU que você definiu e os atribui à sua instância do Data Warehouse.
 
+> [AZURE.NOTE] Uma vez que o armazenamento é separado da computação, o armazenamento não é afetado pela pausa.
+
 As ações de pausar e retomar o poder da computação podem ser realizadas no [Portal Clássico do Azure][], por meio das APIs REST ou do PowerShell. A pausa cancela todas as atividades em execução e em fila e, ao retornar, você pode retomar os recursos de computação em questão de segundos.
 
 O código abaixo mostra como fazer uma pausa usando o PowerShell:
@@ -73,9 +75,9 @@ Retomar o serviço também é uma ação bastante direta com o PowerShell:
 Resume-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
 ```
 
-Para obter mais detalhes sobre como usar o PowerShell, consulte o artigo [Introdução aos cmdlets do PowerShell][].
+Para obter mais detalhes sobre como usar o PowerShell, consulte o artigo [Usando os cmdlets do PowerShell e a API REST com o SQL Data Warehouse][].
 
-> [Azure.Note]Uma vez que o armazenamento é separado da computação, o armazenamento não é afetado pela pausa.
+
 
 ## Próximas etapas
 Para obter uma visão geral do desempenho, consulte [visão geral de desempenho][].
@@ -84,7 +86,7 @@ Para obter uma visão geral do desempenho, consulte [visão geral de desempenho]
 
 <!--Article references-->
 [visão geral de desempenho]: sql-data-warehouse-overview-performance.md
-[Introdução aos cmdlets do PowerShell]: sql-data-warehouse-get-started-powershell-cmdlets.md
+[Usando os cmdlets do PowerShell e a API REST com o SQL Data Warehouse]: sql-data-warehouse-reference-powershell-cmdlets.md
 
 <!--MSDN references-->
 
@@ -93,4 +95,4 @@ Para obter uma visão geral do desempenho, consulte [visão geral de desempenho]
 
 [Portal Clássico do Azure]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

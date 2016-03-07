@@ -18,6 +18,11 @@
 
 #Notas de versão do SDK de aplicativos do Windows Universal
 
+##3\.3.1 (18/02/2016)
+
+-   Corrija os conflitos entre o conteúdo HTML do comunicado da Web e a página HTML do SDK.
+-   Aprimoramentos de estabilidade.
+
 ##3\.3.0 (22/01/2016)
 
 -   Correção da formatação com falha nos aplicativos UWP em execução no modo de versão.
@@ -56,4 +61,4 @@
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

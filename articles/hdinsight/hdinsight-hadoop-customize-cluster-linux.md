@@ -19,8 +19,6 @@
 
 # Personalizar clusters HDInsight baseados em Linux usando a Ação de Script
 
-[AZURE.INCLUDE [seletor](../../includes/hdinsight-create-windows-cluster-selector.md)]
-
 O HDInsight fornece uma opção de configuração chamada **Ação de Script**. Ela invoca scripts personalizados que definem a personalização a ser executada no cluster durante o processo de criação. Esses scripts podem ser usados para instalar software adicional em um cluster ou para alterar a configuração de aplicativos em um cluster.
 
 > [AZURE.NOTE] As informações neste artigo são específicas de clusters HDInsight baseados em Linux. Para obter uma versão deste artigo específica aos clusters baseados no Windows, veja [Personalizar clusters HDInsight usando a Ação de Script (Windows)](hdinsight-hadoop-customize-cluster.md)
@@ -54,8 +52,8 @@ Nome | Script
 **Instalar Spark** | https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh. Consulte [Instalar e usar o Spark em clusters HDInsight](hdinsight-hadoop-spark-install-linux.md).
 **Instalar R** | https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh. Consulte [Instalar e usar o R em clusters HDInsight](hdinsight-hadoop-r-scripts-linux.md).
 **Instalar Solr** | https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh. Veja [Instalar e usar o Solr em clusters HDInsight](hdinsight-hadoop-solr-install-linux.md).
-**Instalar o Giraph** | https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh. Veja [Instalar e usar o Giraph em clusters HDInsight](hdinsight-hadoop-giraph-install-linux.md).
-| **Pré-carregar bibliotecas Hive** | https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh. Consulte [Adicionar bibliotecas Hive em clusters HDInsight](hdinsight-hadoop-add-hive-libraries.md) |
+**Instalar o Giraph** | https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh. Consulte [Instalar e usar o Giraph em clusters HDInsight](hdinsight-hadoop-giraph-install-linux.md).
+| **Pré-carregar bibliotecas Hive** | https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh. Consulte [Adicionar bibliotecas em clusters do HDInsight](hdinsight-hadoop-add-hive-libraries.md) |
 
 ## Usar uma Ação de Script no Portal do Azure
 
@@ -391,10 +389,7 @@ Se a criação de cluster falhou devido a um erro na ação de script, os logs d
 
 	![Captura de tela de operações](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
 
-	Nele, os logs são organizados separadamente em nó de cabeçalho, nó de trabalho e nós do Zookeeper. Alguns exemplos são:
-	* **Nó de cabeçalho** - `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
-	* **Nó de Trabalho** - `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
-	* **Nó Zookeeper** - `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
+	Nele, os logs são organizados separadamente em nó de cabeçalho, nó de trabalho e nós do Zookeeper. Alguns exemplos são: * **Nó de cabeçalho** - `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net` * **Nó de Trabalho** - `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net` * **Nó Zookeeper** - `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
 
 * Todos os stdout e stderr do host correspondentes são carregados para a conta de armazenamento. Há um **output-*.txt** e um **errors-*.txt** para cada ação de script. O arquivo *.txt de saída contém informações sobre o URI do script que foi executado no host. Por exemplo,
 
@@ -447,4 +442,4 @@ Consulte as informações e exemplos a seguir sobre como criar e usar scripts pa
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Estágios durante a criação de cluster"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

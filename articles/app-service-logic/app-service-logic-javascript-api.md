@@ -13,10 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="01/19/2016"
+   ms.date="02/22/2016"
    ms.author="stepsic"/>
 
 #Aplicativo de API de JavaScript
+
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
+
 O aplicativo de API de JavaScript oferece uma maneira fácil de executar expressões de JavaScript simples *enquanto seu aplicativo lógico é executado*.
 
 ##Quando você deve usar esse aplicativo de API?
@@ -35,7 +38,7 @@ Para usar o aplicativo de API de JavaScript, você precisa primeiro criar uma in
 ###Gatilho
 Você pode criar um gatilho que o serviço de aplicativo lógico vai sondar (em um intervalo que você definir) e, se ele retornar algum conteúdo, o aplicativo lógico será executado; caso contrário, ele aguardará até o próximo intervalo de sondagem para verificar novamente.
 
-As entradas para o gatilho são: -**Expressão JavaScript** - Uma expressão que será avaliada. Ele é invocado dentro de uma função e deverá retornar `false` quando você não quiser que o aplicativo Lógico seja executado, poderá retornar qualquer outra coisa quando quiser que o aplicativo lógico seja executado. Você poderá usar o conteúdo da resposta nas ações do aplicativo lógico. -**Objeto de contexto** - Um objeto opcional que pode ser transmitido para o gatilho. Você pode definir quantas propriedades quiser, mas a entidade de nível superior deve ser um objeto, por exemplo, `{ "bar" : 0}`.
+As entradas para o gatilho são: -**Expressão JavaScript** - Uma expressão que será avaliada. Ele é invocado dentro de uma função e deverá retornar `false` quando você não quiser que o Aplicativo Lógico seja executado, podendo retornar qualquer outra coisa quando quiser que o aplicativo lógico seja executado. Você pode usar o conteúdo da resposta nas ações do Aplicativo Lógico. -**Objeto de contexto** - Um objeto opcional que pode ser transmitido para o gatilho. Você pode definir quantas propriedades quiser, mas a entidade de nível superior deve ser um objeto, por exemplo, `{ "bar" : 0}`.
 
 Você pode ter um gatilho simples que somente executa seu aplicativo lógico entre os minutos 15 e 30 da hora:
 
@@ -91,4 +94,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="rajeshramabathiran"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/11/2015"
+   ms.date="02/11/2016"
    ms.author="rajram"/>
 
 
 # Introdução ao Conector do Barramento de Serviço do Azure e à adição dele a seu Aplicativo Lógico 
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos. Para a versão do esquema 2015-08-01-preview, clique em [API de Barramento de Serviço](../connectors/create-api-servicebus.md).
+
 Conecte-se ao Barramento de Serviço do Azure para enviar mensagens a Filas e Tópicos e receber mensagens de Filas e Assinaturas. Os conectores são usados em Aplicativos Lógicos como parte de um "fluxo de trabalho".
 
 ## Gatilhos e Ações
@@ -36,8 +38,7 @@ Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Mar
 
 1. No quadro inicial do Azure, selecione **Marketplace**.
 2. Pesquise "Conector do Barramento de Serviço do Azure", selecione-o e selecione **Criar**.
-3. Insira o Nome, o Plano do Serviço de Aplicativo e outras propriedades:  
-	![][1]
+3. Insira o Nome, o Plano do Serviço de Aplicativo e outras propriedades: ![][1]
 
 4. Insira as seguintes configurações de pacote:
 
@@ -52,31 +53,26 @@ Nome da assinatura | Digite o nome da assinatura da qual receber mensagens.
 ## Usando o conector do Barramento de Serviço em seu aplicativo lógico
 Após criar o conector, você pode usar o conector do Barramento de Serviço do Azure como gatilho ou ação para seu aplicativo lógico. Para fazer isso:
 
-1.	Crie um novo aplicativo lógico e escolha o mesmo grupo de recursos que tem o conector do Barramento de Serviço do Azure:  
-	![][2]
+1.	Crie um novo aplicativo lógico e escolha o mesmo grupo de recursos que tem o conector do Barramento de Serviço do Azure: ![][2]
 
-2.	Abra "Gatilhos e Ações" para abrir o designer de Aplicativos Lógicos e configurar seu fluxo de trabalho:  
-	![][3]
+2.	Abra "Gatilhos e Ações" para abrir o designer de Aplicativos Lógicos e configurar seu fluxo de trabalho: ![][3]
 
-3. O conector do Barramento de Serviço do Azure aparece na seção "Aplicativos de API neste grupo de recursos" na galeria do lado direito:  
-	![][4]
+3. O conector do Barramento de Serviço do Azure aparece na seção "Aplicativos de API neste grupo de recursos" na galeria do lado direito: ![][4]
 
 4. Você pode soltar o conector do Barramento de Serviço do Azure no editor clicando em "Conector do Barramento de Serviço do Azure".
 
-5.	Agora você pode usar o conector do Barramento de Serviço do Azure no fluxo de trabalho. Você pode usar a mensagem recuperada do gatilho do Barramento de Serviço do Azure ("Mensagem Disponível") em outras ações no fluxo:  
-	![][5]
+5.	Agora você pode usar o conector do Barramento de Serviço do Azure no fluxo de trabalho. Você pode usar a mensagem recuperada do gatilho do Barramento de Serviço do Azure ("Mensagem Disponível") em outras ações no fluxo: ![][5]
 
 	![][6]
 
-Você também pode usar a ação "Enviar Mensagem" do Barramento de Serviço do Azure:  
-![][7]
+Você também pode usar a ação "Enviar Mensagem" do Barramento de Serviço do Azure: ![][7]
 
 ![][8]
 
 ## Faça mais com seu Conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
 
->[AZURE.NOTE]Se você deseja começar com os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógicos](https://tryappservice.azure.com/?appservice=logic), em que você pode criar imediatamente um aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
+>[AZURE.NOTE] Se você deseja começar com os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógicos](https://tryappservice.azure.com/?appservice=logic), em que você pode criar imediatamente um aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
 
 Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -93,4 +89,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [7]: ./media/app-service-logic-connector-azureservicebus/img7.PNG
 [8]: ./media/app-service-logic-connector-azureservicebus/img8.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

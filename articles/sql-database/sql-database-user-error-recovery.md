@@ -28,6 +28,7 @@ Saiba mais sobre esses recursos nesta [postagem de blog](https://azure.microsoft
 O Banco de Dados SQL do Azure sempre restaura para um novo banco de dados. Esses recursos de restauração são oferecidos para todos os bancos de dados Basic, Standard e Premium.
 
 ##Restauração Pontual
+
 No caso de um erro do usuário ou uma modificação de dados não intencional, a Restauração Pontual pode ser usada para fazer uma restauração pontual do banco de dados dentro do período de retenção dos bancos de dados.
 
 Os bancos de dados Basic tem 7 dias de retenção, os bancos de dados Standard tem 14 dias de retenção e os bancos de dados Premium têm 35 dias de retenção. Para saber mais sobre a retenção de banco de dados, consulte a [Visão geral da continuidade dos negócios](sql-database-business-continuity.md).
@@ -35,9 +36,11 @@ Os bancos de dados Basic tem 7 dias de retenção, os bancos de dados Standard t
 > [AZURE.NOTE] A restauração de um banco de dados cria um novo banco de dados. É importante garantir que o servidor que você está restaurando tenha capacidade de DTU suficiente para o novo banco de dados. Você pode solicitar um aumento dessa cota [contatando o suporte](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
 
 ###Portal do Azure
+> [AZURE.NOTE] Para bancos de dados em pools de Banco de Dados Elástico, o Portal do Azure dá suporte apenas à recuperação pontual para o mesmo pool. Se você gostaria de realizar uma recuperação pontual um banco de dados independente, use a API REST.
+
 Para usar a Recuperação Pontual no Portal do Azure, empregue as etapas a seguir.
 
-1. Faça logon no [Portal do Azure](https://portal.Azure.com)
+1. Faça logon no [Portal do Azure](https://portal.Azure.com).
 2. No lado esquerdo da tela, selecione **PROCURAR** e, em seguida, **Bancos de Dados SQL**.
 3. Navegue até o banco de dados e selecione-o.
 4. Na parte superior da folha do banco de dados, selecione **Restaurar**.
@@ -55,13 +58,7 @@ Use o PowerShell para executar programaticamente uma Recuperação pontual com o
 		 
 
 ###API REST 
-Use a API REST para executar a restauração do banco de dados de modo programático.
-
-1. Obtenha o banco de dados que deseja restaurar usando a operação [Obter banco de dados](http://msdn.microsoft.com/library/azure/dn505708.aspx).
-
-2.	Crie a solicitação de restauração usando a operação [Criar solicitação de restauração de banco de dados](http://msdn.microsoft.com/library/azure/dn509571.aspx).
-	
-3.	Acompanhe a solicitação de restauração usando a operação [Status de operações do banco de dados](http://msdn.microsoft.com/library/azure/dn720371.aspx).
+Use a API REST para executar a restauração do banco de dados de modo programático. Para fazer isso, crie a solicitação de restauração usando a operação [Criar Banco de Dados](https://msdn.microsoft.com/library/azure/mt163685.aspx) e especifique o **modo de criação** como **PointInTimeRestore**.
 
 ##Restaurar um banco de dados excluído
 No caso de um banco de dados excluído, o Banco de Dados SQL do Azure permite restaurar o banco de dados excluído até o momento da exclusão. O Banco de Dados SQL do Azure armazena o backup do banco de dados excluído pelo período de retenção do banco de dados.
@@ -106,4 +103,4 @@ Use a API REST para executar a restauração do banco de dados de modo programá
 	
 4.	Acompanhe o status de sua restauração usando a operação [Status de operações do banco de dados](http://msdn.microsoft.com/library/azure/dn720371.aspx).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

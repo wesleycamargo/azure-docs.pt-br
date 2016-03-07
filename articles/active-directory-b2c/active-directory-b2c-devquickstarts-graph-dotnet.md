@@ -348,9 +348,6 @@ E pronto! Com o B2CGraphClient, agora você tem um aplicativo de serviço que po
 - Ao chamar o Graph API, use [`api-version=beta`](http://blogs.msdn.com/b/aadgraphteam/archive/2015/04/10/graph-api-versioning-and-the-new-beta-version.aspx).
 - Ao criar e atualizar usuários consumidores, há algumas propriedades necessárias, descritas acima.
 
-> [AZURE.IMPORTANT]
-Você terá que considerar as características de replicação do serviço de diretório subjacente ao Azure AD B2C (leia [este](http://blogs.technet.com/b/ad/archive/2014/09/02/azure-ad-under-the-hood-of-our-geo-redundant-highly-available-geo-distributed-cloud-directory.aspx) artigo para saber mais) ao usar a Graph API do Azure AD em seu aplicativo B2C. Depois que um cliente se inscrever para seu aplicativo B2C usando uma política de **Inscrição**, se você voltar imediatamente e tentar ler o objeto do usuário usando a Graph API do Azure AD em seu aplicativo, ela poderá não estar disponível. Você precisará aguardar alguns segundos para que o processo de replicação seja concluído. Publicaremos orientações mais concretas sobre a "garantia de consistência de leitura-gravação" fornecida pela Graph API do Azure AD e o serviço de diretório na fase de disponibilidade geral.
-
 Se você tiver perguntas ou solicitações de ações que deseja executar com a Graph API no locatário B2C, entre em contato conosco. Deixe um comentário sobre o artigo ou um registre o problema no repositório GitHub de exemplos de código.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

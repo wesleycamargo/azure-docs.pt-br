@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/27/2016"
-   ms.author="bwren" />
+   ms.date="02/18/2016"
+   ms.author="magoedte;bwren" />
 
 # Ativos de certificado na Automação do Azure
 
@@ -107,4 +107,4 @@ Esse exemplo usa o parâmetro **UseConnectionObject** definido para a atividade 
 
 - [Links na criação gráfica](automation-graphical-authoring-intro.md#links-and-workflow) 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

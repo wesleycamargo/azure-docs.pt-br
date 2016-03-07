@@ -49,7 +49,7 @@ Uma definição de parâmetro nos runbooks de Fluxo de Trabalho do PowerShell te
      )
 ```
 
->[AZURE.NOTE] Ao definir parâmetros, se você não especificar o atributo **Obrigatório**, por padrão, o parâmetro será considerado opcional. Além disso, se você definir um valor padrão para um parâmetro em runbooks de Fluxo de Trabalho do PowerShell, ele será tratado pelo PowerShell como um parâmetro opcional, independentemente do valor do atributo **Mandatory**.
+>[AZURE.NOTE] Ao definir parâmetros, se você não especificar o atributo **Mandatory**, por padrão, o parâmetro será considerado opcional. Além disso, se você definir um valor padrão para um parâmetro em runbooks de Fluxo de Trabalho do PowerShell, ele será tratado pelo PowerShell como um parâmetro opcional, independentemente do valor do atributo **Mandatory**.
 
 Por exemplo, vamos configurar os parâmetros de entrada para um runbook do Fluxo de Trabalho do PowerShell que gera detalhes sobre máquinas virtuais, seja uma única VM ou todas as VMs em um serviço. Esse runbook tem dois parâmetros, conforme mostrado na captura de tela a seguir: o nome da máquina virtual e o nome do serviço.
 
@@ -75,7 +75,7 @@ Para [configurar um runbook gráfico](automation-first-runbook-graphical.md) com
 
 [**Get-AzureVM**](https://msdn.microsoft.com/library/azure/dn495236.aspx) para obter todas as máquinas virtuais.
 
-Você pode usar a atividade [**Write-Output**](https://technet.microsoft.com/library/hh849921.aspx) para gerar os nomes das máquinas virtuais. A atividade **Get-AzureVM** aceitará dois parâmetros: o **nome da máquina virtual** e o **nome da conta de serviço**. Uma vez que esses parâmetros exigiriam valores diferentes sempre que você iniciasse o runbook, você pode adicionar parâmetros de entrada ao runbook. Aqui estão as etapas para adicionar parâmetros de entrada:
+Você pode usar a atividade [**Write-Output**](https://technet.microsoft.com/library/hh849921.aspx) para gerar os nomes das máquinas virtuais. A atividade **Get-AzureVM** aceitará dois parâmetros: o **nome da máquina virtual** e o **nome de serviço**. Uma vez que esses parâmetros exigiriam valores diferentes sempre que você iniciasse o runbook, você pode adicionar parâmetros de entrada ao runbook. Aqui estão as etapas para adicionar parâmetros de entrada:
 
 1. Selecione o runbook gráfico na folha **Runbooks** e então [Editar](automation-graphical-authoring-intro.md).
 
@@ -98,17 +98,9 @@ Você pode usar a atividade [**Write-Output**](https://technet.microsoft.com/lib
 
 4. Crie dois parâmetros com as seguintes propriedades que serão usadas pela atividade **Get-AzureVM**:
 
-    * **Parâmetro1:** 
-    Nome – VMName, 
-    Tipo – String, 
-    Obrigatório – No
+    * **Parâmetro1:** Nome – VMName, Tipo – String, Obrigatório – No
 
-    * **Parâmetro2:** 
-    Nome – VMNameServiceName, 
-    Tipo – String, 
-    Obrigatório – No, 
-    Valor padrão – Custom, 
-    Valor padrão personalizado – <Nome do serviço padrão que contém as máquinas virtuais>
+    * **Parameter2:** Name--ServiceName, Type--String, Mandatory--No, Default value--Custom, Custom default value--<Nome do serviço padrão que contém as máquinas virtuais>
 
 5. Depois de adicionar os parâmetros, clique em **OK**. Agora você pode exibi-los na **folha Entrada e saída**. Clique em **OK** novamente e clique em **Salvar** e **Publicar** o runbook.
 
@@ -139,24 +131,22 @@ No rótulo abaixo da caixa de entrada, você pode ver os atributos que foram def
 
     **Exemplo:**
 
-      ```
-        $params = @{“VMName”=”WSVMClassic”; ”ServiceName”=”WSVMClassicSG”}
+      ``` $params = @{“VMName”=”WSVMClassic”; ”ServiceName”=”WSVMClassicSG”}
 
         Start-AzureAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” -Parameters $params
       ```
 
-    - **Cmdlets do Gerenciador de Recursos do Azure:** você pode iniciar um runbook de automação criado em um grupo de recursos usando [Start-AzureRMAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx).
+    - **Cmdlets do Azure Resource Manager:** você pode iniciar um runbook de Automação criado em um grupo de recursos usando [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx).
 
 
     **Exemplo:**
 
-      ```
-        $params = @{“VMName”=”WSVMClassic”;”ServiceName”=”WSVMClassicSG”}
+      ``` $params = @{“VMName”=”WSVMClassic”;”ServiceName”=”WSVMClassicSG”}
 
-        Start-AzureRMAutomationRunbook -AutomationAccountName “TestAutomationRG” -Name “Get-AzureVMGraphical” –ResourceGroupName “RG1” -Parameters $params
+        Start-AzureRmAutomationRunbook -AutomationAccountName “TestAutomationRG” -Name “Get-AzureVMGraphical” –ResourceGroupName “RG1” -Parameters $params
       ```
 
->[AZURE.NOTE]Quando você inicia um runbook usando cmdlets do PowerShell, um parâmetro padrão, **MicrosoftApplicationManagementStartedBy**, é criado com o valor **PowerShell**. Você pode exibir esse parâmetro na folha **Detalhes do trabalho**.
+>[AZURE.NOTE] Quando você inicia um runbook usando cmdlets do PowerShell, um parâmetro padrão, **MicrosoftApplicationManagementStartedBy**, é criado com o valor **PowerShell**. Você pode exibir esse parâmetro na folha **Detalhes do trabalho**.
 
 - **Como uniciar um runbook usando o SDK e atribuir parâmetros**
 
@@ -224,7 +214,7 @@ No URI de solicitação, substitua os seguintes parâmetros:
 * **subscription-id:** a ID de sua assinatura do Azure.  
 * **cloud-service-name:** o nome do serviço de nuvem ao qual a solicitação deve ser enviada.  
 * **automation-account-name:** o nome de sua conta de automação hospedada no serviço de nuvem especificado.  
-* **id do trabalho:** o GUID para o trabalho. O GUID do PowerShell pode ser criado usando o cmdlet **[GUID]::NewGuid().ToString ()**.
+* **id do trabalho:** o GUID para o trabalho. Os GUIDs do PowerShell pode ser criados usando o cmdlet **[GUID]::NewGuid().ToString ()**.
 
 Para passar parâmetros para o trabalho de runbook, use o corpo da solicitação. Ele usa as duas seguintes propriedades fornecidas no formato JSON:
 
@@ -279,4 +269,4 @@ Quando você executa um runbook usando um webhook, o parâmetro de entrada prede
 - Para editar um runbook textual, consulte [Como editar runbooks textuais](automation-edit-textual-runbook.md).
 - Para editar um runbook gráfico, consulte [Criação gráfica na Automação do Azure](automation-graphical-authoring-intro.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

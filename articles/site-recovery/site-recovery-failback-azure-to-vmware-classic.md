@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Realizar o failback de máquinas virtuais VMware e servidores físicos para o site local | Microsoft Azure"
-   description="Saiba mais sobre como realizar o failback no site local após o failover de VMs VMware e de servidores físicos no Azure." 
+   description="Saiba mais sobre como realizar o failback no site local após o failover de VMs do VMware e de servidores físicos no Azure." 
    services="site-recovery" 
    documentationCenter="" 
    authors="rayne-wiselman" 
@@ -45,13 +45,13 @@ Veja a seguir como o failback funciona:
 
 ### Failback para o local original ou para um local alternativo
 
-Se você realizou o failover de uma VM VMware, poderá realizar o failback para a mesma VM de origem, caso ela ainda exista no local. Nessa situação, apenas as alterações delta passarão por failback. Observe que:
+Se você realizou o failover de uma VM do VMware, poderá realizar o failback para a mesma VM de origem, caso ela ainda exista no local. Nessa situação, apenas as alterações delta passarão por failback. Observe que:
 
-- Se você realizou o failover de servidores físicos, o failback sempre ocorrerá para uma nova VM VMware.
+- Se você realizou o failover de servidores físicos, o failback sempre ocorrerá para uma nova VM do VMware.
 - Se você realizar o failback para a VM original, precisará do seguinte:
-	- Se a VM for gerenciada por um servidor vCenter, a VM no site local deverá usar o mesmo armazenamento de dados da VM que está executando o servidor de destino mestre local. Se não for o mesmo, será necessário migrá-la a fim de realizar o failback para a mesma VM.
-	- Se a VM estiver em um host ESX, mas não for gerenciada pelo vCenter, o disco rígido da VM deverá estar no mesmo armazenamento de dados que a VM de destino mestre.
-	- Se sua VM estiver em um host ESX e não usar o vCenter, complete a descoberta do host ESX antes de você proteger novamente. Isso se aplicará se você também estiver realizando o failback de servidores físicos.
+	- Se a VM for gerenciada por um servidor vCenter, o host do ESX de Destino Mestre deve ter acesso ao repositório de dados das máquinas virtuais.
+	- Se a VM estiver em um host ESX, mas não for gerenciada pelo vCenter, o disco rígido da VM deverá estar em um repositório de dados acessível ao host do MT.
+	- Se sua VM estiver em um host ESX e não usar o vCenter, complete a descoberta do host ESX do MT antes de protegê-la novamente. Isso se aplicará se você também estiver realizando o failback de servidores físicos.
 	- Outra opção (se a VM local existir) é excluí-la antes de fazer um failback. Assim, o failback criará uma nova VM no mesmo host que o host ESX de destino mestre.
 	
 - Ao realizar o failback para um local alternativo, os dados serão recuperados no mesmo armazenamento de dados e no mesmo host ESX usados pelo servidor de destino mestre local.
@@ -59,14 +59,14 @@ Se você realizou o failover de uma VM VMware, poderá realizar o failback para 
 
 ## Pré-requisitos
 
-- Você precisará de um ambiente VMware para realizar failbacks de VMs VMware e servidores físicos. Não há suporte para a realização de failback para um servidor físico.
+- Você precisará de um ambiente VMware para realizar failbacks de VMs do VMware e servidores físicos. Não há suporte para a realização de failback para um servidor físico.
 - Para realizar o failback você deve ter criado uma rede do Azure durante a configuração inicial da proteção. O failback precisa de uma conexão VPN ou de Rota Expressa da rede do Azure onde estão as VMs do Azure para o site local.
 - Se as VMs para as quais você deseja realizar o failback forem gerenciadas por um servidor vCenter, você precisará das permissões necessárias para a descoberta das VMs nos servidores vCenter. [Leia mais](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
 - Se houver instantâneos em uma VM, a nova proteção falhará. Você pode excluir os instantâneos ou os discos. 
 - Antes de realizar failback, será necessário criar diversos componentes:
 	- **Criar um servidor de processos no Azure**. Esse servidor de processos é uma VM do Azure que você precisará criar e manter em execução durante o failback. Você pode excluir a máquina após a conclusão do failback.
 	- **Criar um servidor de destino mestre**: o servidor de destino mestre envia e recebe dados do failback. O servidor de gerenciamento criado no local tem um servidor de destino mestre instalado por padrão. No entanto, dependendo do volume do tráfego de failback, talvez seja necessário criar um servidor de destino mestre separado para o failback.
-	- Se você quiser criar um servidor de destino mestre adicional em execução no Linux, será necessário configurar a VM Linux antes de instalar o servidor de destino mestre, conforme descrito abaixo.
+	- Se você quiser criar um servidor de destino mestre adicional em execução no Linux, será necessário configurar a VM do Linux antes de instalar o servidor de destino mestre, conforme descrito abaixo.
 
 ## Configurar o servidor de processos no Azure
 
@@ -86,35 +86,35 @@ Se você realizou o failover de uma VM VMware, poderá realizar o failback para 
 
 	Após a implantação do servidor de processo no Azure, você poderá fazer logon nele usando as credenciais especificadas. No primeiro logon, a caixa de diálogo do servidor processo é executada. Digite o endereço IP do servidor de gerenciamento local e sua senha. Deixe a configuração padrão da porta 443. Você também pode deixar a porta 9443 padrão para replicação de dados, a menos que você tenha modificado especificamente essa configuração durante a configuração do servidor de gerenciamento local.
 
-	>[AZURE.NOTE]O servidor não ficará visível nas **Propriedades da VM**. Ele ficará visível apenas na guia **Servidores** no servidor de gerenciamento no qual ele foi registrado. Pode demorar de 10 a 15 minutos para que o servidor de processo apareça.
+	>[AZURE.NOTE] O servidor não ficará visível nas **Propriedades da VM**. Ele ficará visível apenas na guia **Servidores** no servidor de gerenciamento no qual ele foi registrado. Pode demorar de 10 a 15 minutos para que o servidor de processo apareça.
 
 
 ## Configurar o servidor de destino mestre no local
 
 O servidor de destino mestre recebe os dados do failback. Um servidor de destino mestre é instalado automaticamente no servidor de gerenciamento local, mas se você estiver realizando o failback de muitos dados, talvez seja necessário configurar um servidor de destino mestre adicional. Faça isso da seguinte forma:
 
->[AZURE.NOTE]Se você quiser instalar um servidor de destino mestre no Linux, siga as instruções do próximo procedimento.
+>[AZURE.NOTE] Se você quiser instalar um servidor de destino mestre no Linux, siga as instruções do próximo procedimento.
 
 1. Se você estiver instalando o servidor de destino mestre no Windows, abra a página Início Rápido da VM na qual você está instalando o servidor de destino mestre, e baixe o arquivo de instalação do Assistente de Instalação Unificada do Azure Site Recovery.
 2. Execute a instalação e, em **Antes de começar**, escolha **Adicionar servidores de processo adicionais para implantação escalável**.
 3. Conclua o assistente da mesma forma que fez ao [configurar o servidor de gerenciamento](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server). Na página **Detalhes do Servidor de Configuração**, especifique o endereço IP deste servidor de destino mestre e uma senha para acessar a VM.
 
-### Configurar uma VM Linux como o servidor de destino mestre
-Para configurar o servidor de gerenciamento executando o servidor de destino mestre como uma VM Linux, será necessário instalar o sistema operacional mínimo CentOS 6.6, recuperar as IDs de SCSI de cada disco SCSI, instalar alguns pacotes adicionais e aplicar algumas alterações personalizadas.
+### Configurar uma VM do Linux como o servidor de destino mestre
+Para configurar o servidor de gerenciamento executando o servidor de destino mestre como uma VM do Linux, será necessário instalar o sistema operacional mínimo CentOS 6.6, recuperar as IDs de SCSI de cada disco SCSI, instalar alguns pacotes adicionais e aplicar algumas alterações personalizadas.
 
 #### Instalar o CentOS 6.6
 
 1.	Instale o sistema operacional mínimo CentOS 6.6 na VM do servidor de gerenciamento. Mantenha o ISO em uma unidade de DVD e inicialize o sistema. Ignore o teste de mídia, escolha português do Brasil no idioma, escolha **Dispositivos de Armazenamento Básico**, verifique se o disco rígido não tem dados importantes e clique em **Sim**, descarte quaisquer dados. Insira o nome do host do servidor de gerenciamento e escolha o adaptador de rede do servidor. Na caixa de diálogo **Sistema de Edição** escolha **Conectar automaticamente** e adicione um endereço IP estático, a rede e as configurações de DNS. Especifique um fuso horário e uma senha raiz para acessar o servidor de gerenciamento. 
 2.	Quando receber uma solicitação pelo tipo de instalação desejado, escolha **Criar Layout Personalizado** como a partição. Depois de clicar em **Avançar**, escolha **Gratuito** e clique em Criar. Crie as partições **/**, **/var/crash** e **/home** com **FS Type:** **ext4**. Crie a partição de troca como **FS Type: swap**.
-3.	Se algum dispositivos pré-existente for encontrado, uma mensagem de aviso será exibida. Clique em **Formatar** para formatar a unidade com as configurações de partição. Clique em **Gravar alterações no disco** para aplicar as alterações da partição.
+3.	Se algum dispositivo pré-existente for encontrado, uma mensagem de aviso será exibida. Clique em **Formatar** para formatar a unidade com as configurações de partição. Clique em **Gravar alterações no disco** para aplicar as alterações da partição.
 4.	Escolha **Instalar carregador de inicialização** > **Avançar** para instalar o carregador de inicialização na partição raiz.
 5.	Após a conclusão da instalação, clique em **Reiniciar**.
 
 
 #### Recuperar as IDs de SCSI
 
-1. Após a instalação, recupera as IDs de SCSI de cada disco SCSI na VM. Para fazer isso, desligue a VM do servidor de gerenciamento, nas propriedades da VM no VMware clique com o botão direito na entrada da VM > **Editar Configurações** > **Opções**.
-2. Escolha **Avançado** > **Item geral** e clique em **Parâmetros de Configuração**. Essa opção será desativada quando a máquina estiver em execução. Para torná-la ativa a máquina deve ser desligada.
+1. Após a instalação, recupere as IDs de SCSI de cada disco SCSI na VM. Para fazer isso, desligue a VM do servidor de gerenciamento, nas propriedades da VM no VMware clique com o botão direito na entrada da VM > **Editar Configurações** > **Opções**.
+2. Escolha **Avançado** > **Item geral** e clique em **Parâmetros de Configuração**. Essa opção será desativada quando a máquina estiver em execução. Para torná-la ativa, a máquina deve ser desligada.
 3. Se a linha **disk.EnableUUID** existir, defina seu valor como **True** (diferencia maiúscula de minúscula). Se já estiver definida como True, cancele e teste o comando SCSI dentro do sistema operacional convidado após a inicialização. 
 4.	Se a linha não existir, clique em **Adicionar Linha**, e adicione-a com o valor **True**. Não use aspas duplas.
 
@@ -138,7 +138,7 @@ Será necessário baixar e instalar alguns pacotes adicionais.
 Faça o seguinte para aplicar as alterações personalizadas após a conclusão das etapas pós-instalação e após a instalação dos pacotes:
 
 1.	Copie o binário do Agente Unificado RHEL 6-64 para a VM. Execute este comando para descompactar o binário: **tar –zxvf <file name>**
-2.	Execute este comando para dar permissões: # **chmod 755 ./ApplyCustomChanges.sh**
+2.	Execute este comando para dar permissões: **# chmod 755 ./ApplyCustomChanges.sh**
 3.	Execute o script: **# ./ApplyCustomChanges.sh**. Você só deve executar o script uma vez. Reinicie o servidor após a execução bem-sucedida do script.
 
 
@@ -148,9 +148,9 @@ Faça o seguinte para aplicar as alterações personalizadas após a conclusão 
 
 1.	No portal da Recuperação de Site > guia **Máquinas**, escolha a VM que passou por failover e clique em **Proteger novamente**.
 2.	Em **Servidor de Destino Mestre** e **Servidor de Processo** escolha o servidor de destino mestre local e o servidor de processo da VM do Azure.
-3.	Escolha a conta configurada por você para se conecta à VM.
+3.	Escolha a conta configurada por você para se conectar à VM.
 4.	Escolha a versão de failback do grupo de proteção. Por exemplo, se a VM for protegida no PG1, será necessário selecionar PG1\_Failback.
-5.	Se você quiser recuperar para um local alternativo, escolha a unidade de retenção e o armazenamento de dados configurados para o servidor de destino mestre. Quando você realiza o failback para o site local, as VMs VMware no plano de proteção de failback usarão o mesmo armazenamento de dados que o servidor de destino mestre. Se você quiser recuperar a VM réplica do Azure para a mesma VM local, a VM local já deve estar no mesmo armazenamento de dados que o servidor de destino mestre. Se não houver uma VM local, uma nova será criada durante a nova proteção.
+5.	Se você quiser recuperar para um local alternativo, escolha a unidade de retenção e o armazenamento de dados configurados para o servidor de destino mestre. Quando você realiza o failback para o site local, as VMs do VMware no plano de proteção de failback usarão o mesmo armazenamento de dados que o servidor de destino mestre. Se você quiser recuperar a VM réplica do Azure para a mesma VM local, a VM local já deve estar no mesmo armazenamento de dados que o servidor de destino mestre. Se não houver uma VM local, uma nova será criada durante a nova proteção.
 
 	![](./media/site-recovery-failback-azure-to-vmware-classic/failback1.png)
 
@@ -181,4 +181,4 @@ Você pode realizar o failback em uma conexão VPN ou pela Rota Expressa do Azur
 - A Rota Expressa deve ser configurada na rede virtual do Azure para a qual as máquinas de origem passam por failover, e nas quais as VMs do Azure ficam após o failover.
 - Os dados são replicados para uma conta de armazenamento do Azure em um ponto de extremidade público. Você deve configurar o emparelhamento público na Rota Expressa com o data center de destino para que a replicação da Recuperação de Site use a Rota Expressa.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

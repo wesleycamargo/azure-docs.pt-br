@@ -16,34 +16,36 @@
 	ms.date="01/04/2016"
 	ms.author="swkrish"/>
 
-#  Visualização do Active Directory B2C do Azure: usar Atributos Personalizados para coletar informações sobre seus Consumidores
+#  Visualização do Azure Active Directory B2C: usar atributos personalizados para coletar informações sobre seus consumidores
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-O diretório do Active Directory (AD) B2C do Azure vem com um conjunto interno de atributos, por exemplo: Nome, Sobrenome, Cidade, CEP, etc. No entanto, todos os aplicativos voltados para o consumidor têm requisitos exclusivos sobre quais informações (atributos) gostariam de coletar de seus consumidores. O Azure AD B2C permite que você amplie seu diretório (especificamente a extensão do conjunto de atributos armazenados em cada conta de consumidor). Você pode criar atributos personalizados no [Portal do Azure](https://portal.azure.com/) e usá-los em suas políticas de inscrição, conforme mostrado abaixo. Você também pode ler e gravar esses atributos usando o Graph API do Azure AD conforme mostrado [aqui](active-directory-b2c-devquickstarts-graph-dotnet.md).
+O diretório do Azure AD (Azure Active Directory) B2C é fornecido com um conjunto interno de informações (atributos): Nome, Sobrenome, Cidade e CEP, entre outros atributos. No entanto, todos os aplicativos voltados para o consumidor têm requisitos exclusivos sobre quais atributos devem ser coletados dos consumidores. Com o Azure AD B2C, você pode estender o conjunto de atributos armazenados em cada conta de consumidor. Você pode criar atributos personalizados no [Portal do Azure](https://portal.azure.com/) e usá-los em suas políticas de inscrição, conforme mostrado abaixo. Você também pode ler e gravar esses atributos usando a [API do Azure AD Graph](active-directory-b2c-devquickstarts-graph-dotnet.md).
 
-> [AZURE.NOTE]Os atributos personalizados usam [Extensões de esquema de diretório do Graph API do Azure AD](https://msdn.microsoft.com/library/azure/dn720459.aspx) nos bastidores.
+> [AZURE.NOTE]
+Os atributos personalizados usam as [Extensões de Esquema de Diretório da API do Azure AD Graph](https://msdn.microsoft.com/library/azure/dn720459.aspx).
 
-## Como criar um Atributo Personalizado
+## Como criar um atributo personalizado
 
 1. [Siga estas etapas para navegar até a folha de recursos do B2C no Portal do Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Clique em **Atributos de usuário**.
 3. Clique em **+Adicionar** na parte superior da folha.
-4. Forneça um **Nome** para o atributo personalizado (por exemplo, "ShoeSize") e, opcionalmente, uma **Descrição**. Clique em **Criar**. Pronto!
+4. Forneça um **Nome** para o atributo personalizado (por exemplo, "ShoeSize") e, opcionalmente, uma **Descrição**. Clique em **Criar**.
 
-    > [AZURE.NOTE]Apenas a "String" **Tipo de Dados** está disponível no momento. Vamos adicionar mais tipos de dados (DateTime, Integer, etc.) no futuro.
+    > [AZURE.NOTE]
+    Apenas o **Tipo de Dados** "String" está disponível no momento.
 
-O atributo personalizado agora está disponível na lista de **Atributos de usuário** e para uso em suas políticas de inscrição.
+O atributo personalizado agora está disponível na lista de **Atributos do usuário** e para uso em suas políticas de inscrição.
 
-## Como usar um atributo personalizado em sua política de inscrição
+## Usar um atributo personalizado na sua política de inscrição
 
 1. [Siga estas etapas para navegar até a folha de recursos do B2C no Portal do Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Clique em **Políticas de inscrição**.
-3. Abra a política de inscrição (por exemplo, "B2C\_1\_SiUp") clicando nela. Clique em **Editar** na parte superior da folha.
+3. Clique na sua política de inscrição (por exemplo, "B2C\_1\_SiUp") para abri-la. Clique em **Editar** na parte superior da folha.
 4. Clique em **Atributos de inscrição** e selecione o atributo personalizado (por exemplo, "ShoeSize"). Clique em **OK**.
-5. Clique em **Declarações de aplicativo** e selecione o atributo personalizado. Clique em **OK**. 
-6. Clique em **Salvar** na parte superior da folha. Pronto!
+5. Clique em **Declarações de aplicativo** e selecione o atributo personalizado. Clique em **OK**.
+6. Clique em **Salvar** na parte superior da folha.
 
-Você pode usar o recurso "Executar agora" da política para verificar a experiência do consumidor. Agora você deve ver "ShoeSize" na lista de atributos que estão sendo coletados durante a inscrição do consumidor e vê-lo no token enviado de volta ao seu aplicativo.
+Você pode usar o recurso "Executar agora" da política para verificar a experiência do consumidor. Agora você deve ver "ShoeSize" na lista de atributos que são coletados durante a inscrição do consumidor e vê-lo no token enviado de volta ao seu aplicativo.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0224_2016-->

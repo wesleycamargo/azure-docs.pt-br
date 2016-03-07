@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="02/17/2016"
 	ms.author="nitinme"/>
 
 
@@ -110,11 +110,20 @@ Nesta seção, você cria um cluster HDInsight versão 3.3, que é baseado no Sp
 
 10. Quando a criação estiver concluída, clique no bloco do cluster Spark no Quadro Inicial para iniciar a folha de cluster.
 
-
-
 ## <a name="jupyter"></a>Executar consultas do Spark SQL usando um bloco de anotações do Jupyter
 
-Nesta seção, você pode usar um bloco de anotações do Jupyter para executar consultas do Spark SQL com relação a um cluster Spark.
+Nesta seção, você pode usar um bloco de anotações do Jupyter para executar consultas do Spark SQL com relação a um cluster Spark. Por padrão, o notebook do Jupyter vem com um kernel **Python2**. Os clusters HDInsight Spark fornecem dois kernels adicionais que você pode usar com o notebook Jupyter. Estes são:
+
+* **PySpark** (para aplicativos escritos em Python)
+* **Spark** (para aplicativos escritos em Scala)
+
+Neste artigo, você usará o kernel PySpark. No artigo [Kernels disponíveis em notebooks Jupyter com clusters HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels) você poderá ler mais detalhes sobre os benefícios de usar o kernel PySpark. No entanto, alguns dos principais benefícios de usar o kernel PySpark são:
+
+* Não é necessário definir os contextos de Spark, SQL e Hive. Elas são definidas automaticamente para você.
+* Você pode usar diferentes mágicas de célula (como %%sql ou %%hive) para executar consultas SQL ou do Hive diretamente, sem quaisquer trechos de código anteriores.
+* A saída de consultas SQL ou do Hive é visualizada automaticamente.
+
+### Criar um notebook do Jupyter com o kernel PySpark 
 
 1. No [Portal de Visualização do Azure](https://portal.azure.com/), no quadro inicial, clique no bloco do cluster Spark (se você o tiver fixado no quadro inicial). Você também pode navegar até o cluster em **Procurar Tudo** > **Clusters HDInsight**.   
 
@@ -124,7 +133,7 @@ Nesta seção, você pode usar um bloco de anotações do Jupyter para executar 
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-2. Crie um novo bloco de anotações. Clique em **Novo** e em **Python2**.
+2. Crie um novo bloco de anotações. Clique em **Novo** e em **PySpark**.
 
 	![Criar um novo bloco de anotações do Jupyter](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.createnotebook.png "Criar um novo bloco de anotações do Jupyter")
 
@@ -132,17 +141,11 @@ Nesta seção, você pode usar um bloco de anotações do Jupyter para executar 
 
 	![Fornecer um nome para o bloco de anotações](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.notebook.name.png "Fornecer um nome para o bloco de anotações")
 
-4. Importe os módulos necessários e crie os contextos do Spark e do SQL. Cole o exemplo de código a seguir em uma célula vazia e pressione **SHIFT+ENTER**.
+4. Por ter criado um notebook usando o kernel PySpark, não será necessário criar nenhum contexto explicitamente. Os contextos do Spark, SQL e Hive serão criados automaticamente para você ao executar a primeira célula de código. Você pode começar importando os tipos obrigatórios para este cenário. Para fazer isso, cole o trecho de código a seguir em uma célula vazia e pressione **SHIFT + ENTER**.
 
-		from pyspark import SparkContext
-		from pyspark.sql import SQLContext
 		from pyspark.sql.types import *
 		
-		# Create Spark and SQL contexts
-		sc = SparkContext('yarn-client')
-		sqlContext = SQLContext(sc)
-
-	Toda vez que você executar um trabalho no Jupyter, o título da janela do navegador da Web mostrará um status **(Ocupado)** com o título do bloco de anotações. Você também verá um círculo preenchido ao lado do texto **Python 2** no canto superior direito. Depois que o trabalho for concluído, isso será alterado para um círculo vazio.
+	Toda vez que você executar um trabalho no Jupyter, o título da janela do navegador da Web mostrará um status **(Ocupado)** com o título do bloco de anotações. Você também verá um círculo preenchido ao lado do texto **PySpark** no canto superior direito. Depois que o trabalho for concluído, isso será alterado para um círculo vazio.
 
 	 ![Status de um trabalho do bloco de anotações do Jupyter](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.jupyter.job.status.png "Status de um trabalho do bloco de anotações do Jupyter")
 
@@ -164,40 +167,22 @@ Nesta seção, você pode usar um bloco de anotações do Jupyter para executar 
 		
 		# Register the data fram as a table to run queries against
 		hvacdf.registerTempTable("hvac")
+
+5. Como você está usando um kernel PySpark, poderá executar diretamente uma consulta SQL na tabela temporária **hvac** que você criou usando a mágica `%%sql`. Para obter mais informações sobre a mágica do `%%sql`, bem como outras mágicas disponíveis com o kernel PySpark, consulte [Kernels disponíveis em notebooks Jupyter com clusters HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
 		
-		# Run queries against the table and display the data
-		data = sqlContext.sql("select buildingID, (targettemp - actualtemp) as temp_diff, date from hvac where date = "6/1/13"")
-		data.show()
+		%%sql
+		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = "6/1/13"")
 
-5. Depois que o trabalho for concluído com êxito, o resultado a seguir será exibido.
+5. Depois que o trabalho for concluído com êxito, a saída tabular a seguir será exibida por padrão.
 
-		+----------+---------+------+
-		|buildingID|temp_diff|  date|
-		+----------+---------+------+
-		|         4|        8|6/1/13|
-		|         3|        2|6/1/13|
-		|         7|      -10|6/1/13|
-		|        12|        3|6/1/13|
-		|         7|        9|6/1/13|
-		|         7|        5|6/1/13|
-		|         3|       11|6/1/13|
-		|         8|       -7|6/1/13|
-		|        17|       14|6/1/13|
-		|        16|       -3|6/1/13|
-		|         8|       -8|6/1/13|
-		|         1|       -1|6/1/13|
-		|        12|       11|6/1/13|
-		|         3|       14|6/1/13|
-		|         6|       -4|6/1/13|
-		|         1|        4|6/1/13|
-		|        19|        4|6/1/13|
-		|        19|       12|6/1/13|
-		|         9|       -9|6/1/13|
-		|        15|      -10|6/1/13|
-		+----------+---------+------+
+ 	![Saída de tabela do resultado da consulta](./media/hdinsight-apache-spark-jupyter-spark-sql/tabular.output.png "Saída de tabela do resultado da consulta")
+
+	Você também pode ver os resultados em outras visualizações. Por exemplo, um gráfico de área para a mesma saída seria semelhante ao seguinte.
+
+	![Gráfico de área de resultado da consulta](./media/hdinsight-apache-spark-jupyter-spark-sql/area.output.png "Gráfico de área de resultado da consulta")
 
 
-6. Depois de concluir a execução do aplicativo, você deve encerrar o bloco de anotações para liberar os recursos. Para isso, no menu **Arquivo** do bloco de anotações, clique em **Fechar e Interromper**. Isso desligará e fechará o bloco de anotações.
+6. Depois de concluir a execução do aplicativo, você deve encerrar o notebook para liberar os recursos. Para isso, no menu **Arquivo** do bloco de anotações, clique em **Fechar e Interromper**. Isso desligará e fechará o bloco de anotações.
 
 
 ## <a name="seealso"></a>Consulte também
@@ -250,4 +235,4 @@ Nesta seção, você pode usar um bloco de anotações do Jupyter para executar 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

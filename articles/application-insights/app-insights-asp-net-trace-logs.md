@@ -12,21 +12,34 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/25/2015" 
+	ms.date="02/22/2016" 
 	ms.author="awills"/>
  
 # Explorar os logs de rastreamento do .NET no Application Insights  
 
 Se usa NLog, log4Net ou System.Diagnostics.Trace para rastreamento de diagnóstico em seu aplicativo ASP.NET, você pode fazer com que os logs sejam enviados ao [Visual Studio Application Insights][start], em que você pode explorá-los e pesquisá-los. Os logs serão mesclados à outra telemetria proveniente de seu aplicativo para que você possa identificar os rastreamentos associados ao atendimento de cada solicitação de usuário e correlacioná-los com outros relatórios de eventos e exceções.
 
-> [AZURE.NOTE]Você precisa do módulo de captura de log? É um adaptador útil para agentes de terceiros, mas se você ainda não usa o NLog, log4Net ou System.Diagnostics.Trace, convém chamar apenas o [TrackTrace() do Application Insights](app-insights-api-custom-events-metrics.md#track-trace) diretamente.
-
-Se você ainda não [configurou o Application Insights para seu projeto][start], faça isso agora. Seu projeto deve ter o arquivo `ApplicationInsights.config` e o pacote do NuGet `Microsoft.ApplicationInsights.Web`.
+> [AZURE.NOTE] Você precisa do módulo de captura de log? É um adaptador útil para agentes de terceiros, mas se você ainda não usa o NLog, log4Net ou System.Diagnostics.Trace, convém chamar apenas o [TrackTrace() do Application Insights](app-insights-api-custom-events-metrics.md#track-trace) diretamente.
 
 
-##  Instalar um adaptador para sua estrutura de log
+## Instalar o log no seu aplicativo
 
-Se usa uma estrutura de log (log4Net, NLog ou System.Diagnostics.Trace), você pode instalar um adaptador que envia esses logs ao Application Insights juntamente com outra telemetria.
+Instale a estrutura de registros escolhida no seu projeto. Isso deve resultar em uma entrada no app.config ou web.config.
+
+> É necessário adicionar uma entrada ao web.config, se você estiver usando System.Diagnostics.Trace.
+
+## Configurar o Application Insights para coletar logs
+
+**[Adicione o Application Insights ao seu projeto](app-insights-asp-net.md)** se ainda não tiver feito isso. Você verá uma opção para incluir o coletor de logs.
+
+Ou então **Configure o Application Insights** clicando com o botão direito no seu projeto no Gerenciador de Soluções. Selecione as opções para incluir o coletor de logs.
+
+*Não consegue ver o menu do Application Insights nem a opção de coletor de logs?* Experimente [Solucionar problemas](#troubleshooting).
+
+
+## Instalação manual
+
+Use este método se o tipo de projeto não tiver suporte no instalador do Application Insights (por exemplo, um projeto de Área de Trabalho do Windows).
 
 1. Se você planeja usar o log4Net ou NLog, instale-o em seu projeto. 
 2. No Gerenciador de Soluções, clique com o botão direito do mouse no seu projeto e escolha **Gerenciar Pacotes NuGet**.
@@ -41,7 +54,7 @@ Se usa uma estrutura de log (log4Net, NLog ou System.Diagnostics.Trace), você p
 
 O pacote NuGet instala os assemblies necessários e também modifica o app.config ou web.config.
 
-#### Inserir chamadas de log de diagnóstico
+## Inserir chamadas de log de diagnóstico
 
 Se você usa System.Diagnostics.Trace, uma chamada típica é semelhante a:
 
@@ -66,6 +79,8 @@ Uma vantagem de TrackTrace é que você pode colocar dados relativamente comprid
 
 ## Explorar seus logs
 
+Execute o aplicativo no modo de depuração ou implante-o dinamicamente.
+
 Na folha de visão geral do aplicativo no [portal do Application Insights][portal], escolha [Pesquisar][diagnostic].
 
 ![No Application Insights, escolha Pesquisar](./media/app-insights-asp-net-trace-logs/020-diagnostic-search.png)
@@ -79,7 +94,7 @@ Por exemplo, você pode:
 * Localizar outra telemetria relacionada à mesma solicitação de usuário (ou seja, com o mesmo OperationId) 
 * Salvar a configuração dessa página como um favorito
 
-> [AZURE.NOTE]**Amostragem.** Se o aplicativo enviar muitos dados e se você estiver usando o SDK do Application Insights para o ASP.NET versão 2.0.0-beta3 ou posterior, o recurso de amostragem adaptável poderá operar e enviar apenas uma porcentagem de sua telemetria. [Saiba mais sobre amostragem.](app-insights-sampling.md)
+> [AZURE.NOTE] **Amostragem.** Se o aplicativo enviar muitos dados e se você estiver usando o SDK do Application Insights para o ASP.NET versão 2.0.0-beta3 ou posterior, o recurso de amostragem adaptável poderá operar e enviar apenas uma porcentagem de sua telemetria. [Saiba mais sobre amostragem.](app-insights-sampling.md)
 
 ## Próximas etapas
 
@@ -90,6 +105,22 @@ Por exemplo, você pode:
 
 
 ## Solucionar problemas
+
+### Como faço isso no Java?
+
+Use os [adaptadores de log Java](app-insights-java-trace-logs.md).
+
+### Não há nenhuma opção do Application Insights no menu de contexto do projeto
+
+* Verifique se as ferramentas do Application Insights estão instaladas neste computador de desenvolvimento. No menu Ferramentas do Visual Studio, em Extensões e Atualizações, procure pelas Ferramentas do Application Insights. Se não estiver na aba Instalado, abra a guia Online e instale-as.
+* Este pode ser um tipo de projeto sem suporte pelas ferramentas do Application Insights. Use a [instalação manual](#manual-installation).
+
+### Não há nenhuma opção de adaptador de log na ferramenta de configuração
+
+* Você precisa instalar primeiro a estrutura de registros.
+* Se estiver usando System.Diagnostics.Trace, verifique se você [o configurou no `web.config`](https://msdn.microsoft.com/library/system.diagnostics.eventlogtracelistener.aspx).
+* Você tem a versão mais recente das ferramentas do Application Insights? No menu **Ferramentas** do Visual Studio, escolha **Extensões e Atualizações** e abra a guia **Atualizações**. Se as ferramentas do Application Insights estiver presente, clique para atualizá-las.
+
 
 ### <a name="emptykey"></a>Recebo um erro "Chave de instrumentação não pode ser vazio"
 
@@ -129,4 +160,4 @@ Se o aplicativo enviar muitos dados e se você estiver usando o SDK do Applicati
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

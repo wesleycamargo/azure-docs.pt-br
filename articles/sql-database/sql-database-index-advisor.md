@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="01/23/2015"
+   ms.date="01/23/2016"
    ms.author="sstein"/>
 
 # Consultor de Índices de Banco de Dados SQL
@@ -33,7 +33,7 @@ Este artigo descreve o Index Advisor para servidores V12. As recomendações de 
 
 ### Permissões
 
-Para exibir e criar recomendações de índice, você precisa das permissões corretas ao [controle de acesso baseado em função](role-based-access-control-configure.md) no Azure.
+Para exibir e criar recomendações de índice, você precisa das permissões corretas ao [controle de acesso baseado em função](../active-directory/role-based-access-control-configure.md) no Azure.
 
 - As permissões de **Leitor** e **Colaborador do Banco de Dados SQL** são necessárias para exibir as recomendações.
 - As permissões de **Proprietário** e **Colaborador do Banco de Dados SQL** são necessárias para executar quaisquer ações: criar ou descartar índices e cancelar a criação do índice.
@@ -179,4 +179,4 @@ O Index Advisor fornece recomendações de índice e uma experiência automatiza
 
 Monitore suas recomendações de índices e continue a aplicá-las para aprimorar o desempenho. Cargas de trabalho de banco de dados são dinâmicas e mudam continuamente. O Consultor de Índices continuará a monitorar e recomendar índices que podem potencialmente melhorar o desempenho do seu banco de dados.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

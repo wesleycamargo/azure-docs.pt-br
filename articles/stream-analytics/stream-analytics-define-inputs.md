@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="02/04/2016"
+	ms.date="02/22/2016"
 	ms.author="jeffstok"/>
 
 # Conexão de dados: saiba mais sobre entradas de fluxo de dados de eventos para o Stream Analytics
@@ -28,7 +28,7 @@ Como os dados são enviados a uma fonte de dados, eles são consumidos pelo trab
 Um fluxo de dados é uma sequência ilimitada de eventos ao longo do tempo. Os trabalhos do Stream Analytics devem conter pelo menos uma fonte de entrada de fluxo de dados para ser consumida e transformada pelo trabalho. O Armazenamento de blob, os Hubs de Eventos e os Hubs IoT têm suporte como fontes de entrada de transmissão de dados. Os Hubs de Eventos são usados para coletar transmissões de eventos de vários dispositivos e serviços, como feeds de atividade de mídia social, informações sobre mercado de ações ou dados de sensores. Os Hubs IoT são otimizados para coletar dados de dispositivos conectados em cenários da Internet das Coisas (IoT). O Armazenamento de blob pode ser usado como uma fonte de entrada para ingerir dados em massa como uma transmissão.
 
 ### Dados de referência
-O Stream Analytics dá suporte a um segundo tipo de fonte de entrada conhecido como dados de referência. São dados auxiliares que são estáticos ou que estão sofrendo uma alteração lenta ao longo do tempo e normalmente são usados para executar a correlação e pesquisas. O Armazenamento de Blob do Azure é a única fonte de entrada com suporte para dados de referência. Os blobs de fonte de dados de referência estão limitados a 50MB de tamanho. Para saber como criar entradas de dados de referência, veja [Usar dados de referência](stream-analytics-use-reference-data.md)
+O Stream Analytics dá suporte a um segundo tipo de fonte de entrada conhecido como dados de referência. São dados auxiliares que são estáticos ou que estão sofrendo uma alteração lenta ao longo do tempo e normalmente são usados para executar a correlação e pesquisas. O Armazenamento de Blob do Azure é a única fonte de entrada com suporte para dados de referência. Os blobs de fonte de dados de referência estão limitados a 100 MB de tamanho. Para saber como criar entradas de dados de referência, veja [Usar dados de referência](stream-analytics-use-reference-data.md)
 
 ## Criar uma entrada de fluxo de dados com um Hub de Eventos
 
@@ -38,7 +38,7 @@ Os [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/) 
 
 ### Grupos de consumidores
 
-Cada entrada do trabalho do Hub de Eventos do Stream Analytics deve ser configurada para ter seu próprio grupo de consumidores. Quando um trabalho contiver uma autojunção ou várias entradas, algumas entradas poderão ser lidas por mais de um downstream de leitor, causando impacto no número de leitores de um único grupo de consumidores. Para evitar exceder o limite de Hub de Eventos dos 5 leitores por grupo de consumidores por partição, recomenda-se designar um grupo de consumidores para cada trabalho do Stream Analytics. Observe que também há um limite de 20 grupos de consumidores por Hub de Eventos. Para obter detalhes, confira o [Guia de programação dos Hubs de Eventos](./event-hubs/event-hubs-programming-guide.md).
+Cada entrada do trabalho do Hub de Eventos do Stream Analytics deve ser configurada para ter seu próprio grupo de consumidores. Quando um trabalho contiver uma autojunção ou várias entradas, algumas entradas poderão ser lidas por mais de um downstream de leitor, causando impacto no número de leitores de um único grupo de consumidores. Para evitar exceder o limite de Hub de Eventos dos 5 leitores por grupo de consumidores por partição, recomenda-se designar um grupo de consumidores para cada trabalho do Stream Analytics. Observe que também há um limite de 20 grupos de consumidores por Hub de Eventos. Para obter detalhes, confira o [Guia de programação dos Hubs de Eventos](../event-hubs/event-hubs-programming-guide.md).
 
 ## Configurar o Hub de Eventos como um fluxo de dados de entrada
 
@@ -115,6 +115,8 @@ Quando seus dados forem provenientes de uma fonte do Hub IoT, é possível acess
 Para cenários com grandes quantidades de dados não estruturados para armazenamento na nuvem, o Armazenamento de Blob oferece uma solução econômica e escalonável. Os dados no [Armazenamento de blob](https://azure.microsoft.com/services/storage/blobs/) são geralmente considerados dados “em repouso”, mas podem ser processados como uma transmissão de dados pelo Stream Analytics. Um cenário comum para entradas do armazenamento de Blob com o Stream Analytics é o processamento de log, no qual a telemetria é capturada de um sistema e precisa ser analisada e processada para extrair dados significativos.
 
 É importante observar que o carimbo de data/hora padrão de eventos de armazenamento de Blob no Stream Analytics é o carimbo de data/hora em que o blob foi modificado pela última vez, que é *isBlobLastModifiedUtcTime*. Para processar os dados como uma transmissão usando um carimbo de data/hora na carga do evento, use a palavra-chave [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx).
+
+> [AZURE.NOTE] O Stream Analytics não dá suporte para a adição de conteúdo a um blob existente. O Stream Analytics só exibirá um blob uma vez e quaisquer alterações feitas depois dessa leitura não serão processadas. A melhor prática é carregar todos os dados uma vez e não adicionar nenhum evento a mais ao repositório de blobs.
 
 A tabela a seguir explica cada propriedade na guia de entrada do armazenamento de Blob com sua descrição:
 
@@ -207,4 +209,4 @@ Você aprendeu sobre as opções de conexão de dados no Azure para seus trabalh
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

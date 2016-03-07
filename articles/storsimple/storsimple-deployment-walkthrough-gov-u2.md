@@ -4,15 +4,15 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="01/15/2016"
+   ms.workload="NA"
+   ms.date="02/22/2016"
    ms.author="v-sharos" />
 
 # Implantar seu dispositivo StorSimple local no Portal do governo (Atualização 2)
@@ -127,7 +127,7 @@ Execute as etapas a seguir no Portal do Governo.
 
 Use o Windows PowerShell para StorSimple para concluir a configuração inicial do seu dispositivo StorSimple, conforme explicado no procedimento a seguir. Você precisará usar o software de emulação de terminal para concluir esta etapa. Para obter mais informações, consulte [Use o PuTTY para conectar-se ao console serial do dispositivo](#use-putty-to-connect-to-the-device-serial-console).
 
-[AZURE.INCLUDE [storsimple-configure-and-register-device-gov](../../includes/storsimple-configure-and-register-device-gov.md)]
+[AZURE.INCLUDE [storsimple-configure-and-register-device-gov](../../includes/storsimple-configure-and-register-device-gov-u2.md)]
 
 ## Etapa 4: Concluir a instalação mínima do dispositivo
 
@@ -243,4 +243,4 @@ Para obter instruções de instalação do MPIO para um dispositivo do StorSimpl
 - Use o [Serviço StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) para gerenciar o seu dispositivo StorSimple.
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

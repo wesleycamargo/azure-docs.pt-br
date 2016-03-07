@@ -322,14 +322,13 @@ sessionId | ID da sessão de autorização OAuth. Cada ID da sessão é exclusiv
 
 O código de autorização gerado usando o botão **Autorizar** expira após algum tempo. Confira a tabela a seguir para ver os tempos de expiração para os diferentes tipos de contas de usuário. Você pode ver a seguinte mensagem de erro quando o **token de autenticação expira**: Erro na operação da credencial: invalid\_grant - AADSTS70002: erro ao validar as credenciais. AADSTS70008: a concessão de acesso fornecida expirou ou foi revogada. ID do Rastreamento: d18629e8-af88-43c5-88e3-d8419eb1fca1 ID da Correlação: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Carimbo de data/hora: 2015-12-15 21:09:31Z
 
- 
 | Tipo de usuário | Expira após |
 | :-------- | :----------- | 
-| Usuário não AAD (@hotmail.com, @live.com, etc.) | 12 horas |
-| O usuário do AAD e a fonte baseada no OAuth estão em um [locatário](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) diferente do locatário do data factory. | 12 horas |
-| O usuário do AAD e a fonte baseada no OAuth estão no mesmo locatário que o locatário do data factory. | 14 dias |
+| Usuários NÃO gerenciados pelo Azure Active Directory (@hotmail.com, @live.com, etc.) | 12 horas |
+| Usuários gerenciados pelo Azure Active Directory (AAD) | | 14 dias após a última fatia executada, se não nenhuma fatia com base no serviço vinculado do OAuth tiver sido executado por 14 dias desde a última fatia executada. <p>90 dias, se uma fatia com base em serviços vinculados do OAuth for executada pelo menos uma vez a cada 14 dias.</p> |
 
-Para evitar/resolver o erro, você precisará autorizar novamente usando o botão **Autorizar** quando o **token expirar** e reimplantar o serviço vinculado. Você também pode gerar valores para as propriedades sessionId e authorization programaticamente usando o código na seção a seguir.
+ 
+Para evitar/resolver este erro, você precisará autorizar novamente usando o botão **Autorizar** quando o **token expirar** e reimplantar o serviço vinculado. Você também pode gerar valores para as propriedades sessionId e authorization programaticamente usando o código na seção a seguir.
 
 ### Para gerar valores sessionId e authorization programaticamente 
 O código a seguir gera os valores **sessionId** e **authorization**.
@@ -357,11 +356,11 @@ O código a seguir gera os valores **sessionId** e **authorization**.
         }
     }
 
-Confira os tópicos [Classe AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [Classe AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) e [Classe AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) para obter detalhes sobre as classes do Data Factory usadas no código. Você precisa adicionar uma referência a: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll para a classe WindowsFormsWebAuthenticationDialog.
+Consulte os tópicos [Classe AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [Classe AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) e [Classe AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) para obter detalhes sobre as classes do Data Factory usadas no código. Você precisa adicionar uma referência a: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll para a classe WindowsFormsWebAuthenticationDialog.
  
 
 ## Serviço Vinculado do SQL do Azure
 
 Você pode criar um serviço vinculado SQL do Azure e usá-lo com a [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md) para invocar um procedimento armazenado de um pipeline do Data Factory. Confira o artigo [Conector SQL do Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) para saber mais sobre esse serviço vinculado.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management"
-    ms.date="12/01/2015"
+    ms.date="02/23/2016"
     ms.author="sstein"/>
 
 # C&#x23; desenvolvimento de banco de dados: criar e configurar um pool de banco de dados elástico para o banco de dados SQL
@@ -27,17 +27,14 @@
 
 Este artigo mostra como criar um [pool de banco de dados elástico](sql-database-elastic-pool.md) para o banco de dados SQL a partir de um aplicativo, usando técnicas de desenvolvimento de banco de dados em C#.
 
-> [AZURE.NOTE]No momento, os pools de banco de dados elástico estão em visualização e disponíveis apenas com Servidores V12 do Banco de Dados SQL. Se você tiver um servidor de Banco de Dados SQL V11, poderá [usar o PowerShell para atualizar para o V12 e criar um pool](sql-database-upgrade-server.md) em uma única etapa.
+> [AZURE.NOTE] No momento, os pools de banco de dados elástico estão em visualização e disponíveis apenas com Servidores V12 do Banco de Dados SQL. Se você tiver um servidor de Banco de Dados SQL V11, poderá [usar o PowerShell para atualizar para o V12 e criar um pool](sql-database-upgrade-server-powershell.md) em uma única etapa.
 
 Os exemplos usam a [Biblioteca do Banco de Dados SQL do Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Trechos de código individuais foram divididos por motivos de clareza, e um exemplo de aplicativo de console reúne todos os comandos na seção no fim deste artigo.
 
-A Biblioteca do Banco de Dados SQL do Azure para .NET fornece uma API baseada no [Gerenciador de Recursos do Azure](resource-group-overview.md) que encapsula a [API REST do Banco de Dados SQL baseada no Gerenciador de Recursos](https://msdn.microsoft.com/library/azure/mt163571.aspx). Essa biblioteca cliente segue o padrão comum das bibliotecas cliente baseadas no Gerenciador de Recursos. O Gerenciador de Recursos exige grupos de recursos e autenticação no AAD ([Active Directory do Azure](https://msdn.microsoft.com/library/azure/mt168838.aspx)).
 
-<br>
+> [AZURE.NOTE] Atualmente, a Biblioteca do Banco de Dados SQL para .NET está na versão de visualização.
 
-> [AZURE.NOTE]Atualmente, a Biblioteca do Banco de Dados SQL para .NET está na versão de visualização.
 
-<br>
 
 Caso não tenha uma assinatura do Azure, clique em **AVALIAÇÃO GRATUITA**, na parte superior desta página, e volte para este artigo. Para obter uma cópia gratuita do Microsoft Visual Studio, confira a página [Downloads do Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
 
@@ -78,7 +75,7 @@ Para criar um novo aplicativo e registrá-lo no active directory correto, faça 
 
 5. Escolha **Adicionar um aplicativo que minha organização está desenvolvendo**.
 
-5. Dê um **NOME** ao aplicativo e selecione **APLICATIVO CLIENTE NATIVO**.
+5. Forneça um **NOME** para o aplicativo e selecione **APLICATIVO CLIENTE NATIVO**.
 
     ![Adicionar aplicativo][7]
 
@@ -93,7 +90,7 @@ Para criar um novo aplicativo e registrá-lo no active directory correto, faça 
 
 1. Na parte inferior da página, clique em **Adicionar aplicativo**.
 1. Selecione **Aplicativos da Microsoft**.
-1. Selecione **API do Gerenciamento de Serviços do Azure** e conclua o assistente.
+1. Selecione **API de Gerenciamento de Serviços do Azure** e conclua o assistente.
 2. Com a API selecionada, você deve conceder as permissões específicas necessárias para acessar essa API; para isso, selecione **Acessar o Gerenciamento de Serviços do Azure (visualização)**.
 
     ![Definir permissões][2]
@@ -123,20 +120,15 @@ Saiba mais sobre como usar o Active Directory do Azure para autenticação [nest
 O aplicativo cliente deve recuperar o token de acesso do aplicativo para o usuário atual. Na primeira vez que um usuário executar o código, ele receberá uma solicitação para inserir suas credenciais de usuário e o token resultante será armazenado em cache localmente. As execuções subsequentes recuperarão o token do cache e apenas solicitarão que o usuário faça logon se o token tiver expirado.
 
 
-    /// <summary>
-    /// Prompts for user credentials when first run or if the cached credentials have expired.
-    /// </summary>
-    /// <returns>The access token from AAD.</returns>
     private static AuthenticationResult GetAccessToken()
     {
         AuthenticationContext authContext = new AuthenticationContext
-            ("https://login.windows.net/" /* AAD URI */
-                + "domain.onmicrosoft.com" /* Tenant ID or AAD domain */);
+            ("https://login.windows.net/" + domainName /* Tenant ID or AAD domain */);
 
         AuthenticationResult token = authContext.AcquireToken
             ("https://management.azure.com/"/* the Azure Resource Management endpoint */,
-                "aa00a0a0-a0a0-0000-0a00-a0a00000a0aa" /* application client ID from AAD*/,
-        new Uri("urn:ietf:wg:oauth:2.0:oob") /* redirect URI */,
+                clientId,
+        new Uri(redirectUri) /* redirect URI */,
         PromptBehavior.Auto /* with Auto user will not be prompted if an unexpired token is cached */);
 
         return token;
@@ -144,7 +136,7 @@ O aplicativo cliente deve recuperar o token de acesso do aplicativo para o usuá
 
 
 
-> [AZURE.NOTE]Os exemplos neste artigo usam uma forma síncrona de cada solicitação de API e ficam bloqueados até a conclusão da chamada REST do serviço subjacente. Há métodos assíncronos disponíveis.
+> [AZURE.NOTE] Os exemplos neste artigo usam uma forma síncrona de cada solicitação de API e ficam bloqueados até a conclusão da chamada REST do serviço subjacente. Há métodos assíncronos disponíveis.
 
 
 
@@ -196,7 +188,7 @@ Pools de banco de dados elásticos estão contidos em servidores de Banco de Dad
 
 Por padrão, um servidor não tem regras de firewall, portanto, não é possível se conectar a um servidor de qualquer local. Para se conectar a um servidor ou a um banco de dados no servidor, é necessário definir uma [regra de firewall](sql-database-firewall-configure.md) que permita o acesso no endereço IP do cliente.
 
-O exemplo a seguir cria uma regra de firewall que libera o acesso ao servidor em qualquer endereço IP. É recomendável que você crie logons e senhas de SQL apropriados para proteger seu banco de dados e não depender de regras de firewall como uma primeira defesa contra invasão. Para saber mais, confira [Gerenciamento de bancos de dados e logons no Banco de Dados SQL do Azure](sql-database-manage-logins.md).
+O exemplo a seguir cria uma regra de firewall que libera o acesso ao servidor em qualquer endereço IP. É recomendável que você crie logons e senhas de SQL apropriados para proteger seu banco de dados e não depender de regras de firewall como uma primeira defesa contra invasão. Para saber mais, consulte [Gerenciamento de bancos de dados e logons no Banco de Dados SQL do Azure](sql-database-manage-logins.md).
 
 
     // Create a firewall rule on the server to allow TDS connection
@@ -214,7 +206,7 @@ O exemplo a seguir cria uma regra de firewall que libera o acesso ao servidor em
 
 
 
-Para permitir que outros serviços do Azure acessem um servidor, adicione uma regra de firewall em defina StartIpAddress e EndIpAddress como 0.0.0.0. Observe que isso permite que o tráfego do Azure de *qualquer* assinatura do Azure acesse o servidor.
+Para permitir que outros serviços do Azure acessem um servidor, adicione uma regra de firewall em defina StartIpAddress e EndIpAddress como 0.0.0.0. Observe que isso permitirá que o tráfego do Azure de *qualquer* assinatura do Azure acesse o servidor.
 
 
 ## Criar um banco de dados
@@ -388,14 +380,13 @@ O exemplo a seguir descreve todos os bancos de dados em um pool:
         private static AuthenticationResult GetAccessToken()
         {
             AuthenticationContext authContext = new AuthenticationContext
-                ("https://login.windows.net/" /* AAD URI */
-                + "domain.onmicrosoft.com" /* Tenant ID or AAD domain */);
+                ("https://login.windows.net/" + domainName /* Tenant ID or AAD domain */);
 
             AuthenticationResult token = authContext.AcquireToken
                 ("https://management.azure.com/"/* the Azure Resource Management endpoint */,
-                "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /* application client ID from AAD*/,
-                new Uri("urn:ietf:wg:oauth:2.0:oob") /* redirect URI */,
-                PromptBehavior.Auto /* with Auto user will not be prompted if an unexpired token is cached */);
+                    clientId,
+            new Uri(redirectUri) /* redirect URI */,
+            PromptBehavior.Auto /* with Auto user will not be prompted if an unexpired token is cached */);
 
             return token;
         }
@@ -585,4 +576,4 @@ O exemplo a seguir descreve todos os bancos de dados em um pool:
 [8]: ./media/sql-database-elastic-pool-csharp/add-application2.png
 [9]: ./media/sql-database-elastic-pool-csharp/clientid.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

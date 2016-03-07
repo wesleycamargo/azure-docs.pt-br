@@ -12,7 +12,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="search" 
-	ms.date="11/04/2015" 
+	ms.date="02/18/2016" 
 	ms.author="heidist"/>
 
 # Estudo de caso do desenvolvedor de Pesquisa do Azure
@@ -64,7 +64,7 @@ Observando as caixas verdes no diagrama anterior, você verá que a solução Wh
 
 - [Pesquisa do Azure](https://azure.microsoft.com/services/search/)
 - [Sites do Azure usando MVC 4](https://azure.microsoft.com/services/websites/)
-- [Trabalhos Web do Azure para tarefas agendadas](../websites-webjobs-resources.md)
+- [Trabalhos Web do Azure para tarefas agendadas](../app-service-web/websites-webjobs-resources.md)
 - [Banco de Dados SQL do Azure](https://azure.microsoft.com/services/sql-database/)
 - [Armazenamento de BLOB do Azure](https://azure.microsoft.com/services/storage/)
 - [Entrega de email SendGrid](https://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/)
@@ -421,4 +421,4 @@ O código a seguir cria o indexador mencionado na seção sobre a criação do p
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

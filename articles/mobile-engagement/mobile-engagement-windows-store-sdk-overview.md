@@ -32,11 +32,9 @@ Clique para ver o [Conteúdo do SDK](mobile-engagement-windows-store-sdk-content
 
 ##Notas de versão
 
-###3\.3.0 (22/01/2016)
+###3\.3.1 (18/02/2016)
 
--   Correção da formatação com falha nos aplicativos UWP em execução no modo de versão.
--   Correção da margem de 1px em notificações para aplicativos Universal 8.1.
--   Esquemas ms-appx e ms-appdata disponíveis em urls de ação.
+-   Corrija os conflitos entre o conteúdo HTML do comunicado da Web e a página HTML do SDK.
 -   Aprimoramentos de estabilidade.
 
 Para a versão anterior, consulte as [notas de versão completas](mobile-engagement-windows-store-release-notes.md)
@@ -56,4 +54,4 @@ Esta etapa aborda apenas os recursos personalizados. Se você personalizou os re
 
 Consulte [Procedimentos de atualização](mobile-engagement-windows-store-upgrade-procedure/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

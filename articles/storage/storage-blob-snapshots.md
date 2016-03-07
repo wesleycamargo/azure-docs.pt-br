@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="02/19/2016"
 	ms.author="tamram"/>
 
 # Criar um instantâneo de blob
@@ -125,4 +125,4 @@ No cenário 4, o blob de base foi totalmente atualizado e não contém nenhum do
 
 ![Recursos de Armazenamento do Azure](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

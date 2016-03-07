@@ -14,15 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="02/17/2016" 
 	ms.author="nitinme"/>
 
 
 # Crie aplicativos de aprendizado de máquina usando o Apache Spark no Azure HDInsight
 
 Aprenda a criar uma aplicativo de aprendizado de máquina usando um cluster do Apache Spark no HDInsight. Este artigo mostra como usar o bloco de anotações do Jupyter disponível com o cluster para compilar e testar o aplicativo. O aplicativo usa os dados de HVAC.csv de exemplo que estão disponíveis em todos os clusters por padrão.
-
-> [AZURE.TIP] Este tutorial também está disponível como um bloco de anotações Jupyter em um cluster do Spark (Linux) que você pode criar no HDInsight. A experiência do bloco de anotações permite executar os trechos de código Python no próprio bloco de anotações. Para executar o tutorial de dentro de um bloco de anotações, crie um cluster do Spark, inicie um bloco de anotações Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`) e execute o bloco de anotações **Aprendizado de Máquina do Spark - prever a temperatura do prédio usando data.ipynb de HVAC** na pasta **Python**.
 
 **Pré-requisitos:**
 
@@ -45,6 +43,8 @@ Podemos usar esses dados para prever se um prédio será mais quente ou frio com
 
 ##<a name="app"></a>Escrever um aplicativo de aprendizado de máquina usando o MLlib Spark
 
+Neste aplicativo, usamos um pipeline ML do Spark para executar uma classificação de documento. No pipeline, vamos dividir o documento em palavras, converter as palavras em um vetor de recurso numérico e, finalmente, criar um modelo de previsão usando as etiquetas e vetores de recurso. Execute as seguintes etapas para criar o aplicativo.
+
 1. No [Portal de Visualização do Azure](https://portal.azure.com/), no quadro inicial, clique no bloco do cluster Spark (se você o tiver fixado no quadro inicial). Você também pode navegar até o cluster em **Procurar Tudo** > **Clusters HDInsight**.   
 
 2. Na folha do cluster Spark, clique em **Links Rápidos** e, na folha **Painel do Cluster**, clique em **Notebook do Jupyter**. Se você receber uma solicitação, insira as credenciais de administrador para o cluster.
@@ -53,7 +53,7 @@ Podemos usar esses dados para prever se um prédio será mais quente ou frio com
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-2. Crie um novo bloco de anotações. Clique em **Novo** e em **Python 2**.
+2. Crie um novo bloco de anotações. Clique em **Novo** e em **PySpark**.
 
 	![Criar um novo bloco de anotações do Jupyter](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.note.jupyter.createnotebook.png "Criar um novo bloco de anotações do Jupyter")
 
@@ -61,10 +61,7 @@ Podemos usar esses dados para prever se um prédio será mais quente ou frio com
 
 	![Fornecer um nome para o bloco de anotações](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.note.jupyter.notebook.name.png "Fornecer um nome para o bloco de anotações")
 
-3. Comece a criar seu aplicativo de aprendizado de máquina. Neste aplicativo, usamos um pipeline ML do Spark para executar uma classificação de documento. No pipeline, vamos dividir o documento em palavras, converter as palavras em um vetor de recurso numérico e, finalmente, criar um modelo de previsão usando as etiquetas e vetores de recurso.
-
-	Para começar a criar o aplicativo, primeiro importe os módulos necessários e atribua recursos para o aplicativo. Na célula vazia do novo bloco de anotações, cole o trecho a seguir e pressione **SHIFT+ENTER**.
-
+3. Por ter criado um notebook usando o kernel PySpark, não será necessário criar nenhum contexto explicitamente. Os contextos do Spark, SQL e Hive serão criados automaticamente para você ao executar a primeira célula de código. Você pode começar importando os tipos que são obrigatórios para este cenário. Cole o trecho a seguir em uma célula vazia e pressione **SHIFT+ENTER**.
 
 		from pyspark.ml import Pipeline
 		from pyspark.ml.classification import LogisticRegression
@@ -73,29 +70,14 @@ Podemos usar esses dados para prever se um prédio será mais quente ou frio com
 		
 		import os
 		import sys
-		from pyspark import SparkConf
-		from pyspark import SparkContext
-		from pyspark.sql import SQLContext
 		from pyspark.sql.types import *
 		
 		from pyspark.mllib.classification import LogisticRegressionWithSGD
 		from pyspark.mllib.regression import LabeledPoint
 		from numpy import array
 		
-		# Assign resources to the application
-		conf = SparkConf()
-		conf.setMaster('yarn-client')
-		conf.setAppName('pysparkregression')
-		conf.set("spark.cores.max", "4")
-		conf.set("spark.executor.memory", "4g")
 		
-		sc = SparkContext(conf=conf)
-		sqlContext = SQLContext(sc)
-
-	Toda vez que você executar um trabalho no Jupyter, o título da janela do navegador da Web mostrará um status **(Ocupado)** junto com o título do bloco de anotações. Você também verá um círculo preenchido ao lado do texto **Python 2** no canto superior direito. Depois que o trabalho for concluído, isso será alterado para um círculo vazio.
-
-	 ![Status de um trabalho do bloco de anotações do Jupyter](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.jupyter.job.status.png "Status de um trabalho do bloco de anotações do Jupyter")
- 
+	 
 4. Agora você deve carregar os dados (hvac.csv), analisá-los e usá-los para treinar o modelo. Para isso, você define uma função que verifica se a temperatura real do prédio é maior que a temperatura de destino. Se a temperatura real é maior, o prédio está quente, indicado pelo valor **1,0**. Se a temperatura real é menor, o prédio está frio, indicado pelo valor **0,0**.
 
 	Cole o trecho a seguir em uma célula vazia e pressione **SHIFT+ENTER**.
@@ -272,4 +254,4 @@ Os clusters Apache Spark no HDInsight incluem bibliotecas Anaconda. Isso também
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

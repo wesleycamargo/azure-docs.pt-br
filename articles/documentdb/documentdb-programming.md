@@ -6,7 +6,7 @@
 	documentationCenter="" 
 	authors="aliuy" 
 	manager="jhubbard" 
-	editor="cgronlun"/>
+	editor="mimig"/>
 
 <tags 
 	ms.service="documentdb" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/11/2015" 
+	ms.date="02/16/2016" 
 	ms.author="andrl"/>
 
 # Programação no servidor do Banco de Dados de Documentos: UDFs, gatilhos de banco de dados e procedimentos armazenados
@@ -50,7 +50,9 @@ Essa abordagem de *"JavaScript como um T-SQL moderno"* libera os desenvolvedores
 	-	Adiciona uma camada de abstração sobre os dados brutos, o que permite que os arquitetos de dados desenvolvam seus aplicativos de maneira independente dos dados. Isso é ainda mais vantajoso quando os dados não possuem esquema, devido às suposições que precisam ser integradas ao aplicativo se precisarem lidar diretamente com os dados.  
 	-	Essa abstração permite que as empresas protejam seus dados simplificando o acesso pelos scripts.  
 
-A criação e execução de gatilhos de banco de dados, procedimentos armazenados e operadores de consulta personalizados têm suporte por meio da [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) e dos [SDKs de clientes](https://msdn.microsoft.com/library/azure/dn781482.aspx) em diversas plataformas, incluindo .NET, Node.js e JavaScript. **Esse tutorial utiliza o [SDK Node.js](http://dl.windowsazure.com/documentDB/nodedocs/)** para ilustrar a sintaxe e o uso de procedimentos armazenados, gatilhos e UDFs.
+A criação e execução de gatilhos de banco de dados, procedimentos armazenados e operadores de consulta personalizados têm suporte por meio da [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx), do [Estúdio do Banco de Dados de Documentos](https://github.com/mingaliu/DocumentDBStudio/releases) e dos [SDKs de clientes](documentdb-sdk-dotnet.md) em diversas plataformas, incluindo .NET, Node.js e JavaScript.
+
+**Esse tutorial utiliza o [SDK do Node.js com Q Promises](http://azure.github.io/azure-documentdb-node-q/)** para ilustrar a sintaxe e o uso de procedimentos armazenados, gatilhos e UDFs.
 
 ## Procedimentos armazenados
 
@@ -92,7 +94,7 @@ Uma vez que o procedimento armazenado é registrado, podemos executá-lo em rela
 		});
 
 
-O objeto de contexto oferece acesso a todas as operações que podem ser realizadas no armazenamento do Banco de Dados de Documentos, bem como acesso aos objetos de solicitação e resposta. Nesse caso, usamos o objeto de resposta para definir o corpo da resposta que foi enviada ao cliente. Para obter mais detalhes, consulte a [documentação do SDK do servidor de JavaScript do Banco de Dados de Documentos](http://dl.windowsazure.com/documentDB/jsserverdocs/).
+O objeto de contexto oferece acesso a todas as operações que podem ser realizadas no armazenamento do Banco de Dados de Documentos, bem como acesso aos objetos de solicitação e resposta. Nesse caso, usamos o objeto de resposta para definir o corpo da resposta que foi enviada ao cliente. Para obter mais detalhes, consulte a [documentação do SDK do servidor de JavaScript do Banco de Dados de Documentos](http://azure.github.io/azure-documentdb-js-server/).
 
 Vamos ampliar esse exemplo e adicionar mais funcionalidades relativas ao banco de dados ao procedimento armazenado. Procedimentos armazenados podem criar, atualizar, ler, consultar e excluir documentos e anexos dentro da coleção.
 
@@ -475,7 +477,7 @@ A UDF pode, subsequentemente, ser usada em consultas como na amostra a seguir:
 ## API de consulta integrada da linguagem JavaScript
 Além de emitir consultas usando a gramática SQL do Banco de Dados de Documentos, o SDK do servidor permite que você execute consultas otimizadas usando uma interface fluente do JavaScript sem qualquer conhecimento de SQL. A API de consulta JavaScript permite que você crie consultas programaticamente ao passar funções de predicado em chamadas a função encadeáveis, com uma sintaxe semelhantes a bibliotecas JavaScript internas e conhecidas da Matriz ECMAScript5, como lodash. As consultas são analisadas no tempo de execução do JavaScript para serem executadas com eficiência usando índices do Banco de Dados de Documentos.
 
-> [AZURE.NOTE]`__` (double-underscore) é um alias para `getContext().getCollection()`. <br/> Em outras palavras, você pode usar `__` ou `getContext().getCollection()` para acessar a API de consulta JavaScript.
+> [AZURE.NOTE] `__` (double-underscore) é um alias para `getContext().getCollection()`. <br/> Em outras palavras, você pode usar `__` ou `getContext().getCollection()` para acessar a API de consulta JavaScript.
 
 As funções com suporte incluem: <ul> <li> <b>chain() ... .value([callback] [, options])</b> <ul> <li> Inicia uma chamada encadeada que deve ser terminada com value(). </li> </ul> </li> <li> <b>filter(predicateFunction [, options] [, callback])</b> <ul> <li> Filtra a entrada usando uma função de predicado que retorna verdadeiro/falso para filtrar a entrada/saída de documentos de entrada no conjunto resultante. Esta tem um comportamento semelhante a uma cláusula WHERE no SQL. </li> </ul> </li> <li> <b>map(transformationFunction [, options] [, callback])</b> <ul> <li> Aplica uma projeção dada uma função de transformação que mapeia cada item de entrada para um valor ou objeto JavaScript. Esta tem um comportamento semelhante a uma cláusula SELECT no SQL. </li> </ul> </li> <li> <b>pluck([propertyName] [, options] [, callback])</b> <ul> <li> Este é um atalho para um mapa que extrai o valor de uma única propriedade de cada item de entrada. </li> </ul> </li> <li> <b>flatten([isShallow] [, options] [, callback])</b> <ul> <li> Combina e nivela as matrizes de cada item de entrada a uma única matriz. Esta tem um comportamento semelhante a SelectMany no LINQ. </li> </ul> </li> <li> <b>sortBy([predicate] [, options] [, callback])</b> <ul> <li> Produz um novo conjunto de documentos, classificando os documentos no fluxo de documentos de entrada em ordem crescente utilizando o predicado em questão. Esta tem um comportamento semelhante a uma cláusula ORDER BY no SQL. </li> </ul> </li> <li> <b>sortByDescending([predicate] [, options] [, callback])</b> <ul> <li> Produz um novo conjunto de documentos, classificando os documentos no fluxo de documentos de entrada em ordem decrescente utilizando o predicado em questão. Esta se comporta de forma semelhante a uma cláusula ORDER BY x DESC no SQL. </li> </ul> </li> </ul>
 
@@ -491,7 +493,7 @@ As seguintes construções do JavaScript não são otimizadas para índices do B
 * Fluxo de controle (por exemplo,. if, for, while)
 * Chamadas de função
 
-Para saber mais, consulte nossos [JSDocs no servidor](http://dl.windowsazure.com/documentDB/jsserverdocs/).
+Para saber mais, consulte nossos [JSDocs no servidor](http://azure.github.io/azure-documentdb-js-server/).
 
 ### Exemplo: Escrever um procedimento armazenado usando a API de consulta JavaScript
 
@@ -557,7 +559,7 @@ Assim como acontece com consultas SQL, as chaves de propriedade do documento (po
 <br/> <table border="1" width="100%"> <colgroup> <col span="1" style="width: 40%;"> <col span="1" style="width: 40%;"> <col span="1" style="width: 20%;"> </colgroup> <tbody> <tr> <th>SQL</th> <th>API de Consulta JavaScript</th> <th>Detalhes</th> </tr> <tr> <td> <pre> SELECT * FROM docs </pre> </td> <td> <pre> \_\_.map(function(doc) { return doc; }); </pre> </td> <td>Resulta em todos os documentos (paginados com o token de continuação) como estão.</td> </tr> <tr> <td> <pre> SELECT docs.id, docs.message AS msg, docs.actions FROM docs </pre> </td> <td> <pre> \_\_.map(function(doc) { return { id: doc.id, msg: doc.message, actions: doc.actions }; }); </pre> </td> <td>Projeta a id, a mensagem (com o alias msg) e ação de todos os documentos.</td> </tr> <tr> <td> <pre> SELECT * FROM docs WHERE docs.id="X998\_Y998" </pre> </td> <td> <pre> \_\_.filter(function(doc) { return doc.id === "X998\_Y998"; }); </pre> </td> <td>Consulta documentos com o predicado: id = "X998\_Y998".</td> </tr> <tr> <td> <pre> SELECT * FROM docs WHERE ARRAY\_CONTAINS(docs.Tags, 123) </pre> </td> <td> <pre> \_\_.filter(function(x) { return x.Tags && x.Tags.indexOf(123) > -1; }); </pre> </td> <td>Consultas para documentos que tenham a propriedade Tags e Tags é uma matriz com o valor 123.</td> </tr> <tr> <td> <pre> SELECT docs.id, docs.message AS msg FROM docs WHERE docs.id="X998\_Y998" </pre> </td> <td> <pre> \_\_.chain() .filter(function(doc) { return doc.id === "X998\_Y998"; }) .map(function(doc) { return { id: doc.id, msg: doc.message }; }) .value(); </pre> </td> <td>Consulta documentos com um predicado, id = "X998\_Y998" e projeta a id e a mensagem (com o alias msg).</td> </tr> <tr> <td> <pre> SELECT VALUE tag FROM docs JOIN tag IN docs.Tags ORDER BY docs.\_ts </pre> </td> <td> <pre> \_\_.chain() .filter(function(doc) { return doc.Tags && Array.isArray(doc.Tags); }) .sortBy(function(doc) { return doc.\_ts; }) .pluck("Tags") .flatten() .value() </pre> </td> <td>Filtra documentos com uma propriedade de matriz, Tags e classifica os documentos resultantes pela propriedade do sistema \_ts timestamp, depois projeta e nivela a matriz Tags.</td> </tr> </tbody> </table>
 
 ## Suporte de tempo de execução
-O [SDK do lado do servidor de JavaScript do Banco de Dados de Documentos](http://dl.windowsazure.com/documentDB/jsserverdocs/) dá suporte para a maioria dos principais recursos de linguagem JavaScript conforme o padrão [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
+O [SDK do lado do servidor de JavaScript do Banco de Dados de Documentos](http://azure.github.io/azure-documentdb-js-server/) dá suporte para a maioria dos principais recursos de linguagem JavaScript conforme o padrão [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
 
 ### Segurança
 Procedimentos armazenados e gatilhos de JavaScript são colocados em uma área restrita para que os efeitos de um script não vazem para o outro sem passar pelo isolamento da transação de captura instantânea no nível do banco de dados. Os ambientes de tempo de execução são colocados em pools, porém, seu contexto é limpo após cada execução. Portanto, sua segurança é garantida e cada um deles está livre de qualquer efeito colateral inesperado advindo do outro.
@@ -566,7 +568,7 @@ Procedimentos armazenados e gatilhos de JavaScript são colocados em uma área r
 Os procedimentos armazenados, gatilhos e UDFs são pré-compilados implicitamente para o formato de código de bytes a fim de evitar o custo de compilação no momento da invocação de cada script. Isso assegura que as invocações dos procedimentos armazenados sejam rápidas e possuam baixa pegada.
 
 ## Suporte de SDK de cliente
-Além do cliente [Node.js](http://dl.windowsazure.com/documentDB/nodedocs/), o Banco de Dados de Documentos dá suporte a SDKs [.NET](https://msdn.microsoft.com/library/azure/dn948556.aspx), [Java](http://dl.windowsazure.com/documentdb/javadoc/), [JavaScript](http://dl.windowsazure.com/documentDB/jsclientdocs/) e [Python](http://dl.windowsazure.com/documentDB/pythondocs/). Os procedimentos armazenados, gatilhos e UDFs também podem ser criados e executados usando qualquer um desses SDKs. O exemplo a seguir mostra como criar e executar um procedimento armazenado usando o cliente .NET. Observe como os tipos .NET são transferidos para o procedimento armazenado como JSON e lidos novamente.
+Além do cliente [Node.js](documentdb-sdk-node.md), o Banco de Dados de Documentos dá suporte a SDKs [.NET](documentdb-sdk-dotnet.md), [Java](documentdb-sdk-java.md), [JavaScript](http://azure.github.io/azure-documentdb-js/) e [Python](documentdb-sdk-python.md). Os procedimentos armazenados, gatilhos e UDFs também podem ser criados e executados usando qualquer um desses SDKs. O exemplo a seguir mostra como criar e executar um procedimento armazenado usando o cliente .NET. Observe como os tipos .NET são transferidos para o procedimento armazenado como JSON e lidos novamente.
 
 	var markAntiquesSproc = new StoredProcedure
 	{
@@ -708,7 +710,7 @@ Aqui, o pré-gatilho a ser executado com a solicitação é especificado no cabe
 
 ## Exemplo de código
 
-Você pode encontrar mais exemplos de código do lado do servidor (incluindo [upsert](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/upsert.js), [bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) e [update](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) em nosso [repositório Github](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
+Você pode encontrar mais exemplos de código do lado do servidor (incluindo [bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) e [update](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) em nosso [repositório Github](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
 
 Deseja compartilhar seu procedimento armazenado incrível? Por favor, envie uma solicitação pull!
 
@@ -719,11 +721,12 @@ Depois de criar um ou mais procedimentos armazenados, gatilhos e funções defin
 Você também pode achar as seguintes referências e recursos úteis em seu caminho para saber mais sobre a programação do Banco de Dados de Documentos no servidor:
 
 - [SDKs do Banco de Dados de Documentos do Azure](https://msdn.microsoft.com/library/azure/dn781482.aspx)
+- [Estudo do Banco de Dados de Documentos](https://github.com/mingaliu/DocumentDBStudio/releases)
 - [JSON](http://www.json.org/) 
 - [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
--	[JavaScript – sistema de tipo JSON](http://www.json.org/js.html) 
--	[Extensibilidade de banco de dados seguro e portátil](http://dl.acm.org/citation.cfm?id=276339) 
--	[Arquitetura de banco de dados orientada a serviços](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
--	[Hospedando o Runtime do .NET no Microsoft SQL Server](http://dl.acm.org/citation.cfm?id=1007669)  
+- [JavaScript – sistema de tipo JSON](http://www.json.org/js.html) 
+- [Extensibilidade de banco de dados seguro e portátil](http://dl.acm.org/citation.cfm?id=276339) 
+- [Arquitetura de banco de dados orientada a serviços](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
+- [Hospedando o Runtime do .NET no Microsoft SQL Server](http://dl.acm.org/citation.cfm?id=1007669)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -27,7 +27,11 @@ Para habilitar a associação dinâmica de um determinado grupo, execute as segu
 
 3. Em seguida, selecione uma condição (Not Equals, Equals, Not Starts With, Starts With, Not Contains, Contains, Not Match, Match) e finalmente especificar um valor para a propriedade do usuário selecionado. Por exemplo, se um grupo for atribuído a um aplicativo SaaS e você habilitar associações dinâmicas a este grupo definindo uma regra na qual **Adicionar usuários em que** é definido como o jobTitle that Equals(-eq)Sales Rep, todos os usuários no diretório do AD do Azure cujos cargos forem definidos como Representante de Vendas terão acesso a esse aplicativo SaaS.
 
-4. Observe que você pode configurar uma regra de associação dinâmica em grupos de segurança ou em grupos do Office. Associações dinâmicas de grupos requerem uma licença AD Premium do Azure.
+4. Observe que você pode configurar uma regra de associação dinâmica em grupos de segurança ou em grupos do Office. A Associação Dinâmica para Grupos requerem uma licença do Azure AD Premium que será atribuída ao administrador que gerencia a regra em um grupo e todos os usuários que são selecionados pela regra para ser um membro do grupo.
+
+Aqui você pode aprender mais sobre regras complexas de associação de grupo dinâmico:
+
+* [Usar atributos para criar regras avançadas](active-directory-accessmanagement-groups-with-advanced-rules.md)
 
 Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 
@@ -36,4 +40,4 @@ Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 * [O que é o Active Directory do Azure?](active-directory-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->
