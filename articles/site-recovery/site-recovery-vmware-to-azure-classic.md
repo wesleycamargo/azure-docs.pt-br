@@ -299,7 +299,9 @@ Se você quiser replicar máquinas virtuais VMware, instale os seguintes compone
 13.  Em **Resumo**, examine as informações.
 
 	![Resumo](./media/site-recovery-vmware-to-azure-classic/combined-wiz10.png)
->[AZURE.WARNING] O proxy do agente de serviço de recuperação do Microsoft Azure precisa ser configurado. Quando a instalação for concluída, inicie um aplicativo chamado “Shell de Serviços de Recuperação do Microsoft Azure” no menu Iniciar do Windows. Na janela de comando que abre, execute o seguinte conjunto de comandos para configurar as configurações do servidor proxy.
+	
+>[AZURE.WARNING] O proxy do agente de serviço de recuperação do Microsoft Azure precisa ser configurado.
+>Quando a instalação for concluída, inicie um aplicativo chamado “Shell de Serviços de Recuperação do Microsoft Azure” no menu Iniciar do Windows. Na janela de comando que abre, execute o seguinte conjunto de comandos para configurar as configurações do servidor proxy.
 >
 	$pwd = ConvertTo-SecureString -String ProxyUserPassword
 	Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\\username -ProxyPassword $pwd
@@ -753,4 +755,4 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 [Saiba mais sobre failback](site-recovery-failback-azure-to-vmware-classic.md) para recolocar seus computadores com failover em execução no Azure no ambiente local.
 
-<!----HONumber=AcomDC_0218_2016-->
+<!------HONumber=AcomDC_0218_2016-->
