@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.topic="get-started-article"
+	ms.date="02/26/2016"
 	ms.author="femila"/>
 
 
@@ -39,26 +39,26 @@ Dispositivos com suporte
 Pré-requisitos do cenário
 ------------------------------------------------------------------------
 * Assinatura do Office 365 ou Azure Active Directory Premium
-* Locatário do Active Directory do Azure
+* Um locatário do Azure Active Directory
 * Windows Server Active Directory (Windows Server 2008 ou superior)
 * Esquema atualizado no Windows Server 2012 R2
-* Assinatura no Active Directory Premium do Azure
+* Licença do Azure Active Directory Premium
 * Serviços de Federação do Windows Server 2012 R2, configurados para logon único ao Azure AD
 * Microsoft Azure Active Directory Connect (Azure AD Connect) do Proxy do Aplicativo Web do Windows Server 2012 R2. [Baixe o Azure AD Connect aqui](http://www.microsoft.com/pt-BR/download/details.aspx?id=47594).
-* Domínio verificado. 
+* Domínio verificado.
 
 Problemas conhecidos nesta versão
 -------------------------------------------------------------------------------
 * As políticas de acesso condicional baseadas em dispositivo exigem o write-back do objeto de dispositivo para o Active Directory do Active Directory do Azure. Pode levar até 3 horas para que o write-back de objetos de dispositivo seja realizado no Active Directory.
-* Os dispositivos iOS 7 sempre solicitarão que o usuário selecione um certificado durante a autenticação de certificado de cliente. 
-* Algumas versões do iOS8 anteriores à iOS 8.3 não funcionam. 
+* Os dispositivos iOS 7 sempre solicitarão que o usuário selecione um certificado durante a autenticação de certificado de cliente.
+* Algumas versões do iOS8 anteriores à iOS 8.3 não funcionam.
 
 ## Suposições de cenário
-Este cenário pressupõe que você tenha um ambiente híbrido que consiste de um locatário do AD do Azure Active Directory local. Esses locatários devem ser conectados usando o Azure AD Connect e com um domínio verificado e AD FS para SSO. A lista de verificação a seguir ajudará você a configurar seu ambiente para o estágio descrito acima.
+Este cenário presume que você tem um ambiente híbrido que consiste em um locatário do Azure AD e um Active Directory local. Esses locatários devem ser conectados usando o Azure AD Connect e com um domínio verificado e AD FS para SSO. A lista de verificação a seguir ajudará você a configurar seu ambiente para o estágio descrito acima.
 
-Lista de verificação: Pré-requisitos para o Cenário de Acesso Condicional
+Lista de verificação: pré-requisitos para o cenário de Acesso Condicional
 --------------------------------------------------------------
-Conecte seu Locatário do AD do Azure com o Active Directory Local.
+Conecte seu locatário do Azure AD ao Active Directory local.
 
 ## Configurar o Serviço de Registro de Dispositivos do Active Directory do Azure
 Use este guia para implantar e configurar o serviço de registro de dispositivo do Active Directory do Azure para a sua organização.
@@ -89,11 +89,11 @@ Siga a lista de verificação a seguir para habilitar e configurar o serviço de
 | Tarefa | Referência |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
 | Conclua a parte 2 de Habilitar write-back de dispositivos no Azure AD Connect. Após a conclusão, retorne para este guia. | [Habilitar write-back de dispositivos no Azure AD Connect] (#Atualizar o Esquema de Serviços de Domínio do Active Directory) |
-	 
+
 
 ##[Opcional] Parte 4: habilitar a autenticação multifator
 
-É altamente recomendável que você configure uma das várias opções para autenticação multifator. Se você quiser exigir MFA, consulte [Escolha a solução de segurança multifator para você](multi-factor-authentication-get-started.md). Ele inclui uma descrição de cada solução e links para ajudá-lo a configurar a solução de sua escolha.
+É altamente recomendável que você configure uma das várias opções para autenticação multifator. Se você quiser exigir MFA, consulte [Escolha a solução de segurança multifator para você](../multi-factor-authentication/multi-factor-authentication-get-started.md). Ele inclui uma descrição de cada solução e links para ajudá-lo a configurar a solução de sua escolha.
 
 ## Parte 5: verificação
 
@@ -109,20 +109,20 @@ A implantação foi concluída. Agora você pode experimentar alguns cenários. 
 
 
 
-## Integrar o Active Directory do Azure com o Active Directory local
-Isso ajudará você a integrar o seu locatário do AD do Azure com o Active Directory local, usando o Azure AD Connect. Embora as etapas estejam disponíveis no Portal do Azure, anote quaisquer eventuais instruções especiais listadas nesta seção.
+## Integrar o Azure Active Directory ao Active Directory local
+Isso o ajudará a integrar o locatário do Azure AD ao Active Directory local, usando o Azure AD Connect. Embora as etapas estejam disponíveis no portal clássico do Azure, anote quaisquer eventuais instruções especiais listadas nesta seção.
 
-1.	Faça logon no Portal do Azure como um Administrador.
+1.	Faça logon no portal clássico do Azure usando uma conta que seja um Administrador Global no Azure AD.
 2.	No painel esquerdo, selecione **Active Directory**.
 3.	Na guia **Diretório**, selecione o diretório.
 4.	Selecione a guia **Integração de Diretórios**.
-5.	Na seção **implantar e gerenciar**, siga as etapas 1 a 3 para integrar o Active Directory do Azure ao seu diretório local.
+5.	Na seção **implantar e gerenciar**, siga as etapas 1 a 3 para integrar o Azure Active Directory ao diretório local.
   1.	Adicionar domínios.
   2.	Instalar e executar o Azure AD Connect: instale o Azure AD Connect usando as instruções a seguir, [Instalação personalizada do Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
   3. Verificar e gerenciar a sincronização de diretórios. Instruções de logon único estão disponíveis nessa etapa.
   >[AZURE.NOTE] Configure a Federação com o AD FS conforme descrito no documento vinculado acima.[AZURE.NOTE] Você não precisa configurar nenhum dos recursos de visualização.
-  
-   
+
+
 
 
 ## Atualizar o esquema dos Serviços de Domínio do Active Directory
@@ -130,7 +130,7 @@ Isso ajudará você a integrar o seu locatário do AD do Azure com o Active Dire
 A atualização do esquema do Active Directory não pode ser desfeita. É recomendável executar isso primeiro em um ambiente de teste.
 
 1. Faça logon no controlador de domínio com uma conta que tenha direitos de administrador corporativo e de administrador de esquema.
-2. Copie o diretório **[media]\\support\\adprep** e seus subdiretórios em um dos controladores de domínio do Active Directory. 
+2. Copie o diretório **[media]\\support\\adprep** e seus subdiretórios em um dos controladores de domínio do Active Directory.
 3. Onde [media] é o caminho para a mídia de instalação do Windows Server 2012 R2.
 4. Em um prompt de comando, navegue até o diretório adprep e execute: **adprep.exe /forestprep**. Siga as instruções na tela para concluir a atualização do esquema.
 
@@ -163,7 +163,7 @@ Isso é uma operação única que você deve executar para preparar a floresta d
 
 ### Preparar o Azure AD Connect para write-back do dispositivo
 
-1.	Conclua a Parte 1: preparar o AAD Connect. 
+1.	Conclua a Parte 1: Preparar o Azure AD Connect
 
 
 ## Adicione dispositivos à sua área de trabalho usando o registro de dispositivo do Active Directory do Azure
@@ -249,4 +249,4 @@ Agora, quando os usuários acessam seu aplicativo e um dispositivo que não est�
 
 - [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

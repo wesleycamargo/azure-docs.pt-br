@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introdução ao Application Insights em um projeto Web Java | Microsoft Azure"
+	pageTitle="Análise de aplicativo Web Java com o Application Insights | Microsoft Azure"
 	description="Monitorar o desempenho e o uso de seu site Java com o Application Insights"
 	services="application-insights"
     documentationCenter="java"
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/24/2016"
+	ms.date="03/02/2016"
 	ms.author="awills"/>
 
 # Introdução ao Application Insights em um projeto Web Java
@@ -52,7 +52,7 @@ Você precisará de:
 
 *Escolha o modo apropriado para seu projeto.*
 
-#### Se você estiver criando um projeto Web dinâmico no Eclipse...
+#### Se você está usando o Eclipse para criar um projeto Web dinâmico ou do Maven...
 
 Use o [plug-in SDK do Application Insights para Java][eclipse].
 
@@ -80,7 +80,7 @@ Em seguida, atualize as dependências do projeto para obter os binários baixado
     </dependencies>
 
 
-* *Erros de validação de soma de verificação ou compilação?* Tente usar uma versão específica, como: `<version>1.0.n</version>`. Você encontrará a versão mais recente nas [notas de versão do SDK](app-insights-release-notes-java.md) ou nos nossos [artefatos Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Erros de validação de soma de verificação ou compilação?* Tente usar uma versão específica, como: `<version>1.0.n</version>`. Você encontrará a versão mais recente nas [notas de versão do SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) ou nos nossos [artefatos Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Precisa atualizar para um novo SDK?* Atualize as dependências do seu projeto.
 
 #### Se você estiver usando o Gradle...
@@ -98,7 +98,7 @@ Em seguida, atualize as dependências do projeto para obter os binários baixado
       // or applicationinsights-core for bare API
     }
 
-* *Erros de validação de soma de verificação ou compilação? Tente usar uma versão específica, como:* `version:'1.0.n'`. *Você encontrará a versão mais recente nas [notas de versão do SDK](app-insights-release-notes-java.md).*
+* *Erros de validação de soma de verificação ou compilação? Tente usar uma versão específica, como: * * `version:'1.0.n'`. *Você encontrará a versão mais recente nas [notas de versão do SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
 * *Para atualizar para um novo SDK*
  * Atualize as dependências do seu projeto.
 
@@ -118,7 +118,7 @@ Adicione manualmente o SDK:
 
 * *Para atualizar o SDK ao publicar alterações*
  * Baixe o [SDK do Application Insights para Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.zip) mais recente e substitua os antigos.
- * As alterações descritas nas [notas de versão do SDK](app-insights-release-notes-java.md).
+ * As alterações descritas nas [notas de versão do SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
 
 
@@ -398,4 +398,4 @@ Para obter mais informações, consulte o [Centro de desenvolvedores do Java](/d
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

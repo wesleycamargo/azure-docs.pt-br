@@ -12,8 +12,8 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="02/17/2016"
+	ms.topic="hero-article"
+	ms.date="03/01/2016"
 	ms.author="stepsic"/>
 
 # Criar um novo aplicativo lógico conectando serviços SaaS
@@ -24,7 +24,7 @@
 | [Documentação do conector de aplicativos lógicos](https://azure.microsoft.com/documentation/articles/app-service-logic-connectors-list/) |
 | [Fórum de aplicativos lógicos](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=azurelogicapps) |
 
-Este tópico demonstra como, em apenas alguns minutos, você pode começar a usar os [Aplicativos Lógicos dos Serviços de Aplicativos](app-service-logic-what-are-logic-apps.md). Vamos percorrer um fluxo de trabalho que permite fornecer um conjunto de tweets em que você está interessado a uma pasta do Dropbox.
+Este tópico demonstra como, em apenas alguns minutos, você pode começar a usar os [Aplicativos Lógicos dos Serviços de Aplicativos](app-service-logic-what-are-logic-apps.md). Vamos percorrer um fluxo de trabalho que permite fornecer um conjunto de tweets em que você está interessado para uma caixa de correio.
 
 Para usar este cenário, você precisará de:
 
@@ -38,13 +38,7 @@ Para usar este cenário, você precisará de:
 2. Em Tudo, procure 'aplicativos lógicos' e selecione **Aplicativo Lógico (visualização)**. Você também pode selecionar **Novo**, **Web + Móvel** e selecione **Aplicativo Lógico (visualização)**. 
 3. Insira um nome para seu aplicativo lógico, selecione o plano de serviço de aplicativo e selecione **Criar**. Nesta etapa, pressupomos que você tenha um plano de serviço de aplicativo e esteja familiarizado com as propriedades necessárias. Caso contrário, não se preocupe, você pode começar pela [Visão geral detalhada de planos de Serviço de Aplicativo do Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
-4. Quando o aplicativo lógico for aberto pela primeira vez, será necessário um gatilho. Por exemplo, você pode usar a **Recorrência**: ![Recorrência](./media/app-service-logic-create-a-logic-app/recurrence.png)
-
-	Com o uso de Recorrência, seu aplicativo lógico é executado continuamente durante o período escolhido por você. Por exemplo, você pode executar seu aplicativo lógico a cada 30 segundos, a cada 5 horas, todos os dias às 8h PST, toda noite às 2h EST e muito mais. Você também pode excluir a Recorrência do seu aplicativo lógico. Se você excluir a Recorrência, inicie manualmente seu aplicativo lógico.
-
-5. No entanto, para este tutorial, executaremos o gatilho sempre que houver um tweet que corresponda a uma condição. Clique no menu `...` para excluir o gatilho de Recorrência.
-
-6. Procure **twitter** na caixa de pesquisa do gatilho e selecione-o.
+4. Quando o aplicativo lógico for aberto pela primeira vez, será necessário um gatilho. Pesquise **twitter** na caixa de pesquisa do gatilho e selecione-o.
 
 7. Agora você digitará a palavra-chave que deseja pesquisar no twitter. ![Pesquisa do Twitter](./media/app-service-logic-create-a-logic-app/twittersearch.png)
 
@@ -73,4 +67,4 @@ Em menos de 5 minutos, você configurou um aplicativo lógico simples e o coloco
 [Azure portal]: https://portal.azure.com
 [Usar os recursos de aplicativos lógicos]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

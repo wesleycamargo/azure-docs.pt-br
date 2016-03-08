@@ -13,8 +13,8 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/03/2015"
+	ms.topic="get-started-article"
+	ms.date="02/29/2016"
 	ms.author="jgao"/>
 
 
@@ -38,7 +38,7 @@ O Apache Zookeeper|3\.4.6|3\.4.6|3\.4.5|3\.4.5|
 Apache Storm|0\.10.0|0\.9.3|0\.9.1||
 O Apache Mahout|0\.9.0+|0\.9.0|0\.9.0||
 Apache Phoenix|4\.4.0|4\.2.0|4\.0.0.2.1.7.0-2162||
-Apache Spark|1\.3.1|1\.3.1|||
+Apache Spark|1\.5.2 (somente Linux/Compilação experimental)|1\.3.1 (somente Windows)|||
 
 
 **Obter informações atuais sobre a versão do componente**
@@ -123,7 +123,7 @@ O SLA é definido em termos de uma "Janela de Suporte". Uma janela de suporte re
 
 A **Data de Reprovação** é a data após a qual a versão do cluster não pode ser criada no HDInsight.
 
-> [AZURE.NOTE]Os clusters HDInsight 2.1 e 3.0 são executados no SO Convidado do Azure [Família 4](../cloud-services-guestos-update-matrix.md), que usa a versão de 64 bits do Windows Server 2012 R2 e dá suporte ao .NET Framework 4.0, 4.5. e 4.5.1.
+> [AZURE.NOTE] Os clusters HDInsight 2.1 e 3.0 são executados no SO Convidado do Azure [Família 4](../cloud-services/cloud-services-guestos-update-matrix.md), que usa a versão de 64 bits do Windows Server 2012 R2 e dá suporte ao .NET Framework 4.0, 4.5. e 4.5.1.
 
 ## Notas de versão do Hortonworks associadas a versões do HDInsight##
 
@@ -167,4 +167,4 @@ A **Data de Reprovação** é a data após a qual a versão do cluster não pode
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

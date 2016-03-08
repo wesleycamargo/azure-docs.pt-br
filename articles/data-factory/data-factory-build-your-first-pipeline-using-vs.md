@@ -18,11 +18,11 @@
 
 # Introdução ao Azure Data Factory (Visual Studio)
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-build-your-first-pipeline.md)
-- [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
-- [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-- [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
+- [Visão geral do tutorial](data-factory-build-your-first-pipeline.md)
+- [Como usar o Editor do Data Factory](data-factory-build-your-first-pipeline-using-editor.md)
+- [Usando o PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Como usar o Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [Como usar o Modelo do Gerenciador de Recursos](data-factory-build-your-first-pipeline-using-arm.md)
 
 
 Neste artigo, você aprenderá a usar o Microsoft Visual Studio para criar seu primeiro data factory do Azure.
@@ -116,7 +116,7 @@ Nesta etapa, você criará conjuntos de dados para representar dados de entrada 
 #### Criar o conjunto de dados de entrada
 
 1. No **Gerenciador de Soluções**, clique com o botão direito em **Tabelas**, aponte para **Adicionar** e clique em **Novo Item**. 
-2. Selecione **Blob do Azure** na lista, altere o nome do arquivo para **OutputDataset.json** e clique em **Adicionar**.
+2. Selecione **Blob do Azure** na lista, altere o nome do arquivo para **InputDataSet.json** e clique em **Adicionar**.
 3. Substitua o **JSON** no editor pelo seguinte: 
 
 	No trecho JSON, você está criando um conjunto de dados chamado **AzureBlobInput** que representa dados de entrada para uma atividade no pipeline. Além disso, você especifica que os dados de entrada estão localizados no contêiner de blob denominado **adfgetstarted** e na pasta chamada **inputdata**
@@ -291,8 +291,7 @@ Quando você publicar a solução na próxima etapa, o arquivo **partitionweblog
 ## Etapa 4: Monitorar o pipeline
 
 6. Faça logon no [Portal do Azure](https://portal.azure.com/), faça o seguinte:
-	1. Clique em **Procurar** e selecione **Data factories**.
-		![Procurar data factories](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
+	1. Clique em **Procurar** e selecione **Data factories**. ![Procurar data factories](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
 	2. Escolha **FirstDataFactoryUsingVS** na lista de data factories. 
 7. Na home page do seu data factory, clique em **Diagrama**.
   
@@ -316,8 +315,7 @@ Quando você publicar a solução na próxima etapa, o arquivo **partitionweblog
 
 	![Conjunto de dados](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
 9. Quando o processamento for concluído, você verá a fatia no estado **Pronto**.
-
-	>[AZURE.IMPORTANT]A criação de um cluster do HDInsight sob demanda geralmente leva algum tempo (20 minutos, aproximadamente).  
+	>[AZURE.IMPORTANT] A criação de um cluster do HDInsight sob demanda geralmente leva algum tempo (20 minutos, aproximadamente).  
 
 	![Conjunto de dados](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)
 	
@@ -450,4 +448,4 @@ Quando você implantar, os valores do arquivo de configuração serão usados pa
 Neste artigo, você criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script Hive em um cluster do HDInsight sob demanda. Para saber como usar uma Atividade de Cópia para copiar dados de um Blob do Azure para o SQL do Azure, confira [Tutorial: Copiar dados de um blob do Azure para o SQL do Azure](data-factory-get-started.md).
   
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

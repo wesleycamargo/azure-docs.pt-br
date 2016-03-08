@@ -11,7 +11,7 @@
 <tags
     ms.service="sql-database"
     ms.devlang="NA"
-    ms.topic="get-started-article"
+    ms.topic="hero-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
     ms.date="01/20/2016"
@@ -22,7 +22,7 @@
 **Banco de dados individual**
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-get-started.md)
+- [Portal do Azure](sql-database-get-started.md)
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
@@ -142,4 +142,4 @@ Depois de criar um novo banco de dados SQL e de realizar tarefas básicas de con
 
 - [Banco de Dados SQL do Azure](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0302_2016-->

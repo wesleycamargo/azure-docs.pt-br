@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="get-started-article"
-	ms.date="11/27/2015"
+	ms.date="02/22/2016"
 	ms.author="bradygaster"/>
 
 # Criar e implantar um aplicativo de API Java no Serviço de Aplicativo do Azure
@@ -195,14 +195,14 @@ Nesta seção, você substituirá a implementação do lado servidor do código 
             }
   
             @Override
-            public Response contactsGet()
+            public Response contactsGet(SecurityContext securityContext)
             throws NotFoundException {
                 ArrayList<Contact> list = loadContacts();
                 return Response.ok().entity(list).build();
                 }
   
             @Override
-            public Response contactsGetById(Integer id)
+            public Response contactsGetById(Integer id, SecurityContext securityContext)
             throws NotFoundException {
                 ArrayList<Contact> list = loadContacts();
                 Contact ret = null;
@@ -295,4 +295,4 @@ Para expandir esse exemplo, você pode aprender mais sobre o [SDK de Armazenamen
 
 Para obter mais informações sobre como usar o Java no Azure, consulte o [Centro de desenvolvedores do Java](/develop/java/).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

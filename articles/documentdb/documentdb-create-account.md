@@ -10,7 +10,7 @@
 
 <tags
 	ms.service="documentdb"
-	ms.workload="data-services" 
+	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
@@ -20,8 +20,8 @@
 # Como criar uma conta de banco de dados do Banco de Dados de Documentos usando o portal do Azure
 
 > [AZURE.SELECTOR]
-- [Azure Portal](documentdb-create-account.md)
-- [Azure CLI and ARM](documentdb-automation-resource-manager-cli.md)
+- [Portal do Azure](documentdb-create-account.md)
+- [CLI do Azure e ARM](documentdb-automation-resource-manager-cli.md)
 
 Para usar documentos do Banco de Dados de Documentos do Microsoft Azure, você deve criar uma conta do Banco de Dados de Documentos usando o portal do Azure, modelos do Gerenciador de Recursos do Azure ou a CLI (interface de linha de comando) do Azure. Este artigo mostra como criar uma conta de banco de dados usando o portal do Azure. Para criar uma conta usando o Gerenciador de Recursos do Azure ou a CLI do Azure, consulte [Automatizar a criação da conta do Banco de Dados de Documentos](documentdb-automation-resource-manager-cli.md).
 
@@ -48,4 +48,4 @@ Para saber mais sobre o Banco de Dados de Documentos, explore estes recursos:
 -	[Roteiro de aprendizagem para o Banco de Dados de Documentos](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 -	[Conceitos e modelo de recursos do Banco de Dados de Documentos](documentdb-resources.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

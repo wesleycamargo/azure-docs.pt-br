@@ -60,7 +60,7 @@ Não há suporte para conectividade entre regiões geopolíticas no SKU de Rota 
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Suportado | Suportado | Amsterdã, Dallas, Londres, Vale do Silício, Cingapura, Washington, D.C. |
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Suportado | Suportado | Amsterdã, Hong Kong, Londres, Vale do Silício, Cingapura, Tóquio, Washington, D.C. |
 |**China Telecom Global** | Com suporte | Sem suporte | Hong Kong |
-|**Cologix** | Em breve | Sem suporte | Montreal+, Toronto+ |
+|**Cologix** | Em breve | Em breve | Montreal+, Toronto+ |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Suportado | Suportado | Amsterdã, Dublin, Londres |
 | **Comcast** | Suportado | Sem suporte | Vale do Silício, Washington, D.C. |
 | **CoreSite** | Suportado | Suportado | Los Angeles | 
@@ -73,11 +73,11 @@ Não há suporte para conectividade entre regiões geopolíticas no SKU de Rota 
 | **Megaport** | Suportado | Suportado | Dallas, Los Angeles, Melbourne, Nova York, Seattle, Sydney, Washington D.C. |
 | **MTN** | Com suporte | Com suporte | Londres |
 | **NEXTDC** | Suportado | Suportado | Melbourne, Sydney |
-| **NTT Communications** | Suportado | Em breve | Londres, Tóquio |
+| **NTT Communications** | Suportado | Suportado | Londres, Tóquio |
 | **[Orange](http://www.orange-business.com/)** | Com suporte | Com suporte | Amsterdã, Hong Kong, Londres, Vale do Silício, Cingapura, Washington, D.C. |
 | **PCCW Global Limited** | Suportado | Suportado | Hong Kong |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Suportado | Sem suporte | Cingapura |
-| **Softbank** | Em breve | Sem suporte | Osaka, Tóquio | 
+| **Softbank** | Em breve | Em breve | Osaka, Tóquio | 
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Suportado | Suportado | Amsterdã, Chennai, Hong Kong, Londres, Mumbai, Cingapura, Washington D.C. |
 | **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Suportado | Suportado | Amsterdã, Londres |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Suportado | Sem suporte | Melbourne, Sydney |
@@ -141,4 +141,4 @@ Habilitar a conectividade privada para atender às suas necessidades pode ser de
 - Para obter mais informações sobre a Rota Expressa, consulte [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md).
 - Certifique-se que todos os pré-requisitos foram atendidos. Confira [Pré-requisitos da Rota Expressa](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

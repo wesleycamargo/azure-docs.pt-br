@@ -4,12 +4,12 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="12/01/2015"
@@ -33,17 +33,17 @@ A tabela a seguir pode ajudá-lo a decidir a melhor opção de conectividade par
 
 
 | - | **Ponto a Site** | **Site a Site** | **Rota Expressa** |
-|------------------------------|----------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------| 
-| **Serviços com suporte no Azure** | Serviços de Nuvem e Máquinas Virtuais | Serviços de Nuvem Máquinas Virtuais | [Lista de serviços](../expressroute/expressroute-faqs.md#supported-services) | 
-| **Larguras de banda típicas** | Tipicamente < 100 Mbps agregados | Tipicamente < 100 Mbps agregados | 50 Mbps, 100 Mbps, 200 Mbps e 500 Mbps | 1 Gbps, 2 Gbps, 5 Gbps, 10 Gbps | 
-| **Protocolos com suporte** | SSTP (Secure Sockets Tunneling Protocol) | IPsec | Conexão direta por VLANs | Tecnologias de VPN da NSP (MPLS, VPL e etc.) | 
-| **Roteamento** | Baseado em rota (dinâmico) | Damos suporte àqueles baseados em política (roteamento estático) e os baseados em rota (VPN com roteamento dinâmico) | BGP | 
-| **Resiliência de conexão** | ativo-passivo | ativo-ativo | ativo-ativo | 
-| **Uso de caso típico** | Protótipos, cenários de desenvolvimento / teste / laboratório para serviços de nuvem e máquinas virtuais | Cenários de desenvolvimento / teste / laboratório e cargas de trabalho de produção em pequena escala para serviços de nuvem e máquinas virtuais | Acesso a todos os serviços do Azure (lista validada), cargas de trabalho críticas empresariais, Backup, Big Data, Azure e como um site de DR | 
-| **SLA** | [SLA](https://azure.microsoft.com/support/legal/sla/) | [SLA](https://azure.microsoft.com/support/legal/sla/) | [SLA](https://azure.microsoft.com/support/legal/sla/) | 
-| **Preços** | [Preços](http://azure.microsoft.com/pricing/details/vpn-gateway/) | [Preços](http://azure.microsoft.com/pricing/details/vpn-gateway/) | [Preços](http://azure.microsoft.com/pricing/details/expressroute/) | 
-| **Documentação técnica** | [Documentação de gateway de VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Documentação de gateway de VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Perguntas frequentes de Documentação de Rota Expressa](https://azure.microsoft.com/documentation/services/expressroute/) | 
-| **Perguntas frequentes** | [Perguntas frequentes de gateway de VPN](vpn-gateway-vpn-faq.md) | [Perguntas frequentes de gateway de VPN](vpn-gateway-vpn-faq.md) | [Perguntas frequentes de Rota Expressa](../expressroute/expressroute-faqs.md) |
+|------------------------------|----------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+| **Serviços com Suporte no Azure** | Serviços de Nuvem e Máquinas Virtuais | Serviços de Nuvem e Máquinas Virtuais | [Lista de serviços](../expressroute/expressroute-faqs.md#supported-services) |
+| **Larguras de Banda Típicas** | Normalmente < 100 Mbps agregados | Normalmente < 100 Mbps agregados | 50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 2 Gbps, 5 Gbps e 10 Gbps |
+| **Protocolos com Suporte** | SSTP (Secure Sockets Tunneling Protocol) | IPsec | Conexão direta pelas tecnologias VLANs e VPN do NSP (MPLS, VPLS...) |
+| **Roteamento** | Baseado em rota (dinâmico) | Damos suporte a cenários baseados em política (roteamento estático) e em rota (VPN de roteamento dinâmico) | BGP |
+| **Resiliência de conexão** | ativo-passivo | ativo-passivo | ativo-ativo |
+| **Caso de uso típico** | Criação de protótipos, cenários de desenvolvimento / teste / laboratório para serviços de nuvem e máquinas virtuais | Cenários de desenvolvimento / teste / laboratório e de cargas de trabalho de produção em pequena escala para serviços de nuvem e máquinas virtuais | Acesso a todos os serviços do Azure (lista validada), cargas de trabalho essenciais e em nível Empresarial, Backup, Big Data e Azure como um site de DR |
+| **CONTRATO DE NÍVEL DE SERVIÇO** | [CONTRATO DE NÍVEL DE SERVIÇO](https://azure.microsoft.com/support/legal/sla/) | [CONTRATO DE NÍVEL DE SERVIÇO](https://azure.microsoft.com/support/legal/sla/) | [CONTRATO DE NÍVEL DE SERVIÇO](https://azure.microsoft.com/support/legal/sla/) |
+| **Preços** | [Preços](https://azure.microsoft.com/pricing/details/vpn-gateway/) | [Preços](https://azure.microsoft.com/pricing/details/vpn-gateway/) | [Preços](https://azure.microsoft.com/pricing/details/expressroute/) |
+| **Documentação Técnica** | [Documentação de Gateway de VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Documentação de Gateway de VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Documentação da Rota Expressa](https://azure.microsoft.com/documentation/services/expressroute/) |
+| ****PERGUNTAS FREQUENTES** | [Perguntas frequentes sobre o Gateway de VPN](vpn-gateway-vpn-faq.md) | [Perguntas frequentes sobre o Gateway de VPN](vpn-gateway-vpn-faq.md) | [Perguntas frequentes sobre a Rota Expressa](../expressroute/expressroute-faqs.md) |
 
 
 ## Conexões site a site
@@ -99,4 +99,4 @@ Para obter mais informações sobre a Rota Expressa, consulte [Visão geral téc
 
 Consulte as [Perguntas frequentes sobre a Rota Expressa](../expressroute/expressroute-faqs.md) e as [Perguntas frequentes sobre o Gateway de VPN](vpn-gateway-vpn-faq.md) para obter mais informações.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

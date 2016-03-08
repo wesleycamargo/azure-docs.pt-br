@@ -13,8 +13,8 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="01/21/2016"
-	ms.author="yidingz;v-marsma"/>
+	ms.date="02/25/2016"
+	ms.author="yidingz;marsma"/>
 
 # Visão geral dos recursos do Lote do Azure
 
@@ -44,26 +44,17 @@ Nas seções a seguir, você aprenderá sobre cada um dos recursos mencionados n
 
 ## <a name="resource"></a> Recursos do serviço de lote
 
-Quando você usa o serviço Lote do Azure, tira proveito dos seguintes recursos:
+Ao utilizar o serviço de Lote do Azure, você usará os seguintes recursos:
 
 - [Conta](#account)
-
 - [Nó de computação](#computenode)
-
 - [Pool](#pool)
-
 - [Trabalho](#job)
-
 - [Tarefa](#task)
-
 	- [Iniciar tarefa](#starttask)
-
 	- [Trabalho ManagerTask](#jobmanagertask)
-
 	- [Tarefas de preparação e liberação do trabalho](#jobpreprelease)
-
 	- [Tarefas de várias instâncias](#multiinstance)
-
 - [JobSchedule](#jobschedule)
 
 ### <a name="account"></a>Conta
@@ -231,11 +222,11 @@ Uma abordagem combinada, normalmente usada para tratar a carga variável mas con
 
 ## <a name="scaling"></a>Escalonamento de aplicativos
 
-Com o [dimensionamento automático](batch-automatic-scaling.md), seu aplicativo pode ser ampliado ou reduzido automaticamente para acomodar a computação necessária. Você pode ajustar dinamicamente o número de nós em um pool de acordo com a carga de trabalho atual e as estatísticas de uso de recursos, permitindo que você reduza o custo geral de execução do aplicativo usando apenas os recursos necessários. Você pode especificar as configurações de dimensionamento para um pool quando ele é criado e poderá atualizar essa configuração, a qualquer momento.
+Com o [dimensionamento automático](batch-automatic-scaling.md), você pode deixar que o serviço de Lote ajuste dinamicamente o número de nós de computação em um pool de acordo com a carga de trabalho e o uso de recursos atuais de seu cenário de computação. Isso permite reduzir o custo geral de execução do aplicativo usando apenas os recursos que são necessários e liberando os que não são. É possível especificar as configurações de dimensionamento automático para um pool quando ele é criado ou habilitar o dimensionamento mais tarde e você pode atualizar as configurações de dimensionamento em um pool habilitado para dimensionamento automático.
 
-Quando o número de nós for automaticamente reduzido, as tarefas em execução deverão ser consideradas. Uma política de desalocação é especificada, o que determina se as tarefas em execução são interrompidas para remover o nó imediatamente ou se tarefas podem terminar antes de o nó ser removido. Definir o número de destino dos nós até zero ao final de um trabalho, mas permitir a execução de tarefas para a conclusão, maximizará a utilização.
+O dimensionamento automático é realizado com a especificação de uma **fórmula de dimensionamento automático** para um pool. O serviço de Lote usa a fórmula para determinar o número de destino de nós no pool para o próximo intervalo de dimensionamento (um intervalo que você pode especificar).
 
-O dimensionamento automático de um aplicativo é feito por meio da especificação de um conjunto de fórmulas de dimensionamento. Essas fórmulas são usadas para determinar o número de nós de destino no pool para o próximo intervalo de dimensionamento. Por exemplo, talvez um trabalho exija que você envie um grande número de tarefas a serem agendadas para execução. Você pode atribuir uma fórmula de dimensionamento ao pool que especifique o tamanho desse pool (o número de nós), com base no número atual de tarefas pendentes e na taxa de conclusão das tarefas. O serviço Lote avalia periodicamente a fórmula e redimensiona o pool com base na carga de trabalho.
+Por exemplo, talvez um trabalho exija que você envie um grande número de tarefas a serem agendadas para execução. Você pode atribuir uma fórmula de dimensionamento ao pool que ajusta o número de nós nele com base no número atual de tarefas pendentes e a taxa de conclusão dessas tarefas. Periodicamente, o serviço de Lote avalia a fórmula e redimensiona o pool com base na carga de trabalho e nas configurações da fórmula.
 
 Uma fórmula de dimensionamento pode basear-se nas seguintes métricas:
 
@@ -245,10 +236,11 @@ Uma fórmula de dimensionamento pode basear-se nas seguintes métricas:
 
 - **Métricas de tarefa** – com base no status das tarefas, como Ativa, Pendente e Concluída.
 
-Para saber mais sobre o dimensionamento automático de um aplicativo, consulte [Dimensionar automaticamente nós de computação em um pool do Lote do Azure](batch-automatic-scaling.md).
+Quando o dimensionamento automático diminui o número de nós de computação em um pool, as tarefas atualmente em execução devem ser consideradas. Para acomodar isso, a fórmula pode incluir uma configuração de política de desalocação de nó que especifica se as tarefas em execução são interrompidas imediatamente ou podem terminar antes que o nó seja removido do pool.
 
-> [AZURE.TIP]
- Embora isso geralmente não seja necessário, é possível especificar nós individuais para serem removidos de um pool. Se você suspeitar que um nó seja menos confiável, por exemplo, poderá removê-lo do pool para impedir a atribuição de tarefas adicionais.
+> [AZURE.TIP] Para maximizar a utilização de recursos de computação, defina o número de destino de nós como zero ao fim de um trabalho, mas permita a conclusão das tarefas em execução.
+
+Para saber mais sobre o dimensionamento automático de um aplicativo, consulte [Dimensionar automaticamente nós de computação em um pool do Lote do Azure](batch-automatic-scaling.md).
 
 ## <a name="cert"></a>Segurança com certificados
 
@@ -322,9 +314,27 @@ As tarefas podem falhar ou ser interrompidas ocasionalmente. O próprio aplicati
 
 Também é possível que um problema intermitente faça com que uma tarefa falhe ou demore muito para ser executada. O tempo de execução máximo pode ser definido para uma tarefa e se o Lote excedido interromperá o aplicativo da tarefa.
 
-### Contabilidade para nós “inválidos”
+### Solução de problemas de nós de computação "inválidos"
 
-Cada nó em um pool tem uma ID exclusiva e o nó no qual uma tarefa é executada é incluído entre os metadados de tarefa. Em situações em que as tarefas estejam falhando em um nó específico, isso pode ser determinado pelo aplicativo cliente do Lote e o nó suspeito pode ser removido do pool. Se nenhuma tarefa estiver sendo executada em um nó quando ele for excluído, elas serão automaticamente recolocadas na fila para execução em outros nós.
+Em situações em que algumas das tarefas falham, o aplicativo cliente ou o serviço de Lote pode examinar os metadados das tarefas com falha para identificar um nó com comportamento inadequado. Cada nó em um pool tem uma ID exclusiva, e o nó no qual uma tarefa é executada é incluído nos metadados da tarefa. Uma vez identificado, você pode executar várias ações:
+
+- **Reiniciar o nó** ([REST][rest_reboot] | [.NET][net_reboot])
+
+	Às vezes, reiniciar o nó pode corrigir problemas latentes, como processos bloqueados ou com falha. Observe que, se o pool usar uma tarefa de inicialização ou se o trabalho usar uma tarefa de preparação de trabalho, eles serão executados quando o nó for reiniciado.
+
+- **Refazer a imagem do nó** ([REST][rest_reimage] | [.NET][net_reimage])
+
+	Esse procedimento reinstala o sistema operacional no nó. Assim como ocorre com a reinicialização de um nó, as tarefas de inicialização e de preparação de trabalho são executadas novamente depois que a imagem do nó é refeita.
+
+- **Remover o nó do pool** ([REST][rest_remove] | [.NET][net_remove])
+
+	Às vezes, é necessário remover completamente o nó do pool.
+
+- **Desabilitar o agendamento de tarefas no nó** ([REST][rest_offline] | [.NET][net_offline])
+
+	Isso efetivamente coloca o nó "offline" para que nenhuma tarefa adicional seja atribuída a ele, mas permite que o nó permaneça em execução e no pool. Isso o habilita a continuar a investigar a causa das falhas sem perder os dados da tarefa com falha e sem que o nó cause falhas de tarefas adicionais. Por exemplo, você pode desabilitar o agendamento de tarefas no nó e fazer logon remotamente para examinar os logs de eventos do nó ou solucionar outros problemas. Após concluir a investigação, você pode colocar o nó online novamente habilitando o agendamento de tarefas ([REST][rest_online], [.NET][net_online]) ou executar uma das outras ações discutidas acima.
+
+> [AZURE.IMPORTANT] Com cada ação acima (reinicializar, refazer imagem, remover, desabilitar o agendamento da tarefas) é possível especificar como as tarefas atualmente em execução no nó serão manipuladas quando você executar a ação. Por exemplo, ao desabilitar o agendamento de tarefas em um nó com a biblioteca de cliente .NET do Lote, você pode especificar um valor de enumeração [DisableComputeNodeSchedulingOption][net_offline_option] para indicar se deseja **Terminar** tarefas em execução, **Recolocar tarefas na fila** para o agendamento em outros nós ou permitir que a execução das tarefas seja concluída antes de executar a ação (**TaskCompletion**).
 
 ## Próximas etapas
 
@@ -353,6 +363,12 @@ Cada nó em um pool tem uma ID exclusiva e o nó no qual uma tarefa é executada
 [net_getfile_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.getnodefile.aspx
 [net_multiinstancesettings]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.multiinstancesettings.aspx
 [net_rdp]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.getrdpfile.aspx
+[net_reboot]: https://msdn.microsoft.com/library/azure/mt631495.aspx
+[net_reimage]: https://msdn.microsoft.com/library/azure/mt631496.aspx
+[net_remove]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.removefrompoolasync.aspx
+[net_offline]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.disableschedulingasync.aspx
+[net_online]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.enableschedulingasync.aspx
+[net_offline_option]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.common.disablecomputenodeschedulingoption.aspx
 
 [batch_rest_api]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
 [rest_add_job]: https://msdn.microsoft.com/library/azure/mt282178.aspx
@@ -365,5 +381,10 @@ Cada nó em um pool tem uma ID exclusiva e o nó no qual uma tarefa é executada
 [rest_multiinstancesettings]: https://msdn.microsoft.com/library/azure/dn820105.aspx#multiInstanceSettings
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
+[rest_reboot]: https://msdn.microsoft.com/library/azure/dn820171.aspx
+[rest_reimage]: https://msdn.microsoft.com/library/azure/dn820157.aspx
+[rest_remove]: https://msdn.microsoft.com/library/azure/dn820194.aspx
+[rest_offline]: https://msdn.microsoft.com/library/azure/mt637904.aspx
+[rest_online]: https://msdn.microsoft.com/library/azure/mt637907.aspx
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

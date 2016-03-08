@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Visão geral de Conexões Híbridas | Microsoft Azure"
-	description="Saiba mais sobre conexões híbridas, incluindo segurança, portas TCP e configurações com suporte. MABS, WABS."
+	description="Saiba mais sobre Conexões Híbridas, segurança, portas TCP e configurações com suporte. MABS, WABS."
 	services="biztalk-services"
 	documentationCenter=""
 	authors="MandiOhlinger"
-	manager="dwrede"
-	editor="cgronlun"/>
+	manager="erikre"
+	editor=""/>
 
 <tags
 	ms.service="biztalk-services"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/01/2015"
+	ms.date="02/29/2016"
 	ms.author="mandia"/>
 
 
 # Visão geral de Conexões Híbridas
-Este artigo apresenta Conexões Híbridas, lista as configurações com suporte e lista também as portas TCP necessárias.
+Introdução a Conexões Híbridas, lista as configurações com suporte e também as portas TCP necessárias.
 
 
 ## O que é uma conexão híbrida
@@ -35,7 +35,7 @@ Os benefícios das Conexões Híbridas incluem:
 - Os aplicativos utilizando Conexões Híbridas acessam somente o recurso específico local que é publicado por meio da Conexão Híbrida.
 - Eles podem se conectar a qualquer recurso local que utilize uma porta TCP estática, como o SQL Server, MySQL, APIs Web HTTP e a maioria dos serviços web personalizados.
 
-	> [AZURE.NOTE]Serviços baseados em TCP que utilizam portas dinâmicas (como um Modo passivo de FTP ou Modo passivo estendido) não têm suporte atualmente.
+	> [AZURE.NOTE] Serviços baseados em TCP que utilizam portas dinâmicas (como um Modo passivo de FTP ou Modo passivo estendido) não têm suporte atualmente.
 
 - Podem ser utilizados com todas as estruturas com suporte nos Aplicativos Web (.NET, PHP, Java, Python, Node.js) e Aplicativos Móveis (Node.js, .NET).
 - Os Aplicativos Web e Aplicativos Móveis podem acessar recursos locais exatamente do mesmo modo que fariam se o Aplicativo Web ou Móvel estivesse em sua rede local. Por exemplo, a mesma cadeia de conexão utilizada localmente também pode ser utilizada no Azure.
@@ -91,7 +91,7 @@ Porta | Por que você precisa disto
 
 ## Próximas etapas
 
-[Criar e gerenciar Conexões Híbridas](integration-hybrid-connection-create-manage.md)<br/> [Conectar um Site do Azure a um recurso local](../web-sites-hybrid-connection-get-started.md)<br/> [Conectar-se a um Servidor SQL local a partir de um aplicativo web do Azure](../web-sites-hybrid-connection-connect-on-premises-sql-server.md)<br/> [Serviços Móveis do Azure e Conexões Híbridas](../mobile-services-dotnet-backend-hybrid-connections-get-started.md)
+[Criar e gerenciar Conexões Híbridas](integration-hybrid-connection-create-manage.md)<br/> [Conectar um Site do Azure a um recurso local](../app-service-web/web-sites-hybrid-connection-get-started.md)<br/> [Conectar-se a um Servidor SQL local a partir de um aplicativo web do Azure](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md)<br/> [Serviços Móveis do Azure e Conexões Híbridas](../mobile-services/mobile-services-dotnet-backend-hybrid-connections-get-started.md)
 
 
 ## Consulte também
@@ -103,4 +103,4 @@ Porta | Por que você precisa disto
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

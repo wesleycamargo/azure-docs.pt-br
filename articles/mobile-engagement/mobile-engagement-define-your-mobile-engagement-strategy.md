@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/10/2015"
+	ms.date="03/01/2016"
 	ms.author="piyushjo" />
 
 # Definir sua estratégia do Mobile Engagement
@@ -60,7 +60,7 @@ Como você pode perceber neste ponto, fazer uma notificação de envio de difus�
 
 Para ser o mais contextual possível quando envolver seu público, é crucial ter conhecimento sobre o comportamento dos usuários finais, para saber o status em tempo real. A coleta de dados permite que os profissionais de marketing se concentrem no que realmente importa para realizar casos de uso e atingir os objetivos da estratégia de envolvimento. Atingir os objetivos descritos acima também é a razão pela qual a prática recomendada é, de fato, não reunir tudo na análise, mas apenas aquilo que permita que você se concentre naquilo que quer saber e nos casos de uso. Essa é uma boa maneira de começar, experimentar, testar e aprender a usar a solução, bem como abordar uma notificação por push inteligente e aumentar a retenção de um aplicativo para colocá-lo no nível de uma história de sucesso.
 
->[AZURE.NOTE]Lembre-se: uma quantidade excessiva de dados destroem os dados!
+>[AZURE.NOTE] Lembre-se: uma quantidade excessiva de dados destroem os dados!
 
 ### Casos de uso e práticas recomendadas
 
@@ -113,12 +113,14 @@ As *Informações do aplicativo* são dados que permitem confirmar o status do a
 
 	![][1]
 
-*Caso de uso: dados declarativos* 1. Notícias sobre o alerta de segmento: colete dados declarativos para o público do segmento com base nas suas preferências. Ele permite enviar notificação por push de um tópico específico que realmente interessa a um público específico. 2. Público do segmento com base no status de logon. Colete dados para saber se um usuário está conectado ou se criou uma conta. Ajuda a ter como alvo os usuários finais que ainda não fizeram logon e envia uma notificação por push para incentivá-los a converter.![][2]
+*Caso de uso: dados declarativos*
+1.	Notícias sobre o alerta de segmento: colete dados declarativos para o público do segmento com base nas suas preferências. Ele permite enviar notificação por push de um tópico específico que realmente interessa a um público específico.
+2.	Público do segmento com base no status de logon. Colete dados para saber se um usuário está conectado ou se criou uma conta. Ajuda a ter como alvo os usuários finais que ainda não fizeram logon e envia uma notificação por push para incentivá-los a converter.![][2]
 
 ### Próximas etapas
 
 - Visite [Conceitos do Mobile Engagement] para saber mais sobre os conceitos básicos do Mobile Engagement.
-- [Crie uma conta no Azure Mobile Engagement](mobile-engagement-create-account.md).
+- Visite [Criar um aplicativo do Mobile Engagement](mobile-engagement-create.md) para criar uma nova Coleção de Aplicativos do Mobile Engagement no Azure e começar a gerenciar seus aplicativos com o portal do Mobile Engagement.
 - Visite [Práticas recomendadas](mobile-engagement-getting-started-best-practices.md) para conhecer os detalhes.
 - Visite o [cenário de Aplicativo de Jogos](mobile-engagement-gaming-scenario.md) para saber mais sobre a implementação do Mobile Engagement com um aplicativo de jogos de exemplo. 
 - Visite o [cenário de Aplicativo de Mídia](mobile-engagement-media-scenario.md) para saber mais sobre a implementação do Mobile Engagement com um aplicativo de mídia de exemplo. 
@@ -132,4 +134,4 @@ As *Informações do aplicativo* são dados que permitem confirmar o status do a
 [Conceitos do Mobile Engagement]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
 [Tutoriais]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

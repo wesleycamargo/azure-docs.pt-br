@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="windows"
 	ms.workload="na"
-	ms.date="12/24/2015"
+	ms.date="02/29/2016"
 	ms.author="cfowler"/>
 
 # Conectar um aplicativo Web no Serviço de Aplicativo do Azure ao Cache Redis por meio do protocolo Memcache
@@ -41,7 +41,7 @@ Para configurar o shim do Memcache, você deve criar três configurações de ap
 
 ![Folha de configurações de Cache Redis do Azure](./media/web-sites-connect-to-redis-using-memcache-protocol/1-azure-redis-cache-settings.png)
 
-### Adicionar configurações de aplicativo REDIS_HOST
+### Adicionar configurações de aplicativo REDIS\_HOST
 
 A primeira configuração de aplicativo que você precisa criar é **REDIS\_HOST**. Essa configuração define o destino para o qual o shim encaminha as informações de cache. O valor necessário para a configuração de aplicativo REDIS\_HOST pode ser recuperado da folha **Propriedades** de sua instância do Cache Redis.
 
@@ -49,23 +49,23 @@ A primeira configuração de aplicativo que você precisa criar é **REDIS\_HOST
 
 Defina a chave da configuração de aplicativo como **REDIS\_HOST** e o valor da configuração de aplicativo como o **nome de host** da instância do Cache Redis.
 
-![REDIS_HOST de AppSetting Aplicativo Web](./media/web-sites-connect-to-redis-using-memcache-protocol/3-azure-website-appsettings-redis-host.png)
+![REDIS\_HOST de AppSetting Aplicativo Web](./media/web-sites-connect-to-redis-using-memcache-protocol/3-azure-website-appsettings-redis-host.png)
 
-### Adicionar a configuração de aplicativo REDIS_KEY
+### Adicionar a configuração de aplicativo REDIS\_KEY
 
-A segunda configuração de aplicativo que você precisa criar é **REDIS\_KEY**. Essa configuração fornece o token de autenticação necessário para acessar com segurança a instância do Cache Redis. Você pode recuperar o valor necessário para a configuração de aplicativo REDIS_KEY na folha **Chaves de acesso** da instância do Cache Redis.
+A segunda configuração de aplicativo que você precisa criar é **REDIS\_KEY**. Essa configuração fornece o token de autenticação necessário para acessar com segurança a instância do Cache Redis. Você pode recuperar o valor necessário para a configuração de aplicativo REDIS\_KEY na folha **Chaves de acesso** da instância do Cache Redis.
 
 ![Chave primária do Cache Redis do Azure](./media/web-sites-connect-to-redis-using-memcache-protocol/4-azure-redis-cache-primarykey.png)
 
 Defina a chave da configuração de aplicativo como **REDIS\_KEY** e o valor da configuração de aplicativo como a **Chave Primária** da instância do Cache Redis.
 
-![REDIS_KEY AppSetting de Site do Azure](./media/web-sites-connect-to-redis-using-memcache-protocol/5-azure-website-appsettings-redis-primarykey.png)
+![REDIS\_KEY AppSetting de Site do Azure](./media/web-sites-connect-to-redis-using-memcache-protocol/5-azure-website-appsettings-redis-primarykey.png)
 
-### Adicionar a configuração de aplicativo MEMCACHESHIM_REDIS_ENABLE
+### Adicionar a configuração de aplicativo MEMCACHESHIM\_REDIS\_ENABLE
 
 A última configuração de aplicativo é usada para habilitar a correção do Memcache em aplicativos Web, que usa REDIS\_HOST e REDIS\_KEY para se conectar ao Cache Redis do Azure e encaminhar as chamadas de cache. Defina a chave da configuração de aplicativo como **MEMCACHESHIM\_REDIS\_ENABLE** e o valor como **true**.
 
-![MEMCACHESHIM_REDIS_ENABLE de AppSetting de Aplicativo Web](./media/web-sites-connect-to-redis-using-memcache-protocol/6-azure-website-appsettings-enable-shim.png)
+![MEMCACHESHIM\_REDIS\_ENABLE de AppSetting de Aplicativo Web](./media/web-sites-connect-to-redis-using-memcache-protocol/6-azure-website-appsettings-enable-shim.png)
 
 Após adicionar as três (3) configurações de aplicativo, clique em **Salvar**.
 
@@ -73,7 +73,7 @@ Após adicionar as três (3) configurações de aplicativo, clique em **Salvar**
 
 Para que o aplicativo fale com o protocolo Memcache, é necessário instalar a extensão Memcache para PHP (a estrutura de linguagem para seu site do WordPress).
 
-### Baixar a extensão php_memcache
+### Baixar a extensão php\_memcache
 
 Navegue até [PECL][6]. Na categoria de cache, clique em [memcache][7]. Na coluna de downloads, clique no link DLL.
 
@@ -83,20 +83,20 @@ Baixe o link x86 NTS (Non-Thread Safe) para a versão do PHP habilitada nos apli
 
 ![Pacote de Memcache do site PHP PECL](./media/web-sites-connect-to-redis-using-memcache-protocol/8-php-pecl-memcache-package.png)
 
-### Habilitar a extensão php_memcache
+### Habilitar a extensão php\_memcache
 
-Depois de baixar o arquivo, descompacte e carregue **php\_memcache.dll** no diretório **d:\\home\\site\\wwwroot\\bin\\ext\\**. Depois que o php_memcache.dll for carregado no aplicativo Web, você precisará habilitar a extensão no Tempo de Execução do PHP. Para habilitar a extensão Memcache no Portal do Azure, abra a folha **Configurações de Aplicativo do aplicativo Web** e, em seguida, adicione uma nova configuração de aplicativo com a chave**PHP\_EXTENSIONS** e o valor **bin\\ext\\php_memcache.dll**.
+Depois de baixar o arquivo, descompacte e carregue **php\_memcache.dll** no diretório **d:\\home\\site\\wwwroot\\bin\\ext\**. Depois que o php\_memcache.dll for carregado no aplicativo Web, você precisará habilitar a extensão no Tempo de Execução do PHP. Para habilitar a extensão Memcache no Portal do Azure, abra a folha **Configurações de Aplicativo do aplicativo Web** e, em seguida, adicione uma nova configuração de aplicativo com a chave**PHP\_EXTENSIONS** e o valor **bin\\ext\\php\_memcache.dll**.
 
 
-> [AZURE.NOTE]Se o aplicativo Web precisar carregar várias extensões PHP, o valor de PHP_EXTENSIONS deverá ser uma lista delimitada por vírgulas de caminhos relativos para arquivos DLL.
+> [AZURE.NOTE] Se o aplicativo Web precisar carregar várias extensões PHP, o valor de PHP\_EXTENSIONS deverá ser uma lista delimitada por vírgulas de caminhos relativos para arquivos DLL.
 
-![PHP_EXTENSIONS de AppSetting de Aplicativo Web](./media/web-sites-connect-to-redis-using-memcache-protocol/9-azure-website-appsettings-php-extensions.png)
+![PHP\_EXTENSIONS de AppSetting de Aplicativo Web](./media/web-sites-connect-to-redis-using-memcache-protocol/9-azure-website-appsettings-php-extensions.png)
 
 Ao terminar, clique em **Salvar**.
 
 ## Instalar o plug-in do WordPress do Memcache
 
-> [AZURE.NOTE]Você também pode baixar o [Plug-in de Cache do Objeto Memcached](https://wordpress.org/plugins/memcached/) em WordPress.org.
+> [AZURE.NOTE] Você também pode baixar o [Plug-in de Cache do Objeto Memcached](https://wordpress.org/plugins/memcached/) em WordPress.org.
 
 Na página de plug-ins do WordPress, clique em **Adicionar Novo**.
 
@@ -112,7 +112,7 @@ Localize **Cache de Objeto Memcached** na lista e clique em **Instalar Agora**.
 
 ### Habilitar o plug-in do WordPress do Memcache
 
->[AZURE.NOTE]Siga as instruções neste blog sobre [Como habilitar uma Extensão de Site em Aplicativos Web][8] para instalar o Visual Studio Team Services.
+>[AZURE.NOTE] Siga as instruções neste blog sobre [Como habilitar uma Extensão de Site em Aplicativos Web][8] para instalar o Visual Studio Team Services.
 
 No arquivo `wp-config.php`, adicione o código a seguir acima do comentário de interrupção de edição próximo ao fim do arquivo.
 
@@ -138,7 +138,7 @@ Todas as etapas para habilitar o shim do Memcache de aplicativos Web foram concl
 
 ### Habilitar o suporte à porta não SSL no Cache Redis do Azure
 
->[AZURE.NOTE]Quando este artigo foi escrito, a CLI do Redis não dava suporte à conectividade SSL; portanto, as etapas a seguir são necessárias.
+>[AZURE.NOTE] Quando este artigo foi escrito, a CLI do Redis não dava suporte à conectividade SSL; portanto, as etapas a seguir são necessárias.
 
 No Portal do Azure, navegue até a instância do Cache Redis que você criou para o aplicativo Web. Quando a folha do cache for aberta, clique no ícone **Configurações**.
 
@@ -158,7 +158,7 @@ Você verá que a porta não SSL agora está definida. Clique em **Salvar**.
 
 ### Conectar ao Cache Redis do Azure por meio de redis-cli
 
->[AZURE.NOTE]Essa etapa pressupõe que o Redis esteja instalado localmente em seu computador de desenvolvimento. [Instale o Redis localmente usando estas instruções][9].
+>[AZURE.NOTE] Essa etapa pressupõe que o Redis esteja instalado localmente em seu computador de desenvolvimento. [Instale o Redis localmente usando estas instruções][9].
 
 Abra o console de linha de comando de sua escolha e digite o seguinte comando:
 
@@ -176,7 +176,7 @@ A chamada para listar as chaves deve retornar um valor. Caso contrário, tente n
 
 Parabéns! O aplicativo do WordPress agora tem um cache na memória centralizado para ajudar a aumentar a taxa de transferência. Lembre-se: o shim do Memcache de aplicativos Web pode ser usado com qualquer cliente Memcache, independentemente da linguagem de programação ou da estrutura de aplicativo. Para fornecer comentários ou fazer perguntas sobre o shim do Memcache de aplicativos Web, poste nos [Fóruns do MSDN][10] ou no[Stackoverflow][11].
 
->[AZURE.NOTE]Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE] Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## O que mudou
 * Para obter um guia sobre a alteração de sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -197,4 +197,4 @@ Parabéns! O aplicativo do WordPress agora tem um cache na memória centralizado
 [12]: /services/cache/
 [13]: http://memcached.org
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0302_2016-->

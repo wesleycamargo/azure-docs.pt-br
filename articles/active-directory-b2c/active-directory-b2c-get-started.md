@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.topic="get-started-article"
+	ms.date="02/25/2016"
 	ms.author="swkrish"/>
 
 # Visualização do Azure Active Directory B2C: criar um locatário do Azure AD B2C
@@ -74,4 +74,4 @@ Use as seguintes etapas para criar um novo locatário B2C do AD do Azure. Os rec
 
 Saiba como registrar um aplicativo com o Azure AD B2C e compilar um aplicativo de Início Rápido lendo a [Visualização do Azure Active Directory B2C: registrar seu aplicativo](active-directory-b2c-app-registration.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->
