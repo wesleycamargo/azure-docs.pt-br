@@ -12,16 +12,16 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
-# Tutorial: Criar e monitorar uma data factory usando o Visual Studio
+# Tutorial: Criar um pipeline com a Atividade de Cópia usando o Visual Studio
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-get-started.md)
-- [Using Data Factory Editor](data-factory-get-started-using-editor.md)
-- [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
-- [Using Visual Studio](data-factory-get-started-using-vs.md)
+- [Visão geral do tutorial](data-factory-get-started.md)
+- [Como usar o Editor do Data Factory](data-factory-get-started-using-editor.md)
+- [Como usar o Visual Studio](data-factory-get-started-using-vs.md)
+- [Usando o PowerShell](data-factory-monitor-manage-using-powershell.md)
 
 
 ##Nesse tutorial
@@ -29,14 +29,16 @@ Neste tutorial, você fará o seguinte usando o Visual Studio 2013:
 
 1. Criar dois serviços vinculados: **AzureStorageLinkedService1** e **AzureSqlinkedService1**. O AzureStorageLinkedService1 vincula um armazenamento do Azure e AzureSqlLinkedService1 vincula um banco de dados SQL do Azure à data factory: **ADFTutorialDataFactoryVS**. Os dados de entrada do pipeline residem em um contêiner de blob no armazenamento de blob do Azure e os dados de saída serão armazenados em uma tabela no banco de dados SQL do Azure. Portanto, adicione esses dois repositórios de dados como serviços vinculados à data factory.
 2. Criar duas tabelas de data factory: **EmpTableFromBlob** e **EmpSQLTable**, que representam os dados de entrada/saída que são armazenados nos repositórios de dados. Na tabela EmpTableFromBlob, você especifica o contêiner de blob que contém um blob com os dados de origem e, na tabela EmpSQLTable, você especifica a tabela SQL que armazenará os dados de saída. Também é possível especificar outras propriedades, como a estrutura dos dados, a disponibilidade dos dados, etc...
-3. Criar um pipeline chamado **ADFTutorialPipeline** no ADFTutorialDataFactoryVS. O pipeline terá uma **Atividade de Cópia**, que copia os dados de entrada do blob do Azure na tabela de saída SQL do Azure.
+3. Criar um pipeline chamado **ADFTutorialPipeline** no ADFTutorialDataFactoryVS. O pipeline terá uma **Atividade de Cópia**, que copia os dados de entrada do blob do Azure na tabela de saída SQL do Azure. A Atividade de Cópia executa a movimentação de dados no Azure Data Factory e é capacitada por um serviço globalmente disponível que pode copiar dados entre vários armazenamentos de dados de forma segura, confiável e escalonável. Confira o artigo [Atividades de Movimentação de Dados](data-factory-data-movement-activities.md) para obter detalhes sobre a Atividade de Cópia. 
 4. Criar uma data factory e implantar serviços vinculados, tabelas e o pipeline.    
 
 ## Criar e implantar as entidades de data factory usando o Visual Studio 
 
 ### Pré-requisitos
-Você deve ter os seguintes itens instalados no computador: 
-- Visual Studio 2013 
+Leia o artigo [Visão geral do tutorial](data-factory-get-started.md) e conclua as etapas de pré-requisito antes de executar este tutorial.
+
+Você deve ter os seguintes itens instalados no seu computador:
+- Visual Studio 2013
 - Baixe o SDK do Azure para Visual Studio 2013. Navegue até a [Página de Download do Azure](https://azure.microsoft.com/downloads/) e clique em **Instalação do VS 2013** na seção **.NET**.
 
 ### Passo a passo
@@ -228,9 +230,9 @@ Você criou tabelas e serviços vinculados de entrada/saída até o momento. Ago
 
 1. No **Visual Studio**, clique em **Exibir** no menu e em **Gerenciador de Servidores**.
 2. Na janela Gerenciador de Servidores, expanda **Azure** e expanda **Data Factory**. Se **Entrar no Visual Studio** for exibido, insira a **conta** associada à sua assinatura do Azure e clique em **Continuar**. Insira a **senha** e clique em **Entrar**. O Visual Studio tenta obter informações sobre todas as data factories do Azure em sua assinatura. Você verá o status da operação na janela **Lista de Tarefas de Data Factory**.
-	![Gerenciador de Servidores](./media/data-factory-get-started-using-vs/server-explorer.png)
+![Gerenciador de Servidores](./media/data-factory-get-started-using-vs/server-explorer.png)
 3. Clique com o botão direito em uma data factory e selecione Exportar Data Factory para Novo Projeto para criar um projeto do Visual Studio com base em uma data factory existente.
-	![Exportar data factory para um projeto VS](./media/data-factory-get-started-using-vs/export-data-factory-menu.png)  
+![Exportar data factory para um projeto VS](./media/data-factory-get-started-using-vs/export-data-factory-menu.png)  
 
 ## Atualizar ferramentas de data factory para o Visual Studio
 Para atualizar as ferramentas da Azure Data Factory para o Visual Studio, faça o seguinte:
@@ -241,4 +243,7 @@ Para atualizar as ferramentas da Azure Data Factory para o Visual Studio, faça 
 
 Confira [Monitorar os conjuntos de dados e o pipeline](data-factory-get-started-using-editor.md#MonitorDataSetsAndPipeline) para obter instruções sobre como usar o Portal do Azure para monitorar o pipeline e os conjuntos de dados que você criou neste tutorial.
 
-<!---HONumber=AcomDC_0204_2016-->
+## Consulte também
+Confira o artigo [Atividades de Movimentação de Dados](data-factory-data-movement-activities.md) para obter informações detalhadas sobre a **Atividade de Cópia** no Azure Data Factory.
+
+<!---HONumber=AcomDC_0302_2016-->

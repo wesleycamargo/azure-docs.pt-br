@@ -1,87 +1,170 @@
 <properties
-	pageTitle="Importar dados para a Pesquisa do Azure usando a API REST | Microsoft Azure | Serviço de pesquisa de nuvem hospedado"
-	description="Como carregar dados em um índice na Pesquisa do Azure usando a API REST."
-	services="search"
-	documentationCenter=""
-	authors="HeidiSteen"
-	manager="mblythe"
-	editor=""
+    pageTitle="Importação de dados para a Pesquisa do Azure usando a API REST | Microsoft Azure | Serviço de pesquisa de nuvem hospedado"
+    description="Como carregar dados em um índice na Pesquisa do Azure usando a API REST."
+    services="search"
+    documentationCenter=""
+    authors="ashmaka"
+    manager=""
+    editor=""
     tags=""/>
 
 <tags
-	ms.service="search"
-	ms.devlang="rest-api"
-	ms.workload="search"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.date="02/17/2016"
-	ms.author="heidist"/>
+    ms.service="search"
+    ms.devlang="rest-api"
+    ms.workload="search"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.date="02/29/2016"
+    ms.author="ashmaka"/>
 
 # Importar dados para a Pesquisa do Azure usando a API REST
 > [AZURE.SELECTOR]
-- [Overview](search-what-is-data-import.md)
+- [Visão geral](search-what-is-data-import.md)
 - [Portal](search-import-data-portal.md)
 - [.NET](search-import-data-dotnet.md)
 - [REST](search-import-data-rest-api.md)
-- [Indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
-
-Este artigo mostra como preencher um índice usando a [API REST da Pesquisa do Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). Parte do conteúdo abaixo é de [Adicionar, atualizar ou excluir documentos (API REST da Pesquisa do Azure)](https://msdn.microsoft.com/library/azure/dn798930.aspx). Consulte o artigo pai para obter mais contexto.
-
-Para enviar por push documentos para seu índice usando a API REST, você emitirá solicitações HTTP POST para o ponto de extremidade de URL do serviço.
-
-**Solicitação e Cabeçalhos da Solicitação**:
-
-Na URL, você terá que fornecer o nome do serviço, bem como a versão de API apropriada (a versão de API atual é "2015-02-28" no momento da publicação deste documento).
-
-Nos cabeçalhos da solicitação, você precisará definir o tipo de conteúdo e fornecer a Chave Primária de Administração do serviço.
-
-	POST https://[servicename].search.windows.net/indexes/[indexname]/docs/index?api-version=2015-02-28
-	Content-Type: application/JSON
-	api-key:[primary admin key]
+- [Indexadores](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 
 
-**Corpo da Solicitação**:
+Este artigo mostra como usar a [API REST de Pesquisa do Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx) para importar dados para um índice de Pesquisa do Azure. Antes de começar este passo a passo, você já deve ter [criado um índice de Pesquisa do Azure](search-create-index-rest-api.md).
 
+Para enviar documentos no índice usando a API REST, você emitirá uma solicitação HTTP POST para o ponto de extremidade da URL do índice. O corpo da solicitação HTTP é um objeto JSON que contém os documentos a serem adicionados, modificados ou excluídos.
 
-	{
-		"value": [
-			{
-				"@search.action": "upload",
-				"hotelId": "1",
-				"baseRate": 199.0,
-				"description": "Best hotel in town",
-				"description_fr": "Meilleur hôtel en ville",
-				"hotelName": "Fancy Stay",
-				"category": "Luxury",
-				"tags": ["pool", "view", "wifi", "concierge"],
-				"parkingIncluded": false,
-				"smokingAllowed": false,
-				"lastRenovationDate": "2010-06-27T00:00:00Z",
-				"rating": 5,
-				"location": { "type": "Point", "coordinates": [-122.131577, 47.678581] }
-			},
-			{
-				"@search.action": "upload",
-				"hotelId": "2",
-				"baseRate": 79.99,
-				"description": "Cheapest hotel in town",
-				"description_fr": "Hôtel le moins cher en ville",
-				"hotelName": "Roach Motel",
-				"category": "Budget",
-				"tags": ["motel", "budget"],
-				"parkingIncluded": true,
-				"smokingAllowed": true,
-				"lastRenovationDate": "1982-04-28T00:00:00Z",
-				"rating": 1,
-				"location": { "type": "Point", "coordinates": [-122.131577, 49.678581] }
-			}
-		]
-	}
+## I. Identificar a api-key do administrador de seu serviço de Pesquisa do Azure
+Ao emitir solicitações HTTP em relação a seu serviço usando a API REST, *todas* as solicitações de API devem incluir a api-key que foi gerada para o serviço de Pesquisa que você provisionou. Ter uma chave válida estabelece a relação de confiança, para cada solicitação, entre o aplicativo que envia a solicitação e o serviço que lida com ela.
 
-Nesse caso, estamos usando "carregar" como nossa ação de pesquisa. Ao atualizar e excluir documentos existentes, você poderá usar "merge", "mergeOrUpload" e "delete".
+1. Para localizar as api-keys de seu serviço, você deve fazer logon no [Portal do Azure](https://portal.azure.com/)
+2. Vá para a folha do serviço de Pesquisa do Azure
+3. Clique no ícone de "Chaves"
 
-Ao atualizar o índice, você receberá um código de status "200 OK" para um êxito. Você receberá um código de status “207” caso pelo menos um item em sua solicitação não tenha sido indexado com êxito.
+O serviço terá *chaves de administração* e *chaves de consulta*.
+  * Suas *chaves de administração* principal e secundária concedem direitos totais para todas as operações, incluindo a capacidade de gerenciar o serviço, criar e excluir índices, indexadores e fontes de dados. Há duas chaves para que você possa continuar a usar a chave secundária se decidir regenerar a chave primária e vice-versa.
+  * As *chaves de consulta* concedem acesso somente leitura a índices e documentos e normalmente são distribuídas para aplicativos cliente que emitem solicitações de pesquisa.
 
-Para saber mais sobre ações do documento e respostas de acertos/erros, consulte [esta página](https://msdn.microsoft.com/library/azure/dn798930.aspx).
+Para importar dados para um índice, você pode usar a chave de administração principal ou secundária.
 
-<!---HONumber=AcomDC_0224_2016-->
+## II. Decidir qual ação de indexação será usada
+Ao usar a API REST, você emitirá solicitações HTTP POST com corpos de solicitação JSON para a URL de ponto de extremidade do índice de Pesquisa do Azure. O objeto JSON no corpo da solicitação HTTP conterá uma única matriz JSON chamada "value", que contém objetos JSON que representam documentos que você deseja adicionar ao índice, atualizar ou excluir.
+
+Cada objeto JSON da matriz "value" representa um documento a ser indexado. Cada um desses objetos contém a chave do documento e especifica a ação de indexação desejada (carregar, mesclar, excluir, etc.). Dependendo de qual das ações abaixo você escolher, apenas determinados campos deverão ser incluídos em cada documento:
+
+@search.action | Descrição | Campos necessários para cada documento | Observações
+--- | --- | --- | ---
+`upload` | Uma ação `upload` é semelhante a um "upsert", em que o documento será inserido se for novo e será atualizado/substituído se ele existir. | chave, além de quaisquer outros campos que você quiser definir | Ao atualizar/substituir um documento existente, qualquer campo não especificado na solicitação terá seu campo definido como `null`. Isso ocorre mesmo quando o campo tiver sido definido anteriormente como um valor não nulo.
+`merge` | Atualiza um documento existente com os campos especificados. Se o documento não existir no índice, a mesclagem falhará. | chave, além de quaisquer outros campos que você quiser definir | Qualquer campo que você especificar em uma mesclagem substituirá o campo existente no documento. Isso inclui campos do tipo `Collection(Edm.String)`. Por exemplo, se o documento contiver um campo `tags` com o valor `["budget"]` e executar uma mesclagem com o valor `["economy", "pool"]` para `tags`, o valor final do campo `tags` será `["economy", "pool"]`. Ele não será `["budget", "economy", "pool"]`.
+`mergeOrUpload` | Essa ação se comportará como `merge` se já existir um documento com a chave especificada no índice. Se o documento não existir, ela se comportará como `upload` com um novo documento. | chave, além de outros campos que você quiser definir |- `delete` | Remove o documento especificado do índice. | somente chave | Todos os campos que você especificar que não sejam o campo de chave serão ignorados. Se você quiser remover um campo individual de um documento, use a *mesclagem* em vez disso e apenas defina o campo explicitamente como nulo.
+
+## III. Construir sua solicitação HTTP e o corpo da solicitação
+Agora que coletou os valores de campo necessários para as ações de índice, você está pronto para construir a solicitação HTTP real e o corpo da solicitação JSON para importar os dados.
+
+#### Solicitação e Cabeçalhos de Solicitação
+Na URL, você precisará fornecer o nome do serviço, o nome do índice ("hotels", neste caso), bem como a versão de API apropriada (a versão atual da API é `2015-02-28` no momento da publicação deste documento). Você precisará definir os cabeçalhos de solicitação `Content-Type` e `api-key`. Para a última opção, use uma das chaves de administração do serviço.
+
+    POST https://[search service].search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
+    Content-Type: application/json
+    api-key: [admin key]
+
+#### Corpo da solicitação
+
+```JSON
+{
+    "value": [
+        {
+            "@search.action": "upload",
+            "hotelId": "1",
+            "baseRate": 199.0,
+            "description": "Best hotel in town",
+            "description_fr": "Meilleur hôtel en ville",
+            "hotelName": "Fancy Stay",
+            "category": "Luxury",
+            "tags": ["pool", "view", "wifi", "concierge"],
+            "parkingIncluded": false,
+            "smokingAllowed": false,
+            "lastRenovationDate": "2010-06-27T00:00:00Z",
+            "rating": 5,
+            "location": { "type": "Point", "coordinates": [-122.131577, 47.678581] }
+        },
+        {
+            "@search.action": "upload",
+            "hotelId": "2",
+            "baseRate": 79.99,
+            "description": "Cheapest hotel in town",
+            "description_fr": "Hôtel le moins cher en ville",
+            "hotelName": "Roach Motel",
+            "category": "Budget",
+            "tags": ["motel", "budget"],
+            "parkingIncluded": true,
+            "smokingAllowed": true,
+            "lastRenovationDate": "1982-04-28T00:00:00Z",
+            "rating": 1,
+            "location": { "type": "Point", "coordinates": [-122.131577, 49.678581] }
+        },
+        {
+            "@search.action": "mergeOrUpload",
+            "hotelId": "3",
+            "baseRate": 129.99,
+            "description": "Close to town hall and the river"
+        },
+        {
+            "@search.action": "delete",
+            "hotelId": "6"
+        }
+    ]
+}
+```
+
+Nesse caso, estamos usando `upload`, `mergeOrUpload` e `delete` como ações de pesquisa.
+
+Suponha que o índice de exemplo "hotels" já esteja preenchido com vários documentos. Observe como não precisamos especificar todos os campos de documento possíveis ao usar `merge` e como especificamos apenas a chave de documento (`hotelId`) ao usar `delete`.
+
+Além disso, observe que você só pode incluir até 1000 documentos (ou 16 MB) em uma única solicitação de indexação.
+
+## IV. Compreender o código de resposta HTTP
+#### 200
+Após enviar uma solicitação de indexação bem-sucedida, você receberá uma resposta HTTP com o código de status `200 OK`. O corpo JSON de resposta HTTP será o seguinte:
+
+```JSON
+{
+    "value": [
+        {
+            "key": "unique_key_of_document",
+            "status": true,
+            "errorMessage": null
+        },
+        ...
+    ]
+}
+```
+
+#### 207
+Um código de status `207` será retornado quando pelo menos um item não tiver sido indexado com êxito. O corpo JSON da resposta HTTP conterá informações sobre o(s) documento(s) sem êxito.
+
+```JSON
+{
+    "value": [
+        {
+            "key": "unique_key_of_document",
+            "status": false,
+            "errorMessage": "The search service is too busy to process this document. Please try again later."
+        },
+        ...
+    ]
+}
+```
+
+> [AZURE.NOTE] Muitas vezes, isso significa que a carga no serviço de pesquisa está atingindo um ponto em que as solicitações de indexação começarão a retornar respostas `503`. Nesse caso, é altamente recomendável que o código do cliente faça uma pausa e aguarde antes de tentar novamente. Isso dará ao sistema algum tempo para se recuperar, aumentando as chances de que solicitações futuras sejam bem-sucedidas. Se você repetir rapidamente as solicitações, isso apenas prolongará a situação.
+
+#### 429
+Um código de status `429` será retornado quando você tiver excedido sua cota no número de documentos por índice.
+
+#### 503
+Um código de status `503` será retornado se nenhum dos itens na solicitação tiver sido indexado com êxito. Esse erro significa que o sistema está sob carga pesada e sua solicitação não pode ser processada no momento.
+
+> [AZURE.NOTE] Nesse caso, é altamente recomendável que o código do cliente faça uma pausa e aguarde antes de tentar novamente. Isso dará ao sistema algum tempo para se recuperar, aumentando as chances de que solicitações futuras sejam bem-sucedidas. Se você repetir rapidamente as solicitações, isso apenas prolongará a situação.
+
+Para saber mais sobre ações do documento e respostas de acertos/erros, consulte [esta página](https://msdn.microsoft.com/library/azure/dn798925.aspx). Para obter mais informações sobre outros códigos de status HTTP que podem ser retornados em caso de falha, confira [este artigo](https://msdn.microsoft.com/library/azure/dn798925.aspx).
+
+## Avançar
+Depois de popular o índice de Pesquisa do Azure, você estará pronto para começar a emitir consultas para pesquisar documentos.
+
+<!---HONumber=AcomDC_0302_2016-->

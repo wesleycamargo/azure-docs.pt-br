@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/16/2016"
+	ms.date="02/29/2016"
 	ms.author="andkjell;billmath"/>
 
 # Integração de suas identidades locais com o Active Directory do Azure
@@ -49,11 +49,11 @@ Você pode encontrar o download para o Azure AD Connect no [Centro de Download d
 
 | Solução | Cenário |
 | ----- | ----- |
-| Antes de começar | <li>[Azure AD Connect: hardware e pré-requisitos](active-directory-aadconnect-prerequisites.md)</li> |
+| Antes de iniciar - [Hardware e pré-requisitos](active-directory-aadconnect-prerequisites.md) | <li>Etapas a serem concluídas antes de começar a instalar o Azure AD Connect.</li> |
 | [Configurações expressas](active-directory-aadconnect-get-started-express.md) | <li>Opção padrão e recomendada , se você tiver uma única floresta do AD.</li> <li>Entrada do usuário com a mesma senha usando a sincronização de senha.</li>
 | [Configurações personalizadas](active-directory-aadconnect-get-started-custom.md) | <li>Usadas quando você tem várias florestas. Dá suporte a várias [topologias](active-directory-aadconnect-topologies.md) locais.</li> <li>Personalize sua opção de entrada, como o ADFS para federação, ou use um provedor de identidade de terceiros.</li> <li>Personalize os recursos de sincronização, como filtragem e write-back.</li>
 | [Atualização do DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md) | <li>Se você tiver um servidor DirSync existente já em execução.</li>
-| Atualização do Azure AD Sync | <li>Essa é uma atualização in-loco simples.</li>
+| [Atualizar do Azure AD Sync ou do Azure AD Connect](active-directory-aadconnect-upgrade-previous-version.md)| <li>Há vários métodos diferentes, dependendo de sua preferência.</li>
 
 
 [Após a instalação](active-directory-aadconnect-whats-next.md), verifique se ele está funcionando conforme o esperado e atribua licenças aos usuários.
@@ -93,7 +93,7 @@ O [write-back do dispositivo](active-directory-aadconnect-feature-device-writeba
 
 O recurso [impedir exclusões acidentais](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) é ativado por padrão e protegerá seu diretório na nuvem contra muitas exclusões ao mesmo tempo. Por padrão, ele permitirá 500 exclusões por execução, e isso pode ser alterado, dependendo do porte de sua organização.
 
-A [Atualização automática](active-directory-aadconnect-feature-automatic-upgrade.md) é habilitada por padrão para instalações de configurações expressas e garantirá que o Azure AD Connect esteja sempre atualizado com a versão mais recente.
+A [Atualização automática](active-directory-aadconnect-feature-automatic-upgrade.md) está habilitada por padrão para instalações de configurações expressas e garantirá que o Azure AD Connect esteja sempre atualizado com a última versão.
 
 ### Próximas etapas para configurar recursos
 
@@ -131,7 +131,7 @@ O modelo de configuração em sincronização é chamado de [provisionamento dec
 | Tópico | |
 | --------- | --------- |
 | Histórico de versão | [Histórico de versão](active-directory-aadconnect-version-history.md) |
-| Comparar o DirSync, Azure ADSync e o Azure AD Connect | [Comparação de ferramentas de integração de diretório](active-directory-aadconnect-get-started-tools-comparison.md) |
+| Comparar o DirSync, Azure ADSync e o Azure AD Connect | [Comparação de ferramentas de integração de diretório](active-directory-hybrid-identity-design-considerations-tools-comparison.md) |
 | Atributos sincronizados | [Atributos sincronizados](active-directory-aadconnectsync-attributes-synchronized.md) |
 | Monitorando com o Azure AD Connect Health | [Azure AD Connect Health](active-directory-aadconnect-health.md) |
 | Perguntas frequentes | [Perguntas frequentes do Azure AD Connect](active-directory-aadconnect-faq.md) |
@@ -144,4 +144,4 @@ Apresentação Ignite 2015 sobre como expandir seus diretórios locais para a nu
 
 [AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

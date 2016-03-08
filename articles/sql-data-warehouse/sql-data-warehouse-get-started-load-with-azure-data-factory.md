@@ -19,7 +19,7 @@
 # Carregar dados com o Azure Data Factory
 
 > [AZURE.SELECTOR]
-- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
+- [Fábrica de dados](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
 - [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
 - [BCP](sql-data-warehouse-load-with-bcp.md)
 
@@ -132,21 +132,6 @@ Depois de criar os serviços vinculados, teremos de definir os conjuntos de dado
 
     ````
     {
-        "name": "<dataset name>",
-        "properties": {
-		    "type": "AzureSqlDWTable",
-		    "linkedServiceName": "<linked data warehouse name>",
-		    "typeProperties": {
-		      "tableName": "FactInternetSales"
-		    },
-		    "availability": {
-		      "frequency": "Hour",
-		      "interval": 1
-		    }
-        }
-    }
-
-    {
 	    "name": "DWDataset",
 		"properties": {
 		    "type": "AzureSqlDWTable",
@@ -230,4 +215,4 @@ Estes tópicos fornecem informações detalhadas sobre o Azure Data Factory. Ele
 - [Tutorial: copiar dados do Blob de Armazenamento do Azure para o Banco de Dados SQL do Azure](../data-factory/data-factory-get-started.md). Neste tutorial, você criará um pipeline no Azure Data Factory para copiar dados do Blob de Armazenamento do Azure para o Banco de Dados SQL do Azure.
 - [Tutorial de cenário do mundo real](../data-factory/data-factory-tutorial.md). Este é um tutorial detalhado para uso do Azure Data Factory.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/02/2016" 
+	ms.date="02/25/2016" 
 	ms.author="elizapo"/>
 
 # Perguntas frequentes sobre o RemoteApp do Azure
@@ -30,7 +30,7 @@ Ouvimos as seguintes perguntas sobre o RemoteApp do Azure. Você tem outras? Vis
 - **Posso testar esse serviço gratuitamente?** Sim. Há uma avaliação gratuita disponível por 30 dias. Após o término da avaliação, você poderá fazer a transição para uma conta paga (que pode ser usada na produção) ou parar de usar o serviço. Inicie a sua avaliação gratuita acessando [portal.azure.com](http://portal.azure.com) - crie uma nova instância do RemoteApp. Com a versão de avaliação gratuita, você pode criar duas (2) instâncias do RemoteApp com 10 usuários por instância. Lembre-se de que esta avaliação dura 30 dias.
 ## Detalhes da assinatura do RemoteApp do Azure ##
 
-- **Quais são os limites de serviço?** Você pode saber mais sobre as configurações padrão e os limites de serviço do RemoteApp do Azure em [Assinatura do Azure e limite de serviços, cotas e restrições](azure-subscription-service-limits.md). Avise-nos se você tiver mais dúvidas.
+- **Quais são os limites de serviço?** Você pode saber mais sobre as configurações padrão e os limites de serviço do RemoteApp do Azure em [Assinatura do Azure e limite de serviços, cotas e restrições](../azure-subscription-service-limits.md). Avise-nos se você tiver mais dúvidas.
 - **Quantos usuários é preciso ter?** Há um mínimo de 20 usuários. Vou repetir para que seja totalmente claro: o MÍNIMO é 20. Você será cobrado por 20. 
 - **Qual é o custo do RemoteApp?** Verifique os [Detalhes de preços do Azure RemoteApp](../../../pricing/details/remoteapp/).
 - **Um tipo de coleção custa mais do que o outro?** Sim, pode custar, dependendo dos requisitos de coleção. Uma coleção híbrida requer uma conexão do RemoteApp do Azure à sua rede local. Se você usar uma VNET/Rota Expressa existente, não há nenhum custo adicional. Mas se você usar uma nova Rede Virtual do Azure e um gateway ou Rota Expressa, você será cobrado pelo [gateway de VPN](../../../pricing/details/vpn-gateway) ou [Rota Expressa](../../../pricing/details/expressroute/). Esse custo (detalhado nos links) é acrescido ao seu custo mensal do RemoteApp do Azure.
@@ -114,4 +114,4 @@ Você pode encontrar informações de cliente válidas, incluindo etapas para in
 ### Ajude-nos a ajudar você 
 Você sabia que, além de classificar este artigo e fazer comentários, você pode alterar o próprio artigo? Falta alguma coisa? Há algo errado? Escrevi algo que não ficou muito claro? Role para cima e clique em **Editar no GitHub** para fazer alterações - elas serão enviadas para que as examinemos e, assim que elas forem desconectadas, você verá suas alterações e aprimoramentos bem aqui.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/22/2016"
+   ms.date="03/01/2016"
    ms.author="yurid"/>
 
 # Configuração de políticas de segurança na Central de segurança do Azure
@@ -25,23 +25,23 @@ Este documento ajuda você a configurar políticas de segurança na Central de S
 A Central de Segurança do Azure ajuda você a impedir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança dos recursos do Azure Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
 
 ## Quais são políticas de segurança?
-Uma política de segurança define o conjunto de controles que são recomendados para os recursos na assinatura especificada. Na Central de segurança do Azure, você define as políticas para as assinaturas do Azure de acordo com as necessidades de segurança de sua empresa e os tipos de aplicativos ou a confidencialidade dos dados de cada assinatura.
+Uma política de segurança define o conjunto de controles que são recomendados para os recursos na assinatura ou grupo de recursos especificado. Na Central de Segurança do Azure, você define as políticas para o grupo de recursos ou as assinaturas do Azure de acordo com as necessidades de segurança de sua empresa e os tipos de aplicativos ou a confidencialidade dos dados de cada assinatura.
 
 Por exemplo, os recursos usados para desenvolvimento ou teste podem ter requisitos de segurança diferentes daqueles usados para aplicativos de produção. Da mesma forma, os aplicativos com dados regulamentados, como PII (informações de identificação pessoal), podem exigir um nível mais alto de segurança. As políticas de segurança habilitadas na Central de segurança do Azure determinarão as recomendações de segurança e o monitoramento para ajudá-lo a identificar vulnerabilidades potenciais e atenuar as ameaças.
 
-## Configurando políticas de segurança
+## Como definir políticas de segurança para assinaturas
 
-As políticas de segurança são configuradas para cada assinatura. Para modificar uma política de segurança, você deve ser um proprietário ou colaborador daquela assinatura. Siga as etapas abaixo para configurar as políticas de segurança na Central de segurança do Azure:
+É possível configurar políticas de segurança para cada grupo de recursos ou assinatura. Para modificar uma política de segurança, você deve ser um proprietário ou colaborador daquela assinatura. Siga as etapas abaixo para configurar as políticas de segurança na Central de segurança do Azure:
 
 1. Clique no bloco **Política de segurança** no painel Central de segurança do Azure.
 
-2. Na folha **Política de segurança - definir política por assinatura** que aparece no lado direito, selecione a assinatura que você deseja para habilitar a política de segurança.
+2. Na folha **Política de Segurança - definir política por assinatura ou grupo de recursos** que é aberta no lado direito, selecione a assinatura desejada para habilitar a política de segurança. Se você preferir habilitar a Política de Segurança para um grupo de recursos em vez da assinatura inteira, role para baixo até a próxima seção onde falamos sobre como configurar políticas de segurança para Grupos de Recursos.
 
-    ![Habilitar coleta de dados](./media/security-center-policies/security-center-policies-fig0.png)
+    ![Habilitar coleta de dados](./media/security-center-policies/security-center-policies-fig01.png)
 
 3. A folha **Política de segurança** para essa assinatura será aberta com um conjunto de opções semelhantes para o mostrado abaixo:
 
-    ![Habilitar coleta de dados](./media/security-center-policies/security-center-policies-fig1.png)
+    ![Habilitar coleta de dados](./media/security-center-policies/security-center-policies-fig1-1.png)
 
 4. Certifique-se de que a opções **Coletar dados de máquinas virtuais** esteja **Ativa**. Essa opção habilita a coleta de log automático para recursos novos e existentes.
 
@@ -66,7 +66,7 @@ As políticas de segurança são configuradas para cada assinatura. Para modific
 | Política | Quando o estado for Ativado |
 |----- |-----|
 | Atualizações do Sistema | Recupera uma lista de atualizações disponíveis do Windows Update ou WSUS, dependendo de qual serviço está configurado para a máquina virtual, a cada 12 horas, e recomenda que as atualizações críticas e de segurança ausentes sejam instaladas nas máquinas virtuais do Windows. |
-| Regras de linha de base | Analisa todas as máquinas virtuais com suporte a cada 12 horas para identificar quaisquer configurações de sistema operacional que podem tornar a máquina virtual mais vulnerável a ataques e recomenda as alterações de configuração para tratar essas vulnerabilidades. Consulte a [lista de linhas de base recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) para obter mais informações sobre as configurações específicas que estão sendo monitoradas. |
+| Regras de linha de base | Analisa todas as máquinas virtuais com suporte para identificar configurações de sistema operacional que possam tornar a máquina virtual mais vulnerável a ataques e recomenda alterações de configuração para lidar com essas vulnerabilidades. Consulte a [lista de linhas de base recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) para obter mais informações sobre as configurações específicas que estão sendo monitoradas. |
 | Antimalware | Recomenda que o antimalware seja provisionado para todas as máquinas virtuais do Windows para ajudar a identificar e remover vírus, spyware e outros softwares mal-intencionados. |
 | Lista de controle de acesso nos pontos de extremidade | Recomenda que uma ACL [(Lista de controles de acesso)](virtual-machines-set-up-endpoints.md) seja configurada para limitar o acesso a pontos de extremidade de máquina virtual Clássica. Isso normalmente seria usado para garantir que somente os usuários que estão conectados à rede corporativa possam acessar as máquinas virtuais. |
 | Grupos de segurança de rede | Recomenda que NSGs [(Grupos de segurança de rede)](virtual-networks-nsg.md) sejam configurados para controlar o tráfego de entrada e saída para sub-redes e interfaces de rede para máquinas virtuais de Gerenciador de Recursos. Os NSGs configurados para uma sub-rede serão herdados por todas as interfaces de rede de máquina virtual, a menos que especificado o contrário. Além de verificar se um NSG foi configurado, essa opção avalia as regras de segurança de entrada para identificar se há regras que permitem o tráfego de entrada. |
@@ -74,7 +74,21 @@ As políticas de segurança são configuradas para cada assinatura. Para modific
 | Auditoria SQL | Recomenda que a auditoria de acesso a Servidores SQL do Azure e bancos de dados esteja habilitada para conformidade, detecção avançada e fins de investigação. |
 | Transparent Data Encryption do SQL | Recomenda que a criptografia em repouso seja habilitada para arquivos de log de bancos de dados SQL do Azure, backups associados e transação para que mesmo se os seus dados forem violados, eles não possam ser lidos. |
 
-Ao terminar de configurar todas as opções, clique em **Salvar** para confirmar as alterações.
+10\.Ao terminar de configurar todas as opções, clique em **Salvar** para confirmar as alterações.
+
+## Como definir políticas de segurança para grupos de recursos
+
+Se preferir configurar as políticas de segurança por grupo de recursos, as etapas são semelhantes às usadas para configurar políticas de segurança para assinaturas. A principal diferença é que você precisará expandir o nome da assinatura e selecionar o grupo de recursos desejado para configurar a política de segurança exclusiva:
+
+![Seleção de grupo de recursos](./media/security-center-policies/security-center-policies-fig4.png)
+
+Após selecionar o grupo de recursos, a folha **Política de segurança** será aberta. Por padrão, a opção **Herança** está habilitada, o que significa que todas as políticas de segurança para esse grupo de recursos são herdadas do nível de assinatura. Você pode alterar essa configuração caso deseje uma política de segurança personalizada por grupo de recursos. Nesse caso, você precisa selecionar **Exclusiva** e fazer as alterações na opção **Mostrar recomendações para**.
+
+
+![Política de segurança por grupo de recursos](./media/security-center-policies/security-center-policies-fig5.png)
+
+> [AZURE.NOTE] No caso de um conflito entre a política de nível de assinatura e a política de nível de grupo de recursos, a política de nível de recursos tem precedência.
+
 
 ## Próximas etapas
 
@@ -85,4 +99,4 @@ Neste documento, você aprendeu como configurar políticas de segurança na Cent
 - [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre perguntas frequentes sobre como usar o serviço
 - [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

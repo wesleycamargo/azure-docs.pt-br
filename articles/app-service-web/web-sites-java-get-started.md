@@ -27,9 +27,9 @@
 
 Este tutorial mostra como criar um [Aplicativo Web Java no Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) usando o [Portal do Azure](https://portal.azure.com/). O Portal do Azure é uma interface da Web que você pode usar para gerenciar recursos do Azure.
 
-> [AZURE.NOTE] Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [ativar os benefícios de assinante do Visual Studio][] ou [inscrever-se em uma avaliação gratuita][].
+> [AZURE.NOTE] Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [ativar os benefícios de assinante do Visual Studio] ou [inscrever-se em uma avaliação gratuita].
 >
-> Se você quiser ter uma introdução ao Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo][]. Lá, você poderá criar imediatamente um aplicativo Web de curta duração inicial no Serviço de Aplicativo – sem exigência de cartão de crédito e sem compromissos.
+> Se você quiser ter uma introdução ao Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo]. Lá, você poderá criar imediatamente um aplicativo Web de curta duração inicial no Serviço de Aplicativo – sem exigência de cartão de crédito e sem compromissos.
 
 ## Opções de aplicativos Java
 
@@ -53,7 +53,7 @@ Há várias maneiras de configurar um aplicativo Java em um aplicativo Web do Se
 	* Você deseja configurar o contêiner da Web do zero por conta própria. 
 	* Você deseja usar uma versão do Java que não tem suporte no Serviço de Aplicativo e deseja carregá-la por conta própria.
 
-	Para casos como esse, crie um aplicativo usando o Portal do Azure e forneça manualmente os arquivos de tempo de execução apropriados. Nesse caso, os arquivos serão contados em relação às suas cotas de espaço de armazenamento para seu plano do Serviço de Aplicativo. Para saber mais, consulte [Carregar um aplicativo Web Java personalizado no Azure](https://acom-sandbox.azurewebsites.net/pt-BR/documentation/articles/web-sites-java-custom-upload/).
+	Para casos como esse, crie um aplicativo usando o Portal do Azure e forneça manualmente os arquivos de tempo de execução apropriados. Nesse caso, os arquivos serão contados em relação às suas cotas de espaço de armazenamento para seu plano do Serviço de Aplicativo. Para saber mais, consulte [Carregar um aplicativo Web Java personalizado no Azure](web-sites-java-custom-upload.md).
 
 ## <a name="portal"></a>Criar e configurar um aplicativo Web Java
 
@@ -91,7 +91,7 @@ Esta seção mostra como criar um aplicativo Web e como configurá-lo para Java 
 
 11. Clique na **Versão Java** desejada.
 
-12. Clique na **Versão secundária Java** desejada. Se você selecionar **Mais recente**, seu aplicativo usará a versão secundária mais recente disponível no Serviço de Aplicativo para a versão principal do Java. O item **mais recente** é exclusivo para aplicativos Java criados com base nas **Configurações do aplicativo**. Se criar o aplicativo Java por meio da galeria, você precisará gerenciar as alterações em seu próprio contêiner e no JVM.
+12. Clique na **Versão secundária Java** desejada. Se você selecionar **Mais recente**, seu aplicativo usará a versão secundária mais recente disponível no Serviço de Aplicativo para a versão principal do Java. O item **Mais recente** é exclusivo para aplicativos Java criados com base nas **Configurações do aplicativo**. Se criar o aplicativo Java por meio da galeria, você precisará gerenciar as alterações em seu próprio contêiner e no JVM.
 
 12. Escolha o **Contêiner da Web** desejado. Se você selecionar um nome de contêiner que comece com **Newest**, seu aplicativo será mantido na versão mais recente da versão principal do contêiner da Web disponível no Serviço de Aplicativo.
 
@@ -176,7 +176,6 @@ Para saber mais sobre o desenvolvimento de aplicativos Java no Azure, consulte o
 <!-- External Links -->
 [ativar os benefícios de assinante do Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
 [inscrever-se em uma avaliação gratuita]: http://go.microsoft.com/fwlink/?LinkId=623901
-
 [Experimentar o Serviço de Aplicativo]: http://go.microsoft.com/fwlink/?LinkId=523751
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

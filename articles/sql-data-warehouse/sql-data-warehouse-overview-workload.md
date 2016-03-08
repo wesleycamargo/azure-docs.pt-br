@@ -10,10 +10,10 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/25/2016"
    ms.author="barbkess;mausher;jrj;sonyama"/>
 
 
@@ -28,7 +28,7 @@ Os data warehouses são caracterizados por consultas que examinam grandes quanti
 
 - Um data warehouse funciona melhor quando os dados são armazenados de forma que otimizem as consultas que precisam examinar grandes números de linhas ou grandes intervalos de dados. Esse tipo de exame funciona melhor quando os dados são armazenados e pesquisados por colunas, e não por linhas. 
 
->[AZURE.NOTE]O índice columnstore na memória, que usa o armazenamento de coluna, fornece até 10 vezes mais ganhos de compactação e 100 vezes mais ganhos de desempenho de consulta pelas árvores binárias tradicionais para consultas de análise e relatório. Consideramos os índices columnstore como o padrão para armazenamento e exame de dados volumosos em um data warehouse.
+>[AZURE.NOTE] O índice columnstore na memória, que usa o armazenamento de coluna, fornece até 10 vezes mais ganhos de compactação e 100 vezes mais ganhos de desempenho de consulta pelas árvores binárias tradicionais para consultas de análise e relatório. Consideramos os índices columnstore como o padrão para armazenamento e exame de dados volumosos em um data warehouse.
 
 - Os requisitos de um data warehouse são diferentes dos requisitos de um sistema que é otimizado para OLTP (processamento de transação online). O sistema OLTP tem muitas operações de inserção, atualização e exclusão. Essas operações buscam linhas específicas na tabela. As buscas na tabela são mais bem executadas quando os dados são armazenados linha por linha. Os dados podem ser classificados e rapidamente pesquisados com uma abordagem de divisão e domínio chamada de árvore binária ou pesquisa na árvore B.
 
@@ -38,7 +38,7 @@ O carregamento de dados é uma grande parte da carga de trabalho do data warehou
 
 - Tradicionalmente, o processo de carregamento é chamado de ETL (Extração, Transformação e Carregamento). Geralmente, os dados precisam ser transformados para que sejam consistentes com outros dados no data warehouse. Anteriormente, as empresas usavam servidores ETL dedicados para realizar as transformações. Agora, com um processamento rápido massivamente paralelo, você pode carregar dados no SQL Data Warehouse primeiro e depois realizar as transformações. Esse processo é chamado ELT (Extração, Carregamento e Transformação) e está se tornando um novo padrão para a carga de trabalho do data warehouse.
 
-> [AZURE.NOTE]Com o SQL Server CTP2, agora você pode realizar a análise em tempo real em uma tabela OLTP. Isso não substitui a necessidade de um data warehouse para armazenar e analisar dados, mas é uma maneira de realizar análise em tempo real.
+> [AZURE.NOTE] Com o SQL Server CTP2, agora você pode realizar a análise em tempo real em uma tabela OLTP. Isso não substitui a necessidade de um data warehouse para armazenar e analisar dados, mas é uma maneira de realizar análise em tempo real.
  
 ### Consultas de análise e relatórios
 As consultas de análise e relatórios muitas vezes são classificadas em pequenas, médias e grandes com base em vários critérios, mas normalmente se baseiam no tempo. Na maioria dos data warehouses, há uma carga de trabalho mista de consultas de execução rápida e execução longa. Em cada caso, é importante determinar essa combinação e determinar sua frequência (por hora, diariamente, fim do mês, fim do trimestre e assim por diante). É importante entender que a carga de trabalho de consultas mistas, aliada à simultaneidade, leva ao planejamento adequado da capacidade para um data warehouse.
@@ -73,4 +73,4 @@ Para começar a desenvolver seu data warehouse, consulte [visão geral de desenv
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

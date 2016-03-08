@@ -36,7 +36,7 @@ Os [pools de banco de dados elástico](sql-database-elastic-pool.md) no Banco de
 
 Seja qual for a forma escolhida por você, individual ou elástico, você não fica limitado. Você pode misturar os bancos de dados individuais com pools de banco de dados elástico e alterar as camadas de serviço dos bancos de dados individuais e pools para criar designs inovadores. E mais, com a potência e o alcance do Azure, você pode combinar e corresponder serviços do Azure com o Banco de Dados SQL para atender às suas necessidades exclusivas de design de aplicativo moderno, direcionar as eficiências de recursos e custo, bem como descobrir novas oportunidades de negócios.
 
-Mas como você pode comparar o desempenho relativo de bancos de dados e pools de banco de dados? Como você sabe o momento certo de parar ao fazer o ajuste? A resposta é a unidade de transação do banco de dados (DTU) para bancos de dados individuais e DTU elástica (eDTU) para bancos de dados elásticos e pools de banco de dados.
+Mas como você pode comparar o desempenho relativo de bancos de dados e pools de banco de dados? Como você sabe o momento certo de parar ao fazer o ajuste? A resposta é a DTU (Unidade de Transação do Banco de Dados) para bancos de dados individuais e DTU elástica (eDTU) para bancos de dados elásticos e pools de banco de dados.
 
 ## Entenda as DTUs
 
@@ -61,4 +61,4 @@ Agora que você leu uma introdução ao Banco de Dados SQL e respondeu à pergun
 
 - Comece pela [criação do seu primeiro banco de dados](sql-database-get-started.md). Compile seu primeiro aplicativo em [C#](sql-database-connect-query.md), [Java](sql-database-develop-java-simple-windows.md), [Node.js](sql-database-develop-nodejs-simple-windows.md), [PHP](sql-database-develop-php-retry-windows.md), [Python](sql-database-develop-python-simple-windows.md) ou [Ruby](sql-database-develop-ruby-simple-linux).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

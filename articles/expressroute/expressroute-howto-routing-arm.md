@@ -10,7 +10,7 @@
 <tags
    ms.service="expressroute"
    ms.devlang="na"
-   ms.topic="article" 
+   ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/04/2016"
@@ -394,4 +394,4 @@ A próxima etapa será [Vincular é uma Rede Virtual a um circuito da Rota Expre
 
 -  Para saber mais sobre redes virtuais, veja [Visão geral da rede virtual](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

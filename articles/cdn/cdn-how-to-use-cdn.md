@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Como usar a CDN | Microsoft Azure" 
-	description="Saiba como usar a CDN (Rede de Distribuição de Conteúdo) do Azure para fornecer conteúdo com alta largura de banda armazenando em cache blobs e conteúdo estático." 
-	services="cdn" 
-	documentationCenter=".net" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="Como usar a CDN | Microsoft Azure"
+	description="Saiba como usar a CDN (Rede de Distribuição de Conteúdo) do Azure para fornecer conteúdo com alta largura de banda armazenando em cache blobs e conteúdo estático."
+	services="cdn"
+	documentationCenter=".net"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="01/20/2016" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="02/25/2016"
 	ms.author="casoper"/>
 
 
@@ -27,20 +27,20 @@ Os benefícios do uso da CDN para armazenar dados do Azure em cache incluem:
 - Grande escala distribuída para lidar melhor com alta carga instantânea, digamos, no início de um evento, como o lançamento de um produto.
 - Ao distribuir solicitações de usuário e entregar conteúdo por meio de POPs de borda globais, menos tráfego é enviado para a origem.
 
->[AZURE.TIP]A CDN do Azure pode distribuir o conteúdo de uma variedade de origens. As origens integradas ao Azure incluem o Serviço de Aplicativo, os Serviços de Nuvem, o armazenamento de blobs e o Serviço de Mídia. Você também pode definir uma origem personalizada usando qualquer endereço da Web acessível publicamente.
+>[AZURE.TIP] A CDN do Azure pode distribuir o conteúdo de uma variedade de origens. As origens integradas ao Azure incluem o Serviço de Aplicativo, os Serviços de Nuvem, o armazenamento de blobs e o Serviço de Mídia. Você também pode definir uma origem personalizada usando qualquer endereço da Web acessível publicamente.
 
 ##Como habilitar a CDN
 
 1. Criar um perfil CDN com pontos de extremidade apontando para a origem
 
 	Um perfil CDN é uma coleção de pontos de extremidade CDN. Cada perfil contém um ou mais pontos de extremidade CDN. Depois de criar um perfil CDN, você poderá criar um novo ponto de extremidade CDN usando a origem que escolheu.
-	
-	>[AZURE.NOTE]Por padrão, uma única assinatura do Azure é limitada a quatro perfis da CDN. Cada perfil da CDN é limitado a 10 pontos de extremidade da CDN.
+
+	>[AZURE.NOTE] Por padrão, uma única assinatura do Azure é limitada a quatro perfis da CDN. Cada perfil da CDN é limitado a 10 pontos de extremidade da CDN.
 	>
 	> Os preços da CDN são aplicados no nível de perfil CDN. Se você quiser usar uma combinação de recursos CDN Standard e Premium, precisará de vários perfis CDN.
-	
+
 	Para obter um tutorial detalhado sobre a criação de perfis e de pontos de extremidade CDN, confira [Como habilitar a Rede de Distribuição de Conteúdo para o Azure](cdn-create-new-endpoint.md).
-	
+
 2. Definir sua configuração da CDN
 
 	Você pode habilitar uma série de recursos para o ponto de extremidade da CDN, como [política de armazenamento em cache](cdn-caching-policy.md), [cache de cadeia de caracteres de consulta](cdn-query-string.md), [mecanismo de regras](cdn-rules-engine.md), entre outros. Para obter detalhes, confira o menu **Gerenciar** à esquerda.
@@ -55,10 +55,12 @@ Depois que a CDN for habilitada em uma conta de armazenamento do Azure, todos os
 
 Para obter o melhor desempenho, use o cache de borda da CDN para fornecer blobs com menos de 10 GB de tamanho.
 
-Quando você habilita o acesso à CDN para uma conta de armazenamento, o Portal de Gerenciamento fornece um nome de domínio da CDN neste formato: `http://<identifier>.azureedge.net/` Esse nome de domínio pode ser usado para acessar blobs em um contêiner público. Por exemplo, ao fornecer um contêiner público de nome música em uma conta de armazenamento de nome minhaconta, os usuários podem acessar os blobs nesse contêiner usando qualquer uma das seguintes URLs:
+Quando você habilita o acesso à CDN para uma conta de armazenamento, o Portal de Gerenciamento fornece um nome de domínio da CDN neste formato: `http://<identifier>.azureedge.net/` Esse nome de domínio pode ser usado para acessar blobs em um contêiner público. Por exemplo, usando determinado contêiner público, os usuários podem acessar os blobs nesse contêiner usando qualquer uma das seguintes URLs:
 
-- **URL do serviço de Blob do Azure**: `http://myAccount.blob.core.windows.net/music/` 
-- **URL da CDN do Azure**: `http://<identifier>.azureedge.net/music/` 
+- **URL do serviço de Blob do Azure**: `http://<account>.blob.core.windows.net/<container>/`
+- **URL da CDN do Azure**: `http://<identifier>.azureedge.net/<container>/`
+
+> [AZURE.TIP] No exemplo acima, apontamos o ponto de extremidade da CDN na conta de armazenamento *inteira*. Da mesma forma, a URL da CDN precisará incluir o contêiner na URL. Você pode apontar a raiz da URL da CDN para um contêiner específico usando o parâmetro **Caminho de Origem**.
 
 ## Armazenando em cache o conteúdo dos sites do Azure
 
@@ -66,9 +68,9 @@ Você pode habilitar a CDN de seus sites para armazenar em cache o conteúdo da 
 
 Quando você habilita o acesso à CDN para um site, o Portal de Gerenciamento fornece um nome de domínio da CDN neste formato: `http://<identifier>.azureedge.net/` Esse nome de domínio pode ser usado para recuperar objetos de um site. Por exemplo, com um contêiner público chamado cdn e um arquivo de imagem chamado music.png, os usuários podem acessar o objeto usando uma das duas seguintes URLs:
 
-- **URL do site do Azure**: `http://mySiteName.azurewebsites.net/cdn/music.png` 
+- **URL do site do Azure**: `http://mySiteName.azurewebsites.net/cdn/music.png`
 - **URL da CDN do Azure**: `http://<identifier>.azureedge.net/cdn/music.png`
- 
+
 ## Armazenando em cache o conteúdo dos serviços de nuvem do Azure
 
 Você pode armazenar em cache para a CDN os objetos que são fornecidos por um serviço de nuvem do Azure.
@@ -78,7 +80,7 @@ O cache para serviços de nuvem tem as seguintes restrições:
 
 - A CDN deve ser usada para armazenar em cache apenas conteúdo estático.
 
-	>[AZURE.WARNING]O armazenamento em cache de conteúdo altamente volátil ou verdadeiramente dinâmico pode prejudicar o desempenho ou causar problemas de conteúdo, com um aumento de custo.
+	>[AZURE.WARNING] O armazenamento em cache de conteúdo altamente volátil ou verdadeiramente dinâmico pode prejudicar o desempenho ou causar problemas de conteúdo, com um aumento de custo.
 - O serviço de nuvem deve ser implantado em uma implantação de produção.
 - O serviço de nuvem deve fornecer o objeto na porta 80 usando HTTP.
 - O serviço de nuvem deve colocar o conteúdo a ser armazenado em cache ou entregue na pasta /cdn do serviço de nuvem.
@@ -86,8 +88,8 @@ O cache para serviços de nuvem tem as seguintes restrições:
 Quando você habilita o acesso à CDN para um serviço em nuvem, o Portal de Gerenciamento fornece um nome de domínio da CDN neste formato: `http://<identifier>.azureedge.net/` Esse nome de domínio pode ser usado para recuperar objetos de um serviço de nuvem. Por exemplo, com a um serviço de nuvem chamado myHostedService e uma página da Web do ASP.NET chamada music.aspx que fornece conteúdo, os usuários podem acessar o objeto usando uma das duas seguintes URLs:
 
 
-- **URL do Serviço de Nuvem do Azure**: `http://myHostedService.cloudapp.net/music.aspx` 
-- **URL da CDN do Azure**: `http://<identifier>.azureedge.net/music.aspx` 
+- **URL do Serviço de Nuvem do Azure**: `http://myHostedService.cloudapp.net/music.aspx`
+- **URL da CDN do Azure**: `http://<identifier>.azureedge.net/music.aspx`
 
 ## Armazenando em cache conteúdo de origens personalizadas
 
@@ -97,14 +99,14 @@ O cache para origens personalizadas tem as seguintes restrições:
 
 - A CDN deve ser usada para armazenar em cache apenas conteúdo estático.
 
-	>[AZURE.WARNING]O armazenamento em cache de conteúdo altamente volátil ou verdadeiramente dinâmico pode prejudicar o desempenho ou causar problemas de conteúdo, com um aumento de custo.
+	>[AZURE.WARNING] O armazenamento em cache de conteúdo altamente volátil ou verdadeiramente dinâmico pode prejudicar o desempenho ou causar problemas de conteúdo, com um aumento de custo.
 - O conteúdo na origem personalizada deve estar hospedado em um servidor com um endereço IP público. Os nós de borda da CDN não conseguem recuperar ativos de servidores de intranet atrás de um firewall.
 
 Quando você habilita o acesso à CDN a uma origem personalizada, o Portal do Azure oferece um nome de domínio da CDN neste formato: `http://<identifier>.azureedge.net/`. Esse nome de domínio pode ser usado para recuperar objetos de uma origem personalizada. Por exemplo, dado um site localizado em www.contoso.com e uma página da Web ASP.NET chamada music.aspx que fornece conteúdo, os usuários poderão acessar o objeto usando uma das duas seguintes URLs:
 
 
-- **URL de origem personalizada**: `http://www.contoso.com/music.aspx` 
-- **URL da CDN do Azure**: `http://<identifier>.azureedge.net/music.aspx` 
+- **URL de origem personalizada**: `http://www.contoso.com/music.aspx`
+- **URL da CDN do Azure**: `http://<identifier>.azureedge.net/music.aspx`
 
 ## Armazenando em cache conteúdo específico com cadeias de caracteres de consulta
 
@@ -147,4 +149,4 @@ A CDN do Microsoft Azure pode ser gerenciada de forma programática usando a [AP
 - [Limpar um ponto de extremidade CDN do Azure](cdn-purge-endpoint.md)
 - [API REST do Provedor de Recursos CDN](https://msdn.microsoft.com/library/mt634456.aspx)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0302_2016-->

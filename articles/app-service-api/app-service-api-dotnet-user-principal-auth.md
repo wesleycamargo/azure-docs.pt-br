@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="get-started-article"
 	ms.date="01/26/2016"
 	ms.author="tdykstra"/>
 
@@ -68,7 +68,7 @@ Esta seção fornece instruções gerais que se aplicam a qualquer aplicativo de
 
 7. Na folha **Autenticação/Autorização**, clique em **Salvar**.
 
-Quando isso for feito, o Serviço de Aplicativo autenticará todas as chamadas de API antes que elas cheguem ao aplicativo de API. Os serviços de autenticação funcionam da mesma para todas as linguagens às quais o Serviço de Aplicativo dá suporte, incluindo .NET, Node.js e Java.
+Quando isso for feito, o Serviço de Aplicativo autenticará todas as chamadas de API antes que elas cheguem ao aplicativo de API. Os serviços de autenticação funcionam da mesma forma para todas as linguagens às quais o Serviço de Aplicativo dá suporte, incluindo .NET, Node.js e Java.
 
 Para fazer chamadas de API autenticadas, o chamador inclui o token de portador OAuth 2.0 do provedor de autenticação no cabeçalho de Autorização de solicitações HTTP. O token pode ser adquirido usando o SDK do provedor de autenticação.
 
@@ -337,4 +337,4 @@ Se você executar com êxito o aplicativo sem autenticação e, depois, ele não
 
 Neste tutorial, você aprendeu como usar a autenticação do Serviço de Aplicativo para um aplicativo de API e como chamar o aplicativo de API usando a biblioteca ADAL JS. No próximo tutorial, você aprenderá a [proteger o acesso ao aplicativo de API para cenários entre serviços](app-service-api-dotnet-service-principal-auth.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->
