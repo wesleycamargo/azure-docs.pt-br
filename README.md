@@ -20,6 +20,8 @@ Obrigado por seu interesse na documentação do Azure.
 
 Você pode contribuir para a [Documentação do Azure](http://azure.microsoft.com/documentation/) de algumas maneiras diferentes:
 
+* Contribuir para uma [discussão do fórum](http://social.msdn.microsoft.com/Forums/windowsazure/home).
+* Enviar comentários do Disqus na parte inferior dos artigos.
 * Você pode contribuir com facilidade para artigos técnicos na interface do usuário do GitHub. Localize o artigo neste repositório ou visite o artigo em [http://azure.microsoft.com/documentation](http://azure.microsoft.com/documentation) e clique no link no artigo para a fonte do GitHub do artigo.
 * Se você estiver fazendo alterações significativas em um artigo existente, adicionando ou alterando imagens ou colaborando com um novo artigo, precisará bifurcar esse repositório, instalar o Git Bash, o Markdown Pad e aprender alguns comandos do git.
 
@@ -45,27 +47,28 @@ Todos os detalhes estão disponíveis em [http://azure.github.io/guidelines.html
 
 O conteúdo do repositório azure-content segue a organização da documentação em [Azure.Microsoft.com](http://azure.microsoft.com). Esse repositório contém duas pastas raiz:
 
-### \\articles
+### \articles
 
-A pasta *\\articles* contém os artigos de documentação formatados como arquivos de redução com uma extensão *.md*.
+A pasta *\articles* contém os artigos de documentação formatados como arquivos de redução com uma extensão *.md*.
 
-Os artigos no diretório raiz são publicados no Azure.Microsoft.com no caminho **http://azure.microsoft.com/documentation/articles/{article-name-without-md}/*.
+Os artigos no diretório raiz são publicados no Azure.Microsoft.com no caminho *http://azure.microsoft.com/documentation/articles/{article-name-without-md}/*.
 
 * **Nomes de arquivo do artigo:** confira [nossas diretrizes de nomenclatura de arquivo](./contributor-guide/file-names-and-locations.md).
 
-Os artigos nas próprias pastas de serviço são publicados no Azure.Microsoft.com no caminho **http://azure.microsoft.com/documentation/articles/service-folder/{article-name-without-md}/*
+Os artigos nas próprias pastas de serviço são publicados no Azure.Microsoft.com no caminho 
+*http://azure.microsoft.com/documentation/articles/service-folder/{article-name-without-md}/*
 
-* **Subpastas de mídia:** a pasta *\\articles* contém a pasta *\\media* dos arquivos de mídia do artigo de diretório raiz, onde há subpastas com as imagens de cada artigo. As pastas de serviço contêm uma pasta de mídia separada para os artigos em cada pasta de serviço. As pastas de imagem do artigo têm nomes idênticos ao do arquivo do artigo, menos a extensão de arquivo *.md*.
+* **Subpastas de mídia:** a pasta *\articles* contém a pasta *\media* dos arquivos de mídia do artigo de diretório raiz, onde há subpastas com as imagens de cada artigo. As pastas de serviço contêm uma pasta de mídia separada para os artigos em cada pasta de serviço. As pastas de imagem do artigo têm nomes idênticos ao do arquivo do artigo, menos a extensão de arquivo *.md*.
 
-### \\includes
+### \includes
 
 Você pode criar seções de conteúdo reutilizável a ser incluído em um ou mais artigos. Confira [Extensões personalizadas usadas em nosso conteúdo técnico](./contributor-guide/custom-markdown-extensions.md).
 
-### \\markdown templates
+### \markdown templates
 
 Essa pasta contém nosso modelo de redução padrão com a formatação de redução básica de que você precisa para um artigo.
 
-### \\contributor-guide
+### \contributor-guide
 
 Essa pasta contém artigos que fazem parte do nosso guia do colaborador.
 
@@ -101,4 +104,4 @@ Os metadados do artigo habilitam determinadas funcionalidades do site azure.micr
 
 Confira o [índice do nosso guia do colaborador](./contributor-guide/contributor-guide-index.md) para obter todos os tópicos de orientação.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0307_2016-->
