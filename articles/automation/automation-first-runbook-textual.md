@@ -47,7 +47,7 @@ Começaremos criando um runbook simples que exibe o texto *Olá mundo*.
 Você pode digitar o código diretamente no runbook, ou você pode selecionar cmdlets, runbooks, e ativos do controle de biblioteca e adicioná-los ao runbook com quaisquer parâmetros relacionados. Para este passo a passo, digitaremos diretamente no runbook.
 
 1.	Nosso runbook está atualmente vazio, com apenas o a palavra-chave necessária do *fluxo de trabalho*, o nome do nosso runbook, e as chaves que encerrarão o fluxo de trabalho inteiro.<br>![Controle de runbooks](media/automation-first-runbook-textual/empty-runbook.png)
-2.	Digitar *Write-Output "Hello World".*entre as chaves.<br>![Olá mundo](media/automation-first-runbook-textual/hello-world.png)
+2.	Digitar *Write-Output "Hello World".* entre as chaves.<br>![Olá mundo](media/automation-first-runbook-textual/hello-world.png)
 3.	Salve o runbook clicando em **Salvar**.<br> ![Salvar runbook](media/automation-first-runbook-textual/runbook-edit-toolbar-save.png)
 
 ## Etapa 3: testar o runbook
@@ -95,7 +95,7 @@ Testamos e publicamos nosso runbook, mas até o momento ele não faz nada útil.
 
 Agora que nosso runbook está se autenticando em nossa assinatura do Azure, podemos gerenciar recursos. Adicionaremos um comando para iniciar uma máquina virtual. Você pode escolher qualquer máquina virtual na sua assinatura do Azure e, por enquanto, embutiremos esse nome no cmdlet.
 
-1.	Após *Add-AzureAccount*, digite *Start-AzureVM-nome 'VMName' - ServiceName 'VMServiceName'*fornecendo o nome e o nome do serviço da máquina virtual a ser iniciada.<br>![Autenticar](media/automation-first-runbook-textual/start-azurevm.png)
+1.	Após *Add-AzureAccount*, digite *Start-AzureVM-nome 'VMName' - ServiceName 'VMServiceName'* fornecendo o nome e o nome do serviço da máquina virtual a ser iniciada.<br>![Autenticar](media/automation-first-runbook-textual/start-azurevm.png)
 2.	Salve o runbook e, para que possamos testá-lo, clique em **Painel de teste**.
 3.	Clique em **Iniciar** para iniciar o teste. Quando for concluído, verifique se a máquina virtual foi iniciada.
 
