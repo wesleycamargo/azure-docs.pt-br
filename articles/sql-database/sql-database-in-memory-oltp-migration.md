@@ -18,12 +18,13 @@
 	ms.author="jodebrui"/>
 
 
-# Usar Na Memória (visualização) para melhorar o desempenho do aplicativo no Banco de Dados SQL
+# Usar In-Memory OLTP (visualização) para melhorar o desempenho do aplicativo no Banco de Dados SQL
 
-Siga estas etapas para otimizar o desempenho transacional do Banco de Dados SQL do Azure [Premium](sql-database-service-tiers.md) existente usando o recurso [Na Memória](sql-database-in-memory.md).
+O [In-Memory OLTP](sql-database-in-memory.md) pode ser usado para melhorar o desempenho da carga de trabalho OLTP em Bancos de Dados SQL do Azure [Premium](sql-database-service-tiers.md) sem aumentar o nível de desempenho.
 
+Siga estas etapas para adotar o in-memory OLTP no banco de dados existente.
 
-## Etapa 1: Verifique se o banco de dados Premium dá suporte a Na Memória
+## Etapa 1: verifique se o banco de dados Premium dá suporte a In-Memory OLTP
 
 Os bancos de dados Premium criados em novembro de 2015 ou posteriormente dão suporte ao recurso Na Memória. Você pode verificar se o seu banco de dados Premium oferece suporte ao recurso Na Memória ao executar a instrução Transact-SQL a seguir. Na Memória terá suporte se o resultado retornado for 1 (e não 0):
 
@@ -233,4 +234,4 @@ Considere monitorar os efeitos de desempenho de suas implementações de Na Mem�
 
 - [Supervisor de Otimização de Memória](http://msdn.microsoft.com/library/dn284308.aspx)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

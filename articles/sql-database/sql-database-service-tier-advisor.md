@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="02/08/2015"
+   ms.date="02/08/2016"
    ms.author="sstein"/>
 
 # Recomendações de camada de preços do Banco de Dados SQL
@@ -26,7 +26,7 @@
 Obtenha as recomendações de tipo de preço durante as seguintes tarefas:
 
 - [Alterar a camada de serviços e o nível de desempenho (tipo de preço) de um banco de dados SQL](sql-database-scale-up.md)
-- [Atualizar servidor do SQL Azure para V12](sql-database-v12-upgrade.md)
+- [Atualizar servidor do SQL Azure para V12](sql-database-upgrade-server-portal.md)
 - Navegue até seu servidor V12 - se os bancos de dados puderem se [beneficiar de um pool de banco de dados elástico](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools), a folha do servidor exibirá uma mensagem indicando um pool recomendado. Clique na mensagem para criar o pool recomendado.
 - [Criar um pool de banco de dados elástico](sql-database-elastic-pool.md#elastic-database-pool-pricing-tier-recommendations)
 
@@ -56,7 +56,7 @@ Com base no uso do banco de dados, atualmente, podemos encontrar 2 categorias de
 
 ## Obtendo recomendações de camada de preços
 
-Obtenha recomendações de tipo de preço escolhendo um banco de dados Web ou Business. Clique em **Todas as configurações** e em **Tipo de preço (DTUs de escala)**. (As recomendações de tipo de preço também estarão disponíveis quando você [Atualizar o Azure SQL Server para o V12](sql-database-v12-upgrade.md).)
+Obtenha recomendações de tipo de preço escolhendo um banco de dados Web ou Business. Clique em **Todas as configurações** e em **Tipo de preço (DTUs de escala)**. (As recomendações de tipo de preço também estarão disponíveis quando você [Atualizar o Azure SQL Server para o V12](sql-database-upgrade-server-portal.md).)
 
 1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. Clique em **PROCURAR** > **bancos de dados SQL**.
@@ -96,4 +96,4 @@ Dependendo dos detalhes do seu banco de dados específico, a execução de uma a
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

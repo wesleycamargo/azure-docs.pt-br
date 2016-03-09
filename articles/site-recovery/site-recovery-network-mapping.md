@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="12/01/2015"
+	ms.date="02/22/2016"
 	ms.author="raynew"/>
 
 
@@ -23,7 +23,7 @@ O Azure Site Recovery contribui para sua estratégia de BCDR (continuidade de ne
 
 Este artigo descreve o mapeamento de rede, que ajuda a definir de forma ideal as configurações de rede quando você estiver usando o Site Recovery para replicar máquinas virtuais do Hyper-V localizadas em nuvens do VMM entre dois data centers locais ou entre um datacenter local e o Azure. Observe que, se você estiver replicando VMs do Hyper-V sem uma nuvem de VMM, ou se estiver replicando VMs ou servidores físicos da VMware, este artigo não será relevante.
 
-Após a leitura deste artigo, você poderá publicar perguntas no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)
+Publique eventuais comentários ou perguntas no final deste artigo ou no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## Visão geral
@@ -123,4 +123,4 @@ O mapeamento de rede da VMNetwork1-Chicago é alterado. | A VM-1 será conectada
 
 Agora que você compreende melhor o mapeamento de rede, [obtenha uma introdução à implantação do Site Recovery](site-recovery-best-practices.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

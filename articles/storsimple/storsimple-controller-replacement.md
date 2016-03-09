@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -21,7 +21,7 @@
 
 Este tutorial explica como remover e substituir um ou ambos os módulos de um dispositivo StorSimple. Também aborda a lógica subjacente dos cenários de substituição do controlador único e duplo.
 
->[AZURE.NOTE]Antes de executar a substituição de um controlador, é recomendável sempre atualizar o firmware do controlador para a versão mais recente.
+>[AZURE.NOTE] Antes de executar a substituição de um controlador, é recomendável sempre atualizar o firmware do controlador para a versão mais recente.
 >
 >Para evitar danos ao seu dispositivo StorSimple, não retire o controlador até que os LEDs exibam uma das seguintes possibilidades:
 >
@@ -47,7 +47,7 @@ Você precisa remover um módulo do controlador caso apresente falha. Um ou ambo
 - [Inserir um controlador](#insert-a-controller)
 - [Identificar o controlador ativo em seu dispositivo](#identify-the-active-controller-on-your-device)
 
->[AZURE.IMPORTANT]Antes de remover e substituir um controlador, examine as informações de segurança em [Substituição do componente de hardware do StorSimple](storsimple-hardware-component-replacement.md).
+>[AZURE.IMPORTANT] Antes de remover e substituir um controlador, examine as informações de segurança em [Substituição do componente de hardware do StorSimple](storsimple-hardware-component-replacement.md).
 
 ## Substituir controlador único
 
@@ -71,7 +71,7 @@ Em uma substituição de controlador único, é preciso primeiro remover o contr
 
 Conclua as etapas a seguir se um dos controladores do dispositivo Microsoft Azure StorSimple falhar. (O outro controlador precisa estar ativo e em execução. Se ambos os controladores falharem ou apresentarem defeito, vá para [Etapas de substituição de controlador duplo](#dual-controller-replacement-steps).)
 
->[AZURE.NOTE]Pode levar de 30 a 45 minutos para o controlador reiniciar e se recuperar completamente do procedimento de substituição de controlador único. O tempo total para o procedimento completo, incluindo a conexão dos cabos, é de aproximadamente 2 horas.
+>[AZURE.NOTE] Pode levar de 30 a 45 minutos para o controlador reiniciar e se recuperar completamente do procedimento de substituição de controlador único. O tempo total para o procedimento completo, incluindo a conexão dos cabos, é de aproximadamente 2 horas.
 
 #### Para remover um módulo de controlador único com falha
 
@@ -79,7 +79,7 @@ Conclua as etapas a seguir se um dos controladores do dispositivo Microsoft Azur
 
 2. Clique na guia **Manutenção** e, em seguida, navegue até **Status de Hardware**. O status do Controlador 0 ou Controlador 1 deve estar vermelho, o que indica uma falha.
 
-    >[AZURE.NOTE]O controlador com falha na substituição de controlador único é sempre um controlador em espera.
+    >[AZURE.NOTE] O controlador com falha na substituição de controlador único é sempre um controlador em espera.
 
 3. Use a Figura 1 e a tabela a seguir para localizar o módulo do controlador com falha.
 
@@ -104,7 +104,7 @@ Conclua as etapas a seguir se um dos controladores do dispositivo Microsoft Azur
 
 8. Depois que o controlador for reiniciado, verifique o **Status do controlador** e o **Status do cluster** no Portal clássico do Azure para verificar se o controlador está de volta em um estado íntegro e está em modo de espera.
 
->[AZURE.NOTE]Se você estiver monitorando o dispositivo através do console serial, você poderá ver diversas reinicializações enquanto o controlador se recupera do procedimento de substituição. Quando o menu do console serial é apresentado, você saberá que a substituição foi concluída. Se o menu não aparecer dentro de duas horas do início da substituição do controlador, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md).
+>[AZURE.NOTE] Se você estiver monitorando o dispositivo através do console serial, você poderá ver diversas reinicializações enquanto o controlador se recupera do procedimento de substituição. Quando o menu do console serial é apresentado, você saberá que a substituição foi concluída. Se o menu não aparecer dentro de duas horas do início da substituição do controlador, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md).
 
 ## Substituir ambos os controladores
 
@@ -132,13 +132,13 @@ Na substituição de um controlador duplo, primeiro remova os dois controladores
 
 5. Posteriormente, ambos os controladores estarão em execução e o cluster ficará online.
 
->[AZURE.IMPORTANT]Após substituição de um controlador duplo, depois que o dispositivo StorSimple estiver configurado, é essencial fazer um backup manual do dispositivo. Os backups diários da configuração do dispositivo não são acionados antes de 24 horas. Trabalhe com o [Suporte da Microsoft](storsimple-contact-microsoft-support.md) para fazer um backup manual de seu dispositivo.
+>[AZURE.IMPORTANT] Após substituição de um controlador duplo, depois que o dispositivo StorSimple estiver configurado, é essencial fazer um backup manual do dispositivo. Os backups diários da configuração do dispositivo não são acionados antes de 24 horas. Trabalhe com o [Suporte da Microsoft](storsimple-contact-microsoft-support.md) para fazer um backup manual de seu dispositivo.
 
 ### Etapas de substituição do controlador duplo
 
 Esse fluxo de trabalho é necessário quando ambos os controladores em seu dispositivo Microsoft Azure StorSimple falharem. Isso pode acontecer em um data center em que o sistema de resfriamento pare de funcionar e, como resultado, ambos os controladores falhem dentro de um curto período de tempo. Dependendo do estado do dispositivo StorSimple, desativado ou ativado, e se você estiver usando um modelo 8600 ou 8100, um conjunto diferente de etapas será necessário.
 
->[AZURE.IMPORTANT]Pode levar de 45 minutos a uma hora para o controlador reiniciar e se recuperar completamente do procedimento de substituição do controlador duplo. O tempo total de todo o procedimento, incluindo a conexão dos cabos, é de aproximadamente 2,5 horas.
+>[AZURE.IMPORTANT] Pode levar de 45 minutos a uma hora para o controlador reiniciar e se recuperar completamente do procedimento de substituição do controlador duplo. O tempo total de todo o procedimento, incluindo a conexão dos cabos, é de aproximadamente 2,5 horas.
 
 #### Para substituir ambos os módulos de controlador
 
@@ -166,13 +166,13 @@ Esse fluxo de trabalho é necessário quando ambos os controladores em seu dispo
 
     4. Após o primeiro controlador ser reiniciado e estar em um estado íntegro, o sistema será executado.
 
-    >[AZURE.NOTE]Se você estiver monitorando o dispositivo através do console serial, você poderá ver diversas reinicializações enquanto o controlador se recupera do procedimento de substituição. Quando o menu do console serial é apresentado, você saberá que a substituição foi concluída. Se o menu não aparecer dentro de 2,5 horas do início da substituição do controlador, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md).
+    >[AZURE.NOTE] Se você estiver monitorando o dispositivo através do console serial, você poderá ver diversas reinicializações enquanto o controlador se recupera do procedimento de substituição. Quando o menu do console serial é apresentado, você saberá que a substituição foi concluída. Se o menu não aparecer dentro de 2,5 horas do início da substituição do controlador, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md).
 
 ## Remover um controlador
 
 Use o procedimento a seguir para remover um módulo do controlador com falha do dispositivo StorSimple.
 
->[AZURE.NOTE]As ilustrações a seguir são para o controlador 0. No controlador 1, as ilustrações seriam invertidas.
+>[AZURE.NOTE] As ilustrações a seguir são para o controlador 0. No controlador 1, as ilustrações seriam invertidas.
 
 #### Para remover um módulo do controlador
 
@@ -212,7 +212,7 @@ Use o procedimento a seguir para instalar um módulo do controlador fornecido pe
 
 4. Você terminará quando a trava se encaixar no lugar. O LED **OK** já deve estar aceso.
 
-    >[AZURE.NOTE]Pode levar até 5 minutos até que o controlador e o LED estejam ativados.
+    >[AZURE.NOTE] Pode levar até 5 minutos até que o controlador e o LED estejam ativados.
 
 5. Para verificar se a substituição foi bem-sucedida, no Portal clássico do Azure, navegue até **Dispositivos** > **Manutenção** > **Status de Hardware** e certifique-se de que o controlador 0 e o controlador 1 estejam íntegros (status verde).
 
@@ -266,4 +266,4 @@ Se esse LED estiver piscando, o controlador estará ativo e o outro controlador 
 
 Saiba mais sobre a [substituição de componentes de hardware StorSimple](storsimple-hardware-component-replacement.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

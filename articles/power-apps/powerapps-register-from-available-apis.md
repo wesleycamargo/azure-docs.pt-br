@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="12/17/2015"
+   ms.date="01/21/2016"
    ms.author="guayan"/>
 
 # Registre uma API gerenciada pela Microsoft ou por TI
@@ -75,7 +75,7 @@ Alguns benefícios extras abrangem:
 
 
 #### APIs gerenciadas pela TI
-> [AZURE.NOTE]Lembre-se, **todas** as APIs gerenciadas pela Microsoft também podem ser gerenciadas pela TI. As seguintes APIs são gerenciadas apenas pela TI. Elas não podem ser gerenciadas pela Microsoft.
+> [AZURE.NOTE] Lembre-se, **todas** as APIs gerenciadas pela Microsoft também podem ser gerenciadas pela TI. As seguintes APIs são gerenciadas apenas pela TI. Elas não podem ser gerenciadas pela Microsoft.
 
 API | Descrição | Link de etapas
 --- | --- | ---
@@ -107,17 +107,18 @@ A tabela a seguir compara os recursos das APIs gerenciadas pela Microsoft e pela
 
 ## Registrar uma API gerenciada pela Microsoft ou pela TI
 
-1. No [portal do Azure](https://portal.azure.com/), selecione **PowerApps** e, em seguida, selecione **Gerenciar APIs**: ![][17]
-2. Na seção Gerenciar APIs, selecione **Adicionar**: ![][18]  
-3. Em **Adicionar API**, insira as propriedades da API:  
+1. No [Portal do Azure](https://portal.azure.com/), entre com sua conta corporativa (*seuNomedeUsuário*@*SuaEmpresa*.com). Você entrará automaticamente na assinatura de sua empresa.
+2. Selecione **Navegar**, **PowerApps** e **Gerenciar APIs**: ![][17]
+3. Na seção Gerenciar APIs, selecione **Adicionar**: ![][18]  
+4. Em **Adicionar API**, insira as propriedades da API:  
 
 	- Em **Nome**, insira um nome para sua API. Observe que o nome inserido está incluído na URL de tempo de execução da API. Verifique o nome significativo e exclusivo em sua organização.
 	- Na seção **Fonte**, selecione **Das APIs disponíveis**: ![][19]
-4. Selecione **API** e, em seguida, escolha a API que você deseja registrar: ![][20]
-5. Selecione sua API específica e adicione as propriedades configuráveis.
-6. Selecione **Adicionar** para concluir estas etapas.
+5. Selecione **API** e, em seguida, escolha a API que você deseja registrar: ![][20]
+6. Selecione sua API específica e adicione as propriedades configuráveis.
+7. Selecione **Adicionar** para concluir estas etapas.
 
-> [AZURE.TIP]Ao registrar uma API, você está registrando a API para seu ambiente de serviço de aplicativo. Uma vez no ambiente de serviço de aplicativo, ela poderá ser usada por outros aplicativos no mesmo ambiente de serviço de aplicativo.
+> [AZURE.TIP] Ao registrar uma API, você está registrando a API para seu ambiente de serviço de aplicativo. Uma vez no ambiente de serviço de aplicativo, ela poderá ser usada por outros aplicativos no mesmo ambiente de serviço de aplicativo.
 
 
 ## Resumo e próximas etapas
@@ -151,4 +152,4 @@ Neste tópico, você viu como registrar sua própria instância das APIs dispon�
 [42]: ./media/powerapps-register-from-available-apis/sqlserver.png
 [43]: ./media/powerapps-register-from-available-apis/twitter.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0224_2016-->

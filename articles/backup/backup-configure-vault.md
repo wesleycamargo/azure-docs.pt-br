@@ -13,9 +13,9 @@
 	ms.workload="storage-backup-recovery"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="02/05/2016"
-	ms.author="trinadhk; jimpark; markgal"/>
+	ms.topic="article"
+	ms.date="02/23/2016"
+	ms.author="trinadhk"; "jimpark"; "markgal"/>
 
 
 # Preparar o ambiente para fazer backup de computadores do Windows para o Azure
@@ -141,4 +141,4 @@ Após a criação do cofre de Backup do Azure, um agente deverá ser instalado e
 - Se você ainda tiver perguntas sem resposta, confira as [Perguntas frequentes do Backup do Azure](backup-azure-backup-faq.md).
 - Visite o [Fórum de backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

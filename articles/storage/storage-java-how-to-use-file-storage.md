@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="02/19/2016"
 	ms.author="jutang"/>
 
 # Como usar o Armazenamento de Arquivo no Java
@@ -216,4 +216,4 @@ Se você quiser saber mais sobre outras APIs de armazenamento do Azure, siga est
 - [Blog da equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - [Transferir dados com o Utilitário de Linha de Comando AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

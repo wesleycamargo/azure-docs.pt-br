@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="javascript" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="02/23/2016" 
 	ms.author="ricksal"/>
 
 
@@ -106,7 +106,7 @@ Um script de operação de tabela deve chamar pelo menos uma das funções a seg
  
 + **responder função**: uma resposta personalizada é retornada.
 
-> [AZURE.IMPORTANT]Quando um script possui um caminho de código nos quais nem **executar** nem **responder** são invocados, a operação poderá parar de responder.
+> [AZURE.IMPORTANT] Quando um script possui um caminho de código nos quais nem **executar** nem **responder** são invocados, a operação poderá parar de responder.
 
 O seguinte script chama a função **executar** para concluir a operação de dados solicitada pelo cliente:
 
@@ -313,7 +313,7 @@ Esta seção descreve como criar e trabalhar com pontos de extremidade de API pe
 + [Como definir uma API personalizada]
 + [Como implementar métodos HTTP]
 + [Como enviar e receber dados como XML]
-+ [Como trabalhar com usuários e cabeçalhos em uma API personalizada]
++ [Como: trabalhar com usuários e cabeçalhos em uma API personalizada]
 + [Como definir várias rotas em uma API personalizada]
 
 ###<a name="custom-api-overview"></a>Visão geral das APIs personalizadas
@@ -513,7 +513,7 @@ Você pode usar o controle do código-fonte com o Gerenciador de pacotes do Node
 
 Após você confirmar o arquivo package.json ou módulos personalizados para o repositório do serviço móvel, use **require** para fazer referência aos módulos pelo nome.
 
->[AZURE.NOTE]Módulos que você especifica no package.json ou carrega em seu serviço móvel são usados somente em seu código de script de servidor. Esses módulos não são usados pelo tempo de execução dos Serviços Móveis.
+>[AZURE.NOTE] Módulos que você especifica no package.json ou carrega em seu serviço móvel são usados somente em seu código de script de servidor. Esses módulos não são usados pelo tempo de execução dos Serviços Móveis.
 
 ###<a name="helper-functions"></a>Como usar funções auxiliares
 
@@ -661,7 +661,7 @@ Scripts de API personalizada podem acessar o [objeto de tabelas] da propriedade 
 
 		var todoItemsTable = request.service.tables.getTable('TodoItem');
 
-> [AZURE.NOTE]Funções compartilhadas não podem acessar o objeto de **tabelas** diretamente. Em uma função compartilhada, você deve transmitir o objeto de tabelas para a função.
+> [AZURE.NOTE] Funções compartilhadas não podem acessar o objeto de **tabelas** diretamente. Em uma função compartilhada, você deve transmitir o objeto de tabelas para a função.
 
 Depois de ter um [objeto de tabela], é possível chamar uma ou mais funções de operação de tabelas: inserir, atualizar, excluir ou ler. Este exemplo lê as permissões de usuário de uma tabela de permissões:
 
@@ -924,7 +924,7 @@ A principal maneira para depurar e solucionar problemas de scripts de servidor �
 
 Para gravar nos logs, use o [objeto console] global. Use a função **log** ou **info** para registrar avisos de nível de informação. As funções **warning** e **error** registram seus respectivos níveis, que são chamados nos logs.
 
-> [AZURE.NOTE]Para exibir os logs do serviço móvel, faça logon no [Portal clássico do Azure](https://manage.windowsazure.com/), selecione o serviço móvel e escolha a guia **Logs**.
+> [AZURE.NOTE] Para exibir os logs do serviço móvel, faça logon no [Portal clássico do Azure](https://manage.windowsazure.com/), selecione o serviço móvel e escolha a guia **Logs**.
 
 Você também pode usar as funções de registro do [objeto de console] para formatar suas mensagens usando parâmetros. O exemplo a seguir fornece um objeto JSON como um parâmetro para a cadeia de caracteres da mensagem:
 
@@ -976,7 +976,7 @@ Para evitar sobrecarregar o log, você deve remover ou desabilitar chamadas para
 [Como usar funções auxiliares]: #helper-functions
 [Debugging and troubleshooting]: #debugging
 [Como implementar métodos HTTP]: #handle-methods
-[Como trabalhar com usuários e cabeçalhos em uma API personalizada]: #get-api-user
+[Como: trabalhar com usuários e cabeçalhos em uma API personalizada]: #get-api-user
 [How to: Access custom API request headers]: #get-api-headers
 [Job Scheduler]: #scheduler-scripts
 [Como definir várias rotas em uma API personalizada]: #api-routes
@@ -1052,4 +1052,4 @@ Para evitar sobrecarregar o log, você deve remover ou desabilitar chamadas para
 [Suporte para package.json nos Serviços Móveis do Azure]: http://go.microsoft.com/fwlink/p/?LinkId=391036
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

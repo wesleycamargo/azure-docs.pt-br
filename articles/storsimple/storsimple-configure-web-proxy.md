@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -67,7 +67,7 @@ Você pode usar o assistente de instalação para guiá-lo durante as etapas de 
 
 4. Escolha o tipo de autenticação como **NTLM**, **Básica** ou **Nenhum**. Básica é a autenticação menos segura para a configuração do servidor proxy. NTLM (NT LAN Manager) é um protocolo de autenticação complexo e de alta segurança que usa um sistema de mensagens de três vias (às vezes, quatro, se for necessária integridade adicional) para autenticar um usuário. A autenticação padrão é NTLM. Para obter mais informações, confira autenticação [Básica](http://hc.apache.org/httpclient-3.x/authentication.html) e [Autenticação NTLM](http://hc.apache.org/httpclient-3.x/authentication.html).
 
-	> [AZURE.IMPORTANT]**No serviço StorSimple Manager, os gráficos de monitoramento de dispositivos não funcionam quando a autenticação Básica ou NTLM é habilitada na configuração do servidor proxy para o dispositivo. Para que os gráficos de monitoramento funcionem, você precisará garantir que a autenticação seja definida como NENHUMA.**
+	> [AZURE.IMPORTANT] **No serviço StorSimple Manager, os gráficos de monitoramento de dispositivos não funcionam quando a autenticação Básica ou NTLM é habilitada na configuração do servidor proxy para o dispositivo. Para que os gráficos de monitoramento funcionem, você precisará garantir que a autenticação seja definida como NENHUMA.**
 
 5. Se você estiver usando autenticação, forneça um **Nome de Usuário de Proxy Web** e uma **Senha de Proxy Web**. Você também precisará confirmar a senha.
 
@@ -100,7 +100,7 @@ O proxy Web agora está configurado e precisa ser habilitado.
 
 O proxy Web está desabilitado por padrão. Depois de definir as configurações de proxy Web em seu dispositivo StorSimple, você precisa usar o Windows PowerShell para StorSimple para habilitar as configurações de proxy Web.
 
-> [AZURE.NOTE]**Essa etapa não será necessária se você tiver usado o assistente de instalação para configurar o proxy Web. O proxy Web é habilitado automaticamente por padrão depois de uma sessão do assistente de instalação.**
+> [AZURE.NOTE] **Essa etapa não será necessária se você tiver usado o assistente de instalação para configurar o proxy Web. O proxy Web é habilitado automaticamente por padrão depois de uma sessão do assistente de instalação.**
 
 Execute as seguintes etapas no Windows PowerShell para StorSimple para habilitar o proxy Web em seu dispositivo:
 
@@ -140,7 +140,7 @@ Se as configurações de proxy Web tiverem sido definidas incorretamente, mensag
 |6\.|0x8007138f - O recurso de cluster não foi encontrado|O recurso de cluster do serviço de plataforma não foi encontrado. Isso poderá acontecer se a instalação não tiver sido correta.|Talvez seja necessário executar uma redefinição de fábrica em seu dispositivo. Talvez seja necessário criar um recurso de plataforma. Contate o Suporte da Microsoft para obter as próximas etapas.|
 |7\.|0x8007138c - O recurso de cluster não está online|Os recursos de cluster de plataforma ou caminho de dados não estão online.|Entre em contato com o Suporte da Microsoft para garantir que o recurso de serviço de plataforma e caminho de dados estão online.|
 
-> [AZURE.NOTE]
+> [AZURE.NOTE] 
 > 
 > -  A lista de mensagens de erro acima não é exaustiva. 
 > - Erros relacionados às configurações de proxy Web não serão exibidos no Portal clássico do Azure do serviço StorSimple Manager. Se houver um problema com o proxy Web depois que a configuração for concluída, o status do dispositivo será alterado para **Offline** no Portal Clássico.|
@@ -151,4 +151,4 @@ Se as configurações de proxy Web tiverem sido definidas incorretamente, mensag
 
 - Para saber como usar o serviço StorSimple Manager, acesse [Use o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

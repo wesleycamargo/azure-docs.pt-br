@@ -29,11 +29,10 @@ Primeiro, crie uma tabela temporária que contém um número de linha exclusivo 
 ```
 CREATE TABLE #tbl 
 WITH 
-(   LOCATION     = USER_DB
-,   DISTRIBUTION = ROUND_ROBIN
+( DISTRIBUTION = ROUND_ROBIN
 )
 AS
-SELECT  ROW_NUMBER() OVER(ORDER BY (SELECT NULL)) ) AS Sequence
+SELECT  ROW_NUMBER() OVER(ORDER BY (SELECT NULL)) AS Sequence
 ,       [name]
 ,       'UPDATE STATISTICS '+QUOTENAME([name]) AS sql_code
 FROM    sys.tables
@@ -82,4 +81,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

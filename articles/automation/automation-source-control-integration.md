@@ -12,8 +12,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
-    ms.date="02/09/2016"
-    ms.author="sngun" />
+    ms.date="02/18/2016"
+    ms.author="magoedte;sngun" />
 
 # Integração de controle de origem na Automação do Azure
 
@@ -33,7 +33,7 @@ Se você já tiver uma conta do GitHub e um repositório que deseja vincular à 
 
 ## Etapa 2: Configurar o controle de origem na Automação do Azure
 
-1. Na folha Conta de Automação do portal de visualização do Azure, clique em **Configurar Controle de Origem**. 
+1. Na folha Conta de Automação do Portal do Azure, clique em **Configurar Controle do Código-Fonte**. 
  
     ![Configurar Controle de Origem](media/automation-source-control-integration/automation_01_SetUpSourceControl.png)
 
@@ -158,4 +158,4 @@ Para se desconectar de sua conta do GitHub, abra a folha Sincronização de Repo
 
 Para saber mais sobre a integração de controle de origem, confira os seguintes recursos:- [Automação do Azure: integração de controle de origem na Automação do Azure](https://azure.microsoft.com/blog/azure-automation-source-control-13/) - [Vote em seu sistema de controle de origem favorito](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d) - [Automação do Azure: integrando o controle do código-fonte de runbook usando o Visual Studio Team Services](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

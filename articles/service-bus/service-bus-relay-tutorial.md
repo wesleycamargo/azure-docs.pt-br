@@ -475,7 +475,7 @@ A próxima etapa é criar um aplicativo cliente do Barramento de Serviço básic
 	using System.ServiceModel;
 	```
 
-1. Repita as etapas anteriores para adicionar uma referência a Microsoft.ServiceBus.dll e ao namespace [Microsoft.ServiceBus](https://msdn.microsoft.com/library/microsoft.servicebus.aspx) ao seu projeto.
+1. Instale o [pacote do NuGet do Barramento de Serviço](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
 
 1. Adicione a definição de contrato de serviço ao namespace, conforme mostrado no exemplo a seguir. Observe que essa definição é idêntica à definição usada no projeto **Service**. Você deve adicionar esse código à parte superior do namespace `Microsoft.ServiceBus.Samples`.
 
@@ -823,4 +823,4 @@ Para saber mais sobre o Barramento de Serviço, consulte os tópicos a seguir.
 
 [portal clássico do Azure]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

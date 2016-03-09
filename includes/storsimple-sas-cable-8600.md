@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 9/23/15-->
+<!--author=alkohli last changed:02/22/16-->
 
 #### Para conectar os cabos do SAS
 
@@ -13,7 +13,7 @@
     |1|Compartimento principal|
     |2|Compartimento EBOD|
 
-2. Localize os números de série nos compartimentos principal e EBOD. A etiqueta do número de série está fixada na orelha posterior de cada compartimento. Os números de série devem ser idênticos em ambos os compartimentos. [Contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md) imediatamente se os números de série não corresponderem. Consulte a ilustração a seguir para saber como localizar os números de série.
+2. Localize os números de série nos compartimentos principal e EBOD. A etiqueta do número de série está fixada na orelha posterior de cada compartimento. Os números de série devem ser idênticos em ambos os compartimentos. [Contate o Suporte da Microsoft](../articles/storsimple/storsimple-contact-microsoft-support.md) imediatamente se os números de série não corresponderem. Consulte a ilustração a seguir para saber como localizar os números de série.
 
     ![Visão traseira do compartimento mostrando o local do número de série](./media/storsimple-sas-cable-8600/HCSRearviewofenclosureindicatinglocationofserialnumbersticker.png)
 
@@ -46,4 +46,4 @@
     |5, 6|Portas SAS no compartimento principal (rotuladas como EBOD)|
     |7, 8|Portas SAS no compartimento EBOD (Porta A)|
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

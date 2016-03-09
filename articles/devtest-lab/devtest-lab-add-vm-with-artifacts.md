@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/18/2016"
 	ms.author="tarcher"/>
 
 # Adicionar uma VM com artefatos a um Laboratório de Desenvolvimento/Teste do Azure
+
+> [AZURE.NOTE] Clique no link a seguir para exibir o vídeo que acompanha este artigo: [como criar VMs com artefatos em um Laboratório de Desenvolvimento/Teste](/documentation/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab)
 
 ## Visão geral
 
@@ -96,6 +98,6 @@ Execute estas etapas para exibir ou modificar os parâmetros de seus artefatos s
 
 ## Próximas etapas
 
-Saiba como [criar artefatos personalizados para sua VM](devtest-lab-artifact-author.md).
+- Saiba como [criar artefatos personalizados para sua VM](devtest-lab-artifact-author.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

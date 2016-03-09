@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/27/2016"
-   ms.author="bwren" />
+   ms.date="02/18/2016"
+   ms.author="magoedte;bwren" />
 
 # Ativos variáveis na Automação do Azure
 
@@ -67,7 +67,7 @@ As atividades de fluxo de trabalho na tabela a seguir são usadas para acessar v
 1. Conclua o assistente e clique na caixa de seleção para salvar a nova variável.
 
 
-### Para criar uma nova variável com o portal de visualização do Azure
+### Para criar uma nova variável com o portal do Azure
 
 1. Na sua conta de automação, clique na parte de **Ativos** para abrir a folha de **Ativos**.
 1. Clique na parte de **Variáveis** para abrir a folha de **Variáveis**.
@@ -188,4 +188,4 @@ A imagem a seguir mostra como filtrar os objetos que são armazenados em uma var
 - [Links na criação gráfica](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

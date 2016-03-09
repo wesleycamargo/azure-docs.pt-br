@@ -21,7 +21,7 @@
 
 A Pesquisa do Microsoft Azure é um novo serviço de pesquisa de nuvem hospedado que permite que você insira a funcionalidade de pesquisa em aplicativos personalizados. Ele fornece um mecanismo de pesquisa e armazenamento para seus dados de pesquisa, os quais você pode acessar e gerenciar por meio do Portal do Azure, um SDK do .NET ou uma API REST. Os principais recursos incluem consultas de preenchimento automático, correspondência difusa, realce de ocorrências, navegação facetada, perfis de pontuação e suporte a vários idiomas. Para saber mais sobre o que a Pesquisa do Azure faz, consulte [o que é a Pesquisa do Azure](search-what-is-azure-search.md).
 
-A Pesquisa do Azure está disponível com níveis de preços que variam desde gratuita (compartilhada) até Padrão, em que o custo é baseado na capacidade para a qual você se inscreve.
+A Pesquisa do Azure está disponível com níveis de preços que vão desde gratuito (compartilhado) até Básico e Padrão, em que os custos são rateados com base na capacidade para a qual você se inscreve.
 
 ## Adicionar a Pesquisa do Azure à sua assinatura gratuitamente
 
@@ -42,7 +42,8 @@ Como administrador, você pode adicionar a Pesquisa do Azure a uma assinatura do
 	- A **Camada de preços** determina a capacidade e a cobrança. Ambas as camadas fornecem os mesmos recursos, mas em diferentes níveis de recursos.
 
 		- Um serviço na camada **Gratuito** é executado em clusters compartilhados com outros assinantes. Essa camada oferece capacidade suficiente para testar tutoriais e escrever código de prova de conceito, mas não deve ser utilizada para aplicativos de produção. A implantação de um serviço gratuito geralmente demora apenas alguns minutos.
-		- Um serviço na camada **Padrão** é executado em recursos dedicados e é altamente escalonável. Inicialmente, um serviço padrão é configurado com uma réplica e uma partição, mas você pode ajustar a capacidade após o serviço ser criado. A implantação de um serviço padrão demora mais tempo, normalmente cerca de 15 minutos.
+		- O nível **Básico (Visualização)** é executado em recursos dedicados, mas com limites e preços inferiores para cargas de trabalho de produção menores. Você pode dimensionar até três réplicas e uma partição, o que é suficiente para a alta disponibilidade da execução de consultas.
+		- Um serviço na camada **Padrão** é executado em recursos dedicados e é altamente escalonável. Inicialmente, um serviço padrão é configurado com uma réplica e uma partição, mas você pode aumentar a capacidade até o máximo de 36 unidades de pesquisa depois que o serviço é criado. A implantação de um serviço padrão demora mais tempo, normalmente cerca de 15 minutos.
 
 	- **Grupos de recursos** são contêineres para serviços e contêineres usados para um fim comum. Por exemplo, se for compilar um aplicativo de pesquisa personalizado baseado na Pesquisa do Azure, o recurso Aplicativos Web no Serviço de Aplicativo do Azure e armazenamento em Blob do Azure, você pode criar um grupo de recursos que mantém esses serviços juntos nas páginas de gerenciamento do portal.
 
@@ -75,7 +76,7 @@ Um serviço de Pesquisa do Azure na camada padrão é criado com uma réplica e 
 
 Réplicas e partições adicionais são cobradas segundo as unidades de pesquisa. O total de unidades de pesquisa necessárias para dar suporte a qualquer configuração de recursos em particular é mostrado na página, conforme você adiciona recursos.
 
-Você pode verificar os [Detalhes de Preços](http://go.microsoft.com/fwlink/p/?LinkID=509792) para obter as informações de cobrança por unidade. Consulte [Limites e restrições de serviço](search-limits-quotas-capacity.md) para obter ajuda na escolha de combinações de partição e de réplica.
+Você pode verificar os [Detalhes de Preços](http://go.microsoft.com/fwlink/p/?LinkID=509792) para obter as informações de cobrança por unidade. Confira [Limites e restrições de serviço](search-limits-quotas-capacity.md) para obter ajuda na escolha de combinações de partição e de réplica.
 
 <a id="sub-2"></a>
 ## Localizar o nome do serviço e chaves de Api do serviço de Pesquisa do Azure
@@ -126,4 +127,4 @@ Agora que o serviço foi criado, você pode executar as próximas etapas: criar 
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

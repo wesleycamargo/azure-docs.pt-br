@@ -4,15 +4,15 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="01/15/2016"
+   ms.workload="NA"
+   ms.date="02/18/2016"
    ms.author="v-sharos" />
 
 # Usar o serviço StorSimple Manager para gerenciar volumes (Atualização 2)
@@ -48,7 +48,7 @@ Quando você cria um volume afixado localmente, o espaço disponível para cria�
 
 Volumes em camadas são volumes escassamente provisionados no qual os dados acessados com frequência permanecem locais no dispositivo e os menos usados são colocados automaticamente em camadas na nuvem. Provisionamento dinâmico é uma tecnologia de virtualização em que o armazenamento disponível parece exceder os recursos físicos. Em vez de reservar armazenamento suficiente com antecedência, o StorSimple usa o provisionamento dinâmico para alocar espaço suficiente para atender às necessidades atuais. A natureza elástica de armazenamento em nuvem facilita essa abordagem porque o StorSimple pode aumentar ou diminuir o armazenamento em nuvem para atender às demandas de mudança.
 
-Você pode designar um volume em camadas como um volume de arquivamento, marcando a caixa de seleção **Usar este volume para dados de arquivamento acessados com menos frequência**. Volumes de arquivamento usam um tamanho de parte de eliminação de duplicação de 512 KB, enquanto volumes de não arquivamento usam um tamanho de parte de 64 KB. Tamanho de parte de eliminação de duplicação maior permite que o dispositivo transfira partes maiores de dados para a nuvem.
+Se você estiver usando o volume em camadas para dados de arquivamento, marque a caixa de seleção **Usar este volume para dados de arquivamento acessados com menos frequência** altera o tamanho do bloco de eliminação de duplicação para o volume para 512 KB. Se você não selecionar esta opção, o volume em camadas correspondente usará um tamanho de bloco de 64 KB. Um tamanho maior de bloco de eliminação de duplicação permite que o dispositivo acelere a transferência de dados de arquivo grandes para a nuvem.
 
 >[AZURE.NOTE] Volumes de arquivamento criados com uma versão anterior à atualização 2 do StorSimple serão importados em camadas, com a caixa de seleção de arquivamento marcada.
 
@@ -285,4 +285,4 @@ Execute as seguintes etapas para habilitar ou desabilitar o monitoramento para u
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

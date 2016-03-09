@@ -10,17 +10,17 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/25/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 
 # Carregar dados com o bcp
 
 > [AZURE.SELECTOR]
-- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
+- [Fábrica de dados](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
 - [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
 - [BCP](sql-data-warehouse-load-with-bcp.md)
 
@@ -49,7 +49,7 @@ Para acompanhar este tutorial, você precisará:
 - O utilitário de linha de comando bcp instalado
 - O utilitário de linha de comando SQLCMD instalado
 
->[AZURE.NOTE]Você pode baixar os utilitários bcp e sqlcmd do [Centro de Download da Microsoft][].
+>[AZURE.NOTE] Você pode baixar os utilitários bcp e sqlcmd do [Centro de Download da Microsoft][].
 
 ## Importar dados no SQL Data Warehouse
 
@@ -78,7 +78,7 @@ WITH
 );
 GO
 ```
->[AZURE.NOTE]Veja o tópico [Design de tabela][] no grupo de tópicos Desenvolver para obter mais informações sobre as opções disponíveis na cláusula WITH.
+>[AZURE.NOTE] Veja o tópico [Design de tabela][] no grupo de tópicos Desenvolver para obter mais informações sobre as opções disponíveis na cláusula WITH.
 
 ### Etapa 2: Criar um arquivo de dados de origem
 
@@ -101,7 +101,7 @@ Abra o Bloco de Notas e copie as linhas de dados a seguir em um novo arquivo.
 
 Salve-o no diretório temporário local, C:\\Temp\\DimDate2.txt.
 
-> [AZURE.NOTE]É importante lembrar que o bcp.exe não oferece suporte a codificação do arquivo UTF-8. Use arquivos codificados ASCII ou a codificação UTF-16 para os seus arquivos ao usar o bcp.exe.
+> [AZURE.NOTE] É importante lembrar que o bcp.exe não oferece suporte a codificação do arquivo UTF-8. Use arquivos codificados ASCII ou a codificação UTF-16 para os seus arquivos ao usar o bcp.exe.
 
 ### Etapa 3: Conectar e importar os dados
 Usando o bcp, você pode conectar e importar os dados usando o comando a seguir, substituindo os valores conforme apropriado:
@@ -174,7 +174,7 @@ Você pode verificar se os dados foram exportados corretamente abrindo o novo ar
 20150101,1,3
 ```
 
->[AZURE.NOTE]Devido à natureza dos sistemas distribuídos, a ordem dos dados pode não ser a mesma entre os bancos de dados do SQL Data Warehouse. Como opção, você pode usar o parâmetro queryout para especificar qual consulta Transact-SQL executar.
+>[AZURE.NOTE] Devido à natureza dos sistemas distribuídos, a ordem dos dados pode não ser a mesma entre os bancos de dados do SQL Data Warehouse. Como opção, você pode usar o parâmetro queryout para especificar qual consulta Transact-SQL executar.
 
 ## Próximas etapas
 Para obter uma visão geral do carregamento, consulte [Carregar dados no SQL Data Warehouse][]. Para obter mais dicas de desenvolvimento, consulte [Visão geral de desenvolvimento do SQL Data Warehouse][].
@@ -196,4 +196,4 @@ Para obter uma visão geral do carregamento, consulte [Carregar dados no SQL Dat
 <!--Other Web references-->
 [Centro de Download da Microsoft]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

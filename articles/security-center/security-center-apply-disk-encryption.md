@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Aplicar a criptografia de disco | Microsoft Azure"
+   pageTitle="Aplicar a criptografia de disco na Central de Segurança do Azure | Microsoft Azure"
    description="Este documento mostra como implementar a recomendação da Central de Segurança do Azure **Aplicar criptografia de disco**."
    services="security-center"
    documentationCenter="na"
@@ -10,13 +10,13 @@
 <tags
    ms.service="security-center"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/09/2016"
+   ms.date="02/23/2016"
    ms.author="terrylan"/>
 
-# Aplicar a criptografia de disco
+# Aplicar a criptografia de disco na Central de Segurança do Azure
 
 A Central de Segurança do Azure recomendará que você aplique a criptografia de disco se houver discos de VM do Windows ou Linux que não estejam criptografados usando o Azure Disk Encryption. A Criptografia de Disco permite que você criptografe os discos de VM IaaS do Windows e do Linux. A criptografia é recomendada para volumes de dados e do sistema operacional em sua VM.
 
@@ -54,4 +54,4 @@ Para saber mais sobre a Central de Segurança, confira o seguinte:
 <!--Image references-->
 [1]: ./media/security-center-apply-disk-encryption/apply-disk-encryption.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

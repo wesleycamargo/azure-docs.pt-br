@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="gplarsen"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,10 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="12/03/2015"
+   ms.date="02/10/2016"
    ms.author="plarsen"/>
 
 # Conector do Informix
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
 
 O Conector da Microsoft para Informix é um aplicativo de API usado para conexão de aplicativos por meio do Serviço de Aplicativo do Azure para recursos armazenados em um banco de dados IBM Informix. O Conector inclui um Cliente da Microsoft para conexão a servidores Informix remotos em uma conexão de rede TCP/IP, incluindo conexões híbridas do Azure para servidores Informix locais usando a Retransmissão do Barramento de Serviço do Azure. O Conector oferece suporte às seguintes operações de banco de dados:
 
@@ -31,7 +32,7 @@ O Conector da Microsoft para Informix é um aplicativo de API usado para conexã
 - Comandos personalizados e operações compostas usando SELECT, INSERT, UPDATE e DELETE
 
 ## Gatilhos e Ações
-O Conector oferece suporte aos seguintes gatilhos e ações de aplicativo lógico:
+O conector oferece suporte aos seguintes gatilhos e ações de aplicativo lógico:
 
 Gatilhos | Ações
 --- | ---
@@ -53,11 +54,11 @@ Você pode definir um conector em um aplicativo lógico ou no Azure Marketplace,
 ConnectionString | Sim | Cadeia de conexão do cliente Informix (por exemplo, "Network Address=servername;Network Port=9089;User ID=username;Password=password;Initial Catalog=nwind;Default Schema=informix").
 Tabelas | Sim | Lista separada por vírgulas de nomes de tabela, exibições e alias necessários para operações de OData e para gerar a documentação do swagger com exemplos (por exemplo, "NEWORDERS").
 Procedimentos | Sim | Lista separada por vírgulas de nomes de procedimentos e de funções (por exemplo, "SPORDERID").
-Local | Não | Implantação no local usando a Retransmissão do Barramento de Serviço do Azure.
-Cadeia de Conexão do Barramento de Serviço | Não | A cadeia de conexão da Retransmissão do Barramento de Serviço do Azure.
-Sondagem de verificação de dados | Não | Instrução SELECT COUNT a ser usada com um gatilho de aplicativo lógico (por exemplo, "SELECT COUNT(*) FROM NEWORDERS WHERE SHIPDATE IS NULL").
-Sondagem para leitura de dados | Não | Instrução SELECT a ser usada com um gatilho de aplicativo lógico (por exemplo, "SELECT * FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE").
-Sondagem para alteração de dados | Não | Instrução UPDATE ou DELETE a ser usada com um gatilho de aplicativo lógico (por exemplo, "UPDATE NEWORDERS SET SHIPDATE = CURRENT DATE WHERE CURRENT OF &lt;CURSOR&gt;").
+OnPremise | Não | Implantação no local usando a Retransmissão do Barramento de Serviço do Azure.
+ServiceBusConnectionString | Não | A cadeia de conexão da Retransmissão do Barramento de Serviço do Azure.
+PollToCheckData | Não | Instrução SELECT COUNT a ser usada com um gatilho de aplicativo lógico (por exemplo, "SELECT COUNT(*) FROM NEWORDERS WHERE SHIPDATE IS NULL").
+PollToReadData | Não | Instrução SELECT a ser usada com um gatilho de aplicativo lógico (por exemplo, "SELECT * FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE").
+PollToAlterData | Não | Instrução UPDATE ou DELETE a ser usada com um gatilho de aplicativo lógico (por exemplo, "UPDATE NEWORDERS SET SHIPDATE = CURRENT DATE WHERE CURRENT OF &lt;CURSOR&gt;").
 
 7. Escolha **OK** e, em seguida, **Criar**.
 8. Após a conclusão, as Configurações do Pacote serão semelhantes às seguintes: ![][1]
@@ -66,7 +67,7 @@ Sondagem para alteração de dados | Não | Instrução UPDATE ou DELETE a ser u
 ## Aplicativo lógico com ação do Conector do Informix para adição de dados ##
 Você pode definir uma ação de aplicativo lógico para adicionar dados a uma tabela do Informix usando uma Inserção de API ou operação OData Postagem para Entity. Por exemplo, você pode inserir um novo registro de pedido de cliente processando uma instrução SQL INSERT em uma tabela definida com uma coluna de identidade, retornando para o aplicativo lógico o valor de identidade ou as linhas afetadas (SELECT ORDID FROM FINAL TABLE (INSERT INTO NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) VALUES (?,?,?,?,?,?))).
 
-> [AZURE.TIP]A Conexão do Informix "*Postagem em EntitySet*" retorna o valor da coluna de identidade e "*Inserção de API*" retorna as linhas afetadas
+> [AZURE.TIP] A Conexão do Informix "*Postagem em EntitySet*" retorna o valor da coluna de identidade e "*Inserção de API*" retorna as linhas afetadas
 
 1. No quadro inicial do Azure, escolha **+** (sinal de adição), **Web + Móvel** e depois **Aplicativo Lógico**.
 2. Digite o Nome (por exemplo, "NewOrdersInformix"), o Plano de Serviço de Aplicativo, outras propriedades e selecione **Criar**.
@@ -137,8 +138,8 @@ Você pode definir um gatilho de aplicativo lógico para pesquisar e ler os dado
 	App Setting | Value
 --- | --- | ---
 Sondagem de verificação de dados | SELECT COUNT(*) FROM NEWORDERS WHERE SHIPDATE IS NULL
-Sondagem para leitura de dados | SELECT * FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE
-Sondagem para alteração de dados | <no value specified>
+PollToReadData | SELECT * FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE
+PollToAlterData | <no value specified>
 
 
 Além disso, você pode definir um gatilho de aplicativo lógico para pesquisar, ler e alterar os dados de uma tabela do Informix usando uma operação composta Sondar Dados de API. Por exemplo, você pode ler um ou mais registros novos de pedido de cliente, atualizar os valores da linha, retornando os registros selecionados (antes da atualização) ao aplicativo lógico. As configurações de pacote /aplicativo da Conexão do Informix são parecidas com as seguintes:
@@ -146,8 +147,8 @@ Além disso, você pode definir um gatilho de aplicativo lógico para pesquisar,
 	App Setting | Value
 --- | --- | ---
 Sondagem de verificação de dados | SELECT COUNT(*) FROM NEWORDERS WHERE SHIPDATE IS NULL
-Sondagem para leitura de dados | SELECT * FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE
-Sondagem para alteração de dados | UPDATE NEWORDERS SET SHIPDATE = CURRENT DATE WHERE CURRENT OF &lt;CURSOR&gt;
+PollToReadData | SELECT * FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE
+PollToAlterData | UPDATE NEWORDERS SET SHIPDATE = CURRENT DATE WHERE CURRENT OF &lt;CURSOR&gt;
 
 
 Além disso, você pode definir um gatilho de aplicativo lógico para pesquisar, ler e remover os dados de uma tabela do Informix usando uma operação composta Sondar Dados de API. Por exemplo, você pode ler um ou mais registros novos de pedido de cliente, excluir as linhas, retornando os registros selecionados (antes da exclusão) ao aplicativo lógico. As configurações de pacote /aplicativo da Conexão do Informix são parecidas com as seguintes:
@@ -155,8 +156,8 @@ Além disso, você pode definir um gatilho de aplicativo lógico para pesquisar,
 	App Setting | Value
 --- | --- | ---
 Sondagem de verificação de dados | SELECT COUNT(*) FROM NEWORDERS WHERE SHIPDATE IS NULL
-Sondagem para leitura de dados | SELECT * FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE
-Sondagem para alteração de dados | DELETE NEWORDERS WHERE CURRENT OF &lt;CURSOR&gt;
+PollToReadData | SELECT * FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE
+PollToAlterData | DELETE NEWORDERS WHERE CURRENT OF &lt;CURSOR&gt;
 
 Neste exemplo, o aplicativo lógico irá pesquisar, ler, atualizar e, em seguida, ler novamente os dados na tabela do Informix.
 
@@ -199,7 +200,7 @@ Você pode criar um novo aplicativo lógico no Azure Marketplace e, em seguida, 
 **Observação:** o designer de aplicativo lógico trunca os nomes de tabela. Por exemplo, a operação **Exclusão condicional de NEWORDERS** será truncada para **Exclusão condicional de N**.
 
 
-> [AZURE.TIP]Use as seguintes instruções SQL para criar o exemplo de tabela e os procedimentos armazenados.
+> [AZURE.TIP] Use as seguintes instruções SQL para criar o exemplo de tabela e os procedimentos armazenados.
 
 Você pode criar o exemplo de tabela NEWORDERS usando as seguintes instruções DDL de SQL do Informix:
  
@@ -242,7 +243,7 @@ Você pode criar o exemplo de procedimento armazenado SPORDERID usando as seguin
 
 ## Configuração Híbrida (opcional)
 
-> [AZURE.NOTE]Essa etapa será exigida apenas se você estiver usando o Conector do DB2 localmente por trás do firewall.
+> [AZURE.NOTE] Essa etapa será exigida apenas se você estiver usando o Conector do DB2 localmente por trás do firewall.
 
 O Serviço de Aplicativo usa o Gerenciador de Configuração Híbrida para se conectar com segurança ao sistema local. Se o Conector usar um Servidor DB2 da IBM local para Windows, o Gerenciador de Conexão Híbrida será exigido.
 
@@ -252,9 +253,9 @@ Consulte [Usando o Gerenciador de Conexão Híbrida](app-service-logic-hybrid-co
 ## Faça mais com seu Conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
 
-Crie aplicativos de API usando APIs REST. Confira [Referência de aplicativos de API e conectores](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Crie aplicativos de API usando APIs REST. Consulte [Referência a aplicativos de API e conectores](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Confira [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
+Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar Aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
 
 
 <!--Image references-->
@@ -273,4 +274,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [13]: ./media/app-service-logic-connector-informix/LogicApp_RemoveOrdersInformix_TriggersActions.png
 [14]: ./media/app-service-logic-connector-informix/LogicApp_RemoveOrdersInformix_Outputs.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="rajeshramabathiran"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,10 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/11/2015"
+   ms.date="02/11/2016"
    ms.author="rajram"/>
 
 # Comece a usar o Conector do Box e adicione-o a seu Aplicativo Lógico 
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos. Para a versão do esquema 2015-08-01-preview, clique em [API do Box](../connectors/create-api-box.md).
+
 Conecte-se ao Box para obter, carregar, excluir. e realizar outras operações em seus arquivos. Os conectores são usados em Aplicativos Lógicos como parte de um "fluxo de trabalho".
 
 Você pode ter situações em que talvez precise trabalhar com o Box, que permite compartilhar dados com qualquer pessoa de maneira segura – mesmo que a pessoa esteja fora do seu firewall. Aplicativos lógicos podem ser disparados com base em diversas fontes de dados e oferecem conectores para obter e processar dados como parte do fluxo.
@@ -27,13 +29,13 @@ O aplicativo de galeria do Box fornece a você Ações como mecanismos para inte
 
 **Ações**: as ações permitem que você execute ações predefinidas na conta do Box, configurada com o aplicativo lógico. A seguir, ações que podem ser executadas na conta do Box usando o conector do Box:
 
-a. *Listar Arquivos:* esta operação retorna as informações de todos os arquivos em uma pasta. Lista de parâmetros necessários para a ação:
+a. *Listar Arquivos:* esta operação retorna as informações de todos os arquivos em uma pasta. A lista de parâmetros necessários para a ação:
 
 Nome do Parâmetro | Descrição | Obrigatório
 --- | --- | ---
 Caminho da pasta | Caminho da pasta para a lista. | Sim
 
-> [AZURE.NOTE]Ela não retorna nenhum conteúdo de arquivo.
+> [AZURE.NOTE] Ela não retorna nenhum conteúdo de arquivo.
 
 b. *Obter Arquivo:* essa operação recupera um arquivo, incluindo conteúdo e propriedades. Lista de parâmetros necessários para a ação:
 
@@ -42,7 +44,7 @@ Nome do Parâmetro | Descrição | Obrigatório
 Caminho do arquivo | Caminho da pasta na qual o arquivo reside. | Sim
 Tipo de arquivo | Especifica se o arquivo é de Texto ou Binário. | Não
 
-> [AZURE.NOTE]Esta operação não exclui o arquivo depois de lê-lo.
+> [AZURE.NOTE] Esta operação não exclui o arquivo depois de lê-lo.
 
 
 c. *Carregar Arquivo*: como o nome sugere, a ação carrega o arquivo na conta do Box. Se o arquivo já existir, ele não será substituído e um erro será gerado. Lista de parâmetros necessários para a ação:
@@ -77,7 +79,7 @@ Depois de criar o aplicativo de API, você pode usar o Conector do Box como uma 
 
 1. No aplicativo lógico, abra **Gatilhos e Ações** para abrir o Designer de Aplicativos Lógicos e configurar seu fluxo. O Conector do Box está listado na galeria. Selecione-o para adicioná-lo automaticamente ao seu designer de aplicativos lógicos.
 
-	> [AZURE.NOTE]Se o conector do Box é selecionado no início do aplicativo lógico, ele atua como gatilho. Caso contrário, as ações podem ser executadas na conta do Box usando o conector. O Conector do Box não tinha nenhum gatilho na data de criação deste artigo.
+	> [AZURE.NOTE] Se o conector do Box é selecionado no início do aplicativo lógico, ele atua como gatilho. Caso contrário, as ações podem ser executadas na conta do Box usando o conector. O Conector do Box não tinha nenhum gatilho na data de criação deste artigo.
 
 2. Autentique e autorize os aplicativos lógicos a executarem operações em seu nome. Selecione **Autorizar** no Conector do Box: 
 	![][2]
@@ -94,7 +96,7 @@ Depois de criar o aplicativo de API, você pode usar o Conector do Box como uma 
 ## Faça mais com seu Conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
 
->[AZURE.NOTE]Se você deseja começar com os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógicos](https://tryappservice.azure.com/?appservice=logic), em que você pode criar imediatamente um aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
+>[AZURE.NOTE] Se você deseja começar com os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógicos](https://tryappservice.azure.com/?appservice=logic), em que você pode criar imediatamente um aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
 
 Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -107,4 +109,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

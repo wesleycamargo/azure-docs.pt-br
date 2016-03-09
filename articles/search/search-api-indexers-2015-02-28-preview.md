@@ -1,10 +1,10 @@
 <properties 
-pageTitle="Operações de Indexador (API REST do Serviço de pesquisa do Azure, Visualização 2015-02-28) | Microsoft Azure | Serviço de pesquisa de nuvem hospedado" 
+pageTitle="Operações de indexador (API REST do serviço de Pesquisa do Azure: 2015-02-28-Preview) | API de visualização da Pesquisa do Azure" 
 description="Operações de indexador (API REST do serviço Azure Search: 2015-02-28-Preview)" 
 services="search" 
 documentationCenter="" 
-authors="HeidiSteen" 
-manager="mblythe" 
+authors="chaosrealm" 
+manager="pablocas"
 editor="" />
 
 <tags 
@@ -13,16 +13,16 @@ ms.devlang="rest-api"
 ms.workload="search" 
 ms.topic="article"  
 ms.tgt_pltfrm="na" 
-ms.date="11/04/2015" 
-ms.author="heidist" />
+ms.date="02/18/2016" 
+ms.author="eugenesh" />
 
 #Operações de indexador (API REST do serviço Azure Search: 2015-02-28-Preview)#
 
-> [AZURE.NOTE] Este artigo descreve os indexadores na versão [2015-02-28-Preview](./search-api-2015-02-28-preview). Atualmente não há nenhuma diferença entre a versão `2015-02-28` documentada no [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173) e a versão `2015-02-28-Preview` descrita aqui. Fornecemos este artigo para que você tenha a documentação completa definida para `2015-02-28-Preview`, embora essa API esteja inalterada.
+> [AZURE.NOTE] Este artigo descreve os indexadores na versão [2015-02-28-Preview](./search-api-2015-02-28-preview). Esta versão de API adiciona um indexador do Armazenamento de Blobs do Azure com a extração de documentos e outros aprimoramentos.
 
 ## Visão geral ##
 
-A Pesquisa do Azure é um serviço de pesquisa de nuvem hospedado do Microsoft Azure. O Azure Search pode se integrar diretamente a algumas fontes de dados comuns, eliminando a necessidade de escrever código para indexar seus dados. Para configurar isso, você pode chamar a API do Azure Search para criar e gerenciar **indexadores** e **fontes de dados**.
+O Azure Search pode se integrar diretamente a algumas fontes de dados comuns, eliminando a necessidade de escrever código para indexar seus dados. Para configurar isso, você pode chamar a API do Azure Search para criar e gerenciar **indexadores** e **fontes de dados**.
 
 Um **indexador** é um recurso que conecta fontes de dados a índices de pesquisa de destino. Um indexador é usado para as seguintes finalidades:
 
@@ -36,10 +36,11 @@ Uma **fonte de dados** especifica quais dados precisam ser indexados, as credenc
 
 Atualmente, há suporte às seguintes fontes de dados:
 
-- Banco de Dados SQL do Azure e SQL Server em VMs do Azure.
-- Banco de Dados de Documentos do Azure 
-
-Estamos considerando a adição de suporte a fontes de dados adicionais no futuro. Para nos ajudar a priorizar essas decisões, forneça seus comentários no [Fórum de comentários do Azure Search](https://feedback.azure.com/forums/263029-azure-search/).
+- **Banco de Dados SQL do Azure** e **SQL Server em VMs do Azure**. Para obter um passo a passo direcionado, confira [este artigo](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28/). 
+- **Banco de Dados de Documentos do Azure**. Para obter um passo a passo direcionado, confira [este artigo](../documentdb/documentdb-search-indexer). 
+- **Armazenamento de Blobs do Azure**, incluindo as seguintes formatos de documentos: PDF, Microsoft Office (DOCX/DOC, XSLX/XLS, PPT/PPTX, MSG), HTML, XML, ZIP e arquivos de texto sem formatação (inclusive JSON). Para obter um passo a passo direcionado, confira [este artigo](search-howto-indexing-azure-blob-storage.md).
+	 
+Estamos considerando a adição de suporte a fontes de dados adicionais no futuro. Para nos ajudar a priorizar essas decisões, forneça seus comentários no [Fórum de comentários do Azure Search](http://feedback.azure.com/forums/263029-azure-search).
 
 Veja [Limites de Serviço](search-limits-quotas-capacity.md) para obter os limites máximos relacionados aos recursos do indexador e da fonte de dados.
 
@@ -93,7 +94,7 @@ A lista a seguir descreve os cabeçalhos de solicitação obrigatórios e opcion
 - `Content-Type`: obrigatório. Defina-o como `application/json`
 - `api-key`: obrigatório. A `api-key` é usada para autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo de seu serviço. A solicitação **Criar Fonte de Dados** deve incluir um cabeçalho de `api-key` definido como sua chave de administração (em vez de uma chave de consulta). 
  
-Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no [Portal clássico do Azure](https://portal.azure.com/). Consulte [Criar um serviço de pesquisa no portal](search-create-service-portal.md) para obter ajuda sobre a navegação na página.
+Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no [Portal de gerenciamento do Azure](https://portal.azure.com/). Consulte [Criar um serviço de pesquisa no portal](search-create-service-portal.md) para obter ajuda sobre a navegação na página.
 
 <a name="CreateDataSourceRequestSyntax"></a> **Sintaxe do Corpo da Solicitação**
 
@@ -105,9 +106,9 @@ A sintaxe para estruturar a carga da solicitação é indicada a seguir. Uma sol
     { 
 		"name" : "Required for POST, optional for PUT. The name of the data source",
     	"description" : "Optional. Anything you want, or nothing at all",
-    	"type" : "Required. Must be 'azuresql' or 'documentdb'",
+    	"type" : "Required. Must be one of 'azuresql', 'documentdb', or 'azureblob'",
     	"credentials" : { "connectionString" : "Required. Connection string for your data source" },
-    	"container" : { "name" : "Required. The name of the table or collection you wish to index" },
+    	"container" : { "name" : "Required. The name of the table, collection, or blob container you wish to index" },
     	"dataChangeDetectionPolicy" : { Optional. See below for details }, 
     	"dataDeletionDetectionPolicy" : { Optional. See below for details }
 	}
@@ -119,22 +120,28 @@ A contém as seguintes propriedades:
 - `type`: obrigatório. Deve ser um dos tipos de fonte de dados com suporte:
 	- `azuresql` ‒ banco de dados do Azure SQL ou SQL Server em máquinas virtuais do Azure
 	- `documentdb` ‒ Banco de Dados de Documentos do Azure
+	- `azureblob` – Armazenamento de Blobs do Azure
 - `credentials`:
 	- A propriedade `connectionString` obrigatória especifica a cadeia de conexão da fonte de dados. O formato da cadeia de conexão depende do tipo de fonte de dados: 
-		- Para o Azure SQL, essa é a cadeia de conexão do SQL Server normal. Se você estiver usando o portal clássico do Azure para recuperar a cadeia de conexão, use a opção `ADO.NET connection string`.
-		- Para DocumentDB, a cadeia de conexão deve estar no seguinte formato: `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. Todos os valores são obrigatórios. Você pode encontrá-las no [Portal clássico do Azure](https://portal.azure.com/).   
+		- Para o Azure SQL, essa é a cadeia de conexão do SQL Server normal. Se você estiver usando o Portal do Azure para recuperar a cadeia de conexão, use a opção `ADO.NET connection string`.
+		- Para DocumentDB, a cadeia de conexão deve estar no seguinte formato: `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. Todos os valores são obrigatórios. Você pode encontrá-las no [Portal do Azure](https://portal.azure.com/).  
+		- Para o Armazenamento de Blobs do Azure, essa é a cadeia de conexão da conta de armazenamento. O formato é descrito [aqui](https://azure.microsoft.com/documentation/articles/storage-configure-connection-string/). É necessário ter um protocolo de ponto de extremidade HTTPS.  
 		
-- `container`:
-	- A propriedade obrigatória `name` especifica a tabela ou o modo de exibição (para a fonte de dados do Azure SQL) ou uma coleção (para uma fonte de dados DocumentDB) que será indexado. 
-	- Para fontes de dados do SQL, omita os prefixos de esquema, como dbo., para que o contêiner consista apenas no nome da tabela ou da exibição.
-	- As fontes de dados do Banco de Dados de Documentos também dão suporte a uma propriedade `query` opcional que permite especificar uma consulta que nivela um layout de documento JSON arbitrário em um esquema simples que pode ser indexado pela Pesquisa do Azure.   
-- A `dataChangeDetectionPolicy` e a `dataDeletionDetectionPolicy` opcionais são descritas abaixo.
+- `container`, necessário: especifica os dados a serem indexados com as propriedades `name` e `query`:
+	- `name`, necessário:
+		- SQL Azure: especifica a tabela ou a exibição. Você pode usar nomes qualificados pelo esquema, como `[dbo].[mytable]`.
+		- Banco de Dados de Documentos: especifica a coleção. 
+		- Armazenamento de Blobs do Azure: especifica o contêiner de armazenamento. 
+	- `query`, opcional:
+		- Banco de Dados de Documentos: permite especificar uma consulta que nivela um layout de documento JSON arbitrário em um esquema simples que pode ser indexado pela Pesquisa do Azure.  
+		- Armazenamento de Blobs do Azure: permite que você especifique uma pasta virtual dentro do contêiner de blob. Por exemplo, para o caminho de blob `mycontainer/documents/blob.pdf`, `documents` pode ser usada como a pasta virtual.
+		- SQL Azure: não há suporte para consulta. Se você precisar dessa funcionalidade, vote [nesta sugestão](https://feedback.azure.com/forums/263029-azure-search/suggestions/9893490-support-user-provided-query-in-sql-indexer)
+   
+- As propriedades `dataChangeDetectionPolicy` e `dataDeletionDetectionPolicy` opcionais são descritas abaixo.
 
 <a name="DataChangeDetectionPolicies"></a> **Políticas de Detecção de Alteração de Dados**
 
 A finalidade de uma política de detecção de alteração de dados é identificar de maneira eficaz dados alterados. As políticas com suporte variam com base no tipo de fonte de dados. As seções a seguir descrevem cada política.
-
-**Observação:** você pode alternar as políticas de detecção de dados depois que o indexador já foi criado, usando a API [Redefinir Indexador](#ResetIndexer).
 
 ***Política de Detecção de Alteração de Marca d’água Alta***
 
@@ -147,14 +154,16 @@ Use essa política quando sua fonte de dados contiver uma coluna ou propriedade 
 
 Por exemplo, ao se usar fontes de dados Azure SQL, uma coluna `rowversion` indexada é o candidato ideal para uso com a política de marca d'água alta.
 
-Ao usar fontes de dados DocumentDB, você deve usar a propriedade `_ts` fornecida pelo DocumentDB.
- 
 Essa política pode ser especificada da seguinte maneira:
 
 	{ 
 		"@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
 		"highWaterMarkColumnName" : "[a row version or last_updated column name]" 
 	} 
+
+> [AZURE.NOTE] Ao usar fontes de dados DocumentDB, você deve usar a propriedade `_ts` fornecida pelo DocumentDB.
+
+> [AZURE.NOTE] Ao usar fontes de dados do Blob do Azure, a Pesquisa do Azure usa automaticamente uma política de detecção de alteração de marca d’água alta baseada no último carimbo de data/hora modificado de um blob; não é preciso especificar essa política por conta própria.
 
 ***Política de Detecção de Alteração de Dados Integrada do SQL***
 
@@ -225,11 +234,19 @@ A `api-version` é obrigatória. A versão atual é `2015-02-28`. [Controle de v
 
 `api-key` deve ser uma chave de administração (em vez de uma chave de consulta). Consulte a seção de autenticação na [API REST do serviço de pesquisa](https://msdn.microsoft.com/library/azure/dn798935.aspx) para saber mais sobre as chaves. [Criar um serviço de pesquisa no portal](search-create-service-portal.md) explica como obter a URL do serviço e as propriedades de chave usadas na solicitação.
 
-**Solicitação** a sintaxe do corpo da solicitação é a mesmo usada para [solicitações Criar Fonte de Dados](#CreateDataSourceRequestSyntax).
+**Solicitação**
 
-**Resposta** para uma solicitação bem-sucedida: 201 Criado se uma nova fonte de dados for criada e 204 sem Conteúdo se uma fonte de dados for atualizada.
+A sintaxe do corpo da solicitação é a mesma usada para [solicitações Criar Fonte de Dados](#CreateDataSourceRequestSyntax).
 
-**OBSERVAÇÃO:** algumas propriedades não podem ser atualizadas em uma fonte de dados existente. Por exemplo, você não pode alterar o tipo de fonte de dados existente.
+> [AZURE.NOTE]
+Algumas propriedades não podem ser atualizadas em uma fonte de dados existente. Por exemplo, você não pode alterar o tipo de fonte de dados existente.
+
+> [AZURE.NOTE]
+Se você não quiser alterar a cadeia de conexão de uma fonte de dados existente, poderá especificar o literal `<unchanged>` da cadeia de conexão. Isso é útil em situações onde você precisa atualizar a fonte de dados, mas não tem acesso conveniente à cadeia de conexão, já que são dados confidenciais de segurança.
+
+**Resposta**
+
+Para uma solicitação bem-sucedida: 201 Criado se uma nova fonte de dados for criada e 204 Sem Conteúdo se uma fonte de dados for atualizada.
 
 <a name="ListDataSource"></a>
 ## Listar Fontes de Dados ##
@@ -303,7 +320,7 @@ A resposta é semelhante ao exemplos em [Solicitações de exemplo Criar Fonte d
 			"softDeleteMarkerValue" : "true" }
 	}
 
-**OBSERVAÇÃO** não defina o `Accept` cabeçalho da solicitação como `application/json;odata.metadata=none` ao chamar essa API, pois isso fará com que o atributo `@odata.type` seja omitido da resposta, e você não poderá diferenciar políticas de detecção de alteração de dados e exclusão de dados de diferentes tipos.
+> [AZURE.NOTE] Não defina o cabeçalho da solicitação `Accept` como `application/json;odata.metadata=none` ao chamar essa API, pois isso fará com que o atributo `@odata.type` seja omitido da resposta, e você não conseguirá diferenciar as políticas de detecção de alteração de dados e de exclusão de dados de diferentes tipos.
 
 <a name="DeleteDataSource"></a>
 ## Excluir Fonte de Dados ##
@@ -313,7 +330,7 @@ A operação **Excluir Fonte de Dados** remove uma fonte de dados de seu serviç
     DELETE https://[service name].search.windows.net/datasources/[datasource name]?api-version=[api-version]
     api-key: [admin key]
 
-**OBSERVAÇÃO** se quaisquer indexadores fizerem referência à fonte de dados que você está excluindo, a operação de exclusão ainda continuará. No entanto, esses indexadores farão a transição para um estado de erro em sua próxima execução.
+> [AZURE.NOTE] Se algum indexador fizer referência à fonte de dados que você está excluindo, a operação de exclusão ainda prosseguirá. No entanto, esses indexadores farão a transição para um estado de erro em sua próxima execução.
 
 A `api-version` é obrigatória. A versão atual é `2015-02-28`. [Controle de versão do Azure Search](https://msdn.microsoft.com/library/azure/dn864560.aspx) tem detalhes e mais informações sobre versões alternativas.
 
@@ -336,7 +353,7 @@ Como alternativa, você pode usar PUT e especificar o nome da fonte de dados no 
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=[api-version]
 
-**Observação**: o número máximo de indexadores permitidos varia por camada de preços. O serviço gratuito permite até três indexadores. O serviço padrão permite 50 indexadores. Veja [Limites de Serviço](search-limits-quotas-capacity.md) para obter detalhes.
+> [AZURE.NOTE] O número máximo de indexadores permitidos varia por tipo de preço. O serviço gratuito permite até três indexadores. O serviço padrão permite 50 indexadores. Veja [Limites de Serviço](search-limits-quotas-capacity.md) para obter detalhes.
 
 A `api-version` é obrigatória. A versão atual é `2015-02-28`. [Controle de versão do Azure Search](https://msdn.microsoft.com/library/azure/dn864560.aspx) tem detalhes e mais informações sobre versões alternativas.
 
@@ -365,7 +382,7 @@ A sintaxe para estruturar a carga da solicitação é indicada a seguir. Uma sol
 
 Um indexador pode, também, especificar uma agenda. Se houver uma agenda, o indexador será executado periodicamente segundo a agenda. A agenda tem os seguintes atributos:
 
-- `interval`: obrigatório. Um valor de duração que especifica o intervalo ou período de execução do indexador. O menor intervalo permitido é de cinco minutos, e o maior é de um dia. Ele deve ser formatado como um valor XSD de "dayTimeDuration" (um subconjunto restrito de um [valor de duração ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). O padrão para isso é: `P[nD][T[nH][nM]]`. Exemplos: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas. 
+- `interval`: obrigatório. Um valor de duração que especifica o intervalo ou período de execução do indexador. O menor intervalo permitido é de cinco minutos, e o maior é de um dia. Ele deve ser formatado como um valor XSD de "dayTimeDuration" (um subconjunto restrito de um [valor de duração ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). O padrão para isso é: `"P[nD][T[nH][nM]]"`. Exemplos: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas. 
 
 - `startTime`: obrigatório. Uma data/hora, no horário UTC, quando o indexador deve começar a ser executado.
 
@@ -378,6 +395,9 @@ Um indexador pode, opcionalmente, especificar vários parâmetros que afetam seu
 - `maxFailedItemsPerBatch`: o número de itens que podem não ser indexados em cada lote antes que a execução de um indexador seja considerada uma falha. O padrão é 0.
 
 - `base64EncodeKeys`: especifica se as chaves de documento serão ou não codificadas em base 64. O Azure Search impõe restrições em relação aos caracteres que podem estar presentes em uma chave de documento. No entanto, os valores na fonte de dados podem conter caracteres que são inválidos. Se for necessário indexar esses valores como chaves de documento, esse sinalizador poderá ser definido como true. O padrão é `false`.
+
+- `batchSize`: especifica o número de itens lidos da fonte de dados e indexados como um único lote para melhorar o desempenho. O padrão depende do tipo de fonte de dados: 1000 para o SQL Azure e o Banco de Dados de Documentos e 10 para o Armazenamento de Blobs do Azure.
+
 
 **Mapeamentos de campo**
 
@@ -777,4 +797,4 @@ Código de status: 204 sem Conteúdo para uma resposta bem-sucedida.
 </tr>
 </table>
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

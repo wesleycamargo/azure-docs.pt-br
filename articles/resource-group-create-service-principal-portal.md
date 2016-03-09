@@ -24,7 +24,7 @@ Quando tiver um aplicativo ou processo automatizado que precisa acessar ou modif
 Este tópico mostra como criar um novo aplicativo e uma nova entidade de serviço usando o portal clássico. Atualmente, você deve usar o portal clássico para criar um novo aplicativo do Active Directory. Essa capacidade será adicionada ao portal do Azure em uma versão posterior. Você pode usar o portal para atribuir o aplicativo a uma função. Você também pode executar essas etapas através do Azure PowerShell ou da CLI do Azure. Para obter mais informações sobre como usar o PowerShell ou a CLI com a entidade de serviço, confira [Autenticação de uma entidade de serviço com o Gerenciador de Recursos do Azure](resource-group-authenticate-service-principal.md).
 
 ## Conceitos
-1. AAD (Active Directory do Azure) - um serviço de gerenciamento de identidades e acesso desenvolvido para a nuvem. Para mais detalhes, consulte: [O que é o Active Directory do Azure](active-directory/active-directory-whatis.md)
+1. AAD (Active Directory do Azure) - um serviço de gerenciamento de identidades e acesso desenvolvido para a nuvem. Para mais detalhes, consulte: [O que é o Azure Active Directory](active-directory/active-directory-whatis.md)
 2. Entidade de serviço - uma instância de um aplicativo em um diretório.
 3. Aplicativo do AD - um registro de diretório no AAD que identifica um aplicativo ao AAD. 
 
@@ -229,4 +229,4 @@ Você pode passar o token no cabeçalho de solicitação com o seguinte código:
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

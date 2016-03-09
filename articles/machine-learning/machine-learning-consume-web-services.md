@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd"
-	ms.date="02/10/2016"
+	ms.date="02/21/2016"
 	ms.author="garye" />
 
 
@@ -127,7 +127,7 @@ De maneira semelhante, a resposta da API para esse serviço também é mostrada 
 
 Na parte inferior da página de ajuda, você encontrará os exemplos de código. Abaixo está o exemplo de código para a implementação do C#.
 
-**Código de exemplo**
+**Código de exemplo em C#**
 
 	using System;
 	using System.Collections.Generic;
@@ -199,6 +199,58 @@ Na parte inferior da página de ajuda, você encontrará os exemplos de código.
 	    }
 	}
 
+**Código de exemplo em Java**
+
+O código de exemplo a seguir mostra como construir uma solicitação de API REST em Java. Ele pressupõe que as variáveis (apikey e apiurl) tenham detalhes de API necessários e que a variável jsonBody tenha um objeto JSON correto como esperado pela API REST para fazer uma previsão com êxito. Você pode baixar o código completo do github - [https://github.com/nk773/AzureML\_RRSApp](https://github.com/nk773/AzureML_RRSApp). Este exemplo de Java requer a [biblioteca cliente HTTP do apache](https://hc.apache.org/downloads.cgi).
+
+	/**
+	 * Download full code from github - [https://github.com/nk773/AzureML_RRSApp](https://github.com/nk773/AzureML_RRSApp)
+ 	 */
+    	/**
+     	  * Call REST API for retrieving prediction from Azure ML 
+     	  * @return response from the REST API
+     	  */	
+    	public static String rrsHttpPost() {
+        
+        	HttpPost post;
+        	HttpClient client;
+        	StringEntity entity;
+        
+        	try {
+            		// create HttpPost and HttpClient object
+            		post = new HttpPost(apiurl);
+            		client = HttpClientBuilder.create().build();
+            
+            		// setup output message by copying JSON body into 
+            		// apache StringEntity object along with content type
+            		entity = new StringEntity(jsonBody, HTTP.UTF_8);
+            		entity.setContentEncoding(HTTP.UTF_8);
+            		entity.setContentType("text/json");
+
+            		// add HTTP headers
+            		post.setHeader("Accept", "text/json");
+            		post.setHeader("Accept-Charset", "UTF-8");
+        
+            		// set Authorization header based on the API key
+            		post.setHeader("Authorization", ("Bearer "+apikey));
+            		post.setEntity(entity);
+
+            		// Call REST API and retrieve response content
+            		HttpResponse authResponse = client.execute(post);
+            
+            		return EntityUtils.toString(authResponse.getEntity());
+            
+        	}
+        	catch (Exception e) {
+            
+            		return e.toString();
+        	}
+    
+    	}
+    
+    	
+ 
+
 ### Exemplo de BES
 Ao contrário do serviço RRS, o serviço BES é assíncrono. Isso significa que a API do BES está simplesmente colocando na fila um trabalho a ser executado, e o chamador sonda o status do trabalho para ver quando ele foi concluído. Veja as operações com suporte para trabalhos em lotes no momento:
 
@@ -212,16 +264,16 @@ Ao contrário do serviço RRS, o serviço BES é assíncrono. Isso significa que
 Ao criar um trabalho em lotes para o ponto de extremidade de serviço de Aprendizado de Máquina do Azure, é possível especificar vários parâmetros que definirão a execução em lotes:
 
 * **Input**: representa uma referência de blob na qual a entrada do trabalho em lotes é armazenada.
-* **GlobalParameters**: representa o conjunto de parâmetros globais que é possível definir para o experimento. Um experimento de Aprendizado de Máquina do Azure pode ter parâmetros obrigatórios e opcionais que personalizam a execução do serviço, e o chamador deve fornecer todos os parâmetros obrigatórios se aplicável. Esses parâmetros são especificados como uma coleção de pares chave-valor.
-* **Outputs**: se o serviço definiu uma ou mais saídas, o chamador pode redirecionar qualquer uma delas para um local de blob do Azure. Isso permite salvar as saídas do serviço em um local preferencial e com um nome previsível, caso contrário, o nome de blob de saída é gerado aleatoriamente. 
+* **GlobalParameters**: representa o conjunto de parâmetros globais que você pode definir para o experimento. Um experimento de Aprendizado de Máquina do Azure pode ter parâmetros obrigatórios e opcionais que personalizam a execução do serviço, e o chamador deve fornecer todos os parâmetros obrigatórios se aplicável. Esses parâmetros são especificados como uma coleção de pares chave-valor.
+* **Outputs**: se o serviço tiver definido uma ou mais saídas, o chamador poderá redirecionar qualquer uma delas para um local de blob do Azure. Isso permite salvar as saídas do serviço em um local preferencial e com um nome previsível, caso contrário, o nome de blob de saída é gerado aleatoriamente. 
 
     Observe que o serviço espera que o conteúdo de saída, de acordo com o tipo, sejam salvos como formatos com suporte:
   - saídas de conjuntos de dados: podem ser salvas como **.csv, .tsv, .arff**
   - saídas de modelos treinados: podem ser salvas como **.ilearner**
 
-  As substituições de local de saída são especificadas como uma coleção de *<output name  blob reference>* pares, em que o *nome de saída* é o nome definido pelo usuário para um nó de saída específico (também mostrado na página de Ajuda da API do serviço) e a *referência de blob* é uma referência a um local de blob do Azure para o qual a saída dever ser direcionada.
+  As substituições de local de saída são especificadas como uma coleção de pares de *<output name  blob reference>*, em que o *nome de saída* é o nome definido pelo usuário para um nó de saída específico (também mostrado na página de Ajuda da API do serviço) e a *referência de blob* é uma referência a um local de blob do Azure para o qual a saída dever ser redirecionada.
 
-Todos esses parâmetros de criação de trabalho podem ser opcionais, dependendo da natureza do serviço. Por exemplo, serviços sem um nó de entrada definido não exigem a passagem em um parâmetro de *Entrada*. Da mesma forma, o recurso de substituição de local de saída é totalmente opcional, caso contrário, as saídas serão armazenadas na conta de armazenamento padrão configurada para o espaço de trabalho do Aprendizado de Máquina do Azure. A seguir, mostramos uma carga de solicitação de exemplo, conforme passada à API REST, de um serviço em que apenas as informações de entrada são fornecidas:
+Todos esses parâmetros de criação de trabalho podem ser opcionais, dependendo da natureza do serviço. Por exemplo, serviços os sem um nó de entrada definido não exigem a passagem em um parâmetro *Input*. Da mesma forma, o recurso de substituição de local de saída é totalmente opcional, caso contrário, as saídas serão armazenadas na conta de armazenamento padrão configurada para o espaço de trabalho do Aprendizado de Máquina do Azure. A seguir, mostramos uma carga de solicitação de exemplo, conforme passada à API REST, de um serviço em que apenas as informações de entrada são fornecidas:
 
 **Solicitação de exemplo**
 
@@ -245,11 +297,11 @@ A resposta à API de criação de trabalho em lotes é a ID exclusiva do trabalh
 
 **2. Iniciar um trabalho de execução em lotes**
 
-A criação de um trabalho em lotes o registra no sistema e o coloca em um estado *não iniciado*. Para realmente agendar o trabalho para execução, você chama a API **iniciar** descrita na página de Ajuda da API do ponto de extremidade de serviço e fornecer a ID do trabalho obtida quando o trabalho foi criado.
+A criação de um trabalho em lotes o registra no sistema e o coloca em um estado *não iniciado*. Para realmente agendar o trabalho para execução, você chama a API **start** descrita na página de Ajuda da API do ponto de extremidade de serviço e fornece a ID do trabalho obtida quando o trabalho foi criado.
 
 **3. Obter o status de um trabalho de execução em lotes**
 
-Você pode sondar o status do trabalho assíncrono em lotes a qualquer momento ao passar a ID do trabalho para a API GetJobStatus. A resposta da API conterá um indicador do estado atual do trabalho, bem como os resultados reais do trabalho em lotes se concluído com êxito. Em caso de erro, mais informações sobre os motivos reais relacionados à falha são retornados na propriedade *Details*, conforme mostrado aqui:
+Você pode sondar o status do trabalho assíncrono em lotes a qualquer momento ao passar a ID do trabalho para a API GetJobStatus. A resposta da API conterá um indicador do estado atual do trabalho, bem como os resultados reais do trabalho em lotes se concluído com êxito. Em caso de erro, mais informações sobre os motivos reais relacionados à falha serão retornadas na propriedade *Details*, como mostrado aqui:
 
 **Carga de resposta**
 
@@ -301,9 +353,9 @@ Um trabalho em lotes em execução pode ser cancelado a qualquer momento ao cham
 
 #### Usando o SDK do BES
 
-O [pacote NuGet do SDK do BES](http://www.nuget.org/packages/Microsoft.Azure.MachineLearning/) fornece funções que simplificam a chamada do BES para pontuação no modo em lotes. Para instalar o pacote NuGet, no Visual Studio, no menu **Ferramentas**, selecione **Gerenciador de Pacotes NuGet** e clique em **Console do Gerenciador de Pacotes**.
+O [pacote NuGet do SDK do BES](http://www.nuget.org/packages/Microsoft.Azure.MachineLearning/) fornece funções que simplificam a chamada do BES para pontuação no modo em lotes. Para instalar o pacote Nuget, no Visual Studio, no menu **Ferramentas**, selecione **Gerenciador de Pacotes Nuget** e clique em **Console do Gerenciador de Pacotes**.
 
-Testes do Aprendizado de Máquina do Azure que são implantados como serviços Web podem incluir módulos de entrada de serviço Web. Isso significa que eles esperam que a entrada seja fornecida por meio da chamada de serviço Web na forma de uma referência a um local de blob. Também há a opção de não usar um módulo de entrada de serviço Web, mas sim um módulo **Leitor** em vez disso. Nesse caso, o módulo **Leitor** normalmente leria um BD SQL usando uma consulta em tempo de execução para obter os dados. Os parâmetros do serviço Web podem ser usados para apontar dinamicamente para outros servidores ou tabelas, etc. O SDK dá suporte a esses padrões.
+Testes do Aprendizado de Máquina do Azure que são implantados como serviços Web podem incluir módulos de entrada de serviço Web. Isso significa que eles esperam que a entrada seja fornecida por meio da chamada de serviço Web na forma de uma referência a um local de blob. Também há a opção de não usar um módulo de entrada de serviço Web, mas sim um módulo **Leitor**. Nesse caso, o módulo **Leitor** normalmente leria um banco de dados SQL usando uma consulta em tempo de execução para obter os dados. Os parâmetros do serviço Web podem ser usados para apontar dinamicamente para outros servidores ou tabelas, etc. O SDK dá suporte a esses padrões.
 
 O exemplo de código abaixo demonstra como você pode enviar e monitorar um trabalho em lotes em relação a um ponto de extremidade de serviço de Aprendizado de Máquina do Azure usando o SDK do BES. Observe os comentários para obter detalhes sobre as configurações e as chamadas.
 
@@ -435,4 +487,202 @@ O exemplo de código abaixo demonstra como você pode enviar e monitorar um trab
 	    }
 	}
 
-<!---HONumber=AcomDC_0211_2016-->
+#### Código de exemplo em Java para BES
+A API REST do serviço de execução do Lote usa o JSON que consiste em uma referência para um csv de exemplo de entrada e em um csv de exemplo de saída, como mostrado abaixo, e cria um trabalho no AM do Azure para fazer previsões em lotes. Você pode exibir o código completo no [Github](https://github.com/nk773/AzureML_BESApp/tree/master/src/azureml_besapp). Este exemplo de Java requer a [biblioteca cliente HTTP do apache](https://hc.apache.org/downloads.cgi).
+
+
+	{ "GlobalParameters": {}, 
+    	"Inputs": { "input1": { "ConnectionString": 	"DefaultEndpointsProtocol=https;
+			AccountName=myAcctName; AccountKey=Q8kkieg==", 
+        	"RelativeLocation": "myContainer/sampleinput.csv" } }, 
+    	"Outputs": { "output1": { "ConnectionString": 	"DefaultEndpointsProtocol=https;
+			AccountName=myAcctName; AccountKey=kjC12xQ8kkieg==", 
+        	"RelativeLocation": "myContainer/sampleoutput.csv" } } 
+	} 
+
+
+#####Criar um trabalho do BES	
+	    
+	    /**
+	     * Call REST API to create a job to Azure ML 
+	     * for batch predictions
+	     * @return response from the REST API
+	     */	
+	    public static String besCreateJob() {
+	        
+	        HttpPost post;
+	        HttpClient client;
+	        StringEntity entity;
+	        
+	        try {
+	            // create HttpPost and HttpClient object
+	            post = new HttpPost(apiurl);
+	            client = HttpClientBuilder.create().build();
+	            
+	            // setup output message by copying JSON body into 
+	            // apache StringEntity object along with content type
+	            entity = new StringEntity(jsonBody, HTTP.UTF_8);
+	            entity.setContentEncoding(HTTP.UTF_8);
+	            entity.setContentType("text/json");
+	
+	            // add HTTP headers
+	            post.setHeader("Accept", "text/json");
+	            post.setHeader("Accept-Charset", "UTF-8");
+	        
+	            // set Authorization header based on the API key
+				// note a space after the word "Bearer " - don't miss that
+	            post.setHeader("Authorization", ("Bearer "+apikey));
+	            post.setEntity(entity);
+	
+	            // Call REST API and retrieve response content
+	            HttpResponse authResponse = client.execute(post);
+	            
+	            jobId = EntityUtils.toString(authResponse.getEntity()).replaceAll(""", "");
+	            
+	            
+	            return jobId;
+	            
+	        }
+	        catch (Exception e) {
+	            
+	            return e.toString();
+	        }
+	    
+	    }
+	    
+#####Iniciar um trabalho do BES criado anteriormente	        
+	    /**
+	     * Call REST API for starting prediction job previously submitted 
+	     * 
+	     * @param job job to be started 
+	     * @return response from the REST API
+	     */	
+	    public static String besStartJob(String job){
+	        HttpPost post;
+	        HttpClient client;
+	        StringEntity entity;
+	        
+	        try {
+	            // create HttpPost and HttpClient object
+	            post = new HttpPost(startJobUrl+"/"+job+"/start?api-version=2.0");
+	            client = HttpClientBuilder.create().build();
+	         
+	            // add HTTP headers
+	            post.setHeader("Accept", "text/json");
+	            post.setHeader("Accept-Charset", "UTF-8");
+	        
+	            // set Authorization header based on the API key
+	            post.setHeader("Authorization", ("Bearer "+apikey));
+	
+	            // Call REST API and retrieve response content
+	            HttpResponse authResponse = client.execute(post);
+	            
+	            if (authResponse.getEntity()==null)
+	            {
+	                return authResponse.getStatusLine().toString();
+	            }
+	            
+	            return EntityUtils.toString(authResponse.getEntity());
+	            
+	        }
+	        catch (Exception e) {
+	            
+	            return e.toString();
+	        }
+	    }
+#####Cancelar um trabalho do BES criado anteriormente
+	    
+	    /**
+	     * Call REST API for canceling the batch job 
+	     * 
+	     * @param job job to be started 
+	     * @return response from the REST API
+	     */	
+	    public static String besCancelJob(String job) {
+	        HttpDelete post;
+	        HttpClient client;
+	        StringEntity entity;
+	        
+	        try {
+	            // create HttpPost and HttpClient object
+	            post = new HttpDelete(startJobUrl+job);
+	            client = HttpClientBuilder.create().build();
+	         
+	            // add HTTP headers
+	            post.setHeader("Accept", "text/json");
+	            post.setHeader("Accept-Charset", "UTF-8");
+	        
+	            // set Authorization header based on the API key
+	            post.setHeader("Authorization", ("Bearer "+apikey));
+	
+	            // Call REST API and retrieve response content
+	            HttpResponse authResponse = client.execute(post);
+	         
+	            if (authResponse.getEntity()==null)
+	            {
+	                return authResponse.getStatusLine().toString();
+	            }
+	            return EntityUtils.toString(authResponse.getEntity());
+	            
+	        }
+	        catch (Exception e) {
+	            
+	            return e.toString();
+	        }
+	    }
+	    
+###Outros ambientes de programação
+Você também pode gerar o código em muitas outras linguagens ao usar um documento do swagger da página de ajuda da API e ao seguir as instruções fornecidas no site [swagger.io](http://swagger.io/). Acesse o site [swagger.io](http://swagger.io/swagger-codegen/) e siga as instruções para baixar o código do swagger, o java e o apache mvn. Aqui está o resumo de instruções sobre como configurar o swagger para outros ambientes de programação.
+
+* Verifique se o Java 7 ou superior está instalado
+* Instale o apache mvn (no ubuntu, você pode usar *apt-get install mvn*)
+* Vá para o github a fim de obter o swagger e baixe o projeto do swagger como um arquivo zip
+* Descompacte o swagger
+* Crie ferramentas do swagger ao executar o *pacote mvn* do diretório de origem do swagger
+
+Agora você pode usar todas as ferramentas do swagger. Aqui estão as instruções para gerar código de cliente Java.
+
+* Vá para a página de Ajuda da API do AM do Azure (exemplo [aqui](https://studio.azureml.net/apihelp/workspaces/afbd553b9bac4c95be3d040998943a4f/webservices/4dfadc62adcc485eb0cf162397fb5682/endpoints/26a3afce1767461ab6e73d5a206fbd62/jobs))
+* Encontre a URL do swagger.json para APIs REST do AM do Azure (penúltimo marcador na parte superior da página da ajuda da API)
+* Clique no link de documento do swagger (veja o exemplo [aqui](https://management.azureml.net/workspaces/afbd553b9bac4c95be3d040998943a4f/webservices/4dfadc62adcc485eb0cf162397fb5682/endpoints/26a3afce1767461ab6e73d5a206fbd62/apidocument))
+* Use o comando a seguir, como mostrado no [arquivo Leiame do swagger](https://github.com/swagger-api/swagger-codegen/blob/master/README.md), para gerar o código do cliente
+
+**Exemplo de linha de comando para gerar o código cliente**
+
+	java -jar swagger-codegen-cli.jar generate\
+	 -i https://ussouthcentral.services.azureml.net:443/workspaces/\
+	fb62b56f29fc4ba4b8a8f900c9b89584/services/26a3afce1767461ab6e73d5a206fbd62/swagger.json\
+	 -l java -o /home/username/sample
+
+* Combine os valores nos campos host, basePath e "/swagger.json" no exemplo de uma [página de Ajuda da API](https://management.azureml.net/workspaces/afbd553b9bac4c95be3d040998943a4f/webservices/4dfadc62adcc485eb0cf162397fb5682/endpoints/26a3afce1767461ab6e73d5a206fbd62/apidocument) do swagger mostrada abaixo para construir a URL do swagger usada na linha de comando acima
+
+**Página de Ajuda da API de exemplo**
+
+
+	{
+	  "swagger": "2.0",
+	  "info": {
+	    "version": "2.0",
+	    "title": "Sample 5: Binary Classification with Web Service: Adult Dataset [Predictive Exp.]",
+	    "description": "No description provided for this web service.",
+	    "x-endpoint-name": "default"
+	  },
+	  "host": "ussouthcentral.services.azureml.net:443",
+	  "basePath": "/workspaces/afbd553b9bac4c95be3d040998943a4f/services/26a3afce1767461ab6e73d5a206fbd62",
+	  "schemes": [
+	    "https"
+	  ],
+	  "consumes": [
+	    "application/json"
+	  ],
+	  "produces": [
+	    "application/json"
+	  ],
+	  "paths": {
+	    "/swagger.json": {
+	      "get": {
+	        "summary": "Get swagger API document for the web service",
+	        "operationId": "getSwaggerDocument",
+	        
+
+<!---HONumber=AcomDC_0224_2016-->

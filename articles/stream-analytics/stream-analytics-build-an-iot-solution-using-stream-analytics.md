@@ -15,13 +15,13 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/16/2016" 
+	ms.date="02/18/2016" 
 	ms.author="jeffstok"
 />
 
-# Compilar uma solução IOT usando o Stream Analytics #
+# Compilar uma solução IOT usando o Stream Analytics
 
-## Introdução ##
+## Introdução
 
 Neste tutorial, você aprenderá como obter informações de dados em tempo real usando o Stream Analytics do Azure. O serviço de processamento de transmissão do Azure permite que os desenvolvedores lidem facilmente com o espaço de dados em movimento ao combinar os fluxos de dados, como fluxos de clique, logs e eventos gerados por dispositivo com registros históricos ou dados de referência para obter ideias de negócios de forma rápida e fácil. Sendo um serviço de computação de transmissão em tempo real, totalmente gerenciado e hospedado no Microsoft Azure, o Stream Analytics do Azure fornece resiliência interna, baixa latência e escalabilidade para você colocar tudo em funcionamento em minutos.
 
@@ -33,7 +33,7 @@ Depois de concluir este tutorial, você poderá:
 -   Desenvolver soluções de transmissão para os clientes usando o Stream Analytics do Azure com confiança.
 -   Use o monitoramento e experiência de log para solucionar problemas.
 
-## Pré-requisitos ##
+## Pré-requisitos
 
 Você terá os seguintes pré-requisitos para concluir este tutorial com êxito.
 
@@ -41,20 +41,21 @@ Você terá os seguintes pré-requisitos para concluir este tutorial com êxito.
 -   O Visual Studio 2015 ou o [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) gratuito
 -   [Assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/)
 -   Privilégios administrativos no computador
--   Baixar a versão mais recente do TollApp.zip do [GitHub](https://github.com/streamanalytics/samples/releases)
+-   Baixar [TollApp.zip](http://download.microsoft.com/download/D/4/A/D4A3C379-65E8-494F-A8C5-79303FD43B0A/TollApp.zip) do Centro de Download da Microsoft
+-   Opcional: código-fonte do gerador de evento TollApp no [GitHub](https://github.com/streamanalytics/samples/tree/master/TollApp)
 
-## Introdução ao cenário - “Olá, pedágio!” ##
+## Introdução ao cenário - “Olá, pedágio!”
 
 
 A estação de pedágio é um fenômeno comum– ela é encontrada em várias estradas, pontes e túneis em todo o mundo. Cada estação de pedágio tem várias cabines de pedágios, que podem ser manuais – o que significa que você para com o intuito de pagar o pedágio para um atendente, ou automatizadas – nas quais um sensor colocado na parte superior da cabine examina um cartão RFID afixado no para-brisa do seu veículo conforme você passa pela cabine de pedágio. É fácil visualizar a passagem dos veículos por essas estações de pedágio como uma transmissão de eventos sobre quais operações interessantes podem ser executadas.
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image1.jpg)
 
-## Dados de entrada ##
+## Dados de entrada
 
 Trabalharemos com dois fluxos de dados que são produzidos por sensores instalados na entrada e na saída das estações de pedágio e um conjunto de dados de pesquisa estático com os dados de registro do veículo.
 
-### Transmissão de dados de entrada ###
+### Transmissão de dados de entrada
 
 A transmissão de dados de entrada contém informações sobre carros que estão entrando nas estações de pedágio.
   
@@ -108,7 +109,7 @@ Aqui está uma breve descrição das colunas:
 | ExitTime | A data e hora de saída do veículo no pedágio em UTC |
 | PlacaDeCarro | Número da placa de licença do veículo |
 
-###Dados de registro de veículo comercial
+### Dados de registro de veículo comercial
 
 Usaremos um instantâneo estático do banco de dados de registro de veículo comercial.
   
@@ -136,7 +137,7 @@ Aqui está uma breve descrição das colunas:
 
 Para executar este tutorial, você precisará de uma assinatura do Microsoft Azure. A Microsoft oferece uma avaliação gratuita de serviços do Microsoft Azure conforme descrito abaixo.
 
-Se você não tiver uma conta do Azure, você pode solicitar uma versão de avaliação gratuita acessando <http://azure.microsoft.com/pricing/free-trial/>.
+Se você não tem uma conta do Azure, solicite uma versão de avaliação gratuita acessando <http://azure.microsoft.com/pricing/free-trial/>.
 
 Observação: para se inscrever para uma avaliação gratuita, será necessário um dispositivo móvel que pode receber mensagens de texto e um cartão de crédito válido.
 
@@ -148,9 +149,9 @@ Este tutorial requer dois Hubs de Eventos do Azure para receber fluxos de dados 
 
 O script Setup.ps1 na pasta TollApp no GitHub pode ser usado para criar todos os recursos necessários. Devido ao tempo, recomendamos que você execute-o. Se quiser saber mais sobre como configurar esses recursos no portal do Azure, veja o apêndice “Configurando recursos de tutorial no Portal do Azure”
 
-Faça download e salve os arquivos e pastas [TollApp](https://github.com/streamanalytics/samples/releases) de suporte. Certifique-se de baixar a versão mais recente.
+Baixe e salve os arquivos e pastas [TollApp](http://download.microsoft.com/download/D/4/A/D4A3C379-65E8-494F-A8C5-79303FD43B0A/TollApp.zip) de suporte.
 
-Abra uma janela do “Microsoft Azure PowerShell” **COMO UM ADMINISTRADOR**. Se você ainda não tiver o Azure PowerShell, siga as instruções para instalá-lo: [Instale e configure o Azure PowerShell](../powershell-install-configure.md)
+Abra uma janela do “Microsoft Azure PowerShell” **COMO ADMINISTRADOR**. Se você ainda não tem o Azure PowerShell, siga as instruções para instalá-lo: [Instalar e configurar o Azure PowerShell](../powershell-install-configure.md)
 
 O Windows bloqueia automaticamente os arquivos ps1, dll e exe baixados da Internet. É necessário definir a Política de Execução antes de executar o script. Verifique se a janela do Azure PowerShell está executando como um administrador. Execute “Set-ExecutionPolicy unrestricted”. Quando solicitado, digite "Y".
 
@@ -224,7 +225,7 @@ Clique em “TollDataDB”
 
 Copie o nome do servidor sem o número da porta (*servername*.database.windows.net, por exemplo)
 
-##Conecte-se ao banco de dados do Visual Studio
+## Conecte-se ao banco de dados do Visual Studio
 
 Usaremos o Visual Studio para acessar os resultados da consulta no banco de dados de saída.
 
@@ -256,7 +257,7 @@ Conecte-se ao banco de dados (o destino) do Azure do Visual Studio:
   
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image19.jpg)
   
-##Gerador de evento - projeto de exemplo TollApp
+## Gerador de evento - projeto de exemplo TollApp
 
 O script do PowerShell inicia automaticamente o envio de eventos usando o programa TollApp do aplicativo de exemplo. Você não precisa executar nenhuma etapa adicional.
 
@@ -278,7 +279,7 @@ Clique em "Criar trabalho do Stream Analytics" na parte inferior da página.
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image22.png)
 
-##Definir fontes de entrada
+## Definir fontes de entrada
 
 Clique no trabalho de análise criado no portal.
 
@@ -344,7 +345,7 @@ Agora, todas as entradas são definidas.
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image36.jpg)
 
-##Definir saída
+## Definir saída
 
 Acesse a guia “Saída” e clique em “Adicionar uma saída”.
 
@@ -354,11 +355,11 @@ Escolha "banco de dados SQL".
 
 Selecione o nome do servidor que foi usado em “Conectar-se ao banco de dados do Visual Studio”. O nome do banco de dados deve ser TollDataDB.
 
-Digite “tolladmin” como o nome de usuário e “123toll!” como a senha. O nome da tabela deve ser definido como “TollDataRefJoin”
+Digite “tolladmin” como o nome de usuário e “123toll!” como a senha. O nome da tabela deve ser definido como “TollDataRefJoin”.
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image38.jpg)
 
-##Consulta do Stream Analytics do Azure
+## Consulta do Stream Analytics do Azure
 
 A guia Consulta contém uma consulta de SQL que executa a transformação dos dados de entrada.
 
@@ -368,7 +369,7 @@ Através deste tutorial, tentaremos responder várias perguntas de negócios rel
 
 Antes de começarmos o nosso primeiro trabalho do Stream Analytics do Azure, vamos explorar alguns cenários e sintaxe de consulta.
 
-##Introdução à linguagem de consulta do Stream Analtyics do Azure
+## Introdução à linguagem de consulta do Stream Analtyics do Azure
 -----------------------------------------------------
 
 Digamos que precisamos contar o número de veículos que entram em uma cabine pedágio. Como essa é uma transmissão contínua de eventos, é essencial, definirmos um “período de tempo”. Portanto, precisamos modificar nosso pergunta para “Número de veículos que entram em uma cabine de pedágio a cada três minutos”. Isso é conhecido como a contagem em cascata.
@@ -383,7 +384,7 @@ Como você pode ver, o Stream Analytics do Azure está usando uma linguagem de c
 
 Para obter mais detalhes, você pode ler sobre [Gerenciamento de tempo](https://msdn.microsoft.com/library/azure/mt582045.aspx) e construções de [Janelas](https://msdn.microsoft.com/library/azure/dn835019.aspx) usadas na consulta do MSDN.
 
-##Testando consultas do Stream Analytics do Azure
+## Testando consultas do Stream Analytics do Azure
 
 Agora que poderíamos ter escrito nossa primeira consulta do Stream Analytics do Azure, é hora de testá-la usando os arquivos de dados de exemplo localizados na pasta TollApp no caminho abaixo:
 
@@ -411,7 +412,7 @@ Valide que a saída da consulta é conforme o esperado:
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image42.jpg)
 
-##Pergunta 2 - Relatar o tempo total para cada carro passar pela cabine de pedágio
+## Pergunta 2 - Relatar o tempo total para cada carro passar pela cabine de pedágio
 
 Queremos localizar o tempo médio necessário para o carro passar pelo pedágio para avaliar a eficiência e a experiência do cliente.
 
@@ -435,7 +436,7 @@ Clique na caixa de seleção para testar a consulta e exibir a saída:
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image45.png)
 
-##Pergunta 3 – Relatar todos os veículos comerciais com o registro expirado
+## Pergunta 3 – Relatar todos os veículos comerciais com o registro expirado
 
 O Stream Analytics do Azure pode usar instantâneos estáticos de dados para se associar com os fluxos de dados temporais. Para demonstrar essa funcionalidade, usaremos a pergunta de exemplo a seguir.
 
@@ -457,10 +458,10 @@ Exibir a saída da consulta:
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image47.png)
 
-##Iniciar o trabalho do Stream Analytics
+## Iniciar o trabalho do Stream Analytics
 
 
-Agora, já que gravamos nossa primeira consulta do Stream Analytics do Azure, é hora de finalizar a configuração e iniciar o trabalho. Salve a consulta da Pergunta 3, que produzirá a saída que corresponde ao esquema de nossa tabela de saída **TollDataRefJoin**.
+Agora, já que gravamos nossa primeira consulta do Stream Analytics do Azure, é hora de finalizar a configuração e iniciar o trabalho. Salve a consulta da Pergunta 3, que produzirá a saída correspondente ao esquema da nossa tabela de saída **TollDataRefJoin**.
 
 Navegue até o Painel de Trabalho e clique em Iniciar.
 
@@ -474,13 +475,13 @@ O início do trabalho pode levar alguns minutos. Você poderá ver o status na p
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image50.jpg)
 
-##Verificar resultados no Visual Studio
+## Verificar resultados no Visual Studio
 
 Abra o Gerenciador de Servidores do Visual Studio e clique com o botão direito do mouse na tabela TollDataRefJoin. Selecione “Mostrar dados da tabela” para ver a saída do seu trabalho.
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image51.jpg)
 
-##Colocação em escala dos trabalhos do Stream Analytics do Azure
+## Colocação em escala dos trabalhos do Stream Analytics do Azure
 
 O Stream Analytics do Azure foi projetado para dimensionar elasticidade e ser capaz de lidar com a alta carga de dados. A consulta do Stream Analytics do Azure pode usar uma cláusula **PARTITION BY** para informar ao sistema que esta etapa será escalável horizontalmente. PartitionId é uma coluna especial adicionada pelo sistema que corresponde à ID da partição de entrada (Hub de Eventos)
 
@@ -500,7 +501,7 @@ Acesse a guia de saída e altere o nome da tabela SQL para "TollDataTumblingCoun
 
 Agora, se você iniciar o trabalho, o Stream Analytics do Azure será capaz de distribuir o trabalho entre mais recursos de computação e obter uma taxa de transferência melhor. Observe que o aplicativo TollApp também está enviando eventos particionados pelo TollId.
 
-##Monitoramento
+## Monitoramento
 
 A guia de monitoramento contém estatísticas sobre o trabalho em execução.
 
@@ -516,13 +517,13 @@ Para obter informações adicionais sobre um evento específico, selecione o eve
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image56.png)
 
-##Conclusão
+## Conclusão
 
 Neste tutorial, nós fornecemos uma introdução ao serviço Stream Analytics do Azure. Demonstramos como configurar entradas e saídas para o trabalho do Stream Analytics. Ao usarmos o cenário Dados de Pedágio, explicamos os tipos comuns de problemas que podem surgir no espaço de dados em movimento e como eles podem ser resolvidos com consultas simples do tipo SQL no Stream Analytics do Azure. Descrevemos construções de extensão do SQL para trabalhar com dados temporais. Mostramos como combinar transmissões de dados, como aprimorar a transmissão de dados com dados de referência estáticos. Explicamos como escalar horizontalmente uma consulta para obter uma taxa de transferência maior.
 
-Embora este tutorial forneça uma boa cobertura introdutória, ele não é, de forma alguma, completo. Você pode encontrar mais Padrões de Consulta usando a linguagem SAQL [aqui](stream-analytics-stream-analytics-query-patterns.md). Veja a [documentação online](https://azure.microsoft.com/documentation/services/stream-analytics/) para saber mais sobre o Stream Analytics do Azure.
+Embora este tutorial forneça uma boa cobertura introdutória, ele não é, de forma alguma, completo. Você pode encontrar mais Padrões de Consulta usando a linguagem SAQL [aqui](stream-analytics-stream-analytics-query-patterns.md). Consulte a [documentação online](https://azure.microsoft.com/documentation/services/stream-analytics/) para saber mais sobre o Azure Stream Analytics.
 
-##Limpe sua conta do Azure
+## Limpe sua conta do Azure
 
 Interrompa o trabalho do Stream Analytics do Portal do Azure.
 
@@ -534,4 +535,4 @@ Observe que os recursos são identificados pelo nome. Certifique-se de examinar 
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image57.png)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

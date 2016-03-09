@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="02/21/2016"
 	ms.author="micurd"/>
 
 # Como usar o Armazenamento de Blob no Xamarin (visualização)
@@ -49,7 +49,7 @@ O URI de assinatura de acesso compartilhado do novo contêiner deve ser semelhan
 
 A assinatura de acesso compartilhado criada no contêiner será válida para o dia seguinte. A assinatura concede permissões completas (*por exemplo*, leitura, gravação, exclusão e lista) para os blobs do contêiner.
 
-Para obter mais informações sobre as assinaturas de acesso compartilhado, consulte o [Tutorial de SAS para .NET](storage-dotnet-shared-access-signature-part-2.md).
+Para obter mais informações sobre assinaturas de acesso compartilhado, consulte [Assinaturas de Acesso Compartilhado: criar e usar uma SAS com o Armazenamento de Blobs](storage-dotnet-shared-access-signature-part-2.md).
 
 ## Criar um novo aplicativo Xamarin
 
@@ -173,10 +173,11 @@ Neste tutorial, você aprendeu a usar o armazenamento de Blob do Azure e SAS com
 
 Saiba mais sobre blobs, tabelas e filas consultando os links a seguir:
 
-[Introdução ao Armazenamento do Microsoft Azure](storage-introduction.md) 
-[Como usar o Armazenamento de Blobs no .NET](storage-dotnet-how-to-use-blobs.md) 
-[Como usar o Armazenamento de Tabelas no .NET](storage-dotnet-how-to-use-tables.md) 
-[Como usar o Armazenamento de Filas no .NET](storage-dotnet-how-to-use-queues.md) 
-[Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy)
+- [Introdução ao Armazenamento do Microsoft Azure](storage-introduction.md)
+- [Introdução ao Armazenamento de Blobs do Azure usando o .NET](storage-dotnet-how-to-use-blobs.md)
+- [Introdução ao Armazenamento de Tabelas do Azure usando o .NET](storage-dotnet-how-to-use-tables.md)
+- [Introdução ao Armazenamento de Filas do Azure usando o .NET](storage-dotnet-how-to-use-queues.md)
+- [Introdução ao Armazenamento de Arquivos do Azure no Windows](storage-dotnet-how-to-use-files.md)
+- [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

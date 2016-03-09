@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="02/18/2016"
    ms.author="v-sharos" />
 
 # Usar o serviço StorSimple Manager para administrar seu StorSimple Virtual Array (visualização)
@@ -75,13 +75,15 @@ Para obter mais informações sobre cada fluxo de trabalho, clique no procedimen
 |Se você quiser fazer isso...|Vá para a página da interface do usuário...|Utilize este procedimento|
 |---|---|---|
 |Criar um serviço</br>Excluir um serviço</br>Obter a chave de registro</br>Regenerar a chave de registro do serviço|Serviço StorSimple Manager|[Implantar o serviço StorSimple Manager](storsimple-ova-manage-service.md)|
+|Alterar a chave de criptografia de dados do serviço</br>Exibir os logs operacionais|Serviço StorSimple Manager → Painel|[Usar o painel de serviço do StorSimple](storsimple-ova-service-dashboard.md)|
 |Desativar uma Matriz Virtual</br>Excluir uma Matriz Virtual|Serviço StorSimple Manager → Dispositivos|[Desativar ou excluir uma matriz Virtual](storsimple-ova-deactivate-and-delete-device.md)|
-|Failover de dispositivo e recuperação de desastres</br>Pré-requisitos de Failover</br>Failover para um dispositivo virtual</br>Recuperação de desastres de continuidade de negócios (BCDR)</br>Erros durante a recuperação de desastres|Serviço StorSimple Manager → Dispositivos|[Failover de dispositivo e a recuperação de desastre para sua StorSimple Virtual Array](storsimple-ova-failover-dr.md)|
+|Failover de dispositivo e recuperação de desastre</br>Pré-requisitos de Failover</br>Failover para um dispositivo virtual</br>Recuperação de desastres de continuidade de negócios (BCDR)</br>Erros durante a recuperação de desastre|Serviço StorSimple Manager → Dispositivos|[Failover de dispositivo e a recuperação de desastre para sua StorSimple Virtual Array](storsimple-ova-failover-dr.md)|
 |Fazer backup de compartilhamentos e volumes</br>Fazer um backup manual</br>Alterar o agendamento de backup</br>Exibir backups existentes|Serviço StorSimple Manager → Catálogo de backup|[Fazer backup de sua Matriz Virtual StorSimple](storsimple-ova-backup.md)|
 |Restaurar compartilhamentos de um conjunto de backup</br>Restaurar volumes de um conjunto de backup</br>Recuperação em nível de item (somente servidor de arquivos)|Serviço StorSimple Manager → Catálogo de backup|[Restaurar de um backup de sua Matriz Virtual StorSimple](storsimple-ova-restore.md)|
 |Sobre contas de armazenamento</br>Adicionar uma conta de armazenamento</br>Editar uma conta de armazenamento</br>Excluir uma conta de armazenamento|Serviço StorSimple Manager → Configurar|[Gerenciar contas de armazenamento para a Matriz Virtual StorSimple](storsimple-ova-manage-storage-accounts.md)|
 |Sobre os registros de controle de acesso</br>Adicionar ou modificar um registro de controle de acesso </br>Excluir um registro de controle de acesso|Serviço StorSimple Manager → Configurar|[Gerenciar registros de controle de acesso para a Matriz Virtual StorSimple](storsimple-ova-manage-acrs.md)|
-|Definir configurações de alerta</br>Receber notificações de alerta</br>Gerenciar alertas</br>Revisar alertas|Serviço StorSimple Manager → Alertas|[Exibir e gerenciar alertas para a Matriz Virtual StorSimple](storsimple-ova-manage-alerts.md)
+|Exibir detalhes do trabalho|Serviço StorSimple Manager → Trabalhos| [Gerenciar trabalhos do StorSimple Virtual Array](storsimple-ova-manage-jobs.md)|
+|Definir configurações de alerta</br>Receber notificações de alerta</br>Gerenciar alertas</br>Revisar alertas|Serviço StorSimple Manager → Alertas|[Exibir e gerenciar alertas para a Matriz Virtual StorSimple](storsimple-ova-manage-alerts.md)|
 |Modificar a senha de administrador do dispositivo|Serviço StorSimple Manager → Dispositivos → Configurar|[Alterar a senha do administrador do dispositivo da Matriz Virtual StorSimple](storsimple-ova-change-device-admin-password.md)|
 |Instalar as atualizações do software|Serviço StorSimple Manager → Dispositivos → Manutenção|[Atualizar a Matriz Virtual](storsimple-ova-update.md)|
 
@@ -92,6 +94,6 @@ Para obter mais informações sobre cada fluxo de trabalho, clique no procedimen
 >- [Parar e reiniciar uma Matriz Virtual](storsimple-ova-web-ui-admin.md#shut-down-and-restart-your-device)
 
 ##Próximas etapas
-Para obter informações sobre a interface do usuário da web e como usá-la, acesse [Usar a interface do usuário da web do StorSimple para administrar sua Matriz Virtual StorSimple](storsimple-ova-web-ui-admin.md).
+Para obter informações sobre a interface do usuário da web e como usá-la, acesse [Usar a interface do usuário da web do StorSimple para administrar sua StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

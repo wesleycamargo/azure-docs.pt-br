@@ -11,7 +11,7 @@
 <tags
 	ms.service="stream-analytics"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
 	ms.date="02/04/2016"
@@ -28,15 +28,14 @@ O Stream Analytics é um serviço completamente gerenciado que oferece baixa lat
 
 ## Cenário: detecção de fraudes de telecomunicações e SIM em tempo real
 
-Uma empresa de telecomunicações tem um grande volume de dados para as chamadas de entrada. A empresa precisa do seguinte de seus dados: 
-*fazer um corte nesses dados para um valor gerenciável e obter informações sobre o uso do cliente ao longo do tempo e por regiões geográficas. 
-*Detectar fraudes SIM (várias chamadas vindas da mesma identidade ao mesmo tempo, mas em locais geograficamente diferentes) em tempo real para que ela possa responder facilmente, notificando os clientes ou desligando o serviço.
+Uma empresa de telecomunicações tem um grande volume de dados para as chamadas de entrada. A empresa precisa do seguinte de seus dados: *fazer um corte nesses dados para um valor gerenciável e obter informações sobre o uso do cliente ao longo do tempo e por regiões geográficas. *Detectar fraudes SIM (várias chamadas vindas da mesma identidade ao mesmo tempo, mas em locais geograficamente diferentes) em tempo real para que ela possa responder facilmente, notificando os clientes ou desligando o serviço.
 
 Nos cenários da Internet das Coisas (IoT) canônica onde há uma tonelada de telemetria ou dados de sensor que estão sendo gerados – e os clientes desejam agregá-los ou alertar sobre anomalias em tempo real.
 
 ## Pré-requisitos
 
-Este cenário utiliza um gerador de evento localizado no GitHub. Baixe-o [aqui](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator) e siga as etapas deste tutorial para configurar a sua solução.
+- Baixar [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) do Centro de Download da Microsoft 
+- Opcional: código-fonte do gerador de evento do [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator)
 
 ## Criar uma entrada de Hubs de Eventos do Azure e um Grupo de Consumidores
 
@@ -58,16 +57,15 @@ Para criar um Hub de Evento:
 
 Nós fornecemos um aplicativo cliente que gerará metadados de chamadas de entrada de exemplo e os enviará por push ao Hub de eventos. Siga as etapas abaixo para configurar este aplicativo.
 
-1.	Baixar a solução de TelcoGenerator de [https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator).
-2.	Substitua os valores Microsoft.ServiceBus.ConnectionString e EventHubName em App.Config pela cadeia de conexão e pelo nome do Hub de Eventos.
-3.	Compile a solução para disparar o download de pacotes nuget necessários.
-4.	Inicie o aplicativo. A utilização é o seguinte:
+1.	Baixe o [arquivo TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip)
+2.	Substitua os valores Microsoft.ServiceBus.ConnectionString e EventHubName em **telcodatagen.exe.config** pela cadeia de conexão e pelo nome do Hub de Eventos.
+3.	Inicie o aplicativo. A utilização é o seguinte:
 
-    	telcodatagen [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]
+   telcodatagen.exe [#NumCDRsPerHour] [Probabilidade de Fraude do Cartão SIM] [#DurationHours]
 
 O exemplo a seguir gerará 1000 eventos com uma probabilidade de 20% de fraude ao longo de 2 horas.
 
-    TelcoDataGen.exe 1000 .2 2
+    telcodatagen.exe 1000 .2 2
 
 Você verá os registros que estão sendo enviados para o Hub de eventos. Alguns campos-chave que vamos usar neste aplicativo de detecção de fraudes em tempo real são definidos aqui:
 
@@ -129,7 +127,7 @@ Agora que temos um fluxo de eventos de telecomunicações, podemos configurar um
 O Stream Analytics oferece suporte a um modelo de consulta simples e declarativo para descrever as transformações. Para saber mais sobre a linguagem, consulte a [Referência de linguagem de consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/dn834998.aspx). Este tutorial o ajudará a criar e testar várias consultas sobre o fluxo de dados em tempo real de chamada.
 
 #### Opcional: Dados de entrada de exemplo
-Para validar sua consulta em relação aos dados do trabalho real, você pode usar o recurso de **Dados de Exemplo** para extrair eventos de seu fluxo e criar um arquivo .JSON dos eventos para teste. As etapas a seguir mostram como fazer isso e também fornecemos um arquivo [Telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) de exemplo para teste.
+Para validar sua consulta em relação aos dados do trabalho real, você pode usar o recurso de **Dados de Exemplo** para extrair eventos de seu fluxo e criar um arquivo .JSON dos eventos para teste. As etapas a seguir mostram como fazer isso e também fornecemos um arquivo [telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) de exemplo para teste.
 
 1.	Selecione a entrada do seu Hub de Eventos e clique em **Dados de exemplo** na parte inferior da página.
 2.	Na caixa de diálogo que será exibida, especifique uma **Hora de Início** para iniciar a coleta de dados e uma **Duração** para indicar quantos dados extras devem ser consumidos.
@@ -259,4 +257,4 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

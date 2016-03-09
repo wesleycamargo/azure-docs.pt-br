@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="02/18/2016"
 	ms.author="klam"/>
 
 # Usar modelos de aplicativos lógicos
+
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
 
 Os modelos de aplicativos lógicos são um conjunto de aplicativos lógicos pré-criados auxiliares para ajudá-lo a começar a criar seus próprios aplicativos de integração.
 
@@ -44,4 +46,4 @@ Modelos simples que se integram a serviços de mídia social, como Twitter, Yamm
 Após selecionar um dos modelos, conclua a implantação como você faria se criasse seu próprio aplicativo lógico. As etapas detalhadas estão em [Criar um aplicativo lógico](app-service-logic-create-a-logic-app.md).
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

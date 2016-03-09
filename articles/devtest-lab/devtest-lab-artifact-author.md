@@ -13,11 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/18/2016"
 	ms.author="tarcher"/>
 
 #Criar artefatos personalizados para suas VM do Laboratório de Desenvolvimento/Teste.
 
+> [AZURE.NOTE] Clique no link a seguir para exibir o vídeo que acompanha este artigo: [como definir criar artefatos personalizados](/documentation/videos/how-to-author-custom-artifacts)
+
+## Visão geral
 **Artefatos** são usados para implantar e configurar seu aplicativo após o provisionamento de uma VM. Um artefato é composto por um arquivo de definição de artefato e outros arquivos de script que são armazenados em uma pasta em um repositório git. Arquivos de definição de artefato são formados por JSON e expressões que você pode usar para especificar o que você deseja instalar em uma VM. Por exemplo, você pode definir o nome do artefato, comando a ser executado e parâmetros disponibilizados quando o comando é executado. Você pode consultar por nome outros arquivos de script dentro do arquivo de definição de artefato.
 
 ##Formato do arquivo de definição de artefato
@@ -119,6 +122,6 @@ Crie seu artefato personalizado executando as etapas abaixo:
 
 ## Próximas etapas
 
-Saiba como [Adicionar um repositório de artefatos Git ao seu Laboratório de Desenvolvimento/Teste](devtest-lab-add-artifact-repo.md)
+- Saiba como [Adicionar um repositório de artefatos Git ao seu Laboratório de Desenvolvimento/Teste](devtest-lab-add-artifact-repo.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

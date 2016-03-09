@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
-	ms.author="robinsh;prkhad"/>
+	ms.date="02/20/2016"
+	ms.author="prkhad"/>
 
 
 # Armazenamento Premium: armazenamento de alto desempenho para as cargas de trabalho da máquina virtual do Azure
@@ -35,9 +35,9 @@ Para começar com o Armazenamento Premium do Azure, visite a página [Introduç�
 
 A seguir está uma lista de pontos importantes a considerar antes ou quando usar o Armazenamento Premium:
 
-- Para usar o Armazenamento Premium, você precisa ter uma conta de armazenamento Premium. Para saber como criar uma conta de Armazenamento Premium, consulte [Criação e uso da conta de Armazenamento Premium para Discos](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
+- Para usar o Armazenamento Premium, você precisa ter uma conta de armazenamento Premium. Para saber como criar uma conta de Armazenamento Premium, consulte [Criar e usar uma conta de Armazenamento Premium para um disco rígido de máquina virtual](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
 
-- O Armazenamento Premium está disponível no [Portal do Azure](https://portal.azure.com) e pode ser acessado por meio das bibliotecas do SDK: [API REST de Armazenamento](http://msdn.microsoft.com//library/azure/dd179355.aspx) versão 2014-02-14 ou posterior; [API REST do Serviço de Gerenciamento](http://msdn.microsoft.com/library/azure/ee460799.aspx) versão 2014-10-01 ou posterior (implantações clássicas); [API do Provedor de Recursos de Armazenamento](http://msdn.microsoft.com/library/azure/mt163683.aspx) (implantações ARM); e [Azure PowerShell](../install-configure-powershell.md) versão 0.8.10 ou posterior.
+- O Armazenamento Premium está disponível no [Portal do Azure](https://portal.azure.com) e pode ser acessado por meio das seguintes bibliotecas de SDK: [API REST de Armazenamento](http://msdn.microsoft.com//library/azure/dd179355.aspx) versão 2014-02-14 ou posterior; [API REST do Serviço de Gerenciamento](http://msdn.microsoft.com/library/azure/ee460799.aspx) versão 2014-10-01 ou posterior (implantações Clássicas); [API REST do Provedor de Recursos de Armazenamento](http://msdn.microsoft.com/library/azure/mt163683.aspx) (implantações ARM); e [Azure PowerShell](../powershell-install-configure.md) versão 0.8.10 ou posterior.
 
 - Para obter uma lista de regiões que atualmente dão suporte ao Armazenamento Premium, consulte [Serviços do Azure por região](https://azure.microsoft.com/regions/#services).
 
@@ -63,7 +63,7 @@ O Azure usa a conta de armazenamento como um contêiner para seu sistema operaci
 
 Para saber mais sobre como migrar as máquinas virtuais existentes para o Armazenamento Premium, consulte [Migração para o Armazenamento Premium do Azure](storage-migration-to-premium-storage.md).
 
-Para aproveitar os benefícios do Armazenamento Premium, crie uma conta de Armazenamento Premium usando primeiro um tipo de conta *Premium\_LRS*. Para isso, você pode usar o [Portal do Azure](https://portal.azure.com), o [Azure PowerShell](../install-configure-powershell.md), a [API REST do Gerenciamento de Serviço](http://msdn.microsoft.com/library/azure/ee460799.aspx) (implantações Clássicas) ou a [API REST do Provedor de Recursos de Armazenamento](http://msdn.microsoft.com/library/azure/mt163683.aspx) (implantações ARM). Para obter instruções detalhadas, consulte [Criação e uso da conta do Armazenamento Premium para discos](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
+Para aproveitar os benefícios do Armazenamento Premium, crie uma conta de Armazenamento Premium usando primeiro um tipo de conta *Premium\_LRS*. Para isso, você pode usar o [Portal do Azure](https://portal.azure.com), o [Azure PowerShell](../powershell-install-configure.md), a [API REST do Gerenciamento de Serviço](http://msdn.microsoft.com/library/azure/ee460799.aspx) (implantações Clássicas) ou a [API REST do Provedor de Recursos de Armazenamento](http://msdn.microsoft.com/library/azure/mt163683.aspx) (implantações ARM). Para ver instruções passo a passo, consulte [Criar e usar uma conta de Armazenamento Premium para um disco de dados de máquina virtual](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
 
 ### Observações importantes:
 
@@ -79,7 +79,7 @@ Para aproveitar os benefícios do Armazenamento Premium, crie uma conta de Armaz
 
 - Você pode usar tanto discos de armazenamento Premium quanto Standard na mesma VM da série DS ou da série GS.
 - Com o armazenamento Premium, você pode provisionar uma máquina virtual da série DS e anexar vários discos de dados persistentes a uma máquina virtual. Se necessário, pode distribuir entre os discos para aumentar a capacidade e o desempenho do volume. Se você distribuir discos de dados do Armazenamento Premium usando [Espaços de Armazenamento](http://technet.microsoft.com/library/hh831739.aspx), deverá configurá-lo com uma coluna para cada disco usado. Caso contrário, o desempenho geral do volume distribuído pode ser menor que o esperado devido a uma distribuição irregular de tráfego entre os discos. Por padrão, a interface do usuário do Gerenciador de servidores (UI) permite que você configure colunas para até 8 discos. Mas se você tiver mais de 8 discos, você precisa usar o PowerShell para criar o volume e também especificar manualmente o número de colunas. Caso contrário, a UI do Gerenciador de servidores continuará a usar 8 colunas, mesmo que haja mais discos. Por exemplo, se você tiver 32 discos em um conjunto único de distribuição, você deve especificar 32 colunas. Você pode usar o parâmetro *NumberOfColumns* do cmdlet do PowerShell [New-VirtualDisk](http://technet.microsoft.com/library/hh848643.aspx) para especificar o número de colunas usadas pelo disco virtual. Para saber mais, consulte [Visão geral dos espaços de armazenamento](http://technet.microsoft.com/library/hh831739.aspx) e [Perguntas frequentes sobre os espaços de armazenamentos](http://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
-- Evite adicionar VMs da série DS a um serviço de nuvem existente que inclua VMs que não são da série DS. Uma solução possível é migrar seus VHDs existentes para um novo serviço de nuvem que executa apenas VMs da série DS. Se você quiser manter o mesmo endereço IP virtual (VIP) para o novo serviço de nuvem que hospeda suas VMs da série DS, use o recurso [Endereços IP Reservados](virtual-networks-configure-vnet-to-vnet-connection.md). As VMs da série GS podem ser adicionadas a um serviço de nuvem existente executando apenas VMs da série G.
+- Evite adicionar VMs da série DS a um serviço de nuvem existente que inclua VMs que não são da série DS. Uma solução possível é migrar seus VHDs existentes para um novo serviço de nuvem que executa apenas VMs da série DS. Se você quiser manter o mesmo endereço IP virtual (VIP) para o novo serviço de nuvem que hospeda suas VMs da série DS, use o recurso [Endereços IP Reservados](../virtual-network/virtual-networks-instance-level-public-ip.md). As VMs da série GS podem ser adicionadas a um serviço de nuvem existente executando apenas VMs da série G.
 - As máquinas virtuais do Azure da série DS podem ser configuradas para usar um disco do sistema operacional (SO) hospedado em uma conta de Armazenamento Padrão ou em uma conta de Armazenamento Premium. Se você usar o disco do SO somente para a inicialização, considere o uso de um disco de SO baseado no Armazenamento Padrão. Com isso, você obterá custo-benefício e resultados de desempenho semelhantes aos do Armazenamento Premium após a inicialização. Se você executar qualquer outra tarefa no disco do SO que não seja de inicialização, use o Armazenamento Premium, pois ele fornece os melhores resultados de desempenho. Por exemplo, se o aplicativo ler ou gravar no/do disco do SO, o uso do disco do SO baseado no Armazenamento Premium oferece o melhor desempenho para sua VM.
 - Você pode usar a [Interface de linha de comando do Azure (Azure CLI)](../xplat-cli-install.md) com Armazenamento Premium. Para alterar a política de cache em um dos seus discos usando o Azure CLI, execute o seguinte comando:
 
@@ -191,7 +191,7 @@ Se um disco estiver anexado a uma VM, determinadas operações de API não são 
 
 - O número de instantâneos para um único blob é limitado a 100. Um instantâneo pode ser criado a cada 10 minutos no máximo.
 - A capacidade máxima para instantâneos por conta de Armazenamento Premium é de 10 TB. Observe que a capacidade de instantâneo se refere apenas à quantidade total de dados em instantâneos, não inclui dados no blob base.
-- Para manter cópias com redundância geográfica de seus instantâneos, você pode copiar instantâneos de uma conta de armazenamento premium para uma conta de armazenamento com redundância geográfica padrão usando AzCopy ou Copiar Blob. Para saber mais, consulte [Como usar o AzCopy com o Armazenamento do Microsoft Azure](storage-use-azcopy.md) e [Copiar Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx).
+- Para manter cópias com redundância geográfica de seus instantâneos, você pode copiar instantâneos de uma conta de armazenamento premium para uma conta de armazenamento com redundância geográfica padrão usando AzCopy ou Copiar Blob. Para obter mais informações, consulte [Transferir dados com o Utilitário de Linha de Comando AzCopy](storage-use-azcopy.md) e [Copiar Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx).
 - Para obter informações detalhadas sobre como executar operações REST em blobs de página nas contas de Armazenamento Premium, consulte [Usando operações de Serviço de Blob com o Armazenamento Premium do Azure](http://go.microsoft.com/fwlink/?LinkId=521969) na biblioteca MSDN.
 
 ## Usando VMs do Linux com Armazenamento Premium
@@ -265,12 +265,12 @@ Esta seção mostra como criar uma conta de Armazenamento Premium usando o Porta
 
 5.	Na folha **Conta de Armazenamento**, mante os valores padrão para **Grupo de Recursos**, **Assinatura**, **Local** e **Diagnósticos**. Clique em **Criar**.
 
-Para obter uma explicação passo a passo em um ambiente do Azure, confira [Criar uma máquina virtual do Windows no Portal do Azure](../virtual-machines-windows-tutorial.md).
+Para obter uma explicação passo a passo em um ambiente do Azure, consulte [Criar uma máquina virtual do Windows no Portal do Azure](../virtual-machines/virtual-machines-windows-tutorial.md).
 
 ### Criar uma máquina virtual do Azure usando o Armazenamento Premium por meio do PowerShell do Azure
 Este exemplo de PowerShell mostra como criar uma nova conta de Armazenamento Premium e conectar um disco de dados que usa essa conta a uma nova máquina virtual do Azure.
 
-1. Configure o ambiente do PowerShell seguindo as etapas fornecidas em [Como instalar e configurar o PowerShell do Azure](../install-configure-powershell.md).
+1. Configure o ambiente do PowerShell seguindo as etapas fornecidas em [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
 2. Inicie o console do PowerShell, conecte-se a sua assinatura e execute o seguinte cmdlet do PowerShell na janela do console. Como visto nesta instrução do PowerShell, você precisa especificar o parâmetro **Type** como **Premium\_LRS** ao criar uma conta de armazenamento premium.
 
 		New-AzureStorageAccount -StorageAccountName "yourpremiumaccount" -Location "West US" -Type "Premium_LRS"
@@ -330,10 +330,10 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 
 - [Usando operações do serviço Blob com o Armazenamento Premium do Azure](http://go.microsoft.com/fwlink/?LinkId=521969)
 - [Migrando para o Armazenamento do Azure Premium](storage-migration-to-premium-storage.md)
-- [Criar uma máquina virtual do Windows no Portal do Azure](../virtual-machines-windows-tutorial.md)
+- [Criar uma máquina virtual do Windows no Portal do Azure](../virtual-machines/virtual-machines-windows-tutorial.md)
 - [Tamanhos das máquinas virtuais](../virtual-machines/virtual-machines-size-specs.md)
 - [Documentação de armazenamento](https://azure.microsoft.com/documentation/services/storage/)
 
 [Image1]: ./media/storage-premium-storage/Azure_pricing_tier.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

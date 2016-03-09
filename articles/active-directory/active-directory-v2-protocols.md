@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Protocolos do modelo de aplicativo v2.0 | Microsoft Azure"
-	description="Os protocolos com suporte da visualização pública do modelo de aplicativo v2.0 do AD do Azure."
+	pageTitle="Protocolos do Azure AD v2.0 | Microsoft Azure"
+	description="Um guia para protocolos com suporte no ponto de extremidade Azure AD v2.0."
 	services="active-directory"
 	documentationCenter=""
 	authors="dstrockis"
@@ -13,29 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
-# Visualização do modelo de aplicativo v2.0: protocolos — OAuth 2.0 e OpenID Connect
+# Protocolos v2.0 - OAuth 2.0 e OpenID Connect
 
-O modelo de aplicativo v2.0 fornece identidade como um serviço para seus aplicativos oferecendo suporte a protocolos padrão do setor, OpenID Connect e OAuth 2.0. Embora o serviço esteja em conformidade padrão, pode haver diferenças sutis entre quaisquer duas implementações desses protocolos. As informações aqui serão úteis se você optar por escrever seu código diretamente enviando e tratando solicitações HTTP, em vez de usar uma das nossas bibliotecas de software livre. <!-- TODO: Need link to libraries above -->
+o ponto de extremidade v2.0 pode usar o Azure AD como identidade como um serviço com protocolos padrão da indústria, como o OAuth 2.0 e o OpenID Connect. Embora o serviço esteja em conformidade padrão, pode haver diferenças sutis entre quaisquer duas implementações desses protocolos. As informações descritas aqui serão úteis se você optar por criar seu código enviando e tratando solicitações HTTP diretamente ou use uma biblioteca de software livre de terceiros, em vez de usar uma das nossas bibliotecas de software livre. <!-- TODO: Need link to libraries above -->
 
-> [AZURE.NOTE]Essas informações se aplicam à visualização pública do modelo de aplicativo v2.0. Para obter instruções sobre como integrar-se ao serviço AD do Azure disponível ao público geral, consulte o [Guia do desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md).
+> [AZURE.NOTE]
+	Nem todos os recursos e cenários do Azure Active Directory têm suporte no ponto de extremidade v2.0. Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da v2.0](active-directory-v2-limitations.md).
 
 ## Noções básicas
-Cada aplicativo que usa o modelo de aplicativo v2.0 precisará ser registrado em [apps.dev.microsoft.com](https://apps.dev.microsoft.com). O processo de registro de aplicativo vai coletar e atribuir alguns valores para seu aplicativo:
-
-- Uma **ID de aplicativo** que identifica exclusivamente o aplicativo
-- Um **URI de Redirecionamento** ou **Identificador de Pacote** que pode ser usado para direcionar as respostas de volta ao aplicativo
-- Alguns outros valores específicos de cenário. Para obter mais detalhes, saiba como [registrar um aplicativo](active-directory-v2-app-registration.md).
-
-Depois de registrado, o aplicativo se comunica com o AD do Azure enviando solicitações ao ponto de extremidade v2.0:
-
-```
-https://login.microsoftonline.com/common/oauth2/v2.0/authorize
-https://login.microsoftonline.com/common/oauth2/v2.0/token
-```
-
 Em quase todos os fluxos do OAuth e OpenID Connect, há quatro partes envolvidas na troca:
 
 ![Funções do OAuth 2.0](../media/active-directory-v2-flows/protocols_roles.png)
@@ -46,14 +34,42 @@ Em quase todos os fluxos do OAuth e OpenID Connect, há quatro partes envolvidas
 - O **Servidor de Recurso** é o local no qual o recurso ou os dados residem. Ele confia no Servidor de Autorização para autenticar e autorizar o Cliente OAuth com segurança, além de usar access\_tokens de portador para garantir que o acesso a um recurso possa ser concedido.
 
 
-## Tokens
-A implementação do modelo de aplicativo v2.0 do OAuth 2.0 e OpenID Connect faz amplo uso de tokens de portador, incluindo os representados como JWTs. Um token de portador é um token de segurança leve que concede ao "portador" acesso a um recurso protegido. Nesse sentido, o "portador" é qualquer parte que possa apresentar o token. Embora uma parte deva primeiro se autenticar no Azure AD para receber o token de portador, se as medidas necessárias não forem tomadas para proteger o token durante a transmissão e o armazenamento, ele pode ser interceptado e usado por uma parte não planejada. Embora alguns tokens de segurança tenham um mecanismo interno para impedir que partes não autorizadas os utilizem, tokens de portador não possuem esse mecanismo e devem ser transportados em um canal seguro, como segurança da camada de transporte (HTTPS). Se um token de portador for transmitido livremente, um ataque por parte de intermediários pode ser usado por uma parte mal-intencionada para adquirir o token e usá-lo para um acesso não autorizado a um recurso protegido. Os mesmos princípios de segurança se aplicam ao armazenar ou manter em cache tokens de portador para uso posterior. Sempre se certifique de que seu aplicativo transmita e armazene tokens de portador de maneira segura. Para obter mais considerações de segurança sobre tokens de portador, consulte [RFC 6750 seção 5](http://tools.ietf.org/html/rfc6750).
+## Registro do Aplicativo
+Todo aplicativo que usar o ponto de extremidade v2.0 precisará ser registrado em [apps.dev.microsoft.com](https://apps.dev.microsoft.com) para poder interagir usando o OAuth ou OpenID Connect. O processo de registro de aplicativo vai coletar e atribuir alguns valores para seu aplicativo:
 
-Mais detalhes sobre os diferentes tipos de token usados no modelo de aplicativo v2.0 estão disponíveis na [referência ao token do modelo de aplicativo v2.0](active-directory-v2-tokens.md).
+- Uma **ID de aplicativo** que identifica exclusivamente o aplicativo
+- Um **URI de Redirecionamento** ou **Identificador de Pacote** que pode ser usado para direcionar as respostas de volta ao aplicativo
+- Alguns outros valores específicos de cenário.
+
+Para obter mais detalhes, saiba como [registrar um aplicativo](active-directory-v2-app-registration.md).
+
+## Pontos de extremidade
+Depois de registrado, o aplicativo se comunica com o Azure AD enviando solicitações ao ponto de extremidade v2.0:
+
+```
+https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize
+https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
+```
+
+Em que o `{tenant}` pode ter um de quatro valores diferente:
+
+| Valor | Descrição |
+| ----------------------- | ------------------------------- |
+| `common` | Permite que os usuários com contas pessoais da Microsoft e contas corporativas/de estudante do Azure Active Directory entrem no aplicativo. |
+| `organizations` | Permite apenas somente os usuários com contas corporativas/de estudante do Azure Active Directory entrem no aplicativo. |
+| `consumers` | Permite que somente os usuários com MSA (Contas Pessoais da Microsoft) para entrem no aplicativo. |
+| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` | Permite que somente os usuários com contas corporativas/de estudante de um locatário específico do Azure Active Directory entrem no aplicativo. É possível usar o nome de domínio amigável do locatário do Azure AD ou o identificador de guid de locatário. |
+
+Para obter mais informações sobre como interagir com esses pontos de extremidade, escolha um tipo de aplicativo específico abaixo.
+
+## Tokens
+A implementação v2.0 do OAuth 2.0 e do OpenID Connect faz amplo uso de tokens de portador, incluindo aqueles representados como JWTs. Um token de portador é um token de segurança leve que concede ao "portador" acesso a um recurso protegido. Nesse sentido, o "portador" é qualquer parte que possa apresentar o token. Embora uma parte deva primeiro se autenticar no Azure AD para receber o token de portador, se as medidas necessárias não forem tomadas para proteger o token durante a transmissão e o armazenamento, ele pode ser interceptado e usado por uma parte não planejada. Embora alguns tokens de segurança tenham um mecanismo interno para impedir que partes não autorizadas os utilizem, tokens de portador não possuem esse mecanismo e devem ser transportados em um canal seguro, como segurança da camada de transporte (HTTPS). Se um token de portador for transmitido livremente, um ataque por parte de intermediários pode ser usado por uma parte mal-intencionada para adquirir o token e usá-lo para um acesso não autorizado a um recurso protegido. Os mesmos princípios de segurança se aplicam ao armazenar ou manter em cache tokens de portador para uso posterior. Sempre se certifique de que seu aplicativo transmita e armazene tokens de portador de maneira segura. Para obter mais considerações de segurança sobre tokens de portador, consulte [RFC 6750 seção 5](http://tools.ietf.org/html/rfc6750).
+
+Mais detalhes sobre os diferentes tipos de token usados no ponto de extremidade v2.0 estão disponíveis na [referência do token do ponto de extremidade v2.0](active-directory-v2-tokens.md).
 
 ## Protocolos
 
-Se você estiver pronto para ver alguns exemplos de solicitação, inicie com um dos tutoriais a seguir. Cada um corresponde a um cenário de autenticação específico. Se precisar de ajuda para determinar qual é o fluxo certo para você, confira os [tipos de aplicativos que você pode criar com o modelo de aplicativo v2.0](active-directory-v2-flows.md).
+Se você estiver pronto para ver alguns exemplos de solicitação, inicie com um dos tutoriais a seguir. Cada um corresponde a um cenário de autenticação específico. Se precisar de ajuda para determinar qual é o fluxo ideal para você, confira [os tipos de aplicativos que você pode compilar com a v2.0](active-directory-v2-flows.md).
 
 - [Criar aplicativos nativos e móveis com o OAuth 2.0](active-directory-v2-protocols-oauth-code.md)
 - [Criar aplicativos Web com o Open ID Connect](active-directory-v2-protocols-oidc.md)
@@ -64,4 +80,4 @@ Se você estiver pronto para ver alguns exemplos de solicitação, inicie com um
 <!-- - Get tokens using a username & password with the OAuth 2.0 Resource Owner Password Credentials Flow (coming soon) -->
 <!-- [Call the Azure AD Graph API using the OAuth 2.0 Client Credentials Flow](active-directory-reference-graph.md) -->
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

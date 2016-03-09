@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -27,7 +27,7 @@ Este tutorial explica como:
 - Instalar um novo módulo de bateria de backup
 - Realizar manutenção no módulo de bateria de backup
 
->[AZURE.IMPORTANT]Antes de remover e de substituir um módulo de bateria de backup, examine as informações de segurança em [Introdução à substituição de componentes de hardware do StorSimple](storsimple-hardware-component-replacement.md).
+>[AZURE.IMPORTANT] Antes de remover e de substituir um módulo de bateria de backup, examine as informações de segurança em [Introdução à substituição de componentes de hardware do StorSimple](storsimple-hardware-component-replacement.md).
 
 ## Remover o módulo de bateria de backup
 
@@ -97,7 +97,7 @@ No dispositivo, o módulo de bateria de backup fornece energia ao controlador du
 
 No Portal clássico do Azure, o **Status de Hardware** na página **Manutenção** indica se a bateria está com defeito ou se está próxima do fim da vida útil. O status da bateria é indicado por **Bateria no PCM 0** ou **Bateria no PCM 1** em **Componentes compartilhados**. Essa página mostrará um estado **DEGRADADO** quando próximo do fim da vida útil e **FALHA** quando atingido o fim da vida útil.
 
->[AZURE.NOTE]A bateria pode relatar **FALHA** quando precisar apenas ser carregada.
+>[AZURE.NOTE] A bateria pode relatar **FALHA** quando precisar apenas ser carregada.
  
 Se o estado **DEGRADADO** for exibido, recomendamos o seguinte curso de ação:
 
@@ -109,10 +109,10 @@ Se o estado **DEGRADADO** for exibido, recomendamos o seguinte curso de ação:
 
 - Se não houve uma perda associada à energia AC e o PCM está ligado e conectado à corrente alternada, a bateria precisa ser substituído. [ Contate o Suporte da Microsoft ](storsimple-contact-microsoft-support.md) para solicitar um módulo de bateria de reposição.
 
->[AZURE.IMPORTANT]Descarte a bateria com falha de acordo com as regulamentações nacionais e regionais.
+>[AZURE.IMPORTANT] Descarte a bateria com falha de acordo com as regulamentações nacionais e regionais.
 
 ## Próximas etapas
 
 Saiba mais sobre [substituição de componentes de hardware do StorSimple ](storsimple-hardware-component-replacement.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

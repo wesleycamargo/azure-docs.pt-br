@@ -143,35 +143,47 @@ Este artigo explica alguns dos erros comuns que podem ocorrer ao se trabalhar co
 
 ### Cenário: o nó está com um status de falha e um erro "Não encontrado"
 
-**Erro:** o nó apresenta um relatório de status "Falha" contendo o erro "A tentativa de obter a ação do servidor https://<url>//accounts/<account-id>Nodes(AgentId=<agent-id>)/GetDscAction falhou porque não foi possível encontrar uma configuração válida <guid>."
+**Erro:** o nó tem um relatório com o status **Com Falha** e que contém o erro "A tentativa de obter a ação do servidor https://``<url>``//accounts/``<account-id>``/Nodes(AgentId=``<agent-id>``)/GetDscAction failed because a valid configuration ``<guid>"não foi encontrada".
 
-**Motivo do erro:** essa falha normalmente ocorre porque o nó é atribuído a um nome de configuração (por exemplo, ABC) em vez de um nome de configuração de nó (por exemplo, ABC.WebServer).
+**Motivo do erro:** esse erro normalmente ocorre quando o nó é atribuído a um nome de configuração (por exemplo, ABC) em vez de um nome de configuração de nó (por exemplo, ABC.WebServer).
 
-**Dicas de solução de problemas:** verifique mais uma vez se o nome de configuração do nó está sendo usado e não o nome de configuração. Você pode usar o botão "atribuir configuração de nó" na folha do nó no portal ou o cmdlet Set-AzureRMAutomationDscNode para mapear o nó até uma configuração de nó válida.
+**Dicas de solução de problemas:**
 
-### Cenário: nenhuma configuração de nó (arquivos mof) é produzida quando uma compilação de configuração é executada
+- Verifique se você está atribuindo o nó com o "nome de configuração de nó" e não o "nome de configuração".  
+
+- Você pode atribuir uma configuração de nó para um nó usando o Portal do Azure ou com um cmdlet do PowerShell.
+    - Para atribuir uma configuração de nó para um nó usando o Portal do Azure, abra a folha **Nós da DSC**, selecione um nó e clique no botão **Atribuir configuração de nó**.  
+    - Para atribuir uma configuração de nó a um nó usando um cmdlet do PowerShell, use o cmdlet **Set-AzureRmAutomationDscNode**
+
+
+### Cenário: nenhuma configuração de nó (arquivos mof) foi produzida quando uma compilação foi compilada
 
 **Erro:** seu trabalho de compilação de DSC foi suspenso com o seguinte erro: "Compilação concluída com êxito, mas nenhum arquivo .mofs de configuração do nó foi gerado".
 
-**Motivo do erro:** quando a expressão ao lado de "Nó" na configuração de DSC retornar $null, nenhuma configuração de nó será produzida.
+**Motivo do erro:** quando a expressão ao lado de **Nó** na configuração de DSC avaliar em $null, nenhuma configuração de nó será produzida.
 
-**Dicas de solução de problemas:** verifique se a expressão ao lado de Nó não está retornando $null. Se você estiver passando ConfigurationData, certifique-se de que esteja passando os valores esperados que a configuração precisa dos dados de configuração. No exemplo, "$AllNodes." Confira https://azure.microsoft.com/pt-BR/documentation/articles/automation-dsc-compile/#configurationdata para saber mais.
+**Dicas de solução de problemas:** qualquer uma das seguintes soluções corrigirá o problema:
 
-### Cenário: o relatório de nó de DSC fica preso no estado "Em andamento"
+- Verifique se a expressão ao lado da palavra-chave **Nó** na definição de configuração não está avaliando como $null.  
+- Se você estiver passando ConfigurationData ao compilar a configuração, certifique-se de que esteja passando os valores esperados que a configuração exige de [configurationData](automation-dsc-compile.md#configurationdata).
+
+
+### Cenário: o relatório de nó de DSC fica preso no estado "em andamento"
 
 **Erro:** o Agente DSC gera "Nenhuma instância foi encontrada com os valores de propriedade especificados".
 
 **Motivo do erro:** você atualizou sua versão do WMF e corrompeu o WMI.
 
-**Dicas de solução de problemas:** siga as instruções nesta publicação para corrigir o problema: https://msdn.microsoft.com/pt-BR/powershell/wmf/limitation_dsc
+**Dicas de solução de problemas:** siga as instruções na postagem de blog [Problemas conhecidos e limitações do DSC](https://msdn.microsoft.com/powershell/wmf/limitation_dsc) para corrigir o problema.
 
 ### Cenário: não é possível usar uma credencial em uma configuração de DSC 
 
-**Erro:** seu trabalho de compilação do DSC foi suspenso com o seguinte erro: "System.InvalidOperationException erro ao processar a propriedade "Credential" DO TIPO "<some resource name>": a conversão e armazenamento de uma senha criptografada como texto sem formatação é permitida somente se PSDscAllowPlainTextPassword estiver definido como true".
+**Erro:** seu trabalho de compilação do DSC foi suspenso com o seguinte erro: "Erro de System.InvalidOperationException ao processar a propriedade 'Credential' do tipo ``<some resource name>``: a conversão e armazenamento de uma senha criptografada como texto sem formatação é permitida somente se PSDscAllowPlainTextPassword estiver definido como verdadeiro".
 
-**Motivo do erro:** você tentou usar uma credencial em uma configuração, mas não passou o ConfigurationData adequado para definir PSAllowPlainTextPassword como true para cada configuração de nó.
+**Motivo do erro:** você usou uma credencial em uma configuração, mas não forneceu o **ConfigurationData** adequado para definir **PSDscAllowPlainTextPassword** como verdadeiro para cada configuração de nó.
 
-**Dicas de solução de problemas:** passe o ConfigurationData adequado para definir PSAllowPlainTextPassword como true para cada configuração de nó mencionada na configuração. Confira https://azure.microsoft.com/pt-BR/documentation/articles/automation-dsc-compile/#assets para saber mais.
+**Dicas de solução de problemas:** transmita o **ConfigurationData** adequado para definir **PSDscAllowPlainTextPassword** como verdadeiro cada configuração de nó mencionada na configuração. Para obter mais informações, consulte [ativos no DSC de Automação do Azure](automation-dsc-compile.md#assets).
+
 
   <br/>
 
@@ -179,12 +191,12 @@ Este artigo explica alguns dos erros comuns que podem ocorrer ao se trabalhar co
 
 Se tiver seguido as etapas de solução de problemas acima e precisar de mais ajuda a qualquer momento neste artigo, você poderá:
 
-- Obter ajuda de especialistas do Azure. Enviar seu problema aos [fóruns do Azure no MSDN ou do excedente de pilha.](https://azure.microsoft.com/support/forums/)
+- Obter ajuda de especialistas do Azure. Envie seu problema para os [fóruns do Azure no MSDN ou do Stack Overflow.](https://azure.microsoft.com/support/forums/)
 
 - Registrar um incidente de suporte do Azure. Vá até o [Site de Suporte do Azure](https://azure.microsoft.com/support/options/) e clique em **Obter suporte** em **Suporte técnico e de cobrança**.
 
-- Postar uma Solicitação de Script no [Script Center](https://azure.microsoft.com/documentation/scripts/) se está procurando uma solução de runbook de Automação do Azure ou um módulo de integração.
+- Publique uma Solicitação de Script no [Centro de Scripts](https://azure.microsoft.com/documentation/scripts/) se estiver procurando uma solução de runbook ou um módulo de integração da Automação do Azure.
 
-- Postar comentários ou solicitações de recursos para a Automação do Azure em [User Voice](https://feedback.azure.com/forums/34192--general-feedback).
+- Publique comentários ou solicitações de recursos para a Automação do Azure no [User Voice](https://feedback.azure.com/forums/34192--general-feedback).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

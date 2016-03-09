@@ -3,7 +3,7 @@
 	description="Um tutorial que demonstra a solução de problemas ponta a ponta com Análise de Armazenamento do Azure, AzCopy e Analisador de Mensagem da Microsoft" 
 	services="storage" 
 	documentationCenter="dotnet" 
-	authors="tamram" 
+	authors="robinsh" 
 	manager="carmonm"/>
 
 <tags 
@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+	ms.date="02/23/2016" 
+	ms.author="robinsh"/>
 
 # Solução de problemas ponta a ponta usando Métricas de Armazenamento do Azure e Registro em Log, AzCopy e Analisador de Mensagem 
 
@@ -58,7 +58,7 @@ Em nosso cenário de exemplo, depois que estabelecemos que a métrica de taxa de
 
 Os exemplos a seguir mostram uma amostra de alguns erros de intervalo 400 para solicitações do Armazenamento de Blob do Azure e suas possíveis causas. Qualquer um desses erros, bem como erros no intervalo 300 e 500, podem contribuir para uma taxa de sucesso de porcentagem baixa.
 
-Observe que as listas abaixo estão longe de serem completas. Consulte [Status e Códigos de Erro](http://msdn.microsoft.com/library/azure/dd179382.aspx) no MSDN para obter detalhes sobre os erros gerais de Armazenamento do Azure e sobre os erros específicos de cada um dos serviços de armazenamento.
+Observe que as listas abaixo estão longe de serem completas. Consulte [Códigos de Status e de Erro](http://msdn.microsoft.com/library/azure/dd179382.aspx) no para obter detalhes sobre os erros gerais de Armazenamento do Azure e sobre os erros específicos de cada um dos serviços de armazenamento.
 
 **Exemplos do Código de Status 404 (Não Encontrado)**
 
@@ -88,7 +88,7 @@ Neste tutorial, usaremos o Analisador de Mensagem para trabalhar com três tipos
 
 ### Configurar o log de servidor e métricas
 
-Primeiro, precisaremos configurar o log de armazenamento do Azure e suas métricas, para que tenhamos dados do aplicativo cliente para analisar. Você pode configurar o registro em log e métricas de diversas maneiras, por meio do [Portal Clássico do Azure](https://manage.windowsazure.com), usando o PowerShell ou com programação. Consulte [Habilitando as Métricas de Armazenamento e Exibindo os Dados da Métrica](http://msdn.microsoft.com/library/azure/dn782843.aspx) e [Habilitando o Log de Armazenamento e Acessando os Dados de Log](http://msdn.microsoft.com/library/azure/dn782840.aspx) no MSDN para obter detalhes sobre como configurar o registro em log e as métricas.
+Primeiro, precisaremos configurar o log de armazenamento do Azure e suas métricas, para que tenhamos dados do aplicativo cliente para analisar. Você pode configurar o registro em log e métricas de diversas maneiras, por meio do [Portal Clássico do Azure](https://manage.windowsazure.com), usando o PowerShell ou com programação. Consulte [Habilitando as Métricas de Armazenamento e Exibindo os Dados da Métrica](http://msdn.microsoft.com/library/azure/dn782843.aspx) e [Habilitando o Log de Armazenamento e Acessando os Dados de Log](http://msdn.microsoft.com/library/azure/dn782840.aspx) para obter detalhes sobre como configurar o registro em log e as métricas.
 
 **Através do Portal Clássico do Azure**
 
@@ -130,7 +130,7 @@ Para começar com o PowerShell do Azure, consulte [Como instalar e configurar o 
 
 ### Configurar o log de cliente .NET
 
-Para configurar o log do cliente de um aplicativo .NET, habilite o diagnóstico do .NET no arquivo de configuração do aplicativo (Web.config ou App.config). Consulte o [Log do Cliente usando a Biblioteca do Cliente de Armazenamento .NET](http://msdn.microsoft.com/library/azure/dn782839.aspx) e [Log do Cliente com o SDK de Armazenamento do Microsoft Azure para Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) no MSDN para obter detalhes.
+Para configurar o log do cliente de um aplicativo .NET, habilite o diagnóstico do .NET no arquivo de configuração do aplicativo (Web.config ou App.config). Consulte o [Log do Cliente usando a Biblioteca do Cliente de Armazenamento .NET](http://msdn.microsoft.com/library/azure/dn782839.aspx) e [Log do Cliente com o SDK de Armazenamento do Microsoft Azure para Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) para obter detalhes.
 
 O log do lado do cliente inclui informações detalhadas sobre como o cliente prepara a solicitação e recebe e processa a resposta.
 
@@ -373,4 +373,4 @@ Para obter mais informações sobre cenários de ponta a ponta para solução de
  
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

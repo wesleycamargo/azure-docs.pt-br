@@ -13,50 +13,55 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/18/2016"
+	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
-# Visualização do modelo de aplicativo v2.0: conectar usuários à conta da Microsoft e ao AD do Azure em um único aplicativo
+# Conecte-se os usuários da Conta da Microsoft e do Azure AD em um único aplicativo
+
+Antigamente, um desenvolvedor de aplicativo que desejava oferecer suporte a contas da Microsoft e ao Active Directory do Azure tinha que se integrar a dois sistemas distintos. Agora apresentamos uma nova versão da API de autenticação que permite aos usuários se conectarem com os dois tipos de contas usando o sistema do Azure AD. Esse sistema de autenticação convergida é conhecido como **o ponto de extremidade v2.0**. Com o ponto de extremidade v2.0, uma simples integração permite alcançar um público que se estende por milhões de usuários com contas pessoais e corporativas/de estudante.
+
+Aplicativos que usam o ponto de extremidade v2.0 também podem consumir APIs REST do [Microsoft Graph](https://graph.microsoft.io) e do [Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) usando qualquer tipo de conta.
 
 > [AZURE.NOTE]
-	Essas informações se aplicam à visualização pública do modelo de aplicativo v2.0. Para obter instruções sobre como integrar-se ao serviço AD do Azure disponível ao público geral, consulte o [Guia do desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md).
+	Nem todos os recursos e cenários do Azure Active Directory têm suporte no ponto de extremidade v2.0. Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da v2.0](active-directory-v2-limitations.md).
 
-Antigamente, um desenvolvedor de aplicativo que desejava oferecer suporte a contas da Microsoft e ao Active Directory do Azure tinha que se integrar a dois sistemas distintos. Com o modelo de aplicativo v2.0, você pode conectar usuários a ambos os tipos de conta. Uma integração simples permite atingir um público que se estende por milhões de usuários com contas pessoais e corporativas/de estudante.
-
-Os aplicativos também podem consumir um [conjunto de APIs REST do Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) usando qualquer tipo de conta. Atualmente, essas APIs incluem APIs de Calendários, Contatos e Email do Outlook. Os serviços adicionais serão adicionados em um futuro próximo. 
-<!-- TODO: customer reference article --> 
-<!-- Several apps have already begun to bridge the gap between consumer and enterprise accounts, including: [Boomerang](), [TripIt](), & [Uber](). -->
-
-O modelo de aplicativo v2.0 está em visualização. Durante esse período de visualização, estamos ansiosos para ouvir seus comentários e sobre sua experiência com o novo modelo de aplicativo à medida que testa os recursos. Com base nesses comentários, podemos fazer mudanças inovadoras com o intuito de aprimorar o serviço. Você não deve lançar um aplicativo de produção usando o modelo de aplicativo v2.0 durante esse período.
-<!-- TODO: Get approval on how it looks  -->
 
 ## Introdução
-Existem duas maneiras de colocar seu próprio aplicativo em atividade com o modelo de aplicativo v2.0. Você pode optar por enviar mensagens de protocolo diretamente usando o [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) ou [Open ID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow). Como alternativa, é possível usar nossas bibliotecas para fazer o trabalho para você — escolha a sua plataforma favorita abaixo e comece.
+Escolha sua plataforma favorita abaixo para compilar um aplicativo usando nossas bibliotecas e estruturas de software livre. Como alternativa, você pode usar nossa documentação do protocolo do OAuth 2.0 e OpenID Connect para enviar e receber mensagens de protocolo diretamente sem usar uma biblioteca de autenticação.
 <!-- TODO: Finalize this table  -->
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
 
-## O que há de novo
-Volte aqui com frequência para saber sobre alterações futuras na visualização pública do modelo de aplicativo v2.0. Também vamos tweetar sobre as atualizações usando @AzureAD.
+## O que há de novo	
+As informações conceituais aqui serão úteis para entender o que é possível ou não com o ponto de extremidade v2.0.
 
-- Se você tiver criado um aplicativo durante o período de visualização do aplicativo modelo v 2.0 2015, não se esqueça de [ler sobre estas alterações de protocolo](active-directory-v2-preview-oidc-changes.md) para certificar-se de que seu aplicativo continue funcionando.
-- Saiba mais sobre os [tipos de aplicativo que é possível criar com um modelo de aplicativo v2.0](active-directory-v2-flows.md).
-- Para desenvolvedores familiarizados com o Active Directory do Azure, você deve verificar as [atualizações em nossos protocolos e as diferenças no modelo de aplicativo v2.0](active-directory-v2-compare.md).
-- [Limitações e restrições atuais da visualização](active-directory-v2-limitations.md).
+- Se você criou um aplicativo durante o período de visualização do ponto de extremidade v2.0 2015, [leia sobre essas significativas alterações de protocolo](active-directory-v2-preview-oidc-changes.md) recentes.
+- Saiba mais sobre os [tipos de aplicativos que é possível compilar com um ponto de extremidade v2.0](active-directory-v2-flows.md).
+- Para desenvolvedores familiarizados com o Azure Active Directory, você deve verificar as [atualizações em nossos protocolos e as diferenças do ponto de extremidade v2.0](active-directory-v2-compare.md).
+- Compreenda as [limitações e restrições](active-directory-v2-limitations.md) do ponto de extremidade v2.0.
 
 ## Referência
 Estes links serão úteis na exploração em profundidade da plataforma:
 
 - Obtenha ajuda sobre o Estouro de Pilha usando as marcas [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) ou [adal](http://stackoverflow.com/questions/tagged/adal).
-- Envie-nos sua opinião sobre a visualização usando [Voz do Usuário](https://feedback.azure.com/forums/169401-azure-active-directory/) — queremos ouvi-la! Use a frase "AppModelv2:" no título da sua publicação para que possamos encontrá-la.
-- [Referência ao protocolo do modelo aplicativo v 2.0](active-directory-v2-protocols.md)
-- [Referência ao token do modelo de aplicativo v2.0](active-directory-v2-tokens.md)
+- [Referência do Protocolo v2.0](active-directory-v2-protocols.md)
+- [Referência do Token v2.0](active-directory-v2-tokens.md)
+- [Escopos e Consentimento no ponto de extremidade v2.0](active-directory-v2-scopes.md)
+- [O Portal de Registro de Aplicativo da Microsoft](https://apps.dev.microsoft.com)
 - [Referência à API REST do Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
-- [Escopos e consentimento no ponto de extremidade v2](active-directory-v2-scopes.md)
+- [O Microsoft Graph](https://graph.microsoft.io)
+- Abaixo estão listados os exemplos e bibliotecas de clientes de software livre que foram testados com o ponto de extremidade v2.0. Observe que recursos como o [Registro de Cliente Dinâmico do OpenID Connect](https://openid.net/specs/openid-connect-registration-1_0.html) e pontos de extremidade de validação de token ainda não têm suporte e talvez precisem ser desabilitados na biblioteca para funcionar com o ponto de extremidade v2:  
+
+  - [Servidor de Identidade Java WSO2](https://docs.wso2.com/display/IS500/Introducing+the+Identity+Server)
+  - [Java Gluu Federation](https://github.com/GluuFederation/oxAuth)
+  - [Node.Js passport-openidconnect](https://www.npmjs.com/package/passport-openidconnect)
+  - [Cliente Básico do OpenID Connect PHP](https://github.com/jumbojett/OpenID-Connect-PHP)
+  - [Exemplo de OpenID Connect Android](https://github.com/learning-layers/android-openid-connect)
 
 <!-- TODO: These articles
 - [ADAL Library Reference]()
 - [v2 Endpoint FAQs](active-directory-v2-faq.md)
+- Give us your thoughts on the preview using [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory) - we want to hear them!  Use the phrase "AppModelv2:" in the title of your post so we can find it.
 -->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

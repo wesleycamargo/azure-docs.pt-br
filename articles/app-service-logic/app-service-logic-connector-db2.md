@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Uso do Conector do DB2 no Serviço de Aplicativo do Microsoft Azure | Microsoft Azure"
+   pageTitle="Uso do conector do DB2 no Serviço de Aplicativo do Microsoft Azure | Microsoft Azure"
    description="Como usar o Conector do DB2 com ações e gatilhos de aplicativo lógico"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="gplarsen"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,12 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="12/03/2015"
+   ms.date="02/10/2016"
    ms.author="plarsen"/>
 
 # Conector do DB2
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
 
-O Conector da Microsoft para DB2 é um aplicativo de API usado para conexão de aplicativos por meio do Serviço de Aplicativo do Azure para recursos armazenados em um banco de dados IBM DB2. O Conector inclui um Cliente da Microsoft para conexão a servidores DB2 remotos em uma conexão de rede TCP/IP, incluindo conexões híbridas do Azure para servidores DB2 locais usando a Retransmissão do Barramento de Serviço do Azure. O Conector oferece suporte às seguintes operações de banco de dados:
+O Microsoft Connector para DB2 é um aplicativo de API usado para conexão de aplicativos por meio do Serviço de Aplicativo do Azure para recursos armazenados em um banco de dados IBM DB2. O conector inclui um Cliente da Microsoft para conexão com servidores DB2 remotos em uma conexão de rede TCP/IP, incluindo conexões híbridas do Azure para servidores DB2 locais usando a Retransmissão do Barramento de Serviço do Azure. O conector oferece suporte às seguintes operações de banco de dados:
 
 - Leitura de linhas usando SELECT
 - Sondagem para leitura de linhas usando SELECT COUNT seguido por SELECT
@@ -31,7 +32,7 @@ O Conector da Microsoft para DB2 é um aplicativo de API usado para conexão de 
 - Comandos personalizados e operações compostas usando SELECT, INSERT, UPDATE e DELETE
 
 ## Gatilhos e Ações
-O Conector oferece suporte aos seguintes gatilhos e ações de aplicativo lógico:
+O conector oferece suporte aos seguintes gatilhos e ações de aplicativo lógico:
 
 Gatilhos | Ações
 --- | ---
@@ -53,20 +54,20 @@ Você pode definir um conector em um aplicativo lógico ou no Azure Marketplace,
 ConnectionString | Sim | Cadeia de conexão do cliente DB2 (por exemplo, "Network Address=servername;Network Port=50000;User ID=username;Password=password;Initial Catalog=SAMPLE;Package Collection=NWIND;Default Schema=NWIND").
 Tabelas | Sim | Lista separada por vírgulas de nomes de tabela, exibições e alias necessários para operações de OData e para gerar a documentação do swagger com exemplos (por exemplo, "*NEWORDERS*").
 Procedimentos | Sim | Lista separada por vírgulas de nomes de procedimentos e de funções (por exemplo, "SPORDERID").
-Local | Não | Implantação no local usando a Retransmissão do Barramento de Serviço do Azure.
-Cadeia de Conexão do Barramento de Serviço | Não | A cadeia de conexão da Retransmissão do Barramento de Serviço do Azure.
-Sondagem de verificação de dados | Não | Instrução SELECT COUNT a ser usada com um gatilho de aplicativo lógico (por exemplo, "SELECT COUNT(*) FROM NEWORDERS WHERE SHIPDATE IS NULL").
-Sondagem para leitura de dados | Não | Instrução SELECT a ser usada com um gatilho de aplicativo lógico (por exemplo, "SELECT * FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE").
-Sondagem para alteração de dados | Não | Instrução UPDATE ou DELETE a ser usada com um gatilho de aplicativo lógico (por exemplo, "UPDATE NEWORDERS SET SHIPDATE = CURRENT DATE WHERE CURRENT OF &lt;CURSOR&gt;").
+OnPremise | Não | Implantação no local usando a Retransmissão do Barramento de Serviço do Azure.
+ServiceBusConnectionString | Não | A cadeia de conexão da Retransmissão do Barramento de Serviço do Azure.
+PollToCheckData | Não | Instrução SELECT COUNT a ser usada com um gatilho de aplicativo lógico (por exemplo, "SELECT COUNT(*) FROM NEWORDERS WHERE SHIPDATE IS NULL").
+PollToReadData | Não | Instrução SELECT a ser usada com um gatilho de aplicativo lógico (por exemplo, "SELECT * FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE").
+PollToAlterData | Não | Instrução UPDATE ou DELETE a ser usada com um gatilho de aplicativo lógico (por exemplo, "UPDATE NEWORDERS SET SHIPDATE = CURRENT DATE WHERE CURRENT OF &lt;CURSOR&gt;").
 
 7. Escolha **OK** e, em seguida, **Criar**.
 8. Após a conclusão, as Configurações do Pacote serão semelhantes às seguintes: ![][1]
 
 
 ## Aplicativo lógico com ação do Conector do DB2 para adição de dados ##
-Você pode definir uma ação de aplicativo lógico para adicionar dados a uma tabela do DB2 usando uma Inserção de API ou operação OData Postagem para Entity. Por exemplo, você pode inserir um novo registro de pedido de cliente processando uma instrução SQL INSERT em uma tabela definida com uma coluna de identidade, retornando para o aplicativo lógico o valor de identidade ou as linhas afetadas (SELECT ORDID FROM FINAL TABLE (INSERT INTO NWIND.NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) VALUES (?,?,?,?,?,?))).
+Você pode definir uma ação de aplicativo lógico para adicionar dados a uma tabela do DB2 usando uma operação OData de Inserção de API ou Postagem para Entidade. Por exemplo, você pode inserir um novo registro de pedido de cliente processando uma instrução SQL INSERT em uma tabela definida com uma coluna de identidade, retornando para o aplicativo lógico o valor de identidade ou as linhas afetadas (SELECT ORDID FROM FINAL TABLE (INSERT INTO NWIND.NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) VALUES (?,?,?,?,?,?))).
 
-> [AZURE.TIP]A Conexão do DB2 "*Postagem em EntitySet*" retorna o valor da coluna de identidade e "*Inserção de API*" retorna as linhas afetadas
+> [AZURE.TIP] A Conexão do DB2 "*Postagem em EntitySet*" retorna o valor da coluna de identidade e "*Inserção de API*" retorna as linhas afetadas
 
 1. No quadro inicial do Azure, escolha **+** (sinal de adição), **Web + Móvel** e depois **Aplicativo Lógico**.
 2. Digite o Nome (por exemplo, "NewOrdersDb2"), o Plano de Serviço de Aplicativo, outras propriedades e depois escolha **Criar**.
@@ -97,12 +98,12 @@ SHIPZIP | 99362
 
 - O Conector trunca os nomes de tabela do DB2 ao formar nomes de ação do aplicativo lógico. Por exemplo, a operação **Inserir em NEWORDERS** será truncada para **Inserir em NEWORDER**.
 - Depois de salvar os **Gatilhos e ações** do aplicativo lógico, a lógica do aplicativo processará a operação. Pode haver um atraso de alguns segundos (por exemplo, 3 a 5 segundos) antes de o aplicativo lógico processar a operação. Opcionalmente, você pode clicar em **Executar Agora** para processar a operação.
-- O Conector do DB2 define os membros de EntitySet com atributos, incluindo se o membro corresponde a uma coluna do DB2 com uma coluna padrão ou geradas (por exemplo, identidade). O aplicativo lógico exibe um asterisco vermelho ao lado do nome do ID de membro de EntitySet, para indicar as colunas do DB2 que exigem valores. Você não deve inserir um valor para o membro ORDID, que corresponde à coluna de identidade do DB2. Você pode inserir valores para outros membros opcionais (ITEMS, ORDDATE, REQDATE, SHIPID, FREIGHT, SHIPCTRY), que correspondem às colunas do DB2 com valores padrão. 
+- O Conector do DB2 define os membros de EntitySet com atributos, incluindo se o membro corresponde a uma coluna do DB2 com uma coluna padrão ou colunas geradas (por exemplo, identidade). O aplicativo lógico exibe um asterisco vermelho ao lado do nome do ID de membro de EntitySet, para indicar as colunas do DB2 que exigem valores. Você não deve inserir um valor para o membro ORDID, que corresponde à coluna de identidade do DB2. Você pode inserir valores para outros membros opcionais (ITEMS, ORDDATE, REQDATE, SHIPID, FREIGHT, SHIPCTRY), que correspondem às colunas do DB2 com valores padrão. 
 - O Conector do DB2 retorna ao aplicativo lógico a resposta na Postagem em EntitySet que inclui os valores para as colunas de identidade, derivados de SQLDARD a DRDA (Dados de Resposta de Área de Dados do SQL) na instrução SQL INSERT preparada. O servidor do DB2 não retorna os valores inseridos para colunas com valores padrão.  
 
 
 ## Aplicativo lógico com ação do Conector do DB2 para adição de dados em massa ##
-Você pode definir uma ação de aplicativo lógico para adicionar dados a uma tabela do DB2 usando uma operação de Inserção em Massa de API. Por exemplo, você pode inserir dois registros novos de pedido de cliente processando uma instrução SQL INSERT usando uma matriz de valores de linha em uma tabela definida com uma coluna de identidade, retornando as linhas afetadas (SELECT ORDID FROM FINAL TABLE (INSERT INTO NWIND.NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) VALUES (?,?,?,?,?,?))).
+Você pode definir uma ação de aplicativo lógico para adicionar dados a uma tabela do DB2 usando uma operação de Inserção em Massa de API. Por exemplo, você pode inserir dois registros novos de pedido de cliente processando uma instrução SQL INSERT usando uma matriz de valores de linha em uma tabela definida com uma coluna de identidade, retornando as linhas afetadas para o aplicativo lógico (SELECT ORDID FROM FINAL TABLE (INSERT INTO NWIND.NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) VALUES (?,?,?,?,?,?))).
 
 1. No quadro inicial do Azure, escolha **+** (sinal de adição), **Web + Móvel** e depois **Aplicativo Lógico**.
 2. Digite o Nome (por exemplo, "NewOrdersBulkDb2"), o Plano de Serviço de Aplicativo, outras propriedades e selecione **Criar**.
@@ -126,38 +127,38 @@ Você pode definir uma ação de aplicativo lógico para adicionar dados a uma t
 #### O que você precisa saber
 
 - O Conector trunca os nomes de tabela do DB2 ao formar nomes de ação do aplicativo lógico. Por exemplo, a operação **Inserir em Massa em NEWORDERS** será truncada para **Inserir em Massa em NEW**.
-- Omitindo as colunas de identidade (por exemplo, ORDID), as colunas anuláveis (por exemplo, SHIPDATE) e as colunas com valores padrão (por exemplo, ORDDATE, REQDATE, SHIPID, FREIGHT, SHIPCTRY), o banco de dados do DB2 gera valores.
+- O banco de dados do DB2 gera valores ao omitir as colunas de identidade (por exemplo, ORDID), as colunas anuláveis (por exemplo, SHIPDATE) e as colunas com valores padrão (por exemplo, ORDDATE, REQDATE, SHIPID, FREIGHT, SHIPCTRY).
 - Ao especificar "hoje" e "amanhã", o Conector do DB2 gera as funções "CURRENT DATE" e "CURRENT DATE + 1 DAY" (por exemplo, REQDATE). 
 
 
 ## Aplicativo lógico com o gatilho do Conector do DB2 para ler, alterar ou excluir dados ##
-Você pode definir um gatilho de aplicativo lógico para pesquisar e ler os dados de uma tabela do DB2 usando uma operação composta Sondar Dados de API. Por exemplo, você pode ler um ou mais registros novos de pedido de cliente, retornando os registros ao aplicativo lógico. As configurações de pacote /aplicativo da Conexão do DB2 são parecidas com as seguintes:
+Você pode definir um gatilho de aplicativo lógico para pesquisar e ler os dados de uma tabela do DB2 usando uma operação composta Sondar Dados de API. Por exemplo, você pode ler um ou mais registros novos de pedido de cliente, retornando os registros ao aplicativo lógico. As configurações de pacote/aplicativo da Conexão do DB2 são parecidas com as seguintes:
 
 	App Setting | Value
 --- | --- | ---
-Sondagem de verificação de dados | SELECT COUNT(*) FROM NEWORDERS WHERE SHIPDATE IS NULL
-Sondagem para leitura de dados | SELECT * FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE
-Sondagem para alteração de dados | <no value specified>
+PollToCheckData | SELECT COUNT(*) FROM NEWORDERS WHERE SHIPDATE IS NULL
+PollToReadData | SELECT * FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE
+PollToAlterData | <no value specified>
 
 
-Além disso, você pode definir um gatilho de aplicativo lógico para pesquisar, ler e alterar os dados de uma tabela do DB2 usando uma operação composta Sondar Dados de API. Por exemplo, você pode ler um ou mais registros novos de pedido de cliente, atualizar os valores da linha, retornando os registros selecionados (antes da atualização) ao aplicativo lógico. As configurações de pacote /aplicativo da Conexão do DB2 são parecidas com as seguintes:
-
-	App Setting | Value
---- | --- | ---
-Sondagem de verificação de dados | SELECT COUNT(*) FROM NEWORDERS WHERE SHIPDATE IS NULL
-Sondagem para leitura de dados | SELECT * FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE
-Sondagem para alteração de dados | UPDATE NEWORDERS SET SHIPDATE = CURRENT DATE WHERE CURRENT OF &lt;CURSOR&gt;
-
-
-Além disso, você pode definir um gatilho de aplicativo lógico para pesquisar, ler e remover os dados de uma tabela do DB2 usando uma operação composta Sondar Dados de API. Por exemplo, você pode ler um ou mais registros novos de pedido de cliente, excluir as linhas, retornando os registros selecionados (antes da exclusão) ao aplicativo lógico. As configurações de pacote /aplicativo da Conexão do DB2 são parecidas com as seguintes:
+Além disso, você pode definir um gatilho de aplicativo lógico para pesquisar, ler e alterar os dados de uma tabela do DB2 usando uma operação composta Sondar Dados de API. Por exemplo, você pode ler um ou mais registros novos de pedido de cliente, atualizar os valores da linha, retornando os registros selecionados (antes da atualização) ao aplicativo lógico. As configurações de pacote/aplicativo da Conexão do DB2 são parecidas com as seguintes:
 
 	App Setting | Value
 --- | --- | ---
-Sondagem de verificação de dados | SELECT COUNT(*) FROM NEWORDERS WHERE SHIPDATE IS NULL
-Sondagem para leitura de dados | SELECT * FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE
-Sondagem para alteração de dados | DELETE NEWORDERS WHERE CURRENT OF &lt;CURSOR&gt;
+PollToCheckData | SELECT COUNT(*) FROM NEWORDERS WHERE SHIPDATE IS NULL
+PollToReadData | SELECT * FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE
+PollToAlterData | UPDATE NEWORDERS SET SHIPDATE = CURRENT DATE WHERE CURRENT OF &lt;CURSOR&gt;
 
-Neste exemplo, o aplicativo lógico irá pesquisar, ler, atualizar e, em seguida, ler novamente os dados na tabela do DB2.
+
+Além disso, você pode definir um gatilho de aplicativo lógico para pesquisar, ler e remover os dados de uma tabela do DB2 usando uma operação composta Sondar Dados de API. Por exemplo, você pode ler um ou mais registros novos de pedido de cliente, excluir as linhas, retornando os registros selecionados (antes da exclusão) ao aplicativo lógico. As configurações de pacote/aplicativo da Conexão do DB2 são parecidas com as seguintes:
+
+	App Setting | Value
+--- | --- | ---
+PollToCheckData | SELECT COUNT(*) FROM NEWORDERS WHERE SHIPDATE IS NULL
+PollToReadData | SELECT * FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE
+PollToAlterData | DELETE NEWORDERS WHERE CURRENT OF &lt;CURSOR&gt;
+
+Neste exemplo, o aplicativo lógico vai pesquisar, ler, atualizar e, em seguida, ler novamente os dados na tabela do DB2.
 
 1. No quadro inicial do Azure, escolha **+** (sinal de adição), **Web + Móvel** e depois **Aplicativo Lógico**.
 2. Digite o Nome (por exemplo, "ShipOrdersDb2"), Plano de Serviço de Aplicativo, outras propriedades e escolha **Criar**.
@@ -173,7 +174,7 @@ Neste exemplo, o aplicativo lógico irá pesquisar, ler, atualizar e, em seguida
 
 
 ## Aplicativo lógico com ação do Conector do DB2 para remoção de dados ##
-Você pode definir uma ação de aplicativo lógico para remover dados de uma tabela do DB2 usando uma operação Remoção de API ou operação OData Postagem para Entity. Por exemplo, você pode inserir um novo registro de pedido de cliente processando uma instrução SQL INSERT em uma tabela definida com uma coluna de identidade, retornando para o aplicativo lógico o valor de identidade ou as linhas afetadas (SELECT ORDID FROM FINAL TABLE (INSERT INTO NWIND.NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) VALUES (?,?,?,?,?,?))).
+Você pode definir uma ação de aplicativo lógico para remover dados de uma tabela do DB2 usando uma operação OData de Exclusão de API ou Postagem para Entidade. Por exemplo, você pode inserir um novo registro de pedido de cliente processando uma instrução SQL INSERT em uma tabela definida com uma coluna de identidade, retornando para o aplicativo lógico o valor de identidade ou as linhas afetadas (SELECT ORDID FROM FINAL TABLE (INSERT INTO NWIND.NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) VALUES (?,?,?,?,?,?))).
 
 ## Criar aplicativo lógico usando o Conector do DB2 para remover dados ##
 Você pode criar um novo aplicativo lógico no Azure Marketplace e, em seguida, usar o Conector do DB2 como uma ação para remover os pedidos do cliente. Por exemplo, você pode usar a operação de exclusão condicional do Conector do DB2 para processar uma instrução SQL DELETE (DELETE FROM NEWORDERS WHERE ORDID >= 10000).
@@ -198,9 +199,9 @@ Você pode criar um novo aplicativo lógico no Azure Marketplace e, em seguida, 
 **Observação:** o designer de aplicativo lógico trunca os nomes de tabela. Por exemplo, a operação **Exclusão condicional de NEWORDERS** será truncada para **Exclusão condicional de N**.
 
 
-> [AZURE.TIP]Use as seguintes instruções SQL para criar o exemplo de tabela e os procedimentos armazenados.
+> [AZURE.TIP] Use as seguintes instruções SQL para criar a tabela de exemplo e os procedimentos armazenados.
 
-Você pode criar o exemplo de tabela NEWORDERS usando as seguintes instruções DDL de SQL do DB2:
+Você pode criar a tabela de exemplo NEWORDERS usando as seguintes instruções DDL de SQL do DB2:
  
  	CREATE TABLE ORDERS (  
  		ORDID INT NOT NULL GENERATED BY DEFAULT AS IDENTITY (START WITH 10000, INCREMENT BY 1) ,  
@@ -239,7 +240,7 @@ Você pode criar o exemplo de procedimento armazenado SPOERID usando as seguinte
 
 ## Configuração Híbrida (opcional)
 
-> [AZURE.NOTE]Essa etapa será exigida apenas se você estiver usando o Conector do DB2 localmente por trás do firewall.
+> [AZURE.NOTE] Essa etapa será exigida apenas se você estiver usando o Conector do DB2 localmente por trás do firewall.
 
 O Serviço de Aplicativo usa o Gerenciador de Configuração Híbrida para se conectar com segurança ao sistema local. Se o Conector usar um Servidor DB2 da IBM local para Windows, o Gerenciador de Conexão Híbrida será exigido.
 
@@ -249,9 +250,9 @@ Consulte [Usando o Gerenciador de Conexão Híbrida](app-service-logic-hybrid-co
 ## Faça mais com seu Conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
 
-Crie aplicativos de API usando APIs REST. Confira [Referência de aplicativos de API e conectores](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Crie aplicativos de API usando APIs REST. Consulte [Referência a aplicativos de API e conectores](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Confira [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
+Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar Aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
 
 
 <!--Image references-->
@@ -270,4 +271,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [13]: ./media/app-service-logic-connector-db2/LogicApp_RemoveOrdersDb2_TriggersActions.png
 [14]: ./media/app-service-logic-connector-db2/LogicApp_RemoveOrdersDb2_Outputs.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

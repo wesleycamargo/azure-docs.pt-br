@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="02/19/2016"
 	ms.author="tamram"/>
 
 # Suporte para o compartilhamento de recursos entre origens (CORS) para os serviços de armazenamento do Azure
@@ -22,7 +22,7 @@ Os serviços de armazenamento do Azure, da versão 2013-08-15 em diante, dão su
 
 Você pode definir regras de CORS individualmente para cada um dos serviços de armazenamento, chamando [Definir propriedades do serviço Blob](https://msdn.microsoft.com/library/hh452235.aspx), [Definir propriedades do serviço Fila](https://msdn.microsoft.com/library/hh452232.aspx) e [Definir propriedades do serviço Tabela](https://msdn.microsoft.com/library/hh452240.aspx). Depois de definir as regras CORS para o serviço, uma solicitação autenticada corretamente feita no serviço de um domínio diferente será avaliada para determinar se é permitida de acordo com as regras que você especificou.
 
->[AZURE.NOTE]Observe que CORS não é um mecanismo de autenticação. Qualquer solicitação feita em um recurso de armazenamento quando CORS estiver habilitado deve ter uma assinatura de autenticação adequada ou deverá ser feita em um recurso público.
+>[AZURE.NOTE] Observe que CORS não é um mecanismo de autenticação. Qualquer solicitação feita em um recurso de armazenamento quando CORS estiver habilitado deve ter uma assinatura de autenticação adequada ou deverá ser feita em um recurso público.
 
 ## Noções básicas sobre solicitações CORS
 
@@ -147,7 +147,7 @@ A segunda solicitação não corresponde à primeira regra porque o método não
 
 A terceira solicitação corresponde à segunda regra em seu domínio de origem e método, portanto nenhuma regra adicional será avaliada. No entanto, o *cabeçalho x-ms-client-request-id* não é permitido pela segunda regra; assim, embora a semântica da terceira não impeça seu êxito, a solicitação falha.
 
->[AZURE.NOTE]Embora esse exemplo mostra uma regra menos restritiva antes de uma mais restritiva, em geral a prática recomendada é listar as regras mais restritivas primeiro.
+>[AZURE.NOTE] Embora esse exemplo mostra uma regra menos restritiva antes de uma mais restritiva, em geral a prática recomendada é listar as regras mais restritivas primeiro.
 
 ## Noções básicas sobre como o cabeçalho Vary é definido
 
@@ -195,4 +195,4 @@ Solicitações de simulação malsucedidas não serão cobradas.
 
 [Especificação de compartilhamento de recursos entre origens W3C](http://www.w3.org/TR/cors/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

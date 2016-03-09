@@ -19,11 +19,11 @@
 
 # Importar dados para a Pesquisa do Azure usando o .NET
 > [AZURE.SELECTOR]
-- [Overview](search-what-is-data-import.md)
+- [Visão geral](search-what-is-data-import.md)
 - [Portal](search-import-data-portal.md)
 - [.NET](search-import-data-dotnet.md)
 - [REST](search-import-data-rest-api.md)
-- [Indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
+- [Indexadores](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 
 Este artigo mostra como preencher um índice usando o [SDK do .NET da Pesquisa do Azure](https://msdn.microsoft.com/library/azure/dn951165.aspx). O conteúdo abaixo é um subconjunto de [Como usar a Pesquisa do Azure de um aplicativo .NET](search-howto-dotnet-sdk.md). Consulte o artigo pai para obter as etapas de ponta a ponta.
 
@@ -98,7 +98,7 @@ A próxima etapa em `Main` é preencher o índice recém-criado. Isso é feito c
 
         try
         {
-            var batch = IndexBatch.Upload(sitecoreItems);
+            var batch = IndexBatch.Upload(documents);
             indexClient.Documents.Index(batch);
         }
         catch (IndexBatchException e)
@@ -119,10 +119,10 @@ Este método tem quatro partes. O primeiro cria uma matriz de objetos `Hotel` qu
 
 A segunda parte cria um `IndexAction` para cada `Hotel` e, em seguida, os agrupa em um novo `IndexBatch`. O lote é então carregado para o índice da Pesquisa do Azure pelo método `Documents.Index`.
 
-> [AZURE.NOTE] Neste exemplo, estamos carregando apenas documentos. Se você quisesse mesclar as alterações em um documento existente ou excluir um documento, você poderia usar os métodos `Merge`, `MergeOrUpload` ou `Delete` correspondentes de forma adequada.
+> [AZURE.NOTE] Neste exemplo, estamos carregando apenas documentos. Se quisesse mesclar as alterações em um documento existente ou excluir um documento, você poderia usar os métodos `Merge`, `MergeOrUpload` ou `Delete` correspondentes de forma adequada.
 
 A terceira parte desse método é um bloco catch que trata um caso de erro importante para indexação. Se o serviço de Pesquisa do Azure não indexar alguns documentos no lote, uma `IndexBatchException` será lançada por `Documents.Index`. Isso pode acontecer se você estiver indexando documentos enquanto o serviço estiver sob carga pesada. **É altamente recomendável a manipulação explícita desse caso em seu código.** Você pode atrasar e repetir a indexação de documentos que falharam, ou você pode registrar em log e continuar, como faz o exemplo, ou pode alguma outra coisa, dependendo dos requisitos de consistência de dados do aplicativo.
 
 Por fim, o método atrasa por dois segundos. A indexação ocorre de maneira assíncrona em seu serviço de Pesquisa do Azure, portanto, o exemplo de aplicativo precisa aguardar alguns instantes para garantir que os documentos estejam disponíveis para pesquisa. Normalmente, atrasos como esses só são necessários em demonstrações, testes e exemplos de aplicativos.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

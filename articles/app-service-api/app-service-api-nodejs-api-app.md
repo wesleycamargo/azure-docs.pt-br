@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="node"
 	ms.topic="get-started-article"
-	ms.date="11/27/2015"
+	ms.date="02/25/2015"
 	ms.author="bradygaster"/>
 
 # Criar e implantar um aplicativo de API do Node.js no serviço de aplicativo do Azure
@@ -21,7 +21,7 @@
 [AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
 ## Pré-requisitos
-1. [Node.js](nodejs.org) em execução na máquina de desenvolvimento (este exemplo pressupõe que o Node.js, versão 4.2.2, está instalado)
+1. [Node.js](http://nodejs.org) em execução na máquina de desenvolvimento (este exemplo pressupõe que o Node.js, versão 4.2.2, está instalado)
 1. Conta do [GitHub](https://github.com/)
 1. [Conta de avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/) do Microsoft Azure
 1. Git instalado em sua estação de trabalho de desenvolvimento local
@@ -243,4 +243,4 @@ Agora, você já criou e implantou com êxito seu primeiro Aplicativo de API usa
 
 Para expandir esse exemplo, você pode adicionar código aos manipuladores para armazenar os dados em um banco de dados ou no disco da instância de Aplicativo de API. Agora que você a Implantação Contínua está conectada, a alteração da funcionalidade do Aplicativo de API e sua extensão será tão fácil quanto a alterar e enviar seu código por push ao repositório Git.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -2,7 +2,7 @@
 	pageTitle="Usando o Conector do Slack em Aplicativos Lógicos | Serviço de Aplicativo do Microsoft Azure"
 	description="Como criar e configurar o Conector do Slack ou o aplicativo de API e usá-lo em um aplicativo lógico no Serviço de Aplicativo do Azure"
 	authors="rajeshramabathiran" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="app-service\logic" 
 	documentationCenter=""/>
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/11/2015"
+	ms.date="02/11/2016"
 	ms.author="rajram"/>
 
 # Introdução ao Conector do Slack e à adição dele ao seu Aplicativo Lógico
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos. Para a versão do esquema 2015-08-01-preview, clique em [API do Slack](../connectors/create-api-slack.md).
+
 Conecte-se a canais de margem de atraso e poste mensagens para sua equipe. OS conectores podem ser usados em aplicativos lógicos como parte de um "fluxo de trabalho" para executar diferentes tarefas. Ao usar o conector de margem de atraso no fluxo de trabalho, você pode obter uma diversos cenários usando outros conectores. Por exemplo, você pode usar o [conector do Facebook](app-service-logic-connector-facebook.md) no fluxo de trabalho para postar uma mensagem em seu canal de margem de atraso.
 
 ## Gatilhos e Ações
@@ -42,7 +44,7 @@ Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Mar
 
 ## Usando o conector como uma ação em seu aplicativo lógico
 
-> [AZURE.IMPORTANT]Os aplicativos lógicos e conectores sempre devem ser criados no mesmo grupo de recursos.
+> [AZURE.IMPORTANT] Os aplicativos lógicos e conectores sempre devem ser criados no mesmo grupo de recursos.
 
 Após criar o conector de margem de atraso, você poderá adicioná-lo como uma ação ao seu aplicativo lógico:
 
@@ -81,7 +83,7 @@ O conector de atraso tem APIs REST disponíveis para que você possa usar o cone
 ## Faça mais com seu Conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
 
->[AZURE.NOTE]Se você deseja começar com os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógicos](https://tryappservice.azure.com/?appservice=logic), em que você pode criar imediatamente um aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
+>[AZURE.NOTE] Se você deseja começar com os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógicos](https://tryappservice.azure.com/?appservice=logic), em que você pode criar imediatamente um aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
 
 Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -99,4 +101,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [8]: ./media/app-service-logic-connector-slack/img8.PNG
 [9]: ./media/app-service-logic-connector-slack/img9.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

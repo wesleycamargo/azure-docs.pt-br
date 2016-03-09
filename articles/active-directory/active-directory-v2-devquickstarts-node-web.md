@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Aplicativo Web do Node.js do modelo de aplicativo v2.0 | Microsoft Azure"
+	pageTitle="Aplicativo Web NodeJS do Azure AD v2.0 | Microsoft Azure"
 	description="Como criar um aplicativo Web do Node JS que conecte usuários com a conta pessoal da Microsoft e as contas corporativas ou de estudante."
 	services="active-directory"
 	documentationCenter="nodejs"
@@ -13,30 +13,25 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="02/20/2016"
 	ms.author="brandwe"/>
 
-# Visualização do modelo de aplicativo v2.0: adicionar conexão a um aplicativo Web do nodeJS
+# Adicionar as credenciais a um aplicativo Web do nodeJS
 
 
-  >[AZURE.NOTE]
-    Essas informações se aplicam à visualização pública do modelo de aplicativo v2.0. Para obter instruções sobre como integrar-se ao serviço do AD do Azure disponível ao público geral, consulte o [Guia do Desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md).
+> [AZURE.NOTE]
+	Nem todos os recursos e cenários do Azure Active Directory têm suporte no ponto de extremidade v2.0. Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da v2.0](active-directory-v2-limitations.md).
 
 
 Aqui usaremos o Passport para:
 
-- Conectar o usuário ao aplicativo usando o AD do Azure e o modelo de aplicativo v2.0.
+- Fazer logon do usuário no aplicativo usando o Azure AD e o ponto de extremidade v2.0.
 - Exibir algumas informações sobre o usuário.
 - Desconectar o usuário do aplicativo.
 
 **Passport** é middleware de autenticação para o Node.js. Extremamente flexível e modular, o Passport pode ser colocado sem impedimento em qualquer aplicativo Web baseado em Express ou Restify. Um conjunto abrangente de estratégias suportam a autenticação usando um nome de usuário e senha, Facebook, Twitter e mais. Desenvolvemos uma estratégia para o Active Directory do Microsoft Azure. Instalaremos esse módulo e, em seguida, adicionaremos o plug-in `passport-azure-ad` do Active Directory do Microsoft Azure.
 
-Para isso, você precisará:
-
-1. Registrar um aplicativo
-2. Configurar seu aplicativo para usar a estratégia de Passport-azure-ad.
-3. Usar o Passport para emitir solicitações de entrada e saída ao AD do Azure.
-4. Imprimir dados sobre o usuário.
+## Baixar
 
 O código para este tutorial é mantido [no GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs). Para acompanhar, você pode [baixar o esqueleto do aplicativo como um .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs/archive/skeleton.zip) ou clonar o esqueleto:
 
@@ -44,14 +39,14 @@ O código para este tutorial é mantido [no GitHub](https://github.com/AzureADQu
 
 O aplicativo completo também é fornecido no final deste tutorial.
 
-## 1. Registrar um aplicativo
-Crie um novo aplicativo em [apps.dev.microsoft.com](https://apps.dev.microsoft.com) ou siga estas [etapas detalhadas](active-directory-v2-app-registration.md).  Não se esqueça de:
+## 1\. Registrar um aplicativo
+Crie um novo aplicativo em [apps.dev.microsoft.com](https://apps.dev.microsoft.com) ou siga estas [etapas detalhadas](active-directory-v2-app-registration.md). Não se esqueça de:
 
 - Copiar a **ID do Aplicativo** designada ao seu aplicativo, você precisará dela logo.
 - Adicionar a plataforma **Web** para seu aplicativo.
-- Inserir o **URI de Redirecionamento** correto. O uri de redirecionamento indica ao AD do Azure para onde as respostas de autenticação devem ser direcionadas — o padrão para este tutorial é `http://localhost:3000/auth/openid/return`.
+- Inserir o **URI de Redirecionamento** correto. O URI de redirecionamento indica ao AD do Azure para onde as respostas de autenticação devem ser direcionadas — o padrão para este tutorial é `http://localhost:3000/auth/openid/return`.
 
-## 2. Adicionar pré-requisitos ao seu diretório
+## 2\. Adicionar pré-requisitos ao seu diretório
 
 Na linha de comando, altere o diretório para a pasta raiz se ainda não estiver lá e execute os seguintes comandos:
 
@@ -68,15 +63,15 @@ Na linha de comando, altere o diretório para a pasta raiz se ainda não estiver
 - `npm install express-session`
 - `npm install cookie-parser`
 
-- Além disso, usamos `passport-azure-ad` em nossa Visualização no esqueleto do início rápido.
+- Além disso, usamos `passport-azure-ad` no esqueleto de início rápido.
 
 - `npm install passport-azure-ad`
 
 
 Isso instalará as bibliotecas das quais o passport-azure-ad depende.
 
-## 3. Configurar seu aplicativo para usar a estratégia passport-node-js
-Aqui, configuraremos o middleware Express para usar o protocolo de autenticação OpenID Connect.  O Passport será usado para emitir solicitações de entrada e saída, gerenciar a sessão do usuário e obter informações sobre o usuário, entre outras coisas.
+## 3\. Configurar seu aplicativo para usar a estratégia passport-node-js
+Aqui, configuraremos o middleware Express para usar o protocolo de autenticação OpenID Connect. O Passport será usado para emitir solicitações de entrada e saída, gerenciar a sessão do usuário e obter informações sobre o usuário, entre outras coisas.
 
 -	Para começar, abra o arquivo `config.js` na raiz do projeto e insira os valores de configuração do aplicativo na seção `exports.creds`.
     -	`clientID:` é a **ID do Aplicativo** atribuída ao seu aplicativo no portal de registro.
@@ -419,8 +414,8 @@ Para referência, o exemplo concluído (sem os valores de configuração) [é fo
 
 Agora você pode ir para tópicos mais avançados. Você pode desejar experimentar:
 
-[Proteger uma API da Web com o modelo de aplicativo v 2.0 no node.js >>](active-directory-v2-devquickstarts-webapi-nodejs.md)
+[Proteger uma API Web do node.js usando o ponto de extremidade v2.0 >>](active-directory-v2-devquickstarts-node-api.md)
 
-Para obter recursos adicionais, confira: - [A Visualização do Modelo de Aplicativo v2.0 >>](active-directory-appmodel-v2-overview.md) - [Tag StackOverflow "azure-active-directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+Para obter recursos adicionais, confira: - [O guia do desenvolvedor da v2.0 >>](active-directory-appmodel-v2-overview.md) - [Marca "azure-active-directory" de StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

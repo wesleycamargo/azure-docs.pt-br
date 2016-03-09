@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/27/2016"
+   ms.date="02/23/2016"
    ms.author="alkohli"/>
 
 # Restaurar de um backup de sua StorSimple Virtual Array (Visualização)
@@ -100,12 +100,11 @@ Para restaurar de um backup, execute as etapas a seguir no portal clássico do A
 
 3.  Você pode acompanhar o andamento do trabalho de restauração. Quando a restauração for 100% concluída, navegue até a página **Volumes** em seu dispositivo.
 
-4.  Agora você pode exibir o novo volume restaurado na lista de volume em seu dispositivo.
+4.  Agora você pode exibir o novo volume restaurado na lista de volume em seu dispositivo. Observe que a restauração é feita para o mesmo tipo de volume. Um volume em camadas é restaurado como em camadas, e um volume fixado localmente é restaurado como um volume fixado localmente.
 
-	> [AZURE.NOTE] Observe que a restauração é feita para o mesmo tipo do volume. Um volume em camadas é restaurado como em camadas, e um volume fixado localmente é restaurado como um volume fixado localmente.
+> [AZURE.IMPORTANT] Ao tentar restaurar um volume ou um compartilhamento de um conjunto de backup, se o trabalho de restauração falhar, um volume de destino ou compartilhamento ainda poderá ser criado no portal. É importante excluir este volume de destino ou compartilhá-lo no portal para minimizar quaisquer problemas futuros causado por esse elemento.
 
 ## ILR (recuperação em nível de item)
-
 
 Esta versão apresenta a recuperação em nível de item (ILR) em um dispositivo virtual StorSimple configurado como um servidor de arquivos. O recurso permite fazer uma recuperação granular de arquivos e pastas de um backup de nuvem de todos os compartilhamentos no dispositivo StorSimple. Os usuários podem recuperar arquivos excluídos de backups recentes usando um modelo de autoatendimento.
 
@@ -138,4 +137,4 @@ Assista ao vídeo para ver como você pode criar compartilhamentos, fazer backup
 
 Saiba mais sobre como [administrar o StorSimple Virtual Array usando a interface do usuário da Web local](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

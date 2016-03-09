@@ -11,9 +11,8 @@
 	ms.service="multi-factor-authentication" 
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="02/16/2016" 
+	ms.devlang="na" ms.topic="get-started-article" 
+	ms.date="02/25/2016" 
 	ms.author="billmath"/>
 
 # Introdução ao Azure Multi-Factor Authentication e aos Serviços de Federação do Active Directory
@@ -55,4 +54,4 @@ Para obter informações sobre como configurar o Azure Multi-Factor Authenticati
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

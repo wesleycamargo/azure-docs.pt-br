@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="heidist"/>
 
 # Introdução à API REST de Gerenciamento de Pesquisa do Azure
@@ -39,11 +39,11 @@ Você pode encontrar o aplicativo cliente em Codeplex na [Demonstração da API 
 
 ##Configurar o aplicativo
 
-Antes de executar o aplicativo de exemplo, você deve habilitar a autenticação para que as solicitações enviadas do aplicativo cliente para o ponto de extremidade do gerenciador de recursos podem ser aceitas. O requisito de autenticação é obtido com o [Gerenciador de Recursos do Azure](http://msdn.microsoft.com/library/azure/dn790568.aspx), que é a base para todas as operações relacionadas ap portal solicitadas por meio de uma API, inclusive aquelas relacionadas ao gerenciamento de serviço de Pesquisa. A API de gerenciamento de serviço para Pesquisa do Azure é simplesmente uma extensão do Gerenciador de Recursos do Azure e, portanto, herda suas dependências.
+Antes de executar o aplicativo de exemplo, você deve habilitar a autenticação para que as solicitações enviadas do aplicativo cliente para o ponto de extremidade do gerenciador de recursos podem ser aceitas. O requisito de autenticação é obtido com o [Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx), que é a base para todas as operações relacionadas ap portal solicitadas por meio de uma API, inclusive aquelas relacionadas ao gerenciamento de serviço de Pesquisa. A API de gerenciamento de serviço para Pesquisa do Azure é simplesmente uma extensão do Gerenciador de Recursos do Azure e, portanto, herda suas dependências.
 
 O Gerenciador de Recursos do Azure requer o serviço Active Directory do Azure como seu provedor de identidade.
 
-Para obter um token de acesso que permitirá às solicitações acessarem o gerenciador de recursos, o aplicativo cliente inclui um segmento de código que chama o Active Directory. O segmento de código e as etapas necessárias para usar o segmento de código foram emprestadas deste artigo: [Autenticação de solicitações do Gerenciador de Recursos do Azure](http://msdn.microsoft.com/library/azure/dn790557.aspx).
+Para obter um token de acesso que permitirá às solicitações acessarem o gerenciador de recursos, o aplicativo cliente inclui um segmento de código que chama o Active Directory. O segmento de código e as etapas necessárias para usar o segmento de código foram emprestadas deste artigo: [Autenticação de solicitações do Gerenciador de Recursos do Azure]().
 
 Você pode seguir as instruções no link acima ou usar as etapas neste documento se preferir acompanhar o tutorial passo a passo.
 
@@ -54,7 +54,7 @@ Nesta seção, você realizará as seguintes tarefas:
 1. Configurar o aplicativo do AD registrando detalhes sobre o aplicativo cliente de exemplo que você baixou
 1. Carregar o aplicativo cliente de exemplo com os valores que ele usará para obter autorização para suas solicitações
 
-> [AZURE.NOTE]Estes links fornecem o plano de fundo sobre o uso do Active Directory do Azure para autenticar solicitações de cliente para o gerenciador de recursos: [Gerenciador de Recursos do Azure](http://msdn.microsoft.com/library/azure/dn790568.aspx), [Autenticação de solicitações do Gerenciador de Recrusos do Azure](http://msdn.microsoft.com/library/azure/dn790557.aspx) e [Active Directory do Azure](http://msdn.microsoft.com/library/azure/jj673460.aspx).
+> [AZURE.NOTE] Estes links fornecem o plano de fundo sobre o uso do Active Directory do Azure para autenticar solicitações de cliente para o gerenciador de recursos: [Gerenciador de Recursos do Azure](http://msdn.microsoft.com/library/azure/dn790568.aspx), [Autenticação de solicitações do Gerenciador de Recrusos do Azure](http://msdn.microsoft.com/library/azure/dn790557.aspx) e [Active Directory do Azure](http://msdn.microsoft.com/library/azure/jj673460.aspx).
 
 ###Criar um serviço do Active Directory
 
@@ -204,4 +204,4 @@ Depois de ter concluído este tutorial, você pode querer saber mais sobre geren
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0224_2016-->

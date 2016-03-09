@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="02/08/2016"
+   ms.date="02/18/2016"
    ms.author="alkohli" />
 
 
@@ -76,7 +76,7 @@ Use as instruções passo a passo a seguir para preparar e configurar seu dispos
 
     ![Página de configurações de rede](./media/storsimple-ova-deploy3-iscsi-setup/image6.png)
 
-    Se você adicionou mais de uma interface de rede durante o provisionamento do dispositivo, você pode configurá-las aqui.
+    Se você adicionou mais de uma interface de rede durante o provisionamento do dispositivo, você pode configurá-las aqui. Observe que você pode configurar a interface de rede apenas como IPv4 ou como IPv4 e IPv6. Não há suporte para configurações somente IPv6.
 
 5. Os servidores DNS são necessários porque eles são usados quando o dispositivo tenta se comunicar com seus provedores de serviço de armazenamento de nuvem, ou então para resolver seu dispositivo por nome, se ele estiver configurado como um servidor de arquivos. Na página **Configurações de rede**, em **Servidores DNS**:
 
@@ -310,4 +310,4 @@ Execute as etapas a seguir para obter o iSCSI IQN (Nome Qualificado) de um host 
 <!--Reference link-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

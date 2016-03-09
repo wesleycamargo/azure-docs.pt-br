@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="02/19/2016"
 	ms.author="renash"/>
 
 
@@ -27,10 +27,10 @@ Para transferir um grande conjunto de dados de arquivo para o armazenamento de B
 
 Você pode criar e gerenciar trabalhos de importação e exportação de duas maneiras:
 
-- Usando o Portal Clássico do Azure.
+- Usando o [Portal Clássico](https://manage.windowsazure.com) do Azure.
 - Usando uma interface REST para o serviço.
 
-Este artigo apresenta uma visão geral do serviço Importação/Exportação e descreve como usar o Portal Clássico para trabalhar com esse serviço. Para obter informações sobre a API REST, consulte a [Referência da API REST do serviço de importação e exportação do Azure](http://go.microsoft.com/fwlink/?LinkID=329099).
+Este artigo apresenta uma visão geral do serviço Importação/Exportação e descreve como usar o Portal Clássico para trabalhar com esse serviço. Para obter informações sobre a API REST, consulte a [Referência da API REST do Serviço de Importação/Exportação de Armazenamento](http://go.microsoft.com/fwlink/?LinkID=329099).
 
 ## Introdução ao Serviço de Importação/Exportação ##
 
@@ -49,17 +49,20 @@ Ao criar um trabalho de importação ou de exportação, você também precisar�
 
 ### Requisitos e escopo
 
-1.	**Assinatura e contas de armazenamento:** você deve ter uma assinatura do Azure e uma ou mais contas de armazenamento existentes para usar o serviço de Importação/Exportação. Cada trabalho pode ser usado para transferir dados para apenas uma conta de armazenamento, ou por meio dela. Em outras palavras, um trabalho não pode se estender por várias contas de armazenamento. Para obter informações sobre como criar uma nova conta de armazenamento, consulte [Como criar uma conta de armazenamento](storage-create-storage-account.md).
-2.	**Discos rígidos:** somente discos rígidos SATA II/III internos de 3,5 polegadas têm suporte para uso com o serviço Importação/Exportação. São suportados discos rígidos até 6 TB. Para trabalhos de importação, somente o primeiro volume de dados na unidade será processado. O volume de dados deve ser formatado com NTFS. Você pode anexar um disco SATA II/III externamente à maioria dos computadores usando um adaptador USB para SATA II/III externo.
+1.	**Assinatura e contas de armazenamento:** você deve ter uma assinatura do Azure e uma ou mais contas de armazenamento clássicas existentes para usar o serviço de Importação/Exportação. Cada trabalho pode ser usado para transferir dados para apenas uma conta de armazenamento clássica, ou por meio dela. Em outras palavras, um trabalho não pode se estender por várias contas de armazenamento. Para obter informações sobre como criar uma nova conta de armazenamento, consulte [Como criar uma conta de armazenamento](storage-create-storage-account.md#create-a-storage-account). 
+
+  > [AZURE.NOTE] Se você tiver uma conta de armazenamento do ARM, entre em contato com o Suporte do Azure.
+
+2.	**Discos rígidos:** somente discos rígidos SATA II/III internos de 3,5 polegadas têm suporte para uso com o serviço Importação/Exportação. Há suporte para discos rígidos de até 8 TB. Para trabalhos de importação, somente o primeiro volume de dados na unidade será processado. O volume de dados deve ser formatado com NTFS. Você pode anexar um disco SATA II/III externamente à maioria dos computadores usando um adaptador USB para SATA II/III externo.
 3.	**Criptografia BitLocker:** todos os dados armazenados em discos rígidos devem ser criptografados usando o BitLocker com chaves de criptografia protegidas com senhas numéricas.
 4.	**Destinos de armazenamento de blob:** é possível carregar dados para blobs de blocos e blobs de páginas e baixar dados desses blobs.
 5.	**Número de trabalhos:** um cliente pode ter até 20 trabalhos ativos por conta de armazenamento.
 6.	**Tamanho máximo de um trabalho:** o tamanho de um trabalho é determinado pela capacidade dos discos rígidos usados e a quantidade máxima de dados que podem ser armazenados em uma conta de armazenamento. Cada trabalho pode conter, no máximo, 10 discos rígidos.
-7.  **Sistema operacional com suporte:** o cliente pode usar um dos seguintes sistemas operacionais para preparar o disco rígido usando a ferramenta de importação/exportação do Azure antes do envio para o Azure - Windows 7, Windows 8, Windows 8.1, Windows 10*, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2.  
+7.  **Sistema Operacional com Suporte:** o cliente pode usar um dos seguintes sistemas operacionais de 64 bits para preparar o disco rígido usando a Ferramenta de Importação/Exportação do Azure antes do envio para o Azure - Windows 7, Windows 8, Windows 8.1, Windows 10*, Windows Server 2008 R2, Windows Server 2012 e Windows Server 2012 R2.  
 
   > [AZURE.IMPORTANT]
   >  
-  >  - Consulte a [seção de Perguntas frequentes](#frequently-asked-questions) para obter instruções especiais se você estiver usando um computador Windows 10 para preparar o disco rígido.
+  >  - Se você estiver usando um computador com o Windows 10 para preparar seu disco rígido, baixe a versão mais recente da Ferramenta de Importação/Exportação do Azure.
   >  
   >  - Não há suporte para unidades de disco rígido externas que vêm com um adaptador USB integrado neste serviço. Não prepare um HDD externo. O disco dentro da estrutura externa também não pode ser usado para importar dados. Use uma unidades de disco rígido **interna** SATA II/III de 3,5 polegadas. Se você não conseguir conectar o disco SATA diretamente ao seu computador, use um SATA externo para o adaptador USB. Consulte a lista de adaptadores recomendados na seção de perguntas frequentes.
 
@@ -69,19 +72,19 @@ Crie um trabalho de importação para notificar o serviço Importar/Exportar de 
 
 ### Preparar suas unidades
 
-Antes de criar um trabalho de importação, prepare suas unidades com a Ferramenta de Importação/Exportação do Microsoft Azure. Para obter mais detalhes sobre como usar a Ferramenta de Importação/Exportação do Microsoft Azure, consulte a [Referência da Ferramenta de Importação/Exportação do Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=329032). Você pode baixar a [Ferramenta de Importação/Exportação do Microsoft Azure](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) como um pacote autônomo.
+Antes de criar um trabalho de importação, prepare suas unidades com a Ferramenta de Importação/Exportação do Azure. Para obter mais detalhes sobre como usar a Ferramenta de Importação/Exportação do Azure, consulte a [Referência da Ferramenta de Importação/Exportação do Azure](http://go.microsoft.com/fwlink/?LinkId=329032). Você pode baixar a [Ferramenta de Importação/Exportação do Azure](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) como um pacote autônomo.
 
 Para preparar as unidades, siga estas três etapas:
 
 1.	Determine os dados a serem importados e o número de unidades necessárias.
 2.	Identifique os blobs de destino de seus dados no Armazenamento de Blobs.
-3.	Use a Ferramenta de Importação/Exportação do Microsoft Azure para copiar seus dados para um ou mais discos rígidos.
+3.	Use a Ferramenta de Importação/Exportação do Azure para copiar seus dados para um ou mais discos rígidos.
 
-A Ferramenta de Importação/Exportação do Microsoft Azure gera um arquivo de *diário de unidade* para cada unidade à medida que ela for preparada. O arquivo de diário de unidade é armazenado no seu computador local, e não na própria unidade. Você poderá carregar o arquivo de diário ao criar o trabalho de importação. Um arquivo de diário de unidade inclui a ID de unidade e a chave do BitLocker, bem como outras informações sobre a unidade.
+A Ferramenta de Importação/Exportação do Azure gera um arquivo de *diário de unidade* para cada unidade à medida que ela for preparada. O arquivo de diário de unidade é armazenado no seu computador local, e não na própria unidade. Você poderá carregar o arquivo de diário ao criar o trabalho de importação. Um arquivo de diário de unidade inclui a ID de unidade e a chave do BitLocker, bem como outras informações sobre a unidade.
 
 ### Criar o trabalho de importação
 
-1.	Depois de preparar a unidade, navegue até a conta de armazenamento no Portal Clássico e exiba o Painel. Em **Visão Rápida**, clique em **Criar um Trabalho de Importação**.
+1.	Depois de preparar a unidade, navegue até a conta de armazenamento no [Portal Clássico](https://manage.windowsazure.com) e exiba o Painel. Em **Visão Rápida**, clique em **Criar um Trabalho de Importação**.
 
 2.	Na Etapa 1 do assistente, indique que você preparou a unidade e que o arquivo de diário de unidade está disponível.
 
@@ -111,7 +114,7 @@ A Ferramenta de Importação/Exportação do Microsoft Azure gera um arquivo de 
 
 Crie um trabalho de exportação para notificar o serviço Importar/Exportar que você enviará uma ou mais unidades vazias para o data center, para que os dados podem ser exportados de sua conta de armazenamento para as unidades e, em seguida, as unidades sejam enviadas para você.
 
-1. 	Para criar um trabalho de exportação, navegue até a sua conta de armazenamento no Portal Clássico e exiba o Painel. Em **Visão Rápida**, clique em **Criar um Trabalho de Exportação** e continue com o assistente.
+1. 	Para criar um trabalho de exportação, navegue até a sua conta de armazenamento no [Portal Clássico](https://manage.windowsazure.com) e exiba o Painel. Em **Visão Rápida**, clique em **Criar um Trabalho de Exportação** e continue com o assistente.
 
 2. 	Na Etapa 2, forneça as informações de contato da pessoa responsável por esse trabalho de exportação. Se desejar salvar dados de log detalhados para o trabalho de exportação, marque a opção para **Salvar o log detalhado no meu contêiner de blob 'waimportexport'**.
 
@@ -178,20 +181,9 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 
 ### Geral
 
-**Como faço para preparar o HDD no Windows 10?**
-  
-Siga as instruções abaixo para usar o Windows 10 para preparar seu HDD:
- 
-- Habilite manualmente a criptografia BitLocker na HDD que você está preparando para serviço de importação/exportação do Azure. Clique com o botão direito do mouse na letra da HDD no gerenciador de arquivos, selecione "Ativar BitLocker" e siga o assistente.  
-- Certifique-se de anotar a chave de recuperação.  
-- Quando solicitado a escolher o modo de criptografia, escolha o **Modo Compatível (melhor para unidades que podem ser movidas desse dispositivo)**  
-- Quando a criptografia estiver concluída, execute a ferramenta de importação/exportação do Azure para copiar dados para essa HDD.   
-- Use o parâmetro */bk* e especifique a chave de recuperação neste valor de parâmetro.   
-- NÃO use os parâmetros */format* e */encrypt*.  
-
 **Qual é o preço do serviço Importação/Exportação?**
 
-- Consulte a [página de preços](http://go.microsoft.com/fwlink/?LinkId=329033) para obter informações sobre preços.
+- Consulte os [Preços de Importação/Exportação](http://go.microsoft.com/fwlink/?LinkId=329033) para obter informações sobre preços.
 
 **Quanto tempo levará para importar ou exportar meus dados?**
 
@@ -204,7 +196,7 @@ Siga as instruções abaixo para usar o Windows 10 para preparar seu HDD:
 	- Anker 68UPSHHDS-BU
 	- Startech SATADOCK22UE
 
-> [AZURE.NOTE] Se tiver um conversor que não está relacionado acima, você pode tentar executar a Ferramenta de Importação/Exportação do Microsoft Azure usando seu conversor para preparar a unidade e ver se funciona, antes de adquirir um conversor com suporte.
+> [AZURE.NOTE] Se tiver um conversor que não está relacionado acima, você pode tentar executar a Ferramenta de Importação/Exportação do Azure usando seu conversor para preparar a unidade e ver se funciona, antes de adquirir um conversor com suporte.
 
 - Não há suporte para HDD externo com um adaptador USB integrado.
 
@@ -238,7 +230,7 @@ Siga as instruções abaixo para usar o Windows 10 para preparar seu HDD:
 
 - Não. Todas as unidades devem estar preparadas para BitLocker.
 
-**É necessário executar alguma preparação ao disco ao criar um trabalho de exportação?** - Não, mas são recomendadas algumas verificações prévias. Verifique o número de discos necessários usando o comando [PreviewExport](https://msdn.microsoft.com/library/azure/dn722414.aspx) da ferramenta Importação/Exportação do Azure. A ferramenta ajuda você a visualizar o uso da unidade para os blobs que você selecionou, com base no tamanho das unidades que você pretende usar. Verifique também se você pode ler/gravar no disco rígido que será enviado para o trabalho de exportação.
+**É necessário executar alguma preparação ao disco ao criar um trabalho de exportação?** - Não, mas são recomendadas algumas verificações prévias. Verifique o número de discos necessários usando o comando PreviewExport da ferramenta Importação/Exportação do Azure. Para obter mais informações, consulte [Visualizando o Uso da Unidade para um Trabalho de Exportação](https://msdn.microsoft.com/library/azure/dn722414.aspx). A ferramenta ajuda você a visualizar o uso da unidade para os blobs que você selecionou, com base no tamanho das unidades que você pretende usar. Verifique também se você pode ler/gravar no disco rígido que será enviado para o trabalho de exportação.
 
 ### Remessa
 
@@ -246,13 +238,13 @@ Siga as instruções abaixo para usar o Windows 10 para preparar seu HDD:
 
 - As regiões dos EUA e Europa só dão suporte ao serviço [Federal Express](http://www.fedex.com/us/oadr/) (FedEx). Todos os pacotes serão retornados via FedEx Ground ou Fedex International Economy.
 
-- As regiões na Ásia só dão suporte ao serviço [DHL](http://www.dhl-welcome.com/Tutorial/). Todos os pacotes serão retornados via DHL Express Worldwide.
+- As regiões na Ásia só dão suporte ao serviço [DHL](http://www.dhl.com/). Todos os pacotes serão retornados via DHL Express Worldwide.
 
 	> [AZURE.IMPORTANT] Você deve fornecer seu número de controle ao serviço de Importação/Exportação do Azure; caso contrário, seu trabalho não poderá ser processado.
 
 **Existe algum custo associado à remessa de retorno?**
 
-- A Microsoft utiliza o número da conta da transportadora fornecida no momento da criação do trabalho para enviar as unidades para seu endereço de devolução do data center. Certifique-se de fornecer um número de conta de transportadora válido para a transportadora com suporte na região do data center. Você pode criar uma conta de transportadora da [FedEx](http://www.fedex.com/us/oadr/) (para os EUA e a Europa) ou da [DHL](http://www.dhl-welcome.com/Tutorial/) (Ásia) se não tiver uma.
+- A Microsoft utiliza o número da conta da transportadora fornecida no momento da criação do trabalho para enviar as unidades para seu endereço de devolução do data center. Certifique-se de fornecer um número de conta de transportadora válido para a transportadora com suporte na região do data center. Você pode criar uma conta de transportadora da [FedEx](http://www.fedex.com/us/oadr/) (para os EUA e a Europa) ou da [DHL](http://www.dhl.com/) (Ásia) se não tiver uma.
 
 - A taxa de remessa de retorno é cobrada na conta da sua transportadora e depende da transportadora.
 
@@ -282,13 +274,17 @@ Siga as instruções abaixo para usar o Windows 10 para preparar seu HDD:
 
 - Envie somente seus discos rígidos. Não inclua itens como cabos de alimentação ou cabos USB.
 
+**Por que o status do meu trabalho no Portal Clássico mostra *Enviando* quando o site da Operadora mostra que meu pacote foi entregue?**
+
+- O status do Portal muda de *Enviando* para *Transferindo* quando o processamento da unidade é iniciado. Se a unidade tiver atingido a instalação, porém ainda não iniciou o processamento, o status do seu trabalho será exibido como *Enviando*.
+
 ## Consulte também
 
-[Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy)
+[Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy.md)
 
 
 [import-job-03]: ./media/storage-import-export-service-classic-portal/import-job-03.png
 [export-job-03]: ./media/storage-import-export-service-classic-portal/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -1,18 +1,19 @@
-There are 3 VPN Gateway SKUs:
+Há 3 SKUs de gateway de VPN:
 
-- Basic
+- Básico
 - Standard
-- High Performance
+- Alto Desempenho
 
-The table below shows the gateway types and the estimated aggregate throughput. 
-Pricing does differ between gateway SKUs. For information about pricing, see [VPN Gateway Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/). This table applies to both the Resource Manager and classic deployment models.
+A tabela a seguir mostra os tipos de gateway e a taxa de transferência agregada estimada. Os preços diferem entre os SKUs de gateway. Para obter informações sobre preços, veja [Preços de gateway de VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/). Esta tabela aplica-se a ambos os modelos de implantação do Gerenciador de Recursos e clássico.
 
 
-|    | **VPN Gateway throughput** | **VPN Gateway max IPsec tunnels** | **ExpressRoute Gateway throughput** | **VPN Gateway and ExpressRoute coexist**|
+| | **Taxa de transferência de Gateway de VPN** | **Túneis IPsec máximo de Gateway de VPN** | **Taxa de transferência de Gateway de Rota Expressa** | **Coexistência de Gateway de VPN e a Rota Expressa**|
 |--- |----------------------------|-----------------------------------|-------------------------------------|-----------------------------------------|
-| **Basic SKU**              |  100 Mbps | 10                         |  500 Mbps                           | No   |
-| **Standard SKU**           |  100 Mbps | 10                         | 1000 Mbps                           | Yes  |
-| **High Performance SKU**   | 200 Mbps  | 30                         | 2000 Mbps                           | Yes  |
+| **SKU Básico** | 100 Mbps | 10 | 500 Mbps | Não |
+| **SKU padrão** | 100 Mbps | 10 | 1000 Mbps | Sim |
+| **SKU de Alto Desempenho** | 200 Mbps | 30 | 2000 Mbps | Sim |
 
 
-**Note:** The VPN throughput is a rough estimate based on the measurements between VNets in the same Azure region. It is not a guarantee of what you can get for cross-premises connections across the Internet, but should be used as a maximum possible measure.
+**Observação:** a taxa de transferência da VPN é uma estimativa aproximada baseada nas medidas entre redes virtuais na mesma região do Azure. Não é uma garantia do que você poderá obter para conexões entre locais na Internet, mas deverá ser usada como a maior medida possível.
+
+<!---HONumber=AcomDC_0224_2016-->

@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,24 +13,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/11/2015"
+   ms.date="02/11/2016"
    ms.author="jehollan"/>
    
 # Visão geral
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
+
 O Conector de AM do Azure para Aplicativos Lógicos permite chamar as APIs de AM do Azure para pontuação em lote (Serviço de execução em lote) e readaptação. Esses recursos, junto com os Gatilhos do Aplicativo Lógico, permitem o agendamento de trabalhos em lotes e a configuração da readaptação de modelos.
 
  ![][1]
  
 ## Introdução ao Conector de Aprendizado de Máquina do Azure e à adição dele ao seu Aplicativo Lógico
-Para começar, crie um experimento no Estúdio AM do Azure e depois configure e implante um serviço Web. Você pode usar a URL da API e a Chave da URL de Postagem de BES, encontradas na página de Ajuda de Execução em Lote. ([Saiba mais](https://github.com/Azure/azure-content/blob/master/articles/machine-learning/machine-learning-walkthrough-5-publish-web-service.md))
+Para começar, crie um experimento no Estúdio AM do Azure e depois configure e implante um serviço Web. Você pode usar a URL da API e a Chave da URL de Postagem de BES, encontradas na página de Ajuda de Execução em Lote. ([Passo a passo de Aprendizado de Máquina](../machine-learning/machine-learning-walkthrough-5-publish-web-service.md))
 
-Para executar um trabalho de BES usando o Conector, adicione o Conector de AM do Azure ao seu Aplicativo Lógico. Em seguida, insira as informações necessárias (veja mais informações sobre isso logo abaixo). Para configurar a Readaptação, adicione um segundo Conector de AM do Azure e forneça os parâmetros de entrada (confira [aqui](machine-learning-retrain-models-programmatically.md) mais informações sobre como definir um modelo para a readaptação).
+Para executar um trabalho de BES usando o Conector, adicione o Conector de AM do Azure ao seu Aplicativo Lógico. Em seguida, insira as informações necessárias (veja mais informações sobre isso logo abaixo). Para configurar a Readaptação, adicione um segundo Conector de AM do Azure e forneça os parâmetros de entrada (consulte [definir um modelo para readaptação](../machine-learning/machine-learning-retrain-models-programmatically.md).
 
 ## Executar um trabalho de Execução em Lote de AM do Azure
 O Conector de AM do Azure oferece as quatro opções a seguir para executar trabalhos de Execução em Lote (BES): 1. Trabalho em Lotes com Entrada e Saída: o Teste tem módulos de entrada e saída do serviço Web 2. Trabalho em Lotes Sem Entrada e Saída: o Teste não tem módulos de entrada e saída do serviço Web (por exemplo, usa os módulos Leitor e Gravador) 3. Trabalho em Lotes apenas com Entrada: o Teste tem um módulo de entrada de serviço Web, mas nenhum módulo de saída de serviço Web (por exemplo, usa um módulo Gravador) 4. Trabalho em Lotes apenas com Saída: o Teste não tem um módulo de entrada de serviço Web, mas tem um módulo de saída de serviço Web (por exemplo, usa um módulo de Leitor). Observe que o BES é uma solicitação assíncrona e pode demorar para ser concluído dependendo do tamanho dos dados e da complexidade do modelo. Quando o trabalho estiver concluído, o Conector retornará o resultado de saída.
 
 ### Executar a Execução em Lotes: com Entrada e Saída
-Se o Teste no Estúdio tiver módulos de entrada e saída no serviço Web, será necessário fornecer informações sobre a conta de armazenamento de blob e o local ([saiba mais aqui](machine-learning-consume-web-services.md)). Além disso, você pode incluir Parâmetros Globais (serviço Web) se estiver configurando em teste ([saiba mais aqui](machine-learning-web-service-parameters.md)).
+Se o Teste no Estúdio tiver módulos de entrada e saída do serviço Web, será necessário [fornecer informações sobre a Conta de Armazenamento de Blobs e o local](../machine-learning/machine-learning-consume-web-services.md). Além disso, você pode incluir os Parâmetros Globais (serviço Web) se estiver configurando no seu teste ([parâmetros do serviço Web do Aprendizado de Máquina](../machine-learning/machine-learning-web-service-parameters.md)).
 
 ![][2]
 
@@ -77,4 +79,4 @@ Usando o Conector de AM do Azure para Aplicativos Lógicos, você pode executar 
 [6]: ./media/app-service-logic-connector-azureml/img6.png
 [7]: ./media/app-service-logic-connector-azureml/img7.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

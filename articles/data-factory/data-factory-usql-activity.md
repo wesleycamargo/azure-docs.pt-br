@@ -62,11 +62,10 @@ O código de autorização gerado usando o botão **Autorizar** expira após alg
  
 | Tipo de usuário | Expira após |
 | :-------- | :----------- | 
-| Usuário não AAD (@hotmail.com, @live.com, etc.) | 12 horas |
-| O usuário do AAD e a fonte baseada no OAuth estão em um [locatário](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) diferente do locatário do data factory. | 12 horas |
-| O usuário do AAD e a fonte baseada no OAuth estão no mesmo locatário que o locatário do data factory. | 14 dias |
+| Usuários NÃO gerenciados pelo Azure Active Directory (@hotmail.com, @live.com, etc.) | 12 horas |
+| Usuários gerenciados pelo Azure Active Directory (AAD) | | 14 dias após a última fatia executada, se não nenhuma fatia com base no serviço vinculado do OAuth tiver sido executado por 14 dias desde a última fatia executada. <p>90 dias, se uma fatia com base em serviços vinculados do OAuth for executada pelo menos uma vez a cada 14 dias.</p> |
 
-Para evitar/resolver o erro, você precisará autorizar novamente usando o botão **Autorizar** quando o **token expirar** e reimplantar o serviço vinculado. Você também pode gerar valores para as propriedades **sessionId** e **authorization** programaticamente usando o código na seção a seguir.
+Para evitar/resolver este erro, você precisará autorizar novamente usando o botão **Autorizar** quando o **token expirar** e reimplantar o serviço vinculado. Você também pode gerar valores para as propriedades **sessionId** e **authorization** programaticamente usando o código na seção a seguir.
 
   
 ### Para gerar valores sessionId e authorization programaticamente 
@@ -94,7 +93,7 @@ Para evitar/resolver o erro, você precisará autorizar novamente usando o botã
         }
     }
 
-Confira os tópicos [Classe AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [Classe AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) e [Classe AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) para obter detalhes sobre as classes do Data Factory usadas no código. Você precisa adicionar uma referência a: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll para a classe WindowsFormsWebAuthenticationDialog.
+Consulte os tópicos [Classe AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [Classe AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) e [Classe AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) para obter detalhes sobre as classes do Data Factory usadas no código. Você precisa adicionar uma referência a: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll para a classe WindowsFormsWebAuthenticationDialog.
  
  
 ## Atividade do U-SQL da Análise Data Lake 
@@ -164,7 +163,7 @@ degreeOfParallelism | O número máximo de nós que serão usados simultaneament
 prioridade | Determina quais trabalhos de todos os que estão na fila devem ser selecionados para serem executados primeiro. Quanto menor o número, maior a prioridade. | Não 
 parameters | Parâmetros do script U-SQL | Não 
 
-Confira [Definição do script SearchLogProcessing.txt](#script-definition) para ver a definição do script.
+Consulte [Definição do Script SearchLogProcessing.txt](#script-definition) para ver a definição do script.
 
 ### Conjuntos de dados de entrada e saída de exemplo
 
@@ -254,8 +253,8 @@ Veja [Mover dados para e do Repositório Azure Data Lake](data-factory-azure-dat
 	    TO @out
 	      USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 
-Os valores dos parâmetros **@in** e **@out** no script U-SQL acima são passados dinamicamente pelo ADF usando a seção 'parameters'. Veja a seção "parâmetros" acima na definição do pipeline.
+Os valores dos parâmetros **@in** e **@out** no script U-SQL acima são transmitidos dinamicamente pelo ADF usando a seção “parameters”. Veja a seção "parâmetros" acima na definição do pipeline.
 
 Você pode especificar outras propriedades viz. degreeOfParallelism, prioridade, etc., bem como em sua definição de pipeline para os trabalhos executados no serviço de Análise Azure Data Lake.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -4,7 +4,7 @@
 	services="sql-database"  
 	documentationCenter=""
 	authors="sidneyh"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/23/2016"
 	ms.author="sidneyh" />
 
 # Tutorial de ferramenta da Divisão de Mesclagem do banco de dados elástico
@@ -42,9 +42,9 @@ As etapas acima baixam os arquivos de Divisão-Mesclagem para a pasta atual. Os 
 
 ### Configuração do serviço de Divisão-Mesclagem
 
-1. Na pasta onde você baixou os bits de Divisão/Mesclagem, crie uma cópia do arquivo **ServiceConfiguration.Template.cscfg** fornecido junto com **SplitMergeService.cspkg** e mude seu nome para **ServiceConfiguration.cscfg**.
+1. Na pasta em que você baixou os assemblies de Divisão-Mesclagem, crie uma cópia do arquivo **ServiceConfiguration.Template.cscfg** fornecido junto com **SplitMergeService.cspkg** e renomeie para **ServiceConfiguration.cscfg**.
 
-2. Abra o ServiceConfiguration.cscfg no seu editor de texto favorito. É recomendável usar o Visual Studio pois ele validará as entradas, como o formato de impressões digitais de certificados.
+2. Abra **ServiceConfiguration.cscfg** em um editor de texto como o Visual Studio que valide as entradas como o formato de impressões digitais de certificado.
 
 3. Crie um novo banco de dados ou escolha um já existente para servir como o banco de dados de status para as operações de Divisão/Mesclagem e recupere a cadeia de conexão do banco de dados.
 
@@ -334,4 +334,4 @@ Nesse caso, verifique seu arquivo de configuração, em particular a configuraç
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/30/2015"
+   ms.date="02/10/2016"
    ms.author="sameerch"/>
 
 
 # Introdução ao Conector do Chatter e à adição dele ao seu Aplicativo Lógico 
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
+
 Conecte-se ao Chatter e poste uma mensagem ou pesquise um feed. Por exemplo, você pode pesquisar um feed do Chatter e ao encontrar algo específico, é possível postar a mensagem do Chatter em um grupo de Vendas.
 
 Você pode adicionar o conector do Chatter a seu fluxo de trabalho de negócios e processar dados como parte desse fluxo de trabalho dentro de um aplicativo lógico.
@@ -38,7 +40,8 @@ Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Mar
 
 1. No quadro inicial do Azure, selecione **Marketplace**.
 2. Pesquise "Conector do Chatter", selecione-o e selecione **Criar**.
-3. Insira o Nome, o Plano do Serviço de Aplicativo e outras propriedades: ![][1]  
+3. Insira o Nome, o Plano do Serviço de Aplicativo e outras propriedades: 
+	![][1]  
 	- **Local** - escolha a região geográfica onde você quer que o conector seja implantado
 	- **Assinatura** - escolha uma assinatura na qual você deseja que esse conector seja criado
 	- **Grupo de recursos** - selecione ou crie um grupo de recursos onde o conector deve residir
@@ -54,26 +57,41 @@ Depois de criar seu aplicativo de API, você pode usar o conector do Chatter com
 
 1. No aplicativo lógico, abra **Gatilhos e Ações** para abrir o Designer de Aplicativos Lógicos e configurar seu fluxo.
 
-2. O conector do Chatter está listado na galeria: ![][4]
-3. Selecione o conector do Chatter para adicionar automaticamente no designer. Selecione **Autorizar**, insira as suas credenciais e selecione **Permitir**: ![][5] ![][6] ![][7]
+2. O conector do Chatter está listado na galeria:  
+	![][4]
+3. Selecione o conector do Chatter para adicionar automaticamente no designer. Selecione **Autorizar**, insira as suas credenciais e selecione **Permitir**: 
+	![][5] 
+	![][6] 
+	![][7]
 
 Agora você pode usar o conector do Chatter no fluxo. Você pode usar a nova mensagem recuperada do gatilho do Chatter ("Nova Mensagem") em outras ações no fluxo. Configure as propriedades de entrada de gatilho do Chatter da seguinte maneira:
 
-**ID do Grupo** - insira a ID do grupo do qual a nova mensagem deve ser recuperada. Se a ID do Grupo não for fornecida, a nova mensagem será recuperada do Feed do Usuário: ![][8] ![][9]
+**ID do Grupo** - insira a ID do grupo do qual a nova mensagem deve ser recuperada. Se a ID do Grupo não for fornecida, a nova mensagem será recuperada do Feed do Usuário: 
+	![][8] 
+	![][9]
 
 
-De maneira semelhante, você pode usar a ação do Chatter no fluxo para postar uma mensagem, selecionando a ação "Postar Mensagem". Configure as propriedades de entrada para a ação "Postar Mensagem" da seguinte maneira:- **Texto da Mensagem** - conteúdo de texto da mensagem a ser postada - **ID do Grupo** - especifique a ID do grupo no qual a nova mensagem deve ser postada. Se a ID do grupo não for fornecida, a mensagem será postada no feed do usuário. - **Nome do Arquivo** - nome do arquivo a ser anexado a essa mensagem - **Dados de Conteúdo** - dados de conteúdo do anexo - **Tipo de Conteúdo** - tipo de conteúdo do anexo - **Codificação de Transferência de Conteúdo** - codificação de transferência de conteúdo do anexo ("nenhuma"|"base64") - **Menções** - matriz de nomes de usuário a serem marcados nessa mensagem - **Hashtags** - matriz de hashtags a serem postadas juntamente com a mensagem
+De maneira semelhante, você pode usar a ação do Chatter no fluxo para postar uma mensagem, selecionando a ação "Postar Mensagem". Configure as propriedades de entrada para a ação "Postar Mensagem" da seguinte maneira:
+	- **Texto da Mensagem** - conteúdo de texto da mensagem a ser postada
+	- **ID do Grupo** - especifique a ID do grupo no qual a nova mensagem deve ser postada. Se a ID do grupo não for fornecida, a mensagem será postada no feed do usuário.
+	- 	**Nome do Arquivo** - nome do arquivo a ser anexado a essa mensagem
+	- 	**Dados de Conteúdo** - dados de conteúdo do anexo
+	- 	**Tipo de Conteúdo** - tipo de conteúdo do anexo
+	- 	**Codificação de Transferência de Conteúdo** - codificação de transferência de conteúdo do anexo ("nenhuma"|"base64")
+	- 	**Menções** - matriz de nomes de usuário a serem marcados nessa mensagem
+	- 	**Hashtags** - matriz de hashtags a serem postadas juntamente com a mensagem  
 
-![][10] ![][11]
+![][10] 
+![][11]
 
 ## Faça mais com seu Conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
 
->[AZURE.NOTE]Se você deseja começar com os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógicos](https://tryappservice.azure.com/?appservice=logic), em que você pode criar imediatamente um aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
+>[AZURE.NOTE] Se você deseja começar com os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógicos](https://tryappservice.azure.com/?appservice=logic), em que você pode criar imediatamente um aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
 
 Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
+Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar Aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
 
 
 <!--Image references-->
@@ -89,4 +107,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [10]: ./media/app-service-logic-connector-chatter/img10.PNG
 [11]: ./media/app-service-logic-connector-chatter/img11.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

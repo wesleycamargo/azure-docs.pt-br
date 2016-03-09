@@ -12,8 +12,8 @@
     ms.workload="compute"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
-    ms.topic="article"
-    ms.date="12/05/2015"
+    ms.topic="hero-article"
+    ms.date="02/25/2016"
     ms.author="mbaldwin" />
 
 
@@ -33,6 +33,6 @@ Agora você pode acessar aplicativos em execução em tempo real no RemoteApp do
 
 Sua opinião é importante. No final de cada sessão, você verá uma caixa de diálogo para seus comentários. Se você tiver um minuto, conte-nos suas ideias e diga se gostaria que a Microsoft entrasse em contato com você para obter informações adicionais.
 
->[AZURE.NOTE]Como esse é um ambiente controlado para uso de demonstração, não habilitamos acesso externo à Internet por meio dos aplicativos de demonstração publicados. Por isso, serviços como o OneDrive não estão acessíveis. Além disso, o compartilhamento da área de transferência (copiar e colar) e redirecionamento de impressora e USB estão desabilitados.
+>[AZURE.NOTE] Como esse é um ambiente controlado para uso de demonstração, não habilitamos acesso externo à Internet por meio dos aplicativos de demonstração publicados. Por isso, serviços como o OneDrive não estão acessíveis. Além disso, o compartilhamento da área de transferência (copiar e colar) e redirecionamento de impressora e USB estão desabilitados.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,26 +13,28 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="02/18/2016" 
 	ms.author="mimig"/>
 
-# Monitorar uma conta de Banco de Dados de Documentos 
+# Monitorar um uso de conta do Banco de Dados de Documentos no Portal do Azure
 
 Você pode monitorar suas contas do Banco de Dados de Documentos no [Portal do Microsoft Azure](https://portal.azure.com/). Para cada conta do Banco de Dados de Documentos, tanto as métricas de desempenho (como as solicitações e erros de servidor) quanto as métricas de utilização (como consumo de armazenamento) estão disponíveis.
 
-## Como: exibir métricas de desempenho para uma conta do Banco de Dados de Documentos
+## Visualizar métricas de desempenho para uma conta do Banco de Dados de Documentos
 1.	No [Portal do Azure](https://portal.azure.com/), clique em **Procurar**, **Contas do Banco de Dados de Documentos** e clique no nome da conta do Banco de Dados de Documentos cujas métricas de desempenho você deseja exibir.
 2.	Dentro da lente **Monitoramento**, você pode, por padrão, consultar:
 	*	Solicitações totais para o dia de hoje.
-	*	Média de solicitações por minuto no dia atual. 
+	*	Utilização de armazenamento da conta. 
+
+	Se sua tabela exibe **Não há dados disponíveis** consulte a seção [Solução de Problemas](#troubleshooting).
 	
-	![Captura de tela da lente Monitoramento](./media/documentdb-monitor-accounts/madocdb1.png)
+	![Captura de tela da Lente de monitoramento que mostra o total de solicitações de hoje e o uso de armazenamento](./media/documentdb-monitor-accounts/documentdb-total-requests-and-usage.png)
 
 
-3.	Clicar em **Total de Solicitações** ou **Média de Solicitações por Segundo** abre uma folha detalhada de **Métrica**.
-4.	A folha **Métrica** mostra detalhes das métricas que você selecionou. Na parte superior da folha, há um gráfico e, abaixo dele, uma tabela que mostra valores de agregação das métricas selecionadas, como a média, o mínimo e o máximo. A folha Métrica também exibe a lista de alertas que foram definidos, filtrados para as métricas que aparecem na folha de métricas atual (desse modo, se você possui um determinado número de alertas, você verá apenas aqueles relevantes apresentados aqui).   
+3.	Clicar no bloco **Total de Solicitações** ou **Armazenamento** abre uma folha de **Métrica** detalhada.
+4.	A folha **Métrica** mostra detalhes das métricas que você selecionou. Na parte superior da folha há um gráfico e abaixo dele há uma tabela que mostra os valores de agregação das métricas selecionadas como a média, o mínimo, o máximo e o total. A folha Métrica também exibe a lista de alertas que foram definidos, filtrados para as métricas que aparecem na folha de métricas atual (desse modo, se você possui um determinado número de alertas, você verá apenas aqueles relevantes apresentados aqui).   
 
-	![Captura de tela da lâmina Métrica](./media/documentdb-monitor-accounts/madocdb2.png)
+	![Captura de tela da lâmina Métrica](./media/documentdb-monitor-accounts/documentdb-metric-blade.png)
 
 
 ## Personalizar visualizações de métricas de desempenho para uma conta do Banco de Dados de Documentos
@@ -86,8 +88,25 @@ Agora, você pode tratar essa parte como qualquer outra parte de métrica, perso
 	*	Se o administrador de serviços e seus coadministradores recebem ou não emails quando o alerta é enviado.
 	*	Endereços de email adicionais para notificações de alerta. ![Captura de tela da folha da regra Adicionar um alerta](./media/documentdb-monitor-accounts/madocdb12.png)
 
+## Outras maneiras de monitorar o Banco de Dados de Documentos
+As métricas no nível da conta disponíveis no portal, como o uso de armazenamento da conta e o total de solicitações, não estão disponíveis por meio das APIs do Banco de Dados de Documentos. No entanto, você pode recuperar os dados de uso no nível da coleção. Para recuperar os dados do nível de coleção, faça o seguinte:
+
+- Para usar a API REST, [execute um GET na coleção](https://msdn.microsoft.com/library/mt489073.aspx). As informações de cota e de uso da coleção são retornadas nos cabeçalhos x-ms-resource-quota e x-ms-resource-usage na resposta.
+- Para usar o SDK do .NET, use o método [DocumentClient.ReadDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync.aspx), que retorna uma [ResourceResponse](https://msdn.microsoft.com/library/dn799209.aspx) que contém diversas propriedades de uso como **CollectionSizeUsage**, **DatabaseUsage**, **DocumentUsage** e muito mais.
+
+## Solucionar problemas
+Se seus blocos de monitoramento exibirem a mensagem **Não há dados disponíveis** e você enviou solicitações ou adicionou dados ao banco de dados recentemente, é possível editar o bloco para refletir o uso recente.
+
+### Editar um bloco para atualizar os dados atuais
+1.	Para personalizar as métricas exibidas em uma parte específica, clique com o botão direito no gráfico de métricas e selecione **Editar gráfico**. ![Captura de tela do bloco de solicitações Total que indica que não há dados disponíveis](./media/documentdb-monitor-accounts/documentdb-no-available-data.png)
+
+2.	Na folha **Editar Gráfico**, na seção **Intervalo de Tempo**, clique em **última hora** e em **Salvar**. ![Captura de tela da folha Editar Gráfico com a última hora selecionada](./media/documentdb-monitor-accounts/documentdb-no-available-data-past-hour.png)
+
+
+3.	Seu bloco agora deve ser atualizado para mostrar seus dados atuais e o uso. ![Captura de tela de atualizada do bloco Total de solicitações na última hora atualizado](./media/documentdb-monitor-accounts/documentdb-no-available-data-fixed.png)
+
 ## Próximas etapas
 Para saber mais sobre a capacidade do Banco de Dados de Documentos, consulte [Gerenciar a capacidade do Banco de Dados de Documentos](documentdb-manage.md).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

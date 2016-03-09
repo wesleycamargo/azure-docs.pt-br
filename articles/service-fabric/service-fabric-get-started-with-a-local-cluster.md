@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/20/2015"
+   ms.date="02/26/2016"
    ms.author="seanmck"/>
 
 # Introdução à implantação e à atualização de aplicativos em seu cluster local
@@ -117,6 +117,10 @@ Agora que implantamos o aplicativo, vamos examinar alguns dos detalhes do aplica
 
 3. Por fim, dê uma olhada na lista de partições para o WordCountService:
 
+    ```powershell
+    Get-ServiceFabricPartition 'fabric:/WordCount/WordCountService'
+    ```
+
     ![Exibir as partições de serviço no PowerShell][ps-getsfpartitions]
 
     O conjunto de comandos que você acabou de usar, como todos os comandos do PowerShell do Service Fabric, estão disponíveis para qualquer cluster ao qual você queira se conectar, local ou remoto.
@@ -186,4 +190,4 @@ A nova versão do aplicativo agora contará somente as palavras que comecem por 
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

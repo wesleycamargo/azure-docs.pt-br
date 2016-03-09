@@ -45,7 +45,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 Você deve ter uma conta da Análise Data Lake antes de executar trabalhos. Para criar uma conta da Análise Data Lake, você deve especificar o seguinte:
 
-- **Grupo de Recursos do Azure**: é necessário criar uma conta da Análise Data Lake em um grupo de Recursos do Azure. O [Gerenciador de Recursos do Azure](resource-group-overview.md) permite trabalhar com os recursos do seu aplicativo como um grupo. Você pode implantar, atualizar ou excluir todos os recursos para seu aplicativo em uma única operação coordenada.  
+- **Grupo de Recursos do Azure**: é necessário criar uma conta da Análise Data Lake em um grupo de Recursos do Azure. O [Gerenciador de Recursos do Azure](../resource-group-overview.md) permite trabalhar com os recursos do seu aplicativo como um grupo. Você pode implantar, atualizar ou excluir todos os recursos para seu aplicativo em uma única operação coordenada.  
 
 	Para enumerar os grupos de recursos em sua assinatura:
     
@@ -68,7 +68,7 @@ Você deve ter uma conta da Análise Data Lake antes de executar trabalhos. Para
 	        -Name "<Your Data Lake account name>" `
 	        -Location "<Azure Data Center>"  # For example, "East US 2"
 
-	> [AZURE.NOTE]O nome da conta do Data Lake deve conter apenas letras minúsculas e números.
+	> [AZURE.NOTE] O nome da conta do Data Lake deve conter apenas letras minúsculas e números.
 
 
 
@@ -135,9 +135,9 @@ O seguinte script do PowerShell mostra como obter o nome padrão do Repositório
 	$dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
 	$dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.DefaultDataLakeAccount
 
->[AZURE.NOTE]O Portal do Azure fornece uma interface do usuário para copiar os arquivos de dados de exemplo na conta padrão do Repositório do Azure Data Lake. Para obter instruções, veja [Introdução à Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-get-started-portal.md#upload-data-to-the-default-data-lake-store-account).
+>[AZURE.NOTE] O Portal do Azure fornece uma interface do usuário para copiar os arquivos de dados de exemplo na conta padrão do Repositório do Azure Data Lake. Para obter instruções, veja [Introdução à Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-get-started-portal.md#upload-data-to-the-default-data-lake-store-account).
 
-A Análise Data Lake também pode acessar o armazenamento de Blob do Azure. Para carregar dados para o armazenamento de Blob do Azure, veja [Usando o Azure PowerShell com o Armazenamento do Azure](storage-powershell-guide-full.md).
+A Análise Data Lake também pode acessar o armazenamento de Blob do Azure. Para carregar dados para o armazenamento de Blob do Azure, veja [Usando o Azure PowerShell com o Armazenamento do Azure](../storage/storage-powershell-guide-full.md).
 
 ##Enviar trabalhos da Análise Data Lake
 
@@ -174,7 +174,7 @@ Os trabalhos da Análise do Data Lake são escritos na linguagem U-SQL. Para sab
     
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
-    >[AZURE.NOTE]Atualmente, não há suporte para o contêiner de Blob do Azure com permissões de acesso de blobs públicos ou de contêineres públicos.
+    >[AZURE.NOTE] Atualmente, não há suporte para o contêiner de Blob do Azure com permissões de acesso de blobs públicos ou de contêineres públicos.
     
 	
 **Para enviar o trabalho**
@@ -217,4 +217,4 @@ Depois que o trabalho for concluído, você poderá usar os seguintes cmdlets pa
 - Para obter as tarefas de gerenciamento, veja [Gerenciar a Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-manage-use-portal.md).
 - Para obter uma visão geral da Análise do Data Lake, veja [Visão geral da Análise do Azure Data Lake](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -22,9 +22,9 @@ O Azure Application Gateway é um balanceador de carga de camada 7. Ele fornece 
 
 
 > [AZURE.SELECTOR]
-- [Azure Classic PowerShell steps](application-gateway-create-gateway.md)
-- [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
-- [Azure Resource Manager template ](application-gateway-create-gateway-arm-template.md)
+- [Etapas do PowerShell Clássico do Azure](application-gateway-create-gateway.md)
+- [PowerShell do Azure Resource Manager](application-gateway-create-gateway-arm.md)
+- [Modelo do Azure Resource Manager ](application-gateway-create-gateway-arm-template.md)
 
 
 <BR>
@@ -33,7 +33,7 @@ O Azure Application Gateway é um balanceador de carga de camada 7. Ele fornece 
 Este artigo orienta você pelas etapas para criar, configurar, iniciar e excluir um gateway de aplicativo.
 
 
->[AZURE.IMPORTANT] Antes de trabalhar com os recursos do Azure, é importante entender que, no momento, o Azure apresenta dois modelos de implantação: Gerenciador de Recursos e clássico. Verifique se você entendeu [os modelos e as ferramentas de implantação](azure-classic-rm.md) antes de trabalhar com qualquer recurso do Azure. Você pode exibir a documentação para ferramentas diferentes clicando nas guias na parte superior deste artigo. Este documento abordará a criação de um gateway de aplicativo usando o Gerenciador de Recursos do Azure. Para usar a versão clássica, vá para [Criar uma implantação clássica do gateway de aplicativo usando o PowerShell](application-gateway-create-gateway.md).
+>[AZURE.IMPORTANT] Antes de trabalhar com os recursos do Azure, é importante entender que, no momento, o Azure apresenta dois modelos de implantação: Gerenciador de Recursos e clássico. Verifique se você entendeu [os modelos e as ferramentas de implantação](../azure-classic-rm.md) antes de trabalhar com qualquer recurso do Azure. Você pode exibir a documentação para ferramentas diferentes clicando nas guias na parte superior deste artigo. Este documento abordará a criação de um gateway de aplicativo usando o Gerenciador de Recursos do Azure. Para usar a versão clássica, vá para [Criar uma implantação clássica do gateway de aplicativo usando o PowerShell](application-gateway-create-gateway.md).
 
 
 
@@ -50,7 +50,7 @@ Este artigo orienta você pelas etapas para criar, configurar, iniciar e excluir
 - **Configurações do pool de servidores back-end:** cada pool tem configurações como porta, protocolo e afinidade baseada em cookie. Essas configurações são vinculadas a um pool e aplicadas a todos os servidores no pool.
 - **Porta front-end:** essa porta é a porta pública aberta no gateway de aplicativo. O tráfego atinge essa porta e é redirecionado para um dos servidores back-end.
 - **Ouvinte:** o ouvinte tem uma porta front-end, um protocolo (HTTP ou HTTPS, que diferencia maiúsculas de minúsculas) e o nome do certificado SSL (se estiver configurando o descarregamento SSL).
-- **Regra:** a regra vincula o ouvinte e o pool de servidores back-end e define à qual pool de servidores back-end o tráfego deve ser direcionado quando atinge um ouvinte específico. Atualmente, há suporte apenas para a regra *básica*. A regra *básica* é a distribuição de carga round robin.
+- **Regra:** a regra vincula o ouvinte e o pool de servidores back-end e define a qual pool de servidores back-end o tráfego deve ser direcionado ao atingir um ouvinte específico. 
 
 
 
@@ -71,32 +71,23 @@ A seguir, as etapas necessárias para criar um gateway de aplicativo:
 
 ## Criar um grupo de recursos para o Gerenciador de Recursos
 
-Use a versão mais recente do Azure PowerShell. Mais informações estão disponíveis em [Usando o Windows PowerShell com o Gerenciador de Recursos](powershell-azure-resource-manager.md).
+Use a versão mais recente do Azure PowerShell. Há mais informações disponíveis em [Como usar o Windows PowerShell com o Gerenciador de Recursos](../powershell-azure-resource-manager.md).
 
 ### Etapa 1
+Faça logon em Login-AzureRmAccount do Azure
 
-		Login-AzureRmAccount
-
-
-
+Você deverá se autenticar com suas credenciais.<BR>
 ### Etapa 2
-
 Verificar as assinaturas da conta.
 
 		Get-AzureRmSubscription
 
-Você deverá se autenticar com suas credenciais.<BR>
-
 ### Etapa 3
-
 Escolha quais das suas assinaturas do Azure deseja usar.<BR>
-
 
 		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
-
 ### Etapa 4
-
 Crie um novo grupo de recursos (ignore esta etapa se você estiver usando um grupo de recursos existente).
 
     New-AzureRmResourceGroup -Name appgw-rg -location "West US"
@@ -105,8 +96,7 @@ O Gerenciador de Recursos do Azure requer que todos os grupos de recursos especi
 
 No exemplo anterior, criamos um grupo de recursos denominado "appgw-RG" e o local "Oeste dos EUA".
 
-
->[AZURE.NOTE] Se você precisar configurar uma investigação personalizada para o gateway de aplicativo, veja [Criar um gateway de aplicativo com investigações personalizadas usando o PowerShell](application-gateway-create-probe-ps.md). Confira [investigações personalizadas e monitoramento de integridade](application-gateway-probe-overview.md) para obter mais informações.
+>[AZURE.NOTE] Se você precisar configurar uma investigação personalizada para o gateway de aplicativo, veja [Criar um gateway de aplicativo com investigações personalizadas usando o PowerShell](application-gateway-create-probe-ps.md). Confira [investigações personalizadas e monitoramento de integridade](application-gateway-probe-overview.md) para saber mais.
 
 
 
@@ -147,7 +137,7 @@ Você precisa configurar todos os itens de configuração antes de criar o gatew
 
 ### Etapa 1
 
-Crie uma configuração de IP do gateway de aplicativo chamada "gatewayIP01". Quando o gateway de aplicativo for iniciado, ele escolherá um endereço IP na sub-rede configurada e no tráfego de rede da rota para os endereços IP no pool de IPs de back-end. Lembre-se de que cada instância usará um endereço IP.
+Crie uma configuração de IP do gateway de aplicativo chamada "gatewayIP01". Quando o Application Gateway for iniciado, ele escolherá um endereço IP na sub-rede configurada e no tráfego de rede da rota para os endereços IP no pool de IPs de back-end. Lembre-se de que cada instância usará um endereço IP.
 
 
 	$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
@@ -174,7 +164,6 @@ Configure a porta do IP de front-end denominada "frontendport01" para o ponto de
 
 	$fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 80
 
-
 ### Etapa 5
 
 Crie a configuração de IP de front-end chamada "fipconfig01" e associe o endereço IP público à configuração de IP de front-end.
@@ -200,7 +189,7 @@ Configure o tamanho da instância do gateway de aplicativo.
 
 	$sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 
->[AZURE.NOTE]  O valor padrão para *InstanceCount* é 2, com um valor máximo de 10. O valor padrão para *GatewaySize* é Médio. Você pode escolher entre Standard\_Small, Standard\_Medium e Standard\_Large.
+>[AZURE.NOTE]  O valor padrão para *InstanceCount* é 2, com um valor máximo de 10. O valor padrão para *GatewaySize* é Medium. Você pode escolher entre Standard\_Small, Standard\_Medium e Standard\_Large.
 
 ## Criar um gateway de aplicativo usando New-AzureRmApplicationGateway
 
@@ -257,4 +246,4 @@ Se deseja obter mais informações sobre as opções de balanceamento de carga n
 - [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

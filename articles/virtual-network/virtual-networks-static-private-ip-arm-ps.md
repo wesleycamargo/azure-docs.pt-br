@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Como definir um IP estático e privado no modo ARM usando o PowerShell| Microsoft Azure"
-   description="Noções básicas sobre IPs estáticos (DIPs) e como gerenciá-los no modo ARM usando o PowerShell"
+   pageTitle="Como definir um endereço IP privado estático no Azure Resource Manager usando o PowerShell| Microsoft Azure"
+   description="Compreendendo endereços IP privados estáticos e como gerenciá-los no Azure Resource Manager usando o PowerShell"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="02/23/2016"
    ms.author="telmos" />
 
-# Como definir um endereço IP privado estático no PowerShell
+# Como definir um endereço IP privado estático no Gerenciador de Recursos usando o PowerShell
 
 [AZURE.INCLUDE [virtual-networks-static-private-ip-selectors-arm-include](../../includes/virtual-networks-static-private-ip-selectors-arm-include.md)]
 
@@ -192,4 +192,4 @@ Para adicionar um IP privado estático à VM criada com o script acima, execute 
 - Saiba mais sobre endereços [ILPIP (IP público em nível de instância)](../virtual-networks-instance-level-public-ip).
 - Consulte as [APIs REST de IP reservado](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

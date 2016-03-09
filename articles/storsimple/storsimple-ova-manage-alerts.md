@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/10/2016"
+   ms.date="02/18/2016"
    ms.author="v-sharos" />
 
 # Usar o serviço StorSimple Manager para exibir e gerenciar alertas para a Matriz de Virtual do StorSimple (visualização)
@@ -195,4 +195,4 @@ Se a conectividade de nuvem falhar em seu dispositivo de produção do StorSimpl
 
 - [Saiba mais sobre a matriz Virtual StorSimple](storsimple-ova-overview.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

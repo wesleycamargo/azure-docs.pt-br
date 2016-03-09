@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/15/2016"
+   ms.date="02/18/2016"
    ms.author="alkohli" />
 
 # Gerenciar controladores de dispositivo StorSimple
@@ -63,14 +63,14 @@ Para gerenciar os controladores de dispositivo no Portal Clássico do Azure, exe
 
 	![Gerenciar controladores de dispositivo StorSimple](./media/storsimple-manage-device-controller/IC766018.png)</br>
 
-	>[AZURE.NOTE]Se você não conseguir ver **Gerenciar Controladores**, é preciso instalar atualizações. Para obter mais informações, consulte [Atualizar seu dispositivo StorSimple](storsimple-update-device.md).
+	>[AZURE.NOTE] Se você não conseguir ver **Gerenciar Controladores**, é preciso instalar atualizações. Para obter mais informações, consulte [Atualizar seu dispositivo StorSimple](storsimple-update-device.md).
 
 1. Na caixa de diálogo **Alterar as Configurações do Controlador**, faça o seguinte:
 
 
 	- Na lista suspensa **Selecionar Controlador**, selecione o controlador que deseja gerenciar. As opções são Controlador 0 e Controlador 1. Esses controladores também são identificados como ativo ou passivo.
 
-		>[AZURE.NOTE]Um controlador não pode ser gerenciado se estiver indisponível ou desligado e não aparecerá na lista suspensa.
+		>[AZURE.NOTE] Um controlador não pode ser gerenciado se estiver indisponível ou desligado e não aparecerá na lista suspensa.
 	
 
 
@@ -121,7 +121,7 @@ Execute as seguintes etapas para desligar ou reiniciar um único controlador no 
 
 Esta seção explica como desligar um dispositivo StorSimple com falha ou em execução a partir de um computador remoto. Um dispositivo é desativado após desligar ambos os controladores do dispositivo. Um desligamento de dispositivo é feito quando o dispositivo está sendo movido fisicamente ou se for retirado de serviço.
 
-> [AZURE.IMPORTANT]Antes de desligar o dispositivo, verifique a integridade dos componentes do dispositivo. Navegue até **Dispositivos > Manutenção > Status de Hardware** e verifique se o LED de status de todos os componentes está verde. Somente um dispositivo íntegro terá um status em verde. Se o dispositivo está sendo desligado para substituir um componente com funcionamento incorreto, você verá um status de falha (vermelho) ou degradado (amarelo) para os respectivos componentes.
+> [AZURE.IMPORTANT] Antes de desligar o dispositivo, verifique a integridade dos componentes do dispositivo. Navegue até **Dispositivos > Manutenção > Status de Hardware** e verifique se o LED de status de todos os componentes está verde. Somente um dispositivo íntegro terá um status em verde. Se o dispositivo está sendo desligado para substituir um componente com funcionamento incorreto, você verá um status de falha (vermelho) ou degradado (amarelo) para os respectivos componentes.
 
 #### Para desligar um dispositivo StorSimple
 
@@ -166,10 +166,12 @@ Execute as etapas a seguir para redefinir o dispositivo Microsoft Azure StorSimp
 
 	O sistema será reiniciado várias vezes. Você será notificado quando a reinicialização for concluída com êxito. Dependendo do modelo do sistema, podem ser necessários de 45 a 60 minutos para um dispositivo 8100 e de 60 a 90 minutos para um 8600 concluir esse processo.
 
-	> [AZURE.TIP]
+	> [AZURE.TIP] 
 	
 	> - Use o comando `Reset-HcsFactoryDefault –SkipFirmwareVersionCheck` para ignorar a verificação de versão de firmware se o cmdlet de redefinição de fábrica (conforme usado acima) relatar o erro de incompatibilidade de firmware: a redefinição de fábrica não pode continuar devido a uma incompatibilidade de versões de firmware. Ignore a verificação de firmware (usando a opção `–SkipFirmwareCheck`) ao executar uma redefinição de fábrica em um dispositivo atualizado anteriormente usando o Microsoft Update ou um mecanismo de hotfix.
 	
+	> - O procedimento de redefinição de fábrica pode falhar para dispositivos StorSimple que executam a Atualização 1 ou 1.1 no Portal do Governo e que executaram uma substituição de controlador único ou duplo com êxito (com os controladores de substituição que foram enviados com software anterior à Atualização 1). Isso acontece quando a imagem de redefinição de fábrica é validada para verificar a presença de um arquivo SHA1 no controlador, o qual não existe para um software anterior à Atualização 1. Se você encontrar esta falha de redefinição dos parâmetros originais, entre em contato com o Suporte da Microsoft para que ele possa auxiliar nas próximas etapas. Esse problema não é encontrado em controladores de substituição que foram enviados de fábrica com o software de Atualização 1 ou mais recente.
+
 	> - Para obter mais informações sobre como usar esse cmdlet, vá para a [referência de cmdlets do Windows PowerShell para StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
 
 
@@ -221,4 +223,4 @@ Nesta seção, resumimos algumas das perguntas frequentes sobre o gerenciamento 
 
 - Para saber mais sobre como usar o serviço StorSimple Manager, acesse [Usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!----HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

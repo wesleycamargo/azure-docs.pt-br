@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Anotações de implantação do Application Insights | Microsoft Azure"
+    pageTitle="Anotações de versão para o Application Insights | Microsoft Azure"
     description="Adicione uma implantação ou compile marcadores para seus gráficos do gerenciador de métricas no Application Insights."
     services="application-insights"
     documentationCenter=".net"
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="02/22/2016"
     ms.author="awills"/>
 
 # Anotações de versão no Application Insights
@@ -42,7 +42,7 @@ Você precisa fazer isso para cada modelo de versão que você deseja criar anot
 1. Entre no [Portal do Microsoft Azure](https://portal.azure.com) e abra o recurso Application Insights que monitora o seu aplicativo. (Ou [crie um agora](app-insights-overview.md), se você ainda não fez isso.)
 2. Abra **Configurações**, **Acesso à API** e faça uma cópia da **ID do Application Insights**.
 
-    ![Em portal.azure.com, abra o recurso do Application Insights e escolha Configurações. Abra Acesso à API. Copie o](./media/app-insights-annotations/20.png)
+    ![Em portal.azure.com, abra o recurso do Application Insights e escolha Configurações. Abra Acesso à API. Copie a ID do Aplicativo](./media/app-insights-annotations/20.png)
 
 2. Em um janela de navegador separada, abra (ou crie) o modelo de versão que gerencia suas implantações do Visual Studio Team Services.
 
@@ -69,8 +69,13 @@ Você precisa fazer isso para cada modelo de versão que você deseja criar anot
 
 5. Por fim, **Salve** a definição da versão.
 
-## Anotações de implantação
+## Anotações da versão
 
 Agora, sempre que você usar o modelo de versão para implantar uma nova versão, uma anotação será enviada ao Application Insights. As anotações aparecerão em gráficos no Metrics Explorer.
 
-<!---HONumber=AcomDC_0121_2016-->
+Clique em qualquer marcador de anotação para abrir os detalhes sobre a versão, incluindo o solicitante, a ramificação de controle do código-fonte, a definição da versão, o ambiente e muito mais.
+
+
+![Clique em qualquer marcador de anotação de versão.](./media/app-insights-annotations/60.png)
+
+<!---HONumber=AcomDC_0224_2016-->

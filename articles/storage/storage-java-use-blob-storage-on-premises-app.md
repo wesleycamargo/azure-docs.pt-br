@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/20/2016"
 	ms.author="rmcmurray"/>
 
 # Aplicativo local com armazenamento de blob
@@ -26,8 +26,9 @@ O exemplo a seguir mostra como você pode usar o armazenamento do Azure paraarma
 
 - Um JDK (Java Developer Kit) versão 1.6 ou posterior deve estar instalado.
 - O SDK do Azure deve estar instalado.
-- O JAR das bibliotecas do Azure para Java e todos os JARs de dependência aplicáveis devem estar instalados e no caminho de compilação usado por seu compilador Java. Para saber mais sobre como instalar as bibliotecas do Azure para Java, consulte [Baixar o SDK do Azure para Java][].
-- Uma conta de armazenamento do Azure deve ter sido configurada. O nome e a chave da conta de armazenamento serão usados pelo código deste artigo. Confira [Como criar uma conta de armazenamento] para obter informações sobre como criar uma conta de armazenamento e [Como gerenciar contas de armazenamento][] para obter informações sobre como recuperar a chave da conta.
+- O JAR das bibliotecas do Azure para Java e todos os JARs de dependência aplicáveis devem estar instalados e no caminho de compilação usado por seu compilador Java. Para saber mais sobre como instalar as bibliotecas do Azure para Java, consulte [Baixar o SDK do Azure para Java](java-download-azure-sdk.md).
+- Uma conta de armazenamento do Azure deve ter sido configurada. O nome e a chave da conta de armazenamento serão usados pelo código deste artigo. Consulte [Como criar uma Conta de Armazenamento](storage-create-storage-account.md#create-a-storage-account) para obter informações sobre como criar uma conta de armazenamento e [Exibir e copiar chaves de acesso de armazenamento](storage-create-storage-account.md#view-and-copy-storage-access-keys) para obter informações sobre como recuperar a chave de conta.
+
 - Você criou um arquivo de imagem local armazenado no caminho c:\\minhasimagens\\image1.jpg. Como alternativa, modifique o construtor **FileInputStream** no exemplo para usar um caminho de imagem e um nome de arquivo diferentes.
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
@@ -347,23 +348,15 @@ Para chamar o método **CloudBlobContainer.delete**, o processo de inicializar o
         }
     }
 
-Para obter uma visão geral de outras classes e outros métodos de armazenamento de blobs, confira [Como usar o serviço de armazenamento de blobs no Java].
+Para obter uma visão geral de outras classes e outros métodos de armazenamento de blobs, consulte [Como usar o Armazenamento de Blobs do Java](storage-java-how-to-use-blob-storage.md).
 
 ## Próximas etapas
 
 Siga estes links para saber mais sobre as tarefas mais complexas de armazenamento.
 
-- [SDK de Armazenamento do Azure para Java][]
-- [Referência de SDK do Cliente de Armazenamento do Azure][]
-- [API REST de Armazenamento do Azure][]
-- [Blog da equipe de Armazenamento do Azure][]
+- [SDK de Armazenamento do Azure para Java](https://github.com/azure/azure-storage-java)
+- [Referência de SDK do Cliente de Armazenamento do Azure](http://dl.windowsazure.com/storage/javadoc/)
+- [API REST de serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+- [Blog da equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 
-  [Baixar o SDK do Azure para Java]: http://go.microsoft.com/fwlink/?LinkID=525671
-  [Como criar uma conta de armazenamento]: storage-create-storage-account.md#create-a-storage-account
-  [Como gerenciar contas de armazenamento]: storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys
-  [Como usar o serviço de armazenamento de blobs no Java]: storage-java-how-to-use-blob-storage.md
-  [SDK de Armazenamento do Azure para Java]: https://github.com/azure/azure-storage-java
-  [Referência de SDK do Cliente de Armazenamento do Azure]: http://dl.windowsazure.com/storage/javadoc/
-  [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

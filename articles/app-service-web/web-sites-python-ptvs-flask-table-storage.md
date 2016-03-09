@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="11/18/2015"
+	ms.date="02/20/2016"
 	ms.author="huvalo"/>
 
 
@@ -40,7 +40,7 @@ Confira o [Python Developer Center] para obter mais artigos que abrangem o desen
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE] Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## Criar o projeto
 
@@ -74,9 +74,7 @@ Para usar as operações de armazenamento, você precisa de uma conta de armazen
 
 2. Clique no ícone **Novo** no canto superior esquerdo do Portal. Em seguida, clique em **Dados + Armazenamento** > **Conta de Armazenamento**. Clique em **Criar** e dê um nome exclusivo à conta de armazenamento e crie um novo [grupo de recursos](../resource-group-overview.md) para ela.
 
-  	<!-- ![New Button](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonAzurePlusNew.png) -->
-
-	Quando a conta de armazenamento tiver sido criada, o botão **Notificações** piscará **ÊXITO** em verde e a folha da conta de armazenamento será aberta para mostrar que ela pertence ao novo grupo de recursos que você criou.
+  	<!-- ![New Button](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonAzurePlusNew.png) -->Quando a conta de armazenamento tiver sido criada, o botão **Notificações** piscará **ÊXITO** em verde e a folha da conta de armazenamento será aberta para mostrar que ela pertence ao novo grupo de recursos que você criou.
 
 5. Clique na parte **Configurações** na folha da conta de armazenamento. Anote o nome da conta e a chave primária.
 
@@ -104,7 +102,7 @@ Nesta seção, configuraremos nosso aplicativo para usar a conta de armazenament
 
 1.  Execute o aplicativo com `F5`. As votações que são criadas com **Criar Votações de Exemplo** e os dados enviados por voto serão serializados no Armazenamento de Tabela do Azure.
 
-	> [AZURE.NOTE]O Ambiente Virtual do Python 2.7 pode causar uma interrupção de exceção no Visual Studio. Pressione `F5` para continuar carregando o projeto Web.
+	> [AZURE.NOTE] O Ambiente Virtual do Python 2.7 pode causar uma interrupção de exceção no Visual Studio. Pressione `F5` para continuar carregando o projeto Web.
 
 1.  Navegue até a página **Sobre** para verificar se o aplicativo está usando o repositório do **Armazenamento de Tabela do Azure**.
 
@@ -114,7 +112,7 @@ Nesta seção, configuraremos nosso aplicativo para usar a conta de armazenament
 
 É fácil visualizar e editar tabelas de armazenamento usando o Gerenciador de Servidores no Visual Studio. Nesta seção, usaremos o Gerenciador de Servidores para visualizar o conteúdo das tabelas do aplicativo de pesquisas.
 
-> [AZURE.NOTE]Isso requer que o Microsoft Azure Tools seja instalado, disponível como parte do [SDK do Azure para .NET].
+> [AZURE.NOTE] Isso requer que o Microsoft Azure Tools seja instalado, disponível como parte do [SDK do Azure para .NET].
 
 1.  Abra o **Gerenciador de Servidores**. Expanda **Azure**, **Armazenamento**, sua conta de armazenamento e, em seguida, **Tabelas**.
 
@@ -185,7 +183,7 @@ Siga estes links para saber mais sobre as ferramentas Python para Visual Studio,
 - [Como usar o serviço de armazenamento de tabela por meio do Python]
 
 ## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 
 <!--Link references-->
@@ -213,4 +211,4 @@ Siga estes links para saber mais sobre as ferramentas Python para Visual Studio,
 [SDK do Azure para Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!-----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

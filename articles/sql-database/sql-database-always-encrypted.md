@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/14/2015"
+	ms.date="01/14/2016"
 	ms.author="sstein"/>
 
 # Tutorial do Banco de Dados SQL: Proteger dados confidenciais com Always Encrypted (repositório de certificados do Windows)
@@ -52,7 +52,7 @@ Para este tutorial, será necessário:
 ## Criar um banco de dados SQL em branco
 1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. Clique em **Novo** > **Dados + Armazenamento** > **Banco de Dados SQL**.
-3. Criar um banco de dados **Em branco** denominado **Clínica** em um servidor novo ou existente. Para obter instruções detalhadas sobre como criar um banco de dados no portal do Azure, consulte [Criar um banco de dados SQL em minutos](sql-database-getting-started.md).
+3. Criar um banco de dados **Em branco** denominado **Clínica** em um servidor novo ou existente. Para obter instruções detalhadas sobre como criar um banco de dados no Portal do Azure, consulte [Criar um banco de dados SQL em minutos](sql-database-get-started.md).
 
 	![criar um banco de dados em branco](./media/sql-database-always-encrypted/create-database.png)
 
@@ -545,4 +545,4 @@ Depois de criar um banco de dados que usa o Always Encrypted, convém fazer o se
 - [Assistente do Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx)
 - [Blog do Always Encrypted](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always%20encrypted/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->
