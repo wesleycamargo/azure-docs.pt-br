@@ -120,7 +120,9 @@ No momento, nosso runbook inicia a máquina virtual que codificamos no runbook, 
 4.	Clique em **Publicar** para publicar a nova versão do runbook.
 5.	Pare a máquina virtual que você iniciou na etapa anterior.
 6.	Clique em **Iniciar** para iniciar o runbook. Digite o **VMName** e o **VMServiceName** da máquina virtual que você iniciará.
+
 	![Passar parâmetro](media/automation-first-runbook-textual-powershell/automation-pass-parameter.png)  
+
 7.	Quando o runbook for concluído, verifique se a máquina virtual foi iniciada.
 
 ## Diferenças do fluxo de trabalho do PowerShell
@@ -139,4 +141,4 @@ Os runbooks do PowerShell têm o mesmo ciclo de vida, os mesmos recursos e o mes
 -	Para saber mais sobre os tipos de runbook, suas vantagens e limitações, confira [Tipos de runbook da Automação do Azure](automation-runbook-types.md)
 -	Para saber mais sobre o recurso de suporte de script do PowerShell, confira [Suporte a scripts nativos do PowerShell na Automação do Azure](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!----HONumber=AcomDC_0302_2016-->

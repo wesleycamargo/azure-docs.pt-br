@@ -156,7 +156,7 @@ Embora inclua erroneamente ‘regressão’ no nome, a regressão logística é,
 
 ![Regressão logística para dados de duas classes com apenas um recurso][4]
 
-***Uma regressão logística para dados de duas classes com apenas um recurso**** - o limite de classe é o ponto no qual a curva logística é mais próxima de ambas as classes*
+***Uma regressão logística para dados de duas classes com apenas um recurso*** - *o limite de classe é o ponto no qual a curva logística é mais próxima de ambas as classes*
 
 ### Árvores, florestas e selvas
 
@@ -209,7 +209,7 @@ Se você tiver um objetivo muito específico, este talvez seja o seu dia de sort
 
 ![Detecção de anomalias baseada em PCA][8]
 
-***Detecção de anomalias baseada em PCA**** - a grande maioria dos dados se encaixa em uma distribuição estereotipada; os pontos que desviarem drasticamente dessa distribuição são suspeitos*
+***Detecção de anomalias baseada em PCA*** - *a grande maioria dos dados se encaixa em uma distribuição estereotipada; os pontos que desviarem drasticamente dessa distribuição são suspeitos*
 
 ![Conjunto de dados agrupados usando K-means][9]
 
@@ -237,4 +237,4 @@ O Aprendizado de Máquina do Azure também inclui acesso a uma poderosa estrutur
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!-----HONumber=AcomDC_0211_2016-->
+<!------HONumber=AcomDC_0211_2016-->
