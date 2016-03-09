@@ -141,4 +141,4 @@ Os runbooks do PowerShell têm o mesmo ciclo de vida, os mesmos recursos e o mes
 -	Para saber mais sobre os tipos de runbook, suas vantagens e limitações, confira [Tipos de runbook da Automação do Azure](automation-runbook-types.md)
 -	Para saber mais sobre o recurso de suporte de script do PowerShell, confira [Suporte a scripts nativos do PowerShell na Automação do Azure](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
 
-<!----HONumber=AcomDC_0302_2016-->
+<!--------HONumber=AcomDC_0302_2016-->
