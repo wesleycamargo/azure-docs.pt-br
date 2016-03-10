@@ -563,4 +563,4 @@ Para obter mais informações, consulte também o [Centro de desenvolvedores do 
 [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Tabelas do Azure: Introdução ao inserir e projeção de consulta]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0218_2016-->

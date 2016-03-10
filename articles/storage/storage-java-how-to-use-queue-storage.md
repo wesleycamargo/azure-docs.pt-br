@@ -391,4 +391,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga es
 [API REST de serviços de armazenamento do Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0218_2016-->

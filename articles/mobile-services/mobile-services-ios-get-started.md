@@ -95,4 +95,4 @@ Saiba como executar tarefas adicionais importantes nos Serviços Móveis:
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [versão back-end .NET]: mobile-services-dotnet-backend-ios-get-started.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->
