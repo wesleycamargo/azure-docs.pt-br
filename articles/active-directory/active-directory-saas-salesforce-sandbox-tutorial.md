@@ -114,7 +114,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     1.  Na caixa de texto Nome, digite o nome da configuração (por exemplo:*SPSSOWAAD\_Teste*).
     2.  No Portal Clássico do Azure, na página de diálogo **Configurar logon único na Área Restrita do Salesforce**, copie o valor de **URL do Emissor** e cole-o na caixa de texto **Emissor**.
     3.  Na caixa de texto **Id da Entidade**, digite **https://test.salesforce.com** se esta for a primeira instância de área restrita do Salesforce que você está adicionando ao seu diretório. Se você já tiver adicionado uma instância da Área restrita do Salesforce, para a **ID da Entidade** digite a **URL de Logon**, que deve estar no seguinte formato: `http://company.my.salesforce.com`
-4.  Clique em **Procurar** para carregar o certificado baixado.
+	4.  Clique em **Procurar** para carregar o certificado baixado.
     5.  Para o **Tipo de Identidade SAML**, selecione **A declaração contém a ID de Federação do objeto de Usuário**.
     6.  Para **Local de Identidade SAML**, selecione **A identidade está no elemento NameIdentifier da instrução Subject**.
     7.  No Portal Clássico do Azure, na página de diálogo **Configurar logon único na Área Restrita do Salesforce**, copie o valor de **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon do Provedor de Identidade**.
@@ -206,4 +206,4 @@ Agora você deve aguardar 10 minutos e verificar se a conta foi sincronizada com
   
 Se quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!----HONumber=AcomDC_0224_2016-->
+<!-----HONumber=AcomDC_0224_2016-->

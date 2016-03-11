@@ -89,9 +89,18 @@ Copie os seguintes arquivos de parâmetro de script de teste no computador do se
 
 * [query-config-win.ini](https://github.com/mspnp/azure-guidance/blob/master/ingestion-and-query-tests/query-config-win.ini) e [query-config-nix.ini](https://github.com/mspnp/azure-guidance/blob/master/ingestion-and-query-tests/query-config-nix.ini). Esses dois arquivos contêm as mesmas informações. O arquivo *win* é formatado para nomes de arquivos e caminhos do Windows e o arquivo *nix* está formatado para caminhos e nomes de arquivos do Linux:
 
-  ```ini [DEFAULT] debug=true #se true, mostrar logs do console.
+  ```ini
+  [DEFAULT]
+  debug=true #se true, mostrar logs do console.
 
-  [RUN] pathreports=C:\\Users\\administrator1\\jmeter\\test-results\\ #caminho em que os resultados de teste são salvos. jmx=C:\\Users\\administrator1\\testplan.jmx #path para o plano de teste JMeter. machines=10.0.0.1,10.0.02,10.0.0.3 #IPs dos nós de dados Elasticsearch separados por vírgulas. reports=aggr,err,tps,waitio,cpu,network,disk,response,view #Nome dos relatórios separados por vírgulas. tests=idx1 #Nome do índice do Elasticsearch a ser testado. properties=run.properties #Nome do arquivo de propriedades. ```
+  [RUN]
+  pathreports=C:\\Users\\administrator1\\jmeter\\test-results\\ #caminho em que os resultados de teste são salvos.
+  jmx=C:\\Users\\administrator1\\testplan.jmx #path para o plano de teste JMeter.
+  machines=10.0.0.1,10.0.02,10.0.0.3 #IPs dos nós de dados Elasticsearch separados por vírgulas.
+  reports=aggr,err,tps,waitio,cpu,network,disk,response,view #Nome dos relatórios separados por vírgulas.
+  tests=idx1 #Nome do índice do Elasticsearch a ser testado.
+  properties=run.properties #Nome do arquivo de propriedades.
+  ```
 
   Edite esse arquivo para especificar os locais dos resultados do teste, o nome do plano de teste JMeter a ser executado, os endereços IP dos nós de dados Elasticsearch, os relatórios que contêm os dados brutos de desempenho que serão gerados e os nomes dos índices a serem testados. Se o arquivo *run.properties* estiver localizado em uma pasta diferente ou diretório, especifique o caminho completo para esse arquivo.
 
@@ -117,4 +126,4 @@ Copie os seguintes arquivos de parâmetro de script de teste no computador do se
 [Implantado uma amostra do JUnit JMeter para testar o desempenho do Elasticsearch]: guidance-elasticsearch-deploying-jmeter-junit-sampler.md
 [Importando uma amostra de JUnit JMeter para testar o desempenho do Elasticsearch]: guidance-elasticsearch-deploying-jmeter-junit-sampler.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0224_2016-->
