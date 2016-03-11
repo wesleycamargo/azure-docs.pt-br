@@ -133,11 +133,12 @@ Dois tipos de definições de vocabulário têm suporte – Literal e XML.
   6. Selecione *OK*.
 
 ![Alt text][5]
+
 ##Definição XML
 Se o tipo de vocabulário escolhido for XML, as entradas a seguir deverão ser especificadas  
-a. Esquema – Clicar abrirá uma nova lâmina que permite que o usuário escolha dentre uma lista de esquemas já carregados ou carregue um novo esquema.   
+  a.	Esquema – Clicar abrirá uma nova lâmina que permite que o usuário escolha dentre uma lista de esquemas já carregados ou carregue um novo esquema.  
   b.	XPATH – essa entrada é desbloqueada somente após a seleção de um esquema na etapa anterior. Clicar exibirá o esquema que foi selecionado e permite que o usuário selecione o nó para o qual uma definição de vocabulário precisa ser criada.  
-	FACT– esta entrada identifica qual objeto de dados deve ser fornecido ao mecanismo de regras para processamento. Esta é uma propriedade avançada e por padrão é definida como pai do XPATH selecionado. FACT se torna especialmente importante em cenários de coleta e encadeamento.
+  c.	FACT– esta entrada identifica qual objeto de dados deve ser fornecido ao mecanismo de regras para processamento. Esta é uma propriedade avançada e por padrão é definida como pai do XPATH selecionado. FACT se torna especialmente importante em cenários de coleta e encadeamento.
 
 ![Alt text][6]
 
@@ -149,11 +150,11 @@ Os nomes de várias definições criadas assumirão como padrão o nome do nó s
 ![Alt text][7]
 
 ##Criação de política
-Após o desenvolvedor ter criado os vocabulários necessários, a expectativa é de que o Analista de negócios crie as Políticas comerciais por meio do Portal do Azure. 
-	1. No Aplicativo de Regras criado, há uma lente de Política. Clicando nela, o usuário é levado à página de criação de políticas. 
-	2. Essa página mostrará a lista de políticas contidas neste Aplicativo de Regras específico. O analista pode adicionar uma nova Política simplesmente digitando o nome da política e pressionando a tecla Tab duas vezes. Várias políticas podem residir em um único Aplicativo de API de Regras. 
-	3. Selecionar a Política criada levará o usuário à página de detalhes da Política, em que é possível ver as regras contidas na política. 
-	![Alt text][8] 
+Após o desenvolvedor ter criado os vocabulários necessários, a expectativa é de que o Analista de negócios crie as Políticas comerciais por meio do Portal do Azure.  
+	1. No Aplicativo de Regras criado, há uma lente de Política. Clicando nela, o usuário é levado à página de criação de políticas.  
+	2. Essa página mostrará a lista de políticas contidas neste Aplicativo de Regras específico. O analista pode adicionar uma nova Política simplesmente digitando o nome da política e pressionando a tecla Tab duas vezes. Várias políticas podem residir em um único Aplicativo de API de Regras.  
+	3. Selecionar a Política criada levará o usuário à página de detalhes da Política, em que é possível ver as regras contidas na política.  
+	![Alt text][8]  
 	4. Selecione “Adicionar” para adicionar uma nova regra. Isso levará você a uma nova lâmina.
 
 ##Criação de regra
@@ -187,8 +188,8 @@ As caixas de condição e de ação provisionam o IntelliSense para ajudá-lo a 
 ![Alt text][9]
 
 ##Encadeamento de encaminhamento explícito
-As Regras do BizTalk dão suporte ao encadeamento de encaminhamento explícito, para que, se os usuários desejarem avaliar novamente as regras em resposta a determinadas ações, eles possam disparar isso usando palavras-chave específicas. A seguir estão as palavras-chave com suporte: 
-1. atualizar <vocabulary definition> – essa palavra-chave reavalia todas as regras que usam a definição de vocabulário especificada em sua condição. 
+As Regras do BizTalk dão suporte ao encadeamento de encaminhamento explícito, para que, se os usuários desejarem avaliar novamente as regras em resposta a determinadas ações, eles possam disparar isso usando palavras-chave específicas. A seguir estão as palavras-chave com suporte:  
+1. Atualizar <vocabulary definition> – essa palavra-chave reavalia todas as regras que usam a definição de vocabulário especificada em sua condição.  
 2. Halt – esta palavra-chave interrompe todas as execuções de regra
 
 ##Habilitar\\desabilitar regras
