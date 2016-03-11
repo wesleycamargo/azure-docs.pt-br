@@ -243,4 +243,4 @@ Para obter instruções de instalação do MPIO para um dispositivo do StorSimpl
 - Use o [Serviço StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) para gerenciar o seu dispositivo StorSimple.
  
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0224_2016-->
