@@ -892,12 +892,19 @@ Vamos escrever nosso `getTask` primeiro:
  É necessário gerar a URL de ponto de extremidade à qual nos conectaremos. Vamos fazer isso no mesmo arquivo de classe:
  
  **No mesmo arquivo** chamado `ToDoActivity.java`
- 
- ``` private URL getEndpointUrl() { URL endpoint = null; try { endpoint = new URL(Constants.SERVICE\_URL); } catch (MalformedURLException e) { e.printStackTrace(); } return endpoint; }
+
+  ```
+    private URL getEndpointUrl() {
+        URL endpoint = null;
+        try {
+            endpoint = new URL(Constants.SERVICE_URL);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return endpoint;
+    }
 
  ```
-
-
 Observe que adicionamos o token de acesso à solicitação no código a seguir:
 
 ### Etapa 15: vamos escrever alguns métodos de UX
@@ -978,12 +985,16 @@ A ADAL criptografa os tokens e os armazena em SharedPreferences por padrão. Voc
 
 #### Cookies de sessão no Webview
 
-O Webview para Android não limpa os cookies de sessão depois que o aplicativo é fechado. Você pode lidar com isso com o código de exemplo abaixo: ```
+O Webview para Android não limpa os cookies de sessão depois que o aplicativo é fechado. Você pode lidar com isso com o código de exemplo abaixo:
+
+```
 CookieSyncManager.createInstance(getApplicationContext());
 CookieManager cookieManager = CookieManager.getInstance();
 cookieManager.removeSessionCookie();
 CookieSyncManager.getInstance().sync();
-``` Mais sobre cookies: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
+```
+
+Mais sobre cookies: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0224_2016-->
