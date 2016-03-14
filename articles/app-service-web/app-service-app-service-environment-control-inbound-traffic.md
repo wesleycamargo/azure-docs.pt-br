@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="02/26/2016" 
 	ms.author="stefsch"/>
 
 # Como controlar o tráfego de entrada para um ambiente de serviço de aplicativo
@@ -49,12 +49,12 @@ A seguir está uma lista de portas usadas por um ambiente de serviço de aplicat
 ## Requisitos de DNS e conectividade de saída ##
 Para um Ambiente de Serviço de Aplicativo funcionar corretamente, ele exige acesso de saída ao Armazenamento do Azure no mundo, bem como ao Banco de Dados SQL na mesma região do Azure. Se o acesso de saída à Internet for bloqueado na rede virtual, os Ambientes de Serviço de Aplicativo não poderão acessar esses pontos de extremidade do Azure.
 
-Ambientes de serviço de aplicativo também exigem uma infraestrutura DNS válida configurada para a rede virtual. Se por algum motivo, a configuração do DNS for alterada após ter sido criado um Ambiente do Serviço de Aplicativo, os desenvolvedores podem forçar um Ambiente do Serviço de Aplicativo para captar a nova configuração de DNS. Disparar uma reinicialização do ambiente sem interrupção usando o ícone “Reiniciar” localizado na parte superior da folha de gerenciamento do Ambiente do Serviço de Aplicativo no [novo portal de gerenciamento][NewPortal] fará com que o ambiente capture a nova configuração de DNS.
+Ambientes de serviço de aplicativo também exigem uma infraestrutura DNS válida configurada para a rede virtual. Se por algum motivo, a configuração do DNS for alterada após ter sido criado um Ambiente do Serviço de Aplicativo, os desenvolvedores podem forçar um Ambiente do Serviço de Aplicativo para captar a nova configuração de DNS. Disparar uma reinicialização do ambiente sem interrupção usando o ícone “Reiniciar” localizado na parte superior da folha de gerenciamento do Ambiente do Serviço de Aplicativo no [portal do Azure][NewPortal] fará com que o ambiente capture a nova configuração de DNS.
 
 A lista a seguir detalha a conectividade e os requisitos de DNS para um Ambiente do Serviço de Aplicativo:
 
 -  Conectividade de rede de saída para pontos de extremidade do Armazenamento do Azure em todo o mundo. Isso inclui os pontos de extremidade localizados na mesma região que o Ambiente do Serviço de Aplicativo, bem como pontos de extremidade de armazenamento localizados em **outras** regiões do Azure. Os pontos de extremidade do Armazenamento do Azure são resolvidos nos seguintes domínios DNS: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* e *file.core.windows.net*.  
--  Conectividade de rede de saída para pontos de extremidade de Banco de Dados SQL localizados na mesma região que o Ambiente de Serviço de Aplicativo. Resolver pontos de extremidade do Banco de Dados SQL nos seguintes domínios: *database.windows.net*.
+-  Conectividade de rede de saída para pontos de extremidade de Banco de Dados SQL localizados na mesma região que o Ambiente de Serviço de Aplicativo. Pontos de extremidade do Banco de Dados SQL são resolvidos no seguinte domínio: *database.windows.net*.
 -  Conectividade de rede de saída para os pontos de extremidade do plano de gerenciamento do Azure (pontos de extremidade ASM e ARM). Inclui conectividade de saída para *management.core.windows.net* e *management.azure.com*. 
 -  Conectividade de rede de saída para *ocsp.msocsp.com*. Necessária para dar suporte à funcionalidade SSL.
 -  A configuração DNS para a rede virtual deve ser capaz de resolver todos os pontos de extremidade e domínios mencionados nos pontos anteriores. Se esses pontos de extremidade não puderem ser resolvidos, tentativas de criação do Ambiente de Serviço de Aplicativo irão falhar, e Ambientes de Serviços de Aplicativo existentes serão marcados como não íntegros.
@@ -147,5 +147,6 @@ Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Az
 [NewPortal]: https://portal.azure.com
 
 <!-- IMAGES -->
+ 
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

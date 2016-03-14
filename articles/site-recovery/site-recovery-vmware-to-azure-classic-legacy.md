@@ -12,18 +12,18 @@
 # Replicar as máquinas virtuais VMware e os servidores físicos no Azure com o Azure Site Recovery (herdado)
 
 > [AZURE.SELECTOR]
-- [Enhanced](site-recovery-vmware-to-azure-classic.md)
-- [Legacy](site-recovery-vmware-to-azure-classic-legacy.md)
+- [Avançado](site-recovery-vmware-to-azure-classic.md)
+- [Herdado](site-recovery-vmware-to-azure-classic-legacy.md)
 
 
-O serviço Azure Site Recovery contribui para sua estratégia de BCDR (continuidade dos negócios e recuperação de desastre) ao administrar a replicação, o failover e a recuperação de máquinas virtuais e de servidores físicos. As máquinas podem ser replicadas no Azure ou em um datacenter local secundário. Para obter uma visão geral, leia [O que é o Azure Site Recovery?](site-recovery-overview.md).
+O Azure Site Recovery contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) administrando a replicação, o failover e a recuperação de máquinas virtuais e servidores físicos. As máquinas podem ser replicadas no Azure ou em um datacenter local secundário. Para obter uma breve visão geral, leia [O que é o Azure Site Recovery?](site-recovery-overview.md).
 
 ## Visão geral
 
 Este artigo descreve como:
 
-- **Replicar máquinas virtuais VMware no Azure** – implante a Recuperação de Site para coordenar a replicação, o failover e a recuperação de máquinas virtuais VMware locais no armazenamento do Azure.
-- **Replicar servidores físicos no Azure** – implante o Azure Site Recovery para coordenar a replicação, o failover e a recuperação de servidores físicos locais com o Windows e o Linux no Azure.
+- **Replicar máquinas virtuais do VMware no Azure** – Implante a Recuperação de Site para coordenar a replicação, o failover e a recuperação de máquinas virtuais locais do VMware no armazenamento do Azure.
+- **Replicar servidores físicos no Azure** – Implante o Azure Site Recovery para coordenar a replicação, o failover e a recuperação de servidores físicos locais Windows e Linux no Azure.
 
 >[AZURE.NOTE] O cenário descrito neste artigo inclui **instruções herdadas**. Não siga este artigo para novas implantações. Em vez disso, use as instruções de [implantação avançada](site-recovery-vmware-to-azure-classic.md) para o portal clássico). Se você já tiver implantado usando o método descrito neste artigo, recomendamos que você migre para a nova versão, como descrito abaixo.
 
@@ -58,14 +58,14 @@ Migre da seguinte maneira:
 
 	![Adicionar conta](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration1.png)
 
-8. Em **Selecionar Máquinas**, selecione o grupo de proteção do qual você deseja migrar e as máquinas que você deseja migrar.
+8. Em **Selecionar Máquinas**, selecione o grupo de proteção do qual você deseja migrar e as máquinas que deseja migrar.
 
 	![Adicionar conta](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration2.png)
-9. Em **Definir Configurações de Destino**, especifique se você deseja usar as mesmas configurações para todas as máquinas e selecione o servidor de processo e a conta de armazenamento do Azure. Se você tiver configurado um servidor de gerenciamento único, o servidor de processo será o endereço IP desse servidor de gerenciamento.
+9. Em **Definir Configurações de Destino**, especifique se deseja usar as mesmas configurações para todos os computadores e selecione o servidor de processo e a conta de armazenamento do Azure. Se você tiver configurado um servidor de gerenciamento único, o servidor de processo será o endereço IP desse servidor de gerenciamento.
 
 	![Adicionar conta](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration3.png)
 
-10. Em **Especificar Contas**, selecione a conta criada para automaticamente enviar por push a nova versão do serviço de Mobilidade para as máquinas protegidas.
+10. Em **Especificar Contas**, selecione a conta criada para automaticamente enviar por push a nova versão do serviço de Mobilidade para os computadores protegidos.
 
 	![Adicionar conta](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration4.png)
 
@@ -77,7 +77,7 @@ Migre da seguinte maneira:
 
 	![Adicionar conta](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration5.png)
 
->[AZURE.NOTE] Depois de concluir as etapas de migração, você deve continuar com o [artigo aprimorado](site-recovery-vmware-to-azure-classic.md). Após a migração, o restante deste artigo herdado não é relevante, e você não precisa mais seguir as etapas descritas nele**.
+>[AZURE.NOTE] Depois de concluir as etapas de migração, você deve continuar com o [artigo avançado](site-recovery-vmware-to-azure-classic.md). Após a migração, o restante deste artigo herdado não é relevante, e você não precisa mais seguir as etapas descritas nele**.
 
 
 
@@ -115,7 +115,7 @@ As principais áreas de consideração são:
 - **Taxa máxima de alteração diária por origem**—há três fatores que precisam ser lembrados ao considerar a taxa de alteração recomendada por origem. Para as considerações baseadas no destino, dois IOPS são necessários no disco de destino para cada operação na origem. Isso porque uma leitura de dados antigos e uma gravação de novos dados acontecerão no disco de destino. 
 	- **Taxa de alteração diária com suporte do servidor de processo**—um computador de origem não pode abranger vários servidores de processo. Um único servidor de processo pode dar suporte a até 1 TB de taxa de alteração diária. Portanto, 1 TB é a taxa máxima de alteração de dados diária com suporte para uma máquina de origem. 
 	- **Taxa de transferência máxima com suporte do disco de destino**—a variação máxima por disco de origem não pode ser superior a 144 GB/dia (com um tamanho de gravação de 8 K). Confira a tabela na seção de destino mestre para ver a taxa de transferência e o IOPs do destino de vários tamanhos de gravação. Esse número deve ser dividido por dois, pois cada IOP gera 2 IOPS no disco de destino. Leia sobre [Metas de desempenho e escalabilidade do Azure](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts) ao configurar o destino para contas de armazenamento premium.
-	- **Taxa de transferência máxima com suporte da conta de armazenamento**—uma origem não pode abranger várias contas de armazenamento. Supondo que uma conta de armazenamento obtenha um máximo de 20.000 solicitações por segundo e que cada IOP de origem gere 2 IOPS no servidor de destino mestre, é recomendável manter o número de IOPS na origem em 10.000. Leia sobre [Metas de desempenho e escalabilidade do Azure](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts) ao configurar a origem para as contas de armazenamento premium.
+	- **Taxa de transferência máxima com suporte da conta de armazenamento**—uma origem não pode abranger várias contas de armazenamento. Supondo que uma conta de armazenamento obtenha um máximo de 20.000 solicitações por segundo e que cada IOP de origem gere 2 IOPS no servidor de destino mestre, é recomendável manter o número de IOPS na origem em 10.000. Leia sobre [Metas de desempenho e escalabilidade do Azure](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts) ao configurar a origem para contas de armazenamento premium.
 
 ### Considerações para servidores de componente
 
@@ -176,7 +176,7 @@ DS4 padrão | 1 disco (1 x 1023 GB) | 1 disco (1 x 1023 GB) | 15 discos (15 x 10
 O planejamento de capacidade para o servidor de destino mestre depende:
 
 - Das limitações e do desempenho do armazenamento do Azure
-	- O número máximo de discos altamente utilizados para uma VM de camada padrão, é de cerca de 40 (20.000/500 IOPS por disco) em uma única conta de armazenamento. Leia sobre [alvos de escalabilidade de armazenamento padrão sccounts](../storage/storage-scalability-targets.md#scalability-targets-for-standard-storage-accounts) e para [sccounts de armazenamento premium](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts).
+	- O número máximo de discos altamente utilizados para uma VM de camada padrão, é de cerca de 40 (20.000/500 IOPS por disco) em uma única conta de armazenamento. Leia sobre [metas de escalabilidade para contas de armazenamento padrão](../storage/storage-scalability-targets.md#scalability-targets-for-standard-storage-accounts) e para [contas de armazenamento premium](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts).
 -	Da taxa de alteração diária 
 -	Do armazenamento do volume de retenção.
 
@@ -197,11 +197,11 @@ Observe que:
 **Componente** | **Requisitos** | **Detalhes**
 --- | --- | --- 
 **Conta do Azure** | Você precisará de uma conta do [Microsoft Azure](https://azure.microsoft.com/). Você pode começar com uma [avaliação gratuita](pricing/free-trial/).
-**Armazenamento do Azure** | <p>Você precisará de uma conta de armazenamento do Azure para armazenar os dados replicados</p><p>A conta deve ser uma [Conta de armazenamento com redundância geográfica padrão](../storage/storage-redundancy.md#geo-redundant-storage) ou uma [conta de Armazenamento Premium](../storage/storage-premium-storage-preview-portal.md).</p><p>Ele deve localizada na mesma região que o serviço de Azure Site Recovery e ser associada à mesma assinatura.</p><p>Para saber mais leia [Introdução ao Armazenamento do Microsoft Azure](../storage/storage-introduction.md)</p>
+**Armazenamento do Azure** | <p>Você precisará de uma conta de armazenamento do Azure para armazenar os dados replicados</p><p>A conta deve ser uma [Conta de armazenamento com redundância geográfica padrão](../storage/storage-redundancy.md#geo-redundant-storage) ou uma [conta de Armazenamento Premium](../storage/storage-premium-storage.md).</p><p>Ele deve localizada na mesma região que o serviço de Azure Site Recovery e ser associada à mesma assinatura.</p><p>Para saber mais leia [Introdução ao Armazenamento do Microsoft Azure](../storage/storage-introduction.md)</p>
 **Rede virtual do Azure** | Você precisará de uma rede virtual do Azure na qual o servidor de configuração e o servidor de destino mestre serão implantados. Ela deve estar na mesma assinatura e na mesma região que o cofre do Azure Site Recovery. Se você quiser replicar dados em uma conexão VPN ou da Rota Expressa, a rede virtual do Azure deve estar conectada à sua rede local através de uma conexão da Rota Expressa ou uma VPN Site a Site.
 **Recursos do Azure** | Verifique se você tem recursos suficientes do Azure para implantar todos os componentes. Leia mais em [Limites de assinatura do Azure](../azure-subscription-service-limits.md).
 **Máquinas virtuais do Azure** | <p>As máquinas virtuais que você deseja proteger devem estar em conformidade com os [pré-requisitos do Azure](site-recovery-best-practices.md).</p><p>**Contagem de discos**—há suporte para um máximo de 31 discos em um único servidor protegido</p><p>**Tamanhos de disco**: a capacidade de disco individual não deve ultrapassar 1023 GB</p><p>**Clustering**: não há suporte para servidores clusterizados</p><p>**Inicialização**—não há suporte para inicialização de UEFI (Unified Extensible Firmware Interface)/EFI (Extensible Firmware Interface)</p><p>**Volumes**—não há suporte para volumes criptografados pelo Bitlocker</p><p> **Nomes de servidor**—os nomes devem conter entre 1 e 63 caracteres (letras, números e hifens). O nome deve começar com uma letra ou número e terminar com uma letra ou número. Depois que um computador é protegido, você pode modificar o nome do Azure.</p>
-**Servidor de configuração** | <p>Uma máquina virtual padrão A3 baseada em uma imagem da galeria do Windows Server 2012 R2 do Azure Site Recovery será criada em sua assinatura para o servidor de configuração. Ela é criada como a primeira instância em um novo serviço de nuvem. Se você selecionar Internet pública como o tipo de conectividade para o Servidor de configuração, o serviço de nuvem será criado com um endereço IP público reservado.</p><p>O caminho de instalação deve ter somente caracteres em inglês.</p>
+**Servidor de configuração** | <p>Uma máquina virtual padrão A3 baseada em uma imagem da galeria do Windows Server 2012 R2 do Azure Site Recovery será criada em sua assinatura para o servidor de configuração. Ela é criada como a primeira instância em um novo serviço de nuvem. Se você selecionar Internet pública como o tipo de conectividade para o servidor de configuração, o serviço de nuvem será criado com um endereço IP público reservado.</p><p>O caminho de instalação deve ter somente caracteres em inglês.</p>
 **Servidor de destino mestre** | <p>Máquina virtual do Azure, A4 padrão, D14 ou DS4.</p><p>O caminho de instalação deve ter somente caracteres em inglês. Por exemplo, o caminho deve ser **/usr/local/ASR** para um servidor de destino mestre executando Linux.</p></p>
 **Servidor de processo** | <p>Você pode implantar o servidor de processo no computador físico ou na máquina virtual quer executa o Windows Server 2012 R2 com as últimas atualizações. Instale em C:/.</p><p>É recomendável colocar o servidor na mesma rede e sub-rede que os computadores que deseja proteger.</p><p>Instale o VMware vSphere CLI 5.5.0 no servidor de processo. O componente VMware vSphere CLI é necessário no servidor de processo para descobrir máquinas virtuais gerenciadas por um Servidor vCenter ou máquinas virtuais que são executadas em um host ESXi.</p><p>O caminho de instalação deve ter somente caracteres em inglês.</p><p>O sistema de arquivos ReFS não tem suporte.</p>
 **VMware** | <p>Um VMware Servidor vCenter gerenciando seus hipervisores do VMware vSphere. Ele deve executar o vCenter versão 5.1 ou 5.5 com as últimas atualizações.</p><p>Um ou mais hipervisores do vSphere contendo máquinas virtuais VMware que você deseja proteger. O hipervisor deve executar o ESX/ESXi versão 5.1 ou 5.5 com as últimas atualizações.</p><p>As máquinas virtuais VMware devem ter as ferramentas VMware instaladas e em execução.</p>  
@@ -219,11 +219,11 @@ O elemento gráfico resume as etapas da implantação.
 
 Você tem duas opções ao configurar a conectividade de rede entre o site local e a rede virtual do Azure no qual os componentes de infraestrutura (servidor de configuração, servidores de destino mestre) são implantados. Você precisará decidir qual opção de conectividade de rede vai usar antes de implantar o servidor de configuração. Você precisará escolher essa configuração no momento da implantação. Ele não pode ser alterado posteriormente.
 
-**Internet pública:** comunicação e replicação de dados entre servidores locais (servidor de processo, computadores protegidos) e os servidores de componentes de infraestrutura do Azure (servidor de configuração, servidor de destino mestre) ocorre em uma conexão SSL/TLS segura do local para os pontos de extremidade públicos nos servidores de destino mestre e de configuração. (A única exceção é a conexão entre o servidor de processo e o servidor de destino mestre na porta TCP 9080 que será criptografada. Somente as informações de controle relacionadas ao protocolo de replicação para a configuração de replicação são trocadas nesta conexão.)
+**Internet Pública:** a comunicação e a replicação de dados entre os servidores locais (servidor de processo, computadores protegidos) e os servidores de componentes da infraestrutura do Azure (servidor de configuração, servidor de destino mestre) ocorrem em uma conexão SSL/TLS segura dos pontos de extremidade locais para os pontos de extremidade públicos nos servidores de destino mestre e de configuração. (A única exceção é a conexão entre o servidor de processo e o servidor de destino mestre na porta TCP 9080 que será criptografada. Somente as informações de controle relacionadas ao protocolo de replicação para a configuração de replicação são trocadas nesta conexão.)
 
 ![Diagrama de implementação para Internet](./media/site-recovery-vmware-to-azure-classic-legacy/internet-deployment.png)
 
-**VPN**: comunicação e replicação de dados entre servidores locais (servidor de processo, computadores protegidos) e os servidores de componentes de infraestrutura do Azure (servidor de configuração, servidor de destino mestre) ocorre em uma conexão VPN entre sua rede local e a rede virtual do Azure em que o servidor de configuração e os servidores de destino mestre são implantados. Certifique-se de que sua rede local esteja conectada à rede virtual do Azure por uma conexão da Rota Expressa ou uma conexão VPN site a site.
+**VPN**: a comunicação e a replicação de dados entre os servidores locais (servidor de processo, computadores protegidos) e os servidores de componentes da infraestrutura do Azure (servidor de configuração, servidor de destino mestre) ocorrem em uma conexão VPN entre a rede local e a rede virtual do Azure em que o servidor de configuração e os servidores de destino mestre são implantados. Certifique-se de que sua rede local esteja conectada à rede virtual do Azure por uma conexão da Rota Expressa ou uma conexão VPN site a site.
 
 ![Diagrama de implementação para VPN](./media/site-recovery-vmware-to-azure-classic-legacy/vpn-deployment.png)
 
@@ -382,7 +382,7 @@ Observe que:
 
 Observe que os quatro primeiros endereços IP em qualquer sub-rede são reservados para uso interno do Azure. Especifique qualquer outro endereço IP disponível.
 
->[AZURE.NOTE] Selecione DS4 padrão ao configurar a proteção para cargas de trabalho que exigem alto desempenho de E/S consistente e baixa latência para hospedar as cargas de trabalho intensivas de E/S usando a [conta de Armazenamento Premium](../storage/storage-premium-storage-preview-portal.md).
+>[AZURE.NOTE] Selecione DS4 padrão ao configurar a proteção para cargas de trabalho que exigem alto desempenho de E/S consistente e baixa latência para hospedar as cargas de trabalho intensivas de E/S usando a [conta de Armazenamento Premium](../storage/storage-premium-storage.md).
 
 
 3. Uma máquina virtual do servidor de destino mestre do Windows é criada com esses pontos de extremidade (pontos de extremidade públicos são criados somente se o tipo de implantação for Internet pública):
@@ -695,7 +695,7 @@ Adicione computadores como se segue:
 3. Em **Selecionar Máquinas Virtuais**, se estiver protegendo máquinas virtuais VMware, selecione um Servidor vCenter que esteja gerenciando suas máquinas virtuais, ou o host ESXi no qual elas estão em execução, e selecione os computadores.
 
 	![Adicionar Servidor vCenter](./media/site-recovery-vmware-to-azure-classic-legacy/select-vms.png)	
-4. Em **Especificar Recursos de Destino**, selecione os servidores de destino mestre e o armazenamento a serem usados para replicação e selecione se as configurações devem ser usadas para todas as cargas de trabalho. Selecione [Conta de Armazenamento Premium](../storage/storage-premium-storage-preview-portal.md) quando configurar a proteção para cargas de trabalho que exigem alto desempenho de E/S consistente e baixa latência para hospedar as cargas de trabalho intensivas de E/S. Se você quiser usar uma conta de Armazenamento Premium para os discos de carga de trabalho, você precisa usar o Destino mestre da série DS. Mas você não pode usar discos de Armazenamento Premium com Destino mestre que não pertençam às séries DS.
+4. Em **Especificar Recursos de Destino**, selecione os servidores de destino mestre e o armazenamento a serem usados para replicação e selecione se as configurações devem ser usadas para todas as cargas de trabalho. Selecione [Conta de Armazenamento Premium](../storage/storage-premium-storage.md) quando configurar a proteção para cargas de trabalho que exigem alto desempenho de E/S consistente e baixa latência para hospedar as cargas de trabalho intensivas de E/S. Se você quiser usar uma conta de Armazenamento Premium para os discos de carga de trabalho, você precisa usar o Destino mestre da série DS. Mas você não pode usar discos de Armazenamento Premium com Destino mestre que não pertençam às séries DS.
 
 	![Servidor vCenter](./media/site-recovery-vmware-to-azure-classic-legacy/machine-resources.png)
 
@@ -804,4 +804,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

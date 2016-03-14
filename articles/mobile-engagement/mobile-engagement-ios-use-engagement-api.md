@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="02/29/2016"
 	ms.author="piyushjo" />
 
 
@@ -51,7 +51,7 @@ Mas as *atividades* também podem ser controladas manualmente usando o API Engag
 
 			[[EngagementAgent shared] endActivity];
 
-> [AZURE.WARNING]Você **NUNCA** deve chamar essa função por conta própria, exceto se você quiser dividir um uso de seu aplicativo em várias sessões: uma chamada para essa função encerraria a sessão atual imediatamente, portanto, uma chamada subsequente para `startActivity()` deveria iniciar uma nova sessão. Essa função é chamada automaticamente pelo SDK quando seu aplicativo é fechado.
+> [AZURE.WARNING] Você **NUNCA** deve chamar essa função por conta própria, exceto se você quiser dividir um uso de seu aplicativo em várias sessões: uma chamada para essa função encerraria a sessão atual imediatamente, portanto, uma chamada subsequente para `startActivity()` deveria iniciar uma nova sessão. Essa função é chamada automaticamente pelo SDK quando seu aplicativo é fechado.
 
 ##Eventos de relatório
 
@@ -219,7 +219,7 @@ Esses dados podem ser estruturados, eles usam a classe NSDictionary do iOS.
 
 Observe que os extras podem conter `arrays(NSArray, NSMutableArray)`, `numbers(NSNumber class)`, `strings(NSString, NSMutableString)`, `urls(NSURL)`, `data(NSData, NSMutableData)` ou outras instâncias de `NSDictionary`.
 
-> [AZURE.NOTE]Esse parâmetro adicional é serializado em JSON. Se você quiser passar objetos diferentes dos descritos acima, você deve implementar o método a seguir em sua classe:
+> [AZURE.NOTE] Esse parâmetro adicional é serializado em JSON. Se você quiser passar objetos diferentes dos descritos acima, você deve implementar o método a seguir em sua classe:
 >
 			 -(NSString*)JSONRepresentation;
 >
@@ -283,4 +283,4 @@ No exemplo anterior, o JSON enviado para o servidor tem 44 caracteres:
 
 	{"birthdate":"1983-12-07","gender":"female"}
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

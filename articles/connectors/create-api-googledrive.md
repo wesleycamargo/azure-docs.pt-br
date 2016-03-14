@@ -15,13 +15,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # Introdução à API do Google Drive
-Conecte-se ao Google Drive para criar arquivos, obter linhas e muito mais.
+Conecte-se ao Google Drive para criar arquivos, obter linhas e muito mais. A API do Google Drive pode ser usada em:
 
-A API do Google Drive pode ser usada em aplicativos lógicos e no PowerApps.
+- PowerApps 
+- Aplicativos lógicos 
 
 Com o Google Drive, você pode:
 
@@ -29,9 +30,9 @@ Com o Google Drive, você pode:
 - Use ações para pesquisar imagens, notícias e muito mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, você pode pesquisar por um vídeo e usar o Twitter para publicar esse vídeo em um feed do Twitter.
 - Adicione a API do Google Drive ao PowerApps Enterprise. Assim, seus usuários poderão usar essa API em seus próprios aplicativos. 
 
-Para saber mais sobre como adicionar uma API ao PowerApps Enterprise, acesse [Registrar uma API no PowerApps](../power-apps/powerapps-register-from-available-apis.md).
+Para obter mais informações sobre como adicionar uma API no PowerApps Enterprise, vá para [Registrar uma API no PowerApps](../power-apps/powerapps-register-from-available-apis.md).
 
-Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para adicionar uma operação nos aplicativos lógicos, veja [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 
 ## Gatilhos e ações
@@ -47,9 +48,9 @@ Todas as APIs dão suporte a dados nos formatos JSON e XML.
 ## Criar a conexão com o Google Drive
 
 ### Adicionar um configuração adicional no PowerApps
-Quando você adiciona o Google Drive ao PowerApps Enterprise, você insere os valores de **Chave do Aplicativo** e **Segredo do Aplicativo** de seu aplicativo Google Drive. O valor **URL de redirecionamento** também é usado em seu aplicativo Google. Se você não tiver um aplicativo do Google, poderá usar as seguintes etapas para criar o aplicativo:
+Ao adicionar o Google Drive ao PowerApps Enterprise, insira os valores de **Chave do Aplicativo** e **Segredo do Aplicativo** de seu aplicativo do Google Drive. O valor da **URL de Redirecionamento** também é usado em seu aplicativo do Google. Se você não tiver um aplicativo do Google, poderá usar as seguintes etapas para criar o aplicativo:
 
-1. Entre no [Console para Desenvolvedores do Google][5] e selecione **Criar um projeto vazio**: ![Console de desenvolvedor do google][6]
+1. Entre no [Console de Desenvolvedores do Google][5] e selecione **Criar um projeto vazio**: ![Console de desenvolvedor do google][6]
 
 2. Insira as propriedades do aplicativo e selecione **Criar**.
 3. Selecione **Usar APIs do Google**: ![Usar apis do google][8]  
@@ -69,14 +70,14 @@ Quando você adiciona o Google Drive ao PowerApps Enterprise, você insere os va
 
 11. A id do cliente e o segredo do cliente do aplicativo registrado serão exibidos.
 
-Agora, copie/cole os valores de **Chave do Aplicativo** e **Segredo do Aplicativo** em sua configuração da API do Google Drive no portal do Azure.
+Agora copie/cole esses valores de **Chave do Aplicativo** e **Segredo do Aplicativo** em sua configuração da API do Google Drive no portal do Azure.
 
 
 ### Adicionar configuração adicional em aplicativos lógicos
 Quando você adiciona essa API aos seus aplicativos lógicos, precisa autorizar que os aplicativos lógicos se conectem ao Google Drive.
 
 1. Entre em sua conta do Google Drive.
-2. Selecione **Autorizar** e permita que seus aplicativos lógicos se conectem e usem o Google Drive. 
+2. Permita que seus aplicativos lógicos se conectem e usem o Google Drive. 
 
 Depois de criar a conexão, insira as propriedades do Google Drive, como o caminho da pasta ou o nome do arquivo. A **referência da API REST** neste tópico descreve essas propriedades.
 
@@ -84,9 +85,10 @@ Depois de criar a conexão, insira as propriedades do Google Drive, como o camin
 
 
 ## Referência da API REST do Swagger
+Aplica-se à versão: 1.0.
 
 ### Criar arquivo    
-Carrega um arquivo no Google Drive. ```POST: /datasets/default/files```
+Carrega um arquivo no Google Drive.```POST: /datasets/default/files```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -102,7 +104,7 @@ Carrega um arquivo no Google Drive. ```POST: /datasets/default/files```
 
 
 ### Inserir linha    
-Insere uma linha em uma Planilha Google. ```POST: /datasets/{dataset}/tables/{table}/items```
+Insere uma linha em uma Planilha Google.```POST: /datasets/{dataset}/tables/{table}/items```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -114,11 +116,11 @@ Insere uma linha em uma Planilha Google. ```POST: /datasets/{dataset}/tables/{ta
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|padrão|Falha na operação.|
 
 
 ### Copiar arquivo    
-Copia um arquivo no Google Drive. ```POST: /datasets/default/copyFile```
+Copia um arquivo no Google Drive.```POST: /datasets/default/copyFile```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -130,11 +132,11 @@ Copia um arquivo no Google Drive. ```POST: /datasets/default/copyFile```
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|padrão|Falha na operação.|
 
 
 ### Excluir arquivo    
-Exclui um arquivo do Google Drive ```DELETE: /datasets/default/files/{id}```
+Exclui um arquivo do Google Drive.```DELETE: /datasets/default/files/{id}```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -148,7 +150,7 @@ Exclui um arquivo do Google Drive ```DELETE: /datasets/default/files/{id}```
 
 
 ### Excluir linha    
-Exclui uma linha de uma Planilha Google. ```DELETE: /datasets/{dataset}/tables/{table}/items/{id}```
+Exclui uma linha de uma Planilha Google.```DELETE: /datasets/{dataset}/tables/{table}/items/{id}```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -160,11 +162,11 @@ Exclui uma linha de uma Planilha Google. ```DELETE: /datasets/{dataset}/tables/{
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|padrão|Falha na operação.|
 
 
 ### Extrair o arquivo morto para a pasta    
-Extrai um arquivo morto para uma pasta no Google Drive (exemplo: .zip) ```POST: /datasets/default/extractFolderV2```
+Extrai um arquivo morto para uma pasta no Google Drive (exemplo: .zip).```POST: /datasets/default/extractFolderV2```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -176,11 +178,11 @@ Extrai um arquivo morto para uma pasta no Google Drive (exemplo: .zip) ```POST: 
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|padrão|Falha na operação.|
 
 
 ### Obter o conteúdo do arquivo usando a ID    
-Recupera o conteúdo do arquivo no Google Drive usando a ID. ```GET: /datasets/default/files/{id}/content```
+Recupera o conteúdo do arquivo do Google Drive usando a ID.```GET: /datasets/default/files/{id}/content```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -190,11 +192,11 @@ Recupera o conteúdo do arquivo no Google Drive usando a ID. ```GET: /datasets/d
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|padrão|Falha na operação.|
 
 
 ### Obter o conteúdo do arquivo usando o caminho    
-Recupera o conteúdo do arquivo no Google Drive usando o caminho. ```GET: /datasets/default/GetFileContentByPath```
+Recupera o conteúdo do arquivo no Google Drive usando o caminho.```GET: /datasets/default/GetFileContentByPath```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -204,11 +206,11 @@ Recupera o conteúdo do arquivo no Google Drive usando o caminho. ```GET: /datas
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|padrão|Falha na operação.|
 
 
 ### Obter metadados de arquivo usando a id    
-Recupera metadados de arquivo no Google Drive usando a ID. ```GET: /datasets/default/files/{id}```
+Recupera os metadados do arquivo do Google Drive usando a ID.```GET: /datasets/default/files/{id}```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -218,11 +220,11 @@ Recupera metadados de arquivo no Google Drive usando a ID. ```GET: /datasets/def
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|padrão|Falha na operação.|
 
 
 ### Obter metadados do arquivo usando o caminho    
-Recupera metadados de arquivo no Google Drive usando o caminho. ```GET: /datasets/default/GetFileByPath```
+Recupera os metadados do arquivo do Google Drive usando o caminho.```GET: /datasets/default/GetFileByPath```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -236,23 +238,23 @@ Recupera metadados de arquivo no Google Drive usando o caminho. ```GET: /dataset
 
 
 ### Obter linha    
-Recupera uma única linha de uma Planilha Google. ```GET: /datasets/{dataset}/tables/{table}/items/{id}```
+Recupera uma única linha de uma Planilha Google.```GET: /datasets/{dataset}/tables/{table}/items/{id}```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
 |dataset|string|sim|path|nenhum |Identificador exclusivo do arquivo de Planilha Google|
 |tabela|string|sim|path|nenhum |Identificador exclusivo da planilha|
-|ID|string|sim|path| nenhum|Identificador exclusivo da linha a ser recuperada|
+|ID|string|sim|path| nenhum|O identificador exclusivo da linha a ser recuperado|
 
 #### Resposta
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|padrão|Falha na operação.|
 
 
 ### Atualizar arquivo    
-Atualiza um arquivo no Google Drive. ```PUT: /datasets/default/files/{id}```
+Atualiza um arquivo no Google Drive.```PUT: /datasets/default/files/{id}```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -267,7 +269,7 @@ Atualiza um arquivo no Google Drive. ```PUT: /datasets/default/files/{id}```
 
 
 ### Atualizar linha    
-Atualiza uma linha em uma Planilha Google. ```PATCH: /datasets/{dataset}/tables/{table}/items/{id}```
+Atualiza uma linha em uma Planilha Google.```PATCH: /datasets/{dataset}/tables/{table}/items/{id}```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -280,7 +282,7 @@ Atualiza uma linha em uma Planilha Google. ```PATCH: /datasets/{dataset}/tables/
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|padrão|Falha na operação.|
 
 
 ## Definições de objeto
@@ -361,7 +363,7 @@ Atualiza uma linha em uma Planilha Google. ```PATCH: /datasets/{dataset}/tables/
 
 
 ## Próximas etapas
-Depois de adicionar o Google Drive ao PowerApps Enterprise, [conceda permissões aos usuários](../power-apps/powerapps-manage-api-connection-user-access.md) para usar a API em seus aplicativos.
+Depois de adicionar o Google Drive ao PowerApps Enterprise, [conceda permissões aos usuários](../power-apps/powerapps-manage-api-connection-user-access.md) para que eles usem a API em seus aplicativos.
 
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -376,4 +378,4 @@ Depois de adicionar o Google Drive ao PowerApps Enterprise, [conceda permissões
 [13]: ./media/create-api-googledrive/configure-consent-screen.png
 [14]: ./media/create-api-googledrive/create-client-id.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="01/08/2016"
+ ms.date="03/01/2016"
  ms.author="larryfr"/>
 
 # Usar o Power BI para visualizar dados de uma topologia do Apache Storm
@@ -63,7 +63,7 @@ Os seguintes arquivos neste projeto implementam a funcionalidade específica do 
 
 ## Baixar o exemplo
 
-Baixe o [exemplo do Power BI do Storm em C# do HDInsight](https://github.com/Blackmist/hdinsight-csharp-storm-powerbi). Para baixá-lo, use uma bifurcação/clone-o usando [git](http://git-scm.com/) ou use o link de **Download** link para baixar um .zip do arquivo.
+Baixe o [exemplo do Power BI do Storm em C# do HDInsight](https://github.com/Azure-Samples/hdinsight-dotnet-storm-powerbi). Para baixá-lo, use uma bifurcação/clone-o usando [git](http://git-scm.com/) ou use o link de **Download** link para baixar um .zip do arquivo.
 
 ## Configurar o exemplo
 
@@ -139,4 +139,4 @@ Neste documento, você aprendeu como enviar dados de uma topologia Storm no Powe
 
 * [Topologias de exemplo para Storm no HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

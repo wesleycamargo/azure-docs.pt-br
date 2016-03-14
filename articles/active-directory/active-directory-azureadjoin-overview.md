@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="02/26/2016"
 	ms.author="femila"/>
 
 # Estendendo os recursos de nuvem para dispositivos Windows 10 por meio da Junção do Active Directory do Azure
@@ -79,4 +79,4 @@ Com a Junção do Azure AD, você obtém o seguinte:
 * [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com o Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

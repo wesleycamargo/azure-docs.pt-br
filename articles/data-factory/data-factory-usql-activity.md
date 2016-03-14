@@ -62,8 +62,8 @@ O código de autorização gerado usando o botão **Autorizar** expira após alg
  
 | Tipo de usuário | Expira após |
 | :-------- | :----------- | 
-| Usuários NÃO gerenciados pelo Azure Active Directory (@hotmail.com, @live.com, etc.) | 12 horas |
-| Usuários gerenciados pelo Azure Active Directory (AAD) | | 14 dias após a última fatia executada, se não nenhuma fatia com base no serviço vinculado do OAuth tiver sido executado por 14 dias desde a última fatia executada. <p>90 dias, se uma fatia com base em serviços vinculados do OAuth for executada pelo menos uma vez a cada 14 dias.</p> |
+| Contas de usuários NÃO gerenciadas pelo Azure Active Directory (@hotmail.com, @live.com, etc.) | 12 horas |
+| Contas de usuários gerenciadas pelo AAD (Azure Active Directory) | | 14 dias após a última execução da fatia. <p>90 dias, se uma fatia com base em serviços vinculados do OAuth for executada pelo menos uma vez a cada 14 dias.</p> |
 
 Para evitar/resolver este erro, você precisará autorizar novamente usando o botão **Autorizar** quando o **token expirar** e reimplantar o serviço vinculado. Você também pode gerar valores para as propriedades **sessionId** e **authorization** programaticamente usando o código na seção a seguir.
 
@@ -156,7 +156,7 @@ A tabela a seguir descreve os nomes e as descrições de propriedades que são e
 Propriedade | Descrição | Obrigatório
 :-------- | :----------- | :--------
 type | A propriedade type deve ser definida como **DataLakeAnalyticsU-SQL**. | Sim
-scriptPath | Caminho para a pasta que contém o script U-SQL. | Não (se você usar o script)
+scriptPath | Caminho para a pasta que contém o script U-SQL. Observe que o nome do arquivo diferencia maiúsculas de minúsculas. | Não (se você usar o script)
 scriptLinkedService | Serviço vinculado que vincula o armazenamento que contém o script para a fábrica de dados | Não (se você usar o script)
 script | Especificar script embutido em vez de especificar scriptPath e scriptLinkedService. Por exemplo: “script”: “CREATE DATABASE test”. | Não (se você usar scriptPath e scriptLinkedService)
 degreeOfParallelism | O número máximo de nós que serão usados simultaneamente para executar o trabalho. | Não
@@ -257,4 +257,4 @@ Os valores dos parâmetros **@in** e **@out** no script U-SQL acima são transmi
 
 Você pode especificar outras propriedades viz. degreeOfParallelism, prioridade, etc., bem como em sua definição de pipeline para os trabalhos executados no serviço de Análise Azure Data Lake.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

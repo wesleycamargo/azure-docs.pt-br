@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="11/13/2015"
+	ms.date="02/25/2016"
 	ms.author="huguesv"/>
 
 
@@ -33,12 +33,13 @@ Confira o [Python Developer Center] para obter mais artigos que abrangem o desen
  - Visual Studio 2013 ou 2015
  - [Ferramentas Python 2.2 para Visual Studio]
  - [VSIX de amostra de Ferramentas Python 2.2 para Visual Studio]
- - [Ferramentas do SDK do Azure para VS 2013] ou [Ferramentas do SDK do Azure para VS 2015]
+ - [Azure Ferramentas SDK para VS 2013] ou [Azure Ferramentas SDK para VS 2015]
  - [Python 2.7 de 32 bits]
+ - Django 1.6 ou anterior
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
+>[AZURE.NOTE] Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## Criar o projeto
 
@@ -209,8 +210,8 @@ Siga estas etapas para aprender mais sobre o Python Tools para Visual Studio, Dj
 [Python Tools para Visual Studio]: http://aka.ms/ptvs
 [Ferramentas Python 2.2 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [VSIX de amostra de Ferramentas Python 2.2 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
-[Ferramentas do SDK do Azure para VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Ferramentas do SDK do Azure para VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
+[Azure Ferramentas SDK para VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
+[Azure Ferramentas SDK para VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
 [Python 2.7 de 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Ferramentas Python para documentação do Visual Studio]: http://aka.ms/ptvsdocs
 [Depuração remota no Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkId=624026
@@ -219,4 +220,4 @@ Siga estas etapas para aprender mais sobre o Python Tools para Visual Studio, Dj
 [Documentação do Django]: https://www.djangoproject.com/
 [Banco de Dados SQL]: /documentation/services/sql-database/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

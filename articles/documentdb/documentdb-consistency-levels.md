@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="Níveis de consistência no Banco de Dados de Documentos | Microsoft Azure" 
-	description="Analise como o Banco de Dados de Documentos tem quatro níveis de consistência com níveis de desempenho associados para ajudar a equilibrar as compensações eventuais entre consistência, disponibilidade e latência." 
+<properties
+	pageTitle="Níveis de consistência no Banco de Dados de Documentos | Microsoft Azure"
+	description="Analise como o Banco de Dados de Documentos tem quatro níveis de consistência com níveis de desempenho associados para ajudar a equilibrar as compensações eventuais entre consistência, disponibilidade e latência."
 	keywords="consistência eventual, banco de dados de documentos, azure, Microsoft azure"
-	services="documentdb" 
-	authors="mimig1" 
-	manager="jhubbard" 
-	editor="cgronlun" 
+	services="documentdb"
+	authors="mimig1"
+	manager="jhubbard"
+	editor="cgronlun"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/23/2015" 
+<tags
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/24/2016"
 	ms.author="mimig"/>
 
 # Usando níveis de consistência para maximizar a disponibilidade e o desempenho no Banco de Dados de Documentos
 
 Muitas vezes, os desenvolvedores enfrentam o desafio de escolher entre dois extremos: consistência forte e eventual. A realidade é que existem várias barreiras de consistência entre esses dois extremos. Na maioria dos cenários reais, os aplicativos beneficiam ao fazer compensações refinadas entre consistência, disponibilidade e latência. O Banco de Dados de Documentos oferece quatro níveis de consistência bem definidos, com níveis de desempenho associados. Isso permite que os desenvolvedores de aplicativos façam compensações previsíveis entre consistência, disponibilidade e latência.
- 
+
 Todos os recursos do sistema, incluindo contas de bancos de dados, bancos de dados, coleções, usuários e permissões são sempre fortemente consistentes para leituras e consultas. Os níveis de consistência são aplicáveis somente aos recursos definidos pelo usuário. Para consultas e operações de leitura em recursos definidos pelo usuário, incluindo documentos, anexos, procedimentos armazenados, disparadores e UDFs, o Banco de Dados de Documentos oferece quatro níveis distintos de consistência:
 
  - Consistência de força
@@ -34,17 +34,17 @@ Esses níveis de consistência granulares e bem definidos permitem que você fa�
 
 Você pode configurar um nível de consistência padrão, na conta do banco de dados, que se aplique a todas as coleções (em todos os bancos de dados) na sua conta de banco de dados. Por padrão, todas as leituras e consultas executadas nos recursos definidos pelo usuário usarão o nível de consistência padrão especificado na conta do banco de dados. No entanto, você pode diminuir o nível de consistência de uma solicitação de leitura/consulta específica, especificando o cabeçalho da solicitação [x-ms-consistency-level]. Existem quatro tipos de níveis de consistência com suporte no protocolo de replicação do Banco de Dados de Documentos. Eles são descritos resumidamente abaixo.
 
->[AZURE.NOTE]Em uma versão futura, pretendemos dar suporte à substituição do nível de consistência padrão, por coleção.
+>[AZURE.NOTE] Em uma versão futura, pretendemos dar suporte à substituição do nível de consistência padrão, por coleção.
 
 **Strong**: a coerência forte garante que uma gravação fique visível somente depois de confirmada permanentemente pela maioria do quorum de réplicas. Uma gravação é confirmada simultaneamente de maneira permanente pelo quorum primário ou secundário, ou é abortada. Uma leitura sempre é confirmada pela maioria do quorum de leitura. Um cliente nunca pode ver uma gravação não confirmada ou parcial, e sempre há a garantia de leitura da última gravação confirmada.
- 
+
 A consistência forte oferece garantias absolutas na consistência de dados, mas oferece o nível mais baixo de desempenho de leitura e gravação.
 
 **Bounded staleness**: A consistência Bounded staleness garante a ordem total de propagação das gravações com a possibilidade de ler o atraso por trás de gravações da maioria dos prefixos K. A leitura sempre é confirmada pela maioria do quorum de réplicas. A resposta de uma solicitação de leitura especifica sua atualização relativa (em termos de K). Com o bounded staleness, você pode definir um limite configurável de envelhecimento (como prefixos ou hora) para leituras de latência de compensação e consistência no estado estável.
 
 A Bounded staleness oferece um comportamento mais previsível para consistência de leitura, enquanto oferece gravações com a menor latência. Como as leituras são confirmadas pela maioria do quorum, a latência de leitura não é a menor oferecida pelo sistema. Bounded Staleness é uma opção para cenários em que você deseja uma consistência sólida mas a consistência sólida não é prática. Se você configurar o "intervalo de envelhecimento" da consistência Bounded Staleness de forma aleatoriamente grande, ele ainda preservará a ordem global e total de gravações. Isso proporciona uma garantia mais sólida do que Sessão ou Eventual.
 
->[AZURE.NOTE]Bounded staleness garante leituras monotônicas apenas em solicitações de leitura explícitas. A resposta do servidor ecoada para solicitações de gravação não oferece garantias de bounded staleness.
+>[AZURE.NOTE] Bounded staleness garante leituras monotônicas apenas em solicitações de leitura explícitas. A resposta do servidor ecoada para solicitações de gravação não oferece garantias de bounded staleness.
 
 **Session**: ao contrário dos modelos globais de consistência oferecidos pelos níveis de consistência Strong e Bounded Staleness, a consistência Session foi adaptada para uma sessão de cliente específica. A consistência Session geralmente é suficiente, já que oferece garantia de leituras monotônicas, além de gravações e a capacidade de ler suas próprias gravações. Uma solicitação de leitura para a consistência Session é executada em uma réplica que pode atender à versão solicitada pelo cliente (parte do cookie de sessão).
 
@@ -60,11 +60,15 @@ A consistência Eventual oferece a consistência de leitura mais fraca, mas ofer
 
 2. Na folha **Contas do Banco de Dados de Documentos**, selecione a conta do banco de dados a ser modificada.
 
-3. Na folha da conta, na lente **Configuração**, clique no bloco **Consistência Padrão**.
+3. Na folha da conta, se a folha **Configurações** ainda não estiver aberta, clique no ícone **Configurações** na barra de comandos superior.
 
-4. Na folha **Consistência Padrão**, selecione o novo nível de consistência e clique em **Salvar**.
+4. Na folha **Todas as Configurações**, clique na entrada **Consistência Padrão** sob **Recurso**.
 
-	![Captura de tela destacando o bloco de Consistência Padrão, as configurações de consistência e o botão Salvar](./media/documentdb-consistency-levels/database-consistency-level.png)
+	![Captura de tela realçando o ícone Configurações e a entrada Consistência Padrão](./media/documentdb-consistency-levels/database-consistency-level-1.png)
+
+5. Na folha **Consistência Padrão**, selecione o novo nível de consistência e clique em **Salvar**.
+
+	![Captura de tela realçando o nível Consistência e o botão Salvar](./media/documentdb-consistency-levels/database-consistency-level-2.png)
 
 ## Níveis de consistência para consultas
 
@@ -83,9 +87,8 @@ Se você quiser ler mais sobre níveis de consistência e tradeoffs, recomendamo
 
 -	Doug Terry. Replicated Data Consistency explained through baseball. [http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
 -	Doug Terry. Session Guarantees for Weakly Consistent Replicated Data. [http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
--	Daniel Abadi. Consistency Tradeoffs in Modern Distributed Database Systems Design: CAP is only part of the story”. [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html) 
+-	Daniel Abadi. Consistency Tradeoffs in Modern Distributed Database Systems Design: CAP is only part of the story”. [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
 -	Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums. [http://vldb.org/pvldb/vol5/p776\_peterbailis\_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 -	Werner Vogels. Eventual Consistent - Revisited. [http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
- 
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="02/25/2016" 
 	ms.author="glenga"/>
 
 # Registrar seu aplicativo para usar a conta da Microsoft para autenticação
@@ -31,7 +31,7 @@ Este tópico mostra como registrar seu aplicativo móvel para poder usar a conta
 
 ##Registrar seu aplicativo da Windows Store no Centro de Desenvolvimento do Windows
 
-Os aplicativos da Windows Store devem ser registrados primeiro no Centro de Desenvolvimento do Windows.
+Os aplicativos da Windows Store devem ser registrados primeiro no Centro de Desenvolvimento do Windows. Com o registro, seu aplicativo do Windows poderá usar comportamentos de logon único.
 
 >[AZURE.NOTE]Windows Phone 8, Windows Phone 8.1 Silverlight e aplicativos que não são Windows podem ignorar esta seção.
 
@@ -47,13 +47,17 @@ Os aplicativos da Windows Store devem ser registrados primeiro no Centro de Dese
 
 6. De volta à página do Centro de Desenvolvimento do Windows do seu novo aplicativo, clique em **Serviços** > **Notificações por push**.
 
-7. Na página **Notificações por push**, clique no **site dos Serviços ao Vivo** em **WNS (Serviços de Notificação por Push do Windows) e Serviços Móveis do Microsoft Azure**.
+7. Na página **Notificações por push**, clique em **site dos Live Services** em **WNS (Serviços de Notificação por Push do Windows) e Serviços Móveis do Microsoft Azure**.
+ 
+	Isso exibe a página de configurações da conta da Microsoft de seu aplicativo.
 
-Isso exibe a página da conta da Microsoft para o seu aplicativo. Em seguida, você terá as credenciais de autenticação de que o Azure precisa para usar a autenticação da Microsoft com seu aplicativo.
+8. Anote o valor de **SID de pacote**. É possível salvar esse SID no portal do Azure para habilitar o logon único e as notificações por push para seu aplicativo do Windows.
+
+Em seguida, você vai configurar a autenticação da conta da Microsoft para aplicativos do Windows, começando com a etapa 4 na próxima seção.
 
 ## Configurar o registro de conta da Microsoft e conectar-se aos Serviços Móveis
 
-A primeira etapa nesta seção se aplica apenas ao Windows Phone 8, ao Windows Phone 8.1 Silverlight e a aplicativos que não forem da Windows Store. Para esses aplicativos, você também pode ignorar o SID (identificador de segurança) do Pacote, que está disponível somente para aplicativos Windows Store.
+Se já tiver registrado seu aplicativo do Windows na seção anterior, ignore esta etapa e vá para a etapa 2.
 
 1. Para um aplicativo que não seja da Windows Store, navegue até a página [Meus Aplicativos](http://go.microsoft.com/fwlink/p/?LinkId=262039) na conta da Central de desenvolvedores da Microsoft, faça logon com sua conta da Microsoft (se necessário), clique em **Criar aplicativo**, digite um **Nome de aplicativo** e clique em **Aceito**.
 
@@ -74,7 +78,7 @@ A primeira etapa nesta seção se aplica apenas ao Windows Phone 8, ao Windows P
    	![Configurações de aplicativo da conta da Microsoft](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-win8-app-push-auth.png)
 
 
-    > [AZURE.NOTE]O segredo do cliente é uma credencial de segurança importante. Não compartilhe o segredo do cliente com ninguém nem o distribua com seu aplicativo. Somente os registros de aplicativo Windows Store verão um campo de SID do pacote.
+    > [AZURE.NOTE] O segredo do cliente é uma credencial de segurança importante. Não compartilhe o segredo do cliente com ninguém nem o distribua com seu aplicativo. Somente os registros de aplicativo Windows Store verão um campo de SID do pacote.
 
 4. No [Portal clássico do Azure], clique na guia **Identidade** do serviço móvel, insira a ID do cliente, o segredo do cliente e o SID do pacote obtido de seu provedor de identidade e clique em **Salvar**.
 
@@ -93,4 +97,4 @@ O serviço móvel e o seu aplicativo agora estão configurados para trabalhar co
 
 [Portal clássico do Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

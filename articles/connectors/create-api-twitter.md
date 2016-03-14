@@ -14,16 +14,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/23/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 
 # Introdução à API do Twitter
-Entre no Twitter para postar um tweet, obter a linha do tempo do usuário e muito mais.
+Entre no Twitter para postar um tweet, obter a linha do tempo do usuário e muito mais. A API do Twitter pode ser usada em:
 
-A API do Twitter pode ser usada em aplicativos PowerApps Enterprise e em aplicativos lógicos.
+- PowerApps 
+- Aplicativos lógicos 
 
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos. Para a versão do esquema 2014-12-01-preview, clique em [Conector do Twitter](../app-service-logic/app-service-logic-connector-twitter.md).
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos. Para obter a versão do esquema 2014-12-01-preview, clique em [Conector do Twitter](../app-service-logic/app-service-logic-connector-twitter.md).
 
 Com o Twitter, você pode:
 
@@ -32,9 +33,9 @@ Com o Twitter, você pode:
 - Usar ações para postar um tweet, pesquisar tweets e muito mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, quando um novo tweet aparece, você pode postá-lo no Facebook.
 - Adicionar a API do Twitter ao PowerApps Enterprise Assim, seus usuários poderão usar essa API em seus próprios aplicativos. 
 
-Para saber mais sobre como adicionar uma API ao PowerApps Enterprise, acesse [Registrar uma API no PowerApps](../power-apps/powerapps-register-from-available-apis.md).
+Para obter mais informações sobre como adicionar uma API no PowerApps Enterprise, vá para [Registrar uma API no PowerApps](../power-apps/powerapps-register-from-available-apis.md).
 
-Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para adicionar uma operação nos aplicativos lógicos, veja [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 
 ## Gatilhos e ações
@@ -50,7 +51,7 @@ Todas as APIs dão suporte a dados nos formatos JSON e XML.
 ## Criar a conexão com o Twitter
 
 ### Adicionar um configuração adicional no PowerApps
-Ao adicionar o Twitter ao PowerApps Enterprise, insira os valores **Chave do consumidor** e o **Segredo do consumidor** de seu aplicativo do Twitter. O valor **URL de redirecionamento** também é usado em seu aplicativo do Twitter. Se você não tiver um aplicativo do Twitter, poderá usar as seguintes etapas para criar o aplicativo:
+Ao adicionar o Twitter ao PowerApps Enterprise, insira os valores de **Chave do Consumidor** e **Segredo do Consumidor** de seu aplicativo do Twitter. O valor da **URL de Redirecionamento** também é usado em seu aplicativo do Twitter. Se você não tiver um aplicativo do Twitter, poderá usar as seguintes etapas para criar o aplicativo:
 
 1. Entre no [Twitter](https://apps.twitter.com).
 
@@ -59,12 +60,12 @@ Ao adicionar o Twitter ao PowerApps Enterprise, insira os valores **Chave do con
 3. Em **Criar um aplicativo**:
    
 	1. Insira qualquer valor desejado em **Nome**, **Descrição** e **Site**.
-	2. Em **URL de retorno de chamada**, insira o valor **URL de redirecionamento** mostrado quando você adiciona a API do Twitter ao Portal do Azure.
-	5. Aceite o contrato e **crie seu aplicativo do Twitter**.  
+	2. Em **URL de retorno de chamada**, insira o valor da **URL de Redirecionamento** mostrado ao adicionar a API do Twitter no Portal do Azure.
+	5. Aceite o contrato e **Crie seu aplicativo do Twitter**.  
 
 	![Criação de aplicativo do Twitter][7]
 
-Agora, copie/cole os valores **Chave do consumidor** e **Segredo do consumidor** em sua configuração do Twitter no Portal do Azure.
+Agora copie/cole os valores de **Chave do Consumidor** e **Segredo do Consumidor** em sua configuração do Twitter no portal do Azure.
 
 
 ### Adicionar configuração adicional em aplicativos lógicos
@@ -73,15 +74,16 @@ Quando você adiciona essa API a seus aplicativos lógicos, deve autorizar a con
 1. Entre em sua conta do Twitter.
 2. Selecione **Autorizar** e permita que seus aplicativos lógicos se conectem e usem sua conta do Twitter. 
 
-Depois de criar a conexão, insira as propriedades do Twitter, como o texto do tweet. A **Referência da API REST** neste tópico descreve essas propriedades.
+Depois de criar a conexão, insira as propriedades do Twitter, como o texto do tweet. A **referência da API REST** neste tópico descreve essas propriedades.
 
 >[AZURE.TIP] Você pode usar essa mesma conexão do Twitter em outros aplicativos lógicos.
 
 
 ## Referência da API REST do Swagger
+Aplica-se à versão: 1.0.
 
 ### Postar um novo tweet 
-Tweet. ```POST: /posttweet```
+Tweet.```POST: /posttweet```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -101,11 +103,11 @@ Tweet. ```POST: /posttweet```
 
 
 ### Quando um novo tweet é exibido 
-Dispara um fluxo de trabalho quando um novo tweet é postado e corresponde à sua consulta de pesquisa. ```GET: /onnewtweet```
+Dispara um fluxo de trabalho quando um novo tweet é postado e corresponde à sua consulta de pesquisa.```GET: /onnewtweet```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
-|searchQuery|string|sim|query|nenhum|Texto da consulta (você pode usar os operadores de consulta com suporte do Twitter: http://www.twitter.com/search)|
+|searchQuery|string|sim|query|nenhum|Texto da consulta (é possível usar quaisquer operadores de consulta com suporte do Twitter): http://www.twitter.com/search)|
 
 #### Resposta
 |Nome|Descrição|
@@ -121,7 +123,7 @@ Dispara um fluxo de trabalho quando um novo tweet é postado e corresponde à su
 
 
 ### Obter linha do tempo de início 
-Recupera os tweets e re-tweets mais recentes postados por mim e pelos meus seguidores. ```GET: /hometimeline```
+Recupera os tweets e re-tweets mais recentes postados por mim e pelos meus seguidores.```GET: /hometimeline```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -140,7 +142,7 @@ Recupera os tweets e re-tweets mais recentes postados por mim e pelos meus segui
 
 
 ### Obter usuário 
-Recupera os detalhes sobre o usuário especificado (exemplo: nome de usuário, descrição, contagem de seguidores, etc.). ```GET: /user```
+Recupera os detalhes sobre o usuário especificado (exemplo: nome de usuário, descrição, contagem de seguidores, etc.).```GET: /user```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -159,7 +161,7 @@ Recupera os detalhes sobre o usuário especificado (exemplo: nome de usuário, d
 
 
 ### Obter a linha do tempo do usuário 
-Recupera uma coleção de tweets mais recentes postados pelo usuário especificado. ```GET: /usertimeline```
+Recupera uma coleção dos tweets mais recentes postados pelo usuário especificado.```GET: /usertimeline```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -179,11 +181,11 @@ Recupera uma coleção de tweets mais recentes postados pelo usuário especifica
 
 
 ### Pesquisar tweet 
-Recupera uma coleção de tweets relevantes que correspondem a uma consulta especificada. ```GET: /searchtweets```
+Recupera uma coleção de tweets relevantes que correspondem a uma consulta especificada.```GET: /searchtweets```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
-|searchQuery|string|sim|query|nenhum|Texto da consulta (você pode usar os operadores de consulta com suporte do Twitter: http://www.twitter.com/search)|
+|searchQuery|string|sim|query|nenhum|Texto da consulta (é possível usar quaisquer operadores de consulta com suporte do Twitter): http://www.twitter.com/search)|
 |maxResults|inteiro|não|query|20|Número máximo de tweets a recuperar|
 
 #### Resposta
@@ -199,7 +201,7 @@ Recupera uma coleção de tweets relevantes que correspondem a uma consulta espe
 
 
 ### Obter seguidores 
-Recupera os usuários que seguem o usuário especificado. ```GET: /followers```
+Recupera os usuários que seguem o usuário especificado.```GET: /followers```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -219,7 +221,7 @@ Recupera os usuários que seguem o usuário especificado. ```GET: /followers```
 
 
 ### Obter meus seguidores 
-Recupera os usuários que estão me seguindo. ```GET: /myfollowers```
+Recupera os usuários que estão me seguindo.```GET: /myfollowers```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -238,7 +240,7 @@ Recupera os usuários que estão me seguindo. ```GET: /myfollowers```
 
 
 ### Obtenha seguidos 
-Recupera os usuários que o usuário especificado está seguindo. ```GET: /friends```
+Recupera os usuários que o usuário especificado está seguindo.```GET: /friends```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -258,7 +260,7 @@ Recupera os usuários que o usuário especificado está seguindo. ```GET: /frien
 
 
 ### Obter meus seguidos 
-Recupera os usuários que estou seguindo. ```GET: /myfriends```
+Recupera os usuários que estou seguindo.```GET: /myfriends```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -316,13 +318,13 @@ Recupera os usuários que estou seguindo. ```GET: /myfriends```
 
 
 ## Próximas etapas
-Depois de adicionar a API do Dropbox para PowerApps Enterprise, [dê aos usuários permissões](../power-apps/powerapps-manage-api-connection-user-access.md) usar a API em seus aplicativos.
+Depois de adicionar a API do Dropbox ao PowerApps Enterprise, [conceda permissões aos usuários](../power-apps/powerapps-manage-api-connection-user-access.md) usar a API em seus aplicativos.
 
-[Crie um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 <!--References-->
 
 [6]: ./media/create-api-twitter/twitter-apps-page.png
 [7]: ./media/create-api-twitter/twitter-app-create.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

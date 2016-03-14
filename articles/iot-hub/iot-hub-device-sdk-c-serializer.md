@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="11/10/2015"
+     ms.date="02/23/2016"
      ms.author="obloch"/>
 
 # SDK do dispositivo IoT do Microsoft Azure para C – mais informações sobre o serializador
@@ -528,19 +528,27 @@ Esta seção descreve tudo o que você precisa saber ao enviar eventos e receber
 
 ## Configuração de macro
 
-Se você estiver usando a biblioteca do **serializador** há uma parte importante do SDK no seguinte local:
+Se estiver usando a biblioteca do **Serializador**, há uma parte importante do SDK ao qual você deve se atentar na biblioteca azure-c-shared-utility. Se você clonou o repositório Azure-iot-sdks do GitHub usando a opção --recursive, você encontrará esta biblioteca de utilitário compartilhado aqui:
 
 ```
-.\\c\\common\\tools\\macro\_utils\_h\_generator.
+.\\c\\azure-c-shared-utility
+```
+
+Se não tiver clonado a biblioteca, é possível encontrá-la [aqui](https://github.com/Azure/azure-c-shared-utility).
+
+Na biblioteca de utilitário compartilhado, você encontrará a seguinte pasta:
+
+```
+azure-c-shared-utility\\macro\_utils\_h\_generator.
 ```
 
 Essa pasta contém uma solução do Visual Studio chamada **macro\_utils\_h\_generator.sln**:
 
   ![](media/iot-hub-device-sdk-c-serializer/01-macro_utils_h_generator.PNG)
 
-O programa nesta solução gera o arquivo **macro\_utils.h**, localizado no diretório .\\c\\common\\inc. Há um arquivo macro\_utils.h padrão incluído com o SDK. Essa solução permite que você modifique alguns parâmetros e recrie o arquivo de cabeçalho baseado nesses parâmetros.
+O programa nesta solução gera o arquivo **macro\_utils.h**. Há um arquivo macro\_utils.h padrão incluído com o SDK. Essa solução permite que você modifique alguns parâmetros e recrie o arquivo de cabeçalho baseado nesses parâmetros.
 
-Os dois principais parâmetros com os quais você precisa se preocupar são **nArithmetic** e **nMacroParameters**, definidos nestas duas linhas de macro\_utils.tt:
+Os dois principais parâmetros com os quais você precisa se preocupar são **nArithmetic** e **nMacroParameters**, definidos nestas duas linhas encontradas em macro\_utils.tt:
 
 ```
 <#int nArithmetic=1024;#>
@@ -562,17 +570,17 @@ WITH_DATA(int, MyData)
 );
 ```
 
-Conforme mencionado anteriormente, **DECLARE\_MODEL** é apenas uma macro de C. O nome do modelo e a instrução **WITH\_DATA** (outra macro) são parâmetros de **DECLARE\_MODEL**. **nMacroParameters** define quantos parâmetros podem ser incluídos em **DECLARE\_MODEL**. Efetivamente, isso define quantos eventos de dados e declarações de ação você pode ter. Dessa forma, com o limite padrão de 124, isso significa que você pode definir um modelo com uma combinação de cerca de 60 ações e eventos de dados. Se você tentar exceder esse limite, receberá erros do compilador parecidos com o seguinte:
+Conforme mencionamos anteriormente, **DECLARE\_MODEL** é apenas uma macro de C. O nome do modelo e a instrução **WITH\_DATA** (outra macro) são parâmetros de **DECLARE\_MODEL**. **nMacroParameters** define quantos parâmetros podem ser incluídos em **DECLARE\_MODEL**. Efetivamente, isso define quantos eventos de dados e declarações de ação você pode ter. Dessa forma, com o limite padrão de 124, isso significa que você pode definir um modelo com uma combinação de cerca de 60 ações e eventos de dados. Se você tentar exceder esse limite, receberá erros do compilador parecidos com o seguinte:
 
   ![](media/iot-hub-device-sdk-c-serializer/02-nMacroParametersCompilerErrors.PNG)
 
-O parâmetro **nArithmetic** está mais relacionado ao funcionamento interno da linguagem de macro do que com seu aplicativo. Ele controla o número total de membros que você pode ter em seu modelo, incluindo macros **DECLARE\_STRUCT**. Portanto, se você começar a ver erros do compilador como esse, tente aumentar **nArithmetic**:
+O parâmetro **nArithmetic** está mais relacionado ao funcionamento interno da linguagem de macro do que ao seu aplicativo. Ele controla o número total de membros que você pode ter em seu modelo, incluindo macros **DECLARE\_STRUCT**. Portanto, se começar a ver erros do compilador como esse, tente aumentar **nArithmetic**:
 
    ![](media/iot-hub-device-sdk-c-serializer/03-nArithmeticCompilerErrors.PNG)
 
 Se quiser alterar esses parâmetros, modifique os valores no arquivo macro\_utils.tt, recompile a solução macro\_utils\_h\_generator.sln e execute o programa compilado. Quando você faz isso, um novo arquivo macro\_utils.h é gerado e colocado no diretório .\\common\\inc.
 
-Para usar a nova versão de macro\_utils.h, remova o pacote NuGet **serializador** da sua solução e, em seu lugar, inclua o projeto **serializador** do Visual Studio. Isso permite que seu código seja compilado contra o código-fonte da biblioteca do serializador. Isso inclui a macro\_utils.h atualizada. Para fazer isso para **simplesample\_amqp**, comece movendo o pacote NuGet para a biblioteca do serializador da solução:
+Para usar a nova versão de macro\_utils.h, remova o pacote NuGet **serializador** de sua solução e, em seu lugar, inclua o projeto **serializador** do Visual Studio. Isso permite que seu código seja compilado contra o código-fonte da biblioteca do serializador. Isso inclui a macro\_utils.h atualizada. Para fazer isso para **simplesample\_amqp**, comece movendo o pacote NuGet referente à biblioteca do serializador da solução:
 
    ![](media/iot-hub-device-sdk-c-serializer/04-serializer-github-package.PNG)
 
@@ -586,13 +594,13 @@ Quando terminar, sua solução deve ter esta aparência:
 
 Agora, quando você compila a solução, a macro\_utils.h atualizada é incluída no seu binário.
 
-Observe que aumentar demais esses valores pode exceder os limites do compilador. Nesse ponto, **nMacroParameters** é o principal parâmetro com que você deve se preocupar. A especificação C99 estipula a permissão de no mínimo 127 parâmetros em uma definição de macro. O compilador da Microsoft segue exatamente a especificação (e tem um limite de 127); portanto, não será possível aumentar **nMacroParameters** além do padrão. Outros compiladores podem permitir que você faça isso (por exemplo, o compilador GNU dá suporte a um limite superior).
+Observe que aumentar demais esses valores pode exceder os limites do compilador. Nesse ponto, **nMacroParameters** é o principal parâmetro com o qual você deve se preocupar. A especificação C99 estipula a permissão de no mínimo 127 parâmetros em uma definição de macro. O compilador da Microsoft segue exatamente a especificação (e tem um limite de 127); portanto, não será possível aumentar **nMacroParameters** além do padrão. Outros compiladores podem permitir que você faça isso (por exemplo, o compilador GNU dá suporte a um limite superior).
 
 Até o momento, abordamos quase tudo o que você precisa saber sobre como escrever um código com a biblioteca do **serializador**. Antes da conclusão, vamos rever alguns tópicos dos artigos anteriores sobre os quais você pode estar se perguntando.
 
 ## As APIs de nível inferior
 
-O exemplo de aplicativo no qual este artigo se concentra é **simplesample\_amqp**. Esse exemplo usa as APIs de nível superior (não "LL") para enviar eventos e receber mensagens. Se você usar essas APIs, haverá um thread em execução em segundo plano que cuida dos eventos de envio e do recebimento de mensagens. No entanto, você pode usar as APIs de nível inferior (LL) para eliminar esse thread em segundo plano e assumir o controle explícito ao enviar eventos ou receber mensagens da nuvem.
+O aplicativo de exemplo no qual este artigo se concentra é **simplesample\_amqp**. Esse exemplo usa as APIs de nível superior (não "LL") para enviar eventos e receber mensagens. Se você usar essas APIs, haverá um thread em execução em segundo plano que cuida dos eventos de envio e do recebimento de mensagens. No entanto, você pode usar as APIs de nível inferior (LL) para eliminar esse thread em segundo plano e assumir o controle explícito ao enviar eventos ou receber mensagens da nuvem.
 
 Como descrevemos em um [artigo anterior](iot-hub-device-sdk-c-iothubclient.md), há um conjunto de funções compostas por APIs de nível superior:
 
@@ -618,11 +626,11 @@ Há também um conjunto semelhante de APIs de nível inferior.
 
 Observe que as APIs de nível inferior funcionam exatamente como descrevemos nos artigos anteriores. Use o primeiro conjunto de APIs se quiser que um thread em segundo plano lide com eventos de envio e recebimento de mensagens. Use o segundo conjunto de APIs se quiser ter controle explícito sobre o momento de envio e recebimento de dados do Hub IoT. O conjunto de APIs funciona igualmente bem com a biblioteca do **serializador**.
 
-Para obter um exemplo de como as APIs de nível inferior são usadas com a biblioteca do **serializador**, confira o aplicativo **simplesample\_http**.
+Para obter um exemplo de como as APIs de nível inferior são usadas com a biblioteca do **serializador**, veja o aplicativo **simplesample\_http**.
 
 ## Tópicos adicionais
 
-Outros tópicos que vale a pena mencionar novamente são relacionados ao tratamento de propriedades, ao uso de credenciais alternativas de dispositivo e às opções de configuração. Todos estes tópicos foram abordados em um [artigo anterior](iot-hub-device-sdk-c-iothubclient.md). O principal aqui é que todos esses recursos funcionam da mesma forma quando você usa a biblioteca do **serializador** e a biblioteca **IoTHubClient**. Por exemplo, se você quiser associar propriedades a um evento a partir de seu modelo, use **IoTHubMessage\_Properties** e **Map**\_**AddorUpdate** da mesma maneira descrita anteriormente:
+Outros tópicos que vale a pena mencionar novamente são relacionados ao tratamento de propriedades, ao uso de credenciais alternativas de dispositivo e às opções de configuração. Todos estes tópicos foram abordados em um [artigo anterior](iot-hub-device-sdk-c-iothubclient.md). A ideia principal aqui é que todos esses recursos funcionam da mesma forma quando você usa a biblioteca do **serializador**, quando comparado com a biblioteca **IoTHubClient**. Por exemplo, se desejar anexar propriedades a um evento através de seu modelo, use **IoTHubMessage\_Properties** e **Map**\_**AddorUpdate** da mesma maneira descrita anteriormente:
 
 ```
 MAP_HANDLE propMap = IoTHubMessage_Properties(message.messageHandle);
@@ -632,9 +640,9 @@ Map_AddOrUpdate(propMap, "SequenceNumber", propText);
 
 Não importa se o evento foi gerado usando a biblioteca do **serializador** ou se foi criado manualmente usando a biblioteca **IoTHubClient**.
 
-Com relação às credenciais alternativas de dispositivo, o uso de **IoTHubClient\_LL\_Create** funciona tão bem quanto **IoTHubClient\_CreateFromConnectionString** para alocar uma **IOTHUB\_CLIENT\_HANDLE**.
+Com relação às credenciais alternativas do dispositivo, o uso de **IoTHubClient\_LL\_Create** funciona tão bem quanto **IoTHubClient\_CreateFromConnectionString** para alocar um **IOTHUB\_CLIENT\_HANDLE**.
 
-Por fim, se você estiver usando a biblioteca do **serializador**, poderá definir opções de configuração com **IoTHubClient\_LL\_SetOption** da mesma forma que você faz ao usar a biblioteca **IoTHubClient**.
+Por fim, caso esteja usando a biblioteca do **serializador**, é possível definir opções de configuração com **IoTHubClient\_LL\_SetOption** da mesma forma que você fez ao usar a biblioteca **IoTHubClient**.
 
 Um recurso exclusivo da biblioteca do **serializador** são as APIs de inicialização. Antes de começar a trabalhar com a biblioteca, é necessário chamar **serializer\_init**:
 
@@ -644,18 +652,18 @@ serializer_init(NULL);
 
 Isso é feito antes de chamar **IoTHubClient\_CreateFromConnectionString**.
 
-Da mesma forma, ao terminar de trabalhar com a biblioteca, a última chamada que você fará é **serializer\_deinit**:
+Da mesma forma, ao terminar de trabalhar com a biblioteca, a última chamada que você fará será **serializer\_deinit**:
 
 ```
 serializer_deinit();
 ```
 
-Caso contrário, todos os outros recursos listados acima funcionarão da mesma forma na biblioteca do **serializador** e na biblioteca **IoTHubClient**. Para saber mais sobre qualquer um desses tópicos, confira o [artigo anterior](iot-hub-device-sdk-c-iothubclient.md) desta série.
+Caso contrário, todos os outros recursos listados acima funcionarão da mesma forma na biblioteca do **serializador** como na biblioteca **IoTHubClient**. Para obter mais informações sobre qualquer um desses tópicos, veja o [artigo anterior](iot-hub-device-sdk-c-iothubclient.md) desta série.
 
 ## Próximas etapas
 
-Este artigo apresenta detalhes sobre os aspectos exclusivos da biblioteca do **serializador** contida no **SDK do dispositivo IoT do Azure para C**. Com base nas informações fornecidas, você deverá ter uma boa compreensão de como usar modelos para enviar eventos e receber mensagens do Hub IoT.
+Este artigo descreve em detalhes os aspectos exclusivos da biblioteca do **serializador** contidos no **SDK do dispositivo IoT do Azure para o C**. Com base nas informações fornecidas, você deverá ter uma boa compreensão de como usar modelos para enviar eventos e receber mensagens do Hub IoT.
 
-Isso também conclui a série de três partes sobre como desenvolver aplicativos com o **SDK do dispositivo IoT do Azure para C**. Essas informações devem ser suficientes para começar, mas também proporcionam um entendimento muito detalhado do funcionamento das APIs. Para saber mais, há alguns exemplos no SDK não abordados aqui. Caso contrário, a [documentação do SDK](https://github.com/Azure/azure-iot-sdks) é um ótimo recurso para saber mais.
+Isso também conclui a série de três partes sobre como desenvolver aplicativos com o **SDK do dispositivo IoT do Azure para C**. Essas informações devem ser suficientes para começar, mas também proporcionam um entendimento muito detalhado do funcionamento das APIs. Para saber mais, há alguns exemplos no SDK não abordados aqui. Caso contrário, a [documentação do SDK](https://github.com/Azure/azure-iot-sdks) é um excelente recurso para obter mais informações.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

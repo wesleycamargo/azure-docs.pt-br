@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="08/10/2015" 
+	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
 #Conteúdo do SDK
@@ -41,4 +41,4 @@ Este documento lista e descreve o conteúdo do arquivo SDK.
 Outros arquivos são uma cópia das licenças de software.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

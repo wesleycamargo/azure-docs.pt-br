@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
 #Integração do SDK do Windows Phone Silverlight para o Engagement
@@ -35,7 +35,7 @@ O SDK do Mobile Engagement do Windows Silverlight só pode ser integrado a aplic
 -   Windows Phone 8.0
 -   Windows Phone 8.1 Silverlight
 
-> [AZURE.NOTE]Se o destino for o Windows Phone 8.1 (sem Silverlight), então consulte o [procedimento de integração do Windows Universal](mobile-engagement-windows-store-integrate-engagement.md).
+> [AZURE.NOTE] Se o destino for o Windows Phone 8.1 (sem Silverlight), então consulte o [procedimento de integração do Windows Universal](mobile-engagement-windows-store-integrate-engagement.md).
 
 ##Instalação do SDK do Silverlight do Mobile Engagement
 
@@ -95,7 +95,7 @@ Modifique o `App.xaml.cs`:
 		   EngagementAgent.Instance.OnActivated(e);
 		}
 
-> [AZURE.WARNING]Nós não recomendamos adicionar a inicialização do Engagement em outro lugar do seu aplicativo. No entanto, lembre-se que o método `EngagementAgent.Instance.Init` é executado em um thread dedicado e não no thread da interface do usuário.
+> [AZURE.WARNING] Nós não recomendamos adicionar a inicialização do Engagement em outro lugar do seu aplicativo. No entanto, lembre-se que o método `EngagementAgent.Instance.Init` é executado em um thread dedicado e não no thread da interface do usuário.
 
 ##Relatórios básicos
 
@@ -137,7 +137,7 @@ Modifique o arquivo `.xaml.cs` de paginação :
 		  }
 		}
 
-> [AZURE.WARNING]Se sua página herdar o método `OnNavigatedTo`, lembre-se de permitir a chamada `base.OnNavigatedTo(e)`. Caso contrário, a atividade não será registrada. Na verdade, o `EngagementPage` está chamando `StartActivity` dentro do método `OnNavigatedTo`.
+> [AZURE.WARNING] Se sua página herdar o método `OnNavigatedTo`, lembre-se de permitir a chamada `base.OnNavigatedTo(e)`. Caso contrário, a atividade não será registrada. Na verdade, o `EngagementPage` está chamando `StartActivity` dentro do método `OnNavigatedTo`.
 
 #### Arquivo XAML
 
@@ -199,7 +199,7 @@ Se você não pode ou não quer sobrecarregar as classes `PhoneApplicationPage`,
 		   EngagementAgent.Instance.StartActivity("MyPage");
 		}
 
-> [AZURE.IMPORTANT]Certifique-se de encerrar a sua sessão corretamente.
+> [AZURE.IMPORTANT] Certifique-se de encerrar a sua sessão corretamente.
 >
 > O SDK do iOS chama automaticamente o método `EndActivity` quando o aplicativo é fechado. Portanto, é **ALTAMENTE** recomendado chamar o método `StartActivity` sempre que a atividade do usuário for alterada e **NUNCA** chamar o método `EndActivity`. Esse método envia uma mensagem para o servidor Engagement que o usuário atual tenha deixado o aplicativo e isso afeta todos os logs de aplicativo.
 
@@ -215,7 +215,7 @@ Para obter mais informações, consulte [Como usar a API de marcação avançada
 
 Você pode desabilitar a recurso relatório de falhas automático do Engagement. Então, quando uma exceção não tratada ocorrer, o Engagement não fará nada.
 
-> [AZURE.WARNING]Se você planeja desabilitar esse recurso, lembre-se de que, quando uma falha não tratada ocorrer em seu aplicativo, o Engagement não enviará a falha **E** ele não fechará a sessão e trabalhos.
+> [AZURE.WARNING] Se você planeja desabilitar esse recurso, lembre-se de que, quando uma falha não tratada ocorrer em seu aplicativo, o Engagement não enviará a falha **E** ele não fechará a sessão e trabalhos.
 
 Para desativar o relatório de falhas automático, apenas personalize a configuração dependendo de como você o declarou :
 
@@ -244,7 +244,7 @@ O argumento é um valor em **milissegundos**. A qualquer momento, se você desej
 
 O modo de intermitência aumenta ligeiramente a vida útil da bateria, mas tem um impacto no Monitor do Engagement: a duração de todas as sessões e trabalhos será arredondada para o limite de intermitência (portanto, as sessões e trabalhos mais curtos do que o limite de intermitência podem não estar visíveis). É recomendável usar um limite de intermitência não maior que 30.000 (30s). Você deve estar ciente de que os logs salvos são limitados a 300 itens. Se o envio for muito longo, você poderá perder alguns logs.
 
-> [AZURE.WARNING]O limite de intermitência não pode ser configurado para um período menor que um segundo. Se você tentar fazer isso, o SDK mostrará um rastreamento com o erro e será redefinido automaticamente como o valor padrão, que é de, zero segundo. Isso irá disparar o SDK para relatar os logs em tempo real.
+> [AZURE.WARNING] O limite de intermitência não pode ser configurado para um período menor que um segundo. Se você tentar fazer isso, o SDK mostrará um rastreamento com o erro e será redefinido automaticamente como o valor padrão, que é de, zero segundo. Isso irá disparar o SDK para relatar os logs em tempo real.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

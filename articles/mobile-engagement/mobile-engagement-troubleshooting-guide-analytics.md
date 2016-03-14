@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="06/18/2015"
+   ms.date="02/29/2016"
    ms.author="piyushjo"/>
 
 # Guia de solução para problemas de Análise, Monitoramento, Segmentação e Painel
@@ -65,4 +65,4 @@ Estes são os possíveis problemas que podem ser encontrados em como o Mobile En
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

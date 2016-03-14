@@ -117,7 +117,8 @@ Uma série de recursos do Active Directory do Azure está disponível por meio d
 
 
 
-<br> <hr>
+<br>
+<hr>
 ## Recursos comuns
 #### Objetos do diretório 
 
@@ -152,7 +153,8 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 - [Visão geral do registro de dispositivos do Active Directory do Azure](active-directory-conditional-access-device-registration-overview.md)
 
 
-<br> <hr>
+<br>
+<hr>
 #### SSO (Logon único)
 
 **Tipo:** recursos comuns
@@ -172,7 +174,8 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 - [Gerenciando aplicativos com o AD do Azure (Active Directory do Azure)](active-directory-enable-sso-scenario.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Alteração de senhas por autoatendimento para usuários de nuvem
 
 **Tipo:** recursos comuns
@@ -188,7 +191,8 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 - [Como atualizar sua própria senha](active-directory-passwords-update-your-own-password.md)
 
 
-<br> <hr>
+<br>
+<hr>
 #### Connect (Mecanismo de sincronização que amplia os diretórios locais para o Active Directory do Azure) 
 
 **Tipo:** recursos comuns
@@ -204,7 +208,8 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 - [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Relatórios de segurança/uso
 
 **Tipo:** recursos comuns
@@ -220,7 +225,8 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 - [Exibir relatórios de acesso e uso](active-directory-view-access-usage-reports.md)
 
-<br> <hr>
+<br>
+<hr>
 
 ## Recursos básicos e Premium
 #### Gerenciamento/provisionamento de acesso baseado em grupos
@@ -238,7 +244,8 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 - [Uso de um grupo para gerenciar o acesso a aplicativos SaaS](active-directory-accessmanagement-group-saasapps.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Redefinição de Senha por Autoatendimento para usuários de nuvem
 
 **Tipo:** recursos básicos
@@ -254,7 +261,8 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 - [Redefinição de senha do AD do Azure para usuários e administradores](active-directory-passwords.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Identidade visual da empresa (Páginas de logon/Personalização do painel de acesso)
 
 **Tipo:** recursos básicos
@@ -270,7 +278,8 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 - [Adicionar identidade visual da empresa às páginas de Entrada e do Painel de acesso](active-directory-add-company-branding.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Proxy de Aplicativo
 
 **Tipo:** recursos básicos
@@ -286,7 +295,8 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 - [Como fornecer acesso remoto seguro a aplicativos locais](active-directory-application-proxy-get-started.md)
 
-<br> <hr>
+<br>
+<hr>
 #### SLA de 99,9%
 
 **Tipo:** recursos básicos
@@ -302,7 +312,8 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 - [Contratos de Nível de Serviço](https://azure.microsoft.com/support/legal/sla/)
 
-<br> <hr>
+<br>
+<hr>
 
 ## Recursos premium
 #### Gerenciamento de grupo de autoatendimento/Adições de aplicativo de autoatendimento/ Grupos dinâmicos
@@ -350,7 +361,8 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 - [O que é o Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
 
-<br> <hr>
+<br>
+<hr>
 #### CAL MIM + Servidor MIM 
 
 Direitos de software de servidor Microsoft Identity Manager são concedidos com licenças do Windows Server (qualquer edição). Como o Microsoft Identity Manager é executado no Sistema Operacional do Windows Server, desde que o servidor esteja executando uma cópia válida e licenciada do Windows Server, o Microsoft Identity Manager pode ser instalado e utilizado nesse servidor. Nenhuma outra licença separada é necessária para o servidor do Microsoft Identity Manager.
@@ -383,7 +395,8 @@ Direitos de software de servidor Microsoft Identity Manager são concedidos com 
 
 - [Encontrando aplicativos em nuvem não gerenciados com o Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Connect Health
 
 **Tipo:** recursos premium
@@ -399,7 +412,8 @@ Direitos de software de servidor Microsoft Identity Manager são concedidos com 
 
 - [Monitorar infraestrutura de identidade local e serviços de sincronização na nuvem](active-directory-aadconnect-health.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Substituição automática de senha para contas de grupo
 
 **Tipo:** recursos premium
@@ -412,7 +426,8 @@ Direitos de software de servidor Microsoft Identity Manager são concedidos com 
 | | | ![Verificação][12]| |
 
 
-<br> <hr>
+<br>
+<hr>
 ## Ingresso do Active Directory do Azure - apenas para recursos relacionados ao Windows 10
 #### Adicione um dispositivo para AD do Azure, Desktop SSO, Microsoft Passport para AD do Azure, recuperação do Administrator Bitlocker
 
@@ -448,10 +463,11 @@ Além dos recursos disponíveis das edições Gratuita, Básico e Premium, o AD 
 **Recursos de visualização disponíveis:**
 
 - [Colaboração B2B](active-directory-b2b-collaboration-overview.md)
-- Acesso Condicional
 - [Unidades Administrativas](active-directory-administrative-units-management.md)
 - Privileged Identity Management
 - [Integração de aplicativo de RH](active-directory-saas-workday-inbound-tutorial.md)
+- [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
+- [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
 
 
@@ -467,4 +483,4 @@ Além dos recursos disponíveis das edições Gratuita, Básico e Premium, o AD 
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

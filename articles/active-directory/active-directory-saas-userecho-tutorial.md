@@ -120,9 +120,9 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no Portal cl
 
     a. Para **Habilitado para SAML**, selecione **Sim**.
 
-    b. No Portal clássico do Azure, na caixa de diálogo **Configurar logon único em UserEcho**, copie o valor de **URL de serviço de logon único** e cole-o. Abra seu certificado baixado no Bloco de notas, copie o conteúdo e cole-o na caixa de texto **URL SSO de SAML**.
+    b. No portal clássico do Azure, na página do diálogo Configurar logon único no UserEcho, copie o valor da **URL de Serviço de Logon Único** e cole-o na caixa de texto **URL de SSO de SAML**.
 
-    c. No Portal clássico do Azure, na página do diálogo **Configurar logon único no UserEcho**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL de Logoff Remoto**.
+    c. No portal clássico do Azure, na página do diálogo Configurar logon único no UserEcho, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL de logoff remoto**.
 
     d. Abra o certificado baixado no Bloco de Notas, copie o conteúdo e cole-o na caixa de texto **Certificado X.509**.
 
@@ -253,4 +253,4 @@ O objetivo desta seção é testar sua configuração de logon único do AD do A
 [204]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

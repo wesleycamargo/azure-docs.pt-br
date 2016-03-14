@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="02/25/2016"
 	ms.author="spelluru"/>
 
 # Mover dados para e do Repositório Data Lake do Azure usando o Azure Data Factory
@@ -417,11 +417,10 @@ O código de autorização gerado usando o botão **Autorizar** expira após alg
 
 | Tipo de usuário | Expira após |
 | :-------- | :----------- | 
-| Usuário não AAD (@hotmail.com, @live.com, etc.) | 12 horas |
-| O usuário do AAD e a fonte baseada no OAuth estão em um [locatário](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) diferente do locatário do data factory. | 12 horas |
-| O usuário do AAD e a fonte baseada no OAuth estão no mesmo locatário que o locatário do data factory. | 14 dias |
+| Contas de usuários NÃO gerenciadas pelo Azure Active Directory (@hotmail.com, @live.com, etc.) | 12 horas |
+| Contas de usuários gerenciadas pelo AAD (Azure Active Directory) | | 14 dias após a última execução da fatia. <p>90 dias, caso uma fatia baseada em um serviço vinculado do OAuth seja executada, pelo menos, uma vez a cada 14 dias.</p> |
 
-Para evitar/resolver o erro, você precisará autorizar novamente usando o botão **Autorizar** quando o **token expirar** e reimplantar o serviço vinculado. Você também pode gerar valores para as propriedades **sessionId** e **authorization** programaticamente usando o código na seção a seguir.
+Para evitar/resolver esse erro, você precisará autorizar novamente usando o botão **Autorizar** quando o **token expirar** e reimplantar o serviço vinculado. Também é possível gerar valores para as propriedades **sessionId** e **authorization** de forma programática usando o código mostrado na seção a seguir.
 
 ### Para gerar valores sessionId e authorization programaticamente 
 
@@ -448,7 +447,7 @@ Para evitar/resolver o erro, você precisará autorizar novamente usando o botã
         }
     }
 
-Confira os tópicos [Classe AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [Classe AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) e [Classe AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) para obter detalhes sobre as classes do Data Factory usadas no código. Você precisa adicionar uma referência a: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll para a classe WindowsFormsWebAuthenticationDialog.
+Veja os tópicos [Classe AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [Classe AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) e [Classe AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) para obter detalhes sobre as classes do Data Factory usadas no código. Você precisa adicionar uma referência a: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll para a classe WindowsFormsWebAuthenticationDialog.
  
 
 ## Propriedades de tipo de Conjunto de Dados do Azure Data Lake
@@ -460,10 +459,10 @@ A seção **typeProperties** é diferente para cada tipo de conjunto de dados e 
 | Propriedade | Descrição | Obrigatório |
 | :-------- | :----------- | :-------- |
 | folderPath | Caminho para o contêiner e a pasta no repositório do Azure Data Lake. | Sim |
-| fileName | <p>Nome do arquivo no repositório do Azure Data Lake. fileName é opcional. </p><p>Se você especificar um nome de arquivo, a atividade (incluindo a cópia) funciona no arquivo específico.</p><p>Quando fileName não for especificado, a cópia incluirá todos os arquivos em folderPath no conjunto de dados de entrada.</p><p>Quando fileName não for especificado para um conjunto de dados de saída, o nome do arquivo gerado estaria no seguinte formato: Data.<Guid>.txt (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | Não |
+| fileName | <p>Nome do arquivo no repositório Azure Data Lake. fileName é opcional e diferencia maiúsculas de minúsculas. </p><p>Se você especificar um nome de arquivo, a atividade (incluindo a cópia) funciona no arquivo específico.</p><p>Quando fileName não for especificado, a cópia incluirá todos os arquivos em folderPath no conjunto de dados de entrada.</p><p>Quando fileName não for especificado para um conjunto de dados de saída, o nome do arquivo gerado estaria no seguinte formato: Data.<Guid>.txt (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | Não |
 | partitionedBy | partitionedBy é uma propriedade opcional. Você pode usá-lo para especificar um folderPath dinâmico e o nome de arquivo para dados de série temporal. Por exemplo, folderPath pode ser parametrizado para cada hora dos dados. Consulte Utilizando a seção da propriedade partitionedBy abaixo para obter detalhes e exemplos. | Não |
 | formato | Há suporte para dois tipos de formatos: **TextFormat**, **AvroFormat**. Você precisa definir a propriedade de tipo em formato para qualquer um desses valores. Quando o formato for TextFormat, você pode especificar as propriedades opcionais adicionais para o formato. Consulte a seção [Especificando TextFormat](#specifying-textformat) abaixo para obter mais detalhes. | Não |
-| compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos com suporte são: **GZip**, **Deflate** e **BZip2** e os níveis com suporte são: **Melhor** e **Mais rápido**. Observe que não há suporte para configurações de compactação de dados no **AvroFormat** neste momento. Consulte a seção [Suporte à compactação](#compression-support) para obter mais detalhes. | Não |
+| compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos com suporte são: **GZip**, **Deflate** e **BZip2**. Os níveis com suporte são: **Ideal** e **Mais rápido**. Observe que, no momento, não há suporte para configurações de compactação de dados no **AvroFormat**. Consulte a seção [Suporte à compactação](#compression-support) para obter mais detalhes. | Não |
 
 ### Utilizando a propriedade partitionedBy
 Conforme mencionado acima, você pode especificar um folderPath dinâmico e o nome de arquivo para dados de série temporal com a seção **partitionedBy**, macros de Data Factory e variáveis do sistema: SliceStart e SliceEnd, que indicam as horas de início e término para uma fatia de dados determinada.
@@ -608,4 +607,4 @@ Propriedades disponíveis na seção typeProperties da atividade, por outro lado
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

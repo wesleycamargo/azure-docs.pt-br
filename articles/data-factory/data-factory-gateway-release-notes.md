@@ -22,8 +22,13 @@ Um dos desafios da integração de dados moderna é mover dados continuamente pa
 
 Confira o artigo [Como mover dados entre o local e a nuvem usando o Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md) para obter mais informações.
 
+## Versão atual (1.10.5892.1)
 
-## Versão atual (1.9.5865.2)
+• Melhorias de desempenho • Correções de bug
+
+## Versões anteriores
+
+## 1\.9.5865.2
 
 - Capacidade de atualização automática zero touch
 - Novo ícone de bandeja com indicadores de status do gateway
@@ -32,9 +37,6 @@ Confira o artigo [Como mover dados entre o local e a nuvem usando o Azure Data F
 - Script do PowerShell para ativar/desativar a atualização automática 
 - Aprimoramentos de desempenho
 - Correções de bug
-
-
-## Versões anteriores
 
 ## 1\.8.5822.1
 
@@ -132,4 +134,4 @@ Confira o artigo [Como mover dados entre o local e a nuvem usando o Azure Data F
 ### Por que o Gerenciador de Fonte de Dados está tentando se conectar a um gateway?
 Esse é um design de segurança em que você só pode configurar fontes de dados locais para acesso à nuvem na rede corporativa, e suas credenciais não fluirão para fora do firewall corporativo. Verifique se o seu computador pode acessar o computador em que o gateway está instalado.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

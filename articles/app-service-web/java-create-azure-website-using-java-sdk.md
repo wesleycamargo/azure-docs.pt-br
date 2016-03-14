@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="02/25/2016" 
 	ms.author="v-donntr"/>
 
 
@@ -541,7 +541,14 @@ Outra ferramenta que você pode usar para publicar o aplicativo é o FileZilla, 
 1. No FileZilla, clique em **Arquivo > Gerenciador de Site**.
 2. Na caixa de diálogo **Gerenciador de Sites**, clique em **Novo Site**. Um novo site FTP em branco aparecerá em **Selecionar Entrada**, solicitando que você forneça um nome. Para este procedimento, nomeie-o como `AzureWebDemo-FTP`.
 
-    Na guia **Geral**, especifique as seguintes configurações: - **Host:** insira o **nome do Host FTP** que você copiou do painel. - **Porta:** (deixe isso em branco, já que se trata de uma transferência passiva e o servidor determinará a porta a ser usada.) - **Protocolo:** protocolo de transferência de arquivos FTP - **Criptografia:** usar FTP simples - **Tipo de Logon:** normal - **Usuário:** insira o usuário de implantação/FTP que você copiou do painel. Isso é o nome de usuário FTP completo, que tem o formato *nomedoaplicativoWeb\\nomedeusuário*. - **Senha:** digite a senha que você especificou quando definiu as credenciais de implantação.
+    Na guia **Geral**, especifique as seguintes configurações:
+    - **Host:** insira o **Nome de Host do FTP** que você copiou do painel.
+    - **Porta:** (deixe isso em branco, já que se trata de uma transferência passiva e o servidor determinará a porta a ser usada.)
+    - **Protocolo:** protocolo FTP
+    - **Criptografia:** usar FTP simples
+    - **Tipo de Logon:** normal
+    - **Usuário:** insira o usuário de implantação/FTP que você copiou do painel. Esse é o nome de usuário de FTP completo, que tem o formato *nomedoaplicativoweb\\nomedeusuário*.
+    - **Senha:** insira a senha especificada ao definir as credenciais da implantação.
 
     Na guia **Configurações de Transferência**, selecione **Passiva**.
 
@@ -594,10 +601,10 @@ Este procedimento cria um aplicativo Web do Serviço de Aplicativo. Você será 
 [Kit de Ferramentas do Azure para Eclipse]: https://msdn.microsoft.com/library/azure/hh690946.aspx
 [portal clássico do Azure]: https://manage.windowsazure.com
 [O que é um diretório do AD do Azure]: http://technet.microsoft.com/library/jj573650.aspx
-[Criar e Carregar um Certificado de Gerenciamento para o Azure]: http://msdn.microsoft.com/library/azure/gg551722.aspx
+[Criar e Carregar um Certificado de Gerenciamento para o Azure]: ../cloud-services/cloud-services-certs-create.md
 [Chave e Ferramenta de Gerenciamento de Certificado (keytool)]: http://docs.oracle.com/javase/6/docs/technotes/tools/windows/keytool.html
-[WebSiteManagementClient]: http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/WebSiteManagementClient.html
+[WebSiteManagementClient]: http://azure.github.io/azure-sdk-for-java/com/microsoft/azure/management/websites/WebSiteManagementClient.html
 [WebSpaceNames]: http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/models/WebSpaceNames.html
 [Portal do Azure]: https://portal.azure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

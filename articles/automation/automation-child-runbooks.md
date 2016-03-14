@@ -3,7 +3,7 @@
    description="Descreve os diferentes métodos para iniciar um runbook na Automação do Azure de outro runbook e compartilhar informações entre eles."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
 <tags 
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/18/2016"
+   ms.date="02/23/2016"
    ms.author="magoedte;bwren" />
 
 # Runbooks filhos na Automação do Azure
@@ -94,4 +94,4 @@ A tabela a seguir resume as diferenças entre os dois métodos para chamar um ru
 - [Como iniciar um Runbook na Automação do Azure](automation-starting-a-runbook.md)
 - [Saída de runbook e mensagens na Automação do Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

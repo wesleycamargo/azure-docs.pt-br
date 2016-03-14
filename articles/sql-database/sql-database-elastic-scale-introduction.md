@@ -21,7 +21,7 @@
 Os recursos do **Banco de Dados Elástico** permitem que você use os recursos de banco de dados praticamente ilimitados do **Banco de Dados SQL do Azure** para criar soluções para cargas de trabalho transacionais e, especialmente, aplicativos SaaS (software como serviço). Recursos do Banco de Dados Elástico são compostos pelo seguinte:
 
 * Ferramentas do Banco de Dados Elástico: estas duas ferramentas simplificam o desenvolvimento e o gerenciamento de soluções de banco de dados fragmentado. As ferramentas são: [biblioteca do cliente do Banco de Dados Elástico](sql-database-elastic-database-client-library.md) e [ferramenta de divisão e mesclagem do Banco de Dados Elástico](sql-database-elastic-scale-overview-split-and-merge.md). 
-* [Pools de Banco de Dados Elástico](sql-database-elastic-pool-guidance.md) (visualização): um pool é uma coleção de bancos de dados aos quais você pode adicionar ou remover bancos de dados a qualquer momento. Os bancos de dados no pool compartilham uma quantidade fixa de recursos (conhecidos como DTUs (unidades de taxa de transferência de banco de dados)). Você paga um preço fixo pelos recursos, o que permite facilmente calcular os custos enquanto também gerencia o desempenho. 
+* [Pools de Banco de Dados Elástico](sql-database-elastic-pool-guidance.md) (visualização): um pool é uma coleção de bancos de dados aos quais você pode adicionar ou remover bancos de dados a qualquer momento. Os bancos de dados no pool compartilham uma quantidade fixa de recursos (conhecidos como DTUs, Unidades de Transação de Banco de Dados). Você paga um preço fixo pelos recursos, o que permite facilmente calcular os custos enquanto também gerencia o desempenho. 
 * [Trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-overview.md) (visualização): use trabalhos para gerenciar um grande número de bancos de dados SQL do Azure. Execute operações administrativas facilmente, alterações de esquema, gerenciamento de credenciais, atualizações de dados de referência, desempenho de coleta de dados ou coleção de telemetria do locatário (cliente), usando trabalhos.
 * [Consulta do Banco de Dados Elástico](sql-database-elastic-query-overview.md) (visualização): permite executar uma consulta Transact-SQL que abranja vários bancos de dados. Isso possibilita a conexão com ferramentas de relatório, como Excel, PowerBI, Tableau, etc.
 
@@ -108,4 +108,4 @@ O que podemos aperfeiçoar? Este tópico explica o recurso de maneira clara? Ou 
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

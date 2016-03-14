@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="CDN - Analisar o desempenho de borda" 
-	description="Analisar o desempenho do nó de borda no CDN do Microsoft Azure A análise de desempenho de borda fornece informações detalhadas de uso de tráfego e largura de banda para o CDN." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="CDN - Analisar o desempenho de borda"
+	description="Analisar o desempenho do nó de borda no CDN do Microsoft Azure A análise de desempenho de borda fornece informações detalhadas de uso de tráfego e largura de banda para o CDN."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016"
 	ms.author="casoper"/>
 
 # Analisar o desempenho do nó de borda no CDN do Microsoft Azure
@@ -21,7 +21,7 @@
 ## Visão geral
 A análise de desempenho de borda fornece informações detalhadas de uso de tráfego e largura de banda para o CDN. Essas informações, em seguida, podem ser usadas para gerar estatísticas de tendências, que permitem que você obtenha mais informações sobre como os seus ativos estão sendo armazenados em cache e entregues aos clientes. Por sua vez, isso permite que você forme uma estratégia sobre como otimizar a entrega de conteúdo e determinar quais problemas devem ser resolvidos para aproveitar melhor o CDN. Como resultado, não só será possível melhorar o desempenho de entrega de dados, mas você também poderá reduzir os custos com CDN.
 
-> [AZURE.NOTE]A análise de desempenho de borda é um recurso da camada Premium CDN. Para obter uma comparação dos recursos de CDN Standard e Premium, confira [Visão geral da CDN do Azure](cdn-overview.md).
+> [AZURE.NOTE] A análise de desempenho de borda é um recurso da camada Premium CDN. Para obter uma comparação dos recursos de CDN Standard e Premium, confira [Visão geral da CDN do Azure](cdn-overview.md).
 >
 > Todos os relatórios usam notação UTC/GMT, ao especificar um valor de data/hora.
 
@@ -29,7 +29,7 @@ A análise de desempenho de borda fornece informações detalhadas de uso de tr�
 
 Os dados de atividade CDN devem ser coletados pelo módulo de análise de desempenho de borda antes que ele possa gerar relatórios sobre os mesmos. Esse processo de coleta ocorre uma vez por dia e abrange a atividade que ocorreu durante o dia anterior. Isso significa que as estatísticas do relatório representam uma amostra das estatísticas do dia quando ele foi processado e não necessariamente contém o conjunto completo de dados para o dia atual. A principal função desses relatórios é avaliar o desempenho. Eles não devem ser usados para fins de cobrança ou estatísticas numéricas exatas.
 
-> [AZURE.NOTE]Os dados brutos do qual são gerados relatórios de análise de desempenho de borda ficam disponíveis por pelo menos 90 dias.
+> [AZURE.NOTE] Os dados brutos do qual são gerados relatórios de análise de desempenho de borda ficam disponíveis por pelo menos 90 dias.
 
 ## Painel
 
@@ -46,11 +46,11 @@ Este painel consiste em:
 1. Na folha do perfil do CDN, clique no botão **Gerenciar**.
 
 	![Botão gerenciar da folha Perfil CDN](./media/cdn-edge-performance/cdn-manage-btn.png)
-	
+
 	O portal de gerenciamento da CDN é aberto.
-	
+
 2. Passe com a seta do mouse sobre a guia **Análise** e, em seguida, sobre o submenu **Análise de desempenho de borda**. Clique em **Painel**.
-	
+
 	O painel de análise de nó de borda é exibido.
 
 ### Gráfico
@@ -98,7 +98,7 @@ O objetivo dessas métricas é fornecer informações sobre as seguintes medidas
 * Minimizar os custos operacionais por meio do CDN.
 * Reduzir as despesas com CDN por meio de eficiência de cache e compactação.
 
-> [AZURE.NOTE]OS números de volume de tráfego representam o tráfego que foi usado em cálculos de razões e porcentagens e pode mostrar apenas uma parte do tráfego total para clientes de grande volume.
+> [AZURE.NOTE] OS números de volume de tráfego representam o tráfego que foi usado em cálculos de razões e porcentagens e pode mostrar apenas uma parte do tráfego total para clientes de grande volume.
 
 Campo | Descrição
 ------|------------
@@ -143,13 +143,13 @@ Cada relatório neste módulo contém um gráfico e as estatísticas de uso de l
 1. Na folha do perfil do CDN, clique no botão **Gerenciar**.
 
 	![Botão gerenciar da folha Perfil CDN](./media/cdn-edge-performance/cdn-manage-btn.png)
-	
+
 	O portal de gerenciamento da CDN é aberto.
-	
+
 2. Passe com a seta do mouse sobre a guia **Análise** e, em seguida, sobre o submenu **Análise de desempenho de borda**. Clique em **Objeto grande de HTTP**.
-	
+
 	A tela de relatórios de análise de nó de borda é exibido.
-	
+
 Relatório | Descrição
 -------|------------
 Resumo diário | Permite que você veja tendências diárias de tráfego em um período de tempo especificado. Cada barra no gráfico representa uma data específica. O tamanho da barra indica o número total de ocorrências que ocorreram nessa data.
@@ -157,7 +157,7 @@ Resumo por hora | Permite que você veja tendências de tráfego por hora em um 
 Protocolos | Exibe a análise de tráfego entre os protocolos HTTP e HTTPS. Um gráfico de rosca indica a porcentagem de acertos que ocorreu para cada tipo de protocolo.
 Métodos HTTP | Permite que você obtenha uma ideia de quais métodos HTTP estão sendo usados para solicitar seus dados. Normalmente, os métodos de solicitação HTTP mais comuns são GET, HEAD e POST. Um gráfico de rosca indica a porcentagem de acertos que ocorreu para cada tipo de método de solicitação de HTTP.
 URLs | Contém um gráfico que exibe as 10 principais URLs solicitadas. É exibida uma barra para cada URL. A altura da barra indica quantas ocorrências aquela URL específica gerou ao longo do tempo coberto pelo relatório. As estatísticas das 100 URLs mais solicitadas são exibidas diretamente abaixo desse gráfico.
-CNAMEs | Contém um gráfico que exibe os 10 principais CNAMEs usados para solicitar ativos ao longo do tempo de um relatório. As estatísticas dos 100 CNAMEs mais solicitados são exibidos diretamente abaixo desse gráfico. 
+CNAMEs | Contém um gráfico que exibe os 10 principais CNAMEs usados para solicitar ativos ao longo do tempo de um relatório. As estatísticas dos 100 CNAMEs mais solicitados são exibidos diretamente abaixo desse gráfico.
 Origens | Contém um gráfico que exibe os 10 principais ou servidores de origem do cliente ou CDN dos quais os ativos foram solicitados por um período de tempo especificado. As estatísticas dos 100 servidores de origem do cliente ou CDN mais solicitados são exibidos diretamente abaixo desse gráfico. Os servidores de origem do cliente são identificados pelo nome definido na opção de Nome de diretório.
 POPs geográficos | Mostra a quantidade do tráfego que está sendo roteado por meio de um determinado ponto-de-presença (POP). A abreviação de três letras representa um POP em nossa rede CDN.
 Clientes | Contém um gráfico que exibe os 10 principais clientes que solicitaram ativos durante um período de tempo especificado. Para os fins deste relatório, todas as solicitações originadas do mesmo endereço IP são consideradas como sendo do mesmo cliente. As estatísticas dos 100 clientes mais solicitados são exibidas diretamente abaixo desse gráfico. Este relatório é útil para determinar os padrões de atividade de download para os principais clientes.
@@ -192,4 +192,4 @@ Erros 5xx | Contém um gráfico de barras que permite que você visualize as 10 
 * [Substituindo o comportamento HTTP padrão usando o mecanismo de regras](cdn-rules-engine.md)
 * [Relatórios avançados de HTTP](cdn-advanced-http-reports.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

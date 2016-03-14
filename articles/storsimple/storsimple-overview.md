@@ -26,7 +26,7 @@ O StorSimple usa [armazenamento em camadas](#automatic-storage-tiering) para ger
 
 Com a Atualização 2 do StorSimple, é possível identificar volumes apropriados como *fixados localmente*, para garantir que os dados principais permaneçam locais para o dispositivo e não em camadas para a nuvem. Isso permite executar cargas de trabalho que são sensíveis à latência da nuvem, como cargas de trabalho SQL e de máquina virtual, em volumes fixados localmente, ao mesmo tempo que continua usando a nuvem para o backup. Para obter mais informações sobre volumes fixados localmente, veja [Usar o serviço do StorSimple Manager para gerenciar volumes](storsimple-manage-volumes-u2.md).
 
-A Atualização 2 também permite que você crie dispositivos virtuais do StorSimple que aproveitam as baixas latências e o alto desempenho fornecidos pelo armazenamento premium do Azure. Para obter mais informações sobre os dispositivos virtuais premium do StorSimple, veja [Implantar e gerenciar um dispositivo virtual do StorSimple no Azure](storsimple-virtual-device-u1.md). Para saber mais sobre o armazenamento premium do Azure, confira [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho de máquina virtual do Azure](../storage/storage-premium-storage-preview-portal.md).
+A Atualização 2 também permite que você crie dispositivos virtuais do StorSimple que aproveitam as baixas latências e o alto desempenho fornecidos pelo armazenamento premium do Azure. Para obter mais informações sobre os dispositivos virtuais premium do StorSimple, veja [Implantar e gerenciar um dispositivo virtual do StorSimple no Azure](storsimple-virtual-device-u1.md). Para saber mais sobre o armazenamento premium do Azure, confira [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho de máquina virtual do Azure](../storage/storage-premium-storage.md).
 
 Além do gerenciamento de armazenamento, os recursos de proteção de dados do StorSimple permitem que você crie backups agendados e sob demanda e os armazene localmente ou na nuvem. Os backups são realizados na forma de instantâneos incrementais, o que significa que eles podem ser criados e restaurados rapidamente. Os instantâneos em nuvem podem ser extremamente importantes em cenários de recuperação de desastres, pois substituem os sistemas de armazenamento secundário (como backup em fita) e permitem restaurar dados para o data center ou para locais alternativos, se necessário.
 
@@ -99,7 +99,7 @@ O dispositivo virtual tem os seguintes recursos:
 - Você pode criar uma quantidade ilimitada de dispositivos virtuais na nuvem e ativá-los ou desativá-los como o necessário. 
 - Ele pode ajudar a simular ambientes locais em cenários de recuperação de desastre, de desenvolvimento ou teste, e pode ajudar na recuperação no nível do item de backups. 
 
-Com a Atualização 2 e posterior, o dispositivo virtual do StorSimple está disponível em dois modelos: o dispositivo 8010 (anteriormente conhecido como o modelo 1100) e o 8020. O dispositivo 8010 tem uma capacidade máxima de 30 TB. O dispositivo 8020, que usa o armazenamento premium do Azure, tem uma capacidade máxima de 64 TB. (O armazenamento premium do Azure armazena dados em SSDs, enquanto o armazenamento padrão armazena dados em HDDs.) Observe que você deve ter uma conta de armazenamento premium do Azure para usar o armazenamento premium. Para saber mais sobre o armazenamento premium, confira [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho de máquina virtual do Azure](../storage/storage-premium-storage-preview-portal.md).
+Com a Atualização 2 e posterior, o dispositivo virtual do StorSimple está disponível em dois modelos: o dispositivo 8010 (anteriormente conhecido como o modelo 1100) e o 8020. O dispositivo 8010 tem uma capacidade máxima de 30 TB. O dispositivo 8020, que usa o armazenamento premium do Azure, tem uma capacidade máxima de 64 TB. (O armazenamento premium do Azure armazena dados em SSDs, enquanto o armazenamento padrão armazena dados em HDDs.) Observe que você deve ter uma conta de armazenamento premium do Azure para usar o armazenamento premium. Para saber mais sobre o armazenamento premium, confira [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho de máquina virtual do Azure](../storage/storage-premium-storage.md).
 
 Para obter mais informações sobre o dispositivo virtual do StorSimple, vá para [Implantar e gerenciar um dispositivo virtual do StorSimple no Azure](storsimple-virtual-device-u1.md).
 
@@ -177,7 +177,7 @@ O Microsoft Azure StorSimple organiza os dados em camadas lógicas com base no u
 
 Para habilitar o acesso rápido, o StorSimple armazena dados muito ativos (dados mais acessados) em SSDs no dispositivo StorSimple. Ele armazena os dados que são usados ocasionalmente (dados menos acessados) em HDDs no dispositivo ou em servidores no data center. Ele move para a nuvem dados inativos, dados de backup e dados guardados para fins de arquivamento ou conformidade.
 
->[AZURE.NOTE]Na Atualização 2 ou posterior, é possível especificar um volume fixado localmente; neste caso, os dados permanecem no dispositivo local e não em camadas na nuvem.
+>[AZURE.NOTE] Na Atualização 2 ou posterior, é possível especificar um volume fixado localmente; neste caso, os dados permanecem no dispositivo local e não em camadas na nuvem.
 
 O StorSimple ajusta e reorganiza as atribuições de dados e armazenamento conforme os padrões de uso mudam. Por exemplo, algumas informações poderão ficar menos ativas ao longo do tempo. Conforme ficam cada vez menos ativas, elas são migradas de SSDs para HDDs e, em seguida, para a nuvem. Se esses mesmos dados ficarem ativos novamente, eles serão migrados para o dispositivo de armazenamento.
 
@@ -195,7 +195,7 @@ O processo de armazenamento em camadas ocorre da seguinte maneira:
 
 Provisionamento dinâmico é uma tecnologia de virtualização em que o armazenamento disponível parece exceder os recursos físicos. Em vez de reservar armazenamento suficiente com antecedência, o StorSimple usa o provisionamento dinâmico para alocar espaço suficiente para atender às necessidades atuais. A natureza elástica de armazenamento em nuvem facilita essa abordagem porque o StorSimple pode aumentar ou diminuir o armazenamento em nuvem para atender às demandas de mudança.
 
->[AZURE.NOTE]Os volumes fixados localmente não são provisionados de modo dinâmico. O armazenamento alocado para um volume somente local é provisionado em sua totalidade durante a criação do volume.
+>[AZURE.NOTE] Os volumes fixados localmente não são provisionados de modo dinâmico. O armazenamento alocado para um volume somente local é provisionado em sua totalidade durante a criação do volume.
 
 ### Eliminação de duplicação e compactação
 
@@ -203,7 +203,7 @@ O Microsoft Azure StorSimple usa eliminação de duplicação e compactação de
 
 A eliminação de duplicação reduz a quantidade geral de dados armazenados, eliminando a redundância no conjunto de dados armazenado. Conforme as informações mudam, o StorSimple ignora os dados inalterados e captura apenas as alterações. Além disso, o StorSimple reduz a quantidade de dados armazenados ao identificar e remover informações desnecessárias.
 
->[AZURE.NOTE]Os dados em volumes fixados localmente não têm eliminação de duplicação nem são compactados. No entanto, os backups de volumes fixados localmente têm eliminação de duplicação e são compactados.
+>[AZURE.NOTE] Os dados em volumes fixados localmente não têm eliminação de duplicação nem são compactados. No entanto, os backups de volumes fixados localmente têm eliminação de duplicação e são compactados.
 
 ## Terminologia do StorSimple 
 
@@ -278,4 +278,4 @@ Saiba mais sobre a [Segurança do StorSimple](storsimple-security.md).
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0302_2016-->

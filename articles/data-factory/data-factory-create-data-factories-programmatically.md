@@ -31,14 +31,14 @@ Você pode criar, monitorar e gerenciar as Data Factory do Azure programaticamen
 ## Passo a passo
 1. Usando o Visual Studio 2012 ou 2013, crie um aplicativo de console C# .NET.
 	<ol type="a">
-	<li>Inicie o <b>Visual Studio 2012</b> ou <b>Visual Studio 2013</b>.</li>
-	<li>Clique em <b>Arquivo</b>, indique <b>Novo</b> e, em seguida, clique em <b>Projeto</b>.</li> 
-	<li>Expanda <b>Modelos</b> e selecione <b>Visual C#</b>. Neste passo a passo, você usa C#, mas você pode usar qualquer linguagem .NET.</li> 
-	<li>Selecione <b>Aplicativo de console</b> na lista de tipos de projetos à direita.</li>
-	<li>Digite <b>DataFactoryAPITestApp</b> como o <b>Nome</b>.</li> 
-	<li>Selecione <b>C:\ADFGetStarted</b> como o <b>Local</b>.</li>
-	<li>Clique em <b>OK</b> para criar o projeto.</li>
-</ol>
+		<li>Inicie o <b>Visual Studio 2012</b> ou <b>Visual Studio 2013</b>.</li>
+		<li>Clique em <b>Arquivo</b>, indique <b>Novo</b> e, em seguida, clique em <b>Projeto</b>.</li> 
+		<li>Expanda <b>Modelos</b> e selecione <b>Visual C#</b>. Neste passo a passo, você usa C#, mas você pode usar qualquer linguagem .NET.</li> 
+		<li>Selecione <b>Aplicativo de console</b> na lista de tipos de projetos à direita.</li>
+		<li>Digite <b>DataFactoryAPITestApp</b> como o <b>Nome</b>.</li> 
+		<li>Selecione <b>C:\ADFGetStarted</b> como o <b>Local</b>.</li>
+		<li>Clique em <b>OK</b> para criar o projeto.</li>
+	</ol>
 2. Clique em <b>Ferramentas</b>, aponte para <b>Gerenciador de Pacotes NuGet</b> e clique em <b>Console do Gerenciador de Pacotes</b>.
 3.	No <b>Console do Gerenciador de Pacotes</b>, digite os comandos a seguir, um por vez.</b> 
 
@@ -205,6 +205,8 @@ Você pode criar, monitorar e gerenciar as Data Factory do Azure programaticamen
 
 11. Adicione o código a seguir, que **cria e ativa um pipeline** no método **Principal**. Essa pipeline tem uma **CopyActivity** que usa **BlobSource** como fonte e **BlobSink** como coletor.
 
+A Atividade de Cópia executa a movimentação de dados no Azure Data Factory e é alimentada por um serviço globalmente disponível que pode copiar dados entre vários armazenamentos de dados de forma segura, confiável e escalonável. Veja o artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md) para obter detalhes sobre a Atividade de Cópia.
+
             // create a pipeline
         Console.WriteLine("Creating a pipeline");
         DateTime PipelineActivePeriodStartTime = new DateTime(2014, 8, 9, 0, 0, 0, 0, DateTimeKind.Utc);
@@ -261,7 +263,7 @@ Você pode criar, monitorar e gerenciar as Data Factory do Azure programaticamen
 
 	
 
-12. Adicione o método auxiliar a seguir usado pelo método **Principal** na classe **Programa**. Esse método exibe uma caixa de diálogo que permite que você forneça o **nome de usuário** e a **senha** que você usa para fazer logon no Portal Clássico do Azure.
+12. Adicione o método auxiliar a seguir usado pelo método **Principal** na classe **Programa**. Esse método exibe uma caixa de diálogo que permite que você forneça o **nome de usuário** e a **senha** que você usa para fazer logon no Portal Clássico do Azure. 
  
 		public static string GetAuthorizationHeader()
         {
@@ -392,4 +394,4 @@ Você pode criar, monitorar e gerenciar as Data Factory do Azure programaticamen
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

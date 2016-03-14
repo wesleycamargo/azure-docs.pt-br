@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="05/12/2015"
+   ms.date="02/29/2016"
    ms.author="piyushjo"/>
 
 # Como começar a usar e gerenciar pushes para chegar aos seus usuários finais
@@ -126,12 +126,16 @@ Você pode escolher um modo de entrega a "Qualquer hora", e isso garante alcanç
 ### Plano para iniciar uma campanha
 ![Shedule1][18]
 
-É 21 de março e você tem um comunicado para fazer e ele está planejado para o dia 22 de março à meia-noite. Você não precisa estar na frente da interface para realizar um envio por push! Você pode planejar com antecedência o exato minuto em que as notificações serão enviadas. -Desmarcar a caixa de seleção “Nenhum” e selecione uma hora de início - escolha a data e a hora em que você deseja iniciar a campanha de push.
+É 21 de março e você tem um comunicado para fazer e ele está planejado para o dia 22 de março à meia-noite. Você não precisa estar na frente da interface para realizar um envio por push! Você pode planejar com antecedência o exato minuto em que as notificações serão enviadas.
+-    Desmarque a caixa de seleção "Nenhum" e selecione uma hora de início 
+-    Escolha a data e a hora em que você deseja iniciar a campanha de envio por push.
 
 ### Plano para terminar uma campanha
 ![Shedule2][19]
 
-Você deseja que a sua campanha seja encerrada no dia 25 de março às 15h, mas sabe que não estará disponível para fazê-lo. Você não precisa estar na frente da interface para realizar um envio por push! Você pode planejar com antecedência o exato minuto em que sua campanha será interrompida. -Clique na caixa de seleção “Nenhum” ou selecione uma hora de término - escolha a data e a hora em que você deseja concluir a campanha de push.
+Você deseja que a sua campanha seja encerrada no dia 25 de março às 15h, mas sabe que não estará disponível para fazê-lo. Você não precisa estar na frente da interface para realizar um envio por push! Você pode planejar com antecedência o exato minuto que sua campanha será interrompida.
+-    Clique na caixa de seleção "Nenhum" ou selecione uma hora de término
+-    Escolha a data e a hora em que você deseja terminar a campanha de envio por push.
 
 ### Terminar uma campanha manualmente
 ![Shedule3][20]
@@ -293,4 +297,4 @@ Uma exibição da web é um pop-up com conteúdo da web. Essa janela pop-up apar
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

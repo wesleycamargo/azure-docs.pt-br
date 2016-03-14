@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Como usar a CDN | Microsoft Azure" 
-	description="Saiba como usar a CDN (Rede de Distribuição de Conteúdo) do Azure para fornecer conteúdo com alta largura de banda armazenando em cache blobs e conteúdo estático." 
-	services="cdn" 
-	documentationCenter=".net" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="Como usar a CDN | Microsoft Azure"
+	description="Saiba como usar a CDN (Rede de Distribuição de Conteúdo) do Azure para fornecer conteúdo com alta largura de banda armazenando em cache blobs e conteúdo estático."
+	services="cdn"
+	documentationCenter=".net"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016" 
 	ms.author="casoper"/>
 
 
@@ -71,7 +71,7 @@ Um perfil CDN é uma coleção de pontos de extremidade CDN. Cada perfil contém
 1. No [Portal de Gerenciamento do Azure](https://portal.azure.com), no canto superior esquerdo, clique em **Novo**. Na folha **Novo**, selecione **Mídia + CDN** e, em seguida, **CDN**.
 
     A folha do novo perfil CDN é exibida.
-    
+
     ![Novo perfil CDN][new-cdn-profile]
 
 2. Insira um nome para o perfil CDN.
@@ -93,15 +93,15 @@ Um perfil CDN é uma coleção de pontos de extremidade CDN. Cada perfil contém
 1. No [Portal de Gerenciamento do Azure](https://portal.azure.com), navegue até o seu perfil CDN. Você pode ter fixado ao painel na etapa anterior. Se não, você poderá encontrá-lo clicando em **Procurar**, em **perfis CDN** e clicando no perfil ao qual você pretende adicionar o ponto de extremidade.
 
     A folha do perfil CDN é exibida.
-    
+
     ![Perfil CDN][cdn-profile-settings]
-    
+
 2. Clique no botão **Adicionar Ponto de Extremidade**.
 
     ![Adicionar botão de ponto de extremidade][cdn-new-endpoint-button]
 
     A folha **Adicionar um ponto de extremidade** é exibida.
-    
+
     ![Adicionar folha de ponto de extremidade][cdn-add-endpoint]
 
 3. Insira um **Nome** para esse ponto de extremidade CDN. Esse nome será usado para acessar os recursos armazenados em cache no domínio `<EndpointName>.azureedge.net`.
@@ -154,4 +154,4 @@ Um objeto que já está armazenado em cache na CDN permanecerá em cache até qu
 [cdn-add-endpoint]: ./media/cdn-create-a-storage-account-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-a-storage-account-with-cdn/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

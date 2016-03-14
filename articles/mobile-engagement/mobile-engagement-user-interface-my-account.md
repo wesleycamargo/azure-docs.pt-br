@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="11/22/2015"
+   ms.date="02/29/2016"
    ms.author="piyushjo"/>
 
 # Como gerenciar os dispositivos de teste e o perfil de conta
  
-Este artigo descreve a **Home** page do portal do **Mobile Engagement**. Você usa o portal do **Mobile Engagement** para monitorar e gerenciar seus aplicativos móveis. Observe que, para começar a usar o portal, primeiro você precisa criar uma conta do **Azure Mobile Engagement**. Para obter mais informações, veja [Criar uma conta do Azure Mobile Engagement](mobile-engagement-create-account.md).
+Este artigo descreve a **Home** page do portal do **Mobile Engagement**. Você usa o portal do **Mobile Engagement** para monitorar e gerenciar seus aplicativos móveis.
  
 Para ir para a página Minha conta, clique em sua conta na parte superior da página.
 
@@ -27,7 +27,7 @@ A seção Minha conta da interface do usuário é onde você pode visualizar e a
 ![MyAccount1][7]
 
 ## Perfil:
-Você pode exibir ou alterar qualquer uma de suas configurações de conta mostradas abaixo. Você também pode fornecer permissão a outro usuário para usar seu aplicativo com base em seu endereço de email na [Página Inicial](mobile-engagement-interface-home.md).
+Você pode exibir ou alterar qualquer uma de suas configurações de conta mostradas abaixo. Você também pode fornecer permissão a outro usuário para usar seu aplicativo com base em seu endereço de email na [Página Inicial](mobile-engagement-user-interface-home.md).
 
 ![MyAccount2][8]
 
@@ -151,4 +151,4 @@ Para usar a API de envio ou a API do dispositivo, você precisa saber o identifi
  
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

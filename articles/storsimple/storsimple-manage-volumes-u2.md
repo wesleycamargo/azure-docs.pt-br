@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/18/2016"
+   ms.date="02/25/2016"
    ms.author="v-sharos" />
 
 # Usar o serviço StorSimple Manager para gerenciar volumes (Atualização 2)
@@ -182,18 +182,32 @@ Para assistir a um vídeo que demonstra como expandir um volume, clique [aqui](h
 
 ## Alterar o tipo de volume
 
-Se necessário, você pode alterar o tipo de volume de em camadas para afixado localmente ou de afixado localmente para em camadas. Geralmente, existem pequenos volumes que você quer acessar com frequência. No entanto, essa conversão não deve ser uma ocorrência frequente. Algumas razões para converter um volume em camadas para afixado localmente são:
+Se necessário, você pode alterar o tipo de volume de em camadas para afixado localmente ou de afixado localmente para em camadas. No entanto, essa conversão não deve ser uma ocorrência frequente. Algumas razões para converter um volume em camadas para afixado localmente são:
 
 - Garantias locais sobre disponibilidade e desempenho dos dados
 - Eliminação de latências de nuvem e problemas de conectividade de nuvem.
 
-Um volume afixado localmente é totalmente provisionado quando é criado. Se você estiver convertendo um volume em camadas para um volume afixado localmente, o StorSimple verifica se você tem espaço suficiente no dispositivo antes de iniciar a conversão. Se não houver espaço suficiente, você receberá um erro e a operação será cancelada.
+Geralmente, existem pequenos volumes que você quer acessar com frequência. Um volume afixado localmente é totalmente provisionado quando é criado. Se você estiver convertendo um volume em camadas para um volume afixado localmente, o StorSimple verifica se você tem espaço suficiente no dispositivo antes de iniciar a conversão. Se não houver espaço suficiente, você receberá um erro e a operação será cancelada.
 
 > [AZURE.NOTE] Antes de começar uma conversão de em camadas para afixado localmente, verifique se você considera os requisitos de espaço de outras cargas de trabalho.
 
 Altere um volume afixado localmente para um volume em camadas se precisar de espaço adicional para provisionar outros volumes. Ao converter o volume afixado localmente em camadas, a capacidade disponível no dispositivo aumenta de acordo com a capacidade liberada. Se problemas de conectividade impedirem a conversão de um volume de tipo local para tipo em camadas, o volume local exibirá propriedades de um volume em camadas até que a conversão seja concluída. Isso ocorre porque alguns dados podem ter sido despejados na nuvem. Esses dados despejados continuarão a ocupar espaço local no dispositivo que não pode ser liberado até que a operação seja iniciada e concluída.
 
 >[AZURE.NOTE] Converter um volume pode levar algum tempo e não é possível cancelar uma conversão depois de iniciada. O volume permanece online durante a conversão e você pode fazer backups, mas não pode expandir nem restaurar o volume durante a conversão.
+
+A conversão de um volume em camadas em um volume fixo local pode prejudicar o desempenho do dispositivo. Além disso, os seguintes fatores podem aumentar o tempo necessário para concluir a conversão:
+
+- Não há largura de banda suficiente.
+- O dispositivo está cheio e já está ocorrendo o derramamento para a nuvem.
+- Não há backup atual.
+
+Para minimizar os efeitos que esses fatores podem ter:
+
+- Examine suas políticas de limitação de largura de banda e certifique-se de que uma largura de banda dedicada de 40 Mbps está disponível.
+- Agende a conversão para fora do horário de pico.
+- Faça um backup antes de iniciar a conversão.
+
+Se estiver convertendo vários volumes (que dão suporte a cargas de trabalho diferentes), será necessário priorizar a conversão de volume para que os volumes de prioridade mais alta sejam convertidos primeiro. Por exemplo, é necessário converter os volumes que hospedam VMs (máquinas virtuais) ou volumes com cargas de trabalho do SQL antes de converter volumes com cargas de trabalho de compartilhamento de arquivos.
 
 #### Para alterar o tipo de volume
 
@@ -285,4 +299,4 @@ Execute as seguintes etapas para habilitar ou desabilitar o monitoramento para u
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

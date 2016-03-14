@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2016" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
  
 # Introdução ao Application Insights com Java no Eclipse
@@ -49,7 +49,16 @@ Siga as etapas restantes para cada projeto Java.
 ## Criar um recurso do Application Insights no Azure
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. 
+2. Criar um novo recurso do Application Insights  
+
+    ![Clique em + e escolha Application Insights](./media/app-insights-java-eclipse/01-create.png)  
+3. Defina o tipo de aplicativo para aplicativo Web Java.  
+
+    ![Preencha um nome, escolha o aplicativo Java da Web e clique em Criar](./media/app-insights-java-eclipse/02-create.png)  
+4. Localize a chave de instrumentação do novo recurso. Você precisará colar isto no código de seu projeto em breve.  
+
+    ![Na visão geral do novo recurso, clique em Propriedades e copie a chave de instrumentação](./media/app-insights-java-eclipse/03-key.png)
+
 
 ## Adicione o Application Insights ao seu projeto
 
@@ -207,7 +216,7 @@ Seus contadores de desempenho são visíveis como métricas personalizadas em [M
 
 ## Testes de disponibilidade na Web
 
-O Application Insights pode testar seu site em intervalos regulares para verificar ele está operante e respondendo bem. [Para configurar][availability], role para baixo e clique em Disponibilidade.
+O Application Insights pode testar seu site em intervalos regulares para verificar ele está operante e respondendo bem. [Para configurar][availability], role para baixo para clicar em Disponibilidade.
 
 ![Role para baixo, clique em Disponibilidade, em seguida, Adicionar teste na Web](./media/app-insights-java-eclipse/31-config-web-test.png)
 
@@ -260,4 +269,4 @@ Você pode inserir o código tanto no JavaScript da página da Web quanto no Jav
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -31,7 +31,8 @@ Este artigo descreve como usar o Windows PowerShell® juntamente com o ARM na im
 
 > [AZURE.NOTE] Atualmente, os cmdlets do PowerShell para o Azure Site Recovery permitem que você configure o site do VMM para site do VMM, o site do VMM para o Azure e o site do Hyper-V para cenários do Azure. O suporte para outros cenários de ASR será adicionado em breve.
 
-Não é preciso ser um especialista no PowerShell para usar este artigo, mas é pressuposto que você entenda os conceitos básicos, como módulos, cmdlets e sessões. Para obter mais informações sobre o Windows PowerShell, veja [Introdução ao Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx). Saiba mais sobre como [Usar o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md).
+Não é preciso ser um especialista no PowerShell para usar este artigo, mas é pressuposto que você entenda os conceitos básicos, como módulos, cmdlets e sessões. Para obter mais informações sobre o Windows PowerShell, consulte [Introdução ao PowerShell do Microsoft Azure (a página pode estar em inglês)](http://technet.microsoft.com/library/hh857337.aspx).
+- Leia mais sobre como [Usar o Azure PowerShell com o Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 
 ## Principais recursos
@@ -109,7 +110,7 @@ Este artigo ilustra como usar o Azure PowerShell com ARM para configurar e geren
 
 2. Crie um novo cofre dos Serviços de Recuperação do Azure da seguinte maneira:-
 
-		$vault = New-AzureRmRecoveryServicesVault -Name <string> -ResouceGroupName <string> -Location <string>
+		$vault = New-AzureRmRecoveryServicesVault -Name <string> -ResourceGroupName <string> -Location <string>
 
 	É possível recuperar uma lista de cofres existentes usando o cmdlet `Get-AzureRmRecoveryServicesVault`.
 
@@ -261,4 +262,4 @@ Este artigo ilustra como usar o Azure PowerShell com ARM para configurar e geren
 
     	$TFjob = Resume-AzureRmSiteRecoveryJob -Job $TFjob
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

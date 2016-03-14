@@ -15,23 +15,29 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="03/02/2016"
    ms.author="mandia"/>
 
 # Introdução à API de Pesquisa do Bing 
-Conecte-se à Pesquisa do Bing para pesquisar notícias, vídeos e muito mais.
+Conecte-se à Pesquisa do Bing para pesquisar notícias, vídeos e muito mais. A API da Pesquisa do Bing pode ser usada em:
 
-A API de Pesquisa do Bing pode ser usada em aplicativos lógicos e no PowerApps.
+- Aplicativos lógicos 
+- PowerApps
+
+> [AZURE.SELECTOR]
+- [Aplicativos lógicos](../articles/connectors/create-api-bingsearch.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-bingsearch.md)
+
 
 Com a Pesquisa do Bing, você pode:
 
 - Criar seu fluxo de negócios com base nos dados que você obtém da pesquisa. 
-- Usar ações para pesquisar imagens, notícias e muito mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, você pode pesquisar por um vídeo e, em seguida, usar o Twitter publicar esse vídeo em um feed do Twitter.
+- Use ações para pesquisar imagens, notícias e muito mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, você pode pesquisar por um vídeo e, em seguida, usar o Twitter publicar esse vídeo em um feed do Twitter.
 - Adicione a API de Pesquisa do Bing ao PowerApps Enterprise. Assim, seus usuários poderão usar essa API em seus próprios aplicativos. 
 
-Para saber mais sobre como adicionar uma API ao PowerApps Enterprise, acesse [Registrar uma API no PowerApps](../power-apps/powerapps-register-from-available-apis.md).
+Para obter mais informações sobre como adicionar uma API no PowerApps Enterprise, vá para [Registrar uma API no PowerApps](../power-apps/powerapps-register-from-available-apis.md).
 
-Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para adicionar uma operação nos aplicativos lógicos, veja [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Gatilhos e ações
 A Pesquisa do Bing inclui as seguintes ações. Não há gatilhos.
@@ -43,14 +49,14 @@ Nenhum | <ul><li>Pesquisar na Web</li><li>Pesquisar vídeos</li><li>Pesquisar im
 Todas as APIs dão suporte a dados nos formatos JSON e XML.
 
 ## Adicionar outra configuração
-Quando você adiciona a Pesquisa do Bing ao PowerApps Enterprise, recebe uma solicitação por uma chave de conta. Se você não tiver uma chave da Pesquisa do Bing, use a [oferta da Pesquisa do Bing](https://datamarket.azure.com/dataset/bing/search) gratuita para obter uma chave.
+Quando você adiciona a Pesquisa do Bing ao PowerApps Enterprise, recebe uma solicitação por uma chave de conta. Se não tiver uma chave da Pesquisa do Bing, use a [oferta da Pesquisa do Bing](https://datamarket.azure.com/dataset/bing/search) gratuita para obter uma chave.
 
 
 ## Referência da API REST do Swagger
 Aplica-se à versão: 1.0.
 
 ### Pesquisar na Web 
-Recupera a sites com uma Pesquisa do Bing. ```GET: /Web```
+Recupera sites de uma Pesquisa do Bing.```GET: /Web```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -71,7 +77,7 @@ Recupera a sites com uma Pesquisa do Bing. ```GET: /Web```
 
 
 ### Pesquisar vídeos 
-Recupera vídeos com uma pesquisa do Bing. ```GET: /Video```
+Recupera vídeos de uma pesquisa do Bing.```GET: /Video```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -82,8 +88,8 @@ Recupera vídeos com uma pesquisa do Bing. ```GET: /Video```
 |market|string|não|query|nenhum |Mercado ou região para restringir a pesquisa (exemplo: pt-BR)|
 |longitude|número|não|query|nenhum |Longitude (coordenada leste/oeste ) para restringir a pesquisa (exemplo: 47,603450)|
 |latitude|número|não|query|nenhum |Latitude (coordenada norte/sul) para restringir a pesquisa (exemplo: -122,329696)|
-|videoFilters|string|não|query|nenhum |Filtre a pesquisa com base no tamanho, aspecto, cor, estilo, face ou qualquer combinação desses. Valores válidos: <ul><li>Duração:Curta</li><li>Duração:Média</li><li>Duração:Longa</li><li>Aspecto:Padrão</li><li>Aspecto:Widescreen</li><li>Resolução:Baixa</li><li>Resolução:Média</li><li>Resolução:Alta</li></ul> <p>Por exemplo: ‘Duração:Curta+Resolução:Alta’</p>|
-|videoSortBy|string|não|query|nenhum |Ordem de classificação dos resultados. Valores válidos: <ul><li>Data</li><li>Relevância</li></ul> <p>Ordem de classificação de data implica em ordem decrescente.</p>|
+|videoFilters|string|não|query|nenhum |Filtre a pesquisa com base no tamanho, aspecto, cor, estilo, face ou qualquer combinação desses. Valores válidos: <ul><li>Duração:Curta</li><li>Duração:Média</li><li>Duração:Longa</li><li>Aspecto:Padrão</li><li>Aspecto:Widescreen</li><li>Resolução:Baixa</li><li>Resolução:Média</li><li>Resolução:Alta</li></ul> <br/><br/>Por exemplo: ‘Duração:Curta+Resolução:Alta’|
+|videoSortBy|string|não|query|nenhum |Ordem de classificação dos resultados. Valores válidos: <ul><li>Data</li><li>Relevância</li></ul> <p>A ordem de classificação de data implica em ordem decrescente.</p>|
 
 #### Resposta
 |Nome|Descrição|
@@ -93,7 +99,7 @@ Recupera vídeos com uma pesquisa do Bing. ```GET: /Video```
 
 
 ### Pesquisa imagens    
-Recupera imagens com uma pesquisa do Bing. ```GET: /Image```
+Recupera imagens de uma pesquisa do Bing.```GET: /Image```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -104,7 +110,7 @@ Recupera imagens com uma pesquisa do Bing. ```GET: /Image```
 |market|string|não|query|nenhum |Mercado ou região para restringir a pesquisa (exemplo: pt-BR)|
 |longitude|número|não|query| nenhum|Longitude (coordenada leste/oeste ) para restringir a pesquisa (exemplo: 47,603450)|
 |latitude|número|não|query|nenhum |Latitude (coordenada norte/sul) para restringir a pesquisa (exemplo: -122,329696)|
-|imageFilters|string|não|query|nenhum |Filtre a pesquisa com base no tamanho, aspecto, cor, estilo, face ou qualquer combinação desses. Valores válidos: <ul><li>Tamanho:Pequeno</li><li>Tamanho:Médio</li><li>Tamanho:Grande</li><li>Tamanho:Largura:[Largura]</li><li>Tamanho:Altura:[Altura]</li><li>Aspecto:Quadrado</li><li>Aspecto:Wide</li><li>Aspecto: Alto</li><li>Cor:Cor</li><li>Cor:Monocromático</li><li>Estilo:Foto</li><li>Estilo:Gráficos</li><li>Face:Face</li><li>Face:Retrato</li><li>Face:Outro</li></ul><p>Por exemplo: “Tamanho:Pequeno+Aspecto:Quadrado”</p>|
+|imageFilters|string|não|query|nenhum |Filtre a pesquisa com base no tamanho, aspecto, cor, estilo, face ou qualquer combinação desses. Valores válidos: <ul><li>Tamanho:Pequeno</li><li>Tamanho:Médio</li><li>Tamanho:Grande</li><li>Tamanho:Largura:[Largura]</li><li>Tamanho:Altura:[Altura]</li><li>Aspecto:Quadrado</li><li>Aspecto:Largo</li><li>Aspecto: Alto</li><li>Cor:Cor</li><li>Cor:Monocromático</li><li>Estilo:Foto</li><li>Estilo:Elemento Gráfico</li><li>Face:Face</li><li>Face:Retrato</li><li>Face:Outro</li></ul><br/><br/>Por exemplo: “Tamanho:Pequeno+Aspecto:Quadrado”|
 
 #### Resposta
 |Nome|Descrição|
@@ -114,7 +120,7 @@ Recupera imagens com uma pesquisa do Bing. ```GET: /Image```
 
 
 ### Pesquisar notícias    
-Recupera os resultados de notícias de uma Pesquisa do Bing. ```GET: /News```
+Recupera os resultados de notícias de uma pesquisa do Bing.```GET: /News```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -125,7 +131,7 @@ Recupera os resultados de notícias de uma Pesquisa do Bing. ```GET: /News```
 |market|string|não|query|nenhum |Mercado ou região para restringir a pesquisa (exemplo: pt-BR)|
 |longitude|número|não|query|nenhum |Longitude (coordenada leste/oeste ) para restringir a pesquisa (exemplo: 47,603450)|
 |latitude|número|não|query|nenhum |Latitude (coordenada norte/sul) para restringir a pesquisa (exemplo: -122,329696)|
-|newsSortBy|string|não|query| nenhum|Ordem de classificação dos resultados. Valores válidos: <ul><li>Data</li><li>Relevância</li></ul> <p>Ordem de classificação de data implica em ordem decrescente.</p>|
+|newsSortBy|string|não|query| nenhum|Ordem de classificação dos resultados. Valores válidos: <ul><li>Data</li><li>Relevância</li></ul> <p>A ordem de classificação de data implica em ordem decrescente.</p>|
 |newsCategory|string|não|query| |Categoria de notícias para restringir a pesquisa (exemplo: ‘rt\_Business’)|
 |newsLocationOverride|string|não|query|nenhum |Substituição para detecção de local do Bing. Esse parâmetro só é aplicável no mercado pt-BR. O formato de entrada é US./<state /> (exemplo: “US.WA”)|
 
@@ -137,7 +143,7 @@ Recupera os resultados de notícias de uma Pesquisa do Bing. ```GET: /News```
 
 
 ### Pesquisar ortografias    
-Recupera sugestões de ortografia. ```GET: /SpellingSuggestions```
+Recupera sugestões de ortografia.```GET: /SpellingSuggestions```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -157,7 +163,7 @@ Recupera sugestões de ortografia. ```GET: /SpellingSuggestions```
 
 
 ### Pesquisa relacionada    
-Recupera os resultados de pesquisa relacionada com uma Pesquisa do Bing. ```GET: /RelatedSearch```
+Recupera os resultados da pesquisa relacionados de uma pesquisa do Bing.```GET: /RelatedSearch```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -177,7 +183,7 @@ Recupera os resultados de pesquisa relacionada com uma Pesquisa do Bing. ```GET:
 
 
 ### Pesquisar tudo    
-Recupera todos os sites, vídeos, imagens etc. com uma Pesquisa do Bing. ```GET: /CompositeSearch```
+Recupera todos os sites, vídeos, imagens, etc. de uma pesquisa do Bing.```GET: /CompositeSearch```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -189,10 +195,10 @@ Recupera todos os sites, vídeos, imagens etc. com uma Pesquisa do Bing. ```GET:
 |longitude|número|não|query|nenhum |Longitude (coordenada leste/oeste ) para restringir a pesquisa (exemplo: 47,603450)|
 |latitude|número|não|query|nenhum |Latitude (coordenada norte/sul) para restringir a pesquisa (exemplo: -122,329696)|
 |webFileType|string|não|query|nenhum |Tipo de arquivo para restringir a pesquisa (exemplo: 'DOC')|
-|videoFilters|string|não|query|nenhum |Filtre a pesquisa com base no tamanho, aspecto, cor, estilo, face ou qualquer combinação desses. Valores válidos: <ul><li>Duração:Curta</li><li>Duração:Média</li><li>Duração:Longa</li><li>Aspecto:Padrão</li><li>Aspecto:Widescreen</li><li>Resolução:Baixa</li><li>Resolução:Média</li><li>Resolução:Alta</li></ul> <p>Por exemplo: ‘Duração:Curta+Resolução:Alta’</p>|
-|videoSortBy|string|não|query|nenhum |Ordem de classificação dos resultados. Valores válidos: <ul><li>Data</li><li>Relevância</li></ul> <p>Ordem de classificação de data implica em ordem decrescente.</p>|
-|imageFilters|string|não|query|nenhum |Filtre a pesquisa com base no tamanho, aspecto, cor, estilo, face ou qualquer combinação desses. Valores válidos: <ul><li>Tamanho:Pequeno</li><li>Tamanho:Médio</li><li>Tamanho:Grande</li><li>Tamanho:Largura:[Largura]</li><li>Tamanho:Altura:[Altura]</li><li>Aspecto:Quadrado</li><li>Aspecto:Wide</li><li>Aspecto: Alto</li><li>Cor:Cor</li><li>Cor:Monocromático</li><li>Estilo:Foto</li><li>Estilo:Gráficos</li><li>Face:Face</li><li>Face:Retrato</li><li>Face:Outro</li></ul><p>Por exemplo: “Tamanho:Pequeno+Aspecto:Quadrado”</p>|
-|newsSortBy|string|não|query|nenhum |Ordem de classificação dos resultados. Valores válidos: <ul><li>Data</li><li>Relevância</li></ul> <p>Ordem de classificação de data implica em ordem decrescente.</p>|
+|videoFilters|string|não|query|nenhum |Filtre a pesquisa com base no tamanho, aspecto, cor, estilo, face ou qualquer combinação desses. Valores válidos: <ul><li>Duração:Curta</li><li>Duração:Média</li><li>Duração:Longa</li><li>Aspecto:Padrão</li><li>Aspecto:Widescreen</li><li>Resolução:Baixa</li><li>Resolução:Média</li><li>Resolução:Alta</li></ul> <br/><br/>Por exemplo: ‘Duração:Curta+Resolução:Alta’|
+|videoSortBy|string|não|query|nenhum |Ordem de classificação dos resultados. Valores válidos: <ul><li>Data</li><li>Relevância</li></ul> <p>A ordem de classificação de data implica em ordem decrescente.</p>|
+|imageFilters|string|não|query|nenhum |Filtre a pesquisa com base no tamanho, aspecto, cor, estilo, face ou qualquer combinação desses. Valores válidos: <ul><li>Tamanho:Pequeno</li><li>Tamanho:Médio</li><li>Tamanho:Grande</li><li>Tamanho:Largura:[Largura]</li><li>Tamanho:Altura:[Altura]</li><li>Aspecto:Quadrado</li><li>Aspecto:Largo</li><li>Aspecto: Alto</li><li>Cor:Cor</li><li>Cor:Monocromático</li><li>Estilo:Foto</li><li>Estilo:Elemento Gráfico</li><li>Face:Face</li><li>Face:Retrato</li><li>Face:Outro</li></ul><br/><br/>Por exemplo: “Tamanho:Pequeno+Aspecto:Quadrado”|
+|newsSortBy|string|não|query|nenhum |Ordem de classificação dos resultados. Valores válidos: <ul><li>Data</li><li>Relevância</li></ul> <p>A ordem de classificação de data implica em ordem decrescente.</p>|
 |newsCategory|string|não|query|nenhum |Categoria de notícias para restringir a pesquisa (exemplo: ‘rt\_Business’)|
 |newsLocationOverride|string|não|query|nenhum |Substituição para detecção de local do Bing. Esse parâmetro só é aplicável no mercado pt-BR. O formato de entrada é US./<state /> (exemplo: “US.WA”)|
 
@@ -280,7 +286,7 @@ Recupera todos os sites, vídeos, imagens etc. com uma Pesquisa do Bing. ```GET:
 |WebResultsTotal|inteiro|não|
 |ImageResultsTotal|inteiro|não|
 |VideoResultsTotal|inteiro|não|
-|NewsResultsTotal|inteiro|
+|NewsResultsTotal|inteiro|não|
 |SpellSuggestionsTotal|inteiro|não|
 |WebResults|array|não|
 |ImageResults|array|não|
@@ -291,8 +297,8 @@ Recupera todos os sites, vídeos, imagens etc. com uma Pesquisa do Bing. ```GET:
 
 ## Próximas etapas
 
-Depois de adicionar a API de Pesquisa do Bing ao PowerApps Enterprise, [conceda permissões aos usuários](../power-apps/powerapps-manage-api-connection-user-access.md) usar a API em seus aplicativos.
+Depois de adicionar a API da Pesquisa do Bing ao PowerApps Enterprise, [conceda permissões aos usuários](../power-apps/powerapps-manage-api-connection-user-access.md) para que eles usem a API em seus aplicativos.
 
-[Crie um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

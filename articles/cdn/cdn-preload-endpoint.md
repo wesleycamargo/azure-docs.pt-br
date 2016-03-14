@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Pré-carregar ativos em um ponto de extremidade da CDN do Azure" 
-	description="Saiba como pré-carregar o conteúdo armazenado em cache em um ponto de extremidade da CDN." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="Pré-carregar ativos em um ponto de extremidade da CDN do Azure"
+	description="Saiba como pré-carregar o conteúdo armazenado em cache em um ponto de extremidade da CDN."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/20/2016" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016" 
 	ms.author="casoper"/>
-	
+
 # Pré-carregar ativos em um ponto de extremidade da CDN do Azure
 
 Por padrão, os ativos são armazenados primeiro em cache à medida que são solicitados. Isso significa que a primeira solicitação de cada região pode demorar mais tempo, pois os servidores de borda não terão o conteúdo armazenado em cache e precisarão encaminhar a solicitação para o servidor de origem. O pré-carregamento de conteúdo evita essa latência de primeiro acesso.
@@ -33,28 +33,28 @@ Esse tutorial orienta você carregando previamente o conteúdo armazenado em cac
 2. Clique no ponto de extremidade na lista. A folha do ponto de extremidade é aberta.
 
 3. Na folha do ponto de extremidade da CDN, clique no botão carregar.
-	
+
 	![Folha do ponto de extremidade da CDN](./media/cdn-preload-endpoint/cdn-endpoint-blade.png)
-	
+
 	A folha Carregar é aberta.
-	
+
 	![Folha de carregamento da CDN](./media/cdn-preload-endpoint/cdn-load-blade.png)
-	
+
 4. Insira o caminho completo de cada ativo que você deseja carregar (por exemplo, */pictures/kitten.png*) na caixa de texto **Caminho**.
 
 	> [AZURE.TIP] Outras caixas de texto **Caminho** serão mostradas depois que você digitar um texto, para permitir que crie uma lista com vários ativos. Para excluir ativos da lista, clique no botão de reticências (...).
 	>
 	> Os caminhos devem ser uma URL relativa. O asterisco (*) pode ser usado como curinga.
-	
+
     ![Botão Carregar](./media/cdn-preload-endpoint/cdn-load-paths.png)
-    
+
 5. Clique no botão **Carregar**.
 
 	![Botão Carregar](./media/cdn-preload-endpoint/cdn-load-button.png)
-	
+
 
 ## Consulte também
 - [Limpar um ponto de extremidade da CDN do Azure](cdn-purge-endpoint.md)
 - [Referência da API REST da CDN do Azure – limpar ou pré-carregar um ponto de extremidade](https://msdn.microsoft.com/library/mt634451.aspx)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

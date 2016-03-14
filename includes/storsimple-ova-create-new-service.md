@@ -16,8 +16,7 @@
 
    	 -   O StorSimple Manager e o armazenamento do Azure podem estar em dois locais separados. Nesse caso, é necessário criar a conta de armazenamento do Azure e do StorSimple Manager separadamente. Para criar uma conta de armazenamento do Azure, acesse o serviço Armazenamento do Azure no portal e siga as etapas em [Criar uma conta de Armazenamento do Azure](storage-create-storage-account.md#create-a-storage-account). Após criar essa conta, adicione-a ao serviço StorSimple Manager seguindo as etapas em [Configurar uma nova conta de armazenamento para o serviço](#optional-step-configure-a-new-storage-account-for-the-service).
    	 
-   	 -   Observe que, na visualização, você pode criar o serviço StorSimple Manager somente no Oeste dos EUA e Leste do Japão.
-	
+   	 	
 	1.  Escolha uma **Assinatura** na lista suspensa. A assinatura está vinculada à sua conta de cobrança. Este campo não estará presente quando você tem apenas uma assinatura.
 
 	1.  Selecione **Criar uma nova conta de armazenamento do Azure** para criar automaticamente uma conta de armazenamento com o serviço. Essa conta de armazenamento terá um nome especial, como "storsimplebwv8c6dcnf". Se você precisar de seus dados em um local diferente, desmarque essa caixa de seleção.
@@ -32,4 +31,4 @@
 
 	O status do serviço será alterado para **Ativo**.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

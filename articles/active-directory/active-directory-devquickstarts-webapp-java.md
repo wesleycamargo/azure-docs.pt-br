@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="11/14/2015"
+	ms.date="02/19/2016"
 	ms.author="brandwe"/>
 
 
@@ -23,7 +23,10 @@
 
 O AD do Azure torna simples e direto terceirizar o gerenciamento da identidade de seu aplicativo Web, fornecendo uma única entrada e uma única saída com apenas algumas linhas de código. Em aplicativos Web do Java, você pode conseguir isso usando a implementação da Microsoft do ADAL4J voltado para a comunidade.
 
-  Aqui usaremos o ADAL4J para: - Conectar o usuário no aplicativo usando o AD do Azure como o provedor de identidade. - Exibir algumas informações sobre o usuário. - Desconectar o usuário do aplicativo.
+  Aqui usaremos o ADAL4J para:
+- Conectar o usuário ao aplicativo usando o Azure AD como o provedor de identidade.
+- Exibir algumas informações sobre o usuário.
+- Desconectar o usuário do aplicativo.
 
 Para isso, você precisará:
 
@@ -238,7 +241,8 @@ O arquivo deverá ter a seguinte aparência:
 
 Não mexa no restante dos parâmetros de configuração.
 
-> [AZURE.NOTE]Como você pode ver no arquivo XML, estamos escrevendo um aplicativo Web JSP/Servlet chamado `mvc-dispatcher`, que usará o `BasicFilter` sempre que visitarmos a URL /secure. Você perceberá no restante do mesmo webapp que escrevemos que usaremos /secure como um lugar de residência de nosso conteúdo protegido, e isso forçará a autenticação no Active Directory do Azure.
+> [AZURE.NOTE]
+Como você pode ver no arquivo XML, estamos escrevendo um aplicativo Web JSP/Servlet chamado `mvc-dispatcher`, que usará o `BasicFilter` sempre que visitarmos a URL /secure. Você perceberá no restante do mesmo webapp que escrevemos que usaremos /secure como um lugar de residência de nosso conteúdo protegido, e isso forçará a autenticação no Active Directory do Azure.
 
 -	Em seguida, crie o arquivo `mvc-dispatcher-servlet.xml` localizado em `\webapp\WEB-INF` e digite o seguinte:
 
@@ -309,7 +313,7 @@ Isso basicamente redireciona para uma página segura protegida por nosso filtro.
 </html>
 ```
 
-- Por fim, vamos criar a página da Web segura que queremos criando uma pasta em `\webapp`, chamada `\secure`, para que o diretório seja agora `\webapp\secure`. 
+- Por fim, vamos criar a página da Web segura que queremos por meio da criação de uma pasta em `\webapp`, chamada de `\secure`, para que o diretório seja agora `\webapp\secure`. 
 
 - Nesse diretório, vamos criar um arquivo `aad.jsp` e recortar/colar o seguinte:
 
@@ -351,7 +355,8 @@ Nosso objetivo é criar alguns arquivos Java que:
 1. Permitirão a entrada e saída do usuário
 2. Obterão alguns dados sobre o usuário.
 
-> [AZURE.NOTE]Para obter dados sobre o usuário, precisamos usar a Graph API do Active Directory do Azure. A Graph API é um serviço Web seguro que pode ser usado para capturar dados sobre sua organização, incluindo usuários individuais. Isso é melhor do que preencher previamente dados confidenciais em tokens, pois garante que o usuário que solicita os dados tenha autorização, e qualquer pessoa que por acaso obter o token (de um telefone com jailbreak ou no cache do navegador da Web em um desktop) não terá um monte de detalhes importantes sobre o usuário ou sobre a organização.
+> [AZURE.NOTE] 
+Para obter dados sobre o usuário, precisamos usar a Graph API do Active Directory do Azure. A Graph API é um serviço Web seguro que pode ser usado para capturar dados sobre sua organização, incluindo usuários individuais. Isso é melhor do que preencher previamente dados confidenciais em tokens, pois garante que o usuário que solicita os dados tenha autorização, e qualquer pessoa que por acaso obter o token (de um telefone com jailbreak ou no cache do navegador da Web em um desktop) não terá um monte de detalhes importantes sobre o usuário ou sobre a organização.
 
 Vamos escrever alguns arquivos Java para fazer esse trabalho para nós:
 
@@ -1735,7 +1740,8 @@ Agora você deve ter um arquivo `adal4jsample.war` em seu diretório do `/target
 `http://localhost:8080/adal4jsample/`
 
 
-> [AZURE.NOTE]É muito fácil de implantar um WAR com os servidores do Tomcat mais recentes. Basta navegar até `http://localhost:8080/manager/` e seguir as instruções sobre como carregar o arquivo `adal4jsample.war`. Ele será implantado automático com o ponto de extremidade correto.
+> [AZURE.NOTE] 
+É muito fácil de implantar um WAR com os servidores do Tomcat mais recentes. Basta navegar até `http://localhost:8080/manager/` e seguir as instruções sobre como carregar o arquivo `adal4jsample.war`. Ele será implantado automático com o ponto de extremidade correto.
 
 ##Próximas etapas
 
@@ -1745,4 +1751,4 @@ Para referência, o exemplo concluído (sem os valores de configuração) [é fo
 
 ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0302_2016-->

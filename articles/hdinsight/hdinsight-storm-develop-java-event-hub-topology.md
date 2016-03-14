@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/28/2016"
+   ms.date="03/01/2016"
    ms.author="larryfr"/>
 
 # Processar eventos dos Hubs de Eventos do Azure com o Storm no HDInsight (Java)
@@ -52,7 +52,7 @@ Neste tutorial, você aprenderá a usar o spout e bolt dos Hubs de Eventos para 
 
 ##Compreendendo o exemplo
 
-O exemplo [hdinsight-java-storm-eventhub](https://github.com/Blackmist/hdinsight-java-storm-eventhub) contém duas topologias:
+O exemplo [hdinsight-java-storm-eventhub](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub) contém duas topologias:
 
 __com.microsoft.example.EventHubWriter__ grava dados aleatórios em um Hub de Eventos do Azure. Os dados são gerados por um spout e são compostos por uma ID de dispositivo aleatório e por um valor de dispositivo. Dessa forma, ele está simulando um hardware que emite uma ID de cadeia de caracteres e um valor numérico.
 
@@ -280,10 +280,12 @@ Hubs de Eventos é a fonte de dados para este exemplo. Use as seguintes etapas p
 4. Selecione **Configurar** e crie duas novas políticas de acesso usando as informações a seguir.
 
 	<table>
-<tr><th>Nome</th><th>Permissões</th></tr>
-<tr><td>Gravador</td><td>Enviar</td></tr>
-<tr><td>Leitor</td><td>Escutar</td></tr>
-</table>Depois de criar permissões, selecione o ícone **Salvar** na parte inferior da página. Isso cria políticas de acesso compartilhado que serão usadas para enviar (gravador) e escutar (leitor) esse Hub de Eventos.
+	<tr><th>Nome</th><th>Permissões</th></tr>
+	<tr><td>Gravador</td><td>Enviar</td></tr>
+	<tr><td>Leitor</td><td>Escutar</td></tr>
+	</table>
+
+	Depois de criar permissões, selecione o ícone **Salvar** na parte inferior da página. Isso cria políticas de acesso compartilhado que serão usadas para enviar (gravador) e escutar (leitor) esse Hub de Eventos.
 
 	![políticas](./media/hdinsight-storm-develop-csharp-event-hub-topology/policy.png)
 
@@ -291,7 +293,7 @@ Hubs de Eventos é a fonte de dados para este exemplo. Use as seguintes etapas p
 
 ## Baixar e compilar o projeto
 
-1. Baixe o projeto do GitHub: [hdinsight-java-storm-eventhub](https://github.com/Blackmist/hdinsight-java-storm-eventhub). Você pode baixar o pacote como um arquivo zip, ou usar o [git](https://git-scm.com/) para clonar o projeto localmente.
+1. Baixe o projeto do GitHub: [hdinsight-java-storm-eventhub](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub). Você pode baixar o pacote como um arquivo zip, ou usar o [git](https://git-scm.com/) para clonar o projeto localmente.
 
 2. Use os comandos a seguir para instalar os pacotes incluídos no projeto em seu repositório local do Maven. Isso habilita o spout e bolt do Hub de Eventos, bem como a capacidade de usar o HdfsBolt para gravar no Armazenamento do Azure (WASB).
 
@@ -476,4 +478,4 @@ Para saber mais sobre como usar a interface do usuário Storm, consulte estes t�
 
 * [Topologias de exemplo para Storm no HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

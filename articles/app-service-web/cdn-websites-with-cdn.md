@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="02/29/2016" 
 	ms.author="cephalin"/>
 
 
@@ -41,15 +41,15 @@ Este tutorial tem os seguintes pré-requisitos:
 -	Uma [conta do Microsoft Azure](/account/) ativa
 -	Visual Studio 2015 com o [SDK do Azure para .NET](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) Se você usar o Visual Studio, as etapas poderão variar.
 
-> [AZURE.NOTE] Você precisa de uma conta do Azure para concluir este tutorial:
-> + Você pode [abrir uma conta do Azure gratuitamente](/pricing/free-trial/) – Você recebe créditos que podem ser usados para experimentar os serviços pagos do Azure e, mesmo depois que tiverem se esgotado, você pode manter a conta e usar serviços gratuitos do Azure, como Aplicativos Web. 
-> + Você pode [ativar os benefícios de assinante do Visual Studio](/pricing/member-offers/msdn-benefits-details/) – A cada mês, a sua assinatura do Visual Studio fornece créditos que podem ser usados para serviços pagos do Azure.
+> [AZURE.NOTE] Você de uma conta do Azure para concluir este tutorial:
+> + É possível [abrir uma conta do Azure gratuitamente](/pricing/free-trial/) – você obtém créditos que podem ser usados para experimentar serviços pagos do Azure e, mesmo após eles serem utilizados, é possível manter a conta e utilizar os serviços gratuitos do Azure, como Aplicativos Web.
+> + É possível [ativar os benefícios para assinantes do Visual Studio](/pricing/member-offers/msdn-benefits-details/) – todos os meses, sua assinatura do Visual Studio concede créditos que podem ser usados para experimentar serviços pagos do Azure.
 >
-> Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## Implantar um aplicativo Web no Azure com um ponto de extremidade da CDN integrado ##
 
-Nesta seção, você implantará o modelo de aplicativo ASP.NET MVC padrão no Visual Studio 2013 ao Serviço de Aplicativo e, depois, o integrará a um novo ponto de extremidade da CDN. Siga as instruções abaixo:
+Nesta seção, você implantará o modelo de aplicativo do ASP.NET MVC padrão no Visual Studio 2015 ao Serviço de Aplicativo e, em seguida, o integrará a um novo ponto de extremidade da CDN. Siga as instruções abaixo:
 
 1. No Visual Studio 2015, crie um novo aplicativo Web ASP.NET na barra de menus selecionando **Arquivo > Novo > Projeto > Web > Aplicativo Web ASP.NET**. Dê um nome a ele e clique em **OK**.
 
@@ -77,36 +77,49 @@ Nesta seção, você implantará o modelo de aplicativo ASP.NET MVC padrão no V
 
 	Quando a publicação estiver concluída, você verá seu aplicativo Web publicado no navegador.
 
-1. Para criar um ponto de extremidade da CDN, faça logon no [portal clássico do Azure](https://manage.windowsazure.com).
-2. Clique em **Novo** > **Serviços de Aplicativos** > **CDN** > **Criação Rápida**. Selecione **http://*&lt;sitename>*.azurewebsites.net/** e clique em **Criar**.
+1. Para criar um ponto de extremidade da CDN, faça logon no [portal do Azure](https://portal.azure.com).
+2. Clique em **+ Novo** > **Mídia + CDN** > **CDN**.
+
+	![](media/cdn-websites-with-cdn/create-cdn-profile.png)
+
+3. Especifique a **CDN**, o **Local**, **Grupo de recursos** e **Tipo de preço** e clique em **Criar**
 
 	![](media/cdn-websites-with-cdn/7-create-cdn.png)
 
-	> [AZURE.NOTE] Após a criação do ponto de extremidade da CDN, o portal clássico mostrará sua URL e o domínio de origem ao qual ele está integrado. No entanto, pode levar algum tempo para que a configuração do novo ponto de extremidade da CDN seja totalmente propagada a todos os locais de nó da CDN.
+4. Na folha **Perfil da CDN**, clique no botão **+ Ponto de extremidade**. Dê um nome a ele, selecione **Aplicativo Web** no menu suspenso **Tipo de Origem** e seu aplicativo Web no menu suspenso **Nome do host de origem** e clique em **Adicionar**.
 
-3. No portal clássico, na guia **CDN**, clique no nome do ponto de extremidade da CDN que você acabou de criar.
+	![](media/cdn-websites-with-cdn/cdn-profile-blade.png)
+
+
+
+	> [AZURE.NOTE] Após a criação do ponto de extremidade da CDN, a folha **Ponto de extremidade** mostrará a URL da CDN e o domínio da origem ao qual ele está integrado. No entanto, pode levar algum tempo para que a configuração do novo ponto de extremidade da CDN seja totalmente propagada a todos os locais de nó da CDN.
+
+3. De volta à folha **Ponto de extremidade**, clique no nome do ponto de extremidade da CDN que você acabou de criar.
 
 	![](media/cdn-websites-with-cdn/8-select-cdn.png)
 
-3. Clique em **Habilitar Cadeia de Consulta** para habilitar cadeias de consulta no cache do CDN. Após você ter habilitado, o mesmo link acessado com diferentes cadeias de consulta será armazenado em cache como entradas diferentes.
+3. Clique no botão **Configurar**. Na folha **Configurar**, selecione **Armazenar em cache cada URL exclusiva** no menu suspenso **Comportamento do caching da cadeia de consulta** e clique no botão **Salvar**.
+
 
 	![](media/cdn-websites-with-cdn/9-enable-query-string.png)
 
-	>[AZURE.NOTE] Embora habilitar a cadeia de consulta não seja necessário para esta seção do tutorial, é aconselhável fazer isso o quanto antes para maior conveniência, uma vez que qualquer alteração aqui levará tempo para ser propagada para todos os nós de CDN, e você não quer um acúmulo de conteúdo não habilitado para cadeia de consulta no cache da CDN (a atualização do conteúdo da CDN será abordada mais adiante).
+Após você ter habilitado, o mesmo link acessado com diferentes cadeias de consulta será armazenado em cache como entradas diferentes.
 
-2. Agora, clique no endereço do ponto de extremidade da CDN. Se o ponto de extremidade estiver pronto, você verá seu aplicativo Web exibido. Se você receber um erro **HTTP 404**, isso significa que o ponto de extremidade da CDN não está pronto. Talvez seja necessário aguardar até uma hora para a configuração de CDN ser propagada para todos os nós próximos aos limites.
+>[AZURE.NOTE] Embora habilitar a cadeia de consulta não seja necessário para esta seção do tutorial, é aconselhável fazer isso o quanto antes para maior conveniência, uma vez que qualquer alteração aqui levará tempo para ser propagada para todos os nós de CDN, e você não quer um acúmulo de conteúdo não habilitado para cadeia de consulta no cache da CDN (a atualização do conteúdo da CDN será abordada mais adiante).
+
+2. Agora, navegue até o endereço do ponto de extremidade da CDN. Se o ponto de extremidade estiver pronto, você verá seu aplicativo Web exibido. Se você receber um erro **HTTP 404**, isso significa que o ponto de extremidade da CDN não está pronto. Talvez seja necessário aguardar até uma hora para a configuração de CDN ser propagada para todos os nós próximos aos limites. 
 
 	![](media/cdn-websites-with-cdn/11-access-success.png)
 
-1. Em seguida, tente acessar o arquivo **~/Content/bootstrap.css** em seu projeto ASP.NET. Na janela do navegador, vá para **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**. Em minha configuração, essa URL é:
+1. Em seguida, tente acessar o arquivo **~/Content/bootstrap.css** em seu projeto ASP.NET. Na janela do navegador, navegue até **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css**. Em minha configuração, essa URL é:
 
-		http://az673227.vo.msecnd.net/Content/bootstrap.css
+		http://az673227.azureedge.net/Content/bootstrap.css
 
 	Que corresponde à seguinte URL de origem no ponto de extremidade da CDN:
 
 		http://cdnwebapp.azurewebsites.net/Content/bootstrap.css
 
-	Quando você navegar para **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**, será solicitado que você baixe o bootstrap.css que veio de seu aplicativo Web publicado.
+	Ao navegar para **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css**, será solicitado que você baixe o bootstrap.css proveniente de seu aplicativo Web no Azure.
 
 	![](media/cdn-websites-with-cdn/12-file-access.png)
 
@@ -217,7 +230,7 @@ Siga as etapas acima para configurar esta ação do controlador:
               }
               else // Get content from Azure CDN
               {
-                return Redirect(string.Format("http://<yourCDNName>.vo.msecnd.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
+                return Redirect(string.Format("http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
               }
             }
 
@@ -303,13 +316,13 @@ Quando você envia os valores de formulário a `/MemeGenerator/Index`, o método
       }
       else // Get content from Azure CDN
       {
-        return Redirect(string.Format("http://<yourCDNName>.vo.msecnd.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
+        return Redirect(string.Format("http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
       }
     }
 
 Se o seu depurador local estiver anexado, você terá a experiência de depuração normal com um redirecionamento local. Se estiver sendo executado no aplicativo Web, será redirecionado para:
 
-	http://<yourCDNName>.vo.msecnd.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
+	http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
 
 Que corresponde ao seguinte URL de origem no ponto de extremidade da CDN:
 
@@ -369,7 +382,7 @@ Siga as etapas abaixo para integrar agrupamento e minificação ASP.NET ao ponto
           bundles.UseCdn = true;
           var version = System.Reflection.Assembly.GetAssembly(typeof(Controllers.HomeController))
             .GetName().Version.ToString();
-          var cdnUrl = "http://<yourCDNName>.vo.msecnd.net/{0}?v=" + version;
+          var cdnUrl = "http://<yourCDNName>.azureedge.net/{0}?v=" + version;
 
           bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")).Include(
                 "~/Scripts/jquery-{version}.js"));
@@ -400,7 +413,7 @@ Siga as etapas abaixo para integrar agrupamento e minificação ASP.NET ao ponto
 
 	é igual a:
 
-		new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "http://<yourCDNName>.vo.msecnd.net/bundles/jquery?v=<W.X.Y.Z>"))
+		new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "http://<yourCDNName>.azureedge.net/bundles/jquery?v=<W.X.Y.Z>"))
 
 	Este construtor instrui o agrupamento e minificação ASP.NET a renderizar arquivos de script individuais quando depurados localmente, mas usar o endereço CDN especificado para acessar o script em questão. No entanto, observe duas importantes características dessa URL da CDN criada cuidadosamente:
 	
@@ -417,11 +430,11 @@ Siga as etapas abaixo para integrar agrupamento e minificação ASP.NET ao ponto
 4. Exiba o código HTML da página. Você deverá ver a URL da CDN renderizada, com uma cadeia de versão única sempre que republicar mudanças em seu aplicativo Web do Azure. Por exemplo:
 	
         ...
-        <link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25449" rel="stylesheet"/>
-        <script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25449"></script>
+        <link href="http://az673227.azureedge.net/Content/css?v=1.0.0.25449" rel="stylesheet"/>
+        <script src="http://az673227.azureedge.net/bundles/modernizer?v=1.0.0.25449"></script>
         ...
-        <script src="http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25449"></script>
-        <script src="http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25449"></script>
+        <script src="http://az673227.azureedge.net/bundles/jquery?v=1.0.0.25449"></script>
+        <script src="http://az673227.azureedge.net/bundles/bootstrap?v=1.0.0.25449"></script>
         ...
 
 5. No Visual Studio, depure o aplicativo ASP.NET em Visual Studio, digitando `F5`.,
@@ -450,7 +463,7 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
         {
           var version = System.Reflection.Assembly.GetAssembly(typeof(BundleConfig))
             .GetName().Version.ToString();
-          var cdnUrl = "http://cdnurl.vo.msecnd.net/.../{0}?" + version;
+          var cdnUrl = "http://cdnurl.azureedge.net/.../{0}?" + version;
           bundles.UseCdn = true;
 
           bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")) 
@@ -506,46 +519,27 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 4. Republique seu aplicativo Web do Azure e acesse a página inicial.
 5. Exiba o código HTML da página. Você deve encontrar scripts injetados semelhantes ao seguinte:    
 	
-	```
-	...
-	<link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
-<script>(function() {
-                var loadFallback,
-                    len = document.styleSheets.length;
-                for (var i = 0; i < len; i++) {
-                    var sheet = document.styleSheets[i];
-                    if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) {
-                        var meta = document.createElement('meta');
-                        meta.className = 'sr-only';
-                        document.head.appendChild(meta);
-                        var value = window.getComputedStyle(meta).getPropertyValue('width');
-                        document.head.removeChild(meta);
-                        if (value !== '1px') {
-                            document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />');
-                        }
-                    }
-                }
-                return true;
-            }())||document.write('<script src="/Content/css"><\\/script>');</script>
+	``` ... <link href="http://az673227.azureedge.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
+<script>(function() { var loadFallback, len = document.styleSheets.length; for (var i = 0; i < len; i++) { var sheet = document.styleSheets[i]; if (sheet.href.indexOf('http://az673227.azureedge.net/Content/css?v=1.0.0.25474') !== -1) { var meta = document.createElement('meta'); meta.className = 'sr-only'; document.head.appendChild(meta); var value = window.getComputedStyle(meta).getPropertyValue('width'); document.head.removeChild(meta); if (value !== '1px') { document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />'); } } } return true; }())||document.write('<script src="/Content/css"><\\/script>');</script>
 
-	<script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474"></script>
+	<script src="http://az673227.azureedge.net/bundles/modernizer?v=1.0.0.25474"></script>
  	<script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
 	... 
-	<script src="http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25474"></script>
+	<script src="http://az673227.azureedge.net/bundles/jquery?v=1.0.0.25474"></script>
 	<script>(window.jquery)||document.write('<script src="/bundles/jquery"><\/script>');</script>
 
- 	<script src="http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25474"></script>
+ 	<script src="http://az673227.azureedge.net/bundles/bootstrap?v=1.0.0.25474"></script>
  	<script>($.fn.modal)||document.write('<script src="/bundles/bootstrap"><\/script>');</script>
 	...
 	```
 
-	Observe que o script injetado para o grupo CSS ainda contém o excedente errante da propriedade “CdnFallbackExpression” na linha:
+	Note that injected script for the CSS bundle still contains the errant remnant from the `CdnFallbackExpression` property in the line:
 
 		}())||document.write('<script src="/Content/css"><\/script>');</script>
 
-	Mas como a primeira parte da expressão || sempre retornará o valor verdadeiro (na linha diretamente acima), a função document.write() nunca será executada.
+	But since the first part of the || expression will always return true (in the line directly above that), the document.write() function will never run.
 
-6. Para testar se o script de fallback está funcionando, vá até o painel de controle do ponto de extremidade da CDN e clique em **Desabilitar Ponto de Extremidade**.
+6. Para testar se o script de fallback está funcionando, volte à folha do ponto de extremidade da CDN e clique em **Parar**.
 
 	![](media/cdn-websites-with-cdn/13-test-fallback.png)
 
@@ -563,4 +557,4 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

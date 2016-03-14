@@ -14,15 +14,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # Introdução à API do Box
-Conecte-se ao Box, crie arquivos, exclua arquivos e muito mais.
+Conecte-se ao Box, crie arquivos, exclua arquivos e muito mais. A API do Box pode ser usada em:
 
-A API do Box pode ser usada de aplicativos lógicos.
+- Aplicativos lógicos 
 
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos. Para a versão do esquema 2014-12-01-preview, clique em [Conector do Box](../app-service-logic/app-service-logic-connector-box.md).
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos. Para obter a versão do esquema 2014-12-01-preview, clique em [Conector do Box](../app-service-logic/app-service-logic-connector-box.md).
 
 Com o Box, você pode:
 
@@ -30,14 +30,14 @@ Com o Box, você pode:
 - Usar gatilhos para quando um arquivo for criado ou atualizado.
 - Usar ações para copiar um arquivo, excluir um arquivo e muito mais. Essas ações obtém uma resposta e disponibilizam a saída para outras ações. Por exemplo, quando um arquivo é alterado no Box, você pode obtê-lo e enviá-lo por email usando o Office 365.
 
-Para adicionar uma operação a aplicativos lógicos, consulte [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para adicionar uma operação nos aplicativos lógicos, veja [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Gatilhos e ações
 O Box inclui os seguintes gatilhos e ações.
 
 | Gatilhos | Ações|
 | --- | --- |
-|<ul><li>Quando um arquivo é criado</li><li>Quando um arquivo é modificado</li></ul> | <ul><li>Criar arquivo</li><li>Quando um arquivo é criado</li><li>Copiar arquivo</li><li>Excluir arquivo</li><li>Extrair o arquivo para a pasta</li><li>Obter conteúdo do arquivo usando a ID</li><li>Obter arquivo usando o caminho</li><li>Obter metadados do arquivo usando a ID</li><li>Obter metadados de arquivo usando o caminho</li><li>Atualizar arquivo</li><li>Quando um arquivo é modificado</li></ul>
+|<ul><li>Quando um arquivo é criado</li><li>Quando um arquivo é modificado</li></ul> | <ul><li>Criar arquivo</li><li>Quando um arquivo é criado</li><li>Copiar arquivo</li><li>Excluir arquivo</li><li>Extrair arquivo morto para a pasta</li><li>Obter conteúdo do arquivo usando a ID</li><li>Obter conteúdo do arquivo usando o caminho</li><li>Obter metadados do arquivo usando a ID</li><li>Obter metadados do arquivo usando o caminho</li><li>Atualizar arquivo</li><li>Quando um arquivo é modificado</li></ul>
 
 Todas as APIs dão suporte a dados nos formatos JSON e XML.
 
@@ -47,16 +47,17 @@ Quando você adiciona essa API aos seus aplicativos lógicos, precisa autorizar 
 1. Entre na sua conta do Box.
 2. Selecione **Autorizar** e permita que seus aplicativos lógicos se conectem e usem o Box. 
 
-Depois de criar a conexão, insira as propriedades do Box. A **Referência da API REST** neste tópico descreve essas propriedades.
+Depois de criar a conexão, insira as propriedades do Box. A **referência da API REST** neste tópico descreve essas propriedades.
 
 >[AZURE.TIP] Você pode usar essa mesma conexão do Box em outros aplicativos lógicos.
 
 ## Referência da API REST do Swagger
+Aplica-se à versão: 1.0.
 
 ### Criar arquivo
-Carrega um arquivo para o Box. ```POST: /datasets/default/files```
+Carrega um arquivo no Box.```POST: /datasets/default/files```
 
-| Nome|Tipo de Dados|Obrigatório|Localizado Em|Valor Padrão|Descrição|
+| Nome|Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
 |folderPath|string|Sim|query|Nenhum |Caminho da pasta para carregar o arquivo no Box|
 |name|cadeia de caracteres|Sim|query|Nenhum |Nome do arquivo a ser criado no Box|
@@ -66,13 +67,13 @@ Carrega um arquivo para o Box. ```POST: /datasets/default/files```
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|padrão|Falha na operação.|
 
 
 ### Quando um arquivo é criado
-Dispara um fluxo quando um novo arquivo é criado em uma pasta do Box. ```GET: /datasets/default/triggers/onnewfile```
+Dispara um fluxo quando um novo arquivo é criado em uma pasta do Box.```GET: /datasets/default/triggers/onnewfile```
 
-| Nome|Tipo de Dados|Obrigatório|Localizado Em|Valor Padrão|Descrição|
+| Nome|Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
 |folderId|string|Sim|query|Nenhum |Identificador exclusivo da pasta no Box|
 
@@ -80,13 +81,13 @@ Dispara um fluxo quando um novo arquivo é criado em uma pasta do Box. ```GET: /
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|padrão|Falha na operação.|
 
 
 ### Copiar arquivo
-Copia um arquivo para o Box. ```POST: /datasets/default/copyFile```
+Copia um arquivo no Box.```POST: /datasets/default/copyFile```
 
-| Nome|Tipo de Dados|Obrigatório|Localizado Em|Valor Padrão|Descrição|
+| Nome|Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
 |fonte|string|Sim|query|Nenhum |URL para o arquivo de código-fonte|
 |destino|string|Sim|query| Nenhum|Caminho do arquivo de destino no Box, incluindo o nome do arquivo de destino|
@@ -96,14 +97,14 @@ Copia um arquivo para o Box. ```POST: /datasets/default/copyFile```
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|padrão|Falha na operação.|
 
 
 ### Excluir arquivo
-Exclui um arquivo do Box. ```DELETE: /datasets/default/files/{id}```
+Exclui um arquivo do Box.```DELETE: /datasets/default/files/{id}```
 
 
-| Nome|Tipo de Dados|Obrigatório|Localizado Em|Valor Padrão|Descrição|
+| Nome|Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
 |ID|string|Sim|path|Nenhum |Identificador exclusivo do arquivo a ser excluído do Box|
 
@@ -111,13 +112,13 @@ Exclui um arquivo do Box. ```DELETE: /datasets/default/files/{id}```
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|padrão|Falha na operação.|
 
 
 ### Extrair o arquivo morto para a pasta
-Extrai um arquivo morto para uma pasta no Box (exemplo: .zip). ```POST: /datasets/default/extractFolderV2```
+Extrai um arquivo morto para uma pasta no Box (exemplo: .zip).```POST: /datasets/default/extractFolderV2```
 
-| Nome|Tipo de Dados|Obrigatório|Localizado Em|Valor Padrão|Descrição|
+| Nome|Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
 |fonte|string|Sim|query| |Caminho para o arquivo morto|
 |destino|string|Sim|query| |Caminho no Box para extrair os conteúdos do arquivo morto|
@@ -127,13 +128,13 @@ Extrai um arquivo morto para uma pasta no Box (exemplo: .zip). ```POST: /dataset
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|padrão|Falha na operação.|
 
 
 ### Obter o conteúdo do arquivo usando a ID
-Recupera o conteúdo do arquivo do Box usando a ID. ```GET: /datasets/default/files/{id}/content```
+Recupera o conteúdo do arquivo do Box usando a ID.```GET: /datasets/default/files/{id}/content```
 
-| Nome|Tipo de Dados|Obrigatório|Localizado Em|Valor Padrão|Descrição|
+| Nome|Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
 |ID|string|Sim|path|Nenhum |Identificador exclusivo do arquivo no Box|
 
@@ -141,13 +142,13 @@ Recupera o conteúdo do arquivo do Box usando a ID. ```GET: /datasets/default/fi
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|padrão|Falha na operação.|
 
 
 ### Obter o conteúdo do arquivo usando o caminho
-Recupera o conteúdo do arquivo do Box usando o caminho. ```GET: /datasets/default/GetFileContentByPath```
+Recupera o conteúdo do arquivo do Box usando o caminho.```GET: /datasets/default/GetFileContentByPath```
 
-| Nome|Tipo de Dados|Obrigatório|Localizado Em|Valor Padrão|Descrição|
+| Nome|Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
 |path|string|Sim|query|Nenhum |Caminho exclusivo para o arquivo no Box|
 
@@ -155,13 +156,13 @@ Recupera o conteúdo do arquivo do Box usando o caminho. ```GET: /datasets/defau
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|padrão|Falha na operação.|
 
 
 ### Obter metadados de arquivo usando a ID
-Recupera os metadados do arquivo do Box usando a ID do arquivo. ```GET: /datasets/default/files/{id}```
+Recupera os metadados do arquivo do Box usando a ID do arquivo.```GET: /datasets/default/files/{id}```
 
-| Nome|Tipo de Dados|Obrigatório|Localizado Em|Valor Padrão|Descrição|
+| Nome|Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
 |ID|string|Sim|path| Nenhum|Identificador exclusivo do arquivo no Box|
 
@@ -169,13 +170,13 @@ Recupera os metadados do arquivo do Box usando a ID do arquivo. ```GET: /dataset
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|padrão|Falha na operação.|
 
 
 ### Obter metadados de arquivo usando o caminho
-Recupera os metadados do arquivo do Box usando o caminho. ```GET: /datasets/default/GetFileByPath```
+Recupera os metadados do arquivo do Box usando o caminho.```GET: /datasets/default/GetFileByPath```
 
-| Nome|Tipo de Dados|Obrigatório|Localizado Em|Valor Padrão|Descrição|
+| Nome|Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
 |path|string|Sim|query|Nenhum |Caminho exclusivo para o arquivo no Box|
 
@@ -183,13 +184,13 @@ Recupera os metadados do arquivo do Box usando o caminho. ```GET: /datasets/defa
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|padrão|Falha na operação.|
 
 
 ### Atualizar arquivo
-Carrega um arquivo no Box. ```PUT: /datasets/default/files/{id}```
+Atualiza um arquivo no Box.```PUT: /datasets/default/files/{id}```
 
-| Nome|Tipo de Dados|Obrigatório|Localizado Em|Valor Padrão|Descrição|
+| Nome|Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
 |ID|string|Sim|path| Nenhum|Identificador exclusivo do arquivo a ser atualizado no Box|
 |corpo|cadeia de caracteres(binário) |Sim|corpo|Nenhum |Conteúdo do arquivo para atualizar no Box|
@@ -198,13 +199,13 @@ Carrega um arquivo no Box. ```PUT: /datasets/default/files/{id}```
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|padrão|Falha na operação.|
 
 
 ### Quando um arquivo é modificado
-Dispara um fluxo quando um arquivo é modificado em uma pasta do Box. ```GET: /datasets/default/triggers/onupdatedfile```
+Dispara um fluxo quando um arquivo é modificado em uma pasta do Box.```GET: /datasets/default/triggers/onupdatedfile```
 
-| Nome|Tipo de Dados|Obrigatório|Localizado Em|Valor Padrão|Descrição|
+| Nome|Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
 |folderId|string|Sim|query|Nenhum |Identificador exclusivo da pasta no Box|
 
@@ -212,7 +213,7 @@ Dispara um fluxo quando um arquivo é modificado em uma pasta do Box. ```GET: /d
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|padrão|Falha na operação.|
 
 
 ## Definições de objeto
@@ -261,4 +262,4 @@ Dispara um fluxo quando um arquivo é modificado em uma pasta do Box. ```GET: /d
 
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

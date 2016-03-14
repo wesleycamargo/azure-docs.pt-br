@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="03/01/2016" 
 	ms.author="awills"/>
  
 # Explorar métricas no Application Insights
@@ -194,7 +194,7 @@ O que você vê é o que é exportado. Altere o intervalo de tempo ou os filtros
 
 ### Exportação Contínua
 
-Se desejar que os dados sejam exportados continuamente para que você possa processá-los externamente, considere usar [Exportação contínua](app-insights-export-telemetry.md).
+Se desejar que os dados sejam exportados de forma contínua para que você possa processá-los externamente, considere usar a [Exportação contínua](app-insights-export-telemetry.md).
 
 ### Power BI
 
@@ -214,4 +214,4 @@ Se desejar obter exibições ainda mais avançadas dos seus dados, você poderá
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0302_2016-->

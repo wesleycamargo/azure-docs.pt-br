@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="11/30/2015" 
+    ms.date="02/26/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690951.aspx -->
@@ -24,7 +24,7 @@ Para ajudar a solucionar problemas em suas implantações, você pode habilitar 
 
 ## Como habilitar o Acesso Remoto antes de implantar no Azure ##
 
->[AZURE.NOTE]Para habilitar o Acesso Remoto antes de implantar seu aplicativo no Azure, você precisará executar o Eclipse no Windows.
+>[AZURE.NOTE] Para habilitar o Acesso Remoto antes de implantar seu aplicativo no Azure, você precisará executar o Eclipse no Windows.
 
 A imagem a seguir mostra a caixa de diálogo de propriedades do **Acesso Remoto** usada para habilitar o acesso remoto.
 
@@ -81,9 +81,8 @@ Quando a sua instância de função estiver pronta, você poderá fazer logon re
 
 * Se você estiver usando o Eclipse no Windows e selecionou a opção **Iniciar área de trabalho remota na implantação** durante a implantação do Azure, receberá uma tela de logon para a Conexão de Área de Trabalho Remota quando a implantação for iniciada. Quando receber a solicitação de nome de usuário e senha, insira os valores que você especificou para o usuário remoto e assim conseguirá fazer logon.
 * Outra maneira de fazer logon remotamente é por meio do <a href="http://go.microsoft.com/fwlink/?LinkID=512959">Portal de Gerenciamento do Azure</a>:
-    * Dentro do modo de exibição dos **Serviços de Nuvem** do portal de Gerenciamento do Azure, clique em seu serviço de nuvem, clique em **Instâncias**, clique em uma instância específica e, em seguida, clique no botão **Conectar**. O botão **Conectar** aparece da seguinte forma na barra de comandos: 
-    ![][ic659273]  
-    >[AZURE.NOTE]Se você estiver em um sistema operacional que não seja o Windows, será necessário usar um cliente de Área de Trabalho Remota compatível com o sistema operacional e executar as etapas para definir esse cliente com as configurações no arquivo RDP baixado.
+    * Dentro do modo de exibição dos **Serviços de Nuvem** do portal de Gerenciamento do Azure, clique em seu serviço de nuvem, clique em **Instâncias**, clique em uma instância específica e, em seguida, clique no botão **Conectar**. O botão **Conectar** aparece da seguinte forma na barra de comandos: ![][ic659273]
+    >[AZURE.NOTE] Se você estiver em um sistema operacional que não seja o Windows, será necessário usar um cliente de Área de Trabalho Remota compatível com o sistema operacional e executar as etapas para definir esse cliente com as configurações no arquivo RDP baixado.
     * Depois de clicar no botão **Conectar**, você receberá uma solicitação para abrir um arquivo RDP. Abra o arquivo e siga os prompts. (Você pode também salvar esse arquivo em seu computador local e depois executar o arquivo clicando duas vezes nele para fazer logon remoto em sua máquina virtual sem a necessidade de acessar primeiro o portal de gerenciamento).
     * Quando receber a solicitação de nome de usuário e senha, insira os valores que você especificou para o usuário remoto e assim conseguirá fazer logon.
 
@@ -112,4 +111,4 @@ Para saber mais sobre como usar o Azure com Java, confira a [Central de Desenvol
 [ic719494]: ./media/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments/ic719494.png
 [ic659273]: ./media/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments/ic659273.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

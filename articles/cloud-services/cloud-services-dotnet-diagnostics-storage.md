@@ -12,7 +12,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
-  ms.date="10/21/2015"
+  ms.date="02/20/2016"
   ms.author="robb" />
 
 # Armazenar e exibir dados de diagnóstico no Armazenamento do Azure
@@ -52,7 +52,7 @@ Para o SDK 2.5 e posterior, a solicitação para transferir dados de diagnóstic
 Para o SDK 2.4 e anterior, você pode solicitar a transferência dos dados de diagnóstico por meio do arquivo de configuração, bem como programaticamente. A abordagem programática também permite fazer transferências sob demanda.
 
 
->[AZURE.IMPORTANT]Quando você transfere dados de diagnóstico para uma conta de armazenamento do Azure, incorre em custos para os recursos de armazenamento usados pelos dados de diagnóstico.
+>[AZURE.IMPORTANT] Quando você transfere dados de diagnóstico para uma conta de armazenamento do Azure, incorre em custos para os recursos de armazenamento usados pelos dados de diagnóstico.
 
 ## Armazenar dados de diagnóstico
 
@@ -83,14 +83,15 @@ Os dados de log são armazenados no armazenamento de Blob ou de Tabela com os se
 ## Ferramentas para exibir dados de diagnóstico
 Várias ferramentas estão disponíveis para exibir os dados depois de serem transferidos para o armazenamento. Por exemplo:
 
-- **Gerenciador de Servidores no Visual Studio** -se tiver instalado as ferramentas do Azure para o Microsoft Visual Studio, você poderá usar o nó de armazenamento do Azure no Gerenciador de Servidores para exibir os dados de tabela e de blob somente leitura de suas contas de armazenamento do Azure. Você pode exibir dados de conta do emulador de armazenamento local e também de contas de armazenamento que você criou para o Azure. Para saber mais, consulte [Procurando recursos de armazenamento com o Gerenciador de Servidores](https://msdn.microsoft.com/library/ff683677.aspx).
+- Gerenciador de Servidores no Visual Studio – Se tiver instalado as Ferramentas do Azure para o Microsoft Visual Studio, será possível usar o nó do Armazenamento do Azure no Gerenciador de Servidores para exibir os dados de tabela e de blob somente leitura de suas contas de armazenamento do Azure. Você pode exibir dados de conta do emulador de armazenamento local e também de contas de armazenamento que você criou para o Azure. Para obter mais informações, veja [Procurando e gerenciando recursos de armazenamento com o Gerenciador de Servidores](../vs-azure-tools-storage-resources-server-explorer-browse-manage.md).
 
-- **Azure Storage Explorer da Neudesic** - o [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/) é uma ferramenta gráfica de interface de usuário útil para inspecionar e alterar os dados dos seus projetos de armazenamento do Azure, incluindo os logs de seus aplicativos do Azure. Para baixar a ferramenta, consulte [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/).
+- O [Gerenciador de Armazenamento do Azure da Neudesic](http://azurestorageexplorer.codeplex.com/) é uma ferramenta útil de interface gráfica do usuário usada para inspecionar e alterar os dados em seus projetos de armazenamento do Azure, incluindo os logs de aplicativos do Azure.
 
-- Azure Diagnostics Manager da Cerebrata - o [Azure Diagnostics Manager](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx) é um cliente baseado no Windows (WPF) para gerenciar o Diagnóstico do Azure. Ele permite exibir, baixar e gerenciar os dados de diagnóstico coletados pelos aplicativos em execução no Azure. Para baixar a ferramenta, consulte [Azure Diagnostics Manager](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx).
+- O [Azure Management Studio](http://www.cerebrata.com/products/azure-management-studio/introduction) inclui o Gerenciador de Diagnóstico do Azure que permite exibir, baixar e gerenciar os dados de diagnósticos coletados pelos aplicativos em execução no Azure.
+
 
 ## Próximas etapas
 
 [Rastrear o fluxo em um aplicativo de Serviços de Nuvem com o Diagnóstico do Azure](cloud-services-dotnet-diagnostics-trace-flow.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0302_2016-->

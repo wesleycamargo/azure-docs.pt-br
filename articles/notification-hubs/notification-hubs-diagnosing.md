@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/27/2015" 
+	ms.date="02/29/2016" 
 	ms.author="wesmc"/>
 
 #Hubs de Notificação do Azure - Diretrizes de Diagnóstico
@@ -75,7 +75,7 @@ Se você estiver usando modelos que garantam você está seguindo as diretrizes 
 
 Supondo que o Hub de Notificação foi configurado corretamente e que qualquer expressões de marcas/marca foi usada corretamente, resultando na localização de destinos válidos para o qual as notificações precisam ser enviadas, o NH aciona vários lotes de processamento em paralelo - cada lote de envio de mensagens para um conjunto de registros.
 
-> [AZURE.NOTE]Como fazemos o processamento em paralelo, nós não garantimos a ordem em que as notificações serão entregues.
+> [AZURE.NOTE] Como fazemos o processamento em paralelo, nós não garantimos a ordem em que as notificações serão entregues.
 
 Agora o Hub de Notificações do Azure foi otimizado para um modelo de entrega de mensagem "no máximo uma vez". Isso significa que podemos tentar uma eliminação de duplicação para que nenhuma notificação seja entregues mais de uma vez em um dispositivo. Para garantir isso, vamos examinar os registros e garantir que somente uma mensagem seja enviada por um identificador de dispositivo antes de realmente enviar a mensagem ao PNS. Como cada lote é enviado ao PNS, que por sua vez está aceitando e validando os registros, é possível que o PNS detecte um erro com um ou mais registros em um lote, retorna um erro para o Azure NH e interrompe o processamento, assim, descartando completamente esse lote. Isso é especialmente verdadeiro com o APNS que usa um protocolo de fluxo TCP. Como estamos otimizados para no máximo uma entrega única, deve-se observar que não há nenhuma repetição para este lote com falha porque não sabemos com certeza se o PNS descartou todo o lote ou parte do lote. O PNS diz ao Azure NH qual registro causou a falha e, com base nos comentários, removemos esse registro de nosso banco de dados. Isso significa que é possível que o lote de registro ou um subconjunto dele pode não receber uma notificação, no entanto, como limpamos o registro incorreto, na próxima vez que um envio for tentado, há uma chance maior de envio bem-sucedido. À medida que o número de dispositivos de destino crescem (alguns de nossa clientes enviam notificação para milhões de dispositivos), descartar um lote ímpar aqui e ali não faz muita diferença na porcentagem geral de dispositivos para receber notificações, no entanto, se você está enviando algumas notificações e há alguns erros PNS, você poderá ver todas ou a maioria das notificações que não estão sendo recebidas. Se você estiver vendo esse comportamento repetidamente, deve identificar os registros incorretos e excluí-los. Definitivamente, você deve excluir qualquer registros formados manualmente porque eles são a causa mais comum de notificações interrompidas. Se este for um ambiente de teste, você poderá excluir diretamente todos os registros como aplicativos quando abertos nos dispositivos tentarão novamente e registrarão nos Hubs de Notificação, garantindo que todos os registros criados a partir desse momento sejam válidos.
 
@@ -115,7 +115,7 @@ Aqui examinaremos os vários caminhos para diagnosticar e verificar a causa raiz
 
 	![][8]
  
-	> [AZURE.NOTE]A funcionalidade do Visual Studio para editar os registros só deve ser usada durante o desenvolvimento e teste com um número limitado de registros. Se surgir a necessidade de corrigir seus registros em massa, considere o uso da funcionalidade de Importação/Exportação de registros descrita aqui - [Importação/Exportação de registros](https://msdn.microsoft.com/library/dn790624.aspx)
+	> [AZURE.NOTE] A funcionalidade do Visual Studio para editar os registros só deve ser usada durante o desenvolvimento e teste com um número limitado de registros. Se surgir a necessidade de corrigir seus registros em massa, considere o uso da funcionalidade de Importação/Exportação de registros descrita aqui - [Importação/Exportação de registros](https://msdn.microsoft.com/library/dn790624.aspx)
 
 2. **Gerenciador do Barramento de Serviço**
 
@@ -179,7 +179,7 @@ Suponha que você esteja usando o SDK do .NET para enviar uma notificação do s
  
 Essa mensagem indica que qualquer credenciais inválidas são configuradas no hub de notificação ou um problema com os registros no hub e o curso recomendado seria excluir esse registro e deixar que o cliente recrie-a antes de enviar a mensagem.
  
-> [AZURE.NOTE]Observe que o uso dessa propriedade é muito limitado e, portanto, você só deve usar no ambiente de desenvolvimento/teste com um conjunto limitado de registros. Estamos enviando apenas notificações de depuração para 10 dispositivos. Também temos um limite de processamento de envios de depuração de 10 por minuto.
+> [AZURE.NOTE] Observe que o uso dessa propriedade é muito limitado e, portanto, você só deve usar no ambiente de desenvolvimento/teste com um conjunto limitado de registros. Estamos enviando apenas notificações de depuração para 10 dispositivos. Também temos um limite de processamento de envios de depuração de 10 por minuto.
 
 ###Telemetria de revisão 
 
@@ -206,7 +206,7 @@ Mais detalhes aqui -
 - [Acesso Programático de Telemetria]
 - [Acesso de Telemetria por meio do exemplo de APIs] 
 
-> [AZURE.NOTE]Várias telemetrias relacionados a recursos como **Importação/Exportação de Registros**, **Acesso de Telemetria via APIs** etc., só estão disponíveis na camada Standard. Se você tentar usar esses recursos se estiver na camada Free ou Basic, receberá a mensagem de exceção para esse efeito ao usar o SDK e um HTTP 403 (Proibido) quando usá-los diretamente pelas APIs REST. Certifique-se de que você atualizou para a camada Standard via portal Clássico do Azure.
+> [AZURE.NOTE] Várias telemetrias relacionados a recursos como **Importação/Exportação de Registros**, **Acesso de Telemetria via APIs** etc., só estão disponíveis na camada Standard. Se você tentar usar esses recursos se estiver na camada Free ou Basic, receberá a mensagem de exceção para esse efeito ao usar o SDK e um HTTP 403 (Proibido) quando usá-los diretamente pelas APIs REST. Certifique-se de que você atualizou para a camada Standard via portal Clássico do Azure.
 
 <!-- IMAGES -->
 [0]: ./media/notification-hubs-diagnosing/Architecture.png
@@ -239,4 +239,4 @@ Mais detalhes aqui -
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

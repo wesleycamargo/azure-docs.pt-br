@@ -3,7 +3,7 @@
 	description="Aprenda a usar Hubs de notificação do Azure de um back-end do Java." 
 	services="notification-hubs" 
 	documentationCenter="" 
-	authors="ysxu" 
+	authors="wesmc7777" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="java" 
 	ms.topic="article" 
 	ms.date="11/01/2015" 
-	ms.author="yuaxu"/>
+	ms.author="wesmc"/>
 
 # Como usar os Hubs de notificação do Java
 [AZURE.INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -221,7 +221,7 @@ O mesmo que o envio regular, mas com um parâmetro adicional - scheduledTime que
 
 	List<NotificationHubJob> jobs = hub.getAllNotificationHubJobs();
 
-**URI com assinatura SAS:** esta é a URL de um arquivo de blob ou contêiner de blob, mais um conjunto de parâmetros como permissões e tempo de expiração, mais a assinatura de todas essas coisas criadas usando a chave SAS da conta. O SDK Java do armazenamento do Azure tem recursos avançados, incluindo a criação de tal espécie de URIs. Como alternativa simples, você pode dar uma olhada na classe de teste ImportExportE2E (a partir do local do github) que tem muitas implementações de algoritmo de assinatura básicas e compactas.
+**URI com assinatura SAS:** esta é a URL de um arquivo de blob ou contêiner de blob mais o conjunto de parâmetros, como tempo de expiração e permissões mais assinatura de todas essas coisas feitas usando a chave SAS da conta. O SDK Java do armazenamento do Azure tem recursos avançados, incluindo a criação de tal espécie de URIs. Como alternativa simples, você pode dar uma olhada na classe de teste ImportExportE2E (a partir do local do github) que tem muitas implementações de algoritmo de assinatura básicas e compactas.
 
 ###Enviar notificações
 O objeto de notificação é simplesmente um corpo com cabeçalhos, alguns métodos de utilitário que ajudam na criação de objetos nativos e de modelo de notificações.
@@ -303,4 +303,4 @@ Neste tópico, mostramos como criar um cliente REST simples do Java para Hubs de
 [Maven]: http://maven.apache.org/
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0302_2016-->

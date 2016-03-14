@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/10/2015" 
+	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
 #Como usar a API do Engagement no Android
@@ -40,7 +40,7 @@ Mas as *atividades* também podem ser controladas manualmente usando o API Engag
 
 ##Relatório de atividades
 
-> [AZURE.IMPORTANT]Não é necessário relatório de atividades, como descrito nesta seção se você estiver usando a classe `EngagementActivity` e suas variantes, conforme explicado em Como integrar o Engagement em documento Android.
+> [AZURE.IMPORTANT] Não é necessário relatório de atividades, como descrito nesta seção se você estiver usando a classe `EngagementActivity` e suas variantes, conforme explicado em Como integrar o Engagement em documento Android.
 
 ### O usuário inicia uma nova atividade
 
@@ -233,9 +233,9 @@ Os dados arbitrários podem ser anexados aos eventos, erros, atividades e trabal
 
 Esses dados podem ser estruturados, eles usam a classe de pacote do Android (na verdade, eles funcionam como parâmetros extras no Android Intents). Observe que um pacote pode conter matrizes ou outras instâncias de pacote.
 
-> [AZURE.IMPORTANT]Se você colocar os parâmetros parceláveis ou serializáveis, certifique-se de que o seu método `toString()` seja implementado para retornar uma cadeia de caracteres legível. As classes serializáveis que contêm campos não transitórios que não são serializáveis farão com que o Android falhe quando você chamar `bundle.putSerializable("key",value);`
+> [AZURE.IMPORTANT] Se você colocar os parâmetros parceláveis ou serializáveis, certifique-se de que o seu método `toString()` seja implementado para retornar uma cadeia de caracteres legível. As classes serializáveis que contêm campos não transitórios que não são serializáveis farão com que o Android falhe quando você chamar `bundle.putSerializable("key",value);`
 
-> [AZURE.WARNING]Não há suporte para matrizes esparsas em parâmetros extras, ou seja, ela não será serializada como uma matriz. Você deve convertê-las em matrizes padrão antes de usá-las em parâmetros extras.
+> [AZURE.WARNING] Não há suporte para matrizes esparsas em parâmetros extras, ou seja, ela não será serializada como uma matriz. Você deve convertê-las em matrizes padrão antes de usá-las em parâmetros extras.
 
 ### Exemplo
 
@@ -272,7 +272,7 @@ Assim como os extras de evento, a classe de pacote é usada para abstrair as inf
 
 ### Exemplo
 
-Aqui está um exemplo de código para enviar a data de nascimento e gênero do usuário:
+Aqui está um exemplo de código para enviar a data de nascimento e sexo do usuário:
 
 			Bundle appInfo = new Bundle();
 			appInfo.putString("status", "premium");
@@ -298,4 +298,4 @@ No exemplo anterior, o JSON enviado para o servidor tem 44 caracteres:
 			{"expiration":"2016-12-07","status":"premium"}
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

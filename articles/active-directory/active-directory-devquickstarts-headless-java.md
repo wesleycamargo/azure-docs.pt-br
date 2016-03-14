@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="11/14/2015"
+	ms.date="02/19/2016"
 	ms.author="brandwe"/>
 
 
@@ -23,7 +23,10 @@
 
 O AD do Azure torna simples e direto terceirizar o gerenciamento da identidade de seu aplicativo Web, fornecendo uma única entrada e uma única saída com apenas algumas linhas de código. Em aplicativos Web do Java, você pode conseguir isso usando a implementação da Microsoft do ADAL4J voltado para a comunidade.
 
-  Aqui usaremos o ADAL4J para: - Conectar o usuário no aplicativo usando o Azure AD como o provedor de identidade. - Exibir algumas informações sobre o usuário. - Desconectar o usuário do aplicativo.
+  Aqui usaremos o ADAL4J para:
+- Conectar o usuário ao aplicativo usando o Azure AD como o provedor de identidade.
+- Exibir algumas informações sobre o usuário.
+- Desconectar o usuário do aplicativo.
 
 Para isso, você precisará:
 
@@ -266,4 +269,4 @@ Para referência, o exemplo concluído (sem os valores de configuração) [é fo
 
 ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

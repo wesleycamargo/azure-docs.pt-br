@@ -24,7 +24,7 @@ Use este tutorial para ajudá-lo a começar a usar o Cofre da Chave do Azure par
 
 **Tempo estimado para conclusão:** 20 minutos
 
->[AZURE.NOTE]Este tutorial não inclui instruções sobre como escrever o aplicativo do Azure incluído em uma das etapas, que mostra como autorizar um aplicativo a usar uma chave ou um segredo do cofre da chave.
+>[AZURE.NOTE]  Este tutorial não inclui instruções sobre como escrever o aplicativo do Azure incluído em uma das etapas, que mostra como autorizar um aplicativo a usar uma chave ou um segredo do cofre da chave.
 >
 >No momento, não é possível configurar o Cofre da Chave do Azure no portal do Azure. Em vez disso, use as instruções da Interface de Linha de Comando de Plataforma Cruzada do Azure. Ou, para obter instruções do PowerShell do Azure, consulte [este tutorial equivalente](key-vault-get-started.md).
 
@@ -68,7 +68,7 @@ ou se deseja fazer logon digitando interativamente
 
     azure login
 
->[AZURE.NOTE]O método de logon só funciona com contas institucionais. Uma conta institucional é um usuário gerenciado pela organização e definido no locatário do Active Directory do Azure da organização.
+>[AZURE.NOTE]  O método de logon só funciona com contas institucionais. Uma conta institucional é um usuário gerenciado pela organização e definido no locatário do Active Directory do Azure da organização.
 
 
 Se não tiver uma conta institucional e estiver usando uma conta da Microsoft para fazer logon na assinatura do Azure, você poderá criar facilmente uma usando as etapas a seguir.
@@ -153,7 +153,7 @@ Vamos exibir a chave ou o segredo que você acabou de criar:
 Esta etapa geralmente seria feita por um desenvolvedor, em um computador separado. Ela não é específica ao Cofre da Chave do Azure, mas é incluída aqui para que as informações fiquem completas.
 
 
->[AZURE.IMPORTANT]Para concluir o tutorial, sua conta, o cofre e o aplicativo que você registrará nesta etapa devem todos estar no mesmo diretório do Azure.
+>[AZURE.IMPORTANT] Para concluir o tutorial, sua conta, o cofre e o aplicativo que você registrará nesta etapa devem todos estar no mesmo diretório do Azure.
 
 Aplicativos que usam um cofre de chave devem ser autenticados usando um token do Active Directory do Azure. Para fazer isso, o proprietário do aplicativo deve primeiro registrar o aplicativo no seu Active Directory do Azure. No final do registro, o proprietário do aplicativo obtém os seguintes valores:
 
@@ -185,11 +185,11 @@ Para autorizar o aplicativo a acessar a chave ou o segredo no cofre, use o coman
 
 Por exemplo, se o nome do cofre for ContosoKeyVault e o aplicativo que você quer autorizar tiver a ID de cliente 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed, e você quiser autorizar o aplicativo a descriptografar e assinar com chaves em seu cofre. Em seguida, execute o seguinte:
 
-    azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-keys '["decrypt","sign"]'
+    azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perms-to-keys '["decrypt","sign"]'
 
 Se você deseja autorizar que o mesmo aplicativo leia segredos em seu cofre, execute o seguinte:
 
-	azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-secrets '["get"]'
+	azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perms-to-secrets '["get"]'
 
 ## Se quiser usar um HSM (módulo de segurança de hardware) ##
 
@@ -256,4 +256,4 @@ Aqui está um exemplo de como remover um segredo específica:
 
 Para referências de programação, consulte [Guia do desenvolvedor do Cofre da Chave do Azure](key-vault-developers-guide.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

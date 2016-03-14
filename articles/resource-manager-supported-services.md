@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/22/2016"
+   ms.date="03/01/2016"
    ms.author="tomfitz"/>
 
 # Provedores, regiões, versões de API e esquemas do Gerenciador de Recursos
@@ -35,9 +35,7 @@ As tabelas a seguir listam quais serviços suportam a implantação e o gerencia
 | Serviços de ciclo de vida do Dynamics | Sim | | | [Microsoft.DynamicsLcs](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DynamicsLcs%22&type=Code)
 | Service Fabric (visualização) | Sim | [Service Fabric Rest](https://msdn.microsoft.com/library/azure/dn707692.aspx) | | [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
 | Máquinas Virtuais | Sim | [VM REST](https://msdn.microsoft.com/library/azure/mt163647.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) | [Microsoft.Compute](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Compute%22&type=Code) |
-| Máquinas virtuais (clássico) | Limitado | - | - |
-| Aplicativo Remoto | Não | - | - |
-| Serviços de Nuvem (clássico) | Limitado (veja abaixo) | - | - | - |
+| Máquinas virtuais (clássico) | Limitado | Aplicativo Remoto | Não | - | - | | Serviços de Nuvem (clássico) | Limitado (veja abaixo) | - | - | - |
 
 Máquinas virtuais (clássico) refere-se aos recursos que foram implantados por meio do modelo de implantação clássico, não por meio do modelo de implantação do Gerenciador de Recursos. Em geral, esses recursos não oferecem suporte a operações do Gerenciador de Recursos, mas existem algumas operações que foram habilitadas. Para saber mais sobre esses modelos de implantação, confira [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](resource-manager-deployment-model.md).
 
@@ -90,8 +88,7 @@ Os Serviços de Nuvem (clássico) podem ser usados com outros recursos clássico
 | Repositório Data Lake | Sim | | | |
 | HDInsights | Sim | [REST do HDInsights](https://msdn.microsoft.com/library/azure/mt622197.aspx) | | [Microsoft.HDInsight](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.HDInsight%22&type=Code) |
 | Análise de fluxo | Sim | [Análise de fluxo REST](https://msdn.microsoft.com/library/azure/dn835031.aspx) | | [Microsoft.StreamAnalytics](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.StreamAnalytics%22&type=Code) |
-| Aprendizado de Máquina | Não | - | - | - | 
-| Catálogo de Dados | Não | - | - | - |
+| Aprendizado de Máquina | Não | - | - | - | | Catálogo de Dados | Não | - | - | - |
 
 ## Internet das coisas
 
@@ -115,8 +112,7 @@ Os Serviços de Nuvem (clássico) podem ser usados com outros recursos clássico
 | ------- | ------- | -------- | ------ | ------ |
 | Serviços do BizTalk | Sim | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) | [Microsoft.BizTalkServices](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.BizTalkServices%22&type=Code) |
 | Barramento de Serviço | Sim | | | [Microsoft.ServiceBus](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceBus%22&type=Code) |
-| Backup | Não | - | - | - |
-| Recuperação de Site | Não | - | - | - |
+| Backup | Não | - | - | - | | Recuperação de Site | Não | - | - | - |
 
 ## Gerenciamento de acesso e identidade 
 
@@ -153,9 +149,11 @@ O Active Directory do Azure funciona com o Gerenciador de Recursos para habilita
 
 Ao implantar recursos, com frequência você precisa recuperar informações sobre os provedores e tipos de recursos. Você pode recuperar essas informações por meio da API REST, do Azure PowerShell ou da CLI do Azure.
 
+Para trabalhar com um provedor de recursos, o provedor de recursos deve ser registrado com sua conta. Por padrão, vários provedores de recursos são automaticamente registrados; no entanto, talvez seja necessário registrar manualmente alguns provedores de recursos. Os exemplos abaixo mostram como obter o status do registro de um provedor de recursos e registrar o provedor de recursos, se necessário.
+
 ### API REST
 
-Para obter todos os provedores de recursos disponíveis, incluindo seus tipos, locais, versões de API e status de registro, use a operação [Listar todos os provedores de recursos](https://msdn.microsoft.com/library/azure/dn790524.aspx).
+Para obter todos os provedores de recursos disponíveis, incluindo seus tipos, locais, versões de API e status do registro, use a operação [Listar todos os provedores de recursos](https://msdn.microsoft.com/library/azure/dn790524.aspx). Se precisar registrar um provedor de recursos, veja [Registrar uma assinatura em um provedor de recursos](https://msdn.microsoft.com/library/azure/dn790548.aspx).
 
 ### PowerShell
 
@@ -183,6 +181,10 @@ A saída será semelhante a:
     sites/slots/extensions          {Brazil South, East Asia, East US, Japan East...} {20...
     ...
     
+Para registrar um provedor de recursos, forneça o namespace:
+
+    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ApiManagement
+
 ### CLI do Azure
 
 O exemplo a seguir mostra como obter todos os provedores de recursos disponíveis.
@@ -203,6 +205,10 @@ A saída será semelhante a:
 Você pode salvar as informações para um provedor de recursos específico em um arquivo com o comando a seguir.
 
     azure provider show Microsoft.Web -vv --json > c:\temp.json
+
+Para registrar um provedor de recursos, forneça o namespace:
+
+    azure provider register -n Microsoft.ServiceBus
 
 ## Regiões com suporte
 
@@ -294,4 +300,4 @@ Você pode abrir o arquivo e localizar o elemento **apiVersions**
 - Para saber mais sobre a criação de modelos do Gerenciador de Recursos, confira [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
 - Para saber mais sobre como implantar recursos, confira [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

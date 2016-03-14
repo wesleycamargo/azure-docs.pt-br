@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Lista de APIs gerenciadas | Serviço de Aplicativo do Microsoft Azure"
+	pageTitle="Lista de APIs gerenciadas pela Microsoft | Serviço de Aplicativo do Microsoft Azure"
 	description="Obter uma lista completa das APIs Gerenciadas pela Microsoft que você pode usar para compilar Aplicativos Lógicos no Serviço de Aplicativo do Azure"
 	services="app-service\logic"
 	documentationCenter=""
@@ -14,16 +14,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2016"
+	ms.date="03/02/2016"
 	ms.author="deonhe"/>
 
-# Aqui está a lista de APIs gerenciadas pela Microsoft para a criação de aplicativos
+# Lista de APIs gerenciadas
 
-Selecione um ícone para saber como aproveitar rapidamente essas APIs para compilar aplicativos que chamam esses serviços. Essas APIs podem ser usadas para compilar aplicativos lógicos, power apps ou ambos.
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos. Para obter a versão do esquema 2014-12-01-preview, clique em [Lista de Conectores](../app-service-logic/app-service-logic-connectors-list.md).
+
+Selecione um ícone para saber como aproveitar rapidamente essas APIs para compilar aplicativos que chamam esses serviços. Essas APIs podem ser usadas para compilar aplicativos lógicos e/ou PowerApps ou em ambos.
 
 Para obter informações de preço e uma lista do que é incluído com cada camada de serviço, consulte [Preços do Serviço de Aplicativo do Azure](https://azure.microsoft.com/pricing/details/app-service/).
 
-> [AZURE.NOTE] Se você quiser começar a usar os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Aplicativo Lógico](https://tryappservice.azure.com/?appservice=logic). Você pode criar instantaneamente um aplicativo lógico de início e de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> [AZURE.NOTE] Se você quiser começar a usar os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o aplicativo lógico](https://tryappservice.azure.com/?appservice=logic). Você pode criar instantaneamente um aplicativo lógico de início e de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 |APIs||||
 |-----------|-----------|-----------|-----------|
@@ -31,14 +33,12 @@ Para obter informações de preço e uma lista do que é incluído com cada cama
 |[![Ícone de API][dropboxicon]<br/>**Dropbox**][dropboxdoc]|[![Ícone de API][facebookicon]<br/>**Facebook**][facebookdoc]|[![Ícone de API][ftpicon]<br/>**FTP**][ftpdoc]|[![Ícone de API][googledriveicon]<br/>**Google Drive**][googledrivedoc]|
 |[![Ícone de API][microsofttranslatoricon]<br/>**Tradutor**][microsofttranslatordoc]|[![Ícone de API][office365icon]<br/>**Office 365**<br/>**Outlook**][office365outlookdoc]|[![Ícone de API][office365icon]<br/>**Office 365**<br/>**Usuários**][office365usersdoc]|[![Ícone de API][office365icon]<br/>**Office 365**<br/>**Vídeo**][office365videodoc]|
 |[![Ícone de API][onedriveicon]<br/>**OneDrive**][onedrivedoc]|[![Ícone de API][salesforceicon]<br/>**Salesforce**][salesforcedoc]|[![Ícone de API][servicebusicon]<br/>**Barramento de Serviço**][servicebusdoc]|[![Ícone de API][sftpicon]<br/>**SFTP**][sftpdoc]|
-|[![Ícone de API][sharepointicon]<br/>**SharePoint**<br/>**Server**][sharepointdoc]|[![Ícone de API][slackicon]<br/>**Slack**<br/>][slackdoc]|[![Ícone de API][smtpicon]<br/>**SMTP**][smtpdoc]|[![Ícone de API][sqlicon]<br/>**SQL Azure**][sqldoc]|
+|[![Ícone de API][sharepointicon]<br/>**SharePoint**<br/>**Online**][sharepointdoc]|[![Ícone de API][slackicon]<br/>**Margem de atraso**<br/>][slackdoc]|[![Ícone de API][smtpicon]<br/>**SMTP**][smtpdoc]|[![Ícone de API][sqlicon]<br/>**SQL Azure**][sqldoc]|
 |[![Ícone de API][twilioicon]<br/>**Twilio**][twiliodoc]|[![Ícone de API][twittericon]<br/>**Twitter**][twitterdoc]|[![Ícone de API][yammericon]<br/>**Yammer**][yammerdoc] | |
 
 
-> [AZURE.NOTE] Essas APIs trabalham com a versão 2015-12-01-preview do serviço.
-
 ### APIs podem ser gatilhos
-Várias APIs fornecem gatilhos que podem notificar seu aplicativo quando eventos específicos ocorrem. Por exemplo, a API de FTP tem o gatilho OnUpdatedFile. Você também pode compilar um aplicativo lógico ou um power app que escuta e executa uma ação sempre que o gatilho for acionado.
+Várias APIs fornecem gatilhos que podem notificar seu aplicativo quando eventos específicos ocorrem. Por exemplo, a API de FTP tem o gatilho OnUpdatedFile. É possível compilar um aplicativo lógico ou um PowerApp que escuta esse gatilho e executa uma ação sempre que ele é acionado.
 
 Há dois tipos de gatilhos:
 
@@ -50,7 +50,7 @@ Há dois tipos de gatilhos:
 APIs também podem ser usadas como ações dentro dos seus aplicativos. Ações são úteis para pesquisar dados no que podem então ser usados na execução do seu aplicativo. Por exemplo, talvez seja necessário pesquisar dados de um cliente de um banco de dados SQL durante o processamento de um pedido. Ou então, talvez seja necessário escrever, atualizar ou excluir dados em uma tabela de destino. Você pode fazer isso usando as ações fornecidas pelas APIs. As ações são mapeadas para as operações que são definidas nos metadados do Swagger.
 
 
-[Novidades](../app-service-logic/app-service-logic-schema-2015-08-01.md) [Compilar um aplicativo lógico agora mesmo](../app-service-logic/app-service-logic-create-a-logic-app.md) [Veja a introdução aos power apps agora mesmo](../power-apps/powerapps-get-started-azure-portal.md)
+[Novidades](../app-service-logic/app-service-logic-schema-2015-08-01.md) [Compilar um aplicativo lógico agora mesmo](../app-service-logic/app-service-logic-create-a-logic-app.md) [Comece a usar os PowerApps agora mesmo](../power-apps/powerapps-get-started-azure-portal.md)
 
 <!--API Documentation-->
 [azureblobdoc]: ./create-api-azureblobstorage.md "Conecte-se ao Blob do Azure para gerenciar arquivos no seu contêiner de blob."
@@ -70,7 +70,7 @@ APIs também podem ser usadas como ações dentro dos seus aplicativos. Ações 
 [onedrivedoc]: ./create-api-onedrive.md "Se conecta ao seu Microsoft OneDrive pessoal e carrega, exclui, lista arquivos e muito mais."
 [salesforcedoc]: ./create-api-salesforce.md "Conecte-se à sua conta da equipe de vendas e gerencia contas, clientes potenciais, oportunidades e muito mais."
 [servicebusdoc]: ./create-api-servicebus.md "Pode enviar mensagens de tópicos e filas do Barramento de Serviço e receber mensagens de assinaturas e filas do Barramento de Serviço."
-[sharepointdoc]: ./create-api-sharepointserver.md "Conecta-se ao SharePoint Online ou Microsoft SharePoint Server local para gerenciar documentos e itens de lista. Há suporte para diferentes métodos de autenticação, como credenciais padrão, OAuth 2.0, autenticação do Windows e autenticação baseada em formulário."
+[sharepointdoc]: ./create-api-sharepointonline.md "Conecta-se ao SharePoint Online para gerenciar documentos e itens de lista."
 [slackdoc]: ./create-api-slack.md "Conecte-se à margem de atraso e poste mensagens em canais de margem de atraso."
 [sftpdoc]: ./create-api-sftp.md "Conecta-se ao SFTP e pode carregar, obter, excluir arquivos e muito mais."
 [smtpdoc]: ./create-api-smtp.md "Conecta-se a um servidor SMTP e pode enviar emails com anexos."
@@ -103,4 +103,4 @@ APIs também podem ser usadas como ações dentro dos seus aplicativos. Ações 
 [twittericon]: ./media/apis-list/twittericon.png
 [yammericon]: ./media/apis-list/yammericon.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

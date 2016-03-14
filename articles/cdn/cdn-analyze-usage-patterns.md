@@ -1,22 +1,22 @@
-<properties 
-	pageTitle="Analisar padrões de uso do CDN" 
-	description="Você pode exibir os padrões de uso do CDN usando os seguintes relatórios: Largura de Banda, Dados Transferidos, Acertos, Status do Cache, Taxa de Acertos de Cache, Dados IPV4/IPV6 Transferidos." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="Analisar padrões de uso do CDN"
+	description="Você pode exibir os padrões de uso do CDN usando os seguintes relatórios: Largura de Banda, Dados Transferidos, Acertos, Status do Cache, Taxa de Acertos de Cache, Dados IPV4/IPV6 Transferidos."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016" 
 	ms.author="casoper"/>
 
-# Analisar padrões de uso do CDN 
+# Analisar padrões de uso do CDN
 
 Você pode exibir os padrões de uso para o CDN usando os seguintes relatórios:
 
@@ -25,7 +25,7 @@ Você pode exibir os padrões de uso para o CDN usando os seguintes relatórios:
 - Acertos
 - Status do Cache
 - Taxa de Acertos do Cache
-- Dados IPv4/IPV6 Transferidos 
+- Dados IPv4/IPV6 Transferidos
 
 ## Largura de banda
 
@@ -33,8 +33,8 @@ O relatório de largura de banda consiste em uma tabela e de um gráfico de dado
 
 - Selecione Todos os Nós de Borda para ver o tráfego de todos os nós ou escolha uma região/nó específica na lista suspensa.
 - Selecione Intervalo de datas para exibir dados de hoje/esta semana/este mês etc. ou insira datas personalizadas, clique em "ir" para garantir que sua seleção seja atualizada.
-- Você pode exportar e baixar os dados clicando no ícone de planilha do excel localizado ao lado de "ir". 
- 
+- Você pode exportar e baixar os dados clicando no ícone de planilha do excel localizado ao lado de "ir".
+
 O relatório é atualizado a cada cinco minutos.
 
 ![Relatório Largura de banda](./media/cdn-reports/cdn-bandwidth.png)
@@ -46,7 +46,7 @@ Esse relatório consiste em uma tabela e um gráfico de dados que indicam o uso 
 - Selecione Todos os Nós de Borda para ver o tráfego de todos os nós ou escolha uma região/nó específica na lista suspensa.
 - Selecione Intervalo de datas para exibir dados de hoje/esta semana/este mês etc. ou insira datas personalizadas, clique em "ir" para garantir que sua seleção seja atualizada.
 - Você pode exportar e baixar os dados clicando no ícone de planilha do excel localizado ao lado de "ir".
- 
+
 O relatório é atualizado a cada cinco minutos.
 
 ![Relatório Dados transferidos](./media/cdn-reports/cdn-data-transferred.png)
@@ -54,7 +54,7 @@ O relatório é atualizado a cada cinco minutos.
 ## Acertos (códigos de status)
 
 Este relatório descreve a distribuição dos códigos de status de solicitação para o seu conteúdo. Todas as solicitações de conteúdo gerarão um código de status HTTP. O código de status descreve como os POPs de borda lidaram com a solicitação. Por exemplo, os códigos de status 2xx indicam que a solicitação foi servida com êxito para um cliente, enquanto um código de status 4xx indica que ocorreu um erro. Para obter mais detalhes sobre o código de status HTTP, consulte [códigos de status](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes).
- 
+
 - Selecione Intervalo de datas para exibir dados de hoje/esta semana/este mês etc. ou insira datas personalizadas, clique em "ir" para garantir que sua seleção seja atualizada.
 - Você pode exportar e baixar os dados clicando na planilha do excel localizado ao lado de "ir".
 
@@ -66,10 +66,10 @@ Este relatório descreve a distribuição de acertos do cache e de erros de cach
 
 ![Relatório Status do cache](./media/cdn-reports/cdn-cache-statuses.png)
 
-### Os status do cache principal incluem: 
+### Os status do cache principal incluem:
 
 - TCP\_HIT: servido da Borda. O objeto estava no cache e não excedeu sua idade máxima.
-- TCP\_MISS: servido da Origem. O objeto não estava no cache e a resposta voltou para a origem. 
+- TCP\_MISS: servido da Origem. O objeto não estava no cache e a resposta voltou para a origem.
 - TCP\_EXPIRED \_MISS: Servido da origem após revalidação com a origem. O objeto estava no cache mas excedeu sua idade máxima. A revalidação com a origem resultou na substituição do objeto por uma nova resposta da origem.
 - TCP\_EXPIRED \_HIT: servido do Edge após revalidação com a origem. O objeto estava no cache mas excedeu sua idade máxima. Uma revalidação com o servidor de origem resultou na não modificação do objeto do cache.
 
@@ -112,12 +112,12 @@ O relatório fornece os seguintes detalhes:
 
 - O conteúdo solicitado foi armazenado em cache no POP mais próximo ao solicitante.
 - A solicitação foi servida diretamente da borda da rede.
-- A solicitação não exigia revalidação no servidor de origem. 
+- A solicitação não exigia revalidação no servidor de origem.
 
 O relatório não inclui:
 
 - Solicitações negadas devido às opções de filtragem de país.
-- Solicitações de ativos cujos cabeçalhos indicam que eles não devem ser armazenado em cache. Por exemplo, os cabeçalhos Cache-Control: private, Cache-Control: no-cache ou Pragma: no-cache impedirão que um arquivo seja armazenado em cache. 
+- Solicitações de ativos cujos cabeçalhos indicam que eles não devem ser armazenado em cache. Por exemplo, os cabeçalhos Cache-Control: private, Cache-Control: no-cache ou Pragma: no-cache impedirão que um arquivo seja armazenado em cache.
 - Solicitações de intervalo de bytes para conteúdo parcialmente armazenado em cache.
 
 A fórmula é: (TCP\_ HIT/(TCP\_ HIT+TCP\_MISS))*100
@@ -128,7 +128,7 @@ A fórmula é: (TCP\_ HIT/(TCP\_ HIT+TCP\_MISS))*100
 
 ![Relatório Taxa de acertos do cache](./media/cdn-reports/cdn-cache-hit-ratio.png)
 
-## Dados IPv4/IPV6 transferidos 
+## Dados IPv4/IPV6 transferidos
 
 Esse relatório mostra a distribuição de uso de tráfego em IPV4 versus IPV6.
 
@@ -142,4 +142,4 @@ Esse relatório mostra a distribuição de uso de tráfego em IPV4 versus IPV6.
 
 Os relatórios só podem ser gerados com informações dos últimos 18 meses.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

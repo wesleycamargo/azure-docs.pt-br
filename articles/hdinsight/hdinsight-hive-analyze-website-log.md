@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/29/2015" 
+	ms.date="02/25/2016" 
 	ms.author="nitinme"/>
 
 # Usar o Hive com HDInsight para analisar os logs de Websites
@@ -47,7 +47,7 @@ Neste exemplo, você utilizará um cluster do HDInsight para analisar arquivos d
 	
 	Quando solicitado, faça a autenticação usando o nome de usuário e senha do administrador usados ao provisionar o cluster.
   
-2. Na página da Web que é aberta, clique na guia **Galeria de introdução** e na categoria **Amostras**; clique na amostra **Análise de log do Website**.
+2. Na página da Web que é aberta, clique na guia **Galeria de Introdução** e, sob a categoria **Soluções com Dados de Exemplo**, clique no exemplo **Análise de Log do Site**.
 
 3. Siga as instruções fornecidas na página da Web para concluir a amostra.
 
@@ -61,4 +61,4 @@ Experimente o exemplo a seguir: [Analisando dados do sensor usando o Hive com HD
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

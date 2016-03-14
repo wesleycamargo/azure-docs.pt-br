@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/14/2016"   
+	ms.date="03/01/2016"   
 	ms.author="juliako"/>
 
 
@@ -42,13 +42,13 @@ Você também pode usar o empacotamento estático para executar as tarefas a seg
 
 ## Validando MP4s com taxa de bits adaptável codificados com codificadores externos
 
-Se você quiser usar um conjunto de arquivos MP4 com taxa de bits adaptável (várias taxas de bits) que não tiver sido codificado com o Media Services Encoder, deverá validar seus arquivos antes de continuar o processamento. O Media Services Packager pode validar um ativo que contenha um conjunto de arquivos MP4 e verificar se o ativo pode ser empacotado para o Smooth Streaming ou o HLS. Se a tarefa de validação falhar, o trabalho que estava processando a tarefa será concluído com um erro. O XML que define a predefinição para a tarefa de validação pode ser encontrado no tópico [Predefinição de tarefa para o Azure Media Packager](http://msdn.microsoft.com/library/azure/hh973635.aspx).
+Se desejar usar um conjunto de arquivos MP4 com taxa de bits adaptável (várias taxas de bits) que não foi codificado com os codificadores dos Serviços de Mídia, você deverá validar seus arquivos antes de continuar o processamento. O Media Services Packager pode validar um ativo que contenha um conjunto de arquivos MP4 e verificar se o ativo pode ser empacotado para o Smooth Streaming ou o HLS. Se a tarefa de validação falhar, o trabalho que estava processando a tarefa será concluído com um erro. O XML que define a predefinição para a tarefa de validação pode ser encontrado no tópico [Predefinição de tarefa para o Azure Media Packager](http://msdn.microsoft.com/library/azure/hh973635.aspx).
 
->[AZURE.NOTE]Use o Media Services Encoder para produzir ou o Media Services Packager para validar o conteúdo para evitar problemas de tempo de execução. Se o servidor de Streaming Sob Demanda não for capaz de analisar seus arquivos de origem em tempo de execução, você receberá um erro HTTP 1.1 "415 Tipo de Mídia Sem Suporte". Fazer com que o servidor falhe repetidamente em analisar seus arquivos de origem afetará o desempenho do servidor de Streaming Sob Demanda e poderá reduzir a largura de banda disponível para servir outras solicitações. O Azure Media Services oferece um Contrato de Nível de Serviço (SLA) em seus serviços de Streaming Sob Demanda; no entanto, esse SLA não poderá ser cumprido se o servidor for mal utilizado da forma como descrita acima.
+>[AZURE.NOTE]Use o Codificador de Mídia Padrão para produzir ou o Empacotador dos Serviços de Mídia para validar o conteúdo e evitar problemas de tempo de execução. Se o servidor de Streaming Sob Demanda não for capaz de analisar seus arquivos de origem em tempo de execução, você receberá um erro HTTP 1.1 "415 Tipo de Mídia Sem Suporte". Fazer com que o servidor falhe repetidamente em analisar seus arquivos de origem afetará o desempenho do servidor de Streaming Sob Demanda e poderá reduzir a largura de banda disponível para servir outras solicitações. O Azure Media Services oferece um Contrato de Nível de Serviço (SLA) em seus serviços de Streaming Sob Demanda; no entanto, esse SLA não poderá ser cumprido se o servidor for mal utilizado da forma como descrita acima.
 
 Esta seção mostra como processar a tarefa de validação. Também mostra como ver o status e a mensagem de erro do trabalho concluído com JobStatus.Error.
 
-Para validar seus arquivos MP4 com o Media Services Packager, você deverá criar seu próprio arquivo de manifesto (.ism) e carregá-lo junto com os arquivos de origem para a conta do Serviços de Mídia. A seguir, um exemplo do arquivo .ism produzido pelo Codificador de Mídia do Azure. Os nomes de arquivo diferenciam maiúsculas de minúsculas. Além disso, verifique se o texto do arquivo .ism está codificado com UTF-8.
+Para validar seus arquivos MP4 com o Media Services Packager, você deverá criar seu próprio arquivo de manifesto (.ism) e carregá-lo junto com os arquivos de origem para a conta do Serviços de Mídia. Veja abaixo um exemplo do arquivo .ism produzido pelo Codificador de Mídia Padrão. Os nomes de arquivo diferenciam maiúsculas de minúsculas. Além disso, verifique se o texto do arquivo .ism está codificado com UTF-8.
 
 	
 	<?xml version="1.0" encoding="utf-8" standalone="yes"?>
@@ -519,13 +519,13 @@ O exemplo define o método UpdatePlayReadyConfigurationXMLFile que você pode us
 	        /// <returns>The output asset.</returns>
 	        private static IAsset EncodeMP4IntoMultibitrateMP4sTask(IJob job, IAsset asset)
 	        {
-	            // Get the SDK extension method to  get a reference to the Azure Media Encoder.
+	            // Get the SDK extension method to  get a reference to the Media Encoder Standard.
 	            IMediaProcessor encoder = _context.MediaProcessors.GetLatestMediaProcessorByName(
-	                MediaProcessorNames.AzureMediaEncoder);
+	                MediaProcessorNames.MediaEncoderStandard);
 	
 	            ITask adpativeBitrateTask = job.Tasks.AddNew("MP4 to Adaptive Bitrate Task",
 	               encoder,
-	               "H264 Adaptive Bitrate MP4 Set 720p",
+	               "H264 Multiple Bitrate 720p",
 	               TaskOptions.None);
 	
 	            // Specify the input Asset
@@ -864,13 +864,13 @@ O exemplo nesta seção codifica um arquivo mezzanine (neste caso, MP4) em arqui
 	        /// <returns>The output asset.</returns>
 	        private static IAsset EncodeSingleMP4IntoMultibitrateMP4sTask(IJob job, IAsset asset)
 	        {
-	            // Get the SDK extension method to  get a reference to the Azure Media Encoder.
+	            // Get the SDK extension method to  get a reference to the Media Encoder Standard.
 	            IMediaProcessor encoder = _context.MediaProcessors.GetLatestMediaProcessorByName(
-	                MediaProcessorNames.AzureMediaEncoder);
+	                MediaProcessorNames.MediaEncoderStandard);
 	
 	            ITask adpativeBitrateTask = job.Tasks.AddNew("MP4 to Adaptive Bitrate Task",
 	               encoder,
-	               "H264 Adaptive Bitrate MP4 Set 720p",
+	               "H264 Multiple Bitrate 720p",
 	               TaskOptions.None);
 	
 	            // Specify the input Asset
@@ -1235,13 +1235,13 @@ Atualize o código a seguir para apontar para a pasta onde seus arquivos MP4 de 
 	        /// <returns>The output asset.</returns>
 	        private static IAsset EncodeSingleMP4IntoMultibitrateMP4sTask(IJob job, IAsset asset)
 	        {
-	            // Get the SDK extension method to  get a reference to the Azure Media Encoder.
+	            // Get the SDK extension method to  get a reference to the Media Encoder Standard.
 	            IMediaProcessor encoder = _context.MediaProcessors.GetLatestMediaProcessorByName(
-	                MediaProcessorNames.AzureMediaEncoder);
+	                MediaProcessorNames.MediaEncoderStandard);
 	
 	            ITask adpativeBitrateTask = job.Tasks.AddNew("MP4 to Adaptive Bitrate Task",
 	               encoder,
-	               "H264 Adaptive Bitrate MP4 Set 720p",
+	               "H264 Multiple Bitrate 720p",
 	               TaskOptions.None);
 	
 	            // Specify the input Asset
@@ -1447,4 +1447,4 @@ Atualize o código a seguir para apontar para a pasta onde seus arquivos MP4 de 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
 
 # API do Application Insights para métricas e eventos personalizados 
@@ -196,7 +196,29 @@ Se você tiver várias guias contidas em diferentes páginas HTML, você pode es
 
     appInsights.trackPageView("tab1", "http://fabrikam.com/page1.htm");
 
+#### Definindo o tempo das exibições de página
 
+Por padrão, os tempos relatados como “Tempo de carregamento da exibição de página” são medidos a partir do momento em que o navegador envia a solicitação até o momento em que o evento de carregamento de página do navegador é chamado.
+
+Em vez disso, é possível:
+
+* Definir uma duração explícita na chamada [trackPageView](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#trackpageview).
+ * `appInsights.trackPageView("tab1", null, null, null, durationInMilliseconds);`
+* Usar as chamadas de definição de tempo da exibição de página `startTrackPage` e `stopTrackPage`.
+
+*JavaScript*
+
+    // To start timing a page:
+    appInsights.startTrackPage("Page1");
+
+...
+
+    // To stop timing and log the page:
+    appInsights.stopTrackPage("Page1", url, properties, measurements);
+
+O nome utilizado como o primeiro parâmetro associa as chamadas de início e parada. Ele usa o nome da página atual como padrão.
+
+As durações de carregamento de página resultantes exibidas no Gerenciador de Métricas são derivadas do intervalo entre as chamadas de início e parada. Cabe a você definir qual intervalo terá o tempo definido.
 
 ## Acompanhar solicitação
 
@@ -436,7 +458,7 @@ Há alguns [limites no número de propriedades, valores de propriedade e métric
     telemetry.trackEvent("WinGame", properties, metrics);
 
 
-> [AZURE.NOTE]Tome cuidado para não registrar informações que permitam identificação pessoal nas propriedades.
+> [AZURE.NOTE] Tome cuidado para não registrar informações que permitam identificação pessoal nas propriedades.
 
 **Se você usou métricas**, abra o Gerenciador de Métricas e selecione a métrica no grupo Personalizado:
 
@@ -479,7 +501,7 @@ Se for mais conveniente, você poderá coletar os parâmetros de um evento em um
 
     telemetry.TrackEvent(event);
 
-> [AZURE.WARNING]Não reutilize a mesma instância de item de telemetria (`event` neste exemplo) para chamar Track*() várias vezes. Isso pode fazer com que a telemetria seja enviada com a configuração incorreta.
+> [AZURE.WARNING] Não reutilize a mesma instância de item de telemetria (`event`, neste exemplo) para chamar Track*() várias vezes. Isso pode fazer com que a telemetria seja enviada com a configuração incorreta.
 
 #### <a name="timed"></a> Eventos de tempo
 
@@ -736,4 +758,4 @@ Há alguns limites no número de métricas e eventos por aplicativo (isto é, po
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0302_2016-->

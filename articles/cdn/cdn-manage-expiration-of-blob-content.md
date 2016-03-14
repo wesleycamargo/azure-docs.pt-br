@@ -1,18 +1,18 @@
-<properties 
- pageTitle="Como gerenciar a expiração do conteúdo de blob na CDN (Rede de Distribuição de Conteúdo) do Azure" 
- description="" 
- services="cdn" 
- documentationCenter=".NET" 
- authors="camsoper" 
- manager="dwrede" 
+<properties
+ pageTitle="Como gerenciar a expiração do conteúdo de blob na CDN (Rede de Distribuição de Conteúdo) do Azure"
+ description=""
+ services="cdn"
+ documentationCenter=".NET"
+ authors="camsoper"
+ manager="erikre"
  editor=""/>
-<tags 
- ms.service="cdn" 
- ms.workload="media" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="12/02/2015" 
+<tags
+ ms.service="cdn"
+ ms.workload="media"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.date="02/25/2016" 
  ms.author="casoper"/>
 
 
@@ -22,7 +22,7 @@ Os blobs que mais se beneficiam do cache da CDN do Azure são aqueles que são a
 
 Você tem duas opções para controlar o TTL.
 
-1.	Não defina valores de cache dessa forma usando a TTL padrão de sete dias. 
+1.	Não defina valores de cache dessa forma usando a TTL padrão de sete dias.
 2.	Defina explicitamente a propriedade *x-ms-blob-cache-control* em uma solicitação **Blob Put**, **Put Block List** ou **Set Blob Properties** ou use a Biblioteca Gerenciada do Azure para definir a propriedade [BlobProperties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx). A configuração dessa propriedade define o valor do cabeçalho *Cache-Control* para o blob. O valor do cabeçalho ou da propriedade deve especificar o valor apropriado em segundos. Por exemplo, para definir o período máximo do cache como um ano, você pode especificar o cabeçalho de solicitação como `x-ms-blob-cache-control: public, max-age=31556926`. Para obter detalhes sobre como definir cabeçalhos de cache, consulte a [especificação HTTP/1.1](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).  
 
 Qualquer conteúdo que você deseje armazenar em cache pela CDN deverá ser armazenado em sua conta de armazenamento do Azure como um blob publicamente acessível. Para obter mais detalhes sobre o serviço Blob do Azure, consulte **Conceitos do serviço Blob**.
@@ -40,7 +40,7 @@ Supondo que você tenha habilitado a CDN como mostrado acima, o blob que será c
 	using System;
 	using Microsoft.WindowsAzure;
 	using Microsoft.WindowsAzure.StorageClient;
-	
+
 	namespace BlobsInCDN
 	{
 	    class Program
@@ -50,31 +50,31 @@ Supondo que você tenha habilitado a CDN como mostrado acima, o blob que será c
 	            //Specify storage credentials.
 	            StorageCredentialsAccountAndKey credentials = new StorageCredentialsAccountAndKey("storagesample",
 	                "m4AHAkXjfhlt2rE2BN/hcUR4U2lkGdCmj2/1ISutZKl+OqlrZN98Mhzq/U2AHYJT992tLmrkFW+mQgw9loIVCg==");
-	            
+
 	            //Create a reference to your storage account, passing in your credentials.
 	            CloudStorageAccount storageAccount = new CloudStorageAccount(credentials, true);
-	            
+
 	            //Create a new client object, which will provide access to Blob service resources.
 	            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-	
+
 	            //Create a new container.
 	            CloudBlobContainer container = blobClient.GetContainerReference("cdncontent");
 	            container.CreateIfNotExist();
-	
+
 	            //Specify that the container is publicly accessible.
 	            BlobContainerPermissions containerAccess = new BlobContainerPermissions();
 	            containerAccess.PublicAccess = BlobContainerPublicAccessType.Container;
 	            container.SetPermissions(containerAccess);
-	
+
 	            //Create a new blob and write some text to it.
 	            CloudBlob blob = blobClient.GetBlobReference("cdncontent/testblob.txt");
 	            blob.UploadText("This is a test blob.");
-	
+
 	            //Set the Cache-Control header on the blob to specify your desired refresh interval.
 	            blob.SetCacheControl("public, max-age=31536000");
 	        }
 	    }
-	
+
 	    public static class BlobExtensions
 	    {
 	        //A convenience method to set the Cache-Control header.
@@ -96,4 +96,4 @@ Se desejar, você poderá usar uma ferramenta como **wget** ou Fiddler para exam
 
 [Como gerenciar a expiração do conteúdo do serviço de nuvem na CDN do Azure (Rede de Distribuição de Conteúdo)](./cdn-manage-expiration-of-cloud-service-content.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/16/2016"
-	ms.author="micurd"/>
+	ms.date="02/29/2016"
+	ms.author="robmcm"/>
 
 # Como usar o Armazenamento de Blob do Java
 
@@ -268,4 +268,4 @@ Para obter mais informações, consulte também o [Centro de desenvolvedores do 
 [API REST de Armazenamento do Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

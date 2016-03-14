@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="02/26/2016" 
 	ms.author="hawong"/>
 
 # Tutorial do Power BI para o Banco de Dados de Documentos: visualizar dados usando o conector do Power BI
@@ -194,4 +194,4 @@ Para compartilhar seu relatório, você deve ter uma conta no PowerBI.com.
 - Para saber mais sobre o Power BI, clique [aqui](https://support.powerbi.com/knowledgebase)
 - Para saber mais sobre o Banco de Dados de Documentos, clique [aqui](https://azure.microsoft.com/documentation/services/documentdb/).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

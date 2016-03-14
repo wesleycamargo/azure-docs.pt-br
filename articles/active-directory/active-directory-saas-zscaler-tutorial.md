@@ -2,7 +2,7 @@
     pageTitle="Tutorial: Integração do Active Directory do Azure com o ZScaler | Microsoft Azure" 
     description="Saiba como usar o ZScaler com o Active Directory do Azure para habilitar logon único, provisionamento automatizado e muito mais." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="02/29/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o Zscaler
   
@@ -37,7 +37,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos com o Zscaler, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-zscaler-tutorial/IC700993.png "Active Directory")
 
@@ -69,7 +69,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração de aplicativos do **Zscaler**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No portal clássico do Azure, na página de integração de aplicativos do **ZScaler**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Habilitar logon único](./media/active-directory-saas-zscaler-tutorial/IC769229.png "Habilitar logon único")
 
@@ -79,7 +79,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Entrada do Zscaler**, digite a URL de entrada do Zscaler e clique em **Avançar**:
 
-    >[AZURE.NOTE]Entre em contato com a equipe de suporte do Zscaler se você não souber qual é a sua URL de entrada.
+    >[AZURE.NOTE] Entre em contato com a equipe de suporte do Zscaler se você não souber qual é a sua URL de entrada.
 
     ![Configurar a URL do aplicativo](./media/active-directory-saas-zscaler-tutorial/IC769231.png "Configurar a URL do aplicativo")
 
@@ -111,9 +111,9 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Carregar um certificado](./media/active-directory-saas-zscaler-tutorial/IC769489.png "Carregar um certificado")
 
-    1.  Na caixa de texto **URL do Portal do SAML para o qual os usuários são enviados para autenticação**, cole o valor do campo **URL de solicitação de autenticação** do portal do Azure.
+    1.  Na caixa de texto **URL do Portal do SAML para o qual os usuários são enviados para autenticação**, cole o valor do campo **URL de solicitação de autenticação** do portal clássico do Azure.
     2.  Na caixa de texto **Atributo que contém o Nome de Logon**, digite **NameID**.
-    3.  No campo **Carregar Certificado Público do SSL**, carregue o certificado que você baixou no portal do Azure.
+    3.  No campo **Carregar Certificado Público do SSL**, carregue o certificado que você baixou no portal clássico do Azure.
     4.  Selecione **Habilitar Provisionamento Automático do SAML**.
 
 10. Na página de caixa de diálogo **Configurar Autenticação de Usuário**, execute as seguintes etapas:
@@ -123,7 +123,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     1.  Clique em **Salvar**.
     2.  Clique em **Ativar Agora**.
 
-11. No portal do Azure AD, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+11. No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar logon único](./media/active-directory-saas-zscaler-tutorial/IC769491.png "Configurar logon único")
 
@@ -182,7 +182,7 @@ Para permitir que os usuários do AD do Azure façam logon no ZScaler, eles deve
     1.  Digite **UserID**, **Nome de Exibição do Usuário**, **Senha** e **Confirmar Senha** e selecione **Grupos** e o **Departamento** de uma conta válida do AAD que você deseja provisionar.
     2.  Clique em **Salvar**.
 
->[AZURE.NOTE]É possível usar qualquer outra ferramenta de criação da conta de usuário do ZScaler ou APIs fornecidas pelo ZScaler para provisionar as contas de usuário do AAD.
+>[AZURE.NOTE] É possível usar qualquer outra ferramenta de criação da conta de usuário do ZScaler ou APIs fornecidas pelo ZScaler para provisionar as contas de usuário do AAD.
 
 ##Atribuindo usuários
   
@@ -190,7 +190,7 @@ Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos
 
 ###Para atribuir usuários ao ZScaler, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
 2.  Na página de integração de aplicativos do **ZScaler**, clique em **Atribuir usuários**.
 
@@ -202,4 +202,4 @@ Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

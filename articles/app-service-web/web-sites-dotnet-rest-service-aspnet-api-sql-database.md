@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/04/2015" 
+	ms.date="02/29/2016" 
 	ms.author="riande"/>
 
 # Criar um serviço REST usando a API Web ASP.NET e o Banco de Dados SQL no Serviço de Aplicativo do Azure
@@ -46,11 +46,11 @@ Você criará um aplicativo Web de lista de contatos simples desenvolvido no ASP
 1. No menu **Arquivo**, clique em **Novo Projeto**.
 3. Na caixa de diálogo **Novo Projeto**, expanda **Visual C#**, selecione **Web** e, em seguida, selecione **Aplicativo Web ASP .NET**. Nomeie o aplicativo **ContactManager** e clique em **OK**.
 
-	![Caixa de diálogo Novo Projeto](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.PNG)
+	![Caixa de diálogo Novo Projeto](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.png)
 
 1. Na caixa de diálogo **Novo Projeto ASP.NET**, selecione o modelo **MVC**, marque **API Web** e clique em **Alterar Autenticação**.
 
-	![Caixa de diálogo Novo Projeto ASP .NET](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.PNG)
+	![Caixa de diálogo Novo Projeto ASP .NET](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.png)
 
 1. Na caixa de diálogo **Alterar Autenticação**, clique em **Sem Autenticação** e clique em **OK**.
 
@@ -60,7 +60,7 @@ Você criará um aplicativo Web de lista de contatos simples desenvolvido no ASP
 
 1. Na caixa de diálogo **Novo Projeto do ASP.NET**, verifique se a opção **Host na Nuvem** está marcada e clique em **OK**.
 
-	![Caixa de diálogo Novo Projeto ASP .NET](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.PNG)
+	![Caixa de diálogo Novo Projeto ASP .NET](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.png)
 
 Se você não entrou anteriormente no Azure, será solicitado que você entre.
 
@@ -123,7 +123,7 @@ A marcação acima altera o nome do aplicativo de "My ASP.NET App" para "Contact
 
 ### Executar o aplicativo localmente
 
-1. Pressione CTRL+F5 para executar o aplicativo. A página inicial do aplicativo é exibida no navegador padrão. ![Home page da lista de tarefas pendentes](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr5.PNG)
+1. Pressione CTRL+F5 para executar o aplicativo. A página inicial do aplicativo é exibida no navegador padrão. ![Home page da lista de tarefas pendentes](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr5.png)
 
 Isso é tudo o que você precisa fazer por enquanto para criar o aplicativo que você implantará no Azure. Posteriormente, você adicionará a funcionalidade do banco de dados.
 
@@ -205,11 +205,11 @@ No ASP.NET MVC, o recurso de scaffolding pode gerar automaticamente o código qu
 
 1. Na caixa de diálogo **Adicionar Scaffold**, selecione **Controlador MVC com exibições, usando Entity Framework** e, clique em **Adicionar**.
 
- ![Adicionar controlador](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrAC.PNG)
+ ![Adicionar controlador](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrAC.png)
 
 6. Defina o nome do controlador como **HomeController**. Selecione **Contato** como a classe de modelo. Clique no botão **Novo contexto de dados** e aceite o padrão "ContactManager.Models.ContactManagerContext" para o **Novo tipo de contexto de dados**. Clique em **Adicionar**.
 
-	![Caixa de diálogo Adicionar Controlador](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr9.PNG)
+	![Caixa de diálogo Adicionar Controlador](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr9.png)
 
 	Uma caixa de diálogo avisará: "Já existe um arquivo com o nome HomeController. Deseja substituí-lo?". Clique em **Sim**. Estamos substituindo o controlador inicial que foi criado com o novo projeto. Usaremos o novo controlador inicial para nossa lista de contatos.
 
@@ -508,7 +508,7 @@ Para:
 
 1. Na caixa de diálogo **Adicionar Scaffold**, insira **Controlador API 2 Web com ações, usando Entity Framework** e clique em **Adicionar**.
 
-	![Adicionar a API do controlador](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt1.PNG)
+	![Adicionar a API do controlador](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt1.png)
 
 4. Na caixa de diálogo **Adicionar Controlador**, insira "ContactsController" como o nome do controlador. Selecione "Contato (ContactManager.Models)" para a **Classe do modelo**. Mantenha o valor padrão para o **Classe de contexto de dados**.
 
@@ -724,7 +724,7 @@ Ao ver que o item inserido foi salvo e exibido na página do gerenciador de cont
 
 O aplicativo agora está sendo executado na nuvem, usando o Banco de dados SQL para armazenar seus dados. Depois de concluir o teste do aplicativo no Azure, exclua-o. O aplicativo é público e não tem um mecanismo para limitar o acesso.
 
->[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE] Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## Próximas etapas
 
@@ -743,7 +743,7 @@ Este tutorial e o aplicativo de exemplo foram escritos por [Rick Anderson](http:
 Deixe comentários sobre o que você gostou ou do que você gostaria de ver melhorado, não apenas sobre o próprio tutorial, mas também sobre os produtos que ele demonstra. Seus comentários nos ajudarão a priorizar melhorias. Estamos especialmente interessados em saber quanto há de interesse em mais automação para o processo de configuração e implantação de banco de dados de associação.
 
 ## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!-- bookmarks -->
 [Add an OAuth Provider]: #addOauth
@@ -814,4 +814,4 @@ Deixe comentários sobre o que você gostou ou do que você gostaria de ver melh
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
  
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->

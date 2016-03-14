@@ -243,6 +243,25 @@ Depois que você iniciar a reexecução e a fatia de 9-10h para o conjuntodedado
 
 Para se aprofundar na especificação de dependência e acompanhar as dependências para uma cadeia complexa de atividades e conjuntos de dados, consulte a seções abaixo.
 
+## Encadeando atividades
+É possível encadear duas atividades fazendo com que o conjunto de dados de saída de uma atividade seja o conjunto de dados de entrada da outra atividade. As atividades podem estar no mesmo pipeline ou em pipelines diferentes. A segunda atividade é executada apenas quando a primeira é concluída com êxito.
+
+Por exemplo, considere o seguinte caso:
+ 
+1.	O pipeline P1 contém a Atividade A1, que exige o conjunto de dados de entrada externa D1, e produz o conjunto de dados de **saída** **D2**.
+2.	O pipeline P2 contém a Atividade A2, que exige a **entrada** do conjunto de dados **D2**, e produz o conjunto de dados de saída D3.
+ 
+Nesse cenário, a atividade A1 será executada quando os dados externos estiverem disponíveis e a frequência de disponibilidade agendada for alcançada. A atividade A2 será executada quando as fatias agendadas de D2 ficarem disponíveis e a frequência de disponibilidade agendada for alcançada. Se houver um erro em uma das fatias no conjunto de dados D2, A2 não será executada para essa fatia até que fique disponível.
+
+A Exibição de Diagrama teria a aparência mostrada abaixo:
+
+![Encadeando atividades em dois pipelines](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)
+
+A Exibição de Diagrama com ambas as atividades no mesmo pipeline teria a aparência mostrada abaixo:
+
+![Encadeando atividades no mesmo pipeline](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
+
+
 ## Conjuntos de dados de modelagem com frequências diferentes
 
 Nos exemplos acima, as frequências de conjuntos de dados de entrada e saída e a janela de agendamento de atividade foram iguais. Alguns cenários exigem a capacidade de produzir saída em uma frequência diferente de frequências de uma ou mais entradas. O data factory dá suporte à modelagem desses cenários.
@@ -511,12 +530,9 @@ A atividade de hive usa as 2 entradas e produz uma fatia de saída todos os dias
 	}
 
 
-## Encadeando atividades
-É possível encadear duas atividades fazendo com que o conjunto de dados de saída de uma atividade seja o conjunto de dados de entrada da outra atividade. As atividades podem estar no mesmo pipeline ou em pipelines diferentes. A segunda atividade é executada apenas quando a primeira é concluída com êxito. Este encadeamento ocorre no nível de fração de tempo (uma unidade separada em um conjunto de dados).
-
 ## Funções do Data Factory e variáveis do sistema   
 
-Consulte o artigo [Funções do Data Fabric e Variáveis do Sistema](data-factory-functions-variables.md) para ver uma lista das funções e variáveis de sistema com suporte no Azure Data Factory.
+Veja o artigo [Funções e variáveis do sistema do Data Factory](data-factory-functions-variables.md) para obter uma lista das funções e variáveis do sistema com suporte no Azure Data Factory.
 
 ## Grande aprofundamento em dependência de dados
 
@@ -616,4 +632,4 @@ Semelhante a conjuntos de dados que são produzidos pelo Data Factory, as fatias
 
   
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

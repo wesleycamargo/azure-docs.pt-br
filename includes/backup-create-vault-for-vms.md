@@ -1,36 +1,37 @@
-## Create a backup vault for a VM
+## Criar um cofre de backup para um VM
 
-A backup vault is an entity that stores all the backups and recovery points that have been created over time. The backup vault also contains the backup policies that will be applied to the virtual machines being backed up.
+O cofre de backup é uma entidade que armazena todos os pontos de backups e recuperação que foram criados ao longo do tempo. O cofre de backup também contém as políticas de backup que serão aplicadas às máquinas virtuais que passarão pelo backup.
 
-This image shows the relationships between the various Azure Backup entities:
-![Azure Backup entities and relationships](./media/backup-create-vault-for-vms/vault-policy-vm.png)
+Esta imagem mostra os relacionamentos entre as várias entidades do Backup do Azure: ![Relação e entidades do Backup do Azure](./media/backup-create-vault-for-vms/vault-policy-vm.png)
 
-To create a backup vault:
+Para criar um cofre de backup:
 
-1. Sign in to the [Azure portal](http://manage.windowsazure.com/).
+1. Entre no [Portal do Azure](http://manage.windowsazure.com/).
 
-2. In the Azure portal click **New** > **Hybrid Integration** > **Backup**. When you click **Backup**, you will automatically switch to the classic portal (shown after the Note).
+2. No portal do Azure, clique em **Novo** > **Integração Híbrida** > **Backup**. Ao clicar em **Backup**, você alternará automaticamente para o portal clássico (mostrado após a Observação).
 
-    ![Ibiza portal](./media/backup-create-vault-for-vms/Ibiza-portal-backup01.png)
+    ![Portal do Ibiza](./media/backup-create-vault-for-vms/Ibiza-portal-backup01.png)
 
-    >[AZURE.NOTE] If your subscription was last used in the classic portal, then your subscription may open in the classic portal. In this event, to create a backup vault, click **New** > **Data Services** > **Recovery Services** > **Backup Vault** > **Quick Create** (see the image below).
+    >[AZURE.NOTE] Se sua assinatura foi usada pela última vez no portal clássico, ela poderá ser aberta no portal clássico. Nesse caso, para criar um cofre de backup, clique em **Novo** > **Serviços de Dados** > **Serviços de Recuperação** > **Cofre de Backup** > **Criação Rápida** (veja a imagem abaixo).
 
-    ![Create backup vault](./media/backup-create-vault-for-vms/backup_vaultcreate.png)
+    ![Criar cofre de backup](./media/backup-create-vault-for-vms/backup_vaultcreate.png)
 
-3. For **Name**, enter a friendly name to identify the vault. The name needs to be unique for the Azure subscription. Type a name that contains between 2 and 50 characters. It must start with a letter, and can contain only letters, numbers, and hyphens.
+3. Para **Nome**, insira um nome amigável para identificar o cofre. O nome deve ser exclusivo para a assinatura do Azure. Digite um nome que contenha de 2 a 50 caracteres. Ele deve começar com uma letra e pode conter apenas letras, números e hifens.
 
-4. In **Region**, select the geographic region for the vault. The vault must be in the same region as the virtual machines that you want to protect. If you have virtual machines in multiple regions, you must create a backup vault in each region. There is no need to specify storage accounts to store the backup data--the backup vault and the Azure Backup service handle this automatically.
+4. Em **Região**, selecione a região geográfica para o cofre. O cofre deve estar na mesma região que as máquinas virtuais que você deseja proteger. Se tiver máquinas virtuais em várias regiões, será necessário criar um cofre de backup em cada região. Não é necessário especificar contas de armazenamento para armazenar os dados de backup; o cofre de backup e o serviço de Backup do Azure cuidarão disso automaticamente.
 
-5. In **Subscription** select the subscription you want to associate with the backup vault. There will be multiple choices only if your organizational account is associated with multiple Azure subscriptions.
+5. Em **Assinatura**, selecione a assinatura que deseja associar ao cofre de backup. Haverá várias opções somente se sua conta organizacional estiver associada a várias assinaturas do Azure.
 
-5. Click **Create Vault**. It can take a while for the backup vault to be created. Monitor the status notifications at the bottom of the portal.
+5. Clique em **Criar cofre**. Pode levar algum tempo para que o cofre de backup seja criado. Monitore as notificações de status na parte inferior do portal.
 
-    ![Create vault toast notification](./media/backup-create-vault-for-vms/creating-vault.png)
+    ![Criar notificação de cofre](./media/backup-create-vault-for-vms/creating-vault.png)
 
-6. A message will confirm that the vault has been successfully created. It will be listed on the **recovery services** page as **Active**. Make sure to choose the appropriate storage redundancy option right after the vault has been created. Read more about [setting the storage redundancy option in the backup vault](backup-configure-vault.md#azure-backup---storage-redundancy-options).
+6. Uma mensagem confirmará que o cofre foi criado com êxito. Ela será listada na página **Serviços de Recuperação** como **Ativa**. Verifique se a opção apropriada de redundância de armazenamento está marcada logo depois que o cofre for criado. Leia mais sobre [como definir a opção de redundância de armazenamento no cofre de backup](backup-configure-vault.md#azure-backup---storage-redundancy-options).
 
-    ![List of backup vaults](./media/backup-create-vault-for-vms/backup_vaultslist.png)
+    ![Lista de cofres de backup](./media/backup-create-vault-for-vms/backup_vaultslist.png)
 
-7. Click the backup vault to go to the **Quick Start** page, where the instructions for backing up Azure virtual machines are shown.
+7. Clique no cofre de backup para abrir a página de **Início Rápido** na qual são exibidas as instruções para fazer o backup de máquinas virtuais do Azure.
 
-    ![Virtual machine backup instructions on the Dashboard page](./media/backup-create-vault-for-vms/vmbackup-instructions.png)
+    ![Instruções de backup de máquina virtual na página Painel](./media/backup-create-vault-for-vms/vmbackup-instructions.png)
+
+<!---HONumber=AcomDC_0302_2016-->

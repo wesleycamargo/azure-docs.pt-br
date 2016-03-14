@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/25/2015"
+   ms.date="02/29/2016"
    ms.author="robb" />
 
 # Criar e usar contadores de desempenho em um aplicativo do Azure
@@ -21,10 +21,10 @@ Este artigo descreve os benefícios de e como colocar os contadores de desempenh
 
 Os contadores de desempenho disponíveis para o Windows Server, o IIS e o ASP.NET podem ser coletados e usados para determinar a integridade das suas funções Web, funções de trabalho e Máquinas Virtuais do Azure. Você também pode criar e usar contadores de desempenho personalizados.
 
-Você pode analisar os dados 
-1 do contador de desempenho. Diretamente no host do aplicativo com a ferramenta Monitor de Desempenho acessada usando a Área de Trabalho Remota 
-2. Com o System Center Operations Manager, usando o Azure Management Pack 
-3. Com outras ferramentas de monitoramento que acessam os dados de diagnóstico transferidos para o armazenamento do Azure. Consulte [Armazenar e exibir dados de diagnóstico no armazenamento do Azure](https://msdn.microsoft.com/library/azure/hh411534.aspx) para saber mais.
+É possível examinar os dados do contador de desempenho
+1. Diretamente no host do aplicativo com a ferramenta Monitor de Desempenho acessada usando a Área de Trabalho Remota
+2. Com o System Center Operations Manager, usando o Pacote de Gerenciamento do Azure
+3. Com outras ferramentas de monitoramento que acessam os dados de diagnóstico transferidos para o armazenamento do Azure. Consulte [Armazenar e exibir dados de diagnóstico no armazenamento do Azure](https://msdn.microsoft.com/library/azure/hh411534.aspx) para saber mais.  
 
 Para saber mais sobre como monitorar o desempenho do seu aplicativo no [portal clássico do Azure](http://manage.azure.com/), confira [Como monitorar Serviços de Nuvem](https://www.azure.com/manage/services/cloud-services/how-to-monitor-a-cloud-service/).
 
@@ -56,22 +56,13 @@ O Azure fornece um subconjunto de contadores de desempenho disponíveis para o W
 |ASP.NET v4.0.30319 |Solicitações Rejeitadas |Contadores de Desempenho do ASP.NET|
 |Memória |MBytes Disponíveis |Contadores de Desempenho de Memória|
 |Memória |Bytes Confirmados |Contadores de Desempenho de Memória|
-|Processador(\_Total) |% de Tempo do Processador |Contadores de Desempenho do ASP.NET|
-|TCPv4 |Falhas de Conexão |Objeto TCP |
-|TCPv4 |Conexões Estabelecidas |Objeto TCP |
-|TCPv4 |Conexões Estabelecidas |Objeto TCP|
-|TCPv4 |Segmentos Enviados/sec |Objeto TCP|
-|Interface de Rede(*) |Bytes Recebidos/sec |Objeto de Interface de Rede|
-|Interface de Rede(*) |Bytes Enviados/sec |Objeto de Interface de Rede|
-|Interface de Rede(Microsoft Virtual Machine Bus Network Adapter \_2)|Bytes Recebidos/sec|Objeto de Interface de Rede|
-|Interface de Rede(Microsoft Virtual Machine Bus Network Adapter \_2)|Bytes Enviados/sec|Objeto de Interface de Rede|
-|Interface de Rede(Microsoft Virtual Machine Bus Network Adapter \_2)|Bytes Total/sec|Objeto de Interface de Rede|
+|Processador(\_Total) |% de Tempo do Processador |Contadores de Desempenho do ASP.NET| |TCPv4 |Falhas de Conexão |Objeto TCP | |TCPv4 |Conexões Estabelecidas |Objeto TCP | |TCPv4 |Conexões Estabelecidas |Objeto TCP| |TCPv4 |Segmentos Enviados/sec |Objeto TCP| |Interface de Rede(*) |Bytes Recebidos/sec |Objeto de Interface de Rede| |Interface de Rede(*) |Bytes Enviados/sec |Objeto de Interface de Rede| |Interface de Rede(Microsoft Virtual Machine Bus Network Adapter \_2)|Bytes Recebidos/sec|Objeto de Interface de Rede| |Interface de Rede(Microsoft Virtual Machine Bus Network Adapter \_2)|Bytes Enviados/sec|Objeto de Interface de Rede| |Interface de Rede(Microsoft Virtual Machine Bus Network Adapter \_2)|Bytes Total/sec|Objeto de Interface de Rede|
 
 ## Criar e adicionar contadores de desempenho personalizados ao seu aplicativo
 
 O Azure dá suporte à criação e modificação de contadores de desempenho personalizados para funções Web e funções de trabalho. Os contadores podem ser usados para controlar e monitorar o comportamento específico do aplicativo. Você pode criar e excluir categorias de contador de desempenho personalizados e especificadores de uma tarefa de inicialização, função Web ou função de trabalho com permissões elevadas.
 
->[AZURE.NOTE]O código que faz alterações aos contadores de desempenho personalizados deve ter permissões elevadas para ser executado. Se o código estiver em uma função Web ou função de trabalho, a função deverá incluir a marca <Runtime executionContext="elevated" /> no arquivo ServiceDefinition.csdef para a função ser inicializada corretamente.
+>[AZURE.NOTE] O código que faz alterações aos contadores de desempenho personalizados deve ter permissões elevadas para ser executado. Se o código estiver em uma função Web ou função de trabalho, a função deverá incluir a marca <Runtime executionContext="elevated" /> no arquivo ServiceDefinition.csdef para a função ser inicializada corretamente.
 
 Você pode enviar dados personalizados de contador de desempenho para o armazenamento do Azure usando o agente de diagnóstico.
 
@@ -83,7 +74,7 @@ O Azure armazena em cache os dados do contador de desempenho com outras informa�
 
 Cada instância do contador de desempenho configurado é registrada em uma taxa de amostragem especificada e os dados de amostrados são transferidos para a conta de armazenamento por uma solicitação de transferência agendada ou uma solicitação de transferência sob demanda. As transferências automáticas podem ser agendadas com uma frequência de até uma vez por minuto. Os dados do contador de desempenho transferidos pelo agente de diagnóstico são armazenados em uma tabela, WADPerformanceCountersTable, na conta de armazenamento. Essa tabela pode ser acessada e consultada com métodos padrão da API do armazenamento do Azure. Consulte [Exemplo de PerformanceCounters do Microsoft Azure](http://code.msdn.microsoft.com/Windows-Azure-PerformanceCo-7d80ebf9) para obter um exemplo de como consultar e exibir dados de contador de desempenho da tabela WADPerformanceCountersTable.
 
->[AZURE.NOTE]Dependendo da frequência de transferência do agente de diagnóstico e da latência da fila, os dados mais recentes do contador de desempenho na conta de armazenamento podem estar desatualizados em vários minutos.
+>[AZURE.NOTE] Dependendo da frequência de transferência do agente de diagnóstico e da latência da fila, os dados mais recentes do contador de desempenho na conta de armazenamento podem estar desatualizados em vários minutos.
 
 ## Habilitar os contadores de desempenho usando o arquivo de configuração de diagnóstico
 
@@ -144,7 +135,7 @@ Para persistir as informações de diagnóstico em sua conta de Armazenamento do
 
 No SDK do Azure 2.5, a Conta de Armazenamento pode ser especificada no arquivo diagnostics.wadcfgx.
 
->[AZURE.NOTE]Essas instruções se aplicam somente ao SDK 2.4 do Azure e inferior. No SDK do Azure 2.5, a Conta de Armazenamento pode ser especificada no arquivo diagnostics.wadcfgx.
+>[AZURE.NOTE] Essas instruções se aplicam somente ao SDK 2.4 do Azure e inferior. No SDK do Azure 2.5, a Conta de Armazenamento pode ser especificada no arquivo diagnostics.wadcfgx.
 
 Para definir as cadeias de conexão:
 
@@ -179,7 +170,7 @@ Execute as seguintes etapas para criar um contador de desempenho personalizado s
 2. Adicione o elemento Runtime ao elemento WebRole ou WorkerRole para permitir a execução com privilégios elevados:
 
     ```
-    <RuntimeexecutionContext="elevated"/>
+    <runtime executioncontext="elevated"/>
     ```
 3. Salve o arquivo.
 4. Abra o arquivo de diagnóstico (diagnostics.wadcfg no SDK 2.4 e inferior ou diagnostics.wadcfgx no SDK 2.5 e posterior) e adicione o seguinte ao elemento DiagnosticMonitorConfiguration 
@@ -318,11 +309,6 @@ As entidades mapeiam para objetos C# usando uma classe personalizada derivada de
 
 
 ## Próximas etapas
+[Exibir artigos adicionais sobre o Diagnóstico do Azure](../azure-diagnostics.md)
 
-Agora que você aprendeu os conceitos básicos de como coletar contadores de desempenho, siga estes links para saber como implementar cenários de solução de problemas mais complexos.
-
-[Práticas recomendadas para a solução de problemas no desenvolvimento de aplicativos do Azure](https://msdn.microsoft.com/library/azure/hh771389.aspx)
-
-[Como monitorar serviços de nuvem](./how-to-monitor-a-cloud-service.md)
-
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

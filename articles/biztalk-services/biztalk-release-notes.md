@@ -4,8 +4,8 @@
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="msftman" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+	manager="erikre" 
+	editor=""/>
 
 <tags 
 	ms.service="biztalk-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="02/29/2016" 
 	ms.author="deonhe"/>
 
 # Notas de versão dos Serviços BizTalk do Azure
@@ -38,7 +38,7 @@ As notas de versão dos Serviços BizTalk do Microsoft Azure contêm os problema
 * A opção de criar modelos para contratos foi descontinuada.  
 * No contrato do lado de envio, agora você pode especificar diferentes conjuntos de delimitadores para cada esquema. Essa configuração é especificada nas configurações de protocolo do contrato do lado de envio. Para saber mais, confira [Criar um contrato X12 nos Serviços BizTalk do Azure](https://msdn.microsoft.com/library/azure/hh689847.aspx) e [Criar um contrato EDIFACT nos Serviços BizTalk do Azure](https://msdn.microsoft.com/library/azure/dn606267.aspx). Também foram adicionadas duas novas entidades à API TPM OM para a mesma finalidade. Confira [X12DelimiterOverrides](https://msdn.microsoft.com/library/azure/dn798749.aspx) e [EDIFACTDelimiterOverride](https://msdn.microsoft.com/library/azure/dn798748.aspx).  
 * Agora há suporte para construtores XSD padrão, incluindo tipos derivados. Confira [Usar construtores XSD padrão em seus mapas](https://msdn.microsoft.com/library/azure/dn793987.aspx) e [Usar tipos derivados nos exemplos e cenários de mapeamento](https://msdn.microsoft.com/library/azure/dn793997.aspx).  
-* O AS2 dá suporte a novos algoritmos MIC para assinatura de mensagens e a novos algoritmos de criptografia. [Confira: Criar um contrato AS2 nos Serviços BizTalk do Azure](https://msdn.microsoft.com/library/azure/hh689890.aspx).
+* O AS2 dá suporte a novos algoritmos MIC para assinatura de mensagens e a novos algoritmos de criptografia. Veja [Criar um contrato AS2 nos Serviços BizTalk do Azure](https://msdn.microsoft.com/library/azure/hh689890.aspx).
 ## Problemas conhecidos
 
 ### Problemas de conectividade após a atualização do Portal dos Serviços BizTalk
@@ -49,7 +49,9 @@ As notas de versão dos Serviços BizTalk do Microsoft Azure contêm os problema
 Instale o Visual Studio 2012 Update 3 RC 1 para corrigir o problema.
 
 ### Referência de projeto de associação personalizada
-Considere as seguintes situações com um projeto dos Serviços BizTalk em uma solução do Visual Studio: * Na mesma solução do Visual Studio, há um projeto dos Serviços BizTalk e um projeto de associação personalizada. O projeto do Serviço BizTalk tem uma referência a esse arquivo de projeto de associação personalizada. * O projeto do Serviço BizTalk tem uma referência a uma associação/comportamento DLL personalizado.
+Considere as seguintes situações com um projeto dos Serviços BizTalk em uma solução do Visual Studio:
+* Na mesma solução do Visual Studio, há um projeto dos Serviços BizTalk e um projeto de associação personalizada. O projeto do Serviço BizTalk tem uma referência a esse arquivo do projeto de associação personalizada. 
+* O projeto do Serviço BizTalk tem uma referência a uma DLL de associação/comportamento personalizado.
 
 Você 'Compilou' a solução com êxito no Visual Studio. Em seguida, você 'Recompila' ou 'Limpa' a solução. Depois disso, quando você recompila ou limpa novamente, ocorre o seguinte erro: não é possível copiar o arquivo <Path to DLL> para "bin\\Debug\\FileName.dll". O processo não pode acessar o arquivo 'bin\\Debug\\FileName.dll' porque ele está sendo usado por outro processo.
 
@@ -83,9 +85,10 @@ Não há suporte para anexos de mensagens AS2 nos envios ou recebimentos. Especi
 ### Recursos: lembrar o caminho  
 Ao adicionar **Recursos**, a janela de diálogo pode não lembrar o caminho usado anteriormente para adicionar um recurso. Para lembrar o caminho usado anteriormente, experimente adicionar o site do Portal dos Serviços BizTalk aos **Sites Confiáveis** no Internet Explorer.
 ### Se você renomear o nome da entidade de uma ponte e fechar o projeto sem salvar as alterações, abrir a entidade novamente resultará em um erro
-Considere um cenário na seguinte ordem: * Adicionar uma ponte (por exemplo, uma ponte unidirecional XML) a um projeto do Serviço BizTalk
+Considere um cenário na seguinte ordem:
+* Adicionar uma ponte (por exemplo, uma ponte unidirecional XML) a um projeto do Serviço BizTalk  
 
-* Renomeie a ponte especificando um valor para a propriedade Nome da Entidade. Isso renomeia o arquivo .bridgeconfig associado ao nome especificado.  
+* Renomeie a ponte especificando um valor para a propriedade Nome da Entidade. Isso renomeia o arquivo .bridgeconfig associado ao nome especificado.
 
 * Feche o arquivo .bcs (fechando a guia no Visual Studio) sem salvar as alterações.
 
@@ -97,7 +100,8 @@ Em um projeto do Serviço BizTalk, se um esquema adicionado ao projeto importar 
 ### A mensagem de resposta de uma Ponte de Solicitação-Resposta XML é enviada sempre com o conjunto de caracteres UTF-8
 Para esta versão, o conjunto de caracteres da mensagem de resposta de uma Ponte de Solicitação-Resposta XML é sempre definido como UTF-8.
 ### Tipos de dados definidos pelo usuário
-Os adaptadores do BizTalk Adapter Pack dentro do recurso do Serviço do Adaptador do BizTalk podem utilizar tipos de dados definidos pelo usuário para operações de adaptador. Ao usar tipos de dados definidos pelo usuário, copie os arquivos (.dll) para drive:\\Program Files\\Microsoft BizTalk Adapter Service\\BAServiceRuntime\\bin\\ ou para o Cache de Assembly Global (GAC) no servidor que hospeda o Serviço do Adaptador do BizTalk. Caso contrário, o seguinte erro pode ocorrer no cliente: ```<s:Fault xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+Os adaptadores do BizTalk Adapter Pack dentro do recurso do Serviço do Adaptador do BizTalk podem utilizar tipos de dados definidos pelo usuário para operações de adaptador. Ao usar tipos de dados definidos pelo usuário, copie os arquivos (.dll) para drive:\\Program Files\\Microsoft BizTalk Adapter Service\\BAServiceRuntime\\bin\\ ou para o Cache de Assembly Global (GAC) no servidor que hospeda o Serviço do Adaptador do BizTalk. Caso contrário, o seguinte erro pode ocorrer no cliente:
+```<s:Fault xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
   <faultcode>s:Client</faultcode>
   <faultstring xml:lang="pt-BR">The UDT with FullName "File, FileUDT, Version=Value, Culture=Value, PublicKeyToken=Value" could not be loaded. Try placing the assembly containing the UDT definition in the Global Assembly Cache.</faultstring>
   <detail>
@@ -105,8 +109,8 @@ Os adaptadores do BizTalk Adapter Pack dentro do recurso do Serviço do Adaptado
       <ExceptionCode>ERROR_IN_SENDING_MESSAGE</ExceptionCode>
     </AFConnectRuntimeFault>
   </detail>
-</s:Fault> ```
-> [AZURE.IMPORTANT]É recomendável usar o GACUtil.exe para instalar um arquivo no Cache de Assembly Global. O GACUtil.exe mostra como usar essa ferramenta e as opções de linha de comando do Visual Studio.
+</s:Fault> ```  
+> [AZURE.IMPORTANT] É recomendável usar o GACUtil.exe para instalar um arquivo no Cache de Assembly Global. O GACUtil.exe mostra como usar essa ferramenta e as opções de linha de comando do Visual Studio.
 
 ### Reiniciar o Site do Serviço do Adaptador do BizTalk
 Instalar o **Tempo de Execução do Serviço do Adaptador do BizTalk*** cria o site **Serviço do Adaptador do BizTalk** no IIS que contém o aplicativo **BAService**. O aplicativo **BAService** usa associação de retransmissão internamente para estender o alcance do ponto de extremidade de serviço local para a nuvem. Para um serviço hospedado localmente, o ponto de extremidade de retransmissão correspondente será registrado no Barramento de Serviço somente quando o serviço local for iniciado.
@@ -119,11 +123,18 @@ Se uma Transformação contiver uma Operação de Mapeamento da **Propriedade Ge
 ### A propriedade do mapa de teste não é exibida
 As propriedades do **Mapa de Teste** não são exibidas no Visual Studio. Isso pode ocorrer se a janela **Propriedades** e a janela **Gerenciador de Soluções** não forem encaixadas simultaneamente. Para resolver isso, encaixe as janelas **Propriedades** e **Gerenciador de Soluções**.
 ### O menu suspenso de Reformatação de Data/Hora está esmaecido
-Quando uma Operação de Mapeamento de Reformatação de Data/Hora é adicionada à superfície de design e configurada, a lista suspensa de Formato pode ser esmaecida. Isso pode acontecer se a Exibição do computador estiver definida como **Médio – 125%** ou **Maior – 150%**. Para resolver, defina a exibição como **Menor – 100% (padrão)** usando as etapas a seguir: 1. Abra o **Painel de Controle** e clique em **Aparência e Personalização**. 2. Clique em **Exibir**. 3. Clique em **Menor – 100% (padrão)** e clique em **Aplicar**.
+Quando uma Operação de Mapeamento de Reformatação de Data/Hora é adicionada à superfície de design e configurada, a lista suspensa de Formato pode ser esmaecida. Isso pode acontecer se a Exibição do computador estiver definida como **Médio – 125%** ou **Maior – 150%**. Para resolver, defina a tela como **Menor – 100% (padrão)** usando as etapas abaixo:
+1. Abra o **Painel de Controle** e clique em **Aparência e Personalização**.
+2. Clique em **Tela**.
+3. Clique em **Menor – 100% (padrão)** e clique em **Aplicar**.
 
 A lista suspensa de **Formato** agora deve funcionar conforme esperado.
 ### Contratos duplicados no Portal dos Serviços BizTalk
-Considere o seguinte cenário: 1. Crie um contrato usando a API do Modelo de Objeto de Gerenciamento de Parceiros Comerciais. 2. Abra o contrato no Portal dos Serviços BizTalk em duas guias diferentes. 3. Implante o contrato em ambas as guias. 4. Como resultado, ambos os contratos são implantados, resultando em entradas duplicadas no Portal dos Serviços BizTalk
+Considere este cenário:
+1. Crie um contrato usando a API do Modelo de Objeto de Gerenciamento de Parceiros Comerciais.
+2. Abra o contrato no Portal dos Serviços BizTalk em duas guias diferentes.
+3. Implante o contrato em ambas as guias.
+4. Como resultado, ambos os contratos são implantados, resultando em entradas duplicadas no Portal dos Serviços BizTalk
 
 **Solução alternativa**. Abra um dos contratos duplicados no Portal dos Serviços BizTalk e remova a implantação.
 
@@ -147,7 +158,8 @@ Considere um cenário onde você deseja ler uma mensagem XML no código personal
 ### As mensagens enviadas para uma ponte usando WCF não são dimensionadas
 As mensagens enviadas para uma ponte usando WCF não são dimensionadas. Em vez disso, você deve usar HttpWebRequest se desejar ter um cliente escalonável.
 ### ATUALIZAÇÃO: erro no Provedor de Token após a atualização da Visualização dos Serviços BizTalk para Disponibilidade Geral (GA)
-Há um Contrato AS2 ou EDI com lotes ativos. Quando o Serviço BizTalk for atualizado da Visualização para a GA, pode ocorrer o seguinte: * Erro: o provedor de token não pôde fornecer um token de segurança. O provedor de token retornou a mensagem: o nome remoto não pôde ser resolvido.
+Há um Contrato AS2 ou EDI com lotes ativos. Quando o Serviço BizTalk for atualizado do Preview para o GA, poderá ocorrer o seguinte:
+* Erro: o provedor de token não pôde fornecer um token de segurança. O provedor de token retornou a mensagem: o nome remoto não pôde ser resolvido.
 
 * As tarefas em lote são canceladas.
 
@@ -174,4 +186,4 @@ Ao longo deste documento, os termos 'pipelines' e 'pontes' são usados de forma 
 
 [Serviços BizTalk](https://msdn.microsoft.com/library/azure/hh689864.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

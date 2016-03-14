@@ -47,7 +47,7 @@ Você pode adicionar discos de dados a uma máquina virtual a qualquer momento "
 
 ## Sobre VHDs
 
-Os VHDs usados no Azure são arquivos .vhd armazenados como blobs de página em uma conta de armazenamento padrão ou premium no Azure. (O armazenamento Premium está disponível em determinadas regiões.) Para conhecer mais detalhes sobre os blobs, consulte [Noções Gerais sobre blobs de blocos e blobs de páginas](https://msdn.microsoft.com/library/ee691964.aspx). Para obter detalhes sobre o armazenamento premium, confira consulte [Armazenamento Premium: armazenamento de alto desempenho para as cargas de trabalho das máquinas virtuais do Azure](storage-premium-storage-preview-portal.md).
+Os VHDs usados no Azure são arquivos .vhd armazenados como blobs de página em uma conta de armazenamento padrão ou premium no Azure. (O armazenamento Premium está disponível em determinadas regiões.) Para conhecer mais detalhes sobre os blobs, consulte [Noções Gerais sobre blobs de blocos e blobs de páginas](https://msdn.microsoft.com/library/ee691964.aspx). Para obter detalhes sobre o armazenamento premium, confira consulte [Armazenamento Premium: armazenamento de alto desempenho para as cargas de trabalho das máquinas virtuais do Azure](../storage/storage-premium-storage.md).
 
 Fora do Azure, os discos rígidos virtuais podem usar um formato VHD ou VHDX. Eles também podem ser fixos, ter expansão dinâmica ou diferenciação. O Azure é compatível com discos fixos de formato VHD. O formato fixo dispõe o disco lógico linearmente dentro do arquivo, de forma que o deslocamento X do disco é armazenado no deslocamento X do blob. Um pequeno rodapé ao final do blob descreve as propriedades do VHD. Frequentemente, o formato fixo desperdiça espaço, porque muitos discos têm em si grandes intervalos não usados. No entanto, o Azure armazena arquivos .vhd em um formato livre, assim você obtém os benefícios de discos fixos e dinâmicos ao mesmo tempo. Para obter mais detalhes, consulte [Introdução aos discos rígidos virtuais](https://technet.microsoft.com/library/dd979539.aspx).
 
@@ -74,4 +74,4 @@ Máquinas virtuais do Windows:
 -  [Capturar uma máquina virtual do Windows](virtual-machines-capture-image-windows-server.md)
 -  [Desanexar um disco](storage-windows-detach-disk.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -12,7 +12,7 @@
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="01/14/2016" 
 	ms.author="ccompy"/>
 
@@ -30,7 +30,13 @@ A criação do ASE requer que os clientes forneçam as seguintes informações:
 - Seleção da Rede Virtual (VNET) do Azure junto com uma sub-rede
 - Definição do pool de recursos do ASE
 
-Há alguns detalhes importantes sobre cada um desses itens. - O nome do ASE será usado no subdomínio para todos os aplicativos criados no ASE - todos os aplicativos feitos em um ASE estarão na mesma assinatura que o próprio ASE – se você não tiver acesso à assinatura usada para criar o ASE não será possível usar o ASE para criar aplicativos - as redes virtuais usadas para hospedar um ASE devem ser redes virtuais clássicas Regionais "v1" - a sub-rede usada para hospedar o ASE não deve conter nenhum outro recurso de computação - somente um ASE pode existir em uma sub-rede
+Há alguns detalhes importantes referentes a cada um desses itens.
+- O nome do ASE será usado no subdomínio para quaisquer aplicativos feitos no ASE
+- Todos os aplicativos feitos em um ASE estarão na mesma assinatura que o próprio ASE
+- Se você não tiver acesso à assinatura usada para fazer o ASE, o ASE não poderá ser usado para criar aplicativos
+- Redes Virtuais usadas para hospedar um ASE devem ser Redes Virtuais Regionais clássicas “v1” 
+- A sub-rede usada para hospedar o ASE não deve conter outros recursos de computação
+- Somente um ASE pode existir em uma sub-rede
 
 Cada implantação de ASE é um serviço hospedado que o Azure gerencia e mantém. Os recursos de computação hospedando as funções de sistema ASE não podem ser acessadas pelo cliente, embora o cliente gerencie a quantidade de instâncias e seus tamanhos.
 
@@ -68,7 +74,9 @@ Se utilizar a interface de usuário de criação da VNET, você precisará forne
 
 O local da Rede Virtual é o local do ASE porque o ASE é implantado para esta Rede Virtual.
 
-Depois de criar sua Rede Virtual especificada ou selecionada, você precisará criar ou selecionar uma sub-rede como apropriado. Os detalhes que você deverá fornecer aqui são: - nome da sub-rede - intervalo da sub-rede na notação CIDR
+Depois de criar sua Rede Virtual especificada ou selecionada, você precisará criar ou selecionar uma sub-rede como apropriado. Os detalhes que devem ser fornecidos aqui são os seguintes:
+- Nome da sub-rede
+- Intervalo de sub-rede em notação CIDR
 
 Se você não estiver familiarizado com a notação CIDR (Classless Inter-Domain Routing), ela terá a forma de um Endereço IP, que é a barra invertida separada do valor CIDR. Ela se parece com *10.0.0.0/22*. O valor da CIDR indica o número de bits iniciais mascarados em comparação ao endereço IP mostrado. Uma maneira mais fácil de expressar o conceito aqui é que os valores CIDR fornecem um intervalo de IPs. Neste exemplo, um 10.0.0.0/22 significa um intervalo de 1024 endereços ou de 10.0.0.0 a 10.0.3.255. Um “/23” significa 512 endereços, e assim por diante.
 
@@ -155,4 +163,4 @@ Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Az
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

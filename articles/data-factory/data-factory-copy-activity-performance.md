@@ -63,11 +63,11 @@ As etapas típicas que sugerimos que você faça para ajustar o desempenho de su
 3. **Expandir a configuração para todos os dados** Quando você estiver satisfeito com os resultados e o desempenho da execução, poderá expandir a definição do conjunto de dados e o período ativo do pipeline para cobrir todos os dados na imagem.
 
 ## Referência de desempenho
-> [AZURE.IMPORTANT]**Isenção de responsabilidade:** os dados abaixo foram publicados com o único propósito de orientação e planejamento alto nível. Eles pressupõem que a largura de banda, o hardware, a configuração, etc. são os melhores em sua classe. Use apenas como referência. A taxa de transferência de movimentação de dados que você observar será afetada por uma variedade de variáveis. Consulte as seções mais tarde para saber mais sobre como você pode ajustar e obter o melhor desempenho para suas necessidades de movimentação de dados. Esses dados serão atualizados como e quando forem adicionados recursos e melhorias de aumento de desempenho.
+> [AZURE.IMPORTANT] **Isenção de responsabilidade:** os dados abaixo foram publicados com o único propósito de orientação e planejamento alto nível. Eles pressupõem que a largura de banda, o hardware, a configuração, etc. são os melhores em sua classe. Use apenas como referência. A taxa de transferência de movimentação de dados que você observar será afetada por uma variedade de variáveis. Consulte as seções mais tarde para saber mais sobre como você pode ajustar e obter o melhor desempenho para suas necessidades de movimentação de dados. Esses dados serão atualizados como e quando forem adicionados recursos e melhorias de aumento de desempenho.
 
 ![Matriz de desempenho](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
 
-> [AZURE.NOTE]**Em breve:** estamos melhorando as características de desempenho de base e logo você verá números de taxa de transferência melhores e maiores na tabela acima.
+> [AZURE.NOTE] **Em breve:** estamos melhorando as características de desempenho de base e logo você verá números de taxa de transferência melhores e maiores na tabela acima.
 
 Pontos a serem observados:
 
@@ -76,19 +76,19 @@ Pontos a serem observados:
 - No caso de armazenamentos de dados do Microsoft Azure, origem e coletor estão na mesma região do Azure.
 - No caso da movimentação de dados híbrida (local para a nuvem ou da nuvem para local), o Gateway de gerenciamento de dados (instância única) estava hospedado em um computador diferente do armazenamento de os dados local usando a configuração a seguir. Observe que, com uma única execução atividade em andamento no gateway, a operação de cópia consumiu apenas uma pequena parte da largura de banda de rede e dos recursos de CPU/memória do computador.
 	<table>
-<tr>
-	<td>CPU</td>
-	<td>32 núcleos de 2,20 GHz Intel Xeon® E5-2660 v2</td>
-</tr>
-<tr>
-	<td>Memória</td>
-	<td>128 GB</td>
-</tr>
-<tr>
-	<td>Rede</td>
-	<td>Interface da Internet: 10 Gbps; Interface de intranet: 40 Gbps</td>
-</tr>
-</table>
+	<tr>
+		<td>CPU</td>
+		<td>32 núcleos de 2,20 GHz Intel Xeon® E5-2660 v2</td>
+	</tr>
+	<tr>
+		<td>Memória</td>
+		<td>128 GB</td>
+	</tr>
+	<tr>
+		<td>Rede</td>
+		<td>Interface da Internet: 10 Gbps; Interface de intranet: 40 Gbps</td>
+	</tr>
+	</table>
 
 ## Considerações sobre origem
 ### Geral
@@ -218,10 +218,10 @@ Nesse caso, a compactação de dados BZIP2 poderia estar desacelerando todo o pi
 Aqui estão algumas referências de monitoramento e ajuste de desempenho para alguns dos armazenamentos de dados com suporte:
 
 - Armazenamento do Azure (incluindo o Blob do Azure e a Tabela do Azure): [metas de escalabilidade do Armazenamento do Azure](../storage/storage-scalability-targets.md) e [Lista de verificação de escalabilidade e desempenho do Armazenamento do Azure](../storage//storage-performance-checklist.md)
-- Banco de dados SQL Azure: você pode [monitorar o desempenho](../sql-database/sql-database-service-tiers.md#monitoring-performance) e verificar a porcentagem de unidade de DTU (taxa de transferência do banco de dados).
+- Banco de dados SQL Azure: é possível [monitorar o desempenho](../sql-database/sql-database-service-tiers.md#monitoring-performance) e verificar o percentual de DTU (Unidade de Transação de Banco de Dados).
 - Azure SQL Data Warehouse: sua capacidade é medida por DWUs (Unidades de Data Warehouse). Consulte [Desempenho e escala elásticos com o SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-performance-scale.md).
 - Banco de Dados de Documentos do Azure: [nível de desempenho no Banco de Dados de Documentos](../documentdb/documentdb-performance-levels.md).
 - SQL Server local: [monitoramento e ajuste de desempenho](https://msdn.microsoft.com/library/ms189081.aspx).
 - Servidor de arquivos local: [ajuste de desempenho para servidores de arquivos](https://msdn.microsoft.com/library/dn567661.aspx)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0302_2016-->

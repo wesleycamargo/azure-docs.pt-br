@@ -31,7 +31,8 @@ Vá para [https://publish.windowsazure.com](http://publish.windowsazure.com). Ao
   ![desenho][img-pubportal-sol-templ-new]
 
 ### 3\. Comece com as topologias
-Um modelo de solução é um "pai" para todas as suas topologias. Você pode definir várias topologias em uma oferta/modelo de solução. Quando uma oferta passa para teste, todas as suas topologias a acompanham. Siga as etapas abaixo para definir sua oferta: - Criar uma Topologia: "Identificador de Topologia" é o nome da topologia para o modelo de solução. O identificador de topologia é usado na URL, como mostrado abaixo:
+Um modelo de solução é um "pai" para todas as suas topologias. Você pode definir várias topologias em uma oferta/modelo de solução. Quando uma oferta passa para teste, todas as suas topologias a acompanham. Siga as etapas abaixo para definir sua oferta:
+- Criar uma topologia: geralmente, “Identificador de Topologia” é o nome da topologia para o modelo da solução. O identificador de topologia é usado na URL, como mostrado abaixo:
 
   Azure Marketplace: http://azure.microsoft.com/marketplace/partners/{PublisherNamespace}/{OfferIdentifier}{TopologyIdentifier}
 
@@ -40,7 +41,9 @@ Um modelo de solução é um "pai" para todas as suas topologias. Você pode def
 - Adicionar uma nova versão.
 
 ### 4\. Certifique as versões de sua topologia
-Carregue um arquivo zip contendo todos os arquivos necessários para provisionar essa versão específica da topologia. Esse arquivo zip deve conter o seguinte: - arquivos *mainTemplate.json* e *createUiDefinition.json* em seu diretório raiz. - Quaisquer modelos vinculados e todos os scripts necessários.
+Carregue um arquivo zip contendo todos os arquivos necessários para provisionar essa versão específica da topologia. Este arquivo zip deve conter o seguinte:
+- arquivo *mainTemplate.json* e *createUiDefinition.json* no diretório raiz.
+- Quaisquer modelos vinculados e todos os scripts necessários.
 
 Depois de carregar o arquivo zip, clique em **Request Certification** (Solicitar Certificação). A equipe de certificação da Microsoft revisará os arquivos e certificará a topologia.
 
@@ -67,11 +70,11 @@ Você também pode se interessar por estes artigos relacionados:
 
 - Gerenciador de Recursos do Azure (ARM): [Criando modelos ARM do Azure](../resource-group-authoring-templates/) e [Exemplos de modelos simples de ARM](https://github.com/rjmax/ArmExamples)
 
-- Limites da conta de armazenamento: [Como monitorar o limite da conta de armazenamento](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) e [Armazenamento Premium](../storage/storage-premium-storage-preview-portal/#scalability-and-performance-targets-whpt-BRing-premium-storage)
+- Limites da conta de armazenamento: [Como monitorar o limite da conta de armazenamento](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) e [Armazenamento Premium](../storage/storage-premium-storage.md#scalability-and-performance-targets-whpt-BRing-premium-storage)
 
 [img-pubportal-menu-sol-templ]: media/marketplace-publishing-solution-template-creation/pubportal-menu-solution-templates.png
 [img-pubportal-sol-templ-new]: media/marketplace-publishing-solution-template-creation/pubportal-solution-template-new.png
 [link-acct-creation]: marketplace-publishing-microsoft-accounts-creation-registration.md
 [link-pubportal]: https://publish.windowsazure.com
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

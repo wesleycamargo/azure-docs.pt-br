@@ -13,32 +13,29 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/18/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli"/>
 
-# Implantar a StorSimple Virtual Array - preparar como servidor de arquivos (Visualização)
+# Implantar o StorSimple Virtual Array –Preparar como servidor de arquivos
 
 ![](./media/storsimple-ova-deploy3-fs-setup/fileserver4.png)
 
 ## Introdução 
 
-Este artigo se aplica à Matriz Virtual Microsoft Azure StorSimple (também conhecido como o dispositivo virtual local StorSimple ou o dispositivo virtual StorSimple) executando somente a v.1.1.1.0 (visualização). Este artigo descreve como executar a configuração inicial, registrar o servidor de arquivos do StorSimple, concluir a configuração do dispositivo, criar compartilhamentos SMB e conectar-se a eles. Este é o último artigo da série de tutoriais de implantação necessários para implantar completamente sua matriz virtual como um servidor de arquivos ou um servidor iSCSI.
+Este artigo se aplica ao Microsoft Azure StorSimple Virtual Array (também conhecido como o dispositivo virtual local StorSimple ou dispositivo virtual StorSimple) que executa a versão GA (disponibilidade geral) de março de 2016. Este artigo descreve como executar a configuração inicial, registrar o servidor de arquivos do StorSimple, concluir a configuração do dispositivo, criar compartilhamentos SMB e conectar-se a eles. Este é o último artigo da série de tutoriais de implantação necessários para implantar completamente sua matriz virtual como um servidor de arquivos ou um servidor iSCSI.
 
 O processo de preparação e configuração pode levar aproximadamente 10 minutos para ser concluído.
 
-> [AZURE.IMPORTANT]
-> 
-> Esta visualização pública destina-se somente para avaliação. Não há suporte para a instalação dessa visualização em um ambiente de produção.
 
 ## Pré-requisitos de configuração
 
 Antes de configurar e configurar o dispositivo virtual StorSimple, certifique-se de que:
 
--   Você tenha provisionado um dispositivo virtual e conectado-se a ele, conforme detalhado em descrito em [Provisionar uma StorSimple Virtual Array em Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) ou [Provisionar uma StorSimple Virtual Array em VMware](storsimple-ova-deploy2-provision-vmware.md).
+-   Você provisionou um dispositivo virtual e se conectou a ele, conforme detalhado em [Provisionar um StorSimple Virtual Array no Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) ou [Provisionar um StorSimple Virtual Array no VMware](storsimple-ova-deploy2-provision-vmware.md).
 
--   Você tem a chave de registro do serviço StorSimple Manager que você criou para gerenciar dispositivos virtuais StorSimple. Para obter mais informações, veja [Etapa 2: obter a chave de registro do serviço](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) para StorSimple Virtual Array.
+-   Você tem a chave de registro do serviço StorSimple Manager que você criou para gerenciar dispositivos virtuais StorSimple. Para obter mais informações, veja [Etapa 2: Obter a chave de registro do serviço](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) para o StorSimple Virtual Array.
 
--   Se esse for o segundo dispositivo virtual ou dispositivo virtual subsequente que você está registrando com um serviço StorSimple Manager existente, você deve ter a chave de criptografia de dados do serviço. Essa chave foi gerada quando o primeiro dispositivo foi registrado com êxito com esse serviço. Se você perdeu essa chave, veja [Obter a chave de criptografia de dados de serviço](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) para sua StorSimple Virtual Array.
+-   Se esse for o segundo dispositivo virtual ou dispositivo virtual subsequente que você está registrando com um serviço StorSimple Manager existente, você deve ter a chave de criptografia de dados do serviço. Essa chave foi gerada quando o primeiro dispositivo foi registrado com êxito com esse serviço. Caso tenha perdido essa chave, veja [Obter a chave de criptografia de dados de serviço](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) do StorSimple Virtual Array.
 
 ## Configuração passo a passo
 
@@ -57,11 +54,11 @@ Use as instruções passo a passo a seguir para preparar e configurar seu dispos
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image2.png)
 
-1.  Entre na interface do usuário da Web do seu dispositivo virtual como **StorSimpleAdmin**. Digite a senha do administrador do dispositivo que você alterou na Etapa 3: Iniciar o dispositivo virtual em [Provisionar um StorSimple Virtual Array em Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) ou em [Provisionar um StorSimple Virtual Array em VMware](storsimple-ova-deploy2-provision-vmware.md).
+1.  Entre na interface do usuário da Web de seu dispositivo virtual como **StorSimpleAdmin**. Digite a senha do administrador do dispositivo que você alterou na Etapa 3: Iniciar o dispositivo virtual em [Provisionar um StorSimple Virtual Array no Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) ou em [Provisionar um StorSimple Virtual Array no VMware](storsimple-ova-deploy2-provision-vmware.md).
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image3.png)
 
-1.  Você será conduzido à **Página Inicial**. Esta página descreve as várias configurações necessárias para configurar e registrar o dispositivo virtual com o serviço StorSimple Manager. Observe que **Configurações de rede**, **Configurações de proxy da Web** e **Configurações de hora** são opcionais. As únicas configurações obrigatórias são as **Configurações do dispositivo** e **Configurações de nuvem**.
+1.  Você será levado à página **Inicial**. Esta página descreve as várias configurações necessárias para configurar e registrar o dispositivo virtual com o serviço StorSimple Manager. Observe que **Configurações de rede**, **Configurações de proxy da Web** e **Configurações de hora** são opcionais. As únicas configurações obrigatórias são as **Configurações do dispositivo** e **Configurações de nuvem**.
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image4.png)
 
@@ -79,11 +76,11 @@ Use as instruções passo a passo a seguir para preparar e configurar seu dispos
 
 2.  Na página **Configurações do dispositivo**:
 
-    1.  Atribua um **Nome** exclusivo a seu dispositivo. Esse nome pode ter de 1 a 15 caracteres e pode conter letras, números e hifens.
+    1.  Atribua um **Nome** exclusivo ao seu dispositivo. Esse nome pode ter de 1 a 15 caracteres e pode conter letras, números e hifens.
 
-    2.  No **servidor de arquivos**, clique no ícone ![](./media/storsimple-ova-deploy3-fs-setup/image6.png) para o **Tipo** do dispositivo que você está criando. Um servidor de arquivos permitirá que você crie pastas compartilhadas.
+    2.  Clique no ícone ![](./media/storsimple-ova-deploy3-fs-setup/image6.png) do **Servidor de arquivos** para o **Tipo** de dispositivo que você está criando. Um servidor de arquivos permitirá que você crie pastas compartilhadas.
 
-    3.  Como o dispositivo é um servidor de arquivos, você precisará ingressar o dispositivo em um domínio. Escolha um **Nome de domínio**.
+    3.  Como o dispositivo é um servidor de arquivos, você precisará ingressar o dispositivo em um domínio. Insira um **Nome de domínio**.
 
 	1.  Clique em **Aplicar**.
 
@@ -131,7 +128,7 @@ Use as instruções passo a passo a seguir para preparar e configurar seu dispos
 
     1.  Insira a **Chave de registro do serviço** que você obteve na [Etapa 2: obter a chave de registro do serviço](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) para a StorSimple Virtual Array.
 
-    2.  Se não for o primeiro dispositivo que você está registrando com esse serviço, você precisará fornecer a **Chave de criptografia de dados de serviço**. Essa chave é necessária com a chave de registro do serviço para registrar dispositivos adicionais no serviço StorSimple Manager. Para obter mais informações, consulte [Obter a chave de criptografia de dados de serviço](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) em sua interface do usuário da Web local.
+    2.  Se não é o primeiro dispositivo que você está registrando com esse serviço, você precisará fornecer a **Chave de criptografia de dados de serviço**. Essa chave é necessária com a chave de registro do serviço para registrar dispositivos adicionais no serviço StorSimple Manager. Para obter mais informações, consulte [Obter a chave de criptografia de dados de serviço](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) em sua interface do usuário da Web local.
 
     3.  Clique em **Registrar**. Isso reiniciará o dispositivo. Talvez seja necessário aguardar de 2 a 3 minutos até que o dispositivo seja registrado com êxito. Depois que o dispositivo for reiniciado, você será levado à página de entrada.
 
@@ -235,4 +232,4 @@ Assista ao vídeo para ver como você pode configurar e registrar uma StorSimple
 
 Aprenda como usar a interface do usuário da Web local para [administrar sua StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

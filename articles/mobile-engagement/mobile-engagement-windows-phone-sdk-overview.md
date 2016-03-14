@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/10/2015" 
+	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
 #Visão geral do SDK do Windows Phone Silverlight para o Mobile Engagement do Azure
@@ -55,4 +55,4 @@ Nenhum.
 Consulte [Procedimentos de atualização](mobile-engagement-windows-phone-upgrade-procedure/)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

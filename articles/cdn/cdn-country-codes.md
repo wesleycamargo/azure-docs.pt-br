@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="CDN - códigos do país" 
-	description="O recurso Filtragem de País usa códigos do país para definir os países nos quais uma solicitação será permitida ou bloqueada para um diretório protegido." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="CDN - códigos do país"
+	description="O recurso Filtragem de País usa códigos do país para definir os países nos quais uma solicitação será permitida ou bloqueada para um diretório protegido."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016" 
 	ms.author="casoper"/>
 
 #Códigos de país
@@ -23,11 +23,11 @@ O recurso **Filtragem de País** usa códigos de país para definir os países n
 | Código | País | Informações adicionais                                                                                                                                                                                                                               
 |--------------|----------------------------------------------|------------------------------------------------------|
 | A1 | Proxy Anônimo | Esse código do país identifica um conjunto de endereços IP usados por ferramentas para anonimato ou serviços VPN. Esses tipos de serviços podem ser usados para contornar as restrições de localização geográfica do IP. |                                                                        
-| A2 | Provedor de Satélite | Esse código do país identifica um conjunto de endereços IP usados pelos ISPs de satélite para fornecer serviços de Internet para vários países (por exemplo, Nigéria e Gana). | 
+| A2 | Provedor de Satélite | Esse código do país identifica um conjunto de endereços IP usados pelos ISPs de satélite para fornecer serviços de Internet para vários países (por exemplo, Nigéria e Gana). |
 | AF | Afeganistão | |
 | AL | Albânia | |
-| DZ | Argélia | | 
-| AS | Samoa Americana | | 
+| DZ | Argélia | |
+| AS | Samoa Americana | |
 | AD | Andorra | |
 | AO | Angola | |
 | AI | Anguila | |
@@ -39,10 +39,10 @@ O recurso **Filtragem de País** usa códigos de país para definir os países n
 | AP | Região Ásia/Pacífico | Esse código do país identifica um conjunto de endereços IP distribuídos pela região Ásia/Pacífico. O país de origem desse conjunto de endereços IP é desconhecido. Mais importante, o código do país não abrange todos os endereços IP na região Ásia/Pacífico. [Saiba mais](https://my.edgecast.com/uploads/ubers/1/docs/webhelp/w/CDNHelpCenter/Content/Knowledge_Base/Geolocation_EU_AP.htm).|     
 | AU | Austrália | |
 | AT | Áustria | |
-| AZ | Azerbaijão | | 
+| AZ | Azerbaijão | |
 | BS | Bahamas | |
-| BH | Bahrein | | 
-| BD | Bangladesh | | 
+| BH | Bahrein | |
+| BD | Bangladesh | |
 | BB | Barbados | |
 | BY | Belarus | |
 | BE | Bélgica | |
@@ -268,4 +268,4 @@ O recurso **Filtragem de País** usa códigos de país para definir os países n
 | ZM | Zâmbia | |
 | ZW | Zimbábue | |
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

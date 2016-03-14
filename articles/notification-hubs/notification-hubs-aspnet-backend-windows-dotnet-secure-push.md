@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="02/29/2016"
 	ms.author="wesmc"/>
 
 #Push Seguro dos Hubs de Notificação do Azure
@@ -43,7 +43,7 @@ Em um nível superior, o fluxo é o seguinte:
 
 Este tutorial de Push Seguro mostra como enviar uma notificação por push de maneira segura. O tutorial baseia-se no tutorial [Notificação de usuários](notification-hubs-aspnet-backend-windows-dotnet-notify-users.md), por isso, você deve concluir as etapas nesse tutorial primeiro.
 
-> [AZURE.NOTE]Este tutorial presume que você criou e configurou seu hub de notificação conforme descrito em [Introdução aos Hubs de Notificação (Windows Store)](notification-hubs-windows-store-dotnet-get-started.md). Além disso, observe que o Windows Phone 8.1 requer credenciais do Windows (não Windows Phone) e tarefas em segundo plano não funcionam no Windows Phone 8.0 ou Silverlight 8.1. Para aplicativos da Windows Store, você pode receber notificações por meio de uma tarefa de segundo plano somente se o aplicativo estiver com o bloqueio de tela habilitado (clique na caixa de seleção em Appmanifest).
+> [AZURE.NOTE] Este tutorial presume que você criou e configurou seu hub de notificação conforme descrito em [Introdução aos Hubs de Notificação (Windows Store)](notification-hubs-windows-store-dotnet-get-started.md). Além disso, observe que o Windows Phone 8.1 requer credenciais do Windows (não Windows Phone) e tarefas em segundo plano não funcionam no Windows Phone 8.0 ou Silverlight 8.1. Para aplicativos da Windows Store, você pode receber notificações por meio de uma tarefa de segundo plano somente se o aplicativo estiver com o bloqueio de tela habilitado (clique na caixa de seleção em Appmanifest).
 
 [AZURE.INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
 
@@ -186,4 +186,4 @@ Para executar o aplicativo, faça o seguinte:
 [12]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push12.png
 [13]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push13.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

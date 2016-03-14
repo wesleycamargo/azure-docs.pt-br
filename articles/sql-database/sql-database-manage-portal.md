@@ -21,11 +21,11 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-manage-portal.md)
+- [Portal do Azure](sql-database-manage-portal.md)
 - [SSMS](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
-O [Portal do Azure](https://portal.azure.com/) permite que você crie, monitore e gerencie servidores lógicos e bancos de dados SQL do Azure. Este artigo destaca algumas das tarefas mais comuns.
+O [portal do Azure](https://portal.azure.com/) permite que você crie, monitore e gerencie servidores lógicos e bancos de dados SQL Azure. Este artigo destaca algumas das tarefas mais comuns.
 
 ![Visão geral sobre o banco de dados](./media/sql-database-manage-portal/sqldatabase_annotated.png)
 
@@ -34,14 +34,14 @@ O [Portal do Azure](https://portal.azure.com/) permite que você crie, monitore 
 
 O Portal do Azure fornece um conjunto de ações comuns de banco de dados acessíveis na parte superior da folha de um banco de dados. Você pode restaurar um banco de dados para um ponto anterior no tempo, abrir um banco de dados no Visual Studio, copiar um banco de dados para um novo servidor e exportar o banco de dados para uma conta de armazenamento do Azure.
 
-- [Restaurar um banco de dados SQL](sql-database-point-in-time-restore-tutorial-management-portal.md)
+- [Restaurar um banco de dados SQL](sql-database-user-error-recovery.md)
 - [Abrir um banco de dados SQL no Visual Studio](sql-database-connect-query.md)
 - [Exportar um banco de dados SQL](sql-database-export.md)
 
 ## 2\. Monitoramento de banco de dados
 ![Monitoramento de banco de dados](./media/sql-database-manage-portal/sqldatabase_monitoring.png)
 
-Por padrão, os bancos de dados SQL do Azure apresentam gráficos de monitoramento de DTU (Unidade de taxa de transferência de banco de dados), do tamanho do banco de dados e da integridade da conexão. Esses gráficos de monitoramento podem ser personalizados e ampliados para mostrar a Porcentagem de CPU, Porcentagem de E/S de dados, Bloqueios, Porcentagem de E/S de log ou até mesmo a porcentagem de solicitações bloqueadas pelo firewall. Para saber mais sobre como personalizar os gráficos de monitoramento, clique [aqui][Azure part monitoring].
+Por padrão, os bancos de dados SQL Azure apresentam gráficos de monitoramento de DTU (Unidade de Transação de Banco de Dados), do tamanho do banco de dados e da integridade da conexão. Esses gráficos de monitoramento podem ser personalizados e ampliados para mostrar a Porcentagem de CPU, Porcentagem de E/S de dados, Bloqueios, Porcentagem de E/S de log ou até mesmo a porcentagem de solicitações bloqueadas pelo firewall. Para saber mais sobre como personalizar os gráficos de monitoramento, clique [aqui][Azure part monitoring].
 
 Além disso, as regras de alerta podem ser configuradas para monitorar uma métrica especificada e alertar um administrador e coadministrador designados quando os limites predefinidos forem atingidos. Para saber mais sobre como configurar as regras de alerta no Portal Clássico do Azure, clique [aqui][Azure part monitoring].
 
@@ -85,4 +85,4 @@ Os bancos de dados SQL do Azure também podem ser configurados para mascarar dad
   [AzureDb Auditing]: http://azure.microsoft.com/documentation/articles/sql-database-auditing-get-started/
   [AzureDb datamasking]: http://azure.microsoft.com/documentation/articles/sql-database-dynamic-data-masking-get-started/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

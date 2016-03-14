@@ -14,6 +14,7 @@ Comprimento do nome da propriedade | 100 | 100
 Comprimento do valor da propriedade | 1000 | 1000
 Comprimento da mensagem de rastreamento e exceção | 10000 | 10000
 Comprimento do nome da métrica | 100 | 100
+Testes de disponibilidade | 10 | 10
 
 <sup>1</sup> Um ponto de dados é um valor ou evento de métrica individual, com propriedades e medidas anexadas.
 
@@ -21,4 +22,4 @@ Comprimento do nome da métrica | 100 | 100
  
 [Sobre cotas e preços no Application Insights](../articles/application-insights/app-insights-pricing.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

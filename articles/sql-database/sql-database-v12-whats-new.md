@@ -53,7 +53,7 @@ Consulte [aqui](sql-database-transact-sql-information.md) para obter um pequeno 
 ## Mais desempenho Premium, novos níveis de desempenho
 
 
-Na V12, aumentamos as unidades de taxa de transferência de banco de dados (DTUs) alocadas para todos os níveis de desempenho Premium em 25% sem custo adicional. Podem ser obtidos ganhos de desempenho ainda maiores com os novos recursos, como:
+Na V12, aumentamos as DTUs (Unidade de Transação de Banco de Dados) alocadas para todos os níveis de desempenho Premium em 25% sem custo adicional. Podem ser obtidos ganhos de desempenho ainda maiores com os novos recursos, como:
 
 
 - Suporte para memória [índices columnstore](http://msdn.microsoft.com/library/gg492153.aspx).
@@ -161,4 +161,4 @@ Se você ainda não estiver usando a V12, pode atualizar o seu servidor lógico 
 
 [Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->
