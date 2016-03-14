@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="12/15/2015" 
+	ms.date="02/26/2016" 
 	ms.author="cephalin"/>
 
 # Criar um aplicativo Web .NET MVC no Serviço de Aplicativo do Azure com autenticação do AD FS
@@ -86,7 +86,7 @@ O aplicativo de exemplo neste tutorial, [WebApp-WSFederation-DotNet)](https://gi
 	<mark><del>private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];</del></mark>
 	<mark><del>private static string metadata = string.Format("{0}/{1}/federationmetadata/2007-06/federationmetadata.xml", aadInstance, tenant);</del></mark>
 	<mark>private static string metadata = string.Format("https://{0}/federationmetadata/2007-06/federationmetadata.xml", ConfigurationManager.AppSettings["ida:ADFS"]);</mark>
-
+	
 	<mark><del>string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);</del></mark>
 	</pre>
 
@@ -102,9 +102,11 @@ O aplicativo de exemplo neste tutorial, [WebApp-WSFederation-DotNet)](https://gi
 	  <mark><del>&lt;add key="ida:Tenant" value="[Enter tenant name, e.g. contoso.onmicrosoft.com]" /></del></mark>
 	  <mark>&lt;add key="ida:RPIdentifier" value="[Enter the relying party identifier as configured in AD FS, e.g. https://localhost:44320/]" /></mark>
 	  <mark>&lt;add key="ida:ADFS" value="[Enter the FQDN of AD FS service, e.g. adfs.contoso.com]" /></mark>
-
+	
 	&lt;/appSettings>
-	</pre>Preencha os valores de chave com base em seu respectivo ambiente.
+	</pre>
+
+	Preencha os valores de chave com base em seu respectivo ambiente.
 
 7.	Compile o aplicativo para verificar se não existem erros.
 
@@ -133,9 +135,9 @@ Aqui, você publicará o aplicativo para um aplicativo Web nos Aplicativos Web d
 
 11. No Visual Studio, abra **Web.Release.config** em seu projeto. Insira o seguinte XML na marca `<configuration>` e substitua o valor de chave por sua URL do aplicativo Web de publicação.
 	<pre class="prettyprint">
-&lt;appSettings>
-   &lt;add key="ida:RPIdentifier" value="<mark>[e.g. https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
-&lt;/appSettings></pre>
+	&lt;appSettings>
+	   &lt;add key="ida:RPIdentifier" value="<mark>[e.g. https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
+	&lt;/appSettings></pre>
 
 Quando terminar, você terá dois identificadores RP configurados em seu projeto, um para o seu ambiente de depuração no Visual Studio e um para o aplicativo Web publicado no Azure. Você configurará uma relação de confiança RP para cada um dos dois ambientes do AD FS. Durante a depuração, as configurações do aplicativo em Web.config é usado para fazer sua configuração **Depurar** funcionar com AD FS, e quando ele é publicado com (por padrão, a configuração **Versão** é publicada), um Web.config transformado é carregado e incorpora as alterações de configuração do aplicativo em Web.Release.config.
 
@@ -197,19 +199,20 @@ Agora você precisa configurar uma relação de confiança de RP no Gerenciament
 10.	Selecione **Enviar declarações usando uma regra personalizada** e clique em **Avançar**.
 11.	Cole o seguinte idioma da regra na caixa **Regra personalizada**, nomeie a regra **Por identificador de sessão** e clique em **Concluir**.  
 	<pre class="prettyprint">
-c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] &amp;&amp;
-c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant"]
-	=> add(
-		store = "_OpaqueIdStore",
-		types = ("<mark>http://contoso.com/internal/sessionid</mark>"),
-		query = "{0};{1};{2};{3};{4}",
-		param = "useEntropy",
-		param = c1.Value,
-		param = c1.OriginalIssuer,
-		param = "",
-		param = c2.Value);
-</pre>
-A regra personalizada deve ter esta aparência:
+	c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] &amp;&amp;
+	c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant"]
+		=> add(
+			store = "_OpaqueIdStore",
+			types = ("<mark>http://contoso.com/internal/sessionid</mark>"),
+			query = "{0};{1};{2};{3};{4}",
+			param = "useEntropy",
+			param = c1.Value,
+			param = c1.OriginalIssuer,
+			param = "",
+			param = c2.Value);
+	</pre>
+
+	A regra personalizada deve ter esta aparência:
 
 	![](./media/web-sites-dotnet-lob-application-adfs/6-per-session-identifier.png)
 
@@ -265,19 +268,20 @@ Como incluiu associações de grupo como declarações de função em sua config
 	<mark>[Authorize(Roles="Test Group")]</mark>
 	public ActionResult About()
 	{
-    ViewBag.Message = "A sua página de descrição do aplicativo.";
-
-    return View();
+	    ViewBag.Message = "A sua página de descrição do aplicativo.";
+	
+	    return View();
 	}
-
+	
 	<mark>[Authorize(Roles="Domain Admins")]</mark>
 	public ActionResult Contact()
 	{
-    ViewBag.Message = "Your contact page.";
-
-    return View();
+	    ViewBag.Message = "Your contact page.";
+	
+	    return View();
 	}
 	</pre>
+
 	Como adicionei **Usuário de Teste** ao **Grupo de Teste em meu ambiente de laboratório** do AD FS, usarei o Grupo de Teste para testar a autorização em `About`. Para `Contact`, testarei o caso negativo de **Admins. do domínio**, ao qual o **Usuário de Teste** não pertence.
 
 3. Inicie o depurador digitando `F5`, entre e, depois, clique em **Sobre**. Você deverá ver agora a página `~/About/Index` com êxito, se o usuário autenticado for autorizado para essa ação.
@@ -285,12 +289,13 @@ Como incluiu associações de grupo como declarações de função em sua config
 
 	![](./media/web-sites-dotnet-lob-application-adfs/13-authorize-adfs-error.png)
 
-	Se você investigar esse erro no Visualizador de Eventos no servidor do AD FS, verá esta mensagem de exceção: <pre class="prettyprint">
-	Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>a mesma sessão do navegador cliente fez '6' solicitações nos últimos '11' segundos.</mark> Contate o administrador para obter detalhes.
+	Se examinar esse erro no Visualizador de eventos no servidor do AD FS, você verá esta mensagem de exceção:
+	<pre class="prettyprint">
+	Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>A mesma sessão do navegador do cliente fez “6” solicitações nos últimos “11” segundos.</mark> Entre em contato com o administrador para obter detalhes.
 	   at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context)
 	   at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response)
 	   at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler)
-	   at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context) 
+	   at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context)
 	</pre>
 
 	O motivo pelo qual isso acontece é que, por padrão, o MVC retorna um 401 Não autorizado quando uma função do usuário não está autorizada. Isso dispara uma solicitação de nova tentativa de autenticação para seu provedor de identidade (AD FS). Uma vez que o usuário já está autenticado, o AD FS retorna para a mesma página, o que, em seguida, emite outro 401, criando um loop de redirecionamento. Você substituirá o método `HandleUnauthorizedRequest` de AuthorizeAttribute por lógica simples para mostrar algo que faça sentido, em vez de dar continuidade ao loop de redirecionamento.
@@ -351,4 +356,4 @@ Os Aplicativos Web do Serviço de Aplicativo do Azure dão suporte ao acesso a b
  
  
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

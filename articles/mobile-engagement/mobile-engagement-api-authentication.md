@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="02/17/2016"
+	ms.date="02/29/2016"
 	ms.author="wesmc"/>
 
 # Azure Mobile Engagement - usando as APIs para autenticação
@@ -50,7 +50,7 @@ Ao fazer isso, observe as seguintes informações pois você precisará delas ma
 	- Clique no botão **EXIBIR PONTOS DE EXTREMIDADE** na barra inferior, copie a **URL DO PONTO DE EXTREMIDADE DE TOKEN OAUTH 2.0**, chamado de `https://login.microsoftonline.com/{TENANT_ID}/oauth2/token` neste documento. <br/>                                    
 2. Atribuir uma função à entidade de serviço como Leitor ou Proprietário usando [CLI do Azure](../xplat-cli-install.md).
 
-	Se você estiver no Windows, modifique sua variável de ambiente `PATH` para incluir `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI\bin` para poder usar os comandos do Azure.
+	Se você estiver no Windows, modifique sua variável de ambiente `PATH` para incluir `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI\bin`, a fim de poder usar os comandos do Azure.
 
 	Execute os comandos a seguir para configurar a conta com a interface de linha de comando (CLI) do Azure:
 
@@ -92,11 +92,9 @@ Ao fazer isso, observe as seguintes informações pois você precisará delas ma
 
 Isso é uma maneira alternativa para realizar as etapas mencionadas anteriormente usando um script do PowerShell.
 
-1. Obtenha a versão mais recente do Azure PowerShell.
+1. Obtenha a versão mais recente do Azure PowerShell. Veja este [link](../powershell-install-configure.md) obter instruções de download. 
 
-	Atualmente na versão 1.2.1 disponível para download [aqui](https://github.com/Azure/azure-powershell/releases/tag/v1.2.1-February2016).
-
-2. Abra o Windows PowerShell no modo de administrador e certifique-se de que você tenha instalado o [cmdlets do Azure Resource Manager](https://msdn.microsoft.com/library/mt125356.aspx).
+2. Abra o Windows PowerShell no modo de Administrador e certifique-se de que você instalou os [cmdlets do Azure Resource Manager](https://msdn.microsoft.com/library/mt125356.aspx).
 
 		Install-Module AzureRM
 		Install-AzureRM
@@ -117,7 +115,7 @@ Isso é uma maneira alternativa para realizar as etapas mencionadas anteriorment
 
 		Select-AzureRmSubscription –SubscriptionId <subscriptionId>
 
-7. Copie o texto para o script [AzureRmServicePrincipalOwner.ps1 novo](https://raw.githubusercontent.com/matt-gibbs/azbits/master/src/New-AzureRmServicePrincipalOwner.ps1) em seu computador local e execute-o.
+7. Copie o texto para o script [New-AzureRmServicePrincipalOwner.ps1](https://raw.githubusercontent.com/matt-gibbs/azbits/master/src/New-AzureRmServicePrincipalOwner.ps1) em seu computador local e o execute.
 
 	>[Azure.Note] A política de segurança padrão pode impedir a execução de scripts do PowerShell. Nesse caso, configure temporariamente a política de execução para permitir a execução de script usando o seguinte comando:
 
@@ -125,11 +123,11 @@ Isso é uma maneira alternativa para realizar as etapas mencionadas anteriorment
 
 	O script solicitará um "nome" para atribuir à sua ServicePrincipal. Você pode fornecer qualquer nome aqui.
 
-	Depois que o script for concluído, ele exibirá quatro valores que precisam ser autenticados por meio de programação com o AD: **TenantId**, **SubscriptionId**, **ApplicationId** e **Secret**.
+	Depois que o script for concluído, ele exibirá quatro valores que precisam ser autenticados de forma programática com o AD: **TenantId**, **SubscriptionId**, **ApplicationId** e **Secret**.
 
 	Copie esses valores para referência. Para obter um token de acesso agora, você usará o TenantId como `{TENANT_ID}`, o ApplicationId como `{CLIENT_ID}` e o Secret como `{CLIENT_SECRET}`.
 
-8. Verifique o Portal de Gerenciamento que um novo aplicativo do AD estava em **Mostrar aplicativos que a minha empresa possui**.
+8. No portal de Gerenciamento do Azure, verifique se havia um novo aplicativo do AD em **Mostrar Aplicativos que a minha empresa possui**.
 
 #### Etapas para obter um token válido
 
@@ -155,7 +153,7 @@ Aqui está um exemplo de resposta:
 	5391911","resource":"https://management.core.windows.net/","access_token":{ACCESS_T
 	OKEN}}
 
-Este exemplo incluiu os parâmetros de POST da codificação de URL, o valor `resource` é realmente `https://management.core.windows.net/`. Tenha cuidado para também codificar a URL `{CLIENT_SECRET}`, pois ela pode conter caracteres especiais.
+Este exemplo incluiu a codificação de URL dos parâmetros de POST; o valor `resource` é, na verdade, `https://management.core.windows.net/`. Tenha cuidado para também codificar a URL `{CLIENT_SECRET}`, pois ela pode conter caracteres especiais.
 
 Agora, em todas as chamadas à API, inclua o cabeçalho de solicitação de autorização:
 
@@ -182,6 +180,7 @@ Agora que você tem um token válido, você está pronto para fazer as chamadas 
 
 	![](./media/mobile-engagement-api-authentication/mobile-engagement-api-uri-params.png)
 
->[AZURE.NOTE] <br/> 1. Ignore o endereço raiz de API como era para as APIs anteriores.<br/> 2. Você precisa usar o nome de Recurso de Aplicativo que é diferente do nome do Aplicativo em si.
+>[AZURE.NOTE] <br/>
+>1. Ignore o Endereço Raiz da API, pois ele servia apenas para as APIs anteriores.<br/> 2. Você precisa usar o nome de Recurso de Aplicativo que é diferente do nome do Aplicativo em si. 
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

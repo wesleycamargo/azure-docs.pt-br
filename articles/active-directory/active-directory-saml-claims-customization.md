@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="02/26/2016"
 	ms.author="asmalser"/>
 
 #Personalizando as declarações emitidas no token SAML para aplicativos pré-integrados no Active Directory do Azure
@@ -54,9 +54,7 @@ Por exemplo, se você precisar enviar o departamento ao qual o usuário pertence
 
 Se não houver um valor armazenado para um determinado usuário e um atributo selecionado, essa declaração com não será emitida no token.
 
-**Observação:** **user.onpremisesecurityidentifier** e **user.onpremisesamaccountname** têm suporte apenas ao sincronizar dados de usuário do Active Directory usando a visualização mais recente da ferramenta de Conexão AAD. Você pode baixar a visualização da ferramenta de conexão no link abaixo:
-
-http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=53949
+**Observação:** apenas há suporte para **user.onpremisesecurityidentifier** e **user.onpremisesamaccountname** durante a sincronização de dados de usuário do Active Directory local com a [ferramenta Azure AD Connect](active-directory-aadconnect.md).
 
 ## Artigos relacionados
 
@@ -70,4 +68,4 @@ http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=
 [3]: ./media/active-directory-saml-claims-customization/claimscustomization3.png
 [4]: ./media/active-directory-saml-claims-customization/claimscustomization4.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

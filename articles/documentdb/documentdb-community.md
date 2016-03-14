@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="01/29/2016"
+  ms.date="02/24/2016"
   ms.author="andrl"/>
 
 # Portal da comunidade
@@ -62,6 +62,15 @@ Um arquivo Swagger da API REST do Banco de Dados de Documentos que pode ser faci
 
 Confira no [Github](https://github.com/HEDIDIN/DocumentDB-REST/tree/master/DocumentDBRestApi).
 
+
+### fluent-plugin-documentdb
+
+*por Yoichi Kawasaki*
+
+O fluent-plugin-documentdb é um plug-in do Fluentd para fornecer saída para o Banco de Dados de Documentos.
+
+Confira no [Github](https://github.com/yokawasa/fluent-plugin-documentdb) e no [rubygems](https://rubygems.org/gems/fluent-plugin-documentdb).
+
 <br/><br/>
 
 *Localize mais projetos de software livre do Banco de Dados de Documentos no [GitHub](https://github.com/search?p=4&q=documentdb&type=Repositories).*
@@ -80,7 +89,13 @@ Você pode se manter atualizado com as notícias e os recursos mais recentes do 
 
 **Postagens da comunidade:**
 
-* [**Azure DocumentDB Server-Side Scripting**](https://www.simple-talk.com/cloud/cloud-data/azure-documentdb-server-side-scripting/) - *por Robert Sheldon*
+* [**Collecting logs into Azure DocumentDB using fluent-plugin-documentdb**](http://unofficialism.info/posts/collecting-logs-into-azure-documentdb-using-fluent-plugin-documentdb/) – *por Yoichi Kawasaki*
+
+* [**DocumentDB revisited Part 1/2 – The theory**](https://peterintheazuresky.wordpress.com/2016/02/19/documentdb-revisited-part-12-the-theory/) – *por Peter Mannerhult*
+
+* [**What to love and hate about Azure’s DocumentDB**](http://blog.falafel.com/4-what-to-love-and-hate-about-azures-documentdb/) – *por George Saadeh*
+
+* [**Azure DocumentDB Server-Side Scripting**](https://www.simple-talk.com/cloud/cloud-data/azure-documentdb-server-side-scripting/) – *por Robert Sheldon*
 
 * [**DocumentDB as a data sink for Azure Stream Analytics**](http://janatdevelopment.com/2015/12/11/documentdb-as-a-data-sink-for-azure-stream-analytics/?utm_source=twitterfeed&utm_medium=twitter) - *por Jan Hentschel*
 
@@ -138,7 +153,7 @@ Você pode se manter atualizado com as notícias e os recursos mais recentes do 
 | [Meetup: Azure Austin](http://www.meetup.com/azureaustin/events/228209275/) | Merwan Chinta | Austin, TX | 28 de janeiro de 2016 | n/d |
 | [Meetup: msdevmtl](http://www.meetup.com/msdevmtl/events/223839818/) | Vincent-Philippe Lauzon | Montreal, QC, Canadá | 01 de dezembro de 2015 | n/d |
 | [Meetup: SeattleJS](http://www.meetup.com/seattlejs/events/220102664/) | David Makogon | Seattle, WA | 12 de novembro de 2015 | n/d |
-| [PASS Summit 2015](http://www.sqlpass.org/summit/2015/) | Jeff Renz, Andrew Hoh, Aravind Ramachandran, John Macintyre | Seattle, WA | 27 a 30 de outubro de 2015 | n/d |
+| [PASS Summit 2015](http://www.sqlpass.org/summit/2015/) | Jeff Renz, Andrew Hoh, Aravind Ramachandran, John Macintyre | Seattle, WA | 27 a 30 de outubro de 2015 | [Desenvolvendo aplicativos modernos no Azure](https://www.youtube.com/watch?v=k5Z24HX-RyQ) |
 | [CloudDevelop 2015](http://www.clouddevelop.org/) | David Makogon, Ryan Crawcour | Columbus, OH | 23 de outubro de 2015 | n/d |
 | [SQL sábado #430 - Sófia 2015](http://www.sqlsaturday.com/430/eventhome.aspx) | Leonard Lobel | Sófia, Bulgária | 10 de outubro de 2015 | n/d |
 | [SQL sábado #429 - Sofia 2015](http://www.sqlsaturday.com/429/eventhome.aspx) | Leonard Lobel | Porto, Portugal | 3 de outubro de 2015 | n/d |
@@ -167,6 +182,8 @@ Você pode se manter atualizado com as notícias e os recursos mais recentes do 
 
 | Mostrar | Palestrante | Data | Episódio |
 | ------------------------------------------- | ----------------------- | ------------------ | ------- |
+| Grupo de usuários de integração | Han Wong | 17 de fevereiro de 2016 | [Analisar e visualizar dados não relacionais com o Banco de Dados de Documentos e o Power BI](http://www.integrationusergroup.com/analyze-visualize-non-relational-data-documentdb-power-bi/) |
+| Channel 9: aplicativos modernos | Tara Shankar Jana | 13 de dezembro de 2016 | [Adotar uma abordagem moderna para dados em seus aplicativos](https://channel9.msdn.com/Series/Modern-Applications/Take-a-modern-approach-to-data-in-your-apps) |
 | NinjaTips | Miguel Quintero | 10 de dezembro de 2015 | [DocumentDB - Un vistazo general](https://channel9.msdn.com/Series/Ninja-Tips/31-NinjaTips-Desarrollo-DocumentDB-1-Vistazo-general) |
 | Grupo de usuários de integração | Howard Edidin | 9 de novembro de 2015 | [Banco de Dados de Documentos do Azure para a integração da área de saúde – Parte 2](http://www.integrationusergroup.com/azure-documentdb-for-healthcare-integration-part-2/) |
 | Grupo de usuários de integração | Howard Edidin | 5 de outubro de 2015 | [Banco de Dados de Documentos do Azure para a integração da área de saúde](http://www.integrationusergroup.com/?event=azure-documentdb-and-biztalk) |
@@ -267,4 +284,4 @@ Os Magos do Banco de Dados de Documentos são líderes de comunidade que demonst
 
 Deseja tornar-se um Mago do Banco de Dados de Documentos? Embora não haja qualquer parâmetro para tornar-se um Mago do Banco de Dados de Documentos, alguns dos critérios que avaliamos incluem o impacto das contribuições do candidato em fóruns online, como o StackOverflow e o MSDN; wikis e conteúdo online; conferências e grupos de usuários; podcasts, sites, blogs e mídia social; além de artigos e livros. Você pode indicar a si mesmo ou outra pessoa [enviando um email para nós](mailto:askdocdb@microsoft.com).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
 # Integração do SDK do Reach do Windows Universal
@@ -24,7 +24,7 @@ Você deve seguir o procedimento de integração descrito na [Integração do SD
 
 Você não tem nada a adicionar. As referências e recursos de `EngagementReach` já estão em seu projeto.
 
-> [AZURE.TIP]Você pode personalizar imagens localizadas na pasta `Resources` do seu projeto, especialmente o ícone de marca (esse padrão para o ícone do Engagement). Em Aplicativos do Universal também é possível mover a pasta `Resources` em seu projeto compartilhado para compartilhar o seu conteúdo entre aplicativos, mas você precisa manter o arquivo `Resources\EngagementConfiguration.xml` em seu local padrão já que o mesmo é dependente da plataforma.
+> [AZURE.TIP] Você pode personalizar imagens localizadas na pasta `Resources` do seu projeto, especialmente o ícone de marca (esse padrão para o ícone do Engagement). Em Aplicativos do Universal também é possível mover a pasta `Resources` em seu projeto compartilhado para compartilhar o seu conteúdo entre aplicativos, mas você precisa manter o arquivo `Resources\EngagementConfiguration.xml` em seu local padrão já que o mesmo é dependente da plataforma.
 
 ## Habilitar o Serviço de Notificação do Windows
 
@@ -50,7 +50,7 @@ Modifique o `App.xaml.cs`:
 
 	O `EngagementReach.Instance.Init` é executado em um thread dedicado. Você não precisa fazê-lo.
 
-> [AZURE.NOTE]Se estiver usando notificações por push em outro lugar em seu aplicativo, você precisará [compartilhar seu canal push](#push-channel-sharing) com o Engagement Reach.
+> [AZURE.NOTE] Se estiver usando notificações por push em outro lugar em seu aplicativo, você precisará [compartilhar seu canal push](#push-channel-sharing) com o Engagement Reach.
 
 ## Integração
 
@@ -60,7 +60,7 @@ Sobrepor a integração não exige muito código para gravação em seu aplicati
 
 A integração do webview é mais complicada para ser implementada. Mas, se suas páginas do aplicativo precisam herdar de um objeto diferente de "Página", em seguida, você precisa integrar a exibição da Web e seu comportamento.
 
-> [AZURE.TIP]Considere adicionar um elemento `<Grid></Grid>` em nível de raiz ao redor de todo o conteúdo de página. Para a integração do Modo de exibição da Web, basta adicionar o Modo de exibição da Web como filho desta grade. Se você precisar configurar o componente do Engagement em outro lugar, lembre-se de que você precisa gerenciar o tamanho de exibição por conta própria.
+> [AZURE.TIP] Considere adicionar um elemento `<Grid></Grid>` em nível de raiz ao redor de todo o conteúdo de página. Para a integração do Modo de exibição da Web, basta adicionar o Modo de exibição da Web como filho desta grade. Se você precisar configurar o componente do Engagement em outro lugar, lembre-se de que você precisa gerenciar o tamanho de exibição por conta própria.
 
 ### Integração de sobreposição
 
@@ -297,7 +297,7 @@ Em App.xaml.cs em "Public App(){}" adicione:
 
 Você pode ver que o retorno de chamada de cada método retorna um valor booleano. O Engagement envia um comentário ao seu back-end após distribuir o push de dados. Se o retorno de chamada retorna false, o comentário `exit` será enviado. Caso contrário, ele será `action`. Se nenhum retorno de chamada for definido para os eventos, o comentário `drop` retornará ao Engagement.
 
-> [AZURE.WARNING]O Engagement não é capaz de receber múltiplos comentários para um push de dados. Se você pretende definir vários manipuladores em um evento, lembre-se de que os comentários corresponderá ao último enviado. Nesse caso, é recomendável sempre retornar o mesmo valor para evitar que os comentários sejam confusos no front-end.
+> [AZURE.WARNING] O Engagement não é capaz de receber múltiplos comentários para um push de dados. Se você pretende definir vários manipuladores em um evento, lembre-se de que os comentários corresponderá ao último enviado. Nesse caso, é recomendável sempre retornar o mesmo valor para evitar que os comentários sejam confusos no front-end.
 
 ## Personalizar a interface do usuário (opcional)
 
@@ -330,7 +330,7 @@ Depois, defina o conteúdo do campo `EngagementReach.Instance.Handler` com seu o
 			  // Engagement Agent and Reach initialization
 			}
 
-> [AZURE.NOTE]Por padrão, o Engagement usa a sua própria implementação de `EngagementReachHandler`. Você não precisa criar sua própria e se você fizer isso, você não precisa substituir cada método. O comportamento padrão é selecionar o objeto base do Engagement.
+> [AZURE.NOTE] Por padrão, o Engagement usa a sua própria implementação de `EngagementReachHandler`. Você não precisa criar sua própria e se você fizer isso, você não precisa substituir cada método. O comportamento padrão é selecionar o objeto base do Engagement.
 
 ### Modo de exibição da Web
 
@@ -405,7 +405,7 @@ Para implementar o retorno de chamada, em App.xaml.cs em "Public App(){}" adicio
 
 Você pode definir o retorno de chamada em seu método "Public App() {}" de seu arquivo `App.xaml.cs`, de preferência antes da chamada `EngagementReach.Instance.Init()`.
 
-> [AZURE.TIP]Cada manipulador é chamado pelo Thread de interface do usuário. Você não precisa se preocupar ao usar uma MessageBox ou algo relacionado à interface do usuário.
+> [AZURE.TIP] Cada manipulador é chamado pelo Thread de interface do usuário. Você não precisa se preocupar ao usar uma MessageBox ou algo relacionado à interface do usuário.
 
 ##<a id="push-channel-sharing"></a> Enviar o compartilhamento de canal por push
 
@@ -469,4 +469,4 @@ Agora, para usar esses protocolo edite seu `App.xaml.cs` método com o método `
 			  #endregion
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0302_2016-->

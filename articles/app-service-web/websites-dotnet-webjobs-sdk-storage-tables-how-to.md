@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
+	ms.date="02/29/2016" 
 	ms.author="tdykstra"/>
 
 # Como usar o armazenamento de tabela do Azure com o SDK de Trabalhos Web
@@ -141,7 +141,7 @@ A seguinte amostra de código usa um objeto `CloudTable` para adicionar uma úni
 		    tableBinding.Execute(insertOperation);
 		}
 
-Para obter mais informações sobre como usar o objeto `CloudTable`, consulte [Como usar o Armazenamento de Tabela do .NET](../storage-dotnet-how-to-use-tables.md).
+Para obter mais informações sobre como usar o objeto `CloudTable`, consulte [Como usar o Armazenamento de Tabela do .NET](../storage/storage-dotnet-how-to-use-tables.md).
 
 ## <a id="queues"></a>Tópicos relacionados abordados no artigo de instruções sobre filas
 
@@ -163,4 +163,4 @@ Os tópicos abordados nesse artigo incluem o seguinte:
 Este guia forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com tabelas do Azure. Para obter mais informações sobre como usar os Trabalhos Web do Azure e o SDK de Trabalhos Web, consulte [Trabalhos Web do Azure – Recursos recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0302_2016-->

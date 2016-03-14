@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Restaurar de um backup de sua StorSimple Virtual Array (Visualização)"
+   pageTitle="Restaurar de um backup de sua Matriz Virtual StorSimple"
    description="Saiba mais sobre como restaurar um backup de sua StorSimple Virtual Array."
    services="storsimple"
    documentationCenter="NA"
@@ -13,25 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/23/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli"/>
 
-# Restaurar de um backup de sua StorSimple Virtual Array (Visualização)
+# Restaurar de um backup de sua Matriz Virtual StorSimple
 
 ## Visão geral 
 
-Este artigo se aplica à Matriz Virtual Microsoft Azure StorSimple (também conhecido como o dispositivo virtual local StorSimple ou o dispositivo virtual StorSimple) executando somente a v.1.1.1.0 (Visualização Pública). Este artigo descreve passo a passo como restaurar um conjunto de backup de seus volumes ou compartilhamentos para sua StorSimple Virtual Array. O artigo também fornece detalhes sobre como a recuperação em nível de item funciona em sua StorSimple Virtual Array que está configurada como um servidor de arquivos.
-
-> [AZURE.IMPORTANT]
-> 
-> - Esta visualização pública é destinada apenas para fins de planejamento da implantação e avaliação. Não há suporte para a instalação dessa visualização em um ambiente de produção.
-> - Se você tiver problemas com a StorSimple Virtual Array, publique os problemas no [fórum do MSDN do StorSimple](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=StorSimple).
+Este artigo se aplica ao Microsoft Azure StorSimple Virtual Array (também conhecido como o dispositivo virtual local StorSimple ou dispositivo virtual StorSimple) que executa a versão GA (disponibilidade geral) de março de 2016. Este artigo descreve passo a passo como restaurar um conjunto de backup de seus volumes ou compartilhamentos para sua StorSimple Virtual Array. O artigo também fornece detalhes sobre como a recuperação em nível de item funciona em sua StorSimple Virtual Array que está configurada como um servidor de arquivos.
 
 
 ## Restaurar compartilhamentos de um conjunto de backup
 
 
-Antes de tentar restaurar os compartilhamentos, certifique-se de que você tem espaço suficiente no dispositivo para concluir esta operação. Para restaurar de um backup, execute as etapas a seguir no [portal clássico do Azure](https://manage.windowsazure.com/).
+Antes de tentar restaurar os compartilhamentos, certifique-se de que você tem espaço suficiente no dispositivo para concluir esta operação. Para restaurar de um backup, no [portal clássico do Azure](https://manage.windowsazure.com/), execute as etapas a seguir.
 
 #### Para restaurar um compartilhamento
 
@@ -55,9 +50,9 @@ Antes de tentar restaurar os compartilhamentos, certifique-se de que você tem e
 
 		![](./media/storsimple-ova-restore/image9.png)
 
-1.  Depois que o trabalho de restauração for concluído, a restauração será iniciada e você verá outra notificação. Para monitorar o andamento da restauração, clique em **Exibir trabalho**. Isso levará você até a página **Trabalhos**.
+1.  Depois que o trabalho de restauração for concluído, a restauração será iniciada e você verá outra notificação. Para monitorar o progresso da restauração, clique em **Exibir trabalho**. Isso o levará até a página **Trabalhos**.
 
-2.  Você pode acompanhar o andamento do trabalho de restauração. Quando a restauração for 100% concluída, navegue até a página **Compartilhamentos** em seu dispositivo.
+2.  Você pode acompanhar o andamento do trabalho de restauração. Quando a restauração for 100% concluída, navegue de volta à página **Compartilhamentos** em seu dispositivo.
 
 3.  Agora você pode exibir o novo compartilhamento restaurado na lista de compartilhamentos em seu dispositivo. Observe que a restauração é feita para o mesmo tipo do compartilhamento. Um compartilhamento em camadas é restaurado como em camadas, e um compartilhamento fixado localmente é restaurado como um compartilhamento fixado localmente.
 
@@ -96,9 +91,9 @@ Para restaurar de um backup, execute as etapas a seguir no portal clássico do A
 
 1.  Clique no ícone de verificação ![](./media/storsimple-ova-restore/image1.png). Isso iniciará um trabalho de restauração e você verá a notificação a seguir, de que o trabalho está em andamento.
 
-2.  Depois que o trabalho de restauração for concluído, a restauração será iniciada e você verá outra notificação. Para monitorar o progresso da restauração, clique em **Exibir trabalho**. Isso levará você até a página **Trabalhos**.
+2.  Depois que o trabalho de restauração for concluído, a restauração será iniciada e você verá outra notificação. Para monitorar o progresso da restauração, clique em **Exibir trabalho**. Isso o levará até a página **Trabalhos**.
 
-3.  Você pode acompanhar o andamento do trabalho de restauração. Quando a restauração for 100% concluída, navegue até a página **Volumes** em seu dispositivo.
+3.  Você pode acompanhar o andamento do trabalho de restauração. Quando a restauração for 100% concluída, navegue de volta à página **Volumes** em seu dispositivo.
 
 4.  Agora você pode exibir o novo volume restaurado na lista de volume em seu dispositivo. Observe que a restauração é feita para o mesmo tipo de volume. Um volume em camadas é restaurado como em camadas, e um volume fixado localmente é restaurado como um volume fixado localmente.
 
@@ -137,4 +132,4 @@ Assista ao vídeo para ver como você pode criar compartilhamentos, fazer backup
 
 Saiba mais sobre como [administrar o StorSimple Virtual Array usando a interface do usuário da Web local](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

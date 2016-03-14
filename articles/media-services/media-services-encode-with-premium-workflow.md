@@ -3,8 +3,8 @@
 	description="Saiba como codificar com fluxo de trabalho do Media Encoder Premium. Os exemplos de código são escritos em C# e usam a SDK dos Serviços de Mídia para .NET." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,anilmur" 
-	manager="dwrede" 
+	authors="juliako" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="02/25/2016" 
 	ms.author="juliako"/>
 
 #Codificação avançada com fluxo de trabalho do Media Encoder Premium
@@ -30,7 +30,7 @@ Os tópicos a seguir descrevem os detalhes relacionados ao **Fluxo de trabalho d
 
 - [Formatos suportados pelo Fluxo de trabalho do Media Encoder Premium](media-services-premium-workflow-encoder-formats.md) – Discute os formatos de arquivo e codecs com suporte do **Fluxo de trabalho do Media Encoder Premium**.
 
-- A seção [comparar codificadores](media-services-encode-asset.md#compare_encoders) compara os recursos de codificação do **Fluxo de Trabalho do Media Encoder Premium** e do **Codificador de Mídia Padrão** e o **Codificador de Mídia do Azure**.
+- A seção [comparar codificadores](media-services-encode-asset.md#compare_encoders) compara as funcionalidades de codificação do **Fluxo de Trabalho Premium de Codificação de Mídia** e do **Codificador de Mídia Padrão**.
 
 Este tópico demonstra como codificar com **Fluxo de trabalho do Media Encoder Premium** usando o .NET.
 
@@ -279,4 +279,4 @@ O exemplo a seguir é um exemplo completo. Para saber mais sobre como configurar
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

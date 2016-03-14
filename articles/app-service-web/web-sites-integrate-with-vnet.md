@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="02/22/2016" 
 	ms.author="ccompy"/>
 
 # Integrar seu aplicativo Web a uma Rede Virtual do Azure #
@@ -56,7 +56,7 @@ Veja aqui algumas coisas para se ter em mente antes de conectar seu aplicativo W
 
 Você tem a opção de se conectar a uma rede virtual nova ou existente. Se criar uma nova rede, além de criar a VNET, um gateway de roteamento dinâmico será pré-configurado para você e a VPN ponto a Site será habilitada.
 
->[AZURE.NOTE]A configuração de uma nova integração da rede virtual pode levar vários minutos.
+>[AZURE.NOTE] A configuração de uma nova integração da rede virtual pode levar vários minutos.
 
 Para habilitar a integração VNET, abra as Configurações do aplicativo configurações e selecione Rede. A interface do usuário oferece três opções de rede. Este guia só aborda a integração VNET, mas as conexões híbridas e ambientes de serviço de aplicativo são discutidos neste documento.
 
@@ -87,7 +87,7 @@ Se quiser criar uma nova rede virtual, lembre-se de que atualmente você só pod
 
 Lembre-se de que se você quiser que essa rede virtual se conecte a qualquer outra rede, deverá tentar evitar escolher um espaço de endereço IP que se sobreponha a essas redes.
 
->[AZURE.NOTE]Pode levar até 30 minutos para uma nova rede virtual ser fornecida com gateways operacionais. A interface do usuário será atualizada quando ela for concluída.
+>[AZURE.NOTE] Pode levar até 30 minutos para uma nova rede virtual ser fornecida com gateways operacionais. A interface do usuário será atualizada quando ela for concluída.
 
 ![][3]
 
@@ -156,7 +156,7 @@ Em relação a ações, existem duas ações primárias. A primeira é a capacid
 
 Um dos benefícios do recurso Integração de rede virtual é que, se a rede virtual estiver conectado à rede local com uma VPN Site a Site, seus aplicativos podem ter acesso aos recursos locais usando seu aplicativo. Para isso funcionar, talvez seja necessário atualizar o gateway de VPN local com as rotas para o intervalo de IP ponto a site. Quando o VPN site a site é configurado pela primeira vez, os scripts usados para configurá-lo devem configurar as rotas, incluindo a VPN ponto a site. Se você adicionar a VPN ponto a site depois de criar a VPN site a site, precisará atualizar as rotas manualmente. Os detalhes sobre como fazer isso variam de acordo com o gateway e não são descritos aqui.
 
->[AZURE.NOTE]Embora o recurso Integração de rede virtual funcione com uma VPN Site a Site para acessar recursos locais, ele atualmente não funciona com uma VPN de Rota Expressa na mesma situação.
+>[AZURE.NOTE] Embora o recurso Integração de rede virtual funcione com uma VPN Site a Site para acessar recursos locais, ele atualmente não funciona com uma VPN de Rota Expressa na mesma situação.
 
 ##Detalhes de preço##
 Existem algumas nuances de preço que você deve levar em conta ao usar o recurso Integração VNET. Há três cobranças relacionadas ao uso desse recurso:
@@ -167,13 +167,13 @@ Existem algumas nuances de preço que você deve levar em conta ao usar o recurs
 
 Para que seus aplicativos possam usar o recurso, eles precisam estar em um Plano de Serviço de Aplicativo Standard ou Premium. Você pode ver mais detalhes sobre esses custos aqui: [Preço do Serviço de Aplicativo][ASPricing].
 
-Devido à maneira como as VPNs ponto a site são tratadas, você sempre será cobrado por dados de saída pela conexão da Integração VNET, mesmo que ela não esteja no mesmo data center. Para ver quais são as cobranças, dê uma olhada aqui:[Detalhes de preço de transferência de dados][DataPricing].
+Devido à maneira como as VPNs ponto a site são tratadas, você sempre será cobrado por dados de saída pela conexão da Integração VNET, mesmo que ela não esteja no mesmo data center. Para ver quais são essas cobranças, dê uma olhada aqui: [Detalhes de preço da Transferência de Dados][DataPricing].
 
 O último item é o custo dos gateways de rede virtual. Se você não precisa dos gateways para algo como VPNs Site a Site, está pagando para que eles deem suporte ao recurso Integração de rede virtual. Há detalhes sobre esses custos aqui: [Preço de Gateway de VPN][VNETPricing].
 
 ##Solucionar problemas##
 
-Embora o recurso seja fácil de configurar, isso não significa que sua experiência estará livre de problemas. Se você encontrar problemas ao acessar o ponto de extremidade desejado, há utilitários que você pode usar para testar a conectividade do console do aplicativo. Há duas experiências de console que você pode usar. Uma é o console Kudu e a outra é o console que você pode acessar no Portal do Azure. Para acessar o console Kudu, em seu aplicativo, vá para Ferramentas -> Kudu. Isso é o mesmo que ir para [nomedosite].scm.azurewebsites.net. Depois de aberto, vá para a guia Console de depuração. Para obter a console hospedado no portal do Azure, em seu aplicativo, vá para Ferramentas -> Console.
+Embora o recurso seja fácil de configurar, isso não significa que sua experiência estará livre de problemas. Se você encontrar problemas ao acessar o ponto de extremidade desejado, há utilitários que você pode usar para testar a conectividade do console do aplicativo. Há duas experiências de console que você pode usar. Uma é o console Kudu e a outra é o console que você pode acessar no Portal do Azure. Para acessar o console do Kudu em seu aplicativo, vá para Ferramentas -> Kudu. Isso é o mesmo que ir para [nomedosite].scm.azurewebsites.net. Depois de aberto, vá para a guia Console de depuração. Para obter a console hospedado no portal do Azure, em seu aplicativo, vá para Ferramentas -> Console.
 
 
 ####Ferramentas####
@@ -195,7 +195,7 @@ Essa ferramenta informará se você pode acessar um host e uma porta específico
 
 Há várias coisas que podem impedir que seu aplicativo alcance um host e uma porta específicos. Para dividir o problema, comece com coisas simples, como:
 
-- O gateway aparece como em execução no Portal?
+- O Gateway é mostrado como estando em execução no Portal?
 - Os certificados são mostrados como sincronizados?
 - Alguém alterou a configuração de rede sem fazer uma “Sincronização de Rede” nos ASPs afetados?
 
@@ -225,7 +225,11 @@ As etapas de depuração adicionais incluem:
 ####Recursos locais####
 Se não puder acessar os recursos locais, a primeira coisa a fazer será verificar se pode acessar um recurso na VNET. Se isso estiver funcionando, as próximas etapas são muito fáceis. De uma VM em sua rede virtual, você precisa tentar acessar o aplicativo local. Você pode usar o telnet ou um utilitário de ping de TCP. Se sua VM não puder acessar seu recurso local primeiro verifique se a conexão de VPN Site a Site está funcionando. Se ela estiver funcionando, verifique as mesmas coisas observadas anteriormente, bem como a configuração e o status do gateway local.
 
-Agora, se sua VM hospedada na VNET puder acessar seu sistema local, mas o aplicativo não, o motivo provavelmente será um dos seguintes: - Suas rotas não estão configuradas com os intervalos de IP ponto a site no seu gateway local - Seus grupos de segurança de rede estão impedindo o acesso ao intervalo de IP ponto a site - Seus firewalls locais estão bloqueando o tráfego do intervalo de IP ponto a site - Você possui uma UDR (rota definida pelo usuário) em sua rede virtual que impede que o tráfego baseado em ponto a site chegue na rede local.
+Agora, se sua VM hospedada na Rede Virtual pode alcançar seu sistema local, mas seu aplicativo não pode, provavelmente, isso ocorre devido a um dos seguintes motivos:
+- suas rotas não estão configuradas com os intervalos de IP ponto a site em seu gateway local
+- seus grupos de segurança de rede estão bloqueando o acesso para o intervalo de IP Ponto a Site
+- os firewalls locais estão bloqueando o tráfego do intervalo de IP Ponto a Site
+- você tem uma UDR (Rota Definida pelo Usuário) em sua Rede Virtual que impede que o tráfego baseado em Ponto a Site alcance sua rede local
 
 ## Conexões híbridas e ambientes de serviço de aplicativo##
 Há três recursos que habilitam o acesso a recursos hospedados em rede virtual. Eles são:
@@ -265,4 +269,4 @@ Além das diferenças funcionais, há também diferenças de preço. O recurso A
 [VNETPricing]: http://azure.microsoft.com/pricing/details/vpn-gateway/
 [DataPricing]: http://azure.microsoft.com/pricing/details/data-transfers/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

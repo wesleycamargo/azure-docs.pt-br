@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/24/2015" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
  
 # Application Insights para aplicativos Web Java que já estão em modo dinâmico
@@ -23,7 +23,7 @@ Se você tiver um aplicativo Web que já está em execução no servidor J2EE, v
 
 Você precisará de uma assinatura do [Microsoft Azure](https://azure.com).
 
-> [AZURE.NOTE]O procedimento nesta página adiciona o SDK ao seu aplicativo Web no tempo de execução. Isso é útil se você não quiser atualizar ou recompilar o código-fonte. Mas, se possível, recomendamos que você [adicione o SDK para o código-fonte](app-insights-java-get-started.md) em vez disso. Isso dá mais opções, como escrever o código para rastrear a atividade do usuário.
+> [AZURE.NOTE] O procedimento nesta página adiciona o SDK ao seu aplicativo Web no tempo de execução. Isso é útil se você não quiser atualizar ou recompilar o código-fonte. Mas, se possível, recomendamos que você [adicione o SDK para o código-fonte](app-insights-java-get-started.md) em vez disso. Isso dá mais opções, como escrever o código para rastrear a atividade do usuário.
 
 ## 1\. Obter uma chave de instrumentação do Application Insights
 
@@ -139,4 +139,4 @@ Ao exibir as propriedades de uma solicitação, você pode ver os eventos de tel
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

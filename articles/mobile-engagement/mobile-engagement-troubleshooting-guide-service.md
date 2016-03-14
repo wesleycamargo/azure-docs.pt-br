@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="06/18/2015"
+   ms.date="02/29/2016"
    ms.author="piyushjo"/>
 
 # Guia de solução de problemas de serviço
@@ -89,4 +89,4 @@ A seguir, possíveis problemas que podem ser encontrados na execução do Mobile
     - Usem um arquivo que seja menor do que o tamanho máximo de 35 MB.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

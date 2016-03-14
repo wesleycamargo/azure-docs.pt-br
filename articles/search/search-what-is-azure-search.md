@@ -11,10 +11,11 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="02/09/2016"
+	ms.date="03/02/2016"
 	ms.author="ashmaka"/>
 
 # O que é a Pesquisa do Azure?
+
 A Pesquisa do Azure é uma solução de pesquisa como um serviço de nuvem que delega o gerenciamento de infraestrutura e servidor à Microsoft, fornecendo um serviço pronto para uso que você pode preencher com seus dados e então utilizar para adicionar pesquisa a seu aplicativo Web ou móvel. A Pesquisa do Azure permite que você adicione facilmente uma experiência de pesquisa robusta aos seus aplicativos usando uma [API REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) simples ou o [SDK do .NET](search-howto-dotnet-sdk.md) sem gerenciar a infraestrutura de pesquisa nem se tornar um especialista em pesquisa.
 
 ## Dá aos seus usuários uma experiência de pesquisa avançada
@@ -58,9 +59,9 @@ O **Gerenciador de pesquisa** permite que emitir consultas em todos os seus índ
 ### 1\. Provisionar serviços
 Você pode criar um serviço de Pesquisa do Azure usando o [Portal do Azure](https://portal.azure.com/) ou a [API de Gerenciamento de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn832684.aspx).
 
-Dependendo de como você configura o serviço, você usará o tipo Gratuito que é compartilhado com outros assinantes de Pesquisa do Azure, ou o [tipo de preço](https://azure.microsoft.com/pricing/details/search/) Standard que dedica recursos a serem usados apenas pelo seu serviço. Ao provisionar seu serviço, você também escolhe a região do data center que hospeda o serviço.
+Dependendo de como o serviço de pesquisa for configurado, você usará a camada gratuita de serviço que é compartilhada com outros assinantes da Pesquisa do Azure, ou uma [camada paga](https://azure.microsoft.com/pricing/details/search/) que dedica recursos a ser usados apenas pelo seu serviço. Ao provisionar seu serviço, você também escolhe a região do data center que hospeda o serviço.
 
-Ao usar a Pesquisa do Azure no tipo Standard, você pode dimensionar seu serviço em duas dimensões: 1) adicionar réplicas para aumentar sua capacidade para lidar com cargas pesadas de consulta e 2) adicionar partições para adicionar armazenamento para mais documentos. Ao manipular o armazenamento de documentos e a produtividade de consultas separadamente, você pode personalizar o serviço de pesquisa para suas necessidades específicas.
+Dependendo de qual camada de serviço for escolhida, é possível escalonar seu serviço em duas dimensões: 1) adicionar Réplicas para aumentar sua capacidade de manipular cargas pesadas de consulta e 2) adicionar Partições para adicionar armazenamento para mais documentos. Ao manipular o armazenamento de documentos e a produtividade de consultas separadamente, você pode personalizar o serviço de pesquisa para suas necessidades específicas.
 
 ### 2\. Criar índice
 Antes de carregar o conteúdo para o serviço de Pesquisa do Azure, você deve primeiro definir um índice de Pesquisa do Azure. Um índice é como uma tabela de banco de dados que contém os dados e pode aceitar consultas de pesquisa. Você define o esquema de índice a mapear para a estrutura dos documentos que deseja pesquisar, semelhante a campos em um banco de dados.
@@ -82,4 +83,4 @@ Você pode experimentar a Pesquisa do Azure hoje mesmo! Se você já tiver uma c
 
 Se não tiver uma conta do Azure, pode experimentar uma sessão gratuita de 60 minutos sem necessidade de qualquer inscrição. Vá para [Experimentar o Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/p/?LinkId=618214) e selecione "Aplicativo Web." Selecione o modelo de "ASP.NET + Pesquisa do Azure" para começar.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

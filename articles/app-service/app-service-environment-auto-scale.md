@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="03/01/2016" 
 	ms.author="byvinyal"
 />
 	
@@ -56,7 +56,11 @@ O dimensionamento automático de um **ambiente de Serviço de Aplicativo** pode 
 ###Introdução ao cenário
 Matheus é um SysAdmin de uma empresa, e migrou uma parte das cargas de trabalho que ele gerencia para um **ambiente de Serviço de Aplicativo**.
 
-O **ambiente de serviço de aplicativo** está configurado para dimensionamento manual da seguinte maneira: * Front-ends: 3 * Pool de trabalho 1: 10 * Pool de trabalho 2: 5 * Pool de trabalho 3: 5
+O **ambiente do Serviço de Aplicativo** está configurado para a escala manual da seguinte maneira:
+* Front-Ends: 3
+* Pool de Trabalho 1: 10
+* Pool de Trabalho 2: 5
+* Pool de Trabalho 3: 5
 
 **O pool de trabalho 1** é usado para cargas de trabalho de produção, embora o **pool de trabalho 2** e o **pool de trabalho 3** sejam usados para cargas de trabalho de desenvolvimento e controle de qualidade.
 
@@ -114,7 +118,7 @@ No caso da regra *Dimensionamento automático - escalar verticalmente* do perfil
 
 Esse valor também pode ser calculado para operações de redução:
 
-Com base na regra *Dimensionar automaticamente - reduzir verticalmente* do perfil *Dia da semana* do **plano de Serviço de Aplicativo** de produção, seria semelhante ao seguinte:
+Com base na regra *Dimensionar automaticamente - reduzir verticalmente do perfil **Dia da semana* do **plano de Serviço de Aplicativo** de produção, seria semelhante ao seguinte:
 
 ![][Equation3]
 
@@ -124,7 +128,7 @@ No caso da regra *Dimensionar automaticamente - reduzir verticalmente* do perfil
 
 Isso significa que o **plano de Serviço de Aplicativo** pode crescer em uma taxa máxima de **8** instâncias por hora durante a semana e **4** instâncias por hora durante o fim de semana. E ele pode liberar instâncias em uma taxa máxima de **4** instâncias por hora durante a semana e **6** instâncias por hora durante os finais de semana.
 
-Se vários **planos de Serviço de Aplicativo** estiverem sendo hospedados em um **pool de trabalho**, a **taxa total de inflação** precisa ser calculada, e isso pode ser expresso como a *Soma* da taxa de inflação de todos os **planos de Serviço de Aplicativo** hospedados nesse **pool de trabalho**.
+Se vários **planos do Serviço de Aplicativo** estiverem sendo hospedados em um **pool de trabalho**, a **taxa total de inflação** precisará ser calculada, e isso pode ser expresso como a *soma* da taxa de inflação de todos os **planos do Serviço de Aplicativo** hospedados nesse **pool de trabalho**.
 
 ![][ASP-Total-Inflation]
 
@@ -155,22 +159,22 @@ Com essas informações, Matheus pode definir o seguinte perfil e regras de dime
 |	**Duração:** 20 minutos |	**Duração:** 30 minutos |
 |	**Agregação de tempo:** Média |	**Agregação de tempo:** Média |
 |	**Ação:** Aumentar a contagem em 8 |	**Ação:** Aumentar a contagem em 3 |
-|	**Tempo de resfriamento (minutos):** 90 |	**Tempo de resfriamento (minutos):** 90 |
+|	**Tempo de resfriamento (minutos):** 180 |	**Tempo de resfriamento (minutos):** 180 |
 | | |
 |	**Regra de dimensionamento automático (reduzir verticalmente)** |	**Regra de dimensionamento automático (reduzir verticalmente)** |
 |	**Recurso:** Pool de trabalho 1 |	**Recurso:** Pool de trabalho 1 |
 |	**Métrica:** WorkersAvailable |	**Métrica:** WorkersAvailable |
-|	**Operação:** maior que 8 |	**Operação:** menos de 3 |
+|	**Operação:** maior que 8 |	**Operação:** maior que 3 |
 |	**Duração:** 20 minutos |	**Duração:** 15 minutos |
 |	**Agregação de tempo:** Média |	**Agregação de tempo:** Média |
 |	**Ação:** Diminuir a contagem em 2 |	**Ação:** Diminuir a contagem em 3 |
-|	**Tempo de resfriamento (minutos):** 90 |	**Tempo de resfriamento (minutos):** 90 |
+|	**Tempo de resfriamento (minutos):** 120 |	**Tempo de resfriamento (minutos):** 120 |
 
 O intervalo de Destino definido no perfil é calculado pelas instâncias do mínimas definidas no perfil para o **plano de Serviço de Aplicativo** + buffer.
 
 O intervalo máximo seria a soma de todos os intervalos máximos de todos os **planos de Serviço de Aplicativo** hospedados no **pool de trabalho**.
 
-A contagem de aumento da escala de regras deve ser definida como pelo menos 1X a **taxa de inflação do plano de Serviço de Aplicativo** para escalar verticalmente.
+A contagem de Aumento das regras de escala vertical deve ser definida como, pelo menos, 1X a **Taxa de Inflação do Plano do Serviço de Aplicativo** para a escala vertical.
 
 A contagem de redução pode ser ajustada para algo entre 1/2x ou 1x a **taxa de inflação do plano de Serviço de Aplicativo** para reduzir verticalmente.
 
@@ -199,7 +203,7 @@ Para este cenário, Matheus sabe que a taxa de erro aumenta quando os front-ends
 |	**Duração:** 20 minutos |
 |	**Agregação de tempo:** Média |
 |	**Ação:** Aumentar a contagem em 3 |
-|	**Tempo de resfriamento (minutos):** 90 |
+|	**Tempo de resfriamento (minutos):** 120 |
 | |
 |	**Regra de dimensionamento automático (reduzir verticalmente)** |
 |	**Recurso:** Pool de trabalho 1 |
@@ -208,7 +212,7 @@ Para este cenário, Matheus sabe que a taxa de erro aumenta quando os front-ends
 |	**Duração:** 20 minutos |
 |	**Agregação de tempo:** Média |
 |	**Ação:** Diminuir a contagem em 3 |
-|	**Tempo de resfriamento (minutos):** 90 |
+|	**Tempo de resfriamento (minutos):** 120 |
 
 <!-- IMAGES -->
 [intro]: ./media/app-service-environment-auto-scale/introduction.png
@@ -227,4 +231,4 @@ Para este cenário, Matheus sabe que a taxa de erro aumenta quando os front-ends
 [Worker-Pool-Scale]: ./media/app-service-environment-auto-scale/wp-scale.png
 [Front-End-Scale]: ./media/app-service-environment-auto-scale/fe-scale.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/16/2016"
+   ms.date="02/26/2016"
    ms.author="andkjell"/>
 
 # Sincronização do Azure AD Connect: agendador
@@ -50,6 +50,8 @@ Para ver as configurações atuais, acesse o PowerShell e execute `Get-ADSyncSch
 
 Você pode modificar todas essas configurações com o `Set-ADSyncScheduler`. O parâmetro IsStagingModeEnabled só pode ser definido pelo assistente de instalação.
 
+A configuração do agendador é armazenada no Azure AD. Se tiver um servidor de preparo, qualquer alteração no servidor primário também afetará o servidor de preparo (com exceção de IsStagingModeEnabled).
+
 ## Iniciar o agendador
 Por padrão, o agendador será executado a cada 30 minutos. Em alguns casos, é bom executar um ciclo de sincronização entre os ciclos agendados ou terá que executar um tipo diferente.
 
@@ -59,9 +61,9 @@ Por padrão, o agendador será executado a cada 30 minutos. Em alguns casos, é 
 - Sincronização delta em todos os conectores
 - Exportação em todos os conectores
 
-É possível que você tenha uma alteração urgente que deva ser sincronizada imediatamente e precise executar um ciclo manualmente. Se você precisar executar um ciclo manualmente, no PowerShell, execute o `Start-ADSyncSyncCycle -PolicyType Delta`.
+É possível que você tenha uma alteração urgente que deva ser sincronizada imediatamente e precise executar um ciclo manualmente. Se precisar executar um ciclo manualmente, no PowerShell, execute o `Start-ADSyncSyncCycle -PolicyType Delta`.
 
-**Ciclo de sincronização completa** Se você tiver realizado uma das alterações de configuração a seguir, precisará executar um ciclo de sincronização completa (também conhecido como Inicial):
+**Ciclo de sincronização completa** Caso tenha feito uma das seguintes alterações de configuração, será necessário executar um ciclo de sincronização completa (também conhecido como Inicial):
 
 - Adicionou mais objetos ou atributos para serem importados de um diretório de origem
 - Realizou alterações nas regras de sincronização
@@ -73,7 +75,7 @@ Se você tiver realizado uma dessas alterações, precisará executar um ciclo d
 - Sincronização completa de todos os conectores
 - Exportação em todos os conectores
 
-Para iniciar um ciclo completo de sincronização, execute o `Start-ADSyncSyncCycle -PolicyType Initial` em um prompt do PowerShell. Isso iniciará um ciclo completo de sincronização.
+Para iniciar um ciclo de sincronização completa, execute o `Start-ADSyncSyncCycle -PolicyType Initial` em um prompt do PowerShell. Isso iniciará um ciclo completo de sincronização.
 
 ## Parar o agendador
 Se o agendador estiver executando um ciclo de sincronização, talvez seja necessário interrompê-lo. Por exemplo, se você iniciar o assistente de instalação e receber este erro:
@@ -83,8 +85,8 @@ Se o agendador estiver executando um ciclo de sincronização, talvez seja neces
 Se um ciclo de sincronização estiver em execução, você não poderá alterar a configuração. Você pode aguardar até que o agendador conclua o processo ou pode interrompê-lo para realizar suas alterações logo em seguida. Parar o ciclo atual não é prejudicial e as alterações ainda não processadas serão processadas na próxima execução.
 
 1. Inicie informando o agendador para interromper o ciclo atual com o cmdlet `Stop-ADSyncSyncCycle` do PowerShell.
-2. Parar o agendador não interromperá a tarefa atual do conector atual. Para forçar a interrupção do conector, execute as seguintes ações: ![StopAConnector](./media/active-directory-aadconnectsync-feature-scheduler/stopaconnector.png)
-    - Inicie o **Serviço de Sincronização** no menu Iniciar. Acesse **Conectores**, realce o Conector com o estado **Executando** e selecione **Parar** nas Ações.
+2. Parar o agendador não interromperá a tarefa atual do conector atual. Para forçar a interrupção do Conector, execute as seguintes ações: ![StopAConnector](./media/active-directory-aadconnectsync-feature-scheduler/stopaconnector.png)
+    - Inicie o **Serviço de Sincronização** no menu Iniciar. Vá para **Conectores**, realce o Conector com o estado **Executando** e selecione **Parar** nas Ações.
 
 O agendador ainda está ativo e será iniciado novamente na próxima oportunidade.
 
@@ -96,4 +98,4 @@ Saiba mais sobre a configuração de [sincronização do Azure AD Connect](activ
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

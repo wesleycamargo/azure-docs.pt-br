@@ -3,7 +3,7 @@
 	description="Saiba como direcionar as saídas de transformação de dados do Stream Analytics para opções de armazenamento de dados. Além disso, use o Power BI para os resultados da análise."
 	keywords="transformação de dados, resultados da análise, opções de armazenamento de dados"
 	services="stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage"
-	documentationCenter=""
+	documentationCenter="" 
 	authors="jeffstokes72"
 	manager="paulettm"
 	editor="cgronlun"/>
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="02/04/2016"
+	ms.date="03/02/2016"
 	ms.author="jeffstok"/>
 
 # Direcionar as saídas de transformação de dados do Stream Analytics para ferramentas de análise de opções de armazenamento de dados
@@ -39,7 +39,7 @@ Um [banco de dados SQL do Azure](https://azure.microsoft.com/services/sql-databa
 
 ## Armazenamento de blob ##
 
-O armazenamento de Blob oferece uma solução econômica e escalonável para armazenar grandes quantidades de dados não estruturados na nuvem. Para obter uma introdução sobre o Armazenamento de blob do Azure e seu uso, confira a documentação em [Como usar blobs](./articles/storage-dotnet-how-to-use-blobs.md).
+O armazenamento de Blob oferece uma solução econômica e escalonável para armazenar grandes quantidades de dados não estruturados na nuvem. Para obter uma introdução sobre o Armazenamento de blob do Azure e seu uso, confira a documentação em [Como usar blobs](../storage/storage-dotnet-how-to-use-blobs.md).
 
 A tabela a seguir lista os nomes de propriedade e sua descrição para a criação de uma saída de banco de blob.
 
@@ -118,7 +118,7 @@ Há alguns parâmetros que são necessários para configurar fluxos de dados de 
 
 O [Power BI](https://powerbi.microsoft.com/) pode ser usado como saída de um trabalho do Stream Analytics para fornecer uma experiência rica de visualização dos resultados da análise. Essa funcionalidade pode ser usada para painéis operacionais, geração de relatórios e relatórios orientados por métricas.
 
-> [AZURE.NOTE] No momento, não há suporte para a criação e configuração das saídas do Power BI no Portal de Visualização do Azure.
+> [AZURE.NOTE] No momento, há suporte para a criação e configuração das saídas do Power BI apenas no Portal Clássico do Azure.
 
 ### Autorizar uma conta do Power BI
 
@@ -159,7 +159,7 @@ Para resolver esse problema, pare seu trabalho em execução e vá para a saída
 
 ## Armazenamento de tabela
 
-[Armazenamento de Tabelas do Azure](./articles/storage-introduction.md) oferece armazenamento altamente disponível e altamente escalonável, para que um aplicativo possa ser dimensionado automaticamente para atender à demanda dos usuários. O Armazenamento de tabela é um repositório de chave/atributo NoSQL da Microsoft que pode ser utilizado por alguém com dados estruturados, com menos restrições no esquema. O armazenamento de Tabela do Azure pode ser usado para armazenar dados de persistência e para recuperação eficiente.
+[Armazenamento de Tabelas do Azure](../storage/storage-introduction.md) oferece armazenamento altamente disponível e altamente escalonável, para que um aplicativo possa ser dimensionado automaticamente para atender à demanda dos usuários. O Armazenamento de tabela é um repositório de chave/atributo NoSQL da Microsoft que pode ser utilizado por alguém com dados estruturados, com menos restrições no esquema. O armazenamento de Tabela do Azure pode ser usado para armazenar dados de persistência e para recuperação eficiente.
 
 A tabela a seguir lista os nomes de propriedade e sua descrição para a criação de uma saída da tabela.
 
@@ -267,4 +267,4 @@ Você foi apresentado ao Stream Analytics, um serviço gerenciado para análise 
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

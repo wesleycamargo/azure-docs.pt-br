@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="02/29/2016"
 	ms.author="jeedes"/>
 
 
@@ -93,7 +93,7 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal do
  
      a. Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no site do QuickHelp (por exemplo: *https://quickhelp.com/bsiazure/*).
 
-     >[AZURE.NOTE] Entre em contato com sua equipe de suporte do QuickHelp se você não souber o valor da URL do logon.
+     > [AZURE.NOTE] Entre em contato com sua equipe de suporte do QuickHelp se você não souber o valor da URL do logon.
 
      b. Clique em **Próximo**.
 
@@ -255,4 +255,4 @@ O objetivo desta seção é testar sua configuração de logon único do AD do A
 [401]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_401.png
 [402]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_402.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

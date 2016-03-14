@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2016" 
+	ms.date="03/01/2016" 
 	ms.author="awills"/>
  
 # Definir alertas no Application Insights
@@ -38,11 +38,13 @@ Para receber um email quando uma métrica ultrapassar um limite, inicie no Metri
 
 ![Na folha das Regras de alerta, escolha Adicionar Alerta. Defina seu aplicativo como o recurso a ser medido, forneça um nome para o alerta e escolha uma métrica.](./media/app-insights-alerts/01-set-metric.png)
 
-Defina o recurso antes de outras propriedades. **Escolha o recurso "(componentes)"** se desejar definir alertas em métricas de desempenho ou de uso.
-
-Observe as unidades quando você for solicitado para inserir o valor de limite.
-
-O nome dado ao alerta deve ser exclusivo dentro do grupo de recursos (não apenas no seu aplicativo).
+* Defina o recurso antes de outras propriedades. **Escolha o recurso "(componentes)"** se desejar definir alertas em métricas de desempenho ou de uso.
+* Observe as unidades quando você for solicitado para inserir o valor de limite.
+* O nome dado ao alerta deve ser exclusivo dentro do grupo de recursos (não apenas no seu aplicativo).
+* Se você marcar a caixa “Proprietários de email...”, os alertas serão enviados por email para qualquer pessoa que tenha acesso a esse recurso.
+* Se você especificar “Emails adicionais”, os alertas serão enviados aos indivíduos ou grupos (sem levar em conta se a caixa “Proprietários de email” foi marcada ou não). 
+* Defina um [endereço de webhook](../azure-portal/insights-webhooks-alerts.md) se tiver configurado um aplicativo Web que responderá aos alertas. Ele será chamado quando o alerta for Ativado (isto é, disparado) e quando ele for Resolvido.
+* É possível Desabilitar ou Habilitar o alerta: veja os botões na parte superior da folha.
 
 *Não vejo o botão Adicionar Alerta.* Você está usando uma conta organizacional? Você poderá definir alertas se tiver acesso de proprietário ou colaborador a esse recurso de aplicativo. Consulte Configurações -> Usuários. [Saiba mais sobre o controle de acesso][roles].
 
@@ -67,9 +69,11 @@ O histórico das alterações de estado está no log de Eventos de operações:
 
 ## Como funcionam os alertas
 
-* Um alerta tem dois estados: ("alerta" e "íntegro"). 
+* Um alerta tem três estados: “Nunca ativado”, “Ativado” e “Resolvido”. Ativado significa que a condição especificada era true, quando ela foi avaliada pela última vez.
 
-* Um email é enviado quando um alerta muda de estado.
+* Uma notificação é gerada quando um alerta muda de estado. (Se a condição do alerta já era true quando o alerta foi criado, talvez você não receba uma notificação até que a condição mude para false.)
+
+* Cada notificação gerará um email caso tenha marcado a caixa de emails ou fornecido endereços de email. Também é possível examinar a lista suspensa Notificações.
 
 * Um alerta é avaliado toda vez que uma métrica chega, mas não o contrário.
 
@@ -123,4 +127,4 @@ Alguns alertas populares são:
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

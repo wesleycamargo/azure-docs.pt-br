@@ -4,8 +4,8 @@
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+	manager="erikre" 
+	editor=""/>
 
 <tags 
 	ms.service="biztalk-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="02/29/2016" 
 	ms.author="mandia"/>
 
 
@@ -33,7 +33,7 @@ Este tópico lista estas etapas.
 
 É possível criar uma Conexão Híbrida no portal do Azure usando Aplicativos Web **ou** os Serviços BizTalk.
 
-**Para criar Conexões Híbridas usando Aplicativos Web**, consulte [Conectar os Aplicativos Web do Azure a um recurso local](../web-sites-hybrid-connection-get-started.md).
+**Para criar Conexões Híbridas usando Aplicativos Web**, consulte [Conectar os Aplicativos Web do Azure a um recurso local](../app-service-web/web-sites-hybrid-connection-get-started.md).
 
 **Para criar Conexões Híbridas em Serviços do BizTalk**:
 
@@ -61,9 +61,9 @@ Porta | Insira o número da porta no recurso local. Por exemplo, se você estive
 
 ## <a name="LinkWebSite"></a>Conectar seus Aplicativos Web do Azure ou Aplicativos Móveis do Azure
 
-Para conectar os Aplicativos Web do Azure a uma Conexão Híbrida existente, selecione **usar uma Conexão Híbrida existente** na folha Conexões Híbridas. Consulte [Conectar Aplicativos Web do Azure a um recurso local](../web-sites-hybrid-connection-get-started.md).
+Para conectar os Aplicativos Web do Azure a uma Conexão Híbrida existente, selecione **usar uma Conexão Híbrida existente** na folha Conexões Híbridas. Consulte [Conectar Aplicativos Web do Azure a um recurso local](../app-service-web/web-sites-hybrid-connection-get-started.md).
 
-Para conectar os Aplicativos Móveis do Azure a uma Conexão Híbrida existente, selecione **adicionar conexão híbrida** ao alterar ou criar um Serviço Móvel. Consulte [Conexões Híbridas e Serviços Móveis do Azure](../mobile-services-dotnet-backend-hybrid-connections-get-started.md).
+Para conectar os Aplicativos Móveis do Azure a uma Conexão Híbrida existente, selecione **adicionar conexão híbrida** ao alterar ou criar um Serviço Móvel. Consulte [Conexões Híbridas e Serviços Móveis do Azure](../mobile-services/mobile-services-dotnet-backend-hybrid-connections-get-started.md).
 
 
 ## <a name="InstallHCM"></a>Instalar o Gerenciador de Conexões Híbridas local
@@ -85,7 +85,7 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 3. On the on-premises resource, install the Hybrid Connection Manager from the MSI file. 
 4. Using Windows PowerShell, type: 
 > Add-HybridConnection -ConnectionString “*Your On-Premises Connection String that you copied*” 
--->
+--> 
 
 #### Adicional
 - Híbridas adicionais suportam recursos locais instalados nos sistemas operacionais a seguir:
@@ -119,7 +119,9 @@ Para gerenciar suas Conexões Híbridas, você pode:
 
 	**Gerenciar Conexão** lista as cadeias de conexão do aplicativo e local. É possível copiar as cadeias de conexão ou regenerar a chave de acesso usada na cadeia de conexão.
 
-	**Se você selecionar Regenerar**, a Tecla de Acesso compartilhada usada na Cadeia de Conexão será alterada. Faça o seguinte: - no Portal clássico do Azure, selecione **Sincronizar Chaves** no aplicativo do Azure. - Execute novamente a **Configuração Local**. Ao executar novamente a Configuração Local, o recurso local é configurado automaticamente para usar a cadeia de conexão primária atualizada.
+	**Se você selecionar Regenerar**, a Tecla de Acesso compartilhada usada na Cadeia de Conexão será alterada. Faça o seguinte:
+	- No portal clássico do Azure, selecione **Sincronizar Chaves** no aplicativo do Azure.
+	- Execute novamente a **Configuração Local**. Ao executar novamente a Configuração Local, o recurso local é configurado automaticamente para usar a cadeia de conexão primária atualizada.
 
 
 #### Use a Política de Grupo para controlar os recursos locais utilizados por uma Conexão Híbrida
@@ -138,7 +140,7 @@ Após tê-los copiado, você pode usar o Editor de políticas de grupo para muda
 
 ## Avançar
 
-[Conectar Aplicativos Web do Azure a um recurso local](../web-sites-hybrid-connection-get-started.md) [Conectar ao SQL Server local por meio de Aplicativos Web do Azure](../web-sites-hybrid-connection-connect-on-premises-sql-server.md) [Serviços Móveis do Azure e Conexões Híbridas](../mobile-services-dotnet-backend-hybrid-connections-get-started.md) [Visão geral de Conexões Híbridas](integration-hybrid-connection-overview.md)
+[Conectar Aplicativos Web do Azure a um recurso local](../app-service-web/web-sites-hybrid-connection-get-started.md) [Conectar ao SQL Server local por meio de Aplicativos Web do Azure](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md) [Serviços Móveis do Azure e Conexões Híbridas](../mobile-services/mobile-services-dotnet-backend-hybrid-connections-get-started.md) [Visão geral de Conexões Híbridas](integration-hybrid-connection-overview.md)
 
 
 ## Consulte também
@@ -150,4 +152,4 @@ Após tê-los copiado, você pode usar o Editor de políticas de grupo para muda
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

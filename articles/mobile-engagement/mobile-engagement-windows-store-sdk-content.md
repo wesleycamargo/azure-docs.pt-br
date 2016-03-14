@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/10/2015" 
+	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
 #Conteúdo do SDK de aplicativos do Windows Universal
@@ -57,4 +57,4 @@ Essa pasta contém todos os recursos que o Engagement precisa. Você também pod
 - `EngagementPageOverlay.cs` : O código de exibição de anúncio e notificação `Overlay`.
   
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0302_2016-->

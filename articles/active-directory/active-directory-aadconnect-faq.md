@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="02/29/2016"
 	ms.author="billmath"/>
 
 # Perguntas frequentes do Azure AD Connect
@@ -28,11 +28,14 @@
 ## Rede
 **P: Tenho um firewall, dispositivo de rede ou outra coisa que limita o tempo máximo que as conexões podem permanecer abertas na minha rede. Qual deve ser o limiar de tempo limite no lado do cliente ao usar o Azure Connect AD?** Todos os softwares de rede, dispositivos físicos ou qualquer outra coisa que limite o tempo máximo que as conexões podem permanecer abertas deve usar um limiar de pelo menos 5 minutos (300 segundos) para conectividade entre o servidor no qual o cliente do Azure AD Connect está instalado e o Active Directory do Azure. Isso também se aplica a todas as ferramentas de sincronização do Microsoft Identity lançadas anteriormente.
 
-**P: O que devo fazer se receber um email me pedindo para renovar o certificado do Office 365?** Use as diretrizes descritas no tópico [Renovar certificados](active-directory-aadconnect-o365-certs.md) sobre como renovar o certificado.
-
 **P: Os SLDs (domínios de rótulo único) têm suporte?** Não, o Azure AD Connect não oferece suporte a florestas/domínios locais usando SLDs.
 
 **P: Há suporte a nomes NetBios com pontos?** Não, o Azure AD Connect não oferece suporte a florestas/domínios locais em que o nome NetBios contém um ponto "." no nome.
+
+## Federação
+**P: O que devo fazer se receber um email me pedindo para renovar o certificado do Office 365?** Use as diretrizes descritas no tópico [Renovar certificados](active-directory-aadconnect-o365-certs.md) para saber como renovar o certificado.
+
+**P: Defini a opção “Atualizar automaticamente terceira parte confiável” para a terceira parte confiável do O365. Preciso realizar alguma ação quando meu certificado de autenticação de tokens é substituído automaticamente?** Use as diretrizes descritas no artigo [Renovar certificados](active-directory-aadconnect-o365-certs.md).
 
 ## Ambiente
 **P: É possível renomear o servidor após a instalação do Azure AD Connect?** Não. Alterar o nome do servidor fará com que o mecanismo de sincronização não consiga se conectar ao banco de dados SQL e o serviço não poderá iniciar.
@@ -46,7 +49,7 @@
 ## Configuração personalizada
 **P: Onde os cmdlets do PowerShell para o Azure AD Connect estão documentados?** Com exceção dos cmdlets documentados neste site, não há suporte para outros cmdlets do PowerShell encontrados no Azure AD Connect para uso do cliente.
 
-**P: Posso usar "Exportar servidor/importar servidor" encontrado no *Gerenciador de serviços de sincronização* para mover a configuração entre servidores?** Não. Essa opção não irá recuperar todos os parâmetros de configuração e não deve ser usada. Em vez disso, você deve usar o assistente para criar a configuração básica no segundo servidor e usar o editor de regra de sincronização para gerar scripts do PowerShell para mover qualquer regra personalizada entre servidores.
+**P: Posso usar a opção “Exportação do servidor/importação do servidor” encontrada no *Synchronization Service Manager* para mover a configuração entre servidores?** Não. Essa opção não irá recuperar todos os parâmetros de configuração e não deve ser usada. Em vez disso, você deve usar o assistente para criar a configuração básica no segundo servidor e usar o editor de regra de sincronização para gerar scripts do PowerShell para mover qualquer regra personalizada entre servidores. Veja [Mover configuração personalizada do servidor ativo para o servidor de preparo](active-directory-aadconnect-upgrade-previous-version.md#move-custom-configuration-from-active-to-staging-server).
 
 ## Solucionar problemas
 **P: Como posso obter ajuda com o Azure AD Connect?**
@@ -63,4 +66,4 @@
 
 - Use este link para obter suporte por meio do Portal do Azure.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

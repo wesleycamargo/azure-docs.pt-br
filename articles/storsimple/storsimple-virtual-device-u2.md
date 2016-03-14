@@ -20,7 +20,7 @@
 > [AZURE.SELECTOR]
 - [Atualização 2](../articles/storsimple/storsimple-virtual-device-u2.md)
 - [Atualização 1](../articles/storsimple/storsimple-virtual-device-u1.md)
-- [GA Release](../articles/storsimple/storsimple-virtual-device.md)
+- [Versão de GA](../articles/storsimple/storsimple-virtual-device.md)
 
 ##Visão geral
 O dispositivo virtual StorSimple é um recurso adicional que acompanha a sua solução Microsoft Azure StorSimple. O dispositivo virtual StorSimple é executado em uma máquina virtual em uma rede virtual do Microsoft Azure e você pode usá-lo para fazer backup e clonar dados de seus hosts.
@@ -36,9 +36,9 @@ O dispositivo virtual StorSimple está disponível em dois modelos, um padrão 8
 | **Capacidade máxima** | 30 TB | 64 TB |
 | **VM do Azure** | Standard\_A3 (4 núcleos, 7 GB de memória) | Standard\_DS3 (4 núcleos, 14 GB de memória) |
 | **Compatibilidade de versão** | Versões com pré-Atualização 2 ou posterior | Versões com Atualização 2 ou posterior |
-| **Disponibilidade de região** | Todas as regiões do Azure | Regiões do Azure que oferecem suporte ao armazenamento Premium<br></br>Para obter uma lista de regiões, consulte [regiões com suporte para 8020](#supported-regions-for-8020) |
-| **Tipo de armazenamento** | Usa o Armazenamento do Azure Standard<br></br> Saiba como [criar uma conta de Armazenamento Standard]() | Usa o Armazenamento do Azure Premium<br></br>Saiba como [criar uma conta de Armazenamento Premium](storage-premium-storage-preview-portal.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
-| **Diretrizes sobre carga de trabalho** | Recuperação no nível de item de arquivos de backups | Cenários de desenvolvimento e teste na nuvem, baixa latência, cargas de trabalho de desempenho mais altas <br></br>Dispositivo secundário para recuperação de desastre |
+| **Disponibilidade de região** | Todas as regiões do Azure | Regiões do Azure que dão suporte ao Armazenamento Premium<br></br>Para obter uma lista de regiões, veja [regiões com suporte para 8020](#supported-regions-for-8020) |
+| **Tipo de armazenamento** | Usa o Armazenamento do Azure Standard<br></br> Saiba como [criar uma conta de Armazenamento Standard]() | Usa o Armazenamento do Azure Premium<br></br>Saiba como [criar uma conta de Armazenamento Premium](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
+| **Diretrizes sobre carga de trabalho** | Recuperação no nível de item de arquivos de backups | Cenários de desenvolvimento e teste na nuvem, baixa latência, cargas de trabalho de maior desempenho <br></br>Dispositivo secundário para recuperação de desastre |
  
 <sup>1</sup> *Conhecido anteriormente como 1100*.
 
@@ -118,7 +118,7 @@ Faça as seguintes atualizações para o seu serviço do Azure StorSimple antes 
 
 - Adicione [registros de controle de acesso](storsimple-manage-acrs.md) às máquinas virtuais que serão os servidores de host para seu dispositivo virtual.
 
-- Use uma [conta de armazenamento](storsimple-manage-storage-accounts.md#add-a-storage-account) na mesma região do dispositivo virtual. Contas de armazenamento em regiões diferentes podem resultar em baixo desempenho. Você pode usar uma conta de Armazenamento Standard ou Premium com o dispositivo virtual. Mais informações sobre como criar uma [conta de Armazenamento Standard]() ou uma [conta de Armazenamento Premium](storage-premium-storage-preview-portal.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)
+- Use uma [conta de armazenamento](storsimple-manage-storage-accounts.md#add-a-storage-account) na mesma região do dispositivo virtual. Contas de armazenamento em regiões diferentes podem resultar em baixo desempenho. Você pode usar uma conta de Armazenamento Standard ou Premium com o dispositivo virtual. Mais informações sobre como criar uma [conta de Armazenamento Standard]() ou uma [conta de Armazenamento Premium](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)
 
 - Use uma conta de armazenamento para a criação do dispositivo virtual diferente da usada para seus dados. O uso da mesma conta de armazenamento pode resultar em baixo desempenho.
 
@@ -235,7 +235,7 @@ Desativar um dispositivo virtual resulta nas seguintes ações:
 
 - Instantâneos de nuvem criados para o dispositivo virtual são mantidos.
 
-Para obter um procedimento passo a passo, acesse [Desativar e excluir seu dispositivo StorSimple](storsimple-deactivate-and-delete-device.md).
+Para obter um procedimento passo a passo, vá para [Desativar e excluir seu dispositivo StorSimple](storsimple-deactivate-and-delete-device.md).
 
 Assim que o dispositivo virtual for mostrado como desativado na página do serviço do StorSimple Manager, você poderá excluir o dispositivo virtual da lista de dispositivos na página **Dispositivos**.
 
@@ -268,7 +268,7 @@ Para obter um procedimento passo a passo, vá para [executar failover para um di
 
 Se você configurou previamente e usou um dispositivo virtual StorSimple, mas agora deseja parar de acumular encargos de computação para seu uso, poderá desligar o dispositivo virtual. Desligar o dispositivo virtual não exclui seu sistema operacional ou os discos de dados do armazenamento. Isso para o acúmulo de encargos em sua assinatura, mas os encargos de armazenamento para os discos de sistema operacional e de dados continuarão.
 
-Se você excluir ou desligar o dispositivo virtual, ele será exibido como **Offline** na página Dispositivos do serviço Gerenciador do StorSimple. Você pode optar por desativar ou excluir o dispositivo se também desejar excluir os backups criados pelo dispositivo virtual. Para obter mais informações, consulte [Desativar e excluir um dispositivo StorSimple](storsimple-deactivate-and-delete-device.md).
+Se você excluir ou desligar o dispositivo virtual, ele será exibido como **Offline** na página Dispositivos do serviço Gerenciador do StorSimple. Você pode optar por desativar ou excluir o dispositivo se também desejar excluir os backups criados pelo dispositivo virtual. Para obter mais informações, veja [Desativar e excluir um dispositivo StorSimple](storsimple-deactivate-and-delete-device.md).
 
 [AZURE.INCLUDE [Desligar um dispositivo virtual](../../includes/storsimple-shutdown-virtual-device.md)]
 
@@ -278,8 +278,8 @@ Se você excluir ou desligar o dispositivo virtual, ele será exibido como **Off
 
 ## Próximas etapas
 
-- Saiba como [Usar o serviço do StorSimple Manager para gerenciar um dispositivo virtual](storsimple-manager-service-administration.md).
+- Saiba como [Usar o serviço StorSimple Manager para gerenciar um dispositivo virtual](storsimple-manager-service-administration.md).
  
-- Entenda como [Restaurar um volume do StorSimple de um conjunto de backups](storsimple-restore-from-backup-set.md).
+- Entenda como [restaurar um volume do StorSimple de um conjunto de backups](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

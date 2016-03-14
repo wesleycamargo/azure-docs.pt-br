@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="python" 
 	ms.devlang="php" 
 	ms.topic="article" 
-	ms.date="11/01/2015" 
-	ms.author="yuaxu"/>
+	ms.date="02/29/2016" 
+	ms.author="wesmc"/>
 
 # Como usar Hubs de notificação do Python
 [AZURE.INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 		
 Você pode acessar todos os recursos dos Hubs de Notificação por meio de um back-end do Java/PHP/Python/Ruby usando a interface REST do Hub de Notificação, conforme descrito no tópico do MSDN [APIs REST dos Hubs de Notificação](http://msdn.microsoft.com/library/dn223264.aspx).
 
-> [AZURE.NOTE]Isso é uma implementação de referência de exemplo para implementar o envia notificação em Python e não é oficialmente suportada notificações Hub Python SDK.
+> [AZURE.NOTE] Isso é uma implementação de referência de exemplo para implementar o envia notificação em Python e não é oficialmente suportada notificações Hub Python SDK.
 
-> [AZURE.NOTE]Este exemplo é escrito usando Python 3.4.
+> [AZURE.NOTE] Este exemplo é escrito usando Python 3.4.
 
 Neste tópico, mostramos como:
 
@@ -33,7 +33,7 @@ Neste tópico, mostramos como:
 
 Você pode seguir o [tutorial Introdução](notification-hubs-windows-store-dotnet-get-started.md) para a plataforma móvel da sua escolha, implementando a parte de back-end em Python.
 
-> [AZURE.NOTE]O escopo do exemplo é limitado apenas para enviar notificações e não faz nenhum gerenciamento de registro.
+> [AZURE.NOTE] O escopo do exemplo é limitado apenas para enviar notificações e não faz nenhum gerenciamento de registro.
 
 ## Interface do cliente
 A principal interface do cliente pode fornecer os mesmos métodos que estão disponíveis no [SDK dos Hubs de Notificação .NET](http://msdn.microsoft.com/library/jj933431.aspx). Isso permitirá a tradução diretamente de todos os tutoriais e exemplos atualmente disponíveis neste site e que conta com a colaboração da comunidade na Internet.
@@ -392,4 +392,4 @@ Neste tópico, mostramos como criar um cliente REST do Python para Hubs de notif
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

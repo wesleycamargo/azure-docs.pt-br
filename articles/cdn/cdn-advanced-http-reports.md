@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="CDN – relatórios HTTP avançados" 
-	description="Relatórios HTTP avançados na CDN do Microsoft Azure. Esses relatórios fornecem informações detalhadas sobre a atividade da CDN." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="CDN – relatórios HTTP avançados"
+	description="Relatórios HTTP avançados na CDN do Microsoft Azure. Esses relatórios fornecem informações detalhadas sobre a atividade da CDN."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016"
 	ms.author="casoper"/>
 
 # Relatórios HTTP avançados na CDN do Microsoft Azure
@@ -22,18 +22,18 @@
 
 Este documento explica os relatórios HTTP avançados na CDN do Microsoft Azure. Esses relatórios fornecem informações detalhadas sobre a atividade da CDN.
 
-> [AZURE.NOTE]Relatórios HTTP avançados é um recurso da camada CDN Premium. Para obter uma comparação dos recursos de CDN Standard e Premium, confira [Visão geral da CDN do Azure](cdn-overview.md).
+> [AZURE.NOTE] Relatórios HTTP avançados é um recurso da camada CDN Premium. Para obter uma comparação dos recursos de CDN Standard e Premium, confira [Visão geral da CDN do Azure](cdn-overview.md).
 
 ## Acessando relatórios HTTP avançados
 
 1. Na folha do perfil do CDN, clique no botão **Gerenciar**.
 
 	![Botão gerenciar da folha Perfil CDN](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
-	
+
 	O portal de gerenciamento da CDN é aberto.
-	
+
 2. Passe o mouse sobre a guia **Análise** e sobre o submenu **Relatórios HTTP avançados**. Clique em **Plataforma Grande HTTP**.
-	
+
 	As opções de relatório são exibidas.
 
 ## Relatórios de Geografia (baseados em mapa)
@@ -52,7 +52,7 @@ Mapa mundial | Esse relatório permite que você exiba a demanda mundial por seu
 Mapa dos Estados Unidos | Esse relatório permite que você exiba a demanda por seu conteúdo CDN nos Estados Unidos. Cada estado é codificado por cor no mapa para indicar a porcentagem de ocorrências originadas da região.
 Mapa do Canadá | Esse relatório permite que você exiba a demanda por seu conteúdo CDN no Canadá. Cada município é codificado por cor no mapa para indicar a porcentagem de ocorrências originadas da região.
 Mapa da Europa | Esse relatório permite que você exiba a demanda por seu conteúdo CDN na Europa. Cada país é codificado por cores nesse mapa para indicar a porcentagem de ocorrências originadas da região.
-Mapa do Pacífico Asiático | Esse relatório permite que você exiba a demanda por seu conteúdo CDN na Ásia. Cada país é codificado por cores nesse mapa para indicar a porcentagem de ocorrências originadas da região. 
+Mapa do Pacífico Asiático | Esse relatório permite que você exiba a demanda por seu conteúdo CDN na Ásia. Cada país é codificado por cores nesse mapa para indicar a porcentagem de ocorrências originadas da região.
 
 ## Relatórios de geografia (gráficos de barras)
 
@@ -64,8 +64,8 @@ O lado esquerdo do gráfico (eixo y) indica o número de ocorrências na região
 
 * Se você passar o mouse sobre uma barra, o nome e o número total de ocorrências na região serão exibidos como uma dica de ferramenta.
 * A dica de ferramenta para o relatório Principais cidades identifica uma cidade pelo nome, pelo estado/província e pela abreviação do país.
-* Se a cidade ou região (ou seja, estado/província) de uma solicitação de origem não puder ser determinado, ela será indicada como desconhecida. Se o país for desconhecido, dois pontos de interrogação (isto é, ??) serão exibidos.
-* Um relatório pode incluir as métricas para "Europa" ou para a "Região Ásia/Pacífico". Esses itens não foram criados para fornecer informações estatísticas sobre todos os endereços IP nessas áreas. Na verdade, eles se aplicam somente às solicitações originadas de endereços IP distribuídos pela Europa ou pela Ásia/Pacífico, em vez de uma cidade ou país específico.
+* Se a cidade ou região (ou seja, estado/província) de onde se originou uma solicitação não puder ser determinada, ela será indicada como desconhecida. Se o país for desconhecido, dois pontos de interrogação (isto é, ??) serão exibidos.
+* Um relatório pode incluir as métricas para “Europa” ou para a “Região do Pacífico Asiático”. Esses itens não foram criados para fornecer informações estatísticas sobre todos os endereços IP nessas áreas. Na verdade, eles se aplicam somente às solicitações originadas de endereços IP distribuídos pela Europa ou pela Ásia/Pacífico, em vez de uma cidade ou país específico.
 
 Os dados usados para gerar o gráfico de barras podem ser exibidos abaixo dele. Lá, você encontrará o número total e a porcentagem de ocorrências, a quantidade total de dados transferidos (em gigabytes) e a porcentagem dos dados transferidos para as 250 regiões principais. Exiba uma descrição para cada uma das métricas.
 
@@ -84,7 +84,7 @@ Ao gerar esse tipo de relatório, um gráfico de barras fornece uma indicação 
 
 O lado esquerdo do gráfico (eixo y) indica o número de ocorrências na data especificada. Diretamente abaixo do gráfico (eixo x), você encontrará um rótulo que indica a data (formato: DD-MM-AAAA) para cada dia incluído no relatório.
 
-> [AZURE.TIP]Se você passar o mouse sobre uma barra, o número total de ocorrências naquela data será exibido como uma dica de ferramenta.
+> [AZURE.TIP] Se você passar o mouse sobre uma barra, o número total de ocorrências naquela data será exibido como uma dica de ferramenta.
 
 Os dados usados para gerar o gráfico de barras podem ser exibidos abaixo dele. Lá, você encontrará o número total de ocorrências e a quantidade de dados transferidos (em gigabytes) para cada dia coberto pelo relatório.
 
@@ -96,7 +96,7 @@ Ao gerar esse tipo de relatório, um gráfico de barras fornece uma indicação 
 
 O lado esquerdo do gráfico (eixo y) indica o número de ocorrências na hora especificada. Diretamente abaixo do gráfico (eixo x), você encontrará um rótulo que indica a data/hora (formato: DD-MM-AAAA hh:mm) para cada hora incluída no relatório. A hora é relatada usando o formato de 24 horas e é especificada usando o fuso horário UTC/GMT.
 
-> [AZURE.TIP]Se você passar o mouse sobre uma barra, o número total de ocorrências durante aquela hora será exibido como uma dica de ferramenta.
+> [AZURE.TIP] Se você passar o mouse sobre uma barra, o número total de ocorrências durante aquela hora será exibido como uma dica de ferramenta.
 
 Os dados usados para gerar o gráfico de barras podem ser exibidos abaixo dele. Lá, você encontrará o número total de ocorrências e a quantidade de dados transferidos (em gigabytes) para cada hora coberta pelo relatório.
 
@@ -104,7 +104,7 @@ Os dados usados para gerar o gráfico de barras podem ser exibidos abaixo dele. 
 
 O relatório Por arquivo permite que você exiba a quantidade de demanda e o tráfego ocorridos em uma plataforma específica para os ativos mais solicitados. Ao gerar este tipo de relatório, um gráfico de barras será gerado sobre os dez ativos mais solicitados durante o período de tempo especificado.
 
-> [AZURE.NOTE]Para os fins deste relatório, as URLs da borda CNAME são convertidas nas URLs equivalentes da CDN. Isso permite uma contagem precisa do número total de ocorrências associadas a um ativo, independentemente da URL da CDN ou da borda CNAME URL usada para solicitá-las.
+> [AZURE.NOTE] Para os fins deste relatório, as URLs da borda CNAME são convertidas nas URLs equivalentes da CDN. Isso permite uma contagem precisa do número total de ocorrências associadas a um ativo, independentemente da URL da CDN ou da borda CNAME URL usada para solicitá-las.
 
 O lado esquerdo do gráfico (eixo y) indica o número de solicitações para cada ativo durante o período de tempo especificado. Diretamente abaixo do gráfico (eixo x), você encontrará um rótulo que indica o nome do arquivo de cada um dos dez ativos mais solicitados.
 
@@ -122,7 +122,7 @@ Os dados usados para gerar o gráfico de barras podem ser exibidos abaixo dele. 
 
 O relatório Por tipo de arquivo permite que você exiba a quantidade de demanda e o tráfego gerados por tipo de arquivo. Ao gerar este tipo de relatório, um gráfico de rosca indica a porcentagem de ocorrências geradas pelos dez principais tipos de arquivo.
 
-> [AZURE.TIP]Se você passar o mouse sobre uma fatia no gráfico de rosca, o tipo de mídia de Internet daquele tipo de arquivo será exibido como uma dica de ferramenta.
+> [AZURE.TIP] Se você passar o mouse sobre uma fatia no gráfico de rosca, o tipo de mídia de Internet daquele tipo de arquivo será exibido como uma dica de ferramenta.
 
 Os dados usados para gerar o gráfico de rosca podem ser exibidos abaixo dele. Lá, você encontrará o tipo de mídia de Internet/extensão de nome de arquivo, o número total de acessos, a porcentagem de ocorrências, a quantidade de dados transferidos (em gigabytes) e a porcentagem de dados transferidos para cada um dos 250 principais tipos de arquivo.
 
@@ -164,13 +164,13 @@ Os dados usados para gerar o gráfico de barras podem ser exibidos abaixo dele. 
 
 O relatório Por download permite analisar padrões de download para o conteúdo mais solicitado. A parte superior do relatório contém um gráfico de barras que compara tentativas de downloads com downloads concluídos para os dez ativos mais solicitados. Cada barra é codificada por cores separando as tentativas de download (azul) dos downloads concluídos (verde).
 
-> [AZURE.NOTE]Para os fins deste relatório, as URLs da borda CNAME são convertidas nas URLs equivalentes da CDN. Isso permite uma contagem precisa de todas as estatísticas associadas a um ativo, independentemente da URL da CDN ou da borda CNAME URL usada para solicitá-las.
+> [AZURE.NOTE] Para os fins deste relatório, as URLs da borda CNAME são convertidas nas URLs equivalentes da CDN. Isso permite uma contagem precisa de todas as estatísticas associadas a um ativo, independentemente da URL da CDN ou da borda CNAME URL usada para solicitá-las.
 
 O lado esquerdo do gráfico (eixo y) indica o nome do arquivo para cada um dos dez ativos mais solicitados. Diretamente abaixo do gráfico (eixo x), você encontrará rótulos que indicam o número total de downloads tentados/concluídos.
 
 Diretamente abaixo do gráfico de barras, as informações a seguir serão listadas para os 250 ativos mais solicitados: caminho relativo (incluindo nome do arquivo), número de vezes que seu download foi concluído, número de vezes que foi solicitado e a porcentagem de solicitações que resultaram em um download completo.
 
-> [AZURE.TIP]Nossa CDN não é informada por um cliente HTTP (ou seja, o navegador) quando um ativo é baixado por completo. Como resultado, temos que calcular se um ativo foi baixado por completo de acordo com os códigos de status e solicitações de intervalo de bytes. A primeira coisa que procuramos ao fazer esse cálculo é saber se a solicitação resulta em um código de status 200 OK. Nesse caso, vamos examinar as solicitações de intervalo de bytes para garantir que abrangem todo o ativo. Por fim, podemos comparar a quantidade de dados transferidos ao tamanho do ativo solicitado. Se os dados transferidos forem iguais ou maiores que o tamanho do arquivo e as solicitações de intervalo de bytes forem apropriadas para esse ativo, a ocorrência será contada como um download completo.
+> [AZURE.TIP] Nossa CDN não é informada por um cliente HTTP (ou seja, o navegador) quando um ativo é baixado por completo. Como resultado, temos que calcular se um ativo foi baixado por completo de acordo com os códigos de status e solicitações de intervalo de bytes. A primeira coisa que procuramos ao fazer esse cálculo é saber se a solicitação resulta em um código de status 200 OK. Nesse caso, vamos examinar as solicitações de intervalo de bytes para garantir que abrangem todo o ativo. Por fim, podemos comparar a quantidade de dados transferidos ao tamanho do ativo solicitado. Se os dados transferidos forem iguais ou maiores que o tamanho do arquivo e as solicitações de intervalo de bytes forem apropriadas para esse ativo, a ocorrência será contada como um download completo.
 >
 >Devido à natureza interpretativa desse relatório, você deve ter em mente os pontos a seguir que podem alterar a consistência e a precisão dele.
 >
@@ -181,7 +181,7 @@ Diretamente abaixo do gráfico de barras, as informações a seguir serão lista
 
 O relatório de erros 404 permite que você identifique o tipo de conteúdo que gera o maior número de códigos de status 404 Não encontrado. A parte superior do relatório contém um gráfico de barras para os dez principais ativos para os quais foi retornado um código de status 404 Não encontrado. Esse gráfico de barras compara o número total de solicitações com solicitações que resultaram em código de status 404 Não encontrado para esses ativos. Cada barra é codificada por cor. Uma barra amarela é usada para indicar que a solicitação resultou em um código de status 404 Não encontrado. Uma barra vermelha é usada para indicar o número total de solicitações do ativo.
 
-> [AZURE.NOTE]Para os fins desse relatório, observe o seguinte:
+> [AZURE.NOTE] Para os fins desse relatório, observe o seguinte:
 >
 >* Uma ocorrência representa qualquer solicitação para um ativo, independentemente do código de status.
 >* As URLs de borda CNAME são convertidas nas URLs equivalentes da CDN. Isso permite uma contagem precisa de todas as estatísticas associadas a um ativo, independentemente da URL da CDN ou da borda CNAME URL usada para solicitá-las.
@@ -196,4 +196,4 @@ Diretamente abaixo do gráfico de barras, as informações a seguir serão lista
 * [Substituindo o comportamento HTTP padrão usando o mecanismo de regras](cdn-rules-engine.md)
 * [Analisar o desempenho de borda](cdn-edge-performance.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

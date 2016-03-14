@@ -18,10 +18,14 @@
 	ms.author="heidist"/>
 
 # Gerenciar seu serviço de Pesquisa no Microsoft Azure
+> [AZURE.SELECTOR]
+- [Portal](search-manage.md)
+- [PowerShell](search-manage-powershell.md)
+- [API REST](search-get-started-management-api.md)
 
 A Pesquisa do Azure é um serviço baseado em nuvem com uma API baseada em HTTP que pode ser usado em aplicativos de pesquisa personalizados. Nosso serviço de Pesquisa fornece o mecanismo para análise de texto de pesquisa em texto completo, recursos de pesquisa avançada, armazenamento de dados de pesquisa e uma sintaxe de comandos de consulta.
 
-Este artigo explica como administrar um serviço de Pesquisa no [Portal do Azure](https://portal.azure.com). Você também pode usar o novo recurso de análise de tráfego de pesquisa para obter informações sobre as atividades no nível do índice. Visite [Análise de Tráfego de Pesquisa para a Pesquisa do Azure](search-traffic-analytics.md) para começar.
+Este artigo explica como administrar um serviço da Pesquisa no [Portal do Azure](https://portal.azure.com). Você também pode usar o novo recurso de análise de tráfego de pesquisa para obter informações sobre as atividades no nível do índice. Visite [Análise de Tráfego de Pesquisa para a Pesquisa do Azure](search-traffic-analytics.md) para começar a usar.
 
 Como alternativa, você pode usar a API REST de gerenciamento. Confira [Introdução à API REST de Gerenciamento de Pesquisa do Azure](search-get-started-management-api.md) e [referência da API REST do Gerenciamento de Pesquisa do Azure](http://msdn.microsoft.com/library/azure/dn832684.aspx) para obter detalhes.
 
@@ -32,7 +36,7 @@ Como o administrador configura um Serviço de Pesquisa, uma das primeiras decis�
 
 Sem custos adicionais para assinantes atuais, você pode escolher um serviço compartilhado, recomendado para fins de aprendizado, testes de prova de conceito e pequenos projetos de desenvolvimento. O serviço compartilhado é limitado a 50 MB de armazenamento, três índices e contagem de documentos - um limite de 10.000 documentos, ainda que o consumo de armazenamento seja inferior aos 50 MB disponibilizados. Não há garantias de desempenho do serviço compartilhado, ou seja, se você for criar um aplicativo de pesquisa de produção, considere usar a pesquisa padrão.
 
-A pesquisa padrão é cobrada porque você se inscreverá para usar infraestrutura e os recursos dedicados, usados apenas pela sua assinatura. A pesquisa padrão é alocada em pacotes de partições (armazenamento) e réplicas (cargas de trabalho do serviço) definidos pelo usuário, e o preço é definido por unidade de pesquisa. Você pode expandir as partições ou réplicas de maneira independente, adicionando o recurso que for necessário.
+As pesquisas Básica e Standard são faturáveis, pois você se inscreve para os recursos dedicados e a infraestrutura usada apenas por sua assinatura. As pesquisas Básica e Standard são alocadas em pacotes de partições (armazenamento) e réplicas (cargas de trabalho do serviço) definidos pelo usuário, e o preço é definido por unidade de pesquisa. Você pode expandir as partições ou réplicas de maneira independente, adicionando o recurso que for necessário.
 
 Para se planejar quanto à capacidade e compreender o impacto da cobrança, recomendamos estes links:
 
@@ -43,7 +47,7 @@ Quando você estiver pronto para se inscrever, confira [Criar um serviço de Pes
 
 ##Análise de Pesquisa
 
-Você pode habilitar a coleta de dados sobre a atividade de pesquisa do usuário para verificar o desempenho do seu serviço de pesquisa, quais termos estão sendo usados e se esses termos retornaram visitas. A melhor maneira de analisar e visualizar esses dados é por meio de um pacote de conteúdo do Power BI. A primeira etapa é habilitar a análise do tráfego de pesquisa. Consulte [Analisando o tráfego da Pesquisa do Azure](https://azure.microsoft.com/blog/analyzing-your-azure-search-traffic/) para saber como.
+Você pode habilitar a coleta de dados sobre a atividade de pesquisa do usuário para verificar o desempenho do seu serviço de pesquisa, quais termos estão sendo usados e se esses termos retornaram visitas. A melhor maneira de analisar e visualizar esses dados é por meio de um pacote de conteúdo do Power BI. A primeira etapa é habilitar a análise do tráfego de pesquisa. Veja [Analisando o tráfego da Pesquisa do Azure](https://azure.microsoft.com/blog/analyzing-your-azure-search-traffic/) para saber como.
 
 <a id="sub-2"></a>
 ## Tarefas administrativas
@@ -104,7 +108,7 @@ Nesta visualização pública, o monitoramento de recursos é limitado às infor
 
 No painel do serviço, na seção Uso, é possível determinar rapidamente se os níveis de recurso da partição estão adequados para o seu aplicativo.
 
-Usando a API do serviço de pesquisa, você pode obter uma contagem dos documentos e índices. Há limites associados a essas contagens com base na camada de preços. Consulte [Limites e restrições](search-limits-quotas-capacity.md) para obter detalhes.
+Usando a API do serviço de pesquisa, você pode obter uma contagem dos documentos e índices. Há limites associados a essas contagens com base na camada de preços. Veja [Limites de serviço da Pesquisa](search-limits-quotas-capacity.md) para obter detalhes.
 
 +	[Obter estatísticas de índice](http://msdn.microsoft.com/library/dn798942.aspx)
 +	[Contar documentos](http://msdn.microsoft.com/library/dn798924.aspx)
@@ -115,15 +119,15 @@ Usando a API do serviço de pesquisa, você pode obter uma contagem dos document
 <a id="sub-6"></a>
 ## Expandir ou reduzir
 
-Todo serviço de pesquisa começa com um mínimo de uma réplica e uma partição. Se tiver se inscrito para receber serviços dedicados usando a camada de preços Padrão, você pode clicar no bloco **ESCALA** no painel de serviço para reajustar o número de partições e réplicas usadas pelo serviço.
+Todo serviço de pesquisa começa com um mínimo de uma réplica e uma partição. Se tiver se inscrito para recursos dedicados usando os [tipos de preço Básico ou Standard](search-limits-quotas-capacity.md), é possível clicar no bloco **ESCALA** no painel de serviço para reajustar o número de partições e réplicas usadas pelo serviço.
 
-Quando você adiciona um dos recursos, o serviço os utiliza automaticamente. Não é necessária nenhuma outra medida de sua parte, mas haverá um breve atraso antes que ocorra o impacto do novo serviço. Pode levar 15 minutos ou mais para provisionar os recursos adicionais.
+Quando você adiciona capacidade por meio de um recurso, o serviço as utiliza automaticamente. Não é necessária nenhuma outra medida de sua parte, mas haverá um breve atraso antes que ocorra o impacto do novo serviço. Pode levar 15 minutos ou mais para provisionar os recursos adicionais.
 
  ![][10]
 
 ### Adicionar réplicas
 
-O aumento de QPS (consultas por segundo) ou o alcance da alta disponibilidade são feitos adicionando réplicas. Cada réplica tem uma cópia de um índice, de modo que adicionar mais uma réplica se traduz em mais um índice que pode ser usado para atender às solicitações de consulta. Atualmente, a regra de ouro é que você precisa de pelo menos três réplicas para ter uma alta disponibilidade.
+O aumento de QPS (consultas por segundo) ou o alcance da alta disponibilidade são feitos adicionando réplicas. Cada réplica tem uma cópia de um índice, de modo que adicionar mais uma réplica se traduz em mais um índice que pode ser usado para atender às solicitações de consulta. Atualmente, a regra de ouro é que você precisa de, pelo menos, três réplicas para ter uma alta disponibilidade (veja [Planejamento de capacidade](search-capacity-planning.md) para obter detalhes).
 
 Um serviço de pesquisa com mais réplicas é capaz de balancear a carga das solicitações de consulta em um número maior de índices. Em um determinado nível de volume de consultas, a produtividade das consultas será maior quando houver mais cópias do índice disponíveis para atender à solicitação. Caso esteja ocorrendo latência nas consultas, você pode esperar um impacto positivo quando as réplicas adicionais entrarem em atividade.
 
@@ -133,7 +137,9 @@ Embora a produtividade das consultas aumente conforme você adiciona réplicas, 
 
 A maioria dos aplicativos de serviços tem a necessidade de mais réplicas do que de partições, uma vez que a maioria dos aplicativos que utiliza pesquisas cabe facilmente em uma única partição que pode suportar até 15 milhões de documentos.
 
-Para os casos em que é necessária uma contagem maior de documentos, você pode adicionar partições. Observe que as partições são adicionadas em múltiplos de 12 (especificamente, 1, 2, 3, 4, 6 ou 12). Trata-se de um artifício de fragmentação; um índice é criado em 12 fragmentos, que podem todos ser armazenados em uma partição ou divididos igualmente em 2, 3, 4, 6 ou 12 partições (um fragmento por partição).
+Nos casos em que seja necessária uma contagem maior de documentos, é possível adicionar partições se você se inscreveu no serviço Standard. A camada Básica não fornece partições adicionais.
+
+Na camada Standard, as partições são adicionadas em múltiplos de 12 (especificamente, 1, 2, 3, 4, 6 ou 12). Trata-se de um artifício de fragmentação; um índice é criado em 12 fragmentos, que podem todos ser armazenados em uma partição ou divididos igualmente em 2, 3, 4, 6 ou 12 partições (um fragmento por partição).
 
 ### Remover réplicas
 
@@ -200,4 +206,4 @@ As funções fornecem controle de acesso depois da criação do serviço. Apenas
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

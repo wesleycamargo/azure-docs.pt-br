@@ -76,18 +76,24 @@ Você deve certificar-se de que seu projeto de aplicativo do Apache Cordova este
 
 ### Instalar o plug-in de Push do Apache Cordova
 
-Os aplicativos Apache Cordova não manipulam recursos de rede ou do dispositivo de forma nativa. Esses recursos são fornecidos por plug-ins publicados no [npm] ou no GitHub. O plug-in `phonegap-plugin-push` é usado para manipular notificações por push de rede. Para instalar a partir da linha de comando:
+Os aplicativos Apache Cordova não manipulam recursos de rede ou do dispositivo de forma nativa. Essas funcionalidades são fornecidas por plug-ins publicados no [npm](https://www.npmjs.com/) ou no GitHub. O plug-in `phonegap-plugin-push` é usado para manipular notificações por push de rede.
+
+É possível instalar o plug-in de push com uma das seguintes maneiras:
+
+**No prompt de comando:**
 
     cordova plugin add phonegap-plugin-push
 
-Para instalar o plug-in no Visual Studio:
+**No Visual Studio:**
 
-1.  Abra o arquivo `config.xml` de dentro do Gerenciador de Soluções.
-2.  Clique em **Plug-ins** (no lado esquerdo) e, em seguida, em **Personalizado** (na parte superior)
-3.  Selecione **Git** como a fonte da instalação. Digite `https://github.com/phonegap/phonegap-plugin-push` como a fonte
-4.  Clique na seta ao lado da fonte de instalação e clique em **Adicionar**
+1.  Abra o arquivo `config.xml` no Gerenciador de Soluções.
+2.  Clique em **Plug-ins** > **Personalizado**, selecione **Git** como a origem da instalação e insira `https://github.com/phonegap/phonegap-plugin-push` como a origem.
+	
+	![](./media/app-service-mobile-cordova-get-started-push/add-push-plugin.png)
+	
+4.  Clique na seta ao lado da origem da instalação e clique em **Adicionar**
 
-O plug-in de envio por push será instalado agora.
+O plug-in de push agora está instalado.
 
 ### Instalar os Serviços do Google Play para Android
 
@@ -107,69 +113,74 @@ As bibliotecas exigidas atualmente estão listadas na [documentação de instala
 
 ### Registrar seu dispositivo para envio por push na inicialização
 
-Adicione uma chamada para `registerForPushNotifications()` durante o retorno de chamada do processo de logon, ou na parte inferior do método `onDeviceReady()`:
+1. Adicione uma chamada para **registerForPushNotifications** durante o retorno de chamada para o processo de logon, ou na parte inferior do método **onDeviceReady**:
 
-    // Login to the service
-    client.login('google')
-        .then(function () {
-            // Create a table reference
-            todoItemTable = client.getTable('todoitem');
+ 
+		// Login to the service.
+		client.login('google')
+		    .then(function () {
+		        // Create a table reference
+		        todoItemTable = client.getTable('todoitem');
+		
+		        // Refresh the todoItems
+		        refreshDisplay();
+		
+		        // Wire up the UI Event Handler for the Add Item
+		        $('#add-item').submit(addItemHandler);
+		        $('#refresh').on('click', refreshDisplay);
+		
+				// Added to register for push notifications.
+		        registerForPushNotifications();
+		
+		    }, handleError);
 
-            // Refresh the todoItems
-            refreshDisplay();
+	Este exemplo mostra uma chamada para **registerForPushNotifications** após a autenticação bem-sucedida, o que é recomendado ao usar notificações por push e autenticação em seu aplicativo.
 
-            // Wire up the UI Event Handler for the Add Item
-            $('#add-item').submit(addItemHandler);
-            $('#refresh').on('click', refreshDisplay);
+2. Adicione o novo método `registerForPushNotifications()` da seguinte maneira:
 
-            registerForPushNotifications();
+	    // Register for Push Notifications.
+		// Requires that phonegap-plugin-push be installed.
+	    var pushRegistration = null;
+	    function registerForPushNotifications() {
+	        pushRegistration = PushNotification.init({
+	            android: {
+	                senderID: 'Your_Project_ID'
+	            },
+	            ios: {
+	                alert: 'true',
+	                badge: 'true',
+	                sound: 'true'
+	            },
+	            wns: {
+	
+	            }
+	        });
+	
+	        pushRegistration.on('registration', function (data) {
+	            client.push.register('gcm', data.registrationId);
+	        });
+	
+	        pushRegistration.on('notification', function (data, d2) {
+	            alert('Push Received: ' + data.message);
+	        });
+	
+	        pushRegistration.on('error', handleError);
+	    }
 
-        }, handleError);
-
-Implemente `registerForPushNotifications()` da seguinte maneira:
-
-    /**
-     * Register for Push Notifications - requires the phonegap-plugin-push be installed
-     */
-    var pushRegistration = null;
-    function registerForPushNotifications() {
-        pushRegistration = PushNotification.init({
-            android: {
-                senderID: 'YourProjectID'
-            },
-            ios: {
-                alert: 'true',
-                badge: 'true',
-                sound: 'true'
-            },
-            wns: {
-
-            }
-        });
-
-        pushRegistration.on('registration', function (data) {
-            client.push.register('gcm', data.registrationId);
-        });
-
-        pushRegistration.on('notification', function (data, d2) {
-            alert('Push Received: ' + data.message);
-        });
-
-        pushRegistration.on('error', handleError);
-    }
-
-Substitua _YourProjectID_ pela ID numérica do projeto de seu aplicativo do [Console de Desenvolvedor do Google].
+3. No código acima, substitua `Your_Project_ID` pela ID numérica do projeto de seu aplicativo no [Console do Desenvolvedor do Google].
 
 ## Testar o aplicativo no serviço móvel publicado
 
-Você pode testar o aplicativo conectando um telefone Android diretamente com um cabo USB. Em vez de **Emulador do Google Android**, escolha **Dispositivo**. O Visual Studio baixará e executará o aplicativo no dispositivo. Em seguida, você interagirá com o aplicativo no dispositivo.
+Você pode testar o aplicativo conectando um telefone Android diretamente com um cabo USB. Em vez de **Emulador do Google Android**, selecione **Dispositivo**. O Visual Studio baixará e executará o aplicativo no dispositivo. Em seguida, você interagirá com o aplicativo no dispositivo.
 
-Melhore a experiência de desenvolvimento. Aplicativos de compartilhamento de tela, como o [Mobizen], podem ajudar você a desenvolver um aplicativo Android projetando sua tela do Android em um navegador da Web em seu computador.
+Melhore a experiência de desenvolvimento. Aplicativos de compartilhamento de tela, como o [Mobizen], podem ajudá-lo a desenvolver um aplicativo do Android projetando sua tela do Android em um navegador da Web no computador.
+
+Também é possível testar o aplicativo do Android no emulador do Android. Lembre-se de primeiro adicionar uma conta do Google no emulador.
 
 ##<a name="next-steps"></a>Próximas etapas
 
 * Leia sobre [Hubs de Notificação] para saber mais sobre as notificações por push.
-* Se você ainda não fez isso, continue o tutorial [Adicionando autenticação] ao seu aplicativo Apache Cordova.
+* Se você ainda não fez isso, continue o tutorial [Adicionando autenticação] ao seu aplicativo do Apache Cordova.
 
 <!-- URLs -->
 [Adicionando autenticação]: app-service-mobile-cordova-get-started-users.md
@@ -177,11 +188,11 @@ Melhore a experiência de desenvolvimento. Aplicativos de compartilhamento de te
 [autenticação]: app-service-mobile-cordova-get-started-users.md
 [Trabalhar com o servidor .NET back-end do SDK para Aplicativos Móveis do Azure]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [conta do Google]: http://go.microsoft.com/fwlink/p/?LinkId=268302
-[Console de Desenvolvedor do Google]: https://console.developers.google.com/home/dashboard
+[Console do Desenvolvedor do Google]: https://console.developers.google.com/home/dashboard
 [documentação de instalação do phonegap-plugin-push]: https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md
 [Mobizen]: https://www.mobizen.com/
 [Visual Studio Community 2015]: http://www.visualstudio.com/
 [Ferramentas do Visual Studio para Apache Cordova]: https://www.visualstudio.com/pt-BR/features/cordova-vs.aspx
 [Hubs de Notificação]: ../notification-hubs/notification-hubs-overview.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="O que é o Application Insights?" 
-	description="Acompanhe o uso e o desempenho do seu aplicativo Web ou de dispositivo ativo. Detecte, faça triagem e diagnostique problemas. Monitore e melhore continuamente o sucesso com seus usuários." 
+	pageTitle="Análise com o Application Insights" 
+	description="Análise de dispositivo e aplicativo Web. Acompanhe o uso e desempenho de seu aplicativo Web online. Detecte, faça triagem e diagnostique problemas. Monitore e melhore continuamente o sucesso com seus usuários." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
  
 # O que é o Application Insights?
@@ -151,4 +151,4 @@ Para obter mais detalhes, escolha o tipo de aplicativo em Introdução na barra 
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

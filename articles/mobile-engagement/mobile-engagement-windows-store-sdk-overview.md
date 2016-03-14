@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/10/2015" 
+	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
 #Visão geral do SDK do Windows Universal para o Mobile Engagement do Azure
@@ -54,4 +54,4 @@ Esta etapa aborda apenas os recursos personalizados. Se você personalizou os re
 
 Consulte [Procedimentos de atualização](mobile-engagement-windows-store-upgrade-procedure/)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

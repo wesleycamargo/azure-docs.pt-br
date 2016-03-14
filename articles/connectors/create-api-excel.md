@@ -14,22 +14,20 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/23/2016"
+ms.date="02/25/2016"
 ms.author="deonhe"/>
 
 # Introdução à API do Excel
 
-Conecte-se ao Excel para inserir uma linha, excluir uma linha e muito mais.
+Conecte-se ao Excel para inserir uma linha, excluir uma linha e muito mais. A API do Excel pode ser usada em:
 
-A API do Excel pode ser usada do PowerApps Enterprise.
+- PowerApps
 
 Com o Excel, você pode:
 
 - Adicione a API do Excel ao PowerApps Enterprise. Em seguida, seus usuários podem usar essa API dentro dos seus próprios aplicativos. 
 
 Para saber mais sobre como adicionar uma API ao PowerApps Enterprise, acesse [Registrar uma API no PowerApps](../power-apps/powerapps-register-from-available-apis.md).
-
-Para adicionar uma operação a aplicativos lógicos, consulte [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Gatilhos e ações
 O Excel inclui a ação a seguir. Não há nenhum gatilho.
@@ -41,17 +39,16 @@ O Excel inclui a ação a seguir. Não há nenhum gatilho.
 Todas as APIs dão suporte a dados nos formatos JSON e XML.
 
 ## Referência da API REST do Swagger
-#### Esta documentação destina-se à versão: 1.0
-
+Aplica-se à versão: 1.0.
 
 ### Insere uma nova linha em uma tabela do Excel
-**```POST: /datasets/{dataset}/tables/{table}/items```**
+```POST: /datasets/{dataset}/tables/{table}/items```
 
 
 
-| Nome| Tipo de Dados|Obrigatório|Localizado Em|Valor Padrão|Descrição|
+| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
-|conjunto de dados|string|sim|path|nenhum|Nome do arquivo do Excel|
+|dataset|string|sim|path|nenhum|Nome do arquivo do Excel|
 |tabela|string|sim|path|nenhum|Nome da tabela do Excel|
 |item| |sim|corpo|nenhum|Linha para inserir na tabela do Excel especificada|
 
@@ -62,18 +59,18 @@ Todas as APIs dão suporte a dados nos formatos JSON e XML.
 |---|---|
 |200|OK|
 |padrão|Falha na Operação.|
-------
+
 
 
 
 ### Recupera uma única linha de uma tabela do Excel
-**```GET: /datasets/{dataset}/tables/{table}/items/{id}```**
+```GET: /datasets/{dataset}/tables/{table}/items/{id}```
 
 
 
-| Nome| Tipo de Dados|Obrigatório|Localizado Em|Valor Padrão|Descrição|
+| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
-|conjunto de dados|string|sim|path|nenhum|Nome do arquivo do Excel|
+|dataset|string|sim|path|nenhum|Nome do arquivo do Excel|
 |tabela|string|sim|path|nenhum|Nome da tabela do Excel|
 |ID|string|sim|path|nenhum|O identificador exclusivo da linha a ser recuperado|
 
@@ -84,18 +81,18 @@ Todas as APIs dão suporte a dados nos formatos JSON e XML.
 |---|---|
 |200|OK|
 |padrão|Falha na Operação.|
-------
+
 
 
 
 ### Exclui uma linha de uma tabela do Excel
-**```DELETE: /datasets/{dataset}/tables/{table}/items/{id}```**
+```DELETE: /datasets/{dataset}/tables/{table}/items/{id}```
 
 
 
-| Nome| Tipo de Dados|Obrigatório|Localizado Em|Valor Padrão|Descrição|
+| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
-|conjunto de dados|string|sim|path|nenhum|Nome do arquivo do Excel|
+|dataset|string|sim|path|nenhum|Nome do arquivo do Excel|
 |tabela|string|sim|path|nenhum|Nome da tabela do Excel|
 |ID|string|sim|path|nenhum|Identificador exclusivo da linha a ser excluída|
 
@@ -106,18 +103,18 @@ Todas as APIs dão suporte a dados nos formatos JSON e XML.
 |---|---|
 |200|OK|
 |padrão|Falha na Operação.|
-------
+
 
 
 
 ### Atualiza uma linha existente em uma tabela do Excel
-**```PATCH: /datasets/{dataset}/tables/{table}/items/{id}```**
+```PATCH: /datasets/{dataset}/tables/{table}/items/{id}```
 
 
 
-| Nome| Tipo de Dados|Obrigatório|Localizado Em|Valor Padrão|Descrição|
+| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
-|conjunto de dados|string|sim|path|nenhum|Nome do arquivo do Excel|
+|dataset|string|sim|path|nenhum|Nome do arquivo do Excel|
 |tabela|string|sim|path|nenhum|Nome da tabela do Excel|
 |ID|string|sim|path|nenhum|Identificador exclusivo da linha a ser atualizada|
 |item| |sim|corpo|nenhum|Linhas com valores atualizados|
@@ -128,12 +125,12 @@ Todas as APIs dão suporte a dados nos formatos JSON e XML.
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
-------
+|padrão|Falha na operação.|
 
 
 
-## Definição do objeto
+
+## Definições de objeto
 
 #### DataSetsMetadata
 
@@ -209,6 +206,6 @@ Todas as APIs dão suporte a dados nos formatos JSON e XML.
 
 
 ## Próximas etapas
-[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md) [Criar um power app](../power-apps/powerapps-get-started-azure-portal.md)
+[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md) [Criar um PowerApp](../power-apps/powerapps-get-started-azure-portal.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

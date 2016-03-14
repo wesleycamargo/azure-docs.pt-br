@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="02/25/2016" 
 	ms.author="awills"/>
 
 # Realizando a amostragem, filtrando e pré-processando a telemetria no SDK do Application Insights
@@ -24,8 +24,6 @@ Você pode escrever e configurar plug-ins para o SDK do Application Insights, a 
 Atualmente, esses recursos estão disponíveis para o SDK do ASP.NET.
 
 * A [Amostragem](#sampling) reduz o volume de telemetria sem afetar as estatísticas. Ela mantém juntos os pontos de dados relacionadas para que você possa navegar entre eles para diagnosticar um problema. No portal, as contagens totais são multiplicadas para compensar a amostragem.
- * A amostragem de taxa fixa permite determinar a porcentagem de eventos que são transmitidos.
- * A amostragem adaptável (o padrão para o SDK do ASP.NET de 2.0.0-beta3) ajusta automaticamente a taxa de amostragem de acordo com seu volume de telemetria. Você pode definir um volume de destino.
 * A [filtragem](#filtering) permite selecionar ou modificar a telemetria no SDK antes que ela seja enviada ao servidor. Por exemplo, você pode reduzir o volume de telemetria excluindo as solicitações de robôs. Essa é uma abordagem mais básica para reduzir o tráfego comparado à amostragem. Ela permite um maior controle sobre o que é transmitido, mas você precisa estar ciente de que ela afetará as estatísticas - por exemplo, se você filtrar todas as solicitações bem-sucedidas.
 * [Adicionar propriedades](#add-properties) a qualquer telemetria enviada do seu aplicativo, incluindo a telemetria dos módulos padrão. Por exemplo, você pode adicionar valores calculados ou números de versão pelos qual os dados serão filtrados no portal.
 * [A API do SDK](app-insights-api-custom-events-metrics.md) é usada para enviar eventos personalizados e métricas.
@@ -42,10 +40,15 @@ Antes de começar:
 
 [Amostragem](app-insights-sampling.md) é maneira recomendada de reduzir o tráfego enquanto preserva estatísticas precisas. O filtro seleciona itens relacionados para que você possa navegar entre os itens no diagnóstico. As contagens de eventos são ajustadas no Metric Explorer para compensar os itens filtrados.
 
-* A amostragem adaptável é recomendada. Ela ajusta automaticamente a porcentagem de amostragem para atingir um determinado volume de solicitações. Disponível atualmente somente para telemetria ASP.NET do lado do servidor.  
+* A amostragem adaptável é recomendada. Ela ajusta automaticamente a porcentagem de amostragem para atingir um determinado volume de solicitações. Disponível atualmente somente para telemetria ASP.NET do lado do servidor. 
 * A [amostragem de taxa fixa](app-insights-sampling.md) também está disponível. Especifique a porcentagem de amostragem. Disponível para o código do aplicativo Web ASP.NET e páginas Web do JavaScript. O cliente e o servidor sincronizarão suas amostragens para que, na Pesquisa, você possa navegar entre exibições de página e solicitações relacionadas.
+* A amostragem de ingestão funciona conforme a telemetria é recebida no portal do Application Insights e, portanto, ela pode ser usada, independentemente de qual SDK esteja sendo usado. Ela não reduz o tráfego de telemetria na rede, mas sim o volume processado e armazenado no Application Insights. Somente a telemetria retida é contada em sua cota mensal. 
 
-### Para habilitar a amostragem
+### Para habilitar a amostragem de ingestão
+
+Na barra Configurações, abra a folha Cotas e Preço. Clique em Amostragem e selecione uma taxa de amostragem.
+
+### Para habilitar a amostragem adaptável
 
 **Atualize os pacotes NuGet** de seu projeto para a versão de *pré-lançamento* mais recente do Application Insights: clique com o botão direito do mouse no projeto no Gerenciador de Soluções, marque a opção **Incluir pré-lançamento** e procure por Microsoft.ApplicationInsights.Web.
 
@@ -404,4 +407,4 @@ Você pode adicionar quantos inicializadores desejar.
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

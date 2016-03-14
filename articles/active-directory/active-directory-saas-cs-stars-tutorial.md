@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="02/29/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ O objetivo deste tutorial é mostrar a você como integrar o Alcumus Info Exchan
 
 - Você pode controlar no Azure AD quem tem acesso ao CS Stars 
 - Você pode habilitar seus usuários a fazerem logon automaticamente no CS Stars (logon único) com suas contas do Azure AD
-- Você pode gerenciar suas contas em um local central – o Portal do Active Directory do Azure
+- Gerenciar suas contas em um único local: o Portal clássico do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
@@ -35,7 +35,7 @@ Para configurar a integração do Azure AD ao CS Stars, você precisa dos seguin
 - Uma assinatura habilitada para logon único do CS Stars
 
 
-> [AZURE.NOTE]Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+> [AZURE.NOTE] Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 
 
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
@@ -56,7 +56,7 @@ Para configurar a integração do CS Stars ao Azure AD, você precisa adicionar 
 
 **Para adicionar o CS Stars da galeria, execute as seguintes etapas:**
 
-1. No **Portal de Gerenciamento do Azure**, no painel de navegação esquerdo, clique em **Active Directory**. <br><br>![Active Directory][1]<br>
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. <br><br>![Active Directory][1]<br>
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
@@ -87,11 +87,11 @@ Para configurar e testar o logon único do Azure AD com o CS Stars, você precis
 
 ### Configuração do logon único do AD do Azure
 
-O objetivo desta seção é habilitar o logon único do Azure AD no portal do Azure AD e configurar o logon único em seu aplicativo do CS Stars.<br>
+O objetivo desta seção é habilitar o logon único do Azure AD no portal clássico do Azure e configurar o logon único em seu aplicativo do CS Stars.<br>
 
 **Para configurar o logon único do Azure AD com o CS Stars, execute as seguintes etapas:**
 
-1. No portal do Azure AD, na página de integração de aplicativos do **CS Stars**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**. <br><br>![Configurar o logon único][6]<br>
+1. No portal clássico do Azure, na página de integração de aplicativos do **CS Stars**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**. <br><br>![Configurar o logon único][6]<br>
 
 2. Na página **Como você deseja que os usuários façam logon no CS Stars**, selecione **Logon único do Azure AD** e clique em **Próximo**.<br><br>![Logon único do AD do Azure][7]<br>
 
@@ -99,7 +99,7 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal do Az
  
      3\.1 na caixa de texto **URL de Logon Único**, digite a URL utilizada pelos usuários para entrar no aplicativo CS Stars (por exemplo, **https://uat.csstars.com/enterprise/default.cmdx?ssoclient=C234UAT2*).
 
-     >[AZURE.NOTE]Se você não souber qual é o valor correto, contate o seu representante Marsh ClearSight.
+     > [AZURE.NOTE] Se você não souber qual é o valor correto, contate o seu representante Marsh ClearSight.
 
      3\.2. Clique em **Próximo**.
  
@@ -108,19 +108,19 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal do Az
 5. Para habilitar o logon único para o CS Stars, entre em contato com seu representante Marsh ClearSight e envie o arquivo de metadados.
 
 
-6. No portal do Azure AD, selecione a confirmação de configuração de logon único e clique em **Próximo**. <br><br>![O que é o Azure AD Connect][10]<br>
+6. No Portal clássico do Azure, selecione a confirmação de configuração de logon único e clique em **Avançar**. <br><br>![O que é o Azure AD Connect][10]<br>
 
 7. Na página **Confirmação de logon único**, clique em **Concluir**.<br><br>![O que é o Azure AD Connect][11]<br>
 
 
 
 
-### Criação de um usuário de teste do Azure AD
-O objetivo desta seção é criar um usuário de teste no portal do Azure chamado Brenda Fernandes.<br> Na lista de usuários, selecione **Brenda Fernandes**. <br><br>![Criar um usuário do AD do Azure][20]<br>
+### Criação de um usuário de teste do AD do Azure
+O objetivo desta seção é criar um usuário de teste no Portal clássico do Azure chamado Brenda Fernandes.<br> Na lista de usuários, selecione **Brenda Fernandes**. <br><br>![Criar um usuário do AD do Azure][20]<br>
 
-**Para criar um usuário de teste no Azure AD, execute as seguintes etapas:**
+**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **Portal de Gerenciamento do Azure**, no painel de navegação esquerdo, clique em **Active Directory**. <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-amazon-web-service/create_aaduser_02.png)<br> 
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-amazon-web-service/create_aaduser_02.png)<br> 
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
@@ -136,7 +136,7 @@ O objetivo desta seção é criar um usuário de teste no portal do Azure chamad
 6.  Na caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas: <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-amazon-web-service/create_aaduser_06.png)<br>
   1. Na caixa de texto **Nome**, digite **Brenda**.  
   2. Na caixa de texto **Sobrenome**, digite **Fernandes**.
-  3. Na caixa de texto **Nome de exibição**, digite **Brenda Fernandes**.
+  3. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
   4. Na lista **Função**, selecione **Usuário**.
   5. Clique em **Próximo**.
 
@@ -163,7 +163,7 @@ O objetivo desta seção é habilitar que Brenda Fernandes use o logon único do
 
 **Para atribuir Brenda Fernandes ao CS Stars, execute as seguintes etapas:**
 
-1. No portal do Azure, para abrir o modo de exibição de aplicativos, no modo de exibição de diretório, clique em **aplicativos** no menu superior. <br><br>![Atribuir usuário][201]<br>
+1. No portal clássico do Azure, para abrir o modo de exibição de aplicativos, no modo de exibição de diretório, clique em **Aplicativos** no menu superior. <br><br>![Atribuir usuário][201]<br>
 2. Na lista de aplicativos, selecione **CS Stars**. <br><br>![Atribuir usuário][202]<br>
 1. No menu na parte superior, clique em **Usuários**. <br><br><br>![Atribuir usuário][203]<br>
 1. Na lista de usuários, selecione **Brenda Fernandes**.
@@ -205,4 +205,4 @@ O objetivo desta seção é testar a sua configuração de logon único do Azure
 
 [400]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_csstars_403.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0302_2016-->

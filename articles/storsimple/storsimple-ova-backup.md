@@ -12,25 +12,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/22/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli" />
 
-# Fazer backup de seu StorSimple Virtual Array (visualização)
+# Fazer backup de sua Matriz Virtual StorSimple
 
 ## Visão geral 
 
-Os tutoriais se aplicam ao Microsoft Azure StorSimple Virtual Array (também conhecido como o dispositivo virtual local StorSimple ou o dispositivo virtual StorSimple) executando somente a v.1.1.1.0 (visualização).
+Este tutorial se aplica ao Microsoft Azure StorSimple Virtual Array (também conhecido como o dispositivo virtual local StorSimple ou dispositivo virtual StorSimple) que executa a versão GA (disponibilidade geral) de março de 2016.
 
 O StorSimple Virtual Array é um dispositivo virtual local de armazenamento em nuvem híbrida que pode ser configurado como servidor de arquivos ou um servidor iSCSI. Ele pode criar backups, restaurar de backups e executar failover de dispositivo, se houver necessidade de recuperação de desastre. Quando configurado como um servidor de arquivos, ele também permite a recuperação em nível de item. Este tutorial descreve como usar o portal clássico do Azure ou a interface do usuário da Web do StorSimple para criar backups agendados e manuais do seu StorSimple Virtual Array.
 
->[AZURE.IMPORTANT] 
->
->- A StorSimple Virtual Array está em visualização e é destinada para fins de planejamento de implantação e avaliação. Não há suporte para a instalação dessa visualização em um ambiente de produção. 
->- Se você tiver quaisquer problemas com a StorSimple Virtual Array, publique-os no [fórum do MSDN do StorSimple](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple).
 
 ## Fazer backup de compartilhamentos e volumes
 
-Backups oferecem proteção pontual, melhoram a capacidade de recuperação e minimizam os tempos de compartilhamentos e volumes. Você pode fazer backup de um compartilhamento ou volume no seu dispositivo StorSimple de duas maneiras: **Agendada** ou **Manual**. Cada um desses métodos é discutido nas seções a seguir.
+Backups oferecem proteção pontual, melhoram a capacidade de recuperação e minimizam os tempos de compartilhamentos e volumes. É possível fazer backup de um compartilhamento ou volume em seu dispositivo StorSimple de duas maneiras: **Agendada** ou **Manual**. Cada um desses métodos é discutido nas seções a seguir.
 
 > [AZURE.NOTE] Nesta versão, os backups agendados são criados por uma política padrão que é executada diariamente em um período especificado e faz backup de todos os volumes ou compartilhamentos no dispositivo. Não é possível criar políticas personalizadas para backups agendados no momento.
 
@@ -44,7 +40,7 @@ Execute as etapas a seguir no [portal clássico do Azure](https://manage.windows
 
 1. Navegue até a guia **Configuração** do dispositivo.
 
-2. Na seção **Backup**, especifique o horário de início para o backup diário.
+2. Na seção **Backup**, especifique a hora de início para o backup diário.
 
 3. Clique em **Salvar**.
 
@@ -56,7 +52,7 @@ Além de backups agendados, você pode fazer um backup manual (sob demanda) a qu
 
 1. Navegue até a guia **Compartilhamentos** ou até a guia **Volumes**.
 
-2. Na parte inferior da página, clique em **Fazer backup de tudo**. Você precisará verificar se gostaria de fazer o backup agora. Clique no ícone de verificação ![ícone de verificação](./media/storsimple-ova-backup/image3.png) para prosseguir com o backup.
+2. Na parte inferior da página, clique em **Fazer backup de tudo**. Você precisará verificar se gostaria de fazer o backup agora. Clique no ícone de verificação ![ícone de verificação](./media/storsimple-ova-backup/image3.png) para continuar com o backup.
 
     ![confirmação de backup](./media/storsimple-ova-backup/image4.png)
 
@@ -68,7 +64,7 @@ Além de backups agendados, você pode fazer um backup manual (sob demanda) a qu
 
     ![trabalho de backup criado](./media/storsimple-ova-backup/image7.png)
 
-3. Para controlar o andamento do trabalho, clique no ícone **Exibir trabalho**.
+3. Para acompanhar o progresso do trabalho, clique no ícone **Exibir Trabalho**.
 
 4. Depois que o trabalho de backup for concluído, vá para a guia **Catálogo de backup**. Você deve ver o backup completo.
 
@@ -106,6 +102,6 @@ Assista ao vídeo para ver como você pode criar compartilhamentos, fazer backup
 
 ## Próximas etapas
 
-Saiba mais sobre a [administração do StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+Saiba mais sobre como [administrar o StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

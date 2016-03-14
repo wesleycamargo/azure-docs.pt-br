@@ -74,6 +74,7 @@ Cada back-end de Node.js do Aplicativo Móvel do Serviço de Aplicativo do Azure
 Esse aplicativo cria uma API Web simples otimizada para celular com um único ponto de extremidade, (`/tables/TodoItem`) que fornece acesso não autenticado a um armazenamento de dados SQL subjacente usando um esquema dinâmico. Ele é adequado para os seguintes inícios rápidos de biblioteca de cliente:
 
 - [Início rápido do cliente Android]
+- [Início rápido do cliente Apache Cordova]
 - [Início rápido do cliente iOS]
 - [Início rápido de cliente Windows Store]
 - [Início rápido do cliente Xamarin.iOS]
@@ -107,7 +108,7 @@ O Visual Studio 2015 exige uma extensão para desenvolver aplicativos Node.js no
 
 8. Clique em **Fechar**.
 
-9. Abra o arquivo _app.js_ para adicionar suporte ao SDK de Aplicativos Móveis do Azure. Na linha 6, na parte inferior das exigências de declarações da biblioteca, adicione o seguinte código:
+9. Abra o arquivo _app.js_ para adicionar suporte ao SDK de Aplicativos Móveis do Azure: Na linha 6, na parte inferior das exigências de declarações da biblioteca, adicione o seguinte código:
 
         var bodyParser = require('body-parser');
         var azureMobileApps = require('azure-mobile-apps');
@@ -159,13 +160,13 @@ O Serviço de Aplicativo do Azure tem recomendações específicas para aplicati
 - Como [especificar a versão do Node]
 - Como [usar módulos do Node]
 
-### <a name="howto-enable-homepage"></a>Como habilitar uma home page para o seu aplicativo
+### <a name="howto-enable-homepage"></a>Como: habilitar uma home page para seu aplicativo
 
 Muitos aplicativos são uma combinação de aplicativos Web e móveis, e a estrutura do ExpressJS permite a combinação das duas facetas. Às vezes, no entanto, talvez você queira implementar apenas uma interface móvel. É útil fornecer uma página de aterrissagem para garantir que o serviço de aplicativo esteja em execução. Você pode fornecer sua própria home page ou habilitar uma home page temporária. Para habilitar uma home page temporária, ajuste o construtor do Aplicativo Móvel para o seguinte:
 
     var mobile = azureMobileApps({ homePage: true });
 
-Você pode adicionar essa configuração ao seu arquivo `azureMobile.js` se quiser que essa opção fique disponível apenas quando você desenvolver localmente.
+É possível adicionar essa configuração ao arquivo `azureMobile.js` se quiser que essa opção fique disponível apenas durante o desenvolvimento local.
 
 ## <a name="TableOperations"></a>Operações de tabela
 
@@ -430,6 +431,67 @@ A propriedade de acesso pode assumir um dentre três valores
 
 Se a propriedade de acesso estiver indefinida, o acesso não autenticado será permitido.
 
+### <a name="howto-tables-getidentity"></a>Como: usar declarações da autenticação com as tabelas
+
+É possível configurar um número de declarações que são solicitadas durante a configuração da autenticação. Normalmente, essas declarações não estão disponíveis por meio do objeto `context.user`. No entanto, elas podem ser recuperadas usando o método `context.user.getIdentity()`. O método `getIdentity()` retorna uma Promessa que resolve um objeto. O objeto é inserido pelo método de autenticação (facebook, google, twitter, microsoftaccount ou aad).
+
+Por exemplo, se você configurar a autenticação da Conta da Microsoft e solicitar a declaração dos endereços de email, é possível adicionar o endereço de email ao registro com o seguinte:
+
+    var azureMobileApps = require('azure-mobile-apps');
+
+    // Create a new table definition
+    var table = azureMobileApps.table();
+
+    table.columns = {
+        "emailAddress": "string",
+        "text": "string",
+        "complete": "boolean"
+    };
+    table.dynamicSchema = false;
+    table.access = 'authenticated';
+
+    /**
+    * Limit the context query to those records with the authenticated user email address
+    * @param {Context} context the operation context
+    * @returns {Promise} context execution Promise
+    */
+    function queryContextForEmail(context) {
+        return context.user.getIdentity().then((data) => {
+            context.query.where({ emailAddress: data.microsoftaccount.claims.emailaddress });
+            return context.execute();
+        });
+    }
+
+    /**
+    * Adds the email address from the claims to the context item - used for
+    * insert operations
+    * @param {Context} context the operation context
+    * @returns {Promise} context execution Promise
+    */
+    function addEmailToContext(context) {
+        return context.user.getIdentity().then((data) => {
+            context.item.emailAddress = data.microsoftaccount.claims.emailaddress;
+            return context.execute();
+        });
+    }
+
+    // Configure specific code when the client does a request
+    // READ - only return records belonging to the authenticated user
+    table.read(queryContextForEmail);
+
+    // CREATE - add or overwrite the userId based on the authenticated user
+    table.insert(addEmailToContext);
+
+    // UPDATE - only allow updating of record belong to the authenticated user
+    table.update(queryContextForEmail);
+
+    // DELETE - only allow deletion of records belong to the authenticated uer
+    table.delete(queryContextForEmail);
+
+    module.exports = table;
+
+Para ver quais declarações estão disponíveis, use um navegador da Web para exibir o ponto de extremidade do `/.auth/me` de seu site.
+
 ### <a name="howto-tables-disabled"></a>Como desabilitar o acesso a operações de tabela específicas
 
 Além de aparecer na tabela, a propriedade de acesso pode ser usada para controlar operações individuais. Há quatro operações:
@@ -547,7 +609,7 @@ Ao criar um novo aplicativo, você pode querer propagar uma tabela com dados. Is
 
 É recomendável que você chame explicitamente o método Initialize () para criar a tabela quando o serviço começar a ser executado.
 
-### <a name="Swagger"></a>Habilitar o suporte do Swagger
+### <a name="Swagger"></a>Habilitar o suporte para o Swagger
 
 Os Aplicativos Móveis do Serviço de Aplicativo do Azure vêm com suporte interno para o [Swagger]. Para habilitar o suporte do Swagger, primeiro instale a swagger-ui como uma dependência:
 
@@ -561,9 +623,9 @@ Provavelmente você quer apenas habilitar o suporte do Swagger em edições de d
 
     var mobile = azureMobileApps({ swagger: process.env.NODE_ENV !== 'production' });
 
-O ponto de extremidade do Swagger estará localizado em http://_yoursite_.azurewebsites.net/swagger. Você pode acessar a interface do usuário do Swagger por meio do ponto de extremidade do `/swagger/ui`. Observe que o Swagger produz um erro para o ponto de extremidade /, se você exigir a autenticação em todo o seu aplicativo. Para obter melhores resultados, opte por permitir solicitações não autenticadas nas configurações de Autenticação/Autorização do Serviço de Aplicativo do Azure e controle a autenticação usando a propriedade `table.access`.
+O ponto de extremidade do Swagger estará localizado em http://_yoursite_.azurewebsites.net/swagger. É possível acessar a interface do usuário do Swagger por meio do ponto de extremidade do `/swagger/ui`. Observe que o Swagger produz um erro para o ponto de extremidade /, se você exigir a autenticação em todo o seu aplicativo. Para obter melhores resultados, opte por permitir solicitações não autenticadas nas configurações de Autenticação/Autorização do Serviço de Aplicativo do Azure e controle a autenticação usando a propriedade `table.access`.
 
-Você também pode adicionar a opção do Swagger ao seu arquivo `azureMobile.js` se quer o suporte do Swagger apenas ao desenvolver localmente.
+Também é possível adicionar a opção do Swagger ao arquivo `azureMobile.js` se quiser o suporte do Swagger apenas durante o desenvolvimento local.
 
 ## <a name="CustomAPI"></a>APIs personalizadas
 
@@ -645,9 +707,9 @@ Você também pode especificar a autenticação em operações específicas:
 
 O mesmo token que é usado para o ponto de extremidade de tabelas deve ser usado para APIs personalizadas que requerem autenticação.
 
-### <a name="howto-customapi-auth"></a>Como manipular transferências de arquivos grandes
+### <a name="howto-customapi-auth"></a>Como: manipular transferências de arquivos grandes
 
-O SDK dos Aplicativos Móveis do Azure usa a [middleware analisador de corpo](https://github.com/expressjs/body-parser) para aceitar e decodificar o conteúdo do corpo no seu envio. Você pode pré-configurar o analisador de corpo para aceitar carregamentos de arquivos maiores:
+O SDK dos Aplicativos Móveis do Azure usa o [middleware de analisador de corpo](https://github.com/expressjs/body-parser) para aceitar e decodificar o conteúdo do corpo em seu envio. Você pode pré-configurar o analisador de corpo para aceitar carregamentos de arquivos maiores:
 
 	var express = require('express'),
         bodyParser = require('body-parser'),
@@ -671,7 +733,7 @@ O SDK dos Aplicativos Móveis do Azure usa a [middleware analisador de corpo](ht
 
 Você pode ajustar o limite de 50 MB que mostramos acima. Observe que o arquivo será codificado em base 64 antes da transmissão, o que aumentará o tamanho do upload real.
 
-### <a name="howto-customapi-sql"></a>Como executar instruções SQL personalizadas
+### <a name="howto-customapi-sql"></a>Como: executar instruções SQL personalizadas
 
 O SDK de Aplicativos Móveis do Azure permite o acesso a todo o Contexto por meio do objeto da solicitação, permitindo que você execute facilmente instruções SQL com parâmetros para o provedor de dados definido:
 
@@ -766,6 +828,7 @@ Também é possível executar, do editor, o código no site
 
 <!-- URLs -->
 [Início rápido do cliente Android]: app-service-mobile-android-get-started.md
+[Início rápido do cliente Apache Cordova]: app-service-mobile-cordova-get-started.md
 [Início rápido do cliente iOS]: app-service-mobile-ios-get-started.md
 [Início rápido do cliente Xamarin.iOS]: app-service-mobile-xamarin-ios-get-started.md
 [Início rápido do cliente Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md
@@ -803,4 +866,4 @@ Também é possível executar, do editor, o código no site
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

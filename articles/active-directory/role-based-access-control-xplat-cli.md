@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Gerenciando o controle de acesso baseado em função com a interface de linha de comando do Azure"
-	description="Gerenciando o controle de acesso baseado em função com a interface de linha de comando do Azure"
+	pageTitle="Gerenciando o Controle de Acesso Baseado em Função com a Interface de Linha de Comando do Azure"
+	description="Gerenciando o controle de acesso baseado em função com a Interface de Linha de Comando do Azure"
 	services="active-directory"
 	documentationCenter="na"
 	authors="kgremban"
@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [Windows PowerShell](role-based-access-control-powershell.md)
-- [Azure CLI](/role-based-access-control-xplat-cli-install.md)
+- [CLI do Azure](role-based-access-control-xplat-cli.md)
 
 O RBAC (Controle de Acesso baseado em função) no Portal do Azure e na API do Gerenciador de Recursos do Azure permite que você gerencie o acesso a sua assinatura e aos recursos de uma maneira detalhada. Com esse recurso, você pode conceder acesso aos usuários, grupos ou entidades de serviço do Active Directory atribuindo algumas funções para eles em um determinado escopo.
 
@@ -30,10 +30,10 @@ Neste tutorial, você aprenderá a usar a CLI do Azure para gerenciar o RBAC. Es
 
 ## Pré-requisitos ##
 
-Para poder usar a CLI do AZURE para gerenciar o RBAC, você deve ter o seguinte:
+Antes de poder usar a CLI do Azure para gerenciar o RBAC, é necessário ter o seguinte:
 
 - CLI do Azure versão 0.8.8 ou posterior. Para instalar a versão mais recente e associá-la à sua assinatura do Azure, consulte [Instalar e configurar a CLI do Azure](../xplat-cli-install.md).
-- Leia também os tutoriais a seguir para se familiarizar com a configuração e uso do Gerenciador de Recursos do Azure na CLI do AZURE: [Usando a CLI do Azure com o Gerenciamento de Recursos](../xplat-cli-azure-resource-manager.md)
+- Leia também os seguintes tutoriais para se familiarizar com a configuração e o uso do Azure Resource Manager na CLI do Azure: [Usando a CLI do Azure com o Resource Manager](../xplat-cli-azure-resource-manager.md)
 
 ## Neste tutorial ##
 
@@ -140,12 +140,12 @@ Quando você tenta executar outros cmdlets como `azure group create`, receberá 
 
 Para saber mais sobre como gerenciar o controle de acesso com base em função com o CLI do Azure e tópicos relacionados:
 
-- [Controle de acesso baseado em função no Azure](../role-based-access-control-configure.md)
+- [Controle de acesso baseado em função no Azure](role-based-access-control-configure.md)
 - [Instalar e configurar a CLI do Azure.](../xplat-cli-install.md)
 - [Usando a CLI do Azure com o Gerenciamento de Recursos](../xplat-cli-azure-resource-manager.md)
-- [Usando grupos de recursos para gerenciar os recursos do Azure](../azure-preview-portal-using-resource-groups.md): aprenda a criar e gerenciar grupos de recursos no Portal de Gerenciamento do Azure.
+- [Usando o Portal do Azure para gerenciar seus recursos do Azure](../azure-portal/resource-group-portal.md): saiba como criar e gerenciar grupos de recursos no portal do Azure.
 - [Blog do Azure](http://blogs.msdn.com/windowsazure): obtenha informações sobre os novos recursos no Azure.
 - [Configurar o controle de acesso com base em função usando o Windows PowerShell](role-based-access-control-powershell.md)
 - [Solucionar problemas do controle de acesso com base em função](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

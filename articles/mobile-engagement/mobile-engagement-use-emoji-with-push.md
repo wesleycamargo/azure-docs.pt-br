@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/22/2015" 
+	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
 #Use o emoticon Emoji em notificações por Push
@@ -41,7 +41,7 @@ Você pode incluir emoticons Emoji em notificações por push em algumas etapas 
 7. Quando você executar um teste ou ativar o anúncio, verá uma notificação com o emoticon conforme especificado.
 
 	![][3] 
-	![][4] 
+	![][4]
 	![][5]
 
 <!-- Images. -->
@@ -52,4 +52,4 @@ Você pode incluir emoticons Emoji em notificações por push em algumas etapas 
 [6]: ./media/mobile-engagement-use-emoji-with-push/Mac_SelectEmoji.png
 [7]: ./media/mobile-engagement-use-emoji-with-push/Windows_SelectEmoji.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0302_2016-->

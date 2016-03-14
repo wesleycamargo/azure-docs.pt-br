@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Visão geral da CDN do Azure" 
-	description="Saiba o que é a CDN (Rede de Distribuição de Conteúdo) do Azure e como usá-la para fornecer conteúdo de alta largura de banda armazenando em cache blobs e conteúdo estático." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="Visão geral da CDN do Azure"
+	description="Saiba o que é a CDN (Rede de Distribuição de Conteúdo) do Azure e como usá-la para fornecer conteúdo de alta largura de banda armazenando em cache blobs e conteúdo estático."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/20/2016" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016" 
 	ms.author="casoper"/>
 
 # Visão geral da CDN (Rede de Distribuição de Conteúdo) do Azure
@@ -28,11 +28,11 @@ A CDN oferece aos desenvolvedores uma solução global de fornecimento de conte�
 Os benefícios do uso da CDN para armazenar em cache dados do Azure incluem:
 
 - Melhor desempenho e experiência de usuário para usuários finais que estão longe de uma fonte de conteúdo e estão usando aplicativos em que muitas "viagens à Internet" são necessárias para carregar conteúdo
-- Grande escala distribuída para lidar melhor com alta carga instantânea, como no início de um evento de lançamento de produto. 
+- Grande escala distribuída para lidar melhor com alta carga instantânea, como no início de um evento de lançamento de produto.
 
 
 >[AZURE.IMPORTANT] Quando você cria ou habilita um ponto de extremidade da CDN, pode levar até 90 minutos para que a propagação seja feita no mundo inteiro.
- 
+
 Quando uma solicitação de um objeto é feita pela primeira vez à CDN, o objeto é recuperado diretamente do local de origem do objeto. Essa origem pode ser uma conta de armazenamento do Azure, um aplicativo Web, um serviço de nuvem ou qualquer origem personalizada que aceite solicitações da Web públicas. Quando uma solicitação é feita usando a sintaxe da CDN, a solicitação é redirecionada para o ponto de extremidade da CDN mais próximo do local em que a solicitação foi feita para fornecer acesso ao objeto. Se o objeto não for encontrado nesse ponto de extremidade, ele será recuperado do serviço e armazenado em cache no ponto de extremidade, em que uma configuração de TTL (vida útil) será mantida para o objeto armazenado em cache.
 
 ## Recursos Standard
@@ -61,4 +61,4 @@ A camada CDN Premium inclui todos os recursos da camada Standard, além desses r
 - [Relatórios avançados de HTTP](cdn-advanced-http-reports.md)
 - [Estatísticas em tempo real](cdn-real-time-stats.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

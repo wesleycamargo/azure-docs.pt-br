@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="02/29/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ O objetivo deste tutorial é mostrar como integrar o O.C. Tanner - AppreciateHub
 
 - Você pode controlar no AD do Azure quem terá acesso ao O.C. Tanner - AppreciateHub 
 - Você pode permitir que seus usuários façam logon automaticamente no O.C. Tanner - AppreciateHub (Logon Único) com suas contas do AD do Azure
-- Você pode gerenciar suas contas em um local central – o Portal do Active Directory do Azure
+- Gerenciar suas contas em um único local: o Portal clássico do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
@@ -35,7 +35,7 @@ Para configurar a integração do AD do Azure ao O.C. Tanner - AppreciateHub, vo
 - Um Logon único do Tanner - AppreciateHub em uma assinatura habilitada
 
 
-> [AZURE.NOTE]Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+> [AZURE.NOTE] Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 
 
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
@@ -56,7 +56,7 @@ Para configurar a integração do O.C. Tanner - AppreciateHub no AD do Azure, vo
 
 **Para adicionar o O.C. Tanner - AppreciateHub da galeria, execute as seguintes etapas:**
 
-1. No **Portal de Gerenciamento do Azure**, no painel de navegação à esquerda, clique em **Active Directory.** <br><br> ![Active Directory][1] <br>
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. <br><br> ![Active Directory][1] <br>
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
@@ -88,11 +88,11 @@ Para configurar e testar o logon único do AD do Azure com O.C. Tanner - Appreci
 
 ### Configuração do logon único do AD do Azure
 
-O objetivo desta seção é habilitar o logon único do AD do Azure no portal do AD do Azure e configurar o logon único em seu aplicativo O.C. Tanner - AppreciateHub.<br>
+O objetivo desta seção é habilitar o logon único do Azure AD no portal clássico do Azure e configurar o logon único em seu aplicativo do O.C. Tanner - AppreciateHub.<br>
 
 **Para configurar o logon único do AD do Azure com O.C. Tanner - AppreciateHub, execute as seguintes etapas:**
 
-1. No portal do AD do Azure, na página de integração do aplicativo **O.C. Tanner - AppreciateHub** clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.<br><br> ![Configurar o logon único][6]
+1. No portal clássico do Azure, na página de integração de aplicativos do **O.C. Tanner - AppreciateHub** clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.<br><br> ![Configurar o logon único][6]
 
 2. Em **Como você gostaria que os usuários fizessem logon na página O.C. Tanner - AppreciateHub**, selecione **Logon Único do AD do Azure** e clique em **Avançar**.<br><br> ![Logon único do AD do Azure][7]
 
@@ -106,7 +106,7 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal do
      
      d. Na caixa de texto **URL do Logon**, antes do valor que você obteve na etapa anterior.
 
-     >[AZURE.NOTE]Se você estiver tendo problemas para obter a URL de resposta do arquivo de metadados, entre em contato com a equipe de suporte do O.C. Tanner - AppreciateHub por meio do [sso@octanner.com](mailto:sso@octanner.com).
+     > [AZURE.NOTE] Se você estiver tendo problemas para obter a URL de resposta do arquivo de metadados, entre em contato com a equipe de suporte do O.C. Tanner - AppreciateHub por meio do [sso@octanner.com](mailto:sso@octanner.com).
 
      e. Clique em **Avançar**.
  
@@ -115,7 +115,7 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal do
 5. Entre em contato com a equipe de suporte do O.C. Tanner - AppreciateHub por meio do xyz, forneça o arquivo de metadados e avise que eles devem habilitar o SSO para você.
 
 
-6. No portal do AD do Azure, selecione a confirmação de configuração de logon único e clique em **Avançar**. <br><br>![O que é o Azure AD Connect][10]
+6. No portal clássico do Azure, selecione a confirmação de configuração de logon único e clique em **Avançar**. <br><br>![O que é o Azure AD Connect][10]
 
 7. Na página **Confirmação de logon único**, clique em **Concluir**. <br><br>![O que é o Azure AD Connect][11]
 
@@ -123,11 +123,11 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal do
 
 
 ### Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no portal do Azure chamado Brenda Fernandes.<br> Na lista Usuários, selecione **Brenda Fernandes**.<br><br>![Criar um usuário do AD do Azure][20]<br>
+O objetivo desta seção é criar um usuário de teste no Portal clássico do Azure chamado Brenda Fernandes.<br> Na lista Usuários, escolha **Brenda Fernandes**.<br><br>![Criar um usuário do AD do Azure][20]<br>
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **Portal de Gerenciamento do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.<br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_02.png) 
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.<br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_02.png) 
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
@@ -178,7 +178,7 @@ O objetivo desta seção é habilitar Brenda Fernandes para usar o logon único 
 
 **Para atribuir Brenda Fernandes ao O.C. Tanner - AppreciateHub, execute as seguintes etapas:**
 
-1. No portal do Azure, para abrir a exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu principal.<br> <br><br>![Atribuir usuário][201]
+1. No portal clássico do Azure, para abrir o modo de exibição de aplicativos, no modo de exibição de diretório, clique em **Aplicativos** no menu superior.<br> <br><br>![Atribuir usuário][201]
 2. Na lista de aplicativos, selecione **O.C. Tanner - AppreciateHub**. <br><br>![Atribuir usuário][202]
 1. No menu na parte superior, clique em **Usuários**.<br> <br><br>![Atribuir usuário][203]
 1. Na lista Usuários, selecione **Brenda Fernandes**.
@@ -223,4 +223,4 @@ O objetivo desta seção é testar sua configuração de logon único do AD do A
 [204]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0302_2016-->

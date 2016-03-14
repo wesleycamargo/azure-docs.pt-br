@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="02/23/2016" 
+	ms.date="02/26/2016" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -32,7 +32,7 @@ Avalie se usar um pool de banco de dados elástico para um grupo de bancos de da
 
 ISVs de SaaS desenvolvem aplicativos criados com base em camadas de dados de grande escala compostas por vários bancos de dados. Um padrão comum de aplicativo é dar a cada cliente seu próprio banco de dados. Mas diferentes clientes têm padrões de uso variados e imprevisíveis, e é difícil prever os requisitos de recursos de cada usuário de banco de dados. Portanto, um ISV pode provisionar excessivamente os recursos causando despesas consideráveis para garantir uma taxa de transferência e tempos de resposta favoráveis para todos os bancos de dados. Ou então, o ISV pode gastar menos com o risco de oferecer uma experiência de baixo desempenho para seus clientes.
 
-Pools de banco de dados elástico no Banco de Dados SQL do Azure permitem que ISVs de SaaS otimizem o desempenho de preço para um grupo de bancos de dados dentro de um orçamento prescrito oferecendo elasticidade de desempenho para cada banco de dados. Pools de banco de dados elástico permitem ao ISV adquirir eDTUs (Unidades de Taxa de Transferência de Banco de Dados Elástico) para um pool compartilhado por vários bancos de dados para acomodar períodos de uso imprevisíveis em bancos de dados individuais. O requisito de eDTU para um pool é determinado pela utilização de agregação de seus bancos de dados. A quantidade de eDTUs disponíveis para o pool é controlado pelo orçamento do ISV. Pools de banco de dados elástico facilitam a tarefa de ISVs ponderarem sobre o impacto do orçamento no desempenho e vice-versa para o pool. Basta o ISV adicionar bancos de dados ao pool, definir as garantias ou limites de eDTU necessários para os bancos de dados e definir a eDTU do pool com base no seu orçamento. Usando pools de banco de dados elástico, os ISVs podem aumentar seu serviço com perfeição desde uma startup lean até uma empresa madura em escala cada vez maior.
+Pools de banco de dados elástico no Banco de Dados SQL do Azure permitem que ISVs de SaaS otimizem o desempenho de preço para um grupo de bancos de dados dentro de um orçamento prescrito oferecendo elasticidade de desempenho para cada banco de dados. Pools de banco de dados elástico permitem ao ISV comprar eDTUs (Unidades de Transação de Banco de Dados elástico) para um pool compartilhado por vários bancos de dados para acomodar períodos de uso imprevisíveis em bancos de dados individuais. O requisito de eDTU para um pool é determinado pela utilização de agregação de seus bancos de dados. A quantidade de eDTUs disponíveis para o pool é controlado pelo orçamento do ISV. Pools de banco de dados elástico facilitam a tarefa de ISVs ponderarem sobre o impacto do orçamento no desempenho e vice-versa para o pool. Basta o ISV adicionar bancos de dados ao pool, definir as garantias ou limites de eDTU necessários para os bancos de dados e definir a eDTU do pool com base no seu orçamento. Usando pools de banco de dados elástico, os ISVs podem aumentar seu serviço com perfeição desde uma startup lean até uma empresa madura em escala cada vez maior.
   
 
 
@@ -435,4 +435,4 @@ Nem todos os bancos de dados individuais são candidatos ideais para pools de ba
 [2]: ./media/sql-database-elastic-pool-guidance/four-databases.png
 [3]: ./media/sql-database-elastic-pool-guidance/twenty-databases.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

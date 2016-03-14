@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+ 	ms.date="03/01/2016"  
 	ms.author="juliako"/>
 
-#Guia de solução de problemas de transmissão ao vivo
+#Guia de solução de problemas de transmissão ao vivo 
 
 Este tópico fornece sugestões sobre como solucionar alguns problemas de transmissão ao vivo.
 
@@ -65,6 +65,12 @@ Esta seção fornece sugestões sobre como solucionar problemas relacionados aos
 
 	**Etapas de solução de problemas**: navegue até a guia “Ponto de Extremidade de Transmissão” na ferramenta AMSE e confirme se há um Ponto de Extremidade de Transmissão com uma unidade de transmissão.
 	
+###Problema: gostaria de ver os logs do codificador 
+
+- **Problema potencial**: não é possível localizar os logs que podem ajudar na depuração de problemas.
+
+	**Etapas de solução de problemas**: normalmente, é possível encontrar os logs do Wirecast em C:\\Usuários{nomedeusuário}\\AppData\\Roaming\\Wirecast\\
+
 >[AZURE.NOTE] Se, depois de seguir as etapas de solução de problemas, você ainda não conseguir realizar a transmissão, envie um tíquete de suporte usando o Portal Clássico do Azure.
 
 ##Roteiros de aprendizagem dos Serviços de Mídia
@@ -75,4 +81,4 @@ Esta seção fornece sugestões sobre como solucionar problemas relacionados aos
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

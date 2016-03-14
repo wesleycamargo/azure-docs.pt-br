@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="Locais POP da CDN (Rede de Distribuição de Conteúdo) do Azure" 
-	description="Este tópico lista os locais POP da CDN (Rede de Distribuição de Conteúdo) do Azure" 
-	services="cdn" 
-	documentationCenter="" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="Locais POP da CDN (Rede de Distribuição de Conteúdo) do Azure"
+	description="Este tópico lista os locais POP da CDN (Rede de Distribuição de Conteúdo) do Azure"
+	services="cdn"
+	documentationCenter=""
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016" 
 	ms.author="casoper"/>
 
 
 #Locais POP da CDN (Rede de Distribuição de Conteúdo) do Azure
 
 Este tópico lista os locais atuais de POP (ponto de presença) da CDN do Microsoft Azure.
-   
+
 
 ![Locais POP da CDN](./media/cdn-pop-locations/CDN_POP_locations_update.png)
 
@@ -76,6 +76,6 @@ Este tópico lista os locais atuais de POP (ponto de presença) da CDN do Micros
 ##Austrália
 
 - Melbourne
-- Sydney 
+- Sydney
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

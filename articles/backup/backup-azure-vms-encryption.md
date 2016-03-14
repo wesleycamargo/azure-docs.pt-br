@@ -3,8 +3,8 @@
    description="Saiba como o Backup do Azure trata dados criptografados usando o BitLocker ou dmcrypt durante o backup de VM de IaaS. Este artigo o prepara para as diferenças nas experiências de backup e restauração ao lidar com discos criptografados."
    services="backup"
    documentationCenter=""
-   authors="aashishr"
-   manager="shreeshd"
+   authors="markgalioto"
+   manager="jwhit"
    editor=""/>
 <tags
    ms.service="backup"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
    ms.date="11/27/2015"
-   ms.author="aashishr"/>
+   ms.author="markgal; jimpark"/>
 
 # Lidando com discos criptografados durante o backup da VM
 
@@ -42,7 +42,7 @@ Há muitas partes dessa solução que precisam ser configuradas e gerenciadas co
 | Restauração de dados | Serviço de Backup do Azure | Use o Backup do Azure para restaurar discos ou uma VM inteira de um ponto de recuperação. Os dados não são descriptografados pelo Backup do Azure como parte da operação de restauração.|
 | Descriptografia | Bitlocker ou dmcrypt | Para ler dados de um disco de dados restaurado ou uma VM restaurada, o software precisa da chave do software de Gerenciamento de Chaves. Sem a chave correta, os dados não podem ser descriptografados. |
 
-> [AZURE.IMPORTANT]O gerenciamento de chaves - incluindo substituição de chave - não é uma parte do Backup do Azure. Esse aspecto deve ser gerenciado de modo independente, mas é muito importante para a operação geral de backup/restauração.
+> [AZURE.IMPORTANT]  O gerenciamento de chaves - incluindo substituição de chave - não é uma parte do Backup do Azure. Esse aspecto deve ser gerenciado de modo independente, mas é muito importante para a operação geral de backup/restauração.
 
 ## CloudLink SecureVM
 
@@ -62,4 +62,4 @@ Quando você precisar substituir ou alterar as chaves para as VMs que têm backu
 - [Guia de implantação - PDF](http://www.cloudlinktech.com/Azure/CL_SecureVM_4_0_DG_EMC_Azure_R2.pdf)
 - [Implantando e usando o SecureVM - vídeo](https://www.youtube.com/watch?v=8AIRe92UDNg)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -14,15 +14,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # Introdução à API do SFTP
-Conecte-se a um servidor SFTP para gerenciar seus arquivos. Você pode realizar tarefas diferentes no servidor do SFTP, como carregar arquivos, excluí-los e muito mais.
+Conecte-se a um servidor SFTP para gerenciar seus arquivos. Você pode realizar tarefas diferentes no servidor do SFTP, como carregar arquivos, excluí-los e muito mais. A API do SFTP pode ser usada em:
 
-A API do SFTP pode ser usada de aplicativos lógicos.
+- Aplicativos lógicos
 
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos. Para a versão do esquema 2014-12-01-preview, clique em [Conector do SFTP](../app-service-logic/app-service-logic-connector-sftp.md).
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos. Para obter a versão do esquema 2014-12-01-preview, clique em [Conector do SFTP](../app-service-logic/app-service-logic-connector-sftp.md).
 
 Com o SFTP, você pode:
 
@@ -30,7 +30,7 @@ Com o SFTP, você pode:
 - Usar um gatilho quando um arquivo for atualizado.
 - Usar ações para criar arquivos, excluí-los e muito mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, você pode obter o conteúdo de um arquivo e então atualizar um banco de dados SQL. 
 
-Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para adicionar uma operação nos aplicativos lógicos, veja [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 
 ## Gatilhos e ações
@@ -38,7 +38,7 @@ A API do SFTP tem os gatilhos e as ações disponíveis a seguir.
 
 Gatilhos | Ações
 --- | ---
-<ul><li>Quando um arquivo é criado ou modificado </li></ul> | <ul><li>Criar arquivo</li><li>Copiar arquivo</li><li>Excluir arquivo</li><li>Extrair pasta</li><li>Obter conteúdo do arquivo</li><li>Obter o conteúdo do arquivo usando o caminho</li><li>Obter metadados do arquivo</li><li>Obter metadados do arquivo usando o caminho</li><li>Atualizar arquivo</li><li>Quando um arquivo é criado ou modificado </li></ul>
+<ul><li>Quando um arquivo é criado ou modificado </li></ul> | <ul><li>Criar arquivo</li><li>Copiar arquivo</li><li>Excluir arquivo</li><li>Extrair pasta</li><li>Obter conteúdo do arquivo</li><li>Obter conteúdo do arquivo usando o caminho</li><li>Obter metadados do arquivo</li><li>Obter metadados do arquivo usando o caminho</li><li>Atualizar arquivo</li><li>Quando um arquivo é criado ou modificado </li></ul>
 
 Todas as APIs dão suporte a dados nos formatos JSON e XML.
 
@@ -51,7 +51,7 @@ Ao adicionar essa API aos seus aplicativos lógicos, insira os seguintes valores
 |Endereço do Servidor Host| Sim | Insira o FQDN (domínio totalmente qualificado) ou o endereço IP do servidor SFTP.|
 |Nome de usuário| Sim | Insira o nome de usuário para se conectar ao Servidor SFTP.|
 |Senha | Sim | Insira a senha do nome de usuário.|
-|Impressão Digital da Chave de Host do Servidor SSH | Sim | Insira a impressão digital da chave pública de host para o servidor SSH. <br/><br/>Normalmente, o administrador do servidor pode dar a você essa chave. Você também pode usar as ferramentas ```WinSCP``` ou ```ssh-keygen-g3 -F``` para obter a impressão digital da chave. | 
+|Impressão Digital da Chave de Host do Servidor SSH | Sim | Insira a impressão digital da chave pública de host para o servidor SSH. <br/><br/>Normalmente, o administrador do servidor pode dar essa chave a você. Também é possível usar as ferramentas ```WinSCP``` ou ```ssh-keygen-g3 -F``` para obter a impressão digital da chave. | 
 
 Depois de criar a conexão, insira as propriedades do SFTP, como o caminho da pasta ou o arquivo. A **referência da API REST** neste tópico descreve essas propriedades.
 
@@ -59,9 +59,10 @@ Depois de criar a conexão, insira as propriedades do SFTP, como o caminho da pa
 
 
 ## Referência da API REST do Swagger
+Aplica-se à versão: 1.0.
 
 ### Criar arquivo
-Carrega um arquivo no SFTP. ```POST: /datasets/default/files```
+Carrega um arquivo no SFTP.```POST: /datasets/default/files```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -73,10 +74,10 @@ Carrega um arquivo no SFTP. ```POST: /datasets/default/files```
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|padrão|Falha na operação.|
 
 ### Copiar arquivo
-Copia um arquivo para o SFTP. ```POST: /datasets/default/copyFile```
+Copia um arquivo no SFTP.```POST: /datasets/default/copyFile```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -88,10 +89,10 @@ Copia um arquivo para o SFTP. ```POST: /datasets/default/copyFile```
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|padrão|Falha na operação.|
 
 ### Excluir arquivo 
-Exclui um arquivo no SFTP. ```DELETE: /datasets/default/files/{id}```
+Exclui um arquivo no SFTP.```DELETE: /datasets/default/files/{id}```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -104,7 +105,7 @@ Exclui um arquivo no SFTP. ```DELETE: /datasets/default/files/{id}```
 |padrão|Falha na Operação.|
 
 ### Extrair pasta
-Extrai um arquivo do arquivo morto para uma pasta usando o SFTP (exemplo: .zip). ```POST: /datasets/default/extractFolderV2```
+Extrai um arquivo morto para uma pasta usando o SFTP (exemplo: .zip).```POST: /datasets/default/extractFolderV2```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -119,7 +120,7 @@ Extrai um arquivo do arquivo morto para uma pasta usando o SFTP (exemplo: .zip).
 |padrão|Falha na Operação.|
 
 ### Obter conteúdo do arquivo
-Recupera o conteúdo do arquivo do SFTP usando a id. ```GET: /datasets/default/files/{id}/content```
+Recupera o conteúdo do arquivo do SFTP usando a ID.```GET: /datasets/default/files/{id}/content```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -129,11 +130,11 @@ Recupera o conteúdo do arquivo do SFTP usando a id. ```GET: /datasets/default/f
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|padrão|Falha na operação.|
 
 
 ### Obter o conteúdo do arquivo usando o caminho
-Recupera o conteúdo do arquivo do SFTP usando o caminho. ```GET: /datasets/default/GetFileContentByPath```
+Recupera o conteúdo do arquivo do SFTP usando o caminho.```GET: /datasets/default/GetFileContentByPath```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -147,7 +148,7 @@ Recupera o conteúdo do arquivo do SFTP usando o caminho. ```GET: /datasets/defa
 
 
 ### Obter Metadados do Arquivo 
-Recupera os metadados do arquivo do SFTP usando a ID do arquivo. ```GET: /datasets/default/files/{id}```
+Recupera os metadados do arquivo do SFTP usando a ID do arquivo.```GET: /datasets/default/files/{id}```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -161,7 +162,7 @@ Recupera os metadados do arquivo do SFTP usando a ID do arquivo. ```GET: /datase
 
 
 ### Obter Metadados do Arquivo usando o caminho
-Recupera os metadados do arquivo do SFTP usando o caminho. ```GET: /datasets/default/GetFileByPath```
+Recupera os metadados do arquivo do SFTP usando o caminho.```GET: /datasets/default/GetFileByPath```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -171,11 +172,11 @@ Recupera os metadados do arquivo do SFTP usando o caminho. ```GET: /datasets/def
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|padrão|Falha na operação.|
 
 
 ### Atualizar arquivo
-Atualiza o conteúdo do arquivo usando SFTP. ```PUT: /datasets/default/files/{id}```
+Atualiza o conteúdo do arquivo usando o SFTP.```PUT: /datasets/default/files/{id}```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -190,7 +191,7 @@ Atualiza o conteúdo do arquivo usando SFTP. ```PUT: /datasets/default/files/{id
 
 
 ### Quando um arquivo é criado ou modificado 
-Dispara um fluxo quando um arquivo é modificado em uma pasta do SFTP. ```GET: /datasets/default/triggers/onupdatedfile```
+Dispara um fluxo quando um arquivo é modificado no SFTP.```GET: /datasets/default/triggers/onupdatedfile```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -200,7 +201,7 @@ Dispara um fluxo quando um arquivo é modificado em uma pasta do SFTP. ```GET: /
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|padrão|Falha na operação.|
 
 
 ## Definições de objeto
@@ -249,4 +250,4 @@ Dispara um fluxo quando um arquivo é modificado em uma pasta do SFTP. ```GET: /
 ## Próximas etapas
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

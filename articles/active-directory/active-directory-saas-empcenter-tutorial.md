@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="12/18/2015" 
+    ms.date="02/29/2016" 
     ms.author="jeedes" />
 
 #Tutorial: integração do Active Directory do Azure ao EmpCenter
@@ -37,7 +37,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos para o EmpCenter, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-empcenter-tutorial/IC700993.png "Active Directory")
 
@@ -51,11 +51,11 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
     ![Adicionar aplicativo](./media/active-directory-saas-empcenter-tutorial/IC749321.png "Adicionar aplicativo")
 
-5.  No diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+5.  Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 
     ![Adicionar um aplicativo da galeria](./media/active-directory-saas-empcenter-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 
-6.  Na **caixa de pesquisa **, digite **EmpCenter**.
+6.  Na **caixa de pesquisa**, digite **EmpCenter**.
 
     ![Galeria de Aplicativos](./media/active-directory-saas-empcenter-tutorial/IC802917.png "Galeria de Aplicativos")
 
@@ -68,7 +68,7 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração de aplicativos do **EmpCenter**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No portal clássico do Azure, na página de integração de aplicativos do **EmpCenter**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-empcenter-tutorial/IC802919.png "Configurar o logon único")
 
@@ -80,8 +80,8 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
     ![Definir configurações de aplicativo](./media/active-directory-saas-empcenter-tutorial/IC802921.png "Definir configurações de aplicativo")
 
-    1.  Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no aplicativo EmpCenter (por exemplo: "**https://partner-authenticati.empcenter.com/workforce/SSO.do*).
-    2.  Clique em **Próximo**.
+    1.  Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no aplicativo EmpCenter (por exemplo: **https://partner-authenticati.empcenter.com/workforce/SSO.do**).
+2.  Clique em **Próximo**.
 
 4.  Na página **Configurar logon único no EmpCenter**, para baixar os metadados, clique em **Baixar metadados** e salve o arquivo de metadados no computador.
 
@@ -89,16 +89,16 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
 5.  Envie o arquivo de metadados baixado para a equipe de suporte do EmpCenter.
 
-    >[AZURE.NOTE]A equipe de suporte do EmpCenter precisa fazer a configuração real do SSO. Você receberá uma notificação quando o SSO tiver sido habilitado para sua assinatura.
+    >[AZURE.NOTE] A equipe de suporte do EmpCenter precisa fazer a configuração real do SSO. Você receberá uma notificação quando o SSO tiver sido habilitado para sua assinatura.
 
-6.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+6.  No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-empcenter-tutorial/IC802923.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
   
 Para permitir que os usuários do Azure AD façam logon no EmpCenter, eles deverão ser provisionados no EmpCenter. No caso do EmpCenter, as contas de usuário precisam ser criadas pela equipe de suporte do EmpCenter.
 
->[AZURE.NOTE]Você pode usar qualquer outra ferramenta de criação da conta de usuário do EmpCenter ou as APIs fornecidas pelo EmpCenter para provisionar as contas de usuário do Active Directory do Azure.
+>[AZURE.NOTE] Você pode usar qualquer outra ferramenta de criação da conta de usuário do EmpCenter ou as APIs fornecidas pelo EmpCenter para provisionar as contas de usuário do Active Directory do Azure.
 
 ##Atribuindo usuários
   
@@ -106,16 +106,16 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
 
 ###Para atribuir usuários ao EmpCenter, execute as etapas a seguir:
 
-1.  No portal do Azure AD, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
 2.  Na página de integração de aplicativos do **EmpCenter**, clique em **Atribuir usuários**.
 
     ![Atribuir Usuários](./media/active-directory-saas-empcenter-tutorial/IC802924.png "Atribuir Usuários")
 
-3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar a atribuição.
+3.  Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
 
     ![Sim](./media/active-directory-saas-empcenter-tutorial/IC767830.png "Sim")
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0302_2016-->

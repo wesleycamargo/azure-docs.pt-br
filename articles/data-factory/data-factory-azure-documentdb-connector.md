@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="02/24/2016" 
 	ms.author="spelluru"/>
 
 # Mover dados para e do Banco de Dados de Documentos usando o Azure Data Factory
@@ -379,6 +379,14 @@ Exemplo:
 	  }
 	}
 
+### Esquema do Data Factory
+Para armazenamentos de dados sem esquema, como o Banco de Dados de Documentos, o serviço do Data Factory infere o esquema usando uma das seguintes maneiras:
+
+1.	Se você especificar a estrutura dos dados usando a propriedade **structure** na definição de conjunto de dados, o serviço do Data Factory respeitará essa estrutura do esquema. Nesse caso, se uma linha não contiver um valor de uma coluna, um valor nulo será fornecido para ele.
+2.	Se você não especificar a estrutura dos dados usando a propriedade **structure** na definição de conjunto de dados, o serviço do Data Factory inferirá o esquema usando a primeira linha dos dados. Nesse caso, se a primeira linha não contiver o esquema completo, algumas colunas estarão ausentes no resultado da operação de cópia.
+
+Portanto, para fontes de dados sem esquema, a prática recomendada é especificar a estrutura de dados usando a propriedade **structure**.
+
 ## Propriedades de tipo da atividade de cópia do Banco de Dados de Documentos do Azure
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, consulte o artigo [Criando pipelines](data-factory-create-pipelines.md). Propriedades, como nome, descrição, tabelas de entrada e saída, várias políticas, etc. estão disponíveis para todos os tipos de atividades.
@@ -419,4 +427,4 @@ No caso da Atividade de cópia, quando a fonte é do tipo **DocumentDbCollection
 	**Resposta:** Não. Somente uma coleção pode ser especificada no momento.
      
 
-<!---HONumber=AcomDC_0218_2016--->
+<!----HONumber=AcomDC_0302_2016-->

@@ -48,6 +48,19 @@ Para usar a API do Slack, crie primeiro uma **conexão** e forneça os detalhes 
 | ---|---|---|
 |A criptografia do token|Sim|Fornecer credenciais do Slack|
 
+Siga estas etapas para entrar na Margem de atraso e concluir a configuração da **conexão** da Margem de atraso em seu aplicativo lógico:
+
+1. Selecione **Recorrência**
+2. Selecione uma **Frequência** e insira um **Intervalo**
+3. Selecione **Adicionar uma ação** ![Configurar a Margem de atraso][1]  
+4. Insira Margem de atraso na caixa de pesquisa e aguarde até que a pesquisa retorne todas as entradas com Margem de atraso no nome
+5. Selecione **Margem de atraso – Postar mensagem**
+6. Selecione **Entrar na Margem de atraso**: ![Configurar a Margem de atraso][2]
+7. Forneça suas credenciais da Margem de atraso para entrar e autorizar o aplicativo ![Configurar a Margem de atraso][3]  
+8. Você será redirecionado à página de logon de sua organização. **Autorize** a Margem de atraso a interagir com seu aplicativo lógico: ![Configurar a Margem de atraso][5] 
+9. Após a conclusão da autenticação, você será redirecionado ao seu aplicativo lógico para concluí-lo por meio da configuração da seção **Margem de atraso - Obter todas as mensagens**. Adicione outros gatilhos e outras ações necessárias.![Configurar a Margem de atraso][6]
+10. Salve seu trabalho selecionando **Salvar** na barra de menus acima.
+
 
 >[AZURE.TIP] Você pode usar essa conexão em outros aplicativos lógicos.
 
@@ -63,10 +76,10 @@ Para usar a API do Slack, crie primeiro uma **conexão** e forneça os detalhes 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
 |canal|string|sim|query|nenhum|Canal, grupo privado ou canal de IM para envio de mensagem. Pode ser um nome (ex: #geral) ou uma ID codificada.|
-|texto|string|sim|query|nenhum|Texto da mensagem a ser enviada. Para opções de formatação, confira https://api.slack.com/docs/formatting.|
+|texto|string|sim|query|nenhum|Texto da mensagem a ser enviada. Para obter opções de formatação, veja https://api.slack.com/docs/formatting.|
 |Nome de Usuário|string|não|query|nenhum|Nome do bot|
 |as\_user|booleano|não|query|nenhum|Passa true para postar a mensagem como o usuário autenticado em vez de um bot|
-|analisar|string|não|query|nenhum|Altera como as mensagens são tratadas. Para saber mais, confira https://api.slack.com/docs/formatting.|
+|analisar|string|não|query|nenhum|Altera como as mensagens são tratadas. Para obter detalhes, veja https://api.slack.com/docs/formatting.|
 |link\_names|inteiro|não|query|nenhum|Localiza e vincula os nomes de canal e nomes de usuário.|
 |unfurl\_links|booleano|não|query|nenhum|Passe true para habilitar o desdobramento do conteúdo basicamente baseado em texto.|
 |unfurl\_media|booleano|não|query|nenhum|Passe false para desabilitar o conteúdo de mídia.|
@@ -92,7 +105,7 @@ Para usar a API do Slack, crie primeiro uma **conexão** e forneça os detalhes 
 
 ## Definições de objeto: 
 
- **Mensagem**: mensagem do Yammer
+ **Message**: mensagem do Yammer
 
 Propriedades necessárias para a mensagem:
 
@@ -129,7 +142,7 @@ Nenhuma das propriedades é obrigatória.
 
 
 
- **PostOperationRequest**: representa uma solicitação post ao conector do Yammer para postar no Yammer
+ **PostOperationRequest**: representa uma solicitação de postagem para que o Conector do Yammer poste no Yammer
 
 Propriedades obrigatórias para PostOperationRequest:
 
@@ -287,7 +300,7 @@ Nenhuma das propriedades é obrigatória.
 
 
 
- **ThumbnailModel**: propriedades de miniatura do elemento multimídia
+ **ThumbnailModel**: propriedades de miniatura do elemento de multimídia
 
 Propriedades obrigatórias para ThumbnailModel:
 
@@ -352,7 +365,7 @@ Nenhuma das propriedades é obrigatória.
 
 
 
- **SpellResultModel**: resultados de sugestões de ortografia do Bing
+ **SpellResultModel**: resultados das sugestões de ortografia do Bing
 
 Propriedades obrigatórias para SpellResultModel:
 
@@ -370,7 +383,7 @@ Nenhuma das propriedades é obrigatória.
 
 
 
- **RelatedSearchResultModel**: resultados de pesquisa relacionados ao Bing
+ **RelatedSearchResultModel**: resultados da pesquisa relacionada do Bing
 
 Propriedades obrigatórias para RelatedSearchResultModel:
 
@@ -389,7 +402,7 @@ Nenhuma das propriedades é obrigatória.
 
 
 
- **CompositeSearchResultModel**: resultados de pesquisa compostas do Bing
+ **CompositeSearchResultModel**: resultados da pesquisa composta do Bing
 
 Propriedades obrigatórias para CompositeSearchResultModel:
 
@@ -417,7 +430,7 @@ Nenhuma das propriedades é obrigatória.
 
 ## Definições de objeto: 
 
- **PostOperationResponse**: representa a resposta da operação POST do conector do Slack para postar no Slack
+ **PostOperationResponse**: representa a resposta da operação de postagem do Conector da Margem de atraso para postar no Margem de atraso
 
 Propriedades obrigatórias para PostOperationResponse:
 
@@ -461,4 +474,11 @@ Nenhuma das propriedades é obrigatória.
 ## Próximas etapas
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+[1]: ./media/create-api-slack/connectionconfig1.png
+[2]: ./media/create-api-slack/connectionconfig2.png
+[3]: ./media/create-api-slack/connectionconfig3.png
+[4]: ./media/create-api-slack/connectionconfig4.png
+[5]: ./media/create-api-slack/connectionconfig5.png
+[6]: ./media/create-api-slack/connectionconfig6.png
+
+<!---HONumber=AcomDC_0302_2016-->

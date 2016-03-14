@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/23/2016"
 	ms.author="pehteh"/>
 
 # Bibliotecas de conexão para Banco de Dados SQL e SQL Server
@@ -28,10 +28,10 @@ A tabela a seguir exibe as bibliotecas lançadas pela Microsoft. A coluna **Bibl
 | :--- | :--- | :--- | :--- | :--- | :-- |
 | .NET | Plataforma cruzada (.NET) | [ADO.NET, System .Data .SqlClient](http://www.microsoft.com/download/details.aspx?id=30653) | 4\.5+ | Provedor do SQL Server para .NET Framework | . |
 | PHP | Windows | [PHP para SQL Server](http://www.microsoft.com/download/details.aspx?id=20098) | 2\.0+ | Driver PHP para SQL Server | [Link](http://msdn.microsoft.com/library/dn865013.aspx) |
-| Java | Windows | [JDBC para SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) | 2\.0+ | Driver JDBC tipo 4 que fornece conectividade de banco de dados por meio da API JDBC padrão | [Link](http://msdn.microsoft.com/library/dn425070.aspx) |
+| Java | Windows | [JDBC para SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) | 2\.0+ | Driver JDBC tipo 4 que fornece conectividade de banco de dados por meio da API JDBC padrão | [Link](https://msdn.microsoft.com/library/mt654048.aspx) |
 | ODBC | Windows | [ODBC para SQL Server](http://www.microsoft.com/download/details.aspx?id=36434) | 11\.0+ | Microsoft ODBC Driver para SQL Server | [Link](http://msdn.microsoft.com/library/jj730308.aspx) |
-| ODBC | Suse Linux | [ODBC para SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0+ | Microsoft ODBC Driver para SQL Server | . |
-| ODBC | Redhat Linux | [ODBC para SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0+ | Microsoft ODBC Driver para SQL Server | . |
+| ODBC | Suse Linux | [ODBC para SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0+ | Microsoft ODBC Driver para SQL Server | [Link](https://msdn.microsoft.com/pt-BR/library/hh568451.aspx) |
+| ODBC | Redhat Linux | [ODBC para SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0+ | Microsoft ODBC Driver para SQL Server | [Link](https://msdn.microsoft.com/pt-BR/library/hh568451.aspx) |
 
 ### Suporte para ODBC
 
@@ -52,20 +52,22 @@ Para obter mais informações, consulte:
 
 ## Bibliotecas de terceiros
 
-> [AZURE.IMPORTANT]A tabela a seguir exibe as bibliotecas lançadas por terceiros sob os termos de licença de terceiros. Você é responsável pela verificação e conformidade com as licenças relevantes de terceiros aplicáveis ao uso dessas bibliotecas. O uso dessas bibliotecas é por sua conta e risco. A Microsoft não oferece quaisquer garantias, expressas ou implícitas, quanto às informações fornecidas aqui, e simplesmente forneceu as informações como uma questão de conveniência para os usuários. Nada contido neste documento indica qualquer tipo de endosso da Microsoft. <br/><br/>Cabe a comunidade pública de desenvolvedores atualizar e manter as informações desta seção "Bibliotecas de terceiros", usando o repositório [azure-content](http://github.com/Azure/azure-content/) pertencentes ao **Azure** em GitHub.com. A Microsoft incentiva os desenvolvedores a atualizar esta seção. A equipe da Microsoft *não* pretende manter as informações contidas nesta seção, em parte porque outras pessoas têm mais experiência e especialização do que nós com relação a cada biblioteca de terceiros específica. Obrigado.
+> [AZURE.IMPORTANT] A tabela a seguir exibe as bibliotecas lançadas por terceiros sob os termos de licença de terceiros. Você é responsável pela verificação e conformidade com as licenças relevantes de terceiros aplicáveis ao uso dessas bibliotecas. O uso dessas bibliotecas é por sua conta e risco. A Microsoft não oferece quaisquer garantias, expressas ou implícitas, quanto às informações fornecidas aqui, e simplesmente forneceu as informações como uma questão de conveniência para os usuários. Nada contido neste documento indica qualquer tipo de endosso da Microsoft. <br/><br/>Cabe a comunidade pública de desenvolvedores atualizar e manter as informações desta seção "Bibliotecas de terceiros", usando o repositório [azure-content](http://github.com/Azure/azure-content/) pertencentes ao **Azure** em GitHub.com. A Microsoft incentiva os desenvolvedores a atualizar esta seção. A equipe da Microsoft *não* pretende manter as informações contidas nesta seção, em parte porque outras pessoas têm mais experiência e especialização do que nós com relação a cada biblioteca de terceiros específica. Obrigado.
 
 A tabela a seguir exibe as bibliotecas lançadas por terceiros, como outras empresas, ou pela comunidade. As bibliotecas lançadas pela Microsoft estão restritas à seção anterior deste tópico.
 
 | Plataforma | Bibliotecas |
 | :-- | :-- |
-| Python | [pymssql *(org, stable)*](http://pymssql.org/en/stable/)<br/><br/>[pymssql *(org)*](http://pymssql.org/) |
-| Node.js | [Tedious *(npmjs)*](http://www.npmjs.com/package/tedious) |
-| Node.js | [Node-MSSQL *(github, patriksimek)*](https://github.com/patriksimek/node-mssql)<br/><br/>[Node-MSSQL *(npmjs)*](https://www.npmjs.com/package/node-mssql)<br/><br/>[Node-MSSQL-Connector *(npmjs)*](https://www.npmjs.com/package/node-mssql-connector) |
-| Node.js | [Edge.js *(github com, tjanczuk)*](https://github.com/tjanczuk/edge)<br/><br/>[Edge.js *(tjanczuk, github io)*](http://tjanczuk.github.io/edge/) |
-| . | [FreeTDS *(org)*](http://www.freetds.org/) |
+| Ruby | [tinytds *(org, estável)*](https://rubygems.org/gems/tiny_tds/versions/0.7.0) |
+| IR | [go-mssqldb *(org, estável)*](https://github.com/denisenkom/go-mssqldb) |
+| Python | [pymssql *(org, estável)*](http://pymssql.org/en/stable/) |
+| Node.js | [Node-MSSQL *(npmjs)*](https://www.npmjs.com/package/node-mssql)<br/><br/>[Node-MSSQL-Connector *(npmjs)*](https://www.npmjs.com/package/node-mssql-connector) |
+| C++ | [FreeTDS *(org)*](http://www.freetds.org/) |
+
+
 
 <!--
 https://en.wikipedia.org/wiki/Draft:Microsoft_SQL_Server_Libraries/Drivers
 -->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

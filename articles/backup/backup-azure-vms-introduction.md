@@ -3,7 +3,7 @@
 	description="Considerações importantes ao planejar o backup de máquinas virtuais no Azure"
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
+	authors="markgalioto"
 	manager="jwhit"
 	editor=""
 	keywords="backup de vms, backup de máquinas virtuais"/>
@@ -121,4 +121,4 @@ Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos s
 - [Restaurar máquinas virtuais](backup-azure-restore-vms.md)
 - [Solucionar problemas de backup da VM](backup-azure-vms-troubleshoot.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

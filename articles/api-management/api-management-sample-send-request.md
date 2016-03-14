@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Usando o serviço Gerenciamento de API para gerar solicitações HTTP"
-   description="Saiba como usar políticas de solicitação e de resposta no Gerenciamento de API para chamar serviços externos de sua API"
-   services="api-management"
-   documentationCenter=""
-   authors="darrelmiller"
-   manager=""
-   editor=""/>
+	pageTitle="Usando o serviço Gerenciamento de API para gerar solicitações HTTP"
+	description="Saiba como usar políticas de solicitação e de resposta no Gerenciamento de API para chamar serviços externos de sua API"
+	services="api-management"
+	documentationCenter=""
+	authors="darrelmiller"
+	manager=""
+	editor=""/>
 
 <tags
-   ms.service="api-management"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="02/01/2016"
-   ms.author="v-darmi"/>
+	ms.service="api-management"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="02/19/2016"
+	ms.author="v-darmi"/>
 
 
 # Uso dos serviços externos do serviço de Gerenciamento de API do Azure
@@ -269,4 +269,4 @@ Para obter mais informações sobre as políticas [send-one-way-request](https:/
 
 > [AZURE.VIDEO send-request-and-return-response-policies]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

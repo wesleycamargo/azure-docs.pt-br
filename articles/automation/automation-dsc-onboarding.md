@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="01/11/2016"
+   ms.date="02/26/2016"
    ms.author="coreyp"/>
 
 # Máquinas de integração para o gerenciamento pelo DSC de Automação do Azure
@@ -103,7 +103,7 @@ Para encontrar a URL de registro e a chave da conta da Automação a ser integra
      -VM $vm `
      -Publisher Microsoft.Powershell `
      -ExtensionName DSC `
-     -Version 2.13 `
+     -Version 2.14 `
      -PublicConfiguration $PublicConfiguration `
      -PrivateConfiguration $PrivateConfiguration `
      -ForceUpdate
@@ -167,7 +167,7 @@ Os computadores com Linux locais, computadores com Linux no Azure e os computado
 	Se os padrões do Gerenciador de Configuração Local do DSC do PowerShell **não** correspondem a seu caso de uso, ou você deseja carregar computadores, de modo que eles só reportem para o DSC de Automação do Azure, mas não façam configuração pull nem módulos do PowerShell com base nela, siga as etapas 3-6. Caso contrário, vá diretamente para a etapa 6.
 
 3.	Siga as instruções na seção [**Gerando metaconfigurações de DSC**](#generating-dsc-metaconfigurations) abaixo para gerar uma pasta com as metaconfigurações de DSC necessárias.
-4.  Aplicam-se remotamente às metaconfigurações do DSC do PowerShell para as máquinas que você deseja carregar:
+4.  Aplique remotamente a metaconfiguração do DSC do PowerShell às máquinas que você deseja carrega:
     	
     	$SecurePass = ConvertTo-SecureString -String "<root password>" -AsPlainText -Force
         $Cred = New-Object System.Management.Automation.PSCredential "root", $SecurePass
@@ -374,4 +374,4 @@ Um novo registro pode ser executado da mesma maneira que você registrou o nó i
 * [cmdlets do DSC de Automação do Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 * [preço do DSC de Automação do Azure](https://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

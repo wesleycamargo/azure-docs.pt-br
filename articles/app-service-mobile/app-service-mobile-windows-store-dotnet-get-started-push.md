@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="03/02/2016"
 	ms.author="glenga"/>
 
 # Adicionar notificações de push para seu aplicativo universal do Windows Runtime 8.1
@@ -24,7 +24,7 @@
 
 Este tópico mostra como enviar notificações por push para um aplicativo universal do Windows Runtime 8.1 usando os Aplicativos móveis do serviço de aplicativo do Azure e os Hubs de notificação do Azure. Nesse cenário, quando um novo item é adicionado, o back-end do Aplicativo móvel envia uma notificação por push para todos os aplicativos do Windows registrados com o Serviço de Notificação do Windows (WNS).
 
-Este tutorial se baseia no guia de início rápido do Aplicativo móvel do Serviço de Aplicativo. Antes de iniciar este tutorial, você deve primeiro concluir o tutorial de início rápido [Criar um aplicativo do Windows](../app-service-mobile-windows-store-dotnet-get-started.md). Se você não usar o projeto baixado do início rápido do servidor, você deve adicionar o pacote de extensão de notificação por push ao seu projeto. Para obter mais informações sobre pacotes de extensão do servidor, confira [Trabalhar com o servidor .NET back-end do SDK para Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+Este tutorial se baseia no guia de início rápido do Aplicativo móvel do Serviço de Aplicativo. Antes de iniciar este tutorial, você deve primeiro concluir o tutorial de início rápido [Criar um aplicativo do Windows](app-service-mobile-windows-store-dotnet-get-started.md). Se você não usar o projeto baixado do início rápido do servidor, você deve adicionar o pacote de extensão de notificação por push ao seu projeto. Para obter mais informações sobre pacotes de extensão do servidor, confira [Trabalhar com o servidor .NET back-end do SDK para Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 ##Pré-requisitos
 
@@ -32,7 +32,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 * Uma [conta ativa da Microsoft Store](http://go.microsoft.com/fwlink/p/?LinkId=280045).
 * [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934)
-* Conclua o [tutorial de início rápido](../app-service-mobile-windows-store-dotnet-get-started.md).
+* Conclua o [tutorial de início rápido](app-service-mobile-windows-store-dotnet-get-started.md).
 
 
 ##<a name="create-hub"></a>Criar um Hub de notificação
@@ -153,7 +153,7 @@ Agora que as notificações por push estão habilitadas no aplicativo, você dev
 
 2. Ao editar o arquivo no seu computador local, republique o projeto do servidor.
 
-##<a id="update-service"></a>Adicionar notificações de push para seu aplicativo
+##<a id="update-app"></a>Adicionar notificações de push para seu aplicativo
 
 1. Abra o arquivo de projeto **App.xaml.cs** compartilhado e adicione as seguintes instruções `using`:
 
@@ -185,6 +185,8 @@ Agora que as notificações por push estão habilitadas no aplicativo, você dev
 
     Isso garante que o ChannelURI de curta duração seja registrado sempre que o aplicativo for iniciado.
 
+    >[AZURE.NOTE] Se também tiver a autenticação habilitada, certifique-se que o usuário entre antes de tentar se registrar para receber notificações por push. Para obter mais informações, veja [Autenticar primeiro](https://github.com/Azure-Samples/app-service-mobile-windows-quickstart/blob/master/README.md#authenticate-first) do exemplo completo do início rápido.
+
 4. No Gerenciador de Soluções, clique duas vezes em **Package.appxmanifest** no aplicativo da Windows Store, em **Notificações**, defina **Compatível com notificações** para **Sim**.
 
     No menu **Arquivo**, clique em **Salvar Tudo**.
@@ -209,5 +211,6 @@ Seu aplicativo agora está pronto para receber notificações do sistema.
 [Azure Portal]: https://portal.azure.com/
 
 <!-- Images. -->
+))) )
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

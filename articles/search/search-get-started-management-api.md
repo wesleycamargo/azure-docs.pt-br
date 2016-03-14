@@ -17,6 +17,10 @@
 	ms.author="heidist"/>
 
 # Introdução à API REST de Gerenciamento de Pesquisa do Azure
+> [AZURE.SELECTOR]
+- [Portal](search-manage.md)
+- [PowerShell](search-manage-powershell.md)
+- [API REST](search-get-started-management-api.md)
 
 A API REST de Gerenciamento de Pesquisa do Azure é uma alternativa programática para realizar tarefas administrativas no portal. As operações de gerenciamento de serviço incluem criar ou excluir o serviço, dimensionar o serviço e gerenciar chaves. Este tutorial é fornecido com um aplicativo cliente de exemplo que demonstra a API de gerenciamento de serviço. Ele também inclui etapas de configuração necessárias para executar o exemplo no seu ambiente de desenvolvimento local.
 
@@ -119,7 +123,7 @@ Nesta seção, você editará a solução no Visual Studio, substituindo os valo
         private const string SubscriptionId = "<your subscription id>";
         private static readonly Uri RedirectUrl = new Uri("<your redirect url>");
 
-Se você ainda não tiver [baixado o aplicativo de exemplo do Github](https://github.com/Azure-Samples/search-dotnet-management-api/), será preciso baixá-lo para esta etapa.
+Se você ainda não [baixou o aplicativo de exemplo do Github](https://github.com/Azure-Samples/search-dotnet-management-api/), será preciso baixá-lo para realizar esta etapa.
 
 1. Abra o **ManagementAPI.sln** no Visual Studio.
 
@@ -204,4 +208,4 @@ Depois de ter concluído este tutorial, você pode querer saber mais sobre geren
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

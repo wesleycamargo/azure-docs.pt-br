@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="02/24/2016" 
 	ms.author="billmath"/>
 
 # Gerenciando configurações de usuário com o Azure Multi-Factor Authentication na nuvem
@@ -38,17 +38,19 @@ Essa configuração forçará o usuário a seguir o processo de registro novamen
 
 ### Como exigir que os usuários selecionados forneçam métodos de contato novamente
 
-<ol>
-<li>Entre no Portal de Gerenciamento do Azure.</li>
-<li>À esquerda, clique no Active Directory.</li>
-<li>Em Diretório, clique no diretório para o usuário de quem deseja exigir o fornecimento do método de contato novamente.</li>
-<li>Na parte superior, clique em Usuários.</li>
-<li>Na parte inferior da página, clique em Gerenciar Multi-Factor Auth. Isso abrirá a página da autenticação multifator. <li>Encontre o usuário que você deseja gerenciar e marque a caixa localizada ao lado do nome. Talvez seja necessário alterar o modo de exibição na parte superior.</li> <li>Isso abrirá o link **Gerenciar configurações de usuário** à direita. Clique.</li> <li>Marque **Exigir que os usuários selecionados forneçam métodos de contato novamente**.</li>
 
-![Fornecer métodos de contato](./media/multi-factor-authentication-manage-users-and-devices/reproofup.png)
 
-<li>Clique em Salvar.</li>
-<li>Clique em Fechar</li>
+
+1. Entre no Portal clássico do Azure.
+2. À esquerda, clique no Active Directory.
+3. Em Diretório, clique no diretório para o usuário de quem deseja exigir o fornecimento do método de contato novamente.
+4. Na parte superior, clique em Usuários.
+5. Na parte inferior da página, clique em Gerenciar Multi-Factor Auth. Isso abrirá a página da autenticação multifator.
+6. Encontre o usuário que você deseja gerenciar e marque a caixa localizada ao lado do nome. Talvez seja necessário alterar o modo de exibição na parte superior.
+7. Isso abrirá o link **Gerenciar configurações de usuário** à direita. Clique.
+8. Marque **Exigir que os usuários selecionados forneçam métodos de contato novamente**.![Fornecer métodos de contato](./media/multi-factor-authentication-manage-users-and-devices/reproofup.png)
+10. Clique em Salvar.
+11. Clique em Fechar
 
 ## Excluir senhas de aplicativo de usuários existentes
 
@@ -56,28 +58,32 @@ Isso exclui todas as senhas de aplicativo que um usuário criou. Aplicativos sem
 
 ### Como excluir senhas de aplicativo de usuários existentes
 
-<ol>
-<li>Entre no Portal de Gerenciamento do Azure.</li>
-<li>À esquerda, clique no Active Directory.</li>
-<li>Em Diretório, clique no diretório do usuário de quem deseja excluir senhas.</li>
-<li>Na parte superior, clique em Usuários.</li>
-<li>Na parte inferior da página, clique em Gerenciar Multi-Factor Auth. Isso abrirá a página da autenticação multifator. <li>Encontre o usuário que você deseja gerenciar e marque a caixa localizada ao lado do nome. Talvez seja necessário alterar o modo de exibição na parte superior.</li> <li>Isso abrirá o link **Gerenciar configurações de usuário** à direita. Clique.</li> <li>Marque **Excluir todas as senhas de aplicativo existentes geradas pelos usuários selecionados**.</li> ![Excluir senhas de aplicativo](./media/multi-factor-authentication-manage-users-and-devices/deleteapppasswords.png) <li>Clique em Salvar.</li> <li>Clique em Fechar.</li>
+1. Entre no Portal clássico do Azure.
+2. À esquerda, clique no Active Directory.
+3. Em Diretório, clique no diretório do usuário de quem deseja excluir senhas.
+4. Na parte superior, clique em Usuários.
+5. Na parte inferior da página, clique em Gerenciar Multi-Factor Auth. Isso abrirá a página da autenticação multifator.
+6. Encontre o usuário que você deseja gerenciar e marque a caixa localizada ao lado do nome. Talvez seja necessário alterar o modo de exibição na parte superior.
+7. Isso abrirá o link **Gerenciar configurações de usuário** à direita. Clique. 
+8. Marque **Excluir todas as senhas de aplicativo existentes geradas pelos usuários selecionados**.![Excluir senhas de aplicativo](./media/multi-factor-authentication-manage-users-and-devices/deleteapppasswords.png)
+10. Clique em Salvar.
+10. Clique em Fechar.
 
+## Restaurar o MFA em todos os dispositivos lembrados de um usuário
 
-
-
-
-## Restaurar a MFA em todos os dispositivos suspensos para um usuário
-
-Os administradores têm a capacidade de redefinir a autenticação multifator em seus dispositivos e navegadores. Isso é feito por meio da restauração da autenticação multifator para navegadores e dispositivos do usuário. Quando feito, isso removerá a suspensão de todos os navegadores e dispositivos do usuário.
+Os administradores têm a capacidade de restaurar o Multi-Factor Authentication nos dispositivos e navegadores dos usuários. Ao fazer isso, isso removerá a configuração de lembrar o MFA de todos os dispositivos e navegadores do usuário, e o usuário deverá utilizar o MFA ao entrar na próxima vez.
 
 ### Como Restaurar a MFA em todos os dispositivos suspensos para um usuário
 
-<ol>
-<li>Entre no Portal de Gerenciamento do Azure.</li>
-<li>À esquerda, clique no Active Directory.</li>
-<li>Em Diretório, clique no diretório do usuário em que deseja restaurar a MFA.</li>
-<li>Na parte superior, clique em Usuários.</li>
-<li>Na parte inferior da página, clique em Gerenciar Multi-Factor Auth. Isso abrirá a página da autenticação multifator. <li>Encontre o usuário que você deseja gerenciar e marque a caixa localizada ao lado do nome. Talvez seja necessário alterar o modo de exibição na parte superior.</li> <li>Isso abrirá o link **Gerenciar configurações de usuário** à direita. Clique.</li> <li>Marque Restaurar o Multi-Factor Authentication em todos os dispositivos suspensos.</li> ![Excluir senhas de aplicativo](./media/multi-factor-authentication-manage-users-and-devices/rememberdevices.png) <li>Clique em Salvar.</li> <li>Clique em Fechar.</li>
+1. Entre no Portal clássico do Azure.
+2. À esquerda, clique no Active Directory.
+3. Em Diretório, clique no diretório do usuário em que deseja restaurar a MFA.
+4. Na parte superior, clique em Usuários.
+5. Na parte inferior da página, clique em Gerenciar Multi-Factor Auth. Isso abrirá a página da autenticação multifator.
+6. Encontre o usuário que você deseja gerenciar e marque a caixa localizada ao lado do nome. Talvez seja necessário alterar o modo de exibição na parte superior.
+7. Isso abrirá o link **Gerenciar configurações de usuário** à direita. Clique.
+8. Marque **Restaurar a autenticação multifator em todos os dispositivos lembrados** ![Excluir senhas de aplicativo](./media/multi-factor-authentication-manage-users-and-devices/rememberdevices.png)
+9. Clique em Salvar.
+10. Clique em Fechar.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

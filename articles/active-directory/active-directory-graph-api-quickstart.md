@@ -15,7 +15,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="02/22/2016"
+      ms.date="02/25/2016"
       ms.author="v-jibran@microsoft.com"/>
 
 # Guia de início rápido para a Graph API do AD do Azure
@@ -70,7 +70,8 @@ A seguir está a saída que você verá se navegar para o Gerenciador do Graph, 
 
 **Executar uma consulta**: para executar uma consulta, digite a consulta na caixa de texto de solicitação e clique em **GET** ou clique na tecla **enter**. Os resultados são exibidos na caixa de resposta. Por exemplo, `https://graph.windows.net/graphdir1.onmicrosoft.com /groups?api-version=1.5` listará todos os objetos de grupo no diretório de demonstração.
 
-Observe os seguintes recursos e limitações do Gerenciador do Graph:-recurso Preenchimento automático em conjuntos de recursos. Para ver isso, clique em **Usar Empresa de Demonstração** e, em seguida, clique na caixa de texto de solicitação (em que a URL da empresa é exibida). Você pode selecionar um conjunto de recursos na lista suspensa.
+Observe os seguintes recursos e limitações do Gerenciador do Graph:
+- Funcionalidade de preenchimento automático em conjuntos de recursos. Para ver isso, clique em **Usar Empresa de Demonstração** e, em seguida, clique na caixa de texto de solicitação (em que a URL da empresa é exibida). Você pode selecionar um conjunto de recursos na lista suspensa.
 
 - Dá suporte aos aliasesde endereçamento "me" e "myorganization". Por exemplo, você pode usar `https://graph.windows.net/me?api-version=1.5` para retornar o objeto de usuário do usuário conectado ou `https://graph.windows.net/myorganization/users?api-version=1.5` para retornar todos os usuários no diretório atual. Observe que o uso do alias "me" retorna um erro para a empresa de demonstração porque não há um usuário conectado que faz a solicitação.
 
@@ -125,4 +126,4 @@ Para saber mais sobre entidades e tipos do AD do Azure que são expostos pelo Gr
 
 Saiba mais sobre a [API do Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->
