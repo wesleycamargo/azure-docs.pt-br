@@ -257,7 +257,12 @@ O código a seguir ilustra como atualizar uma instância existente com a mesma I
 
 	await todoTable.UpdateAsync(todoItem);
 
-Para inserir dados não tipados, você pode tirar proveito do Json.NET da seguinte maneira: JObject jo = new JObject(); jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D"); jo.Add("Text", "Hello World"); jo.Add("Complete", false); var inserted = await table.UpdateAsync(jo);
+Para inserir dados não tipados, você pode tirar proveito do Json.NET da seguinte maneira:
+	JObject jo = new JObject();
+	jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
+	jo.Add("Text", "Hello World");
+	jo.Add("Complete", false);
+	var inserted = await table.UpdateAsync(jo);
 
 Observe que, ao fazer uma atualização, uma ID deve ser especificada. É assim que o back-end identifica a instância para atualização. A ID pode ser obtida do resultado da chamada de `InsertAsync`. Quando você tenta atualizar um item sem fornecer o valor de “Id”, uma `ArgumentException` é gerada.
 

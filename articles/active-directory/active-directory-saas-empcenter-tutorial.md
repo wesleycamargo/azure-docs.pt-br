@@ -80,7 +80,7 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
     ![Definir configurações de aplicativo](./media/active-directory-saas-empcenter-tutorial/IC802921.png "Definir configurações de aplicativo")
 
-    1.  Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no aplicativo EmpCenter (por exemplo: **https://partner-authenticati.empcenter.com/workforce/SSO.do*)).
+    1.  Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no aplicativo EmpCenter (por exemplo: **https://partner-authenticati.empcenter.com/workforce/SSO.do**).
 2.  Clique em **Próximo**.
 
 4.  Na página **Configurar logon único no EmpCenter**, para baixar os metadados, clique em **Baixar metadados** e salve o arquivo de metadados no computador.

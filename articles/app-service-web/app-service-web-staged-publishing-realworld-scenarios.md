@@ -18,7 +18,8 @@
 
 # Usar ambientes de Operações de Desenvolvimento com eficiência em seus aplicativos Web
 
-Este artigo mostra como configurar e gerenciar implantações de aplicativo Web para várias versões do seu aplicativo, como desenvolvimento, preparo, garantia de qualidade e de produção. Cada versão do seu aplicativo pode ser considerada como ambiente de desenvolvimento para necessidades específicas de seu processo de implantação, por exemplo, o ambiente de Garantia de Qualidade pode ser usado por sua equipe de desenvolvedores para testar a qualidade do aplicativo antes de aplicar as alterações à produção. A configuração de vários ambientes de desenvolvimento pode ser uma tarefa desafiadora, já que você precisa controlar e gerenciar os recursos (computação, aplicativo Web, banco de dados, cache, etc.) nesses ambientes e implantar conteúdo de um ambiente em outro.
+Este artigo mostra como configurar e gerenciar implantações de aplicativo Web para várias versões do seu aplicativo, como desenvolvimento, preparo, garantia de qualidade e de produção. Cada versão do seu aplicativo pode ser considerada como ambiente de desenvolvimento para necessidades específicas de seu processo de implantação, por exemplo, o ambiente de Garantia de Qualidade pode ser usado por sua equipe de desenvolvedores para testar a qualidade do aplicativo antes de aplicar as alterações à produção.
+A configuração de vários ambientes de desenvolvimento pode ser uma tarefa desafiadora, já que você precisa controlar e gerenciar os recursos (computação, aplicativo Web, banco de dados, cache, etc.) nesses ambientes e implantar conteúdo de um ambiente em outro.
 
 ## Configurando um ambiente de não produção (estágio, desenvolvimento, controle de qualidade)
 Quando você tiver um aplicativo Web de produção em funcionamento, a próxima etapa é criar um ambiente de não produção. Para usar slots de implantação, verifique se está executando no modo do plano de Serviço de Aplicativo **Standard** ou **Premium**. Slots de implantação são, na verdade, aplicativos Web online com seus próprios nomes de host. Os elementos de configuração e conteúdo de aplicativo Web podem ser permutados entre dois slots de implantação, incluindo o slot de produção. Implantar o seu aplicativo em um slot de implantação tem os seguintes benefícios:
@@ -245,7 +246,8 @@ As atualizações principais do WordPress não afetarão seus arquivos `wp-confi
 ```
 
 #### Configurar um Ambiente de Preparo
-Supondo que você já tenha um aplicativo Web do WordPress em execução no Azure Web, faça logon no [Portal do Azure](https://portal.azure.com/) e vá para seu aplicativo Web WordPress. Do contrário, você pode criar um no marketplace. Para saber mais, clique [aqui](web-sites-php-web-site-gallery.md). Clique em **Configurações** -> **Slots de implantação** -> **Adicionar** para criar um slot de implantação com o estágio de nome. Um slot de implantação é outro aplicativo Web que compartilha os mesmos recursos que o aplicativo Web principal criado acima.
+Supondo que você já tenha um aplicativo Web do WordPress em execução no Azure Web, faça logon no [Portal do Azure](https://portal.azure.com/) e vá para seu aplicativo Web WordPress. Do contrário, você pode criar um no marketplace. Para saber mais, clique [aqui](web-sites-php-web-site-gallery.md).
+Clique em **Configurações** -> **Slots de implantação** -> **Adicionar** para criar um slot de implantação com o estágio de nome. Um slot de implantação é outro aplicativo Web que compartilha os mesmos recursos que o aplicativo Web principal criado acima.
 
 ![Criar um slot de implantação de estágio](./media/app-service-web-staged-publishing-realworld-scenarios/1setupstage.png)
 
@@ -272,7 +274,8 @@ Definir configurações do aplicativo para:
 
 ![Configurações de Aplicativo para aplicativo Web Wordpress](./media/app-service-web-staged-publishing-realworld-scenarios/3configure.png)
 
-Não deixe de adicionar as seguintes configurações de aplicativo para os slots do aplicativo Web de produção e de estágio. Observe que os aplicativos Web de produção e de preparo usam bancos de dados diferentes. Desmarque a caixa de seleção **Configuração do Slot** para todos os parâmetros de configurações, exceto WP\_ENV. Isso alternará a configuração do seu aplicativo Web, além do conteúdo do arquivo e do banco de dados. Se a **Configuração de Slot** for **Marcada**, as configurações de aplicativo e as configurações de cadeias de conexão do aplicativo Web NÃO se moverão entre ambientes durante uma operação de ALTERNAR e, se houver qualquer alteração no banco de dados, isso não danificará seu aplicativo Web de produção.
+Não deixe de adicionar as seguintes configurações de aplicativo para os slots do aplicativo Web de produção e de estágio. Observe que os aplicativos Web de produção e de preparo usam bancos de dados diferentes.
+Desmarque a caixa de seleção **Configuração do Slot** para todos os parâmetros de configurações, exceto WP\_ENV. Isso alternará a configuração do seu aplicativo Web, além do conteúdo do arquivo e do banco de dados. Se a **Configuração de Slot** for **Marcada**, as configurações de aplicativo e as configurações de cadeias de conexão do aplicativo Web NÃO se moverão entre ambientes durante uma operação de ALTERNAR e, se houver qualquer alteração no banco de dados, isso não danificará seu aplicativo Web de produção.
 
 Implante um aplicativo Web do ambiente de desenvolvimento local no aplicativo Web de estágio e no banco de dados usando o WebMatrix ou ferramentas de sua escolha, como FTP, Git ou PhpMyAdmin.
 

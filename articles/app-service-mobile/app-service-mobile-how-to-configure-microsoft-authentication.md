@@ -26,7 +26,7 @@ Este tópico mostra como configurar o Serviço de Aplicativo do Azure para usar 
 
 Aplicativos Universais do Windows e aplicativos da Windows Store devem ser registrados por meio do Centro de Desenvolvimento do Windows. Isso permite que você configure com mais facilidade as notificações por push para seu aplicativo no futuro.
 
->[AZURE.NOTE]Ignore esta seção para Windows Phone 8, Windows Phone 8.1 Silverlight e todos os outros aplicativos não Windows. Se já tiver configurado notificações por push para seu aplicativo do Windows, também ignore esta seção.
+>[AZURE.NOTE]Ignore esta seção para Windows Phone 8, Windows Phone 8.1 Silverlight e todos os outros aplicativos não Windows. Se já tiver configurado notificações por push para seu aplicativo do Windows, também ignore esta seção.
 
 1. Faça logon no [portal do Azure] e navegue até o seu aplicativo. Copie a **URL**. Você a usará para configurar seu aplicativo com a Conta da Microsoft.
 

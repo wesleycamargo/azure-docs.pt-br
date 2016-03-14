@@ -48,7 +48,7 @@ Antes de começar a seguir as instruções neste artigo, você deve ter o seguin
 - **Sistema operacional**
 
 	Você pode provisionar clusters HDInsight em um dos dois sistemas operacionais a seguir:
-	- **HDInsight no Windows (Windows Server 2012 R2 Datacenter)**:
+	- **HDInsight no Windows (Windows Server 2012 R2 Datacenter)**:
 	- **HDInsight no Linux (Ubuntu 12.04 LTS para Linux)**: o HDInsight fornece a opção de configuração de clusters do Linux no Azure. Configure um cluster do Linux, se você estiver familiarizado com o Linux ou Unix, migre de uma solução Hadoop baseada em Linux existente ou deseja fácil integração com componentes do ecossistema do Hadoop criados para o Linux. Para obter mais informações, consulte [Introdução ao Hadoop no Linux em HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md). 
 
 

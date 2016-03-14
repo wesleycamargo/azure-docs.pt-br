@@ -63,7 +63,8 @@ O aplicativo de exemplo neste tutorial [WebApp-RoleClaims-DotNet](https://github
 
 1.	Clone ou baixe a solução de exemplo em [WebApp-RoleClaims-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) em seu diretório local.
 
-2.	Siga as instruções em [Como executar o exemplo como um aplicativo de locatário único](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims#how-to-run-the-sample-as-a-single-tenant-app) para configurar o aplicativo do Active Directory do Azure e o projeto. Certifique-se de seguir todas as instruções para converter o aplicativo de multilocatário em único locatário.
+2.	Siga as instruções em [Como executar o exemplo como um aplicativo de locatário único](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims#how-to-run-the-sample-as-a-single-tenant-app) para configurar o aplicativo do Active Directory do Azure e o projeto.
+Certifique-se de seguir todas as instruções para converter o aplicativo de multilocatário em único locatário.
 
 3.	Na exibição do [portal clássico do Azure](https://manage.windowsazure.com) do aplicativo do Active Directory do Azure que você acabou de criar, clique na guia **USUÁRIOS**. Em seguida, atribua os usuários desejados às funções desejadas.
 
@@ -258,7 +259,8 @@ Nesta parte do tutorial, você aprenderá a criar a funcionalidade de linha de n
 
 	> [AZURE.NOTE] Você talvez tenha observado a decoração <code>[ValidateAntiForgeryToken]</code> em algumas das ações. Devido ao comportamento descrito por [Brock Allen](https://twitter.com/BrockLAllen) em [MVC 4, AntiForgeryToken e declarações](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/), sua POSTAGEM HTTP poderá falhar na validação de token antifalsificação em virtude do seguinte:
 	> + O Azure Active Directory não envia o http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, que é exigido por padrão pelo token antifalsificação.
-	> + Se o Azure Active Directory for um diretório sincronizado com o AD FS, a relação de confiança do AD FS, por padrão, também não enviará a declaração http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, embora seja possível configurar o AD FS manualmente para enviar essa declaração. Você cuidará disso na próxima etapa.
+	> + Se o Azure Active Directory for um diretório sincronizado com o AD FS, a relação de confiança do AD FS, por padrão, também não enviará a declaração http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, embora seja possível configurar o AD FS manualmente para enviar essa declaração.
+	> Você cuidará disso na próxima etapa.
 
 12.  Em App\_Start\\Startup.Auth.cs, adicione a linha de código a seguir ao método `ConfigureAuth`. Clique com o botão direito do mouse em cada erro de resolução de nomes para corrigi-lo.
 

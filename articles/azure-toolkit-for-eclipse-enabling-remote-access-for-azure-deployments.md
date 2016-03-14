@@ -68,9 +68,11 @@ Você verá uma mensagem informando que a alteração da configuração está em
 * Na caixa de diálogo **Novo Certificado**, especifique e confirme a senha que você usará para o arquivo PFX.
 * Aceite o valor fornecido para **Nome (CN)** ou use um nome personalizado.
 * Especifique o caminho e o nome de arquivo no qual o novo certificado, no formato .cer, será salvo. Para essa etapa e a próxima, você poderá usar a pasta **cert** de seu projeto do Azure, mas sinta-se à vontade para escolher outro local. Para este tutorial, usaremos **c:\\mycert\\mycert.cer**. (Crie a pasta **c:\\mycert** antes de prosseguir ou use uma pasta existente, se quiser).
-* Especifique o caminho e o nome de arquivo no qual o novo certificado e sua chave privada, no formato .pfx, serão salvos. Neste tutorial, usaremos **c:\\mycert\\mycert.pfx**. A caixa de diálogo **Novo Certificado** deve ser parecida com o seguinte (atualize os caminhos de pasta se você não tiver usado **c:\\mycert**): ![][ic712275]
+* Especifique o caminho e o nome de arquivo no qual o novo certificado e sua chave privada, no formato .pfx, serão salvos. Neste tutorial, usaremos **c:\\mycert\\mycert.pfx**. A caixa de diálogo **Novo Certificado** deve ser parecida com o seguinte (atualize os caminhos de pasta se você não tiver usado **c:\\mycert**):
+     ![][ic712275]
 * Clique em **OK** para fechar a caixa de diálogo **Novo Certificado**.
-* A caixa de diálogo **Acesso Remoto** deverá ser semelhante ao seguinte:</p>![][ic719495]
+* A caixa de diálogo **Acesso Remoto** deverá ser semelhante ao seguinte:</p>
+     ![][ic719495]
 * Clique em **OK** para fechar a caixa de diálogo **Acesso Remoto**.
 	
 Recrie seu aplicativo, com a compilação definida para implantação em nuvem.
@@ -81,7 +83,8 @@ Quando a sua instância de função estiver pronta, você poderá fazer logon re
 
 * Se você estiver usando o Eclipse no Windows e selecionou a opção **Iniciar área de trabalho remota na implantação** durante a implantação do Azure, receberá uma tela de logon para a Conexão de Área de Trabalho Remota quando a implantação for iniciada. Quando receber a solicitação de nome de usuário e senha, insira os valores que você especificou para o usuário remoto e assim conseguirá fazer logon.
 * Outra maneira de fazer logon remotamente é por meio do <a href="http://go.microsoft.com/fwlink/?LinkID=512959">Portal de Gerenciamento do Azure</a>:
-    * Dentro do modo de exibição dos **Serviços de Nuvem** do portal de Gerenciamento do Azure, clique em seu serviço de nuvem, clique em **Instâncias**, clique em uma instância específica e, em seguida, clique no botão **Conectar**. O botão **Conectar** aparece da seguinte forma na barra de comandos: ![][ic659273]
+    * Dentro do modo de exibição dos **Serviços de Nuvem** do portal de Gerenciamento do Azure, clique em seu serviço de nuvem, clique em **Instâncias**, clique em uma instância específica e, em seguida, clique no botão **Conectar**. O botão **Conectar** aparece da seguinte forma na barra de comandos: 
+    ![][ic659273]  
     >[AZURE.NOTE] Se você estiver em um sistema operacional que não seja o Windows, será necessário usar um cliente de Área de Trabalho Remota compatível com o sistema operacional e executar as etapas para definir esse cliente com as configurações no arquivo RDP baixado.
     * Depois de clicar no botão **Conectar**, você receberá uma solicitação para abrir um arquivo RDP. Abra o arquivo e siga os prompts. (Você pode também salvar esse arquivo em seu computador local e depois executar o arquivo clicando duas vezes nele para fazer logon remoto em sua máquina virtual sem a necessidade de acessar primeiro o portal de gerenciamento).
     * Quando receber a solicitação de nome de usuário e senha, insira os valores que você especificou para o usuário remoto e assim conseguirá fazer logon.

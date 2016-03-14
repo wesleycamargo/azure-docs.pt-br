@@ -56,7 +56,16 @@ O Azure fornece um subconjunto de contadores de desempenho disponíveis para o W
 |ASP.NET v4.0.30319 |Solicitações Rejeitadas |Contadores de Desempenho do ASP.NET|
 |Memória |MBytes Disponíveis |Contadores de Desempenho de Memória|
 |Memória |Bytes Confirmados |Contadores de Desempenho de Memória|
-|Processador(\_Total) |% de Tempo do Processador |Contadores de Desempenho do ASP.NET| |TCPv4 |Falhas de Conexão |Objeto TCP | |TCPv4 |Conexões Estabelecidas |Objeto TCP | |TCPv4 |Conexões Estabelecidas |Objeto TCP| |TCPv4 |Segmentos Enviados/sec |Objeto TCP| |Interface de Rede(*) |Bytes Recebidos/sec |Objeto de Interface de Rede| |Interface de Rede(*) |Bytes Enviados/sec |Objeto de Interface de Rede| |Interface de Rede(Microsoft Virtual Machine Bus Network Adapter \_2)|Bytes Recebidos/sec|Objeto de Interface de Rede| |Interface de Rede(Microsoft Virtual Machine Bus Network Adapter \_2)|Bytes Enviados/sec|Objeto de Interface de Rede| |Interface de Rede(Microsoft Virtual Machine Bus Network Adapter \_2)|Bytes Total/sec|Objeto de Interface de Rede|
+|Processador(\_Total) |% de Tempo do Processador |Contadores de Desempenho do ASP.NET|
+|TCPv4 |Falhas de Conexão |Objeto TCP |
+|TCPv4 |Conexões Estabelecidas |Objeto TCP |
+|TCPv4 |Conexões Estabelecidas |Objeto TCP|
+|TCPv4 |Segmentos Enviados/sec |Objeto TCP|
+|Interface de Rede(*) |Bytes Recebidos/sec |Objeto de Interface de Rede|
+|Interface de Rede(*) |Bytes Enviados/sec |Objeto de Interface de Rede|
+|Interface de Rede(Microsoft Virtual Machine Bus Network Adapter \_2)|Bytes Recebidos/sec|Objeto de Interface de Rede|
+|Interface de Rede(Microsoft Virtual Machine Bus Network Adapter \_2)|Bytes Enviados/sec|Objeto de Interface de Rede|
+|Interface de Rede(Microsoft Virtual Machine Bus Network Adapter \_2)|Bytes Total/sec|Objeto de Interface de Rede|
 
 ## Criar e adicionar contadores de desempenho personalizados ao seu aplicativo
 
