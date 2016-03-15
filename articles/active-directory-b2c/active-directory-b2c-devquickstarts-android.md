@@ -1,4 +1,11 @@
-<properties pageTitle="Visualização do Azure Active Directory B2C: chamar uma API Web de um aplicativo do Android | Microsoft Azure" description="Este artigo mostrará como criar um aplicativo de "lista de tarefas pendentes" do Android que chama uma API Web do Node.js usando tokens de portador OAuth 2.0. O aplicativo do Android e a API Web usam o Azure Active Directory B2C para gerenciar identidades de usuário e autenticar usuários." services="active-directory-b2c" documentationCenter="android" authors="brandwe" manager="msmbaldwin" editor=""/>
+<properties 
+	pageTitle="Visualização do Azure Active Directory B2C: chamar uma API Web de um aplicativo do Android | Microsoft Azure"
+	description="Este artigo mostrará como criar um aplicativo de "lista de tarefas pendentes" do Android que chama uma API Web do Node.js usando tokens de portador OAuth 2.0. O aplicativo do Android e a API Web usam o Azure Active Directory B2C para gerenciar identidades de usuário e autenticar usuários."
+	services="active-directory-b2c"
+	documentationCenter="android"
+	authors="brandwe"
+	manager="msmbaldwin"
+	editor=""/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -947,9 +954,7 @@ Observe que as tarefas são armazenados por usuário na API, pois a API extrai a
 
 Para referência, o exemplo completo [é fornecido como um arquivo .zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/complete.zip). Você também pode cloná-lo do GitHub:
 
-```
-git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-Android
-```
+```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-Android```
 
 
 ## Informações importantes
