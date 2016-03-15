@@ -251,4 +251,4 @@ Agora, quando os usuários acessam seu aplicativo e um dispositivo que não est�
 
 - [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!----HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-->

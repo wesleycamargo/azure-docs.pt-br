@@ -126,4 +126,4 @@ Copie os seguintes arquivos de parâmetro de script de teste no computador do se
 [Implantado uma amostra do JUnit JMeter para testar o desempenho do Elasticsearch]: guidance-elasticsearch-deploying-jmeter-junit-sampler.md
 [Importando uma amostra de JUnit JMeter para testar o desempenho do Elasticsearch]: guidance-elasticsearch-deploying-jmeter-junit-sampler.md
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0224_2016-->
