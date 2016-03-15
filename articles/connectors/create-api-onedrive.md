@@ -53,7 +53,9 @@ Ao adicionar o OneDrive ao PowerApps Enterprise, insira os valores de **Chave do
 
 1. Vá para a [página de criação de aplicativo][5] no _Centro do desenvolvedor da conta da Microsoft_ e entre com sua _Conta da Microsoft_.
 
-2. Insira o **Nome do aplicativo** e aceite o contrato: ![Novo aplicativo do OneDrive][6]
+2. Insira o **Nome do aplicativo** e aceite o contrato:
+
+	![Novo aplicativo do OneDrive][6]
 
 3. Em configurações:
 
