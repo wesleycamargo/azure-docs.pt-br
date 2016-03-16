@@ -82,7 +82,9 @@ Selecione `SSH` e `Authentication` e adicione o arquivo de chave privada para au
 
 ![Conexão do Putty](media/putty2.png)
 
-Selecione `Tunnels` e `configure` as seguintes portas encaminhadas:- **Porta de Origem:** sua preferência (80 para Mesos e 2375 para Swarm) - **Destino:** localhost:80 (para Mesos) ou localhost:2375 (para Swarm)
+Selecione `Tunnels` e `configure` nas seguintes portas encaminhadas:
+- **Porta de origem:** sua preferência (80 para Mesos e 2375 para Swarm)
+- **Destino:** localhost:80 (para Mesos) ou localhost:2375 (para Swarm)
 
 O exemplo a seguir é configurado para Mesos, mas seria semelhante para o Docker Swarm.
 
@@ -108,4 +110,4 @@ Implantar e gerenciar contêineres com Mesos ou Swarm.
  
 - [Como trabalhar com ACS e Mesos](./container-service-mesos-marathon-rest.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

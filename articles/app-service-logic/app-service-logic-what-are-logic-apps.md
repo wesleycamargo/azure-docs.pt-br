@@ -12,17 +12,17 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="02/22/2016"
+	ms.topic="hero-article" 
+	ms.date="03/01/2016"
 	ms.author="klam"/>
 
 #O que são aplicativos lógicos?
 
 | Referência rápida |
 | --------------- |
-| [Linguagem de definição de aplicativos lógicos](https://msdn.microsoft.com/library/azure/dn948512.aspx?f=255&MSPPError=-2147217396) |
+| [Linguagem de definição de aplicativos lógicos](https://msdn.microsoft.com/library/azure/mt643789.aspx) |
 | [Documentação da API gerenciada de Aplicativos Lógicos](https://azure.microsoft.com/documentation/articles/apis-list) |
-| [Fórum de aplicativos lógicos](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=azurelogicapps) |
+| [Fórum de aplicativos lógicos](https://social.msdn.microsoft.com/Forums/home?forum=azurelogicapps) |
 
 O Serviço de Aplicativo do Azure é uma PaaS (plataforma como serviço) totalmente gerenciada para desenvolvedores que torna mais fácil compilar aplicativos Web, móveis e de integração. Os aplicativos lógicos são uma parte desse pacote e permitem que qualquer usuário técnico ou desenvolvedor automatize a execução do processo de negócios e o fluxo de trabalho por meio de um designer visual fácil de usar.
 
@@ -30,15 +30,20 @@ O melhor de tudo é que os Aplicativos Lógicos podem ser combinados com [APIs G
 
 ![Designer de aplicativo de fluxo](./media/app-service-logic-what-are-logic-apps/LogicAppCapture2.png)
 
-Você pode replicar automaticamente novos registros em seu Banco de Dados SQL e enviar para a recepção. Ou localizar automaticamente tweets negativos e enviá-los para um canal de margem de atraso.
+Conforme mencionado, com aplicativos lógicos, você pode automatizar processos de negócios. Aqui estão alguns exemplos:
+ 
+* Você pode replicar automaticamente novos registros em seu banco de dados SQL e enviar mensagens de email para a recepção.   
+* Ou localizar automaticamente tweets negativos e enviá-los para um canal de margem de atraso.
 
-##Por que aplicativos lógicos?
+Cenários como esses podem ser configurados inteiramente por meio do designer visual e sem escrever uma única linha de código sequer. Introdução [criação de seu aplicativo lógico agora][create].
+
+## Por que aplicativos lógicos?
 
 Aplicativos Lógicos permitem que os desenvolvedores projetem fluxos de trabalho iniciados de um gatilho e, em seguida, executem uma série de etapas. Cada etapa invoca uma API enquanto cuida com segurança da autenticação e das práticas recomendadas, como ponto de verificação e execução durável.
 
 Se quiser automatizar qualquer processo de negócios (por exemplo, localizar tweets negativos e postar no canal de margem de atraso interna ou replicar novos registros de cliente no SQL assim que chegarem em seu sistema CRM), aplicativos lógicos tornam fácil integrar fontes de dados diferentes da nuvem para o local. Confira nossas [APIs gerenciadas][managedapis] para se inspirar e [comece][create] a usá-las agora para ver o que você pode fazer.
 
-Além disso, com as nossas [APIs gerenciadas do BizTalk][biztalk], você pode dimensionar para desenvolver cenários de integração com o poder de um [mecanismo de regras][rules], [gerenciamento de parceiros comerciais][tpm] e muito mais.
+Além disso, com as nossas [APIs gerenciadas do BizTalk][biztalk], você pode dimensionar para desenvolver cenários de integração com o poder de um [mecanismo de regras][rules], o [gerenciamento de parceiros comerciais][tpm] e muito mais.
 
 - **Ferramentas de design fáceis de usar** - aplicativos lógicos podem ser projetados de ponta a ponta no navegador. Inicie com um gatilho - de um agendamento simples a sempre que aparecer um tweet exibida sobre a sua empresa. Então orquestre qualquer número de ações usando a galeria avançada de conectores.
 
@@ -69,9 +74,9 @@ Para obter mais informações a respeito da plataforma de Serviço de Aplicativo
 [biztalk]: app-service-logic-what-are-biztalk-api-apps.md
 [appservice]: ../app-service/app-service-value-prop-what-is.md
 [create]: app-service-logic-create-a-logic-app.md
-[managedapis]: app-service-logic-connectors-list.md
+[managedapis]: ../connectors/apis-list.md
 [tpm]: app-service-logic-create-a-trading-partner-agreement.md
 [rules]: app-service-logic-use-biztalk-rules.md
 [templates]: app-service-logic-use-logic-app-templates.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

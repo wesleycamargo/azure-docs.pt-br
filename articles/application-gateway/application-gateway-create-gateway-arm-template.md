@@ -23,8 +23,8 @@ O Azure Application Gateway é um balanceador de carga de camada 7. Ele fornece 
 
 > [AZURE.SELECTOR]
 - [Azure Classic PowerShell](application-gateway-create-gateway.md)
-- [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
-- [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
+- [PowerShell do Azure Resource Manager](application-gateway-create-gateway-arm.md)
+- [Modelo do Azure Resource Manager ](application-gateway-create-gateway-arm-template.md)
 
 <BR>
 
@@ -54,11 +54,11 @@ Neste cenário, você:
 
 Você pode baixar o modelo existente do Gerenciador de Recursos do Azure para criar uma rede virtual e duas sub-redes do GitHub, fazer as alterações desejadas e reutilizá-la. Para isso, siga as etapas abaixo:
 
-1. Navegue até https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-create-application-gateway/.
+1. Navegue até [Criar Application Gateway](https://github.com/Azure/azure-quickstart-templates/tree/master/101-application-gateway-create).
 2. Clique em **azuredeploy.json** e em **RAW**.
 3. Salve o arquivo em uma pasta local do computador.
 4. Se você estiver familiarizado com os modelos do Gerenciador de Recursos do Azure, pule para a etapa 7.
-5. Abra o arquivo que você acabou de salvar e examine o conteúdo em **parameters** na linha 5. Os parâmetros do modelo do Gerenciador de Recursos do Azure fornecem um espaço reservado para valores que podem ser preenchidos durante a implantação.
+5. Abra o arquivo que você acabou de salvar e examine o conteúdo em **parâmetros** na linha 5. Os parâmetros do modelo do Gerenciador de Recursos do Azure fornecem um espaço reservado para valores que podem ser preenchidos durante a implantação.
 
 	| Parâmetro | Descrição |
 	|---|---|
@@ -77,7 +77,7 @@ Você pode baixar o modelo existente do Gerenciador de Recursos do Azure para cr
 
 6. Verifique o conteúdo em **resources** e observe o seguinte:
 
-	- **type**. Tipo de recurso que está sendo criado pelo modelo. Nesse caso, o tipo é **Microsoft.Network/applicationGateways**, que representa um gateway de aplicativo.
+	- **type**. Tipo de recurso que está sendo criado pelo modelo. Nesse caso, o tipo é **Microsoft.Network/applicationGateways**, que representa um application gateway.
 	- **name**. Nome do recurso. Observe o uso de **[parameters('applicationGatewayName')]**, que significa o nome que será fornecido como entrada pelo usuário ou um arquivo de parâmetro durante a implantação.
 	- **properties**. Lista de propriedades do recurso. Esse modelo usa a rede virtual e o endereço IP público durante a criação do gateway de aplicativo.
 
@@ -112,11 +112,11 @@ Você pode baixar o modelo existente do Gerenciador de Recursos do Azure para cr
     	}
 		}
 
-11. Salve o arquivo. Você pode testar o modelo JSON e modelo de parâmetro usando ferramentas de validação de JSON online como [JSlint.com](http://www.jslint.com/)
+11. Salve o arquivo. Você pode testar o modelo JSON e o modelo de parâmetro usando ferramentas de validação de JSON online, como o [JSlint.com](http://www.jslint.com/).
 
 ## Implantar o modelo do Gerenciador de Recursos do Azure usando o PowerShell
 
-Se você nunca tiver usado o Azure PowerShell, veja [Como Instalar e Configurar o Azure PowerShell](powershell-install-configure.md) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
+Se você nunca tiver usado o Azure PowerShell, consulte [Como Instalar e Configurar o Azure PowerShell](../powershell-install-configure.md) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
 
 ### Etapa 1
 
@@ -191,7 +191,7 @@ A saída gerada pela linha de comando será a seguinte:
 
 Para implantar o modelo do Gerenciador de Recursos do Azure baixado usando a CLI do Azure, siga as etapas abaixo:
 
-1. Se você nunca usou a CLI do Azure, confira [Instalar e configurar a CLI do Azure](xplat-cli-install.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
+1. Se você nunca usou a CLI do Azure, consulte [Instalar e configurar a CLI do Azure](../xplat-cli-install.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
 2. Execute o comando **azure config mode** para alternar para o modo do Gerenciador de Recursos, como mostrado abaixo.
 
 		azure config mode arm
@@ -200,13 +200,13 @@ Este é o resultado esperado para o comando descrito acima:
 
 		info:	New mode is arm
 
-3. Se necessário, execute o comando **azure group create** para criar um novo grupo de recursos, como mostrado abaixo. Observe a saída do comando. A lista exibida após a saída explicar os parâmetros usados. Para saber mais sobre grupos de recursos, visite [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md).
+3. Se necessário, execute o comando **azure group create** para criar um novo grupo de recursos, como mostrado abaixo. Observe a saída do comando. A lista exibida após a saída explicar os parâmetros usados. Para saber mais sobre grupos de recursos, visite [Visão geral do Azure Resource Manager](../resource-group-overview.md).
 
 		azure group create -n appgatewayRG -l eastus
 
-**-n (or --name)**. Nome do novo grupo de recursos. Para nosso cenário, é *appgatewayRG*.
+**-n (or --name)**. Nome do novo grupo de recursos. Para o nosso cenário, é *appgatewayRG*.
 
-**-l (ou --location)**. Região do Azure em que o novo grupo de recursos será criado. Para nosso cenário, é *eastus*.
+**-l (ou --location)**. Região do Azure em que o novo grupo de recursos será criado. Para o nosso cenário, é *eastus*.
 
 4. Execute o cmdlet **azure group deployment create** para implantar a nova rede virtual usando o modelo e os arquivos de parâmetro que você baixou e modificou acima. A lista exibida após a saída explicar os parâmetros usados.
 
@@ -248,7 +248,7 @@ Clique para implantar é outra maneira de usar modelos do Gerenciador de Recurso
 
 
 ### Etapa 1
-Acesse [Criar um gateway de aplicativo com IP público](https://azure.microsoft.com/documentation/templates/101-application-gateway-public-ip/).
+Acesse [Criar um application gateway com IP público](https://azure.microsoft.com/documentation/templates/101-application-gateway-public-ip/).
 
 
 ### Etapa 2
@@ -259,7 +259,7 @@ Clique em **Implantar no Azure**.
 
 ### Etapa 3
 
-Preencha os parâmetros do modelo de implantação no portal e clique em **OK**
+Preencha os parâmetros do modelo de implantação no portal e clique em **OK**.
 
 ![Parâmetros](./media/application-gateway-create-gateway-arm-template/ibiza1.png)
 
@@ -275,13 +275,13 @@ Na folha Implantação personalizada, clique em **Criar**.
 
 ## Próximas etapas
 
-Se você quiser configurar o descarregamento SSL, confira [Configurar um gateway de aplicativo para descarregamento SSL](application-gateway-ssl.md).
+Se desejar configurar o descarregamento SSL, confira [Configurar um application gateway para descarregamento SSL](application-gateway-ssl.md).
 
-Se desejar configurar um gateway de aplicativo para usar com um balanceador de carga interno, veja [Criar um gateway de aplicativo com um ILB (balanceador de carga interno)](application-gateway-ilb.md).
+Se desejar configurar um gateway de aplicativo para usar com um balanceador de carga interno, veja [Criar um application gateway com um ILB (balanceador de carga interno)](application-gateway-ilb.md).
 
 Se deseja obter mais informações sobre as opções de balanceamento de carga no geral, consulte:
 
 - [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="01/09/2016"
+	ms.date="03/04/2016"
 	ms.author="robmcm"/>
 
 # Criar um aplicativo Web do Java no Serviço de Aplicativo do Azure
@@ -178,4 +178,4 @@ Para saber mais sobre o desenvolvimento de aplicativos Java no Azure, consulte o
 [inscrever-se em uma avaliação gratuita]: http://go.microsoft.com/fwlink/?LinkId=623901
 [Experimentar o Serviço de Aplicativo]: http://go.microsoft.com/fwlink/?LinkId=523751
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

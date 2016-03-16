@@ -3,7 +3,7 @@
    description="Lista os diversos relatórios disponíveis nos relatórios do Active Directory do Azure"
    services="active-directory"
    documentationCenter=""
-   authors="curtand"
+   authors="dhanyahk"
    manager="stevenpo"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/10/2016"
-   ms.author="curtand;kenhoff"/>
+   ms.date="03/07/2016"
+   ms.author="dhanyahk"/>
 
 # Introdução aos Relatórios do Active Directory do Azure
 
@@ -26,9 +26,9 @@ O Active Directory do Azure (Azure AD) inclui relatórios de auditoria, atividad
 
 - Entradas de fontes desconhecidas
 - Entradas após várias falhas
-- Entradas de várias regiões geográficas
+- Entradas de várias geografias
 - Entradas de endereços IP com atividade suspeita
-- Atividade de conexão anômala
+- Atividades de entrada irregulares
 - Entradas de dispositivos possivelmente infectados
 - Usuários com atividade de entrada anômala
 
@@ -65,7 +65,7 @@ O pipeline de relatórios consiste em três etapas principais. Sempre que um usu
 
 ### Tempos de geração dos relatórios
 
-Devido ao grande volume de autenticações e entradas processadas pela plataforma do AD do Azure, as entradas mais recentes processadas têm, em média, uma hora de duração. Em casos raros, pode levar até oito horas para as entradas mais recentes serem processadas.
+Devido ao grande volume de autenticações e entradas processadas pela plataforma do Azure AD, as entradas mais recentes processadas têm, em média, uma hora de duração. Em casos raros, pode levar até oito horas para as entradas mais recentes serem processadas.
 
 É possível encontrar a entrada processada mais recente examinando o texto de ajuda na parte superior de cada relatório.
 
@@ -152,8 +152,8 @@ Consulte [Introdução à API de Relatório](active-directory-reporting-api-gett
 
 ### Entre em contato
 
-Envie um email para [aadreportinghelp@microsoft.com](mailto:aadreportinghelp@microsoft.com) para qualquer dúvida, ajuda ou comentário!
+Envie um email para [aadreportinghelp@microsoft.com](mailto:aadreportinghelp@microsoft.com) para qualquer dúvida, ajuda ou comentário.
 
 > [AZURE.TIP] Para obter mais documentação sobre os Relatórios do AD do Azure, consulte [Exibir relatórios de acesso e uso](active-directory-view-access-usage-reports.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->
