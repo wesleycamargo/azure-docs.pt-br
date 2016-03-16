@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/12/2016"
+   ms.date="03/07/2016"
    ms.author="larryfr"/>
 
 
@@ -25,6 +25,8 @@ O Apache Storm é um sistema de computação escalável, tolerante a falhas, dis
 > [AZURE.NOTE] As etapas deste artigo criam um cluster HDInsight baseado em Linux. Para obter as etapas de criação de um Storm baseado no Windows no cluster HDInsight, consulte o [tutorial do Apache Storm: Introdução ao exemplo do Storm Starter usando a análise de dados no HDInsight](hdinsight-apache-storm-tutorial-get-started.md)
 
 ## Antes de começar
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 Você deve ter o seguinte para concluir com êxito este tutorial do Apache Storm:
 
@@ -88,7 +90,7 @@ O Storm no HDInsight usa o armazenamento de Blobs do Azure para armazenar arquiv
 	
 		> [AZURE.IMPORTANT] Se for selecionando o local para a fonte de dados padrão, também será definido o local do cluster HDInsight. O cluster e a fonte de dados padrão devem estar localizados na mesma região.
     
-    - __Identidade AAD do Cluster__: use essa opção para selecionar uma identidade do Active Directory do Azure que será usada pelo cluster para acessar o Repositório Azure Data Lake.
+    - __Identidade AAD do Cluster__: use essa opção para selecionar uma identidade do Azure Active Directory que será usada pelo cluster para acessar o Repositório Azure Data Lake.
     
         > [AZURE.NOTE] Isso não será usado neste documento e pode ser deixado com a configuração padrão. Para saber mais sobre o uso desta entrada e sobre o Repositório Azure Data Lake, com o HDInsight, confira [Criar um cluster HDInsight que usa o Repositório Azure Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md).
 		
@@ -150,7 +152,7 @@ A IU do Storm fornece uma interface Web para trabalhar com as topologias em func
 
 Use as etapas a seguir para monitorar a topologia usando a interface do usuário do Storm:
 
-1. Abra um navegador da Web para https://CLUSTERNAME.azurehdinsight.net/stormui, onde __NOMEDOCLUSTER__ é o nome do seu cluster HDInsight. Isso abrirá a interface do usuário do Storm.
+1. Abra um navegador da Web para https://CLUSTERNAME.azurehdinsight.net/stormui, em que __CLUSTERNAME__ é o nome do seu cluster. Isso abrirá a interface do usuário do Storm.
 
 	> [AZURE.NOTE] Se solicitado a forneça um nome de usuário e senha, insira o administrador de cluster (admin) e a senha que você usou ao criar o cluster.
 
@@ -215,6 +217,10 @@ Use as etapas a seguir para monitorar a topologia usando a interface do usuário
 
 Volte para a página **Resumo da topologia** para a topologia de contagem de palavras e, em seguida, selecione o botão **Eliminar** da seção **Ações de topologia**. Quando solicitado, insira 10 para os segundos a aguardar antes da interrupção da topologia. Após o período de tempo limite, a topologia não será mais exibida quando você visitar a seção **Interface do usuário do Storm** do painel.
 
+##Excluir o cluster
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ##Resumo
 
 Neste tutorial sobre o Storm Apache, você usou o Storm Starter para aprender a criar um Storm no cluster HDInsight e a usar o Painel Storm para implantar, monitorar e gerenciar topologias Storm.
@@ -233,4 +239,4 @@ Neste tutorial sobre o Storm Apache, você usou o Storm Starter para aprender a 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -4,7 +4,7 @@
 	services="api-management"
 	documentationCenter=""
 	authors="steved0x"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -293,4 +293,4 @@ Quando a política de limite de taxa de 10 chamadas por minuto estiver em vigor,
 [Limitar taxa de chamada]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Definir cota de uso]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->
