@@ -3,8 +3,8 @@
         description="Crie um compartilhamento de arquivos do Azure na nuvem com este tutorial passo a passo. Gerencie o conteúdo do compartilhamento de arquivos e monte um compartilhamento de arquivos de uma máquina virtual do Azure (VM) ou de um aplicativo local que suporta SMB 3.0."
         services="storage"
         documentationCenter="na"
-        authors="jasontang501"
-        manager="jahogg"
+        authors="mine-msft"
+        manager="aungoo"
         editor="tysonn" />
 
 <tags ms.service="storage"
@@ -12,8 +12,8 @@
       ms.tgt_pltfrm="na"
       ms.devlang="na"
       ms.topic="article"
-      ms.date="02/15/2016"
-      ms.author="jutang" />
+      ms.date="02/29/2016"
+      ms.author="minet" />
 
 
 # Como usar o Armazenamento de Arquivos do Azure com o Linux
@@ -139,4 +139,4 @@ Consulte estes links para obter mais informações sobre o armazenamento de arqu
 - [Apresentando o serviço de arquivo do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persistindo conexões para arquivos do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

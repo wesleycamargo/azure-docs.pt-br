@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="02/25/2016" 
 	ms.author="billmath"/>
 
 # Problemas com a Multi-Factor Authentication do Azure
@@ -124,6 +124,9 @@ Se você usar uma multi-factor authentication com o Azure, talvez seja convenien
 
 Se você tiver um novo telefone e precisar alterar o número de contato principal usado pelo mfa, poderá fazer isso de duas maneiras.
 
+>[AZURE.IMPORTANT]
+É importante configurar um número de telefone de autenticação secundário. Como seu número de telefone principal e seu aplicativo móvel provavelmente estão no mesmo telefone, o número de telefone secundário é a única maneira de poder retornar à sua conta caso seu telefone seja roubado ou você o perca.
+
 A primeira é usar um método de autenticação secundário. Se você tiver especificado um número de telefone de autenticação secundário, você pode entrar usando ele. ![Configuração](./media/multi-factor-authentication-end-user-manage/altphone.png) Observe que, na captura de tela acima, dois números de telefone foram configurados. Um com final 67 e o segundo com final 30.
   
 Para entrar usando o número de telefone alternativo, bastará entrar normalmente e escolher **Usar uma opção de verificação diferente**. ![Verificação diferente](./media/multi-factor-authentication-end-user-manage/differentverification.png)
@@ -131,9 +134,6 @@ Para entrar usando o número de telefone alternativo, bastará entrar normalment
 Em seguida, selecione o outro número de telefone. Nesse caso, você escolheria **Ligue para o número +X XXXXXXXX30**
 
 ![Telefone alternativo](./media/multi-factor-authentication-end-user-manage/altphone2.png)
-
->[AZURE.IMPORTANT]
-É importante configurar um número de telefone de autenticação secundário. Como seu número de telefone principal e seu aplicativo móvel provavelmente estão no mesmo telefone, o número de telefone secundário é a única maneira de poder retornar à sua conta caso seu telefone seja roubado ou você o perca.
 
 A segunda é entrar em contato com seu administrador ou com a pessoa que configurou o mfa para você. Você só precisará fazer isso se não tiver configurado um número de telefone de autenticação secundário. Caso contrário, será necessário entrar em contato com o administrador, ou com a pessoa que configurou o mfa, e pedir que ele apague suas configurações. Assim, na próxima vez que entrar, você receberá uma solicitação para [configurar a autenticação multifator](multi-factor-authentication-manage-users-and-devices.md#require-selected-users-to-provide-contact-methods-again) novamente.
 
@@ -172,4 +172,4 @@ Você também pode contatar o administrador ou a pessoa que configurou a autenti
 
 Por fim, deixe alguns comentários detalhados nesta página para que possamos atualizá-la e aprimorá-la sempre com mais informações.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

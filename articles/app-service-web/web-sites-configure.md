@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="02/26/2016" 
 	ms.author="tdykstra"/>
 
 
@@ -72,7 +72,7 @@ Esta seção contém pares de nome/valor que seu aplicativo Web carregará na in
 
 Cadeia de conexão para recursos vinculados.
 
-Para aplicativos .NET, essas cadeias de conexão serão injetadas em suas configurações `connectionStrings` em tempo de execução substituindo as entradas existentes onde a chave é igual ao nome do banco de dados vinculado.
+Para aplicativos do .NET, essas cadeias de conexão serão injetadas em suas definições do `connectionStrings` das configurações do .NET em tempo de execução, substituindo as entradas existentes cujas chaves são iguais ao nome do banco de dados vinculado.
 
 Para aplicativos PHP, Python, Java e Nó essas configurações estarão disponíveis como variáveis de ambiente em tempo de execução, antecedidas com o tipo de conexão. Os prefixos das variáveis de ambiente são os seguintes:
 
@@ -177,4 +177,4 @@ Para saber mais, consulte [Como monitorar o status de pontos de extremidade da W
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

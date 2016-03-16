@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="02/29/2016"
 	ms.author="krisragh"/>
 
 # Habilitar sincronização offline para seu aplicativo móvel iOS
@@ -87,9 +87,6 @@ O recurso de sincronização de dados offline dos aplicativos móveis do Azure p
     O método `pullWithQuery` permite que você especifique uma consulta para filtrar os registros que deseja recuperar. Neste exemplo, a consulta recupera apenas todos os registros na tabela remota `TodoItem`.
 
     O segundo parâmetro para `pullWithQuery` é uma ID de consulta que é usada para *sincronização incremental*. A sincronização incremental recupera somente os registros modificados desde a última sincronização, usando o carimbo de data/hora `UpdatedAt` do registro (chamado `updatedAt` no repositório local). A ID da consulta deve ser uma cadeia de caracteres descritiva que é exclusiva para cada consulta lógica em seu aplicativo. Se desejar sair da sincronização incremental, passe `nil` como a ID da consulta. Observe que isso pode ser potencialmente ineficiente, já que irá recuperar todos os registros de cada operação de recepção.
-
-	<!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to purge the local store.
- -->
 
 5. Na classe `QSTodoService`, o método `syncData` é chamado após as operações que modificam dados, `addItem` e `completeItem`. Ele também é chamado por meio de `QSTodoListViewController.refresh`, de modo que o usuário obtém os dados mais recentes sempre que executar o gesto de atualização. O aplicativo também realiza uma sincronização na inicialização, já que `QSTodoListViewController.init` chama `refresh`.
 
@@ -223,8 +220,6 @@ Quando desejamos sincronizar o armazenamento local com o servidor, usamos os mé
 
     Se você deseja recusar a sincronização incremental, passe `nil` como a ID da consulta. Nesse caso, todos os registros serão recuperados em cada chamada de `pullWithQuery`, que é potencialmente ineficiente.
 
-<!-- * To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to remove records from the local database, in case they have been deleted in the remote service.
- -->
 
 ## Recursos adicionais
 
@@ -248,4 +243,4 @@ Quando desejamos sincronizar o armazenamento local com o servidor, usamos os mé
 [Cobertura em nuvem: sincronização offline nos serviços móveis do Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

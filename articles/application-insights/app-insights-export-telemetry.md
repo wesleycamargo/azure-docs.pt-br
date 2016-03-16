@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2016" 
+	ms.date="03/01/2016" 
 	ms.author="awills"/>
  
 # Exportar telemetria do Application Insights
@@ -21,7 +21,10 @@ Deseja fazer algumas análises personalizadas em sua telemetria? Ou talvez você
 
 A Exportação Contínua está disponível no período de avaliação gratuita nos [planos de preços Standard e Premium](https://azure.microsoft.com/pricing/details/application-insights/).
 
-(Se você quiser apenas fazer uma [exportação única](app-insights-metrics-explorer.md#export-to-excel) do que você vê em uma folha de métrica ou de pesquisa, clique em Exportar na parte superior da folha. E se você quiser ver os dados no Power BI, use [o adaptador](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx), que *não* usa a Exportação Contínua).
+>[AZURE.NOTE] Se desejar [explorar seus dados no Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx), é possível fazer isso sem usar a Exportação Contínua.
+>
+>E se desejar fazer apenas uma [exportação única](app-insights-metrics-explorer.md#export-to-excel) do que você vê em uma folha de métrica ou de pesquisa, clique em Exportar na parte superior da folha.
+
 
 ## Criar uma conta de armazenamento
 
@@ -209,4 +212,4 @@ Em escalas maiores, considere usar o [HDInsight](https://azure.microsoft.com/ser
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

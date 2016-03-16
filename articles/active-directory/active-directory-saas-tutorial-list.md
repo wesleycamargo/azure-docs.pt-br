@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/23/2016"
+    ms.date="03/02/2016"
     ms.author="markvi"/>
 
 #Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure
@@ -23,7 +23,6 @@ Para ajudá-lo a integrar todos os seus aplicativos de nuvem (SaaS) com o Active
 Para obter uma lista abrangente de aplicativos SaaS que foram previamente integrados ao AD do Azure, consulte o [Marketplace do Active Directory](https://azure.microsoft.com/marketplace/active-directory/).
 
 ##Lista de tutoriais
-
 
 | Logotipo| Nome do aplicativo |
 | --- | --- |
@@ -65,6 +64,7 @@ Para obter uma lista abrangente de aplicativos SaaS que foram previamente integr
 | ![logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Clarizen.jpg)| [Clarizen](https://go.microsoft.com/fwLink/?LinkID=403229&clcid=0x409)|
 | ![logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Clever.jpg)| [Clever](https://go.microsoft.com/fwLink/?LinkID=530228&clcid=0x409)|
 | ![logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_ClickTime.jpg)| [ClickTime](https://go.microsoft.com/fwLink/?LinkID=403236&clcid=0x409)|
+| ![logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_NewSignature.jpg)| [Portal de Gerenciamento de Nuvem do Microsoft Azure](https://go.microsoft.com/fwLink/?LinkID=708680&clcid=0x409)|
 | ![logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_CloudPassage.jpg)| [CloudPassage](https://go.microsoft.com/fwLink/?LinkID=512732&clcid=0x409)|
 | ![logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Concur.jpg)| [Concur](https://go.microsoft.com/fwLink/?LinkID=309575&clcid=0x409)|
 | ![logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Condeco.jpg)| [Condeco](https://go.microsoft.com/fwLink/?LinkID=708660&clcid=0x409)|
@@ -73,6 +73,7 @@ Para obter uma lista abrangente de aplicativos SaaS que foram previamente integr
 | ![logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_CSStars.jpg)| [CS Stars](https://go.microsoft.com/fwLink/?LinkID=530245&clcid=0x409)|
 | ![logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Directions.jpg)| [Directions on Microsoft](https://go.microsoft.com/fwLink/?LinkID=522557&clcid=0x409)|
 | ![logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_DocuSign.jpg)| [DocuSign](https://go.microsoft.com/fwLink/?LinkID=403254&clcid=0x409)|
+| ![logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Domo.jpg)| [Domo](https://go.microsoft.com/fwLink/?LinkID=708692&clcid=0x409)|
 | ![logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Dropbox.jpg)| [Dropbox for Business](https://go.microsoft.com/fwLink/?LinkID=309581&clcid=0x409)|
 | ![logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Druva.jpg)| [Druva](https://go.microsoft.com/fwLink/?LinkID=530221&clcid=0x409)|
 | ![logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_eBuilder.jpg)| [e-Builder](https://go.microsoft.com/fwLink/?LinkID=510261&clcid=0x409)|
@@ -195,6 +196,7 @@ Para obter uma lista abrangente de aplicativos SaaS que foram previamente integr
 | ![logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Workday.jpg)| [Workday](https://go.microsoft.com/fwLink/?LinkID=286020&clcid=0x409)|
 | ![logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Workrite.jpg)| [Workrite](https://go.microsoft.com/fwLink/?LinkID=530242&clcid=0x409)|
 | ![logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_xMattersOnDemand.jpg)| [xMatters OnDemand](https://go.microsoft.com/fwLink/?LinkID=403231&clcid=0x409)|
+| ![logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Yardi.jpg)| [Yardi eLearning](https://go.microsoft.com/fwLink/?LinkID=733444&clcid=0x409)|
 | ![logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Zendesk.jpg)| [Zendesk](https://go.microsoft.com/fwLink/?LinkID=403255&clcid=0x409)|
 | ![logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_ZohoMail.jpg)| [Zoho Mail](https://go.microsoft.com/fwLink/?LinkID=403220&clcid=0x409)|
 | ![logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Zoom.jpg)| [Zoom](https://go.microsoft.com/fwLink/?LinkID=403225&clcid=0x409)|
@@ -206,9 +208,10 @@ Para obter uma lista abrangente de aplicativos SaaS que foram previamente integr
 
 
 
+
 ##Artigos relacionados
 
 - [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 - [Lista de tutoriais sobre como integrar aplicativos SaaS](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

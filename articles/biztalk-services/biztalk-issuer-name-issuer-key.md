@@ -4,7 +4,7 @@
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="02/29/2016" 
 	ms.author="mandia"/>
 
 
@@ -59,7 +59,7 @@ Resumindo: Nome do Emissor = nome da Identidade do Serviço Chave do Emissor = v
 
 No painel de navegação à esquerda, você também pode selecionar **Active Directory** para recuperar os valores do Controle de Acesso.
 
-> [AZURE.IMPORTANT]Quando o namespace do Controle de Acesso é criado usando o **Active Directory**, uma Identidade de Serviço **não** é criada automaticamente. Quando você provisiona um Serviço BizTalk, um Namespace de Controle de Acesso, uma Identidade de Serviço chamada "proprietário" (Nome do Emissor), uma Senha (Chave do Emissor) e uma Chave Simétrica são criados automaticamente.<br /> [Como usar o Serviço de Gerenciamento do ACS para configurar identidades de serviço](http://go.microsoft.com/fwlink/p/?LinkID=303942) fornece mais informações sobre identidades de serviço do Controle de Acesso.
+> [AZURE.IMPORTANT] Quando o namespace do Controle de Acesso é criado usando o **Active Directory**, uma Identidade de Serviço **não** é criada automaticamente. Quando você provisiona um Serviço BizTalk, um Namespace de Controle de Acesso, uma Identidade de Serviço chamada "proprietário" (Nome do Emissor), uma Senha (Chave do Emissor) e uma Chave Simétrica são criados automaticamente.<br /> [Como usar o Serviço de Gerenciamento do ACS para configurar identidades de serviço](http://go.microsoft.com/fwlink/p/?LinkID=303942) fornece mais informações sobre identidades de serviço do Controle de Acesso.
 
 
 ## Nome e chave do emissor do Barramento de Serviço
@@ -94,4 +94,4 @@ Tópicos adicionais sobre Serviços BizTalk do Azure:
 - [Serviços BizTalk: limitação](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

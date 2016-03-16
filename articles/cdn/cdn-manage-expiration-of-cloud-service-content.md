@@ -1,18 +1,18 @@
-<properties 
- pageTitle="Como gerenciar a expiração do conteúdo do serviço de nuvem na CDN do Azure (Rede de Distribuição de Conteúdo" 
- description="" 
- services="cdn" 
- documentationCenter=".NET" 
- authors="camsoper" 
- manager="dwrede" 
+<properties
+ pageTitle="Como gerenciar a expiração do conteúdo do serviço de nuvem na CDN do Azure (Rede de Distribuição de Conteúdo"
+ description=""
+ services="cdn"
+ documentationCenter=".NET"
+ authors="camsoper"
+ manager="erikre"
  editor=""/>
-<tags 
- ms.service="cdn" 
- ms.workload="media" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="12/02/2015" 
+<tags
+ ms.service="cdn"
+ ms.workload="media"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.date="02/25/2016" 
  ms.author="casoper"/>
 
 #Como gerenciar a expiração do conteúdo do serviço de nuvem na CDN do Azure (Rede de Distribuição de Conteúdo
@@ -25,12 +25,12 @@ Para conteúdo estático, como imagens e folhas de estilo, você pode controlar 
 
 O seguinte XML mostra e exemplo de configuração de **clientCache** para especificar um tempo decorrido máximo de três dias:
 
-	<configuration> 
-	  <system.webServer> 
-	        <staticContent> 
-	            <clientCache cacheControlMode="UseMaxAge" cacheControlMaxAge="3.00:00:00" /> 
-	        </staticContent> 
-	  </system.webServer> 
+	<configuration>
+	  <system.webServer>
+	        <staticContent>
+	            <clientCache cacheControlMode="UseMaxAge" cacheControlMaxAge="3.00:00:00" />
+	        </staticContent>
+	  </system.webServer>
 	</configuration>
 
 Especificar **UseMaxAge** adiciona um cabeçalho Cache-Control: max-age=<nnn> à resposta com base no valor especificado no atributo **CacheControlMaxAge**. O formato do período de tempo para o atributo **cacheControlMaxAge** é <days>.<hours>:<min>:<sec>. Para obter mais informações sobre o nó **clientCache**, consulte [Cache de cliente <clientCache>](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).
@@ -50,4 +50,4 @@ Por exemplo, para armazenar o conteúdo em cache por uma hora, adicione o seguin
 
 [Como gerenciar a expiração do conteúdo de blob na CDN (Rede de Distribuição de Conteúdo) do Azure](./cdn-manage-expiration-of-blob-content.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

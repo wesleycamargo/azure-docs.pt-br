@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="12/18/2015"
+	ms.date="02/26/2016"
 	ms.author="gauravbh;tomfitz"/>
 
 # Usar a política para gerenciar recursos e controlar o acesso
@@ -46,7 +46,7 @@ Usando políticas, esses cenários podem ser facilmente obtidos, conforme descri
 
 ## Estrutura da definição de política
 
-A definição de política é criada usando JSON. Consiste em uma ou mais condições/operadores lógicos que definem as ações e o efeito que informa o que acontece quando as condições são atendidas.
+A definição de política é criada usando JSON. Consiste em uma ou mais condições/operadores lógicos que definem as ações e o efeito que informa o que acontece quando as condições são atendidas. O esquema é publicado em [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json).
 
 Basicamente, uma política contém o seguinte:
 
@@ -90,15 +90,45 @@ Uma condição avalia se um **campo** ou uma **fonte** atende a determinados cri
 
 ## Campos e fontes
 
-As condições são formadas por meio do uso de campos e fontes. Um campo representa propriedades na carga de solicitação de recursos. Uma fonte representa as características da solicitação em si.
+As condições são formadas por meio do uso de campos e fontes. Um campo representa as propriedades na carga de solicitação de recurso que é usada para descrever o estado do recurso. Uma fonte representa as características da solicitação em si.
 
 Há suporte para os seguintes campos e fontes:
 
-Campos: **nome**, **forma**, **tipo**, **local**, **tags**, **tags.***.
+Campos: **nome**, **variante**, **tipo**, **local**, **marcas**, **marcas.*** e **alias de propriedade**.
 
 Fontes: **ação**.
 
+Alias de propriedade é um nome que pode ser usado na definição de política para acessar as propriedades específicas do tipo de recurso, como SKUs e configurações. Ele funciona em todas as versões de API que contêm a propriedade. Aliases podem ser recuperados usando a API REST abaixo (o suporte ao PowerShell será adicionado no futuro):
+
+    GET /subscriptions/{id}/providers?$expand=resourceTypes/aliases&api-version=2015-11-01
+	
+A definição de um alias é semelhante ao descrito abaixo. Como é possível ver, um alias define caminhos em diferentes versões de API, mesmo quando há uma alteração de nome da propriedade.
+
+    "aliases": [
+      {
+        "name": "Microsoft.Storage/storageAccounts/sku.name",
+        "paths": [
+          {
+            "path": "Properties.AccountType",
+            "apiVersions": [ "2015-06-15", "2015-05-01-preview" ]
+          }
+        ]
+      }
+    ]
+
+Atualmente, os aliases com suporte são:
+
+| Nome do alias | Descrição |
+| ---------- | ----------- |
+| {resourceType}/sku.name | Os tipos de recursos com suporte são: Microsoft.Storage/storageAccounts,<br />Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
+| {resourceType}/sku.family | O tipo de recurso com suporte é Microsoft.Cache/Redis |
+| {resourceType}/sku.capacity | O tipo de recurso com suporte é Microsoft.Cache/Redis |
+| Microsoft.Cache/Redis/enableNonSslPort | |
+| Microsoft.Cache/Redis/shardCount | |
+
+
 Para saber mais sobre ações, confira [RBAC - Funções internas](active-directory/role-based-access-built-in-roles.md). Atualmente, a política só funciona em solicitações PUT.
+
 
 ## Exemplos de definições de política
 
@@ -168,6 +198,35 @@ O exemplo abaixo mostra o uso do código-fonte. Ele mostra que ações somente n
         "effect" : "deny"
       }
     }
+
+### Usar SKUs aprovados
+
+O exemplo abaixo mostra o uso de alias de propriedade para restringir SKUs. No exemplo abaixo, apenas Standard\_LRS e Standard\_GRS estão aprovados a ser usados para contas de armazenamento.
+
+    {
+      "if": {
+        "allOf": [
+          {
+            "source": "action",
+            "like": "Microsoft.Storage/storageAccounts/*"
+          },
+          {
+            "not": {
+              "allof": [
+                {
+                  "field": "Microsoft.Storage/storageAccounts/accountType",
+                  "in": ["Standard_LRS", "Standard_GRS"]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+    
 
 ### Convenção de nomenclatura
 
@@ -327,4 +386,4 @@ Para exibir todos os eventos relacionados ao efeito de auditoria, você pode usa
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

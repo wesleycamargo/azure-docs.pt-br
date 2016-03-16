@@ -14,7 +14,7 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="12/03/2015"
+     ms.date="03/02/2016"
      ms.author="dobett"/>
 
 # Tutorial: introdução às soluções da IoT pré-configuradas
@@ -33,6 +33,8 @@ Para concluir este tutorial, você precisará de uma assinatura ativa do Azure.
 
 1.  Faça logon em [azureiotsuite.com][lnk-azureiotsuite] usando as credenciais de sua conta do Azure e clique em **+** para criar uma nova solução.
 
+    > [AZURE.NOTE] Se você estiver tendo problemas com as permissões necessárias para provisionar uma solução, dê uma olhada em [Permissões no site azureiotsuite.com](iot-suite-permissions.md) para obter orientação.
+
 2.  Clique em **Selecionar** no bloco **Monitoramento remoto**.
 
 3.  Digite um **Nome de solução** para a solução pré-configurada de monitoramento remoto.
@@ -41,7 +43,21 @@ Para concluir este tutorial, você precisará de uma assinatura ativa do Azure.
 
 5.  Clique em **Criar Solução** para iniciar o processo de provisionamento. Isso normalmente leva vários minutos para ser executado.
 
+## Aguarde o processo de provisionamento ser concluído
+
+1. Clique no bloco para sua solução com o status **provisionamento**.
+ 
+2. Observe que o **Status provisionamento** como serviços do Azure é implantado em sua assinatura do Azure.
+
+3. Após o provisionamento ser concluído, o status é alterado para **Pronto**.
+
+4. Clique no bloco e você verá os detalhes da solução no painel à direita.
+
+Há detalhes que você esperaria ver e que não estão listados para sua solução? Envie sugestões de recursos em [User Voice](https://feedback.azure.com/forums/321918-azure-iot).
+
 ## Exibir o painel de solução de monitoramento remoto
+
+O painel de solução permite que você gerencie a solução implantada. Por exemplo, você pode exibir telemetria, adicionar dispositivos e configurar regras.
 
 1.  Quando o provisionamento for concluído e o bloco da solução pré-configurada indicar **Pronto**, clique em **Iniciar** para abrir o portal de solução de monitoramento remoto em uma nova guia.
 
@@ -52,6 +68,8 @@ Para concluir este tutorial, você precisará de uma assinatura ativa do Azure.
     ![][img-dashboard]
 
 ## A lista de dispositivos de solução é exibida
+
+A lista de dispositivos mostra todos os dispositivos registrados na solução. Você exibe e edita os metadados de dispositivo, adiciona ou remove dispositivos e envia comandos para dispositivos.
 
 1.  Clique em **Dispositivos** no menu à esquerda para mostrar a *lista de dispositivos* dessa solução.
 
@@ -64,6 +82,8 @@ Para concluir este tutorial, você precisará de uma assinatura ativa do Azure.
     ![][img-devicedetails]
 
 ## Enviar um comando para um dispositivo
+
+O painel de detalhes do dispositivo mostra todos os comandos aos quais o dispositivo oferece suporte e permite que você envie comandos para dispositivos específicos.
 
 1.  Clique em **Comandos** no painel de detalhes do dispositivo selecionado.
 
@@ -101,7 +121,13 @@ Para concluir este tutorial, você precisará de uma assinatura ativa do Azure.
 
     ![][img-runningnew]
 
+## Adicionar um novo dispositivo físico
+
+Para adicionar um novo dispositivo físico para a solução, consulte [Conecte o dispositivo à solução pré-configurada de monitoramento remoto do IoT Suite][lnk-connecting-devices].
+
 ## Exibir e editar regras de solução
+
+A solução pré-configurada provisiona duas regras para SampleDevice001. As regras o notificarão no bloco **Histórico de Alarme** no painel quando os valores de temperatura ou umidade excederem um limite.
 
 1.  Retorne ao painel de solução e exiba o bloco **Histórico de Alarmes**.
 
@@ -113,11 +139,9 @@ Para concluir este tutorial, você precisará de uma assinatura ativa do Azure.
 
     ![][img-rules]
 
-4.  A solução pré-configurada provisiona duas regras.
-
 5.  Clique na regra **Temperatura** na lista de regras para exibir as propriedades da regra.
 
-6.  Clique em **Editar** no painel de propriedades da regra.
+6.  Para modificar uma regra, clique em **Editar** no painel de propriedades da regra.
 
     ![][img-displayrule]
 
@@ -131,11 +155,11 @@ Para concluir este tutorial, você precisará de uma assinatura ativa do Azure.
 
     ![][img-newhistory]
     
-Ao terminar, você poderá excluir a solução pré-configurada de sua assinatura do Azure no site [azureiotsuite.com][lnk-azureiotsuite] - isso permite excluir facilmente todos os recursos que foram provisionados quando você criou a solução pré-configurada.
+Ao terminar, você poderá excluir a solução pré-configurada de sua assinatura do Azure no site [azureiotsuite.com][lnk-azureiotsuite] - isso permitirá excluir facilmente todos os recursos que foram provisionados quando você criou a solução pré-configurada.
 
 ## Próximas etapas
 
-Agora que você criou uma solução de trabalho pré-configurada, você pode passar para os seguintes cenários:
+Agora que você criou uma solução de trabalho pré-configurada, é possível passar para as instruções a seguir:
 
 -   [Orientação sobre como personalizar soluções pré-configuradas][lnk-customize]
 -   [Visão geral da solução pré-configurada de manutenção preditiva][lnk-predictive]
@@ -161,5 +185,6 @@ Agora que você criou uma solução de trabalho pré-configurada, você pode pas
 [lnk-azureiotsuite]: https://www.azureiotsuite.com
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-predictive]: iot-suite-predictive-overview.md
+[lnk-connecting-devices]: iot-suite-connecting-devices.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

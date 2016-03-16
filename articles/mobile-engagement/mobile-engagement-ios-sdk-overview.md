@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.date="02/29/2016"
 	ms.author="MehrdadMzfr" />
 
 #SDK do iOS para o Mobile Engagement do Azure
@@ -59,4 +59,4 @@ O método `application:didReceiveRemoteNotification:` precisa ser substituído p
 	-(void)didFailToRetrieveLaunchMessage;
 	-(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -74,7 +74,7 @@ Os aplicativos móveis fornecem um novo [SDK do Servidor de Aplicativos Móveis]
 
 Neste momento, você terá um projeto que não faz referência a SDKs de Serviços Móveis.
 
-Em seguida, você adicionará referências ao SDK dos Aplicativos Móveis. Para essa migração, a maioria dos desenvolvedores deseja baixar e instalar o pacote `Micrsoft.Azure.Mobile.Server.Quickstart`, pois ele vai receber todo o conjunto necessário.
+Em seguida, você adicionará referências ao SDK dos Aplicativos Móveis. Para essa migração, a maioria dos desenvolvedores deseja baixar e instalar o pacote `Microsoft.Azure.Mobile.Server.Quickstart`, pois ele vai receber todo o conjunto necessário.
 
 Haverá alguns erros de compilador resultantes de diferenças entre os SDKs, mas eles são fáceis de resolver e serão abordados posteriormente, ainda nesta seção.
 
@@ -277,4 +277,4 @@ Quando a nova versão do cliente estiver pronta, faça um teste em seu projeto d
 [preços do Serviço de Aplicativo]: https://azure.microsoft.com/pt-BR/pricing/details/app-service/
 [Visão geral do SDK do servidor .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

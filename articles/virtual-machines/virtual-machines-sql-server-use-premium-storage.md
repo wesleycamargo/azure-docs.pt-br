@@ -22,7 +22,7 @@
 
 ## Visão geral
 
-O [Armazenamento Premium do Azure](../storage-premium-storage-preview-portal.md) é o armazenamento de última geração que oferece baixa latência e E/S de taxa de transferência alta. Ele funciona melhor para cargas de trabalho de uso intensivo de E/S de chave, como [Máquinas Virtuais](https://azure.microsoft.com/services/virtual-machines/) do SQL Server no IaaS.
+O [Armazenamento Premium do Azure](../storage/storage-premium-storage.md) é o armazenamento de última geração que oferece baixa latência e E/S de taxa de transferência alta. Ele funciona melhor para cargas de trabalho de uso intensivo de E/S de chave, como [Máquinas Virtuais](https://azure.microsoft.com/services/virtual-machines/) do SQL Server no IaaS.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
 
@@ -149,7 +149,7 @@ Após o mapeamento de VHDs para discos físicos nos pools de armazenamento, voc�
 
 O desempenho de armazenamento depende do tamanho da VM DS* especificado e dos tamanhos de VHD. As VMs têm concessões diferentes para o número de VHDs que podem ser anexados e a largura de banda máxima que aceitarão (MB/s). Para obter os números de largura de banda específicos, consulte [Máquina virtual e tamanhos de serviço de nuvem do Azure](virtual-machines-size-specs.md).
 
-Mais IOPS são obtidos com tamanhos de disco maiores. Considere isso quando você pensar em seu caminho de migração. Para obter detalhes, [consulte a tabela de IOPS e tipos de disco](../storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whpt-BRing-premium-storage).
+Mais IOPS são obtidos com tamanhos de disco maiores. Considere isso quando você pensar em seu caminho de migração. Para obter detalhes, [consulte a tabela de IOPS e tipos de disco](../storage-premium-storage.md#scalability-and-performance-targets-whpt-BRing-premium-storage).
 
 Por fim, considere que as VMs têm larguras de banda máxima de disco diferentes que aceitarão para todos os discos anexados. Em cargas elevadas, você poderia saturar a largura de banda máxima de disco disponível para esse tamanho de função de VM. Por exemplo, um Standard\_DS14 oferecerá suporte a até 512 MB/s; portanto, com três discos P30 você poderia saturar a largura de banda do disco da VM. Porém, neste exemplo, o limite de taxa de transferência poderia ser excedido dependendo da combinação de E/Ss de leitura e gravação.
 
@@ -402,7 +402,6 @@ Você deve provisionar o tempo em que você possa executar o failover manual e t
 1. Copie sobre backups e restauração completos com **NORECOVERY**.
 1. Copie sobre objetos dependentes de ‘banco de dados fora do usuário’, como logons etc.
 1. Crie um novo ILB (balanceador de carga interno) ou use um ELB (balanceador de carga externo) e configure pontos de extremidade balanceados de carga em ambos os nós novos.
-
 > [AZURE.NOTE] Verifique se todos os nós têm a configuração do ponto de extremidade correta antes de continuar
 
 1. Interrompa o acesso de usuário/aplicativo ao SQL Server (se você estiver usando pools de armazenamento).
@@ -1118,7 +1117,7 @@ Para adicionar o endereço IP, confira o [Apêndice](#appendix-migrating-a-multi
 	![Appendix15][25]
 
 ## Recursos adicionais
-- [Armazenamento Premium do Azure](../storage-premium-storage-preview-portal.md)
+- [Armazenamento Premium do Azure](../storage/storage-premium-storage.md)
 - [Máquinas virtuais](https://azure.microsoft.com/services/virtual-machines/)
 - [SQL Server nas Máquinas Virtuais do Azure](virtual-machines-sql-server-infrastructure-services.md)
 
@@ -1149,4 +1148,4 @@ Para adicionar o endereço IP, confira o [Apêndice](#appendix-migrating-a-multi
 [24]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
 
-<!----HONumber=AcomDC_0128_2016--->
+<!---HONumber=AcomDC_0302_2016-->

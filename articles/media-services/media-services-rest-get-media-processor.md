@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/14/2016" 
+	ms.date="03/01/2016"  
 	ms.author="juliako"/>
 
 
@@ -32,14 +32,14 @@ A tabela a seguir fornece o nome e a descrição de cada processador de mídia d
 
 Nome do processador de mídia|Descrição|Mais informações
 ---|---|---
-Codificador de Mídia do Azure|Permite que você execute tarefas de codificação usando o Codificador de Mídia do Azure.|[Codificador de Mídia do Azure](media-services-encode-asset.md#azure_media_encoder)
-Media Encoder Standard|Permite que você execute tarefas de codificação usando o Media Encoder Standard.|[Codificador de Mídia do Azure](media-services-encode-asset.md#media_encoder_standard)
-Fluxo de trabalho do Media Encoder Premium|Permite que você execute tarefas de codificação usando o fluxo de trabalho do Media Encoder Premium.|[Fluxo de trabalho do Media Encoder Premium](media-services-encode-asset.md#media_encoder_premium_wokrflow)
-Indexador de Mídia do Azure| Permite tornar arquivos e conteúdo de mídia pesquisáveis, bem como gerar faixas de legenda e palavras-chave.|[Indexando arquivos de mídia com o Indexador de Mídia do Azure](media-services-index-content.md).
-Azure Media Hyperlapse (visualização)|Permite suavizar "impactos" no vídeo com estabilização do vídeo. Também permite que você a acelere o seu conteúdo em um clipe de consumo.|		[Azure Media Hyperlapse](https://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)</a>
-Descriptografia do armazenamento| Permite descriptografar ativos de mídia que foram criptografados usando a criptografia de armazenamento.|N/D
-Gerenciador de mídia do Azure|Permite converter ativos de mídia de .mp4 para o formato de smooth streaming. Além disso, permite converter ativos de smooth streaming para o formato Apple HTTP Live Streaming (HLS).|[Cadeias de caracteres de predefinição de tarefa do Empacotador de Mídia do Azure](http://msdn.microsoft.com/library/hh973635.aspx)
-Criptografador de Mídia do Azure|Permite criptografar ativos de mídia usando a Proteção do PlayReady.|[Cadeias de caracteres de predefinição de tarefa do Empacotador de Mídia do Azure](http://msdn.microsoft.com/library/hh973610.aspx)
+Media Encoder Standard|Fornece funcionalidades padrão para codificação sob demanda. |[Visão Geral e Comparação de Codificadores de Mídia sob Demanda do Azure](media-services-encode-asset.md)
+Fluxo de trabalho do Media Encoder Premium|Permite que você execute tarefas de codificação usando o fluxo de trabalho do Media Encoder Premium.|[Visão Geral e Comparação de Codificadores de Mídia sob Demanda do Azure](media-services-encode-asset.md)
+Indexador de Mídia do Azure| Permite tornar arquivos e conteúdo de mídia pesquisáveis, bem como gerar faixas de legenda e palavras-chave.|[Indexador de Mídia do Azure](media-services-index-content.md)
+Azure Media Hyperlapse (visualização)|Permite suavizar "impactos" no vídeo com estabilização do vídeo. Também permite que você a acelere o seu conteúdo em um clipe de consumo.|[Azure Media Hyperlapse](media-services-hyperlapse-content.md)
+Codificador de Mídia do Azure|Substituído
+Descriptografia do armazenamento| Substituído|
+Gerenciador de mídia do Azure|Substituído|
+Criptografador de Mídia do Azure|Substituído|
 
 ##Obter MediaProcessor
 
@@ -50,41 +50,40 @@ Criptografador de Mídia do Azure|Permite criptografar ativos de mídia usando a
 >Depois de se conectar com êxito a https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos Serviços de Mídia. Você deve fazer chamadas subsequentes para o novo URI, conforme descrito em [Conectando-se aos Serviços de Mídia usando a API REST](media-services-rest-connect_programmatically.md).
 
 
+A chamada REST a seguir mostra como obter uma instância do processador de mídia por nome (neste caso, **Codificador de Mídia Padrão**).
 
-A chamada REST a seguir mostra como obter uma instância do processador de mídia por nome (neste caso, **Codificador de Mídia do Azure**).
+
 
 	
 Solicitação:
 
-	GET https://media.windows.net/api/MediaProcessors()?$filter=Name%20eq%20'Azure%20Media%20Encoder' HTTP/1.1
+	GET https://media.windows.net/api/MediaProcessors()?$filter=Name%20eq%20'Media%20Encoder%20Standard' HTTP/1.1
 	DataServiceVersion: 1.0;NetFx
 	MaxDataServiceVersion: 3.0;NetFx
 	Accept: application/json
 	Accept-Charset: UTF-8
 	User-Agent: Microsoft ADO.NET Data Services
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-e769-477b-2233-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423635565&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=6zwXEn7YJzVJbVCNpqDUjBLuE5iUwsdJbWvJNvpY3%2b8%3d
+	Authorization: Bearer <token>
 	x-ms-version: 2.11
 	Host: media.windows.net
 	
 Resposta:
+		
+	. . .
 	
-	HTTP/1.1 200 OK
-	Cache-Control: no-cache
-	Content-Length: 273
-	Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
-	Server: Microsoft-IIS/8.5
-	x-ms-client-request-id: 8a291764-4ed7-405d-aa6e-d3ebabb0b3f6
-	request-id: dceeb559-48b5-48e1-81d3-d324b6203d51
-	x-ms-request-id: dceeb559-48b5-48e1-81d3-d324b6203d51
-	X-Content-Type-Options: nosniff
-	DataServiceVersion: 3.0;
-	X-Powered-By: ASP.NET
-	Strict-Transport-Security: max-age=31536000; includeSubDomains
-	Date: Wed, 11 Feb 2015 00:19:56 GMT
-	
-	{"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#MediaProcessors","value":[{"Id":"nb:mpid:UUID:1b1da727-93ae-4e46-a8a1-268828765609","Description":"Azure Media Encoder","Name":"Azure Media Encoder","Sku":"","Vendor":"Microsoft","Version":"4.4"}]}
-
-
+	{  
+	   "odata.metadata":"https://media.windows.net/api/$metadata#MediaProcessors",
+	   "value":[  
+	      {  
+	         "Id":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
+	         "Description":"Media Encoder Standard",
+	         "Name":"Media Encoder Standard",
+	         "Sku":"",
+	         "Vendor":"Microsoft",
+	         "Version":"1.1"
+	      }
+	   ]
+	}
 
 
 ##Roteiros de aprendizagem dos Serviços de Mídia
@@ -97,10 +96,7 @@ Resposta:
 
 
 ##Próximas etapas
-Agora que você sabe como obter uma instância do processador de mídia, vá para o tópico [Como codificar um ativo][] que mostra como usar o Codificador de Mídia do Azure para codificar um ativo.
 
-[Como codificar um ativo]: media-services-rest-encode-asset.md
-[Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
-[How to: Connect to Media Services Programmatically]: ../media-services-rest-connect_programmatically/
+Agora que você já sabe como obter uma instância do processador de mídia, vá para o tópico [Como codificar um ativo](media-services-rest-get-started.md), que mostrará como usar o Codificador de Mídia Padrão para codificar um ativo.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,8 +13,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article" 
-	ms.date="02/16/2016"
+	ms.topic="article" 
+	ms.date="02/29/2016"
 	ms.author="billmath"/>
 
 # O que é o Azure Multi-Factor Authentication?
@@ -117,9 +117,10 @@ Saudações personalizadas para chamadas telefônicas| | | *
 Personalização da ID do chamador para chamadas telefônicas| | | *
 Confirmação de evento| | | *
 IPs Confiáveis| | | *
-Suspender MFA para dispositivos lembrados (visualização pública)| | | *
+Lembrar MFA para dispositivos confiáveis |* | * | *
 SDK de MFA| | | *
 MFA para aplicativos locais usando o servidor MFA| | | *
+Opções de verificação selecionável (Preview Pública)|* | * | *
 
 
 ## Como obter o Azure Multi-Factor Authentication
@@ -136,9 +137,11 @@ Ao usar um Provedor do Azure Multi-Factor Authentication, há dois modelos de us
 - **Por usuário**. Geralmente para empresas que desejam habilitar a autenticação multifator para um número fixo de funcionários que precisam regularmente de autenticação.
 - **Por autenticação**. Em geral, para empresas que querem habilitar a autenticação multifator para um grupo grande de usuários externos que raramente precisam de autenticação.
 
+O Azure Multi-Factor Authentication fornece métodos de verificação selecionável para a nuvem e o servidor. Isso significa que é possível escolher quais métodos estarão disponíveis para os usuários usar com a autenticação multifator. Atualmente, esse recurso está em preview pública para a versão de nuvem da autenticação multifator. Para obter mais informações, veja [métodos de verificação selecionável](multi-factor-authentication-whats-next.md#selectable-verification-methods-public-preview).
+
 Para obter detalhes sobre preços, consulte [Preços do Azure MFA.](https://azure.microsoft.com/pricing/details/multi-factor-authentication/)
 
-Escolha o modelo baseado em consumo que funciona melhor para sua organização. Depois, para iniciar, veja a [Introdução.](multi-factor-authentication-get-started.md)
+Escolha o modelo baseado em consumo que funciona melhor para sua organização. Depois, para iniciar, veja [Introdução.](multi-factor-authentication-get-started.md)
 
 ## Escolha a solução de segurança multifator para você
 
@@ -198,7 +201,7 @@ Desvio único | ● | ●
 Saudações personalizadas para chamadas telefônicas | ● | ●
 ID do chamador personalizável para chamadas telefônicas | ● | ●
 IPs confiáveis | ● | ●
-Suspender MFA para dispositivos lembrados (visualização pública) | ● |  
+Lembrar MFA para dispositivos confiáveis (Preview Pública) | ● |  
 Acesso condicional | ● | ●
 Cache | ● | ●
 
@@ -206,4 +209,4 @@ Agora que determinamos se usar a autenticação multifator na nuvem ou o Servido
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

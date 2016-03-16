@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli"/>
 
-# Failover de dispositivo e a recuperação de desastre para sua StorSimple Virtual Array (Visualização)
+# Failover de dispositivo e a recuperação de desastre para sua StorSimple Virtual Array
 
 
 ## Visão geral
@@ -27,7 +27,7 @@ O failover de dispositivo é orquestrado por meio do recurso de DR (recuperaçã
 
 ![](./media/storsimple-ova-failover-dr/image16.png)
 
-Este artigo se aplica somente a Matrizes Virtuais StorSimple (visualização). Para realizar failover em um dispositivo série 8000, vá para [Failover e Recuperação de Desastre do seu dispositivo StorSimple](storsimple-device-failover-disaster-recovery.md).
+Este artigo se aplica somente aos StorSimple Virtual Arrays. Para realizar failover em um dispositivo série 8000, vá para [Failover e Recuperação de Desastre do seu dispositivo StorSimple](storsimple-device-failover-disaster-recovery.md).
 
 
 ## O que é recuperação de desastre?
@@ -174,4 +174,4 @@ Se uma das pré-verificações não for atendida, você verá falhas nas pré-ve
 
 Saiba mais sobre como [administrar sua StorSimple Virtual Array usando a interface do usuário da Web local](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0302_2016-->

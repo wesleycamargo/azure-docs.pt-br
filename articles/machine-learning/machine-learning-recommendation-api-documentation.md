@@ -93,18 +93,14 @@ Cria uma solicitação "criar modelo".
 
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
-|	modelName |	Há permissão apenas para letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados (\_).<br>Comprimento máximo: 20 | 
-| apiVersion | 1.0 | 
-||| 
-| Corpo da Solicitação | NENHUM |
+|	modelName |	Há permissão apenas para letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados (\_).<br>Comprimento máximo: 20 | | apiVersion | 1.0 | ||| | Corpo da Solicitação | NENHUM |
 
 
 **Resposta**:
 
 Código de status HTTP: 200
 
-- `feed/entry/content/properties/id` – Contém a ID do modelo. 
-**Observação**: a ID do modelo diferencia maiúsculas de minúsculas.
+- `feed/entry/content/properties/id` – Contém a ID do modelo. **Observação**: a ID do modelo diferencia maiúsculas de minúsculas.
 
 XML de OData
 
@@ -147,7 +143,7 @@ Criar uma solicitação “obter modelo".
 |:--------			|:--------								|
 |	ID |	O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
 |	apiVersion | 1\.0 |
-|
+|||
 | Corpo da solicitação | NENHUM |
 
 **Resposta**:
@@ -210,7 +206,7 @@ Recupera todos os modelos do usuário atual.
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
 |	apiVersion | 1\.0 |
-|
+|||
 | Corpo da solicitação | NENHUM |
 
 **Resposta**:
@@ -268,9 +264,7 @@ XML de OData
 
 ###5\.4. Atualizar modelo
 
-Você pode atualizar a descrição do modelo ou a ID de compilação ativa.<br> 
-<ins>ID de compilação ativa</ins> – Cada compilação de cada modelo possui uma ID da compilação. A ID de compilação ativa é a primeira compilação executada com êxito de cada novo modelo. Depois que tiver uma ID de compilação ativa e criar compilações adicionais para o mesmo modelo, você precisará defini-lo explicitamente como a ID de compilação padrão, se desejar. Ao consumir recomendações, se você não especificar a ID de compilação que deseja usar, o padrão será usado automaticamente.<br> 
-Esse mecanismo permite, depois de ter um modelo de recomendação em produção, compilar e testar novos modelos antes de promovê-los para produção.
+Você pode atualizar a descrição do modelo ou a ID de compilação ativa.<br> <ins>ID de compilação ativa</ins> – Cada compilação de cada modelo possui uma ID da compilação. A ID de compilação ativa é a primeira compilação executada com êxito de cada novo modelo. Depois que tiver uma ID de compilação ativa e criar compilações adicionais para o mesmo modelo, você precisará defini-lo explicitamente como a ID de compilação padrão, se desejar. Ao consumir recomendações, se você não especificar a ID de compilação que deseja usar, o padrão será usado automaticamente.<br> Esse mecanismo permite, depois de ter um modelo de recomendação em produção, compilar e testar novos modelos antes de promovê-los para produção.
 
 
 | Método HTTP | URI |
@@ -281,7 +275,7 @@ Esse mecanismo permite, depois de ter um modelo de recomendação em produção,
 |:--------			|:--------								|
 |	ID | O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
 |	apiVersion | 1\.0 |
-|
+|||
 | Corpo da solicitação | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>Observe que as marcas XML Description e ActiveBuildId são opcionais. Se você não quiser definir Description ou ActiveBuildId, remova a marca inteira.|
 
 **Resposta**:
@@ -299,7 +293,7 @@ Exclui um modelo existente por ID.
 |:--------			|:--------								|
 |	ID |	O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
 |	apiVersion | 1\.0 |
-|
+|||
 | Corpo da solicitação | NENHUM |
 
 **Resposta**:
@@ -343,7 +337,7 @@ Disponível somente para compilação de Recomendação.
 |:--------			|:--------								|
 |	modelId |	Identificador exclusivo do modelo |
 |	apiVersion | 1\.0 |
-|
+|||
 | Corpo da solicitação | NENHUM |
 
 **Resposta**:
@@ -580,7 +574,7 @@ Disponível somente para compilação de Recomendação.
 |	modelId |	Identificador exclusivo do modelo |
 |	buildId |	Opcional – número que identifica uma compilação bem-sucedida. |
 |	apiVersion | 1\.0 |
-|
+|||
 | Corpo da solicitação | NENHUM |
 
 **Resposta**:
@@ -660,7 +654,7 @@ Obter um exemplo de modelo de recomendação.
 |:--------			|:--------								|
 |	modelId |	Identificador exclusivo do modelo |
 |	apiVersion | 1\.0 |
-|
+|||
 | Corpo da solicitação | NENHUM |
 
 **Resposta**:
@@ -802,18 +796,19 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 
 
 ##7\. Regras de negócio do modelo
-Estes são os quatro tipos de regra com suporte: 
-<strong>BlockList</strong> - BlockList permite fornecer uma lista de itens que você não deseja que sejam retornados nos resultados de recomendação.
 
-- <strong>FeatureBlockList</strong> - Feature BlockList permite que você bloqueie itens com base nos valores de seus recursos.
+Estes são os tipos de regras com suporte:
+- <strong>BlockList</strong> – a BlockList permite que você forneça uma lista de itens que não deseja que sejam retornados nos resultados de recomendação. 
 
-*Não envie mais de 1.000 itens em uma única regra de lista de bloqueios ou sua chamada poderá expirar. Se você precisa bloquear mais de 1.000 itens, você pode fazer várias chamadas de lista de bloqueios.*
+- <strong>FeatureBlockList</strong> - a Feature BlockList permite que você bloqueie itens com base nos valores de seus recursos.
+
+*Não envie mais de mil itens em uma única regra de lista de bloqueios ou sua chamada poderá expirar. Se você precisa bloquear mais de 1.000 itens, você pode fazer várias chamadas de lista de bloqueios.*
 
 - <strong>Upsale</strong> - Upsale permite reforçar os itens a serem retornados nos resultados de recomendação.
 
-- <strong>WhiteList</strong> - WhiteList permite a você sugerir recomendações apenas de uma lista de itens.
+- <strong>WhiteList</strong> - a WhiteList permite a você sugerir recomendações apenas de uma lista de itens.
 
-- <strong>FeatureWhiteList</strong> - Feature White List permite que você recomende somente os itens com valores de recurso específicos.
+- <strong>FeatureWhiteList</strong> - a Feature White List permite que você recomende somente os itens com valores de recurso específicos.
 
 - <strong>PerSeedBlockList</strong> - Per Seed Block List permite fornecer por itens uma lista dos itens que não podem ser retornados como resultados de recomendação.
 
@@ -830,7 +825,7 @@ Estes são os quatro tipos de regra com suporte:
 |:--------			|:--------								|
 |	modelId |	Identificador exclusivo do modelo |
 |	apiVersion | 1\.0 |
-|
+|||
 | Corpo da solicitação | NENHUM |
 
 **Resposta**:
@@ -888,19 +883,19 @@ XML de OData
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
 |	apiVersion | 1\.0 |
-|
+|||
 | Corpo da solicitação | 
-<ins>Sempre que você fornecer Ids de Item para regras de negócio, use a ID externa do item ( a mesma ID que você usou no arquivo de catálogo)</ins><br> 
-<ins>Para adicionar uma regra BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins> 
-<ins>Para adicionar uma regra FeatureBlockList:</ins><br> 
-<br> 
-`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins> 
-Para adicionar uma regra Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br> 
-<ins>Para adicionar uma regra WhiteList:</ins><br> 
-`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins> 
-<ins>Para adicionar uma regra FeatureWhiteList:</ins><br> 
-<br> 
-`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins> 
+<ins>Sempre que você fornecer Ids de Item para regras de negócio, use a ID externa do item ( a mesma ID que você usou no arquivo de catálogo)</ins><br>
+<ins>Para adicionar uma regra BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>
+<ins>Para adicionar uma regra FeatureBlockList:</ins><br>
+<br>
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins>
+Para adicionar uma regra Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br>
+<ins>Para adicionar uma regra WhiteList:</ins><br>
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>
+<ins>Para adicionar uma regra FeatureWhiteList:</ins><br>
+<br>
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins>
 Para adicionar uma regra PerSeedBlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
 
@@ -949,7 +944,7 @@ XML de OData
 |	modelId |	Identificador exclusivo do modelo |
 |	filterId |	Identificador exclusivo do filtro |
 |	apiVersion | 1\.0 |
-|
+|||
 | Corpo da solicitação | NENHUM |
 
 **Resposta**:
@@ -966,7 +961,7 @@ Código de status HTTP: 200
 |:--------			|:--------								|
 |	modelId |	Identificador exclusivo do modelo |
 |	apiVersion | 1\.0 |
-|
+|||
 | Corpo da solicitação | NENHUM |
 
 **Resposta**:
@@ -1006,19 +1001,16 @@ Observação: o tamanho máximo do arquivo é de 200 MB.
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
 |	modelId |	Identificador exclusivo do modelo |
-| nome do arquivo | Identificador textual do catálogo.<br>Somente letras (A-Z, a-z), números (0-9), hifens (-) e sublinhado (\_) são permitidos.<br>Comprimento máximo: 50 |
-| apiVersion | 1.0 |
-|||
-| ||| | Corpo da solicitação | Exemplo (com recursos):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
+| nome do arquivo | Identificador textual do catálogo.<br>Somente letras (A-Z, a-z), números (0-9), hifens (-) e sublinhado (\_) são permitidos.<br>Comprimento máximo: 50 | | apiVersion | 1.0 | ||| | ||| | Corpo da solicitação | Exemplo (com recursos):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
 
 
 **Resposta**:
 
 Código de status HTTP: 200
 
-A API retorna um relatório da importação. 
-- `feed\entry\content\properties\LineCount` – Número de linhas aceitas. 
-- `feed\entry\content\properties\ErrorCount` – Número de linhas que não foram inseridas devido a um erro.
+A API retorna um relatório da importação.
+- `feed\entry\content\properties\LineCount` – O número de linhas aceitas.
+- `feed\entry\content\properties\ErrorCount` – O número de linhas que não foram inseridas devido a um erro.
 
 XML de OData
 
@@ -1054,7 +1046,7 @@ Recupera todos os itens de catálogo.
 |:--------			|:--------								|
 |	modelId |	Identificador exclusivo do modelo |
 |	apiVersion | 1\.0 |
-|
+|||
 | Corpo da solicitação | NENHUM |
 
 **Resposta**:
@@ -1157,7 +1149,7 @@ XML de OData
 |	modelId |	Identificador exclusivo do modelo |
 |	token |	Token do nome do item do catálogo. Deve conter pelo menos três caracteres. |
 |	apiVersion | 1\.0 |
-|
+|||
 | Corpo da solicitação | NENHUM |
 
 **Resposta**:
@@ -1166,12 +1158,12 @@ Código de status HTTP: 200
 
 A resposta inclui uma entrada por item de catálogo. Cada entrada tem os seguintes dados:
 
-- `feed/entry/content/properties/ExternalId` – ID externa do item do catálogo, fornecida pelo cliente.
 - `feed/entry/content/properties/InternalId` – ID interna do item do catálogo, gerada pelas Recomendações do Aprendizado de Máquina do Azure.
 - `feed/entry/content/properties/Name` – Nome do item do catálogo.
-- `feed/entry/content/properties/Category` – Categoria do item do catálogo.
-- `feed/entry/content/properties/Description` – Descrição do item do catálogo.
-- `feed/entry/content/properties/Metadata` – Metadados do item do catálogo.
+- `feed/entry/content/properties/Rating` – (para uso futuro)
+- `feed/entry/content/properties/Reasoning` – (para uso futuro)
+- `feed/entry/content/properties/Metadata` – (para uso futuro)
+- `feed/entry/content/properties/FormattedRating` – (para uso futuro)
 
 XML de OData
 
@@ -1212,10 +1204,7 @@ Esta seção mostra como carregar dados de uso usando um arquivo. Você pode cha
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
 |	modelId |	Identificador exclusivo do modelo |
-| nome do arquivo | Identificador textual do catálogo.<br>Há permissão apenas para letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados (_).<br>Comprimento máximo: 50 | 
-| apiVersion | 1.0 | 
-|||  
-| Corpo da solicitação | Dados de uso. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obrigatório</th><th>Tipo</th><th>Descrição</th></tr><tr><td>Id do usuário</td><td>Sim</td><td>[A-z], [a-z], [0-9], [_] &#40;Sublinhado&#41;, [-] &#40;Traço&#41;<br> Comprimento máximo: 255 </td><td>Identificador exclusivo de um usuário.</td></tr><tr><td>Id do Item</td><td>Sim</td><td>[A-z], [a-z], [0-9], [&#95;] &#40;Sublinhado&#41;, [-] &#40;Traço&#41;<br> Comprimento máximo: 50</td><td>Identificador exclusivo de um item.</td></tr><tr><td>Hora</td><td>Não</td><td>Data no formato: AAAA/MM/DDTHH:MM:SS (por exemplo 2013/06/20T10:00:00)</td><td>Hora dos dados.</td></tr><tr><td>Evento</td><td>Não; caso seja fornecido também precisará da data</td><td>Um dos seguintes:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Tamanho máximo do arquivo: 200MB<br><br>Exemplo:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+| nome do arquivo | Identificador textual do catálogo.<br>Há permissão apenas para letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados (_).<br>Comprimento máximo: 50 | | apiVersion | 1.0 | ||| | Corpo da solicitação | Dados de uso. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obrigatório</th><th>Tipo</th><th>Descrição</th></tr><tr><td>Id do usuário</td><td>Sim</td><td>[A-z], [a-z], [0-9], [_] &#40;Sublinhado&#41;, [-] &#40;Traço&#41;<br> Comprimento máximo: 255 </td><td>Identificador exclusivo de um usuário.</td></tr><tr><td>Id do Item</td><td>Sim</td><td>[A-z], [a-z], [0-9], [&#95;] &#40;Sublinhado&#41;, [-] &#40;Traço&#41;<br> Comprimento máximo: 50</td><td>Identificador exclusivo de um item.</td></tr><tr><td>Hora</td><td>Não</td><td>Data no formato: AAAA/MM/DDTHH:MM:SS (por exemplo 2013/06/20T10:00:00)</td><td>Hora dos dados.</td></tr><tr><td>Evento</td><td>Não; caso seja fornecido também precisará da data</td><td>Um dos seguintes:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Tamanho máximo do arquivo: 200MB<br><br>Exemplo:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **Resposta**:
 
@@ -1363,8 +1352,7 @@ Esta seção mostra como enviar eventos em tempo real para as Recomendações do
   		</EventData>
 		</Event>
 
-**Response**:
-código de status HTTP: 200
+**Response**: código de status HTTP: 200
 
 ###9\.2. Lista dos arquivos de modelo de uso
 Recupera os metadados de todos os arquivos de uso do modelo.
@@ -1377,7 +1365,7 @@ Recupera os metadados de todos os arquivos de uso do modelo.
 |:--------			|:--------								|
 |	forModelId |	Identificador exclusivo do modelo |
 |	apiVersion | 1\.0 |
-|
+|||
 | Corpo da solicitação | NENHUM |
 
 **Resposta**:
@@ -1444,7 +1432,7 @@ Obter estatísticas de uso
 | endDate |	Data de término. Formato: aaaa/MM/ddTHH:mm:ss |
 | eventTypes |	Cadeia de caracteres separada por vírgulas de tipos de eventos ou nulo para obter todos os eventos. |
 | apiVersion | 1\.0 |
-|
+|||
 | Corpo da solicitação | NENHUM |
 
 **Resposta**:
@@ -1527,15 +1515,15 @@ Recupera os primeiros 2 KB de conteúdo de arquivos de uso.
 | modelId |	Identificador exclusivo do modelo |
 | fileId |	Identificador exclusivo do arquivo de uso do modelo. |
 | apiVersion | 1\.0 |
-|
+|||
 | Corpo da solicitação | NENHUM |
 
 **Resposta**:
 
 Código de status HTTP: 200
 
-A resposta é retornada em formato de texto simples: 
-<pre> 
+A resposta é retornada no formato de texto sem formatação:
+<pre>
 85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
 210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
 116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
@@ -1567,14 +1555,14 @@ Recupera o conteúdo completo do arquivo de uso.
 | fid |	Identificador exclusivo do arquivo de uso do modelo. |
 | baixar | 1 |
 | apiVersion | 1\.0 |
-|
+|||
 | Corpo da solicitação | NENHUM |
 
 **Resposta**:
 
 Código de status HTTP: 200
 
-A resposta é retornada em formato de texto sem formatação:
+A resposta é retornada no formato de texto sem formatação:
 <pre>
 85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
 210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
@@ -1623,7 +1611,7 @@ Exclui o arquivo de uso do modelo especificado.
 | modelId |	Identificador exclusivo do modelo |
 | fileId | Identificador exclusivo do arquivo a ser excluído |
 | apiVersion | 1\.0 |
-|
+|||
 | Corpo da solicitação | NENHUM |
 
 **Resposta**:
@@ -1642,7 +1630,7 @@ Exclui todos os arquivos de uso do modelo.
 |:--------			|:--------								|
 | modelId |	Identificador exclusivo do modelo |
 | apiVersion | 1\.0 |
-|
+|||
 | Corpo da solicitação | NENHUM |
 
 **Resposta**:
@@ -1650,9 +1638,7 @@ Exclui todos os arquivos de uso do modelo.
 Código de status HTTP: 200
 
 ##10\. Recursos
-Esta seção mostra como recuperar informações de recurso, como os recursos importados e seus valores, sua classificação e quando essa classificação foi alocada. Os recursos são importados como parte dos dados do catálogo e, em seguida, sua posição é associada quando uma compilação de classificação é criada.
-A classificação de recursos pode mudar de acordo com o padrão dos dados de uso e tipo de itens. Mas, para uso/itens consistentes, a classificação deve ter apenas pequenas flutuações.
-A classificação de recursos é um número não negativo. O número 0 significa que o recurso não foi classificado (acontece se você invocar essa API antes da conclusão da primeira compilação de classificação). A data em que a classificação foi atribuída é chamada de atualização da pontuação.
+Esta seção mostra como recuperar informações de recurso, como os recursos importados e seus valores, sua classificação e quando essa classificação foi alocada. Os recursos são importados como parte dos dados do catálogo e, em seguida, sua posição é associada quando uma compilação de classificação é criada. A classificação de recursos pode mudar de acordo com o padrão dos dados de uso e tipo de itens. Mas, para uso/itens consistentes, a classificação deve ter apenas pequenas flutuações. A classificação de recursos é um número não negativo. O número 0 significa que o recurso não foi classificado (acontece se você invocar essa API antes da conclusão da primeira compilação de classificação). A data em que a classificação foi atribuída é chamada de atualização da pontuação.
 
 ###10\.1. Obter informações de recursos (para a última compilação de classificação)
 Recupera as informações de recurso, incluindo classificação, para a última compilação de classificação bem-sucedida.
@@ -1666,7 +1652,7 @@ Recupera as informações de recurso, incluindo classificação, para a última 
 | modelId |	Identificador exclusivo do modelo |
 |samplingSize| Número de valores a serem incluídos para cada recurso de acordo com os dados presentes no catálogo. <br/>Os valores possíveis são:<br> - 1 - Todas as amostras. <br>0 - Sem amostragem. <br>N - Retornar N amostras para cada nome de recurso.|
 | apiVersion | 1\.0 |
-|
+|||
 | Corpo da solicitação | NENHUM |
 
 
@@ -1749,7 +1735,7 @@ Recupera as informações de recurso, incluindo a classificação, para uma comp
 |samplingSize| Número de valores a serem incluídos para cada recurso de acordo com os dados presentes no catálogo.<br/> Os valores possíveis são:<br> - 1 - Todas as amostras. <br>0 - Sem amostragem. <br>N - Retornar N amostras para cada nome de recurso.|
 |rankBuildId| Identificador exclusivo da compilação de classificação ou -1 para a última compilação de classificação|
 | apiVersion | 1\.0 |
-|
+|||
 | Corpo da solicitação | NENHUM |
 
 
@@ -1822,18 +1808,18 @@ OData
 
   Esta seção explica as diferentes APIs relacionadas a compilações. Existem 3 tipos de compilações: uma compilação de recomendação, uma compilação de classificação e uma compilação FBT (frequentemente comprada junto).
 
-A compilação de recomendação tem o objetivo de gerar um modelo de recomendação usado para previsões. As previsões (para esse tipo de compilação) vêm em duas versões: também conhecido como
-* I2I Recomendações de Item a Item - ao receber um item ou uma lista de itens, essa opção poderá prever uma lista de itens que provavelmente serão de grande interesse. Também conhecido como
-* U2I Recomendações do Usuário ao Item - ao receber uma ID de usuário (e, opcionalmente, uma lista de itens), essa opção poderá prever uma lista de itens que provavelmente serão de grande interesse para o usuário especificado (e suas opções adicionais de itens). As recomendações de U2I são baseadas no histórico de itens que foram de interesse do usuário até o momento em que o modelo foi criado.
+A compilação de recomendação tem o objetivo de gerar um modelo de recomendação usado para previsões. As previsões (para esse tipo de compilação) vêm em duas versões:
+* I2I - também conhecido como Recomendações de Item a Item - ao receber um item ou uma lista de itens, essa opção poderá prever uma lista de itens que provavelmente serão de grande interesse.
+* U2I - também conhecido como Recomendações do Usuário ao Item - ao receber uma ID de usuário (e, opcionalmente, uma lista de itens), essa opção poderá prever uma lista de itens que provavelmente serão de grande interesse para o usuário especificado (e suas opções adicionais de itens). As recomendações de U2I são baseadas no histórico de itens que foram de interesse do usuário até o momento em que o modelo foi criado.
 
-Uma compilação de classificação é uma compilação técnica que permite que você saiba mais sobre a utilidade dos seus recursos. Geralmente, para obter o melhor resultado para um modelo de recomendação envolvendo recursos, siga as seguintes etapas:
-- Dispare uma compilação de classificação (a menos que a pontuação dos seus recursos seja estável) e espere até obter a pontuação de recurso.
-- Recupere a posição de seus recursos chamando a API [Obter informações de recursos](#101-get-features-info-for-last-rank-build).
+Uma compilação de classificação é uma compilação técnica que permite que você saiba mais sobre a utilidade dos seus recursos. Geralmente, para obter o melhor resultado para um modelo de recomendação que envolve recursos, siga as etapas a seguir:
+- Dispare uma compilação de classificação (a menos que a pontuação dos seus recursos seja estável) e aguarde até obter a pontuação do recurso.
+- Obtenha a classificação dos recursos chamando a API [Obter Informações de Recursos](#101-get-features-info-for-last-rank-build).
 - Configure uma compilação de recomendação com os seguintes parâmetros:
-	- `useFeatureInModel` - Definido como Verdadeiro.
-	- `ModelingFeatureList` - Defina uma lista separada por vírgulas dos recursos com pontuação de 2.0 ou mais (de acordo com as classificações obtidas na etapa anterior).
-	- `AllowColdItemPlacement` - Definido como Verdadeiro.
-	- Opcionalmente, você pode definir `EnableFeatureCorrelation` como Verdadeiro e `ReasoningFeatureList` à lista de recursos que você deseja usar para obter explicações (normalmente a mesma lista de recursos usados na modelagem ou um sublista).
+	- `useFeatureInModel` - definido como True.
+	- `ModelingFeatureList` - definido como uma lista separada por vírgulas de recursos com uma pontuação de 2,0 ou mais (de acordo com as classificações que você recuperou na etapa anterior).
+	- `AllowColdItemPlacement` - definido como True.
+	- Opcionalmente, você pode definir `EnableFeatureCorrelation` como True e `ReasoningFeatureList` para a lista de recursos que você deseja usar para obter explicações (normalmente é a mesma lista de recursos usada na modelagem ou uma sublista).
 - Dispare a compilação de recomendação com os parâmetros configurados.
 
 Observação: se você não definir nenhum parâmetro (por exemplo, invocar a compilação de recomendação sem parâmetros) ou se você não desabilitar explicitamente o uso de recursos (por exemplo, `UseFeatureInModel` definido como Falso), o sistema vai configurar os parâmetros relacionados a recursos aos valores explicados acima caso exista uma compilação de classificação.
@@ -1911,7 +1897,7 @@ A tabela a seguir descreve os parâmetros de compilação para uma compilação 
 | modelId |	Identificador exclusivo do modelo |
 | userDescription | Identificador textual do catálogo. Observe que se você usar espaços você deve codificá-los com 20%. Consulte o exemplo acima.<br>Comprimento máximo: 50 |
 | apiVersion | 1\.0 |
-|
+|||
 | Corpo da solicitação | Se for deixado em branco, a compilação será executada com os parâmetros de compilação padrão.<br><br>Se você quiser definir os parâmetros de compilação, envie-os como XML no corpo, como mostrado no exemplo a seguir. (Veja a seção "Parâmetros de compilação" para obter uma explicação dos parâmetros).`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
 
 **Resposta**:
@@ -1987,7 +1973,7 @@ XML de OData
 | userDescription | Identificador textual do catálogo. Observe que se você usar espaços você deve codificá-los com 20%. Consulte o exemplo acima.<br>Comprimento máximo: 50 |
 | buildType | Tipo de compilação para invocar: <br/> - “Recomendação” para compilação de recomendação <br> - “Classificação” para compilação de classificação <br/> - “Fbt” para compilação FBT
 | apiVersion | 1\.0 |
-|
+|||
 | Corpo da solicitação | Se for deixado em branco, a compilação será executada com os parâmetros de compilação padrão.<br><br>Se você quiser definir os parâmetros de compilação, envie-os como XML no corpo, como no exemplo a seguir. (Veja a seção "Parâmetros de compilação" para obter uma explicação e a lista completa dos parâmetros).`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
 
 **Resposta**:
@@ -2087,18 +2073,18 @@ A resposta inclui uma entrada por compilação. Cada entrada tem os seguintes da
 - `feed/entry/content/properties/ExecutionTime` – Duração da compilação.
 - `feed/entry/content/properties/ProgressStep` – Detalhes sobre o estágio atual de uma compilação em andamento.
 
-Status válidos da compilação: 
-- Criada - A entrada da solicitação de compilação foi criada.
-- Na fila – A solicitação de compilação foi disparada e está na fila. 
--Criando – A compilação está em andamento. 
-- Êxito – Compilação concluída com êxito. 
-- Erro – Compilação concluída com falha.
-- Cancelada – A compilação foi cancelada.
+Status de compilação válidos:
+- Criada - a entrada da solicitação de compilação foi criada.
+- Em fila – a solicitação de build foi disparada e está na fila.
+- Compilando – a build está em andamento.
+- Sucesso – A compilação concluída com êxito.
+- Erro – A compilação foi concluída com uma falha.
+- Cancelado – A compilação foi cancelada.
 - Cancelando – A compilação está sendo cancelada.
 
 Valores válidos para o tipo de compilação:
-- Classificação - Compilação de classificação.
-- Recomendação - Compilação de recomendação.
+- Classificação - compilação de classificação.
+- Recomendação - compilação de recomendação.
 
 
 XML de OData
@@ -2171,19 +2157,19 @@ A resposta inclui uma entrada por compilação. Cada entrada tem os seguintes da
 - `feed/entry/content/properties/ExecutionTime` – Duração da compilação.
 - `feed/entry/content/properties/ProgressStep` – Detalhes sobre o estágio atual de uma compilação em andamento.
 
-Status válidos da compilação:
-- Criada - A entrada da solicitação de compilação foi criada.
-- Na fila – A solicitação de compilação foi disparada e está na fila.
-- Criando – A compilação está em andamento.
-- Êxito – Compilação concluída com êxito.
-- Erro – Compilação concluída com falha.
-- Cancelada – A compilação foi cancelada.
+Status de compilação válidos:
+- Criada - a entrada da solicitação de compilação foi criada.
+- Em fila – a solicitação de build foi disparada e está na fila.
+- Compilando – a build está em andamento.
+- Sucesso – A compilação concluída com êxito.
+- Erro – A compilação foi concluída com uma falha.
+- Cancelado – A compilação foi cancelada.
 - Cancelando – A compilação está sendo cancelada.
 
 
 Valores válidos para o tipo de compilação:
-- Classificação - Compilação de classificação.
-- Recomendação - Compilação de recomendação.
+- Classificação - compilação de classificação.
+- Recomendação - compilação de recomendação.
 
 
 XML de OData
@@ -2273,8 +2259,8 @@ Recupera parâmetros de compilação.
 Código de status HTTP: 200
 
 Essa API retorna uma coleção de elementos de chave/valor. Cada elemento representa um parâmetro e seu valor:
-- `feed/entry/content/properties/Key` – Nome do parâmetro de compilação.
-- `feed/entry/content/properties/Value` – Valor do parâmetro de compilação.
+- `feed/entry/content/properties/Key` - nome do parâmetro de compilação.
+- `feed/entry/content/properties/Value` - valor do parâmetro de compilação.
 
 A tabela a seguir descreve o valor que cada chave representa.
 
@@ -2485,10 +2471,10 @@ Código de status HTTP: 200
 
 
 A resposta inclui uma entrada por item recomendado. Cada entrada tem os seguintes dados:
-- `Feed\entry\content\properties\Id` – ID do item recomendado
-- `Feed\entry\content\properties\Name` – Nome do item.
-- `Feed\entry\content\properties\Rating` – Classificação da recomendação; quanto mais alto o número, maior a confiança.
-- `Feed\entry\content\properties\Reasoning` – Raciocínio da recomendação (ou seja, explicações de recomendação).
+- `Feed\entry\content\properties\Id` - ID do item recomendado.
+- `Feed\entry\content\properties\Name` - Nome do item.
+- `Feed\entry\content\properties\Rating` - Classificação da recomendação; número mais alto significa maior confiança.
+- `Feed\entry\content\properties\Reasoning` - Raciocínio da recomendação (por exemplo, explicações de recomendação).
 
 A resposta de exemplo a seguir inclui 10 itens recomendados.
 
@@ -2666,10 +2652,10 @@ Código de status HTTP: 200
 
 
 A resposta inclui uma entrada por item recomendado. Cada entrada tem os seguintes dados:
-- `Feed\entry\content\properties\Id` – ID do item recomendado
-- `Feed\entry\content\properties\Name` – Nome do item.
-- `Feed\entry\content\properties\Rating` – Classificação da recomendação; quanto mais alto o número, maior a confiança.
-- `Feed\entry\content\properties\Reasoning` – Raciocínio da recomendação (ou seja, explicações de recomendação).
+- `Feed\entry\content\properties\Id` - ID do item recomendado.
+- `Feed\entry\content\properties\Name` - Nome do item.
+- `Feed\entry\content\properties\Rating` - Classificação da recomendação; número mais alto significa maior confiança.
+- `Feed\entry\content\properties\Reasoning` - Raciocínio da recomendação (por exemplo, explicações de recomendação).
 
 Veja um exemplo de resposta no 12.1
 
@@ -2685,7 +2671,7 @@ Obtenha recomendações da compilação ativa do tipo "Fbt" com base em um item 
 |:--------			|:--------								|
 | modelId | Identificador exclusivo do modelo |
 | itemId | Item a ser recomendado. <br>Comprimento máximo: 1024 |
-| numberOfResults | Número de resultados necessários <br>Máx.: 150 |
+| numberOfResults | Número de resultados necessários <br> Máx.: 150 |
 | minimalScore | Pontuação mínima que um conjunto frequente deve ter para ser incluído nos resultados retornados |
 | includeMetatadata | Uso futuro, sempre falso |
 | apiVersion | 1\.0 |
@@ -2696,12 +2682,12 @@ Código de status HTTP: 200
 
 
 A resposta inclui uma entrada por conjunto de item recomendado (um conjunto de itens que são geralmente comprados junto com o item de semente/entrada). Cada entrada tem os seguintes dados:
-- `Feed\entry\content\properties\Id1` – ID do item recomendado
-- `Feed\entry\content\properties\Name1` – Nome do item.
-- `Feed\entry\content\properties\Id2` – 2ª ID do item recomendado (opcional).
-- `Feed\entry\content\properties\Name2` – Nome do segundo item (opcional).
-- `Feed\entry\content\properties\Rating` – Classificação da recomendação; número mais alto significa maior confiança.
-- `Feed\entry\content\properties\Reasoning` – Raciocínio de recomendação (por exemplo, explicações de recomendação).
+- `Feed\entry\content\properties\Id1` - ID do item recomendado.
+- `Feed\entry\content\properties\Name1` - Nome do item.
+- `Feed\entry\content\properties\Id2` - ID recomendada do item 2 (opcional).
+- `Feed\entry\content\properties\Name2` - nome do item 2 (opcional).
+- `Feed\entry\content\properties\Rating` - Classificação da recomendação; número mais alto significa maior confiança.
+- `Feed\entry\content\properties\Reasoning` - Raciocínio da recomendação (por exemplo, explicações de recomendação).
 
 A resposta de exemplo a seguir inclui 3 conjuntos de itens recomendados.
 
@@ -2776,7 +2762,7 @@ Obtenha recomendações de uma compilação específica do tipo "Fbt".
 |:--------			|:--------								|
 | modelId | Identificador exclusivo do modelo |
 | itemId | Item a ser recomendado. <br>Comprimento máximo: 1024 |
-| numberOfResults | Número de resultados necessários <br>Máx.: 150 |
+| numberOfResults | Número de resultados necessários <br> Máx.: 150 |
 | minimalScore | Pontuação mínima que um conjunto frequente deve ter para ser incluído nos resultados retornados |
 | includeMetatadata | Uso futuro, sempre falso |
 | buildId | a id de compilação a ser usada para esta solicitação de recomendação |
@@ -2788,12 +2774,12 @@ Código de status HTTP: 200
 
 
 A resposta inclui uma entrada por conjunto de item recomendado (um conjunto de itens que são geralmente comprados junto com o item de semente/entrada). Cada entrada tem os seguintes dados:
-- `Feed\entry\content\properties\Id1` – ID do item recomendado
-- `Feed\entry\content\properties\Name1` – Nome do item.
-- `Feed\entry\content\properties\Id2` – 2ª ID do item recomendado (opcional).
-- `Feed\entry\content\properties\Name2` – Nome do segundo item (opcional).
-- `Feed\entry\content\properties\Rating` – Classificação da recomendação; número mais alto significa maior confiança.
-- `Feed\entry\content\properties\Reasoning` – Raciocínio de recomendação (por exemplo, explicações de recomendação).
+- `Feed\entry\content\properties\Id1` - ID do item recomendado.
+- `Feed\entry\content\properties\Name1` - Nome do item.
+- `Feed\entry\content\properties\Id2` - ID recomendada do item 2 (opcional).
+- `Feed\entry\content\properties\Name2` - nome do item 2 (opcional).
+- `Feed\entry\content\properties\Rating` - Classificação da recomendação; número mais alto significa maior confiança.
+- `Feed\entry\content\properties\Reasoning` - Raciocínio da recomendação (por exemplo, explicações de recomendação).
 
 Veja um exemplo de resposta no 12.3
 
@@ -2803,9 +2789,9 @@ Obtenha recomendações de usuário de uma compilação do tipo "Recomendação"
 
 A API retornará uma lista de itens prevista de acordo com o histórico de uso do usuário.
 
-Observações: 
-1. Não há nenhuma recomendação de usuário para a compilação FBT.
-2. Se a compilação ativa for FBT, esse método retornará um erro.
+Observações:
+ 1. Não há nenhuma recomendação de usuário para a compilação FBT.
+ 2. Se a compilação ativa for FBT, esse método retornará um erro.
 
 | Método HTTP | URI |
 |:--------|:--------|
@@ -2825,10 +2811,10 @@ Código de status HTTP: 200
 
 
 A resposta inclui uma entrada por item recomendado. Cada entrada tem os seguintes dados:
-- `Feed\entry\content\properties\Id` – ID do item recomendado
-- `Feed\entry\content\properties\Name` – Nome do item.
-- `Feed\entry\content\properties\Rating` – Classificação da recomendação; quanto mais alto o número, maior a confiança.
-- `Feed\entry\content\properties\Reasoning` – Raciocínio da recomendação (ou seja, explicações de recomendação).
+- `Feed\entry\content\properties\Id` - ID do item recomendado.
+- `Feed\entry\content\properties\Name` - Nome do item.
+- `Feed\entry\content\properties\Rating` - Classificação da recomendação; número mais alto significa maior confiança.
+- `Feed\entry\content\properties\Reasoning` - Raciocínio da recomendação (por exemplo, explicações de recomendação).
 
 Veja um exemplo de resposta no 12.1
 
@@ -2838,9 +2824,9 @@ Obtenha recomendações de usuário de uma compilação do tipo "Recomendação"
 
 A API retornará uma lista de itens previstos de acordo com o histórico de uso do usuário e os outros itens fornecidos.
 
-Observações: 
-1. Não há nenhuma recomendação de usuário para a compilação FBT.
-2. Se a compilação ativa for FBT, esse método retornará um erro.
+Observações:
+ 1. Não há nenhuma recomendação de usuário para a compilação FBT.
+ 2. Se a compilação ativa for FBT, esse método retornará um erro.
 
 
 | Método HTTP | URI |
@@ -2862,10 +2848,10 @@ Código de status HTTP: 200
 
 
 A resposta inclui uma entrada por item recomendado. Cada entrada tem os seguintes dados:
-- `Feed\entry\content\properties\Id` – ID do item recomendado
-- `Feed\entry\content\properties\Name` – Nome do item.
-- `Feed\entry\content\properties\Rating` – Classificação da recomendação; quanto mais alto o número, maior a confiança.
-- `Feed\entry\content\properties\Reasoning` – Raciocínio da recomendação (ou seja, explicações de recomendação).
+- `Feed\entry\content\properties\Id` - ID do item recomendado.
+- `Feed\entry\content\properties\Name` - Nome do item.
+- `Feed\entry\content\properties\Rating` - Classificação da recomendação; número mais alto significa maior confiança.
+- `Feed\entry\content\properties\Reasoning` - Raciocínio da recomendação (por exemplo, explicações de recomendação).
 
 Veja um exemplo de resposta no 12.1
 
@@ -2897,10 +2883,10 @@ Código de status HTTP: 200
 
 
 A resposta inclui uma entrada por item recomendado. Cada entrada tem os seguintes dados:
-- `Feed\entry\content\properties\Id` – ID do item recomendado
-- `Feed\entry\content\properties\Name` – Nome do item.
-- `Feed\entry\content\properties\Rating` – Classificação da recomendação; quanto mais alto o número, maior a confiança.
-- `Feed\entry\content\properties\Reasoning` – Raciocínio da recomendação (ou seja, explicações de recomendação).
+- `Feed\entry\content\properties\Id` - ID do item recomendado.
+- `Feed\entry\content\properties\Name` - Nome do item.
+- `Feed\entry\content\properties\Rating` - Classificação da recomendação; número mais alto significa maior confiança.
+- `Feed\entry\content\properties\Reasoning` - Raciocínio da recomendação (por exemplo, explicações de recomendação).
 
 Veja um exemplo de resposta no 12.1
 
@@ -2935,16 +2921,15 @@ Código de status HTTP: 200
 
 
 A resposta inclui uma entrada por item recomendado. Cada entrada tem os seguintes dados:
-- `Feed\entry\content\properties\Id` – ID do item recomendado
-- `Feed\entry\content\properties\Name` – Nome do item.
-- `Feed\entry\content\properties\Rating` – Classificação da recomendação; quanto mais alto o número, maior a confiança.
-- `Feed\entry\content\properties\Reasoning` – Raciocínio da recomendação (ou seja, explicações de recomendação).
+- `Feed\entry\content\properties\Id` - ID do item recomendado.
+- `Feed\entry\content\properties\Name` - Nome do item.
+- `Feed\entry\content\properties\Rating` - Classificação da recomendação; número mais alto significa maior confiança.
+- `Feed\entry\content\properties\Reasoning` - Raciocínio da recomendação (por exemplo, explicações de recomendação).
 
 Veja um exemplo de resposta no 12.1
 
 ##13\. Histórico de uso do usuário
-Após a compilação de um modelo de recomendação, o sistema permitirá recuperar o histórico do usuário (os itens associados a um usuário específico) usado para a compilação.
-Essa API permite recuperar o histórico do usuário
+Após a compilação de um modelo de recomendação, o sistema permitirá recuperar o histórico do usuário (os itens associados a um usuário específico) usado para a compilação. Essa API permite recuperar o histórico do usuário
 
 Observação: o histórico do usuário está disponível atualmente apenas para compilações de recomendação.
 
@@ -2969,10 +2954,10 @@ Recupere a lista de itens usada na compilação ativa ou na compilação especif
 Código de status HTTP: 200
 
 A resposta inclui uma entrada por item recomendado. Cada entrada tem os seguintes dados:
-- `Feed\entry\content\properties\Id` – ID do item recomendado
-- `Feed\entry\content\properties\Name` – Nome do item.
-- `Feed\entry\content\properties\Rating` – N/A.
-- `Feed\entry\content\properties\Reasoning` – N/A.
+- `Feed\entry\content\properties\Id` - ID do item recomendado.
+- `Feed\entry\content\properties\Name` - Nome do item.
+- `Feed\entry\content\properties\Rating` – N/D.
+- `Feed\entry\content\properties\Reasoning` – N/D.
 
 XML de OData
 
@@ -3020,7 +3005,7 @@ Recupera todas as notificação para todos os modelos ou para um único modelo.
 |:--------			|:--------								|
 | modelId | Parâmetro opcional. Quando omitido, você receberá todas as notificações para todos os modelos. <br>Valor válido: o identificador exclusivo do modelo.|
 | apiVersion | 1\.0 |
-|
+|||
 | Corpo da solicitação | NENHUM |
 
 **Resposta:**
@@ -3072,7 +3057,7 @@ Exclui todas notificações de leitura de um modelo.
 |:--------			|:--------								|
 | modelId | Identificador exclusivo do modelo |
 | apiVersion | 1\.0 |
-|
+|||
 | Corpo da solicitação | NENHUM |
 
 **Resposta**:
@@ -3090,7 +3075,7 @@ Exclui todas as notificações de todos os modelos
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
 | apiVersion | 1\.0 |
-|
+|||
 | Corpo da solicitação | NENHUM |
 
 **Resposta**:
@@ -3100,11 +3085,8 @@ Código de status HTTP: 200
 
 
 
-##15. Legal
-Este documento é fornecido "no estado em que se encontra". Informações e opiniões expressadas neste documento, incluindo URLs e outras referências a sites da Internet, podem ser alteradas sem aviso prévio.<br><br> 
-Alguns exemplos aqui representados são fornecidos somente para fins de ilustração e são fictícios. Nenhuma associação ou conexão real é intencional ou deve ser inferida.<br><br> 
-Este documento não fornece a você nenhum direito legal a qualquer propriedade intelectual de qualquer produto da Microsoft. Você pode copiar e usar este documento para fins de consulta interna.<br><br> 
-© 2015 Microsoft. Todos os direitos reservados.
+##15\. Legal
+Este documento é fornecido "no estado em que se encontra". Informações e opiniões expressadas neste documento, incluindo URLs e outras referências a sites da Internet, podem ser alteradas sem aviso prévio.<br><br> Alguns exemplos aqui representados são fornecidos somente para fins de ilustração e são fictícios. Nenhuma associação ou conexão real é intencional ou deve ser inferida.<br><br> Este documento não fornece a você nenhum direito legal a qualquer propriedade intelectual de qualquer produto da Microsoft. Você pode copiar e usar este documento para fins de consulta interna.<br><br> © 2015 Microsoft. Todos os direitos reservados.
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

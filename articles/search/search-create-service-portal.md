@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="02/18/2016"
+	ms.date="03/09/2016"
 	ms.author="heidist"/>
 
 # Criar um serviço de Pesquisa do Azure no Portal do Azure
@@ -25,7 +25,7 @@ A Pesquisa do Azure está disponível com níveis de preços que vão desde grat
 
 ## Adicionar a Pesquisa do Azure à sua assinatura gratuitamente
 
-Como administrador, você pode adicionar a Pesquisa do Azure a uma assinatura do Azure existente sem custos adicionais ao selecionar o serviço compartilhado. Você pode se inscrever para obter uma [assinatura de avaliação gratuita](../../includes/free-trial-note.md) e começar sua avaliação.
+Como administrador, você pode adicionar a Pesquisa do Azure a uma assinatura do Azure existente sem custos adicionais ao selecionar o serviço compartilhado. Você pode se inscrever para obter uma [assinatura de avaliação gratuita do Azure](../../includes/free-trial-note.md) e começar sua avaliação.
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 
@@ -56,27 +56,27 @@ Como administrador, você pode adicionar a Pesquisa do Azure a uma assinatura do
 Observe as notificações na barra de navegação rápida. Um aviso é exibido quando o serviço fica pronto para uso.
 
 <a id="sub-3"></a>
-## Adicionar um serviço de pesquisa de camada Standard para obter recursos dedicados
+## Adicionar um serviço de pesquisa de camada Básica ou Standard para obter recursos dedicados
 
-Muitos clientes começam com o serviço gratuito depois alternam para a camada Standard para acomodar cargas de trabalho maiores. A camada Standard oferece a você recursos dedicados em um data center do Azure que só você pode utilizar.
+Muitos clientes começam com o serviço gratuito e depois alternam para a camada Básica ou Standard para acomodar cargas de trabalho maiores. A camada Básica ou Standard oferece a você recursos dedicados em um datacenter do Azure, que somente você pode utilizar.
 
-Operações de Pesquisa do Azure requerem tanto réplicas de serviço quanto de armazenamento. Em contraste com o serviço gratuito, que não tem a opção de adição de recursos, a camada Standard permite escalar verticalmente para adicionar mais armazenamento ou suporte a consultas ao aumentar qualquer recurso que seja mais importante para suas cargas de trabalho.
+Operações de Pesquisa do Azure requerem tanto réplicas de serviço quanto de armazenamento. Em contraste com o serviço gratuito, que não tem a opção de adição de recursos, a camada Standard permite escalar verticalmente para adicionar mais armazenamento ou suporte a consultas ao aumentar qualquer recurso que seja mais importante para suas cargas de trabalho. A Básica permite escalar verticalmente, mas apenas para réplicas, com um limite máximo de três.
 
-Para usar a camada Standard, você precisará criar um novo serviço de pesquisa nesse nível de preço. Você pode repetir as etapas anteriores deste artigo para criar um novo serviço de Pesquisa do Azure. Observe que configurar recursos dedicados pode levar algum tempo, 15 minutos ou mais.
+Para usar a camada Básica ou Standard, você precisa criar um novo serviço de pesquisa nesse nível de preço. Você pode repetir as etapas anteriores deste artigo para criar um novo serviço de Pesquisa do Azure. Observe que configurar recursos dedicados pode levar algum tempo, 15 minutos ou mais.
 
-Não há nenhuma atualização in-loco da versão gratuita. A alteração para padrão, com seu potencial de dimensionamento, requer um novo serviço. Você precisará recarregar os índices e documentos usados por seu aplicativo de pesquisa.
+Não há nenhuma atualização in-loco da versão gratuita. A alternância de camadas, com seu potencial de escala, requer um novo serviço. Você precisará recarregar os índices e documentos usados por seu aplicativo de pesquisa.
 
-Um serviço de Pesquisa do Azure na camada padrão é criado com uma réplica e uma partição, mas pode ser redimensionado facilmente para níveis de recursos maiores.
+Um serviço de Pesquisa do Azure na camada Básica ou Standard é criado com uma réplica e uma partição, mas pode ser redimensionado facilmente para níveis de recursos maiores.
 
 1.	Após o serviço ser criado, volte para o painel do serviço.
 
 2.	Clique no bloco **Escala**.
 
-3.	Use os controles deslizantes para adicionar réplicas, partições ou ambas.
+3.	Use os controles deslizantes para adicionar réplicas, partições ou ambas à camada Standard. Para a Básica, você pode aumentar as réplicas para um máximo de três.
 
 Réplicas e partições adicionais são cobradas segundo as unidades de pesquisa. O total de unidades de pesquisa necessárias para dar suporte a qualquer configuração de recursos em particular é mostrado na página, conforme você adiciona recursos.
 
-Você pode verificar os [Detalhes de Preços](http://go.microsoft.com/fwlink/p/?LinkID=509792) para obter as informações de cobrança por unidade. Confira [Limites e restrições de serviço](search-limits-quotas-capacity.md) para obter ajuda na escolha de combinações de partição e de réplica.
+Você pode verificar os [Detalhes de Preços](http://go.microsoft.com/fwlink/p/?LinkID=509792) para obter as informações de cobrança por unidade. Consulte [Capacity planning](search-capacity-planning.md) para obter ajuda na escolha de combinações de partição e de réplica.
 
 <a id="sub-2"></a>
 ## Localizar o nome do serviço e chaves de Api do serviço de Pesquisa do Azure
@@ -107,13 +107,9 @@ Agora que o serviço foi criado, você pode executar as próximas etapas: criar 
 
 - [Consultar um índice de Pesquisa do Azure usando o Gerenciador de Pesquisa no Portal do Azure](search-explorer.md)
 
-- [Introdução à Pesquisa do Azure em .NET](search-get-started-dotnet.md)
-
 - [Como usar a pesquisa do Azure no .NET](search-howto-dotnet-sdk.md)
 
 - [Gerenciar sua solução de pesquisa no Microsoft Azure](search-manage.md)
-
-
 
 
 <!--Anchors-->
@@ -127,4 +123,4 @@ Agora que o serviço foi criado, você pode executar as próximas etapas: criar 
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

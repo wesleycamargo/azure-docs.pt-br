@@ -2,7 +2,7 @@
     pageTitle="Tutorial: Integração do Active Directory do Azure com o ZScaler One | Microsoft Azure" 
     description="Saiba como usar o ZScaler One com o Active Directory do Azure para habilitar logon único, provisionamento automatizado e muito mais." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="02/29/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o Zscaler One
 
@@ -39,7 +39,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos com o Zscaler One, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.  
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.  
 
 	![Active Directory](./media/active-directory-saas-zscaler-one-tutorial/IC700993.png "Active Directory")
 
@@ -71,7 +71,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração de aplicativos do **Zscaler One**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No portal clássico do Azure, na página de integração de aplicativos do **ZScaler One**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
 	![Configurar o logon único](./media/active-directory-saas-zscaler-one-tutorial/IC800217.png "Configurar o logon único")
 
@@ -110,7 +110,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 	![Logon Único](./media/active-directory-saas-zscaler-one-tutorial/IC800209.png "Logon Único")
 
-	1.  No portal do Azure, na página do diálogo **Configurar logon único no Zscaler One**, copie o valor da **URL de Solicitação de Autenticação** e cole-o na caixa de texto **URL do Portal do SAML para o qual os usuários são enviados para autenticação**.  
+	1.  No portal clássico do Azure, na página do diálogo **Configurar logon único no ZScaler One**, copie o valor da **URL de Solicitação de Autenticação** e cole-o na caixa de texto **URL do Portal do SAML para o qual os usuários são enviados para autenticação**.  
 	2.  Na caixa de texto **Atributo que contém o Nome de Logon**, digite **NameID**.  
 	3.  Para carregar seu certificado baixado, clique em **Zscaler pem**.  
 	4.  Selecione **Habilitar Provisionamento Automático do SAML**.  
@@ -122,7 +122,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 	1.  Clique em **Salvar**.  
 	2.  Clique em **Ativar Agora**.  
 
-11. No portal do Azure, na página **Configurar logon único no Zscaler One**, selecione a confirmação de configuração de logon único e clique em **Concluir**.
+11. No portal clássico do Azure, na página **Configurar logon único no ZScaler One**, selecione a confirmação de configuração de logon único e clique em **Concluir**.
 
 	![Configurar o logon único](./media/active-directory-saas-zscaler-one-tutorial/IC800221.png "Configurar o logon único")
 
@@ -189,7 +189,7 @@ Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos
 
 ###Para atribuir usuários ao ZScaler One, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, crie uma conta de teste.  
+1.  No Portal clássico do Azure, crie uma conta de teste.  
 
 2.  Na página de integração de aplicativos do **ZScaler One**, clique em **Atribuir usuários**.
 
@@ -201,4 +201,4 @@ Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

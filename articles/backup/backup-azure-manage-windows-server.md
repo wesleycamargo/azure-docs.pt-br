@@ -3,7 +3,7 @@
 	description="Use este tutorial para aprender a gerenciar servidores e cofres de Backup do Azure."
 	services="backup"
 	documentationCenter=""
-	authors="aashishr"
+	authors="Jim-Parker"
 	manager="jwhit"
 	editor="tysonn"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="12/15/2015"
-	ms.author="jimpark; aashishr; giridham"/>
+	ms.author="jimpark; markgal"/>
 
 
 # Gerenciar servidores e cofres de backup do Azure
@@ -54,4 +54,4 @@ A partir daqui, você pode executar as seguintes tarefas:
 - Para saber mais sobre o Backup do Azure, confira [Visão geral do backup do Azure](backup-introduction-to-azure-backup.md)
 - Visite o [Fórum de backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->

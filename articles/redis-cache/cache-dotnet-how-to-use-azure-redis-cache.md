@@ -4,7 +4,7 @@
 	services="redis-cache,app-service" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -57,13 +57,13 @@ Para criar um cache, primeiro entre no [Portal do Azure][] e clique em **Novo**,
 
 ![Novo cache][NewCacheMenu]
 
->[AZURE.NOTE] Se não tiver uma conta do Azure, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure][].
+>[AZURE.NOTE] Se não tiver uma conta do Azure, você poderá criar uma conta gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure][].
 
 Na folha **Novo Cache Redis**, especifique a configuração desejada para o cache.
 
 ![Criar o cache][CacheCreate]
 
--	No **nome DNS**, insira um nome de cache a ser usado para o ponto de extremidade do cache. O nome de cache deve ser uma cadeia de caracteres com 1 a 63 caracteres e deve conter somente números, letras e o caractere `-`. O nome do cache não pode começar nem terminar com o caractere `-`, e caracteres `-` consecutivos não são válidos.
+-	No **nome DNS**, insira um nome de cache a ser usado para o ponto de extremidade do cache. O nome de cache deve ser uma cadeia de caracteres com 1 a 63 caracteres e deve conter somente números, letras e o caractere `-`. O nome do cache não pode começar nem terminar com o caractere `-`, e os caracteres `-` consecutivos não são válidos.
 -	Para **Assinatura**, selecione a assinatura do Azure que deseja usar para o cache. Se sua conta tiver apenas uma assinatura, ela será automaticamente selecionada e o menu suspenso **Assinatura** não será exibido.
 -	No **Grupo de recursos**, selecione ou crie um grupo de recursos para seu cache. Para obter mais informações, consulte [Usando os grupos de recursos para gerenciar seus recursos do Azure][]. 
 -	Use **Local** para especificar a localização geográfica em que o cache está hospedado. Para obter melhor desempenho, a Microsoft recomenda que você crie o cache na mesma região que o aplicativo de cliente de cache.
@@ -335,4 +335,4 @@ Agora que você aprendeu os conceitos básicos, siga estes links para saber mais
 
 [Avaliação gratuita do Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

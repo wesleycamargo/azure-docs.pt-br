@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/11/2015" 
+	ms.date="02/29/2016" 
 	ms.author="cephalin"/>
 
 
@@ -22,7 +22,7 @@
 
 Usando Git, é possível implantar um aplicativo ASP.NET em Aplicativos Web do Serviço de Aplicativo do Azure. Neste tutorial, você compilará um aplicativo de lista de tarefas MVC do ASP.NET de front-end simples que se conecta a um banco de dados MongoDB em execução em uma máquina virtual no Azure. [O MongoDB][MongoDB] é um banco de dados NoSQL de código-fonte aberto e com alto desempenho. Depois de executar e testar o aplicativo ASP.NET no computador de desenvolvimento, você carregará o aplicativo nos Aplicativos Web do Serviço de Aplicativo usando Git.
 
->[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE] Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 
 ## Conhecimento prévio ##
@@ -48,7 +48,7 @@ O conhecimento dos seguintes itens é útil para este tutorial, embora não seja
 Este tutorial supõe que você tenha criado uma máquina virtual no Azure. Depois de criar a máquina virtual, você precisa instalar o MongoDB na máquina virtual:
 
 * Para criar uma máquina virtual do Windows e instalar MongoDB, consulte [Instalar MongoDB em uma máquina virtual executando o Windows Server no Azure][InstallMongoOnWindowsVM].
-* Como opção, para criar uma máquina virtual do Linux e instalar MongoDB, consulte [Instalar MongoDB em uma máquina virtual executando o CentOS Linux no Azure][InstallMongoOnCentOSLinuxVM].
+
 
 Depois de criar a máquina virtual no Azure e instalar MongoDB, não se esqueça do nome DNS da máquina virtual ("testlinuxvm.cloudapp.net", por exemplo) e da porta externa de MongoDB que você especificou no ponto de extremidade. Você precisará dessas informações mais tarde no tutorial.
 
@@ -470,8 +470,7 @@ Para obter mais informações sobre como desenvolver aplicativos do C# para Mong
 [ASP.NET]: http://www.asp.net/
 [MongoConnectionStrings]: http://www.mongodb.org/display/DOCS/Connections
 [MongoDB]: http://www.mongodb.org
-[InstallMongoOnCentOSLinuxVM]: /manage/linux/common-tasks/mongodb-on-a-linux-vm/
-[InstallMongoOnWindowsVM]: /manage/windows/common-tasks/install-mongodb/
+[InstallMongoOnWindowsVM]: ../virtual-machines/virtual-machines-install-mongodb-windows-server.md
 [VSEWeb]: http://www.microsoft.com/visualstudio/eng/2013-downloads#d-2013-express
 [VSUlt]: http://www.microsoft.com/visualstudio/eng/2013-downloads
 
@@ -501,4 +500,4 @@ Para obter mais informações sobre como desenvolver aplicativos do C# para Mong
 [Deploy the ASP.NET application to the web site using Git]: #deployapp
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->

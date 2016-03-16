@@ -332,7 +332,7 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 
     *Derivação:* UUID4 gerado
 
-    *Exemplos*<br/> edc6eaf3-3459-46a0-bb81-bedc24913864
+    *Exemplos*<br/>edc6eaf3-3459-46a0-bb81-bedc24913864
 
 **eventTime**
 
@@ -364,7 +364,7 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 * 
     A versão do navegador do cliente 
 
-    *Padrão:* se for null, será definido com base no processamento do agente do usuário. Consulte no apêndice a análise do agente do usuário
+    *Padrão:* se null, é definido com base no processamento do agente do usuário. Consulte no apêndice a análise do agente do usuário
 
     *Exemplos*<br/> Opera 12.17<br/>Mobile Safari 8.0<br/>Ovi Browser 5.5<br/>Chrome 37.0<br/>Firefox 21.0<br/>Internet Explorer 7.0
 
@@ -412,7 +412,7 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 * 
     A versão do sistema operacional do cliente 
 
-    *Padrão:* se for null, será definido com base no processamento do agente do usuário. Consulte no apêndice a análise do agente do usuário
+    *Padrão:* se null, for definido com base no processamento do agente do usuário. Consulte no apêndice a análise do agente do usuário
 
     *Exemplos*<br/> Windows XP<br/>iOS 8.3<br/>Nokia Series 40<br/>Windows 7<br/>Windows 8
 
@@ -475,11 +475,13 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 
     ipv4 context.location.clientip      
 * 
-    O endereço IPv4 do cliente no formato xxx.xxx.xxx.xxx.   
+    O endereço IPv4 do cliente no formato xxx.xxx.xxx.xxx.
+
+     O último octeto é sempre definido como 0 para resolver problemas de privacidade.
 
     *Padrão:* se for null, será definido como o IP HTTP capturado no ponto de extremidade da coleta de dados
 
-    *Exemplos*<br/> 0.123.63.143<br/>123.203.131.197
+    *Exemplos*<br/> 186.123.63.0<br/>123.203.131.0
 
 **continent**
 
@@ -504,7 +506,7 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 * 
     O estado da sessão do aplicativo. Pode ser fornecido diretamente no item de telemetria. Se não estiver presente, ele é preenchido com base no IPv4 no item de telemetria. Se não nenhum IPv4 for fornecido, o campo é deixado em branco. 
 
-    *Exemplos*<br/> Minsk<br/>Oregon<br/>Sérvia Central<br/>Provincia di Oristano
+    *Exemplos*<br/>Minsk<br/>Oregon<br/>Sérvia Central<br/>Provincia di Oristano
 
 **operationId**
 
@@ -530,7 +532,7 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 * 
     Se issynthetic = true, este item de dados representa a fonte dos dados sintéticos. 
 
-    *Padrão:* se null, o agente do usuário é inspecionado em relação a fontes sintéticas conhecidas (rastreadores da Web, etc.) e, com base nisso, a fonte pode ser definida.
+    *Padrão:* se null, o agente do usuário será inspecionado quanto a fontes sintéticas conhecidas (rastreadores da web, etc.) e, com base nisso, a fonte poderá ser definida.
 
 **syntheticTransaction**
 
@@ -629,7 +631,7 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 
     *Derivação:* padronizar para &lt;telemetryType.name&gt;
 
-**remoteDependencyType**
+**tipo**
 
     string remotedependency.remotedependencytype      Max: 100
 * 
@@ -971,7 +973,7 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 * 
     Uma matriz dos nomes de parâmetro de consulta da URL de referência 
 
-    *Derivação:* veja no apêndice a transformação de URL
+    *Derivação:* consulte no apêndice a transformação de URL
 
 **referrerData.queryParameters.value**
 
@@ -979,7 +981,7 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 * 
     Uma matriz de valores de parâmetros de consulta analisados da URL de referringData. 
 
-    *Derivação:* veja no apêndice a transformação de URL
+    *Derivação:* consulte no apêndice a transformação de URL
 
 
 
@@ -989,4 +991,4 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 * [Exportação Contínua](app-insights-export-telemetry.md)
 * [Exemplos de código](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -10,7 +10,7 @@
 
 <tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article"
 
-	ms.date="11/19/2015"
+	ms.date="02/26/2016"
 
 	ms.author="femila"/>
 
@@ -72,7 +72,7 @@ No servidor do Azure AD Connect, execute os seguintes comandos do PowerShell:
     Initialize-ADSyncDomainJoinedComputerSync –AdConnectorAccount [connector account name] -AzureADCredentials $aadAdminCred;
 
 
-Ao executar o cmdlet $aadAdminCred = Get-Credential, use o formato **user@example.com* para o nome de usuário da credencial que é inserida quando o pop-up de Get-Credential é exibido.
+Ao executar o cmdlet $aadAdminCred = Get-Credential, use o formato *user@example.com* para o nome de usuário da credencial que é inserida quando o pop-up de Get-Credential é exibido.
 
 Ao executar o cmdlet Initialize-ADSyncDomainJoinedComputerSync..., substitua [*nome de conta do conector*] pela conta de domínio que é usada como conta de conector do Active Directory.
 
@@ -144,4 +144,4 @@ Esse modelo de Política de Grupo foi renomeado no Windows 10. Se você estiver 
 * [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com o Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/23/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # Introdução à API do Facebook
-Conecte-se ao Facebook e publique em uma linha do tempo, recebe um feed de página e muito mais.
+Conecte-se ao Facebook e publique em uma linha do tempo, recebe um feed de página e muito mais. A API do Facebook pode ser usada em:
 
-A API do Facebook pode ser usada de aplicativos lógicos.
+- Aplicativos lógicos 
 
 >[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos. Para a versão do esquema 2014-12-01-preview, clique em [Conector do Facebook](../app-service-logic/app-service-logic-connector-facebook.md).
 
@@ -31,7 +31,7 @@ Com o Facebook, você pode:
 - Usar um gatilho quando uma nova publicação for recebida.
 - Usar ações que publicam em sua linha do tempo, obtêm uma feed de página e mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, quando há uma nova publicação em sua linha do tempo, você pode publicá-la e enviá-la ao seu feed do Twitter. 
 
-Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para adicionar uma operação nos aplicativos lógicos, veja [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Gatilhos e ações
 A API de Facebook inclui o gatilho e ações a seguir.
@@ -48,7 +48,7 @@ Quando você adiciona essa API a seus aplicativos lógicos, precisa autorizar os
 1. Entre em sua conta do Facebook
 2. Selecione **Autorizar** e permita que seus aplicativos lógicos se conectem e usem o Facebook. 
 
-Depois de criar a conexão, você pode inserir as propriedades do Facebook. A **Referência da API REST** neste tópico descreve essas propriedades.
+Depois de criar a conexão, você pode inserir as propriedades do Facebook. A **referência da API REST** neste tópico descreve essas propriedades.
 
 >[AZURE.TIP] Você pode usar esta conexão com o Facebook em outros aplicativos lógicos.
 
@@ -56,7 +56,7 @@ Depois de criar a conexão, você pode inserir as propriedades do Facebook. A **
 Aplica-se à versão: 1.0.
 
 ### Obter feed de minha linha de tempo
-Obtém os feeds da linha do tempo do usuário conectado. ```GET: /me/feed```
+Obtém os feeds da linha do tempo do usuário conectado.```GET: /me/feed```
 
 | Nome|Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -75,11 +75,11 @@ Obtém os feeds da linha do tempo do usuário conectado. ```GET: /me/feed```
 
 
 ### Publicar em minha linha do tempo
-Publique uma mensagem de status na linha do tempo do usuário conectado. ```POST: /me/feed```
+Publique uma mensagem de status na linha do tempo do usuário conectado.```POST: /me/feed```
 
 | Nome|Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
-|post|string |sim|body|nenhum |Nova mensagem a ser publicada|
+|post|string |sim|corpo|nenhum |Nova mensagem a ser publicada|
 
 #### Resposta
 |Nome|Descrição|
@@ -91,7 +91,7 @@ Publique uma mensagem de status na linha do tempo do usuário conectado. ```POST
 
 
 ### Quando há uma nova publicação em minha linha do tempo
-Dispara um novo fluxo quando há uma nova publicação na linha do tempo do usuário conectado. ```GET: /trigger/me/feed```
+Dispara um novo fluxo quando há uma nova postagem na linha do tempo do usuário conectado.```GET: /trigger/me/feed```
 
 Não há parâmetros.
 
@@ -105,7 +105,7 @@ Não há parâmetros.
 
 
 ### Obter feed da página
-Obter publicações do feed de uma página especificada. ```GET: /{pageId}/feed```
+Obtenha postagens do feed de uma página especificada.```GET: /{pageId}/feed```
 
 | Nome|Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -124,7 +124,7 @@ Obter publicações do feed de uma página especificada. ```GET: /{pageId}/feed`
 
 
 ### Obter a linha do tempo do usuário
-Obtenha as publicações da linha do tempo de um usuário. ```GET: /{userId}/feed```
+Obtenha postagens da linha do tempo de um usuário.```GET: /{userId}/feed```
 
 | Nome|Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -144,12 +144,12 @@ Obtenha as publicações da linha do tempo de um usuário. ```GET: /{userId}/fee
 
 
 ### Publicar na página
-Publicar uma mensagem em uma Página do Facebook como o usuário conectado. ```POST: /{pageId}/feed```
+Poste uma mensagem em uma Página do Facebook como o usuário conectado.```POST: /{pageId}/feed```
 
 | Nome|Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
 |pageId|string|sim|path|nenhum |ID da página a ser postada.|
-|post|many |sim|body|nenhum |Nova mensagem a ser postada.|
+|post|many |sim|corpo|nenhum |Nova mensagem a ser postada.|
 
 #### Resposta
 |Nome|Descrição|
@@ -433,6 +433,6 @@ O perfil pode ser um usuário, página, aplicativo ou grupo.
 
 ## Próximas etapas
 
-[Crie um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

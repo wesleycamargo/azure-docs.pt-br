@@ -68,8 +68,8 @@ A seguir uma lista dos links para documentação de referência de API online pa
 [SDK do serviço IoT do Azure para Java]: https://github.com/Azure/azure-iot-sdks/blob/master/java/service/readme.md
 [SDK do dispositivo IoT do Azure para Node.js]: https://github.com/Azure/azure-iot-sdks/blob/master/node/device/readme.md
 [SDK do serviço IoT do Azure para Node.js]: https://github.com/Azure/azure-iot-sdks/blob/master/node/service/README.md
-[OS Platforms and hardware compatibility]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[Microsoft Azure Certified para o programa de IoT]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md#certified
+[OS Platforms and hardware compatibility]: iot-hub-tested-configurations.md
+[Microsoft Azure Certified para o programa de IoT]: iot-hub-tested-configurations.md#microsoft-azure-certified-for-iot
 
 [Internet das Coisas (IoT) .NET]: https://msdn.microsoft.com/library/mt488521.aspx
 [SDK do dispositivo IoT do Microsoft Azure para C]: http://azure.github.io/azure-iot-sdks/c/api_reference/index.html
@@ -79,4 +79,4 @@ A seguir uma lista dos links para documentação de referência de API online pa
 [SDK do serviço IoT do Microsoft Azure para Java]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/index.html
 [SDK do serviço IoT do Microsoft Azure para Node.js]: http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iothub/1.0.0/index.html
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

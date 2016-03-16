@@ -32,7 +32,7 @@ Nos limites abaixo, uma nova tabela foi adicionada para refletir quaisquer difer
 
 > [AZURE.NOTE] É importante enfatizar que as cotas para recursos nos Grupos de Recursos do Azure são acessíveis de acordo com a região pela assinatura e não de acordo com a assinatura, assim como acontece com as cotas de gerenciamento de serviço. Vamos usar cotas de núcleos como exemplo. Se você precisar solicitar um aumento de cota com suporte para núcleos, você precisa decidir quantos núcleos deseja usar em quais regiões e, em seguida, fazer uma solicitação específica de cotas de núcleos do Grupo de Recursos do Azure para as quantidades e regiões desejadas. Portanto, se precisar usar 30 núcleos na Europa Ocidental para executar seu aplicativo lá, você deve solicitar especificamente 30 núcleos na Europa Ocidental. Mas você não terá um aumento na cota de núcleos em nenhuma outra região – somente a Europa Ocidental terá a cota de 30 núcleos.
 <!-- -->
-Como resultado, pode ser útil pensar em decidir quais devem ser as cotas do Grupo de Recursos do Azure para a carga de trabalho em uma determinada região e solicitar essa quantidade em cada região na qual esteja considerando a possibilidade de implantação. Consulte [Solucionando problemas de implantação](resource-group-deploy-debug.md##authentication-subscription-role-and-quota-issues) para obter mais ajuda ao descobrir suas cotas atuais para regiões específicas.
+Como resultado, pode ser útil pensar em decidir quais devem ser as cotas do Grupo de Recursos do Azure para a carga de trabalho em determinada região e solicitar essa quantidade em cada região na qual esteja considerando a possibilidade de implantação. Consulte [Solucionando problemas de implantação](resource-group-deploy-debug.md##authentication-subscription-role-and-quota-issues) para obter mais ajuda ao descobrir suas cotas atuais para regiões específicas.
 
 
 ## Limites específicos de serviço
@@ -49,6 +49,7 @@ Como resultado, pode ser útil pensar em decidir quais devem ser as cotas do Gru
 - [CDN](#cdn-limits)
 - [Serviços de Nuvem](#cloud-services-limits)
 - [Fábrica de dados](#data-factory-limits)
+- [Análises Data Lake](#data-lake-analytics-limits)
 - [DNS](#dns-limits)
 - [Banco de Dados de Documentos](#documentdb-limits)
 - [Hub IoT](#iot-hub-limits)
@@ -180,17 +181,15 @@ A tabela a seguir mostra os limites para os serviços Biztalk do Azure.
 
 ### Limites de pesquisa
 
-O tipo de preço determina a capacidade e os limites de seu serviço de pesquisa.
+Os tipos de preço determinam a capacidade e os limites de seu serviço de pesquisa. Eles incluem:
 
-####Camada padrão
+- **Gratuito** serviço multilocatário, compartilhado com outros assinantes do Azure, destinado à avaliação e a pequenos projetos de desenvolvimento.
+- **Básico (Preview)** fornece recursos de computação dedicados para cargas de trabalho de produção em uma escala menor. Atualmente, esse tipo está em Preview e é oferecido por uma taxa reduzida.
+- **Standard (S1 e S2)** destina-se a cargas de trabalho de produção. Uma versão com capacidade maior (**S2**) está disponível mediante solicitação (envie um email para azuresearch_contact@microsoft.com).
 
-[AZURE.INCLUDE [azure-search-limits-standard](../includes/azure-search-limits-standard.md)]
+[AZURE.INCLUDE [azure-search-limits-all](../includes/azure-search-limits-all.md)]
 
-####Camada compartilhada (parte de um serviço multilocatário, gratuita para assinantes do Azure)
-
-[AZURE.INCLUDE [azure-search-limits-free](../includes/azure-search-limits-free.md)]
-
-Para saber mais sobre limites em chaves, combinações réplica-partição, solicitações, respostas e como obter alta disponibilidade para diferentes cargas de trabalho, consulte [Limites de serviço na Pesquisa do Azure](search/search-limits-quotas-capacity.md).
+Para saber mais sobre outros limites, como tamanho do documento, chaves, solicitações e respostas, veja [Limites de serviço na Pesquisa do Azure](search/search-limits-quotas-capacity.md).
 
 ### Limites de Serviços de Mídia
 
@@ -221,6 +220,8 @@ Para saber mais sobre limites em chaves, combinações réplica-partição, soli
 
 [AZURE.INCLUDE [azure-data-factory-limits](../includes/azure-data-factory-limits.md)]
 
+### Limites da Análise Data Lake
+[AZURE.INCLUDE [azure-data-lake-analytics-limits](../includes/azure-data-lake-analytics-limits.md)]
 
 ### Limites do Stream Analytics
 
@@ -283,4 +284,4 @@ Para obter os limites do Banco de Dados SQL, veja [Limites de recurso de Banco d
 
 [Tamanhos dos serviços de nuvem](cloud-services/cloud-services-sizes-specs.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

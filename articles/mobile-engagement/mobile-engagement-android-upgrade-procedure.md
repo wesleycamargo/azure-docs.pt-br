@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="08/10/2015" 
+	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
 
@@ -115,7 +115,7 @@ Insira o novo arquivo `res/layout/engagement_loading.xml` no seu projeto.
 
 O seguinte descreve como migrar uma integração do SDK do serviço Capptain oferecido pelo Capptain SAS em um aplicativo acionado pelo Mobile Engagement do Azure. Se você estiver migrando de uma versão anterior, consulte o site do Capptain para migrar primeiro para a 2.4.0 e depois aplicar o procedimento a seguir
 
->[AZURE.IMPORTANT]O Capptain e o Mobile Engagement não são os mesmos serviços e o procedimento fornecido abaixo destaca apenas como migrar o aplicativo cliente. Migrar o SDK no aplicativo NÃO migrará os dados dos servidores Capptain para os servidores do Mobile Engagement.
+>[AZURE.IMPORTANT] O Capptain e o Mobile Engagement não são os mesmos serviços e o procedimento fornecido abaixo destaca apenas como migrar o aplicativo cliente. Migrar o SDK no aplicativo NÃO migrará os dados dos servidores Capptain para os servidores do Mobile Engagement.
 
 ### Arquivo JAR
 
@@ -386,4 +386,4 @@ A configuração ProGuard pode ser afetada por mudanças de marca, as regras ago
 			}
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

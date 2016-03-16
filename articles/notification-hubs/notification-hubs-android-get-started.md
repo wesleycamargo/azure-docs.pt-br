@@ -550,4 +550,4 @@ Para obter mais informações gerais sobre os Hubs de Notificação, confira [Di
 [Usar os Hubs de Notificação para enviar notificações por push aos usuários]: notification-hubs-aspnet-backend-android-notify-users.md
 [Usar Hubs de Notificação para enviar notícias mais recentes]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0128_2016-->

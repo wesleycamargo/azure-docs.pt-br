@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/11/2016"
+ 	ms.date="03/01/2016"
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@ Estas notas de versão resumem as alterações de versões anteriores e os probl
 
 - [Problemas conhecidos no momento](#issues)
 - [Histórico de versão da API REST](#rest_version_history)
+- [Versão de fevereiro de 2016](#feb_changes16)
 - [Versão de janeiro de 2016](#jan_changes_16)
 - [Versão de dezembro de 2015](#dec_changes_15)
 - [Versão de novembro de 2015](#nov_changes_15)
@@ -66,7 +67,7 @@ Vários cabeçalhos HTTP comuns não são fornecidos na API REST.|Se você desen
 Codificar um ativo com um nome de arquivo que contenha caracteres de escape (por exemplo, %20) falha com “MediaProcessor : Arquivo não encontrado.”|Nomes de arquivos que serão adicionados a um ativo e, então, codificados devem conter apenas caracteres e espaços alfanuméricos. O problema será corrigido em uma atualização futura.
 O método ListBlobs que faz parte do SDK do Armazenamento do Azure versão 3.x falha.|Os Serviços de Mídia geram URLs SAS com base na versão de [12/02/2012](http://msdn.microsoft.com/library/azure/dn592123.aspx). Se desejar que o SDK de Armazenamento do Azure liste os blobs em um contêiner de blob, use o método [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) que faz parte do SDK de Armazenamento do Azure versão 2.x. O método ListBlobs que faz parte do SDK do Armazenamento do Azure versão 3.x falhará.
 O mecanismo de aceleração dos Serviços de Mídia restringe o uso dos recursos para aplicativos que fazem solicitações excessivas ao serviço. O serviço pode retornar o código de status HTTP Serviço Não Disponível (503).|Para obter mais informações, consulte a descrição do código de status HTTP 503 no tópico [Códigos de erro dos Serviços de Mídia do Azure](http://msdn.microsoft.com/library/azure/dn168949.aspx).
-Ao consultar entidades, um limite de 1.000 entidades podem ser retornadas ao mesmo tempo porque a REST v2 pública limita os resultados da consulta a 1.000 resultados. | Você precisa usar **Ignorar** e **Levar** (.NET) / **superior** (REST), conforme descrito em [neste exemplo .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [neste exemplo de API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
+Ao consultar entidades, um limite de 1.000 entidades podem ser retornadas ao mesmo tempo porque a REST v2 pública limita os resultados da consulta a 1.000 resultados. | Você precisa usar **Ignorar** e **Levar** (.NET)/**superior** (REST), conforme descrito [neste exemplo do .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [neste exemplo da API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
 
 
 ### <a id="dotnet_issues"></a>SDK dos Serviços de Mídia para Problemas do .NET
@@ -79,6 +80,16 @@ Os objetos de Serviços de Mídia no SDK não podem ser serializados, e, como re
 
 Para obter informações sobre o histórico de versões da API REST dos Serviços de Mídia, consulte [Referência da API REST dos Serviços de Mídia do Azure].
 
+##<a id="feb_changes16"></a>Versão de fevereiro de 2016
+
+A versão mais recente do SDK dos Serviços de Mídia do Azure para .NET (3.5.3) contém uma correção de bug relacionada ao Widevine. O problema era: AssetDeliveryPolicy não pôde ser reutilizado para vários ativos criptografados com o Widevine. Como parte dessa correção de bug, a propriedade a seguir foi adicionada ao SDK: **WidevineBaseLicenseAcquisitionUrl**.
+	
+	Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
+	    new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
+	{
+	    {AssetDeliveryPolicyConfigurationKey.WidevineBaseLicenseAcquisitionUrl,"http://testurl"},
+	    
+	};
 
 ##<a id="jan_changes_16"></a>Versão de janeiro de 2016
 
@@ -645,4 +656,4 @@ A seguinte funcionalidade era nova na versão de novembro do SDK.
 [Manipulando notificações de trabalho dos Serviços de Mídia]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,12 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="web"
-   ms.date="12/24/2015"
+   ms.date="02/26/2016"
    ms.author="sumuth"/>
 
 # Usar ambientes de Operações de Desenvolvimento com eficiência em seus aplicativos Web
 
-Este artigo mostra como configurar e gerenciar implantações de aplicativo Web para várias versões do seu aplicativo, como desenvolvimento, preparo, garantia de qualidade e de produção. Cada versão do seu aplicativo pode ser considerada como ambiente de desenvolvimento para necessidades específicas de seu processo de implantação, por exemplo, o ambiente de Garantia de Qualidade pode ser usado por sua equipe de desenvolvedores para testar a qualidade do aplicativo antes de aplicar as alterações à produção. A configuração de vários ambientes de desenvolvimento pode ser uma tarefa desafiadora, já que você precisa controlar e gerenciar os recursos (computação, aplicativo Web, banco de dados, cache, etc.) nesses ambientes e implantar conteúdo de um ambiente em outro.
+Este artigo mostra como configurar e gerenciar implantações de aplicativo Web para várias versões do seu aplicativo, como desenvolvimento, preparo, garantia de qualidade e de produção. Cada versão do seu aplicativo pode ser considerada como ambiente de desenvolvimento para necessidades específicas de seu processo de implantação, por exemplo, o ambiente de Garantia de Qualidade pode ser usado por sua equipe de desenvolvedores para testar a qualidade do aplicativo antes de aplicar as alterações à produção.
+A configuração de vários ambientes de desenvolvimento pode ser uma tarefa desafiadora, já que você precisa controlar e gerenciar os recursos (computação, aplicativo Web, banco de dados, cache, etc.) nesses ambientes e implantar conteúdo de um ambiente em outro.
 
 ## Configurando um ambiente de não produção (estágio, desenvolvimento, controle de qualidade)
 Quando você tiver um aplicativo Web de produção em funcionamento, a próxima etapa é criar um ambiente de não produção. Para usar slots de implantação, verifique se está executando no modo do plano de Serviço de Aplicativo **Standard** ou **Premium**. Slots de implantação são, na verdade, aplicativos Web online com seus próprios nomes de host. Os elementos de configuração e conteúdo de aplicativo Web podem ser permutados entre dois slots de implantação, incluindo o slot de produção. Implantar o seu aplicativo em um slot de implantação tem os seguintes benefícios:
@@ -245,7 +246,7 @@ As atualizações principais do WordPress não afetarão seus arquivos `wp-confi
 ```
 
 #### Configurar um Ambiente de Preparo
-Supondo que você já tenha um aplicativo Web do WordPress em execução no Azure Web, faça logon no [Portal do Azure](https://portal.azure.com/) e vá para seu aplicativo Web WordPress. Do contrário, você pode criar um no marketplace. Para saber mais, clique [aqui](web-sites-php-web-site-gallery.md). 
+Supondo que você já tenha um aplicativo Web do WordPress em execução no Azure Web, faça logon no [Portal do Azure](https://portal.azure.com/) e vá para seu aplicativo Web WordPress. Do contrário, você pode criar um no marketplace. Para saber mais, clique [aqui](web-sites-php-web-site-gallery.md).
 Clique em **Configurações** -> **Slots de implantação** -> **Adicionar** para criar um slot de implantação com o estágio de nome. Um slot de implantação é outro aplicativo Web que compartilha os mesmos recursos que o aplicativo Web principal criado acima.
 
 ![Criar um slot de implantação de estágio](./media/app-service-web-staged-publishing-realworld-scenarios/1setupstage.png)
@@ -289,17 +290,16 @@ Procurar e testar seu aplicativo Web de preparo. Considerando um cenário em que
 
 ![Alternar alterações de visualização do WordPress](./media/app-service-web-staged-publishing-realworld-scenarios/6swaps1.png)
 
- >[AZURE.NOTE]
- >Se você tiver um cenário em que precisa somente enviar arquivos (nenhuma atualização de banco de dados), **Verifique** a **Configuração de Slot** para todas as *configurações do aplicativo* e *configurações de cadeias de conexão* relacionadas ao banco de dados na folha de configuração do aplicativo Web no Portal do Azure antes de ALTERNAR. Neste caso, DB\_NAME, DB\_HOST, DB\_PASSWORD, DB\_USER, as configurações de cadeia de conexão padrão devem aparecer nas alterações de visualização ao **Alternar**. Neste momento, quando você concluir a operação **Alternar**, o aplicativo Web WordPress terá **SOMENTE** os arquivos atualizados.
+ > [AZURE.NOTE]
+ Se tiver um cenário em que seja necessário apenas enviar arquivos por push (sem atualizações de banco de dados), **Verifique** a **Configuração do Slot** para todas as *configurações do aplicativo* e *configurações de cadeias de conexão* relacionadas ao banco de dados na folha de configuração do aplicativo Web no Portal do Azure antes de ALTERNAR. Neste caso, DB\_NAME, DB\_HOST, DB\_PASSWORD, DB\_USER, as configurações de cadeia de conexão padrão devem aparecer nas alterações de visualização ao **Alternar**. Neste momento, quando concluir a operação **Alternar**, o aplicativo Web do WordPress terá **SOMENTE** os arquivos atualizados.
 
-Antes de ALTERNAR, aqui está o aplicativo Web de produção do WordPress
-![Aplicativo Web de produção antes de alternar slots](./media/app-service-web-staged-publishing-realworld-scenarios/7bfswap.png)
+Antes de ALTERNAR, aqui está o aplicativo Web de produção do WordPress ![Aplicativo Web de produção antes de alternar slots](./media/app-service-web-staged-publishing-realworld-scenarios/7bfswap.png)
 
 Após a operação ALTERNAR, o tema foi atualizado no seu aplicativo Web de produção.
 
 ![Aplicativo Web de produção após alternar slots](./media/app-service-web-staged-publishing-realworld-scenarios/8afswap.png)
 
-Em uma situação em que você precise **reverter**, pode ir para as configurações de aplicativo Web de produção e clicar no botão **Alternar** para alternar o aplicativo Web e o banco de dados de produção para o slot de preparo. É importante lembrar que, se as alterações do banco de dados estiverem incluídas em algum momento na operação de **Alternar**, da próxima vez que você implantar novamente ao seu aplicativo Web de preparo, precisará implantar as alterações de banco de dados no banco de dados atual para seu aplicativo Web de preparo, que pode ser o banco de dados de produção ou de preparo anterior.
+Em uma situação em que seja necessário **reverter**, é possível ir para as configurações do aplicativo Web de produção e clicar no botão **Alternar** para alternar o aplicativo Web e o banco de dados do slot de produção para o de preparo. É importante lembrar que, se as alterações do banco de dados estiverem incluídas em algum momento na operação de **Alternar**, na próxima vez que você implantar novamente ao aplicativo Web de preparo, será necessário implantar as alterações do banco de dados no banco de dados atual para seu aplicativo Web de preparo, que pode ser o banco de dados de produção ou de preparo anterior.
 
 #### Resumo
 Para generalizar o processo para qualquer aplicativo com um banco de dados
@@ -346,8 +346,7 @@ Clique em **Obter configurações de publicação** para o **estágio** do slot 
 - Após a publicação bem-sucedida do aplicativo Web Umbraco local no aplicativo Web de preparo, procure seu aplicativo Web de preparo e execute alguns testes para eliminar problemas.
 
 #### Configurar módulo de implantação Courier2
-Com o módulo [Courier2](http://umbraco.com/products/more-add-ons/courier-2), você pode enviar conteúdo por push, folhas de estilo, módulos de desenvolvimento e muito mais com um simples clique com o botão direito do mouse em um aplicativo Web de preparo para implantações sem problemas e reduzindo o risco de danificar seu aplicativo Web de produção ao implantar uma atualização.
-Compre uma licença para o Courier2 para o domínio `*.azurewebsites.net` e seu domínio personalizado (digamos http://abc.com) Depois que você adquirir a licença, coloque a licença baixada (arquivo .LIC) na pasta `bin`.
+Com o módulo [Courier2](http://umbraco.com/products/more-add-ons/courier-2), você pode enviar conteúdo por push, folhas de estilo, módulos de desenvolvimento e muito mais com um simples clique com o botão direito do mouse em um aplicativo Web de preparo para implantações sem problemas e reduzindo o risco de danificar seu aplicativo Web de produção ao implantar uma atualização. Compre uma licença para o Courier2 para o domínio `*.azurewebsites.net` e seu domínio personalizado (digamos http://abc.com) Depois que você adquirir a licença, coloque a licença baixada (arquivo .LIC) na pasta `bin`.
 
 ![Soltar o arquivo de licença na pasta bin](./media/app-service-web-staged-publishing-realworld-scenarios/13droplic.png)
 
@@ -376,7 +375,7 @@ Para configurar, você precisa atualizar o arquivo courier.config na pasta **Con
   </repositories>
  ```
 
-Em `<repositories>`, insira a URL do site de produção e as informações do usuário. Se estiver usando o provedor de associação Umbraco padrão, adicione a ID do usuário Administração na seção <user>. Se estiver usando o provedor de associação Umbraco personalizado, use `<login>`,`<password>` para o módulo Courier 2 saber como se conectar ao site de produção. Para obter mais detalhes, examine a [documentação](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) do módulo Courier.
+Em `<repositories>`, insira a URL do site de produção e as informações do usuário. Se estiver usando o provedor de associação do Umbraco padrão, adicione a ID do usuário de Administração na seção <user>. Se estiver usando um provedor de associação do Umbraco personalizado, use `<login>` e `<password>` para que o módulo Courier2 saiba como se conectar ao site de produção. Para obter mais detalhes, examine a [documentação](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) do módulo Courier.
 
 De maneira semelhante, instale o módulo Courier em seu site de produção e configure-o para apontar para o aplicativo Web de estágio em seu respectivo arquivo courier.config, conforme mostrado aqui
 
@@ -400,7 +399,7 @@ Agora vamos implantar algum conteúdo do site de preparo para o site de produç�
 
 ![Alterar o título da página e publicar](./media/app-service-web-staged-publishing-realworld-scenarios/17changepg.png)
 
-Agora, selecione a página modificada e *clique com o botão direito do mouse* para exibir todas as opções. Clique em **Courier** e para exibir o diálogo Implantação. Clique em **Implantar** para iniciar a implantação
+Agora, selecione a página modificada e *clique com o botão direito do mouse* para exibir todas as opções. Clique em **Courier** para exibir o diálogo Implantação. Clique em **Implantar** para iniciar a implantação
 
 ![Diálogo de implantação de módulo Courier](./media/app-service-web-staged-publishing-realworld-scenarios/18dialog1.png)
 
@@ -432,9 +431,9 @@ Após a atualização do site de desenvolvimento local, publique as alterações
 
 ![Alternar visualização para implantar o Umbraco CMS](./media/app-service-web-staged-publishing-realworld-scenarios/22umbswap.png)
 
-A vantagem de alternar o aplicativo Web e o banco de dados: 
-1. Fornece a capacidade de reverter para a versão anterior do seu aplicativo Web com outra **Alternância** se houver algum problema com o aplicativo. 
-2. Para uma atualização, você precisa implantar arquivos e banco de dados do aplicativo Web de preparo para o aplicativo Web de produção e o banco de dados. Há muitas coisas que podem dar errado durante a implantação de banco de dados e de arquivos. Usando o recurso **Alternância** dos slots, podemos reduzir o tempo de inatividade durante uma atualização e reduzir o risco de falhas que podem ocorrer na implantação das alterações. 
+A vantagem de alternar o aplicativo Web e o banco de dados:
+1. Fornece a capacidade de reverter para a versão anterior do seu aplicativo Web com outra **Alternância** se houver algum problema com o aplicativo.
+2. Para uma atualização, você precisa implantar arquivos e banco de dados do aplicativo Web de preparo para o aplicativo Web de produção e o banco de dados. Há muitas coisas que podem dar errado durante a implantação de banco de dados e de arquivos. Usando o recurso **Alternar** dos slots, podemos reduzir o tempo de inatividade durante uma atualização e reduzir o risco de falhas que podem ocorrer na implantação das alterações.
 3. Fornece a capacidade de fazer **testes A/B** usando o recurso [Teste em produção](https://azure.microsoft.com/documentation/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)
 
 Este exemplo mostra a flexibilidade da plataforma, onde você pode criar módulos personalizados semelhantes ao módulo Umbraco Courier para gerenciar a implantação entre ambientes.
@@ -446,4 +445,4 @@ Este exemplo mostra a flexibilidade da plataforma, onde você pode criar módulo
 
 [Como bloquear acesso via Web a slots de implantação de não produção](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

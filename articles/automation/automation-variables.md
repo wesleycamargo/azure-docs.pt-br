@@ -3,7 +3,7 @@
    description="Ativos de variáveis são valores que estão disponíveis para todos os runbooks e configurações DSC na Automação do Azure. Este artigo explica os detalhes das variáveis e como trabalhar com elas na criação de textos e gráficos."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
 <tags 
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/18/2016"
+   ms.date="02/23/2016"
    ms.author="magoedte;bwren" />
 
 # Ativos variáveis na Automação do Azure
@@ -188,4 +188,4 @@ A imagem a seguir mostra como filtrar os objetos que são armazenados em uma var
 - [Links na criação gráfica](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

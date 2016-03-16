@@ -59,6 +59,19 @@ Use a tabela a seguir para determinar se é possível realizar failover para out
 | Atualização 2 para Atualização 1 (1, 1.1, 1.2) | Sim <br></br>Se usando volumes fixados localmente ou em camadas ou uma combinação dos dois, o failover dos volumes é sempre realizado como em camadas. | Sim<br></br>Se usando volumes fixados localmente, o failover desses volumes é realizado em camadas. |
 | Atualização 2 para Atualização 2 (versão posterior) | Sim<br></br>Se usando volumes fixados localmente ou em camadas ou uma combinação dos dois, o failover dos volumes é sempre realizado como o tipo de volume inicial; em camadas como em camadas e fixados localmente como fixados localmente. | Sim<br></br>Se usando volumes fixados localmente, o failover desses volumes é realizado em camadas. |
 
+
+#### Failover parcial em versões de software
+
+Siga esta orientação se pretender realizar um failover parcial usando um dispositivo de origem StorSimple que executa a pré-Atualização 1 para um de destino que executa a Atualização 1 ou posterior.
+
+
+| Failover parcial de | Permitido para dispositivo físico | Permitido para dispositivo virtual |
+|----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
+|Pré-Atualização 1 (Versão, 0.1, 0.2, 0.3) para Atualização 1 ou posterior | Sim, veja abaixo para obter a dica de prática recomendada. | Sim, veja abaixo para obter a dica de prática recomendada. |
+
+
+>[AZURE.TIP] Houve uma alteração de formato dos metadados e dados de nuvem na Atualização 1 e versões posteriores. Portanto, não recomendamos um failover parcial da pré-Atualização 1 para a Atualização 1 ou versões posteriores. Se você precisar realizar um failover parcial, é recomendável que você primeiro aplique a atualização 1 ou posterior em ambos os dispositivos (origem e destino) e, em seguida, continue com o failover.
+
 ## Failover para outro dispositivo físico
 
 Execute as seguintes etapas para restaurar seu dispositivo para um dispositivo físico de destino.
@@ -162,4 +175,4 @@ Se houver dispositivos StorSimple que foram registrados antes da ocorrência de 
 - Para obter informações sobre como usar o serviço StorSimple Manager, acesse [Usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -136,9 +136,16 @@ Crie uma regra de balanceador de carga.
 
 ### Etapa 3
 
-Crie um teste de integridade.
-
+Crie um teste de integridade. Há duas maneiras de configurar uma investigação:
+ 
+Investigação HTTP
+	
 	$healthProbe = New-AzureRmLoadBalancerProbeConfig -Name HealthProbe -RequestPath 'HealthProbe.aspx' -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
+ou
+
+Investigação TCP
+	
+	$healthProbe = New-AzureRmLoadBalancerProbeConfig -Name HealthProbe -Protocol Tcp -Port 80 -IntervalInSeconds 15 -ProbeCount 2
 
 ### Etapa 4
 
@@ -165,7 +172,7 @@ Crie uma NIC chamada *lb-nic1-be* e associe-a à primeira regra NAT e ao primeir
 
 ### Etapa 3
 
-Crie uma NIC chamada *lb-nic2-be* e associe-a à segunda regra NAT e ao primeiro (e único) pool de endereços de back-end.
+Crie uma NIC chamada *lb-nic2-be* e a associe à segunda regra NAT e ao primeiro (e único) pool de endereços de back-end.
 
 	$backendnic2= New-AzureRmNetworkInterface -ResourceGroupName NRP-RG -Name lb-nic2-be -Location 'West US' -PrivateIpAddress 10.0.2.7 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[1]
 
@@ -287,7 +294,7 @@ Salvar a nova configuração usando Set-AzureLoadBalancer
 
 ## Remover um balanceador de carga
 
-Use o comando `Remove-AzureLoadBalancer` para excluir um balanceador de carga criado anteriormente denominado "NRP-LB" em um grupo de recursos chamado "NRP-RG"
+Use o comando `Remove-AzureLoadBalancer` para excluir um balanceador de carga criado anteriormente chamado “NRP-LB” em um grupo de recursos chamado “NRP-RG”
 
 	Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 
@@ -295,10 +302,10 @@ Use o comando `Remove-AzureLoadBalancer` para excluir um balanceador de carga cr
 
 ## Próximas etapas
 
-[Introdução à configuração de um balanceador de carga interno](load-balancer-internal-getstarted.md)
+[Introdução à configuração de um balanceador de carga interno](load-balancer-get-started-ilb-arm-ps.md)
 
 [Configurar um modo de distribuição do balanceador de carga](load-balancer-distribution-mode.md)
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

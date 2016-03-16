@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="02/29/2016" 
 	ms.author="sdanie"/>
 
 # Como implementar a recuperação de desastre usando o backup de serviço e restaurar no Gerenciamento de API no Azure
@@ -24,11 +24,13 @@ Para se recuperar de problemas de disponibilidade que afetam a região onde o se
 
 Este guia mostra como autenticar solicitações do Gerenciador de Recursos do Azure e como fazer backup e restaurar suas instâncias de serviço de Gerenciamento de API.
 
->[AZURE.NOTE]O processo de backup e restauração de uma instância do serviço Gerenciamento de API para recuperação de desastres também pode ser usado para replicar as instâncias de serviço Gerenciamento de API para cenários como preparação.
+>[AZURE.NOTE] O processo de backup e restauração de uma instância do serviço Gerenciamento de API para recuperação de desastres também pode ser usado para replicar as instâncias de serviço Gerenciamento de API para cenários como preparação.
+>
+>Observe que cada backup expira após 7 dias. Se você tentar restaurar um backup após o período de expiração de 7 dias, a restauração falhará com uma mensagem `Cannot restore: backup expired`.
 
 ## Autenticação de solicitações do gerenciador de recursos do Azure
 
->[AZURE.IMPORTANT]A API REST para backup e restauração usa o Gerenciador de Recursos do Azure e tem um mecanismo de autenticação diferentes das APIs REST para gerenciar suas entidades de Gerenciamento de API. As etapas desta seção descrevem como autenticar solicitações do Gerenciador de Recursos do Azure. Para mais informações, consulte [Autenticação de solicitações do Gerenciador de Recursos do Azure](http://msdn.microsoft.com/library/azure/dn790557.aspx).
+>[AZURE.IMPORTANT] A API REST para backup e restauração usa o Gerenciador de Recursos do Azure e tem um mecanismo de autenticação diferentes das APIs REST para gerenciar suas entidades de Gerenciamento de API. As etapas desta seção descrevem como autenticar solicitações do Gerenciador de Recursos do Azure. Para mais informações, consulte [Autenticação de solicitações do Gerenciador de Recursos do Azure](http://msdn.microsoft.com/library/azure/dn790557.aspx).
 
 Todas as tarefas que você faz em recursos usando o Gerenciador de Recursos do Azure devem ser autenticadas com o Active Directory do Azure usando as etapas a seguir.
 
@@ -38,7 +40,7 @@ Todas as tarefas que você faz em recursos usando o Gerenciador de Recursos do A
 
 A primeira etapa é criar um aplicativo do Active Directory do Azure. Faça logon no [Portal Clássico do Azure](http://manage.windowsazure.com/) usando a assinatura que contém sua instância de serviço Gerenciamento de API e navegue até a guia **Aplicativos** para o Active Directory do Azure padrão.
 
->[AZURE.NOTE]Se o diretório padrão do Active Directory do Azure não é visível para sua conta, contate o administrador da assinatura do Azure para conceder as permissões necessárias para sua conta. Para obter informações sobre como localizar seu diretório padrão, consulte [Localizar seu diretório padrão](../virtual-machines/resource-group-create-work-id-from-persona.md/#locate-your-default-directory-in-the-azure-portal).
+>[AZURE.NOTE] Se o diretório padrão do Active Directory do Azure não é visível para sua conta, contate o administrador da assinatura do Azure para conceder as permissões necessárias para sua conta. Para obter informações sobre como localizar seu diretório padrão, consulte [Localizar seu diretório padrão](../virtual-machines/resource-group-create-work-id-from-persona.md/#locate-your-default-directory-in-the-azure-portal).
 
 ![Criar aplicativo do Active Directory do Azure][api-management-add-aad-application]
 
@@ -160,7 +162,7 @@ Defina o valor do cabeçalho de solicitação `Content-Type` para `application/j
 
 Restaure uma operação longa de execução que pode levar até 30 minutos ou mais para concluir. Se a solicitação foi bem sucedida e o processo de restauração foi iniciado, você receberá um código de status de resposta `202 Accepted` com um cabeçalho do `Location`. Faça solicitações “GET” para a URL no cabeçalho do `Location` para descobrir o status da operação. Enquanto a restauração está em andamento, você continuará a receber o código de status “202 Aceito”. Um código de resposta `200 OK` indicará a conclusão com sucesso da operação de restauração.
 
->[AZURE.IMPORTANT]**O SKU** do serviço que está sendo restaurado **deve combinar** com o SKU do serviço de backup sendo restaurado.
+>[AZURE.IMPORTANT] **O SKU** do serviço que está sendo restaurado **deve combinar** com o SKU do serviço de backup sendo restaurado.
 >
 >As **alterações** feitas na configuração do serviço (por exemplo, APIs, políticas, aparência do portal do desenvolvedor) enquanto restauram a operação que está em andamento **podem ser substituídas**.
 
@@ -189,4 +191,4 @@ Confira os seguintes blogs da Microsoft para duas diferentes orientações passo
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

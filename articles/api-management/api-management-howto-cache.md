@@ -4,7 +4,7 @@
 	services="api-management"
 	documentationCenter=""
 	authors="steved0x"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/16/2015"
+	ms.date="03/04/2016"
 	ms.author="sdanie"/>
 
 # Adicionar caching para melhorar o desempenho no Gerenciamento de API do Azure
@@ -22,7 +22,7 @@
 
 Este guia mostra como adicionar o caching das respostas para sua API e configurar políticas para as operações de API de Eco. Você pode chamar a operação por meio do portal do desenvolvedor para verificar o caching em ação.
 
->[AZURE.NOTE]Para saber mais sobre itens de cache por chave usando expressões de política, confira [Cache personalizado no Gerenciamento de API do Azure](api-management-sample-cache-by-key.md).
+>[AZURE.NOTE] Para saber mais sobre itens de cache por chave usando expressões de política, confira [Cache personalizado no Gerenciamento de API do Azure](api-management-sample-cache-by-key.md).
 
 ## Pré-requisitos
 
@@ -32,7 +32,7 @@ Antes de seguir as etapas neste guia, você deve ter uma instância do serviço 
 
 Nesta etapa, você examinará as configurações de cache da operação **Recurso GET (em cache)** do exemplo de API de Eco.
 
->[AZURE.NOTE]Cada instância de serviço de Gerenciamento de API vem pré-configurada com uma API de Eco que pode ser usada para experimentar e aprender sobre o Gerenciamento de API. Para obter mais informações, consulte [Introdução ao Gerenciamento de API do Azure][].
+>[AZURE.NOTE] Cada instância de serviço de Gerenciamento de API vem pré-configurada com uma API de Eco que pode ser usada para experimentar e aprender sobre o Gerenciamento de API. Para obter mais informações, consulte [Introdução ao Gerenciamento de API do Azure][].
 
 Para começar, clique em **Gerenciar** no Portal Clássico do Azure para acessar o serviço de Gerenciamento de API. Isso levará você ao portal do editor de Gerenciamento de API.
 
@@ -89,7 +89,7 @@ A definição de política para esta operação inclui as políticas que definem
 		</outbound>
 	</policies>
 
->[AZURE.NOTE]As alterações feitas nas políticas de cache no editor de políticas serão refletidas na guia **Cache** de uma operação e vice-versa.
+>[AZURE.NOTE] As alterações feitas nas políticas de cache no editor de políticas serão refletidas na guia **Cache** de uma operação e vice-versa.
 
 ## <a name="test-operation"> </a>Chamar uma operação e testar o cache
 
@@ -163,4 +163,4 @@ Observe que agora o valor de **sampleheader** na resposta será **value2**. Como
 [Call an operation and test the caching]: #test-operation
 [Next steps]: #next-steps
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0309_2016-->

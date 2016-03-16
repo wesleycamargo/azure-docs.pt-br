@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.date="02/29/2016"
 	ms.author="MehrdadMzfr" />
 
 #Como integrar o Engagement no iOS
@@ -26,7 +26,7 @@
 
 Este procedimento descreve a maneira mais simples de ativar as funções de Analítica e Monitoramento do Engagement em seu aplicativo iOS.
 
-> [AZURE.IMPORTANT]O SDK do Engagement exige iOS6+: o destino da implantação do seu aplicativo deve ter pelo menos o iOS 6.
+> [AZURE.IMPORTANT] O SDK do Engagement exige iOS6+: o destino da implantação do seu aplicativo deve ter pelo menos o iOS 6.
 
 As etapas a seguir são suficientes para ativar o relatório de logs necessários para calcular todas as estatísticas sobre usuários, sessões, atividades, falhas e técnicas. O relatório de logs necessários para calcular outras estatísticas, como Trabalhos, Erros e Eventos deve ser feito manualmente usando a API do Engagement (consulte [Como usar a marcação avançada de API do Mobile Engagement no seu aplicativo iOS](mobile-engagement-ios-use-engagement-api.md) já que essas estatísticas são dependentes do aplicativo.
 
@@ -36,12 +36,14 @@ Baixe o SDK do iOS [daqui](http://aka.ms/qk2rnj). Adicione o SDK do Engagement a
 
 O Engagement exige estruturas adicionais para funcionar: no Explorador de projeto, abra o painel de projeto e selecione o destino correto. Em seguida, abra a guia **"Compilar fases"** e no menu **"Link binário com bibliotecas"**, adicione essas estruturas:
 
- -   `AdSupport.framework` - defina o link como opcional `Optional`
- -   `SystemConfiguration.framework`
- -   `CoreTelephony.framework`
- -   `CFNetwork.framework`
- -   `CoreLocation.framework`
- -   `libxml2.dylib`
+> -   `AdSupport.framework` -defina o link como opcional `Optional`
+> -   `SystemConfiguration.framework`
+> -   `CoreTelephony.framework`
+> -   `CFNetwork.framework`
+> -   `CoreLocation.framework`
+> -   `libxml2.dylib`
+
+
 
 > [AZURE.NOTE] A estrutura AdSupport pode ser removida. O Engagement precisa dessa estrutura para coletar o IDFA. No entanto, a coleção de IDFA pode ser desabilitada < ios-sdk-contrato-idfa > de acordo com a nova política Apple em relação a essa ID.
 
@@ -98,7 +100,7 @@ Para ativar o relatório de todos os logs exigidos pelo Engagement para calcular
 
 Se você não pode ou não quer sobrecarregar as suas classes `UIViewController`, em vez disso, é possível iniciar suas atividades chamando os métodos de `EngagementAgent` diretamente.
 
-> [AZURE.IMPORTANT]O SDK do iOS chama automaticamente o `endActivity()` método quando o aplicativo é fechado. Portanto, é *ALTAMENTE* recomendado chamar o método `startActivity` sempre que a atividade do usuário for alterada e *NUNCA* chamar o método `endActivity`, visto que chamar esse método força o encerramento da sessão atual.
+> [AZURE.IMPORTANT] O SDK do iOS chama automaticamente o `endActivity()` método quando o aplicativo é fechado. Portanto, é *ALTAMENTE* recomendado chamar o método `startActivity` sempre que a atividade do usuário for alterada e *NUNCA* chamar o método `endActivity`, visto que chamar esse método força o encerramento da sessão atual.
 
 ##Relatórios de local
 
@@ -143,7 +145,7 @@ Por padrão, os relatórios de local em tempo real ficam ativos apenas quando o 
 
 	[[EngagementAgent shared] setBackgroundRealtimeLocationReport:YES withLaunchOptions:launchOptions];
 
-> [AZURE.NOTE]Quando o aplicativo é executado em segundo plano, somente locais baseados em rede são relatados, mesmo se você tiver habilitado o GPS.
+> [AZURE.NOTE] Quando o aplicativo é executado em segundo plano, somente locais baseados em rede são relatados, mesmo se você tiver habilitado o GPS.
 
 A implementação dessa função chamará [startMonitoringSignificantLocationChanges] quando o aplicativo entra em segundo plano. Lembre-se de que ele reinicia automaticamente o seu aplicativo em segundo plano caso chegue um novo evento local.
 
@@ -207,4 +209,4 @@ O exemplo a seguir de `Settings.bundle` mostra como implementá-lo:
 [startMonitoringSignificantLocationChanges]: http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges
 [IDFA]: https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->

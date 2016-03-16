@@ -4,8 +4,8 @@
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+	manager="erikre" 
+	editor=""/>
 
 <tags 
 	ms.service="biztalk-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="02/29/2016" 
 	ms.author="mandia"/>
 
 
@@ -31,20 +31,20 @@ Isso abre uma nova janela com as guias a seguir. Este tópico descreve essas gui
 Dependendo da Edição dos Serviços do BizTalk, é possível que não todas as opções listadas estejam disponíveis.
 <table border="1">
     <tr>
-        <td><strong>Obtenha as ferramentas</strong></td>
+        <td><strong>Obter as ferramentas</strong></td>
 
-        <td>Download the BizTalk Services SDK to install the Visual Studio project templates on your on-premises development computer. These templates create the <strong>BizTalk Services</strong> (bridge) and the <strong>BizTalk Service Artifacts</strong> (Transform) Visual Studio projects that are deployed to your BizTalk Service.
+        <td>Baixe o SDK dos Serviços BizTalk para instalar os modelos do projeto do Visual Studio em seu computador de desenvolvimento local. Esses modelos criam os projetos do Visual Studio <strong>Serviços BizTalk</strong> (ponte) e <strong>Artefatos do Serviço do BizTalk</strong> (Transformação), que são implantados em seu Serviço BizTalk.
         <br/><br/>
-		<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335"> How do I Start Using the Azure BizTalk Services SDK </a> and <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Installing the Azure BizTalk Services SDK</a> lists the steps to get started.
+		<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335"> Como faço para começar a usar o SDK dos Serviços BizTalk do Azure </a> e <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Instalando o SDK dos Serviços BizTalk do Azure</a> listam as etapas para começar.
         </td>
     </tr>
 
     <tr>
-        <td><strong>Create partner agreements</strong></td>
+        <td><strong>Criar contratos de parceiro</strong></td>
 
-        <td>Opens the Azure BizTalk Services Portal hosted on Azure where you add partners and create X12, AS2, and EDIFACT EDI agreements.
+        <td>Abre o Portal dos Serviços BizTalk hospedados no Azure onde você adiciona parceiros e cria contratos EDI X12, AS2 e EDIFACT.
         <br/><br/>
-        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configuring Components for EDI Messaging on BizTalk Services Portal</a> lists the steps to get started.
+        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configurando componentes para mensagens EDI no Portal dos Serviços BizTalk</a> lista as etapas para começar.
         </td>
     </tr>
 
@@ -236,17 +236,14 @@ Você também pode especificar os valores **Relativo** ou **Absoluto** e o **Int
 
 ##### Para remover ou exibir métricas no gráfico:
 1. Selecione a guia **Processo**.
-2. Selecione **Adicionar Métricas** na barra de tarefas:  
-![Selecione Adicionar Métricas][AddMetrics]
+2. Selecione **Adicionar Métricas** na barra de tarefas: ![Selecione Adicionar Métricas][AddMetrics]
 3. Verifique as métricas de desempenho que você deseja mostrar.
 4. Selecione a marca de seleção para retornar à guia **Monitoramento**.
 5. Selecione o círculo ao lado de métrica para exibir o valor dela no gráfico.  
 
-	Por exemplo, a métrica **Uso do CPU** está esmaecida; seu resultado não é exibido no gráfico:  
-![A métrica Uso de CPU fica esmaecida][GrayedMetric]  
+	Por exemplo, a métrica **Uso de CPU** fica esmaecida; sua saída não é exibida no gráfico: ![A métrica Uso de CPU fica esmaecida][GrayedMetric]
 
-	Selecione o círculo esmaecido para ativar a métrica **Uso do CPU ** para exibir seu resultado no gráfico:  
-![A métrica Uso de CPU está habilitada][EnabledMetric]
+	Clique no círculo esmaecido para habilitar a métrica **Uso de CPU** e exibir sua saída no gráfico: ![A métrica Uso de CPU está habilitada][EnabledMetric]
 
 6. Para remover uma métrica do gráfico de exibição e da lista, selecione **Excluir Métricas** na barra de tarefas. Para adicionar a métrica à lista novamente, selecione **Adicionar Métricas** na barra de tarefas, selecione a métrica e clique na marca de seleção para retornar para a guia **Monitorar**. Selecione o círculo esmaecido para habilitar a métrica.
 
@@ -339,7 +336,7 @@ As Conexões Híbridas se conectam um aplicativo do Azure, como Sites ou Serviç
 
 Para criar Conexões Híbridas nos Sites do Azure, consulte [Conexão Híbrida: conecte um site do Azure a um recurso local](http://go.microsoft.com/fwlink/p/?LinkId=397538)
 
-Para usar Conexões Híbridas nos Serviços Móveis do Azure, consulte [Serviços Móveis do Azure e Conexões Híbridas](../mobile-services-dotnet-backend-hybrid-connections-get-started.md).
+Para usar Conexões Híbridas nos Serviços Móveis do Azure, consulte [Serviços Móveis do Azure e Conexões Híbridas](../mobile-services/mobile-services-dotnet-backend-hybrid-connections-get-started.md).
 
 Para criar ou gerenciar as Conexões Híbridas nos Serviços do BizTalk do Azure, consulte [Conexões Híbridas](integration-hybrid-connection-overview.md).
 
@@ -365,4 +362,4 @@ Agora que está familiarizado com as diferentes guias, você pode obter mais inf
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

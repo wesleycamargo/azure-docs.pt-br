@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="02/29/2016"
 	ms.author="wesmc"/>
 
 #Notificar usuários nos Hubs de Notificação do Azure com o back-end do .NET
@@ -48,7 +48,7 @@ Antes de iniciar este tutorial, você já deve ter concluído estes tutoriais do
 
 
 
-> [AZURE.NOTE]Se você estiver usando Serviços Móveis como seu serviço de back-end, consulte a [Versão dos Serviços Móveis](../mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md) deste tutorial.
+> [AZURE.NOTE] Se você estiver usando Serviços Móveis como seu serviço de back-end, consulte a [Versão dos Serviços Móveis](../mobile-services/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md) deste tutorial.
 
 
 
@@ -350,7 +350,7 @@ Nesta seção, você atualiza o código no projeto concluído no tutorial [Intro
 2. Na instância Windows 8.1 do aplicativo, insira um **Nome de Usuário** e **Senha** conforme mostrado na tela abaixo. Eles devem diferir do nome de usuário e senha que você insere no Windows Phone.
 
 
-3. Clique em **Fazer logon e registrar** e verifique se uma caixa de diálogo mostra que você fez logon. Isso também habilitará o botão **Enviar por Push**.
+3. Clique em **Fazer logon e registrar** e verifique se um diálogo mostra que você fez logon. Isso também habilitará o botão **Enviar por Push**.
 
     ![][14]
 
@@ -388,4 +388,4 @@ Nesta seção, você atualiza o código no projeto concluído no tutorial [Intro
 [Usar Hubs de Notificação para enviar notícias mais recentes]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 [Diretrizes dos Hubs de Notificação]: http://msdn.microsoft.com/library/jj927170.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

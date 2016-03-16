@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2016" 
+	ms.date="02/28/2016" 
 	ms.author="awills"/>
 
 # Gerenciar cotas e preços do Application Insights
@@ -140,6 +140,17 @@ A camada de preços determina quanto tempo os dados são mantidos no portal e, p
 * Os dados agregados (ou seja, contagens, médias e outros dados estatísticos que você vê no Metric Explorer) são mantidos em um detalhamento de 1 minuto por 30 dias, e 1 hora ou 1 dia (dependendo do tipo) por 13 meses.
 
 
+## Amostragem
+
+[Amostragem](app-insights-sampling.md) é um método de redução do volume de telemetria retida pelo seu aplicativo, ao mesmo tempo que ainda retém a capacidade de encontrar eventos relacionados durante as pesquisas de diagnóstico, retendo também as contagens de eventos corretas. A amostragem o ajuda a se manter dentro de sua cota mensal.
+
+Há várias formas de amostragem. Recomendamos a [amostragem adaptável](app-insights-sampling.md), que se ajusta automaticamente ao volume de telemetria enviado por seu aplicativo. Ela opera no SDK em seu aplicativo Web, para que o tráfego de telemetria na rede seja reduzido. É possível usá-la se a estrutura do aplicativo Web for o .NET: basta instalar a versão (beta) mais recente do SDK.
+
+Como alternativa, é possível definir a *amostragem de ingestão* na folha Cotas e Preço. Essa forma de amostragem opera no ponto em que a telemetria de seu aplicativo entra no serviço do Application Insights. Ela não afeta o volume de telemetria enviado de seu aplicativo, mas reduz o volume retido pelo serviço.
+
+![Na folha Cota e preço, clique no bloco Exemplos e selecione uma fração de amostragem.](./media/app-insights-sampling/04.png)
+
+A amostragem é uma maneira eficiente de reduzir encargos e permanecer dentro de sua cota mensal. O algoritmo de amostragem retém itens de telemetria relacionados, para que, por exemplo, quando a Pesquisa for utilizada, seja possível encontrar a solicitação relacionada a uma exceção específica. O algoritmo também retém contagens corretas, para que você veja os valores corretos no Gerenciador de Métricas referentes a taxas de solicitação, taxas de exceção e outras contagens.
 
 
 ## Examine a conta da sua assinatura do Azure
@@ -162,4 +173,4 @@ Encargos do Application Insights são adicionados à sua conta do Azure. Você p
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

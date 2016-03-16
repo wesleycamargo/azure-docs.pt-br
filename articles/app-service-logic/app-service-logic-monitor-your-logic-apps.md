@@ -2,7 +2,7 @@
 	pageTitle="Monitorar seus Aplicativos Lógicos no Serviço de Aplicativo do Azure | Microsoft Azure" 
 	description="Como ver o que os Aplicativos Lógicos fizeram" 
 	authors="stepsic-microsoft-com" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="app-service\logic" 
 	documentationCenter=""/>
@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="02/29/2016"
 	ms.author="stepsic"/>
 
 # Monitorar seus aplicativos lógicos
 
-Depois de criar um aplicativo lógico (etapas descritas em [Criar um aplicativo lógico](app-service-logic-create-a-logic-app.md)), você pode ver o histórico completo de sua execução no portal do Azure. Para exibir o histórico, selecione **Procurar**, **Web + Móvel** e **Aplicativos Lógicos**. É exibida uma lista com todos os Aplicativos Lógicos em sua assinatura. Um aplicativo lógico pode estar **Habilitado** ou **Desabilitado**. Aplicativos Lógicos **Habilitados** significam que os gatilhos executam-no em resposta a eventos de gatilho. Um Aplicativo Lógico **Desabilitado** não é executado em resposta a eventos.
+Depois de [criar um Aplicativo Lógico](app-service-logic-create-a-logic-app.md), é possível ver o histórico completo da execução no portal do Azure. Para exibir o histórico, selecione **Procurar** e **Aplicativos Lógicos**. É exibida uma lista com todos os Aplicativos Lógicos em sua assinatura. É possível selecionar qualquer aplicativo lógico e **Habilitar** ou **Desabilitar**. Aplicativos Lógicos **Habilitados** significam que os gatilhos executam-no em resposta a eventos de gatilho. Um Aplicativo Lógico **Desabilitado** não é executado em resposta a eventos.
 
 ![Visão geral](./media/app-service-logic-monitor-your-logic-apps/overview.png)
 
 Quando a folha para seu aplicativo lógico aparecer, há duas seções úteis:
 
-- **Resumo**, que informa o status mais recente e é um ponto de entrada para editor seu aplicativo lógico.
-- **Todas as execuções**, que mostra uma lista das execuções que esse aplicativo lógico teve.
+- O **Resumo** mostra o status mais recente e é um ponto de entrada para editar seu Aplicativo Lógico.
+- **Todas as execuções** mostra uma lista das execuções desse Aplicativo Lógico.
 
 ## Exibir as execuções do aplicativo
 
@@ -33,7 +33,7 @@ Quando a folha para seu aplicativo lógico aparecer, há duas seções úteis:
 
 Essa lista de execuções mostra a **Hora de início**, o **Identificador de execução** (você pode usar isso ao chamar a API REST) e a **Duração** das execuções específicas. Clique em qualquer linha para ver os detalhes da execução.
 
-A folha de detalhes mostra um gráfico com o tempo de execução e a sequência de todas as ações na execução. Abaixo está uma lista completa de todas as ações foram executadas:
+A folha de detalhes mostra um gráfico com o tempo de execução e a sequência de todas as ações na execução. Veja a seguir a lista completa de todas as ações que foram executadas:
 
 ![Execução e ações](./media/app-service-logic-monitor-your-logic-apps/runandaction.png)
 
@@ -53,7 +53,7 @@ Observe que, para gatilhos de *Push*, você *não* vê as horas de início das e
 
 ## Habilitar o controle de versão
 
-Há uma funcionalidade adicional que atualmente não está disponível na interface do usuário (em breve), mas está na [API REST](http://go.microsoft.com/fwlink/p/?LinkID=525617&clcid=0x409). Quando você atualiza a definição de um aplicativo lógico, a versão anterior da definição é armazenada. Isso ocorre porque, se você já tiver uma execução em andamento, ela fará referência à versão do Aplicativo Lógico que existia quando a execução teve início. Definições de execuções não podem mudar enquanto estiverem em andamento. O histórico de versão de API REST permite o acesso a essas informações.
+Há uma funcionalidade adicional que, atualmente, não está disponível na interface do usuário (em breve), mas que está na [API REST](https://msdn.microsoft.com/library/azure/mt643788.aspx). Quando você atualiza a definição de um aplicativo lógico, a versão anterior da definição é armazenada. Isso ocorre porque, se você já tiver uma execução em andamento, ela fará referência à versão do Aplicativo Lógico que existia quando a execução teve início. Definições de execuções não podem mudar enquanto estiverem em andamento. O histórico de versão de API REST permite o acesso a essas informações.
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

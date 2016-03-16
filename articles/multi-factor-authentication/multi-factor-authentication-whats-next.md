@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="02/26/2016" 
 	ms.author="billmath"/>
 
 # Configurando o Azure Multi-Factor Authentication
@@ -35,7 +35,7 @@ Recurso| Descrição| O que é coberto
 [Cache](#caching)|O cache permite que você defina um momento específico período para que tentativas de autenticação subsequentes tenham êxito automaticamente. |Como instalar e configurar o cache de autenticação.
 [IPs Confiáveis](#trusted-ips)|IPs Confiáveis é um recurso de autenticação multifator que permite que os administradores de um inquilino gerenciado ou federado possam ignorar a autenticação multifator para usuários que estão entrando pela intranet local da empresa.|Instalar e configurar endereços IP que estão isentos para autenticação multifator	
 [Senhas de aplicativo](#app-passwords)|As senhas de aplicativo permitem que um aplicativo que não tenha reconhecimento de MFA possa se desviar da autenticação multifator e continuar trabalhando.|Informações sobre senhas de aplicativo.
-[Suspender a autenticação multifator para dispositivos e navegadores lembrados (visualização pública)](#suspend-multi-factor-authentication-for-remembered-devices-and-browsers-public-preview)|Permite suspender a MFA por um determinado número de dias depois que um usuário se conectou com êxito usando MFA.|Informações sobre como habilitar esse recurso e configurar o número de dias.
+[Lembrar o Multi-Factor Authentication para dispositivos e navegadores lembrados](#remember-multi-factor-authentication-for-devices-users-trust)|Permite lembrar dispositivos por um número de dias específico após a entrada bem-sucedida de um usuário usando o MFA.|Informações sobre como habilitar esse recurso e configurar o número de dias.
 [Métodos de verificação selecionável (visualização pública)](#selectable-verification-methods-public-preview)|Permite que você escolha os métodos de autenticação disponíveis para os usuários usarem.|Informações sobre como habilitar ou desabilitar os métodos de autenticação específicos, como mensagens de texto ou chamada.
 
 
@@ -331,25 +331,25 @@ Além disso, eles também podem criar senhas de aplicativo posteriormente altera
 
 ![Senhas de aplicativo](./media/multi-factor-authentication-whats-next/myapp.png)
 
-## Suspender a autenticação multifator para dispositivos e navegadores lembrados (visualização pública)
+## Lembrar Multi-Factor Authentication para dispositivos de confiança dos usuários
 
-A suspensão de autenticação multifator para navegadores e dispositivos lembrados é um recurso que lhe permite dar aos usuários a opção de suspender a MFA por um determinado número de dias após a entrada bem-sucedida usando a MFA. Esse é um recurso gratuito para todos os usuários MFA e aprimora o uso para os usuários. No entanto, como os usuários têm permissão para suspender a MFA, esse recurso pode reduzir a segurança da conta.
+Lembrar Multi-Factor Authentication para dispositivos e navegadores de confiança dos usuários é um recurso gratuito para todos os usuários do MFA. Ele permite fornecer aos usuários a opção de ignorar o MFA para um número de dias específico após a entrada bem-sucedida usando o MFA. Isso pode melhorar a usabilidade de seus usuários.
 
-Para garantir que as contas de usuário sejam protegidas, você deve restaurar a autenticação multifator para seus dispositivos para qualquer um dos seguintes cenários:
+No entanto, já que os usuários têm permissão para lembrar o MFA para dispositivos confiáveis, esse recurso pode reduzir a segurança da conta. Para garantir que as contas de usuário sejam protegidas, você deve restaurar o Multi-Factor Authentication para seus dispositivos para qualquer um dos seguintes cenários:
 
 - Se sua conta corporativa estiver comprometida
 - Se um dispositivo lembrado for perdido ou roubado
 
 > [AZURE.NOTE] Esse recurso é implementado como um cache de cookie do navegador. Ele não funcionará se os cookies do navegador não estiverem habilitados.
 
-### Como habilitar/desabilitar Suspender MFA para dispositivos lembrados e definir
+### Como habilitar/desabilitar Lembrar Multi-Factor Authentication
 
 1. Entre no Portal clássico do Azure.
 2. À esquerda, clique no Active Directory.
-3. No Active Directory, clique no diretório em que deseja configurar Suspender o Multi-Factor Authentication.
+3. No Active Directory, clique no diretório em que deseja configurar Lembrar Multi-Factor Authentication para dispositivos.
 4. No Diretório que você selecionou, clique em Configurar.
 5. Na seção autenticação multifator, clique em Gerenciar configurações de serviço.
-6. Na página Configurações de serviço, em Gerenciar configurações de usuário do dispositivo, marque/desmarque a seleção **Permite aos usuários suspender o Multi-Factor Authentication, fazendo com que um dispositivo seja lembrado**. ![Suspender dispositivos](./media/multi-factor-authentication-manage-users-and-devices/suspend.png)
+6. Na página Configurações do Serviço, em Gerenciar configurações do dispositivo do usuário, marque/desmarque **Permitir que os usuários lembrem a autenticação multifator nos dispositivos confiáveis**.![Lembrar dispositivos](./media/multi-factor-authentication-whats-next/remember.png)
 8. Defina o número de dias que você deseja permitir a suspensão. O padrão é 14 dias.
 9. Clique em Salvar.
 10. Clique em Fechar.
@@ -372,8 +372,8 @@ Método|Descrição
 3. No Active Directory, clique no diretório que você deseja habilitar ou desabilitar os métodos de autenticação.
 4. No Diretório que você selecionou, clique em Configurar.
 5. Na seção autenticação multifator, clique em Gerenciar configurações de serviço.
-6. Na página Configurações de serviço, em Opções de verificação, marque/desmarque as opções que você deseja usar.</br></br> ![Suspender dispositivos](./media/multi-factor-authentication-whats-next/authmethods.png)
+6. Na página Configurações do Serviço, em Opções de verificação, marque/desmarque as opções que deseja usar.</br></br> ![Opções de verificação](./media/multi-factor-authentication-whats-next/authmethods.png)
 9. Clique em Salvar.
 10. Clique em Fechar.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

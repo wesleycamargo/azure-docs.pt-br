@@ -4,8 +4,8 @@
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+	manager="erikre" 
+	editor=""/>
 
 <tags 
 	ms.service="biztalk-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="02/29/2016" 
 	ms.author="mandia"/>
 
 
@@ -22,7 +22,7 @@
 ## O que são os Logs de operação
 Logs de operação é um recurso dos Serviços de Gerenciamento disponível no portal clássico do Azure que permite exibir os logs históricos de operações executadas nos serviços do Azure, incluindo os Serviços BizTalk. Isso permite exibir dados históricos relacionados às operações de gerenciamento em sua assinatura do Serviço BizTalk de até 180 dias.
 
-> [AZURE.NOTE]Esse recurso captura apenas os logs de operações de gerenciamento nos Serviços BizTalk, por exemplo, quando o serviço foi iniciado, sofreu backup etc. Essas operações são acompanhadas independentemente se são executadas no portal clássico do Azure ou usando as [APIs REST do Serviço BizTalk](http://msdn.microsoft.com/library/azure/dn232347.aspx). Para obter uma lista completa das operações que são acompanhadas usando os Serviços de Gerenciamento, consulte [Operações acompanhadas usando os Serviços de Gerenciamento do Azure](#bizops).<br/><br/> Isso não captura os logs de atividades relacionadas ao tempo de execução do Serviço BizTalk (como mensagens processadas pelas pontes etc.) Para exibir esses logs, use a exibição Acompanhamento do portal de Serviços BizTalk. Para obter mais informações, consulte [Acompanhando mensagens](http://msdn.microsoft.com/library/azure/hh949805.aspx).
+> [AZURE.NOTE] Esse recurso captura apenas os logs de operações de gerenciamento nos Serviços BizTalk, por exemplo, quando o serviço foi iniciado, sofreu backup etc. Essas operações são acompanhadas independentemente se são executadas no portal clássico do Azure ou usando as [APIs REST do Serviço BizTalk](http://msdn.microsoft.com/library/azure/dn232347.aspx). Para obter uma lista completa das operações que são acompanhadas usando os Serviços de Gerenciamento, consulte [Operações acompanhadas usando os Serviços de Gerenciamento do Azure](#bizops).<br/><br/> Isso não captura os logs de atividades relacionadas ao tempo de execução do Serviço BizTalk (como mensagens processadas pelas pontes etc.) Para exibir esses logs, use a exibição Acompanhamento do portal de Serviços BizTalk. Para obter mais informações, consulte [Acompanhando mensagens](http://msdn.microsoft.com/library/azure/hh949805.aspx).
 
 ## Exibir os logs de operações dos Serviços BizTalk
 1. No portal clássico do Azure, clique em **Serviços de Gerenciamento ** e, em seguida, clique na guia **Logs de Operação**.
@@ -67,4 +67,4 @@ PurgeBackupBizTalkService | Operação para limpar backups do Serviço BizTalk f
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

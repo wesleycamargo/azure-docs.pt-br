@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="02/26/2016" 
 	ms.author="tomfitz"/>
 
 # Provisionar um aplicativo Web com um banco de dados SQL
@@ -457,4 +457,4 @@ Cria um novo SQL Server e banco de dados. O nome do servidor é especificado no 
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->

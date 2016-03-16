@@ -26,11 +26,36 @@ A amostragem está atualmente na versão Beta e pode ser alterada no futuro.
 
 Há três módulos de amostragem alternativos:
 
-* A **amostragem adaptável** ajusta automaticamente a porcentagem de amostragem para atingir um determinado volume de solicitações. Ela está habilitada por padrão no SDK do Application Insights para ASP.NET, versão 2.0.0-beta3 ou posterior. 
-* A **amostragem de taxa fixa** também está disponível nas versões do SDK posteriores a 2. Especifique a porcentagem de amostragem. Isso funciona no cliente JavaScript e no servidor ASP.NET. O cliente e o servidor sincronizarão suas amostragens para que, na Pesquisa, você possa navegar entre exibições de página e solicitações relacionadas.
-* **Amostragem de ingestão**. Isso acontece no serviço Application Insights. O SDK envia toda a telemetria do seu navegador e do seu servidor, mas nós mantemos apenas uma porcentagem. Ele é adaptável, e só funciona se seu aplicativo enviar mais do que um volume mínimo de telemetria e somente se o SDK não estiver executando um dos outros tipos de amostragem. Também é influenciado pelo tipo de preço que você está usando. Embora não reduza o tráfego, ajuda a manter sua cota mensal.
+* A **amostragem adaptável** ajusta automaticamente o volume da telemetria enviada do SDK para seu aplicativo ASP.NET. Ela é padrão desde o SDK v 2.0.0-beta3.
+* A **amostragem de taxa fixa** reduz o volume de telemetria enviado do servidor ASP.NET e dos navegadores dos usuários. Você define a taxa.
+* A **amostragem de ingestão** reduz o volume de telemetria mantido pelo serviço do Application Insights, a uma taxa definida por você. Ela não reduz o tráfego de telemetria, mas ajuda você a se manter em sua cota mensal. 
 
-## Habilitando a amostragem adaptável
+## Amostragem de ingestão
+
+Essa forma de amostragem opera no ponto em que a telemetria de seu servidor Web, seus navegadores e seus dispositivos atinge o ponto de extremidade do serviço Application Insights. Embora ela não reduza o tráfego de telemetria enviado do seu aplicativo, reduz a quantidade processada e mantida (e cobrada) pelo Application Insights.
+
+Use esse tipo de amostragem se seu aplicativo geralmente ultrapassar a cota mensal e se você não tiver a opção de usar os tipos de amostragem baseados em SDK.
+
+Defina a taxa de amostragem na folha Cotas e Preços:
+
+![Na folha Visão Geral do aplicativo, clique em Configurações, Cota, Amostras, escolha uma taxa de amostragem e clique em Atualizar.](./media/app-insights-sampling/04.png)
+
+Assim como outros tipos de amostragem, o algoritmo retém os itens relacionados de telemetria. Por exemplo, quando você estiver analisando a telemetria na Pesquisa, poderá localizar a solicitação relacionada a uma exceção específica. As contagens de métrica como a taxa de solicitação e a taxa de exceções são mantidas corretamente.
+
+
+
+## Amostragem adaptável em seu servidor Web
+
+A amostragem adaptativa está disponível para o SDK do Application Insights para ASP.NET v 2.0.0-beta3 e posterior, e está habilitada por padrão.
+
+
+A amostragem adaptável afeta o volume de telemetria enviado do seu aplicativo de servidor Web para o serviço Application Insights. O volume é ajustado automaticamente para se manter em uma taxa máxima de tráfego especificada.
+
+Ela não funciona em volumes baixos de telemetria e, portanto, um aplicativo em depuração ou um site com baixo uso não serão afetados.
+
+Para atingir o volume de destino, parte da telemetria gerada é descartada. Assim como os outros tipos de amostragem, o algoritmo retém os itens de telemetria relacionados. Por exemplo, quando você estiver analisando a telemetria na Pesquisa, poderá localizar a solicitação relacionada a uma exceção específica.
+
+As contagens de métrica, como a taxa de solicitações e a taxa de exceções são ajustadas para compensar a taxa de amostragem, para que mostrem valores aproximadamente corretos no Gerenciador de Métricas.
 
 **Atualize os pacotes NuGet** de seu projeto para a versão de *pré-lançamento* mais recente do Application Insights: clique com o botão direito do mouse no projeto no Gerenciador de Soluções, marque a opção **Incluir pré-lançamento** e procure por Microsoft.ApplicationInsights.Web.
 
@@ -148,7 +173,13 @@ Para o percentual de amostragem, escolha um percentual que esteja próximo a 100
 Se você habilitar também a amostragem de taxa fixa no servidor, o cliente e o servidor serão sincronizados para que, na Pesquisa, você possa navegar entre exibições de página e solicitações relacionadas.
 
 
-## Habilitação da amostragem de taxa fixa no servidor
+## Amostragem de taxa fixa para sites ASP.NET
+
+A amostragem de taxa fixa reduz o tráfego enviado do seu servidor Web e de navegadores da Web. Ao contrário da amostragem adaptável, ela reduz a telemetria a uma taxa fixa decidida por você. Ela também sincroniza a amostragem de servidor e de cliente para que os itens relacionados sejam mantidos, por exemplo, se você examinar um modo de exibição de página na Pesquisa, poderá localizar a solicitação relacionada.
+
+O algoritmo de amostragem retém os itens relacionados. Para cada evento de solicitação HTTP, ele e os eventos relacionados são descartados ou transmitidos.
+
+No Metrics Explorer, as taxas como as contagens de solicitações e de exceções são multiplicadas por um fator para compensar a taxa de amostragem, para que elas sejam aproximadamente corretas.
 
 1. **Atualize os pacotes NuGet do seu projeto** para a versão de *pré-lançamento* mais recente do Application Insights. Clique com o botão direito do mouse no projeto no Gerenciador de Soluções, marque a opção **Incluir pré-lançamento** e procure por Microsoft.ApplicationInsights.Web. 
 
@@ -212,7 +243,7 @@ Em vez de definir o parâmetro de amostragem no arquivo .config, você pode usar
 
 ## Quando usar a amostragem?
 
-Amostragem adaptável é habilitada automaticamente se você usar o SDK do ASP.NET versão 2.0.0-beta3 ou posterior. Não importa a versão SDK usada, a amostragem de ingestão (em nosso servidor) poderá funcionar se não houver amostragem no SDK.
+Amostragem adaptável é habilitada automaticamente se você usar o SDK do ASP.NET versão 2.0.0-beta3 ou posterior. Você pode usar a amostragem de ingestão (em nosso servidor) independente da versão do SDK utilizada.
 
 A amostragem não é necessária para a maioria dos aplicativos de pequeno e médio porte. As informações de diagnóstico mais úteis e as estatísticas mais precisas são obtidas por meio da coleta de dados em todas as atividades de usuário.
 
@@ -223,19 +254,26 @@ As principais vantagens da amostragem são:
 * Permanecer dentro da [cota](app-insights-pricing.md) de pontos de dados para o seu tipo de preço. 
 * Para reduzir o tráfego de rede da coleção de telemetria. 
 
-### Amostragem fixa ou adaptável
+### Que tipo de amostragem eu devo usar?
 
-Todas as formas de amostragem funcionam apenas acima de um determinado limite de tráfego. Por exemplo, ela não afetará a maioria das sessões de depuração ou sites com pouca utilização.
 
-Use a amostragem de taxa fixa se:
+**Use a amostragem de ingestão se:**
 
+* Você geralmente ultrapassa sua cota mensal de telemetria.
+* Você estiver usando uma versão do SDK que não oferece suporte à amostragem. Por exemplo, o SDK do Java ou as versões do ASP.NET anteriores à 2.
+* Você estiver recebendo muita telemetria dos navegadores dos usuários.
+
+**Use a amostragem de taxa fixa se:**
+
+* Você estiver usando o SDK do Application Insights para os serviços Web do ASP.NET versão 2.0.0 ou posterior e
 * Você quiser uma amostragem sincronizada entre cliente e servidor, para que quando estiver investigando eventos na [Pesquisa](app-insights-diagnostic-search.md), você possa navegar entre os eventos relacionados no cliente e no servidor, por exemplo, exibições de página e solicitações http.
 * Você tiver certeza sobre a porcentagem de amostragem apropriada para seu aplicativo. Ela deve ser alta o suficiente para obter métricas precisas, mas abaixo da taxa que excede sua cota de preços e limitações. 
-* Você não está depurando seu aplicativo. Quando você pressiona F5 e experimenta algumas páginas de seu aplicativo, provavelmente deseja ver toda a telemetria.
 
-Caso contrário, recomendamos a amostragem adaptável. Ela está habilitada por padrão no SDK do servidor ASP.NET.
 
-Se você não usar amostragem no SDK - por exemplo, se estiver usando Java ou se desabilitar a amostragem em ApplicationInsights.config - a amostragem de ingestão poderá funcionar à medida que os dados chegam ao serviço Application Insights. É uma forma de amostragem adaptável.
+**Use a amostragem adaptável:**
+
+Caso contrário, recomendamos a amostragem adaptável. Ela está habilitada por padrão no SDK do servidor ASP.NET, versão 2.0.0-beta3 ou posterior. Ela não reduz o tráfego até uma determinada taxa mínima e, portanto, não afetará um site de baixa utilização.
+
 
 ## Como funciona a amostragem?
 
@@ -257,11 +295,11 @@ A amostragem adaptável adiciona um componente que monitora a taxa atual de tran
 
 ## Amostragem e o SDK do JavaScript
 
-O SDK do lado do cliente (JavaScript) participa da amostragem em conjunto com o SDK do lado do servidor. As páginas instrumentadas enviarão apenas a telemetria do lado do cliente dos mesmos usuários para os quais o lado do servidor tomou sua decisão de “amostragem”. Essa lógica é projetada para manter a integridade da sessão do usuário nos lados do cliente e do servidor. Como resultado, em qualquer item de telemetria específico no Application Insights é possível encontrar todos os outros itens de telemetria para esse usuário ou sessão.
+O SDK do lado do cliente (JavaScript) participa da amostragem de taxa fixa em conjunto com o SDK do lado do servidor. As páginas instrumentadas enviarão apenas a telemetria do lado do cliente dos mesmos usuários para os quais o lado do servidor tomou sua decisão de “amostragem”. Essa lógica é projetada para manter a integridade da sessão do usuário nos lados do cliente e do servidor. Como resultado, em qualquer item de telemetria específico no Application Insights é possível encontrar todos os outros itens de telemetria para esse usuário ou sessão.
 
 *Minha telemetria do lado do cliente e do servidor não mostra exemplos coordenados como descrito acima.*
 
-* Verifique se você habilitou a amostragem tanto no servidor quanto no cliente.
+* Verifique se você habilitou a amostragem de taxa fixa tanto no servidor quanto no cliente.
 * Certifique-se de que a versão do SDK é 2.0 ou superior.
 * Verifique se você definiu o mesmo percentual de amostragem no cliente e no servidor.
 
@@ -304,4 +342,4 @@ O SDK do lado do cliente (JavaScript) participa da amostragem em conjunto com o 
 
  * Inicialize uma instância separada de TelemetryClient com um novo TelemetryConfiguration (não o Active padrão). Use isso para enviar seus eventos raros.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

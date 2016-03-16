@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="02/26/2016" 
 	ms.author="huvalo"/>
 
 
@@ -374,7 +374,7 @@ Conteúdo de `ptvs_virtualenv_proxy.py`:
 
 Para saber mais, confira o [Centro de Desenvolvedores do Python](/develop/python/).
 
->[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE] Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -385,4 +385,4 @@ Para saber mais, confira o [Centro de Desenvolvedores do Python](/develop/python
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0302_2016-->

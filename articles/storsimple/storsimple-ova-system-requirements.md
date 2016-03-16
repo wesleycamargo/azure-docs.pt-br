@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/07/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli"/>
 
-# Requisitos do sistema da StorSimple Virtual Array(Visualização)
+# Requisitos do sistema da StorSimple Virtual Array
 
 ## Visão geral
 
@@ -34,10 +34,6 @@ As informações de requisitos de sistema do StorSimple publicadas neste artigo 
  
 - Para dispositivos série 7000, vá para [Requisitos de sistema para o dispositivo StorSimple série 5000-7000](http://onlinehelp.storsimple.com/1_StorSimple_System_Requirements).
 
-> [AZURE.IMPORTANT]
-> 
-> - Esta visualização pública destina-se somente para avaliação. Não há suporte para a instalação dessa visualização em um ambiente de produção.
-> - Se você tiver problemas com a StorSimple Virtual Array, publique os problemas no [fórum do MSDN do StorSimple](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=StorSimple).  
 
 ## Requisitos de software
 
@@ -59,7 +55,7 @@ Os requisitos de software incluem as informações sobre os navegadores da Web, 
 | Mínimo de memória (RAM) | 8 GB |
 | Espaço em disco<sup>1</sup> | Disco do sistema operacional - 80 GB <br></br>Disco de dados - 500 GB a 8 TB|
 | Número mínimo de interface(s) de rede | 1 |
-| Largura de banda mínima de Internet<sup>2</sup> | 5 Mbps |
+| Largura de banda mínima da Internet<sup>2</sup> | 5 Mbps |
 
 <sup>1</sup> - Com provisionamento dinâmico
 
@@ -85,14 +81,14 @@ Os requisitos de software incluem as informações sobre os navegadores da Web, 
 
 A tabela a seguir lista as portas que devem ser abertas no firewall para permitir o tráfego de gerenciamento, de nuvem, SMB ou iSCSI. Nesta tabela, *entrada* ou *de entrada* refere-se à direção a partir da qual as solicitações de cliente acessam o dispositivo. *Saída* ou *de saída* refere-se à direção na qual seu dispositivo StorSimple envia dados externamente, além da implantação: por exemplo, saída para a Internet.
 
-| **Porta No.<sup>1</sup>** | **Entrada ou saída** | **Escopo da porta** | **Obrigatório** | **Observações** |
+| **Porta nº<sup>1</sup>** | **Entrada ou saída** | **Escopo da porta** | **Obrigatório** | **Observações** |
 |--------------------------|---------------|----------------|---------------------------|----------------------------------------------------------------------------------------------------------------------|
-| TCP 80 (HTTP) | Saída | WAN | Não | A porta de saída é usada para acesso à Internet para recuperar atualizações. <br></br>O proxy da Web de saída é configurável pelo usuário. |
-| TCP 443 (HTTPS) | Saída | WAN | Sim | A porta de saída é usada para acessar dados na nuvem. <br></br>O proxy da Web de saída é configurável pelo usuário. |
-| UDP 53 (DNS) | Saída | WAN | Em alguns casos; consulte as observações. | Esta porta só será necessária se você estiver usando um servidor DNS baseado na Internet. <br></br> **Observação**: se estiver implantando um servidor de arquivos, é recomendável usar o servidor DNS local.|
-| UDP 123 (NTP) | Saída | WAN | Em alguns casos; consulte as observações. | Esta porta é necessária apenas se você estiver usando um servidor NTP baseado na Internet.<br></br> **Observação:** se implantar um servidor de arquivos, é recomendável sincronizar a hora com os controladores de Domínio do Active Directory. |
+| TCP 80 (HTTP) | Saída | WAN | Não | A porta de saída é usada para acesso à Internet para recuperar atualizações. <br></br>O proxy Web de saída é configurável pelo usuário. |
+| TCP 443 (HTTPS) | Saída | WAN | Sim | A porta de saída é usada para acessar dados na nuvem. <br></br>O proxy Web de saída é configurável pelo usuário. |
+| UDP 53 (DNS) | Saída | WAN | Em alguns casos; consulte as observações. | Esta porta só será necessária se você estiver usando um servidor DNS baseado na Internet. <br></br> **Observação**: se estiver implantando um servidor de arquivos, recomendamos usar o servidor DNS local.|
+| UDP 123 (NTP) | Saída | WAN | Em alguns casos; consulte as observações. | Esta porta é necessária apenas se estiver usando um servidor NTP baseado na Internet.<br></br> **Observação:** se estiver implantando um servidor de arquivos, recomendamos sincronizar a hora com os controladores de Domínio do Active Directory. |
 |TCP 9354 | Saída | WAN | Sim | A porta de saída é usada pelo dispositivo StorSimple para se comunicar com o serviço StorSimple Manager.|
-| TCP 80 (HTTP) | No | LAN | Sim | Essa é a porta de entrada para a interface do usuário local no dispositivo StorSimple para gerenciamento local. <br></br> **Observação**: acessando a interface do usuário local em HTTP será automaticamente redirecionada para HTTPS.|
+| TCP 80 (HTTP) | No | LAN | Sim | Essa é a porta de entrada para a interface do usuário local no dispositivo StorSimple para gerenciamento local. <br></br> **Observação**: o acesso à interface do usuário local em HTTP será automaticamente redirecionado para HTTPS.|
 | TCP 443 (HTTPS) | No | LAN | Sim | Essa é a porta de entrada para a interface do usuário local no dispositivo StorSimple para gerenciamento local.|
 | TCP 3260 (iSCSI) | No | LAN | Não | Esta porta é usada para acessar dados em iSCSI.|
 
@@ -102,4 +98,4 @@ A tabela a seguir lista as portas que devem ser abertas no firewall para permiti
 
 -   [Preparar o portal para implantar sua StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

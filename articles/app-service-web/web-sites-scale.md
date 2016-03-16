@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="02/25/2016" 
 	ms.author="cephalin"/>
 
 # Dimensionar um aplicativo Web no Serviço de Aplicativo do Azure #
 
-Para aumentar o desempenho e a produtividade de seus aplicativos Web no Microsoft Azure, você pode usar o [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715) para dimensionar seu plano de [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714) do modo **Gratuito** para **Compartilhado**, **Básico**, **Padrão** ou **Premium**.
+Para aumentar o desempenho e a produtividade de seus aplicativos Web no Microsoft Azure, você pode usar o [Portal do Azure](http://portal.azure.com) para dimensionar seu plano de [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714) do modo **Gratuito** para **Compartilhado**, **Básico**, **Padrão** ou **Premium**.
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -26,18 +26,18 @@ A expansão de Sites do Azure envolve duas ações relacionadas: mudar seu modo 
 
 As configurações de escala terão apenas alguns segundos para serem aplicadas e afetam todos os aplicativos Web em seu plano do Serviço de Aplicativo. Não é necessário alterar seu código nem reimplantar seus aplicativos.
 
-Para obter informações sobre planos do serviço de aplicativo, consulte [O que é um plano do Serviço de Aplicativo?](../app-service/web-sites-web-hosting-plan-overview.md) e [Visão geral aprofundada de planos do Serviço de Aplicativo do Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Para obter informações sobre os preços e recursos de planos individuais do Serviço de Aplicativo, consulte [Detalhes de Preços dos Serviços de Aplicativo](/pricing/details/web-sites/).
+Para obter informações sobre planos do serviço de aplicativo, consulte [O que é um plano do Serviço de Aplicativo?](../app-service/app-service-how-works-readme.md) e [Visão geral aprofundada de planos do Serviço de Aplicativo do Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Para obter informações sobre os preços e recursos de planos individuais do Serviço de Aplicativo, consulte [Detalhes de Preços dos Serviços de Aplicativo](/pricing/details/web-sites/).
 
 > [AZURE.NOTE] Antes de alternar de um aplicativo Web do modo **Gratuito** para o modo **Básico**, **Padrão** ou **Premium**, primeiro você deve remover os limites de gastos em vigor para sua assinatura do Serviço de Aplicativo do Azure. Para exibir ou alterar as opções para a sua assinatura do Serviço de Aplicativo do Microsoft Azure, consulte [Assinaturas do Microsoft Azure][azuresubscriptions].
 
-<a name="scalingsharedorbasic"></a> 
+<a name="scalingsharedorbasic"></a>
 <!-- ===================================== -->
 ## Dimensionando para o modo Compartilhado ou Básico
 <!-- ===================================== -->
 
 1. No seu navegador, abra o [Portal do Azure][portal].
 	
-2. Na folha de seu aplicativo Web, clique em **Todas as configurações** e, em seguida, clique em **Escala**, clique em **Atualizar de um plano Gratuito para adicionar instâncias e obter um melhor desempenho**.
+2. Na folha do aplicativo Web, clique em **Todas as configurações** e em **Escalar Verticalmente**.
 	
 	![Escolher um plano][ChooseWHP]
 	
@@ -45,13 +45,13 @@ Para obter informações sobre planos do serviço de aplicativo, consulte [O que
 	
 	A guia **Notificações** vai piscar **SUCESSO** em verde quando a operação for concluída.
 	
-5. Deslize a barra de **Instância** da esquerda para a direita para aumentar o número de instâncias, então clique em **Salvar** na barra de comandos. A opção de tamanho de instância não está disponível no modo **Compartilhado**. Para obter mais informações sobre esses tamanhos de instâncias, consulte [Tamanhos de máquina virtual e de serviço de nuvem do Microsoft Azure][vmsizes].
+5. Em configurações, clique em **Escalar horizontalmente**, selecione *contagem de instâncias que eu escolher manualmente* no menu suspenso, deslize a barra **Instância** da esquerda para a direita para aumentar o número de instâncias e clique em **Salvar** na barra de comandos. A opção de tamanho de instância não está disponível no modo **Compartilhado**. Para obter mais informações sobre esses tamanhos de instâncias, consulte [Tamanhos de máquina virtual e de serviço de nuvem do Microsoft Azure][vmsizes].
 	
 	![Tamanho da instância para o modo Básico][ChooseBasicInstances]
 	
 	A guia **Notificações** vai piscar **SUCESSO** em verde quando a operação for concluída.
 	
-<a name="scalingstandard"></a> 
+<a name="scalingstandard"></a>
 <!-- ================================= -->
 ## Dimensionando para o modo Standard ou Premium
 <!-- ================================= -->
@@ -60,48 +60,50 @@ Para obter informações sobre planos do serviço de aplicativo, consulte [O que
 
 1. Para dimensionar para o modo **Padrão** ou **Premium**, execute as mesmas etapas iniciais executadas para dimensionar para **Compartilhado** ou **Básica** e, em seguida, escolha um modo **Padrão** ou **Premium** em **Escolha sua faixa de preço** e, depois clique em **Selecionar**. 
 	
-	A guia **Notificações** vai piscar **SUCESSO** em verde quando a operação for concluída, e o Modo de **Dimensionamento Automático** será habilitado.
+	A guia **Notificações** piscará **SUCESSO** em verde quando a operação for concluída, e o **Dimensionamento automático** será habilitado.
 	
 	![Escala em modo Padrão ou Premium][ScaleStandard]
 	
-	Você ainda pode deslizar a barra **Instância** para dimensionar manualmente mais instâncias, assim como no modo **Básico** mostrado acima. No entanto, aqui você aprenderá como usar o **Modo de Dimensionamento Automático**.
+	Você ainda pode deslizar a barra **Instância** para dimensionar manualmente mais instâncias, assim como no modo **Básico** mostrado acima. No entanto, aqui você aprenderá a aplicar o dimensionamento automático ao seu aplicativo.
 	
-2. No **Modo de Dimensionamento Automático**, selecione **Desempenho** para dimensionamento automático com base nas métricas de desempenho.
+2. Em **Dimensionar por**, selecione **regras de agendamento e desempenho** para aplicar o dimensionamento automático ao seu aplicativo.
 	
 	![Modo de dimensionamento automático definido como Desempenho][Autoscale]
 	
-3. Em **Intervalo da Instância**, mova os dois controles deslizantes para definir o número mínimo e máximo de instâncias para dimensionar automaticamente para o plano do Serviço de Aplicativo. Para este tutorial, mova o controle deslizante máximo para **seis** instâncias.
+3. Em **Configurações**, clique em **Padrão, escala 1-1**, mova os dois controles deslizantes para definir os números mínimo e máximo de instâncias a ser dimensionadas automaticamente para o plano do Serviço de Aplicativo. Para este tutorial, mova o controle deslizante máximo para **seis** instâncias.
 	
-4. Clique em **Salvar** na barra de comandos.
+4. Clique em **OK**.
 	
-4. Em **Métricas Alvo**, clique em **>** para configurar as regras de dimensionamento automático para a métrica padrão.
+4. Em **Configurações**, clique em **Percentual de CPU > 80 (aumentar contagem em 1)** para configurar as regras de dimensionamento automático para a métrica padrão.
 	
 	![Definir métricas de destino][SetTargetMetrics]
 	
 	Você pode configurar as regras de dimensionamento automático para métricas de desempenho diferentes, incluindo CPU, memória, fila de disco, fila HTTP e fluxo de dados. Aqui, você vai configurar o dimensionamento automático para o percentual de CPU que faz o seguinte:
 	
-	- Escale verticalmente para mais em 1 instância se a CPU estiver acima de 70% nos últimos 10 minutos
+	- Escalar verticalmente em 1 instância se a CPU estiver acima de 80% nos últimos 10 minutos
 	- Escale verticalmente para mais em 3 instâncias se CPU estiver acima de 90% nos últimos 5 minutos
 	- Reduza verticalmente para menos em 1 instância se a CPU está abaixo de 50% nos últimos 30 minutos 
 	
 	
-4. Deixe a lista suspensa de **Métrica** como **Percentual de CPU**.
+4. Deixe o menu suspenso **Nome da métrica** como **Percentual de CPU**.
 	
-5. Em **Regras de escala vertical**, configure a primeira regra definindo **Condição** para **Maior**, **Limite** para **70** (%), **Nos últimos** para **10** (minutos), **Expandir** para **1** (instância) e **Esfriar** para **10** (minutos).
+5. Em **Regras de escalonamento vertical**, configure a primeira regra definindo **Operador** como **Maior que**, **Limite** como **70** (%) **Duração** como **10** (minutos), **Agregação de tempo** como Média, **Ação** como **aumentar contagem por** como **1** (instância) e **Tempo de resfriamento** como **10** (minutos).
 	
 	![Definir primeira regra de dimensionamento automático][SetFirstRule]
 	
 	>[AZURE.NOTE] A configuração de **Esfriar** especifica quanto tempo que essa regra deve esperar após a ação de escala anterior para dimensionar novamente.
 	
-6. Clique em **Adicionar Regra de Escala Vertical** e, em seguida, configure a segunda regra definindo a **Condição** para **Maior**, **Limite** para **90** (%) **Nos últimos** para **1** (minutos), **Escalar verticalmente por** para **3** (instância) e **Esfriar** para **1** (minutos).
+6. Clique em **Adicionar Regra** e configure a segunda regra definindo **Operador** como **Maior que**, **Limite** como **90** (%) **Duração** como **1** (minutos), **Agregação de tempo** como Média, **Ação** como **aumentar contagem por**, **Valor** como **3** (instância) e **Tempo de resfriamento** como **1** (minutos).
+
+7. Clique em **OK**.
 	
 	![Definir segunda regra de dimensionamento automático][SetSecondRule]
 	
-5. Em **Regras de redução vertical**, configure a terceira regra definindo **Condição** para **Menos**, **Limite** para **50** (%), **Nos últimos** para **30** (minutos), **Reduzir por** para **1** (instância) e **Esfriar** para **60** (minutos).
+5. Em **Configurações**, clique em **Adicionar regra** para configurar a terceira regra definindo **Operador** como **Menor que**, **Limite** como **50** (%), **Duração** como **30** (minutos), **Agregação de tempo** como **Média**, **Ação** como **diminuir contagem por**,**Valor** como **1** (instância) e **Tempo de resfriamento** como **60** (minutos).
 	
 	![Definir terceira regra de dimensionamento automático][SetThirdRule]
 	
-7. Clique em **Salvar** na barra de comandos. A regra de escala automática agora deve ser refletida na folha **Escala**.
+7. Clique em **OK**. A regra de escala automática agora deve ser refletida na folha **Configuração de escala**.
 	
 	![Definir resultado da regra de dimensionamento automático][SetRulesFinal]
 
@@ -113,7 +115,7 @@ Se você tiver um ou mais Bancos de Dados SQL Server vinculados ao seu aplicativ
 
 	![Banco de dados vinculado][ResourceGroup]
 	
-2. Na sua folha de Banco de Dados SQL vinculada, clique na parte de **Camada de preços**, selecione uma das camadas com base em suas necessidades de desempenho e clique em **Selecionar**.
+2. Na folha do Banco de Dados SQL vinculado, clique na parte **Configurações** > **Tipo de preço**, selecione uma das camadas com base em suas necessidades de desempenho e clique em **Selecionar**.
 	
 	![Dimensionar seu banco de dados SQL][ScaleDatabase]
 	
@@ -200,4 +202,4 @@ Dependendo do modo usado pelo aplicativo Web, os seguintes recursos para desenvo
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

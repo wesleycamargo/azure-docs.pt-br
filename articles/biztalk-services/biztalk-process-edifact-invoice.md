@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="msftman"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="12/02/2015"
-   ms.author="Deonhe"/>
+   ms.date="02/29/2016"
+   ms.author="deonhe"/>
 
 # Tutorial: Processar faturas EDIFACT usando os Serviços BizTalk do Azure
 Você pode usar o Portal dos Serviços BizTalk para configurar e implantar contratos X12 e EDIFACT. Neste tutorial, vamos examinar como criar um contrato EDIFACT para trocar faturas entre parceiros comerciais. Este tutorial foi escrito em torno de uma solução comercial de ponta a ponta envolvendo dois parceiros comerciais, Northwind e Contoso, que trocam mensagens EDIFACT.
@@ -46,7 +46,7 @@ Para concluir o cenário, usamos as filas do Barramento de Serviço para enviar 
 
 ## Pré-requisitos
 
-*   Você deve ter um namespace do Barramento de Serviço. Para obter instruções sobre como criar um namespace, confira [Como criar ou modificar um namespace do Barramento de Serviço](https://msdn.microsoft.com/library/hh690931.aspx). Vamos supor que você já tenha um namespace de Barramento de serviço provisionado, chamado **edifactbts**.
+*   Você deve ter um namespace do Barramento de Serviço. Para obter instruções sobre como criar um namespace, confira [Como criar ou modificar um namespace do Barramento de Serviço](https://msdn.microsoft.com/library/azure/hh674478.aspx). Vamos supor que você já tenha um namespace de Barramento de serviço provisionado, chamado **edifactbts**.
 
 *   Você deve ter uma assinatura dos Serviços BizTalk. Para obter instruções, confira [Criar um Serviço BizTalk usando o portal clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=302280). Para este tutorial, suponhamos que você tenha uma assinatura dos Serviços BizTalk chamada **contosowabs**.
 
@@ -113,7 +113,7 @@ Acordos entre parceiros comerciais são criados entre os perfis comerciais dos p
     3.  Na guia **Protocolo**, na seção **Esquemas**, carregue o esquema **EFACT\_D93A\_INVOIC.xsd**. Esse esquema está disponível com o pacote de exemplo.
 
         ![][4]  
-    4.  Na guia **Transporte**, especifique os detalhes das filas do Barramento de Serviço. Para o contrato do lado de envio, usamos a fila **northwindreceive** para enviar a fatura EDIFACT à Northwind e a fila **suspended** para rotear todas as mensagens que falham durante o processamento e são suspensas. Você criou essas filas na [Etapa 1: Criar as filas do Barramento de Serviço](#BKMK_Queue).
+    4.  Na guia **Transporte**, especifique os detalhes das filas do Barramento de Serviço. Para o contrato do lado de envio, usamos a fila **northwindreceive** para enviar a fatura EDIFACT à Northwind e a fila **suspended** para rotear todas as mensagens que falham durante o processamento e são suspensas. Você criou essas filas na **Etapa 1: criar as filas do Barramento de Serviço** (neste tópico).
 
         ![][5]
 
@@ -129,7 +129,8 @@ Acordos entre parceiros comerciais são criados entre os perfis comerciais dos p
 
     4.  Na guia **Roteamento**, crie um filtro para garantir que somente as confirmações da Northwind são roteadas para a Contoso. Em **Configurações de Roteamento**, clique em **Adicionar** para criar o filtro de roteamento.
 
-        ![][6] 1. Forneça os valores de **Nome da Regra**, **Regra da rota**, e **Destino da rota** conforme mostrado na imagem.
+        ![][6]
+        1.  Forneça os valores de **Nome da Regra**, **Regra da rota**, e **Destino da rota** conforme mostrado na imagem.
 
         2.  Clique em **Salvar**.
 
@@ -239,7 +240,7 @@ O projeto dos Serviços BizTalk, **InvoiceProcessingBridge**, que transforma a m
 
 2.  No Gerenciador de Soluções do Visual Studio, clique com o botão direito do mouse no projeto **InvoiceProcessingBridge** e em**Implantar**.
 
-3.  Forneça os valores conforme mostrado na imagem e clique em **Implantar**. Você pode obter as credenciais do ACS para os Serviços BizTalk clicando em **Informações de Conexão** no painel dos Serviços BizTalk.
+3.  Forneça os valores conforme mostrado na imagem e clique em **Implantar**. É possível obter as credenciais do ACS para os Serviços BizTalk clicando em **Informações de Conexão** no painel dos Serviços BizTalk.
 
     ![][11]
 
@@ -312,4 +313,4 @@ O aspecto mais importante ao trabalhar em lotes é a versão real do lote, tamb�
 [17]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-17.PNG
 [18]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-18.PNG
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -3,7 +3,7 @@
     description="Este artigo descreve a integração de controle de origem com o GitHub na Automação do Azure."
     services="automation"
     documentationCenter=""
-    authors="SnehaGunda"
+    authors="mgoedtel"
     manager="stevenka"
     editor="tysonn" />    
 <tags 
@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
-    ms.date="02/18/2016"
+    ms.date="02/23/2016"
     ms.author="magoedte;sngun" />
 
 # Integração de controle de origem na Automação do Azure
@@ -156,6 +156,9 @@ Para se desconectar de sua conta do GitHub, abra a folha Sincronização de Repo
 
 ## Próximas etapas
 
-Para saber mais sobre a integração de controle de origem, confira os seguintes recursos:- [Automação do Azure: integração de controle de origem na Automação do Azure](https://azure.microsoft.com/blog/azure-automation-source-control-13/) - [Vote em seu sistema de controle de origem favorito](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d) - [Automação do Azure: integrando o controle do código-fonte de runbook usando o Visual Studio Team Services](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)
+Para obter mais informações sobre a integração de controle do código-fonte, veja os seguintes recursos:
+- [Automação do Azure: integração de controle do código-fonte na Automação do Azure](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  
+- [Vote em seu sistema de controle do código-fonte favorito](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d)  
+- [Automação do Azure: integrando o controle do código-fonte de runbook usando o Visual Studio Team Services](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

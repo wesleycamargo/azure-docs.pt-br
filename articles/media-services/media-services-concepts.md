@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2016" 
+	ms.date="02/25/2016" 
 	ms.author="juliako"/>
 
 #Conceitos de serviços de mídia do Azure 
@@ -85,19 +85,23 @@ Um [trabalho](https://msdn.microsoft.com/library/azure/hh974289.aspx) normalment
 
 Um trabalho contém metadados sobre o processamento a ser realizado. Cada Trabalho contém uma ou mais [tarefas](https://msdn.microsoft.com/library/azure/hh974286.aspx) que especificam uma tarefa de processamento atômica, seus ativos de entrada e ativos de saída, um processador de mídia e suas configurações associadas. Tarefas em um trabalho podem ser encadeadas, em que o ativo de saída de uma tarefa é determinado como o ativo de entrada para a próxima tarefa. Dessa forma, um trabalho pode conter todo o processamento necessário para uma apresentação de mídia.
 
-##<a id="encoding"></a>Codificação\\empacotamento
+##<a id="encoding"></a>Codificação 
 
-###Codificação
+Os Serviços de Mídia do Azure fornecem várias opções para a codificação de mídia na nuvem.
 
-Para fornecer vídeo digital pela internet, você deve compactar a mídia. Os arquivos de vídeo digital são muito grandes e podem ser muito grandes para entregar pela internet ou para dispositivos de seus clientes para exibir corretamente. As pessoas assistem a vídeos em uma variedade de dispositivos desde TVs com decodificadores de sinais, PCs desktop até tablets e smartphones. Cada um desses dispositivos tem diferentes requisitos de largura de banda e compactação. A codificação é o processo de compactação de áudio e vídeo usando compactadores/descompactadores ou codecs.
+Ao começar a usar os Serviços de Mídia é importante compreender a diferença entre codecs e formatos de arquivo. Codecs são o software que implementa os algoritmos de compactação/descompactação. Já os formatos de arquivo são contêineres que armazenam o vídeo compactado.
 
-Transcodificação é o processo de pegar um vídeo que foi codificado e codificá-lo novamente em um formato de codificação diferente. Como a maioria das câmeras codifica vídeo até certo ponto, a maioria dos trabalhos de codificação feitos nos Serviços de Mídia do Azure é tecnicamente transcodificação.
+Os Serviços de Mídia fornecem empacotamento dinâmico, que permite a você distribuir o conteúdo de taxa de bits adaptável MP4 ou Smooth Streaming codificado em formatos de streaming suportados pelo Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) sem a necessidade de empacotar novamente nesses formatos de fluxo contínuo.
 
-###Codecs e formatos de arquivo 
+Para aproveitar os benefícios do [empacotamento dinâmico](media-services-dynamic-packaging-overview.md), você precisa fazer o seguinte:
 
-Codecs têm dois componentes: um para compactar arquivos de mídia digital para transmissão e outro para descompactar arquivos de mídia digital para reprodução. Há codecs de áudio para compactar e descompactar áudio e codecs de vídeo para compactar e descompactar vídeo. Os codecs podem usar compactação com ou sem perdas. Codecs sem perdas preservam todas as informações quando ocorre a compressão. Quando o arquivo é descompactado, o resultado é um arquivo idêntico ao da mídia de entrada, o que torna os codecs sem perdas adequados para arquivamento e armazenamento. Codecs com perdas perdem algumas informações durante a codificação e produzem arquivos menores (que o original) à custa da qualidade do vídeo e servem para streaming pela Internet. Os dois principais codecs usados pelo Codificador de Mídia do Azure para codificação são H.264 e VC-1. Outros codecs podem estar disponíveis em nosso ecossistema de parceiros de codificadores.
+- Codificar seu arquivo mezanino (fonte) em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável (as etapas de codificação são demonstradas mais tarde neste tutorial).
+- Obter pelo menos uma unidade de streaming sob demanda para o ponto de extremidade de streaming por meio do qual você planeja fornecer seu conteúdo. Para saber mais, consulte [Como dimensionar unidades reservadas para streaming sob demanda](media-services-manage-origins.md#scale_streaming_endpoints/).
 
-###Codificadores de Serviços de Mídia
+Os Serviços de Mídia são compatíveis com os seguintes codificadores sob demanda descritos neste artigo:
+
+- [Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
+- [Fluxo de trabalho do Media Encoder Premium](media-services-encode-asset.md#media-encoder-premium-workflow)
 
 Para saber mais sobre codificadores com suporte, consulte [Codificadores](media-services-encode-asset.md)
 
@@ -248,4 +252,4 @@ A lista a seguir descreve os diferentes formatos de streaming e fornece exemplos
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

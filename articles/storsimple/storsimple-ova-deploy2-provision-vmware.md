@@ -13,22 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli"/>
 
 
-# Implantar a StorSimple Virtual Array - Provisionar uma Matriz Virtual no VMware (visualização)
+# Implantar a StorSimple Virtual Array – Provisionar uma Matriz Virtual no VMware
 
 ![](./media/storsimple-ova-deploy2-provision-vmware/vmware4.png)
 
 ## Visão geral 
-Este tutorial de provisionamento se aplica à Matriz Virtual Microsoft Azure StorSimple (também conhecida como dispositivos virtuais locais StorSimple ou dispositivos virtuais StorSimple) executando somente a v.1.1.1.0 (visualização pública). Este tutorial descreve como provisionar e conectar-se a uma StorSimple Virtual Array em um sistema de host que executa VMware ESXi 5.5 e superior.
+Este tutorial de provisionamento se aplica aos StorSimple Virtual Arrays (também conhecidos como dispositivos virtuais locais StorSimple ou dispositivos virtuais StorSimple) que executam a versão GA (disponibilidade geral) de março de 2016. Este tutorial descreve como provisionar e conectar-se a uma StorSimple Virtual Array em um sistema de host que executa VMware ESXi 5.5 e superior.
 
 Você precisará de privilégios de administrador para provisionar e conectar-se a um dispositivo virtual. O provisionamento e a configuração inicial podem levar cerca de 10 minutos para ser concluídos.
 
-> [AZURE.IMPORTANT]
-> 
-> Esta visualização pública destina-se somente para avaliação. Não há suporte para a instalação dessa visualização em um ambiente de produção.
 
 ## Pré-requisitos de provisionamento
 
@@ -38,9 +35,9 @@ Aqui você encontrará os pré-requisitos para provisionar um dispositivo virtua
 
 Antes de começar, verifique se:
 
--   Você concluiu todas as etapas em [Preparar o portal para a StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md).
+-   Você concluiu todas as etapas em [Preparar o portal para o StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md).
 
--   Você baixou a imagem do dispositivo virtual para o VMware no portal do Azure. Para obter mais informações, consulte [Etapa 3: baixar a imagem do dispositivo virtual](storsimple-ova-deploy1-portal-prep.md#step-3-download-the-virtual-device-image).
+-   Você baixou a imagem do dispositivo virtual para o VMware no portal do Azure. Para obter mais informações, veja [Etapa 3: Baixar a imagem do dispositivo virtual](storsimple-ova-deploy1-portal-prep.md#step-3-download-the-virtual-device-image).
 
 ### Para o dispositivo virtual StorSimple 
 
@@ -104,19 +101,19 @@ Execute as etapas a seguir para provisionar um dispositivo virtual no seu hiperv
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image2.png)
 
-1.  Primeiro, você carregará o VMDK para o servidor ESXi. Navegue até a guia **Configuração** no painel à direita. Em **Hardware**, selecione **Armazenamento**.
+1.  Primeiro, você carregará o VMDK para o servidor ESXi. Navegue até a guia **Configuração** no painel direito. Em **Hardware**, selecione **Armazenamento**.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image3.png)
 
-1.  No painel direito, em **Armazenamentos de dados**, selecione o repositório de dados no qual você deseja carregar o VMDK. O repositório de dados deve ter espaço livre suficiente para os discos de sistema operacional e de dados.
+1.  No painel direito, em **Armazenamentos de Dados**, selecione o armazenamento de dados no qual deseja carregar o VMDK. O repositório de dados deve ter espaço livre suficiente para os discos de sistema operacional e de dados.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image4.png)
 
-1.  Clique com botão direito do mouse e selecione **Procurar em Repositório de Dados**.
+1.  Clique com o botão direito do mouse e selecione **Procurar no Armazenamento de Dados**.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image5.png)
 
-1.  Uma janela **Navegador de Repositório de Dados** será exibida.
+1.  Uma janela **Navegador de Armazenamento de Dados** será exibida.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image6.png)
 
@@ -124,7 +121,7 @@ Execute as etapas a seguir para provisionar um dispositivo virtual no seu hiperv
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image8.png)
 
-1.  A nova pasta aparecerá no painel esquerdo do **Navegador de Repositório de Dados**.
+1.  A nova pasta aparecerá no painel à esquerda do **Navegador do Armazenamento de Dados**.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image9.png)
 
@@ -144,17 +141,17 @@ Execute as etapas a seguir para provisionar um dispositivo virtual no seu hiperv
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image14.png)
 
-1.  Retorne à janela do cliente vSphere. Com o servidor ESXi selecionado, clique com botão direito do mouse e selecione **Nova Máquina Virtual**.
+1.  Retorne à janela do cliente vSphere. Com o servidor ESXi selecionado, clique com o botão direito do mouse e selecione **Nova Máquina Virtual**.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image15.png)
 
-1.  Uma janela **Criar nova máquina Virtual** será exibida. Sobre a página **Configuração**, selecione a opção **Personalizada**. Clique em **Próximo**. ![](./media/storsimple-ova-deploy2-provision-vmware/image16.png)
+1.  Uma janela **Criar Nova Máquina Virtual** será exibida. Na página **Configuração**, selecione a opção **Personalizada**. Clique em **Próximo**.![](./media/storsimple-ova-deploy2-provision-vmware/image16.png)
 
 2.  Na página **Nome e Local**, especifique o nome da máquina virtual. Esse nome deve corresponder ao nome da pasta (melhor prática recomendada) que você especificou anteriormente na Etapa 8.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image17.png)
 
-1.  Na página **Armazenamento** selecione um repositório de dados que você deseja usar para provisionar sua VM.
+1.  Na página **Armazenamento** selecione um armazenamento de dados que deseja usar para provisionar sua VM.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image18.png)
 
@@ -174,7 +171,7 @@ Execute as etapas a seguir para provisionar um dispositivo virtual no seu hiperv
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image22.png)
 
-1.  Na página **Rede** especifique o número de interfaces de rede. O requisito mínimo é uma interface de rede.
+1.  Na página **Rede** especifique o número das interfaces de rede. O requisito mínimo é uma interface de rede.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image23.png)
 
@@ -186,11 +183,11 @@ Execute as etapas a seguir para provisionar um dispositivo virtual no seu hiperv
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image25.png)
 
-1.  Na página **Selecionar Disco Existente**, em **Caminho de Arquivo de Disco**, clique em **Procurar**. Isso abre uma caixa de diálogo **Procurar em Repositórios de Dados**. Navegue até o local em que você carregou o VMDK. Selecione o arquivo e clique em **OK**. Clique em **Próximo**.
+1.  Na página **Selecionar Disco Existente**, em **Caminho de Arquivo de Disco**, clique em **Procurar**. Isso abrirá um diálogo **Procurar nos Armazenamentos de Dados**. Navegue até o local em que você carregou o VMDK. Selecione o arquivo e clique em **OK**. Clique em **Próximo**.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image26.png)
 
-1.  Na página **Opções Avançadas**, aceite o padrão e clique em **Próximo**.
+1.  Na página **Opções Avançadas**, aceite o padrão e clique em **Avançar**.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image27.png)
 
@@ -202,7 +199,7 @@ Execute as etapas a seguir para provisionar um dispositivo virtual no seu hiperv
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image29.png)
 
-1.  Isso abre a janela **Adicionar Hardware**. Na página **Tipo de Dispositivo**, em **Escolha o tipo de dispositivo que você deseja adicionar**, selecione **Disco Rígido** e clique em **Próximo**.
+1.  Isso abrirá a janela **Adicionar Hardware**. Na página **Tipo de Dispositivo**, em **Escolha o tipo de dispositivo que deseja adicionar**, selecione **Disco Rígido** e clique em **Avançar**.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image30.png)
 
@@ -226,7 +223,7 @@ Execute as etapas a seguir para provisionar um dispositivo virtual no seu hiperv
   
 	![](./media/storsimple-ova-deploy2-provision-vmware/image35.png)
 
-2.  Com sua máquina virtual selecionada no painel direito, navegue até a guia **Resumo**. Examine as configurações para sua máquina virtual.
+2.  Com a máquina virtual selecionada no painel direito, navegue até a guia **Resumo**. Examine as configurações para sua máquina virtual.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image36.png)
 
@@ -238,7 +235,7 @@ Execute as etapas a seguir para iniciar o dispositivo virtual e conectar-se a el
 
 #### Para iniciar o dispositivo virtual
 
-1.  Inicie o dispositivo virtual. No vSphere Configuration Manager, no painel esquerdo, selecione seu dispositivo e clique com o botão direito do mouse para abrir o menu de contexto. Selecione **Ligar/Desligar** e, em seguida, selecione **Ligar**. Isso deve ligar sua máquina virtual. Você pode exibir o status no painel inferior **Tarefas Recentes** do cliente vSphere.
+1.  Inicie o dispositivo virtual. No vSphere Configuration Manager, no painel esquerdo, selecione seu dispositivo e clique com o botão direito do mouse para abrir o menu de contexto. Selecione **Ligar/Desligar** e, em seguida, selecione **Ligar**. Isso deve ligar sua máquina virtual. É possível exibir o status no painel inferior **Tarefas Recentes** do cliente vSphere.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image37.png)
 
@@ -264,7 +261,7 @@ Execute as etapas a seguir para iniciar o dispositivo virtual e conectar-se a el
 
 	Agora, você precisará configurar a rede.
 
-1.  Use o comando `Get-HcsIpAddress` para listar as interfaces de rede habilitadas em seu dispositivo virtual. Se o dispositivo tiver uma única interface de rede habilitada, o nome padrão atribuído a ela é `Ethernet`.
+1.  Use o comando `Get-HcsIpAddress` para listar as interfaces de rede habilitadas em seu dispositivo virtual. Se o dispositivo tiver uma única interface de rede habilitada, o nome padrão atribuído a ela será `Ethernet`.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image43.png)
 
@@ -279,11 +276,11 @@ Execute as etapas a seguir para iniciar o dispositivo virtual e conectar-se a el
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image45.png)
 
-Se o dispositivo não cumprir os requisitos mínimos de configuração, você verá um erro no texto da faixa (mostrado abaixo). Será necessário modificar a configuração do dispositivo para que ele tenha recursos adequados para cumprir os requisitos mínimos. Em seguida, você pode reiniciar e conectar-se ao dispositivo. Consulte os requisitos mínimos de configuração na [Etapa 1: verifique se o sistema de host cumpre os requisitos mínimos de dispositivo virtual](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements).
+Se o dispositivo não cumprir os requisitos mínimos de configuração, você verá um erro no texto da faixa (mostrado abaixo). Será necessário modificar a configuração do dispositivo para que ele tenha recursos adequados para cumprir os requisitos mínimos. Em seguida, você pode reiniciar e conectar-se ao dispositivo. Consulte os requisitos mínimos de configuração na [Etapa 1: Verificar se o sistema de host atende aos requisitos mínimos do dispositivo virtual](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements).
 
 ![](./media/storsimple-ova-deploy2-provision-vmware/image46.png)
 
-Se você enfrentar qualquer outro erro durante a configuração inicial usando a interface do usuário da Web local, consulte os seguintes fluxos de trabalho em [Gerenciar sua StorSimple Virtual Array usando a interface do usuário da Web local](storsimple-ova-web-ui-admin.md).
+Caso observe algum outro erro durante a configuração inicial usando a interface do usuário da Web local, veja os seguintes fluxos de trabalho em [Gerenciar o StorSimple Virtual Array usando a interface do usuário da Web local](storsimple-ova-web-ui-admin.md).
 
 -   Execute testes de diagnóstico para [solucionar problemas na configuração da interface do usuário da Web](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors).
 
@@ -295,4 +292,4 @@ Se você enfrentar qualquer outro erro durante a configuração inicial usando a
 
 -   [Configurar sua StorSimple Virtual Array como um servidor iSCSI](storsimple-ova-deploy3-iscsi-setup.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="cloud-services"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/15/2015"
+	ms.date="02/20/2016"
 	ms.author="robb"/>
 
 
@@ -43,7 +43,7 @@ Observe que, se você usar os modelos fornecidos pelo Visual Studio, a configura
 ### Adicionar um ouvinte de rastreamento
 
 1. Abra o arquivo web.config ou app.config para sua função.
-2. Adicione o seguinte código ao arquivo :
+2. Adicione o seguinte código ao arquivo. Altere o atributo Version para usar o número de versão do assembly que está sendo referenciado. A versão do assembly não é alterada, necessariamente, com cada versão do SDK do Azure, a menos que existam atualizações a ele.
 
 	```
 	<system.diagnostics>
@@ -51,7 +51,7 @@ Observe que, se você usar os modelos fornecidos pelo Visual Studio, a configura
 			<listeners>
 				<add type="Microsoft.WindowsAzure.Diagnostics.DiagnosticMonitorTraceListener,
 		          Microsoft.WindowsAzure.Diagnostics,
-		          Version=1.0.0.0,
+		          Version=2.8.0.0,
 		          Culture=neutral,
 		          PublicKeyToken=31bf3856ad364e35"
 		          name="AzureDiagnostics">
@@ -61,8 +61,8 @@ Observe que, se você usar os modelos fornecidos pelo Visual Studio, a configura
 		</trace>
 	</system.diagnostics>
 	```
-	>[AZURE.IMPORTANT]Verifique se você tem uma referência de projeto ao assembly Microsoft.WindowsAzure.Diagnostics. Atualize o número de versão no xml acima para que ele corresponda à versão do assembly referenciado Microsoft.WindowsAzure.Diagnostics.
-	
+	>[AZURE.IMPORTANT] Verifique se você tem uma referência de projeto ao assembly Microsoft.WindowsAzure.Diagnostics. Atualize o número de versão no xml acima para que ele corresponda à versão do assembly referenciado Microsoft.WindowsAzure.Diagnostics.
+
 3. Salve o arquivo de configuração.
 
 Para obter mais informações sobre ouvintes, veja [Ouvintes de rastreamento](https://msdn.microsoft.com/library/4y5y10s7.aspx).
@@ -73,10 +73,11 @@ Depois de concluir as etapas para adicionar o ouvinte, você pode adicionar inst
 ### Para adicionar a instrução de rastreamento ao código
 
 1. Abra um arquivo de origem para o aplicativo. Por exemplo, o arquivo <RoleName>.cs para a função de trabalho ou função Web.
-2. Adicione a seguinte instrução using, se ainda não tiver sido adicionada: ```
+2. Adicione a seguinte instrução using se ainda não tiver sido adicionada:
+	```
 	    using System.Diagnostics;
 	```
 3. Adicione instruções Trace em que você deseja capturar informações sobre o estado do aplicativo. Você pode usar diversos métodos para formatar a saída da instrução Trace. Para obter mais informações, veja [Como adicionar instruções de rastreamento ao código do aplicativo](https://msdn.microsoft.com/library/zd83saa2.aspx).
 4. Salve o arquivo de origem.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->

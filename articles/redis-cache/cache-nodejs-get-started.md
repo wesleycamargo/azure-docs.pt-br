@@ -4,7 +4,7 @@
 	services="redis-cache"
 	documentationCenter=""
 	authors="steved0x"
-	manager="dwrede"
+	manager="erikre"
 	editor="v-lincan"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="12/03/2015"
+	ms.date="03/04/2016"
 	ms.author="sdanie"/>
 
 # Como usar o Cache Redis do Azure com Node.js
@@ -89,4 +89,4 @@ Saída:
 
 [Criar um aplicativo de chat do Node.js com Socket.IO em um site do Azure]: ../app-service-web/web-sites-nodejs-chat-app-socketio.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

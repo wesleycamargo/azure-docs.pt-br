@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="01/20/2016"
+   ms.date="02/25/2016"
    ms.author="daleche" />
 
 # Solução de problemas de funções do serviço de nuvem com falha de inicialização
@@ -71,7 +71,7 @@ Você pode usar a Área de Trabalho Remota para acessar a função e exibir info
 
 1. Verifique se o Azure SDK 1.3 ou posterior está instalado.
 
-2. Durante a implantação da solução usando o Visual Studio, escolha "Configurar conexões da Área de Trabalho Remota...". Para obter mais informações sobre como configurar a conexão da Área de Trabalho Remota, consulte [Como usar a Área de Trabalho Remota com Funções do Azure](https://msdn.microsoft.com/library/gg443832.aspx).
+2. Durante a implantação da solução usando o Visual Studio, escolha "Configurar conexões da Área de Trabalho Remota...". Para obter mais informações sobre como configurar a conexão da Área de Trabalho Remota, veja [Usando a Área de Trabalho Remota com as Funções do Azure](../vs-azure-tools-remote-desktop-roles.md).
 
 3. No portal clássico do Microsoft Azure, depois que a instância mostrar um status de **Pronto**, clique em uma das instâncias de função.
 
@@ -167,4 +167,4 @@ Confira mais [artigos sobre solução de problemas](..\?tag=top-support-issue&se
 
 Para saber como solucionar problemas das funções do serviço de nuvem usando os dados de diagnóstico do computador Azure PaaS, veja a [série de blogs de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

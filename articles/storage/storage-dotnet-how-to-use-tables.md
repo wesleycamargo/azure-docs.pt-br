@@ -444,4 +444,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Tabela, siga 
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0218_2016-->

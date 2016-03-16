@@ -1,6 +1,6 @@
 <properties
     pageTitle="Consultar o índice de pesquisa do Azure usando a API REST | Microsoft Azure | Serviço de pesquisa de nuvem hospedado"
-    description="Crie uma consulta de pesquisa na pesquisa do Azure e use os parâmetros de pesquisa para filtrar, classificar e criar uma faceta dos resultados da pesquisa."
+    description="Crie uma consulta de pesquisa na Pesquisa do Azure e use parâmetros de pesquisa para filtrar e classificar os resultados da pesquisa."
     services="search"
     documentationCenter=""
 	authors="ashmaka"
@@ -12,7 +12,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="02/29/2016"
+    ms.date="03/09/2016"
     ms.author="ashmaka"/>
 
 # Consultar seu índice de Pesquisa do Azure usando a API REST
@@ -33,8 +33,9 @@ Um componente-chave de todas as operações de pesquisa em relação à API REST
 3. Clique no ícone de "Chaves"
 
 O serviço terá *chaves de administração* e *chaves de consulta*.
-  * Suas *chaves de administração* principal e secundária concedem direitos totais para todas as operações, incluindo a capacidade de gerenciar o serviço, criar e excluir índices, indexadores e fontes de dados. Há duas chaves para que você possa continuar a usar a chave secundária se decidir regenerar a chave primária e vice-versa.
-  * As *chaves de consulta* concedem acesso somente leitura a índices e documentos e normalmente são distribuídas para aplicativos cliente que emitem solicitações de pesquisa.
+
+ - Suas *chaves de administração* principal e secundária concedem direitos totais para todas as operações, incluindo a capacidade de gerenciar o serviço, criar e excluir índices, indexadores e fontes de dados. Há duas chaves para que você possa continuar a usar a chave secundária se decidir regenerar a chave primária e vice-versa.
+ - As *chaves de consulta* concedem acesso somente leitura a índices e documentos e normalmente são distribuídas para aplicativos cliente que emitem solicitações de pesquisa.
 
 Para consultar um índice, você pode usar uma de suas chaves de consulta. As chaves de administração também podem ser usadas para consultas, mas você deve usar uma chave de consulta no código do aplicativo já que isso segue melhor o [Princípio do privilégio mínimo](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
@@ -47,7 +48,15 @@ Para POST e GET, você precisa fornecer o *nome do serviço*, o *nome do índice
 
 O formato para POST é o mesmo, mas apenas com api-version nos parâmetros da cadeia de caracteres de consulta.
 
-a Pesquisa do Azure oferece várias opções para a criação de consultas extremamente poderosas. Para saber mais sobre todos os diferentes parâmetros de uma consulta, acesse [esta página](https://msdn.microsoft.com/library/azure/dn798927.aspx). Veja também algumas consultas de exemplo a seguir.
+#### Tipos de consultas
+
+a Pesquisa do Azure oferece várias opções para a criação de consultas extremamente poderosas. Os dois tipos de consulta principais que você usará são `search` e `filter`. Uma consulta `search` pesquisa por um ou mais termos em todos os campos _pesquisáveis_ no índice e funciona da maneira que você esperaria que um mecanismo de pesquisa como Bing ou Google funcionasse. Uma consulta `filter` avalia uma expressão booliana em todos os campos _filtráveis_ de um índice. Diferente das consultas `search`, consultas `filter` fazem a correspondência exata do conteúdo de um campo, o que significa que elas diferenciam maiúsculas de minúsculas para os campos de cadeia de caracteres.
+
+Você pode usar pesquisas e filtros juntos ou separados. Se você usá-los juntos, o filtro será aplicado primeiro ao índice inteiro e, em seguida, a pesquisa será realizada nos resultados do filtro. Os filtros, portanto, podem ser uma técnica útil para melhorar o desempenho da consulta, uma vez que reduzem o conjunto de documentos que a consulta de pesquisa precisa processar.
+
+A sintaxe das expressões de filtro é um subconjunto da [linguagem de filtro OData](https://msdn.microsoft.com/library/azure/dn798921.aspx). Para consultas de pesquisa, você pode usar a [sintaxe simplificada](https://msdn.microsoft.com/library/azure/dn798920.aspx) ou a [sintaxe de consulta Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx).
+
+Para saber mais sobre todos os diferentes parâmetros de uma consulta, acesse [Pesquisar Documentos](https://msdn.microsoft.com/library/azure/dn798927.aspx). Veja também algumas consultas de exemplo a seguir.
 
 #### Consultas de Exemplo
 
@@ -65,7 +74,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 }
 ```
 
-Pesquise em todo o índice hotéis com valores inferiores a US$150 por noite e retorne `hotelId` e `description`:
+Aplique um filtro ao índice para encontrar hotéis com valores inferiores a US$150 por noite e retorne `hotelId` e `description`:
 
 ```
 GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2015-02-28
@@ -122,7 +131,7 @@ api-key: [query key]
 }
 ```
 
-Uma solicitação de consulta bem-sucedida resultará em um Código de Status `200 OK` e os resultados da pesquisa serão retornados como JSON no corpo da resposta. Esta é a aparência dos resultados da consulta acima, supondo-se que o índice "hotels" seja preenchido com dados de exemplo [neste artigo](search-import-data-rest-api.md) (observe que o JSON foi formatado por motivos de clareza).
+Uma solicitação de consulta bem-sucedida resultará em um Código de Status `200 OK` e os resultados da pesquisa serão retornados como JSON no corpo da resposta. Esta é a aparência dos resultados da consulta acima, supondo que o índice "hotels" seja preenchido com dados de exemplo em [Importação de Dados na Pesquisa do Azure usando a API REST](search-import-data-rest-api.md) (observe que o JSON foi formatado por motivos de clareza).
 
 ```JSON
 {
@@ -155,6 +164,6 @@ Uma solicitação de consulta bem-sucedida resultará em um Código de Status `2
 }
 ```
 
-Para saber mias, visite a seção "Resposta" [desta página](https://msdn.microsoft.com/library/azure/dn798927.aspx). Para obter mais informações sobre outros códigos de status HTTP que podem ser retornados em caso de falha, confira [este artigo](https://msdn.microsoft.com/library/azure/dn798925.aspx).
+Para saber mias, visite a seção "Resposta" de [Pesquisar Documentos](https://msdn.microsoft.com/library/azure/dn798927.aspx). Para obter mais informações sobre outros códigos de status HTTP que podem ser retornados em caso de falha, veja [Códigos de status HTTP (Pesquisa do Azure)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

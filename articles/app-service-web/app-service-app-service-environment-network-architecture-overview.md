@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="02/26/2016" 
 	ms.author="stefsch"/>
 
 # Visão geral da arquitetura de rede dos Ambientes de Serviço de Aplicativo
@@ -31,7 +31,7 @@ O diagrama abaixo mostra uma visão geral dos vários fluxos de rede de entrada 
 
 Um Ambiente de Serviço de Aplicativo pode se comunicar com uma variedade de pontos de extremidade privados do cliente. Por exemplo, aplicativos que são executados no Ambiente de Serviço de Aplicativo podem se conectar a servidores de banco de dados em execução em máquinas virtuais de IaaS na mesma topologia de rede virtual.
 
-[AZURE.IMPORTANT] Examinando o diagrama de rede, os "Outros recursos do computador" são implantados em uma sub-rede diferente do Ambiente do Serviço de Aplicativo. A implantação de recursos na mesma sub-rede com o ASE bloqueará a conectividade do ASE para esses recursos (com exceção do roteamento específico intra-ASE). Em vez disso, implante em uma sub-rede diferente (na mesma rede virtual). Assim, o Ambiente do Serviço de Aplicativo será capaz de se conectar. Nenhuma configuração adicional é necessária.
+>[AZURE.IMPORTANT] Examinando o diagrama de rede, os "Outros recursos do computador" são implantados em uma sub-rede diferente do Ambiente do Serviço de Aplicativo. A implantação de recursos na mesma sub-rede com o ASE bloqueará a conectividade do ASE para esses recursos (com exceção do roteamento específico intra-ASE). Em vez disso, implante em uma sub-rede diferente (na mesma rede virtual). Assim, o Ambiente do Serviço de Aplicativo será capaz de se conectar. Nenhuma configuração adicional é necessária.
 
 Os Ambientes de Serviço de Aplicativo também se comunicam com recursos do Banco de Dados SQL e Armazenamento do Azure necessários para gerenciar e operar um Ambiente de Serviço de Aplicativo. Alguns dos recursos do SQL e Armazenamento com os quais o Ambiente de Serviço de Aplicativo se comunica estão localizados na mesma região do Ambiente de Serviço de Aplicativo, enquanto outros estão localizados em regiões remotas do Azure. Consequentemente, a conectividade de saída com a Internet sempre é exigida para que um Ambiente de Serviço de Aplicativo funcione corretamente.
 
@@ -89,4 +89,4 @@ Os detalhes sobre como usar rotas definidas pelo usuário para conceder acesso �
 [OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
 [CallsBetweenAppServiceEnvironments]: ./media/app-service-app-service-environment-network-architecture-overview/CallsBetweenEnvironments-1.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

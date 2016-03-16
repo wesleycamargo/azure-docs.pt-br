@@ -13,16 +13,21 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/22/2016"
+	ms.date="02/29/2016"
 	ms.author="kgremban"/>
 
 # Gerenciar o Controle de Acesso baseado em função com o Azure PowerShell
+
 > [AZURE.SELECTOR]
 - [PowerShell](role-based-access-control-manage-access-powershell.md)
-- [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
-- [REST API](role-based-access-control-manage-access-rest.md)
+- [CLI do Azure](role-based-access-control-manage-access-azure-cli.md)
+- [API REST](role-based-access-control-manage-access-rest.md)
+
 
 ## Listar as funções RBCA (Controle de Acesso baseado em função)
+
+>[AZURE.IMPORTANT] Antes de poder usar os cmdlets apresentados neste artigo, é necessário [instalar os cmdlets do Azure Resource Manager](https://msdn.microsoft.com/library/mt125356.aspx) no PowerShell.
+
 ### Relacionar todas as funções disponíveis
 Para relacionar as funções RBAC disponíveis para atribuição e inspecionar as operações para as quais elas concedem acesso, use:
 
@@ -64,7 +69,7 @@ Para relacionar as atribuições para administrador e coadministradores da assin
 
 ## Conceder acesso
 ### Pesquisar IDs de objeto
-Para usar as sequências de comando a seguir, você deve, primeiramente, encontrar as IDs de objeto. Supõe-se que você já saiba a ID de assinatura com a qual você está trabalhando. Caso contrário, veja [Get-AzureSubscription](https://msdn.microsoft.com/library/dn495302.aspx) no MSDN.
+Para usar as sequências de comando a seguir, você deve, primeiramente, encontrar as IDs de objeto. Supõe-se que você já saiba a ID de assinatura com a qual está trabalhando. Caso contrário, veja [Get-AzureSubscription](https://msdn.microsoft.com/library/dn495302.aspx) no MSDN.
 
 #### Localizar a ID de objeto para um grupo do AD do Azure
 Para obter a ID de objeto para um grupo do AD do Azure, use:
@@ -151,4 +156,4 @@ No exemplo a seguir, a função personalizada *Operador de Máquina Virtual* nã
 ## Tópicos RBAC
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

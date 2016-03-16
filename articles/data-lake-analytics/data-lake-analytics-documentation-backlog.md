@@ -48,7 +48,7 @@ U-SQL | Opções de autenticação do ADLS | 1 | Pendente | [@ArindamC](https://
 
 Área |Tópico | location
 ------------- | ------------- | -------------- 
-O Barramento de | Coordenando a implantação da Análise Data Lake com outros serviços do Azure usando modelos ARM | [local](../data-lake-analytics-manage-use-powershell.md)
+O Barramento de | Coordenando a implantação da Análise Data Lake com outros serviços do Azure usando modelos ARM | [local](data-lake-analytics-manage-use-powershell.md)
 
 ## Como fornecer comentários sobre a lista de pendências
 Há algumas opções para fornecer comentários sobre a lista de pendências:
@@ -57,4 +57,4 @@ Há algumas opções para fornecer comentários sobre a lista de pendências:
 * Enviar uma solicitação pull sobre este documento no [Repositório de Conteúdo do Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
 * Enviar um email para [adlafeedback@microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

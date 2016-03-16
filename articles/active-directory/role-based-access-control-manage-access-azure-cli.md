@@ -13,17 +13,20 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/22/2016"
+	ms.date="02/29/2016"
 	ms.author="kgremban"/>
 
 # Gerenciar o Controle de Acesso baseado em função com a Interface de Linha de Comando do Azure
 
 > [AZURE.SELECTOR]
 - [PowerShell](role-based-access-control-manage-access-powershell.md)
-- [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
-- [REST API](role-based-access-control-manage-access-rest.md)
+- [CLI do Azure](role-based-access-control-manage-access-azure-cli.md)
+- [API REST](role-based-access-control-manage-access-rest.md)
 
 ## Listar as funções RBCA (Controle de Acesso baseado em função)
+
+>[AZURE.IMPORTANT] Antes de usar os cmdlets apresentados neste artigo, é necessário [instalar a CLI do Azure](../xplat-cli-install.md).
+
 ###	Relacionar todas as funções disponíveis
 Para relacionar todas as funções disponíveis, use:
 
@@ -121,7 +124,7 @@ O exemplo a seguir cria uma função personalizada chamada *Operador de Máquina
 
 Para modificar uma função personalizada, use o comando `azure role show` para recuperar a definição da função. Em seguida, faça as alterações desejadas à definição de função. Por fim, use `azure role set` para salvar a definição de função modificada.
 
-O exemplo a seguir adiciona a operação Microsoft.Insights/diagnosticSettings/* para as **Ações** e uma assinatura do Azure para o **AssignableScopes** da função personalizada Operador de Máquina Virtual.
+O exemplo a seguir adiciona a operação Microsoft.Insights/diagnosticSettings/* às **Ações**, e uma assinatura do Azure a **AssignableScopes** da função personalizada do Operador de Máquina Virtual.
 
 ![JSON - modificar definição de função personalizada - captura de tela](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set-1.png)
 
@@ -154,4 +157,4 @@ No exemplo a seguir, a função personalizada *Operador de Máquina Virtual* nã
 ## Tópicos RBAC
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

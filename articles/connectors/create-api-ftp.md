@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # Introdução à API do FTP
-Conecte-se a um servidor FTP para gerenciar seus arquivos. Você pode realizar diferentes tarefas no servidor de FTP como carregar arquivos, excluir arquivos e muito mais.
+Conecte-se a um servidor FTP para gerenciar seus arquivos, incluindo carregar, excluir arquivos e muito mais. A API do FTP pode ser usada em:
 
-A API do FTP pode ser usada de aplicativos lógicos.
+- Aplicativos lógicos
 
 >[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos. Para a versão do esquema 2014-12-01-preview, clique em [Conector do FTP](../app-service-logic/app-service-logic-connector-ftp.md).
 
@@ -28,9 +28,9 @@ Com o FTP, você pode:
 
 - Compile seu fluxo de negócios baseado nos dados obtidos do FTP. 
 - Use um gatilho quando um arquivo for atualizado.
-- Use ações para criar arquivos, obter o conteúdo do arquivo e muito mais. Essas ações obtém uma resposta e disponibilizam a saída para outras ações. Por exemplo, você pode obter o conteúdo de um arquivo e, em seguida, atualizar um Banco de Dados SQL. 
+- Use ações para criar arquivos, obter o conteúdo do arquivo e muito mais. Essas ações obtém uma resposta e disponibilizam a saída para outras ações. Por exemplo, você pode obter o conteúdo de um arquivo e então atualizar um banco de dados SQL. 
 
-Para adicionar uma operação a aplicativos lógicos, consulte [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para adicionar uma operação nos aplicativos lógicos, veja [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 
 ## Gatilhos e ações
@@ -38,7 +38,7 @@ O FTP tem os seguintes gatilhos e ações disponíveis.
 
 Gatilhos | Ações
 --- | ---
-<ul><li>Obtém um arquivo atualizado</li></ul> | <ul><li>Criar arquivo</li><li>Copiar arquivo</li><li>Excluir arquivo</li><li>Extrair pasta</li><li>Obter conteúdo do arquivo</li><li>Obter conteúdo do arquivo usando o caminho</li><li>Obter metadados de arquivo</li><li>Obter metadados de arquivo usando o caminho</li><li>Obtém um arquivo atualizado</li><li>Atualizar arquivo</li></ul>
+<ul><li>Obtém um arquivo atualizado</li></ul> | <ul><li>Criar arquivo</li><li>Copiar arquivo</li><li>Excluir arquivo</li><li>Extrair pasta</li><li>Obter conteúdo do arquivo</li><li>Obter conteúdo do arquivo usando o caminho</li><li>Obter metadados do arquivo</li><li>Obter metadados do arquivo usando o caminho</li><li>Obter um arquivo atualizado</li><li>Atualizar arquivo</li></ul>
 
 Todas as APIs dão suporte a dados nos formatos JSON e XML.
 
@@ -51,16 +51,17 @@ Ao adicionar essa API aos seus aplicativos lógicos, insira os seguintes valores
 |Nome de usuário| Sim | Insira o nome de usuário para se conectar ao Servidor FTP.|
 |Senha | Sim | Insira a senha do nome de usuário.|
 
-Depois de criar a conexão, insira as propriedades do FTP, como o arquivo de origem ou a pasta de destino. A **Referência da API REST** neste tópico descreve essas propriedades.
+Depois de criar a conexão, insira as propriedades do FTP, como o arquivo de origem ou a pasta de destino. A **referência da API REST** neste tópico descreve essas propriedades.
 
 >[AZURE.TIP] Você pode usar essa mesma conexão do FTP em outros aplicativos lógicos.
 
 ## Referência da API REST do Swagger
+Aplica-se à versão: 1.0.
 
 ### Criar arquivo
-Carrega um arquivo para o servidor FTP. ```POST: /datasets/default/files```
+Carrega um arquivo no servidor FTP.```POST: /datasets/default/files```
 
-| Nome| Tipo de Dados|Obrigatório|Localizado Em|Valor Padrão|Descrição|
+| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
 |folderPath|string|sim|query|nenhum |Caminho da pasta para carregar o arquivo para o servidor FTP|
 |name|string|sim|query| nenhum|Nome do arquivo a ser criado no servidor FTP|
@@ -70,27 +71,27 @@ Carrega um arquivo para o servidor FTP. ```POST: /datasets/default/files```
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|padrão|Falha na operação.|
 
 ### Copiar arquivo
-Copia um arquivo para o servidor FTP. ```POST: /datasets/default/copyFile```
+Copia um arquivo no servidor FTP.```POST: /datasets/default/copyFile```
 
-| Nome| Tipo de Dados|Obrigatório|Localizado Em|Valor Padrão|Descrição|
+| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
-|fonte|string|sim|query|nenhum |URL para o arquivo de código-fonte|
+|fonte|string|sim|query|nenhum |URL para o arquivo de origem|
 |destino|string|sim|query|nenhum |Caminho do arquivo de destino no servidor FTP, incluindo nome do arquivo de destino|
-|substituir|booleano|não|query|nenhum |Substitui o arquivo de destino se estiver definido como “true”|
+|substituir|booleano|não|query|nenhum |Substitui o arquivo de destino se estiver definido como "true"|
 
 #### Resposta
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|padrão|Falha na operação.|
 
 ### Excluir arquivo 
-Exclui um arquivo do servidor FTP. ```DELETE: /datasets/default/files/{id}```
+Exclui um arquivo do servidor FTP.```DELETE: /datasets/default/files/{id}```
 
-| Nome| Tipo de Dados|Obrigatório|Localizado Em|Valor Padrão|Descrição|
+| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
 |ID|string|sim|path|nenhum |Identificador exclusivo do arquivo a ser excluído do servidor FTP|
 
@@ -100,14 +101,14 @@ Exclui um arquivo do servidor FTP. ```DELETE: /datasets/default/files/{id}```
 |200|OK|
 |padrão|Falha na Operação.|
 
-### Extrair a pasta
-Extrai um arquivo morto para uma pasta no FTP (exemplo: .zip) ```POST: /datasets/default/extractFolderV2```
+### Extrair pasta
+Extrai um arquivo morto para uma pasta no servidor FTP (exemplo: .zip).```POST: /datasets/default/extractFolderV2```
 
-| Nome| Tipo de Dados|Obrigatório|Localizado Em|Valor Padrão|Descrição|
+| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
 |fonte|string|sim|query| nenhum|Caminho para o arquivo morto|
 |destino|string|sim|query| nenhum|Caminho para a pasta de destino|
-|substituir|booleano|não|query|nenhum|Substitui os arquivos de destino se estiver definido como “true”|
+|substituir|booleano|não|query|nenhum|Substitui os arquivos de destino se estiver definido como "true"|
 
 #### Resposta
 |Nome|Descrição|
@@ -116,9 +117,9 @@ Extrai um arquivo morto para uma pasta no FTP (exemplo: .zip) ```POST: /datasets
 |padrão|Falha na Operação.|
 
 ### Obter o conteúdo do arquivo
-Recupera o conteúdo do arquivo do Servidor FTP usando a ID. ```GET: /datasets/default/files/{id}/content```
+Recupera o conteúdo do arquivo do Servidor FTP usando a ID.```GET: /datasets/default/files/{id}/content```
 
-| Nome| Tipo de Dados|Obrigatório|Localizado Em|Valor Padrão|Descrição|
+| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
 |ID|string|sim|path|nenhum |Identificador exclusivo do arquivo|
 
@@ -126,13 +127,13 @@ Recupera o conteúdo do arquivo do Servidor FTP usando a ID. ```GET: /datasets/d
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|padrão|Falha na operação.|
 
 
 ### Obter o conteúdo do arquivo usando o caminho
-Recupera o conteúdo do arquivo do servidor FTP usando o caminho. ```GET: /datasets/default/GetFileContentByPath```
+Recupera o conteúdo do arquivo do servidor FTP usando o caminho.```GET: /datasets/default/GetFileContentByPath```
 
-| Nome| Tipo de Dados|Obrigatório|Localizado Em|Valor Padrão|Descrição|
+| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
 |path|string|sim|query|nenhum |Caminho exclusivo para o arquivo no servidor FTP|
 
@@ -144,9 +145,9 @@ Recupera o conteúdo do arquivo do servidor FTP usando o caminho. ```GET: /datas
 
 
 ### Obter Metadados de Arquivo 
-Recupera os metadados do arquivo do servidor FTP usando a ID do arquivo. ```GET: /datasets/default/files/{id}```
+Recupera os metadados do arquivo do servidor FTP usando a ID do arquivo.```GET: /datasets/default/files/{id}```
 
-| Nome| Tipo de Dados|Obrigatório|Localizado Em|Valor Padrão|Descrição|
+| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
 |ID|string|sim|path|nenhum|Identificador exclusivo do arquivo|
 
@@ -158,9 +159,9 @@ Recupera os metadados do arquivo do servidor FTP usando a ID do arquivo. ```GET:
 
 
 ### Obter Metadados de Arquivo usando o caminho
-Recupera os metadados do arquivo do servidor FTP usando o caminho. ```GET: /datasets/default/GetFileByPath```
+Recupera os metadados do arquivo do servidor FTP usando o caminho.```GET: /datasets/default/GetFileByPath```
 
-| Nome| Tipo de Dados|Obrigatório|Localizado Em|Valor Padrão|Descrição|
+| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
 |path|string|sim|query| nenhum|Caminho exclusivo para o arquivo no servidor FTP|
 
@@ -172,9 +173,9 @@ Recupera os metadados do arquivo do servidor FTP usando o caminho. ```GET: /data
 
 
 ### Obtém um arquivo atualizado
-Obtém um arquivo atualizado. ```GET: /datasets/default/triggers/onupdatedfile```
+Obtém um arquivo atualizado.```GET: /datasets/default/triggers/onupdatedfile```
 
-| Nome| Tipo de Dados|Obrigatório|Localizado Em|Valor Padrão|Descrição|
+| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
 |folderId|string|sim|query|nenhum |ID da pasta na qual buscar um arquivo atualizado|
 
@@ -182,13 +183,13 @@ Obtém um arquivo atualizado. ```GET: /datasets/default/triggers/onupdatedfile``
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|padrão|Falha na operação.|
 
 
 ### Atualizar arquivo 
-Atualiza um arquivo no servidor FTP. ```PUT: /datasets/default/files/{id}```
+Atualiza um arquivo no servidor FTP.```PUT: /datasets/default/files/{id}```
 
-| Nome| Tipo de Dados|Obrigatório|Localizado Em|Valor Padrão|Descrição|
+| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
 |ID|string|sim|path| nenhum|Identificador exclusivo do arquivo a ser atualizado no servidor FTP|
 |corpo| |sim|corpo|nenhum |Conteúdo do arquivo para atualizar no servidor FTP|
@@ -197,7 +198,7 @@ Atualiza um arquivo no servidor FTP. ```PUT: /datasets/default/files/{id}```
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|padrão|Falha na operação.|
 
 
 ## Definições de objeto
@@ -246,4 +247,4 @@ Atualiza um arquivo no servidor FTP. ```PUT: /datasets/default/files/{id}```
 
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

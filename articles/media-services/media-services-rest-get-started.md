@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/28/2016" 
+ 	ms.date="03/01/2016" 
 	ms.author="juliako"/>
 
 #Introdução ao fornecimento de conteúdo sob demanda usando API REST
@@ -81,18 +81,15 @@ Duas coisas são necessárias ao acessar os serviços de mídia do Azure: um tok
 As etapas a seguir descrevem o fluxo de trabalho mais comum ao usar a API REST dos serviços de mídia para se conectar aos serviços de mídia:
 
 1. Obtendo um token de acesso. 
-2. Conectando o URI dos serviços de mídia. 
-	
-	>[AZURE.NOTE]
-	Depois de se conectar com êxito a https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos Serviços de Mídia. Você deve fazer chamadas subsequentes para o novo URI.
-	> 
-	> Você também poderá receber uma resposta HTTP/1.1 200 que contém a descrição de metadados API ODATA.
+2. Conectando o URI dos serviços de mídia.  
+
+	Lembre-se de que, depois de se conectar com êxito a https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos Serviços de Mídia. Você deve fazer chamadas subsequentes para o novo URI. Você também poderá receber uma resposta HTTP/1.1 200 que contém a descrição de metadados API ODATA.
 3. Postando suas chamadas de API subsequentes para a nova URL. 
 	
-	Por exemplo, se depois de tentar se conectar, você tem o seguinte:
+		Por exemplo, se depois de tentar se conectar, você tem o seguinte:
 		
-		HTTP/1.1 301 Moved Permanently
-		Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
+			HTTP/1.1 301 Moved Permanently
+			Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
 
 	Você deve postar suas chamadas à API subsequentes para https://wamsbayclus001rest-hs.cloudapp.net/api/.
 
@@ -368,7 +365,7 @@ O exemplo a seguir mostra como criar um AccessPolicy:
 	
 	{"Name":"NewUploadPolicy", "DurationInMinutes":"440", "Permissions":"2"} 
 
-**Solicitação HTTP**
+**Resposta HTTP**
 
 	If successful, the following response is returned:
 	
@@ -500,7 +497,7 @@ Agora que você carregou o arquivo, atualize as informações de tamanho do File
 
 **Resposta HTTP**
 
-Se for bem-sucedido, será retornado o seguinte: 
+Se for bem-sucedido, será retornado o seguinte:
 	HTTP/1.1 204 No Content
 
 ## Excluir o AccessPolicy e localizador 
@@ -727,7 +724,7 @@ O código a seguir solicita a ID do codificador.
 
 Cada trabalho pode ter uma ou mais tarefas dependendo do tipo de processamento que você deseja realizar. Por meio da API REST, você pode criar Trabalhos e as Tarefas relacionadas de uma destas duas maneiras: as Tarefas podem ser definidas embutidas por meio da propriedade de navegação Tarefas nas entidades de Trabalho ou por meio do processamento de lote OData. O SDK dos Serviços de Mídia usa processamento em lotes. No entanto, para fins de legibilidade dos exemplos de código neste tópico, as tarefas são definidas embutidas. Para obter informações sobre o processamento em lotes, consulte [Processamento em lote do protocolo OData (Open Data)](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
-O exemplo a seguir mostra como criar e publicar um trabalho com uma tarefa definida para codificar um vídeo em uma determinada resolução e qualidade. A seção de documentação a seguir contém a lista de todas as [predefinições de tarefa](https://msdn.microsoft.com/pt-BR/library/mt269960) com suporte do Processador do Codificador de Mídia Padrão.
+O exemplo a seguir mostra como criar e publicar um trabalho com uma tarefa definida para codificar um vídeo em uma determinada resolução e qualidade. A seção de documentação a seguir contém a lista de todas as [predefinições de tarefa](http://msdn.microsoft.com/library/mt269960) com suporte no processador do Codificador de Mídia Padrão.
 
 **Solicitação HTTP**
 	
@@ -1202,13 +1199,9 @@ Para testar o download progressivo, cole uma URL em um navegador (por exemplo, I
 
 Se este tópico não contiver o que você esperava, se estiver faltando alguma informação ou se não tiver atendido de alguma outra forma às suas necessidades, envie seus comentários usando o thread Disqus abaixo.
 
-##Recursos adicionais
-- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Serviços de Mídia do Azure 101 - Coloque seu vídeo online agora!</a>
-- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Serviços de Mídia do Azure 102 - pacotes Dinâmicos e Dispositivos Móveis</a>
-
 
 
 <!-- URLs. -->
   [Portal Clássico do Azure]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

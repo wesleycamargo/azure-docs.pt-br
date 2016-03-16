@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="02/29/2016"
 	ms.author="wesmc"/>
 
 #Push Seguro dos Hubs de Notificação do Azure
@@ -43,7 +43,7 @@ Em um nível superior, o fluxo é o seguinte:
 
 Este tutorial de Push Seguro mostra como enviar uma notificação por push de maneira segura. O tutorial baseia-se no tutorial [Notificação de usuários](notification-hubs-aspnet-backend-ios-notify-users.md), por isso, você deve concluir as etapas nesse tutorial primeiro.
 
-> [AZURE.NOTE]Este tutorial presume que você criou e configurou o seu hub de notificação conforme descrito em [Introdução aos Hubs de Notificação (iOS)](notification-hubs-ios-get-started.md).
+> [AZURE.NOTE] Este tutorial presume que você criou e configurou o seu hub de notificação conforme descrito em [Introdução aos Hubs de Notificação (iOS)](notification-hubs-ios-get-started.md).
 
 [AZURE.INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
 
@@ -158,4 +158,4 @@ Para executar o aplicativo, faça o seguinte:
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

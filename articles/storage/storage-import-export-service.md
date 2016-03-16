@@ -1,8 +1,8 @@
 <properties
 	pageTitle="Usando importação/exportação para transferir dados para o Armazenamento de Blob | Microsoft Azure"
 	description="Saiba como criar trabalhos de importação e exportação no Portal Clássico do Azure para transferir dados para o Armazenamento de Blobs."
-	authors="robinsh"
-	manager="carmonm"
+	authors="renashahmsft"
+	manager="aungoo"
 	editor="tysonn"
 	services="storage"
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/19/2016"
+	ms.date="02/29/2016"
 	ms.author="renash"/>
 
 
@@ -51,7 +51,7 @@ Ao criar um trabalho de importação ou de exportação, você também precisar�
 
 1.	**Assinatura e contas de armazenamento:** você deve ter uma assinatura do Azure e uma ou mais contas de armazenamento clássicas existentes para usar o serviço de Importação/Exportação. Cada trabalho pode ser usado para transferir dados para apenas uma conta de armazenamento clássica, ou por meio dela. Em outras palavras, um trabalho não pode se estender por várias contas de armazenamento. Para obter informações sobre como criar uma nova conta de armazenamento, consulte [Como criar uma conta de armazenamento](storage-create-storage-account.md#create-a-storage-account). 
 
-  > [AZURE.NOTE] Se você tiver uma conta de armazenamento do ARM, entre em contato com o Suporte do Azure.
+  > [AZURE.NOTE] Ainda não há suporte para contas de armazenamento que usam o modelo do ARM.
 
 2.	**Discos rígidos:** somente discos rígidos SATA II/III internos de 3,5 polegadas têm suporte para uso com o serviço Importação/Exportação. Há suporte para discos rígidos de até 8 TB. Para trabalhos de importação, somente o primeiro volume de dados na unidade será processado. O volume de dados deve ser formatado com NTFS. Você pode anexar um disco SATA II/III externamente à maioria dos computadores usando um adaptador USB para SATA II/III externo.
 3.	**Criptografia BitLocker:** todos os dados armazenados em discos rígidos devem ser criptografados usando o BitLocker com chaves de criptografia protegidas com senhas numéricas.
@@ -230,7 +230,8 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 
 - Não. Todas as unidades devem estar preparadas para BitLocker.
 
-**É necessário executar alguma preparação ao disco ao criar um trabalho de exportação?** - Não, mas são recomendadas algumas verificações prévias. Verifique o número de discos necessários usando o comando PreviewExport da ferramenta Importação/Exportação do Azure. Para obter mais informações, consulte [Visualizando o Uso da Unidade para um Trabalho de Exportação](https://msdn.microsoft.com/library/azure/dn722414.aspx). A ferramenta ajuda você a visualizar o uso da unidade para os blobs que você selecionou, com base no tamanho das unidades que você pretende usar. Verifique também se você pode ler/gravar no disco rígido que será enviado para o trabalho de exportação.
+**É necessário executar alguma preparação de disco ao criar um trabalho de exportação?**
+- Não, mas algumas pré-verificações são recomendadas. Verifique o número de discos necessários usando o comando PreviewExport da ferramenta Importação/Exportação do Azure. Para obter mais informações, veja [Visualizando o uso da unidade para um trabalho de exportação](https://msdn.microsoft.com/library/azure/dn722414.aspx). A ferramenta ajuda você a visualizar o uso da unidade para os blobs que você selecionou, com base no tamanho das unidades que você pretende usar. Verifique também se você pode ler/gravar no disco rígido que será enviado para o trabalho de exportação.
 
 ### Remessa
 
@@ -274,9 +275,9 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 
 - Envie somente seus discos rígidos. Não inclua itens como cabos de alimentação ou cabos USB.
 
-**Por que o status do meu trabalho no Portal Clássico mostra *Enviando* quando o site da Operadora mostra que meu pacote foi entregue?**
+**Por que o status do meu trabalho no Portal Clássico é mostrado como *Enviando* quando o site da Operadora mostra que meu pacote foi entregue?**
 
-- O status do Portal muda de *Enviando* para *Transferindo* quando o processamento da unidade é iniciado. Se a unidade tiver atingido a instalação, porém ainda não iniciou o processamento, o status do seu trabalho será exibido como *Enviando*.
+- O status do Portal muda de *Enviando* para *Transferindo* quando o processamento da unidade é iniciado. Se a unidade tiver alcançado a instalação, porém, ainda não tiver iniciado o processamento, o status do trabalho será exibido como *Enviando*.
 
 ## Consulte também
 
@@ -287,4 +288,4 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 [export-job-03]: ./media/storage-import-export-service-classic-portal/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

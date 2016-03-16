@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Saída e mensagens do runbook na Automação do Azure | Microsoft Azure"
    description="Descreve como criar e recuperar a saída e mensagens de erro de runbooks na Automação do Azure."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="automation"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/27/2016"
-   ms.author="bwren" />
+   ms.date="03/02/2016"
+   ms.author="magoedte;bwren" />
 
 # Saída e mensagens do runbook na Automação do Azure
 
@@ -51,7 +51,7 @@ Considere os cenários de exemplo a seguir.
 	   Write-Verbose "Verbose outside of function"
 	   Write-Output "Output outside of function"
 	   $functionOutput = Test-Function
-	
+
 	   Function Test-Function
 	   {
 	      Write-Verbose "Verbose inside of function"
@@ -77,7 +77,7 @@ O exemplo de runbook a seguir gera um objeto de cadeia de caracteres e inclui um
 	Workflow Test-Runbook
 	{
 	   [OutputType([string])]
-	
+
 	   $output = "This is some string output."
 	   Write-Output $output
 	}
@@ -93,7 +93,7 @@ Os fluxos de Aviso e de Erro pretendem registrar problemas que ocorrem em um run
 Crie uma mensagem de aviso ou de erro usando o cmdlet [Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) ou [Write-Error](http://technet.microsoft.com/library/hh849962.aspx). As atividades também podem ser gravadas nesses fluxos.
 
 	#The following lines create a warning message and then an error message that will suspend the runbook.
-	
+
 	$ErrorActionPreference = "Stop"
 	Write-Warning –Message "This is a warning message."
 	Write-Error –Message "This is an error message that will stop the runbook because of the preference variable."
@@ -107,7 +107,7 @@ Quando você estiver [testando um runbook](http://msdn.microsoft.com/library/azu
 Criar uma mensagem detalhada usando o cmdlet [Write-Verbose](http://technet.microsoft.com/library/hh849951.aspx).
 
 	#The following line creates a verbose message.
-	
+
 	Write-Verbose –Message "This is a verbose message."
 
 ### Fluxo de depuração
@@ -152,20 +152,42 @@ No Windows PowerShell, você pode recuperar saída e mensagens de um runbook usa
 
 O exemplo a seguir inicia um runbook de exemplo e aguarda a sua conclusão. Depois de concluído, seu fluxo de saída será coletado do trabalho.
 
-	$job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" 
-	
+	$job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
+
 	$doLoop = $true
 	While ($doLoop) {
 	   $job = Get-AzureAutomationJob –AutomationAccountName "MyAutomationAccount" -Id $job.Id
 	   $status = $job.Status
-	   $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped") 
+	   $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped")
 	}
-	
+
 	Get-AzureAutomationJobOutput –AutomationAccountName "MyAutomationAccount" -Id $job.Id –Stream Output
+
+### Criação gráfica
+
+Para runbooks gráficos, um log extra está disponível na forma de rastreamento em nível de atividade. Há dois níveis de rastreamento: Básico e Detalhado. No rastreamento Básico, é possível ver a hora de início e de término de cada atividade do runbook, além de informações relacionadas a quaisquer repetições de atividade, como o número de tentativas e a hora de início da atividade. No rastreamento Detalhado, você obtém o rastreamento Básico, além de dados de entrada e de saída para cada atividade. Observe que, atualmente, os registros de rastreamento são escritos usando a transmissão detalhada; portanto, é necessário, habilitar o log Detalhado ao habilitar o rastreamento. Para runbooks gráficos com o rastreamento habilitado, não é necessário fazer registros de progresso de log, pois o rastreamento Básico tem a mesma finalidade e é mais informativo.
+
+![Modo de exibição Transmissões de Trabalho da criação gráfica](media/automation-runbook-output-and-messages/job_streams_view_blade.png)
+
+Na captura de tela acima, é possível ver que, ao habilitar o log Detalhado e o rastreamento para runbooks gráficos, muito mais informações estão disponíveis no modo de exibição Transmissões de Trabalho de produção. Essas informações extra podem ser essenciais para solucionar problemas de produção com um runbook e, portanto, você só deve habilitá-lo para essa finalidade e não como uma prática geral. Especificamente, os registros de Rastreamento podem ser inúmeros. Com o rastreamento de runbook Gráfico, é possível obter de dois a quatro registros por atividade, dependendo se o rastreamento Básico ou Detalhado tiver sido configurado. A menos que você precise dessas informações para acompanhar o progresso de um runbook com relação à solução de problemas, convém manter o Rastreamento desligado.
+
+**Para habilitar o rastreamento em nível de atividade, execute as etapas a seguir.**
+
+ 1. No Portal do Azure, abra sua conta de Automação.
+
+ 2. Clique no bloco **Runbooks** para abrir a lista de runbooks.
+
+ 3. Na folha Runbooks, clique para selecionar um runbook gráfico na lista de runbooks.
+
+ 4. Na folha Configurações do runbook selecionado, clique em **Log e Rastreamento**.
+
+ 5. Na folha Log e Rastreamento, sob registros detalhados de Log, clique em **Ativado** para habilitar o log detalhado e, sob o Rastreamento em nível de atividade, altere o nível de rastreamento para **Básico** ou **Detalhado** com base no nível de rastreamento necessário.<br>
+
+    ![Folha Log e Rastreamento da criação gráfica](media/automation-runbook-output-and-messages/logging_and_tracing_settings_blade.png)
 
 ## Artigos relacionados
 
 - [Controlar um trabalho de runbook](automation-runbook-execution.md)
 - [Runbooks filhos](http://msdn.microsoft.com/library/azure/dn857355.aspx)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->
