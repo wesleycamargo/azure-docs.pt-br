@@ -30,7 +30,7 @@ Como ele estende o OAuth 2.0, também permite que os aplicativos adquiram **acce
 
 O Azure AD B2C estende o protocolo padrão OpenID Connect para fazer mais do que uma simples ação de autenticação e autorização. Ele apresenta o [**parâmetro de política**](active-directory-b2c-reference-policies.md), que permite usar o OpenID Connect para adicionar experiências de usuário ao seu aplicativo, como o gerenciamento de inscrição, de entrada e de perfis. Aqui, mostraremos como usar o OpenID Connect e as políticas para implementar cada uma dessas experiências em seus aplicativos Web. Também mostraremos como obter access\_tokens para acessar APIs Web.
 
-As solicitações HTTP de exemplo abaixo usam nosso diretório B2C de exemplo, **fabrikamb2c.onmicrosoft.com**, bem como nosso aplicativo ****https://aadb2cplayground.azurewebsites.net** e políticas de exemplo. Fique à vontade para experimentar as solicitações usando esses valores ou os substituindo pelos seus próprios. Saiba como [obter seus próprios locatário, aplicativo e políticas B2C](#use-your-own-b2c-directory).
+As solicitações HTTP de exemplo abaixo usam nosso diretório B2C de exemplo, **fabrikamb2c.onmicrosoft.com**, bem como nosso aplicativo **https://aadb2cplayground.azurewebsites.net** e políticas de exemplo. Fique à vontade para experimentar as solicitações usando esses valores ou os substituindo pelos seus próprios. Saiba como [obter seus próprios locatário, aplicativo e políticas B2C](#use-your-own-b2c-directory).
 
 ## Enviar solicitações de autenticação
 Quando o aplicativo Web precisa autenticar o usuário e executar uma política, ele pode direcionar o usuário para o ponto de extremidade `/authorize`. Essa é a parte interativa do fluxo, em que o usuário realmente executará uma ação, dependendo da política.
@@ -355,4 +355,4 @@ image goes here
 
 -->
 
-<!---HONumber=AcomDC_0302_2016-->
+<!----HONumber=AcomDC_0302_2016-->
