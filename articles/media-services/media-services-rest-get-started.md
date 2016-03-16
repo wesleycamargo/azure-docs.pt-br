@@ -91,7 +91,7 @@ As etapas a seguir descrevem o fluxo de trabalho mais comum ao usar a API REST d
 			HTTP/1.1 301 Moved Permanently
 			Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
 
-		Você deve postar suas chamadas à API subsequentes para https://wamsbayclus001rest-hs.cloudapp.net/api/.
+	Você deve postar suas chamadas à API subsequentes para https://wamsbayclus001rest-hs.cloudapp.net/api/.
 
 ###Obtendo um token de acesso
 
