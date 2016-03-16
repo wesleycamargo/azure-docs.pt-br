@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Conectar e consultar com o Visual Studio
@@ -46,7 +46,7 @@ Para conectar-se ao banco de dados, você precisará do nome completo do servido
 
 1. Abra o Visual Studio.
 2. Abra o **Explorador de Objetos do SQL Server** no menu Exibir
- 
+
 ![][2]
 
 3. Clique no botão **Adicionar SQL Server**
@@ -91,4 +91,4 @@ Agora que você pode se conectar e consultar, tente [conectar-se ao PowerBI][].
 [3]: ./media/sql-data-warehouse-get-started-connect-query/connection-dialog.png
 [4]: ./media/sql-data-warehouse-get-started-connect-query/new-query.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->
