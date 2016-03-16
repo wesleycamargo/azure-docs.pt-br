@@ -247,7 +247,7 @@ No **Gerenciador de soluções**, clique com o botão direito do mouse no projet
 	}
 
 ## Adicionar um controlador ##
-abra o arquivo * Controllers\\HomeController.cs* no **Gerenciador de soluções** e substitua o código existente com o seguinte:
+abra o arquivo *Controllers\\HomeController.cs* no **Gerenciador de soluções** e substitua o código existente com o seguinte:
 
 	using System;
 	using System.Collections.Generic;
@@ -500,4 +500,4 @@ Para obter mais informações sobre como desenvolver aplicativos do C# para Mong
 [Deploy the ASP.NET application to the web site using Git]: #deployapp
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!-----HONumber=AcomDC_0302_2016-->

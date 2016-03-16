@@ -118,7 +118,7 @@ No caso da regra *Dimensionamento automático - escalar verticalmente* do perfil
 
 Esse valor também pode ser calculado para operações de redução:
 
-Com base na regra *Dimensionar automaticamente - reduzir verticalmente do perfil **Dia da semana* do **plano de Serviço de Aplicativo** de produção, seria semelhante ao seguinte:
+Com base na regra *Dimensionar automaticamente - reduzir verticalmente do perfil *Dia da semana* do **plano de Serviço de Aplicativo** de produção, seria semelhante ao seguinte:
 
 ![][Equation3]
 
@@ -231,4 +231,4 @@ Para este cenário, Matheus sabe que a taxa de erro aumenta quando os front-ends
 [Worker-Pool-Scale]: ./media/app-service-environment-auto-scale/wp-scale.png
 [Front-End-Scale]: ./media/app-service-environment-auto-scale/fe-scale.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!-----HONumber=AcomDC_0302_2016-->

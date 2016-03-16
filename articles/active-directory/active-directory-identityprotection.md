@@ -80,7 +80,8 @@ Eventos de risco são eventos que foram marcados como suspeitos pelo Identity Pr
 | Entradas de dispositivos infectados | Entradas de dispositivos possivelmente infectados |
 | Entradas de endereços IP anônimos | Entradas de fontes desconhecidas |
 | Entradas de endereços IP com atividade suspeita |	Entradas de endereços IP com atividade suspeita |
-| Entradas de locais desconhecidos | - | | Eventos de bloqueio (que não estão na preview pública) | - |
+| Entradas de locais desconhecidos | - | 
+| Eventos de bloqueio (que não estão na preview pública) | - |
 
 Os seguintes relatórios de Atividade Anômala do Azure AD não estão incluídos como eventos de risco no Azure AD Identity Protection, portanto, não estão disponíveis por meio da proteção do Identity Protection. Esses relatórios ainda estão disponíveis no Portal de Gerenciamento do Azure, contudo serão preteridos futuramente, pois estão sendo substituídos pelos eventos de risco do Identity Protection.
 
@@ -637,4 +638,4 @@ Para testar o Risco de entrada, execute as seguintes etapas:
  - [Azure AD e Identity Show: Preview do Identity Protection](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
  - [O glossário do Identity Protection](active-directory-identityprotection-glossary.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!----HONumber=AcomDC_0302_2016-->
