@@ -34,8 +34,8 @@ A tabela a seguir mostra como essas soluções são mapeadas para recursos espec
 
 | Solução | Ingestão de dados | Identidade do dispositivo | Comando e controle | Regras e ações | Análise preditiva |
 |------------------------|-----|-----|-----|-----|-----|
-| [Monitoramento remoto][lnk-remote-monitoring] | Sim | Sim | Sim | Sim | - | | [Manutenção preditiva][lnk-predictive-maintenance] | Sim | Sim | Sim | Sim | Sim |
-
+| [Monitoramento remoto][lnk-remote-monitoring] | Sim | Sim | Sim | Sim | - | 
+| [Manutenção preditiva][lnk-predictive-maintenance] | Sim | Sim | Sim | Sim | Sim |
 - *Ingestão de dados*: entrada de dados em escala para a nuvem.
 - *Identidade do dispositivo*: gerenciar identidades exclusivas de cada dispositivo conectado.
 - *Comando e controle*: enviar mensagens para um dispositivo a partir da nuvem para fazer com que o dispositivo execute uma ação.

@@ -219,9 +219,10 @@ Depois que um modelo de previsão for colocado em produção, você pode monitor
 
 Para RRS, a resposta do serviço Web é normalmente onde você vê o resultado. Você também pode gravá-la em um blob. Para BES, a saída é gravada em um blob, por padrão. Você também pode gravar a saída em um banco de dados ou tabela usando o módulo Gravador.
 
- **** Posso criar serviços Web apenas de modelos criados no Estúdio? Não. Você também pode criar serviços Web diretamente no bloco de notas Jupyter e no RStudio.
+ ** Posso criar serviços Web apenas de modelos criados no Estúdio? 
+Não. Você também pode criar serviços Web diretamente no bloco de notas Jupyter e no RStudio.
 
- ****Onde posso encontrar informações sobre códigos de erro? Os códigos de erro estão descritos [aqui.](https://msdn.microsoft.com/library/azure/dn905910.aspx)
+ **Onde posso encontrar informações sobre códigos de erro? Os códigos de erro estão descritos [aqui.](https://msdn.microsoft.com/library/azure/dn905910.aspx)
 
 ## Escalabilidade
 

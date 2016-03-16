@@ -300,7 +300,8 @@ Nesta etapa, você criará seu primeiro pipeline com a atividade **HDInsightHive
 12. Na **Exibição de Diagrama**, clique duas vezes no conjunto de dados **AzureBlobOutput**. Você verá que a fatia que está sendo processada.
 
 	![Conjunto de dados](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
-9. Quando o processamento for concluído, você verá a fatia no estado **Pronto**.
+9. Quando o processamento for concluído, você verá a fatia no estado **Pronto**.  
+
 	>[AZURE.IMPORTANT] A criação de um cluster do HDInsight sob demanda geralmente leva algum tempo (20 minutos, aproximadamente).  
 
 	![Conjunto de dados](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)
