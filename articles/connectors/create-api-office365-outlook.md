@@ -53,7 +53,8 @@ Todas as APIs dão suporte a dados nos formatos JSON e XML.
 Quando você adicionar essa API ao PowerApps Enterprise, insira os valores de **Chave do Aplicativo** e **Segredo do Aplicativo** do seu aplicativo do AAD (Azure Active Directory) do Office 365. O valor da **URL de Redirecionamento** também é usado em seu aplicativo do Office 365. Se você não tiver um aplicativo do Office 365, poderá usar as etapas a seguir para criá-lo:
 
 1. No [Portal do Azure][5], abra **Active Directory** e abra o nome de locatário da sua organização.
-2. Selecione a guia **Aplicativos** e selecione **Adicionar**: ![Aplicativos de locatário do AAD][7]
+2. Selecione a guia **Aplicativos** e selecione **Adicionar**:  
+![Aplicativos de locatário do AAD][7]
 
 3. Em **Adicionar aplicativo**:
 
@@ -65,17 +66,20 @@ Quando você adicionar essa API ao PowerApps Enterprise, insira os valores de **
 
 6. Em **Propriedades do aplicativo**:
 
-	1. Insira a **URL DE ENTRADA** do seu aplicativo. Como você se autenticará com o AAD para PowerApps, defina a url de entrada como \__https://login.windows.net_.
-2. Insira um **URI da ID do Aplicativo** válido para seu aplicativo.  
+	1. Insira a **URL DE ENTRADA** do seu aplicativo. Como você se autenticará com o AAD para PowerApps, defina a url de entrada como _https://login.windows.net_.
+	2. Insira um **URI da ID do Aplicativo** válido para seu aplicativo.  
 	3. Selecione **OK**.  
 
 	![Adicionar aplicativo do AAD - propriedades do aplicativo][9]
 
-7. Quando for concluído, o novo aplicativo do AAD será aberto. Selecione **Configurar**: ![Aplicativo Contoso do AAD][10]
+7. Quando for concluído, o novo aplicativo do AAD será aberto. Selecione **Configurar**:  
+![Aplicativo Contoso do AAD][10]
 
-8. Na seção _OAuth 2_, defina a **URL de Resposta** como o valor da URL de redirecionamento mostrado quando você adicionou a API do Outlook do Office 365 ao Portal do Azure. Selecione **Adicionar aplicativo**: ![Configure o aplicativo Contoso do AAD][11]
+8. Na seção _OAuth 2_, defina a **URL de Resposta** como o valor da URL de redirecionamento mostrado quando você adicionou a API do Outlook do Office 365 ao Portal do Azure. Selecione **Adicionar aplicativo**:  
+![Configure o aplicativo Contoso do AAD][11]
 
-9. Em **Permissões para outros aplicativos**, selecione **Office 365 Exchange Online** e selecione **OK**: ![Representante do aplicativo Contoso][12]
+9. Em **Permissões para outros aplicativos**, selecione **Office 365 Exchange Online** e selecione **OK**:  
+![Representante do aplicativo Contoso][12]
 
 	De volta na página de configuração, observe que o _Office 365 Exchange Online_ é adicionado na lista _Permissão para outros aplicativos_.
 
@@ -110,7 +114,8 @@ Aplica-se à versão: 1.0.
 
 
 ### No evento que inicia em breve 
-Dispara um fluxo quando um evento de calendário futuro estiver iniciando. ```GET: /Events/OnUpcomingEvents```
+Dispara um fluxo quando um evento de calendário futuro estiver iniciando.  
+```GET: /Events/OnUpcomingEvents```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -130,7 +135,8 @@ Dispara um fluxo quando um evento de calendário futuro estiver iniciando. ```GE
 
 
 ### Obter emails 
-Recupera emails de uma pasta. ```GET: /Mail```
+Recupera emails de uma pasta.  
+```GET: /Mail```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -155,7 +161,8 @@ Recupera emails de uma pasta. ```GET: /Mail```
 
 
 ### Enviar Email 
-Envia uma mensagem de email. ```POST: /Mail```
+Envia uma mensagem de email.  
+```POST: /Mail```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -175,7 +182,8 @@ Envia uma mensagem de email. ```POST: /Mail```
 
 
 ### Excluir email 
-Exclui uma mensagem de email por id. ```DELETE: /Mail/{messageId}```
+Exclui uma mensagem de email por id.  
+```DELETE: /Mail/{messageId}```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -194,7 +202,8 @@ Exclui uma mensagem de email por id. ```DELETE: /Mail/{messageId}```
 
 
 ### Marcar como lido 
-Marca uma mensagem de email como lida. ```POST: /Mail/MarkAsRead/{messageId}```
+Marca uma mensagem de email como lida.  
+```POST: /Mail/MarkAsRead/{messageId}```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -213,7 +222,8 @@ Marca uma mensagem de email como lida. ```POST: /Mail/MarkAsRead/{messageId}```
 
 
 ### Responder mensagem 
-Responde a uma mensagem de email. ```POST: /Mail/ReplyTo/{messageId}```
+Responde a uma mensagem de email.  
+```POST: /Mail/ReplyTo/{messageId}```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -234,7 +244,8 @@ Responde a uma mensagem de email. ```POST: /Mail/ReplyTo/{messageId}```
 
 
 ### Obter anexo 
-Recupera o anexo da mensagem por id, ```GET: /Mail/{messageId}/Attachments/{attachmentId}```
+Recupera o anexo da mensagem por id,  
+```GET: /Mail/{messageId}/Attachments/{attachmentId}```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -254,7 +265,8 @@ Recupera o anexo da mensagem por id, ```GET: /Mail/{messageId}/Attachments/{atta
 
 
 ### No novo email 
-Dispara um fluxo quando chega um novo email. ```GET: /Mail/OnNewEmail```
+Dispara um fluxo quando chega um novo email.  
+```GET: /Mail/OnNewEmail```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -280,7 +292,8 @@ Dispara um fluxo quando chega um novo email. ```GET: /Mail/OnNewEmail```
 
 
 ### Enviar email com opções 
-Envie um email com várias opções e aguarde o destinatário responder com uma das opções. ```POST: /mailwithoptions/$subscriptions```
+Envie um email com várias opções e aguarde o destinatário responder com uma das opções.  
+```POST: /mailwithoptions/$subscriptions```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -300,7 +313,8 @@ Envie um email com várias opções e aguarde o destinatário responder com uma 
 
 
 ### Enviar email de aprovação 
-Envie um email de aprovação e aguarde uma resposta do destinatário de Para. ```POST: /approvalmail/$subscriptions```
+Envie um email de aprovação e aguarde uma resposta do destinatário de Para.  
+```POST: /approvalmail/$subscriptions```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -323,7 +337,8 @@ Envie um email de aprovação e aguarde uma resposta do destinatário de Para. `
 
 
 ### Obter calendários 
-Recupera calendários. ```GET: /datasets/calendars/tables```
+Recupera calendários.  
+```GET: /datasets/calendars/tables```
 
 Não há parâmetros para esta chamada.
 
@@ -338,7 +353,8 @@ Não há parâmetros para esta chamada.
 
 
 ### Obter eventos 
-Recupera os itens de um calendário. ```GET: /datasets/calendars/tables/{table}/items```
+Recupera os itens de um calendário.  
+```GET: /datasets/calendars/tables/{table}/items```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -357,7 +373,8 @@ Recupera os itens de um calendário. ```GET: /datasets/calendars/tables/{table}/
 
 
 ### Criar evento 
-Cria um novo evento. ```POST: /datasets/calendars/tables/{table}/items```
+Cria um novo evento.  
+```POST: /datasets/calendars/tables/{table}/items```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -373,7 +390,8 @@ Cria um novo evento. ```POST: /datasets/calendars/tables/{table}/items```
 
 
 ### Obter evento 
-Recupera um item específico de um calendário. ```GET: /datasets/calendars/tables/{table}/items/{id}```
+Recupera um item específico de um calendário.  
+```GET: /datasets/calendars/tables/{table}/items/{id}```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -389,7 +407,8 @@ Recupera um item específico de um calendário. ```GET: /datasets/calendars/tabl
 
 
 ### Excluir evento 
-Exclui um item de calendário. ```DELETE: /datasets/calendars/tables/{table}/items/{id}```
+Exclui um item de calendário.  
+```DELETE: /datasets/calendars/tables/{table}/items/{id}```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -405,7 +424,8 @@ Exclui um item de calendário. ```DELETE: /datasets/calendars/tables/{table}/ite
 
 
 ### Atualizar evento 
-Atualiza parcialmente um item de calendário. ```PATCH: /datasets/calendars/tables/{table}/items/{id}```
+Atualiza parcialmente um item de calendário.  
+```PATCH: /datasets/calendars/tables/{table}/items/{id}```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -422,7 +442,8 @@ Atualiza parcialmente um item de calendário. ```PATCH: /datasets/calendars/tabl
 
 
 ### Em novos itens 
-Disparado quando um novo item de calendário é criado. ```GET: /datasets/calendars/tables/{table}/onnewitems```
+Disparado quando um novo item de calendário é criado.  
+```GET: /datasets/calendars/tables/{table}/onnewitems```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -441,7 +462,8 @@ Disparado quando um novo item de calendário é criado. ```GET: /datasets/calend
 
 
 ### Em itens atualizados 
-Disparado quando um item de calendário é modificado. ```GET: /datasets/calendars/tables/{table}/onupdateditems```
+Disparado quando um item de calendário é modificado.  
+```GET: /datasets/calendars/tables/{table}/onupdateditems```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -460,7 +482,8 @@ Disparado quando um item de calendário é modificado. ```GET: /datasets/calenda
 
 
 ### Obter pastas de contatos 
-Recupera pastas de contatos. ```GET: /datasets/contacts/tables```
+Recupera pastas de contatos.  
+```GET: /datasets/contacts/tables```
 
 Não há parâmetros para esta chamada.
 
@@ -473,7 +496,8 @@ Não há parâmetros para esta chamada.
 
 
 ### Obter contatos 
-Recupera os contatos de uma pasta de contatos. ```GET: /datasets/contacts/tables/{table}/items```
+Recupera os contatos de uma pasta de contatos.  
+```GET: /datasets/contacts/tables/{table}/items```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -492,7 +516,8 @@ Recupera os contatos de uma pasta de contatos. ```GET: /datasets/contacts/tables
 
 
 ### Criar contato 
-Cria um novo contato. ```POST: /datasets/contacts/tables/{table}/items```
+Cria um novo contato.  
+```POST: /datasets/contacts/tables/{table}/items```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -508,7 +533,8 @@ Cria um novo contato. ```POST: /datasets/contacts/tables/{table}/items```
 
 
 ### Obter contato 
-Recupera um contato específico de uma pasta de contatos. ```GET: /datasets/contacts/tables/{table}/items/{id}```
+Recupera um contato específico de uma pasta de contatos.  
+```GET: /datasets/contacts/tables/{table}/items/{id}```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -524,7 +550,8 @@ Recupera um contato específico de uma pasta de contatos. ```GET: /datasets/cont
 
 
 ### Excluir contato 
-Exclui um contato. ```DELETE: /datasets/contacts/tables/{table}/items/{id}```
+Exclui um contato.  
+```DELETE: /datasets/contacts/tables/{table}/items/{id}```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -540,7 +567,8 @@ Exclui um contato. ```DELETE: /datasets/contacts/tables/{table}/items/{id}```
 
 
 ### Atualizar contato 
-Atualiza parcialmente um contato. ```PATCH: /datasets/contacts/tables/{table}/items/{id}```
+Atualiza parcialmente um contato.  
+```PATCH: /datasets/contacts/tables/{table}/items/{id}```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -808,3 +836,4 @@ Depois de adicionar a API do Office 365 ao PowerApps Enterprise, [conceda permis
 [13]: ./media/create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook-permissions.png
 
 <!---HONumber=AcomDC_0302_2016-->
+

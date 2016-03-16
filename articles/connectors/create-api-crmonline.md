@@ -62,8 +62,8 @@ Ao adicionar o CRM Online ao PowerApps Enterprise, insira os valores de **ID do 
 
 3. Em **Propriedades do aplicativo**:
 
-	1. Insira a **URL DE LOGON** do aplicativo. Já que você vai fazer a autenticação com o AAD para PowerApps, defina a URL de logon como \__https://login.windows.net_.
-2. Insira um **URI DA ID DO APLICATIVO** válido para seu aplicativo.  
+	1. Insira a **URL DE LOGON** do aplicativo. Já que você vai fazer a autenticação com o AAD para PowerApps, defina a URL de logon como _https://login.windows.net_.
+	2. Insira um **URI DA ID DO APLICATIVO** válido para seu aplicativo.  
 	3. Selecione **OK**.  
 
 	![Adicionar aplicativo do AAD - propriedades do aplicativo][10]
@@ -80,11 +80,14 @@ Siga estas etapas para entrar no CRM online e concluir a configuração da **con
 
 1. Selecione **Recorrência**
 2. Selecione uma **Frequência** e insira um **Intervalo**
-3. Selecione **Adicionar uma ação** ![Configurar o CRM Online][13]
+3. Selecione **Adicionar uma ação**  
+![Configurar o CRM Online][13]
 4. Insira CRM na caixa de pesquisa e aguarde até que a pesquisa retorne todas as entradas com CRM no nome
 5. Selecione **Dynamics CRM Online - Criar um novo registro**
-6. Selecione **Entrar no Dynamics CRM Online**: ![Configurar o CRM Online][14]
-7. Forneça suas credenciais do CRM Online para entrar e autorizar o aplicativo ![Configurar o CRM Online][15]  
+6. Selecione **Entrar no Dynamics CRM Online**:  
+![Configurar o CRM Online][14]
+7. Forneça suas credenciais do CRM Online para entrar e autorizar o aplicativo
+![Configurar o CRM Online][15]  
 8. Depois de entrar, retorne ao aplicativo lógico para concluí-lo adicionando outros gatilhos e outras ações necessárias.
 9. Salve seu trabalho selecionando **Salvar** na barra de menus acima.
 
@@ -300,3 +303,5 @@ Depois de adicionar a API do CRM Online ao PowerApps Enterprise, [conceda permis
 [15]: ./media/create-api-crmonline/crmconfig3.png
 
 <!---HONumber=AcomDC_0302_2016-->
+
+
