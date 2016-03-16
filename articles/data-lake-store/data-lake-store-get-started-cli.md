@@ -1,29 +1,29 @@
-<properties
+<properties 
    pageTitle="Introdução ao Repositório Data Lake usando a interface de linha de comando entre plataformas | Microsoft Azure"
-   description="Usar a linha de comando da plataforma cruzada do Azure para criar uma conta do Repositório Data Lake e executar operações básicas"
-   services="data-lake-store"
-   documentationCenter=""
-   authors="nitinme"
-   manager="paulettm"
+   description="Usar a linha de comando da plataforma cruzada do Azure para criar uma conta do Repositório Data Lake e executar operações básicas" 
+   services="data-lake-store" 
+   documentationCenter="" 
+   authors="nitinme" 
+   manager="paulettm" 
    editor="cgronlun"/>
-
+ 
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
-   ms.topic="hero-article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data"
+   ms.workload="big-data" 
    ms.date="01/04/2016"
    ms.author="nitinme"/>
 
 # Introdução ao Repositório Azure Data Lake usando a linha de comando do Azure
 
 > [AZURE.SELECTOR]
-- [Usando o Portal](data-lake-store-get-started-portal.md)
-- [Usando o PowerShell](data-lake-store-get-started-powershell.md)
-- [Usando o SDK .NET](data-lake-store-get-started-net-sdk.md)
-- [Usando a CLI do Azure](data-lake-store-get-started-cli.md)
-- [Usando o Node.js](data-lake-store-manage-use-nodejs.md)
+- [Using Portal](data-lake-store-get-started-portal.md)
+- [Using PowerShell](data-lake-store-get-started-powershell.md)
+- [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
+- [Using Azure CLI](data-lake-store-get-started-cli.md)
+- [Using Node.js](data-lake-store-manage-use-nodejs.md)
 
 Saiba como usar a interface de linha de comando do Azure ara criar uma conta do Repositório Azure Data Lake e executar operações básicas, como criar pastas, carregar e baixar arquivos de dados, excluir sua conta, etc. Para obter mais informações sobre o Repositório Data Lake, veja [Visão geral do Repositório Data Lake](data-lake-store-overview.md).
 
@@ -35,12 +35,12 @@ A CLI do Azure é implementada no Node. js. Ela pode ser usada em qualquer plata
 Antes de começar este artigo, você deve ter o seguinte:
 
 - **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Habilite sua assinatura do Azure** para a visualização pública do Repositório Data Lake. Veja [instruções](data-lake-store-get-started-portal.md#signup).
+- **Habilite sua assinatura do Azure** para a visualização pública do Repositório Data Lake. Veja [instruções](data-lake-store-get-started-portal.md#signup). 
 - **CLI do azure** - consulte [Instalar e configurar a CLI do Azure](../xplat-cli-install.md) para obter informações de instalação e configuração. Certifique-se de reinicializar o computador depois de instalar a CLI.
 
 ##Faça logon na sua assinatura do Azure
 
-Siga as etapas documentadas em [Conectar a uma assinatura do Azure a partir da Interface de Linha de Comando do Azure (Azure CLI)](../xplat-cli-connect.md) e conectar à sua assinatura usando o método de __logon__.
+Siga as etapas documentadas em [Conectar a uma assinatura do Azure a partir da Interface de Linha de Comando do Azure (Azure CLI)](xplat-cli-connect.md) e conectar à sua assinatura usando o método de __logon__.
 
 
 ## Criar uma conta do Repositório Azure Data Lake
@@ -146,12 +146,12 @@ A saída desse comando deve ser:
 
 * **Para excluir um arquivo**, use o seguinte comando:
 
-		azure datalake store filesystem delete <dataLakeStoreAccountName> <path>
+		azure datalake store filesystem delete <dataLakeStoreAccountName> <path> 
 
 	Por exemplo:
 
 		azure datalake store filesystem delete mynewdatalakestore /mynewfolder/vehicle1_09142014_copy.csv
-
+	
 	Quando solicitado, insira **Y** para excluir o item.
 
 ## Exibir a lista de controle de acesso para uma pasta no Repositório Data Lake
@@ -187,10 +187,10 @@ Quando solicitado, insira **Y** para excluir a conta.
 ## Próximas etapas
 
 - [Proteger dados no Repositório Data Lake](data-lake-store-secure-data.md)
-- [Usar a Análise Data Lake do Azure com o Repositório Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+- [Usar a Análise Data Lake do Azure com o Repositório Data Lake](data-lake-analytics-get-started-portal.md)
 - [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
 
 [azure-command-line-tools]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0211_2016-->

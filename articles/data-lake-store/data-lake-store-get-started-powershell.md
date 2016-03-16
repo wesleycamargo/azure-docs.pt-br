@@ -1,29 +1,29 @@
-<properties
-   pageTitle="Introdução ao Repositório Data Lake | Azure"
-   description="Usar o Azure PowerShell para criar uma conta do Repositório Data Lake e executar operações básicas"
-   services="data-lake-store"
-   documentationCenter=""
-   authors="nitinme"
-   manager="paulettm"
+<properties 
+   pageTitle="Introdução ao Repositório Data Lake | Azure" 
+   description="Usar o Azure PowerShell para criar uma conta do Repositório Data Lake e executar operações básicas" 
+   services="data-lake-store" 
+   documentationCenter="" 
+   authors="nitinme" 
+   manager="paulettm" 
    editor="cgronlun"/>
-
+ 
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
-   ms.topic="hero-article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data"
+   ms.workload="big-data" 
    ms.date="01/04/2016"
    ms.author="nitinme"/>
 
 # Introdução ao Repositório Azure Data Lake usando o Azure PowerShell
 
 > [AZURE.SELECTOR]
-- [Usando o Portal](data-lake-store-get-started-portal.md)
-- [Usando o PowerShell](data-lake-store-get-started-powershell.md)
-- [Usando o SDK .NET](data-lake-store-get-started-net-sdk.md)
-- [Usando a CLI do Azure](data-lake-store-get-started-cli.md)
-- [Usando o Node.js](data-lake-store-manage-use-nodejs.md)
+- [Using Portal](data-lake-store-get-started-portal.md)
+- [Using PowerShell](data-lake-store-get-started-powershell.md)
+- [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
+- [Using Azure CLI](data-lake-store-get-started-cli.md)
+- [Using Node.js](data-lake-store-manage-use-nodejs.md)
 
 Saiba como usar o Azure PowerShell para criar uma conta do Repositório Azure Data Lake e executar operações básicas, como criar pastas, carregar e baixar arquivos de dados, excluir sua conta, etc. Para obter mais informações sobre o Repositório Data Lake, veja [Visão geral do Repositório Data Lake](data-lake-store-overview.md).
 
@@ -37,7 +37,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 ##Instalar o Azure PowerShell 1.0 ou superior
 
-Consulte a seção de pré-requisitos em [Usando o Azure PowerShell com o Azure Resource Manager](../powershell-azure-resource-manager.md#prerequisites).
+Consulte a seção de pré-requisitos em [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](powershell-azure-resource-manager.md#prerequisites).
 
 ## Criar uma conta do Repositório Azure Data Lake
 
@@ -45,15 +45,15 @@ Consulte a seção de pré-requisitos em [Usando o Azure PowerShell com o Azure 
 
         # Log in to your Azure account
 		Login-AzureRmAccount
-
+        
 		# List all the subscriptions associated to your account
 		Get-AzureRmSubscription
-
-		# Select a subscription
+		
+		# Select a subscription 
 		Set-AzureRmContext -SubscriptionId <subscription ID>
-
+        
 		# Register for Azure Data Lake Store
-		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
+		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore" 
 
 
 2. Uma conta do Repositório Azure Data Lake está associada a um Grupo de Recursos do Azure. Comece criando um Grupo de Recursos do Azure.
@@ -118,8 +118,8 @@ Para baixar um arquivo, use o seguinte comando:
 
 Para excluir um arquivo, use o seguinte comando:
 
-	Remove-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Paths $myrootdir\mynewdirectory\vehicle1_09142014_Copy.csv
-
+	Remove-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Paths $myrootdir\mynewdirectory\vehicle1_09142014_Copy.csv 
+	
 Quando solicitado, insira **Y** para excluir o item. Se você tiver mais de um arquivo para excluir, você pode fornecer todos os caminhos separados por vírgula.
 
 	Remove-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Paths $myrootdir\mynewdirectory\vehicle1_09142014.csv, $myrootdir\mynewdirectoryvehicle1_09142014_Copy.csv
@@ -143,7 +143,7 @@ Quando solicitado, insira **Y** para excluir a conta.
 ## Próximas etapas
 
 - [Proteger dados no Repositório Data Lake](data-lake-store-secure-data.md)
-- [Usar a Análise Data Lake do Azure com o Repositório Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+- [Usar a Análise Data Lake do Azure com o Repositório Data Lake](data-lake-analytics-get-started-portal.md)
 - [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0211_2016-->

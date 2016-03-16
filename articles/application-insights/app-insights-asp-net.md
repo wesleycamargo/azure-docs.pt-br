@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="03/06/2016" 
+	ms.date="02/28/2016" 
 	ms.author="awills"/>
 
 
@@ -94,7 +94,7 @@ A pesquisa de texto livre funciona em todos os campos dos eventos. Por exemplo, 
 
 ### Exceções
 
-Se você [Configurar o monitoramento de exceção](app-insights-asp-net-exceptions.md), serão exibidos relatórios de exceção na janela Pesquisar.
+Se você [Configurar o monitoramento de exceção](app-insights-asp-net-exception-mvc.md), relatórios de exceção serão exibidos na janela Pesquisar.
 
 Clique em uma exceção para obter um rastreamento de pilha. Se o código do aplicativo for aberto no Visual Studio, você poderá clicar desde o rastreamento de pilha até a linha relevante no código.
 
@@ -126,7 +126,7 @@ Abra a Pesquisa investigar solicitações individuais e seus eventos associados.
 
 [Saiba mais sobre a pesquisa](app-insights-diagnostic-search.md)
 
-* *Não há eventos associados?* Configure [exceções de servidor](app-insights-asp-net-exceptions.md) e [dependências](app-insights-asp-net-dependencies.md).
+* *Não há eventos associados?* Configure [exceções de servidor](app-insights-asp-net-exception-mvc.md) e [dependências](app-insights-asp-net-dependencies.md).
 
 
 ## Não há dados?
@@ -172,7 +172,7 @@ Isso é particularmente útil se há [telemetria personalizada](app-insights-api
 ## Próximas etapas
 
 - [Dados do usuário e da página](../article/application-insights/app-insights-javascript.md#selector1)
-- [Exceções](../article/application-insights/app-insights-asp-net-exceptions.md#selector1)
+- [Exceções](../article/application-insights/app-insights-asp-net-exception-mvc.md#selector1)
 - [Dependências](../article/application-insights/app-insights-asp-net-dependencies.md#selector1)
 - [Disponibilidade](../article/application-insights/app-insights-monitor-web-app-availability.md#selector1)
 
@@ -214,4 +214,4 @@ Se você fez todas as personalizações no ApplicationInsights.config, salve uma
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0302_2016-->

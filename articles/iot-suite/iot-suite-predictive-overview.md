@@ -14,7 +14,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="03/02/2016"
+ ms.date="12/01/2015"
  ms.author="stevehob"/>
 
 # Visão geral da solução pré-configurada de manutenção preditiva
@@ -30,17 +30,15 @@ A Fabrikam é uma companhia aérea regional que se dedica a fornecer uma excelen
 
 Os motores de aeronave da Fabrikam são instrumentados com sensores que monitoram as condições do motor durante o voo. A Fabrikam usa o Azure IoT Suite para coletar os dados de sensor coletados durante o voo. Após vários anos acumulando dados operacionais e de falha do motor, os cientistas de dados da Fabrikam modelaram uma maneira para prever a RUL (Vida Útil Restante) de um motor de aeronave. O que eles identificaram foi uma correlação entre os dados de quatro dos sensores dos motores com um desgaste que leva a uma eventual falha. Embora a Fabrikam continue realizando inspeções regulares para garantir a segurança, ela agora pode usar os modelos para calcular a RUL para cada motor após cada voo, usando a telemetria coletada dos motores de durante o voo. A Fabrikam agora pode prever os futuros pontos de falha e planejar a manutenção e reparar antecipadamente.
 
-> [AZURE.NOTE] O modelo de solução usa dados reais de desgaste do mecanismo.
-
 Ao prever o momento em que a manutenção é necessária, a Fabrikam pode otimizar suas operações para reduzir os custos. Os coordenadores de manutenção trabalham com os agendadores para planejar a manutenção para que sua realização coincida com a parada de uma aeronave em um local específico e garantir tempo suficiente para que a aeronave esteja fora de serviço sem causar interrupções no cronograma. Nesse caso, a Fabrikam pode agendar técnicos, garantindo que a aeronave seja atendida com eficiência sem tempo de espera. Os gerentes de controle de inventário recebem planos de manutenção, para que possam otimizar seu processo de encomendas e inventário de peças de reposição. Tudo isso permite que a Fabrikam minimize o tempo de solo de aeronave e reduza os custos operacionais, ao mesmo tempo que garante a segurança dos passageiros e da tripulação.
-
-Para entender como o [Azure IoT Suite][lnk_iot_suite] fornece recursos que os clientes precisam para aproveitar o potencial da manutenção preditiva, examine este [infográfico][lnk_infographic].
 
 ## Como a solução de manutenção preditiva é criada
 
-A solução aproveita um modelo de Aprendizado de Máquina do Azure existente como modelo para mostrar esses recursos trabalhando desde a telemetria de dispositivo coletada até os serviços IoT Suite. A Microsoft criou um [modelo de regressão][lnk_regression_model] de um mecanismo de aeronave e publicou o modelo completo, dados<sup>[1]</sup> e orientações passo a passo sobre como usar o modelo.
+Para entender como o [Azure IoT Suite][lnk_iot_suite] fornece recursos que os clientes precisam para aproveitar o potencial da manutenção preditiva, examine este [infográfico][lnk_infographic].
 
-A solução pré-configurada de manutenção prevista do IoT do Azure usa o modelo de regressão criado com base neste modelo; ele é implantado em sua assinatura do Azure e exposto por meio de uma API gerada automaticamente. A solução inclui um subconjunto dos dados de teste que representa quatro (de um total de 100) de mecanismos e as quatro (de um total de 21) transmissões de dados de sensor que fornece um resultado preciso do modelo treinado.
+Para mostrar esses recursos funcionando na telemetria de dispositivo coletada por meio dos serviços do IoT Suite e exibidas para os usuários em um aplicativo Web, a solução utiliza um modelo existente do Aprendizado de Máquina do Azure como um modelo. A Microsoft criou um [modelo de regressão][lnk_regression_model] e publicou o modelo completo, dados<sup>[1]</sup> e diretrizes passo a passo.
+
+A solução pré-configurada de manutenção preditiva do Azure IoT usa o modelo de regressão criado com base neste modelo; ele é implantado em sua assinatura do Azure e exposto por meio de uma API publicada. A solução inclui um subconjunto dos dados de teste que representa quatro (de um total de 100) de mecanismos e as quatro (de um total de 21) transmissões de dados de sensor que fornece um resultado preciso do modelo treinado.
 
 *[1] A. Saxena e K. Goebel (2008). “Conjunto de dados da simulação de degradação do turbofan”, Repositório de dados de prognóstico da NASA Ames (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/), NASA Ames Research Center, Moffett Field, CA*
 
@@ -54,8 +52,8 @@ Faça um [passo a passo][lnk-predictive-walkthrough] da solução pré-configura
 [lnk_preconfigured_solutions]: iot-suite-what-are-preconfigured-solutions.md
 [lnk_iot_suite]: iot-suite-overview.md
 [lnk_machine_learning]: https://azure.microsoft.com/services/machine-learning/
-[lnk_infographic]: https://www.microsoft.com/server-cloud/predictivemaintenance/Index.html
+[lnk_infographic]: https://www.microsoft.com/pt-BR/server-cloud/predictivemaintenance/Index.html
 [lnk_regression_model]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3
 [lnk_capture_value]: http://download.microsoft.com/download/0/7/D/07D394CE-185D-4B96-AC3C-9B61179F7080/Capture_value_from_the_Internet%20of%20Things_with_Predictive_Maintenance.PDF
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0218_2016-->

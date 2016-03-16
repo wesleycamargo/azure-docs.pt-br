@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Criar sua primeira data factory (Visual Studio) | Microsoft Azure"
+	pageTitle="Introdução ao Azure Data Factory (Visual Studio)"
 	description="Neste tutorial, você criará um pipeline de exemplo do Azure Data Factory usando o Visual Studio."
 	services="data-factory"
 	documentationCenter=""
@@ -16,7 +16,7 @@
 	ms.date="02/16/2016"
 	ms.author="spelluru"/>
 
-# Criar sua primeira data factory do Azure usando o Microsoft Visual Studio
+# Introdução ao Azure Data Factory (Visual Studio)
 > [AZURE.SELECTOR]
 - [Visão geral do tutorial](data-factory-build-your-first-pipeline.md)
 - [Como usar o Editor do Data Factory](data-factory-build-your-first-pipeline-using-editor.md)
@@ -256,7 +256,6 @@ Nesta etapa, você criará seu primeiro pipeline com a atividade **HDInsightHive
 
 	Na atividade de JSON, você especifica que o script do Hive deve ser executado na computação especificada pelo **linkedServiceName** – **HDInsightOnDemandLinkedService**.
 
-	> [ACOM.NOTE] Consulte [Anatomia de um Pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline) para obter detalhes sobre as propriedades JSON usadas no exemplo acima. 
 3. Salve o arquivo **HiveActivity1.json**.
 
 ### Adicionar partitionweblogs.hql e input.log como uma dependência 
@@ -363,7 +362,7 @@ Considere a definição de JSON a seguir para um serviço de Armazenamento do Az
 ### Adicionar um arquivo de configuração
 Adicione um arquivo de configuração para cada ambiente executando as seguintes etapas:
 
-1. Clique com o botão direito do mouse no projeto de Data Factory em sua solução do Visual Studio, aponte para **Adicionar** e clique em **Novo item**.
+1. Clique com botão direito do mouse no projeto de Data Factory em sua solução do Visual Studio, aponte para **Adicionar** e clique em **Novo item**.
 2. Selecione **Config** na lista de modelos instalados à esquerda, selecione **Arquivo de Configuração**, insira um **nome** para o arquivo de configuração e clique em **Adicionar**.
 
 	![Adicionar arquivo de configuração](./media/data-factory-build-your-first-pipeline-using-vs/add-config-file.png)
@@ -433,7 +432,7 @@ Ao publicar entidades do Azure Data Factory no VS, você pode especificar a conf
 
 Para publicar as entidades em um projeto do Azure Data Factory usando o arquivo de configuração:
 
-1. Clique com o botão direito do mouse no projeto de Data Factory e clique em **Publicar** para ver a caixa de diálogo **Publicar Itens**. 
+1. Clique com botão direito do mouse no projeto de Data Factory e clique em **Publicar** para ver a caixa de diálogo **Publicar Itens**. 
 2. Selecione um data factory existente ou especifique valores para criar um novo na página **Configurar data factory** e clique em **Avançar**.   
 3. Na página **Publicar Itens**: você verá uma lista suspensa com as configurações disponíveis para o campo **Selecionar Configuração de Implantação**.
 
@@ -449,4 +448,4 @@ Quando você implantar, os valores do arquivo de configuração serão usados pa
 Neste artigo, você criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script Hive em um cluster do HDInsight sob demanda. Para saber como usar uma Atividade de Cópia para copiar dados de um Blob do Azure para o SQL do Azure, confira [Tutorial: Copiar dados de um blob do Azure para o SQL do Azure](data-factory-get-started.md).
   
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -4,7 +4,7 @@
 	services="redis-cache"
 	documentationCenter=""
 	authors="steved0x"
-	manager="erikre"
+	manager="dwrede"
 	editor="v-lincan"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="03/04/2016"
+	ms.date="12/03/2015"
 	ms.author="sdanie"/>
 
 # Como usar o Cache Redis do Azure com Python
@@ -51,7 +51,7 @@ Insira um nome de host DNS. Ele terá o formato `<name>
 
   ##Adicionar algo ao cache e recuperá-lo
 
-  >>> import redis r = redis.StrictRedis(host='<name>.redis.cache.windows.net', port=6380, db=0, password='<key>', ssl=True) >>> r.set('foo', 'bar') True >>> r.get('foo') b'bar'
+  >>> import redis >>> r = redis.StrictRedis(host='<name>.redis.cache.windows.net', port=6380, db=0, password='<key>', ssl=True) >>> r.set('foo', 'bar') True >>> r.get('foo') b'bar'
 
 Substitua *&lt;name&gt;* pelo nome do cache e *&lt;key&gt;* por sua chave de acesso.
 
@@ -60,4 +60,4 @@ Substitua *&lt;name&gt;* pelo nome do cache e *&lt;key&gt;* por sua chave de ace
 [1]: ./media/cache-python-get-started/cache01.png
 [2]: ./media/cache-python-get-started/cache02.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_1210_2015-->

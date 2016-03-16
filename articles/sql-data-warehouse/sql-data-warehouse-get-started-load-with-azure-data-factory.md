@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="02/16/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Carregar dados com o Azure Data Factory
@@ -40,7 +40,7 @@ Para se familiarizar com o Azure Data Factory, confira a [Introdução ao Azure 
 
 Antes de iniciar este tutorial, você precisa ter os recursos a seguir.
 
-   + **Blob de Armazenamento do azure**: este tutorial usa o Blob de Armazenamento do Azure como a fonte de dados para o pipeline do Azure Data Factory. Portanto, você precisa ter um disponível para armazenar os dados de exemplo. Se você não tiver uma, saiba como [Criar uma conta de armazenamento](../storage/storage-create-storage-account/#create-a-storage-accoun/).
+   + **Blob de Armazenamento do azure**: este tutorial usa o Blob de Armazenamento do Azure como a fonte de dados para o pipeline do Azure Data Factory. Portanto, você precisa ter um disponível para armazenar os dados de exemplo. Se você não tiver uma, saiba como [Criar uma conta de armazenamento](../storage/storage-create-storage-account/#create-a-storage-accoun/). 
 
    + **SQL Data Warehouse**: este tutorial move os dados do Blob de Armazenamento do Azure para o SQL Data Warehouse. Portanto, é preciso ter um data warehouse online carregado com os dados de exemplo de AdventureWorksDW. Se você ainda não tiver um data warehouse, saiba como [provisionar um](sql-data-warehouse-get-started-provision.md). Se você tiver um data warehouse, mas não o tiver provisionado com os dados de exemplo, poderá [carregá-lo manualmente](sql-data-warehouse-get-started-manually-load-samples.md).
 
@@ -158,7 +158,7 @@ Na seção 'Criar e Implantar', agora clique em 'Mais Comandos' e em 'Novo Pipel
     "name": "<Pipeline Name>",
     "properties": {
         "description": "<Description>",
-        "activities": [
+        "activities": [ 
           {
             "type": "Copy",
     		"typeProperties": {
@@ -215,4 +215,4 @@ Estes tópicos fornecem informações detalhadas sobre o Azure Data Factory. Ele
 - [Tutorial: copiar dados do Blob de Armazenamento do Azure para o Banco de Dados SQL do Azure](../data-factory/data-factory-get-started.md). Neste tutorial, você criará um pipeline no Azure Data Factory para copiar dados do Blob de Armazenamento do Azure para o Banco de Dados SQL do Azure.
 - [Tutorial de cenário do mundo real](../data-factory/data-factory-tutorial.md). Este é um tutorial detalhado para uso do Azure Data Factory.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0302_2016-->

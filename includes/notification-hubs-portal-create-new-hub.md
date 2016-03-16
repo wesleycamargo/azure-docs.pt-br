@@ -1,6 +1,6 @@
 
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com) e clique em **+NOVO** na parte inferior da tela.
+1. Faça logon no [Portal do Azure](https://portal.windowsazure.com/) e clique em **+NOVO** na parte inferior da tela.
 
 2. Clique em **Novo**, em **Web + Móvel**, em **Hub de Notificação** e em **Criação Rápida**.
 
@@ -22,4 +22,4 @@
 
    	![Portal do Azure - cadeias de conexão do hub de notificação](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0218_2016-->

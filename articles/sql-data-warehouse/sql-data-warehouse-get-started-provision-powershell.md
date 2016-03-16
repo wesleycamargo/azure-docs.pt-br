@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="01/25/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Criar um SQL Data Warehouse usando o Powershell
@@ -25,7 +25,7 @@
 
 ## Obter e executar os cmdlets do PowerShell do Azure
 
-> [AZURE.NOTE]  Para usar o Microsoft Azure Powershell com o SQL Data Warehouse, você deve baixar e instalar a versão mais recente do Azure PowerShell com cmdlets ARM. Você pode verificar a sua versão executando `Get-Module -ListAvailable -Name Azure`. Este artigo baseia-se no Microsoft Azure PowerShell versão 1.0.3.
+> [AZURE.NOTE]  Para usar o Microsoft Azure Powershell com o SQL Data Warehouse, você deve baixar e instalar a versão mais recente do Azure PowerShell com cmdlets ARM. Você pode verificar a versão executando `Get-Module -ListAvailable -Name Azure`. Este artigo baseia-se no Microsoft Azure PowerShell versão 1.0.3.
 
 Se você ainda não tiver configurado o PowerShell, precisará baixá-lo e configurá-lo.
 
@@ -42,7 +42,7 @@ Se você ainda não tiver configurado o PowerShell, precisará baixá-lo e confi
 	```
 	Get-AzureRmSubscription	-SubscriptionName "MySubscription" | Select-AzureRmSubscription
 	```
-
+   
 ## Como criar um banco de dados do SQL Data Warehouse.
 Para implantar um SQL Data Warehouse, use o cmdlet New-AzureRmSQLDatabase. Antes de executar o comando, verifique se você cumpriu os pré-requisitos a seguir.
 
@@ -71,14 +71,14 @@ Os parâmetros necessários para esse cmdlet são os seguintes:
  + **DatabaseName**: o nome do SQL Data Warehouse que você está criando.
  + **ServerName**: o nome do servidor que você está usando para a criação (deve ser V12).
  + **ResourceGroupName**: o grupo de recursos que você está usando. Para encontrar os grupos de recursos na sua assinatura, use Get-AzureResource.
- + **Edition**: você deve definir a edição como "DataWarehouse" para criar um SQL Data Warehouse.
+ + **Edition**: você deve definir a edição como "DataWarehouse" para criar um SQL Data Warehouse. 
 
 Para obter a referência aos comandos, veja [New-AzureSqlDatabase](https://msdn.microsoft.com/library/mt619339.aspx).
 
 Para obter as opções do parâmetro, confira [Criar Banco de Dados (Azure SQL Data Warehouse)](https://msdn.microsoft.com/library/mt204021.aspx).
 
 ## Próximas etapas
-Após o provisionamento do SQL Data Warehouse, você poderá [carregar dados de exemplo][] ou conferir como [desenvolver][], [carregar][] ou [migrar][].
+Após o provisionamento do SQL Data Warehouse, você poderá [carregar dados de exemplo][] ou conferir como [desenvolver][], carregar ou [migrar][].
 
 Se estiver interessado em obter mais informações sobre como gerenciar o SQL Data Warehouse de forma programática, confira nossa documentação do [Powershell][] ou da [API REST][].
 
@@ -96,4 +96,4 @@ Se estiver interessado em obter mais informações sobre como gerenciar o SQL Da
 [firewall rules]: ../sql-database/sql-database-configure-firewall-settings.md
 [Como instalar e configurar o Azure PowerShell]: ./powershell-install-configure.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0218_2016-->

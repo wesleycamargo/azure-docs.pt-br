@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/03/2016"
+   ms.date="02/08/2016"
    ms.author="maroche"/>
 
 
@@ -60,7 +60,4 @@ No modo de exibição em bloco padrão, cada bloco exibido nos resultados de pes
 ## Resumo
 O registro de uma fonte de dados no **Catálogo de Dados do Azure** facilita a descoberta e a compreensão da fonte de dados, copiando metadados estruturais e descritivos da fonte de dados para o serviço de Catálogo. Depois que uma fonte de dados é registrada, os usuários podem descobri-la usando a filtragem e a pesquisa no portal do **Catálogo de Dados do Azure**.
 
-## Consulte também
-- o tutorial [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md) para obter detalhes passo a passo sobre como descobrir fontes de dados.
-
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0224_2016-->

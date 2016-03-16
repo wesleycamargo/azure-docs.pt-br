@@ -13,7 +13,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="01/25/2016"
 	ms.author="paulettm"/>
 
@@ -25,7 +25,7 @@ Essas perguntas frequentes são perguntas sobre o Aprendizado de Máquina do Azu
 
 **O que é Aprendizado de Máquina do Azure?**
 
-O Aprendizado de Máquina do Azure é um serviço totalmente gerenciado que você pode usar para criar, testar, operar e gerenciar soluções analíticas preditivas na nuvem. Com apenas um navegador, agora você pode entrar, fazer upload de dados e iniciar imediatamente experimentos de aprendizado de máquina. Modelagem de previsão do tipo "arrastar e soltar", um grande palete de módulos e uma biblioteca de modelos de início tornam as tarefas comuns de Aprendizado de Máquina algo rápido e simples. Para saber mais, consulte [Visão geral do serviço de Aprendizado de Máquina do Azure](https://azure.microsoft.com/services/machine-learning/). Para obter uma introdução sobre o Aprendizado de Máquina que aborda conceitos e terminologia principal, consulte [Introdução ao Aprendizado de Máquina do Azure](machine-learning-what-is-machine-learning.md).
+O Aprendizado de Máquina do Azure é um serviço totalmente gerenciado que você pode usar para criar, testar, operar e gerenciar soluções analíticas preditivas na nuvem. Com apenas um navegador, agora você pode entrar, fazer upload de dados e iniciar imediatamente experimentos de aprendizado de máquina. Modelagem de previsão do tipo "arrastar e soltar", um grande palete de módulos e uma biblioteca de modelos de início tornam as tarefas comuns de Aprendizado de Máquina algo rápido e simples. Para saber mais, consulte [Visão geral do serviço de Aprendizado de Máquina do Azure](/services/machine-learning/). Para obter uma introdução sobre o Aprendizado de Máquina que aborda conceitos e terminologia principal, consulte [Introdução ao Aprendizado de Máquina do Azure](machine-learning-what-is-machine-learning.md).
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -63,7 +63,7 @@ Não, mas sempre que um experimento é executado a versão do gráfico é mantid
 ### Importando e exportando dados para o Aprendizado de Máquina
 **Para quais fontes de dados o Aprendizado de Máquina dá suporte?**
 
-Os dados podem ser carregados no Estúdio de Aprendizado de Máquina de uma de duas formas: ao fazer upload de arquivos locais como conjunto de dados ou usando o módulo de leitor para importar dados. Arquivos locais podem ser transferidos por upload adicionando novos conjuntos de dados ao Estúdio de Aprendizado de Máquina. Consulte [Importar dados de treinamento para o Estúdio de Aprendizado de Máquina](machine-learning-data-science-import-data.md) para saber mais sobre os formatos de arquivo com suporte.
+Os dados podem ser carregados no Estúdio de Aprendizado de Máquina de uma de duas formas: ao fazer upload de arquivos locais como conjunto de dados ou usando o módulo de leitor para importar dados. Arquivos locais podem ser transferidos por upload adicionando novos conjuntos de dados ao Estúdio de Aprendizado de Máquina. Consulte [Importar dados de treinamento para o Estúdio de Aprendizado de Máquina](machine-learning-import-data.md) para saber mais sobre os formatos de arquivo com suporte.
 
 
 #### <a id="ModuleLimit"></a>Que tamanho o conjunto de dados para os meus módulos pode ter?
@@ -219,8 +219,9 @@ Depois que um modelo de previsão for colocado em produção, você pode monitor
 
 Para RRS, a resposta do serviço Web é normalmente onde você vê o resultado. Você também pode gravá-la em um blob. Para BES, a saída é gravada em um blob, por padrão. Você também pode gravar a saída em um banco de dados ou tabela usando o módulo Gravador.
 
- **** Posso criar serviços Web apenas de modelos criados no Estúdio? Não. Você também pode criar serviços Web diretamente no bloco de notas Jupyter e no RStudio.
-
+** Posso criar serviços Web apenas de modelos criados no Estúdio? 
+Não. Você também pode criar serviços Web diretamente no bloco de notas Jupyter e no RStudio.
+ 
  ****Onde posso encontrar informações sobre códigos de erro? Os códigos de erro estão descritos [aqui.](https://msdn.microsoft.com/library/azure/dn905910.aspx)
 
 ## Escalabilidade
@@ -292,7 +293,7 @@ Consulte as [Perguntas frequentes sobre a publicação e utilização de aplicat
 
 **Onde posso obter treinamento para o AM do Azure?**
 
-O [Centro de Documentação do Aprendizado de Máquina do Azure](https://azure.microsoft.com/services/machine-learning/) hospeda tutoriais em vídeo e guias de instruções. Esses guias passo a passo fornecem uma introdução aos serviços e explicam o ciclo de vida de ciência dos dados da importação de dados, limpeza de dados, criação de modelos preditivos e implantação deles na produção com o AM do Azure.
+O [Centro de Documentação do Aprendizado de Máquina do Azure](/services/machine-learning/) hospeda tutoriais em vídeo e guias de instruções. Esses guias passo a passo fornecem uma introdução aos serviços e explicam o ciclo de vida de ciência dos dados da importação de dados, limpeza de dados, criação de modelos preditivos e implantação deles na produção com o AM do Azure.
 
 Incluiremos novo material continuamente no Centro de Aprendizado de Máquina. É possível enviar solicitações de material de aprendizado adicional no Centro de Aprendizado de Máquina no [fórum de feedback do usuário](https://windowsazure.uservoice.com/forums/257792-machine-learning).
 
@@ -313,4 +314,4 @@ O Aprendizado de Máquina do Azure também possui um fórum de comunidade no MSD
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0128_2016-->

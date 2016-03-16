@@ -3,8 +3,8 @@
 	description="Como criar um aplicativo de pesquisa hospedado na nuvem no Azure usando Java como linguagem de programação."
 	services="search"
 	documentationCenter=""
-	authors="EvanBoyle"
-	manager="pablocas"
+	authors="HeidiSteen"
+	manager="mblythe"
 	editor="v-lincan"/>
 
 <tags
@@ -13,17 +13,17 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="03/08/2016"
-	ms.author="evboyle"/>
+	ms.date="01/11/2016"
+	ms.author="heidist"/>
 
 # Introdução à Pesquisa do Azure em Java
 > [AZURE.SELECTOR]
 - [Portal](search-get-started-portal.md)
-- [.NET](search-howto-dotnet-sdk.md)
+- [.NET](search-get-started-dotnet.md)
 
 Aprenda a criar um aplicativo de pesquisa Java personalizado que usa a Pesquisa do Azure para sua experiência de pesquisa. O tutorial usa a [API REST do Serviço de Pesquisa do Azure](https://msdn.microsoft.com/library/dn798935.aspx) para construir os objetos e as operações usados neste exercício.
 
-Para executar este exemplo, você deve ter um serviço de Pesquisa do Azure, no qual pode se inscrever no [Portal do Azure](https://portal.azure.com). Consulte [Criar um serviço de Pesquisa do Azure no portal](search-create-service-portal.md) para encontrar instruções passo a passo.
+Para executar este exemplo, você deverá ter um serviço de Pesquisa do Azure, no qual poderá se inscrever no [Portal do Azure](https://portal.azure.com). Veja [Criar um serviço de Pesquisa do Azure no portal](search-create-service-portal.md) para obter instruções passo a passo.
 
 Para compilar e testar este exemplo, usamos o seguinte software:
 
@@ -59,7 +59,7 @@ A lista a seguir descreve os arquivos que são relevantes para este exemplo.
 Todas as chamadas da API REST na Pesquisa do Azure exigem que você forneça a URL do serviço e uma chave de api.
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Na barra de navegação, clique em **Serviço de pesquisa** para listar todos os serviços da Pesquisa do Azure provisionados para sua assinatura.
+2. Na barra de atalhos, clique em **Serviço de Pesquisa** para listar todos os serviços da Pesquisa do Azure provisionados para sua assinatura.
 3. Selecione o serviço que você deseja usar.
 4. No painel de serviço, você verá blocos com as informações essenciais e o ícone de chave para acessar as chaves de administrador.
 
@@ -95,7 +95,7 @@ Todas as modificações de arquivos subsequentes e instruções de execução se
 
 1. Em **Gerenciador de Projetos**, clique duas vezes em **config.properties** para editar as definições de configuração que contêm o nome do servidor e a chave de Api.
 
-2. Consulte as etapas explicadas anteriormente neste artigo, em que você encontrou a URL de serviço e a chave de API no [Portal do Azure](https://portal.azure.com), para obter os valores que você vai inserir agora em **config.properties**.
+2. Confira as etapas explicadas anteriormente neste artigo,em que você encontrou a URL de serviço e a chave de API no [Portal do Azure](https://portal.azure.com), para obter os valores que você vai inserir agora em **config.properties**.
 
 3. Em **config.properties**, substitua "Chave Api" com a chave de Api para o serviço. Em seguida, o nome do serviço (o primeiro componente da URL http://servicename.search.windows.net) substitui o "nome do serviço" no mesmo arquivo.
 
@@ -203,4 +203,4 @@ Ainda não conhece a Pesquisa do Azure? Recomendamos os outros tutoriais para qu
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0224_2016-->

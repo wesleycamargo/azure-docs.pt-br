@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="02/25/2016"
    ms.author="sahajs;barbkess;jrj;sonyama"/>
 
 
@@ -119,7 +119,7 @@ Para ver o arquivo carregado no armazenamento de blobs:
 2. Em Contêineres, clique duas vezes em **datacontainer**.
 3. Para explorar o caminho para os dados, clique na pasta **datedimension** e você verá o arquivo **DimDate2.txt** carregado.
 4. Para exibir as propriedades, clique em **DimDate2.txt**.
-5. Observe que, na folha de propriedades do Blob, você pode baixar ou excluir o arquivo.
+5. Observe que, na folha de propriedades do Blob, você pode baixar ou excluir o arquivo. 
 
     ![Exibir o blob de armazenamento do Azure](./media/sql-data-warehouse-get-started-load-with-polybase/view-blob.png)
 
@@ -151,12 +151,12 @@ CREATE MASTER KEY;
 
 -- B: Create a database scoped credential
 -- IDENTITY: Provide any string, it is not used for authentication to Azure storage.
--- SECRET: Provide your Azure storage account key.
+-- SECRET: Provide your Azure storage account key. 
 
 
-CREATE DATABASE SCOPED CREDENTIAL AzureStorageCredential
-WITH
-    IDENTITY = 'user',
+CREATE DATABASE SCOPED CREDENTIAL AzureStorageCredential 
+WITH 
+    IDENTITY = 'user', 
     SECRET = '<azure_storage_account_key>'
 ;
 
@@ -165,12 +165,12 @@ WITH
 -- LOCATION: Provide Azure storage account name and blob container name.
 -- CREDENTIAL: Provide the credential created in the previous step.
 
-CREATE EXTERNAL DATA SOURCE AzureStorage
-WITH (
-    TYPE = HADOOP,
+CREATE EXTERNAL DATA SOURCE AzureStorage 
+WITH (	
+    TYPE = HADOOP, 
     LOCATION = 'wasbs://<blob_container_name>@<azure_storage_account_name>.blob.core.windows.net',
     CREDENTIAL = AzureStorageCredential
-);
+); 
 
 
 -- D: Create an external file format
@@ -178,26 +178,26 @@ WITH (
 -- FORMAT_OPTIONS: Specify field terminator, string delimiter, date format etc. for delimited text files.
 -- Specify DATA_COMPRESSION method if data is compressed.
 
-CREATE EXTERNAL FILE FORMAT TextFile
+CREATE EXTERNAL FILE FORMAT TextFile 
 WITH (
-    FORMAT_TYPE = DelimitedText,
+    FORMAT_TYPE = DelimitedText, 
     FORMAT_OPTIONS (FIELD_TERMINATOR = ',')
 );
 
 
 -- E: Create the external table
--- Specify column names and data types. This needs to match the data in the sample file.
--- LOCATION: Specify path to file or directory that contains the data (relative to the blob container).
+-- Specify column names and data types. This needs to match the data in the sample file. 
+-- LOCATION: Specify path to file or directory that contains the data (relative to the blob container). 
 -- To point to all files under the blob container, use LOCATION='.'
 
 CREATE EXTERNAL TABLE dbo.DimDate2External (
-    DateId INT NOT NULL,
-    CalendarQuarter TINYINT NOT NULL,
+    DateId INT NOT NULL, 
+    CalendarQuarter TINYINT NOT NULL, 
     FiscalQuarter TINYINT NOT NULL
 )
 WITH (
-    LOCATION='/datedimension/',
-    DATA_SOURCE=AzureStorage,
+    LOCATION='/datedimension/', 
+    DATA_SOURCE=AzureStorage, 
     FILE_FORMAT=TextFile
 );
 
@@ -212,28 +212,28 @@ SELECT count(*) FROM dbo.DimDate2External;
 
 Depois de criar a tabela externa, você poderá carregar os dados em uma nova tabela ou inseri-los em uma tabela existente.
 
-- Para carregar os dados em uma nova tabela, execute a instrução [CREATE TABLE AS SELECT (Transact-SQL)][]. A nova tabela terá as colunas nomeadas na consulta. Os tipos de dados das colunas corresponderão aos tipos de dados na definição da tabela externa.
-- Para carregar os dados em uma tabela existente, use a instrução [INSERT...SELECT (Transact-SQL)][].
+- Para carregar os dados em uma nova tabela, execute a instrução [CREATE TABLE AS SELECT (Transact-SQL)][]. A nova tabela terá as colunas nomeadas na consulta. Os tipos de dados das colunas corresponderão aos tipos de dados na definição da tabela externa. 
+- Para carregar os dados em uma tabela existente, use a instrução [INSERT...SELECT (Transact-SQL)][]. 
 
 ```
 -- Load the data from Azure blob storage to SQL Data Warehouse
 
 CREATE TABLE dbo.DimDate2
-WITH
+WITH 
 (   
     CLUSTERED COLUMNSTORE INDEX,
     DISTRIBUTION = ROUND_ROBIN
 )
-AS
+AS 
 SELECT * FROM [dbo].[DimDate2External];
 ```
-
+	
 
 No Pesquisador de Objetos do SQL Server no Visual Studio, você pode ver o formato de arquivo externo, a fonte de dados externa e a tabela DimDate2External.
 
 ![Exibir tabela externa](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
 
-## Etapa 5: Criar estatísticas sobre os dados recém-carregados
+## Etapa 5: Criar estatísticas sobre os dados recém-carregados 
 
 O SQL Data Warehouse do Azure ainda não dá suporte a estatísticas de criação ou de atualização automática. Portanto, para obter um alto desempenho de consulta, é importante criar estatísticas em cada coluna de cada tabela após a primeira carga. Também é importante atualizar as estatísticas após alterações significativas nos dados.
 
@@ -286,4 +286,4 @@ Confira o [Guia do PolyBase][] para saber mais sobre como desenvolver uma soluç
 [Criar Credencial com Escopo do Banco de Dados (Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0302_2016-->

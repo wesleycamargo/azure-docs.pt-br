@@ -12,18 +12,18 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/03/2016"
+   ms.date="12/07/2015"
    ms.author="joaoma" />
 
 # Adicionar, desabilitar, habilitar ou excluir pontos de extremidade
 
 O recurso de aplicativos Web no Serviço de Aplicativo do Azure já fornecem failover e funcionalidade de roteamento de tráfego de round robin para sites em um datacenter, independentemente do modo do site. O Gerenciador de Tráfego do Azure permite que você especifique o failover e o roteamento de tráfego para sites e serviços de nuvem em datacenters diferentes. A primeira etapa necessária fornecer essa funcionalidade é adicionar o serviço de nuvem ou ponto de extremidade de site ao Gerenciador de Tráfego.
 
->[AZURE.NOTE] Você não pode adicionar locais externos ou perfis do Gerenciador de Tráfego como pontos de extremidade usando o portal clássico do Azure. Você deve usar a API REST [Criar definição](http://go.microsoft.com/fwlink/p/?LinkId=400772) ou o Windows PowerShell [Add-AzureTrafficManagerEndpoint](http://go.microsoft.com/fwlink/p/?LinkId=400774).
+>[AZURE.NOTE]Você não pode adicionar locais externos ou perfis do Gerenciador de Tráfego como pontos de extremidade usando o portal clássico do Azure. Você deve usar a API REST [Criar definição](http://go.microsoft.com/fwlink/p/?LinkId=400772) ou o Windows PowerShell [Add-AzureTrafficManagerEndpoint](http://go.microsoft.com/fwlink/p/?LinkId=400774).
 
 Você também pode desabilitar pontos de extremidade individuais que fazem parte de um perfil do Gerenciador de Tráfego. Os pontos de extremidade incluem serviços de nuvem e sites. A desabilitação de um ponto de extremidade o mantém como parte do perfil, mas o perfil age como se o ponto de extremidade não estivesse incluído nele. Essa ação é muito útil para remover temporariamente um ponto de extremidade que esteja no modo de manutenção ou sendo reimplantado. Depois que o ponto de extremidade estiver funcionando novamente, ele poderá ser habilitado
 
->[AZURE.NOTE] A desabilitação de um ponto de extremidade não tem nada a ver com seu estado de implantação no Azure. Um ponto de extremidade íntegro permanecerá ativo e capaz de receber tráfego mesmo quando desabilitado no Gerenciador de Tráfego. Além disso, a desabilitação de um ponto de extremidade em um perfil não afeta seu status em outro perfil.
+>[AZURE.NOTE]A desabilitação de um ponto de extremidade não tem nada a ver com seu estado de implantação no Azure. Um ponto de extremidade íntegro permanecerá ativo e capaz de receber tráfego mesmo quando desabilitado no Gerenciador de Tráfego. Além disso, a desabilitação de um ponto de extremidade em um perfil não afeta seu status em outro perfil.
 
 ## Para adicionar um serviço de nuvem ou ponto de extremidade de site
 
@@ -36,7 +36,7 @@ Você também pode desabilitar pontos de extremidade individuais que fazem parte
 6. Selecione os sites na lista para adicioná-los como pontos de extremidade a esse perfil. Limpar o nome do site o remove da lista de pontos de extremidade. Observe que você só pode selecionar um único site por data center do Azure (também conhecido como região). Se você selecionar um site em um data center que hospeda vários sites, quando selecionar o primeiro site, os outros no mesmo data center ficarão indisponíveis para seleção. Observe também que apenas sites padrão são listados.
 7. Depois que você selecionar os pontos de extremidade para esse perfil, clique na marca de seleção no canto inferior direito para salvar suas alterações.
 
->[AZURE.NOTE] Se você estiver usando o método de roteamento de tráfego de *Failover*, depois de adicionar ou remover um ponto de extremidade, não deixe de ajustar a Lista de Prioridade de Failover na página Configuração para refletir a ordem de failover que você deseja para sua configuração. Para obter mais informações, consulte [Configurar roteamento de tráfego de Failover](traffic-manager-configure-failover-routing-method.md).
+>[AZURE.NOTE]Se você estiver usando o método de roteamento de tráfego de *Failover*, depois de adicionar ou remover um ponto de extremidade, não deixe de ajustar a Lista de Prioridade de Failover na página Configuração para refletir a ordem de failover que você deseja para sua configuração. Para obter mais informações, consulte [Configurar roteamento de tráfego de Failover](traffic-manager-configure-failover-load-balancing.md).
 
 ## Para desabilitar um ponto de extremidade
 
@@ -60,7 +60,7 @@ Você também pode desabilitar pontos de extremidade individuais que fazem parte
 3. Na página Pontos de Extremidade, clique no nome do ponto de extremidade que você deseja excluir do perfil.
 4. Na parte inferior da página, clique em **Excluir**.
 
->[AZURE.NOTE] Você não pode excluir locais externos ou perfis do Gerenciador de Tráfego, como pontos de extremidade usando o portal clássico do Azure. Você deve usar o Windows PowerShell. Para obter mais informações, consulte [Remove-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/dn690251.aspx).
+>[AZURE.NOTE]Você não pode excluir locais externos ou perfis do Gerenciador de Tráfego, como pontos de extremidade usando o portal clássico do Azure. Você deve usar o Windows PowerShell. Para obter mais informações, consulte [Remove-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/dn690251.aspx).
 
 ## Próximas etapas
 
@@ -75,4 +75,4 @@ Você também pode desabilitar pontos de extremidade individuais que fazem parte
 
 [Operações no Gerenciador de Tráfego (referência de API REST)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_1210_2015-->

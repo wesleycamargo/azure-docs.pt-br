@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="02/25/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Expectativas de visualização do SQL Data Warehouse
@@ -33,7 +33,7 @@ O SQL Data Warehouse do Azure apresenta Unidades de Data Warehouse (DWUs) como u
 
 Qualquer data warehouse tem duas métricas de desempenho fundamentais:
 
-- Taxa de carga. O número de registros que podem ser carregadas no data warehouse por segundo. Nós medimos especificamente o número de registros que podem ser importados, via PolyBase, do Armazenamento de Blob do Azure para uma tabela com um Índice de Repositório de Colunas Clusterizado.
+- Taxa de carga. O número de registros que podem ser carregadas no data warehouse por segundo. Nós medimos especificamente o número de registros que podem ser importados, via PolyBase, do Armazenamento de Blob do Azure para uma tabela com um Índice de Repositório de Colunas Clusterizado. 
 - Taxa de varredura. O número de registros que podem ser recuperados em sequência do data warehouse por segundo. Nós medimos especificamente o número de registros retornados por uma consulta em um Índice de Repositório de Colunas Clusterizado.
 
 
@@ -42,7 +42,7 @@ Nós estamos medindo alguns importantes aprimoramentos de desempenho e em breve 
 
 ## Alta confiabilidade apoiado por um SLA
 
-### Proteção de dados
+### Proteção de dados 
 
 O SQL Data Warehouse armazena todos os dados no Armazenamento do Azure usando blobs com redundância geográfica. Três cópias síncronas dos dados são mantidas na região local do Azure para garantir a proteção transparente de dados em caso de falhas localizadas (por exemplo, falhas da unidade de armazenamento). Além disso, mais três cópias assíncronas são mantidas em uma região remota do Azure para garantir a proteção de dados em caso de falhas regionais (recuperação de desastres). As regiões locais e remotas são combinadas para manter as latências aceitáveis de sincronização (por exemplo, leste e oeste dos EUA).
 
@@ -54,7 +54,7 @@ O SQL Data Warehouse do Azure faz backup de todos os dados pelo menos a cada 8 h
 Os instantâneos são copiados de modo assíncrono para uma região remota do Azure para adicionar a capacidade de recuperação em caso de falhas regionais (recuperação de desastres).
 
 
-### Conclusão da consulta
+### Conclusão da consulta 
 
 O SQL Data Warehouse armazena dados em um ou mais nós de computação, e cada um desses nós armazena alguns dados do usuário e controla a execução da consulta nesses dados. Como parte da arquitetura do processamento altamente paralelo (MPP, massively parallel processing), as consultas são executadas em paralelo em todos os nós de computação. O SQL Data Warehouse detecta e reduz as falhas de nó de computação automaticamente. No entanto, durante a visualização, uma operação (por exemplo, a consulta ou o carregamento de dados) pode falhar devido a falhas de nós individuais. Durante a visualização, estamos fazendo aprimoramentos contínuos para concluir com êxito as operações independentemente de falhas de nó.
 
@@ -72,4 +72,4 @@ O SQL Data Warehouse armazena dados em um ou mais nós de computação, e cada u
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0302_2016-->

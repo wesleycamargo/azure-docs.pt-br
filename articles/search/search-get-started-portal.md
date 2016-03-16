@@ -20,11 +20,11 @@
 # Introdução à Pesquisa do Azure no portal
 > [AZURE.SELECTOR]
 - [Portal](search-get-started-portal.md)
-- [.NET](search-howto-dotnet-sdk.md)
+- [.NET](search-get-started-dotnet.md)
 
 Esta introdução sem código ajuda você a começar a usar a Pesquisa do Microsoft Azure com recursos incorporados ao portal.
 
-Este tutorial pressupõe um [banco de dados de exemplo do Banco de Dados de Documentos do Azure](#apdx-sampledata) simples para criar usando nossos dados e instruções, mas também é possível adaptar estas etapas aos dados existentes no Banco de Dados de Documentos ou no Banco de Dados SQL.
+Este tutorial pressupõe um [banco de dados de exemplo do Banco de Dados de Documentos do Azure](#apdx-sampledata) simples para criar rapidamente usando nossos dados e instruções, mas também é possível adaptar estas etapas a dados existentes no Banco de Dados de Documentos ou em um Banco de Dados SQL.
 
 > [AZURE.NOTE] Este tutorial requer uma [Assinatura do Azure](../../includes/free-trial-note.md) e um [serviço de Pesquisa do Azure](search-create-service-portal.md). Se você não estiver pronto para se inscrever para uma assinatura de avaliação, pode ignorar este tutorial e optar por [Experimentar o Serviço de Aplicativo do Azure](search-tryappservice.md). Essa opção alternativa fornece uma Pesquisa do Azure com um aplicativo Web ASP.NET gratuitamente, uma hora por sessão, sem precisar de uma assinatura.
  
@@ -44,7 +44,7 @@ Muitos clientes começam com o serviço gratuito. Essa versão é limitada a tr�
 
 As consultas de pesquisa são iteradas em um *índice* que contém dados pesquisáveis, metadados e constructos usados para otimizar certos comportamentos de pesquisa. Como primeira etapa, você precisará definir e popular um índice.
 
-Há várias maneiras de criar um índice. Se os dados estiverem em um repositório de dados que a Pesquisa do Azure pode rastrear (como o Banco de Dados SQL do Azure, o SQL Server em uma VM do Azure ou o Banco de Dados de Documentos), você poderá criar e popular um índice muito facilmente usando um *indexador*.
+Há várias maneiras de criar um índice. Se os dados estiverem em um repositório de dados que a Pesquisa do Azure possa rastrear (como o Banco de Dados SQL do Azure, o SQL Server em uma VM do Azure ou o Banco de Dados de Documentos), poderá criar e popular um índice muito facilmente usando um *indexador*.
 
 Para mantermos essa tarefa baseada no portal, vamos supor que os dados do Banco de Dados de Documentos podem ser rastreados por meio de um indexador com o assistente **Importar dados**.
 
@@ -105,17 +105,17 @@ Clique em **OK** para concluir esta etapa do assistente.
 
 #### Etapa 3: definir o indexador
 
-Ainda no assistente **Importar dados**, clique em **Indexador** > **Nome**, digite um nome para o indexador e use os padrões para todos os outros valores. Esse objeto define um processo executável. Depois de criá-lo, você pode colocá-lo na agenda de recorrência, mas, por enquanto, use a opção padrão para executar o indexador imediatamente uma vez quando clicar em **OK**.
+Ainda no assistente **Importar dados**, clique em **Indexador** > **Nome**, digite um nome para o indexador e use os padrões para todos os outros valores. Esse objeto define um processo executável. Depois de criá-lo, você poderá colocá-lo na agenda de recorrência, mas, por enquanto, use a opção padrão para executar imediatamente o indexador uma vez quando você clicar em **OK**.
 
 As entradas de dados de importação devem estar todas preenchidas e prontas.
 
   ![][5]
 
-Para executar o assistente, clique em **OK** para iniciar a importação e fechar o assistente.
+Para executar o assistente, clique em **OK** para iniciar a importação e feche o assistente.
 
 ## Verificar o andamento
 
-Para verificar o andamento, volte para o painel do serviço, role para baixo e clique duas vezes no bloco **Indexadores** para abrir a lista de indexadores. Você deverá ver o indexador que acabou de criar na lista e o status que indica "em andamento" ou sucesso, juntamente com o número de documentos indexados na Pesquisa do Azure.
+Para verificar o andamento, volte para o painel do serviço e clique duas vezes no bloco **Indexadores** para abrir a lista de indexadores. Você deverá ver o indexador que acabou de criar na lista e o status que indica "em andamento" ou sucesso, juntamente com o número de documentos indexados na Pesquisa do Azure.
 
   ![][6]
 
@@ -129,7 +129,7 @@ O **Gerenciador de pesquisa** é uma ferramenta de consulta interna do portal. E
 2. Observe qual índice está ativo. Se não for aquele que você acabou de criar, clique em **Alterar índice** na barra de comandos para selecionar o desejado.
 2. Deixe a caixa de pesquisa vazia e clique no botão **Pesquisar** para executar uma pesquisa curinga que retorna todos os documentos.
 3. Insira algumas consultas de pesquisa de texto completo. Você pode examinar os resultados da pesquisa curinga para se familiarizar com artistas, álbuns e gêneros para consulta.
-4. Experimente outra sintaxe de consulta usando os [exemplos fornecidos no fim deste artigo](https://msdn.microsoft.com/library/azure/dn798927.aspx) para obter ideias, modificando sua consulta para usar cadeias de caracteres de pesquisa que provavelmente podem ser encontradas no índice.
+4. Experimente outra sintaxe de consulta usando os [exemplos fornecidos no fim deste artigo](https://msdn.microsoft.com/library/azure/dn798927.aspx) para obter ideias, modificando sua consulta para usar cadeias de caracteres de pesquisa que podem ser encontradas no índice.
 
 ## Próximas etapas
 
@@ -144,7 +144,7 @@ Para saber mais sobre outros recursos mencionados neste artigo, acesse estes lin
 
 Você pode experimentar esse mesmo fluxo de trabalho usando o assistente para importação de dados para outras fontes de dados, como um Banco de Dados SQL ou o SQL Server em máquinas virtuais do Azure.
 
-> [AZURE.NOTE] O suporte do indexador para rastrear o Armazenamento de Blobs do Azure foi recém-lançado, mas esse recurso está em visualização e ainda não é uma opção do portal. Para testar o indexador, você precisará escrever código. Consulte [Indexação do armazenamento de Blobs do Azure na Pesquisa do Azure](search-howto-indexing-azure-blob-storage.md) para saber mais. <a id="apdx-sampledata"></a>
+> [AZURE.NOTE] O suporte do indexador para rastrear o Armazenamento de Blobs do Azure foi recém-lançado, mas esse recurso está em visualização e ainda não é uma opção do portal. Para testar o indexador, você precisará escrever código. Confira [Indexação do armazenamento de Blobs do Azure na Pesquisa do Azure](search-howto-indexing-azure-blob-storage.md) para saber mais. <a id="apdx-sampledata"></a>
 
 
 ## Apêndice: Criar dados de exemplo no Banco de Dados de Documentos
@@ -161,16 +161,16 @@ As instruções a seguir oferecem orientação geral, mas não abrangem tudo. Se
 2. Adicione o Banco de Dados de Documentos à sua assinatura e abra o painel de serviço.
 2. Clique em **Adicionar Banco de Dados** para criar um novo banco de dados com uma ID `musicstoredb`. Ele aparecerá em uma lista de banco de dados mais abaixo na página, após sua criação.
 2. Clique no nome do banco de dados para abrir a folha de banco de dados.
-3. Clique em **Adicionar Coleção** para criar uma coleção com a ID `musicstorecoll`.
+3. Clique em **Adicionar Coleção** para criar uma coleção com a id `musicstorecoll`.
 3. Clique em **Gerenciador de Documentos**.
 4. Clique em **Adicionar Documentos**.
 5. Em **Adicionar Documento**, carregue os arquivos JSON em lotes de 100 ou menos.
 	- 386\.json
 	- 387\.json
 	- . . .
-6. Clique em **Gerenciador de Consultas** para verificar se os dados são carregados para atender aos requisitos de upload do Gerenciador de Documentos.
+6. Clique em **Gerenciador de Consultas** para verificar se os dados são carregados para atender aos requisitos de carregamento do Gerenciador de Documentos.
 
-Uma maneira fácil de fazer isso é modificar a consulta padrão para que ela selecione os primeiros 300 (há menos de 300 itens nesse conjunto de dados), ou você pode escrever `select * from musicstorecoll` e clicar em **Executar Consulta**.
+Uma maneira fácil de fazer isso é modificar a consulta padrão para que ela selecione os primeiros 300 (há menos de 300 itens nesse conjunto de dados), ou você pode escrever `select * from musicstorecoll` e clicar em **Executar consulta**.
 
 Você deve obter a saída JSON, começando pelo documento número 386 e terminando com o documento 669. Depois que os dados forem carregados, você poderá [voltar para as etapas neste passo a passo](#defineDS) para criar um índice usando o **Assistente de importação**.
 
@@ -184,4 +184,4 @@ Você deve obter a saída JSON, começando pelo documento número 386 e terminan
 [6]: ./media/search-get-started-portal/AzureSearch-GetStart-IndexerList.png
 [7]: ./media/search-get-started-portal/search-data-import-wiz-btn.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0224_2016-->

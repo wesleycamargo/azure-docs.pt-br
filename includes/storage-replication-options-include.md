@@ -20,10 +20,10 @@ Os dados da sua conta de armazenamento do Microsoft Azure sempre são replicados
 
 	> [AZURE.IMPORTANT] Você pode alterar como seus dados são replicados depois que sua conta de armazenamento tiver sido criada, a menos que tenha especificado ZRS quando criou a conta. No entanto, observe que você pode incorrer em custo por uma transferência de dados adicional e ocasional se alternar de LRS para GRS ou RA-GRS.
  
-Veja [Replicação de Armazenamento do Azure](../articles/storage/storage-redundancy.md) para obter mais detalhes sobre as opções de replicação de armazenamento.
+Confira [Replicação de armazenamento do Azure](../articles/storage/storage-redundancy.md) para obter mais detalhes sobre as opções de replicação de armazenamento do Azure.
 
 Para informações sobre preços de replicação da conta de armazenamento, consulte [Preços de Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
 
 Para obter detalhes arquitetônicos sobre a durabilidade com o armazenamento do Azure, consulte [SOSP Paper - Azure Storage: A Highly Available Cloud Storage Service with Strong](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0218_2016-->

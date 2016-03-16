@@ -233,10 +233,6 @@ Abra um teste individual para editá-lo ou desabilitá-lo.
 
 Talvez você deseje desabilitar testes na Web quando estiver fazendo a manutenção de seu serviço.
 
-## Automação
-
-Você pode [usar scripts do PowerShell para configurar um teste da web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) automaticamente.
-
 ## Perguntas? Problemas?
 
 * *Posso chamar o código através do meu teste na Web?*
@@ -393,4 +389,4 @@ Abra as portas 80 (http) e 443 (https).
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0302_2016-->

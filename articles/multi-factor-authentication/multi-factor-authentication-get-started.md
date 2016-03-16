@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="03/03/2016" 
+	ms.date="02/24/2016" 
 	ms.author="billmath"/>
 
 #Escolha a solução de segurança multifator para você
@@ -65,20 +65,20 @@ SMS unidirecional como segundo fator | ● | ●
 SMS bidirecional como segundo fator | | ● 
 Tokens de hardware como segundo fator | | ● 
 Senhas de aplicativos para clientes que não oferecem suporte a MFA | ● |  
-Controle do administrador sobre métodos de autenticação | (Visualização pública) | ● 
+Controle do administrador sobre métodos de autenticação | | ● 
 Modo PIN | | ●
 Alerta de fraude | ● | ●
 Relatórios de MFA | ● | ● 
-Desvio único | | ● 
+Desvio único | ● | ● 
 Saudações personalizadas para chamadas telefônicas | ● | ● 
 ID do chamador personalizável para chamadas telefônicas | ● | ● 
 IPs confiáveis | ● | ● 
-Lembrar MFA para dispositivos confiáveis (Preview Pública) | ● |  
+Lembrar MFA para dispositivos confiáveis (Visualização Pública) | ● |  
 Acesso condicional | ● | ● 
-Cache | | ● 
+Cache | ● | ● 
 
 Agora que determinamos se usar a autenticação multifator na nuvem ou o Servidor MFA local, podemos pode começar a configurar e usar o Azure Multi-Factor Authentication. **Selecione o ícone que representa seu cenário.**
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0302_2016-->

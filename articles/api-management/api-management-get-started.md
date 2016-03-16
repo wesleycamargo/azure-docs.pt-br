@@ -4,7 +4,7 @@
 	services="api-management"
 	documentationCenter=""
 	authors="steved0x"
-	manager="erikre"
+	manager="dwrede"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/04/2016"
+	ms.date="12/07/2015"
 	ms.author="sdanie"/>
 
 # Gerenciar sua primeira API no Gerenciamento de API do Azure
@@ -59,7 +59,7 @@ O sistema é composto pelos seguintes componentes:
 
 ## <a name="create-service-instance"> </a>Criar uma instância de Gerenciamento de API
 
->[AZURE.NOTE] Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tem uma conta, pode criar uma conta gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure][].
+>[AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure][].
 
 Esta etapa sobre como trabalhar com o Gerenciamento de API serve para criar uma instância de serviço. Faça logon no [Portal Clássico do Azure][] e clique em **Novo**, **Serviços de Aplicativos**, **Gerenciamento de API**, **Criar**.
 
@@ -73,13 +73,13 @@ Selecione a **Assinatura** e a **Região** da sua instância de serviço. Após 
 
 Insira **Contoso Ltd.** como o **Nome da Organização** e insira seu endereço de email no campo de **E-mail do Administrador**.
 
->[AZURE.NOTE] Esse endereço de email é usado para notificações do sistema de Gerenciamento de API. Para obter mais informações, consulte [Saiba como configurar notificações e modelos de email no Gerenciamento de API do Azure][].
+>[AZURE.NOTE]Esse endereço de email é usado para notificações do sistema de Gerenciamento de API. Para obter mais informações, consulte [Saiba como configurar notificações e modelos de email no Gerenciamento de API do Azure][].
 
 ![Novo serviço de Gerenciamento de API][api-management-create-instance-step2]
 
 As instâncias de serviço de Gerenciamento de API estão disponíveis em três camadas: Developer, Standard e Premium. Por padrão, as novas instâncias de serviço de Gerenciamento de API são criadas usando a camada do Desenvolvedor. Para selecionar a camada Standard ou Premium, marque a caixa de seleção **Configurações avançadas** e selecione a camada desejada na tela seguinte.
 
->[AZURE.NOTE] A Camada do Desenvolvedor é para programas pilotos de API, teste e desenvolvimento, onde a alta disponibilidade não é uma preocupação. Nas camadas Standard e Premium, você pode dimensionar sua contagem de unidade reservada para lidar com mais tráfego. As camadas Standard e Premium fornecem um serviço de Gerenciamento de API com o maior poder de processamento e desempenho. Você pode concluir este tutorial usando qualquer camada. Para obter mais informações sobre as camadas de Gerenciamento de API, consulte [Preços de Gerenciamento de API][].
+>[AZURE.NOTE]A Camada do Desenvolvedor é para programas pilotos de API, teste e desenvolvimento, onde a alta disponibilidade não é uma preocupação. Nas camadas Standard e Premium, você pode dimensionar sua contagem de unidade reservada para lidar com mais tráfego. As camadas Standard e Premium fornecem um serviço de Gerenciamento de API com o maior poder de processamento e desempenho. Você pode concluir este tutorial usando qualquer camada. Para obter mais informações sobre as camadas de Gerenciamento de API, consulte [Preços de Gerenciamento de API][].
 
 Clique na caixa de seleção para criar sua instância de serviço.
 
@@ -93,7 +93,7 @@ Uma API consiste em um conjunto de operações que podem ser iniciadas a partir 
 
 APIs podem ser criadas (e as operações podem ser adicionadas) manualmente, podendo também ser importadas. Neste tutorial, importaremos uma API para um serviço Web de calculadora de exemplo fornecida pela Microsoft e hospedada no Azure.
 
->[AZURE.NOTE] Para obter diretrizes sobre como criar uma API e adicionar operações manualmente, consulte [Como criar APIs](api-management-howto-create-apis.md) e [Como adicionar operações a uma API](api-management-howto-add-operations.md).
+>[AZURE.NOTE]Para obter diretrizes sobre como criar uma API e adicionar operações manualmente, consulte [Como criar APIs](api-management-howto-create-apis.md) e [Como adicionar operações a uma API](api-management-howto-add-operations.md).
 
 As APIs são configuradas no portal do editor, que pode ser acessado por meio do Portal Clássico do Azure. Para acessar o portal do editor, clique em **Gerenciar** no Portal Clássico do Azure do serviço de Gerenciamento de API.
 
@@ -111,8 +111,6 @@ Execute as seguintes etapas para configurar a API de calculadora:
 4. Clique em **Salvar** para importar a API.
 
 ![Adicionar nova API][api-management-import-new-api]
-
->[AZURE.NOTE] O **Gerenciamento de API** atualmente oferece suporte à versão 1.2 e 2.0 do documento de Swagger para importação. Certifique-se de que, mesmo que a [Especificação Swagger 2.0](http://swagger.io/specification) declare que as propriedades `host`, `basePath` e `schemes` são opcionais, o documento de Swagger 2.0 **DEVE** conter essas propriedades; caso contrário, não será importado.
 
 Depois que a API é importada, a página de resumo para a API é exibida no portal do editor.
 
@@ -165,7 +163,7 @@ A exibição padrão do portal do editor é o **Painel**, que fornece uma visão
 
 Passe o mouse sobre o gráfico da **Calculadora Básica** para ver as métricas específicas de utilização da API durante um período de tempo específico.
 
->[AZURE.NOTE] Se você não vir linhas no gráfico, volte ao portal do desenvolvedor e faça algumas chamadas à API, aguarde alguns momentos e volte para o painel.
+>[AZURE.NOTE]Se você não vir linhas no gráfico, volte ao portal do desenvolvedor e faça algumas chamadas à API, aguarde alguns momentos e volte para o painel.
 
 Clique em **Exibir detalhes** para exibir a página de resumo da API, incluindo uma versão maior das métricas exibidas.
 
@@ -245,4 +243,4 @@ A seção **Análise** possui as quatro guias a seguir.
 [api-management-]: ./media/api-management-get-started/api-management-.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_1210_2015-->

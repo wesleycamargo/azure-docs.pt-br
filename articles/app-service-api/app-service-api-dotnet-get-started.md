@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/09/2016"
+	ms.date="02/05/2016"
 	ms.author="tdykstra"/>
 
 # Introdução aos aplicativos de API e ao ASP.NET no Serviço de Aplicativo do Azure
@@ -461,10 +461,9 @@ Se você chamasse o aplicativo de API da camada intermediária agora, ele tentar
  
 4. Na folha **Configurações do Aplicativo** do Aplicativo de API, role para baixo até a seção **Configurações do aplicativo** e adicione a chave e o valor a seguir:
 
-	| **Chave** | toDoListDataAPIURL |
-	|---|---|
-	| **Valor** | https://{your nome do aplicativo de API de camada de dados}.azurewebsites.net |
-	| **Exemplo** | https://todolistdataapi0121.azurewebsites.net |
+	|Chave|Valor|Exemplo
+	|---|---|---|
+	|toDoListDataAPIURL|https://{your nome do aplicativo de API da camada intermediária}.azurewebsites.net|https://todolistdataapi0121.azurewebsites.net|
 
 4. Clique em **Salvar**.
 
@@ -518,9 +517,9 @@ No entanto, é fácil alterar a representação do portal. Por exemplo, você po
 
 ## Opcional: URL da definição de API nos modelos do Gerenciador de Recursos do Azure
 
-Neste tutorial, você viu a URL de definição de API no Visual Studio e no portal do Azure. Você também pode configurar a URL de definição de API para um aplicativo de API usando os [modelos do Azure Resource Manager](../resource-group-authoring-templates.md) nas ferramentas de linha de comando, como o [Azure PowerShell](../powershell-install-configure.md) e a [CLI do Azure](../xplat-cli-install.md).
+Neste tutorial, você viu a URL de definição de API no Visual Studio e no portal do Azure. Você também pode configurar a URL de definição de API para um aplicativo de API usando os [modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md) nas ferramentas de linha de comando, como o [Azure PowerShell](../powershell-install-configure.md) e a [CLI do Azure](../xplat-cli-install.md).
 
-Para ver um exemplo de um modelo do Azure Resource Manager que defina a propriedade de definição de API, abra o [arquivo azuredeploy.json no repositório do aplicativo de exemplo deste tutorial](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json). Localize a seção do modelo que se parece com o exemplo a seguir:
+Para ver um exemplo de um modelo do Gerenciador de Recursos do Azure que defina a propriedade de definição de API, abra o [arquivo azuredeploy.json no repositório do aplicativo de exemplo deste tutorial](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json). Localize a seção do modelo que se parece com o exemplo a seguir:
 
 		"apiDefinition": {
 		  "url": "https://todolistdataapi.azurewebsites.net/swagger/docs/v1"
@@ -530,4 +529,4 @@ Para ver um exemplo de um modelo do Azure Resource Manager que defina a propried
 
 Neste tutorial, você viu como criar aplicativos de API, implantar código neles, gerar código cliente para eles e consumi-los usando clientes .NET. O próximo tutorial na série de introdução aos Aplicativos de API mostra como [consumir aplicativos de API de clientes JavaScript usando CORS](app-service-api-cors-consume-javascript.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0224_2016-->

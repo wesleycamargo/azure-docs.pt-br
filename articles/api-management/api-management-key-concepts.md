@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
@@ -12,8 +12,8 @@
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="hero-article" 
-	ms.date="03/04/2016" 
+	ms.topic="article" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 #O que é Gerenciamento de API?
@@ -26,7 +26,7 @@ Para usar o Gerenciamento de API, os administradores criaram as APIs. Cada API c
 
 Esse tópico fornece uma visão geral dos principais conceitos de Gerenciamento de API.
 
->[AZURE.NOTE] Para obter mais informações, consulte o white-paper em PDF [Gerenciamento de API baseado em nuvem: utilizando a energia das APIs](http://j.mp/ms-apim-whitepaper). Este white paper introdutório sobre o Gerenciamento de API, feito pelo CITO Research, abrange:
+>[AZURE.NOTE]Para obter mais informações, consulte o white-paper em PDF [Gerenciamento de API baseado em nuvem: utilizando a energia das APIs](http://j.mp/ms-apim-whitepaper). Este white paper introdutório sobre o Gerenciamento de API, feito pelo CITO Research, abrange:
 >
 > - Desafios e requisitos comuns de API
 >     - Dissociação de APIs e apresentação de fachadas
@@ -114,4 +114,4 @@ Você pode personalizar a aparência do portal do desenvolvedor adicionando cont
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_1210_2015-->

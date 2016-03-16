@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="02/25/2016"
    ms.author="barbkess;mausher;jrj;sonyama"/>
 
 
@@ -26,7 +26,7 @@ Um data warehouse é uma coleção de dados que é carregada de uma ou mais font
 
 Os data warehouses são caracterizados por consultas que examinam grandes quantidades de linhas, grandes intervalos de dados e podem retornar resultados relativamente grandes para fins de análise e relatório. Os data warehouses também são caracterizados pelos carregamentos de dados relativamente grandes, em oposição a inserções/atualizações/exclusões pequenas no nível de transação.
 
-- Um data warehouse funciona melhor quando os dados são armazenados de forma que otimizem as consultas que precisam examinar grandes números de linhas ou grandes intervalos de dados. Esse tipo de exame funciona melhor quando os dados são armazenados e pesquisados por colunas, e não por linhas.
+- Um data warehouse funciona melhor quando os dados são armazenados de forma que otimizem as consultas que precisam examinar grandes números de linhas ou grandes intervalos de dados. Esse tipo de exame funciona melhor quando os dados são armazenados e pesquisados por colunas, e não por linhas. 
 
 >[AZURE.NOTE] O índice columnstore na memória, que usa o armazenamento de coluna, fornece até 10 vezes mais ganhos de compactação e 100 vezes mais ganhos de desempenho de consulta pelas árvores binárias tradicionais para consultas de análise e relatório. Consideramos os índices columnstore como o padrão para armazenamento e exame de dados volumosos em um data warehouse.
 
@@ -39,7 +39,7 @@ O carregamento de dados é uma grande parte da carga de trabalho do data warehou
 - Tradicionalmente, o processo de carregamento é chamado de ETL (Extração, Transformação e Carregamento). Geralmente, os dados precisam ser transformados para que sejam consistentes com outros dados no data warehouse. Anteriormente, as empresas usavam servidores ETL dedicados para realizar as transformações. Agora, com um processamento rápido massivamente paralelo, você pode carregar dados no SQL Data Warehouse primeiro e depois realizar as transformações. Esse processo é chamado ELT (Extração, Carregamento e Transformação) e está se tornando um novo padrão para a carga de trabalho do data warehouse.
 
 > [AZURE.NOTE] Com o SQL Server CTP2, agora você pode realizar a análise em tempo real em uma tabela OLTP. Isso não substitui a necessidade de um data warehouse para armazenar e analisar dados, mas é uma maneira de realizar análise em tempo real.
-
+ 
 ### Consultas de análise e relatórios
 As consultas de análise e relatórios muitas vezes são classificadas em pequenas, médias e grandes com base em vários critérios, mas normalmente se baseiam no tempo. Na maioria dos data warehouses, há uma carga de trabalho mista de consultas de execução rápida e execução longa. Em cada caso, é importante determinar essa combinação e determinar sua frequência (por hora, diariamente, fim do mês, fim do trimestre e assim por diante). É importante entender que a carga de trabalho de consultas mistas, aliada à simultaneidade, leva ao planejamento adequado da capacidade para um data warehouse.
 
@@ -49,14 +49,14 @@ As consultas de análise e relatórios muitas vezes são classificadas em pequen
 O gerenciamento de dados é importante, especialmente quando você sabe que pode esgotar o espaço em disco em um futuro próximo. O data warehouse normalmente divide os dados em intervalos significativos, que são armazenados como partições em uma tabela. Todos os produtos baseados em SQL Server permitem que você mova partições para dentro e fora da tabela. Essa alternância de partição permite mover dados antigos para um armazenamento mais barato e manter os dados mais recentes disponíveis no armazenamento online.
 
 - Os índices columnstore oferecem suporte a tabelas particionadas. Em índices columnstore, as tabelas particionadas são usadas para gerenciamento de dados e arquivamento. Em tabelas armazenadas linha por linha, as partições têm uma função mais importante no desempenho da consulta.  
-
+ 
 - O PolyBase desempenha um papel importante no gerenciamento de dados. Usando o PolyBase, você tem a opção de arquivar dados antigos no armazenamento blob do Azure ou no Hadoop. Isso proporciona muitas opções, uma vez que os dados permanecem online. Pode levar mais tempo para recuperar dados do Hadoop, mas a compensação do tempo de recuperação pode superar o custo do armazenamento.
-
+ 
 ### Exportando dados
 Uma maneira de disponibilizar dados para relatórios e análise é enviar os dados do data warehouse aos servidores dedicados para execução de análise e relatórios. Esses servidores são chamados de data marts. Por exemplo, você pode pré-processar dados de relatório e, em seguida, exportá-los do data warehouse para muitos servidores ao redor do mundo, disponibilizando-os amplamente aos clientes e analistas.
 
 - Para gerar relatórios, todas as noites você pode popular servidores de relatório somente leitura com um instantâneo dos dados diários. Isso fornece maior largura de banda aos clientes ao mesmo tempo que reduz os recursos de computação necessários no data warehouse. Quanto se trata de segurança, os data marts permitem que você reduza o número de usuários que têm acesso ao data warehouse.
-- Para análise, você pode criar um cubo de análise no data warehouse e realizar a análise no data warehouse ou pré-processar os dados e exportá-los para o servidor de análise para análise futura.
+- Para análise, você pode criar um cubo de análise no data warehouse e realizar a análise no data warehouse ou pré-processar os dados e exportá-los para o servidor de análise para análise futura. 
 
 ## Próximas etapas
 Para começar a desenvolver seu data warehouse, consulte [visão geral de desenvolvimento][].
@@ -73,4 +73,4 @@ Para começar a desenvolver seu data warehouse, consulte [visão geral de desenv
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0302_2016-->

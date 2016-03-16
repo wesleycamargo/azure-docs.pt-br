@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="02/01/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Conectar-se ao SQL Data Warehouse com o Visual Studio
@@ -26,7 +26,7 @@ Este passo a passo mostra como se conectar e consultar um banco de dados do SQL 
 
 ## Pré-requisitos
 
-+ Banco de dados de exemplo AdventureWorksDW no SQL Data Warehouse. Para criar isso, consulte [Criar um banco de dados do SQL Data Warehouse](sql-data-warehouse-get-started-provision.md).
++ Banco de dados de exemplo AdventureWorksDW no SQL Data Warehouse. Para criar isso, consulte [Criar um banco de dados do SQL Data Warehouse](sql-data-warehouse-get-started-provision.md). 
 + SQL Server Data Tools para Visual Studio Para obter instruções e opções de instalação, consulte [Instalar o Visual Studio e/OU o SSDT](sql-data-warehouse-install-visual-studio.md)
 
 ## Etapa 1: Encontrar o nome totalmente qualificado do servidor do SQL Azure
@@ -45,7 +45,7 @@ Para localizar o nome de servidor totalmente qualificado.
 
 1. Abra o Visual Studio.
 2. Abra o Pesquisador de Objetos do SQL Server. Para fazer isso, selecione **Exibir** > **Pesquisador de Objetos do SQL Server**.
-
+ 
     ![Pesquisador de Objetos do SQL Server][2]
 
 3. Clique no ícone **Adicionar SQL Server**.
@@ -70,7 +70,7 @@ Para localizar o nome de servidor totalmente qualificado.
 
 Agora que nos conectamos ao servidor, prosseguiremos e escreveremos uma consulta.
 
-1. Clique com o botão direito do mouse em seu banco de dados no Gerenciador de Objetos do SQL Server.
+1. Clique com o botão direito do mouse em seu banco de dados no Gerenciador de Objetos do SQL Server. 
 
 2. Selecione **Nova Consulta**. Uma nova janela de consulta é aberta.
 
@@ -108,4 +108,4 @@ Agora que você pode se conectar e consultar, tente [visualizar os dados com o P
 [7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
 [8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0204_2016-->

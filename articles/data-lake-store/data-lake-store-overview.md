@@ -1,18 +1,18 @@
-<properties
-   pageTitle="Visão geral do Repositório Azure Data Lake | Azure"
-   description="Entenda o que é o Repositório Azure Data Lake e o valor que ele fornece com relação a outros armazenamentos de dados"
-   services="data-lake-store"
-   documentationCenter=""
-   authors="nitinme"
-   manager="paulettm"
+<properties 
+   pageTitle="Visão geral do Repositório Azure Data Lake | Azure" 
+   description="Entenda o que é o Repositório Azure Data Lake e o valor que ele fornece com relação a outros armazenamentos de dados" 
+   services="data-lake-store" 
+   documentationCenter="" 
+   authors="nitinme" 
+   manager="paulettm" 
    editor="cgronlun"/>
-
+ 
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data"
+   ms.workload="big-data" 
    ms.date="01/22/2016"
    ms.author="nitinme"/>
 
@@ -83,8 +83,9 @@ Você pode acessar seus dados no Repositório Data Lake usando `adl://<data_lake
 
 Veja [Introdução ao Repositório do Data Lake usando o Portal do Azure](data-lake-store-get-started-portal.md), para obter informações sobre como provisionar um Repositório do Data Lake usando o Portal do Azure. Depois de provisionar o Azure Data Lake, você aprenderá a usar ofertas de big data, como a Análise do Azure Data Lake ou o Azure HDInsight com o Repositório Data Lake. Você também pode criar um aplicativo .NET a fim de criar uma conta do Repositório Azure Data Lake e executar operações como carregar dados, baixar dados etc.
 
-- [Introdução à Análise Data Lake do Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+- [Introdução à Análise Data Lake do Azure](data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Introdução ao Repositório Azure Data Lake usando o SDK do .NET](data-lake-store-get-started-net-sdk.md)
+  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0128_2016-->

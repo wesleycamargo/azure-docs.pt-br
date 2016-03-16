@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="01/07/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Conectar e consultar com SQLCMD
@@ -78,9 +78,9 @@ Para saber mais sobre sqlcmd, consulte a [documentação do sqlcmd](https://msdn
 Agora que você pode se conectar e consultar, tente [conectar-se ao PowerBI][].
 
 [conectar-se ao PowerBI]: ./sql-data-warehouse-integrate-power-bi.md
-
+ 
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0114_2016-->

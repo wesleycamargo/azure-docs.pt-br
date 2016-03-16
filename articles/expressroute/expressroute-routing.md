@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/03/2016"
+   ms.date="02/12/2016"
    ms.author="cherylmc"/>
 
 
@@ -127,15 +127,11 @@ A Microsoft marcará prefixos anunciados por meio do emparelhamento público e d
 | | Centro-Norte dos EUA | 12076:51007 |
 | | Centro-Sul dos Estados Unidos | 12076:51008 |
 | | Centro dos EUA | 12076:51009 |
-| | Canadá Central | 12076:51020 |
-| | Leste do Canadá | 12076:51021 |
 | **América do Sul** | | |
 | | Sul do Brasil | 12076:51014 |
 | **Europa** | | |
 | | Norte da Europa | 12076:51003 |
 | | Europa Ocidental | 12076:51002 |
-| | Norte do Reino Unido | 12076:51022 |
-| | Sul do Reino Unido 2 | 12076:51023 |
 | **Pacífico Asiático** | | |
 | | Ásia Oriental | 12076:51010 |
 | | Sudeste Asiático | 12076:51011 |
@@ -174,8 +170,8 @@ A Microsoft não adota valores de comunidade BGP que você define. É necessári
 
 - Configurar sua conexão da Rota Expressa.
 
-	- [Criar um circuito da Rota Expressa para o modelo de implantação clássico](expressroute-howto-circuit-classic.md) ou [Criar e modificar um circuito da Rota Expressa usando o Azure Resource Manager](expressroute-howto-circuit-arm.md)
+	- [Criar um circuito da Rota Expressa para o modelo de implantação clássico](expressroute-howto-circuit-classic.md) ou [Criar e modificar um circuito da Rota Expressa usando o Gerenciador de Recursos do Azure](expressroute-howto-circuit-arm.md)
 	- [Configurar o roteamento para o modelo de implantação clássico](expressroute-howto-routing-classic.md) ou [Configurar o roteamento para o modelo de implantação do Gerenciador de Recursos](expressroute-howto-routing-arm.md)
 	- [Vincular uma rede virtual clássica a um circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md) ou [Conectar uma VNet do Gerenciador de Recursos a um circuito da Rota Expressa](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0224_2016-->
