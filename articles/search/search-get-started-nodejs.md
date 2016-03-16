@@ -3,8 +3,8 @@
 	description="Percorra a criação de um aplicativo de pesquisa em um serviço de pesquisa hospedado na nuvem no Azure usando NodeJS como linguagem de programação."
 	services="search"
 	documentationCenter=""
-	authors="HeidiSteen"
-	manager="mblythe"
+	authors="EvanBoyle"
+	manager="pablocas"
 	editor="v-lincan"/>
 
 <tags
@@ -13,19 +13,19 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="01/11/2016"
-	ms.author="heidist"/>
+	ms.date="03/08/2016"
+	ms.author="evboyle"/>
 
 # Introdução à Pesquisa do Azure no NodeJS
 > [AZURE.SELECTOR]
 - [Portal](search-get-started-portal.md)
-- [.NET](search-get-started-dotnet.md)
+- [.NET](search-howto-dotnet-sdk.md)
 
 Aprenda a criar um aplicativo de pesquisa NodeJS personalizado que usa a Pesquisa do Azure para a sua experiência de pesquisa. O tutorial usa a [API REST do Serviço de Pesquisa do Azure](https://msdn.microsoft.com/library/dn798935.aspx) para construir os objetos e as operações usados neste exercício.
 
 Usamos [NodeJS](https://nodejs.org) e NPM, [Sublime Text 3](http://www.sublimetext.com/3) e o Windows PowerShell no Windows 8.1 para desenvolver e testar esse código.
 
-Para executar este exemplo, você deverá ter um serviço de Pesquisa do Azure, no qual poderá se inscrever no [Portal do Azure](https://portal.azure.com). Veja [Criar um serviço de Pesquisa do Azure no portal](search-create-service-portal.md) para obter instruções passo a passo.
+Para executar este exemplo, você deve ter um serviço de Pesquisa do Azure, no qual pode se inscrever no [Portal do Azure](https://portal.azure.com). Consulte [Criar um serviço de Pesquisa do Azure no portal](search-create-service-portal.md) para encontrar instruções passo a passo.
 
 ## Sobre os dados
 
@@ -33,7 +33,7 @@ Este exemplo de aplicativo usa dados do [Serviço Geológico dos Estados Unidos 
 
 Neste aplicativo, o programa **DataIndexer** cria e carrega o índice usando um constructo [Indexador](https://msdn.microsoft.com/library/azure/dn798918.aspx), recuperando o conjunto de dados filtrado do USGS de um Banco de Dados SQL do Azure público. As informações de credenciais e de conexão para a fonte de dados online são fornecidas no código do programa. Nenhuma configuração adicional é necessária.
 
-> [AZURE.NOTE] Aplicamos um filtro a esse conjunto de dados para permanecer abaixo do limite de 10.000 documentos da camada de preços gratuita. Se você usar a camada padrão, esse limite não se aplicará. Para obter detalhes sobre a capacidade de cada camada de preços, confira [Limites e restrições](search-limits-quotas-capacity.md).
+> [AZURE.NOTE] Aplicamos um filtro a esse conjunto de dados para permanecer abaixo do limite de 10.000 documentos da camada de preços gratuita. Se você usar a camada padrão, esse limite não se aplicará. Para obter detalhes sobre a capacidade de cada tipo de preço, consulte [Limites de serviço da Pesquisa](search-limits-quotas-capacity.md).
 
 
 <a id="sub-2"></a>
@@ -42,7 +42,7 @@ Neste aplicativo, o programa **DataIndexer** cria e carrega o índice usando um 
 Depois de criar o serviço, retorne ao portal para obter a URL ou `api-key`. Conexões com seu serviço de Pesquisa requerem que você tenha tanto uma URL quanto um `api-key` para autenticar a chamada.
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Na barra de atalhos, clique em **Serviço de Pesquisa** para listar todos os serviços da Pesquisa do Azure provisionados para sua assinatura.
+2. Na barra de navegação, clique em **Serviço de pesquisa** para listar todos os serviços da Pesquisa do Azure provisionados para sua assinatura.
 3. Selecione o serviço que você deseja usar.
 4. No painel de serviço, você verá blocos com as informações essenciais e o ícone de chave para acessar as chaves de administrador.
 
@@ -121,4 +121,4 @@ Ainda não conhece a Pesquisa do Azure? Recomendamos os outros tutoriais para qu
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

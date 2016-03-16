@@ -135,7 +135,9 @@ Para verificar se o agente foi instalado, abra serviços e procure pelo seguinte
 Você pode configurar agentes do Azure AD Connect Health para trabalhar com um HTTP Proxy.
 
 >[AZURE.NOTE]
--Usar "Netsh WinHttp set ProxyServerAddress" não funcionará, pois o agente usa System.Net para fazer as solicitações da web em vez do Microsoft Windows HTTP Services. -O endereço de HTTP Proxy configurado será usado para passagem de mensagens HTTPS criptografadas. -Não há suporte para proxies autenticados (usando HTTPBasic).
+- Usar "Netsh WinHttp set ProxyServerAddress" não funcionará, pois o agente usa System.Net para fazer solicitações da web em vez do Microsoft Windows HTTP Services.
+- O endereço do Http Proxy configurado será usado para mensagens de passagem criptografadas de Https.
+- Não há suporte para proxies autenticados (usando HTTPBasic).
 
 ### Alterar a configuração de proxy do agente de integridade
 Você tem as seguintes opções para configurar o agente do Azure AD Connect Health para usar um HTTP Proxy.
@@ -190,7 +192,7 @@ O parâmetro de função usa os seguintes valores:
 
 Você pode usar o sinalizador -ShowResults no comando para exibir logs detalhados. Use o seguinte exemplo:
 
-    Test-AzureADConnectHealthConnectivity -Role Sync -ShowResults
+    Test-AzureADConnectHealthConnectivity -Role Sync -ShowResult
 
 >[AZURE.NOTE]Para usar a ferramenta de conectividade, você deve primeiro concluir o registro do agente. Se não conseguir concluir o registro do agente, verifique se você atende a todos os [requisitos](active-directory-aadconnect-health.md#requirements) do Azure AD Connect Health. Esse teste de conectividade é executado por padrão durante o registro do agente.
 
@@ -204,4 +206,4 @@ Você pode usar o sinalizador -ShowResults no comando para exibir logs detalhado
 * [Perguntas frequentes do Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Histórico de versão do Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -4,7 +4,7 @@
 	services="mobile-services"
 	documentationCenter="windows"
 	authors="ggailey777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,14 +13,17 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="javascript"
 	ms.topic="get-started-article"
-	ms.date="02/10/2016"
+	ms.date="03/06/2016"
 	ms.author="glenga"/>
 
 # Introdução aos Serviços Móveis
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
-[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Para a versão de Aplicativos Móveis equivalente deste tópico, consulte [Criar um aplicativo do Windows com Aplicativos Móveis](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started.md).
 
 Este tutorial mostra como adicionar um serviço de back-end baseado na nuvem a um aplicativo JavaScript da Windows Store usando os Serviços Móveis do Azure. Neste tutorial, você criará um novo serviço móvel e um aplicativo simples *To do list* que armazena dados do aplicativo no novo serviço móvel. O serviço móvel que você criará usa JavaScript para a lógica de negócios do lado do servidor.
 
@@ -89,4 +92,4 @@ Agora que você concluiu o início rápido, saiba como trabalhar com o [cliente 
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [portal clássico do Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

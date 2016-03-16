@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/25/2016"
+   ms.date="03/03/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Analisar dados com o Aprendizado de Máquina do Azure
@@ -29,16 +29,16 @@ Para acompanhar este tutorial, você precisará
 [Criar um SQL Data Warehouse][] mostra como provisionar um banco de dados com dados de exemplo. Se você já tiver um banco de dados do SQL Data Warehouse mas não tiver dados de exemplo, poderá [carregar dados de exemplo manualmente][].
 
 
-## Etapa 1: obter dados 
+## Etapa 1: obter dados
 Leremos os dados da exibição dbo.vTargetMail no banco de dados do AdventureWorksDW.
 
 1. Entre no [Estúdio de Aprendizado de Máquina do Azure][] e clique em Meus Testes.
 2. Clique em **+NOVO** e selecione **Teste em Branco**.
 3. Insira um nome para o seu teste: Marketing Direcionado.
 4. Arraste o módulo **Leitor** do painel de módulos na tela.
-5. Especifique os detalhes do seu banco de dados do SQL Data Warehouse no painel Propriedades. 
+5. Especifique os detalhes do seu banco de dados do SQL Data Warehouse no painel Propriedades.
 6. Especifique a **consulta** do banco de dados para ler os dados de interesse.
-   
+
    ```
    SELECT [CustomerKey]
       ,[GeographyKey]
@@ -140,4 +140,4 @@ Para saber mais sobre a criação de modelos de aprendizado de máquina de previ
 [carregar dados de exemplo manualmente]: sql-data-warehouse-get-started-manually-load-samples.md
 [Criar um SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->
