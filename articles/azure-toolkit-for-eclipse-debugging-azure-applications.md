@@ -55,7 +55,7 @@ Usaremos o aplicativo do tutorial [Uso da biblioteca de tempo de execução de s
 1. Clique em **OK** para fechar a caixa de diálogo **Propriedades para Depuração de WorkerRole1**:
 1. Se você não tiver um ponto de interrupção definido em index.jsp, configure-o:
     1. No Gerenciador de Projetos do Eclipse, expanda **MyHelloWorld**, expanda **WebContent** e clique duas vezes em **index.jsp**.
-    1. No index.jsp, clique com o botão direito na barra azul à esquerda do código Java e clique em **Ativar/Desativar Pontos de Interrupção**, conforme exibido a seguir:
+    1. No index.jsp, clique com o botão direito na barra azul à esquerda do código Java e clique em **Ativar/Desativar Pontos de Interrupção**, conforme exibido a seguir:  
         ![][ic551537]
 1. No menu do Eclipse, clique em **Executar** e clique em **Configurações de Depuração**.
 1. Na caixa de diálogo **Configurações de Depuração**, expanda **Aplicativo Java Remoto** no painel esquerdo, selecione **Nuvem do Azure (WorkerRole1)** e clique em **Depurar**.
@@ -138,4 +138,5 @@ Para saber mais sobre como usar o Azure com Java, confira a [Central de Desenvol
 [ic551537]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic551537.png
 
 <!---HONumber=AcomDC_0302_2016-->
+
 
