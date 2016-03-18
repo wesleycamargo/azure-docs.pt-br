@@ -94,4 +94,4 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [Introdução às notificações por push]: mobile-services-javascript-backend-android-get-started-push.md
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->

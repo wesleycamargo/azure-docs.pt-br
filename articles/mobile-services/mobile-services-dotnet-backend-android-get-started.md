@@ -129,4 +129,4 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 
 [portal clássico do Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!-----HONumber=AcomDC_0309_2016-->
