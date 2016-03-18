@@ -238,4 +238,4 @@ Quer saber o que os usuários fazem com seu aplicativo?
 * [Eventos e métricas personalizados](app-insights-api-custom-events-metrics.md)
 * [Build-measure-learn](app-insights-overview-usage.md)
 
-<!----HONumber=AcomDC_0224_2016-->
+<!------HONumber=AcomDC_0224_2016-->
