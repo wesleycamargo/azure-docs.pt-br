@@ -28,7 +28,8 @@ Para exibir ou baixar sua fatura:
 
 1. Entre no Portal de Contas do Azure usando sua ID Organizacional.
 2. Clique em **Marketplace**. É exibida uma lista completa de todos os pedidos no Marketplace que foram feitos por sua conta do Azure. Você observará que os pedidos são agrupados por ID e nome de assinatura do Azure pai. ![Pedidos no Marketplace](./media/billing-understand-your-azure-marketplace-charges/marketplace-orders.png)
-3. Se clicar em qualquer um dos pedidos exibidos, você será levado para a visão geral de resumo do pedido para o ciclo de cobrança atual. Uma explicação sobre os diferentes modelos de preços pode ser encontrada nas [Perguntas frequentes sobre o Marketplace](https://azure.microsoft.com/marketplace/faq/). ![Resumo do pedido](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
+3. Se clicar em qualquer um dos pedidos exibidos, você será levado para a visão geral de resumo do pedido para o ciclo de cobrança atual. Uma explicação sobre os diferentes modelos de preços pode ser encontrada nas [Perguntas frequentes sobre o Marketplace](https://azure.microsoft.com/marketplace/faq/). 
+![Resumo do pedido](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
 
 A exibição de resumo contém as seguintes informações para cada pedido:
 - Preço
