@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Clonagem de aplicativo Web"
-	description="Saiba como clonar seus aplicativos Web como novos aplicativos Web."
+	pageTitle="Clonagem de Aplicativo Web usando o PowerShell"
+	description="Saiba como clonar seus Aplicativos Web em novos Aplicativos Web usando o Azure PowerShell."
 	services="app-service\web"
 	documentationCenter=""
 	authors="ahmedelnably"
@@ -16,9 +16,9 @@
 	ms.date="01/13/2016"
 	ms.author="ahmedelnably"/>
 
-# Clonagem de aplicativo do Serviço de Aplicativos do Azure #
+# Clonagem de aplicativo do Serviço de Aplicativo do Azure usando o Azure PowerShell#
 
-Com o lançamento do Microsoft Azure PowerShell versão 1.1.0, uma nova opção foi adicionada ao New-AzureRMWebApp para dar ao usuário a capacidade de clonar um aplicativo Web existente como um aplicativo recém-criado em uma região diferente ou na mesma região. Isso permite que os clientes implantem um número de aplicativos em diferentes regiões rápida e facilmente.
+Com o lançamento do Microsoft Azure PowerShell versão 1.1.0, uma nova opção foi adicionada ao New-AzureRMWebApp para dar ao usuário a capacidade de clonar um aplicativo Web existente como um aplicativo recém-criado em uma região diferente ou na mesma região. Isso permitirá que os clientes implantem vários aplicativos em diferentes regiões de forma rápida e fácil.
 
 A clonagem de aplicativo atualmente só tem suporte para planos de serviço de aplicativos de camada Premium. O novo recurso usa as mesmas limitações que o recurso de Backup de aplicativos Web; confira [Fazer backup de um aplicativo Web no Serviço de Aplicativo do Azure](web-sites-backup.md).
 
@@ -109,9 +109,10 @@ Esse recurso está atualmente em visualização. Estamos trabalhando para adicio
 
 
 ### Referências ###
+- [Clonagem de Aplicativo Web usando o Portal do Azure](app-service-web-app-cloning-portal.md)
 - [Fazer backup de um aplicativo Web no Serviço de Aplicativo do Azure](web-sites-backup.md)
 - [Suporte do Gerenciador de Recursos do Azure para a Visualização do Gerenciador de Tráfego do Azure](../../articles/traffic-manager/traffic-manager-powershell-arm.md)
 - [Introdução ao ambiente de Serviço de Aplicativo](app-service-app-service-environment-intro.md)
 - [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

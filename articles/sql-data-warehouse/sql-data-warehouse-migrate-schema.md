@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/19/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Migrar seu esquema para o SQL Data Warehouse#
@@ -123,7 +123,7 @@ Suporte parcial:
 
 - As restrições padrão oferecem suporte apenas a literais e constantes. Não há suporte para expressões ou funções não determinísticas como `GETDATE()` ou `CURRENT_TIMESTAMP`.
 
-> [AZURE.NOTE]Defina as tabelas para que o tamanho máximo possível da linha, incluindo o comprimento total das colunas de tamanho variável, não exceda 32.767 bytes. Embora seja possível definir uma linha com dados de tamanho variável que possam exceder esse número, não será possível inserir dados na tabela. Além disso, tente limitar o tamanho de suas colunas de tamanho variável para uma taxa de transferência ainda melhor na execução de consultas.
+> [AZURE.NOTE] Defina as tabelas para que o tamanho máximo possível da linha, incluindo o comprimento total das colunas de tamanho variável, não exceda 32.767 bytes. Embora seja possível definir uma linha com dados de tamanho variável que possam exceder esse número, não será possível inserir dados na tabela. Além disso, tente limitar o tamanho de suas colunas de tamanho variável para uma taxa de transferência ainda melhor na execução de consultas.
 
 ## Próximas etapas
 Depois de migrar com êxito o esquema do seu banco de dados para o SQLDW, você poderá passar para um dos artigos a seguir:
@@ -145,4 +145,4 @@ Para obter mais dicas de desenvolvimento, consulte a [visão geral de desenvolvi
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0309_2016-->

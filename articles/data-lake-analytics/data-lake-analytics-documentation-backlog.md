@@ -40,7 +40,8 @@ O Barramento de | Movendo a saída do trabalho para o SQL Data Warehouse usando 
 Ferramentas | Usando as ferramentas de diagnóstico | 1 | Pendente | [@mumian](https://github.com/mumian) | 
 U-SQL | Explicar as técnicas para executar JOINs baseados em intervalo | 1 | Pendente | [@MikeRys](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
 U-SQL | Opções de autenticação do ADLS | 1 | Pendente | [@ArindamC](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
-
+U-SQL | Entre de trabalho de CLI de plataforma cruzada | 1 | Pendente | [@edmacauley](https://github.com/edmacauley) |[@mwinkle](https://github.com/mwinkle) 
+U-SQL | Atualizações de documento de referência para REDUCE e COMBINE | 1 | Pendente | [@edmacauley](https://github.com/edmacauley) |[@mwinkle](https://github.com/mwinkle)
 
 
 
@@ -57,4 +58,4 @@ Há algumas opções para fornecer comentários sobre a lista de pendências:
 * Enviar uma solicitação pull sobre este documento no [Repositório de Conteúdo do Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
 * Enviar um email para [adlafeedback@microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

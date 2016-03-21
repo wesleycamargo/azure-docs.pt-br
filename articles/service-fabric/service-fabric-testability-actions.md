@@ -17,11 +17,11 @@
    ms.author="heeldin;motanv"/>
 
 # Ações da Possibilidade de Teste
-Para simular uma infraestrutura não confiável, o Service Fabric do Azure fornece aos desenvolvedores maneiras de simular várias falhas e transições de estado reais. Elas são expostas como ações de possibilidade de teste. As ações são as APIs de nível baixo que causam uma injeção de falha específica, transição de estado ou validação. Combinando essas ações, um desenvolvedor de serviço pode criar cenários de teste abrangentes para seus serviços.
+Para simular uma infraestrutura não confiável, o Service Fabric do Azure fornece a você, o desenvolvedor, maneiras de simular várias falhas e transições de estado reais. Elas são expostas como ações de possibilidade de teste. As ações são as APIs de nível baixo que causam uma injeção de falha específica, transição de estado ou validação. Ao combinar essas ações, você pode criar cenários de teste abrangentes para seus serviços.
 
 O Service Fabric fornece alguns cenários comuns de teste compostos por essas ações. É altamente recomendável utilizar esses cenários internos, que são escolhidos cuidadosamente para testar transições de estado comuns e casos de falha. No entanto, as ações podem ser usadas para criar cenários de teste personalizados quando você desejar adicionar cobertura para cenários que ainda não estão cobertos pelos cenários internos ou personalizados sob medida para seu aplicativo.
 
-As implementações das ações em C# são encontradas no assembly System.Fabric.Testability.dll. O módulo do PowerShell para Possibilidade de Teste é encontrado no assembly Microsoft.ServiceFabric.Testability.Powershell.dll. Como parte da instalação em tempo de execução, o módulo do PowerShell ServiceFabricTestability é instalado para proporcionar facilidade de uso.
+As implementações das ações em C# são encontradas no assembly System.Fabric.dll. O módulo Service Fabric PowerShell é encontrado no assembly Microsoft.ServiceFabric.Powershell.dll. Como parte da instalação em tempo de execução, o módulo do PowerShell ServiceFabric é instalado para fins de facilidade de uso.
 
 ## Ações de falha normais x anormais
 As ações da Possibilidade de Teste são classificadas em dois blocos principais:
@@ -53,7 +53,7 @@ Para validação de melhor qualidade, execute a carga de trabalho de serviço e 
 
 ## Executando uma ação de possibilidade de teste usando o PowerShell
 
-Este tutorial mostra como executar uma ação de possibilidade de teste com o PowerShell. Você aprenderá a executar uma ação da possibilidade de teste em um cluster local (one-box) ou em um cluster do Azure. Microsoft.Fabric.Testability.Powershell.dll--o módulo PowerShell de possibilidade de teste--é instalado automaticamente quando você instala o Microsoft Service Fabric MSI. O módulo é carregado automaticamente quando você abre um prompt do PowerShell.
+Este tutorial mostra como executar uma ação de possibilidade de teste com o PowerShell. Você aprenderá a executar uma ação da possibilidade de teste em um cluster local (one-box) ou em um cluster do Azure. Microsoft.Fabric.Powershell.dll – o módulo Service Fabric PowerShell – é instalado automaticamente quando você instala o Microsoft Service Fabric MSI. O módulo é carregado automaticamente quando você abre um prompt do PowerShell.
 
 Segmentos do tutorial:
 
@@ -68,7 +68,7 @@ Para executar uma ação da Possibilidade Teste em um cluster local, primeiramen
 Restart-ServiceFabricNode -NodeName Node1 -CompletionMode DoNotVerify
 ```
 
-Aqui, a ação **Restart-ServiceFabricNode** está sendo executada em um nó chamado "Node1". O modo de preenchimento Especifica que ela não deve verificar se a ação de reinicialização foi bem-sucedida. Especificar o modo de preenchimento como "Verify" fará com que ele verifique se a ação de reinicialização foi bem-sucedida. Em vez de especificar o nó diretamente por seu nome, você pode especificá-lo por meio de uma chave de partição e pelo tipo de réplica, da seguinte maneira:
+Aqui, a ação **Restart-ServiceFabricNode** está sendo executada em um nó chamado "Node1". O modo de preenchimento especifica que ela não deve verificar se a ação de reinicialização do nó foi bem-sucedida. Especificar o modo de preenchimento como "Verify" fará com que ele verifique se a ação de reinicialização foi bem-sucedida. Em vez de especificar o nó diretamente por seu nome, você pode especificá-lo por meio de uma chave de partição e pelo tipo de réplica, da seguinte maneira:
 
 ```powershell
 Restart-ServiceFabricNode -ReplicaKindPrimary  -PartitionKindNamed -PartitionKey Partition3 -CompletionMode Verify
@@ -168,14 +168,14 @@ class Test
 
         // Create FabricClient with connection and security information here
         FabricClient fabricclient = new FabricClient(clusterConnection);
-        await fabricclient.ClusterManager.RestartNodeAsync(primaryofReplicaSelector, CompletionMode.Verify);
+        await fabricclient.FaultManager.RestartNodeAsync(primaryofReplicaSelector, CompletionMode.Verify);
     }
 
     static async Task RestartNodeAsync(string clusterConnection, string nodeName, BigInteger nodeInstanceId)
     {
         // Create FabricClient with connection and security information here
         FabricClient fabricclient = new FabricClient(clusterConnection);
-        await fabricclient.ClusterManager.RestartNodeAsync(nodeName, nodeInstanceId, CompletionMode.Verify);
+        await fabricclient.FaultManager.RestartNodeAsync(nodeName, nodeInstanceId, CompletionMode.Verify);
     }
 }
 ```
@@ -235,4 +235,4 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
    - [Simular falhas durante cargas de trabalho de serviço](service-fabric-testability-workload-tests.md)
    - [Falhas de comunicação entre serviços](service-fabric-testability-scenarios-service-communication.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0309_2016-->

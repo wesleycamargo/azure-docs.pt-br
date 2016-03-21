@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="03/04/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #Explorar dados no repositório de blob do Azure com o Pandas
@@ -38,7 +38,7 @@ Para explorar e manipular um conjunto de dados, eles devem ser baixados da fonte
 
 1. Baixe os dados do blob do Azure com o seguinte código Python de exemplo usando o serviço blob. Substitua a variável no código abaixo pelos valores específicos: 
 
-	    from azure.storage import BlobService
+	    from azure.storage.blob import BlobService
     	import tables
     	
 		STORAGEACCOUNTNAME= <storage_account_name>
@@ -117,4 +117,4 @@ Veja estão alguns exemplos de maneiras de explorar dados usando Pandas:
 		#correlation between column_a and column_b
 		dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

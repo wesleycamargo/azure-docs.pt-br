@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/01/2016"
+   ms.date="03/03/2016"
    ms.author="alkohli"/>
 
 
@@ -257,13 +257,13 @@ Execute as etapas a seguir para iniciar o dispositivo virtual e conectar-se a el
 
 1.  As etapas 6 a 8 se aplicam somente ao iniciar em um ambiente não DHCP. Se você estiver em um ambiente DHCP, ignore essas etapas e vá para a etapa 9. Caso tenha inicializado seu dispositivo em um ambiente não DHCP, você verá a tela a seguir.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image42.png)
+	![](./media/storsimple-ova-deploy2-provision-vmware/image42m.png)
 
 	Agora, você precisará configurar a rede.
 
 1.  Use o comando `Get-HcsIpAddress` para listar as interfaces de rede habilitadas em seu dispositivo virtual. Se o dispositivo tiver uma única interface de rede habilitada, o nome padrão atribuído a ela será `Ethernet`.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image43.png)
+	![](./media/storsimple-ova-deploy2-provision-vmware/image43m.png)
 
 1.  Use o cmdlet Set-HcsIpAddress para configurar a rede. Um exemplo é mostrado abaixo:
 
@@ -274,7 +274,7 @@ Execute as etapas a seguir para iniciar o dispositivo virtual e conectar-se a el
 
 1.  Depois que a configuração inicial for concluída e o dispositivo for inicializado, você verá o texto da faixa do dispositivo. Anote o endereço IP e a URL exibida no texto do banner para gerenciar o dispositivo. Você usará esse endereço IP para se conectar à interface do usuário da Web do seu dispositivo virtual e concluir a configuração local e o registro.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image45.png)
+	![](./media/storsimple-ova-deploy2-provision-vmware/image45m.png)
 
 Se o dispositivo não cumprir os requisitos mínimos de configuração, você verá um erro no texto da faixa (mostrado abaixo). Será necessário modificar a configuração do dispositivo para que ele tenha recursos adequados para cumprir os requisitos mínimos. Em seguida, você pode reiniciar e conectar-se ao dispositivo. Consulte os requisitos mínimos de configuração na [Etapa 1: Verificar se o sistema de host atende aos requisitos mínimos do dispositivo virtual](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements).
 
@@ -292,4 +292,4 @@ Caso observe algum outro erro durante a configuração inicial usando a interfac
 
 -   [Configurar sua StorSimple Virtual Array como um servidor iSCSI](storsimple-ova-deploy3-iscsi-setup.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

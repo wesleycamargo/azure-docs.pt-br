@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/17/2016"
+   ms.date="03/03/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Recuperar um banco de dados de um erro do usuário no SQL Data Warehouse
@@ -141,4 +141,4 @@ Para saber mais sobre os recursos de continuidade de negócios de outras ediçõ
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

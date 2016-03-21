@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/24/2016"
+	ms.date="02/24/2016"
 	ms.author="dineshm"/>
 
 
@@ -22,7 +22,8 @@
 [AZURE.INCLUDE [storage-selector-client-side-encryption-include](../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## Visão geral  
-A [Biblioteca de Cliente do Armazenamento do Azure para Java](https://www.nuget.org/packages/WindowsAzure.Storage) dá suporte à criptografia de dados em aplicativos cliente antes do upload no Armazenamento do Azure e à descriptografia de dados durante o download para o cliente. A biblioteca também dá suporte à integração com o [Cofre da Chave do Azure](https://azure.microsoft.com/services/key-vault/) para o gerenciamento de chaves de contas de armazenamento.
+
+A [Biblioteca de Cliente do Armazenamento do Azure para Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) dá suporte à criptografia de dados em aplicativos cliente antes do upload no Armazenamento do Azure e à descriptografia de dados durante o download para o cliente. A biblioteca também dá suporte à integração com o [Cofre da Chave do Azure](https://azure.microsoft.com/services/key-vault/) para o gerenciamento de chaves de contas de armazenamento.
 
 ## Criptografia e descriptografia com a técnica de envelope    
 Os processos de criptografia e descriptografia seguem a técnica de envelope.
@@ -239,9 +240,11 @@ Observe que criptografar seu armazenamento de dados resulta em uma sobrecarga ad
 
 ## Próximas etapas  
 
-- Baixar a [Biblioteca de cliente do Armazenamento do Azure para o pacote Java Maven](https://github.com/Azure/azure-storage-java)  
+- Baixar a [Biblioteca de cliente do Armazenamento do Azure para o pacote Java Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
 - Baixar a [Biblioteca de cliente do Armazenamento do Azure para o código-fonte Java do GitHub](https://github.com/Azure/azure-storage-java)   
-- Baixar os pacotes Maven de [Núcleo](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Cliente](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) e [Extensões](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) do Cofre da Chave do Azure
-- Visitar a [Documentação do Cofre da Chave](../key-vault/key-vault-whatis.md)  
+- Baixe a biblioteca do Azure Key Vault Maven para pacotes Java Maven:
+	- Pacote [Core](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core)
+	- Pacote [Client](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault)
+- Visite a [Documentação do Cofre de Chaves do Azure](../key-vault/key-vault-whatis.md)  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

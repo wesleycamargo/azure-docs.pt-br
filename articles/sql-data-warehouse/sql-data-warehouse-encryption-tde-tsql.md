@@ -1,24 +1,24 @@
-<properties 
-   pageTitle="Introdução ao TSQL de Transparent Data Encryption (TDE) do SQL Data Warehouse | Microsoft Azure" 
-   description="Introdução ao TSQL de Transparent Data Encryption (TDE) do SQL Data Warehouse" 
-   services="sql-data-warehouse" 
-   documentationCenter="" 
-   authors="twounder" 
-   manager="barbkess" 
+<properties
+   pageTitle="Introdução ao TSQL de Transparent Data Encryption (TDE) do SQL Data Warehouse | Microsoft Azure"
+   description="Introdução ao TSQL de Transparent Data Encryption (TDE) do SQL Data Warehouse"
+   services="sql-data-warehouse"
+   documentationCenter=""
+   authors="twounder"
+   manager="barbkess"
    editor=""/>
 
-<tags 
-   ms.service="sql-data-warehouse" 
-   ms.workload="data-management" 
-   ms.tgt_pltfrm="na" 
-   ms.devlang="na" 
-   ms.topic="article" 
-   ms.date="01/07/2016" 
+<tags
+   ms.service="sql-data-warehouse"
+   ms.workload="data-management"
+   ms.tgt_pltfrm="na"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.date="03/03/2016" 
    ms.author="mausher;barbkess;sonyama"/>
- 
+
 # Introdução ao Transparent Data Encryption (TDE)
 > [AZURE.SELECTOR]
-- [Azure Classic Portal](sql-data-warehouse-encryption-tde.md)
+- [Portal Clássico do Azure](sql-data-warehouse-encryption-tde.md)
 - [TSQL](sql-data-warehouse-encryption-tde-tsql.md)
 
 O Transparent Data Encryption (TDE) do SQL Data Warehouse do Azure ajuda a proteger contra atividades mal-intencionadas por meio da execução de criptografia e descriptografia em tempo real do banco de dados, de backups associados e de arquivos de log de transações em repouso, sem exigir mudanças no aplicativo.
@@ -64,7 +64,7 @@ FROM
 
 Um resultado de ```1``` indica um banco de dados criptografado, ```0``` indica um banco de dados não criptografado.
 
- 
+
 <!--Anchors-->
 [Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 
@@ -73,4 +73,4 @@ Um resultado de ```1``` indica um banco de dados criptografado, ```0``` indica u
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

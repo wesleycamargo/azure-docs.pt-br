@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/08/2016"
+   ms.date="03/03/2016"
    ms.author="mausher;barbkess;jrj;nicw;sonyama"/>
 
 # Visão geral de desempenho e escala
@@ -23,11 +23,14 @@ O SQL Data Warehouse é uma plataforma distribuída de banco de dados baseada na
 
 *As informações a seguir aplicam-se ao SQL Data Warehouse do Azure conforme lançadas no preview. Essas informações serão atualizadas continuamente durante o preview à medida que o serviço é aprimorado para disponibilidade geral.*
 
-Nossas metas para o SQL Data Warehouse são: - Desempenho previsível e escalabilidade linear para petabytes de dados - Alta confiabilidade de todas as operações de data warehouse sustentada por um SLA (Contrato de Nível de Serviço) - Tempo curto do carregamento à percepção de dados de dados entre dados relacionais e não relacionais
+Nossas metas para o SQL Data Warehouse são:
+-	Desempenho previsível e escalabilidade linear de petabytes de dados
+-	Alta disponibilidade para todas as operações de data warehouse com o apoio de um contrato de nível de serviço (SLA)
+-	Curto tempo de carregamento de dados para insights de dados em dados relacionais e não relacionais
 
 Trabalharemos ininterruptamente para atingir essas metas durante o preview, isto é, antes da disponibilização geral.
 
->[AZURE.NOTE]As seções abaixo descrevem o serviço do SQL Data Warehouse do Azure no lançamento do Preview Público. Essas informações serão atualizadas continuamente durante o preview à medida que o serviço é aprimorado para disponibilidade geral.
+>[AZURE.NOTE] As seções abaixo descrevem o serviço do SQL Data Warehouse do Azure no lançamento do Preview Público. Essas informações serão atualizadas continuamente durante o preview à medida que o serviço é aprimorado para disponibilidade geral.
 
 ## Proteção de dados
 O SQL Data Warehouse armazena todos os dados no Armazenamento do Azure usando blobs com redundância geográfica. Três cópias síncronas dos dados são mantidas na região local do Azure para garantir a proteção transparente de dados em caso de falhas localizadas (por exemplo, falhas da unidade de armazenamento). Além disso, mais três cópias assíncronas são mantidas em uma região remota do Azure para garantir a proteção de dados em caso de falhas regionais (recuperação de desastres). As regiões locais e remotas são combinadas para manter as latências aceitáveis de sincronização (por exemplo, leste e oeste dos EUA).
@@ -40,12 +43,14 @@ O SQL Data Warehouse é um sistema distribuído com vários componentes, em que 
 
 Com base nos dados de telemetria coletados, a confiabilidade do SQL Data Warehouse é estimada em 98% para cargas de trabalho típicas de data warehouse. Isso significa que, em média, 2 de 100 consultas podem falhar devido a erros do sistema. Esse não é um SLA para o preview, mas um indicador da confiabilidade esperada das consultas que serão executadas. Observe que a probabilidade de uma consulta falhar aumenta com seu tempo de execução (por ex., uma consulta que leva mais de 2 horas tem muito mais probabilidade de falhar do que uma consulta que leva menos de 10 minutos). Durante o preview, faremos aprimoramentos contínuos para garantir o mesmo nível de confiabilidade das operações, independentemente do tempo de execução. Atualizaremos a confiabilidade esperada à medida que liberarmos esses aprimoramentos com a meta de fornecer uma SLA completo na disponibilidade geral.
 
-Durante o preview, o SQL Data Warehouse pode ter até 5 eventos de manutenção por mês para instalação de correções críticas. Cada evento pode causar falhas de consulta por até 2 horas. O tempo depende da quantidade de DWUs usadas pela instância do SQL Data Warehouse. Sempre tentaremos notificar os clientes sobre esses eventos com antecedência de 48 horas a fim de permitir que eles se preparem para isso.
+Durante a visualização, o SQL Data Warehouse será atualizado periodicamente para adicionar novos recursos e instalar correções críticas. Essas atualizações podem causar interrupção e, neste momento, as atualizações não são executadas em uma programação previsível. Se você achar que esse processo causa muita interrupção, incentivamos você a [criar um tíquete de suporte][] para que possamos ajudá-lo a contornar esse processo.
 
 ## Desempenho e escala
 O SQL Data Warehouse apresenta DWUs (Unidades de Data Warehouse) como uma abstração de recursos computacionais (CPUs, memória, E/S de armazenamento) agregada em vários nós. Aumentar o número de DWUs aumenta os recursos computacionais agregados de uma instância do SQL Data Warehouse. O SQL Data Warehouse distribui operações (por ex., carregamento de dados ou consulta) por toda a infraestrutura de computação na instância para aumentar ou diminuir o desempenho das cargas e consultas conforme o sistema é escalonado verticalmente para cima ou para baixo.
 
-Qualquer data warehouse possui 2 métricas básicas de desempenho: - **Taxa de carga**: o número de registros que podem ser carregados no data warehouse por segundo. Medimos, especificamente, o número de registros que podem ser importados, via PolyBase, do Armazenamento de Blob do Azure para uma tabela com um Índice Column-Store Clusterizado. - **Taxa de exame**: o número de registros que podem ser recuperados sequencialmente do data warehouse por segundo. Essa métrica mede especificamente o número de registros retornados por uma consulta de uma tabela com um Índice Column-Store Clusterizado.
+Qualquer data warehouse tem duas métricas de desempenho fundamentais:
+- **Taxa de carga**: o número de registros que podem ser carregados no data warehouse por segundo. Nós medimos especificamente o número de registros que podem ser importados, via PolyBase, do Armazenamento de Blob do Azure para uma tabela com um Índice de Repositório de Colunas Clusterizado.
+- **Taxa de exame**: o número de registros que podem ser recuperados em sequência do data warehouse por segundo. Essa métrica mede especificamente o número de registros retornados por uma consulta de uma tabela com um Índice Column-Store Clusterizado.
 
 Durante o preview, faremos aprimoramentos contínuos para aumentar essas taxas e garantir que sejam escalonadas de modo previsível.
 
@@ -72,9 +77,10 @@ Consulte o artigo [visão geral de desenvolvimento][] para obter algumas diretri
 [escolher uma chave de distribuição de hash para sua tabela]: sql-data-warehouse-develop-hash-distribution-key.md
 [estatísticas para melhorar o desempenho]: sql-data-warehouse-develop-statistics.md
 [visão geral de desenvolvimento]: sql-data-warehouse-overview-develop.md
+[criar um tíquete de suporte]: sql-data-warehouse-get-started-create-support-ticket.md
 
 <!--MSDN references-->
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

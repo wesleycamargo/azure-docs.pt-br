@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/22/2016"
+   ms.date="03/03/2016"
    ms.author="barbkess;mausher;sonyama"/>
 
 # Como usar os cmdlets do PowerShell e as APIs REST com o SQL Data Warehouse
@@ -26,7 +26,7 @@ Da mesma forma, as APIs REST para o **Banco de Dados do SQL Azure** também pode
 
 ## Obter e executar os cmdlets do PowerShell do Azure
 
-1. Para baixar o módulo PowerShell do Azure, execute o [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). 
+1. Para baixar o módulo PowerShell do Azure, execute o [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
 2. Para executar o módulo, na janela de início, digite **Windows PowerShell**.
 3. Se ainda não tiver adicionado sua conta ao computador, execute o cmdlet a seguir. (Para saber mais, consulte [Como instalar e configurar o Azure PowerShell]():
 
@@ -42,14 +42,14 @@ Da mesma forma, as APIs REST para o **Banco de Dados do SQL Azure** também pode
 
 ## Suspend-AzureRmSqlDatabase
 
-Para obter a referência do comando, veja [Suspend-AzureRmSQLDatabase](https://msdn.microsoft.com/library/mt619337.aspx).
+Para obter a referência do comando, veja [Suspend-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt619337.aspx).
 
 ### Exemplo 1: Pausar um banco de dados por nome em um servidor
 
 Este exemplo pausa um banco de dados denominado "Database02" hospedado em um servidor denominado "Server01." O servidor está em um grupo de recursos do Azure denominado "ResourceGroup1".
 
 ```
-Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 ```
 
 ### Exemplo 2: Pausar um objeto de banco de dados
@@ -57,7 +57,7 @@ Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName 
 Este exemplo recupera um banco de dados denominado “Database02” de um servidor chamado “Server01” contido em um grupo de recursos denominado “ResourceGroup1”. Ele redireciona o objeto recuperado para **Suspend-AzureRmSqlDatabase**. Como resultado, o banco de dados é pausado. O comando final mostra os resultados.
 
 ```
-$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $resultDatabase = $database | Suspend-AzureRmSqlDatabase
 $resultDatabase
 ```
@@ -71,7 +71,7 @@ Para obter a referência do comando, veja [Resume-AzureRmSqlDatabase](https://ms
 Este exemplo retoma a operação de um banco de dados denominado "Database02" hospedado em um servidor denominado "Server01." O servidor está contido em um grupo de recursos denominado "ResourceGroup1".
 
 ```
-Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" -DatabaseName "Database02"
+Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" -DatabaseName "Database02"
 ```
 
 ### Exemplo 2: Retomando um objeto de banco de dados
@@ -79,7 +79,7 @@ Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "
 Este exemplo recupera um banco de dados denominado “Database02” de um servidor chamado “Server01” que está contido em um grupo de recursos denominado “ResourceGroup1”. O objeto é redirecionado para **Resume-AzureRmSqlDatabase**.
 
 ```
-$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $resultDatabase = $database | Resume-AzureRmSqlDatabase
 ```
 
@@ -96,8 +96,8 @@ RestorePointCreationDate |Tempo do instantâneo de backup (preenchido quando res
 ### Exemplo 1: Recuperando pontos de restauração de um banco de dados por nome em um servidor
 Este exemplo recupera os pontos de restauração para um banco de dados denominado “Database02” de um servidor chamado “Server01” contido em um grupo de recursos denominado “ResourceGroup1”.
 
-```	
-$restorePoints = Get-AzureRmSqlDatabaseRestorePoints –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+```
+$restorePoints = Get-AzureRmSqlDatabaseRestorePoints –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $restorePoints
 ```
 
@@ -107,13 +107,13 @@ $restorePoints
 Este exemplo recupera um banco de dados denominado “Database02” de um servidor chamado “Server01”, contido em um grupo de recursos denominado “ResourceGroup1”. O objeto de banco de dados é redirecionado para **Get-AzureRmSqlDatabase** e o resultado é composto pelos pontos de restauração do banco de dados. O comando final imprime os resultados.
 
 ```
-$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $restorePoints = $database | Get-AzureRmSqlDatabaseRestorePoints
 $retorePoints
 ```
 
 
-> [AZURE.NOTE] Observe que se o servidor for foo.database.windows.net, use "foo" como o nome do servidor nos cmdlets do powershell.
+> [AZURE.NOTE] Observe que, se o servidor for foo.database.windows.net, use "foo" como o -ServerName nos cmdlets do PowerShell.
 
 
 ## Próximas etapas
@@ -133,4 +133,4 @@ Para obter mais informações de referência, consulte [Visão geral de referên
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

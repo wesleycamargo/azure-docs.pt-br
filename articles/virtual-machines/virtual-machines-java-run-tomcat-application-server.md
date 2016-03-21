@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="01/09/2016"
+	ms.date="03/04/2016"
 	ms.author="robmcm"/>
 
 # Como executar um servidor de aplicativos do Java em uma máquina virtual criada com o modelo de implantação clássico
@@ -114,7 +114,7 @@ Para ver o Tomcat em execução em máquinas externas, você precisará criar um
 9. Na tela **Perfil**, verifique se **Domínio**, **Privado** e **Público** estão marcados e clique em **Próximo**.![Novo perfil de regra de entrada][NewRuleProfile]
 10. Na tela **Nome**, especifique um nome para a regra, como **HttpIn** (no entanto, o nome da regra não precisa corresponder ao nome do ponto de extremidade) e clique em **Concluir**.![Nome da nova regra de entrada][NewRuleName]
 
-Neste ponto, o site do Tomcat deverá ser visto de um navegador externo usando uma URL no formato **http://*your\_DNS\_name*.cloudapp.net**, em que ***your\_DNS\_name*** é o nome DNS que você especificou ao criar a máquina virtual.
+Neste ponto, o site do Tomcat deverá ser visto de um navegador externo usando uma URL no formato ****http://*your\_DNS\_name*.cloudapp.net**, em que ***your\_DNS\_name*** é o nome DNS que você especificou ao criar a máquina virtual.
 
 ## Considerações sobre o ciclo de vida do aplicativo
 * Você pode criar o próprio arquivo web do aplicativo (WAR) e adicioná-lo à pasta **webapps**. Por exemplo, crie um projeto Web dinâmico JSP (página de serviço Java) básico e o exporte como um arquivo WAR, copie o WAR para a pasta **webapps** do Apache Tomcat na máquina virtual e o execute em um navegador.
@@ -146,4 +146,4 @@ Saiba mais sobre outros serviços (como o Armazenamento do Azure, o barramento d
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

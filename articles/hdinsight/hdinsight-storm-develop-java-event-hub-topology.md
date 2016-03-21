@@ -464,6 +464,10 @@ Exportar uma importação permite que você mantenha os dados de ponto de verifi
 
 > [AZURE.NOTE] Como os dados são mantidos para o contêiner de armazenamento padrão, o novo cluster **deverá** usar a mesma conta de armazenamento e o contêiner do cluster anterior.
 
+## Excluir o cluster
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ##Solucionar problemas
 
 Se você não vir os arquivos armazenados no local /devicedata (usando o comando `hadoop fs -ls /devicedata` ou o comando do Hive no Console da Consulta), use a interface do usuário Storm para procurar os erros retornados pelas topologias.
@@ -478,4 +482,4 @@ Para saber mais sobre como usar a interface do usuário Storm, consulte estes t�
 
 * [Topologias de exemplo para Storm no HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -88,13 +88,13 @@ Nesta seção, você modificará o aplicativo **SendCloudToDevice** para solicit
 
     ![][22]
 
-> [AZURE.NOTE]Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, é recomendado implementar políticas de repetição (por exemplo, retirada exponencial), como sugerido no artigo do MSDN [Tratamento de falhas transitórias].
+> [AZURE.NOTE] Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, é recomendado implementar políticas de repetição (por exemplo, retirada exponencial), como sugerido no artigo do MSDN [Tratamento de falhas transitórias].
 
 <!-- Links -->
 
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
 [pacote NuGet do SDK de Serviço - IoT do Azure]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
-[Tratamento de falhas transitórias]: https://msdn.microsoft.com/pt-BR/library/hh680901(v=pandp.50).aspx
+[Tratamento de falhas transitórias]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Introdução ao Hub IoT]: iot-hub-csharp-csharp-getstarted.md
 
 <!-- Images -->
@@ -102,4 +102,4 @@ Nesta seção, você modificará o aplicativo **SendCloudToDevice** para solicit
 [21]: ./media/iot-hub-c2d-cloud-csharp/sendc2d1.png
 [22]: ./media/iot-hub-c2d-cloud-csharp/sendc2d2.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

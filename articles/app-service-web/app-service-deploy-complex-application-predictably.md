@@ -76,7 +76,7 @@ Agora vamos direto ao ponto.
  
 	![](./media/app-service-deploy-complex-application-predictably/gettemplate-1-deploybuttonui.png)
 
-4.	Em seguida, clique em **Implantar** para iniciar o processo de implantação. Quando o processo for concluído, clique no link http://todoapp*XXXX*.azure.websites.net para procurar o aplicativo implantado.
+4.	Em seguida, clique em **Implantar** para iniciar o processo de implantação. Quando o processo for concluído, clique no link http://todoapp*XXXX*.azurewebsites.net para procurar o aplicativo implantado.
 
 	![](./media/app-service-deploy-complex-application-predictably/gettemplate-2-deployprogress.png)
 
@@ -305,4 +305,4 @@ Descubra como [aplicar metodologias ágeis e publicar continuamente o aplicativo
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

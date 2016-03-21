@@ -12,12 +12,12 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="02/22/2016"
+	ms.date="03/03/2016"
     ms.author="awills"/>
 
 # Anotações de versão no Application Insights
 
-As anotações de versão nos gráficos do [Metrics Explorer](app-insights-metrics-explorer.md) mostram onde você implantou uma nova compilação. Elas facilitam ver se suas alterações tinham qualquer efeito sobre o desempenho do aplicativo. Elas podem ser criadas automaticamente pelo [sistema de compilação do Visual Studio Team Services](https://www.visualstudio.com/pt-BR/get-started/build/build-your-app-vs).
+As anotações de versão nos gráficos do [Metrics Explorer](app-insights-metrics-explorer.md) mostram onde você implantou uma nova compilação. Elas facilitam ver se suas alterações tinham qualquer efeito sobre o desempenho do aplicativo. Elas podem ser criadas automaticamente pelo [sistema de build do Visual Studio Team Services](https://www.visualstudio.com/pt-BR/get-started/build/build-your-app-vs) e você também pode [criá-las do PowerShell](#create-annotations-from-powershell).
 
 ![Exemplo de anotações com correlação visível com tempo de resposta do servidor](./media/app-insights-annotations/00.png)
 
@@ -39,7 +39,7 @@ Você só precisa fazer isso uma vez em sua conta de serviços de equipe do Visu
 Você precisa fazer isso para cada modelo de versão que você deseja criar anotações de versão.
 
 
-1. Entre no [Portal do Microsoft Azure](https://portal.azure.com) e abra o recurso Application Insights que monitora o seu aplicativo. (Ou [crie um agora](app-insights-overview.md), se você ainda não fez isso.)
+1. Entre no [Portal do Microsoft Azure](https://portal.azure.com) e abra o recurso Application Insights que monitora seu aplicativo. (Ou [crie um agora](app-insights-overview.md), se você ainda não fez isso.)
 2. Abra **Configurações**, **Acesso à API** e faça uma cópia da **ID do Application Insights**.
 
     ![Em portal.azure.com, abra o recurso do Application Insights e escolha Configurações. Abra Acesso à API. Copie a ID do Aplicativo](./media/app-insights-annotations/20.png)
@@ -48,7 +48,7 @@ Você precisa fazer isso para cada modelo de versão que você deseja criar anot
 
     Adicione uma tarefa e selecione a tarefa de anotação de versão do Application Insights do menu.
 
-    Cole a **ID do Application** que você copiou da folha Acesso à API.
+    Cole a **ID do Aplicativo** que você copiou da folha Acesso à API.
 
     ![No Visual Studio Team Services, abra Versão, selecione uma definição de versão e escolha Editar. Clique em Adicionar Tarefa e selecione Anotação de Versão do Application Insights. Cole a ID do Application Insights.](./media/app-insights-annotations/30.png)
 
@@ -69,6 +69,24 @@ Você precisa fazer isso para cada modelo de versão que você deseja criar anot
 
 5. Por fim, **Salve** a definição da versão.
 
+## Criar anotações do PowerShell
+
+Você também pode criar anotações de qualquer processo que desejar (sem usar o VS Team System).
+
+Obtenha o [script do Powershell do GitHub](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
+
+Use-o assim:
+
+    .\CreateReleaseAnnotation.ps1 `
+      -applicationId "<applicationId>" `
+      -apiKey "<apiKey>" `
+      -releaseName "<myReleaseName>" `
+      -releaseProperties @{
+          "ReleaseDescription"="a description";
+          "TriggerBy"="My Name" }
+
+Obtenha o `applicationId` e um `apiKey` do seu recurso Application Insights: abra Configurações, Acesso à API e copie a ID do aplicativo. Em seguida, clique em Criar chave de API e copie a chave.
+
 ## Anotações da versão
 
 Agora, sempre que você usar o modelo de versão para implantar uma nova versão, uma anotação será enviada ao Application Insights. As anotações aparecerão em gráficos no Metrics Explorer.
@@ -78,4 +96,4 @@ Clique em qualquer marcador de anotação para abrir os detalhes sobre a versão
 
 ![Clique em qualquer marcador de anotação de versão.](./media/app-insights-annotations/60.png)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

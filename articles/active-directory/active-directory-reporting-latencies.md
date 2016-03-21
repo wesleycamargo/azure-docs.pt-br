@@ -3,8 +3,8 @@
    description="Quantidade de tempo que leva para relatar eventos aparecendo no seu Active Directory do Azure"
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
-   manager="mbaldwin"
+   authors="dhanyahk"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/07/2016"
+   ms.author="dhanyahk"/>
 
 # Latências de relatório do Active Directory do Azure
 
@@ -23,10 +23,10 @@
 Relatório | Mínimo | Média | Máximo
 ------------------------------------------------------- | -------- | ---------- | ----------
 **Relatórios de segurança** | | |
-Atividade de conexão anômala | 2 horas | 4 horas | 8 horas
+Atividades de entrada irregulares | 2 horas | 4 horas | 8 horas
 Entradas de fontes desconhecidas | 2 horas | 4 horas | 8 horas
 Entradas após várias falhas | 2 horas | 4 horas | 8 horas
-Entradas de várias regiões geográficas | 2 horas | 4 horas | 8 horas
+Entradas de várias geografias | 2 horas | 4 horas | 8 horas
 Entradas de endereços IP com atividade suspeita | 2 horas | 4 horas | 8 horas
 Entradas de dispositivos possivelmente infectados | 2 horas | 4 horas | 8 horas
 Usuários com atividade de entrada anômala | 2 horas | 4 horas | 8 horas
@@ -50,6 +50,6 @@ Uso do RMS | 2 horas | 4 horas | 8 horas
 Uso de dispositivo do RMS | 2 horas | 4 horas | 8 horas
 Uso de aplicativos habilitados para RMS | 2 horas | 4 horas | 8 horas
 **Relatórios de visualização particular** | | |
-Atividade de entrada de todos os usuários | 2 horas | 4 horas | 8 horas
+Toda atividade de entrada do usuário | 2 horas | 4 horas | 8 horas
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

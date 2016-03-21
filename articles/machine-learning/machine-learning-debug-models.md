@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/11/2015" 
+	ms.date="03/02/2016" 
 	ms.author="bradsev;garye" />
 
 # Depurar seu modelo no aprendizado de máquina do Azure
@@ -47,7 +47,7 @@ Este módulo gera um erro nos seguintes casos:
 
 ![image2](./media/machine-learning-debug-models/train_test-2.png)
 
-Em um gráfico típico do treinamento/teste de aprendizado supervisionado, o módulo [Divisão][split] divide o conjunto de dados original em duas partes: a parte que é usada para treinar o modelo e a parte que é reservada para pontuação da mesma forma que o modelo treinado é executado em dados para os quais ele não foi treinado. O modelo treinado, em seguida, é usado para pontuar os dados de teste e, depois, os resultados são avaliados para determinar a precisão do modelo.
+Em um gráfico típico do treinamento/teste de aprendizado supervisionado, o módulo [Dividir dados][split] divide o conjunto de dados original em duas partes: aquela usada para treinar o modelo e aquela reservada para pontuar o desempenho do modelo treinado em dados para os quais ele não foi treinado. O modelo treinado, em seguida, é usado para pontuar os dados de teste e, depois, os resultados são avaliados para determinar a precisão do modelo.
 
 O módulo [Modelo de Pontuação][score-model] requer duas entradas:
 
@@ -69,4 +69,4 @@ Isso pode ocorrer mesmo que o teste tenha sido bem-sucedido, o módulo [Modelo d
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0309_2016-->

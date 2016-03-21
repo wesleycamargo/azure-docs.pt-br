@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/06/2016" 
 	ms.author="awills"/>
  
 # Exportar telemetria do Application Insights
@@ -31,7 +31,7 @@ A Exportação Contínua está disponível no período de avaliação gratuita n
 Se você ainda não tiver uma conta de armazenamento "clássica", crie uma agora.
 
 
-1. Crie uma conta de armazenamento “clássica” na sua assinatura do [portal do Azure](https://portal.azure.com).
+1. Crie uma conta de armazenamento na sua assinatura do [Portal do Azure](https://portal.azure.com).
 
     ![No portal do Azure, escolha Novo, Dados e Armazenamento](./media/app-insights-export-telemetry/030.png)
 
@@ -212,4 +212,4 @@ Em escalas maiores, considere usar o [HDInsight](https://azure.microsoft.com/ser
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

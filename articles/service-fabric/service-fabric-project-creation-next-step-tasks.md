@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/06/2015"
+   ms.date="03/08/2016"
    ms.author="seanmck"/>
 
 # O seu aplicativo do Service Fabric e as próximas etapas
@@ -31,9 +31,9 @@ O projeto de aplicativo consiste em:
 
 - Dois arquivos de parâmetro de aplicativos, um Local e outro de Nuvem, que servem para manter as configurações do aplicativo específicas do ambiente, como o número de partições para criar um serviço.
 
-- Um script de implantação que você pode usar para implantar o aplicativo na linha de comando ou como parte de uma pipeline de integração contínua automatizada.
+- Um script de implantação que você pode usar para implantar o aplicativo na linha de comando ou como parte de uma pipeline de implantação e integração contínua automatizada.
 
-- O manifesto do aplicativo, que o descreve.
+- O manifesto do aplicativo, que o descreve. Você pode encontrar o manifesto na pasta ApplicationPackageRoot.
 
 ### Reliable Services
 Ao adicionar um novo reliable services, o Visual Studio adiciona um projeto de serviço à sua solução. O projeto de serviço contém uma classe que se estende de `StatelessService` ou de `StatefulService`, dependendo do tipo escolhido.
@@ -86,4 +86,4 @@ Para saber como definir um processo de integração contínuo para o aplicativo 
 [reliable-services-webapi]: service-fabric-reliable-services-communication-webapi.md
 [app-upgrade-tutorial]: service-fabric-application-upgrade-tutorial.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

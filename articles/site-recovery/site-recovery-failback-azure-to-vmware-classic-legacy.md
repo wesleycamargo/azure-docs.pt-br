@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Execute o failback de máquinas virtuais VMware e servidores físicos do Azure para o VMware | Microsoft Azure" 
+   pageTitle="Execute o failback de máquinas virtuais VMware e servidores físicos do Azure para o VMware (herdado) | Microsoft Azure" 
    description="Este artigo descreve como executar o failback de uma máquina virtual VMware que foi replicada no Azure com o Azure Site Recovery." 
    services="site-recovery" 
    documentationCenter="" 
@@ -13,35 +13,49 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="storage-backup-recovery" 
-   ms.date="12/14/2015"
+   ms.date="03/06/2016"
    ms.author="ruturajd@microsoft.com"/>
 
 # Executar o failback de máquinas virtuais VMware e servidores físicos do Azure para o VMware com o Azure Site Recovery (herdado)
 
 > [AZURE.SELECTOR]
-- [Enhanced](site-recovery-failback-azure-to-vmware-classic.md)
-- [Legacy](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+- [Avançado](site-recovery-failback-azure-to-vmware-classic.md)
+- [Herdado](site-recovery-failback-azure-to-vmware-classic-legacy.md)
 
+O Azure Site Recovery contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) administrando a replicação, o failover e a recuperação de máquinas virtuais e servidores físicos. As máquinas podem ser replicadas no Azure ou em um datacenter local secundário. Para uma breve visão geral, leia [O que é o Azure Site Recovery?](site-recovery-overview.md).
 
 ## Visão geral
 
-Este documento descreve como executar o failback de máquinas virtuais VMware e servidores físicos Windows/Linux do Azure para seu site local.
+Este artigo descreve como fazer failback de máquinas virtuais VMware e servidores físicos Windows/Linux do Azure para seu site local depois de você replicar do site local no Azure.
 
-Para configurar a replicação e o failover desse cenário, siga as instruções [deste artigo](site-recovery-vmware-to-azure.md). Após um failover bem-sucedido de máquinas virtuais VMware ou de servidores físicos no Azure com a Recuperação de Site, as máquinas ficarão disponíveis na guia Máquinas Virtuais do Azure.
+>[AZURE.NOTE] Este artigo descreve um cenário herdado. Você só deve usar as instruções neste artigo se replicou no Azure usando [estas instruções herdadas](site-recovery-vmware-to-azure-classic-legacy.md). Se você configurar a replicação usando a [implantação aprimorada](site-recovery-vmware-to-azure-classic-legacy.md), siga as instruções [neste artigo](site-recovery-failback-azure-to-vmware-classic.md) para fazer o failback.
 
->[AZURE.NOTE]Você pode executar o failback apenas de máquinas virtuais VMware e de servidores físicos Windows/Linux do Azure para máquinas virtuais VMware no site primário local. Se você estiver executando o failback de uma máquina física, o failover para o Azure a converterá em uma VM do Azure, e o failback para o VMware a converterá em uma VM do VMware.
+
+## Arquitetura
 
 Este diagrama representa o cenário de failover e failback. As linhas azuis são as conexões usadas durante o failover. As linhas vermelhas são as conexões usadas durante o failback. As linhas com setas acessam a internet.
 
 ![](./media/site-recovery-failback-azure-to-vmware/vconports.png)
+
+## Antes de começar 
+
+- Você deve ter feito failover em suas máquinas virtuais VMware ou servidores físicos e eles devem estar em execução no Azure.
+- Observe que você pode executar o failback apenas de máquinas virtuais VMware e de servidores físicos Windows/Linux do Azure para máquinas virtuais VMware no site primário local. Se você estiver executando o failback de uma máquina física, o failover para o Azure a converterá em uma VM do Azure, e o failback para o VMware a converterá em uma VM do VMware.
+
+Veja como configurar o failback:
+
+1. **Configurar componentes de failback**: você precisará configurar um servidor vContinuum no local e apontar para a VM do servidor de configuração no Azure. Você também configurará um servidor de processo como uma VM do Azure para enviar dados de volta ao servidor de destino mestre local. Registre o servidor de processo com o servidor de configuração que tratou do failover. Instale um servidor de destino mestre local. Se você precisar de um servidor de destino mestre Windows, ele será configurado automaticamente quando o vContinuum for instalado. Se você precisar de Linux, deverá defini-lo manualmente em um servidor separado.
+2. **Habilitar proteção e failback**: depois de configurar os componentes, no vContinuum, você precisará habilitar a proteção de failover de máquinas virtuais do Azure. Você executará uma verificação de preparação nas máquinas virtuais e executará um failover do Azure para o site local. Após a conclusão do failback, proteja as máquinas locais novamente para que iniciem replicando no Azure.
+
+
 
 ## Etapa 1: Instalar o vContinuum no local
 
 Será necessário instalar um servidor vContinuum no local e apontá-lo para o servidor de configuração.
 
 1.  [Baixar o vContinuum](http://go.microsoft.com/fwlink/?linkid=526305). 
-2.  Depois de baixar, baixe a versão atualizada da [atualização do vContinuum](http://go.microsoft.com/fwlink/?LinkID=533813).
-3.  Execute a instalação da versão mais recente para instalar o vContinuum. Na página **Boas-vindas**, clique em **Avançar**. ![](./media/site-recovery-failback-azure-to-vmware/image2.png)
+2.  Baixe a versão de [atualização do vContinuum atualização](http://go.microsoft.com/fwlink/?LinkID=533813).
+3. Instale a versão mais recente do vContinuum. Na página **Boas-vindas**, clique em **Avançar**. ![](./media/site-recovery-failback-azure-to-vmware/image2.png)
 4.  Na primeira página do assistente, especifique o endereço IP do servidor CX e a porta do servidor CX. Escolha **Usar HTTPS**.
 
 	![](./media/site-recovery-failback-azure-to-vmware/image3.png)
@@ -84,7 +98,7 @@ Será necessário instalar um servidor vContinuum no local e apontá-lo para o s
 
 	![](./media/site-recovery-failback-azure-to-vmware/image12.png)
 
->[AZURE.NOTE]Os servidores registrados durante o failback não ficarão visíveis nas propriedades da VM na Recuperação de Site. Eles poderão ser vistos apenas na guia **Servidores** do servidor de configuração no qual foram registrados. Pode demorar cerca de 10 a 15 minutos até que o servidor de processo apareça na guia.
+>[AZURE.NOTE] Os servidores registrados durante o failback não ficarão visíveis nas propriedades da VM na Recuperação de Site. Eles poderão ser vistos apenas na guia **Servidores** do servidor de configuração no qual foram registrados. Pode demorar cerca de 10 a 15 minutos até que o servidor de processo apareça na guia.
 
 
 ## Etapa 3: Instalar um servidor de destino mestre no local
@@ -136,7 +150,7 @@ Para obter as IDs de SCSI de cada disco SCSI em uma máquina virtual Linux, habi
 
 OBSERVAÇÃO: verifique se o sistema tem conectividade com a internet antes de baixar e instalar os pacotes adicionais.
 
-\# yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
+# yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
 
 Esse comando baixa estes 15 pacotes do repositório CentOS 6.6 e os instala:
 
@@ -172,17 +186,17 @@ wget-1.12-5.el6\_6.1.x86\_64.rpm
 
 OBSERVAÇÃO: se a máquina de origem usar o sistema de arquivos Reiser ou XFS para o dispositivo raiz ou de inicialização, os pacotes a seguir deverão ser baixados e instalados no destino mestre com Linux antes da proteção.
 
-\# cd /usr/local
+# cd /usr/local
 
-\# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
+# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
 
-\# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
+# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
 
-\# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
+# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
 
-\# wget <http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
+# wget <http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
 
-\# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
+# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
 
 #### Aplicar alterações de configuração personalizadas
 
@@ -237,7 +251,7 @@ Se por algum motivo você não registrar o servidor de destino mestre com Linux 
 
 Você pode validar se o servidor de destino mestre foi registrado com êxito no servidor de configuração no cofre do Azure Site Recovery > **Servidor de Configuração** > **Detalhes do Servidor**.
 
->[AZURE.NOTE]Se, após o registro do servidor de destino mestre, você receber erros de configuração indicando que a máquina virtual pode ter sido excluída do Azure ou que os pontos de extremidade não estão configurados corretamente, isso será uma indicação de que, embora a configuração de destino mestre seja detectada pelos dndpoints do Azure na implantação do destino mestre no Azure, isso não vale para um servidor de destino mestre local. Isso não afetará o failback e você pode ignorar esses erros.
+>[AZURE.NOTE] Se, após o registro do servidor de destino mestre, você receber erros de configuração indicando que a máquina virtual pode ter sido excluída do Azure ou que os pontos de extremidade não estão configurados corretamente, isso será uma indicação de que, embora a configuração de destino mestre seja detectada pelos dndpoints do Azure na implantação do destino mestre no Azure, isso não vale para um servidor de destino mestre local. Isso não afetará o failback e você pode ignorar esses erros.
 
 
 
@@ -406,8 +420,10 @@ Após a conclusão do failback, convém provavelmente proteger mais uma vez as m
  
 ## Próximas etapas
 
-[Leia sobre](site-recovery-vmware-to-azure-classic-legacy.md) replicação das máquinas virtuais VMware no Azure
+
+
+- [Leia sobre](site-recovery-vmware-to-azure-classic.md) replicar máquinas virtuais VMware e servidores físicos no Azure usando a implantação avançada.
 
  
 
-<!---HONumber=AcomDC_0114_2016--->
+<!---HONumber=AcomDC_0309_2016-->

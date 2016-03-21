@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="01/05/2016"
+     ms.date="02/03/2016"
      ms.author="dobett"/>
 
 # Tutorial: Como processar mensagens de dispositivo para nuvem do Hub IoT
@@ -24,7 +24,7 @@ O Hub IoT do Azure é um serviço totalmente gerenciado que permite comunicaçõ
 
 Esse tutorial se baseia no código mostrado no tutorial [Introdução ao Hub IoT] e mostra dois padrões dimensionáveis que você pode usar para processar mensagens de dispositivo para nuvem:
 
-- O armazenamento confiável de mensagens do dispositivo para a nuvem no [Armazenamento de blob do Azure]. Este é um cenário muito comum quando você implementa análise de *caminho frio*, em que você armazena dados em blobs para usar como entrada em processos de análise acionados por ferramentas como o [Azure Data Factory] ou a pilha do [HDInsight (Hadoop)].
+- O armazenamento confiável de mensagens do dispositivo para a nuvem no [Armazenamento de Blobs do Azure]. Um cenário muito comum é quando você implementa análise de *caminho frio*, em que você armazena dados em blobs para usar como entrada em processos de análise acionados por ferramentas como o [Azure Data Factory] ou a pilha do [HDInsight (Hadoop)].
 
 - O processamento confiável de mensagens *interativas* do dispositivo para nuvem. As mensagens do dispositivo para a nuvem são interativas quando disparadas imediatamente para um conjunto de ações no back-end do aplicativo, diferente das mensagens de *ponto de dados*, que são alimentadas em um mecanismo de análise. Por exemplo, um alarme proveniente de um dispositivo que deve disparar a inserção de um tíquete em um sistema de CRM é uma mensagem de dispositivo para nuvem interativa, diferente da telemetria, como exemplos de temperatura, que é uma mensagem de dispositivo de ponto de dados para a nuvem.
 
@@ -49,7 +49,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 + Microsoft Visual Studio 2015.
 
-+ Uma conta ativa do Azure. <br/>Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos Para obter detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdevelop%2Fiot%2Ftutorials%2Fprocess-d2c%2F target="\_blank").
++ Uma conta ativa do Azure. <br/>Se não tiver uma conta, você poderá criar uma conta gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdevelop%2Fiot%2Ftutorials%2Fprocess-d2c%2F target="\_blank").
 
 Você também precisa ter um conhecimento básico do [Armazenamento do Azure] e do [Barramento de Serviço do Azure].
 
@@ -91,18 +91,18 @@ Informações adicionais sobre o Hub IoT:
 
 <!-- Links -->
 
-[Armazenamento de blob do Azure]: https://azure.microsoft.com/pt-BR/documentation/articles/storage-dotnet-how-to-use-blobs/
-[Azure Data Factory]: https://azure.microsoft.com/pt-BR/documentation/services/data-factory/
-[HDInsight (Hadoop)]: https://azure.microsoft.com/pt-BR/documentation/services/hdinsight/
-[Fila do barramento de serviço]: https://azure.microsoft.com/pt-BR/documentation/articles/service-bus-dotnet-how-to-use-queues/
+[Armazenamento de Blobs do Azure]: ../storage/storage-dotnet-how-to-use-blobs.md
+[Azure Data Factory]: https://azure.microsoft.com/documentation/services/data-factory/
+[HDInsight (Hadoop)]: https://azure.microsoft.com/documentation/services/hdinsight/
+[Fila do barramento de serviço]: ../service-bus/service-bus-dotnet-how-to-use-queues/
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
 
 
-[Guia do desenvolvedor do Hub IoT do Azure - Dispositivo para nuvem]: https://azure.microsoft.com/pt-BR/documentation/articles/iot-hub-devguide/#d2c
+[Guia do desenvolvedor do Hub IoT do Azure - Dispositivo para nuvem]: iot-hub-devguide.md#d2c
 
-[Armazenamento do Azure]: https://azure.microsoft.com/pt-BR/documentation/services/storage/
-[Barramento de Serviço do Azure]: https://azure.microsoft.com/pt-BR/documentation/services/service-bus/
+[Armazenamento do Azure]: https://azure.microsoft.com/documentation/services/storage/
+[Barramento de Serviço do Azure]: https://azure.microsoft.com/documentation/services/service-bus/
 
 
 
@@ -117,4 +117,4 @@ Informações adicionais sobre o Hub IoT:
 [Supported devices]: iot-hub-tested-configurations.md
 [Centro de Desenvolvedores do IoT do Azure]: https://azure.microsoft.com/develop/iot
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -75,7 +75,9 @@ Você pode atualizar facilmente os certificados primário ou secundário no Port
 
 ![Captura de tela que mostra as impressões digitais do certificado no Portal do Azure.][CertificateUpgrade]
 
->[AZURE.NOTE] Antes de identificar um certificado que você deseja usar para os recursos de cluster, é necessário concluir as etapas a seguir; caso contrário, o novo certificado não será usado: 1. Carregar o novo certificado no Cofre de Chaves do Azure. Consulte [Segurança do Service Fabric](service-fabric-cluster-security.md) para obter instruções. Comece com a etapa 2 neste documento. 2. Atualize todas as VMs (máquinas virtuais) que compõem seu cluster, para que o certificado seja implantado nelas. Para fazer isso, consulte o [Blog da equipe do Cofre da Chave do Azure](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx).
+>[AZURE.NOTE] Antes de identificar um certificado que você deseja usar para os recursos de cluster, é necessário concluir as etapas a seguir, ou o novo certificado não será usado:
+1. Carregar o novo certificado no Cofre de Chaves do Azure. Consulte [Segurança do Service Fabric](service-fabric-cluster-security.md) para obter instruções. Comece com a etapa 2 neste documento.
+2. Atualize todas as VMs (máquinas virtuais) que compõem seu cluster, para que o certificado seja implantado nelas. Para fazer isso, consulte o [Blog da equipe do Cofre de Chaves do Azure](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx).
 
 ### Portas do aplicativo
 
@@ -100,11 +102,11 @@ Para abrir uma nova porta em todas as VMs em um tipo de nó, faça o seguinte:
 
 Para cada um dos tipos de nó, é possível adicionar as propriedades de posicionamento personalizadas que você deseja usar em seus aplicativos. NodeType é uma propriedade padrão que você pode usar sem adicioná-la explicitamente.
 
->[AZURE.NOTE] Para obter detalhes sobre o uso das propriedades de posicionamento, consulte a [Visão geral das restrições de posicionamento](service-fabric-placement-constraint.md).
+>[AZURE.NOTE] Para obter detalhes sobre o uso de restrições de posicionamento, propriedades de nó e como defini-las, consulte a seção "Restrições de posicionamento e propriedades de nó" no documento do Gerenciador de recursos do cluster do Service Fabric em [Descrevendo seu cluster](service-fabric-cluster-resource-manager-cluster-description.md).
 
 ### Métricas de capacidade
 
-Para cada um dos tipos de nó, é possível adicionar métricas de capacidade personalizadas que você deseja usar em seus aplicativos para relatar a carga. Para obter detalhes sobre o uso de métricas de capacidade para relatar a carga, consulte a [Visão geral dos relatórios de carga dinâmica](service-fabric-resource-balancer-dynamic-load-reporting.md).
+Para cada um dos tipos de nó, é possível adicionar métricas de capacidade personalizadas que você deseja usar em seus aplicativos para relatar a carga. Para obter detalhes sobre o uso de métricas de capacidade para relatar carga, consulte os documentos do Gerenciador de recursos do cluster do Service Fabric em [Descrevendo seu cluster](service-fabric-cluster-resource-manager-cluster-description.md) e [Métricas e carga](service-fabric-cluster-resource-manager-metrics.md).
 
 ### Patches do sistema operacional nas VMs que fazem parte do cluster
 
@@ -124,4 +126,4 @@ Se for necessário atualizar a imagem do sistema operacional nas máquinas virtu
 [AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes.png
 [AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

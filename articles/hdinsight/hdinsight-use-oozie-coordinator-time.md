@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="03/04/2016"
 	ms.author="jgao"/>
 
 
@@ -67,24 +67,25 @@ Antes de começar este tutorial, você deve ter o seguinte:
 - **Um cluster HDInsight**. Para saber mais sobre como criar um cluster HDInsight, confira [Provisionar clusters HDInsight][hdinsight-provision] ou [Introdução ao HDInsight][hdinsight-get-started]. Você precisará dos seguintes dados para percorrer o tutorial:
 
 	<table border = "1">
-<tr><th>Propriedade do cluster</th><th>Nome de variável do Windows PowerShell</th><th>Valor</th><th>Descrição</th></tr>
-<tr><td>Nome do cluster HDInsight</td><td>$clusterName</td><td></td><td>O cluster HDInsight em que você executará este tutorial.</td></tr>
-<tr><td>Nome de usuário do cluster HDInsight</td><td>$clusterUsername</td><td></td><td>O nome do usuário do cluster HDInsight. </td></tr>
-<tr><td>Senha de usuário do cluster HDInsight </td><td>$clusterPassword</td><td></td><td>A senha de usuário do cluster HDInsight.</td></tr>
-<tr><td>Nome da conta de armazenamento do Azure</td><td>$storageAccountName</td><td></td><td>Uma conta de armazenamento do Azure disponível para o cluster HDInsight. Para este tutorial, use a conta de armazenamento padrão especificada durante o processo de provisionamento do cluster.</td></tr>
-<tr><td>Nome do contêiner de blob do Azure</td><td>$containerName</td><td></td><td>Para este exemplo, utilize o contêiner de armazenamento de blob do Azure usado para o sistema de arquivos do cluster HDInsight padrão. Por padrão, o contêiner tem o mesmo nome do cluster HDInsight.</td></tr>
-</table>
+	<tr><th>Propriedade do cluster</th><th>Nome de variável do Windows PowerShell</th><th>Valor</th><th>Descrição</th></tr>
+	<tr><td>Nome do cluster HDInsight</td><td>$clusterName</td><td></td><td>O cluster HDInsight em que você executará este tutorial.</td></tr>
+	<tr><td>Nome de usuário do cluster HDInsight</td><td>$clusterUsername</td><td></td><td>O nome do usuário do cluster HDInsight. </td></tr>
+	<tr><td>Senha de usuário do cluster HDInsight </td><td>$clusterPassword</td><td></td><td>A senha de usuário do cluster HDInsight.</td></tr>
+	<tr><td>Nome da conta de armazenamento do Azure</td><td>$storageAccountName</td><td></td><td>Uma conta de armazenamento do Azure disponível para o cluster HDInsight. Para este tutorial, use a conta de armazenamento padrão especificada durante o processo de provisionamento do cluster.</td></tr>
+	<tr><td>Nome do contêiner de blob do Azure</td><td>$containerName</td><td></td><td>Para este exemplo, utilize o contêiner de armazenamento de blob do Azure usado para o sistema de arquivos do cluster HDInsight padrão. Por padrão, o contêiner tem o mesmo nome do cluster HDInsight.</td></tr>
+	</table>
 
 - **Um banco de dados SQL do Azure**. Você deve configurar uma regra de firewall para o servidor de Banco de Dados SQL para permitir o acesso a partir de sua estação de trabalho. Para saber mais sobre como criar um Banco de Dados SQL e configurar o firewall, confira [Introdução ao uso do Banco de Dados SQL do Azure][sqldatabase-get-started]. Este artigo fornece um script do Windows PowerShell para criar a tabela do Banco de Dados SQL do Azure necessária para este tutorial.
 
 	<table border = "1">
-<tr><th>Propriedade de banco de dados SQL</th><th>Nome de variável do Windows PowerShell</th><th>Valor</th><th>Descrição</th></tr>
-<tr><td>Nome do servidor de banco de dados SQL</td><td>$sqlDatabaseServer</td><td></td><td>O servidor do Banco de Dados SQL para o qual o Sqoop exportará os dados. </td></tr>
-<tr><td>Nome de logon do banco de dados SQL</td><td>$sqlDatabaseLogin</td><td></td><td>Nome de logon do banco de dados SQL.</td></tr>
-<tr><td>Senha de logon do banco de dados SQL</td><td>$sqlDatabaseLoginPassword</td><td></td><td>Senha de logon do banco de dados SQL.</td></tr>
-<tr><td>Nome do banco de dados SQL</td><td>$sqlDatabaseName</td><td></td><td>O banco de dados SQL do Azure para o qual o Sqoop exportará dados. </td></tr>
-</table>
-> [AZURE.NOTE] Por padrão, um banco de dados SQL do Azure permite conexões de serviços do Azure, como o Azure HDInsight. Se essa configuração de firewall estiver desabilitada, você deverá habilitá-la no Portal do Azure. Para obter instruções sobre como criar um Banco de Dados SQL e configurar regras de firewall, consulte [Criar e configurar o Banco de Dados SQL]\[sqldatabase-create-configure].
+	<tr><th>Propriedade de banco de dados SQL</th><th>Nome de variável do Windows PowerShell</th><th>Valor</th><th>Descrição</th></tr>
+	<tr><td>Nome do servidor de banco de dados SQL</td><td>$sqlDatabaseServer</td><td></td><td>O servidor do Banco de Dados SQL para o qual o Sqoop exportará os dados. </td></tr>
+	<tr><td>Nome de logon do banco de dados SQL</td><td>$sqlDatabaseLogin</td><td></td><td>Nome de logon do banco de dados SQL.</td></tr>
+	<tr><td>Senha de logon do banco de dados SQL</td><td>$sqlDatabaseLoginPassword</td><td></td><td>Senha de logon do banco de dados SQL.</td></tr>
+	<tr><td>Nome do banco de dados SQL</td><td>$sqlDatabaseName</td><td></td><td>O banco de dados SQL do Azure para o qual o Sqoop exportará dados. </td></tr>
+	</table>
+
+	> [AZURE.NOTE] Por padrão, um banco de dados SQL do Azure permite conexões de serviços do Azure, como o Azure HDInsight. Se essa configuração de firewall estiver desabilitada, você deverá habilitá-la no Portal do Azure. Para obter instruções sobre como criar um Banco de Dados SQL e configurar regras de firewall, consulte [Criar e configurar o Banco de Dados SQL][sqldatabase-create-configure].
 
 
 > [AZURE.NOTE] Preencha os valores nas tabelas. Isso poderá ser útil para percorrer este tutorial.
@@ -187,22 +188,29 @@ A ação do Hive no fluxo de trabalho chama um arquivo de script HiveQL. Esse ar
 	O RunHiveScript possui várias variáveis. Você irá passar os valores ao enviar o trabalho do Oozie de sua estação de trabalho usando o PowerShell do Azure.
 
 	<table border = "1">
-<tr><th>Variáveis de fluxo de trabalho</th><th>Descrição</th></tr>
-<tr><td>${jobTracker}</td><td>Especifique a URL do controlador do trabalho do Hadoop. Use <strong>jobtrackerhost:9010</strong> no cluster HDInsight versões 3.0 e 2.0.</td></tr>
-<tr><td>${nameNode}</td><td>Especifique a URL do name node do Hadoop. Use o endereço padrão do sistema de arquivos wasb://, por exemplo, <i>wasb://&lt;NomeContêiner>@&lt;NomeContaArmazenamento>.blob.core.windows.net</i>.</td></tr>
-<tr><td>${queueName}</td><td>Especifica o nome da fila para a qual o trabalho será enviado. Use <strong>padrão</strong>.</td></tr>
-</table><table border = "1">
-<tr><th>Variável de ação do Hive</th><th>Descrição</th></tr>
-<tr><td>${hiveDataFolder}</td><td>O diretório de origem do comando Hive Create Table.</td></tr>
-<tr><td>${hiveOutputFolder}</td><td>A pasta de saída da instrução INSERT OVERWRITE.</td></tr>
-<tr><td>${hiveTableName}</td><td>O nome da tabela Hive que faz referência aos arquivos de dados log4j.</td></tr>
-</table><table border = "1">
-<tr><th>Variável de ação do Sqoop</th><th>Descrição</th></tr>
-<tr><td>${sqlDatabaseConnectionString}</td><td>Cadeia de conexão do Banco de Dados SQL.</td></tr>
-<tr><td>${sqlDatabaseTableName}</td><td>A tabela do Banco de Dados SQL para onde os dados serão exportados.</td></tr>
-<tr><td>${hiveOutputFolder}</td><td>A pasta de saída para a instrução Hive INSERT OVERWRITE. Essa é a mesma pasta para a exportação do Sqoop (export-dir).</td></tr>
-</table>
-Para saber mais sobre o fluxo de trabalho do Oozie e como usar ações de fluxo de trabalho, confira a [documentação do Apache Oozie 4.0][apache-oozie-400] (para a versão 3.0 do cluster HDInsight) ou a [documentação do Oozie Apache 3.3.2][apache-oozie-332] (para a versão 2.1 do cluster HDInsight).
+	<tr><th>Variáveis de fluxo de trabalho</th><th>Descrição</th></tr>
+	<tr><td>${jobTracker}</td><td>Especifique a URL do controlador do trabalho do Hadoop. Use <strong>jobtrackerhost:9010</strong> no cluster HDInsight versões 3.0 e 2.0.</td></tr>
+	<tr><td>${nameNode}</td><td>Especifique a URL do name node do Hadoop. Use o endereço padrão do sistema de arquivos wasb://, por exemplo, <i>wasb://&lt;NomeContêiner>@&lt;NomeContaArmazenamento>.blob.core.windows.net</i>.</td></tr>
+	<tr><td>${queueName}</td><td>Especifica o nome da fila para a qual o trabalho será enviado. Use <strong>padrão</strong>.</td></tr>
+	</table>
+
+
+	<table border = "1">
+	<tr><th>Variável de ação do Hive</th><th>Descrição</th></tr>
+	<tr><td>${hiveDataFolder}</td><td>O diretório de origem do comando Hive Create Table.</td></tr>
+	<tr><td>${hiveOutputFolder}</td><td>A pasta de saída da instrução INSERT OVERWRITE.</td></tr>
+	<tr><td>${hiveTableName}</td><td>O nome da tabela Hive que faz referência aos arquivos de dados log4j.</td></tr>
+	</table>
+
+
+	<table border = "1">
+	<tr><th>Variável de ação do Sqoop</th><th>Descrição</th></tr>
+	<tr><td>${sqlDatabaseConnectionString}</td><td>Cadeia de conexão do Banco de Dados SQL.</td></tr>
+	<tr><td>${sqlDatabaseTableName}</td><td>A tabela do Banco de Dados SQL para onde os dados serão exportados.</td></tr>
+	<tr><td>${hiveOutputFolder}</td><td>A pasta de saída para a instrução Hive INSERT OVERWRITE. Essa é a mesma pasta para a exportação do Sqoop (export-dir).</td></tr>
+	</table>
+
+	Para saber mais sobre o fluxo de trabalho do Oozie e como usar ações de fluxo de trabalho, confira a [documentação do Apache Oozie 4.0][apache-oozie-400] (para a versão 3.0 do cluster HDInsight) ou a [documentação do Oozie Apache 3.3.2][apache-oozie-332] (para a versão 2.1 do cluster HDInsight).
 
 2. Salve o arquivo como **C:\\Tutorials\\UseOozie\\workflow.xml** usando a codificação ANSI (ASCII). (Use o Bloco de Notas se o seu editor de texto não fornecer essa opção.)
 
@@ -736,4 +744,4 @@ Neste tutorial, você aprendeu como definir um fluxo de trabalho do Oozie, um co
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

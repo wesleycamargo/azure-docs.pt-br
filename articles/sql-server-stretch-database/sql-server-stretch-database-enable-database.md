@@ -3,9 +3,9 @@
 	description="Saiba como configurar um banco de dados para o Banco de Dados de Stretch."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="03/09/2016"
 	ms.author="douglasl"/>
 
 # Habilitar o Banco de Dados de Stretch para um banco de dados
@@ -128,6 +128,8 @@ Habilitar outras tabelas para o Banco de Dados de Stretch. Monitorar a migraçã
 -   [Fazer backup e restaurar os bancos de dados habilitados para Stretch](sql-server-stretch-database-backup.md)
 
 ## Consulte também
-[Identificar os bancos de dados e as tabelas para o Banco de Dados de Stretch](sql-server-stretch-database-identify-databases.md) [Opções ALTERAR BANCO DE DADOS (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
+[Identificar bancos de dados e tabelas para o Stretch Database](sql-server-stretch-database-identify-databases.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+[Opções ALTER DATABASE SET (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
+
+<!---HONumber=AcomDC_0309_2016-->

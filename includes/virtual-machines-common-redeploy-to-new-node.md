@@ -1,34 +1,36 @@
 
-If you have been facing difficulties troubleshooting Remote Desktop (RDP) connection to Windows based Azure virtual machine or in troubleshooting SSH connection to Linux based Azure virtual machine, then this article will help you mitigate them all by yourself, without looping in support and resizing the virtual machine.  Microsoft Azure will redeploy your virtual machine when you invoke redeploy operation through Azure PowerShell. 
+Se estiver tendo dificuldades em solucionar problemas de conexão RDP (Área de Trabalho Remota) em uma máquina virtual do Azure baseada em Windows ou em solucionar problemas de conexão SSH em uma máquina virtual do Azure baseada em Linux, este artigo o ajudará a atenuá-los por conta própria, sem recorrer ao suporte e sem redimensionar a máquina virtual. O Microsoft Azure reimplantará sua máquina virtual quando você invocar a operação de reimplantação por meio do Azure PowerShell.
 
-Please note that after this operation is completed, ephemeral disk data will be lost and dynamic IP addresses associated with virtual machine will be updated. 
+Observe que, após a conclusão dessa operação, os dados de disco efêmero serão perdidos e os endereços IP dinâmicos associados à máquina virtual serão atualizados.
 
 
-## Using Azure PowerShell
+## Usando o PowerShell do Azure
 
-Make sure you have the latest Azure PowerShell 1.x installed on your machine. Please read [How to install and configure Azure PowerShell](../articles/powershell-install-configure.md) for more information.
+Verifique se você tem o Azure PowerShell 1.x mais recente instalado em seu computador. Leia [Como instalar e configurar o Azure PowerShell](../articles/powershell-install-configure.md) para obter mais informações.
 
-Use this Azure PowerShell command to redeploy your virtual machine:
+Use este comando do Azure PowerShell para reimplantar a máquina virtual:
 
 	Set-AzureRmVM -Redeploy -ResourceGroupName $rgname -Name $vmname 
 
 
-While this command is running, check your virtual machine in the [Azure portal](https://portal.azure.com). Notice that the VM's **Status** changes as following:
+Durante a execução desse comando, verifique a máquina virtual no [portal do Azure](https://portal.azure.com). Observe se o **Status** da VM muda da seguinte forma:
 
-1. Initial **Status** is *Running*
+1. O **Status** inicial é *Executando*
 
-	![Redeploy initial status](./media/virtual-machines-common-redeploy-to-new-node/statusrunning1.png)
+	![Reimplantar o status inicial](./media/virtual-machines-common-redeploy-to-new-node/statusrunning1.png)
 
-2. **Status** changes to *Updating*
+2. O **Status** muda para *Atualizando*
 
-	![Redeploy status Updating](./media/virtual-machines-common-redeploy-to-new-node/statusupdating.png)
+	![Reimplantar o status Atualizando](./media/virtual-machines-common-redeploy-to-new-node/statusupdating.png)
 
-3. **Status** changes to *Starting*
+3. O **Status** muda para *Iniciando*
 
-	![Redeploy status Starting](./media/virtual-machines-common-redeploy-to-new-node/statusstarting.png)
+	![Reimplantar o status Iniciando](./media/virtual-machines-common-redeploy-to-new-node/statusstarting.png)
 
-4. **Status** changes back to *Running*
+4. O **Status** muda de volta para *Executando*
 
-	![Redeploy final status](./media/virtual-machines-common-redeploy-to-new-node/statusrunning2.png)
+	![Reimplantar o status final](./media/virtual-machines-common-redeploy-to-new-node/statusrunning2.png)
 
-When the **Status** is back to *Running*, the VM has successfully redeployed. 
+Quando o **Status** voltar para *Executando*, a VM terá sido reimplantada com êxito.
+
+<!---HONumber=AcomDC_0309_2016-->

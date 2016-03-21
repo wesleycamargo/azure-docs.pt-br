@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="NA"
     ms.devlang="NA"
     ms.topic="article"
-    ms.date="02/16/2016"
+    ms.date="03/08/2016"
     ms.author="elizapo" />
 
 # O que vem pela frente no RemoteApp do Azure
@@ -29,7 +29,7 @@ Estamos sempre trabalhando para melhorar o RemoteApp do Azure com base em seus c
 |Suporte do ARM (Gerenciador de Recursos do Azure)||X|
 |Suporte a recurso v2 do Azure| |X|
 |Programa do CSP (Provedor de Soluções na Nuvem)||X|
-|Disponibilidade na região da Índia|X||
+|Disponibilidade na região da Índia||X|
 |Disponibilidade na região do Reino Unido||X|
 
 
@@ -47,4 +47,4 @@ Outros aperfeiçoamentos adicionados no início deste ano:
 - Disponibilidade em datacenters australianos
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

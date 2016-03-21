@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="02/10/2016" 
 	ms.author="fashah;mohabib;bradsev" />
 
 # Mover dados para o SQL Server em uma máquina virtual do Azure
@@ -38,16 +38,16 @@ A tabela a seguir resume as opções para mover dados para o SQL Server em uma m
 
 Observe que este documento pressupõe que os comandos SQL sejam executados no SQL Server Management Studio ou no Gerenciador de Banco de Dados do Visual Studio.
 
-> [AZURE.TIP] Como alternativa, você pode usar o [Azure Factory](https://azure.microsoft.com/services/data-factory/) para criar e agendar um pipeline que move dados para uma VM do SQL Server no Azure. Para obter mais informações, consulte [Copiar dados com o Azure Data Factory (Atividade de Cópia)](data-factory-data-movement-activities.md).
+> [AZURE.TIP] Como alternativa, você pode usar o [Azure Factory](https://azure.microsoft.com/services/data-factory/) para criar e agendar um pipeline que move dados para uma VM do SQL Server no Azure. Para obter mais informações, consulte [Copiar dados com o Azure Data Factory (Atividade de Cópia)](../data-factory/data-factory-data-movement-activities.md).
 
 
 ## <a name="prereqs"></a>Pré-requisitos
 Este tutorial presume que você tenha:
 
 * Uma **assinatura do Azure**. Se você não tiver uma assinatura, você pode se inscrever em uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Uma **conta de armazenamento do Azure**. Você usará uma conta de armazenamento do Azure para armazenar os dados neste tutorial. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [Criar uma conta de armazenamento](storage-create-storage-account.md#create-a-storage-account). Depois de criar a conta de armazenamento, você precisará obter a chave de conta usada para acessar o armazenamento. Consulte [Exibir, copiar e regenerar chaves de acesso de armazenamento](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+* Uma **conta de armazenamento do Azure**. Você usará uma conta de armazenamento do Azure para armazenar os dados neste tutorial. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account). Depois de criar a conta de armazenamento, você precisará obter a chave de conta usada para acessar o armazenamento. Consulte [Exibir, copiar e regenerar chaves de acesso de armazenamento](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 * **SQL Server em uma VM do Azure** provisionado. Para obter instruções, consulte [Configurar uma máquina virtual do SQL Server do Azure como um servidor do IPython Notebook para análises avançadas](machine-learning-data-science-setup-sql-server-virtual-machine.md).
-* **Azure PowerShell** instalado e configurado localmente. Para saber mais, confira [Como instalar e configurar o PowerShell do Azure](powershell-install-configure.md).
+* **Azure PowerShell** instalado e configurado localmente. Para saber mais, confira [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
 
 
 ## <a name="filesource_to_sqlonazurevm"></a> Movimentação de dados de uma fonte de arquivo simples para o SQL Server em uma VM do Azure
@@ -63,7 +63,7 @@ Se os dados estiverem em um arquivo simples (organizado em um formato de linha/c
 
 O BCP é um utilitário de linha de comando instalado com o SQL Server e é uma das maneiras mais rápidas para mover os dados. Ele funciona em todas as três variantes do SQL Server (SQL Server local, SQL Azure e VM do SQL Server no Azure).
 
-> [AZURE.NOTE] **Onde os dados devem estar para o BCP?** Embora não seja necessário, ter arquivos que contêm dados de origem localizados no mesmo computador que o SQL Server de destino possibilita transferências mais rápidas (velocidade rede em comparação com velocidade de E/S do disco local). Você pode mover os arquivos simples que contêm dados para máquina em que o SQL Server está instalado usando várias ferramentas de cópia de arquivo, como [AZCopy](../storage-use-azcopy.md), [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) ou copiar/colar do Windows via protocolo RDP.
+> [AZURE.NOTE] **Onde os dados devem estar para o BCP?** Embora não seja necessário, ter arquivos que contêm dados de origem localizados no mesmo computador que o SQL Server de destino possibilita transferências mais rápidas (velocidade rede em comparação com velocidade de E/S do disco local). Você pode mover os arquivos simples que contêm dados para máquina em que o SQL Server está instalado usando várias ferramentas de cópia de arquivo, como [AZCopy](../storage/storage-use-azcopy.md), [Azure Storage Explorer](http://storageexplorer.com/) ou copiar/colar do Windows via protocolo RDP.
 
 1. Certifique-se de que o banco de dados e as tabelas foram criados no banco de dados do SQL Server de destino. Aqui está um exemplo de como fazer isso usando os comandos `Create Database` e `Create Table`:
 
@@ -224,4 +224,4 @@ Abaixo está uma captura de tela das opções de backup/restauração de banco d
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

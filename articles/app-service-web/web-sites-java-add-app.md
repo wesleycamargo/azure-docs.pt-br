@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="01/09/2016" 
+	ms.date="03/04/2016" 
 	ms.author="robmcm"/>
 
 # Adicionar um aplicativo Java a Aplicativos Web do Serviço de Aplicativo do Azure
@@ -40,4 +40,4 @@ Para obter mais informações, consulte o [Centro de desenvolvedores do Java](/d
 <!-- External Links -->
 [Serviço de Aplicativo do Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

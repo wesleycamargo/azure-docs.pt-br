@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/09/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Distribuição hash e seu efeito no desempenho da consulta no SQL Data Warehouse
@@ -70,7 +70,7 @@ Para maximizar o desempenho e o rendimento geral da consulta tente e garanta que
 
 Chave de distribuição de hash:
 
-1. É um valor estático, pois não é possível atualizar a coluna de hash. 
+1. É um valor estático, pois não é possível atualizar a coluna de hash.
 2. É usada em cláusulas `JOIN`, `GROUP BY`, `DISTINCT`, ou `HAVING` em suas consultas.
 2. Não é usada em cláusulas `WHERE`
 3. Possui muitos valores diferentes, pelo menos 1000.
@@ -103,4 +103,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

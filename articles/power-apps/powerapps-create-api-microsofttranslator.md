@@ -14,10 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/03/2016"
    ms.author="litran"/>
 
-# Crie uma nova API do Microsoft Translator no ambiente de serviço de aplicativo da sua organização
+# Criar uma nova API do Microsoft Translator no PowerApps Enterprise
+
+> [AZURE.SELECTOR]
+- [Aplicativos lógicos](../articles/connectors/create-api-microsofttranslator.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-microsofttranslator.md)
+
+Adicionar a API do Microsoft Translator ao ambiente de serviço de aplicativo (locatário) da sua organização.
 
 ## Crie a API no portal do Azure
 
@@ -25,7 +31,7 @@
  
 2. Selecione **Procurar** na barra de tarefas: ![][7]
 
-3. Na lista, você pode usar a barra de rolagem para localizar o PowerApps ou digitar *powerapps*: ![][8]
+3. Na lista, você pode rolar a tela para localizar PowerApps ou digite *powerapps*: ![][8]
 
 4. Em **PowerApps**, selecione **Gerenciar APIs**: ![Navegue até as APIs registradas][1]
 
@@ -55,17 +61,24 @@ Se não tiver um aplicativo do Microsoft Translator existente com os valores do 
 
 3. Em **Registrar seu aplicativo**:
 
-	a) Insira um valor para **Id do Cliente**. b) Digite o **nome** do seu aplicativo. c) Digite um valor fictício para a **url de redirecionamento**. Por exemplo, insira **https://contosoredirecturl*. d) Insira uma **descrição**. e) Selecione **Criar**.
+	1. Insira um valor para a **ID do Cliente**.  
+	2. Insira o **nome** do seu aplicativo.  
+	3. Insira um valor fictício para a **URL de redirecionamento**. Por exemplo, insira: **https://contosoredirecturl*.
+4. Insira uma **descrição**.  
+	5. Selecione **Criar**.  
 
 	![Registre seu aplicativo][6]
 
 É criado um novo aplicativo Microsoft Translator. Você pode usar esse aplicativo em sua configuração da API do Microsoft Translator no portal do Azure.
 
+## Consulte as APIs REST
+
+Referência da [API REST do Microsoft Translator](../connectors/create-api-microsofttranslator.md).
 
 ## Resumo e próximas etapas
 Neste tópico, você adicionou a API do Microsoft Translator para o seu PowersApps Enterprise. Em seguida, disponibilize aos usuários acesso à API para que ela possa ser adicionada aos seus aplicativos:
 
-[Adicione uma conexão e disponibilize acesso aos usuários](powerapps-manage-api-connection-user-access.md)
+[Adicione uma conexão e forneça acesso aos usuários](powerapps-manage-api-connection-user-access.md)
 
 
 <!--References-->
@@ -78,4 +91,4 @@ Neste tópico, você adicionou a API do Microsoft Translator para o seu PowersAp
 [7]: ./media/powerapps-create-api-microsofttranslator/browseall.png
 [8]: ./media/powerapps-create-api-microsofttranslator/allresources.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Como importar a definição de uma API com operações no Gerenciamento da API do Azure
@@ -54,7 +54,7 @@ Em seguida, insira um **sufixo de URL de API Web**. Ele está anexado à URL bas
 
 Após inserir todos os valores, clique em **Salvar** para criar a API e as operações associadas.
 
->[AZURE.NOTE]Para obter um tutorial de importação de uma API básica de calculadora no formato Swagger, consulte [Gerenciar sua primeira API no Gerenciamento de API do Azure](api-management-get-started.md).
+>[AZURE.NOTE] Para obter um tutorial de importação de uma API básica de calculadora no formato Swagger, consulte [Gerenciar sua primeira API no Gerenciamento de API do Azure](api-management-get-started.md).
 
 ## <a name="export-api"> </a>Exportar uma API
 
@@ -95,4 +95,4 @@ Após criar a API e importar as operações, você pode revisar e definir quaisq
 [Como criar APIs]: api-management-howto-create-apis.md
 [Como definir configurações de API]: api-management-howto-create-apis.md#configure-api-settings
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

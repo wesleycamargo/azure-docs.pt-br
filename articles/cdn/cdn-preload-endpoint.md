@@ -40,11 +40,11 @@ Esse tutorial orienta você carregando previamente o conteúdo armazenado em cac
 
 	![Folha de carregamento da CDN](./media/cdn-preload-endpoint/cdn-load-blade.png)
 
-4. Insira o caminho completo de cada ativo que você deseja carregar (por exemplo, */pictures/kitten.png*) na caixa de texto **Caminho**.
+4. Insira o caminho completo de cada ativo que você deseja carregar (por exemplo, `/pictures/kitten.png`) na caixa de texto **Caminho**.
 
 	> [AZURE.TIP] Outras caixas de texto **Caminho** serão mostradas depois que você digitar um texto, para permitir que crie uma lista com vários ativos. Para excluir ativos da lista, clique no botão de reticências (...).
 	>
-	> Os caminhos devem ser uma URL relativa. O asterisco (*) pode ser usado como curinga.
+	> Os caminhos devem ser uma URL relativa que atenda à seguinte [expressão regular](https://msdn.microsoft.com/library/az24scfc.aspx): `^(?:\/[a-zA-Z0-9-_.\u0020]+)+$`. Cada ativo deve ter seu próprio caminho. Não há nenhuma funcionalidade de curinga para pré-carregar ativos.
 
     ![Botão Carregar](./media/cdn-preload-endpoint/cdn-load-paths.png)
 
@@ -52,9 +52,10 @@ Esse tutorial orienta você carregando previamente o conteúdo armazenado em cac
 
 	![Botão Carregar](./media/cdn-preload-endpoint/cdn-load-button.png)
 
+> [AZURE.NOTE] Há uma limitação de 10 solicitações de carga por minuto para cada perfil CDN.
 
 ## Consulte também
 - [Limpar um ponto de extremidade da CDN do Azure](cdn-purge-endpoint.md)
 - [Referência da API REST da CDN do Azure – limpar ou pré-carregar um ponto de extremidade](https://msdn.microsoft.com/library/mt634451.aspx)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

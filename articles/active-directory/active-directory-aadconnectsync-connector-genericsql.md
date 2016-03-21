@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/21/2016"
+   ms.date="03/08/2016"
    ms.author="andkjell"/>
 
 # Referência técnica do conector SQL genérico
@@ -25,6 +25,8 @@ Este artigo descreve o conector SQL genérico. O artigo se aplica aos seguintes 
     -   Deve usar o hotfix 4.1.3461.0 ou posterior [KB2870703](https://support.microsoft.com/kb/2870703).
 
 Para MIM2016 e FIM2010R2 o conector está disponível para download do [Centro de Download da Microsoft](http://go.microsoft.com/fwlink/?LinkId=717495).
+
+Para ver esse conector em ação, consulte o artigo [Generic SQL Connector step-by-step](active-directory-aadconnectsync-connector-genericsql-step-by-step.md).
 
 ## Visão geral do conector SQL genérico
 
@@ -78,9 +80,9 @@ A tela Conectividade é a primeira quando você cria um novo conector SQL genér
 
 O banco de dados deve oferecer suporte a um dos métodos de autenticação abaixo.
 
-- **Autenticação do Windows**: o banco de dados de autenticação usará as credenciais do Windows para verificar o usuário. Nesse caso, a conta de serviço usada pelo serviço de sincronização será usada. Essa conta precisará de permissões para o banco de dados.
+- **Autenticação do Windows**: o banco de dados de autenticação usará as credenciais do Windows para verificar o usuário. O nome de usuário/senha especificados serão usados para autenticar com o banco de dados. Essa conta precisará de permissões para o banco de dados.
 - **Autenticação do SQL**: o banco de dados de autenticação usará o nome de usuário/senha definido na tela Conectividade para se conectar ao banco de dados. Se você armazenar a nome de usuário/senha no arquivo DSN, as credenciais fornecidas na tela Conectividade terão precedência.
-- **Autenticação do banco de dados SQL do Azure**: para mais informações, veja [Conectar ao banco de dados SQL usando a autenticação do Active Directory do Azure](sql-database-aad-authentication.md)
+- **Autenticação do banco de dados SQL do Azure**: para mais informações, veja [Conectar ao banco de dados SQL usando a autenticação do Active Directory do Azure](..\sql-database\sql-database-aad-authentication.md)
 
 **DN é Âncora**: se você selecionar esta opção, o DN também será usado como atributo de âncora. Ele pode ser usado para uma implementação simples, mas também tem as seguintes limitações:
 
@@ -295,4 +297,4 @@ Se os usuários escolherem a opção de consulta SQL, a exportação exigirá 3 
 
 -	Para saber mais sobre como habilitar o registro em log para solucionar problemas do conector, confira [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

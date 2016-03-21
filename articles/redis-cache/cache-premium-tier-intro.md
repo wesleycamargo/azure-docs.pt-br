@@ -4,7 +4,7 @@
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -54,4 +54,4 @@ Crie um cache e explore os novos recursos da camada premium.
 -	[Como configurar o clustering para um Cache Redis do Azure Premium](cache-how-to-premium-clustering.md)
   
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

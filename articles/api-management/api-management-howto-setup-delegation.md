@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="antonba" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="03/04/2016" 
 	ms.author="antonba"/>
 
 # Como delegar o registro de usuário e a assinatura do produto
@@ -46,7 +46,11 @@ Agora, você precisa criar o **ponto de extremidade de delegação**. Ele precis
 
 	> *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL da página de fonte}&salt={string}&sig={string}*
 
-	Parâmetros de consulta para o caso de entrada / inscrição:- **operation**: identifica o tipo de solicitação de delegação - só pode ser **SignIn** nesse caso - **returnUrl**: a URL da página na qual o usuário clicou em um link de entrada ou inscrição - **salt**: uma cadeia de caracteres salt especial usada para computar um hash de segurança - **sig**: um hash de segurança computado a ser usado para comparação com seu próprio hash computados
+	Parâmetros de consulta para a entrada/inscrição:
+	- **operation**: identifica o tipo de solicitação de delegação – neste caso, pode ser somente **SignIn**
+	- **returnUrl**: a URL da página em que o usuário clicou em um link de entrada ou de inscrição
+	- **salt**: uma cadeia de caracteres de salt especial usada para calcular um hash de segurança
+	- **sig**: um hash de segurança calculado para ser usado para comparação com seu próprio hash calculado
 
 2. Confirme que a solicitação está vindo do Gerenciamento de API do Azure (opcional, mas altamente recomendado por segurança)
 
@@ -101,7 +105,15 @@ Depois, certifique-se de que o ponto de extremidade de delegação realize as a�
 
 	> *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product to subscribe to}&userId={user making request}&salt={string}&sig={string}*
 
-	Parâmetros de consulta para o caso de assinatura do produto:- **operation**: identifica o tipo de solicitação de delegação. Para solicitações de assinatura de produto as opções válidas são:-"Subscribe": uma solicitação para inscrever o usuário em um determinado produto com a ID fornecida (veja abaixo) - "Unsubscribe": uma solicitação para cancelar a assinatura de um usuário de um produto - "Renew": uma solicitação para renovar uma assinatura (que está expirando, por exemplo) - **productId**: a ID do produto que o usuário solicitou para assinar - **userId**: a ID do usuário para o qual a solicitação é feita - **salt**: uma cadeia de caracteres salt especial usada para computar um hash de segurança - **sig**: um hash de segurança computado a ser usado para comparação com seu próprio hash computado
+	Parâmetros de consulta para a assinatura de produto:
+	- **operation**: identifica o tipo de solicitação de delegação. Para solicitações de assinatura do produto, as opções válidas são:
+		- “Subscribe”: uma solicitação para que o usuário assine determinado produto com uma ID fornecida (veja abaixo)
+		- “Unsubscribe”: uma solicitação para cancelar a assinatura do usuário de um produto
+		- “Renew”: uma solicitação para renovar uma assinatura (que pode, por exemplo, estar expirando)
+	- **productId**: a ID do produto para o qual o usuário solicitou uma assinatura
+	- **userId**: a ID do usuário para quem a solicitação está sendo feita
+	- **salt**: uma cadeia de caracteres de salt especial usada para calcular um hash de segurança
+	- **sig**: um hash de segurança calculado para ser usado para comparação com seu próprio hash calculado
 
 
 2. Confirme que a solicitação está vindo do Gerenciamento de API do Azure (opcional, mas altamente recomendado por segurança)
@@ -166,4 +178,4 @@ Para obter mais informações sobre delegação, consulte o vídeo a seguir.
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="09/29/2015"
+     ms.date="02/03/2016"
      ms.author="elioda"/>
 
 # Tutorial: Como enviar mensagens da nuvem para o dispositivo com o Hub IoT
@@ -37,7 +37,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 + Microsoft Visual Studio 2015,
 
-+ Uma conta ativa do Azure. <br/>Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos Para obter detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdevelop%2Fiot%2Ftutorials%2Fc2d%2F target="\_blank").
++ Uma conta ativa do Azure. <br/>Se não tiver uma conta, você poderá criar uma conta gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdevelop%2Fiot%2Ftutorials%2Fc2d%2F target="\_blank").
 
 [AZURE.INCLUDE [iot-hub-c2d-device-csharp](../../includes/iot-hub-c2d-device-csharp.md)]
 
@@ -46,7 +46,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 ## Próximas etapas
 
-Neste tutorial você aprendeu a enviar e receber mensagens da nuvem para o dispositivo. Você pode continuar a explorar os recursos de hub IoT e cenário com os seguintes tutoriais:
+Neste tutorial você aprendeu a enviar e receber mensagens da nuvem para o dispositivo. Você pode continuar explorando os recursos e cenários de Hub IoT com os seguintes tutoriais:
 
 - [Mensagens do processo de dispositivo para nuvem], mostra como processar de forma confiável a telemetria e mensagens interativas provenientes dos dispositivos.
 - [Carregando arquivos de dispositivos], descreve um padrão que faz uso das mensagens da nuvem para o dispositivo para facilitar o carregamento de arquivo dos dispositivos.
@@ -81,4 +81,4 @@ Informações adicionais sobre o Hub IoT:
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Centro de Desenvolvedores do IoT do Azure]: http://www.azure.com/develop/iot
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

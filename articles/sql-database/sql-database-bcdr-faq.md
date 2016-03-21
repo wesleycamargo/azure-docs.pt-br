@@ -58,6 +58,6 @@ Para replicação geográfica ativa, todos os bancos de dados secundários são 
 
 ## 9\. Qual é o atraso da replicação ao usar a replicação geográfica padrão ou replicação geográfica ativa?
 
-Use a exibição de gerenciamento dinâmico (DMVs) [sys.dm\_geo\_replication\_link\_status](https://msdnstage.redmond.corp.microsoft.com/library/mt575504.aspx) para obter o último horário de replicação, último atraso de replicação e outras informações sobre o link de replicação.
+Use a exibição de gerenciamento dinâmico (DMVs) [sys.dm\_geo\_replication\_link\_status](https://msdn.microsoft.com/library/mt575504.aspx) para obter o último horário de replicação, último atraso de replicação e outras informações sobre o link de replicação.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="02/24/2016"
 	ms.author="tamram"/>
 	
 # Como usar o Armazenamento do Azure em aplicativos da Windows Store
@@ -22,9 +22,9 @@ Este guia mostra como iniciar o desenvolvimento de um aplicativo da Windows Stor
 
 ## Baixar as ferramentas necessárias
 
-- [O Visual Studio 2012](http://msdn.microsoft.com/library/windows/apps/br211384) torna mais fácil compilar, depurar, localizar, empacotar e implantar aplicativos da Windows Store.
-- A [Biblioteca do cliente de Armazenamento do Azure para Tempo de execução do Windows](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/05/windows-azure-storage-client-library-for-windows-runtime.aspx) fornece uma biblioteca de classes para trabalhar com o armazenamento do Azure.
-- As [Ferramentas do WCF Data Services para aplicativos da Windows Store](http://www.microsoft.com/download/details.aspx?id=30714) ampliam a experiência de adição de referência de serviço com o suporte a OData no lado do cliente para aplicativos da Windows Store no Visual Studio 2012 e posterior.
+- O [Visual Studio](https://www.visualstudio.com/pt-BR/visual-studio-homepage-vs.aspx) facilitará o build, a depuração, a localização, o empacotamento e a implantação de aplicativos da Windows Store. É necessário o Visual Studio 2012 ou posterior.
+- A [Biblioteca de cliente de armazenamento do Azure](https://www.nuget.org/packages/WindowsAzure.Storage) fornece uma biblioteca de classes do Windows Runtime para trabalhar com o armazenamento do Azure.
+- As [Ferramentas do WCF Data Services para aplicativos da Windows Store](http://www.microsoft.com/download/details.aspx?id=30714) ampliam a experiência Adicionar Referência de Serviço com o suporte a OData no lado do cliente para aplicativos da Windows Store no Visual Studio.
 
 ## Desenvolver aplicativos
 
@@ -87,4 +87,4 @@ Você também pode adicionar uma referência à Microsoft.WindowsAzure.Storage.T
 [store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png
 [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
- 
+
 # Modos de exibição no SQL Data Warehouse
 
 Os modos de exibição são particularmente úteis no SQL Data Warehouse. Eles podem ser usados em diversas maneiras diferentes de melhorar a qualidade de sua solução.
@@ -33,7 +33,7 @@ CREATE TABLE dbo.DimDate_New
 WITH (DISTRIBUTION = ROUND_ROBIN
 , CLUSTERED INDEX (DateKey ASC)
 )
-AS 
+AS
 SELECT *
 FROM   dbo.DimDate  AS prod
 UNION ALL
@@ -54,7 +54,12 @@ Os modos de exibição são uma forma de impor as junções de desempenho otimiz
 ## Limitações
 Os modos de exibição no SQL Data Warehouse são somente metadados.
 
-Consequentemente, as opções a seguir não estão disponíveis: - não há nenhuma opção de associação de esquema - as tabelas base não podem ser atualizadas por meio da exibição - os modos de exibição não podem ser criados sobre as tabelas temporárias - não há suporte para as dicas EXPAND/NOEXPAND - não há exibições indexadas no SQL Data Warehouse
+Consequentemente, as opções a seguir não estão disponíveis:
+- 	Não há opção de associação de esquema
+- 	Tabelas base não podem ser atualizadas por meio da exibição
+- 	Exibições não podem ser criadas em tabelas temporárias
+- 	Não há suporte para EXPAND / NOEXPAND para dicas
+- 	não há exibições indexadas no SQL Data Warehouse
 
 
 ## Próximas etapas
@@ -69,4 +74,4 @@ Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvol
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

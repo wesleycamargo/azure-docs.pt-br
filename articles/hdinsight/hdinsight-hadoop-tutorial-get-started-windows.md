@@ -12,10 +12,10 @@
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
-   ms.topic="hero-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/25/2016"
+   ms.date="03/07/2016"
    ms.author="nitinme"/>
 
 
@@ -38,6 +38,8 @@ Assista a um vídeo de demonstração deste tutorial para aprender sobre o Hadoo
 **[Assista ao tutorial do Hadoop para HDInsight no YouTube](https://www.youtube.com/watch?v=Y4aNjnoeaHA&list=PLDrz-Fkcb9WWdY-Yp6D4fTC1ll_3lU-QS)**
 
 Em conjunto com a disponibilidade geral do Azure HDInsight, a Microsoft também oferece o Emulador do HDInsight para o Azure, anteriormente conhecido como *Microsoft HDInsight Developer Preview*. O Emulador tem como alvo os cenários de desenvolvedor e só dá suporte a implantações de um único nó. Para obter informações sobre como usar o Emulador do HDInsight, consulte [Introdução ao Emulador do HDInsight][hdinsight-emulator].
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ### Pré-requisitos
 
@@ -177,7 +179,9 @@ Amostra | O que ela faz?
 [Análise de log do site][hdinsight-weblogs-sample] | Aprenda a usar o HDInsight para analisar arquivos de log de um site para obter informações sobre a frequência de visitas provenientes de sites externos e um resumo dos erros que os usuários enfrentam no site.
 [Análise de tendências do Twitter](hdinsight-analyze-twitter-data.md) | Aprenda a usar o HDInsight para analisar tendências no Twitter.
 
+##Excluir o cluster
 
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ##Próximas etapas
 Neste tutorial do Hadoop, você aprendeu a criar um cluster Hadoop no Windows em HDInsight, executar uma consulta de Hive nos dados e importar os resultados para o Excel, onde eles podem ser processados e exibidos graficamente usando ferramentas de business intelligence. Para saber mais, consulte os seguintes tutoriais:
@@ -251,4 +255,4 @@ Neste tutorial do Hadoop, você aprendeu a criar um cluster Hadoop no Windows em
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!----HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

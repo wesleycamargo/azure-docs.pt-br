@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="SSalahAhmed"
-	manager="gchander"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2015"
+	ms.date="03/04/2016"
 	ms.author="saah; kenhoff"/>
 
 # Entradas de endereços IP com atividade suspeita
-<p>Este relatório mostra entradas de endereços IP em que foi detectada atividade suspeita. Nesse caso, atividades suspeitas são definidas como uma proporção anormalmente alta de entradas com falha em comparação às entradas com êxito, o que pode indicar que um IP está sendo usado para fins mal-intencionados.</p>
+Este relatório mostra entradas de endereços IP em que foram detectadas atividades suspeitas. Nesse caso, atividades suspeitas são definidas como uma proporção anormalmente alta de entradas com falha em comparação às entradas bem-sucedidas, o que pode indicar que um endereço IP está sendo usado para fins mal-intencionados.
 
 
 ![Entradas de endereços IP com atividade suspeita](./media/active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity/signInsFromIPAddressesWithSuspiciousActivity.PNG)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0309_2016-->

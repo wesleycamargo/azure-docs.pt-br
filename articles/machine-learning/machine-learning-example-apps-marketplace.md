@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="03/02/2016" 
 	ms.author="luisca"/>
 
 # Aplicativos de aprendizado de máquina no Azure Marketplace
@@ -51,10 +51,5 @@ Essa API pode ser usada para analisar texto não estruturado para tarefas como a
 [Documentação](machine-learning-apps-text-analytics.md)
 
  
- ##Previsão de Variação de Cliente## A Previsão de Variação de Cliente é um serviço de análise de variação criado com o Aprendizado de Máquina do Azure. Ele foi projetado para prever quando um cliente (jogador, assinante, usuário etc.) tem probabilidade de encerrar sua relação com uma empresa ou um serviço. A capacidade de prever quais clientes têm um alto risco de deixar a relação com uma empresa fornece à empresa uma janela de oportunidade para abordá-los e reduzir a probabilidade de que eles partam.
 
-[Link do mercado de dados](https://datamarket.azure.com/dataset/amla/customer-churn-prediction)
-
-[Documentação](https://churn.cloudapp.net/documentation)
-
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

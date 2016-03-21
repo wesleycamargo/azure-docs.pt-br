@@ -4,7 +4,7 @@
 	services="mobile-services"
 	documentationCenter="windows"
 	authors="ggailey777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/23/2015"
+	ms.date="03/06/2016"
 	ms.author="glenga"/>
 
 # Adicionar autenticação ao aplicativo de Serviços Móveis
-
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Para a versão de aplicativos móveis equivalente deste tópico, consulte [Adicionar autenticação ao seu aplicativo Windows](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-users.md).
 
 ## Visão geral
 
@@ -103,4 +103,4 @@ No próximo tutorial, [Autorização do lado do serviço dos usuários dos Servi
 [Referência conceitual do tutorial dos Serviços Móveis em .NET]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

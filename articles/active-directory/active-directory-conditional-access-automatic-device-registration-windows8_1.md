@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="03/07/2016"
 	ms.author="femila"/>
 
 # Configurar o registro automático de dispositivo para dispositivos ingressados no domínio do Windows 8.1
@@ -54,7 +54,7 @@ A Política de Grupo permite que uma Tarefa Agendada no sistema que é executada
 
 ## Tópicos adicionais
 - [Visão geral do registro de dispositivos do Active Directory do Azure](active-directory-conditional-access-device-registration-overview.md)
-- [Registro de dispositivo automático com o Active Directory do Azure para dispositivos de domínio associado do Windows](active-directory-conditional-access-automatic-device-registration.md)
+- [Registro de dispositivo automático com o Azure Active Directory para dispositivos ingressados no domínio do Windows 10](active-directory-conditional-access-automatic-device-registration.md)
 - [Configurar o registro automático de dispositivo para dispositivos ingressados no domínio do Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -4,7 +4,7 @@
    services="dns" 
    documentationCenter="na" 
    authors="joaoma" 
-   manager="adinah" 
+   manager="carmonm" 
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="11/19/2015"
+   ms.date="03/03/2016"
    ms.author="joaoma"/>
 # Criar zonas DNS e conjuntos de registros usando o SDK do .NET
 Você pode automatizar operações para criar, excluir ou atualizar zonas DNS, conjuntos de registros e registros usando o SDK do DNS com a biblioteca de gerenciamento do DNS .NET. Um projeto completo do Visual Studio está disponível [aqui.](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip)
@@ -104,4 +104,4 @@ O exemplo a seguir mostra como obter uma lista de zonas DNS e conjuntos de regis
 
 [Projeto de exemplo do Visual Studio SDK](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="11/29/2015"
+   ms.date="03/08/2016"
    ms.author="piyushjo"/>
 
 
 # Como entrar em contato com os usuários do seu aplicativo com notificações por push
 
-Este artigo descreve a guia **ALCANCE** do portal do **Mobile Engagement**. Você usa o portal do **Mobile Engagement** para monitorar e gerenciar seus aplicativos móveis. Observe que, para começar a usar o portal, primeiro é preciso criar uma conta do **Azure Mobile Engagement**. Para obter mais informações, veja [Criar uma conta do Azure Mobile Engagement](mobile-engagement-create-account.md).
+Este artigo descreve a guia **ALCANCE** do portal do **Mobile Engagement**. Você usa o portal do **Mobile Engagement** para monitorar e gerenciar seus aplicativos móveis. Observe que, para começar a usar o portal, primeiro é preciso criar uma conta do **Azure Mobile Engagement**. Para obter mais informações, veja [Criar uma conta do Azure Mobile Engagement](mobile-engagement-create.md).
 
 A seção Reach da interface do usuário é a ferramenta de gerenciamento de campanha Push onde você pode criar/editar/ativar/finalizar/monitorar e obter estatísticas sobre campanhas de notificação de envio e os recursos que também podem ser acessados via a API do Reach (e alguns elementos do nível baixo API de envio). Lembre-se de que, se você estiver usando as APIs ou a interface do usuário, você precisará integrar o Mobile Engagement do Azure e o Reach em seu aplicativo em cada plataforma com o SDK antes que você possa usar as campanhas Reach.
 
@@ -52,7 +52,13 @@ Clique em **Estatísticas** para ver os detalhes de uma Campanha de alcance. O m
 	4. Em dispositivos iOS, às vezes as mensagens não serão entregues se o dispositivo estiver com bateria fraca ou se o aplicativo estiver consumindo uma quantidade significativa de energia durante o processamento de notificações remotas. Essa é uma limitação dos dispositivos iOS.   
 
 3.	**Exibidas** - especifica o número de mensagens mostradas com êxito para o usuário do aplicativo no dispositivo na forma de um sistema de notificação de push/fora do aplicativo no centro de notificação ou de uma notificação no aplicativo dentro do aplicativo móvel. A guia **Avançado** informará quantas foram notificações do sistema e quantas foram notificações no aplicativo.
-
+	
+	*Motivos para a contagem Exibidas ser menor que a contagem Entregues (aguardando exibição)*
+	
+	1. Se a campanha de notificação tinha uma data de término nela, é possível que a notificação tenha sido entregue, mas na hora de abri-la e exibi-la ao usuário, ela já estava expirada e, portanto, nunca foi exibida.   
+	2. Se a notificação for uma notificação interna do aplicativo, ela só será exibida quando o usuário do aplicativo abrir o aplicativo. Quando o usuário do aplicativo não tiver aberto o aplicativo, o SDK relatará que a notificação foi entregue mas que ainda não foi exibida até o aplicativo ser aberto. 
+	2. Se a notificação for uma notificação interna do aplicativo e estiver configurada para ser exibida em uma atividade/tela específica, ela também será relatada como entregue, mas não será entregue até que o usuário abra o aplicativo em uma tela específica. 
+	
 4.	**Interações do usuário** - especifica o número de mensagens com as quais o usuário do aplicativo interagiu e incluirá as mensagens que foram acionadas ou encerradas.
 
 	- *O usuário do aplicativo pode tomar uma ação com relação a uma notificação de uma das seguintes maneiras:*
@@ -171,4 +177,4 @@ Clique em **Estatísticas** para ver os detalhes de uma Campanha de alcance. O m
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -19,8 +19,8 @@
 
 # Monitorar e gerenciar pipelines do Azure Data Factory
 > [AZURE.SELECTOR]
-- [Using Azure Portal/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
-- [Using Monitoring and Management App](data-factory-monitor-manage-app.md)
+- [Usando o Portal do Azure/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
+- [Usando o aplicativo de monitoramento e gerenciamento](data-factory-monitor-manage-app.md)
 
 O serviço de Fábrica de Dados fornece uma exibição confiável e completa de seus serviços de armazenamento, processamento e movimentação de dados. Ele ajuda a avaliar rapidamente a integridade de dados de ponta a ponta do pipeline, identificar problemas e tomar uma ação corretiva, se necessário. Você também pode controlar visualmente a linhagem de dados e as relações entre os dados em qualquer uma de suas fontes e ver um histórico completo de execução de trabalhos, integridade do sistema e dependências em um único painel de monitoramento.
 
@@ -349,7 +349,7 @@ A tabela a seguir fornece a lista de operações e status (e substatus) disponí
 Nome da operação | Status | Substatus
 -------------- | ------ | ----------
 RunStarted | Iniciado | Iniciando
-RunFinished | Falhou / Bem-sucedido | <p>FailedResourceAllocation</p><p>Succeeded</p><p>FailedExecution</p><p>TimedOut</p><p><Canceled/p><p>FailedValidation</p><p>Abandoned</p>
+RunFinished | Falhou / Bem-sucedido | FailedResourceAllocation<br/><br/>Succeeded<br/><br/>FailedExecution<br/><br/>TimedOut<br/><br/><Canceled<br/><br/>FailedValidation<br/><br/>Abandoned
 OnDemandClusterCreateStarted | Iniciado
 OnDemandClusterCreateSuccessful | Bem-sucedido
 OnDemandClusterDeleted | Bem-sucedido
@@ -545,7 +545,7 @@ Você pode implantar alertas para métricas da mesma maneira como faz para event
  
 Substitua subscriptionId, resourceGroupName e dataFactoryName no exemplo acima pelos valores adequados.
 
-*metricName*, a partir de agora, dá suporte a 2 valores:
+*metricName* a partir de agora dá suporte a dois valores:
 - FailedRuns
 - SuccessfulRuns
 
@@ -583,4 +583,4 @@ Você também pode mover todos os recursos relacionados (como alertas associados
 
 ![Mover a caixa de diálogo Recursos](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

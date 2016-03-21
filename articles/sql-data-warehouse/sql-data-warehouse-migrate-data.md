@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="barbkess;sonyama"/>
 
 # Migrar seus dados
@@ -28,18 +28,18 @@ Se seus dados começam em arquivos simples, você precisará transferi-los para 
 
 O PolyBase também fornece uma opção de desempenho bastante alto para carregamento dos dados. No entanto, isso significa usar duas ferramentas em vez de uma. Se precisar de melhor desempenho, use o PolyBase. Se deseja uma experiência de ferramenta única (e os dados não forem pesados), o ADF é a melhor opção.
 
-> [AZURE.NOTE]O PolyBase exige que os arquivos de dados estejam em UTF-8. Essa é a codificação padrão da Cópia do ADF; sendo assim, nada precisa ser alterado. Este é apenas um lembrete para não mudar o comportamento padrão da Cópia do ADF.
+> [AZURE.NOTE] O PolyBase exige que os arquivos de dados estejam em UTF-8. Essa é a codificação padrão da Cópia do ADF; sendo assim, nada precisa ser alterado. Este é apenas um lembrete para não mudar o comportamento padrão da Cópia do ADF.
 
 Acesse o seguinte artigo para ver alguns ótimos [exemplos de Cópia do ADF].
 
 ## Serviços de integração ##
 O SSIS (SQL Server Integration Services) é uma ferramenta de ETL (Extração, Transformação e Carregamento) avançada e flexível que oferece suporte a fluxos de trabalho complexos, transformação de dados e várias opções de carregamento de dados. Use o SSIS para simplificar a transferência de dados para o Azure ou como parte de uma migração mais ampla.
 
-> [AZURE.NOTE]O SSIS pode exportar para UTF-8 sem a marca de ordem de byte no arquivo. Para configurar isso, primeiramente você deve usar o componente de coluna derivada para converter os dados de caractere no fluxo de dados para usar a página de código 65001 UTF-8. Depois que as colunas forem convertidas, grave os dados no adaptador de destino do arquivo simples, garantindo que 65001 também tenha sido selecionado como a página de código para o arquivo.
+> [AZURE.NOTE] O SSIS pode exportar para UTF-8 sem a marca de ordem de byte no arquivo. Para configurar isso, primeiramente você deve usar o componente de coluna derivada para converter os dados de caractere no fluxo de dados para usar a página de código 65001 UTF-8. Depois que as colunas forem convertidas, grave os dados no adaptador de destino do arquivo simples, garantindo que 65001 também tenha sido selecionado como a página de código para o arquivo.
 
 O SSIS conecta-se ao SQL Data Warehouse da mesma forma que se conecta a uma implantação do SQL Server. No entanto, suas conexões precisarão usar um gerenciador de conexão ADO.NET. Você também deve ter cuidado para definir a configuração "Usar inserção em massa quando disponível" para maximizar a taxa de transferência. Consulte o artigo do [Adaptador de destino ADO.NET][] para saber mais sobre essa propriedade
 
-> [AZURE.NOTE]Não há suporte para a conexão com o SQL Data Warehouse usando o OLEDB.
+> [AZURE.NOTE] Não há suporte para a conexão com o SQL Data Warehouse usando o OLEDB.
 
 Além disso, sempre há a possibilidade de que um pacote possa falhar devido a problemas de limitação ou rede. Crie pacotes que possam ser retomados do ponto de falha, sem precisar refazer o trabalho concluído antes da falha.
 
@@ -48,7 +48,7 @@ Para saber mais, consulte a [documentação do SSIS][].
 ## bcp
 O bcp é um utilitário de linha de comando desenvolvido para importação e exportação de dados de arquivo simples. Há possibilidade de transformação durante a exportação dos dados. Para executar transformações simples, use uma consulta para selecionar e transformar os dados. Depois de exportados, os arquivos simples podem ser carregados diretamente no banco de dados do SQL Data Warehouse de destino.
 
-> [AZURE.NOTE]Uma boa prática recomendada é encapsular as transformações usadas durante a exportação de dados em uma exibição no sistema de origem. Isso garante que a lógica seja mantida e o processo possa ser repetido.
+> [AZURE.NOTE] Uma boa prática recomendada é encapsular as transformações usadas durante a exportação de dados em uma exibição no sistema de origem. Isso garante que a lógica seja mantida e o processo possa ser repetido.
 
 As vantagens do bcp são:
 
@@ -84,7 +84,7 @@ Observando-as na ordem inversa por um momento, a maneira mais rápida de carrega
 ### Codificação
 O PolyBase exige que os arquivos de dados sejam codificados em UTF-8. Isso significa que, quando você exporta dados, estes devem estar em conformidade com esse requisito. Se seus dados contiverem apenas caracteres ASCII básicos (e não ASCII estendidos), eles serão mapeados diretamente para o padrão UTF-8 e você não precisará se preocupar com a codificação. No entanto, se os dados contiverem caracteres especiais, como diéreses, acentos ou símbolos, ou se oferecerem suporte a idiomas não latinos, você terá que garantir que os arquivos de exportação sejam corretamente codificados em UTF-8.
 
-> [AZURE.NOTE]O bcp não oferece suporte à exportação de dados para UTF-8. Portanto, a melhor opção para a exportação de dados é usar o Integration Services ou a Cópia do ADF. Vale a pena salientar que a BOM (marca de ordem de byte) UTF-8 não é necessária no arquivo de dados.
+> [AZURE.NOTE] O bcp não oferece suporte à exportação de dados para UTF-8. Portanto, a melhor opção para a exportação de dados é usar o Integration Services ou a Cópia do ADF. Vale a pena salientar que a BOM (marca de ordem de byte) UTF-8 não é necessária no arquivo de dados.
 
 Todos os arquivos codificados com UTF-16 precisarão ser reescritos ***antes*** da transferência de dados.
 
@@ -153,7 +153,7 @@ Documentação completa disponível: [AZCopy][].
 ## Otimizando a exportação de dados
 Além de assegurar que a exportação está em conformidade com os requisitos apresentados pelo PolyBase, você também pode otimizar a exportação dos dados para melhorar ainda mais o processo.
 
-> [AZURE.NOTE]Como o PolyBase exige que os dados estejam no formato UTF-8, é improvável que você use o bcp para executar a exportação de dados. O bcp não oferece suporte à saída de arquivos de dados em UTF-8. O SSIS ou a Cópia do ADF são muito mais adequados para realizar esse tipo de exportação de dados.
+> [AZURE.NOTE] Como o PolyBase exige que os dados estejam no formato UTF-8, é improvável que você use o bcp para executar a exportação de dados. O bcp não oferece suporte à saída de arquivos de dados em UTF-8. O SSIS ou a Cópia do ADF são muito mais adequados para realizar esse tipo de exportação de dados.
 
 ### Compactação de dados
 O PolyBase pode ler dados compactados em gzip. Se for possível compactar os dados em arquivos gzip, você minimizará o volume de dados que é enviado pela rede.
@@ -194,4 +194,4 @@ Para saber mais sobre a migração, consulte [Migrar sua solução para o SQL Da
 [Adaptador de destino ADO.NET]: https://msdn.microsoft.com/library/bb934041.aspx
 [documentação do SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

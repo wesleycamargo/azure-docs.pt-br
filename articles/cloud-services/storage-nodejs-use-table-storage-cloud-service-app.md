@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="01/09/2016" 
+	ms.date="03/04/2016" 
 	ms.author="robmcm"/>
 
 # Aplicativo Web do Node.js usando Armazenamento
@@ -39,7 +39,7 @@ Abaixo, uma captura de tela do aplicativo concluído:
 
 Para acessar o Armazenamento do Azure, você precisa transmitir as credenciais de armazenamento. Para isso, você deve utilizar as configurações do aplicativo web.config. Essas configurações serão transmitidas como variáveis de ambiente para Node que, em seguida, serão lidas pelo SDK do Azure.
 
-> [AZURE.NOTE]As credenciais de armazenamento são usadas somente quando o aplicativo é implantado no Azure. Quando executado no emulador, o aplicativo usará o emulador de armazenamento.
+> [AZURE.NOTE] As credenciais de armazenamento são usadas somente quando o aplicativo é implantado no Azure. Quando executado no emulador, o aplicativo usará o emulador de armazenamento.
 
 Execute as etapas a seguir para recuperar as credenciais da conta de armazenamento e adicioná-las às configurações de web.config:
 
@@ -53,7 +53,7 @@ Execute as etapas a seguir para recuperar as credenciais da conta de armazenamen
 
 	Isso recupera a lista de contas de armazenamento e as chaves da conta associada ao seu serviço hospedado.
 
-	> [AZURE.NOTE]Como o SDK do Azure cria uma conta de armazenamento quando você implanta um serviço, uma conta de armazenamento já deve existir da implantação de seu aplicativo nos guias anteriores.
+	> [AZURE.NOTE] Como o SDK do Azure cria uma conta de armazenamento quando você implanta um serviço, uma conta de armazenamento já deve existir da implantação de seu aplicativo nos guias anteriores.
 
 4.  Abra o arquivo **ServiceDefinition.csdef** que contém as configurações de ambiente usadas quando o aplicativo é implantado no Azure:
 
@@ -403,4 +403,4 @@ As etapas a seguir mostram como parar e excluir o aplicativo.
  
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -3,7 +3,7 @@
    description="Saiba como detectar e diagnosticar problemas de desempenho comuns usando exibições de gerenciamento dinâmico para monitorar o Banco de Dados SQL do Microsoft Azure."
    services="sql-database"
    documentationCenter=""
-   authors="BYHAM"
+   authors="carlrabeler"
    manager="jeffreyg"
    editor=""
    tags=""/>
@@ -24,8 +24,8 @@ O Banco de Dados SQL do Microsoft Azure permite um subconjunto de modos de exibi
 O Banco de Dados SQL oferece suporte parcial para três categorias de exibições de gerenciamento dinâmico:
 
 - Exibições de gerenciamento dinâmico relacionadas ao banco de dados.
-- Exibições de gerenciamento dinâmico relacionadas à execução. 
-- Exibições de gerenciamento dinâmico relacionadas à transação. 
+- Exibições de gerenciamento dinâmico relacionadas à execução.
+- Exibições de gerenciamento dinâmico relacionadas à transação.
 
 Para obter informações detalhadas sobre exibições de gerenciamento dinâmico, consulte [Funções e exibições (Transact-SQL) de gerenciamento dinâmico](https://msdn.microsoft.com/library/ms188754.aspx) nos Manuais Online do SQL Server.
 
@@ -33,9 +33,7 @@ Para obter informações detalhadas sobre exibições de gerenciamento dinâmico
 
 No Banco de Dados SQL, consultar uma visualização de gerenciamento dinâmico requer permissões **VIEW DATABASE STATE**. A permissão **VIEW DATABASE STATE** retorna informações sobre todos os objetos no banco de dados atual. Para conceder a permissão **VIEW DATABASE STATE** a um usuário específico do banco de dados, execute a seguinte consulta:
 
-```
-GRANT VIEW DATABASE STATE TO database_user;
-```
+```GRANT VIEW DATABASE STATE TO database_user; ```
 
 Em uma instância do SQL Server local, as exibições de gerenciamento dinâmico retornam informações de estado do servidor. Em um Banco de Dados SQL, elas retornam informações relacionadas apenas ao seu banco de dados lógico atual.
 
@@ -53,11 +51,11 @@ GO
 A consulta a seguir retorna o tamanho do dos objetos individuais (em megabytes) no seu banco de dados:
 
 ```
--- Calculates the size of individual database objects. 
+-- Calculates the size of individual database objects.
 SELECT sys.objects.name, SUM(reserved_page_count) * 8.0 / 1024
-FROM sys.dm_db_partition_stats, sys.objects 
-WHERE sys.dm_db_partition_stats.object_id = sys.objects.object_id 
-GROUP BY sys.objects.name; 
+FROM sys.dm_db_partition_stats, sys.objects
+WHERE sys.dm_db_partition_stats.object_id = sys.objects.object_id
+GROUP BY sys.objects.name;
 GO
 ```
 
@@ -66,12 +64,12 @@ GO
 É possível usar a exibição [sys.dm\_exec\_connections](https://msdn.microsoft.com/library/ms181509.aspx) para recuperar informações sobre as conexões estabelecidas com um servidor do Banco de dados SQL do Azure específico e os detalhes de cada conexão. Além disso, a exibição [sys.dm\_exec\_sessions](https://msdn.microsoft.com/library/ms176013.aspx) é útil ao recuperar informações sobre todas as conexões de usuário e tarefas internas ativas. A consulta a seguir recupera as informações sobre a conexão atual:
 
 ```
-SELECT 
-    c.session_id, c.net_transport, c.encrypt_option, 
-    c.auth_scheme, s.host_name, s.program_name, 
-    s.client_interface_name, s.login_name, s.nt_domain, 
-    s.nt_user_name, s.original_login_name, c.connect_time, 
-    s.login_time 
+SELECT
+    c.session_id, c.net_transport, c.encrypt_option,
+    c.auth_scheme, s.host_name, s.program_name,
+    s.client_interface_name, s.login_name, s.nt_domain,
+    s.nt_user_name, s.original_login_name, c.connect_time,
+    s.login_time
 FROM sys.dm_exec_connections AS c
 JOIN sys.dm_exec_sessions AS s
     ON c.session_id = s.session_id
@@ -137,4 +135,4 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 
 [Introdução ao Banco de Dados SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

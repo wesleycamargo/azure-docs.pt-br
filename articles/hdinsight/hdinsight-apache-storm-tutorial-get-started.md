@@ -12,10 +12,10 @@
 <tags
    ms.service="hdinsight"
    ms.devlang="java"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/05/2016"
+   ms.date="03/07/2016"
    ms.author="larryfr"/>
 
 
@@ -25,7 +25,9 @@ O Apache Storm é um sistema de computação escalável, tolerante a falhas, dis
 
 > [AZURE.NOTE] As etapas deste artigo criam um cluster HDInsight baseado no Windows. Para as etapas criarem um Storm baseado em Linux no cluster HDInsight, confira [Tutorial do Apache Storm: Introdução ao exemplo do Storm Starter usando a análise de dados no HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md)
 
-## Pré-requisitos
+## Antes de começar
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 Você deve ter o seguinte para concluir com êxito este tutorial do Apache Storm:
 
@@ -203,6 +205,10 @@ A interface do usuário do Storm pode ser usada para monitorar a topologia.
 
 Volte para a página **Resumo da topologia** para a topologia de contagem de palavras e, em seguida, selecione **Eliminar** da seção **Ações de topologia**. Quando solicitado, insira 10 para os segundos a aguardar antes da interrupção da topologia. Após o período de tempo limite, a topologia não será mais exibida quando você visitar a seção **Interface do usuário do Storm** do painel.
 
+##Excluir o cluster
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ## Resumo
 
 Neste tutorial sobre o Storm Apache, você usou o Storm Starter para aprender a criar um Storm no cluster HDInsight e a usar o Painel Storm para implantar, monitorar e gerenciar topologias Storm.
@@ -239,4 +245,4 @@ Neste tutorial sobre o Storm Apache, você usou o Storm Starter para aprender a 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

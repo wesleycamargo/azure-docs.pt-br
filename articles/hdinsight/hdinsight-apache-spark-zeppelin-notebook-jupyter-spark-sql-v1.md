@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/22/2015" 
+	ms.date="03/07/2016" 
 	ms.author="nitinme"/>
 
 
@@ -27,6 +27,8 @@ Saiba como criar um cluster Apache Spark no HDInsight com a opção Criação R�
 
 
    ![Introdução ao uso do Apache Spark no HDInsight](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.getstartedflow.png "Tuturial de Introdução ao uso do Apache Spark no HDInsight. Etapas ilustradas: criar uma conta de armazenamento; criar um cluster; executar instruções do Spark SQL")
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 **Pré-requisitos:**
 
@@ -234,6 +236,10 @@ Nesta seção, você pode usar um bloco de anotações do Jupyter para executar 
 
 	![Reiniciar o kernel do Jupyter](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.jupyter.restart.kernel.png "Reiniciar o kernel do Jupyter")
 
+##Excluir o cluster
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 
 ##<a name="seealso"></a>Consulte também
 
@@ -256,4 +262,4 @@ Nesta seção, você pode usar um bloco de anotações do Jupyter para executar 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

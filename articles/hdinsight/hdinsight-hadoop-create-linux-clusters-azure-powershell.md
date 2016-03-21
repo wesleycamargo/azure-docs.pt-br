@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="12/08/2015"
+   	ms.date="03/08/2016"
    	ms.author="nitinme"/>
 
 #Criar clusters baseados em Linux no HDInsight usando o Azure PowerShell
@@ -25,7 +25,10 @@ O PowerShell do Azure é um ambiente de script poderoso que você pode usar para
 
 > [AZURE.NOTE] O Azure PowerShell só está disponível em clientes do Windows. Se você estiver usando um cliente Linux, Unix ou Mac OS X, consulte [Criar um cluster HDInsight baseados em Linux usando o Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md) para obter informações sobre como usar o CLI do Azure para criar um cluster.
 
-###Pré-requisitos
+##Pré-requisitos
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 
 - **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
@@ -140,4 +143,4 @@ Agora que você criou com êxito um cluster HDInsight, use o seguinte para apren
 * [Spark com Aprendizado de Máquina: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming Spark: usar o Spark no HDInsight para a criação de aplicativos streaming em tempo real](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -4,7 +4,7 @@
 	services="api-management"
 	documentationCenter=""
 	authors="steved0x"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="03/04/2016"
 	ms.author="sdanie"/>
 
 # Como proteger um back-end de API da Web com o Active Directory do Azure e Gerenciamento de API
@@ -152,7 +152,7 @@ Pressione **F6** para compilar e verificar a solução.
 
 Nesta etapa o projeto do Visual Studio é publicado no Azure. Esta etapa do vídeo começa em 5:45.
 
-Para publicar o projeto no Azure, clique com o botão direito do mouse no projeto **APIMAADDemo** no Visual Studio e escolha **Publicar**. Mantenha as configurações padrão na caixa de diálogo **Publicar Web** e clique em **Publicar**.
+Para publicar o projeto no Azure, clique com o botão direito no projeto **APIMAADDemo** no Visual Studio e selecione **Publicar**. Mantenha as configurações padrão na caixa de diálogo **Publicar Web** e clique em **Publicar**.
 
 ![Publicar na Web][api-management-web-publish]
 
@@ -166,7 +166,7 @@ Clique no nome do aplicativo para configurar as permissões necessárias. Navegu
 
 ![Adicionar permissões][api-management-aad-add-permissions]
 
->[AZURE.NOTE]Se **Active Directory do** **Microsoft Azure** não estiver listado em permissões para outros aplicativos, clique em **Adicionar aplicativo** e adicione-o da lista.
+>[AZURE.NOTE] Se **Active Directory do** **Microsoft Azure** não estiver listado em permissões para outros aplicativos, clique em **Adicionar aplicativo** e adicione-o da lista.
 
 Anote a **URI da Id do aplicativo** para uso em uma etapa posterior, quando um aplicativo do AD do Azure é configurado para o portal do desenvolvedor de Gerenciamento de API.
 
@@ -203,7 +203,7 @@ Depois que a API é importada, a página de resumo para a API é exibida no port
 
 Neste ponto, a API foi importada para o Gerenciamento de API, mas não pode ainda ser chamada com êxito a partir do portal do desenvolvedor porque o serviço de back-end é protegido com a autenticação do AD do Azure. Isso é demonstrado no vídeo começando em 7:40 usando as seguintes etapas.
 
-Clique em **Portal do desenvolvedor** no lado superior direito do portal do editor.
+Clique em **Portal do desenvolvedor** do lado superior direito do portal do publicador.
 
 ![Portal do desenvolvedor][api-management-developer-portal-menu]
 
@@ -261,7 +261,7 @@ Em seguida, especifique a **URL de ponto de extremidade de autorização** e a *
 
 ![Servidor de autorização][api-management-add-authorization-server-1a]
 
-Esses valores podem ser recuperados da página **Pontos de extremidade do aplicativo** do aplicativo AAD criado para o portal do desenvolvedor. Para acessar os pontos de extremidade, navegue até a guia **Configurar** do aplicativo AAD e clique em **Exibir pontos de extremidade**.
+Esses valores podem ser recuperados na página **Pontos de extremidade do aplicativo** do aplicativo AAD criado para o portal do desenvolvedor. Para acessar os pontos de extremidade navegue até a guia **Configurar** para o aplicativo AAD e clique em **Exibir pontos de extremidade**.
 
 ![Aplicativo][api-management-aad-devportal-application]
 
@@ -291,7 +291,7 @@ Para obter o **Segredo do Cliente** clique em **Selecionar duração** na seçã
 
 Clique em **Salvar** para salvar a configuração e exibir a chave.
 
->[AZURE.IMPORTANT]Anote esta chave. Depois que você fechar a janela de configuração do Active Directory do Azure, a chave não pode ser exibida novamente.
+>[AZURE.IMPORTANT] Anote esta chave. Depois que você fechar a janela de configuração do Active Directory do Azure, a chave não pode ser exibida novamente.
 
 Copie a chave para a área de transferência, alterne de volta para o portal do publicador, cole a chave na caixa de texto **Segredo do Cliente** e clique em **Salvar**.
 
@@ -358,7 +358,7 @@ O procedimento final no vídeo começa em 20:48 e mostra como usar a diretiva [V
         </required-claims>
     </validate-jwt>
 
-Para outra demonstração de configuração e uso dessa política, confira o [Episódio 177 da abordagem da nuvem: Mais recursos de Gerenciamento de API](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e avance até 13:50. Avance para 15:00 para ver as diretivas configuradas no editor de diretiva e, em seguida, 18:50 para uma demonstração de como chamar uma operação do portal do desenvolvedor com e sem o token de autorização necessário.
+Para outra demonstração de configuração e uso dessa diretiva, consulte [Abordagem da nuvem Episódio 177: Mais recursos de Gerenciamento de API](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e avance para 13:50. Avance para 15:00 para ver as diretivas configuradas no editor de diretiva e, em seguida, 18:50 para uma demonstração de como chamar uma operação do portal do desenvolvedor com e sem o token de autorização necessário.
 
 ## Próximas etapas
 -	Confira mais [vídeos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) sobre o Gerenciamento de API.
@@ -413,4 +413,4 @@ Para outra demonstração de configuração e uso dessa política, confira o [Ep
 [Criar uma instância de serviço de Gerenciamento de API]: api-management-get-started.md#create-service-instance
 [Gerenciar sua primeira API]: api-management-get-started.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

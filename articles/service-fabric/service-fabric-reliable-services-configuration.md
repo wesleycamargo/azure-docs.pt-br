@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/26/2016"
+   ms.date="02/29/2016"
    ms.author="sumukhs"/>
 
 # Configurando Reliable Services com estado
@@ -52,7 +52,7 @@ ReplicatorConfig
 |ReplicatorEndpoint|N/D|Nenhum parâmetro padrão obrigatório|Endereço IP e porta que o replicador primário/secundário usará para se comunicar com outros replicadores no conjunto de réplicas. Eles devem fazer referência a um ponto de extremidade do recurso de TCP no manifesto do serviço. Consulte [Recursos do manifesto do serviço](service-fabric-service-manifest-resources.md) para saber mais sobre como definir os recursos de ponto de extremidade em um manifesto de serviço. |
 |MaxPrimaryReplicationQueueSize|Número de operações|8192|Número máximo de operações na fila principal. Uma operação é liberada depois que o replicador primário recebe uma confirmação de todos os replicadores secundários. Esse valor deve ser maior que 64 e uma potência de 2.|
 |MaxSecondaryReplicationQueueSize|Número de operações|16384|Número máximo de operações na fila secundária. Uma operação é liberada depois de tornar seu estado de altamente disponível por meio de persistência. Esse valor deve ser maior que 64 e uma potência de 2.|
-|CheckpointThresholdInMB|MB|200|Quantidade de espaço de arquivo de log depois que o estado é o ponto de verificação.|
+|CheckpointThresholdInMB|MB|50|Quantidade de espaço de arquivo de log depois que o estado é o ponto de verificação.|
 |MaxRecordSizeInKB|KB|1024|O maior tamanho de registro que o replicador pode gravar no log. Esse valor deve ser um múltiplo de 4 e maior que 16.|
 |OptimizeLogForLowerDiskUsage|Booliano|verdadeiro|Quando verdadeiro, o log é configurado de forma que o arquivo de log dedicado da replicação seja criado usando um arquivo esparso do NTFS. Isso reduz o uso do espaço real em disco para o arquivo. Quando falso, o arquivo é criado com alocações fixas que oferecem o melhor desempenho de gravação.|
 |MaxRecordSizeInKB|KB|1024|O maior tamanho de registro que o replicador pode gravar no log. Esse valor deve ser um múltiplo de 4 e maior que 16.|
@@ -107,4 +107,4 @@ A configuração MaxRecordSizeInKB define o tamanho máximo de um registro que p
 
 As configurações de SharedLogId e SharedLogPath são sempre usadas juntas para fazer um serviço usar um log compartilhado separado do log compartilhado padrão para o nó. Para obter maior eficiência, devem ser especificados o máximo de serviços possível para o mesmo log compartilhado. Arquivos de log compartilhados devem ser colocados em discos que são usados exclusivamente para que o arquivo de log compartilhado, para reduzir a contenção de movimentação do cabeçote. A expectativa é de que esse valor precise ser alterado somente em casos raros.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

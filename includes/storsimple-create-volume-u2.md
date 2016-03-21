@@ -1,4 +1,4 @@
-<!--author=SharS last changed: 02/04/2016-->
+<!--author=SharS last changed: 02/29/2016-->
 
 #### Para criar um volume
 
@@ -15,9 +15,9 @@
 
 	3. Especifique o **Capacidade Provisionada** para o seu volume. Anote a capacidade disponível com base no tipo de volume selecionado. O tamanho do volume especificado não deve exceder o espaço disponível.
 
-		É possível provisionar volumes fixados localmente de até 9 TB ou volumes em camadas de até 200 TB no dispositivo 8100. No dispositivo 8600 maior, é possível provisionar volumes fixados localmente de até 24 TB ou volumes em camadas de até 500 TB. Como o espaço local no dispositivo é necessário para hospedar o conjunto de trabalho de volumes em camadas, a criação de volumes fixados localmente afetará o espaço disponível para o provisionamento de volumes em camadas. Portanto, se você criar um volume fixado localmente, o espaço disponível para a criação de volumes em camadas será reduzido. Da mesma forma, se um volume em camadas é criado, o espaço disponível para a criação de volumes localmente fixados será reduzido.
+		É possível provisionar volumes fixados localmente de até 8 TB ou volumes em camadas de até 200 TB no dispositivo 8100. No dispositivo 8600, que é maior, você pode provisionar volumes localmente afixados de até 20 TB ou volumes em camadas de até 500 TB. Como o espaço local no dispositivo é necessário para hospedar o conjunto de trabalho de volumes em camadas, a criação de volumes fixados localmente afetará o espaço disponível para o provisionamento de volumes em camadas. Portanto, se você criar um volume fixado localmente, o espaço disponível para a criação de volumes em camadas será reduzido. Da mesma forma, se um volume em camadas é criado, o espaço disponível para a criação de volumes localmente fixados será reduzido.
 
-		Se você provisionar um volume fixado localmente de 9 TB (tamanho máximo permitido) em seu dispositivo 8100, você esgotará todo o espaço local disponível no dispositivo. Você não poderá criar um volume em camadas desse ponto em diante, pois não há espaço local no dispositivo para hospedar o conjunto de trabalho do volume em camadas. Os volumes existentes em camadas também afetam o espaço disponível. Por exemplo, se você tiver um dispositivo 8100 que já tem volumes em camadas de 100 TB, somente 4,5 TB de espaço estará disponível para volumes fixados localmente.
+		Se você provisionar um volume fixado localmente de 8 TB (tamanho máximo permitido) em seu dispositivo 8100, você esgotará todo o espaço local disponível no dispositivo. Você não poderá criar um volume em camadas desse ponto em diante, pois não há espaço local no dispositivo para hospedar o conjunto de trabalho do volume em camadas. Os volumes existentes em camadas também afetam o espaço disponível. Por exemplo, se você tiver um dispositivo 8100 que já tem volumes em camadas de 100 TB, somente 4 TB de espaço estarão disponíveis para volumes fixados localmente.
 
         A imagem a seguir mostra a caixa de diálogo **Configurações Básicas** para um volume fixo local.
 
@@ -42,4 +42,4 @@
 
 4. Clique no ícone de verificação ![ícone de verificação](./media/storsimple-create-volume-u2/HCS_CheckIcon-include.png). Será criado um volume com as configurações especificadas.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

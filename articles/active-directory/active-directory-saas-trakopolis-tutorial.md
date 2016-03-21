@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.date="03/08/2016"
 	ms.author="jeedes"/>
 
 
@@ -63,20 +63,20 @@ Para configurar a integração do Trakopolis ao Azure AD, você precisará adici
 3. Para abrir a exibição dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu superior.<br><br> ![Aplicativos][2]<br>
 4. Clique em **Adicionar** na parte inferior da página.<br><br> ![Aplicativos][3]<br>
 5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.<br><br> ![Aplicativos][4]<br>
-6. Na caixa de pesquisa, digite **Trakopolis**.<br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-trakopolis-tutorial/tutorial_trakopolis_01.png)<br>
-7. No painel de resultados, selecione **Trakopolis** e clique em **Concluir** para adicionar o aplicativo. <br><br>
+6. Na caixa de pesquisa, digite **Trakopolis**.<br><br> ![Aplicativos](./media/active-directory-saas-trakopolis-tutorial/tutorial_trakopolis_01.png)<br>
+7. No painel de resultados, selecione **Trakopolis** e clique em **Concluir** para adicionar o aplicativo. <br><br>![Aplicativos](./media/active-directory-saas-trakopolis-tutorial/tutorial_trakopolis_02.png)<br>
 
 ##  Configurar e testar o logon único do AD do Azure
 O objetivo desta seção é mostrar como configurar e testar logon único do Azure AD com o Trakopolis com base em um usuário de teste chamado "Brenda Fernandes".
 
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do Trakopolis é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Trakopolis.<br> Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuário** no Azure AD ao valor do **Nome de Usuário** no Trakopolis.
+Para que o logon único funcione, o Azure AD precisa saber qual usuário do Trakopolis é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Trakopolis.<br> Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuário** no Azure AD como o valor do **Nome de Usuário** no Trakopolis.
 
 Para configurar e testar o logon único do Azure AD com o Trakopolis, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configurar o logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)** - para permitir que seus usuários usem esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Configurar o Logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)**: para habilitar seus usuários a usar esse recurso.
+2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**: para testar o logon único do AD do Azure com Brenda Fernandes.
 4. **[Criação de um usuário de teste do Trakopolis](#creating-a-trakopolis-test-user)**: para ter um equivalente de Brenda Fernandes no Trakopolis que esteja vinculado à representação dela no Azure AD.
-5. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)**: para permitir que Brenda Fernandes use o logon único do AD do Azure.
 5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
 
 ### Configuração do logon único do AD do Azure
@@ -166,7 +166,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Trakop
 
 ### Atribuição do usuário de teste do AD do Azure
 
-O objetivo desta seção é permitir que Brenda Fernandes use o logon único do Azure, concedendo a ela acesso ao Trakopolis. <br><br>![Atribuir usuário][200] <br>
+O objetivo desta seção é permitir que Brenda Fernandes use o logon único do Azure concedendo a ela acesso ao Trakopolis. <br><br>![Atribuir usuário][200] <br>
 
 **Para atribuir Brenda Fernandes ao Trakopolis, execute as seguintes etapas:**
 
@@ -212,4 +212,4 @@ O objetivo desta seção é testar sua configuração de logon único do Azure A
 [204]: ./media/active-directory-saas-trakopolis-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-trakopolis-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

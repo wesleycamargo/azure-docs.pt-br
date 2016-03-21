@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
-# Procedimentos armazenados no SQL Data Warehouse 
+# Procedimentos armazenados no SQL Data Warehouse
 
 O SQL Data Warehouse oferece suporte a muitos recursos Transact-SQL encontrados no SQL Server. Mais importante, há recursos específicos de expansão que vamos aproveitar para maximizar o desempenho da sua solução.
 
@@ -28,7 +28,7 @@ Este artigo explica como implementar procedimentos armazenados no SQL Data Wareh
 Os procedimentos armazenados são uma ótima maneira de encapsular o código SQL, armazenando-o perto de seus dados no data warehouse. O encapsulamento do código em unidades gerenciáveis de procedimentos armazenados ajuda os desenvolvedores a modularizar suas soluções; facilitando a maior reutilização do código. Cada procedimento armazenado também pode aceitar parâmetros para torná-lo ainda mais flexível.
 
 O SQL Data Warehouse fornece uma implementação simplificada e otimizada de procedimentos armazenados. A maior diferença em comparação ao SQL Server é que o procedimento armazenado não é um código pré-compilado. Normalmente, quando se trata de data warehouses, nos preocupamos menos com o tempo de compilação. É mais importante que o código do procedimento armazenado seja otimizado corretamente ao operar com grandes volumes de dados. O objetivo é economizar horas, minutos e segundos, não milissegundos. Portanto, é mais útil pensar em procedimentos armazenados como contêineres para a lógica SQL.
- 
+
 Quando o SQL Data Warehouse executa o procedimento armazenado, as instruções SQL são analisadas, traduzidas e otimizadas no tempo de execução. Durante esse processo, cada instrução é convertida em consultas distribuídas. O código SQL realmente executado nos dados é diferente da consulta enviada.
 
 ## Aninhamento de procedimentos armazenados
@@ -40,14 +40,17 @@ A chamada de procedimento armazenado de nível superior é igual ao nível 1 de 
 
 ```
 EXEC prc_nesting
-``` 
-Se o procedimento armazenado também fizer outra chamada EXEC, isso aumentará o nível de aninhamento para 2 ```
+```
+Se o procedimento armazenado também fizer outra chamada EXEC, isso aumentará o nível de aninhamento para 2
+```
 CREATE PROCEDURE prc_nesting
 AS
 EXEC prc_nesting_2  -- This call is nest level 2
 GO
 EXEC prc_nesting
-``` Se o segundo procedimento executar algum sql dinâmico, isso aumentará o nível de aninhamento para 3 ```
+```
+Se o segundo procedimento então executar algum sql dinâmico, isso aumentará o nível de aninhamento para 3
+```
 CREATE PROCEDURE prc_nesting_2
 AS
 EXEC sp_executesql 'SELECT 'another nest level'  -- This call is nest level 2
@@ -94,4 +97,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

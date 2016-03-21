@@ -4,7 +4,7 @@
 	services="redis-cache"
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags
@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [PowerShell](cache-howto-manage-redis-cache-powershell.md)
-- [Azure CLI](cache-manage-cli.md)
+- [CLI do Azure](cache-manage-cli.md)
 
 Este tópico mostra como executar tarefas comuns, como criar, atualizar e dimensionar suas instâncias de Cache Redis do Azure, como regenerar chaves de acesso e exibir informações sobre seus caches. Para obter uma lista completa de cmdlets do PowerShell do Cache Redis do Azure, confira [Cmdlets do Cache Redis do Azure](https://msdn.microsoft.com/library/azure/mt634513.aspx).
 
@@ -81,7 +81,7 @@ Para criar um cache na Nuvem do Azure Government, use um dos locais a seguir.
 -	Gov. dos EUA – Virgínia
 -	Gov. dos EUA – Iowa
 
-Para saber mais sobre a Nuvem do Azure Government, confira [Microsoft Azure Government](https://azure.microsoft.com/features/gov/) e [Guia do Desenvolvedor do Microsoft Azure Government](azure-government-developer-guide.md).
+Para saber mais sobre a Nuvem do Azure Government, confira [Microsoft Azure Government](https://azure.microsoft.com/features/gov/) e [Guia do Desenvolvedor do Microsoft Azure Government](../azure-government-developer-guide.md).
 
 ### Para se conectar à Nuvem do Azure na China
 
@@ -609,4 +609,4 @@ Para saber mais sobre como usar o Windows PowerShell com o Azure, consulte os se
 - [Blog do Windows PowerShell](http://blogs.msdn.com/powershell): obtenha informações sobre os novos recursos do Windows PowerShell.
 - [Blog "Hey, Scripting Guy!" Blog](http://blogs.technet.com/b/heyscriptingguy/): obtenha dicas reais e truques da comunidade.do Windows PowerShell.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

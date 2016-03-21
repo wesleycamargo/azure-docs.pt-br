@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/13/2016"
+   ms.date="03/08/2016"
    ms.author="jgao"/>
 
 # Crie clusters Hadoop baseados no Windows no HDInsight usando o SDK do .NET
@@ -25,7 +25,9 @@
 Saiba como criar clusters do HDInsight usando o SDK do .NET. Para outros recursos e ferramentas de criação de cluster, clique na guia Selecionar na parte superior dessa página ou consulte [Métodos de criação de cluster](hdinsight-provision-clusters.md#cluster-creation-methods).
 
 
-###Pré-requisitos:
+##Pré-requisitos:
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 Antes de começar a seguir as instruções neste artigo, você deve ter o seguinte:
 
@@ -225,4 +227,4 @@ Use o seguinte script do Azure PowerShell para criar os componentes dependentes 
     Write-host "Default Storage Account Key: $defaultStorageAccountKey"
     Write-host "Default Blob Container Name: $defaultBlobContainerName"
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

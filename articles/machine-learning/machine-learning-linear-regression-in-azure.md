@@ -14,15 +14,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/11/2015" 
+	ms.date="03/02/2016" 
 	ms.author="kbaroni;garye" />
 
 # Usando regressão linear no Aprendizado de Máquina do Azure
 
 > *Kate Baroni* e *Ben Boatman* são arquitetos de soluções corporativas no Data Insights Center of Excellence da Microsoft. Neste artigo, eles descrevem sua experiência de migração de um pacote existente de análise de regressão para uma solução baseada em nuvem usando o Aprendizado de Máquina do Azure.
-
+ 
+&nbsp;
+  
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
+ 
 ## Objetivo
 
 Nosso projeto começou com dois objetivos:
@@ -50,7 +52,7 @@ Seguimos estas etapas para criar nosso experimento no Azure ML:
 
 1.	Carregamos o conjunto de dados como um arquivo csv para o Azure ML (arquivo muito pequeno)
 2.	Criamos um novo experimento e usamos o módulo [Colunas do Projeto][project-columns] para selecionar os mesmos recursos de dados usados no Excel   
-3.	Usamos o módulo [Divisão][split] (com o modo *Expressão Relativa*) para dividir os dados exatamente nos mesmos conjuntos de treinamento usados no Excel  
+3.	Usamos o módulo [Dividir Dados][split] (com o modo *Expressão Relativa*) para dividir os dados exatamente nos mesmos conjuntos de treinamento usados no Excel  
 4.	Experimentamos o módulo de [Regressão Linear][linear-regression] (somente opções padrão), documentamos e comparamos os resultados com o nosso modelo de regressão do Excel
 
 ### Examinar os resultados iniciais
@@ -74,25 +76,25 @@ Quando apresentamos nosso processo e os resultados aos desenvolvedores e cientis
 ### Mistério resolvido!
 Quando aplicamos as recomendações, atingimos o mesmo desempenho de linha de base no Azure ML que obtivemos no Excel:
 
-|| Excel|Azure ML (Inicial) | Azure ML com Quadrados Mínimos|
-|---|:---: |:---: |:---:|
-| Valor rotulado | Dados Reais (numéricos) |mesmos|mesmos|
-| Aprendiz | Excel -> Análise de Dados -> Regressão| Regressão Linear. | Regressão Linear|
-| Opções de aprendiz|N/D|Padrões|Quadrados Mínimos Comuns<br />L2 = 0,005|
-| Conjunto de Dados|26 linhas, 3 recursos, 1 rótulo. Todos numéricos.|mesmos|mesmos|
-| Divisão: Treinamento| Excel treinado nas primeiras 18 linhas, testado nas últimos 8 linhas. |mesmos|mesmos|
-| Divisão: Teste|Fórmula de regressão do Excel aplicada às últimas 8 linhas|mesmo|mesmo|
+|| Excel|ML do Azure (Inicial)|O ML do Azure com quadrados mínimos|
+|---|:---:|:---:|:---:|
+|Valor rotulado |Dados reais (numéricos)|mesmo|mesmo|
+|Aprendiz |Excel -> Dados da Análise -> Regressão|Regressão Linear.|Regressão Linear|
+|Opções de aprendiz|N/D|Padrões|quadrados mínimos comuns<br />L2 = 0,005|
+|Conjunto de dados|26 linhas, 3 recursos, 1 rótulo. Todos numéricos.|mesmo|mesmo|
+|Divisão: treinamento|Excel treinado nas primeiras 18 linhas e testado nas últimas 8 linhas.|mesmo|mesmo|
+|Divisão: teste|Fórmula de regressão do Excel aplicada às últimas 8 linhas|mesmo|mesmo|
 |**Desempenho**||||
-|Quadrado R Ajustado|0,96| N/D||
-|Coeficiente de Determinação|N/A|0,78|0,952049|
-|Erro de Média Absoluta | US$ 9,5 milhões|US$ 19,4 milhões|US$ 9,5 milhões|
-|Erro de Média Absoluta (%)|<span style="background-color: 00FF00;"> 6,03%</span>|12,2%|<span style="background-color: 00FF00;"> 6,03%</span>|
+|Quadrado R Ajustado|0,96|N/D||
+|Coeficiente de Determinação|N/D|0,78|0,952049|
+|Erro Absoluto Médio |US$ 9,5 milhões|US$ 19,4 milhões|US$ 9,5 milhões|
+|Erro Absoluto Médio (%)|<span style="background-color: 00FF00;"> 6,03%</span>|12,2%|<span style="background-color: 00FF00;"> 6,03%</span>|
 
 Além disso, os coeficientes do Excel saíram-se bem em comparação com os pesos de recurso no modelo de treinamento do Azure:
 
-||Coeficientes do Excel|Pesos de Recurso do Azure|
-|---|:---: |:---:|
-| Interceptação/Tendência|19470209,88|19328500|
+||Coeficientes do Excel|Pesos de recursos do Azure|
+|---|:---:|:---:|
+|Interceptação/desvio|19470209,88|19328500|
 |Recurso A|0,832653063|0,834156|
 |Recurso B|11071967,08|11007300|
 |Recurso C|25383318,09|25140800|
@@ -157,4 +159,4 @@ São listados alguns recursos para ajudá-lo a trabalhar com a regressão:
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

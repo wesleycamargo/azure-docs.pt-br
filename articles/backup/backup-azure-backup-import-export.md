@@ -3,8 +3,8 @@
    description="Saiba como o Backup do Azure permite que você envie dados fora da rede usando o serviço de Importação/Exportação do Azure. Este artigo explica a propagação offline de dados de backup iniciais usando o serviço de Importação/Exportação do Azure"
    services="backup"
    documentationCenter=""
-   authors="Jim-Parker"
-   manager="jwhit"
+   authors="nkolli1"
+   manager="shivamg"
    editor=""/>
 <tags
    ms.service="backup"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
    ms.date="01/28/2016"
-   ms.author="jimpark;"/>
+   ms.author="jimpark;nkolli;trinadhk"/>
 
 # Fluxo de trabalho de backup offline no Backup do Azure
 O Backup do Azure dispõe de muitas eficiências internas para poupar custos de armazenamento e rede. O Backup do Azure não apenas compacta os dados, mas também faz o backup de todo o conteúdo apenas uma vez, e de deltas/incrementais depois disso. Portanto, se houver um volume de arquivo de 10 TB do qual está sendo feito o backup, o Backup do Azure enviará 10 TB como parte da RI (Replicação Inicial) e apenas deltas como parte da Replicação Delta. Assim, a largura de banda de WAN máxima necessária durante a RI. Para reduzir a dependência de WAN na RI, o Backup do Azure dá suporte ao backup offline usando o Serviço de Importação/Exportação do Azure.
@@ -119,4 +119,4 @@ Quando os dados de backup iniciais estiverem disponíveis em sua conta de armaze
 - Se tiver dúvidas sobre o fluxo de trabalho de importação/exportação do Azure, consulte este [artigo](../storage/storage-import-export-service.md).
 - Consulte a seção “Backup Offline” das [perguntas frequentes](backup-azure-backup-faq.md) do Backup do Azure se tiver dúvidas sobre o fluxo de trabalho
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

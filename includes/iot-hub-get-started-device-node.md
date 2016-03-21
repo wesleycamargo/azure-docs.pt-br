@@ -39,28 +39,43 @@ Nesta seção, você criará um aplicativo do console do Node.js que simula um d
     function printResultFor(op) {
       return function printResult(err, res) {
         if (err) console.log(op + ' error: ' + err.toString());
-        if (res) console.log(op + ': message sent');
+        if (res) console.log(op + ' status: ' + res.constructor.name);
       };
     }
     ```
 
-7. Use a função **setInterval** para enviar uma nova mensagem ao hub IoT a cada segundo:
+7. Crie um retorno de chamada e use a função **setInterval** para enviar uma nova mensagem ao Hub IoT a cada segundo:
 
     ```
-    setInterval(function(){
-      var windSpeed = 10 + (Math.random() * 4);
-      var data = JSON.stringify({ deviceId: 'myFirstDevice', windSpeed: windSpeed });
-      var message = new Message(data);
-      console.log("Sending message: " + message.getData());
-      client.sendEvent(message, printResultFor('send'));
-    }, 1000);
+    var connectCallback = function (err) {
+      if (err) {
+        console.log('Could not connect: ' + err);
+      } else {
+        console.log('Client connected');
+
+        // Create a message and send it to the IoT Hub every second
+        setInterval(function(){
+            var windSpeed = 10 + (Math.random() * 4);
+            var data = JSON.stringify({ deviceId: 'mydevice', windSpeed: windSpeed });
+            var message = new Message(data);
+            console.log("Sending message: " + message.getData());
+            client.sendEvent(message, printResultFor('send'));
+        }, 2000);
+      }
+    };
     ```
 
-8. Salve e feche o arquivo **SimulatedDevice.js**.
+8. Abra a conexão com o Hub IoT e comece a enviar mensagens:
+
+    ```
+    client.open(connectCallback);
+    ```
+
+9. Salve e feche o arquivo **SimulatedDevice.js**.
 
 > [AZURE.NOTE] Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, implemente políticas de repetição (como uma retirada exponencial), como sugerido no artigo [Tratamento de falhas transitórias][lnk-transient-faults] do MSDN.
 
 <!-- Links -->
-[lnk-transient-faults]: https://msdn.microsoft.com/pt-BR/library/hh680901(v=pandp.50).aspx
+[lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

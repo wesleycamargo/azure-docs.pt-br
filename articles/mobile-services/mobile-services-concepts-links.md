@@ -20,8 +20,6 @@
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 
-&nbsp;
-
 Os tópicos vinculados a seguir fornecem informações sobre comportamentos específicos dos Serviços Móveis do Microsoft Azure. Esses mesmos tópicos estão disponíveis como ajuda no portal clássico do Azure.
 
 [AZURE.INCLUDE [mobile-services-concepts](../../includes/mobile-services-concepts.md)]
@@ -86,4 +84,4 @@ Os tópicos a seguir fornecem exemplos de como executar tarefas usando scripts d
 - [Tratamento de erros](https://msdn.microsoft.com/library/azure/jj631632.aspx)
 - [Teclas de atalho](https://msdn.microsoft.com/library/azure/jj552469.aspx)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

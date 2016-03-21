@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/25/2016"
+   ms.date="03/03/2016"
    ms.author="mcoskun"/>
 
 # Fazer backup e restaurar Reliable Services
@@ -22,7 +22,7 @@ O Service Fabric do Azure é uma plataforma de alta disponibilidade e replica o 
 
 Por exemplo, convém fazer o backup dos dados de um serviço nos seguintes cenários:
 
-* No caso de perda permanente de um cluster inteiro do Service Fabric ou de todos os nós que estão em execução em uma determinada partição. Isso poderá acontecer quando, por exemplo, o estado não estiver replicado geograficamente, todo o cluster estiver em um datacenter e o datacenter inteiro ficar inativo.
+* No caso de perda permanente de um cluster inteiro do Service Fabric ou de todos os nós que estão em execução em uma determinada partição.
 
 * Erros administrativos nos quais o estado é acidentalmente excluído ou corrompido. Por exemplo, isso pode ocorrer quando um administrador com privilégios suficientes exclui o serviço por engano.
 
@@ -158,4 +158,4 @@ O Gerenciador do Reliable State permite a restauração de um backup usando a AP
 
 Primeiro, **RestoreAsync** descarta todos os estados existentes na réplica primária na qual foi chamado. Depois, o Gerenciador de Reliable State cria todos os objetos Reliable que existem na pasta de backup. Em seguida, os objetos Reliable são instruídos a restaurar a partir dos pontos de verificação na pasta de backup. Finalmente, o Gerenciador de Reliable State recupera seu próprio estado a partir dos registros de log na pasta de backup e executa a recuperação. Como parte do processo de recuperação, as operações que começaram do "ponto de partida" e confirmaram os registros de log na pasta de backup são reproduzidas aos objetos Reliable. Essa etapa garante que o estado recuperado seja consistente.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -65,7 +65,7 @@ Para gravar uma função que o SDK de Trabalhos Web chama quando uma mensagem da
 
 O SDK recebe uma mensagem em modo `PeekLock` e chamadas `Complete` na mensagem se a função for concluída com êxito, ou chamadas `Abandon` se a função falhar. Se a função for executada por mais tempo que o limite `PeekLock`, o bloqueio é renovado automaticamente.
 
-O barramento de serviço faz seu próprio tratamento de filas suspeitas, para que nenhuma delas seja controlada nem configurável no SDK de Trabalhos Web.
+O barramento de serviço faz seu próprio tratamento de fila de mensagens suspeitas que não podem ser controladas ou configuradas pelo SDK do WebJobs.
 
 ### Mensagem da fila da cadeia
 
@@ -186,4 +186,4 @@ Os tópicos abordados nesse artigo incluem o seguinte:
 Este guia forneceu exemplos de amostras que mostram como lidar com cenários comuns para trabalhar com o Barramento de Serviço do Azure. Para obter mais informações sobre como usar os Trabalhos Web do Azure e o SDK de Trabalhos Web, consulte [Trabalhos Web do Azure – Recursos recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

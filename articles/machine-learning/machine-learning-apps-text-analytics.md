@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/22/2016"
+	ms.date="03/08/2016"
 	ms.author="onewth"/>
 
 
@@ -58,7 +58,7 @@ Inclua os cabeçalhos corretos em sua solicitação, que devem da seguinte manei
                
 	Where <creds> = ConvertToBase64(“AccountKey:” + yourActualAccountKey);  
 
-Você pode encontrar a chave da conta em sua conta no [Azure Data Market](https://datamarket.azure.com/account/keys).
+Você pode encontrar a chave da conta em sua conta no [Azure Data Market](https://datamarket.azure.com/account/keys). Observe que, atualmente, apenas JSON é aceita para formatos de entrada e saída. Não há suporte para XML.
 
 ---
 
@@ -383,4 +383,4 @@ As propriedades de cada parte da resposta são as seguintes:
 | TopicId | A ID do tópico a que o registro foi atribuído. |
 | Distância | Confiança em que o registro pertence ao tópico. Uma distância mais próxima a zero indica maior confiança. |
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

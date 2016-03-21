@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Gerenciar conjuntos de registros DNS e registros no DNS do Azure usando a CLI | Microsoft Azure" 
+   pageTitle="Gerenciar conjuntos de registros DNS e registros no DNS do Azure usando a CLI do Azure | Microsoft Azure" 
    description="Gerenciando conjuntos de registros DNS e registros no DNS do Azure ao hospedar seu domínio no DNS do Azure. Todos os comandos da CLI para operações em conjuntos de registros e registros." 
    services="dns" 
    documentationCenter="na" 
@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="01/21/2016"
+   ms.date="03/04/2016"
    ms.author="joaoma"/>
 
 # Como gerenciar registros DNS usando a CLI
 
 > [AZURE.SELECTOR]
-- [Azure CLI](dns-operations-recordsets-cli.md)
+- [CLI do Azure](dns-operations-recordsets-cli.md)
 - [PowerShell](dns-operations-recordsets.md)
 
-Este guia mostrará como gerenciar conjuntos de registro e registros de zona DNS.
+Este guia mostrará como gerenciar conjuntos de registro e registros de zona DNS usando a CLI do Azure de plataforma cruzada.
 
 >[AZURE.NOTE] O Azure DNS é um serviço somente do Gerenciador de Recursos do Azure. Ele não tem uma API do ASM. Portanto, você precisará garantir que a CLI do Azure está configurada para usar o modo do Gerenciador de Recursos usando o comando 'azure config mode arm'.
 
@@ -242,4 +242,4 @@ Depois de criar a zona DNS e os registros, você poderá [delegar seu domínio a
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

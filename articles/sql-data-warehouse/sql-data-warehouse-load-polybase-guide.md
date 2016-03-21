@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 
@@ -37,7 +37,7 @@ A rotação das suas chaves da conta de Armazenamento do Azure é um processo si
 3. Remover e criar as tabelas externas apontando para a nova fonte de dados externa
 
 Depois de migrar todas as tabelas externas para a nova fonte de dados externa, você pode executar as tarefas de limpeza:
- 
+
 1. Remover a primeira fonte de dados externa
 2. Remover a primeira credencial no escopo do banco de dados na chave de acesso de armazenamento primário
 3. Fazer logon no Azure e regenerar a chave de acesso primária pronta para a próxima vez
@@ -47,13 +47,13 @@ As consultas em tabelas externas simplesmente usam o nome da tabela como se ele 
 
 ```
 
--- Query Azure storage resident data via external table. 
+-- Query Azure storage resident data via external table.
 SELECT * FROM [ext].[CarSensor_Data]
 ;
 
 ```
 
-> [AZURE.NOTE]Uma consulta em uma tabela externa pode falhar com o erro *"Consulta anulada - o limite máximo de rejeição foi atingido durante a leitura de uma fonte externa"*. Isso indica que os dados externos contêm registros *sujos*. Um registro de dados é considerado “sujo” se os tipos de dados/número de colunas reais não correspondem às definições de coluna da tabela externa ou se os dados não são compatíveis com o formato de arquivo externo especificado. Para corrigir esse problema, verifique se a tabela externa e as definições de formato de arquivo externo estão corretas e se os dados externos são compatíveis com essas definições. Caso um subconjunto de registros de dados externos esteja sujo, é possível rejeitar esses registros para suas consultas usando as opções de rejeição em CREATE EXTERNAL TABLE DDL.
+> [AZURE.NOTE] Uma consulta em uma tabela externa pode falhar com o erro *"Consulta anulada - o limite máximo de rejeição foi atingido durante a leitura de uma fonte externa"*. Isso indica que os dados externos contêm registros *sujos*. Um registro de dados é considerado “sujo” se os tipos de dados/número de colunas reais não correspondem às definições de coluna da tabela externa ou se os dados não são compatíveis com o formato de arquivo externo especificado. Para corrigir esse problema, verifique se a tabela externa e as definições de formato de arquivo externo estão corretas e se os dados externos são compatíveis com essas definições. Caso um subconjunto de registros de dados externos esteja sujo, é possível rejeitar esses registros para suas consultas usando as opções de rejeição em CREATE EXTERNAL TABLE DDL.
 
 
 ## Carregar dados do armazenamento de blob do Azure
@@ -66,16 +66,16 @@ Este exemplo usa a instrução CREATE TABLE AS SELECT para carregar dados. A nov
 CREATE TABLE AS SELECT é uma instrução Transact-SQL de alto desempenho que carrega os dados em paralelo em todos os nós de computação do seu SQL Data Warehouse. Ela foi originalmente desenvolvida para o mecanismo MPP (processamento massivamente paralelo) no Analytics Platform System e agora está no SQL Data Warehouse.
 
 ```
--- Load data from Azure blob storage to SQL Data Warehouse 
+-- Load data from Azure blob storage to SQL Data Warehouse
 
 CREATE TABLE [dbo].[Customer_Speed]
-WITH 
+WITH
 (   
     CLUSTERED COLUMNSTORE INDEX
 ,	DISTRIBUTION = HASH([CarSensor_Data].[CustomerKey])
 )
-AS 
-SELECT * 
+AS
+SELECT *
 FROM   [ext].[CarSensor_Data]
 ;
 ```
@@ -129,7 +129,7 @@ Há várias maneiras de fazer isso. A seguir estão as duas abordagens usando o 
 ### Exemplo simples para arquivos pequenos
 
 A seguir está um script simples do PowerShell de uma linha que cria o arquivo.
- 
+
 ```
 Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name> -Encoding utf8
 ```
@@ -210,4 +210,4 @@ Para saber mais sobre como mover dados para o SQL Data Warehouse, consulte o [Vi
 [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

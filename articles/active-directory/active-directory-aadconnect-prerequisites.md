@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="02/16/2016"
+   ms.date="03/04/2016"
    ms.author="andkjell;billmath"/>
 
 # Pré-requisitos do Azure AD Connect
@@ -66,7 +66,7 @@ Antes de instalar o Azure AD Connect, aqui estão algumas coisas que você preci
     </system.net>
 ```
 
-Se o servidor proxy exigir autenticação, a seção se parecerá com o mostrado abaixo.
+- Se o servidor proxy requer autenticação, a [conta de serviço](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts) deve estar localizada no domínio e você deve usar o caminho de instalação de configurações personalizadas para especificar uma [conta de serviço personalizada](active-directory-aadconnect-get-started-custom.md#install-required-components). Você também precisa de um machine.config diferente. Com essa alteração em machine.config, o assistente de instalação e o mecanismo de sincronização responderão às solicitações de autenticação do servidor proxy. Em todas as páginas do assistente de instalação, com exceção da página **Configurar**, as credenciais do usuário conectado são usadas. Na página **Configurar** ao final do assistente de instalação, o contexto é alternado para a [conta de serviço](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts) que foi criada por você. A seção machine.config deve ter esta aparência.
 
 ```
     <system.net>
@@ -80,9 +80,9 @@ Se o servidor proxy exigir autenticação, a seção se parecerá com o mostrado
     </system.net>
 ```
 
-Com essa alteração em machine.config, o assistente de instalação e o mecanismo de sincronização responderão às solicitações de autenticação do servidor proxy. Em todas as páginas do assistente de instalação, com exceção da página **Configurar**, as credenciais do usuário conectado são usadas. Na página **Configurar** ao final do assistente de instalação, o contexto é alternado para a [conta de serviço](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts) que foi criada. Veja o MSDN para obter mais informações sobre o [Elemento proxy padrão](https://msdn.microsoft.com/library/kd3cf2ex.aspx).
+Veja o MSDN para obter mais informações sobre o [Elemento proxy padrão](https://msdn.microsoft.com/library/kd3cf2ex.aspx).
 
-Se você tiver problemas de conectividade, confira [Solucionar problemas de conectividade](active-directory-aadconnect-troubleshoot-connectivity.md).
+Se você tiver problemas de conectividade, consulte [Solucionar problemas de conectividade](active-directory-aadconnect-troubleshoot-connectivity.md).
 
 ### Outros
 - Opcional: uma conta de usuário de teste para verificar a sincronização.
@@ -168,4 +168,4 @@ Os requisitos mínimos para computadores que executam o AD FS ou servidores de a
 ## Próximas etapas
 Saiba mais sobre como [Integrar suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

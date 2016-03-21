@@ -56,8 +56,8 @@ As configurações de armazenamento servem para configurar o armazenamento local
 
 |Nome|Unidade|Valor padrão|Comentários|
 |----|----|-------------|-------|
-|MaxAsyncCommitDelay|Milissegundos|200|Define o intervalo máximo de envio em lotes para a confirmação do local de armazenamento durável .|
-|MaxVerPages|Número de páginas|8192|O número máximo de páginas de versão no banco de dados do armazenamento local. Ele determina o número máximo de transações pendentes.|
+|MaxAsyncCommitDelayInMilliseconds|Milissegundos|200|Define o intervalo máximo de envio em lotes para a confirmação do local de armazenamento durável .|
+|MaxVerPages|Número de páginas|16384|O número máximo de páginas de versão no banco de dados do armazenamento local. Ele determina o número máximo de transações pendentes.|
 
 ## Arquivo de exemplo de configuração
 
@@ -86,4 +86,4 @@ As configurações de armazenamento servem para configurar o armazenamento local
 
 O parâmetro BatchAcknowledgementInterval controla a latência de replicação. Um valor '0' resulta na menor latência possível, ao custo de taxa de transferência (como mais mensagens de confirmação devem ser enviadas e processadas, cada uma contendo menos confirmações). Quanto maior o valor para BatchAcknowledgementInterval, maior será a produtividade geral da replicação, ao custo da maior latência de operação. Isso se converte diretamente para a latência de confirmações de transações.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

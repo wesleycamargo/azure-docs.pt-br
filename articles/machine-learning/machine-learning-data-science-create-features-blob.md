@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="03/04/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #Criar recursos para dados de armazenamento de blob do Azure usando o Panda
@@ -23,8 +23,7 @@
 
 Este documento aborda como criar recursos para os dados armazenados no contêiner de blob do Azure usando o pacote Python [Pandas](http://pandas.pydata.org/). Depois de descrever como carregar em um quadro de dados Panda, ele mostrará como gerar recursos categóricos com os valores de indicador e a compartimentalização de recursos, ambos usando scripts Python.
 
-[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
-Os links deste **menu** o levam até os tópicos que descrevem como criar recursos para os dados em vários ambientes. Esta tarefa é uma etapa no [CAP (Processo do Cortana Analytics)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]Os links deste **menu** o levam até os tópicos que descrevem como criar recursos para os dados em vários ambientes. Esta tarefa é uma etapa no [CAP (Processo do Cortana Analytics)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 ## Pré-requisitos
 Este artigo supõe que você:
@@ -37,7 +36,7 @@ Para explorar e manipular um conjunto de dados, eles devem ser baixados da fonte
 
 1. Baixe os dados do Blob do Azure com o seguinte código de Python de exemplo e usando o serviço blob a seguir. Substitua a variável no código abaixo pelos valores específicos: 
 
-	    from azure.storage import BlobService
+	    from azure.storage.blob import BlobService
     	import tables
     	
 		STORAGEACCOUNTNAME= <storage_account_name>
@@ -107,13 +106,14 @@ Para gerar recursos compartimentalizados, faça o seguinte:
 
 ##<a name="sql-featuregen"></a>Gravar dados de volta ao blob do Azure e consumi-los no Aprendizado de Máquina do Azure
 
-Depois que você já explorou os dados e criou os recursos necessários, pode carregar os dados (amostra ou recurso) para um blob do Azure e consumi-los no Aprendizado de Máquina do Azure usando as seguintes etapas: observe que os recursos adicionais podem ser criados no Estúdio de Aprendizado de Máquina do Azure também. 1. Grave o quadro de dados no arquivo local
+Depois que você já explorou os dados e criou os recursos necessários, pode carregar os dados (amostra ou recurso) para um blob do Azure e consumi-los no Aprendizado de Máquina do Azure usando as seguintes etapas: observe que os recursos adicionais podem ser criados no Estúdio de Aprendizado de Máquina do Azure também.
+1. Grave o quadro de dados no arquivo local
 
 		dataframe.to_csv(os.path.join(os.getcwd(),LOCALFILENAME), sep='\t', encoding='utf-8', index=False)
 
 2. Carregue os dados para o blob do Azure da seguinte maneira:
 
-		from azure.storage import BlobService
+		from azure.storage.blob import BlobService
     	import tables
 
 		STORAGEACCOUNTNAME= <storage_account_name>
@@ -140,4 +140,4 @@ Depois que você já explorou os dados e criou os recursos necessários, pode ca
 
  
 
-<!---HONumber=AcomDC_0211_2016--->
+<!---HONumber=AcomDC_0309_2016-->

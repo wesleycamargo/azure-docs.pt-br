@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="12/07/2015"
+	ms.date="03/04/2016"
 	ms.author="billmath"/>
 
 # Determinar os requisitos de autenticação multifator para sua solução de identidade híbrida
@@ -58,4 +58,4 @@ Depois de responder às perguntas anteriores, você poderá determinar se há au
 ## Consulte também
 [Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

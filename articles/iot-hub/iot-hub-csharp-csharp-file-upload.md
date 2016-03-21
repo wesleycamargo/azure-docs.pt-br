@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="09/29/2015"
+     ms.date="02/03/2016"
      ms.author="elioda"/>
 
 # Tutorial: Como carregar arquivos de dispositivos para a nuvem com o Hub IoT
@@ -39,7 +39,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 + Microsoft Visual Studio 2015,
 
-+ Uma conta ativa do Azure. <br/>Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos Para obter detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdevelop%2Fiot%2Ftutorials%2Ffile-upload%2F target="\_blank").
++ Uma conta ativa do Azure. <br/>Se não tiver uma conta, você poderá criar uma conta gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdevelop%2Fiot%2Ftutorials%2Ffile-upload%2F target="\_blank").
 
 
 [AZURE.INCLUDE [iot-hub-file-upload-cloud-csharp](../../includes/iot-hub-file-upload-cloud-csharp.md)]
@@ -82,8 +82,8 @@ Informações adicionais sobre o Hub IoT:
 
 [portal do Azure]: https://portal.azure.com/
 
-[Azure Data Factory]: https://azure.microsoft.com/pt-BR/documentation/services/data-factory/
-[Hadoop]: https://azure.microsoft.com/pt-BR/documentation/services/hdinsight/
+[Azure Data Factory]: https://azure.microsoft.com/documentation/services/data-factory/
+[Hadoop]: https://azure.microsoft.com/documentation/services/hdinsight/
 
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Enviar mensagens da nuvem para dispositivo]: iot-hub-csharp-csharp-c2d.md
@@ -101,4 +101,4 @@ Informações adicionais sobre o Hub IoT:
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Centro de Desenvolvedores do IoT do Azure]: http://www.azure.com/develop/iot
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
-# Conectar ao SQL Data Warehouse 
+# Conectar ao SQL Data Warehouse
 Para se conectar ao SQL Data Warehouse, você precisará inserir credenciais de segurança para fins de autenticação. Após estabelecer uma conexão, você também descobrirá que determinadas configurações de conexão são definidas como parte do estabelecimento de sua sessão de consulta.
 
 Este artigo detalha os seguintes aspectos da conexão do SQL Data warehouse:
@@ -29,9 +29,9 @@ Este artigo detalha os seguintes aspectos da conexão do SQL Data warehouse:
 ## Autenticação
 Para se conectar ao SQL Data Warehouse, você precisará fornecer as seguintes informações:
 
-- Nome totalmente qualificado do servidor 
+- Nome totalmente qualificado do servidor
 - Especificar a autenticação SQL
-- Nome de Usuário 
+- Nome de Usuário
 - Senha
 - Banco de dados padrão (opcional)
 
@@ -42,7 +42,7 @@ Por padrão, a conexão conectará ao banco de dados mestre e não ao banco de d
 1. Especifique o banco de dados padrão ao registrar o servidor com o SQL Server Object Explorer no SSDT ou em sua cadeia de conexão do aplicativo. Por exemplo, incluindo o parâmetro InitialCatalog em uma conexão ODBC.
 2. Primeiro, selecione o banco de dados do usuário antes de criar uma sessão no SSDT.
 
-> [AZURE.NOTE]Para obter diretrizes para conectar ao SQL Data Warehouse com SSDT, consulte novamente o artigo de introdução de [conexão e consulta][].
+> [AZURE.NOTE] Para obter diretrizes para conectar ao SQL Data Warehouse com SSDT, consulte novamente o artigo de introdução de [conexão e consulta][].
 
 Novamente, é importante observar que a instrução Transact-SQL **USE <your DB>** não tem suporte para alterar o banco de dados para uma conexão
 
@@ -98,7 +98,7 @@ Cada consulta será representada por um ou mais identificadores de solicitação
 No entanto, como o SQL Data Warehouse é um sistema distribuído do MPP, identificadores de sessão e solicitação são expostos de maneira ligeiramente diferente quando comparados ao SQL Server.
 
 Sessões e solicitações são representadas logicamente por seus respectivos identificadores.
-	
+
 | Identificador | Valor de exemplo |
 | :--------- | :------------ |
 | ID da sessão | SID123456 |
@@ -158,4 +158,4 @@ Uma vez conectado, você pode começar a criar suas tabelas. Consulte o artigo [
 
 <!--Other references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

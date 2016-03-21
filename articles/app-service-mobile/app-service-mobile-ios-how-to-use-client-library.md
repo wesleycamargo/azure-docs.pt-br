@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="03/07/2016"
 	ms.author="krisragh"/>
 
 # Como usar a Biblioteca de Cliente iOS para os Aplicativos Móveis do Azure
@@ -154,7 +154,13 @@ let query = table.query()
 let query = table.queryWithPredicate(NSPredicate(format: "complete == NO"))
 ```
 
-O `MSQuery` permite que você controle vários comportamentos de consulta, incluindo o que está a seguir. Execute uma consulta `MSQuery` chamando `readWithCompletion` nela, conforme mostrado no exemplo seguinte. * Especificar ordem de resultados * Limitar quais campos retornar * Limitar quantos registros retornar * Especificar contagem total na resposta * Especificar parâmetros de cadeia de caracteres de consulta personalizados na solicitação * Aplicar funções adicionais
+O `MSQuery` permite que você controle vários comportamentos de consulta, incluindo o que está a seguir. Executa uma consulta `MSQuery` chamando `readWithCompletion` nela, conforme mostrado no exemplo a seguir.
+* Especificar a ordem dos resultados
+* Limitar quais campos retornar
+* Limitar quantos registros retornar
+* Especificar contagem total na resposta
+* Especificar parâmetros de cadeia de consulta personalizada na solicitação
+* Aplicar funções adicionais
 
 
 ## <a name="sorting"></a>Como classificar dados com MSQuery
@@ -233,7 +239,7 @@ Para inserir uma nova linha na tabela, crie um novo `NSDictionary` e invoque `ta
 
 Se não for fornecida uma `id`, o back-end gera automaticamente uma ID exclusiva. Forneça sua própria `id` para usar endereços de email, nomes de usuários, ou seus próprios valores personalizados como ID. Fornecer sua própria identificação pode facilitar junções e lógicas de banco de dados comerciais.
 
-O `result` contém o novo item que foi inserido; dependendo de sua lógica de servidor, ele pode ter dados adicionais ou modificados em comparação com o que foi passado para o servidor.
+O `result` contém o novo item que foi inserido. Dependendo de sua lógica de servidor, ele pode ter dados adicionais ou modificados em comparação com o que foi passado para o servidor.
 
 **Objective-C**:
 
@@ -378,6 +384,48 @@ table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
 
 No mínimo, o atributo `id` deve ser definido quando você faz exclusões.
 
+##<a name="customapi"></a>Como chamar uma API personalizada
+
+Com uma API personalizada, você pode expor qualquer funcionalidade de back-end. Ele não precisa mapear para uma operação de tabela. Não só você obtém mais controle sobre mensagens, mas pode até mesmo ler/definir os cabeçalhos e alterar o formato do corpo da resposta. Para saber como criar uma API personalizada no back-end, leia [APIs personalizadas](app-service-mobile-node-backend-how-to-use-server-sdk.md#work-easy-apis)
+
+Para chamar uma API personalizada, chame `MSClient.invokeAPI` conforme mostrado abaixo. O conteúdo de solicitação e resposta de conteúdo é tratado como JSON. Para usar outros tipos de mídia, [use a outra sobrecarga de `invokeAPI`](http://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:)
+
+Para fazer uma solicitação `GET` em vez de uma solicitação `POST`, defina o parâmetro de `HTTPMethod` como `"GET"` e o parâmetro `body` como `nil` (já que as solicitações GET não têm corpos de mensagem). Se sua API personalizada dá suporte a outros verbos HTTP, altere o `HTTPMethod` adequadamente.
+
+**Objective-C**:
+```
+    [self.client invokeAPI:@"sendEmail"
+                      body:@{ @"contents": @"Hello world!" }
+                HTTPMethod:@"POST"
+                parameters:@{ @"to": @"bill@contoso.com", @"subject" : @"Hi!" }
+                   headers:nil
+                completion: ^(NSData *result, NSHTTPURLResponse *response, NSError *error) {
+                    if(error) {
+                        NSLog(@"ERROR %@", error);
+                    } else {
+                        // Do something with result
+                    }
+                }];
+```
+
+**Swift**:
+
+```
+client.invokeAPI("sendEmail",
+            body: [ "contents": "Hello World" ],
+            HTTPMethod: "POST",
+            parameters: [ "to": "bill@contoso.com", "subject" : "Hi!" ],
+            headers: nil)
+            {
+                (result, response, error) -> Void in
+                if let err = error {
+                    print("ERROR ", err)
+                } else if let res = result {
+                          // Do something with result
+                }
+        }
+```
+
 ##<a name="templates"></a>Como registrar modelos de envio por push para enviar notificações entre plataformas
 
 Para registrar os modelos, basta passar pelos modelos com seu método **client.push registerDeviceToken** no seu aplicativo de cliente.
@@ -456,9 +504,9 @@ if (error.code == MSErrorPreconditionFailed) {
 
 Você pode usar a ADAL (Biblioteca de autenticação do Active Directory) para conectar os usuários ao seu aplicativo usando o Active Directory do Azure. Normalmente, será melhor usá-la em vez dos métodos `loginAsync()`, pois ela fornece uma aparência mais nativa do UX e permite personalização adicional.
 
-1. Configure o seu back-end de aplicativo móvel para entrada no AAD seguindo o tutorial [Como configurar o Serviço de Aplicativo para o logon do Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md). Complete a etapa opcional de registrar um aplicativo cliente nativo. Para iOS, recomendamos (mas não obrigamos) que o URI de redirecionamento esteja no formato `<app-scheme>://<bundle-id>`. Confira o [Início rápido do iOS ADAL](active-directory-devquickstarts-ios.md#em1-determine-what-your-redirect-uri-will-be-for-iosem) para saber mais.
+1. Configure o seu back-end de aplicativo móvel para entrada no AAD seguindo o tutorial [Como configurar o Serviço de Aplicativo para o logon do Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md). Complete a etapa opcional de registrar um aplicativo cliente nativo. Para iOS, recomendamos (mas não obrigamos) que o URI de redirecionamento esteja no formato `<app-scheme>://<bundle-id>`. Confira o [Início rápido da ADAL iOS](active-directory-devquickstarts-ios.md#em1-determine-what-your-redirect-uri-will-be-for-iosem) para saber mais.
 
-2. Instale o ADAL usando o Cocoapods. Edite o podfile para incluir o seguinte, substituindo **YOUR-PROJECT** pelo nome de seu projeto do Xcode:
+2. Instale o ADAL usando o Cocoapods. Edite o Podfile para incluir o seguinte, substituindo **YOUR-PROJECT** pelo nome de seu projeto do Xcode:
 
 		source 'https://github.com/CocoaPods/Specs.git'
 		link_with ['YOUR-PROJECT']
@@ -471,9 +519,9 @@ e o Pod:
 
 4. Adicione o código abaixo ao seu aplicativo, de acordo com a linguagem que você está usando. Em cada um, faça as seguintes substituições:
 
-* Substitua **INSERT-AUTHORITY-HERE** pelo nome do locatário no qual você provisionou o aplicativo. O formato deve ser https://login.windows.net/contoso.onmicrosoft.com. Este valor pode ser copiado da guia Domínio no Active Directory do Azure no [Portal Clássico do Azure].
+* Substitua **INSERT-AUTHORITY-HERE** pelo nome do locatário onde você provisionou o aplicativo. O formato deve ser https://login.windows.net/contoso.onmicrosoft.com. Este valor pode ser copiado da guia Domínio no Active Directory do Azure no [Portal Clássico do Azure].
 
-* Substitua **INSERT-RESOURCE-ID-HERE** pela ID do cliente do seu back-end de aplicativo móvel. Você pode obter isso na guia **Avançadas** em **Configurações do Active Directory do Azure** no portal.
+* Substitua **INSERT-RESOURCE-ID-HERE** pela ID do cliente do seu back-end de aplicativo móvel. Você pode obter isso na guia **Avançadas** em **Configurações do Azure Active Directory** no portal.
 
 * Substitua **INSERT-CLIENT-ID-HERE** pela ID do cliente copiada do aplicativo cliente nativo.
 
@@ -592,4 +640,4 @@ e o Pod:
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="02/08/2016"
+ms.date="03/08/2016"
 ms.author="eugenesh" />
 
 # Indexação de documentos no Armazenamento de Blobs do Azure com a Pesquisa do Azure
@@ -205,8 +205,22 @@ Nome da propriedade | Valor da propriedade | Explicação
 AzureSearch\_Skip | "true" | Instrui o indexador do blob a ignorar completamente o blob; não ocorrerá a tentativa de extração dos metadados nem do conteúdo. Isso é útil quando você quer ignorar determinados tipos de conteúdo, ou quando um blob específico falha repetidamente e interrompe o processo de indexação.
 AzureSearch\_SkipContent | "true" | Instrui o indexador de blob a indexar somente os metadados e a ignorar a extração de conteúdo do blob. Isso é útil quando o conteúdo do blob não é interessante, mas ainda assim você deseja indexar os metadados anexados ao blob.
 
+<a name="IndexerParametersConfigurationControl"></a>
+## Usando parâmetros de indexador para controlar a extração de documentos
+
+Se você quiser ignorar a extração de conteúdo para todos os blobs, poderá fazer isso usando o objeto de configuração do indexador, em vez de precisar adicionar metadados personalizados a cada blob individualmente. Para fazer isso, defina a propriedade de configuração `SkipContent` para `true` no objeto `parameters`:
+
+ 	PUT https://[service name].search.windows.net/indexers/<your indexer name>?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
+
+	{
+	  ... other parts of indexer definition
+	  "parameters" : { "configuration" : { "SkipContent" : true } }
+	}
+
 ## Ajude-nos a aprimorar a Pesquisa do Azure
 
 Se você tiver solicitações de recursos ou ideias para o aperfeiçoamentos, entre em contato conosco pelo [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

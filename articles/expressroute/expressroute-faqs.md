@@ -122,7 +122,7 @@ Para obter mais detalhes, consulte [Compartilhando um circuito de Rota Expressa 
 Não. Todas as redes virtuais vinculadas ao mesmo circuito de Rota Expressa fazem parte do mesmo domínio de roteamento e não estão isoladas entre si, segundo uma perspectiva de roteamento. Se você precisar de isolamento de rota, você precisará criar um circuito de Rota Expressa separado.
 
 ### Posso conectar uma Rede Virtual a mais de um circuito de Rota Expressa?
-Sim. Você pode vincular uma única rede virtual a até 4 circuitos de Rota Expressa. Eles devem ser ordenados por meio de quatro locais diferentes.
+Sim. Você pode vincular uma única rede virtual a até 4 circuitos de Rota Expressa. Eles devem ser ordenados por meio de quatro [locais da Rota Expressa](expressroute-locations.md) diferentes.
 
 ### Poderei acessar a Internet por meio de minhas redes virtuais conectadas a circuitos de Rota Expressa?
 Sim. Se você não anunciou rotas padrão (0.0.0.0/0) ou prefixos de rotas de Internet ao longo da sessão BGP, você será capaz de se conectar à Internet por meio de uma rede virtual vinculada a um circuito de Rota Expressa.
@@ -241,4 +241,4 @@ Consulte [Locais e parceiros da Rota Expressa](expressroute-locations.md) para o
 ### Posso acessar o Office 365 pela Internet mesmo se a Rota Expressa foi configurada para minha organização?
 Sim. Pontos de extremidade do serviço do Office 365 estão acessíveis pela Internet, embora a Rota Expressa tenha sido configurada para sua rede. Se você estiver em um local configurado para se conectar a serviços do Office 365 por meio de Rota Expressa, você se conectará por meio de Rota Expressa.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

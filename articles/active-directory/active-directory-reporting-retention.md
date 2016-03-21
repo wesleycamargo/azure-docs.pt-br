@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Políticas de retenção de relatório do Active Directory do Azure | Microsoft Azure"
+	pageTitle="Políticas de retenção de relatório do Azure Active Directory | Microsoft Azure"
 	description="Políticas de retenção sobre dados de relatório no Active Directory do Azure"
 	services="active-directory"
 	documentationCenter=""
-	authors="kenhoff"
-	manager="mbaldwin"
+	authors="dhanyahk"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,23 +13,23 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="12/07/2015"
-	ms.author="kenhoff"/>
+	ms.date="03/07/2016"
+	ms.author="dhanyahk"/>
 
-# Políticas de retenção de relatório do Active Directory do Azure
+# Políticas de retenção de relatório do Azure Active Directory
 
 *Esta documentação é parte do [Guia de Relatórios do Active Directory do Azure](active-directory-reporting-guide.md).*
 
-Os relatórios do Azure AD retêm dados de um determinado número de dias, indicado aqui.
+Os relatórios do Azure AD (Azure Active Directory) retêm dados para um determinado número de dias, indicado aqui.
 
 Relatório | Descrição
 ------------------------------------------------------- | -----------
 Entradas de fontes desconhecidas | 30 dias
 Entradas após várias falhas | 30 dias
-Entradas de várias regiões geográficas | 30 dias
+Entradas de várias geografias | 30 dias
 Entradas de endereços IP com atividade suspeita | 30 dias
 Entradas de dispositivos possivelmente infectados | 30 dias
-Atividade de conexão anômala | 30 dias
+Atividades de entrada irregulares | 30 dias
 Usuários com atividade de entrada anômala | 30 dias
 Usuários com credenciais insuficientes | 30 dias
 Relatório de auditoria | 180 dias
@@ -48,4 +48,4 @@ Usuários RMS mais ativos | 30 dias
 Uso de dispositivo do RMS | 30 dias
 Uso de aplicativos habilitados para RMS | 30 dias
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

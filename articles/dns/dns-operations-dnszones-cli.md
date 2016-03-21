@@ -19,10 +19,10 @@
 # Como gerenciar as zonas DNS usando a CLI
 
 > [AZURE.SELECTOR]
-- [Azure CLI](dns-operations-dnszones-cli.md)
+- [CLI do Azure](dns-operations-dnszones-cli.md)
 - [PowerShell](dns-operations-dnszones.md)
 
-Este guia mostrará como gerenciar sua zona DNS. Ele ajudará a entender a sequência de operações a serem realizadas para administrar sua zona DNS.
+Este guia mostrará como gerenciar seus recursos de zona DNS usando a CLI do Azure de plataforma cruzada.
 
 >[AZURE.NOTE] O Azure DNS é um serviço somente do Gerenciador de Recursos do Azure. Ele não tem uma API do ASM. Portanto, você precisará garantir que a CLI do Azure está configurada para usar o modo do Gerenciador de Recursos usando o comando 'azure config mode arm'.
 
@@ -78,4 +78,4 @@ Esta operação tem um comutador opcional “-q” que suprime o prompt para con
 
 Saiba [como gerenciar registros DNS](dns-operations-recordsets-cli.md) e [automatizar operações usando o SDK do .NET](dns-sdk.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

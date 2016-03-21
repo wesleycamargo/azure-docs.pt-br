@@ -25,8 +25,9 @@ Este guia mostra como usar o SDK do cliente Android para Aplicativos Móveis na 
 
 Este guia destaca o SDK do Android no lado do cliente. Para saber mais sobre os SDKs no servidor para Aplicativos Móveis, confira [Trabalhar com o SDK de back-end do .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) ou [Como usar o SDK de back-end Node.js](app-service-mobile-node-backend-how-to-use-server-sdk.md).
 
+## Documentação de referência
 
-<!---You can find the Javadocs API reference for the Android client library [here](http://go.microsoft.com/fwlink/p/?LinkId=298735).-->
+Você pode encontrar a referência à API do Javadocs para a biblioteca de cliente Android [no GitHub](http://azure.github.io/azure-mobile-apps-android-client/).
 
 ## Configuração e pré-requisitos
 
@@ -56,11 +57,11 @@ Altere ambos os arquivos **build.gradle**:
 
 2. Adicione este código ao arquivo **build.gradle** do nível *Module app* dentro da marca *dependencies*:
 
-		compile 'com.microsoft.azure:azure-mobile-android:3.0'
+		compile 'com.microsoft.azure:azure-mobile-android:3.1'
 
-	Atualmente, a versão mais recente é a 3.0. As versões com suporte estão listadas [aqui](http://go.microsoft.com/fwlink/p/?LinkID=717034).
+	Atualmente, a versão mais recente é a 3.1. As versões com suporte estão listadas [aqui](http://go.microsoft.com/fwlink/p/?LinkID=717034).
 
-###<a name="enable-internet"></a>Habilitar a permissão Internet
+###<a name="enable-internet"></a>Habilitar a permissão de Internet
 Para acessar o Azure, o aplicativo deve ter a permissão INTERNET habilitada. Se ela ainda não estiver habilitada, adicione a seguinte linha de código ao arquivo **AndroidManifest.xml**:
 
 	<uses-permission android:name="android.permission.INTERNET" />
@@ -543,7 +544,7 @@ Você pode fazer filtragem, classificação e paginação, concatenando os méto
 
 Uma API personalizada permite que você defina pontos de extremidade personalizados que expõem a funcionalidade do servidor que não mapeia para uma inserção, atualização, exclusão ou operação de leitura. Usando uma API personalizada, você pode ter mais controle sobre mensagens, incluindo ler e definir cabeçalhos de mensagens HTTP e definir um formato de corpo de mensagem diferente do JSON.
 
-Em um cliente Android, você chama o método **invokeApi** para chamar o ponto de extremidade da API personalizada. O exemplo a seguir mostra como chamar um ponto de extremidade da API denominado *completeAll*, que retorna uma classe de coleção chamada MarkAllResult.
+Em um cliente Android, você chama o método **invokeApi** para chamar o ponto de extremidade de API personalizada. O exemplo a seguir mostra como chamar um ponto de extremidade de API denominado *completeAll*, que retorna uma classe de coleção chamada MarkAllResult.
 
 	public void completeItem(View view) {
 
@@ -569,7 +570,7 @@ O método **invokeApi** é chamado no cliente, que envia uma solicitação POST 
 
 Os tutoriais já descrevem detalhadamente como adicionar esses recursos.
 
-O Serviço de Aplicativo oferece suporte à [autenticação de usuários do aplicativo](app-service-mobile-android-get-started-users.md) usando uma variedade de provedores de identidade externos: Facebook, Google, Conta da Microsoft, Twitter e Active Directory do Azure. Você pode definir permissões em tabelas para restringir o acesso a operações específicas apenas para usuários autenticados. Você também pode usar a identidade de usuários autenticados para implementar regras de autorização no seu back-end.
+O Serviço de Aplicativo oferece suporte à [autenticação de usuários do aplicativo](app-service-mobile-android-get-started-users.md) usando uma variedade de provedores de identidade externos: Facebook, Google, Conta da Microsoft, Twitter e Azure Active Directory. Você pode definir permissões em tabelas para restringir o acesso a operações específicas apenas para usuários autenticados. Você também pode usar a identidade de usuários autenticados para implementar regras de autorização no seu back-end.
 
 Dois fluxos de autenticação têm suporte: um fluxo de *servidor* e um fluxo de *cliente*. O fluxo de servidor fornece a experiência de autenticação mais simples, pois depende da interface de autenticação da web do provedor. O fluxo de cliente permite uma integração mais profunda a recursos específicos do dispositivo, como o logon único, uma vez que ele depende de SDKs específicos de dispositivos específicos do provedor, além de exigir que você codifique isso.
 
@@ -615,7 +616,7 @@ Você pode usar a ADAL (Biblioteca de autenticação do Active Directory) para c
 
 * Substitua **INSERT-AUTHORITY-HERE** pelo nome do locatário onde você provisionou o aplicativo. O formato deve ser https://login.windows.net/contoso.onmicrosoft.com. Este valor pode ser copiado da guia Domínio no Active Directory do Azure no [Portal Clássico do Azure].
 
-* Substitua **INSERT-RESOURCE-ID-HERE** pela ID do cliente do seu back-end de aplicativo móvel. Você pode obter isso na guia **Avançadas** em **Configurações do Active Directory do Azure** no portal.
+* Substitua **INSERT-RESOURCE-ID-HERE** pela ID do cliente do seu back-end de aplicativo móvel. Você pode obter isso na guia **Avançadas** em **Configurações do Azure Active Directory** no portal.
 
 * Substitua **INSERT-CLIENT-ID-HERE** pela ID do cliente copiada do aplicativo cliente nativo.
 
@@ -681,7 +682,7 @@ Você pode usar a ADAL (Biblioteca de autenticação do Active Directory) para c
 
 ## Como adicionar notificação por push ao aplicativo
 
-Você pode [ler uma visão geral](notification-hubs-overview.md/#integration-with-app-service-mobile-apps) que descreve como os Hubs de Notificações do Microsoft Azure oferecem suporte a uma ampla variedade de notificações por push.
+Você pode [ler uma visão geral](notification-hubs-overview.md/#integration-with-app-service-mobile-apps) que descreve como os Hubs de Notificação do Microsoft Azure oferecem suporte a uma ampla variedade de notificações por push.
 
 [Neste tutorial](app-service-mobile-android-get-started-push.md), sempre que um registro for inserido, será enviada uma notificação por push.
 
@@ -840,4 +841,4 @@ Esse método geral pode ser usado sempre que tivermos um objeto complexo não se
 [Comece a usar a autenticação]: app-service-mobile-android-get-started-users.md
 [Introdução à autenticação]: app-service-mobile-android-get-started-users.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

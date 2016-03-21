@@ -18,8 +18,8 @@
 
 # Monitorar e gerenciar os pipelines do Azure Data Factory usando novo Aplicativo de Monitoramento e Gerenciamento
 > [AZURE.SELECTOR]
-- [Using Azure Portal/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
-- [Using Monitoring and Management App](data-factory-monitor-manage-app.md)
+- [Usando o Portal do Azure/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
+- [Usando o aplicativo de monitoramento e gerenciamento](data-factory-monitor-manage-app.md)
 
 Este artigo descreve como monitorar, gerenciar e depurar seus pipelines usando o **Aplicativo de Monitoramento e Gerenciamento**. Ele também fornece informações sobre como criar alertas e como obter notificações sobre falhas usando o aplicativo.
       
@@ -281,7 +281,7 @@ Nome do evento | Status | Substatus
 -------------- | ------ | ----------
 Execução de Atividade Iniciada | Iniciado | Iniciando
 Execução de Atividade Concluída | Bem-sucedido | Bem-sucedido 
-Execução de Atividade Concluída | Falha| Alocação de Recursos com Falha<p>Execução com Falha</p><p>Tempo Limite Expirado</p><p>Validação com Falha</p><p>Abandonado</p>
+Execução de Atividade Concluída | Falha| Alocação de Recursos com Falha<br/>Execução com Falha<br/><br/>Tempo Limite Expirado<br/><br/>Validação com Falha<br/><br/>Abandonado<br/>
 Criação de Cluster HDI sob Demanda Iniciada | Iniciado | &nbsp; |
 Cluster HDI sob Demanda Criado com Êxito | Bem-sucedido | &nbsp; |
 Cluster HDI sob Demanda Excluído | Bem-sucedido | &nbsp; |
@@ -295,4 +295,4 @@ Cluster HDI sob Demanda Excluído | Bem-sucedido | &nbsp; |
     
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

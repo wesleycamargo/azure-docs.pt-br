@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Partições de tabela no SQL Data Warehouse
@@ -109,7 +109,7 @@ AND     rp.[name]    = 'SloDWPool'
 ;
 ```
 
-> [AZURE.NOTE]Tente evitar o dimensionamento das partições além da concessão de memória fornecida pela classe de recurso muito grande. Se as partições ultrapassarem este valor, você corre o risco de pressão de memória, que por sua vez, leva à menor compactação ideal.
+> [AZURE.NOTE] Tente evitar o dimensionamento das partições além da concessão de memória fornecida pela classe de recurso muito grande. Se as partições ultrapassarem este valor, você corre o risco de pressão de memória, que por sua vez, leva à menor compactação ideal.
 
 ## Alternância de partição
 Para alternar as partições entre duas tabelas, você deve garantir que as partições alinhem em seus respectivos limites e que correspondam as definições de tabela. Como restrições de verificação não estão disponíveis para impor o intervalo de valores em uma tabela, a tabela de origem deve conter os mesmos limites de partição da tabela de destino. Se este não for o caso, a alternância de partição falhará, assim como os metadados da partição não serão sincronizados.
@@ -150,7 +150,7 @@ VALUES (1,20000101,1,1,1,1,1,1);
 CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSales(OrderDateKey);
 ```
 
-> [AZURE.NOTE]Criando o objeto de estatística garantimos que os metadados de tabela sejam mais precisos. Se omitirmos a criação de estatísticas, o SQL Data Warehouse usará os valores padrão. Para obter detalhes sobre as estatísticas examine [estatísticas][].
+> [AZURE.NOTE] Criando o objeto de estatística garantimos que os metadados de tabela sejam mais precisos. Se omitirmos a criação de estatísticas, o SQL Data Warehouse usará os valores padrão. Para obter detalhes sobre as estatísticas examine [estatísticas][].
 
 Podemos consultar a contagem de linha utilizando a `sys.partitions` exibição do catálogo:
 
@@ -312,7 +312,7 @@ DROP TABLE #partitions;
 
 Com essa abordagem, o código no controle de origem permanece estático e são permitidos valores de limite de particionamento dinâmicos, evoluindo com o depósito ao longo do tempo.
 
->[AZURE.NOTE]A alternância de partição tem algumas diferenças em comparação ao SQL Server. Não deixe de ler [Migrar seu código][] para saber mais sobre esse assunto.
+>[AZURE.NOTE] A alternância de partição tem algumas diferenças em comparação ao SQL Server. Não deixe de ler [Migrar seu código][] para saber mais sobre esse assunto.
 
 
 ## Próximas etapas
@@ -333,4 +333,4 @@ Depois de migrar com êxito o esquema do seu banco de dados para o SQL Data Ware
 
 <!-- Other web references -->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

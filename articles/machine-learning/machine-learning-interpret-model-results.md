@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/04/2015" 
+	ms.date="03/04/2016" 
 	ms.author="bradsev" />
 
 
@@ -214,7 +214,7 @@ Após executar o serviço Web, o resultado é semelhante à Figura 19. É previs
 
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/19.png)
 
-Figura 19 Resultado do Serviço Web da classificação de duas classes de íris
+Figura 19: Resultado do serviço Web da classificação de duas classes de íris
 
 ##Sistema de recomendação
 **Teste de exemplo**
@@ -309,4 +309,4 @@ Figura 26 Resultado do serviço Web de Problema de recomendação do restaurante
 [train-matchbox-recommender]: https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

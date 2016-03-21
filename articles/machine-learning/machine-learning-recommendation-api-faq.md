@@ -3,7 +3,7 @@
 	description="API de RECOMENDAÇÕES da Microsoft criada com as perguntas Frequentes do aprendizado de máquina do Azure" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="jaymathe" 
+	authors="luisca" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="03/01/2016" 
 	ms.author="luisca"/>
 
 #Perguntas frequentes sobre configuração e uso da API de Recomendações do Aprendizado de Máquina
@@ -31,7 +31,12 @@ RECOMENDAÇÕES utiliza como entrada um item ou um conjunto de itens e retorna u
 
 **Há limitações de uso?**
 
-As recomendações têm as seguintes limitações de uso: * Número máximo de modelos por assinatura: 10 * Número máximo de itens que um catálogo pode conter: 100.000 * O número máximo de pontos de uso que são mantidos é de ~ 5.000.000. Os mais antigos serão excluídos se novos forem carregados ou relatados. * O número máximo de dados que podem ser enviados por email (por exemplo, importar dados de catálogo, importar dados de uso) é de 200 MB * O número de TPS (transações por segundo) para uma compilação de modelo de Recomendações que não esteja ativa é de ~2 TPS. Uma compilação de modelo de Recomendação ativa pode conter até 20 TPS.
+As Recomendações apresentam as seguintes limitações de uso:
+* Número máximo de modelos por assinatura: 10
+* Número máximo de itens que um catálogo pode conter: 100.000
+* O número máximo de pontos de uso mantidos é cerca de 5.000.000. Os mais antigos serão excluídos se novos forem carregados ou relatados.
+* O volume máximo de dados que podem ser enviados no email (por exemplo, importar dados de catálogo e importar dados de uso) é de 200 MB.
+* O número de TPS (transações por segundo) para um build de modelo da Recomendação que não está ativo é de cerca de 2 TPS. Uma compilação de modelo de Recomendação ativa pode conter até 20 TPS.
 
 ##Compra e cobrança 
 
@@ -130,4 +135,4 @@ O suporte técnico está disponível no site de [Suporte do Microsoft Azure](htt
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

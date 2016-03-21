@@ -10,7 +10,7 @@ editor="cgronlun"/>
 <tags
 ms.service="hdinsight"
 ms.devlang="na"
-ms.topic="get-started-article"
+ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
 ms.date="01/12/2016"
@@ -196,4 +196,4 @@ Para obter mais informações sobre como usar SSH com o HDInsight, consulte o se
 
 * [Usar SSH com Hadoop baseado em Linux no HDInsight no Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

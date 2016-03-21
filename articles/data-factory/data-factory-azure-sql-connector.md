@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Mover dados para e do SQL Azure | Azure Data Factory" 
+	pageTitle="Mover dados de e para o Banco de Dados SQL do Azure | Microsoft Azure" 
 	description="Saiba como mover dados para/do Banco de Dados SQL do Azure usando o Azure Data Factory" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -630,4 +630,4 @@ O mapeamento é o mesmo que o mapeamento de tipo de dados do SQL Server para o A
 
 	 
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

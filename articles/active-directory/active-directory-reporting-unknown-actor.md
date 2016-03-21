@@ -3,7 +3,7 @@
    description="Descrição do evento ";Actor desconhecido"; nos relatórios do Active Directory do Azure"
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
+   authors="SSalahAhmed"
    manager="mbaldwin"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/04/2016"
+   ms.author="saah"/>
 
 # Active Directory do Azure relatando eventos de "Ator desconhecido"
 
@@ -28,16 +28,16 @@ Nesse caso, uma entidade de serviço (aplicativo) está executando as atualizaç
 
 ![](./media/active-directory-reporting-unknown-actor/spd-actor.png)
 
-Isso é um bug conhecido e estamos nos empenhando para resolvê-lo.
+Isso é um bug conhecido e estamos trabalhando para resolvê-lo.
 
 ## Um usuário foi excluído do diretório antes do evento ser processado
 
-Nesse caso, um usuário foi excluído do diretório antes de processarmos o evento e associado a um nome de usuário com ele. Aqui está um exemplo:
+Nesse caso, um usuário foi excluído do diretório antes de processarmos o evento e associarmos a um nome de usuário a ele. Aqui está um exemplo:
 
 ![](./media/active-directory-reporting-unknown-actor/unknown-actor.png)
 
-Isso é um bug conhecido e estamos nos empenhando para resolvê-lo.
+Isso é um bug conhecido e estamos trabalhando para resolvê-lo.
 
 <!-- ![](./media/active-directory-reporting-unknown-actor/uid-actor.png) -->
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

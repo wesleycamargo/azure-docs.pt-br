@@ -26,7 +26,7 @@ Aqui está uma conta de uma equipe que desenvolve aplicativos da Web:
 
 * *"Alguns dias atrás, implantamos um hotfix “secundário”. Não executamos uma aprovação de teste ampla, mas infelizmente algumas alterações inesperadas foram mescladas à carga, gerando incompatibilidade entre o front-end e back-end. Imediatamente as exceções de servidor aumentaram drasticamente, nosso alerta disparou e fomos informados sobre a situação. Alguns cliques no portal do Application Insights, temos informações suficientes de pilhas de chamadas de exceção para restringir o problema. Revertemos imediatamente e limitamos os danos. O Application Insights tornou essa parte do ciclo das Operações de Desenvolvimento muito fácil e prática."*
 
-Vamos ver como uma equipe de desenvolvimento da Web usa o Application Insights para monitorar o desempenho. Vamos acompanhar a equipe OBS no Fabrikam Bank, que é responsável pelo sistema bancário online.
+Vamos ver como uma equipe de desenvolvimento da Web usa o Application Insights para monitorar o desempenho. Vamos acompanhar a equipe do Fabrikam Bank, que é responsável pelo sistema bancário online (OBS).
 
 ![Exemplo de site da Web bancário](./media/app-insights-detect-triage-diagnose/03-bank.png)
 
@@ -36,7 +36,10 @@ A equipe trabalha em um ciclo assim:
 
 Requisitos de feed em sua lista de pendências de desenvolvimento (lista de tarefas). Eles trabalham em impressões curtas, o que geralmente entrega software de trabalho, normalmente na forma de melhorias e extensões para o aplicativo existente. O aplicativo ativo é frequentemente atualizado com novos recursos. Enquanto estiver ativo, a equipe monitora-o para uso com a ajuda do Application Insights e desempenho. Essa análise volta para a lista de pendências de desenvolvimento.
 
-A equipe usa o Application Insights para monitorar o aplicativo Web online em conjunto para: * desempenho. Eles querem entender como os tempos de resposta variam de acordo com a contagem de solicitação; quanto CPU, rede, disco e outros recursos estão sendo usados; e onde estão os gargalos. * Falhas. Se houver exceções ou solicitações com falha, ou se um contador de desempenho ficar fora de seu intervalo confortável, a equipe precisa saber rapidamente para que possam tomar providências. * Uso. Sempre que um novo recurso for liberado, a equipe deseja saber até que ponto é usado e os usuários tenham alguma dificuldade com ele.
+A equipe usa o Application Insights para monitorar o aplicativo Web ao vivo de perto em relação a/ao:
+* Desempenho. Eles querem entender como os tempos de resposta variam de acordo com a contagem de solicitações; quantos recursos de CPU, rede, disco e outros recursos estão sendo usados; e onde estão os afunilamentos.
+* Falhas. Se houver exceções ou solicitações com falha, ou se um contador de desempenho ficar fora de seu intervalo confortável, a equipe precisará saber disso rapidamente para que possam tomar as devidas providências.
+* Uso. Sempre que um novo recurso for liberado, a equipe deseja saber até que ponto é usado e os usuários tenham alguma dificuldade com ele.
 
 
 
@@ -49,7 +52,7 @@ Vamos nos concentrar na parte do ciclo de comentários:
 ## Detectar baixa disponibilidade
 
 
-Marcela Markova é especialista em testes da equipe de OBS e assume a liderança no monitoramento de desempenho online. Ela define vários [testes da Web][availability]\:
+Manuela Moraes é desenvolvedora sênior da equipe de OBS e assume a liderança no monitoramento do desempenho online. Ela define vários [testes da Web][availability]\:
 
 * Um teste de URL única para a página de aterrissagem principal para o aplicativo, http://fabrikambank.com/onlinebanking/. Ela define os critérios de código HTTP 200 e o texto “Bem-vindo!”. Se esse teste falhar, há algum problema sério com a rede ou os servidores, ou talvez um problema de implantação. (Ou alguém alterou a mensagem “bem-vindo!” na página sem informá-la.)
 
@@ -77,27 +80,49 @@ Na mesma página de visão geral do Application Insights, há um gráfico que mo
 
 O tempo de carregamento de página do navegador é derivado da telemetria enviada diretamente a partir de páginas da Web. Tempo de resposta do servidor, contagem de solicitação do servidor e contagem de solicitação com falha são todos medidos no servidor Web e enviadas ao Application Insights a partir daí.
 
+Manuela está um pouco preocupada com o gráfico de resposta do servidor, que mostra o tempo médio entre o momento em que o servidor recebe uma solicitação HTTP do navegador de um usuário e o momento em que ele retorna a resposta. Não é incomum ver uma variação nesse gráfico, uma vez que a carga do sistema varia. Todavia, nesse caso, parece haver que uma correlação entre pequenos aumentos na contagem de solicitações e grandes aumentos no tempo de resposta. Isso poderia indicar que o sistema está funcionando exatamente nos limites.
 
-A contagem de solicitações com falha indica casos em que os usuários já viram um erro - geralmente após uma exceção lançada no código. Talvez eles vejam uma mensagem dizendo "Desculpe, não foi possível atualizar os detalhes agora" ou, na hipótese mais vergonhosa possível, um despejo de pilha na tela do usuário, cortesia do servidor Web.
+Ela abre os gráficos de Servidores:
 
+![Métricas diversas](./media/app-insights-detect-triage-diagnose/06.png)
 
-Marcela gosta de examinar esses gráficos de tempos em tempos. A ausência de solicitações com falha é animadora, apesar de que quando ela altera o intervalo do gráfico para cobrir a última semana, falhas ocasionais são exibidas. Esse é um nível aceitável em um servidor ocupado. Mas se houver um salto súbito em falhas ou em algumas das métricas, como tempo de resposta do servidor, Marcela quer saber imediatamente. Isso pode indicar um problema imprevisto causado por um lançamento de código, ou uma falha em uma dependência como um banco de dados, ou ainda uma má reação a uma carga alta de solicitações.
-
-#### Alertas
-
-Portanto, ela define dois [alertas][metrics]\: um para tempos de resposta maiores que um limite típico e outro para uma taxa de solicitações com falha maior do que aquela na tela de fundo atual.
+Parece não haver nenhum sinal de limitação de recursos; portanto, talvez os impactos nos gráficos de resposta do servidor sejam apenas uma coincidência.
 
 
-Junto com o alerta de disponibilidade, eles dão a certeza de que, assim que qualquer coisa incomum acontecer, ela saberá a respeito.
+## Alertas
 
+No entanto, ela gostaria de acompanhar os tempos de resposta. Se eles ficarem muito altos, ela desejará saber disso imediatamente.
 
-Também é possível definir alertas em uma grande variedade de outras métricas. Por exemplo, você pode receber emails se a contagem de exceções aumentar excessivamente ou se a memória disponível tornar-se baixa demais, ou ainda se houver um pico em solicitações de cliente.
-
+Portanto, ela define um [alerta][metrics] para tempos de resposta maiores do que um limite típico. Isso lhe dá a certeza de que será informada sobre isso caso os tempos de resposta sejam lentos.
 
 
 ![Folha Adicionar alerta](./media/app-insights-detect-triage-diagnose/07-alerts.png)
 
+Alertas podem ser definidos em uma grande variedade de outras métricas. Por exemplo, você pode receber emails se a contagem de exceções aumentar excessivamente ou se a memória disponível tornar-se baixa demais, ou ainda se houver um pico em solicitações de cliente.
 
+## Alertas de diagnóstico proativo
+
+No dia seguinte, chega um email de alerta do Application Insights. Mas quando ela o abre, descobre que não é o alerta de tempo de resposta que ela definiu. Em vez disso, ele informa que houve um aumento repentino de solicitações com falha – ou seja, solicitações que retornaram códigos de falha de 500 ou mais.
+
+As solicitações com falha indicam casos em que os usuários viram um erro – geralmente, após uma exceção lançada no código. Talvez eles vejam uma mensagem dizendo "Desculpe, não foi possível atualizar os detalhes agora" ou, na hipótese mais vergonhosa possível, um despejo de pilha na tela do usuário, cortesia do servidor Web.
+
+Esse alerta é uma surpresa, pois a última vez que ela o examinou, a contagem de solicitações com falha felizmente era baixo. Um pequeno número de falhas é esperado em um servidor ocupado.
+
+Isso também foi um pouco surpreendente para ela, pois ela não precisou configurar esse alerta. Na verdade, o Diagnóstico Proativo é fornecido automaticamente com o Application Insights. Ele se ajusta automaticamente ao padrão de falha comum de seu aplicativo e “se acostuma” com as falhas em uma página específica, fica abaixo da carga alta ou é vinculado a outras métricas. Ele gera o alarme somente se há um aumento acima do que é esperado.
+
+![email de diagnóstico proativo](./media/app-insights-detect-triage-diagnose/21.png)
+
+Este é um email muito útil. Ele não só emite um alarme, mas faz grande parte do trabalho de triagem e de diagnóstico também.
+
+Mostra quantos clientes foram afetados e em quais páginas da Web ou operações. Manuela pode decidir se precisa convocar toda a equipe para trabalhar nisso como em um treinamento contra incêndio ou se isso pode ser ignorado até a semana seguinte.
+
+O email também mostra que uma exceção específica ocorreu e – o mais interessante – que a falha está associada a chamadas com falha para determinado banco de dados. Isso explica o motivo pelo qual a falha apareceu de repente, mesmo que a equipe de Manuela não tenha implantado nenhuma atualização recentemente.
+
+Ela executa ping para o líder da equipe do banco de dados. Sim, eles lançaram um hotfix a meia hora atrás e, opa, talvez tenha havido uma mudança de esquema secundária...
+
+Portanto, o problema está prestes a ser corrigido, mesmo antes da investigação dos logs e em até 15 minutos após sua ocorrência. No entanto, Manuela clica no link para abrir o Application Insights. Ele é aberto exatamente em uma solicitação com falha, e ela pode ver a chamada com falha do banco de dados na lista associada de chamadas de dependência.
+
+![solicitação com falha](./media/app-insights-detect-triage-diagnose/23.png)
 
 
 ## Detectando exceções
@@ -261,4 +286,4 @@ Portanto, é assim que uma equipe usa o Application Insights não apenas para co
 [usage]: app-insights-web-track-usage.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0309_2016-->

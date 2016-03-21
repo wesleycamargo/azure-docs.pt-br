@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="01/09/2016" 
+	ms.date="03/04/2016" 
 	ms.author="robmcm"/>
 
 # Carregar um aplicativo Web Java personalizado no Azure
@@ -72,7 +72,7 @@ Exemplos:
                                     
 **stdoutLogFile** (Padrão="d:\\home\\LogFiles\\httpPlatformStdout.log".) Caminho absoluto do arquivo para o qual **stdout** e **stderr** do processo especificado em **processPath** será registrado.
                                     
-> [AZURE.NOTE]`%HTTP_PLATFORM_PORT%` é um espaço reservado especial que precisa ser especificado como parte de **arguments** ou como parte da lista de **httpPlatform** **environmentVariables**. Será substituído por uma porta gerada internamente por **HttpPlatformHandler** para que o processo especificado por **processPath** possa escutar nessa porta.
+> [AZURE.NOTE] `%HTTP_PLATFORM_PORT%` é um espaço reservado especial que precisa ser especificado como parte de **arguments** ou como parte da lista de **httpPlatform** **environmentVariables**. Será substituído por uma porta gerada internamente por **HttpPlatformHandler** para que o processo especificado por **processPath** possa escutar nessa porta.
 
 ## Implantação
 
@@ -257,4 +257,4 @@ Para obter mais informações sobre Java, consulte o [Centro de desenvolvedores 
 <!-- External Links -->
 [Serviço de Aplicativo do Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

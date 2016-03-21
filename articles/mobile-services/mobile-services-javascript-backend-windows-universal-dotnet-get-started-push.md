@@ -4,7 +4,7 @@
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/10/2015" 
+	ms.date="03/05/2016" 
 	ms.author="glenga"/>
 
 
@@ -21,6 +21,11 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Para a versão de aplicativos móveis equivalente deste tópico, consulte [Adicionar notificações por push ao seu aplicativo Windows](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md).
+ 
 Este tópico mostra como usar os Serviços Móveis do Azure com um back-end do JavaScript para enviar notificações por push a um aplicativo do Windows universal. Neste tutorial, você habilita as notificações por push usando os Hubs de Notificação do Azure em um projeto do aplicativo Windows universal. Ao concluir, seu serviço móvel enviará uma notificação por push do back-end do JavaScript para todos os aplicativos do Windows Store e Windows Phone Store sempre que um registro é inserido na tabela TodoList. O hub de notificação que você cria é fornecido gratuitamente com o serviço móvel, pode ser gerenciado independentemente do serviço móvel e pode ser usado por outros aplicativos e serviços.
 
 >[AZURE.NOTE]Esse tópico lhe mostra como usar as ferramentas no Visual Studio 2013 Atualização 3 para adicionar suporte para notificações por push dos Serviços Móveis para um aplicativo Windows universal. As mesmas etapas podem ser usadas para adicionar notificações por push dos Serviços Móveis para um aplicativo da Windows Store ou Windows Phone Store 8.1. Para adicionar notificações por push a um aplicativo Windows Phone 8 ou Windows Phone Silverlight 8.1, consulte esta versão de [Introdução à autenticação dos Serviços Móveis](mobile-services-javascript-backend-windows-phone-get-started-push.md).
@@ -67,14 +72,14 @@ Este tutorial demonstrou as noções básicas sobre a ativação do aplicativo d
 
 + [Enviar notificações em push para usuários autenticados](mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md) <br/>Saiba como usar marcas para enviar notificações por push a partir de um Serviço Móvel apenas para um usuário autenticado.
 
-+ [Enviar notificações de transmissão para assinantes](../notification-hubs-windows-store-dotnet-send-breaking-news.md)  
++ [Enviar notificações de transmissão para assinantes](../notification-hubs/notification-hubs-windows-store-dotnet-send-breaking-news.md)  
 <br/>Saiba como os usuários podem registrar e receber notificações por push para categorias de interesse.
 
-+ [Enviar notificações independentes de plataformas para assinantes](../notification-hubs-aspnet-cross-platform-notify-users.md) <br/>Saiba usar modelos para enviar notificações por push do seu serviço móvel, sem precisar colocar cargas específicas de plataforma no seu back-end.
++ [Enviar notificações independentes de plataformas para assinantes](../notification-hubs/notification-hubs-aspnet-cross-platform-notify-users.md) <br/>Saiba usar modelos para enviar notificações por push do seu serviço móvel, sem precisar colocar cargas específicas de plataforma no seu back-end.
 
 Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seguir:
 
-* [Hubs de Notificação do Azure - Diretrizes de diagnóstico](../notification-hubs-diagnosing.md) <br/>Aprenda a solucionar seus problemas com notificações por push.
+* [Hubs de Notificação do Azure - Diretrizes de diagnóstico](../notification-hubs/notification-hubs-diagnosing.md) <br/>Aprenda a solucionar seus problemas com notificações por push.
 
 * [Introdução à autenticação] <br/>Saiba como autenticar usuários de seu aplicativo com diferentes tipos de contas usando Serviços Móveis.
 
@@ -101,4 +106,4 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 [MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0309_2016-->

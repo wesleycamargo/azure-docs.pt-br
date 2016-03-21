@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/02/2016"
    ms.author="litran"/>
 
 
@@ -86,4 +86,4 @@ Em seguida, você pode [gerenciar e monitorar seu PowerApps](powerapps-manage-mo
 [3]: ./media/powerapps-manage-api-connection-user-access/selectpermission.png
 [4]: ./media/powerapps-manage-api-connection-user-access/deleteapi.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

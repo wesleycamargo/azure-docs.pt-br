@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Gerenciar a Pesquisa do Azure com scripts do PowerShell | Microsoft Azure | Serviço de pesquisa de nuvem hospedada" 
-	description="Gerencie o serviço da Pesquisa do Azure no Microsoft Azure com scripts do PowerShell. Criar ou atualizar um serviço da Pesquisa do Azure e gerenciar chaves de administração da Pesquisa do Azure"  
+	description="Gerencie o serviço de Pesquisa do Azure com scripts do PowerShell. Criar ou atualizar um serviço da Pesquisa do Azure e gerenciar chaves de administração da Pesquisa do Azure" 
 	services="search" 
 	documentationCenter="" 
 	authors="seansaleh" 
@@ -14,10 +14,10 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="powershell" 
-	ms.date="02/25/2016" 
+	ms.date="03/08/2016" 
 	ms.author="seasa"/>
 
-# Gerenciar seu serviço da Pesquisa no Microsoft Azure com o PowerShell
+# Gerencie o serviço de Pesquisa do Azure com o PowerShell
 > [AZURE.SELECTOR]
 - [Portal](search-manage.md)
 - [PowerShell](search-manage-powershell.md)
@@ -49,7 +49,7 @@ Para especificar a assinatura, execute o comando a seguir. No exemplo a seguir, 
 ## Comandos para ajudá-lo a começar
 
 	$serviceName = "your-service-name-lowercase-with-dashes"
-	$sku = "free" # or "standard" for a paid service
+	$sku = "free" # or "basic" or "standard" for paid services
 	$location = "West US"
 	# You can get a list of potential locations with
 	# (Get-AzureRmResourceProvider -ListAvailable | Where-Object {$_.ProviderNamespace -eq 'Microsoft.Search'}).Locations
@@ -136,4 +136,4 @@ Agora que o serviço foi criado, é possível executar as próximas etapas: comp
 
 - [Analisar o tráfego da Pesquisa do Azure](search-traffic-analytics.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

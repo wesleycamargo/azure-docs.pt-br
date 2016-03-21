@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Usar rótulos para consultas de instrumento no SQL Data Warehouse
@@ -37,9 +37,9 @@ Para pesquisar por rótulo, você pode usar a consulta a seguir que usa os modos
 	FROM    sys.dm_pdw_exec_requests r
 	WHERE   r.[label] = 'My Query Label'
 	;
-	``` 
+	```
 
-> [AZURE.NOTE]É essencial encapsular colchetes ou aspas duplas em torno da palavra do rótulo ao consultar. Rótulo é uma palavra reservada e causará um erro se não for delimitada.
+> [AZURE.NOTE] É essencial encapsular colchetes ou aspas duplas em torno da palavra do rótulo ao consultar. Rótulo é uma palavra reservada e causará um erro se não for delimitada.
 
 
 ## Próximas etapas
@@ -54,4 +54,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

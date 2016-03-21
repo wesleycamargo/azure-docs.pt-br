@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/02/2016"
+   ms.date="03/03/2016"
    ms.author="magoedte;bwren" />
 
 # Saída e mensagens do runbook na Automação do Azure
@@ -167,7 +167,7 @@ O exemplo a seguir inicia um runbook de exemplo e aguarda a sua conclusão. Depo
 
 Para runbooks gráficos, um log extra está disponível na forma de rastreamento em nível de atividade. Há dois níveis de rastreamento: Básico e Detalhado. No rastreamento Básico, é possível ver a hora de início e de término de cada atividade do runbook, além de informações relacionadas a quaisquer repetições de atividade, como o número de tentativas e a hora de início da atividade. No rastreamento Detalhado, você obtém o rastreamento Básico, além de dados de entrada e de saída para cada atividade. Observe que, atualmente, os registros de rastreamento são escritos usando a transmissão detalhada; portanto, é necessário, habilitar o log Detalhado ao habilitar o rastreamento. Para runbooks gráficos com o rastreamento habilitado, não é necessário fazer registros de progresso de log, pois o rastreamento Básico tem a mesma finalidade e é mais informativo.
 
-![Modo de exibição Transmissões de Trabalho da criação gráfica](media/automation-runbook-output-and-messages/job_streams_view_blade.png)
+![Modo de exibição Transmissões de Trabalho da criação gráfica](media/automation-runbook-output-and-messages/job-streams-view-blade.png)
 
 Na captura de tela acima, é possível ver que, ao habilitar o log Detalhado e o rastreamento para runbooks gráficos, muito mais informações estão disponíveis no modo de exibição Transmissões de Trabalho de produção. Essas informações extra podem ser essenciais para solucionar problemas de produção com um runbook e, portanto, você só deve habilitá-lo para essa finalidade e não como uma prática geral. Especificamente, os registros de Rastreamento podem ser inúmeros. Com o rastreamento de runbook Gráfico, é possível obter de dois a quatro registros por atividade, dependendo se o rastreamento Básico ou Detalhado tiver sido configurado. A menos que você precise dessas informações para acompanhar o progresso de um runbook com relação à solução de problemas, convém manter o Rastreamento desligado.
 
@@ -183,11 +183,11 @@ Na captura de tela acima, é possível ver que, ao habilitar o log Detalhado e o
 
  5. Na folha Log e Rastreamento, sob registros detalhados de Log, clique em **Ativado** para habilitar o log detalhado e, sob o Rastreamento em nível de atividade, altere o nível de rastreamento para **Básico** ou **Detalhado** com base no nível de rastreamento necessário.<br>
 
-    ![Folha Log e Rastreamento da criação gráfica](media/automation-runbook-output-and-messages/logging_and_tracing_settings_blade.png)
+    ![Folha Log e Rastreamento da criação gráfica](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
 ## Artigos relacionados
 
 - [Controlar um trabalho de runbook](automation-runbook-execution.md)
 - [Runbooks filhos](http://msdn.microsoft.com/library/azure/dn857355.aspx)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="03/09/2016"
 	ms.author="cephalin"/>
 
 # Configurar ambientes de preparo para aplicativos Web no Serviço de Aplicativo do Azure
@@ -164,43 +164,55 @@ O PowerShell do Azure é um módulo que fornece cmdlets para gerenciar o Azure p
 
 - Para obter mais informações sobre como instalar e configurar o PowerShell do Azure, e como autenticar o PowerShell do Azure com sua assinatura do Azure, consulte [Como instalar e configurar o PowerShell do Microsoft Azure](../powershell-install-configure.md).  
 
-- Para usar o novo modo do Gerenciador de Recursos do Azure para cmdlets do PowerShell, comece pelo seguinte: `Switch-AzureMode -Name AzureResourceManager`.
-
 ----------
 
 ### Criar um aplicativo Web
 
-`New-AzureWebApp -ResourceGroupName [resource group name] -Name [web app name] -Location [location] -AppServicePlan [app service plan name]`
+```
+New-AzureRmWebApp -ResourceGroupName [resource group name] -Name [web app name] -Location [location] -AppServicePlan [app service plan name]
+```
 
 ----------
 
 ### Crie um slot de implantação para um aplicativo Web
 
-`New-AzureWebApp -ResourceGroupName [resource group name] -Name [web app name] -SlotName [deployment slot name] -Location [location] -AppServicePlan [app service plan name]`
+```
+New-AzureRmWebAppSlot -ResourceGroupName [resource group name] -Name [web app name] -Slot [deployment slot name] -AppServicePlan [app service plan name]
+```
 
 ----------
 
 ### Inicie a permuta multifase e aplique a configuração de slot de destino ao slot de origem
 
-`$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}` `Invoke-AzureResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01`
+```
+$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
+Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01
+```
 
 ----------
 
 ### Reverta a primeira fase da permuta multifase e restaure a configuração do slot de origem
 
-`Invoke-AzureResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01`
+```
+Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01
+```
 
 ----------
 
 ### Permute slots de implantação
 
-`$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}` `Invoke-AzureResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01`
+```
+$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
+Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01
+```
 
 ----------
 
 ### Exclua um slot de implantação
 
-`Remove-AzureResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [web app name]/[slot name] -ApiVersion 2015-07-01`
+```
+Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [web app name]/[slot name] -ApiVersion 2015-07-01
+```
 
 ----------
 
@@ -271,4 +283,4 @@ Para excluir um slot de implantação que não seja mais necessário, use o coma
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

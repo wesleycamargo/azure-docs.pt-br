@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Como editar o conteúdo de uma página no Gerenciamento de API do Azure
@@ -35,4 +35,4 @@ Clique na página “Bem-vindo" para editar o que é exibido na home page do por
 
 [api-management-howto-edit-contents-of-page-manage-content]: ./media/api-management-howto-edit-contents-of-page/api-management-customization-manage-content.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

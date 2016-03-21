@@ -49,16 +49,16 @@ Um conjunto de dados é uma descrição lógica dos dados. Os dados que estão s
 | Propriedade | Descrição | Obrigatório | Padrão |
 | -------- | ----------- | -------- | ------- |
 | name | Nome do conjunto de dados | Sim | ND |
-| estrutura | <p>Esquema do conjunto de dados</p><p>Consulte a seção [Estrutura do conjunto de dados](#Structure) para obter mais detalhes</p> | Nº | ND |
+| estrutura | Esquema do conjunto de dados<br/><br/>Consulte a seção [Estrutura do conjunto de dados](#Structure) para obter mais detalhes | Nº | ND |
 | type | Tipo de conjunto de dados | Sim | ND |
-| typeProperties | <p>Propriedades que correspondem ao tipo selecionado</p><p>Consulte a seção [Tipo de conjunto de dados](#Type) para obter detalhes sobre os tipos com suporte e suas propriedades.</p> | Sim | ND |
+| typeProperties | Propriedades que correspondem ao tipo selecionado. Consulte a seção [Tipo de conjunto de dados](#Type) para obter detalhes sobre os tipos com suporte e suas propriedades. | Sim | ND |
 | externo | Sinalizador booliano para especificar se um conjunto de dados é explicitamente produzido por um pipeline de fábrica de dados ou não | Não | false | 
-| disponibilidade | <p>Define a janela de processamento ou o modelo de divisão para a produção de conjunto de dados. </p><p>Consulte o tópico [Disponibilidade do conjunto de dados](#Availability) para obter mais detalhes</p><p>Consulte o artigo [Agendamento e execução](data-factory-scheduling-and-execution.md) para obter mais detalhes sobre o modelo de divisão do conjunto de dados</p> | Sim | ND
-| policy | Define os critérios ou a condição que as fatias de conjunto de dados devem atender. <p>Consulte o tópico [Política de conjunto de dados](#Policy) para obter mais detalhes</p> | Não | ND |
+| disponibilidade | Define a janela de processamento ou o modelo de fatiamento para a produção de conjunto de dados. <br/><br/>Consulte o tópico [Disponibilidade do conjunto de dados](#Availability) para obter mais detalhes<br/><br/>Consulte o artigo [Agendamento e execução](data-factory-scheduling-and-execution.md) para obter mais detalhes sobre o modelo de fatiamento do conjunto de dados | Sim | ND
+| policy | Define os critérios ou a condição que as fatias de conjunto de dados devem atender. <br/><br/>Consulte o tópico [Política de conjunto de dados](#Policy) para obter mais detalhes | Não | ND |
 
 ### Exemplo
 
-Abaixo está um exemplo de um conjunto de dados que representa uma tabela chamada **MyTable** no **Banco de dados SQL do Azure**. As cadeias de conexão de banco de dados SQL do Azure são definidas no **AzureSqlLinkedService** referenciado neste conjunto de dados. Esse conjunto de dados é dividido diariamente.
+Abaixo está um exemplo de um conjunto de dados que representa uma tabela chamada **MyTable**no **Banco de dados SQL do Azure**. As cadeias de conexão de banco de dados SQL do Azure são definidas no **AzureSqlLinkedService** referenciado neste conjunto de dados. Esse conjunto de dados é dividido diariamente.
 
 	{
 	    "name": "DatasetSample",
@@ -107,11 +107,11 @@ A seção Disponibilidade em um conjunto de dados define a janela de processamen
 
 | Propriedade | Descrição | Obrigatório | Padrão |
 | -------- | ----------- | -------- | ------- |
-| frequência | Especifica a unidade de tempo para a produção da divisão de conjunto de dados.<p>**Frequência com suporte**: minuto, hora, dia, semana, mês</p> | Sim | ND |
-| intervalo | Especifica um multiplicador para frequência<p>"Intervalo x da frequência" determina a frequência com que a divisão é produzida.</p><p>Se você precisar que o conjunto de dados seja dividido por hora, defina **Frequência** como **Hora** e o **Intervalo** como **1**.</p><p>** Observação:** se você especificar a frequência como minuto, recomendamos que você defina o intervalo como menor do que 15</p> | Sim | ND |
-| estilo | Especifica se a divisão deve ser produzida no início/término do intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><p>Se a frequência é definida como Mês e o estilo é definido como EndOfInterval, a divisão é produzida no último dia do mês. Se o estilo é definido como StartOfInterval, a fatia é produzida no primeiro dia do mês.</p><p>Se Frequência é definida como Dia e estilo é definido como EndOfInterval, a fatia é gerada na última hora do dia.</p>Se a Frequência é definida como Hora e o estilo é definido como EndOfInterval, a fatia é produzida ao final da hora. Por exemplo, para uma fatia de período 13h – 14h, a fatia é produzida às 14h.</p> | Não | EndOfInterval |
-| anchorDateTime | Define a posição absoluta no tempo usado pelo agendador para computar limites de fatia do conjunto de dados.<p>**Observação:** se o AnchorDateTime tem partes de data que são mais granulares do que a frequência, as partes mais granulares serão ignoradas. Por exemplo, se o **intervalo** é **por hora** (frequência: hora e intervalo: 1) e o **AnchorDateTime** contém **minutos e segundos**, as partes **minutos e segundos** do AnchorDateTime serão ignoradas.</p>| Não | 01/01/0001 |
-| deslocamento | O intervalo de tempo pelo qual o início e término de todas as fatias de conjunto de dados são deslocados. <p>**Observação:** se anchorDateTime e o deslocamento forem especificados, o resultado é a mudança combinada.</p> | Não | ND |
+| frequência | Especifica a unidade de tempo para a produção da fatia de conjunto de dados.<br/><br/>**Frequência com suporte**: Minuto, Hora, Dia, Semana, Mês | Sim | ND |
+| intervalo | Especifica um multiplicador para frequência<br/><br/>"Intervalo x da frequência" determina a frequência com que a fatia é produzida.<br/><br/>Se você precisar que o conjunto de dados seja dividido por hora, defina **Frequência** como **Hora** e o **Intervalo** como **1**.<br/><br/>** Observação:** se você especificar a frequência como minuto, recomendamos que você defina o intervalo como menor do que 15 | Sim | ND |
+| estilo | Especifica se a fatia deve ser produzida no início/término do intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Se a frequência é definida como Mês e o estilo é definido como EndOfInterval, a fatia é produzida no último dia do mês. Se o estilo é definido como StartOfInterval, a fatia é produzida no primeiro dia do mês.<br/><br/>Se Frequência é definida como Dia e estilo é definido como EndOfInterval, a fatia é gerada na última hora do dia.<br/><br/>Se a Frequência é definida como Hora e o estilo é definido como EndOfInterval, a fatia é produzida ao final da hora. Por exemplo, para uma fatia de período 13h – 14h, a fatia é produzida às 14h.< | Não | EndOfInterval |
+| anchorDateTime | Define a posição absoluta no tempo usado pelo agendador para computar limites de fatia do conjunto de dados.<br/><br/>**Observação:** se o AnchorDateTime tem partes de data que são mais granulares do que a frequência, as partes mais granulares serão ignoradas. Por exemplo, se o **intervalo** é **por hora** (frequência: hora e intervalo: 1) e o **AnchorDateTime** contém **minutos e segundos**, as partes **minutos e segundos** do AnchorDateTime serão ignoradas. | Não | 01/01/0001 |
+| deslocamento | O intervalo de tempo pelo qual o início e término de todas as fatias de conjunto de dados são deslocados. <br/>**Observação:** se anchorDateTime e o deslocamento forem especificados, o resultado é a mudança combinada.<br/> | Não | ND |
 
 ### Exemplos de anchorDateTime
 
@@ -136,10 +136,9 @@ Divisões diárias que iniciam às 6h, em vez da meia-noite do padrão.
 		"offset": "06:00:00"
 	}
 
-Nesse caso, SliceStart é deslocado por seis horas e será 6h.
+O **frequência** é definida como **Mês** e o **intervalo** é definido como **1** (uma vez por mês): se você deseja que a fatia a ser produzida no dia 9 de cada mês seja às 6h, defina o deslocamento como "09.06:00:00". Lembre-se de que o fuso é UTC.
 
 Para uma agenda de 12 meses (frequência = mês; intervalo = 12), o deslocamento: 60.00:00:00 significa cada ano em 1º ou 2 de março (60 dias desde o início do ano se estilo = StartOfInterval), dependendo do ano ser ano bissexto ou não.
-
 
 
 ## <a name="Policy"></a>Política de conjunto de dados
@@ -182,9 +181,9 @@ Conjuntos de dados externos são aqueles que não são produzidos por um pipelin
 
 | Nome | Descrição | Obrigatório | Valor Padrão |
 | ---- | ----------- | -------- | -------------- |
-| dataDelay | <p>Tempo para esperar a verificação na disponibilidade dos dados externos de uma determinada fatia. Por exemplo, se os dados tiverem que estar disponíveis por hora, para verificar se os dados externos estão realmente disponíveis e se a fatia correspondente Pronta pode ser atrasada por dataDelay.</p><p>Só se aplica a hora atual. Por exemplo, se for 13h agora e esse valor for 10 minutos, a validação será iniciada em 13h10.</p><p>Essa configuração não afeta fatias no passado (fatias com a hora de término da fatia + dataDelay < agora serão processadas sem atraso).</p> <p>Um período de tempo maior que 23h59 precisa ser especificado usando o formato dia.horas:minutos:segundos. Por exemplo, para especificar 24 horas, não use 24:00:00; em vez disso, use 1.00:00:00. Se você usar 24:00:00, esse valor será tratado como 24 dias (24.00:00:00). Para 1 dia e 4 horas, especifique 1:04:00:00. </p>| Não | 0 |
-| retryInterval | O tempo de espera entre uma falha e a próxima tentativa de repetição. Aplica-se a hora atual. Se o anterior falhou, podemos esperar muito tempo após a última tentativa. <p>Se forem 13h agora, começaremos a primeira tentativa. Se a duração para concluir a primeira verificação de validação for 1 minuto e a operação tiver falhado, a próxima repetição será 1:00 + 1 min (duração) + 1min (intervalo de repetição) = 13h02. </p><p>Para fatias no passado, não haverá nenhum atraso. A repetição acontecerá imediatamente.</p> | Não | 00:01:00 (1 minuto) | 
-| retryTimeout | O tempo limite para cada tentativa de repetição.<p>Se for definido como 10 minutos, a validação deve ser concluída em 10 minutos. Se demorar mais de 10 minutos para executar a validação, a repetição atingirá o tempo limite.</p><p>Se todas as tentativas para a validação excederem o tempo limite, a fatia será marcada como TimedOut.</p> | Não | 00:10:00 (10 minutos) |
+| dataDelay | Tempo para esperar a verificação na disponibilidade dos dados externos de uma determinada divisão. Por exemplo, se os dados tiverem que estar disponíveis por hora, para verificar se os dados externos estão realmente disponíveis e se a fatia correspondente está Pronta pode ser atrasada por dataDelay.<br/><br/>Só se aplica à hora atual. Por exemplo, se agora forem 13h e esse valor for 10 minutos, a validação será iniciada às 13h10.<br/><br/>Essa configuração não afeta as fatias no passado (fatias com a Hora de Término da Fatia + dataDelay < agora serão processadas sem atraso).<br/><br/>A hora acima de 23 horas e 59 minutos terá que ser especificada usando o formato dia.horas:minutos:segundos. Por exemplo, para especificar 24 horas, não use 24:00:00; em vez disso, use 1.00:00:00. Se você usar 24:00:00, esse valor será tratado como 24 dias (24.00:00:00). Para 1 dia e 4 horas, especifique 1:04:00:00. | Não | 0 |
+| retryInterval | O tempo de espera entre uma falha e a próxima tentativa de repetição. Aplica-se a hora atual. Se o anterior falhou, podemos esperar muito tempo após a última tentativa. <br/><br/>Se agora forem 13h, iniciaremos a primeira tentativa. Se a duração para concluir a primeira verificação de validação for 1 minuto e a operação tiver falhado, a próxima repetição será 1:00 + 1 min (duração) + 1min (intervalo de repetição) = 13h02. <br/><br/>Para fatias no passado, não haverá nenhum atraso. A repetição acontecerá imediatamente. | Não | 00:01:00 (1 minuto) | 
+| retryTimeout | O tempo limite para cada tentativa de repetição.<br/><br/>Se for definido como 10 minutos, a validação deve ser concluída em 10 minutos. Se demorar mais de 10 minutos para executar a validação, a repetição atingirá o tempo limite.<br/><br/>Se todas as tentativas para a validação excederem o tempo limite, a fatia será marcada como TimedOut. | Não | 00:10:00 (10 minutos) |
 | maximumRetry | Número de vezes para verificar a disponibilidade dos dados externos. O valor máximo permitido é 10. | Não | 3 | 
 
 #### Mais exemplos
@@ -208,4 +207,4 @@ Se precisar executar um pipeline mensalmente em uma data e hora específicas (di
 	  }
 	}
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->
