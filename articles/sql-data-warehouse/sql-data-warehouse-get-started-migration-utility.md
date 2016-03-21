@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 
@@ -27,9 +27,9 @@ O Utilitário de Migração do Data Warehouse pode ser baixado [aqui][]. Como um
 
 ###Iniciando a ferramenta e conectando-se
 A ferramenta pode ser iniciada de maneira fácil clicando no ícone da área de trabalho que aparecerá após a instalação. Ao abrir a ferramenta, você verá uma página de conexão inicial, na qual você poderá escolher a origem e o destino da ferramenta de migração. No momento, há suporte para o SQL Server e o Banco de Dados SQL do Azure como origens e para o SQL Data Warehouse como um destino. Depois de selecionar essa opção, você será solicitado a se conectar ao seu servidor de origem, preenchendo o nome do servidor, autenticando e clicando em “Conectar”.
- 
+
 Após a autenticação, a ferramenta mostrará uma lista de bancos de dados que estão presentes no servidor ao qual você se conectou. Você pode começar a migração selecionando um banco de dados que deseja migrar e depois clicando em “Migrar selecionado”.
- 
+
 ##Relatório de migração
 Selecionar a opção “Verificar a compatibilidade do banco de dados” na ferramenta gerará um relatório que resume todas as incompatibilidades nos objetos do banco de dados que você pretende migrar. Uma lista mais abrangente de algumas das funcionalidades do SQL Server que não estão presentes no SQL Data Warehouse pode ser encontrada em nosso [documentação de migração][]. Depois de gerar o relatório, você poderá salvar e abri-lo no Excel.
 
@@ -38,13 +38,13 @@ Vale lembrar que, ao gerar o esquema de migração, a maioria dos problemas iden
 ##Migrar o esquema
 
 Depois de se conectar, a seleção de “Migrar esquema” gerará um script de migração de esquema para as tabelas selecionadas. Esse script compatibiliza a estrutura da tabela, mapeia os tipos de dados incompatíveis para formulários mais compatíveis e cria o esquema e as credenciais de segurança, caso isso seja indicado pelo usuário nas configurações de migração. Este código pode ser executado na instância do SQL Data Warehouse de destino, salvo em um arquivo, copiado para a área de transferência ou até mesmo editado em linha antes de realizar outras ações.
- 
+
 Como mencionamos acima, ao fazer a migração, o esquema analisa as alterações de migração feitas pela ferramenta para garantir um entendimento completo sobre elas.
 
 ##Migrar dados
 
 Ao clicar na opção “Migrar dados”, é possível gerar scripts BCP que moverão os dados primeiro para arquivos simples no servidor e depois diretamente para o SQL Data Warehouse. Recomendamos realizar esse processo para mover pequenas quantidades de dados e, como não temos repetições internas, lembre-se de que podem ocorrer desde falhas até interrupções de rede. Para executá-lo, você precisará ter o utilitário de linha de comando BCP instalado e o esquema para os dados já deve ter sido criado.
- 
+
 Depois de preencher os parâmetros acima, basta clicar em “Executar migração” para que um conjunto de dois pacotes seja gerado no local especificado. Execute o arquivo de exportação para exportar os dados da origem de migração para arquivos simples, e execute o arquivo de importação para importar os dados para o SQL Data Warehouse.
 
 ## Próximas etapas
@@ -57,4 +57,4 @@ Agora que você já migrou alguns dados, confira como [desenvolvê-los][].
 [desenvolvê-los]: https://azure.microsoft.com/pt-BR/documentation/articles/sql-data-warehouse-overview-develop/
 [aqui]: https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

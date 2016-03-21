@@ -51,8 +51,8 @@ Diagrama 1: visão geral do processo readaptação
 
 	Após a conclusão da execução do experimento, clicamos em Criar Experimento Preditivo. Isso cria um Experimento Preditivo, salva o modelo como um Modelo Treinado e adiciona os módulos de Entrada e Saída do serviço Web, conforme mostrado abaixo. Em seguida, clicamos em Executar.
 
-	Após concluir a execução do experimento, clicar em "Publicar Serviço Web" publicará o Experimento Preditivo como um Serviço Web e criará um ponto de extremidade padrão. O modelo treinado neste serviço Web é atualizável, conforme mostrado abaixo. Os detalhes desse ponto de extremidade serão exibidos na tela.  
-3. *Publicar o Experimento de Treinamento como um Serviço Web* Para reagrupar o modelo treinado, é necessário publicar o Experimento de Treinamento que criamos na etapa 1 acima como um serviço Web. Este serviço Web precisará de um módulo de Saída do Serviço Web conectado ao [Modelo de Treino][train-model] para poder produzir novos modelos treinados. Clique no ícone de Experimentos no painel esquerdo, em seguida, clique no experimento chamado Modelo de Censo para voltar para o experimento de treinamento.  
+	Após concluir a execução do experimento, clicar em "Publicar Serviço Web" publicará o Experimento Preditivo como um Serviço Web e criará um ponto de extremidade padrão. O modelo treinado neste serviço Web é atualizável, conforme mostrado abaixo. Os detalhes desse ponto de extremidade serão exibidos na tela.
+3. *Publicar o Experimento de Treinamento como um Serviço Web*: para treinar novamente o modelo treinado, é necessário publicar o Experimento de Treinamento que criamos na etapa 1 acima como um Serviço Web. Este serviço Web precisará de um módulo de Saída do Serviço Web conectado ao [Modelo de Treino][train-model] para poder produzir novos modelos treinados. Clique no ícone de Experimentos no painel esquerdo, em seguida, clique no experimento chamado Modelo de Censo para voltar para o experimento de treinamento.  
 
 	Em seguida, adicionamos uma Entrada de Serviço Web e dois módulos de Saída do Serviço Web para o fluxo de trabalho. A saída do Serviço Web para o Modelo de Treinamento nos dará o novo modelo treinado. A saída anexada ao Modelo de Avaliação retornará a saída do Modelo de Avaliação do módulo.
 
@@ -61,7 +61,7 @@ Diagrama 1: visão geral do processo readaptação
 	![][4]
 
 	Em seguida, clicamos no botão Implantar Serviço Web e clicamos em Sim. Essa ação implantará o Teste de Treinamento como um Serviço Web que produz um modelo treinado e resultados de avaliação do modelo. O Painel do Serviço Web será exibido com a Chave de API e a página de ajuda da API para a Execução em Lotes. Observe que apenas o método de Execução em Lotes pode ser usado para criar Modelos Treinados.  
-4. *Adicionar um novo Ponto de Extremidade* O Serviço Web Preditivo que publicamos na Etapa 2 acima foi criado com um ponto de extremidade padrão. Os pontos de extremidade padrão são mantidos em sincronização com o experimento de origem e o treinamento original; e um modelo treinado do ponto de extremidade padrão não pode ser substituído. Para criar um ponto de extremidade atualizável, visite o Portal Clássico do Azure e clique em Adicionar Ponto de Extremidade (mais detalhes [aqui](machine-learning-create-endpoint.md)).
+4. *Adicionar um novo Ponto de Extremidade* O Serviço Web Preditivo que publicamos na Etapa 2 acima é o ponto de extremidade de pontuação padrão. Os pontos de extremidade padrão são mantidos em sincronização com o experimento de origem e o treinamento original; e um modelo treinado do ponto de extremidade padrão não pode ser substituído. Para criar um novo ponto de extremidade de pontuação com um modelo capaz de atualizar, visite o Portal Clássico do Azure e clique em Adicionar Ponto de Extremidade (mais detalhes [aqui](machine-learning-create-endpoint.md)). Você também pode adicionar pontos de extremidade de pontuação usando o código de exemplo fornecido [aqui](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs).
 
 5. *Readaptar o modelo com novos dados e BES* Para chamar as APIs de Recuperação, criamos um novo Aplicativo de Console C# no Visual Studio (Novo -> Projeto -> Windows Desktop -> Aplicativo de Console).
 
@@ -94,9 +94,9 @@ Diagrama 1: visão geral do processo readaptação
 
 	Isso nos informará se o modelo treinado recentemente executa bem o suficiente para substituir o existente.
 
-7. *Atualizar o Modelo Treinado do Ponto de Extremidade agregado* Para concluir o processo, precisamos atualizar o modelo treinado do ponto de extremidade preditivo que criamos na Etapa 4 acima.
+7. *Atualizar o Modelo Treinado do Ponto de Extremidade agregado* Para concluir o processo, precisamos atualizar o modelo treinado do ponto de extremidade preditivo (pontuação) que criamos na Etapa 4 acima.
 
-	(Se adicionou um novo ponto de extremidade usando o Portal do Azure, você pode clicar no nome do novo do ponto de extremidade, em seguida, no link UpdateResource para obter a URL que você precisa para atualizar o modelo do ponto de extremidade).
+	(Se tiver adicionado um novo ponto de extremidade usando o Portal do Azure, você pode clicar no nome do novo do ponto de extremidade, em seguida, no link UpdateResource para obter a URL que você precisa para atualizar o modelo do ponto de extremidade. Se você tiver adicionado o ponto de extremidade usando código, a saída dessa chamada terá a URL do ponto de extremidade).
 
 	A saída de BES acima mostra as informações para o resultado de recuperação para "output1", que contém as informações de local do modelo recuperado. Agora precisamos pegar esse modelo treinado e atualizar o ponto de extremidade da pontuação (criado na etapa 4 acima). Veja abaixo o exemplo de código:
 
@@ -141,6 +141,8 @@ Diagrama 1: visão geral do processo readaptação
 	```
 
 	"apiKey" e "endpointUrl" ficam visíveis no painel do ponto de extremidade para esta chamada. O parâmetro "Nome" em Recursos deve corresponder ao nome do Modelo Treinado Salvo no Teste Preditivo.
+	
+	Observe que o token SAS expira depois de uma hora (55 minutos). Você precisa fazer um GET com a Id de Trabalho para obter um novo token.
 
 	Com o sucesso desta chamada, o novo ponto de extremidade será iniciado usando um modelo recuperado aproximadamente dentro de 15 segundos.
 
@@ -158,4 +160,4 @@ Usando as APIs de Recuperação podemos atualizar o modelo treinado de um de Ser
 <!-- Module References -->
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

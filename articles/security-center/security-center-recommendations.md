@@ -10,10 +10,10 @@
 <tags
    ms.service="security-center"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/23/2016"
+   ms.date="03/02/2016"
    ms.author="terrylan"/>
 
 # Gerenciando recomendações de segurança na Central de Segurança do Azure
@@ -72,7 +72,7 @@ Use a tabela a seguir como referência para ajudá-lo a entender as recomendaç�
 |Resolver regras de linha de base incompatíveis|Recomenda que você alinhe as configurações do sistema operacional com as linhas de base recomendadas, por exemplo, não permitir o armazenamento de senhas.|
 |Aplicar atualizações do sistema|Recomenda que você implante a atualizações críticas e de segurança do sistema ausentes para VMs (somente VMs do Windows).|
 |Configurar ACLs para pontos de extremidade|Recomenda que você configure listas de controle de acesso para restringir o acesso de entrada nas máquinas virtuais (somente as clássicas).|
-|[Adicione um firewall do aplicativo Web](security-center-add-web-application-firewall.md)|Recomenda que você implante um WAF (firewall do aplicativo Web) para pontos de extremidade da Web. O processo de provisionamento automático baseia-se nos pacotes WAF (criados usando o modelo de implantação do Gerenciador de Recursos) implantados em uma Rede Virtual separada. O acesso aos aplicativos Web protegido em máquinas virtuais (clássicas) é restrito aos dispositivos WAF que estejam usando somente NSG. No futuro, esse suporte será estendido para uma implantação totalmente personalizada de pacotes WAF (clássica).|
+|[Adicione um firewall do aplicativo Web](security-center-add-web-application-firewall.md)|Recomenda que você implante um WAF (firewall do aplicativo Web) para pontos de extremidade da Web. Você pode proteger vários aplicativos Web na Central de segurança adicionando-os às suas implantações do WAF existentes. Dispositivos WAF (criados usando o modelo de implantação do Gerenciador de Recursos) precisam ser implantados em uma rede virtual separada. Dispositivos WAF (criados usando o modelo de implantação clássico) são restritos ao uso de um grupo de segurança de rede. No futuro, esse suporte será estendido para uma implantação totalmente personalizada de um dispositivo WAF (clássica).|
 |Finalizar a configuração de firewall do aplicativo Web|Para concluir a configuração de um WAF, o tráfego deve ser roteado para o dispositivo do WAF. Se essa recomendação for seguida, serão concluídas as alterações de configuração necessárias.|
 |[Habilitar Antimalware](security-center-enable-antimalware.md)|Recomenda que você provisione programas antimalware para máquinas virtuais (somente VMs do Windows).|
 |Habilitar Grupos de Segurança de Rede em interfaces de rede/sub-redes|Recomenda que você habilite NSGs (grupos de segurança de rede) em sub-redes e em interfaces de rede (somente VMs do Gerenciador de Recursos).|
@@ -109,7 +109,7 @@ O [Antimalware da Microsoft](../azure-security-antimalware.md) agora está ativo
 ## Próximas etapas
 Neste documento, você foi apresentado às recomendações de segurança da Central de Segurança. Para saber mais sobre a Central de Segurança, confira o seguinte:
 
-- [Configuração de políticas de segurança na Central de Segurança do Azure](security-center-policies.md) – saiba como definir as políticas de segurança.
+- [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md) – saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
 - [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) – saiba como monitorar a integridade dos recursos do Azure.
 - [Gerenciamento e resposta a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) – aprenda a gerenciar e a responder a alertas de segurança
 - [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) -- encontre perguntas frequentes sobre como usar o serviço.
@@ -122,4 +122,4 @@ Neste documento, você foi apresentado às recomendações de segurança da Cent
 [5]: ./media/security-center-recommendations/select-enable-antimalware.png
 [6]: ./media/security-center-recommendations/install-antimalware.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

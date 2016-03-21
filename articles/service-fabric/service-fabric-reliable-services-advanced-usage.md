@@ -53,6 +53,6 @@ Para tópicos mais avançados relacionados ao Service Fabric, consulte os artigo
 
 - [Usando relatórios de integridade do sistema para solução de problemas](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
-- [Visão geral de restrições de posicionamento](service-fabric-placement-constraint.md)
+- [Configurando serviços com o Gerenciador de Recursos de Cluster do Service Fabric](service-fabric-cluster-resource-manager-configure-services.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -24,7 +24,7 @@ Este artigo descreve como você pode usar a atividade de cópia da data factory 
 Para o serviço de fábrica de dados do Azure poder se conectar ao banco de dados Oracle no local, você deve instalar o seguinte:
 
 - Gateway de Gerenciamento de Dados na mesma máquina que hospeda o banco de dados ou em uma máquina separada para evitar competência por recursos com o banco de dados. O Gateway de Gerenciamento de Dados é um software que conecta fontes de dados locais a serviços de nuvem de maneira segura e gerenciada. Consulte o artigo [Mover dados entre local e nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter detalhes sobre o Gateway de Gerenciamento de Dados. 
-- [ODAC (componentes de acesso a dados da Oracle) para o Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html). Ele deve ser instalado na máquina host em que o gateway está instalado.
+- Provedor de dados Oracle para .NET. Está incluído nos [ODAC (Componentes de acesso a dados do Oracle) para Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html). Instale a versão adequada (32/64 bits) no computador host em que o gateway está instalado. 
 
 > [AZURE.NOTE] Confira [Solução de problemas de gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) para ver dicas sobre como solucionar problemas de conexão/gateway.
 
@@ -251,7 +251,7 @@ No caso da atividade de Cópia, quando a fonte é do tipo **OracleSource**, as s
 Propriedade | Descrição |Valores permitidos | Obrigatório
 -------- | ----------- | ------------- | --------
 oracleReaderQuery | Utiliza a consulta personalizada para ler os dados. | Cadeia de caracteres de consulta SQL. 
-Por exemplo: select * from MyTable <p>Se não for especificada, a instrução SQL que é executada será: select * from MyTable</p> | Não (se **tableName** de **dataset** for especificado)
+Por exemplo: select * from MyTable <br/>Se não for especificada, a instrução SQL que é executada será: select * from MyTable<br/> | Não (se **tableName** de **dataset** for especificado)
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -301,7 +301,7 @@ XML | Cadeia de caracteres
 
 **Solução/solução alternativa**
 
-1. Se você não instalou o Provedor do .NET para o Oracle, [instale-o](http://www.oracle.com/technetwork/topics/dotnet/utilsoft-086879.html) e repita o cenário. 
+1. Se você não instalou o Provedor do .NET para o Oracle, [instale-o](http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html) e repita o cenário. 
 2. Se você receber a mensagem de erro mesmo depois de instalar o provedor, faça o seguinte: 
 	1. Abra a configuração do computador do .NET 2.0 na pasta: <system disk>: \\Windows\\Microsoft.NET\\Framework64\\v2.0.50727\\CONFIG\\machine.config.
 	2. Procure **Provedor de Dados Oracle para o .NET**; você deve ser capaz de encontrar uma entrada como a mostrada abaixo em **system.data** -> **DbProviderFactories**: “<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />”
@@ -312,4 +312,4 @@ XML | Cadeia de caracteres
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

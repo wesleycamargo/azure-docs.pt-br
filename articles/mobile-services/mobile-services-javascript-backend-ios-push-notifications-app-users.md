@@ -21,6 +21,11 @@
 
 [AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
 
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Para a versão de aplicativos móveis equivalente deste tópico, consulte [Como enviar notificações por push para um usuário autenticado usando marcas](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#push-user).
+
 Neste tópico, você aprenderá como enviar notificações por push para um usuário autenticado no iOS. Antes de iniciar este tutorial, conclua primeiro [Introdução à autenticação] e [Introdução às notificações por push].
 
 Neste tutorial, tem que exigir que os usuários se autentiquem primeiro, registrem no hub de notificação para notificações por push e atualizar scripts de servidor para enviar essas notificações somente para os usuários autenticados.
@@ -71,4 +76,4 @@ function insert(item, user, request) {
 [Introdução às notificações por push]: mobile-services-javascript-backend-ios-get-started-push.md
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-ios-how-to-use-client-library.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

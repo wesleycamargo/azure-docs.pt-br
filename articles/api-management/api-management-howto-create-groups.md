@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Como criar e usar grupos para gerenciar contas de desenvolvedor no Gerenciamento de API do Azure
@@ -30,7 +30,7 @@ Além desses grupos de sistema, os administradores podem criar grupos personaliz
 
 Este guia mostra como administradores de uma instância do Gerenciamento de API podem adicionar novos grupos e associá-los a produtos e desenvolvedores.
 
->[AZURE.NOTE]Além de criar e gerenciar grupos no portal do editor, você pode criar e gerenciar seus grupos usando a entidade [Group](https://msdn.microsoft.com/library/azure/dn776329.aspx) da API REST do Gerenciamento de API.
+>[AZURE.NOTE] Além de criar e gerenciar grupos no portal do editor, você pode criar e gerenciar seus grupos usando a entidade [Group](https://msdn.microsoft.com/library/azure/dn776329.aspx) da API REST do Gerenciamento de API.
 
 ## <a name="create-group"> </a>Criar um grupo
 
@@ -64,7 +64,7 @@ Selecione a guia **Visibilidade** para adicionar e remover grupos e para ver os 
 
 ![Configurar visibilidade][api-management-add-group-to-product-visibility]
 
->[AZURE.NOTE]Para adicionar grupos do Active Directory do Azure, consulte [Como autorizar contas de desenvolvedor usando o Active Directory do Azure no Gerenciamento de API do Azure](api-management-howto-aad.md).
+>[AZURE.NOTE] Para adicionar grupos do Active Directory do Azure, consulte [Como autorizar contas de desenvolvedor usando o Active Directory do Azure no Gerenciamento de API do Azure](api-management-howto-aad.md).
 >
 >Para configurar grupos a partir da guia **Visibilidade** de um produto, clique em **Gerenciar grupos**.
 
@@ -111,4 +111,4 @@ Após fazer a associação entre o desenvolvedor e o grupo, você poderá vê-la
 [Criar uma instância de serviço de Gerenciamento de API]: api-management-get-started.md#create-service-instance
 [aproveitar grupos externos em locatários do Active Directory do Azure]: api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

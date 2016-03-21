@@ -18,9 +18,9 @@
 
 #Codificação avançada com fluxo de trabalho do Media Encoder Premium
 
->[AZURE.NOTE]Para solucionar dúvidas sobre o codificador premium, envie um email para o mepd em Microsoft.com.
+>[AZURE.NOTE]- Para solucionar dúvidas sobre o codificador premium, envie um email para o mepd em Microsoft.com.
 >
->O processador de mídia do Fluxo de trabalho do Media Encoder Premium discutido neste tópico não está disponível na China.
+>- O processador de mídia do Fluxo de trabalho do Media Encoder Premium discutido neste tópico não está disponível na China.
 
 ##Visão geral
 
@@ -35,8 +35,6 @@ Os tópicos a seguir descrevem os detalhes relacionados ao **Fluxo de trabalho d
 Este tópico demonstra como codificar com **Fluxo de trabalho do Media Encoder Premium** usando o .NET.
 
 As tarefas de codificação para o **Fluxo de trabalho do Media Encoder Premium** exigem um arquivo de configuração separado, chamado de arquivo de Fluxo de trabalho. Esses arquivos têm uma extensão .workflow e são criados usando a ferramenta [Designer de Fluxo de Trabalho](media-services-workflow-designer.md).
-
->[AZURE.NOTE]Para solucionar dúvidas sobre o codificador premium, envie um email para o mepd em Microsoft.com.
 
 ##Codificar
 
@@ -279,4 +277,4 @@ O exemplo a seguir é um exemplo completo. Para saber mais sobre como configurar
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

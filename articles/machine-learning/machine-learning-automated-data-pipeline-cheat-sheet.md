@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/02/2016"
 	ms.author="mithal;garye" />
 
 # Folha de consulta de um pipeline de dados automatizado das previsões do Aprendizado de Máquina do Azure
@@ -41,4 +41,4 @@ Baixe a folha de consulta aqui: **[Folha de consulta de pipeline de dados automa
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0309_2016-->

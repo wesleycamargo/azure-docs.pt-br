@@ -14,10 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/03/2016"
    ms.author="litran"/>
 
-# Crie uma nova API do Salesforce no Ambiente do Serviço de Aplicativo da sua instituição
+# Criar uma nova API do Salesforce no PowerApps Enterprise
+
+> [AZURE.SELECTOR]
+- [Aplicativos lógicos](../articles/connectors/create-api-salesforce.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-salesforce.md)
+
+Adicione a API do Salesforce ao ambiente de serviço de aplicativo (locatário) da sua organização.
 
 ## Crie a API no portal do Azure
 
@@ -25,7 +31,7 @@
  
 2. Selecione **Procurar** na barra de tarefas: ![][14]
 
-3. Na lista, você pode usar a barra de rolagem para localizar o PowerApps ou digitar *powerapps*: ![][15]
+3. Na lista, você pode rolar a tela para localizar PowerApps ou digite *powerapps*: ![][15]
 
 4. Em **PowerApps**, selecione **Gerenciar APIs**: ![Navegue até as APIs registradas][1]
 
@@ -39,7 +45,7 @@
 
 9. Digite a *Chave do Aplicativo* e o *Segredo do Aplicativo* do seu aplicativo do Salesforce. Se não tiver um, consulte a seção "Registrar um aplicativo do Salesforce para uso com o PowerApps" neste tópico para criar a chave e os valores secretos necessários.
 
-	> [AZURE.IMPORTANT]Salve a **URL de redirecionamento**. Talvez esse valor seja necessário neste tópico posteriormente.
+	> [AZURE.IMPORTANT] Salve a **URL de redirecionamento**. Talvez esse valor seja necessário neste tópico posteriormente.
 
 10. Selecione **OK** para concluir as etapas.
 
@@ -58,7 +64,10 @@ Se não tiver um aplicativo do Salesforce existente com a chave e valores do seg
 
 4. Em **Novo Aplicativo Conectado**:
 
-	a) Insira o valor para **Nome do Aplicativo Conectado**. b) Insira o valor para **Nome da API**. c) Insira o valor para **E-mail de contato**. d) Em _API (Ativar configurações de OAuth)_, selecione **Ativar Configurações do OAuth**, e defina a **URL de Callback** para a URL de redirecionamento que você recebeu quando adicionou a nova API do Salesforce no Portal do Azure (neste tópico).
+	1. Insira o valor de **Nome do Aplicativo Conectado**.  
+	2. Insira o valor de **Nome da API**.  
+	3. Insira o valor de **Email de Contato**.  
+	4. Em _API (habilitar configurações de OAuth)_, selecione **Ativar configurações de OAuth** e defina a **URL de Retorno de Chamada** para a URL de redirecionamento recebida ao adicionar a nova API do Salesforce no Portal do Azure (neste tópico).  
 
 5. Em _Escopos de OAuth selecionados_, adicione os seguintes escopos para os **Escopos de OAuth selecionados**:
 
@@ -71,10 +80,14 @@ Se não tiver um aplicativo do Salesforce existente com a chave e valores do seg
 
 É criado um novo aplicativo do Salesforce. Você pode usar esse aplicativo em sua configuração da API do Salesforce no portal do Azure.
 
+## Consulte as APIs REST
+
+Referência da [API REST do Salesforce](../connectors/create-api-salesforce.md).
+
 ## Resumo e próximas etapas
 Neste tópico, foi adicionada a API do Salesforce ao seu PowersApps Enterprise. Em seguida, disponibilize aos usuários acesso à API para que ela possa ser adicionada aos seus aplicativos:
 
-[Adicione uma conexão e disponibilize acesso aos usuários](powerapps-manage-api-connection-user-access.md)
+[Adicione uma conexão e forneça acesso aos usuários](powerapps-manage-api-connection-user-access.md)
 
 <!--References-->
 [1]: ./media/powerapps-create-api-salesforce/browse-to-registered-apis.PNG
@@ -88,4 +101,4 @@ Neste tópico, foi adicionada a API do Salesforce ao seu PowersApps Enterprise. 
 [14]: ./media/powerapps-create-api-salesforce/browseall.png
 [15]: ./media/powerapps-create-api-salesforce/allresources.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

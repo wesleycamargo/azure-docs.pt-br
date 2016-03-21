@@ -65,7 +65,7 @@ Se você pensar sobre o exemplo novamente, poderá facilmente ver que a partiç�
 Para evitar isso, você deve realizar duas ações do ponto de vista de particionamento:
 
 - Tente particionar o estado que ele seja distribuído igualmente entre todas as partições.
-- [Relatar métricas de cada uma das réplicas para o serviço](service-fabric-resource-balancer-dynamic-load-reporting.md). A Malha de Serviço oferece a capacidade de relatar métricas, tais como quantidade de memória ou o número de registros, em um serviço. Com base nas métricas relatadas, o Service Fabric detecta que algumas partições estão atendendo a cargas mais altas que outras e faz um novo balanceamento do cluster, movendo réplicas para nós mais adequados.
+- Relatar carga de cada uma das réplicas para o serviço. (Para obter informações sobre como fazer isso, leia este artigo sobre [métricas e carga](service-fabric-cluster-resource-manager-metrics.md)). A Service Fabric oferece a capacidade de relatar a carga consumida por serviços, como a quantidade de memória ou o número de registros. Com base nas métricas relatadas, o Service Fabric detecta que algumas partições estão atendendo a cargas mais altas que outras e faz um novo balanceamento do cluster, movendo réplicas para nós mais adequados de modo que, no geral, nenhum nó seja sobrecarregado.
 
 Às vezes, você não tem como saber quantos dados haverá em uma determinada partição. Uma recomendação geral é realizar ambas as ações – primeiro, adotar uma estratégia de particionamento que distribua os dados uniformemente entre as partições; segundo, relatar a carga. O primeiro método impede as situações descritas no exemplo de votação, enquanto o segundo ajuda a amenizar diferenças temporárias no acesso ou carga ao longo do tempo.
 
@@ -131,9 +131,9 @@ Antes de escrever qualquer código, você precisa pensar sobre as chaves de part
     ```xml
     <Parameter Name="Processing_PartitionCount" DefaultValue="26" />
     ```
-    
+
     Você deve também atualizar as propriedades LowKey e HighKey do elemento StatefulService, como mostrado abaixo.
-    
+
     ```xml
     <Service Name="Processing">
       <StatefulService ServiceTypeName="ProcessingType" TargetReplicaSetSize="[Processing_TargetReplicaSetSize]" MinReplicaSetSize="[Processing_MinReplicaSetSize]">
@@ -184,7 +184,7 @@ Antes de escrever qualquer código, você precisa pensar sobre as chaves de part
     ```
 
     Também vale a pena observar que a URL publicada é ligeiramente diferente do prefixo da URL de escuta. A URL de escuta é dada ao HttpListener. A URL publicada é a URL que será publicada para o Serviço de Nomenclatura da Malha de Serviço, que é usado para descoberta de serviço. Os clientes pedirão esse endereço por meio desse serviço de descoberta. O endereço que os clientes obtêm precisa ter o IP ou o FQDN do nó real para se conectar. Por isso, você precisa substituir '+' pelo IP ou FQDN do nó conforme mostrado acima.
-    
+
 9. A última etapa é adicionar a lógica de processamento ao serviço, conforme mostrado abaixo.
 
     ```CSharp
@@ -228,17 +228,17 @@ Antes de escrever qualquer código, você precisa pensar sobre as chaves de part
         }
     }
     ```
-        
+
     `ProcessInternalRequest` lê os valores do parâmetro de cadeia de caracteres da consulta usada para chamar a partição e chama `AddUserAsync` para adicionar o sobrenome ao dicionário confiável `dictionary`.
-    
+
 10. Vamos adicionar um serviço sem estado ao projeto para ver como você pode chamar uma partição específica.
 
     Esse serviço serve como uma interface web simples que aceita lastname como um parâmetro de cadeia de caracteres de consulta, determina a chave de partição e envia-o para o serviço Alphabet.Processing para processamento.
-    
+
 11. Na caixa de diálogo **Criar um Serviço**, escolha o serviço **Sem Estado** e dê a ele o nome “Alphabet.WebApi”, como mostrado abaixo.
-    
+
     ![Captura de tela de serviço sem estado](./media/service-fabric-concepts-partitioning/alphabetstatelessnew.png).
-    
+
 12. Atualize as informações de ponto de extremidade no ServiceManifest.xml do serviço Alphabet.WebApi para abrir uma porta, conforme mostrado abaixo.
 
     ```xml
@@ -261,7 +261,7 @@ Antes de escrever qualquer código, você precisa pensar sobre as chaves de part
         return new HttpCommunicationListener(uriPrefix, uriPublished, ProcessInputRequest);
     }
     ```
-     
+
 14. Agora você precisa implementar a lógica de processamento. O HttpCommunicationListener chama `ProcessInputRequest` quando chega uma solicitação. Vamos prosseguir e adicionar o código a abaixo.
 
     ```CSharp
@@ -294,7 +294,7 @@ Antes de escrever qualquer código, você precisa pensar sobre as chaves de part
                     primaryReplicaAddress);
         }
         catch (Exception ex) { output = ex.Message; }
-        
+
         using (var response = context.Response)
         {
             if (output != null)
@@ -351,11 +351,11 @@ Antes de escrever qualquer código, você precisa pensar sobre as chaves de part
     ```
 
 16. Depois de concluir a implantação, você pode verificar o serviço e todas as respectivas partições no Gerenciador do Service Fabric.
-    
+
     ![Captura de tela do Gerenciador do Service Fabric](./media/service-fabric-concepts-partitioning/alphabetservicerunning.png)
-    
+
 17. Insira `http://localhost:8090/?lastname=somename` em um navegador para testar a lógica de particionamento. Você verá que cada sobrenome iniciado com a mesma letra está sendo armazenado na mesma partição.
-    
+
     ![Captura de tela do navegador](./media/service-fabric-concepts-partitioning/alphabetinbrowser.png)
 
 O código-fonte completo do exemplo está disponível no [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions).
@@ -372,4 +372,4 @@ Para obter informações sobre os conceitos de malha do serviço, consulte:
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

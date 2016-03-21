@@ -3,7 +3,7 @@
    description="Explica como adicionar, modificar, monitorar e excluir volumes do StorSimple e como colocá-los offline, se necessário."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="carmonm"
    editor="" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/25/2016"
-   ms.author="v-sharos" />
+   ms.date="02/29/2016"
+   ms.author="alkohli" />
 
 # Usar o serviço StorSimple Manager para gerenciar volumes (Atualização 2)
 
@@ -40,7 +40,7 @@ Se necessário, você pode alterar o tipo de volume de local para camadas ou de 
 
 Volumes afixados localmente são volumes totalmente provisionados que não colocam os dados em camadas na nuvem, dando garantia local a dados primário, independentes da conectividade de nuvem. Dados em volumes afixados localmente não são deduplicados nem compactados; no entanto, instantâneos de volumes afixados localmente são deduplicados.
 
-Volumes afixados localmente são totalmente provisionados; portanto, você deve ter espaço suficiente no dispositivo ao criá-los. Você pode provisionar volumes afixados localmente até um tamanho máximo de 9 TB no dispositivo StorSimple 8100 e 24 TB no dispositivo 8600. O StorSimple reserva o espaço local restante no dispositivo para instantâneos, metadados e processamento de dados. Você pode aumentar o tamanho de um volume afixado localmente para o espaço máximo disponível, mas não é possível diminuir o tamanho de um volume depois de criado.
+Volumes afixados localmente são totalmente provisionados; portanto, você deve ter espaço suficiente no dispositivo ao criá-los. Você pode provisionar volumes afixados localmente até um tamanho máximo de 8 TB no dispositivo StorSimple 8100 e 20 TB no dispositivo 8600. O StorSimple reserva o espaço local restante no dispositivo para instantâneos, metadados e processamento de dados. Você pode aumentar o tamanho de um volume afixado localmente para o espaço máximo disponível, mas não é possível diminuir o tamanho de um volume depois de criado.
 
 Quando você cria um volume afixado localmente, o espaço disponível para criação de volumes em camadas é reduzido. O inverso também é verdadeiro: se você tiver volumes em camadas existentes, o espaço disponível para criar volume afixado localmente será menor do que os limites máximos mencionados acima.
 
@@ -59,11 +59,11 @@ Consulte a tabela a seguir para máxima capacidade provisionada para cada tipo d
 | | Tamanho máximo do volume em camadas | Tamanho máximo de volume afixado localmente |
 |-------------|----------------------------|------------------------------------|
 | **Dispositivos físicos** | | |
-| 8100 | 64 TB | 9 TB |
-| 8600 | 64 TB | 24 TB |
+| 8100 | 64 TB | 8 TB |
+| 8600 | 64 TB | 20 TB |
 | **Dispositivos virtuais** | | |
 | 8010 | 30 TB | N/D |
-| 8020 | 64 TB | N/D | 
+| 8020 | 64 TB | N/D |
 
 ## A página Volumes
 
@@ -198,14 +198,14 @@ Altere um volume afixado localmente para um volume em camadas se precisar de esp
 A conversão de um volume em camadas em um volume fixo local pode prejudicar o desempenho do dispositivo. Além disso, os seguintes fatores podem aumentar o tempo necessário para concluir a conversão:
 
 - Não há largura de banda suficiente.
-- O dispositivo está cheio e já está ocorrendo o derramamento para a nuvem.
+
 - Não há backup atual.
 
 Para minimizar os efeitos que esses fatores podem ter:
 
 - Examine suas políticas de limitação de largura de banda e certifique-se de que uma largura de banda dedicada de 40 Mbps está disponível.
 - Agende a conversão para fora do horário de pico.
-- Faça um backup antes de iniciar a conversão.
+- Tire um instantâneo de nuvem antes de iniciar a conversão.
 
 Se estiver convertendo vários volumes (que dão suporte a cargas de trabalho diferentes), será necessário priorizar a conversão de volume para que os volumes de prioridade mais alta sejam convertidos primeiro. Por exemplo, é necessário converter os volumes que hospedam VMs (máquinas virtuais) ou volumes com cargas de trabalho do SQL antes de converter volumes com cargas de trabalho de compartilhamento de arquivos.
 
@@ -299,4 +299,4 @@ Execute as seguintes etapas para habilitar ou desabilitar o monitoramento para u
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

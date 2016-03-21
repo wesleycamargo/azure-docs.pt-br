@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Notas de versão do Stream Analytics | Microsoft Azure" 
-	description="Notas de versão do Stream Analytics GA" 
+	description="Notas de versão do Stream Analytics" 
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,10 +13,18 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/16/2016" 
+	ms.date="03/03/2016" 
 	ms.author="jeffstok"/>
 
 #Notas de versão do Stream Analytics
+
+## Notas de versão de 03/03/2016 do Stream Analytics ##
+
+Esta versão contém a seguinte atualização.
+
+Title | Descrição
+---|---
+Novos itens de linguagem de consulta de Stream Analytics | Agora tem SAQL [GetType](https://msdn.microsoft.com/library/azure/mt643890.aspx "Página do MSDN GetType"), [TRY\_CAST](https://msdn.microsoft.com/library/azure/mt643735.aspx "Página do MSDN TRY_CAST") e [REGEXMATCH](https://msdn.microsoft.com/library/azure/mt643891.aspx "Página do MSDN REGEXMATCH").
 
 ## Notas de versão de 10/12/2015 do Stream Analytics ##
 
@@ -25,7 +33,7 @@ Esta versão contém a seguinte atualização.
 Title | Descrição
 ---|---
 Atualização de versão da API REST | A versão da API REST foi atualizada para 2015-10-01. Detalhes podem ser encontrados no MSDN em [Referência de API REST do gerenciamento de análise de fluxo](https://msdn.microsoft.com/library/azure/dn835031.aspx) e [Integração de aprendizado de máquina no Stream Analytics](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md).
-Integração de Aprendizado de Máquina do Azure | Com essa versão, é fornecido suporte para funções definidas pelo usuário do Aprendizado de Máquina do Azure. Um tutorial pode ser encontrado [aqui](stream-analytics-machine-learning-integration-tutorial.md), bem como o comunicado do blog geral [aqui](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx).
+Integração de Aprendizado de Máquina do Azure | Com essa versão, é fornecido suporte para funções definidas pelo usuário do Aprendizado de Máquina do Azure. Consulte o [tutorial](stream-analytics-machine-learning-integration-tutorial.md) para obter mais informações, bem como o [comunicado do blog geral](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx).
 
 ## Notas de versão de 12/11/2015 do Stream Analytics ##
 
@@ -133,4 +141,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

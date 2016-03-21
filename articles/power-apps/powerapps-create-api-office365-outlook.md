@@ -14,10 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/03/2016"
    ms.author="litran"/>
 
-# Crie uma nova API do Outlook do Office 365 no ambiente de serviço de aplicativo da sua organização
+# Criar uma nova API de Outlook do Office 365 no PowerApps Enterprise
+
+> [AZURE.SELECTOR]
+- [Aplicativos lógicos](../articles/connectors/create-api-office365-outlook.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-office365-outlook.md)
+
+Adicione a API do Office 365 Outlook ao ambiente de serviço de aplicativo (locatário) da sua organização.
 
 ## Crie a API no portal do Azure
 
@@ -39,7 +45,7 @@
 
 9. Insira o valor da *Chave do aplicativo* e do *Segredo do aplicativo* do seu aplicativo do Active Diretory do Azure (AAD) do Office 365. Se não tiver uma, consulte a seção "Registrar um aplicativo do AAD para uso com o PowerApps" neste tópico para criar a chave e os valores secretos necessários.
  
-	> [AZURE.IMPORTANT]Copie a **URL de Redirecionamento**. Talvez esse valor seja necessário neste tópico posteriormente.
+	> [AZURE.IMPORTANT] Copie a **URL de Redirecionamento**. Talvez esse valor seja necessário neste tópico posteriormente.
 
 10. Selecione **OK** para concluir as etapas.
 
@@ -54,7 +60,7 @@ Se não tiver um aplicativo do AAD existente com a chave e valores do segredo, e
 
 2. Selecione **Navegar** e, em seguida, selecione **Active Directory**.
 
-	>[AZURE.NOTE]Isso abre o Active Directory no portal clássico do Azure.
+	>[AZURE.NOTE] Isso abre o Active Directory no portal clássico do Azure.
 
 3. Selecione o nome do locatário da sua instituição: ![Inicie o Active Directory do Azure][6]
 
@@ -62,13 +68,17 @@ Se não tiver um aplicativo do AAD existente com a chave e valores do segredo, e
 
 5. Em **Adicionar aplicativo**:
 
-	a) Insira um **Nome** para seu aplicativo. b) Deixe o tipo de aplicativo como **Web**. c) Selecione **Avançar**.
+	1. Insira um **Nome** para seu aplicativo.  
+	3. Deixe o tipo de aplicativo como **Web**.  
+	3. Selecione **Avançar**.  
 
 	![Adicionar aplicativo do AAD - informações do aplicativo][8]
 
 6. Em **Propriedades do aplicativo**:
 
-	a) Digite a **URL DE LOGON** do seu aplicativo. Uma vez que você pretende autenticar com o AAD para PowerApps, defina a URL de logon para \__https://login.windows.net_. b) Insira uma **URI da ID do aplicativo** válida para o seu aplicativo. c) Selecione **OK**.
+	1. Insira a **URL DE ENTRADA** do seu aplicativo. Uma vez que você se autenticará com o AAD para PowerApps, defina a URL de entrada para \__https://login.windows.net_.
+2. Insira um **URI DA ID DO APLICATIVO** válido para seu aplicativo.  
+	3. Selecione **OK**.  
 
 	![Adicionar aplicativo do AAD - propriedades do aplicativo][9]
 
@@ -94,10 +104,17 @@ Se não tiver um aplicativo do AAD existente com a chave e valores do segredo, e
 
 Um novo aplicativo do Active Directory do Azure é criado. Você pode usar esse aplicativo em sua configuração da API do Outlook do Office 365 no portal do Azure.
 
+Algumas informações úteis sobre os aplicativos do AAD em [Como e por que os aplicativos são adicionados ao Azure AD](../active-directory/active-directory-how-applications-are-added.md).
+
+## Consulte as APIs REST
+
+Referência da [API REST do office 365 Outlook](../connectors/create-api-office365-outlook.md).
+
+
 ## Resumo e próximas etapas
 Neste tópico, você adicionou a API do Outlook do Office 365 ao PowersApps Enterprise. Em seguida, disponibilize aos usuários acesso à API para que ela possa ser adicionada aos seus aplicativos:
 
-[Adicione uma conexão e disponibilize acesso aos usuários](powerapps-manage-api-connection-user-access.md)
+[Adicione uma conexão e forneça acesso aos usuários](powerapps-manage-api-connection-user-access.md)
 
 <!--References-->
 [1]: ./media/powerapps-create-api-office365-outlook/browse-to-registered-apis.PNG
@@ -116,4 +133,4 @@ Neste tópico, você adicionou a API do Outlook do Office 365 ao PowersApps Ente
 [14]: ./media/powerapps-create-api-office365-outlook/browseall.png
 [15]: ./media/powerapps-create-api-office365-outlook/allresources.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

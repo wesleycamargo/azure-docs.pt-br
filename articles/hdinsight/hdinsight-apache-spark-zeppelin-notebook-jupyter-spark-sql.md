@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/22/2015"
+	ms.date="03/07/2016"
 	ms.author="nitinme"/>
 
 
@@ -26,6 +26,8 @@ Saiba como criar um cluster Apache Spark no HDInsight com a opção Criação R�
 
 
    ![Introdução ao uso do Apache Spark no HDInsight](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.getstartedflow.png "Tuturial de Introdução ao uso do Apache Spark no HDInsight. Etapas ilustradas: criar uma conta de armazenamento; criar um cluster; executar instruções do Spark SQL")
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 **Pré-requisitos:**
 
@@ -47,7 +49,7 @@ Nesta seção, você cria um cluster HDInsight versão 3.2, que é baseado no Sp
 
     ![Criando um novo cluster no Portal do Azure](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.createcluster.1.png "Criando um novo cluster no Portal do Azure")
 
-3. Insira um **Nome de Cluster**, escolha **Spark** para o **Tipo de Cluster** e, no menu suspenso **Sistema Operacional do Cluster**, escolha **Windows Server 2012 R2 Datacenter**. Uma marca de seleção verde será exibida ao lado do nome do cluster, se ele estiver disponível.
+3. Insira um **Nome de Cluster**, selecione **Spark** para o **Tipo de Cluster** e, no menu suspenso **Sistema Operacional do Cluster**, escolha **Windows Server 2012 R2 Datacenter**. Uma marca de seleção verde será exibida ao lado do nome do cluster, se ele estiver disponível.
 
 	![Digite o tipo e o nome do cluster](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.createcluster.2.png "Digite o tipo e o nome do cluster")
 
@@ -268,6 +270,10 @@ Nesta seção, você pode usar um bloco de anotações do Jupyter para executar 
 
 	![Reiniciar o kernel do Jupyter](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.jupyter.restart.kernel.png "Reiniciar o kernel do Jupyter")
 
+##Excluir o cluster
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 
 ## <a name="seealso"></a>Consulte também
 
@@ -290,4 +296,4 @@ Nesta seção, você pode usar um bloco de anotações do Jupyter para executar 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

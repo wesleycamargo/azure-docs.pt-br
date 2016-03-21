@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="03/01/2016"  
+ 	ms.date="03/02/2016"  
 	ms.author="juliako"/>
 
 
 #Perguntas frequentes  
 
-##Visão geral
+##Perguntas frequentes sobre o AMS geral 
 
 P: Como você dimensiona indexação?
 
@@ -39,11 +39,21 @@ R: Os Serviços de Mídia dão suporte à integração com o Azure CDN (para obt
 
 P: Os Serviços de Mídia do Azure dão suporte ao armazenamento de imagens?
 
-R: Se quiser apenas armazenar imagens JPEG ou PNG, você deverá mantê-las no Armazenamento de Blob do Azure. Não há benefício em colocá-las em sua conta dos Serviços de Mídia, a menos que deseje mantê-las associadas a seus ativos de vídeo ou áudio. Ou então, se talvez você precisar usar as imagens como sobreposições no codificador de vídeo. O codificador dos Serviços de Mídia dá suporte à sobreposição de imagens sobre vídeos, e é por isso que ele lista JPEG e PNG como formatos de entrada com suporte. Para obter mais informações, consulte [Criando sobreposições](https://msdn.microsoft.com/library/azure/dn640496.aspx).
+R: Se quiser apenas armazenar imagens JPEG ou PNG, você deverá mantê-las no Armazenamento de Blob do Azure. Não há benefício em colocá-las em sua conta dos Serviços de Mídia, a menos que deseje mantê-las associadas a seus ativos de vídeo ou áudio. Ou, se você puder precisar usar as imagens como sobreposições no codificador de vídeo, o Media Encoder Standard oferece suporte à sobreposição de imagens sobre vídeos, assim, ele lista JPEG e PNG como formatos de entrada com suporte. Para obter mais informações, consulte [Criando sobreposições](media-services-custom-mes-presets-with-dotnet.md#overlay).
 
 P: Como posso copiar ativos de uma conta de serviços de mídia para outra.
 
-R: Para copiar ativos de uma conta de serviços de mídia para outra, use o método de extensão [IAsset.Copy](https://github.com/Azure/azure-sdk-for-media-services-extensions/blob/dev/MediaServices.Client.Extensions/IAssetExtensions.cs#L354) disponível no repositório de [Extensões do SDK do .NET dos Serviços de Mídia do Azure](https://github.com/Azure/azure-sdk-for-media-services-extensions/). Para obter mais informações, consulte o thread [deste](https://social.msdn.microsoft.com/Forums/azure/28912d5d-6733-41c1-b27d-5d5dff2695ca/migrate-media-services-across-subscription?forum=MediaServices) fórum.
+R: Para copiar ativos de uma conta de Serviços de Mídia para outra usando. NET, use o método de extensão [IAsset.Copy](https://github.com/Azure/azure-sdk-for-media-services-extensions/blob/dev/MediaServices.Client.Extensions/IAssetExtensions.cs#L354) disponível no repositório de [Extensões do SDK do .NET dos Serviços de Mídia do Azure](https://github.com/Azure/azure-sdk-for-media-services-extensions/). Para obter mais informações, consulte o thread [deste](https://social.msdn.microsoft.com/Forums/azure/28912d5d-6733-41c1-b27d-5d5dff2695ca/migrate-media-services-across-subscription?forum=MediaServices) fórum.
+
+P: quais são os caracteres com suporte para a nomeação de arquivos ao trabalhar com o AMS?
+
+R: Os Serviços de Mídia usam o valor da propriedade IAssetFile.Name ao compilar URLs para o conteúdo de streaming (por exemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). Por esse motivo, não é permitida a codificação de percentual. O valor da propriedade **Name** não pode ter nenhum dos seguintes [caracteres reservados para codificação de percentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#". Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
+
+
+P: como se conectar usando o REST?
+
+R: Depois de se conectar com êxito a https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos Serviços de Mídia. Você deve fazer chamadas subsequentes para o novo URI, conforme descrito em [Conectando-se aos Serviços de Mídia usando a API REST](media-services-rest-connect_programmatically.md).
+
 
 P: Como é possível girar um vídeo durante o processo de codificação.
 
@@ -62,6 +72,9 @@ R: o [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-st
 	
 	...
 
+
+
+
 ##Roteiros de aprendizagem dos Serviços de Mídia
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -70,4 +83,4 @@ R: o [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-st
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

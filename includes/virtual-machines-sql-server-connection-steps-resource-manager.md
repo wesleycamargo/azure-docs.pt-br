@@ -30,4 +30,4 @@ Para criar um rótulo de DNS, primeiro selecione **Máquinas Virtuais** no porta
 
 	![conexão ssms](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0309_2016-->

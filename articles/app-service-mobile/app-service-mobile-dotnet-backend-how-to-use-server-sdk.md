@@ -365,27 +365,40 @@ Você pode adicionar notificações por push ao seu projeto do servidor estenden
 
 Neste ponto, você pode usar o cliente de Hubs de Notificação para enviar notificações por push para dispositivos registrados. Para obter mais informações, veja [Adicionar notificações por push ao seu aplicativo](app-service-mobile-ios-get-started-push.md). Para saber mais sobre tudo o que você pode fazer com os Hubs de Notificação, confira [Visão geral dos Hubs de Notificação](../notification-hubs/notification-hubs-overview.md).
 
-##<a name="tags"></a>Como adicionar marcas à instalação de um dispositivo para habilitar o envio por push para marcas
+##<a name="tags"></a>Como adicionar marcas à instalação de um dispositivo para habilitar o envio por push direcionado
 
-Após as etapas mencionadas acima em **Como definir um controlador de API personalizado**, convém configurar uma API personalizada em seu back-end para funcionar com os Hubs de Notificação para adicionar marcas a uma instalação de dispositivo específica. Não deixe de passar pela ID de instalação armazenada no armazenamento local do cliente e pelas marcas que você deseja adicionar (opcional, uma vez que também pode especificar marcas diretamente em seu back-end). O trecho a seguir deve ser adicionado ao seu controlador para trabalhar com Hubs de Notificação para adicionar uma marca a um dispositivo de ID de Instalação.
+Os Hubs de Notificação permitem que você envie notificações direcionadas para registros específicos usando marcas. Uma marca que é criada automaticamente é a ID de instalação, que é específica de uma instância do aplicativo em um determinado dispositivo. Um registro com uma ID de instalação também é chamado de *instalação*. Você pode usar a ID de instalação para gerenciar a instalação, por exemplo, para adicionar marcas. A ID de instalação pode ser acessada na propriedade **installationId** do **MobileServiceClient**.
 
-Use o [NuGet dos Hubs de Notificação do Azure](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) ([referência](https://msdn.microsoft.com/library/azure/mt414893.aspx)):
+O exemplo a seguir mostra como usar uma ID de instalação para adicionar uma marca a uma instalação específica nos Hubs de Notificação:
 
-		var hub = NotificationHubClient.CreateClientFromConnectionString("my-connection-string", "my-hub");
+	hub.PatchInstallation("my-installation-id", new[]
+	{
+	    new PartialUpdateOperation
+	    {
+	        Operation = UpdateOperationType.Add,
+	        Path = "/tags",
+	        Value = "{my-tag}"
+	    }
+	});
 
-		hub.PatchInstallation("my-installation-id", new[]
-		{
-		    new PartialUpdateOperation
-		    {
-		        Operation = UpdateOperationType.Add,
-		        Path = "/tags",
-		        Value = "{my-tag}"
-		    }
-		});
+Observe que qualquer marca fornecida pelo cliente durante o registro de notificação por push é ignorada pelo back-end ao criar a instalação. Para habilitar um cliente a adicionar marcas à instalação, você deverá criar uma nova API personalizada que adiciona marcas usando o padrão acima. Para obter um exemplo de um controlador de API personalizado que permite que os clientes adicionem marcas a uma instalação, confira [Marcas de notificação por push adicionadas por cliente](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#client-added-push-notification-tags) no exemplo de início rápido concluído para os Aplicativos Móveis do Serviço de Aplicativo para back-end do .NET.
 
-Para enviar essas marcas por push, trabalhe com as [APIs dos Hubs de Notificação](https://msdn.microsoft.com/library/azure/dn495101.aspx).
+##<a name="push-user"></a>Como enviar notificações por push para um usuário autenticado
 
-Você também pode criar sua API personalizada para registrar as instalações de dispositivo com Hubs de Notificação diretamente no seu back-end.
+Quando um usuário autenticado se registra para notificações por push, uma marca de ID de usuário é adicionada automaticamente ao registro. Usando essa marca, você pode enviar notificações por push para todos os dispositivos registrados por um usuário específico. O código abaixo obtém a SID do usuário que fez a solicitação e envia um modelo de notificação por push para cada registro de dispositivo do usuário:
+
+    // Get the current user SID and create a tag for the current user.
+    var claimsPrincipal = this.User as ClaimsPrincipal;
+    string sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
+    string userTag = "_UserId:" + sid;
+
+    // Build a dictionary for the template with the item message text.
+    var notification = new Dictionary<string, string> { { "message", item.Text } };
+
+    // Send a template notification to the user ID.
+    await hub.SendTemplateNotificationAsync(notification, userTag);
+    
+Ao se registrar para notificações por push de um cliente autenticado, verifique se a autenticação foi concluída antes de tentar o registro. Para saber mais, confira [Enviar por push para usuários](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users) na no exemplo de início rápido dos Aplicativos Móveis do Serviço de Aplicativo para back-end do .NET.
 
 ## Como depurar e solucionar problemas do SDK do .NET Server
 
@@ -444,4 +457,4 @@ Agora, seu servidor em execução local está equipado para validar tokens que o
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

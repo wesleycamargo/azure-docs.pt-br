@@ -195,9 +195,13 @@ A busca por eventos ENCERRAR funciona da mesma maneira que os eventos INICIAR. N
 
 Quando você estiver pronto para parar a topologia, volte para o projeto **CorrelationTopology** no Visual Studio. Na **Visualização da topologia Storm**, selecione a topologia e use o botão **Eliminar** na parte superior da visualização de topologia.
 
+##Excluir o cluster
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ##Próximas etapas
 
 Para obter mais exemplos de topologias Storm, consulte [Exemplo de topologias para Storm no HDInsight](hdinsight-storm-example-topology.md).
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

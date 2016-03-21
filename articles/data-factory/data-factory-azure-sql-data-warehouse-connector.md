@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Mover dados para e do SQL Data Warehouse do Azure | Azure Data Factory" 
+	pageTitle="Mover dados de e para o SQL Data Warehouse do Azure | Microsoft Azure" 
 	description="Saiba como mover dados para/do SQL Data Warehouse do Azure usando o Azure Data Factory" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -531,4 +531,4 @@ O mapeamento é o mesmo que o [Mapeamento de tipo de dados do SQL Server para o 
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

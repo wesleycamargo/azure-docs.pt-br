@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="ibiza"
    ms.topic="article"
    ms.workload="tbd"
-   ms.date="11/15/2015"
+   ms.date="03/02/2016"
    ms.author="sdash"/>
 
 # Application Insights para Serviços de Nuvem do Azure
@@ -171,13 +171,17 @@ Porém, se você já usa as estruturas Log4N ou NLog, você também poderá [cap
 
 O SDK do Application Insights pode relatar chamadas de seu aplicativo para as dependências externas, como APIs REST e servidores SQL. Isso permite que você veja se uma determinada dependência está causando falhas ou respostas lentas.
 
-Para rastrear dependências, você precisa configurar a função web/de trabalho com o [Application Insights Agent](app-insights-monitor-performance-live-website-now.md), também conhecido como "Monitor de status".
+Se seu aplicativo usar o .NET Framework 4.6 ou posterior, você não precisará fazer mais nada.
+
+Caso contrário, configure a função de trabalho/Web com o [Application Insights Agent](app-insights-monitor-performance-live-website-now.md), também conhecido como "Monitor de Status".
 
 Para usar o Application Insights Agent com suas funções web/de trabalho:
 
 * Adicione a pasta do [AppInsightsAgent](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent) e os dois arquivos dela em seus projetos de função web/de trabalho. Certifique-se de definir suas propriedades de compilação para que elas sempre sejam copiadas no diretório de saída. Esses arquivos instalam o agente.
 * Adicione as tarefas de inicialização ao arquivo CSDEF conforme mostrado [aqui](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/AzureEmailService/ServiceDefinition.csdef#L18).
 * OBSERVAÇÃO: as *funções de trabalho* requerem três variáveis de ambiente, conforme mostrado [aqui](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/AzureEmailService/ServiceDefinition.csdef#L44). Isso não é necessário para funções web.
+
+### Relatórios de dependência
 
 Aqui está um exemplo do que você vê no portal do Application Insights:
 
@@ -279,10 +283,9 @@ Você compilou para .NET 4.6? O 4.6 não tem suporte automático nas funções d
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
 [netlogs]: app-insights-asp-net-trace-logs.md
-[perf]: app-insights-web-monitor-performance.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="03/07/2016"
    ms.author="andkjell"/>
 
 # Sincronização do Azure AD Connect: impedir exclusões acidentais
@@ -27,7 +27,7 @@ Cenários comuns quando você vê isso incluem:
 - Todos os objetos em uma UO são excluídos.
 - Uma UO é renomeada e todos os objetos são considerados fora do escopo de sincronização.
 
-O valor padrão de 500 objetos pode ser alterado com o PowerShell, usando `Enable-ADSyncExportDeletionThreshold`. Você deve configurar esse valor para ajustar o tamanho da sua organização. Como o agendador de sincronização será executado a cada 3 horas, o valor será o número de exclusões visto em 3 horas.
+O valor padrão de 500 objetos pode ser alterado com o PowerShell, usando `Enable-ADSyncExportDeletionThreshold`. Você deve configurar esse valor para ajustar o tamanho da sua organização. Como o agendador de sincronização será executado a cada 30 minutos, o valor será o número de exclusões visto em 30 minutos.
 
 Com esse recurso habilitado, se houver muitas exclusões preparadas para exportação no Azure AD, a exportação não continuará e você receberá um email como este:
 
@@ -56,4 +56,4 @@ Saiba mais sobre a configuração de [sincronização do Azure AD Connect](activ
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

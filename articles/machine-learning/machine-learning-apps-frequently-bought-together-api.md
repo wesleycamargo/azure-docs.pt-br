@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="03/07/2016" 
 	ms.author="luisca"/>
 
 # Aplicativo de exemplo de Aprendizado de Máquina: Frequentemente comprados juntos
@@ -21,7 +21,7 @@
 
 ## IMPORTANTE: ESSE SERVIÇO FOI PRETERIDO
 
-A funcionalidade Frequentemente comprados juntos que esse serviço oferece agora foi integrada à nossa mais abrangente [API de Recomendações](http://gallery.azureml.net/MachineLearningAPI/3574432384684cac9cc766e57729ea4c). É recomendável usar Recomendações em vez desse serviço.
+**A funcionalidade Frequentemente Comprados Juntos fornecida por esse serviço agora foi integrada à nossa mais abrangente [API de Recomendações](http://gallery.azureml.net/MachineLearningAPI/3574432384684cac9cc766e57729ea4c). É recomendável usar as Recomendações em vez desse serviço.**
 
 ##Visão geral
 
@@ -39,4 +39,4 @@ Este serviço contém APIs para criar modelos de Frequentemente comprados juntos
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

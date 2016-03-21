@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="01/09/2016" 
+    ms.date="03/04/2016" 
     ms.author="robmcm" />
 
 # Como exibir o SAML retornado pelo Serviço de Controle de Acesso do Azure
@@ -24,7 +24,8 @@ Este guia mostrará como exibir o SAML adjacente retornado a seu aplicativo pelo
 
 Para obter mais informações sobre o ACS, consulte a seção [Próximas etapas](#next_steps).
 
-> [AZURE.NOTE]O Filtro de Controle dos Serviços de Acesso do Azure é uma visualização de tecnologia da comunidade. Como software de pré-lançamento, a Microsoft não dá suporte formal a ele.
+> [AZURE.NOTE]
+O Filtro de Controle dos Serviços de Acesso do Azure é uma visualização de tecnologia da comunidade. Como software de pré-lançamento, a Microsoft não dá suporte formal a ele.
 
 ## Pré-requisitos
 
@@ -195,4 +196,4 @@ Para explorar melhor a funcionalidade do ACS e experimentar mais cenários sofis
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

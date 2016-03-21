@@ -1,10 +1,10 @@
 <properties
    pageTitle="Configurar uma rede virtual e um Gateway para Rota Expressa | Microsoft Azure"
-   description="Este artigo o orienta na configuração de uma rede virtual (VNet) para a Rota Expressa"
+   description="Este artigo o orienta na configuração de uma rede virtual (VNet) para a Rota Expressa usando o modelo de implantação clássico."
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"/>
 
@@ -14,16 +14,22 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="01/16/2016"
+   ms.date="03/08/2016"
    ms.author="cherylmc"/>
 
-# Configurar uma rede virtual para Rota Expressa
+# Configurar uma rede virtual para Rota Expressa no portal clássico
 
-Essas etapas o orientarão ao longo da configuração de uma rede virtual e de um gateway para uso com Rota Expressa usando o modelo de implantação clássico e o Gerenciamento de Serviço. Atualmente, não temos uma documentação para configuração de uma Rede virtual para a Rota Expressa usando o modelo de implantação do Gerenciador de Recursos. Quando publicarmos um artigo, adicionaremos um link para ele.
+As etapas neste artigo o orientarão ao longo da configuração de uma rede virtual e de um gateway para uso com Rota Expressa usando o modelo de implantação clássico e o portal clássico.
 
->[AZURE.IMPORTANT]É importante saber que atualmente o Azure funciona com dois modelos de implantação: Gerenciador de Recursos e clássico. Antes de começar a configuração, entenda as ferramentas e os modelos de implantação. Para obter informações sobre os modelos de implantação, consulte [Modelos de implantação do Azure](../azure-classic-rm.md).
+Se estiver procurando instruções sobre o modelo de implantação do Gerenciador de Recursos, você poderá usar os seguintes artigos, que explicam como [Criar uma rede virtual usando o PowerShell](../virtual-network/virtual-networks-create-vnet-arm-ps.md) e [Adicionar um Gateway de VPN para uma VNet do Gerenciador de Recursos para a Rota Expressa](expressroute-howto-add-gateway-resource-manager.md).
 
-1. Faça logon no **Portal Clássico do Azure**.
+**Sobre modelos de implantação do Azure**
+
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
+## Para configurar uma rede virtual e um gateway
+
+1. Faça logon no [portal clássico do Azure](http://manage.windowsazure.com).
 
 2. No canto inferior esquerdo da tela, clique em **Nova**. No painel de navegação, clique em **Serviços de Rede** e, em seguida, clique em **Rede Virtual**. Clique em **Criação Personalizada** para iniciar o assistente de configuração.
 
@@ -70,4 +76,4 @@ Essas etapas o orientarão ao longo da configuração de uma rede virtual e de u
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0309_2016-->

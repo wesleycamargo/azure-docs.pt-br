@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="01/09/2016" 
+    ms.date="03/04/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn205108.aspx -->
@@ -74,7 +74,7 @@ Pode levar vários minutos para que a sua conta de armazenamento seja criada. De
 1. No diálogo **Contas de Armazenamento**, clique na conta de armazenamento que você deseja editar e clique em **Remover**.
 2. Clique em **OK** quando for solicitado a remover a conta de armazenamento.
 
->[AZURE.NOTE]A remoção da conta de armazenamento por meio do diálogo **Contas de Armazenamento** apenas a remove da lista de contas de armazenamento que podem ser exibidas no Eclipse. Ela não remove a conta de armazenamento de sua assinatura do Azure. Além disso, a conta de armazenamento pode reaparecer em sua lista, depois que o Eclipse carregar novamente os detalhes de sua assinatura.
+>[AZURE.NOTE] A remoção da conta de armazenamento por meio do diálogo **Contas de Armazenamento** apenas a remove da lista de contas de armazenamento que podem ser exibidas no Eclipse. Ela não remove a conta de armazenamento de sua assinatura do Azure. Além disso, a conta de armazenamento pode reaparecer em sua lista, depois que o Eclipse carregar novamente os detalhes de sua assinatura.
 
 ## Consulte também ##
 
@@ -100,4 +100,4 @@ Para obter mais informações sobre como usar o Azure com o Java, confira a [Cen
 [ic719496]: ./media/azure-toolkit-for-eclipse-azure-storage-account-list/ic719496.png
 [ic719497]: ./media/azure-toolkit-for-eclipse-azure-storage-account-list/ic719497.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

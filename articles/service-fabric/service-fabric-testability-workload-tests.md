@@ -23,14 +23,17 @@ Os cenários de possibilidade de teste no Service Fabric do Azure isentam os des
 ## Exemplo de cenário personalizado
 Esse teste mostra um cenário que intercala a carga de trabalho de negócios com [falhas normais e anormais](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). As falhas devem ser induzidas durante as operações ou cálculos do serviço para obter melhores resultados.
 
-Vamos examinar um exemplo de um serviço que expõe quatro cargas de trabalho: A, B, C e D. Cada uma corresponde a um conjunto de fluxos de trabalho que pode ser computação, armazenamento ou uma combinação. Para simplificar, vamos abstrair as cargas de trabalho de nosso exemplo. As diferentes falhas executadas neste exemplo são: + RestartNode: falha anormal para simular uma reinicialização do computador + RestartDeployedCodePackage: falha anormal para simular travamentos de processo do host de serviços + RemoveReplica: falha normal para simular remoção de réplica + MovePrimary: falha normal para simular movimentações de réplica disparadas pelo balanceador de carga do Service Fabric
+Vamos examinar um exemplo de um serviço que expõe quatro cargas de trabalho: A, B, C e D. Cada uma corresponde a um conjunto de fluxos de trabalho que pode ser computação, armazenamento ou uma combinação. Para simplificar, vamos abstrair as cargas de trabalho de nosso exemplo. As diferentes falhas executadas neste exemplo são:
+  + RestartNode: falha anormal para simular uma reinicialização do computador.
+  + RestartDeployedCodePackage: falha anormal para simular uma falha do processo de host de serviço.
+  + RemoveReplica: falha normal para simular remoção de réplica.
+  + MovePrimary: falha normal para simular movimentações de réplica disparadas pelo balanceador de carga do Service Fabric.
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.
 
 using System;
 using System.Fabric;
-using System.Fabric.Testability;
 using System.Fabric.Testability.Scenario;
 using System.Threading;
 using System.Threading.Tasks;
@@ -147,9 +150,9 @@ class Test
     {
         Array values = Enum.GetValues(typeof(T));
         T workload = (T)values.GetValue(random.Next(values.Length));
-        return T;
+        return workload;
     }
 }
 ```
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

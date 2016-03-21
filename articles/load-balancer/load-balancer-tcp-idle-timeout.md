@@ -4,7 +4,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="load-balancer"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/19/2015"
+   ms.date="03/03/2016"
    ms.author="joaoma" />
 
 # Como alterar as configurações de tempo limite de ociosidade do TCP para o balanceador de carga
@@ -44,7 +44,7 @@ Para dar suporte a esses cenários, adicionamos suporte para tempo limite de oci
 - Configure o tempo limite do TCP para suas funções Web/de trabalho por meio do modelo de serviço.
  
 
->[AZURE.NOTE]Lembre-se de que alguns comandos só existirão no pacote mais recente do PowerShell do Azure. Se o comando do PowerShell não existir, baixe um pacote mais recente do PowerShell.
+>[AZURE.NOTE] Lembre-se de que alguns comandos só existirão no pacote mais recente do PowerShell do Azure. Se o comando do PowerShell não existir, baixe um pacote mais recente do PowerShell.
 
  
 ### Configure o tempo limite do TCP para o IP Público em Nível de Instância para 15 minutos.
@@ -53,7 +53,7 @@ Para dar suporte a esses cenários, adicionamos suporte para tempo limite de oci
 
 IdleTimeoutInMinutes é opcional. Se não for definido, o tempo limite padrão é 4 minutos.
 
->[AZURE.NOTE]O intervalo de tempo limite aceitável é entre 4 e 30 minutos.
+>[AZURE.NOTE] O intervalo de tempo limite aceitável é entre 4 e 30 minutos.
  
 ### Defina o tempo limite ocioso durante a criação de um ponto de extremidade do Azure em uma máquina Virtual
 
@@ -160,10 +160,10 @@ Atualize a configuração dos pontos de extremidade de entrada com balanceamento
 
 [Visão geral do balanceador de carga interno](load-balancer-internal-overview.md)
 
-[Introdução à configuração de um balanceador de carga para a Internet](load-balancer-internet-getstarted.md)
+[Introdução à configuração de um balanceador de carga para a Internet](load-balancer-get-started-internet-arm-ps.md)
 
 [Configurar um modo de distribuição do balanceador de carga](load-balancer-distribution-mode.md)
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0309_2016-->

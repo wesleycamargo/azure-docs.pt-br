@@ -145,4 +145,4 @@ Agora realize o gesto de atualização das instâncias do aplicativo, arrastando
 [Introdução aos dados offline]: mobile-services-ios-get-started-offline-data.md
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0309_2016-->

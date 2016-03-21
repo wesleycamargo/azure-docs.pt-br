@@ -4,7 +4,7 @@
 	services="api-management"
 	documentationCenter=""
 	authors="antonba"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -68,4 +68,4 @@ Depois que o serviço de Gerenciamento de API é conectado à VPN, acessar servi
 [Tutorial: Criar uma rede virtual para conectividade site a site entre instalações]: ../virtual-networks-create-site-to-site-cross-premises-connectivity
 [Como usar o Inspetor de API para rastrear chamadas no Gerenciamento de API do Azure]: api-management-howto-api-inspector.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

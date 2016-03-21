@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="03/03/2016"
    ms.author="joaoma" />
 
 # O que é o Gerenciador de Tráfego?
@@ -30,7 +30,7 @@ O Gerenciador de Tráfego pode ajudá-lo a:
 
 Quando você configura um perfil do Gerenciador de Tráfego, as configurações que você especifica fornecem ao Gerenciador de Tráfego as informações necessárias para determinar qual ponto de extremidade deve atender à solicitação com base em uma consulta DNS. Nenhum tráfego real de ponto de extremidade é roteado por meio do Gerenciador de Tráfego.
 
-A *Figura 1* mostra como o Gerenciador de Tráfego direciona os usuários para um de um conjunto de pontos de extremidade. Os números na Figura 1 correspondem às descrições numeradas abaixo:
+A *Figura 1* mostra como o Gerenciador de Tráfego direciona os usuários para um de um conjunto de pontos de extremidade. Os números na Figura 1 correspondem às descrições numeradas abaixo:
 
 ![Como funciona o Gerenciador de Tráfego](./media/traffic-manager-overview/IC740854.jpg)
 
@@ -47,7 +47,7 @@ Como o domínio da empresa e o endereço IP resolvido são armazenados em cache 
 
 ## Como implementar o Gerenciador de Tráfego
 
-A *Figura 2* mostra as etapas, em ordem, que são necessárias para implementar o Gerenciador de Tráfego. Essas etapas poderão ser executadas em uma ordem ligeiramente diferente depois que você tiver uma compreensão sólida das práticas recomendadas e da configuração do Gerenciador de Tráfego. Os números na Figura 2 correspondem às descrições numeradas abaixo:
+A *Figura 2* mostra as etapas, em ordem, que são necessárias para implementar o Gerenciador de Tráfego. Essas etapas poderão ser executadas em uma ordem ligeiramente diferente depois que você tiver uma compreensão sólida das práticas recomendadas e da configuração do Gerenciador de Tráfego. Os números na Figura 2 correspondem às descrições numeradas abaixo:
 
 ![Como configurar o Gerenciador de Tráfego](./media/traffic-manager-overview/IC740855.jpg)
 
@@ -56,10 +56,10 @@ A *Figura 2* mostra as etapas, em ordem, que são necessárias para implementar 
 1. **Implante os serviços de nuvem do Azure, sites do Azure ou outros pontos de extremidade em seu ambiente de produção**. Quando você cria um perfil do Gerenciador de Tráfego, ele deve ser associado a uma assinatura. Em seguida, você adiciona pontos de extremidade para serviços de nuvem e sites de camada Padrão em produção, que fazem parte da mesma assinatura. Se um ponto de extremidade está em preparação e não está em um ambiente de produção do Azure ou não está na mesma assinatura, ele pode ser adicionado como um ponto de extremidade externo. Para obter mais informações sobre serviços de nuvem, consulte [Serviços de nuvem](http://go.microsoft.com/fwlink/p/?LinkId=314074). Para obter mais informações sobre sites, consulte [Sites](http://go.microsoft.com/fwlink/p/?LinkId=393327).
 2. **Escolha um nome para o domínio do Gerenciador de Tráfego.** Pense em um nome para seu domínio com um prefixo exclusivo. A última parte do domínio, trafficmanager.net, é fixa. Para obter mais informações, consulte [Práticas recomendadas](#best-practices).
 3. **Decida a configuração de monitoramento que você deseja usar.** O Gerenciador de Tráfego monitora pontos de extremidade para garantir que eles fiquem online, independentemente do método de roteamento de tráfego. Depois de definir as configurações de monitoramento, o Gerenciador de Tráfego não direcionará o tráfego para pontos de extremidade que estejam offline de acordo com o sistema de monitoramento, a menos que detecte que todos os pontos de extremidade estão offline ou que não possa detectar o status de nenhum dos pontos de extremidade contidos no perfil. Para obter mais informações sobre o monitoramento, consulte [Monitoramento do Gerenciador de Tráfego](traffic-manager-monitoring.md).
-4. **Decida o método de roteamento de tráfego que você deseja usar**. Três métodos de roteamento de tráfego diferentes estão disponíveis. Reserve tempo para entender qual método melhor atende às suas necessidades. Se você precisar alterar o método posteriormente, você poderá fazer isso em qualquer momento. Observe também que cada método requer etapas de configuração ligeiramente diferentes. Para obter informações sobre os métodos de roteamento de tráfego, consulte [Sobre os métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-load-balancing-methods.md).
+4. **Decida o método de roteamento de tráfego que você deseja usar**. Três métodos de roteamento de tráfego diferentes estão disponíveis. Reserve tempo para entender qual método melhor atende às suas necessidades. Se você precisar alterar o método posteriormente, você poderá fazer isso em qualquer momento. Observe também que cada método requer etapas de configuração ligeiramente diferentes. Para obter informações sobre os métodos de roteamento de tráfego, consulte [Sobre os métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-routing-methods.md).
 5. **Crie seu perfil e defina as configurações**. Você pode usar as APIs REST, o Windows PowerShell ou o Portal Clássico do Azure para criar seu perfil do Gerenciador de Tráfego e definir as configurações. Para obter mais informações, consulte [Como definir as configurações do Gerenciador de Tráfego](#how-to-configure-traffic-manager-settings). As etapas a seguir supõem que você usará a **Criação Rápida** no Portal Clássico do Azure. 
    - **Crie seu perfil do Gerenciador de Tráfego**: para criar um perfil usando a Criação Rápida no Portal Clássico do Azure, confira [Gerenciar Perfis do Gerenciador de Tráfego](traffic-manager-manage-profiles.md).
-   - **Configurar as definições do método de roteamento de tráfego** – Na Criação Rápida, você deve selecionar o método de roteamento de tráfego para o seu perfil. Essa configuração pode ser alterada a qualquer momento após a conclusão das etapas de Criação Rápida. Para etapas de configuração, consulte o tópico que corresponde ao seu método de roteamento de tráfego: [Configurar o método de roteamento de tráfego de Desempenho](traffic-manager-configure-performance-load-balancing.md), [Configurar o método de roteamento de tráfego de Failover](traffic-manager-configure-failover-load-balancing.md) e [Configurar o método de roteamento de tráfego de Round Robin](traffic-manager-configure-round-robin-load-balancing.md).
+   - **Configurar as definições do método de roteamento de tráfego** – Na Criação Rápida, você deve selecionar o método de roteamento de tráfego para o seu perfil. Essa configuração pode ser alterada a qualquer momento após a conclusão das etapas de Criação Rápida. Para etapas de configuração, consulte o tópico que corresponde ao seu método de roteamento de tráfego: [Configurar o método de roteamento de tráfego de Desempenho](traffic-manager-configure-performance-routing-method.md), [Configurar o método de roteamento de tráfego de Failover](traffic-manager-configure-failover-routing-method.md) e [Configurar o método de roteamento de tráfego de Round Robin](traffic-manager-configure-round-robin-routing-method.md).
    
    >[AZURE.NOTE] O método Round Robin de roteamento de tráfego agora dá suporte à distribuição ponderada de tráfego de rede. No entanto, neste momento você deve usar APIs REST ou o Windows PowerShell para configurar o peso. Para obter mais informações e um exemplo de configuração, consulte [Pontos de extremidade externos do Gerenciador de Tráfego do Azure e Round Robin ponderado por meio do PowerShell](https://azure.microsoft.com/blog/2014/06/26/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/) no blog do Azure.
 
@@ -102,7 +102,7 @@ Você pode criar e configurar seu perfil do Gerenciador de Tráfego usando APIs 
 - **Definição** – uma definição contém configurações de política e de monitor. Uma definição corresponde a um perfil. Você pode ter apenas uma definição por perfil. A definição em si não fica visível no Portal Clássico do Azure, embora muitas das configurações contidas na definição estejam visíveis e possam ser configuradas no Portal Clássico do Azure.
 - **Opções de DNS** – em cada definição, há opções de DNS. É onde a TTL do DNS é configurada.
 - **Monitores** – em cada definição, há configurações de monitor. É onde o protocolo, a porta e o caminho relativo e nome de arquivo são configurados. As configurações de monitor são visíveis e podem ser definidas no Portal Clássico do Azure. Para obter mais informações, consulte [Monitoramento do Gerenciador de Tráfego](traffic-manager-monitoring.md).
-- **Política** – em cada definição, há configurações de política. A política é onde os métodos de roteamento de tráfego e os pontos de extremidade são especificados. A política em si não fica visível no Portal Clássico do Azure, embora algumas das configurações de política estejam visíveis e possam ser definidas no Portal Clássico do Azure. Para obter mais informações, consulte [Sobre os métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-load-balancing-methods.md).
+- **Política** – em cada definição, há configurações de política. A política é onde os métodos de roteamento de tráfego e os pontos de extremidade são especificados. A política em si não fica visível no Portal Clássico do Azure, embora algumas das configurações de política estejam visíveis e possam ser definidas no Portal Clássico do Azure. Para obter mais informações, consulte [Sobre os métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-routing-methods.md).
 
 ## Definindo configurações usando o Windows PowerShell
 
@@ -172,4 +172,4 @@ Se você quiser obter as figuras deste tópico como slides do PowerPoint para su
 
 [Cmdlets do Gerenciador de Tráfego do Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

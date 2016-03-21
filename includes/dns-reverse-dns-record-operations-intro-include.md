@@ -1,11 +1,9 @@
-## What are reverse DNS records?
+## O que são registros DNS reversos?
 
-Reverse DNS records are used in a variety of situations. Server validation and authenticating server requests among them. For example, reverse DNS records are widely used in combating e-mail spam by verifying that the sender of an e-mail message by verifying its reverse DNS record, and also, if that host was recognized as authorized to send e-mail from the originating domain.<BR>
-Reverse DNS records, or PTR records, are DNS record types that enable the translation of a publically routable IP address back to a name. In DNS, names such as app1.contoso.com, are resolved to IP addresses in a process that is called forward resolution. With reverse DNS, this process is reversed to enable the resolution of the name given its IP address.<BR>
-For more information on Reverse DNS records, please see [here](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).<BR>
+Registros DNS reversos são usados em uma variedade de situações. Entre elas estão a validação do servidor e a autenticação de solicitações do servidor. Por exemplo, registros DNS reversos são amplamente usados no combate de email de spam pela verificação do remetente de uma mensagem de email, verificação do registro DNS reverso e também se o host foi reconhecido como autorizado para enviar emails do domínio de origem.<BR> Registros DNS reversos, ou registros PTR, são tipos de registro DNS que permitem a conversão de um endereço IP roteável publicamente de volta para um nome. No DNS, nomes como app1.contoso.com, são resolvidos em endereços IP, em um processo chamado resolução de encaminhamento. Com o DNS reverso, esse processo é revertido para permitir a resolução do nome dado ao seu endereço IP.<BR> Para obter mais informações sobre Registros DNS reversos, clique [aqui](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).<BR>
 
-## How does Azure support reverse DNS records for your Azure services?
+## Como o Azure dá suporte a registros DNS reversos para os serviços do Azure?
 
-Microsoft works with a number of registries to secure an adequate supply of publically routable IP blocks. Each of these blocks is then delegated to Microsoft-owned and operated authoritative DNS servers. Microsoft hosts the reverse DNS zones for all publically routable IP blocks assigned to it. <BR>
-Azure enables to specify a custom fully-qualified domain name (FQDN) for public routable IPs assigned to deployments. These custom FQDNs will then be returned from and reverse DNS lookup for that IP.<BR> 
-Azure provides reverse DNS support for all assigned publically routable IPs at no additional cost, and for services deployed using the classic and ARM deployment models.
+A Microsoft trabalha com diversos de registros para obter um suprimento adequado de blocos IP roteáveis publicamente. Em seguida, cada um desses blocos é delegado a servidores DNS autoritativos operados e pertencentes à Microsoft. A Microsoft hospeda zonas DNS reversas para todos os blocos IP roteáveis publicamente atribuídos a ela. <BR> O Azure permite especificar um FQDN (nome de domínio totalmente qualificado personalizado) para IPs roteáveis públicos atribuídos a implantações. Esses FQDNs personalizados serão retornados do IP e retornarão a pesquisa de DNS reversa para esse IP.<BR> O Azure dá suporte ao DNS reverso para todos IPs roteáveis publicamente atribuídos sem custo adicional e aos serviços implantados com os modelos de implantação clássica e do ARM.
+
+<!---HONumber=AcomDC_0309_2016-->

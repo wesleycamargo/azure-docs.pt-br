@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Proteger dados confidenciais no Banco de Dados SQL com a criptografia do banco de dados | Microsoft Azure"
 	description="Proteja dados confidenciais no banco de dados SQL em minutos."
-	keywords="banco de dados sql, criptografia sql, criptografia do banco de dados, chave de criptografia, dados confidenciais, Always Encrypted"	
+	keywords="criptografia de dados, chave de criptografia, criptografia de nuvem"	
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -15,19 +15,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="03/02/2016"
 	ms.author="sstein"/>
 
-# Proteger dados confidenciais no Banco de Dados SQL com a criptografia do banco de dados e armazenar suas chaves de criptografia no Cofre da Chave do Azure
+# Proteger dados confidenciais no Banco de Dados SQL com a criptografia de dados e armazenar as chaves de criptografia no Cofre de Chaves do Azure
 
 > [AZURE.SELECTOR]
 - [Cofre da Chave do Azure](sql-database-always-encrypted-azure-key-vault.md)
-- [Armazenamento de certificados do Windows](sql-database-always-encrypted.md)
+- [Repositório de certificados do Windows](sql-database-always-encrypted.md)
 
 
-Este artigo mostra como proteger os dados confidenciais no banco de dados SQL com a criptografia do banco de dados usando o [Assistente Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx) no [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx) e armazenar suas chaves de criptografia no Cofre da Chave do Azure.
+Este artigo mostra como proteger os dados confidenciais no banco de dados SQL com a criptografia dos dados usando o [Assistente Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx) no [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx) e armazenar cada chave de criptografia no Cofre da Chave do Azure.
 
-Always Encrypted é uma nova tecnologia de criptografia no Banco de Dados SQL do Azure e no SQL Server que protege dados confidenciais em repouso no servidor, durante a movimentação entre o cliente e o servidor, assim como enquanto os dados estão em uso, garantindo que os dados confidenciais nunca apareçam como texto sem formatação dentro do sistema de banco de dados. Somente aplicativos clientes ou servidores de aplicativo, que têm acesso às chaves, podem acessar dados de texto sem formatação. Para obter informações detalhadas, consulte [Always Encrypted (Mecanismo do Banco de Dados)](https://msdn.microsoft.com/library/mt163865.aspx).
+Always Encrypted é uma nova tecnologia de criptografia de dados no Banco de Dados SQL do Azure e no SQL Server que protege dados confidenciais em repouso no servidor, durante a movimentação entre o cliente e o servidor, assim como enquanto os dados estão em uso, garantindo que os dados confidenciais nunca apareçam como texto sem formatação dentro do sistema de banco de dados. Depois de configurar a criptografia de dados, somente aplicativos clientes ou servidores de aplicativo, que têm acesso às chaves, poderão acessar dados de texto sem formatação. Para obter informações detalhadas, consulte [Always Encrypted (Mecanismo do Banco de Dados)](https://msdn.microsoft.com/library/mt163865.aspx).
 
 
 Depois de configurar o banco de dados para usar o Always Encripted, criaremos um aplicativo cliente em C# com o Visual Studio para trabalhar com os dados criptografados.
@@ -264,6 +264,26 @@ O código a seguir mostra como habilitar o Always Encrypted configurando o [SqlC
     // Enable Always Encrypted.
     connStringBuilder.ColumnEncryptionSetting = 
        SqlConnectionColumnEncryptionSetting.Enabled;
+
+## Registrar o provedor do Chave do Cofre do Azure
+
+O código abaixo mostra como registrar o provedor do Cofre da Chave do Azure no driver do ADO.NET:
+
+    private static ClientCredential _clientCredential;
+
+    static void InitializeAzureKeyVaultProvider()
+    {
+       _clientCredential = new ClientCredential(clientId, clientSecret);
+
+       SqlColumnEncryptionAzureKeyVaultProvider azureKeyVaultProvider =
+          new SqlColumnEncryptionAzureKeyVaultProvider(GetToken);
+
+       Dictionary<string, SqlColumnEncryptionKeyStoreProvider> providers =
+          new Dictionary<string, SqlColumnEncryptionKeyStoreProvider>();
+
+       providers.Add(SqlColumnEncryptionAzureKeyVaultProvider.ProviderName, azureKeyVaultProvider);
+       SqlConnection.RegisterColumnEncryptionKeyStoreProviders(providers);
+    }
 
 
 
@@ -637,8 +657,8 @@ Pode-se ver que as colunas criptografadas não contêm nenhum dado de texto sem 
 
 Para usar o SSMS para acessar os dados de texto sem formatação, podemos adicionar o parâmetro **Column Encryption Setting=enabled** à conexão.
 
-1. No SSMS, clique com o botão direito no servidor em **Pesquisador de Objetos** e **Desconectar**.
-2. Clique em **Conectar** > **Mecanismo do Banco de Dados** para abrir a janela **Conectar ao Servidor** e clique em **Opções**.
+1. No SSMS, clique com o botão direito do mouse em seu servidor no **Pesquisador de Objetos** e em **Desconectar**.
+2. Clique em **Conectar** > **Mecanismo de Banco de Dados** para abrir a janela **Conectar ao Servidor** e clique em **Opções**.
 3. Clique em **Parâmetros Adicionais de Conexão** e digite **Column Encryption Setting=enabled**.
 
 	![novo aplicativo de console](./media/sql-database-always-encrypted-azure-key-vault/ssms-connection-parameter.png)
@@ -656,7 +676,7 @@ Para usar o SSMS para acessar os dados de texto sem formatação, podemos adicio
 ## Próximas etapas
 Depois de criar um banco de dados que usa o Always Encrypted, convém fazer o seguinte:
 
-- [Girar e limpar suas Chaves](https://msdn.microsoft.com/library/mt607048.aspx).
+- [Gire e limpe suas Chaves](https://msdn.microsoft.com/library/mt607048.aspx).
 - [Migrar dados que já foram criptografados com o Always Encrypted](https://msdn.microsoft.com/library/mt621539.aspx)
 
 
@@ -669,4 +689,4 @@ Depois de criar um banco de dados que usa o Always Encrypted, convém fazer o se
 - [Assistente do Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx)
 - [Blog do Always Encrypted](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

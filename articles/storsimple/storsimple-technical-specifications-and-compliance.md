@@ -12,14 +12,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/20/2016"
+   ms.date="03/07/2016"
    ms.author="alkohli" />
 
 # Especificações técnicas e conformidade para o dispositivo StorSimple
 
 ## Visão geral
 
-Os componentes de hardware do dispositivo Microsoft Azure StorSimple aderem às especificações técnicas e aos padrões regulatórios descritos neste artigo. As especificações técnicas descrevem os PCMs (Módulos de Alimentação e de Refrigeração), as unidades de disco e os compartimentos. As informações de conformidade abrangem itens como padrões internacionais, segurança e emissões e cabeamento.
+Os componentes de hardware do dispositivo Microsoft Azure StorSimple aderem às especificações técnicas e aos padrões regulatórios descritos neste artigo. As especificações técnicas descrevem os PCMs (Módulos de Alimentação e de Refrigeração), as unidades de disco, a capacidade de armazenamento e os compartimentos. As informações de conformidade abrangem itens como padrões internacionais, segurança e emissões e cabeamento.
+
 
 ## Especificações do Módulo de Alimentação e de Refrigeração  
 
@@ -59,6 +60,24 @@ A tabela a seguir lista os dados de consumo de energia típicos (os valores reai
 ## Especificações da unidade de disco  
 
 Seu dispositivo StorSimple oferece suporte a até 12 unidades de disco SAS (Serial Attached SCSI) fator forma de 3,5 polegadas. As unidades reais podem ser uma combinação de unidades de estado sólido (SSDs) ou de unidades de disco rígido (HDDs), dependendo da configuração do produto. Os 12 slots de unidade de disco estão localizados em uma configuração de 3 a 4 na frente do compartimento. O compartimento EBOD permite armazenamento adicional para outras 12 unidades de disco. Elas sempre serão HDDs.
+
+## Especificações do armazenamento
+Os dispositivos StorSimple tem uma mistura de unidades de disco rígido e de estado sólido para o 8100 e o 8600. A capacidade de uso total para o 8100 e o 8600 são aproximadamente de 15 TB e 40 TB, respectivamente. A tabela a seguir documenta os detalhes da SSD, da HDD e da capacidade de nuvem no contexto da capacidade da solução StorSimple.
+
+| Modelo/capacidade do dispositivo | 8100 | 8600 |
+|------------------------------------------------|---------------------------------------------------------|---------------------------------------------------------|
+| Número de HDDs (unidades de disco rígido) | 8 | 19 |
+| Número de SSDs (unidades de estado sólido) | 4 | 5 |
+| Capacidade de HDD único | 4 TB | 4 TB |
+| Capacidade de SSD único | 400 GB | 800 GB |
+| Capacidade reserva | 4 TB | 4 TB |
+| Capacidade utilizável do HDD | 14 TB | 36 TB |
+| Capacidade utilizável do SSD | 800 GB | 2 TB |
+| Capacidade total utilizável* | ~ 15 TB | ~ 40 TB |
+| Capacidade máxima da solução (incluindo a nuvem) | 200 TB | 500 TB |
+
+
+<sup>* </sup>- *A capacidade útil total inclui a capacidade disponível para buffers, dados e metadados.*
 
 ## Dimensões do compartimento e especificações de peso  
 
@@ -170,6 +189,6 @@ Para as interfaces de rede 10 GbE, DATA 2 e DATA 3, consulte a [lista de módulo
 
 ## Próximas etapas
 
-Agora, você está pronto para implantar um dispositivo StorSimple em seu datacenter. Para obter mais informações, consulte [Implantando o dispositivo local](storsimple-deployment-walkthrough-u2.md).
+Agora, você está pronto para implantar um dispositivo StorSimple em seu datacenter. Para saber mais, confira [Implantando o dispositivo local](storsimple-deployment-walkthrough-u2.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0309_2016-->

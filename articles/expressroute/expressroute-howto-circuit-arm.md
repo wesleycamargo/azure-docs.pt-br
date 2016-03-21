@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/04/2015"
+   ms.date="03/03/2016"
    ms.author="cherylmc"/>
 
 # Criar e modificar um circuito da Rota Expressa usando o Gerenciador de Recursos e o PowerShell
@@ -90,7 +90,7 @@ Agora você está pronto para criar um circuito da Rota Expressa.
 Se você ainda não tiver um grupo de recursos, deverá criar um antes de criar o circuito da Rota Expressa. Faça isso ao executar o seguinte comando:
 
 ```
-New-AzureRmResourceGroup -Name “ExpressRouteResourceGroup” -Location "West US"
+New-AzureRmResourceGroup -Name "ExpressRouteResourceGroup" -Location "West US"
 ```
 
 O exemplo a seguir mostra como criar um circuito da Rota Expressa de 200 Mbps por meio da Equinix, no Vale do Silício. Se você estiver usando um provedor diferente e configurações diferentes, substitua essas informações ao fazer a sua solicitação. A seguir, um exemplo de solicitação de uma nova chave de serviço:
@@ -300,7 +300,7 @@ You can enable the ExpressRoute premium add-on for your existing circuit by usin
 ```
 $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-$ckt.Sku.Name = "Premium" $ckt.sku.Name = "Premium\_MeteredData"
+$ckt.Sku.Tier = "Premium" $ckt.sku.Name = "Premium\_MeteredData"
 
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
@@ -363,4 +363,4 @@ Depois de criar seu circuito, faça o seguinte:
 - [Criar e modificar o roteamento do circuito da Rota Expressa](expressroute-howto-routing-arm.md)
 - [Vincular a rede virtual ao circuito da Rota Expressa](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

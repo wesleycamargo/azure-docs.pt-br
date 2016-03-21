@@ -20,7 +20,7 @@
 
 Os estilos de arquitetura orientada a serviços e microsserviços surgem naturalmente no Azure Service Fabric. Nesses tipos de arquiteturas distribuídas, os aplicativos de microsserviço divididos em componentes são compostos normalmente por vários serviços que precisam se comunicar. Mesmo nos casos mais simples, há geralmente pelo menos um serviço Web sem estado e um serviço de armazenamento de dados com estado que precisam se comunicar.
 
-A comunicação entre os serviços é um ponto de integração essencial de um aplicativo, já que cada serviço expõe uma API remota para outros serviços. Trabalhar com um conjunto de limites de API que envolvem E/S geralmente exige algum cuidado com uma boa quantidade de teste e validação.
+A comunicação entre os serviços é um ponto de integração essencial de um aplicativo, já que cada serviço expõe uma API remota para outros serviços. Trabalhar com um conjunto de limites de API que envolve E/S geralmente exige algum cuidado e uma boa quantidade de teste e validação.
 
 Há várias considerações a serem feitas quando esses limites de serviço são conectados em um sistema distribuído:
 
@@ -85,11 +85,11 @@ Ao usar as ferramentas de possibilidade de teste no Service Fabric, pode-se inje
 
 ```powershell
 
-PS > Invoke-ServiceFabricPartitionQuorumLoss -ServiceName fabric:/Myapplication/MyService -QuorumLossMode PartialQuorumLoss -QuorumLossDurationInSeconds 20
+PS > Invoke-ServiceFabricPartitionQuorumLoss -ServiceName fabric:/Myapplication/MyService -QuorumLossMode QuorumReplicas -QuorumLossDurationInSeconds 20
 
 ```
 
-Neste exemplo, definimos `QuorumLossMode` como `PartialQuorumLoss` para indicar que desejamos induzir perda de quorum sem interromper todas as réplicas. Dessa forma, as operações de leitura ainda são possíveis. Para testar um cenário no qual uma partição inteira não está disponível, você pode definir essa opção como `FullQuorumLoss`.
+Neste exemplo, definimos `QuorumLossMode` para `QuorumReplicas` para indicar que desejamos induzir perda de quorum sem interromper todas as réplicas. Dessa forma, as operações de leitura ainda são possíveis. Para testar um cenário no qual uma partição inteira não está disponível, você pode definir essa opção como `AllReplicas`.
 
 ## Próximas etapas
 
@@ -97,4 +97,4 @@ Neste exemplo, definimos `QuorumLossMode` como `PartialQuorumLoss` para indicar 
 
 [Saiba mais sobre os cenários de possibilidade de teste](service-fabric-testability-scenarios.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Executar loops no SQL Data Warehouse
@@ -25,10 +25,10 @@ No entanto, antes de mergulhar na memória, primeiro você deve fazer a seguinte
 Os cursores somente leitura de avanço rápido podem ser facilmente substituídos por um constructo de looping. Veja abaixo um exemplo simples. Este exemplo de código atualiza as estatísticas para cada tabela no banco de dados. Iterando sobre as tabelas no loop somos capazes de executar cada comando em sequência.
 
 Primeiro, crie uma tabela temporária que contém um número de linha exclusivo usado para identificar as instruções individuais:
-  
+
 ```
-CREATE TABLE #tbl 
-WITH 
+CREATE TABLE #tbl
+WITH
 ( DISTRIBUTION = ROUND_ROBIN
 )
 AS
@@ -81,4 +81,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

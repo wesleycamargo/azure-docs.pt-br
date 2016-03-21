@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/22/2016" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
  
 # Criar recursos do Application Insights usando o PowerShell
@@ -317,7 +317,8 @@ Outros artigos sobre automação:
 
 * [Criar um recurso do Application Insights](app-insights-powershell-script-create-resource.md) -método rápido sem usar um modelo.
 * [Configurar alertas](app-insights-powershell-alerts.md)
+* [Criar testes na Web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
 * [Enviar o Diagnóstico do Azure para o Application Insights](app-insights-powershell-azure-diagnostics.md)
 * [Criar anotações de versão](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -12,15 +12,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/22/2016"
+   ms.date="02/29/2016"
    ms.author="alkohli" />
 
 # Implantar o dispositivo StorSimple local (Atualização 2)
 
 > [AZURE.SELECTOR]
-- [Update 2](../articles/storsimple/storsimple-deployment-walkthrough-u2.md)
-- [Update 1](../articles/storsimple/storsimple-deployment-walkthrough-u1.md)
-- [GA Release](../articles/storsimple/storsimple-deployment-walkthrough.md)
+- [Atualização 2](../articles/storsimple/storsimple-deployment-walkthrough-u2.md)
+- [Atualização 1](../articles/storsimple/storsimple-deployment-walkthrough-u1.md)
+- [Versão de GA](../articles/storsimple/storsimple-deployment-walkthrough.md)
 
 ## Visão geral
 
@@ -206,7 +206,8 @@ Para se conectar ao Windows PowerShell para StorSimple, você precisa usar um so
 
 ## Verificar e aplicar atualizações
 
-Atualizar seu dispositivo pode demorar várias horas. Execute as etapas a seguir para verificar e aplicar atualizações em seu dispositivo. <!--can take 1-4 hours-->
+Atualizar seu dispositivo pode demorar várias horas. Execute as etapas a seguir para verificar e aplicar atualizações em seu dispositivo.
+<!--can take 1-4 hours--> 
 
 <!--If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
@@ -244,4 +245,4 @@ Execute as seguintes etapas no Portal de Gerenciamento para criar um backup manu
 - Use o [Serviço StorSimple Manager](storsimple-manager-service-administration.md) para gerenciar o seu dispositivo StorSimple.
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

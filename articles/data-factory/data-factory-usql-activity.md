@@ -63,7 +63,7 @@ O código de autorização gerado usando o botão **Autorizar** expira após alg
 | Tipo de usuário | Expira após |
 | :-------- | :----------- | 
 | Contas de usuários NÃO gerenciadas pelo Azure Active Directory (@hotmail.com, @live.com, etc.) | 12 horas |
-| Contas de usuários gerenciadas pelo AAD (Azure Active Directory) | | 14 dias após a última execução da fatia. <p>90 dias, se uma fatia com base em serviços vinculados do OAuth for executada pelo menos uma vez a cada 14 dias.</p> |
+| Contas de usuários gerenciadas pelo AAD (Azure Active Directory) | 14 dias após a última execução da fatia. <br/>90 dias, se uma fatia com base em serviços vinculados do OAuth for executada pelo menos uma vez a cada 14 dias.<br/> |
 
 Para evitar/resolver este erro, você precisará autorizar novamente usando o botão **Autorizar** quando o **token expirar** e reimplantar o serviço vinculado. Você também pode gerar valores para as propriedades **sessionId** e **authorization** programaticamente usando o código na seção a seguir.
 
@@ -257,4 +257,4 @@ Os valores dos parâmetros **@in** e **@out** no script U-SQL acima são transmi
 
 Você pode especificar outras propriedades viz. degreeOfParallelism, prioridade, etc., bem como em sua definição de pipeline para os trabalhos executados no serviço de Análise Azure Data Lake.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

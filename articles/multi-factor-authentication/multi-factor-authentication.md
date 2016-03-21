@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="02/29/2016"
+	ms.date="03/03/2016"
 	ms.author="billmath"/>
 
 # O que é o Azure Multi-Factor Authentication?
@@ -108,7 +108,7 @@ Aplicativos móveis como um fator secundário|* | * | *
 Chamada telefônica como um fator secundário|* | * | *
 SMS como um fator secundário|* | * | *
 Senhas de aplicativos para clientes que não oferecem suporte a MFA|* | * | *
-Controle do administrador sobre métodos de autenticação| | | *
+Controle do administrador sobre métodos de autenticação| (Visualização pública)|(Visualização pública) | *
 Modo PIN| | | *
 Alerta de fraude| | | *
 Relatórios de MFA| | | *
@@ -120,7 +120,7 @@ IPs Confiáveis| | | *
 Lembrar MFA para dispositivos confiáveis |* | * | *
 SDK de MFA| | | *
 MFA para aplicativos locais usando o servidor MFA| | | *
-Opções de verificação selecionável (Preview Pública)|* | * | *
+
 
 
 ## Como obter o Azure Multi-Factor Authentication
@@ -137,11 +137,11 @@ Ao usar um Provedor do Azure Multi-Factor Authentication, há dois modelos de us
 - **Por usuário**. Geralmente para empresas que desejam habilitar a autenticação multifator para um número fixo de funcionários que precisam regularmente de autenticação.
 - **Por autenticação**. Em geral, para empresas que querem habilitar a autenticação multifator para um grupo grande de usuários externos que raramente precisam de autenticação.
 
-O Azure Multi-Factor Authentication fornece métodos de verificação selecionável para a nuvem e o servidor. Isso significa que é possível escolher quais métodos estarão disponíveis para os usuários usar com a autenticação multifator. Atualmente, esse recurso está em preview pública para a versão de nuvem da autenticação multifator. Para obter mais informações, veja [métodos de verificação selecionável](multi-factor-authentication-whats-next.md#selectable-verification-methods-public-preview).
+O Azure Multi-Factor Authentication fornece métodos de verificação selecionável para a nuvem e o servidor. Isso significa que é possível escolher quais métodos estarão disponíveis para os usuários usar com a autenticação multifator. Atualmente, esse recurso está em preview pública para a versão de nuvem da autenticação multifator. Para obter mais informações, veja [métodos de verificação selecionáveis](multi-factor-authentication-whats-next.md#selectable-verification-methods-public-preview).
 
 Para obter detalhes sobre preços, consulte [Preços do Azure MFA.](https://azure.microsoft.com/pricing/details/multi-factor-authentication/)
 
-Escolha o modelo baseado em consumo que funciona melhor para sua organização. Depois, para iniciar, veja [Introdução.](multi-factor-authentication-get-started.md)
+Escolha o modelo baseado em consumo que funciona melhor para sua organização. Depois, para iniciar, consulte [Introdução](multi-factor-authentication-get-started.md).
 
 ## Escolha a solução de segurança multifator para você
 
@@ -193,20 +193,20 @@ SMS unidirecional como segundo fator | ● | ●
 SMS bidirecional como segundo fator | | ●
 Tokens de hardware como segundo fator | | ●
 Senhas de aplicativos para clientes que não oferecem suporte a MFA | ● |  
-Controle do administrador sobre métodos de autenticação | | ●
+Controle do administrador sobre métodos de autenticação | (Visualização pública) | ●
 Modo PIN | | ●
 Alerta de fraude | ● | ●
 Relatórios de MFA | ● | ●
-Desvio único | ● | ●
+Desvio único | | ●
 Saudações personalizadas para chamadas telefônicas | ● | ●
 ID do chamador personalizável para chamadas telefônicas | ● | ●
 IPs confiáveis | ● | ●
-Lembrar MFA para dispositivos confiáveis (Preview Pública) | ● |  
+Lembrar MFA para dispositivos confiáveis| ● |  
 Acesso condicional | ● | ●
-Cache | ● | ●
+Cache | | ●
 
 Agora que determinamos se usar a autenticação multifator na nuvem ou o Servidor MFA local, podemos pode começar a configurar e usar o Azure Multi-Factor Authentication. **Selecione o ícone que representa seu cenário.**
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

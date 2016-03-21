@@ -91,6 +91,8 @@ Se o aplicativo puder tolerar a indisponibilidade de uma entidade do Barramento 
 
 Uma fila durável do lado do cliente preserva a ordem das mensagens e protege o aplicativo cliente de exceções caso a entidade do Barramento de Serviço não esteja disponível. Ela pode ser usada com transações simples e distribuídas.
 
+> [AZURE.NOTE] Este exemplo funciona bem em cenários de IaaS em que o disco local ou o disco para o MSMQ é mapeado para uma conta de armazenamento e as mensagens são armazenadas de forma confiável com o MSMQ. Isso não é adequado para cenários de PaaS, como serviços de nuvem e aplicativos da Web.
+
 ## Próximas etapas
 
 Para saber mais sobre a recuperação de desastres, confira estes artigos:
@@ -109,4 +111,4 @@ Para saber mais sobre a recuperação de desastres, confira estes artigos:
   [Continuidade dos negócios no Banco de dados SQL do Azure]: ../sql-database/sql-database-business-continuity.md
   [Orientação técnica sobre a continuação de negócios do Azure]: https://msdn.microsoft.com/library/azure/hh873027.aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

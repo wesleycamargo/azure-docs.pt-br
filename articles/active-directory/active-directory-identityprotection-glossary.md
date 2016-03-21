@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Glossário do Identity Protection | Microsoft Azure"
-	description="Glossário do Identity Protection."
+	pageTitle="Glossário do Azure Active Directory Identity Protection | Microsoft Azure"
+	description="Glossário do Azure Active Directory Identity Protection"
 	services="active-directory"
-	keywords="azure active directory identity protection, cloud app discovery, gerenciamento de aplicativos"
+	keywords="azure active directory identity protection, cloud app discovery, gerenciamento de aplicativos, segurança, risco, nível de risco, vulnerabilidade, política de segurança, glossário"
 	documentationCenter=""
 	authors="markusvi"
 	manager="stevenpo"
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/01/2016"
+	ms.date="03/04/2016"
 	ms.author="markvi"/>
 
-# Glossário do Identity Protection 
+# Glossário do Azure Active Directory Identity Protection 
 
 
 ### Em risco (Usuário)	
@@ -164,4 +164,4 @@ Uma configuração ou condição no Azure Active Directory que torna o diretóri
 
 - [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

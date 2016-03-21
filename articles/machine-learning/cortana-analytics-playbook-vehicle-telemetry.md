@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="03/04/2016" 
 	ms.author="bradsev" />
 
 
@@ -49,4 +49,4 @@ Essa solução acessa duas **fontes de dados** diferentes:
 - **Sinais de veículo e diagnóstico simulados**: um simulador de telemática do veículo emite informações de diagnóstico e sinais que correspondem ao estado do veículo e ao padrão de condução em um determinado momento. 
 - **Catálogo do veículo**: um conjunto de dados de referência que contém um VIN para o mapeamento do modelo.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -44,19 +44,20 @@ Este tutorial o orienta durante a limpeza de ativos de todos os nós de borda de
 
 	> [AZURE.NOTE] Você também pode acessar a folha Limpeza clicando no botão **Limpar** na folha de ponto de extremidade da CDN. Nesse caso, o campo **URL** será pré-populado com o endereço do serviço do ponto de extremidade específico.
 
-4. Selecione os ativos que você deseja limpar dos nós de borda. Para limpar todos os ativos, clique na caixa de seleção **Limpar todos**. Caso contrário, digite o caminho completo de cada ativo que você deseja limpar (por exemplo, */imagens/gatinho.png*) na caixa de texto **Caminho**.
+4. Selecione os ativos que você deseja limpar dos nós de borda. Para limpar todos os ativos, clique na caixa de seleção **Limpar todos**. Caso contrário, digite o caminho completo de cada ativo que você deseja limpar (por exemplo, `/pictures/kitten.png`) na caixa de texto **Caminho**.
 
 	> [AZURE.TIP] Outras caixas de texto **Caminho** serão mostradas depois que você digitar um texto, para permitir que crie uma lista com vários ativos. Para excluir ativos da lista, clique no botão de reticências (...).
 	>
-	> Os caminhos devem ser uma URL relativa. O asterisco (*) pode ser usado como curinga.
+	> Os caminhos devem ser uma URL relativa que atenda à seguinte [expressão regular](https://msdn.microsoft.com/library/az24scfc.aspx): `^\/(?:[a-zA-Z0-9-_.\u0020]+\/)**$";`. O asterisco (*) pode ser usado como curinga (por exemplo, `/music/*`).
 
 5. Clique no botão **Limpar**.
 
 	![Botão Limpar](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
+> [AZURE.NOTE] Solicitações de limpeza levam cerca de dois a três minutos para serem processadas. Há uma limitação de 10 solicitações de limpeza por minuto para cada perfil CDN.
 
 ## Consulte também
 - [Pré-carregar ativos em um ponto de extremidade da CDN do Azure](cdn-preload-endpoint.md)
 - [Referência da API REST da CDN do Azure – limpar ou pré-carregar um ponto de extremidade](https://msdn.microsoft.com/library/mt634451.aspx)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

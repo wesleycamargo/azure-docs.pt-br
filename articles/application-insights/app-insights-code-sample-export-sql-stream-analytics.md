@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="03/06/2015" 
 	ms.author="awills"/>
  
 # Passo a passo: exportar para SQL do Application Insights usando o Stream Analytics
@@ -29,28 +29,15 @@ Vamos começar supondo que você já tenha o aplicativo que você deseja monitor
 Neste exemplo, usaremos os dados de exibição de página, mas o mesmo padrão pode ser facilmente ampliado para outros tipos de dados como exceções e eventos personalizados.
 
 
-## Adicionar o SDK do Application Insights
+## Adicione o Application Insights ao seu aplicativo
 
-Para monitorar seu aplicativo, [Adicione um SDK do Application Insights][start] a ele. Há diferentes SDKs e ferramentas de auxílio para diferentes plataformas, IDEs e linguagens. Você pode monitorar as páginas da Web, Java ou servidores Web ASP.NET, bem como dispositivos móveis de vários tipos. Todos os SDKs enviam telemetria para o [Portal do Application Insights][portal], no qual você pode usar nossas potentes ferramentas de análise e diagnóstico para exportar os dados para o armazenamento.
 
 Introdução:
 
-1. Obtenha uma [conta no Microsoft Azure](https://azure.microsoft.com/pricing/).
-2. No [Portal do Azure][portal], adicione um novo recurso do Application Insights ao seu aplicativo:
+1. [Configurar o Application Insights para sua página da Web](app-insights-javascript.md). 
 
-    ![Escolha Novo, Serviços de Desenvolvedor, Application Insights e escolha o tipo de aplicativo](./media/app-insights-code-sample-export-sql-stream-analytics/010-new-asp.png)
+    (Neste exemplo, vamos nos concentrar no processamento de dados de exibição de página de navegadores do cliente, mas você também pode configurar o Application Insights do lado do servidor do seu aplicativo [Java](app-insights-java-get-started.md) ou [ASP.NET](app-insights-asp-net.md) e processar telemetrias de solicitações, dependências e outras telemetrias do servidor.)
 
-
-    (Seu tipo de aplicativo e de assinatura podem ser diferentes.)
-3. Abra o Início Rápido para saber como configurar o SDK para seu tipo de aplicativo.
-
-    ![Escolha Início Rápido e siga as instruções](./media/app-insights-code-sample-export-sql-stream-analytics/020-quick.png)
-
-    Se o tipo de aplicativo não estiver listado, dê uma olhada na página [Introdução][start].
-
-4. Neste exemplo, estamos monitorando um aplicativo Web, por isso é possível usar as ferramentas do Azure no Visual Studio para instalar o SDK. Dizemos a ele o nome do nosso recurso do Application Insights:
-
-    ![Clique com o botão direito do mouse no projeto no Gerenciador de Soluções e selecione Adicionar Application Insights. Em Enviar telemetria para, crie um novo recurso ou use um já existente.](./media/app-insights-code-sample-export-sql-stream-analytics/appinsights-d012-addbrown.png)
 
 5. Publicar seu aplicativo e observar os dados de telemetria que aparecem em seu recurso Application Insights.
 
@@ -59,7 +46,7 @@ Introdução:
 
 Exportação contínua sempre gera dados para uma conta de armazenamento do Azure, por isso você precisa primeiro criar o armazenamento.
 
-1. Crie uma conta de armazenamento “clássica” na sua assinatura do [Portal do Azure][portal].
+1. Crie uma conta de armazenamento na sua assinatura do [Portal do Azure][portal].
 
     ![No portal do Azure, escolha Novo, Dados e Armazenamento. Selecione Clássica, escolha Criar. Forneça um nome de armazenamento.](./media/app-insights-code-sample-export-sql-stream-analytics/040-store.png)
 
@@ -315,4 +302,4 @@ Depois de alguns minutos, volte para as Ferramentas de Gerenciamento do SQL Serv
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -17,7 +17,7 @@
    ms.date="11/01/2015"
    ms.author="kundanap"/>
 
-# Usando a extensão de Script Personalizado com modelos do Gerenciador de Recursos do Azure
+# Usando a extensão de Script Personalizado com modelos do Azure Resource Manager
 
 Este artigo fornece uma visão geral de como gravar modelos do Gerenciador de Recursos do Azure com a extensão de Script Personalizado para a inicialização de cargas de trabalho em uma VM do Linux ou do Windows.
 
@@ -96,10 +96,10 @@ Defina o recurso a seguir na seção de Recursos do modelo
 
 Nos exemplos acima, substitua a URL e o nome do arquivo por suas próprias configurações.
 
-Depois de criar o modelo, você pode implantá-lo usando a CLI do Azure ou o Azure PowerShell.
+Depois de criar o modelo, você poderá implantá-lo usando a CLI do Azure ou o Azure PowerShell.
 
 Confira os exemplos abaixo para ver amostras completas de configuração de aplicativos em uma VM usando a extensão de Script Personalizado.
 
 <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Extensão de Script personalizado em uma VM do Linux</a>. </br> <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Extensão de Script personalizado em uma VM do Windows</a>.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

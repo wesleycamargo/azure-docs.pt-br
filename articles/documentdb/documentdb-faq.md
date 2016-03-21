@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="03/04/2016" 
 	ms.author="mimig"/>
 
 
@@ -51,8 +51,8 @@ Contas do Banco de Dados de Documentos podem ser dimensionadas em termos de arma
 ### Quanto custa o Banco de Dados de Documentos do Microsoft Azure?
 Consulte a página [Detalhes de preços do Banco de Dados de Documentos](http://go.microsoft.com/fwlink/p/?LinkID=402317) para obter mais informações. Os encargos pelo uso do Banco de Dados de Documentos são determinados pelo número de coleções em uso, o número de horas em que as coleções estiveram online e o [nível de desempenho](documentdb-performance-levels.md) de cada coleção.
 
-### Existe uma avaliação gratuita disponível?
-Se for novo no Azure, você pode se inscrever para uma [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/), que dá a você 30 dias e US$ 200 para experimentar todos os serviços do Azure. Ou então, se tiver uma assinatura do Visual Studio, você estará qualificado para receber [US$ 150 em créditos Azure gratuitos por mês](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) a serem usados em qualquer serviço do Azure.
+### Existe uma conta gratuita disponível?
+Se for novo no Azure, você poderá se inscrever para uma [Conta gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/), que dá a você 30 dias e US$ 200 para experimentar todos os serviços do Azure. Ou então, se tiver uma assinatura do Visual Studio, você estará qualificado para receber [US$ 150 em créditos Azure gratuitos por mês](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) a serem usados em qualquer serviço do Azure.
 
 ### Como obter ajuda adicional com o Banco de Dados de Documentos?
 Caso você precise de ajuda, entre em contato conosco no [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb), nos [Fóruns de desenvolvedores do MSDN do Banco de Dados de Documentos do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB) ou agende um [chat individual com a equipe de engenharia do Banco de Dados de Documentos](http://www.askdocdb.com/). Para se manter atualizado quanto às últimas notícias e recursos do Banco de Dados de Documentos, siga-nos no [Twitter](https://twitter.com/DocumentDB).
@@ -66,7 +66,7 @@ O Banco de Dados de Documentos do Microsoft Azure está disponível no [Portal d
 Uma chave mestra é um token de segurança para acessar todos os recursos de uma conta. As pessoas que possuem a chave têm acesso de leitura e gravação a todos os recursos na conta do banco de dados. Seja cauteloso ao distribuir chaves mestra. A chave mestra primária e a secundária estão disponíveis na folha **Chaves** do [Portal do Azure][azure-portal]. Para saber mais sobre as chaves, consulte [Exibir, copiar e regenerar chaves de acesso](documentdb-manage-account.md#keys).
 
 ### Como crio um banco de dados?
-Você pode criar bancos de dados usando o [Portal do Azure](), como descrito em [Criar um banco de dados do Banco de Dados de Documentos](documentdb-create-database.md), um dos [SDKs do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn781482.aspx) ou por meio das [APIs REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).
+Você pode criar bancos de dados usando o [Portal do Azure](), como descrito em [Criar um banco de dados do Banco de Dados de Documentos](documentdb-create-database.md), um dos [SDKs do Banco de Dados de Documentos](documentdb-sdk-dotnet.md) ou por meio das [APIs REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).
 
 ### O que é uma coleção?
 Uma coleção é um contêiner de documentos JSON e uma lógica de aplicativo JavaScript associada. As consultas e transações estão dentro do escopo das coleções. Você pode armazenar um conjunto de documentos JSON heterogêneos em uma única coleção, sendo todos eles indexados automaticamente.
@@ -77,17 +77,17 @@ As coleções também são as entidades de cobrança para o Banco de Dados de Do
 Cada coleção vem com uma alocação de armazenamento do banco de dados e uma taxa de transferência em um dos [níveis de desempenho](documentdb-performance-levels.md) com suporte. Também há cotas para cada recurso gerenciado pelo serviço. Para obter uma lista de todos os limites, consulte [Limites do Banco de Dados de Documentos](documentdb-limits.md). Para solicitar uma alteração em seus limites de conta, consulte [Solicitar maiores limites de conta do Banco de Dados de Documentos](documentdb-increase-limits.md).
 
 ### Como configuro usuários e permissões?
-Você pode criar usuários e permissões usando um dos [SDKs do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn781482.aspx) ou por meio das [APIs REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).
+Você pode criar usuários e permissões usando um dos [SDKs do Banco de Dados de Documentos](documentdb-sdk-dotnet.md) ou por meio das [APIs REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).
 
 ## Perguntas de banco de dados sobre como desenvolver no Banco de Dados de Documentos do Microsoft Azure
 
 ### Como começo a desenvolver no Banco de Dados de Documentos?
-Os [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx) estão disponíveis para .NET, Python, Node.js, JavaScript e Java. Os desenvolvedores também podem aproveitar as [APIs HTTP RESTful](https://msdn.microsoft.com/library/azure/dn781481.aspx) para interagir com os recursos do Banco de Dados de Documentos em uma série de plataformas e linguagens.
+Os [SDKs](documentdb-sdk-dotnet.md) estão disponíveis para .NET, Python, Node.js, JavaScript e Java. Os desenvolvedores também podem aproveitar as [APIs HTTP RESTful](https://msdn.microsoft.com/library/azure/dn781481.aspx) para interagir com os recursos do Banco de Dados de Documentos em uma série de plataformas e linguagens.
 
 Exemplos dos SDKs [.NET](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](https://github.com/Azure/azure-documentdb-node/tree/master/samples) e [Python](https://github.com/Azure/azure-documentdb-python) do Banco de Dados de Documentos estão disponíveis no GitHub.
 
 ### O Banco de Dados de Documentos dá suporte ao SQL?
-A linguagem de consulta SQL do Banco de Dados de Documentos fornece extensibilidade e operadores hierárquicos e relacionais por meio de JavaScript com base em UDFs (funções definidas por usuário). A gramática JSON permite modelar documentos JSON como árvores com rótulos como os nós da árvore, o que é usado pelas técnicas de indexação automática do Banco de Dados de Documentos, bem como pelo dialeto de consulta SQL do Banco de Dados de Documentos. Para obter detalhes sobre como usar a gramática SQL, veja o artigo [Consultar o Banco de Dados de Documentos][query].
+A linguagem de consulta SQL do Banco de Dados de Documentos é um subconjunto aprimorado da funcionalidade de consulta com suporte do SQL. A linguagem de consulta SQL do Banco de Dados de Documentos fornece extensibilidade e operadores hierárquicos e relacionais por meio de JavaScript com base em UDFs (funções definidas por usuário). A gramática JSON permite modelar documentos JSON como árvores com rótulos como os nós da árvore, o que é usado pelas técnicas de indexação automática do Banco de Dados de Documentos, bem como pelo dialeto de consulta SQL do Banco de Dados de Documentos. Para obter detalhes sobre como usar a gramática SQL, veja o artigo [Consultar o Banco de Dados de Documentos][query].
 
 ### Quais são os tipos de dados com suporte pelo Banco de Dados de Documentos?
 Os tipos de dados primitivos suportados no Banco de Dados de Documentos são os mesmos que os do JSON. O JSON tem um sistema de tipo simples que consiste em cadeias de caracteres, números (precisão dupla IEEE754) e boolianos – verdadeiro e falso e nulos. Os tipos de dados mais complexos como DateTime, Guid, Int64 e Geometria podem ser representados tanto no JSON quanto no Banco de Dados de Documentos com a criação de objetos aninhados usando o operador { } e matrizes usando o operador [ ].
@@ -115,4 +115,4 @@ Sim, como o Banco de Dados de Documentos é um serviço RESTful, os links de rec
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

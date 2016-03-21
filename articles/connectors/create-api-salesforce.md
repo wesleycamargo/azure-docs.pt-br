@@ -14,16 +14,22 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/25/2016"
+ms.date="03/03/2016"
 ms.author="deonhe"/>
 
 # Introdução à API do Salesforce
 Conecte-se ao Salesforce e crie objetos, obtenha objetos muito mais. A API do Salesforce pode ser usada em:
 
-- PowerApps 
 - Aplicativos lógicos 
+- PowerApps
 
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos. Para obter a versão do esquema 2014-12-01-preview, clique em [API do Salesforce](../app-service-logic/app-service-logic-connector-salesforce.md).
+> [AZURE.SELECTOR]
+- [Aplicativos lógicos](../articles/connectors/create-api-salesforce.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-salesforce.md)
+
+&nbsp;
+
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos. Para obter a versão do esquema 2014-12-01-preview, clique em [Conector do Salesforce](../app-service-logic/app-service-logic-connector-salesforce.md).
 
 Com o Salesforce, você pode:
 
@@ -32,9 +38,9 @@ Com o Salesforce, você pode:
 - Use ações para criar um objeto, excluí-lo e muito mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, quando um novo objeto é criado no Salesforce, você pode enviar um email usando o Office 365.
 - Adicione a API do Salesforce ao PowerApps Enterprise. Assim, seus usuários poderão usar essa API em seus próprios aplicativos. 
 
-Para obter mais informações sobre como adicionar uma API no PowerApps Enterprise, vá para [Registrar uma API no PowerApps](../power-apps/powerapps-register-from-available-apis.md).
+Para saber mais sobre como adicionar uma API ao PowerApps Enterprise, acesse [Registrar uma API no PowerApps](../power-apps/powerapps-register-from-available-apis.md).
 
-Para adicionar uma operação nos aplicativos lógicos, veja [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para adicionar uma operação aos aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Gatilhos e ações
 A API do Salesforce inclui o gatilho e ações a seguir.
@@ -47,32 +53,6 @@ Todas as APIs dão suporte a dados nos formatos JSON e XML.
 
 ## Criar uma conexão com o Salesforce 
 
-### Adicionar um configuração adicional no PowerApps
-Ao adicionar o Salesforce ao PowerApps Enterprise, insira os valores de **Chave do Aplicativo** e **Segredo do Aplicativo** de seu aplicativo do Salesforce. O valor da **URL de Redirecionamento** também é usado em seu aplicativo do Salesforce. Se você não tiver um aplicativo do Salesforce, poderá usar as seguintes etapas para criar o aplicativo:
-
-1. [Entre na home page do desenvolvedor do Salesforce][5], selecione seu perfil e selecione **Configuração**: ![Salesforce página inicial][6]
-
-3. Selecione **Criar** e selecione **Aplicativos**. Na página **Aplicativos**, em **Aplicativos Conectados**, selecione **Novo**: ![Salesforce criar aplicativo][7]
-
-4. Em **Novo Aplicativo Conectado**:
-
-	1. Insira o valor de **Nome do Aplicativo Conectado**.  
-	2. Insira o valor de **Nome da API**.  
-	3. Insira o valor de **Email de Contato**.  
-	4. Em _API (Habilitar Configurações do OAuth)_, selecione **Habilitar Configurações do OAuth** e defina a **URL de Retorno de Chamada** como o valor mostrado ao adicionar a nova API do Salesforce no Portal do Azure.  
-
-5. Em _Escopos de OAuth selecionados_, adicione os seguintes escopos para os **Escopos de OAuth selecionados**:
-
-	- Acessar e gerenciar os dados de Chatter (chatter\_api)
-	- Acessar e gerenciar seus dados (api)
-	- Permitir o acesso ao seu identificador exclusivo (openid)
-	- Executar solicitações no seu nome a qualquer momento (refresh\_token, offline\_access)
-
-6. **Salve** suas alterações: ![Salesforce novo aplicativo][8]
-
-Agora copie/cole os valores de **Chave do Aplicativo** e **Segredo do Aplicativo** em sua configuração do Salesforce no portal do Azure.
-
-### Adicionar configuração adicional em aplicativos lógicos
 Quando você adiciona essa API aos seus aplicativos lógicos, precisa autorizar que os aplicativos lógicos se conectem ao Salesforce.
 
 1. Entre em sua conta do Salesforce.
@@ -275,9 +255,10 @@ Dispara um fluxo quando um objeto é modificado no Salesforce.```GET: /datasets/
 
 
 ## Próximas etapas
-Depois de adicionar a API do Salesforce ao PowerApps Enterprise, [conceda permissões aos usuários](../power-apps/powerapps-manage-api-connection-user-access.md) para que eles usem a API em seus aplicativos.
 
-[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Crie um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+
+Volte para a [Lista de APIs](apis-list.md).
 
 
 [5]: https://developer.salesforce.com
@@ -285,4 +266,4 @@ Depois de adicionar a API do Salesforce ao PowerApps Enterprise, [conceda permis
 [7]: ./media/create-api-salesforce/salesforce-create-app.png
 [8]: ./media/create-api-salesforce/salesforce-new-app.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

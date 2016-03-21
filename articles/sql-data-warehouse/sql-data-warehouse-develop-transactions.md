@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Transações no SQL Data Warehouse
@@ -26,7 +26,7 @@ O SQL Data Warehouse implementa transações ACID. No entanto, o isolamento do s
 ## Estado da transação
 O SQL Data Warehouse usa a função XACT\_STATE() para relatar uma transação com falha usando o valor -2. Isso significa que a transação falhou e está marcada para reversão somente
 
-> [AZURE.NOTE]O uso de -2 pela função XACT\_STATE para denotar uma transação com falha representa um comportamento diferente para o SQL Server. O SQL Server usa o valor -1 para representar uma transação não confirmável. O SQL Server consegue tolerar alguns erros dentro de uma transação sem precisar ser marcado como não confirmável. Por exemplo, SELECT 1/0 poderia causar um erro mas não forçar uma transação em um estado não confirmável. O SQL Server também permite leituras na transação não confirmável. No entanto, em SQLDW, este não é o caso. Se ocorrer um erro dentro de uma transação SQLDW, ele irá inserir automaticamente o estado de-2: incluindo os erros SELECT 1/0. Portanto, é importante verificar se o código do aplicativo para ver se ele usa XACT\_STATE().
+> [AZURE.NOTE] O uso de -2 pela função XACT\_STATE para denotar uma transação com falha representa um comportamento diferente para o SQL Server. O SQL Server usa o valor -1 para representar uma transação não confirmável. O SQL Server consegue tolerar alguns erros dentro de uma transação sem precisar ser marcado como não confirmável. Por exemplo, SELECT 1/0 poderia causar um erro mas não forçar uma transação em um estado não confirmável. O SQL Server também permite leituras na transação não confirmável. No entanto, em SQLDW, este não é o caso. Se ocorrer um erro dentro de uma transação SQLDW, ele irá inserir automaticamente o estado de-2: incluindo os erros SELECT 1/0. Portanto, é importante verificar se o código do aplicativo para ver se ele usa XACT\_STATE().
 
 No SQL Server, talvez você veja um fragmento de código com esta aparência:
 
@@ -112,4 +112,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

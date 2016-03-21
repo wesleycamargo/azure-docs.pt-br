@@ -21,7 +21,7 @@ A galeria de aplicativos do Active Directory do Azure fornece uma lista de aplic
 
 Os clientes com licenças do [Active Directory Premium do Azure](active-directory-editions.md) também obtêm estes recursos adicionais:
 
-* Integração de autoatendimento de qualquer aplicativo com suporte a provedores de identidade SAML 2.0
+* Integração de autoatendimento de qualquer aplicativo com suporte a provedores de identidade SAML 2.0 (iniciado por SP ou IdP)
 * Integração de autoatendimento de qualquer aplicativo Web que tenha uma página de entrada baseada em HTML usando o [SSO baseado em senha](active-directory-appssoaccess-whatis.md/#password-based-single-sign-on)
 * Conexão de autoatendimento de aplicativos que usam o protocolo SCIM para provisionamento de usuários ([descrito aqui](active-directory-scim-provisioning))
 * Capacidade de adicionar links aos aplicativos no [inicializador de aplicativos do Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou no [Painel de acesso do AD do Azure](active-directory-appssoaccess-whatis.md/#deploying-azure-ad-integrated-applications-to-users)
@@ -52,8 +52,26 @@ A adição de um aplicativo dessa maneira oferece uma experiência muito semelha
 Selecione esta opção para configurar a autenticação baseada em SAML no aplicativo. Isso requer que o aplicativo dê suporte a SAML 2.0, e você deve coletar informações sobre como usar os recursos SAML do aplicativo antes de continuar. Depois de selecionar **Próximo**, você será solicitado a inserir três URLs diferentes correspondentes aos pontos de extremidade SAML para o aplicativo.
 
 ![][4]
+ 
+Estes são:
 
-Os ícones de dica de ferramenta no diálogo fornecem detalhes sobre o que é cada URL e como elas são usadas. Depois que eles tiverem sido inseridos, clique em **Próximo** para prosseguir para a próxima tela. Esta tela fornece informações sobre o que precisa ser configurado no lado do aplicativo para habilitá-lo a aceitar um token SAML do AD do Azure.
+* **URL de logon (somente iniciado por SP)** – onde o usuário vai para entrar nesse aplicativo. Se o aplicativo estiver configurado para executar logon único iniciado pelo provedor serviço, quando um usuário navegar para essa URL, o provedor de serviço fará o redirecionamento necessário para o Azure AD a fim de autenticar e conectar o usuário. Se esse campo estiver preenchido, o Azure AD usará essa URL para iniciar o aplicativo do Office 365 e o painel de acesso do Azure AD. Se esse campo for omitido, o Azure AD executará, em vez disso, o logon iniciado pelo provedor de identidade quando o aplicativo for iniciado do Office 365, do painel de acesso do AD do Azure ou da URL de logon único do Azure AD (pode ser copiada da guia Painel de Controle).
+
+* **URL do emissor** -a URL do emissor deve identificar exclusivamente o aplicativo para o qual SSO está sendo configurado. Esse é o valor que o Azure AD envia para o aplicativo como o parâmetro **Público-alvo** do token SAML e o aplicativo deve validá-lo. Esse valor também aparece como a **ID da entidade** em todos os metadados SAML fornecidos pelo aplicativo. Verifique a documentação SAML do aplicativo para obter detalhes sobre o que é a ID da Entidade ou o valor Público-alvo. Abaixo está um exemplo de como a URL do Público-alvo aparece no token SAML retornado para o aplicativo:
+
+```
+    <Subject>
+    <NameID Format="urn:oasis:names:tc:SAML:2.0:nameid-format:unspecificed">chad.smith@example.com</NameID>
+        <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />
+      </Subject>
+      <Conditions NotBefore="2014-12-19T01:03:14.278Z" NotOnOrAfter="2014-12-19T02:03:14.278Z">
+        <AudienceRestriction>
+          <Audience>https://tenant.example.com</Audience>
+        </AudienceRestriction>
+      </Conditions>
+```
+
+* **URL de resposta** - a URL de resposta é onde o aplicativo espera receber o token SAML. Isso também é chamado de **URL de ACS (Serviço de Declaração do Consumidor)**. Verifique a documentação SAML do aplicativo para obter detalhes sobre o que é a URL de resposta de token SAML ou a URL de ACS. Depois que eles tiverem sido inseridos, clique em **Próximo** para prosseguir para a próxima tela. Esta tela fornece informações sobre o que precisa ser configurado no lado do aplicativo para habilitá-lo a aceitar um token SAML do AD do Azure. 
 
 ![][5]
 
@@ -126,4 +144,4 @@ Observação: você pode carregar um logotipo de bloco para o aplicativo usando 
 [6]: ./media/active-directory-saas-custom-apps/customapp6.png
 [7]: ./media/active-directory-saas-custom-apps/customapp7.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

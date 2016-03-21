@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/05/2016" 
 	ms.author="awills"/>
  
 # Definir alertas no Application Insights
@@ -48,6 +48,8 @@ Para receber um email quando uma métrica ultrapassar um limite, inicie no Metri
 
 *Não vejo o botão Adicionar Alerta.* Você está usando uma conta organizacional? Você poderá definir alertas se tiver acesso de proprietário ou colaborador a esse recurso de aplicativo. Consulte Configurações -> Usuários. [Saiba mais sobre o controle de acesso][roles].
 
+> [AZURE.NOTE] Na folha de alertas, você verá que já existe uma configuração de alerta: [Diagnóstico proativo NRT](app-insights-nrt-proactive-diagnostics.md). Este é um alerta automático que monitora uma métrica específica, taxa de falha de solicitação. Portanto, a menos que você opte por desabilitá-lo, não precisa definir seu próprio alerta na taxa de falha de solicitação.
+
 ## Ver seus alertas
 
 Você recebe um email quando o estado de um alerta é mudado de inativo para ativo.
@@ -58,13 +60,10 @@ Há um resumo da atividade recente no menu suspenso de alertas:
 
 ![](./media/app-insights-alerts/010-alert-drop.png)
 
-O histórico das alterações de estado está no log de Eventos de operações:
+O histórico das alterações de estado está no Log de Auditoria:
 
-![Na folha Visão geral, próximo à parte inferior, clique em 'Eventos da semana anterior'](./media/app-insights-alerts/09-alerts.png)
+![Na folha Visão geral, clique em Configurações, Logs de Auditoria](./media/app-insights-alerts/09-alerts.png)
 
-*Esses "eventos" estão relacionados a eventos de telemetria ou a eventos personalizados?*
-
-* Não. Esses eventos operacionais são apenas um log de eventos que ocorreram nesse recurso de aplicativo. 
 
 
 ## Como funcionam os alertas
@@ -127,4 +126,4 @@ Alguns alertas populares são:
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

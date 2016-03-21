@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="dhanyahk"
-   manager="mbaldwin"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/17/2016"
+   ms.date="03/07/2016"
    ms.author="dhanyahk"/>
 
 # Relatório de atividade de entrada de todos os usuários do Active Directory do Azure
@@ -32,4 +32,4 @@ O Relatório de atividade de entrada de todos os usuários contém todas as entr
  >
  - O Relatório de atividade de entrada de todos os usuários está disponível atualmente apenas por meio da API de Relatório. Visite [Introdução à API de Relatório](active-directory-reporting-api-getting-started.md) para obter detalhes.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="03/01/2016"   
+	ms.date="03/02/2016"   
 	ms.author="juliako"/>
 
 #Usar o codificador NewTek TriCaster para enviar uma transmissão ao vivo de taxa de bits única
@@ -28,7 +28,7 @@ Este tópico mostra como configurar [NewTek TriCaster](http://newtek.com/product
 
 Este tutorial mostra como gerenciar o AMS (Serviços de Mídia do Azure) com a ferramenta AMSE (Gerenciador de Serviços de Mídia da Azure). Essa ferramenta é executada apenas em PCs com Windows. Se você estiver usando um Mac ou Linux, use o Portal Clássico do Azure para criar [canais](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) e [programas](media-services-portal-creating-live-encoder-enabled-channel#create-and-manage-a-program).
 
->[AZURE.NOTE]Ao usar o Tricaster para o envio de um feed de contribuição aos Serviços de Mídia do Azure, poderá haver problemas de áudio/vídeo no evento ao vivo, caso use determinados recursos do Tricaster, como recorte rápido entre feeds ou alternância de/para imagens fixas. A equipe do AMS está trabalhando para corrigir esses problemas; até lá, não é recomendável usar esses recursos.
+>[AZURE.NOTE]Ao usar o Tricaster para o envio de um feed de contribuição aos canais AMS habilitados para codificação ativa, pode haver problemas de áudio/vídeo no evento ao vivo, caso você use determinados recursos do Tricaster, como corte rápido entre feeds ou alternância de/para imagens fixas. A equipe do AMS está trabalhando para corrigir esses problemas; até lá, não é recomendável usar esses recursos.
 
 
 ##Pré-requisitos
@@ -165,4 +165,4 @@ Veja o tópico [solução de problemas](media-services-troubleshooting-live-stre
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

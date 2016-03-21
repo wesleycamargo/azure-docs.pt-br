@@ -15,14 +15,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="03/04/2016" 
 	ms.author="mimig"/>
 
 # Automatizar a criação de conta do Banco de Dados de Documentos usando modelos do Gerenciador de Recursos do Azure e a CLI do Azure
 
 > [AZURE.SELECTOR]
-- [Azure Portal](documentdb-create-account.md)
-- [Azure CLI and ARM](documentdb-automation-resource-manager-cli.md)
+- [Portal do Azure](documentdb-create-account.md)
+- [CLI do Azure e ARM](documentdb-automation-resource-manager-cli.md)
 
 Este artigo mostra como criar uma conta de Banco de Dados de Documentos usando modelos do Gerenciador de Recursos do Azure ou a CLI (Interface de Linha de Comando) do Azure. Para criar uma conta do Banco de Dados de Documentos usando o Portal do Azure, confira [Criar uma conta de banco de dados do Banco de Dados de Documentos usando o portal do Azure](documentdb-create-account.md).
 
@@ -75,9 +75,10 @@ Você receberá a seguinte tela de confirmação quando estiver conectado e pode
 
 O shell de comando também fornece a saída a seguir.
 
-    -info:    Added subscription Visual Studio Ultimate with MSDN
-	+
-	info:    login command OK
+    /info:    Added subscription Visual Studio Ultimate with MSDN
+    info:    Setting subscription "Visual Studio Ultimate with MSDN" as default
+    +
+    info:    login command OKK
 
 Além do método de logon interativo descrito aqui, há métodos adicionais de logon disponíveis na CLI do Azure. Para saber mais sobre os outros métodos e informações sobre como lidar com várias assinaturas, confira [Conectar uma assinatura do Azure da CLI (Interface de Linha de Comando) do Azure](../xplat-cli-connect.md).
 
@@ -89,7 +90,9 @@ Por padrão, a CLI do Azure é iniciada no modo de gerenciamento de serviços (m
 
 Que fornece esta saída:
 
-	info:    New mode is arm
+    info:    Executing command config mode
+    info:    New mode is arm
+    info:    config mode command OK
 
 Você pode alternar de volta para o conjunto de comandos padrão digitando `azure config mode asm`.
 
@@ -268,8 +271,8 @@ Para usar um arquivo de parâmetro:
 
     azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g <resourcegroupname> -n <deploymentname>
 
- - `<PathToTemplate>` é o caminho até o arquivo azuredeploy.json criado na Etapa 1.
- - `<PathToParameterFile>` é o caminho até o arquivo azuredeploy.parameters.json criado na Etapa 1.
+ - `<PathToTemplate>` é o caminho até o arquivo azuredeploy.json criado na Etapa 1. Se o nome do caminho tiver espaços, delimite o parâmetro com aspas duplas.
+ - `<PathToParameterFile>` é o caminho até o arquivo azuredeploy.parameters.json criado na Etapa 1. Se o nome do caminho tiver espaços, delimite o parâmetro com aspas duplas.
  - `<resourcegroupname>` é o nome do grupo de recursos existente no qual você quer adicionar uma conta de banco de dados do Banco de Dados de Documentos. 
  - `<deploymentname>` é o nome opcional da implantação.
 
@@ -351,4 +354,4 @@ Para saber mais sobre o Banco de Dados de Documentos, explore estes recursos:
 
 Para obter mais modelos que você possa usar, confira [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

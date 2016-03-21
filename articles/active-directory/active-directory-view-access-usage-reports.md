@@ -3,7 +3,7 @@
 	description="Explica como exibir relatórios de acesso e uso para obter informações sobre a integridade e a segurança do diretório da organização."
 	services="active-directory"
 	documentationCenter=""
-	authors="kenhoff"
+	authors="dhanyahk"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
-	ms.author="kenhoff;Justinha;curtand"/>
+	ms.date="03/07/2016"
+	ms.author="dhanyahk"/>
 
 
 # Exibir relatórios de acesso e uso
@@ -99,7 +99,15 @@ No Portal de Gerenciamento do Azure, os relatórios são categorizados das segui
 ## Relatórios de atividades anômalas
 <p>Os relatórios de atividade de entrada anômala contêm atividade de entrada suspeita para o Portal de Gerenciamento do Azure, o Painel de Acesso do AD do Azure, o Office365, o Sharepoint Online, o Dynamics CRM Online e outros serviços online da Microsoft.</p>
 <p>Todos esses relatórios, exceto o relatório "Entradas após várias falhas", também sinalizam entradas <i>federadas</i> suspeitas nos serviços mencionados anteriormente, independentemente do provedor de federação. </p>
-<p>Os seguintes relatórios estão disponíveis: </p><ul> <li>[Entradas de fontes desconhecidas](active-directory-reporting-sign-ins-from-unknown-sources.md).</li> <li>[Entradas após várias falhas](active-directory-reporting-sign-ins-after-multiple-failures.md).</li> <li>[Entradas de várias regiões geográficas](active-directory-reporting-sign-ins-from-multiple-geographies.md).</li> <li>[Entradas de endereços IP com atividade suspeita](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).</li> <li>[Atividade de conexão anômala](active-directory-reporting-irregular-sign-in-activity.md).</li> <li>[Entradas de dispositivos possivelmente infectados](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li> <li>[Usuários com atividade de entrada anômala](active-directory-reporting-users-with-anomalous-sign-in-activity.md).</li> <li>Usuários com credenciais insuficientes</li></ul>
+<p>Os relatórios a seguir estão disponíveis: </p><ul>
+<li>[Entradas de fontes desconhecidas](active-directory-reporting-sign-ins-from-unknown-sources.md).</li>
+<li>[Entradas após várias falhas](active-directory-reporting-sign-ins-after-multiple-failures.md).</li>
+<li>[Entradas de várias regiões geográficas](active-directory-reporting-sign-ins-from-multiple-geographies.md).</li>
+<li>[Entradas de endereços IP com atividade suspeita](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).</li>
+<li>[Atividade de entrada irregular](active-directory-reporting-irregular-sign-in-activity.md).</li>
+<li>[Entradas de dispositivos possivelmente infectados](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li>
+<li>[Usuários com atividade de entrada anômala](active-directory-reporting-users-with-anomalous-sign-in-activity.md).</li>
+<li>Usuários com credenciais insuficientes</li></ul>
 
 
 
@@ -246,11 +254,11 @@ Se você suspeitar que uma conta de usuário pode estar comprometida ou qualquer
 
 - Contate o usuário para verificar a atividade
 - Redefinir a senha do usuário
-- [Habilitar a Multi-Factor Authentication](multi-factor-authentication-get-started.md) para segurança adicional
+- [Habilitar a Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started.md) para segurança adicional
 
 ## Exibir ou baixar uma fatura
 
-1. No Portal de Gerenciamento do Azure, clique em **Active Directory** e no nome do diretório da sua organização, então clique em **Relatórios**.
+1. No portal clássico do Azure, clique em **Active Directory**, no nome do diretório de sua organização e em **Relatórios**.
 2. Na página Relatórios, clique no relatório que você deseja exibir e/ou baixar.
 
     > [AZURE.NOTE] Se esta for a primeira vez que você usa o recurso de relatório do Active Directory do Azure, verá uma mensagem para aceitar. Se você concordar, clique no ícone de marca de seleção para continuar.
@@ -260,8 +268,8 @@ Se você suspeitar que uma conta de usuário pode estar comprometida ou qualquer
     - Últimos 7 dias
     - Últimos 30 dias
 4. Clique no ícone de marca de seleção para executar o relatório.
-	- Até 1.000 eventos serão mostrados no Portal de Gerenciamento do Azure.
-5. Se aplicável, clique em **Baixar** para baixar o relatório em um arquivo compactado no formato de valores separados por vírgulas (CSV) para visualização offline ou para fins de arquivamento.
+	- Até 1000 eventos serão mostrados no portal clássico do Azure.
+5. Se aplicável, clique em **Baixar** para baixar o relatório em um arquivo compactado no formato CSV (valores separados por vírgulas) para fins de arquivamento ou visualização offline.
 	- Até 75.000 eventos serão incluídos no arquivo baixado.
 	- Para obter mais dados, confira a [API de Relatórios do AD do Azure](active-directory-reporting-api-getting-started.md).
 
@@ -278,4 +286,4 @@ Para saber mais sobre as notificações de relatórios do Azure AD, confira [Not
 - [Introdução ao Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Adicionar identidade visual da empresa às páginas de Entrada e do Painel de acesso](active-directory-add-company-branding.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

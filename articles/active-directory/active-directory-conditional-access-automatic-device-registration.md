@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="03/07/2016"
 	ms.author="femila"/>
 
-# Registro de dispositivo automático com o Active Directory do Azure para dispositivos de domínio associado do Windows
+# Registro de dispositivo automático com o Azure Active Directory para dispositivos ingressados no domínio do Windows
 
 Como um administrador de TI, você pode escolher registrar automaticamente e silenciosamente seus dispositivos do Windows ingressados no domínio com o AD do Azure (Active Directory do Azure). Isso pode ser útil se você tiver configurado acesso condicional do dispositivo com base em políticas para aplicativos do Office365 ou aplicativos gerenciados localmente pelo AD FS. Você pode aprender mais sobre os cenários de registro de dispositivo lendo a [Visão geral de registro de dispositivo do Active Directory do Azure](active-directory-conditional-access-device-registration-overview.md).
 
@@ -24,7 +24,7 @@ O Registro Automático de Dispositivo com o Active Directory do Azure está disp
 
 Para começar a registrar seus dispositivos do Windows ingressados no domínio com o AD do Azure, siga os pré-requisitos a seguir. Depois de concluir os pré-requisitos, configure o registro de dispositivos automático para os dispositivos do Windows ingressados no seu domínio.
 
-## Pré-requisitos para Registro Automático de dispositivo de dispositivos Windows Ingressados no Domínio com o Active Directory do Azure
+## Pré-requisitos para registro automático de dispositivo de dispositivos do Windows ingressados no domínio com o Azure Active Directory
 
 Implantar o AD FS e conectar ao Active Directory do Azure usando o Azure Active Directory Connect
 ----------------------------------------------------------------------------------------------
@@ -87,6 +87,8 @@ Configure o registro automático de dispositivo para os dispositivos ingressados
 
 * [Configurar o Registro Automático de Dispositivo para dispositivos ingressados no domínio do Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md)
 
+* [Registro de dispositivo automático com o Azure Active Directory para Dispositivos Ingressados no Domínio do Windows 10](active-directory-azureadjoin-devices-group-policy.md)
+
 Observações Adicionais
 --------------------------------------------------------------------
 
@@ -101,5 +103,6 @@ Você pode saber mais sobre como implantar o registro de dispositivos com o AD F
 - [Visão geral do registro de dispositivos do Active Directory do Azure](active-directory-conditional-access-device-registration-overview.md)
 - [Configurar o registro automático de dispositivo para dispositivos ingressados no domínio do Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md)
 - [Configurar o registro automático de dispositivo para dispositivos ingressados no domínio do Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
+- [Registro de dispositivo automático com o Azure Active Directory para dispositivos ingressados no domínio do Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

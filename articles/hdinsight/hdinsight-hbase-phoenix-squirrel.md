@@ -13,14 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/02/2015"
+   ms.date="03/04/2016"
    ms.author="jgao"/>
 
-# Usar Apache Phoenix e SQuirreL com clusters do HBase no HDInsight  
+# Usar Apache Phoenix e SQuirreL com clusters do HBase baseados em Windows no HDInsight  
 
 Saiba como usar o [Apache Phoenix](http://phoenix.apache.org/) no HDInsight e como instalar e configurar o SQuirreL na sua estação de trabalho para se conectar a um cluster HBase no HDInsight. Para obter mais informações sobre o Phoenix, consulte [Phoenix em 15 minutos ou menos](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Para conhecer a gramática de Phoenix, consulte [Gramática do Phoenix](http://phoenix.apache.org/language/index.html).
 
 >[AZURE.NOTE] Para obter as informações de versão do Phoenix no HDInsight, consulte [O que há de novo nas versões de cluster Hadoop fornecidas pelo HDInsight?][hdinsight-versions].
+>
+> As informações neste documento são específicas de clusters HDInsight baseados em Windows. Para obter informações sobre como usar o Phoenix no HDInsight baseado em Linux, consulte [Usar o Apache Phoenix com clusters HBase baseados em Linux no HDinsight](hdinsight-hbase-phoenix-squirrel-linux.md).
 
 ##Usar o SQLLine
 [SQLLine](http://sqlline.sourceforge.net/) é um utilitário de linha de comando para executar o SQL.
@@ -54,7 +56,7 @@ Antes de poder usar o SQLLine, você deve ter o seguinte:
 
 		CREATE TABLE Company (COMPANY_ID INTEGER PRIMARY KEY, NAME VARCHAR(225));
 		
-		!tables;
+		!tables
 		
 		UPSERT INTO Company VALUES(1, 'Microsoft');
 		
@@ -306,4 +308,4 @@ Neste artigo, você aprendeu a usar o Apache Phoenix no HDInsight. Para obter ma
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

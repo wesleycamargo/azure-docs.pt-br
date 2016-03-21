@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="02/17/2016"
+   ms.date="02/29/2016"
    ms.author="alkohli" />
 
 # Limites do sistema StorSimple
@@ -29,7 +29,7 @@ O StorSimple fornece armazenamento escalonável e flexível para seu datacenter.
 | Número máximo de agendas por modelo de largura de banda | 168 | Uma agenda para cada hora, cada dia da semana (24x7). |
 | Tamanho máximo de um volume em camadas em dispositivos físicos | 64 TB para 8100 e 8600 | 8100 e 8600 são dispositivos físicos. |
 | Tamanho máximo de um volume em camadas em dispositivos virtuais no Azure | 30 TB para 8010 <br></br> 64 TB para 8020 | 8010 e 8020 são dispositivos virtuais no Azure que usam armazenamento Standard e Premium, respectivamente. |
-| Tamanho máximo de um volume localmente afixado em dispositivos físicos | 9 TB para 8100 <br></br> 24 TB para 8600 | 8100 e 8600 são dispositivos físicos. |
+| Tamanho máximo de um volume localmente afixado em dispositivos físicos | 8 TB para 8100 <br></br> 20 TB para 8600 | 8100 e 8600 são dispositivos físicos. |
 | Número máximo de conexões iSCSI | 512 | |
 | Número máximo de conexões iSCSI dos iniciadores | 512 | |
 | Número máximo de registros de controle de acesso por dispositivo | 64 | |
@@ -52,4 +52,4 @@ O StorSimple fornece armazenamento escalonável e flexível para seu datacenter.
 
 Analise os [requisitos de sistema do StorSimple](storsimple-system-requirements.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -4,7 +4,7 @@
 	services="mobile-services"
 	documentationCenter=""
 	authors="ggailey777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,20 +13,19 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/07/2016"
+	ms.date="03/06/2016"
 	ms.author="glenga"/>
 
 
 # Como definir um ponto de extremidade de API personalizada em um serviço móvel de back-end .NET
-
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> [AZURE.SELECTOR]
+- [Back-end do JavaScript](./mobile-services-javascript-backend-define-custom-api.md)
+- [Back-end do .NET](./mobile-services-dotnet-backend-define-custom-api.md)
 
 &nbsp;
 
-
-> [AZURE.SELECTOR]
-- [JavaScript backend](./mobile-services-javascript-backend-define-custom-api.md)
-- [.NET backend](./mobile-services-dotnet-backend-define-custom-api.md)
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Para obter a versão equivalente deste tópico para os Aplicativos Móveis, consulte [Como definir um controlador de API personalizado](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-custom-api-controller).
 
 Este tópico mostra como definir um ponto de extremidade de API personalizada em um serviço móvel de back-end .NET. Uma API personalizada permite que você defina pontos de extremidade personalizados com funcionalidade de servidor, mas não mapeia para uma operação de inserção, atualização, exclusão ou leitura de banco de dados. Ao usar uma API personalizada, você tem mais controle sobre mensagens, incluindo cabeçalhos HTTP e formato de corpo.
 
@@ -41,4 +40,4 @@ Para obter informações sobre como invocar uma API personalizada em seu aplicat
 
 <!-- URLs. -->
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

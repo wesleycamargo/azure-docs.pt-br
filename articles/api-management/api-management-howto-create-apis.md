@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Como criar APIs no Gerenciamento de API do Azure
@@ -97,4 +97,4 @@ Após criar uma API e definir as configurações, as próximas etapas são adici
 [Como garantir serviços de back-end usando autenticação de certificados do cliente no Gerenciamento de API do Azure]: api-management-howto-mutual-certificates.md
 [Como autorizar contas de desenvolvedor usando o OAuth 2.0 no Gerenciamento de API do Azure]: api-management-howto-oauth2.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

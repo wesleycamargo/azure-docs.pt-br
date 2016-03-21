@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="03/04/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -36,11 +36,14 @@ Este tópico é a base da **sincronização do Azure AD Connect** (também chama
 | [Noções básicas sobre expressões de provisionamento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) | Descreve em detalhes o funcionamento do modelo de configuração e a sintaxe para a linguagem de expressão. |
 | [Práticas recomendadas para alterar a configuração padrão](active-directory-aadconnectsync-best-practices-changing-default-configuration.md) | Ao conhecer os detalhes dos tópicos acima e precisar fazer alterações na configuração pronta para trabalhar com seu cenário ou com seus requisitos. |
 | [Configurar a filtragem](active-directory-aadconnectsync-configure-filtering.md) | Descreve as diferentes opções para limitar quais objetos serão sincronizados com o AD do Azure e o passo a passo de como configurá-los. |
-| **Recursos** ||
-| [Implementar a sincronização de senha](active-directory-aadconnectsync-implement-password-synchronization.md) | Descreve o funcionamento da sincronização de senha, como implementá-la, como operá-la e como solucionar problemas. |
+| **Recursos e cenários** ||
 | [Impedir exclusões acidentais](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) | Descreve o recurso para *impedir exclusões acidentais* e como configurá-lo. |
 | [Agendador](active-directory-aadconnectsync-feature-scheduler.md) | Descreve o agendador interno que está importando, sincronizando e exportando dados. |
-| **Operações** ||
+| [Implementar a sincronização de senha](active-directory-aadconnectsync-implement-password-synchronization.md) | Descreve o funcionamento da sincronização de senha, como implementá-la, como operá-la e como solucionar problemas. |
+| [Write-back de dispositivo](active-directory-aadconnect-feature-device-writeback.md) | Descreve como o write-back de dispositivo funciona no Azure AD Connect. |
+| [Extensões de diretório](active-directory-aadconnectsync-feature-directory-extensions.md) | Descreve como estender o esquema do Azure AD com seus próprios atributos personalizados. |
+| **Operações e interface do usuário** ||
+| [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md) | Descreve a interface do usuário do Synchronization Service Manager, incluindo as guias [Operações](active-directory-aadconnectsync-service-manager-ui-operations.md), [Conectores](active-directory-aadconnectsync-service-manager-ui-connectors.md), [Designer de Metaverso](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) e [Pesquisa de Metaverso](active-directory-aadconnectsync-service-manager-ui-mvsearch.md).|
 | [Considerações e tarefas operacionais](active-directory-aadconnectsync-operations.md) | Descreve os problemas operacionais, como a recuperação de desastre. |
 | **Mais informações e referências** ||
 | [Portas](active-directory-aadconnect-ports.md) | Lista as portas que você precisa abrir entre o mecanismo de sincronização e os diretórios locais e o AD do Azure. |
@@ -51,4 +54,4 @@ Este tópico é a base da **sincronização do Azure AD Connect** (também chama
 
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

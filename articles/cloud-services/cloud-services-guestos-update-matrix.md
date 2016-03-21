@@ -420,4 +420,4 @@ Devido à liberação parcial dos duas últimos lançamentos, as pessoas utiliza
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Tempos de reposição do relatório do Active Directory do Azure | Microsoft Azure"
-   description="Quantidade de tempo que leva para relatar eventos anteriores aparecendo no seu Active Directory do Azure"
+   pageTitle="Tempos de aterramento do relatório do Azure Active Directory | Microsoft Azure"
+   description="Quantidade de tempo que leva para que os eventos de relatório anteriores apareçam no diretório do Azure AD"
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
-   manager="mbaldwin"
+   authors="dhanyahk"
+   manager="stevepo"
    editor=""/>
 
 <tags
@@ -13,23 +13,23 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/07/2016"
+   ms.author="dhanyahk"/>
 
-# Tempos de Aterramento de Relatórios do Active Directory do Azure
+# Tempos de aterramento de relatórios do Azure Active Directory
 
 *Esta documentação é parte do [Guia de Relatórios do Active Directory do Azure](active-directory-reporting-guide.md).*
 
-Após um diretório escolhido nos relatórios, dados de reposição de relatórios para um número determinado de dias indicados aqui.
+Após um diretório ser escolhido nos relatórios, os relatórios realizam o aterramento de dados por um número determinado de dias, indicado aqui.
 
 Relatório | Descrição
 ------------------------------------------------------- | -----------
 Entradas de fontes desconhecidas | 0 dias
 Entradas após várias falhas | 0 dias
-Entradas de várias regiões geográficas | 0 dias
+Entradas de várias geografias | 0 dias
 Entradas de endereços IP com atividade suspeita | 0 dias
 Entradas de dispositivos possivelmente infectados | 0 dias
-Atividade de conexão anômala | 0 dias
+Atividades de entrada irregulares | 0 dias
 Usuários com atividade de entrada anômala | 0 dias
 Usuários com credenciais insuficientes | 0 dias
 Relatório de auditoria | 30 dias
@@ -48,4 +48,4 @@ Usuários RMS mais ativos | 0 dias
 Uso de dispositivo do RMS | 0 dias
 Uso de aplicativos habilitados para RMS | 0 dias
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -40,7 +40,7 @@ Você criará um aplicativo básico do ASP.NET nos Aplicativos Web do Serviço d
 
 É necessário o seguinte para concluir este tutorial:
 
-- Uma implantação do AD FS local (para uma explicação de ponta a ponta do laboratório de teste que eu uso, consulte: [Laboratório de teste: STS autônomo com o AD FS na VM do Azure (apenas para teste)](TODO))
+- Uma implantação do AD FS local (para uma explicação de ponta a ponta do laboratório de teste que eu uso, consulte: [Laboratório de teste: STS autônomo com o AD FS na VM do Azure (apenas para teste)](https://blogs.msdn.microsoft.com/cephalin/2014/12/21/test-lab-standalone-sts-with-ad-fs-in-azure-vm-for-test-only/))
 - Permissões para criar o objeto de confiança de terceira parte confiável no gerenciamento do AD FS
 - Visual Studio 2013
 - [SDK do Azure 2.5.1](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) ou posterior
@@ -356,4 +356,4 @@ Os Aplicativos Web do Serviço de Aplicativo do Azure dão suporte ao acesso a b
  
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -24,10 +24,10 @@ Número máximo de JOINs por consulta* |5
 Número máximo de cláusulas AND por consulta* |20
 Número máximo de cláusulas OR por consulta* |20
 Número máximo de valores por expressão IN* |200
-Número máximo de pontos em um argumento de polígono em uma consulta* ST\_WITHIN |16
+Número máximo de pontos em um argumento de polígono em uma consulta* ST\_WITHIN |256
 Número máximo de coleções criadas por minuto* |5
 Número máximo de operações de escala por minuto* |5
 
 Cotas listadas com um asterisco (*) [pode ser ajustado entrando em contato com o suporte do Azure](../articles/documentdb/documentdb-increase-limits.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/13/2016"
+	ms.date="03/04/2016"
 	ms.author="gokuma;weig;bradsev" />
 
 # Dez coisas que você pode fazer na Máquina Virtual de Ciência de Dados 
@@ -321,7 +321,7 @@ Primeiro, importe os pacotes necessários:
 	from time import time
 	import pyodbc
 	import os
-	from azure.storage import BlobService
+	from azure.storage.blob import BlobService
 	import tables
 	import time
 	import zipfile
@@ -894,4 +894,4 @@ Você pode aproveitar outros serviços de análise e dados do Azure listados nes
 ## Resumo
 Essas são apenas algumas das coisas que você pode fazer na Máquina Virtual de Ciência de Dados da Microsoft. Há muito mais coisas que você fazer para torná-la um ambiente eficaz de análise.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

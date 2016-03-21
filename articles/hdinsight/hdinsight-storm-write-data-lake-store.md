@@ -217,8 +217,12 @@ __Para o HDInsight baseado em Windows__:
 
     ![ações da topologia](./media/hdinsight-storm-write-data-lake-store/topologyactions.png)
 
+## Excluir o cluster
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ##Próximas etapas
 
-Agora que você aprendeu a usar o Storm para gravar no Armazenamento do Azure Data Lake, descubra outros [exemplos do Storm para HDInsight](hdinsight-storm-example-topology.md).
+Agora que você aprendeu a usar o Storm para gravar no Repositório Azure Data Lake, descubra outros [exemplos do Storm para HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

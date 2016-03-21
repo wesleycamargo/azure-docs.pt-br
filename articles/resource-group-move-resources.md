@@ -13,20 +13,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/28/2016" 
+	ms.date="03/04/2016" 
 	ms.author="tomfitz"/>
 
 # Mover recursos para um novo grupo de recursos ou uma nova assinatura
 
-Este tópico mostra como mover os recursos de um grupo de recursos para outro. Você também pode mover os recursos para uma nova assinatura. Você talvez precise mover recursos ao decidir que:
+Este tópico mostra como mover os recursos de um grupo de recursos para outro. Você também pode mover recursos para uma nova assinatura (no entanto, a assinatura deve existir no mesmo [locatário](./active-directory/active-directory-howto-tenant.md)). Você talvez precise mover recursos ao decidir que:
 
 1. Para fins de cobrança, um recurso precisa residir em uma assinatura diferente.
 2. Um recurso já não compartilha o mesmo ciclo de vida que os recursos com os quais estava agrupado anteriormente. Você deseja movê-lo para um novo grupo de recursos para gerenciar esse recurso separadamente dos outros.
 3. Um recurso compartilha o mesmo ciclo de vida como outros recursos em um grupo de recursos diferente. Deseja movê-lo para o grupo de recursos com os outros recursos para gerenciá-los juntos.
 
-Há algumas considerações importantes ao mover um recurso:
+## Considerações antes de mover os recursos
+
+Há algumas questões importantes a considerar antes de mover um recurso:
 
 1. Você não pode alterar o local do recurso. Mover um recurso só o move para um novo grupo de recursos. O novo grupo de recursos pode ter um local diferente, mas que não altere o local do recurso.
+2. O provedor de recursos do recurso que está sendo movido deve ser registrado na assinatura de destino. Você pode encontrar esse problema ao mover um recurso para uma nova assinatura que nunca tenha sido usada com esse tipo de recurso. Por exemplo, se você estiver movendo uma instância do serviço Gerenciamento de API para uma assinatura que não tenha registrado o provedor de recursos **Microsoft.ApiManagement**, a movimentação não terá êxito. Para saber como verificar o status do registro e registrar provedores de recursos, confira [Provedores e tipos de recursos](../resource-manager-supported-services/#resource-providers-and-types).
 2. O grupo de recursos de destino deve conter somente recursos que compartilham o mesmo ciclo de vida de aplicativo que os recursos que você está movendo.
 3. Se você estiver usando o Azure PowerShell ou a CLI do Azure, verifique se está usando a versão mais recente. Para atualizar sua versão, execute o Microsoft Web Platform Installer e verifique se uma nova versão está disponível. Para saber mais, confira [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md) e [Instalar a CLI do Azure](xplat-cli-install.md).
 4. A operação de transferência pode levar algum tempo para ser concluída e, durante esse tempo, seu prompt aguardará até que a operação seja concluída.
@@ -39,20 +42,19 @@ Nem todos os serviços atualmente dão suporte à capacidade de mover recursos.
 Por enquanto, os serviços que dão suporte à transferência para um novo grupo de recursos e uma nova assinatura são:
 
 - Gerenciamento da API
+- Aplicativos do Serviço de Aplicativo (confira [Limitações do Serviço de Aplicativo](#app-service-limitations) abaixo)
 - Automação
 - Batch
 - Data Factory
 - Banco de Dados de Documentos
 - Clusters do HDInsight
 - Cofre da Chave
-- Aplicativos Lógicos
 - Mobile Engagement
 - Hubs de Notificação
 - Insights Operacionais
 - Cache Redis
 - Pesquisar
-- Servidor de Banco de Dados SQL (mover um servidor também move todos os seus bancos de dados. Os bancos de dados não podem ser movidos separadamente do servidor.)
-- Aplicativos Web (algumas [limitações](app-service-web/app-service-move-resources.md) se aplicam)
+- Servidor do Banco de dados SQL (consulte [Limitações do Banco de dados SQL](#sql-database-limitations) abaixo)
 
 Os serviços que dão suporte à transferência para um novo grupo de recursos, mas não para uma nova assinatura são:
 
@@ -67,16 +69,18 @@ Os serviços que atualmente não dão suporte à transferência de um recurso s�
 - Armazenamento
 - Rota Expressa
 
-Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de Aplicativo. Para mover os aplicativos Web, as opções são:
+## Limitações do Serviço de Aplicativo
+
+Ao trabalhar com aplicativos do Serviço de Aplicativo, você não pode mover um plano de Serviço de Aplicativo. Para mover os Aplicativos do Serviço de Aplicativo, as opções são:
 
 - Mova todos os recursos de um grupo de recursos para um grupo de recursos diferente, se o grupo de recursos de destino ainda não tiver recursos Microsoft.Web.
 - Mova os aplicativos Web para um grupo de recursos diferente, mas mantenha o plano de Serviço de Aplicativo no grupo de recursos original.
 
+## Limitações do Banco de dados SQL
+
 Você não pode mover um banco de dados SQL separadamente do seu servidor. O banco de dados e o servidor devem residir no mesmo grupo de recursos. Quando você move um SQL Server, todos os seus bancos de dados também são movidos.
 
 ## Usando o PowerShell para mover recursos
-
-[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
 
 Para mover os recursos existentes para outro grupo de recursos ou assinatura, use o comando **Move-AzureRmResource**.
 
@@ -111,10 +115,22 @@ Para mover recursos existentes para outro grupo de recursos ou outra assinatura,
 
 No corpo da solicitação, especifique o grupo de recursos de destino e os recursos para mover. Para obter mais informações sobre a operação de movimentação REST, consulte [Mover recursos](https://msdn.microsoft.com/library/azure/mt218710.aspx).
 
+## Usando o portal para mover recursos
+
+Você pode mover alguns recursos por meio do portal; no entanto, nem todos os provedores de recursos que dão suporte à operação de movimentação fornecem essa funcionalidade no portal.
+
+Para mover um recurso, selecione o recurso e selecione o botão **Mover**.
+
+![mover recursos](./media/resource-group-move-resources/move-resources.png)
+
+Você especifica para onde deseja mover o recurso. Se outros recursos tiverem de ser movidos com o recurso, eles serão listados.
+
+![selecionar destino](./media/resource-group-move-resources/select-destination.png)
+
 ## Próximas etapas
 - [Usando o PowerShell do Azure com o Gerenciador de Recursos](./powershell-azure-resource-manager.md)
 - [Usando a CLI do Azure com o Gerenciador de Recursos](./xplat-cli-azure-resource-manager.md)
 - [Usando o Portal do Azure para gerenciar recursos](azure-portal/resource-group-portal.md)
 - [Usando marcas para organizar os recursos](./resource-group-using-tags.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

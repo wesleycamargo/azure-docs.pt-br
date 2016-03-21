@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Design da tabela no SQL Data Warehouse #
@@ -117,13 +117,13 @@ Suporte parcial:
 
 - As restrições padrão oferecem suporte apenas a literais e constantes. Não há suporte para expressões ou funções não determinísticas como `GETDATE()` ou `CURRENT_TIMESTAMP`.
 
-> [AZURE.NOTE]Defina as tabelas para que o tamanho máximo possível da linha, incluindo o comprimento total das colunas de tamanho variável, não exceda 32.767 bytes. Embora seja possível definir uma linha com dados de tamanho variável que possam exceder esse número, não será possível inserir dados na tabela. Além disso, tente limitar o tamanho de suas colunas de tamanho variável para obter uma taxa de transferência ainda melhor na execução de consultas.
+> [AZURE.NOTE] Defina as tabelas para que o tamanho máximo possível da linha, incluindo o comprimento total das colunas de tamanho variável, não exceda 32.767 bytes. Embora seja possível definir uma linha com dados de tamanho variável que possam exceder esse número, não será possível inserir dados na tabela. Além disso, tente limitar o tamanho de suas colunas de tamanho variável para obter uma taxa de transferência ainda melhor na execução de consultas.
 
 ## Princípios da distribuição de dados
 
 Há duas opções de distribuição de dados no SQL Data Warehouse:
 
-1. Distribuir os dados uniformemente, mas aleatoriamente 
+1. Distribuir os dados uniformemente, mas aleatoriamente
 2. Distribuir os dados com base nos valores de hash de uma única coluna
 
 A distribuição de dados é decidida ao nível da tabela. Todas as tabelas são distribuídas. Você atribuirá a distribuição a cada tabela no banco de dados do SQL Data Warehouse.
@@ -175,13 +175,13 @@ WITH
 ;
 ```
 
-> [AZURE.NOTE]Observe que o segundo exemplo acima não faz menção à chave de distribuição. Round robin é o padrão e, portanto, não é absolutamente necessário. No entanto, ser explícito é uma prática recomendada, pois assim seus colegas estarão cientes de suas intenções ao examinar o design da tabela.
+> [AZURE.NOTE] Observe que o segundo exemplo acima não faz menção à chave de distribuição. Round robin é o padrão e, portanto, não é absolutamente necessário. No entanto, ser explícito é uma prática recomendada, pois assim seus colegas estarão cientes de suas intenções ao examinar o design da tabela.
 
 Normalmente, esse tipo de tabela é usado quando não há uma coluna de chave óbvia para basear o hash dos dados. Ela também pode ser usada por tabelas menores ou menos importantes nas quais o custo do movimento talvez não seja tão bom.
 
 O carregamento de dados em uma tabela distribuída por round robin tende a ser mais rápido do que o carregamento em uma tabela distribuída por hash. Com uma tabela distribuída por round robin, não há a necessidade de entender os dados ou executar o hash antes do carregamento. Por esse motivo, as tabelas round robin normalmente são bons destinos de carregamento.
 
-> [AZURE.NOTE]Quando são distribuídos por round robin, os dados são alocados para a distribuição no nível do *buffer*.
+> [AZURE.NOTE] Quando são distribuídos por round robin, os dados são alocados para a distribuição no nível do *buffer*.
 
 ### Recomendações
 
@@ -201,7 +201,7 @@ A previsibilidade do hash é extremamente importante. Isso significa que os dado
 
 Você verá abaixo que a distribuição de hash pode ser muito eficiente para otimização da consulta. Por isso, é considerada uma forma otimizada de distribuição de dados.
 
-> [AZURE.NOTE]Lembre-se! O hash não tem base no valor dos dados, mas no tipo dos dados que estão passando por hash.
+> [AZURE.NOTE] Lembre-se! O hash não tem base no valor dos dados, mas no tipo dos dados que estão passando por hash.
 
 Veja abaixo uma tabela que foi distribuída por hash, por ProductKey.
 
@@ -223,7 +223,7 @@ WITH
 ;
 ```
 
-> [AZURE.NOTE]Quando são distribuídos por hash, os dados são alocados para a distribuição no nível da linha.
+> [AZURE.NOTE] Quando são distribuídos por hash, os dados são alocados para a distribuição no nível da linha.
 
 ## Partições de tabela
 As partições de tabela recebem suporte e são fáceis de definir.
@@ -274,7 +274,7 @@ Aplique as seguintes recomendações para gerar estatísticas:
 2. Gere estatísticas de várias colunas em cláusulas compostas
 3. Atualize as estatísticas periodicamente. Lembre-se de que isso não é feito automaticamente!
 
->[AZURE.NOTE]É comum que o SQL Server Data Warehouse confie exclusivamente em `AUTOSTATS` para manter as estatísticas de coluna atualizadas. Essa não é uma prática recomendada nem para data warehouses do SQL Server. As `AUTOSTATS` são disparadas por uma taxa de 20% de alteração, algo que talvez não seja suficiente para grandes tabelas de fatos contendo milhões ou bilhões de linhas. Portanto, convém manter-se sempre bem informado sobre as atualizações de estatísticas, a fim de garantir que elas reflitam com precisão a cardinalidade da tabela.
+>[AZURE.NOTE] É comum que o SQL Server Data Warehouse confie exclusivamente em `AUTOSTATS` para manter as estatísticas de coluna atualizadas. Essa não é uma prática recomendada nem para data warehouses do SQL Server. As `AUTOSTATS` são disparadas por uma taxa de 20% de alteração, algo que talvez não seja suficiente para grandes tabelas de fatos contendo milhões ou bilhões de linhas. Portanto, convém manter-se sempre bem informado sobre as atualizações de estatísticas, a fim de garantir que elas reflitam com precisão a cardinalidade da tabela.
 
 ## Recursos sem suporte
 O SQL Data Warehouse não usa ou oferece suporte a estes recursos:
@@ -306,4 +306,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

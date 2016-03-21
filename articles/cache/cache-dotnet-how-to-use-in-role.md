@@ -4,7 +4,7 @@
 	services="cache" 
 	documentationCenter=".net" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 
@@ -38,7 +38,7 @@ O Cache na Função fornece uma camada de cache para seus aplicativos do Azure. 
 
 O Cache na Função fornece uma maneira de armazenar em cache usando uma parte da memória das máquinas virtuais que hospedam as instâncias de função em seus Serviços de Nuvem do Azure (também conhecidos como serviços hospedados). Você tem mais flexibilidade em termos de opções de implantação. Os caches podem ser muito grandes e não têm nenhuma restrição de cota específica ao cache.
 
->[AZURE.IMPORTANT]A partir do SDK 2.6 d Azure, o Cache na função está usando o SDK de Armazenamento do Microsoft Azure versão 4.3. Nas versões anteriores do SDK do Azure, o Cache na função usava o SDK de Armazenamento do Azure versão 1.7. Aplicativos que usam o Cache na Função com as versões do SDK do Azure anteriores à versão 2.6 devem migrar para o SDK do Azure 2.6 antes de a versão do Armazenamento do Azure 2011-08-18 ser descomissionada no dia 1º de agosto de 2016. Para obter mais informações, confira [Notas de versão do Azure SDK 2.6 – cache na função](../azure-sdk-dotnet-release-notes-2_6.md#in-role-cache-updates) e [Atualização sobre a remoção de versão do serviço de Armazenamento do Microsoft Azure: extensão até 2016](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx).
+>[AZURE.IMPORTANT] A partir do SDK 2.6 d Azure, o Cache na função está usando o SDK de Armazenamento do Microsoft Azure versão 4.3. Nas versões anteriores do SDK do Azure, o Cache na função usava o SDK de Armazenamento do Azure versão 1.7. Aplicativos que usam o Cache na Função com as versões do SDK do Azure anteriores à versão 2.6 devem migrar para o SDK do Azure 2.6 antes de a versão do Armazenamento do Azure 2011-08-18 ser descomissionada no dia 1º de agosto de 2016. Para obter mais informações, confira [Notas de versão do Azure SDK 2.6 – cache na função](../azure-sdk-dotnet-release-notes-2_6.md#in-role-cache-updates) e [Atualização sobre a remoção de versão do serviço de Armazenamento do Microsoft Azure: extensão até 2016](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx).
 
 O cache em instâncias de função tem as seguintes vantagens:
 
@@ -375,7 +375,7 @@ Agora que você aprendeu o básico do Cache na Função, siga os links para sabe
 [Como armazenar o cache de saída de página ASP.NET no cache]: #store-page
 [Target a Supported .NET Framework Profile]: #prepare-vs-target-net
  
-<!-- IMAGES -->
+<!-- IMAGES --> 
 [RoleCache1]: ./media/cache-dotnet-how-to-use-in-role/cache8.png
 [RoleCache2]: ./media/cache-dotnet-how-to-use-in-role/cache9.png
 [RoleCache3]: ./media/cache-dotnet-how-to-use-in-role/cache10.png
@@ -411,4 +411,4 @@ Agora que você aprendeu o básico do Cache na Função, siga os links para sabe
 [Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

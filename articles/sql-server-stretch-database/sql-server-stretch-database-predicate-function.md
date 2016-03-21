@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Escrever uma Função embutida com valor de tabela a fim de selecionar linhas para migração (Stretch Database) | Microsoft Azure"
-	description="Saiba como criar um predicado de filtro para selecionar as linhas para migração."
+	pageTitle="Usar um predicado de filtro para selecionar linhas para migrar (Stretch Database) | Microsoft Azure"
+	description="Saiba como usar um predicado de filtro para selecionar as linhas para migração."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -16,7 +16,7 @@
 	ms.date="02/26/2016"
 	ms.author="douglasl"/>
 
-# Escrever uma Função Embutida com Valor de Tabela para Selecionar Linhas para a Migração (Banco de Dados de Stretch)
+# Usar um predicado de filtro para selecionar linhas para migrar (Stretch Database)
 
 Se você armazenar dados do histórico em uma tabela separada, poderá configurar o Banco de Dados de Stretch para migrar toda a tabela. Por outro lado, se sua tabela contiver dados do histórico e atuais, você poderá especificar um predicado de filtro para selecionar as linhas para migração. O predicado de filtro deve chamar uma função com valor de tabela embutida. Este tópico descreve como escrever uma Função com valor de tabela embutida a fim de selecionar linhas para migração.
 
@@ -409,4 +409,4 @@ Para verificar o predicado de filtro aplicado a uma tabela, abra o modo de exibi
 ## Consulte também
 [ALTERAR TABELA (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

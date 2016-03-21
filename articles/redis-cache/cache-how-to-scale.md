@@ -4,7 +4,7 @@
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Como dimensionar o Cache Redis do Azure
 
->[AZURE.NOTE]O recurso de dimensionamento do Cache Redis do Azure está atualmente na visualização. Durante o período de visualização, não é possível dimensionar um cache de camada premium, mas você pode alterar o tipo de preço e [o tamanho do cluster](cache-how-to-premium-clustering.md#cluster-size) em um cache premium com clustering habilitado.
+>[AZURE.NOTE] O recurso de dimensionamento do Cache Redis do Azure está atualmente na visualização. Durante o período de visualização, não é possível dimensionar um cache de camada premium, mas você pode alterar o tipo de preço e [o tamanho do cluster](cache-how-to-premium-clustering.md#cluster-size) em um cache premium com clustering habilitado.
 
 O Cache Redis do Azure tem diferentes ofertas de cache que fornecem flexibilidade na escolha do tamanho do e dos recursos de cache. Se os requisitos de seu aplicativo mudarem depois que um cache for criado, você poderá dimensionar o tamanho do cache usando a folha **Alterar tipo de preço** no [Portal do Azure](https://portal.azure.com).
 
@@ -46,11 +46,11 @@ Selecione a camada de preços desejada na folha **Camada de preços** e clique e
 
 ![Camada de preços][redis-cache-pricing-tier-blade]
 
->[AZURE.NOTE]Você pode dimensionar para uma camada de preços diferente com as restrições a seguir.
+>[AZURE.NOTE] Você pode dimensionar para uma camada de preços diferente com as restrições a seguir.
 >
->-	Não é possível dimensionar um cache **Premium**.
+>-	Não é possível dimensionar para ou a partir de um cache **Premium**.
 >-	Não é possível dimensionar de um cache **Standard** para um cache **Básico**.
->-	É possível dimensionar de um cache **Básico** para um cache **Standard**, mas não é possível alterar o tamanho ao mesmo tempo. Se precisar de um tamanho diferente, você pode fazer uma operação de dimensionamento subsequente para o tamanho desejado.
+>-	Você pode dimensionar de um cache **Básico** para um cache **Padrão**, mas não pode alterar o tamanho ao mesmo tempo. Se precisar de um tamanho diferente, você pode fazer uma operação de dimensionamento subsequente para o tamanho desejado.
 >-	Não é possível dimensionar de um tamanho maior para o tamanho **C0 (250 MB)**.
 
 Enquanto o cache é dimensionado para a nova camada de preços, um status **Dimensionando** é exibido na folha do **Cache Redis**.
@@ -120,17 +120,17 @@ Não, o nome do cache e as chaves permanecem inalterados durante uma operação 
 
 ## Como funciona o dimensionamento?
 
-Quando um cache **Básico** é dimensionado para um tamanho diferente, ele é desligado e um novo cache é provisionado usando o novo tamanho. Durante esse tempo, o cache não está disponível e todos os dados em cache são perdidos.
+Quando um cache **Básico** é escalonado para um tamanho diferente, ele é desligado e um novo cache é provisionado usando o novo tamanho. Durante esse tempo, o cache não está disponível e todos os dados em cache são perdidos.
 
-Quando um cache **Básico** é dimensionado para um cache **Standard**, um cache de réplica é provisionado e os dados são copiados do cache primário no cache de réplica. O cache permanece disponível durante o processo de dimensionamento.
+Quando um cache **Básico** é escalonado para um cache **Standard**, um cache de réplica é provisionado e os dados são copiados do cache primário no cache de réplica. O cache permanece disponível durante o processo de dimensionamento.
 
 Quando um cache **Standard** é dimensionado para um tamanho diferente, uma das réplicas é desligada e provisionada novamente para o novo tamanho, os dados são transferidos e a outra réplica executa um failover antes de ser provisionada novamente, de forma semelhante ao processo que ocorre durante uma falha em um dos nós de cache.
 
 ## Perderei dados de meu cache durante o dimensionamento?
 
-Quando um cache **Básico** é dimensionado para um novo tamanho, todos os dados são perdidos e o cache fica indisponível durante a operação de dimensionamento.
+Quando um cache **Básico** é escalonado para um novo tamanho, todos os dados são perdidos, e o cache fica indisponível durante a operação de colocação em escala.
 
-Quando um cache **Básico** é dimensionado para um cache **Standard**, normalmente os dados no cache são preservados.
+Quando um cache **Básico** é dimensionado para um cache **Padrão**, os dados no cache geralmente são preservados.
 
 Quando um cache **Standard** é dimensionado para um tamanho maior, normalmente todos os dados são preservados. Ao se dimensionar um cache **Padrão** para um tamanho menor, dados podem ser perdidos, dependendo da quantidade de dados no cache em relação ao novo tamanho quando ele for dimensionado. Se dados forem perdidos ao se reduzir, as chaves serão removidas usando a política de remoção [allkeys-lru](http://redis.io/topics/lru-cache).
 
@@ -148,7 +148,7 @@ Não é possível dimensionar um cache **Premium**.
 
 Não é possível mudar de um cache **Standard** para um cache **Básico**.
 
-É possível dimensionar de um cache **Básico** para um cache **Standard**, mas não é possível alterar o tamanho ao mesmo tempo. Se precisar de um tamanho diferente, você pode fazer uma operação de dimensionamento subsequente para o tamanho desejado.
+É possível dimensionar de um cache **Básico** para um cache **Standard**, mas não é possível alterar o tamanho simultaneamente. Se precisar de um tamanho diferente, você pode fazer uma operação de dimensionamento subsequente para o tamanho desejado.
 
 Você pode escalar verticalmente de um cache **C0** (250 MB) para um tamanho maior, mas não pode dimensionar de um tamanho maior para um cache **C0**.
 
@@ -178,4 +178,4 @@ Estamos lançando esse recurso para obter comentários. Com base nos comentário
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0309_2016-->

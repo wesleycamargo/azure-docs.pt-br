@@ -481,6 +481,8 @@ Como alternativa, você pode usar PUT.
 
     PUT https://management.azure.com/subscriptions/[subscriptionId]/resourcegroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]?api-version=2015-02-28
 
+> [AZURE.NOTE] Se você usar um PUT para atualizar o serviço, deverá usar o mesmo corpo da solicitação usado em uma solicitação [Criar serviço](#CreateService).
+
 ###Solicitar parâmetros de URI###
 
 `subscriptionId`: obrigatório. O `subscriptionID` para o usuário do Azure. Você pode obter esse valor por meio da API do Gerenciador de Recursos do Azure ou por meio do portal.
@@ -826,4 +828,4 @@ O código de status de resposta será HTTP 200 (OK) se tiver êxito.
 
 Nenhum.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

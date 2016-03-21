@@ -19,7 +19,7 @@ Para garantir que nenhuma mensagem seja reenviada fora da janela de eliminação
 ### Provisionar uma conta de Armazenamento do Azure e uma fila do Barramento de Serviço
 Para usar a classe [EventProcessorHost], você deve ter uma conta de Armazenamento do Azure para habilitar o **EventProcessorHost** para registro do ponto de verificação. Você pode usar uma conta de armazenamento já existente ou seguir as instruções em [Sobre o Armazenamento do Azure] para criar uma nova. Anote a cadeia de conexão da conta de armazenamento.
 
-Você também precisará de uma fila do Barramento de Serviço para habilitar o processamento confiável de mensagens interativas. Você pode criar uma fila programaticamente com uma janela de eliminação de duplicação de 1 hora, como explicado em [Como usar filas do Barramento de Serviço][Service Bus Queue] ou usar o [portal do Azure], seguindo essas etapas:
+Você também precisará de uma fila do Barramento de Serviço para habilitar o processamento confiável de mensagens interativas. Você pode criar uma fila programaticamente com uma janela de eliminação de duplicação de 1 hora, como explicado em [Como usar filas do Barramento de Serviço][Service Bus Queue], ou use o [portal do Azure clássico] seguindo estas etapas:
 
 1. Clique em **NOVO** no canto inferior esquerdo, em seguida, **Serviços de Aplicativos**, em seguida, **Barramento de Serviço**, em seguida, **Fila**, em seguida, **Criação personalizada**, insira o nome **d2ctutorial**, selecione uma região, use um namespace existente ou crie um novo, e na página seguinte, selecione **Habilitar detecção de duplicidades** e defina a **Janela de tempo do histórico de detecção de duplicidades** para uma hora. Em seguida, clique na marca de seleção para salvar a sua configuração de fila.
 
@@ -294,7 +294,7 @@ Nesta seção, você escreverá um aplicativo de console do Windows que recebe m
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 [Guia de programação de Hubs de Eventos]: ../event-hubs/event-hubs-programming-guide.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[portal do Azure]: https://manage.windowsazure.com/
+[Azure Portal]: https://manage.windowsazure.com/
 [Service Bus Queue]: ../service-bus/service-bus-dotnet-how-to-use-queues.md
 [Criar aplicativos multicamadas com o Barramento de Serviço]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 [Introdução ao Hub IoT]: iot-hub-csharp-csharp-getstarted.md
@@ -312,4 +312,4 @@ Nesta seção, você escreverá um aplicativo de console do Windows que recebe m
 [31]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue3.png
 [32]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue4.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

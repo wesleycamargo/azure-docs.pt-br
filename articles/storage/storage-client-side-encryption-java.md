@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/24/2016"
+	ms.date="02/24/2016"
 	ms.author="dineshm"/>
 
 
@@ -22,7 +22,8 @@
 [AZURE.INCLUDE [storage-selector-client-side-encryption-include](../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## Visão geral  
-A [Biblioteca de Cliente do Armazenamento do Azure para Java](https://www.nuget.org/packages/WindowsAzure.Storage) dá suporte à criptografia de dados em aplicativos cliente antes do upload no Armazenamento do Azure e à descriptografia de dados durante o download para o cliente. A biblioteca também dá suporte à integração com o [Cofre da Chave do Azure](https://azure.microsoft.com/services/key-vault/) para o gerenciamento de chaves de contas de armazenamento.
+
+A [Biblioteca de Cliente do Armazenamento do Azure para Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) dá suporte à criptografia de dados em aplicativos cliente antes do upload no Armazenamento do Azure e à descriptografia de dados durante o download para o cliente. A biblioteca também dá suporte à integração com o [Cofre da Chave do Azure](https://azure.microsoft.com/services/key-vault/) para o gerenciamento de chaves de contas de armazenamento.
 
 ## Criptografia e descriptografia com a técnica de envelope    
 Os processos de criptografia e descriptografia seguem a técnica de envelope.
@@ -105,9 +106,9 @@ O Cofre da Chave do Azure ajuda a proteger chaves criptográficas e segredos usa
 A biblioteca de cliente de armazenamento usa a biblioteca principal do Cofre da Chave para fornecer uma estrutura comum no Azure para o gerenciamento de chaves. Os usuários também recebem o benefício adicional de usar a biblioteca de extensões do Cofre da Chave. A biblioteca de extensões fornece funcionalidades úteis com Symmetric simples/RSA local e provedores de chave de nuvem e com agregação e armazenamento em cache.
 
 ### Interface e dependências  
-Há três pacotes do Cofre da Chave:
+Há três pacotes do Cofre da Chave:  
 
-- azure-keyvault-core contém IKey e IKeyResolver. Este é um pequeno pacote sem dependências. A biblioteca de cliente do armazenamento para Java define isso como uma dependência.
+- azure-keyvault-core contém IKey e IKeyResolver. Este é um pequeno pacote sem dependências. A biblioteca de cliente do armazenamento para Java define isso como uma dependência.  
 - azure-keyvault contém o cliente REST do Cofre da Chave.  
 - azure-keyvault-extensions contém o código de extensão que inclui implementações de algoritmos de criptografia e um RSAKey e SymmetricKey. Ele depende dos namespaces básicos e KeyVault, e fornece a funcionalidade para definir um resolvedor de agregação (quando os usuários desejam usar vários provedores de chave) e um resolvedor de chave em cache. Embora a biblioteca de cliente de armazenamento não dependa diretamente deste pacote, se os usuários quiserem usar o Cofre da Chave do Azure para armazenar suas chaves ou usar as extensões do Cofre da Chave para consumir provedores criptográficos local e na nuvem, eles precisarão esse pacote.  
 
@@ -133,7 +134,7 @@ O suporte à criptografia está disponível somente na biblioteca de cliente de 
 >- Habilite o sinalizador **requireEncryption** nas opções de solicitação padrão para os usuários que devem trabalhar somente com dados criptografados. Saiba mais logo abaixo.
 
 ## API do cliente / Interface  
-Ao criar um objeto EncryptionPolicy, os usuários podem fornecer somente uma chave (Implementando IKey), somente um resolvedor (Implementando IKeyResolver) ou ambos. IKey é o tipo de chave básico que é identificado usando um identificador de chave e que fornece a lógica para empacotamente/desempacotamento. IKeyResolver é usado para resolver uma chave durante o processo de descriptografia. Ele define um método ResolveKey que retorna um IKey dado um certo identificador de chave. Isso fornece aos usuários a capacidade de escolher entre várias chaves que são gerenciadas em vários locais.
+Ao criar um objeto EncryptionPolicy, os usuários podem fornecer somente uma chave (Implementando IKey), somente um resolvedor (Implementando IKeyResolver) ou ambos. IKey é o tipo de chave básico que é identificado usando um identificador de chave e que fornece a lógica para empacotamente/desempacotamento. IKeyResolver é usado para resolver uma chave durante o processo de descriptografia. Ele define um método ResolveKey que retorna um IKey dado um certo identificador de chave. Isso fornece aos usuários a capacidade de escolher entre várias chaves que são gerenciadas em vários locais.  
 
 - Para criptografia, a chave é usada sempre e a ausência de uma chave resultará em um erro.  
 - Para descriptografar:  
@@ -239,9 +240,11 @@ Observe que criptografar seu armazenamento de dados resulta em uma sobrecarga ad
 
 ## Próximas etapas  
 
-- Baixar a [Biblioteca de cliente do Armazenamento do Azure para o pacote Java Maven](https://github.com/Azure/azure-storage-java)  
+- Baixar a [Biblioteca de cliente do Armazenamento do Azure para o pacote Java Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
 - Baixar a [Biblioteca de cliente do Armazenamento do Azure para o código-fonte Java do GitHub](https://github.com/Azure/azure-storage-java)   
-- Baixar os pacotes Maven de [Núcleo](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Cliente](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) e [Extensões](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) do Cofre da Chave do Azure
-- Visitar a [Documentação do Cofre da Chave](../key-vault/key-vault-whatis.md)  
+- Baixe a biblioteca do Azure Key Vault Maven para pacotes Java Maven:
+	- Pacote [Core](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core)
+	- Pacote [Client](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault)
+- Visite a [Documentação do Cofre de Chaves do Azure](../key-vault/key-vault-whatis.md)  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

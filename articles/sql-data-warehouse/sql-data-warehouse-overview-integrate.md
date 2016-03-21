@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/01/2016"
+   ms.date="03/03/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 #Aproveitar outros serviços com o SQL Data Warehouse
@@ -30,7 +30,7 @@ Estamos trabalhando para nos conectar com mais serviços em todo o ecossistema d
 A integração do Power BI permite que você aproveite o poder de computação do SQL Data Warehouse com a e visualização e os relatórios dinâmicos do Power BI. Atualmente, a integração do Power BI inclui:
 
 + **Conexão direta**: uma conexão mais avançada com a aplicação de lógica no SQL Data Warehouse. Isso fornece uma análise mais rápida em uma escala maior.
-+ **Abrir no Power BI**: o botão 'Abrir no Power BI' passa informações de instância para Power BI, permitindo uma conexão contínua. 
++ **Abrir no Power BI**: o botão 'Abrir no Power BI' passa informações de instância para Power BI, permitindo uma conexão contínua.
 
 Consulte [Integrar com o Power BI](./sql-data-warehouse-integrate-power-bi.md) ou [Documentação do Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/06/24/exploring-azure-sql-data-warehouse-with-power-bi.aspx) para obter mais informações.
 
@@ -44,7 +44,7 @@ Confira [Integrar com o Azure Data Factory](./sql-data-warehouse-integrate-azure
 ##Aprendizado de Máquina do Azure
 O Aprendizado de Máquina do Azure é um serviço de análise totalmente gerenciado que permite aos usuários criar modelos complexos utilizando um grande conjunto de ferramentas de previsão. O SQL Data Warehouse tem suporte como uma origem e um destino para esses modelos com a seguinte funcionalidade:
 
-+ **Ler Dados:** encaminhe modelos em escala usando o T-SQL no SQL Data Warehouse. 
++ **Ler Dados:** encaminhe modelos em escala usando o T-SQL no SQL Data Warehouse.
 + **Gravar Dados:** confirme as alterações de qualquer modelo de volta para o SQL Data Warehouse.
 
 Veja [Integrar com o Aprendizado de Máquina do Azure](./sql-data-warehouse-integrate-azure-machine-learning.md) ou a [Documentação do Aprendizado de Máquina do Azure](https://azure.microsoft.com/services/machine-learning/) para obter mais informações.
@@ -71,4 +71,4 @@ Veja [Integrar com o Stream Analytics do Azure](./sql-data-warehouse-integrate-a
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

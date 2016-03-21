@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/21/2015"
+	ms.date="03/08/2016"
 	ms.author="jeedes"/>
 
 
@@ -36,7 +36,7 @@ Para configurar a integração do AD do Azure a SD Elements, você precisa dos s
 - Uma logon único de SD Elements na assinatura habilitada
 
 
-> [AZURE.NOTE]Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+> [AZURE.NOTE] Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 
 
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
@@ -61,7 +61,7 @@ Para configurar a integração de SD Elements ao Azure AD, você precisa adicion
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
-3. Para abrir o modo de exibição de aplicativo, no modo de exibição de diretório, clique em **Aplicativos** no menu superior.<br><br> ![Aplicativos][2]<br>
+3. Para abrir a exibição dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu superior.<br><br> ![Aplicativos][2]<br>
 4. Clique em **Adicionar** na parte inferior da página.<br><br> ![Aplicativos][3]<br>
 5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.<br><br> ![Aplicativos][4]<br>
 6. Na caixa de pesquisa, digite **SD Elements**.<br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_01.png)<br>
@@ -104,14 +104,14 @@ Seu aplicativo SD Elements espera as declarações do SAML em um formato especí
    
     b. Na caixa de texto **URL de resposta**, digite a URL de resposta do locatário usando o seguinte padrão: *https://\<o nome do locatário>.sdelements.com/sso/saml2/acs/*
 
-    > [AZURE.NOTE]Se você precisar da URL do emissor e da URL de resposta reais para o seu locatário, entre em contato com a [equipe de suporte do SD Elements](mailto:support@sdelements.com).
+    > [AZURE.NOTE] Se você precisar da URL do emissor e da URL de resposta reais para o seu locatário, entre em contato com a [equipe de suporte do SD Elements](mailto:support@sdelements.com).
       
     c. Clique em **Próximo**.
 
 
 4. Na página **Configurar logon único no SD Elements**, execute as seguintes etapas:<br><br>![Configurar o logon único](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_05.png) <br>
 
-    a. Clique em **Baixar certificado** e salve o certificado localmente no computador.
+    a. Clique em **Baixar certificado** e salve o arquivo em seu computador.
 
     b. Clique em **Próximo**.
 
@@ -159,7 +159,7 @@ Seu aplicativo SD Elements espera as declarações do SAML em um formato especí
 1. Clique em **aplicar alterações**. <br><br>![Configurar o logon único][24]<br>
 
 ### Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no portal clássico do Azure chamado Brenda Fernandes.<br> Na lista Usuários, selecione **Brenda Fernandes**.<br><br>![Criar um usuário do AD do Azure][20]<br>
+O objetivo desta seção é criar um usuário de teste no Portal clássico do Azure chamado Brenda Fernandes.<br> Na lista Usuários, escolha **Brenda Fernandes**.<br><br>![Criar um usuário do AD do Azure][20]<br>
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
@@ -171,11 +171,11 @@ O objetivo desta seção é criar um usuário de teste no portal clássico do Az
 
 4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**. <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_04.png) <br>
 
-5. Na página da caixa de diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas: <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_05.png)<br>
+5. Na página do diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas: <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_05.png) <br>
 
     a. Em Tipo de Usuário, selecione Novo usuário na organização.
 
-    b. Na caixa de texto **Nome do Usuário**, digite **BrendaFernandes**.
+    b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
 
     c. Clique em **Próximo**.
 
@@ -185,7 +185,7 @@ O objetivo desta seção é criar um usuário de teste no portal clássico do Az
 
     b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
 
-    c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
+    c. Na caixa de texto **Nome de exibição**, digite **Brenda Fernandes**.
 
     d. Na lista **Função**, selecione **Usuário**.
 
@@ -287,4 +287,4 @@ O objetivo desta seção é testar a configuração de logon único do AD do Azu
 [204]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0309_2016-->

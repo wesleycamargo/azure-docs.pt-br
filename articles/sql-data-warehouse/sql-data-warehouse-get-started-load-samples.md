@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Carregar dados de amostra no SQL Data Warehouse
@@ -25,19 +25,19 @@ Veja a seguir uma breve exibição de como o AdventureWorksDW pode ser carregado
 ## Adicionando dados de exemplo durante a criação
 Você pode garantir o carregamento desses dados de exemplo em seu SQL Data Warehouse durante a implantação seguindo estas etapas:
 
-1. Inicie o processo de criação localizando o SQL Data Warehouse no [Portal Clássico do Azure][] clicando em “+ Novo” e em “Dados e Armazenamento” ou no Marketplace, pesquisando “SQL Data Warehouse”. 
- 
+1. Inicie o processo de criação localizando o SQL Data Warehouse no [Portal Clássico do Azure][] clicando em “+ Novo” e em “Dados e Armazenamento” ou no Marketplace, pesquisando “SQL Data Warehouse”.
+
 2. Após o início do processo, clique na opção ‘Selecionar origem’ e defina-o como ‘Exemplo’. Se você não estiver criando um novo servidor, também será necessário fornecer o logon do servidor que você está usando para criar.
 
 
-> [AZURE.NOTE]Para carregar dados de exemplo em sua instância, será necessário habilitar os serviços do Azure para acessar o servidor (isso deverá estar ativado por padrão durante a criação de um novo servidor). Se isso não for feito, o carregamento falhará, mas você ainda poderá [carregar os dados de exemplo manualmente][].
+> [AZURE.NOTE] Para carregar dados de exemplo em sua instância, será necessário habilitar os serviços do Azure para acessar o servidor (isso deverá estar ativado por padrão durante a criação de um novo servidor). Se isso não for feito, o carregamento falhará, mas você ainda poderá [carregar os dados de exemplo manualmente][].
 
 
 ## Usando o Power BI para analisar a Adventureworks
 
 O uso do conjunto de dados de exemplo pode ser uma ótima maneira de começar a usar o Power BI. Depois de carregar os dados de exemplo, você poderá abrir uma conexão com o SQL Data Warehouse clicando no botão “Abrir no Power BI” no portal Clássico do Azure ou acessando [Power BI][] e [conectando-se ao SQL Data Warehouse][]. Após a conexão, um novo conjunto de dados deve ser criado com o mesmo nome de seu data warehouse. Para facilitar a análise, criamos uma exibição chamada ‘AggregateSales’ com algumas das métricas fundamentais para a análise das vendas da empresa. Você pode clicar no nome da exibição para expandi-la e ver as colunas que ela contém, e também pode criar algumas visualizações rápidas seguindo estas etapas:
 
-1. Para começar, podemos criar com facilidade um mapa de todas as nossas vendas clicando nas colunas ‘PostalCode’ e ‘SalesAmount’. O Power BI reconhecerá isso automaticamente como dados geográficos e os colocará em um mapa para você. 
+1. Para começar, podemos criar com facilidade um mapa de todas as nossas vendas clicando nas colunas ‘PostalCode’ e ‘SalesAmount’. O Power BI reconhecerá isso automaticamente como dados geográficos e os colocará em um mapa para você.
 
 2. Agora, se você quiser criar um gráfico de barras das vendas, bastará clicar na coluna ‘SalesAmount’ e o Power BI o criará automaticamente. Você pode adicionar detalhes arrastando o gráfico ‘CustomerIncome’ para o campo ‘Eixo’ à esquerda de ‘AggregateSales’ para mostrar as vendas de acordo com a renda do cliente.
 
@@ -95,4 +95,4 @@ Agora que proporcionamos a você uma introdução à verificação de dados de e
 <!--Other Web references-->
 [Sample Data Scripts]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="03/04/2016" 
 	ms.author="bradsev" />
 
 # Mover dados de e para o Armazenamento de Blobs do Azure usando Python
@@ -51,7 +51,7 @@ Este documento pressupõe que você tenha uma assinatura, uma conta de armazenam
 
 Adicione o trecho de código a seguir à parte superior de qualquer código Python no qual você deseja acessar programaticamente o Armazenamento do Azure:
 
-	from azure.storage import BlobService
+	from azure.storage.blob import BlobService
 
 O objeto **serviço Blob** permite que você trabalhe com contêineres e blobs. O código a seguir cria um objeto BlobService usando o nome da conta de armazenamento e a chave da conta. Substitua o nome e a chave de conta pela sua conta e chave reais.
 	
@@ -70,7 +70,7 @@ O código de exemplo a seguir carrega um arquivo local para um contêiner:
 
 O código de exemplo a seguir carrega todos os arquivos (exceto diretórios) em um diretório local para o armazenamento de blob:
 
-	from azure.storage import BlobService
+	from azure.storage.blob import BlobService
 	from os import listdir
 	from os.path import isfile, join
 	
@@ -95,7 +95,11 @@ O código de exemplo a seguir carrega todos os arquivos (exceto diretórios) em 
 
 ## Baixar Dados de Blob
 
-Use os seguintes métodos para baixar os dados de um blob: 1. get\_blob\_to\_path 2. get\_blob\_to\_file 3. get\_blob\_to\_bytes 4. get\_blob\_to\_text
+Use os métodos a seguir para baixar dados de um blob:
+1. get\_blob\_to\_path
+2. get\_blob\_to\_file
+3. get\_blob\_to\_bytes
+4. get\_blob\_to\_text 
 
 Esses métodos realizam a divisão necessária quando o tamanho dos dados excede 64 MB.
 
@@ -105,7 +109,7 @@ O código de exemplo a seguir baixa o conteúdo de um blob em um contêiner para
 
 O código de exemplo a seguir baixa todos os blobs de um contêiner. Ele usa list\_blobs para obter a lista de blobs disponíveis no contêiner e baixá-los para um diretório local.
 
-	from azure.storage import BlobService
+	from azure.storage.blob import BlobService
 	from os.path import join
 	
 	# Set parameters here
@@ -125,4 +129,4 @@ O código de exemplo a seguir baixa todos os blobs de um contêiner. Ele usa lis
 	    except:
 	        print "something wrong happened when downloading the data %s"%blob.name
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->
