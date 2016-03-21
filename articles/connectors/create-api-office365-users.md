@@ -70,7 +70,8 @@ Depois de criar a conexão, insira as propriedades dos Usuários do Office 365, 
 Aplica-se à versão: 1.0.
 
 ### Obter meu perfil 
-Recupera o perfil para o usuário atual.```GET: /users/me```
+Recupera o perfil para o usuário atual.
+```GET: /users/me```
 
 Não há parâmetros para esta chamada.
 
@@ -88,7 +89,8 @@ Não há parâmetros para esta chamada.
 
 
 ### Obter o perfil do usuário 
-Recupera um perfil do usuário específico.```GET: /users/{userId}```
+Recupera um perfil do usuário específico.
+```GET: /users/{userId}```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -108,7 +110,8 @@ Recupera um perfil do usuário específico.```GET: /users/{userId}```
 
 
 ### Obter o gerenciador 
-Recupera o perfil do usuário para o gerenciador do usuário especificado.```GET: /users/{userId}/manager```
+Recupera o perfil do usuário para o gerenciador do usuário especificado.
+```GET: /users/{userId}/manager```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -129,7 +132,8 @@ Recupera o perfil do usuário para o gerenciador do usuário especificado.```GET
 
 
 ### Obter relatórios diretos 
-Obter relatórios diretos. ```GET: /users/{userId}/directReports```
+Obter relatórios diretos.
+```GET: /users/{userId}/directReports```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -150,7 +154,8 @@ Obter relatórios diretos. ```GET: /users/{userId}/directReports```
 
 
 ### Pesquisar por usuários 
-Recupera os resultados da pesquisa dos perfis do usuário.```GET: /users```
+Recupera os resultados da pesquisa dos perfis do usuário.
+```GET: /users```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|

@@ -42,7 +42,7 @@ Em uma instância do SQL Server local, as exibições de gerenciamento dinâmico
 A seguinte consulta retorna o tamanho do seu banco de dados (em megabytes):
 
 ```
--- Calculates the size of the database.
+– Calcula o tamanho do banco de dados. 
 SELECT SUM(reserved_page_count)*8.0/1024
 FROM sys.dm_db_partition_stats;
 GO

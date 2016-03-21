@@ -39,7 +39,7 @@ Os requisitos de software a seguir são para os clientes de armazenamento que ac
 | VMWare ESX | 5\.1, 5.5 e 6.0 | Compatível com o VMware vSphere como cliente iSCSI. O recurso de bloco VAAI é compatível com o VMware vSphere nos dispositivos StorSimple. 
 | Linux RHEL/CentOS | 5 e 6 | Suporte para os clientes Linux iSCSI com o iniciador open-iSCSI versões 5 e 6. |
 | Linux | SUSE Linux 11 | |
- > [AZURE.NOTE] O IBM AIX não é suportado atualmente com o StorSimple.
+ >[AZURE.NOTE] O IBM AIX não é suportado atualmente com o StorSimple.
 
 ## Requisitos de software para os componentes opcionais
 
@@ -108,7 +108,12 @@ A Atualização 2 contém vários aprimoramentos relacionados à rede; além dis
 		
 	| Interface de rede | Habilitado para nuvem | Desabilitado para a nuvem com o gateway |
 	|-----|---------------|---------------------------|
-	| Data 0 | 1 | - | | Data 1 | 2 | 20 | | Data 2 | 3 | 30 | | Data 3 | 4 | 40 | | Data 4 | 5 | 50 | | Data 5 | 6 | 60 |
+	| Data 0 | 1 | - |
+	| Data 1 | 2 | 20 |
+	| Data 2 | 3 | 30 |
+	| Data 3 | 4 | 40 |
+	| Data 4 | 5 | 50 |
+	| Data 5 | 6 | 60 |
 
 
 - A ordem na qual o tráfego da nuvem será roteado pelas interfaces de rede é:

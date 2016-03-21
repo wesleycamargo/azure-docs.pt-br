@@ -97,21 +97,25 @@ Informações adicionais sobre o Hub IoT:
 [Fila do barramento de serviço]: ../service-bus/service-bus-dotnet-how-to-use-queues/
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
-
+[Transient Fault Handling]: https://msdn.microsoft.com/pt-BR/library/hh680901(v=pandp.50).aspx
+[Tratamento de falhas transitórias]: https://msdn.microsoft.com/pt-BR/library/hh680901(v=pandp.50).aspx
 
 [Guia do desenvolvedor do Hub IoT do Azure - Dispositivo para nuvem]: iot-hub-devguide.md#d2c
 
 [Armazenamento do Azure]: https://azure.microsoft.com/documentation/services/storage/
 [Barramento de Serviço do Azure]: https://azure.microsoft.com/documentation/services/service-bus/
 
-
+[Azure preview portal]: https://portal.azure.com/
 
 [Enviar mensagens de nuvem para o dispositivo com o Hub IoT]: iot-hub-csharp-csharp-c2d.md
+[Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
+[Processar mensagens do dispositivo para a nuvem]: iot-hub-csharp-csharp-process-d2c.md
 [Carregando arquivos de dispositivos]: iot-hub-csharp-csharp-file-upload.md
 
 [Visão geral do Hub IoT]: iot-hub-what-is-iot-hub.md
 [Orientação sobre o Hub IoT]: iot-hub-guidance.md
 [Guia do desenvolvedor do Hub IoT]: iot-hub-devguide.md
+[IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [Introdução ao Hub Iot]: iot-hub-csharp-csharp-getstarted.md
 [Introdução com Hub IoT]: iot-hub-csharp-csharp-getstarted.md
 [Supported devices]: iot-hub-tested-configurations.md

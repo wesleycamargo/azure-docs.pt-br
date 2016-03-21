@@ -106,9 +106,9 @@ O Cofre da Chave do Azure ajuda a proteger chaves criptográficas e segredos usa
 A biblioteca de cliente de armazenamento usa a biblioteca principal do Cofre da Chave para fornecer uma estrutura comum no Azure para o gerenciamento de chaves. Os usuários também recebem o benefício adicional de usar a biblioteca de extensões do Cofre da Chave. A biblioteca de extensões fornece funcionalidades úteis com Symmetric simples/RSA local e provedores de chave de nuvem e com agregação e armazenamento em cache.
 
 ### Interface e dependências  
-Há três pacotes do Cofre da Chave:
+Há três pacotes do Cofre da Chave:  
 
-- azure-keyvault-core contém IKey e IKeyResolver. Este é um pequeno pacote sem dependências. A biblioteca de cliente do armazenamento para Java define isso como uma dependência.
+- azure-keyvault-core contém IKey e IKeyResolver. Este é um pequeno pacote sem dependências. A biblioteca de cliente do armazenamento para Java define isso como uma dependência.  
 - azure-keyvault contém o cliente REST do Cofre da Chave.  
 - azure-keyvault-extensions contém o código de extensão que inclui implementações de algoritmos de criptografia e um RSAKey e SymmetricKey. Ele depende dos namespaces básicos e KeyVault, e fornece a funcionalidade para definir um resolvedor de agregação (quando os usuários desejam usar vários provedores de chave) e um resolvedor de chave em cache. Embora a biblioteca de cliente de armazenamento não dependa diretamente deste pacote, se os usuários quiserem usar o Cofre da Chave do Azure para armazenar suas chaves ou usar as extensões do Cofre da Chave para consumir provedores criptográficos local e na nuvem, eles precisarão esse pacote.  
 
@@ -134,7 +134,7 @@ O suporte à criptografia está disponível somente na biblioteca de cliente de 
 >- Habilite o sinalizador **requireEncryption** nas opções de solicitação padrão para os usuários que devem trabalhar somente com dados criptografados. Saiba mais logo abaixo.
 
 ## API do cliente / Interface  
-Ao criar um objeto EncryptionPolicy, os usuários podem fornecer somente uma chave (Implementando IKey), somente um resolvedor (Implementando IKeyResolver) ou ambos. IKey é o tipo de chave básico que é identificado usando um identificador de chave e que fornece a lógica para empacotamente/desempacotamento. IKeyResolver é usado para resolver uma chave durante o processo de descriptografia. Ele define um método ResolveKey que retorna um IKey dado um certo identificador de chave. Isso fornece aos usuários a capacidade de escolher entre várias chaves que são gerenciadas em vários locais.
+Ao criar um objeto EncryptionPolicy, os usuários podem fornecer somente uma chave (Implementando IKey), somente um resolvedor (Implementando IKeyResolver) ou ambos. IKey é o tipo de chave básico que é identificado usando um identificador de chave e que fornece a lógica para empacotamente/desempacotamento. IKeyResolver é usado para resolver uma chave durante o processo de descriptografia. Ele define um método ResolveKey que retorna um IKey dado um certo identificador de chave. Isso fornece aos usuários a capacidade de escolher entre várias chaves que são gerenciadas em vários locais.  
 
 - Para criptografia, a chave é usada sempre e a ausência de uma chave resultará em um erro.  
 - Para descriptografar:  

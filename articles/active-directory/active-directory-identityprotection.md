@@ -97,7 +97,8 @@ Alguns desses eventos de risco estão disponíveis por meio dos relatórios de A
 | Entradas de dispositivos infectados | Entradas de dispositivos possivelmente infectados |
 | Entradas de endereços IP anônimos | Entradas de fontes desconhecidas |
 | Entradas de endereços IP com atividade suspeita |	Entradas de endereços IP com atividade suspeita |
-| Entradas de locais desconhecidos | - | | Eventos de bloqueio (que não estão na preview pública) | - |
+| Entradas de locais desconhecidos | - |
+| Eventos de bloqueio (que não estão na preview pública) | - |
 
 Os seguintes relatórios de Atividade Anômala do Azure AD não estão incluídos como eventos de risco no Azure AD Identity Protection, portanto, não estão disponíveis por meio da proteção do Identity Protection. Esses relatórios ainda estão disponíveis no Portal de Gerenciamento do Azure, contudo serão preteridos futuramente, pois estão sendo substituídos pelos eventos de risco do Identity Protection.
 
