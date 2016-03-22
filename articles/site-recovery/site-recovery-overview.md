@@ -1,6 +1,6 @@
 <properties
 	pageTitle="O que é o Site Recovery? | Microsoft Azure" 
-	description="O Azure Site Recovery coordena a replicação, o failover e a recuperação de máquinas virtuais e servidores físicos locais para o Azure ou para um site local secundário." 
+	description="Fornece uma visão geral do serviço Azure Site Recovery e explica como o serviço pode ser implantado." 
 	services="site-recovery" 
 	documentationCenter="" 
 	authors="rayne-wiselman" 
@@ -18,53 +18,57 @@
 
 #  O que é a Recuperação de Site?
 
-O Azure Site Recovery contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) administrando a replicação, o failover e a recuperação de máquinas virtuais e servidores físicos. As máquinas podem ser replicadas no Azure ou em um datacenter local secundário. Leia algumas perguntas comuns em nossas [Perguntas frequentes](site-recovery-faq.md).
+Bem-vindo ao Azure Site Recovery! Comece com este artigo para ter uma visão geral rápida do serviço de Recuperação de Site e como ele pode colaborar com sua estratégia de BCDR (continuidade de negócios e recuperação de desastre).
+
+O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../resource-manager-deployment-model.md). Este artigo se aplica aos dois modelos. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
+
+## Visão geral
+
+Uma parte importante da estratégia de BCDR de sua organização é descobrir como manter as cargas de trabalho corporativas e aplicativos em execução durante interrupções planejadas e não planejadas.
+
+A Recuperação de Site ajuda com essa tarefa orquestrando a replicação, o failover e a recuperação de aplicativos e cargas de trabalho, para que estejam disponíveis em um local secundário caso ocorra uma falha com o local primário.
 
 ## Por que usar a Recuperação de Site? 
 
-- **BCDR mais simples** - a Recuperação de Site facilita o manuseio da replicação, do failover e da recuperação para suas cargas de trabalho e seus aplicativos locais.
-- **Replicação flexível** - você pode replicar servidores locais, máquinas virtuais do Hyper-V e máquinas virtuais VMware. A Recuperação de Site usa a replicação inteligente, replicando apenas os blocos de dados e não todo o VHD para a replicação inicial. Somente as alterações delta são replicadas durante a replicação contínua. A Recuperação de Site dá suporte à transferência de dados offline e funciona com otimizadores WAN. 
-- **Eliminar a necessidade de um datacenter secundário** - a Recuperação de Site pode automatizar a replicação entre datacenters, mas também oferece a oportunidade de abrir mão de um local de site secundário por meio da replicação no Azure. Os dados replicados são guardados no Armazenamento do Azure, com toda resiliência que ele oferece.
+Veja o que a Recuperação de Site pode fazer pela sua empresa:
 
+- **Simplificar sua estratégia de BCDR**— a Recuperação de Site facilita o trabalho com a replicação, failover e recuperação de várias cargas de trabalho e aplicativos comerciais de um único local. A Recuperação de Site orquestra a replicação e o failover, mas não intercepta os dados do aplicativo ou tem quaisquer informações sobre ele.
+- **Fornecer replicação flexível**— com a Recuperação de Site, você pode replicar cargas de trabalho em execução em máquinas virtuais Hyper-V, máquinas virtuais VMware e servidores físicos com Windows/Linux. 
+- **Facilitar o failover e a recuperação**— a Recuperação de Site fornece failovers de teste para dar suporte à simulações de recuperação de desastre sem afetar os ambientes de produção. Você também pode executar failovers planejados sem perder qualquer dado durante interrupções esperadas, ou failovers não planejados com perda mínima de dados (dependendo da frequência de replicação) para desastres inesperados. Após o failover, você pode realizar o failback para seus sites primários. A Recuperação de Site fornece planos de recuperação que podem incluir scripts e pastas de trabalho de automação do Azure, para que você possa personalizar o failover e a recuperação de aplicativos de várias camadas. 
+- **Eliminar datacenter secundário**— você pode replicar para um site secundário local ou no Azure. O uso do Azure como destino para a recuperação de desastre elimina o custo e a complexidade de manutenção de um site secundário, e os dados replicados são armazenados no Armazenamento do Azure, com toda a resiliência que ele fornece.
+- **Integração com tecnologias de BCDR atuais**— a Recuperação de Site estabelece uma parceria com outros recursos de BCDR do aplicativo. Por exemplo, você pode usar a Recuperação de Site para proteger o back-end do SQL Server de cargas de trabalho corporativas, incluindo suporte nativo para o SQL Server AlwaysOn a fim de gerenciar o failover de grupos de disponibilidade. 
 
-## Cenários de implantação
+## O que posso replicar?
 
-Esta tabela resume os cenários de replicação com suporte da Recuperação de Site.
-
-**REPLICATE** | **REPLICAR DE** | **REPLICAR PARA** | **ARTIGO**
----|---|---|---
-Máquinas virtuais da VMware | Servidor VMware local | Armazenamento do Azure | [Implantar](site-recovery-vmware-to-azure-classic.md)
-Servidor físico do Windows/Linux | Servidor físico local | Armazenamento do Azure | [Implantar](site-recovery-vmware-to-azure-classic.md)
-Máquinas virtuais do Hyper-V | Servidor de host Hyper-V local em nuvem de VMM | Armazenamento do Azure | [Implantar](site-recovery-vmm-to-azure.md)
-Máquinas virtuais do Hyper-V | Site do Hyper-V local (um ou mais servidores de host do Hyper-V) | Armazenamento do Azure | [Implantar](site-recovery-hyper-v-site-to-azure.md)
-Máquinas virtuais do Hyper-V locais| Servidor de host Hyper-V local em nuvem de VMM | Servidor de host Hyper-V local em nuvem de VMM no datacenter secundário | [Implantar](site-recovery-vmm-to-vmm.md)
-Máquinas virtuais do Hyper-V | Servidor de host Hyper-V local em nuvem de VMM com armazenamento SAN| Servidor de host Hyper-V local em nuvem de VMM com armazenamento SAN no datacenter secundário | [Implantar](site-recovery-vmm-san.md)
-Máquinas virtuais da VMware | Servidor VMware local | Datacenter secundário executando o VMware | [Implantar](site-recovery-vmware-to-vmware.md) 
-Servidor físico do Windows/Linux | Servidor físico local | Armazenamento de dados secundário | [Implantar](site-recovery-vmware-to-vmware.md) 
-
-Eles serão resumidos nos diagramas a seguir.
+Veja um resumo do que a Recuperação de Site pode replicar.
 
 ![Local para o próprio local](./media/site-recovery-overview/asr-overview-graphic.png)
 
+**REPLICATE** | **REPLICAR DE** | **REPLICAR PARA** | **ARTIGO**
+---|---|---|---
+Cargas de trabalho em execução em VMs VMware | Servidor VMware local | Armazenamento do Azure | [Implantar](site-recovery-vmware-to-azure-classic.md)
+Cargas de trabalho em execução em VMs VMware | Servidor VMware local | Site secundário do VMware | [Implantar](site-recovery-vmware-to-vmware.md) 
+Cargas de trabalho em execução em VMs Hyper-V | Servidor de host Hyper-V local em nuvem de VMM | Armazenamento do Azure | [Implantar](site-recovery-vmm-to-azure.md)
+Cargas de trabalho em execução em VMs Hyper-V | Servidor de host Hyper-V local em nuvem de VMM | Site secundário de VMM | [Implantar](site-recovery-vmm-to-vmm.md)
+Cargas de trabalho em execução em VMs Hyper-V | Servidor de host Hyper-V local em nuvem de VMM com armazenamento SAN| Site secundário de VMM com armazenamento SAN | [Implantar](site-recovery-vmm-san.md)
+Cargas de trabalho em execução em VMs Hyper-V | Site local do Hyper-V (sem VMM) | Armazenamento do Azure | [Implantar](site-recovery-hyper-v-site-to-azure.md)
+Cargas de trabalho em execução em servidores físicos com Windows/Linux | Servidor físico local | Armazenamento do Azure | [Implantar](site-recovery-vmware-to-azure-classic.md)
+Cargas de trabalho em execução em servidores físicos com Windows/Linux | Servidor físico local | Armazenamento de dados secundário | [Implantar](site-recovery-vmware-to-vmware.md) 
+
+
 ## Quais cargas de trabalho posso proteger?
 
-A Recuperação de Site ajuda na continuidade de negócios com reconhecimento de dispositivo. Você pode usar a Recuperação de Site para coordenar a recuperação de desastre para o Windows e aplicativos de terceiros. Essa proteção com reconhecimento de aplicativo oferece:
+A Recuperação de Site pode ajudar com BCDR com reconhecimento de aplicativos, de modo que as cargas de trabalho e aplicativos continuem executando de forma consistente durante interrupções. A Recuperação de Site fornece:
 
-
-- Replicação quase síncrona com RPOs de até 30 segundos para o Hyper-V e replicação contínua para VMware, para atender às necessidades dos aplicativos mais importantes.
-- Instantâneos consistentes de aplicativos para aplicativos simples ou de N camadas
-- Integre com o SQL Server AlwaysOn, o parceiro com outras tecnologias de replicação em nível de aplicativo, incluindo a replicação do Active Directory, o Exchange DAGS e o Oracle Data Guard.
-- Os planos de recuperação flexíveis permitem a recuperação de uma pilha inteira de aplicativos com um único clique e incluem scripts externos ou até mesmo ações manuais. 
-- O gerenciamento avançado de rede na Recuperação de Site e no Azure simplifica os requisitos de rede para um aplicativo, incluindo a reserva de endereços IP, a configuração de balanceadores de carga ou a integração do Gerenciador de Tráfego do Azure para switchovers de rede de baixo RTO.
-- Uma biblioteca de automação avançada que fornece scripts específicos do aplicativo, prontos para produção, que pode ser baixada e integrada à Recuperação de Site.  
-
-
-Leia mais em [Quais cargas de trabalho o Site Recovery pode proteger?](site-recovery-workload.md).
+- **Instantâneos consistentes com o aplicativo**—Replicação usando instantâneos consistentes com o aplicativo, para aplicativos simples ou de N camadas **Replicação quase síncrona**—frequência de replicação de até 30 segundos para o Hyper-,V e replicação contínua para VMware. **Integração com o SQL Server AlwaysOn**—você pode gerenciar o failover de grupos de disponibilidade nos planos de recuperação da Recuperação de Site. 
+- **Planos de recuperação flexíveis**—você pode criar e personalizar planos de recuperação com scripts externos, ações manuais e runbooks da Automação do Azure que permitem a recuperação de uma pilha inteira aplicativos com um único clique.
+- **Biblioteca de automação**—uma biblioteca rica da Automação do Azure fornece scripts pronto para produção e específicos ao aplicativo que podem ser baixados e integrados à Recuperação de Site. -** Gerenciamento de rede simples **—O gerenciamento de rede avançado na Recuperação de Site e no Azure simplifica os requisitos de rede do aplicativo, incluindo a reserva de endereços IP, a configuração de balanceadores de carga e a integração do Gerenciador de Tráfego do Azure para alternância de rede eficiente.
 
 
 ## Próximas etapas
 
-Depois de concluir esta visão geral, [saiba mais](site-recovery-components.md) sobre a arquitetura da Recuperação de Site.
+- Leia mais em [Quais cargas de trabalho a Recuperação de Site pode proteger?](site-recovery-workload.md).
+- Saiba mais sobre a arquitetura da Recuperação de Site em [Como funciona a Recuperação de Site?](site-recovery-components.md)
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

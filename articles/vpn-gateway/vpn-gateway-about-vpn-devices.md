@@ -4,15 +4,16 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
-   editor="" />
+   manager="carmonm"
+   editor=""
+  tags="azure-resource-manager, azure-service-management"/>
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/02/2016"
+   ms.date="03/15/2016"
    ms.author="cherylmc" />
 
 # Sobre dispositivos VPN para conexões de Gateway de VPN Site a Site
@@ -40,8 +41,8 @@ Para ajudar a configurar seu dispositivo VPN, veja os links que correspondem à 
 | **Fornecedor** | **Família do dispositivo** | **Versão mínima do sistema operacional** | **Baseado em política** | **Baseado em rota** |
 |---------------------------------|----------------------------------------------------------|----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Allied Telesis | Série AR de roteadores VPN | 2\.9.2 | Em breve | Não compatível |
-| Barracuda Networks, Inc. | Barracuda NG Firewall | Barracuda NG Firewall 5.4.3 | [Barracuda NG Firewall](https://techlib.barracuda.com/display/BNGV54/How%20to%20Configure%20an%20IPsec%20Site-to-Site%20VPN%20to%20a%20Windows%20Azure%20VPN%20Gateway)| Não compatível |
-| Barracuda Networks, Inc. | Barracuda Firewall | Barracuda Firewall 6.5 | [Barracuda Firewall](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) | Não compatível |
+| Barracuda Networks, Inc. | Barracuda NextGen Firewall F-series | Baseado em política: 5.4.3, Baseado em rota: 6.2.0 | [Instruções de configuração](https://techlib.barracuda.com/NGF/AzurePolicyBasedVPNGW) | [Instruções de configuração](https://techlib.barracuda.com/NGF/AzureRouteBasedVPNGW) |
+| Barracuda Networks, Inc. | Barracuda NextGen Firewall X-series | Barracuda Firewall 6.5 | [Barracuda Firewall](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) | Não compatível |
 | Brocade | Vyatta 5400 vRouter | Roteador virtual 6.6R3 GA | [Instruções de configuração](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) | Não compatível |
 | Ponto de Verificação | Gateway de segurança | R75.40, R75.40VS | [Instruções de configuração](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) | [Instruções de configuração](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
 | Cisco | ASA | 8\.3 | [Exemplos da Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) | Não compatível |
@@ -94,6 +95,8 @@ Depois de baixar o exemplo de configuração de dispositivo VPN fornecido, você
 
 ## Parâmetros IPsec
 
+>[AZURE.NOTE] Embora os valores listados abaixo tenham suporte do Gateway de VPN do Azure, não há uma forma de especificar ou selecionar uma combinação específica do Gateway de VPN do Azure. Você deve especificar quaisquer restrições no dispositivo VPN local.
+
 ### Fase 1 da configuração IKE
 
 | **Propriedade** | **Baseado em política** | **Gateway de VPN baseado em rota e Padrão ou de Alto Desempenho** |
@@ -102,7 +105,7 @@ Depois de baixar o exemplo de configuração de dispositivo VPN fornecido, você
 | Grupo Diffie-Hellman | Grupo 2 (1024 bits) | Grupo 2 (1024 bits) |
 | Método de autenticação | Chave Pré-Compartilhada | Chave Pré-Compartilhada |
 | Algoritmos de criptografia | AES256 AES128 3DES | AES256 3DES |
-| Algoritmo de hash | SHA1(SHA128) | SHA1(SHA128) |
+| Algoritmo de hash | SHA1(SHA128) | SHA1(SHA128), SHA2(SHA256) |
 | Tempo de vida (tempo) da SA (associação de segurança) da fase 1 | 28\.800 segundos | 28\.800 segundos |
 
 
@@ -112,11 +115,7 @@ Depois de baixar o exemplo de configuração de dispositivo VPN fornecido, você
 |--------------------------------------------------------------------------|------------------------------------------------|--------------------------------------------------------------------|
 | Versão IKE | IKEv1 | IKEv2 |
 | Algoritmo de hash | SHA1(SHA128) | SHA1(SHA128) |
-| Tempo de vida (Tempo) da SA (Associação de Segurança) da fase 2 | 3.600 segundos | - |
-| Tempo de vida (Taxa de transferência) da SA (Associação de Segurança) da fase 2 | 102.400.000 KB | - |
-| Ofertas de criptografia e autenticação IPsec SA (em ordem de preferência) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/D | Veja *Ofertas de SA (Associação de Segurança) de IPsec do gateway baseado em rota* (abaixo) |
-| PFS (Perfect Forward Secrecy) | Não | Sim (DH Group1) |
-| Detecção de Par Inativo | Sem suporte | Com suporte |
+| Tempo de vida (Tempo) da SA (Associação de Segurança) da fase 2 | 3.600 segundos | - | | Tempo de vida (Taxa de transferência) da SA (Associação de Segurança) da fase 2 | 102.400.000 KB | - | | Ofertas de criptografia e autenticação IPsec SA (em ordem de preferência) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/D | Veja *Ofertas de SA (Associação de Segurança) de IPsec do gateway baseado em rota* (abaixo) | | PFS (Perfect Forward Secrecy) | Não | Sim (DH Group1, 2, 5, 14, 24) | | Detecção de Par Inativo | Sem suporte | Com suporte |
 
 ### Ofertas de SA (Associação de Segurança) de IPsec do gateway baseado em rota
 
@@ -140,12 +139,11 @@ A tabela a seguir lista as ofertas de criptografia e autenticação IPsec SA. Of
 | 14 | AH MD5 com ESP DES HMAC nulo, sem tempos de vida propostos | AH MD5 com ESP DES MD5, sem tempos de vida |
 | 15 | AH SHA1 com ESP DES SHA1, sem tempos de vida | ESP SHA, sem tempos de vida |
 | 16 | AH MD5 com ESP DES MD5, sem tempos de vida | ESP MD5, sem tempos de vida |
-| 17 | - | AH SHA, sem tempos de vida |
-| 18 | - | AH MD5, sem tempos de vida |
+| 17 | - | AH SHA, sem tempos de vida | | 18 | - | AH MD5, sem tempos de vida |
 
 
 - Você pode especificar a criptografia NULL de IPsec ESP com gateways de VPN baseados em rota e de Alto Desempenho. Criptografia com base em nulo não oferece proteção para dados em trânsito, devendo ser usada apenas quando for exigido o máximo de taxa de transferência com o mínimo de latência mínima. Os clientes podem optar por usar isso em cenários de comunicação vnet a vnet, ou quando a criptografia está sendo aplicada em outro lugar na solução.
 
 - Para a conectividade entre locais através da Internet, use as configurações padrão de gateway de VPN do Azure com criptografia e algoritmos de hash listados nas tabelas acima para garantir a segurança da comunicação crítica.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

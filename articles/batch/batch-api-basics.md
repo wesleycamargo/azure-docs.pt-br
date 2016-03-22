@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="02/25/2016"
+	ms.date="03/11/2016"
 	ms.author="yidingz;marsma"/>
 
 # Visão geral dos recursos do Lote do Azure
@@ -44,7 +44,7 @@ Nas seções a seguir, você aprenderá sobre cada um dos recursos mencionados n
 
 ## <a name="resource"></a> Recursos do serviço de lote
 
-Ao utilizar o serviço de Lote do Azure, você usará os seguintes recursos:
+Ao utilizar o Lote, você usará muitos dos recursos a seguir. Alguns desses recursos, como contas, nós de computação, pools, trabalhos e tarefas, são usados em todas as soluções do Lote. Outros, como agendas de trabalho e pacotes de aplicativos, são recursos úteis, mas opcionais.
 
 - [Conta](#account)
 - [Nó de computação](#computenode)
@@ -52,10 +52,12 @@ Ao utilizar o serviço de Lote do Azure, você usará os seguintes recursos:
 - [Trabalho](#job)
 - [Tarefa](#task)
 	- [Iniciar tarefa](#starttask)
-	- [Trabalho ManagerTask](#jobmanagertask)
+	- [Tarefa do Gerenciador de Trabalhos](#jobmanagertask)
 	- [Tarefas de preparação e liberação do trabalho](#jobpreprelease)
 	- [Tarefas de várias instâncias](#multiinstance)
-- [JobSchedule](#jobschedule)
+    - [Dependências da tarefa](#taskdep)
+- [Agendas de trabalho](#jobschedule)
+- [Pacotes de aplicativos](#appkg)
 
 ### <a name="account"></a>Conta
 
@@ -141,6 +143,7 @@ Além das tarefas que você pode definir para realizar computação em um nó, a
 - [Tarefa do Gerenciador de Trabalhos](#jobmanagertask)
 - [Tarefas de preparação e liberação do trabalho](#jobmanagertask)
 - [Tarefas de várias instâncias](#multiinstance)
+- [Dependências da tarefa](#taskdep)
 
 #### <a name="starttask"></a>Iniciar tarefa
 
@@ -183,13 +186,25 @@ Para saber mais sobre tarefas de preparação e de liberação de trabalho, cons
 
 #### <a name="multiinstance"></a>Tarefas de várias instâncias
 
-Uma [tarefa de várias instâncias](batch-mpi.md) é uma tarefa configurada para ser executada simultaneamente em mais de um nó de computação. Com as tarefas de várias instâncias, você pode habilitar cenários de computação de alto desempenho, como MPI (Message Passing Interface), que exige um grupo de nós de computação alocados juntos para processar uma única carga de trabalho.
+Uma [tarefa de várias instâncias](batch-mpi.md) é a que é configurada para ser executada simultaneamente em mais de um nó de computação. Com as tarefas de várias instâncias, você pode habilitar cenários de computação de alto desempenho, como MPI (Message Passing Interface), que exige um grupo de nós de computação alocados juntos para processar uma única carga de trabalho.
 
-Para obter uma discussão detalhada sobre como executar trabalhos da MPI no Lote usando a biblioteca .NET do Lote, faça check-out de [Usar as tarefas de várias instâncias para executar os aplicativos MPI (Message Passing Interface) no Lote do Azure](batch-mpi.md).
+Para obter uma discussão detalhada sobre como executar trabalhos da MPI no Lote usando a Biblioteca .NET do Lote, confira [Usar tarefas de várias instâncias para executar aplicativos da MPI (Message Passing Interface) no Lote do Azure](batch-mpi.md).
+
+#### <a name="taskdep"></a>Dependências de tarefas
+
+As dependências de tarefas, como o nome indica, permitem especificar que uma tarefa depende da conclusão de uma ou mais tarefas antes de sua execução. A tarefa "downstream" pode consumir a saída da tarefa "upstream" ou, talvez, dependa de alguma inicialização executada pela tarefa upstream. Nesse cenário, você pode especificar que o trabalho usa dependências de tarefas. Em seguida, para cada tarefa que depende de outra (ou de muitas outras), especifique as tarefas das quais essa tarefa depende.
 
 ### <a name="jobschedule"></a>Trabalhos agendados
 
 Os planos de trabalho permitem que você crie trabalhos recorrentes no serviço Lote. Um plano de trabalho especifica quando executar trabalhos e inclui as especificações para os trabalhos a serem executados. Um plano de trabalho permite a especificação da duração da agenda - quanto tempo e quando a agenda entrará em vigor - e com que frequência durante esse período os trabalhos deverão ser criados.
+
+### <a name="appkg"></a>Pacotes de aplicativos
+
+O recurso de [pacotes de aplicativos](batch-application-packages.md) possibilita fácil gerenciamento e implantação de aplicativos nos nós de computação em seus pools. Com pacotes de aplicativos, você pode carregar e gerenciar facilmente várias versões dos aplicativos executados por suas tarefas, incluindo binários e arquivos de suporte, e implantar automaticamente um ou mais desses aplicativos nos nós de computação no pool.
+
+O Lote lida com os detalhes do trabalho com o Armazenamento do Azure em segundo plano para armazenar e implantar com segurança os pacotes de aplicativos em nós de computação, para que o código e a sobrecarga de gerenciamento sejam simplificados.
+
+Para obter mais informações sobre o recurso de pacote de aplicativos, confira [Implantação de aplicativos com pacotes de aplicativos do Lote do Azure](batch-application-packages.md).
 
 ## <a name="files"></a>Arquivos e diretórios
 
@@ -222,7 +237,7 @@ Uma abordagem combinada, normalmente usada para tratar a carga variável mas con
 
 ## <a name="scaling"></a>Escalonamento de aplicativos
 
-Com o [dimensionamento automático](batch-automatic-scaling.md), você pode deixar que o serviço de Lote ajuste dinamicamente o número de nós de computação em um pool de acordo com a carga de trabalho e o uso de recursos atuais de seu cenário de computação. Isso permite reduzir o custo geral de execução do aplicativo usando apenas os recursos que são necessários e liberando os que não são. É possível especificar as configurações de dimensionamento automático para um pool quando ele é criado ou habilitar o dimensionamento mais tarde e você pode atualizar as configurações de dimensionamento em um pool habilitado para dimensionamento automático.
+Com o [dimensionamento automático](batch-automatic-scaling.md), você pode deixar que o serviço de Lote ajuste dinamicamente o número de nós de computação em um pool de acordo com a carga de trabalho e o uso de recursos atuais do cenário de computação. Isso permite reduzir o custo geral de execução do aplicativo usando apenas os recursos que são necessários e liberando os que não são. É possível especificar as configurações de dimensionamento automático para um pool quando ele é criado ou habilitar o dimensionamento mais tarde e você pode atualizar as configurações de dimensionamento em um pool habilitado para dimensionamento automático.
 
 O dimensionamento automático é realizado com a especificação de uma **fórmula de dimensionamento automático** para um pool. O serviço de Lote usa a fórmula para determinar o número de destino de nós no pool para o próximo intervalo de dimensionamento (um intervalo que você pode especificar).
 
@@ -387,4 +402,4 @@ Em situações em que algumas das tarefas falham, o aplicativo cliente ou o serv
 [rest_offline]: https://msdn.microsoft.com/library/azure/mt637904.aspx
 [rest_online]: https://msdn.microsoft.com/library/azure/mt637907.aspx
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

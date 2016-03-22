@@ -4,7 +4,7 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="vpn-gateway"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/16/2015"
+   ms.date="03/10/2016"
    ms.author="cherylmc" />
 
 # Perguntas frequentes de gateway de VPN
@@ -36,21 +36,21 @@ Há suporte para as seguintes conexões entre locais:
 
 - [Ponto a Site](vpn-gateway-point-to-site-create.md) – conexão VPN sobre SSTP (Secure Socket Tunneling Protocol). Essa conexão não exige um dispositivo VPN.
 
-- [VNet a VNet](virtual-networks-configure-vnet-to-vnet-connection.md) - esse tipo de conexão é o mesmo que uma configuração de site a site. VNet a VNet é uma conexão VPN sobre IPsec (IKE v1 e IKE v2). Ela não requer um dispositivo VPN.
+- [VNet a VNet](virtual-networks-configure-vnet-to-vnet-connection.md) - Esse tipo de conexão é o mesmo que uma configuração de site a site. VNet a VNet é uma conexão VPN sobre IPsec (IKE v1 e IKE v2). Ela não requer um dispositivo VPN.
 
-- [Multissite](vpn-gateway-multi-site.md) - essa é uma variação de uma configuração de site a site que permite conectar vários sites locais a uma rede virtual.
+- [Multissite](vpn-gateway-multi-site.md) - Essa é uma variação de uma configuração de site a site que permite conectar vários sites locais a uma rede virtual.
 
 - [Rota Expressa](../expressroute/expressroute-introduction.md) - Rota Expressa é uma conexão direta para o Azure de sua WAN, não pela Internet pública. Consulte a [Visão geral técnica da Rota Expressa](../expressroute/expressroute-introduction.md) e as [Perguntas frequentes sobre a Rota Expressa](../expressroute/expressroute-faqs.md) para obter mais informações.
 
 Para obter mais informações sobre conexões entre locais, consulte [Sobre a conectividade entre locais segura para redes virtuais](vpn-gateway-cross-premises-options.md).
 
-### Qual é a diferença entre uma conexão site a site e ponto a site?
+### Qual é a diferença entre uma conexão site a site e uma ponto a site?
 
 As conexões **site a site** permitem que você conecte entre qualquer um dos computadores localizados em suas instalações para qualquer máquina virtual ou instância de função em sua rede virtual, dependendo de como você optar por configurar o roteamento. É uma ótima opção para uma conexão entre locais sempre disponível e é bastante adequada para configurações híbridas. Esse tipo de conexão se baseia em um dispositivo VPN IPsec (dispositivo de hardware ou software), que deve ser implantado na borda de sua rede. Para criar esse tipo de conexão, você precisará ter o hardware de VPN necessário e um endereço IPv4 voltado para o exterior.
 
 As conexões de **ponto a site** permitem que você se conecte de um único computador em qualquer lugar para qualquer item localizado em sua rede virtual. Elas usam o cliente de VPN integrado ao Windows. Como parte da configuração de ponto a site, você pode instalar um certificado e um pacote de configuração de cliente VPN, que contém as configurações que permitem que o computador se conecte a qualquer máquina virtual ou instância de função na rede virtual. É ótimo quando você deseja se conectar a uma rede virtual, mas não está localizado no local. Também é uma boa opção quando você não tem acesso a hardware de VPN ou a um endereço IPv4 voltado para o exterior, sendo que ambos são necessários para uma conexão site a site.
 
-Observação: você pode configurar sua rede virtual para usar as opções de site a site e ponto a site simultaneamente, desde que crie sua conexão site a site usando um gateway de roteamento dinâmico.
+Você pode configurar sua rede virtual para usar as opções de site a site e ponto a site simultaneamente, desde que crie sua conexão site a site usando um tipo de VPN com base em rota para seu gateway. Tipos de VPN baseados em rota são chamados de gateways dinâmicos no modelo de implantação clássica.
 
 Para obter mais informações, consulte [Sobre a conectividade entre locais segura para redes virtuais](vpn-gateway-cross-premises-options.md).
 
@@ -124,9 +124,9 @@ A reconexão automática e o DDNS atualmente não têm suporte em VPNs ponto a s
 
 ### Posso ter configurações site a site e ponto a site que coexistam para a mesma rede virtual?
 
-Sim. Essas duas soluções funcionarão se você tiver um gateway de VPN de roteamento dinâmico para sua rede virtual. Não há suporte para ponto a site em gateways de VPN de roteamento estático.
+Sim. Essas duas soluções funcionarão se você tiver um tipo VPN baseada em rota para o gateway. Para o modelo de implantação clássica, você precisará de um gateway dinâmico. Não damos suporte a ponto a site para o roteamento estático de gateways VPN ou gateways usando -VpnType PolicyBased.
 
-### Posso configurar um cliente de ponto para site para se conectar a várias redes virtuais ao mesmo tempo?
+### Posso configurar um cliente de ponto a site para se conectar a várias redes virtuais ao mesmo tempo?
 
 Sim, isso é possível. Porém, as redes virtuais não podem ter prefixos IP sobrepostos, e os espaços de endereço de ponto para site não devem causar sobreposição entre as redes virtuais.
 
@@ -138,11 +138,11 @@ Sim, isso é possível. Porém, as redes virtuais não podem ter prefixos IP sob
 
 ### O que é um gateway baseado em políticas (roteamento estático)?
 
-Os gateways de roteamento estático implementam VPNs baseadas em política. As VPNs baseadas em política criptografam e direcionam pacotes por meio de túneis IPsec com base em combinações de prefixos de endereço entre sua rede local e a VNet do Azure. A política (ou o seletor de tráfego) normalmente é definida como uma lista de acesso na configuração de VPN.
+Os gateways baseados em política implementam VPNs baseadas em política. As VPNs baseadas em política criptografam e direcionam pacotes por meio de túneis IPsec com base em combinações de prefixos de endereço entre sua rede local e a VNet do Azure. A política (ou o seletor de tráfego) normalmente é definida como uma lista de acesso na configuração de VPN.
 
 ### O que é um gateway baseado em rotas (roteamento dinâmico)?
 
-Os gateways de roteamento dinâmico implementam VPNs baseadas em rota. As VPNs baseadas em rota usam "rotas" da tabela de roteamento ou de encaminhamento de IP para direcionar pacotes para as interfaces de túnel correspondentes. As interfaces de túnel criptografam ou descriptografam então os pacotes para dentro e para fora dos túneis. O seletor de política ou de tráfego para as VPNs baseadas em rota são configurados como qualquer para qualquer (ou curingas).
+Gateways baseados em rota implementam VPNs baseadas em rota. As VPNs baseadas em rota usam "rotas" da tabela de roteamento ou de encaminhamento de IP para direcionar pacotes para as interfaces de túnel correspondentes. As interfaces de túnel criptografam ou descriptografam então os pacotes para dentro e para fora dos túneis. O seletor de política ou de tráfego para as VPNs baseadas em rota são configurados como qualquer para qualquer (ou curingas).
 
 ### Posso obter o endereço IP do gateway de VPN antes de criá-lo?
 
@@ -152,9 +152,9 @@ Não. Você precisa criar seu gateway primeiro para obter o endereço IP. O ende
 
 A VPN do Azure usa autenticação PSK (Chave Pré-Compartilhada). Geramos uma PSK (chave pré-compartilhada) durante a criação do túnel de VPN. Você pode alterar a PSK gerada automaticamente para a sua própria com o cmdlet do PowerShell Definir Chave Pré-Compartilhada ou a API REST.
 
-### Posso usar a API chave pré-compartilhada para configurar minha VPN de gateway de roteamento estático?
+### Posso usar a API Definir chave pré-compartilhada para configurar minha VPN de gateway baseada em política (roteamento estático)?
 
-Sim, a API de Chave Pré-Compartilhada e o cmdlet do PowerShell podem ser usados para configurar VPNs de roteamento estático do Azure e VPNs de roteamento dinâmico.
+Sim, a API Definir chave pré-compartilhada e o cmdlet do PowerShell podem ser usados para configurar VPNs baseadas em política (estáticas) do Azure e as VPNs de roteamento baseadas em rota (dinâmicas).
 
 ### É possível usar outras opções de autenticação?
 
@@ -162,9 +162,15 @@ Estamos limitados ao uso de PSK (chaves pré-compartilhadas) para autenticação
 
 ### O que é a "sub-rede de gateway" e por que ela é necessária?
 
-Temos um serviço de gateway que executamos para habilitar a conectividade entre locais. Precisamos de dois endereços IP de seu domínio de roteamento para podermos habilitar o roteamento entre seu local e a nuvem. É necessário especificar pelo menos uma sub-rede /29 da qual podemos obter endereços IP para configurar rotas. Mesmo que você possa criar uma sub-rede /29, entenda que alguns recursos exigem um tamanho específico de gateway. Siga os requisitos de sub-rede de gateway para o recurso que você deseja configurar.
+Temos um serviço de gateway que executamos para habilitar a conectividade entre locais.
 
-Observe que você não deve implantar máquinas virtuais ou instâncias de função na sub-rede de gateway.
+Você precisará criar uma sub-rede de gateway para sua rede virtual a fim de configurar um gateway de VPN. Todas as sub-redes de gateway devem ser nomeadas GatewaySubnet para funcionar adequadamente. Não dê outro nome à sua sub-rede de gateway. E não implante VMs ou qualquer outra coisa na sub-rede de gateway.
+
+O tamanho mínimo de sub-rede de gateway depende totalmente da configuração que você deseja criar. Embora seja possível criar uma sub-rede de gateway tão pequena quanto /29 em algumas configurações, recomendamos que você crie uma sub-rede de gateway de /28 ou maior (/28, /27, /26 etc.).
+
+## Posso implantar máquinas virtuais ou instâncias de função na minha sub-rede de gateway?
+
+Nº
 
 ### Como especificar qual tráfego passa pelo gateway de VPN?
 
@@ -193,11 +199,11 @@ Para saber mais, consulte [Sobre gateways de VPN](vpn-gateway-about-vpngateways.
 
 ### Que tipo de gateways podem dar suporte a vários locais e conectividade VNet para VNet?
 
-Apenas VPNs de roteamento dinâmico.
+Somente VPNs baseadas em rota (roteamento dinâmico).
 
-### Posso conectar uma rede virtual com VPN de roteamento dinâmico a outra rede virtual com VPN de roteamento estático?
+### Posso conectar uma rede virtual a um tipo de VPN RouteBased para outra rede virtual com um tipo de VPN PolicyBased?
 
-Não, ambas as redes virtuais devem estar usando VPNs de roteamento dinâmico.
+Não, ambas as redes virtuais DEVEM estar usando VPNs baseadas em rota (roteamento dinâmico).
 
 ### O tráfego de VNet para VNet é seguro?
 
@@ -229,7 +235,7 @@ Não, todos os túneis de VPN, incluindo VPNs site a ponto, compartilham o mesmo
 
 ### Posso usar o gateway de VPN do Azure para o tráfego entre meus sites locais ou para outra rede virtual?
 
-O tráfego de trânsito via gateway de VPN do Azure é possível, mas conta com espaços de endereço estaticamente definidos no arquivo de configuração netcfg. Ainda não há suporte a BGP com Redes Virtuais do Azure e gateways de VPN. Sem BGP, a definição manual de espaços de endereço de trânsito em netcfg é muito propensa a erros e não é recomendada.
+O tráfego de trânsito via gateway de VPN do Azure é possível, mas conta com espaços de endereço estaticamente definidos no arquivo de configuração netcfg. Ainda não há suporte a BGP com Redes Virtuais do Azure e gateways de VPN. Sem BGP, a definição manual de espaços de endereço de trânsito é muito propensa a erros e não é recomendada.
 
 ### O Azure gera a mesma chave pré-compartilhada IPsec/IKE para todas as minhas conexões VPN para a mesma rede virtual?
 
@@ -267,4 +273,4 @@ Você pode exibir mais informações sobre Gateways de VPN na [página de docume
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

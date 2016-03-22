@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Importar dados para a Pesquisa do Azure usando o portal | Microsoft Azure | Serviço de pesquisa em nuvem hospedado"
-	description="Como carregar dados em um índice na Pesquisa do Azure usando o portal"
+	pageTitle="Importar dados para a Pesquisa do Azure usando indexadores no Portal do Azure | Microsoft Azure | Serviço de pesquisa de nuvem hospedado"
+	description="Como usar indexadores no Portal do Azure."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,16 +14,10 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="02/09/2016"
+	ms.date="03/10/2016"
 	ms.author="heidist"/>
 
 # Importar dados para a Pesquisa do Azure usando o portal
-> [AZURE.SELECTOR]
-- [Overview](search-what-is-data-import.md)
-- [Portal](search-import-data-portal.md)
-- [.NET](search-import-data-dotnet.md)
-- [REST API](search-import-data-rest-api.md)
-- [Indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 
 O Portal do Azure inclui um comando **Importar Dados** no painel da Pesquisa do Azure que orienta você na ingestão de dados na Pesquisa do Azure. O comando depende do recurso de indexadores internos que rastreia a fonte de dados existente, criando e carregando documentos com base no conjunto de linhas encontrado na fonte de dados.
 
@@ -51,8 +45,8 @@ Você pode experimentar este fluxo de trabalho usando dados de exemplo. Visite [
 
 4. Clique em **Conectar a seus dados** para especificar uma definição de fonte de dados usada por um indexador. As opções incluem:
 	- 	A fonte de dados existente se refere a uma definição de fonte de dados criada anteriormente para um indexador. Se você já tiver indexadores definidos em seu serviço de pesquisa, poderá criar uma nova finalidade para uma definição de fonte de dados para outra importação.
-	- 	O SQL do Azure é usado para especificar uma conexão de fonte de dados para um banco de dados SQL no Azure ou um banco de dados do SQL Server em uma VM do Azure. 
-	- 	O Banco de Dados de Documentos é usado para especificar uma conexão de fonte de dados para esse tipo de fonte de dados. 
+	- 	O SQL do Azure é usado para especificar uma conexão de fonte de dados para um banco de dados SQL no Azure ou um banco de dados do SQL Server em uma VM do Azure.
+	- 	O Banco de Dados de Documentos é usado para especificar uma conexão de fonte de dados para esse tipo de fonte de dados.
 
    Para o SQL do Azure e o Banco de Dados de Documentos, o banco de dados deverá existir em sua assinatura. Você pode colar em uma cadeia de conexão se ela for conhecida ou escolher uma fonte de dados criada anteriormente por alguém com privilégios de gravação para sua assinatura.
 
@@ -71,9 +65,9 @@ Você pode experimentar este fluxo de trabalho usando dados de exemplo. Visite [
 6. Clique em **Importar seus dados** para executar a operação de importação usando a opção Executar Agora ou configure um agendamento recorrente.
 
 A operação de importação de dados que você acabou de preencher criou um indexador em segundo plano. Agora você pode editar o indexador diretamente para alterar qualquer um dos seus componentes.
-	
+
 ##Editar um indexador existente
 
 No painel do serviço, clique duas vezes no bloco Indexador para deslizar uma lista de todos os indexadores criados para sua assinatura. Clique duas vezes em um dos indexadores para executá-lo, editá-lo ou excluí-lo.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

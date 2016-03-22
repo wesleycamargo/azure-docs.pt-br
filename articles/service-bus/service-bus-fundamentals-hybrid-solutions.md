@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="11/06/2015" 
+	ms.date="03/09/2016" 
 	ms.author="sethm"/>
 
 # Barramento de Serviço do Azure
 
-Se um aplicativo ou serviço é executado na nuvem ou no local, geralmente precisa interagir com outros aplicativos ou serviços. Para fornecer uma maneira amplamente úteis para fazer isso, o Azure oferece o Service Bus. Este artigo dá uma olhada essa tecnologia, que descreve o que é e por que você desejaria usá-lo.
+Se um aplicativo ou serviço é executado na nuvem ou no local, geralmente precisa interagir com outros aplicativos ou serviços. Para fornecer uma maneira amplamente úteis para fazer isso, o Microsoft Azure oferece o Service Bus. Este artigo dá uma olhada essa tecnologia, que descreve o que é e por que você desejaria usá-lo.
 
 ## Conceitos fundamentais do barramento de serviço
 
@@ -125,4 +125,4 @@ Agora que você aprendeu os conceitos básicos do barramento de serviço do Azur
 [3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->
