@@ -12,7 +12,7 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="02/26/2016"
 	ms.author="douglasl"/>
 
@@ -96,10 +96,12 @@ Para saber mais sobre a chave mestra de banco de dados, confira [CREATE MASTER K
 ## <a name="Network"></a>Selecionar o endereço IP
 Use o endereço IP público de seu SQL Server ou digite um intervalo de endereços IP para criar uma regra de firewall no Azure que permita ao SQL Server se comunicar com o servidor remoto do Azure.
 
+O endereço, ou endereços, IP que você fornece nesta página informa ao servidor do Azure para permitir a passagem pelo firewall do Azure de dados recebidos, consultas e operações de gerenciamento iniciadas pelo SQL Server. O assistente não altera nada nas configurações do firewall no SQL Server.
+
 ![Página Selecionar endereço IP do assistente do Banco de Dados de Ampliação][StretchWizardImage7]
 
 ## <a name="Summary"></a>Resumo
-Examine os valores inseridos e as opções selecionadas no assistente. Em seguida, escolha **Concluir** para habilitar a Ampliação.
+Examine os valores inseridos e as opções selecionadas no assistente. Em seguida, escolha **Concluir** para habilitar o Stretch.
 
 ![Página de resumo do assistente do Banco de Dados de Ampliação][StretchWizardImage8]
 
@@ -114,9 +116,9 @@ Como opção, escolha **Monitorar** para iniciar o monitoramento do status da mi
 ## Próximas etapas
 Habilitar outras tabelas para o Banco de Dados de Stretch. Monitorar a migração de dados e gerenciar as tabelas e bancos de dados habilitados para o Stretch.
 
--   [Habilitar o Banco de Dados de Ampliação para uma tabela](sql-server-stretch-database-enable-table.md) para habilitar outras tabelas.
+-   [Habilitar o Banco de Dados de Stretch para uma tabela](sql-server-stretch-database-enable-table.md) para habilitar outras tabelas.
 
--   [Monitorar o Banco de Dados de Ampliação](sql-server-stretch-database-monitor.md) para ver o status da migração dos dados.
+-   [Monitorar o Banco de Dados de Stretch](sql-server-stretch-database-monitor.md) para ver o status da migração dos dados.
 
 -   [Pausar e retomar o Banco de Dados de Stretch](sql-server-stretch-database-pause.md)
 
@@ -125,7 +127,10 @@ Habilitar outras tabelas para o Banco de Dados de Stretch. Monitorar a migraçã
 -   [Fazer backup e restaurar os bancos de dados habilitados para Stretch](sql-server-stretch-database-backup.md)
 
 ## Consulte também
-[Habilitar o Banco de Dados de Ampliação para um banco de dados](sql-server-stretch-database-enable-database.md) [Habilitar o Banco de Dados de Ampliação para uma tabela](sql-server-stretch-database-enable-table.md)
+
+[Habilitar o Banco de Dados de Stretch para um banco de dados](sql-server-stretch-database-enable-database.md)
+
+[Habilitar o Banco de Dados de Stretch para uma tabela](sql-server-stretch-database-enable-table.md)
 
 [StretchWizardImage1]: ./media/sql-server-stretch-database-wizard/stretchwiz1.png
 [StretchWizardImage2]: ./media/sql-server-stretch-database-wizard/stretchwiz2.png
@@ -136,4 +141,4 @@ Habilitar outras tabelas para o Banco de Dados de Stretch. Monitorar a migraçã
 [StretchWizardImage7]: ./media/sql-server-stretch-database-wizard/stretchwiz7.png
 [StretchWizardImage8]: ./media/sql-server-stretch-database-wizard/stretchwiz8.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

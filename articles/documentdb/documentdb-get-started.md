@@ -13,11 +13,11 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="hero-article" 
-	ms.date="02/19/2016"
+	ms.topic="hero-article"
+	ms.date="03/09/2016"
 	ms.author="anhoh"/>
 
-# Tutorial do NoSQL: criar um aplicativo de console em C# do Banco de Dados de Documentos 
+# Tutorial do NoSQL: criar um aplicativo de console em C# do Banco de Dados de Documentos
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-get-started.md)
@@ -141,6 +141,7 @@ Seu [banco de dados](documentdb-resources.md#databases) do Banco de Dados de Doc
 É possível criar uma [coleção](documentdb-resources.md#collections) usando o método [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) da classe **DocumentClient**. Uma coleção é um contêiner de documentos JSON e uma lógica de aplicativo JavaScript associada. A coleção recém-criada será mapeada para um [nível de desempenho S1](documentdb-performance-levels.md). Crie uma nova coleção chamada **FamilyCollection** após a criação de seu banco de dados no método **GetStartedDemo**.
 
     // Check to verify a document collection with the id=FamilyCollection does not exist
+    // dbs is prepended to the id to identify the parent resource: databases
     DocumentCollection documentCollection = client.CreateDocumentCollectionQuery("dbs/" + database.Id).Where(c => c.Id == "FamilyCollection").AsEnumerable().FirstOrDefault();
 
 	// If the document collection does not exist, create a new collection
@@ -205,6 +206,7 @@ Primeiro, precisamos criar uma classe **Pai**, **Filho**, **Pet**, **Endereço**
 Em seguida, crie os documentos dentro de seu método assíncrono **GetStartedDemo**.
 
     // Check to verify a document with the id=AndersenFamily does not exist
+    // colls is prepended to the id to identify the parent resource: collections, along with the rest of the resource path: dbs/FamilyRegistry
     Document document = client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id).Where(d => d.Id == "AndersenFamily").AsEnumerable().FirstOrDefault();
 
 	// If the document does not exist, create a new document
@@ -221,24 +223,25 @@ Em seguida, crie os documentos dentro de seu método assíncrono **GetStartedDem
 	        },
 	        Children = new Child[] {
 	            new Child
-	            { 
-	                FirstName = "Henriette Thaulow", 
-	                Gender = "female", 
-	                Grade = 5, 
+	            {
+	                FirstName = "Henriette Thaulow",
+	                Gender = "female",
+	                Grade = 5,
 	                Pets = new Pet[] {
-	                    new Pet { GivenName = "Fluffy" } 
+	                    new Pet { GivenName = "Fluffy" }
 	                }
-	            } 
+	            }
 	        },
 	        Address = new Address { State = "WA", County = "King", City = "Seattle" },
 	        IsRegistered = true
 	    };
-	
+
 	    // id based routing for the first argument, "dbs/FamilyRegistry/colls/FamilyCollection"
 	    await client.CreateDocumentAsync("dbs/" + database.Id + "/colls/" + documentCollection.Id, andersonFamily);
 	}
 
     // Check to verify a document with the id=AndersenFamily does not exist
+    // colls is prepended to the id to identify the parent resource: collections, along with the rest of the resource path: dbs/FamilyRegistry
     document = client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id).Where(d => d.Id == "WakefieldFamily").AsEnumerable().FirstOrDefault();
 
     if (document == null)
@@ -253,9 +256,9 @@ Em seguida, crie os documentos dentro de seu método assíncrono **GetStartedDem
             },
             Children = new Child[] {
                 new Child {
-                    FamilyName= "Merriam", 
-                    FirstName= "Jesse", 
-                    Gender= "female", 
+                    FamilyName= "Merriam",
+                    FirstName= "Jesse",
+                    Gender= "female",
                     Grade= 8,
                     Pets= new Pet[] {
                         new Pet { GivenName= "Goofy" },
@@ -263,9 +266,9 @@ Em seguida, crie os documentos dentro de seu método assíncrono **GetStartedDem
                     }
                 },
                 new Child {
-                    FamilyName= "Miller", 
-                    FirstName= "Lisa", 
-                    Gender= "female", 
+                    FamilyName= "Miller",
+                    FirstName= "Lisa",
+                    Gender= "female",
                     Grade= 1
                 }
             },
@@ -476,6 +479,5 @@ Para restaurar as referências do Banco de Dados de Documentos do SDK do .NET no
 [documentdb-create-account]: documentdb-create-account.md
 [documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
- 
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

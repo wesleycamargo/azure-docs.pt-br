@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/05/2015"
+	ms.date="03/08/2016"
 	ms.author="sethm"/>
 
 # Introdução aos Hubs de Evento
@@ -38,27 +38,27 @@ Para concluir este tutorial, você precisará do seguinte:
 
 2. Clique em **Serviços de Aplicativos**, em seguida, **Barramento de Serviço**, em seguida, **Hub de eventos** e, em seguida, **Criação rápida**.
 
-   	![][1]
+	![][1]
 
 3. Digite um nome para o Hub de Evento, selecione a região desejada e clique em **Criar um novo Hub de Evento**.
 
-   	![][2]
+	![][2]
 
 4. Clique no namespace que você acabou de criar (geralmente ***nome do hub de evento*-ns**).
 
-   	![][3]
+	![][3]
 
 5. Clique na guia **Hubs de Eventos** no início da página e clique no Hub de Evento que acabou de criar.
 
-   	![][4]
+	![][4]
 
 6. Clique na guia **Configurar** na parte superior, adicione uma regra denominada **SendRule** com direitos *Enviar*, adicione outra regra chamada **ReceiveRule** com direitos *Gerenciar, Enviar, Escutar* e clique em **Salvar**.
 
-   	![][5]
+	![][5]
 
 7. Clique na guia **Painel** parte superior da página e clique em **Informações de Conexão**. Anote as duas cadeias de conexão ou copie-as em algum lugar para usar mais tarde neste tutorial.
 
-   	![][6]
+	![][6]
 
 Seu Hub de Evento foi criado, e você tem as cadeias de conexão que precisa para enviar e receber eventos.
 
@@ -73,11 +73,11 @@ Agora você está pronto para executar os aplicativos.
 
 1.	No Visual Studio, execute o projeto **Receptor** e aguarde que ele inicie os receptores de todas as partições.
 
-   	![][21]
+	![][21]
 
 2.	Execute o projeto **Remetente** pressione **Enter** nas janelas do console e veja os eventos aparecem na janela do receptor.
 
-   	![][22]
+	![][22]
 
 ## Próximas etapas
 
@@ -105,7 +105,7 @@ Agora que criou um aplicativo funcional que cria um Hub de Eventos e envia e rec
 [Visão geral de Hubs de Evento]: event-hubs-overview.md
 [aplicativo de exemplo completo que usa os Hubs de Evento]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [Escala horizontal do processamento de eventos com Hubs de Eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[solução de mensagens na fila]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+[solução de mensagens na fila]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

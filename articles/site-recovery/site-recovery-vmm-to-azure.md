@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="02/16/2016"
+	ms.date="03/15/2016"
 	ms.author="raynew"/>
 
 #  Replicar máquinas virtuais Hyper-V em nuvens VMM para o Azure
@@ -43,7 +43,7 @@ Veja o que será necessário no Azure.
 **Pré-requisito** | **Detalhes**
 --- | ---
 **Conta do Azure**| Você precisará de uma conta do [Microsoft Azure](https://azure.microsoft.com/). Você pode começar com uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/). [Saiba mais](https://azure.microsoft.com/pricing/details/site-recovery/) sobre os preços da Recuperação de Site. 
-**Armazenamento do Azure** | Você precisará de uma conta de armazenamento do Azure para armazenar os dados replicados no Azure. Os dados replicados são armazenados no armazenamento do Azure e as VMs do Azure se adaptam quando ocorre failover. <br/><br/>Você precisa de um [conta de armazenamento com redundância geográfica padrão](../storage/storage-redundancy.md#geo-redundant-storage). Ela deve estar localizada na mesma região que o serviço de Recuperação de Site e associada à mesma assinatura. Observe que atualmente não há suporte para a replicação em contas de armazenamento premium, portanto, ela não deve ser usada.<br/><br/>[Leia sobre o](../storage/storage-introduction.md) armazenamento do Azure.
+**Armazenamento do Azure** | Você precisará de uma conta de armazenamento do Azure para armazenar os dados replicados no Azure. Os dados replicados são armazenados no armazenamento do Azure e as VMs do Azure se adaptam quando ocorre failover. <br/><br/>Você precisa de um [conta de armazenamento com redundância geográfica padrão](../storage/storage-redundancy.md#geo-redundant-storage). Ela deve estar localizada na mesma região que o serviço de Recuperação de Site e associada à mesma assinatura. Observe que atualmente não há suporte para a replicação em contas de armazenamento premium, portanto, ela não deve ser usada. Não há suporte para a movimentação de contas de armazenamento criadas usando o [novo Portal do Azure](../storage/storage-create-storage-account.md) entre grupos de recursos.<br/><br/>[Leia sobre](../storage/storage-introduction.md) armazenamento do Azure.
 **Rede do Azure** | Você precisará de uma rede virtual do Azure com a qual as máquinas virtuais do Azure se conectarão quando ocorrer failover. A rede virtual do Azure deve estar na mesma região que o cofre de Recuperação de Site. 
 
 ## Pré-requisitos do local
@@ -53,7 +53,7 @@ Veja o que será necessário no local.
 **Pré-requisito** | **Detalhes**
 --- | ---
 **VMM** | Você precisará de pelo menos um servidor do VMM implantado como servidor físico ou virtual autônomo ou como um cluster virtual. <br/><br/>O servidor VMM deve estar executando o System Center 2012 R2 com as últimas atualizações cumulativas.<br/><br/>Você precisará de pelo menos uma nuvem configurada no servidor VMM.<br/><br/>A nuvem de origem que você deseja proteger deve conter um ou mais grupos de hosts VMM.<br/><br/>Saiba mais sobre como configurar nuvens VMM no [Passo a passo: como criar nuvens privadas com o System Center 2012 SP1 VMM](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx) no blog de Keith Mayer.
-**Hyper-V** | Você precisará de um ou mais servidores host Hyper-V ou clusters na nuvem VMM. O servidor host deve ter uma ou mais VMs. <br/><br/>O servidor Hyper-V deve estar executando pelo menos o Windows Server 2012 R2 com a função Hyper-V e ter as últimas atualizações instaladas.<br/><br/>Qualquer servidor Hyper-V que contenha VMs que você deseje proteger deverá estar localizado em uma nuvem VMM.<br/><br/>Se você estiver executando o Hyper-V em um cluster, observe que o agente de cluster não será criado automaticamente se você tiver um cluster baseado em endereço IP estático. Você precisará configurar o agente de cluster manualmente. [Saiba mais](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters) na entrada de blog de Aidan Finn.
+**Hyper-V** | Você precisará de um ou mais servidores host Hyper-V ou clusters na nuvem VMM. O servidor host deve ter uma ou mais VMs. <br/><br/>O servidor Hyper-V deve estar executando pelo menos o Windows Server 2012 R2 com a função Hyper-V e ter as últimas atualizações instaladas.<br/><br/>Qualquer servidor Hyper-V que contenha VMs que você deseje proteger deverá estar localizado em uma nuvem VMM.<br/><br/>Se você estiver executando o Hyper-V em um cluster, observe que o agente de cluster não será criado automaticamente se você tiver um cluster baseado em endereço IP estático. Você precisará configurar o agente de cluster manualmente. [Saiba mais](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters) na entrada do blog de Aidan Finn.
 **Computadores protegidos** | As VMs que você deseja proteger devem cumprir os [requisitos do Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
 
 
@@ -106,7 +106,7 @@ Gere uma chave de registro no cofre. Após baixar o Provedor do Azure Site Recov
 
 ## Etapa 3: instalar o Provedor do Azure Site Recovery
 
-1. No **Início Rápido**, em **Preparar servidores VMM**, clique **Baixar o Provedor de Recuperação de Site do Microsoft Azure para instalação nos servidores VMM** para obter a versão mais recente do arquivo de instalação do Provedor.
+1. No **Início Rápido**, em **Preparar servidores VMM**, clique **Baixar o Provedor do Microsoft Azure Site Recovery para instalação nos servidores VMM** para obter a versão mais recente do arquivo de instalação do Provedor.
 2. Execute esse arquivo no servidor VMM de origem. Se o VMM for implantado em um cluster e você estiver instalando o Provedor pela primeira vez, instale-o em um nó ativo e conclua a instalação para registrar o servidor VMM no cofre. Em seguida, instale o Provedor nos outros nós. Observe que, se estiver atualizando o Provedor você precisará fazer a atualização em todos os nós porque todos eles devem estar executando a mesma versão do Provedor.
 3. O Instalador faz uma verificação de pré-requisitos e solicita permissão para interromper o serviço VMM para iniciar a instalação do Provedor. O Serviço VMM será reiniciado automaticamente quando a instalação for finalizada. Se estiver instalando em um cluster do VMM, você deverá parar a função de Cluster.
 
@@ -196,6 +196,8 @@ Em que parâmetros são os seguintes:
 
 	![Conta de armazenamento](./media/site-recovery-vmm-to-azure/storage.png)
 
+>[AZURE.NOTE] Não há suporte para a movimentação de contas de armazenamento criadas usando o [novo Portal do Azure](../storage/storage-create-storage-account.md) entre grupos de recursos..
+
 ## Etapa 5: instalar o Agente de Serviços de Recuperação do Azure
 
 Instale o agente de Serviços de Recuperação do Azure em cada servidor host Hyper-V na nuvem VMM.
@@ -229,11 +231,14 @@ Após o registro do servidor VMM, você poderá definir as configurações de pr
 1. Na página de Início Rápido, clique em **Configurar a proteção para nuvens VMM**.
 2. Na guia **Itens Protegidos**, clique na nuvem que você deseja configurar e vá até a guia **Configuração**.
 3. Em **Destino**, selecione **Azure**.
-4. Em **Conta de Armazenamento**, selecione a conta de armazenamento do Azure usada para replicação.
+4. Em **Conta de Armazenamento**, selecione a conta de armazenamento do Azure usada para replicação. 
+
+	>[AZURE.NOTE] Não há suporte para a movimentação de contas de armazenamento criadas usando o [novo Portal do Azure](../storage/storage-create-storage-account.md) entre grupos de recursos..
+
 5. Defina **Criptografar dados armazenados** como **Desligado**. Essa configuração especifica que os dados podem ser criptografados e replicados entre o site local e o Azure.
 6. Em **Copiar frequência**, mantenha a configuração padrão. Esse valor especifica a frequência com que dados devem ser sincronizados entre os locais de origem e de destino.
 7. Em **Manter pontos de recuperação para**, mantenha a configuração padrão. Com um valor padrão de zero, apenas o ponto de recuperação mais recente para uma máquina virtual primária é armazenado em um servidor de host de réplica.
-8. Em **Frequência dos instantâneos consistentes de aplicativo**, mantenha a configuração padrão. Esse valor especifica a frequência de criação de snapshots. Os snapshots usam o Volume Shadow Copy Service (VSS) para garantir que os aplicativos estejam em um estado consistente quando o instantâneo é obtido. Se você definir um valor, certifique-se de que ele seja menor que o número dos pontos de recuperação adicionais que você configurar.
+8. Em **Frequência dos Instantâneos Consistentes de Aplicativo**, mantenha a configuração padrão. Esse valor especifica a frequência de criação de snapshots. Os snapshots usam o Volume Shadow Copy Service (VSS) para garantir que os aplicativos estejam em um estado consistente quando o instantâneo é obtido. Se você definir um valor, certifique-se de que ele seja menor que o número dos pontos de recuperação adicionais que você configurar.
 9. Em **Hora de início para replicação**, especifique quando a replicação inicial dos dados para o Azure deve começar. O fuso horário do servidor de host Hyper-V será usado. Recomendamos que você agende a replicação inicial fora dos horários de pico.
 
 	![Configurações de replicação de nuvem](./media/site-recovery-vmm-to-azure/cloud-settings.png)
@@ -363,4 +368,4 @@ Para executar um failover de teste, faça o seguinte:
 
 Saiba mais sobre [como configurar planos de recuperação](site-recovery-create-recovery-plans.md) e [failover](site-recovery-failover.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

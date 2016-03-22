@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/08/2016"
+   ms.date="03/09/2016"
    ms.author="cherylmc"/>
 
 # Configurar conexões coexistentes Site a Site e de Rota Expressa
@@ -188,7 +188,7 @@ Se você tiver uma rede virtual existente conectada via conexão VPN de Rota Exp
 
 1. Você precisará instalar a versão mais recente dos cmdlets do PowerShell do Gerenciador de Recursos do Azure. Confira [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para obter mais informações sobre como instalar os cmdlets do PowerShell. Observe que os cmdlets que você usará para essa configuração podem ser ligeiramente diferentes daqueles com os quais você talvez esteja familiarizado. Certifique-se de usar os cmdlets especificados nestas instruções. 
 
-2. Exclua o gateway de VPN Site a Site existente. Use o cmdlet a seguir, substituindo os valores existentes pelos seus.
+2. Exclua o gateway de Rota Expressa ou gateway de VPN Site a Site existente. Use o cmdlet a seguir, substituindo os valores existentes pelos seus.
 
 	`Remove-AzureVNetGateway –VnetName MyAzureVNET`
 
@@ -218,4 +218,4 @@ Se você tiver uma rede virtual existente conectada via conexão VPN de Rota Exp
 
 Para saber mais sobre a Rota Expressa, confira [Perguntas frequentes sobre Rota Expressa](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

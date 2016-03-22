@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/01/2016" 
+	ms.date="03/07/2016" 
 	ms.author="spelluru"/>
 
 # Tutorial: Criar um pipeline com a Atividade de Cópia usando o Data Factory Editor
@@ -22,7 +22,7 @@
 - [Como usar o Editor do Data Factory](data-factory-get-started-using-editor.md)
 - [Como usar o Visual Studio](data-factory-get-started-using-vs.md)
 - [Usando o PowerShell](data-factory-monitor-manage-using-powershell.md)
-
+- [Como usar o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)
 
 
 ##Neste tutorial
@@ -33,13 +33,13 @@ Etapa | Descrição
 [Etapa 1: Criar uma Azure Data Factory](#CreateDataFactory) | Nesta etapa, você criará uma Azure Data Factory denominada **ADFTutorialDataFactory**.  
 [Etapa 2: Criar serviços vinculados](#CreateLinkedServices) | Nesta etapa, você criará dois serviços vinculados: **StorageLinkedService** e **AzureSqlLinkedService**. O StorageLinkedService vincula o armazenamento do Azure e o AzureSqlLinkedService vincula o banco de dados SQL do Azure à ADFTutorialDataFactory. Os dados de entrada do pipeline residem em um contêiner de blob no armazenamento de blob do Azure e os dados de saída serão armazenados em uma tabela no banco de dados SQL do Azure. Portanto, adicione esses dois repositórios de dados como serviços vinculados à data factory.      
 [Etapa 3: Criar tabelas de entrada e saída](#CreateInputAndOutputDataSets) | Na etapa anterior, você criou serviços vinculados que fazem referência a repositórios de dados que contêm dados de entrada/saída. Nesta etapa, você definirá duas tabelas de data factory – **EmpTableFromBlob** e **EmpSQLTable** – que representam os dados de entrada/saída que são armazenados nos repositórios de dados. Na tabela EmpTableFromBlob, você especifica o contêiner de blob que contém um blob com os dados de origem e, na tabela EmpSQLTable, você especifica a tabela SQL que armazenará os dados de saída. Também é possível especificar outras propriedades, como a estrutura dos dados, a disponibilidade dos dados, etc... 
-[Etapa 4: Criar e executar um pipeline](#CreateAndRunAPipeline) | Nesta etapa, você criará um pipeline chamado **ADFTutorialPipeline** na ADFTutorialDataFactory. O pipeline terá uma **Atividade de Cópia**, que copia os dados de entrada do blob do Azure na tabela de saída SQL do Azure. A Atividade de Cópia executa a movimentação de dados no Azure Data Factory e é capacitada por um serviço globalmente disponível que pode copiar dados entre vários armazenamentos de dados de forma segura, confiável e escalonável. Confira o artigo [Atividades de Movimentação de Dados](data-factory-data-movement-activities.md) para obter detalhes sobre a Atividade de Cópia. 
+[Etapa 4: Criar e executar um pipeline](#CreateAndRunAPipeline) | Nesta etapa, você criará um pipeline chamado **ADFTutorialPipeline** na ADFTutorialDataFactory. O pipeline terá uma **Atividade de Cópia**, que copia os dados de entrada do blob do Azure na tabela de saída SQL do Azure. A Atividade de Cópia executa a movimentação de dados no Azure Data Factory e é capacitada por um serviço globalmente disponível que pode copiar dados entre vários armazenamentos de dados de forma segura, confiável e escalonável. Confira o artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md) para obter detalhes sobre a Atividade de Cópia. 
 [Etapa 5: Monitorar fatias e pipeline](#MonitorDataSetsAndPipeline) | Nesta etapa, você vai monitorar fatias de tabelas de entrada e de saída usando o Portal do Azure.
 
 > [AZURE.IMPORTANT] 
 Leia o artigo [Visão geral do tutorial](data-factory-get-started.md) e conclua as etapas de pré-requisito antes de executar este tutorial.
 
-## <a name="CreateDataFactory"></a> Etapa 1: criar um data factory do Azure
+## <a name="CreateDataFactory"></a>Etapa 1: criar um data factory do Azure
 Nesta etapa, você usa o Portal do Azure para criar uma data factory do Azure denominada **ADFTutorialDataFactory**.
 
 1.	Depois de fazer logon no [Portal do Azure][azure-portal], clique em **NOVO** no canto inferior esquerdo, selecione **Análises de dados** na folha **Criar** e clique em **Data Factory** na folha **Análises de dados**. 
@@ -153,7 +153,7 @@ Uma tabela é um conjunto de dados retangular e tem um esquema. Nesta etapa, voc
 	- **folderPath** é definido como o contêiner **adftutorial**. É possível também especificar o nome de um blob dentro da pasta. Como você não está especificando o nome do blob, dados de todos os blobs no contêiner são considerados como um entrada de dados.  
 	- O **type** de formato é definido como **TextFormat**
 	- Há dois campos no arquivo de texto, **FirstName** e **LastName**, separados por uma vírgula (**columnDelimiter**)	
-	- A **disponibilidade** é definida como **horária** (a **frequência** é definida como **hora** e o **intervalo** definido como **1** ), de modo que o serviço Data Factory procure dados de entrada a cada hora na pasta raiz do contêiner de blob (**adftutorial**) especificado. 
+	- A **disponibilidade** é definida como **horária** (a **frequência** é definida como **hora** e o **intervalo** é definido como **1** ), de modo que o serviço Data Factory procure dados de entrada a cada hora na pasta raiz do contêiner de blob (**adftutorial**) especificado. 
 	
 
 	Se você não especificar um **fileName** para uma **tabela** de **entradas**, todos os arquivos/blobs da pasta de entrada (**folderPath**) serão considerados como entradas. Se você especificar um nome de arquivo em JSON, apenas arquivo/blob especificado será considerado como entrada de asn. Consulte os arquivos do [tutorial][adf-tutorial] para obter exemplos.
@@ -381,7 +381,7 @@ Neste tutorial, você criou uma data factory do Azure para copiar dados de um bl
 
 
 ## Consulte também
-Confira o artigo [Atividades de Movimentação de Dados](data-factory-data-movement-activities.md) para obter informações detalhadas sobre a **Atividade de Cópia** no Azure Data Factory.
+Confira o artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md) para obter informações detalhadas sobre a **Atividade de Cópia** no Azure Data Factory.
 
 <!--Link references-->
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
@@ -459,4 +459,4 @@ Confira o artigo [Atividades de Movimentação de Dados](data-factory-data-movem
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -255,9 +255,11 @@ Nesta seção, use as ferramentas do Azure integradas ao assistente **Publicar W
 
 	![](./media/app-service-api-dotnet-get-started/apptype.png)
 
-	O tipo de aplicativo não determina os recursos que estarão disponíveis para o novo aplicativo de API, aplicativo Web ou aplicativo móvel. Todos os recursos do aplicativo de API mostrados nestes tutoriais estão disponíveis para todos os três tipos. A única diferença é o ícone e o texto que o portal do Azure exibe para identificar o tipo de aplicativo e a ordem na qual os recursos são listados em algumas páginas do portal. Você verá o portal do Azure posteriormente no tutorial; é uma interface da Web para gerenciar recursos do Azure.
+	<a id="apptype"></a> O tipo de aplicativo não determina os recursos que estarão disponíveis para o novo aplicativo de API, aplicativo Web ou aplicativo móvel. Todos os recursos do aplicativo de API mostrados nestes tutoriais estão disponíveis para todos os três tipos. A única diferença é o ícone e o texto que o portal do Azure exibe para identificar o tipo de aplicativo e a ordem na qual os recursos são listados em algumas páginas do portal. Você verá o portal do Azure posteriormente no tutorial; é uma interface da Web para gerenciar recursos do Azure.
 
-4. Insira um **Nome do Aplicativo de API** que seja exclusivo no domínio *azurewebsites.net*, como ToDoListDataAPI mais um número para torná-lo exclusivo.
+	Para esses tutoriais, o front-end do SPA está em execução em um aplicativo Web, e cada back-end de API Web está em execução em um aplicativo de API, mas tudo funcionaria da mesma forma se todos os três fossem aplicativos Web ou aplicativos de API. Além disso, um único aplicativo de API ou aplicativo Web pode hospedar o front-end do SPA e o back-end de camada intermediária.
+
+4. Insira um **Nome do Aplicativo de API** que seja exclusivo no domínio *azurewebsites.net*, como ToDoListDataAPI, mais um número para torná-lo exclusivo.
 
 	O Visual Studio sugere um nome exclusivo acrescentando uma cadeia de caracteres de data e hora ao nome do projeto. Se preferir, você poderá aceitar esse nome.
 
@@ -273,13 +275,13 @@ Nesta seção, use as ferramentas do Azure integradas ao assistente **Publicar W
 
 4. Clique no botão **Novo** ao lado da lista suspensa **Plano do Serviço de Aplicativo**.
 
-	A captura de tela mostra valores de exemplo para **Nome de Aplicativo de API**, **Assinatura**, e **Grupo de Recursos** – os valores serão diferentes.
+	A captura de tela mostra valores de exemplo para **Nome de Aplicativo de API**, **Assinatura** e **Grupo de Recursos** – seus valores serão diferentes.
 
 	![](./media/app-service-api-dotnet-get-started/createas.png)
 
 	Nas etapas a seguir, você criará um plano de Serviço de Aplicativo para o novo grupo de recursos. Um plano de Serviço de Aplicativo especifica os recursos de computação em que seu aplicativo de API é executado. Por exemplo, se você escolher a camada gratuita, seu aplicativo de API será executado em VMs compartilhadas, enquanto que para algumas camadas pagas, ele é executado em VMs dedicadas. Para saber mais sobre os planos do Serviço de Aplicativo, consulte a [Visão geral dos planos do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
-5. No diálogo **Configurar Plano de Serviço de Aplicativo**, insira "ToDoListPlan" ou outro nome, se preferir.
+5. Na caixa de diálogo **Configurar Plano de Serviço de Aplicativo**, insira "ToDoListPlan" ou outro nome, se preferir.
 
 5. Na lista suspensa **Local**, escolha o local mais próximo de você.
 
@@ -305,11 +307,11 @@ Nesta seção, use as ferramentas do Azure integradas ao assistente **Publicar W
 
 8. Na guia **Conexão** do assistente **Publicar Web**, clique em **Avançar**.
 
-	Em vez disso, você pode prosseguir e clicar em **Publicar** agora para implantar imediatamente o projeto para o novo aplicativo de API; mas, no tutorial, você percorrerá outras guias desse diálogo para ver o que pode fazer nelas.
+	Em vez disso, você pode prosseguir e clicar em **Publicar** agora para implantar imediatamente o projeto para o novo aplicativo de API. Porém, no tutorial, você percorrerá as outras guias dessa caixa de diálogo para ver o que pode fazer nelas.
 
 	![](./media/app-service-api-dotnet-get-started/connnext.png)
 
-	A próxima é a guia **Configurações**. Aqui, você pode alterar a guia de configuração de compilação para implantar uma compilação de depuração para [depuração remota](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). A guia também oferece várias **Opções de Publicação do Arquivo**:
+	A próxima é a guia **Configurações**. Aqui, você pode alterar a guia de configuração de build para implantar uma compilação de depuração para [depuração remota](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). A guia também oferece várias **Opções de Publicação do Arquivo**:
 
 	* Remover os arquivos adicionais no destino
 	* Pré-compilar durante a publicação
@@ -321,13 +323,13 @@ Nesta seção, use as ferramentas do Azure integradas ao assistente **Publicar W
 
 	![](./media/app-service-api-dotnet-get-started/settingsnext.png)
 
-	A guia **Visualização** oferece uma oportunidade de ver quais arquivos serão copiados do seu projeto para o aplicativo de API. Quando você estiver implantando um projeto para um aplicativo de API no qual já tenha implantado antes, somente os arquivos alterados serão copiados. Se você quiser ver uma lista do que será copiado, poderá clicar no botão **Iniciar Visualização**.
+	A guia **Visualização** oferece a oportunidade de ver quais arquivos serão copiados do projeto para o aplicativo de API. Quando você estiver implantando um projeto para um aplicativo de API no qual já tenha implantado antes, somente os arquivos alterados serão copiados. Para ver uma lista do que será copiado, você pode clicar no botão **Iniciar Visualização**.
 
 15. Clique em **Publicar**.
 
 	![](./media/app-service-api-dotnet-get-started/clickpublish.png)
 
-	O Visual Studio implanta o projeto ToDoListDataAPI para o novo aplicativo de API. A janela **Saída** registra uma implantação bem-sucedida e uma página "criada com êxito" será exibida em uma janela de navegador aberta para a URL do aplicativo de API.
+	O Visual Studio implanta o projeto ToDoListDataAPI para o novo aplicativo de API. A janela **Saída** registra uma implantação bem-sucedida, e uma página "criada com êxito" será exibida em uma janela de navegador aberta para a URL do aplicativo de API.
 
 	![](./media/app-service-api-dotnet-get-started/deploymentoutput.png)
 
@@ -355,7 +357,7 @@ Nesta seção, use as ferramentas do Azure integradas ao assistente **Publicar W
 
 	![](./media/app-service-api-dotnet-get-started/apidefinsettings.png)
 
-	A folha **Definição de API** permite que você especifique a URL para retornar metadados do Swagger 2.0 no formato JSON. Quando o Visual Studio cria o aplicativo de API, ele define a URL de definição de API com o valor padrão para metadados gerados pelo Swashbuckle que vimos anteriormente, que é a URL base do aplicativo de API mais `/swagger/docs/v1`.
+	A folha **Definição de API** permite que você especifique a URL para retornar metadados do Swagger 2.0 no formato JSON. Quando o Visual Studio cria o aplicativo de API, define a URL de definição de API com o valor padrão para metadados gerados pelo Swashbuckle que vimos anteriormente, que é a URL base do aplicativo de API mais `/swagger/docs/v1`.
 
 	![](./media/app-service-api-dotnet-get-started/apidefurl.png)
 
@@ -397,7 +399,7 @@ O projeto ToDoListAPI já tem o código de cliente gerado, mas você o excluirá
 
 	![](./media/app-service-api-dotnet-get-started/codegenurlplugged.png)
 
-	Uma maneira alternativa de obter metadados para a geração de código é inserir a URL diretamente em vez de passar pelo diálogo Procurar. Outra alternativa é usar a opção **Selecionar um arquivo de metadados do Swagger existente**. Por exemplo, se você quiser gerar código cliente antes de implantar no Azure, poderá executar o projeto de API Web localmente, vá para a URL que fornece o arquivo JSON do Swagger, salve o arquivo e o selecione aqui.
+	Uma maneira alternativa de obter metadados para a geração de código é inserir a URL diretamente em vez de passar pelo diálogo Procurar. Uma alternativa é usar a opção **Selecionar um arquivo de metadados do Swagger existente**. Por exemplo, se você quiser gerar código cliente antes de implantar no Azure, poderá executar o projeto de API Web localmente, vá para a URL que fornece o arquivo JSON do Swagger, salve o arquivo e o selecione aqui.
 
 9. Na caixa de diálogo **Adicionar Cliente da API REST**, clique em **OK**.
 
@@ -484,9 +486,11 @@ Se você chamasse o aplicativo de API da camada intermediária agora, ele tentar
 
 	![](./media/app-service-api-dotnet-get-started/midtierget.png)
 
+Para obter mais informações sobre o cliente gerado, confira o [repositório AutoRest do GitHub](https://github.com/azure/autorest). Para obter ajuda com problemas para usar o cliente gerado, abra um [problema no repositório AutoRest](https://github.com/azure/autorest/issues).
+
 ## <a id="creating"></a> Opcional: Criar um projeto de aplicativo de API do zero
 
-Neste tutorial, você baixará os projetos de API Web do ASP.NET para implantação no Serviço de Aplicativo em vez de criar novos projetos do zero. Para criar um projeto que pretenda implantar em um aplicativo de API, você poderá criar um projeto de API Web típica e instalar o pacote Swashbuckle ou poderá usar o novo modelo de projeto **aplicativo de API do Azure**. Para usar esse modelo, clique em **Arquivo > Novo > Projeto > Aplicativo Web ASP.NET > Aplicativo de API do Azure**.
+Neste tutorial, você baixará os projetos de API Web do ASP.NET para implantação no Serviço de Aplicativo em vez de criar novos projetos do zero. Para criar um projeto que pretende implantar em um aplicativo de API, você pode criar um projeto de API Web típico e instalar o pacote Swashbuckle ou pode usar o novo modelo de projeto **Aplicativo de API do Azure**. Para usar esse modelo, clique em **Arquivo > Novo > Projeto > Aplicativo Web ASP.NET > Aplicativo de API do Azure**.
 
 ![](./media/app-service-api-dotnet-get-started/apiapptemplate.png)
 
@@ -494,21 +498,21 @@ O modelo de projeto **Aplicativo de API do Azure** é equivalente a escolher o m
 
 ## Opcional: Alterar um tipo de aplicativo
 
-Conforme explicado anteriormente, a única diferença entre os aplicativos de API, os aplicativos Web e os aplicativos móveis é a forma como eles são representados no portal. Como todos eles têm os mesmos recursos, nunca será necessário alterar um tipo de aplicativo.
+Conforme explicado [anteriormente](#apptype), a única diferença entre os aplicativos de API, os aplicativos Web e os aplicativos móveis é a forma como eles são representados no portal. Como todos eles têm os mesmos recursos, nunca será necessário alterar um tipo de aplicativo.
 
 No entanto, é fácil alterar a representação do portal. Por exemplo, você poderia mudar um dos aplicativos de API que acabou de criar para um aplicativo Web ao executar as etapas a seguir.
 
 1. Abra o Gerenciador de Recursos.
 
-2. No painel de navegação esquerdo, expanda **assinaturas** e expanda a assinatura em que você tem trabalhado.
+2. No painel de navegação esquerdo, expanda **assinaturas** e expanda a assinatura com o qual você tem trabalhado.
 
-4. Expanda **resourceGroups** e expanda o grupo de recursos com que você tem trabalhado.
+4. Expanda **resourceGroups** e expanda o grupo de recursos com o qual você tem trabalhado.
 
 5. Expanda **Microsoft.Web**, expanda **sites** e selecione o aplicativo de API que deseja alterar.
 
 6. Clique em **Editar**.
 
-8. Encontre a propriedade `kind` e altere-a de "api" para "WebApp".
+8. Localize a propriedade `kind` e altere-a de "api" para "WebApp".
 
 	![](./media/app-service-api-dotnet-get-started/resexp.png)
 
@@ -516,11 +520,11 @@ No entanto, é fácil alterar a representação do portal. Por exemplo, você po
 
 10. Acesse o portal do Azure para ver que o ícone foi alterado para refletir o novo tipo de aplicativo.
 
-## Opcional: URL da definição de API nos modelos do Gerenciador de Recursos do Azure
+## Opcional: URL da definição de API nos modelos do Azure Resource Manager
 
 Neste tutorial, você viu a URL de definição de API no Visual Studio e no portal do Azure. Você também pode configurar a URL de definição de API para um aplicativo de API usando os [modelos do Azure Resource Manager](../resource-group-authoring-templates.md) nas ferramentas de linha de comando, como o [Azure PowerShell](../powershell-install-configure.md) e a [CLI do Azure](../xplat-cli-install.md).
 
-Para ver um exemplo de um modelo do Azure Resource Manager que defina a propriedade de definição de API, abra o [arquivo azuredeploy.json no repositório do aplicativo de exemplo deste tutorial](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json). Localize a seção do modelo que se parece com o exemplo a seguir:
+Para ver um exemplo de um modelo do Azure Resource Manager que define a propriedade de definição de API, abra o [arquivo azuredeploy.json no repositório do aplicativo de exemplo deste tutorial](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json). Localize a seção do modelo que se parece com o exemplo a seguir:
 
 		"apiDefinition": {
 		  "url": "https://todolistdataapi.azurewebsites.net/swagger/docs/v1"
@@ -528,6 +532,6 @@ Para ver um exemplo de um modelo do Azure Resource Manager que defina a propried
 
 ## Próximas etapas
 
-Neste tutorial, você viu como criar aplicativos de API, implantar código neles, gerar código cliente para eles e consumi-los usando clientes .NET. O próximo tutorial na série de introdução aos Aplicativos de API mostra como [consumir aplicativos de API de clientes JavaScript usando CORS](app-service-api-cors-consume-javascript.md).
+Neste tutorial, você viu como criar aplicativos de API, implantar código neles, gerar código cliente para eles e consumi-los usando clientes .NET. O próximo tutorial na série de introdução aos Aplicativos de API mostra como [consumir aplicativos de API de clientes JavaScript usando CORS](app-service-api-cors-consume-javascript.md). Tutoriais subsequentes na série mostram como implementar a autenticação e a autorização.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

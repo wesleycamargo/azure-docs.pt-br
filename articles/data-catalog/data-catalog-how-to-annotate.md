@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Como anotar fontes de dados"
+   pageTitle="Como anotar fontes de dados | Microsoft Azure"
    description="Artigo de instruções que destaca como anotar ativos de dados no Catálogo de Dados do Azure, incluindo nomes amigáveis, marcas, descrições e especialistas."
    services="data-catalog"
    documentationCenter=""
@@ -20,7 +20,7 @@
 # Como anotar fontes de dados
 
 ## Introdução
-O**Catálogo de Dados do Microsoft Azure** é um serviço de nuvem totalmente gerenciado que atua como um sistema de registro e sistema de descoberta em fontes de dados da empresa. Em outras palavras, o **Catálogo de Dados do Azure** ajuda as pessoas a descobrir, entender e usar fontes de dados, ajudando as empresas a obter mais valor de seus dados existentes. Quando uma fonte de dados tiver sido registrada no **Catálogo de Dados do Azure**, seus metadados serão copiados e indexados pelo serviço, mas a história não para por aí. O **Catálogo de Dados do Azure** permite que os usuários forneçam seus próprios metadados descritivos – como descrições e marcas – para complementar os metadados extraídos da fonte de dados e fazer com que a fonte de dados fique mais compreensível para mais pessoas.
+O**Catálogo de Dados do Microsoft Azure** é um serviço de nuvem totalmente gerenciado que atua como um sistema de registro e sistema de descoberta em fontes de dados da empresa. Em outras palavras, o **Catálogo de Dados do Azure** ajuda as pessoas a descobrir, entender e usar fontes de dados, ajudando as empresas a obter mais valor de seus dados existentes. Quando uma fonte de dados é registrada no **Catálogo de Dados do Azure**, seus metadados são copiados e indexados pelo serviço, mas a história não para por aí. O **Catálogo de Dados do Azure** permite que os usuários forneçam seus próprios metadados descritivos – como descrições e marcas – para complementar os metadados extraídos da fonte de dados e fazer com que a fonte de dados fique mais compreensível para mais pessoas.
 
 ## Anotação e crowdsourcing
 Todo mundo tem uma opinião. E isso é bom. O **Catálogo de Dados do Azure** reconhece que diferentes usuários têm diferentes perspectivas em fontes de dados empresariais e cada uma dessas perspectivas pode ser valiosa. Considere este cenário:
@@ -61,4 +61,4 @@ O registro de uma fonte de dados no **Catálogo de Dados do Azure** torna os dad
 ## Consulte também
 - o tutorial [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md) para obter detalhes passo a passo sobre como anotar fontes de dados.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/10/2016"
+   ms.date="03/15/2016"
    ms.author="jgao"/>
 
 # Tutorial: desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio
@@ -106,7 +106,7 @@ Os trabalhos de Análise Data Lake são escritos na linguagem U-SQL. Para saber 
 		    SELECT *
 		    FROM @searchlog;        
 
-        OUTPUT @searchlog   
+        OUTPUT @res   
             TO "/Output/SearchLog-from-Data-Lake.csv"
         USING Outputters.Csv();
 
@@ -262,11 +262,15 @@ Há duas maneiras de executar os arquivos personalizados do C#:
 
 Você pode depurar assemblies do C# sem enviar e registrá-los para o Serviço da Análise do Azure Data Lake. Você pode definir pontos de interrupção no arquivo code-behind e em um projeto do C# referenciado.
 
-**Para depurar o código local no arquivo code-behind** 1. Definir pontos de interrupção no arquivo code-behind. 2. Pressione **F5** para depurar o script localmente.
+**Para depurar o código local no arquivo code-behind**
+1.	Definir pontos de interrupção no arquivo code-behind. 
+2.	Pressione **F5** para depurar o script localmente.
 
 O procedimento a seguir só funciona no Visual Studio 2015. No Visual Studio mais antigo, talvez seja necessário adicionar manualmente os arquivos pdb.
 
-**Para depurar o código local em um projeto do C# referenciado** 1. Crie um projeto de Assembly do C# e compile-o para gerar o dll de saída. 2. Registre o dll usando uma instrução U-SQL:
+**Para depurar o código local em um projeto do C# referenciado**
+1.	Crie um projeto de Assembly do C# e compile-o para gerar o dll de saída.
+2.	Registre o dll usando uma instrução U-SQL:
 
         CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
 3.	Definir pontos de interrupção no código C#.
@@ -359,4 +363,4 @@ O script do PowerShell a seguir prepara uma conta da Análise Data Lake do Azure
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

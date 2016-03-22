@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/01/2016" 
+	ms.date="03/07/2016" 
 	ms.author="spelluru"/>
 
 # Tutorial: Criar um pipeline com a Atividade de Cópia usando o Azure PowerShell
@@ -22,11 +22,11 @@
 - [Como usar o Editor do Data Factory](data-factory-get-started-using-editor.md)
 - [Como usar o Visual Studio](data-factory-get-started-using-vs.md)
 - [Usando o PowerShell](data-factory-monitor-manage-using-powershell.md)
-
+- [Como usar o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)
 
 O tutorial [Introdução à Azure Data Factory][adf-get-started] mostra como criar e monitorar uma Azure Data Factory usando o [Portal do Azure][azure-portal]. Neste tutorial, você vai criar e monitorar uma Azure Data Factory usando cmdlets do PowerShell do Azure. O pipeline no data factory que você cria neste tutorial usa uma atividade de cópia para copiar dados de um blob do Azure para um banco de dados SQL do Azure.
 
-A Atividade de Cópia executa a movimentação de dados no Azure Data Factory e é capacitada por um serviço globalmente disponível que pode copiar dados entre vários armazenamentos de dados de forma segura, confiável e escalonável. Confira o artigo [Atividades de Movimentação de Dados](data-factory-data-movement-activities.md) para obter detalhes sobre a Atividade de Cópia.
+A Atividade de Cópia executa a movimentação de dados no Azure Data Factory e é capacitada por um serviço globalmente disponível que pode copiar dados entre vários armazenamentos de dados de forma segura, confiável e escalonável. Confira o artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md) para obter detalhes sobre a Atividade de Cópia.
 
 > [AZURE.IMPORTANT] 
 Leia o artigo [Visão geral do tutorial](data-factory-get-started.md) e conclua as etapas de pré-requisito antes de executar este tutorial.
@@ -59,7 +59,7 @@ Etapa | Descrição
 [Etapa 4: Criar e executar um pipeline](#CreateAndRunAPipeline) | Nesta etapa, você criará um pipeline chamado **ADFTutorialPipeline** na data factory: **ADFTutorialDataFactoryPSH**. O pipeline terá uma **Atividade de Cópia** que copia dados de um blob do Azure em uma tabela de banco de dados de saída do Azure.
 [Etapa 5: monitorar conjuntos de dados e pipeline](#MonitorDataSetsAndPipeline) | Nesta etapa, você vai monitorar os conjuntos de dados e o pipeline usando o PowerShell do Azure.
 
-## <a name="CreateDataFactory"></a> Etapa 1: criar um data factory do Azure
+## <a name="CreateDataFactory"></a>Etapa 1: criar um data factory do Azure
 Nesta etapa, é possível utilizar o PowerShell do Azure para criar uma Azure Data Factory denominada **ADFTutorialDataFactoryPSH**.
 
 1. Inicie o Azure PowerShell e execute o comando a seguir. Mantenha o Azure PowerShell aberto até o fim deste tutorial. Se você fechá-la e reabri-la, precisará executar esses comandos novamente.
@@ -226,7 +226,7 @@ Uma tabela é um conjunto de dados retangular e tem um esquema. Nesta etapa, voc
 	- **fileName** está definido como **emp.txt**. Se você não especificar o nome do blob, os dados de todos os blobs no contêiner serão considerados como dados de entrada.  
 	- O **type** de formato é definido como **TextFormat**
 	- Há dois campos no arquivo de texto, **FirstName** e **LastName**, separados por uma vírgula (**columnDelimiter**)	
-	- A **disponibilidade** é definida como **horária** (a **frequência** é definida como **hora** e o **intervalo** definido como **1** ), de modo que o serviço Data Factory procure dados de entrada a cada hora na pasta raiz do contêiner de blob (**adftutorial**) especificado.
+	- A **disponibilidade** é definida como **horária** (a **frequência** é definida como **hora** e o **intervalo** é definido como **1** ), de modo que o serviço Data Factory procure dados de entrada a cada hora na pasta raiz do contêiner de blob (**adftutorial**) especificado.
 
 	Se você não especificar um **fileName** para uma **tabela** de **entradas**, todos os arquivos/blobs da pasta de entrada (**folderPath**) serão considerados como entradas. Se você especificar um nome de arquivo em JSON, apenas arquivo/blob especificado será considerado como entrada de asn. Consulte os arquivos do [tutorial][adf-tutorial] para obter exemplos.
  
@@ -425,7 +425,7 @@ Nesta etapa, você usará o PowerShell do Azure para monitorar o que está acont
 Consulte [Referência de cmdlet de Data Factory][cmdlet-reference] para obter uma documentação abrangente sobre os cmdlets de Data Factory.
 
 ## Consulte também
-Confira o artigo [Atividades de Movimentação de Dados](data-factory-data-movement-activities.md) para obter informações detalhadas sobre a **Atividade de Cópia** no Azure Data Factory.
+Confira o artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md) para obter informações detalhadas sobre a **Atividade de Cópia** no Azure Data Factory.
 
 
 [adf-tutorial]: data-factory-tutorial.md
@@ -447,4 +447,4 @@ Confira o artigo [Atividades de Movimentação de Dados](data-factory-data-movem
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

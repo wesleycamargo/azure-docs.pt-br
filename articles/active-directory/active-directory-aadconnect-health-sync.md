@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/17/2016"
+	ms.date="03/08/2016"
 	ms.author="billmath"/>
 
 # Usando o Azure AD Connect Health para sincronização
@@ -28,6 +28,17 @@ A seção Alertas do Azure AD Connect Health para sincronização fornece a list
 Ao selecionar um alerta, você receberá informações adicionais, bem como etapas que você pode seguir para resolver o alerta e links para documentação adicional.
 
 ![Erro de sincronização do Azure AD Connect](./media/active-directory-aadconnect-health-sync/alert.png)
+
+### Avaliação limitada de alertas
+Se o Azure AD Connect não estiver usando a configuração padrão (por exemplo, se a Filtragem de Atributos for alterada da configuração padrão para uma configuração personalizada), o agente do Azure AD Connect Health não carregará os eventos de erro relacionados ao Azure AD Connect.
+
+Isso limita a avaliação de alertas pelo serviço. Você verá uma faixa que indica essa condição no Portal do Azure em seu serviço.
+
+![Azure AD Connect Health para sincronização](./media/active-directory-aadconnect-health-sync/banner.png)
+
+Você pode alterar isso clicando em "Configurações" e permitindo que o agente do Azure AD Connect Health carregue todos os logs de erro.
+
+![Azure AD Connect Health para sincronização](./media/active-directory-aadconnect-health-sync/banner2.png)
 
 ## Detalhes da sincronização
 Com a versão mais recente do Azure AD Connect Health para sincronização, estes recursos novos foram adicionados:
@@ -56,4 +67,4 @@ Esse recurso oferece uma tendência gráfica do número de alterações que est�
 * [Perguntas frequentes do Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Histórico de versão do Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->
