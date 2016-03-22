@@ -240,7 +240,7 @@ As solicitações de exibição de item **PUT** e **POST** podem ser usadas para
 
 > [AZURE.NOTE]
 >
-> **__**\_\_permissions** aplica-se somente a um item raiz.
+> **\_\_permissions** aplica-se somente a um item raiz.
 >
 > A função **Proprietário** só é aplicável a um item raiz.
 >

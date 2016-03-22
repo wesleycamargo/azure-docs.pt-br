@@ -60,7 +60,8 @@ Como o Backup é uma solução de backup híbrida, é formado por vários compon
 | Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md)</p> |
 | Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md)</p> |
 | Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md)</p> |
-| VMs de IaaS do Azure (Windows)| - | [Backup do Azure (extensão de VM)](backup-azure-vms-introduction.md) | | VMs de IaaS do Azure (Linux) | - | [Backup do Azure (extensão de VM)](backup-azure-vms-introduction.md) |
+| VMs de IaaS do Azure (Windows)| - | [Backup do Azure (extensão de VM)](backup-azure-vms-introduction.md) |
+| VMs de IaaS do Azure (Linux) | - | [Backup do Azure (extensão de VM)](backup-azure-vms-introduction.md) |
 
 ## Funcionalidade
 Estas cinco tabelas resumem como a funcionalidade do Backup é tratada em cada componente:

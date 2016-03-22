@@ -165,7 +165,7 @@ Para obter um exemplo de como enviar notificações por push usando as [APIs RES
 
 	Substitua o espaço reservado `<hub name>` pelo nome do hub de notificação que aparece no portal. Além disso, substitua o espaço reservado da cadeia de conexão pela cadeia de conexão chamada **DefaultFullSharedAccessSignature** que você obteve na seção “Configurar seu hub de notificação”.
 
-	>[AZURE.NOTE]Verifique se você está usando a cadeia de conexão com acesso **Completo**, não com acesso para **Escutar**. A cadeia de acesso de escuta não tem permissões para enviar notificações por push.
+	>[AZURE.NOTE] Verifique se você está usando a cadeia de conexão com acesso **Completo**, não com acesso para **Escutar**. A cadeia de acesso de escuta não tem permissões para enviar notificações por push.
 
 4. Adicione a seguinte linha ao método `Main`:
 
@@ -212,7 +212,7 @@ Saiba mais sobre como usar Hubs de Notificação em [Diretrizes dos Hubs de Noti
 <!-- URLs. -->
 [Visual Studio 2012 Express para Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
 [Diretrizes dos Hubs de Notificação]: http://msdn.microsoft.com/library/jj927170.aspx
-[MPNS authenticated mode]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
+[Modo autenticado MPNS]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
 [Usar Hubs de Notificação para enviar notificações por push aos usuários]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Usar Hubs de Notificação para enviar notícias mais recentes]: notification-hubs-windows-phone-send-breaking-news.md
 [catálogo de notificações do sistema]: http://msdn.microsoft.com/library/windowsphone/develop/jj662938(v=vs.105).aspx

@@ -7,7 +7,14 @@
 	manager="erikre"
 	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="03/15/2016"" ms.author="juliako"/>
+<tags
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article" 
+ 	ms.date="03/15/2016"" 
+	ms.author="juliako"/>
 
 
 #Usando a PlayReady e/ou a Criptografia Comum Dinâmica Widevine
