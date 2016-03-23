@@ -44,6 +44,7 @@ O Engagement exige estruturas adicionais para funcionar: no Explorador de projet
 > -   `libxml2.dylib`
 
 <br\>
+
 > [AZURE.NOTE] A estrutura AdSupport pode ser removida. O Engagement precisa dessa estrutura para coletar o IDFA. No entanto, a coleção de IDFA pode ser desabilitada \<ios-sdk-contrato-idfa\> de acordo com a nova política Apple em relação a essa ID.
 
 ##Inicialize o SDK do Engagement
@@ -208,4 +209,4 @@ O exemplo a seguir de `Settings.bundle` mostra como implementá-lo:
 [startMonitoringSignificantLocationChanges]: http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges
 [IDFA]: https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
 
-<!-----HONumber=AcomDC_0302_2016-->
+<!------HONumber=AcomDC_0302_2016-->
