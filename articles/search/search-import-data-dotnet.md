@@ -53,7 +53,8 @@ Ação | Descrição | Campos necessários para cada documento | Observações
 --- | --- | --- | ---
 `Upload` | Uma ação `Upload` é semelhante a um "upsert", em que o documento será inserido se for novo e atualizado/substituído se existir. | chave, além de quaisquer outros campos que você quiser definir | Ao atualizar/substituir um documento existente, qualquer campo não especificado na solicitação terá seu campo definido para `null`. Isso ocorre mesmo quando o campo tiver sido definido anteriormente como um valor não nulo.
 `Merge` | Atualiza um documento existente com os campos especificados. Se o documento não existir no índice, a mesclagem falhará. | chave, além de quaisquer outros campos que você quiser definir | Qualquer campo que você especificar em uma mesclagem substituirá o campo existente no documento. Isso inclui campos do tipo `DataType.Collection(DataType.String)`. Por exemplo, se o documento contiver um campo `tags` com o valor `["budget"]` e você executar uma mesclagem com o valor `["economy", "pool"]` para `tags`, o valor final do campo `tags` será `["economy", "pool"]`. Ele não será `["budget", "economy", "pool"]`.
-`MergeOrUpload` | Essa ação se comportará como `Merge` se já existir um documento com a chave especificada no índice. Se o documento não existir, ele se comportará como `Upload` com um novo documento. | chave, além de outros campos que você deseja definir |- `Delete` | Remove o documento especificado do índice. | somente chave | Todos os campos que você especificar que não sejam o campo de chave serão ignorados. Se você quiser remover um campo individual de um documento, use `Merge` e apenas defina o campo explicitamente para null.
+`MergeOrUpload` | Essa ação se comportará como `Merge` se já existir um documento com a chave especificada no índice. Se o documento não existir, ele se comportará como `Upload` com um novo documento. | chave, além de outros campos que você deseja definir |-
+`Delete` | Remove o documento especificado do índice. | somente chave | Todos os campos que você especificar que não sejam o campo de chave serão ignorados. Se você quiser remover um campo individual de um documento, use `Merge` e apenas defina o campo explicitamente para null.
 
 Você pode especificar a ação que deseja usar com os diversos métodos estáticos das classes `IndexBatch` e `IndexAction`, conforme mostrado na próxima seção.
 
@@ -204,4 +205,4 @@ Por esse motivo, sugerimos que você use tipos anuláveis nas suas classes de mo
 ## Avançar
 Depois de popular o índice de Pesquisa do Azure, você estará pronto para começar a emitir consultas para pesquisar documentos. Veja [Consultar seu Índice de Pesquisa do Azure](search-query-overview.md) para obter detalhes.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!-----HONumber=AcomDC_0316_2016-->
