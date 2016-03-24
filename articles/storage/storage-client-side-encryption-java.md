@@ -247,4 +247,4 @@ Observe que criptografar seu armazenamento de dados resulta em uma sobrecarga ad
 	- Pacote [Client](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault)
 - Visite a [Documentação do Cofre de Chaves do Azure](../key-vault/key-vault-whatis.md)  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->
