@@ -72,4 +72,4 @@ fetch(url)
 
 Você também pode usar jQuery ou outra API AJAX para buscar as informações. Os dados serão recebidos como um objeto JSON.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->
