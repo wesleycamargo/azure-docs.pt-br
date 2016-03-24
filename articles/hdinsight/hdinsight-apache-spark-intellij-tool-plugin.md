@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="03/03/2016" 
 	ms.author="nitinme"/>
 
 
@@ -55,7 +55,9 @@ Se a instalação do IntelliJ IDEA não solicitar para habilitar o plug-in Scala
 
 1. Se você tiver voltado para a tela de boas-vindas do IntelliJ IDEA, clique em **Configurar** e clique em **Plug-ins** novamente.
 
-2. Na próxima tela, clique em **Procurar Repositórios** no canto inferior esquerdo. Na caixa de diálogo **Procurar Repositórios**, procure **HDInsight**, escolha as **Ferramentas do Microsoft Azure HDInsight para IntelliJ** e clique em **Instalar**.
+2. Na próxima tela, clique em **Procurar Repositórios** no canto inferior esquerdo. Na caixa de diálogo **Procurar Repositórios**, procure **HDInsight**, escolha as **Ferramentas do Microsoft Azure HDInsight para IntelliJ (Visualização)** e clique em **Instalar**.
+
+	![Instalar o plug-in do HDInsight](./media/hdinsight-apache-spark-intellij-tool-plugin/install-hdinsight-plugin.png)
 
 3. Quando solicitado, clique no botão **Reiniciar IntelliJ IDEA** para reiniciar o IDE.
 
@@ -72,8 +74,8 @@ Se a instalação do IntelliJ IDEA não solicitar para habilitar o plug-in Scala
 2. Na próxima janela, forneça os detalhes do projeto.
 
 	* Forneça um nome de projeto e o local do projeto.
-	* Para o **SDK do Projeto**, forneça uma versão do Java superior a 7.
-	* Para o **SDK do Scala**, clique em **Criar**, em **Baixar** e selecione a versão do Scala que será usada. **Certifique-se de não usar a versão 2.11.x**. Este exemplo usa a versão **2.10.6**.
+	* Para **SDK do Projeto**, forneça uma versão de Java superior a 7.
+	* Para **SDK do Scala**, clique em **Criar**, clique em **Baixar** e selecione a versão do Scala a ser usada. **Não use a versão 2.11.x**. Este exemplo usa a versão **2.10.6**.
 	
 		![Criar um aplicativo Spark Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-version.png)
 
@@ -206,8 +208,8 @@ Durante a execução do aplicativo Spark Scala local em um computador com Window
 2. Na próxima janela, forneça os detalhes do projeto.
 
 	* Forneça um nome de projeto e o local do projeto.
-	* Para o **SDK do Projeto**, forneça uma versão do Java superior a 7.
-	* Para o **SDK do Scala**, clique em **Criar**, em **Baixar** e selecione a versão do Scala que será usada. **Certifique-se de não usar a versão 2.11.x**. Este exemplo usa a versão **2.10.6**.
+	* Para **SDK do Projeto**, forneça uma versão de Java superior a 7.
+	* Para **SDK do Scala**, clique em **Criar**, clique em **Baixar** e selecione a versão do Scala a ser usada. **Não use a versão 2.11.x**. Este exemplo usa a versão **2.10.6**.
 	
 		![Criar um aplicativo Spark Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-version.png)
 
@@ -318,4 +320,4 @@ Você também pode converter os aplicativos Spark Scala existentes criados no In
 
 * [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

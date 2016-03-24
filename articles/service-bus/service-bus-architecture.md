@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/06/2015"
+   ms.date="03/09/2016"
    ms.author="sethm" />
 
 # Arquitetura do Barramento de Serviço
@@ -69,4 +69,4 @@ Agora que você teve uma visão geral de como funciona o Barramento de Serviço,
 - [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
 - [Uma solução de mensagens na fila usando filas do Barramento de Serviço](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

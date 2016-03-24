@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/07/2015"
+   ms.date="03/03/2016"
    ms.author="ryanwi"/>
 
 # Exemplo do ciclo de vida de aplicativo baseado em REST
@@ -709,4 +709,4 @@ namespace ServiceFabricRestCaller
 
 [Ciclo de vida do aplicativo do Service Fabric](service-fabric-application-lifecycle.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0309_2016-->

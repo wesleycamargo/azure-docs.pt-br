@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Como usar o Inspetor de API para rastrear chamadas no Gerenciamento de API do Azure
@@ -24,7 +24,7 @@ Além das operações de rastreamento, o Inspetor de API também rastreia as ava
 
 Este guia fornece uma explicação da utilização do Inspetor de API.
 
->[AZURE.NOTE]Os rastreamentos de um Inspetor de API são gerados e disponibilizados somente para solicitações que contêm chaves de assinatura que pertencem à conta de [administrador](api-management-howto-create-groups.md).
+>[AZURE.NOTE] Os rastreamentos de um Inspetor de API são gerados e disponibilizados somente para solicitações que contêm chaves de assinatura que pertencem à conta de [administrador](api-management-howto-create-groups.md).
 
 ## <a name="trace-call"> </a> Usar o Inspetor de API para rastrear uma chamada
 
@@ -261,4 +261,4 @@ Para revisar os valores no rastreamento, baixe o arquivo de rastreamento da URL 
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

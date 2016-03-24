@@ -73,4 +73,4 @@ Nesta seção, você criará um aplicativo do console do Windows que simula um d
 <!-- Images -->
 [30]: ./media/iot-hub-getstarted-device-csharp/create-identity-csharp1.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

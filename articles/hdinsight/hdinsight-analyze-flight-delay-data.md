@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="03/04/2016"
 	ms.author="jgao"/>
 
 #Analisar dados de atraso de voo usando o Hadoop no HDInsight
@@ -247,11 +247,11 @@ Carregar o arquivo de dados e os arquivos de script HiveQL (consulte o [Apêndic
 2. Na página, selecione os valores a seguir:
 
 	<table border="1">
-<tr><th>Nome</th><th>Valor</th></tr>
-<tr><td>Filtrar por ano</td><td>2013 </td></tr>
-<tr><td>Filtrar por período</td><td>Janeiro</td></tr>
-<tr><td>Campos</td><td>*Year*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Origin*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*, *LateAircraftDelay* (limpar todos os outros campos)</td></tr>
-</table>
+	<tr><th>Nome</th><th>Valor</th></tr>
+	<tr><td>Filtrar por ano</td><td>2013 </td></tr>
+	<tr><td>Filtrar por período</td><td>Janeiro</td></tr>
+	<tr><td>Campos</td><td>*Year*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Origin*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*, *LateAircraftDelay* (limpar todos os outros campos)</td></tr>
+	</table>
 
 3. Clique em **Download**.
 4. Descompacte o arquivo na pasta **C:\\Tutorials\\FlightDelay\\2013Data**. Cada arquivo é um arquivo CSV e tem aproximadamente 60 GB de tamanho.
@@ -263,10 +263,10 @@ Carregar o arquivo de dados e os arquivos de script HiveQL (consulte o [Apêndic
 1. Prepare os parâmetros:
 
 	<table border="1">
-<tr><th>Nome de variável</th><th>Observações</th></tr>
-<tr><td>$storageAccountName</td><td>A conta de armazenamento do Azure para a qual você deseja carregar os dados.</td></tr>
-<tr><td>$blobContainerName</td><td>O contêiner de Blob para o qual você deseja carregar os dados.</td></tr>
-</table>
+	<tr><th>Nome de variável</th><th>Observações</th></tr>
+	<tr><td>$storageAccountName</td><td>A conta de armazenamento do Azure para a qual você deseja carregar os dados.</td></tr>
+	<tr><td>$blobContainerName</td><td>O contêiner de Blob para o qual você deseja carregar os dados.</td></tr>
+	</table>
 2. Abra o ISE do PowerShell do Azure.
 3. Cole o seguinte script no painel de script:
 
@@ -372,10 +372,10 @@ Para obter uma lista completa dos comandos HiveQL, consulte [Linguagem de Defini
 1. Prepare os parâmetros:
 
 	<table border="1">
-<tr><th>Nome de variável</th><th>Observações</th></tr>
-<tr><td>$storageAccountName</td><td>A conta de armazenamento do Azure para a qual você deseja carregar o script do HiveQL.</td></tr>
-<tr><td>$blobContainerName</td><td>O contêiner de Blob para o qual você deseja carregar o script do HiveQL.</td></tr>
-</table>
+	<tr><th>Nome de variável</th><th>Observações</th></tr>
+	<tr><td>$storageAccountName</td><td>A conta de armazenamento do Azure para a qual você deseja carregar o script do HiveQL.</td></tr>
+	<tr><td>$blobContainerName</td><td>O contêiner de Blob para o qual você deseja carregar o script do HiveQL.</td></tr>
+	</table>
 2. Abra o ISE do PowerShell do Azure.
 
 3. Copie e cole o seguinte script no painel de script:
@@ -559,13 +559,13 @@ Para obter uma lista completa dos comandos HiveQL, consulte [Linguagem de Defini
 1. Prepare os parâmetros:
 
 	<table border="1">
-<tr><th>Nome de variável</th><th>Observações</th></tr>
-<tr><td>$sqlDatabaseServerName</td><td>O nome do servidor de banco de dados SQL do Azure. Não insira nada para criar um novo servidor.</td></tr>
-<tr><td>$sqlDatabaseUsername</td><td>O nome de logon para o servidor de banco de dados SQL do Azure. Se $sqlDatabaseServerName for um servidor existente, o logon e a senha de logon serão usados para autenticação no servidor. Caso contrário, eles serão usados para criar um novo servidor.</td></tr>
-<tr><td>$sqlDatabasePassword</td><td>A senha de logon para o servidor de banco de dados SQL do Azure.</td></tr>
-<tr><td>$sqlDatabaseLocation</td><td>Esse valor é usado somente quando você estiver criando um novo servidor de banco de dados do Azure.</td></tr>
-<tr><td>$sqlDatabaseName</td><td>O banco de dados SQL usado para criar a tabela AvgDelays para o trabalho do Sqoop. Deixar em branco criará um banco de dados chamado HDISqoop. O nome da tabela para a saída do trabalho Sqoop é AvgDelays. </td></tr>
-</table>
+	<tr><th>Nome de variável</th><th>Observações</th></tr>
+	<tr><td>$sqlDatabaseServerName</td><td>O nome do servidor de banco de dados SQL do Azure. Não insira nada para criar um novo servidor.</td></tr>
+	<tr><td>$sqlDatabaseUsername</td><td>O nome de logon para o servidor de banco de dados SQL do Azure. Se $sqlDatabaseServerName for um servidor existente, o logon e a senha de logon serão usados para autenticação no servidor. Caso contrário, eles serão usados para criar um novo servidor.</td></tr>
+	<tr><td>$sqlDatabasePassword</td><td>A senha de logon para o servidor de banco de dados SQL do Azure.</td></tr>
+	<tr><td>$sqlDatabaseLocation</td><td>Esse valor é usado somente quando você estiver criando um novo servidor de banco de dados do Azure.</td></tr>
+	<tr><td>$sqlDatabaseName</td><td>O banco de dados SQL usado para criar a tabela AvgDelays para o trabalho do Sqoop. Deixar em branco criará um banco de dados chamado HDISqoop. O nome da tabela para a saída do trabalho Sqoop é AvgDelays. </td></tr>
+	</table>
 2. Abra o ISE do PowerShell do Azure.
 3. Copie e cole o seguinte script no painel de script:
 
@@ -742,4 +742,4 @@ Agora você compreende como carregar um arquivo para o armazenamento de Blob do 
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png
 [img-hdi-flightdelays-flow]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

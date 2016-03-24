@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/23/2016"
+   ms.date="03/02/2016"
    ms.author="terrylan"/>
 
 # Adicionar um Firewall do Aplicativo Web na Central de Segurança do Azure
@@ -42,7 +42,7 @@ A Central de Segurança do Azure pode recomendar que você adicione um WAF (Fire
 10. Selecione **Finalizar a configuração de firewall do aplicativo Web**. Uma nova lâmina é aberta. Você pode ver que há um aplicativo Web que precisa ter seu tráfego redirecionado.
 11. Selecione o aplicativo Web. Uma folha será aberta com etapas para concluir a configuração de firewall do aplicativo Web. Conclua as etapas e selecione **Restringir o tráfego**. A Central de Segurança realizará então as estruturas para você. ![][6]
 
-> [AZURE.NOTE] O processo de provisionamento automático baseia-se nos pacotes WAF (criados usando o modelo de implantação do Gerenciador de Recursos) implantados em uma Rede Virtual separada. O acesso aos aplicativos Web protegido em máquinas virtuais (clássicas) é restrito aos dispositivos WAF que estejam usando somente NSG. No futuro, esse suporte será estendido para uma implantação totalmente personalizada de pacotes WAF (clássica). Saiba mais sobre os [modelos de implantação clássica e do Gerenciador de Recursos](../azure-classic-rm.md) para recursos do Azure.
+> [AZURE.NOTE] Você pode proteger vários aplicativos Web na Central de segurança adicionando-os às suas implantações do WAF existentes. Dispositivos WAF (criados usando o modelo de implantação do Gerenciador de Recursos) precisam ser implantados em uma rede virtual separada. Dispositivos WAF (criados usando o modelo de implantação clássico) são restritos ao uso de um grupo de segurança de rede. No futuro, esse suporte será estendido para uma implantação totalmente personalizada de um dispositivo WAF (clássica). Saiba mais sobre os [modelos de implantação clássica e do Gerenciador de Recursos](../azure-classic-rm.md) para recursos do Azure.
 
 Os logs daquele WAF agora estão totalmente integrados. A Central de Segurança pode iniciar a coleta e a análise dos logs automaticamente para revelar alertas de segurança importantes para você.
 
@@ -54,7 +54,7 @@ Este documento mostrou como implementar a recomendação da Central de Seguranç
 
 Para saber mais sobre a Central de Segurança, confira o seguinte:
 
-- [Configuração de políticas de segurança na Central de Segurança do Azure](security-center-policies.md): saiba como definir as políticas de segurança.
+- [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md) – saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
 - [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md): saiba como monitorar a integridade dos recursos do Azure.
 - [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md): aprenda a gerenciar e a responder a alertas de segurança.
 - [Gerenciamento das recomendações de segurança na Central de segurança do Azure](security-center-recommendations.md): saiba como as recomendações ajudam a proteger os recursos do Azure.
@@ -69,4 +69,4 @@ Para saber mais sobre a Central de Segurança, confira o seguinte:
 [5]: ./media/security-center-add-web-application-firewall/finalize-waf.png
 [6]: ./media/security-center-add-web-application-firewall/restrict-traffic.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

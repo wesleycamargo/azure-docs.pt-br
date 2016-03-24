@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="03/04/2016" 
 	ms.author="bradsev" />
 
 
@@ -178,7 +178,7 @@ Clique na área em branco para adicionar a nova visualização.
 
 Selecione o **Gráfico de Coluna Clusterizada** das visualizações ![Carros conectados - Visualização da placa do vind](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4o.png) ![Carros conectados - Gráfico de colunas agrupadas](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4p.png)
 
-Arraste o campo **Modelo** para a área **Eixo**, **Vin** para a área **Valor**. Em seguida, classifique visualização por **Contagem de vin**. Alterar o **Título** do gráfico **"Veículos que exigem manutenção pelo modelo"**
+Arraste o campo **Modelo** para a área de **Eixo**, **Vin** para a área de **Valor**. Em seguida, classifique visualização por **Contagem de vin**. Alterar o **Título** do gráfico **"Veículos que exigem manutenção pelo modelo"**
 
 Arraste os campos **vin** para a **Saturação da cor** presente na seção **Campos** ![Campos](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4field.png) da guia **Visualização** ![Carros conectados - Saturação de cor](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4q.png)
 
@@ -364,15 +364,18 @@ Fixe os gráficos ao painel existente **Painel de Análise de Telemetria do Veí
 ![Carros conectados PowerBI.com](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard2.png)
  
 
-**Na Página 3**, fixe o seguinte: 1. Contagem de VIN ![Carros conectados PowerBI.com](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard3.png)
+**Na Página 3**, fixe o seguinte
+1.	Contagem de VIN ![Carros conectados PowerBI.com](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard3.png) 
 
 2.	Veículos de direção agressiva por modelo – Gráfico de cascata ![Telemetria de veículo - Fixar gráficos 4](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard4.png)
 
-**Na Página 5**, fixar o seguinte: 1. Contagem de vin ![Telemetria de veículo - Fixar gráficos 5](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard5.png) 2. Veículos com eficiência de combustível: Gráfico de colunas agrupadas ![Telemetria de veículo - Fixar gráficos 6](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard6.png)
+**Na Página 5**, fixe o seguinte
+1.	Contagem de vin ![Telemetria de veículo - Fixar gráficos 5](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard5.png)  
+2.	Veículos com eficiência de combustível: Gráfico de colunas agrupadas ![Telemetria de veículo - Fixar gráficos 6](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard6.png)
 
 **Na Página 4**, fixar o seguinte: 1.
 
-1.	Contagem de vin ![Telemetria de veículo - Fixar gráficos 7](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard7.png). 
+1.	Contagem de vin ![Telemetria de veículo - Fixar gráficos 7](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard7.png) 
 
 2.	Veículos que tiveram recall por cidade, modelo : Treemap ![Telemetria de veículo - Fixar gráficos 8](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard8.png)
 
@@ -390,4 +393,4 @@ Fixe os gráficos ao painel existente **Painel de Análise de Telemetria do Veí
 
 Parabéns!! Você criou com êxito os relatórios e o painel para obter informações preditivas, em lote e em tempo real sobre a integridade do veículo e hábitos de condução.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -81,7 +81,7 @@ Você pode baixar o modelo existente do Gerenciador de Recursos do Azure para cr
 	- **name**. Nome do recurso. Observe o uso de **[parameters('applicationGatewayName')]**, que significa o nome que será fornecido como entrada pelo usuário ou um arquivo de parâmetro durante a implantação.
 	- **properties**. Lista de propriedades do recurso. Esse modelo usa a rede virtual e o endereço IP público durante a criação do gateway de aplicativo.
 
-7. Navegue de volta para https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-create-application-gateway/azuredeploy.json.
+7. Navegue de volta para https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create/.
 8. Clique em **azuredeploy-paremeters.json** e em **RAW**.
 9. Salve o arquivo em uma pasta local do computador.
 10. Abra o arquivo que acabou de salvar e edite os valores dos parâmetros. Use os valores abaixo para implantar o gateway de aplicativo descrito em nosso cenário.
@@ -284,4 +284,4 @@ Se deseja obter mais informações sobre as opções de balanceamento de carga n
 - [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

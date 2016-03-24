@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Importação de dados para a Pesquisa do Azure usando a API REST | Microsoft Azure | Serviço de pesquisa de nuvem hospedado"
-    description="Como carregar dados em um índice na Pesquisa do Azure usando a API REST."
+    pageTitle="Carregar dados na Pesquisa do Azure usando a API REST | Microsoft Azure | Serviço de pesquisa de nuvem hospedado"
+    description="Aprenda a carregar dados em um índice na Pesquisa do Azure usando a API REST."
     services="search"
     documentationCenter=""
     authors="ashmaka"
@@ -14,33 +14,32 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/09/2016"
+    ms.date="03/10/2016"
     ms.author="ashmaka"/>
 
-# Importar dados para a Pesquisa do Azure usando a API REST
+# Carregar dados para a Pesquisa do Azure usando a API REST
 > [AZURE.SELECTOR]
 - [Visão geral](search-what-is-data-import.md)
-- [Portal](search-import-data-portal.md)
 - [.NET](search-import-data-dotnet.md)
 - [REST](search-import-data-rest-api.md)
-- [Indexadores](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 
+Este artigo mostrará como usar a [API REST de Pesquisa do Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx) para importar dados para um índice de Pesquisa do Azure.
 
-Este artigo mostra como usar a [API REST de Pesquisa do Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx) para importar dados para um índice de Pesquisa do Azure. Antes de começar este passo a passo, você já deve ter [criado um índice de Pesquisa do Azure](search-create-index-rest-api.md).
+Antes de começar este passo a passo, você já deve ter [criado um índice de Pesquisa do Azure](search-what-is-an-index.md).
 
 Para enviar documentos no índice usando a API REST, você emitirá uma solicitação HTTP POST para o ponto de extremidade da URL do índice. O corpo da solicitação HTTP é um objeto JSON que contém os documentos a serem adicionados, modificados ou excluídos.
 
 ## I. Identificar a api-key do administrador de seu serviço de Pesquisa do Azure
-Ao emitir solicitações HTTP em relação a seu serviço usando a API REST, *todas* as solicitações de API devem incluir a api-key que foi gerada para o serviço de Pesquisa que você provisionou. Ter uma chave válida estabelece a relação de confiança, para cada solicitação, entre o aplicativo que envia a solicitação e o serviço que lida com ela.
+Ao emitir solicitações HTTP em seu serviço usando a API REST, *todas* as solicitações de API devem incluir a api-key que foi gerada para o serviço de Pesquisa provisionado. Ter uma chave válida estabelece a relação de confiança, para cada solicitação, entre o aplicativo que envia a solicitação e o serviço que lida com ela.
 
-1. Para localizar as api-keys de seu serviço, você deve fazer logon no [Portal do Azure](https://portal.azure.com/)
+1. Para localizar as api-keys do serviço, você deve fazer logon no [Portal do Azure](https://portal.azure.com/)
 2. Vá para a folha do serviço de Pesquisa do Azure
 3. Clique no ícone de "Chaves"
 
 O serviço terá *chaves de administração* e *chaves de consulta*.
 
-  - Suas *chaves de administração* principal e secundária concedem direitos totais para todas as operações, incluindo a capacidade de gerenciar o serviço, criar e excluir índices, indexadores e fontes de dados. Há duas chaves para que você possa continuar a usar a chave secundária se decidir regenerar a chave primária e vice-versa.
-  - As *chaves de consulta* concedem acesso somente leitura a índices e documentos e normalmente são distribuídas para aplicativos cliente que emitem solicitações de pesquisa.
+  - Suas *chaves de administração* principal e secundária concedem direitos totais a todas as operações, incluindo a capacidade de gerenciar o serviço, criar e excluir índices, indexadores e fontes de dados. Há duas chaves para que você possa continuar a usar a chave secundária se decidir regenerar a chave primária e vice-versa.
+  - As *chaves de consulta* concedem acesso somente leitura a índices e documentos e normalmente são distribuídas a aplicativos cliente que emitem solicitações de pesquisa.
 
 Para importar dados para um índice, você pode usar a chave de administração principal ou secundária.
 
@@ -51,15 +50,16 @@ Cada objeto JSON da matriz "value" representa um documento a ser indexado. Cada 
 
 @search.action | Descrição | Campos necessários para cada documento | Observações
 --- | --- | --- | ---
-`upload` | Uma ação `upload` é semelhante a um "upsert", em que o documento será inserido se for novo e será atualizado/substituído se ele existir. | chave, além de quaisquer outros campos que você quiser definir | Ao atualizar/substituir um documento existente, qualquer campo não especificado na solicitação terá seu campo definido como `null`. Isso ocorre mesmo quando o campo tiver sido definido anteriormente como um valor não nulo.
-`merge` | Atualiza um documento existente com os campos especificados. Se o documento não existir no índice, a mesclagem falhará. | chave, além de quaisquer outros campos que você quiser definir | Qualquer campo que você especificar em uma mesclagem substituirá o campo existente no documento. Isso inclui campos do tipo `Collection(Edm.String)`. Por exemplo, se o documento contiver um campo `tags` com o valor `["budget"]` e executar uma mesclagem com o valor `["economy", "pool"]` para `tags`, o valor final do campo `tags` será `["economy", "pool"]`. Ele não será `["budget", "economy", "pool"]`.
-`mergeOrUpload` | Essa ação se comportará como `merge` se já existir um documento com a chave especificada no índice. Se o documento não existir, ela se comportará como `upload` com um novo documento. | chave, além de outros campos que você quiser definir |- `delete` | Remove o documento especificado do índice. | somente chave | Todos os campos que você especificar que não sejam o campo de chave serão ignorados. Se você deseja remover um campo individual de um documento, use `merge` ao invés e apenas defina o campo explicitamente como nulo.
+`upload` | Uma ação `upload` é semelhante a um "upsert", em que o documento será inserido se for novo e atualizado/substituído se existir. | chave, além de quaisquer outros campos que você quiser definir | Ao atualizar/substituir um documento existente, qualquer campo não especificado na solicitação terá seu campo definido para `null`. Isso ocorre mesmo quando o campo tiver sido definido anteriormente como um valor não nulo.
+`merge` | Atualiza um documento existente com os campos especificados. Se o documento não existir no índice, a mesclagem falhará. | chave, além de quaisquer outros campos que você quiser definir | Qualquer campo que você especificar em uma mesclagem substituirá o campo existente no documento. Isso inclui campos do tipo `Collection(Edm.String)`. Por exemplo, se o documento contiver um campo `tags` com o valor `["budget"]` e você executar uma mesclagem com o valor `["economy", "pool"]` para `tags`, o valor final do campo `tags` será `["economy", "pool"]`. Ele não será `["budget", "economy", "pool"]`.
+`mergeOrUpload` | Essa ação se comportará como `merge` se já existir um documento com a chave especificada no índice. Se o documento não existir, ele se comportará como `upload` com um novo documento. | chave, além de outros campos que você deseja definir |- 
+`delete` | Remove o documento especificado do índice. | somente chave | Todos os campos que você especificar que não sejam o campo de chave serão ignorados. Se você quiser remover um campo individual de um documento, use `merge` e apenas defina o campo explicitamente para null.
 
 ## III. Construir sua solicitação HTTP e o corpo da solicitação
 Agora que coletou os valores de campo necessários para as ações de índice, você está pronto para construir a solicitação HTTP real e o corpo da solicitação JSON para importar os dados.
 
 #### Solicitação e Cabeçalhos de Solicitação
-Na URL, você precisará fornecer o nome do serviço, o nome do índice ("hotels", neste caso), bem como a versão de API apropriada (a versão atual da API é `2015-02-28` no momento da publicação deste documento). Você precisará definir os cabeçalhos de solicitação `Content-Type` e `api-key`. Para a última opção, use uma das chaves de administração do serviço.
+Na URL, você precisará fornecer o nome do serviço, nome do índice ("hotéis", neste caso), bem como a versão da API apropriada (a versão atual da API é `2015-02-28` no momento da publicação deste documento). Você precisará definir os cabeçalhos de solicitação `Content-Type` e `api-key`. Para a última opção, use uma das chaves de administração do serviço.
 
     POST https://[search service].search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
     Content-Type: application/json
@@ -114,9 +114,9 @@ Na URL, você precisará fornecer o nome do serviço, o nome do índice ("hotels
 }
 ```
 
-Nesse caso, estamos usando `upload`, `mergeOrUpload` e `delete` como ações de pesquisa.
+Nesse caso, estamos usando `upload`, `mergeOrUpload` e `delete` como nossas ações de pesquisa.
 
-Suponha que o índice de exemplo "hotels" já esteja preenchido com vários documentos. Observe como não precisamos especificar todos os campos de documento possíveis ao usar `mergeOrUpload` e como especificamos apenas a chave de documento (`hotelId`) ao usar `delete`.
+Suponha que o índice de exemplo "hotels" já esteja preenchido com vários documentos. Observe como não precisamos especificar todos os campos de documento possíveis ao usar `mergeOrUpload` e como especificamos apenas a chave do documento (`hotelId`) ao usar `delete`.
 
 Além disso, observe que você só pode incluir até 1000 documentos (ou 16 MB) em uma única solicitação de indexação.
 
@@ -156,16 +156,16 @@ Um código de status `207` será retornado quando pelo menos um item não tiver 
 > [AZURE.NOTE] Muitas vezes, isso significa que a carga no serviço de pesquisa está atingindo um ponto em que as solicitações de indexação começarão a retornar respostas `503`. Nesse caso, é altamente recomendável que o código do cliente faça uma pausa e aguarde antes de tentar novamente. Isso dará ao sistema algum tempo para se recuperar, aumentando as chances de que solicitações futuras sejam bem-sucedidas. Se você repetir rapidamente as solicitações, isso apenas prolongará a situação.
 
 #### 429
-Um código de status `429` será retornado quando você tiver excedido sua cota no número de documentos por índice.
+Um código de status `429` será retornado quando você excedeu sua cota no número de documentos por índice.
 
 #### 503
-Um código de status `503` será retornado se nenhum dos itens na solicitação tiver sido indexado com êxito. Esse erro significa que o sistema está sob carga pesada e sua solicitação não pode ser processada no momento.
+Um código de status `503` será retornado se nenhum dos itens na solicitação foi indexado com êxito. Esse erro significa que o sistema está sob carga pesada e sua solicitação não pode ser processada no momento.
 
 > [AZURE.NOTE] Nesse caso, é altamente recomendável que o código do cliente faça uma pausa e aguarde antes de tentar novamente. Isso dará ao sistema algum tempo para se recuperar, aumentando as chances de que solicitações futuras sejam bem-sucedidas. Se você repetir rapidamente as solicitações, isso apenas prolongará a situação.
 
-Para obter mais informações sobre ações do documento e respostas de acertos/erros, consulte [Adicionar, Atualizar ou Excluir Documentos](https://msdn.microsoft.com/library/azure/dn798930.aspx). Para obter mais informações sobre outros códigos de status HTTP que podem ser retornados em caso de falha, veja [Códigos de status HTTP (Pesquisa do Azure)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
+Para obter mais informações sobre as ações do documento e as respostas de êxito/erro, consulte [Adicionar, Atualizar ou Excluir Documentos](https://msdn.microsoft.com/library/azure/dn798930.aspx). Para obter mais informações sobre outros códigos de status HTTP que podem ser retornados em caso de falha, confira [Códigos de status HTTP (Pesquisa do Azure)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
 
 ## Avançar
-Depois de popular o índice de Pesquisa do Azure, você estará pronto para começar a emitir consultas para pesquisar documentos. Veja [Consulte seu Índice de Pesquisa do Azure usando a API REST](search-query-rest-api.md) para obter detalhes.
+Depois de popular o índice de Pesquisa do Azure, você estará pronto para começar a emitir consultas para pesquisar documentos. Veja [Consultar seu Índice de Pesquisa do Azure](search-query-overview.md) para obter detalhes.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0316_2016-->

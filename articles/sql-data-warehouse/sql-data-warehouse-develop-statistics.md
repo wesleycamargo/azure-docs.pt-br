@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Gerenciar estatísticas no SQL Data Warehouse
@@ -36,7 +36,7 @@ Para obter mais detalhes, confira [DBCC SHOW\_STATISTICS][] no MSDN.
 ## Por que as estatísticas são necessárias?
 Sem estatísticas adequadas, você não conseguirá o desempenho para o qual o SQL Data Warehouse foi desenvolvido. O SQL Data Warehouse não gera automaticamente estatísticas para tabelas e colunas, portanto você precisa criá-las por conta própria. Convém criá-las durante a criação da tabela e atualizá-las após o preenchimento.
 
-> [AZURE.NOTE]Se você usar o SQL Server, talvez dependa do SQL Server para criar e atualizar estatísticas de coluna única conforme necessário. O SQL Data Warehouse é diferente nesse aspecto. Como os dados são distribuídos, o SQL Data Warehouse não agrega automaticamente as estatísticas em todos os dados distribuídos. Ele gerará somente as estatísticas agregadas ao criar e atualizar as estatísticas.
+> [AZURE.NOTE] Se você usar o SQL Server, talvez dependa do SQL Server para criar e atualizar estatísticas de coluna única conforme necessário. O SQL Data Warehouse é diferente nesse aspecto. Como os dados são distribuídos, o SQL Data Warehouse não agrega automaticamente as estatísticas em todos os dados distribuídos. Ele gerará somente as estatísticas agregadas ao criar e atualizar as estatísticas.
 
 ## Quando criar estatísticas
 Um conjunto coerente de estatísticas atualizadas é uma parte importante do SQL Data Warehouse. Portanto, é importante criar estatísticas como parte da criação de tabelas.
@@ -45,7 +45,9 @@ A criação de estatísticas de coluna única em cada coluna é uma maneira fác
 
 As estatísticas de várias colunas são usadas pelo otimizador de consulta somente quando as colunas estão em cláusulas composite joins ou group by. No momento, os filtros compostos não se beneficiam de estatísticas de várias colunas.
 
-Portanto, ao iniciar o desenvolvimento do SQL Data Warehouse convém implementar o seguinte padrão: criar estatísticas de coluna única em todas as colunas de todas as tabelas - criar estatísticas de várias colunas nas colunas usadas pelas consultas em cláusulas de junção e agrupar por.
+Ao iniciar o desenvolvimento do SQL Data Warehouse, portanto, é uma boa ideia implementar o padrão a seguir:
+- Criar estatísticas de coluna única em todas as colunas em cada tabela
+- Crie estatísticas de várias colunas em colunas usadas pelas consultas de junção e agrupe por cláusulas.
 
 Refine esse modelo conforme entender o modo como deseja consultar os dados, especialmente quando as tabelas são amplas. Confira a seção [Implementando o gerenciamento de estatísticas] (## Implementando o gerenciamento de estatísticas) para obter uma abordagem mais avançada do método.
 
@@ -74,7 +76,7 @@ Veja abaixo alguns princípios importantes para atualizar as estatísticas duran
 - Considere atualizar as colunas de distribuição estática com menos frequência.
 - Lembre-se de que cada objeto de estatística é atualizado em série. Simplesmente implementar `UPDATE STATISTICS <TABLE_NAME>` talvez não seja ideal, especialmente para tabelas mais amplas com muitos objetos de estatísticas.
 
-> [AZURE.NOTE]Para obter mais detalhes sobre [chave crescente], confira o white paper sobre modelo de estimativa de cardinalidade do SQL Server 2014.
+> [AZURE.NOTE] Para obter mais detalhes sobre [chave crescente], confira o white paper sobre modelo de estimativa de cardinalidade do SQL Server 2014.
 
 Para obter mais explicações, confira [Estimativa de cardinalidade][] no MSDN.
 
@@ -134,7 +136,7 @@ Este exemplo cria estatísticas em um intervalo de valores. Os valores podem ser
 CREATE STATISTICS stats_col1 ON table1(col1) WHERE col1 > '2000101' AND col1 < '20001231';
 ```
 
-> [AZURE.NOTE]Para que o otimizador de consulta considere usar estatísticas filtradas ao escolher o plano de consulta distribuída, a consulta deve ser adequada à definição do objeto de estatísticas. Usando o exemplo anterior, a cláusula WHERE da consulta precisa especificar valores col1 entre 2000101 e 20001231.
+> [AZURE.NOTE] Para que o otimizador de consulta considere usar estatísticas filtradas ao escolher o plano de consulta distribuída, a consulta deve ser adequada à definição do objeto de estatísticas. Usando o exemplo anterior, a cláusula WHERE da consulta precisa especificar valores col1 entre 2000101 e 20001231.
 
 ### E. Criar estatísticas de coluna única com todas as opções
 
@@ -150,7 +152,7 @@ Para obter a referência completa, confira [CRIAR ESTATÍSTICAS][] no MSDN.
 
 Para criar estatísticas de várias colunas, basta usar os exemplos anteriores, mas especificar mais colunas.
 
-> [AZURE.NOTE]O histograma, que é usado para estimar o número de linhas no resultado da consulta, só está disponível para a primeira coluna listada na definição do objeto da estatística.
+> [AZURE.NOTE] O histograma, que é usado para estimar o número de linhas no resultado da consulta, só está disponível para a primeira coluna listada na definição do objeto da estatística.
 
 Neste exemplo, o histograma está em *product\_category*. As estatísticas entre colunas são calculadas em *product\_category* e *product\_sub\_c\\ategory*:
 
@@ -165,7 +167,7 @@ Como há uma correlação entre *product\_category* e *product\_sub\_category*, 
 É uma maneira de criar estatísticas é emitir comandos CREATE STATISTICS depois de criar a tabela.
 
 ```
-CREATE TABLE dbo.table1 
+CREATE TABLE dbo.table1
 (
    col1 int
 ,  col2 int
@@ -314,7 +316,7 @@ UPDATE STATISTICS dbo.table1;
 
 Esta instrução é fácil de usar. Lembre-se de que isso atualizará todas as estatísticas na tabela e, portanto, pode executar mais trabalho do que o necessário. Se o desempenho não for um problema, essa é definitivamente a maneira mais fácil e completa de garantir a atualização das estatísticas.
 
-> [AZURE.NOTE]Ao atualizar todas as estatísticas em uma tabela, o SQL Data Warehouse realiza uma verificação da tabela para coletar amostragens para cada estatística. Se a tabela for grande, tiver muitas colunas e estatísticas, talvez seja mais eficiente para atualizar estatísticas individuais com base na necessidade.
+> [AZURE.NOTE] Ao atualizar todas as estatísticas em uma tabela, o SQL Data Warehouse realiza uma verificação da tabela para coletar amostragens para cada estatística. Se a tabela for grande, tiver muitas colunas e estatísticas, talvez seja mais eficiente para atualizar estatísticas individuais com base na necessidade.
 
 Para a implementação de um procedimento `UPDATE STATISTICS`, confira o artigo [tabelas temporárias]. O método de implementação é ligeiramente diferente para o procedimento `CREATE STATISTICS` acima, mas o resultado final é o mesmo.
 
@@ -380,7 +382,7 @@ JOIN    sys.columns         AS co ON    sc.[column_id]      = co.[column_id]
 JOIN    sys.types           AS ty ON    co.[user_type_id]   = ty.[user_type_id]
 JOIN    sys.tables          AS tb ON  co.[object_id]        = tb.[object_id]
 JOIN    sys.schemas         AS sm ON  tb.[schema_id]        = sm.[schema_id]
-WHERE   1=1 
+WHERE   1=1
 AND     st.[user_created] = 1
 ;
 ```
@@ -459,4 +461,4 @@ Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvol
 [sys.table\_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [Atualizar estatísticas]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

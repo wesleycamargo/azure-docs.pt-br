@@ -13,7 +13,7 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/04/2016"
+   ms.date="03/09/2016"
    ms.author="cherylmc"/>
 
 # Criar e modificar o roteamento de um circuito da Rota Expressa usando o Gerenciador de Recursos do Azure e o PowerShell
@@ -32,7 +32,7 @@ Esse artigo explica as etapas para criar e gerenciar a configuração de roteame
 - Assegure-se de que você leu a página de [pré-requisitos](expressroute-prerequisites.md), a página de [requisitos de roteamento](expressroute-routing.md) e a página de [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
 - Você deve ter um circuito da Rota Expressa ativo. Antes de continuar, siga as instruções para [Criar um circuito da Rota Expressa](expressroute-howto-circuit-arm.md) e para que o circuito seja habilitado pelo provedor de conectividade. O circuito da Rota Expressa deve estar em um estado provisionado e habilitado e para que você possa executar os cmdlets descritos abaixo.
 
->[AZURE.IMPORTANT] Estas instruções se aplicam apenas a circuitos criados com provedores de serviço que oferecem serviços de conectividade de Camada 2. Se você estiver usando um provedor de serviços que oferece serviços gerenciados de Camada 3 (normalmente um IPVPN, como MPLS), seu provedor de conectividade configurará e gerenciará o roteamento para você. Nesses casos, não será possível criar ou gerenciar emparelhamentos.
+>[AZURE.IMPORTANT] Estas instruções se aplicam apenas a circuitos criados com provedores de serviço que oferecem serviços de conectividade de Camada 2. Se você estiver usando um provedor de serviços que oferece serviços gerenciados de Camada 3 (normalmente um IPVPN, como MPLS), seu provedor de conectividade configurará e gerenciará o roteamento para você.
 
 Você pode configurar um, dois ou todos os três emparelhamentos (privado e público do Azure e da Microsoft) para um circuito da Rota Expressa. Você pode configurar emparelhamentos em qualquer ordem escolhida. No entanto, você deve concluir a configuração de um emparelhamento por vez.
 
@@ -394,4 +394,4 @@ A próxima etapa será [Vincular é uma Rede Virtual a um circuito da Rota Expre
 
 -  Para saber mais sobre redes virtuais, veja [Visão geral da rede virtual](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

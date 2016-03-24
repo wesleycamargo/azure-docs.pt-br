@@ -19,8 +19,8 @@
 # Realizar o failback de máquinas virtuais VMware e servidores físicos para o site local
 
 > [AZURE.SELECTOR]
-- [Enhanced](site-recovery-failback-azure-to-vmware-classic.md)
-- [Legacy](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+- [Avançado](site-recovery-failback-azure-to-vmware-classic.md)
+- [Herdado](site-recovery-failback-azure-to-vmware-classic-legacy.md)
 
 
 Este artigo descreve como realizar o failback de máquinas virtuais do Azure para o site local. Siga as instruções neste artigo quando estiver pronto para realizar o failback de suas máquinas virtuais VMware ou servidores físicos com Windows/Linux após o a realização do failover do site local para o Azure usando este [tutorial](site-recovery-vmware-to-azure-classic.md).
@@ -31,7 +31,13 @@ Este artigo descreve como realizar o failback de máquinas virtuais do Azure par
 
 Este diagrama mostra a arquitetura de failback para esse cenário.
 
+Use essa arquitetura quando o servidor de processo é local e você está usando uma Rota Expressa.
+
 ![](./media/site-recovery-failback-azure-to-vmware-classic/architecture.png)
+
+Use essa arquitetura quando o servidor de processo está no Azure e você tem uma VPN ou uma conexão de Rota Expressa.
+
+![](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.PNG)
 
 Veja a seguir como o failback funciona:
 
@@ -64,7 +70,7 @@ Se você realizou o failover de uma VM do VMware, poderá realizar o failback pa
 - Se as VMs para as quais você deseja realizar o failback forem gerenciadas por um servidor vCenter, você precisará das permissões necessárias para a descoberta das VMs nos servidores vCenter. [Leia mais](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
 - Se houver instantâneos em uma VM, a nova proteção falhará. Você pode excluir os instantâneos ou os discos. 
 - Antes de realizar failback, será necessário criar diversos componentes:
-	- **Criar um servidor de processos no Azure**. Esse servidor de processos é uma VM do Azure que você precisará criar e manter em execução durante o failback. Você pode excluir a máquina após a conclusão do failback.
+	- **Crie um servidor de processos no Azure**. Esse servidor de processos é uma VM do Azure que você precisará criar e manter em execução durante o failback. Você pode excluir a máquina após a conclusão do failback.
 	- **Criar um servidor de destino mestre**: o servidor de destino mestre envia e recebe dados do failback. O servidor de gerenciamento criado no local tem um servidor de destino mestre instalado por padrão. No entanto, dependendo do volume do tráfego de failback, talvez seja necessário criar um servidor de destino mestre separado para o failback.
 	- Se você quiser criar um servidor de destino mestre adicional em execução no Linux, será necessário configurar a VM do Linux antes de instalar o servidor de destino mestre, conforme descrito abaixo.
 
@@ -72,7 +78,7 @@ Se você realizou o failover de uma VM do VMware, poderá realizar o failback pa
 
 É necessário instalar um servidor de processo no Azure para que as VMs do Azure possam enviar os dados de volta para um servidor de destino mestre local.
 
-1.  No portal da Recuperação de Site > **Servidores de Configuração**, selecione a adição de um novo servidor de processo.
+1.  No portal do Site Recovery > **Servidores de Configuração**, selecione a adição de um novo servidor de processo.
 
 	![](./media/site-recovery-failback-azure-to-vmware-classic/ps1.png)
 
@@ -105,7 +111,7 @@ Para configurar o servidor de gerenciamento executando o servidor de destino mes
 #### Instalar o CentOS 6.6
 
 1.	Instale o sistema operacional mínimo CentOS 6.6 na VM do servidor de gerenciamento. Mantenha o ISO em uma unidade de DVD e inicialize o sistema. Ignore o teste de mídia, escolha português do Brasil no idioma, escolha **Dispositivos de Armazenamento Básico**, verifique se o disco rígido não tem dados importantes e clique em **Sim**, descarte quaisquer dados. Insira o nome do host do servidor de gerenciamento e escolha o adaptador de rede do servidor. Na caixa de diálogo **Sistema de Edição** escolha **Conectar automaticamente** e adicione um endereço IP estático, a rede e as configurações de DNS. Especifique um fuso horário e uma senha raiz para acessar o servidor de gerenciamento. 
-2.	Quando receber uma solicitação pelo tipo de instalação desejado, escolha **Criar Layout Personalizado** como a partição. Depois de clicar em **Avançar**, escolha **Gratuito** e clique em Criar. Crie as partições **/**, **/var/crash** e **/home** com **FS Type:** **ext4**. Crie a partição de troca como **FS Type: swap**.
+2.	Quando receber uma solicitação pelo tipo de instalação desejado, escolha **Criar Layout Personalizado** como a partição. Depois de clicar em **Avançar**, escolha **Gratuito** e clique em Criar. Crie as partições **/**, **/var/crash** e **/home** com **Tipo FS:** **ext4**. Crie a partição de troca como **Tipo FS: troca**.
 3.	Se algum dispositivo pré-existente for encontrado, uma mensagem de aviso será exibida. Clique em **Formatar** para formatar a unidade com as configurações de partição. Clique em **Gravar alterações no disco** para aplicar as alterações da partição.
 4.	Escolha **Instalar carregador de inicialização** > **Avançar** para instalar o carregador de inicialização na partição raiz.
 5.	Após a conclusão da instalação, clique em **Reiniciar**.
@@ -146,7 +152,7 @@ Faça o seguinte para aplicar as alterações personalizadas após a conclusão 
 
 ### Proteja novamente as VMs do Azure
 
-1.	No portal da Recuperação de Site > guia **Máquinas**, escolha a VM que passou por failover e clique em **Proteger novamente**.
+1.	No portal d Site Recovery > guia **Máquinas**, escolha a VM que passou por failover e clique em **Proteger novamente**.
 2.	Em **Servidor de Destino Mestre** e **Servidor de Processo** escolha o servidor de destino mestre local e o servidor de processo da VM do Azure.
 3.	Escolha a conta configurada por você para se conectar à VM.
 4.	Escolha a versão de failback do grupo de proteção. Por exemplo, se a VM for protegida no PG1, será necessário selecionar PG1\_Failback.
@@ -170,7 +176,7 @@ Após a nova proteção, a VM é transferida para a versão de failback de seu g
 
 Após a conclusão do failback, seus dados voltarão ao site local, mas não estarão protegidos. Para iniciar a replicação no Azure novamente, faça o seguinte:
 
-1.	No portal da Recuperação de Site > guia **Máquinas**, escolha a VM que passou por failback e clique em **Proteger novamente**. 
+1.	No portal do Site Recovery > guia **Máquinas**, escolha a VM que passou por failback e clique em **Proteger novamente**. 
 2.	Depois de verificar se a replicação para o Azure está funcionando conforme o esperado, você pode excluir, no Azure, as VMs do Azure (que não estão em execução no momento) que passaram por failback.
 
 
@@ -181,4 +187,4 @@ Você pode realizar o failback em uma conexão VPN ou pela Rota Expressa do Azur
 - A Rota Expressa deve ser configurada na rede virtual do Azure para a qual as máquinas de origem passam por failover, e nas quais as VMs do Azure ficam após o failover.
 - Os dados são replicados para uma conta de armazenamento do Azure em um ponto de extremidade público. Você deve configurar o emparelhamento público na Rota Expressa com o data center de destino para que a replicação da Recuperação de Site use a Rota Expressa.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

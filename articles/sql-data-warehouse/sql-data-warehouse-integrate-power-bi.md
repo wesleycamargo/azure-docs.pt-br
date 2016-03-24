@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Usar o Power BI com o SQL Data Warehouse
@@ -23,7 +23,7 @@ Ao usar a Conexão Direta:
 
 + Especifique o nome de servidor totalmente qualificado ao conectar (veja mais detalhes abaixo)
 + Certifique-se de que as regras de firewall estejam configuradas como “Permitir acesso aos serviços do Azure”.
-+ Cada ação, como selecionar uma coluna ou adicionar um filtro, consultará diretamente o data warehouse 
++ Cada ação, como selecionar uma coluna ou adicionar um filtro, consultará diretamente o data warehouse
 + Os blocos são atualizados aproximadamente a cada 15 minutos (a atualização não precisa ser agendada)
 + Perguntas e respostas não estão disponíveis para conjuntos de dados de Conexão Direta
 + As alterações no esquema não são selecionadas automaticamente
@@ -37,7 +37,7 @@ A maneira mais fácil de mover entre o SQL Data Warehouse e o Power BI é usando
 2.	Clique no botão Abrir no Power BI.
 3.	Se não pudermos conectar você diretamente ou se você não tiver uma conta do Power BI, será preciso se conectar.  
 4.	Você será direcionado para a página de conexão do SQL Data Warehouse, com as informações do seu SQL Data Warehouse previamente populadas.
-5.  Depois de inserir suas credenciais, você será totalmente conectado ao SQL Data Warehouse. 
+5.  Depois de inserir suas credenciais, você será totalmente conectado ao SQL Data Warehouse.
 
 ## Conectando-se pelo portal do Power BI
 Além de usar o botão Abrir no Power BI, os usuários também podem se conectar ao respectivo SQL Data Warehouse pelo Portal do Power BI.
@@ -45,7 +45,7 @@ Além de usar o botão Abrir no Power BI, os usuários também podem se conectar
 1.  Clique em 'Obter dados' na parte inferior do painel de navegação.
 2.  Selecione 'Bancos de dados'.
 3.  Uma vez na página Bancos de dados, selecione 'SQL Data Warehouse do Azure' e, em seguida, clique em 'Conectar'.
-4.  Insira as informações de conexão necessárias. A seção Localizar parâmetros a seguir mostra onde esses dados podem ser encontrados. 
+4.  Insira as informações de conexão necessárias. A seção Localizar parâmetros a seguir mostra onde esses dados podem ser encontrados.
 5.  Você será direcionado para a página principal do Power BI e, depois que a conexão é feita, uma nova entrada em 'Conjuntos de dados' aparecerá com o nome da sua instância.  
 6.	 Você pode clicar no novo conjunto de dados para explorar todas as tabelas e exibições no banco de dados. Selecionar uma coluna enviará uma consulta de volta à origem, criando dinamicamente seu visual. Esses visuais podem ser salvos em um novo relatório e fixados no seu painel.
 
@@ -63,4 +63,4 @@ O nome do servidor totalmente qualificado e o nome do banco de dados podem ser e
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

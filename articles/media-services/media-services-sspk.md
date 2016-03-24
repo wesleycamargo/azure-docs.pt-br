@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/04/2016"  
+	ms.date="03/07/2016"  
 	ms.author="xpouyat"/>
 
 #Licenciamento do kit de portabilidade de cliente do Microsoft® Smooth Streaming
@@ -59,7 +59,7 @@ Com esta licença, a Microsoft oferece um Kit de Portabilidade de Cliente do Smo
 
 ####Estrutura de taxa
 
-Uma taxa de licença única de US$ 50.000 fornece acesso ao Kit de Portabilidade de Cliente do Smooth Streaming.
+Uma taxa de licença única de US$ 50.000 fornece acesso ao Kit de Portabilidade de Cliente do Smooth Streaming.
 
 ###Licença de Produto Final do Kit de Portabilidade de Cliente do Microsoft Smooth Streaming
 
@@ -69,8 +69,8 @@ Nesta licença, a Microsoft oferece todos os direitos de propriedade intelectual
 
 O Produto Final de Cliente do Smooth Streaming é oferecido em um modelo de royalty, como:
 
-- US$ 0,10 por implementação de dispositivo fornecida
-- O royalty é limitado a US$ 50.000 por ano
+- US$ 0,10 por implementação de dispositivo fornecida
+- O royalty é limitado a US$ 50.000 por ano
 - Nenhum royalty para as primeiras 10.000 implementações de dispositivo por ano 
 
 ##Procedimento de licenciamento e acesso do SSPK
@@ -107,7 +107,6 @@ Licenciados provisórios e finais do SSPK podem enviar perguntas técnicas para 
 - Saffron Digital Limited
 - Sichuan Changhong Electric Co., Ltd
 - Tatung Technology Inc.
-- Telechips Inc.
 - Vestel Elektronik Sanayi ve Ticaret A.S.
 - VisualOn, Inc.
 - ZTE Corporation
@@ -125,6 +124,7 @@ Licenciados provisórios e finais do SSPK podem enviar perguntas técnicas para 
 - CastPal Technology Inc., Shenzhen
 - Compal eletrônicos, Inc.
 - Dongguan Digital AV Technology Corp., Ltd.
+- EchoStar Purchasing Corporation
 - Enseo, Inc.
 - Filmflex Movies Limited
 - Guangdong OPPO Mobile Telecommunications Corp., Ltd.
@@ -165,4 +165,4 @@ Licenciados provisórios e finais do SSPK podem enviar perguntas técnicas para 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

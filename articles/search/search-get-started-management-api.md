@@ -47,7 +47,7 @@ Antes de executar o aplicativo de exemplo, você deve habilitar a autenticação
 
 O Gerenciador de Recursos do Azure requer o serviço Active Directory do Azure como seu provedor de identidade.
 
-Para obter um token de acesso que permitirá às solicitações acessarem o gerenciador de recursos, o aplicativo cliente inclui um segmento de código que chama o Active Directory. O segmento de código e as etapas necessárias para usar o segmento de código foram emprestadas deste artigo: [Autenticação de solicitações do Gerenciador de Recursos do Azure]().
+Para obter um token de acesso que permitirá às solicitações acessarem o gerenciador de recursos, o aplicativo cliente inclui um segmento de código que chama o Active Directory. O segmento de código e as etapas necessárias para usar o segmento de código foram emprestadas deste artigo: [Autenticação de solicitações do Gerenciador de Recursos do Azure](http://msdn.microsoft.com/library/azure/dn790557.aspx).
 
 Você pode seguir as instruções no link acima ou usar as etapas neste documento se preferir acompanhar o tutorial passo a passo.
 
@@ -208,4 +208,4 @@ Depois de ter concluído este tutorial, você pode querer saber mais sobre geren
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

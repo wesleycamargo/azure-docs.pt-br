@@ -3,7 +3,7 @@
 	description="Saiba como usar serviços móveis do Azure para cache e sincronização de dados offline no seu aplicativo iOS"
 	documentationCenter="ios"
 	authors="krisragh"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="mobile-services"/>
 
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="03/05/2016"
 	ms.author="krisragh;donnam"/>
 
 # Introdução à sincronização de dados offline nos Serviços Móveis
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
+[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
+ 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Para a versão de aplicativos móveis equivalente deste tópico, consulte [Habilitar sincronização offline para seu aplicativo móvel iOS](../app-service-mobile/app-service-mobile-ios-get-started-offline-data.md).
 
 A sincronização offline permite exibir, adicionar ou modificar dados em um aplicativo móvel mesmo quando não há nenhuma conexão de rede. Neste tutorial, você aprenderá como o seu aplicativo pode armazenar alterações em um banco de dados offline automaticamente e sincronizar as alterações sempre que estiver online novamente.
 
@@ -275,4 +275,4 @@ Para sincronizar o repositório local com o servidor, você usou `MSSyncTable.pu
 
 [tutorial de Início Rápido dos Serviços Móveis]: mobile-services-ios-get-started.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

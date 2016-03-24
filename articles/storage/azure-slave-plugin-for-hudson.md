@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="02/22/2016"
 	ms.author="robmcm"/>
 
 # Como usar o plug-in subordinado do Azure com Hudson Continuous Integration
@@ -42,7 +42,7 @@ Um perfil de assinatura, também conhecido como configurações de publicação,
 * sua ID de assinatura
 * um certificado de gerenciamento da sua assinatura
 
-Eles podem ser encontrados em seu perfil de assinatura. Caso não tenha uma cópia do seu perfil de assinatura, você pode baixá-lo [aqui](https://manage.windowsazure.com/publishsettings/Index?SchemaVersion=2.0). Veja a seguir um exemplo de perfil de assinatura.
+Eles podem ser encontrados em seu [perfil de assinatura](https://manage.windowsazure.com/publishsettings/Index?SchemaVersion=2.0). Veja a seguir um exemplo de perfil de assinatura.
 
 	<?xml version="1.0" encoding="utf-8"?>
 
@@ -204,4 +204,4 @@ Nesta seção, você criará uma tarefa do Hudson que será executada em um nó 
 
 Em seguida, o Hudson criará um nó subordinado usando o modelo criado na seção anterior e executará o script que você especificou na etapa de compilação dessa tarefa.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

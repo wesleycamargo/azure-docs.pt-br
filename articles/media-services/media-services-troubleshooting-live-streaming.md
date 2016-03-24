@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="03/01/2016"  
+ 	ms.date="03/02/2016"  
 	ms.author="juliako"/>
 
 #Guia de solução de problemas de transmissão ao vivo 
@@ -24,6 +24,14 @@ Este tópico fornece sugestões sobre como solucionar alguns problemas de transm
 
 Esta seção fornece sugestões sobre como solucionar problemas relacionados aos codificadores locais que estão configurados para enviar uma transmissão de taxa de bits única para canais do AMS habilitados para a codificação ativa.
 
+###Problema: gostaria de ver logs 
+
+- **Problema potencial**: não é possível localizar os logs do codificador que poderiam ajudar na depuração de problemas.
+	
+	- **Telestream Wirecast**: normalmente, você pode encontrar os logs em C:\\Users{username}\\AppData\\Roaming\\Wirecast\\ 
+	- **Element Live**: você pode ver que há links para logs no portal de gerenciamento. Clique em **Estatísticas** e, em seguida, em **Logs**. Na página **Arquivos de Log**, você verá uma lista dos logs para todos os itens de LiveEvent; selecione o que corresponde à sua sessão atual. 
+	- **Flash Media Live Encoder**: você pode encontrar o **Diretório de Log...** navegando para a guia **Log Codificação**.
+	
 ###Problema: não há nenhuma opção para gerar uma transmissão progressiva
 
 - **Possível problema**: o codificador que está sendo usado não se desentrelaça automaticamente. 
@@ -65,11 +73,7 @@ Esta seção fornece sugestões sobre como solucionar problemas relacionados aos
 
 	**Etapas de solução de problemas**: navegue até a guia “Ponto de Extremidade de Transmissão” na ferramenta AMSE e confirme se há um Ponto de Extremidade de Transmissão com uma unidade de transmissão.
 	
-###Problema: gostaria de ver os logs do codificador 
 
-- **Problema potencial**: não é possível localizar os logs que podem ajudar na depuração de problemas.
-
-	**Etapas de solução de problemas**: normalmente, é possível encontrar os logs do Wirecast em C:\\Usuários{nomedeusuário}\\AppData\\Roaming\\Wirecast\\
 
 >[AZURE.NOTE] Se, depois de seguir as etapas de solução de problemas, você ainda não conseguir realizar a transmissão, envie um tíquete de suporte usando o Portal Clássico do Azure.
 
@@ -81,4 +85,4 @@ Esta seção fornece sugestões sobre como solucionar problemas relacionados aos
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

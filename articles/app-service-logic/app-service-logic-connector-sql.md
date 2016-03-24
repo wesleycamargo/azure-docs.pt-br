@@ -61,7 +61,7 @@ Nome do Servidor Parceiro | Não | Se o servidor primário não estiver disponí
 Tabelas | Não | Lista as tabelas de banco de dados que podem ser atualizadas pelo conector. Por exemplo, digite *OrdersTable* ou *EmployeeTable*. Se nenhuma tabela for especificada, todas as tabelas poderão ser usadas. Tabelas válidas e/ou procedimentos armazenados são necessários para usar esse conector como uma ação.
 Procedimentos Armazenados | Não | Informe um procedimento armazenado existente que pode ser chamado pelo conector. Por exemplo, digite *sp\_IsEmployeeEligible* ou *sp\_CalculateOrderDiscount*. Tabelas válidas e/ou procedimentos armazenados são necessários para usar esse conector como uma ação.
 Consulta de Dados Disponíveis | Para suporte de gatilho | Instrução SQL para determinar se há dados disponíveis para sondar uma tabela de banco de dados do SQL Server. Deve retornar um valor numérico que representa o número de linhas de dados disponíveis. Exemplo: SELECT COUNT(*) from nome\_da\_tabela.
-Pesquisar consulta de dados | Para suporte de gatilho | A instrução SQL para pesquisar a tabela de banco de dados do SQL Server. Você pode especificar qualquer número de instruções SQL separadas por ponto e vírgula. Essa instrução é executada transacionalmente e confirmada somente quando os dados são armazenados com segurança em seu aplicativo lógico. Exemplo: SELECT * FROM nome\_da\_tabela; DELETE FROM nome\_da\_tabela. <br/><br/>***Observação**<br/>Você deve fornecer uma instrução de pesquisa que evite um loop infinito. Para isso, exclua, mova ou atualize os dados selecionados para garantir que eles não sejam sondados novamente.
+Pesquisar consulta de dados | Para suporte de gatilho | A instrução SQL para pesquisar a tabela de banco de dados do SQL Server. Você pode especificar qualquer número de instruções SQL separadas por ponto e vírgula. Essa instrução é executada transacionalmente e confirmada somente quando os dados são armazenados com segurança em seu aplicativo lógico. Exemplo: SELECT * FROM nome\_da\_tabela; DELETE FROM nome\_da\_tabela. <br/><br/>**Observação**<br/>Você deve fornecer uma instrução de pesquisa que evite um loop infinito. Para isso, exclua, mova ou atualize os dados selecionados para garantir que eles não sejam sondados novamente.
 
 5. Após a conclusão, as Configurações de Pacote serão semelhantes às seguintes:  
 ![][1]  
@@ -163,4 +163,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0224_2016-->

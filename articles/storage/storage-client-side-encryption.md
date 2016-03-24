@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/19/2016"
+	ms.date="02/24/2016"
 	ms.author="lakasa"/>
 
 
@@ -249,4 +249,4 @@ Observe que criptografar seu armazenamento de dados resulta em uma sobrecarga ad
 - Baixar os pacotes de [Núcleo](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Cliente](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) e [Extensões](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) do Cofre de Chaves do Azure NuGet  
 - Visitar a [Documentação do Cofre de Chaves do Azure](../key-vault/key-vault-whatis.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

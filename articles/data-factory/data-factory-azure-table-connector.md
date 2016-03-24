@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Mover dados para e da Tabela do Azure | Azure Data Factory" 
+	pageTitle="Mover dados de e para a Tabela do Azure | Microsoft Azure" 
 	description="Saiba como mover dados para/do Armazenamento de Tabela do Azure usando o Azure Data Factory" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -380,7 +380,7 @@ As propriedades disponíveis na seção typeProperties da atividade, por outro l
 
 Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | -------- 
-azureTableSourceQuery | Utiliza a consulta personalizada para ler os dados. | <p>Cadeia de caracteres de consulta da tabela do Azure. Veja os exemplos abaixo. | Não
+azureTableSourceQuery | Utiliza a consulta personalizada para ler os dados. | Cadeia de caracteres de consulta de tabela do Azure. Veja os exemplos abaixo. | Não
 azureTableSourceIgnoreTableNotFound | Indique se assimilar a exceção da tabela não existe. | TRUE<br/>FALSE | Não |
 
 ### Exemplos do azureTableSourceQuery
@@ -526,4 +526,4 @@ Nesse caso, a fábrica dados fará automaticamente as conversões de tipo, inclu
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

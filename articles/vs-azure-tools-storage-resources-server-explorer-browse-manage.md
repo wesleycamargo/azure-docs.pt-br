@@ -21,7 +21,7 @@ Se você instalou as ferramentas do Azure para Microsoft Visual Studio, pode exi
 
 Para exibir o Gerenciador de Servidores no Visual Studio, na barra de menus, escolha **Exibir**, **Gerenciador de Servidores**. O nó de armazenamento mostra todas as contas de armazenamento que existem em cada assinatura/certificado do Azure ao qual você está conectado. Se sua conta de armazenamento não aparecer, você pode adicioná-la seguindo as instruções [mais adiante neste tópico](#add-storage-accounts-by-using-server-explorer).
 
-A partir do Azure SDK 2.7, você pode também usar o novo Gerenciador de nuvem para exibir e gerenciar os recursos do Azure. Consulte [Gerenciando recursos do Azure com o Gerenciador de nuvem](https://msdn.microsoft.com/library/azure/mt185741.aspx) para obter mais informações.
+A partir do Azure SDK 2.7, você pode também usar o novo Gerenciador de nuvem para exibir e gerenciar os recursos do Azure. Consulte [Gerenciando recursos do Azure com o Gerenciador de nuvem](vs-azure-tools-resources-managing-with-cloud-explorer) para obter mais informações.
 
 
 ## Exibir e gerenciar recursos de armazenamento no Visual Studio
@@ -193,7 +193,8 @@ A tabela é organizada por entidades (mostradas nas linhas) e propriedades (most
 
     ![Adicionar ou editar uma entidade de tabela](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC656238.png)
 
-    Entidades em uma única tabela não precisam ter o mesmo conjunto de propriedades (colunas). Lembre-se das restrições a seguir sobre exibição e edição de dados de tabela. - Você não pode exibir nem editar dados binários (tipo byte), mas pode armazená-los em uma tabela.
+    Entidades em uma única tabela não precisam ter o mesmo conjunto de propriedades (colunas). Tenha em mente as seguintes restrições ao exibir e editar dados da tabela:
+    - Você não pode exibir ou editar dados binários (tipo byte), mas pode armazená-lo em uma tabela.
 
     - Você não pode editar os valores **PartitionKey** ou **RowKey** valores, porque o armazenamento de tabela no Azure não dá suporte a essa operação.
 
@@ -313,4 +314,4 @@ Há duas maneiras de adicionar contas de armazenamento usando o Gerenciador de S
 
 Para saber mais sobre como usar os serviços de armazenamento do Azure, consulte [Acessando os serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -3,9 +3,9 @@
 	description="Saiba como identificar os bancos de dados e tabelas que são candidatos ao Banco de Dados de Stretch."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -63,4 +63,4 @@ Habilite o Banco de Dados de Stretch.
 ## Consulte também
 [Problemas de bloqueio e limitações de área de superfície para o Banco de Dados de Stretch](sql-server-stretch-database-limitations.md) [Habilitar o Banco de Dados de Stretch para um banco de dados](sql-server-stretch-database-enable-database.md) [Habilitar o Banco de Dados de Stretch para uma tabela](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

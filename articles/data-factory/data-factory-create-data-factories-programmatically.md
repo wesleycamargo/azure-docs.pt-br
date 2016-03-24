@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Criar, monitorar e gerenciar data factories do Azure usando o SDK da Data Factory" 
+	pageTitle="Criar, monitorar e gerenciar data factories do Azure usando o SDK da Data Factory | Microsoft Azure" 
 	description="Aprenda como criar, monitorar e gerenciar as data factories do Azure programaticamente usando o SDK da Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -394,4 +394,4 @@ A Atividade de Cópia executa a movimentação de dados no Azure Data Factory e 
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="02/09/2016"
+   ms.date="03/09/2016"
    ms.author="brjohnst"/>
 
 # Atualizando para o SDK do .NET da Pesquisa do Azure versão 1.1
@@ -170,6 +170,29 @@ O SDK do .NET da Pesquisa do Azure, a partir da versão 1.1, organiza os método
  - Os parâmetros opcionais agora são modelados como padrão em vez de sobrecargas de método adicionais. Isso reduz o número de sobrecargas de método, às vezes drasticamente.
  - Os métodos de extensão agora ocultam muitos dos detalhes não essenciais de HTTP do chamador. Por exemplo, as versões mais antigas do SDK retornavam um objeto de resposta com um código de status HTTP, que normalmente não é verificado porque os métodos de operação lançam `CloudException` para qualquer código de status que indique um erro. Os novos métodos de extensão retornam apenas objetos de modelo, evitando que você tenha de desencapsulá-los em seu código.
  - Por outro lado, as principais interfaces agora expõem métodos que oferecem mais controle no nível de HTTP, se necessário. Agora, você pode passar a inclusão de cabeçalhos HTTP em solicitações e o novo tipo de retorno `AzureOperationResponse<T>` lhe dá acesso direto a `HttpRequestMessage` e a `HttpResponseMessage` para a operação. `AzureOperationResponse` é definido no namespace `Microsoft.Rest.Azure` e substitui `Hyak.Common.OperationResponse`.
+
+### Alterações de ScoringParameters
+
+Uma nova classe chamada `ScoringParameter` foi adicionada no SDK mais recente para facilitar o fornecimento de parâmetros para perfis de pontuação em uma consulta de pesquisa. A propriedade `ScoringProfiles` da classe `SearchParameters` foi tipada anteriormente como `IList<string>`; agora ela é tipada como `IList<ScoringParameter>`.
+
+#### Exemplo
+
+Se o seu código tiver esta aparência:
+
+    var sp = new SearchParameters();
+    sp.ScoringProfile = "jobsScoringFeatured";      // Use a scoring profile
+    sp.ScoringParameters = new[] { "featuredParam:featured", "mapCenterParam:" + lon + "," + lat };
+
+Você poderá alterá-lo para corrigir os erros de compilação:
+
+    var sp = new SearchParameters();
+    sp.ScoringProfile = "jobsScoringFeatured";      // Use a scoring profile
+    sp.ScoringParameters =
+        new[]
+        {
+            new ScoringParameter("featuredParam", "featured"),
+            new ScoringParameter("mapCenterParam", GeographyPoint.Create(lat, lon))
+        };
 
 ### Alterações no modelo de classe
 
@@ -353,7 +376,7 @@ e definir `IntValue` como 0, o valor será agora corretamente serializado como 0
 
 Há um problema potencial de que se deve estar ciente nessa abordagem: se você usar um tipo de modelo com uma propriedade não anulável, precisará **garantir** que nenhum documento no índice contenha um valor nulo para o campo correspondente. O SDK e a API REST da Pesquisa do Azure não podem ajudá-lo a impor isso.
 
-Isso não é apenas uma preocupação hipotética: imagine um cenário em que você adiciona um novo campo a um índice existente que é do tipo `Edm.Int32`. Depois de atualizar a definição de índice, todos os documentos terão um valor nulo para esse novo campo (já que todos os tipos são anuláveis na Pesquisa do Azure). Se você usar uma classe de modelo com propriedade `int` não anulável para esse campo, obterá uma `JsonSerializationException` como essa ao tentar recuperar documentos:
+Isso não é apenas uma preocupação hipotética: imagine um cenário em que você adiciona um novo campo a um índice existente do tipo `Edm.Int32`. Depois de atualizar a definição de índice, todos os documentos terão um valor nulo para esse novo campo (já que todos os tipos são anuláveis na Pesquisa do Azure). Ao usar uma classe de modelo com uma propriedade `int` não anulável para esse campo, você obterá uma `JsonSerializationException` como esta ao tentar recuperar documentos:
 
     Error converting value {null} to type 'System.Int32'. Path 'IntValue'.
 
@@ -362,10 +385,10 @@ Por esse motivo, continuamos a recomendar que você use tipos anuláveis nas sua
 Para obter mais detalhes sobre esse bug e a correção, confira [esse problema no GitHub](https://github.com/Azure/azure-sdk-for-net/issues/1063).
 
 ## Conclusão
-Se precisar de mais detalhes sobre como usar o SDK .NET da Pesquisa do Azure, confira os nossos artigos atualizados recentemente, [Tutorial](search-howto-dotnet-sdk.md) e [Introdução](search-get-started-dotnet.md).
+Se precisar de mais detalhes sobre como usar o SDK .NET da Pesquisa do Azure, confira os nosso artigos atualizado recentemente, [Tutorial](search-howto-dotnet-sdk.md).
 
 Apreciamos os seus comentários sobre o SDK. Se você tiver problemas, fique à vontade para nos pedir ajuda no [Fórum MSDN da Pesquisa do Azure](https://social.msdn.microsoft.com/Forums/azure/pt-BR/home?forum=azuresearch). Se você encontrar um bug, poderá apresentar um problema no [repositório GitHub sobre SDK .NET do Azure](https://github.com/Azure/azure-sdk-for-net/issues). Não deixe de colocar o prefixo "SDK da Pesquisa:" no título do problema.
 
 Obrigado por usar a Pesquisa do Azure!
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

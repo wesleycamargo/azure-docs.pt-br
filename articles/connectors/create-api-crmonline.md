@@ -47,50 +47,18 @@ Todas as APIs dão suporte a dados nos formatos JSON e XML.
 
 ## Criar uma conexão com o CRM Online
 
+Ao adicionar essa API aos seus aplicativos lógicos, é necessário entrar no Dynamic CRM Online. Siga estas etapas para entrar no CRM online e concluir a configuração da **conexão** em seu aplicativo lógico:
 
-### Adicionar um configuração adicional no PowerApps
-Ao adicionar o CRM Online ao PowerApps Enterprise, insira os valores de **ID do Cliente** e **Chave do Aplicativo** de seu aplicativo do AAD (Azure Active Directory) do Dynamics CRM Online. O valor da **URL de Redirecionamento** também é usado em seu aplicativo do CRM Online. Se você não tiver um aplicativo, use as seguintes etapas para criar o aplicativo:
-
-1. No [Portal do Azure](https://portal.azure.com), abra **Active Directory** e selecione o nome de locatário de sua organização.
-2. Na guia Aplicativos, selecione **Adicionar**. Em **Adicionar aplicativo**:  
-
-	1. Insira um **Nome** para o aplicativo.  
-	2. Deixe o tipo de aplicativo como **Web**.  
-	3. Selecione **Avançar**.
-
-	![Adicionar aplicativo do AAD - informações do aplicativo][9]
-
-3. Em **Propriedades do aplicativo**:
-
-	1. Insira a **URL DE LOGON** do aplicativo. Já que você vai fazer a autenticação com o AAD para PowerApps, defina a URL de logon como _https://login.windows.net_.
-	2. Insira um **URI DA ID DO APLICATIVO** válido para seu aplicativo.  
-	3. Selecione **OK**.  
-
-	![Adicionar aplicativo do AAD - propriedades do aplicativo][10]
-
-4. No novo aplicativo, selecione **Configurar**.
-5. Em _OAuth 2_, defina a **URL de Resposta** como o valor da URL de redirecionamento mostrado ao adicionar a API do CRM Online no Portal do Azure: ![Configure o aplicativo Contoso do AAD][12]
-
-Agora copie/cole os valores de **ID do Cliente** e **Chave do Aplicativo** em sua configuração do CRM Online no portal do Azure.
-
-### Adicionar configuração adicional em aplicativos lógicos
-Ao adicionar essa API aos seus aplicativos lógicos, é necessário entrar no Dynamic CRM Online.
-
-Siga estas etapas para entrar no CRM online e concluir a configuração da **conexão** em seu aplicativo lógico:
-
-1. Selecione **Recorrência**
-2. Selecione uma **Frequência** e insira um **Intervalo**
-3. Selecione **Adicionar uma ação**  
+1. Em seu aplicativo lógico, selecione **Adicionar uma ação**: 
 ![Configurar o CRM Online][13]
-4. Insira CRM na caixa de pesquisa e aguarde até que a pesquisa retorne todas as entradas com CRM no nome
-5. Selecione **Dynamics CRM Online - Criar um novo registro**
-6. Selecione **Entrar no Dynamics CRM Online**:  
+4. Insira CRM na caixa de pesquisa e aguarde até que a pesquisa retorne todas as entradas com CRM no nome.
+5. Selecione **Dynamics CRM Online - Criar um novo registro**.
+6. Selecione **Entrar no Dynamics CRM Online**:
 ![Configurar o CRM Online][14]
-7. Forneça suas credenciais do CRM Online para entrar e autorizar o aplicativo
+7. Forneça suas credenciais do CRM Online para entrar e autorizar o aplicativo:
 ![Configurar o CRM Online][15]  
 8. Depois de entrar, retorne ao aplicativo lógico para concluí-lo adicionando outros gatilhos e outras ações necessárias.
 9. Salve seu trabalho selecionando **Salvar** na barra de menus acima.
-
 
 Depois de criar a conexão, insira as propriedades do CRM Online, como a tabela ou conjunto de dados. A **referência da API REST** neste tópico descreve essas propriedades.
 
@@ -290,9 +258,10 @@ Usado para obter a lista de entidades presentes em uma instância do CRM.```GET:
 
 
 ## Próximas etapas
-Depois de adicionar a API do CRM Online ao PowerApps Enterprise, [conceda permissões aos usuários](../power-apps/powerapps-manage-api-connection-user-access.md) usar a API em seus aplicativos.
 
-[Crie um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+
+Volte para a [Lista de APIs](apis-list.md).
 
 
 [9]: ./media/create-api-crmonline/aad-tenant-applications-add-appinfo.png
@@ -302,6 +271,4 @@ Depois de adicionar a API do CRM Online ao PowerApps Enterprise, [conceda permis
 [14]: ./media/create-api-crmonline/crmconfig2.png
 [15]: ./media/create-api-crmonline/crmconfig3.png
 
-<!---HONumber=AcomDC_0302_2016-->
-
-
+<!---HONumber=AcomDC_0309_2016-->

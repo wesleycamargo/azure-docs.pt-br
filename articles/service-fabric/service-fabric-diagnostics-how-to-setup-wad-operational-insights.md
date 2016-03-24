@@ -31,7 +31,9 @@ O Insights Operacionais identifica as fontes dos diferentes tipos de logs carreg
 * [Gerenciador de Recursos do Azure](https://azure.microsoft.com/resource-group-overview/)
 
 ## Pré-requisitos
-Essas ferramentas serão usadas para executar algumas das operações neste documento: * [Azure PowerShell](https://azure.microsoft.com/powershell-install-configure/) * [cliente do Gerenciador de Recursos do Azure](https://github.com/projectkudu/ARMClient)
+Essas ferramentas serão usadas para executar algumas das operações neste documento:
+* [PowerShell do Azure](https://azure.microsoft.com/powershell-install-configure/)
+* [Cliente do Azure Resource Manager](https://github.com/projectkudu/ARMClient)
 
 ## Fontes de log diferentes que você talvez queira coletar
 1. **Logs do Service Fabric:** emitidos pela plataforma para canais ETW e EventSource padrões. Os logs podem ser de vários tipos:
@@ -123,7 +125,7 @@ Se você tiver um cluster existente que não tenha Diagnóstico implantado, pode
                 }
             }
     },
-                    "StorageAccount": "[parameters('applicationDiagnosticsStorageAccountNamee')]"
+                    "StorageAccount": "[parameters('applicationDiagnosticsStorageAccountName')]"
                 },
                 "protectedSettings": {
                     "storageAccountName": "[parameters('applicationDiagnosticsStorageAccountName')]",
@@ -167,7 +169,7 @@ Substitua o vmNamePrefix pelo prefixo que você escolheu para nomes de VM ao cri
 
 Depois de criar os arquivos JSON, conforme descrito acima, altere-os para as especificidades de seu ambiente. Em seguida, chame o seguinte comando, passando o nome do grupo de recursos para o cluster do Service Fabric. Quando esse comando for executado com êxito o Diagnóstico será implantado em todas as máquinas virtuais e começará a carregar os logs do cluster para as tabelas na conta de armazenamento do Azure especificada.
 
-Além disso, antes de chamar esse comando de implantação, pode ser necessário fazer algumas configurações, incluindo a adição de sua conta do Azure (`Add-AzureAccount`), escolher a assinatura correta (`Select-AzureSubscription`) e mudar para o modo Gerenciador de Recursos (`Switch-AzureMode AzureResourceManager`).
+Além disso, antes de chamar esse comando de implantação, pode ser necessário fazer algumas configurações, incluindo a adição de sua conta do Azure (`Add-AzureAccount`), escolhendo a assinatura correta (`Select-AzureSubscription`) e mudando para o modo Gerenciador de Recursos (`Switch-AzureMode AzureResourceManager`).
 
 ```ps
 
@@ -286,7 +288,7 @@ if ($existingConfig) {
 }
 ```
 
-Depois de configurar o espaço de trabalho do Insights Operacionais para ler as tabelas do Azure em sua conta de armazenamento, você deverá entrar no portal e acessar a guia **Armazenamento** do recurso Insights Operacionais. O resultado deve ser semelhante a este: ![Configuração de armazenamento do Insights Opcionais no portal do Azure](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/oi-connected-tables-list.png)
+Depois de configurar o espaço de trabalho do Insights Operacionais para ler das tabelas do Azure em sua conta de armazenamento, entre no portal e acesse a guia **Armazenamento** do recurso Insights Operacionais. O resultado deve ser semelhante a este: ![Configuração de armazenamento do Insights Opcionais no portal do Azure](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/oi-connected-tables-list.png)
 
 ### Pesquise e exiba os logs no Insights Operacionais
 Depois de configurar o seu espaço de trabalho do Insights Operacionais para ler os logs da conta de armazenamento especificada pode levar até 10 minutos para que os logs sejam exibidos na interface do usuário do Insights Operacionais. Para garantir que novos logs sejam gerados, você deve implantar um aplicativo do Service Fabric para seu cluster, pois isso irá gerar eventos operacionais da plataforma do Service Fabric.
@@ -325,4 +327,4 @@ Você precisará atualizar a seção EtwEventSourceProviderConfiguration no WadC
 ## Próximas etapas
 Verifique os eventos de diagnóstico emitidos para [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) e [Reliable Services](service-fabric-reliable-services-diagnostics.md) para entender mais detalhadamente os eventos que você deve examinar na solução de problemas.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

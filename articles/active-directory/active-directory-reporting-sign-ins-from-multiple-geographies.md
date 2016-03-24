@@ -13,13 +13,26 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2015"
+	ms.date="03/04/2016"
 	ms.author="saah;kenhoff"/>
 
-# Entradas de várias regiões geográficas
-<p>Este relatório inclui entradas bem-sucedidas por um usuário, quando duas entradas parecem ter sido originadas de diferentes regiões e a diferença de tempo entre as duas entradas torna impossível para o usuário ter viajado entre tais regiões. Causas possíveis incluem:</p><ul><li>O usuário está compartilhando sua senha com outros usuários</li><li>O usuário está usando uma área de trabalho remota para iniciar um navegador da Web para entrar</li><li>Um hacker entrou na conta de um usuário em um país diferente</li><li>O usuário está usando uma VPN ou um proxy</li><li>O usuário está conectado através de vários dispositivos ao mesmo tempo, como um desktop e um telefone celular, e o endereço IP do celular é incomum.</li></ul><p>Os resultados desse relatório mostrarão os eventos de entrada com êxito, juntamente com o tempo entre as entradas, as regiões das quais as entradas parecem se originar e o tempo de viagem estimado entre as regiões.</p><p>O tempo de viagem mostrado é apenas uma estimativa e pode ser diferente do tempo de viagem real entre os locais.</p>
+# Entradas de várias geografias
+
+Este relatório inclui entradas bem-sucedidas de um usuário, em que duas entradas parecem ter sido originadas de diferentes regiões e a diferença de tempo entre as duas entradas torna impossível para o usuário ter viajado entre tais regiões. Entre as possíveis causas estão:
+
+- O usuário está compartilhando sua senha com outros usuários
+
+- O usuário está usando uma área de trabalho remota para iniciar um navegador da Web para a entrada
+
+- Um hacker entrou na conta de um usuário em um país diferente
+
+- O usuário está usando uma VPN ou um proxy
+
+- O usuário está conectado em vários dispositivos ao mesmo tempo, como uma área de trabalho e um telefone celular, e o endereço IP do telefone celular é incomum.
+
+Os resultados desse relatório mostrarão os eventos de entrada bem-sucedida, junto com a diferença de tempo entre as entradas, as regiões em que as entradas parecem ter se originado e o tempo de viagem estimado entre tais regiões. O tempo de viagem mostrado é apenas uma estimativa e pode ser diferente do tempo de viagem real entre os locais.
 
 
 ![Entradas de várias regiões geográficas](./media/active-directory-reporting-sign-ins-from-multiple-geographies/signInsFromMultipleGeographies.PNG)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0309_2016-->

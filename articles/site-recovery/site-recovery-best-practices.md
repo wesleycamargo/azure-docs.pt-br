@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="02/15/2016"
+	ms.date="03/08/2016"
 	ms.author="raynew"/>
 
 # Preparar-se para a implantação do Azure Site Recovery
@@ -57,15 +57,15 @@ Você pode implantar a Recuperação de Site para replicar máquinas virtuais e 
 **Recurso** | **Suporte** | **Detalhes**
 ---|---|---
 Sistema operacional host Hyper-V | Windows Server 2012 R2 | A verificação de pré-requisitos falhará se não houver suporte
-Sistema de operacional do hipervisor VMware | Executando um sistema operacional com suporte | [Detalhes](site-recovery-vmware-to-azure.md#before-you-start)
-Sistema operacional convidado | Para replicação do Hyper-V para o Azure, a Recuperação de Site dá suporte a todos os sistemas operacionais [com suporte pelo Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> Para replicação de VMware e servidor físico, verifique os [pré-requisitos](site-recovery-vmware-to-azure.md#before-you-start) do Windows e Linux | A verificação de pré-requisitos falhará se não houver suporte.
+Sistema de operacional do hipervisor VMware | Executando um sistema operacional com suporte | [Detalhes](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment)
+Sistema operacional convidado | Para replicação do Hyper-V para o Azure, a Recuperação de Site dá suporte a todos os sistemas operacionais [com suporte pelo Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> Para replicação de VMware e servidor físico, verifique os [pré-requisitos](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment) do Windows e Linux | A verificação de pré-requisitos falhará se não houver suporte.
 Arquitetura do sistema operacional convidado | 64 bits | A verificação de pré-requisitos falhará se não houver suporte
 Tamanho do disco do sistema operacional | Até 1023 GB | A verificação de pré-requisitos falhará se não houver suporte
 Contagem do disco do sistema operacional | 1 | A verificação de pré-requisitos falhará se não houver suporte.
 Contagem de disco de dados | 16 ou menos (o valor máximo é uma função do tamanho da máquina virtual que está sendo criada. 16 = XL) | A verificação de pré-requisitos falhará se não houver suporte
 Tamanho do VHD do disco de dados | Até 1023 GB | A verificação de pré-requisitos falhará se não houver suporte
 Adaptadores de rede | Há suporte para vários adaptadores |
-Endereço IP estático | Suportado | Se a máquina virtual primária estiver usando um endereço IP estático, você poderá especificar o endereço IP estático da máquina virtual que será criada no Azure
+Endereço IP estático | Com suporte | Se a máquina virtual primária estiver usando um endereço IP estático, você poderá especificar o endereço IP estático da máquina virtual que será criada no Azure. Observe que não há suporte para endereço IP estático para uma máquina virtual Linux em execução no Hyper-v. 
 Disco iSCSI | Sem suporte | A verificação de pré-requisitos falhará se não houver suporte
 VHD compartilhado | Sem suporte | A verificação de pré-requisitos falhará se não houver suporte
 Disco FC | Sem suporte | A verificação de pré-requisitos falhará se não houver suporte
@@ -107,4 +107,4 @@ Depois de aprender e comparando os requisitos de implantação geral, você pode
 - [Replicar máquinas virtuais do Hyper-V para um site secundário com SAN](site-recovery-vmm-san.md)
 - [Replicar máquinas virtuais do Hyper-V com um único servidor VMM](site-recovery-single-vmm.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

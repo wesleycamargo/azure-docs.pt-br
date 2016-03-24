@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Introdução ao Data Factory do Azure"
-	description="Este tutorial mostra como criar um pipeline de dados de exemplo que transforma os dados usando o Azure HDInsight."
+	pageTitle="Compilar sua primeira data factory | Microsoft Azure"
+	description="Este tutorial mostra como criar um data factory com um pipeline de dados que transforma os dados usando o Azure HDInsight."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -13,23 +13,23 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="12/18/2015"
+	ms.date="03/03/2016"
 	ms.author="spelluru"/>
 
-# Introdução ao Data Factory do Azure
+# Tutorial: compilar a sua primeira data factory (visão geral)
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-build-your-first-pipeline.md)
-- [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
-- [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-- [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
+- [Visão geral do tutorial](data-factory-build-your-first-pipeline.md)
+- [Como usar o Editor do Data Factory](data-factory-build-your-first-pipeline-using-editor.md)
+- [Usando o PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Como usar o Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [Como usar o Modelo do Gerenciador de Recursos](data-factory-build-your-first-pipeline-using-arm.md)
 
 Este artigo ajuda você a começar a criar seu primeiro data factory do Azure.
 
 > [AZURE.NOTE] Este artigo não fornece uma visão geral conceitual do serviço Azure Data Factory. Para obter uma visão geral detalhada do serviço, consulte [Introdução ao Azure Data Factory](data-factory-introduction.md).
 
 ## Visão geral do tutorial
-Este tutorial apresenta as etapas necessárias para fazer seu primeiro data factory funcionar. Você criará um pipeline no data factory que transforma/processa dados de entrada para gerar dados de saída.
+Este tutorial apresenta as etapas necessárias para você criar seu primeiro data factory. Você criará um pipeline no data factory que transforma/processa dados de entrada para gerar dados de saída.
 
 ## Pré-requisitos
 Antes de iniciar este tutorial, você deverá ter os seguintes pré-requisitos:
@@ -45,7 +45,7 @@ Neste tutorial, você executará as seguintes etapas:
 
 1.	Crie o **data factory**. Um data factory pode conter um ou mais pipelines de dados que movem e processam os dados. 
 2.	Criar os **serviços vinculados**. Crie um serviço vinculado para vincular um armazenamento de dados ou um serviço de computação ao data factory. Um armazenamento de dados, como o Armazenamento do Azure, armazena dados de entrada/saída de atividades no pipeline. Um serviço de computação como o Azure HDInsight processa/transforma dados.    
-3.	Criar **conjuntos de dados** de entrada e saída. Um conjunto de dados de entrada representa a entrada para uma atividade no pipeline e um conjunto de dados de saída representa a saída da atividade.
+3.	Criar **conjuntos de dados** de entrada e saída. Um conjunto de dados de entrada representa a entrada de uma atividade no pipeline e um conjunto de dados de saída representa a saída da atividade.
 3.	Crie o **pipeline**. Um pipeline pode ter uma ou mais atividades, como a Atividade de Cópia para copiar dados de uma origem para um destino (ou) a Atividade do Hive do HDInsight para transformar dados de entrada usando o script do Hive para produzir dados de saída. Este exemplo usa a atividade do Hive do HDInsight que executa um script do Hive. Primeiro, o script cria uma tabela externa que faz referência aos dados brutos de log da Web armazenados no armazenamento de blobs do Azure e então particiona os dados brutos por ano e por mês.
 
 Seu primeiro pipeline, chamado **MyFirstPipeline**, usa uma atividade do Hive para transformar e analisar um log da Web que você carregará na pasta **inputdata** no contêiner **adfgetstarted** (adfgetstarted/inputdata) em seu armazenamento de blobs do Azure.
@@ -67,7 +67,7 @@ Quando o arquivo é processado pelo pipeline com a Atividade do Hive do HDInsigh
 
 Das linhas do exemplo mostradas acima, a primeira delas (com 2014-01-01) será gravada no arquivo 000000\_0 na pasta do mês = 1. Da mesma forma, a segunda será gravada no arquivo na pasta do mês = 2 e a terceira será gravada no arquivo na pasta do mês = 3.
 
-## Carregar arquivos no Armazenamento do Azure para o tutorial
+## Carregar arquivos no Armazenamento do Azure para seguir o tutorial
 Antes de iniciar o tutorial, você precisa preparar o armazenamento do Azure com arquivos necessários para o tutorial.
 
 Nesta seção, você fará o seguinte:
@@ -209,7 +209,7 @@ Você pode usar qualquer ferramenta que desejar (por exemplo: [Gerenciador de Ar
 			Transfer skipped:        0
 			Transfer failed:         0
 			Elapsed time:            00.00:00:01
-	1. Execute o comando a seguir para carregar o arquivo **partitionweblogs. HQL** para a pasta **script** do contêiner **adfgetstarted**. Veja o código: 
+	1. Execute o comando a seguir para carregar o arquivo **partitionweblogs.hql** para a pasta **script** do contêiner **adfgetstarted**. Veja o código: 
 	
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/script /DestKey:<storagekey>  /Pattern:partitionweblogs.hql
 
@@ -222,4 +222,4 @@ Agora você está pronto para começar o tutorial. Clique em uma das guias na pa
 - Visual Studio
 - Modelos do Gerenciador de Recursos do Azure 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -76,7 +76,7 @@ Os seguintes tipos de arquivo são aceitos:
 
 ## <a name="CreateScheduledCRON"></a>Criar um WebJob agendado usando uma expressão CRON
 
-Essa técnica está disponível para aplicativos Web em execução no modo Standard ou Premium e exige que a configuração **Sempre Ativado** esteja habilitada no aplicativo.
+Essa técnica está disponível para aplicativos Web em execução no modo Basic, Standard ou Premium e exige que a configuração **Sempre Ativado** esteja habilitada no aplicativo.
 
 Para transformar um Trabalho Web Sob Demanda em um Trabalho Web agendado, basta incluir um arquivo `settings.job` na raiz do arquivo .zip do Trabalho Web. Esse arquivo JSON deve incluir uma propriedade `schedule` com uma [expressão CRON](https://en.wikipedia.org/wiki/Cron), como mostrado no exemplo abaixo.
 
@@ -239,4 +239,4 @@ Para obter mais informações, consulte [Recursos Recomendados para Trabalhos We
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

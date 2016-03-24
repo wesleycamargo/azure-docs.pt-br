@@ -3,7 +3,7 @@
    description="Relatórios do Active Directory do Azure na visualização pública e privada"
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
+   authors="dhanyahk"
    manager="mbaldwin"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/07/2016"
+   ms.author="dhanyahk"/>
 
 # Visualizações de relatório do Active Directory do Azure
 
@@ -23,10 +23,10 @@
 Relatório | Disponibilidade
 ------------------------------------------------------- | --------------------
 **Relatórios de segurança** |
-Atividade de conexão anômala | Disponibilidade geral
+Atividades de entrada irregulares | Disponibilidade geral
 Entradas de fontes desconhecidas | Disponibilidade geral
 Entradas após várias falhas | Disponibilidade geral
-Entradas de várias regiões geográficas | Disponibilidade geral
+Entradas de várias geografias | Disponibilidade geral
 Entradas de endereços IP com atividade suspeita | Disponibilidade geral
 Entradas de dispositivos possivelmente infectados | Disponibilidade geral
 Usuários com atividade de entrada anômala | Visualização pública
@@ -54,4 +54,4 @@ Uso de aplicativos habilitados para RMS | Visualização pública
 **Relatórios de visualização particular** |
 Atividade de entrada de todos os usuários | Visualização particular
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

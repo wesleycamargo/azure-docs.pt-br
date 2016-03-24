@@ -14,12 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="03/08/2016"
 	ms.author="jgao"/>
 
 # Personalizar clusters do HDInsight usando a Inicialização
-
-[AZURE.INCLUDE [seletor](../../includes/hdinsight-create-windows-cluster-selector.md)]
 
 Às vezes, você deseja configurar os arquivos de configuração que incluem:
 
@@ -251,4 +249,4 @@ Esse script do PowerShell cria um cluster do HDInsight e personaliza uma configu
 
     #endregion
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

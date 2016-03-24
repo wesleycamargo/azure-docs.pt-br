@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="01/09/2016"
+	ms.date="03/04/2016"
 	ms.author="robmcm"/>
 
 # Especificar uma versão do Node.js em um aplicativo do Azure
@@ -24,7 +24,7 @@ Ao hospedar um aplicativo Node.js, talvez você queira garantir que seu aplicati
 
 As versões de Node.js fornecidas pelo Azure são atualizadas constantemente. Salvo indicação em contrário, a versão mais recente será usada.
 
-> [AZURE.NOTE]Se você estiver hospedando o seu aplicativo em um Serviço de Nuvem do Azure (função Web ou de trabalho), e é a primeira vez que você implantou o aplicativo, o Azure tentará usar a mesma versão do Node.js instalada em seu ambiente de desenvolvimento se ele corresponder a uma das versões padrão disponíveis no Azure.
+> [AZURE.NOTE] Se você estiver hospedando o seu aplicativo em um Serviço de Nuvem do Azure (função Web ou de trabalho), e é a primeira vez que você implantou o aplicativo, o Azure tentará usar a mesma versão do Node.js instalada em seu ambiente de desenvolvimento se ele corresponder a uma das versões padrão disponíveis no Azure.
 
 ##Controle de versão com o package.json
 
@@ -102,4 +102,4 @@ Para obter mais informações, consulte o [Centro de desenvolvedores do Node.js]
 [trabalhar com módulos]: nodejs-use-node-modules-azure-apps.md
 [criar e implantar um Site no Node.js]: web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

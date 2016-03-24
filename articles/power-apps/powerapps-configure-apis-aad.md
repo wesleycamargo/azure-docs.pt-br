@@ -5,7 +5,7 @@
     suite="powerapps"
 	documentationCenter="" 
 	authors="MandiOhlinger"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/02/2016"
    ms.author="guayan"/>
 
 # Configure uma API para se conectar a um recurso de back-end em um domínio do Active Directory do Azure
@@ -41,20 +41,20 @@ Para acessar o sistema de back-end em um domínio do AAD, crie um aplicativo do 
 5. Em **Logon único**, adicione ``https://<your App Service Environment name>.azure-apim.net:456/redirect`` como uma **URL de resposta**.
 6. Em **permissões para outros aplicativos**:  
 
-	a) Selecione **Adicionar aplicativo**. Na janela pop-up, escolha o aplicativo de AAD, protegendo seu back-end existente: ![][17]
+	1. Selecione **Adicionar aplicativo**. Na janela pop-up, escolha o aplicativo de AAD, protegendo seu back-end existente: ![][17]  
 
-	b) Use a lista suspensa para adicionar as permissões: ![][18]
+	2. Use a lista suspensa para adicionar as permissões: ![][18]
 
 7. Selecione **Salvar** na parte inferior.
 8. Copie a **ID do cliente**, a **chave** e armazene-os. A chave não é mostrada novamente depois que você fechar o portal do Azure. 
 
-Consulte a seção [Como integrar aplicativos com o Active Directory do Azure](../active-directory-integrating-applications.md) para saber mais sobre aplicativos do AAD.
+Consulte a seção [Como integrar aplicativos com o Active Directory do Azure](../active-directory/active-directory-integrating-applications.md) para saber mais sobre aplicativos do AAD.
 
 ## Etapa 2: configurar sua API usando o Azure PowerShell
 
 Neste ponto, não existe nenhum suporte de portal do Azure para inicializar a configuração necessária para sua API. Para configurar a API no portal do Azure, use o seguinte script do PowerShell do Azure:
 
-> [AZURE.TIP]Para aprender a instalar, configurar e executar o Azure PowerShell, consulte a seção [Como instalar e configurar o Azure PowerShell][11]. O script a seguir funciona com a visualização do Azure PowerShell 1.0 ou superior.
+> [AZURE.TIP] Para aprender a instalar, configurar e executar o Azure PowerShell, consulte a seção [Como instalar e configurar o Azure PowerShell][11]. O script a seguir funciona com a visualização do Azure PowerShell 1.0 ou superior.
 
 ```powershell
 # get the API resource
@@ -134,7 +134,7 @@ Como alternativa, você também pode usar a política de API para definir o toke
 </policies>
 ```
 
-Ao examinar essa política, ela basicamente permite que você referencie os valores do cabeçalho **x-ms-apim-tokens** como um JObject decodificado usando uma variável **tokens**. Então, você pode usar a política **set-header** para obter token do AAD real e defini-lo no cabeçalho **Autorização**. Essa é a mesma política usada pelo [Gerenciamento de API do Azure](https://azure.microsoft.com/services/api-management/). Para saber mais, consulte as [políticas no Gerenciamento de API do Azure](../api-management-howto-policies.md).
+Ao examinar essa política, ela basicamente permite que você referencie os valores do cabeçalho **x-ms-apim-tokens** como um JObject decodificado usando uma variável **tokens**. Então, você pode usar a política **set-header** para obter token do AAD real e defini-lo no cabeçalho **Autorização**. Essa é a mesma política usada pelo [Gerenciamento de API do Azure](https://azure.microsoft.com/services/api-management/). Para saber mais, consulte as [políticas no Gerenciamento de API do Azure](../api-management/api-management-howto-policies.md).
 
 **Observe** que o **token** de nome da propriedade corresponde ao nome do parâmetro de conexão que você usou ao definir a configuração.
 
@@ -157,4 +157,4 @@ Neste tópico, você viu como configurar uma API para se conectar (e autenticar)
 [20]: https://tools.ietf.org/html/rfc4648
 [21]: ./media/powerapps-configure-apis-aad/api-settings-aad.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

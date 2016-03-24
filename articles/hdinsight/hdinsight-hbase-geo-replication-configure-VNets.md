@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/02/2015"
+   ms.date="03/04/2016"
    ms.author="jgao"/>
 
 # Configurar uma conexão VPN entre duas redes virtuais do Azure  
 
 > [AZURE.SELECTOR]
-- [Configure VPN connectivity](../hdinsight-hbase-geo-replication-configure-VNETs.md)
-- [Configure DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
-- [Configure HBase replication](hdinsight-hbase-geo-replication.md) 
+- [Configurar conectividade VPN](../hdinsight-hbase-geo-replication-configure-VNETs.md)
+- [Configurar DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
+- [Configurar replicação HBase](hdinsight-hbase-geo-replication.md) 
 
 A conectividade de site a site de rede virtual do Azure usa um gateway VPN para fornecer um túnel seguro usando Ipsec/IKE. Os VNets podem estar em diferentes regiões e diferentes assinaturas. Você pode até combinar a comunicação VNet à VNet com configurações multissite. Há vários motivos para a conectividade VNet para VNet:
 
@@ -29,7 +29,7 @@ A conectividade de site a site de rede virtual do Azure usa um gateway VPN para 
 - Aplicativos multicamadas regionais com limite de isolamento forte 
 - Comunicação entre organizações e assinaturas no Azure
 
-Para obter mais informações, consulte [Configurar uma conexão VNet com VNet](../virtual-network/virtual-networks-configure-vnet-to-vnet-connection.md).
+Para obter mais informações, consulte [Configurar uma conexão VNet com VNet](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
 Para ver em vídeo:
 
@@ -270,4 +270,4 @@ Neste tutorial, você aprendeu como configurar uma conexão VPN entre duas redes
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

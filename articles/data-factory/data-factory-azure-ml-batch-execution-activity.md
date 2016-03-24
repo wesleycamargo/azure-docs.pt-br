@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Criar pipelines de previsão usando a atividade de Execução em Lote de Aprendizado de Máquina do Azure | Microsoft Azure" 
+	pageTitle="Usar atividades do Aprendizado de Máquina | Microsoft Azure" 
 	description="Descreve como criar pipelines de previsão usando o Azure Data Factory e o Aprendizado de Máquina do Azure" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -772,5 +772,5 @@ Você também pode usar [Funções do Data Factory](https://msdn.microsoft.com/l
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
-
+<!---HONumber=AcomDC_0309_2016-->
+<!---Line 64, delete "space", line 298, add "slash"-->

@@ -97,11 +97,11 @@ Com o Service Fabric, embora haja diferença na escala das falhas em ambientes d
 
 ### Usando a Possibilidade de Teste em C#
 
-Os recursos de Possibilidade de Teste estão em System.Fabric.Testability.dll. Essa dll está no pacote nuget Microsoft.ServiceFabric.Testability.nupack. Para usar os recursos da Possibilidade de Teste, inclua o pacote nuget em como uma referência em seu projeto.
+Os recursos de Possibilidade de Teste estão em System.Fabric.dll. Essa dll está no pacote nuget Microsoft.ServiceFabric.nupack. Para usar os recursos da Possibilidade de Teste, inclua o pacote nuget em como uma referência em seu projeto.
 
 ### Usando a Possibilidade de Teste no PowerShell
 
-Para usar o PowerShell de Possibilidade de Teste, você deve instalar o MSI do tempo de execução. Depois da instalação do MSI, o módulo ServiceFabricTestability PowerShell é automaticamente carregado para uso dos desenvolvedores.
+Para usar o PowerShell de Possibilidade de Teste, você deve instalar o MSI do tempo de execução. Depois da instalação do MSI, o módulo ServiceFabric PowerShell é automaticamente carregado para uso dos desenvolvedores.
 
 ## Conclusão
 
@@ -115,4 +115,4 @@ Para realmente criar serviços em escala de nuvem, é essencial garantir, antes 
   - [Simular falhas durante cargas de trabalho de serviço](service-fabric-testability-workload-tests.md)
   - [Falhas de comunicação entre serviços](service-fabric-testability-scenarios-service-communication.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

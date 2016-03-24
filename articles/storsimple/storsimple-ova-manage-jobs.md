@@ -3,7 +3,7 @@
    description="Descreve a página de Trabalhos do serviço StorSimple Manager e como usá-la para controlar trabalhos recentes e atuais para a matriz Virtual StorSimple."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="carmonm"
    editor=""/>
 <tags 
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="02/22/2016"
-   ms.author="v-sharos" />
+   ms.date="03/02/2016"
+   ms.author="alkohli" />
 
-# Use o serviço StorSimple Manager para exibir os trabalhos para a matriz de Virtual do StorSimple (visualização)
+# Use o serviço StorSimple Manager para exibir os trabalhos para o StorSimple Virtual Array
 
 ## Visão geral
 
@@ -72,4 +72,4 @@ Essas falhas serão aplicadas aos trabalhos de backup, restauração, atualizaç
 
 [Saiba como usar a interface do usuário da Web local para administrar sua StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

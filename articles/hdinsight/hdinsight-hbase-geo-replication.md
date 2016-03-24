@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/02/2015"
+   ms.date="03/04/2016"
    ms.author="jgao"/>
 
 # Configurar a replicação geográfica do HBase no HDInsight
 
 > [AZURE.SELECTOR]
-- [Configure VPN connectivity](../hdinsight-hbase-geo-replication-configure-VNETs.md)
-- [Configure DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
-- [Configure HBase replication](hdinsight-hbase-geo-replication.md) 
+- [Configurar conectividade VPN](../hdinsight-hbase-geo-replication-configure-VNETs.md)
+- [Configurar DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
+- [Configurar replicação HBase](hdinsight-hbase-geo-replication.md) 
  
 Saiba como configurar a replicação do HBase em dois datacenters. Alguns casos de uso para a replicação em cluster incluem:
 
@@ -310,4 +310,4 @@ Neste tutorial, você aprendeu a configurar a replicação do HBase entre dois d
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

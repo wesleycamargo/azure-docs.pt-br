@@ -3,8 +3,8 @@
    description="A API do serviço Azure Search Versão 2015-02-28-Preview inclui recursos experimentais como analisadores de linguagem natural e pesquisas do tipo moreLikeThis."
    services="search"
    documentationCenter="na"
-   authors="HeidiSteen"
-   manager="mblythe"
+   authors="brjohnstmsft"
+   manager="pablocas"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="02/16/2016"
-   ms.author="heidist"/>
+   ms.date="03/08/2016"
+   ms.author="brjohnst"/>
 
 # API REST do serviço Azure Search: Versão 2015-02-28-Preview
 
@@ -1054,7 +1054,7 @@ O corpo da solicitação contém um ou mais documentos a serem indexados. Os doc
 - `upload`: uma ação de carregamento é semelhante a um "upsert", em que o documento será inserido se for novo e será atualizado/substituído se ele existir. Observe que todos os campos são substituídos no caso da atualização.
 - `merge`: a mesclagem atualiza um documento existente com os campos especificados. Se o documento não existir, a mesclagem falhará. Qualquer campo que você especificar em uma mesclagem substituirá o campo existente no documento. Isso inclui campos do tipo `Collection(Edm.String)`. Por exemplo, se o documento contiver um campo "marcas" com o valor `["budget"]` e você executar uma mesclagem com o valor `["economy", "pool"]` para "marcas", o valor final do campo "marcas" final será `["economy", "pool"]`. Ele **não** será `["budget", "economy", "pool"]`.
 - `mergeOrUpload`: se comportará como `merge` se já existir um documento com a chave especificada no índice. Se o documento não existir, se comportará como `upload` com um novo documento.
-- `delete`: a exclusão remove o documento especificado do índice. Observe que você pode especificar apenas o valor do campo de chave em uma operação `delete`. Se você tentar especificar outros campos, isso resultará em um erro HTTP 400. Se você quiser remover um campo individual de um documento, use `merge` em vez disso e apenas defina o campo explicitamente como `null`.
+- `delete`: a exclusão remove o documento especificado do índice. Observe que todos os campos que você especificar em uma operação `delete`, que não seja o campo de chave, serão ignorados. Se você quiser remover um campo individual de um documento, use `merge` em vez disso e apenas defina o campo explicitamente como `null`.
 
 **Resposta**
 
@@ -1551,7 +1551,7 @@ O URI da solicitação inclui um [nome de índice] e uma [chave], especificando 
 
 `$select=[string]` (opcional) ‒ uma lista de campos separados por vírgulas a serem recuperados. Se não for especificado ou se for definido como `*`, todos os campos marcados como recuperáveis no esquema serão incluídos na projeção.
 
-`api-version=[string]` (obrigatório). A versão de visualização é `api-version=2015-02-28-Preview`. Consulte Controle de versão de serviço de pesquisa para obter detalhes e versões alternativas.
+`api-version=[string]` (obrigatório). A versão de visualização é `api-version=2015-02-28-Preview`. Consulte [Controle de versão de serviço de pesquisa](http://msdn.microsoft.com/library/azure/dn864560.aspx) para obter detalhes e versões alternativas.
 
 Observação: para essa operação, a `api-version` é especificada como um parâmetro de consulta.
 
@@ -1662,7 +1662,7 @@ Além disso, a codificação de URL só é necessária ao se chamar a API REST d
 
 **Parâmetros de consulta**
 
-**Sugestões** aceita vários parâmetros que fornecem critérios de consulta e também especificam o comportamento da pesquisa. Você fornece esses parâmetros na cadeia de consulta da URL ao chamar **Sugestões** via GET, e como propriedades JSON no corpo da solicitação ao chamar **Sugestões** via POST. A sintaxe para alguns parâmetros é ligeiramente diferente entre GET e POST. Essas diferenças são indicadas, como aplicável, abaixo:
+**Suggestions** aceita vários parâmetros que fornecem critérios de consulta e também especificam o comportamento da pesquisa. Você fornece esses parâmetros na cadeia de consulta da URL ao chamar **Sugestões** via GET, e como propriedades JSON no corpo da solicitação ao chamar **Sugestões** via POST. A sintaxe para alguns parâmetros é ligeiramente diferente entre GET e POST. Essas diferenças são indicadas, como aplicável, abaixo:
 
 `search=[string]` ‒ o texto de pesquisa a ser usado para sugerir consultas. Deve ter pelo menos 1 e não mais que 100 caracteres.
 
@@ -1686,11 +1686,11 @@ Além disso, a codificação de URL só é necessária ao se chamar a API REST d
 
 `$filter=[string]` (opcional) par uma expressão que filtra os documentos considerados para sugestões.
 
-> [AZURE.NOTE]Ao chamar **Sugestões** usando POST, esse parâmetro será chamado de `filter`, em vez de `$filter`.
+> [AZURE.NOTE] Ao chamar **Suggestions** usando POST, esse parâmetro será chamado de `filter` em vez de `$filter`.
 
 `$orderby=[string]` (opcional) ‒ uma lista de expressões separadas por vírgulas para classificar os resultados. Cada expressão pode ser um nome de campo ou uma chamada para a função `geo.distance()`. Cada expressão pode ser seguida de `asc` para indicar a ordem crescente e `desc` para indicar a ordem decrescente. O padrão é a ordem crescente. Há um limite de 32 cláusulas para `$orderby`.
 
-> [AZURE.NOTE]Ao chamar **Sugestões** usando POST, esse parâmetro será chamado de `orderby`, em vez de `$orderby`.
+> [AZURE.NOTE] Ao chamar **Suggestions** usando POST, esse parâmetro será chamado de `orderby` em vez de `$orderby`.
 
 `$select=[string]` (opcional) ‒ uma lista de campos separados por vírgulas a serem recuperados. Se não for especificado, somente a chave do documento e o texto de sugestão serão retornados. Você pode solicitar explicitamente todos os campos ao definir esse parâmetro para `*`.
 
@@ -1774,4 +1774,4 @@ Recuperar cinco sugestões, em que a entrada de pesquisa parcial é 'lux'
       "suggesterName": "sg"
     }
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

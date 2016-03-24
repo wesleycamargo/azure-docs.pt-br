@@ -18,11 +18,12 @@
 
 # Adicionar uma autenticação ao seu aplicativo do Android dos Serviços Móveis (back-end do JavaScript)
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Para a versão de aplicativos móveis equivalente deste tópico, consulte [Adicionar autenticação ao seu aplicativo Android](../app-service-mobile/app-service-mobile-android-get-started-users.md).
 
 ## Resumo
 
@@ -106,4 +107,4 @@ No próximo tutorial, [Autorizar usuários com scripts], você irá obter o valo
 [Introdução aos Serviços Móveis]: mobile-services-android-get-started.md
 [Autorizar usuários com scripts]: mobile-services-javascript-backend-service-side-authorization.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0309_2016-->

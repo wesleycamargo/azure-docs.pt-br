@@ -1,10 +1,10 @@
 ## Receber mensagens com EventProcessorHost
 
-[EventProcessorHost] é uma classe .NET que simplifica o recebimento de eventos de Hubs de Eventos ao gerenciar pontos de verificação persistentes e recebimentos paralelos desses Hubs de Eventos. Usando o [EventProcessorHost], você pode dividir eventos entre vários destinatários, mesmo quando hospedados em nós diferentes. Este exemplo mostra como usar o [EventProcessorHost] para um único destinatário. O exemplo de [processamento de eventos de escala horizontal] mostra como usar [EventProcessorHost] com vários destinatários.
+[EventProcessorHost][] é uma classe .NET que simplifica o recebimento de eventos de Hubs de Eventos ao gerenciar pontos de verificação persistentes e recebimentos paralelos desses Hubs de Eventos. Usando o [EventProcessorHost][], você pode dividir eventos entre vários destinatários, mesmo quando hospedados em nós diferentes. Este exemplo mostra como usar o [EventProcessorHost][] para um único destinatário. O exemplo de [processamento de eventos de escala horizontal][] mostra como usar [EventProcessorHost][] com vários destinatários.
 
-Para usar o [EventProcessorHost], você deve ter uma [Conta de armazenamento do Azure]\:
+Para usar o [EventProcessorHost][], você deve ter uma [Conta de armazenamento do Azure][]\:
 
-1. Faça logon no [portal clássico do Azure] e clique em **NOVO** na parte inferior da tela.
+1. Faça logon no [portal clássico do Azure][] e clique em **NOVO** na parte inferior da tela.
 
 2. Clique em **Serviços de Dados**, em **Armazenamento**, em **Criação Rápida** e, em seguida, digite um nome para sua conta de armazenamento. Selecione a região desejada e, em seguida, clique em **Criar Conta de Armazenamento**.
 
@@ -96,26 +96,30 @@ Para usar o [EventProcessorHost], você deve ter uma [Conta de armazenamento do 
 
 	Em seguida, modifique o método `Main` na classe `Program` como segue, substituindo o nome do Hub de Evento, a cadeia de conexão, a conta de armazenamento e a chave que você copiou nas seções anteriores:
 
-        static void Main(string[] args)
-        {
-          string eventHubConnectionString = "{event hub connection string}";
-          string eventHubName = "{event hub name}";
-          string storageAccountName = "{storage account name}";
-          string storageAccountKey = "{storage account key}";
-          string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}",
-              storageAccountName, storageAccountKey);
+    ```
+	static void Main(string[] args)
+    {
+      string eventHubConnectionString = "{event hub connection string}";
+      string eventHubName = "{event hub name}";
+      string storageAccountName = "{storage account name}";
+      string storageAccountKey = "{storage account key}";
+      string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}",
+      storageAccountName, storageAccountKey);
 
-          string eventProcessorHostName = Guid.NewGuid().ToString();
-          EventProcessorHost eventProcessorHost = new EventProcessorHost(eventProcessorHostName, eventHubName, EventHubConsumerGroup.DefaultGroupName, eventHubConnectionString, storageConnectionString);
-          Console.WriteLine("Registering EventProcessor...");
-          eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>().Wait();
+      string eventProcessorHostName = Guid.NewGuid().ToString();
+      EventProcessorHost eventProcessorHost = new EventProcessorHost(eventProcessorHostName, eventHubName, EventHubConsumerGroup.DefaultGroupName, eventHubConnectionString, storageConnectionString);
+      Console.WriteLine("Registering EventProcessor...");
+      var options = new EventProcessorOptions();
+      options.ExceptionReceived += (sender, e) => { Console.WriteLine(e.Exception); };
+      eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>(options).Wait();
 
-          Console.WriteLine("Receiving. Press enter key to stop worker.");
-          Console.ReadLine();
-          eventProcessorHost.UnregisterEventProcessorAsync().Wait();
-        }
+      Console.WriteLine("Receiving. Press enter key to stop worker.");
+      Console.ReadLine();
+      eventProcessorHost.UnregisterEventProcessorAsync().Wait();
+    }
+	````
 
-> [AZURE.NOTE]Este tutorial usa uma única instância do [EventProcessorHost]. Para aumentar a taxa de transferência, é recomendável que você execute várias instâncias do [EventProcessorHost], conforme mostrado no exemplo de [Processamento de eventos em escala]. Nesses casos, as diversas instâncias são coordenadas automaticamente umas com as outras para balancear a carga de eventos recebidos. Se você quiser que vários destinatários processem, cada um, *todos* os eventos, você deve usar o conceito **ConsumerGroup**. Ao receber eventos de máquinas diferentes, pode ser útil especificar nomes para instâncias de [EventProcessorHost] com base em máquinas (ou funções) nas quais eles foram implantados. Para obter mais informações sobre esses tópicos, confira a [Visão geral de Hubs de Eventos] e o [Guia de Programação de Hubs de Eventos].
+> [AZURE.NOTE] Este tutorial usa uma única instância do [EventProcessorHost][]. Para aumentar a taxa de transferência, é recomendável que você execute várias instâncias do [EventProcessorHost][], conforme mostrado no exemplo de [Processamento de eventos em escala][]. Nesses casos, as diversas instâncias são coordenadas automaticamente umas com as outras para balancear a carga de eventos recebidos. Se você quiser que vários destinatários processem, cada um, *todos* os eventos, você deve usar o conceito **ConsumerGroup**. Ao receber eventos de máquinas diferentes, pode ser útil especificar nomes para instâncias de [EventProcessorHost][] com base em máquinas (ou funções) nas quais eles foram implantados. Para saber mais sobre esses tópicos, confira a [Visão geral de Hubs de Eventos][] e o [Guia de Programação de Hubs de Eventos][].
 
 <!-- Links -->
 [Visão geral de Hubs de Eventos]: event-hubs-overview.md
@@ -133,4 +137,4 @@ Para usar o [EventProcessorHost], você deve ter uma [Conta de armazenamento do 
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0309_2016-->

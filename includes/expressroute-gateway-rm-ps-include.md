@@ -1,33 +1,33 @@
-## Configuration overview
+## Visão geral de configuração
 
-The steps for this task use a VNet based on the values below. Additional settings and names are also outlined in this list. We don't use this list directly in any of the steps, although we do add variables based on the values in this list. You can copy the list to use as a reference, replacing the values with your own.
+As etapas para essa tarefa usam uma Rede Virtual com base nos valores abaixo. Nomes e configurações adicionais também são descritos nesta lista. Não usamos essa lista diretamente em nenhuma uma das etapas, embora adicionemos variáveis com base nos valores contidos nessa lista. É possível fazer uma cópia da lista para usá-la como referência, substituindo os valores pelos seus próprios.
 
-Configuration reference list:
+Lista de referência de configuração:
 	
-- Virtual Network Name = "TestVNet"
-- Virtual Network address space = 192.168.0.0/16
-- Resource Group = "TestRG"
-- Subnet1 Name = "FrontEnd" 
-- Subnet1 address space = "192.168.0.0/16"
-- Gateway Subnet name: "GatewaySubnet" You must always name a gateway subnet *GatewaySubnet*.
-- Gateway Subnet address space = "192.168.200.0/26"
-- Region = "East US"
-- Gateway Name = "GW"
-- Gateway IP Name = "GWIP"
-- Gateway IP configuration Name = "gwipconf"
-- VPN Type = "ExpressRoute" This VPN type is required for an ExpressRoute configuration.
-- Gateway Public IP Name = "gwpip"
+- Nome da Rede Virtual = “TestVNet”
+- Espaço de endereço da Rede Virtual = 192.168.0.0/16
+- Grupo de recursos = “TestRG”
+- Nome de Subnet1 = “FrontEnd” 
+- Espaço de endereço de Subnet1 = “192.168.0.0/16”
+- Nome da Sub-Rede do Gateway: “GatewaySubnet” Deve-se sempre nomear uma sub-rede do gateway como *GatewaySubnet*.
+- Espaço de endereço da Sub-Rede do Gateway = “192.168.200.0/26”
+- Região = “Leste dos EUA”
+- Nome do Gateway = “GW”
+- Nome do IP do Gateway = “GWIP”
+- Nome da configuração de IP do Gateway = “gwipconf”
+- Tipo de VPN = “Rota Expressa” Este tipo de VPN é necessário para uma configuração da Rota Expressa.
+- Nome do IP público do Gateway = “gwpip”
 
 
-## Add a gateway
+## Adicionar um gateway
 
-1. Connect to your Azure Subscription. 
+1. Conecte-se à sua Assinatura do Azure. 
 
 		Login-AzureRmAccount
 		Get-AzureRmSubscription 
 		Select-AzureRmSubscription -SubscriptionName "Name of subscription"
 
-2. Declare your variables for this exercise. This example will use the use the variables in the sample below. Be sure to edit this to reflect the settings that you want to use. 
+2. Declare as variáveis para este exercício. Este exemplo usará as variáveis mostradas no exemplo abaixo. Lembre-se de editá-las para que elas reflitam as configurações que deseja usar.
 		
 		$RG = "TestRG"
 		$Location = "East US"
@@ -36,31 +36,33 @@ Configuration reference list:
 		$GWIPconfName = "gwipconf"
 		$VNetName = "TestVNet"
 
-3. Store the virtual network object as a variable.
+3. Armazene o objeto de rede virtual como uma variável.
 
 		$vnet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG
 
-4. Add a gateway subnet to your Virtual Network. The gateway subnet must be named "GatewaySubnet". You'll want to create a gateway that is /27 or larger (/26, /25, etc.).
+4. Adicione uma sub-rede de gateway à sua Rede Virtual. A sub-rede de gateway deve ser nomeada “GatewaySubnet”. Você desejará criar um gateway que seja /27 ou maior (/26, /25, etc.).
 			
 		Add-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix 192.168.200.0/26
 
-5. Set the configuration.
+5. Defina a configuração.
 
 			Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-6. Store the gateway subnet as a variable.
+6. Armazene a sub-rede de gateway como uma variável.
 
 		$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
 
-7. Request a public IP address. The IP address is requested before creating the gateway. You cannot specify the IP address that you want to use; it’s dynamically allocated. You'll use this IP address in the next configuration section. The AllocationMethod must be Dynamic.
+7. Solicite um endereço IP público. O endereço IP é solicitado antes da criação do gateway. Não é possível especificar o endereço IP que você deseja usar; ele é alocado dinamicamente. Você usará esse endereço IP na próxima seção de configuração. O AllocationMethod deve ser Dynamic.
 
 		$pip = New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
 		$ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
 
-8. Create the configuration for your gateway. The gateway configuration defines the subnet and the public IP address to use. In this step, you are specifying the configuration that will be used when you create the gateway. This step does not actually create the gateway object. Use the sample below to create your gateway configuration. 
+8. Crie a configuração de seu gateway. A configuração do gateway define a sub-rede e o endereço IP público a serem usados. Nesta etapa, você especificará a configuração que será usada quando o gateway for criado. Essa etapa não cria, de fato, o objeto de gateway. Use o exemplo a seguir para criar a configuração do gateway.
 
 		$gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -SubnetId $subnet.Id -PublicIpAddressId $pip.Id 
 
-9. Create the gateway. In this step, the **-GatewayType** is especially important. You must use the value **ExpressRoute**. Note that after running these cmdlets, the gateway can take 20 minutes or more to create.
+9. Crie o gateway. Nesta etapa, o **-GatewayType** é especialmente importante. É necessário usar o valor **ExpressRoute**. Observe que, depois de executar esses cmdlets, o gateway pode levar 20 minutos ou mais para ser criado.
 
 		New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute
+
+<!---HONumber=AcomDC_0309_2016-->

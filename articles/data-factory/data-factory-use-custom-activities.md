@@ -73,14 +73,14 @@ O método tem alguns componentes principais que você precisa entender.
 ### Procedimento: 
 1.	Crie um projeto de biblioteca de classes do .NET.
 	<ol type="a">
-	<li>Inicie o <b>Visual Studio 2012</b> ou <b>Visual Studio 2013</b>.</li>
-	<li>Clique em <b>Arquivo</b>, indique <b>Novo</b> e, em seguida, clique em <b>Projeto</b>.</li>
-	<li>Expanda <b>Modelos</b> e selecione <b>Visual C#</b>. Neste passo a passo, você pode usar C#, mas você pode usar qualquer linguagem .NET para desenvolver a atividade personalizada.</li>
-	<li>Selecione <b>Biblioteca de Classes</b> na lista de tipos de projeto à direita.</li>
-	<li>Insira <b>MyDotNetActivity</b> como o <b>Nome</b>.</li>
-	<li>Selecione <b>C:\ADFGetStarted</b> como o <b>Local</b>.</li>
-	<li>Clique em <b>OK</b> para criar o projeto.</li>
-</ol>
+		<li>Inicie o <b>Visual Studio 2012</b> ou <b>Visual Studio 2013</b>.</li>
+		<li>Clique em <b>Arquivo</b>, indique <b>Novo</b> e, em seguida, clique em <b>Projeto</b>.</li>
+		<li>Expanda <b>Modelos</b> e selecione <b>Visual C#</b>. Neste passo a passo, você pode usar C#, mas você pode usar qualquer linguagem .NET para desenvolver a atividade personalizada.</li>
+		<li>Selecione <b>Biblioteca de Classes</b> na lista de tipos de projeto à direita.</li>
+		<li>Insira <b>MyDotNetActivity</b> como o <b>Nome</b>.</li>
+		<li>Selecione <b>C:\ADFGetStarted</b> como o <b>Local</b>.</li>
+		<li>Clique em <b>OK</b> para criar o projeto.</li>
+	</ol>
 2.  Clique em <b>Ferramentas</b>, aponte para <b>Gerenciador de Pacotes NuGet</b> e clique em <b>Console do Gerenciador de Pacotes</b>.
 3.	No <b>Console do Gerenciador de Pacotes</b>, execute o comando a seguir para importar <b>Microsoft.Azure.Management.DataFactories</b>.
 
@@ -608,7 +608,7 @@ Nesta etapa, você criará conjuntos de dados para representar a entrada e saíd
 	- **AssemblyName** é definido como o nome da DLL **MyActivities.dll**.
 	- **EntryPoint** é definido como **MyDotNetActivityNS.MyDotNetActivity**.
 	- **PackageLinkedService** é definido como **StorageLinkedService** que aponta para o armazenamento de blobs que contém o arquivo zip da atividade personalizada. Se você estiver usando diferentes contas de armazenamento do Azure para arquivos de entrada/saída e o arquivo zip da atividade personalizada, terá de criar outro serviço vinculado do armazenamento do Azure. Este artigo pressupõe que você está usando a mesma conta de armazenamento do Azure.
-	- **PackageFile** é definido como **customactivitycontainer/MyDotNetActivity.zip**. O formato é: <containerforthezip>/<nameofthezip.zip>.
+	- **PackageFile** é definido como **customactivitycontainer/MyDotNetActivity.zip**. Ele está no formato: containerforthezip/nameofthezip.zip.
 	- A atividade personalizada usa **InputDataset** como entrada e **OutputDataset** como saída.
 	- A propriedade linkedServiceName da atividade personalizada aponta para o **HDInsightLinkedService**, que informa ao Azure Data Factory que a atividade personalizada precisa ser executada em um cluster do Azure HDInsight.
 	- A propriedade **isPaused** está definida como **falsa** por padrão. O pipeline é executado imediatamente neste exemplo porque a fatias começam no passado. Você pode definir essa propriedade como verdadeira para pausar o pipeline e defini-lo novamente como falsa para reiniciar. 
@@ -803,4 +803,4 @@ Aqui estão os passos de alto nível para usar o serviço vinculado Azure Batch 
 
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

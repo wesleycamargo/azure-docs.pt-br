@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="01/09/2016" 
+    ms.date="03/04/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690945.aspx -->
@@ -51,7 +51,7 @@ Abra o menu de contexto da função no painel Gerenciador de Projeto do Eclipse,
 
 ![][ic719499]
 
->[AZURE.NOTE]Somente Windows: quando você define o número de instâncias como um valor superior a um e também configura um servidor de aplicativos, o kit de ferramentas permite que apenas uma instância da função seja executada no emulador, independentemente dessa configuração. Isso serve para evitar conflitos de associação de porta entre as instâncias de servidor diferentes (por exemplo, todas tentando associar-se à porta 8080) quando executam no mesmo computador. A configuração de contagem de instância desejada é preservada, mas entra em vigor somente quando você implanta na nuvem.
+>[AZURE.NOTE] Somente Windows: quando você define o número de instâncias como um valor superior a um e também configura um servidor de aplicativos, o kit de ferramentas permite que apenas uma instância da função seja executada no emulador, independentemente dessa configuração. Isso serve para evitar conflitos de associação de porta entre as instâncias de servidor diferentes (por exemplo, todas tentando associar-se à porta 8080) quando executam no mesmo computador. A configuração de contagem de instância desejada é preservada, mas entra em vigor somente quando você implanta na nuvem.
 
 <a name="caching_properties"></a>
 ### Propriedades de caching ###
@@ -66,7 +66,7 @@ Dentro da página de propriedades de **Caching**, você pode especificar configu
 * o tamanho do cache como uma porcentagem da memória.
 * o nome da conta de armazenamento para salvar o estado do cache quando seu aplicativo é executado como um serviço de nuvem, ou nenhum se você não quiser salvar o estado do cache. (O nome da conta de armazenamento não é usado quando você executa o aplicativo no emulador de computação.) Se você definir o nome da conta de armazenamento como **(automático)** (padrão), sua configuração de cache usará automaticamente a mesma conta de armazenamento selecionada por você na caixa de diálogo **Publicar no Azure**.
 
->[AZURE.NOTE]A configuração **(automático)** terá o efeito desejado somente se você publicar sua implantação usando o assistente de publicação do kit de ferramentas do Eclipse. Se, em vez disso, você publicar o arquivo .cspkg manualmente usando um mecanismo externo, como o [Portal de Gerenciamento do Azure][], a implantação não funcionará corretamente.
+>[AZURE.NOTE] A configuração **(automático)** terá o efeito desejado somente se você publicar sua implantação usando o assistente de publicação do kit de ferramentas do Eclipse. Se, em vez disso, você publicar o arquivo .cspkg manualmente usando um mecanismo externo, como o [Portal de Gerenciamento do Azure][], a implantação não funcionará corretamente.
 
 A caixa de diálogo a seguir mostra as propriedades de um cache.
 
@@ -114,7 +114,7 @@ Para cada componente, você pode especificar:
 * A etapa a ser executada ao importar o componente no projeto de implantação do Azure durante sua criação.
 * A etapa a ser executada ao implantar esse componente na nuvem do Azure.
 
->[AZURE.NOTE]Ao especificar arquivos de componentes ou linhas de comando, lembre-se de que sua implantação será publicada em uma máquina virtual do Windows, portanto suas etapas personalizadas devem ser válidas para um sistema operacional Windows.
+>[AZURE.NOTE] Ao especificar arquivos de componentes ou linhas de comando, lembre-se de que sua implantação será publicada em uma máquina virtual do Windows, portanto suas etapas personalizadas devem ser válidas para um sistema operacional Windows.
 
 Os componentes têm as seguintes propriedades:
 
@@ -131,7 +131,7 @@ Os componentes têm as seguintes propriedades:
 	
 * **Como:** nome do arquivo no qual o componente será importado no diretório **approot** da função e, por fim, implantado na nuvem do Azure. Deixe essa propriedade em branco para manter o mesmo nome que está na máquina local. (Para componentes executáveis, ou seja, aqueles cujo método de **Implantação** está definido como **exec**, isso pode ser uma instrução de linha de comando aleatória do Windows.)
 
-	>[AZURE.IMPORTANT]Se você usar caracteres de espaço para esse valor, eles serão tratados de maneira diferente dependendo do método de implantação. Se o método de implantação for **exec**, os espaços serão interpretados como separadores de argumentos de linha de comando e não como parte do nome do arquivo. Para todos os outros métodos de implantação, os espaços serão interpretados como parte do nome do arquivo.
+	>[AZURE.IMPORTANT] Se você usar caracteres de espaço para esse valor, eles serão tratados de maneira diferente dependendo do método de implantação. Se o método de implantação for **exec**, os espaços serão interpretados como separadores de argumentos de linha de comando e não como parte do nome do arquivo. Para todos os outros métodos de implantação, os espaços serão interpretados como parte do nome do arquivo.
 	
 * **Implantação:** método que indica a ação aplicada ao componente no início da implantação. Ele pode assumir um dos seguintes valores:
     * **copy:** o componente é copiado no caminho de destino especificado pela propriedade **Para**.
@@ -158,7 +158,7 @@ Para excluir um componente, escolha o componente, clique no botão **Remover** n
 
 Os componentes são processados na ordem listada. Use os botões **Mover para Cima** e **Mover para Baixo** para organizar a ordem.
 
->[AZURE.NOTE]O recurso de configuração do servidor também depende dos componentes. Esses componentes não podem ser removidos ou editados sem a remoção da configuração do servidor correspondente. Você será questionado sobre isso ao tentar fazer alterações nesses componentes.
+>[AZURE.NOTE] O recurso de configuração do servidor também depende dos componentes. Esses componentes não podem ser removidos ou editados sem a remoção da configuração do servidor correspondente. Você será questionado sobre isso ao tentar fazer alterações nesses componentes.
 
 <a name="debugging_properties"></a>
 ### Propriedades de depuração ###
@@ -209,7 +209,7 @@ Abra o menu de contexto da função no painel Gerenciador de Projeto do Eclipse,
 
 As variáveis do ambiente ficam disponíveis para o seu script de inicialização quando a função é iniciada.
 
->[AZURE.NOTE]Ao especificar variáveis do ambiente, lembre-se de que sua implantação será publicada em uma máquina virtual do Windows, portanto as variáveis do ambiente devem ser válidas para um sistema operacional Windows.
+>[AZURE.NOTE] Ao especificar variáveis do ambiente, lembre-se de que sua implantação será publicada em uma máquina virtual do Windows, portanto as variáveis do ambiente devem ser válidas para um sistema operacional Windows.
 
 Como exemplo de uma variável de ambiente disponibilizada quando a função é iniciada, crie uma nova variável do ambiente clicando no botão **Adicionar**. Veja a seguir uma variável do ambiente chamada **MyRoleVersion** sendo criada e recebendo o valor **1.0**.
 
@@ -439,4 +439,4 @@ Para saber mais sobre como usar o Azure com Java, confira a [Central de Desenvol
 [ic719512]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719512.png
 [ic719481]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719481.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

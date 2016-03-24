@@ -223,8 +223,8 @@ O próximo exemplo mostra uma variável que é um tipo JSON complexo e variávei
          }
        },
        "currentEnvironmentSettings": "[variables('environmentSettings')[parameters('environmentName')]]",
-       "instancesSize": "[variables('currentEnvironmentSettings').instancesSize",
-       "instancesCount": "[variables('currentEnvironmentSettings').instancesCount"
+       "instancesSize": "[variables('currentEnvironmentSettings').instancesSize]",
+       "instancesCount": "[variables('currentEnvironmentSettings').instancesCount]"
     }
 
 ## Recursos
@@ -474,4 +474,4 @@ O modelo a seguir implanta um aplicativo Web e o provisiona com o código de um 
 - Para obter um exemplo detalhado de implantação de um aplicativo, confira [Provisionar e implantar microsserviços de forma previsível no Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
 - Para ver os esquemas disponíveis, consulte [Esquemas do Gerenciador de Recursos do Azure](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

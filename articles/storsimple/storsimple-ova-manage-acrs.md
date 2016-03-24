@@ -3,7 +3,7 @@
    description="Descreve como gerenciar registros de controle de acesso (ACRs) para determinar quais hosts podem se conectar a um volume na matriz Virtual StorSimple."
    services="storsimple"
    documentationCenter=""
-   authors="SharS"
+   authors="alkohli"
    manager="carmonm"
    editor="" />
 <tags 
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/18/2016"
-   ms.author="v-sharos" />
+   ms.date="03/02/2016"
+   ms.author="alkohli" />
 
-# Use o serviço StorSimple Manager para gerenciar registros de controle de acesso para a matriz Virtual do StorSimple (visualização)
+# Use o serviço StorSimple Manager para gerenciar registros de controle de acesso para o StorSimple Virtual Array 
 
 ## Visão geral
 
@@ -114,4 +114,4 @@ Execute as etapas a seguir para excluir um registro de controle de acesso.
 
 - Saiba mais sobre [Adicionar volumes e configurar ACRs](storsimple-ova-deploy3-iscsi-setup.md#step-3-add-a-volume).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

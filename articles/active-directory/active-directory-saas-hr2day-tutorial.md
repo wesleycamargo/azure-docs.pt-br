@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/15/2016"
+	ms.date="03/07/2016"
 	ms.author="jeedes"/>
 
 
@@ -126,6 +126,7 @@ Antes de configurar a declaração SAML, você precisará entrar em contato com 
 
     a. Na caixa de texto URL de Logon, digite a URL usada pelos usuários para fazer logon no aplicativo HR2day by Merces usando o seguinte padrão: **"https://<nome do locatário>.force.com/<nome da instância>"**.
 
+    b. Clique em **Próximo**.
 
 4. Na página **Configurar logon único no HR2day by Merces**, realize as seguintes etapas: <br><br>![Configurar o logon único](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2day_05.png) <br>
 
@@ -134,10 +135,10 @@ Antes de configurar a declaração SAML, você precisará entrar em contato com 
     b. Clique em **Próximo**.
 
 
-5. Para configurar o SSO para o seu aplicativo, entre em contato com sua equipe de suporte do HR2day by Merces usando [servicedesk@merces.nl](emailTo:servicedesk@merces.nl) e anexe o arquivo de certificado baixado ao email. Também forneça a URL de SSO de SAML, a URL de Saída e a URL do Emissor para que possam ser configuradas para integração com o SSO.
+5. Para configurar o SSO para seu aplicativo, entre em contato com sua equipe de suporte do HR2day by Merces por meio do email [servicedesk@merces.nl](emailTo:servicedesk@merces.nl) e anexe o arquivo de certificado baixado ao email. Também forneça a URL de SSO de SAML, a URL de Saída e a URL do Emissor para que possam ser configuradas para integração com o SSO.
 
 
-> [AZURE.NOTE] Mencione à equipe Merces que essa integração precisa da configuração da ID da Entidade com este padrão ****https://hr2day.force.com/INSTANCENAME**
+> [AZURE.NOTE] Mencione à equipe da Merces que essa integração precisa da configuração da ID da Entidade com este padrão ****https://hr2day.force.com/INSTANCENAME**
 
 
 
@@ -200,13 +201,13 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no HR2day
 
 ### Atribuição do usuário de teste do AD do Azure
 
-O objetivo desta seção é permitir que Brenda Fernandes use o logon único do Azure, concedendo a ela acesso ao HR2day by Merces. <br><br>![Atribuir usuário][200]<br>.
+O objetivo desta seção é permitir que Brenda Fernandes use o logon único do Azure concedendo a ela acesso ao HR2day by Merces. <br><br>![Atribuir usuário][200] <br>
 
 **Para atribuir Brenda Fernandes ao HR2day by Merces, execute as seguintes etapas:**
 
 1. No portal clássico do Azure, para abrir o modo de exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior. <br><br>![Atribuir usuário][201] <br>
 
-2. Na lista de aplicativos, selecione **HR2day by Merces**. <br><br>![Configurar o logon único](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2day_50.png)<br>
+2. Na lista de aplicativos, selecione **HR2day by Merces**. <br><br>![Configurar o logon único](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2day_50.png) <br>
 
 1. No menu na parte superior, clique em **Usuários**. <br><br>![Atribuir usuário][203] <br>
 
@@ -245,4 +246,4 @@ O objetivo desta seção é testar sua configuração de logon único do Azure A
 [204]: ./media/active-directory-saas-hr2day-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-hr2day-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

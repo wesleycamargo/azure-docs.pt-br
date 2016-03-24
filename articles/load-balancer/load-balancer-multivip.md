@@ -18,7 +18,7 @@
 # Vários VIPs por serviço de nuvem
 Você pode acessar os serviços de nuvem do Azure pela Internet pública usando um endereço IP fornecido pelo Azure. Este endereço IP público é conhecido como um VIP (IP virtual), uma vez que está vinculado ao balanceador de carga do Azure, e não realmente às instâncias VM no serviço de nuvem. Você pode acessar qualquer instância VM dentro de um serviço de nuvem usando um único VIP.
 
-No entanto, há situações em que você terá mais de um VIP como ponto de entrada para o mesmo serviço de nuvem. Por exemplo, o serviço de nuvem pode hospedar vários sites que exigem conectividade SSL usando a porta SLSL padrão de 443, cada site sendo hospedado para um cliente diferente ou locatário. Nesse cenário, você precisa ter outro endereço IP público para cada site. O diagrama a seguir mostra uma típica hospedagem multilocatário na Web, com a necessidade de vários certificados SSL na mesma porta pública.
+No entanto, há situações em que você terá mais de um VIP como ponto de entrada para o mesmo serviço de nuvem. Por exemplo, o serviço de nuvem pode hospedar vários sites que exigem conectividade SSL usando a porta padrão de 443, sendo cada site hospedado para um cliente, ou locatário, diferente. Nesse cenário, você precisa ter outro endereço IP público para cada site. O diagrama a seguir mostra uma típica hospedagem multilocatário na Web, com a necessidade de vários certificados SSL na mesma porta pública.
 
 ![Cenário SSL de vários VIPs](./media/load-balancer-multivip/Figure1.png)
 
@@ -148,11 +148,11 @@ Você também pode atualizar o balanceador de carga para usar um VIP diferente. 
 
 [Visão geral do balanceador de carga para a Internet](load-balancer-internet-overview.md)
 
-[Introdução ao balanceador de carga para a Internet](load-balancer-internet-getstarted.md)
+[Introdução ao balanceador de carga para a Internet](load-balancer-get-started-internet-arm-ps.md)
 
 [Visão geral da Rede Virtual](../virtual-network/virtual-networks-overview.md)
 
 [APIs REST com IP Reservado](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

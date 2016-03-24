@@ -16,7 +16,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/17/2015"
+   ms.date="03/03/2016"
    ms.author="joaoma" />
 
 # Visão geral do monitoramento de integridade do Application Gateway
@@ -67,4 +67,4 @@ Investigações personalizadas permitem que você tenha um controle mais granula
 
 Depois de aprender sobre o monitoramento de integridade do Application Gateway, você pode configurar uma [investigação de integridade personalizada](application-gateway-create-probe-ps.md) para o Gerenciador de Recursos do Azure ou uma [investigação de integridade personalizada](application-gateway-create-probe-classic-ps.md) para o modelo de implantação clássico do Azure.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

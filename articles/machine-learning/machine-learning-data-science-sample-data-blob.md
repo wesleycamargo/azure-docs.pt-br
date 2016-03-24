@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/07/2016" 
+	ms.date="03/04/2016" 
 	ms.author="sunliangms;fashah;garye;bradsev" />
 
 #<a name="heading"></a>Dados de exemplo no armazenamento de blob do Azure
@@ -34,7 +34,7 @@ A tarefa de amostragem é uma etapa no [CAP (Processo do Cortana Analytics)](htt
 ## Baixar e reduzir os dados de exemplo
 1. Baixe os dados do Armazenamento do Blobs do Azure usando o serviço blob com o código Python de exemplo a seguir: 
 
-	    from azure.storage import BlobService
+	    from azure.storage.blob import BlobService
     	import tables
     	
 		STORAGEACCOUNTNAME= <storage_account_name>
@@ -77,7 +77,7 @@ Você pode usar o seguinte código de exemplo para os reduzir os dados de exempl
 
 2. Carregue o arquivo local para um blob do Azure usando o seguinte código de exemplo:
 
-		from azure.storage import BlobService
+		from azure.storage.blob import BlobService
     	import tables
 
 		STORAGEACCOUNTNAME= <storage_account_name>
@@ -108,4 +108,4 @@ Você pode usar o seguinte código de exemplo para os reduzir os dados de exempl
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

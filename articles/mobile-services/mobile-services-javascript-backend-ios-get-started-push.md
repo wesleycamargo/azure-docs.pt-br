@@ -20,9 +20,14 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Para a versão de aplicativos móveis equivalente deste tópico, consulte [Adicionar notificações por push ao seu aplicativo iOS](../app-service-mobile/app-service-mobile-ios-get-started-push.md).
+
 Este tópico mostra como adicionar notificações por push ao [projeto de início rápido](mobile-services-ios-get-started.md), de modo que seu serviço móvel envie uma notificação por push sempre que um registro é inserido. Antes, você deve concluir o tópico [Introdução aos Serviços Móveis].
 
-> [AZURE.NOTE]O [simulador de iOS não dá suporte a notificações de push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html); portanto, você deve usar um dispositivo físico com iOS. Você também precisará de uma [assinatura paga do programa de desenvolvedores da Apple](https://developer.apple.com/programs/ios/).
+> [AZURE.NOTE] O [simulador de iOS não dá suporte a notificações de push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html); portanto, você deve usar um dispositivo físico com iOS. Você também precisará de uma [assinatura paga do programa de desenvolvedores da Apple](https://developer.apple.com/programs/ios/).
 
 [AZURE.INCLUDE [Habilitar Notificações por push da Apple](../../includes/enable-apple-push-notifications.md)]
 
@@ -117,4 +122,4 @@ Este tópico mostra como adicionar notificações por push ao [projeto de iníci
 [Send template-based notifications to subscribers]: ../notification-hubs-ios-send-localized-breaking-news.md
 [Mobile Services Objective-C how-to conceptual reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

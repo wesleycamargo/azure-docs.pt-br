@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="03/08/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ O objetivo deste tutorial é mostrar a você como integrar o Alcumus Info Exchan
 
 - Você pode controlar no Azure AD quem tem acesso ao Alcumus Info Exchange 
 - Você pode habilitar seus usuários a fazerem logon automaticamente no Alcumus Info Exchange (logon único) com suas contas do Azure AD
-- Você pode gerenciar suas contas em um local central – o Portal do Active Directory do Azure
+- Você pode gerenciar suas contas em um único local: o Portal clássico do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
@@ -56,7 +56,7 @@ Para configurar a integração do Alcumus Info Exchange ao Azure AD, você preci
 
 **Para adicionar o Alcumus Info Exchange a partir da galeria, execute as seguintes etapas:**
 
-1. No **Portal de Gerenciamento do Azure**, no painel de navegação esquerdo, clique em **Active Directory**. <br><br>![Active Directory][1]<br>
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. <br><br>![Active Directory][1]<br>
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
@@ -87,11 +87,11 @@ Para configurar e testar o logon único do Azure AD com o Alcumus Info Exchange,
 
 ### Configuração do logon único do AD do Azure
 
-O objetivo desta seção é habilitar o logon único do Azure AD no portal do Azure AD e configurar o logon único em seu aplicativo do Alcumus Info Exchange.<br>
+O objetivo desta seção é habilitar o logon único do Azure AD no portal clássico do Azure e configurar o logon único em seu aplicativo do Alcumus Info Exchange.<br>
 
 **Para configurar o logon único do Azure AD com o Alcumus Info Exchange, execute as seguintes etapas:**
 
-1. No portal do Azure AD, na página de integração de aplicativos do **Alcumus Info Exchange**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.<br><br> ![Configurar o logon único][6]
+1. No portal clássico do Azure, na página de integração do aplicativo **Alcumus Info Exchange**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.<br><br> ![Configurar o logon único][6]
 
 2. Na página **Como você deseja que os usuários façam logon no Alcumus Info Exchange**, selecione **Logon único do Azure AD** e clique em **Próximo**.<br><br>![Logon único do AD do Azure][7]
 
@@ -99,7 +99,7 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal do Az
  
      3\.1 Na caixa de texto **URL de resposta**, digite a URL do consumidor que foi configurada para você pela equipe de suporte do Alcumus Info Exchange.
 
-     >[AZURE.NOTE] Se você não souber qual é o valor correto, entre em contato com a equipe de suporte do Alcumus Info Exchange via [helpdesk@alcumusgroup.com](mailto:helpdesk@alcumusgroup.com).
+     > [AZURE.NOTE] Se você não souber qual é o valor correto, entre em contato com a equipe de suporte do Alcumus Info Exchange via [helpdesk@alcumusgroup.com](mailto:helpdesk@alcumusgroup.com).
 
      3\.2. Clique em **Próximo**.
  
@@ -108,19 +108,19 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal do Az
 5. Entre em contato com a equipe de suporte do Alcumus Info Exchange via [helpdesk@alcumusgroup.com](mailto:helpdesk@alcumusgroup.com), forneça o arquivo de metadados e avise que eles devem habilitar o SSO para você.
 
 
-6. No portal do Azure AD, selecione a confirmação de configuração de logon único e, em seguida, clique em **Próximo**. <br><br>![O que é o Azure AD Connect][10]
+6. No portal clássico do Azure, selecione a confirmação de configuração de logon único e clique em **Avançar**. <br><br>![O que é o Azure AD Connect][10]
 
-7. Na página **Confirmação de logon único**, clique em **Concluir**.<br><br>![O que é o Azure AD Connect][11]
+7. Na página **Confirmação de logon único**, clique em **Concluir**. <br><br>![O que é o Azure AD Connect][11]
 
 
 
 
 ### Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no portal do Azure chamado Brenda Fernandes.<br> Na lista Usuários, selecione **Brenda Fernandes**.<br><br>![Criar um usuário do AD do Azure][20]<br>
+O objetivo desta seção é criar um usuário de teste no Portal clássico do Azure chamado Brenda Fernandes.<br> Na lista Usuários, escolha **Brenda Fernandes**.<br><br>![Criar um usuário do AD do Azure][20]<br>
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **Portal de Gerenciamento do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.<br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_02.png) 
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.<br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_02.png) 
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
@@ -204,4 +204,4 @@ O objetivo desta seção é testar a sua configuração de logon único do Azure
 [205]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_general_205.png
 [400]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_alcumus_402.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

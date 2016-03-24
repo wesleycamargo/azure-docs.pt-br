@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/10/2015"
+   ms.date="03/08/2016"
    ms.author="seanmck"/>
 
 # Implantar um aplicativo
@@ -24,7 +24,7 @@ Assim que um [tipo de aplicativo é empacotado][10], ele está pronto para impla
 2. Registrar o tipo de aplicativo
 3. Criar a instância do aplicativo
 
->[AZURE.NOTE]Se você usar o Visual Studio para implantar e depurar aplicativos no cluster de desenvolvimento local, todas as etapas descritas abaixo serão tratadas automaticamente por meio de um script do PowerShell encontrado na pasta Scripts do projeto de aplicativo. Este artigo fornece informações sobre o que esses scripts fazem para que você possa executar as mesmas operações fora do Visual Studio.
+>[AZURE.NOTE] Se você usar o Visual Studio para implantar e depurar aplicativos no cluster de desenvolvimento local, todas as etapas descritas abaixo serão tratadas automaticamente por meio de um script do PowerShell encontrado na pasta Scripts do projeto de aplicativo. Este artigo fornece informações sobre o que esses scripts fazem para que você possa executar as mesmas operações fora do Visual Studio.
 
 ## Carregar o pacote de aplicativo
 
@@ -59,7 +59,7 @@ D:\TEMP\MYAPPLICATIONTYPE
     └───MyData
             init.dat
 
-PS D:\temp> Copy-ServiceFabricApplicationPackage MyApplicationType
+PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath MyApplicationType -ImageStoreConnectionString (Get-ImageStoreConnectionStringFromClusterManifest(Get-ServiceFabricClusterManifest))
 Copy application package succeeded
 
 PS D:\temp>
@@ -225,4 +225,4 @@ PS D:\temp>
 [10]: service-fabric-application-model.md
 [11]: service-fabric-application-upgrade.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0309_2016-->

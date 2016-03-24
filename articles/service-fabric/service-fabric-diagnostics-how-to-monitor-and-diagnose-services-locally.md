@@ -3,7 +3,7 @@
    description="Saiba como monitorar e diagnosticar seus serviços escritos com o Service Fabric do Microsoft Azure em um computador de desenvolvimento local."
    services="service-fabric"
    documentationCenter=".net"
-   authors="kunaldsingh"
+   authors="toddabel"
    manager="timlt"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/12/2016"
+   ms.date="03/04/2016"
    ms.author="toddabel"/>
 
 
@@ -58,6 +58,8 @@ Para projetos criados de **modelos de ator** (com ou sem estado):
 Depois de adicionar o rastreamento ETW personalizado ao código de serviço, você pode criar, implantar e executar o aplicativo novamente para ver seus eventos no Visualizador de Eventos de Diagnóstico. Se você depurar o aplicativo com **F5**, o Visualizador de Eventos de Diagnóstico será aberto automaticamente.
 
 ## Próximas etapas
-O mesmo código de rastreamento que você adicionou ao aplicativo acima para diagnóstico local funcionará com ferramentas que podem ser usadas para exibir esses eventos ao executar o aplicativo em um cluster do Azure. Confira estes artigos que abordam as diferentes opções para as ferramentas e descrevem como é possível configurá-las. * [Coletando logs de um cluster do Service Fabric no Diagnóstico do Azure e nos Insights Operacionais](service-fabric-diagnostics-how-to-setup-wad-operational-insights.md) * [Usando ElasticSearch como um repositório de rastreamento do aplicativo do Service Fabric](service-fabric-diagnostic-how-to-use-elasticsearch.md)
+O mesmo código de rastreamento que você adicionou ao aplicativo acima para diagnóstico local funcionará com ferramentas que podem ser usadas para exibir esses eventos ao executar o aplicativo em um cluster do Azure. Consulte estes artigos que abordam as diferentes opções para as ferramentas e descrevem como configurá-las.
+* [Coletando logs de um cluster do Service Fabric no Diagnóstico do Azure e no Insights Operacionais](service-fabric-diagnostics-how-to-setup-wad-operational-insights.md)
+* [Usando ElasticSearch como um repositório de rastreamento do aplicativo de Malha de Serviços](service-fabric-diagnostic-how-to-use-elasticsearch.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

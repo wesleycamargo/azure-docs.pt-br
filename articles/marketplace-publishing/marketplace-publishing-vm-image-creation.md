@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="02/02/2016"
+   ms.date="03/07/2016"
    ms.author="hascipio; v-divte"/>
 
 # Guia para criar uma imagem de máquina virtual para o Azure Marketplace
@@ -76,7 +76,7 @@ O arquivo de configuração do agente é colocado em /etc/waagent.conf.
 ### 2\.3 Verifique se as bibliotecas necessárias estão incluídas
 Além do agente Linux do Azure, as seguintes bibliotecas também devem ser incluídas:
 
-1. O [Linux Integration Services][link-intsvc] versão 3.0 ou superior deve estar habilitado no kernel. Consulte [Requisitos do kernel do Linux](../virtual-machines/virtual-machines-linux-create-upload-vhd-generic/#linux-kernel-requirements)
+1. O [Linux Integration Services][link-intsvc] versão 3.0 ou superior deve estar habilitado no kernel. Consulte [Requisitos do kernel do Linux](./virtual-machines-linux-create-upload-vhd-generic/#linux-kernel-requirements)
 2. [Patch do Kernel](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c) para estabilidade de E/S do Azure (provavelmente não é necessário para kernel recente, mas ele deve ser verificado)
 3. [Python][link-python] 2.6 ou posterior
 4. Pacote Python pyasn1, se já não estiver instalado
@@ -100,7 +100,7 @@ A seguir estão os requisitos de rede para uma imagem VM do Linux compatível co
 
 - Em muitos casos, é melhor desativar o NetworkManager. Uma exceção é com sistemas baseados em CentOS 7.x (e derivados), que devem manter o NetworkManager habilitado.
 - A configuração de rede deve ser controlável por meio de scripts de **ifup** e **ifdown**. O agente Linux pode usar esses comandos para reiniciar o sistema de rede durante o provisionamento.
-- Não deve haver nenhuma configuração de rede personalizada. O arquivo Resolv.conf deve ser excluído como etapa final. Isso geralmente é feito como parte do desprovisionamento (consulte [Guia do usuário do Azure Linux Agent](../virtual-machines/virtual-machines-linux-agent-user-guide/)). Você também pode executar essa etapa manualmente com o comando a seguir.
+- Não deve haver nenhuma configuração de rede personalizada. O arquivo Resolv.conf deve ser excluído como etapa final. Isso geralmente é feito como parte do desprovisionamento (consulte [Guia do usuário do Azure Linux Agent](./virtual-machines-linux-agent-user-guide/)). Você também pode executar essa etapa manualmente com o comando a seguir.
 
         rm /etc/resolv.conf
 
@@ -250,9 +250,9 @@ Todas as imagens do Azure Marketplace devem ser reutilizáveis de uma forma gen�
 - Para o Windows, a imagem deve ser "sysprepped" e nenhuma configuração que não dê suporte ao comando **sysprep** deve ser feita.
 - Você pode executar o comando a seguir a partir do diretório WINDIR%\\System32\\Sysprep.
 
-        sysprep.exe /generalize /oobe /sshutdown
+        sysprep.exe /generalize /oobe /shutdown
 
-  Orientação sobre como aplicar o sysprep no sistema operacional é fornecida na Etapa do seguinte artigo MSDN: [Criar e carregar um VHD do Windows Server no Azure](../virtual-machines/virtual-machines-create-upload-vhd-windows-server/).
+  Orientação sobre como aplicar o sysprep no sistema operacional é fornecida na Etapa do seguinte artigo MSDN: [Criar e carregar um VHD do Windows Server no Azure](./virtual-machines-create-upload-vhd-windows-server/).
 
 ## 4\. Implantar uma VM por meio dos seus VHDs
 Depois de carregar seus VHDs (o VHD do sistema operacional generalizado e zero ou mais VHDs de disco de dados) para uma conta de armazenamento do Azure, você pode registrá-los como uma imagem VM do usuário. Em seguida, você pode testar essa imagem. Observe que, como seu VHD do sistema operacional é generalizado, você não pode implantar a VM diretamente fornecendo a URL do VHD.
@@ -582,10 +582,7 @@ Depois de criar sua oferta e SKU, você deve digitar os detalhes da imagem assoc
 4. Preencha as propriedades na seção **SKUs**.
 5. Em **Família do sistema operacional**, selecione o tipo de sistema operacional associado ao VHD do sistema operacional.
 6. Na caixa **Sistema Operacional**, descreva o sistema operacional. Considere um formato como família do sistema operacional, tipo, versão e atualizações. Um exemplo é o “Windows Server Datacenter 2014 R2”.
-7. Selecione até seis tamanhos recomendados de máquina virtual. Essas são recomendações exibidas para o usuário final na folha Tipo de preço no Portal do Azure quando eles decidem comprar e implantar sua imagem.
-
-  > [AZURE.NOTE] Essas são apenas recomendações. O cliente é capaz de selecionar qualquer tamanho de VM que acomode os discos especificados em sua imagem.
-
+7. Selecione até seis tamanhos de máquina virtual recomendados. Essas são recomendações exibidas para o cliente na folha Tipo de preço no Portal do Azure quando eles decidem comprar e implantar sua imagem. **Essas são apenas recomendações. O cliente é capaz de selecionar qualquer tamanho de VM que acomode os discos especificados em sua imagem.**
 8. Insira a versão. O campo de versão encapsula uma versão semântica para identificar o produto e suas atualizações.
   -	Versões devem ser no formato X.Y.Z, onde X, Y e Z são inteiros.
   -	Imagens em SKUs diferentes podem ter diferentes versões principais e secundárias.
@@ -594,7 +591,7 @@ Depois de criar sua oferta e SKU, você deve digitar os detalhes da imagem assoc
 10. Se houver discos de dados associados a esta SKU, selecione o LUN (número de unidade lógica) para o qual você quer que este disco de dados seja montado na implantação.
 11. Na caixa **URL do VHD LUN X**, digite a assinatura de acesso compartilhado criado para o VHD com os primeiros dados.
 
-    ![desenho][img-pubportal-vm-skus-2]
+    ![desenho](media/marketplace-publishing-vm-image-creation/vm-image-pubportal-skus-3.png)
 
 ## Próxima etapa
 Depois de terminar com os detalhes do SKU, avance até o [Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging]. Nessa etapa do processo de publicação, você fornece o conteúdo de marketing, o preço e outras informações necessárias antes da **Etapa 3: testando sua oferta de VM em preparo**, onde pode testar vários cenários de caso de uso antes de implantar a oferta no Azure Marketplace para visibilidade pública e compra.
@@ -629,7 +626,7 @@ Depois de terminar com os detalhes do SKU, avance até o [Guia de conteúdo de m
 
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 [link-github-waagent]: https://github.com/Azure/WALinuxAgent
-[link-azure-codeplex]: http://storageexplorer.com/
+[link-azure-codeplex]: https://azurestorageexplorer.codeplex.com/
 [link-azure-2]: ../storage/storage-dotnet-shared-access-signature-part-2/
 [link-azure-1]: ../storage/storage-dotnet-shared-access-signature-part-1/
 [link-msft-download]: http://www.microsoft.com/download/details.aspx?id=44299
@@ -647,11 +644,11 @@ Depois de terminar com os detalhes do SKU, avance até o [Guia de conteúdo de m
 [link-datactr-2012]: http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012datacenter/
 [link-datactr-2008-r2]: http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2008r2sp1/
 [link-acct-creation]: marketplace-publishing-accounts-creation-registration.md
-[link-azure-vm-1]: ../virtual-machines/virtual-machines-linux-create-upload-vhd/
+[link-azure-vm-1]: ./virtual-machines-linux-create-upload-vhd/
 [link-technet-1]: https://technet.microsoft.com/library/hh848454.aspx
-[link-azure-vm-2]: ../virtual-machines/virtual-machines-linux-agent-user-guide/
+[link-azure-vm-2]: ./virtual-machines-linux-agent-user-guide/
 [link-openssl]: https://www.openssl.org/
 [link-intsvc]: http://www.microsoft.com/download/details.aspx?id=41554
 [link-python]: https://www.python.org/
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

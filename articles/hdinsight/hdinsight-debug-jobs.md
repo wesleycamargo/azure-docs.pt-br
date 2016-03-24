@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="03/02/2016"
 	ms.author="jgao"/>
 
 # Analisar logs do HDInsight
@@ -337,6 +337,8 @@ Algumas dessas mensagens de erro também podem ser vistas no Portal do Azure qua
 
 ## Próximas etapas
 
-[Usar modos de exibição do Ambari para depurar trabalhos do Tez no HDInsight](hdinsight-debug-ambari-tez-view.md) [Habilitar despejos de heap para serviços do Hadoop no HDInsight baseado em Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md) [Gerenciar clusters do HDInsight usando a interface de usuário da Web do Ambari](hdinsight-hadoop-manage-ambari.md)
+- [Usar os modos de exibição do Ambari para depurar trabalhos do Tez no HDInsight](hdinsight-debug-ambari-tez-view.md)
+- [Habilitar despejos heap para serviços do Hadoop no HDInsight baseado em Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+- [Gerenciar clusters HDInsight usando a interface de usuário do Ambari Web](hdinsight-hadoop-manage-ambari.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

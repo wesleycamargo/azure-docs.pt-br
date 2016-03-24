@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/09/2016" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
  
 # Diagnosticar problemas com dependências no Application Insights
@@ -50,10 +50,11 @@ Instale o agente apropriado para o servidor host.
 
 Plataforma | Instalar
 ---|---
-Servidor IIS | [Monitor de status](app-insights-monitor-performance-live-website-now.md)
+Servidor IIS | Você pode [Instalar o Monitor de Status no servidor](app-insights-monitor-performance-live-website-now.md) ou [Atualizar o aplicativo para .NET Framework 4.6 ou posterior](http://go.microsoft.com/fwlink/?LinkId=528259) 
 Aplicativo Web do Azure | [Extensão do Application Insights](../azure-portal/insights-perf-analytics.md)
 Servidor Web em Java | [Aplicativos Web em Java](app-insights-java-agent.md)
 Páginas da Web | [Monitor JavaScript](app-insights-javascript.md) (nenhuma configuração adicional além do monitoramento de página da Web)
+Serviço de nuvem | [Usar tarefa de inicialização](app-insights-cloudservices.md#dependencies) ou [Instalar o .NET Framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md)  
 
 O Monitor de status para servidores IIS não necessita que você recompile o projeto de origem com o SDK do Application Insights.
 
@@ -139,4 +140,4 @@ Consulte [Páginas da Web](app-insights-javascript.md).
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

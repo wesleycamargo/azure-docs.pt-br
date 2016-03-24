@@ -4,7 +4,7 @@
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Como criar e gerenciar o Cache Redis do Azure usando a Interface de Linha de Comando do Azure (CLI do Azure)
 
 > [AZURE.SELECTOR]
 - [PowerShell](cache-howto-manage-redis-cache-powershell.md)
-- [Azure CLI](cache-manage-cli.md)
+- [CLI do Azure](cache-manage-cli.md)
 
 A CLI do Azure é uma ótima maneira de gerenciar sua infraestrutura do Azure de qualquer plataforma. Este artigo mostra como criar e gerenciar suas instâncias do Cache Redis do Azure usando a CLI do Azure.
 
@@ -28,7 +28,7 @@ A CLI do Azure é uma ótima maneira de gerenciar sua infraestrutura do Azure de
 
 Para criar e gerenciar as instâncias do Cache Redis do Azure usando a CLI do Azure, você deverá concluir as etapas a seguir.
 
--	Você deve ter uma conta do Azure. Se você não tiver uma, poderá criar uma [conta de avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
+-	Você deve ter uma conta do Azure. Se não tiver uma, você poderá criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
 -	[Instale a CLI do Azure](../xplat-cli-install.md).
 -	Conecte sua instalação da CLI do Azure a uma conta do Azure pessoal, ou a uma conta corporativa ou de estudante do Azure, e faça logon na CLI do Azure usando o comando `azure login`. Para entender as diferenças e escolher entre elas, veja [Conectar-se a uma assinatura do Azure a partir da CLI do Azure (Interface de Linha de Comando do Azure)](../xplat-cli-connect.md).
 -	Antes de executar um dos comandos a seguir, alterne a CLI do Azure para o modo Gerenciador de Recursos executando o comando `azure config mode arm`. Para obter mais informações, veja [Configurando o modo do Gerenciador de Recursos do Azure](../virtual-machines/xplat-cli-azure-resource-manager.md#setting-the-azure-resource-manager-mode).
@@ -271,4 +271,4 @@ Para obter mais informações sobre esse comando, execute o comando `azure redis
 	help:
 	help:    Current Mode: arm (Azure Resource Management)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

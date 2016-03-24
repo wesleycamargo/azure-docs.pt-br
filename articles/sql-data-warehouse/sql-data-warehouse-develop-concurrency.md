@@ -13,13 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/25/2016"
+   ms.date="03/04/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Gerenciamento de simultaneidade e carga de trabalho no SQL Data Warehouse
 Para oferecer um desempenho previsível em escala, o SQL Data Warehouse implementa mecanismos para gerenciamento de simultaneidade de carga de trabalho e a atribuição de recursos computacionais.
 
 Este artigo apresenta os conceitos de gerenciamento de simultaneidade e carga de trabalho, explicando como os dois recursos foram implementados e como controlá-los no data warehouse.
+
+>[AZURE.NOTE] SQL Data Warehouse oferece suporte a cargas de trabalho de vários usuários não de múltiplos locatários.
 
 ## Simultaneidade
 É importante entender que a simultaneidade no SQL Data Warehouse é regida pelos dois conceitos: **consultas simultâneas** e **slots de simultaneidade**.
@@ -32,7 +34,7 @@ Como uma regra geral, cada consulta em execução ao mesmo tempo consome um ou m
 
 1. A configuração de DWU do SQL Data Warehouse
 2. A **classe de recurso** à qual o usuário pertence
-3. Se a consulta ou operação é regida pelo modelo de slot de simultaneidade 
+3. Se a consulta ou operação é regida pelo modelo de slot de simultaneidade
 
 > [AZURE.NOTE] Vale a pena observar que nem todas as consultas são regidas pela regra de consulta do slot de simultaneidade. No entanto, a maioria das consultas do usuário é. Algumas consultas e operações não consomem qualquer slot de simultaneidade. Essas consultas e operações ainda são limitadas pelo limite de consultas simultâneas, motivo pelo qual as duas regras são descritas. Consulte a seção [exceções de classe de recurso](#exceptions) abaixo para obter mais detalhes.
 
@@ -46,8 +48,8 @@ A tabela a seguir descreve os limites de consultas simultâneas e slots de simul
 -->
 
 | Consumo de slot de simultaneidade | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 |
-| :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- | 
-| Máximo de consultas simultâneas | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 
+| :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- |
+| Máximo de consultas simultâneas | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 |
 | Máximo de slots simultâneos | 4 | 8 | 12 | 16 | 20 | 24 | 40 | 48 | 60 | 80 |
 
 Cargas de trabalho de consulta do SQL Data Warehouse precisam ficar dentro desses limites. Se houver mais de 32 consultas simultâneas ou se você exceder o número de slots de simultaneidade, a consulta será enfileirada até que ambos os limites possam ser satisfeitos.
@@ -145,16 +147,16 @@ Abaixo está uma lista de instruções e operações que **são** regidas por cl
 - ALTER TABLE REBUILD
 - CREATE INDEX
 - CREATE CLUSTERED COLUMNSTORE INDEX
-- CREATE TABLE AS SELECT 
-- Carregamento de dados 
+- CREATE TABLE AS SELECT
+- Carregamento de dados
 - Operações de movimentação de dados realizadas pelo Serviço de Movimentação de Dados (DMS)
 
 As instruções a seguir **não** honram classes de recursos:
 
 - CREATE TABLE
-- ALTER TABLE ... SWITCH PARTITION 
-- ALTER TABLE ... SPLIT PARTITION 
-- ALTER TABLE ... MERGE PARTITION 
+- ALTER TABLE ... SWITCH PARTITION
+- ALTER TABLE ... SPLIT PARTITION
+- ALTER TABLE ... MERGE PARTITION
 - DROP TABLE
 - ALTER INDEX DISABLE
 - DROP INDEX
@@ -181,13 +183,14 @@ As instruções a seguir **não** honram classes de recursos:
 Removed as these two are not confirmed / supported under SQLDW
 - CREATE REMOTE TABLE AS SELECT
 - CREATE EXTERNAL TABLE AS SELECT
-- REDISTRIBUTE 
+- REDISTRIBUTE
 -->
+
 > [AZURE.NOTE] Vale a pena destacar que consultas `SELECT` em execução exclusivamente em exibições de gerenciamento dinâmico e exibições de catálogo **não** são regidas por classes de recursos.
 
 É importante lembrar-se de que a maioria das consultas do usuário final provavelmente será regida pelas classes de recurso. A regra geral é que a carga de trabalho da consulta ativa deve caber nos limites tanto da consulta simultânea quanto no do slot de simultaneidade, a menos que tenha sido excluída especificamente pela plataforma. Como um usuário final, você não pode optar por excluir uma consulta de modelo de slot de simultaneidade. Assim que um dos limites for excedido, as consultas começarão a ser enfileiradas. Consultas em fila serão tratadas em ordem de prioridade, seguido por hora de envio.
 
-### Elementos internos 
+### Elementos internos
 
 Nos bastidores da carga de trabalho do SQL Data Warehouse, questões de gerenciamento são um pouco mais complicadas. As classes de recurso são mapeadas dinamicamente para um conjunto geral de grupos de gerenciamento de carga de trabalho no administrador de recursos. Os grupos usados dependem do valor DWU para o depósito. No entanto, há um total de oito grupos de carga de trabalho usados pelo SQL Data Warehouse. Eles são:
 
@@ -247,7 +250,7 @@ AS
 	JOIN	sys.dm_pdw_nodes pn										ON	wg.pdw_node_id	= pn.pdw_node_id
 	WHERE   wg.name like 'SloDWGroup%'
 	AND     rp.name = 'SloDWPool'
-) 
+)
 SELECT	pool_name
 ,		pool_max_mem_MB
 ,		group_name
@@ -260,7 +263,7 @@ SELECT	pool_name
 ,       group_active_request_count
 ,       group_queued_request_count
 FROM	rg
-ORDER BY 
+ORDER BY
 	node_name
 ,	group_request_max_memory_grant_pcnt
 ,	group_importance
@@ -313,14 +316,14 @@ AND     ro.[is_fixed_role]  = 0
 
 Para adicionar um usuário a uma função de gerenciamento do aumento de cargas de trabalho, use a seguinte consulta:
 
-``` 
-EXEC sp_addrolemember 'largerc', 'newperson' 
+```
+EXEC sp_addrolemember 'largerc', 'newperson'
 ```
 
 Para remover um usuário de uma função de gerenciamento de carga de trabalho, use a seguinte consulta:
 
-``` 
-EXEC sp_droprolemember 'largerc', 'newperson' 
+```
+EXEC sp_droprolemember 'largerc', 'newperson'
 ```
 
 > [AZURE.NOTE] Não é possível remover um usuário de smallrc.
@@ -354,7 +357,7 @@ FROM    sys.dm_pdw_exec_requests r
 O SQL Data Warehouse tem tipos de espera específico para medir a simultaneidade.
 
 Eles são:
- 
+
 - LocalQueriesConcurrencyResourceType
 - UserConcurrencyResourceType
 - DmsConcurrencyResourceType
@@ -452,4 +455,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

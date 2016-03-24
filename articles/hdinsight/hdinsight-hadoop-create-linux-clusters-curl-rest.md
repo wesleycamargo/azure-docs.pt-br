@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="02/05/2016"
+   	ms.date="03/08/2016"
    	ms.author="larryfr"/>
 
 #Criar clusters baseados em Linux no HDInsight usando cURL e API REST do Azure
@@ -27,7 +27,10 @@ A API REST do Azure permite executar operações de gerenciamento de serviços h
 >
 > Para saber mais sobre tamanhos de nós e custos associados, consulte [Preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-###Pré-requisitos
+##Pré-requisitos
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 
 - **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
@@ -35,7 +38,7 @@ A API REST do Azure permite executar operações de gerenciamento de serviços h
 
     Para obter informações sobre como instalar a CLI, consulte [Instalar a CLI do Azure](../xplat-cli-install.md).
 
-- __cURL__. Esse utilitário está disponível por meio de seu sistema de gerenciamento de pacotes ou pode ser baixado de [http://curl.haxx.se/](http://curl.haxx.se/).
+- __cURL__. Este utilitário está disponível por meio de seu sistema de gerenciamento de pacotes ou pode ser baixado de [http://curl.haxx.se/](http://curl.haxx.se/).
 
     > [AZURE.NOTE] Se você estiver usando o PowerShell para executar comandos neste documento, deverá primeiro remover o alias `curl` criado por padrão. Esse alias usa Invoke-WebRequest, um cmdlet do PowerShell, em vez do cURL quando você usa o comando `curl` de um prompt do PowerShell e retornará erros para muitos dos comandos usados neste documento.
     > 
@@ -355,4 +358,4 @@ Agora que você criou com êxito um cluster HDInsight, use o seguinte para apren
 * [Usar componentes de Python no Storm no HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Implantar e monitorar topologias com o Storm no HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

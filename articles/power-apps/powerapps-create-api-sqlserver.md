@@ -15,15 +15,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/03/2016"
    ms.author="litran"/>
 
 
-# Crie uma nova API do SQL Server no ambiente de serviço de aplicativo da sua organização
+# Crie uma nova API do SQL Server no PowerApps Enterprise
+
+Adicione a API do SQL Server ao ambiente de serviço de aplicativo (locatário) da sua organização.
 
 ## Crie a API no portal do Azure
 
-1. No [portal do Azure](https://portal.azure.com/), conecte-se com sua conta de trabalho. Por exemplo, entre com *Seunomedeusuário*@* SuaEmpresa*.com. Ao fazer isso, você entrará automaticamente na assinatura da sua empresa. 
+1. No [Portal do Azure](https://portal.azure.com/), entre com sua conta de trabalho. Por exemplo, entre com *Seunomedeusuário*@* SuaEmpresa*.com. Quando fizer isso, entrará automaticamente na assinatura de sua empresa. 
 2. Selecione **Procurar** na barra de tarefas: ![][14]  
 3. Na lista, você pode usar a barra de rolagem para localizar o PowerApps ou digitar *powerapps*: ![][15]  
 4. Em **PowerApps**, selecione **Gerenciar APIs**.
@@ -38,14 +40,14 @@ Quando terminar, uma nova API do SQL Server é adicionada ao seu ambiente de ser
 
 Você pode se conectar ao SQL Server local. Para estabelecer essa conectividade híbrida, você pode aproveitar as soluções de rede híbridas existentes no Azure, incluindo:
 
-- [Rota Expressa](../expressroute-introduction.md)
-- [VPN site a site](../vpn-gateway-create-site-to-site-rm-powershell.md)
-- [Conectividade ponto a site](../vpn-gateway-point-to-site-create.md)  
+- [Rota Expressa](../expressroute/expressroute-introduction.md)
+- [VPN site a site](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Conectividade ponto a site](../vpn-gateway/vpn-gateway-point-to-site-create.md)  
 
-	> [AZURE.NOTE]Cada ambiente de serviço de aplicativo tem uma rede virtual associada a ele. Você pode estabelecer essa conectividade de rede para essa rede virtual.  
-- [Conexões Híbridas](../web-sites-hybrid-connection-get-started.md)  
+	> [AZURE.NOTE]  Cada ambiente de serviço de aplicativo tem uma rede virtual associada a ele. Você pode estabelecer essa conectividade de rede para essa rede virtual.  
+- [Conexões Híbridas](../app-service-web/web-sites-hybrid-connection-get-started.md)  
 
-	> [AZURE.NOTE]Cada API registrada em seu ambiente de serviço de aplicativo tem um aplicativo Web correspondente. Você pode estabelecer conexões híbridas deste aplicativo Web exatamente como faria com qualquer outro aplicativo Web.
+	> [AZURE.NOTE]  Cada API registrada em seu ambiente de serviço de aplicativo tem um aplicativo Web correspondente. Você pode estabelecer conexões híbridas deste aplicativo Web exatamente como faria com qualquer outro aplicativo Web.
 	
 O exemplo a seguir mostra como criar uma conexão híbrida:
 
@@ -53,7 +55,7 @@ O exemplo a seguir mostra como criar uma conexão híbrida:
 
 2.  Selecione o bloco **Recursos** e, em seguida, selecione o aplicativo Web com o mesmo nome como sua API do SQL Server. Neste exemplo, selecione *sqlconnectordemo*: ![Aplicativo Web do SQL](./media/powerapps-create-api-sqlserver/sqlwebapp.png)
 
-3.  Em **Configurações**, selecione **Rede**. Selecione **Configurar seus pontos de extremidade de conexão híbrida** e, em seguida, execute [estas instruções](../web-sites-hybrid-connection-get-started.md) para criar a conexão híbrida: ![Rede](./media/powerapps-create-api-sqlserver/network.png)
+3.  Em **Configurações**, selecione **Rede**. Selecione **Configurar seus pontos de extremidade de conexão híbrida** e, em seguida, execute [estas instruções](../app-service-web/web-sites-hybrid-connection-get-started.md) para criar a conexão híbrida: ![Rede](./media/powerapps-create-api-sqlserver/network.png)
 
 Uma vez que sua conexão híbrida for criada e conectada, você habilitou a conexão com o servidor local. Em seguida, crie a conexão com seus dados e forneça acesso aos usuários: ![Conexão híbrida](./media/powerapps-create-api-sqlserver/hybridconn.png)
 
@@ -78,4 +80,4 @@ Neste tópico, você adicionou a API do SQL Server para se conectar ao SQL Serve
 [14]: ./media/powerapps-create-api-sqlserver/browseall.png
 [15]: ./media/powerapps-create-api-sqlserver/allresources.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

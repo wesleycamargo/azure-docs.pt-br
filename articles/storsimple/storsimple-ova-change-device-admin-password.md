@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/15/2016"
+   ms.date="03/02/2016"
    ms.author="alkohli" />
 
-# Alterar a senha do administrador do dispositivo do StorSimple Virtual Array (visualização)
+# Alterar a senha do administrador do dispositivo da Matriz Virtual StorSimple
 
 ## Visão geral
 
@@ -69,4 +69,4 @@ Execute as etapas a seguir para alterar a senha do administrador do dispositivo 
 
 Saiba mais sobre a [administração de sua StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0309_2016-->

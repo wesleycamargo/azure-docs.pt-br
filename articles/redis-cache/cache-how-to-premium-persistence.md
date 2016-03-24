@@ -4,7 +4,7 @@
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Como configurar a persistência de dados para um Cache Redis do Azure Premium
@@ -59,7 +59,7 @@ Para configurar o intervalo de backup, selecione uma **Frequência de Backup** n
 
 Clique em **Conta de Armazenamento** para selecionar a conta de armazenamento a ser usada e escolha a **Chave primária** ou **Chave secundária** a ser usada na lista suspensa **Chave de Armazenamento**. Escolha uma conta de armazenamento na mesma região que o cache. Uma conta **Armazenamento Premium** é recomendada porque o armazenamento premium tem maior taxa de transferência.
 
->[AZURE.IMPORTANT]Se a chave de armazenamento para a sua conta de persistência for regenerada, escolha novamente a chave desejada no menu suspenso Chave de Armazenamento.
+>[AZURE.IMPORTANT] Se a chave de armazenamento para a sua conta de persistência for regenerada, escolha novamente a chave desejada no menu suspenso Chave de Armazenamento.
 
 ![Persistência do Redis][redis-cache-persistence-selected]
 
@@ -107,4 +107,4 @@ Aprenda a usar mais recursos de cache premium.
 
 [redis-cache-settings]: ./media/cache-how-to-premium-persistence/redis-cache-settings.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

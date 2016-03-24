@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Proteger dados confidenciais no Banco de Dados SQL com a criptografia de banco de dados | Microsoft Azure"
+	pageTitle="Proteger dados confidenciais no Banco de Dados SQL com a criptografia do banco de dados | Microsoft Azure"
 	description="Proteja dados confidenciais no banco de dados SQL em minutos."
-	keywords="banco de dados sql, criptografia sql, criptografia de banco de dados, chave de criptografia, dados confidenciais, Sempre Criptografado"	
+	keywords="criptografar dados, criptografia do sql, criptografia de banco de dados, dados confidenciais, sempre criptografados"	
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="03/02/2016"
 	ms.author="sstein"/>
 
 # Proteger dados confidenciais no Banco de Dados SQL com a criptografia de banco de dados e armazenar suas chaves de criptografia no repositório de certificados do Windows
@@ -24,18 +24,19 @@
 - [Cofre da Chave do Azure](sql-database-always-encrypted-azure-key-vault.md)
 - [Repositório de certificados do Windows](sql-database-always-encrypted.md)
 
+
 Este artigo mostra como proteger dados confidenciais em um banco de dados SQL com a criptografia de banco de dados usando o [Assistente Sempre Criptografado](https://msdn.microsoft.com/library/mt459280.aspx) no [SSMS (SQL Server Management Studio)](https://msdn.microsoft.com/library/hh213248.aspx) e armazenar suas chaves de criptografia no repositório de certificados do Windows.
 
-Always Encrypted é uma nova tecnologia de criptografia no Banco de Dados SQL do Azure e no SQL Server que protege dados confidenciais em repouso no servidor, durante a movimentação entre o cliente e o servidor, assim como enquanto os dados estão em uso, garantindo que os dados confidenciais nunca apareçam como texto sem formatação dentro do sistema de banco de dados. Somente aplicativos clientes ou servidores de aplicativo, que têm acesso às chaves, podem acessar dados de texto sem formatação. Para obter informações detalhadas, veja [Sempre Criptografado (Mecanismo de Banco de Dados)](https://msdn.microsoft.com/library/mt163865.aspx).
+Always Encrypted é uma nova tecnologia de criptografia de dados no Banco de Dados SQL do Azure e no SQL Server que protege dados confidenciais em repouso no servidor, durante a movimentação entre o cliente e o servidor, assim como enquanto os dados estão em uso, garantindo que os dados confidenciais nunca apareçam como texto não criptografado dentro do sistema de banco de dados. Depois de criptografar dados, somente aplicativos clientes ou servidores de aplicativo, que têm acesso às chaves, podem acessar dados de texto não criptografado. Para obter informações detalhadas, consulte [Always Encrypted (Mecanismo do Banco de Dados)](https://msdn.microsoft.com/library/mt163865.aspx).
 
 
 Depois de configurar o banco de dados para usar o Always Encripted, criaremos um aplicativo cliente em C# com o Visual Studio para trabalhar com os dados criptografados.
 
 Siga as etapas neste artigo e saiba como configurar o Always Encripted para um banco de dados SQL do Azure. Neste artigo, você aprenderá como realizar as seguintes tarefas:
 
-- Usar o assistente Sempre Criptografado no SSMS para criar [Chaves do Sempre Criptografado](https://msdn.microsoft.com/library/mt163865.aspx#Anchor_3)
-    - Criar uma [CMK (Chave Mestra de Coluna)](https://msdn.microsoft.com/library/mt146393.aspx).
-    - Criar uma [CEK (Chave de Criptografia de Coluna)](https://msdn.microsoft.com/library/mt146372.aspx).
+- Usar o assistente Always Encrypted no SSMS para criar [Chaves Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx#Anchor_3)
+    - Crie uma [CMK (Chave Mestra da Coluna)](https://msdn.microsoft.com/library/mt146393.aspx).
+    - Crie uma [CEK (Chave de Criptografia da Coluna)](https://msdn.microsoft.com/library/mt146372.aspx).
 - Criar uma tabela de banco de dados e criptografar algumas colunas.
 - Crie um aplicativo que insira, selecione e exiba os dados das colunas criptografadas.
 
@@ -547,6 +548,6 @@ Depois de criar um banco de dados que usa o Always Encrypted, convém fazer o se
 - [Transparent Data Encryption](https://msdn.microsoft.com/library/bb934049.aspx)
 - [Criptografia do SQL Server](https://msdn.microsoft.com/library/bb510663.aspx)
 - [Assistente do Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx)
-- [Blog do Always Encrypted](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always%20encrypted/)
+- [Blog do Always Encrypted](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

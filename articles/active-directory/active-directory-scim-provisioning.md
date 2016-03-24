@@ -28,7 +28,7 @@ Esse recurso pode ser usado juntamente com o recurso "[traga seu próprio aplica
 
 Há dois casos de uso para SCIM no Active Directory do Azure:
 
-* **Provisionamento de usuários e grupos para os aplicativos que dão suporte a SCIM**: aplicativos que dão suporte a SCIM 2.0 e são capazes de aceitar um token de portador OAuth do AD do Azure funcionarão com o AD do Azure integrado.
+* **Provisionamento de usuários e grupos para os aplicativos que dão suporte a SCIM**: aplicativos que dão suporte a SCIM 2.0 e usam tokens de portador OAuth para autenticação funcionarão com o Azure AD de imediato.
 
 * **Criar a sua própria solução de provisionamento para aplicativos que dão suporte a outro provisionamento baseado em API**: para aplicativos não SCIM, você pode criar um ponto de extremidade SCIM para converter entre o ponto de extremidade SCIM do AD do Azure e qualquer API à qual o aplicativo dê suporte para provisionamento de usuários. Para ajudar no desenvolvimento de um ponto de extremidade SCIM, fornecemos bibliotecas CLI com exemplos de código que mostram como fornecer um ponto de extremidade SCIM e converter mensagens SCIM.
 
@@ -50,8 +50,6 @@ O Active Directory do Azure pode ser configurado para provisionar automaticament
 
 * Aceitar tokens de portador OAuth para autorização, de acordo com a seção 2.1 do protocolo SCIM.
 
-* Dar suporte ao uso do AD do Azure como provedor de identidade para o token OAuth (suporte para provedores de identidade externos em breve)
-
 Verifique com o seu provedor de aplicativo ou na documentação do seu provedor de aplicativo as declarações de compatibilidade com esses requisitos.
  
 ###Introdução
@@ -67,13 +65,14 @@ Os aplicativos que dão suporte ao perfil SCIM descrito acima podem ser conectad
 ![][2]
 
 4.	Na tela resultante, selecione o segundo botão **Configurar provisionamento da conta**.
-5.	No diálogo, insira a URL do ponto de extremidade SCIM do aplicativo.  
-6.	Clique em **Avançar** e clique no botão **Iniciar Teste** para que o Active Directory do Azure tente conectar ao ponto de extremidade do SCIM. Se as tentativas falharem, serão exibidas informações de diagnóstico.  
-7.	Se as tentativas de conexão com o aplicativo forem bem-sucedidas, clique em **Próximo** nas telas restantes e em **Concluir** para sair da caixa de diálogo.
-8.	Na tela resultante, selecione o terceiro botão **Atribuir Contas**. Na seção resultante Usuários e Grupos, atribua os usuários ou grupos que deseja provisionar ao aplicativo.
-9.	Depois de atribuir usuários e grupos, clique na guia **Configurar** próxima à parte superior da tela.
-10.	Em **Provisionamento de Conta**, confirme se o Status está definido como Ativado. 
-11.	Em **Ferramentas**, clique em **Reiniciar provisionamento de conta** para iniciar o processo de provisionamento.
+5.	No campo **URL de ponto de extremidade de provisionamento**, insira a URL do ponto de extremidade do SCIM do aplicativo.
+6.	Se o ponto de extremidade SCIM exigir um token de portador OAuth de um emissor diferente do Azure AD, copie o token de portador OAuth necessário para o campo **Token de Autenticação (opcional)**. Se esse campo for deixado em branco, o Azure AD incluirá um token de portador OAuth emitido do Azure AD com cada solicitação. Aplicativos que usam o Azure AD como um provedor de identidade podem validar esse token emitido pelo Azure AD.
+7.	Clique em **Avançar** e clique no botão **Iniciar Teste** para que o Active Directory do Azure tente conectar ao ponto de extremidade do SCIM. Se as tentativas falharem, serão exibidas informações de diagnóstico.  
+8.	Se as tentativas de conexão com o aplicativo forem bem-sucedidas, clique em **Próximo** nas telas restantes e em **Concluir** para sair da caixa de diálogo.
+9.	Na tela resultante, selecione o terceiro botão **Atribuir Contas**. Na seção resultante Usuários e Grupos, atribua os usuários ou grupos que deseja provisionar ao aplicativo.
+10.	Depois de atribuir usuários e grupos, clique na guia **Configurar** próxima à parte superior da tela.
+11.	Em **Provisionamento de Conta**, confirme se o Status está definido como Ativado. 
+12.	Em **Ferramentas**, clique em **Reiniciar provisionamento de conta** para iniciar o processo de provisionamento.
 
 Observe que podem decorrer de 5 a 10 minutos antes que o processo de provisionamento comece a enviar solicitações ao ponto de extremidade SCIM. Um resumo das tentativas de conexão é fornecido na guia Painel do aplicativo, e um relatório da atividade de provisionamento e todos os erros de provisionamento podem ser baixados na guia Relatórios do diretório.
 
@@ -703,4 +702,4 @@ A figura abaixo mostra as mensagens que o Active Directory do Azure enviará a u
 [4]: ./media/active-directory-scim-provisioning/scim-figure-4.PNG
 [5]: ./media/active-directory-scim-provisioning/scim-figure-5.PNG
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -19,12 +19,13 @@
 
 # Como usar a biblioteca de cliente Android para os serviços móveis
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
-
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Para a versão de aplicativos móveis equivalente deste tópico, consulte [Como usar a biblioteca de cliente Android para aplicativos móveis](../app-service-mobile/app-service-mobile-android-how-to-use-client-library.md).
+ 
 Este guia mostra como executar cenários comuns usando o cliente Android para os Serviços Móveis do Azure. Os cenários abordados incluem consulta de dados, inserção, atualização e exclusão de dados, autenticação de usuários, tratamento de erros e personalização do cliente.
 
 Se você for iniciante nos Serviços Móveis, deve primeiro concluir o tutorial de início rápido [Introdução aos Serviços Móveis]. A conclusão com êxito do tutorial garante que você instalou o Android Studio; ele o ajudará a configurar sua conta e criar seu primeiro serviço móvel e instalar o SDK de serviços móveis, que oferece suporte ao Android versão 2.2 ou posterior, mas recomendamos compilar com base no Android versão 4.2 ou posterior.
@@ -721,7 +722,7 @@ Essas duas primeiras tarefas são feitas por meio do [portal clássico do Azure]
 
     Esse código autentica o usuário usando um logon do Google. Será exibida uma caixa de diálogo que exibe a ID do usuário autenticado. Você não pode continuar sem uma autenticação positiva.
 
-    > [AZURE.NOTE]Se você estiver usando um provedor de identidade diferente do Google, altere o valor passado ao método **login** acima para um destes: _MicrosoftAccount_, _Facebook_, _Twitter_ ou _WindowsAzureActiveDirectory_.
+    > [AZURE.NOTE] Se você estiver usando um provedor de identidade diferente do Google, altere o valor passado ao método **login** acima para um destes: _MicrosoftAccount_, _Facebook_, _Twitter_ ou _WindowsAzureActiveDirectory_.
 
 
 3. Quando você executar o aplicativo, entrar com seu provedor de identidade escolhido.
@@ -937,4 +938,4 @@ Esse método geral pode ser usado sempre que tivermos um objeto complexo não se
 [Introdução aos Serviços Móveis]: mobile-services-android-get-started.md
 [Códigos de controle ASCII C0 e C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0309_2016-->

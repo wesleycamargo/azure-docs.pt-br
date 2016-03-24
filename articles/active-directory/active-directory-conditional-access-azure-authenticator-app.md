@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="03/07/2016"
 	ms.author="femila"/>
 
 # Azure Authenticator para Android
@@ -46,7 +46,8 @@ As instruções a seguir são aplicáveis para Samsung GS3 ou superior e tablets
 9. A tela de Ingresso no Local de Trabalho exibe a mensagem "**Ingressar em seu local de trabalho**". O aplicativo Azure Authenticator está tentando ingressar seu dispositivo na área de trabalho.
 10. Você verá a mensagem Ingresso no local de trabalho concluído na próxima tela.
 
->[AZURE.NOTE]É permitido ter uma única conta de trabalho em seu dispositivo.
+>[AZURE.NOTE]
+É permitido ter uma única conta de trabalho em seu dispositivo.
 
 ### Adicionar a conta de trabalho no menu de configurações
 Depois de ter instalado o aplicativo Azure Authenticator, você também poderá criar uma conta de trabalho do Gerenciador de Contas Android.
@@ -66,7 +67,8 @@ Adicionar a conta de trabalho do dispositivo não Samsung Android
 7. A próxima tela que exibe informações sobre a MFA (Multi-Factor Authentication) serve para conceder segurança adicional e é opcional. Você verá esta tela se seu trabalho ou escola exigir autenticação de dois fatores para criar uma conta de trabalho. Ela fornece instruções para verificar sua conta.
 8. Clique em **OK** na próxima tela. Não altere o nome do certificado da mensagem "Ingressar no local de trabalho". O aplicativo Azure Authenticator está tentando ingressar seu dispositivo na área de trabalho. Você verá a mensagem Ingresso no local de trabalho concluído na próxima tela.
 
->[AZURE.NOTE]É permitido ter uma única conta de trabalho em seu dispositivo.
+>[AZURE.NOTE]
+É permitido ter uma única conta de trabalho em seu dispositivo.
 
 Depois de ter instalado o aplicativo Azure Authenticator, você também poderá criar uma conta de trabalho do Gerenciador de Contas Android.
 
@@ -106,10 +108,12 @@ Você pode remover a conta de trabalho que você criou a qualquer momento da seg
 
 ##Desinstalando o aplicativo
 
-Em um dispositivo Samsung Android, os privilégios de administrador do dispositivo devem ser removidos da seguinte maneira antes de desinstalar o 1. Comece em **Configurações**, **Sistema** e selecione **Segurança**. 2. Em A**dministração de Dispositivo**, clique em **Administradores do dispositivo**. Verifique se a caixa de seleção ao lado de **Azure Authenticator** está desmarcada.
+Em um dispositivo Samsung Android, os privilégios de administrador do dispositivo devem ser removidos da seguinte maneira antes de desinstalar o
+1. Comece em **Configurações**, **Sistema** e selecione **Segurança**.
+2. Em A**dministração de Dispositivo**, clique em **Administradores do dispositivo**. Verifique se a caixa de seleção ao lado de **Azure Authenticator** está desmarcada.
 
 ##Solucionar problemas
 
 Se você vir o **Erro do Keystore**, isso pode ocorrer por não ter o bloqueio de tela configurado com um PIN. Para contornar esse problema, desinstale o aplicativo Azure Authenticator, configure um PIN para a tela de bloqueio e reinstale o aplicativo.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

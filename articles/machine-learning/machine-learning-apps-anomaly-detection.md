@@ -3,7 +3,7 @@
 	description="A API de detecção de anomalias é um exemplo criado com o Aprendizado de Máquina do Microsoft Azure que detecta anomalias nos dados de série temporal com valores numéricos que são espaçados uniformemente no tempo." 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="LuisCabrer" 
+	authors="pingf" 
 	manager="paulettm"
 	editor="cgronlun" />
 
@@ -13,7 +13,7 @@
 	ms.topic="reference" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="multiple" 
-	ms.date="12/08/2015" 
+	ms.date="03/07/2016" 
 	ms.author="pingf"/>
 
 
@@ -89,4 +89,4 @@ Hora|Dados|Tspike|Zspike|Valores martingale|Indicador de alerta|Valores martinga
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -55,21 +55,21 @@ As tabelas a seguir listam todas as funções no Azure Data Factory:
 
 Categoria | Função | Parâmetros | Descrição
 -------- | -------- | ---------- | ----------- 
-Hora | AddHours(X,Y) | X: DateTime <p>Y: int</p> | Adiciona Y horas até o momento X determinado. <p>Exemplo: 5/9/2013 12h + 2 horas = 5/9/2013 14h</p>
-Hora | AddMinutes(X,Y) | X: DateTime <p>Y: int</p> | Adiciona Y minutos a X.<p>Exemplo: 15/9/2013 12h + 15 minutos = 15/9/2013 12h15</p>
-Hora | StartOfHour(X) | X: Datetime | Obtém a hora de início para a hora representada pelo componente de hora do X. <p>Exemplo: a StartOfHour de 15/9/2013 17h10min23 é 15/9/2013 17h</p>
-Data | AddDays(X,Y) | X: DateTime<p>Y: int</p> | Adiciona Y dias a X.<p>Exemplo: 15/9/2013 12h + 2 dias = 17/9/2013 12h</p>
-Data | AddMonths(X,Y) | X: DateTime<p>Y: int</p> | Adiciona Y meses a X.<p>Exemplo: 15/9/2013 12h + 1 mês = 15/10/2013 12h</p> 
-Data | AddQuarters(X,Y) | X: DateTime <p>Y: int</p> | Adiciona Y * 3 meses a X.<p>Exemplo: 15/9/2013 12h + 1 trimestre = 15/12/2013 12h</p>
-Data | AddWeeks(X,Y) | X: DateTime<p>Y: int</p> | Adiciona Y * 7 dias a X<p>Exemplo: 15/9/2013 12h + 1 semana = 22/9/2013 12h</p>
-Data | AddYears(X,Y) | X: DateTime<p>Y: int</p> | Adiciona Y anos a X<p>Exemplo: 15/9/2013 12h + 1 ano = 15/9/2014 12h</p>
-Data | Day(X) | X: DateTime | Obtém o componente de dia de X.<p>Exemplo: o componente Day de 15/9/2013 12h é 15.</p>
-Data | DayOfWeek(X) | X: DateTime | Obtém o componente de dia da semana de X.<p>Exemplo: o DayOfWeek de 15/9/2013 12h é Domingo.</p>
-Data | DayOfYear(X) | X: DateTime | Obtém o dia do ano que representa o componente de ano de X.<p>Exemplos:<br/>1/12/2015: dia 335 de 2015<br/>31/12/2015: dia 365 de 2015<br/>31/12/2016: dia 366 de 2016 (ano bissexto)</p>
-Data | DaysInMonth(X) | X: DateTime | Obtém os dias do mês representados pelo componente de mês do parâmetro X.<p>Exemplo: DaysInMonth de 15/9/2013 são 30, já que há 30 dias do mês de setembro.</p>
-Data | EndOfDay(X) | X: DateTime | Obtém a data e hora que representam o fim do dia (componente do dia) do X.<p>Exemplo: EndOfDay de 15/9/2013 17h10min23 é 15/9/2013 23h59min59.</p>
-Data | EndOfMonth(X) | X: DateTime | Obtém o final do mês representado pelo componente de mês de parâmetro X.<p>Exemplo: EndOfMonth de 15/9/2013 17h09min23 é 30/9/2013 23h59min59 (data e hora que representam o final do mês de setembro)</p>
-Data | StartOfDay(X) | X: DateTime | Obtém o início do dia representado pelo componente dia do parâmetro X.<p>Exemplo: StartOfDay de 15/9/2013 17:10:23 é 15/9/2013 12h.</p>
+Hora | AddHours(X,Y) | X: DateTime <br/>Y: int<br/> | Adiciona Y horas até o momento X determinado. <br/>Exemplo: 5/9/2013 12:00:00 + 2 horas = 5/9/2013 14:00:00 <br/>
+Hora | AddMinutes(X,Y) | X: DateTime <br/>Y: int<br/> | Adiciona Y minutos a X.<br/>Exemplo: 15/9/2013 12:00:00 + 15 minutos = 15/9/2013 12:15:00<br/>
+Hora | StartOfHour(X) | X: Datetime | Obtém a hora de início para a hora representada pelo componente de hora do X. <br/>Exemplo: a StartOfHour de 15/9/2013 17:10:23 é 15/9/2013 17:00:00<br/>
+Data | AddDays(X,Y) | X: DateTime<br/>Y: int<br/> | Adiciona Y dias a X.<br/>Exemplo: 15/9/2013 12:00:00 + 2 dias = 17/9/2013 12:00:00<br/>
+Data | AddMonths(X,Y) | X: DateTime<br/>Y: int<br/> | Adiciona Y meses a X.<br/>Exemplo: 15/9/2013 12:00:00 + 1 mês = 15/10/2013 12:00:00<br/> 
+Data | AddQuarters(X,Y) | X: DateTime <br/>Y: int<br/> | Adiciona Y * 3 meses a X.<br/>Exemplo: 15/9/2013 12:00:00 + 1 trimestre = 15/12/2013 12:00:00<br/>
+Data | AddWeeks(X,Y) | X: DateTime<br/>Y: int<br/> | Adiciona Y * 7 dias a X<br/>Exemplo: 15/9/2013 12:00:00 + 1 semana = 22/9/2013 12:00:00<br/>
+Data | AddYears(X,Y) | X: DateTime<br/>Y: int<br/> | Adiciona Y dias a X<br/>Exemplo: 15/9/2013 12:00:00 + 1 ano = 15/9/2014 12:00:00<br/>
+Data | Day(X) | X: DateTime | Obtém o componente de dia de X.<br/>Exemplo: o componente Day de 15/9/2013 12:00:00 é 9.<br/> 
+Data | DayOfWeek(X) | X: DateTime | Obtém o componente de dia da semana de X.<br/>Exemplo: o DayOfWeek de 15/9/2013 12:00:00 é Domingo.<br/>
+Data | DayOfYear(X) | X: DateTime | Obtém o dia do ano que representa o componente de ano de X.<br/>Exemplos:<br/>1/12/2015: dia 335 de 2015<br/>31/12/2015: dia 365 de 2015<br/>31/12/2016: dia 366 de 2016 (ano bissexto)<br/>
+Data | DaysInMonth(X) | X: DateTime | Obtém os dias do mês representados pelo componente de mês do parâmetro X.<br/>Exemplo: DaysInMonth de 15/9/2013 são 30, já que há 30 dias do mês de setembro.<br/>
+Data | EndOfDay(X) | X: DateTime | Obtém a data e hora que representam o fim do dia (componente do dia) do X.<br/>Exemplo: EndOfDay de 15/9/2013 17:10:23 é 15/9/2013 23:59:59.<br/>
+Data | EndOfMonth(X) | X: DateTime | Obtém o final do mês representado pelo componente de mês de parâmetro X.<br/>Exemplo: EndOfMonth de 15/9/2013 17:09:23 é 30/9/2013 23:59:59 (data e hora que representam o final do mês de setembro)<br/>
+Data | StartOfDay(X) | X: DateTime | Obtém o início do dia representado pelo componente dia do parâmetro X.<br/>Exemplo: StartOfDay de 15/9/2013 17:10:23 é 15/9/2013 12:00:00.<br/>
 DateTime | From(X) | X: Cadeia de caracteres | Analise a cadeia de caracteres X para um valor de data e hora.
 DateTime | Ticks(X) | X: DateTime | Obtém os tiques de propriedade do parâmetro X. Um tique é igual a 100 nanossegundos. O valor dessa propriedade representa o número de tiques que se passaram desde 0h, meia-noite de 1º de janeiro de 0001. 
 Texto | Format(X) | X: variável de cadeia de caracteres | Formata o texto.
@@ -88,4 +88,4 @@ Consulte o tópico [Cadeias de caracteres de formato de data e hora personalizad
 > [AZURE.NOTE] Ao usar uma função dentro de outra função, você não precisa usar o prefixo **$$** para a função interna. Por exemplo: $$Text.Format('PartitionKey eq \\'my\_pkey\_filter\_value\\' e RowKey ge \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). Neste exemplo, observe que o prefixo **$$** não é usado para a função **Time.AddHours**.
   
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

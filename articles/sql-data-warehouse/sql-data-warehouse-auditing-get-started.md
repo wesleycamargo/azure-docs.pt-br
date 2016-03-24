@@ -1,29 +1,29 @@
-<properties 
-   pageTitle="Introdução à auditoria do banco de dados do SQL Data Warehouse | Microsoft Azure" 
-   description="Introdução à auditoria do banco de dados do SQL Data Warehouse" 
-   services="sql-data-warehouse" 
-   documentationCenter="" 
-   authors="twounder" 
-   manager="barbkess" 
+<properties
+   pageTitle="Introdução à auditoria do banco de dados do SQL Data Warehouse | Microsoft Azure"
+   description="Introdução à auditoria do banco de dados do SQL Data Warehouse"
+   services="sql-data-warehouse"
+   documentationCenter=""
+   authors="twounder"
+   manager="barbkess"
    editor=""/>
 
-<tags 
-   ms.service="sql-data-warehouse" 
-   ms.workload="data-management" 
-   ms.tgt_pltfrm="na" 
-   ms.devlang="na" 
-   ms.topic="article" 
-   ms.date="01/07/2016" 
+<tags
+   ms.service="sql-data-warehouse"
+   ms.workload="data-management"
+   ms.tgt_pltfrm="na"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.date="03/03/2016" 
    ms.author="mausher;barbkess;sonyama"/>
- 
-# Introdução à auditoria do banco de dados do SQL Data Warehouse 
+
+# Introdução à auditoria do banco de dados do SQL Data Warehouse
 A Auditoria do SQL Data Warehouse do Azure monitora eventos do banco de dados e grava eventos auditados em um log de auditoria na sua conta de Armazenamento do Azure.
 
 A auditoria pode ajudar você a manter uma conformidade regulatória, a entender a atividade do banco de dados e a obter informações sobre discrepâncias e anomalias que poderiam indicar preocupações de negócios ou suspeitas de violações de segurança.
 
 As ferramentas de auditoria permitem e facilitam a adoção de padrões de conformidade, mas não garantem a conformidade. Para obter mais informações sobre os programas Azure que oferecem suporte à conformidade com os padrões, consulte a <a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank">Central de Confiabilidade do Azure</a>.
 
-+ [Fundamentos da Auditoria do Banco de Dados] 
++ [Fundamentos da Auditoria do Banco de Dados]
 + [Configurar a auditoria do banco de dados]
 + [Analisar os logs e relatórios de auditoria]
 
@@ -66,7 +66,7 @@ Antes de configurar a auditoria, verifique se você está usando um ["Cliente de
 	![][1]
 
 3. Na folha de configuração de auditoria, primeiro desmarque a caixa de seleção **Herdar as configurações de auditoria do servidor**. Isso permite que você especifique as configurações para um determinado banco de dados.
-	
+
 	![][2]
 
 4. Em seguida, habilite a auditoria clicando no botão **ON**.
@@ -103,7 +103,7 @@ Para obter mais instruções detalhadas sobre como trabalhar com o modelo de rel
 
 ##<a id="subheading-4">Práticas para uso em produção</a>
 A descrição nesta seção refere-se às capturas de tela acima. É possível usar o <a href="https://portal.azure.com" target="_blank">Portal do Azure</a> ou o <a href= "https://manage.windowsazure.com/" target="_bank">Portal Clássico do Azure</a>.
- 
+
 
 ##<a id="subheading-5"></a>Regeneração de Chave de Armazenamento
 
@@ -116,11 +116,11 @@ Em produção, você provavelmente atualizará suas chaves de armazenamento peri
 3. Volte para a folha de configuração de auditoria, altere a **Chave de Acesso de Armazenamento** de *Secundária* para *Primária* e pressione **SALVAR**.
 
 4. Volte para a interface do usuário de armazenamento e **regenere** a *Chave de Acesso Secundária* (como preparação para o próximo ciclo de atualização de chaves.
-  
+
 ##<a id="subheading-6"></a>Automação
 Há vários cmdlets do PowerShell, que você pode usar para configurar a auditoria no Banco de Dados SQL do Azure. Para acessar os cmdlets de auditoria você deve estar executando o PowerShell no modo do Gerenciador de Recursos do Azure.
 
-> [AZURE.NOTE]O módulo do [Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/dn654592.aspx) está no modo de visualização. Ele pode não fornecer os mesmos recursos de gerenciamento que o módulo do Azure.
+> [AZURE.NOTE] O módulo do [Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/dn654592.aspx) está no modo de visualização. Ele pode não fornecer os mesmos recursos de gerenciamento que o módulo do Azure.
 
 Quando você estiver no modo do Gerenciador de Recursos do Azure, execute `Get-Command *AzureSql*` para listar os cmdlets disponíveis.
 
@@ -141,4 +141,4 @@ Quando você estiver no modo do Gerenciador de Recursos do Azure, execute `Get-C
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

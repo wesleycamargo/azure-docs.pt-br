@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/01/2016"
+   ms.date="03/07/2016"
    ms.author="alkohli"/>
 
 # Implantar o StorSimple Virtual Array – Provisionar um Virtual Array no Hyper-V
 
 ![](./media/storsimple-ova-deploy2-provision-hyperv/hyperv4.png)
 
-## Visão geral 
+## Visão geral
 
 Este tutorial de provisionamento se aplica ao Microsoft Azure StorSimple Virtual Array (também conhecido como dispositivos virtuais locais StorSimple ou dispositivos virtuais StorSimple) que executa a versão GA (disponibilidade geral) de março de 2016. Este tutorial descreve como provisionar um StorSimple Virtual Array em um sistema de host que executa o Hyper-V 2008 R2, o Hyper-V 2012 ou o Hyper-V 2012 R2.
 
@@ -38,10 +38,10 @@ Antes de começar, verifique se:
 -   Você concluiu todas as etapas em [Preparar o portal para o StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md).
 
 -   Você baixou a imagem do dispositivo virtual para o Hyper-V no portal do Azure. Para obter mais informações, veja [Etapa 3: Baixar a imagem do dispositivo virtual](storsimple-ova-deploy1-portal-prep.md#step-3-download-the-virtual-device-image).
-	
+
 	> [AZURE.IMPORTANT] O software em execução no StorSimple Virtual Array só pode ser usado em conjunto com o serviço do StorSimple Manager.
 
-### Para o dispositivo virtual StorSimple 
+### Para o dispositivo virtual StorSimple
 
 Antes de implantar um dispositivo virtual, verifique se:
 
@@ -50,20 +50,20 @@ Antes de implantar um dispositivo virtual, verifique se:
 -   O sistema de host é capaz de dedicar os recursos a seguir para provisionar seu dispositivo virtual:
 
 	-   Um mínimo de quatro núcleos.
-	
+
 	-   Pelo menos 8 GB de RAM.
-	
+
 	-   Uma interface de rede.
-	
+
 	-   Um disco virtual de 500 GB para dados do sistema.
 
-### Para a rede no datacenter 
+### Para a rede no datacenter
 
 Antes de começar, verifique se:
 
 -   Você revisou os requisitos de rede para implantar um dispositivo virtual StorSimple e configurou a rede de datacenter de acordo com os requisitos. Para obter mais informações, veja [Requisitos de rede do StorSimple Virtual Array](storsimple-ova-system-requirements.md#networking-requirements).
 
-## Provisionamento passo a passo 
+## Provisionamento passo a passo
 
 Para provisionar e se conectar a um dispositivo virtual, você precisará executar as seguintes etapas:
 
@@ -144,7 +144,7 @@ Execute as etapas a seguir para provisionar um dispositivo no seu hipervisor.
 
     b. Clique em **Próximo**.
 
-	![](./media/storsimple-ova-deploy2-provision-hyperv/image8.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image8m.png)
 
 1.  Examine o **Resumo** apresentado a você. Clique em **Concluir** para criar a máquina virtual.
 
@@ -160,7 +160,7 @@ Execute as etapas a seguir para provisionar um dispositivo no seu hipervisor.
 
 1.  Para cumprir os requisitos mínimos, você também precisa adicionar um disco de dados virtual de 500 GB. Na página **Configurações**:
 
-    1.  No painel à esquerda, selecione **Controlador SCSI**. 
+    1.  No painel à esquerda, selecione **Controlador SCSI**.
     2.  No painel à direita, selecione **Disco rígido** e clique em **Adicionar**.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image12.png)
@@ -192,9 +192,6 @@ Execute as etapas a seguir para provisionar um dispositivo no seu hipervisor.
 1.  Na página **Resumo**, examine os detalhes do disco de dados virtual e, se estiver satisfeito, clique em **Concluir** para criar o disco. O assistente será fechado e um disco rígido virtual será adicionado ao seu computador.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image19.png)
-
-1.  Você retornará para a página **Configurações**. Execute esta etapa somente se estiver usando um VHDX. Se estiver usando um VHD e uma máquina virtual de Geração 1, ignore esta etapa e vá para a próxima. Agora, você precisará desabilitar a inicialização segura na máquina virtual. A Inicialização Segura é habilitada por padrão quando você cria uma nova máquina virtual de Geração 2. Na página **Configurações** da Máquina Virtual de Geração 2, selecione **Firmware** em **Hardware** e desmarque a caixa de seleção **Habilitar Inicialização Segura**.
-
 
 2.  Você retornará para a página **Configurações**. Clique em **OK** para fechar a página **Configurações** e retornar à janela do Gerenciador do Hyper-V.
 
@@ -236,15 +233,15 @@ Execute as etapas a seguir para iniciar o dispositivo virtual e conectar-se a el
 
 1.  As etapas 6 a 8 se aplicam somente ao iniciar em um ambiente não DHCP. Se você estiver em um ambiente DHCP, ignore essas etapas e vá para a etapa 9. Caso tenha inicializado seu dispositivo em um ambiente não DHCP, você verá a tela a seguir.
 
-	![](./media/storsimple-ova-deploy2-provision-hyperv/image28.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image28m.png)
 
  	Agora, você precisará configurar a rede.
 
-1.  Use o comando `Get-HcsIpAddress` para listar as interfaces de rede habilitadas em seu dispositivo virtual. Se o dispositivo tiver uma única interface de rede habilitada, o nome padrão atribuído a ela será `Ethernet`.
+1.  Use o comando `Get-HcsIpAddress` para listar as interfaces de rede habilitadas em seu dispositivo virtual. Se o dispositivo tiver uma única interface de rede habilitada, o nome padrão atribuído a ela é `Ethernet`.
 
-	![](./media/storsimple-ova-deploy2-provision-hyperv/image29.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image29m.png)
 
-1.  Use o cmdlet `Set-HcsIpAddress` para configurar a rede. Um exemplo é mostrado abaixo:
+1.  Use o `Set-HcsIpAddress` cmdlet para configurar a rede. Um exemplo é mostrado abaixo:
 
  	`Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
 
@@ -252,13 +249,13 @@ Execute as etapas a seguir para iniciar o dispositivo virtual e conectar-se a el
 
 1.  Depois que a configuração inicial for concluída e o dispositivo for inicializado, você verá o texto da faixa do dispositivo. Anote o endereço IP e a URL exibida no texto do banner para gerenciar o dispositivo. Você usará esse endereço IP para se conectar à interface do usuário da Web do seu dispositivo virtual e concluir a configuração local e o registro.
 
-	![](./media/storsimple-ova-deploy2-provision-hyperv/image31.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image31m.png)
 
-	Se o dispositivo não cumprir os requisitos mínimos de configuração, você verá um erro no texto da faixa (mostrado abaixo). Será necessário modificar a configuração do dispositivo para que ele tenha recursos adequados para cumprir os requisitos mínimos. Em seguida, você pode reiniciar e conectar-se ao dispositivo. Consulte os requisitos mínimos de configuração na [Etapa 1: Verificar se o sistema de host atende aos requisitos mínimos do dispositivo virtual](#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements).
+	Se o dispositivo não cumprir os requisitos mínimos de configuração, você verá um erro no texto da faixa (mostrado abaixo). Será necessário modificar a configuração do dispositivo para que ele tenha recursos adequados para cumprir os requisitos mínimos. Em seguida, você pode reiniciar e conectar-se ao dispositivo. Consulte os requisitos mínimos de configuração na [Etapa 1: verifique se o sistema de host cumpre os requisitos mínimos de dispositivo virtual](#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements).
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image32.png)
 
-Caso observe algum outro erro durante a configuração inicial usando a interface do usuário da Web local, veja os seguintes fluxos de trabalho em [Gerenciar o StorSimple Virtual Array usando a interface do usuário da Web local](storsimple-ova-web-ui-admin.md).
+Se você enfrentar qualquer outro erro durante a configuração inicial usando a interface do usuário da Web local, consulte os seguintes fluxos de trabalho em [Gerenciar sua StorSimple Virtual Array usando a interface do usuário da Web local](storsimple-ova-web-ui-admin.md).
 
 -   Execute testes de diagnóstico para [solucionar problemas na configuração da interface do usuário da Web](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors).
 
@@ -276,4 +273,4 @@ Assista ao vídeo para ver como você pode provisionar um StorSimple Virtual Arr
 
 -   [Configurar sua StorSimple Virtual Array como um servidor iSCSI](storsimple-ova-deploy3-iscsi-setup.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

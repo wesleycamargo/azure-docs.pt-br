@@ -40,7 +40,16 @@ Os aplicativos de API oferecem os seguintes recursos:
 
 Além disso, os recursos oferecidos por Aplicativos de API, Aplicativos Web e Aplicativos Móveis são intercambiáveis. Isso significa que uma instância de Aplicativos de API pode tirar proveito dos recursos para desenvolvimento e hospedagem web e móvel que Aplicativos Web e Aplicativos Móveis oferecem. O inverso também é verdadeiro: por exemplo, você pode usar um aplicativo web para hospedar uma API e ainda tirar proveito dos metadados Swagger para geração de código de cliente e CORS para acesso de domínio cruzado de navegador. Para obter mais informações, consulte [Visão geral de aplicativos Web](../app-service-web/app-service-web-overview.md) e [Visão geral de aplicativos móveis](../app-service-mobile/app-service-mobile-value-prop.md).
 
->[AZURE.NOTE]Você pode usar o [Gerenciamento de API do Azure](../api-management/api-management-key-concepts.md) para controlar o acesso de cliente às APIs que são hospedadas por Aplicativos de API do Serviço de Aplicativo. Embora os Aplicativos de API forneçam serviços de autenticação, há outros recursos de gerenciamento de acesso que eles não oferecem e que o Gerenciamento de API oferece, como consolidação de ponto de extremidade e limitação.
+## Ampliando os Aplicativos de API com o uso do Gerenciamento de API do Azure 
+
+Os Aplicativos de API e o [Gerenciamento de API do Azure](../api-management/api-management-key-concepts.md) são serviços complementares:
+
+* O Gerenciamento de API trata do gerenciamento de APIs. Coloque um front-end de Gerenciamento de API em uma API para monitorar e restringir o uso, manipular a entrada e a saída, consolidar várias APIs em uma e assim por diante. As APIs gerenciadas podem ser hospedadas em qualquer lugar.
+* Os Aplicativos de API tratam da hospedagem de APIs. O serviço inclui recursos que facilitam o desenvolvimento e o consumo de APIs, mas não faz os tipos de monitoramento, limitação, manipulação ou consolidação que o Gerenciamento de API faz. 
+
+Você pode usar o Gerenciamento de API para gerenciar APIs hospedadas pelos Aplicativos de API, ou pode usar os Aplicativos de API sem Gerenciamento de API.
+
+Alguns recursos de Gerenciamento de API e Aplicativos de API têm funções semelhantes. Por exemplo, ambos podem automatizar o suporte a CORS. Quando você usa os dois serviços juntos, usa o Gerenciamento de API para CORS, já que ele funciona como o front-end para seus aplicativos de API.
 
 ## <a id="concepts"></a> Conceitos de aplicativos de API
 
@@ -57,4 +66,4 @@ Para ver uma lista de problemas conhecidos dos Aplicativos de API, confira [a po
 
 Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Azure, consulte [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

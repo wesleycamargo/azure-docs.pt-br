@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Use o Aprendizado de Máquina do Azure com o SQL Data Warehouse
@@ -23,7 +23,7 @@ O Aprendizado de Máquina do Azure é um serviço de análise preditiva totalmen
 Neste artigo, você aprenderá a fazer o seguinte usando o [Estúdio de Aprendizado de Máquina do Azure][]\:
 
 - Ler dados de seu banco de dados para criar, treinar e pontuar um modelo de previsão
-- Gravar dados em seu banco de dados 
+- Gravar dados em seu banco de dados
 
 
 ## Exportar dados do SQL Data Warehouse
@@ -47,8 +47,8 @@ Selecione o módulo Leitor e preencha o painel de propriedades.
 
 ![][server_name]
 
-3. Nome do banco de dados: digite o nome do banco de dados no servidor especificado. 
-4. Nome de conta de usuário do servidor: digite o nome de usuário de uma conta que tenha permissões de acesso para o banco de dados. 
+3. Nome do banco de dados: digite o nome do banco de dados no servidor especificado.
+4. Nome de conta de usuário do servidor: digite o nome de usuário de uma conta que tenha permissões de acesso para o banco de dados.
 5. Senha de conta de usuário do servidor: forneça a senha da conta de usuário especificada.
 6. Aceitar qualquer certificado do servidor: use essa opção (menos segura) se desejar ignorar a revisão do certificado do site antes de ler os dados.
 7. Consulta de banco de dados: insira uma instrução SQL que descreve os dados que você deseja ler. Nesse caso, vamos ler dados da tabela de produto usando a consulta a seguir.
@@ -80,7 +80,7 @@ Agora você pode usar esse conjunto de dados para:
 - Criar um modelo: processar dados e definir recursos
 - Treinar o modelo: escolher e aplicar um algoritmo de aprendizado
 - Pontuar e testar o modelo: prever o novo preço de uma bicicleta
- 
+
 
 ![][model]
 
@@ -101,9 +101,9 @@ Procure o módulo Gravador na paleta de conjuntos de dados e módulos à esquerd
 Selecione o módulo Gravador e preencha o painel de propriedades.
 
 1. Selecione o Banco de Dados do SQL Azure como o Destino de Dados.
-2. Nome do servidor de banco de dados: digite o nome do servidor. Você pode usar o [Portal clássico do Azure][] para encontrá-lo. 
-3. Nome do banco de dados: digite o nome do banco de dados no servidor especificado. 
-4. Nome de conta de usuário do servidor: digite o nome de usuário de uma conta que tenha permissões de gravação para o banco de dados. 
+2. Nome do servidor de banco de dados: digite o nome do servidor. Você pode usar o [Portal clássico do Azure][] para encontrá-lo.
+3. Nome do banco de dados: digite o nome do banco de dados no servidor especificado.
+4. Nome de conta de usuário do servidor: digite o nome de usuário de uma conta que tenha permissões de gravação para o banco de dados.
 5. Senha de conta de usuário do servidor: forneça a senha da conta de usuário especificada.
 6. Aceitar qualquer certificado de servidor (não é seguro): selecione esta opção se você não deseja exibir o certificado.
 7. Lista separada por vírgulas de colunas a serem salvas: forneça uma lista das colunas de conjunto de dados ou o resultado de saída.
@@ -116,7 +116,7 @@ Selecione o módulo Gravador e preencha o painel de propriedades.
 ### Etapa 3
 
 1. Execute o experimento clicando em Executar abaixo da tela do experimento.
-2. Quando o experimento for concluído, todos os módulos terão uma marca de seleção verde para indicar que foram concluídos com sucesso. 
+2. Quando o experimento for concluído, todos os módulos terão uma marca de seleção verde para indicar que foram concluídos com sucesso.
 
 ## Próximas etapas
 
@@ -150,4 +150,4 @@ Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvol
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

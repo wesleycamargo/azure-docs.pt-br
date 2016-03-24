@@ -786,8 +786,9 @@ Frequentemente, você precisa usar essa função ao usar uma conta de armazename
 Retorna detalhes sobre a assinatura no formato a seguir.
 
     {
-        "id": "/subscriptions/#####"
-        "subscriptionId": "#####"
+        "id": "/subscriptions/#####",
+        "subscriptionId": "#####",
+        "tenantId": "#####"
     }
 
 O exemplo a seguir mostra a função de assinatura chamada na seção de saídas.
@@ -806,4 +807,4 @@ O exemplo a seguir mostra a função de assinatura chamada na seção de saídas
 - Para iterar um número de vezes especificado ao criar um tipo de recurso, confira [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
 - Para ver como implantar o modelo que você criou, consulte [Implantar um aplicativo com o Modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

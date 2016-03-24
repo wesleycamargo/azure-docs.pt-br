@@ -18,15 +18,15 @@
 
 # Migrar o banco de dados do SQL Server para o Banco de Dados SQL usando o Assistente para implantação de Banco de Dados no Banco de Dados do Microsoft Azure
 
-O assistente para Implantar Banco de Dados no Banco de Dados do Microsoft Azure no SQL Server Management Studio realiza a migração de um [banco de dados SQL Server compatível](../sql-database-cloud-migrate.md) diretamente em sua instância de servidor do Banco de Dados SQL do Azure.
+O assistente para Implantar Banco de Dados no Banco de Dados do Microsoft Azure no SQL Server Management Studio realiza a migração de um [banco de dados SQL Server compatível](sql-database-cloud-migrate.md) diretamente em sua instância de servidor do Banco de Dados SQL do Azure.
 
 ## Usar o assistente para Implantar Banco de Dados no Banco de Dados do Microsoft Azure
 
-> [AZURE.NOTE]As etapas a seguir pressupõem que você tenha um [servidor de Banco de Dados SQL provisionado](../sql-database-get-started.md).
+> [AZURE.NOTE] As etapas a seguir pressupõem que você tenha um [servidor de Banco de Dados SQL provisionado](sql-database-get-started.md).
 
 1. Verifique se você tem a versão mais recente do SQL Server Management Studio. As novas versões do Management Studio são atualizadas mensalmente para permanecerem em sincronia com as atualizações para o portal do Azure.
 
-    > [AZURE.IMPORTANT]Recomendamos que você sempre use a versão mais recente do Management Studio a fim de permanecer sincronizado com as atualizações no Microsoft Azure e no Banco de Dados SQL. [Atualizar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+    > [AZURE.IMPORTANT] Recomendamos que você sempre use a versão mais recente do Management Studio a fim de permanecer sincronizado com as atualizações no Microsoft Azure e no Banco de Dados SQL. [Atualizar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
 2. Abra o Management Studio e conecte-se ao banco de dados do SQL Server que será migrado no Pesquisador de Objetos.
 3. Clique com o botão direito do mouse no banco de dados no Pesquisador de Objetos, aponte para **Tarefas** e clique em **Implantar Banco de Dados no Banco de Dados SQL do Microsoft Azure...**
@@ -45,7 +45,7 @@ O assistente para Implantar Banco de Dados no Banco de Dados do Microsoft Azure 
 
 	![Exportar configurações](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard02.png)
 
-6.	Siga o assistente para migrar o banco de dados. Dependendo do tamanho e da complexidade do banco de dados, a implantação talvez demore de alguns minutos até algumas horas. Se este assistente detectar problemas de compatibilidade, os erros serão exibidos na tela e a migração não continuará. Para obter diretrizes sobre como corrigir problemas de compatibilidade do banco de dados, acesse [corrigir problemas de compatibilidade do banco de dados](sql-database-cloud-migrate-fix-compatibility-issues).
+6.	Siga o assistente para migrar o banco de dados. Dependendo do tamanho e da complexidade do banco de dados, a implantação talvez demore de alguns minutos até algumas horas. Se este assistente detectar problemas de compatibilidade, os erros serão exibidos na tela e a migração não continuará. Para obter diretrizes sobre como corrigir problemas de compatibilidade do banco de dados, acesse [Corrigir problemas de compatibilidade do banco de dados](sql-database-cloud-migrate-fix-compatibility-issues.md).
 
 7.	Usando o Pesquisador de Objetos, conecte-se ao banco de dados migrado em seu servidor de Banco de Dados SQL do Azure.
 8.	Usando o Portal do Azure, exiba seu banco de dados e suas propriedades.
@@ -54,4 +54,4 @@ O assistente para Implantar Banco de Dados no Banco de Dados do Microsoft Azure 
 
 [Corrigir problemas de compatibilidade do banco de dados](sql-database-cloud-migrate-fix-compatibility-issues.md), se houver algum.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0309_2016-->

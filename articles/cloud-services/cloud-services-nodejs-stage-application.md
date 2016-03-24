@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="01/09/2016" 
+	ms.date="03/04/2016" 
 	ms.author="robmcm"/>
 
 
@@ -22,7 +22,7 @@
 
 Um aplicativo empacotado pode ser implantado no ambiente de preparo no Azure para ser testado antes de movê-lo para o ambiente de produção onde o aplicativo pode ser acessado na Internet. O ambiente de preparo é exatamente igual ao ambiente de produção, exceto que você só poderá acessar o aplicativo preparado com uma URL ofuscada que é gerada pelo Azure. Após verificar que seu aplicativo está funcionando corretamente, ele pode ser implantado no ambiente de produção executando uma permuta do VIP (IP Virtual).
 
-> [AZURE.NOTE]As etapas deste artigo se aplicam somente a aplicativos de nó hospedados como um Serviço de Nuvem do Azure.
+> [AZURE.NOTE] As etapas deste artigo se aplicam somente a aplicativos de nó hospedados como um Serviço de Nuvem do Azure.
 
 ## Etapa 1: Preparar um aplicativo
 
@@ -52,7 +52,7 @@ Agora você pode verificar que o aplicativo está funcionando corretamente no am
 
 Após verificar a versão atualizada de um aplicativo no ambiente de preparo, você pode rapidamente torná-lo disponível em produção permutando os VIPs (IPs virtuais) do ambiente de preparo e de produção.
 
-> [AZURE.NOTE]Essa etapa pressupõe que você já implantou um aplicativo na produção e preparou a versão atualizada do aplicativo.
+> [AZURE.NOTE] Essa etapa pressupõe que você já implantou um aplicativo na produção e preparou a versão atualizada do aplicativo.
 
 1.  Faça logon no [portal clássico do Azure], clique em **Serviços de Nuvem** e selecione o nome do serviço.
 
@@ -75,4 +75,4 @@ Você preparou uma implantação e atualizou uma implantação em produção com
 [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
 [Como implantar um serviço atualizado na produção permutando VIPs no Azure]: cloud-services-how-to-manage.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -2,16 +2,22 @@
 
 Pré-requisitos:
 
-1. Windows 7, Windows 8, Windows Server 2008 ou Windows Server 2012.
-2. Sistemas operacionais Macintosh ou Linux listados no artigo [O que há de novo no Kit de ferramentas do Azure para Eclipse](http://go.microsoft.com/fwlink/?LinkId=690333).
+1. Windows 7, Windows 8, Windows 10, Windows Server 2008 ou Windows Server 2012.
+2. Os sistemas operacionais Macintosh ou Linux listados no artigo [Novidades no Kit de Ferramentas do Azure para o Eclipse].
 2. Eclipse Indigo ou posterior.
 
 Etapas de instalação:
 
 1. No Eclipse, no menu **Ajuda**, selecione **Instalar novo software**.
-2. Digite o local do site <http://dl.msopentech.com/eclipse> e pressione **Enter**.
+2. Digite o local do site <http://dl.microsoft.com/eclipse> e pressione **Enter**.
 3. Selecione os itens a serem instalados e clique em **Concluir**.
 
-Este plug-in usa a versão mais recente do SDK do Azure. Isso pode ser baixado usando o Web Platform Installer (WebPI) em <http://go.microsoft.com/fwlink/?LinkID=252838>. No entanto, se não o tiver instalado, quando você criar o seu primeiro projeto de implantação do Azure, o Kit de Ferramentas do Azure para Eclipse vai instalar automaticamente a versão apropriada do SDK do Azure.
+Este plug-in usa a versão mais recente do SDK do Azure. Ele pode ser baixado usando o [WebPI (Web Platform Installer)]. No entanto, se não o tiver instalado, quando você criar o seu primeiro projeto de implantação do Azure, o Kit de Ferramentas do Azure para Eclipse vai instalar automaticamente a versão apropriada do SDK do Azure.
 
-<!---HONumber=Oct15_HO3-->
+<!-- URL List -->
+
+[Novidades no Kit de Ferramentas do Azure para o Eclipse]: http://go.microsoft.com/fwlink/?LinkId=690333
+
+[WebPI (Web Platform Installer)]: http://go.microsoft.com/fwlink/?LinkID=252838
+
+<!---HONumber=AcomDC_0309_2016-->

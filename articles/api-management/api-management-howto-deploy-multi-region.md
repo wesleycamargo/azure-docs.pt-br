@@ -4,7 +4,7 @@
 	services="api-management"
 	documentationCenter=""
 	authors="steved0x"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="03/04/2016"
 	ms.author="sdanie"/>
 
 # Como implantar uma instância do serviço de Gerenciamento de API do Azure em múltiplas regiões do Azure
@@ -22,7 +22,7 @@ O Gerenciamento de API dá suporte à implantação multirregião, que permite a
 
 Quando um serviço de Gerenciamento de API é inicialmente criado, ele contém apenas uma [unidade][] e reside em uma única região do Azure, que é designada como a Região Primária. Regiões adicionais podem ser facilmente acrescentadas por meio do Portal clássico do Azure. Um servidor de gateway do Gerenciamento de API é implantado em cada região e o tráfego de chamada será encaminhado para o gateway mais próximo. Se uma região fica offline, o tráfego é automaticamente redirecionado para o gateway mais próximo entre os demais.
 
-> [AZURE.IMPORTANT]A implantação multirregião só está disponível na camada **[Premium][]**.
+> [AZURE.IMPORTANT] A implantação multirregião só está disponível na camada **[Premium][]**.
 
 ## <a name="add-region"> </a>Implantar uma instância do serviço de Gerenciamento de API em uma nova região
 
@@ -75,4 +75,4 @@ Depois que as regiões desejadas forem removidas, clique em **Salvar**.
 [unidade]: http://azure.microsoft.com/pricing/details/api-management/
 [Premium]: http://azure.microsoft.com/pricing/details/api-management/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

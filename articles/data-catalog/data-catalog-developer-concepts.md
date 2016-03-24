@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Conceitos de desenvolvedor do Catálogo de Dados do Azure"
+   pageTitle="Conceitos de desenvolvedor do Catálogo de Dados do Azure | Microsoft Azure"
    description="Introdução aos conceitos principais no modelo conceitual do Catálogo de Dados do Azure, conforme exposto pela API REST do Catálogo."
    services="data-catalog"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/03/2016"
+   ms.date="03/10/2016"
    ms.author="derrickv"/>
 
 # Conceitos de desenvolvedor do Catálogo de Dados do Azure
@@ -92,68 +92,114 @@ Essas propriedades se aplicam a todos os tipos de ativos de raiz e todos os tipo
 
 > [AZURE.NOTE] As propriedades cujos nomes começam com um sublinhado duplo são tipos do sistema.
 
-<table><tr><td><b>Nome da propriedade</b></td><td><b>Tipo de dados</b></td><td><b>Comentários</b></td></tr><tr><td>modifiedTime</td><td>DateTime</td><td>A hora da última modificação na raiz. Isso é definido pelo cliente. (O servidor não mantém esse valor).</td></tr><tr><td>__id</td><td>Cadeia de caracteres</td><td>ID do item (somente leitura). Essa ID garante a exclusividade do ativo em um catálogo.</td></tr><tr><td>__type</td><td>Cadeia de caracteres</td><td>O tipo de ativo (somente leitura)</td></tr><tr><td>__creatorId</td><td>Cadeia de caracteres</td><td>Uma cadeia de caracteres usada pelo criador do ativo para identificá-lo com exclusividade. </td></tr></table>
+|**Nome da propriedade**|**Tipo de dados**|**Comentários**
+|---|---|---
+|modifiedTime|DateTime|A hora da última modificação na raiz. Isso é definido pelo cliente. (O servidor não mantém esse valor).
+|__id|Cadeia de caracteres|id do item (somente leitura). Essa id garante a exclusividade do ativo em um catálogo. |__type|Cadeia de caracteres|O tipo de ativo (somente leitura).
+|__\_\_creatorId|Cadeia de caracteres|Uma cadeia de caracteres usada pelo criador do ativo para identificá-lo com exclusividade.
 
 ### Propriedades comuns de raiz
 
 Essas propriedades se aplicam a todos os tipos de ativos de raiz.
 
-<table><tr><td><b>Nome da propriedade</b></td><td><b>Tipo de dados</b></td><td><b>Comentários</b></td></tr><tr><td>name</td><td>Cadeia de caracteres</td><td>Um nome derivado das informações de local da fonte de dados</td></tr><tr><td>dsl</td><td>Local da fonte de dados</td><td>Descreve com exclusividade a fonte de dados e é um dos identificadores do ativo. (Consulte a seção de identidade dupla). A estrutura da dsl varia de acordo com o tipo de origem.</td></tr><tr><td>dataSource</td><td>DataSourceInfo</td><td>Mais detalhes sobre o tipo de ativo.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>Descreve o usuário que registrou esse ativo por último. Contém a ID exclusiva do usuário (o upn), bem como um nome de exibição (lastName e firstName).</td></tr><tr><td>lastRegisteredTime</td><td>dateTime</td><td>A última vez que este ativo foi registrado no catálogo.</td></tr><tr><td>containerId</td><td>Cadeia de caracteres</td><td>ID do ativo de contêiner da fonte de dados. Não há suporte para essa propriedade para o tipo Contêiner.</td></tr></table>
+|**Nome da propriedade**|**Tipo de dados**|**Comentários**
+|---|---|---
+|name|Cadeia de caracteres|Um nome derivado das informações de local da fonte de dados
+|dsl|Local da fonte de dados|Descreve com exclusividade a fonte de dados e é um dos identificadores do ativo. (Consulte a seção de identidade dupla). A estrutura da dsl varia de acordo com o tipo de origem.
+|dataSource|DataSourceInfo|Mais detalhes sobre o tipo de ativo.
+|lastRegisteredBy|SecurityPrincipal|Descreve o usuário que registrou esse ativo por último. Contém a ID exclusiva do usuário (o upn), bem como um nome de exibição (lastName e firstName).
+|lastRegisteredTime|dateTime|A última vez que este ativo foi registrado no catálogo.
+|containerId|Cadeia de caracteres|ID do ativo de contêiner da fonte de dados. Não há suporte para essa propriedade para o tipo Contêiner.
 
 ### Tipos de ativos de raiz
 
 Tipos de ativos de raiz são os tipos que representam os vários tipos de ativos de dados que podem ser registrados no catálogo.
 
-<table><tr><td><b>Tipo de Ativo</b></td><td><b>Propriedades adicionais</b></td><td><b>Tipo de dados</b></td><td><b>Comentários</b></td></tr><tr><td>Tabela</td><td></td><td></td><td>Uma Tabela representa quaisquer dados tabulares. Isso inclui uma Tabela SQL, Exibição SQL, Tabela Tabular do Analysis Services, dimensão do multidimensional do Analysis Services, Tabela do Oracle, etc...   </td></tr><tr><td>Medida</td><td></td><td></td><td>Esse tipo representa uma medida do Analysis Services.</td></tr><tr><td></td><td>Medida</td><td>Coluna</td><td>Metadados que descrevem a medida</td></tr><tr><td></td><td>isCalculated </td><td>Booliano</td><td>Especifica se a medida é calculada ou não.</td></tr><tr><td></td><td>measureGroup</td><td>Cadeia de caracteres</td><td>Contêiner físico para medidas</td></tr><tr><td></td><td>goalExpression</td><td>Cadeia de caracteres</td><td>Uma expressão numérica MDX ou um cálculo que retorna o valor de destino do KPI.</td></tr><tr><td></td><td>valueExpression</td><td>Cadeia de caracteres</td><td>Uma expressão numérica MDX que retorna o valor real do KPI.</td></tr><tr><td></td><td>statusExpression</td><td>Cadeia de caracteres</td><td>Uma expressão MDX que representa o estado do KPI em um ponto específico no tempo.</td></tr><tr><td></td><td>trendExpression</td><td>Cadeia de caracteres</td><td>Uma expressão MDX que avalia o valor do KPI com o passar do tempo. A tendência pode ser qualquer critério com base no tempo que seja útil em um contexto de negócios específico.</td></tr><tr><td></td><td>measureGroup</td><td>Cadeia de caracteres</td><td>contêiner físico para medidas</td></tr><tr><td>Relatório</td><td></td><td></td><td>Esse tipo representa um relatório do SQL Server Reporting Services </td></tr><tr><td></td><td>CreatedBy</td><td>Cadeia de caracteres</td><td></td></tr><tr><td></td><td>CreatedDate</td><td>Cadeia de caracteres</td><td></td></tr><tr><td>Contêiner</td><td></td><td></td><td>Esse tipo representa um contêiner de outros ativos, como um banco de dados SQL, um contêiner de Blobs do Azure ou um modelo do Analysis Services.</td></tr></table>
+|**Tipo de Ativo**|**Propriedades adicionais**|**Tipo de dados**|**Comentários**
+|---|---|---|---
+|Tabela|||Uma Tabela representa quaisquer dados tabulares. Isso inclui uma Tabela SQL, uma Exibição SQL, uma Tabela Tabular do Analysis Services, uma dimensão multidimensional do Analysis Services, uma Tabela do Oracle etc.
+|Medida|||Esse tipo representa uma medida do Analysis Services.
+||Medida|Coluna|Metadados que descrevem a medida
+||isCalculated|Booliano|Especifica se a medida é calculada ou não.
+||measureGroup|Cadeia de caracteres|Contêiner físico para medidas
+||goalExpression|Cadeia de caracteres|Uma expressão numérica MDX ou um cálculo que retorna o valor de destino do KPI.
+||valueExpression|Cadeia de caracteres|Uma expressão numérica MDX que retorna o valor real do KPI.
+||statusExpression|Cadeia de caracteres|Uma expressão MDX que representa o estado do KPI em um ponto específico no tempo.
+||trendExpression|Cadeia de caracteres|Uma expressão MDX que avalia o valor do KPI com o passar do tempo. A tendência pode ser qualquer critério com base no tempo que seja útil em um contexto de negócios específico.
+||measureGroup|Cadeia de caracteres|contêiner físico para medidas
+|Relatório|||Esse tipo representa um relatório do SQL Server Reporting Services
+||CreatedBy|Cadeia de caracteres| |
+||CreatedDate|Cadeia de caracteres| |
+|Contêiner|||Esse tipo representa um contêiner de outros ativos, como um banco de dados SQL, um contêiner de Blobs do Azure ou um modelo do Analysis Services.
 
 ### Tipos de anotação
 
 Tipos de anotação representam tipos de metadados que podem ser atribuídos a outros tipos no catálogo.
 
-<table><tr><td><b>Tipo de Anotação</b></td><td><b>Propriedades adicionais</b></td><td><b>Tipo de dados</b></td><td><b>Comentários</b></td></tr><tr><td>Descrição</td><td></td><td></td><td>Cada usuário do sistema pode adicionar suas próprias marcas e descrição. Somente o usuário pode editar o Objeto de descrição. (Os proprietários de Administradores e Ativos podem excluir o objeto de descrição, mas não editá-lo). O sistema os mantém separadamente. Desta maneira, há uma matriz de descrições de cada ativo (uma para cada usuário que contribuiu com seus conhecimentos sobre o ativo, além de possivelmente uma contendo informações derivadas da fonte de dados).</td></tr><tr><td></td><td>friendlyName</td><td>string</td><td>Um nome amigável que pode ser usado em vez do nome derivado da fonte de dados. Isso é útil para exibição e pesquisa.</td></tr><tr><td></td><td>marcas</td><td>string[]</td><td>Uma matriz de marcas para o ativo</td></tr><tr><td></td><td>description</td><td>string</td><td>uma breve descrição (duas ou três linhas) do ativo</td></tr><tr><td>Esquema</td><td></td><td></td><td>O Esquema descreve a estrutura dos dados. Ela lista os nomes de atributo (ou seja, coluna, atributo, campo, etc...), tipos e também outros metadados. Essa informação é derivada da fonte de dados. Geralmente há um item de esquema em um ativo.</td></tr><tr><td></td><td>colunas</td><td>Column[]</td><td>Uma matriz de objetos de coluna. Eles descrevem a coluna com informações derivadas da fonte de dados.</td></tr><tr><td>SchemaDescription</td><td></td><td></td><td>Contém uma descrição e um conjunto de marcas para cada atributo definido no esquema. Cada usuário do sistema pode adicionar suas próprias marcas e descrição. Somente o usuário pode editar o objeto de descrição. (Os proprietários de Administradores e Ativos podem excluir o objeto SchemaDescription, mas não editá-lo). O sistema os mantém separadamente. Desta maneira, há uma matriz de objetos SchemaDescription de cada ativo (uma para cada usuário que contribuiu com seus conhecimentos sobre os atributos, além de possivelmente uma contendo informações derivadas da fonte de dados). O SchemaAttributes está associado livremente ao esquema, por isso ele pode ficar fora de sincronia. Por exemplo, o SchemaDescription pode descrever colunas que não existem mais no esquema ou falhar ao fazer referência a uma nova coluna que foi adicionada recentemente. É responsabilidade do gravador mantê-los em sincronia. A fonte de dados também pode conter informações de descrição. Isso seria um objeto schemaDescription adicional que pode ser criado ao executar a ferramenta.</td></tr><tr><td></td><td>columnDescriptions</td><td>ColumnDescription[]</td><td>Uma matriz de ColumnDescriptions que descreve as colunas no esquema. </td></tr><tr><td>Especialista</td><td></td><td></td><td>Contém uma lista de usuários considerados especialistas no conjunto de dados. As opiniões de especialistas (ou seja, descrições) surgirão na parte superior da UX ao listar as descrições. Cada usuário pode especificar sua própria lista de especialistas. Somente o usuário pode editar o objeto de especialistas. (Proprietários de Ativos e Administradores podem excluir o objeto Especialistas, mas não editá-lo).</td></tr><tr><td></td><td>especialistas</td><td>string[]</td><td>Matriz de endereços de email.</td></tr><tr><td>Visualização</td><td></td><td></td><td>A visualização contém um instantâneo das primeiras 20 linhas de dados para o ativo. A Visualização só faz sentido para alguns tipos de ativos (ou seja, faz sentido para Tabela, mas não para Medida).</td></tr><tr><td></td><td>preview</td><td>object[]</td><td>A matriz de objetos que representa uma coluna. Cada objeto tem um mapeamento de propriedade para uma coluna com um valor para a linha da coluna.</td></tr>
-<tr><td>AccessInstruction</td><td></td><td></td><td>Contém informações sobre como solicitar acesso à fonte de dados. Essa informação é o que é mostrado no campo “Solicitar Acesso” no Portal do Catálogo.</td></tr>
-<tr><td></td><td>Tipo MIME</td><td>cadeia de caracteres</td><td>O tipo mime do conteúdo.</td></tr>
-<tr><td></td><td>conteúdo</td><td>cadeia de caracteres</td><td>As instruções para obter acesso a esse ativo de dados. Pode ser uma URL, um endereço de email ou um conjunto de instruções.</td></tr>
+|**Tipo de Anotação**|**Propriedades adicionais**|**Tipo de dados**|**Comentários**
+|---|---|---|---
+|Descrição|||Cada usuário do sistema pode adicionar suas próprias marcas e descrição. Somente o usuário pode editar o Objeto de descrição. (Os proprietários de Administradores e Ativos podem excluir o objeto de descrição, mas não editá-lo). O sistema os mantém separadamente. Desta maneira, há uma matriz de descrições de cada ativo (uma para cada usuário que contribuiu com seus conhecimentos sobre o ativo, além de possivelmente uma contendo informações derivadas da fonte de dados).
+||friendlyName|string|Um nome amigável que pode ser usado em vez do nome derivado da fonte de dados. Isso é útil para exibição e pesquisa.
+||marcas|string|Uma matriz de marcas para o ativo
+||description|string|uma breve descrição (duas ou três linhas) do ativo
+|Esquema|||O Esquema descreve a estrutura dos dados. Ela lista os nomes de atributo (ou seja, coluna, atributo, campo etc.), os tipos e também outros metadados. Essa informação é derivada da fonte de dados. Geralmente há um item de esquema em um ativo.
+||colunas|Coluna|Uma matriz de objetos de coluna. Eles descrevem a coluna com informações derivadas da fonte de dados.
+|SchemaDescription|||Contém uma descrição e um conjunto de marcas para cada atributo definido no esquema. Cada usuário do sistema pode adicionar suas próprias marcas e descrição. Somente o usuário pode editar o objeto de descrição. (Os proprietários de Administradores e Ativos podem excluir o objeto SchemaDescription, mas não editá-lo). O sistema os mantém separadamente. Desta maneira, há uma matriz de objetos SchemaDescription de cada ativo (uma para cada usuário que contribuiu com seus conhecimentos sobre os atributos, além de possivelmente uma contendo informações derivadas da fonte de dados). O SchemaAttributes está associado livremente ao esquema, por isso ele pode ficar fora de sincronia. Por exemplo, o SchemaDescription pode descrever colunas que não existem mais no esquema ou falhar ao fazer referência a uma nova coluna que foi adicionada recentemente. É responsabilidade do gravador mantê-los em sincronia. A fonte de dados também pode conter informações de descrição. Isso seria um objeto schemaDescription adicional que pode ser criado ao executar a ferramenta.
+||columnDescriptions|ColumnDescription|Uma matriz de ColumnDescriptions que descreve as colunas no esquema.
+|Especialista|||Contém uma lista de usuários considerados especialistas no conjunto de dados. As opiniões de especialistas (ou seja, descrições) surgirão na parte superior da experiência do usuário ao serem listadas as descrições. Cada usuário pode especificar sua própria lista de especialistas. Somente o usuário pode editar o objeto de especialistas. (Proprietários de Ativos e Administradores podem excluir o objeto Especialistas, mas não editá-lo).
+||especialistas|string|Matriz de endereços de email.
+|Visualização|||A visualização contém um instantâneo das primeiras 20 linhas de dados para o ativo. A Visualização só faz sentido para alguns tipos de ativos (ou seja, faz sentido para Tabela, mas não para Medida).
+||preview|objeto|A matriz de objetos que representa uma coluna. Cada objeto tem um mapeamento de propriedade para uma coluna com um valor para a linha da coluna.
+|AccessInstruction|||Contém informações sobre como solicitar acesso à fonte de dados. Essa informação é o que é mostrado no campo “Solicitar Acesso” no Portal do Catálogo.
+||Tipo MIME|cadeia de caracteres|O tipo mime do conteúdo.
+||conteúdo|cadeia de caracteres|As instruções para obter acesso a esse ativo de dados. Pode ser uma URL, um endereço de email ou um conjunto de instruções.
+|TableDataProfile|||
+||numberOfRows|int|O número de linhas no conjunto de dados
+||tamanho|longo|O tamanho em bytes do conjunto de dados.
+||schemaModifiedTime|string|A hora da última modificação do esquema
+||dataModifiedTime|string|A hora da última modificação do conjunto de dados (dados foram adicionados, modificados ou excluídos)
+|ColumnsDataProfile|||
+||colunas|ColumnDataProfile|O número de linhas no conjunto de dados
+|Documentação|||Um determinado ativo pode ter apenas uma documentação associada a ele.
+||Tipo MIME|cadeia de caracteres|O tipo mime do conteúdo.
+||conteúdo|cadeia de caracteres|O conteúdo da documentação.
 
-<tr><td>TableDataProfile</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>numberOfRows</td></td><td>int</td><td>O número de linhas no conjunto de dados</td></tr>
-<tr><td></td><td>tamanho</td><td>longo</td><td>O tamanho em bytes do conjunto de dados.  </td></tr>
-<tr><td></td><td>schemaModifiedTime</td><td>string</td><td>A hora da última modificação do esquema</td></tr>
-<tr><td></td><td>dataModifiedTime</td><td>string</td><td>A hora da última modificação do conjunto de dados (dados foram adicionados, modificados ou excluídos)</td></tr>
-
-<tr><td>ColumnsDataProfile</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>colunas</td></td><td>ColumnDataProfile[]</td><td>O número de linhas no conjunto de dados</td></tr>
-
-<tr><td>Documentação</td><td></td><td></td><td>Um determinado ativo pode ter apenas uma documentação associada a ele.</td></tr>
-<tr><td></td><td>Tipo MIME</td><td>cadeia de caracteres</td><td>O tipo mime do conteúdo.</td></tr>
-<tr><td></td><td>conteúdo</td><td>cadeia de caracteres</td><td>O conteúdo da documentação.</td></tr>
-
-
-</table>
 
 ### Tipos comuns
 
 Tipos comuns podem ser usados como os tipos de propriedades, mas não são Itens.
 
-<table><tr><td><b>Tipo Comum</b></td><td><b>Propriedades</b></td><td><b>Tipo de dados</b></td><td><b>Comentários</b></td></tr><tr><td>DataSourceInfo</td><td></td><td></td><td></td></tr><tr><td></td><td>sourceType</td><td>string</td><td>Descreve o tipo de fonte de dados como, por exemplo, SQL Server, Oracle Database, etc...  </td></tr><tr><td></td><td>objectType</td><td>string</td><td>Descreve o tipo de objeto da fonte de dados como, por exemplo, Tabela, Exibição do SQL Server.</td></tr><tr><td></td><td>formatType</td><td>string</td><td>Descreve a estrutura dos dados. Os valores atuais são estruturados ou não estruturados.</td></tr><tr><td>SecurityPrincipal</td><td></td><td></td><td></td></tr><tr><td></td><td>upn</td><td>string</td><td>Endereço de email exclusivo do usuário.</td></tr><tr><td></td><td>firstName</td><td>string</td><td>Nome do usuário (para fins de exibição).</td></tr><tr><td></td><td>lastName</td><td>string</td><td>Sobrenome do usuário (para fins de exibição).</td></tr><tr><td>Coluna</td><td></td><td></td><td></td></tr><tr><td></td><td>name</td><td>string</td><td>Nome da coluna ou do atributo.</td></tr><tr><td></td><td>type</td><td>string</td><td>Tipo de dados da coluna ou do atributo. Os tipos permitidos dependem sourceType de dados do ativo. Há suporte para apenas um subconjunto de tipos.</td></tr><tr><td></td><td>maxLength</td><td>int</td><td>O comprimento máximo permitido para a coluna ou atributo. Derivado da fonte de dados. Aplicável somente a alguns tipos de fontes.</td></tr><tr><td></td><td>Precisão</td><td>byte</td><td>A precisão para a coluna ou atributo. Derivado da fonte de dados. Aplicável somente a alguns tipos de fontes.</td></tr><tr><td></td><td>isNullable</td><td>Booliano</td><td>Se a coluna tem permissão para ter um valor nulo ou não. Derivado da fonte de dados. Aplicável somente a alguns tipos de fontes.</td></tr><tr><td></td><td>expressão</td><td>string</td><td>Se o valor for uma coluna calculada, esse campo contém a expressão que expresse este valor. Derivado da fonte de dados. Aplicável somente a alguns tipos de fontes.</td></tr><tr><td></td><td>defaultValue</td><td>objeto</td><td>O valor padrão inserido se não for especificado na instrução insert do objeto. Derivado da fonte de dados. Aplicável somente a alguns tipos de fontes.</td>
-
-</tr><tr><td>ColumnDescription</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>marcas</td><td>string[]</td><td>Uma matriz de marcas que descreve a coluna.</td></tr>
-<tr><td></td><td>description</td><td>string</td><td>Uma descrição que descreve a coluna.</td></tr><tr><td></td><td>columnName</td><td>string</td><td>O nome da coluna à qual essas informações se referem.</td></tr>
-
-</tr><tr><td>ColumnDataProfile</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>columnName </td><td>string</td><td>O nome da coluna</td></tr>
-<tr><td></td><td>type </td><td>string</td><td>O tipo da coluna</td></tr>
-<tr><td></td><td>min </td><td>string</td><td>O valor mínimo no conjunto de dados</td></tr>
-<tr><td></td><td>max </td><td>string</td><td>O valor máximo do conjunto de dados</td></tr>
-<tr><td></td><td>avg </td><td>double</td><td>O valor médio do conjunto de dados</td></tr>
-<tr><td></td><td>stdev </td><td>double</td><td>O desvio padrão para o conjunto de dados</td></tr>
-<tr><td></td><td>nullCount </td><td>int</td><td>A contagem de valores nulos no conjunto de dados</td></tr>
-<tr><td></td><td>distinctCount  </td><td>int</td><td>A contagem de valores distintos no conjunto de dados</td></tr>
-
-
-
-</table>
+|**Tipo Comum**|**Propriedades**|**Tipo de dados**|**Comentários**
+|---|---|---|---
+|DataSourceInfo||||
+||sourceType|string|Descreve o tipo de fonte de dados como, por exemplo, SQL Server, Oracle Database etc.
+||objectType|string|Descreve o tipo de objeto da fonte de dados como, por exemplo, Tabela, Exibição do SQL Server.
+||formatType|string|Descreve a estrutura dos dados. Os valores atuais são estruturados ou não estruturados.
+|SecurityPrincipal||||
+||upn|string|Endereço de email exclusivo do usuário.
+||firstName|string|Nome do usuário (para fins de exibição).
+||lastName|string|Sobrenome do usuário (para fins de exibição).
+|Coluna||||
+||name|string|Nome da coluna ou do atributo.
+||type|string|Tipo de dados da coluna ou do atributo. Os tipos permitidos dependem sourceType de dados do ativo. Há suporte para apenas um subconjunto de tipos.
+||maxLength|int|O comprimento máximo permitido para a coluna ou atributo. Derivado da fonte de dados. Aplicável somente a alguns tipos de fontes.
+||Precisão|byte|A precisão para a coluna ou atributo. Derivado da fonte de dados. Aplicável somente a alguns tipos de fontes.
+||isNullable|Booliano|Se a coluna tem permissão para ter um valor nulo ou não. Derivado da fonte de dados. Aplicável somente a alguns tipos de fontes.
+||expressão|string|Se o valor for uma coluna calculada, esse campo contém a expressão que expresse este valor. Derivado da fonte de dados. Aplicável somente a alguns tipos de fontes.
+||defaultValue|objeto|O valor padrão inserido se não for especificado na instrução insert do objeto. Derivado da fonte de dados. Aplicável somente a alguns tipos de fontes.
+|ColumnDescription||||
+||marcas|string|Uma matriz de marcas que descreve a coluna.
+||description|string|Uma descrição que descreve a coluna.
+||columnName|string|O nome da coluna à qual essas informações se referem.
+|ColumnDataProfile||||
+||columnName|string|O nome da coluna
+||type|string|O tipo da coluna
+||min|string|O valor mínimo no conjunto de dados
+||max|string|O valor máximo do conjunto de dados
+||avg|double|O valor médio do conjunto de dados
+||stdev|double|O desvio padrão para o conjunto de dados
+||nullCount|int|A contagem de valores nulos no conjunto de dados
+||distinctCount|int|A contagem de valores distintos no conjunto de dados
 
 ## Funções e autorização
 
@@ -170,7 +216,11 @@ O Catálogo de Dados do Azure usa dois mecanismos de autorização:
 
 Há três funções: **Administrador**, **Proprietário** e **Colaborador**. Cada função tem seu escopo e direitos que são resumidos na tabela a seguir.
 
-<table><tr><td><b>Função</b></td><td><b>Escopo</b></td><td><b>Direitos</b></td></tr><tr><td>Administrador</td><td>Catálogo (ou seja, todos os ativos/anotações no catálogo)</td><td>Read Delete ViewRoles ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>Proprietário</td><td>Cada ativo (ou seja, também conhecido como item de raiz)</td><td>Read Delete ViewRoles ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>Colaborador</td><td>Cada ativo e anotação individuais</td><td>Read Update Delete ViewRoles Note: todos os direitos são revogados se Read à direita do item for revogado do Colaborador</td></tr></table>
+|**Função**|**Escopo**|**Direitos**
+|---|---|---
+|Administrador|Catálogo (ou seja, todos os ativos/anotações no catálogo)|Read Delete ViewRoles ChangeOwnership ChangeVisibility ViewPermissions
+|Proprietário|Cada ativo (ou seja, também conhecido como item de raiz)|Read Delete ViewRoles ChangeOwnership ChangeVisibility ViewPermissions
+|Colaborador|Cada ativo e anotação individuais|Read Update Delete ViewRoles Note: todos os direitos são revogados se Read à direita do item for revogado do Colaborador
 
 > [AZURE.NOTE] Os direitos **Read**, **Update**, **Delete** e **ViewRoles** são aplicáveis a qualquer item (ativo ou anotação) enquanto **TakeOwnership**, **ChangeOwnership**, **ChangeVisibility** e **ViewPermissions** só são aplicáveis ao ativo de raiz.
 >
@@ -182,7 +232,7 @@ A permissão funciona como uma lista de entradas de controle de acesso. Cada ent
 
 Durante a visualização do **Catálogo de Dados do Azure**, somente o direito **Read** tem suporte na lista de permissões para permitir que o cenário restrinja a visibilidade de um ativo.
 
-Por padrão, qualquer usuário autenticado tem o direito **Read** para qualquer item do catálogo, a menos que a visibilidade esteja restrita ao conjunto de entidades nas permissões.
+Por padrão qualquer usuário autenticado tem o direito **Read** para qualquer item do catálogo, a menos que a visibilidade esteja restrita ao conjunto de entidades nas permissões.
 
 ## API REST
 
@@ -196,8 +246,20 @@ As solicitações de exibição de item **PUT** e **POST** podem ser usadas para
 >
 > Por padrão, quando um item é criado no catálogo, seu **Colaborador** é definido como o usuário autenticado no momento. Se o item tiver de ser atualizado por todos os usuários, o **Colaborador** deverá ser definido como a entidade de segurança especial <Everyone> na propriedade **\_\_roles** quando o item for publicado pela primeira vez (consulte o exemplo abaixo). O **Colaborador** não pode ser alterado e permanece o mesmo durante o tempo de vida de um item (ou seja, até mesmo o **Administrador** ou o **Proprietário** não têm o direito de alterar o **Colaborador**). O único valor com suporte para a configuração explícita do **Colaborador** é <Everyone>, ou seja, o **Colaborador** só pode ser um usuário que criou um item ou <Everyone>.
 
-###Exemplos
-**Defina o Colaborador como <Everyone> ao publicar um item.** A entidade de segurança especial <Everyone> tem a objectId "00000000-0000-0000-0000-000000000201". **POST** https://123154bb...6aad6370ee14.datacatalog.azure.com/default/views/tables/?api-version=2015-07.1.0-Preview **Corpo**
+### Exemplos
+**Defina o Colaborador como <Everyone> ao publicar um item.**
+
+A entidade de segurança especial <Everyone> tem a objectId "00000000-0000-0000-0000-000000000201".
+
+**POST** https://api.azuredatacatalog.com/catalogs/default/views/tables/?api-version=2015-07.1.0-Preview
+
+Solicitações ao **ADC (Catálogo de dados do Azure)** podem retornar uma resposta HTTP 302 para indicar o redirecionamento para um ponto de extremidade diferente. Em resposta a uma 302, o chamador deve emitir novamente a solicitação para a URL especificada no cabeçalho de resposta Local.
+
+
+> [AZURE.NOTE] Algumas implementações de cliente HTTP podem reemitir automaticamente solicitações em resposta a uma 302 do servidor, mas normalmente eliminam **Cabeçalhos de autorização** da solicitação. Como o cabeçalho de Autorização precisa fazer solicitações ao ADC, você deve garantir que o cabeçalho de Autorização ainda seja fornecido ao reemitir uma solicitação a um local de redirecionamento especificado pelo ADC. A seguir está o código de exemplo que demonstra isso usando o objeto HttpWebRequest .NET.
+
+
+**Corpo**
 
 	{
 	    "__roles": [
@@ -213,7 +275,9 @@ As solicitações de exibição de item **PUT** e **POST** podem ser usadas para
 	    … other table properties
 	}
 
-**Atribua proprietários e restrinja a visibilidade de um item raiz existente** **PUT** https://123154bb...6aad6370ee14.datacatalog.azure.com/default/views/tables/042297b0...1be45ecd462a?api-version=2015-07.1.0-Preview
+**Atribuir proprietários e restringir a visibilidade para um item raiz existente**
+
+**PUT** https://api.azuredatacatalog.com/catalogs/default/views/tables/042297b0...1be45ecd462a?api-version=2015-07.1.0-Preview
 
 	{
 	    "__roles": [
@@ -262,4 +326,4 @@ As solicitações de exibição de item **PUT** e **POST** podem ser usadas para
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept2.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

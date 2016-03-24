@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Como registrar eventos em log para Hubs de Eventos do Azure no Gerenciamento de API do Azure
@@ -80,7 +80,7 @@ Especifique o corpo da solicitação usando o modelo a seguir.
 
 Quando você fizer a solicitação, se o agente for criado, um código de status `201 Created` será retornado
 
->[AZURE.NOTE]Para outros códigos de retorno possíveis e seus motivos, confira [Criar um agente](https://msdn.microsoft.com/library/azure/mt592020.aspx#PUT). Para saber como executar outras operações, por exemplo, listar, atualizar e excluir, confira a documentação da entidade [Agente](https://msdn.microsoft.com/library/azure/mt592020.aspx).
+>[AZURE.NOTE] Para outros códigos de retorno possíveis e seus motivos, confira [Criar um agente](https://msdn.microsoft.com/library/azure/mt592020.aspx#PUT). Para saber como executar outras operações, por exemplo, listar, atualizar e excluir, confira a documentação da entidade [Agente](https://msdn.microsoft.com/library/azure/mt592020.aspx).
 
 ## Configurar políticas log-to-eventhubs
 
@@ -133,4 +133,4 @@ Clique em **Salvar** para salvar a configuração da política atualizada. Assim
 [event-hub-policy]: ./media/api-management-howto-log-event-hubs/event-hub-policy.png
 [add-policy]: ./media/api-management-howto-log-event-hubs/add-policy.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

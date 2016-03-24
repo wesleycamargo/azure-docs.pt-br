@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/08/2015"
+	ms.date="03/02/2016"
 	ms.author="roalexan" />
 
 
@@ -26,7 +26,7 @@ Este guia mostra como começar a usar rapidamente o Gerenciamento de API para ge
 
 ##O que é o Gerenciamento de API do Azure?
 
-O Gerenciamento de API do Azure é um serviço do Azure que permite que você gerencie seus pontos de extremidade da API REST, definindo o acesso do usuário, a limitação de uso e o monitoramento por painel. Clique em [aqui](https://azure.microsoft.com/services/api-management/) para obter detalhes sobre o Gerenciamento de API do Azure. Clique em [aqui](api-management/api-management-get-started.md) para obter um guia sobre como começar a usar o Gerenciamento de API do Azure. Essa outra guia, na qual este guia se baseia, aborda mais tópicos, incluindo configurações de notificação, faixa de preços, manipulação de resposta, autenticação do usuário, criação de produtos, assinaturas de desenvolvedor e dashboarding de uso.
+O Gerenciamento de API do Azure é um serviço do Azure que permite que você gerencie seus pontos de extremidade da API REST, definindo o acesso do usuário, a limitação de uso e o monitoramento por painel. Clique em [aqui](https://azure.microsoft.com/services/api-management/) para obter detalhes sobre o Gerenciamento de API do Azure. Clique em [aqui](../api-management/api-management-get-started.md) para obter um guia sobre como começar a usar o Gerenciamento de API do Azure. Essa outra guia, na qual este guia se baseia, aborda mais tópicos, incluindo configurações de notificação, faixa de preços, manipulação de resposta, autenticação do usuário, criação de produtos, assinaturas de desenvolvedor e dashboarding de uso.
 
 ##O que é o AzureML?
 
@@ -38,7 +38,7 @@ Para concluir este guia, você precisa:
 
 * Uma conta do Azure. Se você não tiver uma conta do Azure, clique [aqui](https://azure.microsoft.com/pricing/free-trial/) para obter detalhes sobre como criar uma conta de avaliação gratuita.
 * Uma conta do AzureML. Se você não tiver uma conta do AzureML, clique [aqui](https://studio.azureml.net/) para obter detalhes sobre como criar uma conta de avaliação gratuita.
-* O espaço de trabalho, o serviço e a api\_key para um teste do AzureML implantado como um serviço Web. Clique [aqui](machine-learning/machine-learning-create-experiment.md) para obter detalhes sobre como criar um teste do AzureML. Clique [aqui](machine-learning/machine-learning-publish-a-machine-learning-web-service.md) para obter detalhes sobre como implantar um teste do AzureML como um serviço Web. Como alternativa, o Apêndice A traz instruções sobre como criar e testar um teste simples do AzureML e implantá-lo como um serviço Web.
+* O espaço de trabalho, o serviço e a api\_key para um teste do AzureML implantado como um serviço Web. Clique [aqui](machine-learning-create-experiment.md) para obter detalhes sobre como criar um teste do AzureML. Clique [aqui](machine-learning-publish-a-machine-learning-web-service.md) para obter detalhes sobre como implantar um teste do AzureML como um serviço Web. Como alternativa, o Apêndice A traz instruções sobre como criar e testar um teste simples do AzureML e implantá-lo como um serviço Web.
 
 ##Criar uma instância de Gerenciamento de API
 
@@ -198,7 +198,7 @@ Clique em **Sim** para publicar o teste.
 
 ###Teste do serviço Web
 
-Um serviço Web AzureML consiste em RSS (serviço de solicitação/resposta) e pontos de extremidade BES (serviço de execução em lotes). RSS é para execução síncrona. BES é para execução do trabalho assíncrono. Para testar o serviço Web com a fonte Python de exemplo a seguir, talvez seja necessário baixar e instalar o SDK do Azure para Python (consulte: [Como instalar Python](python-how-to-install.md)).
+Um serviço Web AzureML consiste em RSS (serviço de solicitação/resposta) e pontos de extremidade BES (serviço de execução em lotes). RSS é para execução síncrona. BES é para execução do trabalho assíncrono. Para testar o serviço Web com a fonte Python de exemplo a seguir, talvez seja necessário baixar e instalar o SDK do Azure para Python (consulte: [Como instalar Python](../python-how-to-install.md)).
 
 Você também precisará do **espaço de trabalho**, do **serviço** e da **api\_key** do seu teste para a fonte de exemplo abaixo. Você pode encontrar o espaço de trabalho e o serviço clicando em **Solicitação/resposta** ou **Execução em lote** para o seu teste no painel de serviço Web.
 
@@ -384,4 +384,4 @@ Este guia mostra um exemplo de trabalho do Python. Você precisa modificar com o
 	return
 	invokeBatchExecutionService()
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -106,7 +106,7 @@ A categoria de comandos da nuvem para o dispositivo rastreia erros que ocorrem n
 
 ### Conexões
 
-A categoria de conexões rastreia eventos causados pelos dispositivos que estão se conectando a um Hub IoT ou desconectando dele. Rastrear essa categoria é útil para identificar tentativas de conexão não autorizada e para saber quando dispositivos em áreas de conectividade ruim perdem conexão.
+A categoria de conexões rastreia erros quando os dispositivos se conectam ou desconectam de um Hub IoT. Rastrear essa categoria é útil para identificar tentativas de conexão não autorizada e para saber quando dispositivos em áreas de conectividade ruim perdem conexão.
 
     {
          "durationMs": 1234,
@@ -139,4 +139,4 @@ Depois dessa visão geral do monitoramento de operações, siga estes links para
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

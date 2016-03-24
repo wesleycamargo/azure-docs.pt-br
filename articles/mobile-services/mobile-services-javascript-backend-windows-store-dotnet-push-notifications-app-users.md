@@ -13,12 +13,17 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/11/2015" 
+	ms.date="03/05/2016" 
 	ms.author="glenga"/>
 
 # Enviar notificações por push para usuários autenticados
 
 [AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
+
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Para a versão de aplicativos móveis equivalente deste tópico, consulte [Como enviar notificações por push para um usuário autenticado usando marcas](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#push-user).
 
 ##Visão geral
 Este tópico mostra como enviar notificações por push a um usuário autenticado em um dispositivo registrado. Diferente do tutorial anterior de [Adicionar notificação por push ao seu aplicativo], este tutorial altera seu serviço móvel para exigir que um usuário seja autenticado antes que o cliente possa se registrar no hub de notificação para notificações por push. O registro também é modificado para adicionar uma marca com base na ID de usuário atribuída. Por fim, o script do servidor é atualizado para enviar a notificação apenas ao usuário autenticado, e não a todos os registros.
@@ -96,4 +101,4 @@ Depois de ter concluído ambos os tutoriais, você pode evitar que usuários nã
 [Adicionar notificação por push ao seu aplicativo]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 [Adicionar notificações por push ao seu aplicativo]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

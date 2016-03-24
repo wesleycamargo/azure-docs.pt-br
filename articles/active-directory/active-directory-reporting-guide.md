@@ -3,7 +3,7 @@
    description="Um guia que contém todos os artigos de Relatórios do Active Directory do Azure"
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
+   authors="dhanyahk"
    manager="mbaldwin"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/07/2016"
+   ms.author="dhanyahk"/>
 
 
 # Guia de Relatórios do Active Directory do Azure
@@ -30,4 +30,4 @@
  - [Relatório de atividade de entrada de todos os usuários do Active Directory do Azure](active-directory-reporting-all-user-sign-in-activity-report.md)
  - [Exibir relatórios de acesso e uso](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

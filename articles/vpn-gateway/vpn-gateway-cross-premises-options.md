@@ -12,14 +12,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/01/2015"
+   ms.date="03/08/2016"
    ms.author="cherylmc" />
 
 # Sobre a conectividade segura entre locais para redes virtuais
 
-Se você deseja se conectar seus sites locais com segurança a uma rede virtual, há três opções: Site a Site, Ponto a Site e Rota Expressa.
+Este artigo discute as diferentes maneiras que você pode conectar seu site local a uma rede virtual do Azure. Este artigo aplica-se a ambos os modelos de implantação do Gerenciador de Recursos e clássico.
 
-A opção escolhida pode depender de várias considerações, como:
+Há três opções de conexão disponíveis: site a site, ponto a site e a Rota Expressa. A opção escolhida pode depender de várias considerações, como:
 
 
 - Que tipo de taxa de transferência sua solução exige?
@@ -43,7 +43,7 @@ A tabela a seguir pode ajudá-lo a decidir a melhor opção de conectividade par
 | **CONTRATO DE NÍVEL DE SERVIÇO** | [CONTRATO DE NÍVEL DE SERVIÇO](https://azure.microsoft.com/support/legal/sla/) | [CONTRATO DE NÍVEL DE SERVIÇO](https://azure.microsoft.com/support/legal/sla/) | [CONTRATO DE NÍVEL DE SERVIÇO](https://azure.microsoft.com/support/legal/sla/) |
 | **Preços** | [Preços](https://azure.microsoft.com/pricing/details/vpn-gateway/) | [Preços](https://azure.microsoft.com/pricing/details/vpn-gateway/) | [Preços](https://azure.microsoft.com/pricing/details/expressroute/) |
 | **Documentação Técnica** | [Documentação de Gateway de VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Documentação de Gateway de VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Documentação da Rota Expressa](https://azure.microsoft.com/documentation/services/expressroute/) |
-| ****PERGUNTAS FREQUENTES** | [Perguntas frequentes sobre o Gateway de VPN](vpn-gateway-vpn-faq.md) | [Perguntas frequentes sobre o Gateway de VPN](vpn-gateway-vpn-faq.md) | [Perguntas frequentes sobre a Rota Expressa](../expressroute/expressroute-faqs.md) |
+| **PERGUNTAS FREQUENTES** | [Perguntas frequentes de gateway de VPN](vpn-gateway-vpn-faq.md) | [Perguntas frequentes de gateway de VPN](vpn-gateway-vpn-faq.md) | [Perguntas Frequentes sobre Rota Expressa](../expressroute/expressroute-faqs.md) |
 
 
 ## Conexões site a site
@@ -59,11 +59,11 @@ Uma VPN site a site permite que você crie uma conexão segura entre o site loca
 **Requisitos**
 
 - O dispositivo VPN local deve ter um endereço IP de IPv4 voltado para a Internet. Isso não pode ficar atrás de um NAT.
-- Você deve ter um dispositivo VPN compatível. Consulte [Sobre Dispositivos VPN](http://go.microsoft.com/fwlink/p/?LinkID=615099). 
+- Você deve ter um dispositivo VPN compatível. Consulte [Sobre Dispositivos VPN](vpn-gateway-about-vpn-devices.md). 
 - O dispositivo VPN que você usar deve ser compatível com o tipo de gateway exigido pela sua solução. Consulte [Sobre gateways de VPN](vpn-gateway-about-vpngateways.md).
 - O SKU do Gateway também terá impacto sobre a taxa de transferência agregada. Consulte [SKUs de gateway](vpn-gateway-about-vpngateways.md#gateway-skus) para obter mais informações. 
 
-Para obter informações sobre como configurar uma conexão de gateway de VPN site a site usando o Portal Clássico do Azure e o modelo de implantação clássica, consulte [Configurar uma rede virtual com uma conexão VPN site a site](vpn-gateway-site-to-site-create.md). Para obter informações sobre como configurar uma VPN site a site usando o modelo de implantação do Gerenciador de Recursos, consulte [Criar uma rede virtual com uma conexão VPN site a site](vpn-gateway-create-site-to-site-rm-powershell.md).
+Para obter informações sobre como configurar uma conexão de gateway de VPN site a site usando o Portal Clássico do Azure e o modelo de implantação clássica, consulte [Configurar uma rede virtual com uma conexão VPN site a site para o modelo de implantação clássico](vpn-gateway-site-to-site-create.md). Para obter informações sobre como configurar uma VPN site a site usando o modelo de implantação do Gerenciador de Recursos, consulte [Criar uma rede virtual com uma conexão VPN site a site para o modelo de implantação do Gerenciador de Recurso](vpn-gateway-create-site-to-site-rm-powershell.md).
 
 
 ## Conexões Ponto a Site
@@ -84,7 +84,7 @@ Configurações ponto a site e site a site podem existir simultaneamente, mas ao
 
 - Você não tem um endereço IP IPv4 voltado para Internet para seu dispositivo VPN.
 
-Para obter mais informações sobre como configurar uma conexão ponto a site, consulte [Configurar uma conexão VPN ponto a site para uma rede virtual](vpn-gateway-point-to-site-create.md).
+Para saber mais sobre como configurar uma conexão ponto a site para o modelo de implantação clássica, confira [Configurar uma conexão VPN ponto a site para uma rede virtual para o modelo de implantação clássico](vpn-gateway-point-to-site-create.md). Para saber mais sobre como configurar uma conexão ponto a site para o modelo de implantação do Gerenciador de Recurso, confira [Configurar uma conexão VPN ponto a site para uma rede virtual para o modelo do Gerenciador de Recurso](vpn-gateway-howto-point-to-site-rm-ps.md).
 
 ## Conexões de Rota Expressa
 
@@ -97,6 +97,6 @@ Para obter mais informações sobre a Rota Expressa, consulte [Visão geral téc
 
 ## Próximas etapas
 
-Consulte as [Perguntas frequentes sobre a Rota Expressa](../expressroute/expressroute-faqs.md) e as [Perguntas frequentes sobre o Gateway de VPN](vpn-gateway-vpn-faq.md) para obter mais informações.
+Confira as [Perguntas frequentes sobre a Rota Expressa](vpn-gateway-vpn-faq.md) e as [Perguntas frequentes sobre o Gateway de VPN](../expressroute/expressroute-faqs.md) para saber mais.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->
