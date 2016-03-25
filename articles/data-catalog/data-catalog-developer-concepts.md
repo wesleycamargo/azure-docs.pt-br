@@ -95,7 +95,8 @@ Essas propriedades se aplicam a todos os tipos de ativos de raiz e todos os tipo
 |**Nome da propriedade**|**Tipo de dados**|**Comentários**
 |---|---|---
 |modifiedTime|DateTime|A hora da última modificação na raiz. Isso é definido pelo cliente. (O servidor não mantém esse valor).
-|__id|Cadeia de caracteres|id do item (somente leitura). Essa id garante a exclusividade do ativo em um catálogo. |__type|Cadeia de caracteres|O tipo de ativo (somente leitura).
+|__id|Cadeia de caracteres|id do item (somente leitura). Essa id garante a exclusividade do ativo em um catálogo.
+|__type|Cadeia de caracteres|O tipo de ativo (somente leitura).
 |__\_\_creatorId|Cadeia de caracteres|Uma cadeia de caracteres usada pelo criador do ativo para identificá-lo com exclusividade.
 
 ### Propriedades comuns de raiz
