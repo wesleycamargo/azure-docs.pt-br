@@ -242,94 +242,138 @@ ServiceProviderProperties        : {
 ServiceKey                       : **************************************
 Peerings                         : []
 
-**Step 7.  Create your routing configuration.**
+```
 
-For step-by-step instructions, refer to the [ExpressRoute circuit routing configuration (create and modify circuit peerings)](expressroute-howto-routing-arm.md).
+**Etapa 7.  Crie sua configuração de roteamento.**
 
-**Step 8.  Link a virtual network to an ExpressRoute circuit.**
+Para obter instruções passo a passo, consulte a [configuração do roteamento de circuito da Rota Expressa (criar e modificar os emparelhamentos de circuito)](expressroute-howto-routing-arm.md).
 
-Next, link a virtual network to your ExpressRoute circuit. You can use [this template](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection) when you work with the Resource Manager deployment mode. We're currently working on steps to accomplish this by using PowerShell.
+**Etapa 8.  Vincule uma rede virtual a um circuito da Rota Expressa.**
 
-## Get the status of an ExpressRoute circuit
+NEm seguida, vincule uma rede virtual a seu circuito da Rota Expressa. Você pode usar [esse modelo](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection) ao trabalhar com o modo de implantação do Gerenciador de Recursos. Atualmente, estamos trabalhando nas etapas para fazer isso usando o PowerShell.
 
-You can retrieve this information at any time by using the *Get-AzureRmExpressRouteCircuit* cmdlet. Making the call with no parameters will list all circuits.
+## Obter o status de um circuito da Rota Expressa
+
+Você pode recuperar essas informações a qualquer momento usando o cmdlet *Get-AzureRmExpressRouteCircuit*. Fazer a chamada sem parâmetros listará todos os circuitos.
 
 ```
 Get-AzureRmExpressRouteCircuit
 ```
 
-The response will be similar to the following example:
+A resposta será semelhante ao seguinte exemplo:
 
 ```
-Name : ExpressRouteARMCircuit ResourceGroupName : ExpressRouteResourceGroup Location : westus Id : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit Etag : W/"################################" ProvisioningState : Succeeded Sku : { "Name": "Standard\_MeteredData", "Tier": "Standard", "Family": "MeteredData" } CircuitProvisioningState : Enabled ServiceProviderProvisioningState : Provisioned ServiceProviderNotes : ServiceProviderProperties : { "ServiceProviderName": "Equinix", "PeeringLocation": "Silicon Valley", "BandwidthInMbps": 200 } ServiceKey : ************************************** Peerings :
+Name                             : ExpressRouteARMCircuit
+ResourceGroupName                : ExpressRouteResourceGroup
+Location                         : westus
+Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
+Etag                             : W/"################################"
+ProvisioningState                : Succeeded
+Sku                              : {
+                                     "Name": "Standard_MeteredData",
+                                     "Tier": "Standard",
+                                     "Family": "MeteredData"
+                                   }
+CircuitProvisioningState         : Enabled
+ServiceProviderProvisioningState : Provisioned
+ServiceProviderNotes             :
+ServiceProviderProperties        : {
+   		                             "ServiceProviderName": "Equinix",
+   		                             "PeeringLocation": "Silicon Valley",
+   		                             "BandwidthInMbps": 200
+   		                           }
+ServiceKey                       : **************************************
+Peerings                         : []
 ```
 
-You can get information on a specific ExpressRoute circuit by passing the resource group name and circuit name as a parameter to the call:
+Você pode obter informações sobre um circuito da Rota Expressa específico passando o nome do grupo de recursos e o nome do circuito como um parâmetro para a chamada:
 
 ```
 Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 ```
 
-The response will look similar to the following example:
+A resposta será semelhante ao seguinte exemplo:
 
 ```
-Name : ExpressRouteARMCircuit ResourceGroupName : ExpressRouteResourceGroup Location : westus Id : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit Etag : W/"################################" ProvisioningState : Succeeded Sku : { "Name": "Standard\_MeteredData", "Tier": "Standard", "Family": "MeteredData" } CircuitProvisioningState : Enabled ServiceProviderProvisioningState : Provisioned ServiceProviderNotes : ServiceProviderProperties : { "ServiceProviderName": "Equinix", "PeeringLocation": "Silicon Valley", "BandwidthInMbps": 200 } ServiceKey : ************************************** Peerings :
+Name                             : ExpressRouteARMCircuit
+ResourceGroupName                : ExpressRouteResourceGroup
+Location                         : westus
+Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
+Etag                             : W/"################################"
+ProvisioningState                : Succeeded
+Sku                              : {
+                                     "Name": "Standard_MeteredData",
+   		                             "Tier": "Standard",
+   		                             "Family": "MeteredData"
+   		                           }
+CircuitProvisioningState         : Enabled
+ServiceProviderProvisioningState : Provisioned
+ServiceProviderNotes             :
+ServiceProviderProperties        : {
+                                     "ServiceProviderName": "Equinix",
+                                     "PeeringLocation": "Silicon Valley",
+                                     "BandwidthInMbps": 200
+   		                           }
+ServiceKey                       : **************************************
+Peerings                         : []
 ```
 
-You can get detailed descriptions of all parameters by running the following:
+Você pode obter descrições detalhadas de todos os parâmetros ao executar o seguinte:
 
 ```
 get-help get-azurededicatedcircuit -detailed
 ```
 
-## Modify an ExpressRoute circuit
+## Modificar um circuito da Rota Expressa
 
-You can modify certain properties of an ExpressRoute circuit without impacting connectivity.
+Você pode modificar certas propriedades de um circuito da Rota Expressa sem afetar a conectividade.
 
-You can do the following, with no downtime:
+Você pode fazer o seguinte, sem tempo de inatividade:
 
-- Enable or disable an ExpressRoute premium add-on for your ExpressRoute circuit.
-- Increase the bandwidth of your ExpressRoute circuit.
+- Como habilitar ou desabilitar o complemento premium da Rota Expressa para seu circuito da Rota Expressa.
+- Aumente a largura de banda de seu circuito da Rota Expressa.
 
-For more information on limits and limitations, refer to the [ExpressRoute FAQ](expressroute-faqs.md) page.
+Para obter mais informações sobre limites e limitações, consulte a página [Perguntas frequentes sobre a Rota Expressa](expressroute-faqs.md).
 
-### Enable the ExpressRoute premium add-on
+### Habilitar o complemento premium da Rota Expressa
 
-You can enable the ExpressRoute premium add-on for your existing circuit by using the following PowerShell snippet:
-
-```
-$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
-
-$ckt.Sku.Tier = "Premium" $ckt.sku.Name = "Premium\_MeteredData"
-
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
-```
-
-The circuit will now have the ExpressRoute premium add-on features enabled. Note that Microsoft will begin billing you for the premium add-on capability as soon as the command has successfully run.
-
-### Disable the ExpressRoute premium add-on
-
-You can disable the ExpressRoute premium add-on for the existing circuit by using the following PowerShell cmdlet:
+Você pode habilitar o complemento premium da Rota Expressa para o circuito existente usando o seguinte trecho do PowerShell:
 
 ```
 $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-$ckt.Sku.Tier = "Standard" $ckt.sku.Name = "Standard\_MeteredData"
+$ckt.Sku.Tier = "Premium"
+$ckt.sku.Name = "Premium_MeteredData"
 
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-The premium add-on is now disabled for the circuit.
+Agora, o circuito terá os recursos de complemento premium da Rota Expressa habilitados. Observe que a Microsoft começará a cobrar pelo recurso de complemento premium assim que o comando for executado com êxito.
 
-Note that this operation can fail if you are using resources greater than what is permitted for the standard circuit.
+### Desabilitar o complemento premium da Rota Expressa
 
-- Before you downgrade from premium to standard, you must ensure that the number of virtual networks linked to the circuit is less than 10. If you don't do so, your update request fails and Microsoft will bill you at premium rates.
-- You must unlink all virtual networks in other geopolitical regions. If you don't do so, your update request will fail and Microsoft will bill you at premium rates.
-- Your route table must be less than 4,000 routes for private peering. If your route table size is greater than 4,000 routes, the BGP session drops and won't be reenabled until the number of advertised prefixes goes below 4,000.
+Você pode desabilitar o complemento premium da Rota Expressa para o circuito existente usando o seguinte cmdlet do PowerShell:
 
-### Update the ExpressRoute circuit bandwidth
+```
+$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-For supported bandwidth options for your provider, check the [ExpressRoute FAQ](expressroute-faqs.md) page. You can pick any size greater than the size of your existing circuit. After you decide what size you need, use the following command to resize your circuit:
+$ckt.Sku.Tier = "Standard"
+$ckt.sku.Name = "Standard_MeteredData"
+
+Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+```
+
+Agora, o complemento premium está desabilitado para o circuito.
+
+Observe que esta operação poderá falhar se você estiver usando recursos que ultrapassam o que é permitido para o circuito padrão.
+
+- Antes de você fazer o downgrade de premium para standard, verifique se o número de redes virtuais vinculadas ao circuito é menor que 10. Se você não fizer isso, sua solicitação de atualização falhará e a Microsoft cobrará com tarifas premium.
+- Você precisa desvincular todas as redes virtuais em outras regiões geopolíticas. Se você não fizer isso, sua solicitação de atualização falhará e a Microsoft cobrará com tarifas premium.
+- Sua tabela de roteamento deve ter menos de 4.000 rotas para o emparelhamento privado. Se o tamanho da tabela de roteamento for maior que 4.000 rotas, a sessão BGP será descartada e não poderá ser reabilitada até que o número de prefixos anunciados fique abaixo de 4.000.
+
+### Atualizar a largura de banda do circuito da Rota Expressa
+
+Para obter opções de largura de banda com suporte para seu provedor, verifique a página [Perguntas frequentes sobre a Rota Expressa](expressroute-faqs.md). Você pode escolher qualquer tamanho maior do que o tamanho do circuito existente. Depois de decidir sobre qual tamanho você precisa, use o seguinte comando para redimensionar o circuito:
 
 ```
 $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -339,16 +383,17 @@ $ckt.ServiceProviderProperties.BandwidthInMbps = 1000
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-Your circuit will be sized up on the Microsoft side. Then you must contact your connectivity provider to update configurations on their side to match this change. After you make this notification, Microsoft will begin billing you for the updated bandwidth option.
+O circuito será dimensionado no lado da Microsoft. Entre em contato com seu provedor de conectividade para que ele atualize as configurações para corresponder a essa alteração.Depois de fazer essa notificação, a Microsoft começará a cobrar pela opção de largura de banda atualizada.
 
-**Important**: You cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth requires you to deprovision the ExpressRoute circuit and then reprovision a new ExpressRoute circuit.
+**Importante**: Não é possível reduzir a largura de banda de um circuito da Rota Expressa sem interrupções. O downgrade da largura de banda exige o desprovisionamento do circuito da Rota Expressa e um reprovisionamento de um novo circuito da Rota Expressa.
 
-## Delete and deprovision an ExpressRoute circuit
+## Excluir e desprovisionar um circuito da Rota Expressa
 
-You can delete your ExpressRoute circuit by running the following command:
+Você pode excluir o circuito da Rota Expressa executando o comando a seguir:
 
 ```
-Remove-AzureRmExpressRouteCircuit -ResourceGroupName "ExpressRouteResourceGroup" -Name "ExpressRouteARMCircuit" ```
+Remove-AzureRmExpressRouteCircuit -ResourceGroupName "ExpressRouteResourceGroup" -Name "ExpressRouteARMCircuit"
+```
 
 Observe que você precisa desvincular todas as redes virtuais do circuito da Rota Expressa para que essa operação tenha sucesso. Se essa operação falhar, verifique se há redes virtuais vinculadas ao circuito.
 
@@ -363,4 +408,6 @@ Depois de criar seu circuito, faça o seguinte:
 - [Criar e modificar o roteamento do circuito da Rota Expressa](expressroute-howto-routing-arm.md)
 - [Vincular a rede virtual ao circuito da Rota Expressa](expressroute-howto-linkvnet-arm.md)
 
+
 <!---HONumber=AcomDC_0309_2016-->
+
