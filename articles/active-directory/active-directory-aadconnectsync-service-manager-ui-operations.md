@@ -35,7 +35,8 @@ A coluna **Status** traz as informações mais importantes e mostra o problema m
 | --- | --- |
 | stopped-* | Não foi possível concluir a execução. Por exemplo, se o sistema remoto está inoperante e não pode ser contatado. |
 | stopped-error-limit | Há mais de 5.000 erros. A execução foi interrompida automaticamente devido ao grande número de erros. |
-| completed-*-errors | A execução foi concluída, mas há erros (menos de 5.000) que devem ser investigados. | | completed-*-warnings | A execução foi concluída, mas alguns dados não estão no estado esperado. Se houver erros, geralmente, isso indicará apenas um sintoma. Até que tenha resolvido os erros, você não deverá investigar os avisos. |
+| completed-*-errors | A execução foi concluída, mas há erros (menos de 5.000) que devem ser investigados. | 
+| completed-*-warnings | A execução foi concluída, mas alguns dados não estão no estado esperado. Se houver erros, geralmente, isso indicará apenas um sintoma. Até que tenha resolvido os erros, você não deverá investigar os avisos. |
 | sucesso | Nenhum problema. |
 
 Ao selecionar uma linha, a parte inferior será atualizada para mostrar os detalhes dessa execução. À extrema esquerda da parte inferior, talvez você veja uma lista indicando **Etapa nº**. Isso só será exibido se você tiver vários domínios na floresta, em que cada domínio é representado por uma etapa. O nome de domínio pode ser encontrado sob o título **Partição**. Em **Estatísticas de Sincronização**, é possível encontrar mais informações sobre o número de alterações que foram processadas. É possível clicar nos links para obter uma lista dos objetos alterados. Se houver objetos com um erro, eles serão exibidos em **Erros de Sincronização**.
@@ -56,4 +57,4 @@ Saiba mais sobre a configuração de [sincronização do Azure AD Connect](activ
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->

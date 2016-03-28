@@ -313,11 +313,11 @@ Algumas dessas mensagens de erro também podem ser vistas no Portal do Azure qua
 
 ### <a id="UnableToResolveDNS"></a>UnableToResolveDNS
 - **Descrição**: não é possível resolver o *yourDnsUrl* do DNS. Verifique se foi fornecida a URL totalmente qualificada do ponto de extremidade do blob.  
-- **Atenuação**: forneça uma URL de blob válida. A URL DEVE ser totalmente válida, incluindo começar com **http://* e terminar com *.com*.
+- **Atenuação**: forneça uma URL de blob válida. A URL DEVE ser totalmente válida, incluindo começar com *http://* e terminar com *.com*.
 
 ### <a id="UnableToVerifyLocationOfResource"></a>UnableToVerifyLocationOfResource
 - **Descrição**: não é possível verificar a localização do recurso *yourDnsUrl*. Verifique se foi fornecida a URL totalmente qualificada do ponto de extremidade do blob.  
-- **Atenuação**: forneça uma URL de blob válida. A URL DEVE ser totalmente válida, incluindo começar com **http://* e terminar com *.com*.
+- **Atenuação**: forneça uma URL de blob válida. A URL DEVE ser totalmente válida, incluindo começar com *http://* e terminar com *.com*.
 
 ### <a id="VersionCapabilityNotAvailable"></a>VersionCapabilityNotAvailable
 - **Descrição**: a capacidade da versão não está disponível para a versão *specifiedVersion* e para a ID da assinatura *yourSubscriptionId*.  
