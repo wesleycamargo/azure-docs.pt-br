@@ -33,6 +33,7 @@ Neste momento, o recurso de várias NICs tem os seguintes requisitos e restriç�
 - Em um único serviço de nuvem (implantações clássicas) ou um grupo de recursos (implantação do Gerenciador de Recursos), são permitidas apenas as seguintes configurações: 
 	- Todas as VMs daquele serviço de nuvem devem ser habilitadas para várias NICs ou 
 	- Todas as VMs daquele serviço de nuvem devem ter uma única NIC cada uma 
+	- Além disso, uma máquina virtual que não tem interfaces de rede secundárias não pode ser atualizada para ter interfaces de rede secundárias e vice-versa.
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
  
@@ -265,4 +266,4 @@ Para VMs do Linux, como o comportamento padrão usa roteamento de host fraco, re
 - Implante [VMs com MultiNIC em um cenário de aplicativo de 2 camadas, em uma implantação do Gerenciador de Recursos](virtual-network-deploy-multinic-arm-template.md).
 - Implante [VMs com MultiNIC em um cenário de aplicativo de 2 camadas, em uma implantação clássica](virtual-network-deploy-multinic-classic-ps.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/16/2015"
+   ms.date="03/08/2016"
    ms.author="spyros;sethm" />
 
 # Notificar os usuários de dados recebidos de sensores ou outros sistemas
@@ -25,7 +25,7 @@ Em outro cenário, imagine que você executa uma instalação de embarque animai
 
 ![][2]
 
-O problema é como obter informações críticas quando determinadas condições são atendidas, e não quando você realiza a verificação de um relatório estático. Se você estiver usando um [Hub de Eventos do Azure][] ou o [Hub IoT][] para receber dados de dispositivos ou aplicativos corporativos, como [Dynamics AX][], há várias opções para processá-los. Você pode exibi-los em um site, analisá-los, armazená-los e usá-los para disparar comandos para fazer algo. Para fazer isso, você pode usar ferramentas avançadas como [Sites do Azure][], [SQL Azure][], [HDInsight][], [Cortana Analytics Suite][], [IoT Suite][], [Aplicativos Lógicos][] ou [Hubs de Notificação do Azure][]. Mas, às vezes, tudo o que você deseja fazer é enviar esses dados para alguém com um mínimo de sobrecarga. Para mostrar como fazer isso com apenas um pouco de código, apresentamos uma nova amostra, [AppToNotifyUsers][]. As opções incluídas são email (SMTP), SMS e telefone.
+O problema é como obter informações críticas quando determinadas condições são atendidas, e não quando você realiza a verificação de um relatório estático. Se você estiver usando um [Hub de Eventos do Azure][] ou o [Hub IoT do Azure][] para receber dados de dispositivos ou aplicativos corporativos, como [Dynamics AX][], há várias opções para processá-los. Você pode exibi-los em um site, analisá-los, armazená-los e usá-los para disparar comandos para fazer algo. Para fazer isso, você pode usar ferramentas avançadas como [Sites do Azure][], [SQL Azure][], [HDInsight][], [Cortana Analytics Suite][], [IoT Suite][], [Aplicativos Lógicos][] ou [Hubs de Notificação do Azure][]. Mas, às vezes, tudo o que você deseja fazer é enviar esses dados para alguém com um mínimo de sobrecarga. Para mostrar como fazer isso com apenas um pouco de código, apresentamos uma nova amostra, [AppToNotifyUsers][]. As opções incluídas são email (SMTP), SMS e telefone.
 
 ## Estrutura de aplicativo
 
@@ -64,13 +64,12 @@ Para implantar a solução para notificar usuários com base nos dados recebidos
 
 [Tutorial de Hubs de Evento]: event-hubs-csharp-ephcs-getstarted.md
 [Hub IoT do Azure]: https://azure.microsoft.com/services/iot-hub/
-[Hub IoT]: https://azure.microsoft.com/services/iot-hub/
 [Hubs de eventos do Azure]: https://azure.microsoft.com/services/event-hubs/
 [Hub de Eventos do Azure]: https://azure.microsoft.com/services/event-hubs/
-[aplicativo de exemplo completo que usa os Hubs de Evento]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
-[solução de mensagens na fila]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+[aplicativo de exemplo completo que usa os Hubs de Evento]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[solução de mensagens na fila]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 [AppToNotifyUsers]: https://github.com/Azure-Samples/event-hubs-dotnet-user-notifications
-[Dynamics AX]: http://www.microsoft.com/pt-BR/dynamics/erp-ax-overview.aspx
+[Dynamics AX]: http://www.microsoft.com/dynamics/erp-ax-overview.aspx
 [Sites do Azure]: https://azure.microsoft.com/services/app-service/web/
 [SQL Azure]: https://azure.microsoft.com/services/sql-database/
 [HDInsight]: https://azure.microsoft.com/services/hdinsight/
@@ -83,4 +82,4 @@ Para implantar a solução para notificar usuários com base nos dados recebidos
 [1]: ./media/event-hubs-sensors-notify-users/event-hubs-sensor-alert.png
 [2]: ./media/event-hubs-sensors-notify-users/event-hubs-erp-alert.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0316_2016-->

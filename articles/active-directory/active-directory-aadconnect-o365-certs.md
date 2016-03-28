@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="03/14/2016"
 	ms.author="billmath"/>
 
 
@@ -55,7 +55,7 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 em que `(your_FS_name) ` é substituído pelo nome de host de serviço de federação que sua organização usa, por exemplo, fs.contoso.com. Se você puder verificar ambas as configurações com êxito, não terá de fazer mais nada.
 
-Exemplo: https://fs.contospocom/federationmetadata/2007-06/federationmetadata.xml
+Exemplo: https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
 
 ## Se você decidir atualizar o certificado manualmente
 Sempre que atualizar manualmente os certificados do AD FS, você deverá atualizar seu domínio do Office 365 usando o comando Update-MsolFederatedDomain do PowerShell, conforme mostrado nas etapas em Atualize manualmente as propriedades de confiança de federação do Office 365 na seção [aqui](#if-your-metadata-is-not-publicly-accessible)
@@ -101,4 +101,4 @@ Se a configuração AutocertificateRollover for Verdadeira, mas os metadados de 
 
 >[AZURE.NOTE] Se você precisar oferecer suporte a vários domínios de nível superior, como contoso.com e fabrikam.com, deve usar a opção SupportMultipleDomain com todos os cmdlets. Para obter mais informações, consulte Suporte para vários domínios de nível superior. Por fim, certifique-se de que todos os servidores Proxy do aplicativo Web sejam atualizados com o rollup [Windows Server de maio de 2014](http://support.microsoft.com/kb/2955164), caso contrário, os proxies poderão não atualizar a si mesmos com o novo certificado, resultando em interrupção.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

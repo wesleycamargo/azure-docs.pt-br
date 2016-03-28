@@ -227,7 +227,7 @@ Nome de Usuário | Especifique o nome de usuário se você estiver usando a aute
 Senha | Especifique a senha da conta de usuário que você especificou para o nome de usuário. | Não 
 gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar ao banco de dados PostgreSQL local. | Sim 
 
-Consulte [Definir credenciais e segurança](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) para obter detalhes sobre como definir credenciais para uma fonte de dados do PostgreSQL local.
+Consulte [Definir credenciais e segurança](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) para obter detalhes sobre como definir credenciais para uma fonte de dados do PostgreSQL local.
 
 ## Propriedades de tipo do conjunto de dados do PostgreSQL
 
@@ -310,4 +310,4 @@ texto | | Cadeia de caracteres
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

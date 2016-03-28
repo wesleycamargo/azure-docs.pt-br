@@ -17,7 +17,7 @@
 	ms.author="douglasl"/>
 
 
-# Fazer backup e restaurar bancos de dados habilitados para Stretch 
+# Fazer backup e restaurar bancos de dados habilitados para Stretch
 
 Para fazer backup e restaurar os bancos de dados habilitados para Stretch, você pode continuar a usar os métodos utilizados atualmente. Para obter mais informações sobre o backup e a restauração do SQL Server, consulte [Fazer Backup e Restaurar Bancos de Dados do SQL Server](https://msdn.microsoft.com/library/ms187048.aspx).
 
@@ -59,7 +59,12 @@ Depois de restabelecer a conexão, o Banco de Dados de Stretch tenta reconciliar
 ![Banco de Dados de Stretch após backup][StretchBackupImage4]
 
 ## Consulte também
-[Gerenciar e solucionar problemas do banco de Dados de Stretch](sql-server-stretch-database-manage.md) [sys.sp\_rda\_reauthorize\_db (Transact-SQL)](https://msdn.microsoft.com/library/mt131016.aspx) [Fazer Backup e Restaurar os Bancos de Dados do SQL Server](https://msdn.microsoft.com/library/ms187048.aspx)
+
+[Gerenciar e solucionar problemas do Banco de Dados de Stretch](sql-server-stretch-database-manage.md)
+
+[sys.sp\_rda\_reauthorize\_db (Transact-SQL)](https://msdn.microsoft.com/library/mt131016.aspx)
+
+[Backup e restauração de bancos de dados do SQL Server](https://msdn.microsoft.com/library/ms187048.aspx)
 
 <!--Image references-->
 [StretchBackupImage1]: ./media/sql-server-stretch-database-backup/StretchDBBackup1.png
@@ -67,4 +72,4 @@ Depois de restabelecer a conexão, o Banco de Dados de Stretch tenta reconciliar
 [StretchBackupImage3]: ./media/sql-server-stretch-database-backup/StretchDBBackup3.png
 [StretchBackupImage4]: ./media/sql-server-stretch-database-backup/StretchDBBackup4.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

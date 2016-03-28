@@ -28,15 +28,12 @@ O código-fonte para a solução pré-configurada está disponível no GitHub no
 - Monitoramento remoto: [https://www.github.com/Azure/azure-iot-remote-monitoring](https://github.com/Azure/azure-iot-remote-monitoring)
 - Manutenção preditiva: [https://github.com/Azure/azure-iot-predictive-maintenance](https://github.com/Azure/azure-iot-predictive-maintenance)
 
-O código-fonte para as soluções pré-configuradas é fornecido para demonstrar os padrões e as práticas usadas para implementar a funcionalidade de ponta a ponta de uma solução IoT usando o Azure IoT Suite. A orientação sobre a criação e a implantação de linha de comando está no wiki do GitHub para cada solução pré-configurada:
-
-- [Wiki de monitoramento remoto](https://github.com/Azure/azure-iot-remote-monitoring/wiki)
-- [Wiki de manutenção preditiva](https://github.com/Azure/azure-iot-predictive-maintenance/wiki)
+O código-fonte para as soluções pré-configuradas é fornecido para demonstrar os padrões e as práticas usadas para implementar a funcionalidade de ponta a ponta de uma solução IoT usando o Azure IoT Suite. Você pode encontrar mais informações sobre como compilar e implantar as soluções em repositórios GitHub.
 
 ## Gerenciar as permissões em uma solução pré-configurada
 O portal de solução para cada solução pré-configurada é criado como um novo aplicativo do Azure Active Directory. Você pode gerenciar as permissões para o portal de solução (aplicativo AAD) da seguinte maneira:
 
-1. Abra no [portal clássico do Azure](https://manage.windowsazure.com)
+1. Abra no [portal clássico do Azure](https://manage.windowsazure.com).
 2. Navegue até o aplicativo AAD selecionando **Aplicativos que minha empresa possui** e clique na marca de seleção.
 3. Navegue até **Usuários** e atribua membros no seu locatário do Azure Active Directory a uma função. 
 
@@ -92,4 +89,4 @@ Para obter mais informações sobre dispositivos IoT, consulte o [Site de desenv
 
 [SDK do Dispositivo IoT]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

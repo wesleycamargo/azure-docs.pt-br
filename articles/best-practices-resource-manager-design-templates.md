@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Práticas recomendadas para criação de modelos do Gerenciador de Recursos do Azure"
+	pageTitle="Práticas recomendadas de modelos do Gerenciador de Recursos do Azure | Microsoft Azure"
 	description="Mostrar os padrões de design para modelos de Gerenciador de Recursos do Azure"
 	services="azure-resource-manager"
 	documentationCenter=""
-	authors="mmercuri"
-	manager="georgem"
+	authors="tfitzmac"
+	manager="timlt"
 	editor="tysonn"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="12/17/2015"
-	ms.author="mmercuri"/>
+	ms.author="tomfitz"/>
 
 # Práticas recomendadas para criação de modelos do Gerenciador de Recursos do Azure
 
@@ -381,6 +381,6 @@ Se desejar publicar seu modelo para o marketplace, você simplesmente estabelece
 
 - Para ver exemplos contextuais de como implementar os princípios de design apresentados neste tópico, consulte [Exemplos contextuais de práticas recomendadas para a implementação de modelos](best-practices-resource-manager-examples.md).
 - Para obter recomendações sobre como lidar com segurança no Gerenciador de Recursos do Azure, consulte [Considerações de segurança do Gerenciador de Recursos do Azure](best-practices-resource-manager-security.md).
-- Para saber mais sobre o estado de compartilhamento dentro e fora dos modelos, consulte [O estado de compartilhamento em modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-state.md).
+- Para saber mais sobre como compartilhar o estado dentro e fora dos modelos, consulte [Compartilhando estado em modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-state.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0316_2016-->

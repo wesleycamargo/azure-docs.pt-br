@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/12/2016" 
+	ms.date="03/14/2016" 
 	ms.author="spelluru"/>
 
 # Monitorar e gerenciar os pipelines do Azure Data Factory usando novo Aplicativo de Monitoramento e Gerenciamento
@@ -24,13 +24,15 @@
 Este artigo descreve como monitorar, gerenciar e depurar seus pipelines usando o **Aplicativo de Monitoramento e Gerenciamento**. Ele também fornece informações sobre como criar alertas e como obter notificações sobre falhas usando o aplicativo.
       
 ## Iniciando o Aplicativo de Monitoramento e Gerenciamento 
-Para iniciar o Aplicativo de Monitoramento e Gerenciamento, clique no bloco **Aplicativo de Monitoramento** na folha **DATA FACTORY** do seu data factory.
+Para iniciar o Aplicativo de Monitoramento e Gerenciamento, clique no bloco **Monitoramento e Gerenciamento** na folha **DATA FACTORY** do seu data factory.
 
 ![Bloco Monitoramento na home page do Data Factory](./media/data-factory-monitor-manage-app/MonitoringAppTile.png)
 
 Você verá que o Aplicativo de Monitoramento e Gerenciamento foi iniciado em uma guia/janela separada.
 
 ![Aplicativo de Monitoramento e Gerenciamento](./media/data-factory-monitor-manage-app/AppLaunched.png)
+
+> [AZURE.NOTE] Se não ver janelas de atividade na lista na parte inferior, clique no botão **Atualizar** na barra de ferramentas para atualizar a lista. Além disso, defina os valores corretos para os filtros **Hora de início** e **Hora de término**.
 
 ## Noções básicas sobre o Aplicativo de Monitoramento e Gerenciamento
 Há três guias (**Gerenciador de Recursos**, **Exibições de Monitoramento** e **Alertas**) à esquerda e a primeira guia (Gerenciador de Recursos) é selecionada por padrão.
@@ -43,6 +45,7 @@ Você pode ver todos os recursos (pipelines, conjuntos de dados, serviços vincu
 - a entidade Data Factory associada está realçada na Exibição de Diagrama.
 - as janelas de atividades associadas (clique [aqui](data-factory-scheduling-and-execution.md) para saber mais sobre as janelas de atividades) estão realçadas na lista Janelas de Atividades na parte inferior.  
 - as propriedades do objeto selecionado na janela Propriedades no painel direito. 
+- Definição de JSON do objeto selecionado, se aplicável. Por exemplo: um serviço vinculado, um conjunto de dados ou um pipeline. 
 
 ![Gerenciador de Recursos](./media/data-factory-monitor-manage-app/ResourceExplorer.png)
 
@@ -86,6 +89,14 @@ Na exibição fechada/aberta do pipeline, ao clicar em um conjunto de dados de s
 No painel direito, alterne para a guia **Gerenciador de Janelas de Atividades** para ver mais detalhes.
 
 ![Gerenciador de Janelas de Atividades](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
+
+Você também verá as **variáveis resolvidas** para cada tentativa de execução de atividade na seção **Tentativas**.
+
+![Variáveis resolvidas](./media/data-factory-monitor-manage-app/ResolvedVariables.PNG)
+
+Alterne para a guia **Script** para ver a definição do script JSON para o objeto selecionado.
+
+![Tabela de script](./media/data-factory-monitor-manage-app/ScriptTab.png)
 
 Você pode ver janelas de atividades em três locais:
 
@@ -170,7 +181,7 @@ As janelas de atividades podem estar em um dos seguintes status:
 </table>
 
 
-Ao clicar em uma janela de atividades na lista, você verá detalhes sobre a janela de atividades na janela Propriedades ou no Gerenciador de Janelas de Atividades à direita.
+Ao clicar em uma janela de atividades na lista, você verá detalhes sobre a janela de atividades na janela **Propriedades** ou no **Gerenciador de Janelas de Atividades** à direita.
 
 ![Gerenciador de Janelas de Atividades](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
 
@@ -187,7 +198,7 @@ Ela exibe as propriedades do item selecionado no Gerenciador de Recursos (modo d
 
 ### Gerenciador de Janelas de Atividades
 
-A janela Gerenciador de Janelas de Atividades está no painel mais à direita do Aplicativo de Monitoramento e Gerenciamento. Ela exibe detalhes sobre a janela de atividades selecionada no pop-up Janelas de Atividades ou na lista Janelas de Atividades.
+A janela **Gerenciador de Janelas de Atividades** está no painel mais à direita do Aplicativo de Monitoramento e Gerenciamento. Ela exibe detalhes sobre a janela de atividades selecionada no pop-up Janelas de Atividades ou na lista Janelas de Atividades.
 
 ![Gerenciador de Janelas de Atividades](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-3.png)
 
@@ -195,6 +206,10 @@ Você pode alternar para outra janela de atividades clicando nela na exibição 
 
 Você pode usar os botões da barra de ferramentas no painel inferior para **executar novamente** a janela de atividades ou para **atualizar** os detalhes no painel.
 
+### Script 
+Você pode usar a guia **Script** para exibir a definição de JSON da entidade selecionada do Data Factory (serviço vinculado, conjunto de dados e pipeline).
+
+![Tabela de script](./media/data-factory-monitor-manage-app/ScriptTab.png)
 
 ## Usando as exibições do sistema
 O Aplicativo Monitoramento e Gerenciamento inclui exibições do sistema predefinidas (**Janelas de atividades recentes**, **Janelas de atividades com falha**, **Janelas de atividades em andamento**) que permitem exibir as janelas de atividades recentes/com falha/em andamento do seu data factory.
@@ -295,4 +310,4 @@ Cluster HDI sob Demanda Excluído | Bem-sucedido | &nbsp; |
     
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

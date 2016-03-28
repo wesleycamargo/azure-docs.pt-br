@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Privileged Identity Management do Azure: Como Começar a Adicionar uma Função a um Usuário"
-   description="Aprenda a adicionar funções a identidades com privilégios com a extensão Privileged Identity Management do Azure."
+   pageTitle="Privileged Identity Management do Azure AD: como Começar a Adicionar uma Função a um Usuário"
+   description="Saiba como adicionar funções a identidades privilegiadas com a extensão Privileged Identity Management do Azure Active Directory."
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="03/08/2016"
    ms.author="kgremban"/>
 
-# Privileged Identity Management do Azure: como adicionar ou remover uma função de usuário
+# Privileged Identity Management do Azure AD: como adicionar ou remover uma função de usuário
 
 ## Adicionando ou removendo uma função de usuário
-Há várias maneiras de navegar até a folha **Adicionar usuários gerenciados** da interface PIM. A sequência de cliques para cada uma é listada abaixo:
+Há várias maneiras de navegar até a folha **Adicionar usuários gerenciados** da interface PIM (Privileged Identity Management). A sequência de cliques para cada uma é listada abaixo:
 
 - Painel > Usuários em Funções Administrativas > Adicionar ou Remover
 - Painel > Resumo das Funções > Lista de Todos os Usuários > Adicionar ou Remover
@@ -34,6 +34,9 @@ Depois de navegar até a folha **Adicionar usuários gerenciados**:
 4. Selecione o usuário na lista e clique em **Concluído**.
 5. Clique em **OK** para salvar sua seleção. O usuário que você selecionou aparecerá na lista e a função será temporária.
 6. Se você quiser tornar a função permanente, clique no usuário na lista. As informações do usuário serão exibidas em uma nova folha. Selecione **tornar perm.** no menu de informações do usuário.
+
+    Isso precisará ser feito se o usuário não puder se registrar no MFA (Azure Muti-Fator Authentication) ou estiver usando uma conta da Microsoft. Os administradores temporários são solicitados a se registrarno MFA durante a ativação.
+
 7. Clique em **Ativar** para iniciar uma solicitação para ativar essa função para o usuário. Insira o motivo para a ativação no campo de texto **Motivo da solicitação**. Nesse momento, a função será ativada automaticamente para esse usuário e uma notificação será enviada para os administradores globais.
 
 ## Remover um usuário de uma função
@@ -46,4 +49,4 @@ Depois de navegar até a folha **Adicionar usuários gerenciados**:
 ## Próximas etapas
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

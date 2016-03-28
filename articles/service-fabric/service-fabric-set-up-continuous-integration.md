@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="01/27/2015"
+   ms.date="01/27/2016"
    ms.author="cawa" />
 
 # Configurar a integração contínua para um aplicativo do Service Fabric usando o VSTS Visual Studio Team Services
@@ -253,7 +253,7 @@ Para instalar o Azure PowerShell, execute as etapas da seção anterior **Instal
 
 ### Adicione os scripts de integração contínua ao controle do código-fonte de seu aplicativo
 
-1.	Extrair [ServiceFabricContinuousIntegrationScripts.zip](https://gallery.technet.microsoft.com/Set-up-continuous-f8b251f6) para qualquer pasta no computador. Copiar o conteúdo de `Powershell\Automation` para qualquer pasta no controle do código-fonte.
+1.	Extrair [ServiceFabricContinuousIntegrationScripts.zip](https://gallery.technet.microsoft.com/Set-up-continuous-f8b251f6) para qualquer pasta no computador. Copie o conteúdo de `Powershell\Automation` para qualquer pasta no controle do código-fonte.
 
 2.	Verifique os arquivos resultantes.
 
@@ -411,4 +411,4 @@ Para saber mais sobre a integração contínua com aplicativos do Service Fabric
 - [Implantar um agente de compilação](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
 - [Criar e configurar uma definição de compilação](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

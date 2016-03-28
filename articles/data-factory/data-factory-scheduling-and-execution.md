@@ -261,6 +261,27 @@ A Exibição de Diagrama com ambas as atividades no mesmo pipeline teria a apar�
 
 ![Encadeando atividades no mesmo pipeline](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
 
+### Cópia solicitada
+É possível executar várias operações de cópia, uma após a outra de maneira sequencial/ordenada. Digamos que você tenha duas atividades de cópia em um pipeline: CopyActivity1 e CopyActivity com os conjuntos de dados de saída dos dados de entrada a seguir.
+
+CopyActivity1: Entrada: Dataset1 Saída Dataset2
+
+CopyActivity2: Entradas: Dataset2 Saída Dataset4
+
+CopyActivity2 seria executado somente se CopyActivity1 tivesse sido executado com êxito e Dataset2 estivesse disponível.
+
+No exemplo acima, CopyActivity2 pode ter uma entrada diferente, digamos Dataset3, mas você precisará especificar Dataset2 também como uma entrada para CopyActivity2 para que a atividade não seja executada até que CopyActivity1 seja concluído. Por exemplo:
+
+CopyActivity1: Entrada: Dataset1 Saída Dataset2
+
+CopyActivity2: Entradas: Dataset3, Dataset2 Saída: Dataset4
+
+Quando várias entradas forem especificadas, somente o primeiro conjunto de dados de entrada será usado para copiar dados, mas outros conjuntos de dados serão usados como dependências. CopyActivity2 começaria executando apenas quando as seguintes condições fossem atendidas:
+
+- CopyActivity2 foi concluído com êxito e Dataset2 está disponível. Esse conjunto de dados não será usado ao copiar dados para Dataset4. Ele atua apenas como uma dependência de agendamento de CopyActivity2.   
+- Dataset3 está disponível. Esse conjunto de dados representa os dados que são copiados para o destino.  
+
+
 
 ## Conjuntos de dados de modelagem com frequências diferentes
 
@@ -532,7 +553,7 @@ A atividade de hive usa as 2 entradas e produz uma fatia de saída todos os dias
 
 ## Funções do Data Factory e variáveis do sistema   
 
-Veja o artigo [Funções e variáveis do sistema do Data Factory](data-factory-functions-variables.md) para obter uma lista das funções e variáveis do sistema com suporte no Azure Data Factory.
+Veja o artigo [Funções e variáveis do sistema do Data Factory](data-factory-functions-variables.md) para obter uma lista das funções e variáveis do sistema compatíveis com o Azure Data Factory.
 
 ## Grande aprofundamento em dependência de dados
 
@@ -632,4 +653,4 @@ Semelhante a conjuntos de dados que são produzidos pelo Data Factory, as fatias
 
   
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

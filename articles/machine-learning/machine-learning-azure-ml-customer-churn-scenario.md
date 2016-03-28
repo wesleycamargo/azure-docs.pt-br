@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016" 
+	ms.date="03/11/2016" 
 	ms.author="jeannt"/>
 
 # Analisando a Variação do Cliente usando o Aprendizado de Máquina do Microsoft Azure
@@ -174,9 +174,9 @@ A tabela a seguir resume o desempenho dos algoritmos:
 
 *Tabela 1. Desempenho geral (precisão) dos algoritmos*
 
-**LR**|	**BT**|	**AP**|	**SVM**|
---|--|--|--|
-Modelo médio|	O melhor modelo|	Subdesempenhando|	Modelo médio
+| LR|BT|AP|SVM|
+|---|---|---|---|
+|Modelo médio|O melhor modelo|Subdesempenhando|Modelo médio|
 
 Os modelos hospedados no Estúdio do Aprendizado de Máquina superaram o desempenho de SAS em 15% a 25% para velocidade de execução, mas a precisão permaneceu amplamente no mesmo nível.
 
@@ -240,4 +240,4 @@ Seu feedback nos ajudará a melhorar a qualidade dos white papers que produzirmo
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

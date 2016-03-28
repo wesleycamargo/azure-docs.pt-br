@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/14/2016"
 	ms.author="meetb"/>
 
 
@@ -99,11 +99,11 @@ Nesse exemplo, você verá como executar uma instrução [INSERT](https://msdn.m
 Este exemplo de código demonstra o uso de transações nas quais você:
 
 
--Inicia uma transação
+- Inicia uma transação
 
--Insere uma linha de dados
+- Insere uma linha de dados
 
--Reverte a transação para desfazer a inserção
+- Reverte a transação para desfazer a inserção
 
 
 	import pymssql
@@ -117,4 +117,4 @@ Este exemplo de código demonstra o uso de transações nas quais você:
 
 Para saber mais, consulte o [Centro de Desenvolvedores do Python](/develop/python/).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0316_2016-->

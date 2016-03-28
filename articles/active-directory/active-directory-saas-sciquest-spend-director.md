@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="03/16/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ O objetivo deste tutorial é mostrar a você como integrar o SciQuest Spend Dire
 
 - Você pode controlar, no Azure AD, quem tem acesso ao SciQuest Spend Director 
 - Você pode habilitar seus usuários a fazerem logon automaticamente no SciQuest Spend Director (logon único) com suas contas do Azure AD
-- Você pode gerenciar suas contas em um local central – o Portal do Active Directory do Azure
+- Você pode gerenciar suas contas em um único local: o Portal clássico do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
@@ -35,7 +35,7 @@ Para configurar a integração do Azure AD com o SciQuest Spend Director, você 
 - Uma assinatura do SciQuest Spend Director com o logon único habilitado
 
 
-> [AZURE.NOTE]Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+> [AZURE.NOTE] Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 
 
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
@@ -56,7 +56,7 @@ Para configurar a integração do SciQuest Spend Director com o Azure AD, você 
 
 **Para adicionar o SciQuest Spend Director por meio da galeria, execute as seguintes etapas:**
 
-1. No **Portal de Gerenciamento do Azure**, no painel navegação à esquerda, clique em **Active Directory**. <br><br> ![Active Directory][1]
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. <br><br>![Active Directory][1]
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
@@ -82,11 +82,11 @@ Para configurar e testar o logon único do Azure AD com o SciQuest Spend Directo
 
 ### Configuração do logon único do Azure AD
 
-O objetivo desta seção é habilitar o logon único do AD do Azure no portal do AD do Azure e configurar o logon único em seu aplicativo do SciQuest Spend Director.<br>
+O objetivo desta seção é habilitar o logon único do Azure AD no portal clássico do Azure e configurar o logon único em seu aplicativo do SciQuest Spend Director.<br>
 
 **Para configurar o logon único do Azure AD com o SciQuest Spend Director, execute as seguintes etapas:**
 
-1. No portal do AD do Azure, na página de integração de aplicativos do **SciQuest Spend Director**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar logon único**.<br><br>![Configurar o logon único][8]
+1. No portal clássico do Azure, na página de integração de aplicativos do **SciQuest Spend Director**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.<br><br>![Configurar o logon único][8]
 
 2. Na página **Como você deseja que os usuários façam logon no SciQuest Spend Director**, selecione **Logon único do AD do Azure** e clique em **Avançar**.<br><br> ![Logon único do AD do Azure][9]
 
@@ -102,18 +102,18 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal do
 
 5. Entre em contato com o suporte da SciQuest para habilitar esse método de autenticação usando os metadados baixado acima.
 
-6. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.<br><br>![O que é o Azure AD Connect][15]
+6. No Portal clássico do Azure, escolha a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**. <br><br>![O que é o Azure AD Connect][15]
 10. Na página **Confirmação de logon único**, clique em **Concluir**.<br><br>![O que é o Azure AD Connect][16]
 
 
 
 
-### Criação de um usuário de teste do Azure AD
-O objetivo desta seção é criar um usuário de teste no portal do Azure chamado Britta Simon.
+### Criação de um usuário de teste do AD do Azure
+O objetivo desta seção é criar um usuário de teste no Portal Clássico do Azure chamado Brenda Fernandes.
 
-**Para criar um usuário de teste no Azure AD, execute as seguintes etapas:**
+**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **Portal de Gerenciamento do Azure**, no painel navegação à esquerda, clique em **Active Directory**. <br><br>![O que é o Azure AD Connect][100] 
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. <br><br>![O que é o Azure AD Connect][100] 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**. <br><br>![O que é o Azure AD Connect][101] 
 4. Para abrir a caixa de diálogo **Adicionar usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar usuário**.<br><br>![O que é o Azure AD Connect][102] 
@@ -150,7 +150,7 @@ O objetivo desta seção é permitir que Brenda Fernandes use o logon único do 
 
 **Para atribuir Britta Simon ao SciQuest Spend Director, execute as seguintes etapas:**
 
-1. No portal do Azure, para abrir a exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu principal.<br> <br><br>![O que é o Azure AD Connect][201]
+1. No portal clássico do Azure, para abrir o modo de exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior. <br><br><br> ![O que é o Azure AD Connect][201]
 2. Na lista de aplicativos, selecione **SciQuest Spend Director**. <br><br>![O que é o Azure AD Connect][202]
 1. No menu na parte superior, clique em **Usuários**.<br> <br><br>![O que é o Azure AD Connect][203]
 1. Na lista de Usuários, selecione **Britta Simon**. <br><br>![O que é o Azure AD Connect][204]
@@ -195,4 +195,4 @@ O objetivo desta seção é testar sua configuração de logon único do AD do A
 [204]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_19.png
 [205]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_20.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0316_2016-->

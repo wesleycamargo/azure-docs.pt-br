@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
+	ms.date="03/14/2016" 
 	ms.author="sdanie"/>
 
 
 # Como salvar e definir a configuração de seu serviço de Gerenciamento de API usando o Git
+
+>[AZURE.IMPORTANT] A configuração do Git para o Gerenciamento de API está atualmente em visualização. Funcionalmente ele está completo, mas está em visualização porque estamos realmente buscando comentários sobre esse recurso. É possível que venhamos a fazer uma grande mudança em resposta aos comentários dos clientes. Portanto, recomendamos que não dependa do recurso para uso em ambientes de produção. Se você tiver dúvidas ou comentários, informe-nos pelo endereço `apimgmt@microsoft.com`.
 
 Cada instância do serviço de Gerenciamento de API mantém um banco de dados de configuração que contém informações sobre a configuração e sobre os metadados da instância do serviço. É possível fazer alterações na instância do serviço alterando uma configuração no portal do editor, usando um cmdlet do PowerShell ou fazendo uma chamada à API REST. Além desses métodos, você também pode gerenciar a configuração da instância do serviço usando o Git, permitindo cenários de gerenciamento de serviço, como:
 
@@ -43,13 +45,17 @@ Este artigo descreve como habilitar e usar o Git para gerenciar a configuração
 
 ## Para habilitar o acesso ao Git
 
-Para configurar o acesso ao Git, clique no menu **Segurança** e navegue até a guia **Repositório de configuração**.
+Você pode exibir rapidamente o status da configuração do Git exibindo o ícone do Git no canto superior direito do portal do editor. Neste exemplo, o acesso ao Git ainda não foi habilitado.
+
+![Status do Git][api-management-git-icon-enable]
+
+Para exibir e definir as configurações do Git, clique no ícone do Git ou clique no menu **Segurança** e navegue até a guia **Repositório de configuração**.
 
 ![Habilitar o GIT][api-management-enable-git]
 
 Para habilitar o acesso ao Git, marque a caixa de seleção **Habilitar acesso ao Git**.
 
-Após um momento, a alteração é salva e uma mensagem de confirmação é exibida.
+Após um momento, a alteração é salva e uma mensagem de confirmação é exibida. Observe que o ícone do Git ficou colorido para indicar que o acesso ao Git está habilitado e a mensagem de status agora indica que há alterações não salvas no repositório. Isso ocorre porque o banco de dados de configuração do serviço de Gerenciamento de API ainda não foi salvo no repositório.
 
 ![Git habilitado][api-management-git-enabled]
 
@@ -208,7 +214,7 @@ As próximas quatro configurações (`DelegationEnabled`, `DelegationUrl`, `Dele
 | Configuração de delegação | É mapeada para |
 |------------------------------|--------------------------------------------|
 | DelegationEnabled | Caixa de seleção **Delegar entrada e inscrição** |
-| DelegationUrl | Caixa de texto **URL do ponto de extremidade da delegação** |
+| DelegationUrl | Caixa de texto **URL do ponto de extremidade da delegação**. |
 | DelegatedSubscriptionEnabled | Caixa de seleção **Delegar assinatura do produto** |
 | DelegationValidationKey | Caixa de texto **Delegar Chave de Validação** |
 
@@ -286,5 +292,6 @@ Para saber mais sobre outras maneiras de gerenciar sua instância de serviço, c
 [api-management-configuration-deploy]: ./media/api-management-configuration-repository-git/api-management-configuration-deploy.png
 [api-management-identity-settings]: ./media/api-management-configuration-repository-git/api-management-identity-settings.png
 [api-management-delegation-settings]: ./media/api-management-configuration-repository-git/api-management-delegation-settings.png
+[api-management-git-icon-enable]: ./media/api-management-configuration-repository-git/api-management-git-icon-enable.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

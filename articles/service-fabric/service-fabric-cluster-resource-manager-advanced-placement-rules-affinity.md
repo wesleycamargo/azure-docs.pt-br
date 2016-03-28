@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Gerenciador de Recursos de Cluster do Service Fabric – Afinidade"
+   pageTitle="Gerenciador de Recursos de Cluster do Service Fabric – Afinidade | Microsoft Azure"
    description="Visão geral das políticas de posicionamento adicionais e das regras para os Serviços do Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="03/10/2016"
    ms.author="masnider"/>
 
-# Afinidade
+# Configurando e usando a afinidade de serviço no Service Fabric
 
 A afinidade é uma das coisas que, pelo menos a princípio, não faz muito sentido para um ambiente de microsserviço. E isso acontece porque realmente não faz muito sentido em um ambiente de microsserviço. A afinidade é um controle fornecido principalmente para ajudar a facilitar a transição de aplicativos maiores e anteriormente monolíticos para a nuvem e para o mundo de microsserviços.
 
@@ -48,25 +48,24 @@ A afinidade é representada por meio de um dos vários esquemas de correlação 
 
 ![Modos de afinidade e seus efeitos][Image1]
 
-#### Estado desejado de melhor esforço
+### Estado desejado de melhor esforço
 Há algumas diferenças entre arquiteturas monolíticas e de afinidade. Quase todas elas se resumem ao fato de que uma relação de afinidade é a melhor solução; já que são serviços fundamentalmente diferentes, eles podem falhar de forma independente, por exemplo. Outras coisas podem causar a separação de réplicas diferentes do serviço, como as limitações de capacidade.
 
 
-#### Cadeias versus Estrelas
+### Cadeias vs. estrelas
 Hoje, não somos capazes de modelar cadeias de relações de afinidade. Isso significa que um serviço filho em um relacionamento de afinidade não pode ser pai em outro relacionamento de afinidade. Isso também significa que se você quiser modelar esse tipo de relação, será necessário modelá-la efetivamente como uma estrela, em vez de uma cadeia, colocando o filho mais baixo como pai do pai do filho do "meio".
 
 ![Cadeias versus Estrelas no contexto de relações de afinidade][Image2]
 
 Outra coisa a ser observada sobre as relações atuais de afinidade é que elas são direcionais. Isso é sutil, mas significa, efetivamente, que a regra de "afinidade" apenas impõe que o filho esteja onde o pai estiver. Caso o pai, de repente, realize um failover para outro nó (ou qualquer outra ação limitada que force a movimentação apenas do pai), o Gerenciador de Recursos não considerará que há algo errado até que perceba que o filho não está localizado com um pai; a relação não é aplicada imediatamente.
 
-#### Suporte para particionamento
+### Suporte ao particionamento
 A observação final sobre a afinidade é que as relações de afinidade não têm suporte quando o pai é particionado. Isso é algo ao qual poderemos oferecer suporte eventualmente, mas não é permitido no momento.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Próximas etapas
-- [Saiba como configurar os Serviços](service-fabric-cluster-resource-manager-configure-services.md)
+- Para saber mais sobre outras opções disponíveis para a configuração de serviços, confira o tópico sobre outras configurações disponíveis do Gerenciador de Recursos de Cluster em [Saiba mais sobre a configuração de Serviços](service-fabric-cluster-resource-manager-configure-services.md)
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resrouce-manager-affinity-modes.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resource-manager-chains-vs-stars.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

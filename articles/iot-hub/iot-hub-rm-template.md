@@ -81,7 +81,7 @@ Use um modelo JSON e um arquivo de parâmetros para criar um novo Hub IoT em seu
 
     ```
     {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
         "hubName": {
@@ -119,7 +119,7 @@ Use um modelo JSON e um arquivo de parâmetros para criar um novo Hub IoT em seu
 
     ```
     {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
         "hubName": { "value": "mynewiothub" }
@@ -215,4 +215,4 @@ Agora que você implantou um Hub IoT usando um modelo ARM com um programa em C#,
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 [lnk-storage-account]: ../storage/storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

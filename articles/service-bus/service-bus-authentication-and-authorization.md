@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/09/2015"
+   ms.date="03/09/2016"
    ms.author="sethm" />
 
 # Autenticação e autorização do Barramento de Serviço
@@ -73,4 +73,4 @@ Para obter uma visão geral de alto nível do SAS no Barramento de Serviço, con
 
 Você pode encontrar mais informações sobre tokens de ACS em [Como solicitar um token do ACS usando o protocolo OAuth WRAP](https://msdn.microsoft.com/library/hh674475.aspx).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0316_2016-->

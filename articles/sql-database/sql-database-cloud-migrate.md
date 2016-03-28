@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="01/05/2016"
+   ms.date="03/14/2016"
    ms.author="carlrab"/>
 
 # Migração de banco de dados do SQL Server para o Banco de Dados SQL na nuvem
@@ -47,10 +47,10 @@ Se forem detectados problemas de compatibilidade, você deve corrigi-los antes d
 Para migrar um banco de dados do SQL Server compatível, a Microsoft fornece vários métodos de migração para vários cenários. O método escolhido depende da sua tolerância para tempo de inatividade, do tamanho e da complexidade do seu banco de dados SQL Server, bem como da conectividade com a nuvem do Microsoft Azure.
 
 > [AZURE.SELECTOR]
-- [SSMS Migration Wizard](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
-- [Export to BACPAC File](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
-- [Import from BACPAC File](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-- [Transactional Replication](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
+- [Assistente de Migração do SSMS](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
+- [Exportar para um arquivo BACPAC](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
+- [Importar de um arquivo BACPAC](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
+- [Replicação Transacional](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
 
 Para escolher o método de migração, a primeira pergunta a ser feita é se você pode arcar com a retirada do banco de dados da produção durante a migração. Migrar um banco de dados enquanto transações ativas estão ocorrendo pode resultar em inconsistências e na possível corrupção do banco de dados. Há vários métodos para fechar um banco de dados para novas sessões, desde desabilitar a conectividade do cliente até criar um [instantâneo do banco de dados](https://msdn.microsoft.com/library/ms175876.aspx).
 
@@ -65,4 +65,4 @@ Para migrar com tempo de inatividade mínimo, use a [replicação de transação
 
 	 ![Migração do banco de dados do SQL Server: migrar o banco de dados SQL para a nuvem.](./media/sql-database-cloud-migrate/01SSMSDiagram_new.png)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

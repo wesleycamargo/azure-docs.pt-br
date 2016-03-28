@@ -78,7 +78,7 @@ Os recursos offline do aplicativo móvel do Azure permitem que você interaja co
 
 7. Em MainPage.cs, na região marcada como `Offline sync`, remova os métodos `InitLocalStoreAsync` e `SyncAsync`. O método `InitLocalStoreAsync` inicializa o contexto de sincronização do cliente com um armazenamento do SQLite. No Visual Studio, é possível selecionar todas as linhas comentadas e usar o atalho de teclado **Ctrl**+**K**+**U** para remover os comentários.
 
-	Observe que em `SyncAsync`, uma operação de push é executada por `MobileServiceClient.SyncContext` em vez de `IMobileServicesSyncTable`. Isso ocorre porque o contexto controla as alterações feitas pelo cliente para todas as tabelas. Isso é para cobrir cenários onde há relacionamentos entre tabelas. Para obter mais informações sobre esse comportamento, confira [Sincronização de dados offline nos Aplicativos Móveis do Azure].
+	Observe que em `SyncAsync`, uma operação de push é executada por `MobileServiceClient.SyncContext` em vez de `IMobileServicesSyncTable`. Isso ocorre porque o contexto controla as alterações feitas pelo cliente para todas as tabelas. Para obter mais informações sobre esse comportamento, confira [Sincronização de dados offline nos Aplicativos Móveis do Azure].
 
         private async Task InitLocalStoreAsync()
         {
@@ -272,4 +272,4 @@ Quando desejamos sincronizar o armazenamento local com o servidor, usamos os mé
 [Cobertura em nuvem: sincronização offline nos serviços móveis do Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Aplicativos habilitados para uso offline nos Serviços Móveis do Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

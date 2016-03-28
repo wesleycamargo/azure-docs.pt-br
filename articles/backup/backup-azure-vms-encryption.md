@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="11/27/2015"
+   ms.date="03/14/2016"
    ms.author="markgal; jimpark"/>
 
 # Lidando com discos criptografados durante o backup da VM
@@ -62,4 +62,4 @@ Quando você precisar substituir ou alterar as chaves para as VMs que têm backu
 - [Guia de implantação - PDF](http://www.cloudlinktech.com/Azure/CL_SecureVM_4_0_DG_EMC_Azure_R2.pdf)
 - [Implantando e usando o SecureVM - vídeo](https://www.youtube.com/watch?v=8AIRe92UDNg)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

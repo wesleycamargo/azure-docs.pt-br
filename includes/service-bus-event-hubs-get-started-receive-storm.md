@@ -6,7 +6,7 @@ Para obter mais informações sobre padrões de recebimento de Hubs de Eventos, 
 
 Este tutorial usa uma instalação do [HDInsight Storm][], que acompanha o spout de Hubs de Eventos já disponível.
 
-1. Siga o procedimento [HDInsight Storm - Introdução](../hdinsight/hdinsight-storm-overview.md) para criar um novo cluster HDInsight e conectá-lo por meio da Área de Trabalho Remota.
+1. Siga o procedimento [HDInsight Storm - Introdução](../articles/hdinsight/hdinsight-storm-overview.md) para criar um novo cluster HDInsight e conectá-lo por meio da Área de Trabalho Remota.
 
 2. Copie o arquivo `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` para seu ambiente de desenvolvimento local. Ele contém o events-storm-spout.
 
@@ -220,9 +220,9 @@ Este tutorial usa uma instalação do [HDInsight Storm][], que acompanha o spout
 	Essa classe cria um novo spout de Hubs de Eventos, usando as propriedades no arquivo de configuração para instanciá-lo. É importante observar que esse exemplo cria quantas tarefas spouts quanto o número de partições no Hub de Eventos, para usar o paralelismo máximo permitido por esse Hub de Eventos.
 
 <!-- Links -->
-[Visão geral de hubs de eventos]: event-hubs-overview.md
-[HDInsight Storm]: ../hdinsight/hdinsight-storm-overview.md
-[tutorial de análise de sensor HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
+[Visão geral de hubs de eventos]: ../articles/event-hubs/event-hubs-overview.md
+[HDInsight Storm]: ../articles/hdinsight/hdinsight-storm-overview.md
+[tutorial de análise de sensor HDInsight]: ../articles/hdinsight/hdinsight-storm-sensor-data-analysis.md
 
 <!-- Images -->
 
@@ -230,4 +230,4 @@ Este tutorial usa uma instalação do [HDInsight Storm][], que acompanha o spout
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -232,7 +232,7 @@ A tabela a seguir fornece a descrição para elementos JSON específicos do serv
 | gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar ao armazenamento de dados ODBC. | Sim |
 
 
-Confira [Configurando credenciais e segurança](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) para obter detalhes sobre como definir credenciais para um armazenamento de dados ODBC local.
+Confira [Configurando credenciais e segurança](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) para obter detalhes sobre como definir credenciais para um armazenamento de dados ODBC local.
 
 ### Usando a autenticação Básica
 
@@ -327,4 +327,4 @@ Ao mover dados de repositórios de dados ODBC, os tipos de dados ODBC são mapea
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/05/2015"
+	ms.date="03/08/2016"
 	ms.author="sethm"/>
 
 # Introdução aos Hubs de Evento
@@ -79,7 +79,7 @@ Agora você está pronto para executar os aplicativos.
 
    	![][22]
 
-> [AZURE.NOTE]Neste tutorial, apenas use o Storm no modo local para fins de desenvolvimento. Confira a [Visão geral do HDInsight Storm][] e a documentação oficial do [Apache Storm][] para obter mais informações de implantações e padrões do Storm.
+> [AZURE.NOTE] Neste tutorial, apenas use o Storm no modo local para fins de desenvolvimento. Confira a [Visão geral do HDInsight Storm][] e a documentação oficial do [Apache Storm][] para obter mais informações de implantações e padrões do Storm.
 
 ## Próximas etapas
 
@@ -110,4 +110,4 @@ Os seguintes recursos estão disponíveis para o desenvolvimento de aplicativos 
 [Desenvolver aplicativos de processamento de dados de fluxo com SCP.NET e C# em Storm]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0316_2016-->

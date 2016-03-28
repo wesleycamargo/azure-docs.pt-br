@@ -19,7 +19,7 @@
 
 Uma ACL (Lista de Controle de Acesso) de ponto de extremidade é uma melhoria de segurança disponível para a sua implantação do Azure. Uma ACL fornece a capacidade para permitir ou negar seletivamente o tráfego para um ponto de extremidade de máquina virtual. Essa capacidade de filtragem de pacotes proporciona uma camada adicional de segurança. Você pode especificar ACLs de rede apenas para pontos de extremidade. Não é possível especificar uma ACL para uma rede virtual ou uma sub-rede específica contida em uma rede virtual.
 
-> [AZURE.IMPORTANT]Recomendamos que você use NSGs (Grupos de segurança de rede) em vez de ACLs sempre que possível. Para saber mais sobre NSGs, confira [O que é um Grupo de segurança de rede?](../virtual-networks-nsg).
+> [AZURE.IMPORTANT] Recomendamos que você use NSGs (Grupos de segurança de rede) em vez de ACLs sempre que possível. Para saber mais sobre NSGs, confira [O que é um Grupo de segurança de rede?](../virtual-networks-nsg).
 
 As ACLs podem ser configuradas usando o PowerShell ou o Portal de Gerenciamento. Para configurar ACLs usando o PowerShell, confira [Gerenciando ACLs (Listas de controle de acesso) para pontos de extremidade usando o PowerShell](virtual-networks-acl-powershell.md). Para configurar uma ACL de rede usando o Portal de Gerenciamento, consulte [Como configurar pontos de extremidade para uma máquina virtual](../virtual-machines-set-up-endpoints/).
 
@@ -51,7 +51,7 @@ Quando uma máquina virtual é criada, uma ACL padrão é colocada no lugar para
 
 ## Permitir e negar
 
-Você pode permitir ou negar seletivamente o tráfego de rede para um ponto de extremidade de entrada de máquina virtual criando regras que especificam "permitir" ou "negar". É importante observar que, por padrão, quando um ponto de extremidade é criado, todo o tráfego é negado para o ponto de extremidade. Por esse motivo, é importante entender como criar regras para permitir/negar e colocá-las na ordem apropriada de precedência se você quiser um controle granular sobre o tráfego de rede escolhido para acessar o ponto de extremidade de máquina virtual.
+Você pode permitir ou negar seletivamente o tráfego de rede para um ponto de extremidade de entrada de máquina virtual criando regras que especificam "permitir" ou "negar". É importante observar que, por padrão, quando um ponto de extremidade é criado, todo o tráfego é permitido para o ponto de extremidade. Por esse motivo, é importante entender como criar regras para permitir/negar e colocá-las na ordem apropriada de precedência se você quiser um controle granular sobre o tráfego de rede escolhido para acessar o ponto de extremidade de máquina virtual.
 
 Considere o seguinte:
 
@@ -99,4 +99,4 @@ As ACLs de rede podem ser especificadas em um ponto de extremidade com conjunto 
 
 [Como gerenciar ACLs (Listas de controle de acesso) para pontos de extremidade usando o PowerShell](../virtual-networks-acl-powershell)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0316_2016-->

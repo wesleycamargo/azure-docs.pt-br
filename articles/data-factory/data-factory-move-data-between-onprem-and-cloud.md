@@ -42,7 +42,7 @@ O gateway de dados fornece as seguintes funcionalidades:
 ## Instalar o Gateway de Gerenciamento de Dados
 
 ### Instalação do gateway - pré-requisitos
-1.	As versões de **Sistema Operacional** com suporte são Windows 7, Windows 8/8.1, Windows Server 2008 R2, Windows Server 2012 e Windows Server 2012 R2.
+1.	As versões de **Sistema Operacional** com suporte são Windows 7, Windows 8/8.1, Windows Server 2008 R2, Windows Server 2012 e Windows Server 2012 R2. Instalação do Gateway de Gerenciamento de Dados em um controlador de domínio não tem suporte atualmente.
 2.	A **configuração** recomendada para o computador do gateway é no mínimo 2 GHz, 4 núcleos, 8 GB de RAM e 80 GB de disco.
 3.	Se o computador host hibernar, o gateway não poderá responder a solicitações de dados. Portanto, configure um **plano de energia** adequado no computador antes de instalar o gateway. A instalação do gateway exibe uma mensagem se o computador estiver configurado para hibernar.
 
@@ -104,12 +104,7 @@ No nível do firewall corporativo, você precisa configurar os seguintes domíni
 
 | Nomes de domínio | Portas | Descrição |
 | ------ | --------- | ------------ |
-| **.servicebus.windows.net | 443, 80 | Ouvintes de Retransmissão do Barramento de Serviço sobre TCP (requer 443 para aquisição de token de Controle de Acesso) |
-| *.servicebus.windows.net | 9350-9354 | Retransmissão do Barramento de Serviço opcional sobre TCP |
-| *.core.windows.net | 443 | HTTPS |
-| *.clouddatahub.net | 443 | HTTPS |
-| graph.windows.net | 443 | HTTPS |
-| login.windows.net | 443 | HTTPS |
+| **.servicebus.windows.net | 443, 80 | Ouvintes de Retransmissão do Barramento de Serviço sobre TCP (requer 443 para aquisição de token de Controle de Acesso) | | *.servicebus.windows.net | 9350-9354 | Retransmissão do Barramento de Serviço opcional sobre TCP | | *.core.windows.net | 443 | HTTPS | | *.clouddatahub.net | 443 | HTTPS | | graph.windows.net | 443 | HTTPS | | login.windows.net | 443 | HTTPS | 
 
 No nível do firewall do windows, essas portas de saída normalmente são habilitadas. Se não forem, você poderá configurar as portas e os domínios adequadamente no computador do gateway.
 
@@ -120,7 +115,7 @@ Caso seja usado um firewall de terceiros, você poderá abrir manualmente a port
 
 	msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
-Se optar por não abrir a porta 8050 no computador do gateway, para configurar um serviço vinculado local, você precisará usar mecanismos diferentes do aplicativo **Configurando Credenciais** para configurar as credenciais do armazenamento de dados. Por exemplo, você pode usar o cmdlet do PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx). Consulte a seção [Configuração de Credenciais e Segurança](#setting-credentials-and-security) sobre como as credenciais de armazenamento de dados pode ser configuradas.
+Se optar por não abrir a porta 8050 no computador do gateway, para configurar um serviço vinculado local, você precisará usar mecanismos diferentes do aplicativo **Configurando Credenciais** para configurar as credenciais do armazenamento de dados. Por exemplo, você pode usar o cmdlet do PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx). Consulte a seção [Configuração de Credenciais e Segurança](#set-credentials-and-securityy) sobre como as credenciais de repositório de dados pode ser configuradas.
 
 **Para copiar dados de um armazenamento de dados de origem para um armazenamento de dados coletor:**
 
@@ -255,7 +250,7 @@ Nesta etapa, você usa o Portal do Azure para criar uma instância do Azure Data
 	
 
 ### Etapa 3: Criar serviços vinculados 
-Nesta etapa, você criará dois serviços vinculados: **StorageLinkedService** e **SqlServerLinkedService**. O **SqlServerLinkedService** vincula um banco de dados SQL Server local e o serviço vinculado **StorageLinkedService** vincula um blob do Azure à data factory. Você criará um pipeline posteriormente neste passo a passo que copia dados do banco de dados SQL Server local para o armazenamento de blob do Azure.
+Nesta etapa, você criará dois serviços vinculados: **AzureStorageLinkedService** e **SqlServerLinkedService**. O **SqlServerLinkedService** vincula um banco de dados SQL Server local e o serviço vinculado **AzureStorageLinkedService** vincula um repositório de blob do Azure ao data factory. Você criará um pipeline posteriormente neste passo a passo que copia dados do banco de dados SQL Server local para o armazenamento de blob do Azure.
 
 #### Adicionar um serviço vinculado a um banco de dados SQL Server local
 1.	No **Editor do Data Factory**, clique em **Novo armazenamento de dados** na barra de ferramentas e selecione **SQL Server**. 
@@ -286,7 +281,9 @@ Nesta etapa, você criará dois serviços vinculados: **StorageLinkedService** e
             		"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;",
 	           		"gatewayName": "<Name of the gateway that the Data Factory service should use to connect to the on-premises SQL Server database>"
     		    }
-	   
+	
+		As credenciais serão **criptografadas** usando um certificado que o serviço do Data Factory tem. Se você quiser usar o certificado associado ao Gateway de Gerenciamento de Dados em vez disso, consulte [Configurar credenciais com segurança](#set-credentials-and-security).
+    
 2.	Clique em **Implantar** na barra de comandos para implantar o serviço vinculado do SQL Server.
 
 #### Adicionar um serviço vinculado para uma conta de armazenamento do Azure
@@ -294,7 +291,7 @@ Nesta etapa, você criará dois serviços vinculados: **StorageLinkedService** e
 1. No **Editor do Data Factory**, clique em **Novo armazenamento de dados** na barra de comandos e clique em **Armazenamento do Azure**.
 2. Insira o nome da sua conta de armazenamento do Azure em **Nome da conta**.
 3. Insira a chave da sua conta de armazenamento do Azure em **Chave de conta**.
-4. Clique em **Implantar** para implantar o **StorageLinkedService**.
+4. Clique em **Implantar** para implantar o **AzureStorageLinkedService**.
    
  
 ### Etapa 4: Criar conjuntos de dados de entrada e saída
@@ -375,7 +372,7 @@ Nesta etapa, você criará conjuntos de dados de entrada e saída que representa
 		  "name": "OutputBlobTable",
 		  "properties": {
 		    "type": "AzureBlob",
-		    "linkedServiceName": "StorageLinkedService",
+		    "linkedServiceName": "AzureStorageLinkedService",
 		    "typeProperties": {
 		      "folderPath": "adftutorial/outfromonpremdf",
 		      "format": {
@@ -393,7 +390,7 @@ Nesta etapa, você criará conjuntos de dados de entrada e saída que representa
 	Observe o seguinte:
 	
 	- **tipo** é definido como **AzureBlob**.
-	- **linkedServiceName** é definido como **StorageLinkedService** (você criou esse serviço vinculado na Etapa 2).
+	- **linkedServiceName** é definido como **AzureStorageLinkedService** (você criou esse serviço vinculado na Etapa 2).
 	- **folderPath** é definido como **adftutorial/outfromonpremdf**, em que outfromonpremdf é a pasta no contêiner adftutorial. Você precisa apenas criar o contêiner **adftutorial**.
 	- A **disponibilidade** é definida como **por hora** (**frequência** definida como **hora** e **intervalo** definido como **1**). O serviço Data Factory gerará uma fatia de dados de saída a cada hora na tabela **emp** no banco de dados SQL do Azure. 
 
@@ -478,7 +475,7 @@ Nesta etapa, você criará um **pipeline** com uma **Atividade de Cópia** que u
 	- Na seção de atividades, há somente uma atividade cujo **type** é definido como **Copy**.
 	- A **entrada** da atividade é definida como **EmpOnPremSQLTable** e a **saída** da atividade é definida como **OutputBlobTable**.
 	- Na seção **transformation**, **SqlSource** é especificado como o **source type** e **BlobSink **é especificado como o **sink type**.
-	- A consulta SQL **select * from emp** é especificada para a propriedade **sqlReaderQuery** de **SqlSource**.
+- A consulta SQL **select * from emp** é especificada para a propriedade **sqlReaderQuery** de **SqlSource**.
 
 	Substitua o valor da propriedade **início** pelo dia atual e o valor de **término** pelo dia seguinte. Ambos os valores de data/hora de início e de término devem estar no [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. A hora de **end** é opcional, mas nós o usaremos neste tutorial.
 	
@@ -586,46 +583,39 @@ Esta seção fornece etapas para movimentação do cliente do gateway de um comp
 10. Após a conclusão do registro do gateway, você deverá ver o **Registro** definido como **Registrado**, e o **Status** definido como **Iniciado** na Home page do Gerenciador de Configuração de Gateway. 
 
 ## Configurar credenciais e segurança
+Para criptografar credenciais no Editor do Data Factory, faça o seguinte:
 
-Você também pode criar um serviço do SQL Server vinculado usando a folha de serviços vinculados em vez de usar o Editor do Data Factory.
- 
-3.	Na página inicial do Data Factory, clique no bloco **Serviços Vinculados**. 
-4.	Na folha **Serviços Vinculados**, clique em **Novo armazenamento de dados** na barra de comandos. 
-4.	Insira **SqlServerLinkedService** como o **nome**. 
-2.	Clique na seta ao lado de **Tipo** e selecione **SQL Server**.
-
-	![Criar novo armazenamento de dados](./media/data-factory-move-data-between-onprem-and-cloud/new-data-store.png)
-3.	Você deverá ver mais configurações abaixo da configuração **Tipo**.
-4.	Para a configuração **Gateway de dados**, selecione o gateway que você acabou de criar. 
-
-	![Configurações do SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-settings.png)
-4.	Insira o nome do seu servidor de banco de dados para a configuração **Servidor**.
-5.	Insira o nome do banco de dados para a configuração **Banco de dados**.
-6.	Clique na seta ao lado de **Credenciais**.
-
-	![Folha Credenciais](./media/data-factory-move-data-between-onprem-and-cloud/credentials-dialog.png)
-7.	Na folha **Credenciais**, clique em **Clique aqui para definir credenciais**.
-8.	Na caixa de diálogo **Definindo Credenciais**, faça o seguinte:
-
-	![Caixa de diálogo de Configurando Credenciais](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png)
+1. Clique em um **serviço vinculado** existente no modo de exibição de árvore para ver sua definição JSON ou criar um novo serviço vinculado que requer um Gateway de Gerenciamento de Dados (por exemplo: SQL Server ou Oracle). 
+2. No editor de JSON, para a propriedade (**gatewayName**) insira o nome do gateway. 
+3. Insira o nome do servidor para a propriedade **Data Source** em **connectionString**.
+4. Insira o nome do banco de dados para a propriedade **Initial Catalog** na **connectionString**.    
+5. Clique no botão **Criptografar** na barra de comandos. Você verá a caixa de diálogo **Definindo Credenciais**. ![Caixa de diálogo de Configurando Credenciais](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png)
+6. Na caixa de diálogo **Definindo Credenciais**, faça o seguinte:  
 	1.	Selecione a **autenticação** que você deseja que o serviço de Data Factory use para se conectar ao banco de dados. 
 	2.	Insira o nome do usuário que tem acesso ao banco de dados para a configuração **NOME DE USUÁRIO**. 
 	3.	Insira a senha do usuário para a configuração **SENHA**.  
-	4.	Clique em **OK** para fechar a caixa de diálogo. 
-4. Clique em **OK** para fechar a folha **Credenciais**. 
-5. Clique em **OK** na folha **Novo armazenamento de dados**. 	
-6. Confirme se o status de **SqlServerLinkedService** está definido como Online na folha Serviços Vinculados.
-	![Status do serviço vinculado do SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
+	4.	Clique em **OK** para criptografar credenciais e fechar a caixa de diálogo. 
+5.	Você verá uma propriedade **encryptedCredential** em **connectionString**.		
+		
+			{
+	    		"name": "SqlServerLinkedService",
+		    	"properties": {
+		        	"type": "OnPremisesSqlServer",
+			        "description": "",
+		    	    "typeProperties": {
+		    	        "connectionString": "data source=myserver;initial catalog=mydatabase;Integrated Security=False;EncryptedCredential=eyJDb25uZWN0aW9uU3R",
+		            	"gatewayName": "adftutorialgateway"
+		        	}
+		    	}
+			}
 
 Se você acessar o portal de um computador diferente do computador do gateway, você deve garantir que o aplicativo Gerenciador de credenciais possa se conectar ao computador do gateway. Se o aplicativo não puder acessar o computador do gateway, ele não permitirá que você defina credenciais da fonte de dados teste a conexão à fonte de dados.
 
-Quando você usa o aplicativo "Configurando Credenciais" iniciado pelo do Portal do Azure para configurar credenciais para uma fonte de dados local, o portal criptografa as credenciais com o certificado especificado na guia Certificado do Gerenciador de Configuração de Gateway de Gerenciamento de Dados no computador do gateway.
+Quando você usa o aplicativo **Configurando Credenciais** iniciado pelo do Portal do Azure para configurar credenciais para uma fonte de dados local, o portal criptografa as credenciais com o certificado especificado na guia **Certificado** do **Gerenciador de Configuração de Gateway de Gerenciamento de Dados** no computador do gateway.
 
-Se você estiver procurando uma abordagem baseada em API para criptografar as credenciais, poderá usar o cmdlet [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) do PowerShell para criptografar as credenciais. O cmdlet usa o certificado que esse gateway está configurado para usar para criptografar as credenciais. Você pode obter as credenciais criptografadas retornadas por esse cmdlet e adicioná-las ao elemento EncryptedCredential de connectionString do arquivo JSON que será usado com o cmdlet [New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) ou no trecho de código JSON no editor da Data Factory no portal.
+Se você estiver procurando uma abordagem baseada em API para criptografar as credenciais, poderá usar o cmdlet [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) do PowerShell para criptografar as credenciais. O cmdlet usa o certificado que esse gateway está configurado para usar para criptografar as credenciais. Você pode obter as credenciais criptografadas retornadas por esse cmdlet e adicioná-las ao elemento **EncryptedCredential** de **connectionString** do arquivo JSON que será usado com o cmdlet [New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) ou no trecho de código JSON no editor da Data Factory no portal.
 
 	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
-
-**Observação:** se você usar o aplicativo "Definindo Credenciais", ele definirá automaticamente as credenciais criptografadas no serviço vinculado como mostrado acima.
 
 Há mais uma abordagem para definir as credenciais usando o Editor Data Factory. Se você criar um serviço vinculado SQL Server usando o editor e inserir credenciais em texto sem formatação, as credenciais são criptografadas usando um certificado que é de propriedade do serviço Data Factory, NÃO o certificado que o gateway está configurado para usar. Embora essa abordagem possa ser um pouco mais rápida em alguns casos, ela é menos segura. Portanto, é recomendável que você siga essa abordagem somente para fins de desenvolvimento/teste.
 
@@ -696,4 +686,4 @@ Aqui está o fluxo de dados de alto nível para e o resumo das etapas para a có
 5.	O gateway descriptografa as credenciais com o mesmo certificado e se conecta ao armazenamento de dados local com o tipo de autenticação adequado.
 6.	O gateway copia dados do armazenamento local para um armazenamento em nuvem ou de um armazenamento em nuvem para um armazenamento de dados local dependendo de como a atividade de cópia é configurada no pipeline de dados. Observação: para esta etapa, o gateway se comunica diretamente com o serviço de armazenamento baseado em nuvem (por exemplo, Blob do Azure, SQL do Azure etc.) por um canal seguro (HTTPS).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

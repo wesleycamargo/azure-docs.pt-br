@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="03/04/2016"
+   ms.date="03/15/2016"
    ms.author="alkohli"/>
 
 # Software StorSimple, alta disponibilidade e requisitos de rede
@@ -39,7 +39,7 @@ Os requisitos de software a seguir são para os clientes de armazenamento que ac
 | VMWare ESX | 5\.1, 5.5 e 6.0 | Compatível com o VMware vSphere como cliente iSCSI. O recurso de bloco VAAI é compatível com o VMware vSphere nos dispositivos StorSimple. 
 | Linux RHEL/CentOS | 5 e 6 | Suporte para os clientes Linux iSCSI com o iniciador open-iSCSI versões 5 e 6. |
 | Linux | SUSE Linux 11 | |
- >[AZURE.NOTE] O IBM AIX não é suportado atualmente com o StorSimple.
+ > [AZURE.NOTE] O IBM AIX não é suportado atualmente com o StorSimple.
 
 ## Requisitos de software para os componentes opcionais
 
@@ -72,6 +72,24 @@ Seu dispositivo StorSimple é um dispositivo bloqueado. No entanto, é preciso a
 <sup>3</sup> Os IPs fixos do controlador em seu dispositivo StorSimple devem ser roteáveis e conseguirem se conectar à Internet. Os endereços IP fixos são usados para fornecer as atualizações ao dispositivo. Se os controladores de dispositivo não puderem se conectar à Internet através de IPs fixa, não será possível atualizar o dispositivo StorSimple.
 
 > [AZURE.IMPORTANT] Verifique se o firewall não modifica nem descriptografa nenhum tráfego SSL entre o dispositivo StorSimple e o Azure.
+
+### Padrões de URL para regras de firewall 
+
+Os administradores de rede geralmente podem configurar regras avançadas de firewall com base nos padrões de URL para filtrar o tráfego de entrada e de saída. Seu dispositivo StorSimple e o serviço StorSimple Manager dependem de outros aplicativos da Microsoft, como o Barramento de Serviço do Azure, o Controle de Acesso do Azure Active Directory, contas de armazenamento e servidores do Microsoft Update. Os padrões de URL associados a esses aplicativos podem ser usados para configurar regras de firewall. É importante entender que os padrões de URL associados a esses aplicativos podem ser alterados. Isso, por sua vez, exigirá que o administrador de rede monitore e atualize as regras de firewall para o StorSimple como e quando necessário.
+
+Recomendamos que você defina suas regras de firewall livremente na maioria dos casos. No entanto, você pode usar as informações a seguir para definir regras avançadas de firewall que são necessárias para criar ambientes seguros.
+
+> [AZURE.NOTE] Os IPs do dispositivo (de origem) sempre devem ser configurados para todas as interfaces de rede habilitadas. Os IPs de destino devem ser configurados como [Intervalos de IP do datacenter do Azure](https://www.microsoft.com/pt-BR/download/confirmation.aspx?id=41653).
+
+
+| Padrão de URL | Componente/funcionalidade | IPs de dispositivo |
+|------------------------------------------------------------------|---------------------------------------------------------------|-----------------------------------------|
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` | Serviço StorSimple Manager<br>Serviço do Access Control<br>Barramento de Serviço do Azure| Interfaces de rede habilitadas para nuvem |
+|`http://crl.microsoft.com/pki/*` |Revogação de certificado |Interfaces de rede habilitadas para nuvem |
+| `https://*.core.windows.net/*` | Contas de armazenamento e monitoramento do Azure | Interfaces de rede habilitadas para nuvem |
+| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Servidores do Microsoft Update<br> | IPs fixados pelo controlador somente |
+| `http://*.deploy.akamaitechnologies.com` |CDN do Akamai |IPs fixados pelo controlador somente |
+| `https://*.partners.extranet.microsoft.com/*` | Pacote de suporte | Interfaces de rede habilitadas para nuvem |
 
 ### Métrica de roteamento
 
@@ -108,12 +126,7 @@ A Atualização 2 contém vários aprimoramentos relacionados à rede; além dis
 		
 	| Interface de rede | Habilitado para nuvem | Desabilitado para a nuvem com o gateway |
 	|-----|---------------|---------------------------|
-	| Data 0 | 1 | - |
-	| Data 1 | 2 | 20 |
-	| Data 2 | 3 | 30 |
-	| Data 3 | 4 | 40 |
-	| Data 4 | 5 | 50 |
-	| Data 5 | 6 | 60 |
+	| Data 0 | 1 | - | | Data 1 | 2 | 20 | | Data 2 | 3 | 30 | | Data 3 | 4 | 40 | | Data 4 | 5 | 50 | | Data 5 | 6 | 60 |
 
 
 - A ordem na qual o tráfego da nuvem será roteado pelas interfaces de rede é:
@@ -261,4 +274,4 @@ Leia com atenção essas práticas recomendadas para garantir a alta disponibili
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

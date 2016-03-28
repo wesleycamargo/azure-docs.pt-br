@@ -22,10 +22,12 @@
 # Tutorial de hadoop: Introdução ao uso do Hadoop no HDInsight no Windows
 
 > [AZURE.SELECTOR]
-- [Windows](../hdinsight-hadoop-tutorial-get-started-windows.md)
-- [Linux](../hdinsight-hadoop-linux-tutorial-get-started.md)
+- [Baseado no Windows](../hdinsight-hadoop-tutorial-get-started-windows.md)
+- [Baseado em Linux](../hdinsight-hadoop-linux-tutorial-get-started.md)
 
 Para ajudá-lo a conhecer o Hadoop no Windows e começar a usar o HDInsight, este tutorial mostra como executar uma consulta de Hive em dados não estruturados em um cluster Hadoop e, em seguida, analisar os resultados no Microsoft Excel.
+
+>[AZURE.NOTE] As informações neste documento são específicas de clusters HDInsight baseados em Windows. Para saber mais sobre clusters baseados no Linux, consulte [Tutorial do Hadoop: introdução ao uso do Hadoop baseado em Linux no HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 Suponha que você tenha um grande conjunto de dados não estruturado e deseje executar uma consulta de Hive nele para extrair algumas informações importantes. É exatamente isso que vamos fazer neste tutorial. Veja como fazer isso:
 
@@ -255,4 +257,4 @@ Neste tutorial do Hadoop, você aprendeu a criar um cluster Hadoop no Windows em
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

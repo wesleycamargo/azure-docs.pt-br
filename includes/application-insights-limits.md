@@ -7,8 +7,8 @@ Outros pontos de dados por mês | 5 milhões | 50 milhões<sup>2</sup>
 Taxa de dados de rastreamento ou log | 200 dp/s | 500 dp/s
 Taxa de dados de exceção | 50 dp/s | 50 dp/s
 Outras taxas de dados de telemetria | 200 dp/s | 500 dp/s
-Retenção de dados brutos |7 dias| 30 dias
-Retenção de dados agregados | 13 meses | ilimitado
+Retenção de dados brutos | 7 dias
+Retenção de dados agregados | 90 dias
 Contagem do nome de propriedade no aplicativo | 100 | 100
 Comprimento do nome da propriedade | 100 | 100
 Comprimento do valor da propriedade | 1000 | 1000
@@ -22,4 +22,4 @@ Testes de disponibilidade | 10 | 10
  
 [Sobre cotas e preços no Application Insights](../articles/application-insights/app-insights-pricing.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

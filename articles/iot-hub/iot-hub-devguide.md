@@ -68,7 +68,7 @@ Ao usar os SDKs (ou integrações de produtos) que não reconhecem o Hub IoT, se
 
     ![][img-eventhubcompatible]
 
-> [AZURE.NOTE] Às vezes, o SDK requer um valor de **Nome do Host** ou de **Namespace**. Nesse caso, remova o esquema do **ponto de extremidade compatível com o Hub de Eventos**. Por exemplo, se o ponto de extremidade compatível com o Hub de Eventos for **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, o **Nome do Host** será **iothub-ns-myiothub-1234.servicebus.windows.net** e o **Namespace** será **iothub-ns-myiothub-1234**.
+> [AZURE.NOTE] Às vezes, o SDK requer um valor de **Nome do Host** ou de **Namespace**. Nesse caso, remova o esquema do **ponto de extremidade compatível com o Hub de Eventos**. Por exemplo, se o ponto de extremidade compatível com o Hub de Eventos for ****sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, o **Nome do Host** será **iothub-ns-myiothub-1234.servicebus.windows.net** e o **Namespace** será **iothub-ns-myiothub-1234**.
 
 Dessa forma, você poderá usar qualquer política de segurança de acesso compartilhado com permissões **ServiceConnect** para se conectar ao Hub de Eventos especificado.
 
@@ -288,29 +288,7 @@ As credenciais de segurança, como as chaves simétricas, nunca são enviadas pe
 
 > [AZURE.NOTE] O provedor de recursos do Hub IoT do Azure é protegido por meio de sua assinatura do Azure, assim como todos os provedores no [Gerenciador de Recursos do Azure][lnk-azure-resource-manager].
 
-#### Formato do token de segurança <a id="tokenformat"></a>
-
-O token de segurança tem o seguinte formato:
-
-	SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}
-
-Estes são os valores esperados:
-
-| Valor | Descrição |
-| ----- | ----------- |
-| {signature} | Uma cadeia de caracteres de assinatura HMAC-SHA256 no formato: `{URL-encoded-resourceURI} + "\n" + expiry` **Importante**: a chave é decodificada da base64 e usada como chave para executar o cálculo de HMAC-SHA256. |
-| {resourceURI} | O prefixo URI (por segmento) dos pontos de extremidade que podem ser acessados com esse token. Por exemplo, `/events` |
-| {expiry} | As cadeias de caracteres UTF8 para o número de segundos desde a época 00:00:00 UTC em 1º de janeiro de 1970. |
-| {URL-encoded-resourceURI} | Codificação de URL em letras minúsculas do URI de recurso em letras minúsculas |
-| {policyName} | O nome da política de acesso compartilhado a qual se refere esse token. Estará ausente em tokens que fazem referência às credenciais de registro do dispositivo. |
-
-**Observação sobre o prefixo**: o prefixo URI é computado por segmento e não por caractere. Por exemplo, `/a/b` é um prefixo para `/a/b/c`, mas não para `/a/bc`.
-
-Você pode encontrar implementações do algoritmo de assinatura nos SDKs do serviço e dispositivo IoT:
-
-* [SDK do serviço IoT para Java](https://github.com/Azure/azure-iot-sdks/tree/master/java/service/iothub-service-sdk/src/main/java/com/microsoft/azure/iot/service/auth)
-* [SDK do dispositivo IoT para Java](https://github.com/Azure/azure-iot-sdks/tree/master/java/device/iothub-java-client/src/main/java/com/microsoft/azure/iothub/auth)
-* [SDKs do dispositivo e serviço IoT para Node.js](https://github.com/Azure/azure-iot-sdks/blob/master/node/common/core/lib/shared_access_signature.js)
+Consulte o artigo [Tokens de segurança do Hub IoT][lnk-sas-tokens] para obter mais informações sobre como criar e usar tokens de segurança.
 
 #### Especificações de protocolo
 
@@ -327,7 +305,7 @@ Para SASL PLAIN, o **nome de usuário** pode ser:
 * `{policyName}@sas.root.{iothubName}` no caso de tokens no nível do hub.
 * `{deviceId}` no caso de tokens com escopo do dispositivo.
 
-Em ambos os casos, o campo de senha contém o token conforme descrito na seção [Formato do token](#tokenformat).
+Em ambos os casos, o campo de senha contém o token conforme descrito no artigo [Tokens de segurança do Hub IoT][lnk-sas-tokens].
 
 Ao usar MQTT, o pacote CONNECT tem a deviceId como a ClientId, {iothubhostname}/{deviceId} no campo Nome de Usuário e um token SAS no campo Senha. {iothubhostname} deve ser o CName completo do Hub IoT (por exemplo, contoso.azure-devices.net).
 
@@ -348,7 +326,7 @@ Ao usar o SASL PLAIN, um cliente que está se conectando a um hub IoT pode usar 
 
 ### Escopo das credenciais no nível do hub
 
-Você pode definir o escopo das políticas de segurança no nível do hub por meio da criação de tokens com um URI de recursos restrito. Por exemplo, o ponto de extremidade para envio de mensagens do dispositivo para a nuvem é **/devices/{deviceId}/events**. Você também pode usar uma política de acesso compartilhado no nível do hub com permissões **DeviceConnect** para assinar um token cujo resourceURI é **/devices/{deviceId}**, criando um token que só pode ser usado para enviar os dispositivos em nome da **deviceId** do dispositivo.
+Você pode definir o escopo das políticas de segurança no nível do hub por meio da criação de tokens com um URI de recursos restrito. Por exemplo, o ponto de extremidade para envio de mensagens do dispositivo para a nuvem é **/devices/{deviceId}/messages/events**. Você também pode usar uma política de acesso compartilhado no nível do hub com permissões **DeviceConnect** para assinar um token cujo resourceURI é **/devices/{deviceId}**, criando um token que só pode ser usado para enviar os dispositivos em nome da **deviceId** do dispositivo.
 
 Esse mecanismo é parecido com a [política de editor de Hubs de Eventos][lnk-event-hubs-publisher-policy] e permite que você implemente os métodos de autenticação personalizados, como é explicado na seção de segurança [Projetar sua solução][lnk-guidance-security].
 
@@ -408,7 +386,7 @@ O Hub IoT implementa o protocolo MQTT v3.1.1 com as seguintes limitações e com
   * **Não há suporte para o QoS 2**: quando um cliente de dispositivo publica uma mensagem com o **QoS 2**, o Hub IoT fecha a conexão de rede. Quando um cliente de dispositivo assina um tópico com o **QoS 2**, o Hub IoT concede, no máximo, o nível 1 do QoS no pacote **SUBACK**.
   * **Retain**: se um dispositivo publica uma mensagem com o sinalizador RETAIN definido como 1, o Hub IoT adiciona a propriedade de aplicativo **x-opt-retain** à mensagem. Isso significa que o Hub IoT não mantém a mensagem retain, mas a transmite ao aplicativo back-end.
 
-Como uma consideração final, você deve ler [Gateway de protocolo do IoT do Azure][lnk-azure-protocol-gateway], que permite a implantação de um gateway de protocolo personalizado de alto desempenho que interage diretamente com o Hub IoT. O gateway do protocolo IoT do Azure permite que você personalize o protocolo de dispositivo para acomodar as implantações de MQTT de nível industrial ou outros protocolos personalizados. O dilema dessa abordagem é o requisito de auto-hospedar e operar um gateway de protocolo personalizado.
+Como uma consideração final, você deve examinar o [Gateway de protocolo do IoT do Azure][lnk-azure-protocol-gateway], que permite a implantação de um gateway de protocolo personalizado de alto desempenho que interage diretamente com o Hub IoT. O gateway do protocolo IoT do Azure permite que você personalize o protocolo de dispositivo para acomodar as implantações de MQTT de nível industrial ou outros protocolos personalizados. O dilema dessa abordagem é o requisito de auto-hospedar e operar um gateway de protocolo personalizado.
 
 ### Dispositivo para a nuvem <a id="d2c"></a>
 
@@ -506,6 +484,8 @@ Para obter um tutorial sobre mensagens da nuvem para o dispositivo, consulte [In
 #### Vida útil <a id="ttl"></a>
 
 Todas as mensagens da nuvem para o dispositivo têm um tempo de expiração. Isso pode ser definido explicitamente pelo serviço (na propriedade **ExpiryTimeUtc**) ou pelo Hub IoT usando o *tempo de vida* padrão especificado como uma propriedade do Hub IoT. Consulte [Opções de configuração da nuvem para o dispositivo](#c2dconfiguration).
+
+> [AZURE.NOTE] Uma maneira comum de tirar proveito da expiração da mensagem é definir valores baixos de vida útil para evitar o envio de mensagens para dispositivos desconectados. Isso proporciona o mesmo resultado que a manutenção do estado de conexão do dispositivo, embora seja significativamente mais eficiente. Também é possível, por meio da solicitação de confirmações de mensagens, receber uma notificação pelo Hub IoT de quais dispositivos são capazes de receber mensagens e quais não estão online ou apresentam falha.
 
 #### Comentários da mensagem <a id="feedback"></a>
 
@@ -621,6 +601,7 @@ Você viu uma visão geral do desenvolvimento para Hub IoT. Siga estes links par
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [lnk-resource-provider-apis]: https://msdn.microsoft.com/library/mt548492.aspx
 
+[lnk-sas-tokens]: iot-hub-sas-tokens
 [lnk-azure-gateway-guidance]: iot-hub-guidance.md#field-gateways
 [lnk-guidance-provisioning]: iot-hub-guidance.md#provisioning
 [lnk-guidance-scale]: iot-hub-scaling.md
@@ -653,4 +634,4 @@ Você viu uma visão geral do desenvolvimento para Hub IoT. Siga estes links par
 [lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
 [lnk-manage]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

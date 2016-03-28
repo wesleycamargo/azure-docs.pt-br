@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="03/09/2016"
 	ms.author="sethm"/>
 
 # Como usar filas do Barramento de Serviço
@@ -60,7 +60,7 @@ O cmdlet do PowerShell que você executou para criar o namespace do barramento d
 
 ![Copiar chave](./media/service-bus-ruby-how-to-use-queues/defaultkey.png)
 
-> [AZURE.NOTE]Você também poderá encontrar essa chave se efetuar logon no [Portal clássico do Azure](http://manage.windowsazure.com/) e navegar até as informações de conexão para seu namespace do Barramento de Serviço.
+> [AZURE.NOTE] Você também poderá encontrar essa chave se efetuar logon no [Portal clássico do Azure](http://manage.windowsazure.com/) e navegar até as informações de conexão para seu namespace do Barramento de Serviço.
 
 ## Criar um aplicativo Ruby
 
@@ -164,7 +164,7 @@ Agora que você já sabe as noções básicas das filas de Barramento de Serviç
 -   Visão geral de [filas, tópicos e assinaturas](service-bus-queues-topics-subscriptions.md).
 -   Visite o repositório do [SDK do Azure para Ruby](https://github.com/Azure/azure-sdk-for-ruby) no GitHub.
 
-Para fazer uma comparação entre as filas de Barramento de Serviço do Azure discutidas nesse artigo e as filas do Azure discutidas no artigo [Como usar o serviço Fila do Azure](/develop/ruby/how-to-guides/queue-service/), consulte [Filas do Azure e filas de Barramento de Serviço do Azure - comparadas e contrastadas](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+Para fazer uma comparação entre as filas de Barramento de Serviço do Azure discutidas nesse artigo e as filas do Azure discutidas no artigo [Como usar o Armazenamento de Filas no Ruby](../storage/storage-ruby-how-to-use-queue-storage.md), consulte [Filas do Azure e filas de Barramento de Serviço do Azure - comparadas e contrastadas](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0316_2016-->

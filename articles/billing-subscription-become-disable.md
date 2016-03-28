@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/23/2015"
+	ms.date="03/08/2015"
 	ms.author="genli"/>
 
 # O que devo fazer se minha assinatura do Azure for desabilitada?
@@ -28,10 +28,19 @@ Para saber mais sobre os limites de gastos, confira [Limite de gastos do Azure](
 
 ### O pagamento de uma fatura está atrasado
 
-Para resolver isso, confira o artigo [Por que você recebeu uma notificação informando que sua assinatura do Azure tem um saldo devido?](../billing-azure-subscription-past-due-balance.md)
+Para resolver isso, confira o artigo [Por que você recebeu uma notificação informando que sua assinatura do Azure tem um saldo devido?](billing-azure-subscription-past-due-balance.md)
 
 ### A assinatura do Azure foi cancelada
 
-Para reativar uma assinatura, você deverá criar um tíquete de suporte. Para criar um tíquete de suporte e reabilitar uma assinatura do Azure, confira o artigo [Como criar um tíquete de suporte para problemas de assinatura e de cobrança do Azure](../billing-how-to-create-billing-support-ticket.md).
+Para reativar uma assinatura, você deve criar um tíquete de suporte: entre no [portal do Azure](https://portal.azure.com/), escolha **Ajuda + suporte**>**Nova solicitação de suporte**.
 
-<!---HONumber=AcomDC_1203_2015-->
+![helpandsupportbutton](./media/billing-how-to-create-billing-support-ticket/helpandsupport.png)
+
+Se você não conseguir acessar o portal, envie a solicitação de suporte a partir do site do Suporte do Azure ou do Centro de Contas do Azure:
+
+ * Para enviar um tíquete de suporte do [Site de suporte do Azure](https://azure.microsoft.com/support/options/), clique em **Obter suporte**.
+ * Para enviar um tíquete de suporte do [Centro de Contas do Azure](https://account.windowsazure.com/Subscriptions), selecione uma assinatura, clique no nome de sua conta e clique em **Contatar o Suporte da Microsoft**.
+
+Para saber mais, confira [Como criar um tíquete de suporte para problemas de cobrança e assinatura do Azure](billing-how-to-create-billing-support-ticket.md).
+
+<!---HONumber=AcomDC_0316_2016-->

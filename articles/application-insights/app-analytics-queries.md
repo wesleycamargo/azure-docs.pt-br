@@ -545,6 +545,11 @@ Por exemplo, o resultado de `reduce by city` pode incluir:
 | Paris | 27163 |
 
 
+## renderizar política
+
+    T | render [ table | timechart  | barchart | piechart ]
+
+A renderização instrui a camada de apresentação sobre como mostrar a tabela. Ela deve ser o último elemento do pipe. É uma alternativa conveniente ao uso dos controles de exibição, permitindo que você salve uma consulta com um método de apresentação específico.
 
 
 ## operador sort 
@@ -761,4 +766,4 @@ Observe que colocamos a comparação entre duas colunas por último, pois ela n�
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

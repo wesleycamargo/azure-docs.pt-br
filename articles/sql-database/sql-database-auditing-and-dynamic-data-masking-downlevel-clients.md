@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Suporte a clientes de nível inferior do banco de dados SQL para Auditoria| Microsoft Azure" 
-	description="Saiba mais sobre suporte a clientes de nível inferior do Banco de Dados SQL para Auditoria." 
+	description="Saiba mais sobre o suporte a clientes de versão anterior do Banco de Dados SQL para Auditoria." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="nadavhelfman" 
@@ -14,9 +14,9 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="11/12/2015" 
-	ms.author="nadavhelfman; ronitr"/>
+	ms.author="nadavh;ronitr"/>
  
-# Banco de Dados SQL - suporte a clientes de nível inferior para Auditoria
+# Banco de Dados SQL – Suporte a clientes de versão anterior para Auditoria
 
 
 A [Auditoria](sql-database-auditing-get-started.md) funciona automaticamente com clientes SQL que dão suporte ao redirecionamento de TDS.
@@ -38,4 +38,4 @@ Uma lista parcial de "Clientes de versão anterior" inclui:
 
 **Comentário:** a modificação do FQDN do servidor acima pode ser útil também para aplicar uma política de Auditoria no Nível do SQL Server sem a necessidade de uma etapa de configuração em cada banco de dados (redução temporária).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0316_2016-->
