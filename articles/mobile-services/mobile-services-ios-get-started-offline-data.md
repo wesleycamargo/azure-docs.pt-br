@@ -165,7 +165,9 @@ Ao usar o armazenamento offline de dados principais, você precisa definir deter
     | ID (obrigatório) | Cadeia de caracteres | chave primária no repositório remoto (obrigatório) |
     | concluído | Booliano | campo de item de tarefa |
     | texto | Cadeia de caracteres | campo de item de tarefa |
-    | ms\_createdAt | Data | (opcional) é mapeado para \_\_createdAt propriedade do sistema | | ms\_updatedAt | Data | (opcional) é mapeado para \_\_updatedAt propriedade do sistema | | ms\_version | Cadeia de caracteres | (opcional) usado para detectar conflitos, é mapeado para \_\_versão |
+    | ms\_createdAt | Data | (opcional) é mapeado para \_\_createdAt propriedade do sistema | 
+	| ms\_updatedAt | Data | (opcional) é mapeado para \_\_updatedAt propriedade do sistema | 
+	| ms\_version | Cadeia de caracteres | (opcional) usado para detectar conflitos, é mapeado para \_\_versão |
 
 
 
@@ -275,4 +277,4 @@ Para sincronizar o repositório local com o servidor, você usou `MSSyncTable.pu
 
 [tutorial de Início Rápido dos Serviços Móveis]: mobile-services-ios-get-started.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!----HONumber=AcomDC_0316_2016-->

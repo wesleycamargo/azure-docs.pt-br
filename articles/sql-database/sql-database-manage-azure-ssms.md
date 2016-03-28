@@ -102,7 +102,7 @@ Clique em **Execute** para executar a consulta.
 
 -   No banco de dados SQL, a instrução **USE** não é suportada para alternar entre bancos de dados. Em vez disso, você precisa estabelecer uma conexão diretamente com o banco de dados de destino.
 
->[AZURE.NOTE]Muitas das instruções Transact-SQL que cria ou modifica um banco de dados devem ser executadas em seu próprio lote e não podem ser agrupadas com outras instruções Transact-SQL. Para obter mais informações, consulte as informações específicas de instrução disponíveis dos links listados acima.
+>[AZURE.NOTE] Muitas das instruções Transact-SQL que cria ou modifica um banco de dados devem ser executadas em seu próprio lote e não podem ser agrupadas com outras instruções Transact-SQL. Para obter mais informações, consulte as informações específicas de instrução disponíveis dos links listados acima.
 
 ## Criar e gerenciar logons
 
@@ -149,7 +149,7 @@ O banco de dados **mestre** controla os logons e quais logons têm permissão pa
 
 ## Monitorar o Banco de Dados SQL usando Modos de Exibição de Gerenciamento Dinâmico</h2>
 
-O Banco de dados SQL oferece suporte a vários modos de exibição de gerenciamento dinâmico que você pode usar para monitorar um banco de dados individual. Abaixo estão alguns exemplos do tipo de dados de monitor que podem ser recuperados por meio desses modos de exibição. Para obter detalhes completos e mais exemplos de uso, veja [Monitorando o Banco de Dados SQL usando exibições de gerenciamento dinâmico](https://msdn.microsoft.com/library/azure/ff394114.aspx).
+O Banco de dados SQL oferece suporte a vários modos de exibição de gerenciamento dinâmico que você pode usar para monitorar um banco de dados individual. Abaixo estão alguns exemplos do tipo de dados de monitor que podem ser recuperados por meio desses modos de exibição. Para obter detalhes completos e mais exemplos de uso, confira [Monitoramento do Banco de Dados SQL usando Exibições de Gerenciamento Dinâmico](https://msdn.microsoft.com/library/azure/ff394114.aspx).
 
 -   Consultar uma exibição de gerenciamento dinâmico requer permissões **VIEW DATABASE STATE**. Para conceder a permissão **VIEW DATABASE STATE** a um usuário de banco de dados específico, conecte-se ao banco de dados que você deseja gerenciar com o logon principal de nível de servidor e execute a seguinte instrução no banco de dados:
 
