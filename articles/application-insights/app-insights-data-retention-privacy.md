@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="03/15/2016" 
 	ms.author="awills"/>
 
 # Coleta, retenção e armazenamento de dados no Application Insights 
@@ -80,6 +80,8 @@ Se você estiver desenvolvendo o aplicativo usando o Visual Studio, execute o ap
 
 ![](./media/app-insights-data-retention-privacy/06-vs.png)
 
+Também há uma exibição mais legível na janela Diagnóstico.
+
 Para páginas da Web, abra a janela de depuração do navegador.
 
 ![Pressione F12 e abra a guia Rede.](./media/app-insights-data-retention-privacy/08-browser.png)
@@ -94,9 +96,9 @@ Isso seria possível escrevendo um [plug-in de processador de telemetria](app-in
 
 Depende do seu [plano de preços](https://azure.microsoft.com/pricing/details/application-insights/).
 
-Pontos de dados brutos (ou seja, itens que você pode inspecionar na pesquisa de diagnóstico): entre 7 e 30 dias.
+Pontos de dados brutos (isto é, itens que você pode inspecionar na Pesquisa de Diagnóstico): sete dias. Se precisar manter os dados por mais tempo, você poderá usar a [exportação contínua](app-insights-export-telemetry.md) para copiá-los para uma conta de armazenamento.
 
-Os dados agregados (ou seja, contagens, médias e outros dados estatísticos que você vê no Metric Explorer) são mantidos em um detalhamento de 1 minuto por 30 dias, e 1 hora ou 1 dia (dependendo do tipo) por 13 meses.
+Os dados agregados (ou seja, contagens, médias e outros dados estatísticos que você vê no Gerenciador de Métricas) são mantidos em um detalhamento de um minuto por 30 dias e de uma hora ou de um dia (dependendo do tipo) por pelo menos 90 dias.
 
 
 ## Quem pode acessar os dados?
@@ -116,7 +118,7 @@ A Microsoft usa os dados apenas para fornecer o serviço a você.
 
 #### Eles podem ser armazenados em outro local, por exemplo na Europa? 
 
-* Ainda não. 
+* Não no momento. 
 
 ## Quão seguros meus dados estão?  
 
@@ -265,4 +267,4 @@ Este produto inclui dados GeoLite2 criados pelo MaxMind, disponíveis em [http:/
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/28/2016" 
+	ms.date="03/15/2016" 
 	ms.author="awills"/>
 
 # Gerenciar cotas e preços do Application Insights
@@ -136,8 +136,8 @@ Se você encontrar as limitações, aqui há algumas coisas que você pode fazer
 A camada de preços determina quanto tempo os dados são mantidos no portal e, portanto, quanto você pode definir para atrás os intervalos de tempo.
 
 
-* Pontos de dados brutos (ou seja, instâncias que você pode inspecionar na pesquisa de diagnóstico): entre 7 e 30 dias.
-* Os dados agregados (ou seja, contagens, médias e outros dados estatísticos que você vê no Metric Explorer) são mantidos em um detalhamento de 1 minuto por 30 dias, e 1 hora ou 1 dia (dependendo do tipo) por 13 meses.
+* Pontos de dados brutos (ou seja, instâncias que você pode inspecionar na Pesquisa de Diagnóstico): entre sete dias.
+* Os dados agregados (ou seja, contagens, médias e outros dados estatísticos que você vê no Gerenciador de Métricas) são mantidos em um detalhamento de um minuto por 30 dias e de uma hora ou de um dia (dependendo do tipo) por 90 dias.
 
 
 ## Amostragem
@@ -173,4 +173,4 @@ Encargos do Application Insights são adicionados à sua conta do Azure. Você p
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

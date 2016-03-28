@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/21/2015"
+	ms.date="03/08/2016"
 	ms.author="genli"/>
 
 # Como alterar o cartão de crédito usado para pagar uma assinatura do Azure
@@ -23,7 +23,10 @@
 Você pode pagar usando cartões de crédito ou débito ou ser aprovado para pagar por fatura. Para obter mais informações sobre como pagar por fatura, veja [Faturamento do Azure](https://azure.microsoft.com/pricing/invoicing/).
 
 ## Editar informações de pagamento para um cartão de crédito existente
-1. Faça logon no [Centro de Contas do Azure](https://account.windowsazure.com/Subscriptions) como o Administrador da Conta.
+1. Faça logon no [Centro de Contas do Azure](https://account.windowsazure.com/Subscriptions) como o administrador da conta. No [portal do Azure](https://portal.azure.com), você pode acessar o Centro de Contas selecionando **Assinatura**>*o nome da assinatura*>**Gerenciar**.
+
+	**Observação** Somente o administrador da conta do Azure tem permissão para acessar o Centro de Contas. Para saber mais sobre o administrador da conta, confira [Como adicionar ou alterar funções de administrador do Azure](billing-add-change-azure-subscription-administrator.md).
+
 2. Em **Clique em uma assinatura para exibir detalhes e uso**, selecione a assinatura que está vinculada ao cartão de crédito.</br> ![selectsub](./media/billing-how-to-change-credit-card/selectsub.png)
 3. No lado direito da página, clique em **Alterar forma de pagamento**.</br> ![changesub](./media/billing-how-to-change-credit-card/changesub.png)
 4. Na página **Escolher forma de pagamento**, selecione **Editar** ao lado do número do cartão de crédito.</br> ![changesub](./media/billing-how-to-change-credit-card/editcard.png)
@@ -44,4 +47,4 @@ Você pode pagar usando cartões de crédito ou débito ou ser aprovado para pag
 3. No lado direito da página, clique em **Alterar forma de pagamento**.
 4. Na página **Escolher forma de pagamento**, clique na seta suspensa ao lado do cartão de crédito, selecione o cartão de crédito que deseja usar e em seguida, selecione ![checkbutton](./media/billing-how-to-change-credit-card/checkbutton.png) para fechar a janela.
 
-<!---HONumber=AcomDC_0128_2016--->
+<!---HONumber=AcomDC_0316_2016-->

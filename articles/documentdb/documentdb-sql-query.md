@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
+	ms.date="03/11/2016" 
 	ms.author="arramac"/>
 
 # Consulta e sintaxe SQL no Banco de Dados de Documentos
@@ -281,7 +281,29 @@ A consulta a seguir solicita documentos que contêm uma propriedade de nome cujo
 
 O exemplo anterior mostrou uma consulta de igualdade simples. O SQL do Banco de Dados de Documentos também dá suporte a diversas expressões escalares. As expressões mais usadas são as binárias e unárias. Referências de propriedade do objeto JSON fonte também são expressões válidas.
 
-Atualmente há suporte para os operadores binários a seguir, que podem ser usados em consultas conforme mostrado nos seguintes exemplos: <table> <tr> <td>Aritmético</td> <td>+,-,*,/,%</td> </tr> <tr> <td>Bit a bit</td> <td>|, &, ^, <<, >>, >>> (deslocamento à direita sem preenchimento) </td> </tr> <tr> <td>Lógico</td> <td>E, OU, NÃO</td> </tr> <tr> <td>Comparação</td> <td>=, !=, &lt;, &gt;, &lt;=, &gt;=, <></td> </tr> <tr> <td>Cadeia de caracteres</td> <td>|| (concatenar)</td> </tr> </table>
+Os operadores binários a seguir têm suporte atualmente em consultas como as exemplificadas:
+<table>
+<tr>
+<td>Aritmético</td>	
+<td>+,-,*,/,%</td>
+</tr>
+<tr>
+<td>Bit a bit</td>	
+<td>|, &amp;, ^, &lt;&lt;, >>, >>> (deslocamento à direita com preenchimento com zero) </td>
+</tr>
+<tr>
+<td>Lógico</td>
+<td>AND, OR, NOT</td>
+</tr>
+<tr>
+<td>Comparação</td>	
+<td>=, !=, &lt;, >, &lt;=, >=, &lt;></td>
+</tr>
+<tr>
+<td>Cadeia de caracteres</td>	
+<td>|| (concatenado)</td>
+</tr>
+</table>  
 
 Vejamos algumas consultas que usam valores binários.
 
@@ -313,7 +335,219 @@ Os operadores unários +,-, ~ e NOT também têm suporte e podem ser usados dent
 Além de operadores binários e unários, as referências de propriedade também são permitidas. Por exemplo, `SELECT * FROM Families f WHERE f.isRegistered` retorna o documento JSON que contém a propriedade `isRegistered`, em que o valor da propriedade é igual ao valor JSON `true`. Todos os outros valores (false, null, Indefinido, `<number>`, `<string>`, `<object>`, `<array>` etc.) levam ao documento de origem que está sendo excluído do resultado.
 
 ### Operadores de igualdade e de comparação
-A tabela a seguir mostra o resultado de comparações de igualdade na SQL do Banco de Dados de Documentos entre dois tipos JSON quaisquer. <table style = "width:300px"> <tbody> <tr> <td valign="top"> <strong>Op</strong> </td> <td valign="top"> <strong>Indefinido</strong> </td> <td valign="top"> <strong>Nulo</strong> </td> <td valign="top"> <strong>Booliano</strong> </td> <td valign="top"> <strong>Número</strong> </td> <td valign="top"> <strong>Cadeia de caracteres</strong> </td> <td valign="top"> <strong>Objeto</strong> </td> <td valign="top"> <strong>Matriz</strong> </td> </tr> <tr> <td valign="top"> <strong>Indefinido<strong> </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> </tr> <tr> <td valign="top"> <strong>Nulo<strong> </td> <td valign="top"> Indefinido </td> <td valign="top"> <strong>OK</strong> </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> </tr> <tr> <td valign="top"> <strong>Booliano<strong> </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> <strong>OK</strong> </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> </tr> <tr> <td valign="top"> <strong>Número<strong> </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> <strong>OK</strong> </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> </tr> <tr> <td valign="top"> <strong>Cadeia de caracteres<strong> </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> <strong>OK</strong> </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> </tr> <tr> <td valign="top"> <strong>Objeto<strong> </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> <strong>OK</strong> </td> <td valign="top"> Indefinido </td> </tr> <tr> <td valign="top"> <strong>Matriz<strong> </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> <strong>OK</strong> </td> </tr> </tbody> </table>
+A tabela a seguir mostra o resultado de comparações de igualdade na SQL do Banco de Dados de Documentos entre dois tipos JSON quaisquer.
+<table style = "width:300px">
+   <tbody>
+      <tr>
+         <td valign="top">
+            <strong>Op</strong>
+         </td>
+         <td valign="top">
+            <strong>Indefinido</strong>
+         </td>
+         <td valign="top">
+            <strong>Nulo</strong>
+         </td>
+         <td valign="top">
+            <strong>Booliano</strong>
+         </td>
+         <td valign="top">
+            <strong>Número</strong>
+         </td>
+         <td valign="top">
+            <strong>Cadeia de caracteres</strong>
+         </td>
+         <td valign="top">
+            <strong>Objeto</strong>
+         </td>
+         <td valign="top">
+            <strong>Matriz</strong>
+         </td>
+      </tr>
+      <tr>
+         <td valign="top">
+            <strong>Indefinido<strong>
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+      </tr>
+      <tr>
+         <td valign="top">
+            <strong>Nulo<strong>
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+         <td valign="top">
+            <strong>OK</strong>
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+      </tr>
+      <tr>
+         <td valign="top">
+            <strong>Booliano<strong>
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+         <td valign="top">
+            <strong>OK</strong>
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+      </tr>
+      <tr>
+         <td valign="top">
+            <strong>Número<strong>
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+         <td valign="top">
+            <strong>OK</strong>
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+      </tr>
+      <tr>
+         <td valign="top">
+            <strong>String<strong>
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+         <td valign="top">
+            <strong>OK</strong>
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+      </tr>
+      <tr>
+         <td valign="top">
+            <strong>Objeto<strong>
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+         <td valign="top">
+            <strong>OK</strong>
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+      </tr>
+      <tr>
+         <td valign="top">
+            <strong>Matriz<strong>
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+         <td valign="top">
+            Indefinido
+         </td>
+         <td valign="top">
+            <strong>OK</strong>
+         </td>
+      </tr>
+   </tbody>
+</table>
 
 Para outros operadores de comparação, como >, >=, !=, < e <=, aplicam-se as seguintes regras:
 
@@ -1142,7 +1376,7 @@ O Banco de Dados de Documentos também dá suporte a várias funções internas 
 <td>Funções espaciais</td>	
 <td>ST_DISTANCE, ST_WITHIN, ST_ISVALID e ST_ISVALIDDETAILED</td>
 </tr>
-</table>
+</table>  
 
 Se estiver usando uma UDF (função definida pelo usuário) para a qual uma função interna agora está disponível, você deverá usar a função interna correspondente, pois ela será executada de forma mais rápida e mais eficiente.
 
@@ -1248,7 +1482,7 @@ As funções matemáticas executam um cálculo, normalmente com base em valores 
 <td>Retorna a tangente da expressão de entrada, na expressão especificada.</td>
 </tr>
 
-</table>
+</table> 
 
 Por exemplo, agora você pode executar consultas como as seguintes:
 
@@ -2144,4 +2378,4 @@ O exemplo a seguir mostra como usar o queryDocuments na API do servidor do JavaS
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -1,20 +1,20 @@
-<properties 
- pageTitle="Planos e Cobrança no Agendador do Azure" 
- description="" 
- services="scheduler" 
- documentationCenter=".NET" 
- authors="krisragh" 
- manager="dwrede" 
+<properties
+ pageTitle="Planos e Cobrança no Agendador do Azure"
+ description=""
+ services="scheduler"
+ documentationCenter=".NET"
+ authors="krisragh"
+ manager="dwrede"
  editor=""/>
-<tags 
- ms.service="scheduler" 
- ms.workload="infrastructure-services" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="12/04/2015" 
+<tags
+ ms.service="scheduler"
+ ms.workload="infrastructure-services"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
- 
+
 # Planos e Cobrança no Agendador do Azure
 
 ## Planos de Coleção de Trabalho
@@ -67,10 +67,10 @@ Você pode desativar todos os trabalhos em um conjunto de trabalhos em uma únic
 Para obter detalhes sobre preços, confira [Preços do Agendador](https://azure.microsoft.com/pricing/details/scheduler/).
 
 ## Consulte também
- 
+
 
  [O que é o Agendador?](scheduler-intro.md)
- 
+
  [Conceitos, terminologia e hierarquia de entidades do Agendador do Azure](scheduler-concepts-terms.md)
 
  [Introdução à utilização do Agendador no Portal do Azure](scheduler-get-started-portal.md)
@@ -84,9 +84,5 @@ Para obter detalhes sobre preços, confira [Preços do Agendador](https://azure.
  [Limites, padrões e códigos de erro do Agendador do Azure](scheduler-limits-defaults-errors.md)
 
  [Autenticação de saída do Agendador do Azure](scheduler-outbound-authentication.md)
- 
-  
 
-  
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

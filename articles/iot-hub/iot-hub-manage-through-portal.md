@@ -13,7 +13,7 @@
 	 ms.topic="article"
 	 ms.tgt_pltfrm="na"
 	 ms.workload="na"
-	 ms.date="10/19/2015"
+	 ms.date="03/14/2016"
 	 ms.author="nasing"/>
 
 # Gerenciar Hubs IoT por meio do portal do Azure
@@ -44,11 +44,11 @@ Para criar um Hub IoT, você deve dar um nome ao hub. Observe que esse nome deve
 
 ### Escolher a camada de preços
 
-Você pode escolher entre três camadas: **Gratuita**, **Standard 1** e **Standard 2**. A camada gratuita só permite 10 dispositivos conectados ao Hub IoT.
+Você pode escolher entre três camadas: **Gratuita**, **Standard 1** e **Standard 2**. O tipo gratuito só permite a conexão de 500 dispositivos ao Hub IoT e até 8000 mensagens por dia.
 
-**S1 (Baixa Frequência)**: a edição S1 (Baixa Frequência) do Hubs IoT foi projetada para soluções IoT com um grande número de dispositivos gerando quantidades relativamente pequenas de dados por dispositivo. Cada unidade da edição S1 (Baixa Frequência) permite a conectividade de até 500 dispositivos ou de até 50.000 mensagens por dia em todos os dispositivos conectados.
+**S1 (Baixa Frequência)**: a edição S1 (Baixa Frequência) do Hubs IoT foi projetada para soluções IoT com um grande número de dispositivos gerando quantidades relativamente pequenas de dados por dispositivo. Cada unidade da edição S1 (Baixa Frequência) permite a transmissão de até 400.000 mensagens por dia entre todos os dispositivos conectados.
 
-**S2 (Alta Frequência)**: a edição S2 (Alta Frequência) do Hub IoT foi projetada para soluções IoT nas quais os dispositivos geram grandes quantidades de dados. Cada unidade da edição S2 (Alta Frequência) permite a conectividade de até 500 dispositivos ou de até 1,5 milhão de mensagens por dia entre todos os dispositivos conectados.
+**S2 (Alta Frequência)**: a edição S2 (Alta Frequência) do Hub IoT foi projetada para soluções IoT nas quais os dispositivos geram grandes quantidades de dados. Cada unidade da edição S2 (Alta Frequência) permite a transmissão de até seis milhões de mensagens por dia entre todos os dispositivos conectados.
 
 ![][4]
 
@@ -56,7 +56,7 @@ Você pode escolher entre três camadas: **Gratuita**, **Standard 1** e **Standa
 
 ### Unidades do Hub IoT
 
-Uma unidade de Hub IoT inclui 500 dispositivos e, portanto, escolher o número de unidades IoT significa que o número total de dispositivos com suporte para esse hub será o número de unidades multiplicado por 500. Por exemplo, se você quiser que o Hub IoT ofereça suporte a 1000 dispositivos, escolha 2 unidades.
+Uma unidade do Hub IoT inclui um certo número de mensagens por dia.Portanto, escolher o número de unidades IoT significa que o número total de mensagens com suporte para esse hub será o número de unidades multiplicado pelo número de mensagens por dia desse tipo. Por exemplo, se você quiser que o Hub IoT dê suporte à entrada de 700.000 mensagens, escolha duas unidades do tipo S1.
 
 ### Dispositivo para partições de nuvem e grupo de recursos
 
@@ -129,7 +129,7 @@ O preço de um Hub IoT existente pode ser alterado por meio das configurações 
 
 ![][12]
 
-Mudar de uma camada alta (S2) para uma camada baixa (S1) só será permitido quando o número de mensagens enviadas naquele dia não estiver em conflito. Por exemplo, se o número de mensagens por dia exceder 50 mil, a camada do Hub IoT não poderá ser alterada de S2 para S1.
+Mudar de uma camada alta (S2) para uma camada baixa (S1) só será permitido quando o número de mensagens enviadas naquele dia não estiver em conflito. Por exemplo, se o número de mensagens por dia exceder 400.000, a camada do Hub IoT não poderá ser alterada de S2 para S1.
 
 ## Excluir o Hub IoT
 
@@ -153,4 +153,4 @@ Para saber mais sobre o Hub IoT do Azure, siga estes links:
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [O que é o Hub IoT do Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

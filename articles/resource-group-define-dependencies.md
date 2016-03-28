@@ -3,8 +3,8 @@
    description="Descreve como definir um recurso como dependente de outro recurso durante a implantação."
    services="azure-resource-manager"
    documentationCenter="na"
-   authors="mmercuri"
-   manager="wpickett"
+   authors="tfitzmac"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="12/07/2015"
-   ms.author="mmercuri"/>
+   ms.author="tomfitz"/>
 
 # Definindo dependências em modelos do Gerenciador de Recursos do Azure
 
@@ -66,4 +66,4 @@ Para saber mais, consulte [Função de referência](../resource-group-template-f
 - Para saber mais sobre a criação de modelos do Gerenciador de Recursos do Azure, consulte [Criando modelos](resource-group-authoring-templates.md). 
 - Para obter uma lista das funções disponíveis em um modelo, consulte [Funções de modelo](resource-group-template-functions.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0316_2016-->

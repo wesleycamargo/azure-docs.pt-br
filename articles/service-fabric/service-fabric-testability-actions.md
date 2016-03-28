@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/04/2015"
+   ms.date="03/14/2016"
    ms.author="heeldin;motanv"/>
 
 # Ações da Possibilidade de Teste
@@ -211,10 +211,11 @@ ReplicaSelector é um auxiliar exposto na possibilidade de teste usado para ajud
 
 Para usar esse auxiliar, crie um objeto ReplicaSelector e defina a maneira como deseja selecionar a réplica e a partição. Em seguida, passe-o para a API que o exige. Se nenhuma opção for selecionada, ela será padronizada para uma réplica ou partição aleatória.
 
-Guid partitionIdGuid = new Guid("8fb7ebcc-56ee-4862-9cc0-7c6421e68829"); PartitionSelector partitionSelector = PartitionSelector.PartitionIdOf(serviceName, partitionIdGuid); long replicaId = 130559876481875498;
-
-
 ```csharp
+Guid partitionIdGuid = new Guid("8fb7ebcc-56ee-4862-9cc0-7c6421e68829");
+PartitionSelector partitionSelector = PartitionSelector.PartitionIdOf(serviceName, partitionIdGuid);
+long replicaId = 130559876481875498;
+
 // Select a random replica
 ReplicaSelector randomReplicaSelector = ReplicaSelector.RandomOf(partitionSelector);
 
@@ -235,4 +236,4 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
    - [Simular falhas durante cargas de trabalho de serviço](service-fabric-testability-workload-tests.md)
    - [Falhas de comunicação entre serviços](service-fabric-testability-scenarios-service-communication.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

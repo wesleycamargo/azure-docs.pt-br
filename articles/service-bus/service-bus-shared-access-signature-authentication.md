@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/09/2015"
+   ms.date="03/09/2016"
    ms.author="sethm" />
 
 # Autenticação de assinatura de acesso compartilhado com Barramento de serviço
@@ -94,7 +94,7 @@ Para um exemplo funcional completo de um aplicativo do Barramento de Serviço qu
 
 ## Acessar regras de autorização de Acesso Compartilhado em um namespace
 
-As operações na raiz do namespace do Barramento de Serviço exigem a autenticação de certificado. Você deve carregar um certificado de gerenciamento da sua assinatura do Azure. Para carregar um certificado de gerenciamento, clique em **Configurações** no painel esquerdo do [portal clássico do Azure][]. Para saber mais sobre como criar certificados de gerenciamento do Azure, consulte [Criar um certificado de gerenciamento para o Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx).
+As operações na raiz do namespace do Barramento de Serviço exigem a autenticação de certificado. Você deve carregar um certificado de gerenciamento da sua assinatura do Azure. Para carregar um certificado de gerenciamento, clique em **Configurações** no painel esquerdo do [portal clássico do Azure][]. Para saber mais sobre certificados de gerenciamento do Azure, confira [Visão geral dos certificados do Azure](../cloud-services/cloud-services-certs-create.md#what-are-management-certificates).
 
 O ponto de extremidade para acessar regras de autorização de acesso compartilhado em um namespace do Barramento de Serviço é o seguinte:
 
@@ -258,4 +258,4 @@ Confira [Autenticação e autorização do Barramento de Serviço](service-bus-a
 
 [portal clássico do Azure]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0316_2016-->

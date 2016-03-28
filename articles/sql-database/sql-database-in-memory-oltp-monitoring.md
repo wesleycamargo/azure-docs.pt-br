@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Monitorar o armazenamento na memória XTP | Microsoft Azure"
-	description="Estimar e monitorar o uso do armazenamento na memória XTP, capacidade; resolver o erro de capacidade 41805"
+	description="Estimar e monitorar o uso do armazenamento na memória XTP, capacidade; resolver o erro de capacidade 41823"
 	services="sql-database"
 	documentationCenter=""
 	authors="jodebrui"
@@ -20,7 +20,7 @@
 
 # Monitorar o armazenamento OLTP na memória
 
-Ao usar o [In-Memory OLTP](sql-database-in-memory.md), os dados em tabelas com otimização de memória e as variáveis de tabela residem no armazenamento OLTP na memória. Cada camada de serviço Premium tem um tamanho máximo de armazenamento na memória, que está documentado no [artigo Camadas de serviço do banco de Dados SQL](sql-database-service-tiers.md#service-tiers-for-single-databases). Quando esse limite for excedido, as operações insert e update poderão começar a falhar (com o erro 41805). Nesse ponto, você precisará excluir dados para obter memória ou atualizar a camada de desempenho do seu banco de dados.
+Ao usar o [In-Memory OLTP](sql-database-in-memory.md), os dados em tabelas com otimização de memória e as variáveis de tabela residem no armazenamento OLTP na memória. Cada camada de serviço Premium tem um tamanho máximo de armazenamento na memória, que está documentado no [artigo Camadas de serviço do banco de Dados SQL](sql-database-service-tiers.md#service-tiers-for-single-databases). Quando esse limite for excedido, as operações insert e update poderão começar a falhar (com o erro 41823). Nesse ponto, você precisará excluir dados para obter memória ou atualizar a camada de desempenho do seu banco de dados.
 
 ## Determinar se os dados se ajustarão ao limite de armazenamento na memória
 
@@ -43,11 +43,11 @@ Ou use a consulta a seguir para mostrar a utilização de armazenamento na memó
     select xtp_storage_percent from sys.dm_db_resource_stats
 
 
-## Corrigir situações de memória insuficiente - Erro 41805
+## Corrigir situações de memória insuficiente - Erro 41823
 
-A insuficiência de memória resulta na falha das operações INSERT, UPDATE e CREATE com a mensagem de erro 41805.
+A insuficiência de memória resulta na falha das operações INSERT, UPDATE e CREATE com a mensagem de erro 41823.
 
-A mensagem de erro 41805 indica que as variáveis de tabela e as tabelas com otimização de memória excederam o tamanho máximo.
+A mensagem de erro 41823 indica que as variáveis de tabela e as tabelas com otimização de memória excederam o tamanho máximo.
 
 Para resolver esse erro:
 
@@ -58,4 +58,4 @@ Para resolver esse erro:
 ## Próximas etapas
 Saiba mais sobre [Monitoramento de Banco de Dados SQL usando exibições de gerenciamento dinâmico](sql-database-monitoring-with-dmvs.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -3,7 +3,7 @@
 	description="Perguntas frequentes sobre as competições do Aprendizado de Máquina do Microsoft Azure."
 	services="machine-learning"
 	documentationCenter=""
-	authors="garyericson"
+	authors="hning86"
 	manager="paulettm"
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="03/11/2016"
 	ms.author="haining;chlovel;garye"/>
 
 # Perguntas frequentes sobre a competição do Aprendizado de Máquina do Microsoft Azure
@@ -70,4 +70,4 @@ A Microsoft verificará os resultados do placar de líderes privado e, logo em s
 
 Se você for um vencedor do concurso, precisará assinar uma declaração de qualificação, licença e isenção. Este formulário reitera as Regras da Competição. Os vencedores precisarão preencher um formulário Fiscal dos EUA W-9 ou um formulário W-8BEN se não forem contribuintes dos EUA.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

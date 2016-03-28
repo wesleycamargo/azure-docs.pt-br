@@ -38,7 +38,7 @@ Os aplicativos de API oferecem os seguintes recursos:
 
 - **Coloque sua API existente como ela está** - Você não precisa alterar nenhum código em suas APIs existentes para tirar proveito dos recursos de Aplicativos de API. Basta implantar seu código em um aplicativo de API. Sua API pode usar qualquer linguagem ou estrutura com suporte do Serviço de Aplicativo, incluindo ASP.NET e C#, Java, PHP, Node.js e Python.
 
-Além disso, os recursos oferecidos por Aplicativos de API, Aplicativos Web e Aplicativos Móveis são intercambiáveis. Isso significa que uma instância de Aplicativos de API pode tirar proveito dos recursos para desenvolvimento e hospedagem web e móvel que Aplicativos Web e Aplicativos Móveis oferecem. O inverso também é verdadeiro: por exemplo, você pode usar um aplicativo web para hospedar uma API e ainda tirar proveito dos metadados Swagger para geração de código de cliente e CORS para acesso de domínio cruzado de navegador. Para obter mais informações, consulte [Visão geral de aplicativos Web](../app-service-web/app-service-web-overview.md) e [Visão geral de aplicativos móveis](../app-service-mobile/app-service-mobile-value-prop.md).
+Além disso, um aplicativo de API pode tirar proveito dos recursos oferecidos pelos [Aplicativos Web](../app-service-web/app-service-web-overview.md) e [Aplicativos Móveis](../app-service-mobile/app-service-mobile-value-prop.md). O inverso também é verdadeiro: se você usar um aplicativo Web ou aplicativo móvel para hospedar uma API, ele pode tirar proveito de recursos dos Aplicativos de API como metadados Swagger para geração de código de cliente e CORS para acesso de domínio cruzado de navegador. A única diferença entre os três tipos de aplicativo (API, Web, móveis) é o nome e o ícone usado para eles no Portal do Azure. Como todos eles têm os mesmos recursos, nunca é necessário alterar um aplicativo de um tipo para outro a fim de obter o recurso desejado. No entanto, é fácil alterar o tipo do aplicativo se você desejar fazer isso. Para saber mais, consulte a seção **Alterar um tipo de aplicativo** em [Introdução aos Aplicativos de API e ao ASP.NET no Serviço de Aplicativo do Azure](app-service-api-dotnet-get-started.md#optional-changing-an-app-type).
 
 ## Ampliando os Aplicativos de API com o uso do Gerenciamento de API do Azure 
 
@@ -60,10 +60,8 @@ Alguns recursos de Gerenciamento de API e Aplicativos de API têm funções seme
 
 ## Introdução
 
-Para começar a usar os aplicativos de API, siga o tutorial [Introdução a Aplicativos de API](app-service-api-dotnet-get-started.md).
+Para começar a usar os Aplicativos de API, siga um dos tutoriais de [Introdução a Aplicativos de API](app-service-api-dotnet-get-started.md).
 
-Para ver uma lista de problemas conhecidos dos Aplicativos de API, confira [a postagem no fórum sobre problemas conhecidos dos Aplicativos de API](https://social.msdn.microsoft.com/Forums/pt-BR/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps).
+Para fazer perguntas sobre os aplicativos de API, inicie um thread no [Fórum dos Aplicativos de API](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=AzureAPIApps).
 
-Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Azure, consulte [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md).
-
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

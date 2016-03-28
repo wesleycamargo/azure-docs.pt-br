@@ -1,6 +1,6 @@
 <properties
    pageTitle="Descrição de cluster do Balanceador do Recursos | Microsoft Azure"
-   description="Descrevendo um cluster do Service Fabric especificando domínios de falha, domínios de atualização, propriedades de nó e capacidades de nó do Balanceador de Recursos."
+   description="Descrever um cluster do Service Fabric especificando domínios de falha, domínios de atualização, propriedades de nó e capacidades de nó para o Gerenciador de Recursos de Cluster."
    services="service-fabric"
    documentationCenter=".net"
    authors="masnider"
@@ -13,22 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="03/10/2016"
    ms.author="masnider"/>
 
 # Descrevendo um cluster do Service Fabric
-
 O Gerenciador de Recursos de Cluster do Service Fabric fornece vários mecanismos para descrever um cluster. Durante o tempo de execução, o Gerenciador de Recursos usa essas informações para garantir a alta disponibilidade dos serviços executados no cluster, além de assegurar que os recursos do cluster sejam usados apropriadamente.
 
 ## Principais conceitos
 Os recursos do Gerenciador de Recursos de Cluster que descrevem um cluster são:
+
 - Domínios de falha
 - Domínios de atualização
 - Propriedades de nó
 - Capacidades de nó
 
-### Domínios de falha
-
+## Domínios de falha
 Um domínio de falha é qualquer área da falha coordenada. Um único computador é um domínio de falha (já que ele pode falhar sozinho por vários motivos diferentes, desde falhas de fornecimento de energia até falhas devido a firmware NIC inválido). Um grupo de computadores conectados ao mesmo comutador Ethernet estão no mesmo domínio de falha, como estariam aqueles conectados a uma única fonte de alimentação.
 
 Se estiver configurando seu próprio cluster, você precisará refletir sobre todas essas diferentes áreas de falha e verificar se os domínios de falha foram configurados corretamente para que o Service Fabric saiba onde é seguro colocar os serviços. Por "seguro", queremos dizer inteligente: não convém posicionar serviços de forma que a perda de um domínio de falha torne o serviço inoperante. No ambiente do Azure, aproveitamos as informações de domínio de falha fornecidas pelos Recursos de Infraestrutura do Azure/Gerenciador de Recursos para configurar corretamente os nós do cluster em seu nome. Na imagem abaixo (Figura 7), colorimos todas as entidades que resultam razoavelmente em um domínio de falha como um exemplo simples e listamos todos os domínios de falha diferentes resultantes. Neste exemplo, temos datacenters (DC), racks (R) e folhas (B). Em termos conceituais, se cada folha contém mais de uma máquina virtual, pode haver outra camada na hierarquia de domínios de falha.
@@ -45,8 +44,7 @@ Se estiver configurando seu próprio cluster, você precisará refletir sobre to
 
  ![Dois layouts de cluster diferentes][Image2]
 
-### Domínios de atualização
-
+## Domínios de atualização
 Os Domínios de Atualização são um outro recurso que ajuda o Gerenciador de Recursos do Service Fabric a entender o layout do cluster para que possa planejar antecipadamente como lidar com falhas. Os Domínios de Atualização definem áreas (conjuntos de nós, na realidade) que ficarão inativas ao mesmo tempo durante uma atualização.
 
 Os Domínios de Atualização são muito semelhantes aos Domínios de Falha, mas com algumas diferenças importantes. Primeiro, os Domínios de Atualização normalmente são definidos por uma política, enquanto que os Domínios de Falha são rigorosamente definidos por áreas de falhas coordenadas (e, portanto, geralmente pelo layout de hardware do ambiente). No entanto, no caso dos Domínios de Atualização, você pode decidir quantos deseja ter. Outra diferença é que (atualmente, pelo menos) os Domínios de Atualização não são hierárquicos: eles são mais semelhantes a uma marca simples do que uma hierarquia.
@@ -67,7 +65,7 @@ Não existe uma solução ideal sobre qual layout deve ser escolhido. Cada um de
 
 O modelo mais comum (e aquele que usamos para os clusters do Azure Service Fabric hospedados) é a matriz de FD/UD, em que e FDs e UDs formam uma tabela e nós são posicionados começando ao longo da diagonal. O resultado final, esparso ou compactado, depende do número total de nós em comparação com o número de FDs e UDs (em outras palavras, para clusters suficientemente grandes, quase tudo acaba ficando parecido com o padrão de matriz densa, mostrado na opção inferior direita da Figura 10).
 
-## Configuração de Domínios de Falha e de Atualização
+## Configurando domínios de falha e atualização
 A definição de Domínios de Falha e Domínios de Atualização é feita automaticamente em implantações hospedadas do Azure Service Fabric. O Service Fabric simplesmente seleciona as informações de ambiente do Azure. Por sua vez, você, o usuário, pode escolher o número de domínios que deseja usar. No Azure, as informações de domínio de falha e de atualização parecem ser de "nível único", mas na realidade são informações encapsuladas das camadas inferiores do Azure Stack e apenas apresentam a falha lógica e os domínios de atualização a partir da perspectiva do usuário.
 
 Se você estiver criando seu próprio cluster (ou se apenas quiser tentar executar uma topologia específica no computador de desenvolvimento), precisará fornecer o domínio de falha e informações de domínio de atualização por conta própria. Neste exemplo, definimos um cluster com nove nós que abrange três "datacenters" (cada um com três racks) e três domínios de atualização distribuídos entre esses três datacenters. No manifesto do cluster, ele é semelhante a:
@@ -94,7 +92,7 @@ ClusterManifest.xml
 ```
 > [AZURE.NOTE] Em implantações do Azure, domínios de falha e domínios de atualização são atribuídos pelo Azure. Portanto, a definição dos seus nós e funções na opção infraestrutura do Azure não inclui informações sobre o domínio de falha ou o domínio de atualização.
 
-## Restrições do Posicionamento e Propriedades do Nó
+## Restrições de posicionamento e propriedades do nó
 Às vezes (na verdade, na maioria das vezes), convém assegurar que determinadas cargas de trabalho sejam executadas apenas em alguns nós ou em certos conjuntos de nós. Por exemplo, algumas cargas de trabalho podem exigir GPUs ou SSDs, enquanto outras, não. Um bom exemplo disso é praticamente qualquer arquitetura de n camadas, em que certos computadores atuam como front-end/interface de atendimento do aplicativo, enquanto outro conjunto (frequentemente com recursos de hardware diferentes) lida com o trabalho das camadas de computação ou armazenamento. O Service Fabric espera que, mesmo em um mundo de microsserviços, haja casos em que cargas de trabalho específicas precisem ser executadas em configurações de hardware específicas, por exemplo:
 
 - um aplicativo de n camadas existente foi "transferido e posicionado" em um ambiente do Service Fabric
@@ -159,7 +157,7 @@ Update-ServiceFabricService -Stateful -ServiceName $serviceName -PlacementConstr
 
 Restrições do posicionamento (juntamente com várias outras propriedades sobre as quais vamos falar) são especificadas para cada instância de serviço diferente. As atualizações sempre assumem o lugar (substituem) do que foi especificado anteriormente.
 
-### Capacidade
+## Capacidade
 Um dos trabalhos mais importantes de qualquer orquestrador é ajudar a gerenciar o consumo de recursos no cluster. A última coisa que você deseja, se estiver tentando executar serviços com eficiência, é ter vários nós ativos (levando à contenção de recursos e a um desempenho ruim) enquanto outros estão inativos (desperdício de recursos). Porém, vamos pensar em termos ainda mais básicos do que o equilíbrio (sobre o qual falaremos em alguns instantes): que tal apenas garantir que não fiquemos sem recursos?
 
 Acontece que o Service Fabric representa os recursos como itens chamados "Métricas". As métricas são qualquer recurso lógico ou físico que você queira descrever para o Service Fabric. Exemplos de métricas são itens como "WorkQueueDepth" ou "MemoryInMb". As métricas são diferentes das restrições e propriedades de nó porque as propriedades de nó geralmente são descritores estáticos dos próprios nós, enquanto as métricas se referem a recursos físicos que os serviços consomem quando são executados em um nó. Portanto, uma propriedade seria algo como HasSSD e pode ser definida como true ou false, mas a quantidade de espaço disponível no SSD (e consumida por serviços) seria uma métrica como "DriveSpaceInMb". A capacidade do nó definiria "DriveSpaceInMb" como a quantidade total de espaço não reservado na unidade e os serviços informariam quanto da métrica foi utilizada durante o tempo de execução.
@@ -204,8 +202,7 @@ ClusterManifest.xml
 
 Também é possível que a carga de um serviço seja alterada dinamicamente. Nesse caso, é possível que o local em que uma réplica ou instância está posicionada no momento se torne inválido, pois o uso combinado de todas as réplicas e instâncias no nó excede a capacidade do nó. Mais tarde, falaremos mais sobre esse cenário em que a carga pode ser alterada dinamicamente, mas em termos de capacidade, ela é tratada da mesma forma: o gerenciamento de recursos do Service Fabric é acionado automaticamente e coloca o nó de volta abaixo da capacidade movendo uma ou mais réplicas ou instâncias do nó para nós diferentes. Ao fazer isso, o Gerenciador de Recursos tenta minimizar o custo de todas as movimentações (voltaremos à noção de Custo mais tarde).
 
-###Capacidade do Cluster
-
+##Capacidade do cluster
 Então, como impedir que o cluster geral fique muito cheio? Bem, com a carga dinâmica, na verdade, não há muito que possamos fazer (pois os serviços podem ter seu pico de carga independente das ações executadas pelo Gerenciador de Recursos. O cluster com espaço de sobra hoje pode não ter espaço suficiente quando você ficar famoso amanhã), mas há alguns controles embutidos para evitar erros básicos. A primeira coisa a fazer é evitar a criação de novas cargas de trabalho que fariam com que o cluster ficasse cheio.
 
 Digamos que você crie um serviço simples sem estado e haja alguma carga associada a ele (falaremos mais sobre relatórios de carga padrão e dinâmica posteriormente). Digamos que esse serviço se preocupe com algum recurso (por exemplo, o espaço em disco) e que, por padrão, ele consumirá cinco unidades de Espaço em Disco para cada instância do serviço. Você deseja criar três instâncias do serviço. Ótimo! Isso significa que é preciso que 15 unidades do Espaço em Disco estejam presentes no cluster para podermos criar essas instâncias de serviço. O Service Fabric calcula continuamente a capacidade e o consumo totais de cada métrica, assim, poderemos facilmente fazer a determinação e rejeitar a chamada de criação de serviço se houver espaço suficiente.
@@ -251,11 +248,11 @@ LoadMetricInformation     :
                             MaxNodeLoadNodeId     : 2cc648b6770be1bc9824fa995d5b68b1
 ```
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Próximas etapas
-- [Saiba mais sobre a arquitetura do Gerenciador de Recursos de Cluster](service-fabric-cluster-resource-manager-architecture.md)
-- [Saiba Mais sobre as Métricas de Desfragmentação](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-- [Obter uma Introdução ao Gerenciador de Recursos de Cluster do Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
+- Para obter informações sobre arquitetura e fluxo de informações no Gerenciador de Recursos do Cluster, confira [este artigo](service-fabric-cluster-resource-manager-architecture.md).
+- Definir as Métricas de Desfragmentação é uma forma de consolidar a carga em nós, em vez de distribuí-la. Para saber como configurar a desfragmentação, leia [este artigo](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+- Comece do princípio e [veja uma introdução ao Gerenciador de Recursos de Cluster do Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
+- Para descobrir como o Gerenciador de Recursos de Cluster gerencia e balanceia carga no cluster, confira o artigo sobre [como balancear carga](service-fabric-cluster-resource-manager-balancing.md).
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-fault-domains.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-uneven-fault-domain-layout.png
@@ -265,4 +262,4 @@ LoadMetricInformation     :
 [Image6]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-placement-constraints-node-properties.png
 [Image7]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-nodes-and-capacity.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

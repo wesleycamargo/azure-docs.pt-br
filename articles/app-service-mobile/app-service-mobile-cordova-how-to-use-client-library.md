@@ -47,6 +47,39 @@ Dois fluxos de autenticação são suportados: um server flow e um client flow. 
 
 [AZURE.INCLUDE [app-service-mobile-html-js-auth-library.md](../../includes/app-service-mobile-html-js-auth-library.md)]
 
+###<a name="configure-external-redirect-urls"></a>Como configurar o Serviço de Aplicativo Móvel para URLs de redirecionamento externo.
+
+Vários tipos de aplicativos do Apache Cordova usam uma funcionalidade de loopback para manipular fluxos de Interface do usuário do OAuth. Isso causa problemas pois o serviço de autenticação só sabe utilizar seu serviço por padrão. Exemplos disso são usar o emulador Ripple, executar seu serviço localmente ou em um Serviço de Aplicativo do Azure diferente e redirecionar para o Serviço de Aplicativo do Azure para autenticação ou recarregar em tempo real com o Ionic. Siga estas instruções para adicionar as definições locais à configuração:
+
+1. Faça logon no [Portal do Azure]
+2. Selecione **Todos os recursos** ou **Serviços de Aplicativos** e clique no nome do seu Aplicativo Móvel.
+3. Clique em **Ferramentas**
+4. Clique em **Gerenciador de Recursos** no menu OBSERVAR e clique em **Ir**. Uma nova janela ou guia será aberta.
+5. Expanda os nós **config**, **authsettings** do seu site no painel de navegação esquerdo.
+6. Clique em **Editar**
+7. Procure o elemento "allowedExternalRedirectUrls". Ele será definido como null. Altere-o para o seguinte:
+
+         "allowedExternalRedirectUrls": [
+             "http://localhost:3000",
+             "https://localhost:3000"
+         ],
+
+    Substitua as URLs pelas URLs do seu serviço. Exemplos incluem "http://localhost:3000" (para o serviço de exemplo do Node.js) ou "http://localhost:4400" (para o serviço Ripple). No entanto, esses são exemplos - sua situação, incluindo para os serviços mencionados nos exemplos, pode ser diferente.
+8. Clique no botão **Leitura/Gravação** no canto superior direito da tela.
+9. Clique no botão verde **PUT**.
+
+As configurações serão salvas neste momento. Não feche a janela do navegador até que as configurações sejam salvas. Você também precisará adicionar essas URLs de loopback às configurações de CORS:
+
+1. Faça logon no [Portal do Azure]
+2. Selecione **Todos os recursos** ou **Serviços de Aplicativos** e clique no nome do seu Aplicativo Móvel.
+3. A folha Configurações será aberta automaticamente. Se não for, clique em **Todas as Configurações**.
+4. Clique em **CORS** no menu de API.
+5. Digite a URL que você deseja adicionar na caixa fornecida e pressione Enter.
+6. Insira URLs adicionais conforme necessário.
+7. Clique em **Salvar** para salvar as configurações.
+
+Serão necessários cerca de 10 a 15 segundos para que as novas configurações tenham efeito.
+
 ##<a name="register-for-push"></a>Como se registrar para receber notificações por push
 
 Instale o [phonegap-plugin-push] para manipular notificações por push. Isso pode ser facilmente adicionado usando o comando `cordova plugin add` na linha de comando ou por meio do instalador de plug-ins do Git no Visual Studio. O código a seguir em seu aplicativo Apache Cordova registrará seu dispositivo para notificações por push:
@@ -91,6 +124,7 @@ pushHandler.on('error', function (error) {
 Use o SDK dos Hubs de Notificação para enviar notificações por push do servidor. Você nunca deve enviar notificações por push diretamente dos clientes, pois isso pode ser usado para disparar um ataque de negação de serviço contra os Hubs de Notificação ou PNS.
 
 <!-- URLs. -->
+[Portal do Azure]: https://portal.azure.com
 [Início Rápido dos Aplicativos Móveis do Azure]: app-service-mobile-cordova-get-started.md
 [Introdução à autenticação]: app-service-mobile-cordova-get-started-users.md
 [Adicionar autenticação ao seu aplicativo]: app-service-mobile-cordova-get-started-users.md
@@ -103,4 +137,4 @@ Use o SDK dos Hubs de Notificação para enviar notificações por push do servi
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
 [documentação do objeto Query]: https://msdn.microsoft.com/pt-BR/library/azure/jj613353.aspx
 
-<!----HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0316_2016-->

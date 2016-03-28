@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="03/11/2016"
 	ms.author="daleche"/>
 
 
-# Como restaurar uma única tabela no backup do Banco de Dados SQL do Azure
+# Como restaurar uma única tabela de um backup do Banco de Dados SQL do Azure
 
 É possível se deparar com uma situação na qual você acidentalmente modificou alguns dados no banco de dados SQL e agora deseja recuperar a única tabela afetada. Este artigo descreve como restaurar uma única tabela em um banco de dados de um dos backups que são realizados automaticamente pelo Banco de Dados SQL do Azure, com base no nível de desempenho selecionado.
 
@@ -67,4 +67,4 @@
 ## Etapa de verificação
 1. Consulte e teste a tabela recém-copiada para certificar-se de que os dados estão intactos. Após a confirmação, é possível remover a tabela renomeada na seção **Etapas de preparação** (por exemplo, &lt;table name&gt;\_old).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

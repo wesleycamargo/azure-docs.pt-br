@@ -2,7 +2,7 @@
 
 Nesta seção, gravaremos um aplicativo C para enviar eventos para o seu hub de eventos. Usaremos a biblioteca Proton AMQP do projeto [Apache Qpid](http://qpid.apache.org/). Isso é semelhante a usar Tópicos e Filas do Barramento de Serviço com AMQP por meio de C, como mostrado [aqui](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Para obter mais informações, consulte a [documentação Qpid Proton](http://qpid.apache.org/proton/index.html).
 
-1. Na [página Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html), clique no link **Instalação do Qpid Proton** e siga as instruções dependendo do ambiente. Vamos considerar um ambiente Linux, por exemplo, uma [VM do Linux do Azure](../virtual-machines/virtual-machines-linux-tutorial.md) com Ubuntu 14.04.
+1. Na [página Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html), clique no link **Instalação do Qpid Proton** e siga as instruções dependendo do ambiente. Vamos considerar um ambiente Linux, por exemplo, uma [VM do Linux do Azure](../articles/virtual-machines/virtual-machines-linux-tutorial.md) com Ubuntu 14.04.
 
 2. Para compilar a biblioteca Proton, instale os pacotes a seguir:
 
@@ -117,4 +117,4 @@ Nesta seção, gravaremos um aplicativo C para enviar eventos para o seu hub de 
 
 > [AZURE.NOTE] No código acima, usamos uma janela de saída de 1 para forçar a saída das mensagens assim que possível. Em geral, o aplicativo deve tentar enviar mensagens em lote para aumentar a taxa de transferência. Consulte a página [Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html) para obter mais informações sobre como usar a biblioteca Qpid Proton neste e em outros ambientes e de plataformas para as quais associações são fornecidas (atualmente Perl, PHP, Python e Ruby).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

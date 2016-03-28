@@ -3,7 +3,7 @@
 	description="Saiba como usar os Serviços Móveis do Azure para tratar conflitos ao sincronizar dados offline no seu aplicativo iOS"
 	documentationCenter="ios"
 	authors="krisragh"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="mobile-services"/>
 
@@ -13,29 +13,31 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="03/09/2016"
 	ms.author="krisragh;donnam"/>
 
 
 # Tratamento de conflitos com sincronização de dados offline nos Serviços Móveis
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline-conflicts](../../includes/mobile-services-selector-offline-conflicts.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-offline-conflicts](../../includes/mobile-services-selector-offline-conflicts.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 
 Este tópico mostra como sincronizar dados e tratar conflitos ao usar os recursos offline dos Serviços Móveis do Azure. Este tutorial baseia-se no tutorial [Introdução aos dados offline].
 
->[AZURE.NOTE]Para concluir este tutorial, será necessária uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Avaliação Gratuita do Azure</a>.
+>[AZURE.NOTE] Para concluir este tutorial, será necessária uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Avaliação Gratuita do Azure</a>.
 
 
 ## Baixar o Projeto do iOS
 
 Para este tutorial, baixe [um projeto Xcode atualizado do Github](https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS). Usamos o projeto Xcode do final do tutorial [Guia de introdução aos dados Offline] como um ponto de partida e, em seguida, nós o atualizamos para permitir a edição de itens. Também adicionamos classes e métodos de suporte, para que possamos adicionar um manipulador de conflito na próxima seção.
 
-No final deste tutorial, se você executar esse aplicativo em dois telefones, altere o mesmo item em ambos os telefones localmente e por envie as alterações por push de volta ao servidor; você permitirá que o usuário em cada telefone para escolher qual versão deseja manter: * manter a versão do cliente (que substitui a versão no servidor), * manter a versão do servidor (que atualiza a tabela de cliente local) ou * não manter nenhuma versão (cancela o envio por push e deixa a operação pendente).
+Ao final deste tutorial, se você executar esse aplicativo em dois telefones, trocar localmente o mesmo item em ambos os telefones e enviar por push as alterações de volta ao servidor, você permitirá que o usuário de cada telefone escolha qual versão ele quer manter:
+  * manter a versão do cliente (que substitui a versão no servidor),
+  * manter a versão do servidor (que atualiza a tabela local do cliente) ou
+  * não manter nenhuma das versões (cancela push e deixe a operação pendente).
 
 Agora, vamos adicionar o manipulador de conflito para habilitar essa funcionalidade.
 
@@ -145,4 +147,4 @@ Agora realize o gesto de atualização das instâncias do aplicativo, arrastando
 [Introdução aos dados offline]: mobile-services-ios-get-started-offline-data.md
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

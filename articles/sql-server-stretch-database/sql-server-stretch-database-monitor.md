@@ -33,9 +33,17 @@ Selecione **Tarefas | Stretch | Monitor** de um banco de dados no SQL Server Man
 Abra a exibição de gerenciamento dinâmico **sys.dm\_db\_rda\_migration\_status** para ver quantos lotes e linhas de dados foram migradas. Para obter mais informações, veja [sys.dm\_db\_rda\_migration\_status (Transact-SQL)](https://msdn.microsoft.com/library/dn935017.aspx).
 
 ## <a name="Firewall"></a>Solucionar problemas de migração de dados
+**O firewall do Azure está bloqueando as conexões do meu servidor local.**
+
+Você precisará adicionar uma regra nas configurações do firewall do Azure do servidor do Azure para permitir que o SQL Server se comunique com o servidor remoto do Azure.
+
+**Linhas da tabela habilitada para Stretch não estão sendo migradas para o Azure. Qual é o problema?**
+
 Há vários problemas que podem afetar a migração. Verifique os seguintes procedimentos.
 
 -   Verifique a conectividade de rede para o computador do SQL Server.
+
+-   Verifique se o firewall do Azure não está impedindo o SQL Server de se conectar ao ponto de extremidade remoto.
 
 -   Verifique a exibição de gerenciamento dinâmico **sys.dm\_db\_rda\_migration\_status** quanto ao status do lote mais recente. Se tiver ocorrido um erro, verifique os error\_number, error\_state e error\_severity do lote.
 
@@ -44,9 +52,10 @@ Há vários problemas que podem afetar a migração. Verifique os seguintes proc
     -   Para obter mais informações sobre o conteúdo de uma mensagem de erro do SQL Server, veja [sys.messages (Transact-SQL)](https://msdn.microsoft.com/library/ms187382.aspx).
 
 ## Consulte também
+
 [Gerenciar e solucionar problemas do Stretch Database](sql-server-stretch-database-manage.md)
 
 <!--Image references-->
 [StretchMonitorImage1]: ./media/sql-server-stretch-database-monitor/StretchDBMonitor.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

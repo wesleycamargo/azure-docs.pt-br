@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="nitinme"/>
 
 # Protegendo os dados armazenados no repositório Azure Data Lake
 
 A proteção de dados no repositório Azure Data Lake é uma abordagem de três etapas.
 
-1. Comece criando grupos de segurança no Active Directory do Azure (AAD). Esses grupos de segurança são usados para implementar o controle de acesso baseado em função (RBAC) no Portal do Azure. Para saber mais, consulte [Controle de acesso baseado em função no Microsoft Azure](role-based-access-control-configure.md).
+1. Comece criando grupos de segurança no Active Directory do Azure (AAD). Esses grupos de segurança são usados para implementar o controle de acesso baseado em função (RBAC) no Portal do Azure. Para saber mais, consulte [Controle de acesso baseado em função no Microsoft Azure](../active-directory/role-based-access-control-configure.md).
 
 2. Atribua os grupos de segurança do AAD à conta do repositório Azure Data Lake. Isso controla o acesso à conta do repositório Data Lake a partir das operações de portal e de gerenciamento do portal ou das APIs.
 
@@ -37,7 +37,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 ## Criar grupos de segurança no Active Directory do Azure
 
-Para obter instruções sobre como criar grupos de segurança do AAD e como adicionar usuários ao grupo, consulte [Gerenciar grupos de segurança no Active Directory do Azure](active-directory-accessmanagement-manage-groups.md).
+Para obter instruções sobre como criar grupos de segurança do AAD e como adicionar usuários ao grupo, consulte [Gerenciar grupos de segurança no Active Directory do Azure](../active-directory/active-directory-accessmanagement-manage-groups.md).
 
 ## Atribua usuários ou grupos de segurança às contas do repositório Azure Data Lake.
 
@@ -160,9 +160,9 @@ Quando você remove as ACLs de grupos de segurança do sistema de arquivos do re
 
 - [Visão geral do repositório Azure Data Lake](data-lake-store-overview.md)
 - [Copiar dados de Blobs do Armazenamento do Azure para o Repositório Data Lake](data-lake-store-copy-data-azure-storage-blob.md)
-- [Usar a Análise Data Lake do Azure com o Repositório Data Lake](data-lake-analytics-get-started-portal.md)
+- [Usar a Análise Data Lake do Azure com o Repositório Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Introdução ao Repositório Data Lake usando o PowerShell](data-lake-store-get-started-powershell.md)
 - [Introdução ao Repositório Data Lake usando o SDK do .NET](data-lake-store-get-started-net-sdk.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

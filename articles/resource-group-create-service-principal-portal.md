@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/27/2016"
+   ms.date="03/10/2016"
    ms.author="tomfitz"/>
 
 # Criar o aplicativo do Active Directory e a entidade de serviço usando o portal
@@ -77,9 +77,17 @@ Ao acessar programaticamente seu aplicativo, você precisará da id dele. Escolh
   
    ![ID do cliente][5]
 
-Em alguns casos, você precisa passar o ID de locatário com a solicitação de autenticação. Você pode recuperar a ID de locatário selecionando **Exibir pontos de extremidade** na parte inferior da tela e recuperando a ID, conforme mostrado abaixo.
+Em alguns casos, você precisa passar o ID de locatário com a solicitação de autenticação. Para aplicativos Web e aplicativos de API Web, você pode recuperar a ID de locatário selecionando **Exibir pontos de extremidade** na parte inferior da tela e recuperando a ID, conforme mostrado abaixo.
 
    ![ID do locatário](./media/resource-group-create-service-principal-portal/save-tenant.png)
+
+Não existem pontos de extremidade disponíveis para Aplicativos Clientes Nativos. Em vez disso, você pode recuperar a ID do locatário por meio do PowerShell:
+
+    PS C:\> Get-AzureRmSubscription
+
+ou o CLI do Azure:
+
+    azure account show --json
 
 ## Criar uma chave de autenticação
 
@@ -116,7 +124,7 @@ Se o aplicativo acessa recursos em nome do usuário conectado, você deve conced
 
       ![selecionar aplicativo](./media/resource-group-create-service-principal-portal/select-app.png)
 
-3. Adicione a permissão delegada **Acessar o Gerenciamento de Serviço do Azure (visualização)** à API de gerenciamento de serviço.
+3. Adicione a permissão delegada **Acessar o Gerenciamento de Serviço do Azure (visualização)** à API de gerenciamento de serviços.
 
        ![selecionar permissão](./media/resource-group-create-service-principal-portal/select-permissions.png)
 
@@ -229,4 +237,4 @@ Você pode passar o token no cabeçalho de solicitação com o seguinte código:
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -75,9 +75,7 @@ Este artigo explica alguns dos erros comuns que podem ocorrer ao se trabalhar co
 
 **Motivo do erro:** se o runbook for um Fluxo de Trabalho do PowerShell, ele armazena objetos complexos em um formato desserializado para que o estado do runbook persista se o fluxo de trabalho for suspenso.
 
-**Dicas de solução de problemas:**
-
-qualquer uma das três seguintes soluções corrigirá o problema:
+**Dicas de solução de problemas:** qualquer uma das três seguintes soluções corrigirá o problema:
 
 1. Se você estiver direcionando objetos complexos de um cmdlet para outro, encapsule os cmdlets em um InlineScript.  
 2. Passe o nome ou o valor necessário do objeto complexo em vez de passar o objeto inteiro.  
@@ -139,9 +137,7 @@ qualquer uma das três seguintes soluções corrigirá o problema:
 
 - O cmdlet **New-AzureRmAutomationModule** está sendo usado para carregar o módulo, e você não forneceu o caminho de armazenamento completo ou não carregou o módulo usando uma URL acessível publicamente.
 
-**Dicas de solução de problemas:**
-
-qualquer uma das soluções a seguir corrigirá o problema:
+**Dicas de solução de problemas:** qualquer uma das soluções a seguir corrigirá o problema:
 
 - Verifique se o módulo segue este formato: NomeDoMódulo.Zip **->** NomeDoMódulo ou Número de Versão **->** (NomeDoMódulo.psm1, NomeDoMódulo.psd1)
 
@@ -167,7 +163,7 @@ qualquer uma das soluções a seguir corrigirá o problema:
     - Para atribuir uma configuração de nó a um nó usando um cmdlet do PowerShell, use o cmdlet **Set-AzureRmAutomationDscNode**
 
 
-### Cenário: nenhuma configuração de nó (arquivos mof) foi produzida quando uma compilação foi compilada
+### Cenário: nenhuma configuração de nó (arquivos MOF) foi produzida quando uma compilação foi compilada
 
 **Erro:** seu trabalho de compilação de DSC foi suspenso com o seguinte erro: "Compilação concluída com êxito, mas nenhum arquivo .mofs de configuração de nó foi gerado".
 
@@ -176,7 +172,7 @@ qualquer uma das soluções a seguir corrigirá o problema:
 **Dicas de solução de problemas:** qualquer uma das soluções a seguir corrigirá o problema:
 
 - Verifique se a expressão ao lado da palavra-chave **Node** na definição de configuração não está sendo avaliada como $null.  
-- Se você estiver passando ConfigurationData ao compilar a configuração, certifique-se de que esteja passando os valores esperados e que a configuração exige de [configurationData](automation-dsc-compile.md#configurationdata).
+- Se você estiver passando ConfigurationData ao compilar a configuração, certifique-se de que esteja passando os valores esperados e que a configuração exige de [ConfigurationData](automation-dsc-compile.md#configurationdata).
 
 
 ### Cenário: o relatório de nó de DSC fica preso no estado "em andamento"
@@ -210,4 +206,4 @@ Se tiver seguido as etapas de solução de problemas acima e precisar de mais aj
 
 - Poste comentários ou solicitações de recursos para a Automação do Azure no [User Voice](https://feedback.azure.com/forums/34192--general-feedback).
 
-<!-----HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

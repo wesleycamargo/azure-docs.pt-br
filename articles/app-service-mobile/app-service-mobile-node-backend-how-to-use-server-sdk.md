@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="adrianhall"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -642,23 +642,23 @@ O código abaixo mostra como usar o objeto de push para enviar uma notificação
 	    // Send a push notification using APNS.
         context.push.apns.send(null, payload, function (error) {
             if (error) {
-                // Do something or log the error. 
-	        }           
+                // Do something or log the error.
+	        }
         });
     }
 
 Ao criar um registro de envio por push modelo do cliente, você poderá enviar uma mensagem de envio de modelo para dispositivos em todas as plataformas com suporte. O código abaixo mostra como enviar uma notificação de modelo:
 
 	// Define the template payload.
-	var payload = '{"messageParam": "This is a template payload."}'; 
+	var payload = '{"messageParam": "This is a template payload."}';
 
     // Only do the push if configured
     if (context.push) {
 		// Send a template notification.
         context.push.send(null, payload, function (error) {
             if (error) {
-                // Do something or log the error.   
-            } 
+                // Do something or log the error.
+            }
         });
     }
 
@@ -671,8 +671,8 @@ Quando um usuário autenticado se registra para notificações por push, uma mar
 		// Send a notification to the current user.
         context.push.send(context.user.id, payload, function (error) {
             if (error) {
-                // Do something or log the error.   
-            } 
+                // Do something or log the error.
+            }
         });
     }
 
@@ -815,12 +815,10 @@ O SDK de Aplicativos Móveis do Azure permite o acesso a todo o Contexto por mei
     api.get.access = 'authenticated';
     module.exports = api;
 
-
-
 ## <a name="Debugging"></a><a name="howto-diagnostic-logs"></a>Como depurar, diagnosticar e solucionar problemas dos Aplicativos Móveis do Azure
 
+O Serviço de Aplicativo do Azure fornece várias técnicas de depuração e de solução de problemas para aplicativos Node.js. Consulte os artigos a seguir para iniciar a solução de problemas do back-end do Mobile Node.js:
 
-O Serviço de Aplicativo do Azure fornece várias técnicas de depuração e de solução de problemas para aplicativos Node.js. Todas estas técnicas estão disponíveis.
 - [Monitorando um Serviço de Aplicativo do Azure]
 - [Habilitar o registro em log de diagnósticos no Serviço de Aplicativo do Azure]
 - [Solucionar problemas de um Serviço de Aplicativo do Azure no Visual Studio]
@@ -872,7 +870,7 @@ O portal do Azure permite a edição dos arquivos de script de back-end do Node.
 [3]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/sqlexpress-config.png
 [4]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/sqlexpress-authconfig.png
 [5]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/sqlexpress-newuser-1.png
-[6]: ../../includes/media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-db.png
+[6]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/dotnet-backend-create-db.png
 
 <!-- URLs -->
 [Início rápido do cliente Android]: app-service-mobile-android-get-started.md
@@ -914,4 +912,4 @@ O portal do Azure permite a edição dos arquivos de script de back-end do Node.
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

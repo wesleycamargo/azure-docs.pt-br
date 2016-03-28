@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="03/15/2016"
 	ms.author="swkrish"/>
 
 # Visualização do Azure Active Directory B2C: estrutura de política extensível
@@ -119,5 +119,27 @@ Para habilitar a edição de perfil no aplicativo, você precisará criar uma po
 
     > [AZURE.NOTE]
     Leva até um minuto para a criação de políticas e as atualizações entrem em vigor.
+    
+## Criar uma política de redefinição de senha
 
-<!---HONumber=AcomDC_0224_2016-->
+Para habilitar a redefinição de senha refinada, você precisará criar uma política de redefinição de senha. Observe que a opção de redefinição de senha para todo o locatário especificada [aqui](active-directory-b2c-reference-sspr.md) também é aplicável para políticas de entrada. Essa política descreve as experiências pelas quais os consumidores passarão durante a redefinição da senha e o conteúdo de tokens que o aplicativo receberá na conclusão bem-sucedida.
+
+1. [Siga estas etapas para navegar até a folha de recursos do B2C no portal do Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+2. Clique em **Políticas de redefinição de senha**.
+3. Clique em **+Adicionar**, na parte superior da folha.
+4. O **Nome** determina o nome da política de redefinição de senha usada pelo seu aplicativo. Por exemplo, insira “SSPR”.
+5. Clique em **Provedores de identidade** e escolha "Redefinir senha usando endereço de email". Clique em **OK**.
+6. Clique em **Declarações do aplicativo**. Aqui você escolhe as declarações que quer retornar dos tokens de volta ao aplicativo após uma experiência de redefinição de senha bem-sucedida. Por exemplo, escolha "ID de Objeto do Usuário".
+7. Clique em **Criar**. Observe que a política recém-criada aparece como "**B2C\_1\_SSPR**" (o fragmento **B2C\_1\_** é adicionado automaticamente) na folha **Políticas de redefinição de senha**.
+8. Abra a política clicando em "**B2C\_1\_SSPR**".
+9. Selecione "aplicativo Contoso B2C” na lista suspensa **Aplicativos** e `https://localhost:44321/` na lista suspensa **URL de Resposta/URI de redirecionamento**.
+10. Clique em **Executar agora**. Uma nova guia do navegador se abre e você pode percorrer a experiência do consumidor de redefinição de senha no aplicativo.
+
+    > [AZURE.NOTE]
+    Leva até um minuto para a criação de políticas e as atualizações entrem em vigor.
+
+## Recursos adicionais
+
+- [Token, sessão e configuração de logon único](active-directory-b2c-token-session-sso.md).
+
+<!---HONumber=AcomDC_0316_2016-->

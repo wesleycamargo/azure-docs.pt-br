@@ -24,7 +24,7 @@ A [Análise do Application Insights](app-analytics.md) é um poderoso mecanismo 
 
 
 
-## Operador `summarize`
+## operador summarize
 
 Produz uma tabela que agrega o conteúdo da tabela de entrada.
 
@@ -42,14 +42,14 @@ Produz uma tabela que agrega o conteúdo da tabela de entrada.
 ### Sintaxe
 
     T | summarize
-         [  [Column =] Aggregation [`,` ...]]
+         [  [ Column = ] Aggregation [ , ... ]]
          [ by
-            [Column =] GroupExpression [`,` ...]]
+            [ Column = ] GroupExpression [ , ... ]]
 
 **Argumentos**
 
-* *Coluna:* nome opcional para uma coluna de resultado. Assume o padrão de um nome derivado da expressão.
-* *Agregação:* uma chamada para uma função de agregação, por exemplo, `count()` ou `avg()`, com nomes de coluna como argumentos. Veja a lista de funções de agregação abaixo.
+* *Column:* nome opcional para uma coluna de resultados. Assume o padrão de um nome derivado da expressão.
+* *Aggregation*: uma chamada para uma função de agregação, como `count()` ou `avg()`, com nomes de coluna como argumentos. Veja a lista de funções de agregação abaixo.
 * *GroupExpression:* uma expressão sobre as colunas que fornece um conjunto de valores distintos. Normalmente, é um nome de coluna que já fornece um conjunto restrito de valores ou `bin()` com uma coluna numérica ou de hora como argumento. 
 
 Se você fornecer uma expressão numérica ou de hora sem usar `bin()`, a Análise do AI a aplicará automaticamente com um intervalo de `1h` para horas ou de `1.0` para números.
@@ -82,10 +82,11 @@ Se quisermos agrupar por um escalar contínuo, como um número ou hora, precisam
 
     requests
     | summarize count() 
-      by duration_range=bin(duration, 1)
+      by bin(duration, 1000)/1000
 
 ![result](./media/app-analytics-aggregations/04.png)
 
+(O campo Duração da solicitação é um número em milissegundos.)
  
 ## Dicas
 
@@ -171,7 +172,7 @@ requests
 | sort by max_pop_tod asc
 ```
 
-## FUNÇÕES DE AGREGAÇÃO
+## AGREGAÇÕES
 
 ## qualquer 
 
@@ -191,6 +192,7 @@ traces
 | top 10 by count_level desc 
 ```
 
+<a name="argmin"></a> <a name="argmax"></a>
 ## argmin, argmax
 
     argmin(ExprToMinimize, * | ExprToReturn  [ , ... ] )
@@ -384,6 +386,8 @@ Calcula o número mínimo de *Expr*.
 
 **Dica**: isso oferece a você o mínimo ou o máximo por conta própria, por exemplo, o preço mais alto ou o mais baixo. Mas se você quiser outras colunas na linha, por exemplo, o nome do fornecedor com o menor preço, use [argmin ou argmax](#argmin-argmax).
 
+
+<a name="percentile"></a> <a name="percentiles"></a>
 ## percentile, percentiles
 
     percentile(Expression, Percentile)
@@ -459,4 +463,4 @@ Retorna a soma de *Expr* no grupo.
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

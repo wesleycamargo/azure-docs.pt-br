@@ -1,21 +1,21 @@
-<properties 
- pageTitle="Alta disponibilidade e confiabilidade do Agendador" 
- description="" 
- services="scheduler" 
- documentationCenter=".NET" 
- authors="krisragh" 
- manager="dwrede" 
+<properties
+ pageTitle="Alta disponibilidade e confiabilidade do Agendador"
+ description=""
+ services="scheduler"
+ documentationCenter=".NET"
+ authors="krisragh"
+ manager="dwrede"
  editor=""/>
-<tags 
- ms.service="scheduler" 
- ms.workload="infrastructure-services" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="12/04/2015" 
+<tags
+ ms.service="scheduler"
+ ms.workload="infrastructure-services"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
- 
- 
+
+
 # Alta disponibilidade e confiabilidade do Agendador
 
 ## Alta disponibilidade do Agendador do Azure
@@ -63,7 +63,7 @@ Para saber como configurar um ponto de extremidade alternativo, confira [errorAc
 ## Consulte também
 
  [O que é o Agendador?](scheduler-intro.md)
- 
+
  [Conceitos, terminologia e hierarquia de entidades do Agendador do Azure](scheduler-concepts-terms.md)
 
  [Introdução à utilização do Agendador no Portal do Azure](scheduler-get-started-portal.md)
@@ -79,12 +79,10 @@ Para saber como configurar um ponto de extremidade alternativo, confira [errorAc
  [Limites, padrões e códigos de erro do Agendador do Azure](scheduler-limits-defaults-errors.md)
 
  [Autenticação de saída do Agendador do Azure](scheduler-outbound-authentication.md)
- 
- 
+
+
 [1]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image1.png
 
 [2]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png
 
- 
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

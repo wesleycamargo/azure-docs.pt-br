@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 # Aprenda a usar a Biblioteca de Cliente iOS para os Serviços Móveis do Azure.
@@ -27,7 +27,7 @@
 
 Este guia ensina a executar cenários comuns usando os Serviços Móveis do Azure [SDK do iOS]. Se você for novo nos Serviços Móveis, primeiro conclua o [Início rápido dos serviços móveis] para configurar sua conta, crie uma tabela e um serviço móvel.
 
-> [AZURE.NOTE]Este guia usa a versão mais recente do [SDK de Serviços Móveis do iOS](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409). Se o seu projeto usa uma versão mais antiga do SDK, primeiro atualize a estrutura no Xcode.
+> [AZURE.NOTE] Este guia usa a versão mais recente do [SDK de Serviços Móveis do iOS](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409). Se o seu projeto usa uma versão mais antiga do SDK, primeiro atualize a estrutura no Xcode.
 
 [AZURE.INCLUDE [mobile-services-concepts](../../includes/mobile-services-concepts.md)]
 
@@ -97,7 +97,13 @@ Para executar uma consulta complexa (incluindo classificação e paginação), c
     MSQuery *query = [table queryWithPredicate: [NSPredicate predicateWithFormat:@"complete == NO"]];
 ```
 
-O `MSQuery` permite que você controle vários comportamentos de consulta, incluindo o que está a seguir. Execute uma consulta `MSQuery` chamando `readWithCompletion` nela, conforme mostrado no exemplo seguinte. * Especificar ordem de resultados * Limitar quais campos retornar * Limitar quantos registros retornar * Especificar contagem total na resposta * Especificar parâmetros de cadeia de caracteres de consulta personalizados na solicitação * Aplicar funções adicionais
+O `MSQuery` permite que você controle vários comportamentos de consulta, incluindo o que está a seguir. Executa uma consulta `MSQuery` chamando `readWithCompletion` nela, conforme mostrado no exemplo a seguir.
+* Especificar a ordem dos resultados
+* Limitar quais campos retornar
+* Limitar quantos registros retornar
+* Especificar contagem total na resposta
+* Especificar parâmetros de cadeia de consulta personalizada na solicitação
+* Aplicar funções adicionais
 
 
 ## <a name="sorting"></a>Como classificar dados com MSQuery
@@ -333,4 +339,4 @@ O arquivo [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/az
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Manipulador de conflito]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0316_2016-->

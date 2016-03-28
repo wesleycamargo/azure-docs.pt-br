@@ -3,7 +3,7 @@
    description="Descreve como os Reliable Actors usam os recursos da plataforma do Service Fabric que abordam os conceitos do ponto de vista dos desenvolvedores do ator."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="myamanbh"
    manager="timlt"
    editor="vturecek"/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/13/2015"
-   ms.author="abhisram"/>
+   ms.date="03/15/2016"
+   ms.author="amanbha"/>
 
 # Como Reliable Actors usam a plataforma do Service Fabric
 
@@ -102,7 +102,7 @@ O gerenciamento subsequente (isto é, atualizações e eventual exclusão) do ap
 ## Escalabilidade para serviços de ator
 Os administradores de cluster podem criar um ou mais serviços de ator de cada tipo de serviço no cluster. Cada um desses serviços de ator pode ter uma ou mais partições (semelhantes a qualquer outro serviço da Malha do Serviço). A capacidade de criar vários serviços de um tipo de serviço (que é mapeado para um tipo de ator) e a capacidade de criar várias partições para um serviço permite que o aplicativo de ator seja dimensionado. Confira o artigo em [escalabilidade](service-fabric-concepts-scalability.md) para obter mais informações.
 
-> [AZURE.NOTE]Serviços de ator sem estado precisam ter uma contagem de [instância](service-fabric-availability-services.md#availability-of-service-fabric-stateless-services) de 1. Não há suporte para mais de uma instância de um serviço de ator sem estado em uma partição. Portanto, os serviços de ator sem estado têm a opção de aumentar a contagem de instâncias para obter escalabilidade. Eles devem usar as opções de escalabilidade descritas no [artigo sobre escalabilidade](service-fabric-concepts-scalability.md).
+> [AZURE.NOTE] Serviços de ator sem estado precisam ter uma contagem de [instância](service-fabric-availability-services.md#availability-of-service-fabric-stateless-services) de 1. Não há suporte para mais de uma instância de um serviço de ator sem estado em uma partição. Portanto, os serviços de ator sem estado têm a opção de aumentar a contagem de instâncias para obter escalabilidade. Eles devem usar as opções de escalabilidade descritas no [artigo sobre escalabilidade](service-fabric-concepts-scalability.md).
 
 ## Conceitos de partição de Malha do Serviço para atores
 A ID de um ator é mapeada para uma partição de um serviço de ator. O ator é criado dentro da partição para a qual sua ID do ator está mapeada. Quando um ator é criado, o tempo de execução dos atores grava um [evento EventSource](service-fabric-reliable-actors-diagnostics.md#eventsource-events) que indica em qual partição o ator está criado. Abaixo está um exemplo desse evento que indica que um ator com ID `-5349766044453424161` foi criado na partição `b6afef61-be9a-4492-8358-8f473e5d2487` do serviço `fabric:/VoicemailBoxAdvancedApplication/VoicemailBoxActorService`, o aplicativo `fabric:/VoicemailBoxAdvancedApplication`.
@@ -143,7 +143,7 @@ Outro ator com a ID `-4952641569324299627` foi criado em uma partição diferent
       }
     }
 
-> [AZURE.NOTE]Alguns campos dos eventos acima são omitidos para fins de brevidade.
+> [AZURE.NOTE] Alguns campos dos eventos acima são omitidos para fins de brevidade.
 
 A ID de partição pode ser usada para obter outras informações sobre a partição. Por exemplo, a ferramenta [Gerenciador do Service Fabric](service-fabric-visualizing-your-cluster.md) pode ser usada para exibir informações sobre a partição e o serviço e o aplicativo ao qual ele pertence. A captura de tela abaixo mostra informações sobre a partição `5405d449-2da6-4d9a-ad75-0ec7d65d1a2a`, que continha o ator com ID `-4952641569324299627` no exemplo acima.
 
@@ -175,7 +175,7 @@ public void ActorMessage(StatefulActorBase actor, string message, params object[
 ### Conceitos de partição de Malha do Serviço para atores sem monitoração de estado
 Atores sem monitoração de estado são criados dentro de uma partição de um serviço sem monitoração de estado da Malha do Serviço. A ID do ator determina em qual partição o ator de é criado. A contagem de [instância](service-fabric-availability-services.md#availability-of-service-fabric-stateless-services) para um serviço de ator sem estado deve ser de 1. Não há suporte para a alteração da contagem de instâncias para qualquer outro valor. Portanto, o ator é criado dentro da instância de serviço única dentro da partição.
 
-> [AZURE.TIP]O tempo de execução de Atores da Malha emite alguns eventos de [ relacionados instâncias de ator sem monitoração de estado](service-fabric-reliable-actors-diagnostics.md#events-related-to-stateless-actor-instances). Eles são úteis para diagnóstico e monitoramento de desempenho.
+> [AZURE.TIP] O tempo de execução de Atores da Malha emite alguns eventos de [ relacionados instâncias de ator sem monitoração de estado](service-fabric-reliable-actors-diagnostics.md#events-related-to-stateless-actor-instances). Eles são úteis para diagnóstico e monitoramento de desempenho.
 
 Quando um ator sem monitoração de estado é criado, o tempo de execução dos atores grava um [evento EventSource](service-fabric-reliable-actors-diagnostics.md#eventsource-events) que indica em qual partição e instância o ator está criado. Abaixo está um exemplo desse evento. Isso indica que um ator com a ID `abc` foi criado na instância `130745709600495974` da partição `8c828833-ccf1-4e21-b99d-03b14d4face3`, do serviço `fabric:/HelloWorldApplication/HelloWorldActorService`, aplicativo `fabric:/HelloWorldApplication`.
 
@@ -196,12 +196,12 @@ Quando um ator sem monitoração de estado é criado, o tempo de execução dos 
       }
     }
 
-> [AZURE.NOTE]Alguns campos dos eventos acima são omitidos para fins de brevidade.
+> [AZURE.NOTE] Alguns campos dos eventos acima são omitidos para fins de brevidade.
 
 ### Conceitos de partição de Malha do Serviço para atores com monitoração de estado
 Atores com monitoração de estado são criados dentro de uma partição do serviço com monitoração de estado da Malha do Serviço. A ID do ator determina em qual partição o ator de é criado. Cada partição do serviço pode ter uma ou mais [réplicas](service-fabric-availability-services.md#availability-of-service-fabric-stateful-services) que são colocadas em diferentes nós do cluster. Ter várias réplicas fornece confiabilidade para o estado de ator. O Gerenciador de Recursos do Azure otimiza o posicionamento baseado na falha disponível e nos domínios de atualização do cluster. Nunca são colocadas duas réplicas da mesma partição no mesmo nó. Os atores são sempre criados na réplica primária da partição à qual sua ID do ator é mapeada.
 
-> [AZURE.TIP]O tempo de execução de Atores da Malha emite alguns eventos de [ relacionados réplicas de ator com monitoração de estado](service-fabric-reliable-actors-diagnostics.md#events-related-to-stateful-actor-replicas). Eles são úteis para diagnóstico e monitoramento de desempenho.
+> [AZURE.TIP] O tempo de execução de Atores da Malha emite alguns eventos de [ relacionados réplicas de ator com monitoração de estado](service-fabric-reliable-actors-diagnostics.md#events-related-to-stateful-actor-replicas). Eles são úteis para diagnóstico e monitoramento de desempenho.
 
 Lembre-se de que no exemplo do [VoiceMailBoxActor apresentado anteriormente](#service-fabric-partition-concepts-for-actors), o ator com ID `-4952641569324299627` foi criado na partição `5405d449-2da6-4d9a-ad75-0ec7d65d1a2a`. O evento EventSource desse exemplo também indicou que o ator foi criado na réplica `130745418574851853` dessa partição. Essa era a réplica primária de partição no momento em que o ator foi criado. A captura de tela do Gerenciador da Malha do Serviço abaixo confirma isso.
 
@@ -242,4 +242,4 @@ Observe que a alteração do provedor de estado requer que o serviço de ator se
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Balanceando o cluster com o Gerenciador de Recursos de Cluster do Azure Service Fabric"
+   pageTitle="Balanceando o cluster com o Resource Manager de Cluster do Azure Service Fabric | Microsoft Azure"
    description="Uma introdução ao balanceamento de cluster com o Gerenciador de Recursos de Cluster do Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="03/10/2016"
    ms.author="masnider"/>
 
 # Balanceamento do cluster do Service Fabric
@@ -25,6 +25,7 @@ O primeiro conjunto de controles que regulam o balanceamento de um conjunto de t
 2.	Verificações de Restrição – esse estágio verifica e corrige violações das restrições (regras) de posicionamento no sistema. Os exemplos de regras são a garantia de que os nós não estão acima da capacidade e se as restrições de posicionamento do serviço (mais sobre isso posteriormente) estão sendo atendidas.
 3.	Balanceamento – esse estágio verifica se o rebalanceamento proativo é necessário com base no nível de equilíbrio configurado desejado entre métricas diferentes e, nesse caso, tenta encontrar uma organização no cluster que seja mais balanceada.
 
+## Configuração de etapas e temporizadores do Resource Manager do cluster
 Cada um desses estágios é controlado por um temporizador diferente que regula sua frequência. Por exemplo, se você deseja lidar com o posicionamento de novas cargas de trabalho de serviço no cluster a cada hora (para colocá-las em lotes), mas quer uma verificação de balanceamento regular de poucos em poucos segundos, poderá impor essa regra. Quando cada temporizador é acionado, um sinalizador é definido dizendo que precisamos lidar com essa parte das funções do Gerenciador de Recursos, e é captado na próxima varredura geral feita pela máquina de estado (é por isso que essas configurações são definidas como "intervalos mínimos"). Por padrão, o Gerenciador de Recursos examina seu estado e aplica atualizações a cada décimo de segundo, define os sinalizadores de posicionamento e verificação de restrição a cada segundo e o balanceamento de sinalizador a cada cinco segundos.
 
 ClusterManifest.xml:
@@ -42,7 +43,7 @@ Hoje, só executaremos sequencialmente uma dessas ações de cada vez. Isso serv
 
 Fundamentalmente, o Gerenciador de Recursos de Cluster também precisa saber quando considerar o cluster desequilibrado e quais réplicas devem ser movidas para resolver o problema. Para isso, temos duas outras partes principais da configuração: os Limites de Balanceamento e os Limites de Atividade.
 
-## Limites de Balanceamento
+## Limites de balanceamento
 Um Limite de Balanceamento é o controle principal que dispara o rebalanceamento proativo. O Limite de Balanceamento define quão desequilibrado o cluster precisa estar em relação a uma métrica específica para o Gerenciador de Recursos considerá-lo desequilibrado e disparar o balanceamento na execução seguinte. Os Limites de Balanceamento são definidos baseados em cada métrica, como parte do manifesto do cluster:
 
 ``` xml
@@ -60,7 +61,10 @@ Neste exemplo simples, cada serviço está consumindo apenas uma unidade de algu
 
 ![Ações de exemplo de Limite de Balanceamento][Image2]
 
-Observe que ficar abaixo do Limite de Balanceamento não é um objetivo explícito; os Limites de Balanceamento são apenas o gatilho. Limite de Atividade Ocasional, embora os nós estejam relativamente desequilibrados, a quantidade total de carga no cluster é baixa. Isso pode ser devido à hora do dia ou porque o cluster é novo e está apenas começando a ser inicializado. Em ambos os casos, não é ideal gastar tempo com balanceamento porque há realmente muito pouca vantagem: você vai gastar recursos de computação e rede para mover as coisas. Há outro controle dentro do Gerenciador de Recursos, conhecido como limite de atividade, que permite que você especifique um limite inferior absoluto para a atividade. Se nenhum nó tiver pelo menos essa quantidade de carga, o balanceamento não será disparado mesmo se o Limite de Balanceamento for atingido. Como exemplo, digamos que temos relatórios com os totais para consumo a seguir nos nós. Vamos supor também que o Limite de Balanceamento seja mantido em 3, mas agora também temos um limite de atividade de 1536. No primeiro caso, embora o cluster esteja desequilibrado pelo limite de balanceamento, nenhum nó atende ao limite mínimo de atividade e, portanto, tudo fica como está. No exemplo inferior, o Node1 está bem acima do Limite de Atividade e, portanto, o balanceamento será executado.
+Observe que ficar abaixo do Limite de Balanceamento não é um objetivo explícito; os Limites de Balanceamento são apenas o gatilho.
+
+## Limites de atividade
+Às vezes, os nós estão relativamente desequilibrados, e a quantidade total de carga no cluster é baixa. Isso pode ser devido à hora do dia ou porque o cluster é novo e está apenas começando a ser inicializado. Em ambos os casos, não é ideal gastar tempo com balanceamento porque há realmente muito pouca vantagem: você vai gastar recursos de computação e rede para mover as coisas. Há outro controle dentro do Gerenciador de Recursos, conhecido como limite de atividade, que permite que você especifique um limite inferior absoluto para a atividade. Se nenhum nó tiver pelo menos essa quantidade de carga, o balanceamento não será disparado mesmo se o Limite de Balanceamento for atingido. Como exemplo, digamos que temos relatórios com os totais para consumo a seguir nos nós. Vamos supor também que o Limite de Balanceamento seja mantido em 3, mas agora também temos um limite de atividade de 1536. No primeiro caso, embora o cluster esteja desequilibrado pelo limite de balanceamento, nenhum nó atende ao limite mínimo de atividade e, portanto, tudo fica como está. No exemplo inferior, o Node1 está bem acima do Limite de Atividade e, portanto, o balanceamento será executado.
 
 ![Exemplo de limite de atividade][Image3]
 
@@ -72,7 +76,7 @@ Assim como os Limites de Balanceamento, os limites de atividade são definidos p
       </Section>
 ```
 
-## Balanceamento dos Serviços em Conjunto
+## Balanceamento dos serviços em conjunto
 Algo interessante de se observar é que a decisão sobre o cluster estar desequilibrado ou não é uma decisão em todo o cluster, mas a maneira que usamos para corrigi-lo é movendo instâncias e réplicas de serviço individuais. Isso faz sentido, certo? Se a memória é empilhada em um nó, várias réplicas ou instâncias podem contribuir para ele. Portanto, isso poderia mover todas as réplicas ou instâncias que usam a métrica afetada e desequilibrada.
 
 No entanto, de vez em quando um cliente ligará ou apresentará um tíquete dizendo que um serviço que não estava desequilibrado foi movido. Como isso poderia acontecer, se todas as métricas do serviço estavam balanceadas, mesmo perfeitamente, na hora do outro desequilíbrio? Vejamos!
@@ -87,11 +91,10 @@ O Gerenciador de Recursos detecta automaticamente os serviços relacionados semp
 
 ![Balanceamento dos Serviços em Conjunto][Image5]
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Próximas etapas
-- [Saiba mais sobre métricas](service-fabric-cluster-resource-manager-metrics.md)
-- [Saiba mais sobre os limites do Gerenciador de Recursos](service-fabric-cluster-resource-manager-advanced-throttling.md)
-- [Saiba mais sobre o custo da movimento do serviço](service-fabric-cluster-resource-manager-movement-cost.md)
+- As métricas são como o Gerenciador de Recursos de Cluster do Service Fabric gerencia o consumo e a capacidade no cluster. Para saber mais sobre elas e como configurá-las, confira [este artigo](service-fabric-cluster-resource-manager-metrics.md)
+- O Custo de Movimento é uma forma de sinalizar para o Gerenciador de Recursos de Cluster que a movimentação de determinados serviços é mais cara do que para outros. Para saber mais sobre o custo de movimento, veja [este artigo](service-fabric-cluster-resource-manager-movement-cost.md)
+- O Resource Manager do Cluster tem várias limitações que você pode configurar para diminuir a variação no cluster. Normalmente, eles não são necessários, mas você poderá aprender mais sobre eles [aqui](service-fabric-cluster-resource-manager-advanced-throttling.md) caso eles sejam necessários
 
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resrouce-manager-balancing-thresholds.png
@@ -100,4 +103,4 @@ O Gerenciador de Recursos detecta automaticamente os serviços relacionados semp
 [Image4]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together1.png
 [Image5]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together2.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

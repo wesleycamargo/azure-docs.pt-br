@@ -128,8 +128,6 @@ Para ativar o relatório de todos os logs exigidos pelo Engagement para calcular
 
 > [AZURE.IMPORTANT] Ao usar `EngagementListActivity` ou `EngagementExpandableListActivity`, certifique-se de que qualquer chamada para `requestWindowFeature(...);` seja feita antes da chamada para `super.onCreate(...);`, caso contrário, ocorrerá uma falha.
 
-Fornecemos subclasses de `FragmentActivity` e `MapActivity`, mas para evitar problemas com aplicativos que usam **ProGuard**, não as incluímos em `engagement.jar`.
-
 Você pode encontrar essas classes na pasta `src` e copiá-las para seu projeto. As classes também estão no **JavaDoc**.
 
 ### Método alternativo: chame `startActivity()` e `endActivity()` manualmente
@@ -382,4 +380,4 @@ Em seguida, você pode adicionar um `CheckBoxPreference` em seu layout de prefer
 <!-- URLs. -->
 [Device API]: http://go.microsoft.com/?linkid=9876094
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

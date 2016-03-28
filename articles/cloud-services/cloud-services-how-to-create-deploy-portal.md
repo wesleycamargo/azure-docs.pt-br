@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Como criar e implantar um serviço de nuvem | Microsoft Azure"
-	description="Saiba como criar e implantar um serviço de nuvem usando o método de Criação Rápida no Azure. Esses exemplos usam o portal do Azure."
+	description="Saiba como criar e implantar um serviço de nuvem usando o portal do Azure."
 	services="cloud-services"
 	documentationCenter=""
 	authors="Thraka"
@@ -22,8 +22,8 @@
 # Como criar e implantar um serviço de nuvem
 
 > [AZURE.SELECTOR]
-- [Azure portal](cloud-services-how-to-create-deploy-portal.md)
-- [Azure classic portal](cloud-services-how-to-create-deploy.md)
+- [Portal do Azure](cloud-services-how-to-create-deploy-portal.md)
+- [Portal clássico do Azure](cloud-services-how-to-create-deploy.md)
 
 O Portal do Azure oferece duas maneiras de criar e de implantar um serviço de nuvem: *Criação Rápida* e *Criação Personalizada*.
 
@@ -64,9 +64,9 @@ Para criar um serviço de nuvem com implantações de funções Web ou de Trabal
 - Se você planeja implantar o serviço de nuvem em um grupo de afinidade, crie-o. Você pode usar um grupo de afinidade para implantar o serviço de nuvem e outros serviços do Azure no mesmo local em uma região. Você pode criar o grupo de afinidade na área **Redes** do Portal clássico do Azure, na página **Grupos de Afinidade**.
 
 
-## Etapa 3: criar um serviço de nuvem e carregar o pacote de implantação
+## Criar e implantar
 
-1. Faça logon no [Portal do Azure][].
+1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 2. Clique em **Novo > Computação**, role para baixo e clique em **Serviço de Nuvem**.
 
     ![Publicar o serviço de nuvem](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
@@ -115,4 +115,4 @@ Se o pacote de implantação tiver sido [configurado para usar certificados](clo
 * [Gerenciar seu serviço de nuvem](cloud-services-how-to-manage-portal.md).
 * Configurar [certificados SSL](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0316_2016-->

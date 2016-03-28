@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="03/10/2016"
 	ms.author="markvi"/>
 
 #Fluxos do Azure Active Directory Identity Protection
@@ -89,7 +89,7 @@ Após um administrador configurar uma política para riscos de entrada, os usuá
 
  
 ## Entrada arriscada bloqueada
-Os administradores podem optar por definir uma política de Entrada Arriscada para bloquear os usuários ao entrar dependendo do nível de risco. Para ser desbloqueado, os usuários finais devem contatar um administrador ou o suporte técnico, ou então pode tentar entrar de um dispositivo ou local familiar. A autorrecuperação com uma resolução de autenticação multifator não é uma opção neste caso.<br><br> ![Correção](./media/active-directory-identityprotection-flows/130.png "Correção") <br>
+Os administradores podem optar por definir uma política de Entrada Arriscada para bloquear os usuários ao entrar dependendo do nível de risco. Para ser desbloqueado, os usuários finais devem contatar um administrador ou o suporte técnico, ou então pode tentar entrar de um dispositivo ou local familiar. Não é possível recuperar-se sozinho com uma solução de autenticação multifator neste caso. <br><br> ![Correção](./media/active-directory-identityprotection-flows/200.png "Correção") <br>
 
 
 
@@ -158,4 +158,4 @@ Caso os usuários comprometidos sejam impedidos de entrar, um administrador pode
 
 - [Azure Active Directory Identity Protection](active-directory-identityprotection.md) 
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

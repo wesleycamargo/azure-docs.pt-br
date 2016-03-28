@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="03/10/2016"
    ms.author="alkohli"/>
 
 
@@ -22,7 +22,7 @@
 ![](./media/storsimple-ova-deploy2-provision-vmware/vmware4.png)
 
 ## Visão geral 
-Este tutorial de provisionamento se aplica aos StorSimple Virtual Arrays (também conhecidos como dispositivos virtuais locais StorSimple ou dispositivos virtuais StorSimple) que executam a versão GA (disponibilidade geral) de março de 2016. Este tutorial descreve como provisionar e conectar-se a uma StorSimple Virtual Array em um sistema de host que executa VMware ESXi 5.5 e superior.
+Este tutorial de provisionamento se aplica aos StorSimple Virtual Arrays (também conhecidos como dispositivos virtuais locais StorSimple ou dispositivos virtuais StorSimple) que executam a versão GA (disponibilidade geral) de março de 2016. Este tutorial descreve como provisionar e conectar-se a uma StorSimple Virtual Array em um sistema de host que executa VMware ESXi 5.5 e superior. Este artigo se aplica à implantação de Matrizes virtuais do StorSimple no portal clássico do Azure, bem como na Nuvem de governo do Microsoft Azure.
 
 Você precisará de privilégios de administrador para provisionar e conectar-se a um dispositivo virtual. O provisionamento e a configuração inicial podem levar cerca de 10 minutos para ser concluídos.
 
@@ -265,7 +265,7 @@ Execute as etapas a seguir para iniciar o dispositivo virtual e conectar-se a el
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image43m.png)
 
-1.  Use o cmdlet Set-HcsIpAddress para configurar a rede. Um exemplo é mostrado abaixo:
+1.  Use o cmdlet `Set-HcsIpAddress` para configurar a rede. Um exemplo é mostrado abaixo:
 
 
     `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
@@ -274,7 +274,18 @@ Execute as etapas a seguir para iniciar o dispositivo virtual e conectar-se a el
 
 1.  Depois que a configuração inicial for concluída e o dispositivo for inicializado, você verá o texto da faixa do dispositivo. Anote o endereço IP e a URL exibida no texto do banner para gerenciar o dispositivo. Você usará esse endereço IP para se conectar à interface do usuário da Web do seu dispositivo virtual e concluir a configuração local e o registro.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image45m.png)
+	![](./media/storsimple-ova-deploy2-provision-vmware/image45.png)
+
+
+1. (Opcional) Execute esta etapa somente se você estiver implantando seu dispositivo na Nuvem do governo. Agora, você habilitará o modo FIPS (Federal Information Processing Standard) dos Estados Unidos em seu dispositivo. O padrão FIPS 140 define algoritmos criptográficos aprovados para uso por sistemas de computador do governo federal dos EUA para a proteção de dados confidenciais.
+	1. Para habilitar o modo FIPS, execute o seguinte cmdlet:
+		
+		`Enter-HcsFIPSMode`
+
+	2. Reinicialize o dispositivo após ter habilitado o modo FIPS para que as validações criptográficas tenham efeito.
+
+		> [AZURE.NOTE] Você pode habilitar ou desabilitar o modo FIPS em seu dispositivo. Alternar o dispositivo entre o modo FIPS e não FIPS não tem suporte.
+
 
 Se o dispositivo não cumprir os requisitos mínimos de configuração, você verá um erro no texto da faixa (mostrado abaixo). Será necessário modificar a configuração do dispositivo para que ele tenha recursos adequados para cumprir os requisitos mínimos. Em seguida, você pode reiniciar e conectar-se ao dispositivo. Consulte os requisitos mínimos de configuração na [Etapa 1: Verificar se o sistema de host atende aos requisitos mínimos do dispositivo virtual](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements).
 
@@ -292,4 +303,4 @@ Caso observe algum outro erro durante a configuração inicial usando a interfac
 
 -   [Configurar sua StorSimple Virtual Array como um servidor iSCSI](storsimple-ova-deploy3-iscsi-setup.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

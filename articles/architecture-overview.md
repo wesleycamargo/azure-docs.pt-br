@@ -19,34 +19,11 @@
 #Arquitetura de aplicativos no Microsoft Azure
 Recursos para criar aplicativos que usam o Microsoft Azure. Entre eles estão ferramentas para ajudá-lo a desenhar diagramas para descrever visualmente os sistemas de software.
 
-
-
-##Padrões de design arquitetural do Azure
-A Microsoft publica uma série de padrões de design arquitetural para ajudá-lo a criar seus próprios designs personalizados. Os padrões têm a finalidade de ser guias arquiteturais concisos que podem ser compostos em conjunto a fim de fornecer orientação sobre como melhor aproveitar a plataforma Microsoft Azure para atender às necessidades de negócios da sua organização.
-
-
-[Visão geral](../azure-architectures-cpif-overview/) - [Rede híbrida](../azure-architectures-cpif-infrastructure-hybrid-networking/) - [Processamento em lotes externo](../azure-architectures-cpif-foundation-offsite-batch-processing-tier/) - [Camada de dados de vários locais](../azure-architectures-cpif-foundation-multi-site-data-tier/) - [Camada Web com balanceamento de carga global](../azure-architectures-cpif-foundation-global-load-balanced-web-tier/) - [Nível de pesquisa do Azure](../azure-architectures-cpif-foundation-azure-search-tier/)
- 
-Cada padrão contém
- 
-- Uma descrição de serviço
-- Uma lista de serviços do Azure necessários para aproveitar o padrão
-- Diagramas arquiteturais
-- Dependências arquiteturais
-- Limitações ou considerações de design que podem afetar o padrão
-- Interfaces e pontos de extremidade
-- Antipadrões
-- Importantes considerações gerais de arquitetura, incluindo disponibilidade e resiliência, SLAs compostos para serviços usados, escala e desempenho, considerações operacionais e de custo.
-
-![Padrões de design de arquitetura do Azure](./media/architecture-overview/AzureArchPatterns.jpg)
-
-
 ##Cartaz de padrões de design
+
 Os desenvolvedores de práticas e padrões da Microsoft publicaram o livro [Padrões de Design de Nuvem](http://msdn.microsoft.com/library/dn568099.aspx) disponível no MSDN e para download em PDF. Está disponível também um pôster de grande formato que lista todos os padrões.
 
 ![Pôster de práticas e padrões de nuvem](./media/architecture-overview/PnPPatternPosterThumb.jpg)
-
-
 
 ##Curso de certificação de arquitetura da Microsoft
 
@@ -108,4 +85,4 @@ A Microsoft publica diversas arquiteturas relacionadas a cartazes/infográficos.
 
 ![Infográfico de arquitetura do Azure](./media/architecture-overview/AzureArchInfographicThumb.jpg)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->
