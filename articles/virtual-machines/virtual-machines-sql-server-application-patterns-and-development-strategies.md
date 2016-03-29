@@ -312,7 +312,7 @@ Para implementar e implantar um aplicativo de várias camadas baseado no SQL Ser
 
 A tabela a seguir fornece uma comparação do desenvolvimento tradicional da Web com os Serviços de Nuvem do Azure e os Aplicativos Web do Azure em relação ao SQL Server nas Máquinas Virtuais do Azure. A tabela inclui os Aplicativos Web do Azure pois é possível usar o SQL Server em uma Máquina Virtual do Azure como fonte de dados para aplicativos Web do Azure por meio de seu endereço IP virtual público ou nome DNS.
 
-|Desenvolvimento para a web tradicional em Máquinas Virtuais do Azure|Serviços de nuvem no Azure|Hospedagem na Web com Aplicativos Web do Azure|
+||Desenvolvimento para a web tradicional em Máquinas Virtuais do Azure|Serviços de nuvem no Azure|Hospedagem na Web com Aplicativos Web do Azure|
 |---|---|---|---|
 |**Migração de aplicativos do local**|Aplicativos existentes como são.|Os aplicativos precisam de funções da web e do trabalhador.|Aplicativos existentes como são, mas adequados para aplicativos da web autocontidos e serviços Web que exigem escalabilidade rápida.|
 |**Desenvolvimento e Implantação**|Visual Studio, WebMatrix, Visual Web Developer, WebDeploy, FTP, TFS, Gerenciador do IIS, PowerShell.|Visual Studio, SDK do Azure, TFS, PowerShell. Cada serviço de nuvem tem dois ambientes nos quais você pode implantar seu pacote e configuração de serviço: preparo e produção. Você pode implantar um serviço de nuvem para p ambiente de preparo para testá-lo antes de promovê-lo para produção.|Visual Studio, WebMatrix, Visual Web Developer, FTP, GIT, BitBucket, CodePlex, DropBox, GitHub, Mercurial, TFS, Implantação da Web, PowerShell.|
