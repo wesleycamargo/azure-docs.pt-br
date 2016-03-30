@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="03/04/2016" 
+	ms.date="03/23/2016" 
 	ms.author="sdanie"/>
 
 #O que é Gerenciamento de API?
 
 O Gerenciamento de API ajuda as organizações a publicar APIs para parceiros externos e desenvolvedores internos a fim de desbloquear o potencial de seus dados e serviços. Empresas em todos os lugares estão procurando estender suas operações para uma plataforma digital, criando novos canais, encontrando novos clientes e estimulando uma interação mais profunda com os clientes já existentes. O Gerenciamento de API fornece as competências essenciais para garantir um programa de API de sucesso através do envolvimento do desenvolvedor, ideias de negócios, análises, segurança e proteção.
 
-> [AZURE.VIDEO microsoft-ignite-2015-azure-api-management-and-the-api-economy]
+Assista ao vídeo a seguir para obter uma visão geral do Gerenciamento de API do Azure e aprenda a usar o Gerenciamento de API para adicionar muitos recursos para sua API, incluindo o controle de acesso, a limitação de taxa, o monitoramento, o log de eventos e o cache de resposta, com um mínimo de trabalho de sua parte.
+
+> [AZURE.VIDEO azure-api-management-overview]
 
 Para usar o Gerenciamento de API, os administradores criaram as APIs. Cada API consiste em uma ou mais operações e cada uma pode ser adicionada a um ou mais produtos. Para usar uma API, os desenvolvedores assinam um produto que contém essa API e, em seguida, eles podem chamar a operação da API, estando sujeitos a quaisquer políticas que possam estar em vigor.
 
@@ -92,6 +94,12 @@ O portal do desenvolvedor é onde os desenvolvedores podem aprender sobre suas o
 
 Você pode personalizar a aparência do portal do desenvolvedor adicionando conteúdo personalizado, personalização de estilo e adicionando sua marca.
 
+## Gerenciamento de API e a economia de API
+
+Para saber mais sobre o Gerenciamento de API, assista à apresentação a seguir da conferência Microsoft Ignite 2015.
+
+> [AZURE.VIDEO microsoft-ignite-2015-azure-api-management-and-the-api-economy]
+
 [APIs and operations]: #apis
 [Products]: #products
 [Groups]: #groups
@@ -114,4 +122,4 @@ Você pode personalizar a aparência do portal do desenvolvedor adicionando cont
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

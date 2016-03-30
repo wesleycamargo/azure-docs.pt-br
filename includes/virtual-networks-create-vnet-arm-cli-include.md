@@ -2,7 +2,7 @@
 
 Você pode usar a CLI do Azure para gerenciar os recursos do Azure no prompt de comando de qualquer computador com Windows, Linux ou OSX. Para criar uma Rede Virtual usando a CLI do Azure, siga as etapas abaixo.
 
-1. Se você nunca usou a CLI do Azure, consulte [Instalar e configurar a CLI do Azure](xplat-cli-install.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
+1. Se você nunca usou a CLI do Azure, consulte [Instalar e configurar a CLI do Azure](../articles/xplat-cli-install.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
 2. Execute o comando **azure config mode** para alternar para o modo do Gerenciador de Recursos, como mostrado abaixo.
 
 		azure config mode arm
@@ -11,7 +11,7 @@ Você pode usar a CLI do Azure para gerenciar os recursos do Azure no prompt de 
 
 		info:    New mode is arm
 
-3. Se necessário, execute **azure group create** para criar um novo grupo de recursos, como mostrado abaixo. Observe a saída do comando. A lista exibida após a saída explicar os parâmetros usados. Para obter mais informações sobre grupos de recursos, visite [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md/#resource-groups).
+3. Se necessário, execute **azure group create** para criar um novo grupo de recursos, como mostrado abaixo. Observe a saída do comando. A lista exibida após a saída explicar os parâmetros usados. Para saber mais sobre grupos de recursos, visite [Visão geral do Gerenciador de Recursos do Azure](../articles/virtual-network/resource-group-overview.md/#resource-groups).
 
 		azure group create -n TestRG -l centralus
 
@@ -53,7 +53,7 @@ Você pode usar a CLI do Azure para gerenciar os recursos do Azure no prompt de 
 
 	- **-g (ou --resource-group)**. Nome do grupo de recursos em que a Rede Virtual será criada. Para o nosso cenário, *TestRG*.
 	- **-n (ou --name)**. Nome da Rede Virtual a ser criada. Para o nosso cenário, *TestVNet*
-	- **-a (ou --address-prefixes)**. Lista de blocos CIDR usado para o espaço de endereço de Rede Virtual. Para o nosso cenário, *192.168.0.0/16*.
+	- **-a (ou --address-prefixes)**. Lista de blocos CIDR usado para o espaço de endereço de Rede Virtual. Para o nosso cenário, *192.168.0.0/16*
 	- **-l (ou --location)**. Região do Azure em que a Rede Virtual será criada. Para o nosso cenário, *centralus*.
 
 5. Execute o comando **azure network vnet subnet create** para criar uma sub-rede, como mostrado abaixo. Observe a saída do comando. A lista exibida após a saída explicar os parâmetros usados.
@@ -106,4 +106,4 @@ Você pode usar a CLI do Azure para gerenciar os recursos do Azure no prompt de 
 		data:
 		info:    network vnet show command OK
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0323_2016-->

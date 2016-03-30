@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/08/2016"
+   ms.date="03/18/2016"
    ms.author="larryfr"/>
 
 #Introdução ao Apache Storm no HDInsight: análise em tempo real para o Hadoop
@@ -81,7 +81,7 @@ Cada Storm no cluster HDInsight também fornece um Painel Storm baseado na Web q
 
 Para obter mais informações sobre como usar o painel Storm, consulte [Implantar e gerenciar topologias Apache Storm no HDInsight](hdinsight-storm-deploy-monitor-topology.md).
 
-O Storm no HDInsight também facilita a integração com Hubs de Eventos do Azure através do **Spout de Hub de Eventos**. Isso está disponível em cada cluster Storm em **%STORM\_HOME%\\examples\\eventhubspout\\eventhubs-storm-spout-0.9-jar-with-dependencies.jar**. Para exemplos de como usar esse spout em uma topologia Storm, consulte os seguintes documentos:
+O Storm no HDInsight também facilita a integração com Hubs de Eventos do Azure através do **Spout de Hub de Eventos**. A versão mais recente deste componente está disponível em [https://github.com/hdinsight/hdinsight-storm-examples/tree/master/lib/eventhubs](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/lib/eventhubs). Para saber mais sobre o uso deste componente, veja os documentos a seguir.
 
 * [Desenvolver uma topologia de C# que usa os Hubs de eventos do Azure](hdinsight-storm-develop-csharp-event-hub-topology.md)
 
@@ -219,4 +219,4 @@ Saiba mais sobre as soluções de análise em tempo real com o Apache Storm no H
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
 [gettingstarted]: hdinsight-apache-storm-tutorial-get-started-linux.md
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

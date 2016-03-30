@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/03/2016"
+   ms.date="03/21/2016"
    ms.author="cherylmc"/>
 
 
@@ -78,7 +78,7 @@ O intercâmbio de roteamento será por meio do protocolo eBGP. As sessões EBGP 
 
 ## Números de sistema autônomos
 
-A Microsoft usará AS 12076 para o emparelhamento público do Azure, o emparelhamento privado do Azure e o emparelhamento da Microsoft . Reservamos AS 65515 para uso interno. Há suporte para números AS de 16 e 32 bits. Você pode usar números AS privados para emparelhamento privado do Azure. Você deve usar números AS públicos registrados para você para o emparelhamento público do Azure e o emparelhamento da Microsoft.
+A Microsoft usará AS 12076 para o emparelhamento público do Azure, o emparelhamento privado do Azure e o emparelhamento da Microsoft . Reservamos AS 65515 para uso interno. Há suporte para números AS de 16 e 32 bits.
 
 Não há requisitos de simetria de transferência de dados. Os caminhos de encaminhamento e retorno podem atravessar pares de roteadores diferentes. Rotas idênticas devem ser anunciadas de qualquer um dos lados entre vários pares de circuitos que pertencem a você. As métricas de rotas não precisam ser idênticas.
 
@@ -178,4 +178,4 @@ A Microsoft não adota valores de comunidade BGP que você define. É necessári
 	- [Configurar o roteamento para o modelo de implantação clássico](expressroute-howto-routing-classic.md) ou [Configurar o roteamento para o modelo de implantação do Gerenciador de Recursos](expressroute-howto-routing-arm.md)
 	- [Vincular uma rede virtual clássica a um circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md) ou [Conectar uma VNet do Gerenciador de Recursos a um circuito da Rota Expressa](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

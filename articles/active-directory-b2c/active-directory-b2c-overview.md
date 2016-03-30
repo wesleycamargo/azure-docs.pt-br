@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="01/06/2016"
+	ms.date="03/22/2016"
 	ms.author="swkrish"/>
 
 # Visualização do Active Directory B2C do Azure: inscrever e conectar consumidores em seus aplicativos
@@ -37,6 +37,7 @@ Você pode gravar seu aplicativo em relação ao serviço Active Directory B2C d
 Volte aqui frequentemente para saber mais sobre as alterações que virão na visualização do Active Directory B2C do Azure. Também vamos tweetar todas as atualizações usando @AzureAD.
 
 - Saiba mais sobre nossa [estrutura de política extensível](active-directory-b2c-reference-policies.md) e sobre os tipos de políticas que você pode criar e usar em seus aplicativos.
+- Coloque um indicador em nossa [página de integridade do serviço](active-directory-b2c-service-health.md) para obter notificações sobre problemas de serviço secundários, status e mitigações. Continue a monitorar o [painel de status do Azure também](https://azure.microsoft.com/status/).
 - [Limitações e restrições atuais da visualização](active-directory-b2c-limitations.md).
 
 ## Artigos de instruções
@@ -47,20 +48,20 @@ Aprenda a usar os recursos específicos da visualização do Active Directory B2
 - [Usar atributos personalizados para coletar informações sobre seus consumidores](active-directory-b2c-reference-custom-attr.md).
 - [Habilite o Azure Multi-Factor Authentication em seus aplicativos voltados para o consumidor](active-directory-b2c-reference-mfa.md).
 - [Configure a redefinição de senha de autoatendimento para seus consumidores](active-directory-b2c-reference-sspr.md).
-- [Personalize a aparência das páginas de inscrição, de entrada e outras voltadas ao consumidor](active-directory-b2c-reference-ui-customization.md) fornecidas pelo Active Directory B2C do Azure.
-- [Use a Graph API do Active Directory do Azure para criar, ler, atualizar e excluir programaticamente os consumidores](active-directory-b2c-devquickstarts-graph-dotnet.md) em seu locatário do Active Directory B2C do Azure.
+- [Personalize a aparência das páginas de inscrição, de entrada e outras voltadas ao consumidor](active-directory-b2c-reference-ui-customization.md) fornecidas pelo Azure Active Directory B2C.
+- [Use a API do Graph do Azure Active Directory para criar, ler, atualizar e excluir programaticamente os consumidores](active-directory-b2c-devquickstarts-graph-dotnet.md) em seu locatário do Azure Active Directory B2C.
 
 ## Próximas etapas
 
 Estes links serão úteis na exploração em profundidade do serviço:
 
 - Veja as [informações sobre preços do Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
-- Obtenha ajuda sobre o Estouro de Pilha usando as marcas [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) ou [adal](http://stackoverflow.com/questions/tagged/adal).
+- Obtenha ajuda sobre o Stack Overflow usando as marcas [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) ou [adal](http://stackoverflow.com/questions/tagged/adal).
 - Envie para nós sua opinião sobre a versão de visualização usando a [Voz do Usuário](https://feedback.azure.com/forums/169401-azure-active-directory/); nós queremos ouvi-la! Use a frase "AzureADB2C:" no título da sua publicação para que possamos encontrá-la.
 - O Active Directory B2C do Azure dá suporte a protocolos padrão da indústria, o OpenID Connect e o OAuth 2.0, usando um modelo de registro de aplicativo que chamamos de "Modelo de Aplicativo v 2.0".
   - [Referência ao protocolo do modelo aplicativo v 2.0](active-directory-b2c-reference-protocols.md)
   - [Referência ao token do modelo de aplicativo v2.0](active-directory-b2c-reference-tokens.md)
-- Leia as [Perguntas frequentes do Active Directory B2C do Azure](active-directory-b2c-faqs.md).
-- [Solicitações de suporte a arquivos para o Active Directory B2C do Azure](active-directory-b2c-support.md).
+- Leia as [Perguntas frequentes do Azure Active Directory B2C](active-directory-b2c-faqs.md).
+- [Solicitações de suporte a arquivos para o Azure Active Directory B2C](active-directory-b2c-support.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

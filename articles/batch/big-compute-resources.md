@@ -55,7 +55,7 @@ O HPC Pack é a solução de HPC gratuita da Microsoft fundamentada nas tecnolog
 * [Documentação](https://technet.microsoft.com/library/jj899572.aspx)
 
 
-* [Opções de cluster do HPC com Microsoft HPC Pack no Azure](../virtual-machines/virtual-machines-hpcpack-cluster-options.md)
+* [Opções de cluster do HPC com Microsoft HPC Pack no Azure](../virtual-machines/virtual-machines-linux-hpcpack-cluster-options.md)
 
 * [Aumento para instâncias de trabalho do Azure com o HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
 
@@ -87,11 +87,12 @@ Use esses modelos do Azure para implantar clusters HPC do Linux.
 
 ## Instâncias de computação intensiva
 
-O Azure oferece [diversos tamanhos](../virtual-machines/virtual-machines-size-specs.md), inclusive instâncias [A8 e A9](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) com uso intensivo de computação capazes de se conectar a uma rede RDMA de back-end, para executar cargas de trabalho de HPC para Linux e Windows.
+O Azure oferece [diversos tamanhos](../virtual-machines/virtual-machines-windows-sizes.md), inclusive instâncias [A8 e A9](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) com uso intensivo de computação capazes de se conectar a uma rede RDMA de back-end, para executar cargas de trabalho de HPC para Linux e Windows.
 
-* [Configurar um cluster de RDMA do Linux para executar aplicativos MPI](../virtual-machines/virtual-machines-linux-cluster-rdma.md)
 
-* [Configurar um cluster de RDMA do Windows com o Microsoft HPC Pack para executar aplicativos MPI](../virtual-machines/virtual-machines-windows-hpcpack-cluster-rdma.md)
+* [Configurar um cluster de RDMA do Linux para executar aplicativos MPI](../virtual-machines/virtual-machines-linux-classic-rdma-cluster.md)
+
+* [Configurar um cluster de RDMA do Windows com o Microsoft HPC Pack para executar aplicativos MPI](../virtual-machines/virtual-machines-windows-classic-hpcpack-rdma-cluster.md)
 
 ## Plano gráfico da arquitetura
 
@@ -145,4 +146,4 @@ O Azure oferece [diversos tamanhos](../virtual-machines/virtual-machines-size-sp
 * Para os anúncios mais recentes, consulte o [blog da equipe do Microsoft HPC e Lote](http://blogs.technet.com/b/windowshpc/) e o [blog do Azure](https://azure.microsoft.com/blog/tag/hpc/).
 * Consulte também [o que há de novo no Lote](https://azure.microsoft.com/updates/?service=batch) ou assine o [RSS feed](https://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

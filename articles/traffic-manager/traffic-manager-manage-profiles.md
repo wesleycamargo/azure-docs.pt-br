@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Gerenciar um perfil de Gerenciador de tráfego do Azure
@@ -27,10 +27,10 @@ Você pode criar rapidamente um perfil do Gerenciador de Tráfego usando a Cria�
 
 1. **Implante seus serviços de nuvem e sites no ambiente de produção.** Para obter mais informações sobre serviços de nuvem, consulte [Serviços de Nuvem](http://go.microsoft.com/fwlink/p/?LinkId=314074). Para obter mais informações sobre serviços de nuvem, consulte [Melhores práticas](https://msdn.microsoft.com/library/azure/5229dd1c-5a91-4869-8522-bed8597d9cf5#bkmk_TrafficManagerBestPracticesProfile). Para obter mais informações sobre sites, consulte [Sites](http://go.microsoft.com/fwlink/p/?LinkId=393327).
 
-2. Faça logon no **portal clássico do Azure** Para criar um novo perfil do Gerenciador de Tráfego, clique em **Novo** no canto inferior esquerdo do portal, clique em **Serviços de Rede > Gerenciador de Tráfego** e depois clique em **Criação Rápida** para começar a configurar seu perfil.
+2. **Faça logon no portal clássico do Azure** Para criar um novo perfil do Gerenciador de Tráfego, clique em **Novo** no canto inferior esquerdo do portal, clique em **Serviços de Rede > Gerenciador de Tráfego** e depois clique em **Criação Rápida** para começar a configurar seu perfil.
 3. **Configure o prefixo DNS.** Dê ao seu perfil do gerenciador de tráfego um nome do prefixo DNS único. Você pode especificar apenas o prefixo para um nome de domínio do Gerenciador de Tráfego.
 4. **Selecione a assinatura.** Selecione a assinatura do Azure apropriada. Cada perfil está associado uma única assinatura. Se você tiver apenas uma assinatura, esta opção não aparecerá.
-5. **Selecione o método de roteamento de tráfego.** Selecione o método de roteamento de tráfego em **Política de roteamento de tráfego**. Para obter mais informações sobre os métodos de roteamento de tráfego, consulte [Sobre os métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-load-balancing-methods.md).
+5. **Selecione o método de roteamento de tráfego.** Selecione o método de roteamento de tráfego em **Política de roteamento de tráfego**. Para obter mais informações sobre os métodos de roteamento de tráfego, consulte [Sobre os métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-routing-methods.md).
 6. **Clique em "Criar" para criar seu novo perfil**. Quando a configuração do perfil for concluída, você poderá localizar seu perfil no painel do Gerenciador de Tráfego, no portal clássico do Azure.
 7. **Configure pontos de extremidade, monitoramento e configurações adicionais no portal clássico do Azure.** Como você só pode definir configurações básicas usando a Criação Rápida, é necessário definir configurações adicionais, como a lista de pontos de extremidade e a ordem de failover do ponto de extremidade, para concluir a configuração desejada. 
 
@@ -85,4 +85,4 @@ Você pode exibir o histórico de alterações para o perfil do Gerenciador de T
 
 [Solucionando problemas de estado degradado do Gerenciador de Tráfego](traffic-manager-troubleshooting-degraded.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -8,7 +8,7 @@ Nesta seção, você cria um aplicativo do console do Windows que cria uma nova 
 
 2. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **CreateDeviceIdentity** e clique em **Gerenciar Pacotes NuGet**.
 
-3. Na janela **Gerenciador de Pacotes NuGet**, procure **Dispositivos do Microsoft Azure**, clique em **Instalar** para instalar o pacote **Microsoft.Azure.Devices** e aceite os termos de uso.
+3. Na janela **Gerenciador de Pacotes NuGet**, selecione **Procurar**, procure **microsoft.azure.devices**, clique em **Instalar** para instalar o pacote **Microsoft.Azure.Devices** e aceite os termos de uso.
 
 	![][11]
 
@@ -125,4 +125,4 @@ Nesta seção, você cria um aplicativo do console do Windows que lê mensagens 
 [11]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp2.png
 [12]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp3.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

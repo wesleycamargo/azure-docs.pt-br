@@ -158,4 +158,4 @@ Para saber mais sobre a gramática SQL do Banco de Dados de Documentos com supor
 
 O [Roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/documentdb/) também é um recurso útil para orientar você à medida que for aprendendo a usar o Banco de Dados de Documentos.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

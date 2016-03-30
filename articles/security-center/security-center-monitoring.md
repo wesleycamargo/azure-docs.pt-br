@@ -36,7 +36,7 @@ No bloco **Integridade da segurança de recursos**, você pode monitorar o estad
 
 ![Integridade dos recursos](./media/security-center-monitoring/security-center-monitoring-fig1-new.png)
 
-Se a Central de segurança identificar uma vulnerabilidade que precisa ser resolvida, como uma VM com ausência de atualizações de segurança ou uma sub-rede sem um [grupo de segurança de rede](virtual-networks-nsg.md), ela será listada aqui.
+Se a Central de segurança identificar uma vulnerabilidade que precisa ser resolvida, como uma VM com ausência de atualizações de segurança ou uma sub-rede sem um [grupo de segurança de rede](../virtual-network/virtual-networks-nsg.md), ela será listada aqui.
 
 ###Monitorar máquinas virtuais
 Quando você clicar em **Máquinas virtuais** no bloco **Integridade de segurança de recursos**, a folha **Máquinas virtuais** será aberta com mais detalhes sobre as etapas de prevenção e integração, bem como uma lista de todas as VMs monitoradas pela Central de segurança, conforme mostrado abaixo.
@@ -102,7 +102,9 @@ A seção de status de prevenção de rede lista as redes virtuais que são moni
 
 ![Rede](./media/security-center-monitoring/security-center-monitoring-fig9-new.png)
 
-Depois de abrir essa folha, você verá duas seções: - Recomendações de rede - Rede
+Depois de abrir essa folha, você verá duas seções:
+- Recomendações de rede
+- Rede
  
 Em cada seção, você pode selecionar uma opção individual para obter mais detalhes sobre a recomendação. As seções abaixo abordarão essas áreas em mais detalhes.
 
@@ -114,8 +116,8 @@ Como as informações de integridade de recursos de máquinas virtuais, essa fol
 
 A seção de divisão de status de rede lista os problemas de segurança potenciais e oferece recomendações. Os possíveis problemas podem incluir:
 
-- [ACLs em pontos de extremidade](virtual-machines-set-up-endpoints.md) não habilitados
-- [Grupos de segurança de rede](virtual-networks-nsg.md) não habilitados
+- [ACLs em pontos de extremidade](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) não habilitados
+- [Grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md) não habilitados
 - Sub-redes íntegras e acesso no NSG não restringido são listados. 
  
 Quando você clica em uma dessas recomendações, uma nova folha é aberta com mais detalhes relacionados à recomendação, conforme mostrado no exemplo abaixo.
@@ -132,7 +134,7 @@ Na seção **Rede**, há uma exibição hierárquica do grupo de recursos, da su
 
 ![Árvore de rede](./media/security-center-monitoring/security-center-monitoring-fig121-new.png)
 
-Esta seção diferencia as [VMs baseadas no Gerenciador de Recursos das VMs clássicas](resource-manager-deployment-model.md). Isso ajuda a identificar rapidamente se o Gerenciamento de Recursos do Azure ou os recursos de rede do Gerenciamento de Serviços do Azure estão disponíveis para a máquina virtual. Se decidir acessar as propriedades de uma placa de interface de rede nesse local, você precisará expandir a sub-rede e clicar no nome da VM. Se você executar essa ação para uma VM baseada no Gerenciador de Recursos, uma nova folha semelhante à mostrada abaixo será exibida.
+Esta seção diferencia as [VMs baseadas no Gerenciador de Recursos das VMs clássicas](../resource-manager-deployment-model.md). Isso ajuda a identificar rapidamente se o Gerenciamento de Recursos do Azure ou os recursos de rede do Gerenciamento de Serviços do Azure estão disponíveis para a máquina virtual. Se decidir acessar as propriedades de uma placa de interface de rede nesse local, você precisará expandir a sub-rede e clicar no nome da VM. Se você executar essa ação para uma VM baseada no Gerenciador de Recursos, uma nova folha semelhante à mostrada abaixo será exibida.
 
 ![Árvore de rede](./media/security-center-monitoring/security-center-monitoring-fig13-new.png)
 
@@ -166,7 +168,7 @@ Quando você clicar no banco de dados para atender a essa recomendação, a folh
 Para habilitar a auditoria, basta selecionar **ATIVAR** na opção **Auditoria** e clicar em **Salvar**.
 
 ###Monitorar aplicativos
-Se a sua carga de trabalho do Azure tiver aplicativos localizados no [VMs de Gerenciador de recursos](resource-manager-deployment-model.md) com web exposto (portas TCP 80 e 443), a Central de segurança poderá monitorá-los para identificar problemas potenciais de segurança e etapas recomendáveis de correção. Quando você clicar no bloco **Aplicativos**, a folha **Aplicativos** será aberta com uma série de recomendações na seção de etapas de prevenção. Ela também mostra a divisão de aplicativos por host/IP virtual, conforme mostrado abaixo.
+Se a sua carga de trabalho do Azure tiver aplicativos localizados no [VMs de Gerenciador de recursos](../resource-manager-deployment-model.md) com web exposto (portas TCP 80 e 443), a Central de segurança poderá monitorá-los para identificar problemas potenciais de segurança e etapas recomendáveis de correção. Quando você clicar no bloco **Aplicativos**, a folha **Aplicativos** será aberta com uma série de recomendações na seção de etapas de prevenção. Ela também mostra a divisão de aplicativos por host/IP virtual, conforme mostrado abaixo.
 
 ![Integridade da segurança de aplicativos](./media/security-center-monitoring/security-center-monitoring-fig18-new.png)
 
@@ -186,4 +188,4 @@ Neste documento, você aprendeu como usar os recursos de monitoramento na Centra
 - [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre perguntas frequentes sobre como usar o serviço
 - [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

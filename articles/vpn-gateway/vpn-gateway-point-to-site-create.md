@@ -20,8 +20,8 @@
 # Configurar uma conexão VPN ponto a site para uma Rede Virtual
 
 > [AZURE.SELECTOR]
-- [PowerShell - Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
-- [Portal - Classic](vpn-gateway-point-to-site-create.md)
+- [PowerShell – Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
+- [Portal – Clássico](vpn-gateway-point-to-site-create.md)
 
 Uma configuração Ponto a Site permite que você crie uma conexão segura com sua rede virtual em um computador cliente, individualmente. Uma conexão VPN é estabelecida por meio do início da conexão do computador cliente. Essa é uma excelente solução quando você deseja se conectar à sua rede virtual de um local remoto, como de casa ou de uma conferência, ou quando você tiver apenas alguns clientes que precisam se conectar a uma rede virtual. As conexões Ponto a Site não exigem um dispositivo VPN ou um endereço IP voltado para o público para funcionar. Para saber mais sobre as conexões Ponto a Site, confira as [Perguntas frequentes sobre o Gateway de VPN](vpn-gateway-vpn-faq.md#point-to-site-connections) e [Sobre conexões entre locais](vpn-gateway-cross-premises-options.md).
 
@@ -46,7 +46,7 @@ Etapa 2 - Criar um gateway de roteamento dinâmico.
 
 ### Criar uma rede virtual
 
-1. Faça logon no **portal clássico do Azure** (não no Portal do Azure).
+1. Faça logon no **Portal Clássico do Azure** (não no Portal do Azure).
 1. No canto inferior esquerdo da tela, clique em **Novo**. No painel de navegação, clique em **Serviços de Rede** e, em seguida, clique em **Rede Virtual**. Clique em **Criação Personalizada** para iniciar o assistente de configuração.
 1. Na página **Detalhes da Rede Virtual**, insira as informações a seguir e, em seguida, clique na seta de avanço na parte inferior direita.
 	- **Nome**: nome da sua rede virtual. Por exemplo, "VNetEast". Esse será o nome você usará ao implantar as VMs e instâncias de PaaS para esta VNet.
@@ -90,7 +90,7 @@ Etapa 4 - Exportar e instalar o certificado de cliente.
 
 ### Identificar ou gerar um certificado raiz
 
-Se você não estiver usando uma solução de certificado corporativo, será preciso gerar um certificado raiz autoassinado. As etapas nesta seção foram escritas para o Windows 8. Para obter as etapas para o Windows 10, você pode consultar [Trabalhando com certificados raiz autoassinados para configurações de Ponto a Site](vpn-gateway-certificates-point-to-site.md).
+Se você não estiver usando uma solução de certificado corporativo, será preciso gerar um certificado raiz autoassinado. As etapas nesta seção foram escritas para o Windows 8. Para obter as etapas para o Windows 10, você pode conferir [Trabalhando com certificados raiz autoassinados para configurações de Ponto a Site](vpn-gateway-certificates-point-to-site.md).
 
 Uma maneira de criar um certificado X.509 é usando a Ferramenta de Criação de Certificado (makecert.exe). Para usar a ferramenta makecert, baixe e instale o [Microsoft Visual Studio Express](https://www.visualstudio.com/products/visual-studio-express-vs.aspx), que é gratuito.
 
@@ -98,7 +98,7 @@ Uma maneira de criar um certificado X.509 é usando a Ferramenta de Criação de
 3. O comando no exemplo a seguir cria e instala um certificado raiz no repositório de certificados Pessoais de seu computador e também cria um arquivo *.cer* correspondente, que você posteriormente carregará no portal clássico do Azure.
 4. Vá para o diretório no qual deseja colocar o arquivo .cer e execute o comando a seguir, em que *RootCertificateName* é o nome que você deseja usar para o certificado. Se você executar o exemplo a seguir sem alterações, o resultado será um certificado raiz e o arquivo *RootCertificateName.cer* correspondente.
 
->[AZURE.NOTE]Como você criou um certificado raiz do qual serão gerados certificados de cliente, você pode querer exportar o certificado juntamente com a sua chave privada e salvá-lo em um local seguro onde possa ser recuperado.
+>[AZURE.NOTE] Como você criou um certificado raiz do qual serão gerados certificados de cliente, você pode querer exportar o certificado juntamente com a sua chave privada e salvá-lo em um local seguro onde possa ser recuperado.
 
     makecert -sky exchange -r -n "CN=RootCertificateName" -pe -a sha1 -len 2048 -ss My "RootCertificateName.cer"
 
@@ -112,7 +112,7 @@ Você precisará carregar o arquivo. cer correspondente para cada certificado ra
 
 ### Gerar um certificado de cliente
 
-As etapas a seguir visam gerar um certificado do cliente a partir do certificado raiz autoassinado. As etapas nesta seção foram escritas para o Windows 8. Para obter as etapas para o Windows 10, você pode consultar [Trabalhando com certificados raiz autoassinados para configurações de Ponto a Site](vpn-gateway-certificates-point-to-site.md). Se você estiver usando uma solução de certificado corporativo, siga as diretrizes para a solução que está usando.
+As etapas a seguir visam gerar um certificado do cliente a partir do certificado raiz autoassinado. As etapas nesta seção foram escritas para o Windows 8. Para obter as etapas para o Windows 10, você pode conferir [Trabalhando com certificados raiz autoassinados para configurações de Ponto a Site](vpn-gateway-certificates-point-to-site.md). Se você estiver usando uma solução de certificado corporativo, siga as diretrizes para a solução que está usando.
 
 1. No mesmo computador que você usou para criar o certificado raiz autoassinado, abra uma janela de Prompt de comando do Visual Studio como administrador.
 2. Altere o diretório para o local onde você deseja salvar arquivo de certificado de cliente. *RootCertificateName* refere-se ao certificado raiz autoassinado que você gerou. Se você executar o exemplo a seguir (alterando o RootCertificateName para o nome do seu certificado raiz), o resultado será um certificado de cliente chamado "ClientCertificateName" no seu repositório de certificados Pessoais.
@@ -192,8 +192,8 @@ Exemplo:
 
 ## Próximas etapas
 
-Você pode adicionar máquinas virtuais à sua rede virtual. Veja [Como criar uma máquina virtual personalizada](../virtual-machines/virtual-machines-create-custom.md).
+Você pode adicionar máquinas virtuais à sua rede virtual. Veja [Como criar uma máquina virtual personalizada](../virtual-machines/virtual-machines-windows-classic-createportal.md).
 
 Se quiser saber mais sobre Redes Virtuais, consulte a página [Documentação da Rede Virtual](https://azure.microsoft.com/documentation/services/virtual-network/).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="get-started-article"
- ms.date="03/09/2016" 
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
 
 # Conceitos, terminologia e hierarquia de entidades do Agendador
@@ -23,9 +23,8 @@ A tabela a seguir descreve os principais recursos expostos ou usados pela API do
 
 |Recurso | Descrição |
 |---|---|
-|**Serviço de nuvem**|Conceitualmente, um serviço de nuvem representa um aplicativo. Uma assinatura pode ter vários serviços de nuvem.|
 |**Coleção de trabalhos**|Uma coleção de trabalhos contém um grupo de trabalhos e mantém as configurações, cotas e limites que são compartilhados pelos trabalhos dentro da coleção. Uma coleção de trabalhos é criada por um proprietário de assinatura e agrupa os trabalhos com base em limites de uso ou aplicativo. Ele é restrito a uma região. Ele também permite a imposição de cotas para restringir o uso de todos os trabalhos na coleção. As cotas incluem MaxJobs e MaxRecurrence.|
-|**Trabalho**|Um trabalho define uma única ação recorrente com estratégias simples ou complexas para execução. As ações podem incluir solicitações de HTTP ou solicitações de fila de armazenamento.|
+|**Trabalho**|Um trabalho define uma única ação recorrente com estratégias simples ou complexas para execução. As ações podem incluir solicitações HTTP, de fila de armazenamento, de barramento de serviço ou de tópico do barramento de serviço.|
 |**Histórico de trabalho**|Um histórico de trabalho representa os detalhes para a execução de um trabalho. Ele contém o êxito versus a falha, bem como os detalhes da resposta.|
 
 ## Gerenciamento de entidade do Agendador
@@ -34,14 +33,13 @@ Em um alto nível, o Agendador e a API de gerenciamento do serviço expõem as s
 
 |Recurso|Descrição e endereço de URI|
 |---|---|
-|**Gerenciamento de serviços de nuvem**|GET, PUT e DELETE dão suporte para criar e modificar serviços em nuvem <p>`https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}`</p>|
-|**Gerenciamento de coleção de trabalhos**|GET, PUT e DELETE dão suporte para criar e modificar as coleções e os trabalhos nelas contidos. Uma coleção de trabalhos é um contêiner para trabalhos, com o mapeamento para cotas e configurações compartilhadas. Os exemplos de cotas, descritos a seguir, são o número máximo de trabalhos e o menor intervalo de recorrência. <p>PUT e DELETE: `https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}/resources/scheduler/jobcollections/{jobCollectionName}`</p><p>GET: `https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}/resources/scheduler/~/jobcollections/{jobCollectionName}`</p>
-|**Gerenciamento de trabalhos**|GET, PUT, POST, PATCH e DELETE dão suporte para criar e modificar trabalhos. Todos os trabalhos devem pertencer a uma coleção de trabalhos que já existe, para que não haja criação implícita <p>`https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}/resources/scheduler/~/jobcollections/{jobCollectionName}/jobs/{jobId}`</p>|
-|**Gerenciamento de histórico de trabalho**|Suporte de GET para busca de 60 dias do histórico de execução do trabalho, tais como, tempo decorrido do trabalho e resultados de execução do trabalho. Adiciona suporte ao parâmetro de cadeia de caracteres consulta para filtrar com base no estado e status <P>`https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}/resources/scheduler/~/jobcollections/{jobCollectionName}/jobs/{jobId}/history`</p>|
+|**Gerenciamento de coleção de trabalhos**|GET, PUT e DELETE dão suporte para criar e modificar as coleções e os trabalhos nelas contidos. Uma coleção de trabalhos é um contêiner para trabalhos, com o mapeamento para cotas e configurações compartilhadas. Os exemplos de cotas, descritos a seguir, são o número máximo de trabalhos e o menor intervalo de recorrência. <p>PUT e DELETE: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p><p>GET: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p>
+|**Gerenciamento de trabalhos**|GET, PUT, POST, PATCH e DELETE dão suporte para criar e modificar trabalhos. Todos os trabalhos devem pertencer a uma coleção de trabalhos que já existe, para que não haja criação implícita <p>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`</p>|
+|**Gerenciamento de histórico de trabalho**|Suporte de GET para busca de 60 dias do histórico de execução do trabalho, tais como, tempo decorrido do trabalho e resultados de execução do trabalho. Adiciona suporte ao parâmetro de cadeia de caracteres consulta para filtrar com base no estado e status <P>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history`</p>|
 
 ## Tipos de trabalho
 
-Há dois tipos de trabalhos: trabalhos HTTP (incluindo trabalhos HTTPS que oferecem suporte a SSL) e trabalhos de fila de armazenamento. Trabalhos de HTTP são ideais se você tiver um ponto de extremidade de uma carga de trabalho ou serviço existente. Você pode usar os trabalhos de fila de armazenamento para postar mensagens em filas de armazenamento, portanto, esses trabalhos são ideais para cargas de trabalho que usam filas de armazenamento.
+Existem vários tipos de trabalhos: trabalhos HTTP (incluindo trabalhos HTTPS que oferecem suporte a SSL), trabalhos de fila de armazenamento, trabalhos de fila do barramento de serviço e trabalhos de tópico do barramento de serviço. Trabalhos de HTTP são ideais se você tiver um ponto de extremidade de uma carga de trabalho ou serviço existente. Você pode usar os trabalhos de fila de armazenamento para postar mensagens em filas de armazenamento, portanto, esses trabalhos são ideais para cargas de trabalho que usam filas de armazenamento. Da mesma forma, os trabalhos de barramento de serviço são ideais para as cargas de trabalho que usam tópicos e filas do barramento de serviço.
 
 ## A entidade "trabalho" em detalhes
 
@@ -131,7 +129,7 @@ O "startTime" é a hora de início e permite que o chamador especifique um deslo
 
 ## action e errorAction
 
-A “ação” é a ação invocada em cada ocorrência e descreve um tipo de invocação de serviço. A ação é o que será executado na agenda fornecida. O agendador dá suporte a ações de HTTP e à fila de armazenamento.
+A “ação” é a ação invocada em cada ocorrência e descreve um tipo de invocação de serviço. A ação é o que será executado na agenda fornecida. O agendador dá suporte a ações HTTP, de fila de armazenamento, de tópico do barramento de serviço e de fila do barramento de serviço.
 
 A ação no exemplo acima é uma ação de http. Abaixo está um exemplo de uma ação de fila de armazenamento:
 
@@ -146,6 +144,15 @@ A ação no exemplo acima é uma ação de http. Abaixo está um exemplo de uma 
 					"My message body",
 			},
 	}
+
+A seguir, um exemplo de uma ação de tópico do barramento de serviço.
+
+  "action": { "type": "serviceBusTopic", "serviceBusTopicMessage": { "topicPath": "t1", "namespace": "mySBNamespace", "transportType": "netMessaging", // Can be either netMessaging or AMQP "authentication": { "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message", "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, }
+
+A seguir, um exemplo de uma ação de fila do barramento de serviço:
+
+
+  "action": { "serviceBusQueueMessage": { "queueName": "q1", "namespace": "mySBNamespace", "transportType": "netMessaging", // Can be either netMessaging or AMQP "authentication": { "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message", "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, "type": "serviceBusQueue" }
 
 "errorAction" é o manipulador de erro, a ação invocada quando ocorre falha na ação principal. Você pode usar essa variável para chamar um ponto de extremidade de tratamento de erros ou enviar uma notificação do usuário. Isso pode ser usado para atingir um ponto de extremidade secundário no caso em que o principal não está disponível (por exemplo, no caso de um desastre no site do ponto de extremidade) ou pode ser usado para notificar um ponto de extremidade de tratamento de erros. Assim como a ação principal, a ação de erro pode ser simples ou composta lógica com base em outras ações. Para saber como criar um token SAS, consulte [Criar e usar uma assinatura de acesso compartilhado](https://msdn.microsoft.com/library/azure/jj721951.aspx).
 
@@ -207,4 +214,4 @@ Intervalo de nova tentativa, especificado com o objeto **retryInterval**, que é
 
  [Autenticação de saída do Agendador do Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

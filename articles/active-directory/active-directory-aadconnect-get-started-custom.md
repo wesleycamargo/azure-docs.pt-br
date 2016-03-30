@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/04/2016"
+	ms.date="03/22/2016"
 	ms.author="billmath;andkjell"/>
 
 # Instalação personalizada do Azure AD Connect
@@ -68,7 +68,7 @@ Se você receber um erro e se tiver problemas de conectividade, veja [Solucionar
 ## Páginas na seção Sincronização
 
 ### Conectar seus diretórios
-Para se conectar a seu Serviço de Domínio do Active Directory, o Azure AD Connect precisa das credenciais de uma conta com permissões suficientes. Essa conta pode ser uma conta de usuário regular, pois ele precisa apenas de permissões de leitura padrão. No entanto, dependendo do cenário, talvez você precise de permissões adicionais. Para obter mais informações, veja [Contas e permissões do Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account)
+Para se conectar a seu Serviço de Domínio do Active Directory, o Azure AD Connect precisa das credenciais de uma conta com permissões suficientes. Você pode inserir a parte do domínio no formato NetBios ou FQDN, isto é, FABRIKAM\\syncuser ou fabrikam.com\\syncuser. Essa conta pode ser uma conta de usuário regular, pois ele precisa apenas de permissões de leitura padrão. No entanto, dependendo do cenário, talvez você precise de permissões adicionais. Para obter mais informações, veja [Contas e permissões do Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account)
 
 ![Conectar-se ao Diretório](./media/active-directory-aadconnect-get-started-custom/connectdir.png)
 
@@ -131,8 +131,10 @@ De acordo com os serviços selecionados na etapa anterior, essa página mostrar�
 
 ![Recursos opcionais](./media/active-directory-aadconnect-get-started-custom/azureadattributes2.png)
 
+>[AZURE.WARNING] A remoção de atributos pode afetar a funcionalidade de impacto. Para obter práticas recomendadas e recomendações, veja [atributos sincronizados](active-directory-aadconnectsync-attributes-synchronized.md#attributes-to-synchronize).
+
 ### Sincronização de atributo de extensão de diretório
-Com as extensões de diretório, você pode estender o esquema no AD do Azure com atributos personalizados adicionados por sua organização ou outros atributos no Active Directory. Para usar esse recurso, selecione **Sincronização de atributos de extensões de diretório** na página **Recursos opcionais**. Isso lhe fornecerá essa página, em que você pode selecionar os atributos adicionais.
+Com as extensões de diretório, você pode estender o esquema no AD do Azure com atributos personalizados adicionados por sua organização ou outros atributos no Active Directory. Para usar esse recurso, selecione **Sincronização do atributo Extensão de Diretório** na página **Recursos Opcionais**. Isso lhe fornecerá essa página, em que você pode selecionar os atributos adicionais.
 
 ![Filtragem de sincronização](./media/active-directory-aadconnect-get-started-custom/extension2.png)
 
@@ -150,7 +152,7 @@ Você pode usar um farm do AD FS existente ou pode optar por criar um novo farm 
 
 ![Farm do AD FS](./media/active-directory-aadconnect-get-started-custom/adfs1.png)
 
-**Observação:** se optar por usar um farm existente do AD FS, você ignorará algumas páginas e será levado diretamente para a tela de configuração da relação de confiança entre o AD FS e o AD Azure.
+**Observação:** se optar por usar um farm existente do AD FS, você ignorará algumas páginas e será levado diretamente para a tela de configuração da relação de confiança entre o AD FS e o AD do Azure.
 
 ### Especificar os servidores do AD FS
 Aqui, você digitará os servidores específicos em que deseja instalar o AD FS. Você pode adicionar um ou mais servidores com base em sua necessidades de planejamento de capacidade. Esses servidores devem ser associados a um domínio do Active Directory antes da realização dessa configuração. É recomendável instalar um único servidor do AD FS para implantações de teste e piloto e implantar servidores adicionais abrindo o Azure AD Connect novamente após a instalação inicial e implantando o AD FS para que servidores adicionais atendam às suas necessidades de dimensionamento.
@@ -238,4 +240,4 @@ Agora que você tem o Azure AD Connect instalado, é possível [verificar a inst
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

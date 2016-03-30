@@ -18,9 +18,9 @@
 # Implantação do seu dispositivo StorSimple local
 
 > [AZURE.SELECTOR]
-- [Update 2](../articles/storsimple/storsimple-deployment-walkthrough-u2.md)
-- [Update 1](../articles/storsimple/storsimple-deployment-walkthrough-u1.md)
-- [GA Release](../articles/storsimple/storsimple-deployment-walkthrough.md)
+- [Atualização 2](../articles/storsimple/storsimple-deployment-walkthrough-u2.md)
+- [Atualização 1](../articles/storsimple/storsimple-deployment-walkthrough-u1.md)
+- [Versão de GA](../articles/storsimple/storsimple-deployment-walkthrough.md)
 
 ## Visão geral
 
@@ -34,7 +34,7 @@ As informações nesses tutoriais pressupõem que você revisou as precauções 
 
 Você precisará de privilégios de administrador para concluir o processo de instalação e configuração. Recomenda-se que você leia a lista de verificação de configuração antes de começar. O processo de implantação e configuração pode levar algum tempo para ser concluído.
 
-> [AZURE.NOTE] As informações de implantação do StorSimple publicadas no site do Microsoft Azure se aplicam apenas aos dispositivos da série StorSimple 8000. Para obter informações completas sobre os dispositivos da série 7000, vá para: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Para obter informações de implantação da série 7000, consulte o [Guia de Início Rápido do Sistema StorSimple](http://onlinehelp.storsimple.com/111_Appliance/).
+> [AZURE.NOTE] As informações de implantação do StorSimple publicadas no site do Microsoft Azure se aplicam apenas aos dispositivos da série StorSimple 8000. Para obter informações completas sobre os dispositivos das séries 5000 e 7000, vá para: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Para obter informações de implantação das séries 5000 e 7000, veja o [Guia de Início Rápido do sistema StorSimple](http://onlinehelp.storsimple.com/111_Appliance/).
 
 ## Etapas de implantação.
 
@@ -146,7 +146,7 @@ Antes de começar, verifique se:
 | | | |
 | **NTP** | Disparamos uma sincronização de horário assim que o servidor NTP é inserido. Verifique se a porta UDP 123 está aberta ao inserir `time.windows.com` ou servidores de tempo públicos. | [Baixar e usar esse script](https://gallery.technet.microsoft.com/scriptcenter/Get-Network-NTP-Time-with-07b216ca). |
 | | | |
-| **Proxy (opcional)** | É uma porta e um URI de proxy válido? </br> O modo de autenticação está correto? | <code>wget http://bing.com &#124; % {$\_.StatusCode}</code></br>Esse comando deve ser executado imediatamente depois de configurar o proxy web. Se for retornado um código de status 200, isso indica que a conexão foi bem-sucedida. |
+| **Proxy (opcional)** | É uma porta e um URI de proxy válido? </br> O modo de autenticação está correto? | <code>wget http://bing.com | % {$\_.StatusCode}</code></br>Esse comando deve ser executado imediatamente depois de configurar o proxy web. Se for retornado um código de status 200, isso indica que a conexão foi bem-sucedida. |
 | | O tráfego é roteável por meio do proxy? | Execute a validação de DNS, verifique o NTP ou o HTTP uma vez após configurar o proxy no seu dispositivo. Isso lhe fornecerá uma visão clara de se o tráfego está sendo bloqueado no proxy ou em outro lugar. |
 | | | |
 | **Registro** | Verifique se as portas TCP de saída 443, 80 e 9354 estão abertas. | `Test-NetConnection -Port   443 -InformationLevel Detailed`</br>[Mais informações sobre o cmdlet Test-NetConnection](https://technet.microsoft.com/library/dn372891.aspx) |
@@ -294,4 +294,4 @@ Execute as etapas a seguir no portal clássico do Azure para criar um backup man
 
 - Use o [Serviço StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) para gerenciar o seu dispositivo StorSimple.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->
