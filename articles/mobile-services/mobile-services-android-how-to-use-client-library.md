@@ -449,7 +449,7 @@ Primeiro, defina a variável:
 
 
 
-Depois de criar uma instância do cliente de Serviços Móveis no método **onCreate **(aqui, a variável *mClient*), você cria uma instância de **MobileServiceJsonTable**, com o código a seguir.
+Depois de criar uma instância do cliente de Serviços Móveis no método **onCreate** (aqui, a variável *mClient*), você cria uma instância de **MobileServiceJsonTable**, com o código a seguir.
 
 
             // Get the Mobile Service Json Table to use
@@ -938,4 +938,4 @@ Esse método geral pode ser usado sempre que tivermos um objeto complexo não se
 [Introdução aos Serviços Móveis]: mobile-services-android-get-started.md
 [Códigos de controle ASCII C0 e C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 
-<!----HONumber=AcomDC_0309_2016-->
+<!-----HONumber=AcomDC_0309_2016-->

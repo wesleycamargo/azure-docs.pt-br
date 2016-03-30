@@ -102,7 +102,7 @@ New-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName
 Especifique a camada da SKU e a família de SKUs corretas:
 
 - A camada da SKU determina se um complemento padrão ou premium da Rota Expressa está habilitado. Você pode especificar o *padrão* para obter a SKU padrão ou o *premium* para o complemento premium
-- A família da SKU determina o tipo de cobrança. Você pode selecionar *metereddata* para um plano de dados limitado e *unlimiteddata*para um plano de dados ilimitado. **Observação:** não será possível alterar o tipo de cobrança depois de criar um circuito.
+- A família da SKU determina o tipo de cobrança. Você pode selecionar *metereddata* para um plano de dados limitado e *unlimiteddata* para um plano de dados ilimitado. **Observação:** não será possível alterar o tipo de cobrança depois de criar um circuito.
 
 A resposta conterá a chave de serviço. Você pode obter descrições detalhadas de todos os parâmetros ao executar o seguinte:
 
@@ -409,5 +409,5 @@ Depois de criar seu circuito, faça o seguinte:
 - [Vincular a rede virtual ao circuito da Rota Expressa](expressroute-howto-linkvnet-arm.md)
 
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->
 
