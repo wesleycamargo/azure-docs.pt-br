@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/29/2016"
+   ms.date="03/15/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: histórico de lançamento de versão
@@ -27,6 +27,15 @@ Links relacionados:
 - Métodos diferentes para [atualizar de uma versão anterior para a versão mais recente](active-directory-aadconnect-upgrade-previous-version.md) do Azure AD Connect.
 - Para obter permissões necessárias para aplicar uma atualização, veja [contas e permissões](active-directory-aadconnect-accounts-permissions.md#upgrade)
 - [Baixar o Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+
+## 1\.1.119.0
+Lançamento: março de 2016
+
+**Problemas corrigidos:**
+
+- Garantia que a instalação expressa não pode ser usada no Windows Server 2008 (pré-R2), já que a sincronização de senha não tem suporte neste sistema operacional.
+- A atualização do DirSync com uma configuração de filtro personalizado não funcionou conforme o esperado.
+- Ao atualizar para uma versão mais recente e se não houver alterações na configuração, a importação/sincronização completa não deverá ser agendada.
 
 ## 1\.1.110.0
 Lançamento: fevereiro de 2016
@@ -248,4 +257,4 @@ Lançamento: setembro de 2014
 ## Próximas etapas
 Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

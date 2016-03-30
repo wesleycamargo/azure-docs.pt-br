@@ -124,7 +124,6 @@ Um trabalho é uma coleção de tarefas e especifica como a computação é exec
 	- O lote do Azure pode detectar tarefas que falham e repetir as tarefas. O **número máximo de novas tentativas de tarefa** pode ser especificado como uma restrição, incluindo a especificação de que uma tarefa é sempre repetida ou nunca é repetida. Repetir uma lista de tarefas significa que a tarefa está na fila novamente para ser executada uma vez mais.
 - As tarefas podem ser adicionadas ao trabalho pelo seu aplicativo cliente ou uma [tarefa do Gerenciador de Trabalhos](#jobmanagertask) pode ser especificada. Uma tarefa de gerenciador de trabalhos usa a API do Lote e contém as informações para criar as tarefas necessárias para um trabalho com a tarefa que está sendo executada em um dos nós de computação do pool. A tarefa do Gerenciador de Trabalhos é tratada especificamente pelo Lote – é colocadas na fila assim que o trabalho é criado e reiniciado, caso ele falhe. Uma tarefa do Gerenciador de Trabalhos é necessária para trabalhos criados por um plano de trabalho, pois é a única maneira de definir as tarefas antes de o trabalho ser instanciado. Mais informações sobre o gerenciador de tarefas são exibidas abaixo.
 
-
 ### <a name="task"></a>Tarefa
 
 Uma tarefa é uma unidade de computação que está associada a um trabalho e é executada em um nó. As tarefas são atribuídas a um nó para execução ou estão na fila até que um nó fique livre. Uma tarefa usa os seguintes recursos:
@@ -192,7 +191,15 @@ Para obter uma discussão detalhada sobre como executar trabalhos da MPI no Lote
 
 #### <a name="taskdep"></a>Dependências de tarefas
 
-As dependências de tarefas, como o nome indica, permitem especificar que uma tarefa depende da conclusão de uma ou mais tarefas antes de sua execução. A tarefa "downstream" pode consumir a saída da tarefa "upstream" ou, talvez, dependa de alguma inicialização executada pela tarefa upstream. Nesse cenário, você pode especificar que o trabalho usa dependências de tarefas. Em seguida, para cada tarefa que depende de outra (ou de muitas outras), especifique as tarefas das quais essa tarefa depende.
+As dependências de tarefas, como o nome indica, permitem especificar que uma tarefa depende da conclusão de outras tarefas antes de sua execução. Este recurso fornece suporte para situações em que uma tarefa "downstream" consome a saída de uma tarefa "upstream", ou quando uma tarefa upstream executa alguma inicialização necessária para uma tarefa downstream. Para usar esse recurso, primeiro você deve habilitar as dependências em seu trabalho do Lote. Em seguida, para cada tarefa que dependa de outra (ou de muitas outras), especifique as tarefas das quais essa tarefa depende.
+
+Com as dependências de tarefas, você pode configurar cenários como o seguinte:
+
+* A *tarefaB* depende de *tarefaA* (*tarefaB* não iniciará sua execução até a conclusão de *tarefaA*)
+* *tarefaC* depende de *tarefaA* e de *tarefaB*
+* A *tarefaD* depende de uma variedade de tarefas, como as tarefas *1* a *10*, antes de ser executada
+
+Confira o exemplo de código [TaskDependencies][github_sample_taskdeps] no repositório GitHub [azure-batch-samples][github_samples]. Nele, você verá como configurar as tarefas que dependem de outras tarefas usando a biblioteca [.NET do Lote][batch_net_api].
 
 ### <a name="jobschedule"></a>Trabalhos agendados
 
@@ -204,7 +211,7 @@ O recurso de [pacotes de aplicativos](batch-application-packages.md) possibilita
 
 O Lote lida com os detalhes do trabalho com o Armazenamento do Azure em segundo plano para armazenar e implantar com segurança os pacotes de aplicativos em nós de computação, para que o código e a sobrecarga de gerenciamento sejam simplificados.
 
-Para obter mais informações sobre o recurso de pacote de aplicativos, confira [Implantação de aplicativos com pacotes de aplicativos do Lote do Azure](batch-application-packages.md).
+Para saber mais sobre o recurso de pacote de aplicativos, confira [Implantação de aplicativos com pacotes de aplicativos do Lote do Azure](batch-application-packages.md).
 
 ## <a name="files"></a>Arquivos e diretórios
 
@@ -366,6 +373,8 @@ Em situações em que algumas das tarefas falham, o aplicativo cliente ou o serv
 [batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [cloud_service_sizes]: https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
+[github_samples]: https://github.com/Azure/azure-batch-samples
+[github_sample_taskdeps]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
 
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx
@@ -392,7 +401,7 @@ Em situações em que algumas das tarefas falham, o aplicativo cliente ou o serv
 [rest_add_task]: https://msdn.microsoft.com/library/azure/dn820105.aspx
 [rest_create_user]: https://msdn.microsoft.com/library/azure/dn820137.aspx
 [rest_get_task_info]: https://msdn.microsoft.com/library/azure/dn820133.aspx
-[rest_multiinstance]: https://msdn.microsoft.com/pt-BR/library/azure/mt637905.aspx
+[rest_multiinstance]: https://msdn.microsoft.com/library/azure/mt637905.aspx
 [rest_multiinstancesettings]: https://msdn.microsoft.com/library/azure/dn820105.aspx#multiInstanceSettings
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
@@ -402,4 +411,4 @@ Em situações em que algumas das tarefas falham, o aplicativo cliente ou o serv
 [rest_offline]: https://msdn.microsoft.com/library/azure/mt637904.aspx
 [rest_online]: https://msdn.microsoft.com/library/azure/mt637907.aspx
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

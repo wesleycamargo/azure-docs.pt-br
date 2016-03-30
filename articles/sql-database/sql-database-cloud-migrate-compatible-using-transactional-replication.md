@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="12/17/2015"
+   ms.date="03/14/2016"
    ms.author="carlrab"/>
 
 # Migrar o Banco de Dados do SQL Server para o Banco de Dados SQL usando a replicação transacional
@@ -29,8 +29,8 @@ A replicação transacional é uma tecnologia interna e integrada ao SQL Server 
  - SQL Server 2014 SP1 CU3 e posterior
  - SQL Server 2014 RTM CU10 e posterior
  - SQL Server 2012 SP2 CU8 e posterior
- - SQL Server 2012 SP3 
+ - SQL Server 2013 SP3 quando ele for lançado
 
 Você também pode usar a replicação transacional para migrar um subconjunto de seu banco de dados local. A publicação que você replica no Banco de Dados SQL do Azure pode ser limitada a um subconjunto de tabelas no banco de dados que está sendo replicado. Além disso, para cada tabela que estiver sendo replicada, você poderá limitar os dados a um subconjunto de linhas e/ou um subconjunto de colunas.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

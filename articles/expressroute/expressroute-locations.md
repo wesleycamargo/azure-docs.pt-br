@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/08/2016"
+   ms.date="03/17/2016"
    ms.author="cherylmc" />
 
 # Locais de emparelhamento e parceiros da Rota Expressa
@@ -152,4 +152,4 @@ Habilitar a conectividade privada para atender às suas necessidades pode ser de
 - Para obter mais informações sobre a Rota Expressa, consulte [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md).
 - Certifique-se que todos os pré-requisitos foram atendidos. Confira [Pré-requisitos da Rota Expressa](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

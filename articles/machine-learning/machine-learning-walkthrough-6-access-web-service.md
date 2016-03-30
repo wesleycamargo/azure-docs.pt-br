@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="03/09/2016"
 	ms.author="garye"/>
 
 
@@ -44,4 +44,4 @@ Para obter mais informações sobre como usar modelos de aplicativos da Web, con
 
 Você também pode desenvolver um aplicativo personalizado para acessar o serviço Web usando código inicial fornecido nas linguagens de programação R, C# e Python. Você pode ver todos os detalhes em [Como consumir um serviço Web de Aprendizado de Máquina do Azure que foi publicado por meio de um experimento de Aprendizado de Máquina](machine-learning-consume-web-services.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

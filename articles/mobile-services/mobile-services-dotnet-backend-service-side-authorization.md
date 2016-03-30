@@ -13,19 +13,18 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="dotnet"
-	ms.date="02/07/2016"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 # Autorização de serviço de usuários nos Serviços Móveis
-
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> [AZURE.SELECTOR]
+- [Back-end do .NET](mobile-services-dotnet-backend-service-side-authorization.md)
+- [Back-end do Javascript](mobile-services-javascript-backend-service-side-authorization.md)
 
 &nbsp;
 
-
-> [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
-- [(Any | Javascript)](mobile-services-javascript-backend-service-side-authorization.md)
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Para a versão equivalente aos Aplicativos Móveis deste tópico, confira [Como restringir o acesso a dados para usuários autorizados](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#authorize) no tópico Trabalhar com o SDK do servidor de back-end do .NET para Aplicativos Móveis do Azure.
 
 Este tópico mostra como usar a lógica de servidor para autorizar usuários. Neste tutorial, você modifica os controladores de tabela, filtra consultas com base nas IDs de usuário e concede acesso aos usuários apenas para seus próprios dados. Filtrar os resultados da consulta do usuário pela ID de usuário é a forma mais básica de autorização. Dependendo do seu cenário específico, você também poderá criar tabelas de Usuários ou Funções para monitorar informações mais detalhadas de autorização do usuário, como quais pontos de extremidade um determinado usuário tem permissão para acessar.
 
@@ -85,4 +84,4 @@ Esse tutorial se baseia no Início Rápido dos Serviços Móveis e elabora o tut
 [Adicionar autenticação ao aplicativo de Serviços Móveis existentes]: mobile-services-dotnet-backend-ios-get-started-users.md
 [Adicionar autenticação ao aplicativo de serviços móveis existente]: mobile-services-dotnet-backend-ios-get-started-users.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0316_2016-->

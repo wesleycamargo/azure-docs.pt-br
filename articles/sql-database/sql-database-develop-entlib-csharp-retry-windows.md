@@ -3,8 +3,8 @@
 	description="A Enterprise Library foi projetada para facilitar várias tarefas para os programas clientes de serviços de nuvem, incluindo a integração da lógica de repetição para falhas transitórias."
 	services="sql-database"
 	documentationCenter=""
-	authors="MightyPen"
-	manager="jeffreyg"
+	authors="annemill"
+	manager="jhubbard"
 	editor="" />
 
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/17/2015"
-	ms.author="genemi"/>
+	ms.date="03/15/2016"
+	ms.author="annemill"/>
 
 
 # Exemplo de código: lógica de repetição da Enterprise Library 6, em C&#x23; para conexão com o Banco de Dados SQL
@@ -326,4 +326,4 @@ SELECT TOP 3
 
 - [Exemplos de código do cliente de início rápido do Banco de Dados SQL](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0316_2016-->

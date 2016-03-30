@@ -154,4 +154,4 @@ Os tempos de vida do token a seguir são fornecidos puramente para fins de compr
 | Códigos de autorização (contas corporativas ou de estudante) | 10 minutos | Os códigos de autorização são propositadamente de curta duração e devem ser resgatados imediatamente para access\_tokens e refresh\_tokens quando eles são recebidos. |
 | Códigos de autorização (contas pessoais) | 5 minutos | Os códigos de autorização são propositadamente de curta duração e devem ser resgatados imediatamente para access\_tokens e refresh\_tokens quando eles são recebidos. Os códigos de autorização emitidos em nome de contas pessoais também são de uso ocasional. |
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-  ms.date="02/03/2016"
+  	ms.date="03/15/2016"
 	ms.author="juliako"/>
 
 #Configurar políticas de entrega de ativos usando o SDK do .NET
@@ -31,7 +31,7 @@ Este tópico discute por que e como criar e configurar políticas de entrega de 
 
 Você pode aplicar políticas diferentes para o mesmo ativo. Por exemplo, você poderia aplicar criptografia PlayReady para criptografia de Envelope AES e Smooth Streaming para MPEG DASH e HLS. Todos os protocolos que não são definidos em uma política de entrega (por exemplo, você adicionar uma única política que só especifica HLS como o protocolo) será bloqueado a partir do streaming. A exceção a isso é se você não tiver nenhuma política de entrega de ativos definida em todos. Em seguida, todos os protocolos poderão ser criptografados.
 
-Observe que, se você deseja entregar um armazenamento de ativo criptografado, você deve configurar a política de entrega do ativo. Antes que seu ativo possa ser transmitido, o servidor de streaming remove a criptografia de armazenamento e transmite o conteúdo usando a política de entrega especificada. Por exemplo, para entregar o ativo criptografado com chave de criptografia de envelope de AES (Criptografia Avançada Padrão), defina o tipo de política como **DynamicEnvelopeEncryption**. Para remover a criptografia de armazenamento e transmitir o ativo não criptografado, defina o tipo de política como **NoDynamicEncryption**. Seguem exemplos que mostram como configurar esses tipos de política.
+Se você quiser entregar um ativo de armazenamento criptografado, configure a política de entrega do ativo. Antes que seu ativo possa ser transmitido, o servidor de streaming remove a criptografia de armazenamento e transmite o conteúdo usando a política de entrega especificada. Por exemplo, para entregar o ativo criptografado com chave de criptografia de envelope de AES (Criptografia Avançada Padrão), defina o tipo de política como **DynamicEnvelopeEncryption**. Para remover a criptografia de armazenamento e transmitir o ativo não criptografado, defina o tipo de política como **NoDynamicEncryption**. Seguem exemplos que mostram como configurar esses tipos de política.
 
 Dependendo de como você configura a política de entrega de ativos, você será capaz de empacotar dinamicamente, criptografar dinamicamente e transmitir os seguintes protocolos de streaming: Smooth Streaming, HLS, MPEG DASH e fluxos HDS.
 
@@ -116,14 +116,20 @@ Os Serviços de Mídia do Azure também permitem que você adicione criptografia
 
     static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
     {
+    	// Get the PlayReady license service URL.
         Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
-        Uri widevineURl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.Widevine);
+        
+        // Build the Widevine license service URL.
+        Uri widevineUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.Widevine);
+        UriBuilder uriBuilder = new UriBuilder(widevineUrl);
+        uriBuilder.Query = String.Empty;
+        widevineUrl = uriBuilder.Uri;
 
         Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
             new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
         {
             {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
-            {AssetDeliveryPolicyConfigurationKey.WidevineLicenseAcquisitionUrl, widevineURl.ToString()},
+            {AssetDeliveryPolicyConfigurationKey.WidevineLicenseAcquisitionUrl, widevineUrl.ToString()}
 
         };
 
@@ -348,4 +354,4 @@ Para obter informações sobre os valores que você pode especificar ao criar um
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

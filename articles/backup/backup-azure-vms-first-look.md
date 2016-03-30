@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/07/2016"
+	ms.date="03/14/2016"
 	ms.author="markgal; jimpark"/>
 
 
@@ -127,9 +127,9 @@ Antes de registrar a VM em um cofre, execute o processo de descoberta para garan
 
 ## Etapa 3 - Instalar o agente de VM na máquina virtual.
 
-O Agente de VM do Azure deve ser instalado na máquina virtual do Azure para a extensão de Backup funcionar. Se sua VM tiver sido criada da galeria do Azure, o agente de VM já estará presente na máquina virtual. No entanto, as máquinas virtuais migradas de datacenters locais não teriam o Agente de VM instalado. Nesse caso, o Agente de VM precisa ser instalado explicitamente. Antes de tentar fazer backup da máquina virtual do Azure, verifique se o agente de VM do Azure está instalado corretamente na máquina virtual (veja a tabela abaixo). Se você estiver criando uma VM personalizada, [verifique se a caixa de seleção **Instalar o Agente de VM** está marcada](../virtual-machines/virtual-machines-extensions-agent-about.md) antes que a máquina virtual seja provisionada.
+O Agente de VM do Azure deve ser instalado na máquina virtual do Azure para a extensão de Backup funcionar. Se sua VM tiver sido criada da galeria do Azure, o agente de VM já estará presente na máquina virtual. No entanto, as máquinas virtuais migradas de datacenters locais não teriam o Agente de VM instalado. Nesse caso, o Agente de VM precisa ser instalado explicitamente. Antes de tentar fazer backup da máquina virtual do Azure, verifique se o agente de VM do Azure está instalado corretamente na máquina virtual (veja a tabela abaixo). Se você estiver criando uma VM personalizada, [verifique se a caixa de seleção **Instalar o Agente de VM** está marcada](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md) antes que a máquina virtual seja provisionada.
 
-Saiba mais sobre o [Agente de VM](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) e [como instalá-lo](../virtual-machines/virtual-machines-extensions-install.md).
+Saiba mais sobre o [Agente de VM](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) e [como instalá-lo](../virtual-machines/virtual-machines-windows-classic-manage-extensions.md).
 
 A tabela a seguir oferece informações adicionais sobre o Agente de VM para VMs do Windows e do Linux.
 
@@ -230,4 +230,4 @@ Agora que você já fez um backup de uma VM, há várias etapas subsequentes pod
 ## Perguntas?
 Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos seus comentários](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

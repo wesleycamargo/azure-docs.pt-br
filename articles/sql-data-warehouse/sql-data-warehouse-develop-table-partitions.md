@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Partições de tabela no SQL Data Warehouse
@@ -22,6 +22,9 @@ Migrar definições de partição do SQL Server para o SQL Data Warehouse:
 
 - Remova funções de partição do SQL Server e esquemas porque isso é gerenciado por você ao criar a tabela.
 - Defina as partições quando você criar a tabela. Basta especificar pontos de limite de partição e como deseja que o ponto de limite seja eficaz `RANGE RIGHT` ou `RANGE LEFT`.
+
+OBSERVAÇÃO: Para saber mais sobre as partições no SQL Server, consulte [Tabelas e Índices Particionados](https://msdn.microsoft.com/library/ms190787.aspx).
+
 
 ### Dimensionamento da partição
 O SQL DW oferece ao DBA várias opções de tipos de tabela: heap, CI (índice clusterizado) e CCI (índice de repositório de coluna clusterizado). Para cada um desses tipos de tabela, o DBA também pode particionar a tabela, que significa dividi-la em várias seções para melhorar o desempenho. No entanto, criar uma tabela com muitas partições pode, de fato, causar degradação do desempenho ou falhas de consulta sob algumas circunstâncias. Essas questões são especialmente verdadeiras para tabelas CCI. Para que o particionamento seja útil, é importante para um DBA entender quando usar o particionamento e o número de partições a serem criadas. Essas diretrizes se destinam a ajudar os DBAs a fazer as melhores escolhas para seus cenários.
@@ -333,4 +336,4 @@ Depois de migrar com êxito o esquema do seu banco de dados para o SQL Data Ware
 
 <!-- Other web references -->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

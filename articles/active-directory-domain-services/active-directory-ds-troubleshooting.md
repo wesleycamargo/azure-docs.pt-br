@@ -49,6 +49,9 @@ Se você encontrar uma situação em que um ou mais usuários em seu locatário 
     - Você implantou ou atualizou para a [versão recomendada mais recente do Azure AD Connect](active-directory-ds-getting-started-password-sync.md#install-or-update-azure-ad-connect).
     - Você configurou o Azure AD Connect para [executar uma sincronização completa](active-directory-ds-getting-started-password-sync.md).
     - Dependendo do tamanho do diretório, pode levar algum tempo para as contas de usuário e os hashes de credenciais ficarem disponíveis nos Serviços de Domínio do AD do Azure. Aguarde o tempo suficiente antes de tentar novamente a autenticação (dependendo do tamanho do seu diretório, de algumas horas a um dia ou dois para diretórios grandes).
+    - Se o problema persistir depois de verificar as etapas acima, tente reiniciar o serviço de sincronização do Microsoft Azure AD. Em seu computador de sincronização, inicie um prompt de comando e execute os seguintes comandos:
+      1. net stop 'Microsoft Azure AD Sync'
+      2. net start 'Microsoft Azure AD Sync'
 
 - **Contas somente em nuvem**: se a conta de usuário afetado for uma conta de usuário somente em nuvem, verifique se o usuário alterou sua senha depois que você habilitou os Serviços de Domínio do Azure AD. Essa etapa faz com que os hashes de credenciais necessários para os Serviços de Domínio do AD do Azure sejam gerados.
 
@@ -56,7 +59,7 @@ Se você encontrar uma situação em que um ou mais usuários em seu locatário 
 ### Entre em contato
 Se você tiver problemas com seu domínio gerenciado, verifique se as etapas descritas neste guia de solução de problemas resolverem o problema. Se você ainda tiver problemas, fique à vontade para falar conosco em:
 
-- **Email:** você também pode nos enviar um email em [Comentários sobre os Serviços de Domínio do AD do Azure](mailto:aaddsfb@microsoft.com) Inclua a ID do locatário para o diretório do AD do Azure e o nome de domínio que você configurou para os Serviços de Domínio do AAD, para que possamos investigar o problema.
-- **[Canal do Active Directory do Azure no User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/): **Coloque as palavras **"AADDS"** antes de sua pergunta para falar conosco.
+- **Email:** você também pode nos enviar um email para [Comentários sobre os Serviços de Domínio do AD do Azure](mailto:aaddsfb@microsoft.com) Inclua a ID do locatário para o diretório do AD do Azure e o nome de domínio que você configurou para os Serviços de Domínio do AAD, para que possamos investigar o problema.
+- **[Canal do Azure Active Directory no User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/): **Coloque as palavras **"AADDS"** antes de sua pergunta para falar conosco.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

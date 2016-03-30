@@ -431,7 +431,7 @@ Se o nome de usuário e senha forem especificados, o gateway os usará para repr
 	     } 
 	}
 
-Consulte [Definir credenciais e segurança](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) para obter detalhes sobre como definir credenciais para uma fonte de dados do SQL Server.
+Consulte [Definir credenciais e segurança](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) para obter detalhes sobre como definir credenciais para uma fonte de dados do SQL Server.
 
 ## Propriedades de tipo de conjunto de dados do SQL Server
 
@@ -637,4 +637,4 @@ O mapeamento é o mesmo que o mapeamento de tipo de dados do SQL Server para o A
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

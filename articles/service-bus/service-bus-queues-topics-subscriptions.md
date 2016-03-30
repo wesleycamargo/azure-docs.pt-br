@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/09/2015"
+   ms.date="03/09/2016"
    ms.author="sethm" />
 
 # Filas, tópicos e assinaturas do Barramento de Serviço
@@ -169,7 +169,8 @@ Consulte os seguintes tópicos avançados para saber mais e obter exemplos do us
 - [Visão geral de mensagens do Barramento de Serviço](service-bus-messaging-overview.md)
 - [Tutorial .NET do sistema de mensagens agenciado do Barramento de Serviço](service-bus-brokered-tutorial-dotnet.md)
 - [Tutorial REST do sistema de mensagens agenciado do Barramento de Serviço](service-bus-brokered-tutorial-rest.md)
+- [Documentação dos Hubs de Eventos](https://azure.microsoft.com/documentation/services/event-hubs/)
 - [Guia do desenvolvedor de Hubs de Evento](../event-hubs/event-hubs-programming-guide.md)
 - [Sistema de Mensagens Agenciado: filtros avançados](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

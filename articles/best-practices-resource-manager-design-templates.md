@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Práticas recomendadas para criação de modelos do Gerenciador de Recursos do Azure"
+	pageTitle="Práticas recomendadas de modelos do Gerenciador de Recursos do Azure | Microsoft Azure"
 	description="Mostrar os padrões de design para modelos de Gerenciador de Recursos do Azure"
 	services="azure-resource-manager"
 	documentationCenter=""
-	authors="mmercuri"
-	manager="georgem"
+	authors="tfitzmac"
+	manager="timlt"
 	editor="tysonn"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="12/17/2015"
-	ms.author="mmercuri"/>
+	ms.author="tomfitz"/>
 
 # Práticas recomendadas para criação de modelos do Gerenciador de Recursos do Azure
 
@@ -33,7 +33,8 @@ Este artigo fornece detalhes sobre cenários de consumo, arquitetura e padrões 
 
 Este artigo compartilha essas práticas comprovadas para ajudá-lo a projetar modelos do Gerenciador de Recursos do Azure de classe mundial.
 
-Em nosso trabalho com clientes, identificamos várias experiências de consumo de modelos do Gerenciador de Recursos entre empresas, SIs (integradores de sistemas) e CSVs (fornecedores de serviço de nuvem). As seções a seguir fornecem uma visão geral de alto nível dos cenários e padrões comuns para diferentes tipos de clientes.
+Em nosso trabalho com clientes, identificamos várias experiências de consumo de modelos do Gerenciador de Recursos entre empresas, SIs (integradores de sistemas) e CSVs (fornecedores de serviço de nuvem).
+As seções a seguir fornecem uma visão geral de alto nível dos cenários e padrões comuns para diferentes tipos de clientes.
 
 ## Empresas e integradores de sistemas
 
@@ -321,7 +322,7 @@ Com o Redis, você desejará instalar cada nó individualmente e, em seguida, de
 
 Usando vinculação de modelos, o modelo principal vincula-se ao modelo de recursos compartilhados, o que estabelece a rede virtual.
 
-A lógica é adicionada dentro do modelo principal para permitir que os consumidores do modelo especifiquem se um jumpbox deve ou não ser implantado. Um valor *enabled* para o parâmetro *EnableJumpbox* indica que o cliente deseja implantar um jumpbox. Quando esse valor é fornecido, o modelo concatena * \_enabled* como um sufixo para um nome de modelo base para a funcionalidade de jumpbox.
+A lógica é adicionada dentro do modelo principal para permitir que os consumidores do modelo especifiquem se um jumpbox deve ou não ser implantado. Um valor *enabled* para o parâmetro *EnableJumpbox* indica que o cliente deseja implantar um jumpbox. Quando esse valor é fornecido, o modelo concatena *\_enabled* como um sufixo para um nome de modelo base para a funcionalidade de jumpbox.
 
 O modelo principal aplica o valor de parâmetro *large* como um sufixo para um nome de modelo base para tamanhos de camiseta, então usa esse valor em uma vinculação de modelo para *technology\_on\_os\_large.json*.
 
@@ -381,6 +382,6 @@ Se desejar publicar seu modelo para o marketplace, você simplesmente estabelece
 
 - Para ver exemplos contextuais de como implementar os princípios de design apresentados neste tópico, consulte [Exemplos contextuais de práticas recomendadas para a implementação de modelos](best-practices-resource-manager-examples.md).
 - Para obter recomendações sobre como lidar com segurança no Gerenciador de Recursos do Azure, consulte [Considerações de segurança do Gerenciador de Recursos do Azure](best-practices-resource-manager-security.md).
-- Para saber mais sobre o estado de compartilhamento dentro e fora dos modelos, consulte [O estado de compartilhamento em modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-state.md).
+- Para saber mais sobre como compartilhar o estado dentro e fora dos modelos, consulte [Compartilhando estado em modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-state.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0316_2016-->

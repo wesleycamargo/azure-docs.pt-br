@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="02/26/2016"
+   ms.date="03/15/2016"
    ms.author="coreyp"/>
 
 # Máquinas de integração para o gerenciamento pelo DSC de Automação do Azure
@@ -103,7 +103,7 @@ Para encontrar a URL de registro e a chave da conta da Automação a ser integra
      -VM $vm `
      -Publisher Microsoft.Powershell `
      -ExtensionName DSC `
-     -Version 2.14 `
+     -Version 2.15 `
      -PublicConfiguration $PublicConfiguration `
      -PrivateConfiguration $PrivateConfiguration `
      -ForceUpdate
@@ -374,4 +374,4 @@ Um novo registro pode ser executado da mesma maneira que você registrou o nó i
 * [cmdlets do DSC de Automação do Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 * [preço do DSC de Automação do Azure](https://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

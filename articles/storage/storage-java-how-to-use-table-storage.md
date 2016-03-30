@@ -79,7 +79,7 @@ Um objeto **CloudTableClient** permite obter os objetos de referência para tabe
 
 	   // Create the table if it doesn't exist.
 	   String tableName = "people";
-	   CloudTable cloudTable = new CloudTable(tableName,tableClient);
+	   CloudTable cloudTable = tableClient.getTableReference(tableName);
 	   cloudTable.createIfNotExists();
     }
     catch (Exception e)
@@ -563,4 +563,4 @@ Para obter mais informações, consulte também o [Centro de desenvolvedores do 
 [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Tabelas do Azure: Introdução ao inserir e projeção de consulta]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -11,7 +11,7 @@
 <tags
 	ms.service="azure-resource-manager"
 	ms.workload="multiple"
-	ms.tgt_pltfrm="command-line-interface"
+	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="01/19/2016"
@@ -20,8 +20,8 @@
 # Usar a CLI do Azure para Mac, Linux e Windows com o Gerenciador de Recursos do Azure
 
 > [AZURE.SELECTOR]
-- [Azure CLI](xplat-cli-azure-resource-manager.md)
-- [Azure PowerShell](powershell-azure-resource-manager.md)
+- [CLI do Azure](xplat-cli-azure-resource-manager.md)
+- [PowerShell do Azure](powershell-azure-resource-manager.md)
 
 
 
@@ -33,11 +33,11 @@ Este artigo descreve como criar e gerenciar recursos do Azure e usando a Interfa
 
 Use o Gerenciador de Recursos do Azure para criar e gerenciar um grupo de _recursos_ (entidades gerenciadas pelo usuário, como máquina virtual, servidor de banco de dados, banco de dados ou site) como uma unidade lógica única ou um _grupo de recursos_.
 
-Uma vantagem do Gerenciador de Recursos do Azure é que você pode criar seus recursos do Azure de maneira _declarativa_: descrevendo a estrutura e as relações de um grupo implantável de recursos em *modelos* JSON. O modelo identifica os parâmetros que podem ser preenchidos ou embutidos durante a execução de um comando, ou armazenados em arquivo JSON azuredeploy-parameters.json separado. Isso permite criar facilmente novos recursos usando-se o mesmo modelo simplesmente fornecendo parâmetros diferentes. Por exemplo, um modelo que cria um site terá parâmetros para o nome do site, a região do site em que estará localizado e outros configurações comuns.
+Uma vantagem do Azure Resource Manager é que você pode criar seus recursos do Azure de maneira _declarativa_: descrevendo a estrutura e as relações de um grupo implantável de recursos em *modelos* JSON. O modelo identifica os parâmetros que podem ser preenchidos ou embutidos durante a execução de um comando, ou armazenados em arquivo JSON azuredeploy-parameters.json separado. Isso permite criar facilmente novos recursos usando-se o mesmo modelo simplesmente fornecendo parâmetros diferentes. Por exemplo, um modelo que cria um site terá parâmetros para o nome do site, a região do site em que estará localizado e outros configurações comuns.
 
 Quando um modelo é usado para modificar ou criar um grupo, uma _implantação_ é criada e, então, aplicada ao grupo. Para saber mais sobre o Gerenciador de Recursos do Azure, visite a [Visão Geral do Gerenciador de Recursos do Azure](resource-group-overview.md).
 
-Depois de criar uma implantação, você pode gerenciar os recursos individuais imperativamente na linha de comando, assim como no modelo de implantação clássico (Gerenciamento de Serviço). Por exemplo, use comandos de CLI do Gerenciador de Recursos do Azure para iniciar, parar ou excluir recursos como [máquinas virtuais do Gerenciador de Recursos do Azure](virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md).
+Depois de criar uma implantação, você pode gerenciar os recursos individuais imperativamente na linha de comando, assim como no modelo de implantação clássico (Gerenciamento de Serviço). Por exemplo, use comandos de CLI do Gerenciador de Recursos do Azure para iniciar, parar ou excluir recursos como [máquinas virtuais do Gerenciador de Recursos do Azure](virtual-machines/virtual-machines-linux-cli-deploy-templates.md).
 
 ## Autenticação
 
@@ -78,13 +78,13 @@ Você implantará a esse grupo de recursos "testRG" posteriormente quando usar u
 
 Ao trabalhar com modelos, você poderá [criar o seu próprio modelo](resource-group-authoring-templates.md) ou usar um dos modelos da [Galeria de Modelos](https://azure.microsoft.com/documentation/templates/) que estão disponíveis também no [GitHub](https://github.com/Azure/azure-quickstart-templates).
 
-A criação de um novo modelo está além do escopo deste artigo e, portanto, para começarmos usaremos o modelo _101-simple-vm-from-image_ disponível na [Galeria de Modelos](https://azure.microsoft.com/documentation/templates/101-vm-simple-linux/). Por padrão, isso cria uma única máquina virtual do Ubuntu 14.04.2-LTS em uma nova rede virtual com uma única sub-rede na região Oeste dos EUA. Você só precisa especificar os seguintes parâmetros para usar este modelo:
+A criação de um novo modelo está fora do escopo deste artigo. Portanto, para começar, usaremos o modelo _101-simple-vm-from-image_ disponível na [Galeria de Modelos](https://azure.microsoft.com/documentation/templates/101-vm-simple-linux/). Por padrão, isso cria uma única máquina virtual do Ubuntu 14.04.2-LTS em uma nova rede virtual com uma única sub-rede na região Oeste dos EUA. Você só precisa especificar os seguintes parâmetros para usar este modelo:
 
 * Um nome de usuário de administrador para a VM = `adminUsername`
 * Uma senha = `adminPassword`
 * Um nome de domínio para a VM = `dnsLabelPrefix`
 
->[AZURE.TIP] Estas etapas mostram apenas uma maneira de usar um modelo de VM com a CLI do Azure. Para obter outros exemplos, consulte [Implantar e gerenciar máquinas virtuais usando modelos do Gerenciador de Recursos do Azure e a CLI do Azure](virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md)
+>[AZURE.TIP] Estas etapas mostram apenas uma maneira de usar um modelo de VM com a CLI do Azure. Para obter outros exemplos, consulte [Implantar e gerenciar máquinas virtuais usando modelos do Gerenciador de Recursos do Azure e a CLI do Azure](virtual-machines/virtual-machines-linux-cli-deploy-templates.md)
 
 1. Siga o link "Saiba mais com o GitHub" para baixar os arquivos azuredeploy.json e azuredeploy.parameters.json do GitHub para uma pasta de trabalho no computador local. (Selecione o formato _não processado_ de cada arquivo no GitHub).
 
@@ -215,4 +215,4 @@ Para exibir informações registradas em log sobre operações realizadas em um 
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

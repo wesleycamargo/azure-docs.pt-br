@@ -47,7 +47,7 @@ Se você estiver usando o Azure PowerShell com a **versão < 1.0**, você precis
 Consulte [Substituição da opção AzureMode no Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell) para obter os detalhes.
 
 
-## Etapa 1: Criar o data factory
+## Criar um data factory
 
 Nesta etapa, é possível usar o Azure PowerShell para criar um Azure Data Factory denominado **FirstDataFactoryPSH**. Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline em um data factory pode ter uma ou mais atividades. Por exemplo, uma Atividade de Cópia para copiar dados de um armazenamento de dados de origem para um de destino e uma atividade do Hive do HDInsight para executar o script do Hive para transformar os dados de entrada em dados de saída do produto. Vamos começar com a criação do data factory nesta etapa.
 
@@ -70,7 +70,7 @@ Nesta etapa, é possível usar o Azure PowerShell para criar um Azure Data Facto
 
 Antes de criar um pipeline, primeiro você precisará criar algumas entidades do Data Factory. Primeiro você cria serviços vinculados para vincular serviços de armazenamento/computação de dados ao seu armazenamento de dados, define conjuntos de dados de entrada e de saída para representar os dados em armazenamentos de dados vinculados e, em seguida, cria o pipeline com uma atividade que utilize esses conjuntos de dados.
 
-## Etapa 2: Criar serviços vinculados 
+## Criar serviços vinculados 
 Nesta etapa, você vinculará sua conta do Armazenamento do Azure e um cluster do HDInsight do Azure sob demanda ao data factory. A conta do Armazenamento do Azure manterá os dados de entrada e de saída para o pipeline neste exemplo. O serviço vinculado do HDInsight é usado para executar o script do Hive especificado na atividade do pipeline neste exemplo. Você precisa identificar quais serviços de armazenamento/computação de dados serão usados em seu cenário e vincular esses serviços ao data factory criando serviços vinculados.
 
 ### Criar o serviço vinculado do armazenamento do Azure
@@ -147,10 +147,10 @@ Nesta etapa, você vinculará um cluster do HDInsight sob demanda ao seu data fa
 		New-AzureRmDataFactoryLinkedService $df -File .\HDInsightOnDemandLinkedService.json
 
 
-## Etapa 3: Criar conjuntos de dados
-Nesta etapa, você criará conjuntos de dados para representar dados de entrada e de saída para o processamento do Hive. Esses conjuntos de dados fazem referência ao **StorageLinkedService** que você criou anteriormente neste tutorial. Os pontos de serviço apontam para uma conta do Armazenamento do Azure e os conjuntos de dados especificam o contêiner, a pasta, o nome no armazenamento que contém os dados de entrada e de saída.
+## Criar conjuntos de dados
+Nesta etapa, você criará conjuntos de dados para representar dados de entrada e de saída para o processamento do Hive. Esses conjuntos de dados fazem referência ao **StorageLinkedService** que você criou anteriormente neste tutorial. O serviço vinculado aponta para uma conta do Armazenamento do Azure e os conjuntos de dados especificam o contêiner, a pasta e o nome do arquivo no armazenamento que contém os dados de entrada e de saída.
 
-### Criar o conjunto de dados de entrada
+### Criar conjunto de dados de entrada
 1. Crie um arquivo JSON denominado **InputTable.json** na pasta **C:\\ADFGetStarted** com o seguinte conteúdo:
 
 		{
@@ -193,7 +193,7 @@ Nesta etapa, você criará conjuntos de dados para representar dados de entrada 
 
 		New-AzureRmDataFactoryDataset $df -File .\InputTable.json
 
-### Criar o conjunto de dados de saída
+### Criar conjunto de dados de saída
 Agora, você criará o conjunto de dados de saída para representar os dados de saída armazenados no armazenamento de Blobs do Azure.
 
 1. Crie um arquivo JSON denominado **OutputTable.json** na pasta **C:\\ADFGetStarted** com o seguinte conteúdo:
@@ -223,7 +223,7 @@ Agora, você criará o conjunto de dados de saída para representar os dados de 
 
 		New-AzureRmDataFactoryDataset $df -File .\OutputTable.json
 
-## Etapa 3: Criar seu primeiro pipeline
+## Criar um pipeline
 Nesta etapa, você criará seu primeiro pipeline com a atividade **HDInsightHive**. Observe que a fatia de entrada está disponível mensalmente (frequência: mês, intervalo: 1), a fatia de saída é produzida mensalmente e a propriedade do agendador para a atividade também é definida como mensal (veja abaixo). As configurações para o conjunto de dados de saída e o agendador de atividades devem corresponder. Neste momento, o conjunto de dados de saída é o que aciona a agenda, então você deve criar um conjunto de dados de saída, mesmo que a atividade não produza qualquer saída. Se a atividade não receber entradas, ignore a criação de conjunto de dados de entrada. As propriedades usadas no JSON a seguir são explicadas no final desta seção.
 
 
@@ -290,7 +290,7 @@ Nesta etapa, você criará seu primeiro pipeline com a atividade **HDInsightHive
 		New-AzureRmDataFactoryPipeline $df -File .\MyFirstPipelinePSH.json
 5. Parabéns, você criou com sucesso seu primeiro pipeline usando o Azure PowerShell!
 
-### <a name="MonitorDataSetsAndPipeline"></a> Monitorar os conjuntos de dados e o pipeline
+## Monitorar o pipeline
 Nesta etapa, você usará o Azure PowerShell para monitorar o que está acontecendo em um Azure Data Factory.
 
 1. Execute **Get-AzureRmDataFactory** e atribua a saída a uma variável **$df**.
@@ -356,4 +356,4 @@ Neste artigo, você criou um pipeline com uma atividade de transformação (ativ
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

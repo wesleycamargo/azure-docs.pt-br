@@ -1,18 +1,18 @@
-<properties 
- pageTitle="Como criar agendamentos complexos e recorrência avançada com o Agendador do Azure" 
- description="" 
- services="scheduler" 
- documentationCenter=".NET" 
- authors="krisragh" 
- manager="dwrede" 
+<properties
+ pageTitle="Como criar agendamentos complexos e recorrência avançada com o Agendador do Azure"
+ description=""
+ services="scheduler"
+ documentationCenter=".NET"
+ authors="krisragh"
+ manager="dwrede"
  editor=""/>
-<tags 
- ms.service="scheduler" 
- ms.workload="infrastructure-services" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="12/04/2015" 
+<tags
+ ms.service="scheduler"
+ ms.workload="infrastructure-services"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
 
 # Como criar agendamentos complexos e recorrência avançada com o Agendador do Azure  
@@ -39,7 +39,7 @@ Muitos exemplos neste tópico ilustram a variedade de cenários com suporte do A
 
 -	Executar uma vez em uma determinada data e hora
 -	Executar e repetir um número de vezes específico
--	Executar imediatamente e repetir 
+-	Executar imediatamente e repetir
 -	Executar e repetir a cada *n* minutos, horas, dias, semanas ou meses, começando em um momento específico
 -	Executar e repetir a frequência semanal ou mensal, mas somente em determinados dias, dias específicos da semana ou dias específicos do mês
 -	Executar e repetir várias vezes em um período: por exemplo, na última sexta-feira e segunda-feira de cada mês ou às 5h15 e 17h15 todos os dias
@@ -71,7 +71,7 @@ Para criar um agendamento simples usando os exemplos JSON neste artigo e a API R
 	    },
 	    …
 	}
-	
+
 ## Visão geral: Noções básicas sobre esquemas de trabalho
 
 A tabela a seguir fornece uma visão geral de alto nível dos principais elementos relacionados a recorrência e planejamento em um trabalho:
@@ -177,10 +177,10 @@ Todos os agendamentos abaixo pressupõem que o _intervalo_ é definido como 1. A
 |<code>{"minutos": [15,45] "horas": [5,17] "monthlyOccurrences": [{"dia": "quarta-feira", "ocorrência": 3}]}</code>|Executar às 5:15, 5:45, 17:15 e 17:45 na terceira quarta-feira de cada mês|
 
 ## Consulte também
- 
+
 
  [O que é o Agendador?](scheduler-intro.md)
- 
+
  [Conceitos, terminologia e hierarquia de entidades do Agendador do Azure](scheduler-concepts-terms.md)
 
  [Introdução à utilização do Agendador no Portal do Azure](scheduler-get-started-portal.md)
@@ -196,7 +196,5 @@ Todos os agendamentos abaixo pressupõem que o _intervalo_ é definido como 1. A
  [Limites, padrões e códigos de erro do Agendador do Azure](scheduler-limits-defaults-errors.md)
 
  [Autenticação de saída do Agendador do Azure](scheduler-outbound-authentication.md)
- 
-  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

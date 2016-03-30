@@ -5,7 +5,7 @@
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="ggailey777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="03/06/2016"
 	ms.author="glenga"/>
 
 # Trabalhar com o servidor .NET back-end do SDK para Aplicativos Móveis do Azure
@@ -160,7 +160,7 @@ Essa seção mostra como publicar seu projeto de back-end do .NET a partir do Vi
 
 	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-success.png)
 
-## Como: definir um controlador de tabela
+##<a name="define-table-controller"></a> Como: definir um controlador de tabela
 
 Um controlador de tabela fornece acesso aos dados de entidade em um armazenamento de dados com base em tabela, como o armazenamento de Banco de dados SQL ou da tabela do Azure. Controladores de tabela herdam da classe genérica **TableController**, em que o tipo genérico é uma entidade no modelo que representa o esquema da tabela, da seguinte maneira:
 
@@ -217,6 +217,7 @@ Aplicativos móveis usam os recursos de autenticação do serviço de aplicativo
 + [Como: Adicionar autenticação a um projeto do servidor](#add-auth)
 + [Como usar a autenticação personalizada para o seu aplicativo](#custom-auth)
 + [Como recuperar informações do usuário autenticado](#user-info)
++ [Como restringir o acesso a dados para usuários autorizados](#authorize)
 
 ### <a name="add-auth"></a>Como adicionar autenticação a um projeto do servidor
 
@@ -324,6 +325,9 @@ O código a seguir chama o método de extensão **GetAppServiceIdentityAsync** p
 
 Observe que você deve adicionar uma instrução de uso a `System.Security.Principal` para fazer o método de extensão **GetAppServiceIdentityAsync** funcionar.
 
+###<a name="authorize"></a>Como restringir o acesso a dados para usuários autorizados
+
+Frequentemente, desejamos restringir os dados que são retornados para um usuário autenticado específico. Esse tipo de particionamento de dados é feito incluindo uma coluna userId na tabela e armazenando o SID do usuário quando os dados são inseridos
 
 ## Adicionar notificações por push para um projeto do servidor
 
@@ -397,7 +401,7 @@ Quando um usuário autenticado se registra para notificações por push, uma mar
 
     // Send a template notification to the user ID.
     await hub.SendTemplateNotificationAsync(notification, userTag);
-    
+
 Ao se registrar para notificações por push de um cliente autenticado, verifique se a autenticação foi concluída antes de tentar o registro. Para saber mais, confira [Enviar por push para usuários](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users) na no exemplo de início rápido dos Aplicativos Móveis do Serviço de Aplicativo para back-end do .NET.
 
 ## Como depurar e solucionar problemas do SDK do .NET Server
@@ -457,4 +461,4 @@ Agora, seu servidor em execução local está equipado para validar tokens que o
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0316_2016-->

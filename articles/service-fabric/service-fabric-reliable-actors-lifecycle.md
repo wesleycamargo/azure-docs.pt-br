@@ -3,7 +3,7 @@
    description="Explica o ciclo de vida e a coleta de lixo para Reliable Actors do Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="myamanbh"
    manager="timlt"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="03/15/2016"
    ms.author="amanbha"/>
 
 
@@ -32,7 +32,7 @@ O que acontece na desativação do ator?
 - Quando um ator não é usado por algum tempo, ele é removido da tabela de Atores Ativos.
 - O método `OnDeactivateAsync` (que pode ser substituído na implementação do ator) é chamado. Isso limpa todos os medidores de tempo do ator.
 
-> [AZURE.TIP]O tempo de execução da malha atores emite alguns eventos de [ relacionados à desativação e ativação de ator](service-fabric-reliable-actors-diagnostics.md#actor-activation-and-deactivation-events). Eles são úteis para diagnóstico e monitoramento de desempenho.
+> [AZURE.TIP] O tempo de execução da malha atores emite alguns eventos de [ relacionados à desativação e ativação de ator](service-fabric-reliable-actors-diagnostics.md#actor-activation-and-deactivation-events). Eles são úteis para diagnóstico e monitoramento de desempenho.
 
 ## Coleta de Lixo de Ator
 O tempo de execução de Atores verifica periodicamente os atores que não foram usados durante um determinado período de tempo e os desativa. Depois que os atores são desativados, eles podem ter o lixo coletado pelo common language runtime (CLR).
@@ -90,4 +90,4 @@ Observe que um ator nunca terá seu lixo coletado durante a execução de um de 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0316_2016-->

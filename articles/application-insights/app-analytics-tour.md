@@ -33,7 +33,7 @@ Abra a Análise na [folha de visão geral](app-insights-dashboards.md) de seu ap
 
 ![Abra o portal.azure.com, abra o recurso Application Insights e clique em Análise.](./media/app-analytics/001.png)
 
-## Contagem de linhas
+## [Contar](app-analytics-aggregations.md#count) linhas
 
 As métricas como os contadores de desempenho são armazenadas em uma tabela chamada métricas. Cada linha é um ponto de dados de telemetria recebido do SDK do Application Insights em um aplicativo. Para descobrir o tamanho da tabela, redirecionaremos seu conteúdo para um operador que simplesmente contará as linhas:
 
@@ -50,9 +50,9 @@ Eis o resultado:
 ![](./media/app-analytics-tour/010.png)
 
 	
-`Count` é um dos muitos [operadores de Consulta](app-analytics-queries.md) que podemos organizar em um pipe, filtrando, remodelando e unindo os dados em vários estágios.
+[`Count`](app-analytics-aggregations.md#count) é um dos muitos [operadores de Consulta](app-analytics-queries.md) que podemos organizar em um pipe, filtrando, remodelando e unindo os dados em vários estágios.
 	
-## Take: mostre-me n linhas
+## [Take](app-analytics-aggregations.md#take): mostre-me n linhas
 
 
 Vamos ver alguns dados - o que há em um exemplo de cinco linhas?
@@ -75,7 +75,7 @@ Expanda algum item para ver os detalhes:
 ![Escolha Tabela e use Configurar Colunas](./media/app-analytics-tour/040.png)
 
 
-## Top e sort
+## [Top](app-analytics-aggregations.md#top) e [sort](app-analytics-aggregations.md#sort)
 
 `take` é útil para obter um exemplo rápido de um resultado, mas mostra linhas da tabela sem uma ordem específica. Para obter uma exibição ordenada, use `top` (para obter um exemplo) ou `sort` (na tabela inteira).
 
@@ -103,9 +103,9 @@ O resultado seria o mesmo, mas ele seria executado um pouco mais lentamente. (Vo
 Os cabeçalhos de coluna no modo de exibição de tabela também podem ser usados para classificar os resultados na tela. Mas, obviamente, se você usou `take` ou `top` para recuperar apenas parte de uma tabela, irá apenas reordenar os registros recuperados.
 
 
-## Project: selecionar, renomear e computar colunas
+## [Project](app-analytics-aggregations.md#project): selecionar, renomear e computar colunas
 
-Use `project` para selecionar apenas as colunas desejadas:
+Use [`project`](app-analytics-aggregations.md#project) para selecionar apenas as colunas desejadas:
 
 ```AIQL
 
@@ -138,9 +138,9 @@ Na expressão escalar:
 
 [Expressions](app-analytics-scalars.md) pode incluir todos os operadores comuns (`+`, `-`, ...) e há uma variedade de funções úteis.
 
-## Extend: computar colunas
+## [Extend](app-analytics-aggregations.md#extend): computar colunas
 
-Se você quiser adicionar colunas às existentes, use `extend`:
+Se você quiser adicionar colunas às existentes, use [`extend`](app-analytics-aggregations.md#extend):
 
 ```AIQL
 
@@ -149,9 +149,9 @@ Se você quiser adicionar colunas às existentes, use `extend`:
     | extend timeOfDay = floor(timestamp % 1d, 1s)
 ```
 
-O uso de `extend` será menos detalhado do que `project` se você quiser manter todas as colunas existentes.
+O uso de [`extend`](app-analytics-aggregations.md#extend) será menos detalhado do que [`project`](app-analytics-aggregations.md#project) se você quiser manter todas as colunas existentes.
 
-## Summarize: agregar grupos de linhas
+## [Summarize](app-analytics-aggregations.md#summarize): agregar grupos de linhas
 
 Ao examinar um exemplo de uma tabela, podemos ver os campos onde dados de telemetria diferentes são relatados. Por exemplo, `exception | take 20` nos mostra rapidamente que as mensagens de exceção são relatadas em um campo chamado `outerExceptionType`.
 
@@ -214,7 +214,7 @@ Podemos fazer melhor do que o modo de exibição de tabela mostrado aqui. Vamos 
 Observe que, embora não tenhamos classificado os resultados por tempo (como você pode ver na exibição de tabela), a exibição de gráfico sempre mostra datetimes na ordem correta.
 
 
-## Where: filtrando uma condição
+## [Where](app-analytics-aggregations.md#where): filtrando uma condição
 
 Se você tiver configurado o monitoramento do Application Insights para os lados do [cliente](app-insights-javascript.md) e do servidor de seu aplicativo, alguma telemetria do banco de dados virá de navegadores.
 
@@ -232,7 +232,7 @@ Vamos ver apenas exceções relatadas pelos navegadores:
 
 O operador `where` obtém uma expressão Booliana. Eis alguns pontos importantes sobre eles:
 
- * `and`, `or`: operadores Boolianos
+ * `and`, `or`: operadores boolianos
  * `==`, `<>` : igual a e diferente de
  * `=~`, `!=` : cadeia de caracteres que não diferencia maiúsculas de minúsculas igual a e diferente de. Há muitos outros operadores de comparação de cadeia de caracteres.
 
@@ -357,7 +357,7 @@ A cláusula `where` exclui sessões únicas (sessionDuration==0) e define o comp
 
 
 
-## Percentis
+## [Percentis](app-analytics-aggregations.md#percentiles)
 
 Quais intervalos de durações abordam diferentes porcentagens de sessões?
 
@@ -403,9 +403,9 @@ Para obter uma análise separada para cada país, temos apenas que trazer a colu
 ![](./media/app-analytics-tour/190.png)
 
 
-## Join
+## [Join](app-analytics-aggregations.md#join)
 
-Temos acesso a três tabelas: métrica, exceções e evento. `event` contém relatórios de solicitação, exibições de página, eventos personalizados e assim por diante.
+Temos acesso a várias tabelas, incluindo solicitações e exceções.
 
 Para localizar as exceções relacionadas a uma solicitação que retornou uma resposta de falha, podemos associar as tabelas em `session_Id`:
 
@@ -422,7 +422,7 @@ Para localizar as exceções relacionadas a uma solicitação que retornou uma r
 
 
 
-## Let: atribuir um resultado a uma variável
+## [Let](app-analytics-aggregations.md#let): atribuir um resultado a uma variável
 
 Use [let](./app-analytics-syntax.md#let-statements) para separar as partes da expressão anterior. Os resultados não mudam:
 
@@ -441,4 +441,4 @@ Use [let](./app-analytics-syntax.md#let-statements) para separar as partes da ex
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

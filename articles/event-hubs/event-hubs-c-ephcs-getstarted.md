@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="c"
 	ms.devlang="csharp"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="03/08/2016"
 	ms.author="sethm"/>
 
 # Introdução aos Hubs de Evento
@@ -42,31 +42,31 @@ Para concluir este tutorial, você precisará do seguinte:
 
 2. Clique em **Serviços de Aplicativos**, em seguida, **Barramento de Serviço**, em seguida, **Hub de eventos** e, em seguida, **Criação rápida**.
 
-   	![][1]
+	![][1]
 
 3. Digite um nome para o Hub de Evento, selecione a região desejada e clique em **Criar um novo Hub de Evento**.
 
-   	![][2]
+	![][2]
 
 4. Clique no namespace que você acabou de criar (geralmente ***nome do hub de evento*-ns**).
 
-   	![][3]
+	![][3]
 
 5. Clique na guia **Hubs de Eventos** no início da página e clique no Hub de Evento que acabou de criar.
 
-   	![][4]
+	![][4]
 
 6. Clique na guia **Configurar** na parte superior da página, adicione uma regra chamada **SendRule** com direitos *Send*, adicione outra regra chamada **ReceiveRule** com direitos *Manage, Send, Listen* e clique em **Salvar**.
 
-   	![][5]
+	![][5]
 
 7. Na mesma página, tome nota das chaves geradas para **SendRule**.
 
-   	![][6b]
+	![][6b]
 
 8. Clique na guia **Painel** parte superior da página e clique em **Informações de Conexão**. Anote as duas cadeias de conexão.
 
-   	![][6]
+	![][6]
 
 Seu Hub de Evento foi criado, e você tem as cadeias de conexão que precisa para enviar e receber eventos.
 
@@ -81,11 +81,11 @@ Agora você está pronto para executar os aplicativos.
 
 1.	Execute o projeto **Receptor** no Visual Studio e aguarde que ele inicie os receptores de todas as partições.
 
-   	![][21]
+	![][21]
 
 2.	Execute o programa **Remetente** e veja os eventos aparecerem na janela do receptor.
 
-   	![][24]
+	![][24]
 
 ## Próximas etapas
 
@@ -117,4 +117,4 @@ Agora que criou um aplicativo funcional que cria um Hub de Eventos e envia e rec
 [Escala horizontal do processamento de eventos com Hubs de Eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [solução de mensagens na fila]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0316_2016-->

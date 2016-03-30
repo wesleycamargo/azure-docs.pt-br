@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/01/2016"
+   ms.date="03/10/2016"
    ms.author="alkohli"/>
 
 # Implantar o StorSimple Virtual Array – Preparar o portal
@@ -26,8 +26,8 @@ Este artigo se aplica ao Microsoft Azure StorSimple Virtual Array (também conhe
 
 Você precisará de privilégios de administrador para concluir o processo de instalação e configuração. Recomenda-se que você examine a lista de verificação de configuração da implantação antes de começar. A preparação do portal levará menos de 10 minutos.
 
-As informações de implantação do StorSimple publicadas neste artigo se aplicam somente ao StorSimple Virtual Array.
-
+As informações publicadas neste artigo se aplicam à implantação de Matrizes virtuais do StorSimple no portal clássico do Azure, bem como na Nuvem de governo do Microsoft Azure.
+ 
 ### Introdução
 
 O fluxo de trabalho de implantação consiste em preparação do portal, provisionamento de uma matriz virtual no seu ambiente virtualizado e conclusão da instalação. Para começar com a implantação do StorSimple Virtual Array como um servidor de arquivos ou um servidor iSCSI, você precisará consultar os seguintes recursos tabulados (artigos e vídeos).
@@ -38,7 +38,7 @@ Consulte os artigos a seguir na sequência prescrita para implantar seu StorSimp
 
 | **#** | **Nesta etapa** | **O que você fará…** | **Use estes documentos.**|
 |------|-------------------------------------------|--------------------------------------------------------------------------------|------------------------|
-|1\. | **Configurar o portal clássico do Azure** | Crie e configure o serviço StorSimple Manager antes do provisionamento de um dispositivo virtual StorSimple. |[Preparar o portal](storsimple-ova-deploy1-portal-prep.md)| 
+|1\. | **Configurar o portal clássico do Azure** | Crie e configure o serviço StorSimple Manager antes do provisionamento de um dispositivo virtual StorSimple. |[Preparar o portal](storsimple-ova-deploy1-portal-prep.md)|
 |2\. | **Provisionar o Virtual Array** | Para Hyper-V, provisione e se conecte a um dispositivo virtual StorSimple em um sistema de host que executa Hyper-V 2008 R2, Hyper-V 2012 ou Hyper-V 2012 R2. <br></br> <br></br> Para o VMware, provisione e se conecte ao dispositivo virtual local StorSimple em um sistema de host que executa o VMware ESXi 5.5 e acima.<br></br>| [Provisionar uma matriz virtual no Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) <br></br> <br></br> [Provisionar uma matriz virtual no VMware](storsimple-ova-deploy2-provision-vmware.md)|
 |3\. | **Configurar o Virtual Array** | Para seu servidor de arquivos, execute a configuração inicial, registre seu servidor de arquivos do StorSimple e conclua a configuração do dispositivo. Em seguida, é possível provisionar compartilhamentos SMB. <br></br> <br></br> Para o servidor iSCSI, realize a configuração inicial, registre seu servidor iSCSI do StorSimple e conclua a configuração do dispositivo. Em seguida, é possível provisionar volumes iSCSI.| [Configurar a matriz virtual como um servidor de arquivos](storsimple-ova-deploy3-fs-setup.md)<br></br> <br></br>[Configurar a matriz virtual como um servidor iSCSI](storsimple-ova-deploy3-iscsi-setup.md)|
 
@@ -211,4 +211,4 @@ A próxima etapa é provisionar uma máquina virtual para o dispositivo virtual 
 
 -   [Provisionar um StorSimple Virtual Array no VMware](storsimple-ova-deploy2-provision-vmware.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

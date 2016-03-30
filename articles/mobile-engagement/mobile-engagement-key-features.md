@@ -22,115 +22,115 @@ Este artigo fornece uma visão geral de alto nível sobre os principais recursos
 
 ## **Geral**
 
-1. **Encontre SDKs para todas as principais plataformas** SDKs disponíveis para todas as principais plataformas – iOS, Android, Universal do Windows, Windows Phone Silverlight, Kindle e Cordova. Fornecemos SDKs fáceis de integrar e documentações úteis para ajudá-lo a começar a usar qualquer plataforma de sua escolha. 
+- **Encontre SDKs para todas as principais plataformas** SDKs disponíveis para todas as principais plataformas – iOS, Android, Universal do Windows, Windows Phone Silverlight, Kindle e Cordova. Fornecemos SDKs fáceis de integrar e documentações úteis para ajudá-lo a começar a usar qualquer plataforma de sua escolha. 
 
-2. **Portal de SaaS separado** Facilita o acesso à equipe de marketing, sem a necessidade de acessar o portal de gerenciamento do Azure.
+- **Portal de SaaS separado** Facilita o acesso à equipe de marketing, sem a necessidade de acessar o portal de gerenciamento do Azure.
 
-3. **Disponibilidade de APIs REST abertas** Para integrar e automatizar com sistemas de CRM/CMS/TI usando APIs de plataforma aberta, fornecemos APIs REST abertas e o SDK do .NET para consumir essas APIs que permitem uma fácil integração e automação com o Mobile Engagement. Veja [isto] para obter mais detalhes (mobile-engagement-api-authentication.md)
+- **Disponibilidade de APIs REST abertas** Para integrar e automatizar com sistemas de CRM/CMS/TI usando APIs de plataforma aberta, fornecemos APIs REST abertas e o SDK do .NET para consumir essas APIs que permitem uma fácil integração e automação com o Mobile Engagement. Veja [isto] para obter mais detalhes (mobile-engagement-api-authentication.md)
 
-4. **Conector do Power BI disponível** Também é possível extrair os principais gráficos de análise em um painel do Power BI. Veja este [guia](https://powerbi.microsoft.com/pt-BR/documentation/powerbi-content-pack-azure-mobile/)
+- **Conector do Power BI disponível** Também é possível extrair os principais gráficos de análise em um painel do Power BI. Veja este [guia](https://powerbi.microsoft.com/pt-BR/documentation/powerbi-content-pack-azure-mobile/)
 
-5. **Garantia de segurança e privacidade** O Azure Mobile Engagement, como parte da família do Azure, segue todas as práticas recomendadas padrão relacionadas à segurança e privacidade esperadas de um serviço de nuvem.
+- **Garantia de segurança e privacidade** O Azure Mobile Engagement, como parte da família do Azure, segue todas as práticas recomendadas padrão relacionadas à segurança e privacidade esperadas de um serviço de nuvem.
 
-## **Análises Acionáveis:**
+## **Análises Acionáveis**
 
-1. **Monitorar dados em tempo real** É possível acompanhar análises em tempo real usando nosso módulo de Monitor, que mostra detalhes como sessões, eventos, erros e falhas, tudo em tempo real. Dê uma olhada neste [artigo](mobile-engagement-concepts.md) para obter um entendimento dos conceitos básicos. 
+- **Monitorar dados em tempo real** É possível acompanhar análises em tempo real usando nosso módulo de Monitor, que mostra detalhes como sessões, eventos, erros e falhas, tudo em tempo real. Dê uma olhada neste [artigo](mobile-engagement-concepts.md) para obter um entendimento dos conceitos básicos. 
 
 	![][1]
 
 	![][2]
 
-2. **Exibir dados agregados** Você também obtém uma exibição mais avançada dos dados agregados das análises usando nosso módulo de Análises, que permite filtrar os dados com facilidade com base na versão e nos períodos de tempo de seu aplicativo.
+- **Exibir dados agregados** Você também obtém uma exibição mais avançada dos dados agregados das análises usando nosso módulo de Análises, que permite filtrar os dados com facilidade com base na versão e nos períodos de tempo de seu aplicativo.
 
 	![][3]
 
-3. **Obtenha informações sobre os usuários e o padrão de retenção**
+- **Obtenha informações sobre os usuários e o padrão de retenção**
 
 	![][4]
 
-4. **Obtenha informações sobre o local de onde os usuários estão vindo e quanto tempo eles passam visitando a tela**
+- **Obtenha informações sobre o local de onde os usuários estão vindo e quanto tempo eles passam visitando a tela**
 
 	![][5]
 	
 	![][6]
 
-5. **Descubra quais telas os usuários de seu aplicativo estão visitando e como você pode otimizar o caminho do usuário** Isso os ajuda a descobrir as telas e os recursos que você quer que eles visitem.
+- **Descubra quais telas os usuários de seu aplicativo estão visitando e como você pode otimizar o caminho do usuário** Isso os ajuda a descobrir as telas e os recursos que você quer que eles visitem.
 
 	![][7]
 	
 	![][8]
 
-6. **Obtenha informações sobre quais são os eventos mais frequentes em seu aplicativo e obtenha um entendimento do processo de negócios com base nesses eventos**
+- **Obtenha informações sobre quais são os eventos mais frequentes em seu aplicativo e obtenha um entendimento do processo de negócios com base nesses eventos**
 
 	![][9]
 
-7. **Acompanhe erros e falhas comuns e obtenha informações para sua equipe de desenvolvedores**
+- **Acompanhe erros e falhas comuns e obtenha informações para sua equipe de desenvolvedores**
 
 	![][10]
 	
 	![][11]
 
-8. **Entenda de quais dispositivos e redes os usuários estão acessando seu aplicativo, a fim de otimizá-lo**
+- **Entenda de quais dispositivos e redes os usuários estão acessando seu aplicativo, a fim de otimizá-lo**
 
 	![][12]
 	
 ## **Notificações por push personalizadas e direcionadas**
 
-1. **Crie um segmento com base em qualquer um dos dados coletados** É possível usar os dados de Event/Session/Activity/Job/Crash/Error/Tags para fazer isso.
+- **Crie um segmento com base em qualquer um dos dados coletados** É possível usar os dados de Event/Session/Activity/Job/Crash/Error/Tags para fazer isso.
 
 	![][13]
 
 	![][14]
 
-2. **Acompanhe o histórico dos segmentos criados diariamente**
+- **Acompanhe o histórico dos segmentos criados diariamente**
 
 	![][15]
 
-3. **Envie notificações direcionadas** Direcionamento comum como usuários antigos/novos, etc., ou direcionamento para seu segmento criado personalizado
+- **Envie notificações direcionadas** Direcionamento comum como usuários antigos/novos, etc., ou direcionamento para seu segmento criado personalizado
 
 	![][16]
 
-4. **Envie notificações por push fora do aplicativo/no aplicativo baseadas no sistema e em HTML avançado, conforme apropriado para seu cenário**
+- **Envie notificações por push fora do aplicativo/no aplicativo baseadas no sistema e em HTML avançado, conforme apropriado para seu cenário**
 
 	![][17]
 
 	![][18]
 
-5. **Direcione notificações no aplicativo para que sejam exibidos em uma tela/atividade específica no aplicativo**
+- **Direcione notificações no aplicativo para que sejam exibidos em uma tela/atividade específica no aplicativo**
 
 	![][19]
 
-6. **Especifique uma “ação” quando o usuário clicar em uma notificação** Isso pode ser uma simples abertura de página da Web ou navegação no aplicativo para uma tela específica com o clique da notificação.
+- **Especifique uma “ação” quando o usuário clicar em uma notificação** Isso pode ser uma simples abertura de página da Web ou navegação no aplicativo para uma tela específica com o clique da notificação.
 
 	![][20]
 	
-7. **Envie notificações localizadas** para que elas sejam atraentes para os usuários do aplicativo no idioma com o qual estão mais familiarizados.
+- **Envie notificações localizadas** para que elas sejam atraentes para os usuários do aplicativo no idioma com o qual estão mais familiarizados.
 
 	![][21]
 
-8. **Especifique uma hora de início e de término para suas campanhas**
+- **Especifique uma hora de início e de término para suas campanhas**
 
 	![][22]
 
-9. **Teste as notificações com facilidade** registrando um dispositivo de teste e enviando a notificação de teste apenas para esse dispositivo.
+- **Teste as notificações com facilidade** registrando um dispositivo de teste e enviando a notificação de teste apenas para esse dispositivo.
 
 	![][23]
 
-10. **Configure com facilidade uma notificação no aplicativo para que ela seja exibida como uma pesquisa rápida**
+- **Configure com facilidade uma notificação no aplicativo para que ela seja exibida como uma pesquisa rápida**
 
 	![][24]
 	
-11. **Obtenha estatísticas da campanha de push** das notificações para ter uma ideia de até que ponto elas foram bem-sucedidas.
+- **Obtenha estatísticas da campanha de push** das notificações para ter uma ideia de até que ponto elas foram bem-sucedidas.
 
 	![][25]
 
-12. **Personalize com facilidade e dê estilo às suas notificações usando marcas/informações do aplicativo e emojis**
+- **Personalize com facilidade e dê estilo às suas notificações usando marcas/informações do aplicativo e emojis**
 
 	![][26]
 
 	![][27]
 
-13. **Defina Limites de Push para impedir o envio de spam aos usuários** Você não quer enviar muitos pushes aos usuários de seu aplicativo e dar a impressão de estar enviando spam para eles. Esse é o momento em que nosso recurso de Limites de push é útil, que permite configurar limites de push na granularidade de um segmento.
+- **Defina Limites de Push para impedir o envio de spam aos usuários** Você não quer enviar muitos pushes aos usuários de seu aplicativo e dar a impressão de estar enviando spam para eles. Esse é o momento em que nosso recurso de Limites de push é útil, que permite configurar limites de push na granularidade de um segmento.
 
 	![][28]
 
@@ -164,4 +164,4 @@ Este artigo fornece uma visão geral de alto nível sobre os principais recursos
 [27]: ./media/mobile-engagement-key-features/push_emoji.png
 [28]: ./media/mobile-engagement-key-features/push_limits.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

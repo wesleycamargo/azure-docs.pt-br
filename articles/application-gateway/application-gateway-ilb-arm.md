@@ -19,8 +19,8 @@
 # Criar um gateway de aplicativo com um ILB (balanceador de carga interno) usando o Gerenciador de Recursos do Azure
 
 > [AZURE.SELECTOR]
-- [Azure classic steps](application-gateway-ilb.md)
-- [Resource Manager PowerShell steps](application-gateway-ilb-arm.md)
+- [Etapas do Azure clássico](application-gateway-ilb.md)
+- [Etapas do PowerShell no Gerenciador de Recursos](application-gateway-ilb-arm.md)
 
 O Azure Application Gateway pode ser configurado com um VIP voltado para a Internet ou com um ponto de extremidade interno não exposto à Internet, também conhecido como um ponto de extremidade ILB (balanceador de carga interno). Configurar o gateway como um ILB é útil para aplicativos de linha de negócios internos não expostos à Internet. Isso também é útil para serviços e camadas em um aplicativo multicamada que reside em um limite de segurança não exposto à Internet, mas que ainda exige distribuição de carga round robin, adesão da sessão ou terminação SSL.
 
@@ -35,11 +35,11 @@ Este artigo orientará você pelas etapas para configurar um gateway de aplicati
 ## O que é necessário para criar um gateway de aplicativo?
 
 
-- **Pool de servidores back-end:** a lista de endereços IP dos servidores back-end. Os endereços IP listados devem pertencer à sub-rede da rede virtual ou devem ser um IP/VIP público.
+- **Pool de servidores back-end:** a lista de endereços IP dos servidores back-end. Os endereços IP listados devem pertencer à rede virtual, mas em uma sub-rede diferente para o gateway de aplicativo, ou devem ser um IP/VIP público.
 - **Configurações do pool de servidores back-end:** cada pool tem configurações como porta, protocolo e afinidade baseada em cookie. Essas configurações são vinculadas a um pool e aplicadas a todos os servidores no pool.
 - **Porta front-end:** essa porta é a porta pública aberta no gateway de aplicativo. O tráfego atinge essa porta e é redirecionado para um dos servidores back-end.
 - **Ouvinte:** o ouvinte tem uma porta front-end, um protocolo (HTTP ou HTTPS, que diferencia maiúsculas de minúsculas) e o nome do certificado SSL (se estiver configurando o descarregamento SSL).
-- **Regra:** a regra vincula o ouvinte e o pool de servidores back-end e define à qual pool de servidores back-end o tráfego deve ser direcionado quando atinge um ouvinte específico. Atualmente, há suporte apenas para a regra *basic*. A regra *basic* é a distribuição de carga round robin.
+- **Regra:** a regra vincula o ouvinte e o pool de servidores back-end e define à qual pool de servidores back-end o tráfego deve ser direcionado quando atinge um ouvinte específico. Atualmente, há suporte apenas para a regra *básica*. A regra *básica* é a distribuição de carga round robin.
 
 
 
@@ -58,7 +58,7 @@ A seguir, as etapas necessárias para criar um gateway de aplicativo:
 
 ## Criar um grupo de recursos para o Gerenciador de Recursos
 
-Alterne para o modo PowerShell para usar os cmdlets do Gerenciador de Recursos do Azure. Mais informações estão disponíveis em [Usando o Windows PowerShell com o Gerenciador de Recursos](powershell-azure-resource-manager.md).
+Alterne para o modo PowerShell para usar os cmdlets do Gerenciador de Recursos do Azure. Há mais informações disponíveis em [Usando o Windows PowerShell com o Gerenciador de Recursos](../powershell-azure-resource-manager.md).
 
 ### Etapa 1
 
@@ -123,9 +123,9 @@ Isso cria uma configuração de IP do gateway de aplicativo chamada "gatewayIP01
 
 ### Etapa 2
 
-	$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 10.0.0.10,10.0.0.11,10.0.0.12
+	$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
-Isso configura o pool de endereços IP de back-end denominado "pool01" com os endereços IP "10.0.0.10, 10.0.0.11, 10.0.0.12". Esses serão os endereços IP que receberão o tráfego de rede proveniente do ponto de extremidade do IP de front-end. Substitua os endereços IP acima para adicionar seus próprios pontos de extremidade de endereço IP do aplicativo.
+Isso configura o pool de endereços IP de back-end denominado "pool01" com os endereços IP "134.170.185.46, 134.170.188.221, 134.170.185.50". Esses serão os endereços IP que receberão o tráfego de rede proveniente do ponto de extremidade do IP de front-end. Substitua os endereços IP acima para adicionar seus próprios pontos de extremidade de endereço IP do aplicativo.
 
 ### Etapa 3
 
@@ -228,7 +228,7 @@ Para verificar se o serviço foi removido, você poderá usar o cmdlet **Get-Azu
 
 ## Próximas etapas
 
-Se você quiser configurar o descarregamento SSL, confira [Configurar um gateway de aplicativo para descarregamento SSL](application-gateway-ssl.md).
+Se desejar configurar o descarregamento SSL, confira [Configurar um application gateway para descarregamento SSL](application-gateway-ssl.md).
 
 Se desejar configurar um Application Gateway para usar com um ILB, veja [Criar um gateway de aplicativo com um ILB (balanceador de carga interno)](application-gateway-ilb.md).
 
@@ -237,4 +237,4 @@ Se deseja obter mais informações sobre as opções de balanceamento de carga n
 - [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

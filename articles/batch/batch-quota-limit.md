@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="03/11/2016"
 	ms.author="danlep"/>
 
 # Cotas e limites para o serviço do Lote do Azure
@@ -35,7 +35,12 @@ Contas do Lote por região e assinatura|1|50
 ## Outros limites
 Recurso|Limite máximo
 ---|---
-Tarefas por nó de computação|4 vezes o número de núcleos de nó
+Tarefas por nó de computação | 4 vezes o número de núcleos de nó
+Aplicativos por conta do Lote | 20
+Pacotes de aplicativos por aplicativo | 40
+Tamanho do pacote de aplicativos (cada) | Aproximadamente 195 GB<sup>1</sup>
+
+<sup>1</sup> O limite do Armazenamento do Azure para o tamanho máximo do blob de blocos
 
 ## Exibir cotas do Lote
 
@@ -63,7 +68,7 @@ Siga as etapas a seguir para solicitar um aumento de cota no portal do Azure (vo
 
 	b. Selecione sua assinatura.
 
-	c. Em **Tipo de Cota**, selecione **Lote**.
+	c. Em **Tipo de cota**, selecione **Lote**.
 
 	d. Em **Plano de suporte**, selecione **Plano de suporte do Azure - Desenvolvedor**.
 
@@ -71,7 +76,7 @@ Siga as etapas a seguir para solicitar um aumento de cota no portal do Azure (vo
 
 4. Na folha **Problema**, faça o seguinte:
 
-	a. Selecione uma **Gravidade** de acordo com o impacto em seus negócios.
+	a. Selecione uma **Gravidade** de acordo com o impacto nos negócios.
 
 	b. Em **Detalhes**, liste a cota ou cotas que você deseja alterar em uma conta específica e os novos limites que quiser.
 
@@ -93,4 +98,4 @@ O suporte do Azure entrará em contato com você. A conclusão do pedido pode le
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

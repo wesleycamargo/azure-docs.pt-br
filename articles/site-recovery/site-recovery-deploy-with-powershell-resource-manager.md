@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="12/09/2015"
+	ms.date="03/16/2016"
 	ms.author="bsiva"/>
 
 # Azure Site Recovery usando o PowerShell e o Gerenciador de Recursos do Azure.
@@ -262,4 +262,4 @@ Este artigo ilustra como usar o Azure PowerShell com ARM para configurar e geren
 
     	$TFjob = Resume-AzureRmSiteRecoveryJob -Job $TFjob
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

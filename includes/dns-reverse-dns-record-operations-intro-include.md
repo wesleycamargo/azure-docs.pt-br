@@ -4,6 +4,6 @@ Registros DNS reversos são usados em uma variedade de situações. Entre elas e
 
 ## Como o Azure dá suporte a registros DNS reversos para os serviços do Azure?
 
-A Microsoft trabalha com diversos de registros para obter um suprimento adequado de blocos IP roteáveis publicamente. Em seguida, cada um desses blocos é delegado a servidores DNS autoritativos operados e pertencentes à Microsoft. A Microsoft hospeda zonas DNS reversas para todos os blocos IP roteáveis publicamente atribuídos a ela. <BR> O Azure permite especificar um FQDN (nome de domínio totalmente qualificado personalizado) para IPs roteáveis públicos atribuídos a implantações. Esses FQDNs personalizados serão retornados do IP e retornarão a pesquisa de DNS reversa para esse IP.<BR> O Azure dá suporte ao DNS reverso para todos IPs roteáveis publicamente atribuídos sem custo adicional e aos serviços implantados com os modelos de implantação clássica e do ARM.
+A Microsoft trabalha com diversos de registros para obter um suprimento adequado de blocos IP roteáveis publicamente. Em seguida, cada um desses blocos é delegado a servidores DNS autoritativos operados e pertencentes à Microsoft. A Microsoft hospeda zonas DNS reversas para todos os blocos IP roteáveis publicamente atribuídos a ela. <BR> O Azure permite especificar um FQDN (nome de domínio totalmente qualificado personalizado) para IPs roteáveis públicos atribuídos a suas implantações. Esses FQDNs personalizados serão retornados para pesquisas de DNS reversas para esses IPs.<BR> O Azure dá suporte ao DNS reverso para todos IPs roteáveis publicamente sem custo adicional e aos serviços implantados com os modelos de implantação clássica e do ARM.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

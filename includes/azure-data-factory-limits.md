@@ -27,6 +27,6 @@ Valor de tempo limite de nova tentativa | 1 segundo | 1 segundo
 
 ### Limites de chamada de serviço Web
 
-O Gerenciador de Recursos do Azure tem limites para chamadas de API. Você pode fazer chamadas de API em um intervalo dentro dos [limites de API do Gerenciador de Recursos do Azure](azure-subscription-service-limits/#resource-group-limits).
+O Gerenciador de Recursos do Azure tem limites para chamadas de API. Você pode fazer chamadas de API em um intervalo dentro dos [limites de API do Gerenciador de Recursos do Azure](../articles/azure-subscription-service-limits/#resource-group-limits).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

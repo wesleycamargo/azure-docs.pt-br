@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/23/2016"
+   ms.date="03/10/2016"
    ms.author="terrylan"/>
 
 # Aplicar a criptografia de disco na Central de Segurança do Azure
@@ -33,25 +33,38 @@ A Criptografia de Disco aproveita o recurso de norma do setor [BitLocker](https:
 
 ![][1]
 
+Para criptografar as Máquinas Virtuais do Azure identificadas pela Central de Segurança como precisando de criptografia, recomendamos as seguintes etapas:
+
+- Instalar e configurar o PowerShell do Azure. Isso permitirá que você execute os comandos do PowerShell necessários para a configuração dos pré-requisitos exigidos para criptografar as Máquinas Virtuais do Azure.
+- Obter e executar o script Pré-requisitos de Azure Disk Encryption do Azure PowerShell.
+- Criptografar suas máquinas virtuais.
+
+[Criptografar uma máquina virtual do Azure](security-center-disk-encryption.md) explica essas etapas. Este tópico presume que você esteja usando o Windows 10 como o computador cliente a partir do qual você configurará a criptografia de disco.
+
+Há várias abordagens que podem ser usadas para configurar os pré-requisitos e para configurar a criptografia para Máquinas Virtuais do Azure. Se você já estiver bem familiarizado com o Azure PowerShell ou a CLI do Azure, poderá preferir usar abordagens alternativas. Para saber mais sobre essas outras abordagens, confira [Criptografia de disco do Azure](../azure-security-disk-encryption.md).
+
+
+
 ## Próximas etapas
 
 Este documento mostrou como implementar a recomendação da Central de Segurança "Aplicar criptografia de disco". Para saber mais sobre a criptografia de disco, confira o seguinte:
 
 - [Criptografia e gerenciamento de chaves com o Cofre da Chave do Azure](https://azure.microsoft.com/documentation/videos/azurecon-2015-encryption-and-key-management-with-azure-key-vault/) (vídeo, 36 minutos e 39 segundos) – saiba como usar o gerenciamento de criptografia de disco para VMs IaaS e o Cofre da Chave do Azure para ajudar a proteger seus dados.
+- [Criptografar uma máquina virtual Azure](security-center-disk-encryption.md) (documento) – saiba como criptografar máquinas virtuais do Azure.
 - [Azure Disk Encryption](../azure-security-disk-encryption.md) (documento) – saiba como habilitar a criptografia de disco para VMs do Windows e do Linux.
 
 Para saber mais sobre a Central de Segurança, confira o seguinte:
 
-- [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md) – saiba como definir as políticas de segurança.
+- [Configuração de políticas de segurança na Central de Segurança do Azure](security-center-policies.md) – saiba como definir as políticas de segurança.
 - [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) – saiba como monitorar a integridade dos recursos do Azure.
-- [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) – aprenda a gerenciar e a responder a alertas de segurança.
-- [Gerenciamento das recomendações de segurança na Central de segurança do Azure](security-center-recommendations.md) – saiba como as recomendações ajudam a proteger os recursos do Azure.
-- [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre perguntas frequentes sobre como usar o serviço.
-- [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure.
+- [Gerenciamento e resposta a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) – saiba como gerenciar e responder a alertas de segurança.
+- [Gerenciamento das recomendações de segurança na Central de segurança do Azure](security-center-recommendations.md) -- saiba como as recomendações ajudam a proteger os recursos do Azure.
+- [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) -- encontre perguntas frequentes sobre como usar o serviço.
+- [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) -- encontre postagens no blog sobre conformidade e segurança do Azure.
 
 
 
 <!--Image references-->
 [1]: ./media/security-center-apply-disk-encryption/apply-disk-encryption.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

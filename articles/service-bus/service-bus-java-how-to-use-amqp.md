@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="11/06/2015" 
+	ms.date="03/09/2016" 
 	ms.author="sethm"/>
 
 # Como usar a API do Serviço de Mensagem Java (JMS) com Barramento de Serviço e AMQP 1.0
@@ -22,7 +22,7 @@ O AMQP (Protocolo de Enfileiramento de Mensagens Avançadas) 1.0 é um protocolo
 
 A inclusão de AMQP 1.0 significa que agora você pode aproveitar o enfileiramento de mensagens e publicação/assinatura comunicação recursos de mensagem do Service Bus entre uma variedade de plataformas usando um protocolo binário eficiente. Além disso, você pode criar aplicativos compostos de componentes criados com o uso de uma mistura de linguagens, estruturas e sistemas operacionais.
 
-Este Guia de Instruções explica como usar os recursos do sistema de mensagens agenciado do Barramento de Serviço (tópicos sobre filas e publicação/assinatura) de aplicativos Java usando o popular padrão de API do Java Message Service (JMS).
+Este Guia de Instruções explica como usar os recursos de mensagens agenciadas do Service Bus (tópicos sobre filas e publicação/assinatura) de aplicativos Java usando o popular padrão de API do Java Message Service (JMS).
 
 ## Introdução ao Barramento de serviço
 
@@ -30,7 +30,7 @@ Este guia presume que você já tenha um namespace do Barramento de Serviço que
 
 ### Baixando a biblioteca do cliente do JMS do AMQP 1.0
 
-Para obter informações sobre onde baixar a versão mais recente da biblioteca do cliente Apache Qpid JMS do AMQP 1.0, acesse [acessehttp://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html)
+Para obter informações sobre onde baixar a versão mais recente da biblioteca do cliente Apache Qpid JMS do AMQP 1.0, acesse [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html).
 
 Você deve adicionar os seguintes quatro arquivos JAR do arquivamento de distribuição do Apache Qpid JMS do AMQP 1.0 ao CLASSPATH do Java ao criar e executar aplicativos do JMS com o Barramento de Serviço:
 
@@ -83,7 +83,7 @@ Em que **[namespace]**, **[username]** e **[password]** têm os seguintes signif
 - **[username]**: o nome do emissor do Barramento de Serviço.
 - **[password]**: formulário codificado por URL da chave do emissor do Barramento de Serviço.
 
-> [AZURE.NOTE]você deve executar uma codificação de URL da senha manualmente. Um utilitário útil de codificação de URL está disponível em [http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
+> [AZURE.NOTE] você deve executar uma codificação de URL da senha manualmente. Um utilitário útil de codificação de URL está disponível em [http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
 
 #### Configurar destinos
 
@@ -103,7 +103,7 @@ Em que **[jndi\_name]** e **[physical\_name]** têm os seguintes significados:
 - **[jndi\_name]**: o nome lógico do destino. Este é o nome que será resolvido no aplicativo Java usando o método IntialContext.lookup() do JNDI.
 - **[physical\_name]**: o nome da entidade do Barramento de Serviço para a qual o aplicativo envia ou recebe mensagens.
 
-> [AZURE.NOTE]ao receber de uma assinatura de tópico do Service Bus, o nome físico especificado na JNDI deve ser o nome do tópico. O nome da assinatura é fornecido quando a assinatura durável é criada no código do aplicativo JMS. O [Guia do desenvolvedor do AMQP 1.0 do Barramento de Serviço](service-bus-amqp-dotnet.md) fornece mais detalhes sobre como trabalhar com assinaturas de tópico do Barramento de Serviço por meio do JMS.
+> [AZURE.NOTE] ao receber de uma assinatura de tópico do Service Bus, o nome físico especificado na JNDI deve ser o nome do tópico. O nome da assinatura é fornecido quando a assinatura durável é criada no código do aplicativo JMS. O [Guia do desenvolvedor do AMQP 1.0 do Barramento de Serviço](service-bus-amqp-dotnet.md) fornece mais detalhes sobre como trabalhar com assinaturas de tópico do Barramento de Serviço por meio do JMS.
 
 ### Escrever o aplicativo JMS
 
@@ -332,4 +332,4 @@ Você também pode usar o AMQP 1.0 do Service Bus de outras linguagens, incluind
 * [Como usar filas do Barramento de Serviço](service-bus-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0316_2016-->

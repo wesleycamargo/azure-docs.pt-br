@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="03/02/2016"
+	ms.date="03/16/2016"
 	ms.author="jeffstok"/>
 
 # Direcionar as saídas de transformação de dados do Stream Analytics para ferramentas de análise de opções de armazenamento de dados
@@ -23,10 +23,60 @@ Ao criar um trabalho do Stream Analytics, considere como a saída do trabalho de
 
 Para poder habilitar vários padrões de aplicativo, o Stream Analytics do Azure disponibiliza opções diferentes de armazenamento de saída e de exibição dos resultados da análise. Isso facilita a exibição da saída do trabalho e proporciona flexibilidade no consumo e armazenamento da saída do trabalho para data warehouse e outras finalidades. Qualquer saída configurada no trabalho deve existir antes do trabalho ser iniciado e dos eventos começarem a fluir. Por exemplo, se você usar o armazenamento de Blobs como uma saída, o trabalho não criará uma conta de armazenamento automaticamente. Ele precisa ser criado pelo usuário antes do trabalho ASA ser iniciado.
 
+## Repositório Azure Data Lake
 
-## Banco de dados SQL ##
+O Stream Analytics dá suporte ao [Repositório Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/). Esse armazenamento permite que você armazene dados de qualquer tamanho, tipo e velocidade de ingestão para análises operacionais e exploratórias. No momento, há suporte para a criação e configuração das saídas do Repositório Data Lake apenas no Portal Clássico do Azure. Além disso, o Stream Analytics deve estar autorizado a acessar o Repositório Data Lake. Detalhes sobre a autorização e como se inscrever para a Preview do Repositório Data Lake (se necessário) são discutidos no [artigo sobre as saídas do Data Lake](stream-analytics-data-lake-output.md).
 
-Um [banco de dados SQL do Azure](https://azure.microsoft.com/services/sql-database/) pode ser usado como saída para os dados que sejam relacionais por natureza ou para aplicativos que dependam de o conteúdo ser hospedado em um banco de dados relacional. Os trabalhos do Stream Analytics gravarão em uma tabela existente em um banco de dados SQL do Azure. Observe que o esquema da tabela deve corresponder exatamente aos campos e seus tipos sendo a saída do seu trabalho. A tabela a seguir lista os nomes de propriedade e sua descrição para a criação de uma saída de banco de dados SQL.
+A tabela abaixo lista os nomes de propriedade e sua descrição para a criação de uma saída do Repositório Data Lake.
+
+<table>
+<tbody>
+<tr>
+<td><B>NOME DA PROPRIEDADE</B></td>
+<td><B>DESCRIÇÃO</B></td>
+</tr>
+<tr>
+<td>Alias de saída</td>
+<td>Esse é um nome amigável utilizado em consultas para direcionar a saída da consulta para esse Repositório Data Lake.</td>
+</tr>
+<tr>
+<td>Conta do Repositório Data Lake</td>
+<td>O nome da conta de armazenamento para o qual você está enviando a saída Você verá uma lista suspensa de contas do Repositório Data Lake às quais o usuário conectado ao portal tem acesso.</td>
+</tr>
+<tr>
+<td>Padrão de prefixo do caminho [<I>opcional</I>]</td>
+<td>O caminho do arquivo usado para gravar seus arquivos na Conta do Repositório Data Lake especificada. <BR>{data}, {hora}<BR>Exemplo 1: pasta1/logs/{data}/{hora}<BR>Exemplo 2: pasta1/logs/{data}</td>
+</tr>
+<tr>
+<td>Formato de data [<I>opcional</I>]</td>
+<td>Se o token de data for usado no caminho do prefixo, você pode selecionar o formato de data na qual os arquivos são organizados. Exemplo: AAAA/MM/DD</td>
+</tr>
+<tr>
+<td>Formato de hora [<I>opcional</I>]</td>
+<td>Se o token de hora for usado no caminho do prefixo, você pode selecionar o formato de hora na qual os arquivos são organizados. Atualmente, o único valor aceito é HH.</td>
+</tr>
+<tr>
+<td>Formato de serialização do evento</td>
+<td>Formato de serialização para dados de saída. Há suporte para JSON, CSV e Avro.</td>
+</tr>
+<tr>
+<td>Codificação</td>
+<td>Se o formato for CSV ou JSON, uma codificação deve ser especificada. UTF-8 é o único formato de codificação com suporte no momento.</td>
+</tr>
+<tr>
+<td>Delimitador</td>
+<td>Aplicável somente à serialização de CSV. O Stream Analytics é compatível com vários delimitadores comuns para serialização de dados CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, tab e barra vertical.</td>
+</tr>
+<tr>
+<td>Formatar</td>
+<td>Aplicável somente para serialização JSON. Uma linha separada especifica que a saída será formatada com cada objeto JSON separado por uma nova linha. Matriz especifica que a saída será formatada como uma matriz de objetos JSON.</td>
+</tr>
+</tbody>
+</table>
+
+## Banco de dados SQL
+
+Um [banco de dados SQL do Azure](https://azure.microsoft.com/services/sql-database/) pode ser usado como saída para os dados que sejam relacionais por natureza ou para aplicativos que dependam de o conteúdo ser hospedado em um banco de dados relacional. Os trabalhos do Stream Analytics gravarão em uma tabela existente em um banco de dados SQL do Azure. Observe que o esquema da tabela deve corresponder exatamente aos campos e seus tipos sendo a saída do seu trabalho. Um [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) também pode ser especificado como uma saída por meio da opção de saída do Banco de Dados SQL (esse é um recurso na fase de visualização). A tabela a seguir lista os nomes de propriedade e sua descrição para a criação de uma saída de banco de dados SQL.
 
 | Nome da Propriedade | Descrição |
 |---------------|-------------|
@@ -37,7 +87,7 @@ Um [banco de dados SQL do Azure](https://azure.microsoft.com/services/sql-databa
 | Senha | A senha para se conectar ao banco de dados |
 | Tabela | O nome da tabela em que a saída será gravada. O nome da tabela diferencia maiúsculas de minúsculas e o esquema da tabela deve corresponder exatamente ao número de campos e seus tipos sendo gerados por sua saída de trabalho. |
 
-## Armazenamento de blob ##
+## Armazenamento de blob
 
 O armazenamento de Blob oferece uma solução econômica e escalonável para armazenar grandes quantidades de dados não estruturados na nuvem. Para obter uma introdução sobre o Armazenamento de blob do Azure e seu uso, confira a documentação em [Como usar blobs](../storage/storage-dotnet-how-to-use-blobs.md).
 
@@ -114,6 +164,7 @@ Há alguns parâmetros que são necessários para configurar fluxos de dados de 
 | Codificação | Para CSV e JSON, UTF-8 é o único formato de codificação com suporte no momento. |
 | Delimitador | Aplicável somente à serialização de CSV. O Stream Analytics é compatível com vários delimitadores comuns para serialização de dados no formato CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, tab e barra vertical. |
 | Formatar | Aplicável somente para o tipo JSON. Uma linha separada especifica que a saída será formatada com cada objeto JSON separado por uma nova linha. Matriz especifica que a saída será formatada como uma matriz de objetos JSON. |
+
 ## Power BI
 
 O [Power BI](https://powerbi.microsoft.com/) pode ser usado como saída de um trabalho do Stream Analytics para fornecer uma experiência rica de visualização dos resultados da análise. Essa funcionalidade pode ser usada para painéis operacionais, geração de relatórios e relatórios orientados por métricas.
@@ -267,4 +318,4 @@ Você foi apresentado ao Stream Analytics, um serviço gerenciado para análise 
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

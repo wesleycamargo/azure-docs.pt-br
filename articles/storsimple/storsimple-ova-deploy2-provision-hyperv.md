@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/07/2016"
+   ms.date="03/10/2016"
    ms.author="alkohli"/>
 
 # Implantar o StorSimple Virtual Array – Provisionar um Virtual Array no Hyper-V
@@ -22,7 +22,7 @@
 
 ## Visão geral
 
-Este tutorial de provisionamento se aplica ao Microsoft Azure StorSimple Virtual Array (também conhecido como dispositivos virtuais locais StorSimple ou dispositivos virtuais StorSimple) que executa a versão GA (disponibilidade geral) de março de 2016. Este tutorial descreve como provisionar um StorSimple Virtual Array em um sistema de host que executa o Hyper-V 2008 R2, o Hyper-V 2012 ou o Hyper-V 2012 R2.
+Este tutorial de provisionamento se aplica ao Microsoft Azure StorSimple Virtual Array (também conhecido como dispositivos virtuais locais StorSimple ou dispositivos virtuais StorSimple) que executa a versão GA (disponibilidade geral) de março de 2016. Este tutorial descreve como provisionar um StorSimple Virtual Array em um sistema de host que executa o Hyper-V 2008 R2, o Hyper-V 2012 ou o Hyper-V 2012 R2. Este artigo se aplica à implantação de Matrizes virtuais do StorSimple no portal clássico do Azure, bem como na Nuvem de governo do Microsoft Azure.
 
 Você precisará de privilégios de administrador para provisionar e configurar um dispositivo virtual. O provisionamento e a configuração inicial podem levar cerca de 10 minutos para ser concluídos.
 
@@ -251,11 +251,22 @@ Execute as etapas a seguir para iniciar o dispositivo virtual e conectar-se a el
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image31m.png)
 
-	Se o dispositivo não cumprir os requisitos mínimos de configuração, você verá um erro no texto da faixa (mostrado abaixo). Será necessário modificar a configuração do dispositivo para que ele tenha recursos adequados para cumprir os requisitos mínimos. Em seguida, você pode reiniciar e conectar-se ao dispositivo. Consulte os requisitos mínimos de configuração na [Etapa 1: verifique se o sistema de host cumpre os requisitos mínimos de dispositivo virtual](#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements).
 
-	![](./media/storsimple-ova-deploy2-provision-hyperv/image32.png)
 
-Se você enfrentar qualquer outro erro durante a configuração inicial usando a interface do usuário da Web local, consulte os seguintes fluxos de trabalho em [Gerenciar sua StorSimple Virtual Array usando a interface do usuário da Web local](storsimple-ova-web-ui-admin.md).
+1. (Opcional) Execute esta etapa somente se você estiver implantando seu dispositivo na Nuvem do governo. Agora, você habilitará o modo FIPS (Federal Information Processing Standard) dos Estados Unidos em seu dispositivo. O padrão FIPS 140 define algoritmos criptográficos aprovados para uso por sistemas de computador do governo federal dos EUA para a proteção de dados confidenciais.
+	1. Para habilitar o modo FIPS, execute o seguinte cmdlet:
+		
+		`Enter-HcsFIPSMode`
+
+	2. Reinicialize o dispositivo após ter habilitado o modo FIPS para que as validações criptográficas tenham efeito.
+
+		> [AZURE.NOTE] Você pode habilitar ou desabilitar o modo FIPS em seu dispositivo. Alternar o dispositivo entre o modo FIPS e não FIPS não tem suporte.
+
+Se o dispositivo não cumprir os requisitos mínimos de configuração, você verá um erro no texto da faixa (mostrado abaixo). Será necessário modificar a configuração do dispositivo para que ele tenha recursos adequados para cumprir os requisitos mínimos. Em seguida, você pode reiniciar e conectar-se ao dispositivo. Consulte os requisitos mínimos de configuração na [Etapa 1: Verificar se o sistema de host atende aos requisitos mínimos do dispositivo virtual](#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements).
+
+![](./media/storsimple-ova-deploy2-provision-hyperv/image32.png)
+
+Caso observe algum outro erro durante a configuração inicial usando a interface do usuário da Web local, veja os seguintes fluxos de trabalho em [Gerenciar o StorSimple Virtual Array usando a interface do usuário da Web local](storsimple-ova-web-ui-admin.md).
 
 -   Execute testes de diagnóstico para [solucionar problemas na configuração da interface do usuário da Web](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors).
 
@@ -273,4 +284,4 @@ Assista ao vídeo para ver como você pode provisionar um StorSimple Virtual Arr
 
 -   [Configurar sua StorSimple Virtual Array como um servidor iSCSI](storsimple-ova-deploy3-iscsi-setup.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

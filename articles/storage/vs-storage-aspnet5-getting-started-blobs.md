@@ -32,11 +32,11 @@ Para acessar programaticamente blobs em projetos do ASP.NET 5, você precisa adi
 
 1. Adicione as seguintes declarações de namespace de código à parte superior de qualquer arquivo C# no qual você queira acessar o armazenamento do Azure por meio de programação.
 
-		using Microsoft.Framework.Configuration;
+		using Microsoft.Extensions.Configuration;
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Blob;
 		using System.Threading.Tasks;
-		using LogLevel = Microsoft.Framework.Logging.LogLevel;
+		using LogLevel = Microsoft.Extensions.Logging.LogLevel;
 
 2. Obtenha um objeto **CloudStorageAccount** que represente as informações da conta de armazenamento. Use o seguinte código para obter a sua cadeia de conexão de armazenamento e informações de conta de armazenamento da configuração do serviço do Azure.
 
@@ -155,4 +155,4 @@ Para excluir um blob, obtenha primeiro uma referência ao blob e depois chame o 
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -29,7 +29,7 @@ A opção **Sugestões de pesquisa** pode ser habilitada para barras de pesquisa
 
 **Navegação facetada** é facilmente adicionada à sua página de resultados de pesquisa com a Pesquisa do Azure. Usando [apenas um único parâmetro de consulta](https://msdn.microsoft.com/library/azure/dn798927.aspx), A Pesquisa do Azure retornará todas as informações necessárias para construir uma experiência de pesquisa facetada na interface do usuário do seu aplicativo para permitir aos usuários fazer o drill-down e filtrar resultados de pesquisa (por exemplo, filtrar itens de catálogo por faixa de preços ou marca).
 
-**Suporte** [geoespacial](search-create-geospatial.md) permite processamento, filtro e exibição de locais geográficos de maneira inteligente. A Pesquisa do Azure permite que os usuários explorarem dados com base na proximidade de um resultado de pesquisa para um local específico ou em uma região geográfica específica.
+Suporte **geoespacial** permite processar de, filtrar e exibir maneira inteligente os locais geográficos. A Pesquisa do Azure permite que os usuários explorarem dados com base na proximidade de um resultado de pesquisa para um local específico ou em uma região geográfica específica. Este vídeo explica como isso funciona: [Channel 9: dados de Pesquisa do Azure e geoespaciais](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data).
 
 **Filtros** podem ser usados para facilmente incorporar navegação facetada na interface de usuário de seu aplicativo, aprimorar a formulação de consulta e filtrar com base em critérios especificados pelo usuário ou pelo desenvolvedor. Crie filtros poderosos usando a [sintaxe de OData](https://msdn.microsoft.com/library/azure/dn798921.aspx).
 
@@ -82,4 +82,4 @@ Você pode experimentar a Pesquisa do Azure hoje mesmo! Se você já possui uma 
 
 Se não tiver uma conta do Azure, pode experimentar uma sessão gratuita de 60 minutos sem necessidade de qualquer inscrição. Vá para [Experimentar o Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/p/?LinkId=618214) e selecione "Aplicativo Web." Selecione o modelo de "ASP.NET + Pesquisa do Azure" para começar.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

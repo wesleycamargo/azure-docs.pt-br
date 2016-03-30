@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/25/2016"
+   ms.date="03/18/2016"
    ms.author="mbaldwin"/>
 
 
@@ -71,6 +71,7 @@ Esses artigos descrevem como executar tarefas específicas usando o Active Direc
 - [Noções básicas sobre o manifesto do aplicativo do Active Directory do Azure](active-directory-application-manifest.md)
 - [Criar um aplicativo com APIs do Office 365](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs)
 - [Enviar aplicativos Web para Office 365 para o Painel do Vendedor](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
+- Saiba como habilitar o SSO entre aplicativos usando a ADAL em dispositivos [Android](active-directory-sso-android.md) e [iOS](active-directory-sso-ios.md)
 - [Visualização: como criar aplicativos que conectam usuários com as contas pessoais e corporativas ou de estudante](active-directory-appmodel-v2-overview.md)
 - [Visualização: como criar aplicativos que registram e conectam consumidores](../active-directory-b2c/active-directory-b2c-overview.md)
 
@@ -137,8 +138,8 @@ O [Azure Friday](https://azure.microsoft.com/documentation/videos/azure-friday/)
 
 - [Blog da equipe da Graph do Azure Active Directory](http://blogs.msdn.com/b/aadgraphteam): informações do Active Directory do Azure específicas à Graph API.
 
-- [Identidade de nuvem](http://www.cloudidentity.net): considerações sobre o gerenciamento de identidades como serviço de um PM principal do Active Directory do Azure de entidade de segurança.
+- [Identidade de Nuvem](http://www.cloudidentity.net): considerações sobre o gerenciamento de identidades como serviço de um PM principal do Azure Active Directory de entidade de segurança.
 
 - [Active Directory do Azure no Twitter](https://twitter.com/azuread): comunicados do Active Directory do Azure em 140 caracteres ou menos.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

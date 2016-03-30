@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/05/2016" 
+    ms.date="03/16/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o ITRP
@@ -37,7 +37,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos com o ITRP, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-itrp-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração de aplicativos do **ITRP**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No portal clássico do ITRP, na página de integração de aplicativos do **Zoom**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-itrp-tutorial/IC771709.png "Configurar o logon único")
 
@@ -101,15 +101,15 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     ![Logon Único](./media/active-directory-saas-itrp-tutorial/IC775573.png "Logon Único")
 
     1.  Clique em **Habilitar**.
-    2.  No portal do Azure, na página do diálogo **Configurar logon único no ITRP**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL de Logoff Remoto**.
-    3.  No portal do Azure, na página do diálogo **Configurar logon único no ITRP**, copie o valor da **URL de SSO do SAML** e cole-o na caixa de texto **URL de SSO do SAML**.
+    2.  No portal clássico do Azure, na página do diálogo **Configurar logon único no ITRP**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL de Logoff Remoto**.
+    3.  No portal clássico do Azure, na página do diálogo **Configurar logon único no ITRP**, copie o valor da **URL de SSO do SAML** e cole-o na caixa de texto **URL de SSO do SAML**.
     4.  Copie o valor de **Impressão Digital** do certificado exportado e cole-o na caixa de texto **Impressão Digital do Certificado**.
         
 		>[AZURE.TIP]Para obter mais detalhes, consulte [Como recuperar o valor de impressão digital de um certificado](http://youtu.be/YKQF266SAxI)
 
     5.  Clique em **Salvar**.
 
-9.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+9.  No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-itrp-tutorial/IC775574.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
@@ -139,7 +139,7 @@ Para permitir que os usuários do AD do Azure façam logon no ITRP, eles devem s
     1.  Digite o **Nome** e **Email** de uma conta válida do AAD que você deseja provisionar.
     2.  Clique em **Salvar**.
 
->[AZURE.NOTE]É possível usar qualquer outra ferramenta de criação da conta de usuário do ITRP ou APIs fornecidas pelo ITRP para provisionar as contas de usuário do AAD.
+>[AZURE.NOTE] É possível usar qualquer outra ferramenta de criação da conta de usuário do ITRP ou APIs fornecidas pelo ITRP para provisionar as contas de usuário do AAD.
 
 ##Atribuindo usuários
   
@@ -159,4 +159,4 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0316_2016-->

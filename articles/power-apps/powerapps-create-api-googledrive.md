@@ -27,7 +27,7 @@ Adicione a API do Google Drive ao ambiente de serviço de aplicativo (locatário
 
 ## Crie a API no portal do Azure
 
-1. No [Portal do Azure](https://portal.azure.com/), entre com sua conta de trabalho. Por exemplo, entre com *Seunomedeusuário*@* SuaEmpresa*.com. Quando fizer isso, entrará automaticamente na assinatura de sua empresa.
+1. No [Portal do Azure](https://portal.azure.com/), entre com sua conta de trabalho. Por exemplo, entre com *Seunomedeusuário*@*SuaEmpresa*.com. Quando fizer isso, entrará automaticamente na assinatura de sua empresa.
  
 2. Selecione **Procurar** na barra de tarefas: ![][15]
 
@@ -115,4 +115,4 @@ Neste tópico, foi adicionada a API do Google Drive ao seu PowersApps Enterprise
 [15]: ./media/powerapps-create-api-googledrive/browseall.png
 [16]: ./media/powerapps-create-api-googledrive/allresources.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->

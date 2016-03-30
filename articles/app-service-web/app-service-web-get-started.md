@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article"
-	ms.date="03/14/2016" 
+	ms.date="03/17/2016" 
 	ms.author="cephalin"
 />
 	
 # Introdução a aplicativos Web no Serviço de Aplicativo do Azure
 
-Este tutorial o ajudará a começar a trabalhar rapidamente com a implantação de aplicativos Web para o [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md). Com bem pouca ação de sua parte, você vai:
+Este tutorial o ajudará a começar a trabalhar rapidamente com a implantação de aplicativos Web para o [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md). Com pouca ação de sua parte, você vai:
 
 - Implantar um aplicativo Web de exemplo (escolha entre ASP.NET, PHP, Node.js, Java ou Python).
 - Ver o aplicativo em execução em segundos.
@@ -34,7 +34,7 @@ Para concluir este tutorial, você precisará:
 
 - Git. Você pode baixar o binário de instalação [aqui](http://www.git-scm.com/downloads). Você deve ser capaz de executar `git --version` do terminal de linha de comando de sua escolha. 
 - Conhecimento básico do Git.
-- CLI do Azure. As instruções de instalação estão [aqui](../xplat-cli-install.md).
+- CLI do Azure. As instruções de instalação estão [aqui](../xplat-cli-install.md). Você deve ser capaz de executar `azure --version` do terminal de linha de comando de sua escolha.
 - Uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [inscrever-se para uma avaliação gratuita](/pricing/free-trial/?WT.mc_id=A261C142F) ou [ativar seus benefícios de assinante do Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 >[AZURE.NOTE] Para ver o Serviço de Aplicativo do Azure em ação antes de se inscrever para uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751). Lá, você poderá criar imediatamente um aplicativo de curta duração inicial no Serviço de Aplicativo — sem exigência de cartão de crédito e sem compromissos.
@@ -49,15 +49,15 @@ Vamos implantar um aplicativo Web no Serviço de Aplicativo do Azure.
 
     Para *&lt;github\_sample\_url>*, use uma das seguintes URLs, dependendo da estrutura de sua preferência:
 
-    - ASP.NET: [https://github.com/azure-appservice-samples/aspnet-get-started.git](https://github.com/azure-appservice-samples/aspnet-get-started.git)
-    - PHP (CodeIgniter): [https://github.com/azure-appservice-samples/php-get-started.git](https://github.com/azure-appservice-samples/php-get-started.git)
-    - Node.js (Express): [https://github.com/azure-appservice-samples/nodejs-get-started.git](https://github.com/azure-appservice-samples/nodejs-get-started.git) 
-    - Python (Django): [https://github.com/azure-appservice-samples/python-get-started.git](https://github.com/azure-appservice-samples/python-get-started.git)
-    - Java: [https://github.com/azure-appservice-samples/java-get-started.git](https://github.com/azure-appservice-samples/java-get-started.git)
+    - ASP.NET: [https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git](https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git)
+    - PHP (CodeIgniter): [https://github.com/Azure-Samples/app-service-web-php-get-started.git](https://github.com/Azure-Samples/app-service-web-php-get-started.git)
+    - Node.js (Express): [https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git](https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git) 
+    - Java: [https://github.com/Azure-Samples/app-service-web-java-get-started.git](https://github.com/Azure-Samples/app-service-web-java-get-started.git)
+    - Python (Django): [https://github.com/Azure-Samples/app-service-web-python-get-started.git](https://github.com/Azure-Samples/app-service-web-python-get-started.git)
 
-2. `CD` na raiz do projeto do aplicativo de exemplo. Por exemplo,
+2. `CD` no diretório raiz do seu aplicativo de exemplo. Por exemplo,
 
-        cd aspnet-get-started
+        cd app-service-web-dotnet-get-started
 
 3. Faça logon no Azure da seguinte forma:
 
@@ -93,15 +93,15 @@ Se for mostrada a mensagem de erro: `Site <app_name> does not exist or has no ho
 
 ## Fazer atualizações no aplicativo
 
-Assim como implantou o aplicativo no Azure pela primeira vez, agora você pode usar o Git para enviar da raiz do projeto (repositório) a qualquer momento e fazer uma atualização no site ativo. Por exemplo, sempre que você desejar enviar novas alterações que testou localmente, bastará executar os seguintes comandos da raiz do projeto (repositório):
+Agora você pode usar o Git para enviar da raiz do projeto (repositório) a qualquer momento e fazer uma atualização no site ativo. Você fazê-lo da mesma forma que quando você implantou o aplicativo no Azure pela primeira vez. Por exemplo, sempre que você desejar enviar novas alterações que testou localmente, bastará executar os seguintes comandos da raiz do projeto (repositório):
     
     git add .
-    git commit -m "<you_message>"
+    git commit -m "<your_message>"
     git push azure master
 
 ## Outras maneiras de implantar
 
-Há várias maneiras de implantar o aplicativo Web, e a implantação do Git de um repositório local é apenas uma delas. Há a implantação intuitiva do assistente no Visual Studio, a implantação contínua diretamente do GitHub, a sincronização de conteúdo do DropBox e muitas outras opções, incluindo o método FTP com o qual os desenvolvedores da Web estão familiarizados. Para obter mais informações sobre opções de implantação, confira [Implantar seu aplicativo no Serviço de Aplicativo do Azure](../app-service-web/web-sites-deploy.md).
+Há várias maneiras de implantar o aplicativo Web, e a implantação do Git de um repositório local é apenas uma delas. Você pode implantar diretamente do Visual Studio, implantar continuamente do GitHub, sincronizar do DropBox ou do OneDrive, carregar arquivos via FTP etc. Para saber mais sobre opções de implantação, confira [Implantar seu aplicativo no Serviço de Aplicativo do Azure](../app-service-web/web-sites-deploy.md).
 
 ## Ver o aplicativo no portal do Azure
 
@@ -115,7 +115,7 @@ Agora, vamos para o portal do Azure para ver o que você criou:
 
     ![Exibição de portal do primeiro aplicativo no Serviço de Aplicativo do Azure](./media/app-service-web-get-started/portal-view.png)
 
-A folha do aplicativo do Serviço de Aplicativo expõe um conjunto avançado de configurações e ferramentas para que você configure, monitore, proteja e solucione problemas do aplicativo. Reserve algum tempo para se familiarizar com essa interface executando algumas tarefas simples:
+A folha do portal do aplicativo do Serviço de Aplicativo expõe um conjunto avançado de configurações e ferramentas para que você configure, monitore, proteja e solucione problemas do aplicativo. Reserve algum tempo para se familiarizar com essa interface executando algumas tarefas simples:
 
 - interromper o aplicativo
 - reiniciar o aplicativo
@@ -127,7 +127,7 @@ A folha do aplicativo do Serviço de Aplicativo expõe um conjunto avançado de 
 
 Leve o aplicativo implantado para o próximo patamar. Proteja-o com a autenticação. Dimensione-o com base na demanda. Configure alguns alertas de desempenho. Tudo isso com apenas alguns cliques. Confira [Introdução ao Serviço de Aplicativo do Azure - parte 2](app-service-web-get-started-2.md).
 
-Ou explore como criar um aplicativo Web para o Serviço de Aplicativo do zero:
+Ou explore como criar um aplicativo Web para o Serviço de Aplicativo com uma estrutura de linguagem específica:
 
 - [Criar um aplicativo Web ASP.NET no Serviço de Aplicativo do Azure](web-sites-dotnet-get-started.md)
 - [Criar um aplicativo Web do PHP no Serviço de Aplicativo do Azure](web-sites-php-mysql-deploy-use-git.md)
@@ -135,10 +135,10 @@ Ou explore como criar um aplicativo Web para o Serviço de Aplicativo do zero:
 - [Criar um aplicativo Web do Java no Serviço de Aplicativo do Azure](web-sites-java-get-started.md)
 - [Criar um aplicativo Web do Python no Serviço de Aplicativo do Azure](web-sites-python-ptvs-django-mysql.md)
 
-Também há muito conteúdo que mostra os tipos de aplicativos que você pode criar no Serviço de Aplicativo do Azure, inclusive aplicativos Web, back-ends de aplicativos móveis e aplicativos de API.
+Ou localize mais conteúdo sobre os tipos de aplicativos que você pode criar no Serviço de Aplicativo do Azure, inclusive aplicativos Web, back-ends de aplicativos móveis e aplicativos de API.
 
 - [Criar aplicativos Web](/documentation/learning-paths/appservice-webapps/)
 - [Criar aplicativos móveis](/documentation/learning-paths/appservice-mobileapps/)
 - [Criar aplicativos de API](../app-service-api/app-service-api-apps-why-best-platform.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

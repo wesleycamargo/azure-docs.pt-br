@@ -3,8 +3,8 @@
 	description="O exemplo em C# inclui uma lógica de repetição para interagir de forma confiável com o Banco de Dados SQL do Azure."
 	services="sql-database"
 	documentationCenter=""
-	authors="MightyPen"
-	manager="jeffreyg"
+	authors="annemill"
+	manager="jhubbard"
 	editor=""/>
 
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/17/2015"
-	ms.author="genemi"/>
+	ms.date="03/15/2016"
+	ms.author="annemill"/>
 
 
 # Exemplo de código: repetir a lógica em C# para se conectar ao Banco de Dados SQL
@@ -286,4 +286,4 @@ Execute o programa com o parâmetro “test” e verifique se ele primeiro falha
 
 - [Experimentar o Banco de Dados SQL: Usar o C# para criar um Banco de Dados SQL com a Biblioteca do Banco de Dados SQL para .NET](sql-database-get-started-csharp.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0316_2016-->

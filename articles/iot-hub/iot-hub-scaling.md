@@ -13,14 +13,12 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="01/20/2016"
+ ms.date="03/14/2016"
  ms.author="elioda"/>
 
 # Dimensionamento do Hub IoT
 
-O Hub IoT pode dar suporte a até um milhão de dispositivos conectados simultaneamente, aumentando para 2 mil o número de unidades de camada S1 ou S2 do Hub IoT. Para saber mais, confira [Preço do Hub IoT][lnk-pricing].
-
-Cada unidade de Hub IoT permite um determinado número de dispositivos no registro e todos esses dispositivos podem ser conectados simultaneamente. Cada unidade também permite um número de mensagens diárias.
+O Hub do IoT do Azure pode oferecer suporte a até um milhão de dispositivos conectados ao mesmo tempo. Para saber mais, confira [Preço do Hub IoT][lnk-pricing]. Cada unidade do Hub IoT permite uma quantidade de mensagens diárias.
 
 Para dimensionar corretamente sua solução, considere sua utilização específica do Hub IoT. Em particular, considere a taxa de transferência de pico necessária para as seguintes categorias de operações:
 
@@ -39,7 +37,7 @@ As mensagens do dispositivo para a nuvem seguem estas diretrizes de taxa de tran
 | Camada | Taxa de transferência sustentada | Taxa de envio sustentada |
 | ---- | -------------------- | ------------------- |
 | S1 | Até 1111 KB/minuto por unidade<br/>(1,5 GB/dia/unidade) | Média de 278 mensagens/minuto por unidade<br/>(400.000 mensagens/dia por unidade) |
-| S2 | Até 16 MB/minuto por unidade<br/>(22,8 GB/dia/unidade) | Média de 4.167 mensagens/minuto por unidade<br/>(6 milhões de mensagens/dia por unidade) |
+| S2 | Até 16 MB/minuto por unidade<br/>(22,8 GB/dia/unidade) | Média de 4167 mensagens/minuto por unidade<br/>(6 milhões de mensagens/dia por unidade) |
 
 O desempenho de mensagens da nuvem para o dispositivo é dimensionado por dispositivo, e cada dispositivo recebe até cinco mensagens por minuto.
 
@@ -66,4 +64,4 @@ Para saber mais sobre o Hub IoT do Azure, siga estes links:
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [O que é o Hub IoT do Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

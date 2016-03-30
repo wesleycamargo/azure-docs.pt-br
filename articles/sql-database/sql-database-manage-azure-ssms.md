@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/11/2015" 
+	ms.date="03/07/2016" 
 	ms.author="jeffreyg"/>
 
 
@@ -21,56 +21,13 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-manage-portal.md)
+- [Portal do Azure](sql-database-manage-portal.md)
 - [SSMS](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
-Você pode usar o SQL Server Management Studio (SSMS) para administrar servidores lógicos e bancos de dados do Banco de Dados SQL do Azure. Este tópico o orienta em tarefas comuns com o SSMS. Você já deve ter um servidor lógico e o banco de dados criados no Banco de Dados SQL do Azure antes de começar. Para começar, leia [Criar seu primeiro Banco de Dados SQL do Azure](sql-database-get-started.md) e, em seguida, volte.
+Você pode usar o SQL Server Management Studio (SSMS) para administrar servidores lógicos e bancos de dados do Banco de Dados SQL do Azure. Este tópico o orienta em tarefas comuns com o SSMS. Você já deve ter um servidor lógico e o banco de dados criados no Banco de Dados SQL do Azure antes de começar. Confira [Crie seu primeiro Banco de Dados SQL do Azure ](sql-database-get-started.md) e o artigo sobre como [Conectar e consultar usando SSMS](sql-database-connect-query-ssms.md) para obter informações sobre como se conectar e, em seguida, execute uma consulta SELECT simples.
 
 É recomendável que você use a versão mais recente do SSMS sempre que trabalhar com o Banco de Dados SQL do Azure. Visite [Baixar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) para obtê-lo.
-
-
-## Conectar a um servidor lógico do Banco de Dados SQL
-
-Conectar ao banco de dados SQL requer que você saiba o nome do servidor no Azure. Talvez seja necessário entrar no portal para obter essa informação.
-
-1.  Entre no [Portal Clássico do Azure](http://manage.windowsazure.com).
-
-2.  No painel à esquerda, clique em **Banco de Dados SQL**.
-
-3.  Na home page do Bancos de Dados SQL, clique em **SERVIDORES** na parte superior da página para listar todos os servidores associados a sua assinatura. Localize o nome do servidor ao qual você deseja se conectar e o copie para a área de transferência.
-
-	Em seguida, configure o firewall de banco de dados SQL para permitir conexões do computador local. Você pode fazer isso adicionando o seu endereço IP de computadores locais à lista de exceção do firewall.
-
-1.  Na home page do bancos de dados SQL, clique em **SERVIDORES** e, em seguida, clique no servidor ao qual você deseja se conectar.
-
-2.  Clique em **Configurar** na parte superior da página.
-
-3.  Copie o endereço IP em endereço de IP de cliente atual.
-
-4.  Na página Configure, **permitido endereços IP** inclui três caixas onde você pode especificar um nome de regra e um intervalo de endereços IP como valores inicial e final. Para o nome de uma regra, você pode inserir o nome do seu computador. Para o intervalo de início e de término, colar no endereço IP do seu computador em ambas as caixas e clique na caixa de seleção que aparece.
-
-	O nome da regra deve ser exclusivo. Se esse for seu computador de desenvolvimento, você pode inserir o endereço IP na caixa de início do intervalo IP e caixa de término do intervalo IP. Caso contrário, talvez seja necessário inserir um amplo intervalo de endereços IP para acomodar conexões de outros computadores em sua organização.
- 
-5. Na parte inferior da página, clique em **SALVAR**.
-
-    **Observação:** pode haver um atraso de até cinco minutos para as alterações nas configurações de firewall sejam efetivadas.
-
-	Agora você está pronto para se conectar ao banco de dados SQL usando o Management Studio.
-
-1.  Na barra de tarefas, clique em **Iniciar**, aponte para **Todos os programas**, aponte para **Microsoft SQL Server 2014** e, em seguida, clique em **SQL Server Management Studio**.
-
-2.  Em **Conectar-se ao servidor**, especifique o nome do servidor totalmente qualificado como *nomeDoServidor*.database.windows.net. No Azure, o nome do servidor é uma sequência gerada automaticamente composta por caracteres alfanuméricos.
-
-3.  Selecione **Autenticação do SQL Server**.
-
-4.  Na caixa **Login**, digite o logon de administrador do SQL Server que você especificou no portal durante a criação de seu servidor.
-
-5.  Na caixa **Senha**, digite a senha que você especificou no portal durante a criação de seu servidor.
-
-8.  Clique em **Conectar** para estabelecer a conexão.
-
-O SQL Server 2014 SSMS com as atualizações mais recentes oferece suporte expandido para tarefas como criar e modificar bancos de dados SQL Azure. Além disso, você também pode usar instruções Transact-SQL para realizar essas tarefas. As etapas a seguir fornecem exemplos dessas instruções. Para saber mais sobre como usar o Transact-SQL com o banco de dados SQL, incluindo detalhes sobre quais comandos são têm suporte, consulte [Referência de Transact-SQL (banco de dados SQL)](http://msdn.microsoft.com/library/bb510741.aspx).
 
 ## Criar e gerenciar Banco de Dados SQL do Azure
 
@@ -102,7 +59,7 @@ Clique em **Execute** para executar a consulta.
 
 -   No banco de dados SQL, a instrução **USE** não é suportada para alternar entre bancos de dados. Em vez disso, você precisa estabelecer uma conexão diretamente com o banco de dados de destino.
 
->[AZURE.NOTE]Muitas das instruções Transact-SQL que cria ou modifica um banco de dados devem ser executadas em seu próprio lote e não podem ser agrupadas com outras instruções Transact-SQL. Para obter mais informações, consulte as informações específicas de instrução disponíveis dos links listados acima.
+>[AZURE.NOTE] Muitas das instruções Transact-SQL que cria ou modifica um banco de dados devem ser executadas em seu próprio lote e não podem ser agrupadas com outras instruções Transact-SQL. Para obter mais informações, consulte as informações específicas de instrução disponíveis dos links listados acima.
 
 ## Criar e gerenciar logons
 
@@ -149,7 +106,7 @@ O banco de dados **mestre** controla os logons e quais logons têm permissão pa
 
 ## Monitorar o Banco de Dados SQL usando Modos de Exibição de Gerenciamento Dinâmico</h2>
 
-O Banco de dados SQL oferece suporte a vários modos de exibição de gerenciamento dinâmico que você pode usar para monitorar um banco de dados individual. Abaixo estão alguns exemplos do tipo de dados de monitor que podem ser recuperados por meio desses modos de exibição. Para obter detalhes completos e mais exemplos de uso, veja [Monitorando o Banco de Dados SQL usando exibições de gerenciamento dinâmico](https://msdn.microsoft.com/library/azure/ff394114.aspx).
+O Banco de dados SQL oferece suporte a vários modos de exibição de gerenciamento dinâmico que você pode usar para monitorar um banco de dados individual. Abaixo estão alguns exemplos do tipo de dados de monitor que podem ser recuperados por meio desses modos de exibição. Para obter detalhes completos e mais exemplos de uso, confira [Monitoramento do Banco de Dados SQL usando Exibições de Gerenciamento Dinâmico](https://msdn.microsoft.com/library/azure/ff394114.aspx).
 
 -   Consultar uma exibição de gerenciamento dinâmico requer permissões **VIEW DATABASE STATE**. Para conceder a permissão **VIEW DATABASE STATE** a um usuário de banco de dados específico, conecte-se ao banco de dados que você deseja gerenciar com o logon principal de nível de servidor e execute a seguinte instrução no banco de dados:
 

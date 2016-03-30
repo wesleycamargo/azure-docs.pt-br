@@ -103,6 +103,8 @@ No padrão de pulsação, o dispositivo envia mensagens do dispositivo para a nu
 
 Uma implementação mais complexa pode incluir as informações do [monitoramento de operações][lnk-devguide-opmon] para identificar dispositivos que estão tentando se conectar ou se comunicar, mas falha. Ao implementar o padrão de pulsação, verifique as [cotas e restrições do Hub IoT][].
 
+> [AZURE.NOTE] Se uma solução IoT precisar do estado de conexão do dispositivo apenas para determinar se deve enviar mensagens da nuvem para o dispositivo, e as mensagens não forem transmitidas para conjuntos grandes de dispositivos, um padrão muito mais simples a ser considerado será usar um tempo de validade mais curto. Isso proporciona o mesmo resultado que a manutenção de um registro de estado de conexão do dispositivo usando o padrão de pulsação, embora seja significativamente mais eficiente. Também é possível, por meio da solicitação de confirmações de mensagens, receber uma notificação pelo Hub IoT de quais dispositivos são capazes de receber mensagens e quais não estão online ou apresentam falha. Confira o [Guia do Desenvolvedor do Hub IoT][lnk-devguide-messaging] para saber mais sobre mensagens C2D.
+
 ## Próximas etapas
 
 Para saber mais sobre o Hub IoT do Azure, siga estes links:
@@ -127,8 +129,9 @@ Para saber mais sobre o Hub IoT do Azure, siga estes links:
 [lnk-throttles-quotas]: ../azure-subscription-service-limits.md/#iot-hub-limits
 [lnk-devguide-antispoofing]: iot-hub-devguide.md#antispoofing
 [lnk-devguide-protocol]: iot-hub-devguide.md#amqpvshttp
+[lnk-devguide-messaging]: iot-hub-devguide.md#messaging
 [lnk-dotnet-sas]: https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx
 [lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
 [cotas e restrições do Hub IoT]: iot-hub-devguide.md#throttling
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

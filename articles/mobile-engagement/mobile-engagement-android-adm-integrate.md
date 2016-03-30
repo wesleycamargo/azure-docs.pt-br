@@ -19,9 +19,9 @@
 
 #Como integrar ADM ao Engagement
 
-> [AZURE.IMPORTANT] Você deve seguir o procedimento de integração descrito no documento Como integrar o Engagement, antes de seguir este guia.
+> [AZURE.IMPORTANT] Você deve seguir o procedimento de integração descrito no documento Como Integrar o Engagement, antes de seguir este guia.
 >
-> Este documento é útil apenas se você integrou o módulo do Reach para sempre dar suporte à campanha. Para integrar campanhas do Reach em seu aplicativo, leia primeiro como integrar o Engagement Reach no Android.
+> Este documento será útil apenas se você já tiver integrado o módulo de Alcance e planeja enviar por push os dispositivos Amazon. Para integrar campanhas de Alcance em seu aplicativo, leia primeiro Como Integrar o Engagement Reach no Android.
 
 ##Introdução
 
@@ -102,14 +102,11 @@ Certifique-se de ter as seguintes permissões em seu `AndroidManifest.xml` (ante
 
 ##Conceda as credenciais do Engagement OAuth
 
-Envie suas credenciais OAuth (ID do Cliente e Segredo do Cliente) em $/\\#application/YOUR\\_APPID/native-push.
-
-Agora você pode selecionar "Qualquer hora" durante a criação de pesquisas e anúncios de alcance.
-
+Envie suas credenciais OAuth (ID do Cliente e Segredo do Cliente) no Portal do Engagement.
 
 [< https://developer.amazon.com/sdk/adm/credentials.html>]: https://developer.amazon.com/sdk/adm/credentials.html
 [biblioteca de cliente do ADM]: https://developer.amazon.com/sdk/adm/setup.html
 [ADM integrado]: https://developer.amazon.com/sdk/adm/integrating-app.html
 [este procedimento]: https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

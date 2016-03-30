@@ -3,8 +3,8 @@
 	description="Mostra exemplos de modelos do Gerenciador de Recursos do Azure que ilustram as práticas recomendadas."
 	services="azure-resource-manager"
 	documentationCenter=""
-	authors="mmercuri"
-	manager="georgem"
+	authors="tfitzmac"
+	manager="timlt"
 	editor="tysonn"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="12/17/2015"
-	ms.author="mmercuri"/>
+	ms.author="tomfitz"/>
 
 # Exemplos contextuais de práticas recomendadas para a implementação de modelos
 
@@ -252,6 +252,6 @@ Por fim, pode haver um desejo de garantir que determinados recursos não sejam e
 
 - Para saber mais sobre a criação de modelos, consulte [Criando modelos](resource-group-authoring-templates.md).
 - Para obter recomendações de como lidar com segurança no Gerenciador de Recursos do Azure, consulte [Considerações de segurança do Gerenciador de Recursos do Azure](best-practices-resource-manager-security.md).
-- Para saber mais sobre o estado de compartilhamento dentro e fora dos modelos, consulte [O estado de compartilhamento em modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-state.md)
+- Para saber mais sobre como compartilhar o estado dentro e fora dos modelos, consulte [Sharing state in Azure Resource Manager templates (Compartilhando estado em modelos do Gerenciador de Recursos do Azure)](best-practices-resource-manager-state.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0316_2016-->

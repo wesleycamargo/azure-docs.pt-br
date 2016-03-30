@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="03/11/2016" 
 	ms.author="spelluru"/>
 
 # Atividades de movimentação de dados
@@ -49,11 +49,13 @@ A atividade de cópia copia os dados de um armazenamento de dados de **origem** 
 
 > [AZURE.NOTE] Você só pode mover de/para um Banco de Dados de Documentos do Azure de/para outros serviços do Azure como Blobs do Azure, Tabela do Azure, Banco de Dados SQL, SQL Data Warehouse, Banco de Dados de Documentos do Azure e Repositório Azure Data Lake. Também haveria suporte em breve para a matriz completa para Banco de Dados de Documentos do Azure.
 
+Se precisar mover dados de/para um repositório de dados que não tem suporte com a **Atividade de Cópia**, você pode usar a **atividade personalizada** no Data Factory com sua própria lógica para copiar/mover os dados. Consulte o artigo [Usar atividades personalizadas em um pipeline do Azure Data Factory](data-factory-use-custom-activities.md) para obter detalhes sobre como criar e usar uma atividade personalizada.
+
 ## Tutorial
 Para obter um tutorial rápido sobre como usar a Atividade de Cópia, confira [Tutorial: Usar a Atividade de Cópia em um pipeline do Azure Data Factory](data-factory-get-started.md). No tutorial, você usará a Atividade de Cópia para copiar dados de um armazenamento de blob do Azure para um banco de dados SQL do Azure.
 
 ## <a name="copyactivity"></a>Atividade de Cópia
-A atividade de cópia usa um conjunto de dados de entrada (**origem**) e um conjunto de dados de saída (**coletor**). A cópia de dados é feita em um modo de lotes de acordo com a agenda especificada na atividade. Para saber mais sobre como definir atividades em geral, consulte o artigo [Compreendendo Pipelines e Atividades](data-factory-create-pipelines.md).
+A atividade de cópia copia dados de um conjunto de dados de entrada (**origem**) para um conjunto de dados de saída (**coletor**). A cópia de dados é feita em um modo de lotes de acordo com a agenda especificada na atividade. Para saber mais sobre como definir atividades em geral, consulte o artigo [Compreendendo Pipelines e Atividades](data-factory-create-pipelines.md).
 
 A atividade de cópia fornece as seguintes funcionalidades:
 
@@ -87,6 +89,7 @@ Você deve tratar a fonte de dados como uma fonte de dados local (que está atr�
 
 Confira [Mover dados entre o local e a nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter mais detalhes.
 
+
 ### Movimentação de dados confiável e econômica
 A atividade de cópia é projetada para mover grandes volumes de dados de forma confiável, resistente a erros transitórios em uma grande variedade de fontes de dados. Os dados podem ser copiados em uma maneira econômica com a opção de habilitar a compactação durante a transmissão.
 
@@ -99,15 +102,95 @@ Armazenamentos de dados diferentes têm sistemas de tipo nativo diferentes. A at
 Você pode encontrar o mapeamento para um determinado sistema de tipo nativo para o .NET para o armazenamento de dados nos respectivos artigos de conector de armazenamento de dados. Você pode usar esses mapeamentos para determinar os tipos apropriados ao criar tabelas para que as conversões certas sejam executadas durante a atividade de cópia.
 
 ### Trabalhando com diferentes formatos de arquivo
-A atividade de cópia dá suporte a vários formatos de arquivo, incluindo os formatos binário, texto e Avro para repositórios baseados em arquivo. Você pode usar a atividade de cópia para converter dados de um formato para outro. Exemplo: texto (CSV) para Avro. Se os dados não estiverem estruturados, você pode omitir a propriedade **Structure** da definição de JSON do [conjunto de dados](data-factory-create-datasets.md).
+A atividade de cópia dá suporte a vários formatos de arquivo, incluindo os formatos binário, texto, Avro e JSON para repositórios baseados em arquivo. Você pode usar a atividade de cópia para converter dados de um formato para outro. Exemplo: texto (CSV) para Avro. Se os dados não estiverem estruturados, você pode omitir a propriedade **Structure** da definição de JSON do [conjunto de dados](data-factory-create-datasets.md).
 
 ### Propriedades da atividade de cópia
 Propriedades, como nome, descrição, tabelas de entrada e saída, várias políticas, etc. estão disponíveis para todos os tipos de atividades. As propriedades disponíveis na seção **typeProperties** da atividade, por outro lado, variam de acordo com cada tipo de atividade.
 
 No caso da atividade de cópia, a seção **typeProperties** varia de acordo com os tipos de fontes e coletores. Cada uma das páginas especificas do armazenamento de dados listadas acima documenta essas propriedades específicas para o tipo de armazenamento de dados.
 
+### Cópia solicitada
+É possível executar várias operações de cópia, uma após a outra de maneira sequencial/ordenada. Digamos que você tenha duas atividades de cópia em um pipeline: CopyActivity1 e CopyActivity com os conjuntos de dados de saída dos dados de entrada a seguir.
+
+CopyActivity1: Entrada: Dataset1 Saída Dataset2
+
+CopyActivity2: Entradas: Dataset2 Saída Dataset4
+
+CopyActivity2 seria executado somente se CopyActivity1 tivesse sido executado com êxito e Dataset2 estivesse disponível.
+
+No exemplo acima, CopyActivity2 pode ter uma entrada diferente, digamos Dataset3, mas você precisará especificar Dataset2 também como uma entrada para CopyActivity2 para que a atividade não seja executada até que CopyActivity1 seja concluído. Por exemplo:
+
+CopyActivity1: Entrada: Dataset1 Saída Dataset2
+
+CopyActivity2: Entradas: Dataset3, Dataset2 Saída: Dataset4
+
+Quando várias entradas forem especificadas, somente o primeiro conjunto de dados de entrada será usado para copiar dados, mas outros conjuntos de dados serão usados como dependências. CopyActivity2 começaria executando apenas quando as seguintes condições fossem atendidas:
+
+- CopyActivity2 foi concluído com êxito e Dataset2 está disponível. Esse conjunto de dados não será usado ao copiar dados para Dataset4. Ele atua apenas como uma dependência de agendamento de CopyActivity2.   
+- Dataset3 está disponível. Esse conjunto de dados representa os dados que são copiados para o destino.  
+
 
 ### Desempenho e Ajuste da Atividade de Cópia 
 Confira o artigo [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) que descreve os principais fatores que afetam o desempenho da movimentação de dados (Atividade de Cópia) no Azure Data Factory. Ele também lista o desempenho observado durante os testes internos e discute várias maneiras de otimizar o desempenho da Atividade de Cópia.
 
-<!---HONumber=AcomDC_0309_2016-->
+
+## Assistente de Cópia do Data Factory
+O **Assistente de Cópia do Data Factory** permite que você crie um pipeline para copiar dados de fontes com suporte para destinos sem escrever definições de JSON para serviços vinculados, conjuntos de dados e pipelines. Para inicializar o Assistente de Cópia, clique no bloco **Copiar dados** na página inicial de sua data factory.
+
+![Assistente de cópia de dados](./media/data-factory-data-movement-activities/copy-data-wizard.png)
+
+### Recursos
+
+#### Um assistente intuitivo e simples para copiar dados 
+Este assistente permite mover dados facilmente de uma origem para um destino em minutos com estas etapas simples:
+
+1.	Selecionar a **origem**
+2.	Selecionar o **destino**
+3.	Definir as **configurações**
+
+![Selecione uma fonte de dados](./media/data-factory-data-movement-activities/select-data-source-page.png)
+
+#### Exploração de dados avançados e mapeamentos de esquema
+Você pode procurar tabelas/pastas, visualizar dados, mapear esquema, validar expressões e executar transformações de dados simples no assistente.
+
+**Procurar tabelas/pastas** ![Procurar tabelas e pastas](./media/data-factory-data-movement-activities/browse-tables-folders.png)
+
+#### Experiência escalonável para tipos de dados e objetos diversificados
+A experiência foi projetada tendo em mente Big Data desde o início. É simples e eficiente de criar pipelines de Data Factory que movem centenas de pastas, arquivos ou tabelas.
+
+**Visualizar dados, mapear esquemas e executar transformações simples** ![Configurações de formato de arquivo](./media/data-factory-data-movement-activities/file-format-settings.png) ![Mapeamento de esquema](./media/data-factory-data-movement-activities/schema-mapping.png) ![Validar expressões](./media/data-factory-data-movement-activities/validate-expressions.png)
+
+#### Experiência escalonável para tipos de dados e objetos diversificados
+A experiência foi projetada tendo em mente Big Data desde o início. Mover centenas de pastas, arquivos ou tabelas é simples e eficiente usando o Assistente de Cópia.
+
+![Selecionar tabelas para copiar dados](./media/data-factory-data-movement-activities/select-tables-to-copy-data.png)
+
+#### Opções de agendamento mais avançadas
+Você pode executar a operação de cópia apenas uma vez ou segundo um agendamento (por hora, por dia etc...). Ambas as opções podem ser usadas para a variedade de conectores em cópias de área de trabalho local, da nuvem e locais. A cópia única permite a movimentação de dados de uma origem para um destino apenas uma vez e aplica-se a dados de qualquer tamanho e quaisquer formatos com suporte. A cópia programada permite copiar dados com uma recorrência definida. Você pode aproveitar as configurações avançadas (como repetição, tempo limite, alertas etc.) para configurar a cópia programada.
+
+![Propriedades de agendamento](./media/data-factory-data-movement-activities/scheduling-properties.png)
+
+
+### Experimentar 
+Para uma explicação rápida sobre a utilização do **Assistente de Cópia do Data Factory** para criar um pipeline com uma atividade de cópia, consulte [Tutorial: criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md).
+
+
+### Variáveis no caminho da pasta de Blob do Azure
+Você pode usar variáveis no caminho da pasta para copiar dados de uma pasta que é determinada em tempo de execução com base na [variável de sistema WindowStart](data-factory-functions-variables.md#data-factory-system-variables). As variáveis com suporte são: **ano**, **mês**, **dia**, **hora**, **minuto** e **{personalizado}**. Exemplo: pastadeentrada/{ano}/{mês}/{dia}.
+
+Suponha que você tenha pastas de entrada no seguinte formato:
+	
+	2016/03/01/01
+	2016/03/01/02
+	2016/03/01/03
+	...
+
+Clique no botão **Procurar** para o **Arquivo ou pasta**, navegue até uma dessas pastas, digamos 2016 -> 03 -> 01 -> 02 e clique em **Escolher**. Você verá **2016/03/01/02** na caixa de texto. Agora, substitua **2016** por **{ano}**, **03** por **{mês}**, **01** por **{dia}**, **02** por **{hora}** e pressione **TAB**. Você deve ver listas suspensas para selecionar o **formato** dessas quatro variáveis, conforme mostrado abaixo:
+
+![Usando variáveis de sistema](./media/data-factory-data-movement-activities/blob-standard-variables-in-folder-path.png)
+
+Você também pode usar uma variável **personalizada** conforme mostrado abaixo e usar qualquer [cadeia de caracteres com formato com suporte](https://msdn.microsoft.com/library/8kb3ddd4.aspx). Certifique-se de selecionar uma pasta com essa estrutura usando o botão Procurar primeiro, substitua um valor por **{personalizado}** e pressione **TAB** para ver a caixa de texto em que você pode digitar a cadeia de caracteres de formato.
+
+![Usando variáveis personalizadas](./media/data-factory-data-movement-activities/blob-custom-variables-in-folder-path.png)
+
+<!---HONumber=AcomDC_0316_2016-->

@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="03/15/2016"
+    ms.date="03/22/2016"
     ms.author="sstein"/>
 
 # Criar um pool de banco de dados elástico (C&#x23;)
@@ -25,6 +25,8 @@
 
 
 Saiba como criar um [pool de banco de dados elástico](sql-database-elastic-pool.md) usando C&#x23;.
+
+Para obter os códigos de erro comuns, veja [Códigos de erro de SQL para aplicativos cliente do Banco de Dados SQL: erro de conexão de banco de dados e outros problemas](sql-database-develop-error-messages.md).
 
 > [AZURE.NOTE] No momento, os pools de banco de dados elástico estão em visualização e disponíveis apenas com Servidores V12 do Banco de Dados SQL. Se você tiver um servidor de Banco de Dados SQL V11, poderá [usar o PowerShell para atualizar para o V12 e criar um pool](sql-database-upgrade-server-portal.md) em uma única etapa.
 
@@ -45,7 +47,7 @@ Os exemplos usam a [Biblioteca do Banco de Dados SQL para .NET](https://msdn.mic
         Properties = new ElasticPoolCreateOrUpdateProperties()
         {
             Edition = "Standard",
-            Dtu = 400
+            Dtu = 400,
             DatabaseDtuMin = 0,
             DatabaseDtuMax = 100
          }
@@ -106,13 +108,13 @@ Os exemplos usam a [Biblioteca do Banco de Dados SQL para .NET](https://msdn.mic
 ## Criar um exemplo de pool de banco de dados elástico C&#x23;
 
 
-As seguintes bibliotecas são necessárias para executar este exemplo. Você pode instalar executando o comando a seguir no[console do gerenciador de pacotes](http://docs.nuget.org/Consume/Package-Manager-Console) no Visual Studio (**Ferramentas** > **Gerenciador de Pacotes NuGet** > **Console do Gerenciador de Pacotes**)
+As seguintes bibliotecas são necessárias para executar este exemplo. Você pode instalar executando o comando a seguir no [console do gerenciador de pacotes](http://docs.nuget.org/Consume/Package-Manager-Console) no Visual Studio (**Ferramentas** > **Gerenciador de Pacotes NuGet** > **Console do Gerenciador de Pacotes**)
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
     PM> Install-Package Microsoft.Azure.Management.Resources –Pre
     PM> Install-Package Microsoft.Azure.Common.Authentication –Pre
 
-Crie um aplicativo de console e substitua o conteúdo de Program.cs pelo seguinte. Para obter a id do cliente necessária e os valores relacionados, consulte [Registrar seu aplicativo e obter os valores de cliente necessários para conectar seu aplicativo ao Banco de Dados SQL](sql-database-client-id-keys.md).
+Crie um aplicativo de console e substitua o conteúdo de Program.cs pelo seguinte. Para obter a ID do cliente necessária e os valores relacionados, consulte [Registrar seu aplicativo e obter os valores de cliente necessários para conectar seu aplicativo ao Banco de Dados SQL](sql-database-client-id-keys.md).
 
     using Microsoft.Azure;
     using Microsoft.Azure.Management.Resources;
@@ -268,7 +270,7 @@ Crie um aplicativo de console e substitua o conteúdo de Program.cs pelo seguint
 ## Próximas etapas
 
 - [Gerenciar o pool](sql-database-elastic-pool-manage-csharp.md)
-- [Criar trabalhos elásticos](sql-database-elastic-jobs-overview.md) Os trabalhos elásticos facilitam executar os scripts T-SQL em vários bancos de dados no pool.
+- [Criar trabalhos elásticos](sql-database-elastic-jobs-overview.md) Os trabalhos elásticos facilitam a execução dos scripts T-SQL em vários banco de dados no pool.
 
 
 ## Recursos adicionais
@@ -278,4 +280,4 @@ Crie um aplicativo de console e substitua o conteúdo de Program.cs pelo seguint
 - [APIs de Gerenciamento de Recursos do Azure.](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 - [Referência do Pool de Banco de Dados Elástico](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

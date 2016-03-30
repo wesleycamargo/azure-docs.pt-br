@@ -93,7 +93,10 @@ Cria uma solicitação "criar modelo".
 
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
-|	modelName |	Há permissão apenas para letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados (\_).<br>Comprimento máximo: 20 | | apiVersion | 1.0 | ||| | Corpo da Solicitação | NENHUM |
+|	modelName |	Há permissão apenas para letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados (\_).<br>Comprimento máximo: 20 | 
+| apiVersion | 1.0 | 
+||| 
+| Corpo da Solicitação | NENHUM |
 
 
 **Resposta**:
@@ -2940,7 +2943,8 @@ A resposta inclui uma entrada por item recomendado. Cada entrada tem os seguinte
 Veja um exemplo de resposta no 12.1
 
 ##13\. Histórico de uso do usuário
-Após a compilação de um modelo de recomendação, o sistema permitirá recuperar o histórico do usuário (os itens associados a um usuário específico) usado para a compilação. Essa API permite recuperar o histórico do usuário
+Após a compilação de um modelo de recomendação, o sistema permitirá recuperar o histórico do usuário (os itens associados a um usuário específico) usado para a compilação.
+Essa API permite recuperar o histórico do usuário
 
 Observação: o histórico do usuário está disponível atualmente apenas para compilações de recomendação.
 
@@ -3103,4 +3107,4 @@ Este documento não fornece a você nenhum direito legal a qualquer propriedade 
 © 2015 Microsoft. Todos os direitos reservados.
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->

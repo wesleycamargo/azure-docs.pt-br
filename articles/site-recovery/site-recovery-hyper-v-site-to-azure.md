@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="02/16/2016"
+	ms.date="03/15/2016"
 	ms.author="raynew"/>
 
 
@@ -38,7 +38,7 @@ Verifique se tudo está no lugar antes de começar.
 ### Pré-requisitos do Azure
 
 - Você precisará de uma conta do [Microsoft Azure](https://azure.microsoft.com/). Você pode começar com uma [avaliação gratuita](pricing/free-trial/).
-- Você precisará de uma conta de armazenamento do Azure para armazenar os dados replicados no Azure. A conta precisa estar com a replicação geográfica habilitada. Ela deve estar localizada na mesma região que o cofre do Azure Site Recovery e ser associada à mesma assinatura. [Saiba mais sobre o Armazenamento do Azure](../storage/storage-introduction.md).
+- Você precisará de uma conta de armazenamento do Azure para armazenar os dados replicados no Azure. A conta precisa estar com a replicação geográfica habilitada. Ela deve estar localizada na mesma região que o cofre do Azure Site Recovery e ser associada à mesma assinatura. Não há suporte para a movimentação de contas de armazenamento criadas usando o [novo Portal do Azure](../storage/storage-create-storage-account.md) entre grupos de recursos.[Saiba mais sobre o armazenamento do Azure](../storage/storage-introduction.md).
 - Você precisará de uma rede virtual do Azure para que as máquinas virtuais do Azure estejam conectadas a uma rede quando o failover de seu site primário for executado.
 
 ### Pré-requisitos do Hyper-V
@@ -50,7 +50,7 @@ Verifique se tudo está no lugar antes de começar.
 
 ### Pré-requisitos de máquina virtual
 
-As máquinas virtuais que você deseja proteger devem estar de acordo com os [Pré-requisitos para Máquinas Virtuais](site-recovery-best-practices.md#virtual-machines).
+As máquinas virtuais que você deseja proteger devem estar em conformidade com os [pré-requisitos para máquinas virtuais](site-recovery-best-practices.md#virtual-machines).
 
 ### Pré-requisitos de provedor e do agente
 
@@ -187,6 +187,9 @@ Em que os parâmetros incluem:
 
 	![Criar conta de armazenamento](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_CreateResources1.png)
 
+>[AZURE.NOTE] Não há suporte para a movimentação de contas de armazenamento criadas usando o [novo Portal do Azure](../storage/storage-create-storage-account.md) entre grupos de recursos.
+
+
 ## Etapa 5: criar e configurar grupos de proteção
 
 Grupos de proteção são agrupamentos lógicos de máquinas virtuais que você deseja proteger usando as mesmas configurações de proteção. Aplique as configurações de proteção em um grupo de proteção e essas configurações serão aplicadas em todas as máquinas virtuais que você adicionar ao grupo.
@@ -277,7 +280,7 @@ Execute o failover de teste da seguinte maneira:
 5. Após o failover, você poderá ver a réplica de teste da máquina virtual no portal do Azure. Se tiver configurado para máquinas virtuais de acesso a rede local, você pode iniciar uma conexão de área de trabalho remota para a máquina virtual.
 
 	1. Verificar se as máquinas virtuais foram iniciadas com êxito.
-    2. Se você quiser se conectar à máquina virtual no Azure usando a Área de trabalho remota após o failover, habilite a Conexão de Área de Trabalho Remota na máquina virtual antes de executar o teste de failover. Você também precisará adicionar um ponto de extremidade RDP na máquina virtual. Você pode aproveitar um [Runbook de Automação do Azure](site-recovery-runbook-automation.md) para fazer isso.
+    2. Se você quiser se conectar à máquina virtual no Azure usando a Área de trabalho remota após o failover, habilite a Conexão de Área de Trabalho Remota na máquina virtual antes de executar o teste de failover. Você também precisará adicionar um ponto de extremidade RDP na máquina virtual. Você pode aproveitar um [runbook de automação do Azure](site-recovery-runbook-automation.md) para fazer isso.
     3. Após o failover, se você usar um endereço IP público para se conectar à máquina virtual no Azure usando a Área de Trabalho Remota, verifique se você não tem qualquer política de domínio que impeça a conexão com uma máquina virtual usando um endereço público.
 
 6. Após a conclusão do teste, faça o seguinte:
@@ -295,4 +298,4 @@ Execute o failover de teste da seguinte maneira:
 
 Depois que a implantação é configurada e está em funcionamento, [saiba mais](site-recovery-failover.md) sobre o failover.
 
-<!----HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0316_2016-->

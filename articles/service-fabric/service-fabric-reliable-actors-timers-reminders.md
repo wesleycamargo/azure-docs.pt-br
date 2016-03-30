@@ -3,7 +3,7 @@
    description="Introdução a temporizadores e lembretes para Reliable Actors do Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="myamanbh"
    manager="timlt"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="03/15/2016"
    ms.author="amanbha"/>
 
 
@@ -114,4 +114,4 @@ Task reminderUnregistration = UnregisterReminder(reminder);
 
 Como mostrado acima, o método `UnregisterReminder` aceita uma interface `IActorReminder`. A classe base de ator oferece suporte a um método `GetReminder`, que pode ser usado para recuperar a interface `IActorReminder` passando-se o nome do lembrete. Isso é conveniente porque o ator não precisa manter a interface `IActorReminder` que foi retornada com a chamada do método `RegisterReminder`.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -39,7 +39,7 @@ Além dos pré-requisitos listados no tópico Visão Geral do Tutorial, você pr
 > [AZURE.IMPORTANT]
 Você deve concluir as etapas de pré-requisito na [Visão geral do tutorial](data-factory-build-your-first-pipeline.md) para fazer o passo a passo deste artigo.
 
-## Etapa 1: Criar o modelo do ARM
+## Criar um modelo ARM
 
 Crie um arquivo JSON denominado **ADFTutorialARM.json** na pasta **C:\\ADFGetStarted** com este conteúdo:
 
@@ -103,7 +103,7 @@ Clique na guia **Usando o Editor do Data Factory** para alternar para o artigo c
                                 "clusterSize": 4,
                                 "version":  "3.2",
             					"timeToLive": "00:05:00",
-                                "osType": "linux",
+                                "osType": "windows",
             					"linkedServiceName": "[variables('storageLinkedServiceName')]",
     						}
 	                    }
@@ -220,7 +220,7 @@ Clique na guia **Usando o Editor do Data Factory** para alternar para o artigo q
 
 Observe o seguinte:
 
-- O Data Factory cria um cluster HDInsight **baseado em Linux** para você com o JSON acima. Você também pode fazer com que ele crie um cluster HDInsight **baseado no Windows**. Confira [Serviço vinculado do HDInsight sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes. 
+- O Data Factory cria um cluster HDInsight **baseado no Windows** para você com o JSON acima. Você também pode fazer com que ele crie um cluster HDInsight **baseado em Linux**. Confira [Serviço vinculado do HDInsight sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes. 
 - Você pode usar **seu próprio cluster HDInsight** em vez de usar um cluster HDInsight sob demanda. Confira [Serviço vinculado do HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) para obter detalhes.
 - O cluster HDInsight cria um **contêiner padrão** no armazenamento de blobs especificado em JSON (**linkedServiceName**). O HDInsight não exclui esse contêiner quando o cluster é excluído. Esse comportamento é intencional. Com o serviço vinculado HDInsight sob demanda, um cluster HDInsight é criado sempre que uma fatia precisa ser processada, a menos que haja um cluster ativo existente (**timeToLive**), e é excluído quando o processamento é concluído.
 
@@ -230,7 +230,7 @@ Confira [Serviço vinculado do HDInsight sob demanda](data-factory-compute-linke
 
 > [AZURE.NOTE] Você pode encontrar outro exemplo de modelo ARM para criar um data factory do Azure no [Github](https://github.com/Azure/azure-quickstart-templates/blob/master/101-data-factory-blob-to-sql/azuredeploy.json).
 
-## Etapa 2: implantar as entidades do Data Factory usando o modelo do ARM
+## Criar um data factory
 
 1. Inicie o **Azure PowerShell** e execute o comando a seguir. 
 	- Execute **Login-AzureRmAccount** e insira o nome de usuário e a senha que você usa para entrar no Portal do Azure.  
@@ -239,7 +239,7 @@ Confira [Serviço vinculado do HDInsight sob demanda](data-factory-compute-linke
 
 		New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json
 
-## Monitorar o Pipeline
+## Monitorar o pipeline
  
 1.	Depois de fazer logon no [Portal do Azure](https://portal.azure.com/), clique em **Procurar** e selecione **Data factories**. ![Procurar-> Data factories](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
 2.	Na folha **Data Factories**, clique no data factory (**TutorialFactoryARM**) que você criou.	
@@ -256,4 +256,4 @@ Confira [Serviço vinculado do HDInsight sob demanda](data-factory-compute-linke
 10. Quando a fatia estiver no estado **Pronto**, verifique a pasta **partitioneddata** no contêiner **adfgetstarted** em seu armazenamento de blobs para os dados de saída.  
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

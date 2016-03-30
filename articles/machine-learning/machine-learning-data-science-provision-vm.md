@@ -125,7 +125,11 @@ Observação: você pode receber uma mensagem informando que o seu período de a
 Uma versão limitada do SQL Server também é fornecida com o Community Edition do Visual Studio. Você pode acessar o SQL Server iniciando o **SQL Server Management Studio**. O nome da VM será populado como o Nome do Servidor. Use a Autenticação do Windows quando estiver conectado como o administrador no Windows. Quando estiver no SQL Server Management Studio, você pode criar outros usuários, criar bancos de dados, importar dados e executar consultas SQL.
 
 ### As tabelas 
-Várias ferramentas do Azure são instaladas na VM: – Há um atalho da área de trabalho para acessar a documentação do SDK do Azure. – O **AzCopy** é usado para mover dados para dentro e para fora de sua Conta do Armazenamento do Microsoft Azure. – O **Gerenciador de Armazenamento do Azure** é usado para percorrer os objetos armazenados em sua Conta do Armazenamento do Azure. – O **Microsoft Azure Powershell** é uma ferramenta usada para administrar seus recursos do Azure em uma linguagem de script no PowerShell que também está instalada em sua VM.
+Várias ferramentas do Azure são instaladas na VM:
+- Há um atalho da área de trabalho para acessar a documentação do SDK do Azure. 
+- **AzCopy**, usado para mover dados para dentro e fora de sua conta de Armazenamento do Microsoft Azure. 
+- **Gerenciador de Armazenamento do Azure**, usado para percorrer os objetos armazenados em sua Conta de Armazenamento do Azure. 
+- **Microsoft Azure PowerShell** - uma ferramenta usada para administrar os recursos do Azure na linguagem de script do PowerShell também é instalada em sua VM. 
 
 ###Power BI
 
@@ -140,8 +144,9 @@ O [**Microsoft Web Platform Installer**](https://www.microsoft.com/web/downloads
 Veja algumas das próximas etapas para continuar sua aprendizagem e exploração.
 
 * Explore as várias ferramentas de ciência de dados na VM de ciência de dados clicando no menu Iniciar e conferindo as ferramentas listadas no menu
-* Navegue até **C:\\Arquivos de Programas\\Microsoft\\MRO-for-RRE\\8.0\\R-3.2.2\\library\\RevoScaleR\\demoScripts** para obter exemplos de uso da biblioteca RevoScaleR em R que oferece suporte à análise de dados em escala empresarial.  
+* Navegue até **C:\\Arquivos de Programas\\Microsoft\\MRO-for-RRE\\8.0\\R-3.2.2\\library\\RevoScaleR\\demoScripts** para obter exemplos de uso da biblioteca RevoScaleR no R, que oferece suporte à análise de dados em escala empresarial.  
+* Leia o artigo: [Dez coisas que você pode fazer na Máquina Virtual de Ciência de Dados](http://aka.ms/dsvmtenthings)
 * Aprenda a compilar sistematicamente soluções completas de análise usando o [Processo de ciência de dados](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)
 * Visite a [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com) para obter exemplos de análise de dados e de aprendizado de máquina que usam o Cortana Analytics Suite. Também fornecemos um ícone no menu Iniciar e na área de trabalho na máquina virtual para facilitar o acesso 
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

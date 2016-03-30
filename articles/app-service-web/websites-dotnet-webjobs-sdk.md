@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
+	ms.date="03/14/2016" 
 	ms.author="tdykstra"/>
 
 # O que é o SDK de Trabalhos Web do Azure
@@ -180,4 +180,4 @@ Para obter mais informações sobre o SDK de Trabalhos Web, consulte [Recursos r
 Para saber mais sobre os aprimoramentos mais recentes do WebJobs SDK, confira as [Notas de versão](https://github.com/Azure/azure-webjobs-sdk/wiki/Release-Notes).
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0316_2016-->

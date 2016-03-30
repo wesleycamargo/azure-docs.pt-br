@@ -46,9 +46,9 @@ curl localhost/marathon/v2/apps
 {"apps":[]}
 ```
 
-## Como implantar um contêiner do Docker
+## Implantação de um contêiner formatado do Docker
 
-Os contêineres do Docker são implantados por meio do Marathon usando um arquivo json que descreve a implementação planejada. O exemplo a seguir implantará o contêiner nginx, associando a porta 80 do agente Mesos à porta 80 do contêiner.
+Os contêineres formatados do Docker são implantados por meio do Marathon usando um arquivo json que descreve a implementação planejada. O exemplo a seguir implantará o contêiner nginx, associando a porta 80 do agente Mesos à porta 80 do contêiner.
 
 ```json
 {
@@ -69,7 +69,7 @@ Os contêineres do Docker são implantados por meio do Marathon usando um arquiv
 }
 ```
 
-Para implantar um contêiner do Docker, crie seu próprio arquivo json ou use o exemplo fornecido aqui - [Demonstração do ACS do Azure](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json) e armazene-o em um local acessível. Depois, execute o comando a seguir, especificando o nome do arquivo json, para implantar o contêiner.
+Para implantar um contêiner formatado do Docker, crie seu próprio arquivo json ou use o exemplo fornecido aqui - [Demonstração do ACS do Azure](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json) e armazene-o em um local acessível. Depois, execute o comando a seguir, especificando o nome do arquivo json, para implantar o contêiner.
 
 ```
 curl -X POST http://localhost/marathon/v2/groups -d @marathon.json -H "Content-type: application/json"
@@ -87,7 +87,7 @@ Agora, se você consultar o Marathon em busca de aplicativos, esse novo aplicati
 curl localhost/marathon/v2/apps
 ```
 
-## Dimensionar um contêiner do Docker
+## Dimensionar seus contêineres
 
 A API do Marathon também pode ser usada para expandir ou reduzir as implantações de aplicativos. No exemplo anterior, uma instância de um aplicativo foi implantada. Vamos expandir isso para três instâncias. Para fazer isso, crie um arquivo json com o texto json a seguir e armazene-o em um local acessível.
 
@@ -119,7 +119,7 @@ Para obter informações sobre o cluster Mesos, como nomes e status de agentes, 
 Invoke-WebRequest -Uri http://localhost/mesos/master/slaves
 ```
 
-Os contêineres do Docker são implantados por meio do Marathon usando um arquivo json que descreve a implementação planejada. O exemplo a seguir implantará o contêiner nginx, associando a porta 80 do agente Mesos à porta 80 do contêiner.
+Os contêineres no formato do Docker são implantados por meio do Marathon usando um arquivo json que descreve a implementação planejada. O exemplo a seguir implantará o contêiner nginx, associando a porta 80 do agente Mesos à porta 80 do contêiner.
 
 ```json
 {
@@ -160,4 +160,4 @@ Execute o comando a seguir para expandir o aplicativo.
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->
