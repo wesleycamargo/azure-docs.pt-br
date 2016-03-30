@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/09/2016"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Apontar um domínio de Internet da empresa para um Domínio do Gerenciador de Tráfego do Azure.
@@ -35,4 +35,4 @@ Todas as solicitações de tráfego para *www.contoso.com* agora serão direcion
 
 [Gerenciador de Tráfego - Desabilitar ou habilitar um ponto de extremidade](disable-or-enable-an-endpoint.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

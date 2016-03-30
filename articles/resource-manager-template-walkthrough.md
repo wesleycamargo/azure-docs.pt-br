@@ -308,7 +308,7 @@ Você criará duas interfaces de rede, uma para cada VM. Em vez de precisar incl
 ```
 
 ## Máquina Virtual
-Você criará duas máquinas virtuais usando a função copyindex(), como fez na criação das [interfaces de rede](#network-interface). A criação da VM depende da conta de armazenamento, da interface de rede e do conjunto de disponibilidade. Essa VM será criada a partir de uma imagem do marketplace, conforme definido na propriedade `storageProfile` - `imageReferece` é usada para definir o editor de imagem, oferta, sku e versão. Por fim, um perfil de diagnóstico é configurado para habilitar o diagnóstico para a VM.
+Você criará duas máquinas virtuais usando a função copyindex(), como fez na criação das [interfaces de rede](#network-interface). A criação da VM depende da conta de armazenamento, da interface de rede e do conjunto de disponibilidade. Essa VM será criada a partir de uma imagem do marketplace, conforme definido na propriedade `storageProfile` - `imageReference` é usada para definir o editor de imagem, oferta, sku e versão. Por fim, um perfil de diagnóstico é configurado para habilitar o diagnóstico para a VM.
 
 Para localizar as propriedades relevantes para uma imagem do marketplace, siga o artigo [Pesquisa da VM](./virtual-machines/resource-groups-vm-searching.md). Para as imagens publicadas por terceiros, você precisará especificar outra propriedade denominada `plan`. Um exemplo pode ser encontrado em [este modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic) na galeria de início rápido.
 
@@ -503,4 +503,4 @@ Você concluiu a criação do seu modelo e está pronto para a implantação.
 - Para saber mais sobre a estrutura de um modelo, consulte [Criação de modelos do Azure Resource Manager](resource-group-authoring-templates.md).
 - Para saber mais sobre como implantar um modelo, consulte [Implantar um Grupo de Recursos com o modelo do Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

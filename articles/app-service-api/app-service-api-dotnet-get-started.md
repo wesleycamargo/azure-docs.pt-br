@@ -271,7 +271,7 @@ Nesta seção, use as ferramentas do Azure integradas ao assistente **Publicar W
 
 	Um grupo de recursos é uma coleção de recursos do Azure, como aplicativos de API, bancos de dados, VMs e assim por diante. Para este tutorial, é melhor criar um novo grupo de recursos porque isso facilitará a exclusão de todos os recursos do Azure criados para o tutorial em uma única etapa.
 
-	Essa caixa permite que você selecione um [grupo de recursos](../azure-preview-portal-using-resource-groups.md) existente ou crie um novo digitando um nome diferente de qualquer grupo de recursos existente na assinatura.
+	Essa caixa permite que você selecione um [grupo de recursos](../azure-portal/resource-group-portal.md) existente ou crie um novo digitando um nome diferente de qualquer grupo de recursos existente na assinatura.
 
 4. Clique no botão **Novo** ao lado da lista suspensa **Plano do Serviço de Aplicativo**.
 
@@ -534,4 +534,4 @@ Para ver um exemplo de um modelo do Azure Resource Manager que define a propried
 
 Neste tutorial, você viu como criar aplicativos de API, implantar código neles, gerar código cliente para eles e consumi-los usando clientes .NET. O próximo tutorial na série de introdução aos Aplicativos de API mostra como [consumir aplicativos de API de clientes JavaScript usando CORS](app-service-api-cors-consume-javascript.md). Tutoriais subsequentes na série mostram como implementar a autenticação e a autorização.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

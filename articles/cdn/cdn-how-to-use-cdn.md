@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/25/2016"
+	ms.date="03/18/2016"
 	ms.author="casoper"/>
 
 
 # Usando a CDN para Azure
 
-A CDN (Rede de Distribuição de Conteúdo) do Azure é o bloco de construção fundamental para dimensionar qualquer aplicativo HTTP no Azure. Ele oferece aos clientes do Azure uma solução global armazenando em cache e entregando conteúdo próximo aos usuários finais. Como resultado, em vez de acessar a origem toda vez, as solicitações de usuário são inteligentemente roteadas para os POPs (pontos de presença) de borda da CDN com melhor desempenho. Isso aumenta significativamente o desempenho e a experiência do usuário. Para obter uma lista atual dos locais de nós CDN, consulte [Locais POP da CDN (Rede de Distribuição de Conteúdo) do Azure](cdn-pop-locations.md).
+A CDN (Rede de Distribuição de Conteúdo) do Azure é o bloco de construção fundamental para dimensionar qualquer aplicativo HTTP/HTTPS no Azure. Ele oferece aos clientes do Azure uma solução global armazenando em cache e entregando conteúdo próximo aos usuários finais. Como resultado, em vez de acessar a origem em todas as ocasiões, as solicitações de usuário são inteligentemente roteadas para o nó de borda CDN (POP ou Ponto de Presença) que ofereça a eles os melhores tempos de resposta. Isso aumenta significativamente o desempenho e a experiência do usuário. Para obter uma lista atual dos locais de nós CDN, consulte [Locais POP da CDN (Rede de Distribuição de Conteúdo) do Azure](cdn-pop-locations.md).
 
 Os benefícios do uso da CDN para armazenar dados do Azure em cache incluem:
 
@@ -149,4 +149,4 @@ A CDN do Microsoft Azure pode ser gerenciada de forma programática usando a [AP
 - [Limpar um ponto de extremidade CDN do Azure](cdn-purge-endpoint.md)
 - [API REST do Provedor de Recursos CDN](https://msdn.microsoft.com/library/mt634456.aspx)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

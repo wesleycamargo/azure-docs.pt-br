@@ -37,7 +37,7 @@ Para ver a interface do usuário do Marathon, navegue até http://localhost/Mara
 
 ![Criar implantação](media/ui2.png)
 
-## Implantar um contêiner do Docker
+## Implantar um contêiner formatado do Docker
 
 Para usar o Marathon para iniciar um novo contêiner no cluster Mesos, clique no botão `Create Application`. O formulário Novo Aplicativo é usado para definir os parâmetros de aplicativo ou contêiner. Neste exemplo, um único contêiner Nginx será implantado. Insira as seguintes informações. Clique em criar' quando tiver concluído.
  
@@ -56,11 +56,11 @@ Na página principal do Marathon, o status da implantação para o contêiner po
 
 ![Criar implantação](media/ui4.png)
 
-Se alternar de volta para o aplicativo Mesos (http://localhost/Mesos), agora você verá que uma tarefa, neste caso, um contêiner do Docker, está em execução no cluster Mesos. Você também pode ver o nó de cluster no qual a tarefa está em execução.
+Se alternar de volta para o aplicativo Mesos (http://localhost/Mesos), agora você verá que uma tarefa, neste caso, um contêiner formatado do Docker, está em execução no cluster Mesos. Você também pode ver o nó de cluster no qual a tarefa está em execução.
 
 ![Criar implantação](media/ui5.png)
 
-## Dimensionar um contêiner do Docker
+## Dimensionar seus contêineres
 
 A interface do usuário da Web do Marathon também pode ser usada para dimensionar a contagem de instâncias de um contêiner. Para fazer isso, navegue até a página do Marathon, selecione o contêiner que deseja dimensionar e clique no botão `scale`. Na janela Dimensionar Aplicativo, insira o número da instância de contêiner desejado e selecione `Scale Application`.
 
@@ -70,4 +70,4 @@ Quando a operação de dimensionamento for concluída, você verá várias inst�
 
 ![Criar implantação](media/ui8.png)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

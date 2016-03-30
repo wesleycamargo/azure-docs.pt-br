@@ -23,7 +23,7 @@
 **Banco de dados individual**
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-get-started.md)
+- [Portal do Azure](sql-database-get-started.md)
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
@@ -34,7 +34,7 @@ Este tutorial do Banco de Dados SQL mostra como criar um primeiro banco de dados
 
 Você precisará de uma conta do Azure e uma assinatura antes de começar. Se não tiver uma, inscreva-se em uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-> [AZURE.NOTE] Este tutorial do Banco de Dados SQL abrange a configuração de um banco de dados usando o RDBMS (sistema de gerenciamento de banco de dados relacional) da Microsoft na nuvem, o Banco de Dados SQL do Azure. Outra opção é executar o SQL Server em uma Máquina Virtual do Azure. Consulte [Noções básicas sobre o Banco de Dados SQL e o SQL Server em VMs do Azure](data-management-azure-sql-database-and-sql-server-iaas.md) para obter uma comparação rápida, ou você pode consultar [Provisionar uma máquina virtual do SQL server](virtual-machines-provision-sql-server.md) para obter uma introdução a uma máquina virtual.
+> [AZURE.NOTE] Este tutorial do Banco de Dados SQL abrange a configuração de um banco de dados usando o RDBMS (sistema de gerenciamento de banco de dados relacional) da Microsoft na nuvem, o Banco de Dados SQL do Azure. Outra opção é executar o SQL Server em uma Máquina Virtual do Azure. Consulte [Noções básicas sobre o Banco de Dados SQL e o SQL Server em VMs do Azure](data-management-azure-sql-database-and-sql-server-iaas.md) para obter uma comparação rápida, ou você pode consultar [Provisionar uma máquina virtual do SQL server](../virtual-machines/virtual-machines-windows-classic-portal-sql.md) para obter uma introdução a uma máquina virtual.
 
 ## Etapa 1: Entrar e iniciar a configuração do banco de dados SQL
 1. Entre no [Portal do Azure](https://portal.azure.com/).
@@ -117,4 +117,4 @@ Agora que você concluiu este tutorial do Banco de Dados SQL e que criou um banc
 
 - Se deseja mover seus bancos de dados SQL Server local para o Azure, consulte [Migrando um banco de dados para o Banco de dados SQL do Azure](sql-database-cloud-migrate.md) para obter mais informações.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -18,9 +18,9 @@
 # Implantar e gerenciar um dispositivo virtual StorSimple no Azure
 
 > [AZURE.SELECTOR]
-- [Update 2](../articles/storsimple/storsimple-virtual-device-u2.md)
-- [Update 1](../articles/storsimple/storsimple-virtual-device-u1.md)
-- [GA Release](../articles/storsimple/storsimple-virtual-device.md)
+- [Atualização 2](../articles/storsimple/storsimple-virtual-device-u2.md)
+- [Atualização 1](../articles/storsimple/storsimple-virtual-device-u1.md)
+- [Versão de GA](../articles/storsimple/storsimple-virtual-device.md)
 
 ## Visão geral
 
@@ -77,7 +77,7 @@ Antes de provisionar o dispositivo virtual, você precisará fazer as seguintes 
 
 >[AZURE.IMPORTANT] **Verifique se a rede virtual está na mesma região das contas de armazenamento de nuvem que você pretende usar com o dispositivo virtual.**
 
-- É possível criar [Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-about.md) (servidores de host) na rede virtual que possam usar os volumes expostos pelo dispositivo virtual. Esses servidores devem atender aos seguintes requisitos:
+- É possível criar [Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-linux-about.md) (servidores de host) na rede virtual que possam usar os volumes expostos pelo dispositivo virtual. Esses servidores devem atender aos seguintes requisitos:
 	- Ser VMs do Windows ou do Linux com software Iniciador iSCSI instalado.
 	- Estar em execução na mesma rede virtual que o dispositivo virtual.
 	- Ser capaz de se conectar ao destino iSCSI do dispositivo virtual por meio do endereço IP interno do dispositivo virtual.
@@ -368,7 +368,7 @@ Para assistir a um vídeo que descreve como é possível restaurar um dispositiv
 
 Se você configurou previamente e usou um dispositivo virtual StorSimple, mas agora deseja parar de acumular encargos de computação para seu uso, poderá desligar o dispositivo virtual. Desligar o dispositivo virtual não exclui seu sistema operacional ou os discos de dados do armazenamento. Isso para o acúmulo de encargos em sua assinatura, mas os encargos de armazenamento para os discos de sistema operacional e de dados continuarão.
 
-Se você excluir ou desligar o dispositivo virtual, ele será exibido como **Offline** na página **Dispositivos** do serviço StorSimple Manager. Você pode optar por desativá-lo ou por excluí-lo como um dispositivo e se também desejar excluir os backups criados pelo dispositivo virtual. Para obter mais informações, consulte [Desativar e excluir um dispositivo StorSimple](storsimple-deactivate-and-delete-device.md).
+Se você excluir ou desligar o dispositivo virtual, ele será exibido como **Offline** na página **Dispositivos** do serviço StorSimple Manager. Você pode optar por desativá-lo ou por excluí-lo como um dispositivo e se também desejar excluir os backups criados pelo dispositivo virtual. Para saber mais, veja [Desativar e excluir um dispositivo StorSimple](storsimple-deactivate-and-delete-device.md).
 
 ### Para desligar o dispositivo virtual StorSimple
 
@@ -391,4 +391,4 @@ Se você excluir ou desligar o dispositivo virtual, ele será exibido como **Off
 
 Para administrar o dispositivo virtual, confira a lista detalhada dos fluxos de trabalho em [Administrar o dispositivo StorSimple usando o serviço StorSimple Manager](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

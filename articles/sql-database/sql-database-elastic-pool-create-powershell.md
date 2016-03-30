@@ -26,6 +26,8 @@
 
 Saiba como criar um [pool de banco de dados elástico](sql-database-elastic-pool.md) usando cmdlets do PowerShell
 
+Para obter os códigos de erro comuns, veja [Códigos de erro de SQL para aplicativos cliente do Banco de Dados SQL: erro de conexão de banco de dados e outros problemas](sql-database-develop-error-messages.md).
+
 > [AZURE.NOTE] No momento, os pools de banco de dados elástico estão em visualização e disponíveis apenas com Servidores V12 do Banco de Dados SQL. Se você tiver um servidor de Banco de Dados SQL V11, poderá [usar o PowerShell para atualizar para o V12 e criar um pool](sql-database-upgrade-server-portal.md) em uma única etapa.
 
 
@@ -35,7 +37,7 @@ Você precisa executar o Azure PowerShell 1.0 ou superior. Para obter informaç�
 
 ## Criar um pool de banco de dados elástico
 
-O cmdlet [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) cria um pool de banco de dados elástico.
+O cmdlet [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) cria um pool de banco de dados elásticos.
 
 	New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 
@@ -84,11 +86,11 @@ Essa script criará um novo servidor, para que quando ele solicitar um nome de u
 ## Próximas etapas
 
 - [Gerenciar o pool](sql-database-elastic-pool-manage-powershell.md)
-- [Criar trabalhos elásticos](sql-database-elastic-jobs-overview.md) Os trabalhos elásticos facilitam executar os scripts T-SQL em vários bancos de dados no pool.
+- [Criar trabalhos elásticos](sql-database-elastic-jobs-overview.md) Os trabalhos elásticos facilitam a execução dos scripts T-SQL em vários bancos de dados no pool.
 
 
 ## Referência de banco de dados elástico
 
-Para saber mais sobre pools de banco de dados elásticos e bancos de dados elásticos, confira a [Referência de bancos de dados elásticos](sql-database-elastic-pool-reference.md).
+Para saber mais sobre bancos de dados elásticos e sobre pools de banco de dados elásticos, confira a [Referência de banco de dados elásticos](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

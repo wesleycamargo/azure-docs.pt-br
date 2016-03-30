@@ -45,7 +45,7 @@ AGENTVMSIZE | Especifica o tamanho das máquinas virtuais do agente. Tenha cuida
 ADMINUSERNAME | Esse é o nome de usuário que será usado para uma conta em cada uma das máquinas virtuais e conjuntos de escala de máquina virtual no cluster do ACS.
 ORCHESTRATORTYPE| Selecione o orquestrador que você deseja usar no cluster do ACS.
 MASTERCOUNT | Esse é o número de Máquinas Virtuais a serem configuradas como mestres para o cluster. Você pode selecionar uma, mas isso não fornecerá resiliência no cluster e é recomendado apenas para fins de teste. O número recomendado para um cluster de produção seria três ou cinco. 
-SSHRSAPUBLICKEY | É necessário que você use o SSH para autenticação em relação às Máquinas Virtuais. Este é o local onde você adiciona a chave pública. É muito importante tomar cuidado ao colar o valor da chave nessa caixa. Alguns editores inserem quebras de linha no conteúdo; isso invalidará a chave. Verifique se a chave não tem quebras de linha e se inclui o prefixo 'ssh-rsa' e o sufixo 'username@domain'. Ele deve ser semelhante a 'ssh-rsa AAAAB3Nz...SNIPPEDCONTENT...UcyupgH azureuser@linuxvm'. Se precisar criar uma chave SSH, você encontrará orientação para o [Windows](../virtual-machines/virtual-machines-windows-use-ssh-key.md) e o [Linux](../virtual-machines/virtual-machines-linux-use-ssh-key.md) no site de documentação do Azure.
+SSHRSAPUBLICKEY | É necessário que você use o SSH para autenticação em relação às Máquinas Virtuais. Este é o local onde você adiciona a chave pública. É muito importante tomar cuidado ao colar o valor da chave nessa caixa. Alguns editores inserem quebras de linha no conteúdo; isso invalidará a chave. Verifique se a chave não tem quebras de linha e se inclui o prefixo 'ssh-rsa' e o sufixo 'username@domain'. Ele deve ser semelhante a 'ssh-rsa AAAAB3Nz...SNIPPEDCONTENT...UcyupgH azureuser@linuxvm'. Se precisar criar uma chave SSH, você encontrará diretrizes para o [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) e o [Linux](../virtual-machines/virtual-machines-linux-ssh-from-linux.md) no site de documentação do Azure.
   
 Após definir os valores apropriados para os parâmetros, clique em OK. Em seguida, forneça um nome de grupo de recursos, selecione uma região e examine e concorde com os termos legais.
 
@@ -123,14 +123,14 @@ Um arquivo de parâmetros de exemplo chamado `azuredeploy.parameters.json` pode 
  
 ## Criar um serviço usando o PowerShell
 
-Um cluster do ACS também pode ser implantado com o PowerShell. Este documento é baseado na versão 1.0 e posterior do [módulo PowerShell](https://azure.microsoft.com/blog/azps-1-0/) do Azure.
+Um cluster do ACS também pode ser implantado com o PowerShell. Este documento se baseia na versão 1.0 e posterior do [módulo PowerShell](https://azure.microsoft.com/blog/azps-1-0/) do Azure.
 
 Selecione um dos modelos a seguir para implantar um cluster Mesos ou Docker Swarm. **Observação** - ambos os modelos são iguais, exceto pela seleção do orquestrador padrão.
  
 * Mesos: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
 * Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
 
-Antes de criar um cluster em sua assinatura do Azure, verifique se sua sessão do PowerShell foi conectada no Azure. Isso pode ser feito com o comando `Get-AzureRMSubscription`.
+Antes de criar um cluster em sua assinatura do Azure, verifique se sua sessão do PowerShell foi conectada no Azure. Isso pode ser concluído com o comando `Get-AzureRMSubscription`.
 
 ```powershell
 Get-AzureRmSubscription
@@ -156,12 +156,12 @@ New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESO
  
 ### Fornecer parâmetros de modelo
  
-Se estiver familiarizado com o PowerShell, você saberá que pode percorrer os parâmetros disponíveis para um cmdlet digitando um sinal de subtração (-) e, em seguida, pressionando a tecla TAB. Essa mesma funcionalidade também funciona com os parâmetros definidos no modelo. Logo que você digitar o nome do modelo, o cmdlet buscará o modelo, analisará os parâmetros e adicionará os parâmetros do modelo ao comando dinamicamente. Isso facilita muito a especificação dos valores de parâmetros do modelo. E, se você esquecer um valor de parâmetro necessário, o PowerShell solicitará o valor.
+Se estiver familiarizado com o PowerShell, você saberá que pode percorrer os parâmetros disponíveis para um cmdlet digitando um sinal de subtração (-) e, em seguida, pressionando a tecla TAB. Essa mesma funcionalidade também funciona com os parâmetros definidos no modelo. Assim que você digitar o nome do modelo, o cmdlet buscará o modelo, o analisará os parâmetros e adicionará dinamicamente os parâmetros do modelo ao comando. Isso facilita muito a especificação dos valores de parâmetros do modelo. E, se você esquecer um valor de parâmetro necessário, o PowerShell solicitará o valor.
  
 Veja abaixo o comando completo com os parâmetros incluídos. Você pode fornecer seus próprios valores para os nomes dos recursos.
 
 ```
-New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE\_GROUP\_NAME-TemplateURI TEMPLATE\_URI -adminuser value1 -adminpassword value2 ....
+New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-TemplateURI TEMPLATE_URI -adminuser value1 -adminpassword value2 ....
 ```
  
 ## Próximas etapas
@@ -173,4 +173,4 @@ Agora que você tem um cluster em funcionamento, acesse estes documentos para ob
 
  
 
-<!-----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

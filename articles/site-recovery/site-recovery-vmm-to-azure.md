@@ -13,10 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/15/2016"
+	ms.date="02/16/2016"
 	ms.author="raynew"/>
 
 #  Replicar máquinas virtuais Hyper-V em nuvens VMM para o Azure
+
+> [AZURE.SELECTOR]
+- [Portal Clássico do Azure](site-recovery-vmm-to-azure.md)
+- [PowerShell - clássico](site-recovery-deploy-with-powershell.md)
+- [PowerShell – Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md) 
+
 
 O Azure Site Recovery contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) administrando a replicação, o failover e a recuperação de máquinas virtuais e servidores físicos. As máquinas podem ser replicadas no Azure ou em um datacenter local secundário. Para uma breve visão geral, leia [O que é o Azure Site Recovery?](site-recovery-overview.md).
 
@@ -43,7 +49,7 @@ Veja o que será necessário no Azure.
 **Pré-requisito** | **Detalhes**
 --- | ---
 **Conta do Azure**| Você precisará de uma conta do [Microsoft Azure](https://azure.microsoft.com/). Você pode começar com uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/). [Saiba mais](https://azure.microsoft.com/pricing/details/site-recovery/) sobre os preços da Recuperação de Site. 
-**Armazenamento do Azure** | Você precisará de uma conta de armazenamento do Azure para armazenar os dados replicados no Azure. Os dados replicados são armazenados no armazenamento do Azure e as VMs do Azure se adaptam quando ocorre failover. <br/><br/>Você precisa de um [conta de armazenamento com redundância geográfica padrão](../storage/storage-redundancy.md#geo-redundant-storage). Ela deve estar localizada na mesma região que o serviço de Recuperação de Site e associada à mesma assinatura. Observe que atualmente não há suporte para a replicação em contas de armazenamento premium, portanto, ela não deve ser usada. Não há suporte para a movimentação de contas de armazenamento criadas usando o [novo Portal do Azure](../storage/storage-create-storage-account.md) entre grupos de recursos.<br/><br/>[Leia sobre](../storage/storage-introduction.md) armazenamento do Azure.
+**Armazenamento do Azure** | Você precisará de uma conta de armazenamento do Azure para armazenar os dados replicados no Azure. Os dados replicados são armazenados no armazenamento do Azure e as VMs do Azure se adaptam quando ocorre failover. <br/><br/>Você precisa de uma [conta de armazenamento com redundância geográfica padrão](../storage/storage-redundancy.md#geo-redundant-storage). Ela deve estar localizada na mesma região que o serviço de Recuperação de Site e associada à mesma assinatura. Observe que, atualmente, não há suporte para a replicação em contas de armazenamento premium, então ela não deve ser usada.<br/><br/>[Leia sobre o](../storage/storage-introduction.md) armazenamento do Azure.
 **Rede do Azure** | Você precisará de uma rede virtual do Azure com a qual as máquinas virtuais do Azure se conectarão quando ocorrer failover. A rede virtual do Azure deve estar na mesma região que o cofre de Recuperação de Site. 
 
 ## Pré-requisitos do local
@@ -132,12 +138,12 @@ Gere uma chave de registro no cofre. Após baixar o Provedor do Azure Site Recov
 	- Se quiser usar um proxy personalizado, você deverá configurá-lo antes de instalar o provedor. Quando você definir as configurações personalizadas de proxy, será executado um teste para verificar a conexão proxy.
 	- Se usar um proxy personalizado ou se seu proxy padrão exigir autenticação, você precisará inserir os detalhes do proxy, incluindo a porta e o endereço do proxy.
 	- As URLs a seguir devem estar acessíveis no servidor do VMM e nos hosts Hyper-V
-		- *.hypervrecoverymanager.windowsazure.com
-		- *.accesscontrol.windows.net
-		- *.backup.windowsazure.com
-		- *.blob.core.windows.net
-		- *.store.core.windows.net
-	- Permita os endereços IP descritos em [Intervalos de IP do armazenamento de dados do Azure](https://www.microsoft.com/download/details.aspx?id=41653) e o protocolo HTTPS (443). Você também deve fazer uma lista de intervalos IP válidos da região do Azure que você planeja usar e do oeste dos EUA.
+		- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+- Permita os endereços IP descritos em [Intervalos de IP do armazenamento de dados do Azure](https://www.microsoft.com/download/details.aspx?id=41653) e o protocolo HTTPS (443). Você também deve fazer uma lista de intervalos IP válidos da região do Azure que você planeja usar e do oeste dos EUA.
 
 	- Se você usar um proxy personalizado, uma conta RunAs VMM (DRAProxyAccount) será criada automaticamente usando as credenciais de proxy especificadas. Configure o servidor proxy para que essa conta possa ser autenticada com êxito. As configurações da conta RunAs VMM podem ser modificadas no console do VMM. Para fazer isso, abra o espaço de trabalho Configurações, expanda Segurança, clique em contas Executar como e modifique a senha de DRAProxyAccount. Você precisará reiniciar o serviço VMM para que essa configuração entre em vigor.
 
@@ -196,8 +202,6 @@ Em que parâmetros são os seguintes:
 
 	![Conta de armazenamento](./media/site-recovery-vmm-to-azure/storage.png)
 
->[AZURE.NOTE] Não há suporte para a movimentação de contas de armazenamento criadas usando o [novo Portal do Azure](../storage/storage-create-storage-account.md) entre grupos de recursos..
-
 ## Etapa 5: instalar o Agente de Serviços de Recuperação do Azure
 
 Instale o agente de Serviços de Recuperação do Azure em cada servidor host Hyper-V na nuvem VMM.
@@ -231,14 +235,11 @@ Após o registro do servidor VMM, você poderá definir as configurações de pr
 1. Na página de Início Rápido, clique em **Configurar a proteção para nuvens VMM**.
 2. Na guia **Itens Protegidos**, clique na nuvem que você deseja configurar e vá até a guia **Configuração**.
 3. Em **Destino**, selecione **Azure**.
-4. Em **Conta de Armazenamento**, selecione a conta de armazenamento do Azure usada para replicação. 
-
-	>[AZURE.NOTE] Não há suporte para a movimentação de contas de armazenamento criadas usando o [novo Portal do Azure](../storage/storage-create-storage-account.md) entre grupos de recursos..
-
+4. Em **Conta de Armazenamento**, selecione a conta de armazenamento do Azure usada para replicação.
 5. Defina **Criptografar dados armazenados** como **Desligado**. Essa configuração especifica que os dados podem ser criptografados e replicados entre o site local e o Azure.
 6. Em **Copiar frequência**, mantenha a configuração padrão. Esse valor especifica a frequência com que dados devem ser sincronizados entre os locais de origem e de destino.
 7. Em **Manter pontos de recuperação para**, mantenha a configuração padrão. Com um valor padrão de zero, apenas o ponto de recuperação mais recente para uma máquina virtual primária é armazenado em um servidor de host de réplica.
-8. Em **Frequência dos Instantâneos Consistentes de Aplicativo**, mantenha a configuração padrão. Esse valor especifica a frequência de criação de snapshots. Os snapshots usam o Volume Shadow Copy Service (VSS) para garantir que os aplicativos estejam em um estado consistente quando o instantâneo é obtido. Se você definir um valor, certifique-se de que ele seja menor que o número dos pontos de recuperação adicionais que você configurar.
+8. Em **Frequência dos instantâneos consistentes de aplicativo**, mantenha a configuração padrão. Esse valor especifica a frequência de criação de snapshots. Os snapshots usam o Volume Shadow Copy Service (VSS) para garantir que os aplicativos estejam em um estado consistente quando o instantâneo é obtido. Se você definir um valor, certifique-se de que ele seja menor que o número dos pontos de recuperação adicionais que você configurar.
 9. Em **Hora de início para replicação**, especifique quando a replicação inicial dos dados para o Azure deve começar. O fuso horário do servidor de host Hyper-V será usado. Recomendamos que você agende a replicação inicial fora dos horários de pico.
 
 	![Configurações de replicação de nuvem](./media/site-recovery-vmm-to-azure/cloud-settings.png)
@@ -289,18 +290,21 @@ Depois de redes, servidores e nuvens estarem configurados corretamente, você po
 
 	![Verificar as máquinas virtuais](./media/site-recovery-vmm-to-azure/vm-properties.png)
 
+
 4. Na guia **Configurar** das propriedades da máquina virtual, as seguintes propriedades de rede podem ser modificadas.
 
 
 
-- **Número de adaptadores de rede na máquina virtual de destino** - o número de adaptadores de rede é determinado pelo tamanho especificado para a máquina virtual de destino. Verifique as [especificações de tamanho de máquina virtual](../virtual-machines/virtual-machines-size-specs.md#size-tables) para saber o número de adaptadores com suporte pelo tamanho da máquina virtual. Quando você altera a dimensão de uma máquina virtual e salva as configurações, o número do adaptador de rede é alterado na próxima vez em que você abrir a página **Configurar**. O número de adaptadores de rede de máquinas virtuais de destino é o número mínimo de adaptadores de rede na máquina virtual de origem e o número máximo de adaptadores de rede compatíveis com o tamanho da máquina virtual selecionada, conforme indicado a seguir:
+
+
+- **Número de adaptadores de rede na máquina virtual de destino** - o número de adaptadores de rede é determinado pelo tamanho especificado para a máquina virtual de destino. Verifique as [especificações de tamanho de máquina virtual](../virtual-machines/virtual-machines-linux-sizes.md#size-tables) para saber o número de adaptadores com suporte pelo tamanho da máquina virtual. Quando você altera a dimensão de uma máquina virtual e salva as configurações, o número do adaptador de rede é alterado na próxima vez em que você abrir a página **Configurar**. O número de adaptadores de rede de máquinas virtuais de destino é o número mínimo de adaptadores de rede na máquina virtual de origem e o número máximo de adaptadores de rede compatíveis com o tamanho da máquina virtual selecionada, conforme indicado a seguir:
 
 	- Se o número de adaptadores de rede na máquina de origem for menor ou igual ao número de adaptadores permitido para o tamanho da máquina de destino, o destino terá o mesmo número de adaptadores que a origem.
 	- Se o número de adaptadores para máquina virtual de origem exceder o número permitido para o tamanho de destino e o tamanho máximo de destino será usado.
 	- Por exemplo, se uma máquina de origem tiver dois adaptadores de rede e o tamanho da máquina de destino der suporte a quatro, a máquina de destino terá dois adaptadores. Se a máquina de origem tiver dois adaptadores, mas o tamanho de destino com suporte oferecer suporte apenas a uma máquina de destino, ela terá apenas um adaptador. 	
 
 - **Rede da máquina virtual de destino** - a rede à qual a máquina virtual se conecta é determinada pelo mapeamento de rede da rede da máquina virtual de origem. Se a máquina virtual de origem tiver mais de um adaptador de rede e as redes de origem estarem mapeadas para diferentes redes no destino, você precisará escolher entre uma das redes de destino.
-- **Sub-rede de cada adaptador de rede** -para cada adaptador de rede, você pode selecionar a sub-rede à qual a máquina virtual com failover deve se conectar.
+- **Sub-rede de cada adaptador de rede** - para cada adaptador de rede, você pode selecionar a sub-rede à qual a máquina virtual com failover deve se conectar.
 - **Endereço IP de destino** - se o adaptador de rede da máquina virtual de origem estiver configurado para usar um endereço IP estático, você poderá fornecer o endereço IP da máquina virtual de destino. Use esse recurso para reter o endereço IP de uma máquina virtual de origem após um failover. Se nenhum endereço IP for fornecido, qualquer endereço IP disponível será fornecido ao adaptador de rede no momento do failover. Se o endereço IP de destino for especificado, mas já estiver sendo usado por outra máquina virtual em execução no Azure, o failover falhará.  
 
 	![Modificar propriedades de rede](./media/site-recovery-vmm-to-azure/multi-nic.png)
@@ -368,5 +372,4 @@ Para executar um failover de teste, faça o seguinte:
 
 Saiba mais sobre [como configurar planos de recuperação](site-recovery-create-recovery-plans.md) e [failover](site-recovery-failover.md).
 
-<!---HONumber=AcomDC_0316_2016-->
-
+<!---HONumber=AcomDC_0323_2016-->

@@ -7,14 +7,7 @@
 	manager="erikre"
 	editor=""/>
 
-<tags
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article" 
- 	ms.date="03/15/2016"" 
-	ms.author="juliako"/>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="03/18/2016"" ms.author="juliako"/>
 
 
 #Usando a PlayReady e/ou a Criptografia Comum Dinâmica Widevine
@@ -253,7 +246,8 @@ O exemplo a seguir demonstra a funcionalidade que foi introduzida na versão 3.5
 		                // Note, you need to pass the key id Guid because we specified 
 		                // TokenClaim.ContentKeyIdentifierClaim in during the creation of TokenRestrictionTemplate.
 		                Guid rawkey = EncryptionUtils.GetKeyIdAsGuid(key.Id);
-		                string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate, null, rawkey, DateTime.UtcNow.AddDays(365));
+		                string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate, null, rawkey, 
+																				DateTime.UtcNow.AddDays(365));
 		                Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
 		                Console.WriteLine();
 		            }
@@ -527,7 +521,13 @@ O exemplo a seguir demonstra a funcionalidade que foi introduzida na versão 3.5
 		            // Get the PlayReady license service URL.
 		            Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
 			    
-		            // Build the Widevine license service URL.
+			        // GetKeyDeliveryUrl for Widevine attaches the KID to the URL.
+			        // For example: https://amsaccount1.keydelivery.mediaservices.windows.net/Widevine/?KID=268a6dcb-18c8-4648-8c95-f46429e4927c.  
+			        // The WidevineBaseLicenseAcquisitionUrl (used below) also tells Dynamaic Encryption 
+			        // to append /? KID =< keyId > to the end of the url when creating the manifest.
+			        // As a result Widevine license aquisition URL will have KID appended twice, 
+			        // so we need to remove the KID that in the URL when we call GetKeyDeliveryUrl.
+			
 		            Uri widevineUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.Widevine);
 		            UriBuilder uriBuilder = new UriBuilder(widevineUrl);
 		            uriBuilder.Query = String.Empty;
@@ -623,4 +623,4 @@ O exemplo a seguir demonstra a funcionalidade que foi introduzida na versão 3.5
 
 [Anunciando os serviços de entrega de licenças do Google Widevine nos Serviços de Mídia do Azure](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

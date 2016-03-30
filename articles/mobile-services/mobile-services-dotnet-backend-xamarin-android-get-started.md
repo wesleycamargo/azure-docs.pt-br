@@ -18,14 +18,10 @@
 
 # <a name="getting-started"></a>Introdução aos Serviços Móveis
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
-&nbsp;
-
-
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
->[AZURE.TIP] Se você for iniciante no desenvolvimento para dispositivos móveis usando o Microsoft Azure, leia [introdução aos Aplicativos Móveis do Azure](../app-service-mobile/app-service-mobile-dotnet-backend-xamarin-android-get-started-preview.md) para usá-los em vez dos Serviços Móveis do Azure; isso dará a você [vantagens adicionais](app-service-mobile-value-prop-migration-from-mobile-services-preview.md).
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Para obter a versão de Aplicativos Móveis equivalente a este tópico, veja [Criar um aplicativo Xamarin.Android](../app-service-mobile/app-service-mobile-xamarin-android-get-started.md).
 
 Este tutorial mostra como adicionar um serviço de back-end baseado em nuvem a um aplicativo Xamarin Android usando os Serviços Móveis do Azure. Neste tutorial, você criará um novo serviço móvel e um aplicativo simples _To do list_ que armazena dados do aplicativo no novo serviço móvel. O serviço móvel que você criará usa as linguagens do .NET com suporte usando o Visual Studio para a lógica de negócios do lado do servidor e para gerenciar o serviço móvel. Para criar um serviço móvel que permita que você escreva a lógica de negócios do lado do servidor em JavaScript, consulte [Versão de back-end do JavaScript] neste tópico.
 
@@ -65,7 +61,7 @@ Nesta seção você baixará um novo aplicativo Xamarin Android e um projeto de 
 
 5. Em **Baixar e publicar seu serviço para nuvem**, selecione **Android** e clique em **Baixar**.
 
-  	Isso baixa uma solução que contém projetos para o serviço móvel e para o aplicativo de exemplo _To do list_ que está conectado ao seu serviço móvel. Salve o arquivo do projeto compactado em seu computador local e anote onde ele foi salvo.
+  	Isso baixa uma solução que contém projetos para o serviço móvel e para o aplicativo de exemplo _Lista de tarefas pendentes_ que está conectado ao seu serviço móvel. Salve o arquivo do projeto compactado em seu computador local e anote onde ele foi salvo.
 
 6. Baixe seu perfil de publicação, salve o arquivo baixado no computador local e anote o local onde o salvou.
 
@@ -141,4 +137,4 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->
