@@ -76,7 +76,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar o logon único](./media/active-directory-saas-gigya-tutorial/IC789529.png "Configurar o logon único")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon no Gigya**, digite a URL usando o padrão "**http://company.gigya.com*" e clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon no Gigya**, digite a URL usando o padrão "*http://company.gigya.com*" e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-gigya-tutorial/IC789530.png "Configurar a URL do Aplicativo")
 
