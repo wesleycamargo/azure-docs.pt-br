@@ -1,6 +1,6 @@
-    <properties
-	pageTitle="Create VM templates | Microsoft Azure"
-	description="Learn how to create VM templates from VHD images"
+<properties
+	pageTitle="Criar uma imagem personalizada do Laboratório de Desenvolvimento/Teste de um arquivo VHD | Microsoft Azure"
+	description="Saiba como criar uma imagem personalizada de um arquivo VHD, que possa ser usada para criar VMs em um Laboratório de Desenvolvimento/Teste"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,48 +13,44 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/30/2016"
+	ms.date="03/13/2016"
 	ms.author="tarcher"/>
 
-# Criar modelos de VM
+# Criar uma imagem personalizada do Laboratório de Desenvolvimento/Teste de um arquivo VHD
 
 ## Visão geral
 
-Depois que você tiver [criado um laboratório](devtest-lab-create-lab.md), é possível [adicionar VMs a esse laboratório](devtest-lab-add-vm-with-artifacts.md) a partir de uma lista de modelos de VM. Neste artigo, você aprenderá como carregar e configurar um arquivo de imagem de Disco Rígido Virtual (VHD) como um modelo do qual criar suas VMs. Se você não estiver familiarizado com imagens de VHD, veja o artigo [Criar e carregar um VHD do Windows Server no Azure](/virtual-machines/virtual-machines-create-upload-vhd-windows-server.md) para saber como criar uma imagem de VHD. Depois de criar ou obter acesso a uma imagem de VHD, este artigo o orientará você em relação a como carregá-la e criar um modelo a partir dela.
+Depois de [criar um Laboratório de Desenvolvimento/Teste](devtest-lab-create-lab.md), você poderá [adicionar VMs (máquinas virtuais) a esse laboratório](devtest-lab-add-vm-with-artifacts.md). Durante a criação de uma VM, você especifica uma *base*, que pode ser uma *imagem personalizada* ou uma *imagem do Marketplace*. Neste artigo, você verá como criar uma imagem personalizada de um arquivo VHD. Observe que você precisará acessar um arquivo VHD válido para executar todas as etapas deste artigo.
 
-## Criar um modelo de VM
+## Criar uma imagem personalizada
 
-1. Entre no [Portal de visualização do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 
 1. Toque em **Procurar** e toque em **Laboratórios de Desenvolvimento/Teste** na lista.
 
 1. Na lista de laboratórios, toque no laboratório desejado.
 
-1. Na folha de laboratório, toque **Configurações**.
+1. A folha **Configurações** do laboratório selecionado será exibida.
 
-    ![Configurações do laboratório](./media/devtest-lab-create-template/lab-blade-settings.png)
+1. Na folha **Configurações** do laboratório, toque em **Imagens Personalizadas**.
 
-1. Na folha **Configurações**, toque em **Modelos**.
+    ![Opção Imagens Personalizadas](./media/devtest-lab-create-template/lab-settings-custom-images.png)
 
-    ![Opção de modelos](./media/devtest-lab-create-template/lab-blade-settings-templates.png)
+1. Na folha **Imagens personalizadas**, toque em **+ Imagem Personalizada**.
 
-1. Na folha **Modelos**, toque em **+ Modelo**.
+    ![Imagem de Adicionar Personalizado](./media/devtest-lab-create-template/add-custom-image.png)
 
-    ![Adicionar modelo](./media/devtest-lab-create-template/add-template.png)
+1. Insira o nome da imagem personalizada. Esse nome é exibido na lista de imagens base durante a criação de uma nova VM.
 
-1. Na folha **Adicionar Modelo**:
+1. Insira a descrição da imagem personalizada. Essa descrição é exibida na lista de imagens base durante a criação de uma nova VM.
 
-	1. Digite o nome do modelo. Esse nome é exibido na lista de modelos ao criar uma nova VM.
+1. Toque em **Arquivo VHD**.
 
-	1. Insira a descrição do modelo. Essa descrição é exibida na lista de modelos ao criar uma nova VM.
+1. Se você tiver acesso a um arquivo VHD que não esteja listado, adicione-o seguindo as instruções da seção [Carregar um arquivo VHD](#upload-a-vhd-file) e volte para cá quando terminar.
 
-	1. Toque em **Imagem**.
+1. Selecione o arquivo VHD desejado.
 
-	1. Se a imagem desejada não estiver listada e você quiser adicioná-la, vá para a seção [Adicionar uma nova imagem de modelo](#add-a-new-template-image) e volte quando terminar.
-
-	1. Selecione o a imagem desejada.
-
-	1. Toque em **OK** para fechar a folha **Adicionar Modelo**.
+1. Toque em **OK** para fechar a folha **Arquivo VHD**.
 
 1. Toque em **Configuração do SO**.
 
@@ -62,28 +58,24 @@ Depois que você tiver [criado um laboratório](devtest-lab-create-lab.md), é p
 
 1. Se **Windows** for selecionado, especifique por meio da caixa de seleção se o *Sysprep* foi executado na máquina.
 
-1. Insira um **Nome de usuário** para a máquina.
-
-1. Insira uma **Senha** para a máquina. **Observação:** a senha será exibida em texto não criptografado.
-
 1. Toque em **OK** para fechar a folha **Configuração do SO**.
 
-1. Especifique o **Local**.
+1. Toque em **OK** para criar a imagem personalizada.
 
-1. Toque em **OK** para criar o modelo.
+1. Acesse a seção [Próximas etapas](#next-steps).
 
-##Adicionar uma nova imagem do modelo
+##Carregar um arquivo VHD
 
-Para adicionar uma nova imagem de modelo, você precisará ter acesso a um arquivo de imagem VHD.
+Para adicionar uma nova imagem personalizada, você precisará ter acesso a um arquivo VHD.
 
-1. Na folha **Adicionar Imagem de Modelo**, toque em **Carregar uma imagem usando o PowerShell**.
+1. Na folha **Arquivo VHD**, toque em **Carregar um arquivo VHD usando o PowerShell**.
 
     ![Carregar imagem](./media/devtest-lab-create-template/upload-image-using-psh.png)
 
-1. A próxima folha exibirá instruções para modificar e executar um script do PowerShell que carrega um arquivo de imagem VHD para sua assinatura do Azure. **Observação:** esse processo pode ser demorado, dependendo do tamanho do arquivo de imagem e da velocidade de conexão.
+1. A próxima folha exibirá instruções para modificar e executar um script do PowerShell que carrega um arquivo VHD em sua assinatura do Azure. **Observação:** esse processo pode ser demorado, dependendo do tamanho do arquivo VHD e da velocidade de conexão.
 
 ##Próximas etapas
 
-Depois de adicionar um modelo de VM para uso durante a criação de uma VM, a próxima etapa é [adicionar uma VM ao seu Laboratório de Desenvolvimento/Teste](devtest-lab-add-vm-with-artifacts).
+Depois de adicionar uma imagem personalizada para uso durante a criação de uma VM, a próxima etapa será [adicionar uma VM ao seu Laboratório de Desenvolvimento/Teste](./devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

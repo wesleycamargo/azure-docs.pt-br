@@ -1,7 +1,7 @@
 =======
 Entidade|Cota (oferta padrão)
 ---|---
-Contas de banco de dados*|5
+Contas de banco de dados*|50
 Número de bancos de dados por conta de banco de dados|100
 Número de usuários por conta de banco de dados — em todos os bancos de dados|500\.000
 Número de permissões por conta de banco de dados — em todos os bancos de dados|2\.000.000
@@ -30,4 +30,4 @@ Número máximo de operações de escala por minuto* |5
 
 Cotas listadas com um asterisco (*) [pode ser ajustado entrando em contato com o suporte do Azure](../articles/documentdb/documentdb-increase-limits.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

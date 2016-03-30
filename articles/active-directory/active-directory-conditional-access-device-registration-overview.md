@@ -1,7 +1,8 @@
 <properties
-	pageTitle="Visão geral do registro de dispositivos do Active Directory do Azure| Microsoft Azure"
+	pageTitle="Visão geral do registro de dispositivos do Azure Active Directory| Microsoft Azure"
 	description="é a base para cenários de acesso condicional com base no dispositivo. Quando um dispositivo é registrado, o registro de dispositivo do Active Directory do Azure provisiona o dispositivo com uma identidade que é usada para autenticar o dispositivo quando o usuário faz logon."
 	services="active-directory"
+	keywords="registro de dispositivo, habilitar o registro de dispositivo"
 	documentationCenter=""
 	authors="femila"
 	manager="stevenpo"
@@ -12,8 +13,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.topic="get-started-article"
+	ms.date="03/18/2016"
 	ms.author="femila"/>
 
 # Visão geral do registro de dispositivos do Active Directory do Azure
@@ -36,15 +37,16 @@ Você pode exibir e habilitar/desabilitar dispositivos registrados usando o Port
 
 ## Habilitar o registro de dispositivos do Active Directory do Azure
 A seção a seguir descreve como habilitar o serviço de registro de dispositivo do Active Directory do Azure para seu diretório.
-Habilitar serviço de registro de dispositivos do Active Directory do Azure
--------------------------------------------------------------
-1. Faça logon no Portal do Azure como um Administrador.
-1. No painel esquerdo, selecione **Active Directory**.
-1. Na guia **Diretório**, selecione o diretório.
-1. Selecione a guia **Configurar**.
-1. Role até a seção **Dispositivos**.
-1. Selecione **TODOS** para **USUÁRIOS PODEM USAR DISPOSITIVOS COM INGRESSO NO LOCAL DE TRABALHO**.
-1. Selecione o número máximo de dispositivos que deseja autorizar por usuário.
+
+###Habilitar serviço de registro de dispositivos do Active Directory do Azure
+
+1. Entre no portal do Azure como Administrador.
+2. No painel esquerdo, selecione **Active Directory**.
+3. Na guia **Diretório**, selecione o diretório.
+4. Selecione a guia **Configurar**.
+5. Role até a seção **Dispositivos**.
+6. Selecione **TODOS** para **USUÁRIOS PODEM USAR DISPOSITIVOS COM INGRESSO NO LOCAL DE TRABALHO**.
+7. Selecione o número máximo de dispositivos que deseja autorizar por usuário.
 
 >[AZURE.NOTE]
 O registro com o Microsoft Intune ou o gerenciamento de dispositivos móveis para o Office 365 exige ingresso no local de trabalho. Se você tiver configurado qualquer um desses serviços, a opção TODOS está selecionada e o botão NONE está desabilitado.
@@ -85,4 +87,4 @@ Você pode registrar seus dispositivos de domínio associado com Windows 7 e Win
 - [Configurar o registro automático de dispositivo para dispositivos ingressados no domínio do Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
 - [Registro de dispositivo automático com o Azure Active Directory para dispositivos ingressados no domínio do Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

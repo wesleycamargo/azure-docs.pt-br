@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/24/2016"
-	ms.author="yijichen"/>
+	ms.author="inqiu;yijichen"/>
 
 # Guia técnico para o Modelo de Solução do Cortana Analytics para previsão de demanda em energia
 
@@ -25,8 +25,6 @@ Os Modelos de Solução foram projetados para acelerar o processo de criação d
 O processo de implantação guiará você pelas diversas etapas para configurar as credenciais da sua solução. Registre essas credenciais, como o nome da solução, o nome de usuário e a senha fornecidos durante a implantação.
 
 A meta deste documento é explicar a arquitetura de referência e os diferentes componentes provisionados em sua assinatura como parte deste Modelo de Solução. O documento também fala sobre como substituir as amostras de dados por dados reais, para que você possa ver informações/previsões obtidas de seus próprios dados. Além disso, o documento discute as partes do Modelo de Solução que precisarão ser modificadas caso você queira personalizar a solução com seus próprios dados. As instruções sobre como criar o painel do Power BI para esse Modelo de Solução serão fornecidas ao final.
-
->[AZURE.TIP] Você pode baixar e imprimir uma [versão em PDF deste documento](http://github.com/yijichen/document-public/raw/master/Demand%20Forecasting%20for%20Engery%20Solution%20Template.pdf).
 
 ## **Visão global**
 
@@ -118,7 +116,7 @@ O outro trabalho do Stream Analytics gera como saída todos os eventos do [Hub d
 
 ### Fábrica de dados do Azure
 
-O serviço [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) orquestra a movimentação e o processamento de dados. No Modelo de Solução de Previsão de demanda para energia, o data factory é composto por doze [pipelines](data-factory\data-factory-create-pipelines.md) que movem e processam os dados usando diversas tecnologias.
+O serviço [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) orquestra a movimentação e o processamento de dados. No Modelo de Previsão de Demanda para Solução de Energia, o data factory é composto por doze [pipelines](data-factory\data-factory-create-pipelines.md) que movem e processam os dados usando diversas tecnologias.
 
   Você pode acessar seu data factory abrindo o nó Data Factory na parte inferior do diagrama do modelo de solução criado com a implantação da solução. Você será levado ao data factory no portal de gerenciamento do Azure. Se você encontrar erros em seus conjuntos de dados, poderá ignorá-los, já que eles ocorrem porque a implantação do data factory foi anterior ao início do gerador de dados. Esses erros não impedem o funcionamento do seu data factory.
 
@@ -173,7 +171,7 @@ Depois que o Gerador de Dados é iniciado, o pipeline começa a obter os hidrata
 
 1. Verificar os dados do Armazenamento de Blobs do Azure
 
-	Um dos trabalhos do Stream Analytics grava os dados brutos de entrada no armazenamento de blobs. Se você clicar no componente **Armazenamento de Blobs do Azure ** de sua solução na tela na qual você implantou a solução com êxito, e clicar em **Abrir** no painel direito, você será levado ao [Portal de Gerenciamento do Azure](https://portal.azure.com). No portal, clique em **Blobs**. No painel seguinte, você verá uma lista de Contêineres. Clique em **"energysadata"**. No painel seguinte, você verá a pasta **"demandongoing"**. Dentro da pasta rawdata, você verá pastas com nomes como date=2016-01-28 etc. Caso você visualize essas pastas, isso indica que os dados brutos estão sendo gerados com êxito no computador e armazenados no armazenamento de blobs. Você deverá ver arquivos com tamanhos finitos em MB nessas pastas.
+	Um dos trabalhos do Stream Analytics grava os dados brutos de entrada no armazenamento de blobs. Se você clicar no componente **Armazenamento de Blobs do Azure ** de sua solução na tela na qual você implantou a solução com êxito, e clicar em **Abrir** no painel direito, você será levado ao [Portal de gerenciamento do Azure](https://portal.azure.com). No portal, clique em **Blobs**. No painel seguinte, você verá uma lista de Contêineres. Clique em **"energysadata"**. No painel seguinte, você verá a pasta **"demandongoing"**. Dentro da pasta rawdata, você verá pastas com nomes como date=2016-01-28 etc. Caso você visualize essas pastas, isso indica que os dados brutos estão sendo gerados com êxito no computador e armazenados no armazenamento de blobs. Você deverá ver arquivos com tamanhos finitos em MB nessas pastas.
 
 2. Verifique os dados do Banco de Dados SQL do Azure.
 
@@ -258,7 +256,7 @@ No pipeline de dados de caminho frio, o principal objetivo é obter a previsão 
 
 	-   Na janela pop-out, substitua **"Servidor"** e **"Banco de dados"** por seus próprios nomes de servidor e de banco de dados e clique em **"OK"**. Para o nome do servidor, especifique a porta 1433 (**NomeDaSuaSolução.database.windows.net, 1433**). Ignore as mensagens de aviso que aparecem na tela.
 
-	-   Na próxima janela pop-out, você verá duas opções no painel esquerdo (**Windows** e **Banco de dados**). Clique em **"Banco de dados"**, preencha o **"Nome de usuário"** e a **"Senha"** (são o nome de usuário e a senha inseridos quando você implantou a solução e criou um banco de dados SQL do Azure). Em ***Selecione o nível ao qual aplicar essas configurações***, marque a opção de nível de banco de dados. E clique em **"Conectar"**.
+	-   Na próxima janela pop-out, você verá duas opções no painel esquerdo (**Windows** e **Banco de dados**). Clique em **"Banco de dados"**, preencha o **"Nome de usuário"** e a **"Senha"** (são o nome de usuário e a senha inseridos quando você implantou a solução e criou um banco de dados SQL do Azure). Em ***Selecione o nível ao qual aplicar essas configurações***, marque a opção de nível de banco de dados. E clique em **”Conectar”**.
 
 	-   Depois de ser guiado de volta à página anterior, feche a janela. Será exibida uma mensagem - clique em **Aplicar**. Por fim, clique no botão **Salvar** para salvar as alterações. Seu arquivo do Power BI agora estabeleceu uma conexão com o servidor. Se suas visualizações estiverem vazias, limpe as seleções nas visualizações para visualizar todos os dados clicando no ícone de borracha no canto superior direito das legendas. Use o botão de atualização para refletir os novos dados nas visualizações. Inicialmente, você só verá os dados de propagação em suas visualizações, já que a atualização do Data Factory está agendada para a cada três horas. Após três horas, você verá novas previsões refletidas nas visualizações quando atualizar os dados.
 
@@ -290,4 +288,4 @@ As duas ferramentas a seguir estão disponíveis para ajudar você a entender me
 
 -   [Ferramenta Calculadora de Preço do Microsoft Azure (área de trabalho)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

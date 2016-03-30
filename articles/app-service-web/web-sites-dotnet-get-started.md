@@ -38,7 +38,7 @@ O que você aprenderá:
 
 * Como criar um novo aplicativo Web do Serviço de Aplicativo enquanto cria um projeto Web no Visual Studio.
 * Como implantar um projeto Web em um aplicativo Web do Serviço de Aplicativo usando o Visual Studio.
-* Como usar o [Portal do Azure](/overview/preview-portal/) para monitorar e gerenciar seu aplicativo Web.
+* Como usar o [Portal do Azure](/features/azure-portal/) para monitorar e gerenciar seu aplicativo Web.
 
 Ao final do tutorial, a seção [Solução de problemas](#troubleshooting) dá ideias sobre o que fazer se algo não funcionar, e a seção [Próximas etapas](#next-steps) fornece links para outros tutoriais com mais detalhes sobre como usar o Serviço de Aplicativo do Azure.
 
@@ -108,7 +108,7 @@ O diagrama ilustra o que você está fazendo nas etapas de criação e implanta�
 
 	Essa caixa de combinação permite que você selecione um grupo de recursos existente ou crie um novo digitando um nome diferente de qualquer grupo de recursos existente na assinatura.
 
-	Um grupo de recursos é uma coleção de recursos do Azure, como aplicativos de API, bancos de dados, VMs e assim por diante. Para este tutorial, é melhor criar um novo grupo de recursos porque isso facilitará a exclusão em uma etapa de todos os recursos do Azure criados para o tutorial. Para saber mais, confira [Visão geral do Azure Resource Manager](../resource-group-overview.md)
+	Um grupo de recursos é uma coleção de recursos do Azure, como aplicativos Web, bancos de dados e VMs. Para um tutorial, é melhor criar um novo grupo de recursos, pois isso facilita a exclusão em uma etapa de quaisquer recursos do Azure criados para o tutorial. Para saber mais, confira [Visão geral do Azure Resource Manager](../resource-group-overview.md).
 
 4. Clique no botão **Novo** ao lado da lista suspensa **Plano do Serviço de Aplicativo**.
 
@@ -116,7 +116,7 @@ O diagrama ilustra o que você está fazendo nas etapas de criação e implanta�
 
 	A captura de tela mostra valores de exemplo para **Nome de Aplicativo Web**, **Assinatura** e **Grupo de Recursos** – os valores serão diferentes.
 
-	Nas etapas a seguir, você criará um plano de Serviço de Aplicativo para o novo grupo de recursos. Um plano de Serviço de Aplicativo especifica os recursos de computação em que seu aplicativo de API é executado. Por exemplo, se você escolher a camada gratuita, seu aplicativo de API será executado em VMs compartilhadas, enquanto que para algumas camadas pagas, ele é executado em VMs dedicadas. Para saber mais, confira [Visão geral dos planos do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+	Nas etapas a seguir, você criará um plano de Serviço de Aplicativo para o novo grupo de recursos. Um plano de Serviço de Aplicativo especifica os recursos de computação em que o aplicativo Web é executado. Por exemplo, se você escolher a camada gratuita, seu aplicativo de API será executado em VMs compartilhadas, enquanto que para algumas camadas pagas, ele é executado em VMs dedicadas. Para saber mais, confira [Visão geral dos planos do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
 5. No diálogo **Configurar Plano de Serviço de Aplicativo**, insira "MyExamplePlan" ou outro nome, se preferir.
 
@@ -146,9 +146,11 @@ O diagrama ilustra o que você está fazendo nas etapas de criação e implanta�
 
 	![Aplicativo Web criado na janela Atividade do Serviço de Aplicativo do Azure](./media/web-sites-dotnet-get-started/GS13sitecreated1.png)
 
-	E você pode ver o aplicativo Web no **Gerenciador de Nuvem**.
+	Você pode ver o aplicativo Web na janela **Cloud Explorer** do Visual Studio.
 
 	![Aplicativo Web criado no Gerenciador de Nuvem](./media/web-sites-dotnet-get-started/siteinse.png)
+	
+	Essa janela permite exibir e gerenciar uma vasta gama de recursos do Azure. A captura de tela mostra apenas aplicativos Web, mas você verá mais tipos de recursos na janela **Cloud Explorer**. Clique com o botão direito do mouse em um recurso como o aplicativo Web para ver as opções disponíveis para gerenciá-lo.
 
 ## Implantar o projeto Web no aplicativo Web do Azure
 
@@ -162,19 +164,19 @@ Nesta seção, você implanta o projeto Web no aplicativo Web, conforme ilustrad
 
 	Em poucos segundos, o assistente de **Publicar Web** é exibido. O assistente abre um *perfil de publicação* com configurações para implantar um projeto Web para o novo aplicativo Web. Se desejar implantar um aplicativo Web diferente, você pode clicar na guia **Perfil** para criar um perfil diferente. Para este tutorial, aceite as configurações que implantam o aplicativo Web criado anteriormente.
 
-	O perfil de publicação inclui um nome de usuário e senha para a implantação. Essas credenciais foram geradas para você, mas é possível alterá-las para os valores que quiser. Você verá como fazer isso na seção do tutorial que apresenta o Portal do Azure. A senha é criptografada em um arquivo oculto específico ao usuário na pasta `Properties\PublishProfiles`.
+	O perfil de publicação inclui um nome de usuário e senha para a implantação. Essas credenciais foram geradas para você, e não é preciso inseri-las nem alterá-las. A senha é criptografada em um arquivo oculto específico do usuário na pasta `Properties\PublishProfiles`.
 
 8. Na guia **Conexão** do assistente de **Publicar Web**, clique em **Avançar**.
 
 	![Clique em Avançar na guia Conexão do assistente Publicar Web](./media/web-sites-dotnet-get-started/GS13ValidateConnection.png)
 
-	A próxima é a guia **Configurações**. Aqui, você pode alterar a guia de configuração de build para implantar uma compilação de depuração para [depuração remota](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). A guia também oferece várias **Opções de Publicação do Arquivo**:
+	A próxima é a guia **Configurações**. Aqui, você pode alterar a guia de configuração de compilação para implantar uma compilação de depuração para [depuração remota](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). A guia também oferece várias **Opções de Publicação do Arquivo**:
 
 	* Remover os arquivos adicionais no destino
 	* Pré-compilar durante a publicação
 	* Excluir arquivos da pasta App\_Data
 
-	Para este tutorial, você não precisará de qualquer uma delas. Para obter explicações detalhadas sobre o que elas fazem, veja [Como implantar um projeto Web usando a publicação de um clique no Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx).
+	Para este tutorial, você não precisará de qualquer uma delas. Para obter explicações detalhadas sobre o que elas fazem, confira [Como implantar um projeto Web usando a publicação com um clique no Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx).
 
 10. Na guia **Configurações**, clique em **Avançar**.
 
@@ -196,30 +198,30 @@ Nesta seção, você implanta o projeto Web no aplicativo Web, conforme ilustrad
 
 	![Aplicativo Web em execução no Azure](./media/web-sites-dotnet-get-started/GS13deployedsite.png)
 
-> [AZURE.TIP] Você pode habilitar a barra de ferramentas **Publicação Web com Um Clique** para uma implantação rápida. Clique em **Exibir > Barras de Ferramentas** e, em seguida, selecione **Publicação Web com Um Clique**. Você pode usar a barra de ferramentas para selecionar um perfil, clicar em um botão para publicar ou clicar em um botão para abrir o assistente **Publicar Web**. ![Barra de ferramentas Publicação Web com Um Clique](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
+> [AZURE.TIP] Você pode habilitar a barra de ferramentas **Publicação Web com um Clique** para uma implantação rápida. Clique em **Exibir > Barras de Ferramentas** e, em seguida, selecione **Publicação Web com Um Clique**. Você pode usar a barra de ferramentas para selecionar um perfil, clicar em um botão para publicar ou clicar em um botão para abrir o assistente **Publicar Web**. ![Barra de ferramentas Publicação Web com Um Clique](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
 
-## Monitorar e gerenciar o aplicativo Web no Portal do Azure
+## <a id="portal"></a> Monitorar e gerenciar o aplicativo Web no Portal do Azure
 
 O [Portal do Azure](/services/management-portal/) é uma interface da Web que você pode usar para gerenciar e monitorar seus serviços do Azure, como o aplicativo Web que acabou de criar. Nesta seção do tutorial, você descobre um pouco do que pode fazer no portal.
 
-1. Em seu navegador, acesse [https://portal.azure.com](https://portal.azure.com) e entre com as credenciais que você usa para gerenciar sua conta do Azure.
+1. No navegador, acesse [https://portal.azure.com](https://portal.azure.com) e entre com as credenciais que você usa para gerenciar sua conta do Azure.
 
 2. Clique em **Serviços de Aplicativos** e clique no nome do seu aplicativo Web.
 
 	![Serviços de Aplicativos no Portal do Azure](./media/web-sites-dotnet-get-started/selinportal.png)
 
-	A folha **Aplicativo Web** exibe uma visão geral das configurações e estatísticas de uso de seu aplicativo Web. (As janelas abertas à direita do portal são chamadas de *folhas*).
+	A folha **Aplicativo Web** exibe uma visão geral das configurações e estatísticas de uso de seu aplicativo Web. (As janelas abertas à direita do portal são chamadas de *folhas*.)
 
 	![Folha Aplicativo Web no Portal do Azure](./media/web-sites-dotnet-get-started/portaldashboard.png)
 
 	Seu aplicativo Web não teve muito tráfego ainda e talvez não mostre nada no gráfico. Se navegar até o aplicativo, atualizar a página algumas vezes e, em seguida, atualizar a página de portal, você verá que algumas estatísticas serão mostradas.
 
-3. Clique na folha **Configurações** para ver mais opções para configurar seu aplicativo Web.
+3. A folha **Configurações** mostra mais opções para configurar o aplicativo Web.
 
 	![Folha Configurações no Portal do Azure](./media/web-sites-dotnet-get-started/portalconfigure1.png)
 
-	Observe o link **Credenciais de implantação** na seção **Publicação**. É nesse local que você cria um novo nome de usuário e senha para a implantação. Você pode inserir o nome de usuário e a senha que quiser, depois, insira os mesmos valores na guia **Conexão** do assistente **Publicar Web** em seu projeto Web.
-
+	Observe o link **Credenciais de implantação** na seção **Publicação**. É nesse local que você pode criar um nome de usuário e uma senha personalizados para a implantação. Clique no botão **Salvar** na parte superior da folha para enviar a alteração. Se criar um novo nome de usuário e senha, você precisará inserir os mesmos valores na guia **Conexão** do assistente **Publicar Web** no projeto Web.
+	
 	A captura de tela é apenas uma visão parcial da folha **Configurações**. Há mais seções nessa folha do que é mostrado.
 
 4. Clique em **Configurações do aplicativo** na seção **Geral** da folha **Configurações** para ver um exemplo dos tipos de configurações que você pode definir no Portal.
@@ -234,15 +236,15 @@ Esses são apenas alguns dos recursos do Portal. Você pode criar novos aplicati
 
 Quando não precisar mais do aplicativo Web que criou para este tutorial, você poderá excluí-lo.
 
-Uma maneira fácil de excluir seu aplicativo Web é clicar no botão **Excluir** na parte superior de sua folha **Aplicativo Web** no Portal do Azure. Uma maneira mais adequada é excluir o grupo de recursos que você criou para conter o aplicativo Web. Para este tutorial, o grupo de recursos contém apenas o aplicativo Web, mas normalmente um grupo de recursos contém uma coleção de recursos relacionados. Por exemplo, seu aplicativo Web pode usar um banco de dados ou a conta de armazenamento do Azure que não é mais necessária quando o aplicativo Web não for mais necessário. Quando você exclui um grupo de recursos, tudo o que ele contém é excluído. Para excluir um grupo de recursos usando o Portal do Azure, execute as etapas a seguir.
+Uma maneira fácil de excluir o aplicativo Web é clicar no botão **Excluir** na parte superior da folha **Aplicativo Web** no Portal do Azure. Uma maneira mais adequada é excluir o grupo de recursos que você criou para conter o aplicativo Web. Para este tutorial, o grupo de recursos contém apenas o aplicativo Web, mas normalmente um grupo de recursos contém uma coleção de recursos relacionados. Por exemplo, o aplicativo Web pode usar um banco de dados ou uma conta de armazenamento do Azure que não são mais necessários quando você exclui o aplicativo Web. Quando você exclui um grupo de recursos, tudo o que ele contém é excluído. Para excluir um grupo de recursos usando o Portal do Azure, execute as etapas a seguir.
 
-1. Acesse a home page do [Portal do Azure](https://portal.azure.com).
+1. Acesse a home page do [portal do Azure](https://portal.azure.com).
 
 2. Clique em **Grupos de Recursos**.
 
 3. Na lista de grupos de recursos, clique no grupo de recursos que você deseja excluir.
 
-	Quando a folha **Grupo de Recursos** aparecer, ela incluirá uma lista dos recursos que contém.
+	Quando a folha **Grupo de Recursos** for exibida, incluirá uma lista dos recursos que contém.
 
 4. Na folha **Grupo de Recursos**, clique em **Excluir**.
 
@@ -250,7 +252,7 @@ Uma maneira fácil de excluir seu aplicativo Web é clicar no botão **Excluir**
 
 ## Solucionar problemas
 
-Se encontrar um problema ao percorrer este tutorial, verifique se você está usando a versão mais recente do SDK do Azure para .NET. A maneira mais fácil de fazer isso é [baixar o SDK do Azure para Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003) – se você tiver a versão atual instalada, o Web Platform Installer avisará que nenhuma instalação é necessária.
+Se encontrar um problema ao percorrer este tutorial, verifique se você está usando a versão mais recente do SDK do Azure para .NET. A maneira mais fácil de fazer isso é [baixar o SDK do Azure para Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Se você tiver a versão atual instalada, o Web Platform Installer avisará que nenhuma instalação é necessária.
 
 Se você estiver em uma rede corporativa e estiver tentando implantar no Serviço de Aplicativo do Azure por meio de um firewall, verifique se as portas 443 e 8172 estão abertas para implantação na Web. Se não for possível abrir essas portas, confira a seção Próximas etapas a seguir para obter outras opções de implantação.
 
@@ -262,7 +264,7 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
 
 * Como implantar um projeto Web existente em um novo aplicativo Web
 
-	Para iniciar o processo de implantação de um projeto Web existente, clique com o botão direito do mouse no projeto no **Gerenciador de Soluções** e clique em **Publicar**. Escolha **Serviço de Aplicativo do Microsoft Azure** como o destino de publicação. Em seguida, escolha um aplicativo Web do Azure existente como o destino ou clique em **Novo** para criar um novo. Se você clicar em **Novo** para criar um novo, o processo será o mesmo visto aqui neste tutorial.
+	Para iniciar o processo de implantação de um projeto Web existente, clique com o botão direito do mouse no projeto no **Gerenciador de Soluções** e clique em **Publicar**. Escolha **Serviço de Aplicativo do Microsoft Azure** como destino de publicação. Em seguida, escolha um aplicativo Web do Azure existente como destino ou clique em **Novo** para criar um novo. Se você clicar em **Novo** para criar um novo, o processo será o mesmo que foi visto neste tutorial.
 
 * Outras maneiras de criar aplicativos Web
 
@@ -270,7 +272,7 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
 
 * Como criar aplicativos de API
 
-	Você viu como criar uma instância do Serviço de Aplicativo do Azure que é destinada principalmente para hospedar um site. Serviço de Aplicativo também tem recursos projetados para facilitar o desenvolvimento, teste e hospedagem de APIs. Para saber mais, confira [Introdução aos Aplicativos de API e ao ASP.NET no Serviço de Aplicativo do Azure](../app-service-api/app-service-api-dotnet-get-started.md).
+	Você viu como criar uma instância do Serviço de Aplicativo do Azure que é destinada principalmente para hospedar um site. Essas instâncias são chamadas de aplicativos Web. Serviço de Aplicativo também tem recursos projetados para facilitar o desenvolvimento, teste e hospedagem de APIs. Instâncias do Serviço de Aplicativo voltadas principalmente para hospedar APIs são chamadas de aplicativos de API. Para saber mais, confira [Introdução aos Aplicativos de API e ao ASP.NET no Serviço de Aplicativo do Azure](../app-service-api/app-service-api-dotnet-get-started.md).
 
 * Outras maneiras de implantar um projeto Web
 
@@ -285,10 +287,10 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
 
 * Como adicionar recursos em tempo real como chat
 
-	Para contar com os recursos em tempo real, como um serviço de chat, um jogo, um indicador de ações, você pode obter o melhor desempenho utilizando o [ASP.NET SignalR](http://www.asp.net/signalr) com o método de transporte [WebSockets](/blog/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites/). Para obter mais informações, consulte [Usando SignalR com aplicativos Web do Azure](http://www.asp.net/signalr/overview/signalr-20/getting-started-with-signalr-20/using-signalr-with-windows-azure-web-sites).
+	Para recursos em tempo real, como um serviço de chat, um jogo ou cotações da bolsa, você pode obter o melhor desempenho utilizando [ASP.NET SignalR](http://www.asp.net/signalr) com o método de transporte [WebSockets](/blog/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites/). Para obter mais informações, consulte [Usando SignalR com aplicativos Web do Azure](http://www.asp.net/signalr/overview/signalr-20/getting-started-with-signalr-20/using-signalr-with-windows-azure-web-sites).
 
 * Como escolher entre o Serviço de Aplicativo, os Serviços de Nuvem e as Máquinas Virtuais do Azure para aplicativos Web
 
 	No Azure, você pode executar aplicativos Web em aplicativos Web do Serviço de Aplicativo, conforme mostrado neste tutorial, em Serviços de Nuvem ou Máquinas Virtuais. Para saber mais, confira [Aplicativos Web do Azure, serviços de nuvem e VMs: qual deles usar e quando](/manage/services/web-sites/choose-web-app-service/).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

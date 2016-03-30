@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="03/09/2016"
 	ms.author="larryfr"/>
 
 #Usar o Sqoop com Hadoop no HDInsight (SSH)
@@ -42,12 +42,6 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 - **CLI do Azure**: para obter mais informações, consulte [Instalar e configurar a CLI do Azure](../xplat-cli-install.md)
 
-- **Cluster HDInsight baseado no Linux**: para obter instruções sobre como provisionar um cluster, consulte [Introdução ao uso do HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) ou [Provisionar clusters HDInsight][hdinsight-provision].
-
-- **Banco de Dados SQL do Azure**: este documento fornece instruções para criar um Banco de Dados SQL. Para obter mais informações sobre o Banco de Dados SQL, consulte [Introdução ao uso do banco de dados SQL do Azure][sqldatabase-get-started].
-
-* **SQL Server**: As etapas neste documento podem ser usadas, com alguma modificação, com o SQL Server, contudo, tanto o cluster HDInsight como o SQL Server devem estar na mesma Rede Virtual do Azure. Para obter mais informações sobre requisitos específicos para usar este artigo com o SQL Server, consulte a seção [Usando o SQL Server](#using-sql-server).
-
 ##Compreender o cenário
 
 O cluster HDInsight é fornecido com alguns dados de exemplo. Você usará uma tabela Hive chamada **hivesampletable** que faz referência ao arquivo de dados localizado em ****wasb:///hive/warehouse/hivesampletable**. A tabela contém alguns dados de dispositivo móvel. O esquema da tabela Hive é:
@@ -68,92 +62,66 @@ O cluster HDInsight é fornecido com alguns dados de exemplo. Você usará uma t
 
 Você primeiro exportará **hivesampletable** para o banco de dados SQL do Azure ou SQL Server em uma tabela chamada **mobiledata** e, em seguida, importará a tabela de volta para o HDInsight em ****wasb:///tutorials/usesqoop/importeddata**.
 
-##Criar um banco de dados
 
-1. Abra um terminal ou prompt de comando e use o seguinte comando para criar um novo Banco de Dados SQL Server:
+## Criar o cluster e o Banco de dados SQL
 
-        azure sql server create <adminLogin> <adminPassword> <region>
+1. Clique na imagem a seguir para abrir um modelo ARM no Portal do Azure.         
 
-    Por exemplo, `azure sql server create admin password "West US"`.
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/pt-BR/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    
+    O modelo do ARM está localizado em um contêiner de blob público, **https://hditutorialdata.blob.core.windows.net/usesqoop/create-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json*.
+    
+    O modelo de ARM chama um pacote bacpac para implantar os esquemas de tabela no banco de dados SQL. O pacote bacpac também está localizado em um contêiner de blob público, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Se você quiser usar um contêiner particular para os arquivos bacpac, use os seguintes valores no modelo:
+    
+        "storageKeyType": "Primary",
+        "storageKey": "<TheAzureStorageAccountKey>",
+    
+2. Na folha Parâmetros, insira o seguinte:
 
-    Quando o comando for concluído, você receberá uma resposta semelhante à seguinte:
+    - **ClusterName**: insira um nome para o cluster Hadoop que você criará.
+    - **Nome e senha de logon do cluster**: o nome de logon padrão é admin.
+    - **Nome de usuário e senha SSH**.
+    - **Nome de logon e senha do servidor do Banco de dados SQL**.
 
-        info:    Executing command sql server create
-        + Creating SQL Server
-        data:    Server Name i1qwc540ts
-        info:    sql server create command OK
+    Os seguintes valores estão codificados na seção de variáveis:
+    
+    |Nome da conta de armazenamento padrão|<CluterName>store|
+    |----------------------------|-----------------|
+    |Nome do servidor de banco de dados SQL do Azure.|<ClusterName>dbserver|
+    |Nome do banco de dados SQL do Azure|<ClusterName>db|
+    
+    Anote esses valores. Você precisará deles mais tarde no tutorial.
+    
+3\.Clique em **OK** para salvar os parâmetros.
 
-    > [AZURE.IMPORTANT] Observe o nome do servidor retornado por este comando. Esse é o nome curto do Banco de Dados SQL Server que foi criado. O nome de domínio totalmente qualificado (FQDN) é **&lt;shortname&gt;.database.windows.net**.
+4\.Na folha **Implantação personalizada**, clique na caixa suspensa **Grupo de recursos** e em **Novo** para criar um novo grupo de recursos. O grupo de recursos é um contêiner que agrupa o cluster, a conta de armazenamento dependente e outros recursos vinculados.
 
-2. Use o seguinte comando para criar um banco de dados denominado **sqooptest** no Banco de Dados SQL Server:
+5\.Clique em **Termos legais** e em **Criar**.
 
-        azure sql db create [options] <serverName> sqooptest <adminLogin> <adminPassword>
+6\. Clique em **Criar**. Você verá um novo bloco intitulado Como enviar a implantação para a implantação do modelo. É preciso sobre cerca de 20 minutos para criar o cluster e o banco de dados SQL.
 
-    Isso retornará uma mensagem "OK" quando terminar.
+Se você optar por usar o banco de dados SQL do Azure existente ou o Microsoft SQL Server
 
-	> [AZURE.NOTE] Se você receber um erro indicando que não tem, talvez seja necessário adicionar o endereço IP da estação de trabalho cliente ao firewall do Banco de Dados SQL usando o seguinte comando:
-	>
-	> `azure sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
+- **Banco de Dados SQL do Azure**: você deve configurar uma regra de firewall para o servidor de Banco de Dados SQL para permitir o acesso de sua estação de trabalho. Para saber mais sobre como criar um Banco de Dados SQL e configurar o firewall, confira [Introdução ao uso do Banco de Dados SQL do Azure][sqldatabase-get-started]. 
 
-##Criar uma tabela
+    > [AZURE.NOTE] Por padrão, um banco de dados SQL do Azure permite conexões de serviços do Azure, como o Azure HDInsight. Se essa configuração de firewall estiver desabilitada, você deverá habilitá-la no portal de visualização do Azure. Para saber mais sobre como criar um Banco de Dados SQL do Azure e configurar regras de firewall, confira [Criar e configurar o Banco de Dados SQL][sqldatabase-create-configue].
 
-> [AZURE.NOTE] Há várias maneiras para se conectar ao Banco de Dados SQL para criar uma tabela. As seguintes etapas usam [FreeTDS](http://www.freetds.org/) do cluster HDInsight.
+- **Servidor SQL**: se o cluster HDInsight estiver na mesma rede virtual do Azure que um SQL Server, você pode usar as etapas neste artigo para importar e exportar dados para um banco de dados SQL Server.
 
-1. Utilize o SSH para se conectar ao cluster HDInsight com base em Linux. O endereço a ser usado ao conectar-se é `CLUSTERNAME-ssh.azurehdinsight.net` e a porta é `22`.
+    > [AZURE.NOTE] O Azure HDInsight oferece suporte somente a redes virtuais baseadas no local, e não trabalha atualmente com redes virtuais baseadas em grupos de afinidade.
 
-	Para obter mais informações sobre como usar o SSH para se conectar ao HDInsight, consulte os seguintes documentos:
+    * Para criar e configurar uma rede virtual, confira [Tarefas de configuração de rede virtual](../services/virtual-machines/).
 
-    * **Clientes Linux, Unix ou OS X**: consulte [Conectar-se a um cluster HDInsight com base no Linux do Linux, OS X ou Unix](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster)
+        * Ao usar o SQL Server no datacenter, você deve configurar a rede virtual como *site a site* ou *ponto a site*.
 
-    * **Clientes Windows**: consulte [Conectar-se a um cluster HDInsight com base no Linux do Windows](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster)
+            > [AZURE.NOTE] Para redes virtuais **ponto a site**, o SQL Server deve estar executando o aplicativo de configuração de cliente VPN, que está disponível no **Painel** de configuração da rede virtual do Azure.
 
-3. Use o seguinte comando para instalar o FreeTDS:
+        * Ao usar o SQL Server em uma Máquina Virtual do Azure, qualquer configuração de rede virtual pode ser usada, desde que a máquina virtual que hospeda o SQL Server seja membro da mesma rede virtual que o HDInsight.
 
-        sudo apt-get --assume-yes install freetds-dev freetds-bin
+    * Para criar um cluster HDInsight em uma rede virtual, confira [Criar clusters Hadoop no HDInsight usando opções de personalização](hdinsight-provision-clusters.md)
 
-4. Uma vez que o FreeTDS tiver sido instalado, use o seguinte comando para conectar-se ao Banco de Dados SQL Server criado anteriormente:
-
-        TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D sqooptest
-
-    Você receberá saídas semelhantes ao seguinte:
-
-        locale is "en_US.UTF-8"
-        locale charset is "UTF-8"
-        using default charset "UTF-8"
-        Default database being set to sqooptest
-        1>
-
-5. Ao prompt `1>`, insira o seguinte:
-
-        CREATE TABLE [dbo].[mobiledata](
-        [clientid] [nvarchar](50),
-        [querytime] [nvarchar](50),
-        [market] [nvarchar](50),
-        [deviceplatform] [nvarchar](50),
-        [devicemake] [nvarchar](50),
-        [devicemodel] [nvarchar](50),
-        [state] [nvarchar](50),
-        [country] [nvarchar](50),
-        [querydwelltime] [float],
-        [sessionid] [bigint],
-        [sessionpagevieworder] [bigint])
-        GO
-        CREATE CLUSTERED INDEX mobiledata_clustered_index on mobiledata(clientid)
-        GO
-
-    Quando a instrução `GO` for inserida, as instruções anteriores serão avaliadas. Primeiro, a tabela **mobiledata** é criada e, em seguida, um índice de cluster é adicionado a ela (exigido pelo Banco de Dados SQL).
-
-    Use o seguinte para verificar se a tabela foi criada:
-
-        SELECT * FROM information_schema.tables
-        GO
-
-    Você deverá ver uma saída semelhante ao seguinte:
-
-        TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
-        sqooptest       dbo     mobiledata      BASE TABLE
-
-8. Para sair do utilitário tsql, insira `exit` no prompt `1>`.
+    > [AZURE.NOTE] O SQL Server também deve permitir autenticação. Você deve usar um logon do SQL Server para as etapas neste artigo.
+	
 
 ##Exportação do Sqoop
 
@@ -263,4 +231,4 @@ Você aprendeu como usar Sqoop. Para obter mais informações, consulte:
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

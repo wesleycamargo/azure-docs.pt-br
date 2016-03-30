@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/09/2016"
+   ms.date="03/18/2016"
    ms.author="cherylmc"/>
 
 # Configurar conexões coexistentes Site a Site e de Rota Expressa
@@ -34,7 +34,8 @@ Os circuitos de Rota Expressa devem ser previamente configurados antes de você 
 - **Não há suporte para ponto a site:** não é possível habilitar conexões VPN ponto a site para a mesma Rede Virtual conectada à Rota Expressa. A VPN de ponto a site e a Rota Expressa não podem coexistir para a mesma Rede Virtual.
 - **O túnel forçado não pode ser habilitado no gateway de VPN site a site:** você só pode “forçar” todo o tráfego voltado para a Internet de volta para sua rede local por meio da Rota Expressa. 
 - **Somente gateways padrão ou de alto desempenho:** você deve usar um gateway padrão ou de alto desempenho para o gateway de Rota Expressa e para o gateway de VPN site a site. Confira [SKUs de gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) para obter informações sobre SKUs de gateway.
-- **Requisitos de rota estática:** se a sua rede local estiver conectada à VPN site a site e a uma Rota Expressa, será necessário ter uma rota estática configurada em sua rede local para rotear a conexão VPN site a site para a Internet pública.
+- **Somente gateway de VPN baseada em rota:** você deve usar um gateway VPN baseado em rota. Consulte [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) para obter informações sobre o gateway de VPN baseado em rota.
+- **Requisito de rota estática:** se a sua rede local estiver conectada à VPN site a site e a uma Rota Expressa, será necessário ter uma rota estática configurada em sua rede local para rotear a conexão VPN site a site para a Internet pública.
 - **O gateway de Rota Expressa deve ser configurado primeiro:** você deve criar o gateway de Rota Expressa primeiro, antes de adicionar o gateway de VPN site a site.
 
 
@@ -218,4 +219,4 @@ Se você tiver uma rede virtual existente conectada via conexão VPN de Rota Exp
 
 Para saber mais sobre a Rota Expressa, confira [Perguntas frequentes sobre Rota Expressa](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

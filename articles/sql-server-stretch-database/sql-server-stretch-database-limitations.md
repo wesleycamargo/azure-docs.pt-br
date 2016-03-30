@@ -81,7 +81,9 @@ Na versão de teste atual do SQL Server 2016, as tabelas habilitadas para Stretc
 
 -   Não é possível executar operações UPDATE ou DELETE em uma tabela habilitada para Stretch.
 
--   Não é possível usar a operação INSERT na tabela remota do Banco de Dados SQL Azure.
+-   Você não pode executar operações INSERT remotamente em uma tabela habilitada para Stretch em um servidor vinculado.
+
+-   Você não pode usar a replicação com uma tabela habilitada para Stretch.
 
 -   Não é possível criar um índice para uma exibição que inclui tabelas habilitadas para Stretch.
 
@@ -90,6 +92,11 @@ Na versão de teste atual do SQL Server 2016, as tabelas habilitadas para Stretc
 -   Os filtros nos índices não são propagados para a tabela remota.
 
 ## Consulte também
-[Identificar bancos de dados e tabelas do Stretch Database executando o Stretch Database Advisor](sql-server-stretch-database-identify-databases.md) [Habilitar o Stretch Database para um banco de dados](sql-server-stretch-database-enable-database.md) [Habilitar o Stretch Database para uma tabela](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+[Identificar bancos de dados e tabelas do Banco de Dados de Stretch executando o Supervisor do Banco de Dados de Stretch](sql-server-stretch-database-identify-databases.md)
+
+[Habilitar o Banco de Dados de Stretch para um banco de dados](sql-server-stretch-database-enable-database.md)
+
+[Habilitar o Banco de Dados de Stretch para uma tabela](sql-server-stretch-database-enable-table.md)
+
+<!---HONumber=AcomDC_0316_2016-->

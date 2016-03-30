@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="02/29/2016"
+   ms.date="03/10/2016"
    ms.author="tomfitz"/>
 
 # Autenticação de uma entidade de serviço com o Gerenciador de Recursos do Azure
@@ -337,13 +337,13 @@ Você criou um aplicativo do Active Directory e uma entidade de serviço para es
 
 Se você quiser entrar manualmente como a entidade de serviço, poderá usar o comando **azure login**. Você deve fornecer a id do locatário, id do aplicativo e a senha. Incluir diretamente a senha em um script não é seguro porque a senha é armazenada no arquivo. Consulte a próxima seção para ver a melhor opção ao executar um script automatizado.
 
-1. Determine a **TenantId** para a assinatura que contém a entidade de serviço. Você deve remover as aspas duplas inicial e final que são retornadas da saída json antes de passá-la como um parâmetro.
+1. Determine a **TenantId** para a assinatura que contém a entidade de serviço. Se você está recuperando a ID do locatário para a assinatura autenticada no momento, não precisa fornecer a ID de assinatura como um parâmetro. A opção **-r** recupera o valor sem as aspas.
 
-        tenantId=$(azure account show -s <subscriptionId> --json | jq '.[0].tenantId' | sed -e 's/^"//' -e 's/"$//')
+        tenantId=$(azure account show -s <subscriptionId> --json | jq -r '.[0].tenantId')
 
 2. Para o nome de usuário, use a **AppId** que você usou ao criar a entidade de serviço. Se você precisar recuperar a id do aplicativo, use o comando a seguir. Forneça o nome do aplicativo do Active Directory no parâmetro **search**.
 
-        appId=$(azure ad app show --search exampleapp --json | jq '.[0].appId' | sed -e 's/^"//' -e 's/"$//')
+        appId=$(azure ad app show --search exampleapp --json | jq -r '.[0].appId')
 
 3. Faça logon como a entidade de serviço.
 
@@ -365,17 +365,17 @@ Esta seção mostra como fazer logon como a entidade de serviço sem precisar in
 
 Essas etapas pressupõem que você tenha configurado um Cofre da Chave e um segredo que armazena a senha. Para implantar um Cofre da Chave e um segredo por meio de um modelo, consulte [Formato de modelo do Cofre da Chave](). Para saber mais sobre o Cofre da Chave, consulte [Introdução ao Cofre da Chave do Azure](./key-vault/key-vault-get-started.md).
 
-1. Recupere sua senha (no exemplo a seguir, armazenada como segredo com o nome **appPassword**) no Cofre da Chave. Você deve remover as aspas duplas inicial e final que são retornadas da saída json antes de passá-la como o parâmetro da senha.
+1. Recupere sua senha (no exemplo a seguir, armazenada como segredo com o nome **appPassword**) no Cofre da Chave. Incluia **-r** para remover as aspas iniciais e finais que são retornadas da saída json.
 
-        secret=$(azure keyvault secret show --vault-name examplevault --secret-name appPassword --json | jq '.value' | sed -e 's/^"//' -e 's/"$//')
+        secret=$(azure keyvault secret show --vault-name examplevault --secret-name appPassword --json | jq -r '.value')
     
-2. Determine a **TenantId** para a assinatura que contém a entidade de serviço.
+2. Determine a **TenantId** para a assinatura que contém a entidade de serviço. Se você está recuperando a ID do locatário para a assinatura autenticada no momento, não precisa fornecer a ID de assinatura como um parâmetro.
 
-        tenantId=$(azure account show -s <subscriptionId> --json | jq '.[0].tenantId' | sed -e 's/^"//' -e 's/"$//')
+        tenantId=$(azure account show -s <subscriptionId> --json | jq -r '.[0].tenantId')
 
 3. Para o nome de usuário, use a **AppId** que você usou ao criar a entidade de serviço. Se você precisar recuperar a id do aplicativo, use o comando a seguir. Forneça o nome do aplicativo do Active Directory no parâmetro **search**.
 
-        appId=$(azure ad app show --search exampleapp --json | jq '.[0].appId' | sed -e 's/^"//' -e 's/"$//')
+        appId=$(azure ad app show --search exampleapp --json | jq -r '.[0].appId')
 
 4. Faça logon como a entidade de serviço fornecendo a id do aplicativo, senha do Cofre da Chave, id do locatário.
 
@@ -460,13 +460,13 @@ Você criou um aplicativo do Active Directory e uma entidade de serviço para es
 
         30996D9CE48A0B6E0CD49DBB9A48059BF9355851
 
-2. Determine a **TenantId** para a assinatura que contém a entidade de serviço.
+2. Determine a **TenantId** para a assinatura que contém a entidade de serviço. Se você está recuperando a ID do locatário para a assinatura autenticada no momento, não precisa fornecer a ID de assinatura como um parâmetro. A opção **-r** recupera o valor sem as aspas.
 
-        tenantId=$(azure account show -s <subscriptionId> --json | jq '.[0].tenantId' | sed -e 's/^"//' -e 's/"$//')
+        tenantId=$(azure account show -s <subscriptionId> --json | jq -r '.[0].tenantId')
 
 3. Para o nome de usuário, use a **AppId** que você usou ao criar a entidade de serviço. Se você precisar recuperar a id do aplicativo, use o comando a seguir. Forneça o nome do aplicativo do Active Directory no parâmetro **search**.
 
-        appId=$(azure ad app show --search exampleapp --json | jq '.[0].appId' | sed -e 's/^"//' -e 's/"$//')
+        appId=$(azure ad app show --search exampleapp --json | jq -r '.[0].appId')
 
 4. Para autenticar na CLI do Azure, forneça a impressão digital do certificado, arquivo do certificado, id do aplicativo e id do locatário.
 
@@ -517,4 +517,4 @@ Para obter mais informações sobre como usar os certificados e a CLI do Azure, 
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

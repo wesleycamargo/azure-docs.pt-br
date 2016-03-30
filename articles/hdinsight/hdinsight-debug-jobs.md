@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.date="03/15/2016"
 	ms.author="jgao"/>
 
 # Analisar logs do HDInsight
@@ -99,18 +99,18 @@ Agora você pode usar o Excel para filtrar e classificar conforme o necessário.
 2. No menu **Exibir**, clique em **Cloud Explorer**. Ou simplesmente clique **CTRL+\\, CTRL+X**.
 3. No **Cloud Explorer**, escolha **Tipos de Recurso**. A outra opção disponível é **Grupos de Recursos**.
 4. Expanda **Contas de Armazenamento**, a conta de armazenamento padrão para o cluster e **Tabelas**.
-5. Clique duas vezes em hadoopservicelog.
+5. Clique duas vezes em **hadoopservicelog**.
 6. Adicione um filtro. Por exemplo:
 	
 		TraceLevel eq 'ERROR'
 
 	![Logs do HDInsight Hadoop escolher colunas](./media/hdinsight-debug-jobs/hdinsight-hadoop-analyze-logs-visual-studio-filter.png)
 
-	Para saber mais sobre como construir filtros, consulte [Construir cadeias de caracteres de filtro para o Designer de tabela](https://msdn.microsoft.com/library/azure/ff683669.aspx).
+	Para saber mais sobre como construir filtros, consulte [Construir cadeias de caracteres de filtro para o Designer de Tabela](../vs-azure-tools-table-designer-construct-filter-strings.md).
  
 ##Logs gravados no Armazenamento de Blobs do Azure
 
-[Os logs gravados em Tabelas do Azure](#log-written-to-azure-tables) fornecem informações sobre o que está acontecendo com um cluster HDInsight. No entanto, essas tabelas não fornecem logs no nível da tarefa, que podem ser úteis para a análise mais detalhada dos problemas, quando eles ocorrerem. Para fornecer esse nível de detalhes, os clusters HDInsight são configurados para gravar logs de tarefas em sua conta de Armazenamento de Blobs para qualquer trabalho enviado por meio do Templeton. Na prática, isso significa os trabalhos enviados usando os cmdlets do Microsoft Azure PowerShell ou as APIs de envio de trabalho do .NET, não os trabalhos enviados por meio de acesso ao cluster por RDP/linha de comando.
+[Os logs gravados em Tabelas do Azure](#log-written-to-azure-tables) fornecem informações sobre o que está acontecendo com um cluster do HDInsight. No entanto, essas tabelas não fornecem logs no nível da tarefa, que podem ser úteis para a análise mais detalhada dos problemas, quando eles ocorrerem. Para fornecer esse nível de detalhes, os clusters HDInsight são configurados para gravar logs de tarefas em sua conta de Armazenamento de Blobs para qualquer trabalho enviado por meio do Templeton. Na prática, isso significa os trabalhos enviados usando os cmdlets do Microsoft Azure PowerShell ou as APIs de envio de trabalho do .NET, não os trabalhos enviados por meio de acesso ao cluster por RDP/linha de comando.
 
 Para exibir os logs, confira [Acessar os logs de aplicativo YARN no HDInsight baseado em Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md).
 
@@ -146,7 +146,7 @@ Você pode usar a interface do usuário do YARN para fazer o seguinte:
 
 ###Acessar a interface do usuário do HBase
 
-No Portal do Azure, clique em um nome de cluster HBase do HDInsight para abrir a folha do cluster. Na folha do cluster, clique em **Painel**. Quando solicitado, insira as credenciais de administrador do cluster. No Console de Consulta aberto, clique em **IU do HBase**.
+No Portal do Azure, clique em um nome de cluster HBase do HDInsight para abrir a folha do cluster. Na folha do cluster, clique em **Painel**. Quando solicitado, insira as credenciais de administrador do cluster. No Console de Consulta aberto, clique em **Interface do usuário do HBase**.
 
 ## Códigos de erro do HDInsight
 
@@ -313,11 +313,11 @@ Algumas dessas mensagens de erro também podem ser vistas no Portal do Azure qua
 
 ### <a id="UnableToResolveDNS"></a>UnableToResolveDNS
 - **Descrição**: não é possível resolver o *yourDnsUrl* do DNS. Verifique se foi fornecida a URL totalmente qualificada do ponto de extremidade do blob.  
-- **Atenuação**: forneça uma URL de blob válida. A URL DEVE ser totalmente válida, incluindo começar com **http://* e terminar com *.com*.
+- **Atenuação**: forneça uma URL de blob válida. A URL DEVE ser totalmente válida, incluindo começar com *http://* e terminar com *.com*.
 
 ### <a id="UnableToVerifyLocationOfResource"></a>UnableToVerifyLocationOfResource
 - **Descrição**: não é possível verificar a localização do recurso *yourDnsUrl*. Verifique se foi fornecida a URL totalmente qualificada do ponto de extremidade do blob.  
-- **Atenuação**: forneça uma URL de blob válida. A URL DEVE ser totalmente válida, incluindo começar com **http://* e terminar com *.com*.
+- **Atenuação**: forneça uma URL de blob válida. A URL DEVE ser totalmente válida, incluindo começar com *http://* e terminar com *.com*.
 
 ### <a id="VersionCapabilityNotAvailable"></a>VersionCapabilityNotAvailable
 - **Descrição**: a capacidade da versão não está disponível para a versão *specifiedVersion* e para a ID da assinatura *yourSubscriptionId*.  
@@ -341,4 +341,4 @@ Algumas dessas mensagens de erro também podem ser vistas no Portal do Azure qua
 - [Habilitar despejos heap para serviços do Hadoop no HDInsight baseado em Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 - [Gerenciar clusters HDInsight usando a interface de usuário do Ambari Web](hdinsight-hadoop-manage-ambari.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

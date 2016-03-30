@@ -61,6 +61,11 @@ Habilite o Banco de Dados de Stretch.
 -   Para habilitar o Banco de Dados de Stretch em outra **tabela**, quando o Stretch já estiver habilitado no banco de dados, confira [Habilitar o Banco de Dados de Stretch para uma tabela](sql-server-stretch-database-enable-table.md).
 
 ## Consulte também
-[Problemas de bloqueio e limitações de área de superfície para o Banco de Dados de Stretch](sql-server-stretch-database-limitations.md) [Habilitar o Banco de Dados de Stretch para um banco de dados](sql-server-stretch-database-enable-database.md) [Habilitar o Banco de Dados de Stretch para uma tabela](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+[Limitações de área de superfície e problemas de bloqueio do Stretch Database](sql-server-stretch-database-limitations.md)
+
+[Habilitar o Banco de Dados de Stretch para um banco de dados](sql-server-stretch-database-enable-database.md)
+
+[Habilitar o Banco de Dados de Stretch para uma tabela](sql-server-stretch-database-enable-table.md)
+
+<!---HONumber=AcomDC_0316_2016-->

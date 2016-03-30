@@ -37,12 +37,14 @@ Após a conclusão deste tutorial, seu aplicativo será semelhante à ilustraç�
 Primeiro, vamos começar com a criação de um projeto Java.
 
 1. Inicie o Eclipse, no menu clique em **Arquivo**, clique em **Novo** e depois em **Projeto Web Dinâmico**. (Se você não vir o **Projeto Web Dinâmico** listado como um projeto disponível depois de clicar em **Arquivo** e em **Novo**, faça o seguinte: clique em **Arquivo**, clique em **Novo**, clique em **Projeto...**, expanda **Web**, clique em **Projeto Web Dinâmico** e clique em **Avançar**).
-1. Para o objetivo deste tutorial, nomeie o projeto **MyHelloWorld**. Sua tela será semelhante à seguinte:![][02]
+1. Para o objetivo deste tutorial, nomeie o projeto **MyHelloWorld**. Sua tela será semelhante à seguinte:
+   ![][02]
 1. Clique em **Concluir**.
 1. No modo de exibição do Gerenciador de Projeto do Eclipse, expanda **MyHelloWorld**. Clique com o botão direito do mouse em **WebContent**, clique em **Novo** e, em seguida, clique em **Arquivo JSP**.
 1. Na caixa de diálogo **Novo arquivo JSP**, nomeie o arquivo **index.jsp**. Mantenha a pasta pai como **MyHelloWorld/WebContent**.
 1. Na caixa de diálogo **Selecionar Modelo JSP**, para a finalidade deste tutorial, escolha **Novo Arquivo JSP (html)** e clique em **Concluir**.
-1. Quando o arquivo index.jsp for aberto no Eclipse, adicione o texto para exibir dinamicamente **Hello World!** dentro do elemento `<body>` existente. Seu conteúdo do `<body>` atualizado deve ser parecido com o exemplo a seguir: `<body><b><% out.println("Hello World!"); %></b></body>` 
+1. Quando o arquivo index.jsp for aberto no Eclipse, adicione o texto para exibir dinamicamente **Hello World!** dentro do elemento `<body>` existente. Seu conteúdo do `<body>` atualizado deve ser parecido com o exemplo a seguir:
+   `<body><b><% out.println("Hello World!"); %></b></body>` 
 1. Salve o index.jsp.
 
 ## Para implantar seu aplicativo em um contêiner de aplicativos Web do Azure
@@ -51,10 +53,15 @@ Há várias maneiras pelas quais você pode implantar um aplicativo Web Java no 
 
 1. No Gerenciador de Projetos do Eclipse, clique com o botão direito do mouse em **MyHelloWorld**.
 
-1. No menu de contexto, escolha **Azure** e clique em **Publicar como Aplicativo Web do Azure...** ![][03]
-1. Se não ainda não tiver entrado no Azure pelo Eclipse, você receberá uma solicitação para entrar em sua conta do Azure: ![][04] Observação: se você tiver várias contas do Azure, alguns avisos durante o processo de entrada poderão ser enviados mais de uma vez, mesmo que pareçam ser o mesmo aviso. Quando isso acontecer, continue seguindo as instruções de entrada.
-1. Após o logon bem-sucedido em sua conta do Azure, a caixa de diálogo **Gerenciar Assinaturas** exibirá uma lista de assinaturas associadas às suas credenciais. Se houver várias assinaturas listadas e se você quiser trabalhar com apenas um subconjunto específico delas, poderá, opcionalmente, desmarcar as que deseja usar. Depois de selecionar suas assinaturas, clique em **Fechar**. ![][05]
-1. Quando a caixa de diálogo **Implantar no Contêiner de Aplicativos Web do Azure** aparecer, ela exibirá qualquer contêiner de aplicativos Web criado anteriormente por você; se você não tiver criado qualquer contêiner, a lista estará vazia. ![][06]
+1. No menu de contexto, escolha **Azure** e clique em **Publicar como Aplicativo Web do Azure...**
+   ![][03]
+1. Se não ainda não tiver entrado no Azure pelo Eclipse, você receberá uma solicitação para entrar em sua conta do Azure:
+   ![][04]
+   Observação: se você tiver várias contas do Azure, alguns avisos durante o processo de entrada poderão ser enviados mais de uma vez, mesmo que pareçam ser o mesmo aviso. Quando isso acontecer, continue seguindo as instruções de entrada.
+1. Após o logon bem-sucedido em sua conta do Azure, a caixa de diálogo **Gerenciar Assinaturas** exibirá uma lista de assinaturas associadas às suas credenciais. Se houver várias assinaturas listadas e se você quiser trabalhar com apenas um subconjunto específico delas, poderá, opcionalmente, desmarcar as que deseja usar. Depois de selecionar suas assinaturas, clique em **Fechar**.
+   ![][05]
+1. Quando a caixa de diálogo **Implantar no Contêiner de Aplicativos Web do Azure** aparecer, ela exibirá qualquer contêiner de aplicativos Web criado anteriormente por você; se você não tiver criado qualquer contêiner, a lista estará vazia.   
+   ![][06]
 1. Se você nunca tiver criado um contêiner de aplicativos Web do Azure, ou se quiser publicar seu aplicativo em um novo contêiner, use as etapas a seguir. Caso contrário, selecione um Contêiner de Aplicativo Web existente e pule para a etapa 7 abaixo.
 
   1. Clique em **Novo...**
@@ -67,15 +74,15 @@ Há várias maneiras pelas quais você pode implantar um aplicativo Web Java no 
 
   1. No menu suspenso **Contêiner da Web**, selecione o software apropriado ao seu aplicativo.
 
-        Currently, you can choose from Tomcat 8, Tomcat 7 or Jetty 9. A recent distribution of the selected software will be provided by Azure, and it will run on a recent distribution of JDK 8 created by Oracle and provided by Azure.
+        No momento, você pode escolher entre o Tomcat 8, Tomcat 7 ou Jetty 9. Uma distribuição recente do software selecionado será fornecida pelo Azure e ele será executado em uma distribuição recente do JDK 8 criado pela Oracle e fornecido pelo Azure.
 
   1. No menu suspenso **Assinatura**, selecione a assinatura que você deseja usar para essa implantação.
 
   1. No menu suspenso **Grupo de Recursos**, selecione o Grupo de Recursos com o qual você deseja associar seu Aplicativo Web.
 
-        Note: Azure Resource Groups allow you to group related resources together so that, for example, they can be deleted together.
+        Observação: os Grupos de Recursos do Azure lhe permitem agrupar recursos relacionados para que, por exemplo, possam ser excluídos juntos.
 
-        You can select an existing Resource Group (if you have any) and skip to step g below, or use the following these steps to create a new Resource Group:
+        Você pode selecionar um Grupo de Recursos existente (se houver) e ignorar a etapa g abaixo ou usar as seguintes etapas para criar um novo Grupo de Recursos:
 
       * Clique em **Novo...**
 
@@ -91,9 +98,9 @@ Há várias maneiras pelas quais você pode implantar um aplicativo Web Java no 
 
   1. O menu suspenso **Plano de Serviço de Aplicativo** lista os planos de serviço de aplicativo que estão associados ao Grupo de Recursos que você selecionou.
 
-        Note: An App Service Plan specifies information such as the location of your Web App, the pricing tier and the compute instance size. A single App Service Plan can be used for multiple Web Apps, which is why it is maintained separately from a specific Web App deployment.
+        Observação: um Plano do Serviço de Aplicativo especifica informações como o local de seu Aplicativo Web, o tipo de preço e o tamanho da instância de computação. Um único Plano do Serviço de Aplicativo pode ser usado para vários Aplicativos Web, por isso, ele é mantido separadamente de uma implantação de Aplicativo Web específica.
 
-        You can select an existing App Service Plan (if you have any) and skip to step h below, or use the following these steps to create a new App Service Plan:
+        Você pode selecionar um Plano do Serviço de Aplicativo existente (se houver) e ignorar a etapa h abaixo ou usar as seguintes etapas para criar um novo Plano do Serviço de Aplicativo:
 
       * Clique em **Novo...**
 
@@ -115,7 +122,7 @@ Há várias maneiras pelas quais você pode implantar um aplicativo Web Java no 
 
   1. Clique em **OK** para concluir a criação de seu novo Contêiner de Aplicativo Web.
 
-        Wait a few seconds for the list of the Web App containers to be refreshed, and your newly-created web app container should now be selected in the list.
+        Aguarde alguns segundos para a lista de contêineres de Aplicativo Web ser atualizada. O contêiner do aplicativo Web recém-criado agora deve ser selecionado na lista.
 
 1. Agora você está pronto para concluir a implantação inicial de seu Aplicativo Web no Azure:
 
@@ -159,7 +166,8 @@ Quando o modo de exibição do **Azure Explorer** for exibido, execute estas eta
 1. Expanda o nó **Azure**.
 2. Expanda o nó **Aplicativos Web**. 
 3. Clique com botão direito do mouse no Aplicativo Web desejado.
-5. Quando o menu de contexto aparecer, clique em **Parar**. ![][13]
+5. Quando o menu de contexto aparecer, clique em **Parar**.
+    ![][13]
 
 ## Próximas etapas
 
@@ -195,3 +203,4 @@ Para obter mais informações, consulte os links a seguir:
 [13]: ./media/create-a-hello-world-web-app-for-azure-in-eclipse/13-Azure-Explorer-Web-App.png
 
 <!---HONumber=AcomDC_0309_2016-->
+

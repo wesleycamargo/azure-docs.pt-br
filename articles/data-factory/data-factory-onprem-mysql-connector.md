@@ -231,7 +231,7 @@ A tabela a seguir fornece a descrição para elementos JSON específicos para o 
 | Senha | Especifique a senha da conta de usuário que você especificou para o nome de usuário. | Não | 
 | gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar ao banco de dados MySQL local. | Sim |
 
-Consulte [Definir credenciais e segurança](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) para obter detalhes sobre como definir credenciais para uma fonte de dados do MySQL no local.
+Consulte [Definir credenciais e segurança](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) para obter detalhes sobre como definir credenciais para uma fonte de dados do MySQL no local.
 
 ## Propriedades de tipo do conjunto de dados do MySQL
 
@@ -313,4 +313,4 @@ Ao mover dados para o MySQL os seguintes mapeamentos serão usados dos tipos do 
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

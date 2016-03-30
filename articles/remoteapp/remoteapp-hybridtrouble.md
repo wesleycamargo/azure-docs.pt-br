@@ -40,7 +40,7 @@ Você pode adicionar grupos de segurança de rede adicionais às máquinas virtu
 >[AZURE.NOTE] Você precisa verificar se os servidores DNS na sua rede virtual estão sempre ativados e sempre capazes de resolver os problemas das máquinas virtuais hospedadas na rede virtual. Não use o DNS do Google para isso.
 
 
-Para coleções híbridas, use seus próprios servidores DNS. Você os especifica no seu esquema de configuração de rede ou por meio do portal de gerenciamento ao criar a rede virtual. Os servidores DNS são usados na ordem em que eles forem especificados em uma forma de failover (em vez de round robin).
+Para coleções híbridas, use seus próprios servidores DNS. Você os especifica no seu esquema de configuração de rede ou por meio do portal de gerenciamento ao criar a rede virtual. Os servidores DNS são usados na ordem em que eles forem especificados em uma forma de failover (em vez de round robin). Confira [Resolução de nomes de VMs e instâncias de função](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) para verificar se os servidores DNS estão configurados corretamente.
 
 Verifique se os servidores DNS de sua coleção estão acessíveis e disponíveis da sub-rede VNET especificada para essa coleção.
 
@@ -67,4 +67,4 @@ Verifique se os detalhes do domínio fornecidos são válidos e se o controlador
 
 O nome de domínio criado ou adicionado deve ser um nome de domínio interno (não o seu nome de domínio do Azure AD) e deve estar no formato DNS resolvível (contoso. local). Por exemplo, você tem um nome interno do Active Directory (Contoso) e um UPN do Active Directory (contoso.com): deve, então, usar o nome interno ao criar sua coleção.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

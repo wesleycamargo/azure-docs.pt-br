@@ -1,26 +1,26 @@
-<properties 
-    pageTitle="Conectando o Banco de Dados de Documentos à Pesquisa do Azure usando indexadores | Microsoft Azure" 
+<properties
+    pageTitle="Conectando o Banco de Dados de Documentos à Pesquisa do Azure usando indexadores | Microsoft Azure"
     description="Este artigo mostra como usar o indexador da Pesquisa do Azure com o Banco de Dados de Documentos como uma fonte de dados."
-    services="documentdb" 
-    documentationCenter="" 
-    authors="AndrewHoh" 
-    manager="jhubbard" 
+    services="documentdb"
+    documentationCenter=""
+    authors="AndrewHoh"
+    manager="jhubbard"
     editor="mimig"/>
 
-<tags 
-    ms.service="documentdb" 
-    ms.devlang="rest-api" 
-    ms.topic="article" 
-    ms.tgt_pltfrm="NA" 
-    ms.workload="data-services" 
-    ms.date="02/01/2016" 
+<tags
+    ms.service="documentdb"
+    ms.devlang="rest-api"
+    ms.topic="article"
+    ms.tgt_pltfrm="NA"
+    ms.workload="data-services"
+    ms.date="03/09/2016"
     ms.author="anhoh"/>
 
 #Conectando o Banco de Dados de Documentos à Pesquisa do Azure usando indexadores
 
 Se você está pensando em implementar experiências de pesquisa incríveis para seus dados no Banco de Dados de Documentos, use o indexador da Pesquisa do Azure para o Banco de Dados de Documentos! Neste artigo, mostraremos como integrar o Banco de Dados de Documentos do Azure à Pesquisa do Azure sem precisar escrever nenhum código para manter a infraestrutura de indexação!
 
-Para isso, você precisa [configurar uma conta da Pesquisa do Azure](../search/search-get-started.md#start-with-the-free-service) (não é necessário atualizar para a pesquisa padrão) e chamar a [API REST da Pesquisa do Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx) para criar uma **fonte de dados** do Banco de Dados de Documentos e um **indexador** para essa fonte de dados.
+Para isso, você precisa [configurar uma conta da Pesquisa do Azure](../search/search-create-service-portal.md) (não é necessário atualizar para a pesquisa padrão) e chamar a [API REST da Pesquisa do Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx) para criar uma **fonte de dados** do Banco de Dados de Documentos e um **indexador** para essa fonte de dados.
 
 ##<a id="Concepts"></a>Conceitos do indexador da Pesquisa do Azure
 
@@ -32,12 +32,12 @@ Um **indexador** descreve como os dados vão da fonte de dados para o índice de
 
 - Executar uma cópia única dos dados para preenchimento de um índice.
 - Sincronizar um índice com as alterações da fonte de dados segundo uma agenda. A agenda faz parte da definição do indexador.
-- Invocar atualizações sob demanda para um índice, conforme necessário. 
+- Invocar atualizações sob demanda para um índice, conforme necessário.
 
 ##<a id="CreateDataSource"></a>Etapa 1: Criar uma fonte de dados
 
 Emita uma solicitação HTTP POST para criar uma nova fonte de dados no serviço de Pesquisa do Azure, incluindo os seguintes cabeçalhos de solicitação.
-    
+
     POST https://[Search service name].search.windows.net/datasources?api-version=[api-version]
     Content-Type: application/json
     api-key: [Search service admin key]
@@ -56,7 +56,7 @@ O corpo da solicitação contém a definição da fonte de dados, que deve inclu
 
 - **container**:
 
-    - **name**: obrigatório. Especifique a coleção do Banco de Dados de Documentos a ser indexada. 
+    - **name**: obrigatório. Especifique a coleção do Banco de Dados de Documentos a ser indexada.
 
     - **query**: opcional. Você pode especificar uma consulta para nivelar um documento JSON arbitrário, criando um esquema nivelado que a Pesquisa do Azure pode indexar.
 
@@ -68,10 +68,10 @@ O corpo da solicitação contém a definição da fonte de dados, que deve inclu
 
 A finalidade de uma política de detecção de alteração de dados é identificar de maneira eficaz dados alterados. Atualmente, a única política com suporte é a política `High Water Mark` que usa a propriedade, que indica o `_ts` carimbo de data/hora da última alteração, fornecida pelo Banco de Dados de Documentos e especificada da seguinte maneira:
 
-    { 
+    {
         "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
-        "highWaterMarkColumnName" : "_ts" 
-    } 
+        "highWaterMarkColumnName" : "_ts"
+    }
 
 Você também precisa adicionar `_ts` à projeção, bem como a cláusula `WHERE` da sua consulta. Por exemplo:
 
@@ -82,10 +82,10 @@ Você também precisa adicionar `_ts` à projeção, bem como a cláusula `WHERE
 
 Quando linhas são excluídas da tabela de origem, você deve excluí-las também do índice de pesquisa. A finalidade de uma política de detecção de exclusão de dados é identificar de maneira eficaz dados excluídos. Atualmente, a única política com suporte é a política `Soft Delete` (a exclusão recebe algum tipo de marcador), que é especificada da seguinte forma:
 
-    { 
+    {
         "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",
-        "softDeleteColumnName" : "the property that specifies whether a document was deleted", 
-        "softDeleteMarkerValue" : "the value that identifies a document as deleted" 
+        "softDeleteColumnName" : "the property that specifies whether a document was deleted",
+        "softDeleteMarkerValue" : "the value that identifies a document as deleted"
     }
 
 > [AZURE.NOTE] Você precisará incluir a propriedade em sua cláusula SELECT se estiver usando uma projeção personalizada.
@@ -102,7 +102,7 @@ O exemplo a seguir cria uma fonte de dados com uma consulta personalizada e dica
         },
         "container": {
             "name": "myDocDbCollectionId",
-            "query": "SELECT s.id, s.Title, s.Abstract, s._ts FROM Sessions s WHERE s._ts > @HighWaterMark" 
+            "query": "SELECT s.id, s.Title, s.Abstract, s._ts FROM Sessions s WHERE s._ts > @HighWaterMark"
         },
         "dataChangeDetectionPolicy": {
             "@odata.type": "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
@@ -171,7 +171,7 @@ Se o índice for criado com êxito, você receberá uma resposta de HTTP 201 Cri
 ##<a id="CreateIndexer"></a>Etapa 3: Criar um indexador
 
 Você pode criar um novo indexador em um serviço da Pesquisa do Azure usando uma solicitação HTTP POST com os seguintes cabeçalhos.
-    
+
     POST https://[Search service name].search.windows.net/indexers?api-version=[api-version]
     Content-Type: application/json
     api-key: [Search service admin key]
@@ -190,7 +190,7 @@ O corpo da solicitação contém a definição do indexador, que deve incluir os
 
 Um indexador pode, também, especificar uma agenda. Se houver uma agenda, o indexador será executado periodicamente segundo a agenda. A agenda tem os seguintes atributos:
 
-- **interval**: obrigatório. Um valor de duração que especifica o intervalo ou período de execução do indexador. O menor intervalo permitido é de cinco minutos, e o maior é de um dia. Ele deve ser formatado como um valor XSD de "dayTimeDuration" (um subconjunto restrito de um [valor de duração ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). O padrão para isso é: `P(nD)(T(nH)(nM))`. Exemplos: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas. 
+- **interval**: obrigatório. Um valor de duração que especifica o intervalo ou período de execução do indexador. O menor intervalo permitido é de cinco minutos, e o maior é de um dia. Ele deve ser formatado como um valor XSD de "dayTimeDuration" (um subconjunto restrito de um [valor de duração ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). O padrão para isso é: `P(nD)(T(nH)(nM))`. Exemplos: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas.
 
 - **startTime**: obrigatório. Uma data/hora, no horário UTC, que especifica quando o indexador deve começar a ser executado.
 
@@ -268,6 +268,5 @@ Parabéns! Você acaba de aprender como integrar o Banco de Dados do Azure à Pe
  - Para saber mais sobre oBanco de Dados de Documentos do Azure, confira a [página de serviço do Banco de Dados de Documentos](https://azure.microsoft.com/services/documentdb/).
 
  - Para saber mais sobre a Pesquisa do Azure, confira a [página do serviço de Pesquisa](https://azure.microsoft.com/services/search/).
- 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

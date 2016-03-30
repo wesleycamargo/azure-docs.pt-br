@@ -111,6 +111,10 @@ O modelo anterior de Aplicativos de API apresentava APIs para a descoberta de ou
 3. Crie seu próprio aplicativo de API de descoberta e faça com que outros aplicativos de API registrem-se com o aplicativo de descoberta na inicialização.
 4. No momento da implantação, preencha as configurações do aplicativo de todos os aplicativos de API (e clientes) com os pontos de extremidade dos outros aplicativos de API. Isso é viável em implantações de modelo e nos Aplicativos de API, já que agora oferecem controle da URL.
 
+## Usando aplicativos de API com aplicativos lógicos
+
+O novo modelo de aplicativos de API funciona bem com [a versão de esquema 2015-08-01 dos Aplicativos Lógicos](../app-service-logic/app-service-logic-schema-2015-08-01.md).
+
 ## Próximas etapas
 
 Para saber mais, leia os artigos na seção [Documentação de Aplicativos de API](https://azure.microsoft.com/documentation/services/app-service/api/). Eles foram atualizados para refletir o novo modelo para Aplicativos de API. Além disso, acesse os fóruns para obter detalhes adicionais ou orientação sobre migração:
@@ -118,4 +122,4 @@ Para saber mais, leia os artigos na seção [Documentação de Aplicativos de AP
 - [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=AzureAPIApps)
 - [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-apps)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

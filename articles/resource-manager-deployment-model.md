@@ -44,7 +44,7 @@ Os recursos criados com o Gerenciador de Recursos compartilham as seguintes cara
 
         ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-        For Compute, Storage, and Networking resources, you have the option of using either Resource Manager or Classic deployment. Select **Resource Manager**.
+        Para os recursos Computação, Armazenamento e Rede, você tem a opção de usar a implantação Gerenciador de Recursos ou Clássica. Selecione **Gerenciador de Recursos**.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
@@ -52,7 +52,7 @@ Os recursos criados com o Gerenciador de Recursos compartilham as seguintes cara
 
             PS C:\> Switch-AzureMode -Name AzureResourceManager
 
-  - Para o Azure PowerShell 1.0, use a versão de comandos do Gerenciador de Recursos. Esses comandos têm o formato *verb-AzureRm*, conforme mostrado abaixo.
+  - Para o Azure PowerShell 1.0, use a versão de comandos do Gerenciador de Recursos. Esses comandos têm o formato *Verb-AzureRmNoun*, conforme mostrado abaixo.
 
             PS C:\> Get-AzureRmResourceGroupDeployment
 
@@ -93,7 +93,7 @@ Os recursos criados no modelo de implantação clássica compartilham as seguint
 
         ![Classic portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        Or, the portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
+        Ou pelo portal de visualização, e depois você deve especificar a implantação **Clássica** (para Computação, Armazenamento e Rede).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
@@ -101,7 +101,7 @@ Os recursos criados no modelo de implantação clássica compartilham as seguint
 
             PS C:\> Switch-AzureMode -Name AzureServiceManagement
 
-  - Para o Azure PowerShell 1.0, use a versão de comandos do Gerenciamento de Serviço. Esses nomes de comandos **não têm** o formato *verb-AzureRm*, conforme mostrado abaixo.
+  - Para o Azure PowerShell 1.0, use a versão de comandos do Gerenciamento de Serviço. Esses nomes de comandos têm o formato *Verb-AzureNoun*, conforme mostrado abaixo.
 
             PS C:\> Get-AzureDeployment
 
@@ -111,7 +111,7 @@ Os recursos criados no modelo de implantação clássica compartilham as seguint
 
     ![tipo clássico](./media/resource-manager-deployment-model/classic-type.png)
 
-Você ainda pode usar o portal para gerenciar recursos que foram criados por meio da implantação clássica.
+Você ainda pode usar o portal do Azure para gerenciar recursos que foram criados por meio da implantação clássica.
 
 Aqui estão os componentes e suas relações para o Gerenciamento de Serviços do Azure.
 
@@ -125,7 +125,7 @@ O Gerenciador de Recursos adicionou o conceito do grupo de recursos. Cada recurs
 - Você pode implantar o aplicativo repetidamente em todo seu ciclo de vida e com a confiança de que seus recursos serão implantados em um estado consistente.
 - Você pode usar modelos declarativos para definir sua implantação.
 - Você pode definir as dependências entre os recursos para que eles sejam implantados na ordem correta.
-- Você pode aplicar o controle de acesso a todos os serviços no grupo de recursos, pois o RBAC (Controle de Acesso Baseado em Função) é integrado nativamente à plataforma de gerenciamento.
+- Você pode aplicar o controle de acesso a todos os recursos no grupo de recursos, pois o RBAC (Controle de Acesso Baseado em Função) é integrado nativamente à plataforma de gerenciamento.
 - Você pode aplicar marcas aos recursos para organizar de modo lógico todos os recursos em sua assinatura.
 
 
@@ -155,9 +155,9 @@ Os recursos que você criou no modelo de implantação clássica não oferecem s
      ExampleResourceVM    Microsoft.Compute/virtualMachines             eastus
     ...
 
-No entanto, se executar o comando Get-AzureVM, você obterá apenas as máquinas virtuais que foram criadas com o Gerenciador de Recursos.
+No entanto, se executar o comando Get-AzureRmVM, você obterá apenas as máquinas virtuais que foram criadas com o Gerenciador de Recursos.
 
-    PS C:\> Get-AzureVM -ResourceGroupName ExampleGroup
+    PS C:\> Get-AzureRmVM -ResourceGroupName ExampleGroup
     ...
     Id       : /subscriptions/xxxx/resourceGroups/ExampleGroup/providers/Microsoft.Compute/virtualMachines/ExampleResourceVM
     Name     : ExampleResourceVM
@@ -188,4 +188,4 @@ Para saber como conectar redes virtuais de diferentes modelos de implantação, 
 - Para saber como criar modelos de implantação declarativa, veja [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
 - Para ver os comandos para implantar um modelo, veja [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0316_2016-->

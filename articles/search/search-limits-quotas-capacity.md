@@ -22,14 +22,14 @@
 Os limites máximos de armazenamento, cargas de trabalho, quantidades de índices, documentos e outros objetos dependem do tipo de preço ao qual a Pesquisa do Azure é adicionada, que pode ser **Gratuito**, **Básico** ou **Standard**.
 
 - **Gratuito** é um serviço compartilhado multilocatário fornecido com sua assinatura do Azure. É uma opção sem custo adicional para assinantes existentes que permite experimentar o serviço antes de se inscrever para obter recursos dedicados. 
-- **Básico (Preview)** fornece recursos de computação dedicados para cargas de trabalho de produção em uma escala menor. Atualmente, esse tipo está em Preview e é oferecido por uma [taxa reduzida](https://azure.microsoft.com/pricing/details/search/).
-- **Standard** é executado em computadores dedicados usados apenas pelo seu serviço, com mais capacidade de armazenamento e processamento em cada nível, incluindo a configuração mínima. Standard vem em dois níveis (S1 e S2). 
+- **Básico (Preview)** fornece recursos de computação dedicados para cargas de trabalho de produção em uma escala menor. Atualmente, esse tipo está em Preview e é oferecido por uma [taxa 50% reduzida durante o período de Preview](https://azure.microsoft.com/pricing/details/search/).
+- **Standard** é executado em máquinas dedicados, com mais capacidade de armazenamento e processamento em cada nível, incluindo a configuração mínima. Standard vem em dois níveis (S1 e S2). 
+
+Todos os tipos podem ser [provisionados no portal](search-create-service-portal.md), com exceção do S2, que exige um tíquete de suporte. Envie um e-mail para azuresearch_contact@microsoft.com a fim de começar a usar o S2.
 
 ## Limites de camada
 
 [AZURE.INCLUDE [azure-search-limits](../../includes/azure-search-limits-all.md)]
-
-> [AZURE.NOTE] O QPS (consultas por segundo) é variável, especialmente, no serviço compartilhado, pois a taxa de transferência baseia-se na largura de banda disponível e na competição por recursos do sistema. Os recursos de computação e armazenamento do Azure que apoiam o serviço compartilhado são compartilhados por vários assinantes; portanto, o QPS de sua solução sempre vai variar conforme o número de outras cargas de trabalho em execução ao mesmo tempo. No nível padrão, é possível estimar melhor o QPS, porque você tem controle sobre mais parâmetros. Veja a seção de práticas recomendadas em [Gerenciar sua solução de pesquisa](search-manage.md) para obter orientação sobre como calcular o QPS para suas cargas de trabalho.
 
 ## Limites de chave de API
 
@@ -53,4 +53,10 @@ As chaves de API são usadas para autenticação de serviço. Há dois tipos. Ch
 
 <sup>1</sup> na Pesquisa do Azure, o corpo de uma solicitação está sujeito a um limite superior de 16 MB, impondo um limite prático no conteúdo de campos individuais ou Coleções que, caso contrário, não são limitadas por limites teóricos (consulte [Tipos de dados com suporte](https://msdn.microsoft.com/library/azure/dn798938.aspx) para obter mais informações sobre restrições e composição de campos).
 
-<!-----HONumber=AcomDC_0302_2016-->
+## Consultas por segundo
+
+Embora essas estimativas aproximadas sejam fornecidas na página de preços e no gráfico [Limites do Tipo](#TierLimits) fornecido acima, é difícil determinar a QPS (consultas por segundo) real, especialmente no serviço Gratuito compartilhado, no qual a taxa de transferência tem base na largura de banda disponível na competição por recursos do sistema. Os recursos de computação e armazenamento que apoiam o serviço compartilhado são compartilhados por vários assinantes; portanto, o QPS de sua solução sempre vai variar conforme o número de outras cargas de trabalho em execução ao mesmo tempo.
+
+No nível padrão, é possível estimar melhor o QPS, porque você tem controle sobre mais parâmetros. Veja a seção de práticas recomendadas em [Gerenciar sua solução de pesquisa](search-manage.md) para obter orientação sobre como calcular o QPS para suas cargas de trabalho.
+
+<!---HONumber=AcomDC_0316_2016-->

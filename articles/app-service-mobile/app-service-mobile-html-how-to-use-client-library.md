@@ -113,4 +113,4 @@ Use o SDK dos Hubs de Notificação para enviar notificações por push do servi
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
 [documentação do objeto Query]: https://msdn.microsoft.com/pt-BR/library/azure/jj613353.aspx
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->

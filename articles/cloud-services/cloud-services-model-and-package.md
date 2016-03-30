@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/21/2016"
+    ms.date="03/11/2016"
     ms.author="adegeo"/>
 
 # Qual é o modelo de serviço de nuvem e como empacotá-lo?
@@ -86,21 +86,21 @@ O arquivo **ServiceDefinition.csdef** especifica as configurações que são usa
 
 Você pode consultar o [esquema de definição de serviço][] para uma melhor compreensão sobre o esquema XML usado aqui, no entanto, eis uma breve explicação de alguns dos elementos:
 
->**Sites** contêm as definições para sites da Web ou aplicativos Web hospedados no IIS7.
->
->**InputEndpoints** contém as definições para pontos de extremidade usados para entrar em contato com o serviço de nuvem.
->
->**InternalEndpoints** contém as definições para pontos de extremidade que são usados por instâncias de função para se comunicar entre si.
->
->**ConfigurationSettings** contém as definições de configuração para recursos de uma função específica.
->
->**Certificados** contêm as definições para certificados que são necessárias para uma função. O exemplo de código anterior mostra um certificado que é usado para a configuração do Azure Connect.
->
->**LocalResources** contém as definições para recursos de armazenamento local. Um recurso de armazenamento local é um diretório reservado no sistema de arquivos da máquina virtual no qual uma instância de uma função está em execução.
->
->**Imports** contém as definições para módulos importados. O exemplo de código anterior mostra os módulos para conexão de área de trabalho remota e Azure Connect.
->
->**Inicialização** contém tarefas que são executadas quando a função é iniciada. As tarefas são definidas em um arquivo executável ou o .cmd.
+**Sites** contêm as definições para sites da Web ou aplicativos Web hospedados no IIS7.
+
+**InputEndpoints** contém as definições para pontos de extremidade usados para entrar em contato com o serviço de nuvem.
+
+**InternalEndpoints** contém as definições para pontos de extremidade que são usados por instâncias de função para se comunicar entre si.
+
+**ConfigurationSettings** contém as definições de configuração para recursos de uma função específica.
+
+**Certificados** contêm as definições para certificados que são necessárias para uma função. O exemplo de código anterior mostra um certificado que é usado para a configuração do Azure Connect.
+
+**LocalResources** contém as definições para recursos de armazenamento local. Um recurso de armazenamento local é um diretório reservado no sistema de arquivos da máquina virtual no qual uma instância de uma função está em execução.
+
+**Imports** contém as definições para módulos importados. O exemplo de código anterior mostra os módulos para conexão de área de trabalho remota e Azure Connect.
+
+**Inicialização** contém tarefas que são executadas quando a função é iniciada. As tarefas são definidas em um arquivo executável ou o .cmd.
 
 
 
@@ -130,11 +130,11 @@ O arquivo de configuração de serviço não é fornecido com o aplicativo, mas 
 
 Você pode consultar o [esquema de configuração de serviço](https://msdn.microsoft.com/library/azure/ee758710.aspx) para entender melhor o esquema XML usado aqui, no entanto, eis uma breve explicação dos elementos:
 
->**Instâncias** configura o número de instâncias em execução para a função. Para impedir que seu serviço de nuvem fique indisponível durante atualizações, é recomendável implantar mais de uma instância de suas funções da web. Fazendo isso, você está aderindo às diretrizes do [Contrato de nível de serviço de computação do Azure (SLA)](http://azure.microsoft.com/support/legal/sla/), que garante 99,95% de conectividade externa para funções de Internet quando duas ou mais instâncias de função são implantadas para um serviço.
+**Instâncias** configura o número de instâncias em execução para a função. Para impedir que seu serviço de nuvem fique indisponível durante atualizações, é recomendável implantar mais de uma instância de suas funções da web. Fazendo isso, você está aderindo às diretrizes do [Contrato de nível de serviço de computação do Azure (SLA)](http://azure.microsoft.com/support/legal/sla/), que garante 99,95% de conectividade externa para funções de Internet quando duas ou mais instâncias de função são implantadas para um serviço.
 
->**ConfigurationSettings** define as configurações para as instâncias em execução para uma função. O nome dos `<Setting>` elementos deve corresponder às definições no arquivo de definição de serviço.
+**ConfigurationSettings** define as configurações para as instâncias em execução para uma função. O nome dos `<Setting>` elementos deve corresponder às definições no arquivo de definição de serviço.
 
->**Certificados** configura os certificados que são usados pelo serviço. O exemplo de código anterior mostra como definir o certificado para o módulo RemoteAccess. O valor do atributo *impressão digital* deve ser definido como a impressão digital do certificado que será usado.
+**Certificados** configura os certificados que são usados pelo serviço. O exemplo de código anterior mostra como definir o certificado para o módulo RemoteAccess. O valor do atributo *impressão digital* deve ser definido como a impressão digital do certificado que será usado.
 
 <p/>
 
@@ -153,7 +153,7 @@ O exemplo a seguir mostra a configuração de uma função web com um site e o a
     <Setting name="DiagnosticsConnectionString" />
   </ConfigurationSettings>
   <Endpoints>
-    <InputEndpoint name="HttpIn" protocol="http" port="80" />
+    <InputEndpoint name="HttpIn" protocol="http" <mark>port="80"</mark> />
     <InputEndpoint name="Https" protocol="https" port="443" certificate="SSL"/>
     <InputEndpoint name="NetTcp" protocol="tcp" port="808" certificate="SSL"/>
   </Endpoints>
@@ -169,7 +169,7 @@ O exemplo a seguir mostra a configuração de uma função web com um site e o a
   </Site>
   <Site name="MailSite" packageDir="MailSite">
     <Bindings>
-      <Binding name="mail" endpointName="HttpIn" hostheader="mail.mysite.cloudapp.net" />
+      <Binding name="mail" endpointName="HttpIn" <mark>hostheader="mail.mysite.cloudapp.net"</mark> />
     </Bindings>
     <VirtualDirectory name="artifacts" />
     <VirtualApplication name="storageproxy">
@@ -201,13 +201,9 @@ A [biblioteca de tempo de execução do Azure](https://msdn.microsoft.com/librar
 ## ServicePackage.cspkg
 Para implantar um aplicativo como um serviço de nuvem no Azure, primeiro você deve empacotar o aplicativo no formato apropriado. Você pode usar a ferramenta de linha de comando **CSPack** (instalada com o [SDK do Azure](https://azure.microsoft.com/downloads/)) para criar o arquivo de pacote como uma alternativa para o Visual Studio.
 
-O **CSPack** usa o conteúdo do arquivo de definição de serviço e arquivo de configuração de serviço para definir o conteúdo do pacote. O **CSPack** gera um arquivo de pacote de aplicativos (.cspkg) que você pode carregar no Azure usando o [portal clássico do Azure](cloud-services-how-to-create-deploy/#how-to-deploy-a-cloud-service). Por padrão, o pacote é chamado `[ServiceDefinitionFileName].cspkg`, mas você pode especificar um nome diferente usando a opção `/out` de **CSPack**.
+O **CSPack** usa o conteúdo do arquivo de definição de serviço e arquivo de configuração de serviço para definir o conteúdo do pacote. O **CSPack** gera um arquivo de pacote de aplicativos (.cspkg) que você pode carregar no Azure usando o [portal do Azure](cloud-services-how-to-create-deploy-portal.md/#create-and-deploy). Por padrão, o pacote é chamado `[ServiceDefinitionFileName].cspkg`, mas você pode especificar um nome diferente usando a opção `/out` de **CSPack**.
 
-###### Local da ferramenta CSPack (no Windows)
-| Versão do SDK | Caminho |
-| ----------- | ---- |
-| 1\.7+ | C:\\Program Files\\Microsoft SDKs\\Azure\\.NET SDK\\[sdk-version]\\bin\\ |
-| &lt;1.6 | C:\\Program Files\\Azure SDK\\[sdk-version]\\bin\\ |
+O **CSPack** geralmente está localizado em `C:\Program Files\Microsoft SDKs\Azure\.NET SDK[sdk-version]\bin`.
 
 >[AZURE.NOTE]
 O CSPack.exe (no Windows) está disponível executando o atalho do **prompt de comando do Microsoft Azure** que é instalado com o SDK.
@@ -271,4 +267,4 @@ Estou usando o Visual Studio e desejo...
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
 [vs_create]: ../vs-azure-tools-azure-project-create.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

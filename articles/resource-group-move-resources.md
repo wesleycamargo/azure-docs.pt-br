@@ -29,22 +29,22 @@ Este tópico mostra como mover os recursos de um grupo de recursos para outro. V
 Há algumas questões importantes a considerar antes de mover um recurso:
 
 1. Você não pode alterar o local do recurso. Mover um recurso só o move para um novo grupo de recursos. O novo grupo de recursos pode ter um local diferente, mas que não altere o local do recurso.
-2. O provedor de recursos do recurso que está sendo movido deve ser registrado na assinatura de destino. Você pode encontrar esse problema ao mover um recurso para uma nova assinatura que nunca tenha sido usada com esse tipo de recurso. Por exemplo, se você estiver movendo uma instância do serviço Gerenciamento de API para uma assinatura que não tenha registrado o provedor de recursos **Microsoft.ApiManagement**, a movimentação não terá êxito. Para saber como verificar o status do registro e registrar provedores de recursos, confira [Provedores e tipos de recursos](../resource-manager-supported-services/#resource-providers-and-types).
-2. O grupo de recursos de destino deve conter somente recursos que compartilham o mesmo ciclo de vida de aplicativo que os recursos que você está movendo.
-3. Se você estiver usando o Azure PowerShell ou a CLI do Azure, verifique se está usando a versão mais recente. Para atualizar sua versão, execute o Microsoft Web Platform Installer e verifique se uma nova versão está disponível. Para saber mais, confira [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md) e [Instalar a CLI do Azure](xplat-cli-install.md).
-4. A operação de transferência pode levar algum tempo para ser concluída e, durante esse tempo, seu prompt aguardará até que a operação seja concluída.
-5. Ao mover recursos, ambos o grupo de origem e o grupo de destino estão bloqueados pela duração da operação. As operações de gravação e exclusão são bloqueadas nos grupos até que a migração seja concluída.
+2. Nem todos os serviços atualmente dão suporte à capacidade de mover recursos. Consulte na lista abaixo informações sobre quais serviços dão suporte à movimentação de recursos.
+3. O provedor de recursos do recurso que está sendo movido deve ser registrado na assinatura de destino. Você pode encontrar esse problema ao mover um recurso para uma nova assinatura que nunca tenha sido usada com esse tipo de recurso. Por exemplo, se você estiver movendo uma instância do serviço Gerenciamento de API para uma assinatura que não tenha registrado o provedor de recursos **Microsoft.ApiManagement**, a movimentação não terá êxito. Para saber como verificar o status do registro e registrar provedores de recursos, confira [Provedores e tipos de recursos](../resource-manager-supported-services/#resource-providers-and-types).
+4. O grupo de recursos de destino deve conter somente recursos que compartilham o mesmo ciclo de vida de aplicativo que os recursos que você está movendo.
+5. Se você estiver usando o Azure PowerShell ou a CLI do Azure, verifique se está usando a versão mais recente. Para atualizar sua versão, execute o Microsoft Web Platform Installer e verifique se uma nova versão está disponível. Para saber mais, confira [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md) e [Instalar a CLI do Azure](xplat-cli-install.md).
+6. A operação de transferência pode levar algum tempo para ser concluída e, durante esse tempo, seu prompt aguardará até que a operação seja concluída.
+7. Ao mover recursos, ambos o grupo de origem e o grupo de destino estão bloqueados pela duração da operação. As operações de gravação e exclusão são bloqueadas nos grupos até que a migração seja concluída.
 
-## Serviços com suporte
-
-Nem todos os serviços atualmente dão suporte à capacidade de mover recursos.
+## Serviços que dão suporte à movimentação
 
 Por enquanto, os serviços que dão suporte à transferência para um novo grupo de recursos e uma nova assinatura são:
 
 - Gerenciamento da API
-- Aplicativos do Serviço de Aplicativo (confira [Limitações do Serviço de Aplicativo](#app-service-limitations) abaixo)
+- Aplicativos do Serviço de Aplicativo (confira as [Limitações do Serviço de Aplicativo](#app-service-limitations) abaixo)
 - Automação
 - Batch
+- CDN
 - Data Factory
 - Banco de Dados de Documentos
 - Clusters do HDInsight
@@ -54,7 +54,9 @@ Por enquanto, os serviços que dão suporte à transferência para um novo grupo
 - Insights Operacionais
 - Cache Redis
 - Pesquisar
-- Servidor do Banco de dados SQL (consulte [Limitações do Banco de dados SQL](#sql-database-limitations) abaixo)
+- Servidor de Banco de Dados SQL (consulte as [Limitações do Banco de dados SQL](#sql-database-limitations) abaixo)
+
+## Serviços dão suporte parcial à movimentação
 
 Os serviços que dão suporte à transferência para um novo grupo de recursos, mas não para uma nova assinatura são:
 
@@ -62,6 +64,8 @@ Os serviços que dão suporte à transferência para um novo grupo de recursos, 
 - Armazenamento (clássico)
 - Redes Virtuais
 - Serviços de Nuvem
+
+## Serviços não dão suporte à movimentação
 
 Os serviços que atualmente não dão suporte à transferência de um recurso são:
 
@@ -133,4 +137,4 @@ Você especifica para onde deseja mover o recurso. Se outros recursos tiverem de
 - [Usando o Portal do Azure para gerenciar recursos](azure-portal/resource-group-portal.md)
 - [Usando marcas para organizar os recursos](./resource-group-using-tags.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

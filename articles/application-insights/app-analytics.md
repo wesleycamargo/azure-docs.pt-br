@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
+	ms.date="03/11/2016" 
 	ms.author="awills"/>
 
 
@@ -47,10 +47,23 @@ Vamos exibir os resultados com a apresentação do gráfico de barras, optando p
 
 Parece que nosso aplicativo é mais popular na hora do almoço e na hora de dormir em Hyderabad. (Então, devemos investigar esses 500 códigos).
 
-A linguagem tem várias das funcionalidades do SQL e muito mais. Assim como no SQL, é possível filtrar dados, agrupar registros, classificar e unir tabelas. Também é possível executar cálculos nos campos. Ao contrário do SQL, essas funções são separadas em operações diferentes e, em vez de aninhar as consultas, é possível redirecionar os dados de uma operação para a próxima de uma maneira muito intuitiva. Isso facilita a escrita de consultas um tanto complexas.
+
+Também há operações estatísticas avançadas:
+
+![](./media/app-analytics/025.png)
 
 
->[AZURE.NOTE] Recomendamos que você inicie com o [tour da linguagem](app-analytics-tour.md).
+A linguagem tem muitos recursos atrativos:
+
+* [Filtre](app-analytics-queries.md) a telemetria bruta de aplicativos por qualquer campo, incluindo suas métricas e propriedades personalizadas.
+* [Una](app-analytics-queries.md#join-operator) várias tabelas – correlacione as solicitações com exibições de página, as chamadas de dependência, as exceções e os rastreamentos de log.
+* [Agregações](app-analytics-aggregations.md) estatísticas poderosas.
+* Tão potente quando o SQL, mas muito fácil para consultas complexas: em vez de aninhar instruções, você redireciona os dados de uma operação elementar para a próxima.
+* Visualizações imediatas e eficientes.
+
+
+
+>[AZURE.NOTE] É recomendável começar com o [tour de linguagem](app-analytics-tour.md).
 
 
 ## Conectar-se aos dados do Application Insights
@@ -66,4 +79,4 @@ Abra a Análise na [folha de visão geral](app-insights-dashboards.md) de seu ap
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

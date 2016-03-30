@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/07/2016"
+	ms.date="03/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -90,7 +90,7 @@ Se o usuário alterar a senha local novamente, a nova senha será sincronizada c
 
 Se você usar configurações expressas ao instalar o Azure AD Connect, a sincronização de senha será habilitada por padrão.
 
-Se você usar configurações personalizadas quando instalar o Azure AD Connect, você poderá habilitar a sincronização de senha na página de logon do usuário. ![usersignin](./media/active-directory-aadsync-implement-password-synchronization/usersignin.png)
+Se você usar configurações personalizadas quando instalar o Azure AD Connect, você poderá habilitar a sincronização de senha na página de logon do usuário. ![usersignin](./media/active-directory-aadconnectsync-implement-password-synchronization/usersignin.png)
 
 Se você optar por usar **Federação com o AD FS**, é possível opcionalmente habilitar a sincronização de senha como um backup em caso de falha na infraestrutura do AD FS. Você também poderá habilitá-la se planejar usar os Serviços de Domínio do AD do Azure.
 
@@ -116,13 +116,17 @@ Para obter informações sobre segurança e FIPS, veja [Sincronização de senha
 
 Inicie o **Gerenciador de Serviço de Sincronização**, abra **Conectores**, selecione o Conector do Active Directory em que o usuário está localizado, selecione **Espaço do Conector de Pesquisa** e localize o usuário que você está procurando.
 
-![csuser](./media/active-directory-aadsync-implement-password-synchronization/cspasswordsync.png)
+![csuser](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync.png)
 
 No usuário, selecione a guia **linhagem** e verifique se pelo menos uma Regra de Sincronização mostra **Sincronização de Senha** como **True**. Com a configuração padrão, essa regra de sincronização seria chamada **Entrada do AD - Conta do Usuário Habilitada**.
 
+Você também deve [seguir o usuário](active-directory-aadconnectsync-service-manager-ui-connectors.md#follow-an-object-and-its-data-through-the-system) por meio do metaverso para o espaço do Azure AD Connector e verifique se também há uma regra de saída com a **Sincronização de Senha** definida como **True**. Na configuração padrão, essa regra de sincronização seria chamada **Saída do AAD - Ingresso do Usuário**.
+
+![csuser2](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync2.png)
+
 Para ver os detalhes da sincronização de senha do objeto, clique no botão **Log...** na parte inferior desta página. Isso gerará esta página com uma exibição do histórico de status de sincronização de senha do usuário na última semana.
 
-![log de objeto](./media/active-directory-aadsync-implement-password-synchronization/csobjectlog.png)
+![log de objeto](./media/active-directory-aadconnectsync-implement-password-synchronization/csobjectlog.png)
 
 A coluna de status pode ter os valores a seguir, que também indicam o problema e por que uma senha não está sincronizada.
 
@@ -159,4 +163,4 @@ Não deve ser necessário forçar uma sincronização completa de todas as senha
 * [Azure AD Connect Sync: personalizando opções de sincronização](active-directory-aadconnectsync-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

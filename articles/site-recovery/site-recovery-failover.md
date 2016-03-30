@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="02/22/2016" 
+	ms.date="03/14/2016" 
 	ms.author="raynew"/>
 
 # Failover na Recuperação de Site
@@ -215,14 +215,15 @@ Este procedimento descreve como executar um failover não planejado para um plan
 2. Na página **Confirmar Failover Planejado**, escolha os locais de origem e de destino. Observe a direção do failover. Se o failover do local primário funcionar conforme esperado e todas as máquinas virtuais estiverem no local secundário, isso servirá apenas para fins informativos.
 3. Se estiver fazendo failback do Azure, selecione as configurações em **Sincronização de Dados**:
 
-	- **Sincronizar os dados antes do failover**: essa opção minimiza o tempo de inatividade das máquinas virtuais, uma vez que faz a sincronização sem desligá-las. Ele faz o seguinte:
+	- **Sincronizar os dados antes do failover (sincronizar apenas alterações delta)**: essa opção minimiza o tempo de inatividade das máquinas virtuais, uma vez que estas não são desligadas durante a sincronização. Ele faz o seguinte:
 		- Fase 1: tira instantâneo da máquina virtual no Azure e o copia no host do Hyper-V local. O computador continua em execução no Azure.
 		- Fase 2: Desliga a máquina virtual no Azure para que nenhuma alteração seja feita lá. O conjunto final de alterações é transferido para o servidor local e a máquina virtual local é inicializada.
 	
-	> [AZURE.NOTE] É recomendável usar essa opção se você executou o Azure por algum tempo (um mês ou mais). Essa opção executa a sincronização sem desligar as máquinas virtuais. Ela não faz a sincronização novamente, mas executa um failback completo. Essa opção não executa cálculos de soma de verificação.
 
-	- **Sincronizar os dados apenas durante o failover**: use essa opção se você executou o Azure por um curto período de tempo. Essa opção é mais rápida porque sincroniza novamente, em vez de fazer um failback completo. Ela executa um cálculo rápido de soma de verificação e baixa apenas blocos alterados.
-
+	- **Sincronizar os dados apenas durante o failover (download completo)**: use essa opção se você estiver executando no Azure por um longo tempo. Essa opção é mais rápida porque esperamos que a maior parte do disco tenha mudado e não queremos perder tempo no cálculo da soma de verificação. Ela executa um download do disco. Ela também é útil quando a máquina virtual local é excluída.
+	
+	> [AZURE.NOTE] É recomendável usar essa opção se você estiver executando o Azure já há algum tempo (um mês ou mais) ou se a VM local tiver sido excluída. Essa opção não executa cálculos de soma de verificação.
+	
 5. Se estiver fazendo failover no Azure e a criptografia de dados estiver habilitada para a nuvem, em **Chave de Criptografia**, selecione o certificado que foi emitido quando você habilitou a criptografia de dados durante a instalação do provedor no servidor VMM.
 5. Por padrão, o último ponto de recuperação é usado, mas em **Alterar Ponto de Recuperação**, você pode especificar um ponto de recuperação diferente. 
 6. Clique na marca de seleção para começar o failback. Você pode acompanhar o progresso do failover na guia **Trabalhos**. 
@@ -254,4 +255,4 @@ Se você implantou a proteção entre um [site do Hyper-V e o Azure](site-recove
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

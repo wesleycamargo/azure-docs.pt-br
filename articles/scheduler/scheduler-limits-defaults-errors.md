@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="12/04/2015"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
 
 # Limites, padrões e códigos de erro do Agendador
@@ -55,7 +55,7 @@ As operações de API também podem retornar informações de erro adicionais qu
 
 
  [O que é o Agendador?](scheduler-intro.md)
- 
+
  [Conceitos, terminologia e hierarquia de entidades do Agendador do Azure](scheduler-concepts-terms.md)
 
  [Introdução à utilização do Agendador no Portal do Azure](scheduler-get-started-portal.md)
@@ -69,7 +69,5 @@ As operações de API também podem retornar informações de erro adicionais qu
  [Alta disponibilidade e confiabilidade do Agendador do Azure](scheduler-high-availability-reliability.md)
 
  [Autenticação de saída do Agendador do Azure](scheduler-outbound-authentication.md)
- 
-  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

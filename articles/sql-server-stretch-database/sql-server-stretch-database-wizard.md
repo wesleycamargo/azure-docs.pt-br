@@ -46,7 +46,7 @@ Selecione as tabelas que você deseja habilitar para o Stretch.
 |**Ampliado**|Indica se a tabela já está habilitada.|
 |**Linhas**|Especifica o número de linhas na tabela.|
 |**Tamanho (KB)**|Especifica o tamanho da tabela em KB.|
-|**Migrar**|No CTP 3.1, por meio do RC0, só é possível migrar uma tabela inteira usando o assistente. Se você quiser especificar um predicado para selecionar as linhas para migração em uma tabela que contém os dados atuais e do histórico, execute a instrução ALTERAR TABELA para especificar um predicado depois de sair do assistente. Para saber mais, confira [Habilitar o Banco de Dados de Ampliação para uma tabela](sql-server-stretch-database-enable-table.md) ou [ALTERAR TABELA (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).|
+|**Migrar**|No CTP 3.1, por meio do RC1, só é possível migrar uma tabela inteira usando o assistente. Se você quiser especificar um predicado para selecionar as linhas para migração em uma tabela que contém os dados atuais e do histórico, execute a instrução ALTERAR TABELA para especificar um predicado depois de sair do assistente. Para saber mais, confira [Habilitar o Banco de Dados de Ampliação para uma tabela](sql-server-stretch-database-enable-table.md) ou [ALTERAR TABELA (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).|
 
 ## <a name="Configure"></a>Configurar a implantação do Azure
 
@@ -141,4 +141,4 @@ Habilitar outras tabelas para o Banco de Dados de Stretch. Monitorar a migraçã
 [StretchWizardImage7]: ./media/sql-server-stretch-database-wizard/stretchwiz7.png
 [StretchWizardImage8]: ./media/sql-server-stretch-database-wizard/stretchwiz8.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,60 +1,120 @@
 <properties 
    pageTitle="Sobre gateways de VPN para conectividade entre locais de rede virtual | Microsoft Azure"
-   description="Saiba mais sobre gateways de VPN, que podem ser usados para conexões entre locais em configurações híbridas. Este artigo cobre SKUs de gateway (Básica, Standard e Alto desempenho) configurações de coexistência de gateway de VPN e Rota Expressa, tipos de roteamento de gateway (Estático, Dinâmico e Baseado em rota), e requisitos de gateway para conectividade de rede virtual para ambos os modelos de implantação Clássica e do Gerenciador de Recursos."
+   description="Saiba mais sobre gateways de VPN, que podem ser usados para conexões Site a Site entre locais para configurações híbridas, conexões VNet a VNet e conexões Ponto a Site."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
    manager="carmonm"
-   editor="tysonn" />
+   editor=""
+   tags="azure-resource-manager,azure-service-management"/>
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/19/2016"
+   ms.date="03/18/2016"
    ms.author="cherylmc" />
 
 # Sobre gateways de VPN
 
-Gateways de VPN são usados para enviar tráfego de rede entre redes virtuais e locais. Eles também são usados para enviar tráfego entre várias redes virtuais no Azure (VNet-to-VNet). Ao criar um gateway, há alguns fatores a serem levados em consideração.
+Os Gateways de VPN, também chamados de Gateways de Rede Virtual do Azure, são usados para enviar o tráfego de rede entre redes virtuais e locais. Eles também são usados para enviar tráfego entre várias redes virtuais no Azure (VNet-to-VNet). As seções a seguir discutem os itens relacionados a um gateway de VPN.
 
-- O SKU de gateway que você deseja usar
-- O tipo VPN para a conexão
-- O dispositivo VPN, se necessário para a conexão
+As instruções que você usará para criar o gateway de VPN dependem do modelo de implantação que usou para criar a rede virtual. Por exemplo, se tiver criado a rede virtual usando o modelo de implantação clássico, você usará as diretrizes e instruções do modelo de implantação clássico para criar e configurar o gateway de VPN. Você não pode criar um gateway de VPN do Gerenciador de Recursos para uma rede virtual do modelo de implantação clássico.
 
-**Sobre os modelos de implantação**
+Confira [Noções básicas sobre o Gerenciador de Recursos e modelos de implantação clássicos](../resource-manager-deployment-model.md) para obter mais informações sobre modelos de implantação.
 
-[AZURE.INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
- 
 
-## SKUs de gateway
+## <a name="gwsub"></a>Sub-rede de gateway
 
-[AZURE.INCLUDE [vpn-gateway-table-sku](../../includes/vpn-gateway-table-sku-include.md)]
+Para configurar um gateway de VPN, primeiro você precisa criar uma sub-rede de gateway para a rede virtual. Todas as sub-redes de gateway devem ser nomeadas como GatewaySubnet para funcionar adequadamente.
 
-## Tipos de gateway de VPN
+O tamanho mínimo de sub-rede de gateway depende totalmente da configuração que você deseja criar. Embora seja possível criar uma sub-rede de gateway tão pequena quanto /29 em algumas configurações, é recomendável criar uma sub-rede de gateway de /28 ou maior (/28, /27, /26 etc.).
+
+A criação de um gateway maior impede que você atinja as limitações de tamanho de gateway. Por exemplo, se tiver criado um gateway com um tamanho de sub-rede de gateway /29 e desejar configurar uma configuração com coexistência de Site a Site/Rota Expressa, você precisará excluir o gateway, excluir a sub-rede de gateway, criar a sub-rede de gateway como /28 ou maior e recriar o gateway.
+
+Criando uma sub-rede de gateway com um tamanho maior desde o início, você pode poupar tempo posteriormente, ao adicionar novos recursos de configuração ao ambiente de rede.
+
+O exemplo a seguir mostra uma sub-rede de gateway chamada GatewaySubnet. Você pode ver que a notação CIDR especifica /27, o que oferece endereços IP suficientes para a maioria das configurações existentes no momento.
+
+	Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
+
+
+## <a name="gwtype"></a>Tipos de gateway
+
+O tipo de gateway especifica como o próprio gateway se conecta e é uma definição de configuração necessária para o modelo de implantação do Gerenciador de Recursos. Não confunda o tipo de gateway com o tipo VPN, que especifica o tipo de roteamento para a VPN. Os valores disponíveis para GatewayType são: *Vpn* e *Rota Expressa*.
+
+
+Este exemplo para o modelo de implantação do Gerenciador de Recursos especifica -GatewayType como *Vpn*. Ao criar um gateway, você deve garantir que o tipo de gateway seja correto para sua configuração.
+
+	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
+
+## <a name="gwsku"></a>SKUs de gateway
+
+Ao criar um gateway de VPN, você precisará especificar a SKU de gateway que deseja usar. Há 3 SKUs de gateway de VPN:
+
+- Básico
+- Padrão
+- HighPerformance
+
+O exemplo a seguir especifica GatewaySku como *Standard*.
+
+	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard -GatewayType Vpn -VpnType RouteBased
+
+### Taxa de transferência agregada estimada por SKU e tipo de gateway
+
+
+A tabela a seguir mostra os tipos de gateway e a taxa de transferência agregada estimada. Os preços diferem entre os SKUs de gateway. Para obter informações sobre preços, veja [Preços de gateway de VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/). Esta tabela aplica-se a ambos os modelos de implantação do Gerenciador de Recursos e clássico.
+
+[AZURE.INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
+
+## <a name="vpntype"></a>Tipos de VPN
+
+Cada configuração requer um tipo específico de VPN para funcionar. Se estiver combinando duas configurações, como a criação de uma conexão Site a Site e uma conexão Ponto a Site com a mesma rede virtual, você deverá usar um tipo VPN que atenda a ambos os requisitos de conexão. No caso de conexões coexistentes Ponto a Site e Site a Site, você deve usar um tipo de VPN baseada em rota ao trabalhar com o modelo de implantação do Azure Resource Manager ou um gateway dinâmico se estiver trabalhando com o modo de implantação clássico.
+
+Ao criar a configuração, você selecionará o tipo de VPN necessário para a conexão.
 
 Há dois tipos de VPN:
 
-- **Baseado em política:** gateways baseados em política são chamados de *Gateways Estáticos* no modelo de implantação clássica. A funcionalidade de um gateway estático não foi alterada, mesmo que o nome tenha sido alterado. Esse tipo de gateway dá suporte a VPNs baseadas em política. As VPNs baseadas em política direcionam pacotes por meio de túneis IPsec com seletores de tráfego, com base nas combinações de prefixos de endereço entre a rede local e a rede virtual do Azure. Os seletores ou as políticas de tráfego normalmente são definidos como uma lista de acesso em suas configurações de VPN.
- 
-- **Baseadas em rota:** gateways baseadas em rota são chamados de *Gateways Dinâmicos* no modelo de implantação clássica. A funcionalidade de um gateway dinâmico não foi alterada, mesmo que o nome tenha sido alterado. Gateways baseados em rota implementam VPNs baseadas em rota. As VPNs baseadas em rota usam "rotas" da tabela de roteamento ou de encaminhamento de IP para direcionar pacotes para as interfaces de túnel VPN correspondentes. As interfaces de túnel criptografam ou descriptografam então os pacotes para dentro e para fora dos túneis. O seletor de política ou de tráfego para as VPNs baseadas em rota são configurados como qualquer para qualquer (ou curingas).
+[AZURE.INCLUDE [vpn-gateway-vpntype](../../includes/vpn-gateway-vpntype-include.md)]
 
-Algumas conexões, como ponto a site e VNet a VNet, só funcionam com um tipo de VPN específico. Você verá os requisitos do gateway listados no artigo que corresponde ao cenário de conexão que você deseja criar.
+Este exemplo para o modelo de implantação do Gerenciador de Recursos especifica -VpnType como *RouteBased*. Ao criar um gateway, você deve garantir que o -VpnType seja correto para sua configuração.
 
-Dispositivos VPN também têm limitações de configuração. Ao criar um gateway de VPN, você seleciona o tipo de VPN necessário para sua conexão, verificando se o dispositivo VPN selecionado também dá suporte a esse tipo de roteamento. Consulte [Sobre dispositivos VPN](vpn-gateway-about-vpn-devices.md) para obter mais informações.
+	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 
-Por exemplo, para usar uma conexão site a site simultaneamente com uma conexão ponto a site, precisará configurar um gateway de VPN baseado em rota. Embora seja verdade que conexões site a site funcionam com gateways baseados em política, conexões ponto a site requerem um tipo de gateway baseado em rota. Como ambas as conexões passam pelo mesmo gateway, você terá de selecionar o tipo de gateway que dê suporte a ambas. Além disso, o dispositivo VPN que você deve usar também deve oferecer suporte a configurações baseadas em rota.
 
+## <a name="lng"></a>Gateways de rede local
+
+O gateway de rede local geralmente se refere ao seu local. No modelo de implantação clássico, o gateway de rede local era conhecido como um Site Local. Você dará ao gateway de rede local um nome e o endereço IP público do dispositivo VPN local e especificará os prefixos de endereço que estão localizados no caminho local. O Azure examinará os prefixos de endereço de destino para ol tráfego de rede, conferirá a configuração que você especificou para o gateway de rede local e roteará os pacotes adequadamente. Você pode modificar os prefixos de endereço conforme necessário.
+
+
+
+### Modificar prefixos de endereço - Gerenciador de Recursos
+
+Ao modificar os prefixos de endereço, o procedimento varia dependendo de você já ter criado ou não o gateway de VPN. Confira a seção do artigo [Modificar prefixos de endereço para um gateway de rede local](vpn-gateway-create-site-to-site-rm-powershell.md#modify).
+
+No exemplo a seguir, você pode ver que um gateway de rede local denominado MyOnPremiseWest está sendo especificado e conterá dois prefixos de endereço IP.
+
+	New-AzureRmLocalNetworkGateway -Name MyOnPremisesWest -ResourceGroupName testrg -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix @('10.0.0.0/24','20.0.0.0/24')	
+
+### Modificar prefixos de endereço - implantação clássica
+
+Se precisa modificar seus sites locais ao usar o modelo de implantação clássico, no momento, você pode usar a página de configuração de Redes Locais no portal clássico ou modificar diretamente o arquivo de Configuração de Rede, NETCFG. XML.
+
+
+## Dispositivos VPN
+
+Verifique se o dispositivo VPN que você planeja usar dá suporte ao tipo de VPN necessário para a configuração. Confira [Sobre dispositivos VPN](vpn-gateway-about-vpn-devices.md) para obter mais informações sobre dispositivos VPN compatíveis.
 
 ## Requisitos do gateway
 
 
 [AZURE.INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)]
 
+
 ## Próximas etapas
 
-Selecione o dispositivo VPN para sua configuração. Veja [Sobre dispositivos VPN](vpn-gateway-about-vpn-devices.md).
+Confira o artigo [Perguntas frequentes sobre o Gateway de VPN](vpn-gateway-vpn-faq.md) para obter mais informações antes de prosseguir com o planejamento e o projeto da configuração.
 
 
 
@@ -62,4 +122,4 @@ Selecione o dispositivo VPN para sua configuração. Veja [Sobre dispositivos VP
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

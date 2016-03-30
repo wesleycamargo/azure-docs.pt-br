@@ -128,8 +128,9 @@ Habilitar outras tabelas para o Banco de Dados de Stretch. Monitorar a migraçã
 -   [Fazer backup e restaurar os bancos de dados habilitados para Stretch](sql-server-stretch-database-backup.md)
 
 ## Consulte também
+
 [Identificar bancos de dados e tabelas para o Stretch Database](sql-server-stretch-database-identify-databases.md)
 
 [Opções ALTER DATABASE SET (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

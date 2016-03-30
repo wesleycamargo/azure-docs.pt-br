@@ -27,7 +27,7 @@ Esta diretriz identifica muitas áreas para as quais o planejamento é essencial
 
 Este artigo foi adaptado do conteúdo da postagem de blog [Diretrizes de implementação do Azure](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx). Obrigado Santiago Cánepa (gerente de desenvolvimento de aplicativos da Microsoft,) e Hugo Salcedo (gerente de desenvolvimento de aplicativos da Microsoft) pelo material original.
 
-> [AZURE.NOTE]Grupos de afinidade foram preteridos. Seu uso não é descrito aqui. Para saber mais, consulte [Sobre Redes Virtuais regionais e grupos de afinidade](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
+> [AZURE.NOTE] Grupos de afinidade foram preteridos. Seu uso não é descrito aqui. Para saber mais, consulte [Sobre Redes Virtuais regionais e grupos de afinidade](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
 ## 1\. Convenções de nomenclatura
 
@@ -212,7 +212,7 @@ Os serviços de nuvem são um componente fundamental no Gerenciamento de Serviç
 
 No caso de IaaS, os serviços de nuvem oferecem uma funcionalidade semelhante, embora, na maioria dos casos, a funcionalidade do balanceador de carga seja usada para encaminhar o tráfego para determinadas portas TCP ou UDP da Internet para as várias máquinas virtuais desse serviço de nuvem.
 
-> [AZURE.NOTE]Serviços de nuvem não existem no Gerenciador de Recursos do Azure. Para obter uma introdução sobre as vantagens do Gerenciador de Recursos, consulte [Provedores de armazenamento, rede e computação do Azure no Gerenciador de Recursos do Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
+> [AZURE.NOTE] Serviços de nuvem não existem no Gerenciador de Recursos do Azure. Para obter uma introdução sobre as vantagens do Gerenciador de Recursos, consulte [Provedores de armazenamento, rede e computação do Azure no Gerenciador de Recursos do Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
 
 Os nomes dos serviços de nuvem são especialmente importantes em IaaS porque o Azure os usa como parte da convenção de nomenclatura padrão para discos. O nome do serviço de nuvem pode conter apenas letras, números e hifens. O primeiro e o último caractere no campo devem ser uma letra ou um número.
 
@@ -274,7 +274,7 @@ Número de máquinas virtuais necessárias | Número de bits de host necessário
 28-59 | 6 | / 26
 60 – 123 | 7 | / 25
 
-> [AZURE.NOTE]Para sub-redes locais normais, o número máximo de endereços de host para uma sub-rede com n bits de host é 2<sup>n</sup> – 2. Para uma sub-rede do Azure, o número máximo de endereços de host para uma sub-rede com n bits de host é 2<sup>n</sup> – 5 (2 mais 3 para os endereços que o Azure usa em cada sub-rede).
+> [AZURE.NOTE] Para sub-redes locais normais, o número máximo de endereços de host para uma sub-rede com n bits de host é 2<sup>n</sup> – 2. Para uma sub-rede do Azure, o número máximo de endereços de host para uma sub-rede com n bits de host é 2<sup>n</sup> – 5 (2 mais 3 para os endereços que o Azure usa em cada sub-rede).
 
 Se você escolher um tamanho de sub-rede que seja muito pequeno, precisará renumerar e reimplantar as máquinas virtuais na sub-rede.
 
@@ -436,10 +436,8 @@ Essa configuração inclui:
 
 [Metas de desempenho e escalabilidade do Armazenamento do Azure](../storage-scalability-targets.md)
 
-[Estrutura de integração de plataforma de nuvem (padrões de arquitetura do Azure)](../azure-architectures-cpif-overview.md)
-
 [Diagrama da arquitetura de referência de extensão do datacenter](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
 
 [Computação do Azure, Provedores de Rede e Armazenamento no Gerenciador de Recursos do Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0316_2016-->

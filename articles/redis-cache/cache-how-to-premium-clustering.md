@@ -4,7 +4,7 @@
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Como configurar o clustering do Redis para um Cache Redis do Azure Premium
@@ -58,7 +58,9 @@ Depois que o cache for criado, conecte-se a ele e use-o apenas como um cache nã
 
 Para obter um exemplo de código sobre como trabalhar com clustering com o cliente StackExchange.Redis, confira a parte [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) da amostra [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld).
 
->[AZURE.IMPORTANT]Ao se conectar a um Cache Redis do Azure com clustering habilitado usando StackExchange.Redis, você pode enfrentar um problema e receber exceções `MOVE`. Isso ocorre porque ele usa um intervalo curto para o cliente de cache StackExchange.Redis coletar informações sobre os nós no cluster de cache. Essas exceções podem ocorrer se você se conectar ao cache pela primeira vez e fizer imediatamente chamadas para o cache antes do cliente concluir a coleta dessas informações. A maneira mais simples de resolver o problema no aplicativo é conectar-se ao cache e, em seguida, esperar um segundo antes de fazer as chamadas para o cache. Você pode fazer isso adicionando um `Thread.Sleep(1000)`, conforme mostrado no código de exemplo a seguir. Observe que o `Thread.Sleep(1000)` ocorre apenas durante a conexão inicial com o cache. Para saber mais, confira [StackExchange.Redis.RedisServerException - MOVED #248](https://github.com/StackExchange/StackExchange.Redis/issues/248). Uma correção para esse problema está sendo desenvolvida e as atualizações serão postadas aqui.
+<a name="move-exceptions"></a>
+>[AZURE.IMPORTANT] Ao se conectar a um Cache Redis do Azure com clustering habilitado usando StackExchange.Redis, você pode enfrentar um problema e receber exceções `MOVE`. Isso ocorre porque ele usa um intervalo curto para o cliente de cache StackExchange.Redis coletar informações sobre os nós no cluster de cache. Essas exceções podem ocorrer se você se conectar ao cache pela primeira vez e fizer imediatamente chamadas para o cache antes do cliente concluir a coleta dessas informações. A maneira mais simples de resolver o problema no aplicativo é conectar-se ao cache e, em seguida, esperar um segundo antes de fazer as chamadas para o cache. Você pode fazer isso adicionando um `Thread.Sleep(1000)`, conforme mostrado no código de exemplo a seguir. Observe que o `Thread.Sleep(1000)` ocorre apenas durante a conexão inicial com o cache. Para saber mais, confira [StackExchange.Redis.RedisServerException - MOVED #248](https://github.com/StackExchange/StackExchange.Redis/issues/248). Uma correção para esse problema está sendo desenvolvida e as atualizações serão postadas aqui. **Atualização**: este problema é resolvido na última compilação de StackExchange.Redis do [pré-lançamento 1.1.572-alpha](https://www.nuget.org/packages/StackExchange.Redis/1.1.572-alpha). Verifique a [página NuGet StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) para a compilação mais recente.
+
 
 	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 	{
@@ -85,7 +87,7 @@ Para obter um exemplo de código sobre como trabalhar com clustering com o clien
 
 Para alterar o tamanho do cache em um cache premium em execução com clustering habilitado, clique em **Tamanho do Cluster Redis (VISUALIZAÇÃO)**, na folha **Configurações**.
 
->[AZURE.NOTE]Observe que, enquanto a camada Cache Redis do Azure Premium foi liberada para disponibilidade geral, o recurso de Tamanho do Cluster Redis está atualmente em visualização.
+>[AZURE.NOTE] Observe que, enquanto a camada Cache Redis do Azure Premium foi liberada para disponibilidade geral, o recurso de Tamanho do Cluster Redis está atualmente em visualização.
 
 ![Tamanho do cluster Redis][redis-cache-redis-cluster-size]
 
@@ -124,7 +126,7 @@ O maior tamanho de cache premium é de 53 GB. Você pode criar até 10 fragmento
 
 No momento, nem todos os clientes dão suporte ao clustering do Redis. StackExchange.Redis é o que dá suporte a ele. Para obter mais informações sobre outros clientes, confira a seção [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) do [Redis cluster tutorial](http://redis.io/topics/cluster-tutorial).
 
->[AZURE.NOTE]Se estiver usando o StackExchange.Redis como seu cliente, verifique se está usando a versão mais recente do [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) 1.0.481 ou posterior para que o clustering funcione corretamente.
+>[AZURE.NOTE] Se estiver usando o StackExchange.Redis como seu cliente, verifique se está usando a versão mais recente do [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) 1.0.481 ou posterior para que o clustering funcione corretamente. Se você tiver problemas com as exceções de movimentação, confira [exceções de movimentação](#move-exceptions) para obter mais informações.
 
 ## Como posso me conectar ao meu cache quando o clustering estiver habilitado?
 

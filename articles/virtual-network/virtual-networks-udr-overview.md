@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # O que são Rotas Definidas pelo Usuário e Encaminhamento de IP?
@@ -38,26 +38,23 @@ A figura abaixo mostra um exemplo das rotas definidas pelo usuário e do encamin
 
 >[AZURE.IMPORTANT] As rotas definidas pelo usuário só são aplicadas ao tráfego que sai de uma sub-rede. Não é possível criar rotas para especificar como o tráfego entra em uma sub-rede por meio da Internet, por exemplo. Além disso, o dispositivo para o qual o tráfego é encaminhado não pode estar na mesma sub-rede em que se origina o tráfego. Sempre crie uma sub-rede separada para seus dispositivos.
 
-## Roteamento
+## Recurso de rota
 Os pacotes são roteados através de uma rede TCP/IP com base em uma tabela de rotas definida em cada nó na rede física. Uma tabela de rotas é uma coleção de rotas individuais usadas para decidir para onde encaminhar pacotes com base no endereço IP de destino. Uma rota consiste no seguinte:
 
-- **Prefixo de endereço**. O CIDR de destino ao qual a rota se aplica, como 10.1.0.0/16.
-- **Tipo do próximo salto**. O tipo de salto do Azure ao qual o pacote deve ser enviado. Os valores possíveis são:
-	- **Local**. Representa a rede virtual local. Por exemplo, se você tiver duas sub-redes, 10.1.0.0/16 e 10.2.0.0/16, na mesma rede virtual, a rota para cada sub-rede na tabela de rotas terá um valor de próximo salto de *Local*.
-	- **Gateway de VPN**. Representa um Gateway de VPN S2S do Azure. 
-	- **Internet**. Representa o gateway de Internet padrão fornecido pela Infraestrutura do Azure 
-	- **Dispositivo virtual**. Representa um dispositivo virtual que você adicionou à sua rede virtual do Azure.
-	- **NULO**. Representa um buraco negro. Pacotes encaminhados a um buraco negro não serão encaminhados.
-- **Valor de próximo salto**. O valor de próximo salto contém o endereço IP para o qual os pacotes devem ser encaminhados. Os valores de próximas salto são permitidos apenas em rotas em que o próximo salto é um *Dispositivo Virtual*.
+|Propriedade|Descrição|Restrições|Considerações|
+|---|---|---|---|
+| Prefixo de Endereço | O CIDR de destino ao qual a rota se aplica, como 10.1.0.0/16.|Deve ser um intervalo CIDR válido que represente endereços na Internet pública, na rede virtual do Azure ou no datacenter local.|Verifique se o **Prefixo de endereço** não contém o endereço do **Valor de próximo salto**, caso contrário, seus pacotes entrarão em um loop, indo da origem para o próximo salto sem jamais atingir o destino. |
+| Tipo do próximo salto | O tipo de salto do Azure ao qual o pacote deve ser enviado. | Deve ser um dos seguintes valores: <br/> **Local**. Representa a rede virtual local. Por exemplo, se você tiver duas sub-redes, 10.1.0.0/16 e 10.2.0.0/16, na mesma rede virtual, a rota para cada sub-rede na tabela de rotas terá um valor de próximo salto de *Local*. <br/> **Gateway de VPN**. Representa um Gateway de VPN S2S do Azure. <br/> **Internet**. Representa o gateway de Internet padrão fornecido pela Infraestrutura do Azure. <br/> **Dispositivo Virtual**. Representa um dispositivo virtual que você adicionou à sua rede virtual do Azure. <br/> **NULL**. Representa um buraco negro. Pacotes encaminhados a um buraco negro não serão encaminhados.| Considere o uso de um tipo **NULL** para que os pacotes deixem de fluir para determinado destino. | 
+| Valor de Próximo Salto | O valor de próximo salto contém o endereço IP para o qual os pacotes devem ser encaminhados. Os valores de próximas salto são permitidos apenas em rotas em que o próximo salto é um *Dispositivo Virtual*.| Deve ser um endereço IP acessível. | Se o endereço IP representar uma VM, habilite o [encaminhamento IP](#IP-forwarding) no Azure para a VM. |
 
-## Rotas do sistema
+### Rotas do sistema
 Cada sub-rede criada em uma rede virtual é associada automaticamente a uma tabela de rota que contém as seguintes regras de rota do sistema:
 
 - **Regra de VNet local**: essa regra é criada automaticamente para todas as sub-redes em uma rede virtual. Ela especifica que há um link direto entre as VMs na VNet e não há nenhum próximo salto intermediário.
 - **Regra local**: essa regra se aplica a todo o tráfego destinado ao intervalo de endereços locais e usa o gateway de VPN como o destino do próximo salto.
 - **Regra de Internet**: essa regra manipula todo o tráfego destinado à Internet pública e usa o gateway de Internet de infraestrutura como o próximo salto para todo o tráfego destinado à Internet.
 
-## Rotas definidas pelo usuário
+### Rotas definidas pelo usuário
 Para a maioria dos ambientes, serão necessárias apenas as rotas de sistema já definidas pelo Azure. No entanto, talvez seja necessário criar uma tabela de rotas e adicionar uma ou mais rotas em casos específicos, como:
 
 - Túnel à força para a Internet através de sua rede local.
@@ -75,8 +72,8 @@ Para saber como criar rotas definidas pelo usuário, veja [Como criar rotas e ha
 
 >[AZURE.IMPORTANT] As rotas definidas pelo usuário são aplicadas apenas a VMs do Azure e a serviços de nuvem. Por exemplo, se desejar adicionar um dispositivo virtual de firewall entre sua rede local e o Azure, você terá que criar uma rota definida pelo usuário para as tabelas de rotas do Azure que encaminham todo o tráfego direcionado ao espaço de endereço local para o dispositivo virtual. No entanto, o tráfego de entrada do espaço de endereço local fluirá através de seu gateway de VPN ou circuito do ExpressRoute diretamente para o ambiente do Azure, ignorando o dispositivo virtual.
 
-## Rotas BGP
-Se houver uma conexão ExpressRoute entre sua rede local e o Azure, você poderá habilitar o BGP para propagar rotas da rede local para o Azure. Essas rotas BGP são usadas da mesma maneira que as rotas do sistema e as rotas definidas pelo usuário em cada sub-rede do Azure. Para obter mais informações, consulte [Introdução ao ExpressRoute](../articles/expressroute/expressroute-introduction.md).
+### Rotas BGP
+Se houver uma conexão ExpressRoute entre sua rede local e o Azure, você poderá habilitar o BGP para propagar rotas da rede local para o Azure. Essas rotas BGP são usadas da mesma maneira que as rotas do sistema e as rotas definidas pelo usuário em cada sub-rede do Azure. Para obter mais informações, consulte [Introdução ao ExpressRoute](../expressroute/expressroute-introduction.md).
 
 >[AZURE.IMPORTANT] Você pode configurar seu ambiente do Azure para usar um túnel à força por meio de sua rede local, criando uma rota definida pelo usuário para a sub-rede 0.0.0.0/0 que usa o gateway de VPN como o próximo salto. No entanto, isso só funcionará se você estiver usando um gateway de VPN, não o ExpressRoute. Para o ExpressRoute, o túnel à força é configurado por meio do BGP.
 
@@ -90,4 +87,4 @@ Essa VM de dispositivo virtual deve ser capaz de receber o tráfego de entrada n
 - Saiba como [criar rotas no modelo de implantação do Gerenciador de Recursos](virtual-network-create-udr-arm-template.md) e associá-las a sub-redes. 
 - Saiba como [criar rotas no modelo de implantação clássico](virtual-network-create-udr-classic-ps.md) e associá-las a sub-redes.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,6 +1,6 @@
 #### Para criar um novo serviço
 
-1.  Usando suas credenciais de conta da Microsoft, faça logon no portal clássico do Azure nesta URL: [https://manage.windowsazure.com/](https://manage.windowsazure.com/)
+1.  Usando suas credenciais de conta da Microsoft, faça logon no portal clássico do Azure nesta URL: [https://manage.windowsazure.com/](https://manage.windowsazure.com/). Se for implantar o dispositivo no Portal do governo, faça logon em: [https://manage.windowsazure.us/](https://manage.windowsazure.us/)
 
 2.  No portal, clique em **Novo > Serviços de Dados > StorSimple Manager > Criação rápida**.
 
@@ -15,6 +15,8 @@
 	 -   Se você tiver outras cargas de trabalho no Azure que planeja implantar com seu dispositivo StorSimple, recomendamos o uso daquele datacenter.
 
    	 -   O StorSimple Manager e o armazenamento do Azure podem estar em dois locais separados. Nesse caso, é necessário criar a conta de armazenamento do Azure e do StorSimple Manager separadamente. Para criar uma conta de armazenamento do Azure, acesse o serviço Armazenamento do Azure no portal e siga as etapas em [Criar uma conta de Armazenamento do Azure](storage-create-storage-account.md#create-a-storage-account). Após criar essa conta, adicione-a ao serviço StorSimple Manager seguindo as etapas em [Configurar uma nova conta de armazenamento para o serviço](#optional-step-configure-a-new-storage-account-for-the-service).
+   	 
+   	 -   Se você for implantar o dispositivo virtual no Portal do governo, o serviço StorSimple Manager estará disponível nos locais de Iowa e Virgínia, nos EUA.
    	 
    	 	
 	1.  Escolha uma **Assinatura** na lista suspensa. A assinatura está vinculada à sua conta de cobrança. Este campo não estará presente quando você tem apenas uma assinatura.
@@ -31,4 +33,4 @@
 
 	O status do serviço será alterado para **Ativo**.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

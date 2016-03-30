@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
-	ms.author="billmath"; "vakarand"/>
+	ms.date="03/08/2016"
+	ms.author="billmath;vakarand"/>
 
 
 # Perguntas frequentes (FAQ) do Azure AD Connect Health
@@ -92,6 +92,11 @@ Alertas do Azure AD Connect Health são resolvidos em uma condição de êxito. 
 
 Você precisará ter as portas TCP/UDP 80, 443 e 5671 abertas para o agente do Azure AD Connect Health poder se comunicar com os pontos de extremidade de serviço de integridade do Azure AD.
 
+
+**P: por que vejo dois servidores com o mesmo nome no Portal do Azure AD Connect Health?**
+
+Quando você remove um agente de um servidor, o servidor não é automaticamente removido do Portal do Azure AD Connect automaticamente. Portanto, se você removeu um agente manualmente de um servidor ou o próprio servidor, precisará excluir manualmente a entrada do servidor no portal do Azure AD Connect Health. Para saber mais, confira [Excluir uma instância de serviço ou servidor.](active-directory-aadconnect-health-operations.md#delete-a-server-or-service-instance) Além disso, se você tiver criado um servidor com uma nova imagem ou um novo servidor com os mesmos detalhes (como o nome do computador), mas não tiver removido o servidor no portal do Azure AD Connect Health e instalado o agente no novo servidor, poderá ver duas entradas para o servidor. Nesse caso, você deve excluir a entrada que pertence ao servidor mais antigo manualmente. Os dados nessa entrada geralmente estarão desatualizados.
+
 ## Links relacionados
 
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
@@ -101,4 +106,4 @@ Você precisará ter as portas TCP/UDP 80, 443 e 5671 abertas para o agente do A
 * [Usando o Azure AD Connect Health para sincronização](active-directory-aadconnect-health-sync.md)
 * [Histórico de versão do Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

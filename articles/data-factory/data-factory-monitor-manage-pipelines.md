@@ -378,6 +378,8 @@ Depois que a implantação do grupo de recursos for concluída com êxito, você
 	Parameters        :
 	Outputs           :
 
+> [AZURE.NOTE] Você pode usar a API REST [Criar Regra de Alerta](https://msdn.microsoft.com/library/azure/dn510366.aspx) para criar uma regra de alerta. A carga JSON é semelhante ao exemplo JSON acima.
+
 #### Recuperando a lista de implantações de grupo de recursos do Azure
 Para recuperar a lista de implantações do Grupo de Recursos do Azure já implantadas, use o cmdlet **Get-AzureRmResourceGroupDeployment**, conforme mostrado no exemplo a seguir:
 
@@ -583,4 +585,4 @@ Você também pode mover todos os recursos relacionados (como alertas associados
 
 ![Mover a caixa de diálogo Recursos](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

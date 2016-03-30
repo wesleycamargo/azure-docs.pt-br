@@ -12,7 +12,7 @@ Você pode reutilizar o carregamento de modelos ARM predefinidos para um reposit
 
 	![Parâmetros de modelo ARM](./media/virtual-networks-create-vnet-arm-template-click-include/figure2.png)
 
-4. Clique em **Grupo de recursos** e selecione um grupo de recursos ao qual adicionar a Rede Virtual ou clique em **Criar novo** para adicionar a Rede Virtual a um novo grupo de recursos. Para saber mais sobre grupos de recursos, consulte [](). A figura a seguir mostra as configurações de grupo de recurso para um novo grupo de recursos denominado **TestRG**.
+4. Clique em **Grupo de recursos** e selecione um grupo de recursos ao qual adicionar a Rede Virtual ou clique em **Criar novo** para adicionar a Rede Virtual a um novo grupo de recursos. A figura a seguir mostra as configurações de um novo grupo de recursos denominado **TestRG**.
 
 	![Grupo de recursos](./media/virtual-networks-create-vnet-arm-template-click-include/figure3.png)
 
@@ -27,4 +27,4 @@ Você pode reutilizar o carregamento de modelos ARM predefinidos para um reposit
 
 	![Criar Rede Virtual no portal de visualização](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.gif)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -44,7 +44,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 - **Autenticação**, usando o seguinte comando:
 
 		azure login
-	Para obter mais informações sobre a autenticação usando uma conta de trabalho ou escolar, consulte [Conectar-se a uma assinatura do Azure a partir da CLI do Azure](xplat-cli-connect.md).
+	Para obter mais informações sobre a autenticação usando uma conta de trabalho ou escolar, consulte [Conectar-se a uma assinatura do Azure a partir da CLI do Azure](../xplat-cli-connect.md).
 - **Alterne para o modo Gerenciador de Recursos do Azure** usando o seguinte comando:
 
 		azure config mode arm
@@ -169,4 +169,4 @@ Depois que o trabalho for concluído, você poderá usar os seguintes cmdlets pa
 - Para obter as tarefas de gerenciamento, veja [Gerenciar a Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-manage-use-portal.md).
 - Para obter uma visão geral da Análise Data Lake, consulte [Visão geral da Análise Azure Data Lake](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/10/2016" 
 	ms.author="riande"/>
 
 # Criar um aplicativo ASP.NET MVC com autenticação e o banco de dados SQL e implantar no Serviço de Aplicativo do Azure
@@ -580,7 +580,7 @@ Nesta seção, você aplica o atributo [Authorize](http://msdn.microsoft.com/lib
 
 1. Clique nos links **Sobre** ou **Contato**. Você é redirecionado para a página de logon, porque usuários anônimos não podem exibir essas páginas.
 
-1. Clique no link **Registrar-se como um novo usuário** e adicione um usuário local com o email **joe@contoso.com*. Verifique se *Joe* pode exibir as páginas Home, Sobre e Contato.
+1. Clique no link **Registrar-se como um novo usuário** e adicione um usuário local com o email *joe@contoso.com*. Verifique se *Joe* pode exibir as páginas Home, Sobre e Contato.
 
 	![logon](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss14.PNG)
 
@@ -797,4 +797,4 @@ Este tutorial foi escrito por [Rick Anderson](http://blogs.msdn.com/b/rickandy/)
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

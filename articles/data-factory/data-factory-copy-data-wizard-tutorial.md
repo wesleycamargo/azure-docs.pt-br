@@ -28,7 +28,7 @@ Neste tutorial, você usará o Assistente de Cópia do Data Factory para criar u
 
 > [AZURE.IMPORTANT] Leia o artigo [Visão geral do tutorial](data-factory-get-started.md) e conclua as etapas de pré-requisito antes de executar este tutorial.
 
-## <a name="CreateDataFactory"></a>Etapa 1: criar um data factory do Azure
+## Criar um data factory
 Nesta etapa, você usa o Portal do Azure para criar uma data factory do Azure denominada **ADFTutorialDataFactory**.
 
 1.	Após fazer logon no [Portal do Azure](https://portal.azure.com), clique em **NOVO** no canto inferior esquerdo, selecione **Análises de dados** na folha **Criar** e clique em **Data Factory** na folha **Análises de dados**. 
@@ -60,12 +60,12 @@ Nesta etapa, você usa o Portal do Azure para criar uma data factory do Azure de
 
     ![Página inicial da data factory](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
-## Criar um pipeline usando o Assistente de Cópia
+## Criar um pipeline
 
 1. Na home page do Data Factory, clique no bloco **Copiar dados** para iniciar o **Assistente de Cópia**. 
 2. Na página **Propriedades**:
-	1. Digite **CopyFromBlobToAzureSql** para o **Nome da tarefa**
-	2. Digite uma **Descrição** (opcional).
+	1. Insira **CopyFromBlobToAzureSql** para o **Nome da tarefa**
+	2. Insira uma **Descrição** (opcional).
 	3. Anote a **Data/hora de início** e a **Data/hora de término**. Altere a **Data/hora de término** para ser no dia posterior à **Data/hora de início**. 
 	3. Clique em **Próximo**.  
 
@@ -74,7 +74,7 @@ Nesta etapa, você usa o Portal do Azure para criar uma data factory do Azure de
 
 	![Ferramenta de Cópia - página de repositório de dados de origem](./media/data-factory-copy-data-wizard-tutorial/copy-tool-source-data-store-page.png)
 5. Na página **Especificar a conta de armazenamento de Blobs do Azure**:
-	1. Digite **AzureStorageLinkedService** para o **Nome do serviço vinculado**.
+	1. Insira **AzureStorageLinkedService** para o **Nome do serviço vinculado**.
 	2. Confirme as **Assinaturas do Azure** para o **Método de seleção de conta**. 
 	3. Selecione uma **Conta de armazenamento do Azure** na lista de contas de armazenamento do Azure disponíveis na assinatura selecionada. Você também pode inserir as configurações de conta de armazenamento manualmente selecionando a opção **Inserir manualmente** para o **Método de seleção de conta** e clicando em **Avançar**. 
 
@@ -90,10 +90,10 @@ Nesta etapa, você usa o Portal do Azure para criar uma data factory do Azure de
 	![Ferramenta de Cópia - configurações de formato de arquivo](./media/data-factory-copy-data-wizard-tutorial/copy-tool-file-format-settings.png)  
 8. Na página Repositório de dados de destino, clique no bloco **Banco de Dados SQL do Azure** e clique em **Avançar**.
 9. Na página **Especificar o banco de dados SQL do Azure**:
-	1. Digite **AzureSqlLinkedService** para o campo **Nome do serviço vinculado**. 
+	1. Insira **AzureSqlLinkedService** para o campo **Nome do serviço vinculado**. 
 	2. Confirme se o **Método de seleção de servidor/banco de dados** está definido como **Assinaturas do Azure**.
 	3. Selecione **Nome do servidor** e **Banco de dados**.
-	4. Digite o **Nome de usuário** e a **Senha**.
+	4. Insira o **Nome de usuário** e a **Senha**.
 	5. Clique em **Próximo**.  
 9. Na página **Mapeamento de tabela**, selecione **emp** para o campo **Destino** na lista suspensa e clique em **seta para baixo** (opcional) para ver o esquema e visualizar os dados.
 
@@ -108,4 +108,4 @@ Nesta etapa, você usa o Portal do Azure para criar uma data factory do Azure de
 	![Aplicativo de Monitoramento](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png)
   
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

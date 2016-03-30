@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/01/2016"
+   ms.date="03/14/2016"
    ms.author="alkohli"/>
 
 # Failover de dispositivo e a recuperação de desastre para sua StorSimple Virtual Array
@@ -25,7 +25,7 @@ Este artigo descreve a recuperação de desastre para sua Matriz Virtual Microso
 
 O failover de dispositivo é orquestrado por meio do recurso de DR (recuperação de desastre) e é iniciado na página **Dispositivos**. Esta página exibe em formato de tabela todos os dispositivos StorSimple conectados ao seu serviço StorSimple Manager. Para cada dispositivo, o nome amigável, status, capacidade de provisionada e máxima, tipo e modelo são exibidos.
 
-![](./media/storsimple-ova-failover-dr/image16.png)
+![](./media/storsimple-ova-failover-dr/image15.png)
 
 Este artigo se aplica somente aos StorSimple Virtual Arrays. Para realizar failover em um dispositivo série 8000, vá para [Failover e Recuperação de Desastre do seu dispositivo StorSimple](storsimple-device-failover-disaster-recovery.md).
 
@@ -48,9 +48,7 @@ Para qualquer failover de dispositivo, os seguintes pré-requisitos devem ser at
 
 - O dispositivo de destino deve aparecer como **Ativo** no portal clássico do Azure. Você precisará provisionar um dispositivo virtual de destino de capacidade igual ou superior. Em seguida, você deve usar a interface do usuário da Web local para configurar e registrar com êxito o dispositivo virtual.
 
-	> [AZURE.IMPORTANT]
-	> 
-	> Não tente configurar o dispositivo virtual registrado por meio do serviço clicando em **concluir a configuração do dispositivo**. Nenhuma configuração de dispositivo deve ser realizada por meio do serviço.
+	> [AZURE.IMPORTANT] Não tente configurar o dispositivo virtual registrado por meio do serviço clicando em **concluir a configuração do dispositivo**. Nenhuma configuração de dispositivo deve ser realizada por meio do serviço.
 
 - O dispositivo de origem e o de destino precisam ser do mesmo tipo. Você só pode realizar failover de um dispositivo virtual configurado como um servidor de arquivos para outro servidor de arquivos. O mesmo é verdadeiro para um servidor iSCSI.
 
@@ -91,13 +89,16 @@ Recomendamos que você tenha um dispositivo virtual StorSimple provisionado, con
 
 > [AZURE.IMPORTANT]
 > 
-> Você não tem permissão para fazer failover de um dispositivo da série StorSimple 8000 para um dispositivo virtual.
+> - Você não tem permissão para fazer failover de um dispositivo da série StorSimple 8000 para um dispositivo virtual 1200.
+> - É possível realizar failover de um dispositivo virtual habilitado para FIPS (Federal Information Processing Standard) implantado no Portal do governo para um dispositivo virtual no Portal clássico do Azure. O inverso também é verdadeiro.
 
 Execute as seguintes etapas para restaurar o dispositivo para um dispositivo virtual do StorSimple de destino.
 
 1. Coloque os volumes/compartilhamento em estado offline no host. Consulte as instruções específicas do sistema operacional no host para colocar os volumes/compartilhamentos no estado offline. Se ainda não estão offline, você precisará colocar todos os volumes/compartilhamentos no dispositivo em estado offline, indo até **Dispositivos > Compartilhamentos** (ou **Dispositivo > Volumes**). Selecione um compartilhamento/volume e clique em **Colocar offline** na parte inferior da página. Quando solicitado a confirmar, clique em **Sim**. Repita esse processo para todos os compartilhamentos/volumes no dispositivo.
 
-2. Na página **Dispositivos**, selecione o dispositivo de origem para o failover e clique em **Desativar**. Será solicitada a sua confirmação. A desativação do dispositivo é um processo permanente que não pode ser desfeito. Você será lembrado também para colocar seus compartilhamentos/volumes em estado offline no host.
+2. Na página **Dispositivos**, selecione o dispositivo de origem para o failover e clique em **Desativar**. ![](./media/storsimple-ova-failover-dr/image16.png)
+
+3. Será solicitada a sua confirmação. A desativação do dispositivo é um processo permanente que não pode ser desfeito. Você será lembrado também para colocar seus compartilhamentos/volumes em estado offline no host.
 
 	![](./media/storsimple-ova-failover-dr/image18.png)
 
@@ -174,4 +175,4 @@ Se uma das pré-verificações não for atendida, você verá falhas nas pré-ve
 
 Saiba mais sobre como [administrar sua StorSimple Virtual Array usando a interface do usuário da Web local](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

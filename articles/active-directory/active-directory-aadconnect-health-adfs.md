@@ -4,9 +4,9 @@
 	description="Esta é a página do Azure AD Connect Health sobre como monitorar a sua infraestrutura local do AD FS."
 	services="active-directory"
 	documentationCenter=""
-	authors="billmath"
+	authors="karavar"
 	manager="stevenpo"
-	editor="curtand"/>
+	editor="karavar"/>
 
 <tags
 	ms.service="active-directory"
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/17/2016"
-	ms.author="billmath"/>
+	ms.date="03/21/2016"
+	ms.author="vakarand"/>
 
 # Usando o Azure AD Connect Health com o AD FS
 A documentação a seguir é específica para monitorar a sua infraestrutura do AD FS com o Azure AD Connect Health.
@@ -32,7 +32,7 @@ Ao selecionar um alerta, você receberá informações adicionais, bem como etap
 ## Análises de Uso do AD FS
 A Análise de Uso do Azure AD Connect Health analisa o tráfego de autenticação de servidores de Federação. Ao selecionar a caixa de análise de uso será aberta a folha de análise de uso, que mostra as métricas e os agrupamentos.
 
->[AZURE.NOTE] Para usar a análise de uso com o AD FS, você deve garantir que a auditoria do AD FS esteja habilitada. Para obter mais informações, consulte [Habilitar a auditoria do AD FS](active-directory-aadconnect-health-operations.md#enable-auditing-for-ad-fs).
+>[AZURE.NOTE] Para usar a análise de uso com o AD FS, você deve garantir que a auditoria do AD FS esteja habilitada. Para obter mais informações, consulte [Habilitar a auditoria do AD FS](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs).
 
 ![Portal do Azure AD Connect Health](./media/active-directory-aadconnect-health/report1.png)
 
@@ -79,13 +79,13 @@ O Azure AD Connect Health para ADFS fornece um relatório sobre os 50 principais
 Neste relatório, você tem acesso fácil às seguintes informações:
 
 - Número total de solicitações com falha com nome de usuário/senha incorretos nos últimos 30 dias
-- Número médio de usuários com falha de logon com um nome de usuário/senha inválidos a cada dia. 
- 
+- Número médio de usuários com falha de logon com um nome de usuário/senha inválidos a cada dia.
+
 Ao clicar nessa opção, você é levado até a folha de relatório principal, que fornece detalhes adicionais. Isso inclui um gráfico que fornece informações mais populares para estabelecer uma linha de base sobre solicitações com nome de usuário ou senha incorretos e a lista dos 50 principais usuários com o número de tentativas com falha.
- 
+
 O gráfico fornece as seguintes informações:
 
-- O número total de logons com falha devido a um nome de usuário/senha inválidos a cada dia. 
+- O número total de logons com falha devido a um nome de usuário/senha inválidos a cada dia.
 - O número total de usuários exclusivos com logons com falha a cada dia.
 
 ![Portal do Azure AD Connect Health](./media/active-directory-aadconnect-health-adfs/report2a.png)
@@ -93,10 +93,10 @@ O gráfico fornece as seguintes informações:
 O relatório fornece o seguinte:
 
 | Item do relatório | Descrição
-| ------ | -------- | 
+| ------ | -------- |
 |Id de Usuário| Mostra a ID de usuário que foi usada. Observe que o valor é o que o usuário digitou em e, em alguns casos, você também verá a ID de usuário incorreta que está sendo usada.|
 |Tentativas com falha|Mostra o número total de tentativas com falha para essa ID de usuário específica. A tabela é classificada com o maior número de tentativas com falha em ordem decrescente.|
-|Última falha|Mostra o carimbo de data/hora quando a última falha ocorreu. 
+|Última falha|Mostra o carimbo de data/hora quando a última falha ocorreu.
 
 
 
@@ -113,4 +113,4 @@ O relatório fornece o seguinte:
 * [Perguntas frequentes do Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Histórico de versão do Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

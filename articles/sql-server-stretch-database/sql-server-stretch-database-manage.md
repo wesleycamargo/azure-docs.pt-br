@@ -51,6 +51,9 @@ Para ver sugestões de solução de problema, confira [Monitorar e solucionar pr
 -   As condições de sua rede podem estar degradadas. Entre em contato com o administrador de rede para obter informações sobre problemas recentes ou interrupções.
 
 ## Consulte também
-[Monitorar o Stretch Database](sql-server-stretch-database-monitor.md) [Fazer backup e restaurar os bancos de dados habilitados para Stretch](sql-server-stretch-database-backup.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+[Monitorar o Stretch Database](sql-server-stretch-database-monitor.md)
+
+[Fazer backup e restaurar os bancos de dados habilitados para Stretch](sql-server-stretch-database-backup.md)
+
+<!---HONumber=AcomDC_0316_2016-->
