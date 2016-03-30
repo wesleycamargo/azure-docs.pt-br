@@ -76,7 +76,7 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
     ![Configurar o logon único](./media/active-directory-saas-kintone-tutorial/IC785873.png "Configurar o logon único")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon no Kintone**, digite a URL usando o padrão "**https://company.kintone.com*" e clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon no Kintone**, digite a URL usando o padrão "*https://company.kintone.com*" e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-kintone-tutorial/IC785875.png "Configurar a URL do Aplicativo")
 
