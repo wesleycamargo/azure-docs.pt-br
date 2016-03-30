@@ -214,7 +214,7 @@ Para criar e executar o aplicativo localmente, siga as etapas abaixo. Observe qu
 
 		php -S localhost:8000
 
-Agora você pode navegar até ****http://localhost:8000/** para testar o aplicativo.
+Agora você pode navegar até **http://localhost:8000/** para testar o aplicativo.
 
 
 ##Publicar seu aplicativo
@@ -280,7 +280,8 @@ Por padrão, o processo de implantação do git no Serviço de Aplicativo não f
     
 3. Clique em **OK** para aceitar os termos legais. Clique em **OK** novamente para adicionar a extensão.
 
-    Agora, a folha **Extensões instaladas** mostrará a extensão do compositor. ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-view.png)
+    Agora, a folha **Extensões instaladas** mostrará a extensão do compositor.
+    ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-view.png)
     
 4. Agora, execute `git add`, `git commit` e `git push` como na seção anterior. Agora, você verá que o Compositor está instalando dependências definidas no composer.json.
 

@@ -292,7 +292,8 @@ Quando você publicar a solução na próxima etapa, o arquivo **partitionweblog
 ## Monitorar o pipeline
 
 6. Faça logon no [Portal do Azure](https://portal.azure.com/), faça o seguinte:
-	1. Clique em **Procurar** e selecione **Data factories**. ![Procurar data factories](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
+	1. Clique em **Procurar** e selecione **Data factories**.
+		![Procurar data factories](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
 	2. Escolha **FirstDataFactoryUsingVS** na lista de data factories. 
 7. Na home page do seu data factory, clique em **Diagrama**.
   

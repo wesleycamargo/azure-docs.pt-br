@@ -39,7 +39,7 @@ Os recursos do Azure Site Recovery que contribuem para a sua estratégia de prot
 
 As tecnologias de replicação do Site Recovery são compatíveis com qualquer aplicativo em execução em uma máquina virtual. Além disso, conduzimos testes adicionais em parceria com as equipes de produto do aplicativo para darmos mais suporte a cada aplicativo.
 
-**Carga de trabalho** | <p>**Replicar VMs do Hyper-V**</p> <p>**(para um site secundário)**</p> | <p>**Replicar VMs do Hyper-V**</p> <p>**(para o Azure)**</p> | <p>**Replicar VMs VMware**</p> <p>**(para um site secundário)**</p> | <p>**Replicar VMs VMware**</p><p>**(para o Azure)****</p>
+**Carga de trabalho** | <p>**Replicar VMs do Hyper-V**</p> <p>**(para um site secundário)**</p> | <p>**Replicar VMs do Hyper-V**</p> <p>**(para o Azure)**</p> | <p>**Replicar VMs VMware**</p> <p>**(para um site secundário)**</p> | <p>**Replicar VMs VMware**</p><p>**(para o Azure)**</p>
 ---|---|---|---|---
 Active Directory, DNS | S | S | S | S 
 Aplicativos Web (IIS, SQL) | S | S | S | S

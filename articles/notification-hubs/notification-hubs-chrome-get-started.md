@@ -356,7 +356,8 @@ O Aplicativo Chrome é criado por meio do JavaScript, e você pode usar um de se
 	- **client** é uma instância de **XMLHttpRequest** usada para fazer a solicitação HTTP POST. Observe que atualizamos o cabeçalho `Authorization` com `sasToken`. A conclusão bem-sucedida dessa chamada registrará essa instância do aplicativo Chrome com os Hubs de notificação do Azure.
 
 
-A estrutura geral da pasta para este projeto deve ter esta aparência: ![Aplicativo do Google Chrome - estrutura de pastas][21]
+A estrutura geral da pasta para este projeto deve ter esta aparência:
+![Aplicativo do Google Chrome - estrutura de pastas][21]
 
 ###Configurar e testar seu Aplicativo Chrome
 
