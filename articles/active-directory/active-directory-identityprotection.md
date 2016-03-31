@@ -330,7 +330,7 @@ O Azure AD Identity Protection ajuda a gerenciar a mitigação de entradas arris
 
 - alternar o estado de sua política:
 <br><br>
-![Registro de MFA](./media/active-directory-identityprotection/403.png "Registro de MFA"
+![Registro de MFA](./media/active-directory-identityprotection/403.png "Registro de MFA")
  <br>
 
 - examinar e avaliar o impacto de uma alteração antes de ativá-la:
@@ -449,4 +449,4 @@ Para obter uma visão geral da experiência do usuário relacionada, confira:
  - [Guia estratégico do Azure Active Directory Identity Protection](active-directory-identityprotection-playbook.md)
  - [Glossário do Azure Active Directory Identity Protection](active-directory-identityprotection-glossary.md).
 
-<!----HONumber=AcomDC_0316_2016-->
+<!-----HONumber=AcomDC_0316_2016-->
