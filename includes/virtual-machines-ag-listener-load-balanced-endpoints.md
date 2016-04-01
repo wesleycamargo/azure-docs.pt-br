@@ -17,4 +17,4 @@ Você deve criar um ponto de extremidade de carga equilibrada para cada VM que h
 		Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>
 
 	Após o arquivo de configurações de publicação tiver sido importado, você pode gerenciar sua assinatura do Azure na sessão do PowerShell.
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0128_2016-->

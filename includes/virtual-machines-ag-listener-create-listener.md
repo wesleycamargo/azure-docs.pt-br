@@ -22,4 +22,4 @@ Nesta etapa, você cria manualmente o ouvinte do grupo de disponibilidade no Ger
 	>[AZURE.NOTE] Se o ouvinte posteriormente não ficar online, devido a um endereço IP problemático selecionado pelo DHCP, você pode configurar um endereço IP estático válido nessa janela de propriedades.
 
 1. Na mesma janela de propriedades **endereço IP**, alterar o**Nome do endereço IP**. Esse nome de endereço IP será usado no **$IPResourceName**variável do script do PowerShell. Repita essa etapa para cada recurso IP se sua solução abrange diversas VNets do Azure.
-<!----HONumber=Oct15_HO3-->
+<!-----HONumber=Oct15_HO3-->
